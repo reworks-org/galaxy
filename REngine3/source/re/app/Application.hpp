@@ -9,7 +9,9 @@
 #ifndef RENGINE3_APPLICATION_HPP_
 #define RENGINE3_APPLICATION_HPP_
 
-#include "re/graphics/Window.hpp"
+#include <SFML/Graphics/RenderWindow.hpp>
+
+#include "re/services/World.hpp"
 
 namespace re
 {
@@ -21,7 +23,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: This is the function you override to set up your application. It is abstract so you must implement it. Set up the VFS first!
 		*/
-		virtual void Init(const std::string& configFile = "") = 0;
+		virtual void Init() = 0;
 
 		/*
 		* IMPORTS: none
@@ -31,7 +33,10 @@ namespace re
 		int Run();
 
 	private:
-		Window m_window;
+		std::string appTitle = "REngine3";
+		double m_targetUPS = 60.0;
+
+		sf::RenderWindow m_window;
 	};
 }
 

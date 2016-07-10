@@ -20,11 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
-    <ClCompile Include="source\re\graphics\Window.cpp" />
+    <ClCompile Include="source\re\services\World.cpp" />
+    <ClCompile Include="source\re\systems\StateSystem.cpp" />
+    <ClCompile Include="source\re\utils\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
-    <ClInclude Include="source\re\graphics\Window.hpp" />
+    <ClInclude Include="source\re\platform\POSIXLog.hpp" />
+    <ClInclude Include="source\re\platform\Win32Log.hpp" />
+    <ClInclude Include="source\re\services\Service.hpp" />
+    <ClInclude Include="source\re\services\World.hpp" />
+    <ClInclude Include="source\re\systems\StateSystem.hpp" />
+    <ClInclude Include="source\re\systems\System.hpp" />
+    <ClInclude Include="source\re\Types.hpp" />
+    <ClInclude Include="source\re\utils\Log.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
