@@ -17,11 +17,11 @@ namespace re
 {
 	int Application::Run()
 	{
-		uint64 lastTime = TimeNano();
-		uint64 timer = TimeMillis();
-
-		const double ns = 1000000000.0 / m_targetUPS;
+		sf::Uint64 lastTime = NanoTime();
+		
 		double delta = 0.0;
+		const double ns = 1000000000.0 / m_targetUPS;
+		sf::Uint64 timer = MillisTime();
 		int frames = 0;
 		int updates = 0;
 
@@ -29,21 +29,21 @@ namespace re
 
 		while (m_window.isOpen())
 		{
-			uint64 now = TimeNano();
+			sf::Uint64 now = NanoTime();
 			delta += (now - lastTime) / ns;
 			lastTime = now;
-			//event
 			
-			while (delta >= 1)
+			if (delta >= 1.0)
 			{
+				//event
 				//update
-				++updates;
-				--delta;
+				updates++;
+				delta--;
 			}
 			//render
-			++frames;
+			frames++;
 
-			if ((TimeMillis() - timer) > 1000)
+			if ((MillisTime() - timer) > 1000)
 			{
 				timer += 1000;
 

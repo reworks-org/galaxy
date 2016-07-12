@@ -9,6 +9,8 @@
 #ifndef RENGINE3_POSIX_HPP_
 #define RENGINE3_POSIX_HPP_
 
+//"\033[" << mod.code << "m";
+
 #ifndef _WIN32
 namespace re
 {

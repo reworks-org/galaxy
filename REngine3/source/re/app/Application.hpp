@@ -9,9 +9,11 @@
 #ifndef RENGINE3_APPLICATION_HPP_
 #define RENGINE3_APPLICATION_HPP_
 
+#include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "re/services/World.hpp"
+#include "re/services/vfs/VFS.hpp"
 
 namespace re
 {
@@ -32,11 +34,13 @@ namespace re
 		*/
 		int Run();
 
-	private:
+	protected:
 		std::string appTitle = "REngine3";
 		double m_targetUPS = 60.0;
 
 		sf::RenderWindow m_window;
+		sf::Event m_event;
+		VFS m_vfs;
 	};
 }
 

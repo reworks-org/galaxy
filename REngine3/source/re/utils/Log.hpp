@@ -16,6 +16,14 @@
 #define RE_LOG_ENABLE_FILE(boolean) re::Log::Get().EnableFileWriting(boolean)
 #define RE_LOG(level, message) re::Log::Get().LogMessage(level, message)
 
+#define RE_ASSERT(x, messageFileLine) \
+		if (!(x)) {\
+			RE_LOG(LogLevel::FATAL, "*************************"); \
+			RE_LOG(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
+			RE_LOG(LogLevel::FATAL, "*************************"); \
+			RE_LOG(LogLevel::FATAL, messageFileLine); \
+}
+
 namespace re
 {
 	enum LogLevel

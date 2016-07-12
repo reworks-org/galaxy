@@ -16,7 +16,9 @@ namespace re
 	class World : public Service
 	{
 	public:
+		~World() override;
 
+		void AddEntity(const std::string& id, std::shared_ptr<Entity> entity);
 	private:
 
 	};

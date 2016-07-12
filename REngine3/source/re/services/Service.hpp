@@ -19,10 +19,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Abstract virtual destructor for engine services.
 		*/
-		virtual ~Service() = 0;
+		virtual inline ~Service() {}
 
 	protected:
-
+	
 	};
 }
 

@@ -14,6 +14,11 @@
 class System
 {
 public:
+	/*
+	* IMPORTS: none
+	* EXPORTS: none
+	* PURPOSE: Abstract virtual destructor for engine systems.
+	*/
 	virtual inline ~System() {}
 
 protected:

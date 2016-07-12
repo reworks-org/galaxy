@@ -18,6 +18,12 @@ public:
 		RE_LOG_ENABLE_FILE(false);
 
 		RE_LOG(re::LogLevel::INFO, "Begin init");
+
+		m_vfs.Mount("bin/Debug/assets/");
+
+		//load config menu
+
+		m_window.create(sf::VideoMode(800, 600), "REngine3");
 	}
 };
 

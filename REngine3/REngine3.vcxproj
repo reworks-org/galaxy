@@ -20,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
+    <ClCompile Include="source\re\services\ServiceLocator.cpp" />
+    <ClCompile Include="source\re\services\vfs\sfPhysfsStream.cpp" />
+    <ClCompile Include="source\re\services\vfs\VFS.cpp" />
     <ClCompile Include="source\re\services\World.cpp" />
     <ClCompile Include="source\re\systems\StateSystem.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
@@ -29,10 +32,13 @@
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\services\Service.hpp" />
+    <ClInclude Include="source\re\services\ServiceLocator.hpp" />
+    <ClInclude Include="source\re\services\vfs\sfPhysfsStream.hpp" />
+    <ClInclude Include="source\re\services\vfs\VFS.hpp" />
     <ClInclude Include="source\re\services\World.hpp" />
+    <ClInclude Include="source\re\systems\State.hpp" />
     <ClInclude Include="source\re\systems\StateSystem.hpp" />
     <ClInclude Include="source\re\systems\System.hpp" />
-    <ClInclude Include="source\re\Types.hpp" />
     <ClInclude Include="source\re\utils\Log.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
   </ItemGroup>
@@ -103,7 +109,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -132,7 +138,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/libs/sfml/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

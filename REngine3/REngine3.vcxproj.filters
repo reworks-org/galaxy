@@ -5,11 +5,13 @@
     <ClCompile Include="source\re\services\World.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
     <ClCompile Include="source\re\systems\StateSystem.cpp" />
+    <ClCompile Include="source\re\services\ServiceLocator.cpp" />
+    <ClCompile Include="source\re\services\vfs\VFS.cpp" />
+    <ClCompile Include="source\re\services\vfs\sfPhysfsStream.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\app\Application.hpp" />
-    <ClInclude Include="source\re\Types.hpp" />
     <ClInclude Include="source\re\services\World.hpp" />
     <ClInclude Include="source\re\services\Service.hpp" />
     <ClInclude Include="source\re\utils\Log.hpp" />
@@ -17,5 +19,9 @@
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\systems\System.hpp" />
     <ClInclude Include="source\re\systems\StateSystem.hpp" />
+    <ClInclude Include="source\re\services\ServiceLocator.hpp" />
+    <ClInclude Include="source\re\systems\State.hpp" />
+    <ClInclude Include="source\re\services\vfs\VFS.hpp" />
+    <ClInclude Include="source\re\services\vfs\sfPhysfsStream.hpp" />
   </ItemGroup>
 </Project>

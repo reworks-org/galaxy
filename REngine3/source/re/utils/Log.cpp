@@ -67,6 +67,7 @@ namespace re
 			{
 			case LogLevel::INFO:
 				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+				m_loggedMessages.push_back("RE_INFO:    [" + GetCurrentTimeAndDate() + "] - " + message + ".");
 				break;
 
 			case LogLevel::WARNING:
