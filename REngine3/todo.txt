@@ -1,3 +1,7 @@
 TODO List.
 
 v1.0:
+- Error Checking & Exceptions. // http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
+// https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
+
+- const any getters.

@@ -15,6 +15,18 @@
 
 namespace re
 {
+	Application::Application()
+	{
+	}
+
+	Application::Application(bool initInConstructor)
+	{
+		if (initInConstructor)
+		{
+			Init();
+		}
+	}
+
 	int Application::Run()
 	{
 		sf::Uint64 lastTime = NanoTime();
@@ -50,7 +62,7 @@ namespace re
 			#if defined _DEBUG || defined DEBUG
 				std::cout << updates << " ups, " << frames << " fps" << std::endl;
 				std::string header = "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
-				std::string newTitle = appTitle + header;
+				std::string newTitle = m_appTitle + header;
 				m_window.setTitle(newTitle);
 			#endif
 

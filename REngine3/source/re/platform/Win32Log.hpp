@@ -14,6 +14,11 @@
 
 namespace re
 {
+	/*
+	* IMPORTS: code - color code to use.
+	* EXPORTS: none
+	* PURPOSE: Change text colour of the console.
+	*/
 	const char* SetConsoleTextColour(unsigned long code)
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

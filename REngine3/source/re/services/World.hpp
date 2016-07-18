@@ -9,7 +9,8 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
-#include "Service.hpp"
+#include "re/entity/Entity.hpp"
+#include "re/services/Service.hpp"
 
 namespace re
 {
@@ -18,9 +19,19 @@ namespace re
 	public:
 		~World() override;
 
-		void AddEntity(const std::string& id, std::shared_ptr<Entity> entity);
-	private:
+		void AddEntity(std::shared_ptr<Entity> entity);
+		void RemoveEntity();
+		void DeleteEntity();
+		void RestoreEntity();
+		void DeleteEntitys();
+		void GetEntity();
 
+		void AddSystem();
+		void DeleteSystem();
+		void GetSystem();
+
+	private:
+		
 	};
 }
 

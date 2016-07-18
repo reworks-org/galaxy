@@ -12,10 +12,32 @@
 #include <vector>
 #include <string>
 
+/*
+* IMPORTS: boolean - true / false value
+* EXPORTS: none
+* PURPOSE: Enable or disable logging.
+*/
 #define RE_LOG_ENABLE(boolean) re::Log::Get().EnableLogging(boolean) 
+
+/*
+* IMPORTS: boolean - true / false value
+* EXPORTS: none
+* PURPOSE: Enable or disable writing log to file.
+*/
 #define RE_LOG_ENABLE_FILE(boolean) re::Log::Get().EnableFileWriting(boolean)
+
+/*
+* IMPORTS: level - enum of log level, message - the message to log.
+* EXPORTS: none
+* PURPOSE: Output a message in a logged format for debugging purposes.
+*/
 #define RE_LOG(level, message) re::Log::Get().LogMessage(level, message)
 
+/*
+* IMPORTS: x - value to compare, messageFileLine - the file, line and message to log.
+* EXPORTS: none
+* PURPOSE: Assert using our logging system.
+*/
 #define RE_ASSERT(x, messageFileLine) \
 		if (!(x)) {\
 			RE_LOG(LogLevel::FATAL, "*************************"); \

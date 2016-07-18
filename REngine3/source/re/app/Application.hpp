@@ -13,13 +13,29 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "re/services/World.hpp"
+#include "re/services/Config.hpp"
 #include "re/services/vfs/VFS.hpp"
+
 
 namespace re
 {
 	class Application
 	{
 	public:
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Default constructor. You must call Init() manually.
+		*/
+		Application();
+
+		/*
+		* IMPORTS: initInConstructor - boolean
+		* EXPORTS: none
+		* PURPOSE: If initInConstructor is true, this constructor will call Init() for you.
+		*/
+		Application(bool initInConstructor);
+
 		/*
 		* IMPORTS: configFile - The name of the lua file containing the configuration data for the engine.
 		* EXPORTS: none
@@ -35,12 +51,18 @@ namespace re
 		int Run();
 
 	protected:
-		std::string appTitle = "REngine3";
+		std::string m_appTitle = "REngine3";
 		double m_targetUPS = 60.0;
+
+		int m_versionMajor = 1;
+		int m_versionMinor = 0;
+		int m_versionPatch = 0;
 
 		sf::RenderWindow m_window;
 		sf::Event m_event;
 		VFS m_vfs;
+		ConfigReader m_config;
+		World m_world;
 	};
 }
 
