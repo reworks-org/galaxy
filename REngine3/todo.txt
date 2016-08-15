@@ -1,7 +1,14 @@
 TODO List.
 
-v1.0:
-- Error Checking & Exceptions. // http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
-// https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
+v1.0
+- Serialization
+	- https://uscilab.github.io/cereal/
 
-- const any getters.
+v1.1:
+- Error Checking & Exceptions. 
+	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
+	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
+
+- Multithreading:
+	- http://www.sfml-dev.org/tutorials/2.4/system-thread.php
+	- https://www.reddit.com/r/gamedev/comments/44fux4/multi_threading_in_game_development/

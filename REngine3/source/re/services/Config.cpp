@@ -10,6 +10,7 @@
 #include <iostream>
 
 #include "re/utils/Log.hpp"
+#include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "Config.hpp"
@@ -24,7 +25,7 @@ namespace re
 		if (Locator::Get<VFS>()->DoesExist(configFile))
 		{
 			// Load script with lua through sol2.
-			lua.script(Locator::Get<VFS>()->GetString(configFile));
+			m_lua.script(Locator::Get<VFS>()->ToString(configFile));
 		}
 		else
 		{
@@ -34,16 +35,17 @@ namespace re
 
 			newFile << "config =" << std::endl;
 			newFile << "{" << std::endl;
-			newFile << "    title = 'Default'" << std::endl;
+			newFile << "    appTitle = \"Default\"" << std::endl;
+			newFile << "    ups = 60.0" << std::endl;
 			newFile << "    versionMajor = 1" << std::endl;
 			newFile << "    versionMinor = 0" << std::endl;
 			newFile << "    versionPatch = 0" << std::endl;
-			newFile << "    windowWidth = 640" << std::endl;
-			newFile << "    windowHeight = 480" << std::endl;
-			newFile << "    targetUPS = 60.0" << std::endl;
+			newFile << "    screenWidth = 640" << std::endl;
+			newFile << "    screenHeight = 480" << std::endl;
 			newFile << "    fullscreen = 0" << std::endl;
-			newFile << "    borderless = 0" << std::endl;
-			newFile << "    logging = 1" << std::endl;
+			newFile << "    cursorVisible = 1" << std::endl;
+			newFile << "    vsyncEnabled = 0" << std::endl;
+			newFile << "    framerateLimit = 0" << std::endl;
 			newFile << "}" << std::endl;
 
 			newFile.close();
@@ -51,7 +53,7 @@ namespace re
 			// Retry to load script.
 			if (Locator::Get<VFS>()->DoesExist(configFile))
 			{
-				lua.script(Locator::Get<VFS>()->GetString(configFile));
+				m_lua.script(Locator::Get<VFS>()->ToString(configFile));
 			}
 			else
 			{

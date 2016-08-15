@@ -30,13 +30,6 @@ namespace re
 		Application();
 
 		/*
-		* IMPORTS: initInConstructor - boolean
-		* EXPORTS: none
-		* PURPOSE: If initInConstructor is true, this constructor will call Init() for you.
-		*/
-		Application(bool initInConstructor);
-
-		/*
 		* IMPORTS: configFile - The name of the lua file containing the configuration data for the engine.
 		* EXPORTS: none
 		* PURPOSE: This is the function you override to set up your application. It is abstract so you must implement it. Set up the VFS first!
@@ -58,8 +51,6 @@ namespace re
 		int m_versionMinor = 0;
 		int m_versionPatch = 0;
 
-		sf::RenderWindow m_window;
-		sf::Event m_event;
 		VFS m_vfs;
 		ConfigReader m_config;
 		World m_world;

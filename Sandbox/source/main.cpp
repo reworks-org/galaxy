@@ -8,6 +8,10 @@
 
 #include "re/utils/Log.hpp"
 #include "re/app/Application.hpp"
+#include "re/systems/state/StateSystem.hpp"
+#include "Menu.hpp"
+
+using namespace re;
 
 class App : public re::Application
 {
@@ -15,15 +19,12 @@ public:
 	/// See re::Application.
 	inline App::App() : Application() {}
 
-	/// See re::Application.
-	inline App::App(bool initInConstructor) : Application(initInConstructor) {}
-
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Override and set up application.
 	*/
-	inline void Init()
+	void Init() override
 	{
 		RE_LOG_ENABLE(true);
 		RE_LOG_ENABLE_FILE(false);
@@ -39,28 +40,36 @@ public:
 		m_versionMinor = m_config.Lookup<int>("versionMinor");
 		m_versionPatch = m_config.Lookup<int>("versionPatch");
 
-		m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
+		m_world.m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
 
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
 		RE_LOG(re::LogLevel::INFO, msg);
 
-		m_window.setIcon();
-		m_window.setMouseCursorVisible(true);
-		m_window.setVerticalSyncEnabled(false);
-		m_window.setFramerateLimit(0);
+		sf::Image tempIcon;
+		tempIcon.loadFromStream(m_vfs.ToStream("icon.png"));
+		m_world.m_window.setIcon(tempIcon.getSize().x, tempIcon.getSize().y, tempIcon.getPixelsPtr());
+
+		m_world.m_window.setMouseCursorVisible(m_config.Lookup<bool>("cursorVisible"));
+		m_world.m_window.setVerticalSyncEnabled(m_config.Lookup<bool>("vsyncEnabled"));
+		m_world.m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
 
 		// create systems
+		m_world.AddSystem<StateSystem>(std::unique_ptr<StateSystem>(new StateSystem));
+
+		// create states
+		m_world.GetSystem<StateSystem>()->RegisterState<Menu>(StateID::menu);
 
 		// provide services
 
-		// change to first state
+		m_world.GetSystem<StateSystem>()->PushState(StateID::game);
 		// load resources
 	}
 };
 
 int main()
 {
-	App app(true);
+	App app;
+	app.Init();
 	
 	return app.Run();
 }

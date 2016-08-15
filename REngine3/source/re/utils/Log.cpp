@@ -14,6 +14,7 @@
 #else
 #include "re/platform/POSIXLog.hpp"
 #endif
+
 #include "re/utils/Time.hpp"
 
 #include "Log.hpp"

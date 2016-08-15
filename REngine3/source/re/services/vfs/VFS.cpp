@@ -52,9 +52,9 @@ namespace re
 		}
 	}
 
-	std::unique_ptr<sfPhysfsStream> VFS::ToStream(const std::string& fileName)
+	sfPhysfsStream VFS::ToStream(const std::string& fileName)
 	{
-		return std::unique_ptr<sfPhysfsStream>(new sfPhysfsStream(fileName));
+		return sfPhysfsStream(fileName);
 	}
 
 	std::string VFS::ToString(const std::string& fileName)
@@ -90,6 +90,10 @@ namespace re
 		delete[] myBuf;
 		PHYSFS_close(myfile);
 
+#ifdef _WIN32
+		return _strdup(str.c_str());
+#else
 		return strdup(str.c_str());
+#endif
 	}
 }

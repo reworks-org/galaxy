@@ -10,7 +10,6 @@
 #define RENGINE3_VFS_HPP_
 
 #include <string>
-#include <memory>
 
 #include "re/services/Service.hpp"
 #include "re/services/vfs/sfPhysfsStream.hpp"
@@ -60,7 +59,7 @@ namespace re
 		* EXPORTS: sfPhysfsStream - A smart pointer to an SFML input stream using Physfs.
 		* PURPOSE: Returns the loaded file from the VFS using an SFML input stream.
 		*/
-		std::unique_ptr<sfPhysfsStream> ToStream(const std::string& fileName);
+		sfPhysfsStream ToStream(const std::string& fileName);
 
 		/*
 		* IMPORTS: fileName - The name of the file in the VFS.

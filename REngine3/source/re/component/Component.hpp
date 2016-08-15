@@ -9,17 +9,20 @@
 #ifndef RENGINE3_COMPONENT_HPP_
 #define RENGINE3_COMPONENT_HPP_
 
-#include "re/entity/Entity.hpp"
+#include "re/deps/sol2/sol.hpp"
 
-class Component
+namespace re
 {
-public:
-	/*
-	* IMPORTS: none
-	* EXPORTS: none
-	* PURPOSE: Abstract virtual destructor for engine systems.
-	*/
-	virtual inline ~Component() {}
-};
+	class Component
+	{
+	protected:
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Abstract virtual destructor for engine systems.
+		*/
+		virtual inline ~Component() {}
+	};
+}
 
 #endif

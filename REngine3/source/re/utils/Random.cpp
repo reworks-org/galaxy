@@ -10,7 +10,7 @@
 
 namespace re
 {
-	Random::Random()
+	RandomGenerator::RandomGenerator()
 	:mt(rd())
 	{
 	}

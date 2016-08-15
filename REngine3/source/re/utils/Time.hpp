@@ -9,7 +9,10 @@
 #ifndef RENGINE3_TIME_HPP_
 #define RENGINE3_TIME_HPP_
 
+#include <ctime>
+#include <chrono>
 #include <string>
+#include <algorithm>
 
 #include "re/Types.hpp"
 
@@ -20,21 +23,36 @@ namespace re
 	* EXPORTS: none
 	* PURPOSE: Use the high resolution clock to get the time. Use this to get time difference in loops.
 	*/
-	static sf::Uint64 NanoTime();
+	inline sf::Uint64 NanoTime()
+	{
+		return std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+	}
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Get the current system time in milliseconds.
 	*/
-	static sf::Uint64 MillisTime();
+	inline sf::Uint64 MillisTime()
+	{
+		return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	}
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Get the current time and data in a std::string.
 	*/
-	static std::string GetCurrentTimeAndDate();
+	inline std::string GetCurrentTimeAndDate()
+	{
+		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		std::string temp = std::ctime(&time);
+
+		// Remove pesky newlines
+		temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
+
+		return temp;
+	}
 }
 
 #endif

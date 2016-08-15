@@ -14,10 +14,8 @@
 
 namespace re
 {
-	Entity::Entity(const std::string & id, const std::string & script)
+	Entity::Entity(const std::string & script)
 	{
-		m_id = id;
-
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(script));
@@ -25,12 +23,27 @@ namespace re
 		// Get a table with the components.
 		sol::table entityTable = lua["entity"];
 		
+		// Construct components from lua script.
+
+		if (entityTable["AnimationComponent"].valid())
+		{
+			// Create<AnimationComponent>(new AnimationComponent(entityTable["AnimationComponent"]));
+		}
+
 		if (entityTable["GraphicsComponent"].valid())
 		{
 			// Create<GraphicsComponent>(new GraphicsComponent(entityTable["GraphicsComponent"]));
 		}
 
+		if (entityTable["TextComponent"].valid())
+		{
+			// Create<TextComponent>(new TextComponent(entityTable["TextComponent"]));
+		}
 
+		if (entityTable["PositionComponent"].valid())
+		{
+			// Create<PositionComponent>(new PositionComponent(entityTable["PositionComponent"]));
+		}
 	}
 
 	Entity::~Entity()
@@ -38,13 +51,13 @@ namespace re
 		m_components.clear();
 	}
 
+	void Entity::SetID(const std::string & id)
+	{
+		m_id = id;
+	}
+
 	std::string Entity::ID() const
 	{
 		return m_id;
-	}
-
-	bool Entity::IsDead() const
-	{
-		return m_isDead;
 	}
 }

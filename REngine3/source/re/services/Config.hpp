@@ -12,7 +12,7 @@
 #include <string>
 
 #include "re/deps/sol2/sol.hpp"
-#include "re/services/Service.hpp""
+#include "re/services/Service.hpp"
 
 namespace re
 {
@@ -35,14 +35,15 @@ namespace re
 		T Lookup(const std::string& configValue);
 
 	private:
-		sol::state lua;
+		sol::state m_lua;
 	};
 
 	template<typename T>
 	T ConfigReader::Lookup(const std::string& configValue)
 	{
 		// Cast and return value retrieved from table.
-		return static_cast<T>(lua["config"][configValue]);
+		sol::table configTable = m_lua["config"];
+		return configTable.get<T>(configValue);
 	}
 }
 

@@ -21,11 +21,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: script - The name of the script in the VFS that defines the entity, id - The ID of the entity.
+		* IMPORTS: script - The name of the script in the VFS that defines the entity.
 		* EXPORTS: none
 		* PURPOSE: Constructs the entity using data from the lua script provided.
 		*/
-		Entity(const std::string& id, const std::string& script);
+		Entity(const std::string& script);
 
 		/*
 		* IMPORTS: none
@@ -67,24 +67,25 @@ namespace re
 		bool Has();
 
 		/*
+		* IMPORTS: std::string - the id.
+		* EXPORTS: none
+		* PURPOSE: Set the ID of the entity. Do NOT call this. This is handled for you!
+		*/
+		void SetID(const std::string& id);
+
+		/*
 		* IMPORTS: none
 		* EXPORTS: ID as a std::string
 		* PURPOSE: To retrieve the ID of the entity.
 		*/
 		std::string ID() const;
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: boolean
-		* PURPOSE: Returns true if the entity is still a in the world. Else if its "removed" from the world, it is considered dead.
-		*/
-		bool IsDead() const;
-
 	private:
-		bool m_isDead = false;
-
 		std::string m_id;
 		std::unordered_map<std::type_index, std::unique_ptr<Component>> m_components;
+
+	public:
+		bool m_isDead = false;
 	};
 
 	template<typename T>

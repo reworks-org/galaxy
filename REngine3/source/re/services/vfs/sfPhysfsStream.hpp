@@ -40,6 +40,8 @@ namespace re
 		*/
 		void Open(const std::string& fileName);
 
+		// overridden methods from sf::InputStream
+		
 		sf::Int64 read(void* data, sf::Int64 size) override;
 		sf::Int64 seek(sf::Int64 position) override;
 		sf::Int64 tell() override;

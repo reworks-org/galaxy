@@ -8,27 +8,27 @@
 
 #include <iostream>
 
+#include <SFML/Graphics/Shader.hpp>
+
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
 
 #include "Application.hpp"
+#include "re/systems/state/StateSystem.hpp"
 
 namespace re
 {
 	Application::Application()
 	{
-	}
-
-	Application::Application(bool initInConstructor)
-	{
-		if (initInConstructor)
+		if (!sf::Shader::isAvailable())
 		{
-			Init();
+			RE_LOG(LogLevel::FATAL, "Shaders not avaliable on this system");
 		}
 	}
 
 	int Application::Run()
 	{
+		// maybe switch this to using SFML sf::Clock class?
 		sf::Uint64 lastTime = NanoTime();
 		
 		double delta = 0.0;
@@ -47,12 +47,17 @@ namespace re
 			
 			if (delta >= 1.0)
 			{
-				//event
-				//update
+				while (m_window.pollEvent(m_event))
+				{
+					m_world.GetSystem<StateSystem>()->Event(m_event);
+				}
+				
+				m_world.GetSystem<StateSystem>()->Update(delta);
 				updates++;
 				delta--;
 			}
-			//render
+			
+			m_world.GetSystem<StateSystem>()->Render();
 			frames++;
 
 			if ((MillisTime() - timer) > 1000)

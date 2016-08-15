@@ -20,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
+    <ClCompile Include="source\re\component\AnimatedSpriteComponent.cpp" />
+    <ClCompile Include="source\re\component\PositionComponent.cpp" />
+    <ClCompile Include="source\re\component\SpriteComponent.cpp" />
     <ClCompile Include="source\re\deps\lua\lapi.c" />
     <ClCompile Include="source\re\deps\lua\lauxlib.c" />
     <ClCompile Include="source\re\deps\lua\lbaselib.c" />
@@ -55,19 +58,25 @@
     <ClCompile Include="source\re\deps\lua\lvm.c" />
     <ClCompile Include="source\re\deps\lua\lzio.c" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
+    <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfPhysfsStream.cpp" />
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
     <ClCompile Include="source\re\services\World.cpp" />
-    <ClCompile Include="source\re\systems\StateSystem.cpp" />
+    <ClCompile Include="source\re\systems\EventSystem.cpp" />
+    <ClCompile Include="source\re\systems\RenderSystem.cpp" />
+    <ClCompile Include="source\re\systems\state\State.cpp" />
+    <ClCompile Include="source\re\systems\state\StateSystem.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
     <ClCompile Include="source\re\utils\Random.cpp" />
-    <ClCompile Include="source\re\utils\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
+    <ClInclude Include="source\re\component\AnimatedSpriteComponent.hpp" />
     <ClInclude Include="source\re\component\Component.hpp" />
+    <ClInclude Include="source\re\component\PositionComponent.hpp" />
+    <ClInclude Include="source\re\component\SpriteComponent.hpp" />
     <ClInclude Include="source\re\deps\lua\lapi.h" />
     <ClInclude Include="source\re\deps\lua\lauxlib.h" />
     <ClInclude Include="source\re\deps\lua\lcode.h" />
@@ -96,6 +105,8 @@
     <ClInclude Include="source\re\deps\lua\lzio.h" />
     <ClInclude Include="source\re\deps\sol2\sol.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
+    <ClInclude Include="source\re\events\Event.hpp" />
+    <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
@@ -104,8 +115,11 @@
     <ClInclude Include="source\re\services\vfs\sfPhysfsStream.hpp" />
     <ClInclude Include="source\re\services\vfs\VFS.hpp" />
     <ClInclude Include="source\re\services\World.hpp" />
-    <ClInclude Include="source\re\systems\State.hpp" />
-    <ClInclude Include="source\re\systems\StateSystem.hpp" />
+    <ClInclude Include="source\re\systems\EventSystem.hpp" />
+    <ClInclude Include="source\re\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\re\systems\state\State.hpp" />
+    <ClInclude Include="source\re\systems\state\StateIdentifiers.hpp" />
+    <ClInclude Include="source\re\systems\state\StateSystem.hpp" />
     <ClInclude Include="source\re\systems\System.hpp" />
     <ClInclude Include="source\re\Types.hpp" />
     <ClInclude Include="source\re\utils\Log.hpp" />
@@ -177,7 +191,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
@@ -206,7 +220,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>

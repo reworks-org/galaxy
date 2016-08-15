@@ -13,10 +13,10 @@
 
 namespace re
 {
-	class Random
+	class RandomGenerator
 	{
 	public:
-		Random();
+		RandomGenerator();
 		/*
 		* IMPORTS: min - minimum number inclusive, max - maximum number inclusive. T - type.
 		* EXPORTS: none
@@ -33,13 +33,13 @@ namespace re
 	// http://stackoverflow.com/a/32907541
 	template <typename T>
 	using conditional_distribution = 
-		std::conditional_t<std::std::is_integral<T>::value,
+		std::conditional_t<std::is_integral<T>::value,
 		std::uniform_int_distribution<T>,
 		std::conditional_t<std::is_floating_point<T>::value,
 		std::uniform_real_distribution<T>, void> >;
 
 	template<typename T>
-	T Random::Random(T min, T max)
+	T RandomGenerator::Random(T min, T max)
 	{
 		conditional_distribution<T> dist(min, max);
 

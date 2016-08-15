@@ -20,9 +20,6 @@ namespace re
 		* PURPOSE: Abstract virtual destructor for engine services.
 		*/
 		virtual inline ~Service() {}
-
-	protected:
-	
 	};
 }
 
