@@ -15,6 +15,7 @@
 using namespace re;
 
 Menu::Menu()
+	:State()
 {
 
 }

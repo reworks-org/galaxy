@@ -31,10 +31,12 @@ namespace re
 		~PositionComponent() override;
 
 	public:
-		int x;
-		int y;
-		int w;
-		int h;
+		unsigned long m_group;
+
+		float x;
+		float y;
+		float w;
+		float h;
 	};
 }
 

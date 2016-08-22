@@ -6,7 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
+#include "re/component/AnimatedSpriteComponent.hpp"
 
 #include "Group.hpp"
 
@@ -29,15 +31,27 @@ namespace re
 
 		for (auto& v : m_entitys)
 		{
-			// may need to be an override?
-			states.transform *= v->Get<SpriteComponent>()->m_transform.getTransform();
-			
-			states.texture = &v->Get<SpriteComponent>()->m_texture;
-			states.shader = &v->Get<SpriteComponent>()->m_shader;
+			if (v->Has<SpriteComponent>())
+			{
+				states.transform *= v->Get<SpriteComponent>()->m_transform.getTransform();
 
-			target.draw(v->Get<SpriteComponent>()->m_vertices, states);
+				states.texture = &v->Get<SpriteComponent>()->m_texture;
+				states.shader = v->Get<SpriteComponent>()->m_shader.get();
 
-			states = old;
+				target.draw(v->Get<SpriteComponent>()->m_vertices, states);
+
+				states = old;
+			}
+
+			if (v->Has<AnimatedSpriteComponent>())
+			{
+
+			}
+
+			if (v->Has<TextComponent>())
+			{
+				target.draw(v->Get<TextComponent>()->m_text);
+			}
 		}
 	}
 }

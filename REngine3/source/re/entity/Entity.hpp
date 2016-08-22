@@ -40,7 +40,7 @@ namespace re
 		* PURPOSE: Create a specific component and cast down to store. Can only have one of each type.
 		*/
 		template<typename T>
-		void Create(std::unique_ptr<Component> component);
+		void Create(std::shared_ptr<Component> component);
 
 		/*
 		* IMPORTS: none
@@ -52,11 +52,11 @@ namespace re
 
 		/*
 		* IMPORTS: none
-		* EXPORTS: unique_ptr to component of type defined by template.
+		* EXPORTS: shared_ptr to component of type defined by template.
 		* PURPOSE: To retrieve a component of an entity.
 		*/
 		template<typename T>
-		std::unique_ptr<T> Get();
+		std::shared_ptr<T> Get();
 
 		/*
 		* IMPORTS: none
@@ -82,31 +82,31 @@ namespace re
 
 	private:
 		std::string m_id;
-		std::unordered_map<std::type_index, std::unique_ptr<Component>> m_components;
+		std::unordered_map<std::type_index, std::shared_ptr<Component>> m_components;
 
 	public:
 		bool m_isDead = false;
 	};
 
 	template<typename T>
-	void Entity::Create(std::unique_ptr<Component> component)
+	void Entity::Create(std::shared_ptr<Component> component)
 	{
-		if (m_Components.find(std::type_index(typeid(T))) != m_Components.end())
+		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
 		{
 			RE_LOG(LogLevel::WARNING, "Tried to create a pre-existing component");
 		}
 		else
 		{
-			m_Components[typeid(T)] = std::move(component);
+			m_components[typeid(T)] = std::move(component);
 		}
 	}
 
 	template<typename T>
 	void Entity::Delete()
 	{
-		if (m_Components.find(std::type_index(typeid(T))) != m_Components.end())
+		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
 		{
-			m_Components.erase(typeid(T));
+			m_components.erase(typeid(T));
 		}
 		else
 		{
@@ -115,11 +115,11 @@ namespace re
 	}
 
 	template<typename T>
-	std::unique_ptr<T> Entity::Get()
+	std::shared_ptr<T> Entity::Get()
 	{
-		auto it = m_Components.find(std::type_index(typeid(T)));
+		auto it = m_components.find(std::type_index(typeid(T)));
 
-		if (it != m_Components.end())
+		if (it != m_components.end())
 		{
 			return std::dynamic_pointer_cast<T>(it->second);
 		}
@@ -132,7 +132,7 @@ namespace re
 	template<typename T>
 	bool Entity::Has()
 	{
-		if (m_Components.find(std::type_index(typeid(T))) != m_Components.end())
+		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
 		{
 			return true;
 		}

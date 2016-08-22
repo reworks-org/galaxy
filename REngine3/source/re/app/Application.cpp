@@ -39,7 +39,7 @@ namespace re
 
 		//load resources
 
-		while (m_window.isOpen())
+		while (m_world.m_window.isOpen())
 		{
 			sf::Uint64 now = NanoTime();
 			delta += (now - lastTime) / ns;
@@ -47,9 +47,9 @@ namespace re
 			
 			if (delta >= 1.0)
 			{
-				while (m_window.pollEvent(m_event))
+				while (m_world.m_window.pollEvent(m_world.m_event))
 				{
-					m_world.GetSystem<StateSystem>()->Event(m_event);
+					m_world.GetSystem<StateSystem>()->Event(m_world.m_event);
 				}
 				
 				m_world.GetSystem<StateSystem>()->Update(delta);
@@ -68,7 +68,7 @@ namespace re
 				std::cout << updates << " ups, " << frames << " fps" << std::endl;
 				std::string header = "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
 				std::string newTitle = m_appTitle + header;
-				m_window.setTitle(newTitle);
+				m_world.m_window.setTitle(newTitle);
 			#endif
 
 				updates = 0;

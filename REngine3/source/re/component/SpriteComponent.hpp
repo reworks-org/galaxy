@@ -9,7 +9,10 @@
 #ifndef RENGINE3_SPRITECOMPONENT_HPP_
 #define RENGINE3_SPRITECOMPONENT_HPP_
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/Shader.hpp>
 
 #include "re/component/Component.hpp"
 
@@ -34,13 +37,13 @@ namespace re
 
 		void Update(sf::Vector2f pos);
 
-	public:
-		unsigned long m_group;
-		
+	public:		
 		sf::VertexArray m_vertices;
 		sf::Transformable m_transform;
 		sf::Texture m_texture;
-		sf::Shader m_shader;
+
+		// Design oversight -> inherits from non-copyable, wrapping it in a pointer prevents a deleted constructor error.
+		std::shared_ptr<sf::Shader> m_shader;
 	};
 }
 

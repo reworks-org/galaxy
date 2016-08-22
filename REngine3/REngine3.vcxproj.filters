@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
-    <ClCompile Include="source\re\services\World.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
@@ -52,11 +51,13 @@
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\component\AnimatedSpriteComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
+    <ClCompile Include="source\re\component\TextComponent.cpp" />
+    <ClCompile Include="source\re\graphics\FontManager.cpp" />
+    <ClCompile Include="source\re\entity\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\app\Application.hpp" />
-    <ClInclude Include="source\re\services\World.hpp" />
     <ClInclude Include="source\re\services\Service.hpp" />
     <ClInclude Include="source\re\utils\Log.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
@@ -107,5 +108,8 @@
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\component\AnimatedSpriteComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
+    <ClInclude Include="source\re\component\TextComponent.hpp" />
+    <ClInclude Include="source\re\graphics\FontManager.hpp" />
+    <ClInclude Include="source\re\entity\World.hpp" />
   </ItemGroup>
 </Project>

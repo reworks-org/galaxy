@@ -14,6 +14,8 @@ namespace re
 {
 	PositionComponent::PositionComponent(sol::table& table)
 	{
+		m_group = table["group"];
+
 		x = table["x"];
 		y = table["y"];
 		w = table["w"];

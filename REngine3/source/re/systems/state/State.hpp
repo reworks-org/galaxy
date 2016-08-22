@@ -24,9 +24,7 @@ namespace re
 	class State
 	{
 	public:
-		typedef std::unique_ptr<State> Ptr;
-
-	public:
+		State() {}
 		/*
 		* IMPORTS: none
 		* EXPORTS: none

@@ -9,13 +9,10 @@
 #ifndef RENGINE3_APPLICATION_HPP_
 #define RENGINE3_APPLICATION_HPP_
 
-#include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-
-#include "re/services/World.hpp"
+#include "re/entity/World.hpp"
 #include "re/services/Config.hpp"
 #include "re/services/vfs/VFS.hpp"
-
+#include "re/graphics/FontManager.hpp"
 
 namespace re
 {
@@ -54,6 +51,7 @@ namespace re
 		VFS m_vfs;
 		ConfigReader m_config;
 		World m_world;
+		FontManager m_fonts;
 	};
 }
 

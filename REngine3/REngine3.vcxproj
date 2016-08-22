@@ -23,6 +23,7 @@
     <ClCompile Include="source\re\component\AnimatedSpriteComponent.cpp" />
     <ClCompile Include="source\re\component\PositionComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
+    <ClCompile Include="source\re\component\TextComponent.cpp" />
     <ClCompile Include="source\re\deps\lua\lapi.c" />
     <ClCompile Include="source\re\deps\lua\lauxlib.c" />
     <ClCompile Include="source\re\deps\lua\lbaselib.c" />
@@ -58,12 +59,13 @@
     <ClCompile Include="source\re\deps\lua\lvm.c" />
     <ClCompile Include="source\re\deps\lua\lzio.c" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
+    <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfPhysfsStream.cpp" />
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
-    <ClCompile Include="source\re\services\World.cpp" />
+    <ClCompile Include="source\re\entity\World.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\systems\state\State.cpp" />
@@ -77,6 +79,7 @@
     <ClInclude Include="source\re\component\Component.hpp" />
     <ClInclude Include="source\re\component\PositionComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
+    <ClInclude Include="source\re\component\TextComponent.hpp" />
     <ClInclude Include="source\re\deps\lua\lapi.h" />
     <ClInclude Include="source\re\deps\lua\lauxlib.h" />
     <ClInclude Include="source\re\deps\lua\lcode.h" />
@@ -106,6 +109,7 @@
     <ClInclude Include="source\re\deps\sol2\sol.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\events\Event.hpp" />
+    <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
@@ -114,7 +118,7 @@
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\vfs\sfPhysfsStream.hpp" />
     <ClInclude Include="source\re\services\vfs\VFS.hpp" />
-    <ClInclude Include="source\re\services\World.hpp" />
+    <ClInclude Include="source\re\entity\World.hpp" />
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\state\State.hpp" />

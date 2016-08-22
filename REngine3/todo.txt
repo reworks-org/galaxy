@@ -1,5 +1,10 @@
 TODO List.
 
+- Ensure docs is up to date
+- Ensure namespacing.
+- Convert to std::make_shared over constructor...
+- Ensure everything cleans up after itself
+
 v1.0
 - Serialization
 	- https://uscilab.github.io/cereal/

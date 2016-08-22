@@ -9,7 +9,6 @@
 #ifndef RENGINE3_RENDERSYSTEM_HPP_
 #define RENGINE3_RENDERSYSTEM_HPP_
 
-
 #include "re/graphics/Group.hpp"
 #include "re/systems/System.hpp"
 
@@ -54,7 +53,7 @@ namespace re
 		void Render();
 
 	private:
-		std::vector<std::unique_ptr<Group>> m_groups;
+		std::vector<Group> m_groups;
 	};
 }
 

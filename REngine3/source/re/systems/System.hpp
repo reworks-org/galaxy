@@ -17,7 +17,7 @@ namespace re
 {
 	class System
 	{
-	protected:
+	public:
 		/*
 		* IMPORTS: none
 		* EXPORTS: none

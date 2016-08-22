@@ -36,7 +36,7 @@ namespace re
 
 	void StateSystem::Render()
 	{
-		for (State::Ptr& state : m_stack)
+		for (std::unique_ptr<State>& state : m_stack)
 		{
 			state->Render();
 		}
@@ -62,7 +62,7 @@ namespace re
 		return m_stack.empty();
 	}
 
-	State::Ptr StateSystem::CreateState(int stateID)
+	std::unique_ptr<State> StateSystem::CreateState(int stateID)
 	{
 		auto found = m_factory.find(stateID);
 		if (found != m_factory.end())

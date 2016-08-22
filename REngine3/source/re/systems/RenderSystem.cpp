@@ -6,11 +6,13 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/services/World.hpp"
+#include "re/entity/World.hpp"
 #include "re/services/ServiceLocator.hpp"
 
+#include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/PositionComponent.hpp"
+#include "re/component/AnimatedSpriteComponent.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -20,7 +22,7 @@ namespace re
 	{
 		for (int i = 0; i < numOfGroups; i++)
 		{
-			m_groups.push_back(std::unique_ptr<Group>(new Group()));
+			m_groups.push_back(Group());
 		}
 	}
 
@@ -34,12 +36,12 @@ namespace re
 	{
 		for (auto& it : Locator::Get<World>()->GetEntityDatabase())
 		{
-			if (it.second->Has<SpriteComponent>())
+			if (it.second->Has<SpriteComponent>() || it.second->Has<TextComponent>() || it.second->Has<AnimatedSpriteComponent>())
 			{
-				m_groups[it.second->Get<SpriteComponent>()->m_group]->AddEntity(it.second);
+				m_groups[it.second->Get<PositionComponent>()->m_group].AddEntity(it.second);
 			}
 		}
-	}
+	} 
 
 	void RenderSystem::Update()
 	{

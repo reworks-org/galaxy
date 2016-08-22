@@ -8,8 +8,14 @@
 
 #include "re/utils/Log.hpp"
 #include "re/app/Application.hpp"
+
 #include "re/systems/state/StateSystem.hpp"
+#include "re/systems/RenderSystem.hpp"
+
+#include "re/services/ServiceLocator.hpp"
+
 #include "Menu.hpp"
+#include "Game.hpp"
 
 using namespace re;
 
@@ -55,11 +61,17 @@ public:
 
 		// create systems
 		m_world.AddSystem<StateSystem>(std::unique_ptr<StateSystem>(new StateSystem));
+		m_world.AddSystem<RenderSystem>(std::unique_ptr<RenderSystem>(new RenderSystem(2)));
 
 		// create states
 		m_world.GetSystem<StateSystem>()->RegisterState<Menu>(StateID::menu);
+		m_world.GetSystem<StateSystem>()->RegisterState<Game>(StateID::game);
 
 		// provide services
+		Locator::Provide<World>(&m_world);
+		Locator::Provide<VFS>(&m_vfs);
+		Locator::Provide<ConfigReader>(&m_config);
+		Locator::Provide<FontManager>(&m_fonts);
 
 		m_world.GetSystem<StateSystem>()->PushState(StateID::game);
 		// load resources

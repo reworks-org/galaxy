@@ -14,9 +14,9 @@
 namespace re
 {
 	SpriteComponent::SpriteComponent(sol::table& table)
-	: m_vertices(sf::Quads, 4)
 	{
-		m_group = table["group"];
+		m_vertices.setPrimitiveType(sf::Quads);
+		m_vertices.resize(4);
 
 		sol::table position = table["position"];
 
@@ -37,15 +37,15 @@ namespace re
 		
 		if ((table["vert"] != "null") && (table["frag"] == "null"))
 		{
-			m_shader.loadFromMemory(Locator::Get<VFS>()->ToString(table["vert"]), sf::Shader::Vertex);
+			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table["vert"]), sf::Shader::Vertex);
 		}
 		else if ((table["vert"] == "null") && (table["frag"] != "null"))
 		{
-			m_shader.loadFromMemory(Locator::Get<VFS>()->ToString(table["frag"]), sf::Shader::Fragment);
+			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table["frag"]), sf::Shader::Fragment);
 		}
 		else if ((table["vert"] != "null") && (table["frag"] != "null"))
 		{
-			m_shader.loadFromMemory(Locator::Get<VFS>()->ToString(table["vert"]), Locator::Get<VFS>()->ToString(table["frag"]));
+			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table["vert"]), Locator::Get<VFS>()->ToString(table["frag"]));
 		}
 	}
 

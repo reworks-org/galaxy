@@ -9,6 +9,9 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
+#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include "re/entity/Entity.hpp"
 #include "re/systems/System.hpp"
 #include "re/services/Service.hpp"

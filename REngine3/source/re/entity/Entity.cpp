@@ -10,6 +10,11 @@
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
+#include "re/component/TextComponent.hpp"
+#include "re/component/SpriteComponent.hpp"
+#include "re/component/PositionComponent.hpp"
+#include "re/component/AnimatedSpriteComponent.hpp"
+
 #include "Entity.hpp"
 
 namespace re
@@ -25,24 +30,24 @@ namespace re
 		
 		// Construct components from lua script.
 
-		if (entityTable["AnimationComponent"].valid())
+		if (entityTable["AnimatedSpriteComponent"].valid())
 		{
-			// Create<AnimationComponent>(new AnimationComponent(entityTable["AnimationComponent"]));
+			Create<AnimatedSpriteComponent>(std::shared_ptr<AnimatedSpriteComponent>(new AnimatedSpriteComponent(entityTable["AnimatedSpriteComponent"])));
 		}
 
-		if (entityTable["GraphicsComponent"].valid())
+		if (entityTable["SpriteComponent"].valid())
 		{
-			// Create<GraphicsComponent>(new GraphicsComponent(entityTable["GraphicsComponent"]));
+			Create<SpriteComponent>(std::shared_ptr<SpriteComponent>(new SpriteComponent(entityTable["SpriteComponent"])));
 		}
 
 		if (entityTable["TextComponent"].valid())
 		{
-			// Create<TextComponent>(new TextComponent(entityTable["TextComponent"]));
+			Create<TextComponent>(std::shared_ptr<TextComponent> (new TextComponent(entityTable["TextComponent"])));
 		}
 
 		if (entityTable["PositionComponent"].valid())
 		{
-			// Create<PositionComponent>(new PositionComponent(entityTable["PositionComponent"]));
+			Create<PositionComponent>(std::shared_ptr<PositionComponent>(new PositionComponent(entityTable["PositionComponent"])));
 		}
 	}
 

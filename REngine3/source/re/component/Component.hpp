@@ -15,7 +15,7 @@ namespace re
 {
 	class Component
 	{
-	protected:
+	public:
 		/*
 		* IMPORTS: none
 		* EXPORTS: none

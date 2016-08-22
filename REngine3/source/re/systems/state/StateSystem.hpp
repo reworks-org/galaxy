@@ -13,6 +13,7 @@
 // You can find it here: https://www.packtpub.com/game-development/sfml-game-development
 
 #include <map>
+#include <memory>
 #include <utility>
 #include <functional>
 
@@ -103,7 +104,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Create state based on id.
 		*/
-		State::Ptr CreateState(int stateID);
+		std::unique_ptr<State> CreateState(int stateID);
 
 		/*
 		* IMPORTS: none
@@ -121,10 +122,10 @@ namespace re
 		};
 
 	private:
-		std::vector<State::Ptr> m_stack;
+		std::vector<std::unique_ptr<State>> m_stack;
 		std::vector<PendingChange> m_pendingList;
 
-		std::map<int, std::function<State::Ptr()>> m_factory;
+		std::map<int, std::function<std::unique_ptr<State>()>> m_factory;
 	};
 
 	template<typename T>
@@ -132,7 +133,7 @@ namespace re
 	{
 		m_factory[stateID] = [this]()
 		{
-			return State::Ptr(new T(*this));
+			return std::unique_ptr<State>(new T());
 		};
 	}
 }

@@ -8,3 +8,26 @@
 
 #include "Game.hpp"
 
+Game::Game()
+	:State()
+{
+}
+
+Game::~Game()
+{
+}
+
+bool Game::Event(const sf::Event & e)
+{
+	return true;
+}
+
+bool Game::Update(double dt)
+{
+	return true;
+}
+
+void Game::Render()
+{
+
+}
