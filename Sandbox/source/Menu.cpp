@@ -10,6 +10,10 @@
 
 #include <SFML/Window/Event.hpp>
 
+#include "re/entity/World.hpp"
+#include "re/entity/Entity.hpp"
+#include "re/systems/RenderSystem.hpp"
+#include "re/services/ServiceLocator.hpp"
 #include "re/systems/state/StateIdentifiers.hpp"
 
 using namespace re;
@@ -17,7 +21,9 @@ using namespace re;
 Menu::Menu()
 	:State()
 {
+	Locator::Get<World>()->AddEntity("menu", std::make_shared<Entity>("menu.lua"));
 
+	Locator::Get<World>()->GetSystem<RenderSystem>()->Submit();
 }
 
 Menu::~Menu()
@@ -25,24 +31,24 @@ Menu::~Menu()
 
 }
 
-bool Menu::Event(const sf::Event & e)
+bool Menu::Event(sf::Event & e)
 {
-	/*
-	if (guiButtonPress)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || e.type == sf::Event::Closed)
 	{
-		RequestStackPop();
-		RequestStackPush(StateID::game);
+		Locator::Get<World>()->m_window.close();
 	}
-	*/
+
 	return true;
 }
 
 bool Menu::Update(double dt)
 {
+	Locator::Get<World>()->GetSystem<RenderSystem>()->Update();
+
 	return true;
 }
 
 void Menu::Render()
 {
-
+	Locator::Get<World>()->GetSystem<RenderSystem>()->Render();
 }

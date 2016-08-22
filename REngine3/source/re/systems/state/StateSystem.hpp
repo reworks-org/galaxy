@@ -54,7 +54,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-		void Event(const sf::Event& e);
+		void Event(sf::Event& e);
 		
 		/*
 		* IMPORTS: none

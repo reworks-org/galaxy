@@ -36,7 +36,9 @@ namespace re
 		*/
 		void AddEntity(std::shared_ptr<Entity> entity);
 
-	private:
+		void Update();
+
+	public:
 		/*
 		* IMPORTS: RenderTarget and RenderState
 		* EXPORTS: none

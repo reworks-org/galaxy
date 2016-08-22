@@ -37,9 +37,14 @@ public:
 
 		RE_LOG(re::LogLevel::INFO, "Begin init");
 
-		m_vfs.Mount("bin/Debug/assets/");
+#ifdef _DEBUG
+		m_vfs.Mount("bin/Debug/assets/data.zip");
+		m_config.Parse("bin/Debug/config.lua");
+#else
+		m_vfs.Mount("bin/Release/assets/");
+		m_config.Parse("bin/Release/config.lua");
+#endif
 
-		m_config.Parse("config.lua");
 		m_appTitle = m_config.Lookup<std::string>("appTitle");
 		m_targetUPS = m_config.Lookup<double>("ups");
 		m_versionMajor = m_config.Lookup<int>("versionMajor");
@@ -51,12 +56,12 @@ public:
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
 		RE_LOG(re::LogLevel::INFO, msg);
 
-		sf::Image tempIcon;
-		tempIcon.loadFromStream(m_vfs.ToStream("icon.png"));
-		m_world.m_window.setIcon(tempIcon.getSize().x, tempIcon.getSize().y, tempIcon.getPixelsPtr());
+		//sf::Image tempIcon;
+		//tempIcon.loadFromStream(m_vfs.ToStream("icon.png"));
+		//m_world.m_window.setIcon(tempIcon.getSize().x, tempIcon.getSize().y, tempIcon.getPixelsPtr());
 
-		m_world.m_window.setMouseCursorVisible(m_config.Lookup<bool>("cursorVisible"));
-		m_world.m_window.setVerticalSyncEnabled(m_config.Lookup<bool>("vsyncEnabled"));
+		m_world.m_window.setMouseCursorVisible(m_config.Lookup<int>("cursorVisible"));
+		m_world.m_window.setVerticalSyncEnabled(m_config.Lookup<int>("vsyncEnabled"));
 		m_world.m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
 
 		// create systems
@@ -71,10 +76,8 @@ public:
 		Locator::Provide<World>(&m_world);
 		Locator::Provide<VFS>(&m_vfs);
 		Locator::Provide<ConfigReader>(&m_config);
-		Locator::Provide<FontManager>(&m_fonts);
 
-		m_world.GetSystem<StateSystem>()->PushState(StateID::game);
-		// load resources
+		m_world.GetSystem<StateSystem>()->PushState(StateID::menu);
 	}
 };
 

@@ -52,9 +52,11 @@ namespace re
 		}
 	}
 
-	sfPhysfsStream VFS::ToStream(const std::string& fileName)
+	sf::physfs VFS::ToStream(const std::string& fileName)
 	{
-		return sfPhysfsStream(fileName);
+		sf::physfs stream(fileName.c_str());
+
+		return stream;
 	}
 
 	std::string VFS::ToString(const std::string& fileName)
@@ -67,7 +69,7 @@ namespace re
 
 		PHYSFS_read(myfile, myBuf, 1, file_size);
 
-		std::string str(myBuf);
+		std::string str{ myBuf };
 
 		delete[] myBuf;
 		PHYSFS_close(myfile);
@@ -75,7 +77,7 @@ namespace re
 		return str;
 	}
 
-	char * VFS::ToBuffer(const std::string& fileName)
+	char* VFS::ToBuffer(const std::string& fileName)
 	{
 		PHYSFS_file* myfile = PHYSFS_openRead(fileName.c_str());
 		PHYSFS_sint64 file_size = PHYSFS_fileLength(myfile);

@@ -73,12 +73,12 @@ namespace re
 
 			case LogLevel::WARNING:
 				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING:    [" << GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				m_loggedMessages.push_back("RE_WARNING:    [" + GetCurrentTimeAndDate() + "] - " + message + ".");
+				m_loggedMessages.push_back("RE_WARNING: [" + GetCurrentTimeAndDate() + "] - " + message + ".");
 				break;
 
 			case LogLevel::FATAL:
 				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:      [" << GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				m_loggedMessages.push_back("RE_ERROR:      [" + GetCurrentTimeAndDate() + "] - " + message + ".");
+				m_loggedMessages.push_back("RE_ERROR:   [" + GetCurrentTimeAndDate() + "] - " + message + ".");
 				break;
 
 			default:

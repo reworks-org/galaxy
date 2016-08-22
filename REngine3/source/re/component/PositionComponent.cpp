@@ -18,12 +18,10 @@ namespace re
 
 		x = table["x"];
 		y = table["y"];
-		w = table["w"];
-		h = table["h"];
 	}
 
 	PositionComponent::~PositionComponent()
 	{
-		x = y = w = h = 0;
+		x = y = 0;
 	}
 }

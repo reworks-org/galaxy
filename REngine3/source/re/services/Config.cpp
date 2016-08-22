@@ -8,10 +8,9 @@
 
 #include <fstream>
 #include <iostream>
+#include <streambuf>
 
 #include "re/utils/Log.hpp"
-#include "re/services/vfs/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
 
 #include "Config.hpp"
 
@@ -22,44 +21,62 @@ namespace re
 		bool success = true;
 
 		// Check if config file exists.
-		if (Locator::Get<VFS>()->DoesExist(configFile))
+		std::ifstream cf;
+		cf.open(configFile);
+
+		if (cf.good())
 		{
 			// Load script with lua through sol2.
-			m_lua.script(Locator::Get<VFS>()->ToString(configFile));
+			std::string cfstr((std::istreambuf_iterator<char>(cf)), std::istreambuf_iterator<char>());
+
+			m_lua.script(cfstr);
+
+			cf.close();
 		}
 		else
 		{
+			cf.close();
+
 			RE_LOG(LogLevel::WARNING, "Failed to load config file! Creating one...");
 
-			std::ofstream newFile{ configFile };
+			std::ofstream newFile;
+			newFile.open(configFile);
 
 			newFile << "config =" << std::endl;
 			newFile << "{" << std::endl;
-			newFile << "    appTitle = \"Default\"" << std::endl;
-			newFile << "    ups = 60.0" << std::endl;
-			newFile << "    versionMajor = 1" << std::endl;
-			newFile << "    versionMinor = 0" << std::endl;
-			newFile << "    versionPatch = 0" << std::endl;
-			newFile << "    screenWidth = 640" << std::endl;
-			newFile << "    screenHeight = 480" << std::endl;
-			newFile << "    fullscreen = 0" << std::endl;
-			newFile << "    cursorVisible = 1" << std::endl;
-			newFile << "    vsyncEnabled = 0" << std::endl;
+			newFile << "    appTitle = \"Default\"," << std::endl;
+			newFile << "    ups = 60.0," << std::endl;
+			newFile << "    versionMajor = 1," << std::endl;
+			newFile << "    versionMinor = 0," << std::endl;
+			newFile << "    versionPatch = 0," << std::endl;
+			newFile << "    screenWidth = 640," << std::endl;
+			newFile << "    screenHeight = 480," << std::endl;
+			newFile << "    fullscreen = 0," << std::endl;
+			newFile << "    cursorVisible = 1," << std::endl;
+			newFile << "    vsyncEnabled = 0," << std::endl;
 			newFile << "    framerateLimit = 0" << std::endl;
 			newFile << "}" << std::endl;
 
 			newFile.close();
 
+			std::ifstream cf2;
+			cf2.open(configFile);
+
 			// Retry to load script.
-			if (Locator::Get<VFS>()->DoesExist(configFile))
+			if (cf2.good())
 			{
-				m_lua.script(Locator::Get<VFS>()->ToString(configFile));
+				// Load script with lua through sol2.
+				std::string cfstr((std::istreambuf_iterator<char>(cf2)), std::istreambuf_iterator<char>());
+
+				m_lua.script(cfstr);
 			}
 			else
 			{
 				RE_LOG(LogLevel::FATAL, "Failed to create config file.");
 				success = false;
 			}
+
+			cf2.close();
 		}
 
 		return success;

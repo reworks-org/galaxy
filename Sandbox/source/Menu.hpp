@@ -22,7 +22,7 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	bool Event(const sf::Event& e) override;
+	bool Event(sf::Event& e) override;
 
 	/*
 	* IMPORTS: none

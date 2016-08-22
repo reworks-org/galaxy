@@ -12,6 +12,7 @@
 #include <SFML/Graphics/Text.hpp>
 
 #include "re/component/Component.hpp"
+#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -32,8 +33,19 @@ namespace re
 		*/
 		~TextComponent() override;
 
+		/*
+		* IMPORTS: x and y position
+		* EXPORTS: none
+		* PURPOSE: Update component data.
+		*/
+		void Update(sf::Vector2f pos);
+
 	public: 
 		sf::Text m_text;
+
+	private:
+		sf::physfs fontData;
+		sf::Font m_font;
 	};
 }
 

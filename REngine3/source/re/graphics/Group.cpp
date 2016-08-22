@@ -8,6 +8,7 @@
 
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
+#include "re/component/PositionComponent.hpp"
 #include "re/component/AnimatedSpriteComponent.hpp"
 
 #include "Group.hpp"
@@ -22,6 +23,22 @@ namespace re
 	void Group::AddEntity(std::shared_ptr<Entity> entity)
 	{
 		m_entitys.push_back(entity);
+	}
+
+	void Group::Update()
+	{
+		for (auto& v : m_entitys)
+		{
+			if (v->Has<SpriteComponent>())
+			{
+				v->Get<SpriteComponent>()->Update({ v->Get<PositionComponent>()->x, v->Get<PositionComponent>()->y });
+			}
+
+			if (v->Has<TextComponent>())
+			{
+				v->Get<TextComponent>()->Update({ v->Get<PositionComponent>()->x, v->Get<PositionComponent>()->y });
+			}
+		}
 	}
 
 	void Group::draw(sf::RenderTarget & target, sf::RenderStates states) const
@@ -45,7 +62,7 @@ namespace re
 
 			if (v->Has<AnimatedSpriteComponent>())
 			{
-
+				
 			}
 
 			if (v->Has<TextComponent>())

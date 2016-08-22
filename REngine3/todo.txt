@@ -4,6 +4,8 @@ TODO List.
 - Ensure namespacing.
 - Convert to std::make_shared over constructor...
 - Ensure everything cleans up after itself
+- Move sol2 getters from [""] to .get<>()
+- fix config boolean loading. -> any files need to have <bool> to <int>
 
 v1.0
 - Serialization

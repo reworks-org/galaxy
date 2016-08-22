@@ -27,27 +27,31 @@ namespace re
 
 		// Get a table with the components.
 		sol::table entityTable = lua["entity"];
-		
+	
 		// Construct components from lua script.
+		sol::table ac = entityTable["AnimatedSpriteComponent"];
+		sol::table sc = entityTable["SpriteComponent"];
+		sol::table tc = entityTable["TextComponent"];
+		sol::table pc = entityTable["PositionComponent"];
 
-		if (entityTable["AnimatedSpriteComponent"].valid())
+		if (ac.valid())
 		{
-			Create<AnimatedSpriteComponent>(std::shared_ptr<AnimatedSpriteComponent>(new AnimatedSpriteComponent(entityTable["AnimatedSpriteComponent"])));
+			Create<AnimatedSpriteComponent>(std::make_shared<AnimatedSpriteComponent>(ac));
 		}
 
-		if (entityTable["SpriteComponent"].valid())
+ 		if (sc.valid())
 		{
-			Create<SpriteComponent>(std::shared_ptr<SpriteComponent>(new SpriteComponent(entityTable["SpriteComponent"])));
+			Create<SpriteComponent>(std::make_shared<SpriteComponent>(sc));
 		}
-
-		if (entityTable["TextComponent"].valid())
+		
+		if (tc.valid())
 		{
-			Create<TextComponent>(std::shared_ptr<TextComponent> (new TextComponent(entityTable["TextComponent"])));
+			Create<TextComponent>(std::make_shared<TextComponent>(tc));
 		}
-
-		if (entityTable["PositionComponent"].valid())
+		
+		if (pc.valid())
 		{
-			Create<PositionComponent>(std::shared_ptr<PositionComponent>(new PositionComponent(entityTable["PositionComponent"])));
+			Create<PositionComponent>(std::make_shared<PositionComponent>(pc));
 		}
 	}
 

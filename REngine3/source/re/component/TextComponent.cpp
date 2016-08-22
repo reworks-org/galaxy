@@ -6,18 +6,21 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/graphics/FontManager.hpp"
+#include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "TextComponent.hpp"
-
+#include <iostream>
 namespace re
 {
 	TextComponent::TextComponent(sol::table& table)
 	{
-		m_text.setFont(Locator::Get<FontManager>()->Get(table["font"]));
-		m_text.setString(table["text"]);
-		m_text.setCharacterSize(table["size"]);
+		fontData.open(table.get<std::string>("font"));
+		m_font.loadFromStream(fontData);
+		m_text.setFont(m_font);
+
+		m_text.setString(table.get<std::string>("text"));
+		m_text.setCharacterSize(table.get<int>("size"));
 
 		sol::table colour = table["colour"];
 		
@@ -65,5 +68,10 @@ namespace re
 
 	TextComponent::~TextComponent()
 	{
+	}
+
+	void TextComponent::Update(sf::Vector2f pos)
+	{
+		m_text.setPosition(pos);
 	}
 }

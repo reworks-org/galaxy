@@ -37,7 +37,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Process state events.
 		*/
-		virtual bool Event(const sf::Event& e) = 0;
+		virtual bool Event(sf::Event& e) = 0;
 
 		/*
 		* IMPORTS: none

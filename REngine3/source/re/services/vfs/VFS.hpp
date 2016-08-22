@@ -12,7 +12,7 @@
 #include <string>
 
 #include "re/services/Service.hpp"
-#include "re/services/vfs/sfPhysfsStream.hpp"
+#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -59,7 +59,7 @@ namespace re
 		* EXPORTS: sfPhysfsStream - A smart pointer to an SFML input stream using Physfs.
 		* PURPOSE: Returns the loaded file from the VFS using an SFML input stream.
 		*/
-		sfPhysfsStream ToStream(const std::string& fileName);
+		sf::physfs ToStream(const std::string& fileName);
 
 		/*
 		* IMPORTS: fileName - The name of the file in the VFS.

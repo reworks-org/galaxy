@@ -45,17 +45,21 @@ namespace re
 
 	void RenderSystem::Update()
 	{
-		for (auto& it : Locator::Get<World>()->GetEntityDatabase())
+		for (auto& g : m_groups)
 		{
-			it.second->Get<SpriteComponent>()->Update({ it.second->Get<PositionComponent>()->x, it.second->Get<PositionComponent>()->y });
+			g.Update();
 		}
 	}
 
 	void RenderSystem::Render()
 	{
+		Locator::Get<World>()->m_window.clear(sf::Color::White);
+
 		for (auto& g : m_groups)
 		{
 			Locator::Get<World>()->m_window.draw(g);
 		}
+
+		Locator::Get<World>()->m_window.display();
 	}
 }

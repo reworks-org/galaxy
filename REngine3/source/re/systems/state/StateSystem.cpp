@@ -12,7 +12,7 @@
 
 namespace re
 {
-	void StateSystem::Event(const sf::Event& e)
+	void StateSystem::Event(sf::Event& e)
 	{
 		for (auto itr = m_stack.rbegin(); itr != m_stack.rend(); ++itr)
 		{

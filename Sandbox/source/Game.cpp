@@ -17,7 +17,7 @@ Game::~Game()
 {
 }
 
-bool Game::Event(const sf::Event & e)
+bool Game::Event(sf::Event & e)
 {
 	return true;
 }
