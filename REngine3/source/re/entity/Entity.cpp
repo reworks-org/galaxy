@@ -12,7 +12,6 @@
 
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
-#include "re/component/PositionComponent.hpp"
 #include "re/component/AnimatedSpriteComponent.hpp"
 
 #include "Entity.hpp"
@@ -32,7 +31,6 @@ namespace re
 		sol::table ac = entityTable["AnimatedSpriteComponent"];
 		sol::table sc = entityTable["SpriteComponent"];
 		sol::table tc = entityTable["TextComponent"];
-		sol::table pc = entityTable["PositionComponent"];
 
 		if (ac.valid())
 		{
@@ -47,11 +45,6 @@ namespace re
 		if (tc.valid())
 		{
 			Create<TextComponent>(std::make_shared<TextComponent>(tc));
-		}
-		
-		if (pc.valid())
-		{
-			Create<PositionComponent>(std::make_shared<PositionComponent>(pc));
 		}
 	}
 

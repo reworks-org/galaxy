@@ -15,47 +15,40 @@ namespace re
 {
 	SpriteComponent::SpriteComponent(sol::table& table)
 	{
-		m_vertices.setPrimitiveType(sf::Quads);
-		m_vertices.resize(4);
+		m_sprite.setPosition({ table.get<float>("x"), table.get<float>("y")});
+		m_group = table.get<unsigned long>("group");
 
-		sol::table position = table["position"];
+		textureData.open(table.get<std::string>("texture"));
+		m_texture.loadFromStream(textureData);
 
-		m_vertices[0].position = sf::Vector2f(position["Vertex0"]["x"], position["Vertex0"]["y"]);
-		m_vertices[1].position = sf::Vector2f(position["Vertex1"]["x"], position["Vertex1"]["y"]);
-		m_vertices[2].position = sf::Vector2f(position["Vertex2"]["x"], position["Vertex2"]["y"]);
-		m_vertices[3].position = sf::Vector2f(position["Vertex3"]["x"], position["Vertex3"]["y"]);
+		m_sprite.setTexture(m_texture);
 
-		sol::table texCoords = table["texCoords"];
-
-		m_vertices[0].texCoords = sf::Vector2f(texCoords["Vertex0"]["x"], texCoords["Vertex0"]["y"]);
-		m_vertices[1].texCoords = sf::Vector2f(texCoords["Vertex1"]["x"], texCoords["Vertex1"]["y"]);
-		m_vertices[2].texCoords = sf::Vector2f(texCoords["Vertex2"]["x"], texCoords["Vertex2"]["y"]);
-		m_vertices[3].texCoords = sf::Vector2f(texCoords["Vertex3"]["x"], texCoords["Vertex3"]["y"]);
-
-		std::string textureBuffer = Locator::Get<VFS>()->ToString(table["texture"]);
-		m_texture.loadFromMemory(textureBuffer.c_str(), textureBuffer.size());
-		
-		if ((table["vert"] != "null") && (table["frag"] == "null"))
+		if ((table.get<std::string>("vert") != "null") && (table.get<std::string>("frag") == "null"))
 		{
-			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table["vert"]), sf::Shader::Vertex);
+			shaderData.open(table.get<std::string>("vert"));
+			m_shader->loadFromStream(shaderData, sf::Shader::Vertex);
 		}
-		else if ((table["vert"] == "null") && (table["frag"] != "null"))
+		else if ((table.get<std::string>("vert") == "null") && (table.get<std::string>("frag") != "null"))
 		{
-			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table["frag"]), sf::Shader::Fragment);
+			shaderData.open(table.get<std::string>("frag"));
+			m_shader->loadFromStream(shaderData, sf::Shader::Fragment);
 		}
-		else if ((table["vert"] != "null") && (table["frag"] != "null"))
+		else if ((table.get<std::string>("vert") != "null") && (table.get<std::string>("frag") != "null"))
 		{
-			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table["vert"]), Locator::Get<VFS>()->ToString(table["frag"]));
+			m_shader->loadFromMemory(Locator::Get<VFS>()->ToString(table.get<std::string>("vert")), Locator::Get<VFS>()->ToString(table.get<std::string>("frag")));
+		}
+		else
+		{
+			m_shader = nullptr;
 		}
 	}
 
 	SpriteComponent::~SpriteComponent()
 	{
-		m_vertices.clear();
 	}
 
-	void SpriteComponent::Update(sf::Vector2f pos)
+	sf::Shader* SpriteComponent::Shader()
 	{
-		m_transform.setPosition(pos);
+		return m_shader.get();
 	}
 }

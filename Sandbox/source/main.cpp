@@ -22,7 +22,7 @@ using namespace re;
 class App : public re::Application
 {
 public:
-	/// See re::Application.
+	// See re::Application.
 	inline App::App() : Application() {}
 
 	/*
@@ -37,11 +37,11 @@ public:
 
 		RE_LOG(re::LogLevel::INFO, "Begin init");
 
-#ifdef _DEBUG
+#ifdef _DEBUG || defined DEBUG
 		m_vfs.Mount("bin/Debug/assets/data.zip");
 		m_config.Parse("bin/Debug/config.lua");
 #else
-		m_vfs.Mount("bin/Release/assets/");
+		m_vfs.Mount("bin/Release/assets/data.zip");
 		m_config.Parse("bin/Release/config.lua");
 #endif
 
@@ -65,8 +65,8 @@ public:
 		m_world.m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
 
 		// create systems
-		m_world.AddSystem<StateSystem>(std::unique_ptr<StateSystem>(new StateSystem));
-		m_world.AddSystem<RenderSystem>(std::unique_ptr<RenderSystem>(new RenderSystem(2)));
+		m_world.AddSystem<StateSystem>(std::make_unique<StateSystem>());
+		m_world.AddSystem<RenderSystem>(std::make_unique<RenderSystem>(2));
 
 		// create states
 		m_world.GetSystem<StateSystem>()->RegisterState<Menu>(StateID::menu);

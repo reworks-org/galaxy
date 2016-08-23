@@ -10,13 +10,17 @@
 #include "re/services/ServiceLocator.hpp"
 
 #include "TextComponent.hpp"
-#include <iostream>
+
 namespace re
 {
 	TextComponent::TextComponent(sol::table& table)
 	{
+		m_text.setPosition({ table.get<float>("x"), table.get<float>("y") });
+		m_group = table.get<unsigned long>("group");
+
 		fontData.open(table.get<std::string>("font"));
 		m_font.loadFromStream(fontData);
+
 		m_text.setFont(m_font);
 
 		m_text.setString(table.get<std::string>("text"));
@@ -25,10 +29,10 @@ namespace re
 		sol::table colour = table["colour"];
 		
 		sf::Color col;
-		col.r = colour["r"];
-		col.g = colour["g"];
-		col.b = colour["b"];
-		col.a = colour["a"];
+		col.r = colour.get<sf::Uint8>("r");
+		col.g = colour.get<sf::Uint8>("g");
+		col.b = colour.get<sf::Uint8>("b");
+		col.a = colour.get<sf::Uint8>("a");
 		m_text.setFillColor(col);
 
 		/*
@@ -40,7 +44,7 @@ namespace re
 
 		See <SFML/Graphics/Text.hpp>
 		*/
-		int style = table["style"];
+		int style = table.get<int>("style");
 
 		switch (style)
 		{
@@ -68,10 +72,5 @@ namespace re
 
 	TextComponent::~TextComponent()
 	{
-	}
-
-	void TextComponent::Update(sf::Vector2f pos)
-	{
-		m_text.setPosition(pos);
 	}
 }

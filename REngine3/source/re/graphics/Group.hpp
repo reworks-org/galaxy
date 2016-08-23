@@ -15,6 +15,10 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
+#include "re/component/TextComponent.hpp"
+#include "re/component/SpriteComponent.hpp"
+#include "re/component/AnimatedSpriteComponent.hpp"
+
 #include "re/entity/Entity.hpp"
 
 namespace re
@@ -30,15 +34,26 @@ namespace re
 		~Group() override;
 
 		/*
-		* IMPORTS: shared_ptr to an entity.
+		* IMPORTS: TextComponent
 		* EXPORTS: none
-		* PURPOSE: Add an entity to the group.
+		* PURPOSE: Add a textocomponent to the group.
 		*/
-		void AddEntity(std::shared_ptr<Entity> entity);
+		void AddTextComponent(std::shared_ptr<TextComponent> tc);
 
+		/*
+		* IMPORTS: SpriteComponent
+		* EXPORTS: none
+		* PURPOSE: Add a textocomponent to the group.
+		*/
+		void AddSpriteComponent(std::shared_ptr<SpriteComponent> sc);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Updates components in group.
+		*/
 		void Update();
 
-	public:
 		/*
 		* IMPORTS: RenderTarget and RenderState
 		* EXPORTS: none
@@ -47,7 +62,8 @@ namespace re
 		void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
 	private:
-		std::vector<std::shared_ptr<Entity>> m_entitys;
+		std::vector<std::shared_ptr<TextComponent>> m_tc;
+		std::vector<std::shared_ptr<SpriteComponent>> m_sc;
 	};
 }
 

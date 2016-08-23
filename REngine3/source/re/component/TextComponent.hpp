@@ -33,14 +33,8 @@ namespace re
 		*/
 		~TextComponent() override;
 
-		/*
-		* IMPORTS: x and y position
-		* EXPORTS: none
-		* PURPOSE: Update component data.
-		*/
-		void Update(sf::Vector2f pos);
-
 	public: 
+		unsigned long m_group;
 		sf::Text m_text;
 
 	private:

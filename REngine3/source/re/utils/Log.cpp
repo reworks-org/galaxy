@@ -9,13 +9,13 @@
 #include <fstream>
 #include <iostream>
 
-#ifdef _WIN32
-#include "re/platform/Win32Log.hpp"
-#else
-#include "re/platform/POSIXLog.hpp"
-#endif
-
 #include "re/utils/Time.hpp"
+
+#ifdef _WIN32
+	#include "re/platform/Win32Log.hpp"
+#else
+	#include "re/platform/POSIXLog.hpp"
+#endif
 
 #include "Log.hpp"
 

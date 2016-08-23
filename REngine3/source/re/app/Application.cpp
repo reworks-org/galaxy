@@ -12,9 +12,9 @@
 
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
+#include "re/systems/state/StateSystem.hpp"
 
 #include "Application.hpp"
-#include "re/systems/state/StateSystem.hpp"
 
 namespace re
 {
@@ -36,8 +36,6 @@ namespace re
 		sf::Uint64 timer = MillisTime();
 		int frames = 0;
 		int updates = 0;
-
-		//load resources
 
 		while (m_world.m_window.isOpen())
 		{
@@ -64,19 +62,17 @@ namespace re
 			{
 				timer += 1000;
 
-			#if defined _DEBUG || defined DEBUG
+			//#if defined _DEBUG || defined DEBUG
 				std::cout << updates << " ups, " << frames << " fps" << std::endl;
 				std::string header = "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
 				std::string newTitle = m_appTitle + header;
 				m_world.m_window.setTitle(newTitle);
-			#endif
+			//#endif
 
 				updates = 0;
 				frames = 0;
 			}
 		}
-
-		//unload resources
 
 		RE_LOG(LogLevel::INFO, "Engine quit successfully");
 

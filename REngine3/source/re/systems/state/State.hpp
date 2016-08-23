@@ -74,9 +74,6 @@ namespace re
 		* PURPOSE: Request to clear the stack.
 		*/
 		void RequestStateClear();
-
-	private:
-
 	};
 }
 

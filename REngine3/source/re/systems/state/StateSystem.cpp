@@ -12,6 +12,13 @@
 
 namespace re
 {
+	StateSystem::~StateSystem()
+	{
+		m_stack.clear();
+		m_pendingList.clear();
+		m_factory.clear();
+	}
+
 	void StateSystem::Event(sf::Event& e)
 	{
 		for (auto itr = m_stack.rbegin(); itr != m_stack.rend(); ++itr)

@@ -42,6 +42,13 @@ namespace re
 		};
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean up the system.
+		*/
+		~StateSystem();
+
+		/*
 		* IMPORTS: stateID - the id of the state.
 		* EXPORTS: none
 		* PURPOSE: Register a state with the state stack.

@@ -52,7 +52,7 @@ namespace re
 		static void Remove();
 
 	private:
-		static std::unordered_map<std::type_index, Service*> m_Services;
+		static std::unordered_map<std::type_index, Service*> m_services;
 
 	};
 
@@ -60,15 +60,15 @@ namespace re
 	void Locator::Provide(Service* s)
 	{
 		// Find type in the map.
-		auto it = m_Services.find(std::type_index(typeid(T)));
+		auto it = m_services.find(std::type_index(typeid(T)));
 
-		if (it != m_Services.end()) 
+		if (it != m_services.end()) 
 		{
 			RE_LOG(LogLevel::WARNING, "Tried to provide an already existing service");
 		}
 		else 
 		{
-			m_Services[typeid(T)] = s;
+			m_services[typeid(T)] = s;
 		}
 	}
 
@@ -76,9 +76,9 @@ namespace re
 	T* Locator::Get()
 	{
 		// Find type in the map.
-		auto it = m_Services.find(std::type_index(typeid(T)));
+		auto it = m_services.find(std::type_index(typeid(T)));
 
-		if (it != m_Services.end()) 
+		if (it != m_services.end()) 
 		{
 			// Cast to required type and return.
 			return dynamic_cast<T*>(it->second);
@@ -93,12 +93,12 @@ namespace re
 	void Locator::Remove()
 	{
 		// Find type in the map.
-		auto it = m_Services.find(std::type_index(typeid(T)));
+		auto it = m_services.find(std::type_index(typeid(T)));
 
-		if (it != m_Services.end())
+		if (it != m_services.end())
 		{
 			// Erase from map.
-			m_Services.erase(typeid(T));
+			m_services.erase(typeid(T));
 		}
 		else
 		{

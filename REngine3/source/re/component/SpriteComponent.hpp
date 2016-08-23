@@ -9,12 +9,12 @@
 #ifndef RENGINE3_SPRITECOMPONENT_HPP_
 #define RENGINE3_SPRITECOMPONENT_HPP_
 
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
-#include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Shader.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
 
 #include "re/component/Component.hpp"
+#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -34,15 +34,24 @@ namespace re
 		* PURPOSE: Clean up the component.
 		*/
 		~SpriteComponent() override;
+		
+		/*
+		* IMPORTS: none
+		* EXPORTS: sf::Shader
+		* PURPOSE: Get the sprites shader.
+		*/
+		sf::Shader* Shader();
 
-		void Update(sf::Vector2f pos);
+	public:	
+		unsigned long m_group;
 
-	public:		
-		sf::VertexArray m_vertices;
-		sf::Transformable m_transform;
+		sf::Sprite m_sprite;
+
+	private:
+		sf::physfs textureData;
 		sf::Texture m_texture;
 
-		// Design oversight -> inherits from non-copyable, wrapping it in a pointer prevents a deleted constructor error.
+		sf::physfs shaderData;
 		std::shared_ptr<sf::Shader> m_shader;
 	};
 }

@@ -1,11 +1,8 @@
 TODO List.
 
-- Ensure docs is up to date
-- Ensure namespacing.
-- Convert to std::make_shared over constructor...
-- Ensure everything cleans up after itself
-- Move sol2 getters from [""] to .get<>()
-- fix config boolean loading. -> any files need to have <bool> to <int>
+- optimize as much as possible.
+- change spritecomponent to sf::sprite
+- change groups & rendersystem to use components over entitys.
 
 v1.0
 - Serialization

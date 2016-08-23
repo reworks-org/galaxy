@@ -9,11 +9,6 @@
 #include "re/entity/World.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "re/component/TextComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/PositionComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
-
 #include "RenderSystem.hpp"
 
 namespace re
@@ -36,9 +31,14 @@ namespace re
 	{
 		for (auto& it : Locator::Get<World>()->GetEntityDatabase())
 		{
-			if (it.second->Has<SpriteComponent>() || it.second->Has<TextComponent>() || it.second->Has<AnimatedSpriteComponent>())
+			if (it.second->Has<SpriteComponent>())
 			{
-				m_groups[it.second->Get<PositionComponent>()->m_group].AddEntity(it.second);
+				m_groups[it.second->Get<SpriteComponent>()->m_group].AddSpriteComponent(it.second->Get<SpriteComponent>());
+			}
+
+			if (it.second->Has<TextComponent>())
+			{
+				m_groups[it.second->Get<TextComponent>()->m_group].AddTextComponent(it.second->Get<TextComponent>());
 			}
 		}
 	} 

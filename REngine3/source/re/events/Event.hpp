@@ -14,8 +14,12 @@ namespace re
 	class Event
 	{
 	public:
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Cleanup event.
+		*/
 		virtual ~Event();
-
 	};
 }
 

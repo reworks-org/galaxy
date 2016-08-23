@@ -10,10 +10,10 @@
 
 namespace re
 {
-	std::unordered_map<std::type_index, Service*> Locator::m_Services;
+	std::unordered_map<std::type_index, Service*> Locator::m_services;
 
 	Locator::~Locator()
 	{
-		m_Services.clear();
+		m_services.clear();
 	}
 }

@@ -6,69 +6,47 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/component/TextComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/PositionComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
-
 #include "Group.hpp"
 
 namespace re
 {
 	Group::~Group()
 	{
-		m_entitys.clear();
+		m_tc.clear();
+		m_sc.clear();
 	}
 
-	void Group::AddEntity(std::shared_ptr<Entity> entity)
+	void Group::AddTextComponent(std::shared_ptr<TextComponent> tc)
 	{
-		m_entitys.push_back(entity);
+		m_tc.push_back(tc);
+	}
+
+	void Group::AddSpriteComponent(std::shared_ptr<SpriteComponent> sc)
+	{
+		m_sc.push_back(sc);
 	}
 
 	void Group::Update()
 	{
-		for (auto& v : m_entitys)
-		{
-			if (v->Has<SpriteComponent>())
-			{
-				v->Get<SpriteComponent>()->Update({ v->Get<PositionComponent>()->x, v->Get<PositionComponent>()->y });
-			}
-
-			if (v->Has<TextComponent>())
-			{
-				v->Get<TextComponent>()->Update({ v->Get<PositionComponent>()->x, v->Get<PositionComponent>()->y });
-			}
-		}
 	}
 
 	void Group::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	{
-		// backup states because we are calling this draw function multiple times
-		sf::RenderStates old = states;
-
-		for (auto& v : m_entitys)
+		for (auto& sc : m_sc)
 		{
-			if (v->Has<SpriteComponent>())
+			if (sc->Shader() != nullptr)
 			{
-				states.transform *= v->Get<SpriteComponent>()->m_transform.getTransform();
-
-				states.texture = &v->Get<SpriteComponent>()->m_texture;
-				states.shader = v->Get<SpriteComponent>()->m_shader.get();
-
-				target.draw(v->Get<SpriteComponent>()->m_vertices, states);
-
-				states = old;
+				target.draw(sc->m_sprite, sc->Shader());
 			}
-
-			if (v->Has<AnimatedSpriteComponent>())
+			else
 			{
-				
+				target.draw(sc->m_sprite);
 			}
+		}
 
-			if (v->Has<TextComponent>())
-			{
-				target.draw(v->Get<TextComponent>()->m_text);
-			}
+		for (auto& tc : m_tc)
+		{
+			target.draw(tc->m_text);
 		}
 	}
 }
