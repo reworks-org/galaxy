@@ -25,12 +25,12 @@ namespace re
 		lua.script(Locator::Get<VFS>()->ToString(script));
 
 		// Get a table with the components.
-		sol::table entityTable = lua["entity"];
+		sol::table entityTable = lua.get<sol::table>("entity");
 	
 		// Construct components from lua script.
-		sol::table ac = entityTable["AnimatedSpriteComponent"];
-		sol::table sc = entityTable["SpriteComponent"];
-		sol::table tc = entityTable["TextComponent"];
+		sol::table ac = entityTable.get<sol::table>("AnimatedSpriteComponent");
+		sol::table sc = entityTable.get<sol::table>("SpriteComponent");
+		sol::table tc = entityTable.get<sol::table>("TextComponent");
 
 		if (ac.valid())
 		{

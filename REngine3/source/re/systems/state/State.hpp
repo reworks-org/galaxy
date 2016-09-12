@@ -17,6 +17,7 @@
 namespace sf
 {
 	class Event;
+	class Time;
 }
 
 namespace re
@@ -44,7 +45,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Update state.
 		*/
-		virtual bool Update(double dt) = 0;
+		virtual bool Update(sf::Time dt) = 0;
 
 		/*
 		* IMPORTS: none

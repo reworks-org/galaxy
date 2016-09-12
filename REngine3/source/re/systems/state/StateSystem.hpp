@@ -17,6 +17,8 @@
 #include <utility>
 #include <functional>
 
+#include <SFML/System/Time.hpp>
+
 #include "re/systems/System.hpp"
 #include "re/systems/state/State.hpp"
 #include "re/systems/state/StateIdentifiers.hpp"
@@ -68,7 +70,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Updates the current state.
 		*/
-		void Update(double dt);
+		void Update(sf::Time dt);
 		
 		/*
 		* IMPORTS: none

@@ -29,7 +29,7 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Update state.
 	*/
-	bool Update(double dt) override;
+	bool Update(sf::Time dt) override;
 
 	/*
 	* IMPORTS: none

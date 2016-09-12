@@ -9,8 +9,9 @@
 #include "re/utils/Log.hpp"
 #include "re/app/Application.hpp"
 
-#include "re/systems/state/StateSystem.hpp"
 #include "re/systems/RenderSystem.hpp"
+#include "re/graphics/ui/UISystem.hpp"
+#include "re/systems/state/StateSystem.hpp"
 
 #include "re/services/ServiceLocator.hpp"
 
@@ -67,6 +68,7 @@ public:
 		// create systems
 		m_world.AddSystem<StateSystem>(std::make_unique<StateSystem>());
 		m_world.AddSystem<RenderSystem>(std::make_unique<RenderSystem>(2));
+		m_world.AddSystem<UISystem>(std::make_unique<UISystem>());
 
 		// create states
 		m_world.GetSystem<StateSystem>()->RegisterState<Menu>(StateID::menu);

@@ -16,7 +16,7 @@
 
 namespace re
 {
-	class TextComponent : public Component
+	class TextComponent : public Component, public sf::Text
 	{
 	public:
 		/*
@@ -33,13 +33,20 @@ namespace re
 		*/
 		~TextComponent() override;
 
-	public: 
-		unsigned long m_group;
-		sf::Text m_text;
+	private:
+		/*
+		* IMPORTS: fontName - Name of the font to use in the VFS.
+		* EXPORTS: none
+		* PURPOSE: Replaces sf::Text's setFont method. Stores the font data in the class.
+		*/
+		void LoadFont(const std::string& fontName);
 
 	private:
-		sf::physfs fontData;
 		sf::Font m_font;
+		sf::physfs m_fontStream;
+
+	public:
+		unsigned long m_group;
 	};
 }
 

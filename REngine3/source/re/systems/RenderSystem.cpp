@@ -33,12 +33,12 @@ namespace re
 		{
 			if (it.second->Has<SpriteComponent>())
 			{
-				m_groups[it.second->Get<SpriteComponent>()->m_group].AddSpriteComponent(it.second->Get<SpriteComponent>());
+				m_groups[it.second->Get<SpriteComponent>()->m_group].AddDrawable(it.second->Get<SpriteComponent>());
 			}
 
 			if (it.second->Has<TextComponent>())
 			{
-				m_groups[it.second->Get<TextComponent>()->m_group].AddTextComponent(it.second->Get<TextComponent>());
+				m_groups[it.second->Get<TextComponent>()->m_group].AddDrawable(it.second->Get<TextComponent>());
 			}
 		}
 	} 
@@ -53,13 +53,9 @@ namespace re
 
 	void RenderSystem::Render()
 	{
-		Locator::Get<World>()->m_window.clear(sf::Color::White);
-
 		for (auto& g : m_groups)
 		{
 			Locator::Get<World>()->m_window.draw(g);
 		}
-
-		Locator::Get<World>()->m_window.display();
 	}
 }

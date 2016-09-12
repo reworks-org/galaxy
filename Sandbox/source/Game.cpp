@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <SFML/System/Time.hpp>
+
 #include "Game.hpp"
 
 Game::Game()
@@ -22,7 +24,7 @@ bool Game::Event(sf::Event & e)
 	return true;
 }
 
-bool Game::Update(double dt)
+bool Game::Update(sf::Time dt)
 {
 	return true;
 }

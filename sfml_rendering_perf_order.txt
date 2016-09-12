@@ -1,0 +1,4 @@
+vertexarray, 1 texture -> Static Geometry
+MultipleSprites -> 1 Texture
+  multiple sprites -> individual textures
+ multiples prites ->  textures

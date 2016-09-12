@@ -30,7 +30,7 @@ namespace re
 		ApplyPendingChanges();
 	}
 
-	void StateSystem::Update(double dt)
+	void StateSystem::Update(sf::Time dt)
 	{
 		for (auto itr = m_stack.rbegin(); itr != m_stack.rend(); ++itr)
 		{

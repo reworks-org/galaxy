@@ -1,18 +1,16 @@
 TODO List.
 
 - optimize as much as possible.
-- change spritecomponent to sf::sprite
-- change groups & rendersystem to use components over entitys.
-
-v1.0
-- Serialization
-	- https://uscilab.github.io/cereal/
+- serialization
+	
 
 v1.1:
 - Error Checking & Exceptions. 
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
+- Better rendering methods
 
+v1.2:
 - Multithreading:
 	- http://www.sfml-dev.org/tutorials/2.4/system-thread.php
 	- https://www.reddit.com/r/gamedev/comments/44fux4/multi_threading_in_game_development/

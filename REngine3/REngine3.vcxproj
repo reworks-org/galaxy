@@ -57,8 +57,23 @@
     <ClCompile Include="source\re\deps\lua\lutf8lib.c" />
     <ClCompile Include="source\re\deps\lua\lvm.c" />
     <ClCompile Include="source\re\deps\lua\lzio.c" />
+    <ClCompile Include="source\re\deps\pugixml\pugixml.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Base64.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Image.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\ImageLayer.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Layer.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\MapObject.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\ObjectGroup.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Parser.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Properties.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\TileMap.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\TileSet.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UIComponent.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UIPanel.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UISystem.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
@@ -103,10 +118,28 @@
     <ClInclude Include="source\re\deps\lua\lundump.h" />
     <ClInclude Include="source\re\deps\lua\lvm.h" />
     <ClInclude Include="source\re\deps\lua\lzio.h" />
+    <ClInclude Include="source\re\deps\pugixml\pugiconfig.hpp" />
+    <ClInclude Include="source\re\deps\pugixml\pugixml.hpp" />
     <ClInclude Include="source\re\deps\sol2\sol.hpp" />
+    <ClInclude Include="source\re\deps\STP\Config.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Base64.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Image.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\ImageLayer.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Layer.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\MapObject.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\ObjectGroup.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Parser.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Properties.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\TileMap.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\TileSet.hpp" />
+    <ClInclude Include="source\re\deps\STP\TMXLoader.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\events\Event.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UIComponent.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UIPanel.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UISystem.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
@@ -193,7 +226,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -222,7 +255,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

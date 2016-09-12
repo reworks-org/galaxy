@@ -28,31 +28,41 @@ namespace re
 
 	int Application::Run()
 	{
-		// maybe switch this to using SFML sf::Clock class?
-		sf::Uint64 lastTime = NanoTime();
+		//sf::Uint64 lastTime = NanoTime();
+		//double delta = 0.0;
+		//const double ns = 1000000000.0 / m_targetUPS;
 		
-		double delta = 0.0;
-		const double ns = 1000000000.0 / m_targetUPS;
 		sf::Uint64 timer = MillisTime();
 		int frames = 0;
 		int updates = 0;
 
+		sf::Clock clock;
+		sf::Time timeSinceLastUpdate = sf::Time::Zero;
+		const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
+
 		while (m_world.m_window.isOpen())
 		{
-			sf::Uint64 now = NanoTime();
-			delta += (now - lastTime) / ns;
-			lastTime = now;
+			//sf::Uint64 now = NanoTime();
+
+			sf::Time dt = clock.restart();
+			timeSinceLastUpdate += dt;
+
+			//delta += (now - lastTime) / ns;
+			//lastTime = now;
 			
-			if (delta >= 1.0)
+			//if (delta >= 1.0)
+			while (timeSinceLastUpdate > TimePerFrame)
 			{
+				timeSinceLastUpdate -= TimePerFrame;
+
 				while (m_world.m_window.pollEvent(m_world.m_event))
 				{
 					m_world.GetSystem<StateSystem>()->Event(m_world.m_event);
 				}
-				
-				m_world.GetSystem<StateSystem>()->Update(delta);
+				m_world.GetSystem<StateSystem>()->Update(TimePerFrame);
+
 				updates++;
-				delta--;
+				//delta--;
 			}
 			
 			m_world.GetSystem<StateSystem>()->Render();

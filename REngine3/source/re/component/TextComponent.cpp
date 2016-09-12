@@ -15,25 +15,21 @@ namespace re
 {
 	TextComponent::TextComponent(sol::table& table)
 	{
-		m_text.setPosition({ table.get<float>("x"), table.get<float>("y") });
 		m_group = table.get<unsigned long>("group");
 
-		fontData.open(table.get<std::string>("font"));
-		m_font.loadFromStream(fontData);
+		LoadFont(table.get<std::string>("font"));
 
-		m_text.setFont(m_font);
+		setString(table.get<std::string>("text"));
+		setCharacterSize(table.get<int>("size"));
 
-		m_text.setString(table.get<std::string>("text"));
-		m_text.setCharacterSize(table.get<int>("size"));
-
-		sol::table colour = table["colour"];
+		sol::table colour = table.get<sol::table>("colour");
 		
 		sf::Color col;
 		col.r = colour.get<sf::Uint8>("r");
 		col.g = colour.get<sf::Uint8>("g");
 		col.b = colour.get<sf::Uint8>("b");
 		col.a = colour.get<sf::Uint8>("a");
-		m_text.setFillColor(col);
+		setFillColor(col);
 
 		/*
 		0 = Regular,
@@ -49,28 +45,37 @@ namespace re
 		switch (style)
 		{
 		case 0:
-			m_text.setStyle(sf::Text::Regular);
+			setStyle(sf::Text::Regular);
 			break;
 
 		case 1:
-			m_text.setStyle(sf::Text::Bold);
+			setStyle(sf::Text::Bold);
 			break;
 
 		case 2:
-			m_text.setStyle(sf::Text::Italic);
+			setStyle(sf::Text::Italic);
 			break;
 
 		case 3:
-			m_text.setStyle(sf::Text::Underlined);
+			setStyle(sf::Text::Underlined);
 			break;
 
 		case 4:
-			m_text.setStyle(sf::Text::StrikeThrough);
+			setStyle(sf::Text::StrikeThrough);
 			break;
 		}
+		
+		setPosition(table.get<float>("x"), table.get<float>("y"));
 	}
 
 	TextComponent::~TextComponent()
 	{
+	}
+
+	void TextComponent::LoadFont(const std::string & fontName)
+	{
+		m_fontStream.open(fontName);
+		m_font.loadFromStream(m_fontStream);
+		setFont(m_font);
 	}
 }

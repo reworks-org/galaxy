@@ -6,47 +6,42 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include "Group.hpp"
 
 namespace re
 {
 	Group::~Group()
 	{
-		m_tc.clear();
-		m_sc.clear();
+		m_drawable.clear();
 	}
 
-	void Group::AddTextComponent(std::shared_ptr<TextComponent> tc)
+	void Group::AddDrawable(std::shared_ptr<TextComponent> tc)
 	{
-		m_tc.push_back(tc);
+		m_drawable.push_back(tc);
 	}
 
-	void Group::AddSpriteComponent(std::shared_ptr<SpriteComponent> sc)
+	void Group::AddDrawable(std::shared_ptr<SpriteComponent> sc)
 	{
-		m_sc.push_back(sc);
+		m_drawable.push_back(sc);
+	}
+
+	void Group::AddDrawable(std::shared_ptr<AnimatedSpriteComponent> ac)
+	{
+		// m_drawable.push_back(ac);
 	}
 
 	void Group::Update()
 	{
 	}
 
-	void Group::draw(sf::RenderTarget & target, sf::RenderStates states) const
+	void Group::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		for (auto& sc : m_sc)
+		for (auto& v : m_drawable)
 		{
-			if (sc->Shader() != nullptr)
-			{
-				target.draw(sc->m_sprite, sc->Shader());
-			}
-			else
-			{
-				target.draw(sc->m_sprite);
-			}
-		}
-
-		for (auto& tc : m_tc)
-		{
-			target.draw(tc->m_text);
+			target.draw(*v.get(), states);
 		}
 	}
 }

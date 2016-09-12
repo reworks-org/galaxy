@@ -52,6 +52,21 @@
     <ClCompile Include="source\re\component\TextComponent.cpp" />
     <ClCompile Include="source\re\entity\World.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Base64.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Image.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\ImageLayer.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Layer.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\MapObject.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\ObjectGroup.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Parser.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\Properties.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\TileMap.cpp" />
+    <ClCompile Include="source\re\deps\STP\Core\TileSet.cpp" />
+    <ClCompile Include="source\re\deps\pugixml\pugixml.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UISystem.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UIComponent.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UIPanel.cpp" />
+    <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\utils\Time.hpp" />
@@ -107,5 +122,23 @@
     <ClInclude Include="source\re\entity\World.hpp" />
     <ClInclude Include="source\re\deps\sol2\sol.hpp" />
     <ClInclude Include="source\re\services\vfs\sfmlphysfs.hpp" />
+    <ClInclude Include="source\re\deps\STP\TMXLoader.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Base64.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Image.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\ImageLayer.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Layer.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\MapObject.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\ObjectGroup.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Parser.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\Properties.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\TileMap.hpp" />
+    <ClInclude Include="source\re\deps\STP\Core\TileSet.hpp" />
+    <ClInclude Include="source\re\deps\STP\Config.hpp" />
+    <ClInclude Include="source\re\deps\pugixml\pugiconfig.hpp" />
+    <ClInclude Include="source\re\deps\pugixml\pugixml.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UISystem.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UIComponent.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UIPanel.hpp" />
+    <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />
   </ItemGroup>
 </Project>
