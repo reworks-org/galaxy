@@ -2,7 +2,7 @@ TODO List.
 
 - optimize as much as possible.
 - serialization
-	
+
 
 v1.1:
 - Error Checking & Exceptions. 
