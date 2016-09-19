@@ -12,6 +12,7 @@
 
 #include "re/entity/World.hpp"
 #include "re/entity/Entity.hpp"
+#include "re/graphics/Window.hpp"
 #include "re/systems/RenderSystem.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/systems/state/StateIdentifiers.hpp"
@@ -45,7 +46,7 @@ bool Menu::Event(sf::Event & e)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || e.type == sf::Event::Closed)
 	{
-		Locator::Get<World>()->m_window.close();
+		Locator::Get<Window>()->close();
 	}
 
 	return true;
@@ -62,10 +63,10 @@ bool Menu::Update(sf::Time dt)
 
 void Menu::Render()
 {
-	Locator::Get<World>()->m_window.clear(sf::Color::White);
+	Locator::Get<Window>()->clear(sf::Color::White);
 
 	Locator::Get<World>()->GetSystem<RenderSystem>()->Render();
 	Locator::Get<World>()->GetSystem<UISystem>()->Render();
 
-	Locator::Get<World>()->m_window.display();
+	Locator::Get<Window>()->display();
 }

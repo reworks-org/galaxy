@@ -20,9 +20,6 @@
 
 using namespace re;
 
-#define ICON_WIDTH 512
-#define ICON_HEIGHT 512
-
 class App : public re::Application
 {
 public:
@@ -55,14 +52,14 @@ public:
 		m_versionMinor = m_config.Lookup<int>("versionMinor");
 		m_versionPatch = m_config.Lookup<int>("versionPatch");
 
-		m_world.m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
+		m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
 
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
 		RE_LOG(re::LogLevel::INFO, msg);
 
-		m_world.m_window.setMouseCursorVisible(m_config.Lookup<int>("cursorVisible"));
-		m_world.m_window.setVerticalSyncEnabled(m_config.Lookup<int>("vsyncEnabled"));
-		m_world.m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
+		m_window.setMouseCursorVisible(m_config.Lookup<int>("cursorVisible"));
+		m_window.setVerticalSyncEnabled(m_config.Lookup<int>("vsyncEnabled"));
+		m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
 
 		// create systems
 		m_world.AddSystem<StateSystem>(std::make_unique<StateSystem>());
@@ -77,11 +74,11 @@ public:
 		Locator::Provide<World>(&m_world);
 		Locator::Provide<VFS>(&m_vfs);
 		Locator::Provide<ConfigReader>(&m_config);
+		Locator::Provide<Window>(&m_window);
 
-		m_iconStream.open("icon.png");
-		m_windowIcon.loadFromStream(m_iconStream);
-		m_world.m_window.setIcon(ICON_WIDTH, ICON_HEIGHT, m_windowIcon.getPixelsPtr());
-
+		// set icon
+		m_window.LoadIcon("icon.png");
+		
 		m_world.GetSystem<StateSystem>()->PushState(StateID::menu);
 	}
 };

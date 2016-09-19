@@ -115,10 +115,6 @@ namespace re
 		std::unordered_map<std::string, std::shared_ptr<Entity>> m_removedEntitys;
 
 		std::unordered_map<std::type_index, std::shared_ptr<System>> m_systemDatabase;
-
-	public:
-		sf::RenderWindow m_window;
-		sf::Event m_event;
 	};
 
 	template<typename T>

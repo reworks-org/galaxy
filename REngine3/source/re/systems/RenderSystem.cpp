@@ -7,6 +7,7 @@
 //
 
 #include "re/entity/World.hpp"
+#include "re/graphics/Window.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "RenderSystem.hpp"
@@ -55,7 +56,7 @@ namespace re
 	{
 		for (auto& g : m_groups)
 		{
-			Locator::Get<World>()->m_window.draw(g);
+			Locator::Get<Window>()->draw(g);
 		}
 	}
 }

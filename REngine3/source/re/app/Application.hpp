@@ -11,6 +11,7 @@
 
 #include "re/entity/World.hpp"
 #include "re/services/Config.hpp"
+#include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
 
 namespace re
@@ -50,9 +51,7 @@ namespace re
 		VFS m_vfs;
 		ConfigReader m_config;
 		World m_world;
-
-		sf::Image m_windowIcon;
-		sf::physfs m_iconStream;
+		Window m_window;
 	};
 }
 

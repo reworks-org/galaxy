@@ -78,6 +78,7 @@
     <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
     <ClCompile Include="source\re\graphics\ui\UIPanel.cpp" />
     <ClCompile Include="source\re\graphics\ui\UISystem.cpp" />
+    <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />
     <ClInclude Include="source\re\graphics\ui\UIPanel.hpp" />
     <ClInclude Include="source\re\graphics\ui\UISystem.hpp" />
+    <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />

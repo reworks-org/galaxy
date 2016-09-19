@@ -10,7 +10,7 @@
 
 #include "re/deps/sol2/sol.hpp"
 
-#include "re/entity/World.hpp"
+#include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -96,11 +96,11 @@ namespace re
 		m_isVisible = true;
 		if (m_isVisible)
 		{
-			Locator::Get<World>()->m_window.draw(m_sprite);
+			Locator::Get<Window>()->draw(m_sprite);
 
 			for (auto& it : m_uicomponents)
 			{
-				Locator::Get<World>()->m_window.draw(*it.second.get(), &m_texture);
+				Locator::Get<Window>()->draw(*it.second.get(), &m_texture);
 			}
 
 		}

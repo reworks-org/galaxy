@@ -40,7 +40,7 @@ namespace re
 		sf::Time timeSinceLastUpdate = sf::Time::Zero;
 		const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
 
-		while (m_world.m_window.isOpen())
+		while (m_window.isOpen())
 		{
 			//sf::Uint64 now = NanoTime();
 
@@ -55,9 +55,9 @@ namespace re
 			{
 				timeSinceLastUpdate -= TimePerFrame;
 
-				while (m_world.m_window.pollEvent(m_world.m_event))
+				while (m_window.pollEvent(m_window.m_event))
 				{
-					m_world.GetSystem<StateSystem>()->Event(m_world.m_event);
+					m_world.GetSystem<StateSystem>()->Event(m_window.m_event);
 				}
 				m_world.GetSystem<StateSystem>()->Update(TimePerFrame);
 
@@ -76,7 +76,7 @@ namespace re
 				std::cout << updates << " ups, " << frames << " fps" << std::endl;
 				std::string header = "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
 				std::string newTitle = m_appTitle + header;
-				m_world.m_window.setTitle(newTitle);
+				m_window.setTitle(newTitle);
 			//#endif
 
 				updates = 0;
