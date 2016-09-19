@@ -50,6 +50,9 @@ namespace re
 		VFS m_vfs;
 		ConfigReader m_config;
 		World m_world;
+
+		sf::Image m_windowIcon;
+		sf::physfs m_iconStream;
 	};
 }
 

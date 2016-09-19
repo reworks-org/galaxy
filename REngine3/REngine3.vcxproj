@@ -74,7 +74,6 @@
     <ClCompile Include="source\re\deps\STP\Core\TileSet.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
-    <ClCompile Include="source\re\graphics\ui\UIButton.cpp" />
     <ClCompile Include="source\re\graphics\ui\UIComponent.cpp" />
     <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
     <ClCompile Include="source\re\graphics\ui\UIPanel.cpp" />
@@ -145,7 +144,6 @@
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\events\Event.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
-    <ClInclude Include="source\re\graphics\ui\UIButton.hpp" />
     <ClInclude Include="source\re\graphics\ui\UIComponent.hpp" />
     <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />
     <ClInclude Include="source\re\graphics\ui\UIPanel.hpp" />

@@ -20,6 +20,9 @@
 
 using namespace re;
 
+#define ICON_WIDTH 512
+#define ICON_HEIGHT 512
+
 class App : public re::Application
 {
 public:
@@ -57,10 +60,6 @@ public:
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
 		RE_LOG(re::LogLevel::INFO, msg);
 
-		//sf::Image tempIcon;
-		//tempIcon.loadFromStream(m_vfs.ToStream("icon.png"));
-		//m_world.m_window.setIcon(tempIcon.getSize().x, tempIcon.getSize().y, tempIcon.getPixelsPtr());
-
 		m_world.m_window.setMouseCursorVisible(m_config.Lookup<int>("cursorVisible"));
 		m_world.m_window.setVerticalSyncEnabled(m_config.Lookup<int>("vsyncEnabled"));
 		m_world.m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
@@ -78,6 +77,10 @@ public:
 		Locator::Provide<World>(&m_world);
 		Locator::Provide<VFS>(&m_vfs);
 		Locator::Provide<ConfigReader>(&m_config);
+
+		m_iconStream.open("icon.png");
+		m_windowIcon.loadFromStream(m_iconStream);
+		m_world.m_window.setIcon(ICON_WIDTH, ICON_HEIGHT, m_windowIcon.getPixelsPtr());
 
 		m_world.GetSystem<StateSystem>()->PushState(StateID::menu);
 	}
