@@ -72,6 +72,8 @@
     <ClCompile Include="source\re\component\MusicComponent.cpp" />
     <ClCompile Include="source\re\audio\Music.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
+    <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
+    <ClCompile Include="source\re\graphics\Animation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\utils\Time.hpp" />
@@ -150,5 +152,7 @@
     <ClInclude Include="source\re\component\MusicComponent.hpp" />
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
+    <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
+    <ClInclude Include="source\re\graphics\Animation.hpp" />
   </ItemGroup>
 </Project>

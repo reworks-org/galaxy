@@ -32,13 +32,13 @@ namespace re
 		//double delta = 0.0;
 		//const double ns = 1000000000.0 / m_targetUPS;
 		
-		sf::Uint64 timer = MillisTime();
+		sf::Uint64 timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		int frames = 0;
 		int updates = 0;
 
 		sf::Clock clock;
 		sf::Time timeSinceLastUpdate = sf::Time::Zero;
-		const sf::Time TimePerFrame = sf::seconds(1.f / 60.f);
+		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
 
 		while (m_window.isOpen())
 		{
@@ -68,7 +68,7 @@ namespace re
 			m_world.GetSystem<StateSystem>()->Render();
 			frames++;
 
-			if ((MillisTime() - timer) > 1000)
+			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
 			{
 				timer += 1000;
 

@@ -30,11 +30,16 @@ namespace re
 
 	void Group::AddDrawable(std::shared_ptr<AnimatedSpriteComponent> ac)
 	{
-		// m_drawable.push_back(ac);
+		m_drawable.push_back(ac);
+		m_animated.push_back(ac);
 	}
 
-	void Group::Update()
+	void Group::Update(sf::Time dt)
 	{
+		for (auto& v : m_animated)
+		{
+			v->update(dt);
+		}
 	}
 
 	void Group::draw(sf::RenderTarget& target, sf::RenderStates states) const

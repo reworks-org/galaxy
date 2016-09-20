@@ -26,6 +26,7 @@ Menu::Menu()
 	:State()
 {
 	Locator::Get<World>()->AddEntity("menu", std::make_shared<Entity>("menu.lua"));
+	Locator::Get<World>()->AddEntity("person", std::make_shared<Entity>("person.lua"));
 
 	Locator::Get<World>()->GetSystem<RenderSystem>()->Submit();
 
@@ -33,11 +34,12 @@ Menu::Menu()
 	Locator::Get<World>()->GetSystem<UISystem>()->GetPanel("menupanel")->Add("label", std::make_shared<UILabel>("menulabel.lua"));
 
 	Locator::Get<World>()->GetSystem<UISystem>()->GetPanel("menupanel")->SetComponentOffsets();
+
+	Locator::Get<World>()->GetEntity("person")->Get<AnimatedSpriteComponent>()->Play();
 }
 
 Menu::~Menu()
 {
-
 }
 
 bool Menu::Event(sf::Event & e)
@@ -54,9 +56,9 @@ bool Menu::Event(sf::Event & e)
 
 bool Menu::Update(sf::Time dt)
 {
-	Locator::Get<World>()->GetSystem<UISystem>()->Update();
+	Locator::Get<World>()->GetSystem<RenderSystem>()->Update(dt);
 
-	Locator::Get<World>()->GetSystem<UISystem>()->GetPanel("menupanel")->Update();
+	Locator::Get<World>()->GetSystem<UISystem>()->Update();
 
 	return true;
 }

@@ -57,7 +57,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Updates components in group.
 		*/
-		void Update();
+		void Update(sf::Time dt);
 
 		/*
 		* IMPORTS: RenderTarget and RenderState
@@ -67,7 +67,8 @@ namespace re
 		void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
 	private:
-		std::vector<std::shared_ptr<sf::Drawable >> m_drawable;
+		std::vector<std::shared_ptr<sf::Drawable>> m_drawable;
+		std::vector<std::shared_ptr<AnimatedSpriteComponent>> m_animated;
 	};
 }
 

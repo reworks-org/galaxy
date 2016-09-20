@@ -1,0 +1,9 @@
+Animation code provided by Maximilian Wagenbach (aka. Foaly) (foaly.f@web.de)
+
+Animation.hpp
+Animation.cpp
+AnimatedSprite.hpp
+AnimatedSprite.cpp
+
+Retrieved from: https://github.com/SFML/SFML/wiki/Source%3A-AnimatedSprite
+

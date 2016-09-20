@@ -41,14 +41,19 @@ namespace re
 			{
 				m_groups[it.second->Get<TextComponent>()->m_group].AddDrawable(it.second->Get<TextComponent>());
 			}
+
+			if (it.second->Has<AnimatedSpriteComponent>())
+			{
+				m_groups[it.second->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(it.second->Get<AnimatedSpriteComponent>());
+			}
 		}
 	} 
 
-	void RenderSystem::Update()
+	void RenderSystem::Update(sf::Time dt)
 	{
 		for (auto& g : m_groups)
 		{
-			g.Update();
+			g.Update(dt);
 		}
 	}
 

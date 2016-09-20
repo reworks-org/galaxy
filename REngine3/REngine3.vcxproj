@@ -73,6 +73,8 @@
     <ClCompile Include="source\re\deps\STP\Core\TileMap.cpp" />
     <ClCompile Include="source\re\deps\STP\Core\TileSet.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
+    <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
+    <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\ui\UIComponent.cpp" />
     <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
@@ -144,6 +146,8 @@
     <ClInclude Include="source\re\deps\STP\TMXLoader.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\events\Event.hpp" />
+    <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
+    <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\graphics\ui\UIComponent.hpp" />
     <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />

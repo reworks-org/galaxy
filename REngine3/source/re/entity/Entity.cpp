@@ -11,10 +11,14 @@
 #include "re/services/ServiceLocator.hpp"
 
 #include "re/component/TextComponent.hpp"
+#include "re/component/SoundComponent.hpp"
+#include "re/component/MusicComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/AnimatedSpriteComponent.hpp"
 
 #include "Entity.hpp"
+
+#include <iostream>
 
 namespace re
 {
@@ -26,25 +30,35 @@ namespace re
 
 		// Get a table with the components.
 		sol::table entityTable = lua.get<sol::table>("entity");
-	
-		// Construct components from lua script.
-		sol::table ac = entityTable.get<sol::table>("AnimatedSpriteComponent");
-		sol::table sc = entityTable.get<sol::table>("SpriteComponent");
-		sol::table tc = entityTable.get<sol::table>("TextComponent");
 
-		if (ac.valid())
-		{
-			Create<AnimatedSpriteComponent>(std::make_shared<AnimatedSpriteComponent>(ac));
-		}
+		// Get key-value pairs from table
+		std::map<std::string, sol::table> m_keyValuePair;
+		entityTable.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+		});
 
- 		if (sc.valid())
+		for (auto& it : m_keyValuePair)
 		{
-			Create<SpriteComponent>(std::make_shared<SpriteComponent>(sc));
-		}
-		
-		if (tc.valid())
-		{
-			Create<TextComponent>(std::make_shared<TextComponent>(tc));
+			if (it.first == "AnimatedSpriteComponent")
+			{
+				Create<AnimatedSpriteComponent>(std::make_shared<AnimatedSpriteComponent>(it.second));
+			}
+			else if (it.first == "SpriteComponent")
+			{
+				Create<SpriteComponent>(std::make_shared<SpriteComponent>(it.second));
+			}
+			else if (it.first == "TextComponent")
+			{
+				Create<TextComponent>(std::make_shared<TextComponent>(it.second));
+			}
+			else if (it.first == "MusicComponent")
+			{
+				Create<MusicComponent>(std::make_shared<MusicComponent>());
+			}
+			else if (it.first == "SoundComponent")
+			{
+				Create<SoundComponent>(std::make_shared<SoundComponent>());
+			}
 		}
 	}
 

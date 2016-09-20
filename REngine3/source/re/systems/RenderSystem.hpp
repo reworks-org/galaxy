@@ -43,7 +43,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Update the system. Mainly for animations
 		*/
-		void Update();
+		void Update(sf::Time dt);
 
 		/*
 		* IMPORTS: none
