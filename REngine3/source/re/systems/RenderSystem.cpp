@@ -28,9 +28,9 @@ namespace re
 		m_attachedEntitys.clear();
 	}
 
-	void RenderSystem::Submit()
+	void RenderSystem::Submit(re::World* world)
 	{
-		for (auto& it : Locator::Get<World>()->GetEntityDatabase())
+		for (auto& it : world->GetEntityDatabase())
 		{
 			if (it.second->Has<SpriteComponent>())
 			{
@@ -57,11 +57,11 @@ namespace re
 		}
 	}
 
-	void RenderSystem::Render()
+	void RenderSystem::Render(re::Window* window)
 	{
 		for (auto& g : m_groups)
 		{
-			Locator::Get<Window>()->draw(g);
+			window->draw(g);
 		}
 	}
 }

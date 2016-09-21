@@ -21,7 +21,7 @@ namespace re
 	UIPanel::UIPanel(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
+		lua.script(Locator::Retrieve<VFS>()->ToString(script));
 
 		sol::table panel = lua.get<sol::table>("UIPanel");
 		sol::table texCoords = panel.get<sol::table>("texCoords");
@@ -40,7 +40,7 @@ namespace re
 		m_sprite.setTexture(m_texture);
 		m_sprite.setTextureRect(m_spriteArea);
 
-		m_sprite.setPosition(m_xpos, m_ypos);
+		m_sprite.setPosition((float)m_xpos, (float)m_ypos);
 	}
 
 	UIPanel::~UIPanel()
@@ -90,17 +90,17 @@ namespace re
 		}
 	}
 
-	void UIPanel::Render()
+	void UIPanel::Render(re::Window* window)
 	{
 		// Render panel and thereby the components if its visible.
 		m_isVisible = true;
 		if (m_isVisible)
 		{
-			Locator::Get<Window>()->draw(m_sprite);
+			window->draw(m_sprite);
 
 			for (auto& it : m_uicomponents)
 			{
-				Locator::Get<Window>()->draw(*it.second.get(), &m_texture);
+				window->draw(*it.second.get(), &m_texture);
 			}
 
 		}

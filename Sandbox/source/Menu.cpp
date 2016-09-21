@@ -16,6 +16,8 @@
 #include "re/systems/RenderSystem.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/systems/state/StateIdentifiers.hpp"
+#include "re/services/Config.hpp"
+#include "re/services/vfs/VFS.hpp"
 
 #include "re/graphics/ui/UISystem.hpp"
 #include "re/graphics/ui/UILabel.hpp"
@@ -25,17 +27,22 @@ using namespace re;
 Menu::Menu()
 	:State()
 {
-	Locator::Get<World>()->AddEntity("menu", std::make_shared<Entity>("menu.lua"));
-	Locator::Get<World>()->AddEntity("person", std::make_shared<Entity>("person.lua"));
+	m_window = Locator::Retrieve<Window>();
+	m_world = Locator::Retrieve<World>();
+	m_vfs = Locator::Retrieve<VFS>();
+	m_config = Locator::Retrieve<ConfigReader>();
 
-	Locator::Get<World>()->GetSystem<RenderSystem>()->Submit();
+	m_world->AddEntity("menu", std::make_shared<Entity>("menu.lua"));
+	m_world->AddEntity("person", std::make_shared<Entity>("person.lua"));
 
-	Locator::Get<World>()->GetSystem<UISystem>()->AddPanel("menupanel", std::make_shared<UIPanel>("menupanel.lua"));
-	Locator::Get<World>()->GetSystem<UISystem>()->GetPanel("menupanel")->Add("label", std::make_shared<UILabel>("menulabel.lua"));
+	m_world->GetSystem<RenderSystem>()->Submit(m_world);
 
-	Locator::Get<World>()->GetSystem<UISystem>()->GetPanel("menupanel")->SetComponentOffsets();
+	m_world->GetSystem<UISystem>()->AddPanel("menupanel", std::make_shared<UIPanel>("menupanel.lua"));
+	m_world->GetSystem<UISystem>()->GetPanel("menupanel")->Add("label", std::make_shared<UILabel>("menulabel.lua"));
 
-	Locator::Get<World>()->GetEntity("person")->Get<AnimatedSpriteComponent>()->Play();
+	m_world->GetSystem<UISystem>()->GetPanel("menupanel")->SetComponentOffsets();
+
+	m_world->GetEntity("person")->Get<AnimatedSpriteComponent>()->Play();
 }
 
 Menu::~Menu()
@@ -44,11 +51,11 @@ Menu::~Menu()
 
 bool Menu::Event(sf::Event & e)
 {
-	Locator::Get<World>()->GetSystem<UISystem>()->Event();
+	m_world->GetSystem<UISystem>()->Event();
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || e.type == sf::Event::Closed)
 	{
-		Locator::Get<Window>()->close();
+		m_window->close();
 	}
 
 	return true;
@@ -56,19 +63,19 @@ bool Menu::Event(sf::Event & e)
 
 bool Menu::Update(sf::Time dt)
 {
-	Locator::Get<World>()->GetSystem<RenderSystem>()->Update(dt);
+	m_world->GetSystem<RenderSystem>()->Update(dt);
 
-	Locator::Get<World>()->GetSystem<UISystem>()->Update();
+	m_world->GetSystem<UISystem>()->Update();
 
 	return true;
 }
 
 void Menu::Render()
 {
-	Locator::Get<Window>()->clear(sf::Color::White);
+	m_window->clear(sf::Color::White);
 
-	Locator::Get<World>()->GetSystem<RenderSystem>()->Render();
-	Locator::Get<World>()->GetSystem<UISystem>()->Render();
+	m_world->GetSystem<RenderSystem>()->Render(m_window);
+	m_world->GetSystem<UISystem>()->Render(m_window);
 
-	Locator::Get<Window>()->display();
+	m_window->display();
 }

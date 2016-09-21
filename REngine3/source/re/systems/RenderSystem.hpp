@@ -14,6 +14,8 @@
 
 namespace re
 {
+	class Window;
+
 	class RenderSystem : public System
 	{
 	public:
@@ -36,7 +38,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Submit all entitys to the system.
 		*/
-		void Submit();
+		void Submit(re::World* world);
 		
 		/*
 		* IMPORTS: none
@@ -50,7 +52,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean up the entitys.
 		*/
-		void Render();
+		void Render(re::Window* window);
 
 	private:
 		std::vector<Group> m_groups;

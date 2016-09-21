@@ -16,6 +16,8 @@
 
 namespace re
 {
+	class Window;
+
 	class UISystem : public System
 	{
 	public:
@@ -59,14 +61,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Render ALL ui panels and components.
 		*/
-		void Render();
-
-		/*
-		* IMPORTS: panelID - id of the panel to render.
-		* EXPORTS: none
-		* PURPOSE: Render specific UIPanel.
-		*/
-		void RenderPanel(const std::string& panelID);
+		void Render(re::Window* window);
 
 	private:
 		std::unordered_map<std::string, std::shared_ptr<UIPanel>> m_panels;

@@ -22,6 +22,14 @@ namespace sf
 
 namespace re
 {
+	class VFS;
+	class World;
+	class Window;
+	class ConfigReader;
+}
+
+namespace re
+{
 	class State
 	{
 	public:
@@ -75,6 +83,13 @@ namespace re
 		* PURPOSE: Request to clear the stack.
 		*/
 		void RequestStateClear();
+
+	protected:
+		// Services
+		re::Window* m_window;
+		re::ConfigReader* m_config;
+		re::World* m_world;
+		re::VFS* m_vfs;
 	};
 }
 

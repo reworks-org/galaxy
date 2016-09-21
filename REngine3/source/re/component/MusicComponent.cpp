@@ -25,7 +25,7 @@ namespace re
 	void MusicComponent::AddMusic(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
+		lua.script(Locator::Retrieve<VFS>()->ToString(script));
 
 		sol::table music = lua.get<sol::table>("music");
 

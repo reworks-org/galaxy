@@ -26,7 +26,7 @@ namespace re
 	{
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
+		lua.script(Locator::Retrieve<VFS>()->ToString(script));
 
 		// Get a table with the components.
 		sol::table entityTable = lua.get<sol::table>("entity");

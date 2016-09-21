@@ -38,13 +38,8 @@ public:
 
 		RE_LOG(re::LogLevel::INFO, "Begin init");
 
-#ifdef _DEBUG || defined DEBUG
-		m_vfs.Mount("bin/Debug/assets/data.zip");
-		m_config.Parse("bin/Debug/config.lua");
-#else
 		m_vfs.Mount("bin/Release/assets/data.zip");
 		m_config.Parse("bin/Release/config.lua");
-#endif
 
 		m_appTitle = m_config.Lookup<std::string>("appTitle");
 		m_targetUPS = m_config.Lookup<double>("ups");

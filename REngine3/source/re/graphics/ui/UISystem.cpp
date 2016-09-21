@@ -44,16 +44,11 @@ namespace re
 		}
 	}
 
-	void UISystem::Render()
+	void UISystem::Render(re::Window* window)
 	{
 		// Render all panels and thereby components.
 		for (auto& it : m_panels) {
-			it.second->Render();
+			it.second->Render(window);
 		}
-	}
-
-	void UISystem::RenderPanel(const std::string & panelID)
-	{
-		m_panels[panelID]->Render();
 	}
 }

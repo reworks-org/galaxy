@@ -21,7 +21,7 @@ namespace re
 	UILabel::UILabel(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
+		lua.script(Locator::Retrieve<VFS>()->ToString(script));
 
 		sol::table label = lua.get<sol::table>("UILabel");
 
@@ -103,7 +103,7 @@ namespace re
 		m_finalPosX = m_xpos + m_offsetX;
 		m_finalPosY = m_ypos + m_offsetY;
 
-		m_text.setPosition(m_finalPosX, m_finalPosY);
+		m_text.setPosition((float)m_finalPosX, (float)m_finalPosY);
 	}
 
 	void UILabel::Event()

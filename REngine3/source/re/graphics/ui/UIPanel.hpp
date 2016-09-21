@@ -20,6 +20,8 @@
 
 namespace re
 {
+	class Window;
+
 	class UIPanel
 	{
 	public:
@@ -85,7 +87,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Draw everything to the screen.
 		*/
-		void Render();
+		void Render(re::Window* window);
 	
 		/*
 		* IMPORTS: id - the id of the component.
