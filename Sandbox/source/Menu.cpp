@@ -53,7 +53,7 @@ bool Menu::Event(sf::Event & e)
 {
 	m_world->GetSystem<UISystem>()->Event();
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || e.type == sf::Event::Closed)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		m_window->close();
 	}

@@ -55,10 +55,7 @@ namespace re
 			{
 				timeSinceLastUpdate -= TimePerFrame;
 
-				while (m_window.pollEvent(m_window.m_event))
-				{
-					m_world.GetSystem<StateSystem>()->Event(m_window.m_event);
-				}
+				m_world.GetSystem<StateSystem>()->Event(m_window.m_event);
 				m_world.GetSystem<StateSystem>()->Update(TimePerFrame);
 
 				updates++;
