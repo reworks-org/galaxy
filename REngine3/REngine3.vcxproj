@@ -23,6 +23,7 @@
     <ClCompile Include="source\re\audio\Music.cpp" />
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\component\AnimatedSpriteComponent.cpp" />
+    <ClCompile Include="source\re\component\EventComponent.cpp" />
     <ClCompile Include="source\re\component\MusicComponent.cpp" />
     <ClCompile Include="source\re\component\SoundComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
@@ -99,6 +100,7 @@
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\component\AnimatedSpriteComponent.hpp" />
     <ClInclude Include="source\re\component\Component.hpp" />
+    <ClInclude Include="source\re\component\EventComponent.hpp" />
     <ClInclude Include="source\re\component\MusicComponent.hpp" />
     <ClInclude Include="source\re\component\SoundComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />

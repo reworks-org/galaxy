@@ -9,6 +9,7 @@
 #include "re/utils/Log.hpp"
 #include "re/app/Application.hpp"
 
+#include "re/systems/EventSystem.hpp"
 #include "re/systems/RenderSystem.hpp"
 #include "re/graphics/ui/UISystem.hpp"
 #include "re/systems/state/StateSystem.hpp"
@@ -60,6 +61,7 @@ public:
 		m_world.AddSystem<StateSystem>(std::make_unique<StateSystem>());
 		m_world.AddSystem<RenderSystem>(std::make_unique<RenderSystem>(2));
 		m_world.AddSystem<UISystem>(std::make_unique<UISystem>());
+		m_world.AddSystem<EventSystem>(std::make_unique<EventSystem>());
 
 		// create states
 		m_world.GetSystem<StateSystem>()->RegisterState<Menu>(StateID::menu);

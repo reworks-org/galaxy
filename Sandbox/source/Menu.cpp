@@ -6,21 +6,26 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "Menu.hpp"
+#include <iostream>
 
 #include <SFML/Window/Event.hpp>
 
+#include "re/events/Event.hpp"
 #include "re/entity/World.hpp"
 #include "re/entity/Entity.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/systems/RenderSystem.hpp"
-#include "re/services/ServiceLocator.hpp"
-#include "re/systems/state/StateIdentifiers.hpp"
 #include "re/services/Config.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/systems/EventSystem.hpp"
+#include "re/systems/RenderSystem.hpp"
+#include "re/services/ServiceLocator.hpp"
+#include "re/component/EventComponent.hpp"
+#include "re/systems/state/StateIdentifiers.hpp"
 
-#include "re/graphics/ui/UISystem.hpp"
 #include "re/graphics/ui/UILabel.hpp"
+#include "re/graphics/ui/UISystem.hpp"
+
+#include "Menu.hpp"
 
 using namespace re;
 
@@ -43,6 +48,13 @@ Menu::Menu()
 	m_world->GetSystem<UISystem>()->GetPanel("menupanel")->SetComponentOffsets();
 
 	m_world->GetEntity("person")->Get<AnimatedSpriteComponent>()->Play();
+
+	m_world->GetEntity("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, []
+	{
+		std::cout << "Event processed!" << std::endl;
+	});
+
+	m_world->GetSystem<EventSystem>()->Subscribe(m_world->GetEntity("person"), Event::MOUSE_PRESSED);
 }
 
 Menu::~Menu()
@@ -56,6 +68,11 @@ bool Menu::Event(sf::Event & e)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		m_window->close();
+	}
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	{
+		m_world->GetSystem<EventSystem>()->Dispatch(Event::MOUSE_PRESSED);
 	}
 
 	return true;

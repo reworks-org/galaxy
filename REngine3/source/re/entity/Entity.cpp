@@ -13,6 +13,7 @@
 #include "re/component/TextComponent.hpp"
 #include "re/component/SoundComponent.hpp"
 #include "re/component/MusicComponent.hpp"
+#include "re/component/EventComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/AnimatedSpriteComponent.hpp"
 
@@ -58,6 +59,10 @@ namespace re
 			else if (it.first == "SoundComponent")
 			{
 				Create<SoundComponent>(std::make_shared<SoundComponent>());
+			}
+			else if (it.first == "EventComponent")
+			{
+				Create<EventComponent>(std::make_shared<EventComponent>());
 			}
 		}
 	}
