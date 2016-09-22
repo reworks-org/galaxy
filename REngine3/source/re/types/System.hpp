@@ -21,9 +21,9 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Abstract virtual destructor for engine systems.
+		* PURPOSE: Abstract virtual destructor for systems.
 		*/
-		virtual inline ~System() {}
+		virtual ~System() {}
 
 	protected:
 		std::vector<std::shared_ptr<Entity>> m_attachedEntitys;

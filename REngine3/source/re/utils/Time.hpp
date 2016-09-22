@@ -14,7 +14,7 @@
 #include <string>
 #include <algorithm>
 
-#include "re/Types.hpp"
+#include "re/types/Types.hpp"
 
 namespace re
 {

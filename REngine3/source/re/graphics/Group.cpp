@@ -18,33 +18,32 @@ namespace re
 		m_drawable.clear();
 	}
 
-	void Group::AddDrawable(std::shared_ptr<TextComponent> tc)
+	void Group::AddDrawable(std::shared_ptr<sf::Drawable> drawable)
 	{
-		m_drawable.push_back(tc);
+		m_drawable.push_back(drawable);
 	}
 
-	void Group::AddDrawable(std::shared_ptr<SpriteComponent> sc)
+	void Group::AddAnimated(std::shared_ptr<Animated> animated)
 	{
-		m_drawable.push_back(sc);
-	}
-
-	void Group::AddDrawable(std::shared_ptr<AnimatedSpriteComponent> ac)
-	{
-		m_drawable.push_back(ac);
-		m_animated.push_back(ac);
+		m_animated.push_back(animated);
 	}
 
 	void Group::Update(sf::Time dt)
 	{
 		for (auto& v : m_animated)
 		{
-			v->update(dt);
+			v->Update(dt);
 		}
 	}
 
 	void Group::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		for (auto& v : m_drawable)
+		{
+			target.draw(*v.get(), states);
+		}
+
+		for (auto& v : m_animated)
 		{
 			target.draw(*v.get(), states);
 		}

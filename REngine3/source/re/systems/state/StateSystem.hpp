@@ -19,7 +19,7 @@
 
 #include <SFML/System/Time.hpp>
 
-#include "re/systems/System.hpp"
+#include "re/types/System.hpp"
 #include "re/systems/state/State.hpp"
 #include "re/systems/state/StateIdentifiers.hpp"
 

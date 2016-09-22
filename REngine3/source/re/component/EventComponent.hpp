@@ -9,7 +9,7 @@
 #ifndef RENGINE3_EVENTCOMPONENT_HPP_
 #define RENGINE3_EVENTCOMPONENT_HPP_
 
-#include "re/component/Component.hpp"
+#include "re/types/Component.hpp"
 
 namespace re
 {
@@ -54,6 +54,3 @@ namespace re
 }
 
 #endif
-
-
-// CREATE A WAY TO "ACTIVATE" AND "DEACTIVATE" ENTITYS IN THE WORLD!!!!!

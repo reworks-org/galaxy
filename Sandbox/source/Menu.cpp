@@ -10,7 +10,7 @@
 
 #include <SFML/Window/Event.hpp>
 
-#include "re/events/Event.hpp"
+#include "re/types/Event.hpp"
 #include "re/entity/World.hpp"
 #include "re/entity/Entity.hpp"
 #include "re/graphics/Window.hpp"

@@ -9,8 +9,8 @@
 #ifndef RENGINE3_RENDERSYSTEM_HPP_
 #define RENGINE3_RENDERSYSTEM_HPP_
 
+#include "re/types/System.hpp"
 #include "re/graphics/Group.hpp"
-#include "re/systems/System.hpp"
 
 namespace re
 {
@@ -34,12 +34,26 @@ namespace re
 		~RenderSystem() override;
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: world - the World* object.
 		* EXPORTS: none
 		* PURPOSE: Submit all entitys to the system.
 		*/
 		void Submit(re::World* world);
 		
+		/*
+		* IMPORTS: group and drawable object
+		* EXPORTS: none
+		* PURPOSE: Submit an entity with a custom drawable component.
+		*/
+		void Submit(unsigned long group, std::shared_ptr<sf::Drawable> drawable);
+
+		/*
+		* IMPORTS: group and animated object
+		* EXPORTS: none
+		* PURPOSE: Submit an entity with a custom animated component.
+		*/
+		void Submit(unsigned long group, std::shared_ptr<Animated> animated);
+
 		/*
 		* IMPORTS: none
 		* EXPORTS: none

@@ -11,7 +11,7 @@
 
 #include <string>
 
-#include "re/services/Service.hpp"
+#include "re/types/Service.hpp"
 #include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re

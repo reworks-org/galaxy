@@ -11,7 +11,7 @@
 
 #include <string>
 
-#include "re/systems/System.hpp"
+#include "re/types/System.hpp"
 #include "re/graphics/ui/UIPanel.hpp"
 
 namespace re

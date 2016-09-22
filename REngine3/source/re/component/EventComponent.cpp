@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/events/Event.hpp"
+#include "re/types/Event.hpp"
 
 #include "EventComponent.hpp"
 

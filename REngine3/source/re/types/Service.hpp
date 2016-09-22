@@ -17,9 +17,9 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Abstract virtual destructor for engine services.
+		* PURPOSE: Abstract virtual destructor for services.
 		*/
-		virtual inline ~Service() {}
+		virtual ~Service() {}
 	};
 }
 

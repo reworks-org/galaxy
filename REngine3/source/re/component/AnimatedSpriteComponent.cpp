@@ -72,6 +72,43 @@ namespace re
 		m_activeAnimation = animation;
 	}
 
+	void AnimatedSpriteComponent::Update(sf::Time dt)
+	{
+		// from AnimatedSprite.hpp
+
+		// if not paused and we have a valid animation
+		if (!m_isPaused && m_animation)
+		{
+			// add delta time
+			m_currentTime += dt;
+
+			// if current time is bigger then the frame time advance one frame
+			if (m_currentTime >= m_frameTime)
+			{
+				// reset time, but keep the remainder
+				m_currentTime = sf::microseconds(m_currentTime.asMicroseconds() % m_frameTime.asMicroseconds());
+
+				// get next Frame index
+				if (m_currentFrame + 1 < m_animation->getSize())
+					m_currentFrame++;
+				else
+				{
+					// animation has ended
+					m_currentFrame = 0; // reset to start
+
+					if (!m_isLooped)
+					{
+						m_isPaused = true;
+					}
+
+				}
+
+				// set the current frame, not reseting the time
+				setFrame(m_currentFrame, false);
+			}
+		}
+	}
+
 	void AnimatedSpriteComponent::Play()
 	{
 		play(m_animations[m_activeAnimation]);
@@ -79,6 +116,7 @@ namespace re
 
 	void AnimatedSpriteComponent::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	{
+		// from AnimatedSprite.hpp
 		states.transform *= getTransform();
 		states.texture = m_texture;
 		target.draw(m_vertices, 4, sf::Quads, states);

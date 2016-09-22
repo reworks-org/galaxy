@@ -36,21 +36,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a textocomponent to the group.
 		*/
-		void AddDrawable(std::shared_ptr<TextComponent> tc);
+		void AddDrawable(std::shared_ptr<sf::Drawable> drawable);
 
 		/*
-		* IMPORTS: SpriteComponent
+		* IMPORTS: animated object
 		* EXPORTS: none
-		* PURPOSE: Add a textocomponent to the group.
+		* PURPOSE: Add an animated object to the group.
 		*/
-		void AddDrawable(std::shared_ptr<SpriteComponent> sc);
-
-		/*
-		* IMPORTS: AnimatedSpriteComponent
-		* EXPORTS: none
-		* PURPOSE: Add a AnimatedSpriteComponent to the group.
-		*/
-		void AddDrawable(std::shared_ptr<AnimatedSpriteComponent> ac);
+		void AddAnimated(std::shared_ptr<Animated> animated);
 
 		/*
 		* IMPORTS: none
@@ -68,7 +61,7 @@ namespace re
 
 	private:
 		std::vector<std::shared_ptr<sf::Drawable>> m_drawable;
-		std::vector<std::shared_ptr<AnimatedSpriteComponent>> m_animated;
+		std::vector<std::shared_ptr<Animated>> m_animated;
 	};
 }
 

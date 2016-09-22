@@ -12,7 +12,7 @@
 #include <unordered_map>
 
 #include "re/audio/Music.hpp"
-#include "re/component/Component.hpp"
+#include "re/types/Component.hpp"
 
 namespace re
 {

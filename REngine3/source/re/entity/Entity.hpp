@@ -13,7 +13,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "re/component/Component.hpp"
+#include "re/types/Component.hpp"
 
 namespace re
 {

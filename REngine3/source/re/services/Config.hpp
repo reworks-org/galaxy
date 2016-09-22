@@ -11,8 +11,8 @@
 
 #include <string>
 
+#include "re/types/Service.hpp"
 #include "re/deps/sol2/sol.hpp"
-#include "re/services/Service.hpp"
 
 namespace re
 {

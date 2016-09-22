@@ -9,15 +9,16 @@
 #ifndef RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 #define RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 
+#include "re/types/Animated.hpp"
+#include "re/types/Component.hpp"
 #include "re/graphics/Animation.hpp"
-#include "re/component/Component.hpp"
 #include "re/graphics/AnimatedSprite.hpp"
 
 #include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
-	class AnimatedSpriteComponent : public Component, public AnimatedSprite
+	class AnimatedSpriteComponent : public Component, public AnimatedSprite, public Animated
 	{
 	public:
 		/*
@@ -41,6 +42,13 @@ namespace re
 		*/
 		void SetActiveAnimation(const std::string& animation);
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Update the animation.
+		*/
+		void Update(sf::Time dt) override;
+		
 		/*
 		* IMPORTS: none
 		* EXPORTS: none

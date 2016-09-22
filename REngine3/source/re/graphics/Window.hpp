@@ -12,7 +12,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "re/services/Service.hpp"
+#include "re/types/Service.hpp"
 #include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re

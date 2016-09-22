@@ -19,9 +19,9 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Abstract virtual destructor for engine systems.
+		* PURPOSE: Abstract virtual destructor for components.
 		*/
-		virtual inline ~Component() {}
+		virtual ~Component() {}
 	};
 }
 

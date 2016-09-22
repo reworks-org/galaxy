@@ -9,8 +9,8 @@
 #ifndef RENGINE3_EVENTSYSTEM_HPP_
 #define RENGINE3_EVENTSYSTEM_HPP_
 
-#include "re/events/Event.hpp"
-#include "re/systems/System.hpp"
+#include "re/types/Event.hpp"
+#include "re/types/System.hpp"
 
 namespace re
 {

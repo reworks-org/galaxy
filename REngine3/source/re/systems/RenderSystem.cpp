@@ -44,10 +44,20 @@ namespace re
 
 			if (it.second->Has<AnimatedSpriteComponent>())
 			{
-				m_groups[it.second->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(it.second->Get<AnimatedSpriteComponent>());
+				m_groups[it.second->Get<AnimatedSpriteComponent>()->m_group].AddAnimated(it.second->Get<AnimatedSpriteComponent>());
 			}
 		}
-	} 
+	}
+
+	void RenderSystem::Submit(unsigned long group, std::shared_ptr<sf::Drawable> drawable)
+	{
+		m_groups[group].AddDrawable(drawable);
+	}
+
+	void RenderSystem::Submit(unsigned long group, std::shared_ptr<Animated> animated)
+	{
+		m_groups[group].AddAnimated(animated);
+	}
 
 	void RenderSystem::Update(sf::Time dt)
 	{

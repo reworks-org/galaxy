@@ -13,7 +13,7 @@
 #include <SFML/Graphics/Shader.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
-#include "re/component/Component.hpp"
+#include "re/types/Component.hpp"
 #include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re

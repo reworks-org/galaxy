@@ -12,9 +12,9 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include "re/types/System.hpp"
+#include "re/types/Service.hpp"
 #include "re/entity/Entity.hpp"
-#include "re/systems/System.hpp"
-#include "re/services/Service.hpp"
 
 namespace re
 {
