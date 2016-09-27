@@ -55,14 +55,14 @@ namespace re
 			{
 				timeSinceLastUpdate -= TimePerFrame;
 
-				m_world.GetSystem<StateSystem>()->Event(m_window.m_event);
-				m_world.GetSystem<StateSystem>()->Update(TimePerFrame);
+				m_world.Get<StateSystem>()->Event(m_window.m_event);
+				m_world.Get<StateSystem>()->Update(TimePerFrame);
 
 				updates++;
 				//delta--;
 			}
 			
-			m_world.GetSystem<StateSystem>()->Render();
+			m_world.Get<StateSystem>()->Render();
 			frames++;
 
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)

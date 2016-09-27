@@ -9,8 +9,7 @@
 #ifndef RENGINE3_SYSTEM_HPP_
 #define RENGINE3_SYSTEM_HPP_
 
-#include <vector>
-
+#include "re/types/Types.hpp"
 #include "re/entity/Entity.hpp"
 
 namespace re
@@ -21,12 +20,33 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Abstract virtual destructor for systems.
+		* PURPOSE: Virtual destructor for systems.
 		*/
-		virtual ~System() {}
+		virtual ~System();
+
+		/*
+		* IMPORTS: id of entity to remove
+		* EXPORTS: none
+		* PURPOSE: Remove an entitys components from the system.
+		*/
+		void RemoveEntity(sf::Uint64 e);
+
+		/*
+		* IMPORTS: id of entity to add and its component list.
+		* EXPORTS: none
+		* PURPOSE: Add an entitys components from the system.
+		*/
+		void AddEntity(Entity* e);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Get stored components.
+		*/
+		std::unordered_map<sf::Uint64, Entity*>& GetEntitys();
 
 	protected:
-		std::vector<std::shared_ptr<Entity>> m_attachedEntitys;
+		std::unordered_map<sf::Uint64, Entity*> m_entitys;
 	};
 }
 

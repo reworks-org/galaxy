@@ -11,12 +11,13 @@
 
 #include <memory>
 #include <typeindex>
-#include <unordered_map>
 
 #include "re/types/Component.hpp"
 
 namespace re
 {
+	class World;
+
 	class Entity
 	{
 	public:
@@ -25,7 +26,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Constructs the entity using data from the lua script provided.
 		*/
-		Entity(const std::string& script);
+		Entity(const std::string& script, sf::Uint64 id, World* world);
 
 		/*
 		* IMPORTS: none
@@ -33,22 +34,6 @@ namespace re
 		* PURPOSE: Cleanup the object when the program closes.
 		*/
 		~Entity();
-
-		/*
-		* IMPORTS: component - Takes a component of the type defined by the template. Use 'new' to create component of the correct type.
-		* EXPORTS: none
-		* PURPOSE: Create a specific component and cast down to store. Can only have one of each type.
-		*/
-		template<typename T>
-		void Create(std::shared_ptr<Component> component);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Deletes a component of a specific type. Use template to define which component.
-		*/
-		template<typename T>
-		void Delete();
 
 		/*
 		* IMPORTS: none
@@ -66,67 +51,19 @@ namespace re
 		template<typename T>
 		bool Has();
 
-		/*
-		* IMPORTS: std::string - the id.
-		* EXPORTS: none
-		* PURPOSE: Set the ID of the entity. Do NOT call this. This is handled for you!
-		*/
-		void SetID(const std::string& id);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: ID as a std::string
-		* PURPOSE: To retrieve the ID of the entity.
-		*/
-		std::string ID() const;
-
-	private:
-		std::string m_id;
-		std::unordered_map<std::type_index, std::shared_ptr<Component>> m_components;
-
 	public:
+		sf::Uint64 m_id;
+		World* m_world;
+		ComponentList* m_components;
+		std::vector<std::type_index> m_systemIds;
+
 		bool m_isDead = false;
 	};
 
 	template<typename T>
-	void Entity::Create(std::shared_ptr<Component> component)
-	{
-		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
-		{
-			RE_LOG(LogLevel::WARNING, "Tried to create a pre-existing component");
-		}
-		else
-		{
-			m_components[typeid(T)] = std::move(component);
-		}
-	}
-
-	template<typename T>
-	void Entity::Delete()
-	{
-		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
-		{
-			m_components.erase(typeid(T));
-		}
-		else
-		{
-			RE_LOG(LogLevel::WARNING, "Tried to remove a non-existant component");
-		}
-	}
-
-	template<typename T>
 	std::shared_ptr<T> Entity::Get()
 	{
-		auto it = m_components.find(std::type_index(typeid(T)));
-
-		if (it != m_components.end())
-		{
-			return std::dynamic_pointer_cast<T>(it->second);
-		}
-		else
-		{
-			return nullptr;
-		}
+		return std::dynamic_pointer_cast<T>(m_components.find(std::type_index(typeid(T)))->second);
 	}
 
 	template<typename T>

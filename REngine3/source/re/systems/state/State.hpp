@@ -26,6 +26,7 @@ namespace re
 	class World;
 	class Window;
 	class ConfigReader;
+	class EntityManager;
 }
 
 namespace re
@@ -90,6 +91,7 @@ namespace re
 		re::ConfigReader* m_config;
 		re::World* m_world;
 		re::VFS* m_vfs;
+		re::EntityManager* m_manager;
 	};
 }
 

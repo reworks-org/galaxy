@@ -142,7 +142,7 @@ namespace re
 	{
 		m_factory[stateID] = [this]()
 		{
-			return std::unique_ptr<State>(new T());
+			return std::make_unique<T>();
 		};
 	}
 }

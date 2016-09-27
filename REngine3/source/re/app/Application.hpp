@@ -9,10 +9,11 @@
 #ifndef RENGINE3_APPLICATION_HPP_
 #define RENGINE3_APPLICATION_HPP_
 
-#include "re/entity/World.hpp"
+#include "re/app/World.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/entity/EntityManager.hpp"
 
 namespace re
 {
@@ -52,6 +53,7 @@ namespace re
 		ConfigReader m_config;
 		World m_world;
 		Window m_window;
+		EntityManager m_manager;
 	};
 }
 

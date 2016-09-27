@@ -5,6 +5,10 @@ TODO List.
 - move Sound&Music components into their own system
 - make own tile engine over STP & Tiled?
 - change all systems to use a pointer to the entity MAP in world.hpp this is so the activated / deactivated works correctly!
+- collision
+- manage includes
+- fix states
+- change update loop to copy reference instead of object.
 
 v1.1:
 - Error Checking & Exceptions. 

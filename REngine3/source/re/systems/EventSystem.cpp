@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <SFML/System/Time.hpp>
+
 #include "re/component/EventComponent.hpp"
 
 #include "EventSystem.hpp"
@@ -14,8 +16,8 @@ namespace re
 {
 	EventSystem::~EventSystem()
 	{
-		m_attachedEntitys.clear();
 		m_listenerList.clear();
+		m_entitys.clear();
 	}
 
 	void EventSystem::Subscribe(std::shared_ptr<Entity> e, EventType type)

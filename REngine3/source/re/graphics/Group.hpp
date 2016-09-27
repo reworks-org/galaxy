@@ -60,8 +60,7 @@ namespace re
 		void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
 	private:
-		std::vector<std::shared_ptr<sf::Drawable>> m_drawable;
-		std::vector<std::shared_ptr<Animated>> m_animated;
+		std::vector<std::shared_ptr<Entity>> m_entitys;
 	};
 }
 

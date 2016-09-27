@@ -48,7 +48,14 @@ public:
 		m_versionMinor = m_config.Lookup<int>("versionMinor");
 		m_versionPatch = m_config.Lookup<int>("versionPatch");
 
-		m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
+		if (m_config.Lookup<int>("fullscreen"))
+		{
+			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle, sf::Style::Fullscreen);
+		}
+		else
+		{
+			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
+		}
 
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
 		RE_LOG(re::LogLevel::INFO, msg);
@@ -58,25 +65,26 @@ public:
 		m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
 
 		// create systems
-		m_world.AddSystem<StateSystem>(std::make_unique<StateSystem>());
-		m_world.AddSystem<RenderSystem>(std::make_unique<RenderSystem>(2));
-		m_world.AddSystem<UISystem>(std::make_unique<UISystem>());
-		m_world.AddSystem<EventSystem>(std::make_unique<EventSystem>());
+		m_world.AddSystem<StateSystem>(std::make_shared<StateSystem>());
+		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(2));
+		m_world.AddSystem<UISystem>(std::make_shared<UISystem>());
+		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
 
 		// create states
-		m_world.GetSystem<StateSystem>()->RegisterState<Menu>(StateID::menu);
-		m_world.GetSystem<StateSystem>()->RegisterState<Game>(StateID::game);
+		m_world.Get<StateSystem>()->RegisterState<Menu>(StateID::menu);
+		m_world.Get<StateSystem>()->RegisterState<Game>(StateID::game);
 
 		// provide services
 		Locator::Provide<World>(&m_world);
 		Locator::Provide<VFS>(&m_vfs);
 		Locator::Provide<ConfigReader>(&m_config);
 		Locator::Provide<Window>(&m_window);
+		Locator::Provide<EntityManager>(&m_manager);
 
 		// set icon
 		m_window.LoadIcon("icon.png");
 		
-		m_world.GetSystem<StateSystem>()->PushState(StateID::menu);
+		m_world.Get<StateSystem>()->PushState(StateID::menu);
 	}
 };
 

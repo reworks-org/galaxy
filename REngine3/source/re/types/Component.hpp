@@ -9,6 +9,8 @@
 #ifndef RENGINE3_COMPONENT_HPP_
 #define RENGINE3_COMPONENT_HPP_
 
+#include <typeindex>
+
 #include "re/deps/sol2/sol.hpp"
 
 namespace re
@@ -23,6 +25,8 @@ namespace re
 		*/
 		virtual ~Component() {}
 	};
+
+	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;
 }
 
 #endif

@@ -41,7 +41,7 @@ namespace re
 		* PURPOSE: To retrieve an engine service.
 		*/
 		template<typename T>
-		static T* Retrieve();
+		static T* Get();
 
 		/*
 		* IMPORTS: <T> - The type of object
@@ -73,7 +73,7 @@ namespace re
 	}
 
 	template<typename T>
-	T* Locator::Retrieve()
+	T* Locator::Get()
 	{
 		// Find type in the map.
 		auto it = m_services.find(std::type_index(typeid(T)));

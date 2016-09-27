@@ -41,7 +41,6 @@
     <ClCompile Include="source\re\deps\lua\lvm.c" />
     <ClCompile Include="source\re\deps\lua\lzio.c" />
     <ClCompile Include="source\re\utils\Random.cpp" />
-    <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\systems\state\StateSystem.cpp" />
     <ClCompile Include="source\re\systems\state\State.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
@@ -50,7 +49,6 @@
     <ClCompile Include="source\re\component\AnimatedSpriteComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
     <ClCompile Include="source\re\component\TextComponent.cpp" />
-    <ClCompile Include="source\re\entity\World.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
     <ClCompile Include="source\re\deps\STP\Core\Base64.cpp" />
     <ClCompile Include="source\re\deps\STP\Core\Image.cpp" />
@@ -75,6 +73,11 @@
     <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\component\EventComponent.cpp" />
+    <ClCompile Include="source\re\entity\Entity.cpp" />
+    <ClCompile Include="source\re\component\PositionComponent.cpp" />
+    <ClCompile Include="source\re\entity\EntityManager.cpp" />
+    <ClCompile Include="source\re\app\World.cpp" />
+    <ClCompile Include="source\re\types\System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\utils\Time.hpp" />
@@ -112,7 +115,6 @@
     <ClInclude Include="source\re\deps\lua\lvm.h" />
     <ClInclude Include="source\re\deps\lua\lzio.h" />
     <ClInclude Include="source\re\utils\Random.hpp" />
-    <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\systems\state\State.hpp" />
     <ClInclude Include="source\re\systems\state\StateSystem.hpp" />
     <ClInclude Include="source\re\systems\state\StateIdentifiers.hpp" />
@@ -122,7 +124,6 @@
     <ClInclude Include="source\re\component\AnimatedSpriteComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
     <ClInclude Include="source\re\component\TextComponent.hpp" />
-    <ClInclude Include="source\re\entity\World.hpp" />
     <ClInclude Include="source\re\deps\sol2\sol.hpp" />
     <ClInclude Include="source\re\services\vfs\sfmlphysfs.hpp" />
     <ClInclude Include="source\re\deps\STP\TMXLoader.hpp" />
@@ -151,11 +152,15 @@
     <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\component\EventComponent.hpp" />
-    <ClInclude Include="source\re\types\Types.hpp" />
-    <ClInclude Include="source\re\types\System.hpp" />
-    <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />
+    <ClInclude Include="source\re\types\Service.hpp" />
+    <ClInclude Include="source\re\types\Types.hpp" />
+    <ClInclude Include="source\re\component\PositionComponent.hpp" />
+    <ClInclude Include="source\re\entity\EntityManager.hpp" />
+    <ClInclude Include="source\re\app\World.hpp" />
+    <ClInclude Include="source\re\entity\Entity.hpp" />
+    <ClInclude Include="source\re\types\System.hpp" />
   </ItemGroup>
 </Project>

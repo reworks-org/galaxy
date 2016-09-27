@@ -6,79 +6,52 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <map>
+
 #include "re/deps/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "re/component/TextComponent.hpp"
-#include "re/component/SoundComponent.hpp"
-#include "re/component/MusicComponent.hpp"
-#include "re/component/EventComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
+#include "re/app/World.hpp"
 
-#include "Entity.hpp"
-
-#include <iostream>
+#include "EntityManager.hpp"
 
 namespace re
 {
-	Entity::Entity(const std::string & script)
+	Entity::Entity(const std::string& script, sf::Uint64 id, World* world)
 	{
+		m_world = world;
+		m_id = id;
+
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
-		lua.script(Locator::Retrieve<VFS>()->ToString(script));
+		lua.script(Locator::Get<VFS>()->ToString(script));
 
 		// Get a table with the components.
-		sol::table entityTable = lua.get<sol::table>("entity");
+		sol::table entity = lua.get<sol::table>("entity");
 
 		// Get key-value pairs from table
 		std::map<std::string, sol::table> m_keyValuePair;
-		entityTable.for_each([&](std::pair<sol::object, sol::object> pair) {
+		entity.for_each([&](std::pair<sol::object, sol::object> pair) {
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
+		ComponentList temp;
 		for (auto& it : m_keyValuePair)
 		{
-			if (it.first == "AnimatedSpriteComponent")
-			{
-				Create<AnimatedSpriteComponent>(std::make_shared<AnimatedSpriteComponent>(it.second));
-			}
-			else if (it.first == "SpriteComponent")
-			{
-				Create<SpriteComponent>(std::make_shared<SpriteComponent>(it.second));
-			}
-			else if (it.first == "TextComponent")
-			{
-				Create<TextComponent>(std::make_shared<TextComponent>(it.second));
-			}
-			else if (it.first == "MusicComponent")
-			{
-				Create<MusicComponent>(std::make_shared<MusicComponent>());
-			}
-			else if (it.first == "SoundComponent")
-			{
-				Create<SoundComponent>(std::make_shared<SoundComponent>());
-			}
-			else if (it.first == "EventComponent")
-			{
-				Create<EventComponent>(std::make_shared<EventComponent>());
-			}
+			auto c = m_world->GetComponentFactory()->find(it.first);
+			temp.emplace(c->second.first, c->second.second());
 		}
+
+		m_world->GetComponentList()->emplace(m_id, temp);
+		m_components = &m_world->GetComponentList()->at(m_id);
+		
+		Locator::Get<EntityManager>()->Add(entity.get<std::string>("name"), this);
 	}
 
 	Entity::~Entity()
 	{
-		m_components.clear();
-	}
-
-	void Entity::SetID(const std::string & id)
-	{
-		m_id = id;
-	}
-
-	std::string Entity::ID() const
-	{
-		return m_id;
+		m_systemIds.clear();
+		m_components->clear();
 	}
 }
