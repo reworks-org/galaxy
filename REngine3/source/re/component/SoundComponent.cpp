@@ -14,10 +14,6 @@
 
 namespace re
 {
-	SoundComponent::SoundComponent()
-	{
-	}
-
 	SoundComponent::~SoundComponent()
 	{
 	}
@@ -25,7 +21,7 @@ namespace re
 	void SoundComponent::AddSound(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Retrieve<VFS>()->ToString(script));
+		lua.script(Locator::Get<VFS>()->ToString(script));
 
 		sol::table sound = lua.get<sol::table>("sound");
 

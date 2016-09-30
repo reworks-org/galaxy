@@ -9,26 +9,22 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
-#include "re/types/Types.hpp"
+#include <utility>
+#include <functional>
+
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
-#include "re/entity/Entity.hpp"
+
+namespace sf
+{
+	class Time;
+}
 
 namespace re
 {
-	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>> ComponentFactory;
-	typedef std::unordered_map<std::type_index, std::shared_ptr<System>> SystemList;
-
 	class World : public Service
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Construct world.
-		*/
-		World();
-
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -59,21 +55,6 @@ namespace re
 		std::unordered_map<sf::Uint64, ComponentList>* GetComponentList();
 
 		/*
-		* IMPORTS: none
-		* EXPORTS: pointer to component list
-		* PURPOSE: get component factory.
-		*/
-		ComponentFactory* GetComponentFactory();
-
-		/*
-		* IMPORTS: std::string of the name of the component.
-		* EXPORTS: none
-		* PURPOSE: To create a custom component the engine doesn't have.
-		*/
-		template<typename T>
-		void AddCustomComponent(const std::string& name);
-
-		/*
 		* IMPORTS: s - The system to create. This uses polymorphism. Define the type of system being created with the template.
 		REMEMBER TO USE 'new' and the correct system type!
 		* EXPORTS: none
@@ -95,31 +76,19 @@ namespace re
 		std::vector<Entity> m_dead;
 
 		std::unordered_map<sf::Uint64, ComponentList> m_entityComponentList;
-		SystemList m_systems;
-		ComponentFactory m_componentFactory;
+		std::unordered_map<std::type_index, std::shared_ptr<System>> m_systems;
 	};
 
 	template<typename T>
-	void World::AddCustomComponent(const std::string& name)
-	{
-		m_componentFactory[name] = std::make_pair(typeid(T),
-			[this]()
-			{
-				return std::make_shared<T>();
-			};
-		);	
-	}
-	
-	template<typename T>
 	void World::AddSystem(std::shared_ptr<System> system)
 	{
-		if (m_systemDatabase.find(std::type_index(typeid(T))) != m_systemDatabase.end())
+		if (m_systems.find(std::type_index(typeid(T))) != m_systems.end())
 		{
 			RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system");
 		}
 		else
 		{
-			m_systemDatabase[typeid(T)] = system;
+			m_systems[typeid(T)] = system;
 		}
 	}
 

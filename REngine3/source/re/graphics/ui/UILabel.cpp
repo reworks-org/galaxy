@@ -21,7 +21,7 @@ namespace re
 	UILabel::UILabel(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Retrieve<VFS>()->ToString(script));
+		lua.script(Locator::Get<VFS>()->ToString(script));
 
 		sol::table label = lua.get<sol::table>("UILabel");
 

@@ -14,17 +14,7 @@ namespace re
 	{
 	}
 
-	void System::RemoveEntity(sf::Uint64 e)
-	{
-		m_entitys.erase(e);
-	}
-
-	void System::AddEntity(Entity* e)
-	{
-		m_entitys.emplace(e->m_id, e);
-	}
-
-	std::unordered_map<sf::Uint64, Entity*>& System::GetEntitys()
+	std::map<sf::Uint64, Entity*>& System::GetEntitys()
 	{
 		return m_entitys;
 	}

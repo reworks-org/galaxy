@@ -20,8 +20,13 @@ namespace re
 		m_entitys.emplace(name, e);
 	}
 
-	Entity* EntityManager::Get(const std::string& name)
+	Entity* EntityManager::At(const std::string& name)
 	{
 		return m_entitys[name];
+	}
+
+	std::unordered_map<std::string, Entity*>& EntityManager::GetMap()
+	{
+		return m_entitys;
 	}
 }

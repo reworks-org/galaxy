@@ -43,7 +43,7 @@ public:
 		m_config.Parse("bin/Release/config.lua");
 
 		m_appTitle = m_config.Lookup<std::string>("appTitle");
-		m_targetUPS = m_config.Lookup<double>("ups");
+		m_targetUPS = m_config.Lookup<float>("ups");
 		m_versionMajor = m_config.Lookup<int>("versionMajor");
 		m_versionMinor = m_config.Lookup<int>("versionMinor");
 		m_versionPatch = m_config.Lookup<int>("versionPatch");
@@ -66,7 +66,7 @@ public:
 
 		// create systems
 		m_world.AddSystem<StateSystem>(std::make_shared<StateSystem>());
-		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(2));
+		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.Lookup<int>("renderingLayers")));
 		m_world.AddSystem<UISystem>(std::make_shared<UISystem>());
 		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
 

@@ -13,7 +13,7 @@
 
 namespace re
 {
-	TextComponent::TextComponent(sol::table& table)
+	TextComponent::TextComponent(sol::table & table)
 	{
 		m_group = table.get<unsigned long>("group");
 
@@ -23,7 +23,7 @@ namespace re
 		setCharacterSize(table.get<int>("size"));
 
 		sol::table colour = table.get<sol::table>("colour");
-		
+
 		sf::Color col;
 		col.r = colour.get<sf::Uint8>("r");
 		col.g = colour.get<sf::Uint8>("g");
@@ -64,7 +64,7 @@ namespace re
 			setStyle(sf::Text::StrikeThrough);
 			break;
 		}
-		
+
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 	}
 

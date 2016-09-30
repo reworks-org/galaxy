@@ -43,7 +43,7 @@ namespace re
 
 	protected:
 		std::string m_appTitle = "REngine3";
-		double m_targetUPS = 60.0;
+		float m_targetUPS = 60.f;
 
 		int m_versionMajor = 1;
 		int m_versionMinor = 0;

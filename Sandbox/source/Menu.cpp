@@ -43,21 +43,17 @@ Menu::Menu()
 
 	m_world->Register("menuEntitys.lua");
 
-	m_world->Get<RenderSystem>()->Submit(m_world);
+	m_world->Get<RenderSystem>()->AutoSubmit();
 
 	m_world->Get<UISystem>()->AddPanel("menupanel", std::make_shared<UIPanel>("menupanel.lua"));
 	m_world->Get<UISystem>()->GetPanel("menupanel")->Add("label", std::make_shared<UILabel>("menulabel.lua"));
 
 	m_world->Get<UISystem>()->GetPanel("menupanel")->SetComponentOffsets();
 
-	m_manager->GetEntity("person")->Get<AnimatedSpriteComponent>()->Play();
+	m_manager->At("person")->Get<AnimatedSpriteComponent>()->Play();
+	m_manager->At("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] {std::cout << "Event processed!" << std::endl; });
 
-	m_world->GetEntity("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, []
-	{
-		std::cout << "Event processed!" << std::endl;
-	});
-
-	m_world->Get<EventSystem>()->Subscribe(m_world->GetEntity("person"), Event::MOUSE_PRESSED);
+	m_world->Get<EventSystem>()->AutoSubmit();
 }
 
 Menu::~Menu()
@@ -90,10 +86,9 @@ bool Menu::Event(sf::Event & e)
 
 bool Menu::Update(sf::Time dt)
 {
-
 	if (dragging)
 	{
-		m_world->GetEntity("person")->Get<AnimatedSpriteComponent>()->setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+		m_manager->At("person")->Get<AnimatedSpriteComponent>()->setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
 	}
 
 	m_world->Get<RenderSystem>()->Update(dt);

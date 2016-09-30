@@ -16,36 +16,43 @@ namespace re
 	Group::~Group()
 	{
 		m_drawable.clear();
+		m_animated.clear();
 	}
 
-	void Group::AddDrawable(std::shared_ptr<sf::Drawable> drawable)
+	void Group::AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable)
 	{
-		m_drawable.push_back(drawable);
+		m_drawable.emplace(id, drawable);
 	}
 
-	void Group::AddAnimated(std::shared_ptr<Animated> animated)
+	void Group::AddAnimated(sf::Uint64 id, std::shared_ptr<Animated> animated)
 	{
-		m_animated.push_back(animated);
+		m_drawable.emplace(id, animated);
+		m_animated.emplace(id, animated);
 	}
 
 	void Group::Update(sf::Time dt)
 	{
-		for (auto& v : m_animated)
+		for (auto& it : m_animated)
 		{
-			v->Update(dt);
+			it.second->Update(dt);
 		}
 	}
 
 	void Group::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		for (auto& v : m_drawable)
+		for (auto& it : m_drawable)
 		{
-			target.draw(*v.get(), states);
+			target.draw(*(it.second.get()), states);
 		}
+	}
 
-		for (auto& v : m_animated)
-		{
-			target.draw(*v.get(), states);
-		}
+	std::map<sf::Uint64, std::shared_ptr<Animated>>& Group::GetAnimatedMap()
+	{
+		return m_animated;
+	}
+
+	std::map<sf::Uint64, std::shared_ptr<sf::Drawable>>& Group::GetDrawableMap()
+	{
+		return m_drawable;
 	}
 }

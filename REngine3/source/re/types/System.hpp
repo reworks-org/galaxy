@@ -9,6 +9,8 @@
 #ifndef RENGINE3_SYSTEM_HPP_
 #define RENGINE3_SYSTEM_HPP_
 
+#include <map>
+
 #include "re/types/Types.hpp"
 #include "re/entity/Entity.hpp"
 
@@ -29,24 +31,24 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/
-		void RemoveEntity(sf::Uint64 e);
+		virtual void RemoveEntity(sf::Uint64 e) = 0;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
-		* PURPOSE: Add an entitys components from the system.
+		* PURPOSE: Add an entitys components from the system. YOU NEED to call entitys list of system ids and push back the type id of the system your adding the entity to.
 		*/
-		void AddEntity(Entity* e);
+		virtual void AddEntity(Entity* e) = 0;
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Get stored components.
 		*/
-		std::unordered_map<sf::Uint64, Entity*>& GetEntitys();
+		std::map<sf::Uint64, Entity*>& GetEntitys();
 
 	protected:
-		std::unordered_map<sf::Uint64, Entity*> m_entitys;
+		std::map<sf::Uint64, Entity*> m_entitys;
 	};
 }
 

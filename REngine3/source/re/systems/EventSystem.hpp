@@ -28,23 +28,34 @@ namespace re
 		* PURPOSE: Cleans up the events.
 		*/
 		~EventSystem() override;
+		
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Automatically adds entitys to the system.
+		*/
+		void AutoSubmit();
 
 		/*
-		* IMPORTS: entity and event type.
+		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
-		* PURPOSE: Subscribe an entity to a specific event.
+		* PURPOSE: Add an entitys components from the system.
 		*/
-		void Subscribe(std::shared_ptr<Entity> e, EventType type);
-		
+		void AddEntity(Entity* e) override;
+
+		/*
+		* IMPORTS: id of entity to remove
+		* EXPORTS: none
+		* PURPOSE: Remove an entitys components from the system.
+		*/
+		void RemoveEntity(sf::Uint64 e) override;
+
 		/*
 		* IMPORTS: Event to dispatch
 		* EXPORTS: none
 		* PURPOSE: Dispatch an event to subscribed entitys.
 		*/
-		void Dispatch(EventType t);
-
-	private:
-		std::unordered_map<EventType, std::vector<std::shared_ptr<Entity>>> m_listenerList;
+		void Dispatch(EventType type);
 	};
 }
 

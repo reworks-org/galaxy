@@ -12,6 +12,14 @@
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
+#include "re/component/TextComponent.hpp"
+#include "re/component/SoundComponent.hpp"
+#include "re/component/MusicComponent.hpp"
+#include "re/component/EventComponent.hpp"
+#include "re/component/SpriteComponent.hpp"
+#include "re/component/PositionComponent.hpp"
+#include "re/component/AnimatedSpriteComponent.hpp"
+#include "re/systems/RenderSystem.hpp"
 #include "re/app/World.hpp"
 
 #include "EntityManager.hpp"
@@ -39,8 +47,34 @@ namespace re
 		ComponentList temp;
 		for (auto& it : m_keyValuePair)
 		{
-			auto c = m_world->GetComponentFactory()->find(it.first);
-			temp.emplace(c->second.first, c->second.second());
+			if (it.first == "AnimatedSpriteComponent")
+			{
+				temp.emplace(typeid(AnimatedSpriteComponent), std::make_shared<AnimatedSpriteComponent>(it.second));
+			}
+			else if (it.first == "SpriteComponent")
+			{
+				temp.emplace(typeid(SpriteComponent), std::make_shared<SpriteComponent>(it.second));
+			}
+			else if (it.first == "TextComponent")
+			{
+				temp.emplace(typeid(TextComponent), std::make_shared<TextComponent>(it.second));
+			}
+			else if (it.first == "MusicComponent")
+			{
+				temp.emplace(typeid(MusicComponent), std::make_shared<MusicComponent>());
+			}
+			else if (it.first == "SoundComponent")
+			{
+				temp.emplace(typeid(SoundComponent), std::make_shared<SoundComponent>());
+			}
+			else if (it.first == "EventComponent")
+			{
+				temp.emplace(typeid(EventComponent), std::make_shared<EventComponent>());
+			}
+			else if (it.first == "PositionComponent")
+			{
+				temp.emplace(typeid(PositionComponent), std::make_shared<PositionComponent>(it.second));
+			}
 		}
 
 		m_world->GetComponentList()->emplace(m_id, temp);

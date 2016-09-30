@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/app/World.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/systems/state/StateSystem.hpp"
-#include "re/entity/World.hpp"
 
 namespace re
 {
@@ -18,16 +18,16 @@ namespace re
 
 	void State::RequestStackPush(int stateID)
 	{
-		Locator::Retrieve<World>()->GetSystem<StateSystem>()->PushState(stateID);
+		Locator::Get<World>()->Get<StateSystem>()->PushState(stateID);
 	}
 
 	void State::RequestStackPop()
 	{
-		Locator::Retrieve<World>()->GetSystem<StateSystem>()->PopState();
+		Locator::Get<World>()->Get<StateSystem>()->PopState();
 	}
 
 	void State::RequestStateClear()
 	{
-		Locator::Retrieve<World>()->GetSystem<StateSystem>()->ClearStates();
+		Locator::Get<World>()->Get<StateSystem>()->ClearStates();
 	}
 }

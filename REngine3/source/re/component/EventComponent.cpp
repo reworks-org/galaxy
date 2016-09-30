@@ -12,10 +12,6 @@
 
 namespace re
 {
-	EventComponent::EventComponent()
-	{
-	}
-
 	EventComponent::~EventComponent()
 	{
 		m_events.clear();
@@ -32,6 +28,19 @@ namespace re
 		{
 			m_events.emplace(type, std::vector<std::function<void(void)>>());
 			m_events[type].push_back(func);
+		}
+	}
+
+	bool EventComponent::IsSubscribed(EventType type)
+	{
+		auto found = m_events.find(type);
+		if (found != m_events.end())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 

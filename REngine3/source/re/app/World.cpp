@@ -8,38 +8,22 @@
 
 #include <map>
 
+#include <SFML/System/Time.hpp>
+
 #include "re/deps/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "re/component/TextComponent.hpp"
-#include "re/component/SoundComponent.hpp"
-#include "re/component/MusicComponent.hpp"
-#include "re/component/EventComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
-#include "re/systems/RenderSystem.hpp"
 #include "World.hpp"
 
 namespace re
 {
-	World::World()
-	{
-		AddCustomComponent<TextComponent>("TextComponent");
-		AddCustomComponent<SoundComponent>("SoundComponent");
-		AddCustomComponent<MusicComponent>("MusicComponent");
-		AddCustomComponent<EventComponent>("EventComponent");
-		AddCustomComponent<SpriteComponent>("SpriteComponent");
-		AddCustomComponent<AnimatedSpriteComponent>("AnimatedSpriteComponent");
-	}
-
 	World::~World()
 	{
 		m_dead.clear();
 		m_alive.clear();
 		m_systems.clear();
 		m_entityComponentList.clear();
-		m_componentFactory.clear();
 	}
 
 	void World::Register(const std::string& entitysScript)
@@ -55,8 +39,8 @@ namespace re
 
 		int max = lua.get<int>("numEntitys");
 
-		m_alive.reserve(max);
-		m_dead.reserve(max);
+		m_alive.reserve(max + 1);
+		m_dead.reserve(max + 1);
 
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -77,7 +61,6 @@ namespace re
 	{
 		for (auto& v : m_alive)
 		{
-			// TODO: Change this to copy a reference over copying the object.
 			if (v.m_isDead)
 			{
 				for (auto s : v.m_systemIds)
@@ -85,8 +68,8 @@ namespace re
 					m_systems[s]->RemoveEntity(v.m_id);
 				}
 
-				m_dead.push_back(v);
-				m_alive.erase(std::find(m_alive.begin(), m_alive.end(), v));
+				m_dead.insert(m_dead.begin() + v.m_id, v);
+				m_alive.erase(m_alive.begin() + v.m_id);
 			}
 		}
 
@@ -99,8 +82,8 @@ namespace re
 					m_systems[s]->AddEntity(&v);
 				}
 
-				m_alive.push_back(v);
-				m_dead.erase(std::find(m_dead.begin(), m_dead.end(), v));
+				m_alive.insert(m_alive.begin() + v.m_id, v);
+				m_dead.erase(m_dead.begin() + v.m_id);
 			}
 		}
 	}
@@ -108,10 +91,5 @@ namespace re
 	std::unordered_map<sf::Uint64, ComponentList>* World::GetComponentList()
 	{
 		return &m_entityComponentList;
-	}
-
-	ComponentFactory* World::GetComponentFactory()
-	{
-		return &m_componentFactory;
 	}
 }

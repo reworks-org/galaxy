@@ -14,10 +14,6 @@
 
 namespace re
 {
-	MusicComponent::MusicComponent()
-	{
-	}
-
 	MusicComponent::~MusicComponent()
 	{
 	}
@@ -25,7 +21,7 @@ namespace re
 	void MusicComponent::AddMusic(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Retrieve<VFS>()->ToString(script));
+		lua.script(Locator::Get<VFS>()->ToString(script));
 
 		sol::table music = lua.get<sol::table>("music");
 

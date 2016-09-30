@@ -22,13 +22,6 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: none yet.
-		*/
-		EventComponent();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
 		* PURPOSE: Clean up.
 		*/
 		~EventComponent() override;
@@ -39,6 +32,13 @@ namespace re
 		* PURPOSE: Submit a function to be called when an event is triggered.
 		*/
 		void SubmitOnEvent(EventType type, std::function<void(void)> func);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Check if the entity is subscribed to a particular event.
+		*/
+		bool IsSubscribed(EventType type);
 
 	private:
 		/*

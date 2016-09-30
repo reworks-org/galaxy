@@ -12,6 +12,7 @@
 #include <memory>
 #include <typeindex>
 
+#include "re/types/Types.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
@@ -21,6 +22,13 @@ namespace re
 	class Entity
 	{
 	public:
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Default constructor.
+		*/
+		Entity() {}
+
 		/*
 		* IMPORTS: script - The name of the script in the VFS that defines the entity.
 		* EXPORTS: none
@@ -53,23 +61,25 @@ namespace re
 
 	public:
 		sf::Uint64 m_id;
-		World* m_world;
 		ComponentList* m_components;
 		std::vector<std::type_index> m_systemIds;
 
 		bool m_isDead = false;
+		
+	private:
+		World* m_world;
 	};
 
 	template<typename T>
 	std::shared_ptr<T> Entity::Get()
 	{
-		return std::dynamic_pointer_cast<T>(m_components.find(std::type_index(typeid(T)))->second);
+		return std::dynamic_pointer_cast<T>(m_components->find(std::type_index(typeid(T)))->second);
 	}
 
 	template<typename T>
 	bool Entity::Has()
 	{
-		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
+		if (m_components->find(std::type_index(typeid(T))) != m_components->end())
 		{
 			return true;
 		}

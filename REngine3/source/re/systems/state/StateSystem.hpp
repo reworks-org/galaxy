@@ -122,6 +122,20 @@ namespace re
 		*/
 		void ApplyPendingChanges();
 
+		/*
+		* IMPORTS: id of entity to remove
+		* EXPORTS: none
+		* PURPOSE: Remove an entitys components from the system.
+		*/
+		void RemoveEntity(sf::Uint64 e) override {}
+
+		/*
+		* IMPORTS: id of entity to add and its component list.
+		* EXPORTS: none
+		* PURPOSE: Add an entitys components from the system. YOU NEED to call entitys list of system ids and push back the type id of the system your adding the entity to.
+		*/
+		void AddEntity(Entity* e) override {}
+
 	private:
 		struct PendingChange
 		{

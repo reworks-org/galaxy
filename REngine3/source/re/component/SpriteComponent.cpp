@@ -16,13 +16,13 @@
 
 namespace re
 {
-	SpriteComponent::SpriteComponent(sol::table& table)
+	SpriteComponent::SpriteComponent(sol::table & table)
 	{
-		setPosition({ table.get<float>("x"), table.get<float>("y")});
+		setPosition({ table.get<float>("x"), table.get<float>("y") });
 		m_group = table.get<unsigned long>("group");
 
 		LoadTexture(table.get<std::string>("texture"));
-		
+
 		LoadShader(table.get<std::string>("vert"), table.get<std::string>("frag"));
 	}
 

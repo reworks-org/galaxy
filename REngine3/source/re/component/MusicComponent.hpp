@@ -22,13 +22,6 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Set up the component.
-		*/
-		MusicComponent();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
 		* PURPOSE: Clean up component.
 		*/
 		~MusicComponent() override;

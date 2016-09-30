@@ -21,7 +21,7 @@ namespace re
 	UIPanel::UIPanel(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::Retrieve<VFS>()->ToString(script));
+		lua.script(Locator::Get<VFS>()->ToString(script));
 
 		sol::table panel = lua.get<sol::table>("UIPanel");
 		sol::table texCoords = panel.get<sol::table>("texCoords");

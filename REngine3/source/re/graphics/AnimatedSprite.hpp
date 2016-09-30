@@ -41,7 +41,6 @@ public:
     void setAnimation(const Animation& animation);
     void setFrameTime(sf::Time time);
     void play();
-    void play(const Animation& animation);
     void pause();
     void stop();
     void setLooped(bool looped);
@@ -55,6 +54,8 @@ public:
     void setFrame(std::size_t newFrame, bool resetTime = true);
 
 protected:
+	void play(const Animation& animation);
+
     const Animation* m_animation;
     sf::Time m_frameTime;
     sf::Time m_currentTime;

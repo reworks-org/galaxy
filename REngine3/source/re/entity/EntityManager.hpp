@@ -23,20 +23,27 @@ namespace re
 		* PURPOSE: Cleanup entitys.
 		*/
 		~EntityManager() override;
-		
+
 		/*
-		* IMPORTS: script - The name of the script in the VFS that defines the entity.
+		* IMPORTS: name and pointer to entity.
 		* EXPORTS: none
-		* PURPOSE: Constructs the entity using data from the lua script provided.
+		* PURPOSE: Add an entity to the map.
 		*/
 		void Add(const std::string& name, Entity* e);
-		
+
 		/*
-		* IMPORTS: script - The name of the script in the VFS that defines the entity.
+		* IMPORTS: name - name of the entity in the manager.
 		* EXPORTS: none
-		* PURPOSE: Constructs the entity using data from the lua script provided.
+		* PURPOSE: Retrieve an entity from the manager.
 		*/
-		Entity* Get(const std::string& name);
+		Entity* At(const std::string& name);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: reference to map of the entitys.
+		* PURPOSE: Get the map of the entitys.
+		*/
+		std::unordered_map<std::string, Entity*>& GetMap();
 
 	private:
 		std::unordered_map<std::string, Entity*> m_entitys;

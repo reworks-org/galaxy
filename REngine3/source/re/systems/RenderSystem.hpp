@@ -34,25 +34,25 @@ namespace re
 		~RenderSystem() override;
 
 		/*
-		* IMPORTS: world - the World* object.
+		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Submit all entitys to the system.
+		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void Submit(re::World* world);
-		
-		/*
-		* IMPORTS: group and drawable object
-		* EXPORTS: none
-		* PURPOSE: Submit an entity with a custom drawable component.
-		*/
-		void Submit(unsigned long group, std::shared_ptr<sf::Drawable> drawable);
+		void AutoSubmit();
 
 		/*
-		* IMPORTS: group and animated object
+		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
-		* PURPOSE: Submit an entity with a custom animated component.
+		* PURPOSE: Add an entitys components from the system.
 		*/
-		void Submit(unsigned long group, std::shared_ptr<Animated> animated);
+		void AddEntity(Entity* e) override;
+
+		/*
+		* IMPORTS: id of entity to remove
+		* EXPORTS: none
+		* PURPOSE: Remove an entitys components from the system.
+		*/
+		void RemoveEntity(sf::Uint64 e) override;
 
 		/*
 		* IMPORTS: none

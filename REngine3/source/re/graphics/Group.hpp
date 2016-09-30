@@ -36,14 +36,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a textocomponent to the group.
 		*/
-		void AddDrawable(std::shared_ptr<sf::Drawable> drawable);
+		void AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable);
 
 		/*
 		* IMPORTS: animated object
 		* EXPORTS: none
 		* PURPOSE: Add an animated object to the group.
 		*/
-		void AddAnimated(std::shared_ptr<Animated> animated);
+		void AddAnimated(sf::Uint64 id, std::shared_ptr<Animated> animated);
 
 		/*
 		* IMPORTS: none
@@ -51,7 +51,7 @@ namespace re
 		* PURPOSE: Updates components in group.
 		*/
 		void Update(sf::Time dt);
-
+		
 		/*
 		* IMPORTS: RenderTarget and RenderState
 		* EXPORTS: none
@@ -59,8 +59,23 @@ namespace re
 		*/
 		void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Get stored animated.
+		*/
+		std::map<sf::Uint64, std::shared_ptr<Animated>>& GetAnimatedMap();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Get stored drawables.
+		*/
+		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>>& GetDrawableMap();
+
 	private:
-		std::vector<std::shared_ptr<Entity>> m_entitys;
+		std::map<sf::Uint64, std::shared_ptr<Animated>> m_animated;
+		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>> m_drawable;
 	};
 }
 

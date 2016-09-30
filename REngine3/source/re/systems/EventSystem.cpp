@@ -6,8 +6,12 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <algorithm>
+
 #include <SFML/System/Time.hpp>
 
+#include "re/entity/EntityManager.hpp"
+#include "re/services/ServiceLocator.hpp"
 #include "re/component/EventComponent.hpp"
 
 #include "EventSystem.hpp"
@@ -16,33 +20,41 @@ namespace re
 {
 	EventSystem::~EventSystem()
 	{
-		m_listenerList.clear();
 		m_entitys.clear();
 	}
 
-	void EventSystem::Subscribe(std::shared_ptr<Entity> e, EventType type)
+	void EventSystem::AutoSubmit()
 	{
-		auto it = m_listenerList.find(type);
-		if (it != m_listenerList.end())
+		for (auto& it : Locator::Get<EntityManager>()->GetMap())
 		{
-			m_listenerList[type].push_back(e);
-		}
-		else
-		{
-			m_listenerList.emplace(type, std::vector<std::shared_ptr<Entity>>());
-			m_listenerList[type].push_back(e);
+			if (it.second->Has<EventComponent>())
+			{
+				AddEntity(it.second);
+			}
 		}
 	}
 
-	void EventSystem::Dispatch(EventType event)
+	void EventSystem::AddEntity(Entity* e)
 	{
-		auto it = m_listenerList.find(event);
+		e->m_systemIds.push_back(typeid(EventSystem));
+		m_entitys.emplace(e->m_id, e);
+	}
 
-		if (it != m_listenerList.end())
+	void EventSystem::RemoveEntity(sf::Uint64 e)
+	{
+		auto it = std::find(m_entitys[e]->m_systemIds.begin(), m_entitys[e]->m_systemIds.end(), typeid(EventSystem));
+		m_entitys[e]->m_systemIds.erase(it);
+		m_entitys.erase(e);
+	}
+
+	void EventSystem::Dispatch(EventType type)
+	{
+		for (auto& it : m_entitys)
 		{
-			for (auto& v : it->second)
+			EventComponent* e = it.second->Get<EventComponent>().get();
+			if (e->IsSubscribed(type))
 			{
-				v->Get<EventComponent>()->OnEvent(event);
+				e->OnEvent(type);
 			}
 		}
 	}

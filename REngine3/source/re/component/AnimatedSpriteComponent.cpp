@@ -14,7 +14,7 @@
 
 namespace re
 {
-	AnimatedSpriteComponent::AnimatedSpriteComponent(sol::table& table)
+	AnimatedSpriteComponent::AnimatedSpriteComponent(sol::table & table)
 	{
 		setPosition(table.get<int>("x"), table.get<int>("y"));
 		m_group = table.get<int>("group");
@@ -34,7 +34,7 @@ namespace re
 		m_animationSheet.loadFromStream(m_animationSheetStream);
 
 		SetActiveAnimation(table.get<std::string>("defaultAnim"));
-		
+
 		m_animations.clear();
 		sol::table animTable = table.get<sol::table>("Animations");
 
