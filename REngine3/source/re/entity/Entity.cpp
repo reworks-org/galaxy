@@ -79,7 +79,7 @@ namespace re
 
 		m_world->GetComponentList()->emplace(m_id, temp);
 		m_components = &m_world->GetComponentList()->at(m_id);
-		
+	
 		Locator::Get<EntityManager>()->Add(entity.get<std::string>("name"), this);
 	}
 

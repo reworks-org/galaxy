@@ -10,6 +10,7 @@
 #define RENGINE3_COMPONENT_HPP_
 
 #include <typeindex>
+#include <unordered_map>
 
 #include "re/deps/sol2/sol.hpp"
 
