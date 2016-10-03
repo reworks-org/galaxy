@@ -48,13 +48,6 @@ namespace re
 		void Update(sf::Time dt);
 
 		/*
-		* IMPORTS: none
-		* EXPORTS: pointer to component list
-		* PURPOSE: Get and Set components for entitys.
-		*/
-		std::unordered_map<sf::Uint64, ComponentList>* GetComponentList();
-
-		/*
 		* IMPORTS: s - The system to create. This uses polymorphism. Define the type of system being created with the template.
 		REMEMBER TO USE 'new' and the correct system type!
 		* EXPORTS: none
@@ -75,7 +68,6 @@ namespace re
 		std::vector<Entity> m_alive;
 		std::vector<Entity> m_dead;
 
-		std::unordered_map<sf::Uint64, ComponentList> m_entityComponentList;
 		std::unordered_map<std::type_index, std::shared_ptr<System>> m_systems;
 	};
 

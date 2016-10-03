@@ -22,13 +22,10 @@
 #include "re/systems/RenderSystem.hpp"
 #include "re/app/World.hpp"
 
-#include "EntityManager.hpp"
-
 namespace re
 {
-	Entity::Entity(const std::string& script, sf::Uint64 id, World* world)
+	Entity::Entity(const std::string& script, sf::Uint64 id)
 	{
-		m_world = world;
 		m_id = id;
 
 		// Create lua state and load it from a script in the VFS.
@@ -38,54 +35,54 @@ namespace re
 		// Get a table with the components.
 		sol::table entity = lua.get<sol::table>("entity");
 
+		m_name = entity.get<std::string>("name");
+
 		// Get key-value pairs from table
 		std::map<std::string, sol::table> m_keyValuePair;
 		entity.for_each([&](std::pair<sol::object, sol::object> pair) {
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		ComponentList temp;
+		//ComponentList temp;
 		for (auto& it : m_keyValuePair)
 		{
 			if (it.first == "AnimatedSpriteComponent")
 			{
-				temp.emplace(typeid(AnimatedSpriteComponent), std::make_shared<AnimatedSpriteComponent>(it.second));
+				m_components[typeid(AnimatedSpriteComponent)] = std::make_shared<AnimatedSpriteComponent>(it.second);
 			}
 			else if (it.first == "SpriteComponent")
 			{
-				temp.emplace(typeid(SpriteComponent), std::make_shared<SpriteComponent>(it.second));
+				m_components[typeid(SpriteComponent)] = std::make_shared<SpriteComponent>(it.second);
 			}
 			else if (it.first == "TextComponent")
 			{
-				temp.emplace(typeid(TextComponent), std::make_shared<TextComponent>(it.second));
+				m_components[typeid(TextComponent)] = std::make_shared<TextComponent>(it.second);
 			}
 			else if (it.first == "MusicComponent")
 			{
-				temp.emplace(typeid(MusicComponent), std::make_shared<MusicComponent>());
+				m_components[typeid(MusicComponent)] = std::make_shared<MusicComponent>();
 			}
 			else if (it.first == "SoundComponent")
 			{
-				temp.emplace(typeid(SoundComponent), std::make_shared<SoundComponent>());
+				m_components[typeid(SoundComponent)] = std::make_shared<SoundComponent>();
 			}
 			else if (it.first == "EventComponent")
 			{
-				temp.emplace(typeid(EventComponent), std::make_shared<EventComponent>());
+				m_components[typeid(EventComponent)] = std::make_shared<EventComponent>();
 			}
 			else if (it.first == "PositionComponent")
 			{
-				temp.emplace(typeid(PositionComponent), std::make_shared<PositionComponent>(it.second));
+				m_components[typeid(PositionComponent)] = std::make_shared<PositionComponent>(it.second);
 			}
 		}
 
-		m_world->GetComponentList()->emplace(m_id, temp);
-		m_components = &m_world->GetComponentList()->at(m_id);
-	
-		Locator::Get<EntityManager>()->Add(entity.get<std::string>("name"), this);
+		//ecl->emplace(m_id, temp);
+		//m_components = &ecl->at(m_id);
 	}
 
 	Entity::~Entity()
 	{
 		m_systemIds.clear();
-		m_components->clear();
+		m_components.clear();
 	}
 }

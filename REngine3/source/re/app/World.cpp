@@ -12,6 +12,7 @@
 
 #include "re/deps/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/entity/EntityManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "World.hpp"
@@ -23,7 +24,6 @@ namespace re
 		m_dead.clear();
 		m_alive.clear();
 		m_systems.clear();
-		m_entityComponentList.clear();
 	}
 
 	void World::Register(const std::string& entitysScript)
@@ -37,7 +37,7 @@ namespace re
 		m_alive.resize(0);
 		m_dead.resize(0);
 
-		int max = lua.get<int>("numEntitys");
+		int max = world.get<int>("numEntitys");
 
 		m_alive.reserve(max + 1);
 		m_dead.reserve(max + 1);
@@ -52,7 +52,8 @@ namespace re
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_alive.push_back(Entity(it.second, counter, this));
+			m_alive.push_back(Entity(it.second, counter));
+			Locator::Get<EntityManager>()->Add(m_alive[counter].m_name, &m_alive[counter]);
 			counter++;
 		}
 	}
@@ -86,10 +87,5 @@ namespace re
 				m_dead.erase(m_dead.begin() + v.m_id);
 			}
 		}
-	}
-
-	std::unordered_map<sf::Uint64, ComponentList>* World::GetComponentList()
-	{
-		return &m_entityComponentList;
 	}
 }

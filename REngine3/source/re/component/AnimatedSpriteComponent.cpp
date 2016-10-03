@@ -14,7 +14,7 @@
 
 namespace re
 {
-	AnimatedSpriteComponent::AnimatedSpriteComponent(sol::table & table)
+	AnimatedSpriteComponent::AnimatedSpriteComponent(sol::table& table)
 	{
 		setPosition(table.get<int>("x"), table.get<int>("y"));
 		m_group = table.get<int>("group");
