@@ -49,7 +49,7 @@ Menu::Menu()
 	m_world->Get<UISystem>()->GetPanel("menupanel")->SetComponentOffsets();
 
 	m_manager->At("person")->Get<AnimatedSpriteComponent>()->Play();
-	m_manager->At("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] {std::cout << "Event processed!" << std::endl; });
+	m_manager->At("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
 
 	m_world->Get<RenderSystem>()->AutoSubmit();
 	m_world->Get<EventSystem>()->AutoSubmit();

@@ -9,9 +9,6 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
-#include <utility>
-#include <functional>
-
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
 
@@ -67,7 +64,6 @@ namespace re
 	private:
 		std::vector<Entity> m_alive;
 		std::vector<Entity> m_dead;
-
 		std::unordered_map<std::type_index, std::shared_ptr<System>> m_systems;
 	};
 

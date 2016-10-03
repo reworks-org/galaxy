@@ -43,7 +43,6 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		//ComponentList temp;
 		for (auto& it : m_keyValuePair)
 		{
 			if (it.first == "AnimatedSpriteComponent")
@@ -75,9 +74,6 @@ namespace re
 				m_components[typeid(PositionComponent)] = std::make_shared<PositionComponent>(it.second);
 			}
 		}
-
-		//ecl->emplace(m_id, temp);
-		//m_components = &ecl->at(m_id);
 	}
 
 	Entity::~Entity()
