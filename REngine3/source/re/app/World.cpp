@@ -34,9 +34,6 @@ namespace re
 		lua.script(Locator::Get<VFS>()->ToString(entitysScript));
 		sol::table world = lua.get<sol::table>("world");
 
-		m_alive.resize(0);
-		m_dead.resize(0);
-
 		int max = world.get<int>("numEntitys");
 
 		m_alive.reserve(max + 1);

@@ -70,10 +70,6 @@ public:
 		m_world.AddSystem<UISystem>(std::make_shared<UISystem>());
 		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
 
-		// create states
-		m_world.Get<StateSystem>()->RegisterState<Menu>(StateID::menu);
-		m_world.Get<StateSystem>()->RegisterState<Game>(StateID::game);
-
 		// provide services
 		Locator::Provide<World>(&m_world);
 		Locator::Provide<VFS>(&m_vfs);
@@ -83,7 +79,10 @@ public:
 
 		// set icon
 		m_window.LoadIcon("icon.png");
-		
+
+		// create states
+		m_world.Get<StateSystem>()->RegisterState<Menu>(StateID::menu);
+		m_world.Get<StateSystem>()->RegisterState<Game>(StateID::game);		
 		m_world.Get<StateSystem>()->PushState(StateID::menu);
 	}
 };

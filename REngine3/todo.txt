@@ -6,6 +6,8 @@ TODO List.
 - collision
 - position component and movesystem
 - custom components.
+- add in load state
+- move providers in main.cpp to before the states.
 
 v1.1:
 - Error Checking & Exceptions. 
