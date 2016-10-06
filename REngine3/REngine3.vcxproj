@@ -91,8 +91,7 @@
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
-    <ClCompile Include="source\re\systems\state\State.cpp" />
-    <ClCompile Include="source\re\systems\state\StateSystem.cpp" />
+    <ClCompile Include="source\re\systems\StateSystem.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
     <ClCompile Include="source\re\utils\Random.cpp" />
@@ -168,9 +167,7 @@
     <ClInclude Include="source\re\services\vfs\VFS.hpp" />
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\systems\state\State.hpp" />
-    <ClInclude Include="source\re\systems\state\StateIdentifiers.hpp" />
-    <ClInclude Include="source\re\systems\state\StateSystem.hpp" />
+    <ClInclude Include="source\re\systems\StateSystem.hpp" />
     <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />

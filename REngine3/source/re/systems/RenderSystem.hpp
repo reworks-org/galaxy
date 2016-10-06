@@ -68,6 +68,13 @@ namespace re
 		*/
 		void Render(re::Window* window);
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean the system.
+		*/
+		void Clean();
+
 	private:
 		std::vector<Group> m_groups;
 	};

@@ -56,6 +56,13 @@ namespace re
 		* PURPOSE: Dispatch an event to subscribed entitys.
 		*/
 		void Dispatch(EventType type);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean the system.
+		*/
+		void Clean();
 	};
 }
 

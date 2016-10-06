@@ -12,7 +12,7 @@
 
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
-#include "re/systems/state/StateSystem.hpp"
+#include "re/systems/StateSystem.hpp"
 
 #include "Application.hpp"
 
@@ -28,6 +28,8 @@ namespace re
 
 	int Application::Run()
 	{
+		m_stateManager.LoadResources();
+
 		//sf::Uint64 lastTime = NanoTime();
 		//double delta = 0.0;
 		//const double ns = 1000000000.0 / m_targetUPS;
@@ -55,14 +57,14 @@ namespace re
 			{
 				timeSinceLastUpdate -= TimePerFrame;
 
-				m_world.Get<StateSystem>()->Event(m_window.m_event);
-				m_world.Get<StateSystem>()->Update(TimePerFrame);
+				m_stateManager.Event(m_window.m_event);
+				m_stateManager.Update(TimePerFrame);
 
 				updates++;
 				//delta--;
 			}
 			
-			m_world.Get<StateSystem>()->Render();
+			m_stateManager.Render();
 			frames++;
 
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
@@ -81,6 +83,7 @@ namespace re
 			}
 		}
 
+		m_stateManager.UnloadResources();
 		RE_LOG(LogLevel::INFO, "Engine quit successfully");
 
 		return EXIT_SUCCESS;

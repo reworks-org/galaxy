@@ -36,8 +36,8 @@ namespace re
 
 		int max = world.get<int>("numEntitys");
 
-		m_alive.reserve(max + 1);
-		m_dead.reserve(max + 1);
+		m_alive.reserve(max + 2);
+		m_dead.reserve(max + 2);
 
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -84,5 +84,11 @@ namespace re
 				m_dead.erase(m_dead.begin() + v.m_id);
 			}
 		}
+	}
+
+	void World::Clean()
+	{
+		m_alive.clear();
+		m_dead.clear();
 	}
 }

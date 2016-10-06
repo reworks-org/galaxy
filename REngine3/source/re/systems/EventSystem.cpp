@@ -58,4 +58,9 @@ namespace re
 			}
 		}
 	}
+
+	void EventSystem::Clean()
+	{
+		m_entitys.clear();
+	}
 }

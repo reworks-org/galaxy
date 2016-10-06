@@ -99,4 +99,15 @@ namespace re
 			window->draw(g);
 		}
 	}
+
+	void RenderSystem::Clean()
+	{
+		for (auto& v : m_groups)
+		{
+			v.GetAnimatedMap().clear();
+			v.GetDrawableMap().clear();
+		}
+
+		m_entitys.clear();
+	}
 }

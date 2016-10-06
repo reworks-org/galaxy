@@ -12,12 +12,11 @@
 #include "re/systems/EventSystem.hpp"
 #include "re/systems/RenderSystem.hpp"
 #include "re/graphics/ui/UISystem.hpp"
-#include "re/systems/state/StateSystem.hpp"
+#include "re/systems/StateSystem.hpp"
 
 #include "re/services/ServiceLocator.hpp"
 
-#include "Menu.hpp"
-#include "Game.hpp"
+#include "Load.hpp"
 
 using namespace re;
 
@@ -65,7 +64,6 @@ public:
 		m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
 
 		// create systems
-		m_world.AddSystem<StateSystem>(std::make_shared<StateSystem>());
 		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.Lookup<int>("renderingLayers")));
 		m_world.AddSystem<UISystem>(std::make_shared<UISystem>());
 		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
@@ -81,9 +79,7 @@ public:
 		m_window.LoadIcon("icon.png");
 
 		// create states
-		m_world.Get<StateSystem>()->RegisterState<Menu>(StateID::menu);
-		m_world.Get<StateSystem>()->RegisterState<Game>(StateID::game);		
-		m_world.Get<StateSystem>()->PushState(StateID::menu);
+		m_stateManager.SetState(Load::Inst());
 	}
 };
 

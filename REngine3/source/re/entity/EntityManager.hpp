@@ -40,6 +40,13 @@ namespace re
 
 		/*
 		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean the manager.
+		*/
+		void Clean();
+
+		/*
+		* IMPORTS: none
 		* EXPORTS: reference to map of the entitys.
 		* PURPOSE: Get the map of the entitys.
 		*/

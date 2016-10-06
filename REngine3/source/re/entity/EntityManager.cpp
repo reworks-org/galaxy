@@ -25,6 +25,11 @@ namespace re
 		return m_entitys[name];
 	}
 
+	void EntityManager::Clean()
+	{
+		m_entitys.clear();
+	}
+
 	std::unordered_map<std::string, Entity*>& EntityManager::GetMap()
 	{
 		return m_entitys;

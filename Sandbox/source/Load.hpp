@@ -1,20 +1,20 @@
 //
-//  Menu.hpp
+//  Load.hpp
 //  REngine3
 //
-//  Created by reworks on 1/08/2016.
+//  Created by reworks on 4/10/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#ifndef SANDBOX_MENU_HPP_
-#define SANDBOX_MENU_HPP_
+#ifndef SANDBOX_LOAD_HPP_
+#define SANDBOX_LOAD_HPP_
 
 #include "re/systems/StateSystem.hpp"
 
-class Menu : public re::State
+class Load : public re::State
 {
 public:
-	~Menu() override;
+	~Load() override;
 
 	/*
 	* IMPORTS: none
@@ -59,9 +59,10 @@ public:
 	void Render(re::StateSystem* stateManager) override;
 
 private:
-	static std::shared_ptr<re::State> m_menuState;
+	static std::shared_ptr<re::State> m_loadState;
 
-	bool m_dragging = false;
+	int m_alpha = 255;
+	sf::Time m_timePassed;
 };
 
 #endif

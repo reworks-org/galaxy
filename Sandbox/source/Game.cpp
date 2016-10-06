@@ -6,9 +6,11 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "Game.hpp"
+
+using namespace re;
 
 Game::Game()
 	:State()
@@ -19,17 +21,17 @@ Game::~Game()
 {
 }
 
-bool Game::Event(sf::Event & e)
+void Game::Event(sf::Event& e, StateSystem* stateManager)
 {
-	return true;
+
 }
 
-bool Game::Update(sf::Time dt)
+void Game::Update(sf::Time dt, StateSystem* stateManager)
 {
-	return true;
+	
 }
 
-void Game::Render()
+void Game::Render(StateSystem* stateManager)
 {
 
 }

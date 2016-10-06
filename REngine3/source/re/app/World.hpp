@@ -45,6 +45,13 @@ namespace re
 		void Update(sf::Time dt);
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Cleans the world.
+		*/
+		void Clean();
+
+		/*
 		* IMPORTS: s - The system to create. This uses polymorphism. Define the type of system being created with the template.
 		REMEMBER TO USE 'new' and the correct system type!
 		* EXPORTS: none

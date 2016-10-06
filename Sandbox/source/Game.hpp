@@ -9,7 +9,7 @@
 #ifndef SANDBOX_GAME_HPP_
 #define SANDBOX_GAME_HPP_
 
-#include "re/systems/state/State.hpp"
+#include "re/systems/StateSystem.hpp"
 
 class Game : public re::State
 {
@@ -22,21 +22,21 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	bool Event(sf::Event& e) override;
+	void Event(sf::Event& e, re::StateSystem* stateManager) override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Update state.
 	*/
-	bool Update(sf::Time dt) override;
+	void Update(sf::Time dt, re::StateSystem* stateManager) override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Render state.
 	*/
-	void Render() override;
+	void Render(re::StateSystem* stateManager) override;
 };
 
 #endif
