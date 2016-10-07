@@ -32,7 +32,7 @@
 
 #include "Animation.hpp"
 
-class AnimatedSprite : public sf::Transformable
+class AnimatedSprite : public sf::Transformable, public sf::Drawable
 {
 public:
     explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
@@ -55,6 +55,7 @@ public:
 
 protected:
 	void play(const Animation& animation);
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
 
     const Animation* m_animation;
     sf::Time m_frameTime;

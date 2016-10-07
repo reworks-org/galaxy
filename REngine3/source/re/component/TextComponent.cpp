@@ -15,6 +15,7 @@ namespace re
 {
 	TextComponent::TextComponent(sol::table & table)
 	{
+		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<unsigned long>("group");
 
 		LoadFont(table.get<std::string>("font"));
@@ -64,11 +65,13 @@ namespace re
 			setStyle(sf::Text::StrikeThrough);
 			break;
 		}
-
-		setPosition(table.get<float>("x"), table.get<float>("y"));
 	}
 
 	TextComponent::~TextComponent()
+	{
+	}
+
+	void TextComponent::Update(sf::Time dt)
 	{
 	}
 

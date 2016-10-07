@@ -16,12 +16,32 @@ namespace re
 	class PositionComponent : public Component
 	{
 	public:
+		/*
+		* IMPORTS: sol::table containing data.
+		* EXPORTS: none
+		* PURPOSE: Set up component.
+		*/
 		PositionComponent(sol::table& table);
-		~PositionComponent();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean up component.
+		*/
+		~PositionComponent() override;
+
+		/*
+		* IMPORTS: new x and y coords.
+		* EXPORTS: none
+		* PURPOSE: Easy method to update positions.
+		*/
+		void Update(float x, float y);
 
 	public:
-		float x_pos;
-		float y_pos;
+		float m_xpos;
+		float m_ypos;
+		float m_width;
+		float m_height;
 	};
 }
 

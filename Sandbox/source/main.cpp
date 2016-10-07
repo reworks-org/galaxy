@@ -13,6 +13,7 @@
 #include "re/systems/RenderSystem.hpp"
 #include "re/graphics/ui/UISystem.hpp"
 #include "re/systems/StateSystem.hpp"
+#include "re/systems/MoveSystem.hpp"
 
 #include "re/services/ServiceLocator.hpp"
 
@@ -67,6 +68,7 @@ public:
 		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.Lookup<int>("renderingLayers")));
 		m_world.AddSystem<UISystem>(std::make_shared<UISystem>());
 		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
+		m_world.AddSystem<MoveSystem>(std::make_shared<MoveSystem>());
 
 		// provide services
 		Locator::Provide<World>(&m_world);

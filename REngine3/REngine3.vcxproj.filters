@@ -77,6 +77,7 @@
     <ClCompile Include="source\re\app\World.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\systems\StateSystem.cpp" />
+    <ClCompile Include="source\re\systems\MoveSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\utils\Time.hpp" />
@@ -148,7 +149,6 @@
     <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\component\EventComponent.hpp" />
-    <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
@@ -159,5 +159,6 @@
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\systems\StateSystem.hpp" />
+    <ClInclude Include="source\re\systems\MoveSystem.hpp" />
   </ItemGroup>
 </Project>

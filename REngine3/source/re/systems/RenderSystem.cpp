@@ -59,7 +59,7 @@ namespace re
 
 		if (e->Has<AnimatedSpriteComponent>())
 		{
-			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddAnimated(e->m_id, e->Get<AnimatedSpriteComponent>());
+			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_id, e->Get<AnimatedSpriteComponent>());
 		}
 	}
 
@@ -70,14 +70,8 @@ namespace re
 
 		for (auto& v : m_groups)
 		{
-			auto foundA = v.GetAnimatedMap().find(e);
-			if (foundA != v.GetAnimatedMap().end())
-			{
-				v.GetAnimatedMap().erase(e);
-			}
-
-			auto foundB = v.GetDrawableMap().find(e);
-			if (foundB != v.GetDrawableMap().end())
+			auto found = v.GetDrawableMap().find(e);
+			if (found != v.GetDrawableMap().end())
 			{
 				v.GetDrawableMap().erase(e);
 			}
@@ -104,7 +98,6 @@ namespace re
 	{
 		for (auto& v : m_groups)
 		{
-			v.GetAnimatedMap().clear();
 			v.GetDrawableMap().clear();
 		}
 

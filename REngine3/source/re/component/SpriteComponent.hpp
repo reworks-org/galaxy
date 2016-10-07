@@ -37,6 +37,13 @@ namespace re
 
 		/*
 		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Update the component.
+		*/
+		void Update(sf::Time dt) override;
+
+		/*
+		* IMPORTS: none
 		* EXPORTS: sf::Shader
 		* PURPOSE: Get the sprites shader.
 		*/

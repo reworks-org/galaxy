@@ -16,6 +16,7 @@
 #include "re/graphics/Window.hpp"
 #include "re/services/Config.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/systems/MoveSystem.hpp"
 #include "re/graphics/ui/UILabel.hpp"
 #include "re/systems/EventSystem.hpp"
 #include "re/graphics/ui/UISystem.hpp"
@@ -23,6 +24,7 @@
 #include "re/systems/RenderSystem.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/component/EventComponent.hpp"
+#include "re/component/PositionComponent.hpp"
 
 #include "Menu.hpp"
 
@@ -55,12 +57,14 @@ void Menu::LoadResources()
 
 	m_world->Get<RenderSystem>()->AutoSubmit();
 	m_world->Get<EventSystem>()->AutoSubmit();
+	m_world->Get<MoveSystem>()->AutoSubmit();
 }
 
 void Menu::UnloadResources()
 {
 	m_world->Get<RenderSystem>()->Clean();
 	m_world->Get<EventSystem>()->Clean();
+	m_world->Get<MoveSystem>()->Clean();
 	m_manager->Clean();
 	m_world->Clean();
 
@@ -102,11 +106,11 @@ void Menu::Update(sf::Time dt, StateSystem* stateManager)
 {
 	if (m_dragging)
 	{
-		m_manager->At("person")->Get<AnimatedSpriteComponent>()->setPosition(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
+		m_manager->At("person")->Get<PositionComponent>()->Update(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
 	}
 
+	m_world->Get<MoveSystem>()->Update();
 	m_world->Get<RenderSystem>()->Update(dt);
-
 	m_world->Get<UISystem>()->Update();
 
 	m_world->Update(dt);

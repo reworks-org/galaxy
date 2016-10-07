@@ -16,9 +16,8 @@
 
 namespace re
 {
-	SpriteComponent::SpriteComponent(sol::table & table)
+	SpriteComponent::SpriteComponent(sol::table& table)
 	{
-		setPosition({ table.get<float>("x"), table.get<float>("y") });
 		m_group = table.get<unsigned long>("group");
 
 		LoadTexture(table.get<std::string>("texture"));
@@ -27,6 +26,10 @@ namespace re
 	}
 
 	SpriteComponent::~SpriteComponent()
+	{
+	}
+
+	void SpriteComponent::Update(sf::Time dt)
 	{
 	}
 
