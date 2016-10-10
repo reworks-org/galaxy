@@ -2,17 +2,14 @@ TODO List.
 
 - optimize as much as possible.
 - serialization
-- move Sound&Music components into their own system
 - collision
-- position component and movesystem
-- custom components.
 - mapping
+- Better rendering methods - make system faster and more flexible.
 
 v1.1:
 - Error Checking & Exceptions. 
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
-- Better rendering methods
 
 v1.2:
 - Multithreading:

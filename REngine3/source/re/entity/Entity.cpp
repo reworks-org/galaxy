@@ -12,14 +12,6 @@
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "re/component/TextComponent.hpp"
-#include "re/component/SoundComponent.hpp"
-#include "re/component/MusicComponent.hpp"
-#include "re/component/EventComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/PositionComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
-#include "re/systems/RenderSystem.hpp"
 #include "re/app/World.hpp"
 
 namespace re
@@ -43,35 +35,15 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		for (auto& it : m_keyValuePair)
+		for (auto& kvp : m_keyValuePair)
 		{
-			if (it.first == "AnimatedSpriteComponent")
+			auto cf = Locator::Get<World>()->GetComponentFactory().find(kvp.first);
+			auto end = Locator::Get<World>()->GetComponentFactory().end();
+
+			if (cf != end)
 			{
-				m_components[typeid(AnimatedSpriteComponent)] = std::make_shared<AnimatedSpriteComponent>(it.second);
-			}
-			else if (it.first == "SpriteComponent")
-			{
-				m_components[typeid(SpriteComponent)] = std::make_shared<SpriteComponent>(it.second);
-			}
-			else if (it.first == "TextComponent")
-			{
-				m_components[typeid(TextComponent)] = std::make_shared<TextComponent>(it.second);
-			}
-			else if (it.first == "MusicComponent")
-			{
-				m_components[typeid(MusicComponent)] = std::make_shared<MusicComponent>();
-			}
-			else if (it.first == "SoundComponent")
-			{
-				m_components[typeid(SoundComponent)] = std::make_shared<SoundComponent>();
-			}
-			else if (it.first == "EventComponent")
-			{
-				m_components[typeid(EventComponent)] = std::make_shared<EventComponent>();
-			}
-			else if (it.first == "PositionComponent")
-			{
-				m_components[typeid(PositionComponent)] = std::make_shared<PositionComponent>(it.second);
+				m_components[cf->second.first] = cf->second.second();
+				m_components[cf->second.first]->Init(kvp.second);
 			}
 		}
 	}

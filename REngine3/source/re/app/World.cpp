@@ -15,15 +15,35 @@
 #include "re/entity/EntityManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
+#include "re/component/TextComponent.hpp"
+#include "re/component/SoundComponent.hpp"
+#include "re/component/MusicComponent.hpp"
+#include "re/component/EventComponent.hpp"
+#include "re/component/SpriteComponent.hpp"
+#include "re/component/PositionComponent.hpp"
+#include "re/component/AnimatedSpriteComponent.hpp"
+
 #include "World.hpp"
 
 namespace re
 {
+	World::World()
+	{
+		RegisterComponent<TextComponent>("TextComponent");
+		RegisterComponent<SoundComponent>("SoundComponent");
+		RegisterComponent<MusicComponent>("MusicComponent");
+		RegisterComponent<EventComponent>("EventComponent");
+		RegisterComponent<SpriteComponent>("SpriteComponent");
+		RegisterComponent<PositionComponent>("PositionComponent");
+		RegisterComponent<AnimatedSpriteComponent>("AnimatedSpriteComponent");
+	}
+
 	World::~World()
 	{
 		m_dead.clear();
 		m_alive.clear();
 		m_systems.clear();
+		m_componentFactory.clear();
 	}
 
 	void World::Register(const std::string& entitysScript)
@@ -90,5 +110,10 @@ namespace re
 	{
 		m_alive.clear();
 		m_dead.clear();
+	}
+
+	ComponentFactory& World::GetComponentFactory()
+	{
+		return m_componentFactory;
 	}
 }

@@ -20,11 +20,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: sol::table from lua script containing component data.
+		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Set up the component.
+		* PURPOSE: Default Constructor.
 		*/
-		TextComponent(sol::table& table);
+		TextComponent();
 
 		/*
 		* IMPORTS: none
@@ -32,6 +32,13 @@ namespace re
 		* PURPOSE: Clean up the component.
 		*/
 		~TextComponent() override;
+
+		/*
+		* IMPORTS: sol::table from lua script containing component data.
+		* EXPORTS: none
+		* PURPOSE: Set up the component.
+		*/
+		void Init(sol::table& table) override;
 
 	private:
 		/*

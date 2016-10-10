@@ -12,9 +12,17 @@
 
 namespace re
 {
+	EventComponent::EventComponent()
+	{
+	}
+
 	EventComponent::~EventComponent()
 	{
 		m_events.clear();
+	}
+
+	void EventComponent::Init(sol::table& table)
+	{
 	}
 
 	void EventComponent::SubmitOnEvent(EventType type, std::function<void(void)> func)

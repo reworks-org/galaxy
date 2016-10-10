@@ -22,9 +22,23 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
+		* PURPOSE: Default Constructor.
+		*/
+		EventComponent();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
 		* PURPOSE: Clean up.
 		*/
 		~EventComponent() override;
+
+		/*
+		* IMPORTS: sol::table from lua script containing component data.
+		* EXPORTS: none
+		* PURPOSE: Set up the component.
+		*/
+		void Init(sol::table& table) override;
 
 		/*
 		* IMPORTS: EventType and function pointer to function to call.

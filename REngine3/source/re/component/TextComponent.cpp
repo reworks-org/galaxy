@@ -13,7 +13,15 @@
 
 namespace re
 {
-	TextComponent::TextComponent(sol::table & table)
+	TextComponent::TextComponent()
+	{
+	}
+
+	TextComponent::~TextComponent()
+	{
+	}
+
+	void TextComponent::Init(sol::table & table)
 	{
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<unsigned long>("group");
@@ -65,10 +73,6 @@ namespace re
 			setStyle(sf::Text::StrikeThrough);
 			break;
 		}
-	}
-
-	TextComponent::~TextComponent()
-	{
 	}
 
 	void TextComponent::LoadFont(const std::string & fontName)

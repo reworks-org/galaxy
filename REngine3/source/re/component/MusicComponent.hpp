@@ -22,9 +22,23 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
+		* PURPOSE: Default Constructor.
+		*/
+		MusicComponent();
+		
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
 		* PURPOSE: Clean up component.
 		*/
 		~MusicComponent() override;
+
+		/*
+		* IMPORTS: sol::table from lua script containing component data.
+		* EXPORTS: none
+		* PURPOSE: Set up the component.
+		*/
+		void Init(sol::table& table) override;
 
 		/*
 		* IMPORTS: std::string name of lua script.

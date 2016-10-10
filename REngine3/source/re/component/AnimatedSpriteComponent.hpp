@@ -22,18 +22,25 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: sol::table from lua script containing component data.
+		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Set up the component.
+		* PURPOSE: Default Constructor.
 		*/
-		AnimatedSpriteComponent(sol::table& table);
-		
+		AnimatedSpriteComponent();
+
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Destructor. Cleans up component.
 		*/
 		~AnimatedSpriteComponent() override;
+
+		/*
+		* IMPORTS: sol::table from lua script containing component data.
+		* EXPORTS: none
+		* PURPOSE: Set up the component.
+		*/
+		void Init(sol::table& table) override;
 		
 		/*
 		* IMPORTS: animantion name in string

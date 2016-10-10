@@ -14,7 +14,16 @@
 
 namespace re
 {
-	AnimatedSpriteComponent::AnimatedSpriteComponent(sol::table& table)
+	AnimatedSpriteComponent::AnimatedSpriteComponent()
+	{
+	}
+
+	AnimatedSpriteComponent::~AnimatedSpriteComponent()
+	{
+		m_animations.clear();
+	}
+
+	void AnimatedSpriteComponent::Init(sol::table& table)
 	{
 		m_group = table.get<int>("group");
 
@@ -59,11 +68,6 @@ namespace re
 
 			m_animations.emplace(it.first, temp);
 		}
-	}
-
-	AnimatedSpriteComponent::~AnimatedSpriteComponent()
-	{
-		m_animations.clear();
 	}
 
 	void AnimatedSpriteComponent::SetActiveAnimation(const std::string & animation)

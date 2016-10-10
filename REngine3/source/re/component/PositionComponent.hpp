@@ -17,11 +17,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: sol::table containing data.
+		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Set up component.
+		* PURPOSE: Default Constructor.
 		*/
-		PositionComponent(sol::table& table);
+		PositionComponent();
 
 		/*
 		* IMPORTS: none
@@ -29,6 +29,13 @@ namespace re
 		* PURPOSE: Clean up component.
 		*/
 		~PositionComponent() override;
+
+		/*
+		* IMPORTS: sol::table containing data.
+		* EXPORTS: none
+		* PURPOSE: Set up component.
+		*/
+		void Init(sol::table& table) override;
 
 		/*
 		* IMPORTS: new x and y coords.

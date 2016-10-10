@@ -14,7 +14,15 @@
 
 namespace re
 {
+	SoundComponent::SoundComponent()
+	{
+	}
+
 	SoundComponent::~SoundComponent()
+	{
+	}
+
+	void SoundComponent::Init(sol::table& table)
 	{
 	}
 

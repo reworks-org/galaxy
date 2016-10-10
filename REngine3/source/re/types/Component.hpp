@@ -25,6 +25,13 @@ namespace re
 		* PURPOSE: Abstract virtual destructor for components.
 		*/
 		virtual ~Component() {}
+
+		/*
+		* IMPORTS: sol::table from lua script containing component data.
+		* EXPORTS: none
+		* PURPOSE: Set up the component.
+		*/
+		virtual void Init(sol::table& table) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

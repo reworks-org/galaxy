@@ -9,6 +9,9 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
+#include <utility>
+#include <functional>
+
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
 
@@ -19,9 +22,19 @@ namespace sf
 
 namespace re
 {
+	typedef std::unordered_map<std::type_index, std::shared_ptr<System>> SystemList;
+	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>> ComponentFactory;
+
 	class World : public Service
 	{
 	public:
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Set up world.
+		*/
+		World();
+
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -52,6 +65,15 @@ namespace re
 		void Clean();
 
 		/*
+		* IMPORTS: type of component and name of component to register.
+		REMEMBER TO USE 'new' and the correct system type!
+		* EXPORTS: none
+		* PURPOSE: To create a new component within the factory.
+		*/
+		template<typename T>
+		void RegisterComponent(const std::string& name);
+
+		/*
 		* IMPORTS: s - The system to create. This uses polymorphism. Define the type of system being created with the template.
 		REMEMBER TO USE 'new' and the correct system type!
 		* EXPORTS: none
@@ -68,10 +90,27 @@ namespace re
 		template<typename T>
 		std::shared_ptr<T> Get();
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: map of component factory.
+		* PURPOSE: To "make" a new component.
+		*/
+		ComponentFactory& GetComponentFactory();
+		
+	private:
+		/*
+		* IMPORTS: type of component to make
+		* EXPORTS: shared_ptr to component.
+		* PURPOSE: To make a component of a particular type. Used by register component.
+		*/
+		template<typename T>
+		std::shared_ptr<Component> MakeComponent();
+
 	private:
 		std::vector<Entity> m_alive;
 		std::vector<Entity> m_dead;
-		std::unordered_map<std::type_index, std::shared_ptr<System>> m_systems;
+		SystemList m_systems;
+		ComponentFactory m_componentFactory;
 	};
 
 	template<typename T>
@@ -91,6 +130,18 @@ namespace re
 	std::shared_ptr<T> World::Get()
 	{
 		return std::dynamic_pointer_cast<T>(m_systems.find(std::type_index(typeid(T)))->second);
+	}
+
+	template<typename T>
+	std::shared_ptr<Component> World::MakeComponent()
+	{
+		return std::make_shared<T>();
+	}
+
+	template<typename T>
+	void World::RegisterComponent(const std::string& name)
+	{
+		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::MakeComponent<T>, this)));
 	}
 }
 

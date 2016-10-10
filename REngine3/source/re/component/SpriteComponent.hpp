@@ -22,11 +22,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: sol::table from lua script containing component data.
+		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Set up the component.
+		* PURPOSE: Default Constructor.
 		*/
-		SpriteComponent(sol::table& table);
+		SpriteComponent();
 
 		/*
 		* IMPORTS: none
@@ -34,6 +34,13 @@ namespace re
 		* PURPOSE: Clean up the component.
 		*/
 		~SpriteComponent() override;
+
+		/*
+		* IMPORTS: sol::table from lua script containing component data.
+		* EXPORTS: none
+		* PURPOSE: Set up the component.
+		*/
+		void Init(sol::table& table) override;
 
 		/*
 		* IMPORTS: none
