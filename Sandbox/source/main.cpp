@@ -50,11 +50,11 @@ public:
 
 		if (m_config.Lookup<int>("fullscreen"))
 		{
-			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle, sf::Style::Fullscreen);
+			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle, sf::Style::Default | sf::Style::Fullscreen);
 		}
 		else
 		{
-			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle);
+			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle, sf::Style::Default);
 		}
 
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
@@ -63,6 +63,7 @@ public:
 		m_window.setMouseCursorVisible(m_config.Lookup<int>("cursorVisible"));
 		m_window.setVerticalSyncEnabled(m_config.Lookup<int>("vsyncEnabled"));
 		m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
+		m_window.requestFocus();
 
 		// create systems
 		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.Lookup<int>("renderingLayers")));

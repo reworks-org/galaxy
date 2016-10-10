@@ -49,7 +49,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Update the system.
 		*/
-		void Update();
+		void Update(sf::Time dt);
 
 		/*
 		* IMPORTS: none

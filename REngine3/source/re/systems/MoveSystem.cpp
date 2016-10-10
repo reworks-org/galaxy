@@ -45,7 +45,7 @@ namespace re
 		m_entitys.erase(e);
 	}
 
-	void MoveSystem::Update()
+	void MoveSystem::Update(sf::Time dt)
 	{
 		for (auto& it : m_entitys)
 		{

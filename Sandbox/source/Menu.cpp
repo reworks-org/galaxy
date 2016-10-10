@@ -55,9 +55,9 @@ void Menu::LoadResources()
 	m_manager->At("person")->Get<AnimatedSpriteComponent>()->Play();
 	m_manager->At("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
 
+	m_world->Get<MoveSystem>()->AutoSubmit();
 	m_world->Get<RenderSystem>()->AutoSubmit();
 	m_world->Get<EventSystem>()->AutoSubmit();
-	m_world->Get<MoveSystem>()->AutoSubmit();
 }
 
 void Menu::UnloadResources()
@@ -109,7 +109,7 @@ void Menu::Update(sf::Time dt, StateSystem* stateManager)
 		m_manager->At("person")->Get<PositionComponent>()->Update(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
 	}
 
-	m_world->Get<MoveSystem>()->Update();
+	m_world->Get<MoveSystem>()->Update(dt);
 	m_world->Get<RenderSystem>()->Update(dt);
 	m_world->Get<UISystem>()->Update();
 
@@ -118,7 +118,7 @@ void Menu::Update(sf::Time dt, StateSystem* stateManager)
 
 void Menu::Render(StateSystem* stateManager)
 {
-	m_window->clear(sf::Color::White);
+	m_window->clear(sf::Color::Black);
 
 	m_world->Get<RenderSystem>()->Render(m_window);
 	m_world->Get<UISystem>()->Render(m_window);

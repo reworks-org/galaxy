@@ -33,13 +33,6 @@ namespace re
 		*/
 		~TextComponent() override;
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Update the component.
-		*/
-		void Update(sf::Time dt) override;
-
 	private:
 		/*
 		* IMPORTS: fontName - Name of the font to use in the VFS.

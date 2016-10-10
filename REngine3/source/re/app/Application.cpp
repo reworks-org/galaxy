@@ -28,8 +28,6 @@ namespace re
 
 	int Application::Run()
 	{
-		m_stateManager.LoadResources();
-
 		//sf::Uint64 lastTime = NanoTime();
 		//double delta = 0.0;
 		//const double ns = 1000000000.0 / m_targetUPS;
@@ -41,6 +39,8 @@ namespace re
 		sf::Clock clock;
 		sf::Time timeSinceLastUpdate = sf::Time::Zero;
 		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
+
+		m_stateManager.LoadResources();
 
 		while (m_window.isOpen())
 		{

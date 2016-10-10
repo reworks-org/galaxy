@@ -1,4 +1,4 @@
-Animation code provided by Maximilian Wagenbach (aka. Foaly) (foaly.f@web.de)
+Animation code provided by Maximilian Wagenbach (aka. Foaly) (foaly.f@web.de) AND HAS BEEN MODIFIED FOR USE IN RENGINE3.
 
 Animation.hpp
 Animation.cpp
@@ -7,3 +7,4 @@ AnimatedSprite.cpp
 
 Retrieved from: https://github.com/SFML/SFML/wiki/Source%3A-AnimatedSprite
 
+Sprite.hpp from SFML has been modified. Refer to file for details.

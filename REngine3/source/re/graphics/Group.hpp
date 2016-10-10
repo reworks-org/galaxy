@@ -32,11 +32,18 @@ namespace re
 		~Group() override;
 
 		/*
-		* IMPORTS: id and drawable object
+		* IMPORTS: TextComponent
 		* EXPORTS: none
-		* PURPOSE: add a drawable entity's components to the group.
+		* PURPOSE: Add a textocomponent to the group.
 		*/
 		void AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable);
+
+		/*
+		* IMPORTS: animated object
+		* EXPORTS: none
+		* PURPOSE: Add an animated object to the group.
+		*/
+		void AddAnimated(sf::Uint64 id, std::shared_ptr<Animated> animated);
 
 		/*
 		* IMPORTS: none
@@ -55,11 +62,19 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
+		* PURPOSE: Get stored animated.
+		*/
+		std::map<sf::Uint64, std::shared_ptr<Animated>>& GetAnimatedMap();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
 		* PURPOSE: Get stored drawables.
 		*/
 		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>>& GetDrawableMap();
 
 	private:
+		std::map<sf::Uint64, std::shared_ptr<Animated>> m_animated;
 		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>> m_drawable;
 	};
 }

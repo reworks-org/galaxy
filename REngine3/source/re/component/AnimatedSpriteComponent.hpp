@@ -9,6 +9,7 @@
 #ifndef RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 #define RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 
+#include "re/types/Animated.hpp"
 #include "re/types/Component.hpp"
 #include "re/graphics/Animation.hpp"
 #include "re/graphics/AnimatedSprite.hpp"
@@ -17,7 +18,7 @@
 
 namespace re
 {
-	class AnimatedSpriteComponent : public Component, public AnimatedSprite
+	class AnimatedSpriteComponent : public Component, public AnimatedSprite, public Animated
 	{
 	public:
 		/*

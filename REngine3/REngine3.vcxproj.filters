@@ -160,5 +160,6 @@
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\systems\StateSystem.hpp" />
     <ClInclude Include="source\re\systems\MoveSystem.hpp" />
+    <ClInclude Include="source\re\types\Animated.hpp" />
   </ItemGroup>
 </Project>

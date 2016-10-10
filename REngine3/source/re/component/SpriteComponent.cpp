@@ -29,10 +29,6 @@ namespace re
 	{
 	}
 
-	void SpriteComponent::Update(sf::Time dt)
-	{
-	}
-
 	sf::Shader* SpriteComponent::Shader()
 	{
 		return m_shader.get();

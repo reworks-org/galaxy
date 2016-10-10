@@ -71,10 +71,6 @@ namespace re
 	{
 	}
 
-	void TextComponent::Update(sf::Time dt)
-	{
-	}
-
 	void TextComponent::LoadFont(const std::string & fontName)
 	{
 		m_fontStream.open(fontName);

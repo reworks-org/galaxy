@@ -170,6 +170,7 @@
     <ClInclude Include="source\re\systems\MoveSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\StateSystem.hpp" />
+    <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />

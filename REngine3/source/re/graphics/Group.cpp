@@ -16,6 +16,7 @@ namespace re
 	Group::~Group()
 	{
 		m_drawable.clear();
+		m_animated.clear();
 	}
 
 	void Group::AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable)
@@ -23,9 +24,15 @@ namespace re
 		m_drawable.emplace(id, drawable);
 	}
 
+	void Group::AddAnimated(sf::Uint64 id, std::shared_ptr<Animated> animated)
+	{
+		m_drawable.emplace(id, animated);
+		m_animated.emplace(id, animated);
+	}
+
 	void Group::Update(sf::Time dt)
 	{
-		for (auto& it : m_drawable)
+		for (auto& it : m_animated)
 		{
 			it.second->Update(dt);
 		}
@@ -37,6 +44,11 @@ namespace re
 		{
 			target.draw(*(it.second.get()), states);
 		}
+	}
+
+	std::map<sf::Uint64, std::shared_ptr<Animated>>& Group::GetAnimatedMap()
+	{
+		return m_animated;
 	}
 
 	std::map<sf::Uint64, std::shared_ptr<sf::Drawable>>& Group::GetDrawableMap()

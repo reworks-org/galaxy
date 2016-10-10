@@ -31,7 +31,6 @@
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 
-#include <SFML/System/Time.hpp>
 
 namespace sf
 {
@@ -52,8 +51,6 @@ public:
     ////////////////////////////////////////////////////////////
     virtual ~Drawable() {}
 
-	virtual void Update(sf::Time dt) {}
-
 protected:
 
     friend class RenderTarget;
@@ -69,7 +66,7 @@ protected:
     /// \param states Current render states
     ///
     ////////////////////////////////////////////////////////////
-	virtual void draw(RenderTarget& target, RenderStates states) const = 0;
+    virtual void draw(RenderTarget& target, RenderStates states) const = 0;
 };
 
 } // namespace sf

@@ -12,6 +12,7 @@
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/systems/MoveSystem.hpp"
 #include "re/entity/EntityManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -45,12 +46,14 @@ void Load::LoadResources()
 
 	m_manager->At("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
+	m_world->Get<MoveSystem>()->AutoSubmit();
 	m_world->Get<RenderSystem>()->AutoSubmit();
 }
 
 void Load::UnloadResources()
 {
 	m_world->Get<RenderSystem>()->Clean();
+	m_world->Get<MoveSystem>()->Clean();
 	m_manager->Clean();
 	m_world->Clean();
 }
@@ -70,6 +73,9 @@ void Load::Event(sf::Event& e, StateSystem* stateManager)
 
 void Load::Update(sf::Time dt, StateSystem* stateManager)
 {
+	m_world->Get<MoveSystem>()->Update(dt);
+	m_world->Get<RenderSystem>()->Update(dt);
+
 	m_timePassed += dt;
 
 	if (m_timePassed > sf::seconds(1.5))
@@ -88,6 +94,8 @@ void Load::Update(sf::Time dt, StateSystem* stateManager)
 			stateManager->ChangeState(Menu::Inst());
 		}
 	}
+
+	m_world->Update(dt);
 }
 
 void Load::Render(StateSystem* stateManager)
