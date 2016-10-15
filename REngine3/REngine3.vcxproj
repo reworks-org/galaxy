@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
+    <ClCompile Include="source\re\app\World.cpp" />
     <ClCompile Include="source\re\audio\Music.cpp" />
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\component\AnimatedSpriteComponent.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="source\re\component\SoundComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
     <ClCompile Include="source\re\component\TextComponent.cpp" />
+    <ClCompile Include="source\re\component\TimeComponent.cpp" />
     <ClCompile Include="source\re\deps\lua\lapi.c" />
     <ClCompile Include="source\re\deps\lua\lauxlib.c" />
     <ClCompile Include="source\re\deps\lua\lbaselib.c" />
@@ -76,9 +78,9 @@
     <ClCompile Include="source\re\deps\STP\Core\TileSet.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\entity\EntityManager.cpp" />
-    <ClCompile Include="source\re\app\World.cpp" />
     <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
+    <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\ui\UIComponent.cpp" />
     <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
@@ -99,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
+    <ClInclude Include="source\re\app\World.hpp" />
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\component\AnimatedSpriteComponent.hpp" />
@@ -108,6 +111,7 @@
     <ClInclude Include="source\re\component\SoundComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
     <ClInclude Include="source\re\component\TextComponent.hpp" />
+    <ClInclude Include="source\re\component\TimeComponent.hpp" />
     <ClInclude Include="source\re\deps\lua\lapi.h" />
     <ClInclude Include="source\re\deps\lua\lauxlib.h" />
     <ClInclude Include="source\re\deps\lua\lcode.h" />
@@ -151,9 +155,9 @@
     <ClInclude Include="source\re\deps\STP\TMXLoader.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\entity\EntityManager.hpp" />
-    <ClInclude Include="source\re\app\World.hpp" />
     <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
+    <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\graphics\ui\UIComponent.hpp" />
     <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />

@@ -15,6 +15,7 @@
 #include "re/services/vfs/VFS.hpp"
 #include "re/systems/StateSystem.hpp"
 #include "re/entity/EntityManager.hpp"
+#include "re/graphics/FontManager.hpp"
 
 namespace re
 {
@@ -56,6 +57,7 @@ namespace re
 		Window m_window;
 		EntityManager m_manager;
 		StateSystem m_stateManager;
+		FontManager m_fontManager;
 	};
 }
 

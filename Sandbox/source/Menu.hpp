@@ -35,7 +35,7 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Unload the states resources.
 	*/
-	void UnloadResources() override;
+	void UnloadResources() override; 
 
 	/*
 	* IMPORTS: sf::Event object.

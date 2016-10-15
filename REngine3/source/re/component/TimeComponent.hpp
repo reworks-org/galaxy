@@ -1,13 +1,13 @@
 //
-//  TextComponent.hpp
+//  TimeComponent.hpp
 //  REngine3
 //
-//  Created by reworks on 19/08/2016.
+//  Created by reworks on 12/10/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_TEXTCOMPONENT_HPP_
-#define RENGINE3_TEXTCOMPONENT_HPP_
+#ifndef RENGINE3_TIMECOMPONENT_HPP_
+#define RENGINE3_TIMECOMPONENT_HPP_
 
 #include <SFML/Graphics/Text.hpp>
 
@@ -15,7 +15,7 @@
 
 namespace re
 {
-	class TextComponent : public Component, public sf::Text
+	class TimeComponent : public Component, public sf::Text
 	{
 	public:
 		/*
@@ -23,14 +23,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		TextComponent();
+		TimeComponent();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean up the component.
 		*/
-		~TextComponent() override;
+		~TimeComponent() override;
 
 		/*
 		* IMPORTS: sol::table from lua script containing component data.
@@ -38,6 +38,13 @@ namespace re
 		* PURPOSE: Set up the component.
 		*/
 		void Init(sol::table& table) override;
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Update the time.
+		*/
+		void Update();
 
 	public:
 		unsigned long m_group;

@@ -16,11 +16,13 @@ namespace re
 {
 	RenderSystem::RenderSystem(int numOfGroups)
 	{
+		int max = numOfGroups + 1;
+
 		m_groups.clear();
 		m_groups.resize(0);
-		m_groups.reserve(numOfGroups + 1);
+		m_groups.reserve(max);
 
-		for (int i = 0; i < numOfGroups; i++)
+		for (int i = 0; i < max; i++)
 		{
 			m_groups.push_back(Group());
 		}
@@ -36,7 +38,7 @@ namespace re
 	{
 		for (auto& it : Locator::Get<EntityManager>()->GetMap())
 		{
-			if (it.second->Has<SpriteComponent>() || it.second->Has<TextComponent>() || it.second->Has<AnimatedSpriteComponent>())
+			if (it.second->Has<SpriteComponent>() || it.second->Has<TextComponent>() || it.second->Has<AnimatedSpriteComponent>() || it.second->Has<TimeComponent>())
 			{
 				AddEntity(it.second);
 			}
@@ -60,6 +62,11 @@ namespace re
 		if (e->Has<AnimatedSpriteComponent>())
 		{
 			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddAnimated(e->m_id, e->Get<AnimatedSpriteComponent>());
+		}
+
+		if (e->Has<TimeComponent>())
+		{
+			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_id, e->Get<TimeComponent>());
 		}
 	}
 

@@ -1,35 +1,35 @@
 //
-//  TextComponent.cpp
+//  TimeComponent.cpp
 //  REngine3
 //
-//  Created by reworks on 19/08/2016.
+//  Created by reworks on 12/10/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/utils/Time.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/graphics/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "TextComponent.hpp"
+#include "TimeComponent.hpp"
 
 namespace re
 {
-	TextComponent::TextComponent()
+	TimeComponent::TimeComponent()
 	{
 	}
 
-	TextComponent::~TextComponent()
+	TimeComponent::~TimeComponent()
 	{
 	}
 
-	void TextComponent::Init(sol::table & table)
+	void TimeComponent::Init(sol::table& table)
 	{
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<unsigned long>("group");
 
 		setFont(Locator::Get<FontManager>()->Get(table.get<std::string>("font")));
 
-		setString(table.get<std::string>("text"));
 		setCharacterSize(table.get<int>("size"));
 
 		sol::table colour = table.get<sol::table>("colour");
@@ -41,38 +41,24 @@ namespace re
 		col.a = colour.get<sf::Uint8>("a");
 		setFillColor(col);
 
-		/*
-		0 = Regular,
-		1 = Bold,
-		2 = Italic,
-		3 = Underlined,
-		4 = StrikeTrough
+		setStyle(sf::Text::Regular);
+	}
 
-		See <SFML/Graphics/Text.hpp>
-		*/
-		int style = table.get<int>("style");
+	void TimeComponent::Update()
+	{
+		std::string temp = GetCurrentTimeAndDate();
 
-		switch (style)
-		{
-		case 0:
-			setStyle(sf::Text::Regular);
-			break;
+		temp.erase(temp.length() - 8);
 
-		case 1:
-			setStyle(sf::Text::Bold);
-			break;
-
-		case 2:
-			setStyle(sf::Text::Italic);
-			break;
-
-		case 3:
-			setStyle(sf::Text::Underlined);
-			break;
-
-		case 4:
-			setStyle(sf::Text::StrikeThrough);
-			break;
+		if (std::stoi(temp.substr(11, 2)) >= 12) {
+			temp.append(" PM");
 		}
+		else {
+			temp.append(" AM");
+		}
+
+		temp = temp.substr(11, 8);
+
+		setString(temp);
 	}
 }

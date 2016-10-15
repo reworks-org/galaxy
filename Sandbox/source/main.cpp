@@ -77,6 +77,10 @@ public:
 		Locator::Provide<ConfigReader>(&m_config);
 		Locator::Provide<Window>(&m_window);
 		Locator::Provide<EntityManager>(&m_manager);
+		Locator::Provide<FontManager>(&m_fontManager);
+
+		// add fonts
+		m_fontManager.Add("GameOver", "game_over.ttf");
 
 		// set icon
 		m_window.LoadIcon("icon.png");

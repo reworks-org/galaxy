@@ -10,15 +10,36 @@
 #define SANDBOX_GAME_HPP_
 
 #include "re/systems/StateSystem.hpp"
+#include "re/deps/STP/TMXLoader.hpp"
 
 class Game : public re::State
 {
 public:
-	Game();
 	~Game() override;
 
 	/*
-	* IMPORTS: sf::Event object. 
+	* IMPORTS: none
+	* EXPORTS: none
+	* PURPOSE: Instance of state.
+	*/
+	static std::shared_ptr<re::State> Inst();
+
+	/*
+	* IMPORTS: none
+	* EXPORTS: none
+	* PURPOSE: Load the states resources.
+	*/
+	void LoadResources() override;
+
+	/*
+	* IMPORTS: none
+	* EXPORTS: none
+	* PURPOSE: Unload the states resources.
+	*/
+	void UnloadResources() override;
+
+	/*
+	* IMPORTS: sf::Event object.
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
@@ -37,6 +58,11 @@ public:
 	* PURPOSE: Render state.
 	*/
 	void Render(re::StateSystem* stateManager) override;
+
+private:
+	static std::shared_ptr<re::State> m_gameState;
+	tmx::TileMap* map;
+	
 };
 
 #endif

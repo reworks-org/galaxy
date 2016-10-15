@@ -4,7 +4,9 @@ TODO List.
 - serialization
 - collision
 - mapping
-- Better rendering methods - make system faster and more flexible.
+- ui: from projects...
+- merge rendersystem. make it better...
+- fix window titlebar
 
 v1.1:
 - Error Checking & Exceptions. 

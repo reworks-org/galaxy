@@ -27,6 +27,7 @@
 #include "re/component/PositionComponent.hpp"
 
 #include "Menu.hpp"
+//#include "Game.hpp"
 
 using namespace re;
 
@@ -35,6 +36,10 @@ std::shared_ptr<State> Menu::m_menuState = std::make_shared<Menu>();
 std::shared_ptr<State> Menu::Inst()
 {
 	return m_menuState;
+}
+
+Menu::~Menu()
+{
 }
 
 void Menu::LoadResources()
@@ -71,10 +76,6 @@ void Menu::UnloadResources()
 	//clean up ui
 }
 
-Menu::~Menu()
-{
-}
-
 void Menu::Event(sf::Event& e, StateSystem* stateManager)
 {
 	m_world->Get<UISystem>()->Event();
@@ -104,6 +105,8 @@ void Menu::Event(sf::Event& e, StateSystem* stateManager)
 
 void Menu::Update(sf::Time dt, StateSystem* stateManager)
 {
+	m_manager->At("menu")->Get<TimeComponent>()->Update();
+
 	if (m_dragging)
 	{
 		m_manager->At("person")->Get<PositionComponent>()->Update(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);

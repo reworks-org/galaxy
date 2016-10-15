@@ -16,6 +16,7 @@
 #include "re/services/ServiceLocator.hpp"
 
 #include "re/component/TextComponent.hpp"
+#include "re/component/TimeComponent.hpp"
 #include "re/component/SoundComponent.hpp"
 #include "re/component/MusicComponent.hpp"
 #include "re/component/EventComponent.hpp"
@@ -30,6 +31,7 @@ namespace re
 	World::World()
 	{
 		RegisterComponent<TextComponent>("TextComponent");
+		RegisterComponent<TimeComponent>("TimeComponent");
 		RegisterComponent<SoundComponent>("SoundComponent");
 		RegisterComponent<MusicComponent>("MusicComponent");
 		RegisterComponent<EventComponent>("EventComponent");

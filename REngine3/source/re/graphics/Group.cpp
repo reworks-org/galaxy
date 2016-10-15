@@ -42,7 +42,7 @@ namespace re
 	{
 		for (auto& it : m_drawable)
 		{
-			target.draw(*(it.second.get()), states);
+			target.draw(*(it.second), states);
 		}
 	}
 

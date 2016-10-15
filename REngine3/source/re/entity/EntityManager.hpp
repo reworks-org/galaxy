@@ -33,7 +33,7 @@ namespace re
 
 		/*
 		* IMPORTS: name - name of the entity in the manager.
-		* EXPORTS: none
+		* EXPORTS: pointer to the entity.
 		* PURPOSE: Retrieve an entity from the manager.
 		*/
 		Entity* At(const std::string& name);

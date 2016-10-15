@@ -9,15 +9,16 @@
 #ifndef RENGINE3_GROUP_HPP_
 #define RENGINE3_GROUP_HPP_
 
+#include <map>
 #include <vector>
 
 #include <SFML/Graphics/Drawable.hpp>
 
+#include "re/entity/Entity.hpp"
+#include "re/component/TimeComponent.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/AnimatedSpriteComponent.hpp"
-
-#include "re/entity/Entity.hpp"
 
 namespace re
 {
@@ -74,6 +75,8 @@ namespace re
 		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>>& GetDrawableMap();
 
 	private:
+		// need to redo this!
+		// can only support 1 of each type. fuck im an idiot
 		std::map<sf::Uint64, std::shared_ptr<Animated>> m_animated;
 		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>> m_drawable;
 	};
