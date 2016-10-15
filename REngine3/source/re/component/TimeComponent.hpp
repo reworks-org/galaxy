@@ -11,11 +11,12 @@
 
 #include <SFML/Graphics/Text.hpp>
 
+#include "re/types/Animated.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
 {
-	class TimeComponent : public Component, public sf::Text
+	class TimeComponent : public Component, public Animated
 	{
 	public:
 		/*
@@ -44,10 +45,21 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Update the time.
 		*/
-		void Update();
+		void Update(sf::Time dt) override;
+
+	private:
+		/*
+		* IMPORTS: RenderTarget & RenderStates
+		* EXPORTS: none
+		* PURPOSE: draw to target using states. See SFML documentation.
+		*/
+		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	public:
 		unsigned long m_group;
+
+	private:
+		sf::Text m_time;
 	};
 }
 

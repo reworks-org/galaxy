@@ -65,20 +65,20 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Get stored animated.
 		*/
-		std::map<sf::Uint64, std::shared_ptr<Animated>>& GetAnimatedMap();
+		std::map<sf::Uint64, std::vector<std::shared_ptr<Animated>>>& GetAnimatedMap();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Get stored drawables.
 		*/
-		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>>& GetDrawableMap();
+		std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>>& GetDrawableMap();
 
 	private:
 		// need to redo this!
 		// can only support 1 of each type. fuck im an idiot
-		std::map<sf::Uint64, std::shared_ptr<Animated>> m_animated;
-		std::map<sf::Uint64, std::shared_ptr<sf::Drawable>> m_drawable;
+		std::map<sf::Uint64, std::vector<std::shared_ptr<Animated>>> m_animated;
+		std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>> m_drawable;
 	};
 }
 

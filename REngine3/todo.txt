@@ -4,9 +4,9 @@ TODO List.
 - serialization
 - collision
 - mapping
-- ui: from projects...
-- merge rendersystem. make it better...
+- ui: from tgui?
 - fix window titlebar
+- fix rendering and groups -> make into layers?
 
 v1.1:
 - Error Checking & Exceptions. 

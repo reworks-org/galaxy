@@ -105,8 +105,6 @@ void Menu::Event(sf::Event& e, StateSystem* stateManager)
 
 void Menu::Update(sf::Time dt, StateSystem* stateManager)
 {
-	m_manager->At("menu")->Get<TimeComponent>()->Update();
-
 	if (m_dragging)
 	{
 		m_manager->At("person")->Get<PositionComponent>()->Update(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);

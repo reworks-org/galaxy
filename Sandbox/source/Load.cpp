@@ -78,7 +78,7 @@ void Load::Update(sf::Time dt, StateSystem* stateManager)
 
 	m_timePassed += dt;
 
-	if (m_timePassed > sf::seconds(1.5))
+	if (m_timePassed > sf::seconds(1))
 	{
 		m_alpha -= 3;
 

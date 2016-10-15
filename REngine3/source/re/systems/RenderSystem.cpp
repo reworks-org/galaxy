@@ -66,7 +66,7 @@ namespace re
 
 		if (e->Has<TimeComponent>())
 		{
-			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_id, e->Get<TimeComponent>());
+			m_groups[e->Get<TimeComponent>()->m_group].AddAnimated(e->m_id, e->Get<TimeComponent>());
 		}
 	}
 
