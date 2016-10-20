@@ -245,7 +245,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -274,7 +274,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
