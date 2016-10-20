@@ -9,6 +9,7 @@ TODO List.
 - fix rendering and groups -> make into layers?
 - camera class
 - possibly write own mapping class using tmx-c parser
+- generic level file
 
 v1.1:
 - Error Checking & Exceptions. 

@@ -45,7 +45,7 @@ public:
 		m_versionMinor = m_config.Lookup<int>("versionMinor");
 		m_versionPatch = m_config.Lookup<int>("versionPatch");
 
-		if (m_config.Lookup<int>("fullscreen"))
+		if (m_config.Lookup<bool>("fullscreen"))
 		{
 			m_window.create(sf::VideoMode(m_config.Lookup<int>("screenWidth"), m_config.Lookup<int>("screenHeight")), m_appTitle, sf::Style::Default | sf::Style::Fullscreen);
 		}
@@ -57,9 +57,9 @@ public:
 		std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
 		RE_LOG(re::LogLevel::INFO, msg);
 
-		m_window.setMouseCursorVisible(m_config.Lookup<int>("cursorVisible"));
-		m_window.setVerticalSyncEnabled(m_config.Lookup<int>("vsyncEnabled"));
-		m_window.setFramerateLimit(m_config.Lookup<int>("framerateLimit"));
+		m_window.setMouseCursorVisible(m_config.Lookup<bool>("cursorVisible"));
+		m_window.setVerticalSyncEnabled(m_config.Lookup<bool>("vsyncEnabled"));
+		m_window.setFramerateLimit(0);
 		m_window.requestFocus();
 
 		// create systems

@@ -76,7 +76,6 @@
     <ClCompile Include="source\re\component\TimeComponent.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
-    <ClCompile Include="source\re\mapping\Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -158,6 +157,5 @@
     <ClInclude Include="source\re\component\TimeComponent.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
-    <ClInclude Include="source\re\mapping\Level.hpp" />
   </ItemGroup>
 </Project>

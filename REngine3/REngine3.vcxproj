@@ -83,7 +83,6 @@
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
-    <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
@@ -157,7 +156,6 @@
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
-    <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />

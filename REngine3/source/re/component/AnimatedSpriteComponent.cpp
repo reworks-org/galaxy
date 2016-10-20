@@ -34,8 +34,8 @@ namespace re
 		m_frameTime = sf::seconds(table.get<float>("frameTime"));
 		m_speed = table.get<float>("speed");
 		m_currentFrame = 0;
-		m_isPaused = table.get<int>("isPaused");
-		m_isLooped = table.get<int>("isLooped");
+		m_isPaused = table.get<bool>("isPaused");
+		m_isLooped = table.get<bool>("isLooped");
 		m_texture = NULL;
 
 		m_animationSheetStream.open(table.get<std::string>("texture"));
