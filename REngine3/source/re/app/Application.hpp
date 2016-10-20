@@ -13,7 +13,7 @@
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
-#include "re/systems/StateSystem.hpp"
+#include "re/systems/StateManager.hpp"
 #include "re/entity/EntityManager.hpp"
 #include "re/graphics/FontManager.hpp"
 
@@ -56,7 +56,7 @@ namespace re
 		World m_world;
 		Window m_window;
 		EntityManager m_manager;
-		StateSystem m_stateManager;
+		StateManager m_stateManager;
 		FontManager m_fontManager;
 	};
 }

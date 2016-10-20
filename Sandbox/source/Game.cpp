@@ -6,23 +6,14 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/View.hpp>
 
-#include "re/types/Event.hpp"
-#include "re/app/World.hpp"
-#include "re/entity/Entity.hpp"
-#include "re/graphics/Window.hpp"
-#include "re/services/Config.hpp"
-#include "re/services/vfs/VFS.hpp"
-#include "re/systems/MoveSystem.hpp"
-#include "re/graphics/ui/UILabel.hpp"
-#include "re/systems/EventSystem.hpp"
-#include "re/graphics/ui/UISystem.hpp"
-#include "re/entity/EntityManager.hpp"
-#include "re/systems/RenderSystem.hpp"
-#include "re/services/ServiceLocator.hpp"
-#include "re/component/EventComponent.hpp"
-#include "re/component/PositionComponent.hpp"
+#include <re/app/World.hpp>
+#include <re/graphics/Window.hpp>
+#include <re/services/Config.hpp>
+#include <re/services/vfs/VFS.hpp>
+#include <re/entity/EntityManager.hpp>
+#include <re/services/ServiceLocator.hpp>
 
 #include "Game.hpp"
 
@@ -32,6 +23,8 @@ std::shared_ptr<State> Game::m_gameState = std::make_shared<Game>();
 
 sf::Vector2f view_center = sf::Vector2f(1280, 720) / 2.f;
 sf::View view(view_center, sf::Vector2f(1280, 720));
+
+sf::View minimap;
 
 std::shared_ptr<State> Game::Inst()
 {
@@ -53,6 +46,8 @@ void Game::LoadResources()
 	map = new tmx::TileMap("bin/Release/assets/desert.tmx");
 	map->ShowObjects();
 	m_window->setView(view);
+
+	minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
 }
 
 void Game::UnloadResources()
@@ -60,22 +55,40 @@ void Game::UnloadResources()
 	delete map;
 }
 
-void Game::Event(sf::Event& e, StateSystem* stateManager)
+void Game::Event(sf::Event& e)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		m_window->close();
 	}
 
-	map->
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		view.move(0, -5);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		view.move(0, 5);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		view.move(-5, 0);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		view.move(5, 0);
+	}
 }
 
-void Game::Update(sf::Time dt, StateSystem* stateManager)
+void Game::Update(sf::Time dt)
 {
-	
+	m_window->setView(view);
 }
 
-void Game::Render(StateSystem* stateManager)
+void Game::Render()
 {
 	m_window->clear(sf::Color::Black);
 

@@ -6,16 +6,13 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/utils/Log.hpp"
-#include "re/app/Application.hpp"
-
-#include "re/systems/EventSystem.hpp"
-#include "re/systems/RenderSystem.hpp"
-#include "re/graphics/ui/UISystem.hpp"
-#include "re/systems/StateSystem.hpp"
-#include "re/systems/MoveSystem.hpp"
-
-#include "re/services/ServiceLocator.hpp"
+#include <re/utils/Log.hpp>
+#include <re/app/Application.hpp>
+#include <re/systems/MoveSystem.hpp>
+#include <re/systems/EventSystem.hpp>
+#include <re/systems/RenderSystem.hpp>
+#include <re/systems/StateManager.hpp>
+#include <re/services/ServiceLocator.hpp>
 
 #include "Load.hpp"
 
@@ -39,7 +36,7 @@ public:
 
 		RE_LOG(re::LogLevel::INFO, "Begin init");
 
-		m_vfs.Mount("bin/Release/assets/data.zip");
+		m_vfs.Mount("bin/Release/assets/");
 		m_config.Parse("bin/Release/config.lua");
 
 		m_appTitle = m_config.Lookup<std::string>("appTitle");
@@ -67,7 +64,6 @@ public:
 
 		// create systems
 		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.Lookup<int>("renderingLayers")));
-		m_world.AddSystem<UISystem>(std::make_shared<UISystem>());
 		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
 		m_world.AddSystem<MoveSystem>(std::make_shared<MoveSystem>());
 
@@ -78,6 +74,7 @@ public:
 		Locator::Provide<Window>(&m_window);
 		Locator::Provide<EntityManager>(&m_manager);
 		Locator::Provide<FontManager>(&m_fontManager);
+		Locator::Provide<StateManager>(&m_stateManager);
 
 		// add fonts
 		m_fontManager.Add("GameOver", "game_over.ttf");

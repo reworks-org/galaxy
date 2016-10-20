@@ -82,11 +82,8 @@
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
-    <ClCompile Include="source\re\graphics\ui\UIComponent.cpp" />
-    <ClCompile Include="source\re\graphics\ui\UILabel.cpp" />
-    <ClCompile Include="source\re\graphics\ui\UIPanel.cpp" />
-    <ClCompile Include="source\re\graphics\ui\UISystem.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
+    <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
@@ -94,7 +91,7 @@
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\MoveSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
-    <ClCompile Include="source\re\systems\StateSystem.cpp" />
+    <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
     <ClCompile Include="source\re\utils\Random.cpp" />
@@ -159,11 +156,8 @@
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
-    <ClInclude Include="source\re\graphics\ui\UIComponent.hpp" />
-    <ClInclude Include="source\re\graphics\ui\UILabel.hpp" />
-    <ClInclude Include="source\re\graphics\ui\UIPanel.hpp" />
-    <ClInclude Include="source\re\graphics\ui\UISystem.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
+    <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
@@ -173,7 +167,7 @@
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\MoveSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\systems\StateSystem.hpp" />
+    <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />
@@ -251,7 +245,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -280,7 +274,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

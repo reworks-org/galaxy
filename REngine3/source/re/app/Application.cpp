@@ -12,7 +12,7 @@
 
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
-#include "re/systems/StateSystem.hpp"
+#include "re/systems/StateManager.hpp"
 
 #include "Application.hpp"
 

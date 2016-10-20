@@ -6,17 +6,14 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <SFML/Window/Event.hpp>
-
-#include "re/app/World.hpp"
-#include "re/services/Config.hpp"
-#include "re/graphics/Window.hpp"
-#include "re/services/vfs/VFS.hpp"
-#include "re/systems/MoveSystem.hpp"
-#include "re/entity/EntityManager.hpp"
-#include "re/services/ServiceLocator.hpp"
-
-#include "re/systems/RenderSystem.hpp"
+#include <re/app/World.hpp>
+#include <re/services/Config.hpp>
+#include <re/graphics/Window.hpp>
+#include <re/services/vfs/VFS.hpp>
+#include <re/systems/MoveSystem.hpp>
+#include <re/entity/EntityManager.hpp>
+#include <re/systems/RenderSystem.hpp>
+#include <re/services/ServiceLocator.hpp>
 
 #include "Load.hpp"
 #include "Menu.hpp"
@@ -58,7 +55,7 @@ void Load::UnloadResources()
 	m_world->Clean();
 }
 
-void Load::Event(sf::Event& e, StateSystem* stateManager)
+void Load::Event(sf::Event& e)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
@@ -67,11 +64,11 @@ void Load::Event(sf::Event& e, StateSystem* stateManager)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		stateManager->ChangeState(Menu::Inst());
+		Locator::Get<StateManager>()->ChangeState(Menu::Inst());
 	}
 }
 
-void Load::Update(sf::Time dt, StateSystem* stateManager)
+void Load::Update(sf::Time dt)
 {
 	m_world->Get<MoveSystem>()->Update(dt);
 	m_world->Get<RenderSystem>()->Update(dt);
@@ -91,14 +88,14 @@ void Load::Update(sf::Time dt, StateSystem* stateManager)
 
 		if (m_alpha <= 0)
 		{
-			stateManager->ChangeState(Menu::Inst());
+			Locator::Get<StateManager>()->ChangeState(Menu::Inst());
 		}
 	}
 
 	m_world->Update(dt);
 }
 
-void Load::Render(StateSystem* stateManager)
+void Load::Render()
 {
 	m_window->clear(sf::Color::Black);
 

@@ -9,7 +9,9 @@
 #ifndef SANDBOX_MENU_HPP_
 #define SANDBOX_MENU_HPP_
 
-#include "re/systems/StateSystem.hpp"
+#include <TGUI/TGUI.hpp>
+
+#include <re/systems/StateManager.hpp>
 
 class Menu : public re::State
 {
@@ -42,26 +44,29 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	void Event(sf::Event& e, re::StateSystem* stateManager) override;
+	void Event(sf::Event& e) override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Update state.
 	*/
-	void Update(sf::Time dt, re::StateSystem* stateManager) override;
+	void Update(sf::Time dt) override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Render state.
 	*/
-	void Render(re::StateSystem* stateManager) override;
+	void Render() override;
 
 private:
 	static std::shared_ptr<re::State> m_menuState;
+	tgui::Gui gui;
+	tgui::Theme::Ptr theme;
 
 	bool m_dragging = false;
+	bool m_doOnce = true;
 };
 
 #endif

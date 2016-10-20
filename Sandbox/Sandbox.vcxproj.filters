@@ -4,9 +4,11 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Load.cpp" />
     <ClCompile Include="source\Menu.cpp" />
+    <ClCompile Include="source\Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Load.hpp" />
     <ClInclude Include="source\Menu.hpp" />
+    <ClInclude Include="source\Game.hpp" />
   </ItemGroup>
 </Project>

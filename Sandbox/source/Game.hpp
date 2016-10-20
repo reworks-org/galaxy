@@ -9,8 +9,8 @@
 #ifndef SANDBOX_GAME_HPP_
 #define SANDBOX_GAME_HPP_
 
-#include "re/systems/StateSystem.hpp"
-#include "re/deps/STP/TMXLoader.hpp"
+#include <re/deps/STP/TMXLoader.hpp>
+#include <re/systems/StateManager.hpp>
 
 class Game : public re::State
 {
@@ -43,26 +43,25 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	void Event(sf::Event& e, re::StateSystem* stateManager) override;
+	void Event(sf::Event& e) override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Update state.
 	*/
-	void Update(sf::Time dt, re::StateSystem* stateManager) override;
+	void Update(sf::Time dt) override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Render state.
 	*/
-	void Render(re::StateSystem* stateManager) override;
+	void Render() override;
 
 private:
 	static std::shared_ptr<re::State> m_gameState;
 	tmx::TileMap* map;
-	
 };
 
 #endif
