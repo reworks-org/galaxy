@@ -28,10 +28,6 @@ namespace re
 
 	int Application::Run()
 	{
-		//sf::Uint64 lastTime = NanoTime();
-		//double delta = 0.0;
-		//const double ns = 1000000000.0 / m_targetUPS;
-		
 		sf::Uint64 timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		int frames = 0;
 		int updates = 0;
@@ -44,39 +40,33 @@ namespace re
 
 		while (m_window.isOpen())
 		{
-			//sf::Uint64 now = NanoTime();
-
 			sf::Time dt = clock.restart();
 			timeSinceLastUpdate += dt;
-
-			//delta += (now - lastTime) / ns;
-			//lastTime = now;
-			
-			//if (delta >= 1.0)
 			while (timeSinceLastUpdate > TimePerFrame)
 			{
 				timeSinceLastUpdate -= TimePerFrame;
 
-				m_stateManager.Event(m_window.m_event);
+				while (m_window.pollEvent(m_window.m_event))
+				{
+					m_stateManager.Event(m_window.m_event);
+				}
+
 				m_stateManager.Update(TimePerFrame);
 
 				updates++;
-				//delta--;
 			}
 			
 			m_stateManager.Render();
 			frames++;
-
+			
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
 			{
 				timer += 1000;
 
-			//#if defined _DEBUG || defined DEBUG
 				std::cout << updates << " ups, " << frames << " fps" << std::endl;
 				std::string header = "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
 				std::string newTitle = m_appTitle + header;
 				m_window.setTitle(newTitle);
-			//#endif
 
 				updates = 0;
 				frames = 0;

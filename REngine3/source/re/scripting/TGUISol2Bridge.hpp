@@ -27,24 +27,22 @@ namespace tgui
 	* PURPOSE: To use a lua script to create the object instead of hard-coding it.
 	* NOTE: Does not connect a function, add to gui object or set a tooltip.
 	*/
-	tgui::Button::Ptr load(Theme::Ptr theme, std::string& script)
+	inline Button::Ptr load(Theme::Ptr theme, const std::string& script)
 	{
 		sol::state lua;
 		lua.script(re::Locator::Get<re::VFS>()->ToString(script));
-		sol::table widget = lua.get<sol::table>("widget");
+		sol::table widget = lua.get<sol::table>("widgetButton");
 
-		tgui::Button::Ptr button = theme->load(lua.get<std::string>("class"));
-		button->setSize(lua.get<int>("w"), lua.get<int>("h"));
-		button->setPosition(lua.get<int>("x"), lua.get<int>("y"));
-		button->setText(lua.get<std::string>("text"));
-		button->setFont(re::Locator::Get<re::FontManager>()->Get(lua.get<std::string>("font")));
-		button->setOpacity(lua.get<float>("opacity"));
-		button->setTextSize(lua.get<std::string>("fontSize"));
+		Button::Ptr button = theme->load("Button");
+		button->setSize(widget.get<int>("w"), widget.get<int>("h"));
+		button->setPosition(widget.get<int>("x"), widget.get<int>("y"));
+		button->setText(widget.get<std::string>("text"));
+		button->setFont(re::Locator::Get<re::FontManager>()->Get(widget.get<std::string>("font")));
+		button->setOpacity(widget.get<float>("opacity"));
+		button->setTextSize(widget.get<int>("fontSize"));
 
 		return button;
 	}
-
-
 }
 
 #endif

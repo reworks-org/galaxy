@@ -9,9 +9,8 @@
 #ifndef SANDBOX_MENU_HPP_
 #define SANDBOX_MENU_HPP_
 
-#include <TGUI/TGUI.hpp>
-
 #include <re/systems/StateManager.hpp>
+#include <re/scripting/TGUISol2Bridge.hpp>
 
 class Menu : public re::State
 {

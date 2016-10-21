@@ -16,6 +16,7 @@
 #include <re/services/ServiceLocator.hpp>
 
 #include "Game.hpp"
+#include "Menu.hpp"
 
 using namespace re;
 
@@ -62,24 +63,29 @@ void Game::Event(sf::Event& e)
 		m_window->close();
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		Locator::Get<StateManager>()->ChangeState(Menu::Inst());
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		view.move(0, -5);
+		view.move(0, -3);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		view.move(0, 5);
+		view.move(0, 3);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		view.move(-5, 0);
+		view.move(-3, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		view.move(5, 0);
+		view.move(3, 0);
 	}
 }
 

@@ -3,13 +3,10 @@ TODO List.
 - optimize as much as possible.
 - serialization
 - collision
-- mapping
-- ui: from tgui?
-- fix window titlebar
 - fix rendering and groups -> make into layers?
-- camera class
 - possibly write own mapping class using tmx-c parser
 - generic level file
+- tgui level bridge
 
 v1.1:
 - Error Checking & Exceptions. 

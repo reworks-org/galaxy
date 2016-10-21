@@ -63,12 +63,8 @@ void Menu::LoadResources()
 		m_doOnce = false;
 	}
 
-	tgui::Button::Ptr button = theme->load("Button");
-	button->setSize(100, 100);
-	button->setPosition(500, 10);
-	button->setText("Go to Game");
-	button->connect("pressed", [&](){Locator::Get<StateManager>()->ChangeState(Game::Inst());});
-
+	tgui::Button::Ptr button = tgui::load(theme, "ui/testbutton.lua");
+	button->connect("pressed", [&]() {Locator::Get<StateManager>()->ChangeState(Game::Inst());});
 	gui.add(button, "test");
 }
 
@@ -102,10 +98,7 @@ void Menu::Event(sf::Event& e)
 		m_dragging = false;
 	}
 
-	while (m_window->pollEvent(e))
-	{
-		gui.handleEvent(e);
-	}
+	gui.handleEvent(e);
 }
 
 void Menu::Update(sf::Time dt)
