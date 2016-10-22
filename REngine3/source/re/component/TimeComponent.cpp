@@ -46,7 +46,7 @@ namespace re
 		m_time.setStyle(sf::Text::Regular);
 	}
 
-	void TimeComponent::Update(sf::Time dt)
+	void TimeComponent::Update(sf::Time dt, float x = 0, float y = 0)
 	{
 		std::string temp = GetCurrentTimeAndDate();
 

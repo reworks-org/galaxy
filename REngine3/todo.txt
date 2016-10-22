@@ -6,7 +6,7 @@ TODO List.
 - fix rendering and groups -> make into layers?
 - possibly write own mapping class using tmx-c parser
 - generic level file
-- tgui level bridge
+- tgui lua bridge
 
 v1.1:
 - Error Checking & Exceptions. 

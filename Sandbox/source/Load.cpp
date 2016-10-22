@@ -57,6 +57,11 @@ void Load::UnloadResources()
 
 void Load::Event(sf::Event& e)
 {
+	if (e.type == sf::Event::Closed)
+	{
+		m_window->close();
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		m_window->close();
@@ -71,7 +76,6 @@ void Load::Event(sf::Event& e)
 void Load::Update(sf::Time dt)
 {
 	m_world->Get<MoveSystem>()->Update(dt);
-	m_world->Get<RenderSystem>()->Update(dt);
 
 	m_timePassed += dt;
 

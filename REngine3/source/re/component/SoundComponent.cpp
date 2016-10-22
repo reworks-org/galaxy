@@ -26,6 +26,10 @@ namespace re
 	{
 	}
 
+	void SoundComponent::Update(sf::Time dt, float x, float y)
+	{
+	}
+
 	void SoundComponent::AddSound(const std::string& script)
 	{
 		sol::state lua;

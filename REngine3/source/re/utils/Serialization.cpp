@@ -1,43 +1,54 @@
-/*
-* IMPORTS: none
-* EXPORTS: none
-* PURPOSE: Used as a function pointer to serialize library.
-*/
-void Serialize()
-{
-}
-
-/*
-* IMPORTS: none
-* EXPORTS: none
-* PURPOSE: Used as a function pointer to deserialize library.
-*/
-void Deserialize()
-{
-}
+//
+//  Serialization.cpp
+//  REngine3
+//
+//  Created by reworks on 20/10/2016.
+//  Copyright (c) 2016 reworks. All rights reserved.
+//
 
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
+#include "re/entity/EntityManager.hpp"
+#include "re/services/ServiceLocator.hpp"
+#include "re/component/PositionComponent.hpp"
 
-// use these
-m_out.open("");
-m_out.close();
+#include "Serialization.hpp"
 
-void save_schedule(const bus_schedule &s, const char * filename) {
-	// make an archive
-	std::ofstream ofs(filename);
-	boost::archive::text_oarchive oa(ofs);
-	oa << s;
-}
-
-void
-restore_schedule(bus_schedule &s, const char * filename)
+namespace re
 {
-	// open the archive
-	std::ifstream ifs(filename);
-	boost::archive::text_iarchive ia(ifs);
+	Serialization::Serialization(const std::string& fileName)
+	{
+		m_fileName = fileName;
+	}
 
-	// restore the schedule from the archive
-	ia >> s;
+	void Serialization::Save()
+	{
+		m_out.open(m_fileName);
+
+		boost::archive::binary_oarchive oa(m_out);
+		
+		for (auto& it : Locator::Get<EntityManager>()->GetMap())
+		{
+			oa << *(it.second);
+			oa << *(it.second->Get<PositionComponent>());
+		}
+
+		m_out.close();
+	}
+
+	void Serialization::Load()
+	{
+		m_in.open(m_fileName);
+
+		boost::archive::binary_iarchive ia(m_in);
+
+		for (auto& it : Locator::Get<EntityManager>()->GetMap())
+		{
+			ia >> *(it.second);
+			ia >> *(it.second->Get<PositionComponent>());
+		}
+
+		m_in.close();
+	}
 }

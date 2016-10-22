@@ -94,6 +94,7 @@
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utils\Log.cpp" />
     <ClCompile Include="source\re\utils\Random.cpp" />
+    <ClCompile Include="source\re\utils\Serialization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -167,7 +168,6 @@
     <ClInclude Include="source\re\systems\MoveSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
-    <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
@@ -175,6 +175,7 @@
     <ClInclude Include="source\re\types\Types.hpp" />
     <ClInclude Include="source\re\utils\Log.hpp" />
     <ClInclude Include="source\re\utils\Random.hpp" />
+    <ClInclude Include="source\re\utils\Serialization.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

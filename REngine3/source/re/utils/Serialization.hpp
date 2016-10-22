@@ -16,15 +16,32 @@ namespace re
 	class Serialization
 	{
 	public:
+		/*
+		* IMPORTS: Name of save file.
+		* EXPORTS: none
+		* PURPOSE: Set the save file to save to.
+		*/
 		Serialization(const std::string& fileName);
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Serialize the engine.
+		*/
 		void Save();
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Deserialize the engine.
+		*/
 		void Load();
 
 	private:
 		std::ofstream m_out;
 		std::ifstream m_in;
+
+		std::string m_fileName;
 	};
 }
 

@@ -12,6 +12,9 @@
 #include <memory>
 #include <typeindex>
 
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+
 #include "re/types/Types.hpp"
 #include "re/types/Component.hpp"
 
@@ -21,6 +24,7 @@ namespace re
 
 	class Entity
 	{
+		friend class boost::serialization::access;
 	public:
 		/*
 		* IMPORTS: none
@@ -66,6 +70,14 @@ namespace re
 		std::vector<std::type_index> m_systemIds;
 
 		bool m_isDead = false;
+
+	private:
+		// Boost.Serialization function
+		template<class Archive>
+		void serialize(Archive & ar, const unsigned int version)
+		{
+			ar & m_isDead;
+		}
 	};
 
 	template<typename T>

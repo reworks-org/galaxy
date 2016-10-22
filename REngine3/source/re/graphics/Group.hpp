@@ -38,20 +38,6 @@ namespace re
 		* PURPOSE: Add a textocomponent to the group.
 		*/
 		void AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable);
-
-		/*
-		* IMPORTS: animated object
-		* EXPORTS: none
-		* PURPOSE: Add an animated object to the group.
-		*/
-		void AddAnimated(sf::Uint64 id, std::shared_ptr<Animated> animated);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Updates components in group.
-		*/
-		void Update(sf::Time dt);
 		
 		/*
 		* IMPORTS: RenderTarget and RenderState
@@ -63,21 +49,11 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Get stored animated.
-		*/
-		std::map<sf::Uint64, std::vector<std::shared_ptr<Animated>>>& GetAnimatedMap();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
 		* PURPOSE: Get stored drawables.
 		*/
 		std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>>& GetDrawableMap();
 
 	private:
-		// need to redo this!
-		// can only support 1 of each type. fuck im an idiot
-		std::map<sf::Uint64, std::vector<std::shared_ptr<Animated>>> m_animated;
 		std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>> m_drawable;
 	};
 }

@@ -6,11 +6,11 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <SFML/System/Time.hpp>
+
 #include "re/entity/EntityManager.hpp"
 #include "re/services/ServiceLocator.hpp"
-#include "re/component/SpriteComponent.hpp"
 #include "re/component/PositionComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
 
 #include "MoveSystem.hpp"
 
@@ -47,16 +47,11 @@ namespace re
 
 	void MoveSystem::Update(sf::Time dt)
 	{
-		for (auto& it : m_entitys)
+		for (auto& e : m_entitys)
 		{
-			if (it.second->Has<SpriteComponent>())
+			for (auto& it : e.second->m_components)
 			{
-				it.second->Get<SpriteComponent>()->setPosition(it.second->Get<PositionComponent>()->m_xpos, it.second->Get<PositionComponent>()->m_ypos);
-			}
-
-			if (it.second->Has<AnimatedSpriteComponent>())
-			{
-				it.second->Get<AnimatedSpriteComponent>()->setPosition(it.second->Get<PositionComponent>()->m_xpos, it.second->Get<PositionComponent>()->m_ypos);
+				it.second->Update(dt, e.second->Get<PositionComponent>()->m_xpos, e.second->Get<PositionComponent>()->m_ypos);
 			}
 		}
 	}

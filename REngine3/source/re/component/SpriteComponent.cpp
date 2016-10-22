@@ -33,6 +33,11 @@ namespace re
 		LoadShader(table.get<std::string>("vert"), table.get<std::string>("frag"));
 	}
 
+	void SpriteComponent::Update(sf::Time dt, float x, float y)
+	{
+		setPosition(x, y);
+	}
+
 	sf::Shader* SpriteComponent::Shader()
 	{
 		return m_shader.get();

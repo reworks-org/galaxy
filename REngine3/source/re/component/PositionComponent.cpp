@@ -27,7 +27,11 @@ namespace re
 		m_height = table.get<float>("h");
 	}
 
-	void PositionComponent::Update(float x, float y)
+	void PositionComponent::Update(sf::Time dt, float x, float y)
+	{
+	}
+
+	void PositionComponent::SetPos(float x, float y)
 	{
 		m_xpos = x;
 		m_ypos = y;

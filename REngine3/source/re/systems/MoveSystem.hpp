@@ -47,7 +47,7 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Update the system.
+		* PURPOSE: Update the system. Also handles updating components.
 		*/
 		void Update(sf::Time dt);
 
@@ -57,8 +57,6 @@ namespace re
 		* PURPOSE: Clean the system.
 		*/
 		void Clean();
-	private:
-
 	};
 }
 

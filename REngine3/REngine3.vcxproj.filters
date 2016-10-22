@@ -76,6 +76,7 @@
     <ClCompile Include="source\re\component\TimeComponent.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
+    <ClCompile Include="source\re\utils\Serialization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -131,7 +132,6 @@
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\MoveSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\types\Animated.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Event.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
@@ -158,5 +158,6 @@
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
+    <ClInclude Include="source\re\utils\Serialization.hpp" />
   </ItemGroup>
 </Project>

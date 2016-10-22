@@ -39,6 +39,13 @@ namespace re
 		*/
 		void Init(sol::table& table) override;
 
+		/*
+		* IMPORTS: A change in position if nessessary. Delta time aswell.
+		* EXPORTS: none
+		* PURPOSE: Update the component.
+		*/
+		void Update(sf::Time dt, float x, float y) override;
+
 	public:
 		unsigned long m_group;
 	};

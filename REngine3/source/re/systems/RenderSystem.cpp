@@ -48,7 +48,7 @@ namespace re
 	void RenderSystem::AddEntity(Entity* e)
 	{
 		e->m_systemIds.push_back(typeid(RenderSystem));
-		
+
 		if (e->Has<SpriteComponent>())
 		{
 			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_id, e->Get<SpriteComponent>());
@@ -61,12 +61,12 @@ namespace re
 
 		if (e->Has<AnimatedSpriteComponent>())
 		{
-			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddAnimated(e->m_id, e->Get<AnimatedSpriteComponent>());
+			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_id, e->Get<AnimatedSpriteComponent>());
 		}
 
 		if (e->Has<TimeComponent>())
 		{
-			m_groups[e->Get<TimeComponent>()->m_group].AddAnimated(e->m_id, e->Get<TimeComponent>());
+			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_id, e->Get<TimeComponent>());
 		}
 	}
 
@@ -77,25 +77,11 @@ namespace re
 
 		for (auto& v : m_groups)
 		{
-			auto foundA = v.GetAnimatedMap().find(e);
-			if (foundA != v.GetAnimatedMap().end())
-			{
-				v.GetAnimatedMap().erase(e);
-			}
-
-			auto foundB = v.GetDrawableMap().find(e);
-			if (foundB != v.GetDrawableMap().end())
+			auto found = v.GetDrawableMap().find(e);
+			if (found != v.GetDrawableMap().end())
 			{
 				v.GetDrawableMap().erase(e);
 			}
-		}
-	}
-
-	void RenderSystem::Update(sf::Time dt)
-	{
-		for (auto& g : m_groups)
-		{
-			g.Update(dt);
 		}
 	}
 
@@ -111,7 +97,6 @@ namespace re
 	{
 		for (auto& v : m_groups)
 		{
-			v.GetAnimatedMap().clear();
 			v.GetDrawableMap().clear();
 		}
 

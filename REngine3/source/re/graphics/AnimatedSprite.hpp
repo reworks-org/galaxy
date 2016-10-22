@@ -32,7 +32,7 @@
 
 #include "Animation.hpp"
 
-class AnimatedSprite : public sf::Transformable
+class AnimatedSprite : public sf::Transformable, public sf::Drawable
 {
 public:
 	explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);

@@ -10,13 +10,13 @@
 #define RENGINE3_TIMECOMPONENT_HPP_
 
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Drawable.hpp>
 
-#include "re/types/Animated.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
 {
-	class TimeComponent : public Component, public Animated
+	class TimeComponent : public Component, public sf::Drawable
 	{
 	public:
 		/*
@@ -41,11 +41,11 @@ namespace re
 		void Init(sol::table& table) override;
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: A change in position if nessessary. Delta time aswell.
 		* EXPORTS: none
-		* PURPOSE: Update the time.
+		* PURPOSE: Update the component.
 		*/
-		void Update(sf::Time dt) override;
+		void Update(sf::Time dt, float x, float y) override;
 
 	private:
 		/*

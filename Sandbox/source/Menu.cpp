@@ -81,6 +81,11 @@ void Menu::UnloadResources()
 
 void Menu::Event(sf::Event& e)
 {
+	if (e.type == sf::Event::Closed)
+	{
+		m_window->close();
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		m_window->close();
@@ -103,15 +108,14 @@ void Menu::Event(sf::Event& e)
 
 void Menu::Update(sf::Time dt)
 {
+	m_world->Update(dt);
+
 	if (m_dragging)
 	{
-		m_manager->At("person")->Get<PositionComponent>()->Update(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
+		m_manager->At("person")->Get<PositionComponent>()->SetPos(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
 	}
 
 	m_world->Get<MoveSystem>()->Update(dt);
-	m_world->Get<RenderSystem>()->Update(dt);
-
-	m_world->Update(dt);
 }
 
 void Menu::Render()
