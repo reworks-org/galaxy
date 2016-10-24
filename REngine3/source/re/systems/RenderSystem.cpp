@@ -45,9 +45,9 @@ namespace re
 		}
 	}
 
-	void RenderSystem::AddEntity(Entity* e)
+	void RenderSystem::AddEntity(std::shared_ptr<Entity> e)
 	{
-		e->m_systemIds.push_back(typeid(RenderSystem));
+		e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 
 		if (e->Has<SpriteComponent>())
 		{
@@ -72,9 +72,6 @@ namespace re
 
 	void RenderSystem::RemoveEntity(sf::Uint64 e)
 	{
-		auto it = std::find(m_entitys[e]->m_systemIds.begin(), m_entitys[e]->m_systemIds.end(), typeid(RenderSystem));
-		m_entitys[e]->m_systemIds.erase(it);
-
 		for (auto& v : m_groups)
 		{
 			auto found = v.GetDrawableMap().find(e);

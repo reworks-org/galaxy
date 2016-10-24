@@ -48,8 +48,8 @@ void Menu::LoadResources()
 
 	m_world->Register("menuEntitys.lua");
 
-	m_manager->At("person")->Get<AnimatedSpriteComponent>()->Play();
-	m_manager->At("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
+	m_manager->Get("person")->Get<AnimatedSpriteComponent>()->Play();
+	m_manager->Get("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
 
 	m_world->Get<MoveSystem>()->AutoSubmit();
 	m_world->Get<RenderSystem>()->AutoSubmit();
@@ -103,6 +103,24 @@ void Menu::Event(sf::Event& e)
 		m_dragging = false;
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		if (!m_manager->Get("person")->m_isDead)
+		{
+			m_manager->Get("person")->m_isDead = true;
+			printf("dead");
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		if (m_manager->Get("person")->m_isDead)
+		{
+			m_manager->Get("person")->m_isDead = false;
+			printf("alive");
+		}
+	}
+
 	gui.handleEvent(e);
 }
 
@@ -112,7 +130,7 @@ void Menu::Update(sf::Time dt)
 
 	if (m_dragging)
 	{
-		m_manager->At("person")->Get<PositionComponent>()->SetPos(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
+		m_manager->Get("person")->Get<PositionComponent>()->SetPos(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
 	}
 
 	m_world->Get<MoveSystem>()->Update(dt);

@@ -15,12 +15,12 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void EntityManager::Add(const std::string& name, Entity* e)
+	void EntityManager::Add(const std::string& name, std::shared_ptr<Entity> e)
 	{
 		m_entitys.emplace(name, e);
 	}
 
-	Entity* EntityManager::At(const std::string& name)
+	std::shared_ptr<Entity> EntityManager::Get(const std::string& name)
 	{
 		return m_entitys[name];
 	}
@@ -30,7 +30,7 @@ namespace re
 		m_entitys.clear();
 	}
 
-	std::unordered_map<std::string, Entity*>& EntityManager::GetMap()
+	std::unordered_map<std::string, std::shared_ptr<Entity>>& EntityManager::GetMap()
 	{
 		return m_entitys;
 	}

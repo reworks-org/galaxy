@@ -6,8 +6,6 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <algorithm>
-
 #include <SFML/System/Time.hpp>
 
 #include "re/entity/EntityManager.hpp"
@@ -34,16 +32,14 @@ namespace re
 		}
 	}
 
-	void EventSystem::AddEntity(Entity* e)
+	void EventSystem::AddEntity(std::shared_ptr<Entity> e)
 	{
-		e->m_systemIds.push_back(typeid(EventSystem));
+		e->m_systemIds.emplace("EventSystem", std::type_index(typeid(EventSystem)));
 		m_entitys.emplace(e->m_id, e);
 	}
 
 	void EventSystem::RemoveEntity(sf::Uint64 e)
 	{
-		auto it = std::find(m_entitys[e]->m_systemIds.begin(), m_entitys[e]->m_systemIds.end(), typeid(EventSystem));
-		m_entitys[e]->m_systemIds.erase(it);
 		m_entitys.erase(e);
 	}
 

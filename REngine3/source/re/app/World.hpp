@@ -107,10 +107,12 @@ namespace re
 		std::shared_ptr<Component> MakeComponent();
 
 	private:
-		std::vector<Entity> m_alive;
-		std::vector<Entity> m_dead;
+		std::map<sf::Uint64, std::shared_ptr<Entity>> m_alive;
+		std::map<sf::Uint64, std::shared_ptr<Entity>> m_dead;
 		SystemList m_systems;
 		ComponentFactory m_componentFactory;
+
+		sf::Uint64 m_counter = 0;
 	};
 
 	template<typename T>

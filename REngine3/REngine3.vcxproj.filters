@@ -77,6 +77,7 @@
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\utils\Serialization.cpp" />
+    <ClCompile Include="source\re\mapping\Level.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -159,5 +160,6 @@
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\utils\Serialization.hpp" />
+    <ClInclude Include="source\re\mapping\Level.hpp" />
   </ItemGroup>
 </Project>

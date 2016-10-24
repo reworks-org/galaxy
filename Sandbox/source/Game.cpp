@@ -53,6 +53,8 @@ void Game::LoadResources()
 
 void Game::UnloadResources()
 {
+	m_window->setView(m_window->getDefaultView());
+
 	delete map;
 }
 

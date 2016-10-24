@@ -32,16 +32,14 @@ namespace re
 		}
 	}
 
-	void MoveSystem::AddEntity(Entity* e)
+	void MoveSystem::AddEntity(std::shared_ptr<Entity> e)
 	{
-		e->m_systemIds.push_back(typeid(MoveSystem));
+		e->m_systemIds.emplace("MoveSystem", std::type_index(typeid(MoveSystem)));
 		m_entitys.emplace(e->m_id, e);
 	}
 
 	void MoveSystem::RemoveEntity(sf::Uint64 e)
 	{
-		auto it = std::find(m_entitys[e]->m_systemIds.begin(), m_entitys[e]->m_systemIds.end(), typeid(MoveSystem));
-		m_entitys[e]->m_systemIds.erase(it);
 		m_entitys.erase(e);
 	}
 

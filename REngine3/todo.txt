@@ -7,6 +7,7 @@ TODO List.
 - possibly write own mapping class using tmx-c parser
 - generic level file
 - tgui lua bridge
+- seperate movesystem and updating components. at the moment an entity must have a positioncomponent to update itself.
 
 v1.1:
 - Error Checking & Exceptions. 

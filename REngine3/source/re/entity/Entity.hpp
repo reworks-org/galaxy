@@ -9,6 +9,7 @@
 #ifndef RENGINE3_ENTITY_HPP_
 #define RENGINE3_ENTITY_HPP_
 
+#include <map>
 #include <memory>
 #include <typeindex>
 
@@ -67,7 +68,7 @@ namespace re
 		sf::Uint64 m_id;
 		std::string m_name;
 		ComponentList m_components;
-		std::vector<std::type_index> m_systemIds;
+		std::map<std::string, std::type_index> m_systemIds;
 
 		bool m_isDead = false;
 

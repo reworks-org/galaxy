@@ -50,16 +50,11 @@ namespace re
 
 	void World::Register(const std::string& entitysScript)
 	{
-		sf::Uint64 counter = 0;
-
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(entitysScript));
 		sol::table world = lua.get<sol::table>("world");
 
 		int max = world.get<int>("numEntitys");
-
-		m_alive.reserve(max + 2);
-		m_dead.reserve(max + 2);
 
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -71,39 +66,42 @@ namespace re
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_alive.push_back(Entity(it.second, counter));
-			Locator::Get<EntityManager>()->Add(m_alive[counter].m_name, &m_alive[counter]);
-			counter++;
+			std::shared_ptr<Entity> e = std::make_shared<Entity>(it.second, m_counter);
+			m_alive.emplace(m_counter, e);
+			Locator::Get<EntityManager>()->Add(e->m_name, e);
+			m_counter++;
 		}
 	}
 
 	void World::Update(sf::Time dt)
 	{
-		for (auto& v : m_alive)
+		for (auto& it : m_alive)
 		{
-			if (v.m_isDead)
+			if (it.second->m_isDead)
 			{
-				for (auto s : v.m_systemIds)
+				sf::Uint64 id = it.second->m_id;
+				for (auto s : it.second->m_systemIds)
 				{
-					m_systems[s]->RemoveEntity(v.m_id);
+					m_systems[s.second]->RemoveEntity(id);
 				}
 
-				m_dead.insert(m_dead.begin() + v.m_id, v);
-				m_alive.erase(m_alive.begin() + v.m_id);
+				m_dead.emplace(id, it.second);
+				m_alive.erase(id);
 			}
 		}
 
-		for (auto& v : m_dead)
+		for (auto& it : m_dead)
 		{
-			if (!v.m_isDead)
+			if (!it.second->m_isDead)
 			{
-				for (auto s : v.m_systemIds)
+				sf::Uint64 id = it.second->m_id;
+				for (auto s : it.second->m_systemIds)
 				{
-					m_systems[s]->AddEntity(&v);
+					m_systems[s.second]->AddEntity(it.second);
 				}
 
-				m_alive.insert(m_alive.begin() + v.m_id, v);
-				m_dead.erase(m_dead.begin() + v.m_id);
+				m_alive.emplace(id, it.second);
+				m_dead.erase(id);
 			}
 		}
 	}

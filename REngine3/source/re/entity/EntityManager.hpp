@@ -29,14 +29,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add an entity to the map.
 		*/
-		void Add(const std::string& name, Entity* e);
+		void Add(const std::string& name, std::shared_ptr<Entity> e);
 
 		/*
 		* IMPORTS: name - name of the entity in the manager.
 		* EXPORTS: pointer to the entity.
 		* PURPOSE: Retrieve an entity from the manager.
 		*/
-		Entity* At(const std::string& name);
+		std::shared_ptr<Entity> Get(const std::string& name);
 
 		/*
 		* IMPORTS: none
@@ -50,10 +50,10 @@ namespace re
 		* EXPORTS: reference to map of the entitys.
 		* PURPOSE: Get the map of the entitys.
 		*/
-		std::unordered_map<std::string, Entity*>& GetMap();
+		std::unordered_map<std::string, std::shared_ptr<Entity>>& GetMap();
 
 	private:
-		std::unordered_map<std::string, Entity*> m_entitys;
+		std::unordered_map<std::string, std::shared_ptr<Entity>> m_entitys;
 	};
 }
 

@@ -38,17 +38,17 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system. YOU NEED to call entitys list of system ids and push back the type id of the system your adding the entity to.
 		*/
-		virtual void AddEntity(Entity* e) = 0;
+		virtual void AddEntity(std::shared_ptr<Entity> e) = 0;
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Get stored components.
 		*/
-		std::map<sf::Uint64, Entity*>& GetEntitys();
+		std::map<sf::Uint64, std::shared_ptr<Entity>>& GetEntitys();
 
 	protected:
-		std::map<sf::Uint64, Entity*> m_entitys;
+		std::map<sf::Uint64, std::shared_ptr<Entity>> m_entitys;
 	};
 }
 
