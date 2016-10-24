@@ -16,7 +16,6 @@
 #include <re/services/vfs/VFS.hpp>
 #include <re/systems/MoveSystem.hpp>
 #include <re/systems/EventSystem.hpp>
-#include <re/entity/EntityManager.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/EventComponent.hpp>
@@ -44,16 +43,15 @@ void Menu::LoadResources()
 	m_world = Locator::Get<World>();
 	m_vfs = Locator::Get<VFS>();
 	m_config = Locator::Get<ConfigReader>();
-	m_manager = Locator::Get<EntityManager>();
 
 	m_world->Register("menuEntitys.lua");
 
-	m_manager->Get("person")->Get<AnimatedSpriteComponent>()->Play();
-	m_manager->Get("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
+	m_world->Get("person")->Get<AnimatedSpriteComponent>()->Play();
+	m_world->Get("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
 
-	m_world->Get<MoveSystem>()->AutoSubmit();
-	m_world->Get<RenderSystem>()->AutoSubmit();
-	m_world->Get<EventSystem>()->AutoSubmit();
+	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
+	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
+	m_world->Get<EventSystem>()->AutoSubmit(m_world);
 
 	gui.setWindow(*(m_window));
 
@@ -75,7 +73,6 @@ void Menu::UnloadResources()
 	m_world->Get<RenderSystem>()->Clean();
 	m_world->Get<EventSystem>()->Clean();
 	m_world->Get<MoveSystem>()->Clean();
-	m_manager->Clean();
 	m_world->Clean();
 }
 
@@ -105,20 +102,12 @@ void Menu::Event(sf::Event& e)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		if (!m_manager->Get("person")->m_isDead)
-		{
-			m_manager->Get("person")->m_isDead = true;
-			printf("dead");
-		}
+		m_world->KillEntity("person");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		if (m_manager->Get("person")->m_isDead)
-		{
-			m_manager->Get("person")->m_isDead = false;
-			printf("alive");
-		}
+		m_world->ReviveEntity("person");
 	}
 
 	gui.handleEvent(e);
@@ -130,7 +119,7 @@ void Menu::Update(sf::Time dt)
 
 	if (m_dragging)
 	{
-		m_manager->Get("person")->Get<PositionComponent>()->SetPos(sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
+		m_world->Get<MoveSystem>()->Move("person", sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
 	}
 
 	m_world->Get<MoveSystem>()->Update(dt);

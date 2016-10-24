@@ -24,6 +24,7 @@ namespace re
 {
 	typedef std::unordered_map<std::type_index, std::shared_ptr<System>> SystemList;
 	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>> ComponentFactory;
+	typedef std::map<std::string, std::shared_ptr<Entity>> EntityDatabase;
 
 	class World : public Service
 	{
@@ -44,11 +45,31 @@ namespace re
 
 		/*
 		* IMPORTS: id - assign an id to the entity
-		*          e - the shared_ptr to the entity. use 'new' to create.
 		* EXPORTS: none
 		* PURPOSE: To create a new entity and add it to the world.
 		*/
 		void Register(const std::string& entitysScript);
+
+		/*
+		* IMPORTS: name - name of entity to kill.
+		* EXPORTS: none
+		* PURPOSE: Remove entity from systems, "killing" it.
+		*/
+		void KillEntity(const std::string& name);
+
+		/*
+		* IMPORTS: name - name of entity to revive.
+		* EXPORTS: none
+		* PURPOSE: Add entity back to systems, "reviving" it.
+		*/
+		void ReviveEntity(const std::string& name);
+
+		/*
+		* IMPORTS: name of entity to get
+		* EXPORTS: shared_ptr to that entity.
+		* PURPOSE: To retrieve an entity from the world.
+		*/
+		std::shared_ptr<Entity> Get(const std::string& name);
 
 		/*
 		* IMPORTS: sf::Time delta time
@@ -96,6 +117,13 @@ namespace re
 		* PURPOSE: To "make" a new component.
 		*/
 		ComponentFactory& GetComponentFactory();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: map of alive entitys.
+		* PURPOSE: To get the entity database.
+		*/
+		EntityDatabase& GetAlive();
 		
 	private:
 		/*
@@ -107,12 +135,10 @@ namespace re
 		std::shared_ptr<Component> MakeComponent();
 
 	private:
-		std::map<sf::Uint64, std::shared_ptr<Entity>> m_alive;
-		std::map<sf::Uint64, std::shared_ptr<Entity>> m_dead;
+		EntityDatabase m_alive;
+		EntityDatabase m_dead;
 		SystemList m_systems;
 		ComponentFactory m_componentFactory;
-
-		sf::Uint64 m_counter = 0;
 	};
 
 	template<typename T>

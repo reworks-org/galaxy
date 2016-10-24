@@ -37,7 +37,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a textocomponent to the group.
 		*/
-		void AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable);
+		void AddDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable);
 		
 		/*
 		* IMPORTS: RenderTarget and RenderState
@@ -51,10 +51,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Get stored drawables.
 		*/
-		std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>>& GetDrawableMap();
+		std::map<std::string, std::vector<std::shared_ptr<sf::Drawable>>>& GetDrawableMap();
 
 	private:
-		std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>> m_drawable;
+		std::map<std::string, std::vector<std::shared_ptr<sf::Drawable>>> m_drawable;
 	};
 }
 

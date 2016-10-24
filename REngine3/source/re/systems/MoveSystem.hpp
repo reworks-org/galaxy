@@ -13,6 +13,8 @@
 
 namespace re
 {
+	class World;
+
 	class MoveSystem : public System
 	{
 	public:
@@ -28,7 +30,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit();
+		void AutoSubmit(World* world);
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -42,7 +44,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/
-		void RemoveEntity(sf::Uint64 e) override;
+		void RemoveEntity(const std::string& name) override;
 
 		/*
 		* IMPORTS: none

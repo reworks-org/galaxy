@@ -12,7 +12,6 @@
 #include <re/graphics/Window.hpp>
 #include <re/services/Config.hpp>
 #include <re/services/vfs/VFS.hpp>
-#include <re/entity/EntityManager.hpp>
 #include <re/services/ServiceLocator.hpp>
 
 #include "Game.hpp"
@@ -42,7 +41,6 @@ void Game::LoadResources()
 	m_world = Locator::Get<World>();
 	m_vfs = Locator::Get<VFS>();
 	m_config = Locator::Get<ConfigReader>();
-	m_manager = Locator::Get<EntityManager>();
 
 	map = new tmx::TileMap("bin/Release/assets/desert.tmx");
 	map->ShowObjects();

@@ -12,7 +12,6 @@
 
 #include "re/deps/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
-#include "re/entity/EntityManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "re/component/TextComponent.hpp"
@@ -66,11 +65,30 @@ namespace re
 
 		for (auto& it : m_keyValuePair)
 		{
-			std::shared_ptr<Entity> e = std::make_shared<Entity>(it.second, m_counter);
-			m_alive.emplace(m_counter, e);
-			Locator::Get<EntityManager>()->Add(e->m_name, e);
-			m_counter++;
+			std::shared_ptr<Entity> e = std::make_shared<Entity>(it.second);
+			m_alive.emplace(e->m_name, e);
 		}
+	}
+
+	void World::KillEntity(const std::string& name)
+	{
+		if (m_alive.find(name) != m_alive.end())
+		{
+			m_alive[name]->m_isDead = true;
+		}
+	}
+
+	void World::ReviveEntity(const std::string& name)
+	{
+		if (m_dead.find(name) != m_dead.end())
+		{
+			m_dead[name]->m_isDead = false;
+		}
+	}
+
+	std::shared_ptr<Entity> World::Get(const std::string& name)
+	{
+		return m_alive[name];
 	}
 
 	void World::Update(sf::Time dt)
@@ -79,14 +97,14 @@ namespace re
 		{
 			if (it.second->m_isDead)
 			{
-				sf::Uint64 id = it.second->m_id;
+				std::string name = it.second->m_name;
 				for (auto s : it.second->m_systemIds)
 				{
-					m_systems[s.second]->RemoveEntity(id);
+					m_systems[s.second]->RemoveEntity(name);
 				}
 
-				m_dead.emplace(id, it.second);
-				m_alive.erase(id);
+				m_dead.emplace(name, it.second);
+				m_alive.erase(name);
 			}
 		}
 
@@ -94,14 +112,14 @@ namespace re
 		{
 			if (!it.second->m_isDead)
 			{
-				sf::Uint64 id = it.second->m_id;
+				std::string name = it.second->m_name;
 				for (auto s : it.second->m_systemIds)
 				{
 					m_systems[s.second]->AddEntity(it.second);
 				}
 
-				m_alive.emplace(id, it.second);
-				m_dead.erase(id);
+				m_alive.emplace(name, it.second);
+				m_dead.erase(name);
 			}
 		}
 	}
@@ -115,5 +133,10 @@ namespace re
 	ComponentFactory& World::GetComponentFactory()
 	{
 		return m_componentFactory;
+	}
+
+	EntityDatabase& World::GetAlive()
+	{
+		return m_alive;
 	}
 }

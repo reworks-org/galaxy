@@ -14,7 +14,6 @@
 #include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/systems/StateManager.hpp"
-#include "re/entity/EntityManager.hpp"
 #include "re/graphics/FontManager.hpp"
 
 namespace re
@@ -55,7 +54,6 @@ namespace re
 		ConfigReader m_config;
 		World m_world;
 		Window m_window;
-		EntityManager m_manager;
 		StateManager m_stateManager;
 		FontManager m_fontManager;
 	};

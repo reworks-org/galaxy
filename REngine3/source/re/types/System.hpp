@@ -31,7 +31,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/
-		virtual void RemoveEntity(sf::Uint64 e) = 0;
+		virtual void RemoveEntity(const std::string& name) = 0;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -45,10 +45,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Get stored components.
 		*/
-		std::map<sf::Uint64, std::shared_ptr<Entity>>& GetEntitys();
+		std::map<std::string, std::shared_ptr<Entity>>& GetEntitys();
 
 	protected:
-		std::map<sf::Uint64, std::shared_ptr<Entity>> m_entitys;
+		std::map<std::string, std::shared_ptr<Entity>> m_entitys;
 	};
 }
 

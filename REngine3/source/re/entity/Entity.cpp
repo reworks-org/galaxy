@@ -16,10 +16,8 @@
 
 namespace re
 {
-	Entity::Entity(const std::string& script, sf::Uint64 id)
+	Entity::Entity(const std::string& script)
 	{
-		m_id = id;
-
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(script));

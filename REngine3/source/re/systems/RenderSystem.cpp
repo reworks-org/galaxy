@@ -6,9 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/entity/EntityManager.hpp"
-#include "re/services/ServiceLocator.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -34,9 +33,9 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void RenderSystem::AutoSubmit()
+	void RenderSystem::AutoSubmit(World* world)
 	{
-		for (auto& it : Locator::Get<EntityManager>()->GetMap())
+		for (auto& it : world->GetAlive())
 		{
 			if (it.second->Has<SpriteComponent>() || it.second->Has<TextComponent>() || it.second->Has<AnimatedSpriteComponent>() || it.second->Has<TimeComponent>())
 			{
@@ -51,38 +50,38 @@ namespace re
 
 		if (e->Has<SpriteComponent>())
 		{
-			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_id, e->Get<SpriteComponent>());
+			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<SpriteComponent>());
 		}
 
 		if (e->Has<TextComponent>())
 		{
-			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_id, e->Get<TextComponent>());
+			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>());
 		}
 
 		if (e->Has<AnimatedSpriteComponent>())
 		{
-			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_id, e->Get<AnimatedSpriteComponent>());
+			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<AnimatedSpriteComponent>());
 		}
 
 		if (e->Has<TimeComponent>())
 		{
-			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_id, e->Get<TimeComponent>());
+			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_name, e->Get<TimeComponent>());
 		}
 	}
 
-	void RenderSystem::RemoveEntity(sf::Uint64 e)
+	void RenderSystem::RemoveEntity(const std::string& name)
 	{
 		for (auto& v : m_groups)
 		{
-			auto found = v.GetDrawableMap().find(e);
+			auto found = v.GetDrawableMap().find(name);
 			if (found != v.GetDrawableMap().end())
 			{
-				v.GetDrawableMap().erase(e);
+				v.GetDrawableMap().erase(name);
 			}
 		}
 	}
 
-	void RenderSystem::Render(re::Window* window)
+	void RenderSystem::Render(Window* window)
 	{
 		for (auto& g : m_groups)
 		{

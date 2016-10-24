@@ -8,8 +8,7 @@
 
 #include <SFML/System/Time.hpp>
 
-#include "re/entity/EntityManager.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/app/World.hpp"
 #include "re/component/EventComponent.hpp"
 
 #include "EventSystem.hpp"
@@ -21,9 +20,9 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void EventSystem::AutoSubmit()
+	void EventSystem::AutoSubmit(World* world)
 	{
-		for (auto& it : Locator::Get<EntityManager>()->GetMap())
+		for (auto& it : world->GetAlive())
 		{
 			if (it.second->Has<EventComponent>())
 			{
@@ -35,12 +34,12 @@ namespace re
 	void EventSystem::AddEntity(std::shared_ptr<Entity> e)
 	{
 		e->m_systemIds.emplace("EventSystem", std::type_index(typeid(EventSystem)));
-		m_entitys.emplace(e->m_id, e);
+		m_entitys.emplace(e->m_name, e);
 	}
 
-	void EventSystem::RemoveEntity(sf::Uint64 e)
+	void EventSystem::RemoveEntity(const std::string& name)
 	{
-		m_entitys.erase(e);
+		m_entitys.erase(name);
 	}
 
 	void EventSystem::Dispatch(EventType type)

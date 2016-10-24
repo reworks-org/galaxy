@@ -26,6 +26,7 @@ namespace re
 	class Entity
 	{
 		friend class boost::serialization::access;
+		friend class World;
 	public:
 		/*
 		* IMPORTS: none
@@ -39,7 +40,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Constructs the entity using data from the lua script provided.
 		*/
-		Entity(const std::string& script, sf::Uint64 id);
+		Entity(const std::string& script);
 
 		/*
 		* IMPORTS: none
@@ -64,14 +65,6 @@ namespace re
 		template<typename T>
 		bool Has();
 
-	public:
-		sf::Uint64 m_id;
-		std::string m_name;
-		ComponentList m_components;
-		std::map<std::string, std::type_index> m_systemIds;
-
-		bool m_isDead = false;
-
 	private:
 		// Boost.Serialization function
 		template<class Archive>
@@ -79,6 +72,14 @@ namespace re
 		{
 			ar & m_isDead;
 		}
+
+	public:
+		std::string m_name;
+		ComponentList m_components;
+		std::map<std::string, std::type_index> m_systemIds;
+
+	private:
+		bool m_isDead = false;
 	};
 
 	template<typename T>

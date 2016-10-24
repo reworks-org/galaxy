@@ -8,8 +8,7 @@
 
 #include <SFML/System/Time.hpp>
 
-#include "re/entity/EntityManager.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/app/World.hpp"
 #include "re/component/PositionComponent.hpp"
 
 #include "MoveSystem.hpp"
@@ -21,9 +20,9 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void MoveSystem::AutoSubmit()
+	void MoveSystem::AutoSubmit(World* world)
 	{
-		for (auto& it : Locator::Get<EntityManager>()->GetMap())
+		for (auto& it : world->GetAlive())
 		{
 			if (it.second->Has<PositionComponent>())
 			{
@@ -35,12 +34,12 @@ namespace re
 	void MoveSystem::AddEntity(std::shared_ptr<Entity> e)
 	{
 		e->m_systemIds.emplace("MoveSystem", std::type_index(typeid(MoveSystem)));
-		m_entitys.emplace(e->m_id, e);
+		m_entitys.emplace(e->m_name, e);
 	}
 
-	void MoveSystem::RemoveEntity(sf::Uint64 e)
+	void MoveSystem::RemoveEntity(const std::string& name)
 	{
-		m_entitys.erase(e);
+		m_entitys.erase(name);
 	}
 
 	void MoveSystem::Update(sf::Time dt)

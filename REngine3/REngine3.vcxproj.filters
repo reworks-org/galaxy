@@ -47,7 +47,6 @@
     <ClCompile Include="source\re\deps\lua\lvm.c" />
     <ClCompile Include="source\re\deps\lua\lzio.c" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
-    <ClCompile Include="source\re\entity\EntityManager.cpp" />
     <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
@@ -119,7 +118,6 @@
     <ClInclude Include="source\re\deps\lua\lzio.h" />
     <ClInclude Include="source\re\deps\sol2\sol.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
-    <ClInclude Include="source\re\entity\EntityManager.hpp" />
     <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />

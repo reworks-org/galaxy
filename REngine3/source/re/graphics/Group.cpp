@@ -18,17 +18,17 @@ namespace re
 		m_drawable.clear();
 	}
 
-	void Group::AddDrawable(sf::Uint64 id, std::shared_ptr<sf::Drawable> drawable)
+	void Group::AddDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable)
 	{
-		auto it = m_drawable.find(id);
+		auto it = m_drawable.find(name);
 		if (it != m_drawable.end())
 		{
-			m_drawable[id].push_back(drawable);
+			m_drawable[name].push_back(drawable);
 		}
 		else
 		{
-			m_drawable.emplace(id, std::vector<std::shared_ptr<sf::Drawable>>());
-			m_drawable[id].push_back(drawable);
+			m_drawable.emplace(name, std::vector<std::shared_ptr<sf::Drawable>>());
+			m_drawable[name].push_back(drawable);
 		}
 	}
 
@@ -43,7 +43,7 @@ namespace re
 		}
 	}
 
-	std::map<sf::Uint64, std::vector<std::shared_ptr<sf::Drawable>>>& Group::GetDrawableMap()
+	std::map<std::string, std::vector<std::shared_ptr<sf::Drawable>>>& Group::GetDrawableMap()
 	{
 		return m_drawable;
 	}

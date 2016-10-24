@@ -34,13 +34,6 @@ namespace re
 		* PURPOSE: Set up the component.
 		*/
 		virtual void Init(sol::table& table) = 0;
-
-		/*
-		* IMPORTS: A change in position if nessessary. Delta time aswell.
-		* EXPORTS: none
-		* PURPOSE: Update the component.
-		*/
-		virtual void Update(sf::Time dt, float x, float y) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

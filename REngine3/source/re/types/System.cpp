@@ -14,7 +14,7 @@ namespace re
 	{
 	}
 
-	std::map<sf::Uint64, std::shared_ptr<Entity>>& System::GetEntitys()
+	std::map<std::string, std::shared_ptr<Entity>>& System::GetEntitys()
 	{
 		return m_entitys;
 	}

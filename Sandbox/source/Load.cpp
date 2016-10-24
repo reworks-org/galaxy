@@ -11,7 +11,6 @@
 #include <re/graphics/Window.hpp>
 #include <re/services/vfs/VFS.hpp>
 #include <re/systems/MoveSystem.hpp>
-#include <re/entity/EntityManager.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/services/ServiceLocator.hpp>
 
@@ -37,21 +36,19 @@ void Load::LoadResources()
 	m_world = Locator::Get<World>();
 	m_vfs = Locator::Get<VFS>();
 	m_config = Locator::Get<ConfigReader>();
-	m_manager = Locator::Get<EntityManager>();
 
 	m_world->Register("loadEntitys.lua");
 
-	m_manager->Get("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+	m_world->Get("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
-	m_world->Get<MoveSystem>()->AutoSubmit();
-	m_world->Get<RenderSystem>()->AutoSubmit();
+	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
+	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
 }
 
 void Load::UnloadResources()
 {
 	m_world->Get<RenderSystem>()->Clean();
 	m_world->Get<MoveSystem>()->Clean();
-	m_manager->Clean();
 	m_world->Clean();
 }
 
@@ -88,7 +85,7 @@ void Load::Update(sf::Time dt)
 			m_alpha = 0;
 		}
 
-		m_manager->Get("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+		m_world->Get("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
 		if (m_alpha <= 0)
 		{

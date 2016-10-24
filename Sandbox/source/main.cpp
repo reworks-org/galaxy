@@ -72,7 +72,6 @@ public:
 		Locator::Provide<VFS>(&m_vfs);
 		Locator::Provide<ConfigReader>(&m_config);
 		Locator::Provide<Window>(&m_window);
-		Locator::Provide<EntityManager>(&m_manager);
 		Locator::Provide<FontManager>(&m_fontManager);
 		Locator::Provide<StateManager>(&m_stateManager);
 
