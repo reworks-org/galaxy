@@ -42,14 +42,13 @@ namespace re
 		m_entitys.erase(name);
 	}
 
-	void MoveSystem::Update(sf::Time dt)
+	void MoveSystem::Move(const std::string& name, float x, float y)
 	{
-		for (auto& e : m_entitys)
+		auto found = m_entitys.find(name);
+
+		if (found != m_entitys.end())
 		{
-			for (auto& it : e.second->m_components)
-			{
-				it.second->Update(dt, e.second->Get<PositionComponent>()->m_xpos, e.second->Get<PositionComponent>()->m_ypos);
-			}
+			found->second->Get<PositionComponent>()->SetPos(x, y);
 		}
 	}
 

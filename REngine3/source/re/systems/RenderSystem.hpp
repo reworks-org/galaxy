@@ -58,13 +58,6 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Update the system. Mainly for animations
-		*/
-		void Update(sf::Time dt);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
 		* PURPOSE: Clean up the entitys.
 		*/
 		void Render(Window* window);

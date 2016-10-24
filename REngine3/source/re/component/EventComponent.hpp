@@ -41,13 +41,6 @@ namespace re
 		void Init(sol::table& table) override;
 
 		/*
-		* IMPORTS: A change in position if nessessary. Delta time aswell.
-		* EXPORTS: none
-		* PURPOSE: Update the component.
-		*/
-		void Update(sf::Time dt, float x, float y) override;
-
-		/*
 		* IMPORTS: EventType and function pointer to function to call.
 		* EXPORTS: none
 		* PURPOSE: Submit a function to be called when an event is triggered.

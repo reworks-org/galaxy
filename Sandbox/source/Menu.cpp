@@ -121,8 +121,6 @@ void Menu::Update(sf::Time dt)
 	{
 		m_world->Get<MoveSystem>()->Move("person", sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
 	}
-
-	m_world->Get<MoveSystem>()->Update(dt);
 }
 
 void Menu::Render()

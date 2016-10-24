@@ -75,8 +75,4 @@ namespace re
 			break;
 		}
 	}
-
-	void TextComponent::Update(sf::Time dt, float x, float y)
-	{
-	}
 }

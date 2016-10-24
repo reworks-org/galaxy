@@ -41,11 +41,11 @@ namespace re
 		void Init(sol::table& table) override;
 
 		/*
-		* IMPORTS: A change in position if nessessary. Delta time aswell.
+		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Update the component.
 		*/
-		void Update(sf::Time dt, float x, float y) override;
+		void Update(sf::Time dt) override;
 
 	private:
 		/*

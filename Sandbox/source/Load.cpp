@@ -72,8 +72,8 @@ void Load::Event(sf::Event& e)
 
 void Load::Update(sf::Time dt)
 {
-	m_world->Get<MoveSystem>()->Update(dt);
-
+	m_world->Update(dt);
+	
 	m_timePassed += dt;
 
 	if (m_timePassed > sf::seconds(1))
@@ -92,8 +92,6 @@ void Load::Update(sf::Time dt)
 			Locator::Get<StateManager>()->ChangeState(Menu::Inst());
 		}
 	}
-
-	m_world->Update(dt);
 }
 
 void Load::Render()

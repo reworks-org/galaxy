@@ -49,11 +49,11 @@ namespace re
 		void SetActiveAnimation(const std::string& animation);
 
 		/*
-		* IMPORTS: A change in position if nessessary. Delta time aswell.
+		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Update the component.
 		*/
-		void Update(sf::Time dt, float x, float y) override;
+		void Update(sf::Time dt) override;
 		
 		/*
 		* IMPORTS: none

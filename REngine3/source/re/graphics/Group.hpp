@@ -22,6 +22,8 @@
 
 namespace re
 {
+	typedef std::vector<std::pair<std::shared_ptr<sf::Drawable>, std::shared_ptr<sf::Transformable>>> RenderableContainer;
+
 	class Group : public sf::Drawable
 	{
 	public:
@@ -37,7 +39,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a textocomponent to the group.
 		*/
-		void AddDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable);
+		void AddDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable, std::shared_ptr<sf::Transformable> transformable);
 		
 		/*
 		* IMPORTS: RenderTarget and RenderState
@@ -51,10 +53,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Get stored drawables.
 		*/
-		std::map<std::string, std::vector<std::shared_ptr<sf::Drawable>>>& GetDrawableMap();
+		std::map<std::string, RenderableContainer>& GetDrawableMap();
 
 	private:
-		std::map<std::string, std::vector<std::shared_ptr<sf::Drawable>>> m_drawable;
+		std::map<std::string, RenderableContainer> m_drawable;
 	};
 }
 

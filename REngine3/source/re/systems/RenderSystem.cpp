@@ -8,6 +8,7 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
+#include "re/component/PositionComponent.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -50,22 +51,22 @@ namespace re
 
 		if (e->Has<SpriteComponent>())
 		{
-			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<SpriteComponent>());
+			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<SpriteComponent>(), e->Get<PositionComponent>());
 		}
 
 		if (e->Has<TextComponent>())
 		{
-			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>());
+			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>(), nullptr);
 		}
 
 		if (e->Has<AnimatedSpriteComponent>())
 		{
-			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<AnimatedSpriteComponent>());
+			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<AnimatedSpriteComponent>(), e->Get<PositionComponent>());
 		}
 
 		if (e->Has<TimeComponent>())
 		{
-			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_name, e->Get<TimeComponent>());
+			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_name, e->Get<TimeComponent>(), nullptr);
 		}
 	}
 

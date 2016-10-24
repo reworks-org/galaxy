@@ -26,10 +26,6 @@ namespace re
 	{
 	}
 
-	void MusicComponent::Update(sf::Time dt, float x, float y)
-	{
-	}
-
 	void MusicComponent::AddMusic(const std::string& script)
 	{
 		sol::state lua;

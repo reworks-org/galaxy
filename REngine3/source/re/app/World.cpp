@@ -122,6 +122,14 @@ namespace re
 				m_dead.erase(name);
 			}
 		}
+
+		for (auto& it : m_alive)
+		{
+			for (auto& c : it.second->m_components)
+			{
+				c.second->Update(dt);
+			}
+		}
 	}
 
 	void World::Clean()

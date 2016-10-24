@@ -23,16 +23,13 @@ namespace re
 		m_xpos = table.get<float>("x");
 		m_ypos = table.get<float>("y");
 
-		m_width = table.get<float>("w");
-		m_height = table.get<float>("h");
-	}
-
-	void PositionComponent::Update(sf::Time dt, float x, float y)
-	{
+		setPosition(m_xpos, m_ypos);
 	}
 
 	void PositionComponent::SetPos(float x, float y)
 	{
+		setPosition(x, y);
+
 		m_xpos = x;
 		m_ypos = y;
 	}

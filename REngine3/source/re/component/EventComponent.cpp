@@ -25,10 +25,6 @@ namespace re
 	{
 	}
 
-	void EventComponent::Update(sf::Time dt, float x, float y)
-	{
-	}
-
 	void EventComponent::SubmitOnEvent(EventType type, std::function<void(void)> func)
 	{
 		auto it = m_events.find(type);

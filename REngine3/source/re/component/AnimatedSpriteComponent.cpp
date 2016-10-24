@@ -75,10 +75,8 @@ namespace re
 		m_activeAnimation = animation;
 	}
 
-	void AnimatedSpriteComponent::Update(sf::Time dt, float x, float y)
+	void AnimatedSpriteComponent::Update(sf::Time dt)
 	{
-		setPosition(x, y);
-
 		// from AnimatedSprite.hpp
 
 		// if not paused and we have a valid animation

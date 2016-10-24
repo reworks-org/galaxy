@@ -47,11 +47,11 @@ namespace re
 		void RemoveEntity(const std::string& name) override;
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: name of entity and position to move it to.
 		* EXPORTS: none
-		* PURPOSE: Update the system. Also handles updating components.
+		* PURPOSE: Move an entity.
 		*/
-		void Update(sf::Time dt);
+		void Move(const std::string& name, float x, float y);
 
 		/*
 		* IMPORTS: none
