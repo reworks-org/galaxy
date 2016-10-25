@@ -1,0 +1,5 @@
+Please note this included SFML library has a modified Sprite.hpp & Transformable.hpp.
+
+Refer to those files for details of changes.
+
+You MUST compile the engine with this SFML instance.
