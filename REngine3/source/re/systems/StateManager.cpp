@@ -26,9 +26,9 @@ namespace re
 		m_currentState = s;
 	}
 
-	void StateManager::Event(sf::Event& e)
+	void StateManager::Event()
 	{
-		m_currentState->Event(e);
+		m_currentState->Event();
 	}
 
 	void StateManager::Update(sf::Time dt)

@@ -8,7 +8,7 @@
 
 #include <SFML/Graphics/RenderTarget.hpp>
 
-#include "re/utils/Time.hpp"
+#include "re/utility/Time.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/graphics/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -48,7 +48,7 @@ namespace re
 
 	void TimeComponent::Update(sf::Time dt)
 	{
-		std::string temp = GetCurrentTimeAndDate();
+		std::string temp = Time::GetCurrentTimeAndDate();
 
 		temp.erase(temp.length() - 8);
 

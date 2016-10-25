@@ -10,6 +10,7 @@
 #define RENGINE3_STATEMANAGER_HPP_
 
 #include <memory>
+#include <unordered_map>
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
@@ -18,11 +19,12 @@
 
 namespace re
 {
-	class StateManager;
 	class VFS;
 	class World;
+	class Level;
 	class Window;
 	class ConfigReader;
+	class StateManager;
 
 	class State
 	{
@@ -49,14 +51,14 @@ namespace re
 	    virtual void UnloadResources() = 0;
 	    
 		/*
-		* IMPORTS: e - SFML event object.
+		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-	    virtual void Event(sf::Event& e) = 0;
+	    virtual void Event() = 0;
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Updates the current state.
 		*/
@@ -71,10 +73,13 @@ namespace re
 
 	protected:
 		// Services
-		re::Window* m_window;
-		re::ConfigReader* m_config;
-		re::World* m_world;
-		re::VFS* m_vfs;
+		Window* m_window;
+		ConfigReader* m_config;
+		World* m_world;
+		VFS* m_vfs;
+		
+		std::shared_ptr<Level> m_currentLevel;
+		std::unordered_map<std::string, std::shared_ptr<Level>> m_levels;
 	};
 
 	class StateManager : public Service
@@ -95,14 +100,14 @@ namespace re
 	    void SetState(std::shared_ptr<State> s);
 	    
 		/*
-		* IMPORTS: e - SFML event object.
+		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-	    void Event(sf::Event& e);
+	    void Event();
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Updates the current state.
 		*/

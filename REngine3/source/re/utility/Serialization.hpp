@@ -13,6 +13,19 @@
 
 namespace re
 {
+	/*
+	namespace Serialization
+	{
+		inline void Save(World* world)
+		{
+		}
+
+		inline void Load(World* world)
+		{
+		}
+	}
+	*/
+
 	class Serialization
 	{
 	public:

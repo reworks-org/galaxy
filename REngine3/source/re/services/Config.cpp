@@ -10,7 +10,7 @@
 #include <iostream>
 #include <streambuf>
 
-#include "re/utils/Log.hpp"
+#include "re/utility/Log.hpp"
 
 #include "Config.hpp"
 

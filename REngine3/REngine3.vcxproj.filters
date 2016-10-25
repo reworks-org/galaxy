@@ -59,8 +59,6 @@
     <ClCompile Include="source\re\systems\MoveSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
-    <ClCompile Include="source\re\utils\Log.cpp" />
-    <ClCompile Include="source\re\utils\Random.cpp" />
     <ClCompile Include="source\re\deps\pugixml\pugixml.cpp" />
     <ClCompile Include="source\re\deps\STP\Core\Base64.cpp" />
     <ClCompile Include="source\re\deps\STP\Core\Image.cpp" />
@@ -75,8 +73,9 @@
     <ClCompile Include="source\re\component\TimeComponent.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
-    <ClCompile Include="source\re\utils\Serialization.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
+    <ClCompile Include="source\re\utility\Log.cpp" />
+    <ClCompile Include="source\re\utility\Serialization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -136,9 +135,6 @@
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\types\Types.hpp" />
-    <ClInclude Include="source\re\utils\Log.hpp" />
-    <ClInclude Include="source\re\utils\Random.hpp" />
-    <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\deps\pugixml\pugiconfig.hpp" />
     <ClInclude Include="source\re\deps\pugixml\pugixml.hpp" />
     <ClInclude Include="source\re\deps\STP\Core\Base64.hpp" />
@@ -157,7 +153,10 @@
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
-    <ClInclude Include="source\re\utils\Serialization.hpp" />
     <ClInclude Include="source\re\mapping\Level.hpp" />
+    <ClInclude Include="source\re\utility\Log.hpp" />
+    <ClInclude Include="source\re\utility\Random.hpp" />
+    <ClInclude Include="source\re\utility\Serialization.hpp" />
+    <ClInclude Include="source\re\utility\Time.hpp" />
   </ItemGroup>
 </Project>

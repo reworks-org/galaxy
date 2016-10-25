@@ -52,11 +52,11 @@ void Load::UnloadResources()
 	m_world->Clean();
 }
 
-void Load::Event(sf::Event& e)
+void Load::Event()
 {
 	while (m_window->pollEvent(m_window->m_event))
 	{
-		switch (e.type)
+		switch (m_window->m_event.type)
 		{
 		case sf::Event::Closed:
 			m_window->close();

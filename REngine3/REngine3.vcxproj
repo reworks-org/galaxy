@@ -92,9 +92,8 @@
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
-    <ClCompile Include="source\re\utils\Log.cpp" />
-    <ClCompile Include="source\re\utils\Random.cpp" />
-    <ClCompile Include="source\re\utils\Serialization.cpp" />
+    <ClCompile Include="source\re\utility\Log.cpp" />
+    <ClCompile Include="source\re\utility\Serialization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -173,10 +172,10 @@
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\types\Types.hpp" />
-    <ClInclude Include="source\re\utils\Log.hpp" />
-    <ClInclude Include="source\re\utils\Random.hpp" />
-    <ClInclude Include="source\re\utils\Serialization.hpp" />
-    <ClInclude Include="source\re\utils\Time.hpp" />
+    <ClInclude Include="source\re\utility\Log.hpp" />
+    <ClInclude Include="source\re\utility\Random.hpp" />
+    <ClInclude Include="source\re\utility\Serialization.hpp" />
+    <ClInclude Include="source\re\utility\Time.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>

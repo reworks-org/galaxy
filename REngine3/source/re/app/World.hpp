@@ -121,9 +121,16 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: map of alive entitys.
-		* PURPOSE: To get the entity database.
+		* PURPOSE: To get the alive entity database.
 		*/
 		EntityDatabase& GetAlive();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: map of dead entitys.
+		* PURPOSE: To get the dead entity database.
+		*/
+		EntityDatabase& GetDead();
 		
 	private:
 		/*

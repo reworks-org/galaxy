@@ -147,4 +147,9 @@ namespace re
 	{
 		return m_alive;
 	}
+
+	EntityDatabase& World::GetDead()
+	{
+		return m_dead;
+	}
 }

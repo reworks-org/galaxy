@@ -10,8 +10,8 @@
 
 #include <SFML/Graphics/Shader.hpp>
 
-#include "re/utils/Log.hpp"
-#include "re/utils/Time.hpp"
+#include "re/utility/Log.hpp"
+#include "re/utility/Time.hpp"
 #include "re/systems/StateManager.hpp"
 
 #include "Application.hpp"
@@ -48,7 +48,7 @@ namespace re
 				timeSinceLastUpdate -= TimePerFrame;
 
 				// Event
-				m_stateManager.Event(m_window.m_event);
+				m_stateManager.Event();
 
 				// Update
 				m_stateManager.Update(TimePerFrame);

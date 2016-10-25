@@ -76,18 +76,18 @@ void Menu::UnloadResources()
 	m_world->Clean();
 }
 
-void Menu::Event(sf::Event& e)
+void Menu::Event()
 {
 	while (m_window->pollEvent(m_window->m_event))
 	{
-		switch (e.type)
+		switch (m_window->m_event.type)
 		{
 		case sf::Event::Closed:
 			m_window->close();
 			break;
 		}
 
-		gui.handleEvent(e);
+		gui.handleEvent(m_window->m_event);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))

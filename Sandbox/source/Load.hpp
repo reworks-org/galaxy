@@ -38,11 +38,11 @@ public:
 	void UnloadResources() override;
 
 	/*
-	* IMPORTS: sf::Event object.
+	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	void Event(sf::Event& e) override;
+	void Event() override;
 
 	/*
 	* IMPORTS: none

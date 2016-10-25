@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <re/utils/Log.hpp>
+#include <re/utility/Log.hpp>
 #include <re/app/Application.hpp>
 #include <re/systems/MoveSystem.hpp>
 #include <re/systems/EventSystem.hpp>
@@ -60,6 +60,7 @@ public:
 		m_window.setMouseCursorVisible(m_config.Lookup<bool>("cursorVisible"));
 		m_window.setVerticalSyncEnabled(m_config.Lookup<bool>("vsyncEnabled"));
 		m_window.setFramerateLimit(0);
+		m_window.setKeyRepeatEnabled(true);
 		m_window.requestFocus();
 
 		// create systems

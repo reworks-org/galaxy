@@ -61,8 +61,7 @@ namespace re
 			ar & m_xpos;
 			ar & m_ypos;
 			
-			setPosition(m_xpos);
-			setPosition(m_ypos);
+			setPosition(m_xpos, m_ypos);
 		}
 	};
 }
