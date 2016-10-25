@@ -78,9 +78,16 @@ void Menu::UnloadResources()
 
 void Menu::Event(sf::Event& e)
 {
-	if (e.type == sf::Event::Closed)
+	while (m_window->pollEvent(m_window->m_event))
 	{
-		m_window->close();
+		switch (e.type)
+		{
+		case sf::Event::Closed:
+			m_window->close();
+			break;
+		}
+
+		gui.handleEvent(e);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -109,8 +116,6 @@ void Menu::Event(sf::Event& e)
 	{
 		m_world->ReviveEntity("person");
 	}
-
-	gui.handleEvent(e);
 }
 
 void Menu::Update(sf::Time dt)

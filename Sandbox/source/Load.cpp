@@ -54,9 +54,14 @@ void Load::UnloadResources()
 
 void Load::Event(sf::Event& e)
 {
-	if (e.type == sf::Event::Closed)
+	while (m_window->pollEvent(m_window->m_event))
 	{
-		m_window->close();
+		switch (e.type)
+		{
+		case sf::Event::Closed:
+			m_window->close();
+			break;
+		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))

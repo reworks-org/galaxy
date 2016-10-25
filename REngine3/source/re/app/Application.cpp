@@ -42,20 +42,21 @@ namespace re
 		{
 			sf::Time dt = clock.restart();
 			timeSinceLastUpdate += dt;
+			
 			while (timeSinceLastUpdate > TimePerFrame)
 			{
 				timeSinceLastUpdate -= TimePerFrame;
 
-				while (m_window.pollEvent(m_window.m_event))
-				{
-					m_stateManager.Event(m_window.m_event);
-				}
+				// Event
+				m_stateManager.Event(m_window.m_event);
 
+				// Update
 				m_stateManager.Update(TimePerFrame);
 
 				updates++;
 			}
 			
+			// Render
 			m_stateManager.Render();
 			frames++;
 			
