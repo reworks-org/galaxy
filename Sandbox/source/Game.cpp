@@ -46,7 +46,7 @@ void Game::LoadResources()
 	m_config = Locator::Get<ConfigReader>();
 
 	map = new tmx::TileMap("bin/Release/assets/desert.tmx");
-	map->ShowObjects();
+	//map->ShowObjects();
 	m_window->setView(view);
 
 	minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));

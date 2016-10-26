@@ -10,6 +10,7 @@
 #define RENGINE3_LEVEL_HPP_
 
 #include <string>
+#include <memory>
 #include <unordered_map>
 
 #include <SFML/Graphics/View.hpp>
@@ -45,6 +46,13 @@ namespace re
 		void Move(float x, float y);
 
 		/*
+		* IMPORTS: name of map to change to
+		* EXPORTS: none
+		* PURPOSE: Change the current map.
+		*/
+		void ChangeCurrentMap(const std::string& map);
+
+		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Process level events.
@@ -65,6 +73,7 @@ namespace re
 		sf::View m_camera;
 		std::unordered_map<std::string, std::shared_ptr<tmx::TileMap>> m_tileMaps;
 		Window* m_window;
+		std::string m_currentMap;
 	};
 }
 

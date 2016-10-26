@@ -7,6 +7,8 @@
 //
 
 #include <SFML/System/Time.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
 #include <re/graphics/Window.hpp>
 
 #include "TestLevel.hpp"
@@ -16,7 +18,7 @@ TestLevel::TestLevel(const std::string& script)
 {
 }
 
-void TestLevel::Event(sf::Event & e)
+void TestLevel::Event(sf::Event& e)
 {
 
 }
@@ -30,7 +32,7 @@ void TestLevel::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	m_window->setView(m_camera);
 
-	target.draw()
+	target.draw(*(m_tileMaps.at(m_currentMap)), states);
 
 	m_window->setView(m_window->getDefaultView());
 }
