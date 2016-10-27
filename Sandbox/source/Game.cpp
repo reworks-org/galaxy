@@ -24,9 +24,6 @@ using namespace re;
 
 std::shared_ptr<State> Game::m_gameState = std::make_shared<Game>();
 
-sf::Vector2f view_center = sf::Vector2f(1280, 720) / 2.f;
-sf::View view(view_center, sf::Vector2f(1280, 720));
-
 sf::View minimap;
 
 std::shared_ptr<State> Game::Inst()
@@ -45,20 +42,14 @@ void Game::LoadResources()
 	m_vfs = Locator::Get<VFS>();
 	m_config = Locator::Get<ConfigReader>();
 
-	map = new tmx::TileMap("bin/Release/assets/desert.tmx");
-	//map->ShowObjects();
-	m_window->setView(view);
-
 	minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
-	m_levels.emplace("test", std::make_shared<TestLevel>("testLevel.lua"));
+	m_levels.emplace("test", std::make_shared<TestLevel>("testLevel.lua", m_window));
 	m_currentLevel = m_levels["test"];
 }
 
 void Game::UnloadResources()
 {
 	m_window->setView(m_window->getDefaultView());
-
-	delete map;
 }
 
 void Game::Event()

@@ -16,7 +16,8 @@
 
 namespace re
 {
-	Level::Level(const std::string& script)
+	Level::Level(const std::string& script, sf::View camera)
+		:m_camera(camera)
 	{
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(script));
@@ -34,7 +35,7 @@ namespace re
 			m_tileMaps.emplace(kvp.first, std::make_shared<tmx::TileMap>(kvp.second));
 		}
 
-		m_currentMap = level.get<std::string>("currentMap");
+		m_currentMap = m_tileMaps[level.get<std::string>("currentMap")];
 	}
 
 	void Level::Move(float x, float y)
@@ -44,6 +45,6 @@ namespace re
 
 	void Level::ChangeCurrentMap(const std::string& map)
 	{
-		m_currentMap = map;
+		m_currentMap = m_tileMaps[map];
 	}
 }

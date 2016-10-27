@@ -9,7 +9,6 @@
 #ifndef SANDBOX_GAME_HPP_
 #define SANDBOX_GAME_HPP_
 
-#include <re/deps/STP/TMXLoader.hpp>
 #include <re/systems/StateManager.hpp>
 
 class Game : public re::State
@@ -61,7 +60,6 @@ public:
 
 private:
 	static std::shared_ptr<re::State> m_gameState;
-	tmx::TileMap* map;
 };
 
 #endif

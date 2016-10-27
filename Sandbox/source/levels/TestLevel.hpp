@@ -14,7 +14,7 @@
 class TestLevel : public re::Level
 {
 public:
-	TestLevel(const std::string& script);
+	TestLevel(const std::string& script, re::Window* window);
 
 	/*
 	* IMPORTS: none

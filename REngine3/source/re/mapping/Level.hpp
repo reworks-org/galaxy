@@ -36,7 +36,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Constructs the level using data from the lua script provided.
 		*/
-		Level(const std::string& script);
+		Level(const std::string& script, sf::View camera);
 
 		/*
 		* IMPORTS: x & y values to move the level by
@@ -73,7 +73,7 @@ namespace re
 		sf::View m_camera;
 		std::unordered_map<std::string, std::shared_ptr<tmx::TileMap>> m_tileMaps;
 		Window* m_window;
-		std::string m_currentMap;
+		std::shared_ptr<tmx::TileMap> m_currentMap;
 	};
 }
 

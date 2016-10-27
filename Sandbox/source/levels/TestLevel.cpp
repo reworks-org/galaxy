@@ -13,9 +13,11 @@
 
 #include "TestLevel.hpp"
 
-TestLevel::TestLevel(const std::string& script)
-	:Level(script)
+TestLevel::TestLevel(const std::string& script, re::Window* window)
+	:Level(script, sf::View(sf::Vector2f(1280, 720) / 2.f, sf::Vector2f(1280, 720)))
 {
+	m_currentMap->ShowObjects();
+	m_window = window;
 }
 
 void TestLevel::Event(sf::Event& e)
@@ -25,14 +27,10 @@ void TestLevel::Event(sf::Event& e)
 
 void TestLevel::Update(sf::Time dt)
 {
-
+	m_window->setView(m_camera);
 }
 
 void TestLevel::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	m_window->setView(m_camera);
-
-	target.draw(*(m_tileMaps.at(m_currentMap)), states);
-
-	m_window->setView(m_window->getDefaultView());
+	target.draw(*(m_currentMap));
 }
