@@ -75,6 +75,7 @@
     <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
+    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -157,5 +158,6 @@
     <ClInclude Include="source\re\utility\Random.hpp" />
     <ClInclude Include="source\re\utility\Serialization.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
+    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
   </ItemGroup>
 </Project>

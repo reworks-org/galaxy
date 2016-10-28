@@ -1,13 +1,11 @@
 TODO List.
 
 - optimize as much as possible.
-- serialization
 - collision
 - fix rendering and groups -> make into layers?
 - possibly write own mapping class using tmx-c parser
 - generic level file
 - tgui lua bridge
-- seperate movesystem and updating components. at the moment an entity must have a positioncomponent to update itself.
 
 v1.1:
 - Error Checking & Exceptions. 
@@ -18,3 +16,11 @@ v1.2:
 - Multithreading:
 	- http://www.sfml-dev.org/tutorials/2.4/system-thread.php
 	- https://www.reddit.com/r/gamedev/comments/44fux4/multi_threading_in_game_development/
+
+
+	multithread the physics
+	use own system, box2d in future
+	create collision "objects in tiled" parse when loading map
+	add to collision system
+	check player pos vs tiles for "bounding box" collision
+	if collision player doesnt move

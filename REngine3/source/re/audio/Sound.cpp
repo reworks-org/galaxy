@@ -20,7 +20,7 @@ namespace re
 	{
 	}
 
-	void Sound::LoadSound(const std::string & name)
+	void Sound::LoadSound(const std::string &name)
 	{
 		m_soundStream.open(name);
 		m_soundBuffer.loadFromStream(m_soundStream);

@@ -22,6 +22,8 @@ namespace re
 	{
 		m_xpos = table.get<float>("x");
 		m_ypos = table.get<float>("y");
+		m_width = table.get<float>("w");
+		m_height = table.get<float>("h");
 
 		setPosition(m_xpos, m_ypos);
 	}

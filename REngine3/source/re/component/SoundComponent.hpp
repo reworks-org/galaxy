@@ -41,13 +41,6 @@ namespace re
 		void Init(sol::table& table) override;
 
 		/*
-		* IMPORTS: std::string name of lua script.
-		* EXPORTS: none
-		* PURPOSE: Add a sound to the component from the lua script.
-		*/
-		void AddSound(const std::string& script);
-
-		/*
 		* IMPORTS: id in std::string of sound.
 		* EXPORTS: smart pointer to sound.
 		* PURPOSE: Retrieve a sound from the component.

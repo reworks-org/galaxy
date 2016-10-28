@@ -6,9 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/deps/sol2/sol.hpp"
-#include "re/services/vfs/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include <map>
 
 #include "MusicComponent.hpp"
 
@@ -24,16 +22,16 @@ namespace re
 
 	void MusicComponent::Init(sol::table& table)
 	{
-	}
+		// Get key-value pairs from table
+		std::map<std::string, std::string> m_keyValuePair;
+		table.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+		});
 
-	void MusicComponent::AddMusic(const std::string& script)
-	{
-		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
-
-		sol::table music = lua.get<sol::table>("music");
-
-		m_music.emplace(music.get<std::string>("id"), std::make_shared<Music>(music.get<std::string>("music")));
+		for (auto& kvp : m_keyValuePair)
+		{
+			m_music.emplace(kvp.first, std::make_shared<Music>(kvp.second));
+		}
 	}
 
 	std::shared_ptr<Music> MusicComponent::Get(const std::string& id)

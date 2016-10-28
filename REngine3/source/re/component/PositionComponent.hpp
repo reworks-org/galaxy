@@ -52,6 +52,8 @@ namespace re
 	public:
 		float m_xpos;
 		float m_ypos;
+		float m_width;
+		float m_height;
 
 	private:
 		// Boost.Serialization function

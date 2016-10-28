@@ -6,9 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/deps/sol2/sol.hpp"
-#include "re/services/vfs/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include <map>
 
 #include "SoundComponent.hpp"
 
@@ -24,16 +22,16 @@ namespace re
 
 	void SoundComponent::Init(sol::table& table)
 	{
-	}
+		// Get key-value pairs from table
+		std::map<std::string, std::string> m_keyValuePair;
+		table.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+		});
 
-	void SoundComponent::AddSound(const std::string& script)
-	{
-		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
-
-		sol::table sound = lua.get<sol::table>("sound");
-
-		m_sounds.emplace(sound.get<std::string>("id"), std::make_shared<Sound>(sound.get<std::string>("sound")));
+		for (auto& kvp : m_keyValuePair)
+		{
+			m_sounds.emplace(kvp.first, std::make_shared<Sound>(kvp.second));
+		}
 	}
 
 	std::shared_ptr<Sound> SoundComponent::Get(const std::string& id)

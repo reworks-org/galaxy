@@ -87,6 +87,7 @@
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
+    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\MoveSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\vfs\sfmlphysfs.hpp" />
     <ClInclude Include="source\re\services\vfs\VFS.hpp" />
+    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\MoveSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />

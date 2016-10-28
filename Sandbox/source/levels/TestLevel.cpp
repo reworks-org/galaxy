@@ -27,6 +27,8 @@ void TestLevel::Event(sf::Event& e)
 
 void TestLevel::Update(sf::Time dt)
 {
+	m_currentMap->GetObjectGroup().GetPropertyValue("sign1").
+
 	m_window->setView(m_camera);
 }
 
