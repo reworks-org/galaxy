@@ -31,51 +31,6 @@
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
     <ClCompile Include="source\re\component\TextComponent.cpp" />
     <ClCompile Include="source\re\component\TimeComponent.cpp" />
-    <ClCompile Include="source\re\deps\lua\lapi.c" />
-    <ClCompile Include="source\re\deps\lua\lauxlib.c" />
-    <ClCompile Include="source\re\deps\lua\lbaselib.c" />
-    <ClCompile Include="source\re\deps\lua\lbitlib.c" />
-    <ClCompile Include="source\re\deps\lua\lcode.c" />
-    <ClCompile Include="source\re\deps\lua\lcorolib.c" />
-    <ClCompile Include="source\re\deps\lua\lctype.c" />
-    <ClCompile Include="source\re\deps\lua\ldblib.c" />
-    <ClCompile Include="source\re\deps\lua\ldebug.c" />
-    <ClCompile Include="source\re\deps\lua\ldo.c" />
-    <ClCompile Include="source\re\deps\lua\ldump.c" />
-    <ClCompile Include="source\re\deps\lua\lfunc.c" />
-    <ClCompile Include="source\re\deps\lua\lgc.c" />
-    <ClCompile Include="source\re\deps\lua\linit.c" />
-    <ClCompile Include="source\re\deps\lua\liolib.c" />
-    <ClCompile Include="source\re\deps\lua\llex.c" />
-    <ClCompile Include="source\re\deps\lua\lmathlib.c" />
-    <ClCompile Include="source\re\deps\lua\lmem.c" />
-    <ClCompile Include="source\re\deps\lua\loadlib.c" />
-    <ClCompile Include="source\re\deps\lua\lobject.c" />
-    <ClCompile Include="source\re\deps\lua\lopcodes.c" />
-    <ClCompile Include="source\re\deps\lua\loslib.c" />
-    <ClCompile Include="source\re\deps\lua\lparser.c" />
-    <ClCompile Include="source\re\deps\lua\lstate.c" />
-    <ClCompile Include="source\re\deps\lua\lstring.c" />
-    <ClCompile Include="source\re\deps\lua\lstrlib.c" />
-    <ClCompile Include="source\re\deps\lua\ltable.c" />
-    <ClCompile Include="source\re\deps\lua\ltablib.c" />
-    <ClCompile Include="source\re\deps\lua\ltm.c" />
-    <ClCompile Include="source\re\deps\lua\lua.c" />
-    <ClCompile Include="source\re\deps\lua\lundump.c" />
-    <ClCompile Include="source\re\deps\lua\lutf8lib.c" />
-    <ClCompile Include="source\re\deps\lua\lvm.c" />
-    <ClCompile Include="source\re\deps\lua\lzio.c" />
-    <ClCompile Include="source\re\deps\pugixml\pugixml.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\Base64.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\Image.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\ImageLayer.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\Layer.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\MapObject.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\ObjectGroup.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\Parser.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\Properties.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\TileMap.cpp" />
-    <ClCompile Include="source\re\deps\STP\Core\TileSet.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
@@ -83,6 +38,40 @@
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
+    <ClCompile Include="source\re\scripting\lua\lapi.c" />
+    <ClCompile Include="source\re\scripting\lua\lauxlib.c" />
+    <ClCompile Include="source\re\scripting\lua\lbaselib.c" />
+    <ClCompile Include="source\re\scripting\lua\lbitlib.c" />
+    <ClCompile Include="source\re\scripting\lua\lcode.c" />
+    <ClCompile Include="source\re\scripting\lua\lcorolib.c" />
+    <ClCompile Include="source\re\scripting\lua\lctype.c" />
+    <ClCompile Include="source\re\scripting\lua\ldblib.c" />
+    <ClCompile Include="source\re\scripting\lua\ldebug.c" />
+    <ClCompile Include="source\re\scripting\lua\ldo.c" />
+    <ClCompile Include="source\re\scripting\lua\ldump.c" />
+    <ClCompile Include="source\re\scripting\lua\lfunc.c" />
+    <ClCompile Include="source\re\scripting\lua\lgc.c" />
+    <ClCompile Include="source\re\scripting\lua\linit.c" />
+    <ClCompile Include="source\re\scripting\lua\liolib.c" />
+    <ClCompile Include="source\re\scripting\lua\llex.c" />
+    <ClCompile Include="source\re\scripting\lua\lmathlib.c" />
+    <ClCompile Include="source\re\scripting\lua\lmem.c" />
+    <ClCompile Include="source\re\scripting\lua\loadlib.c" />
+    <ClCompile Include="source\re\scripting\lua\lobject.c" />
+    <ClCompile Include="source\re\scripting\lua\lopcodes.c" />
+    <ClCompile Include="source\re\scripting\lua\loslib.c" />
+    <ClCompile Include="source\re\scripting\lua\lparser.c" />
+    <ClCompile Include="source\re\scripting\lua\lstate.c" />
+    <ClCompile Include="source\re\scripting\lua\lstring.c" />
+    <ClCompile Include="source\re\scripting\lua\lstrlib.c" />
+    <ClCompile Include="source\re\scripting\lua\ltable.c" />
+    <ClCompile Include="source\re\scripting\lua\ltablib.c" />
+    <ClCompile Include="source\re\scripting\lua\ltm.c" />
+    <ClCompile Include="source\re\scripting\lua\lua.c" />
+    <ClCompile Include="source\re\scripting\lua\lundump.c" />
+    <ClCompile Include="source\re\scripting\lua\lutf8lib.c" />
+    <ClCompile Include="source\re\scripting\lua\lvm.c" />
+    <ClCompile Include="source\re\scripting\lua\lzio.c" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
@@ -108,47 +97,6 @@
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
     <ClInclude Include="source\re\component\TextComponent.hpp" />
     <ClInclude Include="source\re\component\TimeComponent.hpp" />
-    <ClInclude Include="source\re\deps\lua\lapi.h" />
-    <ClInclude Include="source\re\deps\lua\lauxlib.h" />
-    <ClInclude Include="source\re\deps\lua\lcode.h" />
-    <ClInclude Include="source\re\deps\lua\lctype.h" />
-    <ClInclude Include="source\re\deps\lua\ldebug.h" />
-    <ClInclude Include="source\re\deps\lua\ldo.h" />
-    <ClInclude Include="source\re\deps\lua\lfunc.h" />
-    <ClInclude Include="source\re\deps\lua\lgc.h" />
-    <ClInclude Include="source\re\deps\lua\llex.h" />
-    <ClInclude Include="source\re\deps\lua\llimits.h" />
-    <ClInclude Include="source\re\deps\lua\lmem.h" />
-    <ClInclude Include="source\re\deps\lua\lobject.h" />
-    <ClInclude Include="source\re\deps\lua\lopcodes.h" />
-    <ClInclude Include="source\re\deps\lua\lparser.h" />
-    <ClInclude Include="source\re\deps\lua\lprefix.h" />
-    <ClInclude Include="source\re\deps\lua\lstate.h" />
-    <ClInclude Include="source\re\deps\lua\lstring.h" />
-    <ClInclude Include="source\re\deps\lua\ltable.h" />
-    <ClInclude Include="source\re\deps\lua\ltm.h" />
-    <ClInclude Include="source\re\deps\lua\lua.h" />
-    <ClInclude Include="source\re\deps\lua\lua.hpp" />
-    <ClInclude Include="source\re\deps\lua\luaconf.h" />
-    <ClInclude Include="source\re\deps\lua\lualib.h" />
-    <ClInclude Include="source\re\deps\lua\lundump.h" />
-    <ClInclude Include="source\re\deps\lua\lvm.h" />
-    <ClInclude Include="source\re\deps\lua\lzio.h" />
-    <ClInclude Include="source\re\deps\pugixml\pugiconfig.hpp" />
-    <ClInclude Include="source\re\deps\pugixml\pugixml.hpp" />
-    <ClInclude Include="source\re\deps\sol2\sol.hpp" />
-    <ClInclude Include="source\re\deps\STP\Config.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\Base64.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\Image.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\ImageLayer.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\Layer.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\MapObject.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\ObjectGroup.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\Parser.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\Properties.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\TileMap.hpp" />
-    <ClInclude Include="source\re\deps\STP\Core\TileSet.hpp" />
-    <ClInclude Include="source\re\deps\STP\TMXLoader.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
@@ -158,6 +106,33 @@
     <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
+    <ClInclude Include="source\re\scripting\lua\lapi.h" />
+    <ClInclude Include="source\re\scripting\lua\lauxlib.h" />
+    <ClInclude Include="source\re\scripting\lua\lcode.h" />
+    <ClInclude Include="source\re\scripting\lua\lctype.h" />
+    <ClInclude Include="source\re\scripting\lua\ldebug.h" />
+    <ClInclude Include="source\re\scripting\lua\ldo.h" />
+    <ClInclude Include="source\re\scripting\lua\lfunc.h" />
+    <ClInclude Include="source\re\scripting\lua\lgc.h" />
+    <ClInclude Include="source\re\scripting\lua\llex.h" />
+    <ClInclude Include="source\re\scripting\lua\llimits.h" />
+    <ClInclude Include="source\re\scripting\lua\lmem.h" />
+    <ClInclude Include="source\re\scripting\lua\lobject.h" />
+    <ClInclude Include="source\re\scripting\lua\lopcodes.h" />
+    <ClInclude Include="source\re\scripting\lua\lparser.h" />
+    <ClInclude Include="source\re\scripting\lua\lprefix.h" />
+    <ClInclude Include="source\re\scripting\lua\lstate.h" />
+    <ClInclude Include="source\re\scripting\lua\lstring.h" />
+    <ClInclude Include="source\re\scripting\lua\ltable.h" />
+    <ClInclude Include="source\re\scripting\lua\ltm.h" />
+    <ClInclude Include="source\re\scripting\lua\lua.h" />
+    <ClInclude Include="source\re\scripting\lua\lua.hpp" />
+    <ClInclude Include="source\re\scripting\lua\luaconf.h" />
+    <ClInclude Include="source\re\scripting\lua\lualib.h" />
+    <ClInclude Include="source\re\scripting\lua\lundump.h" />
+    <ClInclude Include="source\re\scripting\lua\lvm.h" />
+    <ClInclude Include="source\re\scripting\lua\lzio.h" />
+    <ClInclude Include="source\re\scripting\sol2\sol.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
@@ -245,7 +220,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml-tmxloader/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -274,7 +249,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml-tmxloader/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

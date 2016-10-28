@@ -12,7 +12,7 @@
 #include <string>
 
 #include "re/types/Service.hpp"
-#include "re/deps/sol2/sol.hpp"
+#include "re/scripting/sol2/sol.hpp"
 
 namespace re
 {

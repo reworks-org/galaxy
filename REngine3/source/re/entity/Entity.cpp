@@ -8,7 +8,7 @@
 
 #include <map>
 
-#include "re/deps/sol2/sol.hpp"
+#include "re/scripting/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 

@@ -14,7 +14,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "re/deps/sol2/sol.hpp"
+#include "re/scripting/sol2/sol.hpp"
 
 namespace re
 {

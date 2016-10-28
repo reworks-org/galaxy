@@ -16,23 +16,19 @@
 TestLevel::TestLevel(const std::string& script, re::Window* window)
 	:Level(script, sf::View(sf::Vector2f(1280, 720) / 2.f, sf::Vector2f(1280, 720)))
 {
-	m_currentMap->ShowObjects();
 	m_window = window;
 }
 
 void TestLevel::Event(sf::Event& e)
 {
-
 }
 
 void TestLevel::Update(sf::Time dt)
 {
-	m_currentMap->GetObjectGroup().GetPropertyValue("sign1").
-
 	m_window->setView(m_camera);
 }
 
 void TestLevel::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(*(m_currentMap));
+	target.draw(*(m_maploader));
 }

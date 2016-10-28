@@ -16,7 +16,7 @@
 #include <SFML/Graphics/View.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
-#include "re/deps/STP/TMXLoader.hpp"
+#include <tmx/Maploader.hpp>
 
 namespace sf
 {
@@ -70,10 +70,9 @@ namespace re
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
 
 	protected:
-		sf::View m_camera;
-		std::unordered_map<std::string, std::shared_ptr<tmx::TileMap>> m_tileMaps;
 		Window* m_window;
-		std::shared_ptr<tmx::TileMap> m_currentMap;
+		sf::View m_camera;
+		std::shared_ptr<tmx::MapLoader> m_maploader;
 	};
 }
 

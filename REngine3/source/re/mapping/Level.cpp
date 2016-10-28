@@ -8,8 +8,8 @@
 
 #include <map>
 
-#include "re/deps/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/scripting/sol2/sol.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "Level.hpp"
@@ -22,20 +22,9 @@ namespace re
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(script));
 		sol::table level = lua.get<sol::table>("level");
-		sol::table maps = level.get<sol::table>("maps");
 
-		// Get key-value pairs from table
-		std::map<std::string, std::string> m_keyValuePair;
-		maps.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
-		});
-
-		for (auto& kvp : m_keyValuePair)
-		{
-			m_tileMaps.emplace(kvp.first, std::make_shared<tmx::TileMap>(kvp.second));
-		}
-
-		m_currentMap = m_tileMaps[level.get<std::string>("currentMap")];
+		m_maploader = std::make_shared<tmx::MapLoader>(level.get<std::string>("dir"));
+		m_maploader->loadFromMemory(Locator::Get<VFS>()->ToString(level.get<std::string>("startingMap")));
 	}
 
 	void Level::Move(float x, float y)
@@ -45,6 +34,6 @@ namespace re
 
 	void Level::ChangeCurrentMap(const std::string& map)
 	{
-		m_currentMap = m_tileMaps[map];
+		m_maploader->loadFromMemory(Locator::Get<VFS>()->ToString(map));
 	}
 }

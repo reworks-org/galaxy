@@ -13,8 +13,8 @@
 
 #include <TGUI/TGUI.hpp>
 
-#include "re/deps/sol2/sol.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/scripting/sol2/sol.hpp"
 #include "re/graphics/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
