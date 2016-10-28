@@ -11,53 +11,70 @@
 
 #include <fstream>
 
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+
+#include "re/app/World.hpp"
+#include "re/component/PositionComponent.hpp"
+
+// http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html
+
 namespace re
 {
-	/*
 	namespace Serialization
 	{
-		inline void Save(World* world)
-		{
-		}
-
-		inline void Load(World* world)
-		{
-		}
-	}
-	*/
-
-	class Serialization
-	{
-	public:
-		/*
-		* IMPORTS: Name of save file.
-		* EXPORTS: none
-		* PURPOSE: Set the save file to save to.
-		*/
-		Serialization(const std::string& fileName);
-
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Serialize the engine.
 		*/
-		void Save();
+		inline void Save(World* world, const std::string& fileName)
+		{
+			std::ofstream out(fileName);
+
+			boost::archive::binary_oarchive oa(out);
+
+			for (auto& it : world->GetAlive())
+			{
+				oa << *(it.second);
+				oa << *(it.second->Get<PositionComponent>());
+			}
+
+			for (auto& it : world->GetDead())
+			{
+				oa << *(it.second);
+				oa << *(it.second->Get<PositionComponent>());
+			}
+
+			out.close();
+		}
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Deserialize the engine.
 		*/
-		void Load();
+		inline void Load(World* world, const std::string& fileName)
+		{
+			std::ifstream in(fileName);
 
-	private:
-		std::ofstream m_out;
-		std::ifstream m_in;
+			boost::archive::binary_iarchive ia(in);
 
-		std::string m_fileName;
-	};
+			for (auto& it : world->GetAlive())
+			{
+				ia >> *(it.second);
+				ia >> *(it.second->Get<PositionComponent>());
+			}
+
+			for (auto& it : world->GetDead())
+			{
+				ia >> *(it.second);
+				ia >> *(it.second->Get<PositionComponent>());
+			}
+
+			in.close();
+		}
+	}
 }
 
 #endif
-
-// http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html

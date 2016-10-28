@@ -93,7 +93,6 @@
     <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
-    <ClCompile Include="source\re\utility\Serialization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />

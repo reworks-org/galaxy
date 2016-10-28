@@ -17,6 +17,7 @@
 #include <re/systems/MoveSystem.hpp>
 #include <re/systems/EventSystem.hpp>
 #include <re/systems/RenderSystem.hpp>
+#include <re/utility/Serialization.hpp>
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/EventComponent.hpp>
 #include <re/component/PositionComponent.hpp>
@@ -88,6 +89,16 @@ void Menu::Event()
 		}
 
 		gui.handleEvent(m_window->m_event);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		Serialization::Save(m_world, "test.sf");
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+	{
+		Serialization::Load(m_world, "test.sf");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
