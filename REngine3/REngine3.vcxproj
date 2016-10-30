@@ -38,6 +38,11 @@
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
+    <ClCompile Include="source\re\mapping\TMXMap.cpp" />
+    <ClCompile Include="source\re\mapping\tmx\tmx.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx_err.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx_utils.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\scripting\lua\lapi.c" />
     <ClCompile Include="source\re\scripting\lua\lauxlib.c" />
     <ClCompile Include="source\re\scripting\lua\lbaselib.c" />
@@ -104,6 +109,10 @@
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\mapping\Level.hpp" />
+    <ClInclude Include="source\re\mapping\TMXMap.hpp" />
+    <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
+    <ClInclude Include="source\re\mapping\tmx\tmx.h" />
+    <ClInclude Include="source\re\mapping\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\platform\POSIXLog.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\scripting\lua\lapi.h" />
@@ -220,7 +229,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml-tmxloader/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -249,7 +258,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml-tmxloader/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

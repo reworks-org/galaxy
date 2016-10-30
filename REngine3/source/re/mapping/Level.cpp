@@ -37,3 +37,6 @@ namespace re
 		m_maploader->loadFromMemory(Locator::Get<VFS>()->ToString(map));
 	}
 }
+
+
+// when updating map simply update the tiles in the vertex array around the player and the animated ones! Genius! mehbeh have a "marked for deletion" thingymajigger.

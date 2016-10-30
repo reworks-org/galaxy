@@ -10,13 +10,12 @@
 #define RENGINE3_LEVEL_HPP_
 
 #include <string>
-#include <memory>
 #include <unordered_map>
 
 #include <SFML/Graphics/View.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 
-#include <tmx/Maploader.hpp>
+#include "re/mapping/TMXManager.hpp"
 
 namespace sf
 {
@@ -72,7 +71,7 @@ namespace re
 	protected:
 		Window* m_window;
 		sf::View m_camera;
-		std::shared_ptr<tmx::MapLoader> m_maploader;
+		tmx::UPtr m_map;
 	};
 }
 

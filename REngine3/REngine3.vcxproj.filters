@@ -65,6 +65,11 @@
     <ClCompile Include="source\re\scripting\lua\lutf8lib.c" />
     <ClCompile Include="source\re\scripting\lua\lvm.c" />
     <ClCompile Include="source\re\scripting\lua\lzio.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx_err.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx_utils.c" />
+    <ClCompile Include="source\re\mapping\tmx\tmx_xml.c" />
+    <ClCompile Include="source\re\mapping\TMXMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -134,5 +139,9 @@
     <ClInclude Include="source\re\scripting\lua\lvm.h" />
     <ClInclude Include="source\re\scripting\lua\lzio.h" />
     <ClInclude Include="source\re\scripting\sol2\sol.hpp" />
+    <ClInclude Include="source\re\mapping\tmx\tmx.h" />
+    <ClInclude Include="source\re\mapping\tmx\tmx_utils.h" />
+    <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
+    <ClInclude Include="source\re\mapping\TMXMap.hpp" />
   </ItemGroup>
 </Project>
