@@ -29,6 +29,9 @@ extern "C" {
 #define TMX_FLIPPED_DIAGONALLY   0x20000000
 #define TMX_FLIP_BITS_REMOVAL    0x1FFFFFFF
 
+// Added for use in REngine3: We DO want zlib support:
+#define WANT_ZLIB
+
 /*
 	Configuration
 */
@@ -99,6 +102,10 @@ struct _tmx_tile { /* <tile> */
 
 	tmx_image *image;
 	tmx_object *collision;
+
+	// Added in for use in REngine3.
+	unsigned int current_animation;
+	unsigned int animation_timer;
 
 	unsigned int animation_len;
 	tmx_anim_frame *animation;

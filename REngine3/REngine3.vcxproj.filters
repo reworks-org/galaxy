@@ -28,7 +28,6 @@
     <ClCompile Include="source\re\component\TimeComponent.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
-    <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
     <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
     <ClCompile Include="source\re\scripting\lua\lapi.c" />
@@ -70,6 +69,7 @@
     <ClCompile Include="source\re\mapping\tmx\tmx_utils.c" />
     <ClCompile Include="source\re\mapping\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\mapping\TMXMap.cpp" />
+    <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -106,7 +106,6 @@
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
-    <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\utility\Log.hpp" />
     <ClInclude Include="source\re\utility\Random.hpp" />
     <ClInclude Include="source\re\utility\Serialization.hpp" />
@@ -143,5 +142,6 @@
     <ClInclude Include="source\re\mapping\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
     <ClInclude Include="source\re\mapping\TMXMap.hpp" />
+    <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
   </ItemGroup>
 </Project>

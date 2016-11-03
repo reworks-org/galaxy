@@ -21,7 +21,6 @@ namespace re
 {
 	class VFS;
 	class World;
-	class Level;
 	class Window;
 	class ConfigReader;
 	class StateManager;
@@ -77,9 +76,6 @@ namespace re
 		ConfigReader* m_config;
 		World* m_world;
 		VFS* m_vfs;
-		
-		std::shared_ptr<Level> m_currentLevel;
-		std::unordered_map<std::string, std::shared_ptr<Level>> m_levels;
 	};
 
 	class StateManager : public Service

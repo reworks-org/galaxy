@@ -9,13 +9,10 @@
 #include <SFML/Graphics/View.hpp>
 
 #include <re/app/World.hpp>
-#include <re/mapping/Level.hpp>
 #include <re/graphics/Window.hpp>
 #include <re/services/Config.hpp>
 #include <re/services/vfs/VFS.hpp>
 #include <re/services/ServiceLocator.hpp>
-
-#include "levels/TestLevel.hpp"
 
 #include "Game.hpp"
 #include "Menu.hpp"
@@ -24,7 +21,7 @@ using namespace re;
 
 std::shared_ptr<State> Game::m_gameState = std::make_shared<Game>();
 
-sf::View minimap;
+int g_speed = 1;
 
 std::shared_ptr<State> Game::Inst()
 {
@@ -42,9 +39,7 @@ void Game::LoadResources()
 	m_vfs = Locator::Get<VFS>();
 	m_config = Locator::Get<ConfigReader>();
 
-	minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
-	m_levels.emplace("test", std::make_shared<TestLevel>("testLevel.lua", m_window));
-	m_currentLevel = m_levels["test"];
+	m_map.Load("bin/Release/assets/example.tmx");
 }
 
 void Game::UnloadResources()
@@ -62,8 +57,15 @@ void Game::Event()
 			m_window->close();
 			break;
 		}
+	}
 
-		m_currentLevel->Event(m_window->m_event);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+	{
+		g_speed = 2;
+	}
+	else
+	{
+		g_speed = 1;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -78,35 +80,35 @@ void Game::Event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		m_currentLevel->Move(0, -3);
+		m_map.move(0, 3*g_speed);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		m_currentLevel->Move(0, 3);
+		m_map.move(0, -3 * g_speed);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		m_currentLevel->Move(-3, 0);
+		m_map.move(3 * g_speed, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		m_currentLevel->Move(3, 0);
+		m_map.move(-3*g_speed, 0);
 	}
 }
 
 void Game::Update(sf::Time dt)
 {
-	m_currentLevel->Update(dt);
+	m_map.Update(dt);
 }
 
 void Game::Render()
 {
 	m_window->clear(sf::Color::Black);
 
-	m_window->draw(*(m_currentLevel));
+	m_window->draw(m_map);
 
 	m_window->display();
 }

@@ -28,4 +28,19 @@
 #define fDEGTORAD 0.0174532925199432957f
 #define fRADTODEG 57.295779513082320876f
 
+// Comparison operators
+#define AND &&
+#define OR ||
+#define GTEQ >=
+#define LTEQ <=
+#define GT >
+#define LT <
+#define EQUALS ==
+#define IS_ASSIGNED =
+#define NOT !
+
+// Exit macros
+#define EXIT_SUCCESS 0
+#define EXIT_FAILURE 1
+
 #endif

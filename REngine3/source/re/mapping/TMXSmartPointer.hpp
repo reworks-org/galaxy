@@ -33,6 +33,16 @@ namespace re
 		* PURPOSE: Creates a smart pointer version of tmx_map to ensure it is deleted properly. IT IS A UNIQUE_PTR!
 		*/
 		typedef std::unique_ptr<tmx_map, TMXDeleter> UPtr;
+
+		/*
+		* IMPORTS: map file. Does not use the VFS.
+		* EXPORTS: none
+		* PURPOSE: Creates and returns tmx::UPtr with the tmx map parsed.
+		*/
+		inline tmx::UPtr MakeMap(const std::string& map)
+		{
+			return tmx::UPtr{ tmx_load(map.c_str()) };
+		}
 	}
 }
 

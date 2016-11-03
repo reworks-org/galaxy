@@ -34,10 +34,10 @@
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\graphics\AnimatedSprite.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
+    <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
-    <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\mapping\TMXMap.cpp" />
     <ClCompile Include="source\re\mapping\tmx\tmx.c" />
     <ClCompile Include="source\re\mapping\tmx\tmx_err.c" />
@@ -105,10 +105,10 @@
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\graphics\AnimatedSprite.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
+    <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
-    <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\mapping\TMXMap.hpp" />
     <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
     <ClInclude Include="source\re\mapping\tmx\tmx.h" />

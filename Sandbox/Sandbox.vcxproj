@@ -157,14 +157,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Game.cpp" />
-    <ClCompile Include="source\levels\TestLevel.cpp" />
     <ClCompile Include="source\Load.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Game.hpp" />
-    <ClInclude Include="source\levels\TestLevel.hpp" />
     <ClInclude Include="source\Load.hpp" />
     <ClInclude Include="source\Menu.hpp" />
   </ItemGroup>
