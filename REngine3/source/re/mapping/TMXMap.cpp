@@ -19,7 +19,7 @@
 
 #include "TMXMap.hpp"
 
-#define SF_THICKNESS 2
+#define SF_THICKNESS 2.5
 
 namespace re
 {
@@ -129,7 +129,7 @@ namespace re
 		unsigned int gid;
 		float op;
 
-		sf::Texture* tileset;
+		sf::Texture* tilesetImage = nullptr;
 		tmx_tileset *ts;
 		tmx_image *im;
 
@@ -140,36 +140,90 @@ namespace re
 			{
 				gid = gid_clear_flags(layer->content.gids[(i*map->width) + j]);
 				if (map->tiles[gid] != NULL)
+				{										
+					if (!map->tiles[gid]->animation)
+					{
+						ts = map->tiles[gid]->tileset;
+						im = map->tiles[gid]->image;
+
+						if (im)
+						{
+							tilesetImage = (sf::Texture*)im->resource_image;
+						}
+						else
+						{
+							tilesetImage = (sf::Texture*)ts->image->resource_image;
+						}
+						
+						sf::Sprite tileSprite;
+						tileSprite.setTexture(*(tilesetImage));
+						tileSprite.setPosition(j*ts->tile_width, i*ts->tile_height);
+						tileSprite.setTextureRect(sf::IntRect(map->tiles[gid]->ul_x, map->tiles[gid]->ul_y, ts->tile_width, ts->tile_height));
+						m_batchTexture.draw(tileSprite);
+					}
+				}
+			}
+		}
+	}
+
+	void TMXMap::draw_anim_layer(tmx_map *map, tmx_layer *layer, sf::Time dt)
+	{
+		unsigned long i, j;
+		unsigned int gid;
+		float op;
+
+		sf::Texture* tilesetImage = nullptr;
+		tmx_tileset *ts;
+		tmx_image *im;
+		tmx_tile* focusTile;
+
+		op = layer->opacity;
+		for (i = 0; i < map->height; i++)
+		{
+			for (j = 0; j < map->width; j++)
+			{
+				gid = gid_clear_flags(layer->content.gids[(i*map->width) + j]);
+				focusTile = map->tiles[gid];
+				
+				if (focusTile != NULL)
 				{
-					ts = map->tiles[gid]->tileset;
-					im = map->tiles[gid]->image;
-					
-					sf::Vertex* quad = &m_tilemapVertices[gid];
-					quad[0].position = sf::Vector2f(j*ts->tile_width, i*ts->tile_height);
-					quad[1].position = sf::Vector2f(j*ts->tile_width + ts->tile_width, i*ts->tile_height);
-					quad[2].position = sf::Vector2f(j*ts->tile_width + ts->tile_width, i*ts->tile_height + ts->tile_height);
-					quad[3].position = sf::Vector2f(j*ts->tile_width, i*ts->tile_height + ts->tile_height);
-
-					quad[0].texCoords = sf::Vector2f(map->tiles[gid]->ul_x, map->tiles[gid]->ul_y);
-					quad[1].texCoords = sf::Vector2f(map->tiles[gid]->ul_x + ts->tile_width, map->tiles[gid]->ul_y);
-					quad[2].texCoords = sf::Vector2f(map->tiles[gid]->ul_x + ts->tile_width, map->tiles[gid]->ul_y + ts->tile_height);
-					quad[3].texCoords = sf::Vector2f(map->tiles[gid]->ul_x, map->tiles[gid]->ul_y + ts->tile_height);
-
-					if (map->tiles[gid]->animation)
+					if (focusTile->animation)
 					{
-						m_animatedTiles.push_back(gid);
-					}
+						focusTile->animation_timer += dt.asMilliseconds();
 
-					if (im)
-					{
-						tileset = (sf::Texture*)im->resource_image;
-					}
-					else
-					{
-						tileset = (sf::Texture*)ts->image->resource_image;
-					}
+						if (focusTile->animation_timer >= focusTile->animation[focusTile->current_animation].duration)
+						{
+							focusTile->animation_timer = 0;
+							
+							if (focusTile->current_animation >= focusTile->animation_len)
+							{
+								focusTile->current_animation = 0;
+							}
 
-					m_batchTexture.draw(m_tilemapVertices, tileset);
+							int tx = m_map->tiles[focusTile->animation[focusTile->current_animation].tile_id + 1]->ul_x;
+							int ty = m_map->tiles[focusTile->animation[focusTile->current_animation].tile_id + 1]->ul_y;
+							
+							im = focusTile->image;
+							ts = focusTile->tileset;
+
+							if (im)
+							{
+								tilesetImage = (sf::Texture*)im->resource_image;
+							}
+							else
+							{
+								tilesetImage = (sf::Texture*)ts->image->resource_image;
+							}
+
+							sf::Sprite tileSprite;
+							tileSprite.setTexture(*(tilesetImage));
+							tileSprite.setPosition(j*ts->tile_width, i*ts->tile_height);
+							tileSprite.setTextureRect(sf::IntRect(tx, ty, ts->tile_width, ts->tile_height));
+							m_animatedBatchTexture.draw(tileSprite);
+
+							focusTile->current_animation++;
+						}
+					}
 				}
 			}
 		}
@@ -195,11 +249,11 @@ namespace re
 			{
 				if (layers->type == L_OBJGR)
 				{
-					//draw_objects(layers->content.objgr);
+					draw_objects(layers->content.objgr);
 				}
 				else if (layers->type == L_IMAGE)
 				{
-					//draw_image_layer(layers->content.image);
+					draw_image_layer(layers->content.image);
 				}
 				else if (layers->type == L_LAYER)
 				{
@@ -214,14 +268,12 @@ namespace re
 	}
 
 	TMXMap::TMXMap()
-	:m_tilemapVertices(sf::Quads, 4)
 	{
 		tmx_img_load_func = sf_tex_loader;
 		tmx_img_free_func = sf_tex_deleter;
 	}
 
 	TMXMap::TMXMap(const std::string& map)
-	:m_tilemapVertices(sf::Quads, 4)
 	{
 		tmx_img_load_func = sf_tex_loader;
 		tmx_img_free_func = sf_tex_deleter;
@@ -235,15 +287,14 @@ namespace re
 		m_width = m_map->width * m_map->tile_width;
 		m_height = m_map->height * m_map->tile_height;
 
-		m_tilemapVertices.resize(m_width * m_height * 4);
 		m_batchTexture.create(m_width, m_height);
+		m_animatedBatchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
 	}
 
 	TMXMap::~TMXMap()
 	{
-		m_tilemapVertices.clear();
 		m_tilesToUpdate.clear();
 	}
 
@@ -258,7 +309,7 @@ namespace re
 		m_width = m_map->width * m_map->tile_width;
 		m_height = m_map->height * m_map->tile_height;
 
-		m_tilemapVertices.resize(m_width * m_height * 4);
+		m_animatedBatchTexture.create(m_width, m_height);
 		m_batchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
@@ -276,34 +327,26 @@ namespace re
 
 	void TMXMap::Update(sf::Time dt)
 	{
-		for (auto& vtgid : m_animatedTiles)
+		tmx_layer* layers = m_map->ly_head;
+		
+		m_animatedBatchTexture.clear();
+		
+		while (layers)
 		{
-			m_map->tiles[vtgid]->animation_timer += dt.asMilliseconds();
-
-			if (m_map->tiles[vtgid]->animation_timer >= m_map->tiles[vtgid]->animation[m_map->tiles[vtgid]->current_animation].duration)
-			{
-				if (m_map->tiles[vtgid]->current_animation >= m_map->tiles[vtgid]->animation_len)
-				{
-					m_map->tiles[vtgid]->current_animation = 0;
+			if (layers->visible) {
+				if (layers->type == L_LAYER) {
+					draw_anim_layer(m_map.get(), layers, dt);
 				}
-
-				int tx = m_map->tiles[m_map->tiles[vtgid]->animation[m_map->tiles[vtgid]->current_animation].tile_id + 1]->ul_x;
-				int ty = m_map->tiles[m_map->tiles[vtgid]->animation[m_map->tiles[vtgid]->current_animation].tile_id + 1]->ul_y;
-				tmx_tileset *ts = m_map->tiles[vtgid]->tileset;
-				
-				sf::Vertex* quad = &m_tilemapVertices[vtgid];
-				quad[0].texCoords = sf::Vector2f(tx, ty);
-				quad[1].texCoords = sf::Vector2f(tx + ts->tile_width, ty);
-				quad[2].texCoords = sf::Vector2f(tx + ts->tile_width, ty + ts->tile_height);
-				quad[3].texCoords = sf::Vector2f(tx, ty + ts->tile_height);
-
-				m_map->tiles[vtgid]->current_animation++;
 			}
+			layers = layers->next;
 		}
 
+		m_animatedBatchTexture.display();
+
+		/*
 		for (auto& tile : m_tilesToUpdate)
 		{
-			sf::Vertex* quad = &m_tilemapVertices[tile.first];
+			sf::Vertex* quad = &m_animatedTilesVerticies[tile.first];
 			tmx_tileset *ts = m_map->tiles[tile.first]->tileset;
 
 			int tx = tile.second.first;
@@ -316,18 +359,21 @@ namespace re
 		}
 
 		m_tilesToUpdate.clear();
+		*/
 	}
 
 	void TMXMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		sf::Sprite sprite(m_batchTexture.getTexture());
+		sf::Sprite batchA(m_batchTexture.getTexture());
+		sf::Sprite batchB(m_animatedBatchTexture.getTexture());
 
 		states.shader = nullptr;
 		states.texture = nullptr;
 		states.transform *= getTransform();
 
-		target.draw(sprite, states);
+		//target.draw(batchA, states);
+		target.draw(batchB, states);
 	}
 }
 
-// Issue lies in drawing the layers. better fix!
+// fix single tile updating

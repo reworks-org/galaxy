@@ -12,6 +12,7 @@ TODO List.
 - rendering in another thread
 - multithread the physics
 - use own system, box2d in future
+- proper loading system
 
 v1.1:
 - Error Checking & Exceptions. 

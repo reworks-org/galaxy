@@ -92,6 +92,7 @@ namespace re
 		void draw_objects(tmx_object_group *objgr);
 		unsigned int gid_clear_flags(unsigned int gid);
 		void draw_layer(tmx_map *map, tmx_layer *layer);
+		void draw_anim_layer(tmx_map *map, tmx_layer *layer, sf::Time dt);
 		void draw_image_layer(tmx_image *img);
 		void render_map(tmx_map *map);
 		/*
@@ -103,9 +104,8 @@ namespace re
 
 		tmx::UPtr m_map;
 		sf::RenderTexture m_batchTexture;
-		sf::VertexArray m_tilemapVertices;
+		sf::RenderTexture m_animatedBatchTexture;
 		std::map<unsigned int, std::pair<int, int>> m_tilesToUpdate;
-		std::vector<unsigned int> m_animatedTiles;
 	};
 }
 
