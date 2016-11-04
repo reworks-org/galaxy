@@ -13,10 +13,13 @@
 
 #include "re/utility/Log.hpp"
 #include "re/entity/Entity.hpp"
+#include "re/graphics/sw/Line.hpp"
 #include "re/graphics/EllipseShape.hpp"
 #include "re/component/PositionComponent.hpp"
 
 #include "TMXMap.hpp"
+
+#define SF_THICKNESS 2
 
 namespace re
 {
@@ -51,13 +54,9 @@ namespace re
 		int i;
 		for (i = 1; i<pointsc; i++)
 		{
-			sf::Vertex line[] =
-			{
-				sf::Vertex(sf::Vector2f(x + points[i - 1][0], y + points[i - 1][1]), col),
-				sf::Vertex(sf::Vector2f(x + points[i][0], y + points[i][1]), col)
-			};
-
-			m_batchTexture.draw(line, 2, sf::Lines);
+			sw::Line line(sf::Vector2f(x + points[i - 1][0], y + points[i - 1][1]), sf::Vector2f(x + points[i][0], y + points[i][1]), SF_THICKNESS, col);
+			
+			m_batchTexture.draw(line);
 		}
 	}
 
@@ -66,13 +65,9 @@ namespace re
 		draw_polyline(points, x, y, pointsc, col);
 		if (pointsc > 2)
 		{
-			sf::Vertex line[] =
-			{
-				sf::Vertex(sf::Vector2f(x + points[0][0], y + points[0][1]), col),
-				sf::Vertex(sf::Vector2f(x + points[pointsc - 1][0], y + points[pointsc - 1][1]), col)
-			};
+			sw::Line line(sf::Vector2f(x + points[0][0], y + points[0][1]), sf::Vector2f(x + points[pointsc - 1][0], y + points[pointsc - 1][1]), SF_THICKNESS, col);
 
-			m_batchTexture.draw(line, 2, sf::Lines);
+			m_batchTexture.draw(line);
 		}
 	}
 
@@ -92,6 +87,9 @@ namespace re
 				{
 					rect.setPosition(head->x, head->y);
 					rect.setSize(sf::Vector2f(head->width, head->height));
+					rect.setFillColor(sf::Color::Transparent);
+					rect.setOutlineColor(col);
+					rect.setOutlineThickness(SF_THICKNESS);
 					
 					m_batchTexture.draw(rect);
 				}
@@ -108,7 +106,9 @@ namespace re
 					// may need to change
 					elip.setPosition(sf::Vector2f(head->x, head->y));
 					elip.setRadius(sf::Vector2f(head->width / 2.0, head->height / 2.0));
-					elip.setFillColor(col);
+					elip.setFillColor(sf::Color::Transparent);
+					elip.setOutlineColor(col);
+					elip.setOutlineThickness(SF_THICKNESS);
 
 					m_batchTexture.draw(elip);
 				}
@@ -195,11 +195,11 @@ namespace re
 			{
 				if (layers->type == L_OBJGR)
 				{
-					draw_objects(layers->content.objgr);
+					//draw_objects(layers->content.objgr);
 				}
 				else if (layers->type == L_IMAGE)
 				{
-					draw_image_layer(layers->content.image);
+					//draw_image_layer(layers->content.image);
 				}
 				else if (layers->type == L_LAYER)
 				{
@@ -330,4 +330,4 @@ namespace re
 	}
 }
 
-// I think the issue is objects are getting destroyed. better fix that :3
+// Issue lies in drawing the layers. better fix!
