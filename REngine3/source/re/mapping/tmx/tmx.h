@@ -104,8 +104,8 @@ struct _tmx_tile { /* <tile> */
 	tmx_object *collision;
 
 	// Added in for use in REngine3.
+	signed int animation_timer;
 	unsigned int current_animation;
-	unsigned int animation_timer;
 
 	unsigned int animation_len;
 	tmx_anim_frame *animation;

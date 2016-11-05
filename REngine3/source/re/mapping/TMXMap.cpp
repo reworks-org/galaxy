@@ -194,35 +194,34 @@ namespace re
 						if (focusTile->animation_timer >= focusTile->animation[focusTile->current_animation].duration)
 						{
 							focusTile->animation_timer = 0;
-							
-							if (focusTile->current_animation >= focusTile->animation_len)
-							{
-								focusTile->current_animation = 0;
-							}
-
-							int tx = m_map->tiles[focusTile->animation[focusTile->current_animation].tile_id + 1]->ul_x;
-							int ty = m_map->tiles[focusTile->animation[focusTile->current_animation].tile_id + 1]->ul_y;
-							
-							im = focusTile->image;
-							ts = focusTile->tileset;
-
-							if (im)
-							{
-								tilesetImage = (sf::Texture*)im->resource_image;
-							}
-							else
-							{
-								tilesetImage = (sf::Texture*)ts->image->resource_image;
-							}
-
-							sf::Sprite tileSprite;
-							tileSprite.setTexture(*(tilesetImage));
-							tileSprite.setPosition(j*ts->tile_width, i*ts->tile_height);
-							tileSprite.setTextureRect(sf::IntRect(tx, ty, ts->tile_width, ts->tile_height));
-							m_animatedBatchTexture.draw(tileSprite);
-
 							focusTile->current_animation++;
 						}
+
+						if (focusTile->current_animation >= focusTile->animation_len)
+						{
+							focusTile->current_animation = 0;
+						}
+
+						int tx = m_map->tiles[focusTile->animation[focusTile->current_animation].tile_id + 1]->ul_x;
+						int ty = m_map->tiles[focusTile->animation[focusTile->current_animation].tile_id + 1]->ul_y;
+
+						im = focusTile->image;
+						ts = focusTile->tileset;
+
+						if (im)
+						{
+							tilesetImage = (sf::Texture*)im->resource_image;
+						}
+						else
+						{
+							tilesetImage = (sf::Texture*)ts->image->resource_image;
+						}
+
+						sf::Sprite tileSprite;
+						tileSprite.setTexture(*(tilesetImage));
+						tileSprite.setPosition(j*ts->tile_width, i*ts->tile_height);
+						tileSprite.setTextureRect(sf::IntRect(tx, ty, ts->tile_width, ts->tile_height));
+						m_animatedBatchTexture.draw(tileSprite);
 					}
 				}
 			}
@@ -329,7 +328,7 @@ namespace re
 	{
 		tmx_layer* layers = m_map->ly_head;
 		
-		m_animatedBatchTexture.clear();
+		m_animatedBatchTexture.clear(sf::Color::Transparent);
 		
 		while (layers)
 		{
@@ -371,9 +370,7 @@ namespace re
 		states.texture = nullptr;
 		states.transform *= getTransform();
 
-		//target.draw(batchA, states);
+		target.draw(batchA, states);
 		target.draw(batchB, states);
 	}
 }
-
-// fix single tile updating
