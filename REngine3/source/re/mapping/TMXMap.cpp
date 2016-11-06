@@ -20,6 +20,7 @@
 #include "TMXMap.hpp"
 
 #define SF_THICKNESS 2.5
+#define SF_ANIMATION_DELAY 11.1
 
 namespace re
 {
@@ -191,7 +192,7 @@ namespace re
 					{
 						focusTile->animation_timer += dt.asMilliseconds();
 
-						if (focusTile->animation_timer >= focusTile->animation[focusTile->current_animation].duration)
+						if (focusTile->animation_timer >= (focusTile->animation[focusTile->current_animation].duration*SF_ANIMATION_DELAY))
 						{
 							focusTile->animation_timer = 0;
 							focusTile->current_animation++;

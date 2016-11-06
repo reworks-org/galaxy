@@ -13,7 +13,7 @@ TODO List.
 - multithread the physics
 - use own system, box2d in future
 - proper loading system
-- tile animations seem a bit fast.
+- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 
 v1.1:
 - Error Checking & Exceptions. 
