@@ -295,7 +295,6 @@ namespace re
 
 	TMXMap::~TMXMap()
 	{
-		m_tilesToUpdate.clear();
 	}
 
 	void TMXMap::Load(const std::string& map)
@@ -315,16 +314,6 @@ namespace re
 		render_map(m_map.get());
 	}
 
-	unsigned int TMXMap::CalculateGID(unsigned int px, unsigned int py)
-	{
-		return gid_clear_flags(px + (py*m_map->width));
-	}
-
-	void TMXMap::UpdateTile(unsigned int gid, int tx, int ty)
-	{
-		m_tilesToUpdate.emplace(gid, std::make_pair(tx, ty));
-	}
-
 	void TMXMap::Update(sf::Time dt)
 	{
 		tmx_layer* layers = m_map->ly_head;
@@ -342,24 +331,6 @@ namespace re
 		}
 
 		m_animatedBatchTexture.display();
-
-		/*
-		for (auto& tile : m_tilesToUpdate)
-		{
-			sf::Vertex* quad = &m_animatedTilesVerticies[tile.first];
-			tmx_tileset *ts = m_map->tiles[tile.first]->tileset;
-
-			int tx = tile.second.first;
-			int ty = tile.second.second;
-
-			quad[0].texCoords = sf::Vector2f(tx, ty);
-			quad[1].texCoords = sf::Vector2f(tx + ts->tile_width, ty);
-			quad[2].texCoords = sf::Vector2f(tx + ts->tile_width, ty + ts->tile_height);
-			quad[3].texCoords = sf::Vector2f(tx, ty + ts->tile_height);
-		}
-
-		m_tilesToUpdate.clear();
-		*/
 	}
 
 	void TMXMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
