@@ -67,23 +67,23 @@ namespace re
 			switch (level)
 			{
 			case LogLevel::INFO:
-				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				m_loggedMessages.push_back("RE_INFO:    [" + Time::GetCurrentTimeAndDate() + "] - " + message + ".");
+				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+				m_loggedMessages.push_back("RE_INFO:    [" + Time::GetCurrentTimeAndDate() + "] - " + message);
 				break;
 
 			case LogLevel::WARNING:
-				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				m_loggedMessages.push_back("RE_WARNING: [" + Time::GetCurrentTimeAndDate() + "] - " + message + ".");
+				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING: [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+				m_loggedMessages.push_back("RE_WARNING: [" + Time::GetCurrentTimeAndDate() + "] - " + message);
 				break;
 
 			case LogLevel::FATAL:
-				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:      [" << Time::GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				m_loggedMessages.push_back("RE_ERROR:   [" + Time::GetCurrentTimeAndDate() + "] - " + message + ".");
+				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:   [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+				m_loggedMessages.push_back("RE_ERROR:   [" + Time::GetCurrentTimeAndDate() + "] - " + message);
 				break;
 
 			default:
-				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << "." << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				m_loggedMessages.push_back("RE_INFO:    [" + Time::GetCurrentTimeAndDate() + "] - " + message + ".");
+				std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+				m_loggedMessages.push_back("RE_INFO:    [" + Time::GetCurrentTimeAndDate() + "] - " + message);
 				break;
 			}
 		}

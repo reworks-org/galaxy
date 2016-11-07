@@ -17,6 +17,8 @@ TODO List.
 - ability to modify individual tiles
 - fix bloody ecs system...again...fml...
 - grid based movement then collision
+- refer to 3 pages of notes ive written...fml...again...
+- redo serialization
 
 v1.1:
 - Error Checking & Exceptions. 

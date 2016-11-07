@@ -46,6 +46,9 @@
 			RE_LOG(LogLevel::FATAL, messageFileLine); \
 }
 
+/*
+* Singleton crap. Dont even look...
+*/
 namespace re
 {
 	enum LogLevel

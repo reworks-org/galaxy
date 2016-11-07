@@ -39,7 +39,9 @@ void Load::LoadResources()
 
 	m_world->Register("loadEntitys.lua");
 
-	m_world->Get("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+	//m_world->Get("loadScreen").Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+
+	RE_LOG(LogLevel::FATAL, m_world->Get("loadScreen").m_name);
 
 	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
 	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
@@ -90,7 +92,7 @@ void Load::Update(sf::Time dt)
 			m_alpha = 0;
 		}
 
-		m_world->Get("loadScreen")->Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+		m_world->Get("loadScreen").Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
 		if (m_alpha <= 0)
 		{

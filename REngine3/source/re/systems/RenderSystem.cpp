@@ -38,14 +38,14 @@ namespace re
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second->Has<SpriteComponent>() || it.second->Has<TextComponent>() || it.second->Has<AnimatedSpriteComponent>() || it.second->Has<TimeComponent>())
+			if (it.second.Has<SpriteComponent>() || it.second.Has<TextComponent>() || it.second.Has<AnimatedSpriteComponent>() || it.second.Has<TimeComponent>())
 			{
-				AddEntity(it.second);
+				AddEntity(&it.second);
 			}
 		}
 	}
 
-	void RenderSystem::AddEntity(std::shared_ptr<Entity> e)
+	void RenderSystem::AddEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 

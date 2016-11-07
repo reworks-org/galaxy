@@ -44,6 +44,7 @@ namespace re
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;
+	typedef std::unordered_map<std::string, ComponentList> ComponentHolder;
 }
 
 #endif

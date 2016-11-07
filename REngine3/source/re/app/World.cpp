@@ -27,7 +27,16 @@
 
 namespace re
 {
-	World::World()
+	World::~World()
+	{
+		m_dead.clear();
+		m_alive.clear();
+		m_systems.clear();
+		m_components.clear();
+		m_componentFactory.clear();
+	}
+
+	void World::Init()
 	{
 		RegisterComponent<TextComponent>("TextComponent");
 		RegisterComponent<TimeComponent>("TimeComponent");
@@ -37,14 +46,6 @@ namespace re
 		RegisterComponent<SpriteComponent>("SpriteComponent");
 		RegisterComponent<PositionComponent>("PositionComponent");
 		RegisterComponent<AnimatedSpriteComponent>("AnimatedSpriteComponent");
-	}
-
-	World::~World()
-	{
-		m_dead.clear();
-		m_alive.clear();
-		m_systems.clear();
-		m_componentFactory.clear();
 	}
 
 	void World::Register(const std::string& entitysScript)
@@ -65,8 +66,22 @@ namespace re
 
 		for (auto& it : m_keyValuePair)
 		{
-			std::shared_ptr<Entity> e = std::make_shared<Entity>(it.second);
-			m_alive.emplace(e->m_name, e);
+			m_alive.emplace(it.first, Entity());
+			m_alive[it.first].Init(it.second, m_components);
+		}
+	}
+
+	Entity& World::Get(const std::string& name)
+	{
+		auto found = m_alive.find(name);
+		
+		if (found != m_alive.end())
+		{
+			return m_alive[name];
+		}
+		else
+		{
+			RE_LOG(LogLevel::WARNING, "Attempted to access dead or nonexistent entity!");
 		}
 	}
 
@@ -74,7 +89,7 @@ namespace re
 	{
 		if (m_alive.find(name) != m_alive.end())
 		{
-			m_alive[name]->m_isDead = true;
+			m_alive[name].m_isDead = true;
 		}
 	}
 
@@ -82,23 +97,18 @@ namespace re
 	{
 		if (m_dead.find(name) != m_dead.end())
 		{
-			m_dead[name]->m_isDead = false;
+			m_dead[name].m_isDead = false;
 		}
-	}
-
-	std::shared_ptr<Entity> World::Get(const std::string& name)
-	{
-		return m_alive[name];
 	}
 
 	void World::Update(sf::Time dt)
 	{
 		for (auto& it : m_alive)
 		{
-			if (it.second->m_isDead)
+			if (it.second.m_isDead)
 			{
-				std::string name = it.second->m_name;
-				for (auto s : it.second->m_systemIds)
+				std::string name = it.second.m_name;
+				for (auto s : it.second.m_systemIds)
 				{
 					m_systems[s.second]->RemoveEntity(name);
 				}
@@ -110,12 +120,12 @@ namespace re
 
 		for (auto& it : m_dead)
 		{
-			if (!it.second->m_isDead)
+			if (!it.second.m_isDead)
 			{
-				std::string name = it.second->m_name;
-				for (auto s : it.second->m_systemIds)
+				std::string name = it.second.m_name;
+				for (auto s : it.second.m_systemIds)
 				{
-					m_systems[s.second]->AddEntity(it.second);
+					m_systems[s.second]->AddEntity(&it.second);
 				}
 
 				m_alive.emplace(name, it.second);
@@ -125,7 +135,7 @@ namespace re
 
 		for (auto& it : m_alive)
 		{
-			for (auto& c : it.second->m_components)
+			for (auto& c : *(it.second.m_components))
 			{
 				c.second->Update(dt);
 			}
@@ -134,8 +144,9 @@ namespace re
 
 	void World::Clean()
 	{
-		m_alive.clear();
 		m_dead.clear();
+		m_alive.clear();
+		m_components.clear();
 	}
 
 	ComponentFactory& World::GetComponentFactory()
@@ -143,12 +154,12 @@ namespace re
 		return m_componentFactory;
 	}
 
-	EntityDatabase& World::GetAlive()
+	EntityList& World::GetAlive()
 	{
 		return m_alive;
 	}
 
-	EntityDatabase& World::GetDead()
+	EntityList& World::GetDead()
 	{
 		return m_dead;
 	}

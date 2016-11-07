@@ -24,14 +24,14 @@ namespace re
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second->Has<PositionComponent>())
+			if (it.second.Has<PositionComponent>())
 			{
-				AddEntity(it.second);
+				AddEntity(&it.second);
 			}
 		}
 	}
 
-	void MoveSystem::AddEntity(std::shared_ptr<Entity> e)
+	void MoveSystem::AddEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("MoveSystem", std::type_index(typeid(MoveSystem)));
 		m_entitys.emplace(e->m_name, e);

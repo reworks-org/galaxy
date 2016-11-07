@@ -24,14 +24,14 @@ namespace re
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second->Has<EventComponent>())
+			if (it.second.Has<EventComponent>())
 			{
-				AddEntity(it.second);
+				AddEntity(&it.second);
 			}
 		}
 	}
 
-	void EventSystem::AddEntity(std::shared_ptr<Entity> e)
+	void EventSystem::AddEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("EventSystem", std::type_index(typeid(EventSystem)));
 		m_entitys.emplace(e->m_name, e);

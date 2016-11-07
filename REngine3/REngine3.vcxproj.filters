@@ -182,4 +182,7 @@
   <ItemGroup>
     <None Include="source\re\graphics\sw\TileMap.inl" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+  </ItemGroup>
 </Project>

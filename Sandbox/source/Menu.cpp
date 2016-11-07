@@ -47,8 +47,8 @@ void Menu::LoadResources()
 
 	m_world->Register("menuEntitys.lua");
 
-	m_world->Get("person")->Get<AnimatedSpriteComponent>()->Play();
-	m_world->Get("person")->Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
+	m_world->Get("person").Get<AnimatedSpriteComponent>()->Play();
+	m_world->Get("person").Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
 
 	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
 	m_world->Get<RenderSystem>()->AutoSubmit(m_world);

@@ -16,7 +16,11 @@
 
 namespace re
 {
-	Entity::Entity(const std::string& script)
+	Entity::Entity()
+	{
+	}
+
+	void Entity::Init(const std::string& script, ComponentHolder& cl)
 	{
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
@@ -33,6 +37,9 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
+		// Create list.
+		cl[m_name] = ComponentList();
+
 		for (auto& kvp : m_keyValuePair)
 		{
 			auto cf = Locator::Get<World>()->GetComponentFactory().find(kvp.first);
@@ -40,15 +47,16 @@ namespace re
 
 			if (cf != end)
 			{
-				m_components[cf->second.first] = cf->second.second();
-				m_components[cf->second.first]->Init(kvp.second);
+				cl[m_name][cf->second.first] = cf->second.second();
+				cl[m_name][cf->second.first]->Init(kvp.second);
 			}
 		}
+
+		m_components = &cl[m_name];
 	}
 
 	Entity::~Entity()
 	{
 		m_systemIds.clear();
-		m_components.clear();
 	}
 }

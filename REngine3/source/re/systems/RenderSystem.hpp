@@ -46,7 +46,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.
 		*/
-		void AddEntity(std::shared_ptr<Entity> e) override;
+		void AddEntity(Entity* e) override;
 
 		/*
 		* IMPORTS: id of entity to remove

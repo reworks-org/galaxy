@@ -10,10 +10,10 @@
 #define RENGINE3_WORLD_HPP_
 
 #include <utility>
-#include <functional>
 
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
+#include "re/types/Component.hpp"
 
 namespace sf
 {
@@ -22,20 +22,13 @@ namespace sf
 
 namespace re
 {
+	typedef std::map<std::string, Entity> EntityList;
 	typedef std::unordered_map<std::type_index, std::shared_ptr<System>> SystemList;
 	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>> ComponentFactory;
-	typedef std::map<std::string, std::shared_ptr<Entity>> EntityDatabase;
 
 	class World : public Service
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Set up world.
-		*/
-		World();
-
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -44,11 +37,25 @@ namespace re
 		~World() override;
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Set up world.
+		*/
+		void Init();
+
+		/*
 		* IMPORTS: id - assign an id to the entity
 		* EXPORTS: none
 		* PURPOSE: To create a new entity and add it to the world.
 		*/
 		void Register(const std::string& entitysScript);
+
+		/*
+		* IMPORTS: name of entity to get, and if it is dead or not.
+		* EXPORTS: shared_ptr to that entity.
+		* PURPOSE: To retrieve an entity from the world.
+		*/
+		Entity& Get(const std::string& name);
 
 		/*
 		* IMPORTS: name - name of entity to kill.
@@ -63,13 +70,6 @@ namespace re
 		* PURPOSE: Add entity back to systems, "reviving" it.
 		*/
 		void ReviveEntity(const std::string& name);
-
-		/*
-		* IMPORTS: name of entity to get
-		* EXPORTS: shared_ptr to that entity.
-		* PURPOSE: To retrieve an entity from the world.
-		*/
-		std::shared_ptr<Entity> Get(const std::string& name);
 
 		/*
 		* IMPORTS: sf::Time delta time
@@ -123,14 +123,14 @@ namespace re
 		* EXPORTS: map of alive entitys.
 		* PURPOSE: To get the alive entity database.
 		*/
-		EntityDatabase& GetAlive();
+		EntityList& GetAlive();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: map of dead entitys.
 		* PURPOSE: To get the dead entity database.
 		*/
-		EntityDatabase& GetDead();
+		EntityList& GetDead();
 		
 	private:
 		/*
@@ -142,9 +142,10 @@ namespace re
 		std::shared_ptr<Component> MakeComponent();
 
 	private:
-		EntityDatabase m_alive;
-		EntityDatabase m_dead;
+		EntityList m_dead;
+		EntityList m_alive;
 		SystemList m_systems;
+		ComponentHolder m_components;
 		ComponentFactory m_componentFactory;
 	};
 
@@ -176,6 +177,8 @@ namespace re
 	template<typename T>
 	void World::RegisterComponent(const std::string& name)
 	{
+		std::string msg = "Registering " + name + " in world.";
+		RE_LOG(LogLevel::INFO, msg);
 		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::MakeComponent<T>, this)));
 	}
 }

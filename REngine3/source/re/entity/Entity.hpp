@@ -33,14 +33,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default constructor.
 		*/
-		Entity() {}
+		Entity();
 
 		/*
-		* IMPORTS: script - The name of the script in the VFS that defines the entity.
+		* IMPORTS: script - The name of the script in the VFS that defines the entity. Pointer to world.
 		* EXPORTS: none
 		* PURPOSE: Constructs the entity using data from the lua script provided.
 		*/
-		Entity(const std::string& script);
+		void Init(const std::string& script, ComponentHolder& cl);
 
 		/*
 		* IMPORTS: none
@@ -75,7 +75,7 @@ namespace re
 
 	public:
 		std::string m_name;
-		ComponentList m_components;
+		ComponentList* m_components;
 		std::map<std::string, std::type_index> m_systemIds;
 
 	private:
@@ -85,13 +85,13 @@ namespace re
 	template<typename T>
 	std::shared_ptr<T> Entity::Get()
 	{
-		return std::dynamic_pointer_cast<T>(m_components.find(std::type_index(typeid(T)))->second);
+		return std::dynamic_pointer_cast<T>(m_components->find(std::type_index(typeid(T)))->second);
 	}
 
 	template<typename T>
 	bool Entity::Has()
 	{
-		if (m_components.find(std::type_index(typeid(T))) != m_components.end())
+		if (m_components->find(std::type_index(typeid(T))) != m_components->end())
 		{
 			return true;
 		}

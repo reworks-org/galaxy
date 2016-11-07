@@ -22,7 +22,7 @@ class App : public re::Application
 {
 public:
 	// See re::Application.
-	inline App::App() : Application() {}
+	inline App::App(bool enableLogging, bool enableFileLogging) : Application(enableLogging, enableFileLogging) {}
 
 	/*
 	* IMPORTS: none
@@ -31,11 +31,6 @@ public:
 	*/
 	void Init() override
 	{
-		RE_LOG_ENABLE(true);
-		RE_LOG_ENABLE_FILE(false);
-
-		RE_LOG(re::LogLevel::INFO, "Begin init");
-
 		m_vfs.Mount("bin/Release/assets/");
 		m_config.Parse("bin/Release/config.lua");
 
@@ -89,7 +84,7 @@ public:
 
 int main()
 {
-	App app;
+	App app(true, false);
 	app.Init();
 	
 	return app.Run();

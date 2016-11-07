@@ -36,14 +36,14 @@ namespace re
 
 			for (auto& it : world->GetAlive())
 			{
-				oa << *(it.second);
-				oa << *(it.second->Get<PositionComponent>());
+				oa << it.second;
+				oa << *(it.second.Get<PositionComponent>());
 			}
 
 			for (auto& it : world->GetDead())
 			{
-				oa << *(it.second);
-				oa << *(it.second->Get<PositionComponent>());
+				oa << it.second;
+				oa << *(it.second.Get<PositionComponent>());
 			}
 
 			out.close();
@@ -62,14 +62,14 @@ namespace re
 
 			for (auto& it : world->GetAlive())
 			{
-				ia >> *(it.second);
-				ia >> *(it.second->Get<PositionComponent>());
+				ia >> it.second;
+				ia >> *(it.second.Get<PositionComponent>());
 			}
 
 			for (auto& it : world->GetDead())
 			{
-				ia >> *(it.second);
-				ia >> *(it.second->Get<PositionComponent>());
+				ia >> it.second;
+				ia >> *(it.second.Get<PositionComponent>());
 			}
 
 			in.close();

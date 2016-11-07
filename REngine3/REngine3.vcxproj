@@ -200,6 +200,9 @@
   <ItemGroup>
     <None Include="source\re\graphics\sw\TileMap.inl" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

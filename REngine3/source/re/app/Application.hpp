@@ -22,11 +22,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: none
+		* IMPORTS: true or false to enable logging and or file logging.
 		* EXPORTS: none
 		* PURPOSE: Default constructor. You must call Init() manually.
 		*/
-		Application();
+		Application(bool enableLogging, bool enableFileLogging);
 
 		/*
 		* IMPORTS: configFile - The name of the lua file containing the configuration data for the engine.
