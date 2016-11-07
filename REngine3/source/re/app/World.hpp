@@ -9,8 +9,6 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
-#include <utility>
-
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
 #include "re/types/Component.hpp"

@@ -20,11 +20,11 @@ namespace re
 {
 	Application::Application(bool enableLogging, bool enableFileLogging)
 	{
-		RE_LOG_ENABLE(true);
-		RE_LOG_ENABLE_FILE(false);
+		RE_LOG_ENABLE(enableLogging);
+		RE_LOG_ENABLE_FILE(enableFileLogging);
 
 		RE_LOG(LogLevel::WARNING, "*************************************");
-		RE_LOG(LogLevel::WARNING, "    RENGINE3 INITIALIZATION BEGIN    ");
+		RE_LOG(LogLevel::WARNING, "*   RENGINE3 INITIALIZATION BEGIN   *");
 		RE_LOG(LogLevel::WARNING, "*************************************");
 
 		RE_ASSERT(sf::Shader::isAvailable(), "Shaders not avaliable on this system!");
