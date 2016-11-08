@@ -79,7 +79,6 @@ namespace re
 		re::EllipseShape elip;
 
 		tmx_object *head = objgr->head;
-
 		while (head)
 		{
 			if (head->visible)

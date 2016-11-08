@@ -1,31 +1,28 @@
 TODO List.
 
-- optimize as much as possible.
+v1.0:
 - collision
-- fix rendering and groups -> make into layers?
-- possibly write own mapping class using tmx-c parser
-- generic level file
 - tgui lua bridge
 - sfml inbuilt post-processing & shaders
-- updates in another thread
 - more logging code
-- rendering in another thread
-- multithread the physics
-- use own system, box2d in future
 - proper loading system
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - ability to modify individual tiles
-- fix bloody ecs system...again...fml...
 - grid based movement then collision
-- refer to 3 pages of notes ive written...fml...again...
-- redo serialization
+- refer to 4 pages of notes for any other features
 
 v1.1:
-- Error Checking & Exceptions. 
+- Better error checking & Exceptions. 
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
+- Better component-system interactions.
+	- fix rendering and groups -> make into layers?
 
 v1.2:
 - Multithreading:
 	- http://www.sfml-dev.org/tutorials/2.4/system-thread.php
 	- https://www.reddit.com/r/gamedev/comments/44fux4/multi_threading_in_game_development/
+
+	- updates in another thread
+	- rendering in another thread
+	- multithread the physics, switch to box2d
