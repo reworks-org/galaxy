@@ -9,6 +9,7 @@ v1.0:
 - ability to modify individual tiles
 - grid based movement then collision
 - refer to 4 pages of notes for any other features
+- need to thoroughly redo components and systems. they are just not cutting it...
 
 v1.1:
 - sfml inbuilt post-processing & shaders
