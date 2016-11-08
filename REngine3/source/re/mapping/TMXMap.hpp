@@ -66,6 +66,13 @@ namespace re
 		*/
 		void Update(sf::Time dt);
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: std::vector of rects defining collisions
+		* PURPOSE: To retrieve the collideable tiles on the map.
+		*/
+		std::vector<sf::IntRect>& GetCollisions();
+
 	private:
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 		void draw_anim_layer(tmx_map *map, tmx_layer *layer, sf::Time dt);
@@ -81,6 +88,7 @@ namespace re
 		void draw_layer(tmx_map *map, tmx_layer *layer);
 		void draw_image_layer(tmx_image *img);
 		void render_map(tmx_map *map);
+		void parse_collisions(tmx_map *map);
 		/*
 		* END TMX UTILITY FUNCTIONS
 		*/
@@ -89,6 +97,7 @@ namespace re
 		int m_height;
 
 		tmx::UPtr m_map;
+		std::vector<sf::IntRect> m_tileCollisions;
 		sf::RenderTexture m_batchTexture;
 		sf::RenderTexture m_animatedBatchTexture;
 	};

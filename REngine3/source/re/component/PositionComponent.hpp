@@ -54,6 +54,7 @@ namespace re
 		float m_ypos;
 		float m_width;
 		float m_height;
+		bool m_isColliding = false;
 
 	private:
 		// Boost.Serialization function

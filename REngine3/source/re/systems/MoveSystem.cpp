@@ -48,7 +48,11 @@ namespace re
 
 		if (found != m_entitys.end())
 		{
-			found->second->Get<PositionComponent>()->SetPos(x, y);
+			auto p = found->second->Get<PositionComponent>();
+			if (!p->m_isColliding)
+			{
+				p->SetPos(x, y);
+			}
 		}
 	}
 

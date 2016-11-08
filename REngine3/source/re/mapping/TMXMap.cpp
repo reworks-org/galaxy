@@ -266,6 +266,27 @@ namespace re
 		m_batchTexture.display();
 	}
 
+	void TMXMap::parse_collisions(tmx_map *map)
+	{
+		tmx_layer *layers = map->ly_head;
+
+		while (layers)
+		{
+			if (layers->name == "Collision")
+			{
+				tmx_object_group* objgr = layers->content.objgr;
+				tmx_object *head = objgr->head;
+				while (head)
+				{
+					sf::IntRect rect(head->x, head->y, head->width, head->height);
+					m_tileCollisions.push_back(rect);
+
+					head = head->next;
+				}
+			}
+		}
+	}
+
 	TMXMap::TMXMap()
 	{
 		tmx_img_load_func = sf_tex_loader;
@@ -290,6 +311,8 @@ namespace re
 		m_animatedBatchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
+
+		parse_collisions(m_map.get());
 	}
 
 	TMXMap::~TMXMap()
@@ -311,6 +334,8 @@ namespace re
 		m_batchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
+
+		parse_collisions(m_map.get());
 	}
 
 	void TMXMap::Update(sf::Time dt)
@@ -330,6 +355,11 @@ namespace re
 		}
 
 		m_animatedBatchTexture.display();
+	}
+
+	std::vector<sf::IntRect>& TMXMap::GetCollisions()
+	{
+		return m_tileCollisions;
 	}
 
 	void TMXMap::draw(sf::RenderTarget& target, sf::RenderStates states) const

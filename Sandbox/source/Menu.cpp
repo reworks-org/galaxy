@@ -18,6 +18,7 @@
 #include <re/systems/EventSystem.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/utility/Serialization.hpp>
+#include <re/systems/CollisionSystem.hpp>
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/EventComponent.hpp>
 #include <re/component/PositionComponent.hpp>
@@ -53,6 +54,9 @@ void Menu::LoadResources()
 	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
 	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
 	m_world->Get<EventSystem>()->AutoSubmit(m_world);
+	m_world->Get<CollisionSystem>()->AutoSubmit(m_world);
+
+	m_world->Get<CollisionSystem>()->AddCollision(sf::IntRect(0, 0, 100, 100));
 
 	gui.setWindow(*(m_window));
 
@@ -63,7 +67,7 @@ void Menu::LoadResources()
 	}
 
 	tgui::Button::Ptr button = tgui::load(theme, "ui/testbutton.lua");
-	button->connect("pressed", [&]() {Locator::Get<StateManager>()->ChangeState(Game::Inst());});
+	button->connect("pressed", [&]() {Locator::Get<StateManager>()->ChangeState(Game::Inst()); });
 	gui.add(button, "test");
 }
 
@@ -74,6 +78,7 @@ void Menu::UnloadResources()
 	m_world->Get<RenderSystem>()->Clean();
 	m_world->Get<EventSystem>()->Clean();
 	m_world->Get<MoveSystem>()->Clean();
+	m_world->Get<CollisionSystem>()->Clean();
 	m_world->Clean();
 }
 
@@ -132,6 +137,7 @@ void Menu::Event()
 void Menu::Update(sf::Time dt)
 {
 	m_world->Update(dt);
+	m_world->Get<CollisionSystem>()->Update(dt);
 
 	if (m_dragging)
 	{

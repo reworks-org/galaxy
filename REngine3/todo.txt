@@ -3,7 +3,6 @@ TODO List.
 v1.0:
 - collision
 - tgui lua bridge
-- sfml inbuilt post-processing & shaders
 - more logging code
 - proper loading system
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
@@ -12,6 +11,7 @@ v1.0:
 - refer to 4 pages of notes for any other features
 
 v1.1:
+- sfml inbuilt post-processing & shaders
 - Better error checking & Exceptions. 
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
