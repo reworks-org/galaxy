@@ -311,7 +311,6 @@ namespace re
 		m_animatedBatchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
-
 		parse_collisions(m_map.get());
 	}
 
@@ -334,7 +333,6 @@ namespace re
 		m_batchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
-
 		parse_collisions(m_map.get());
 	}
 
