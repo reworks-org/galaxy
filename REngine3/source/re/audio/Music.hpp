@@ -19,11 +19,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: name of music in VFS.
+		* IMPORTS: Music script
 		* EXPORTS: none
 		* PURPOSE: Set up the class.
 		*/
-		Music(const std::string& name);
+		Music(const std::string& script);
 		
 		/*
 		* IMPORTS: none

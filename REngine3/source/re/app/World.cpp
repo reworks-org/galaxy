@@ -15,13 +15,13 @@
 #include "re/services/ServiceLocator.hpp"
 
 #include "re/component/TextComponent.hpp"
-#include "re/component/TimeComponent.hpp"
 #include "re/component/SoundComponent.hpp"
 #include "re/component/MusicComponent.hpp"
 #include "re/component/EventComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
-#include "re/component/PositionComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
+#include "re/component/TransformComponent.hpp"
+#include "re/component/AnimationComponent.hpp"
+#include "re/component/CollisionComponent.hpp"
 
 #include "World.hpp"
 
@@ -38,14 +38,14 @@ namespace re
 
 	void World::Init()
 	{
-		RegisterComponent<TextComponent>("TextComponent");
-		RegisterComponent<TimeComponent>("TimeComponent");
-		RegisterComponent<SoundComponent>("SoundComponent");
-		RegisterComponent<MusicComponent>("MusicComponent");
+		RegisterComponent<AnimationComponent>("AnimationComponent");
+		RegisterComponent<CollisionComponent>("CollisionComponent");
 		RegisterComponent<EventComponent>("EventComponent");
+		RegisterComponent<MusicComponent>("MusicComponent");
+		RegisterComponent<SoundComponent>("SoundComponent");
 		RegisterComponent<SpriteComponent>("SpriteComponent");
-		RegisterComponent<PositionComponent>("PositionComponent");
-		RegisterComponent<AnimatedSpriteComponent>("AnimatedSpriteComponent");
+		RegisterComponent<TextComponent>("TextComponent");
+		RegisterComponent<TransformComponent>("TransformComponent");
 	}
 
 	void World::Register(const std::string& entitysScript)
@@ -130,14 +130,6 @@ namespace re
 
 				m_alive.emplace(name, it.second);
 				m_dead.erase(name);
-			}
-		}
-
-		for (auto& it : m_alive)
-		{
-			for (auto& c : *(it.second.m_components))
-			{
-				c.second->Update(dt);
 			}
 		}
 	}

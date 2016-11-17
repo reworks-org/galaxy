@@ -15,9 +15,18 @@
 
 namespace re
 {
+	class Box2DManager;
+
 	class CollisionSystem : public System
 	{
 	public:
+		/*
+		* IMPORTS: Updates per second, velocity iterations and position iterations, usingTilemapCollisions is true if we need to worry about tilemap collisions.
+		* EXPORTS: none
+		* PURPOSE: Default Constructor.
+		*/
+		CollisionSystem(double vi, double pi, bool usingTilemapCollisions);
+
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -30,21 +39,21 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world);
+		void AutoSubmit(World* world) override;
+
+		/*
+		* IMPORTS: Pointer to the box2dmanager service.
+		* EXPORTS: none
+		* PURPOSE: Provide a reference to the box2dmanager service for the system to use.
+		*/
+		void ProvideManager(Box2DManager* manager);
 
 		/*
 		* IMPORTS: Vector of collideable tiles.
 		* EXPORTS: none
 		* PURPOSE: Add tiles to collision system.
 		*/
-		void SubmitTiles(std::vector<sf::IntRect>& ct);
-
-		/*
-		* IMPORTS: sf::IntRect of collision area.
-		* EXPORTS: none
-		* PURPOSE: To add a space where entitys collide.
-		*/
-		void AddCollision(sf::IntRect& rect);
+		void SubmitTiles(TMXMap* map);
 
 		/*
 		* IMPORTS: Pointer to entity to add.
@@ -72,19 +81,16 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean();
+		void Clean() override;
 
 	private:
-		std::vector<sf::IntRect> m_collisions;
-		std::map<std::string, sf::IntRect> m_tilesAroundPlayer;
+		double m_ups;
+		int m_velocityIterations;
+		int m_positionIterations;
+
+		Box2DManager* m_manager;
+		std::vector<b2Body*> m_mapCollisions;
 	};
 }
 
 #endif
-
-
-// import tile collisions amounght others
-
-// check tiles AROUND player...
-
-// implement tile-based movement first.

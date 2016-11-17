@@ -11,7 +11,6 @@
 
 #include <map>
 
-#include "re/types/Types.hpp"
 #include "re/entity/Entity.hpp"
 
 namespace re
@@ -27,11 +26,11 @@ namespace re
 		virtual ~System();
 
 		/*
-		* IMPORTS: id of entity to remove
+		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Remove an entitys components from the system.
+		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		virtual void RemoveEntity(const std::string& name) = 0;
+		virtual void AutoSubmit(World* world) = 0;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -39,6 +38,20 @@ namespace re
 		* PURPOSE: Add an entitys components from the system. YOU NEED to call entitys list of system ids and push back the type id of the system your adding the entity to.
 		*/
 		virtual void AddEntity(Entity* e) = 0;
+
+		/*
+		* IMPORTS: id of entity to remove
+		* EXPORTS: none
+		* PURPOSE: Remove an entitys components from the system.
+		*/
+		virtual void RemoveEntity(const std::string& name) = 0;
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean the system.
+		*/
+		virtual void Clean() = 0;
 
 		/*
 		* IMPORTS: none

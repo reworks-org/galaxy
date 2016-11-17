@@ -20,11 +20,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: name of sound in VFS.
+		* IMPORTS: Script file.
 		* EXPORTS: none
 		* PURPOSE: Set up the class.
 		*/
-		Sound(const std::string& name);
+		Sound(const std::string& script);
 		
 		/*
 		* IMPORTS: none

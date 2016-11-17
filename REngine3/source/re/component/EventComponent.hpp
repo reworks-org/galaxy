@@ -9,12 +9,11 @@
 #ifndef RENGINE3_EVENTCOMPONENT_HPP_
 #define RENGINE3_EVENTCOMPONENT_HPP_
 
+#include "re/types/Event.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
 {
-	typedef int EventType;
-
 	class EventComponent : public Component
 	{
 		friend class EventSystem;

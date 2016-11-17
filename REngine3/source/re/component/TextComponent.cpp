@@ -25,7 +25,7 @@ namespace re
 	void TextComponent::Init(sol::table & table)
 	{
 		setPosition(table.get<float>("x"), table.get<float>("y"));
-		m_group = table.get<unsigned long>("group");
+		m_group = table.get<sf::Uint32>("group");
 
 		setFont(Locator::Get<FontManager>()->Get(table.get<std::string>("font")));
 

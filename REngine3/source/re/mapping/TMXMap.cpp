@@ -15,7 +15,7 @@
 #include "re/entity/Entity.hpp"
 #include "re/graphics/sw/Line.hpp"
 #include "re/graphics/EllipseShape.hpp"
-#include "re/component/PositionComponent.hpp"
+#include "re/component/TransformComponent.hpp"
 
 #include "TMXMap.hpp"
 

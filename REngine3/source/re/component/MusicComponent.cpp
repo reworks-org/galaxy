@@ -33,9 +33,4 @@ namespace re
 			m_music.emplace(kvp.first, std::make_shared<Music>(kvp.second));
 		}
 	}
-
-	std::shared_ptr<Music> MusicComponent::Get(const std::string& id)
-	{
-		return m_music[id];
-	}
 }

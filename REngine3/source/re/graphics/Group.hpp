@@ -15,10 +15,8 @@
 #include <SFML/Graphics/Drawable.hpp>
 
 #include "re/entity/Entity.hpp"
-#include "re/component/TimeComponent.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
-#include "re/component/AnimatedSpriteComponent.hpp"
 
 namespace re
 {

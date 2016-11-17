@@ -22,10 +22,6 @@
 //
 ////////////////////////////////////////////////////////////
 
-/*
-	THIS FILE HAS BEEN ALTERED FOR USE IN RENGINE3. INSTEAD OF BEING 'PRIVATE' IT IS NOW 'PROTECTED'.
-*/
-
 #ifndef SFML_TRANSFORMABLE_HPP
 #define SFML_TRANSFORMABLE_HPP
 
@@ -315,7 +311,7 @@ public:
     ////////////////////////////////////////////////////////////
     const Transform& getInverseTransform() const;
 
-protected:
+private:
 
     ////////////////////////////////////////////////////////////
     // Member data

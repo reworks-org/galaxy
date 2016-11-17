@@ -18,6 +18,7 @@ namespace re
 {
 	class MusicComponent : public Component
 	{
+		friend class AudioSystem;
 	public:
 		/*
 		* IMPORTS: none
@@ -39,13 +40,6 @@ namespace re
 		* PURPOSE: Set up the component.
 		*/
 		void Init(sol::table& table) override;
-
-		/*
-		* IMPORTS: id in std::string of sound.
-		* EXPORTS: smart pointer to sound.
-		* PURPOSE: Retrieve a sound from the component.
-		*/
-		std::shared_ptr<Music> Get(const std::string& id);
 
 	private:
 		std::unordered_map<std::string, std::shared_ptr<Music>> m_music;

@@ -43,7 +43,7 @@ namespace re
 		sf::Font& Get(const std::string& name);
 
 	private:
-		std::unordered_map <std::string, std::pair<std::unique_ptr<sf::physfs>, std::shared_ptr<sf::Font>>> m_fontMap;
+		std::unordered_map<std::string, std::pair<std::unique_ptr<sf::physfs>, std::shared_ptr<sf::Font>>> m_fontMap;
 	};
 }
 

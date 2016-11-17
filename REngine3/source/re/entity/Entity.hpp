@@ -16,7 +16,6 @@
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
-#include "re/types/Types.hpp"
 #include "re/types/Component.hpp"
 
 namespace re

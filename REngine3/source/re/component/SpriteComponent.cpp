@@ -26,60 +26,17 @@ namespace re
 
 	void SpriteComponent::Init(sol::table& table)
 	{
-		m_group = table.get<unsigned long>("group");
+		m_group = table.get<sf::Uint32>("group");
 
-		LoadTexture(table.get<std::string>("texture"));
-
-		LoadShader(table.get<std::string>("vert"), table.get<std::string>("frag"));
-	}
-
-	sf::Shader* SpriteComponent::Shader()
-	{
-		return m_shader.get();
-	}
-
-	void SpriteComponent::LoadTexture(const std::string& texture)
-	{
-		m_textureStream.open(texture);
+		m_textureStream.open(table.get<std::string>("texture"));
 		m_texture.loadFromStream(m_textureStream);
 		setTexture(m_texture);
 	}
 
-	void SpriteComponent::LoadShader(const std::string& vert, const std::string& frag)
-	{
-		m_shader = std::make_shared<sf::Shader>();
-
-		if ((vert != "null") && (frag == "null"))
-		{
-			m_vertStream.open(vert);
-			m_shader->loadFromStream(m_vertStream, sf::Shader::Vertex);
-		}
-		else if ((vert == "null") && (frag != "null"))
-		{
-			m_fragStream.open(frag);
-			m_shader->loadFromStream(m_fragStream, sf::Shader::Fragment);
-		}
-		else if ((vert != "null") && (frag != "null"))
-		{
-			m_vertStream.open(vert);
-			m_fragStream.open(frag);
-			m_shader->loadFromStream(m_vertStream, m_fragStream);
-		}
-		else
-		{
-			m_shader = nullptr;
-		}
-	}
-
-	void SpriteComponent::draw(sf::RenderTarget & target, sf::RenderStates states) const
+	void SpriteComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		states.transform *= getTransform();
 		states.texture = &m_texture;
-
-		if (m_shader != nullptr)
-		{
-			states.shader = m_shader.get();
-		}
 
 		target.draw(m_vertices, 4, sf::TriangleStrip, states);
 	}

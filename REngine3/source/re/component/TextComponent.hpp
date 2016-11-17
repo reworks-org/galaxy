@@ -40,7 +40,7 @@ namespace re
 		void Init(sol::table& table) override;
 
 	public:
-		unsigned long m_group;
+		sf::Uint32 m_group;
 	};
 }
 

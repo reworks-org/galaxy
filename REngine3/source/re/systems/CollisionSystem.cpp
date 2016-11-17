@@ -6,42 +6,76 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <SFML/System/Time.hpp>
+
 #include "re/app/World.hpp"
+#include "re/mapping/TMXMap.hpp"
+#include "re/component/CollisionComponent.hpp"
+#include "re/component/TransformComponent.hpp"
+#include "re/physics/Box2DSFMLBridge.hpp"
+
 #include "CollisionSystem.hpp"
-#include "re/component/PositionComponent.hpp"
-#include "re/utility/Log.hpp"
 
 namespace re
 {
+	CollisionSystem::CollisionSystem(double ups, double vi, double pi)
+	{
+		m_ups = ups;
+		m_velocityIterations = vi;
+		m_positionIterations = pi;
+	}
+
 	CollisionSystem::~CollisionSystem()
 	{
 		m_entitys.clear();
-		m_collisions.clear();
-		m_tilesAroundPlayer.clear();
+		
+		for (auto& v : m_mapCollisions)
+		{
+			m_manager->m_world.DestroyBody(v);
+		}
+
+		m_mapCollisions.clear();
+		m_manager = nullptr;
 	}
 
 	void CollisionSystem::AutoSubmit(World* world)
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second.Has<PositionComponent>())
+			if (it.second.Has<CollisionComponent>())
 			{
 				AddEntity(&it.second);
 			}
 		}
 	}
 
-	void CollisionSystem::SubmitTiles(std::vector<sf::IntRect>& ct)
+	void CollisionSystem::ProvideManager(Box2DManager* manager)
 	{
-		for (auto& v : ct)
-		{
-			m_collisions.push_back(v);
-		}
+		m_manager = manager;
 	}
 
-	void CollisionSystem::AddCollision(sf::IntRect& rect)
+	void CollisionSystem::SubmitTiles(TMXMap* map)
 	{
-		m_collisions.push_back(rect);
+		for (auto& v : map->GetCollisions())
+		{
+			b2BodyDef bodyDef;
+			bodyDef.position.Set((double)v.left, (double)v.top);
+
+			bodyDef.type = b2BodyType::b2_staticBody;
+
+			b2PolygonShape b2shape;
+			b2shape.SetAsBox((double)v.width / 2.0, (double)v.height / 2.0);
+
+			b2FixtureDef fixtureDef;
+			fixtureDef.density = 0;
+			fixtureDef.friction = 0;
+			fixtureDef.restitution = 0;
+			fixtureDef.shape = &b2shape;
+
+			b2Body* body = m_manager->m_world.CreateBody(&bodyDef);
+			body->CreateFixture(&fixtureDef);
+			m_mapCollisions.push_back(body);
+		}
 	}
 
 	void CollisionSystem::AddEntity(Entity* e)
@@ -57,29 +91,26 @@ namespace re
 
 	void CollisionSystem::Update(sf::Time dt)
 	{
-		for (auto& v : m_collisions)
+		m_manager->m_world.Step(1.0 / m_ups, m_velocityIterations, m_positionIterations);
+
+		for (auto& e : m_entitys)
 		{
-			for (auto& e : m_entitys)
-			{
-				auto p = e.second->Get<PositionComponent>();
-				sf::IntRect pc(p->m_xpos, p->m_ypos, p->m_width, p->m_height);
-				if (pc.intersects(v) == true)
-				{
-					p->m_isColliding = true;
-					RE_LOG(LogLevel::WARNING, "COLLIDING!");
-				}
-				else
-				{
-					p->m_isColliding = false;
-				}
-			}
+			auto col = e.second->Get<CollisionComponent>()->m_body->GetPosition();
+			e.second->Get<TransformComponent>()->setPosition(b2::MetersToPixels<double>(col.x), b2::MetersToPixels<double>(col.y));
 		}
 	}
 
 	void CollisionSystem::Clean()
 	{
 		m_entitys.clear();
-		m_collisions.clear();
-		m_tilesAroundPlayer.clear();
+
+		for (auto& v : m_mapCollisions)
+		{
+			m_manager->m_world.DestroyBody(v);
+		}
+
+		m_mapCollisions.clear();
+
+		// We do not reset the manager pointer because we want to reuse it.
 	}
 }

@@ -22,10 +22,6 @@
 //
 ////////////////////////////////////////////////////////////
 
-/*
-	THIS FILE HAS BEEN ALTERED FOR USE IN RENGINE3. INSTEAD OF BEING 'PRIVATE' IT IS NOW 'PROTECTED'.
-*/
-
 #ifndef SFML_SPRITE_HPP
 #define SFML_SPRITE_HPP
 
@@ -193,7 +189,7 @@ public:
     ////////////////////////////////////////////////////////////
     FloatRect getGlobalBounds() const;
 
-protected:
+private:
 
     ////////////////////////////////////////////////////////////
     /// \brief Draw the sprite to a render target
