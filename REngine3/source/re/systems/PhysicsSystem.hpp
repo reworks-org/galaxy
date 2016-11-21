@@ -1,23 +1,25 @@
 //
-//  CollisionSystem.hpp
+//  PhysicsSystem.hpp
 //  REngine3
 //
 //  Created by reworks on 8/11/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_COLLISIONSYSTEM_HPP_
-#define RENGINE3_COLLISIONSYSTEM_HPP_
+#ifndef RENGINE3_PHYSICSSYSTEM_HPP_
+#define RENGINE3_PHYSICSSYSTEM_HPP_
 
 #include <SFML/Graphics/Rect.hpp>
 
+#include "Box2DManager.hpp"
 #include "re/types/System.hpp"
 
 namespace re
 {
 	class Box2DManager;
+	class TMXMap;
 
-	class CollisionSystem : public System
+	class PhysicsSystem : public System
 	{
 	public:
 		/*
@@ -25,14 +27,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		CollisionSystem(double vi, double pi, bool usingTilemapCollisions);
+		PhysicsSystem(double ups, double vi, double pi);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Cleans up the systems.
 		*/
-		~CollisionSystem() override;
+		~PhysicsSystem() override;
 
 		/*
 		* IMPORTS: none

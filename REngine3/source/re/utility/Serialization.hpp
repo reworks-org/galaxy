@@ -15,7 +15,7 @@
 #include <boost/archive/binary_oarchive.hpp>
 
 #include "re/app/World.hpp"
-#include "re/component/PositionComponent.hpp"
+#include "re/component/TransformComponent.hpp"
 
 // http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html
 
@@ -37,13 +37,13 @@ namespace re
 			for (auto& it : world->GetAlive())
 			{
 				oa << it.second;
-				oa << *(it.second.Get<PositionComponent>());
+				oa << *(it.second.Get<TransformComponent>());
 			}
 
 			for (auto& it : world->GetDead())
 			{
 				oa << it.second;
-				oa << *(it.second.Get<PositionComponent>());
+				oa << *(it.second.Get<TransformComponent>());
 			}
 
 			out.close();
@@ -63,13 +63,13 @@ namespace re
 			for (auto& it : world->GetAlive())
 			{
 				ia >> it.second;
-				ia >> *(it.second.Get<PositionComponent>());
+				ia >> *(it.second.Get<TransformComponent>());
 			}
 
 			for (auto& it : world->GetDead())
 			{
 				ia >> it.second;
-				ia >> *(it.second.Get<PositionComponent>());
+				ia >> *(it.second.Get<TransformComponent>());
 			}
 
 			in.close();

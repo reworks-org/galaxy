@@ -1,5 +1,5 @@
 //
-//  CollisionSystem.cpp
+//  PhysicsSystem.cpp
 //  REngine3
 //
 //  Created by reworks on 8/11/2016.
@@ -10,22 +10,22 @@
 
 #include "re/app/World.hpp"
 #include "re/mapping/TMXMap.hpp"
-#include "re/component/CollisionComponent.hpp"
+#include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 #include "re/physics/Box2DSFMLBridge.hpp"
 
-#include "CollisionSystem.hpp"
+#include "PhysicsSystem.hpp"
 
 namespace re
 {
-	CollisionSystem::CollisionSystem(double ups, double vi, double pi)
+	PhysicsSystem::PhysicsSystem(double ups, double vi, double pi)
 	{
 		m_ups = ups;
 		m_velocityIterations = vi;
 		m_positionIterations = pi;
 	}
 
-	CollisionSystem::~CollisionSystem()
+	PhysicsSystem::~PhysicsSystem()
 	{
 		m_entitys.clear();
 		
@@ -38,23 +38,23 @@ namespace re
 		m_manager = nullptr;
 	}
 
-	void CollisionSystem::AutoSubmit(World* world)
+	void PhysicsSystem::AutoSubmit(World* world)
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second.Has<CollisionComponent>())
+			if (it.second.Has<PhysicsComponent>() && it.second.Has<TransformComponent>())
 			{
 				AddEntity(&it.second);
 			}
 		}
 	}
 
-	void CollisionSystem::ProvideManager(Box2DManager* manager)
+	void PhysicsSystem::ProvideManager(Box2DManager* manager)
 	{
 		m_manager = manager;
 	}
 
-	void CollisionSystem::SubmitTiles(TMXMap* map)
+	void PhysicsSystem::SubmitTiles(TMXMap* map)
 	{
 		for (auto& v : map->GetCollisions())
 		{
@@ -78,29 +78,33 @@ namespace re
 		}
 	}
 
-	void CollisionSystem::AddEntity(Entity* e)
+	void PhysicsSystem::AddEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("CollisionSystem", std::type_index(typeid(CollisionSystem)));
+		e->m_systemIds.emplace("PhysicsSystem", std::type_index(typeid(PhysicsSystem)));
 		m_entitys.emplace(e->m_name, e);
 	}
 
-	void CollisionSystem::RemoveEntity(const std::string& name)
+	void PhysicsSystem::RemoveEntity(const std::string& name)
 	{
 		m_entitys.erase(name);
 	}
 
-	void CollisionSystem::Update(sf::Time dt)
+	void PhysicsSystem::Update(sf::Time dt)
 	{
 		m_manager->m_world.Step(1.0 / m_ups, m_velocityIterations, m_positionIterations);
 
 		for (auto& e : m_entitys)
 		{
-			auto col = e.second->Get<CollisionComponent>()->m_body->GetPosition();
-			e.second->Get<TransformComponent>()->setPosition(b2::MetersToPixels<double>(col.x), b2::MetersToPixels<double>(col.y));
+			auto phys = e.second->Get<PhysicsComponent>();
+			auto transf = e.second->Get<TransformComponent>();
+
+			transf->setPosition(b2::MetersToPixels<double>(phys->m_body->GetPosition().x), b2::MetersToPixels<double>(phys->m_body->GetPosition().y));
+			transf->setRotation(b2::RadToDeg<double>(phys->m_body->GetAngle()));
+			
 		}
 	}
 
-	void CollisionSystem::Clean()
+	void PhysicsSystem::Clean()
 	{
 		m_entitys.clear();
 

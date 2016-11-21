@@ -20,6 +20,7 @@ namespace re
 {
 	struct AnimationState
 	{
+		AnimationState();
 		AnimationState(sol::table& table);
 
 		/// The starting position of the animaton

@@ -1,5 +1,5 @@
 //
-//  CollisionComponent.cpp
+//  PhysicsComponent.cpp
 //  REngine3
 //
 //  Created by reworks on 10/11/2016.
@@ -10,20 +10,20 @@
 #include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "CollisionComponent.hpp"
+#include "PhysicsComponent.hpp"
 
 namespace re
 {
-	CollisionComponent::CollisionComponent()
+	PhysicsComponent::PhysicsComponent()
 	{
 	}
 
-	CollisionComponent::~CollisionComponent()
+	PhysicsComponent::~PhysicsComponent()
 	{
 		Locator::Get<Box2DManager>()->m_world.DestroyBody(m_body);
 	}
 
-	void CollisionComponent::Init(sol::table& table)
+	void PhysicsComponent::Init(sol::table& table)
 	{
 		b2BodyDef bodyDef;
 		bodyDef.position.Set(b2::PixelsToMeters<double>(table.get<double>("startX")), b2::PixelsToMeters<double>(table.get<double>("startY")));

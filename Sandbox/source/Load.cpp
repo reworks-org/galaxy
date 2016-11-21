@@ -10,9 +10,10 @@
 #include <re/services/Config.hpp>
 #include <re/graphics/Window.hpp>
 #include <re/services/vfs/VFS.hpp>
-#include <re/systems/MoveSystem.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/services/ServiceLocator.hpp>
+
+#include "gamesystems/MoveSystem.hpp"
 
 #include "Load.hpp"
 #include "Menu.hpp"

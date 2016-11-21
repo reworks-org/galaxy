@@ -39,11 +39,7 @@ namespace re
 		{
 			for (auto& v : it.second)
 			{
-				if (v.second != nullptr)
-				{
-					copy.transform *= v.second->getTransform();
-				}
-
+				copy.transform *= v.second->getTransform();
 				target.draw(*(v.first), copy);
 				copy = states;
 			}

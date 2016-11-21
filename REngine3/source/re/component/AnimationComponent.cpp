@@ -11,6 +11,10 @@
 
 namespace re
 {
+	AnimationState::AnimationState()
+	{
+	}
+
 	AnimationState::AnimationState(sol::table& table)
 	{
 		m_frameRate = table.get<unsigned int>("fps");
@@ -52,6 +56,7 @@ namespace re
 
 		
 		m_playingState = table.get<std::string>("defaultState");
+		m_isPlaying = table.get<bool>("startPlaying");
 	}
 
 	void AnimationComponent::Play(const std::string& state)

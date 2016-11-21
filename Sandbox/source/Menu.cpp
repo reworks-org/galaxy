@@ -14,14 +14,15 @@
 #include <re/graphics/Window.hpp>
 #include <re/services/Config.hpp>
 #include <re/services/vfs/VFS.hpp>
-#include <re/systems/MoveSystem.hpp>
 #include <re/systems/EventSystem.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/utility/Serialization.hpp>
-#include <re/systems/CollisionSystem.hpp>
+#include <re/systems/PhysicsSystem.hpp>
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/EventComponent.hpp>
-#include <re/component/PositionComponent.hpp>
+#include <re/component/TransformComponent.hpp>
+
+#include "gamesystems/MoveSystem.hpp"
 
 #include "Menu.hpp"
 #include "Game.hpp"

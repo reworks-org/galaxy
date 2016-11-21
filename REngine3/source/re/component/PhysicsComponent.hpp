@@ -1,22 +1,22 @@
 //
-//  CollisionComponent.hpp
+//  PhysicsComponent.hpp
 //  REngine3
 //
 //  Created by reworks on 10/11/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_COLLISIONCOMPONENT_HPP_
-#define RENGINE3_COLLISIONCOMPONENT_HPP_
+#ifndef RENGINE3_PHYSICSCOMPONENT_HPP_
+#define RENGINE3_PHYSICSCOMPONENT_HPP_
 
 #include <SFML/Graphics/Rect.hpp>
 
 #include "re/types/Component.hpp"
-#include "re/physics/Box2DManager.hpp"
+#include "re/physics/Box2D/Dynamics/b2Body.h"
 
 namespace re
 {
-	class CollisionComponent : public Component
+	class PhysicsComponent : public Component
 	{
 	public:
 		/*
@@ -24,14 +24,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		CollisionComponent();
+		PhysicsComponent();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean up component.
 		*/
-		~CollisionComponent() override;
+		~PhysicsComponent() override;
 
 		/*
 		* IMPORTS: sol::table containing data.

@@ -21,6 +21,7 @@ namespace re
 {
 	class AnimationSystem : public System
 	{
+	public:
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -33,7 +34,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world);
+		void AutoSubmit(World* world) override;
 
 		/*
 		* IMPORTS: pointer to entity to add.
@@ -68,7 +69,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean();
+		void Clean() override;
 
 	private:
 		unsigned int m_fps;

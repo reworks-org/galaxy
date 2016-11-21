@@ -21,7 +21,7 @@
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 #include "re/component/AnimationComponent.hpp"
-#include "re/component/CollisionComponent.hpp"
+#include "re/component/PhysicsComponent.hpp"
 
 #include "World.hpp"
 
@@ -39,9 +39,9 @@ namespace re
 	void World::Init()
 	{
 		RegisterComponent<AnimationComponent>("AnimationComponent");
-		RegisterComponent<CollisionComponent>("CollisionComponent");
 		RegisterComponent<EventComponent>("EventComponent");
 		RegisterComponent<MusicComponent>("MusicComponent");
+		RegisterComponent<PhysicsComponent>("PhysicsComponent");
 		RegisterComponent<SoundComponent>("SoundComponent");
 		RegisterComponent<SpriteComponent>("SpriteComponent");
 		RegisterComponent<TextComponent>("TextComponent");

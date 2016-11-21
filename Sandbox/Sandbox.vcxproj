@@ -161,13 +161,13 @@
     <ClCompile Include="source\Load.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Menu.cpp" />
-    <ClCompile Include="source\systems\MoveSystem.cpp" />
+    <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Game.hpp" />
     <ClInclude Include="source\Load.hpp" />
     <ClInclude Include="source\Menu.hpp" />
-    <ClInclude Include="source\systems\MoveSystem.hpp" />
+    <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

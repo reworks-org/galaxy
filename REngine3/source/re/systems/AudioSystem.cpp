@@ -15,8 +15,8 @@ namespace re
 	AudioSystem::~AudioSystem()
 	{
 		m_entitys.clear();
-		m_music.clear();
-		m_sounds.clear();
+		m_musicMap.clear();
+		m_soundsMap.clear();
 	}
 
 	void AudioSystem::AutoSubmit(World* world)
@@ -35,28 +35,28 @@ namespace re
 		e->m_systemIds.emplace("AudioSystem", std::type_index(typeid(AudioSystem)));
 		if (e->Has<MusicComponent>())
 		{
-			m_music.emplace(e->m_name, &e->Get<MusicComponent>()->m_music);
+			m_musicMap.emplace(e->m_name, &(e->Get<MusicComponent>()->m_music));
 		}
 
 		if (e->Has<SoundComponent>())
 		{
-			m_music.emplace(e->m_name, &e->Get<SoundComponent>()->m_sounds);
+			m_soundsMap.emplace(e->m_name, &(e->Get<SoundComponent>()->m_sounds));
 		}
 	}
 
 	void AudioSystem::RemoveEntity(const std::string& name)
 	{
-		auto foundA = m_music.find(name);
-		auto foundB = m_sounds.find(name);
+		auto foundA = m_musicMap.find(name);
+		auto foundB = m_soundsMap.find(name);
 
-		if (foundA != m_music.end())
+		if (foundA != m_musicMap.end())
 		{
-			m_music.erase(name);
+			m_musicMap.erase(name);
 		}
 
-		if (foundB != m_sounds.end())
+		if (foundB != m_soundsMap.end())
 		{
-			m_sounds.erase(name);
+			m_soundsMap.erase(name);
 		}
 	}
 
@@ -66,7 +66,7 @@ namespace re
 		std::string name = accessor.substr(0, lastdot);
 		std::string sound = accessor.substr(lastdot);
 
-		return m_sounds.at(name)->at(sound);
+		return m_soundsMap.at(name)->at(sound);
 	}
 
 	std::shared_ptr<Music> AudioSystem::GetMusic(const std::string& accessor)
@@ -75,13 +75,13 @@ namespace re
 		std::string name = accessor.substr(0, lastdot);
 		std::string music = accessor.substr(lastdot);
 
-		return m_music.at(name)->at(music);
+		return m_musicMap.at(name)->at(music);
 	}
 
 	void AudioSystem::Clean()
 	{
 		m_entitys.clear();
-		m_music.clear();
-		m_sounds.clear();
+		m_musicMap.clear();
+		m_soundsMap.clear();
 	}
 }

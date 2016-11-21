@@ -39,7 +39,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world);
+		void AutoSubmit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -47,6 +47,13 @@ namespace re
 		* PURPOSE: Add an entitys components from the system.
 		*/
 		void AddEntity(Entity* e) override;
+
+		/*
+		* IMPORTS: The unique entity, the group the component is in and the drawable component.
+		* EXPORTS: none
+		* PURPOSE: Add a unique drawable to the system.
+		*/
+		void AddDrawableComponent(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> drawable);
 
 		/*
 		* IMPORTS: id of entity to remove
@@ -67,7 +74,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean();
+		void Clean() override;
 
 	private:
 		std::vector<Group> m_groups;

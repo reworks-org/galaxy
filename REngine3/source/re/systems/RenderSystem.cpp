@@ -8,7 +8,7 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/component/PositionComponent.hpp"
+#include "re/component/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -38,7 +38,7 @@ namespace re
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second.Has<SpriteComponent>() || it.second.Has<TextComponent>() || it.second.Has<AnimatedSpriteComponent>() || it.second.Has<TimeComponent>())
+			if (it.second.Has<SpriteComponent>() || it.second.Has<TextComponent>())
 			{
 				AddEntity(&it.second);
 			}
@@ -47,27 +47,30 @@ namespace re
 
 	void RenderSystem::AddEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
+		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
+		}
 
 		if (e->Has<SpriteComponent>())
 		{
-			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<SpriteComponent>(), e->Get<PositionComponent>());
+			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<SpriteComponent>(), e->Get<TransformComponent>());
 		}
 
 		if (e->Has<TextComponent>())
 		{
 			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>(), nullptr);
 		}
+	}
 
-		if (e->Has<AnimatedSpriteComponent>())
+	void RenderSystem::AddDrawableComponent(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> drawable)
+	{
+		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
 		{
-			m_groups[e->Get<AnimatedSpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<AnimatedSpriteComponent>(), e->Get<PositionComponent>());
+			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 		}
 
-		if (e->Has<TimeComponent>())
-		{
-			m_groups[e->Get<TimeComponent>()->m_group].AddDrawable(e->m_name, e->Get<TimeComponent>(), nullptr);
-		}
+		m_groups[group].AddDrawable(e->m_name, drawable, e->Get<TransformComponent>());
 	}
 
 	void RenderSystem::RemoveEntity(const std::string& name)

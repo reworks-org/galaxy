@@ -8,8 +8,9 @@
 
 #include <SFML/System/Time.hpp>
 
-#include "re/app/World.hpp"
-#include "re/component/PositionComponent.hpp"
+#include <re/app/World.hpp>
+#include <re/component/PhysicsComponent.hpp>
+#include <re/component/TransformComponent.hpp>
 
 #include "MoveSystem.hpp"
 
@@ -24,7 +25,7 @@ namespace re
 	{
 		for (auto& it : world->GetAlive())
 		{
-			if (it.second.Has<PositionComponent>())
+			if (it.second.Has<PhysicsComponent>() && it.second.Has<TransformComponent>())
 			{
 				AddEntity(&it.second);
 			}
@@ -42,17 +43,16 @@ namespace re
 		m_entitys.erase(name);
 	}
 
-	void MoveSystem::Move(const std::string& name, float x, float y)
+	void MoveSystem::Move(const std::string& name, double velocity)
 	{
 		auto found = m_entitys.find(name);
 
 		if (found != m_entitys.end())
 		{
-			auto p = found->second->Get<PositionComponent>();
-			if (!p->m_isColliding)
-			{
-				p->SetPos(x, y);
-			}
+			auto body = found->second->Get<PhysicsComponent>()->m_body;
+			auto vel = body->GetLinearVelocity();
+			vel.x = velocity;
+			body->SetLinearVelocity(vel);
 		}
 	}
 

@@ -30,7 +30,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world);
+		void AutoSubmit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -65,11 +65,11 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean();
+		void Clean() override;
 		
 	private:
-		std::map<std::string, std::unordered_map<std::string, std::shared_ptr<Music>>*> m_music;
-		std::map<std::string, std::unordered_map<std::string, std::shared_ptr<Sound>>*> m_sounds;
+		std::unordered_map<std::string, std::unordered_map<std::string, std::shared_ptr<Music>>*> m_musicMap;
+		std::unordered_map<std::string, std::unordered_map<std::string, std::shared_ptr<Sound>>*> m_soundsMap;
 	};
 }
 

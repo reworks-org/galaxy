@@ -27,7 +27,7 @@
     <ClCompile Include="source\re\audio\Music.cpp" />
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\component\AnimationComponent.cpp" />
-    <ClCompile Include="source\re\component\CollisionComponent.cpp" />
+    <ClCompile Include="source\re\component\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\component\EventComponent.cpp" />
     <ClCompile Include="source\re\component\MusicComponent.cpp" />
     <ClCompile Include="source\re\component\SoundComponent.cpp" />
@@ -148,7 +148,7 @@
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\systems\AudioSystem.cpp" />
-    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
+    <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
@@ -161,7 +161,7 @@
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\component\AnimationComponent.hpp" />
-    <ClInclude Include="source\re\component\CollisionComponent.hpp" />
+    <ClInclude Include="source\re\component\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\component\EventComponent.hpp" />
     <ClInclude Include="source\re\component\MusicComponent.hpp" />
     <ClInclude Include="source\re\component\SoundComponent.hpp" />
@@ -282,7 +282,7 @@
     <ClInclude Include="source\re\services\vfs\VFS.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\systems\AudioSystem.hpp" />
-    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
+    <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />

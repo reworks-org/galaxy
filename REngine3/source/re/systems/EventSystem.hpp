@@ -36,7 +36,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world);
+		void AutoSubmit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -64,7 +64,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean();
+		void Clean() override;
 	};
 }
 

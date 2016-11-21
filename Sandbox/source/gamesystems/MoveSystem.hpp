@@ -1,15 +1,17 @@
 //
 //  MoveSystem.hpp
-//  REngine3
+//  Sandbox
 //
-//  Created by reworks on 07/10/2016.
+//  Created by reworks on 21/11/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_MOVESYSTEM_HPP_
-#define RENGINE3_MOVESYSTEM_HPP_
+#ifndef SANDBOX_MOVESYSTEM_HPP_
+#define SANDBOX_MOVESYSTEM_HPP_
 
-#include "re/types/System.hpp"
+#include <re/types/System.hpp>
+
+// BASIC MOVE SYSTEM EXAMPLE SYSTEM
 
 namespace re
 {
@@ -30,7 +32,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world);
+		void AutoSubmit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -51,14 +53,17 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Move an entity.
 		*/
-		void Move(const std::string& name, float x, float y);
+		void Move(const std::string& name, double velocity);
+
+		// poc
+		// void Jump(const std::string& name, double velocity);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean();
+		void Clean() override;
 	};
 }
 
