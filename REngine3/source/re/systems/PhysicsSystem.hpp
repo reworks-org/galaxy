@@ -23,11 +23,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: Updates per second, velocity iterations and position iterations, usingTilemapCollisions is true if we need to worry about tilemap collisions.
+		* IMPORTS: Pointer to manager service, updates per second, velocity iterations and position iterations, usingTilemapCollisions is true if we need to worry about tilemap collisions.
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		PhysicsSystem(double ups, double vi, double pi);
+		PhysicsSystem(Box2DManager* manager, double ups, double vi, double pi);
 
 		/*
 		* IMPORTS: none
@@ -42,13 +42,6 @@ namespace re
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
 		void AutoSubmit(World* world) override;
-
-		/*
-		* IMPORTS: Pointer to the box2dmanager service.
-		* EXPORTS: none
-		* PURPOSE: Provide a reference to the box2dmanager service for the system to use.
-		*/
-		void ProvideManager(Box2DManager* manager);
 
 		/*
 		* IMPORTS: Vector of collideable tiles.

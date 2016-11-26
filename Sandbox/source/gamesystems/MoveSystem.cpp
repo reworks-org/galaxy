@@ -56,6 +56,19 @@ namespace re
 		}
 	}
 
+	void MoveSystem::Jump(const std::string& name, double velocity)
+	{
+		auto found = m_entitys.find(name);
+
+		if (found != m_entitys.end())
+		{
+			auto body = found->second->Get<PhysicsComponent>()->m_body;
+			auto vel = body->GetLinearVelocity();
+			vel.y = velocity;
+			body->SetLinearVelocity(vel);
+		}
+	}
+
 	void MoveSystem::Clean()
 	{
 		m_entitys.clear();

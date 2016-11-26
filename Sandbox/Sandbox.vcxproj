@@ -91,7 +91,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../REngine3/source/;../REngine3/source/re/physics/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
     </ClCompile>
@@ -124,10 +124,10 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../REngine3/source/;../REngine3/source/re/physics/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

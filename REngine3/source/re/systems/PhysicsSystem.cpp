@@ -18,8 +18,9 @@
 
 namespace re
 {
-	PhysicsSystem::PhysicsSystem(double ups, double vi, double pi)
+	PhysicsSystem::PhysicsSystem(Box2DManager* manager, double ups, double vi, double pi)
 	{
+		m_manager = manager;
 		m_ups = ups;
 		m_velocityIterations = vi;
 		m_positionIterations = pi;
@@ -47,11 +48,6 @@ namespace re
 				AddEntity(&it.second);
 			}
 		}
-	}
-
-	void PhysicsSystem::ProvideManager(Box2DManager* manager)
-	{
-		m_manager = manager;
 	}
 
 	void PhysicsSystem::SubmitTiles(TMXMap* map)
@@ -100,7 +96,6 @@ namespace re
 
 			transf->setPosition(b2::MetersToPixels<double>(phys->m_body->GetPosition().x), b2::MetersToPixels<double>(phys->m_body->GetPosition().y));
 			transf->setRotation(b2::RadToDeg<double>(phys->m_body->GetAngle()));
-			
 		}
 	}
 

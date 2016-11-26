@@ -21,11 +21,15 @@
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/EventComponent.hpp>
 #include <re/component/TransformComponent.hpp>
+#include <re/systems/AnimationSystem.hpp>
+#include <re/utility/Time.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
 
 #include "Menu.hpp"
 #include "Game.hpp"
+
+#define ANIMATION_SPEED 1
 
 using namespace re;
 
@@ -49,42 +53,47 @@ void Menu::LoadResources()
 
 	m_world->Register("menuEntitys.lua");
 
-	m_world->Get("person").Get<AnimatedSpriteComponent>()->Play();
-	m_world->Get("person").Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Event processed!"); });
+	m_world->Get("person").Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Click!"); });
 
 	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
 	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
 	m_world->Get<EventSystem>()->AutoSubmit(m_world);
-	m_world->Get<CollisionSystem>()->AutoSubmit(m_world);
+	m_world->Get<PhysicsSystem>()->AutoSubmit(m_world);
+	m_world->Get<AnimationSystem>()->AutoSubmit(m_world);
 
-	m_world->Get<CollisionSystem>()->AddCollision(sf::IntRect(0, 0, 100, 100));
+	m_world->Get<AnimationSystem>()->SetFPS(ANIMATION_SPEED);
 
-	gui.setWindow(*(m_window));
+	m_gui.setWindow(*(m_window));
 
 	if (m_doOnce)
 	{
-		theme = std::make_shared<tgui::Theme>("bin/Release/assets/ui/black.txt");
+		m_theme = std::make_shared<tgui::Theme>("bin/Release/assets/ui/black.txt");
 		m_doOnce = false;
 	}
 
-	tgui::Button::Ptr button = tgui::load(theme, "ui/testbutton.lua");
+	tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
 	button->connect("pressed", [&]() {Locator::Get<StateManager>()->ChangeState(Game::Inst()); });
-	gui.add(button, "test");
+	m_gui.add(button, "testbutton");
+
+	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
+	m_gui.add(time, "testlabel");
 }
 
 void Menu::UnloadResources()
 {
-	gui.removeAllWidgets();
+	m_gui.removeAllWidgets();
 
 	m_world->Get<RenderSystem>()->Clean();
 	m_world->Get<EventSystem>()->Clean();
 	m_world->Get<MoveSystem>()->Clean();
-	m_world->Get<CollisionSystem>()->Clean();
+	m_world->Get<PhysicsSystem>()->Clean();
 	m_world->Clean();
 }
 
 void Menu::Event()
 {
+	// TODO: fix movement and jumping
+
 	while (m_window->pollEvent(m_window->m_event))
 	{
 		switch (m_window->m_event.type)
@@ -94,7 +103,7 @@ void Menu::Event()
 			break;
 		}
 
-		gui.handleEvent(m_window->m_event);
+		m_gui.handleEvent(m_window->m_event);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
@@ -124,6 +133,11 @@ void Menu::Event()
 		m_dragging = false;
 	}
 
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
+	{
+		m_world->Get<MoveSystem>()->Jump("person", 10);
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		m_world->KillEntity("person");
@@ -138,12 +152,19 @@ void Menu::Event()
 void Menu::Update(sf::Time dt)
 {
 	m_world->Update(dt);
-	m_world->Get<CollisionSystem>()->Update(dt);
+	m_world->Get<AnimationSystem>()->Update(dt);
+	m_world->Get<PhysicsSystem>()->Update(dt);
 
 	if (m_dragging)
 	{
-		m_world->Get<MoveSystem>()->Move("person", sf::Mouse::getPosition(*(m_window)).x, sf::Mouse::getPosition(*(m_window)).y);
+		m_world->Get<MoveSystem>()->Move("person", 5);
 	}
+	else
+	{
+		m_world->Get<MoveSystem>()->Move("person", 0);
+	}
+
+	m_gui.get<tgui::Label>("testlabel")->setText(Time::GetShortTimeAndDate());
 }
 
 void Menu::Render()
@@ -151,7 +172,7 @@ void Menu::Render()
 	m_window->clear(sf::Color::Black);
 
 	m_world->Get<RenderSystem>()->Render(m_window);
-	gui.draw();
+	m_gui.draw();
 
 	m_window->display();
 }

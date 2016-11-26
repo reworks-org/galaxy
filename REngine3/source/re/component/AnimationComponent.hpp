@@ -4,39 +4,20 @@
 //
 //  Created by reworks on 16/08/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
-//  Code modified from: https://github.com/miguelmartin75/anax/blob/master/examples/common/include/Components/AnimationComponent.hpp
-//  See original file for details.
+//
+// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimatedSprite
 
-#ifndef RENGINE3_ANIMATIONCOMPONENT_HPP_
-#define RENGINE3_ANIMATIONCOMPONENT_HPP_
-
-#include <map>
-
-#include <SFML/Graphics/Sprite.hpp>
+#ifndef RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
+#define RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 
 #include "re/types/Component.hpp"
 
+#include "re/graphics/Animation.hpp"
+
 namespace re
 {
-	struct AnimationState
-	{
-		AnimationState();
-		AnimationState(sol::table& table);
-
-		/// The starting position of the animaton
-		sf::Vector2u m_startPosition;
-
-		/// The amount of frames in each direction
-		sf::Vector2u m_frameAmount;
-
-		/// The frame rate you wish to play the state at
-		/// Set this to 0 if you wish to use the animation frame rate
-		unsigned int m_frameRate;
-	};
-
 	class AnimationComponent : public Component
 	{
-		friend class AnimationSystem;
 	public:
 		/*
 		* IMPORTS: none
@@ -60,69 +41,31 @@ namespace re
 		void Init(sol::table& table) override;
 
 		/*
-		* IMPORTS: state to play
+		* IMPORTS: animantion name in string
 		* EXPORTS: none
-		* PURPOSE: Play animation.
+		* PURPOSE: Set the components current active animation.
 		*/
-		void Play(const std::string& state);
+		void ChangeAnimation(const std::string& animation);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Reset animation.
+		* PURPOSE: Play the current animation.
 		*/
-		void Reset();
+		void Play();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Pause animation.
-		*/
-		void Pause();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Unpauses animation.
-		*/
-		void Unpause();
-		
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Enable animation repeat.
-		*/
-		void EnableRepeat();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Disable animation repeat.
-		*/
-		void DisableRepeat();
-
-		/*
-		* IMPORTS: stateName - animation state to change to.
-		* EXPORTS: none
-		* PURPOSE: Manually change animation.
-		*/
-		void ChangeAnimation(const std::string& stateName);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Stop animation.
+		* PURPOSE: Stop the current animation.
 		*/
 		void Stop();
 
 	private:
+		float m_speed;
 		bool m_isPlaying;
-		bool m_repeat;
-		std::string m_playingState;
-		sf::Vector2u m_frameSize;
-		std::map<std::string, AnimationState> m_states;
-		sf::Vector2u m_currentFrame;
-		double m_frameAccumulator;
+		std::string m_activeAnimation;
+		std::unordered_map<std::string, Animation> m_animations;
 	};
 }
 

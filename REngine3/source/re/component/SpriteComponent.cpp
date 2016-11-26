@@ -37,6 +37,6 @@ namespace re
 	{
 		states.transform *= getTransform();
 		states.texture = &m_texture;
-		draw(target, states);
+		target.draw(m_vertices, 4, sf::TriangleStrip, states);
 	}
 }

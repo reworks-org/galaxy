@@ -23,14 +23,13 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		Box2DManager();
+		Box2DManager(double gravity);
 
 	private:
-		b2Vec2 m_gravity = b2Vec2(0.0f, 9.81f);
+		b2Vec2 m_gravity;
 
 	public:
 		b2World m_world;
-
 	};
 }
 

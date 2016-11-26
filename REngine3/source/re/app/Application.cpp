@@ -18,7 +18,8 @@
 
 namespace re
 {
-	Application::Application(bool enableLogging, bool enableFileLogging)
+	Application::Application(bool enableLogging, bool enableFileLogging, double gravity)
+		:m_physicsManager(gravity)
 	{
 		RE_LOG_ENABLE(enableLogging);
 		RE_LOG_ENABLE_FILE(enableFileLogging);

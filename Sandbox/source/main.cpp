@@ -26,7 +26,7 @@ class App : public re::Application
 {
 public:
 	// See re::Application.
-	inline App::App(bool enableLogging, bool enableFileLogging) : Application(enableLogging, enableFileLogging) {}
+	inline App::App(bool enableLogging, bool enableFileLogging, double gravity) : Application(enableLogging, enableFileLogging, gravity) {}
 
 	/*
 	* IMPORTS: none
@@ -66,7 +66,7 @@ public:
 		m_world.AddSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.Lookup<int>("renderingLayers")));
 		m_world.AddSystem<EventSystem>(std::make_shared<EventSystem>());
 		m_world.AddSystem<MoveSystem>(std::make_shared<MoveSystem>());
-		m_world.AddSystem<PhysicsSystem>(std::make_shared<PhysicsSystem>(m_targetUPS, 8, 3));
+		m_world.AddSystem<PhysicsSystem>(std::make_shared<PhysicsSystem>(&m_physicsManager, m_targetUPS, 8, 3));
 		m_world.AddSystem<AnimationSystem>(std::make_shared<AnimationSystem>());
 		m_world.AddSystem<AudioSystem>(std::make_shared<AudioSystem>());
 
@@ -77,6 +77,7 @@ public:
 		Locator::Provide<Window>(&m_window);
 		Locator::Provide<FontManager>(&m_fontManager);
 		Locator::Provide<StateManager>(&m_stateManager);
+		Locator::Provide<Box2DManager>(&m_physicsManager);
 
 		// add fonts
 		m_fontManager.Add("GameOver", "game_over.ttf");
@@ -91,7 +92,7 @@ public:
 
 int main()
 {
-	App app(true, false);
+	App app(true, false, 9.81);
 	app.Init();
 	
 	return app.Run();

@@ -49,14 +49,18 @@ namespace re
 		void RemoveEntity(const std::string& name) override;
 
 		/*
-		* IMPORTS: name of entity and position to move it to.
+		* IMPORTS: name of entity and the horizontal velocity
 		* EXPORTS: none
 		* PURPOSE: Move an entity.
 		*/
 		void Move(const std::string& name, double velocity);
 
-		// poc
-		// void Jump(const std::string& name, double velocity);
+		/*
+		* IMPORTS: name of entity and the vertical velocity
+		* EXPORTS: none
+		* PURPOSE: Make an entity jump.
+		*/
+		void Jump(const std::string& name, double velocity);
 
 		/*
 		* IMPORTS: none

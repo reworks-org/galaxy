@@ -1,19 +1,14 @@
 TODO List.
 
 v1.0:
-- collision
 - tgui lua bridge
 - more logging code
 - proper loading system
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - ability to modify individual tiles
-- grid based movement then collision
 - refer to 4 pages of notes for any other features
-- need to thoroughly redo components and systems. they are just not cutting it... https://github.com/miguelmartin75/anax/tree/master/examples
-- redo serialization...again...
 - post effects seperate from sprites / tilemaps !
-
-- retest and debug components
+- fix debug information format in properties
 
 v1.1:
 - sfml inbuilt post-processing & shaders
@@ -21,13 +16,13 @@ v1.1:
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
 - audio spacialization
+- review header includes
+- convert std::shared_ptr<T> to T::Ptr
 
 v1.2:
 - Multithreading:
 	- http://www.sfml-dev.org/tutorials/2.4/system-thread.php
 	- https://www.reddit.com/r/gamedev/comments/44fux4/multi_threading_in_game_development/
-
 	- updates in another thread
 	- rendering in another thread
-- box2d support
 	- multithreaded physics

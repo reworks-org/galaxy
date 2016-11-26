@@ -14,6 +14,7 @@
 #include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
 #include "re/systems/StateManager.hpp"
+#include "re/physics/Box2DManager.hpp"
 #include "re/graphics/FontManager.hpp"
 
 namespace re
@@ -26,7 +27,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default constructor. You must call Init() manually.
 		*/
-		Application(bool enableLogging, bool enableFileLogging);
+		Application(bool enableLogging, bool enableFileLogging, double gravity);
 
 		/*
 		* IMPORTS: configFile - The name of the lua file containing the configuration data for the engine.
@@ -56,6 +57,7 @@ namespace re
 		Window m_window;
 		StateManager m_stateManager;
 		FontManager m_fontManager;
+		Box2DManager m_physicsManager;
 	};
 }
 

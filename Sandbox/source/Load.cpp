@@ -41,14 +41,12 @@ void Load::LoadResources()
 	m_world->Register("loadEntitys.lua");
 	m_world->Get("loadScreen").Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
-	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
 	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
 }
 
 void Load::UnloadResources()
 {
 	m_world->Get<RenderSystem>()->Clean();
-	m_world->Get<MoveSystem>()->Clean();
 	m_world->Clean();
 }
 

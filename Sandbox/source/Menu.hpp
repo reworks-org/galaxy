@@ -10,7 +10,7 @@
 #define SANDBOX_MENU_HPP_
 
 #include <re/systems/StateManager.hpp>
-#include <re/graphics/ui/TGUISol2Bridge.hpp>
+#include <re/scripting/TGUISol2Bridge.hpp>
 
 class Menu : public re::State
 {
@@ -61,8 +61,8 @@ public:
 
 private:
 	static std::shared_ptr<re::State> m_menuState;
-	tgui::Gui gui;
-	tgui::Theme::Ptr theme;
+	tgui::Gui m_gui;
+	tgui::Theme::Ptr m_theme;
 
 	bool m_dragging = false;
 	bool m_doOnce = true;

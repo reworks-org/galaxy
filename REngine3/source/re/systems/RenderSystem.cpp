@@ -59,7 +59,7 @@ namespace re
 
 		if (e->Has<TextComponent>())
 		{
-			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>(), nullptr);
+			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>(), e->Get<TransformComponent>());
 		}
 	}
 

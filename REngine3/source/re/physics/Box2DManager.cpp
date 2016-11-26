@@ -10,8 +10,9 @@
 
 namespace re
 {
-	Box2DManager::Box2DManager()
-		:m_world(m_gravity)
+	Box2DManager::Box2DManager(double gravity)
+		:m_world(b2Vec2(0.0, gravity))
 	{
+		m_gravity = b2Vec2(0.0, gravity);
 	}
 }

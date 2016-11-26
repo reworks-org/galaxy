@@ -35,6 +35,7 @@
     <ClCompile Include="source\re\component\TextComponent.cpp" />
     <ClCompile Include="source\re\component\TransformComponent.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
+    <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
@@ -54,7 +55,6 @@
     <ClCompile Include="source\re\graphics\sw\Sprite3d.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\sw\TileMap.cpp" />
-    <ClCompile Include="source\re\graphics\ui\TimeWidget.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\mapping\TMXMap.cpp" />
     <ClCompile Include="source\re\mapping\tmx\tmx.c" />
@@ -169,6 +169,7 @@
     <ClInclude Include="source\re\component\TextComponent.hpp" />
     <ClInclude Include="source\re\component\TransformComponent.hpp" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
+    <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
@@ -191,8 +192,7 @@
     <ClInclude Include="source\re\graphics\sw\Sprite3d.hpp" />
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
     <ClInclude Include="source\re\graphics\sw\TileMap.hpp" />
-    <ClInclude Include="source\re\graphics\ui\TGUISol2Bridge.hpp" />
-    <ClInclude Include="source\re\graphics\ui\TimeWidget.hpp" />
+    <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\mapping\TMXMap.hpp" />
     <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
@@ -395,7 +395,7 @@
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source;source/re/physics/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

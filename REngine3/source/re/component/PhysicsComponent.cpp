@@ -26,7 +26,7 @@ namespace re
 	void PhysicsComponent::Init(sol::table& table)
 	{
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::PixelsToMeters<double>(table.get<double>("startX")), b2::PixelsToMeters<double>(table.get<double>("startY")));
+		bodyDef.position.Set(b2::PixelsToMeters<double>(table.get<double>("x")), b2::PixelsToMeters<double>(table.get<double>("y")));
 
 		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))
@@ -45,7 +45,7 @@ namespace re
 		}
 
 		b2PolygonShape b2shape;
-		b2shape.SetAsBox(b2::PixelsToMeters<double>(table.get<double>("w") / 2.0), b2::PixelsToMeters<double>(table.get<double>("h") / 2.0));
+		b2shape.SetAsBox(b2::PixelsToMeters<double>(table.get<double>("w") / 2.0), b2::PixelsToMeters<double>(table.get<double>("h") / 2.0), b2Vec2(b2::PixelsToMeters<double>(table.get<double>("w") / 2.0), b2::PixelsToMeters<double>(table.get<double>("h") / 2.0)), 0);
 
 		b2FixtureDef fixtureDef;
 		fixtureDef.density = table.get<double>("density");
@@ -57,9 +57,5 @@ namespace re
 		m_body->CreateFixture(&fixtureDef);
 
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
-
-		//sf::Shape* shape = new sf::RectangleShape(sf::Vector2f(size_x, size_y));
-		//shape->setOrigin(size_x / 2.0, size_y / 2.0);
-		//shape->setPosition(sf::Vector2f(pos_x, pos_y));
 	}
 }

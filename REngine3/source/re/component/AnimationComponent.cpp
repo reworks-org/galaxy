@@ -4,102 +4,112 @@
 //
 //  Created by reworks on 16/08/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
-//  Code modified from: https://github.com/miguelmartin75/anax/blob/master/examples/common/include/Components/AnimationComponent.hpp
-//  See original file for details.
+// 
+// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimatedSprite
+
+#include <map>
+
+#include "re/scripting/sol2/sol.hpp"
 
 #include "AnimationComponent.hpp"
 
 namespace re
 {
-	AnimationState::AnimationState()
-	{
-	}
-
-	AnimationState::AnimationState(sol::table& table)
-	{
-		m_frameRate = table.get<unsigned int>("fps");
-		m_startPosition.x = table.get<int>("firstTextureFrameX");
-		m_startPosition.y = table.get<int>("firstTextureFrameY");;
-		m_frameAmount.x = table.get<int>("frameAmount");
-		m_frameAmount.y = table.get<int>("frameAmount");
-	}
-
 	AnimationComponent::AnimationComponent()
-		:m_currentFrame(0, 0), m_isPlaying(false), m_repeat(false)
 	{
 	}
 
 	AnimationComponent::~AnimationComponent()
 	{
-		m_states.clear();
+		m_animations.clear();
 	}
 
 	void AnimationComponent::Init(sol::table& table)
 	{
-		m_frameSize.x = table.get<int>("frameWidth");
-		m_frameSize.y = table.get<int>("frameHeight");
-		m_isPlaying = table.get<bool>("isPlaying");
-		m_repeat = table.get<bool>("isRepeated");
+		m_animation = NULL;
+		m_frameTime = sf::seconds(table.get<float>("frameTime"));
+		m_speed = table.get<float>("speed");
+		m_currentFrame = 0;
+		m_isPaused = table.get<bool>("isPaused");
+		m_isLooped = table.get<bool>("isLooped");
+		m_texture = NULL;
 
-		sol::table states = table.get<sol::table>("states");
+		m_animationSheetStream.open(table.get<std::string>("texture"));
+		m_animationSheet.loadFromStream(m_animationSheetStream);
 
-		// Get key-value pairs from table
-		std::map<std::string, sol::table> m_keyValuePair;
-		states.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+		SetActiveAnimation(table.get<std::string>("defaultAnim"));
+
+		m_animations.clear();
+		sol::table animTable = table.get<sol::table>("Animations");
+
+		std::map<std::string, sol::table> m_keyValuePairAnimations;
+		animTable.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePairAnimations.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		for (auto& kvp : m_keyValuePair)
+		for (auto& it : m_keyValuePairAnimations)
 		{
-			m_states[kvp.first] = AnimationState(kvp.second);
+			std::map<std::string, sol::table> m_keyValuePairFrames;
+			it.second.for_each([&](std::pair<sol::object, sol::object> pair) {
+				m_keyValuePairFrames.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+			});
+
+			Animation temp;
+			temp.setSpriteSheet(m_animationSheet);
+
+			for (auto& frames : m_keyValuePairFrames)
+			{
+				temp.addFrame(sf::IntRect(frames.second.get<int>("x"), frames.second.get<int>("y"), frames.second.get<int>("w"), frames.second.get<int>("h")));
+			}
+
+			m_animations.emplace(it.first, temp);
 		}
-
-		
-		m_playingState = table.get<std::string>("defaultState");
-		m_isPlaying = table.get<bool>("startPlaying");
 	}
 
-	void AnimationComponent::Play(const std::string& state)
+	void AnimationComponent::ChangeAnimation(const std::string& animation)
 	{
-		m_playingState = state;
-		m_isPlaying = true;
+		m_activeAnimation = animation;
 	}
 
-	void AnimationComponent::Reset()
+	void AnimationComponent::Update(sf::Time dt)
 	{
-		m_currentFrame.x = 0;
-		m_currentFrame.y = 0;
+		// from AnimatedSprite.hpp
+
+		// if not paused and we have a valid animation
+		if (!m_isPaused && m_animation)
+		{
+			// add delta time
+			m_currentTime += dt;
+
+			// if current time is bigger then the frame time advance one frame
+			if (m_currentTime >= m_frameTime)
+			{
+				// reset time, but keep the remainder
+				m_currentTime = sf::microseconds(m_currentTime.asMicroseconds() % m_frameTime.asMicroseconds());
+
+				// get next Frame index
+				if (m_currentFrame + 1 < m_animation->getSize())
+					m_currentFrame++;
+				else
+				{
+					// animation has ended
+					m_currentFrame = 0; // reset to start
+
+					if (!m_isLooped)
+					{
+						m_isPaused = true;
+					}
+
+				}
+
+				// set the current frame, not reseting the time
+				setFrame(m_currentFrame, false);
+			}
+		}
 	}
 
-	void AnimationComponent::Pause()
+	void AnimationComponent::Play()
 	{
-		m_isPlaying = false;
-	}
-
-	void AnimationComponent::Unpause()
-	{
-		m_isPlaying = true;
-	}
-
-	void AnimationComponent::EnableRepeat()
-	{
-		m_repeat = true;
-	}
-
-	void AnimationComponent::DisableRepeat()
-	{
-		m_repeat = false;
-	}
-
-	void AnimationComponent::ChangeAnimation(const std::string& stateName)
-	{
-		m_playingState = stateName;
-		Reset();
-	}
-
-	void AnimationComponent::Stop()
-	{
-		Pause();
-		Reset();
+		play(m_animations[m_activeAnimation]);
 	}
 }
