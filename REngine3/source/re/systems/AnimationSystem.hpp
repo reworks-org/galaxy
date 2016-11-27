@@ -58,21 +58,11 @@ namespace re
 		void Update(sf::Time dt);
 
 		/*
-		* IMPORTS: fps of animations.
-		* EXPORTS: none
-		* PURPOSE: To control the speed of the animations.
-		*/
-		void SetFPS(unsigned int fps);
-
-		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
 		void Clean() override;
-
-	private:
-		unsigned int m_fps;
 	};
 }
 

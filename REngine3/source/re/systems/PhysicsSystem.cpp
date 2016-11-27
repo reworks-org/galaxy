@@ -77,6 +77,8 @@ namespace re
 	void PhysicsSystem::AddEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("PhysicsSystem", std::type_index(typeid(PhysicsSystem)));
+		// we need to set the body's user data to the entity.
+		e->Get<PhysicsComponent>()->m_body->SetUserData((void*)e);
 		m_entitys.emplace(e->m_name, e);
 	}
 

@@ -64,7 +64,6 @@ private:
 	tgui::Gui m_gui;
 	tgui::Theme::Ptr m_theme;
 
-	bool m_dragging = false;
 	bool m_doOnce = true;
 };
 

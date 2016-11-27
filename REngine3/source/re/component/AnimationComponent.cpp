@@ -5,9 +5,11 @@
 //  Created by reworks on 16/08/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
 // 
-// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimatedSprite
+// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimationComponent
 
 #include <map>
+
+#include <SFML/Graphics/Rect.hpp>
 
 #include "re/scripting/sol2/sol.hpp"
 
@@ -26,18 +28,12 @@ namespace re
 
 	void AnimationComponent::Init(sol::table& table)
 	{
-		m_animation = NULL;
-		m_frameTime = sf::seconds(table.get<float>("frameTime"));
-		m_speed = table.get<float>("speed");
+		m_frameTime = sf::milliseconds(table.get<int>("speed"));
 		m_currentFrame = 0;
 		m_isPaused = table.get<bool>("isPaused");
 		m_isLooped = table.get<bool>("isLooped");
-		m_texture = NULL;
 
-		m_animationSheetStream.open(table.get<std::string>("texture"));
-		m_animationSheet.loadFromStream(m_animationSheetStream);
-
-		SetActiveAnimation(table.get<std::string>("defaultAnim"));
+		ChangeAnimation(table.get<std::string>("defaultAnim"));
 
 		m_animations.clear();
 		sol::table animTable = table.get<sol::table>("Animations");
@@ -54,62 +50,50 @@ namespace re
 				m_keyValuePairFrames.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 			});
 
-			Animation temp;
-			temp.setSpriteSheet(m_animationSheet);
+			std::vector<sf::IntRect> tempvector;
 
 			for (auto& frames : m_keyValuePairFrames)
 			{
-				temp.addFrame(sf::IntRect(frames.second.get<int>("x"), frames.second.get<int>("y"), frames.second.get<int>("w"), frames.second.get<int>("h")));
+				sf::IntRect temp(frames.second.get<int>("x"), frames.second.get<int>("y"), frames.second.get<int>("w"), frames.second.get<int>("h"));
+				tempvector.push_back(temp);
 			}
 
-			m_animations.emplace(it.first, temp);
+			m_animations.emplace(it.first, tempvector);
+			tempvector.clear();
 		}
 	}
 
 	void AnimationComponent::ChangeAnimation(const std::string& animation)
 	{
 		m_activeAnimation = animation;
-	}
-
-	void AnimationComponent::Update(sf::Time dt)
-	{
-		// from AnimatedSprite.hpp
-
-		// if not paused and we have a valid animation
-		if (!m_isPaused && m_animation)
-		{
-			// add delta time
-			m_currentTime += dt;
-
-			// if current time is bigger then the frame time advance one frame
-			if (m_currentTime >= m_frameTime)
-			{
-				// reset time, but keep the remainder
-				m_currentTime = sf::microseconds(m_currentTime.asMicroseconds() % m_frameTime.asMicroseconds());
-
-				// get next Frame index
-				if (m_currentFrame + 1 < m_animation->getSize())
-					m_currentFrame++;
-				else
-				{
-					// animation has ended
-					m_currentFrame = 0; // reset to start
-
-					if (!m_isLooped)
-					{
-						m_isPaused = true;
-					}
-
-				}
-
-				// set the current frame, not reseting the time
-				setFrame(m_currentFrame, false);
-			}
-		}
+		m_currentFrame = 0;
+		m_currentTime = sf::Time::Zero;
 	}
 
 	void AnimationComponent::Play()
 	{
-		play(m_animations[m_activeAnimation]);
+		m_isPaused = false;
+	}
+
+	void AnimationComponent::Play(const std::string& animation)
+	{
+		if (m_activeAnimation != animation)
+		{
+			ChangeAnimation(animation);
+		}
+			
+		Play();
+	}
+
+	void AnimationComponent::Pause()
+	{
+		m_isPaused = true;
+	}
+
+	void AnimationComponent::Stop()
+	{
+		m_isPaused = true;
+		m_currentFrame = 0;
+		m_currentTime = sf::Time::Zero;
 	}
 }

@@ -10,14 +10,15 @@
 #ifndef RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 #define RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
 
-#include "re/types/Component.hpp"
+#include <SFML/System/Time.hpp>
 
-#include "re/graphics/Animation.hpp"
+#include "re/types/Component.hpp"
 
 namespace re
 {
 	class AnimationComponent : public Component
 	{
+		friend class AnimationSystem;
 	public:
 		/*
 		* IMPORTS: none
@@ -41,31 +42,58 @@ namespace re
 		void Init(sol::table& table) override;
 
 		/*
-		* IMPORTS: animantion name in string
+		* IMPORTS: animation name
 		* EXPORTS: none
-		* PURPOSE: Set the components current active animation.
+		* PURPOSE: Change the active animation
 		*/
 		void ChangeAnimation(const std::string& animation);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Play the current animation.
+		* PURPOSE: Plays the active animation.
 		*/
 		void Play();
 
 		/*
+		* IMPORTS: animation name
+		* EXPORTS: none
+		* PURPOSE: Plays a specific animation.
+		*/
+		void Play(const std::string& animation);
+	
+		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Stop the current animation.
+		* PURPOSE: Pauses active animation.
+		*/
+		void Pause();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Stops the active animation.
 		*/
 		void Stop();
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: boolean value
+		* PURPOSE: Is the animation paused or not.
+		*/
+		bool IsPaused() const;
+
 	private:
-		float m_speed;
-		bool m_isPlaying;
+		bool m_isPaused;
+		sf::Time m_frameTime;
+		sf::Time m_currentTime;
+		std::size_t m_currentFrame;
 		std::string m_activeAnimation;
-		std::unordered_map<std::string, Animation> m_animations;
+		std::unordered_map<std::string, std::vector<sf::IntRect>> m_animations;
+
+	public:
+		bool m_isLooped;
+		sf::IntRect m_currentFrameRect;
 	};
 }
 

@@ -42,6 +42,8 @@ namespace re
 
 	public:
 		b2Body* m_body;
+		bool m_isMovingHorizontally = false;
+		bool m_isMovingVertically = false;
 	};
 }
 

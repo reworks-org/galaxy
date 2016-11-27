@@ -21,6 +21,7 @@
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/EventComponent.hpp>
 #include <re/component/TransformComponent.hpp>
+#include <re/component/AnimationComponent.hpp>
 #include <re/systems/AnimationSystem.hpp>
 #include <re/utility/Time.hpp>
 
@@ -28,8 +29,6 @@
 
 #include "Menu.hpp"
 #include "Game.hpp"
-
-#define ANIMATION_SPEED 1
 
 using namespace re;
 
@@ -60,8 +59,6 @@ void Menu::LoadResources()
 	m_world->Get<EventSystem>()->AutoSubmit(m_world);
 	m_world->Get<PhysicsSystem>()->AutoSubmit(m_world);
 	m_world->Get<AnimationSystem>()->AutoSubmit(m_world);
-
-	m_world->Get<AnimationSystem>()->SetFPS(ANIMATION_SPEED);
 
 	m_gui.setWindow(*(m_window));
 
@@ -121,29 +118,35 @@ void Menu::Event()
 		m_window->close();
 	}
 
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		m_world->Get<EventSystem>()->Dispatch(Event::MOUSE_PRESSED);
-		
-		m_dragging = true;
-	}
-
-	if (!sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-	{
-		m_dragging = false;
-	}
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
-	{
-		m_world->Get<MoveSystem>()->Jump("person", 10);
+		m_world->Get("person").Get<AnimationComponent>()->Play();
+		m_world->Get<MoveSystem>()->Move("person", -5);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
+		m_world->Get("person").Get<AnimationComponent>()->Play();
+		m_world->Get<MoveSystem>()->Move("person", 5);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		m_world->Get("person").Get<AnimationComponent>()->Play();
+		m_world->Get<MoveSystem>()->Jump("person", 5);
+	}
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	{
+		m_world->Get<EventSystem>()->Dispatch(Event::MOUSE_PRESSED);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+	{
 		m_world->KillEntity("person");
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		m_world->ReviveEntity("person");
 	}
@@ -151,18 +154,12 @@ void Menu::Event()
 
 void Menu::Update(sf::Time dt)
 {
+	//m_world->Get("person").Get<AnimationComponent>()->Pause();
+	//m_world->Get<MoveSystem>()->Halt("person");
+	
 	m_world->Update(dt);
 	m_world->Get<AnimationSystem>()->Update(dt);
 	m_world->Get<PhysicsSystem>()->Update(dt);
-
-	if (m_dragging)
-	{
-		m_world->Get<MoveSystem>()->Move("person", 5);
-	}
-	else
-	{
-		m_world->Get<MoveSystem>()->Move("person", 0);
-	}
 
 	m_gui.get<tgui::Label>("testlabel")->setText(Time::GetShortTimeAndDate());
 }
