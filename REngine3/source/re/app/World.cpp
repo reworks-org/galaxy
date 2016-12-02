@@ -53,9 +53,6 @@ namespace re
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(entitysScript));
 		sol::table world = lua.get<sol::table>("world");
-
-		int max = world.get<int>("numEntitys");
-
 		sol::table entitylist = world.get<sol::table>("entitys");
 
 		// Get key-value pairs from table

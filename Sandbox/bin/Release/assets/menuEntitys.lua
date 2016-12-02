@@ -1,6 +1,5 @@
 world = 
 {
-	numEntitys = 2,
 	entitys = 
 	{
 		person = "person.lua",
