@@ -12,6 +12,22 @@ DerivedData/
 # Project stuff
 REngine3/bin/
 REngine3/build/
-Sandbox/bin/
+
 Sandbox/build/
 Sandbox/*.sf
+
+# Sandbox bin crap
+Sandbox/bin/Debug/*.dll
+Sandbox/bin/Debug/*.exe
+Sandbox/bin/Debug/*.exp
+Sandbox/bin/Debug/*.iobj
+Sandbox/bin/Debug/*.ipdb
+Sandbox/bin/Debug/*.lib
+Sandbox/bin/Debug/*.pdb
+Sandbox/bin/Release/*.dll
+Sandbox/bin/Release/*.exe
+Sandbox/bin/Release/*.exp
+Sandbox/bin/Release/*.iobj
+Sandbox/bin/Release/*.ipdb
+Sandbox/bin/Release/*.lib
+Sandbox/bin/Release/*.pdb

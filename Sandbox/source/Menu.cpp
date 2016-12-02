@@ -154,9 +154,6 @@ void Menu::Event()
 
 void Menu::Update(sf::Time dt)
 {
-	//m_world->Get("person").Get<AnimationComponent>()->Pause();
-	//m_world->Get<MoveSystem>()->Halt("person");
-	
 	m_world->Update(dt);
 	m_world->Get<AnimationSystem>()->Update(dt);
 	m_world->Get<PhysicsSystem>()->Update(dt);

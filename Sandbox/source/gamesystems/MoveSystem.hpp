@@ -63,13 +63,6 @@ namespace re
 		void Jump(const std::string& name, double velocity);
 
 		/*
-		* IMPORTS: name of entity
-		* EXPORTS: none
-		* PURPOSE: stop all movement
-		*/
-		void Halt(const std::string& name);
-
-		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.

@@ -10,9 +10,10 @@
 
 #include "re/app/World.hpp"
 #include "re/mapping/TMXMap.hpp"
+#include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"
-#include "re/physics/Box2DSFMLBridge.hpp"
+#include "re/component/AnimationComponent.hpp"
 
 #include "PhysicsSystem.hpp"
 
@@ -98,6 +99,14 @@ namespace re
 
 			transf->setPosition(b2::MetersToPixels<double>(phys->m_body->GetPosition().x), b2::MetersToPixels<double>(phys->m_body->GetPosition().y));
 			transf->setRotation(b2::RadToDeg<double>(phys->m_body->GetAngle()));
+
+			if (e.second->Has<AnimationComponent>() && (!phys->m_isMovingHoritontally))
+			{
+				e.second->Get<AnimationComponent>()->Pause();
+			}
+
+			phys->m_isMovingVertically = false;
+			phys->m_isMovingHoritontally = false;
 		}
 	}
 
@@ -115,3 +124,8 @@ namespace re
 		// We do not reset the manager pointer because we want to reuse it.
 	}
 }
+
+// http://www.iforce2d.net/b2dtut/fixtures
+// http://pastebin.com/HK6MUVfd
+// http://www.badlogicgames.com/wordpress/?p=2017
+// http://www.box2d.org/forum/viewtopic.php?t=2108

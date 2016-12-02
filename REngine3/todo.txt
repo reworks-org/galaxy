@@ -9,6 +9,7 @@ v1.0:
 - refer to 4 pages of notes for any other features
 - post effects seperate from sprites / tilemaps !
 - fix debug information format in properties
+- box2d collision stuff
 
 v1.1:
 - sfml inbuilt post-processing & shaders

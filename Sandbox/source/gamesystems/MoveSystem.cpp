@@ -49,10 +49,12 @@ namespace re
 
 		if (found != m_entitys.end())
 		{
-			auto body = found->second->Get<PhysicsComponent>()->m_body;
-			auto vel = body->GetLinearVelocity();
+			auto phys = found->second->Get<PhysicsComponent>();
+			auto vel = phys->m_body->GetLinearVelocity();
+
+			phys->m_isMovingHoritontally = true;
 			vel.x = velocity;
-			body->SetLinearVelocity(vel);
+			phys->m_body->SetLinearVelocity(vel);
 		}
 	}
 
@@ -64,28 +66,11 @@ namespace re
 		if (found != m_entitys.end())
 		{
 			auto phys = found->second->Get<PhysicsComponent>();
-			
-			if (!phys->m_isMovingVertically)
-			{
-				auto vel = phys->m_body->GetLinearVelocity();
-				vel.y = velocity;
-				phys->m_body->SetLinearVelocity(vel);
-			}
+			auto vel = phys->m_body->GetLinearVelocity();
 
 			phys->m_isMovingVertically = true;
-		}
-	}
-
-	void MoveSystem::Halt(const std::string& name)
-	{
-		auto found = m_entitys.find(name);
-
-		if (found != m_entitys.end())
-		{
-			auto body = found->second->Get<PhysicsComponent>()->m_body;
-			auto vel = body->GetLinearVelocity();
-			vel.x = 0;
-			body->SetLinearVelocity(vel);
+			vel.y = velocity;
+			phys->m_body->SetLinearVelocity(vel);
 		}
 	}
 
