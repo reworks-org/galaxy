@@ -231,8 +231,6 @@ namespace re
 	void TMXMap::draw_image_layer(tmx_image *img)
 	{
 		sf::Sprite s(*(sf::Texture*)img->resource_image);
-		s.setPosition(0, 0);
-
 		m_batchTexture.draw(s);
 	}
 

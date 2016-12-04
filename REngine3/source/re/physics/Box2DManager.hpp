@@ -9,9 +9,11 @@
 #ifndef RENGINE3_BOX2DMANAGER_HPP_
 #define RENGINE3_BOX2DMANAGER_HPP_
 
-#include "re/physics/Box2D/Box2D.h"
+#include <map>
 
+#include "re/entity/Entity.hpp"
 #include "re/types/Service.hpp"
+#include "re/physics/Box2D/Box2D.h"
 
 namespace re
 {
@@ -27,9 +29,11 @@ namespace re
 
 	private:
 		b2Vec2 m_gravity;
+		
 
 	public:
 		b2World m_world;
+		std::map<std::pair<std::string, std::string>, std::function<void(Entity*, Entity*)>> m_collisionFunctions;
 	};
 }
 

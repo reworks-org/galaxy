@@ -17,6 +17,7 @@
 #include <re/systems/AudioSystem.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
+#include "physics/B2DCallbacks.hpp"
 
 #include "Load.hpp"
 
@@ -70,6 +71,9 @@ public:
 		m_world.AddSystem<AnimationSystem>(std::make_shared<AnimationSystem>());
 		m_world.AddSystem<AudioSystem>(std::make_shared<AudioSystem>());
 
+		// set up collision listener
+		m_physicsManager.m_world.SetContactListener(&m_b2dcallbacks);
+
 		// provide services
 		Locator::Provide<World>(&m_world);
 		Locator::Provide<VFS>(&m_vfs);
@@ -88,6 +92,9 @@ public:
 		// create states
 		m_stateManager.SetState(Load::Inst());
 	}
+
+private:
+	SandboxContact m_b2dcallbacks;
 };
 
 int main()

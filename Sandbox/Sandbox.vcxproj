@@ -162,12 +162,14 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Menu.cpp" />
     <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
+    <ClCompile Include="source\physics\B2DCallbacks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Game.hpp" />
     <ClInclude Include="source\Load.hpp" />
     <ClInclude Include="source\Menu.hpp" />
     <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
+    <ClInclude Include="source\physics\B2DCallbacks.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

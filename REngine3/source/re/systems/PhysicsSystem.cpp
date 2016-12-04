@@ -124,8 +124,3 @@ namespace re
 		// We do not reset the manager pointer because we want to reuse it.
 	}
 }
-
-// http://www.iforce2d.net/b2dtut/fixtures
-// http://pastebin.com/HK6MUVfd
-// http://www.badlogicgames.com/wordpress/?p=2017
-// http://www.box2d.org/forum/viewtopic.php?t=2108
