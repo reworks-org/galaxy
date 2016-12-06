@@ -105,7 +105,7 @@ namespace re
 				e.second->Get<AnimationComponent>()->Pause();
 			}
 
-			if (!phys->m_body->GetLinearVelocity().x < 0.3)
+			if (phys->m_body->GetLinearVelocity().x < 0.2f)
 			{
 				phys->m_isMovingHoritontally = false;
 			}
