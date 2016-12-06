@@ -23,6 +23,8 @@
 #include <re/component/TransformComponent.hpp>
 #include <re/component/AnimationComponent.hpp>
 #include <re/systems/AnimationSystem.hpp>
+#include <re/physics/Box2DManager.hpp>
+#include <re/component/PhysicsComponent.hpp>
 #include <re/utility/Time.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
@@ -52,7 +54,7 @@ void Menu::LoadResources()
 
 	m_world->Register("menuEntitys.lua");
 
-	m_world->Get("person").Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, [] { RE_LOG(LogLevel::INFO, "Click!"); });
+	m_world->Get("person").Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, []() { RE_LOG(LogLevel::INFO, "Click!"); });
 
 	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
 	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
@@ -69,11 +71,13 @@ void Menu::LoadResources()
 	}
 
 	tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
-	button->connect("pressed", [&]() {Locator::Get<StateManager>()->ChangeState(Game::Inst()); });
+	button->connect("pressed", []() {Locator::Get<StateManager>()->ChangeState(Game::Inst()); });
 	m_gui.add(button, "testbutton");
 
 	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
 	m_gui.add(time, "testlabel");
+
+	Locator::Get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](Entity* a, Entity* b) { b->Get<PhysicsComponent>()->m_isMovingVertically = false;});
 }
 
 void Menu::UnloadResources()

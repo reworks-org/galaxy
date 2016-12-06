@@ -79,7 +79,7 @@ namespace re
 	{
 		e->m_systemIds.emplace("PhysicsSystem", std::type_index(typeid(PhysicsSystem)));
 		// we need to set the body's user data to the entity.
-		e->Get<PhysicsComponent>()->m_body->SetUserData((void*)e);
+		e->Get<PhysicsComponent>()->m_body->SetUserData(static_cast<void*>(e));
 		m_entitys.emplace(e->m_name, e);
 	}
 
@@ -105,8 +105,10 @@ namespace re
 				e.second->Get<AnimationComponent>()->Pause();
 			}
 
-			phys->m_isMovingVertically = false;
-			phys->m_isMovingHoritontally = false;
+			if (!phys->m_body->GetLinearVelocity().x < 0.3)
+			{
+				phys->m_isMovingHoritontally = false;
+			}
 		}
 	}
 

@@ -19,15 +19,18 @@ SandboxContact::~SandboxContact()
 
 void SandboxContact::BeginContact(b2Contact* contact)
 {
-	re::Entity* a = static_cast<re::Entity*>(contact->GetFixtureA()->GetUserData());
-	re::Entity* b = static_cast<re::Entity*>(contact->GetFixtureB()->GetUserData());
+	re::Entity* a = static_cast<re::Entity*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	re::Entity* b = static_cast<re::Entity*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
-	auto map = re::Locator::Get<re::Box2DManager>()->m_collisionFunctions;
-	auto tree = map.find(std::make_pair(a->m_name, b->m_name));
-
-	if (tree != map.end())
+	if (a != nullptr && b != nullptr)
 	{
-		tree->second(a, b);
+		auto map = re::Locator::Get<re::Box2DManager>()->m_collisionFunctions;
+		auto tree = map.find(std::make_pair(a->m_name, b->m_name));
+
+		if (tree != map.end())
+		{
+			tree->second(a, b);
+		}
 	}
 }
 

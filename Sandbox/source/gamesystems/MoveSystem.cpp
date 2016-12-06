@@ -68,9 +68,12 @@ namespace re
 			auto phys = found->second->Get<PhysicsComponent>();
 			auto vel = phys->m_body->GetLinearVelocity();
 
-			phys->m_isMovingVertically = true;
-			vel.y = velocity;
-			phys->m_body->SetLinearVelocity(vel);
+			if (!phys->m_isMovingVertically)
+			{
+				phys->m_isMovingVertically = true;
+				vel.y = velocity;
+				phys->m_body->SetLinearVelocity(vel);
+			}
 		}
 	}
 
