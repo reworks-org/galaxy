@@ -12,6 +12,7 @@
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
 
+#include "re/scripting/sol2/sol.hpp"
 #include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
@@ -20,11 +21,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: Script file.
+		* IMPORTS: table of sound data
 		* EXPORTS: none
 		* PURPOSE: Set up the class.
 		*/
-		Sound(const std::string& script);
+		Sound(sol::table& table);
 		
 		/*
 		* IMPORTS: none

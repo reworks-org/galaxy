@@ -7,23 +7,18 @@
 //
 
 #include "re/services/vfs/VFS.hpp"
-#include "re/scripting/sol2/sol.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "Music.hpp"
 
 namespace re
 {
-	Music::Music(const std::string& script)
+	Music::Music(sol::table& table)
 	:sf::Music()
 	{
-		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
-		sol::table music = lua.get<sol::table>("music");
-		
-		LoadMusic(music.get<std::string>("file"));
-		setVolume(music.get<float>("volume"));
-		setLoop(music.get<bool>("looping"));
+		LoadMusic(table.get<std::string>("file"));
+		setVolume(table.get<float>("volume"));
+		setLoop(table.get<bool>("looping"));
 	}
 
 	Music::~Music()

@@ -11,6 +11,7 @@
 
 #include <SFML/Audio/Music.hpp>
 
+#include "re/scripting/sol2/sol.hpp"
 #include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
@@ -19,11 +20,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: Music script
+		* IMPORTS: table of music data
 		* EXPORTS: none
 		* PURPOSE: Set up the class.
 		*/
-		Music(const std::string& script);
+		Music(sol::table& table);
 		
 		/*
 		* IMPORTS: none

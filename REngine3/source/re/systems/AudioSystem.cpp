@@ -78,6 +78,30 @@ namespace re
 		return m_musicMap.at(name)->at(music);
 	}
 
+	void AudioSystem::SetMusicVolume(float volume)
+	{
+		for (auto& m : m_musicMap)
+		{
+			std::unordered_map<std::string, std::shared_ptr<Music>>* sm = m.second;
+			for (auto it = sm->begin(); it != sm->end(); it++)
+			{
+				it->second->setVolume(volume);
+			}
+		}
+	}
+
+	void AudioSystem::SetSoundVolume(float volume)
+	{
+		for (auto& s : m_soundsMap)
+		{
+			std::unordered_map<std::string, std::shared_ptr<Sound>>* ss = s.second;
+			for (auto it = ss->begin(); it != ss->end(); it++)
+			{
+				it->second->setVolume(volume);
+			}
+		}
+	}
+
 	void AudioSystem::Clean()
 	{
 		m_entitys.clear();

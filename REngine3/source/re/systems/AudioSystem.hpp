@@ -61,6 +61,20 @@ namespace re
 		std::shared_ptr<Music> GetMusic(const std::string& accessor);
 
 		/*
+		* IMPORTS: volume (0-100).
+		* EXPORTS: none
+		* PURPOSE: Change the volume of all music.
+		*/
+		void SetMusicVolume(float volume);
+
+		/*
+		* IMPORTS: volume (0-100).
+		* EXPORTS: none
+		* PURPOSE: Change the volume of all sounds.
+		*/
+		void SetSoundVolume(float volume);
+
+		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.

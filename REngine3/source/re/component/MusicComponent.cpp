@@ -23,9 +23,9 @@ namespace re
 	void MusicComponent::Init(sol::table& table)
 	{
 		// Get key-value pairs from table
-		std::map<std::string, std::string> m_keyValuePair;
+		std::map<std::string, sol::table> m_keyValuePair;
 		table.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
 		for (auto& kvp : m_keyValuePair)
