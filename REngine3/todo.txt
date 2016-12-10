@@ -5,11 +5,7 @@ v1.0:
 - more logging code
 - proper loading system
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
-- ability to modify individual tiles
-- refer to 4 pages of notes for any other features
-- post effects seperate from sprites / tilemaps !
 - fix debug information format in properties
-- box2d collision stuff
 
 v1.1:
 - sfml inbuilt post-processing & shaders

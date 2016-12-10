@@ -282,6 +282,8 @@ namespace re
 					head = head->next;
 				}
 			}
+			
+			layers = layers->next;
 		}
 	}
 
