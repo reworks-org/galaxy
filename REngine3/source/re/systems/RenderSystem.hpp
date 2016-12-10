@@ -49,14 +49,14 @@ namespace re
 		void AddEntity(Entity* e) override;
 
 		/*
-		* IMPORTS: The unique entity, the group the component is in and the drawable component.
+		* IMPORTS: The name, the group and the generic data. Must inherit from both sf::Drawable and sf::Transformable.
 		* EXPORTS: none
 		* PURPOSE: Add a unique drawable to the system.
 		*/
-		void AddDrawableComponent(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> drawable);
+		void AddGenericDrawable(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> d, std::shared_ptr<sf::Transformable> t);
 
 		/*
-		* IMPORTS: id of entity to remove
+		* IMPORTS: name (id) of entity to remove OR Object to remove. It does both.
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/

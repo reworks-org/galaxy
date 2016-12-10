@@ -64,8 +64,8 @@ namespace re
 			b2shape.SetAsBox((double)v.width / 2.0, (double)v.height / 2.0);
 
 			b2FixtureDef fixtureDef;
-			fixtureDef.density = 0;
-			fixtureDef.friction = 0;
+			fixtureDef.density = 1;
+			fixtureDef.friction = 50;
 			fixtureDef.restitution = 0;
 			fixtureDef.shape = &b2shape;
 

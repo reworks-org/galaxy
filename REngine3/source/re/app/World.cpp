@@ -19,9 +19,9 @@
 #include "re/component/MusicComponent.hpp"
 #include "re/component/EventComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
+#include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 #include "re/component/AnimationComponent.hpp"
-#include "re/component/PhysicsComponent.hpp"
 
 #include "World.hpp"
 
@@ -38,14 +38,14 @@ namespace re
 
 	void World::Init()
 	{
-		RegisterComponent<AnimationComponent>("AnimationComponent");
-		RegisterComponent<EventComponent>("EventComponent");
-		RegisterComponent<MusicComponent>("MusicComponent");
-		RegisterComponent<PhysicsComponent>("PhysicsComponent");
-		RegisterComponent<SoundComponent>("SoundComponent");
-		RegisterComponent<SpriteComponent>("SpriteComponent");
 		RegisterComponent<TextComponent>("TextComponent");
+		RegisterComponent<SoundComponent>("SoundComponent");
+		RegisterComponent<MusicComponent>("MusicComponent");
+		RegisterComponent<EventComponent>("EventComponent");
+		RegisterComponent<SpriteComponent>("SpriteComponent");
+		RegisterComponent<PhysicsComponent>("PhysicsComponent");
 		RegisterComponent<TransformComponent>("TransformComponent");
+		RegisterComponent<AnimationComponent>("AnimationComponent");
 	}
 
 	void World::Register(const std::string& entitysScript)

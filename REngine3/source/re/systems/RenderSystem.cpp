@@ -63,14 +63,14 @@ namespace re
 		}
 	}
 
-	void RenderSystem::AddDrawableComponent(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> drawable)
+	void RenderSystem::AddGenericDrawable(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> d, std::shared_ptr<sf::Transformable> t)
 	{
 		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
 		{
 			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 		}
 
-		m_groups[group].AddDrawable(e->m_name, drawable, e->Get<TransformComponent>());
+		m_groups[group].AddDrawable(e->m_name, d, t);
 	}
 
 	void RenderSystem::RemoveEntity(const std::string& name)
