@@ -7,6 +7,9 @@
 //
 
 #include <map>
+#include <memory>
+
+#include "re/utility/Log.hpp"
 
 #include "MusicComponent.hpp"
 
@@ -18,6 +21,12 @@ namespace re
 
 	MusicComponent::~MusicComponent()
 	{
+		for (auto& it : m_music)
+		{
+			it.second.second->stop();
+		}
+
+		m_music.clear();
 	}
 
 	void MusicComponent::Init(sol::table& table)
@@ -30,7 +39,15 @@ namespace re
 
 		for (auto& kvp : m_keyValuePair)
 		{
-			m_music.emplace(kvp.first, std::make_shared<Music>(kvp.second));
+			m_music.emplace(kvp.first, std::make_pair(std::make_unique<sf::physfs>(), std::make_unique<sf::Music>()));
+			m_music[kvp.first].first->open(kvp.second.get<std::string>("file"));
+			if (!m_music[kvp.first].second->openFromStream(*(m_music[kvp.first].first)))
+			{
+				std::string msg = kvp.first + " did not load!";
+				RE_LOG(LogLevel::FATAL, msg);
+			}
+			m_music[kvp.first].second->setVolume(kvp.second.get<float>("volume"));
+			m_music[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 		}
 	}
 }

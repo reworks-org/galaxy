@@ -15,8 +15,6 @@ namespace re
 	AudioSystem::~AudioSystem()
 	{
 		m_entitys.clear();
-		m_musicMap.clear();
-		m_soundsMap.clear();
 	}
 
 	void AudioSystem::AutoSubmit(World* world)
@@ -33,71 +31,64 @@ namespace re
 	void AudioSystem::AddEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("AudioSystem", std::type_index(typeid(AudioSystem)));
-		if (e->Has<MusicComponent>())
-		{
-			m_musicMap.emplace(e->m_name, &(e->Get<MusicComponent>()->m_music));
-		}
-
-		if (e->Has<SoundComponent>())
-		{
-			m_soundsMap.emplace(e->m_name, &(e->Get<SoundComponent>()->m_sounds));
-		}
+		
+		m_entitys.emplace(e->m_name, e);
 	}
 
 	void AudioSystem::RemoveEntity(const std::string& name)
 	{
-		auto foundA = m_musicMap.find(name);
-		auto foundB = m_soundsMap.find(name);
+		auto found = m_entitys.find(name);
 
-		if (foundA != m_musicMap.end())
+		if (found != m_entitys.end())
 		{
-			m_musicMap.erase(name);
-		}
-
-		if (foundB != m_soundsMap.end())
-		{
-			m_soundsMap.erase(name);
+			m_entitys.erase(name);
 		}
 	}
 
-	std::shared_ptr<Sound> AudioSystem::GetSound(const std::string& accessor)
+	sf::Sound* AudioSystem::GetSound(const std::string& accessor)
 	{
-		size_t lastdot = accessor.find_last_of(".");
+		auto lastdot = accessor.find_last_of(".");
 		std::string name = accessor.substr(0, lastdot);
-		std::string sound = accessor.substr(lastdot);
+		std::string sound = accessor.substr(lastdot + 1);
 
-		return m_soundsMap.at(name)->at(sound);
+		return m_entitys[name]->Get<SoundComponent>()->m_sounds[sound].second.get();
 	}
 
-	std::shared_ptr<Music> AudioSystem::GetMusic(const std::string& accessor)
+	sf::Music* AudioSystem::GetMusic(const std::string& accessor)
 	{
-		size_t lastdot = accessor.find_last_of(".");
+		auto lastdot = accessor.find_last_of(".");
 		std::string name = accessor.substr(0, lastdot);
-		std::string music = accessor.substr(lastdot);
+		std::string music = accessor.substr(lastdot + 1);
 
-		return m_musicMap.at(name)->at(music);
+		return m_entitys[name]->Get<MusicComponent>()->m_music[music].second.get();
 	}
 
-	void AudioSystem::SetMusicVolume(float volume)
+	void AudioSystem::SetGlobalMusicVolume(float volume)
 	{
-		for (auto& m : m_musicMap)
+		for (auto& e : m_entitys)
 		{
-			std::unordered_map<std::string, std::shared_ptr<Music>>* sm = m.second;
-			for (auto it = sm->begin(); it != sm->end(); it++)
+			auto* map = &(e.second->Get<MusicComponent>()->m_music);
+			for (auto it = map->begin(); it != map->end(); it++)
 			{
-				it->second->setVolume(volume);
+				auto m = it->second.second.get();
+				float ov = m->getVolume();
+				float nv = (volume + ov) / 2.0f;
+				m->setVolume(nv);
 			}
 		}
 	}
 
-	void AudioSystem::SetSoundVolume(float volume)
+	void AudioSystem::SetGlobalSoundVolume(float volume)
 	{
-		for (auto& s : m_soundsMap)
+		for (auto& e : m_entitys)
 		{
-			std::unordered_map<std::string, std::shared_ptr<Sound>>* ss = s.second;
-			for (auto it = ss->begin(); it != ss->end(); it++)
+			auto* map = &(e.second->Get<SoundComponent>()->m_sounds);
+			for (auto it = map->begin(); it != map->end(); it++)
 			{
-				it->second->setVolume(volume);
+				auto s = it->second.second.get();
+				float ov = s->getVolume();
+				float nv = (volume + ov) / 2.0f;
+				s->setVolume(nv);
 			}
 		}
 	}
@@ -105,7 +96,5 @@ namespace re
 	void AudioSystem::Clean()
 	{
 		m_entitys.clear();
-		m_musicMap.clear();
-		m_soundsMap.clear();
 	}
 }

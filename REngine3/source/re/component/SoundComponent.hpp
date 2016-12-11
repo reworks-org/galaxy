@@ -11,8 +11,11 @@
 
 #include <unordered_map>
 
-#include "re/audio/Sound.hpp"
+#include <SFML/Audio/Sound.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
+
 #include "re/types/Component.hpp"
+#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -26,7 +29,7 @@ namespace re
 		* PURPOSE: Default Constructor.
 		*/
 		SoundComponent();
-
+		
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -42,7 +45,7 @@ namespace re
 		void Init(sol::table& table) override;
 
 	private:
-		std::unordered_map<std::string, std::shared_ptr<Sound>> m_sounds;
+		std::unordered_map<std::string, std::pair<std::pair<std::unique_ptr<sf::SoundBuffer>, std::unique_ptr<sf::physfs>>, std::unique_ptr<sf::Sound>>> m_sounds;
 	};
 }
 

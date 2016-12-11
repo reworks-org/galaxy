@@ -6,6 +6,8 @@ v1.0:
 - proper loading system
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - fix debug information format in properties
+- review use of smart pointers.
+- make some get functions const
 
 v1.1:
 - sfml inbuilt post-processing & shaders

@@ -51,28 +51,28 @@ namespace re
 		* EXPORTS: Pointer to sound.
 		* PURPOSE: Get a sound in the system.
 		*/
-		std::shared_ptr<Sound> GetSound(const std::string& accessor);
+		sf::Sound* GetSound(const std::string& accessor);
 
 		/*
 		* IMPORTS: accessor in format: <entityName>.<musicname>
 		* EXPORTS: Pointer to music.
 		* PURPOSE: Get music in the system.
 		*/
-		std::shared_ptr<Music> GetMusic(const std::string& accessor);
+		sf::Music* GetMusic(const std::string& accessor);
 
 		/*
 		* IMPORTS: volume (0-100).
 		* EXPORTS: none
 		* PURPOSE: Change the volume of all music.
 		*/
-		void SetMusicVolume(float volume);
+		void SetGlobalMusicVolume(float volume);
 
 		/*
 		* IMPORTS: volume (0-100).
 		* EXPORTS: none
 		* PURPOSE: Change the volume of all sounds.
 		*/
-		void SetSoundVolume(float volume);
+		void SetGlobalSoundVolume(float volume);
 
 		/*
 		* IMPORTS: none
@@ -80,10 +80,6 @@ namespace re
 		* PURPOSE: Clean the system.
 		*/
 		void Clean() override;
-		
-	private:
-		std::unordered_map<std::string, std::unordered_map<std::string, std::shared_ptr<Music>>*> m_musicMap;
-		std::unordered_map<std::string, std::unordered_map<std::string, std::shared_ptr<Sound>>*> m_soundsMap;
 	};
 }
 

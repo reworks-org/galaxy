@@ -6,8 +6,6 @@
   <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
     <ClCompile Include="source\re\app\World.cpp" />
-    <ClCompile Include="source\re\audio\Music.cpp" />
-    <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\component\AnimationComponent.cpp" />
     <ClCompile Include="source\re\component\EventComponent.cpp" />
     <ClCompile Include="source\re\component\MusicComponent.cpp" />
@@ -139,8 +137,6 @@
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
     <ClInclude Include="source\re\app\World.hpp" />
-    <ClInclude Include="source\re\audio\Music.hpp" />
-    <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\component\AnimationComponent.hpp" />
     <ClInclude Include="source\re\component\EventComponent.hpp" />
     <ClInclude Include="source\re\component\MusicComponent.hpp" />

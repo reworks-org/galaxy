@@ -11,8 +11,10 @@
 
 #include <unordered_map>
 
-#include "re/audio/Music.hpp"
+#include <SFML/Audio/Music.hpp>
+
 #include "re/types/Component.hpp"
+#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -40,9 +42,9 @@ namespace re
 		* PURPOSE: Set up the component.
 		*/
 		void Init(sol::table& table) override;
-
+	
 	private:
-		std::unordered_map<std::string, std::shared_ptr<Music>> m_music;
+		std::unordered_map<std::string, std::pair<std::unique_ptr<sf::physfs>, std::unique_ptr<sf::Music>>> m_music;
 	};
 }
 

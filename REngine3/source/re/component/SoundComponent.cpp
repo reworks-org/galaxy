@@ -7,6 +7,9 @@
 //
 
 #include <map>
+#include <memory>
+
+#include "re/utility/Log.hpp"
 
 #include "SoundComponent.hpp"
 
@@ -18,6 +21,12 @@ namespace re
 
 	SoundComponent::~SoundComponent()
 	{
+		for (auto& it : m_sounds)
+		{
+			it.second.second->stop();
+		}
+
+		m_sounds.clear();
 	}
 
 	void SoundComponent::Init(sol::table& table)
@@ -30,7 +39,21 @@ namespace re
 
 		for (auto& kvp : m_keyValuePair)
 		{
-			m_sounds.emplace(kvp.first, std::make_shared<Sound>(kvp.second));
+			m_sounds.emplace(kvp.first, std::make_pair(std::make_pair(std::make_unique<sf::SoundBuffer>(), std::make_unique<sf::physfs>()), std::make_unique<sf::Sound>()));
+			m_sounds[kvp.first].first.second->open(kvp.second.get<std::string>("file"));
+
+			if (!m_sounds[kvp.first].first.first->loadFromStream(*(m_sounds[kvp.first].first.second)))
+			{
+				std::string msg = kvp.first + " did not load!";
+				RE_LOG(LogLevel::FATAL, msg);
+			}
+			else
+			{
+				m_sounds[kvp.first].second->setBuffer(*(m_sounds[kvp.first].first.first));
+			}
+
+			m_sounds[kvp.first].second->setVolume(kvp.second.get<float>("volume"));
+			m_sounds[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 		}
 	}
 }
