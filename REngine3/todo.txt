@@ -8,6 +8,7 @@ v1.0:
 - fix debug information format in properties
 - review use of smart pointers.
 - make some get functions const
+- phyics system needs to have customizeable values when parsing tiles
 
 v1.1:
 - sfml inbuilt post-processing & shaders
