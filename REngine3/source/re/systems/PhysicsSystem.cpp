@@ -56,12 +56,12 @@ namespace re
 		for (auto& v : map->GetCollisions())
 		{
 			b2BodyDef bodyDef;
-			bodyDef.position.Set((double)v.left, (double)v.top);
+			bodyDef.position.Set(b2::PixelsToMeters<double>(v.left), b2::PixelsToMeters<double>(v.top));
 
 			bodyDef.type = b2BodyType::b2_staticBody;
 
 			b2PolygonShape b2shape;
-			b2shape.SetAsBox((double)v.width / 2.0, (double)v.height / 2.0);
+			b2shape.SetAsBox(b2::PixelsToMeters<double>(v.width / 2.0), b2::PixelsToMeters<double>(v.height / 2.0), b2Vec2(b2::PixelsToMeters<double>(v.width / 2.0), b2::PixelsToMeters<double>(v.height / 2.0)), 0);
 
 			b2FixtureDef fixtureDef;
 			fixtureDef.density = 1;

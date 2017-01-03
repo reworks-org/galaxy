@@ -270,7 +270,8 @@ namespace re
 
 		while (layers)
 		{
-			if (layers->name == "Collision")
+			std::string cln(layers->name);
+			if (cln == "Collision")
 			{
 				tmx_object_group* objgr = layers->content.objgr;
 				tmx_object *head = objgr->head;
