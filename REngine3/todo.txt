@@ -1,6 +1,7 @@
 TODO List:
 
 v0.8:
+- fix camel case -> useThisForEverythingNow?
 - tgui lua bridge
 - more logging code
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
@@ -19,7 +20,7 @@ v0.9:
 - phyics system needs to have customizeable values when parsing tiles
 
 v1.0:
-- ?
+- fix all warnings/errors
 
 v1.1:
 - Audio spacialization

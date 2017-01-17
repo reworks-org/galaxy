@@ -31,6 +31,12 @@ namespace re
 		m_textureStream.open(table.get<std::string>("texture"));
 		m_texture.loadFromStream(m_textureStream);
 		setTexture(m_texture);
+
+		if (table.get<bool>("isSpriteSheet") == true)
+		{
+			sol::table rect = table.get<sol::table>("rect");
+			setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
+		}
 	}
 
 	void SpriteComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const

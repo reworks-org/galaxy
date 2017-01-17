@@ -52,6 +52,7 @@
     <ClCompile Include="source\re\graphics\sw\Sprite3d.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\sw\TileMap.cpp" />
+    <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\mapping\TMXMap.cpp" />
     <ClCompile Include="source\re\mapping\tmx\tmx.c" />
@@ -186,6 +187,7 @@
     <ClInclude Include="source\re\graphics\sw\Sprite3d.hpp" />
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
     <ClInclude Include="source\re\graphics\sw\TileMap.hpp" />
+    <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\mapping\TMXMap.hpp" />

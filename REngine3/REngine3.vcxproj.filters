@@ -133,6 +133,7 @@
     <ClCompile Include="source\re\physics\Box2DManager.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\component\PhysicsComponent.cpp" />
+    <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -270,6 +271,7 @@
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\component\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
+    <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source\re\graphics\sw\TileMap.inl" />
