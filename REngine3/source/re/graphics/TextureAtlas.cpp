@@ -10,26 +10,20 @@
 
 namespace re
 {
-	TextureAtlas::TextureAtlas(unsigned long maxTextures)
-	{
-		m_atlas.resize(0);
-		m_atlas.clear();
-
-		m_atlas.reserve(maxTextures);
-	}
-
 	TextureAtlas::~TextureAtlas()
 	{
 		m_atlas.clear();
 	}
 
-	void TextureAtlas::AddTexture(const std::string & texture, unsigned long index)
+	void TextureAtlas::AddTexture(const std::string& texture, const std::string& id)
 	{
-		
+		m_atlas.emplace(id, std::make_pair(sf::physfs(), sf::Texture()));
+		m_atlas[id].first.open(texture);
+		m_atlas[id].second.loadFromStream(m_atlas[id].first);
 	}
 
-	sf::Texture& TextureAtlas::GetTexture(unsigned long atlasIndex)
+	sf::Texture& TextureAtlas::GetTexture(const std::string& id)
 	{
-		return m_atlas[atlasIndex];
+		return m_atlas[id].second;
 	}
 }

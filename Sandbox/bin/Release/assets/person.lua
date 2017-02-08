@@ -29,6 +29,7 @@ entity =
 	SpriteComponent = 
 	{
 		group = 3,
+		isSpriteSheet = false,
 		texture = "foo.png"
 	},
 

@@ -10,6 +10,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 
 #include "re/services/vfs/VFS.hpp"
+#include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "SpriteComponent.hpp"
@@ -28,14 +29,17 @@ namespace re
 	{
 		m_group = table.get<sf::Uint32>("group");
 
-		m_textureStream.open(table.get<std::string>("texture"));
-		m_texture.loadFromStream(m_textureStream);
-		setTexture(m_texture);
-
 		if (table.get<bool>("isSpriteSheet") == true)
 		{
+			setTexture(Locator::Get<TextureAtlas>()->GetTexture(table.get<std::string>("altas_ref")));
 			sol::table rect = table.get<sol::table>("rect");
 			setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
+		}
+		else
+		{
+			m_textureStream.open(table.get<std::string>("texture"));
+			m_texture.loadFromStream(m_textureStream);
+			setTexture(m_texture);
 		}
 	}
 

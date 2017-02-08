@@ -9,24 +9,18 @@
 #ifndef RENGINE3_TEXTUREATLAS_HPP_
 #define RENGINE3_TEXTUREATLAS_HPP_
 
-#include <vector>
+#include <map>
 
 #include <SFML/Graphics/Texture.hpp>
 
 #include "re/types/Service.hpp"
+#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
 	class TextureAtlas : public Service
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		TextureAtlas(unsigned long maxTextures);
-
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -39,17 +33,17 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a shared texture to the atlas.
 		*/
-		void AddTexture(const std::string& texture, unsigned long index);
+		void AddTexture(const std::string& texture, const std::string& id);
 
 		/*
 		* IMPORTS: atlasIndex
 		* EXPORTS: none
 		* PURPOSE: Get a texture from the atlas.
 		*/
-		sf::Texture& GetTexture(unsigned long atlasIndex);
+		sf::Texture& GetTexture(const std::string& id);
 
 	private:
-		std::vector<sf::Texture> m_atlas;
+		std::map<std::string, std::pair<sf::physfs, sf::Texture>> m_atlas;
 	};
 }
 

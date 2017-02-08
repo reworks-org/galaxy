@@ -2,29 +2,34 @@ TODO List:
 
 v0.8:
 - fix camel case -> useThisForEverythingNow?
-- tgui lua bridge
 - more logging code
-- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
-- fix debug information format in properties
 - review use of smart pointers.
 - make some get functions const
 - convert std::shared_ptr<T> to T::Ptr
-- sfml inbuilt post-processing & shaders
 - Better error checking & Exceptions. 
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
 - review header includes
 
+v0.8.5:
+- tgui lua bridge
+- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
+
 v0.9:
 - proper loading system
 - phyics system needs to have customizeable values when parsing tiles
+- learn to use std::thread
+- sfml inbuilt post-processing & shaders
 
 v1.0:
 - fix all warnings/errors
+- fix debug information format in properties
+- Debug gui using IMGUI
+- proper credits file
 
 v1.1:
 - Audio spacialization
-- Debug gui using IMGUI
+
 
 v1.2:
 - Multithreading:

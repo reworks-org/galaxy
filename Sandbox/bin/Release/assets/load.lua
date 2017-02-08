@@ -10,6 +10,7 @@ entity =
 	SpriteComponent = 
 	{
 		group = 0,
+		isSpriteSheet = false,
 		texture = "logo.png"
 	}
 }
