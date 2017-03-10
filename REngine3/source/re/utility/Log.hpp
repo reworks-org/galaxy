@@ -12,6 +12,24 @@
 #include <vector>
 #include <string>
 
+namespace re
+{
+	enum LogLevel
+	{
+		INFO,
+		WARNING,
+		FATAL
+	};
+
+	static bool g_enableLog = false;
+	static std::vector<std::string> g_loggedMessages;
+
+	inline void log(LogLevel level, const std::string& message)
+	{
+		
+	}
+}
+
 /*
 * IMPORTS: boolean - true / false value
 * EXPORTS: none
@@ -44,7 +62,8 @@
 			RE_LOG(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
 			RE_LOG(LogLevel::FATAL, "*************************"); \
 			RE_LOG(LogLevel::FATAL, messageFileLine); \
-}
+			throw std::runtime_error(); \
+		}
 
 /*
 * Singleton crap. Dont even look...
@@ -53,9 +72,7 @@ namespace re
 {
 	enum LogLevel
 	{
-		INFO,
-		WARNING,
-		FATAL
+		
 	};
 
 	class Log
