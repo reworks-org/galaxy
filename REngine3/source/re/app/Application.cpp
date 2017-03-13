@@ -21,8 +21,7 @@ namespace re
 	Application::Application(bool enableLogging, bool enableFileLogging, double gravity)
 		:m_physicsManager(gravity)
 	{
-		RE_LOG_ENABLE(enableLogging);
-		RE_LOG_ENABLE_FILE(enableFileLogging);
+		RE_ENABLE_LOG(true);
 
 		RE_LOG(LogLevel::WARNING, "*************************************");
 		RE_LOG(LogLevel::WARNING, "*   RENGINE3 INITIALIZATION BEGIN   *");
@@ -33,7 +32,7 @@ namespace re
 		m_world.Init();
 	}
 
-	int Application::Run()
+	int Application::run()
 	{
 		sf::Uint64 timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		int frames = 0;
@@ -82,7 +81,7 @@ namespace re
 		}
 
 		m_stateManager.UnloadResources();
-		RE_LOG(LogLevel::INFO, "REngine3 quit successfully.");
+		RE_LOG(LogLevel::INFO, "Program quit successfully.");
 
 		return EXIT_SUCCESS;
 	}

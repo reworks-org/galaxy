@@ -25,23 +25,16 @@ namespace re
 		/*
 		* IMPORTS: true or false to enable logging and or file logging.
 		* EXPORTS: none
-		* PURPOSE: Default constructor. You must call Init() manually.
+		* PURPOSE: Default constructor. Your child class will need to set up the rest of the engine.
 		*/
 		Application(bool enableLogging, bool enableFileLogging, double gravity);
-
-		/*
-		* IMPORTS: configFile - The name of the lua file containing the configuration data for the engine.
-		* EXPORTS: none
-		* PURPOSE: This is the function you override to set up your application. It is abstract so you must implement it. Set up the VFS first!
-		*/
-		virtual void Init() = 0;
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Runs the application. Return this from the main entry point.
 		*/
-		int Run();
+		int run();
 
 	protected:
 		std::string m_appTitle = "REngine3";
