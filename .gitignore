@@ -9,11 +9,6 @@
 # XCode stuff
 DerivedData/
 
-# CLion stuff
-cmake-build-debug/
-CMakeLists.txt
-.idea/
-
 # Project stuff
 REngine3/bin/
 REngine3/build/
