@@ -4,14 +4,34 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>REngine3.xcscheme</key>
+		<key>Debug.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DebugSandbox.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Release.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ReleaseSandbox.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>F22416471E7F80DD00AB77AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F2F529A41E7A57ED0012CB03</key>
 		<dict>
 			<key>primary</key>

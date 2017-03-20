@@ -1,5 +1,8 @@
 TODO List:
 
+NOW:
+- Update the librarys. They are out of date :/
+
 v0.8:
 - fix camel case -> useThisForEverythingNow?
 - more logging code
