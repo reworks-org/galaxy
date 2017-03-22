@@ -71,15 +71,10 @@ namespace re
 	Entity& World::Get(const std::string& name)
 	{
 		auto found = m_alive.find(name);
-		
-		if (found != m_alive.end())
-		{
-			return m_alive[name];
-		}
-		else
-		{
-			RE_LOG(LogLevel::WARNING, "Attempted to access dead or nonexistent entity!");
-		}
+        
+        RE_ASSERT(found != m_alive.end(), "Attempted to access non-existant entity!")
+        
+        return m_alive[name];
 	}
 
 	void World::KillEntity(const std::string& name)

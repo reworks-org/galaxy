@@ -16,6 +16,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "re/utility/Time.hpp"
 
@@ -31,7 +32,7 @@
 * PURPOSE: Assert using our logging system.
 */
 #define RE_ASSERT(value, message) \
-		if (!(value)) {\
+		if (value == false) {\
 			re::log(LogLevel::FATAL, "*************************"); \
 			re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
 			re::log(LogLevel::FATAL, "*************************"); \

@@ -26,6 +26,7 @@ namespace re
 	const char* SetConsoleTextColour(unsigned long code)
 	{
         std::string output = "";
+        
         switch (code)
         {
             case FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN:

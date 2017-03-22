@@ -1,8 +1,5 @@
 TODO List:
 
-NOW:
-- Update the librarys. They are out of date :/
-
 v0.8:
 - fix camel case -> useThisForEverythingNow?
 - more logging code
@@ -17,7 +14,7 @@ v0.8:
 
 v0.8.5:
 - tgui lua bridge
-- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
+- redo sprite and text component
 
 v0.9:
 - proper loading system
@@ -30,6 +27,7 @@ v1.0:
 - fix debug information format in properties
 - Debug gui using IMGUI
 - proper credits file
+- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 
 v1.1:
 - Audio spacialization

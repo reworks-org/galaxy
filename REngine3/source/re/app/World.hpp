@@ -9,6 +9,7 @@
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
+#include "re/utility/Log.hpp"
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
 #include "re/types/Component.hpp"
@@ -152,7 +153,7 @@ namespace re
 	{
 		if (m_systems.find(std::type_index(typeid(T))) != m_systems.end())
 		{
-			RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system");
+            RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system");
 		}
 		else
 		{
