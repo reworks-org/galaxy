@@ -282,7 +282,7 @@ XMLPUBFUN void XMLCALL xmlCheckVersion(int version);
  *
  * Whether ISO-8859-* support is made available in case iconv is not
  */
-#if 0
+#if 1
 #define LIBXML_ISO8859X_ENABLED
 #endif
 
@@ -379,7 +379,7 @@ XMLPUBFUN void XMLCALL xmlCheckVersion(int version);
  *
  * the string suffix used by dynamic modules (usually shared libraries)
  */
-#define LIBXML_MODULE_EXTENSION ".dll" 
+#define LIBXML_MODULE_EXTENSION ".so" 
 #endif
 
 /**
