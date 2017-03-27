@@ -36,19 +36,19 @@ namespace re
 		m_componentFactory.clear();
 	}
 
-	void World::Init()
+	void World::init()
 	{
-		RegisterComponent<TextComponent>("TextComponent");
-		RegisterComponent<SoundComponent>("SoundComponent");
-		RegisterComponent<MusicComponent>("MusicComponent");
-		RegisterComponent<EventComponent>("EventComponent");
-		RegisterComponent<SpriteComponent>("SpriteComponent");
-		RegisterComponent<PhysicsComponent>("PhysicsComponent");
-		RegisterComponent<TransformComponent>("TransformComponent");
-		RegisterComponent<AnimationComponent>("AnimationComponent");
+		registerComponent<TextComponent>("TextComponent");
+		registerComponent<SoundComponent>("SoundComponent");
+		registerComponent<MusicComponent>("MusicComponent");
+		registerComponent<EventComponent>("EventComponent");
+		registerComponent<SpriteComponent>("SpriteComponent");
+		registerComponent<PhysicsComponent>("PhysicsComponent");
+		registerComponent<TransformComponent>("TransformComponent");
+		registerComponent<AnimationComponent>("AnimationComponent");
 	}
 
-	void World::Register(const std::string& entitysScript)
+	void World::createEntity(const std::string& entitysScript)
 	{
 		sol::state lua;
 		lua.script(Locator::Get<VFS>()->ToString(entitysScript));
@@ -68,16 +68,16 @@ namespace re
 		}
 	}
 
-	Entity& World::Get(const std::string& name)
+	Entity& World::getEntity(const std::string& name)
 	{
 		auto found = m_alive.find(name);
         
-        RE_ASSERT(found != m_alive.end(), "Attempted to access non-existant entity!")
+        RE_ASSERT_NOTEQUAL(found, m_alive.end(), "Attempted to access non-existant entity!")
         
         return m_alive[name];
 	}
 
-	void World::KillEntity(const std::string& name)
+	void World::killEntity(const std::string& name)
 	{
 		if (m_alive.find(name) != m_alive.end())
 		{
@@ -85,7 +85,7 @@ namespace re
 		}
 	}
 
-	void World::ReviveEntity(const std::string& name)
+	void World::restoreEntity(const std::string& name)
 	{
 		if (m_dead.find(name) != m_dead.end())
 		{
@@ -93,7 +93,7 @@ namespace re
 		}
 	}
 
-	void World::Update(sf::Time dt)
+	void World::update(sf::Time dt)
 	{
 		for (auto& it : m_alive)
 		{
@@ -126,24 +126,24 @@ namespace re
 		}
 	}
 
-	void World::Clean()
+	void World::clean()
 	{
 		m_dead.clear();
 		m_alive.clear();
 		m_components.clear();
 	}
 
-	ComponentFactory& World::GetComponentFactory()
+	ComponentFactory& World::getComponentFactory()
 	{
 		return m_componentFactory;
 	}
 
-	EntityList& World::GetAlive()
+	EntityList& World::getAlive()
 	{
 		return m_alive;
 	}
 
-	EntityList& World::GetDead()
+	EntityList& World::getDead()
 	{
 		return m_dead;
 	}

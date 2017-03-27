@@ -37,7 +37,7 @@ namespace re
 		int run();
 
 	protected:
-		std::string m_appTitle = "REngine3";
+		std::string m_appTitle = "";
 		float m_targetUPS = 60.f;
 
 		int m_versionMajor = 1;

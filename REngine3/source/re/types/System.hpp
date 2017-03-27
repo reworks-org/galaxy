@@ -14,7 +14,7 @@
 #include "re/entity/Entity.hpp"
 
 namespace re
-{
+{    
 	class System
 	{
 	public:

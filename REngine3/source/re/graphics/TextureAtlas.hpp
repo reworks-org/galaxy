@@ -33,14 +33,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a shared texture to the atlas.
 		*/
-		void AddTexture(const std::string& texture, const std::string& id);
+		void add(const std::string& texture, const std::string& id);
 
 		/*
 		* IMPORTS: atlasIndex
 		* EXPORTS: none
 		* PURPOSE: Get a texture from the atlas.
 		*/
-		sf::Texture& GetTexture(const std::string& id);
+		sf::Texture& get(const std::string& id);
 
 	private:
 		std::map<std::string, std::pair<sf::physfs, sf::Texture>> m_atlas;

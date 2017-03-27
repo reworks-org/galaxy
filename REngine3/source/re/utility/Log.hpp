@@ -32,13 +32,44 @@
 * PURPOSE: Assert using our logging system.
 */
 #define RE_ASSERT(value, message) \
-		if (!(value)) {\
+		if (!(value)) \
+        { \
 			re::log(LogLevel::FATAL, "*************************"); \
 			re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
 			re::log(LogLevel::FATAL, "*************************"); \
 			re::log(LogLevel::FATAL, message); \
 			throw std::runtime_error(message); \
 		}
+
+/*
+ * IMPORTS: valueA - first value, valueB - other value to compare, message - information to log.
+ * EXPORTS: none
+ * PURPOSE: IF valueA IS NOT EQUAL TO valueB, THROW ERROR
+ */
+#define RE_ASSERT_NOTEQUAL(valueA, valueB, message) \
+        if ((valueA) != (valueB)) \
+        { \
+            re::log(LogLevel::FATAL, "*************************"); \
+            re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
+            re::log(LogLevel::FATAL, "*************************"); \
+            re::log(LogLevel::FATAL, message); \
+            throw std::runtime_error(message); \
+        }
+
+/*
+ * IMPORTS: valueA - first value, valueB - other value to compare, message - information to log.
+ * EXPORTS: none
+ * PURPOSE: IF valueA IS EQUAL TO valueB, THROW ERROR
+ */
+#define RE_ASSERT_EQUAL(valueA, valueB, message) \
+if ((valueA) == (valueB)) \
+{ \
+re::log(LogLevel::FATAL, "*************************"); \
+re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
+re::log(LogLevel::FATAL, "*************************"); \
+re::log(LogLevel::FATAL, message); \
+throw std::runtime_error(message); \
+}
 
 // Legacy macros, for classes and functions that use them.
 #define RE_LOG(level, message) re::log(level, message)

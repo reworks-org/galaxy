@@ -5,14 +5,13 @@ v0.8:
 - use RE_ASSERT
 - fix camel case -> useThisForEverythingNow?
 - more logging code
-- review use of smart pointers.
 - make some get functions const
-- convert std::shared_ptr<T> to T::Ptr
 - Better error checking & Exceptions.
 	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
 - review header includes
-- switch to RAII
+- use typedefs
+- rewrite components
 
 v0.8.5:
 - tgui lua bridge

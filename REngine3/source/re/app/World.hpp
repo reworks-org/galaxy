@@ -27,7 +27,7 @@ namespace re
 
 	class World : public Service
 	{
-	public:
+	public:       
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -40,49 +40,49 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up world.
 		*/
-		void Init();
+		void init();
 
 		/*
 		* IMPORTS: id - assign an id to the entity
 		* EXPORTS: none
 		* PURPOSE: To create a new entity and add it to the world.
 		*/
-		void Register(const std::string& entitysScript);
+		void createEntity(const std::string& entitysScript);
 
 		/*
 		* IMPORTS: name of entity to get, and if it is dead or not.
 		* EXPORTS: shared_ptr to that entity.
 		* PURPOSE: To retrieve an entity from the world.
 		*/
-		Entity& Get(const std::string& name);
+		Entity& getEntity(const std::string& name);
 
 		/*
 		* IMPORTS: name - name of entity to kill.
 		* EXPORTS: none
 		* PURPOSE: Remove entity from systems, "killing" it.
 		*/
-		void KillEntity(const std::string& name);
+		void killEntity(const std::string& name);
 
 		/*
 		* IMPORTS: name - name of entity to revive.
 		* EXPORTS: none
-		* PURPOSE: Add entity back to systems, "reviving" it.
+		* PURPOSE: Add entity back to systems, "restoring (reviving)" it.
 		*/
-		void ReviveEntity(const std::string& name);
+		void restoreEntity(const std::string& name);
 
 		/*
 		* IMPORTS: sf::Time delta time
 		* EXPORTS: none
 		* PURPOSE: Update world & entitys.
 		*/
-		void Update(sf::Time dt);
+		void update(sf::Time dt);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Cleans the world.
 		*/
-		void Clean();
+		void clean();
 
 		/*
 		* IMPORTS: type of component and name of component to register.
@@ -91,7 +91,7 @@ namespace re
 		* PURPOSE: To create a new component within the factory.
 		*/
 		template<typename T>
-		void RegisterComponent(const std::string& name);
+		void registerComponent(const std::string& name);
 
 		/*
 		* IMPORTS: s - The system to create. This uses polymorphism. Define the type of system being created with the template.
@@ -100,7 +100,7 @@ namespace re
 		* PURPOSE: To create a system that operates on the entities and add it to the world. You can only have one of each system.
 		*/
 		template<typename T>
-		void AddSystem(std::shared_ptr<System> system);
+		void addSystem(std::shared_ptr<System> system);
 
 		/*
 		* IMPORTS: template - use the type of system to retrieve that system.
@@ -108,28 +108,28 @@ namespace re
 		* PURPOSE: To retrieve a system from the world.
 		*/
 		template<typename T>
-		std::shared_ptr<T> Get();
+		std::shared_ptr<T> getSystem();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: map of component factory.
 		* PURPOSE: To "make" a new component.
 		*/
-		ComponentFactory& GetComponentFactory();
+		ComponentFactory& getComponentFactory();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: map of alive entitys.
 		* PURPOSE: To get the alive entity database.
 		*/
-		EntityList& GetAlive();
+		EntityList& getAliveEntitys();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: map of dead entitys.
 		* PURPOSE: To get the dead entity database.
 		*/
-		EntityList& GetDead();
+        EntityList& getDeadEntitys();
 		
 	private:
 		/*
@@ -138,7 +138,7 @@ namespace re
 		* PURPOSE: To make a component of a particular type. Used by register component.
 		*/
 		template<typename T>
-		std::shared_ptr<Component> MakeComponent();
+		std::shared_ptr<Component> makeComponent();
 
 	private:
 		EntityList m_dead;
@@ -149,36 +149,39 @@ namespace re
 	};
 
 	template<typename T>
-	void World::AddSystem(std::shared_ptr<System> system)
+	void World::addSystem(std::shared_ptr<System> system)
 	{
-		if (m_systems.find(std::type_index(typeid(T))) != m_systems.end())
-		{
+        if(m_systems.find(std::type_index(typeid(T))) != m_systems.end())
+        {
             RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system");
-		}
-		else
-		{
-			m_systems[typeid(T)] = system;
-		}
+        }
+        else
+        {
+            m_systems[typeid(T)] = system;
+        }
 	}
 
 	template<typename T>
-	std::shared_ptr<T> World::Get()
+	std::shared_ptr<T> World::getSystem()
 	{
-		return std::dynamic_pointer_cast<T>(m_systems.find(std::type_index(typeid(T)))->second);
+        auto it = m_systems.find(std::type_index(typeid(T)));
+        
+        RE_ASSERT_EQUAL(it, m_systems.end(), "Tried to access a non-existent system!");
+        
+        return std::dynamic_pointer_cast<T>(it->second);
 	}
 
 	template<typename T>
-	std::shared_ptr<Component> World::MakeComponent()
+	std::shared_ptr<Component> World::makeComponent()
 	{
 		return std::make_shared<T>();
 	}
 
 	template<typename T>
-	void World::RegisterComponent(const std::string& name)
+	void World::registerComponent(const std::string& name)
 	{
-		std::string msg = "Registering " + name + " in world.";
-		RE_LOG(LogLevel::INFO, msg);
-		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::MakeComponent<T>, this)));
+		RE_LOG(LogLevel::INFO, "Registering " + name + " in world.");
+		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this)));
 	}
 }
 

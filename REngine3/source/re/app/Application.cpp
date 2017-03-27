@@ -6,12 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <iostream>
-
 #include <SFML/Graphics/Shader.hpp>
 
 #include "re/utility/Log.hpp"
-#include "re/utility/Time.hpp"
 #include "re/systems/StateManager.hpp"
 
 #include "Application.hpp"
@@ -27,9 +24,9 @@ namespace re
 		RE_LOG(LogLevel::WARNING, "*   RENGINE3 INITIALIZATION BEGIN   *");
 		RE_LOG(LogLevel::WARNING, "*************************************");
 
-		RE_ASSERT(sf::Shader::isAvailable(), "Shaders not avaliable on this system!");
+        RE_ASSERT(sf::Shader::isAvailable(), "Shaders not avaliable on this system!");
 
-		m_world.Init();
+		m_world.init();
 	}
 
 	int Application::run()
@@ -70,10 +67,10 @@ namespace re
 			{
 				timer += 1000;
 
-				std::cout << updates << " ups, " << frames << " fps" << std::endl;
-				std::string header = "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
-				std::string newTitle = m_appTitle + header;
-				m_window.setTitle(newTitle);
+				std::string header = m_appTitle + "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
+
+                RE_LOG(LogLevel::INFO, header);
+				m_window.setTitle(header);
 
 				updates = 0;
 				frames = 0;
