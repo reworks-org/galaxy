@@ -14,10 +14,13 @@ static char *errmsgs[] = {
 	"Unsupproted/Unknown map file format"
 };
 
+#ifdef _WIN32
 char custom_msg[256];
+#endif
 
 const char* tmx_strerr(void) {
-	char *msg;
+#ifdef _WIN32
+    char *msg;
 	switch(tmx_errno) {
 		case E_NONE:   msg = errmsgs[0]; break;
 		case E_ALLOC:  msg = errmsgs[1]; break;
@@ -27,6 +30,10 @@ const char* tmx_strerr(void) {
 		default: msg = custom_msg;
 	}
 	return msg;
+#else
+    char *msg = "";
+    return msg;
+#endif
 }
 
 void tmx_perror(const char *pos) {

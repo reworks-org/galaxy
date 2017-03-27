@@ -1,11 +1,8 @@
 TODO List:
 
-NOW:
-- Add physfs v2.0.3 to libs folder for windows.
-- Add libxml2 v2.7.8 to libs folder for windows.
-- Add libiconv/libcharset (they should be bundled together) v1.15 to libs/libxml2 folder for windows.
-
 v0.8:
+- Build physfs from source zip on dropbox for windows.
+- use RE_ASSERT
 - fix camel case -> useThisForEverythingNow?
 - more logging code
 - review use of smart pointers.

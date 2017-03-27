@@ -7,40 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F224163E1E7F7FB000AB77AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224163D1E7F7FB000AB77AF /* OpenGL.framework */; };
-		F224164F1E7F818700AB77AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224163D1E7F7FB000AB77AF /* OpenGL.framework */; };
-		F22416501E7F819700AB77AF /* OpenGL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F224163D1E7F7FB000AB77AF /* OpenGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F22416501E7F819700AB77AF /* OpenGL.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = F224163D1E7F7FB000AB77AF /* OpenGL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F2241A681E7F879800AB77AF /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F224195B1E7F851100AB77AF /* MoveSystem.cpp */; };
 		F2241A691E7F879800AB77AF /* B2DCallbacks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419571E7F850A00AB77AF /* B2DCallbacks.cpp */; };
 		F2241A6A1E7F879800AB77AF /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419471E7F84F900AB77AF /* Game.cpp */; };
 		F2241A6B1E7F879800AB77AF /* Load.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419491E7F84F900AB77AF /* Load.cpp */; };
 		F2241A6C1E7F879800AB77AF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F224194B1E7F84F900AB77AF /* main.cpp */; };
 		F2241A6D1E7F879800AB77AF /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F224194C1E7F84F900AB77AF /* Menu.cpp */; };
-		F2300C691E822AA200574A1B /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5D1E822AA200574A1B /* libboost_filesystem.a */; };
-		F2300C6A1E822AA200574A1B /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5E1E822AA200574A1B /* libboost_serialization.a */; };
-		F2300C6B1E822AA200574A1B /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5F1E822AA200574A1B /* libboost_system.a */; };
-		F2300C6C1E822AA200574A1B /* libxml2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C601E822AA200574A1B /* libxml2.a */; };
-		F2300C6D1E822AA200574A1B /* libphysfs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C611E822AA200574A1B /* libphysfs.a */; };
-		F2300C6E1E822AA200574A1B /* libsfml-audio.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C621E822AA200574A1B /* libsfml-audio.2.4.2.dylib */; };
-		F2300C6F1E822AA200574A1B /* libsfml-graphics.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C631E822AA200574A1B /* libsfml-graphics.2.4.2.dylib */; };
-		F2300C701E822AA200574A1B /* libsfml-network.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C641E822AA200574A1B /* libsfml-network.2.4.2.dylib */; };
-		F2300C711E822AA200574A1B /* libsfml-system.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C651E822AA200574A1B /* libsfml-system.2.4.2.dylib */; };
-		F2300C721E822AA200574A1B /* libsfml-window.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C661E822AA200574A1B /* libsfml-window.2.4.2.dylib */; };
-		F2300C731E822AA200574A1B /* libtgui.0.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */; };
-		F2300C741E822AA200574A1B /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C681E822AA200574A1B /* libz.a */; };
-		F2300C751E822AAE00574A1B /* libREngine3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F529A51E7A57ED0012CB03 /* libREngine3.a */; };
-		F2300C761E822AC400574A1B /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5D1E822AA200574A1B /* libboost_filesystem.a */; };
-		F2300C771E822AC400574A1B /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5E1E822AA200574A1B /* libboost_serialization.a */; };
-		F2300C781E822AC400574A1B /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5F1E822AA200574A1B /* libboost_system.a */; };
-		F2300C791E822AC400574A1B /* libxml2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C601E822AA200574A1B /* libxml2.a */; };
-		F2300C7A1E822AC400574A1B /* libphysfs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C611E822AA200574A1B /* libphysfs.a */; };
-		F2300C7B1E822AC400574A1B /* libsfml-audio.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C621E822AA200574A1B /* libsfml-audio.2.4.2.dylib */; };
-		F2300C7C1E822AC400574A1B /* libsfml-graphics.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C631E822AA200574A1B /* libsfml-graphics.2.4.2.dylib */; };
-		F2300C7D1E822AC400574A1B /* libsfml-network.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C641E822AA200574A1B /* libsfml-network.2.4.2.dylib */; };
-		F2300C7E1E822AC400574A1B /* libsfml-system.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C651E822AA200574A1B /* libsfml-system.2.4.2.dylib */; };
-		F2300C7F1E822AC400574A1B /* libsfml-window.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C661E822AA200574A1B /* libsfml-window.2.4.2.dylib */; };
-		F2300C801E822AC400574A1B /* libtgui.0.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */; };
-		F2300C811E822AC400574A1B /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C681E822AA200574A1B /* libz.a */; };
+		F224F6181E88B6C50097D318 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224163D1E7F7FB000AB77AF /* OpenGL.framework */; };
+		F224F6191E88B7080097D318 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5D1E822AA200574A1B /* libboost_filesystem.a */; };
+		F224F61A1E88B7080097D318 /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5E1E822AA200574A1B /* libboost_serialization.a */; };
+		F224F61B1E88B7080097D318 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5F1E822AA200574A1B /* libboost_system.a */; };
+		F224F61E1E88B7080097D318 /* libphysfs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C611E822AA200574A1B /* libphysfs.a */; };
+		F224F61F1E88B7080097D318 /* libsfml-audio.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C621E822AA200574A1B /* libsfml-audio.2.4.2.dylib */; };
+		F224F6201E88B7080097D318 /* libsfml-graphics.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C631E822AA200574A1B /* libsfml-graphics.2.4.2.dylib */; };
+		F224F6211E88B7080097D318 /* libsfml-network.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C641E822AA200574A1B /* libsfml-network.2.4.2.dylib */; };
+		F224F6221E88B7080097D318 /* libsfml-system.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C651E822AA200574A1B /* libsfml-system.2.4.2.dylib */; };
+		F224F6231E88B7080097D318 /* libsfml-window.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C661E822AA200574A1B /* libsfml-window.2.4.2.dylib */; };
+		F224F6241E88B7080097D318 /* libtgui.0.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */; };
+		F224F6251E88B7080097D318 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C681E822AA200574A1B /* libz.a */; };
+		F224F6291E88B7340097D318 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224163D1E7F7FB000AB77AF /* OpenGL.framework */; };
+		F224F62A1E88B7570097D318 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5D1E822AA200574A1B /* libboost_filesystem.a */; };
+		F224F62B1E88B7570097D318 /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5E1E822AA200574A1B /* libboost_serialization.a */; };
+		F224F62C1E88B7570097D318 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C5F1E822AA200574A1B /* libboost_system.a */; };
+		F224F6311E88B7570097D318 /* libsfml-audio.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C621E822AA200574A1B /* libsfml-audio.2.4.2.dylib */; };
+		F224F6321E88B7570097D318 /* libsfml-graphics.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C631E822AA200574A1B /* libsfml-graphics.2.4.2.dylib */; };
+		F224F6331E88B7570097D318 /* libsfml-network.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C641E822AA200574A1B /* libsfml-network.2.4.2.dylib */; };
+		F224F6341E88B7570097D318 /* libsfml-system.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C651E822AA200574A1B /* libsfml-system.2.4.2.dylib */; };
+		F224F6351E88B7570097D318 /* libsfml-window.2.4.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C661E822AA200574A1B /* libsfml-window.2.4.2.dylib */; };
+		F224F6361E88B7570097D318 /* libtgui.0.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */; };
+		F224F6371E88B7570097D318 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C681E822AA200574A1B /* libz.a */; };
+		F224F6381E88B7640097D318 /* libREngine3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F529A51E7A57ED0012CB03 /* libREngine3.a */; };
+		F224F6411E88B93C0097D318 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224F6401E88B93C0097D318 /* IOKit.framework */; };
+		F224F6421E88B9530097D318 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F224F6401E88B93C0097D318 /* IOKit.framework */; };
+		F224F6471E88B9C40097D318 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F224F6431E88B98F0097D318 /* libxml2.2.tbd */; };
+		F224F6481E88B9C90097D318 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F224F6451E88B9940097D318 /* libiconv.2.4.0.tbd */; };
+		F224F6491E88BA5B0097D318 /* libphysfs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2300C611E822AA200574A1B /* libphysfs.a */; };
 		F2300C821E822CE100574A1B /* Application.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22416601E7F827B00AB77AF /* Application.hpp */; };
 		F2300C831E822CE100574A1B /* World.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22416621E7F827B00AB77AF /* World.hpp */; };
 		F2300C841E822CE100574A1B /* AnimationComponent.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22416681E7F828C00AB77AF /* AnimationComponent.hpp */; };
@@ -280,14 +282,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F22416461E7F80DD00AB77AF /* CopyFiles */ = {
+		F22416461E7F80DD00AB77AF /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F22416501E7F819700AB77AF /* OpenGL.framework in CopyFiles */,
+				F22416501E7F819700AB77AF /* OpenGL.framework in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -548,6 +551,11 @@
 		F22419581E7F850A00AB77AF /* B2DCallbacks.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = B2DCallbacks.hpp; path = Sandbox/source/physics/B2DCallbacks.hpp; sourceTree = "<group>"; };
 		F224195B1E7F851100AB77AF /* MoveSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MoveSystem.cpp; path = Sandbox/source/gamesystems/MoveSystem.cpp; sourceTree = "<group>"; };
 		F224195C1E7F851100AB77AF /* MoveSystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MoveSystem.hpp; path = Sandbox/source/gamesystems/MoveSystem.hpp; sourceTree = "<group>"; };
+		F224F6261E88B7080097D318 /* libcharset.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcharset.a; path = libs/libxml2/lib/libcharset.a; sourceTree = "<group>"; };
+		F224F63B1E88B8950097D318 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		F224F6401E88B93C0097D318 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		F224F6431E88B98F0097D318 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		F224F6451E88B9940097D318 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		F2300C5D1E822AA200574A1B /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = libs/boost/lib/libboost_filesystem.a; sourceTree = "<group>"; };
 		F2300C5E1E822AA200574A1B /* libboost_serialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_serialization.a; path = libs/boost/lib/libboost_serialization.a; sourceTree = "<group>"; };
 		F2300C5F1E822AA200574A1B /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = libs/boost/lib/libboost_system.a; sourceTree = "<group>"; };
@@ -569,20 +577,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2300C751E822AAE00574A1B /* libREngine3.a in Frameworks */,
-				F2300C761E822AC400574A1B /* libboost_filesystem.a in Frameworks */,
-				F2300C771E822AC400574A1B /* libboost_serialization.a in Frameworks */,
-				F2300C781E822AC400574A1B /* libboost_system.a in Frameworks */,
-				F2300C791E822AC400574A1B /* libxml2.a in Frameworks */,
-				F2300C7B1E822AC400574A1B /* libsfml-audio.2.4.2.dylib in Frameworks */,
-				F2300C7C1E822AC400574A1B /* libsfml-graphics.2.4.2.dylib in Frameworks */,
-				F2300C7D1E822AC400574A1B /* libsfml-network.2.4.2.dylib in Frameworks */,
-				F2300C7E1E822AC400574A1B /* libsfml-system.2.4.2.dylib in Frameworks */,
-				F2300C7F1E822AC400574A1B /* libsfml-window.2.4.2.dylib in Frameworks */,
-				F2300C801E822AC400574A1B /* libtgui.0.7.3.dylib in Frameworks */,
-				F2300C811E822AC400574A1B /* libz.a in Frameworks */,
-				F2300C7A1E822AC400574A1B /* libphysfs.a in Frameworks */,
-				F224164F1E7F818700AB77AF /* OpenGL.framework in Frameworks */,
+				F224F6491E88BA5B0097D318 /* libphysfs.a in Frameworks */,
+				F224F6481E88B9C90097D318 /* libiconv.2.4.0.tbd in Frameworks */,
+				F224F6471E88B9C40097D318 /* libxml2.2.tbd in Frameworks */,
+				F224F6421E88B9530097D318 /* IOKit.framework in Frameworks */,
+				F224F6381E88B7640097D318 /* libREngine3.a in Frameworks */,
+				F224F62A1E88B7570097D318 /* libboost_filesystem.a in Frameworks */,
+				F224F62B1E88B7570097D318 /* libboost_serialization.a in Frameworks */,
+				F224F62C1E88B7570097D318 /* libboost_system.a in Frameworks */,
+				F224F6311E88B7570097D318 /* libsfml-audio.2.4.2.dylib in Frameworks */,
+				F224F6321E88B7570097D318 /* libsfml-graphics.2.4.2.dylib in Frameworks */,
+				F224F6331E88B7570097D318 /* libsfml-network.2.4.2.dylib in Frameworks */,
+				F224F6341E88B7570097D318 /* libsfml-system.2.4.2.dylib in Frameworks */,
+				F224F6351E88B7570097D318 /* libsfml-window.2.4.2.dylib in Frameworks */,
+				F224F6361E88B7570097D318 /* libtgui.0.7.3.dylib in Frameworks */,
+				F224F6371E88B7570097D318 /* libz.a in Frameworks */,
+				F224F6291E88B7340097D318 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,19 +600,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2300C691E822AA200574A1B /* libboost_filesystem.a in Frameworks */,
-				F2300C6A1E822AA200574A1B /* libboost_serialization.a in Frameworks */,
-				F2300C6B1E822AA200574A1B /* libboost_system.a in Frameworks */,
-				F2300C6C1E822AA200574A1B /* libxml2.a in Frameworks */,
-				F2300C741E822AA200574A1B /* libz.a in Frameworks */,
-				F2300C6D1E822AA200574A1B /* libphysfs.a in Frameworks */,
-				F2300C6E1E822AA200574A1B /* libsfml-audio.2.4.2.dylib in Frameworks */,
-				F2300C6F1E822AA200574A1B /* libsfml-graphics.2.4.2.dylib in Frameworks */,
-				F2300C701E822AA200574A1B /* libsfml-network.2.4.2.dylib in Frameworks */,
-				F2300C711E822AA200574A1B /* libsfml-system.2.4.2.dylib in Frameworks */,
-				F2300C721E822AA200574A1B /* libsfml-window.2.4.2.dylib in Frameworks */,
-				F2300C731E822AA200574A1B /* libtgui.0.7.3.dylib in Frameworks */,
-				F224163E1E7F7FB000AB77AF /* OpenGL.framework in Frameworks */,
+				F224F6411E88B93C0097D318 /* IOKit.framework in Frameworks */,
+				F224F6191E88B7080097D318 /* libboost_filesystem.a in Frameworks */,
+				F224F61A1E88B7080097D318 /* libboost_serialization.a in Frameworks */,
+				F224F61B1E88B7080097D318 /* libboost_system.a in Frameworks */,
+				F224F61E1E88B7080097D318 /* libphysfs.a in Frameworks */,
+				F224F61F1E88B7080097D318 /* libsfml-audio.2.4.2.dylib in Frameworks */,
+				F224F6201E88B7080097D318 /* libsfml-graphics.2.4.2.dylib in Frameworks */,
+				F224F6211E88B7080097D318 /* libsfml-network.2.4.2.dylib in Frameworks */,
+				F224F6221E88B7080097D318 /* libsfml-system.2.4.2.dylib in Frameworks */,
+				F224F6231E88B7080097D318 /* libsfml-window.2.4.2.dylib in Frameworks */,
+				F224F6241E88B7080097D318 /* libtgui.0.7.3.dylib in Frameworks */,
+				F224F6251E88B7080097D318 /* libz.a in Frameworks */,
+				F224F6181E88B6C50097D318 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +622,11 @@
 		F224163C1E7F7FB000AB77AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F224F6451E88B9940097D318 /* libiconv.2.4.0.tbd */,
+				F224F6431E88B98F0097D318 /* libxml2.2.tbd */,
+				F224F6401E88B93C0097D318 /* IOKit.framework */,
+				F224F63B1E88B8950097D318 /* libiconv.tbd */,
+				F224F6261E88B7080097D318 /* libcharset.a */,
 				F2300D6E1E82329400574A1B /* libiconv.a */,
 				F2300C5D1E822AA200574A1B /* libboost_filesystem.a */,
 				F2300C5E1E822AA200574A1B /* libboost_serialization.a */,
@@ -1288,7 +1303,7 @@
 			buildPhases = (
 				F22416441E7F80DD00AB77AF /* Sources */,
 				F22416451E7F80DD00AB77AF /* Frameworks */,
-				F22416461E7F80DD00AB77AF /* CopyFiles */,
+				F22416461E7F80DD00AB77AF /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -1497,6 +1512,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1533,6 +1549,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1655,6 +1672,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
@@ -1689,6 +1707,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;

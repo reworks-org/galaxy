@@ -19,7 +19,7 @@ namespace re
 	* EXPORTS: none
 	* PURPOSE: Change text colour of the console.
 	*/
-	const char* SetConsoleTextColour(unsigned long code)
+	inline const char* SetConsoleTextColour(unsigned long code)
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleTextAttribute(hConsole, (WORD)code);

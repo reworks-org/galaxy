@@ -32,7 +32,7 @@
 * PURPOSE: Assert using our logging system.
 */
 #define RE_ASSERT(value, message) \
-		if (value == false) {\
+		if (!(value)) {\
 			re::log(LogLevel::FATAL, "*************************"); \
 			re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
 			re::log(LogLevel::FATAL, "*************************"); \

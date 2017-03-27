@@ -62,7 +62,11 @@ void* load_image(void **ptr, const char *base_path, const char *rel_path);
 #define snprintf _snprintf
 #endif
 
+#ifdef _WIN32
 char custom_msg[256];
 #define tmx_err(code, ...) tmx_errno = code; snprintf(custom_msg, 256, __VA_ARGS__)
+#else
+#define tmx_err(code, ...) tmx_errno = code;
+#endif
 
 #endif /* TMXUTILS_H */

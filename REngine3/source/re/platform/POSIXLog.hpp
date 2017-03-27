@@ -23,7 +23,7 @@ namespace re
 	* EXPORTS: none
 	* PURPOSE: Change text colour of the console.
 	*/
-	const char* SetConsoleTextColour(unsigned long code)
+	inline const char* SetConsoleTextColour(unsigned long code)
 	{
         std::string output = "";
         
