@@ -11,6 +11,7 @@
 
 #include <SFML/Graphics/Rect.hpp>
 
+#include "re/utility/Log.hpp"
 #include "re/scripting/sol2/sol.hpp"
 
 #include "AnimationComponent.hpp"
@@ -26,14 +27,14 @@ namespace re
 		m_animations.clear();
 	}
 
-	void AnimationComponent::Init(sol::table& table)
+	void AnimationComponent::init(sol::table& table)
 	{
 		m_frameTime = sf::milliseconds(table.get<int>("speed"));
 		m_currentFrame = 0;
 		m_isPaused = table.get<bool>("isPaused");
 		m_isLooped = table.get<bool>("isLooped");
 
-		ChangeAnimation(table.get<std::string>("defaultAnim"));
+		changeAnimation(table.get<std::string>("defaultAnim"));
 
 		m_animations.clear();
 		sol::table animTable = table.get<sol::table>("Animations");
@@ -42,7 +43,9 @@ namespace re
 		animTable.for_each([&](std::pair<sol::object, sol::object> pair) {
 			m_keyValuePairAnimations.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
-
+        
+        RE_ASSERT(m_keyValuePairAnimations.empty(), "Tried to load animation with no frames! AnimatonComponent.cpp");
+        
 		for (auto& it : m_keyValuePairAnimations)
 		{
 			std::map<std::string, sol::table> m_keyValuePairFrames;
@@ -63,34 +66,34 @@ namespace re
 		}
 	}
 
-	void AnimationComponent::ChangeAnimation(const std::string& animation)
+	void AnimationComponent::changeAnimation(const std::string& animation)
 	{
 		m_activeAnimation = animation;
 		m_currentFrame = 0;
 		m_currentTime = sf::Time::Zero;
 	}
 
-	void AnimationComponent::Play()
+	void AnimationComponent::play()
 	{
 		m_isPaused = false;
 	}
 
-	void AnimationComponent::Play(const std::string& animation)
+	void AnimationComponent::play(const std::string& animation)
 	{
 		if (m_activeAnimation != animation)
 		{
-			ChangeAnimation(animation);
+			changeAnimation(animation);
 		}
 			
-		Play();
+		play();
 	}
 
-	void AnimationComponent::Pause()
+	void AnimationComponent::pause()
 	{
 		m_isPaused = true;
 	}
 
-	void AnimationComponent::Stop()
+	void AnimationComponent::stop()
 	{
 		m_isPaused = true;
 		m_currentFrame = 0;

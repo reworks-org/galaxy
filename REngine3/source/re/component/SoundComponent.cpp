@@ -29,7 +29,7 @@ namespace re
 		m_sounds.clear();
 	}
 
-	void SoundComponent::Init(sol::table& table)
+	void SoundComponent::init(sol::table& table)
 	{
 		// Get key-value pairs from table
 		std::map<std::string, sol::table> m_keyValuePair;

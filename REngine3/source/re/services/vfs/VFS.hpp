@@ -56,13 +56,6 @@ namespace re
 
 		/*
 		* IMPORTS: fileName - The name of the file in the VFS.
-		* EXPORTS: sfPhysfsStream - A smart pointer to an SFML input stream using Physfs.
-		* PURPOSE: Returns the loaded file from the VFS using an SFML input stream.
-		*/
-		sf::physfs ToStream(const std::string& fileName);
-
-		/*
-		* IMPORTS: fileName - The name of the file in the VFS.
 		* EXPORTS: std::string - A buffer containing the file in std::string format.
 		* PURPOSE: To load the fileName from the VFS in a std::string format.
 		*/

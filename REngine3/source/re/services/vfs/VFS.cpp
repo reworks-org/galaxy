@@ -52,13 +52,6 @@ namespace re
 		}
 	}
 
-	sf::physfs VFS::ToStream(const std::string& fileName)
-	{
-		sf::physfs stream(fileName.c_str());
-
-		return stream;
-	}
-
 	std::string VFS::ToString(const std::string& fileName)
 	{
 		PHYSFS_file* myfile = PHYSFS_openRead(fileName.c_str());

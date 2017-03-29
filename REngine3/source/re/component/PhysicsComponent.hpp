@@ -9,8 +9,6 @@
 #ifndef RENGINE3_PHYSICSCOMPONENT_HPP_
 #define RENGINE3_PHYSICSCOMPONENT_HPP_
 
-#include <SFML/Graphics/Rect.hpp>
-
 #include "re/types/Component.hpp"
 #include "re/physics/Box2D/Dynamics/b2Body.h"
 
@@ -38,7 +36,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 	public:
 		b2Body* m_body;

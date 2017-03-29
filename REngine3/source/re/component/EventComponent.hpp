@@ -17,7 +17,9 @@ namespace re
 	class EventComponent : public Component
 	{
 		friend class EventSystem;
-	public:
+        typedef std::unordered_map<EventType, std::vector<std::function<void(void)>>> EventStorage;
+        
+    public:
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -37,21 +39,21 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up the component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 		/*
 		* IMPORTS: EventType and function pointer to function to call.
 		* EXPORTS: none
 		* PURPOSE: Submit a function to be called when an event is triggered.
 		*/
-		void SubmitOnEvent(EventType type, std::function<void(void)> func);
+		void submitOnEvent(EventType type, std::function<void(void)> func);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Check if the entity is subscribed to a particular event.
 		*/
-		bool IsSubscribed(EventType type);
+		bool isSubscribed(EventType type);
 
 	private:
 		/*
@@ -59,10 +61,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Process event.
 		*/
-		void OnEvent(EventType type);
+		void onEvent(EventType type);
 
 	private:
-		std::unordered_map<EventType, std::vector<std::function<void(void)>>> m_events;
+		EventStorage m_events;
 	};
 }
 

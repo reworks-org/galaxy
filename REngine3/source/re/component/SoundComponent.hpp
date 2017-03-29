@@ -22,6 +22,8 @@ namespace re
 	class SoundComponent : public Component
 	{
 		friend class AudioSystem;
+        typedef std::unordered_map<std::string, std::pair<std::pair<std::unique_ptr<sf::SoundBuffer>, std::unique_ptr<sf::physfs>>, std::unique_ptr<sf::Sound>>>  SoundStorage;
+        
 	public:
 		/*
 		* IMPORTS: none
@@ -42,10 +44,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up the component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 	private:
-		std::unordered_map<std::string, std::pair<std::pair<std::unique_ptr<sf::SoundBuffer>, std::unique_ptr<sf::physfs>>, std::unique_ptr<sf::Sound>>> m_sounds;
+        SoundStorage m_sounds;
 	};
 }
 

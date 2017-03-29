@@ -39,54 +39,56 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up the component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 		/*
 		* IMPORTS: animation name
 		* EXPORTS: none
 		* PURPOSE: Change the active animation
 		*/
-		void ChangeAnimation(const std::string& animation);
+		void changeAnimation(const std::string& animation);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Plays the active animation.
 		*/
-		void Play();
+		void play();
 
 		/*
 		* IMPORTS: animation name
 		* EXPORTS: none
 		* PURPOSE: Plays a specific animation.
 		*/
-		void Play(const std::string& animation);
+		void play(const std::string& animation);
 	
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Pauses active animation.
 		*/
-		void Pause();
+		void pause();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Stops the active animation.
 		*/
-		void Stop();
+		void stop();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: boolean value
 		* PURPOSE: Is the animation paused or not.
 		*/
-		bool IsPaused() const;
+		bool isPaused() const;
 
 	private:
 		bool m_isPaused;
+        
 		sf::Time m_frameTime;
 		sf::Time m_currentTime;
+        
 		std::size_t m_currentFrame;
 		std::string m_activeAnimation;
 		std::unordered_map<std::string, std::vector<sf::IntRect>> m_animations;

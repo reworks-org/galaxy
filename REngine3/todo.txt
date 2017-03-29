@@ -11,7 +11,6 @@ v0.8:
 	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
 - review header includes
 - use typedefs
-- rewrite components
 
 v0.8.5:
 - tgui lua bridge

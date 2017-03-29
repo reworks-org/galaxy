@@ -23,7 +23,7 @@ namespace re
 		Locator::Get<Box2DManager>()->m_world.DestroyBody(m_body);
 	}
 
-	void PhysicsComponent::Init(sol::table& table)
+	void PhysicsComponent::init(sol::table& table)
 	{
 		b2BodyDef bodyDef;
 		bodyDef.position.Set(b2::PixelsToMeters<double>(table.get<double>("x")), b2::PixelsToMeters<double>(table.get<double>("y")));

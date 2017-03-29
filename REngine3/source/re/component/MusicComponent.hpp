@@ -21,6 +21,8 @@ namespace re
 	class MusicComponent : public Component
 	{
 		friend class AudioSystem;
+        typedef std::unordered_map<std::string, std::pair<std::unique_ptr<sf::physfs>, std::unique_ptr<sf::Music>>> MusicStorage;
+        
 	public:
 		/*
 		* IMPORTS: none
@@ -41,10 +43,10 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up the component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 	
 	private:
-		std::unordered_map<std::string, std::pair<std::unique_ptr<sf::physfs>, std::unique_ptr<sf::Music>>> m_music;
+		MusicStorage m_music;
 	};
 }
 

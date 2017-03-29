@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/utility/Log.hpp"
 #include "re/types/Event.hpp"
 
 #include "EventComponent.hpp"
@@ -21,11 +22,11 @@ namespace re
 		m_events.clear();
 	}
 
-	void EventComponent::Init(sol::table& table)
+	void EventComponent::init(sol::table& table)
 	{
 	}
 
-	void EventComponent::SubmitOnEvent(EventType type, std::function<void(void)> func)
+	void EventComponent::submitOnEvent(EventType type, std::function<void(void)> func)
 	{
 		auto it = m_events.find(type);
 		if (it != m_events.end())
@@ -39,7 +40,7 @@ namespace re
 		}
 	}
 
-	bool EventComponent::IsSubscribed(EventType type)
+	bool EventComponent::isSubscribed(EventType type)
 	{
 		auto found = m_events.find(type);
 		if (found != m_events.end())
@@ -52,10 +53,12 @@ namespace re
 		}
 	}
 
-	void EventComponent::OnEvent(EventType type)
+	void EventComponent::onEvent(EventType type)
 	{
 		auto it = m_events.find(type);
 
+        RE_ASSERT_EQUAL(it, m_events.end(), "Tried to access a non-existent event!");
+        
 		for (auto& v : it->second)
 		{
 			v();
