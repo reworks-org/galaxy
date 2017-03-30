@@ -20,7 +20,7 @@ namespace re
 	{
 	}
 
-	void Entity::Init(const std::string& script, ComponentHolder& cl)
+	void Entity::init(const std::string& script, ComponentHolder& cl)
 	{
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
@@ -37,18 +37,20 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
+        RE_ASSERT(m_keyValuePair.empty(), "Attempted to load an entity with no component data! Entity.cpp");
+        
 		// Create list.
 		cl[m_name] = ComponentList();
 
 		for (auto& kvp : m_keyValuePair)
 		{
-			auto cf = Locator::Get<World>()->GetComponentFactory().find(kvp.first);
-			auto end = Locator::Get<World>()->GetComponentFactory().end();
+			auto cf = Locator::Get<World>()->getComponentFactory().find(kvp.first);
+			auto end = Locator::Get<World>()->getComponentFactory().end();
 
 			if (cf != end)
 			{
 				cl[m_name][cf->second.first] = cf->second.second();
-				cl[m_name][cf->second.first]->Init(kvp.second);
+				cl[m_name][cf->second.first]->init(kvp.second);
 			}
 		}
 

@@ -25,7 +25,7 @@ namespace re
 	{
 	}
 
-	void SpriteComponent::Init(sol::table& table)
+	void SpriteComponent::init(sol::table& table)
 	{
 		m_group = table.get<sf::Uint32>("group");
 

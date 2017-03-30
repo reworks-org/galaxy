@@ -26,6 +26,7 @@ namespace re
 	{
 		friend class boost::serialization::access;
 		friend class World;
+        
 	public:
 		/*
 		* IMPORTS: none
@@ -39,7 +40,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Constructs the entity using data from the lua script provided.
 		*/
-		void Init(const std::string& script, ComponentHolder& cl);
+		void init(const std::string& script, ComponentHolder& cl);
 
 		/*
 		* IMPORTS: none
@@ -54,15 +55,15 @@ namespace re
 		* PURPOSE: To retrieve a component of an entity.
 		*/
 		template<typename T>
-		std::shared_ptr<T> Get();
-
+		std::shared_ptr<T> get();
+        
 		/*
 		* IMPORTS: none
 		* EXPORTS: boolean - true if it does have a component.
 		* PURPOSE: To find out if an entity has a specific component. Type defined by template.
 		*/
 		template<typename T>
-		bool Has();
+		bool has();
 
 	private:
 		// Boost.Serialization function
@@ -82,13 +83,13 @@ namespace re
 	};
 
 	template<typename T>
-	std::shared_ptr<T> Entity::Get()
+	std::shared_ptr<T> Entity::get()
 	{
 		return std::dynamic_pointer_cast<T>(m_components->find(std::type_index(typeid(T)))->second);
 	}
 
 	template<typename T>
-	bool Entity::Has()
+	bool Entity::has()
 	{
 		if (m_components->find(std::type_index(typeid(T))) != m_components->end())
 		{

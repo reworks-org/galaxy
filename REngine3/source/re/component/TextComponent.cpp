@@ -22,7 +22,7 @@ namespace re
 	{
 	}
 
-	void TextComponent::Init(sol::table & table)
+	void TextComponent::init(sol::table & table)
 	{
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<sf::Uint32>("group");

@@ -7,7 +7,6 @@
 //
 
 #include <map>
-#include <memory>
 
 #include "re/utility/Log.hpp"
 
@@ -37,6 +36,8 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
+        RE_ASSERT(m_keyValuePair.empty(), "Tried to load a sound component with no data! SoundComponent.cpp");
+        
 		for (auto& kvp : m_keyValuePair)
 		{
 			m_sounds.emplace(kvp.first, std::make_pair(std::make_pair(std::make_unique<sf::SoundBuffer>(), std::make_unique<sf::physfs>()), std::make_unique<sf::Sound>()));

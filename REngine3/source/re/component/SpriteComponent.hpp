@@ -39,7 +39,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up the component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 	private:
 		/*

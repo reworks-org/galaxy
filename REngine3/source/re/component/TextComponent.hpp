@@ -37,7 +37,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up the component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 	public:
 		sf::Uint32 m_group;

@@ -20,6 +20,7 @@ namespace re
 	class TransformComponent : public Component, public sf::Transformable
 	{
 		friend class boost::serialization::access;
+        
 	public:
 		/*
 		* IMPORTS: none
@@ -40,7 +41,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Set up component.
 		*/
-		void Init(sol::table& table) override;
+		void init(sol::table& table) override;
 
 	private:
 		// Boost.Serialization functions
