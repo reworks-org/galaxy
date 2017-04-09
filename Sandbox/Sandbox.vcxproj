@@ -18,11 +18,26 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
+    <ClCompile Include="source\Load.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\Menu.cpp" />
+    <ClCompile Include="source\physics\B2DCallbacks.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Game.hpp" />
+    <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
+    <ClInclude Include="source\Load.hpp" />
+    <ClInclude Include="source\Menu.hpp" />
+    <ClInclude Include="source\physics\B2DCallbacks.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4257686F-50A9-4BD4-8A42-A97ED03E00C8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Sandbox</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -156,21 +171,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="source\Game.cpp" />
-    <ClCompile Include="source\Load.cpp" />
-    <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\Menu.cpp" />
-    <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
-    <ClCompile Include="source\physics\B2DCallbacks.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="source\Game.hpp" />
-    <ClInclude Include="source\Load.hpp" />
-    <ClInclude Include="source\Menu.hpp" />
-    <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
-    <ClInclude Include="source\physics\B2DCallbacks.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

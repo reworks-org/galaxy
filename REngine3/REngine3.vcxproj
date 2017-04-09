@@ -19,15 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\re\app\Application.cpp" />
     <ClCompile Include="source\re\app\World.cpp" />
     <ClCompile Include="source\re\component\AnimationComponent.cpp" />
-    <ClCompile Include="source\re\component\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\component\EventComponent.cpp" />
     <ClCompile Include="source\re\component\MusicComponent.cpp" />
+    <ClCompile Include="source\re\component\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\component\SoundComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
     <ClCompile Include="source\re\component\TextComponent.cpp" />
@@ -36,22 +33,8 @@
     <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
-    <ClCompile Include="source\re\graphics\sw\BitmapFont.cpp" />
-    <ClCompile Include="source\re\graphics\sw\BitmapText.cpp" />
-    <ClCompile Include="source\re\graphics\sw\ConsoleScreen.cpp" />
-    <ClCompile Include="source\re\graphics\sw\ConsoleScreenOld.cpp" />
-    <ClCompile Include="source\re\graphics\sw\Crosshair.cpp" />
-    <ClCompile Include="source\re\graphics\sw\GallerySprite.cpp" />
     <ClCompile Include="source\re\graphics\sw\Line.cpp" />
-    <ClCompile Include="source\re\graphics\sw\NinePatch.cpp" />
-    <ClCompile Include="source\re\graphics\sw\PieChart.cpp" />
-    <ClCompile Include="source\re\graphics\sw\ProgressBar.cpp" />
-    <ClCompile Include="source\re\graphics\sw\Ring.cpp" />
-    <ClCompile Include="source\re\graphics\sw\SpinningCard.cpp" />
-    <ClCompile Include="source\re\graphics\sw\Spline.cpp" />
-    <ClCompile Include="source\re\graphics\sw\Sprite3d.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
-    <ClCompile Include="source\re\graphics\sw\TileMap.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\mapping\TMXMap.cpp" />
@@ -146,8 +129,8 @@
     <ClCompile Include="source\re\services\vfs\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\systems\AudioSystem.cpp" />
-    <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
+    <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
@@ -156,9 +139,9 @@
     <ClInclude Include="source\re\app\Application.hpp" />
     <ClInclude Include="source\re\app\World.hpp" />
     <ClInclude Include="source\re\component\AnimationComponent.hpp" />
-    <ClInclude Include="source\re\component\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\component\EventComponent.hpp" />
     <ClInclude Include="source\re\component\MusicComponent.hpp" />
+    <ClInclude Include="source\re\component\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\component\SoundComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
     <ClInclude Include="source\re\component\TextComponent.hpp" />
@@ -167,27 +150,11 @@
     <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
-    <ClInclude Include="source\re\graphics\sw\BitmapFont.hpp" />
-    <ClInclude Include="source\re\graphics\sw\BitmapText.hpp" />
     <ClInclude Include="source\re\graphics\sw\Common.hpp" />
-    <ClInclude Include="source\re\graphics\sw\ConsoleScreen.hpp" />
-    <ClInclude Include="source\re\graphics\sw\ConsoleScreenOld.hpp" />
-    <ClInclude Include="source\re\graphics\sw\Crosshair.hpp" />
     <ClInclude Include="source\re\graphics\sw\Exception.hpp" />
-    <ClInclude Include="source\re\graphics\sw\GallerySprite.hpp" />
     <ClInclude Include="source\re\graphics\sw\Line.hpp" />
-    <ClInclude Include="source\re\graphics\sw\NinePatch.hpp" />
-    <ClInclude Include="source\re\graphics\sw\PaletteEnums.hpp" />
-    <ClInclude Include="source\re\graphics\sw\PieChart.hpp" />
-    <ClInclude Include="source\re\graphics\sw\ProgressBar.hpp" />
-    <ClInclude Include="source\re\graphics\sw\Ring.hpp" />
-    <ClInclude Include="source\re\graphics\sw\SpinningCard.hpp" />
-    <ClInclude Include="source\re\graphics\sw\Spline.hpp" />
-    <ClInclude Include="source\re\graphics\sw\Sprite3d.hpp" />
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
-    <ClInclude Include="source\re\graphics\sw\TileMap.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\mapping\TMXMap.hpp" />
     <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
@@ -271,14 +238,15 @@
     <ClInclude Include="source\re\scripting\lua\lvm.h" />
     <ClInclude Include="source\re\scripting\lua\lzio.h" />
     <ClInclude Include="source\re\scripting\sol2\sol.hpp" />
+    <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\vfs\sfmlphysfs.hpp" />
     <ClInclude Include="source\re\services\vfs\VFS.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\systems\AudioSystem.hpp" />
-    <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
+    <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
@@ -290,14 +258,11 @@
     <ClInclude Include="source\re\utility\Serialization.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="source\re\graphics\sw\TileMap.inl" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>REngine3</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

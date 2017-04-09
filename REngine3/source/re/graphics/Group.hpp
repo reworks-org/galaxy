@@ -10,6 +10,7 @@
 #define RENGINE3_GROUP_HPP_
 
 #include <map>
+#include <memory>
 #include <vector>
 #include <string>
 
