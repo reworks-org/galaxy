@@ -9,10 +9,8 @@
 #ifndef RENGINE3_PHYSICSSYSTEM_HPP_
 #define RENGINE3_PHYSICSSYSTEM_HPP_
 
-#include <SFML/Graphics/Rect.hpp>
-
-#include "Box2DManager.hpp"
 #include "re/types/System.hpp"
+#include "re/physics/Box2DManager.hpp"
 
 namespace re
 {
@@ -41,42 +39,42 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world) override;
+		void submit(World* world) override;
 
 		/*
 		* IMPORTS: Vector of collideable tiles.
 		* EXPORTS: none
 		* PURPOSE: Add tiles to collision system.
 		*/
-		void SubmitTiles(TMXMap* map);
+		void addMapCollisions(TMXMap* map);
 
 		/*
 		* IMPORTS: Pointer to entity to add.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.
 		*/
-		void AddEntity(Entity* e) override;
+		void addEntity(Entity* e) override;
 
 		/*
 		* IMPORTS: id of entity to remove
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/
-		void RemoveEntity(const std::string& name) override;
+		void removeEntity(const std::string& name) override;
 
 		/*
 		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Handles collisions.
 		*/
-		void Update(sf::Time dt);
+		void update(sf::Time dt);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean() override;
+		void clean() override;
 
 	private:
 		double m_ups;

@@ -11,11 +11,9 @@
 
 #include <map>
 
-#include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
-#include <SFML/Graphics/RenderTexture.hpp>
 #include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
 
 #include "re/mapping/TMXSmartPointer.hpp"
 
@@ -57,25 +55,27 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Load a new map. Use this if you use the default constructor.
 		*/
-		void Load(const std::string& map);
+		void load(const std::string& map);
 
 		/*
 		* IMPORTS: delta time.
 		* EXPORTS: none
 		* PURPOSE: Update the map data e.g. animations, collisions and stuff.
 		*/
-		void Update(sf::Time dt);
+		void update(sf::Time dt);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: std::vector of rects defining collisions
 		* PURPOSE: To retrieve the collideable tiles on the map.
 		*/
-		std::vector<sf::IntRect>& GetCollisions();
+		std::vector<sf::IntRect>& getCollisions();
 
 	private:
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-		void draw_anim_layer(tmx_map *map, tmx_layer *layer, sf::Time dt);
+		void drawAnimationLayer(tmx_map *map, tmx_layer *layer, sf::Time dt);
+        void parseCollisions(tmx_map *map);
+        
 	    /*
 		* BEGIN TMX UTILITY FUNCTIONS
 		* SEE: https://github.com/baylej/tmx/tree/master/examples
@@ -88,15 +88,15 @@ namespace re
 		void draw_layer(tmx_map *map, tmx_layer *layer);
 		void draw_image_layer(tmx_image *img);
 		void render_map(tmx_map *map);
-		void parse_collisions(tmx_map *map);
 		/*
 		* END TMX UTILITY FUNCTIONS
 		*/
+        
 	private:
 		int m_width;
 		int m_height;
 
-		tmx::UPtr m_map;
+		tmx::Ptr m_map;
 		std::vector<sf::IntRect> m_tileCollisions;
 		sf::RenderTexture m_batchTexture;
 		sf::RenderTexture m_animatedBatchTexture;

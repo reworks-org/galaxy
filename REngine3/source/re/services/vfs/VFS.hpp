@@ -12,7 +12,6 @@
 #include <string>
 
 #include "re/types/Service.hpp"
-#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -38,35 +37,35 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Adds a folder or 7z/zip archive to the virtual file system.
 		*/
-		void Mount(const std::string& archive);
+		void mount(const std::string& archive);
 
 		/*
 		* IMPORTS: archive - the folder / archive to remove.
 		* EXPORTS: none
 		* PURPOSE: Remove a folder or archive from the VFS.
 		*/
-		void UnMount(const std::string& archive);
+		void unMount(const std::string& archive);
 
 		/*
 		* IMPORTS: fileName - The name of a file in the VFS.
 		* EXPORTS: none
 		* PURPOSE: Returns true if the fileName exists in the VFS.
 		*/
-		bool DoesExist(const std::string& fileName);
+		bool doesExist(const std::string& fileName);
 
 		/*
 		* IMPORTS: fileName - The name of the file in the VFS.
 		* EXPORTS: std::string - A buffer containing the file in std::string format.
 		* PURPOSE: To load the fileName from the VFS in a std::string format.
 		*/
-		std::string ToString(const std::string& fileName);
+		std::string toString(const std::string& fileName);
 
 		/*
 		* IMPORTS: fileName - The name of the file in the VFS.
 		* EXPORTS: char* - A buffer containing the file in a c-style format.
 		* PURPOSE: To load the fileName from the VFS in a char* format.
 		*/
-		char* ToBuffer(const std::string& fileName);
+		char* toBuffer(const std::string& fileName);
 	};
 }
 

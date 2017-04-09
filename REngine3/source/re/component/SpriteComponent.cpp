@@ -31,7 +31,7 @@ namespace re
 
 		if (table.get<bool>("isSpriteSheet") == true)
 		{
-			setTexture(Locator::Get<TextureAtlas>()->get(table.get<std::string>("altas_ref")));
+			setTexture(Locator::get<TextureAtlas>()->get(table.get<std::string>("altas_ref")));
 			sol::table rect = table.get<sol::table>("rect");
 			setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
 		}

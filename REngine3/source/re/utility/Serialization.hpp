@@ -21,14 +21,14 @@
 
 namespace re
 {
-	namespace Serialization
+	namespace serialization
 	{
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Serialize the engine.
 		*/
-		inline void Save(World* world, const std::string& fileName)
+		inline void save(World* world, const std::string& fileName)
 		{
 			std::ofstream out(fileName);
 
@@ -54,7 +54,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Deserialize the engine.
 		*/
-		inline void Load(World* world, const std::string& fileName)
+		inline void load(World* world, const std::string& fileName)
 		{
 			std::ifstream in(fileName);
 

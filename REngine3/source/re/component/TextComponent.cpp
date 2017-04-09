@@ -27,7 +27,7 @@ namespace re
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<sf::Uint32>("group");
 
-		setFont(Locator::Get<FontManager>()->Get(table.get<std::string>("font")));
+		setFont(Locator::get<FontManager>()->get(table.get<std::string>("font")));
 
 		setString(table.get<std::string>("text"));
 		setCharacterSize(table.get<int>("size"));

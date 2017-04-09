@@ -51,7 +51,7 @@ namespace re
 	void World::createEntity(const std::string& entitysScript)
 	{
 		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(entitysScript));
+		lua.script(Locator::get<VFS>()->toString(entitysScript));
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -64,7 +64,7 @@ namespace re
 		for (auto& it : m_keyValuePair)
 		{
 			m_alive.emplace(it.first, Entity());
-			m_alive[it.first].Init(it.second, m_components);
+			m_alive[it.first].init(it.second, m_components);
 		}
 	}
 
@@ -102,7 +102,7 @@ namespace re
 				std::string name = it.second.m_name;
 				for (auto s : it.second.m_systemIds)
 				{
-					m_systems[s.second]->RemoveEntity(name);
+					m_systems[s.second]->removeEntity(name);
 				}
 
 				m_dead.emplace(name, it.second);
@@ -117,7 +117,7 @@ namespace re
 				std::string name = it.second.m_name;
 				for (auto s : it.second.m_systemIds)
 				{
-					m_systems[s.second]->AddEntity(&it.second);
+					m_systems[s.second]->addEntity(&it.second);
 				}
 
 				m_alive.emplace(name, it.second);
@@ -138,12 +138,12 @@ namespace re
 		return m_componentFactory;
 	}
 
-	EntityList& World::getAlive()
+	EntityList& World::getAliveEntitys()
 	{
 		return m_alive;
 	}
 
-	EntityList& World::getDead()
+	EntityList& World::getDeadEntitys()
 	{
 		return m_dead;
 	}

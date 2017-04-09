@@ -11,12 +11,10 @@
 
 #include <map>
 #include <vector>
+#include <string>
 
 #include <SFML/Graphics/Drawable.hpp>
-
-#include "re/entity/Entity.hpp"
-#include "re/component/TextComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
+#include <SFML/Graphics/Transformable.hpp>
 
 namespace re
 {
@@ -37,7 +35,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a textocomponent to the group.
 		*/
-		void AddDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable, std::shared_ptr<sf::Transformable> transformable);
+		void addDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable, std::shared_ptr<sf::Transformable> transformable);
 		
 		/*
 		* IMPORTS: RenderTarget and RenderState
@@ -51,7 +49,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Get stored drawables.
 		*/
-		std::map<std::string, RenderableContainer>& GetDrawableMap();
+		std::map<std::string, RenderableContainer>& getDrawableMap();
 
 	private:
 		std::map<std::string, RenderableContainer> m_drawable;

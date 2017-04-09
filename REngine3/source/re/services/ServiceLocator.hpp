@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 17/07/2016.
-//  Copyright © 2016 reworks. All rights reserved.
+//  Copyright ï¿½ 2016 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_SERVICELOCATOR_HPP_
@@ -33,7 +33,7 @@ namespace re
 		* PURPOSE: To add an engine service to the engines locator.
 		*/
 		template<typename T>
-		static void Provide(Service* s);
+		static void provide(Service* s);
 
 		/*
 		* IMPORTS: <T> - The type of object
@@ -41,7 +41,7 @@ namespace re
 		* PURPOSE: To retrieve an engine service.
 		*/
 		template<typename T>
-		static T* Get();
+		static T* get();
 
 		/*
 		* IMPORTS: <T> - The type of object
@@ -49,7 +49,7 @@ namespace re
 		* PURPOSE: To remove a service from the locator (does not delete the original object, that is handled by Application class).
 		*/
 		template<typename T>
-		static void Remove();
+		static void remove();
 
 	private:
 		static std::unordered_map<std::type_index, Service*> m_services;
@@ -57,7 +57,7 @@ namespace re
 	};
 
 	template<typename T>
-	void Locator::Provide(Service* s)
+	void Locator::provide(Service* s)
 	{
 		// Find type in the map.
 		auto it = m_services.find(std::type_index(typeid(T)));
@@ -73,7 +73,7 @@ namespace re
 	}
 
 	template<typename T>
-	T* Locator::Get()
+	T* Locator::get()
 	{
 		// Find type in the map.
 		auto it = m_services.find(std::type_index(typeid(T)));
@@ -90,7 +90,7 @@ namespace re
 	}
 
 	template<typename T>
-	void Locator::Remove()
+	void Locator::remove()
 	{
 		// Find type in the map.
 		auto it = m_services.find(std::type_index(typeid(T)));

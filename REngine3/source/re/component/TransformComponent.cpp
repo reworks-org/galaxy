@@ -18,7 +18,7 @@ namespace re
 	{
 	}
 
-	void TransformComponent::Init(sol::table& table)
+	void TransformComponent::init(sol::table& table)
 	{
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		setRotation(table.get<float>("angle"));

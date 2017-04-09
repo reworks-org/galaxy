@@ -33,14 +33,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a font to the map.
 		*/
-		void Add(const std::string& name, const std::string& fontName);
+		void add(const std::string& name, const std::string& fontName);
 
 		/*
 		* IMPORTS: name - name of the font in the manager.
 		* EXPORTS: sf::Font file.
 		* PURPOSE: Retrieve a font from the manager.
 		*/
-		sf::Font& Get(const std::string& name);
+		sf::Font& get(const std::string& name);
 
 	private:
 		std::unordered_map<std::string, std::pair<std::unique_ptr<sf::physfs>, std::shared_ptr<sf::Font>>> m_fontMap;

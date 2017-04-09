@@ -39,7 +39,7 @@ namespace re
 		sf::Time timeSinceLastUpdate = sf::Time::Zero;
 		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
 
-		m_stateManager.LoadResources();
+		m_stateManager.loadResources();
 
 		while (m_window.isOpen())
 		{
@@ -51,16 +51,16 @@ namespace re
 				timeSinceLastUpdate -= TimePerFrame;
 
 				// Event
-				m_stateManager.Event();
+				m_stateManager.event();
 
 				// Update
-				m_stateManager.Update(TimePerFrame);
+				m_stateManager.update(TimePerFrame);
 
 				updates++;
 			}
 			
 			// Render
-			m_stateManager.Render();
+			m_stateManager.render();
 			frames++;
 			
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
@@ -77,7 +77,7 @@ namespace re
 			}
 		}
 
-		m_stateManager.UnloadResources();
+		m_stateManager.unloadResources();
 		RE_LOG(LogLevel::INFO, "Program quit successfully.");
 
 		return EXIT_SUCCESS;

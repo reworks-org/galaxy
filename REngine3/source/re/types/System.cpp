@@ -14,7 +14,7 @@ namespace re
 	{
 	}
 
-	std::map<std::string, Entity*>& System::GetEntitys()
+	std::map<std::string, Entity*>& System::getEntitys()
 	{
 		return m_entitys;
 	}

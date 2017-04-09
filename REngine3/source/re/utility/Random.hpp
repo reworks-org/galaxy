@@ -25,7 +25,7 @@ namespace re
 		* PURPOSE: Generate a random number of type <T>.
 		*/
 		template<typename T>
-		inline T Random(T min, T max)
+		inline T random(T min, T max)
 		{
 			std::random_device rd;
 			std::mt19937 mt(rd());

@@ -24,7 +24,7 @@ namespace re
 	{
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
-		lua.script(Locator::Get<VFS>()->ToString(script));
+		lua.script(Locator::get<VFS>()->toString(script));
 
 		// Get a table with the components.
 		sol::table entity = lua.get<sol::table>("entity");
@@ -44,8 +44,8 @@ namespace re
 
 		for (auto& kvp : m_keyValuePair)
 		{
-			auto cf = Locator::Get<World>()->getComponentFactory().find(kvp.first);
-			auto end = Locator::Get<World>()->getComponentFactory().end();
+			auto cf = Locator::get<World>()->getComponentFactory().find(kvp.first);
+			auto end = Locator::get<World>()->getComponentFactory().end();
 
 			if (cf != end)
 			{

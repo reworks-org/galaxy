@@ -20,41 +20,41 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void EventSystem::AutoSubmit(World* world)
+	void EventSystem::submit(World* world)
 	{
-		for (auto& it : world->GetAlive())
+		for (auto& it : world->getAliveEntitys())
 		{
-			if (it.second.Has<EventComponent>())
+			if (it.second.has<EventComponent>())
 			{
-				AddEntity(&it.second);
+				addEntity(&it.second);
 			}
 		}
 	}
 
-	void EventSystem::AddEntity(Entity* e)
+	void EventSystem::addEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("EventSystem", std::type_index(typeid(EventSystem)));
 		m_entitys.emplace(e->m_name, e);
 	}
 
-	void EventSystem::RemoveEntity(const std::string& name)
+	void EventSystem::removeEntity(const std::string& name)
 	{
 		m_entitys.erase(name);
 	}
 
-	void EventSystem::Dispatch(EventType type)
+	void EventSystem::dispatch(EventType type)
 	{
 		for (auto& it : m_entitys)
 		{
-			EventComponent* e = it.second->Get<EventComponent>().get();
-			if (e->IsSubscribed(type))
+			EventComponent* e = it.second->get<EventComponent>().get();
+			if (e->isSubscribed(type))
 			{
-				e->OnEvent(type);
+				e->onEvent(type);
 			}
 		}
 	}
 
-	void EventSystem::Clean()
+	void EventSystem::clean()
 	{
 		m_entitys.clear();
 	}

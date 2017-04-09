@@ -16,7 +16,7 @@
 
 namespace re
 {
-	bool ConfigReader::Parse(const std::string& configFile)
+	bool ConfigReader::parse(const std::string& configFile)
 	{
 		bool success = true;
 

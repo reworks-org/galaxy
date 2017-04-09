@@ -24,7 +24,7 @@ namespace re
 		* EXPORTS: boolean - true means the config file was sucessfully parsed.
 		* PURPOSE: To load and parse the config file for the engine. Will create a default file if one is not found.
 		*/
-		bool Parse(const std::string& configFile);
+		bool parse(const std::string& configFile);
 
 		/*
 		* IMPORTS: configValue - The name of the value to retrieve from the lua table in the config file.
@@ -32,17 +32,17 @@ namespace re
 		* PURPOSE: To retrieve data from the config file to set up the engine.
 		*/
 		template<typename T>
-		T Lookup(const std::string& configValue);
+		T lookup(const std::string& configValue);
 
 	private:
 		sol::state m_lua;
 	};
 
 	template<typename T>
-	T ConfigReader::Lookup(const std::string& configValue)
+	T ConfigReader::lookup(const std::string& configValue)
 	{
 		// Cast and return value retrieved from table.
-		sol::table configTable = m_lua["config"];
+		sol::table configTable = m_lua["config"];        
 		return configTable.get<T>(configValue);
 	}
 }

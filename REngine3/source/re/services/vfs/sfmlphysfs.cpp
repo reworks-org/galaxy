@@ -47,7 +47,7 @@ void sf::physfs::open(const std::string& str)
 sf::Int64 sf::physfs::read(void *data, sf::Int64 size){
     if (error){
         return 0;}
-    sf::Int64 readed = PHYSFS_read(file, data, 1, size);
+    sf::Int64 readed = PHYSFS_read(file, data, 1, (PHYSFS_uint32)size);
     if (readed == -1){
         std::cout << PHYSFS_getLastError() << std::endl;
         return 0;

@@ -4,8 +4,7 @@
 //
 //  Created by reworks on 10/11/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.
-//  Code modified from: https://github.com/miguelmartin75/anax/blob/master/examples/common/include/Systems/AnimationSystem.hpp
-//  See original file for details.
+//
 
 #include "re/app/World.hpp"
 #include "re/component/SpriteComponent.hpp"
@@ -20,36 +19,38 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void AnimationSystem::AutoSubmit(World* world)
+	void AnimationSystem::submit(World* world)
 	{
-		for (auto& it : world->GetAlive())
+		for (auto& it : world->getAliveEntitys())
 		{
-			if (it.second.Has<AnimationComponent>())
+			if (it.second.has<AnimationComponent>())
 			{
-				AddEntity(&it.second);
+				addEntity(&it.second);
 			}
 		}
 	}
 
-	void AnimationSystem::AddEntity(Entity* e)
+	void AnimationSystem::addEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("AnimationSystem", std::type_index(typeid(AnimationSystem)));
 		// we also want to adjust the first texture rectangle so it doesn't get missed out on...
-		e->Get<SpriteComponent>()->setTextureRect(e->Get<AnimationComponent>()->m_animations[e->Get<AnimationComponent>()->m_activeAnimation][e->Get<AnimationComponent>()->m_currentFrame]);
+		e->get<SpriteComponent>()->setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
 		m_entitys.emplace(e->m_name, e);
 	}
 
-	void AnimationSystem::RemoveEntity(const std::string& name)
+	void AnimationSystem::removeEntity(const std::string& name)
 	{
 		m_entitys.erase(name);
 	}
 
-	void AnimationSystem::Update(sf::Time dt)
+    // Based off of
+    // https://github.com/miguelmartin75/anax/blob/master/examples/common/src/Systems/AnimationSystem.cpp
+	void AnimationSystem::update(sf::Time dt)
 	{
 		for (auto& e : m_entitys)
 		{
-			auto animation = e.second->Get<AnimationComponent>();
-			auto sprite = e.second->Get<SpriteComponent>();
+			auto animation = e.second->get<AnimationComponent>();
+			auto sprite = e.second->get<SpriteComponent>();
 
 			if (!animation->m_isPaused)
 			{
@@ -83,7 +84,7 @@ namespace re
 		}
 	}
 
-	void AnimationSystem::Clean()
+	void AnimationSystem::clean()
 	{
 		m_entitys.clear();
 	}

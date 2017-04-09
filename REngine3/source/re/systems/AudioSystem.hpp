@@ -10,8 +10,6 @@
 #define RENGINE3_AUDIOSYSTEM_HPP_
 
 #include "re/types/System.hpp"
-#include "re/component/SoundComponent.hpp"
-#include "re/component/MusicComponent.hpp"
 
 namespace re
 {
@@ -30,56 +28,56 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world) override;
+		void submit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.
 		*/
-		void AddEntity(Entity* e) override;
+		void addEntity(Entity* e) override;
 
 		/*
 		* IMPORTS: id of entity to remove
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/
-		void RemoveEntity(const std::string& name) override;
+		void removeEntity(const std::string& name) override;
 
 		/*
 		* IMPORTS: accessor in format: <entityName>.<soundeffectname>
 		* EXPORTS: Pointer to sound.
 		* PURPOSE: Get a sound in the system.
 		*/
-		sf::Sound* GetSound(const std::string& accessor);
+		sf::Sound* getSound(const std::string& accessor);
 
 		/*
 		* IMPORTS: accessor in format: <entityName>.<musicname>
 		* EXPORTS: Pointer to music.
 		* PURPOSE: Get music in the system.
 		*/
-		sf::Music* GetMusic(const std::string& accessor);
+		sf::Music* getMusic(const std::string& accessor);
 
 		/*
 		* IMPORTS: volume (0-100).
 		* EXPORTS: none
 		* PURPOSE: Change the volume of all music.
 		*/
-		void SetGlobalMusicVolume(float volume);
+		void setGlobalMusicVolume(float volume);
 
 		/*
 		* IMPORTS: volume (0-100).
 		* EXPORTS: none
 		* PURPOSE: Change the volume of all sounds.
 		*/
-		void SetGlobalSoundVolume(float volume);
+		void setGlobalSoundVolume(float volume);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean() override;
+		void clean() override;
 	};
 }
 

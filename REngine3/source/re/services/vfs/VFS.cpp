@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <physfs/physfs.h>
+
 #include "re/utility/Log.hpp"
 
 #include "VFS.hpp"
@@ -22,25 +24,17 @@ namespace re
 		PHYSFS_deinit();
 	}
 
-	void VFS::Mount(const std::string& archive)
+	void VFS::mount(const std::string& archive)
 	{
-		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
-		{
-			std::string message = "Cannot load: " + archive;
-			RE_LOG(LogLevel::FATAL, message);
-		}
+        RE_ASSERT(PHYSFS_mount(archive.c_str(), nullptr, 1), "Cannot load: " + archive);
 	}
 
-	void VFS::UnMount(const std::string& archive)
+	void VFS::unMount(const std::string& archive)
 	{
-		if (!PHYSFS_unmount(archive.c_str()))
-		{
-			std::string message = "Cannot unload: " + archive;
-			RE_LOG(LogLevel::WARNING, message);
-		}
+        RE_ASSERT(PHYSFS_unmount(archive.c_str()), "Cannot unload: " + archive);
 	}
 
-	bool VFS::DoesExist(const std::string& fileName)
+	bool VFS::doesExist(const std::string& fileName)
 	{	
 		if (PHYSFS_exists(fileName.c_str()))
 		{
@@ -52,15 +46,17 @@ namespace re
 		}
 	}
 
-	std::string VFS::ToString(const std::string& fileName)
+	std::string VFS::toString(const std::string& fileName)
 	{
 		PHYSFS_file* myfile = PHYSFS_openRead(fileName.c_str());
 		PHYSFS_sint64 file_size = PHYSFS_fileLength(myfile);
 
+        RE_ASSERT(myfile, "Failed to created physfs file of " + fileName);
+        
 		char* myBuf = new char[file_size + 1];
 		myBuf[file_size] = '\0';
 
-		PHYSFS_read(myfile, myBuf, 1, file_size);
+		PHYSFS_read(myfile, myBuf, 1, (PHYSFS_uint32)file_size);
 
 		std::string str{ myBuf };
 
@@ -70,15 +66,17 @@ namespace re
 		return str;
 	}
 
-	char* VFS::ToBuffer(const std::string& fileName)
+	char* VFS::toBuffer(const std::string& fileName)
 	{
 		PHYSFS_file* myfile = PHYSFS_openRead(fileName.c_str());
 		PHYSFS_sint64 file_size = PHYSFS_fileLength(myfile);
 
+        RE_ASSERT(myfile, "Failed to created physfs file of " + fileName);
+        
 		char* myBuf = new char[file_size + 1];
 		myBuf[file_size] = '\0';
 
-		PHYSFS_read(myfile, myBuf, 1, file_size);
+		PHYSFS_read(myfile, myBuf, 1, (PHYSFS_uint32)file_size);
 
 		std::string str{ myBuf };
 

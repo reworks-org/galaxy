@@ -23,7 +23,7 @@ namespace re
 		* PURPOSE: Convert pixels to meters.
 		*/
 		template<typename T>
-		T PixelsToMeters(T pixels)
+		T pixelsToMeters(T pixels)
 		{
 			return pixels / PIXELS_PER_METERS;
 		}
@@ -34,7 +34,7 @@ namespace re
 		* PURPOSE: convert meters to pixels.
 		*/
 		template<typename T>
-		T MetersToPixels(T meters)
+		T metersToPixels(T meters)
 		{
 			return meters * PIXELS_PER_METERS;
 		}
@@ -45,7 +45,7 @@ namespace re
 		* PURPOSE: convert degrees to radians.
 		*/
 		template<typename T>
-		T DegToRad(T deg)
+		T degToRad(T deg)
 		{
 			return (PI * deg) / 180.0;
 		}
@@ -56,7 +56,7 @@ namespace re
 		* PURPOSE: convert radians to degrees.
 		*/
 		template<typename T>
-		T RadToDeg(T rad)
+		T radToDeg(T rad)
 		{
 			return (180.0 * rad) / PI;
 		}

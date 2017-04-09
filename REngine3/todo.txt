@@ -1,16 +1,7 @@
 TODO List:
 
 v0.8:
-- Build physfs from source zip on dropbox for windows.
-- use RE_ASSERT
-- fix camel case -> useThisForEverythingNow?
-- more logging code
-- make some get functions const
-- Better error checking & Exceptions.
-	- http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm
-	- https://www.packtpub.com/packtlib/book/Game%20Development/9781849696845/2/ch02lvl1sec18/Error%20handling
-- review header includes
-- use typedefs
+- ?
 
 v0.8.5:
 - tgui lua bridge

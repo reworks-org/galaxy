@@ -20,13 +20,13 @@ namespace re
 
 	PhysicsComponent::~PhysicsComponent()
 	{
-		Locator::Get<Box2DManager>()->m_world.DestroyBody(m_body);
+		Locator::get<Box2DManager>()->m_world.DestroyBody(m_body);
 	}
 
 	void PhysicsComponent::init(sol::table& table)
 	{
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::PixelsToMeters<double>(table.get<double>("x")), b2::PixelsToMeters<double>(table.get<double>("y")));
+		bodyDef.position.Set(b2::pixelsToMeters<double>(table.get<double>("x")), b2::pixelsToMeters<double>(table.get<double>("y")));
 
 		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))
@@ -45,7 +45,7 @@ namespace re
 		}
 
 		b2PolygonShape b2shape;
-		b2shape.SetAsBox(b2::PixelsToMeters<double>(table.get<double>("w") / 2.0), b2::PixelsToMeters<double>(table.get<double>("h") / 2.0), b2Vec2(b2::PixelsToMeters<double>(table.get<double>("w") / 2.0), b2::PixelsToMeters<double>(table.get<double>("h") / 2.0)), 0);
+		b2shape.SetAsBox(b2::pixelsToMeters<double>(table.get<double>("w") / 2.0), b2::pixelsToMeters<double>(table.get<double>("h") / 2.0), b2Vec2(b2::pixelsToMeters<double>(table.get<double>("w") / 2.0), b2::pixelsToMeters<double>(table.get<double>("h") / 2.0)), 0);
 
 		b2FixtureDef fixtureDef;
 		fixtureDef.density = table.get<double>("density");
@@ -53,7 +53,7 @@ namespace re
 		fixtureDef.restitution = table.get<double>("restitution");
 		fixtureDef.shape = &b2shape;
 
-		m_body = Locator::Get<Box2DManager>()->m_world.CreateBody(&bodyDef);
+		m_body = Locator::get<Box2DManager>()->m_world.CreateBody(&bodyDef);
 		m_body->CreateFixture(&fixtureDef);
 
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));

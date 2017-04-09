@@ -10,10 +10,8 @@
 #define RENGINE3_STATEMANAGER_HPP_
 
 #include <memory>
-#include <unordered_map>
 
 #include <SFML/System/Time.hpp>
-#include <SFML/Window/Event.hpp>
 
 #include "re/types/Service.hpp"
 
@@ -40,35 +38,35 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Load the states resources.
 		*/
-	    virtual void LoadResources() = 0;
+	    virtual void loadResources() = 0;
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Unload the states resources.
 		*/
-	    virtual void UnloadResources() = 0;
+	    virtual void unloadResources() = 0;
 	    
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-	    virtual void Event() = 0;
+	    virtual void event() = 0;
 
 		/*
 		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Updates the current state.
 		*/
-	    virtual void Update(sf::Time dt) = 0;
+	    virtual void update(sf::Time dt) = 0;
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Render the current state.
 		*/
-	    virtual void Render() = 0;
+	    virtual void render() = 0;
 
 	protected:
 		// Services
@@ -86,49 +84,49 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Change the current state. This unloads and reloads resources.
 		*/
-	    void ChangeState(std::shared_ptr<State> s);
+	    void changeState(std::shared_ptr<State> s);
 
 		/*
 		* IMPORTS: pointer to new state
 		* EXPORTS: none
 		* PURPOSE: This changes the state but WITHOUT CHANGING RESOURCES!
 		*/
-	    void SetState(std::shared_ptr<State> s);
+	    void setState(std::shared_ptr<State> s);
 	    
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-	    void Event();
+	    void event();
 
 		/*
 		* IMPORTS: delta time
 		* EXPORTS: none
 		* PURPOSE: Updates the current state.
 		*/
-	    void Update(sf::Time dt);
+	    void update(sf::Time dt);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Render the current state.
 		*/
-	    void Render();
+	    void render();
 	    
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Load the states resources.
 		*/
-	    void LoadResources();
+	    void loadResources();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Unload the states resources.
 		*/
-	    void UnloadResources();
+	    void unloadResources();
 			    
 	private:
 	    std::shared_ptr<State> m_currentState;

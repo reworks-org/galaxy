@@ -47,7 +47,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Loads the windows icon, make sure you call after adding VFS to the Locator class.
 		*/
-		void LoadIcon(const std::string& iconName);
+		void loadIcon(const std::string& iconName);
 
 	private:
 		sf::Image m_windowIcon;

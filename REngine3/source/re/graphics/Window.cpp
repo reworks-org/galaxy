@@ -29,7 +29,7 @@ namespace re
 	{
 	}
 
-	void Window::LoadIcon(const std::string& iconName)
+	void Window::loadIcon(const std::string& iconName)
 	{
 		m_iconStream.open(iconName);
 		m_windowIcon.loadFromStream(m_iconStream);

@@ -14,40 +14,40 @@ namespace re
 	{
 	}
 
-	void StateManager::ChangeState(std::shared_ptr<State> s)
+	void StateManager::changeState(std::shared_ptr<State> s)
 	{
-	    m_currentState->UnloadResources();
+	    m_currentState->unloadResources();
 		m_currentState = s;
-		m_currentState->LoadResources();
+		m_currentState->loadResources();
 	}
 
-	void StateManager::SetState(std::shared_ptr<State> s)
+	void StateManager::setState(std::shared_ptr<State> s)
 	{
 		m_currentState = s;
 	}
 
-	void StateManager::Event()
+	void StateManager::event()
 	{
-		m_currentState->Event();
+		m_currentState->event();
 	}
 
-	void StateManager::Update(sf::Time dt)
+	void StateManager::update(sf::Time dt)
 	{
-		m_currentState->Update(dt);
+		m_currentState->update(dt);
 	}
 
-	void StateManager::Render()
+	void StateManager::render()
 	{
-		m_currentState->Render();
+		m_currentState->render();
 	}
 
-	void StateManager::LoadResources()
+	void StateManager::loadResources()
 	{
-		m_currentState->LoadResources();
+		m_currentState->loadResources();
 	}
 
-	void StateManager::UnloadResources()
+	void StateManager::unloadResources()
 	{
-		m_currentState->UnloadResources();
+		m_currentState->unloadResources();
 	}
 }

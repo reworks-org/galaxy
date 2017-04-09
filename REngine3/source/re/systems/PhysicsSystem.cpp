@@ -40,28 +40,28 @@ namespace re
 		m_manager = nullptr;
 	}
 
-	void PhysicsSystem::AutoSubmit(World* world)
+	void PhysicsSystem::submit(World* world)
 	{
-		for (auto& it : world->GetAlive())
+		for (auto& it : world->getAliveEntitys())
 		{
-			if (it.second.Has<PhysicsComponent>() && it.second.Has<TransformComponent>())
+			if (it.second.has<PhysicsComponent>() && it.second.has<TransformComponent>())
 			{
-				AddEntity(&it.second);
+				addEntity(&it.second);
 			}
 		}
 	}
 
-	void PhysicsSystem::SubmitTiles(TMXMap* map)
+	void PhysicsSystem::addMapCollisions(TMXMap* map)
 	{
-		for (auto& v : map->GetCollisions())
+		for (auto& v : map->getCollisions())
 		{
 			b2BodyDef bodyDef;
-			bodyDef.position.Set(b2::PixelsToMeters<double>(v.left), b2::PixelsToMeters<double>(v.top));
+			bodyDef.position.Set(b2::pixelsToMeters<double>(v.left), b2::pixelsToMeters<double>(v.top));
 
 			bodyDef.type = b2BodyType::b2_staticBody;
 
 			b2PolygonShape b2shape;
-			b2shape.SetAsBox(b2::PixelsToMeters<double>(v.width / 2.0), b2::PixelsToMeters<double>(v.height / 2.0), b2Vec2(b2::PixelsToMeters<double>(v.width / 2.0), b2::PixelsToMeters<double>(v.height / 2.0)), 0);
+			b2shape.SetAsBox(b2::pixelsToMeters<double>(v.width / 2.0), b2::pixelsToMeters<double>(v.height / 2.0), b2Vec2(b2::pixelsToMeters<double>(v.width / 2.0), b2::pixelsToMeters<double>(v.height / 2.0)), 0);
 
 			b2FixtureDef fixtureDef;
 			fixtureDef.density = 1;
@@ -75,34 +75,34 @@ namespace re
 		}
 	}
 
-	void PhysicsSystem::AddEntity(Entity* e)
+	void PhysicsSystem::addEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("PhysicsSystem", std::type_index(typeid(PhysicsSystem)));
 		// we need to set the body's user data to the entity.
-		e->Get<PhysicsComponent>()->m_body->SetUserData(static_cast<void*>(e));
+		e->get<PhysicsComponent>()->m_body->SetUserData(static_cast<void*>(e));
 		m_entitys.emplace(e->m_name, e);
 	}
 
-	void PhysicsSystem::RemoveEntity(const std::string& name)
+	void PhysicsSystem::removeEntity(const std::string& name)
 	{
 		m_entitys.erase(name);
 	}
 
-	void PhysicsSystem::Update(sf::Time dt)
+	void PhysicsSystem::update(sf::Time dt)
 	{
 		m_manager->m_world.Step(1.0 / m_ups, m_velocityIterations, m_positionIterations);
 
 		for (auto& e : m_entitys)
 		{
-			auto phys = e.second->Get<PhysicsComponent>();
-			auto transf = e.second->Get<TransformComponent>();
+			auto phys = e.second->get<PhysicsComponent>();
+			auto transf = e.second->get<TransformComponent>();
 
-			transf->setPosition(b2::MetersToPixels<double>(phys->m_body->GetPosition().x), b2::MetersToPixels<double>(phys->m_body->GetPosition().y));
-			transf->setRotation(b2::RadToDeg<double>(phys->m_body->GetAngle()));
+			transf->setPosition(b2::metersToPixels<double>(phys->m_body->GetPosition().x), b2::metersToPixels<double>(phys->m_body->GetPosition().y));
+			transf->setRotation(b2::radToDeg<double>(phys->m_body->GetAngle()));
 
-			if (e.second->Has<AnimationComponent>() && (!phys->m_isMovingHoritontally))
+			if (e.second->has<AnimationComponent>() && (!phys->m_isMovingHoritontally))
 			{
-				e.second->Get<AnimationComponent>()->Pause();
+				e.second->get<AnimationComponent>()->pause();
 			}
 
 			if (phys->m_body->GetLinearVelocity().x < 0.2f)
@@ -112,7 +112,7 @@ namespace re
 		}
 	}
 
-	void PhysicsSystem::Clean()
+	void PhysicsSystem::clean()
 	{
 		m_entitys.clear();
 
@@ -121,8 +121,6 @@ namespace re
 			m_manager->m_world.DestroyBody(v);
 		}
 
-		m_mapCollisions.clear();
-
-		// We do not reset the manager pointer because we want to reuse it.
+        m_mapCollisions.clear();
 	}
 }

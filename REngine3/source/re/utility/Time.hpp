@@ -23,7 +23,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Get the current time and date in a std::string.
 		*/
-		inline std::string GetCurrentTimeAndDate()
+		inline std::string getCurrentTimeAndDate()
 		{
 			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 			std::string temp = std::ctime(&time);
@@ -39,7 +39,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Time and Date in XX::YY AM/PM format.
 		*/
-		inline std::string GetShortTimeAndDate()
+		inline std::string getShortTime()
 		{
 			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 			std::string temp = std::ctime(&time);

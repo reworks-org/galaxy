@@ -98,19 +98,19 @@ namespace re
 			switch (level)
 			{
 				case LogLevel::INFO:
-					std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
 				break;
 
 				case LogLevel::WARNING:
-					std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING: [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING: [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
 					break;
 
 				case LogLevel::FATAL:
-					std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:   [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:   [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
 					break;
 				
 				default:
-					std::cout << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::GetCurrentTimeAndDate() << "] - " << message << SetConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
 					break;
 			}
 		}

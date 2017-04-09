@@ -8,6 +8,8 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
+#include "re/component/TextComponent.hpp"
+#include "re/component/SpriteComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -34,58 +36,58 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void RenderSystem::AutoSubmit(World* world)
+	void RenderSystem::submit(World* world)
 	{
-		for (auto& it : world->GetAlive())
+		for (auto& it : world->getAliveEntitys())
 		{
-			if (it.second.Has<SpriteComponent>() || it.second.Has<TextComponent>())
+			if (it.second.has<SpriteComponent>() || it.second.has<TextComponent>())
 			{
-				AddEntity(&it.second);
+				addEntity(&it.second);
 			}
 		}
 	}
 
-	void RenderSystem::AddEntity(Entity* e)
+	void RenderSystem::addEntity(Entity* e)
 	{
 		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
 		{
 			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 		}
 
-		if (e->Has<SpriteComponent>())
+		if (e->has<SpriteComponent>())
 		{
-			m_groups[e->Get<SpriteComponent>()->m_group].AddDrawable(e->m_name, e->Get<SpriteComponent>(), e->Get<TransformComponent>());
+			m_groups[e->get<SpriteComponent>()->m_group].addDrawable(e->m_name, e->get<SpriteComponent>(), e->get<TransformComponent>());
 		}
 
-		if (e->Has<TextComponent>())
+		if (e->has<TextComponent>())
 		{
-			m_groups[e->Get<TextComponent>()->m_group].AddDrawable(e->m_name, e->Get<TextComponent>(), e->Get<TransformComponent>());
+			m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>(), e->get<TransformComponent>());
 		}
 	}
 
-	void RenderSystem::AddGenericDrawable(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> d, std::shared_ptr<sf::Transformable> t)
+	void RenderSystem::addGenericDrawable(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> d, std::shared_ptr<sf::Transformable> t)
 	{
 		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
 		{
 			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 		}
 
-		m_groups[group].AddDrawable(e->m_name, d, t);
+		m_groups[group].addDrawable(e->m_name, d, t);
 	}
 
-	void RenderSystem::RemoveEntity(const std::string& name)
+	void RenderSystem::removeEntity(const std::string& name)
 	{
 		for (auto& v : m_groups)
 		{
-			auto found = v.GetDrawableMap().find(name);
-			if (found != v.GetDrawableMap().end())
+			auto found = v.getDrawableMap().find(name);
+			if (found != v.getDrawableMap().end())
 			{
-				v.GetDrawableMap().erase(name);
+				v.getDrawableMap().erase(name);
 			}
 		}
 	}
 
-	void RenderSystem::Render(Window* window)
+	void RenderSystem::render(Window* window)
 	{
 		for (auto& g : m_groups)
 		{
@@ -93,11 +95,11 @@ namespace re
 		}
 	}
 
-	void RenderSystem::Clean()
+	void RenderSystem::clean()
 	{
 		for (auto& v : m_groups)
 		{
-			v.GetDrawableMap().clear();
+			v.getDrawableMap().clear();
 		}
 
 		m_entitys.clear();

@@ -12,7 +12,6 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 
 #include "re/utility/Log.hpp"
-#include "re/entity/Entity.hpp"
 #include "re/graphics/sw/Line.hpp"
 #include "re/graphics/EllipseShape.hpp"
 #include "re/component/TransformComponent.hpp"
@@ -33,9 +32,9 @@ namespace re
 		return (void*)tex;
 	}
 
-	void sf_tex_deleter(void* address)
+	void sf_tex_deleter(void* data)
 	{
-		delete address;
+		delete (sf::Texture*)data;
 	}
 
 	sf::Color TMXMap::int_to_sf_colour(int colour)
@@ -166,7 +165,7 @@ namespace re
 		}
 	}
 
-	void TMXMap::draw_anim_layer(tmx_map *map, tmx_layer *layer, sf::Time dt)
+	void TMXMap::drawAnimationLayer(tmx_map *map, tmx_layer *layer, sf::Time dt)
 	{
 		unsigned long i, j;
 		unsigned int gid;
@@ -264,7 +263,7 @@ namespace re
 		m_batchTexture.display();
 	}
 
-	void TMXMap::parse_collisions(tmx_map *map)
+	void TMXMap::parseCollisions(tmx_map *map)
 	{
 		tmx_layer *layers = map->ly_head;
 
@@ -299,11 +298,8 @@ namespace re
 		tmx_img_load_func = sf_tex_loader;
 		tmx_img_free_func = sf_tex_deleter;
 
-		m_map = tmx::MakeMap(map);
-		if (!m_map.get())
-		{
-			RE_LOG(LogLevel::FATAL, tmx_strerr());
-		}
+		m_map = tmx::make(map);
+        RE_ASSERT(m_map.get(), tmx_strerr());
 
 		m_width = m_map->width * m_map->tile_width;
 		m_height = m_map->height * m_map->tile_height;
@@ -312,20 +308,17 @@ namespace re
 		m_animatedBatchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
-		parse_collisions(m_map.get());
+		parseCollisions(m_map.get());
 	}
 
 	TMXMap::~TMXMap()
 	{
 	}
 
-	void TMXMap::Load(const std::string& map)
+	void TMXMap::load(const std::string& map)
 	{
-		m_map = tmx::MakeMap(map);
-		if (!m_map.get())
-		{
-			RE_LOG(LogLevel::FATAL, tmx_strerr());
-		}
+		m_map = tmx::make(map);
+		RE_ASSERT(m_map.get(), tmx_strerr());
 
 		m_width = m_map->width * m_map->tile_width;
 		m_height = m_map->height * m_map->tile_height;
@@ -334,10 +327,10 @@ namespace re
 		m_batchTexture.create(m_width, m_height);
 
 		render_map(m_map.get());
-		parse_collisions(m_map.get());
+		parseCollisions(m_map.get());
 	}
 
-	void TMXMap::Update(sf::Time dt)
+	void TMXMap::update(sf::Time dt)
 	{
 		tmx_layer* layers = m_map->ly_head;
 		
@@ -347,7 +340,7 @@ namespace re
 		{
 			if (layers->visible) {
 				if (layers->type == L_LAYER) {
-					draw_anim_layer(m_map.get(), layers, dt);
+					drawAnimationLayer(m_map.get(), layers, dt);
 				}
 			}
 			layers = layers->next;
@@ -356,7 +349,7 @@ namespace re
 		m_animatedBatchTexture.display();
 	}
 
-	std::vector<sf::IntRect>& TMXMap::GetCollisions()
+	std::vector<sf::IntRect>& TMXMap::getCollisions()
 	{
 		return m_tileCollisions;
 	}

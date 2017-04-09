@@ -36,35 +36,35 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Automatically adds entitys to the system.
 		*/
-		void AutoSubmit(World* world) override;
+		void submit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.
 		*/
-		void AddEntity(Entity* e) override;
+		void addEntity(Entity* e) override;
 
 		/*
 		* IMPORTS: id of entity to remove
 		* EXPORTS: none
 		* PURPOSE: Remove an entitys components from the system.
 		*/
-		void RemoveEntity(const std::string& name) override;
+		void removeEntity(const std::string& name) override;
 
 		/*
 		* IMPORTS: Event to dispatch
 		* EXPORTS: none
 		* PURPOSE: Dispatch an event to subscribed entitys.
 		*/
-		void Dispatch(EventType type);
+		void dispatch(EventType type);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
-		void Clean() override;
+		void clean() override;
 	};
 }
 

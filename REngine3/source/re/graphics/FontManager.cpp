@@ -15,14 +15,14 @@ namespace re
 		m_fontMap.clear();
 	}
 
-	void FontManager::Add(const std::string& name, const std::string& fontName)
+	void FontManager::add(const std::string& name, const std::string& fontName)
 	{
 		m_fontMap.emplace(name, std::make_pair(std::make_unique<sf::physfs>(), std::make_shared<sf::Font>()));
 		m_fontMap[name].first->open(fontName);
 		m_fontMap[name].second->loadFromStream(*(m_fontMap[name].first));
 	}
 
-	sf::Font& FontManager::Get(const std::string& name)
+	sf::Font& FontManager::get(const std::string& name)
 	{
 		return *(m_fontMap[name].second);
 	}
