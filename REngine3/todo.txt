@@ -1,33 +1,20 @@
 TODO List:
 
 v0.8:
-- ?
-
-v0.8.5:
-- tgui lua bridge
-- redo sprite and text component
+- fix type castings...
 
 v0.9:
 - proper loading system
 - phyics system needs to have customizeable values when parsing tiles
-- learn to use std::thread
 - sfml inbuilt post-processing & shaders
+- Debug gui using IMGUI
 
 v1.0:
 - fix all warnings/errors
 - fix debug information format in properties
-- Debug gui using IMGUI
 - proper credits file
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
+- tgui lua bridge
 
 v1.1:
 - Audio spacialization
-
-
-v1.2:
-- Multithreading:
-	- http://www.sfml-dev.org/tutorials/2.4/system-thread.php
-	- https://www.reddit.com/r/gamedev/comments/44fux4/multi_threading_in_game_development/
-	- updates in another thread
-	- rendering in another thread
-	- multithreaded physics

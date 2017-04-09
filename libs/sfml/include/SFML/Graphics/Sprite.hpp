@@ -22,6 +22,12 @@
 //
 ////////////////////////////////////////////////////////////
 
+/*
+
+THIS FILE HAS BEEN MODIFIED FOR USE IN RENGINE3.
+
+*/
+
 #ifndef SFML_SPRITE_HPP
 #define SFML_SPRITE_HPP
 

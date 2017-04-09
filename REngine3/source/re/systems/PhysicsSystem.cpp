@@ -19,7 +19,7 @@
 
 namespace re
 {
-	PhysicsSystem::PhysicsSystem(Box2DManager* manager, double ups, double vi, double pi)
+	PhysicsSystem::PhysicsSystem(Box2DManager* manager, float ups, float vi, float pi)
 	{
 		m_manager = manager;
 		m_ups = ups;
@@ -56,7 +56,7 @@ namespace re
 		for (auto& v : map->getCollisions())
 		{
 			b2BodyDef bodyDef;
-			bodyDef.position.Set(b2::pixelsToMeters<double>(v.left), b2::pixelsToMeters<double>(v.top));
+			bodyDef.position.Set((float)b2::pixelsToMeters<double>(v.left), (float)b2::pixelsToMeters<double>(v.top));
 
 			bodyDef.type = b2BodyType::b2_staticBody;
 

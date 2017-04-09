@@ -69,7 +69,7 @@ namespace re
 		* EXPORTS: std::vector of rects defining collisions
 		* PURPOSE: To retrieve the collideable tiles on the map.
 		*/
-		std::vector<sf::IntRect>& getCollisions();
+		std::vector<sf::Rect<double>>& getCollisions();
 
 	private:
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
@@ -97,7 +97,7 @@ namespace re
 		int m_height;
 
 		tmx::Ptr m_map;
-		std::vector<sf::IntRect> m_tileCollisions;
+		std::vector<sf::Rect<double>> m_tileCollisions;
 		sf::RenderTexture m_batchTexture;
 		sf::RenderTexture m_animatedBatchTexture;
 	};

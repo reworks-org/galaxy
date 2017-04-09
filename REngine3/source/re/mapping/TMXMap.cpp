@@ -54,7 +54,7 @@ namespace re
 		int i;
 		for (i = 1; i<pointsc; i++)
 		{
-			sw::Line line(sf::Vector2f(x + points[i - 1][0], y + points[i - 1][1]), sf::Vector2f(x + points[i][0], y + points[i][1]), SF_THICKNESS, col);
+			sw::Line line(sf::Vector2f((float)(x + points[i - 1][0]), (float)(y + points[i - 1][1])), sf::Vector2f((float)(x + points[i][0]), (float)(y + points[i][1])), SF_THICKNESS, col);
 			
 			m_batchTexture.draw(line);
 		}
@@ -65,7 +65,7 @@ namespace re
 		draw_polyline(points, x, y, pointsc, col);
 		if (pointsc > 2)
 		{
-			sw::Line line(sf::Vector2f(x + points[0][0], y + points[0][1]), sf::Vector2f(x + points[pointsc - 1][0], y + points[pointsc - 1][1]), SF_THICKNESS, col);
+			sw::Line line(sf::Vector2f((float)(x + points[0][0]), (float)(y + points[0][1])), sf::Vector2f((float)(x + points[pointsc - 1][0]), (float)(y + points[pointsc - 1][1])), SF_THICKNESS, col);
 
 			m_batchTexture.draw(line);
 		}
@@ -84,8 +84,8 @@ namespace re
 			{
 				if (head->shape == S_SQUARE)
 				{
-					rect.setPosition(head->x, head->y);
-					rect.setSize(sf::Vector2f(head->width, head->height));
+					rect.setPosition((float)head->x, (float)head->y);
+					rect.setSize(sf::Vector2f((float)head->width, (float)head->height));
 					rect.setFillColor(sf::Color::Transparent);
 					rect.setOutlineColor(col);
 					rect.setOutlineThickness(SF_THICKNESS);
@@ -103,8 +103,8 @@ namespace re
 				else if (head->shape == S_ELLIPSE)
 				{
 					// may need to change
-					elip.setPosition(sf::Vector2f(head->x, head->y));
-					elip.setRadius(sf::Vector2f(head->width / 2.0, head->height / 2.0));
+					elip.setPosition(sf::Vector2f((float)head->x, (float)head->y));
+					elip.setRadius(sf::Vector2f((float)(head->width / 2.0), (float)(head->height / 2.0)));
 					elip.setFillColor(sf::Color::Transparent);
 					elip.setOutlineColor(col);
 					elip.setOutlineThickness(SF_THICKNESS);
@@ -126,7 +126,7 @@ namespace re
 	{
 		unsigned long i, j;
 		unsigned int gid;
-		float op;
+		double op;
 
 		sf::Texture* tilesetImage = nullptr;
 		tmx_tileset *ts;
@@ -156,7 +156,7 @@ namespace re
 						
 						sf::Sprite tileSprite;
 						tileSprite.setTexture(*(tilesetImage));
-						tileSprite.setPosition(j*ts->tile_width, i*ts->tile_height);
+						tileSprite.setPosition((float)(j*ts->tile_width), (float)(i*ts->tile_height));
 						tileSprite.setTextureRect(sf::IntRect(map->tiles[gid]->ul_x, map->tiles[gid]->ul_y, ts->tile_width, ts->tile_height));
 						m_batchTexture.draw(tileSprite);
 					}
@@ -169,7 +169,7 @@ namespace re
 	{
 		unsigned long i, j;
 		unsigned int gid;
-		float op;
+		double op;
 
 		sf::Texture* tilesetImage = nullptr;
 		tmx_tileset *ts;
@@ -218,7 +218,7 @@ namespace re
 
 						sf::Sprite tileSprite;
 						tileSprite.setTexture(*(tilesetImage));
-						tileSprite.setPosition(j*ts->tile_width, i*ts->tile_height);
+						tileSprite.setPosition((float)(j*ts->tile_width), (float)(i*ts->tile_height));
 						tileSprite.setTextureRect(sf::IntRect(tx, ty, ts->tile_width, ts->tile_height));
 						m_animatedBatchTexture.draw(tileSprite);
 					}
@@ -276,7 +276,7 @@ namespace re
 				tmx_object *head = objgr->head;
 				while (head)
 				{
-					sf::IntRect rect(head->x, head->y, head->width, head->height);
+					sf::Rect<double> rect(head->x, head->y, head->width, head->height);
 					m_tileCollisions.push_back(rect);
 
 					head = head->next;
@@ -349,7 +349,7 @@ namespace re
 		m_animatedBatchTexture.display();
 	}
 
-	std::vector<sf::IntRect>& TMXMap::getCollisions()
+	std::vector<sf::Rect<double>>& TMXMap::getCollisions()
 	{
 		return m_tileCollisions;
 	}

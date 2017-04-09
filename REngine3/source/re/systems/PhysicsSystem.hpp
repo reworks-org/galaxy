@@ -25,7 +25,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		PhysicsSystem(Box2DManager* manager, double ups, double vi, double pi);
+		PhysicsSystem(Box2DManager* manager, float ups, float vi, float pi);
 
 		/*
 		* IMPORTS: none
@@ -77,9 +77,9 @@ namespace re
 		void clean() override;
 
 	private:
-		double m_ups;
-		int m_velocityIterations;
-		int m_positionIterations;
+		float m_ups;
+		float m_velocityIterations;
+		float m_positionIterations;
 
 		Box2DManager* m_manager;
 		std::vector<b2Body*> m_mapCollisions;
