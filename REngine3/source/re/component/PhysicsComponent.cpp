@@ -26,7 +26,7 @@ namespace re
 	void PhysicsComponent::init(sol::table& table)
 	{
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::pixelsToMeters<double>(table.get<double>("x")), b2::pixelsToMeters<double>(table.get<double>("y")));
+		bodyDef.position.Set((float32)b2::pixelsToMeters<double>(table.get<double>("x")), (float32)b2::pixelsToMeters<double>(table.get<double>("y")));
 
 		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))
@@ -45,12 +45,12 @@ namespace re
 		}
 
 		b2PolygonShape b2shape;
-		b2shape.SetAsBox(b2::pixelsToMeters<double>(table.get<double>("w") / 2.0), b2::pixelsToMeters<double>(table.get<double>("h") / 2.0), b2Vec2(b2::pixelsToMeters<double>(table.get<double>("w") / 2.0), b2::pixelsToMeters<double>(table.get<double>("h") / 2.0)), 0);
+		b2shape.SetAsBox((float32)b2::pixelsToMeters<double>(table.get<double>("w") / 2.0), (float32)b2::pixelsToMeters<double>(table.get<double>("h") / 2.0), b2Vec2((float32)b2::pixelsToMeters<double>(table.get<double>("w") / 2.0), (float32)b2::pixelsToMeters<double>(table.get<double>("h") / 2.0)), 0);
 
 		b2FixtureDef fixtureDef;
-		fixtureDef.density = table.get<double>("density");
-		fixtureDef.friction = table.get<double>("friction");
-		fixtureDef.restitution = table.get<double>("restitution");
+		fixtureDef.density = table.get<float32>("density");
+		fixtureDef.friction = table.get<float32>("friction");
+		fixtureDef.restitution = table.get<float32>("restitution");
 		fixtureDef.shape = &b2shape;
 
 		m_body = Locator::get<Box2DManager>()->m_world.CreateBody(&bodyDef);

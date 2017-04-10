@@ -53,7 +53,7 @@ namespace re
 
         RE_ASSERT(myfile, "Failed to created physfs file of " + fileName);
         
-		char* myBuf = new char[file_size + 1];
+		char* myBuf = new char[(unsigned int)file_size + 1];
 		myBuf[file_size] = '\0';
 
 		PHYSFS_read(myfile, myBuf, 1, (PHYSFS_uint32)file_size);
@@ -73,7 +73,7 @@ namespace re
 
         RE_ASSERT(myfile, "Failed to created physfs file of " + fileName);
         
-		char* myBuf = new char[file_size + 1];
+		char* myBuf = new char[(unsigned int)file_size + 1];
 		myBuf[file_size] = '\0';
 
 		PHYSFS_read(myfile, myBuf, 1, (PHYSFS_uint32)file_size);

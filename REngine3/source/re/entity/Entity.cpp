@@ -37,7 +37,7 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-        RE_ASSERT(m_keyValuePair.empty(), "Attempted to load an entity with no component data! Entity.cpp");
+        RE_ASSERT_EQUAL(m_keyValuePair.empty(), true, "Attempted to load an entity with no component data! Entity.cpp");
         
 		// Create list.
 		cl[m_name] = ComponentList();

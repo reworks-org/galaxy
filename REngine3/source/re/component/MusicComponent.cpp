@@ -36,7 +36,7 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-        RE_ASSERT(m_keyValuePair.empty(), "Tried to load music with no data! MusicComponent.cpp");
+        RE_ASSERT_EQUAL(m_keyValuePair.empty(), true, "Tried to load music with no data! MusicComponent.cpp");
         
 		for (auto& kvp : m_keyValuePair)
 		{

@@ -21,35 +21,35 @@ namespace re
 		m_entitys.clear();
 	}
 
-	void MoveSystem::AutoSubmit(World* world)
+	void MoveSystem::submit(World* world)
 	{
-		for (auto& it : world->GetAlive())
+		for (auto& it : world->getAliveEntitys())
 		{
-			if (it.second.Has<PhysicsComponent>() && it.second.Has<TransformComponent>())
+			if (it.second.has<PhysicsComponent>() && it.second.has<TransformComponent>())
 			{
-				AddEntity(&it.second);
+				addEntity(&it.second);
 			}
 		}
 	}
 
-	void MoveSystem::AddEntity(Entity* e)
+	void MoveSystem::addEntity(Entity* e)
 	{
 		e->m_systemIds.emplace("MoveSystem", std::type_index(typeid(MoveSystem)));
 		m_entitys.emplace(e->m_name, e);
 	}
 
-	void MoveSystem::RemoveEntity(const std::string& name)
+	void MoveSystem::removeEntity(const std::string& name)
 	{
 		m_entitys.erase(name);
 	}
 
-	void MoveSystem::Move(const std::string& name, double velocity)
+	void MoveSystem::move(const std::string& name, double velocity)
 	{
 		auto found = m_entitys.find(name);
 
 		if (found != m_entitys.end())
 		{
-			auto phys = found->second->Get<PhysicsComponent>();
+			auto phys = found->second->get<PhysicsComponent>();
 			auto vel = phys->m_body->GetLinearVelocity();
 
 			phys->m_isMovingHoritontally = true;
@@ -58,14 +58,14 @@ namespace re
 		}
 	}
 
-	void MoveSystem::Jump(const std::string& name, double velocity)
+	void MoveSystem::jump(const std::string& name, double velocity)
 	{
 		velocity *= -1;
 		auto found = m_entitys.find(name);
 
 		if (found != m_entitys.end())
 		{
-			auto phys = found->second->Get<PhysicsComponent>();
+			auto phys = found->second->get<PhysicsComponent>();
 			auto vel = phys->m_body->GetLinearVelocity();
 
 			if (!phys->m_isMovingVertically)
@@ -77,7 +77,7 @@ namespace re
 		}
 	}
 
-	void MoveSystem::Clean()
+	void MoveSystem::clean()
 	{
 		m_entitys.clear();
 	}

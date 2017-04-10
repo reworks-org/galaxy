@@ -24,7 +24,7 @@ void SandboxContact::BeginContact(b2Contact* contact)
 
 	if (a != nullptr && b != nullptr)
 	{
-		auto map = re::Locator::Get<re::Box2DManager>()->m_collisionFunctions;
+		auto map = re::Locator::get<re::Box2DManager>()->m_collisionFunctions;
 		auto tree = map.find(std::make_pair(a->m_name, b->m_name));
 
 		if (tree != map.end())

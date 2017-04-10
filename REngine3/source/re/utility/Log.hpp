@@ -73,7 +73,6 @@ throw std::runtime_error(message); \
 
 // Legacy macros, for classes and functions that use them.
 #define RE_LOG(level, message) re::log(level, message)
-#define RE_ENABLE_LOG(value) re::s_enableLogging = value
 
 namespace re
 {
@@ -84,8 +83,6 @@ namespace re
 		FATAL
 	};
 
-	static bool s_enableLogging = false;
-
 	/*
 	* IMPORTS: level - enum of log level, message - the message to log.
 	* EXPORTS: none
@@ -93,26 +90,23 @@ namespace re
 	*/
 	inline void log(LogLevel level, const std::string& message)
 	{
-		if (s_enableLogging)
+		switch (level)
 		{
-			switch (level)
-			{
-				case LogLevel::INFO:
-					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-				break;
+		case LogLevel::INFO:
+			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+			break;
 
-				case LogLevel::WARNING:
-					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING: [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-					break;
+		case LogLevel::WARNING:
+			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING: [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+			break;
 
-				case LogLevel::FATAL:
-					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:   [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-					break;
-				
-				default:
-					std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-					break;
-			}
+		case LogLevel::FATAL:
+			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:   [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+			break;
+
+		default:
+			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
+			break;
 		}
 	}
 }

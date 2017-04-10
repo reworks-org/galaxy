@@ -47,7 +47,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: To create a new entity and add it to the world.
 		*/
-		void createEntity(const std::string& entitysScript);
+		void registerEntitys(const std::string& entitysScript);
 
 		/*
 		* IMPORTS: name of entity to get, and if it is dead or not.

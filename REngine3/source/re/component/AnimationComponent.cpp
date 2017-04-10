@@ -44,7 +44,7 @@ namespace re
 			m_keyValuePairAnimations.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
         
-        RE_ASSERT(m_keyValuePairAnimations.empty(), "Tried to load animation with no frames! AnimatonComponent.cpp");
+        RE_ASSERT_EQUAL(m_keyValuePairAnimations.empty(), true, "Tried to load animation with no frames! AnimatonComponent.cpp");
         
 		for (auto& it : m_keyValuePairAnimations)
 		{

@@ -48,7 +48,7 @@ namespace re
 		registerComponent<AnimationComponent>("AnimationComponent");
 	}
 
-	void World::createEntity(const std::string& entitysScript)
+	void World::registerEntitys(const std::string& entitysScript)
 	{
 		sol::state lua;
 		lua.script(Locator::get<VFS>()->toString(entitysScript));
@@ -61,6 +61,8 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
 		});
 
+		RE_ASSERT_EQUAL(m_keyValuePair.empty(), true, "Attempted to register an empty entity script! World.cpp");
+
 		for (auto& it : m_keyValuePair)
 		{
 			m_alive.emplace(it.first, Entity());
@@ -72,7 +74,7 @@ namespace re
 	{
 		auto found = m_alive.find(name);
         
-        RE_ASSERT_NOTEQUAL(found, m_alive.end(), "Attempted to access non-existant entity!")
+        RE_ASSERT_EQUAL(found, m_alive.end(), "Attempted to access non-existant entity!")
         
         return m_alive[name];
 	}

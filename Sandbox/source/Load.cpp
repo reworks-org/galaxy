@@ -12,6 +12,7 @@
 #include <re/services/vfs/VFS.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/services/ServiceLocator.hpp>
+#include <re/component/SpriteComponent.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
 
@@ -22,7 +23,7 @@ using namespace re;
 
 std::shared_ptr<State> Load::m_loadState = std::make_shared<Load>();
 
-std::shared_ptr<State> Load::Inst()
+std::shared_ptr<State> Load::inst()
 {
 	return m_loadState;
 }
@@ -31,26 +32,26 @@ Load::~Load()
 {
 }
 
-void Load::LoadResources()
+void Load::loadResources()
 {
-	m_window = Locator::Get<Window>();
-	m_world = Locator::Get<World>();
-	m_vfs = Locator::Get<VFS>();
-	m_config = Locator::Get<ConfigReader>();
+	m_window = Locator::get<Window>();
+	m_world = Locator::get<World>();
+	m_vfs = Locator::get<VFS>();
+	m_config = Locator::get<ConfigReader>();
 
-	m_world->Register("loadEntitys.lua");
-	m_world->Get("loadScreen").Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+	m_world->registerEntitys("loadEntitys.lua");
+	m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
-	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
+	m_world->getSystem<RenderSystem>()->submit(m_world);
 }
 
-void Load::UnloadResources()
+void Load::unloadResources()
 {
-	m_world->Get<RenderSystem>()->Clean();
-	m_world->Clean();
+	m_world->getSystem<RenderSystem>()->clean();
+	m_world->clean();
 }
 
-void Load::Event()
+void Load::event()
 {
 	while (m_window->pollEvent(m_window->m_event))
 	{
@@ -69,13 +70,13 @@ void Load::Event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		Locator::Get<StateManager>()->ChangeState(Menu::Inst());
+		Locator::get<StateManager>()->changeState(Menu::inst());
 	}
 }
 
-void Load::Update(sf::Time dt)
+void Load::update(sf::Time dt)
 {
-	m_world->Update(dt);
+	m_world->update(dt);
 	
 	m_timePassed += dt;
 
@@ -88,20 +89,20 @@ void Load::Update(sf::Time dt)
 			m_alpha = 0;
 		}
 
-		m_world->Get("loadScreen").Get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+		m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 
 		if (m_alpha <= 0)
 		{
-			Locator::Get<StateManager>()->ChangeState(Menu::Inst());
+			Locator::get<StateManager>()->changeState(Menu::inst());
 		}
 	}
 }
 
-void Load::Render()
+void Load::render()
 {
 	m_window->clear(sf::Color::Black);
 
-	m_world->Get<RenderSystem>()->Render(m_window);
+	m_world->getSystem<RenderSystem>()->render(m_window);
 
 	m_window->display();
 }

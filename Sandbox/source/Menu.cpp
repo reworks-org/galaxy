@@ -26,6 +26,7 @@
 #include <re/physics/Box2DManager.hpp>
 #include <re/component/PhysicsComponent.hpp>
 #include <re/utility/Time.hpp>
+#include <re/utility/Serialization.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
 
@@ -36,7 +37,7 @@ using namespace re;
 
 std::shared_ptr<State> Menu::m_menuState = std::make_shared<Menu>();
 
-std::shared_ptr<State> Menu::Inst()
+std::shared_ptr<State> Menu::inst()
 {
 	return m_menuState;
 }
@@ -45,22 +46,22 @@ Menu::~Menu()
 {
 }
 
-void Menu::LoadResources()
+void Menu::loadResources()
 {
-	m_window = Locator::Get<Window>();
-	m_world = Locator::Get<World>();
-	m_vfs = Locator::Get<VFS>();
-	m_config = Locator::Get<ConfigReader>();
+	m_window = Locator::get<Window>();
+	m_world = Locator::get<World>();
+	m_vfs = Locator::get<VFS>();
+	m_config = Locator::get<ConfigReader>();
 
-	m_world->Register("menuEntitys.lua");
+	m_world->registerEntitys("menuEntitys.lua");
 
-	m_world->Get("person").Get<EventComponent>()->SubmitOnEvent(Event::MOUSE_PRESSED, []() { RE_LOG(LogLevel::INFO, "Click!"); });
+	m_world->getEntity("person").get<EventComponent>()->submitOnEvent(Event::MOUSE_PRESSED, []() { RE_LOG(LogLevel::INFO, "Click!"); });
 
-	m_world->Get<MoveSystem>()->AutoSubmit(m_world);
-	m_world->Get<RenderSystem>()->AutoSubmit(m_world);
-	m_world->Get<EventSystem>()->AutoSubmit(m_world);
-	m_world->Get<PhysicsSystem>()->AutoSubmit(m_world);
-	m_world->Get<AnimationSystem>()->AutoSubmit(m_world);
+	m_world->getSystem<MoveSystem>()->submit(m_world);
+	m_world->getSystem<RenderSystem>()->submit(m_world);
+	m_world->getSystem<EventSystem>()->submit(m_world);
+	m_world->getSystem<PhysicsSystem>()->submit(m_world);
+	m_world->getSystem<AnimationSystem>()->submit(m_world);
 
 	m_gui.setWindow(*(m_window));
 
@@ -71,27 +72,27 @@ void Menu::LoadResources()
 	}
 
 	tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
-	button->connect("pressed", []() {Locator::Get<StateManager>()->ChangeState(Game::Inst()); });
+	button->connect("pressed", []() {Locator::get<StateManager>()->changeState(Game::inst()); });
 	m_gui.add(button, "testbutton");
 
 	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
 	m_gui.add(time, "testlabel");
 
-	Locator::Get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](Entity* a, Entity* b) { b->Get<PhysicsComponent>()->m_isMovingVertically = false;});
+	Locator::get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](Entity* a, Entity* b) { b->get<PhysicsComponent>()->m_isMovingVertically = false;});
 }
 
-void Menu::UnloadResources()
+void Menu::unloadResources()
 {
 	m_gui.removeAllWidgets();
 
-	m_world->Get<RenderSystem>()->Clean();
-	m_world->Get<EventSystem>()->Clean();
-	m_world->Get<MoveSystem>()->Clean();
-	m_world->Get<PhysicsSystem>()->Clean();
-	m_world->Clean();
+	m_world->getSystem<RenderSystem>()->clean();
+	m_world->getSystem<EventSystem>()->clean();
+	m_world->getSystem<MoveSystem>()->clean();
+	m_world->getSystem<PhysicsSystem>()->clean();
+	m_world->clean();
 }
 
-void Menu::Event()
+void Menu::event()
 {
 	// TODO: fix movement and jumping
 
@@ -109,12 +110,12 @@ void Menu::Event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		Serialization::Save(m_world, "test.sf");
+		Serialization::save(m_world, "test.sf");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
 	{
-		Serialization::Load(m_world, "test.sf");
+		Serialization::load(m_world, "test.sf");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -124,52 +125,52 @@ void Menu::Event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		m_world->Get("person").Get<AnimationComponent>()->Play();
-		m_world->Get<MoveSystem>()->Move("person", -5);
+		m_world->getEntity("person").get<AnimationComponent>()->play();
+		m_world->getSystem<MoveSystem>()->move("person", -5);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		m_world->Get("person").Get<AnimationComponent>()->Play();
-		m_world->Get<MoveSystem>()->Move("person", 5);
+		m_world->getEntity("person").get<AnimationComponent>()->play();
+		m_world->getSystem<MoveSystem>()->move("person", 5);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		m_world->Get("person").Get<AnimationComponent>()->Play();
-		m_world->Get<MoveSystem>()->Jump("person", 5);
+		m_world->getEntity("person").get<AnimationComponent>()->pause();
+		m_world->getSystem<MoveSystem>()->jump("person", 5);
 	}
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
-		m_world->Get<EventSystem>()->Dispatch(Event::MOUSE_PRESSED);
+		m_world->getSystem<EventSystem>()->dispatch(Event::MOUSE_PRESSED);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
 	{
-		m_world->KillEntity("person");
+		m_world->killEntity("person");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
-		m_world->ReviveEntity("person");
+		m_world->restoreEntity("person");
 	}
 }
 
-void Menu::Update(sf::Time dt)
+void Menu::update(sf::Time dt)
 {
-	m_world->Update(dt);
-	m_world->Get<AnimationSystem>()->Update(dt);
-	m_world->Get<PhysicsSystem>()->Update(dt);
+	m_world->update(dt);
+	m_world->getSystem<AnimationSystem>()->update(dt);
+	m_world->getSystem<PhysicsSystem>()->update(dt);
 
-	m_gui.get<tgui::Label>("testlabel")->setText(Time::GetShortTimeAndDate());
+	m_gui.get<tgui::Label>("testlabel")->setText(Time::getShortTime());
 }
 
-void Menu::Render()
+void Menu::render()
 {
 	m_window->clear(sf::Color::Black);
 
-	m_world->Get<RenderSystem>()->Render(m_window);
+	m_world->getSystem<RenderSystem>()->render(m_window);
 	m_gui.draw();
 
 	m_window->display();

@@ -25,7 +25,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		Box2DManager(double gravity);
+		Box2DManager(float32 gravity);
 
 	private:
 		b2Vec2 m_gravity;

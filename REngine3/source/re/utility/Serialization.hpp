@@ -21,7 +21,7 @@
 
 namespace re
 {
-	namespace serialization
+	namespace Serialization
 	{
 		/*
 		* IMPORTS: none
@@ -34,16 +34,16 @@ namespace re
 
 			boost::archive::binary_oarchive oa(out);
 
-			for (auto& it : world->GetAlive())
+			for (auto& it : world->getAliveEntitys())
 			{
 				oa << it.second;
-				oa << *(it.second.Get<TransformComponent>());
+				oa << *(it.second.get<TransformComponent>());
 			}
 
-			for (auto& it : world->GetDead())
+			for (auto& it : world->getDeadEntitys())
 			{
 				oa << it.second;
-				oa << *(it.second.Get<TransformComponent>());
+				oa << *(it.second.get<TransformComponent>());
 			}
 
 			out.close();
@@ -60,16 +60,16 @@ namespace re
 
 			boost::archive::binary_iarchive ia(in);
 
-			for (auto& it : world->GetAlive())
+			for (auto& it : world->getAliveEntitys())
 			{
 				ia >> it.second;
-				ia >> *(it.second.Get<TransformComponent>());
+				ia >> *(it.second.get<TransformComponent>());
 			}
 
-			for (auto& it : world->GetDead())
+			for (auto& it : world->getDeadEntitys())
 			{
 				ia >> it.second;
-				ia >> *(it.second.Get<TransformComponent>());
+				ia >> *(it.second.get<TransformComponent>());
 			}
 
 			in.close();

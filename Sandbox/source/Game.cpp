@@ -23,7 +23,7 @@ std::shared_ptr<State> Game::m_gameState = std::make_shared<Game>();
 
 int g_speed = 1;
 
-std::shared_ptr<State> Game::Inst()
+std::shared_ptr<State> Game::inst()
 {
 	return m_gameState;
 }
@@ -32,22 +32,22 @@ Game::~Game()
 {
 }
 
-void Game::LoadResources()
+void Game::loadResources()
 {
-	m_window = Locator::Get<Window>();
-	m_world = Locator::Get<World>();
-	m_vfs = Locator::Get<VFS>();
-	m_config = Locator::Get<ConfigReader>();
+	m_window = Locator::get<Window>();
+	m_world = Locator::get<World>();
+	m_vfs = Locator::get<VFS>();
+	m_config = Locator::get<ConfigReader>();
 
-	m_map.Load("bin/Release/assets/example.tmx");
+	m_map.load("bin/Release/assets/example.tmx");
 }
 
-void Game::UnloadResources()
+void Game::unloadResources()
 {
 	m_window->setView(m_window->getDefaultView());
 }
 
-void Game::Event()
+void Game::event()
 {
 	while (m_window->pollEvent(m_window->m_event))
 	{
@@ -75,7 +75,7 @@ void Game::Event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		Locator::Get<StateManager>()->ChangeState(Menu::Inst());
+		Locator::get<StateManager>()->changeState(Menu::inst());
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
@@ -99,12 +99,12 @@ void Game::Event()
 	}
 }
 
-void Game::Update(sf::Time dt)
+void Game::update(sf::Time dt)
 {
-	m_map.Update(dt);
+	m_map.update(dt);
 }
 
-void Game::Render()
+void Game::render()
 {
 	m_window->clear(sf::Color::Black);
 

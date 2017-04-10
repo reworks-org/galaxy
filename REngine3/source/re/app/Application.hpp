@@ -27,7 +27,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default constructor. Your child class will need to set up the rest of the engine.
 		*/
-		Application(bool enableLogging, bool enableFileLogging, double gravity);
+		Application(bool enableLogging, bool enableFileLogging, float32 gravity);
 
 		/*
 		* IMPORTS: none

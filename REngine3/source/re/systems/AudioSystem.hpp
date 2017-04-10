@@ -9,6 +9,9 @@
 #ifndef RENGINE3_AUDIOSYSTEM_HPP_
 #define RENGINE3_AUDIOSYSTEM_HPP_
 
+#include <SFML/Audio/Music.hpp>
+#include <SFML/Audio/Sound.hpp>
+
 #include "re/types/System.hpp"
 
 namespace re
