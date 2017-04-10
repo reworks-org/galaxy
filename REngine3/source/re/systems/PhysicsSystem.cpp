@@ -19,7 +19,7 @@
 
 namespace re
 {
-	PhysicsSystem::PhysicsSystem(Box2DManager* manager, float ups, float vi, float pi)
+	PhysicsSystem::PhysicsSystem(Box2DManager* manager, float ups, int32 vi, int32 pi)
 	{
 		m_manager = manager;
 		m_ups = ups;
@@ -61,7 +61,7 @@ namespace re
 			bodyDef.type = b2BodyType::b2_staticBody;
 
 			b2PolygonShape b2shape;
-			b2shape.SetAsBox(b2::pixelsToMeters<double>(v.width / 2.0), b2::pixelsToMeters<double>(v.height / 2.0), b2Vec2(b2::pixelsToMeters<double>(v.width / 2.0), b2::pixelsToMeters<double>(v.height / 2.0)), 0);
+			b2shape.SetAsBox((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0), b2Vec2((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0)), 0);
 
 			b2FixtureDef fixtureDef;
 			fixtureDef.density = 1;
@@ -90,15 +90,15 @@ namespace re
 
 	void PhysicsSystem::update(sf::Time dt)
 	{
-		m_manager->m_world.Step(1.0 / m_ups, m_velocityIterations, m_positionIterations);
+		m_manager->m_world.Step((float32)(1.0 / m_ups), m_velocityIterations, m_positionIterations);
 
 		for (auto& e : m_entitys)
 		{
 			auto phys = e.second->get<PhysicsComponent>();
 			auto transf = e.second->get<TransformComponent>();
 
-			transf->setPosition(b2::metersToPixels<double>(phys->m_body->GetPosition().x), b2::metersToPixels<double>(phys->m_body->GetPosition().y));
-			transf->setRotation(b2::radToDeg<double>(phys->m_body->GetAngle()));
+			transf->setPosition((float)b2::metersToPixels<double>(phys->m_body->GetPosition().x), (float)b2::metersToPixels<double>(phys->m_body->GetPosition().y));
+			transf->setRotation((float)b2::radToDeg<double>(phys->m_body->GetAngle()));
 
 			if (e.second->has<AnimationComponent>() && (!phys->m_isMovingHoritontally))
 			{
