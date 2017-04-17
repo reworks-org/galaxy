@@ -3,7 +3,7 @@ TODO List:
 v0.8:
 - add the ability to turn off logging
 - fix issues with animation / physics system
-- investigate crashes with serialization and kill/revive entitys
+- investigate crashes with kill/revive entitys
 
 v0.9:
 - proper loading system
@@ -13,6 +13,7 @@ v0.9:
 
 v1.0:
 - fix all warnings/errors
+- recompile libraries on windows with vs2017
 - fix debug information format in properties
 - proper credits file
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.

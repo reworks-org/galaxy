@@ -15,6 +15,8 @@
 #include <boost/archive/binary_oarchive.hpp>
 
 #include "re/app/World.hpp"
+#include "re/services/ServiceLocator.hpp"
+#include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 
 // http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html
@@ -37,16 +39,36 @@ namespace re
 			for (auto& it : world->getAliveEntitys())
 			{
 				oa << it.second;
-				oa << *(it.second.get<TransformComponent>());
+			
+				if (it.second.has<TransformComponent>())
+				{
+					oa << *(it.second.get<TransformComponent>());
+				}
+
+				if (it.second.has<PhysicsComponent>())
+				{
+					oa << *(it.second.get<PhysicsComponent>());
+				}
 			}
 
 			for (auto& it : world->getDeadEntitys())
 			{
 				oa << it.second;
-				oa << *(it.second.get<TransformComponent>());
+
+				if (it.second.has<TransformComponent>())
+				{
+					oa << *(it.second.get<TransformComponent>());
+				}
+
+				if (it.second.has<PhysicsComponent>())
+				{
+					oa << *(it.second.get<PhysicsComponent>());
+				}
 			}
 
 			out.close();
+
+			RE_LOG(LogLevel::INFO, "Saved!");
 		}
 
 		/*
@@ -63,16 +85,36 @@ namespace re
 			for (auto& it : world->getAliveEntitys())
 			{
 				ia >> it.second;
-				ia >> *(it.second.get<TransformComponent>());
+
+				if (it.second.has<TransformComponent>())
+				{
+					ia >> *(it.second.get<TransformComponent>());
+				}
+				
+				if (it.second.has<PhysicsComponent>())
+				{
+					ia >> *(it.second.get<PhysicsComponent>());
+				}
 			}
 
 			for (auto& it : world->getDeadEntitys())
 			{
 				ia >> it.second;
-				ia >> *(it.second.get<TransformComponent>());
+
+				if (it.second.has<TransformComponent>())
+				{
+					ia >> *(it.second.get<TransformComponent>());
+				}
+
+				if (it.second.has<PhysicsComponent>())
+				{
+					ia >> *(it.second.get<PhysicsComponent>());
+				}
 			}
 
 			in.close();
+
+			RE_LOG(LogLevel::INFO, "Loaded!");
 		}
 	}
 }

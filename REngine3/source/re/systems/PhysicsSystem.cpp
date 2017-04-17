@@ -33,7 +33,7 @@ namespace re
 		
 		for (auto& v : m_mapCollisions)
 		{
-			m_manager->m_world.DestroyBody(v);
+			m_manager->m_world->DestroyBody(v);
 		}
 
 		m_mapCollisions.clear();
@@ -69,7 +69,7 @@ namespace re
 			fixtureDef.restitution = 0;
 			fixtureDef.shape = &b2shape;
 
-			b2Body* body = m_manager->m_world.CreateBody(&bodyDef);
+			b2Body* body = m_manager->m_world->CreateBody(&bodyDef);
 			body->CreateFixture(&fixtureDef);
 			m_mapCollisions.push_back(body);
 		}
@@ -90,7 +90,7 @@ namespace re
 
 	void PhysicsSystem::update(sf::Time dt)
 	{
-		m_manager->m_world.Step((float32)(1.0 / m_ups), m_velocityIterations, m_positionIterations);
+		m_manager->m_world->Step((float32)(1.0 / m_ups), m_velocityIterations, m_positionIterations);
 
 		for (auto& e : m_entitys)
 		{
@@ -118,7 +118,7 @@ namespace re
 
 		for (auto& v : m_mapCollisions)
 		{
-			m_manager->m_world.DestroyBody(v);
+			m_manager->m_world->DestroyBody(v);
 		}
 
         m_mapCollisions.clear();

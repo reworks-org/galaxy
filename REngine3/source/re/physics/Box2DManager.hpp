@@ -27,13 +27,19 @@ namespace re
 		*/
 		Box2DManager(float32 gravity);
 
-	private:
-		b2Vec2 m_gravity;
-		
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Default destructor.
+		*/
+		~Box2DManager();
 
 	public:
-		b2World m_world;
+		b2World* m_world;
 		std::map<std::pair<std::string, std::string>, std::function<void(Entity*, Entity*)>> m_collisionFunctions;
+
+	private:
+		b2Vec2 m_gravity;
 	};
 }
 

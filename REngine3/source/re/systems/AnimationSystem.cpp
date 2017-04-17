@@ -32,9 +32,13 @@ namespace re
 
 	void AnimationSystem::addEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("AnimationSystem", std::type_index(typeid(AnimationSystem)));
-		// we also want to adjust the first texture rectangle so it doesn't get missed out on...
-		e->get<SpriteComponent>()->setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
+		if (e->m_systemIds.find("AnimationSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("AnimationSystem", std::type_index(typeid(AnimationSystem)));
+			// we also want to adjust the first texture rectangle so it doesn't get missed out on...
+			e->get<SpriteComponent>()->setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
+		}
+		
 		m_entitys.emplace(e->m_name, e);
 	}
 

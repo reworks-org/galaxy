@@ -20,7 +20,7 @@ namespace re
 
 	PhysicsComponent::~PhysicsComponent()
 	{
-		Locator::get<Box2DManager>()->m_world.DestroyBody(m_body);
+		Locator::get<Box2DManager>()->m_world->DestroyBody(m_body);
 	}
 
 	void PhysicsComponent::init(sol::table& table)
@@ -53,7 +53,7 @@ namespace re
 		fixtureDef.restitution = table.get<float32>("restitution");
 		fixtureDef.shape = &b2shape;
 
-		m_body = Locator::get<Box2DManager>()->m_world.CreateBody(&bodyDef);
+		m_body = Locator::get<Box2DManager>()->m_world->CreateBody(&bodyDef);
 		m_body->CreateFixture(&fixtureDef);
 
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));

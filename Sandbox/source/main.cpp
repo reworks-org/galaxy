@@ -65,7 +65,7 @@ public:
         m_world.addSystem<AudioSystem>(std::make_shared<AudioSystem>());
         
         // set up collision listener
-        m_physicsManager.m_world.SetContactListener(&m_b2dcallbacks);
+        m_physicsManager.m_world->SetContactListener(&m_b2dcallbacks);
         
         // provide services
         Locator::provide<World>(&m_world);
@@ -92,7 +92,7 @@ private:
 
 int main()
 {
-	App app(true, false, 9.81);
+	App app(true, false, (float32)9.81);
 	
 	return app.run();
 }

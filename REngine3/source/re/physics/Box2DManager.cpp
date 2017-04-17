@@ -11,8 +11,14 @@
 namespace re
 {
 	Box2DManager::Box2DManager(float32 gravity)
-	:m_world(b2Vec2(0.0, gravity))
 	{
 		m_gravity = b2Vec2(0.0, gravity);
+
+		m_world = new b2World(m_gravity);
+	}
+
+	Box2DManager::~Box2DManager()
+	{
+		delete m_world;
 	}
 }
