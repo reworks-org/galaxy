@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <chrono>
 #include <SFML/Graphics/Shader.hpp>
 
 #include "re/utility/Log.hpp"
@@ -18,11 +19,9 @@ namespace re
 	Application::Application(bool enableLogging, bool enableFileLogging, float32 gravity)
 		:m_physicsManager(gravity)
 	{
-		RE_LOG(LogLevel::WARNING, "*************************************");
-		RE_LOG(LogLevel::WARNING, "*   RENGINE3 INITIALIZATION BEGIN   *");
-		RE_LOG(LogLevel::WARNING, "*************************************");
+		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");
 
-        RE_ASSERT(sf::Shader::isAvailable(), "Shaders not avaliable on this system!");
+        RE_ASSERT(sf::Shader::isAvailable(), "Shaders not avaliable on this system", "Application::Application", "Application.cpp", 23);
 
 		m_world.init();
 	}
@@ -67,7 +66,7 @@ namespace re
 
 				std::string header = m_appTitle + "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
 
-                RE_LOG(LogLevel::INFO, header);
+                RE_LOG(LogLevel::INFO, header, "Application::run", "Application.cpp", 69);
 				m_window.setTitle(header);
 
 				updates = 0;
@@ -76,7 +75,7 @@ namespace re
 		}
 
 		m_stateManager.unloadResources();
-		RE_LOG(LogLevel::INFO, "Program quit successfully.");
+		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 78);
 
 		return EXIT_SUCCESS;
 	}

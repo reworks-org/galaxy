@@ -64,7 +64,7 @@ namespace re
 
 		if (it != m_services.end()) 
 		{
-			RE_LOG(LogLevel::WARNING, "Tried to provide an already existing service");
+			RE_LOG(LogLevel::WARNING, "Tried to provide an already existing service", "Locator::provide", "ServiceLocator.hpp", 67);
 		}
 		else 
 		{
@@ -102,7 +102,7 @@ namespace re
 		}
 		else
 		{
-			RE_LOG(LogLevel::WARNING, "Attempted to remove a service that doesnt exist");
+			RE_LOG(LogLevel::WARNING, "Attempted to remove a service that doesnt exist", "Locator::remove", "ServiceLocator.hpp", 105);
 		}
 	}
 }

@@ -48,12 +48,12 @@ public:
         }
         
         std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
-        RE_LOG(re::LogLevel::INFO, msg);
+        RE_LOG(re::LogLevel::INFO, msg, "App::App", "main.cpp", 51);
         
         m_window.setMouseCursorVisible(m_config.lookup<bool>("cursorVisible"));
         m_window.setVerticalSyncEnabled(m_config.lookup<bool>("vsyncEnabled"));
-        m_window.setFramerateLimit(0);
-        m_window.setKeyRepeatEnabled(true);
+        m_window.setFramerateLimit(m_config.lookup<int>("framerateLimit"));
+        m_window.setKeyRepeatEnabled(m_config.lookup<bool>("keyRepeat"));
         m_window.requestFocus();
         
         // create systems

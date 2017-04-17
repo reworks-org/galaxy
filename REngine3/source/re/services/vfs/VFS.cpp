@@ -26,12 +26,12 @@ namespace re
 
 	void VFS::mount(const std::string& archive)
 	{
-        RE_ASSERT(PHYSFS_mount(archive.c_str(), nullptr, 1), "Cannot load: " + archive);
+        RE_ASSERT(PHYSFS_mount(archive.c_str(), nullptr, 1), "Cannot load: " + archive, "VFS::mount", "VFS.cpp", 29);
 	}
 
 	void VFS::unMount(const std::string& archive)
 	{
-        RE_ASSERT(PHYSFS_unmount(archive.c_str()), "Cannot unload: " + archive);
+        RE_ASSERT(PHYSFS_unmount(archive.c_str()), "Cannot unload: " + archive, "VFS::unMount", "VFS.cpp", 34);
 	}
 
 	bool VFS::doesExist(const std::string& fileName)
@@ -51,7 +51,7 @@ namespace re
 		PHYSFS_file* myfile = PHYSFS_openRead(fileName.c_str());
 		PHYSFS_sint64 file_size = PHYSFS_fileLength(myfile);
 
-        RE_ASSERT(myfile, "Failed to created physfs file of " + fileName);
+        RE_ASSERT(myfile, "Failed to created physfs file of " + fileName, "VFS::toString", "VFS.cpp", 54);
         
 		char* myBuf = new char[(unsigned int)file_size + 1];
 		myBuf[file_size] = '\0';
@@ -71,7 +71,7 @@ namespace re
 		PHYSFS_file* myfile = PHYSFS_openRead(fileName.c_str());
 		PHYSFS_sint64 file_size = PHYSFS_fileLength(myfile);
 
-        RE_ASSERT(myfile, "Failed to created physfs file of " + fileName);
+		RE_ASSERT(myfile, "Failed to created physfs file of " + fileName, "VFS::toBuffer", "VFS.cpp", 74);
         
 		char* myBuf = new char[(unsigned int)file_size + 1];
 		myBuf[file_size] = '\0';

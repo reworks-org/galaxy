@@ -61,7 +61,7 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
 		});
 
-		RE_ASSERT_EQUAL(m_keyValuePair.empty(), true, "Attempted to register an empty entity script! World.cpp");
+		RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 64);
 
 		for (auto& it : m_keyValuePair)
 		{
@@ -74,7 +74,7 @@ namespace re
 	{
 		auto found = m_alive.find(name);
         
-        RE_ASSERT_EQUAL(found, m_alive.end(), "Attempted to access non-existant entity!")
+		RE_REVERSE_ASSERT_COMPARE(found, m_alive.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 77);
         
         return m_alive[name];
 	}

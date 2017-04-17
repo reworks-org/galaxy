@@ -299,7 +299,7 @@ namespace re
 		tmx_img_free_func = sf_tex_deleter;
 
 		m_map = tmx::make(map);
-        RE_ASSERT(m_map.get(), tmx_strerr());
+        RE_ASSERT(m_map.get(), tmx_strerr(), "TMXMap::TMXMap", "TMXMap.cpp", 302);
 
 		m_width = m_map->width * m_map->tile_width;
 		m_height = m_map->height * m_map->tile_height;
@@ -318,7 +318,7 @@ namespace re
 	void TMXMap::load(const std::string& map)
 	{
 		m_map = tmx::make(map);
-		RE_ASSERT(m_map.get(), tmx_strerr());
+		RE_ASSERT(m_map.get(), tmx_strerr(), "TMXMap::load", "TMXMap.cpp", 321);
 
 		m_width = m_map->width * m_map->tile_width;
 		m_height = m_map->height * m_map->tile_height;

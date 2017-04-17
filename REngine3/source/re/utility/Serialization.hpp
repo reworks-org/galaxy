@@ -68,7 +68,7 @@ namespace re
 
 			out.close();
 
-			RE_LOG(LogLevel::INFO, "Saved!");
+			RE_LOG_PRINTPRETTY(LogLevel::INFO, "Saved game!");
 		}
 
 		/*
@@ -114,7 +114,7 @@ namespace re
 
 			in.close();
 
-			RE_LOG(LogLevel::INFO, "Loaded!");
+			RE_LOG_PRINTPRETTY(LogLevel::INFO, "Loaded game!");
 		}
 	}
 }

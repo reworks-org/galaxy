@@ -57,7 +57,7 @@ namespace re
 	{
 		auto it = m_events.find(type);
 
-        RE_ASSERT_EQUAL(it, m_events.end(), "Tried to access a non-existent event!");
+        RE_REVERSE_ASSERT_COMPARE(it, m_events.end(), "Tried to access a non-existent event", "EventComponent::onEvent", "EventComponent.cpp", 60);
         
 		for (auto& v : it->second)
 		{

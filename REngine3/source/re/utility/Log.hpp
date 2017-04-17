@@ -2,77 +2,64 @@
 //  Log.hpp
 //  REngine3
 //
-//  Created by reworks on 9/07/2016.
+//  Created by reworks on 17/04/2017.
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
-
-// Colour guide
-// Yellow: FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY
-// Red: FOREGROUND_RED | FOREGROUND_INTENSITY
-// Gray: FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN
 
 #ifndef RENGINE3_LOG_HPP_
 #define RENGINE3_LOG_HPP_
 
 #include <vector>
 #include <string>
-#include <iostream>
 
-#include "re/utility/Time.hpp"
+// Convenience Macros
+// I know this is wrong, but I need to fix my windows libraries first >.>
+#ifdef NDEBUG
 
-#ifdef _WIN32
-#include "re/platform/Win32Log.hpp"
-#else
-#include "re/platform/POSIXLog.hpp"
-#endif
+#define RE_LOG(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) re::Log::instance().log(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
+#define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_) re::Log::instance().printPrettyText(_LEVEL_, _MESSAGE_)
 
-/*
-* IMPORTS: x - value to compare, message - information to log.
-* EXPORTS: none
-* PURPOSE: Assert using our logging system.
-*/
-#define RE_ASSERT(value, message) \
-		if (!(value)) \
+#define RE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
+		if (!(_VALUE_)) \
         { \
-			re::log(LogLevel::FATAL, "*************************"); \
-			re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
-			re::log(LogLevel::FATAL, "*************************"); \
-			re::log(LogLevel::FATAL, message); \
-			throw std::runtime_error(message); \
+			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
+			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
+			throw std::runtime_error("Refer to console or log file for details!"); \
 		}
 
-/*
- * IMPORTS: valueA - first value, valueB - other value to compare, message - information to log.
- * EXPORTS: none
- * PURPOSE: IF valueA IS NOT EQUAL TO valueB, THROW ERROR
- */
-#define RE_ASSERT_NOTEQUAL(valueA, valueB, message) \
-        if ((valueA) != (valueB)) \
+#define RE_REVERSE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
+		if ((_VALUE_)) \
         { \
-            re::log(LogLevel::FATAL, "*************************"); \
-            re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
-            re::log(LogLevel::FATAL, "*************************"); \
-            re::log(LogLevel::FATAL, message); \
-            throw std::runtime_error(message); \
-        }
+			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
+			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
+			throw std::runtime_error("Refer to console or log file for details!"); \
+		}
 
-/*
- * IMPORTS: valueA - first value, valueB - other value to compare, message - information to log.
- * EXPORTS: none
- * PURPOSE: IF valueA IS EQUAL TO valueB, THROW ERROR
- */
-#define RE_ASSERT_EQUAL(valueA, valueB, message) \
-if ((valueA) == (valueB)) \
-{ \
-re::log(LogLevel::FATAL, "*************************"); \
-re::log(LogLevel::FATAL, "    ASSERTION FAILED!    "); \
-re::log(LogLevel::FATAL, "*************************"); \
-re::log(LogLevel::FATAL, message); \
-throw std::runtime_error(message); \
-}
+#define RE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
+		if ((_VALUEA_) != (_VALUEB_)) \
+        { \
+			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
+			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
+			throw std::runtime_error("Refer to console or log file for details!"); \
+		}
 
-// Legacy macros, for classes and functions that use them.
-#define RE_LOG(level, message) re::log(level, message)
+#define RE_REVERSE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
+		if ((_VALUEA_) == (_VALUEB_)) \
+        { \
+			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
+			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
+			throw std::runtime_error("Refer to console or log file for details!"); \
+		}
+#else
+
+#define RE_LOG(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
+#define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_)
+#define RE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
+#define RE_REVERSE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
+#define RE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
+#define RE_REVERSE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
+
+#endif
 
 namespace re
 {
@@ -83,32 +70,42 @@ namespace re
 		FATAL
 	};
 
-	/*
-	* IMPORTS: level - enum of log level, message - the message to log.
-	* EXPORTS: none
-	* PURPOSE: Output a message in a logged format for debugging purposes.
-	*/
-	inline void log(LogLevel level, const std::string& message)
+	class Log
 	{
-		switch (level)
-		{
-		case LogLevel::INFO:
-			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-			break;
+	public:
+		Log(Log const&) = delete;
+		Log(Log&&) = delete;
+		Log& operator=(Log const&) = delete;
+		Log& operator=(Log &&) = delete;
 
-		case LogLevel::WARNING:
-			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY) << "RE_WARNING: [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-			break;
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Returns Singleton instance of class.
+		*/
+		static Log& instance();
 
-		case LogLevel::FATAL:
-			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY) << "RE_ERROR:   [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-			break;
+		/*
+		* IMPORTS: level - enum of log level, message - the message to log, file - name of file, line - line number (vs2017)
+		* EXPORTS: none
+		* PURPOSE: Output a message in a logged format for debugging purposes by overloading the () operator.
+		*/
+		void log(LogLevel level, const std::string& message, const std::string& function, const std::string& file, int line);
 
-		default:
-			std::cout << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << "RE_INFO:    [" << Time::getCurrentTimeAndDate() << "] - " << message << setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN) << std::endl;
-			break;
-		}
-	}
+		/*
+		* IMPORTS: message to print
+		* EXPORTS: none
+		* PURPOSE: Prints a message to console with astericks around it.
+		*/
+		void printPrettyText(LogLevel level, const std::string& message);
+
+	protected:
+		Log();
+		~Log();
+
+	private:
+		std::vector<std::string> m_savedMessages;
+	};
 }
 
 #endif

@@ -55,7 +55,7 @@ void Menu::loadResources()
 
 	m_world->registerEntitys("menuEntitys.lua");
 
-	m_world->getEntity("person").get<EventComponent>()->submitOnEvent(Event::MOUSE_PRESSED, []() { RE_LOG(LogLevel::INFO, "Click!"); });
+	m_world->getEntity("person").get<EventComponent>()->submitOnEvent(Event::MOUSE_PRESSED, []() { RE_LOG_PRINTPRETTY(LogLevel::INFO, "Click!"); });
 
 	m_world->getSystem<MoveSystem>()->submit(m_world);
 	m_world->getSystem<RenderSystem>()->submit(m_world);

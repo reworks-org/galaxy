@@ -37,7 +37,7 @@ namespace re
 		{
 			cf.close();
 
-			RE_LOG(LogLevel::WARNING, "Failed to load config file! Creating one...");
+			RE_LOG(LogLevel::WARNING, "Failed to load config file! Creating one...", "ConfigReader::parse", "Config.cpp", 40);
 
 			std::ofstream newFile;
 			newFile.open(configFile);
@@ -51,10 +51,12 @@ namespace re
 			newFile << "    versionPatch = 0," << std::endl;
 			newFile << "    screenWidth = 640," << std::endl;
 			newFile << "    screenHeight = 480," << std::endl;
-			newFile << "    fullscreen = 0," << std::endl;
-			newFile << "    cursorVisible = 1," << std::endl;
-			newFile << "    vsyncEnabled = 0," << std::endl;
-			newFile << "    framerateLimit = 0" << std::endl;
+			newFile << "    renderingLayers = 2," << std::endl;
+			newFile << "    framerateLimit = 0," << std::endl;
+			newFile << "    keyRepeat = true," << std::endl;
+			newFile << "    fullscreen = false," << std::endl;
+			newFile << "    cursorVisible = true," << std::endl;
+			newFile << "    vsyncEnabled = false" << std::endl;
 			newFile << "}" << std::endl;
 
 			newFile.close();
@@ -72,7 +74,7 @@ namespace re
 			}
 			else
 			{
-				RE_LOG(LogLevel::FATAL, "Failed to create config file.");
+				RE_LOG(LogLevel::FATAL, "Failed to create config file", "ConfigReader::parse", "Config.cpp", 75);
 				success = false;
 			}
 

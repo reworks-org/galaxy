@@ -36,23 +36,16 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-        RE_ASSERT_EQUAL(m_keyValuePair.empty(), true, "Tried to load a sound component with no data! SoundComponent.cpp");
+        RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Tried to load a sound component with no data", "SoundComponent::init", "SoundComponent.cpp", 39);
         
 		for (auto& kvp : m_keyValuePair)
 		{
 			m_sounds.emplace(kvp.first, std::make_pair(std::make_pair(std::make_unique<sf::SoundBuffer>(), std::make_unique<sf::physfs>()), std::make_unique<sf::Sound>()));
 			m_sounds[kvp.first].first.second->open(kvp.second.get<std::string>("file"));
 
-			if (!m_sounds[kvp.first].first.first->loadFromStream(*(m_sounds[kvp.first].first.second)))
-			{
-				std::string msg = kvp.first + " did not load!";
-				RE_LOG(LogLevel::FATAL, msg);
-			}
-			else
-			{
-				m_sounds[kvp.first].second->setBuffer(*(m_sounds[kvp.first].first.first));
-			}
+			RE_ASSERT(m_sounds[kvp.first].first.first->loadFromStream(*(m_sounds[kvp.first].first.second)), kvp.first + " did not load", "SoundComponent::init", "SoundComponent.cpp", 46);
 
+			m_sounds[kvp.first].second->setBuffer(*(m_sounds[kvp.first].first.first));
 			m_sounds[kvp.first].second->setVolume(kvp.second.get<float>("volume"));
 			m_sounds[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 		}

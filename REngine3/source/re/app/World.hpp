@@ -153,7 +153,7 @@ namespace re
 	{
         if(m_systems.find(std::type_index(typeid(T))) != m_systems.end())
         {
-            RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system");
+            RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system", "World::addSystem", "World.hpp", 156);
         }
         else
         {
@@ -166,7 +166,7 @@ namespace re
 	{
         auto it = m_systems.find(std::type_index(typeid(T)));
         
-        RE_ASSERT_EQUAL(it, m_systems.end(), "Tried to access a non-existent system!");
+        RE_REVERSE_ASSERT_COMPARE(it, m_systems.end(), "Tried to access a non-existent system", "World::getSystem", "World.cpp", 169);
         
         return std::dynamic_pointer_cast<T>(it->second);
 	}
@@ -180,7 +180,7 @@ namespace re
 	template<typename T>
 	void World::registerComponent(const std::string& name)
 	{
-		RE_LOG(LogLevel::INFO, "Registering " + name + " in world.");
+		RE_LOG(LogLevel::INFO, "Registering " + name + " in world", "World::registerComponent", "World.hpp", 183);
 		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this)));
 	}
 }
