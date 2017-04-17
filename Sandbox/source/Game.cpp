@@ -39,7 +39,7 @@ void Game::loadResources()
 	m_vfs = Locator::get<VFS>();
 	m_config = Locator::get<ConfigReader>();
 
-	m_map.load("bin/Release/assets/example.tmx");
+	m_map.load("Sandbox.app/Contents/Resources/example.tmx");
 }
 
 void Game::unloadResources()
