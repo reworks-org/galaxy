@@ -60,6 +60,29 @@ namespace re
 
 			return temp;
 		}
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Get a formatted time that contains no special characters.
+		*/
+		inline std::string getFormattedTime()
+		{
+			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+			std::string temp = std::ctime(&time);
+
+			// Remove pesky newlines
+			temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
+
+			// Remove special characters
+			temp.erase(std::remove(temp.begin(), temp.end(), ' '), temp.end());
+			temp.erase(std::remove(temp.begin(), temp.end(), ':'), temp.end());
+
+			// Trim string
+			temp = temp.substr(0, 12);
+
+			return temp;
+		}
 	}
 }
 

@@ -38,7 +38,7 @@ namespace re
 	Log::~Log()
 	{
 		std::ofstream m_outputLogFile;
-		std::string logFileName = Time::getCurrentTimeAndDate() + ".log";
+		std::string logFileName = "logs/" + Time::getFormattedTime() + ".log";
 		
 		m_outputLogFile.open(logFileName);
 
