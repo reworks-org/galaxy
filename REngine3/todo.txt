@@ -1,7 +1,6 @@
 TODO List:
 
 beta1:
-- redo singleton game states
 - investigate logging not saving issue
 - fix issues with animation / physics system
 - phyics system needs to have customizeable values when parsing tiles
