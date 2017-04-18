@@ -16,6 +16,7 @@
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
+#include "re/utility/Log.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
@@ -95,7 +96,7 @@ namespace re
 		auto it = m_components->find(std::type_index(typeid(T)));
 		auto end = m_components->end();
 
-		RE_REVERSE_ASSERT_COMPARE(it, end, "Tried to access non-existent componen", "Entity::get", "Entity.cpp", 90);
+		RE_REVERSE_ASSERT_COMPARE(it, end, "Tried to access non-existent component", "Entity::get", "Entity.cpp", 90);
 
 		return std::dynamic_pointer_cast<T>(it->second);
 	}

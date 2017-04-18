@@ -116,44 +116,25 @@ namespace re
 			}
 		}
 
-		/*
-		for (auto& it : m_alive)
-		{
-			if (it.second.m_isDead)
-			{
-				
-			}
-		}
-		*/
-
 		for (auto it = m_dead.begin(); it != m_dead.end();)
 		{
 			if (!it->second.m_isDead)
-			{
-				std::string name = it->second.m_name;
-				for (auto& s : it->second.m_systemIds)
-				{
-					m_systems[s.second]->addEntity(&it->second);
-				}
-
-				m_alive.insert(std::make_pair(name, std::move(it->second)));
-				m_dead.erase(it++);
+            {
+                std::string name = it->second.m_name;
+                
+                m_alive.insert(std::make_pair(name, std::move(it->second)));
+                m_dead.erase(it++);
+                
+                for (auto& s : m_alive[name].m_systemIds)
+                {
+                    m_systems[s.second]->addEntity(&m_alive[name]);
+                }
 			}
 			else
 			{
 				++it;
 			}
 		}
-
-		/*
-		for (auto& it : m_dead)
-		{
-			if (!it.second.m_isDead)
-			{
-				
-			}
-		}
-		*/
 	}
 
 	void World::clean()

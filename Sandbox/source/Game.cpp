@@ -42,7 +42,7 @@ void Game::loadResources()
 	#ifdef _WIN32
 		//m_map.load("bin/assets/example.tmx");
 	#else
-		m_map.load("Sandbox.app/Contents/Resources/example.tmx");
+        //m_map.load("Sandbox.app/Contents/Resources/example.tmx");
 	#endif
 }
 

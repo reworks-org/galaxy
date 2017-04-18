@@ -18,10 +18,10 @@ namespace re
 {
 	Entity::Entity()
 	{
-		m_name = "";
-		m_components = nullptr;
-		m_systemIds.clear();
-		m_isDead = false;
+        //m_name = "";
+        //m_components = nullptr;
+        //m_systemIds.clear();
+        m_isDead = false;
 	}
 
 	Entity::Entity(Entity&& e)
@@ -31,7 +31,7 @@ namespace re
 		m_systemIds = e.m_systemIds;
 		m_isDead = e.m_isDead;
 	}
-
+    
 	void Entity::init(const std::string& script, ComponentHolder& cl)
 	{
 		// Create lua state and load it from a script in the VFS.
