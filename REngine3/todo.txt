@@ -6,13 +6,13 @@ beta2:
 - Debug gui using IMGUI
 - improve map physics
 
+beta3:
+- ai
+- Audio spacialization
+
 v1.0:
 - fix all warnings/errors
 - recompile libraries on windows with vs2017
-- fix debug information format in properties
 - proper credits file
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - tgui lua bridge
-
-v1.1:
-- Audio spacialization
