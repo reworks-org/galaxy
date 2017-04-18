@@ -56,7 +56,8 @@ namespace re
 			newFile << "    keyRepeat = true," << std::endl;
 			newFile << "    fullscreen = false," << std::endl;
 			newFile << "    cursorVisible = true," << std::endl;
-			newFile << "    vsyncEnabled = false" << std::endl;
+			newFile << "    vsyncEnabled = false," << std::endl;
+			newFile << "    saveLog = false" << std::endl;
 			newFile << "}" << std::endl;
 
 			newFile.close();

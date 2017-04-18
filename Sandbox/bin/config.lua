@@ -12,5 +12,6 @@ config =
     keyRepeat = true,
     fullscreen = false,
     cursorVisible = true,
-    vsyncEnabled = false
+    vsyncEnabled = false,
+    saveLog = false
 }

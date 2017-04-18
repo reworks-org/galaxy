@@ -42,6 +42,7 @@ public:
         m_versionMajor = m_config.lookup<int>("versionMajor");
         m_versionMinor = m_config.lookup<int>("versionMinor");
         m_versionPatch = m_config.lookup<int>("versionPatch");
+		m_saveLog = m_config.lookup<bool>("saveLog");
         
         if (m_config.lookup<bool>("fullscreen"))
         {

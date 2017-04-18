@@ -37,18 +37,6 @@ namespace re
 
 	Log::~Log()
 	{
-		std::ofstream m_outputLogFile;
-		std::string logFileName = "logs/" + Time::getFormattedTime() + ".log";
-		
-		m_outputLogFile.open(logFileName);
-
-		for (size_t i = 0, ilen = m_savedMessages.size(); i < ilen; ++i)
-		{
-			m_outputLogFile << m_savedMessages[i] << std::endl;
-		}
-
-		m_outputLogFile.close();
-		m_savedMessages.clear();
 	}
 
 	void Log::log(LogLevel level, const std::string& message, const std::string& function, const std::string& file, int line)
@@ -119,6 +107,26 @@ namespace re
 			m_savedMessages.push_back(middle);
 			m_savedMessages.push_back(bottom);
 			break;
+		}
+	}
+
+	void Log::saveToLog(bool saveLog)
+	{
+		if (saveLog)
+		{
+			std::ofstream m_outputLogFile;
+			std::string logFileName = Time::getFormattedTime() + ".log";
+
+			m_outputLogFile.open(logFileName);
+			RE_REVERSE_ASSERT(m_outputLogFile.fail(), "Failed to open log file for saving!", "Log::saveToLog", "Log.cpp", 122);
+
+			for (size_t i = 0, ilen = m_savedMessages.size(); i < ilen; ++i)
+			{
+				m_outputLogFile << m_savedMessages[i] << std::endl;
+			}
+
+			m_outputLogFile.close();
+			m_savedMessages.clear();
 		}
 	}
 }

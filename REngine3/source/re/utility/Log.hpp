@@ -17,6 +17,7 @@
 
 #define RE_LOG(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) re::Log::instance().log(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
 #define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_) re::Log::instance().printPrettyText(_LEVEL_, _MESSAGE_)
+#define RE_LOG_SAVE(_VALUE_) re::Log::instance().saveToLog(_VALUE_)
 
 #define RE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
 		if (!(_VALUE_)) \
@@ -53,6 +54,7 @@
 
 #define RE_LOG(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
 #define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_)
+#define RE_LOG_SAVE(_VALUE_)
 #define RE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
 #define RE_REVERSE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
 #define RE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
@@ -97,6 +99,13 @@ namespace re
 		* PURPOSE: Prints a message to console with astericks around it.
 		*/
 		void printPrettyText(LogLevel level, const std::string& message);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Saves logged information to a physical file by timestamp.
+		*/
+		void saveToLog(bool saveLog);
 
 	protected:
 		Log();
