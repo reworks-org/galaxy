@@ -1,7 +1,6 @@
 TODO List:
 
 beta1:
-- eneitys neeed to have their phycis component body rmeoved form the worl.d
 - redo singleton game states
 - investigate logging not saving issue
 - fix issues with animation / physics system

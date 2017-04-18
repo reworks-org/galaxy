@@ -40,9 +40,9 @@ void Game::loadResources()
 	m_config = Locator::get<ConfigReader>();
 
 	#ifdef _WIN32
-		//m_map.load("bin/assets/example.tmx");
+		m_map.load("bin/assets/example.tmx");
 	#else
-        //m_map.load("Sandbox.app/Contents/Resources/example.tmx");
+        m_map.load("Sandbox.app/Contents/Resources/example.tmx");
 	#endif
 }
 
@@ -84,35 +84,35 @@ void Game::event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		//m_map.move(0, 3*g_speed);
+		m_map.move(0, 3*g_speed);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-	//	m_map.move(0, -3 * g_speed);
+		m_map.move(0, -3 * g_speed);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		//m_map.move(3 * g_speed, 0);
+		m_map.move(3 * g_speed, 0);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		//m_map.move(-3*g_speed, 0);
+		m_map.move(-3*g_speed, 0);
 	}
 }
 
 void Game::update(sf::Time dt)
 {
-	//m_map.update(dt);
+	m_map.update(dt);
 }
 
 void Game::render()
 {
 	m_window->clear(sf::Color::Black);
 
-	//m_window->draw(m_map);
+	m_window->draw(m_map);
 
 	m_window->display();
 }

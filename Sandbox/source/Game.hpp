@@ -61,7 +61,7 @@ public:
 
 private:
 	static std::shared_ptr<re::State> m_gameState;
-	//re::TMXMap m_map;
+	re::TMXMap m_map;
 };
 
 #endif

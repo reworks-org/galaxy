@@ -81,10 +81,12 @@ namespace re
 		// we need to set the body's user data to the entity.
 		e->get<PhysicsComponent>()->m_body->SetUserData(static_cast<void*>(e));
 		m_entitys.emplace(e->m_name, e);
+		m_entitys[e->m_name]->get<PhysicsComponent>()->m_body->SetActive(true);
 	}
 
 	void PhysicsSystem::removeEntity(const std::string& name)
 	{
+		m_entitys[name]->get<PhysicsComponent>()->m_body->SetActive(false);
 		m_entitys.erase(name);
 	}
 
