@@ -30,6 +30,10 @@ std::shared_ptr<State> Game::inst()
 
 Game::~Game()
 {
+	if (m_map)
+	{
+		delete m_map;
+	}
 }
 
 void Game::loadResources()
@@ -49,6 +53,8 @@ void Game::loadResources()
 void Game::unloadResources()
 {
 	m_window->setView(m_window->getDefaultView());
+	delete m_map;
+	m_map = nullptr;
 }
 
 void Game::event()
