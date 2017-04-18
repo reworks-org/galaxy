@@ -1,13 +1,13 @@
 TODO List:
 
 beta1:
-- fix windows libaries and fix debug compilation
-- fix issues with animation / physics system
 - investigate crashes with kill/revive entitys
+- redo singleton game states
+- fix issues with animation / physics system
+- phyics system needs to have customizeable values when parsing tiles
 
 beta2:
 - proper loading system
-- phyics system needs to have customizeable values when parsing tiles
 - sfml inbuilt post-processing & shaders
 - Debug gui using IMGUI
 

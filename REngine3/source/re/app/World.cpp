@@ -97,35 +97,63 @@ namespace re
 
 	void World::update(sf::Time dt)
 	{
-		for (auto& it : m_alive)
+		for (auto it = m_alive.begin(); it != m_alive.end();)
 		{
-			if (it.second.m_isDead)
+			if (it->second.m_isDead)
 			{
-				std::string name = it.second.m_name;
-				for (auto s : it.second.m_systemIds)
+				std::string name = it->second.m_name;
+				for (auto& s : it->second.m_systemIds)
 				{
 					m_systems[s.second]->removeEntity(name);
 				}
 
-				m_dead.emplace(name, it.second);
-				m_alive.erase(name);
+				m_dead.insert(std::make_pair(name, std::move(it->second)));
+				m_alive.erase(it++);
+			}
+			else
+			{
+				++it;
 			}
 		}
 
+		/*
+		for (auto& it : m_alive)
+		{
+			if (it.second.m_isDead)
+			{
+				
+			}
+		}
+		*/
+
+		for (auto it = m_dead.begin(); it != m_dead.end();)
+		{
+			if (!it->second.m_isDead)
+			{
+				std::string name = it->second.m_name;
+				for (auto& s : it->second.m_systemIds)
+				{
+					m_systems[s.second]->addEntity(&it->second);
+				}
+
+				m_alive.insert(std::make_pair(name, std::move(it->second)));
+				m_dead.erase(it++);
+			}
+			else
+			{
+				++it;
+			}
+		}
+
+		/*
 		for (auto& it : m_dead)
 		{
 			if (!it.second.m_isDead)
 			{
-				std::string name = it.second.m_name;
-				for (auto s : it.second.m_systemIds)
-				{
-					m_systems[s.second]->addEntity(&it.second);
-				}
-
-				m_alive.emplace(name, it.second);
-				m_dead.erase(name);
+				
 			}
 		}
+		*/
 	}
 
 	void World::clean()

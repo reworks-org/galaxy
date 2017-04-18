@@ -29,13 +29,13 @@ public:
 	// See re::Application.
 	App(bool enableLogging, bool enableFileLogging, float32 gravity) : Application(enableLogging, enableFileLogging, gravity)
     {
-#ifdef _WIN32
-        m_vfs.mount("bin/Release/assets/");
-        m_config.parse("bin/Release/config.lua");
-#else
-        m_vfs.mount("Sandbox.app/Contents/Resources/");
-        m_config.parse("Sandbox.app/Contents/config.lua");
-#endif
+		#ifdef _WIN32
+			m_vfs.mount("bin/assets/");
+			m_config.parse("bin/config.lua");
+		#else
+			m_vfs.mount("Sandbox.app/Contents/Resources/");
+			m_config.parse("Sandbox.app/Contents/config.lua");
+		#endif
         
         m_appTitle = m_config.lookup<std::string>("appTitle");
         m_targetUPS = m_config.lookup<float>("ups");

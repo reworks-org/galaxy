@@ -36,6 +36,13 @@ namespace re
 		Entity();
 
 		/*
+		* IMPORTS: Entity object.
+		* EXPORTS: none
+		* PURPOSE: R-Value constructor
+		*/
+		Entity(Entity&& e);
+
+		/*
 		* IMPORTS: script - The name of the script in the VFS that defines the entity. Pointer to world.
 		* EXPORTS: none
 		* PURPOSE: Constructs the entity using data from the lua script provided.
@@ -79,13 +86,18 @@ namespace re
 		std::map<std::string, std::type_index> m_systemIds;
 
 	private:
-		bool m_isDead = false;
+		bool m_isDead;
 	};
 
 	template<typename T>
 	std::shared_ptr<T> Entity::get()
 	{
-		return std::dynamic_pointer_cast<T>(m_components->find(std::type_index(typeid(T)))->second);
+		auto it = m_components->find(std::type_index(typeid(T)));
+		auto end = m_components->end();
+
+		RE_REVERSE_ASSERT_COMPARE(it, end, "Tried to access non-existent componen", "Entity::get", "Entity.cpp", 90);
+
+		return std::dynamic_pointer_cast<T>(it->second);
 	}
 
 	template<typename T>

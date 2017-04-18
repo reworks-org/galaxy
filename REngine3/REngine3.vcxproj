@@ -356,7 +356,7 @@
       <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source;source/re/physics/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

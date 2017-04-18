@@ -56,17 +56,25 @@ namespace re
 			ar & m_body->GetPosition().x;
 			ar & m_body->GetPosition().y;
 			ar & m_body->GetAngle();
+			ar & m_body->GetAngularVelocity();
+			ar & m_body->GetLinearVelocity().x;
+			ar & m_body->GetLinearVelocity().y;
 		}
 
 		template<class Archive>
 		void load(Archive & ar, const unsigned int version)
 		{
-			float32 x, y, angle;
+			float32 x, y, angle, angleVelocity, linearX, linearY;
 			ar & x;
 			ar & y;
 			ar & angle;
+			ar & angleVelocity;
+			ar & linearX;
+			ar & linearY;
 
 			m_body->SetTransform(b2Vec2(x, y), angle);
+			m_body->SetAngularVelocity(angleVelocity);
+			m_body->SetLinearVelocity(b2Vec2(linearX, linearY));
 		}
 
 		BOOST_SERIALIZATION_SPLIT_MEMBER()

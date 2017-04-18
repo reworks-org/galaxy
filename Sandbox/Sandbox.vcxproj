@@ -142,7 +142,7 @@
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../REngine3/source/;../REngine3/source/re/physics/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/;$(SolutionDir)/libs/physfs/include/</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

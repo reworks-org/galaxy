@@ -18,6 +18,18 @@ namespace re
 {
 	Entity::Entity()
 	{
+		m_name = "";
+		m_components = nullptr;
+		m_systemIds.clear();
+		m_isDead = false;
+	}
+
+	Entity::Entity(Entity&& e)
+	{
+		m_name = e.m_name;
+		m_components = e.m_components;
+		m_systemIds = e.m_systemIds;
+		m_isDead = e.m_isDead;
 	}
 
 	void Entity::init(const std::string& script, ComponentHolder& cl)

@@ -67,7 +67,11 @@ void Menu::loadResources()
 
 	if (m_doOnce)
 	{
-		m_theme = std::make_shared<tgui::Theme>("Sandbox.app/Contents/Resources/ui/black.txt");
+		#ifdef _WIN32
+			m_theme = std::make_shared<tgui::Theme>("bin/assets/ui/black.txt");
+		#else
+			m_theme = std::make_shared<tgui::Theme>("Sandbox.app/Contents/Resources/ui/black.txt");
+		#endif
 		m_doOnce = false;
 	}
 
