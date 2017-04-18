@@ -17,6 +17,16 @@
 
 namespace re
 {
+	struct PhysicsFixtureUserData
+	{
+		PhysicsFixtureUserData(const std::string& str)
+		{
+			m_str = str;
+		}
+
+		std::string m_str = "";
+	};
+
 	class PhysicsComponent : public Component
 	{
 		friend class boost::serialization::access;
@@ -46,7 +56,7 @@ namespace re
 	public:
 		b2Body* m_body;
 		bool m_isMovingVertically = false;
-		bool m_isMovingHoritontally = false;
+		bool m_isMovingHorizontally = false;
 
 	private:
 		// Boost.Serialization functions
@@ -59,6 +69,8 @@ namespace re
 			ar & m_body->GetAngularVelocity();
 			ar & m_body->GetLinearVelocity().x;
 			ar & m_body->GetLinearVelocity().y;
+			ar & m_isMovingVertically;
+			ar & m_isMovingHorizontally;
 		}
 
 		template<class Archive>
@@ -71,6 +83,8 @@ namespace re
 			ar & angleVelocity;
 			ar & linearX;
 			ar & linearY;
+			ar & m_isMovingVertically;
+			ar & m_isMovingHorizontally;
 
 			m_body->SetTransform(b2Vec2(x, y), angle);
 			m_body->SetAngularVelocity(angleVelocity);

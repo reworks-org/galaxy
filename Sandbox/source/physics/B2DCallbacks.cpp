@@ -10,6 +10,7 @@
 
 #include <re/physics/Box2DManager.hpp>
 #include <re/services/ServiceLocator.hpp>
+#include <re/component/PhysicsComponent.hpp>
 
 #include "B2DCallbacks.hpp"
 
@@ -19,13 +20,13 @@ SandboxContact::~SandboxContact()
 
 void SandboxContact::BeginContact(b2Contact* contact)
 {
-	re::Entity* a = static_cast<re::Entity*>(contact->GetFixtureA()->GetBody()->GetUserData());
-	re::Entity* b = static_cast<re::Entity*>(contact->GetFixtureB()->GetBody()->GetUserData());
+	std::string a = static_cast<re::PhysicsFixtureUserData*>(contact->GetFixtureA()->GetUserData())->m_str;
+	std::string b = static_cast<re::PhysicsFixtureUserData*>(contact->GetFixtureB()->GetUserData())->m_str;
 
-	if (a != nullptr && b != nullptr)
+	if (a != "" && b != "")
 	{
 		auto map = re::Locator::get<re::Box2DManager>()->m_collisionFunctions;
-		auto tree = map.find(std::make_pair(a->m_name, b->m_name));
+		auto tree = map.find(std::make_pair(a, b));
 
 		if (tree != map.end())
 		{

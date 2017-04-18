@@ -21,11 +21,19 @@ entity =
 		x = 550,
 		y = 500,
 		bodyType = 0,
-		w = 300,
-		h = 50,
-		density = 1,
-		friction = 50,
-		restitution = 0,
-		fixedRotation = true
+		fixedRotation = true,
+		fixtureList =
+		{
+			fixtureA = 
+			{
+				w = 300,
+				h = 50,
+				angle = 0.0,
+				density = 1,
+				friction = 50,
+				restitution = 0,
+				id = "ground"
+			}
+		}
 	},
 }

@@ -14,12 +14,20 @@ entity =
 		x = 650,
 		y = 200,
 		bodyType = 2,
-		w = 64,
-		h = 205,
-		density = 1,
-		friction = 1,
-		restitution = 0,
-		fixedRotation = true
+		fixedRotation = true,
+		fixtureList =
+		{
+			fixtureA = 
+			{
+				w = 64,
+				h = 205,
+				angle = 0,
+				density = 1,
+				friction = 1,
+				restitution = 0,
+				id = "person"
+			}
+		}
 	},
 
 	EventComponent = 

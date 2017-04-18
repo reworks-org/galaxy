@@ -17,6 +17,7 @@
 
 namespace re
 {
+	typedef std::map<std::pair<std::string, std::string>, std::function<void(const std::string&, const std::string&)>> CollisionFunctionMap;
 	class Box2DManager : public Service
 	{
 	public:
@@ -36,7 +37,7 @@ namespace re
 
 	public:
 		b2World* m_world;
-		std::map<std::pair<std::string, std::string>, std::function<void(Entity*, Entity*)>> m_collisionFunctions;
+		CollisionFunctionMap m_collisionFunctions;
 
 	private:
 		b2Vec2 m_gravity;

@@ -33,7 +33,11 @@ namespace re
 
 	void EventSystem::addEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("EventSystem", std::type_index(typeid(EventSystem)));
+		if (e->m_systemIds.find("EventSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("EventSystem", std::type_index(typeid(EventSystem)));
+		}
+
 		m_entitys.emplace(e->m_name, e);
 	}
 

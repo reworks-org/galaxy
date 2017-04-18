@@ -82,7 +82,10 @@ void Menu::loadResources()
 	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
 	m_gui.add(time, "testlabel");
 
-	Locator::get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](Entity* a, Entity* b) { b->get<PhysicsComponent>()->m_isMovingVertically = false;});
+	Locator::get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](const std::string & a, const std::string& b)
+	{ 
+		Locator::get<World>()->getEntity("person").get<PhysicsComponent>()->m_isMovingVertically = false;
+	});
 }
 
 void Menu::unloadResources()
@@ -129,19 +132,16 @@ void Menu::event()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		m_world->getEntity("person").get<AnimationComponent>()->play();
 		m_world->getSystem<MoveSystem>()->move("person", -5);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		m_world->getEntity("person").get<AnimationComponent>()->play();
 		m_world->getSystem<MoveSystem>()->move("person", 5);
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		m_world->getEntity("person").get<AnimationComponent>()->pause();
 		m_world->getSystem<MoveSystem>()->jump("person", 5);
 	}
 

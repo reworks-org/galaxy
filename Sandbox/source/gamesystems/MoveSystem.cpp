@@ -52,7 +52,7 @@ namespace re
 			auto phys = found->second->get<PhysicsComponent>();
 			auto vel = phys->m_body->GetLinearVelocity();
 
-			phys->m_isMovingHoritontally = true;
+			phys->m_isMovingHorizontally = true;
 			vel.x = velocity;
 			phys->m_body->SetLinearVelocity(vel);
 		}

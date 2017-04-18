@@ -33,7 +33,10 @@ namespace re
 
 	void AudioSystem::addEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("AudioSystem", std::type_index(typeid(AudioSystem)));
+		if (e->m_systemIds.find("AudioSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("AudioSystem", std::type_index(typeid(AudioSystem)));
+		}
 		
 		m_entitys.emplace(e->m_name, e);
 	}

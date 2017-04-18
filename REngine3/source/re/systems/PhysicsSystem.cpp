@@ -77,9 +77,11 @@ namespace re
 
 	void PhysicsSystem::addEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("PhysicsSystem", std::type_index(typeid(PhysicsSystem)));
-		// we need to set the body's user data to the entity.
-		e->get<PhysicsComponent>()->m_body->SetUserData(static_cast<void*>(e));
+		if (e->m_systemIds.find("PhysicsSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("PhysicsSystem", std::type_index(typeid(PhysicsSystem)));
+		}
+
 		m_entitys.emplace(e->m_name, e);
 		m_entitys[e->m_name]->get<PhysicsComponent>()->m_body->SetActive(true);
 	}
@@ -102,14 +104,29 @@ namespace re
 			transf->setPosition((float)b2::metersToPixels<double>(phys->m_body->GetPosition().x), (float)b2::metersToPixels<double>(phys->m_body->GetPosition().y));
 			transf->setRotation((float)b2::radToDeg<double>(phys->m_body->GetAngle()));
 
-			if (e.second->has<AnimationComponent>() && (!phys->m_isMovingHoritontally))
+			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == false) && (phys->m_isMovingVertically == true)))
 			{
 				e.second->get<AnimationComponent>()->pause();
 			}
 
+			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == true) && (phys->m_isMovingVertically == true)))
+			{
+				e.second->get<AnimationComponent>()->pause();
+			}
+
+			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == false) && (phys->m_isMovingVertically == false)))
+			{
+				e.second->get<AnimationComponent>()->pause();
+			}
+
+			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == true) && (phys->m_isMovingVertically == false)))
+			{
+				e.second->get<AnimationComponent>()->play();
+			}
+
 			if (phys->m_body->GetLinearVelocity().x < 0.2f)
 			{
-				phys->m_isMovingHoritontally = false;
+				phys->m_isMovingHorizontally = false;
 			}
 		}
 	}

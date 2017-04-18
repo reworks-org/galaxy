@@ -1,13 +1,10 @@
 TODO List:
 
-beta1:
-- fix issues with animation / physics system
-- phyics system needs to have customizeable values when parsing tiles
-
 beta2:
 - proper loading system
 - sfml inbuilt post-processing & shaders
 - Debug gui using IMGUI
+- improve map physics
 
 v1.0:
 - fix all warnings/errors
