@@ -16,3 +16,9 @@ v1.0:
 - proper credits file
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - tgui lua bridge
+
+
+debug system has access to all entitys
+debug system gui only when compiled in debug
+rendered by sfml-imgui
+use that to modify values of entitys - possibly then write them out to their lua files
