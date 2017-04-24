@@ -99,61 +99,64 @@ void Menu::unloadResources()
 	m_world->clean();
 }
 
-void Menu::event(sf::Event& event)
+void Menu::handlePollEvents(sf::Event& event)
 {
-	switch (event.type)
-	{
-	case sf::Event::Closed:
-		m_window->close();
-		break;
-	}
+    m_gui.handleEvent(m_window->m_event);
+    
+    switch (event.type)
+    {
+        case sf::Event::MouseButtonReleased:
+            switch (event.mouseButton.button)
+            {
+                case sf::Mouse::Left:
+                    m_world->getSystem<EventSystem>()->dispatch(Event::MOUSE_PRESSED);
+                    break;
+            }
+            break;
+    }
+}
 
-	m_gui.handleEvent(m_window->m_event);
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		Serialization::save(m_world, "test.sf");
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
-	{
-		Serialization::load(m_world, "test.sf");
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-	{
-		m_window->close();
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		m_world->getSystem<MoveSystem>()->move("person", -5);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		m_world->getSystem<MoveSystem>()->move("person", 5);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		m_world->getSystem<MoveSystem>()->jump("person", 5);
-	}
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
-	{
-		m_world->getSystem<EventSystem>()->dispatch(Event::MOUSE_PRESSED);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
-	{
-		m_world->killEntity("person");
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-	{
-		m_world->restoreEntity("person");
-	}
+void Menu::handleEvents(sf::Event& event)
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        m_window->close();
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        Serialization::save(m_world, "test.sf");
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+    {
+        Serialization::load(m_world, "test.sf");
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+         m_world->getSystem<MoveSystem>()->move("person", -5);
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        m_world->getSystem<MoveSystem>()->move("person", 5);
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        m_world->getSystem<MoveSystem>()->jump("person", 5);
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K))
+    {
+        m_world->killEntity("person");
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+    {
+        m_world->restoreEntity("person");
+    }
 }
 
 void Menu::update(sf::Time dt)

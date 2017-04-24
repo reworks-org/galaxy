@@ -42,8 +42,15 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	void event(sf::Event& event) override;
+	void handlePollEvents(sf::Event& event) override;
 
+    /*
+     * IMPORTS: none
+     * EXPORTS: none
+     * PURPOSE: Process state events.
+     */
+    void handleEvents(sf::Event& event) override;
+    
 	/*
 	* IMPORTS: none
 	* EXPORTS: none

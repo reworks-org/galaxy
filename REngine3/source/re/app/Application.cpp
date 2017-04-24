@@ -43,35 +43,45 @@ namespace re
 		{
 			sf::Time dt = clock.restart();
 			timeSinceLastUpdate += dt;
-			
+            
 			while (timeSinceLastUpdate > TimePerFrame)
 			{
 				timeSinceLastUpdate -= TimePerFrame;
-
-				// Event
-				while (m_window.pollEvent(m_window.m_event))
-				{
-					#ifndef NDEBUG
-						if (event.type == sf::Event::KeyReleased)
-						{
-							if (event.key.code == sf::Keyboard::Tilde)
-							{
-								if (m_debugManager.isDisabled())
-								{
-									m_debugManager.enable();
-								}
-								else
-								{
-									m_debugManager.disable();
-								}
-							}
-						}
-					#endif
-
-					m_stateManager.event(m_window.m_event);
-					m_debugManager.event(m_window.m_event);
-				}
 				
+                // Handle events that need to be polled
+                while (m_window.pollEvent(m_window.m_event))
+                {
+                    switch(m_window.m_event.type)
+                    {
+                        case sf::Event::Closed:
+                            m_window.close();
+                            break;
+                            
+                        #ifndef NDEBUG
+                        case sf::Event::KeyReleased:
+                            switch(m_window.m_event.key.code)
+                            {
+                                case sf::Keyboard::Tab:
+                                    if (m_debugManager.isEnabled())
+                                    {
+                                        m_debugManager.disable();
+                                    }
+                                    else
+                                    {
+                                        m_debugManager.enable();
+                                    }
+                                    break;
+                            }
+                            break;
+                        #endif
+                    }
+                    
+                    m_stateManager.handlePollEvents(m_window.m_event);
+                    m_debugManager.event(m_window.m_event);
+                }
+                
+                m_stateManager.handleEvents(m_window.m_event);
+                
 				// Update
 				m_debugManager.update(m_window, TimePerFrame);
 				m_stateManager.update(TimePerFrame);
@@ -83,7 +93,7 @@ namespace re
 			m_window.clear(sf::Color::Black);
 
 			m_stateManager.render();
-			m_debugManager.render();
+			m_debugManager.render(m_window);
 
 			m_window.display();
 			frames++;

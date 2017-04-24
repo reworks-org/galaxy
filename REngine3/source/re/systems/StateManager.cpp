@@ -26,11 +26,16 @@ namespace re
 		m_currentState = s;
 	}
 
-	void StateManager::event(sf::Event& event)
+	void StateManager::handlePollEvents(sf::Event& event)
 	{
-		m_currentState->event(event);
+		m_currentState->handlePollEvents(event);
 	}
 
+    void StateManager::handleEvents(sf::Event &event)
+    {
+        m_currentState->handleEvents(event);
+    }
+    
 	void StateManager::update(sf::Time dt)
 	{
 		m_currentState->update(dt);

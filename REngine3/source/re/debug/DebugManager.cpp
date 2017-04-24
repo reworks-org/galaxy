@@ -27,14 +27,19 @@ namespace re
 
 	DebugManager::~DebugManager()
 	{
+        if (m_enabled == false && m_init == true)
+        {
+            ImGui::SFML::Shutdown();
+        }
 	}
 
 	void DebugManager::init(sf::RenderTarget& target, sf::Texture* fontTexture)
 	{
-		if (m_enabled)
+		if (m_enabled == true)
 		{
 			ImGui::SFML::Init(target, fontTexture);
-
+            m_init = true;
+            
 			m_alive = &(Locator::get<World>()->getAliveEntitys());
 			m_dead = &(Locator::get<World>()->getDeadEntitys());
 		}
@@ -42,7 +47,7 @@ namespace re
 
 	void DebugManager::event(const sf::Event& event)
 	{
-		if (m_enabled)
+		if (m_enabled == true)
 		{
 			ImGui::SFML::ProcessEvent(event);
 		}
@@ -50,23 +55,24 @@ namespace re
 
 	void DebugManager::update(sf::RenderWindow& window, sf::Time dt)
 	{
-		if (m_enabled)
+		if (m_enabled == true)
 		{
 			ImGui::SFML::Update(window, dt);
 		}
 	}
 
-	void DebugManager::render()
+	void DebugManager::render(sf::RenderWindow& window)
 	{
-		if (m_enabled)
+		if (m_enabled == true)
 		{
+            window.resetGLStates();
 			ImGui::Render();
 		}
 	}
 
 	void DebugManager::cleanup()
 	{
-		if (m_enabled)
+		if (m_enabled == true)
 		{
 			ImGui::SFML::Shutdown();
 		}
@@ -77,7 +83,7 @@ namespace re
 		m_enabled = false;
 	}
 
-	bool DebugManager::isDisabled()
+	bool DebugManager::isEnabled()
 	{
 		return m_enabled;
 	}
@@ -89,18 +95,21 @@ namespace re
 
 	void DebugManager::useMenu()
 	{
-		ImGui::Begin("debugMenu");
-		char windowTitle[255] = "Text here";
-		// Window title text edit
-		ImGui::InputText("Window title", windowTitle, 255);
-
-		if (ImGui::Button("Update window title")) {
-			// this code gets if user clicks on the button
-			// yes, you could have written if(ImGui::InputText(...))
-			// but I do this to show how buttons work :)
-			Locator::get<Window>()->setTitle(windowTitle);
-		}
-
-		ImGui::End();
+		if (m_enabled == true)
+        {
+            ImGui::Begin("debugMenu");
+            char windowTitle[255] = "Text here";
+            // Window title text edit
+            ImGui::InputText("Window title", windowTitle, 255);
+            
+            if (ImGui::Button("Update window title")) {
+                // this code gets if user clicks on the button
+                // yes, you could have written if(ImGui::InputText(...))
+                // but I do this to show how buttons work :)
+                Locator::get<Window>()->setTitle(windowTitle);
+            }
+            
+            ImGui::End();
+        }
 	}
 }

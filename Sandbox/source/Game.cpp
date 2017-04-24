@@ -58,53 +58,50 @@ void Game::unloadResources()
 	m_map = nullptr;
 }
 
-void Game::event(sf::Event& event)
+void Game::handlePollEvents(sf::Event& event)
 {
-	switch (event.type)
-	{
-	case sf::Event::Closed:
-		m_window->close();
-		break;
-	}
+}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
-	{
-		g_speed = 2;
-	}
-	else
-	{
-		g_speed = 1;
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-	{
-		m_window->close();
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		Locator::get<StateManager>()->changeState(Menu::inst());
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		m_map->move(0, 3*g_speed);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		m_map->move(0, -3 * g_speed);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		m_map->move(3 * g_speed, 0);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		m_map->move(-3*g_speed, 0);
-	}
+void Game::handleEvents(sf::Event& event)
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+    {
+        g_speed = 2;
+    }
+    else
+    {
+        g_speed = 1;
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        m_window->close();
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        Locator::get<StateManager>()->changeState(Menu::inst());
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+    {
+        m_map->move(0, 3*g_speed);
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+    {
+        m_map->move(0, -3 * g_speed);
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        m_map->move(3 * g_speed, 0);
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        m_map->move(-3*g_speed, 0);
+    }
 }
 
 void Game::update(sf::Time dt)

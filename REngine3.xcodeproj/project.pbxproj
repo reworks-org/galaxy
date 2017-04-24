@@ -1262,9 +1262,9 @@
 		F2CAC3261EA8858400D9F2CD /* debug */ = {
 			isa = PBXGroup;
 			children = (
+				F2CAC3271EA885AF00D9F2CD /* imgui */,
 				F2CAC33E1EA886B300D9F2CD /* DebugManager.cpp */,
 				F2CAC33F1EA886B300D9F2CD /* DebugManager.hpp */,
-				F2CAC3271EA885AF00D9F2CD /* imgui */,
 			);
 			name = debug;
 			sourceTree = "<group>";
@@ -1845,6 +1845,10 @@
 				);
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					./libs/boost/include,
 					./libs/libxml2/include,

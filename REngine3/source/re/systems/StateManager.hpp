@@ -55,10 +55,17 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Process the current states events.
+		* PURPOSE: Poll for events in the current state.
 		*/
-	    virtual void event(sf::Event& event) = 0;
+	    virtual void handlePollEvents(sf::Event& event) = 0;
 
+        /*
+         * IMPORTS: none
+         * EXPORTS: none
+         * PURPOSE: Real-Time input of event feedback.
+         */
+        virtual void handleEvents(sf::Event& event) = 0;
+        
 		/*
 		* IMPORTS: delta time
 		* EXPORTS: none
@@ -98,12 +105,19 @@ namespace re
 		*/
 	    void setState(std::shared_ptr<State> s);
 	    
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Process the current states events.
-		*/
-	    void event(sf::Event& event);
+        /*
+         * IMPORTS: none
+         * EXPORTS: none
+         * PURPOSE: Poll for events in the current state.
+         */
+        void handlePollEvents(sf::Event& event);
+        
+        /*
+         * IMPORTS: none
+         * EXPORTS: none
+         * PURPOSE: Real-Time input of event feedback.
+         */
+        void handleEvents(sf::Event& event);
 
 		/*
 		* IMPORTS: delta time

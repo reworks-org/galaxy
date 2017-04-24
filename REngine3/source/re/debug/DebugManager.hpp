@@ -56,7 +56,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Draw IMGUI.
 		*/
-		void render();
+        void render(sf::RenderWindow& window);
 		
 		/*
 		* IMPORTS: none
@@ -77,7 +77,7 @@ namespace re
 		* EXPORTS: boolean
 		* PURPOSE: Checks if the debug manager is disabled.
 		*/
-		bool isDisabled();
+		bool isEnabled();
 
 		/*
 		* IMPORTS: none
@@ -95,6 +95,7 @@ namespace re
 
 	private:
 		bool m_enabled;
+        bool m_init = false;
 		EntityList* m_alive;
 		EntityList* m_dead;
     };

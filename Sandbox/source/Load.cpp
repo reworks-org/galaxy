@@ -51,24 +51,21 @@ void Load::unloadResources()
 	m_world->clean();
 }
 
-void Load::event(sf::Event& event)
+void Load::handlePollEvents(sf::Event& event)
 {
-	switch (event.type)
-	{
-	case sf::Event::Closed:
-		m_window->close();
-		break;
-	}
+}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-	{
-		m_window->close();
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		Locator::get<StateManager>()->changeState(Menu::inst());
-	}
+void Load::handleEvents(sf::Event& event)
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        m_window->close();
+    }
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        Locator::get<StateManager>()->changeState(Menu::inst());
+    }
 }
 
 void Load::update(sf::Time dt)
