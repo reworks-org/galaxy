@@ -29,6 +29,11 @@
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
     <ClCompile Include="source\re\component\TextComponent.cpp" />
     <ClCompile Include="source\re\component\TransformComponent.cpp" />
+    <ClCompile Include="source\re\debug\DebugManager.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui_demo.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
@@ -147,6 +152,14 @@
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />
     <ClInclude Include="source\re\component\TextComponent.hpp" />
     <ClInclude Include="source\re\component\TransformComponent.hpp" />
+    <ClInclude Include="source\re\debug\DebugManager.hpp" />
+    <ClInclude Include="source\re\debug\imgui\imconfig.h" />
+    <ClInclude Include="source\re\debug\imgui\imgui-SFML.h" />
+    <ClInclude Include="source\re\debug\imgui\imgui.h" />
+    <ClInclude Include="source\re\debug\imgui\imgui_internal.h" />
+    <ClInclude Include="source\re\debug\imgui\stb_rect_pack.h" />
+    <ClInclude Include="source\re\debug\imgui\stb_textedit.h" />
+    <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />

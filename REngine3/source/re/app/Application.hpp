@@ -13,6 +13,7 @@
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/services/vfs/VFS.hpp"
+#include "re/debug/DebugManager.hpp"
 #include "re/systems/StateManager.hpp"
 #include "re/physics/Box2DManager.hpp"
 #include "re/graphics/FontManager.hpp"
@@ -52,6 +53,7 @@ namespace re
 		StateManager m_stateManager;
 		FontManager m_fontManager;
 		Box2DManager m_physicsManager;
+		DebugManager m_debugManager;
 	};
 }
 

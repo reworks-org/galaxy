@@ -117,6 +117,11 @@
     <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui_demo.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui_draw.cpp" />
+    <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
+    <ClCompile Include="source\re\debug\DebugManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -240,5 +245,13 @@
     <ClInclude Include="source\re\utility\Random.hpp" />
     <ClInclude Include="source\re\utility\Serialization.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
+    <ClInclude Include="source\re\debug\imgui\imconfig.h" />
+    <ClInclude Include="source\re\debug\imgui\imgui.h" />
+    <ClInclude Include="source\re\debug\imgui\imgui_internal.h" />
+    <ClInclude Include="source\re\debug\imgui\imgui-SFML.h" />
+    <ClInclude Include="source\re\debug\imgui\stb_rect_pack.h" />
+    <ClInclude Include="source\re\debug\imgui\stb_textedit.h" />
+    <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
+    <ClInclude Include="source\re\debug\DebugManager.hpp" />
   </ItemGroup>
 </Project>

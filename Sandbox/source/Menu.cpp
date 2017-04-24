@@ -99,21 +99,16 @@ void Menu::unloadResources()
 	m_world->clean();
 }
 
-void Menu::event()
+void Menu::event(sf::Event& event)
 {
-	// TODO: fix movement and jumping
-
-	while (m_window->pollEvent(m_window->m_event))
+	switch (event.type)
 	{
-		switch (m_window->m_event.type)
-		{
-		case sf::Event::Closed:
-			m_window->close();
-			break;
-		}
-
-		m_gui.handleEvent(m_window->m_event);
+	case sf::Event::Closed:
+		m_window->close();
+		break;
 	}
+
+	m_gui.handleEvent(m_window->m_event);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
@@ -172,10 +167,6 @@ void Menu::update(sf::Time dt)
 
 void Menu::render()
 {
-	m_window->clear(sf::Color::Black);
-
 	m_world->getSystem<RenderSystem>()->render(m_window);
 	m_gui.draw();
-
-	m_window->display();
 }

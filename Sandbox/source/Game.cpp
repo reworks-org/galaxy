@@ -12,6 +12,7 @@
 #include <re/graphics/Window.hpp>
 #include <re/services/Config.hpp>
 #include <re/services/vfs/VFS.hpp>
+#include <re/debug/DebugManager.hpp>
 #include <re/services/ServiceLocator.hpp>
 
 #include "Game.hpp"
@@ -47,7 +48,7 @@ void Game::loadResources()
 		m_map = new TMXMap("bin/assets/example.tmx");
 	#else
 		m_map = new TMXMap("Sandbox.app/Contents/Resources/example.tmx");
-	#endif
+	#endif	
 }
 
 void Game::unloadResources()
@@ -57,16 +58,13 @@ void Game::unloadResources()
 	m_map = nullptr;
 }
 
-void Game::event()
+void Game::event(sf::Event& event)
 {
-	while (m_window->pollEvent(m_window->m_event))
+	switch (event.type)
 	{
-		switch (m_window->m_event.type)
-		{
-		case sf::Event::Closed:
-			m_window->close();
-			break;
-		}
+	case sf::Event::Closed:
+		m_window->close();
+		break;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
@@ -112,13 +110,10 @@ void Game::event()
 void Game::update(sf::Time dt)
 {
 	m_map->update(dt);
+	Locator::get<DebugManager>()->useMenu();
 }
 
 void Game::render()
 {
-	m_window->clear(sf::Color::Black);
-
 	m_window->draw(*(m_map));
-
-	m_window->display();
 }

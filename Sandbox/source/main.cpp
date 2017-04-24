@@ -81,6 +81,7 @@ public:
         Locator::provide<FontManager>(&m_fontManager);
         Locator::provide<StateManager>(&m_stateManager);
         Locator::provide<Box2DManager>(&m_physicsManager);
+		Locator::provide<DebugManager>(&m_debugManager);
         
         // add fonts
         m_fontManager.add("GameOver", "game_over.ttf");

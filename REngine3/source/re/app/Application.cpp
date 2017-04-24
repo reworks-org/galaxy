@@ -37,6 +37,7 @@ namespace re
 		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
 
 		m_stateManager.loadResources();
+		m_debugManager.init(m_window);
 
 		while (m_window.isOpen())
 		{
@@ -48,16 +49,43 @@ namespace re
 				timeSinceLastUpdate -= TimePerFrame;
 
 				// Event
-				m_stateManager.event();
+				while (m_window.pollEvent(m_window.m_event))
+				{
+					#ifndef NDEBUG
+						if (event.type == sf::Event::KeyReleased)
+						{
+							if (event.key.code == sf::Keyboard::Tilde)
+							{
+								if (m_debugManager.isDisabled())
+								{
+									m_debugManager.enable();
+								}
+								else
+								{
+									m_debugManager.disable();
+								}
+							}
+						}
+					#endif
 
+					m_stateManager.event(m_window.m_event);
+					m_debugManager.event(m_window.m_event);
+				}
+				
 				// Update
+				m_debugManager.update(m_window, TimePerFrame);
 				m_stateManager.update(TimePerFrame);
 
 				updates++;
 			}
 			
 			// Render
+			m_window.clear(sf::Color::Black);
+
 			m_stateManager.render();
+			m_debugManager.render();
+
+			m_window.display();
 			frames++;
 			
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
@@ -75,6 +103,7 @@ namespace re
 		}
 
 		m_stateManager.unloadResources();
+		m_debugManager.cleanup();
 
 		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 78);
 		RE_LOG_SAVE(m_saveLog);

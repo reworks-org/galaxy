@@ -43,7 +43,7 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Process state events.
 	*/
-	void event() override;
+	void event(sf::Event& event) override;
 
 	/*
 	* IMPORTS: delta time.

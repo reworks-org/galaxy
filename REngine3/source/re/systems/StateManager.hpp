@@ -15,6 +15,11 @@
 
 #include "re/types/Service.hpp"
 
+namespace sf
+{
+	class Event;
+}
+
 namespace re
 {
 	class VFS;
@@ -52,7 +57,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-	    virtual void event() = 0;
+	    virtual void event(sf::Event& event) = 0;
 
 		/*
 		* IMPORTS: delta time
@@ -98,7 +103,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Process the current states events.
 		*/
-	    void event();
+	    void event(sf::Event& event);
 
 		/*
 		* IMPORTS: delta time

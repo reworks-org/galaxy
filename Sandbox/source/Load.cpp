@@ -51,16 +51,13 @@ void Load::unloadResources()
 	m_world->clean();
 }
 
-void Load::event()
+void Load::event(sf::Event& event)
 {
-	while (m_window->pollEvent(m_window->m_event))
+	switch (event.type)
 	{
-		switch (m_window->m_event.type)
-		{
-		case sf::Event::Closed:
-			m_window->close();
-			break;
-		}
+	case sf::Event::Closed:
+		m_window->close();
+		break;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -100,9 +97,5 @@ void Load::update(sf::Time dt)
 
 void Load::render()
 {
-	m_window->clear(sf::Color::Black);
-
 	m_world->getSystem<RenderSystem>()->render(m_window);
-
-	m_window->display();
 }
