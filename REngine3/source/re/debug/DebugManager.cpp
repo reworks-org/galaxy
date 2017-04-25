@@ -75,6 +75,7 @@ namespace re
 		if (m_enabled == true)
 		{
 			ImGui::SFML::Shutdown();
+			m_init = false;
 		}
 	}
 
