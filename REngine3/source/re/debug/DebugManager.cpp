@@ -98,19 +98,11 @@ namespace re
 	{
 		if (m_enabled == true)
         {
+            /*
             ImGui::Begin("debugMenu");
-            char windowTitle[255] = "Text here";
-            // Window title text edit
-            ImGui::InputText("Window title", windowTitle, 255);
-            
-            if (ImGui::Button("Update window title")) {
-                // this code gets if user clicks on the button
-                // yes, you could have written if(ImGui::InputText(...))
-                // but I do this to show how buttons work :)
-                Locator::get<Window>()->setTitle(windowTitle);
-            }
-            
             ImGui::End();
+            */
+            ImGui::ShowTestWindow();
         }
 	}
 }
