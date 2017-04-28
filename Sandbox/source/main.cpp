@@ -19,6 +19,7 @@
 #include "gamesystems/MoveSystem.hpp"
 #include "physics/B2DCallbacks.hpp"
 
+#include "Game.hpp"
 #include "Load.hpp"
 
 using namespace re;
@@ -89,8 +90,8 @@ public:
         // set icon
         m_window.loadIcon("icon.png");
         
-        // create states
-        m_stateManager.setState(Load::inst());
+        // create states Load::inst()
+        m_stateManager.setState(Game::inst());
     }
 
 private:

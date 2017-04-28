@@ -32,7 +32,7 @@ namespace SFML
 }
 
 // custom ImGui widgets for SFML stuff
-
+    
 // Image overloads
     void Image(const sf::Texture& texture,
         const sf::Color& tintColor = sf::Color::White,

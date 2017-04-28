@@ -14,6 +14,34 @@
 
 #include "DebugManager.hpp"
 
+namespace ImGui
+{
+namespace SFML
+{
+    static auto vector_getter = [](void* vec, int idx, const char** out_text)
+    {
+        auto& vector = *static_cast<std::vector<std::string>*>(vec);
+        if (idx < 0 || idx >= static_cast<int>(vector.size())) { return false; }
+        *out_text = vector.at(idx).c_str();
+        return true;
+    };
+    
+    inline bool Combo(const char* label, int* currIndex, std::vector<std::string>& values)
+    {
+        if (values.empty()) { return false; }
+        return ImGui::Combo(label, currIndex, vector_getter,
+                            static_cast<void*>(&values), values.size());
+    }
+    
+    inline bool ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
+    {
+        if (values.empty()) { return false; }
+        return ImGui::ListBox(label, currIndex, vector_getter,
+                              static_cast<void*>(&values), values.size());
+    }
+}
+}
+
 namespace re
 {
 	DebugManager::DebugManager()
@@ -98,11 +126,32 @@ namespace re
 	{
 		if (m_enabled == true)
         {
-            /*
-            ImGui::Begin("debugMenu");
+            ImGui::Begin("DebugMenu");
+            
+            //ImGui::ShowTestWindow();
+
+            static int index = 0;
+            static bool doneOnce = false;
+            static std::vector<std::string> entityNames;
+            
+            if (!doneOnce)
+            {
+                // loop through filling value vectors for combos
+                for (auto& v : *(m_alive))
+                {
+                	entityNames.push_back(v.m_name);	
+                }
+                doneOnce = true;
+            }
+            
+            ImGui::Checkbox("VectorSwitcher", &isInAliveEntitys);
+            
+            if (isInAliveEntitys)
+            {
+                ImGui::SFML::Combo("EntitySelector", &index, entityNames);
+            }
+            
             ImGui::End();
-            */
-            ImGui::ShowTestWindow();
         }
 	}
 }
