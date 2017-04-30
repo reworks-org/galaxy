@@ -87,8 +87,6 @@ void Menu::loadResources()
 	{ 
 		Locator::get<World>()->getEntity("person").get<PhysicsComponent>()->m_isMovingVertically = false;
 	});
-	
-	Locator::get<DebugManager>()->updateEntityNames();
 }
 
 void Menu::unloadResources()

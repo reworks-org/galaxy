@@ -50,11 +50,18 @@ namespace re
 		void registerEntitys(const std::string& entitysScript);
 
 		/*
-		* IMPORTS: name of entity to get, and if it is dead or not.
-		* EXPORTS: shared_ptr to that entity.
+		* IMPORTS: name of an alive entity to get
+		* EXPORTS: reference to that entity
 		* PURPOSE: To retrieve an entity from the world.
 		*/
 		Entity& getEntity(const std::string& name);
+
+		/*
+		* IMPORTS: name of a dead entity to get
+		* EXPORTS: reference to that entity
+		* PURPOSE: To retrieve an entity from the world.
+		*/
+		Entity& getDeadEntity(const std::string& name);
 
 		/*
 		* IMPORTS: name - name of entity to kill.
@@ -146,6 +153,8 @@ namespace re
 		SystemList m_systems;
 		ComponentHolder m_components;
 		ComponentFactory m_componentFactory;
+
+		bool m_entityHasChanged = false;
 	};
 
 	template<typename T>

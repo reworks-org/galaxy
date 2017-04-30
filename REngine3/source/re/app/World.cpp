@@ -74,13 +74,24 @@ namespace re
 	{
 		auto found = m_alive.find(name);
         
-		RE_REVERSE_ASSERT_COMPARE(found, m_alive.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 77);
+		RE_REVERSE_ASSERT_COMPARE(found, m_alive.end(), "Attempted to access non-existant or dead entity", "World::getEntity", "World.cpp", 77);
         
         return m_alive[name];
 	}
 
+	Entity& World::getDeadEntity(const std::string& name)
+	{
+		auto found = m_dead.find(name);
+
+		RE_REVERSE_ASSERT_COMPARE(found, m_dead.end(), "Attempted to access non-existant or alive entity", "World::getDeadEntity", "World.cpp", 86);
+
+		return m_dead[name];
+	}
+
 	void World::killEntity(const std::string& name)
 	{
+		m_entityHasChanged = true;
+
 		if (m_alive.find(name) != m_alive.end())
 		{
 			m_alive[name].m_isDead = true;
@@ -89,6 +100,8 @@ namespace re
 
 	void World::restoreEntity(const std::string& name)
 	{
+		m_entityHasChanged = true;
+
 		if (m_dead.find(name) != m_dead.end())
 		{
 			m_dead[name].m_isDead = false;
@@ -97,43 +110,48 @@ namespace re
 
 	void World::update(sf::Time dt)
 	{
-		for (auto it = m_alive.begin(); it != m_alive.end();)
+		if (m_entityHasChanged)
 		{
-			if (it->second.m_isDead)
+			for (auto it = m_alive.begin(); it != m_alive.end();)
 			{
-				std::string name = it->second.m_name;
-				for (auto& s : it->second.m_systemIds)
+				if (it->second.m_isDead)
 				{
-					m_systems[s.second]->removeEntity(name);
+					std::string name = it->second.m_name;
+					for (auto& s : it->second.m_systemIds)
+					{
+						m_systems[s.second]->removeEntity(name);
+					}
+
+					m_dead.insert(std::make_pair(name, std::move(it->second)));
+					m_alive.erase(it++);
 				}
+				else
+				{
+					++it;
+				}
+			}
 
-				m_dead.insert(std::make_pair(name, std::move(it->second)));
-				m_alive.erase(it++);
-			}
-			else
+			for (auto it = m_dead.begin(); it != m_dead.end();)
 			{
-				++it;
-			}
-		}
+				if (!it->second.m_isDead)
+				{
+					std::string name = it->second.m_name;
 
-		for (auto it = m_dead.begin(); it != m_dead.end();)
-		{
-			if (!it->second.m_isDead)
-            {
-                std::string name = it->second.m_name;
-                
-                m_alive.insert(std::make_pair(name, std::move(it->second)));
-                m_dead.erase(it++);
-                
-                for (auto& s : m_alive[name].m_systemIds)
-                {
-                    m_systems[s.second]->addEntity(&m_alive[name]);
-                }
+					m_alive.insert(std::make_pair(name, std::move(it->second)));
+					m_dead.erase(it++);
+
+					for (auto& s : m_alive[name].m_systemIds)
+					{
+						m_systems[s.second]->addEntity(&m_alive[name]);
+					}
+				}
+				else
+				{
+					++it;
+				}
 			}
-			else
-			{
-				++it;
-			}
+
+			m_entityHasChanged = false;
 		}
 	}
 

@@ -8,9 +8,9 @@
 
 #include "re/debug/imgui/imgui.h"
 #include "re/debug/imgui/imgui-SFML.h"
-#include "re/services/ServiceLocator.hpp"
 
 #include "re/graphics/Window.hpp"
+#include "re/services/ServiceLocator.hpp"
 
 #include "DebugManager.hpp"
 
@@ -48,7 +48,8 @@ namespace re
 	{
 		#ifndef NDEBUG
 			enable();
-			m_entityNames.clear();
+			m_aliveEntityNames.clear();
+			m_deadEntityNames.clear();
 		#else
 			disable();
 		#endif
@@ -68,6 +69,8 @@ namespace re
 		{
 			ImGui::SFML::Init(target, fontTexture);
             m_init = true;
+
+			m_world = Locator::get<World>();
 		}
 	}
 
@@ -124,16 +127,17 @@ namespace re
 	{
 		if (m_enabled == true)
 		{
-			m_entityNames.clear();
+			m_aliveEntityNames.clear();
+			m_deadEntityNames.clear();
 
-			for (auto& v : Locator::get<World>()->getAliveEntitys())
+			for (auto& v : m_world->getAliveEntitys())
 			{
-				m_entityNames.push_back(v.second.m_name);
+				m_aliveEntityNames.push_back(v.second.m_name);
 			}
 
-			for (auto& v : Locator::get<World>()->getDeadEntitys())
+			for (auto& v : m_world->getDeadEntitys())
 			{
-				m_entityNames.push_back(v.second.m_name);
+				m_deadEntityNames.push_back(v.second.m_name);
 			}
 		}
 	}
@@ -142,13 +146,65 @@ namespace re
 	{
 		if (m_enabled == true)
         {
-            ImGui::Begin("DebugMenu");
-            
-            //ImGui::ShowTestWindow();
+			updateEntityNames();
 
-            static int index = 0;
-                       
-			ImGui::SFML::Combo("EntitySelector", &index, m_entityNames);
+            ImGui::Begin("DebugMenu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+            
+            static int indexAlive = 0;
+			static int indexDead = 0;
+
+			static bool isInAliveEntitys = true;
+
+			ImGui::Checkbox("Access alive or dead entitys?", &isInAliveEntitys);
+
+			if (isInAliveEntitys)
+			{
+				ImGui::Separator();
+				ImGui::Spacing();
+
+				ImGui::Text("Entity manager (alive): ");
+
+				ImGui::SFML::Combo("Entity Selector", &indexAlive, m_aliveEntityNames);
+
+				if (m_aliveEntityNames.empty() == false)
+				{
+					Entity* curEntity = &(m_world->getEntity(m_aliveEntityNames[indexAlive]));
+
+					static bool killEntity = false;
+					ImGui::Checkbox("Kill Entity?", &killEntity);
+
+					if (killEntity == true)
+					{
+						m_world->killEntity(m_aliveEntityNames[indexAlive]);
+						killEntity = false;
+						indexAlive = 0;
+					}
+				}
+			}
+			else
+			{
+				ImGui::Separator();
+				ImGui::Spacing();
+
+				ImGui::Text("Entity manager (dead): ");
+
+				ImGui::SFML::Combo("Entity Selector", &indexDead, m_deadEntityNames);
+
+				if (m_deadEntityNames.empty() == false)
+				{
+					Entity* curEntity = &(m_world->getDeadEntity(m_deadEntityNames[indexDead]));
+
+					static bool restoreEntity = false;
+					ImGui::Checkbox("Restore Entity?", &restoreEntity);
+
+					if (restoreEntity == true)
+					{
+						m_world->restoreEntity(m_deadEntityNames[indexDead]);
+						restoreEntity = false;
+						indexDead = 0;
+					}
+				}
+			}
 			
 		    ImGui::End();
         }

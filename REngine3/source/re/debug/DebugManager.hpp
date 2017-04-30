@@ -103,7 +103,10 @@ namespace re
 	private:
 		bool m_enabled;
         bool m_init = false;
-		std::vector<std::string> m_entityNames;
+		std::vector<std::string> m_aliveEntityNames;
+		std::vector<std::string> m_deadEntityNames;
+
+		re::World* m_world;
     };
 }
 

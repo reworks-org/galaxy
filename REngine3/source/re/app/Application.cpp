@@ -76,8 +76,8 @@ namespace re
                         #endif
                     }
                     
-                    m_stateManager.handlePollEvents(m_window.m_event);
                     m_debugManager.event(m_window.m_event);
+                    m_stateManager.handlePollEvents(m_window.m_event);
                 }
                 
                 m_stateManager.handleEvents(m_window.m_event);
