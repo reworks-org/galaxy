@@ -48,6 +48,7 @@ namespace re
 	{
 		#ifndef NDEBUG
 			enable();
+			m_entityNames.clear();
 		#else
 			disable();
 		#endif
@@ -67,9 +68,6 @@ namespace re
 		{
 			ImGui::SFML::Init(target, fontTexture);
             m_init = true;
-            
-			m_alive = &(Locator::get<World>()->getAliveEntitys());
-			m_dead = &(Locator::get<World>()->getDeadEntitys());
 		}
 	}
 
@@ -122,6 +120,24 @@ namespace re
 		m_enabled = true;
 	}
 
+	void DebugManager::updateEntityNames()
+	{
+		if (m_enabled == true)
+		{
+			m_entityNames.clear();
+
+			for (auto& v : Locator::get<World>()->getAliveEntitys())
+			{
+				m_entityNames.push_back(v.second.m_name);
+			}
+
+			for (auto& v : Locator::get<World>()->getDeadEntitys())
+			{
+				m_entityNames.push_back(v.second.m_name);
+			}
+		}
+	}
+
 	void DebugManager::useMenu()
 	{
 		if (m_enabled == true)
@@ -131,27 +147,10 @@ namespace re
             //ImGui::ShowTestWindow();
 
             static int index = 0;
-            static bool doneOnce = false;
-            static std::vector<std::string> entityNames;
-            
-            if (!doneOnce)
-            {
-                // loop through filling value vectors for combos
-                for (auto& v : *(m_alive))
-                {
-                	entityNames.push_back(v.m_name);	
-                }
-                doneOnce = true;
-            }
-            
-            ImGui::Checkbox("VectorSwitcher", &isInAliveEntitys);
-            
-            if (isInAliveEntitys)
-            {
-                ImGui::SFML::Combo("EntitySelector", &index, entityNames);
-            }
-            
-            ImGui::End();
+                       
+			ImGui::SFML::Combo("EntitySelector", &index, m_entityNames);
+			
+		    ImGui::End();
         }
 	}
 }

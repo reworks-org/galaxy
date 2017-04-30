@@ -89,6 +89,13 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
+		* PURPOSE: Update the names of the entitys in the world in the debug manager.
+		*/
+		void updateEntityNames();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
 		* PURPOSE: call between update and render. Calls the functions that make up the main debug menu.
 		*/
 		void useMenu();
@@ -96,8 +103,7 @@ namespace re
 	private:
 		bool m_enabled;
         bool m_init = false;
-		EntityList* m_alive;
-		EntityList* m_dead;
+		std::vector<std::string> m_entityNames;
     };
 }
 

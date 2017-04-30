@@ -27,6 +27,7 @@
 #include <re/component/PhysicsComponent.hpp>
 #include <re/utility/Time.hpp>
 #include <re/utility/Serialization.hpp>
+#include <re/debug/DebugManager.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
 
@@ -86,6 +87,8 @@ void Menu::loadResources()
 	{ 
 		Locator::get<World>()->getEntity("person").get<PhysicsComponent>()->m_isMovingVertically = false;
 	});
+	
+	Locator::get<DebugManager>()->updateEntityNames();
 }
 
 void Menu::unloadResources()
@@ -166,6 +169,8 @@ void Menu::update(sf::Time dt)
 	m_world->getSystem<PhysicsSystem>()->update(dt);
 
 	m_gui.get<tgui::Label>("testlabel")->setText(Time::getShortTime());
+	
+	Locator::get<DebugManager>()->useMenu();
 }
 
 void Menu::render()

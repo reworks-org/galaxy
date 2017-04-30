@@ -19,7 +19,7 @@
 #include "gamesystems/MoveSystem.hpp"
 #include "physics/B2DCallbacks.hpp"
 
-#include "Game.hpp"
+#include "Menu.hpp"
 #include "Load.hpp"
 
 using namespace re;
@@ -91,7 +91,7 @@ public:
         m_window.loadIcon("icon.png");
         
         // create states Load::inst()
-        m_stateManager.setState(Game::inst());
+        m_stateManager.setState(Menu::inst());
     }
 
 private:
