@@ -10,6 +10,7 @@
 #define RENGINE3_DEBUGMANAGER_HPP_
 
 #include "re/app/World.hpp"
+#include "re/scripting/sol2/sol.hpp"
 
 namespace re
 {
@@ -89,13 +90,6 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Update the names of the entitys in the world in the debug manager.
-		*/
-		void updateEntityNames();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
 		* PURPOSE: call between update and render. Calls the functions that make up the main debug menu.
 		*/
 		void useMenu();
@@ -103,9 +97,7 @@ namespace re
 	private:
 		bool m_enabled;
         bool m_init = false;
-		std::vector<std::string> m_aliveEntityNames;
-		std::vector<std::string> m_deadEntityNames;
-
+        sol::state m_lua;
 		re::World* m_world;
     };
 }

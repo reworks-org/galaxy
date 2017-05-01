@@ -28,7 +28,7 @@ namespace re
 	void SpriteComponent::init(sol::table& table)
 	{
 		m_group = table.get<sf::Uint32>("group");
-
+        
 		if (table.get<bool>("isSpriteSheet") == true)
 		{
 			setTexture(Locator::get<TextureAtlas>()->get(table.get<std::string>("altas_ref")));

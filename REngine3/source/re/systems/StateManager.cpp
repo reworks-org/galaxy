@@ -6,6 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/app/World.hpp"
+#include "re/services/ServiceLocator.hpp"
+
 #include "StateManager.hpp"
 
 namespace re
@@ -18,6 +21,7 @@ namespace re
 	{
 	    m_currentState->unloadResources();
 		m_currentState = s;
+        Locator::get<World>()->entitysHaveChanged();
 		m_currentState->loadResources();
 	}
 

@@ -15,7 +15,7 @@
 #include <re/services/ServiceLocator.hpp>
 
 #include "Game.hpp"
-#include "Menu.hpp"
+#include "Load.hpp"
 
 using namespace re;
 
@@ -79,7 +79,7 @@ void Game::handleEvents(sf::Event& event)
     
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {
-        Locator::get<StateManager>()->changeState(Menu::inst());
+        Locator::get<StateManager>()->changeState(Load::inst());
     }
     
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))

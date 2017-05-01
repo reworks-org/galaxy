@@ -18,9 +18,9 @@ namespace re
 {
 	Entity::Entity()
 	{
-        //m_name = "";
-        //m_components = nullptr;
-        //m_systemIds.clear();
+        m_name = "";
+        m_components = nullptr;
+        m_systemIds.clear();
         m_isDead = false;
 	}
 
@@ -72,5 +72,6 @@ namespace re
 	Entity::~Entity()
 	{
 		m_systemIds.clear();
+        m_components = nullptr;
 	}
 }

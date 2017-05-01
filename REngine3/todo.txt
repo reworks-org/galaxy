@@ -5,6 +5,8 @@ beta2:
 - sfml inbuilt post-processing & shaders
 - Debug gui using IMGUI
 - improve map physics
+- fix bug when switching back into menu state from another state. I think it is to do with world not updating entitys but that isn't working for some reason...
+- work through it logically...
 
 beta3:
 - ai
@@ -22,3 +24,11 @@ debug system has access to all entitys
 debug system gui only when compiled in debug
 rendered by sfml-imgui
 use that to modify values of entitys - possibly then write them out to their lua files
+save lua file data for componetns and send it to debug maanger for data reporting and allow modification / changes to components
+from the debug manager and then write any changes out to lua files
+
+components need to not jst use the data from lua files but save it for reuse later.
+debug manager needs to load the entitys lua script into its system and modify that, then write it out afterwards.
+
+the idea is you should be able to create and add a brand new entity to the engine from the debug menu. This allows you to do stuff in game without
+having to recompile the game and the engine. ofc then this data is written out to the appropriate lua files by sol2. (gamestate.lua, entity.lua)

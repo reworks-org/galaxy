@@ -168,7 +168,7 @@ void Menu::update(sf::Time dt)
 
 	m_gui.get<tgui::Label>("testlabel")->setText(Time::getShortTime());
 	
-	Locator::get<DebugManager>()->useMenu();
+    //Locator::get<DebugManager>()->useMenu();
 }
 
 void Menu::render()

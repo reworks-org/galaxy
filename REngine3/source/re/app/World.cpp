@@ -34,6 +34,7 @@ namespace re
 		m_systems.clear();
 		m_components.clear();
 		m_componentFactory.clear();
+        m_loadedEntityScripts.clear();
 	}
 
 	void World::init()
@@ -67,6 +68,7 @@ namespace re
 		{
 			m_alive.emplace(it.first, Entity());
 			m_alive[it.first].init(it.second, m_components);
+            m_loadedEntityScripts.push_back(it.second);
 		}
 	}
 
@@ -74,23 +76,23 @@ namespace re
 	{
 		auto found = m_alive.find(name);
         
-		RE_REVERSE_ASSERT_COMPARE(found, m_alive.end(), "Attempted to access non-existant or dead entity", "World::getEntity", "World.cpp", 77);
-        
-        return m_alive[name];
-	}
-
-	Entity& World::getDeadEntity(const std::string& name)
-	{
-		auto found = m_dead.find(name);
-
-		RE_REVERSE_ASSERT_COMPARE(found, m_dead.end(), "Attempted to access non-existant or alive entity", "World::getDeadEntity", "World.cpp", 86);
-
-		return m_dead[name];
+        if (found != m_alive.end())
+        {
+            return m_alive[name];
+        }
+        else
+        {
+            auto it = m_dead.find(name);
+            
+            RE_REVERSE_ASSERT_COMPARE(it, m_dead.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 85);
+            
+            return m_dead[name];
+        }
 	}
 
 	void World::killEntity(const std::string& name)
 	{
-		m_entityHasChanged = true;
+		m_entitysHaveChanged = true;
 
 		if (m_alive.find(name) != m_alive.end())
 		{
@@ -100,7 +102,7 @@ namespace re
 
 	void World::restoreEntity(const std::string& name)
 	{
-		m_entityHasChanged = true;
+		m_entitysHaveChanged = true;
 
 		if (m_dead.find(name) != m_dead.end())
 		{
@@ -110,7 +112,7 @@ namespace re
 
 	void World::update(sf::Time dt)
 	{
-		if (m_entityHasChanged)
+		if (m_entitysHaveChanged)
 		{
 			for (auto it = m_alive.begin(); it != m_alive.end();)
 			{
@@ -151,7 +153,7 @@ namespace re
 				}
 			}
 
-			m_entityHasChanged = false;
+			m_entitysHaveChanged = false;
 		}
 	}
 
@@ -160,6 +162,7 @@ namespace re
 		m_dead.clear();
 		m_alive.clear();
 		m_components.clear();
+        m_loadedEntityScripts.clear();
 	}
 
 	ComponentFactory& World::getComponentFactory()
@@ -176,4 +179,9 @@ namespace re
 	{
 		return m_dead;
 	}
+    
+    void World::entitysHaveChanged()
+    {
+        m_entitysHaveChanged = true;
+    }
 }

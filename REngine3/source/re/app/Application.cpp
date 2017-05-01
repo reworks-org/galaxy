@@ -86,9 +86,12 @@ namespace re
 				m_debugManager.update(m_window, TimePerFrame);
 				m_stateManager.update(TimePerFrame);
 
+                // Display the debug manager
+                m_debugManager.useMenu();
+                
 				updates++;
-			}
-			
+            }
+            
 			// Render
 			m_window.clear(sf::Color::Black);
 

@@ -11,6 +11,8 @@
 
 #include "re/graphics/Window.hpp"
 #include "re/services/ServiceLocator.hpp"
+#include "re/component/SpriteComponent.hpp"
+#include "re/services/vfs/VFS.hpp"
 
 #include "DebugManager.hpp"
 
@@ -48,8 +50,6 @@ namespace re
 	{
 		#ifndef NDEBUG
 			enable();
-			m_aliveEntityNames.clear();
-			m_deadEntityNames.clear();
 		#else
 			disable();
 		#endif
@@ -123,44 +123,32 @@ namespace re
 		m_enabled = true;
 	}
 
-	void DebugManager::updateEntityNames()
-	{
-		if (m_enabled == true)
-		{
-			m_aliveEntityNames.clear();
-			m_deadEntityNames.clear();
-
-			for (auto& v : m_world->getAliveEntitys())
-			{
-				m_aliveEntityNames.push_back(v.second.m_name);
-			}
-
-			for (auto& v : m_world->getDeadEntitys())
-			{
-				m_deadEntityNames.push_back(v.second.m_name);
-			}
-		}
-	}
-
 	void DebugManager::useMenu()
 	{
 		if (m_enabled == true)
         {
-			updateEntityNames();
-
             ImGui::Begin("DebugMenu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
             
-            static int indexAlive = 0;
-			static int indexDead = 0;
+            static int index = 0;
 
-			static bool isInAliveEntitys = true;
-
-			ImGui::Checkbox("Access alive or dead entitys?", &isInAliveEntitys);
-
+            ImGui::Text("Entity Manager");
+            ImGui::Separator();
+            
+            if (m_world->m_loadedEntityScripts.empty() == false)
+            {
+                ImGui::SFML::Combo("Entity Selector", &index, m_world->m_loadedEntityScripts);
+                
+                m_lua.script(Locator::get<VFS>()->toString(m_world->m_loadedEntityScripts[index]));
+                sol::table entityTable = m_lua.get<sol::table>("entity");
+                Entity* curEntity = &(m_world->getEntity(entityTable.get<std::string>("name")));
+                
+                ImGui::Text(std::string("Name: " + curEntity->m_name).c_str());
+            }
+            
+            /*
 			if (isInAliveEntitys)
 			{
 				ImGui::Separator();
-				ImGui::Spacing();
 
 				ImGui::Text("Entity manager (alive): ");
 
@@ -168,23 +156,36 @@ namespace re
 
 				if (m_aliveEntityNames.empty() == false)
 				{
-					Entity* curEntity = &(m_world->getEntity(m_aliveEntityNames[indexAlive]));
-
-					static bool killEntity = false;
-					ImGui::Checkbox("Kill Entity?", &killEntity);
-
-					if (killEntity == true)
+                    Entity* curEntity = &(m_world->getEntity(m_aliveEntityNames[indexAlive]));
+                    
+                    sol::state lua;
+                    lua.script(Locator::get<VFS>()->toString(curEntity->m_script));
+                    
+                    
+                    
+					if (ImGui::Button("Kill Entity?"))
 					{
 						m_world->killEntity(m_aliveEntityNames[indexAlive]);
-						killEntity = false;
 						indexAlive = 0;
 					}
+                    else
+                    {
+                        ImGui::SFML::Combo("Component Selector", &indexComponent, curEntity->m_componentNames);
+                        
+                        std::string curComponent = curEntity->m_componentNames[indexComponent];
+                        if (curComponent == "SpriteComponent")
+                        {
+                            auto sp = curEntity->get<SpriteComponent>();
+                            
+                            std::string group = "Group: " + std::to_string(sp->m_group);
+                            ImGui::Text(group.c_str());
+                        }
+                    }
 				}
 			}
 			else
 			{
 				ImGui::Separator();
-				ImGui::Spacing();
 
 				ImGui::Text("Entity manager (dead): ");
 
@@ -205,7 +206,7 @@ namespace re
 					}
 				}
 			}
-			
+			*/
 		    ImGui::End();
         }
 	}

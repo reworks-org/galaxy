@@ -50,18 +50,11 @@ namespace re
 		void registerEntitys(const std::string& entitysScript);
 
 		/*
-		* IMPORTS: name of an alive entity to get
+		* IMPORTS: name of an entity to get
 		* EXPORTS: reference to that entity
 		* PURPOSE: To retrieve an entity from the world.
 		*/
 		Entity& getEntity(const std::string& name);
-
-		/*
-		* IMPORTS: name of a dead entity to get
-		* EXPORTS: reference to that entity
-		* PURPOSE: To retrieve an entity from the world.
-		*/
-		Entity& getDeadEntity(const std::string& name);
 
 		/*
 		* IMPORTS: name - name of entity to kill.
@@ -138,6 +131,13 @@ namespace re
 		*/
         EntityList& getDeadEntitys();
 		
+        /*
+         * IMPORTS: none
+         * EXPORTS: none
+         * PURPOSE: Set boolean flag if entitys have been changed.
+         */
+        void entitysHaveChanged();
+        
 	private:
 		/*
 		* IMPORTS: type of component to make
@@ -153,8 +153,11 @@ namespace re
 		SystemList m_systems;
 		ComponentHolder m_components;
 		ComponentFactory m_componentFactory;
-
-		bool m_entityHasChanged = false;
+        
+		bool m_entitysHaveChanged = false;
+        
+    public:
+        std::vector<std::string> m_loadedEntityScripts;
 	};
 
 	template<typename T>
