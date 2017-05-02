@@ -59,6 +59,13 @@ namespace re
 
 		/*
 		* IMPORTS: none
+		* EXPORTS: const boolean
+		* PURPOSE: To check if the entity is dead or not.
+		*/
+		bool isDead() const;
+
+		/*
+		* IMPORTS: none
 		* EXPORTS: shared_ptr to component of type defined by template.
 		* PURPOSE: To retrieve a component of an entity.
 		*/

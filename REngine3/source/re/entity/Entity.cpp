@@ -49,6 +49,8 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
+		m_keyValuePair.erase("name");
+
         RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to load an entity with no component data", "Entity::init", "Entity.cpp", 40);
         
 		// Create list.
@@ -73,5 +75,10 @@ namespace re
 	{
 		m_systemIds.clear();
         m_components = nullptr;
+	}
+
+	bool Entity::isDead() const
+	{
+		return m_isDead;
 	}
 }

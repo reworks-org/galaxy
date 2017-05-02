@@ -127,9 +127,10 @@ namespace re
 	{
 		if (m_enabled == true)
         {
-            ImGui::Begin("DebugMenu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+            ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
             
             static int index = 0;
+			static int indexComponent = 0;
 
             ImGui::Text("Entity Manager");
             ImGui::Separator();
@@ -138,75 +139,59 @@ namespace re
             {
                 ImGui::SFML::Combo("Entity Selector", &index, m_world->m_loadedEntityScripts);
                 
+				auto size = m_world->m_loadedEntityScripts.size();
+				if (index >= size)
+				{
+					index = (size - 1);
+				}
+
                 m_lua.script(Locator::get<VFS>()->toString(m_world->m_loadedEntityScripts[index]));
                 sol::table entityTable = m_lua.get<sol::table>("entity");
                 Entity* curEntity = &(m_world->getEntity(entityTable.get<std::string>("name")));
                 
+				std::map<std::string, sol::table> m_keyValuePair;
+				std::vector<std::string> componentNames;
+				entityTable.for_each([&](std::pair<sol::object, sol::object> pair) {
+					m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+				});
+
+				m_keyValuePair.erase("name");
+
+				for (auto& it : m_keyValuePair)
+				{
+					componentNames.push_back(it.first);
+				}
+
+				ImGui::Spacing();
                 ImGui::Text(std::string("Name: " + curEntity->m_name).c_str());
+
+				ImGui::Spacing();
+				std::string stateButtonText = "Kill Entity?";
+				if (curEntity->isDead())
+				{
+					stateButtonText = "Revive Entity?";
+				}
+
+				if (ImGui::Button(stateButtonText.c_str()))
+				{
+					if (stateButtonText == "Kill Entity?")
+					{
+						m_world->killEntity(curEntity->m_name);
+					}
+					else
+					{
+						m_world->restoreEntity(curEntity->m_name);
+					}
+				}
+				else
+				{
+					ImGui::Spacing();
+					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
+
+
+				}
             }
-            
-            /*
-			if (isInAliveEntitys)
-			{
-				ImGui::Separator();
-
-				ImGui::Text("Entity manager (alive): ");
-
-				ImGui::SFML::Combo("Entity Selector", &indexAlive, m_aliveEntityNames);
-
-				if (m_aliveEntityNames.empty() == false)
-				{
-                    Entity* curEntity = &(m_world->getEntity(m_aliveEntityNames[indexAlive]));
-                    
-                    sol::state lua;
-                    lua.script(Locator::get<VFS>()->toString(curEntity->m_script));
-                    
-                    
-                    
-					if (ImGui::Button("Kill Entity?"))
-					{
-						m_world->killEntity(m_aliveEntityNames[indexAlive]);
-						indexAlive = 0;
-					}
-                    else
-                    {
-                        ImGui::SFML::Combo("Component Selector", &indexComponent, curEntity->m_componentNames);
-                        
-                        std::string curComponent = curEntity->m_componentNames[indexComponent];
-                        if (curComponent == "SpriteComponent")
-                        {
-                            auto sp = curEntity->get<SpriteComponent>();
-                            
-                            std::string group = "Group: " + std::to_string(sp->m_group);
-                            ImGui::Text(group.c_str());
-                        }
-                    }
-				}
-			}
-			else
-			{
-				ImGui::Separator();
-
-				ImGui::Text("Entity manager (dead): ");
-
-				ImGui::SFML::Combo("Entity Selector", &indexDead, m_deadEntityNames);
-
-				if (m_deadEntityNames.empty() == false)
-				{
-					Entity* curEntity = &(m_world->getDeadEntity(m_deadEntityNames[indexDead]));
-
-					static bool restoreEntity = false;
-					ImGui::Checkbox("Restore Entity?", &restoreEntity);
-
-					if (restoreEntity == true)
-					{
-						m_world->restoreEntity(m_deadEntityNames[indexDead]);
-						restoreEntity = false;
-						indexDead = 0;
-					}
-				}
-			}
-			*/
+           
 		    ImGui::End();
         }
 	}
