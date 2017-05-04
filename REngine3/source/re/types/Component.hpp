@@ -40,7 +40,7 @@ namespace re
          * EXPORTS: none
          * PURPOSE: debug component, change data, etc.
          */
-        virtual void debugFunction() = 0;
+        virtual void debugFunction(sol::state& state) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

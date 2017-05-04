@@ -76,4 +76,8 @@ namespace re
 			break;
 		}
 	}
+
+	void TextComponent::debugFunction(sol::state& state)
+	{
+	}
 }

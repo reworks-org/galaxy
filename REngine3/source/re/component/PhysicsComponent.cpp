@@ -91,4 +91,8 @@ namespace re
 		
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
+
+	void PhysicsComponent::debugFunction(sol::state& state)
+	{
+	}
 }

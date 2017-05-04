@@ -189,7 +189,11 @@ namespace re
 					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
                     
                     std::string curComponent = componentNames[indexComponent];
-                    curEntity->useComponentDebugFunction(curComponent);
+                    curEntity->useComponentDebugFunction(curComponent, m_lua);
+
+					// https://github.com/pkulchenko/serpent/blob/master/src/serpent.lua
+					// https://stackoverflow.com/questions/36880240/how-can-i-write-a-file-with-containing-a-lua-table-using-sol2
+					// https://sol2.readthedocs.io/en/latest/index.html
 				}
             }
            

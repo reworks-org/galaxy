@@ -23,4 +23,8 @@ namespace re
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		setRotation(table.get<float>("angle"));
 	}
+
+	void TransformComponent::debugFunction(sol::state& state)
+	{
+	}
 }

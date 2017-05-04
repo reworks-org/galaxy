@@ -73,6 +73,10 @@ namespace re
 		}
 	}
 
+	void AnimationComponent::debugFunction(sol::table& table)
+	{
+	}
+
 	void AnimationComponent::changeAnimation(const std::string& animation)
 	{
 		m_activeAnimation = animation;
@@ -105,5 +109,10 @@ namespace re
 		m_isPaused = true;
 		m_currentFrame = 0;
 		m_currentTime = sf::Time::Zero;
+	}
+
+	bool AnimationComponent::isPaused() const
+	{
+		return m_isPaused;
 	}
 }

@@ -27,6 +27,10 @@ namespace re
 	{
 	}
 
+	void EventComponent::debugFunction(sol::state& state)
+	{
+	}
+
 	void EventComponent::submitOnEvent(EventType type, std::function<void(void)> func)
 	{
 		auto it = m_events.find(type);

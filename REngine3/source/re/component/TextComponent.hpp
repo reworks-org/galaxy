@@ -39,6 +39,13 @@ namespace re
 		*/
 		void init(sol::table& table) override;
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: debug component, change data, etc.
+		*/
+		void debugFunction(sol::state& state) override;
+
 	public:
 		sf::Uint32 m_group;
 	};

@@ -44,6 +44,10 @@ namespace re
 		}
 	}
 
+	void SpriteComponent::debugFunction(sol::state& state)
+	{
+	}
+
 	void SpriteComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		states.transform *= getTransform();

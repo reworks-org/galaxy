@@ -42,6 +42,13 @@ namespace re
 		void init(sol::table& table) override;
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: debug component, change data, etc.
+		*/
+		void debugFunction(sol::state& state) override;
+
+		/*
 		* IMPORTS: EventType and function pointer to function to call.
 		* EXPORTS: none
 		* PURPOSE: Submit a function to be called when an event is triggered.

@@ -51,4 +51,8 @@ namespace re
 			m_sounds[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 		}
 	}
+
+	void SoundComponent::debugFunction(sol::state& state)
+	{
+	}
 }

@@ -42,6 +42,13 @@ namespace re
 		void init(sol::table& table) override;
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: debug component, change data, etc.
+		*/
+		void debugFunction(sol::state& state) override;
+
+		/*
 		* IMPORTS: animation name
 		* EXPORTS: none
 		* PURPOSE: Change the active animation

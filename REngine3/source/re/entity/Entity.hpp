@@ -69,7 +69,7 @@ namespace re
          * EXPORTS: none
          * PURPOSE: To use the debug function of a component.
          */
-        void useComponentDebugFunction(const std::string& componentName);
+        void useComponentDebugFunction(const std::string& componentName, sol::state& state);
         
 		/*
 		* IMPORTS: T - Type

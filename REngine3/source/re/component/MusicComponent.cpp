@@ -50,4 +50,8 @@ namespace re
 			m_music[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 		}
 	}
+
+	void MusicComponent::debugFunction(sol::state& state)
+	{
+	}
 }
