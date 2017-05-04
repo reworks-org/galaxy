@@ -19,6 +19,9 @@ namespace re
 {
 	PhysicsComponent::PhysicsComponent()
 	{
+        m_body = nullptr;
+        m_isMovingVertically = false;
+        m_isMovingHorizontally = false;
 	}
 
 	PhysicsComponent::~PhysicsComponent()

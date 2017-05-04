@@ -14,7 +14,8 @@
 namespace re
 {
 	EventComponent::EventComponent()
-	{
+    {
+        m_events.clear();
 	}
 
 	EventComponent::~EventComponent()

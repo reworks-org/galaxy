@@ -16,6 +16,7 @@ namespace re
 {
 	TextComponent::TextComponent()
 	{
+        m_group = 0;
 	}
 
 	TextComponent::~TextComponent()

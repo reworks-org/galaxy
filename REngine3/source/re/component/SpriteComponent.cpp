@@ -19,6 +19,7 @@ namespace re
 {
 	SpriteComponent::SpriteComponent()
 	{
+        m_group = 0;
 	}
 
 	SpriteComponent::~SpriteComponent()

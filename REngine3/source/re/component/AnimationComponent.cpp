@@ -20,6 +20,13 @@ namespace re
 {
 	AnimationComponent::AnimationComponent()
 	{
+        m_isLooped = false;
+        m_isPaused = false;
+        m_frameTime = sf::Time::Zero;
+        m_animations.clear();
+        m_currentTime = sf::Time::Zero;
+        m_currentFrame = 0;
+        m_activeAnimation = "";
 	}
 
 	AnimationComponent::~AnimationComponent()

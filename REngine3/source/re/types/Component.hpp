@@ -18,6 +18,7 @@ namespace re
 {
 	class Component
 	{
+        friend class Entity;
 	public:
 		/*
 		* IMPORTS: none
@@ -32,6 +33,14 @@ namespace re
 		* PURPOSE: Set up the component.
 		*/
 		virtual void init(sol::table& table) = 0;
+        
+    protected:
+        /*
+         * IMPORTS: none
+         * EXPORTS: none
+         * PURPOSE: debug component, change data, etc.
+         */
+        virtual void debugFunction() = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

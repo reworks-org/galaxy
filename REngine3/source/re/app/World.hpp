@@ -158,6 +158,7 @@ namespace re
         
     public:
         std::vector<std::string> m_loadedEntityScripts;
+        std::unordered_map<std::string, std::type_index> m_stringToComponentType;
 	};
 
 	template<typename T>
@@ -194,6 +195,7 @@ namespace re
 	{
 		RE_LOG(LogLevel::INFO, "Registering " + name + " in world", "World::registerComponent", "World.hpp", 183);
 		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this)));
+        m_stringToComponentType.emplace(name, std::type_index(typeid(T)));
 	}
 }
 

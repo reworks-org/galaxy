@@ -187,8 +187,9 @@ namespace re
 				{
 					ImGui::Spacing();
 					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
-
-
+                    
+                    std::string curComponent = componentNames[indexComponent];
+                    curEntity->useComponentDebugFunction(curComponent);
 				}
             }
            

@@ -16,6 +16,7 @@ namespace re
 {
 	MusicComponent::MusicComponent()
 	{
+        m_music.clear();
 	}
 
 	MusicComponent::~MusicComponent()

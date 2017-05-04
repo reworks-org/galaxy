@@ -16,6 +16,7 @@ namespace re
 {
 	SoundComponent::SoundComponent()
 	{
+        m_sounds.clear();
 	}
 
 	SoundComponent::~SoundComponent()

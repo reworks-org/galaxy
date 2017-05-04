@@ -64,8 +64,15 @@ namespace re
 		*/
 		bool isDead() const;
 
+        /*
+         * IMPORTS: string of component name
+         * EXPORTS: none
+         * PURPOSE: To use the debug function of a component.
+         */
+        void useComponentDebugFunction(const std::string& componentName);
+        
 		/*
-		* IMPORTS: none
+		* IMPORTS: T - Type
 		* EXPORTS: shared_ptr to component of type defined by template.
 		* PURPOSE: To retrieve a component of an entity.
 		*/

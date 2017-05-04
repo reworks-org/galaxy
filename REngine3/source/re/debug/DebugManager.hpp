@@ -65,7 +65,7 @@ namespace re
 		* PURPOSE: Clean up IMGUI.
 		*/
 		void cleanup();
-
+        
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
