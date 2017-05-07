@@ -99,6 +99,13 @@ namespace re
 	    void changeState(std::shared_ptr<State> s);
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: reloads the current state.
+		*/
+		void reloadState();
+
+		/*
 		* IMPORTS: pointer to new state
 		* EXPORTS: none
 		* PURPOSE: This changes the state but WITHOUT CHANGING RESOURCES!

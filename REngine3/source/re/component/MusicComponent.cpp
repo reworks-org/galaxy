@@ -51,7 +51,9 @@ namespace re
 		}
 	}
 
-	void MusicComponent::debugFunction(sol::state& state)
+	bool MusicComponent::debugFunction(sol::state& state)
 	{
+		bool saveData = false;
+		return saveData;
 	}
 }

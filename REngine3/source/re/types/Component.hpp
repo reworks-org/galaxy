@@ -37,10 +37,10 @@ namespace re
     protected:
         /*
          * IMPORTS: none
-         * EXPORTS: none
+         * EXPORTS: Whether or not to save the changed table data.
          * PURPOSE: debug component, change data, etc.
          */
-        virtual void debugFunction(sol::state& state) = 0;
+        virtual bool debugFunction(sol::state& state) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

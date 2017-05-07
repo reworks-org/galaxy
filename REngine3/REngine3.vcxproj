@@ -248,6 +248,8 @@
     <ClInclude Include="source\re\scripting\lua\lua.hpp" />
     <ClInclude Include="source\re\scripting\lua\luaconf.h" />
     <ClInclude Include="source\re\scripting\lua\lualib.h" />
+    <ClInclude Include="source\re\scripting\lua\lualibs\middleclass.hpp" />
+    <ClInclude Include="source\re\scripting\lua\lualibs\serpent.hpp" />
     <ClInclude Include="source\re\scripting\lua\lundump.h" />
     <ClInclude Include="source\re\scripting\lua\lvm.h" />
     <ClInclude Include="source\re\scripting\lua\lzio.h" />
@@ -264,7 +266,7 @@
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
-    <ClInclude Include="source\re\types\Event.hpp" />
+    <ClInclude Include="source\re\types\Events.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\utility\Log.hpp" />

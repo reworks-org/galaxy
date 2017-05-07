@@ -44,8 +44,10 @@ namespace re
 		}
 	}
 
-	void SpriteComponent::debugFunction(sol::state& state)
+	bool SpriteComponent::debugFunction(sol::state& state)
 	{
+		bool saveData = false;
+		return saveData;
 	}
 
 	void SpriteComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const

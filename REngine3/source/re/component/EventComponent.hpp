@@ -9,7 +9,7 @@
 #ifndef RENGINE3_EVENTCOMPONENT_HPP_
 #define RENGINE3_EVENTCOMPONENT_HPP_
 
-#include "re/types/Event.hpp"
+#include "re/types/Events.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
@@ -43,10 +43,10 @@ namespace re
 
 		/*
 		* IMPORTS: none
-		* EXPORTS: none
+		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
 		*/
-		void debugFunction(sol::state& state) override;
+		bool debugFunction(sol::state& state) override;
 
 		/*
 		* IMPORTS: EventType and function pointer to function to call.

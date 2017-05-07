@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-#include <re/types/Event.hpp>
+#include <re/types/Events.hpp>
 #include <re/app/World.hpp>
 #include <re/entity/Entity.hpp>
 #include <re/graphics/Window.hpp>
@@ -56,7 +56,7 @@ void Menu::loadResources()
 
 	m_world->registerEntitys("menuEntitys.lua");
 
-	m_world->getEntity("person").get<EventComponent>()->submitOnEvent(Event::MOUSE_PRESSED, []() { RE_LOG_PRINTPRETTY(LogLevel::INFO, "Click!"); });
+	m_world->getEntity("person").get<EventComponent>()->submitOnEvent(Events::MOUSE_PRESSED, []() { RE_LOG_PRINTPRETTY(LogLevel::INFO, "Click!"); });
 
 	m_world->getSystem<MoveSystem>()->submit(m_world);
 	m_world->getSystem<RenderSystem>()->submit(m_world);
@@ -110,7 +110,7 @@ void Menu::handlePollEvents(sf::Event& event)
             switch (event.mouseButton.button)
             {
                 case sf::Mouse::Left:
-                    m_world->getSystem<EventSystem>()->dispatch(Event::MOUSE_PRESSED);
+                    m_world->getSystem<EventSystem>()->dispatch(Events::MOUSE_PRESSED);
                     break;
             }
             break;

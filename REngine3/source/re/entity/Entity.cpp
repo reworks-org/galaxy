@@ -82,8 +82,8 @@ namespace re
 		return m_isDead;
 	}
     
-    void Entity::useComponentDebugFunction(const std::string& componentName, sol::state& state)
+    bool Entity::useComponentDebugFunction(const std::string& componentName, sol::state& state)
     {
-        m_components->at(Locator::get<World>()->m_stringToComponentType[componentName])->debugFunction(state);
+		return m_components->at(Locator::get<World>()->m_stringToComponentType.at(componentName))->debugFunction(state);
     }
 }

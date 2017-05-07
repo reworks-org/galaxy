@@ -66,10 +66,10 @@ namespace re
 
         /*
          * IMPORTS: string of component name
-         * EXPORTS: none
+         * EXPORTS: Whether or not to save the changed table data.
          * PURPOSE: To use the debug function of a component.
          */
-        void useComponentDebugFunction(const std::string& componentName, sol::state& state);
+        bool useComponentDebugFunction(const std::string& componentName, sol::state& state);
         
 		/*
 		* IMPORTS: T - Type

@@ -7,7 +7,7 @@
 //
 
 #include "re/utility/Log.hpp"
-#include "re/types/Event.hpp"
+#include "re/debug/imgui/imgui.h"
 
 #include "EventComponent.hpp"
 
@@ -27,8 +27,14 @@ namespace re
 	{
 	}
 
-	void EventComponent::debugFunction(sol::state& state)
+	bool EventComponent::debugFunction(sol::state& state)
 	{
+		ImGui::Spacing();
+
+		std::string text = "Number of events: " + std::to_string(m_events.size());
+		ImGui::Text(text.c_str());
+		
+		return false;
 	}
 
 	void EventComponent::submitOnEvent(EventType type, std::function<void(void)> func)

@@ -45,10 +45,10 @@ namespace re
 
 		/*
 		* IMPORTS: none
-		* EXPORTS: none
+		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
 		*/
-		void debugFunction(sol::state& state) override;
+		bool debugFunction(sol::state& state) override;
 
 	private:
 		// Boost.Serialization functions

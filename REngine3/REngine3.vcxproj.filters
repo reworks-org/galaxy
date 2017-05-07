@@ -238,7 +238,6 @@
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
-    <ClInclude Include="source\re\types\Event.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\utility\Log.hpp" />
@@ -253,5 +252,8 @@
     <ClInclude Include="source\re\debug\imgui\stb_textedit.h" />
     <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
+    <ClInclude Include="source\re\scripting\lua\lualibs\middleclass.hpp" />
+    <ClInclude Include="source\re\scripting\lua\lualibs\serpent.hpp" />
+    <ClInclude Include="source\re\types\Events.hpp" />
   </ItemGroup>
 </Project>

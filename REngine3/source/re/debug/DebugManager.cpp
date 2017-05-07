@@ -6,6 +6,8 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include <sstream>
+
 #include "re/debug/imgui/imgui.h"
 #include "re/debug/imgui/imgui-SFML.h"
 
@@ -13,6 +15,8 @@
 #include "re/services/ServiceLocator.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/services/vfs/VFS.hpp"
+
+#include "re/scripting/lua/lualibs/serpent.hpp"
 
 #include "DebugManager.hpp"
 
@@ -41,6 +45,24 @@ namespace SFML
         return ImGui::ListBox(label, currIndex, vector_getter,
                               static_cast<void*>(&values), values.size());
     }
+
+	// Thanks to http://stackoverflow.com/a/36912836
+	inline std::string saveTable(const std::string& table_name, sol::state& lua)
+	{
+		auto table = lua["serpent"];
+		if (!table.valid()) {
+			throw std::runtime_error("Serpent not loaded!");
+		}
+		if (!lua[table_name].valid()) {
+			throw std::runtime_error(table_name + " doesn't exist!");
+		}
+		std::stringstream out;
+		out << table_name << " = ";
+		sol::function block = table["block"];
+		std::string cont = block(lua[table_name]);
+		out << cont;
+		return std::move(out.str());
+	}
 }
 }
 
@@ -53,6 +75,8 @@ namespace re
 		#else
 			disable();
 		#endif
+
+		m_lua.load(re::lib::serpent);
 	}
 
 	DebugManager::~DebugManager()
@@ -129,8 +153,8 @@ namespace re
         {
             ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
             
-            static int index = 0;
-			static int indexComponent = 0;
+            static auto index = 0;
+			static auto indexComponent = 0;
 
             ImGui::Text("Entity Manager");
             ImGui::Separator();
@@ -189,11 +213,12 @@ namespace re
 					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
                     
                     std::string curComponent = componentNames[indexComponent];
-                    curEntity->useComponentDebugFunction(curComponent, m_lua);
-
-					// https://github.com/pkulchenko/serpent/blob/master/src/serpent.lua
-					// https://stackoverflow.com/questions/36880240/how-can-i-write-a-file-with-containing-a-lua-table-using-sol2
-					// https://sol2.readthedocs.io/en/latest/index.html
+                    bool saveData = curEntity->useComponentDebugFunction(curComponent, m_lua);
+					if (saveData)
+					{
+						std::string table = ImGui::SFML::saveTable("entity", m_lua);
+						saveData = false;
+					}
 				}
             }
            

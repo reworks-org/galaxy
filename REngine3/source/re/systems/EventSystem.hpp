@@ -9,7 +9,7 @@
 #ifndef RENGINE3_EVENTSYSTEM_HPP_
 #define RENGINE3_EVENTSYSTEM_HPP_
 
-#include "re/types/Event.hpp"
+#include "re/types/Events.hpp"
 #include "re/types/System.hpp"
 
 namespace sf
