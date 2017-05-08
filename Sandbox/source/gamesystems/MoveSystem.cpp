@@ -45,17 +45,20 @@ namespace re
 
 	void MoveSystem::move(const std::string& name, double velocity)
 	{
-		auto found = m_entitys.find(name);
-
-		if (found != m_entitys.end())
-		{
-			auto phys = found->second->get<PhysicsComponent>();
-			auto vel = phys->m_body->GetLinearVelocity();
-
-			phys->m_isMovingHorizontally = true;
-			vel.x = velocity;
-			phys->m_body->SetLinearVelocity(vel);
-		}
+        auto found = m_entitys.find(name);
+        
+        if (found != m_entitys.end())
+        {
+            auto phys = found->second->get<PhysicsComponent>();
+            auto vel = phys->m_body->GetLinearVelocity();
+            
+            if (!phys->m_isMovingVertically)
+            {
+                phys->m_isMovingHorizontally = true;
+                vel.x = velocity;
+                phys->m_body->SetLinearVelocity(vel);
+            }
+        }
 	}
 
 	void MoveSystem::jump(const std::string& name, double velocity)

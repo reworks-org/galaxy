@@ -145,7 +145,6 @@
 		F2300CF11E822CE100574A1B /* RenderSystem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22419261E7F845F00AB77AF /* RenderSystem.hpp */; };
 		F2300CF21E822CE100574A1B /* StateManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22419281E7F845F00AB77AF /* StateManager.hpp */; };
 		F2300CF31E822CE100574A1B /* Component.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22419351E7F846700AB77AF /* Component.hpp */; };
-		F2300CF41E822CE100574A1B /* Event.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22419361E7F846700AB77AF /* Event.hpp */; };
 		F2300CF51E822CE100574A1B /* Service.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22419371E7F846700AB77AF /* Service.hpp */; };
 		F2300CF61E822CE100574A1B /* System.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F22419391E7F846700AB77AF /* System.hpp */; };
 		F2300CF71E822CE100574A1B /* Log.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F224193F1E7F846F00AB77AF /* Log.hpp */; };
@@ -267,6 +266,7 @@
 		F2300D6B1E822CEC00574A1B /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419251E7F845F00AB77AF /* RenderSystem.cpp */; };
 		F2300D6C1E822CEC00574A1B /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419271E7F845F00AB77AF /* StateManager.cpp */; };
 		F2300D6D1E822CEC00574A1B /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419381E7F846700AB77AF /* System.cpp */; };
+		F23732B11EC032B4004E5C77 /* Events.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F23732B01EC032B4004E5C77 /* Events.hpp */; };
 		F2A765DD1EA4C6F5004153C3 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2A765DC1EA4C6F5004153C3 /* Log.cpp */; };
 		F2A765F01EA4CC30004153C3 /* libtgui.0.7.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */; };
 		F2A765F81EA4D5CE004153C3 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A765F21EA4D5CE004153C3 /* sfml-audio.framework */; };
@@ -588,7 +588,6 @@
 		F22419271E7F845F00AB77AF /* StateManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StateManager.cpp; path = REngine3/source/re/systems/StateManager.cpp; sourceTree = "<group>"; };
 		F22419281E7F845F00AB77AF /* StateManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = StateManager.hpp; path = REngine3/source/re/systems/StateManager.hpp; sourceTree = "<group>"; };
 		F22419351E7F846700AB77AF /* Component.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Component.hpp; path = REngine3/source/re/types/Component.hpp; sourceTree = "<group>"; };
-		F22419361E7F846700AB77AF /* Event.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Event.hpp; path = REngine3/source/re/types/Event.hpp; sourceTree = "<group>"; };
 		F22419371E7F846700AB77AF /* Service.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Service.hpp; path = REngine3/source/re/types/Service.hpp; sourceTree = "<group>"; };
 		F22419381E7F846700AB77AF /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = System.cpp; path = REngine3/source/re/types/System.cpp; sourceTree = "<group>"; };
 		F22419391E7F846700AB77AF /* System.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = System.hpp; path = REngine3/source/re/types/System.hpp; sourceTree = "<group>"; };
@@ -625,6 +624,7 @@
 		F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtgui.0.7.3.dylib; path = libs/tgui/lib/libtgui.0.7.3.dylib; sourceTree = "<group>"; };
 		F2300C681E822AA200574A1B /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = libs/zlib/lib/libz.a; sourceTree = "<group>"; };
 		F2300D6E1E82329400574A1B /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = libs/libxml2/lib/libiconv.a; sourceTree = "<group>"; };
+		F23732B01EC032B4004E5C77 /* Events.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Events.hpp; path = REngine3/source/re/types/Events.hpp; sourceTree = "<group>"; };
 		F2A765DC1EA4C6F5004153C3 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = REngine3/source/re/utility/Log.cpp; sourceTree = "<group>"; };
 		F2A765F21EA4D5CE004153C3 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "libs/sfml/lib/sfml-audio.framework"; sourceTree = "<group>"; };
 		F2A765F31EA4D5CE004153C3 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "libs/sfml/lib/sfml-graphics.framework"; sourceTree = "<group>"; };
@@ -814,8 +814,8 @@
 		F22416531E7F821900AB77AF /* types */ = {
 			isa = PBXGroup;
 			children = (
+				F23732B01EC032B4004E5C77 /* Events.hpp */,
 				F22419351E7F846700AB77AF /* Component.hpp */,
-				F22419361E7F846700AB77AF /* Event.hpp */,
 				F22419371E7F846700AB77AF /* Service.hpp */,
 				F22419381E7F846700AB77AF /* System.cpp */,
 				F22419391E7F846700AB77AF /* System.hpp */,
@@ -1370,6 +1370,7 @@
 				F2300CB81E822CE100574A1B /* b2EdgeAndCircleContact.h in Headers */,
 				F2300CB91E822CE100574A1B /* b2EdgeAndPolygonContact.h in Headers */,
 				F2300CBA1E822CE100574A1B /* b2PolygonAndCircleContact.h in Headers */,
+				F23732B11EC032B4004E5C77 /* Events.hpp in Headers */,
 				F2300CBB1E822CE100574A1B /* b2PolygonContact.h in Headers */,
 				F2CAC3331EA885C500D9F2CD /* imconfig.h in Headers */,
 				F2300CBC1E822CE100574A1B /* b2DistanceJoint.h in Headers */,
@@ -1432,7 +1433,6 @@
 				F2300CF11E822CE100574A1B /* RenderSystem.hpp in Headers */,
 				F2300CF21E822CE100574A1B /* StateManager.hpp in Headers */,
 				F2300CF31E822CE100574A1B /* Component.hpp in Headers */,
-				F2300CF41E822CE100574A1B /* Event.hpp in Headers */,
 				F2300CF51E822CE100574A1B /* Service.hpp in Headers */,
 				F2300CF61E822CE100574A1B /* System.hpp in Headers */,
 				F2300CF71E822CE100574A1B /* Log.hpp in Headers */,
