@@ -9,6 +9,7 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include "re/debug/imgui/imgui.h"
 #include "re/services/vfs/VFS.hpp"
 #include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -47,6 +48,10 @@ namespace re
 	bool SpriteComponent::debugFunction(sol::state& state)
 	{
 		bool saveData = false;
+
+		ImGui::Spacing();
+		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
+
 		return saveData;
 	}
 
