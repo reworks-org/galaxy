@@ -42,11 +42,19 @@ namespace re
 		void init(sol::table& table) override;
 
 		/*
+		* IMPORTS: sol::table from lua script containing component data, and optionally specify a texture.
+		* EXPORTS: none
+		* PURPOSE: Load the texture.
+		*/
+		void loadTexture(sol::table& table, const std::string& texture = "");
+
+		/*
 		* IMPORTS: none
 		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
+		* NOTE: INPUTTING TEXT CANNOT EXCEED 256 CHARACTERS!
 		*/
-		bool debugFunction(sol::state& state) override;
+		bool debugFunction(sol::table& table) override;
 
 	private:
 		/*

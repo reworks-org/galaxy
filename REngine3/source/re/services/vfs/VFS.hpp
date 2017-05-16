@@ -66,6 +66,13 @@ namespace re
 		* PURPOSE: To load the fileName from the VFS in a char* format.
 		*/
 		char* toBuffer(const std::string& fileName);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: std::string to the base directory of the application.
+		* PURPOSE: Get path of application.
+		*/
+		std::string baseDir() const;
 	};
 }
 

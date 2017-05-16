@@ -7,6 +7,7 @@
 //
 
 #include <sstream>
+#include <fstream>
 
 #include "re/debug/imgui/imgui.h"
 #include "re/debug/imgui/imgui-SFML.h"
@@ -47,7 +48,7 @@ namespace SFML
     }
 
 	// Thanks to http://stackoverflow.com/a/36912836
-	inline std::string saveTable(const std::string& table_name, sol::state& lua)
+	inline void saveTable(const std::string& table_name, sol::state& lua, const std::string& cur_script_name)
 	{
 		auto table = lua["serpent"];
 		if (!table.valid()) {
@@ -61,7 +62,13 @@ namespace SFML
 		sol::function block = table["block"];
 		std::string cont = block(lua[table_name]);
 		out << cont;
-		return std::move(out.str());
+
+		std::string writeout = std::move(out.str());
+
+		std::ofstream ofstreamOutput;
+		ofstreamOutput.open(re::Locator::get<re::VFS>()->baseDir()+"../assets/" + cur_script_name);
+		ofstreamOutput << writeout << std::endl;
+		ofstreamOutput.close();
 	}
 }
 }
@@ -153,7 +160,7 @@ namespace re
         {
             ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
             
-            static auto index = 0;
+            static size_t index = 0;
 			static auto indexComponent = 0;
 
             ImGui::Text("Entity Manager");
@@ -161,7 +168,7 @@ namespace re
             
             if (m_world->m_loadedEntityScripts.empty() == false)
             {
-                ImGui::SFML::Combo("Entity Selector", &index, m_world->m_loadedEntityScripts);
+                ImGui::SFML::Combo("Entity Selector", &((int)index), m_world->m_loadedEntityScripts);
                 
 				auto size = m_world->m_loadedEntityScripts.size();
 				if (index >= size)
@@ -169,7 +176,8 @@ namespace re
 					index = (size - 1);
 				}
 
-                m_lua.script(Locator::get<VFS>()->toString(m_world->m_loadedEntityScripts[index]));
+				std::string curEntityScriptName = m_world->m_loadedEntityScripts[index];
+                m_lua.script(Locator::get<VFS>()->toString(curEntityScriptName));
                 sol::table entityTable = m_lua.get<sol::table>("entity");
                 Entity* curEntity = &(m_world->getEntity(entityTable.get<std::string>("name")));
                 
@@ -213,10 +221,10 @@ namespace re
 					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
                     
                     std::string curComponent = componentNames[indexComponent];
-                    bool saveData = curEntity->useComponentDebugFunction(curComponent, m_lua);
+                    bool saveData = curEntity->useComponentDebugFunction(curComponent, entityTable.get<sol::table>(curComponent));
 					if (saveData)
 					{
-						std::string table = ImGui::SFML::saveTable("entity", m_lua);
+						ImGui::SFML::saveTable("entity", m_lua, curEntityScriptName);
 						saveData = false;
 					}
 				}

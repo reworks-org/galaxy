@@ -27,7 +27,7 @@ namespace re
 	{
 	}
 
-	bool EventComponent::debugFunction(sol::state& state)
+	bool EventComponent::debugFunction(sol::table& table)
 	{
 		ImGui::Spacing();
 

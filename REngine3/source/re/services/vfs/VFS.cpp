@@ -89,4 +89,9 @@ namespace re
 		return strdup(str.c_str());
 #endif
 	}
+
+	std::string VFS::baseDir() const
+	{
+		return std::string(PHYSFS_getBaseDir());
+	}
 }

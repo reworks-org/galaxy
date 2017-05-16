@@ -44,6 +44,11 @@ void sf::physfs::open(const std::string& str)
 	}
 }
 
+void sf::physfs::close()
+{
+	PHYSFS_close(file);
+}
+
 sf::Int64 sf::physfs::read(void *data, sf::Int64 size){
     if (error){
         return 0;}

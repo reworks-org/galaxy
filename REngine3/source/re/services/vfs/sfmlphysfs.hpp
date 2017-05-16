@@ -18,6 +18,8 @@
 
    //3. This notice may not be removed or altered from any source
    //distribution.
+
+// Has been altered. Does not reflect original file.
    
 #ifndef _sfmlphysfs_
 #define _sfmlphysfs_
@@ -33,12 +35,14 @@ namespace sf{
             PHYSFS_File *file;
         public:
             mutable bool error;
+			std::string path;
         public:
 			physfs() {}
             physfs(const std::string& str);
             ~physfs();
 
 			void open(const std::string& str);
+			void close();
 
             sf::Int64 read(void *, sf::Int64) override;
             sf::Int64 seek(sf::Int64) override;

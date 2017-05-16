@@ -73,7 +73,7 @@ namespace re
 		}
 	}
 
-	bool AnimationComponent::debugFunction(sol::state& state)
+	bool AnimationComponent::debugFunction(sol::table& table)
 	{
 		bool saveData = false;
 		return saveData;
