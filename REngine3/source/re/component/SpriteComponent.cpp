@@ -71,11 +71,12 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
-		std::string original = table.get<std::string>("texture");
-		printf(original.c_str());
-		static char buff[255] = "Input new texture here.";
+		static std::string original = table.get<std::string>("texture");
+        static std::vector<char> buff(original.begin(), original.end());
+        
+        // fix allocating extra data for larger strings...
 		
-		if (ImGui::InputText("TexturePicker", buff, IM_ARRAYSIZE(buff), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		if (ImGui::InputText("TexturePicker", buff.data(), buff.size(), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
 			// do something
 		}

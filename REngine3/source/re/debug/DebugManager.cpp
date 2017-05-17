@@ -160,18 +160,18 @@ namespace re
         {
             ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
             
-            static size_t index = 0;
-			static auto indexComponent = 0;
+            static int index = 0;
+			static int indexComponent = 0;
 
             ImGui::Text("Entity Manager");
             ImGui::Separator();
             
             if (m_world->m_loadedEntityScripts.empty() == false)
             {
-                ImGui::SFML::Combo("Entity Selector", &((int)index), m_world->m_loadedEntityScripts);
+                ImGui::SFML::Combo("Entity Selector", &index, m_world->m_loadedEntityScripts);
                 
-				auto size = m_world->m_loadedEntityScripts.size();
-				if (index >= size)
+				size_t size = m_world->m_loadedEntityScripts.size();
+				if ((size_t)index >= size)
 				{
 					index = (size - 1);
 				}
@@ -221,7 +221,8 @@ namespace re
 					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
                     
                     std::string curComponent = componentNames[indexComponent];
-                    bool saveData = curEntity->useComponentDebugFunction(curComponent, entityTable.get<sol::table>(curComponent));
+                    sol::table curTable = entityTable.get<sol::table>(curComponent);
+                    bool saveData = curEntity->useComponentDebugFunction(curComponent, curTable);
 					if (saveData)
 					{
 						ImGui::SFML::saveTable("entity", m_lua, curEntityScriptName);
