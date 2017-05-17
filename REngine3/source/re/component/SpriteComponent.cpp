@@ -18,16 +18,6 @@
 
 namespace re
 {
-	template<class T, size_t N, class V>
-	std::array<T, N> to_array(const V& v)
-	{
-		assert(v.size() == N);
-		std::array<T, N> d;
-		using std::begin; using std::end;
-		std::copy(begin(v), end(v), begin(d)); // this is the recommended way
-		return d;
-	}
-
 	SpriteComponent::SpriteComponent()
 	{
         m_group = 0;
@@ -81,17 +71,16 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
-		static std::string original = table.get<std::string>("texture");
-		std::array<char, 255> buff = to_array<char, 255, std::string>(original);
+		std::string original = table.get<std::string>("texture");
+		printf(original.c_str());
+		static char buff[255] = "Input new texture here.";
 		
-		ImGui::InputText("Texture", buff.data(), buff.size(), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_CharsDecimal);
-
-		std::string newStr = "";
-		if (buff.data() != nullptr)
+		if (ImGui::InputText("TexturePicker", buff, IM_ARRAYSIZE(buff), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			newStr = buff.data();
+			// do something
 		}
 
+		/*
 		if ((original != newStr) && (newStr != ""))
 		{
 			table.set("texture", newStr);
@@ -103,7 +92,7 @@ namespace re
 		{
 			saveData = true;
 		}
-
+		*/
 		return saveData;
 	}
 
