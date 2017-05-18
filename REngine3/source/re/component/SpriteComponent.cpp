@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <algorithm>
+
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
@@ -72,13 +74,44 @@ namespace re
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
 		static std::string original = table.get<std::string>("texture");
-        static std::vector<char> buff(original.begin(), original.end());
-        
-        // fix allocating extra data for larger strings...
+		static std::vector<char> buff(original.begin(), original.end());
+		static bool doneOnce = false;
+
+		if (!doneOnce)
+		{
+			buff.resize(255);
+			doneOnce = true;
+		}
 		
+		// fix wonkyness
+
+		if (original != table.get<std::string>("texture"))
+		{
+			original = table.get<std::string>("texture");
+			buff.clear();
+			std::copy(original.begin(), original.end(), std::back_inserter(buff));
+		}
+
 		if (ImGui::InputText("TexturePicker", buff.data(), buff.size(), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			// do something
+			for (auto& v : buff)
+			{
+				if (!v)
+				{
+					v = ' ';
+				}
+			}
+
+			std::string newTexture(buff.begin(), buff.end());
+			buff.clear();
+
+			newTexture.erase(std::remove_if(newTexture.begin(), newTexture.end(), isspace), newTexture.end());
+			newTexture.shrink_to_fit();
+
+			original = newTexture;
+			std::copy(original.begin(), original.end(), std::back_inserter(buff));
+
+			RE_LOG_PRINTPRETTY(LogLevel::FATAL, std::to_string(newTexture.length()));
 		}
 
 		/*
