@@ -248,8 +248,6 @@
     <ClInclude Include="source\re\scripting\lua\lua.hpp" />
     <ClInclude Include="source\re\scripting\lua\luaconf.h" />
     <ClInclude Include="source\re\scripting\lua\lualib.h" />
-    <ClInclude Include="source\re\scripting\lua\lualibs\middleclass.hpp" />
-    <ClInclude Include="source\re\scripting\lua\lualibs\serpent.hpp" />
     <ClInclude Include="source\re\scripting\lua\lundump.h" />
     <ClInclude Include="source\re\scripting\lua\lvm.h" />
     <ClInclude Include="source\re\scripting\lua\lzio.h" />

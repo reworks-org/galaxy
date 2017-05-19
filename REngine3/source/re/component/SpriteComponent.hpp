@@ -52,7 +52,7 @@ namespace re
 		* IMPORTS: none
 		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
-		* NOTE: INPUTTING TEXT CANNOT EXCEED 256 CHARACTERS!
+		* NOTE: INPUTTING TEXT CANNOT EXCEED 256 CHARACTERS! THIS ALSO ASSUMES YOU INPUT THE CORRECT STRING! THIS IS NOT MEANT FOR USERS! DEVS ONLY!
 		*/
 		bool debugFunction(sol::table& table) override;
 

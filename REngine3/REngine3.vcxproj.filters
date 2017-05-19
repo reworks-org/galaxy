@@ -252,8 +252,6 @@
     <ClInclude Include="source\re\debug\imgui\stb_textedit.h" />
     <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
-    <ClInclude Include="source\re\scripting\lua\lualibs\middleclass.hpp" />
-    <ClInclude Include="source\re\scripting\lua\lualibs\serpent.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
   </ItemGroup>
 </Project>

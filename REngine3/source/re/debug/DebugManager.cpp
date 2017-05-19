@@ -17,8 +17,6 @@
 #include "re/component/SpriteComponent.hpp"
 #include "re/services/vfs/VFS.hpp"
 
-#include "re/scripting/lua/lualibs/serpent.hpp"
-
 #include "DebugManager.hpp"
 
 namespace ImGui
@@ -46,30 +44,6 @@ namespace SFML
         return ImGui::ListBox(label, currIndex, vector_getter,
                               static_cast<void*>(&values), values.size());
     }
-
-	// Thanks to http://stackoverflow.com/a/36912836
-	inline void saveTable(const std::string& table_name, sol::state& lua, const std::string& cur_script_name)
-	{
-		auto table = lua["serpent"];
-		if (!table.valid()) {
-			throw std::runtime_error("Serpent not loaded!");
-		}
-		if (!lua[table_name].valid()) {
-			throw std::runtime_error(table_name + " doesn't exist!");
-		}
-		std::stringstream out;
-		out << table_name << " = ";
-		sol::function block = table["block"];
-		std::string cont = block(lua[table_name]);
-		out << cont;
-
-		std::string writeout = std::move(out.str());
-
-		std::ofstream ofstreamOutput;
-		ofstreamOutput.open(re::Locator::get<re::VFS>()->baseDir()+"../assets/" + cur_script_name);
-		ofstreamOutput << writeout << std::endl;
-		ofstreamOutput.close();
-	}
 }
 }
 
@@ -82,8 +56,6 @@ namespace re
 		#else
 			disable();
 		#endif
-
-		m_lua.load(re::lib::serpent);
 	}
 
 	DebugManager::~DebugManager()
@@ -225,7 +197,7 @@ namespace re
                     bool saveData = curEntity->useComponentDebugFunction(curComponent, curTable);
 					if (saveData)
 					{
-						ImGui::SFML::saveTable("entity", m_lua, curEntityScriptName);
+						
 						saveData = false;
 					}
 				}

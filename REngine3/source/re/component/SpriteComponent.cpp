@@ -59,7 +59,7 @@ namespace re
 			}
 			else
 			{
-				m_textureStream.open(table.get<std::string>(texture));
+				m_textureStream.open(texture);
 			}
 			m_texture.loadFromStream(m_textureStream);
 			setTexture(m_texture);
@@ -74,6 +74,7 @@ namespace re
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
 		static std::string original = table.get<std::string>("texture");
+		static std::string newTextureAlt = "";
 		static std::vector<char> buff(original.begin(), original.end());
 		static bool doneOnce = false;
 
@@ -83,13 +84,13 @@ namespace re
 			doneOnce = true;
 		}
 		
-		// fix wonkyness
-
-		if (original != table.get<std::string>("texture"))
+		// fix this
+		if (original != table.get<std::string>("texture") && original != newTextureAlt)
 		{
 			original = table.get<std::string>("texture");
 			buff.clear();
-			std::copy(original.begin(), original.end(), std::back_inserter(buff));
+			buff = std::vector<char>(original.begin(), original.end());
+			buff.resize(255);
 		}
 
 		if (ImGui::InputText("TexturePicker", buff.data(), buff.size(), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
@@ -104,29 +105,26 @@ namespace re
 
 			std::string newTexture(buff.begin(), buff.end());
 			buff.clear();
-
+			
 			newTexture.erase(std::remove_if(newTexture.begin(), newTexture.end(), isspace), newTexture.end());
 			newTexture.shrink_to_fit();
 
 			original = newTexture;
-			std::copy(original.begin(), original.end(), std::back_inserter(buff));
+			newTextureAlt = newTexture;
 
-			RE_LOG_PRINTPRETTY(LogLevel::FATAL, std::to_string(newTexture.length()));
-		}
+			buff = std::vector<char>(original.begin(), original.end());
+			buff.resize(255);
 
-		/*
-		if ((original != newStr) && (newStr != ""))
-		{
-			table.set("texture", newStr);
-			loadTexture(table, newStr);
-			original = newStr;
+			printf(newTexture.c_str());
+			table.set("texture", newTexture);
+			loadTexture(table, newTexture);
 		}
 		
 		if (ImGui::Button("Write out changes?"))
 		{
 			saveData = true;
 		}
-		*/
+		
 		return saveData;
 	}
 
