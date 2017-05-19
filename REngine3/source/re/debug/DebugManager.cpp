@@ -192,6 +192,11 @@ namespace re
 					ImGui::Spacing();
 					ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
                     
+					if ((size_t)indexComponent >= componentNames.size())
+					{
+						indexComponent = (componentNames.size() - 1);
+					}
+
                     std::string curComponent = componentNames[indexComponent];
                     sol::table curTable = entityTable.get<sol::table>(curComponent);
                     bool saveData = curEntity->useComponentDebugFunction(curComponent, curTable);

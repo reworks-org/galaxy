@@ -73,9 +73,10 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
-		static std::string original = table.get<std::string>("texture");
+		static std::string input = table.get<std::string>("texture");
+		static std::string first = table.get<std::string>("texture");
 		static std::string newTextureAlt = "";
-		static std::vector<char> buff(original.begin(), original.end());
+		static std::vector<char> buff(input.begin(), input.end());
 		static bool doneOnce = false;
 
 		if (!doneOnce)
@@ -84,12 +85,11 @@ namespace re
 			doneOnce = true;
 		}
 		
-		// fix this
-		if (original != table.get<std::string>("texture") && original != newTextureAlt)
+		if (first != table.get<std::string>("texture"))
 		{
-			original = table.get<std::string>("texture");
+			first = input = table.get<std::string>("texture");
 			buff.clear();
-			buff = std::vector<char>(original.begin(), original.end());
+			buff = std::vector<char>(input.begin(), input.end());
 			buff.resize(255);
 		}
 
@@ -109,10 +109,10 @@ namespace re
 			newTexture.erase(std::remove_if(newTexture.begin(), newTexture.end(), isspace), newTexture.end());
 			newTexture.shrink_to_fit();
 
-			original = newTexture;
+			input = newTexture;
 			newTextureAlt = newTexture;
 
-			buff = std::vector<char>(original.begin(), original.end());
+			buff = std::vector<char>(input.begin(), input.end());
 			buff.resize(255);
 
 			printf(newTexture.c_str());
