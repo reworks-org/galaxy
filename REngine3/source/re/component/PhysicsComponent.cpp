@@ -92,7 +92,7 @@ namespace re
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
 
-	bool PhysicsComponent::debugFunction(sol::table& table)
+	bool PhysicsComponent::debugFunction(sol::state& state)
 	{
 		bool saveData = false;
 		return saveData;

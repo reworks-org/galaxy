@@ -198,11 +198,12 @@ namespace re
 					}
 
                     std::string curComponent = componentNames[indexComponent];
-                    sol::table curTable = entityTable.get<sol::table>(curComponent);
-                    bool saveData = curEntity->useComponentDebugFunction(curComponent, curTable);
+
+                    bool saveData = curEntity->useComponentDebugFunction(curComponent, m_lua);
 					if (saveData)
 					{
-						
+						std::string tempoutput = m_lua["entity"]["SpriteComponent"]["texture"];
+						printf(tempoutput.c_str());
 						saveData = false;
 					}
 				}

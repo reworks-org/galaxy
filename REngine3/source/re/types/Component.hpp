@@ -40,7 +40,7 @@ namespace re
          * EXPORTS: Whether or not to save the changed table data.
          * PURPOSE: debug component, change data, etc.
          */
-        virtual bool debugFunction(sol::table& table) = 0;
+        virtual bool debugFunction(sol::state& state) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

@@ -23,7 +23,7 @@ namespace re
 	{
 	}
 
-	void TextComponent::init(sol::table & table)
+	void TextComponent::init(sol::table& table)
 	{
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<sf::Uint32>("group");
@@ -77,7 +77,7 @@ namespace re
 		}
 	}
 
-	bool TextComponent::debugFunction(sol::table& table)
+	bool TextComponent::debugFunction(sol::state& state)
 	{
 		bool saveData = false;
 		return saveData;
