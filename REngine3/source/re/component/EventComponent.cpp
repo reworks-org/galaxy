@@ -27,14 +27,12 @@ namespace re
 	{
 	}
 
-	bool EventComponent::debugFunction(sol::state& state)
+	void EventComponent::debugFunction(sol::table& table)
 	{
 		ImGui::Spacing();
 
 		std::string text = "Number of events: " + std::to_string(m_events.size());
 		ImGui::Text(text.c_str());
-		
-		return false;
 	}
 
 	void EventComponent::submitOnEvent(EventType type, std::function<void(void)> func)

@@ -73,10 +73,8 @@ namespace re
 		}
 	}
 
-	bool AnimationComponent::debugFunction(sol::state& state)
+	void AnimationComponent::debugFunction(sol::table& table)
 	{
-		bool saveData = false;
-		return saveData;
 	}
 
 	void AnimationComponent::changeAnimation(const std::string& animation)

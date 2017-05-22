@@ -54,7 +54,7 @@ namespace re
 		* PURPOSE: debug component, change data, etc.
 		* NOTE: INPUTTING TEXT CANNOT EXCEED 256 CHARACTERS! THIS ALSO ASSUMES YOU INPUT THE CORRECT STRING! THIS IS NOT MEANT FOR USERS! DEVS ONLY!
 		*/
-		bool debugFunction(sol::state& state) override;
+		void debugFunction(sol::table& table) override;
 
 	private:
 		/*

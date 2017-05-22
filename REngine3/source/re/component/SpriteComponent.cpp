@@ -66,15 +66,13 @@ namespace re
 		}
 	}
 
-	bool SpriteComponent::debugFunction(sol::state& state)
+	void SpriteComponent::debugFunction(sol::table& table)
 	{
-		bool saveData = false;
-
 		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
-		static std::string input = state["entity"]["SpriteComponent"]["texture"];
-		static std::string first = state["entity"]["SpriteComponent"]["texture"];
+		static std::string input = table.get<std::string>("texture");
+		static std::string first = table.get<std::string>("texture");
 		static std::string newTextureAlt = "";
 		static std::vector<char> buff(input.begin(), input.end());
 		static bool doneOnce = false;
@@ -85,9 +83,9 @@ namespace re
 			doneOnce = true;
 		}
 		
-		if (first != state["entity"]["SpriteComponent"]["texture"])
+		if (first != table.get<std::string>("texture"))
 		{
-			first = input = state["entity"]["SpriteComponent"]["texture"];
+			first = input = table.get<std::string>("texture");
 			buff.clear();
 			buff = std::vector<char>(input.begin(), input.end());
 			buff.resize(255);
@@ -115,17 +113,8 @@ namespace re
 			buff = std::vector<char>(input.begin(), input.end());
 			buff.resize(255);
 
-			state["entity"]["SpriteComponent"]["texture"] = newTexture;
-			sol::table table = state["entity"]["SpriteComponent"];
 			loadTexture(table, newTexture);
 		}
-		
-		if (ImGui::Button("Write out changes?"))
-		{
-			saveData = true;
-		}
-		
-		return saveData;
 	}
 
 	void SpriteComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const

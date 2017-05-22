@@ -130,10 +130,27 @@ namespace re
 	{
 		if (m_enabled == true)
         {
+            static int index = 0;
+            static int indexComponent = 0;
+            
+            static bool showConsole = false;
+            static bool showScriptEditor = false;
+            
             ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
             
-            static int index = 0;
-			static int indexComponent = 0;
+            ImGui::Spacing();
+            
+            // refer to demo guide to see how to keep open
+            showConsole = ImGui::Button("Show lua console");
+            if (showConsole)
+            {
+                // show lua console
+                // use example console from demo.cpp
+                // input commands into sol2 and retrive then display the output!
+                // simples! :D
+            }
+            
+            ImGui::Spacing();
 
             ImGui::Text("Entity Manager");
             ImGui::Separator();
@@ -166,19 +183,28 @@ namespace re
 					componentNames.push_back(it.first);
 				}
 
+                ImGui::Spacing();
+                showScriptEditor = ImGui::Button("Open Script Editor");
+                if (showScriptEditor)
+                {
+                    // open script file
+                    // use imgui multiline text editor to edit
+                    // write out script file
+                }
+                
 				ImGui::Spacing();
                 ImGui::Text(std::string("Name: " + curEntity->m_name).c_str());
 
 				ImGui::Spacing();
-				std::string stateButtonText = "Kill Entity?";
+				std::string stateButtonText = "Kill Entity";
 				if (curEntity->isDead())
 				{
-					stateButtonText = "Revive Entity?";
+					stateButtonText = "Revive Entity";
 				}
 
 				if (ImGui::Button(stateButtonText.c_str()))
 				{
-					if (stateButtonText == "Kill Entity?")
+					if (stateButtonText == "Kill Entity")
 					{
 						m_world->killEntity(curEntity->m_name);
 					}
@@ -198,14 +224,9 @@ namespace re
 					}
 
                     std::string curComponent = componentNames[indexComponent];
+                    sol::table curTable = entityTable.get<sol::table>(curComponent);
 
-                    bool saveData = curEntity->useComponentDebugFunction(curComponent, m_lua);
-					if (saveData)
-					{
-						std::string tempoutput = m_lua["entity"]["SpriteComponent"]["texture"];
-						printf(tempoutput.c_str());
-						saveData = false;
-					}
+                    curEntity->useComponentDebugFunction(curComponent, curTable);
 				}
             }
            

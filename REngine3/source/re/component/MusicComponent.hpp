@@ -50,7 +50,7 @@ namespace re
 		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
 		*/
-		bool debugFunction(sol::state& state) override;
+		void debugFunction(sol::table& table) override;
 	
 	private:
 		MusicStorage m_music;

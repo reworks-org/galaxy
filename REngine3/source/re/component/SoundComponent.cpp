@@ -52,9 +52,7 @@ namespace re
 		}
 	}
 
-	bool SoundComponent::debugFunction(sol::state& state)
+	void SoundComponent::debugFunction(sol::table& table)
 	{
-		bool saveData = false;
-		return saveData;
 	}
 }

@@ -77,9 +77,7 @@ namespace re
 		}
 	}
 
-	bool TextComponent::debugFunction(sol::state& state)
+	void TextComponent::debugFunction(sol::table& table)
 	{
-		bool saveData = false;
-		return saveData;
 	}
 }

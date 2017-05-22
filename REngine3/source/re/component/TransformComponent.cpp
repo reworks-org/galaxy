@@ -24,9 +24,8 @@ namespace re
 		setRotation(table.get<float>("angle"));
 	}
 
-	bool TransformComponent::debugFunction(sol::state& state)
+	void TransformComponent::debugFunction(sol::table& table)
 	{
-		bool saveData = false;
-		return saveData;
+		
 	}
 }
