@@ -55,6 +55,7 @@ namespace re
 		{
 			if (texture == "")
 			{
+				// NEED TO CHECK IF FILE IS VALID, THEN CLOSE THE ORIGINAL BEFORE OPENING A NEW ONE!
 				m_textureStream.open(table.get<std::string>("texture"));
 			}
 			else
