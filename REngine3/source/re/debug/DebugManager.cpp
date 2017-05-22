@@ -67,7 +67,7 @@ struct AppConsole
         Commands.push_back("help");
         Commands.push_back("history");
         Commands.push_back("clear");
-        AddLog("Welcome to ImGui!");
+        AddLog("Lua console started.");
     }
     ~AppConsole()
     {
@@ -109,9 +109,6 @@ struct AppConsole
             ImGui::End();
             return;
         }
-
-        ImGui::TextWrapped("This example implements a console with basic coloring, completion and history. A more elaborate implementation may want to store entries along with extra data such as timestamp, emitter, etc.");
-        ImGui::TextWrapped("Enter 'HELP' for help, press TAB to use text completion.");
 
         // TODO: display items starting from the bottom
 
@@ -217,8 +214,11 @@ struct AppConsole
         }
         else
         {
-            auto result = m_lua->script(std::string(command_line));
-            AddLog(std::to_string<auto>(result));
+            std::string result = m_lua->script(std::string(command_line), [](lua_State* L, sol::protected_function_result pfr)
+            {
+                return pfr;
+            });
+            AddLog(result.c_str());
         }
     }
 
@@ -424,10 +424,21 @@ namespace re
             ImGui::Spacing();
             
             // refer to demo guide to see how to keep open
-            showConsole = ImGui::Button("Show lua console");
+            if(ImGui::Button("Show lua console"))
+            {
+                if (showConsole == true)
+                {
+                    showConsole = false;
+                }
+                else
+                {
+                    showConsole = true;
+                }
+            }
+         
             if (showConsole)
             {
-                luaConsole.Draw("Lua Console", true);
+                luaConsole.Draw("Lua Console", &showConsole);
             }
             
             ImGui::Spacing();
