@@ -66,6 +66,13 @@ namespace re
 		* PURPOSE: To load the fileName from the VFS in a char* format.
 		*/
 		char* toBuffer(const std::string& fileName);
+        
+        /*
+        * IMPORTS: fileName - The name of the file in the VFS. data - text to write.
+        * EXPORTS: none
+        * PURPOSE: To write out data to a file in the vfs.
+        */
+        void writeToFile(const std::string& fileName, const std::string& data);
 
 		/*
 		* IMPORTS: none

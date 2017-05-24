@@ -151,7 +151,8 @@ namespace re
 				}
 
 				std::string curEntityScriptName = m_world->m_loadedEntityScripts[index];
-                m_lua.script(Locator::get<VFS>()->toString(curEntityScriptName));
+                std::string curEntityScriptData = Locator::get<VFS>()->toString(curEntityScriptName);
+                m_lua.script(curEntityScriptData);
                 sol::table entityTable = m_lua.get<sol::table>("entity");
                 Entity* curEntity = &(m_world->getEntity(entityTable.get<std::string>("name")));
                 
@@ -170,7 +171,7 @@ namespace re
 
                 ImGui::Spacing();
                 
-                if (ImGui::Button("Open Script Editor"))
+                if (ImGui::Button("Toggle Script Editor"))
                 {
 					if (showScriptEditor == true)
 					{
@@ -184,12 +185,27 @@ namespace re
                 
 				if (showScriptEditor)
 				{
-					// open script file
-					// use imgui multiline text editor to edit
-					// write out script file
-					// use vfs, so i will need to modify it to support writing out
-					// Physfs_write() or something like that.
-					ImGui::InputTextMultiline();
+                    static std::vector<char> scriptData(curEntityScriptData.begin(), curEntityScriptData.end());
+                    
+                    ImGui::SetNextWindowSize(ImVec2(420,500), ImGuiSetCond_FirstUseEver);
+                    std::string name = "Script Editor: " + curEntityScriptName;
+                    ImGui::Begin(name.c_str(), (bool*)false);
+                    ImGui::Separator();
+                    ImGui::Spacing();
+                    
+					ImGui::InputTextMultiline("", scriptData.data(), scriptData.size(), ImVec2(420,500), ImGuiInputTextFlags_EnterReturnsTrue);
+                    
+                    ImGui::Separator();
+                    ImGui::Spacing();
+                    
+                    if (ImGui::Button("Save Changes"))
+                    {
+                        // write out script file
+                        // use vfs, so i will need to modify it to support writing out
+                        // Physfs_write() or something like that.
+                    }
+                    
+                    ImGui::End();
 				}
 
 				ImGui::Spacing();
