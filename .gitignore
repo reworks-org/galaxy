@@ -20,3 +20,4 @@ Sandbox/*.sf
 # Sandbox bin crap
 Sandbox/bin/Debug/
 Sandbox/bin/Release/
+*.ini

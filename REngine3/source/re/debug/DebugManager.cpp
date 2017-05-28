@@ -13,9 +13,10 @@
 #include "re/debug/imgui/imgui-SFML.h"
 
 #include "re/graphics/Window.hpp"
+#include "re/services/vfs/VFS.hpp"
+#include "re/systems/StateManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/component/SpriteComponent.hpp"
-#include "re/services/vfs/VFS.hpp"
 
 #include "DebugManager.hpp"
 
@@ -136,6 +137,13 @@ namespace re
             static bool showScriptEditor = false;
             
             ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+			
+			if (ImGui::Button("Reload State"))
+			{
+				Locator::get<StateManager>()->reloadState();
+			}
+
+			ImGui::Spacing();
 
             ImGui::Text("Entity Manager");
             ImGui::Separator();
@@ -186,10 +194,30 @@ namespace re
 				if (showScriptEditor)
 				{
                     static std::vector<char> scriptData(curEntityScriptData.begin(), curEntityScriptData.end());
-                    
+					static bool doneOnce = false;
+					static std::string first = curEntityScriptName;
+
+					if (!doneOnce)
+					{
+						// this should be large enough...i hope
+						scriptData.resize(2000);
+						doneOnce = true;
+					}
+
+					if (first != m_world->m_loadedEntityScripts[index])
+					{
+						first = m_world->m_loadedEntityScripts[index];
+
+						scriptData.clear();
+						scriptData = std::vector<char>(curEntityScriptData.begin(), curEntityScriptData.end());
+						scriptData.resize(2000);
+					}
+
                     ImGui::SetNextWindowSize(ImVec2(420,500), ImGuiSetCond_FirstUseEver);
+					ImGui::SetNextWindowPosCenter();
+
                     std::string name = "Script Editor: " + curEntityScriptName;
-                    ImGui::Begin(name.c_str(), (bool*)false);
+                    ImGui::Begin(name.c_str(), (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
                     ImGui::Separator();
                     ImGui::Spacing();
                     
@@ -200,10 +228,29 @@ namespace re
                     
                     if (ImGui::Button("Save Changes"))
                     {
-                        // write out script file
-                        // use vfs, so i will need to modify it to support writing out
-                        // Physfs_write() or something like that.
-                    }
+						for (auto& v : scriptData)
+						{
+							if (!v)
+							{
+								v = ' ';
+							}
+						}
+
+						std::string path = Locator::get<VFS>()->getDir(curEntityScriptName) + curEntityScriptName;
+						
+						std::ofstream out;
+						out.open(path, std::ofstream::out);
+						
+						std::string dataOut(scriptData.begin(), scriptData.end());
+						dataOut.shrink_to_fit();
+
+						out << dataOut.c_str() << std::endl;
+						out.close();
+
+						scriptData.clear();
+						scriptData = std::vector<char>(dataOut.begin(), dataOut.end());
+						scriptData.resize(2000);
+					}
                     
                     ImGui::End();
 				}

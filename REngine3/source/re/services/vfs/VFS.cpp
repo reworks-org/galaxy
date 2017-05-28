@@ -89,21 +89,9 @@ namespace re
 		return strdup(str.c_str());
 #endif
 	}
-    
-    void writeToFile(const std::string& fileName, const std::string& data)
-    {
-        PHYSFS_file* myfile = PHYSFS_openWrite(fileName.c_str());
-        PHYSFS_sint64 file_size = PHYSFS_fileLength(myfile);
-        
-        RE_ASSERT(myfile, "Failed to open " + fileName + " for writing to", "VFS::writeToFile", "VFS.cpp", 98);
-        
-        PHYSFS_setWriteDir(PHYSFS_getRealDir(fileName.c_str()));
-        
-        
-    }
 
-	std::string VFS::baseDir() const
+	std::string VFS::getDir(const std::string& fileName) const
 	{
-		return std::string(PHYSFS_getBaseDir());
+		return PHYSFS_getRealDir(fileName.c_str());
 	}
 }

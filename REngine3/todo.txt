@@ -1,12 +1,10 @@
 TODO List:
 
 beta2:
-- proper loading system
-- sfml inbuilt post-processing & shaders
-- Debug gui using IMGUI
-- improve map physics
-- fix bug when switching back into menu state from another state. I think it is to do with world not updating entitys but that isn't working for some reason...
-- work through it logically...
+- sfml post-processing
+    - https://www.packtpub.com/mapt/book/All%20Books/9781849696845/8/ch08lvl1sec58/post-effects-and-shaders
+    - https://www.sfml-dev.org/tutorials/2.4/graphics-shader.php
+- debug component functions
 
 beta3:
 - ai
@@ -14,21 +12,11 @@ beta3:
 
 v1.0:
 - fix all warnings/errors
+- ingame entity creator
 - recompile libraries on windows with vs2017
 - proper credits file
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - tgui lua bridge
 
-
-debug system has access to all entitys
-debug system gui only when compiled in debug
-rendered by sfml-imgui
-use that to modify values of entitys - possibly then write them out to their lua files
-save lua file data for componetns and send it to debug maanger for data reporting and allow modification / changes to components
-from the debug manager and then write any changes out to lua files
-
-components need to not jst use the data from lua files but save it for reuse later.
-debug manager needs to load the entitys lua script into its system and modify that, then write it out afterwards.
-
-the idea is you should be able to create and add a brand new entity to the engine from the debug menu. This allows you to do stuff in game without
-having to recompile the game and the engine. ofc then this data is written out to the appropriate lua files by sol2. (gamestate.lua, entity.lua)
+v1.1:
+- support map physics for non-square maps

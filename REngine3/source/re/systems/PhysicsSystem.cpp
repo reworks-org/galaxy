@@ -10,6 +10,8 @@
 
 #include "re/app/World.hpp"
 #include "re/mapping/TMXMap.hpp"
+#include "re/services/vfs/VFS.hpp"
+#include "re/services/ServiceLocator.hpp"
 #include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"
@@ -51,8 +53,12 @@ namespace re
 		}
 	}
 
-	void PhysicsSystem::addMapCollisions(TMXMap* map)
+	void PhysicsSystem::addMapCollisions(TMXMap* map, const std::string& mapCollisionConfigFile)
 	{
+		sol::state lua;
+		lua.script(Locator::get<VFS>()->toString(mapCollisionConfigFile));
+		sol::table mapConfig = lua.get<sol::table>("mapConfig");
+
 		for (auto& v : map->getCollisions())
 		{
 			b2BodyDef bodyDef;
@@ -61,12 +67,12 @@ namespace re
 			bodyDef.type = b2BodyType::b2_staticBody;
 
 			b2PolygonShape b2shape;
-			b2shape.SetAsBox((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0), b2Vec2((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0)), 0);
+			b2shape.SetAsBox((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0), b2Vec2((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0)), mapConfig.get<float32>("angle"));
 
 			b2FixtureDef fixtureDef;
-			fixtureDef.density = 1;
-			fixtureDef.friction = 50;
-			fixtureDef.restitution = 0;
+			fixtureDef.density = mapConfig.get<float32>("density");
+			fixtureDef.friction = mapConfig.get<float32>("friction");
+			fixtureDef.restitution = mapConfig.get<float32>("restitution");
 			fixtureDef.shape = &b2shape;
 
 			b2Body* body = m_manager->m_world->CreateBody(&bodyDef);

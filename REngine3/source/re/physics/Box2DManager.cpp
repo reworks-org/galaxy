@@ -21,4 +21,9 @@ namespace re
 	{
 		delete m_world;
 	}
+
+	void Box2DManager::clean()
+	{
+		m_collisionFunctions.clear();
+	}
 }

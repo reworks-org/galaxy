@@ -67,19 +67,12 @@ namespace re
 		*/
 		char* toBuffer(const std::string& fileName);
         
-        /*
-        * IMPORTS: fileName - The name of the file in the VFS. data - text to write.
-        * EXPORTS: none
-        * PURPOSE: To write out data to a file in the vfs.
-        */
-        void writeToFile(const std::string& fileName, const std::string& data);
-
 		/*
 		* IMPORTS: none
 		* EXPORTS: std::string to the base directory of the application.
 		* PURPOSE: Get path of application.
 		*/
-		std::string baseDir() const;
+		std::string getDir(const std::string& fileName) const;
 	};
 }
 

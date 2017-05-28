@@ -73,7 +73,8 @@ void Menu::loadResources()
 		#else
 			m_theme = std::make_shared<tgui::Theme>("Sandbox.app/Contents/Resources/ui/black.txt");
 		#endif
-		m_doOnce = false;
+
+		m_doOnce = true;
 	}
 
 	tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
@@ -93,10 +94,13 @@ void Menu::unloadResources()
 {
 	m_gui.removeAllWidgets();
 
+	Locator::get<Box2DManager>()->clean();
 	m_world->getSystem<RenderSystem>()->clean();
 	m_world->getSystem<EventSystem>()->clean();
 	m_world->getSystem<MoveSystem>()->clean();
 	m_world->getSystem<PhysicsSystem>()->clean();
+	m_world->getSystem<AnimationSystem>()->clean();
+
 	m_world->clean();
 }
 

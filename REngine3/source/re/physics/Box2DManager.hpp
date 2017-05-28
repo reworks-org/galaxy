@@ -35,6 +35,13 @@ namespace re
 		*/
 		~Box2DManager();
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: clean up manager.
+		*/
+		void clean();
+
 	public:
 		b2World* m_world;
 		CollisionFunctionMap m_collisionFunctions;
