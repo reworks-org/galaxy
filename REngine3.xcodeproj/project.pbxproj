@@ -322,6 +322,8 @@
 		F2CAC33D1EA885C500D9F2CD /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = F2CAC3321EA885C500D9F2CD /* stb_truetype.h */; };
 		F2CAC3401EA886B300D9F2CD /* DebugManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2CAC33E1EA886B300D9F2CD /* DebugManager.cpp */; };
 		F2CAC3411EA886B300D9F2CD /* DebugManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F2CAC33F1EA886B300D9F2CD /* DebugManager.hpp */; };
+		F2DC07A91EDBC189002E5F9B /* PostProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2DC07A71EDBC189002E5F9B /* PostProcessing.cpp */; };
+		F2DC07AA1EDBC189002E5F9B /* PostProcessing.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F2DC07A81EDBC189002E5F9B /* PostProcessing.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -652,6 +654,8 @@
 		F2CAC3321EA885C500D9F2CD /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = REngine3/source/re/debug/imgui/stb_truetype.h; sourceTree = "<group>"; };
 		F2CAC33E1EA886B300D9F2CD /* DebugManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugManager.cpp; path = REngine3/source/re/debug/DebugManager.cpp; sourceTree = "<group>"; };
 		F2CAC33F1EA886B300D9F2CD /* DebugManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DebugManager.hpp; path = REngine3/source/re/debug/DebugManager.hpp; sourceTree = "<group>"; };
+		F2DC07A71EDBC189002E5F9B /* PostProcessing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PostProcessing.cpp; path = REngine3/source/re/graphics/PostProcessing.cpp; sourceTree = "<group>"; };
+		F2DC07A81EDBC189002E5F9B /* PostProcessing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PostProcessing.hpp; path = REngine3/source/re/graphics/PostProcessing.hpp; sourceTree = "<group>"; };
 		F2F529A51E7A57ED0012CB03 /* libREngine3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libREngine3.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -921,6 +925,8 @@
 				F22416921E7F82A400AB77AF /* TextureAtlas.hpp */,
 				F22416931E7F82A400AB77AF /* Window.cpp */,
 				F22416941E7F82A400AB77AF /* Window.hpp */,
+				F2DC07A71EDBC189002E5F9B /* PostProcessing.cpp */,
+				F2DC07A81EDBC189002E5F9B /* PostProcessing.hpp */,
 			);
 			name = graphics;
 			sourceTree = "<group>";
@@ -1373,6 +1379,7 @@
 				F23732B11EC032B4004E5C77 /* Events.hpp in Headers */,
 				F2300CBB1E822CE100574A1B /* b2PolygonContact.h in Headers */,
 				F2CAC3331EA885C500D9F2CD /* imconfig.h in Headers */,
+				F2DC07AA1EDBC189002E5F9B /* PostProcessing.hpp in Headers */,
 				F2300CBC1E822CE100574A1B /* b2DistanceJoint.h in Headers */,
 				F2CAC3381EA885C500D9F2CD /* imgui-SFML.h in Headers */,
 				F2300CBD1E822CE100574A1B /* b2FrictionJoint.h in Headers */,
@@ -1614,6 +1621,7 @@
 				F2300D421E822CEC00574A1B /* lauxlib.c in Sources */,
 				F2300D431E822CEC00574A1B /* lbaselib.c in Sources */,
 				F2300D441E822CEC00574A1B /* lbitlib.c in Sources */,
+				F2DC07A91EDBC189002E5F9B /* PostProcessing.cpp in Sources */,
 				F2300D451E822CEC00574A1B /* lcode.c in Sources */,
 				F2300D461E822CEC00574A1B /* lcorolib.c in Sources */,
 				F2300D471E822CEC00574A1B /* lctype.c in Sources */,
