@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/debug/imgui/imgui.h"
 #include "re/services/vfs/VFS.hpp"
 #include "re/graphics/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -79,5 +80,28 @@ namespace re
 
 	void TextComponent::debugFunction(sol::table& table)
 	{
+		static float xpos = getPosition().x;
+		static float ypos = getPosition().y;
+		static float colour[3] = { (float)getFillColor().r, (float)getFillColor().g, (float)getFillColor().b };
+		static sf::Uint8 alpha = getFillColor().a;
+
+		ImGui::Spacing();
+		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
+
+		ImGui::Spacing();
+		ImGui::InputFloat("x-pos", &xpos);
+
+		ImGui::Spacing();
+		ImGui::InputFloat("y-pos", &ypos);
+
+		setPosition(xpos, ypos);
+
+		ImGui::ColorEdit3("Change text colour", colour);
+		ImGui::InputInt("Alpha Editor", &(int)alpha);
+
+		if (alpha < 0) alpha = 0;
+		if (alpha > 255) alpha = 255;
+
+		setFillColor(sf::Color((sf::Uint8)colour[0], (sf::Uint8)colour[1], (sf::Uint8)colour[2], alpha));
 	}
 }

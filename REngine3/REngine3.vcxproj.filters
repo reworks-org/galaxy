@@ -122,6 +122,8 @@
     <ClCompile Include="source\re\debug\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
     <ClCompile Include="source\re\debug\DebugManager.cpp" />
+    <ClCompile Include="source\re\ai\AStar.cpp" />
+    <ClCompile Include="source\re\graphics\PostEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -253,5 +255,7 @@
     <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
+    <ClInclude Include="source\re\ai\AStar.hpp" />
+    <ClInclude Include="source\re\graphics\PostEffect.hpp" />
   </ItemGroup>
 </Project>

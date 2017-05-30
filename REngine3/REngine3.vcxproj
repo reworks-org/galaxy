@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\re\ai\AStar.cpp" />
     <ClCompile Include="source\re\app\Application.cpp" />
     <ClCompile Include="source\re\app\World.cpp" />
     <ClCompile Include="source\re\component\AnimationComponent.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
     <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
+    <ClCompile Include="source\re\graphics\PostEffect.cpp" />
     <ClCompile Include="source\re\graphics\sw\Line.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
@@ -142,6 +144,7 @@
     <ClCompile Include="source\re\utility\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\re\ai\AStar.hpp" />
     <ClInclude Include="source\re\app\Application.hpp" />
     <ClInclude Include="source\re\app\World.hpp" />
     <ClInclude Include="source\re\component\AnimationComponent.hpp" />
@@ -164,6 +167,7 @@
     <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
     <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
+    <ClInclude Include="source\re\graphics\PostEffect.hpp" />
     <ClInclude Include="source\re\graphics\sw\Common.hpp" />
     <ClInclude Include="source\re\graphics\sw\Exception.hpp" />
     <ClInclude Include="source\re\graphics\sw\Line.hpp" />

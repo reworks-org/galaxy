@@ -70,6 +70,7 @@ private:
 	static std::shared_ptr<re::State> m_menuState;
 	tgui::Gui m_gui;
 	tgui::Theme::Ptr m_theme;
+	sf::View m_minimap;
 
 	bool m_doOnce = true;
 };

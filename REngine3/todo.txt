@@ -1,22 +1,22 @@
 TODO List:
 
 beta2:
-- sfml post-processing
-    - https://www.packtpub.com/mapt/book/All%20Books/9781849696845/8/ch08lvl1sec58/post-effects-and-shaders
-    - https://www.sfml-dev.org/tutorials/2.4/graphics-shader.php
 - debug component functions
 
 beta3:
 - ai
-- Audio spacialization
+- Audio spacialization  https://www.sfml-dev.org/tutorials/2.4/audio-spatialization.php https://www.packtpub.com/mapt/book/All%20Books/9781849696845/9/ch09lvl1sec62/sounds-in-3d-space
+- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 
 v1.0:
 - fix all warnings/errors
 - ingame entity creator
 - recompile libraries on windows with vs2017
 - proper credits file
-- tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 - tgui lua bridge
+- sfml post-processing
+    - https://www.packtpub.com/mapt/book/All%20Books/9781849696845/8/ch08lvl1sec58/post-effects-and-shaders
+    - https://www.sfml-dev.org/tutorials/2.4/graphics-shader.php
 
 v1.1:
 - support map physics for non-square maps

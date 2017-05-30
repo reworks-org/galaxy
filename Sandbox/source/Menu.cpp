@@ -88,6 +88,9 @@ void Menu::loadResources()
 	{ 
 		Locator::get<World>()->getEntity("person").get<PhysicsComponent>()->m_isMovingVertically = false;
 	});
+
+	m_minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
+	m_minimap.zoom(1.5f);
 }
 
 void Menu::unloadResources()
@@ -171,12 +174,15 @@ void Menu::update(sf::Time dt)
 	m_world->getSystem<PhysicsSystem>()->update(dt);
 
 	m_gui.get<tgui::Label>("testlabel")->setText(Time::getShortTime());
-	
-    //Locator::get<DebugManager>()->useMenu();
 }
 
 void Menu::render()
 {
+	m_window->setView(m_window->getDefaultView());
 	m_world->getSystem<RenderSystem>()->render(m_window);
+
+	m_window->setView(m_minimap);
+	m_world->getSystem<RenderSystem>()->render(m_window);
+
 	m_gui.draw();
 }

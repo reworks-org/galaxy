@@ -296,4 +296,9 @@ namespace re
 		    ImGui::End();
         }
 	}
+
+	/*void DebugManager::useMenu()
+	{
+		ImGui::ShowTestWindow();
+	}*/
 }
