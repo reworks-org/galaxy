@@ -267,6 +267,10 @@
 		F2300D6C1E822CEC00574A1B /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419271E7F845F00AB77AF /* StateManager.cpp */; };
 		F2300D6D1E822CEC00574A1B /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F22419381E7F846700AB77AF /* System.cpp */; };
 		F23732B11EC032B4004E5C77 /* Events.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F23732B01EC032B4004E5C77 /* Events.hpp */; };
+		F26E5E661EDFD06F004DC7BC /* PostEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F26E5E641EDFD06F004DC7BC /* PostEffect.cpp */; };
+		F26E5E671EDFD06F004DC7BC /* PostEffect.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F26E5E651EDFD06F004DC7BC /* PostEffect.hpp */; };
+		F26E5E6B1EDFD081004DC7BC /* AStar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F26E5E691EDFD081004DC7BC /* AStar.cpp */; };
+		F26E5E6C1EDFD081004DC7BC /* AStar.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F26E5E6A1EDFD081004DC7BC /* AStar.hpp */; };
 		F2A765DD1EA4C6F5004153C3 /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2A765DC1EA4C6F5004153C3 /* Log.cpp */; };
 		F2A765F01EA4CC30004153C3 /* libtgui.0.7.3.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = F2300C671E822AA200574A1B /* libtgui.0.7.3.dylib */; };
 		F2A765F81EA4D5CE004153C3 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A765F21EA4D5CE004153C3 /* sfml-audio.framework */; };
@@ -322,8 +326,6 @@
 		F2CAC33D1EA885C500D9F2CD /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = F2CAC3321EA885C500D9F2CD /* stb_truetype.h */; };
 		F2CAC3401EA886B300D9F2CD /* DebugManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2CAC33E1EA886B300D9F2CD /* DebugManager.cpp */; };
 		F2CAC3411EA886B300D9F2CD /* DebugManager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F2CAC33F1EA886B300D9F2CD /* DebugManager.hpp */; };
-		F2DC07A91EDBC189002E5F9B /* PostProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F2DC07A71EDBC189002E5F9B /* PostProcessing.cpp */; };
-		F2DC07AA1EDBC189002E5F9B /* PostProcessing.hpp in Headers */ = {isa = PBXBuildFile; fileRef = F2DC07A81EDBC189002E5F9B /* PostProcessing.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -627,6 +629,10 @@
 		F2300C681E822AA200574A1B /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = libs/zlib/lib/libz.a; sourceTree = "<group>"; };
 		F2300D6E1E82329400574A1B /* libiconv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libiconv.a; path = libs/libxml2/lib/libiconv.a; sourceTree = "<group>"; };
 		F23732B01EC032B4004E5C77 /* Events.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Events.hpp; path = REngine3/source/re/types/Events.hpp; sourceTree = "<group>"; };
+		F26E5E641EDFD06F004DC7BC /* PostEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PostEffect.cpp; path = REngine3/source/re/graphics/PostEffect.cpp; sourceTree = "<group>"; };
+		F26E5E651EDFD06F004DC7BC /* PostEffect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PostEffect.hpp; path = REngine3/source/re/graphics/PostEffect.hpp; sourceTree = "<group>"; };
+		F26E5E691EDFD081004DC7BC /* AStar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AStar.cpp; path = REngine3/source/re/ai/AStar.cpp; sourceTree = "<group>"; };
+		F26E5E6A1EDFD081004DC7BC /* AStar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AStar.hpp; path = REngine3/source/re/ai/AStar.hpp; sourceTree = "<group>"; };
 		F2A765DC1EA4C6F5004153C3 /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Log.cpp; path = REngine3/source/re/utility/Log.cpp; sourceTree = "<group>"; };
 		F2A765F21EA4D5CE004153C3 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "libs/sfml/lib/sfml-audio.framework"; sourceTree = "<group>"; };
 		F2A765F31EA4D5CE004153C3 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "libs/sfml/lib/sfml-graphics.framework"; sourceTree = "<group>"; };
@@ -654,8 +660,6 @@
 		F2CAC3321EA885C500D9F2CD /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = REngine3/source/re/debug/imgui/stb_truetype.h; sourceTree = "<group>"; };
 		F2CAC33E1EA886B300D9F2CD /* DebugManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DebugManager.cpp; path = REngine3/source/re/debug/DebugManager.cpp; sourceTree = "<group>"; };
 		F2CAC33F1EA886B300D9F2CD /* DebugManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = DebugManager.hpp; path = REngine3/source/re/debug/DebugManager.hpp; sourceTree = "<group>"; };
-		F2DC07A71EDBC189002E5F9B /* PostProcessing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PostProcessing.cpp; path = REngine3/source/re/graphics/PostProcessing.cpp; sourceTree = "<group>"; };
-		F2DC07A81EDBC189002E5F9B /* PostProcessing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PostProcessing.hpp; path = REngine3/source/re/graphics/PostProcessing.hpp; sourceTree = "<group>"; };
 		F2F529A51E7A57ED0012CB03 /* libREngine3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libREngine3.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -798,6 +802,7 @@
 		F22416521E7F821100AB77AF /* re */ = {
 			isa = PBXGroup;
 			children = (
+				F26E5E681EDFD073004DC7BC /* ai */,
 				F224165E1E7F826D00AB77AF /* app */,
 				F224165D1E7F826800AB77AF /* component */,
 				F2CAC3261EA8858400D9F2CD /* debug */,
@@ -914,6 +919,8 @@
 		F224165B1E7F825B00AB77AF /* graphics */ = {
 			isa = PBXGroup;
 			children = (
+				F26E5E641EDFD06F004DC7BC /* PostEffect.cpp */,
+				F26E5E651EDFD06F004DC7BC /* PostEffect.hpp */,
 				F224169F1E7F82A600AB77AF /* sw */,
 				F224168B1E7F82A400AB77AF /* EllipseShape.cpp */,
 				F224168C1E7F82A400AB77AF /* EllipseShape.hpp */,
@@ -925,8 +932,6 @@
 				F22416921E7F82A400AB77AF /* TextureAtlas.hpp */,
 				F22416931E7F82A400AB77AF /* Window.cpp */,
 				F22416941E7F82A400AB77AF /* Window.hpp */,
-				F2DC07A71EDBC189002E5F9B /* PostProcessing.cpp */,
-				F2DC07A81EDBC189002E5F9B /* PostProcessing.hpp */,
 			);
 			name = graphics;
 			sourceTree = "<group>";
@@ -1265,6 +1270,15 @@
 			name = gamesystems;
 			sourceTree = "<group>";
 		};
+		F26E5E681EDFD073004DC7BC /* ai */ = {
+			isa = PBXGroup;
+			children = (
+				F26E5E691EDFD081004DC7BC /* AStar.cpp */,
+				F26E5E6A1EDFD081004DC7BC /* AStar.hpp */,
+			);
+			name = ai;
+			sourceTree = "<group>";
+		};
 		F2CAC3261EA8858400D9F2CD /* debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -1379,7 +1393,6 @@
 				F23732B11EC032B4004E5C77 /* Events.hpp in Headers */,
 				F2300CBB1E822CE100574A1B /* b2PolygonContact.h in Headers */,
 				F2CAC3331EA885C500D9F2CD /* imconfig.h in Headers */,
-				F2DC07AA1EDBC189002E5F9B /* PostProcessing.hpp in Headers */,
 				F2300CBC1E822CE100574A1B /* b2DistanceJoint.h in Headers */,
 				F2CAC3381EA885C500D9F2CD /* imgui-SFML.h in Headers */,
 				F2300CBD1E822CE100574A1B /* b2FrictionJoint.h in Headers */,
@@ -1396,6 +1409,7 @@
 				F2300CC81E822CE100574A1B /* b2Rope.h in Headers */,
 				F2300CC91E822CE100574A1B /* Box2DManager.hpp in Headers */,
 				F2300CCA1E822CE100574A1B /* Box2DSFMLBridge.hpp in Headers */,
+				F26E5E6C1EDFD081004DC7BC /* AStar.hpp in Headers */,
 				F2300CCB1E822CE100574A1B /* POSIXLog.hpp in Headers */,
 				F2300CCC1E822CE100574A1B /* Win32Log.hpp in Headers */,
 				F2CAC33D1EA885C500D9F2CD /* stb_truetype.h in Headers */,
@@ -1432,6 +1446,7 @@
 				F2300CE91E822CE100574A1B /* sfmlphysfs.hpp in Headers */,
 				F2300CEA1E822CE100574A1B /* VFS.hpp in Headers */,
 				F2300CEB1E822CE100574A1B /* Config.hpp in Headers */,
+				F26E5E671EDFD06F004DC7BC /* PostEffect.hpp in Headers */,
 				F2300CEC1E822CE100574A1B /* ServiceLocator.hpp in Headers */,
 				F2300CED1E822CE100574A1B /* AnimationSystem.hpp in Headers */,
 				F2300CEE1E822CE100574A1B /* AudioSystem.hpp in Headers */,
@@ -1585,6 +1600,7 @@
 				F2300D1F1E822CEC00574A1B /* b2Draw.cpp in Sources */,
 				F2300D201E822CEC00574A1B /* b2Math.cpp in Sources */,
 				F2300D211E822CEC00574A1B /* b2Settings.cpp in Sources */,
+				F26E5E6B1EDFD081004DC7BC /* AStar.cpp in Sources */,
 				F2300D221E822CEC00574A1B /* b2StackAllocator.cpp in Sources */,
 				F2300D231E822CEC00574A1B /* b2Timer.cpp in Sources */,
 				F2300D241E822CEC00574A1B /* b2Body.cpp in Sources */,
@@ -1603,6 +1619,7 @@
 				F2300D311E822CEC00574A1B /* b2PolygonAndCircleContact.cpp in Sources */,
 				F2300D321E822CEC00574A1B /* b2PolygonContact.cpp in Sources */,
 				F2300D331E822CEC00574A1B /* b2DistanceJoint.cpp in Sources */,
+				F26E5E661EDFD06F004DC7BC /* PostEffect.cpp in Sources */,
 				F2300D341E822CEC00574A1B /* b2FrictionJoint.cpp in Sources */,
 				F2300D351E822CEC00574A1B /* b2GearJoint.cpp in Sources */,
 				F2300D361E822CEC00574A1B /* b2Joint.cpp in Sources */,
@@ -1621,7 +1638,6 @@
 				F2300D421E822CEC00574A1B /* lauxlib.c in Sources */,
 				F2300D431E822CEC00574A1B /* lbaselib.c in Sources */,
 				F2300D441E822CEC00574A1B /* lbitlib.c in Sources */,
-				F2DC07A91EDBC189002E5F9B /* PostProcessing.cpp in Sources */,
 				F2300D451E822CEC00574A1B /* lcode.c in Sources */,
 				F2300D461E822CEC00574A1B /* lcorolib.c in Sources */,
 				F2300D471E822CEC00574A1B /* lctype.c in Sources */,

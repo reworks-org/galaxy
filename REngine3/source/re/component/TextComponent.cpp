@@ -80,28 +80,84 @@ namespace re
 
 	void TextComponent::debugFunction(sol::table& table)
 	{
-		static float xpos = getPosition().x;
-		static float ypos = getPosition().y;
-		static float colour[3] = { (float)getFillColor().r, (float)getFillColor().g, (float)getFillColor().b };
-		static sf::Uint8 alpha = getFillColor().a;
-
+		static int xpos = getPosition().x;
+		static int ypos = getPosition().y;
+        static int r = getFillColor().r;
+        static int g = getFillColor().g;
+        static int b = getFillColor().b;
+		static int alpha = getFillColor().a;
+        static int fs = getCharacterSize();
+        static int style = table.get<int>("style");
+        static std::string original = table.get<std::string>("text");
+        static std::vector<std::string> fonts;
+        
+        for (auto& v : Locator::get<Font>())
+        {
+            
+        }
+        
+        
+        if (original != table.get<std::string>("text"))
+        {
+            original = table.get<std::string>("text");
+            // update variables
+        }
+        
 		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
+        ImGui::Spacing();
+        ImGui::Text("Position Modifiers: ");
+        
 		ImGui::Spacing();
-		ImGui::InputFloat("x-pos", &xpos);
+		ImGui::InputInt("x-pos", &xpos);
 
 		ImGui::Spacing();
-		ImGui::InputFloat("y-pos", &ypos);
+		ImGui::InputInt("y-pos", &ypos);
 
 		setPosition(xpos, ypos);
+        
+        ImGui::Spacing();
+        ImGui::Text("Colour Modifiers: ");
 
-		ImGui::ColorEdit3("Change text colour", colour);
-		ImGui::InputInt("Alpha Editor", &(int)alpha);
+        ImGui::SliderInt("Red Editor", &r, 0, 255);
+        ImGui::SliderInt("Green Editor", &g, 0, 255);
+        ImGui::SliderInt("Blue Editor", &b, 0, 255);
+		ImGui::SliderInt("Alpha Editor", &alpha, 0, 255);
 
-		if (alpha < 0) alpha = 0;
-		if (alpha > 255) alpha = 255;
-
-		setFillColor(sf::Color((sf::Uint8)colour[0], (sf::Uint8)colour[1], (sf::Uint8)colour[2], alpha));
+        setFillColor(sf::Color(r, g, b, alpha));
+        
+        ImGui::Spacing();
+        ImGui::Text("Other Modifiers: ");
+        
+        ImGui::Spacing();
+        ImGui::InputInt("Font Size", &fs);
+        setCharacterSize(fs);
+        
+        ImGui::Spacing();
+        ImGui::SliderInt("Text Style", &style, 0, 4);
+        
+        switch (style)
+        {
+            case 0:
+                setStyle(sf::Text::Regular);
+                break;
+                
+            case 1:
+                setStyle(sf::Text::Bold);
+                break;
+                
+            case 2:
+                setStyle(sf::Text::Italic);
+                break;
+                
+            case 3:
+                setStyle(sf::Text::Underlined);
+                break;
+                
+            case 4:
+                setStyle(sf::Text::StrikeThrough);
+                break;
+        }
 	}
 }
