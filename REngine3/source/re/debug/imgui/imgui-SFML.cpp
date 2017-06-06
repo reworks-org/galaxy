@@ -10,7 +10,6 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Window.hpp>
 
-#include <cmath> // std::abs
 #include <cstddef> // offsetof, NULL
 #include <cassert>
 
@@ -43,7 +42,7 @@ namespace ImGui
 namespace SFML
 {
 
-void Init(sf::RenderTarget& target, sf::Texture* fontTexture)
+void Init(sf::RenderTarget& target, bool loadDefaultFont)
 {
     ImGuiIO& io = ImGui::GetIO();
 
@@ -72,16 +71,15 @@ void Init(sf::RenderTarget& target, sf::Texture* fontTexture)
     io.DisplaySize = static_cast<sf::Vector2f>(target.getSize());
     io.RenderDrawListsFn = RenderDrawLists; // set render callback
 
-    if (fontTexture == NULL) {
-        if (s_fontTexture) { // delete previously created texture
-            delete s_fontTexture;
-        }
+    if (s_fontTexture) { // delete previously created texture
+        delete s_fontTexture;
+    }
+    s_fontTexture = new sf::Texture;
 
-        s_fontTexture = new sf::Texture;
-        createFontTexture(*s_fontTexture);
-        setFontTexture(*s_fontTexture);
-    } else {
-        setFontTexture(*fontTexture);
+    if (loadDefaultFont) { 
+        // this will load default font automatically
+        // No need to call AddDefaultFont
+        UpdateFontTexture();
     }
 }
 
@@ -163,6 +161,12 @@ void Update(const sf::Vector2i& mousePos, const sf::Vector2f& displaySize, sf::T
     ImGui::NewFrame();
 }
 
+void Render(sf::RenderTarget& target)
+{
+    target.resetGLStates();
+    ImGui::Render();
+}
+
 void Shutdown()
 {
     ImGui::GetIO().Fonts->TexID = NULL;
@@ -175,28 +179,28 @@ void Shutdown()
     ImGui::Shutdown(); // need to specify namespace here, otherwise ImGui::SFML::Shutdown would be called
 }
 
-void createFontTexture(sf::Texture& texture)
+void UpdateFontTexture()
 {
+    sf::Texture& texture = *s_fontTexture;
+
+    ImGuiIO& io = ImGui::GetIO();
     unsigned char* pixels;
     int width, height;
 
-    ImGuiIO& io = ImGui::GetIO();
     io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);
 
     texture.create(width, height);
     texture.update(pixels);
 
+    io.Fonts->TexID = (void*)texture.getNativeHandle();
+
     io.Fonts->ClearInputData();
     io.Fonts->ClearTexData();
 }
 
-void setFontTexture(sf::Texture& texture)
+sf::Texture& getFontTexture()
 {
-    ImGui::GetIO().Fonts->TexID = (void*)texture.getNativeHandle();
-    if (&texture != s_fontTexture) { // internal texture is not needed anymore
-        delete s_fontTexture;
-        s_fontTexture = NULL;
-    }
+    return *s_fontTexture;
 }
 
 } // end of namespace SFML
@@ -313,6 +317,7 @@ void DrawRectFilled(const sf::FloatRect& rect, const sf::Color& color,
 
 namespace
 {
+
 ImVec2 getTopLeftAbsolute(const sf::FloatRect & rect)
 {
     ImVec2 pos = ImGui::GetCursorScreenPos();
@@ -340,11 +345,6 @@ void RenderDrawLists(ImDrawData* draw_data)
     if (fb_width == 0 || fb_height == 0) { return; }
     draw_data->ScaleClipRects(io.DisplayFramebufferScale);
 
-    // Save OpenGL state
-    GLint last_viewport[4]; glGetIntegerv(GL_VIEWPORT, last_viewport);
-    GLint last_texture; glGetIntegerv(GL_TEXTURE_BINDING_2D, &last_texture);
-    GLint last_scissor_box[4]; glGetIntegerv(GL_SCISSOR_BOX, last_scissor_box);
-
     glPushAttrib(GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT | GL_TRANSFORM_BIT);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -352,20 +352,21 @@ void RenderDrawLists(ImDrawData* draw_data)
     glDisable(GL_DEPTH_TEST);
     glEnable(GL_SCISSOR_TEST);
     glEnable(GL_TEXTURE_2D);
+    glDisable(GL_LIGHTING);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
     glViewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height);
 
     glMatrixMode(GL_TEXTURE);
-    glPushMatrix();
     glLoadIdentity();
 
     glMatrixMode(GL_PROJECTION);
-    glPushMatrix();
     glLoadIdentity();
     glOrtho(0.0f, io.DisplaySize.x, io.DisplaySize.y, 0.0f, -1.0f, +1.0f);
 
     glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
     glLoadIdentity();
 
     for (int n = 0; n < draw_data->CmdListsCount; ++n) {
@@ -392,17 +393,7 @@ void RenderDrawLists(ImDrawData* draw_data)
         }
     }
 
-    // Restore modified state
-    glBindTexture(GL_TEXTURE_2D, (GLuint)last_texture);
-    glMatrixMode(GL_TEXTURE);
-    glPopMatrix();
-    glMatrixMode(GL_MODELVIEW);
-    glPopMatrix();
-    glMatrixMode(GL_PROJECTION);
-    glPopMatrix();
     glPopAttrib();
-    glViewport(last_viewport[0], last_viewport[1], (GLsizei)last_viewport[2], (GLsizei)last_viewport[3]);
-    glScissor(last_scissor_box[0], last_scissor_box[1], (GLsizei)last_scissor_box[2], (GLsizei)last_scissor_box[3]);
 }
 
 bool imageButtonImpl(const sf::Texture& texture, const sf::FloatRect& textureRect, const sf::Vector2f& size, const int framePadding,

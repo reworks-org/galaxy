@@ -9,6 +9,7 @@ beta3:
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 
 v1.0:
+- doxygen
 - fix all warnings/errors
 - ingame entity creator
 - recompile libraries on windows with vs2017

@@ -88,23 +88,60 @@ namespace re
 		static int alpha = getFillColor().a;
         static int fs = getCharacterSize();
         static int style = table.get<int>("style");
-        static std::string original = table.get<std::string>("text");
-        static std::vector<std::string> fonts;
-        
-        for (auto& v : Locator::get<Font>())
-        {
-            
-        }
-        
-        
+        static std::string original = table.get<std::string>("text");  
+		static std::string originalFont = table.get<std::string>("font");
+		static std::vector<char> fontinput { originalFont.begin(), originalFont.end() };
+		static bool doneOnce = false;
+
+		if (!doneOnce)
+		{
+			fontinput.resize(255);
+			doneOnce = true;
+		}
+
         if (original != table.get<std::string>("text"))
         {
             original = table.get<std::string>("text");
-            // update variables
+			originalFont = table.get<std::string>("font");
+			xpos = getPosition().x;
+			ypos = getPosition().y;
+			r = getFillColor().r;
+			g = getFillColor().g;
+			b = getFillColor().b;
+			alpha = getFillColor().a;
+			fs = getCharacterSize();
+			style = table.get<int>("style");
+
+			fontinput.clear();
+			fontinput = std::vector<char>(originalFont.begin(), originalFont.end());
+			fontinput.resize(255);
         }
         
 		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
+
+		ImGui::Spacing();
+		if (ImGui::InputText("Font Picker", fontinput.data(), fontinput.size(), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			for (auto& v : fontinput)
+			{
+				if (!v)
+				{
+					v = ' ';
+				}
+			}
+
+			std::string newFont(fontinput.begin(), fontinput.end());
+			fontinput.clear();
+
+			newFont.erase(std::remove_if(newFont.begin(), newFont.end(), isspace), newFont.end());
+			newFont.shrink_to_fit();
+
+			fontinput = std::vector<char>(newFont.begin(), newFont.end());
+			fontinput.resize(255);
+
+			setFont(Locator::get<FontManager>()->get(newFont));
+		}
 
         ImGui::Spacing();
         ImGui::Text("Position Modifiers: ");

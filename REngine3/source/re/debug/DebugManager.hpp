@@ -32,11 +32,11 @@ namespace re
 		~DebugManager() override;
 
 		/*
-		* IMPORTS: renderwindow or target, or a custom font.
+		* IMPORTS: renderwindow or target
 		* EXPORTS: none
 		* PURPOSE: To set up IMGUI.
 		*/
-		void init(sf::RenderTarget& target, sf::Texture* fontTexture = NULL);
+		void init(sf::RenderTarget& target);
 
 		/*
 		* IMPORTS: none

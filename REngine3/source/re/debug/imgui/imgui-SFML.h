@@ -17,7 +17,7 @@ namespace ImGui
 {
 namespace SFML
 {
-    void Init(sf::RenderTarget& target, sf::Texture* fontTexture = NULL);
+    void Init(sf::RenderTarget& target, bool loadDefaultFont = true);
 
     void ProcessEvent(const sf::Event& event);
 
@@ -25,14 +25,16 @@ namespace SFML
     void Update(sf::Window& window, sf::RenderTarget& target, sf::Time dt);
     void Update(const sf::Vector2i& mousePos, const sf::Vector2f& displaySize, sf::Time dt);
 
+    void Render(sf::RenderTarget& target);
+
     void Shutdown();
 
-    void createFontTexture(sf::Texture& texture);
-    void setFontTexture(sf::Texture& texture);
+    void UpdateFontTexture();
+    sf::Texture& GetFontTexture();
 }
 
 // custom ImGui widgets for SFML stuff
-    
+
 // Image overloads
     void Image(const sf::Texture& texture,
         const sf::Color& tintColor = sf::Color::White,

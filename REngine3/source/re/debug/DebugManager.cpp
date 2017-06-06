@@ -51,6 +51,12 @@ namespace ImGui
 
 namespace re
 {
+	// https://stackoverflow.com/a/217605
+	void trimFromEnd(std::string &s)
+	{
+		s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+	}
+
 	DebugManager::DebugManager()
 	{
 		#ifndef NDEBUG
@@ -68,11 +74,11 @@ namespace re
         }
 	}
 
-	void DebugManager::init(sf::RenderTarget& target, sf::Texture* fontTexture)
+	void DebugManager::init(sf::RenderTarget& target)
 	{
 		if (m_enabled == true)
 		{
-			ImGui::SFML::Init(target, fontTexture);
+			ImGui::SFML::Init(target, true);
             m_init = true;
 
 			m_world = Locator::get<World>();
@@ -99,8 +105,7 @@ namespace re
 	{
 		if (m_enabled == true)
 		{
-            window.resetGLStates();
-			ImGui::Render();
+			ImGui::SFML::Render(window);
 		}
 	}
 
@@ -240,8 +245,9 @@ namespace re
 						
 						std::ofstream out;
 						out.open(path, std::ofstream::out);
-						
+
 						std::string dataOut(scriptData.begin(), scriptData.end());
+						trimFromEnd(dataOut);
 						dataOut.shrink_to_fit();
 
 						out << dataOut.c_str() << std::endl;

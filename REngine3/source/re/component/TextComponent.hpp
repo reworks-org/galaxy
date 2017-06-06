@@ -42,7 +42,7 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
+		* PURPOSE: debug component, change data, etc. WARNING, FONT NAME CANT BE MORE THAN 255 characters!
 		*/
 		void debugFunction(sol::table& table) override;
 

@@ -43,6 +43,9 @@
         operator MyVec4() const { return MyVec4(x,y,z,w); }
 */
 
+//---- Use 32-bit vertex indices (instead of default: 16-bit) to allow meshes with more than 64K vertices
+//#define ImDrawIdx unsigned int
+
 //---- Tip: You can add extra functions within the ImGui:: namespace, here or in your own headers files.
 //---- e.g. create variants of the ImGui::Value() helper for your low-level math types, or your own widgets/helpers.
 /*
@@ -51,6 +54,7 @@ namespace ImGui
     void    Value(const char* prefix, const MyMatrix44& v, const char* float_format = NULL);
 }
 */
+
 // Add this to your imconfig.h
 
 #include <SFML/System/Vector2.hpp>
@@ -79,6 +83,3 @@ namespace ImGui
             static_cast<sf::Uint8>(z * 255.f),                          \
             static_cast<sf::Uint8>(w * 255.f));                         \
     }
-
-
-#define IM_ARRAYSIZE(_ARR)  ((int)(sizeof(_ARR)/sizeof(*_ARR)))
