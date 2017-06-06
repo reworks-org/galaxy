@@ -4,7 +4,9 @@
 # Visual Studio stuff
 *.sdf
 *.VC.db
-.vs/
+.vs/REngine3/v15/*.VC.db
+.vs/REngine3/v15/*.VC.db-shm
+.vs/REngine3/v15/*.VC.db-wal
 
 # XCode stuff
 DerivedData/
