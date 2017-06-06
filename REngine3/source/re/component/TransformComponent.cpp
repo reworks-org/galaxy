@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/debug/imgui/imgui.h"
+#include "re/debug/imgui/imgui-sfml.h"
 
 #include "TransformComponent.hpp"
 
@@ -26,10 +26,8 @@ namespace re
 		setRotation(table.get<float>("angle"));
 	}
 
-	void TransformComponent::debugFunction(sol::table& table)
+	void TransformComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		ImGui::Spacing();
-
 		std::string x = "x pixel pos: " + std::to_string(getPosition().x);
 		std::string y = "y pixel pos: " + std::to_string(getPosition().y);
 		std::string angle = "angle: " + std::to_string(getRotation());

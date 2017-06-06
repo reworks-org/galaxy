@@ -7,7 +7,7 @@
 //
 
 #include "re/utility/Log.hpp"
-#include "re/debug/imgui/imgui.h"
+#include "re/debug/imgui/imgui-sfml.h"
 
 #include "EventComponent.hpp"
 
@@ -27,10 +27,8 @@ namespace re
 	{
 	}
 
-	void EventComponent::debugFunction(sol::table& table)
+	void EventComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		ImGui::Spacing();
-
 		std::string text = "Number of events: " + std::to_string(m_events.size());
 		ImGui::Text(text.c_str());
 	}

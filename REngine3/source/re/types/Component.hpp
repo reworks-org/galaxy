@@ -36,11 +36,11 @@ namespace re
         
     protected:
         /*
-         * IMPORTS: none
+         * IMPORTS: lua table and entity name
          * EXPORTS: Whether or not to save the changed table data.
          * PURPOSE: debug component, change data, etc.
          */
-        virtual void debugFunction(sol::table& table) = 0;
+        virtual void debugFunction(sol::table& table, const std::string& curEntityName) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;

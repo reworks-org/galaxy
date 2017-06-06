@@ -73,7 +73,7 @@ namespace re
 		}
 	}
 
-	void AnimationComponent::debugFunction(sol::table& table)
+	void AnimationComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
 	}
 

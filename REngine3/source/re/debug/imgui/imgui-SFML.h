@@ -1,7 +1,13 @@
+#pragma once
+
+#include <vector>
+
 #include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/System/Time.hpp>
+
+#include "imgui.h"
 
 namespace sf
 {
@@ -31,6 +37,28 @@ namespace SFML
 
     void UpdateFontTexture();
     sf::Texture& GetFontTexture();
+
+	static auto vector_getter = [](void* vec, int idx, const char** out_text)
+	{
+		auto& vector = *static_cast<std::vector<std::string>*>(vec);
+		if (idx < 0 || idx >= static_cast<int>(vector.size())) { return false; }
+		*out_text = vector.at(idx).c_str();
+		return true;
+	};
+
+	inline bool Combo(const char* label, int* currIndex, std::vector<std::string>& values)
+	{
+		if (values.empty()) { return false; }
+		return ImGui::Combo(label, currIndex, vector_getter,
+			static_cast<void*>(&values), values.size());
+	}
+
+	inline bool ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
+	{
+		if (values.empty()) { return false; }
+		return ImGui::ListBox(label, currIndex, vector_getter,
+			static_cast<void*>(&values), values.size());
+	}
 }
 
 // custom ImGui widgets for SFML stuff

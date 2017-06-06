@@ -46,11 +46,11 @@ namespace re
 		void init(sol::table& table) override;
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: lua table and entity name
 		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
 		*/
-		void debugFunction(sol::table& table) override;
+		void debugFunction(sol::table& table, const std::string& curEntityName) override;
 	
 	private:
 		MusicStorage m_music;

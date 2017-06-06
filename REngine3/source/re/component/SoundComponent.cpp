@@ -9,6 +9,7 @@
 #include <map>
 
 #include "re/utility/Log.hpp"
+#include "re/debug/imgui/imgui-SFML.h"
 
 #include "SoundComponent.hpp"
 
@@ -52,7 +53,50 @@ namespace re
 		}
 	}
 
-	void SoundComponent::debugFunction(sol::table& table)
+	void SoundComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
+		static std::vector<std::string> soundFiles;
+		static int index = 0;
+		static bool done = false;
+		static std::string originalEntityName = curEntityName;
+		static bool isLoop = true;
+		static float volume = 0.0f;
+
+		if (originalEntityName != curEntityName)
+		{
+			originalEntityName = curEntityName;
+			done = false;
+			index = 0;
+		}
+
+		if (!done)
+		{
+			soundFiles.clear();
+
+			for (auto& it : m_sounds)
+			{
+				soundFiles.push_back(it.first);
+			}
+
+			isLoop = m_sounds[soundFiles[index]].second->getLoop();
+			volume = m_sounds[soundFiles[index]].second->getVolume();
+			done = true;
+		}
+
+		ImGui::SFML::Combo("Music Selector", &index, soundFiles);
+
+		size_t size = soundFiles.size();
+		if ((size_t)index >= size)
+		{
+			index = (size - 1);
+		}
+
+		ImGui::Spacing();
+		ImGui::SliderFloat("Volume", &volume, 0, 100, "%.2f");
+		m_sounds[soundFiles[index]].second->setVolume(volume);
+
+		ImGui::Spacing();
+		ImGui::Checkbox("Is Looping?", &isLoop);
+		m_sounds[soundFiles[index]].second->setLoop(isLoop);
 	}
 }

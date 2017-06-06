@@ -92,7 +92,7 @@ namespace re
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
 
-	void PhysicsComponent::debugFunction(sol::table& table)
+	void PhysicsComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
 	}
 }

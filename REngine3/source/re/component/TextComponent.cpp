@@ -6,8 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/debug/imgui/imgui.h"
 #include "re/services/vfs/VFS.hpp"
+#include "re/debug/imgui/imgui-sfml.h"
 #include "re/graphics/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -78,10 +78,10 @@ namespace re
 		}
 	}
 
-	void TextComponent::debugFunction(sol::table& table)
+	void TextComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		static int xpos = getPosition().x;
-		static int ypos = getPosition().y;
+		static float xpos = getPosition().x;
+		static float ypos = getPosition().y;
         static int r = getFillColor().r;
         static int g = getFillColor().g;
         static int b = getFillColor().b;
@@ -92,6 +92,7 @@ namespace re
 		static std::string originalFont = table.get<std::string>("font");
 		static std::vector<char> fontinput { originalFont.begin(), originalFont.end() };
 		static bool doneOnce = false;
+		static std::string originalEntityName = curEntityName;
 
 		if (!doneOnce)
 		{
@@ -99,8 +100,9 @@ namespace re
 			doneOnce = true;
 		}
 
-        if (original != table.get<std::string>("text"))
+        if (originalEntityName != curEntityName)
         {
+			originalEntityName = curEntityName;
             original = table.get<std::string>("text");
 			originalFont = table.get<std::string>("font");
 			xpos = getPosition().x;
@@ -116,8 +118,7 @@ namespace re
 			fontinput = std::vector<char>(originalFont.begin(), originalFont.end());
 			fontinput.resize(255);
         }
-        
-		ImGui::Spacing();
+      
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
 		ImGui::Spacing();
@@ -147,10 +148,10 @@ namespace re
         ImGui::Text("Position Modifiers: ");
         
 		ImGui::Spacing();
-		ImGui::InputInt("x-pos", &xpos);
+		ImGui::InputFloat("x-pos", &xpos);
 
 		ImGui::Spacing();
-		ImGui::InputInt("y-pos", &ypos);
+		ImGui::InputFloat("y-pos", &ypos);
 
 		setPosition(xpos, ypos);
         

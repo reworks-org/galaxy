@@ -9,7 +9,6 @@
 #include <sstream>
 #include <fstream>
 
-#include "re/debug/imgui/imgui.h"
 #include "re/debug/imgui/imgui-SFML.h"
 
 #include "re/graphics/Window.hpp"
@@ -19,35 +18,6 @@
 #include "re/component/SpriteComponent.hpp"
 
 #include "DebugManager.hpp"
-
-namespace ImGui
-{
-	namespace SFML
-	{
-		static auto vector_getter = [](void* vec, int idx, const char** out_text)
-		{
-			auto& vector = *static_cast<std::vector<std::string>*>(vec);
-			if (idx < 0 || idx >= static_cast<int>(vector.size())) { return false; }
-			*out_text = vector.at(idx).c_str();
-			return true;
-		};
-
-		inline bool Combo(const char* label, int* currIndex, std::vector<std::string>& values)
-		{
-			if (values.empty()) { return false; }
-			return ImGui::Combo(label, currIndex, vector_getter,
-				static_cast<void*>(&values), values.size());
-		}
-
-		inline bool ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
-		{
-			if (values.empty()) { return false; }
-			return ImGui::ListBox(label, currIndex, vector_getter,
-				static_cast<void*>(&values), values.size());
-		}
-	}
-}
-
 
 namespace re
 {
@@ -151,7 +121,7 @@ namespace re
 			ImGui::Spacing();
 
             ImGui::Text("Entity Manager");
-            ImGui::Separator();
+            ImGui::Spacing();
             
             if (m_world->m_loadedEntityScripts.empty() == false)
             {
@@ -248,9 +218,10 @@ namespace re
 
 						std::string dataOut(scriptData.begin(), scriptData.end());
 						trimFromEnd(dataOut);
-						dataOut.shrink_to_fit();
+						dataOut.erase(std::remove(dataOut.begin(), dataOut.end(), '\r'), dataOut.end());
 
-						out << dataOut.c_str() << std::endl;
+						dataOut.shrink_to_fit();
+						out << dataOut << std::endl;
 						out.close();
 
 						scriptData.clear();
@@ -295,7 +266,10 @@ namespace re
                     std::string curComponent = componentNames[indexComponent];
                     sol::table curTable = entityTable.get<sol::table>(curComponent);
 
-                    curEntity->useComponentDebugFunction(curComponent, curTable);
+					ImGui::Separator();
+					ImGui::Spacing();
+
+                    curEntity->useComponentDebugFunction(curComponent, curTable, entityTable.get<std::string>("name"));
 				}
             }
            

@@ -11,7 +11,7 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
-#include "re/debug/imgui/imgui.h"
+#include "re/debug/imgui/imgui-sfml.h"
 #include "re/services/vfs/VFS.hpp"
 #include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -67,16 +67,15 @@ namespace re
 		}
 	}
 
-	void SpriteComponent::debugFunction(sol::table& table)
+	void SpriteComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		ImGui::Spacing();
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
 		static std::string input = table.get<std::string>("texture");
-		static std::string first = table.get<std::string>("texture");
 		static std::string newTextureAlt = "";
 		static std::vector<char> buff(input.begin(), input.end());
 		static bool doneOnce = false;
+		static std::string originalEntityName = curEntityName;
 
 		if (!doneOnce)
 		{
@@ -84,9 +83,10 @@ namespace re
 			doneOnce = true;
 		}
 		
-		if (first != table.get<std::string>("texture"))
+		if (originalEntityName != curEntityName)
 		{
-			first = input = table.get<std::string>("texture");
+			originalEntityName = curEntityName;
+			input = table.get<std::string>("texture");
 			buff.clear();
 			buff = std::vector<char>(input.begin(), input.end());
 			buff.resize(255);

@@ -9,6 +9,7 @@
 #include <map>
 
 #include "re/utility/Log.hpp"
+#include "re/debug/imgui/imgui-SFML.h"
 
 #include "MusicComponent.hpp"
 
@@ -51,7 +52,56 @@ namespace re
 		}
 	}
 
-	void MusicComponent::debugFunction(sol::table& table)
+	void MusicComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
+		static std::vector<std::string> musicFiles;
+		static int index = 0;
+		static bool done = false;
+		static std::string originalEntityName = curEntityName;
+		static bool isLoop = true;
+		static sf::Time duration = sf::Time::Zero;
+		static float volume = 0.0f;
+
+		if (originalEntityName != curEntityName)
+		{
+			originalEntityName = curEntityName;
+			done = false;
+			index = 0;
+		}
+
+		if (!done)
+		{
+			musicFiles.clear();
+
+			for (auto& it : m_music)
+			{
+				musicFiles.push_back(it.first);
+			}
+
+			isLoop = m_music[musicFiles[index]].second->getLoop();
+			duration = m_music[musicFiles[index]].second->getDuration();
+			volume = m_music[musicFiles[index]].second->getVolume();
+			done = true;
+		}
+
+		ImGui::SFML::Combo("Music Selector", &index, musicFiles);
+
+		size_t size = musicFiles.size();
+		if ((size_t)index >= size)
+		{
+			index = (size - 1);
+		}
+
+		ImGui::Spacing();
+		std::string text = "Duration: " + std::to_string(duration.asSeconds()) + " seconds";
+		ImGui::Text(text.c_str());
+
+		ImGui::Spacing();
+		ImGui::SliderFloat("Volume", &volume, 0, 100, "%.2f");
+		m_music[musicFiles[index]].second->setVolume(volume);
+
+		ImGui::Spacing();
+		ImGui::Checkbox("Is Looping?", &isLoop);
+		m_music[musicFiles[index]].second->setLoop(isLoop);
 	}
 }

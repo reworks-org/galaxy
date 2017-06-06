@@ -65,11 +65,11 @@ namespace re
 		bool isDead() const;
 
         /*
-         * IMPORTS: string of component name
+         * IMPORTS: string of component name, lua table and cur entity name
          * EXPORTS: Whether or not to save the changed table data.
          * PURPOSE: To use the debug function of a component.
          */
-        void useComponentDebugFunction(const std::string& componentName, sol::table& table);
+        void useComponentDebugFunction(const std::string& componentName, sol::table& table, const std::string& curEntityName);
         
 		/*
 		* IMPORTS: T - Type
