@@ -48,6 +48,13 @@ entity =
 				frame2 = { x = 64, y = 0, w = 64, h = 205 },
 				frame3 = { x = 128, y = 0, w = 64, h = 205 },
 				frame4 = { x = 192, y = 0, w = 64, h = 205 }
+			},
+			walktwo =
+			{
+				frame1 = { x = 0, y = 0, w = 64, h = 205 },
+				frame2 = { x = 64, y = 0, w = 64, h = 205 },
+				frame3 = { x = 128, y = 0, w = 64, h = 205 },
+				frame4 = { x = 192, y = 0, w = 64, h = 205 }
 			}
 		}
 	}

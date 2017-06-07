@@ -13,6 +13,7 @@
 
 #include "re/utility/Log.hpp"
 #include "re/scripting/sol2/sol.hpp"
+#include "re/debug/imgui/imgui-SFML.h"
 
 #include "AnimationComponent.hpp"
 
@@ -75,6 +76,79 @@ namespace re
 
 	void AnimationComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
+		static int frameTime = static_cast<int>(m_frameTime.asMilliseconds());
+		static bool looped = m_isLooped;
+		static std::string originalEntityName = curEntityName;
+		static std::vector<std::string> anims;
+		static int index = 0;
+		static bool doneOnce = false;
+
+		if (originalEntityName != curEntityName)
+		{
+			frameTime = static_cast<int>(m_frameTime.asMilliseconds());
+			looped = m_isLooped;
+			originalEntityName = curEntityName;
+			
+			anims.clear();
+			for (auto& it : m_animations)
+			{
+				anims.push_back(it.first);
+			}
+
+			auto it = std::find(anims.begin(), anims.end(), m_activeAnimation);
+			if (it != anims.end())
+			{
+				index = std::distance(anims.begin(), it);
+			}
+		}
+		
+		if (!doneOnce)
+		{
+			for (auto& it : m_animations)
+			{
+				anims.push_back(it.first);
+			}
+
+			doneOnce = true;
+		}
+
+		// change animation
+		// play, pause, stop animation
+
+		ImGui::Spacing();
+		ImGui::InputInt("Time Per Frame", &frameTime, 10);
+		if (frameTime < 0) frameTime = 0;
+
+		m_frameTime = sf::milliseconds(frameTime);
+
+		ImGui::Spacing();
+		ImGui::Checkbox("Is Looping", &looped);
+		m_isLooped = looped;
+
+		ImGui::Spacing();
+		if (ImGui::SFML::Combo("Change Animation", &index, anims))
+		{
+			changeAnimation(anims[index]);
+		}
+		
+
+		ImGui::Spacing();
+		if (ImGui::Button("Play animation"))
+		{
+			play();
+		}
+
+		ImGui::Spacing();
+		if (ImGui::Button("Pause animation"))
+		{
+			pause();
+		}
+
+		ImGui::Spacing();
+		if (ImGui::Button("Stop Animation"))
+		{
+			stop();
+		}
 	}
 
 	void AnimationComponent::changeAnimation(const std::string& animation)

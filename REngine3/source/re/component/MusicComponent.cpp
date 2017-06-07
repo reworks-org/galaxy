@@ -103,5 +103,17 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Checkbox("Is Looping?", &isLoop);
 		m_music[musicFiles[index]].second->setLoop(isLoop);
+
+		ImGui::Spacing();
+		if (ImGui::Button("Play selected music"))
+		{
+			m_music[musicFiles[index]].second->play();
+		}
+
+		ImGui::Spacing();
+		if (ImGui::Button("Stop selected music"))
+		{
+			m_music[musicFiles[index]].second->stop();
+		}
 	}
 }

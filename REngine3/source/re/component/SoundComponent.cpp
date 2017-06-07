@@ -83,7 +83,7 @@ namespace re
 			done = true;
 		}
 
-		ImGui::SFML::Combo("Music Selector", &index, soundFiles);
+		ImGui::SFML::Combo("Sound Selector", &index, soundFiles);
 
 		size_t size = soundFiles.size();
 		if ((size_t)index >= size)
@@ -98,5 +98,11 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Checkbox("Is Looping?", &isLoop);
 		m_sounds[soundFiles[index]].second->setLoop(isLoop);
+
+		ImGui::Spacing();
+		if (ImGui::Button("Play selected sound"))
+		{
+			m_sounds[soundFiles[index]].second->play();
+		}
 	}
 }

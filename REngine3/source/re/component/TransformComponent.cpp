@@ -7,6 +7,7 @@
 //
 
 #include "re/debug/imgui/imgui-sfml.h"
+#include "re/physics/Box2DSFMLBridge.hpp"
 
 #include "TransformComponent.hpp"
 
@@ -35,16 +36,30 @@ namespace re
 
 	void TransformComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		std::string x = "x pixel pos: " + std::to_string(getPosition().x);
-		std::string y = "y pixel pos: " + std::to_string(getPosition().y);
-		std::string angle = "angle: " + std::to_string(getRotation());
+		static float x = getPosition().x;
+		static float y = getPosition().y;
+		static float angle = b2::degToRad<float>(getRotation());
+		static std::string originalEntityName = curEntityName;
 
-		ImGui::Text(x.c_str());
+		if (originalEntityName != curEntityName)
+		{
+			originalEntityName = curEntityName;
+			x = getPosition().x;
+			y = getPosition().y;
+			angle = b2::degToRad<float>(getRotation());
+		}
+
 		ImGui::Spacing();
+		ImGui::InputFloat("x pixel pos", &x);
 
-		ImGui::Text(y.c_str());
 		ImGui::Spacing();
+		ImGui::InputFloat("y pixel pos", &y);
 
-		ImGui::Text(angle.c_str());
+		setPosition(x, y);
+
+		ImGui::Spacing();
+		ImGui::SliderAngle("Angle Modifier", &angle, 0.0f, 360.0f);
+
+		setRotation(b2::radToDeg<float>(angle));
 	}
 }

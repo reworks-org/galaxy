@@ -1,8 +1,5 @@
 TODO List:
 
-beta2:
-- debug component functions
-
 beta3:
 - ai
 - Audio spacialization  https://www.sfml-dev.org/tutorials/2.4/audio-spatialization.php https://www.packtpub.com/mapt/book/All%20Books/9781849696845/9/ch09lvl1sec62/sounds-in-3d-space
