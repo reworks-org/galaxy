@@ -37,7 +37,7 @@ namespace re
 		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
 
 		m_stateManager.loadResources();
-		m_debugManager.init(m_window);
+		m_debugManager.init(m_window, m_enableDebug);
 
 		while (m_window.isOpen())
 		{
@@ -57,23 +57,12 @@ namespace re
                             m_window.close();
                             break;
                             
-                        #ifndef NDEBUG
                         case sf::Event::KeyReleased:
                             switch(m_window.m_event.key.code)
                             {
-                                case sf::Keyboard::Tab:
-                                    if (m_debugManager.isEnabled())
-                                    {
-                                        m_debugManager.disable();
-                                    }
-                                    else
-                                    {
-                                        m_debugManager.enable();
-                                    }
-                                    break;
+
                             }
                             break;
-                        #endif
                     }
                     
                     m_debugManager.event(m_window.m_event);

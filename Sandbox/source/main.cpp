@@ -44,7 +44,8 @@ public:
         m_versionMinor = m_config.lookup<int>("versionMinor");
         m_versionPatch = m_config.lookup<int>("versionPatch");
 		m_saveLog = m_config.lookup<bool>("saveLog");
-        
+		m_enableDebug = m_config.lookup<bool>("enableDebug");
+
         if (m_config.lookup<bool>("fullscreen"))
         {
             m_window.create(sf::VideoMode(m_config.lookup<int>("screenWidth"), m_config.lookup<int>("screenHeight")), m_appTitle, sf::Style::Default | sf::Style::Fullscreen);

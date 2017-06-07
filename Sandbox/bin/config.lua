@@ -13,5 +13,6 @@ config =
     fullscreen = false,
     cursorVisible = true,
     vsyncEnabled = false,
-    saveLog = false
+    saveLog = false,
+    enableDebug = true
 }

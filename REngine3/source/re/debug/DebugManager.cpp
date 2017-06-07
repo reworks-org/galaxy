@@ -29,11 +29,6 @@ namespace re
 
 	DebugManager::DebugManager()
 	{
-		#ifndef NDEBUG
-			enable();
-		#else
-			disable();
-		#endif
 	}
 
 	DebugManager::~DebugManager()
@@ -44,8 +39,10 @@ namespace re
         }
 	}
 
-	void DebugManager::init(sf::RenderTarget& target)
+	void DebugManager::init(sf::RenderTarget& target, bool debugEnabled)
 	{
+		m_enabled = debugEnabled;
+
 		if (m_enabled == true)
 		{
 			ImGui::SFML::Init(target, true);
@@ -100,6 +97,14 @@ namespace re
 
 	void DebugManager::enable()
 	{
+		if (m_init == false)
+		{
+			ImGui::SFML::Init(target, true);
+			m_init = true;
+
+			m_world = Locator::get<World>();
+		}
+
 		m_enabled = true;
 	}
 

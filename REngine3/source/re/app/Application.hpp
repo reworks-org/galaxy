@@ -41,6 +41,7 @@ namespace re
 		std::string m_appTitle = "";
 		float m_targetUPS = 60.f;
 		bool m_saveLog = false;
+		bool m_enableDebug = false;
 
 		int m_versionMajor = 1;
 		int m_versionMinor = 0;

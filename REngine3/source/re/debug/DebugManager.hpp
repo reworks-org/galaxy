@@ -36,7 +36,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: To set up IMGUI.
 		*/
-		void init(sf::RenderTarget& target);
+		void init(sf::RenderTarget& target, bool debugEnabled);
 
 		/*
 		* IMPORTS: none
