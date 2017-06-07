@@ -9,6 +9,7 @@
 #include <map>
 #include "re/scripting/lua/lua.hpp"
 
+#include "re/debug/imgui/imgui-SFML.h"
 #include "re/physics/Box2DManager.hpp"
 #include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -94,5 +95,10 @@ namespace re
 
 	void PhysicsComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
+		ImGui::Text("Edit the script to make changes.");
+		
+		ImGui::Spacing();
+
+		ImGui::Text("This is done because there are issues with manually setting stuff in box2d.");
 	}
 }

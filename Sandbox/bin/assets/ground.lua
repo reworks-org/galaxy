@@ -9,13 +9,6 @@ entity =
 		texture = "ground.png"
 	},
 
-	TransformComponent =
-	{
-		x = 550,
-		y = 500,
-		angle = 0
-	},
-
 	PhysicsComponent = 
 	{
 		x = 550,

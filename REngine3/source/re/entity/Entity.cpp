@@ -58,6 +58,23 @@ namespace re
 
 		for (auto& kvp : m_keyValuePair)
 		{
+			// If we have a physics component, then we automatically create the transformcomponent
+			if (kvp.first == "PhysicsComponent")
+			{
+				auto cf = Locator::get<World>()->getComponentFactory().find("TransformComponent");
+				auto end = Locator::get<World>()->getComponentFactory().end();
+
+				if (cf != end)
+				{
+					cl[m_name][cf->second.first] = cf->second.second();
+
+					// We are passing it the physics component table, because it doesn't matter.
+					// Values are automatically fixed in the first update() call and transformcomponent
+					// handles any issues that might arise from this.
+					cl[m_name][cf->second.first]->init(kvp.second);
+				}
+			}
+
 			auto cf = Locator::get<World>()->getComponentFactory().find(kvp.first);
 			auto end = Locator::get<World>()->getComponentFactory().end();
 

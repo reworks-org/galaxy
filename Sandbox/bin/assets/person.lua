@@ -1,14 +1,7 @@
 entity =
 {
 	name = "person",
-
-	TransformComponent =
-	{
-		x = 650,
-		y = 200,
-		angle = 0
-	},
-
+	
 	PhysicsComponent = 
 	{
 		x = 650,
