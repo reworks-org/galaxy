@@ -40,6 +40,7 @@ namespace re
 		static float y = getPosition().y;
 		static float angle = b2::degToRad<float>(getRotation());
 		static std::string originalEntityName = curEntityName;
+		static bool updatePos = true;
 
 		if (originalEntityName != curEntityName)
 		{
@@ -47,19 +48,33 @@ namespace re
 			x = getPosition().x;
 			y = getPosition().y;
 			angle = b2::degToRad<float>(getRotation());
+			updatePos = true;
 		}
 
 		ImGui::Spacing();
-		ImGui::InputFloat("x pixel pos", &x);
+		if (ImGui::InputFloat("x pixel pos", &x))
+		{
+			updatePos = true;
+		}
 
 		ImGui::Spacing();
-		ImGui::InputFloat("y pixel pos", &y);
-
-		setPosition(x, y);
+		if (ImGui::InputFloat("y pixel pos", &y))
+		{
+			updatePos = true;
+		}
 
 		ImGui::Spacing();
-		ImGui::SliderAngle("Angle Modifier", &angle, 0.0f, 360.0f);
+		if (ImGui::SliderAngle("Angle Modifier", &angle, 0.0f, 360.0f));
+		{
+			updatePos = true;
+		}
 
-		setRotation(b2::radToDeg<float>(angle));
+		if (updatePos)
+		{
+			setPosition(x, y);
+			setRotation(b2::radToDeg<float>(angle));
+
+			updatePos = false;
+		}
 	}
 }
