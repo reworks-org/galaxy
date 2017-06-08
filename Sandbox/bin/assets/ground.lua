@@ -5,7 +5,6 @@ entity =
 	SpriteComponent =
 	{
 		group = 2,
-		isSpriteSheet = false,
 		texture = "ground.png"
 	},
 

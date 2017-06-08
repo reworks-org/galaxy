@@ -10,7 +10,6 @@ entity=
 	SpriteComponent=
 	{
 		group=0,
-		isSpriteSheet=false,
 		texture="bg2.png"
 	},
 	TextComponent=
