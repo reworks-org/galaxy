@@ -38,7 +38,9 @@ namespace re
 
 	void SpriteComponent::loadTexture(sol::table& table, const std::string& texture)
 	{
-		if (table.get<bool>("isSpriteSheet") == true)
+		sol::object texRect = table["spriteRect"];
+
+		if (texRect != sol::nil)
 		{
 			if (texture == "")
 			{
@@ -48,7 +50,7 @@ namespace re
 			{
 				setTexture(Locator::get<TextureAtlas>()->get(table.get<std::string>(texture)));
 			}
-			sol::table rect = table.get<sol::table>("rect");
+			sol::table rect = table.get<sol::table>("spriteRect");
 			setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
 		}
 		else

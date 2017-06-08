@@ -49,6 +49,16 @@ namespace re
             
 			m_music[kvp.first].second->setVolume(kvp.second.get<float>("volume"));
 			m_music[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
+
+			sol::object obj = kvp.second["spacial"];
+			if (obj != sol::nil)
+			{
+				sol::table spacial = table.get<sol::table>("spacial");
+				m_music[kvp.first].second->setPosition(spacial.get<float>("x"), spacial.get<float>("y"), spacial.get<float>("z"));
+				m_music[kvp.first].second->setRelativeToListener(spacial.get<bool>("relativeToListener"));
+				m_music[kvp.first].second->setAttenuation(spacial.get<float>("attenuation"));
+				m_music[kvp.first].second->setMinDistance(spacial.get<float>("minDistance"));
+			}
 		}
 	}
 
@@ -59,6 +69,10 @@ namespace re
 		static bool done = false;
 		static std::string originalEntityName = curEntityName;
 		static bool isLoop = true;
+		static bool rel = true;
+		static float pos[] = { 0.0f, 0.0f, 0.0f };
+		static float att = 1.0f;
+		static float dis = 1.0f;
 		static sf::Time duration = sf::Time::Zero;
 		static float volume = 0.0f;
 
@@ -81,6 +95,13 @@ namespace re
 			isLoop = m_music[musicFiles[index]].second->getLoop();
 			duration = m_music[musicFiles[index]].second->getDuration();
 			volume = m_music[musicFiles[index]].second->getVolume();
+			pos[0] = m_music[musicFiles[index]].second->getPosition().x;
+			pos[1] = m_music[musicFiles[index]].second->getPosition().y;
+			pos[2] = m_music[musicFiles[index]].second->getPosition().z;
+			rel = m_music[musicFiles[index]].second->isRelativeToListener();
+			att = m_music[musicFiles[index]].second->getAttenuation();
+			dis = m_music[musicFiles[index]].second->getMinDistance();
+
 			done = true;
 		}
 
@@ -118,6 +139,33 @@ namespace re
 		if (ImGui::Button("Stop selected music"))
 		{
 			m_music[musicFiles[index]].second->stop();
+		}
+
+		ImGui::Spacing();
+		ImGui::Text("Spacialization Modifiers: ");
+
+		ImGui::Spacing();
+		if (ImGui::InputFloat3("pos modifier", pos))
+		{
+			m_music[musicFiles[index]].second->setPosition(pos[0], pos[1], pos[2]);
+		}
+
+		ImGui::Spacing();
+		if (ImGui::Checkbox("Relative To Listener", &rel))
+		{
+			m_music[musicFiles[index]].second->setRelativeToListener(rel);
+		}
+
+		ImGui::Spacing();
+		if (ImGui::SliderFloat("Attenuation", &att, 0.0f, 100.0f))
+		{
+			m_music[musicFiles[index]].second->setAttenuation(att);
+		}
+
+		ImGui::Spacing();
+		if (ImGui::SliderFloat("Min Distance", &dis, 0.1f, 100.0f))
+		{
+			m_music[musicFiles[index]].second->setMinDistance(dis);
 		}
 	}
 }

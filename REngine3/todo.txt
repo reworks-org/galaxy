@@ -2,11 +2,9 @@ TODO List:
 
 beta3:
 - ai
-- Audio spacialization  https://www.sfml-dev.org/tutorials/2.4/audio-spatialization.php https://www.packtpub.com/mapt/book/All%20Books/9781849696845/9/ch09lvl1sec62/sounds-in-3d-space
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 
 v1.0:
-- clean up debug code
 - doxygen http://www.stack.nl/~dimitri/doxygen/manual/index.html
 - fix all warnings/errors
 - ingame entity creator
