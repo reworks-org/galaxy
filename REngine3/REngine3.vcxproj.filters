@@ -19,11 +19,6 @@
     <ClCompile Include="source\re\graphics\Group.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
-    <ClCompile Include="source\re\mapping\tmx\tmx.c" />
-    <ClCompile Include="source\re\mapping\tmx\tmx_err.c" />
-    <ClCompile Include="source\re\mapping\tmx\tmx_utils.c" />
-    <ClCompile Include="source\re\mapping\tmx\tmx_xml.c" />
-    <ClCompile Include="source\re\mapping\TMXMap.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\Shapes\b2ChainShape.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\Shapes\b2CircleShape.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\Shapes\b2EdgeShape.cpp" />
@@ -122,7 +117,6 @@
     <ClCompile Include="source\re\debug\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
     <ClCompile Include="source\re\debug\DebugManager.cpp" />
-    <ClCompile Include="source\re\ai\AStar.cpp" />
     <ClCompile Include="source\re\graphics\PostEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,10 +140,6 @@
     <ClInclude Include="source\re\graphics\Group.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
-    <ClInclude Include="source\re\mapping\tmx\tmx.h" />
-    <ClInclude Include="source\re\mapping\tmx\tmx_utils.h" />
-    <ClInclude Include="source\re\mapping\TMXMap.hpp" />
-    <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
     <ClInclude Include="source\re\physics\Box2D\Collision\Shapes\b2ChainShape.h" />
     <ClInclude Include="source\re\physics\Box2D\Collision\Shapes\b2CircleShape.h" />
     <ClInclude Include="source\re\physics\Box2D\Collision\Shapes\b2EdgeShape.h" />
@@ -255,7 +245,6 @@
     <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
-    <ClInclude Include="source\re\ai\AStar.hpp" />
     <ClInclude Include="source\re\graphics\PostEffect.hpp" />
   </ItemGroup>
 </Project>

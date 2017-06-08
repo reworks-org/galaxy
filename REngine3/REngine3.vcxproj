@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\re\ai\AStar.cpp" />
     <ClCompile Include="source\re\app\Application.cpp" />
     <ClCompile Include="source\re\app\World.cpp" />
     <ClCompile Include="source\re\component\AnimationComponent.cpp" />
@@ -44,11 +43,6 @@
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
-    <ClCompile Include="source\re\mapping\TMXMap.cpp" />
-    <ClCompile Include="source\re\mapping\tmx\tmx.c" />
-    <ClCompile Include="source\re\mapping\tmx\tmx_err.c" />
-    <ClCompile Include="source\re\mapping\tmx\tmx_utils.c" />
-    <ClCompile Include="source\re\mapping\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\physics\Box2DManager.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\b2BroadPhase.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\b2CollideCircle.cpp" />
@@ -144,7 +138,6 @@
     <ClCompile Include="source\re\utility\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\re\ai\AStar.hpp" />
     <ClInclude Include="source\re\app\Application.hpp" />
     <ClInclude Include="source\re\app\World.hpp" />
     <ClInclude Include="source\re\component\AnimationComponent.hpp" />
@@ -174,10 +167,6 @@
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
-    <ClInclude Include="source\re\mapping\TMXMap.hpp" />
-    <ClInclude Include="source\re\mapping\TMXSmartPointer.hpp" />
-    <ClInclude Include="source\re\mapping\tmx\tmx.h" />
-    <ClInclude Include="source\re\mapping\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\physics\Box2DManager.hpp" />
     <ClInclude Include="source\re\physics\Box2DSFMLBridge.hpp" />
     <ClInclude Include="source\re\physics\Box2D\Box2D.h" />

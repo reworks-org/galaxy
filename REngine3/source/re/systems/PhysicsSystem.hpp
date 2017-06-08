@@ -42,13 +42,6 @@ namespace re
 		void submit(World* world) override;
 
 		/*
-		* IMPORTS: Vector of collideable tiles, lua file containing map config
-		* EXPORTS: none
-		* PURPOSE: Add tiles to collision system.
-		*/
-		void addMapCollisions(TMXMap* map, const std::string& mapCollisionConfigFile);
-
-		/*
 		* IMPORTS: Pointer to entity to add.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.

@@ -367,3 +367,33 @@ namespace re
 		target.draw(batchB, states);
 	}
 }
+
+/*
+void PhysicsSystem::addMapCollisions(TMXMap* map, const std::string& mapCollisionConfigFile)
+{
+sol::state lua;
+lua.script(Locator::get<VFS>()->toString(mapCollisionConfigFile));
+sol::table mapConfig = lua.get<sol::table>("mapConfig");
+
+for (auto& v : map->getCollisions())
+{
+b2BodyDef bodyDef;
+bodyDef.position.Set((float)b2::pixelsToMeters<double>(v.left), (float)b2::pixelsToMeters<double>(v.top));
+
+bodyDef.type = b2BodyType::b2_staticBody;
+
+b2PolygonShape b2shape;
+b2shape.SetAsBox((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0), b2Vec2((float32)b2::pixelsToMeters<double>(v.width / 2.0), (float32)b2::pixelsToMeters<double>(v.height / 2.0)), mapConfig.get<float32>("angle"));
+
+b2FixtureDef fixtureDef;
+fixtureDef.density = mapConfig.get<float32>("density");
+fixtureDef.friction = mapConfig.get<float32>("friction");
+fixtureDef.restitution = mapConfig.get<float32>("restitution");
+fixtureDef.shape = &b2shape;
+
+b2Body* body = m_manager->m_world->CreateBody(&bodyDef);
+body->CreateFixture(&fixtureDef);
+m_mapCollisions.push_back(body);
+}
+}
+*/

@@ -32,7 +32,7 @@
 #include "gamesystems/MoveSystem.hpp"
 
 #include "Menu.hpp"
-#include "Game.hpp"
+#include "Load.hpp"
 
 using namespace re;
 
@@ -78,7 +78,7 @@ void Menu::loadResources()
 	}
 
 	tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
-	button->connect("pressed", []() {Locator::get<StateManager>()->changeState(Game::inst()); });
+	button->connect("pressed", []() {Locator::get<StateManager>()->changeState(Load::inst()); });
 	m_gui.add(button, "testbutton");
 
 	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
@@ -105,6 +105,8 @@ void Menu::unloadResources()
 	m_world->getSystem<AnimationSystem>()->clean();
 
 	m_world->clean();
+
+	m_window->setView(m_window->getDefaultView());
 }
 
 void Menu::handlePollEvents(sf::Event& event)
