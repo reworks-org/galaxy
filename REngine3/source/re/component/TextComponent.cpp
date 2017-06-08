@@ -93,6 +93,7 @@ namespace re
 		static std::vector<char> fontinput { originalFont.begin(), originalFont.end() };
 		static bool doneOnce = false;
 		static std::string originalEntityName = curEntityName;
+		static bool updatePos = true;
 
 		if (!doneOnce)
 		{
@@ -103,6 +104,7 @@ namespace re
         if (originalEntityName != curEntityName)
         {
 			originalEntityName = curEntityName;
+			updatePos = true;
             original = table.get<std::string>("text");
 			originalFont = table.get<std::string>("font");
 			xpos = getPosition().x;
@@ -148,12 +150,16 @@ namespace re
         ImGui::Text("Position Modifiers: ");
         
 		ImGui::Spacing();
-		ImGui::InputFloat("x-pos", &xpos);
+		if (ImGui::InputFloat("x-pos", &xpos))
+		{
+			updatePos = true;
+		}
 
 		ImGui::Spacing();
-		ImGui::InputFloat("y-pos", &ypos);
-
-		setPosition(xpos, ypos);
+		if (ImGui::InputFloat("y-pos", &ypos))
+		{
+			updatePos = true;
+		}
         
         ImGui::Spacing();
         ImGui::Text("Colour Modifiers: ");
@@ -169,9 +175,20 @@ namespace re
         ImGui::Text("Other Modifiers: ");
         
         ImGui::Spacing();
-        ImGui::InputInt("Font Size", &fs);
-        setCharacterSize(fs);
+		if (ImGui::InputInt("Font Size", &fs))
+		{
+			updatePos = true;
+		}
         
+        
+		if (updatePos)
+		{
+			updatePos = false;
+
+			setPosition(xpos, ypos);
+			setCharacterSize(fs);
+		}
+
         ImGui::Spacing();
         ImGui::SliderInt("Text Style", &style, 0, 4);
         

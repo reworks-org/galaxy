@@ -58,34 +58,6 @@ namespace re
 		* PURPOSE: Draw IMGUI.
 		*/
         void render(sf::RenderWindow& window);
-		
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up IMGUI.
-		*/
-		void cleanup();
-        
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: disables the debug manager
-		*/
-		void disable();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: boolean
-		* PURPOSE: Checks if the debug manager is disabled.
-		*/
-		bool isEnabled();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: enables the debug manager.
-		*/
-		void enable();
 
 		/*
 		* IMPORTS: none
@@ -95,7 +67,7 @@ namespace re
 		void useMenu();
 
 	private:
-		bool m_enabled;
+		bool m_enabled = false;
         bool m_init = false;
         sol::state m_lua;
 		re::World* m_world;

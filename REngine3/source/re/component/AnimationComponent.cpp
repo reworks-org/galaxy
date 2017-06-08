@@ -116,10 +116,12 @@ namespace re
 		// play, pause, stop animation
 
 		ImGui::Spacing();
-		ImGui::InputInt("Time Per Frame", &frameTime, 10);
-		if (frameTime < 0) frameTime = 0;
+		if (ImGui::InputInt("Time Per Frame", &frameTime, 10))
+		{
+			if (frameTime < 0) frameTime = 0;
 
-		m_frameTime = sf::milliseconds(frameTime);
+			m_frameTime = sf::milliseconds(frameTime);
+		}
 
 		ImGui::Spacing();
 		ImGui::Checkbox("Is Looping", &looped);

@@ -6,6 +6,7 @@ beta3:
 - tile animations are waay to fast. also animation is drawn on top. need to implement better layering.
 
 v1.0:
+- clean up debug code
 - doxygen http://www.stack.nl/~dimitri/doxygen/manual/index.html
 - fix all warnings/errors
 - ingame entity creator

@@ -56,13 +56,6 @@ namespace re
                         case sf::Event::Closed:
                             m_window.close();
                             break;
-                            
-                        case sf::Event::KeyReleased:
-                            switch(m_window.m_event.key.code)
-                            {
-
-                            }
-                            break;
                     }
                     
                     m_debugManager.event(m_window.m_event);
@@ -105,7 +98,6 @@ namespace re
 		}
 
 		m_stateManager.unloadResources();
-		m_debugManager.cleanup();
 
 		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 78);
 		RE_LOG_SAVE(m_saveLog);

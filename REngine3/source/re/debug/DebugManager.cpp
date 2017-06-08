@@ -33,10 +33,7 @@ namespace re
 
 	DebugManager::~DebugManager()
 	{
-        if (m_enabled == false && m_init == true)
-        {
-            ImGui::SFML::Shutdown();
-        }
+		ImGui::SFML::Shutdown();
 	}
 
 	void DebugManager::init(sf::RenderTarget& target, bool debugEnabled)
@@ -74,38 +71,6 @@ namespace re
 		{
 			ImGui::SFML::Render(window);
 		}
-	}
-
-	void DebugManager::cleanup()
-	{
-		if (m_enabled == true)
-		{
-			ImGui::SFML::Shutdown();
-			m_init = false;
-		}
-	}
-
-	void DebugManager::disable()
-	{
-		m_enabled = false;
-	}
-
-	bool DebugManager::isEnabled()
-	{
-		return m_enabled;
-	}
-
-	void DebugManager::enable()
-	{
-		if (m_init == false)
-		{
-			ImGui::SFML::Init(target, true);
-			m_init = true;
-
-			m_world = Locator::get<World>();
-		}
-
-		m_enabled = true;
 	}
 
 	void DebugManager::useMenu()
@@ -281,9 +246,4 @@ namespace re
 		    ImGui::End();
         }
 	}
-
-	/*void DebugManager::useMenu()
-	{
-		ImGui::ShowTestWindow();
-	}*/
 }

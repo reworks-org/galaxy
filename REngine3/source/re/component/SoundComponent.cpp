@@ -92,12 +92,16 @@ namespace re
 		}
 
 		ImGui::Spacing();
-		ImGui::SliderFloat("Volume", &volume, 0, 100, "%.2f");
-		m_sounds[soundFiles[index]].second->setVolume(volume);
+		if (ImGui::SliderFloat("Volume", &volume, 0, 100, "%.2f"))
+		{
+			m_sounds[soundFiles[index]].second->setVolume(volume);
+		}
 
 		ImGui::Spacing();
-		ImGui::Checkbox("Is Looping?", &isLoop);
-		m_sounds[soundFiles[index]].second->setLoop(isLoop);
+		if (ImGui::Checkbox("Is Looping?", &isLoop))
+		{
+			m_sounds[soundFiles[index]].second->setLoop(isLoop);
+		}
 
 		ImGui::Spacing();
 		if (ImGui::Button("Play selected sound"))

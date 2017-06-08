@@ -71,9 +71,8 @@ namespace re
 	{
 		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
 
-		static std::string input = table.get<std::string>("texture");
-		static std::string newTextureAlt = "";
-		static std::vector<char> buff(input.begin(), input.end());
+		static std::string texture = table.get<std::string>("texture");
+		static std::vector<char> buff(texture.begin(), texture.end());
 		static bool doneOnce = false;
 		static std::string originalEntityName = curEntityName;
 
@@ -86,9 +85,9 @@ namespace re
 		if (originalEntityName != curEntityName)
 		{
 			originalEntityName = curEntityName;
-			input = table.get<std::string>("texture");
+			texture = table.get<std::string>("texture");
 			buff.clear();
-			buff = std::vector<char>(input.begin(), input.end());
+			buff = std::vector<char>(texture.begin(), texture.end());
 			buff.resize(255);
 		}
 
@@ -108,13 +107,12 @@ namespace re
 			newTexture.erase(std::remove_if(newTexture.begin(), newTexture.end(), isspace), newTexture.end());
 			newTexture.shrink_to_fit();
 
-			input = newTexture;
-			newTextureAlt = newTexture;
+			texture = newTexture;
 
-			buff = std::vector<char>(input.begin(), input.end());
+			buff = std::vector<char>(texture.begin(), texture.end());
 			buff.resize(255);
 
-			loadTexture(table, newTexture);
+			loadTexture(table, texture);
 		}
 	}
 
