@@ -1,16 +1,11 @@
 TODO List:
 
-beta4:
-- sfml post-processing
-    - https://www.packtpub.com/mapt/book/All%20Books/9781849696845/8/ch08lvl1sec58/post-effects-and-shaders
-    - https://www.sfml-dev.org/tutorials/2.4/graphics-shader.php
-
 v1.0:
 - fix all warnings/errors
-- ingame entity creator
+
 - recompile libraries on windows with vs2017
 - proper credits file
 - tgui lua bridge
 
 v1.1:
-- support map physics for non-tile maps
+- ingame entity creator

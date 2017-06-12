@@ -51,22 +51,22 @@ namespace re
 		}
 	}
 
-	sf::Sound* AudioSystem::getSound(const std::string& accessor)
+	sf::Sound& AudioSystem::getSound(const std::string& accessor)
 	{
 		auto lastdot = accessor.find_last_of(".");
 		std::string name = accessor.substr(0, lastdot);
 		std::string sound = accessor.substr(lastdot + 1);
 
-		return m_entitys[name]->get<SoundComponent>()->m_sounds[sound].second.get();
+		return *(m_entitys[name]->get<SoundComponent>()->m_sounds[sound].second);
 	}
 
-	sf::Music* AudioSystem::getMusic(const std::string& accessor)
+	sf::Music& AudioSystem::getMusic(const std::string& accessor)
 	{
 		auto lastdot = accessor.find_last_of(".");
 		std::string name = accessor.substr(0, lastdot);
 		std::string music = accessor.substr(lastdot + 1);
 
-		return m_entitys[name]->get<MusicComponent>()->m_music[music].second.get();
+		return *(m_entitys[name]->get<MusicComponent>()->m_music[music]);
 	}
 
 	void AudioSystem::setGlobalMusicVolume(float volume)
@@ -76,10 +76,9 @@ namespace re
 			auto* map = &(e.second->get<MusicComponent>()->m_music);
 			for (auto it = map->begin(); it != map->end(); it++)
 			{
-				auto m = it->second.second.get();
-				float ov = m->getVolume();
+				float ov = it->second->getVolume();
 				float nv = (volume + ov) / 2.0f;
-				m->setVolume(nv);
+				it->second->setVolume(nv);
 			}
 		}
 	}
@@ -91,10 +90,9 @@ namespace re
 			auto* map = &(e.second->get<SoundComponent>()->m_sounds);
 			for (auto it = map->begin(); it != map->end(); it++)
 			{
-				auto s = it->second.second.get();
-				float ov = s->getVolume();
+				float ov = it->second.second->getVolume();
 				float nv = (volume + ov) / 2.0f;
-				s->setVolume(nv);
+				it->second.second->setVolume(nv);
 			}
 		}
 	}

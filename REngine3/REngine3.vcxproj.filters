@@ -15,9 +15,7 @@
     <ClCompile Include="source\re\graphics\sw\Line.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
-    <ClCompile Include="source\re\graphics\FontManager.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
-    <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\Shapes\b2ChainShape.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\Shapes\b2CircleShape.cpp" />
@@ -100,8 +98,6 @@
     <ClCompile Include="source\re\scripting\lua\lutf8lib.c" />
     <ClCompile Include="source\re\scripting\lua\lvm.c" />
     <ClCompile Include="source\re\scripting\lua\lzio.c" />
-    <ClCompile Include="source\re\services\vfs\sfmlphysfs.cpp" />
-    <ClCompile Include="source\re\services\vfs\VFS.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
@@ -118,6 +114,8 @@
     <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
     <ClCompile Include="source\re\debug\DebugManager.cpp" />
     <ClCompile Include="source\re\graphics\PostEffect.cpp" />
+    <ClCompile Include="source\re\graphics\effects\Bloom.cpp" />
+    <ClCompile Include="source\re\services\VFS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -136,9 +134,7 @@
     <ClInclude Include="source\re\graphics\sw\Line.hpp" />
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
     <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
-    <ClInclude Include="source\re\graphics\FontManager.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
-    <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\physics\Box2D\Collision\Shapes\b2ChainShape.h" />
     <ClInclude Include="source\re\physics\Box2D\Collision\Shapes\b2CircleShape.h" />
@@ -219,8 +215,6 @@
     <ClInclude Include="source\re\scripting\lua\lzio.h" />
     <ClInclude Include="source\re\scripting\sol2\sol.hpp" />
     <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
-    <ClInclude Include="source\re\services\vfs\sfmlphysfs.hpp" />
-    <ClInclude Include="source\re\services\vfs\VFS.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
@@ -246,5 +240,8 @@
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
     <ClInclude Include="source\re\graphics\PostEffect.hpp" />
+    <ClInclude Include="source\re\graphics\effects\Bloom.hpp" />
+    <ClInclude Include="source\re\utility\ResourceManager.hpp" />
+    <ClInclude Include="source\re\services\VFS.hpp" />
   </ItemGroup>
 </Project>

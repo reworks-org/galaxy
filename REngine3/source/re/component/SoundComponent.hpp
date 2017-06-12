@@ -15,14 +15,12 @@
 #include <SFML/Audio/SoundBuffer.hpp>
 
 #include "re/types/Component.hpp"
-#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
 	class SoundComponent : public Component
 	{
 		friend class AudioSystem;
-        typedef std::unordered_map<std::string, std::pair<std::pair<std::unique_ptr<sf::SoundBuffer>, std::unique_ptr<sf::physfs>>, std::unique_ptr<sf::Sound>>>  SoundStorage;
         
 	public:
 		/*
@@ -54,7 +52,7 @@ namespace re
 		void debugFunction(sol::table& table, const std::string& curEntityName) override;
 
 	private:
-        SoundStorage m_sounds;
+		std::unordered_map<std::string, std::pair<sf::SoundBuffer, std::unique_ptr<sf::Sound>>> m_sounds;
 	};
 }
 

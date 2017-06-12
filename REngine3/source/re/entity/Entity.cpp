@@ -8,8 +8,8 @@
 
 #include <map>
 
+#include "re/services/VFS.hpp"
 #include "re/scripting/sol2/sol.hpp"
-#include "re/services/vfs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "re/app/World.hpp"
@@ -36,7 +36,7 @@ namespace re
 	{
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
-		lua.script(Locator::get<VFS>()->toString(script));
+		lua.script_file(Locator::get<VFS>()->retrieve(script));
 
 		// Get a table with the components.
 		sol::table entity = lua.get<sol::table>("entity");

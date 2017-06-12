@@ -1,5 +1,5 @@
 //
-//  PostEffect.cpp
+//  Bloom.hpp
 //  REngine3
 //
 /*
@@ -41,32 +41,53 @@ product or activity.
 
 // ALTERED SOURCE
 
-#include <SFML/Graphics/Shader.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
+#ifndef RENGINE3_BLOOM_HPP_
+#define RENGINE3_BLOOM_HPP_
 
-#include "PostEffect.hpp"
+#include <array>
+
+#include <SFML/Graphics/Shader.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
+
+#include "re/graphics/PostEffect.hpp"
 
 namespace re
 {
-	PostEffect::~PostEffect()
+
+	class BloomEffect : public PostEffect
 	{
-	}
+	public:
+		BloomEffect();
+		void load();
 
-	void PostEffect::applyShader(const sf::Shader& shader, sf::RenderTarget& output)
-	{
-		sf::Vector2f outputSize = static_cast<sf::Vector2f>(output.getSize());
+		virtual void		apply(const sf::RenderTexture& input, sf::RenderTarget& output);
 
-		sf::VertexArray vertices(sf::TrianglesStrip, 4);
-		vertices[0] = sf::Vertex(sf::Vector2f(0, 0), sf::Vector2f(0, 1));
-		vertices[1] = sf::Vertex(sf::Vector2f(outputSize.x, 0), sf::Vector2f(1, 1));
-		vertices[2] = sf::Vertex(sf::Vector2f(0, outputSize.y), sf::Vector2f(0, 0));
-		vertices[3] = sf::Vertex(sf::Vector2f(outputSize), sf::Vector2f(1, 0));
 
-		sf::RenderStates states;
-		states.shader = &shader;
-		states.blendMode = sf::BlendNone;
+	private:
+		typedef std::array<sf::RenderTexture, 2> RenderTextureArray;
 
-		output.draw(vertices, states);
-	}
+
+	private:
+		void				prepareTextures(sf::Vector2u size);
+
+		void				filterBright(const sf::RenderTexture& input, sf::RenderTexture& output);
+		void				blurMultipass(RenderTextureArray& renderTextures);
+		void				blur(const sf::RenderTexture& input, sf::RenderTexture& output, sf::Vector2f offsetFactor);
+		void				downsample(const sf::RenderTexture& input, sf::RenderTexture& output);
+		void				add(const sf::RenderTexture& source, const sf::RenderTexture& bloom, sf::RenderTarget& target);
+
+
+	private:
+		sf::Shader BrightnessPass;
+		sf::Shader GaussianBlurPass;
+		sf::Shader DownSamplePass;
+		sf::Shader AddPass;
+
+		sf::RenderTexture	mBrightnessTexture;
+		RenderTextureArray	mFirstPassTextures;
+		RenderTextureArray	mSecondPassTextures;
+	};
+
 }
+
+#endif

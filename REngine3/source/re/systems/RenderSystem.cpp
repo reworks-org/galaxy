@@ -8,6 +8,7 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
+#include "re/graphics/PostEffect.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/TransformComponent.hpp"
@@ -16,7 +17,7 @@
 
 namespace re
 {
-	RenderSystem::RenderSystem(int numOfGroups)
+	RenderSystem::RenderSystem(int numOfGroups, Window* window)
 	{
 		int max = numOfGroups + 1;
 
@@ -28,6 +29,8 @@ namespace re
 		{
 			m_groups.push_back(Group());
 		}
+
+		m_outputBuffer.create(window->getSize().x, window->getSize().y);
 	}
 
 	RenderSystem::~RenderSystem()
@@ -87,11 +90,29 @@ namespace re
 		}
 	}
 
-	void RenderSystem::render(Window* window)
-	{
-		for (auto& g : m_groups)
+	void RenderSystem::render(Window* window, PostEffect* effect, bool smooth)
+	{		
+		if (effect != nullptr)
 		{
-			window->draw(g);
+			m_outputBuffer.clear();
+
+			m_outputBuffer.setSmooth(smooth);
+
+			for (auto& g : m_groups)
+			{
+				m_outputBuffer.draw(g);
+			}
+
+			m_outputBuffer.display();
+
+			effect->apply(m_outputBuffer, (*window));
+		}
+		else
+		{
+			for (auto& g : m_groups)
+			{
+				window->draw(g);
+			}
 		}
 	}
 

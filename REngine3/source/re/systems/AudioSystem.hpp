@@ -52,14 +52,14 @@ namespace re
 		* EXPORTS: Pointer to sound.
 		* PURPOSE: Get a sound in the system.
 		*/
-		sf::Sound* getSound(const std::string& accessor);
+		sf::Sound& getSound(const std::string& accessor);
 
 		/*
 		* IMPORTS: accessor in format: <entityName>.<musicname>
 		* EXPORTS: Pointer to music.
 		* PURPOSE: Get music in the system.
 		*/
-		sf::Music* getMusic(const std::string& accessor);
+		sf::Music& getMusic(const std::string& accessor);
 
 		/*
 		* IMPORTS: volume (0-100).

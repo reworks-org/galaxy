@@ -13,7 +13,6 @@
 #include <SFML/Graphics/Texture.hpp>
 
 #include "re/types/Component.hpp"
-#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -68,7 +67,7 @@ namespace re
 
 	private:
 		sf::Texture m_texture;
-		sf::physfs m_textureStream;
+
 	};
 }
 

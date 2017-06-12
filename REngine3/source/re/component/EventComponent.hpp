@@ -17,7 +17,6 @@ namespace re
 	class EventComponent : public Component
 	{
 		friend class EventSystem;
-        typedef std::unordered_map<EventType, std::vector<std::function<void(void)>>> EventStorage;
         
     public:
 		/*
@@ -71,7 +70,7 @@ namespace re
 		void onEvent(EventType type);
 
 	private:
-		EventStorage m_events;
+		std::unordered_map<EventType, std::vector<std::function<void(void)>>> m_events;
 	};
 }
 

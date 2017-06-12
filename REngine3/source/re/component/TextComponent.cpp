@@ -6,9 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/services/vfs/VFS.hpp"
+#include "re/services/VFS.hpp"
 #include "re/debug/imgui/imgui-sfml.h"
-#include "re/graphics/FontManager.hpp"
+#include "re/utility/ResourceManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "TextComponent.hpp"
@@ -29,7 +29,7 @@ namespace re
 		setPosition(table.get<float>("x"), table.get<float>("y"));
 		m_group = table.get<sf::Uint32>("group");
 
-		setFont(Locator::get<FontManager>()->get(table.get<std::string>("font")));
+		setFont(Locator::get<ResourceManager<sf::Font>>()->get(table.get<std::string>("font")));
 
 		setString(table.get<std::string>("text"));
 		setCharacterSize(table.get<int>("size"));
@@ -143,7 +143,7 @@ namespace re
 			fontinput = std::vector<char>(newFont.begin(), newFont.end());
 			fontinput.resize(255);
 
-			setFont(Locator::get<FontManager>()->get(newFont));
+			setFont(Locator::get<ResourceManager<sf::Font>>()->get(newFont));
 		}
 
         ImGui::Spacing();

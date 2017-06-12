@@ -10,7 +10,7 @@
 
 #include <SFML/System/Time.hpp>
 
-#include "re/services/vfs/VFS.hpp"
+#include "re/services/VFS.hpp"
 #include "re/scripting/sol2/sol.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -52,7 +52,7 @@ namespace re
 	void World::registerEntitys(const std::string& entitysScript)
 	{
 		sol::state lua;
-		lua.script(Locator::get<VFS>()->toString(entitysScript));
+		lua.script_file(Locator::get<VFS>()->retrieve(entitysScript));
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entitylist = world.get<sol::table>("entitys");
 

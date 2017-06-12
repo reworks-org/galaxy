@@ -31,10 +31,10 @@ public:
 	App(bool enableLogging, bool enableFileLogging, float32 gravity) : Application(enableLogging, enableFileLogging, gravity)
     {
 		#ifdef _WIN32
-			m_vfs.mount("bin/assets/");
+			m_vfs.setBasePath("bin/assets/");
 			m_config.parse("bin/config.lua");
 		#else
-			m_vfs.mount("Sandbox.app/Contents/Resources/");
+			m_vfs.setBasePath("Sandbox.app/Contents/Resources/");
 			m_config.parse("Sandbox.app/Contents/config.lua");
 		#endif
         
@@ -65,7 +65,7 @@ public:
         m_window.requestFocus();
         
         // create systems
-        m_world.addSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.lookup<int>("renderingLayers")));
+        m_world.addSystem<RenderSystem>(std::make_shared<RenderSystem>(m_config.lookup<int>("renderingLayers"), &m_window));
         m_world.addSystem<EventSystem>(std::make_shared<EventSystem>());
         m_world.addSystem<MoveSystem>(std::make_shared<MoveSystem>());
         m_world.addSystem<PhysicsSystem>(std::make_shared<PhysicsSystem>(&m_physicsManager, m_targetUPS, 8, 3));
@@ -80,13 +80,15 @@ public:
         Locator::provide<VFS>(&m_vfs);
         Locator::provide<ConfigReader>(&m_config);
         Locator::provide<Window>(&m_window);
-        Locator::provide<FontManager>(&m_fontManager);
+        Locator::provide<ResourceManager<sf::Font>>(&m_fontManager);
+		Locator::provide<ResourceManager<sf::Shader>>(&m_shaderManager);
+		Locator::provide<ResourceManager<sf::Texture>>(&m_spriteSheetManager);
         Locator::provide<StateManager>(&m_stateManager);
         Locator::provide<Box2DManager>(&m_physicsManager);
 		Locator::provide<DebugManager>(&m_debugManager);
         
         // add fonts
-        m_fontManager.add("GameOver", "game_over.ttf");
+        m_fontManager.add("game_over.ttf", "GameOver");
         
         // set icon
         m_window.loadIcon("icon.png");

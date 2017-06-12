@@ -11,8 +11,8 @@
 
 #include "re/debug/imgui/imgui-SFML.h"
 
+#include "re/services/VFS.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/services/vfs/VFS.hpp"
 #include "re/systems/StateManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/component/SpriteComponent.hpp"
@@ -104,8 +104,12 @@ namespace re
 				}
 
 				std::string curEntityScriptName = m_world->m_loadedEntityScripts[index];
-                std::string curEntityScriptData = Locator::get<VFS>()->toString(curEntityScriptName);
-                m_lua.script(curEntityScriptData);
+				
+				std::ifstream ifs(Locator::get<VFS>()->retrieve(curEntityScriptName));
+				std::string curEntityScriptData((std::istreambuf_iterator<char>(ifs)), (std::istreambuf_iterator<char>()));
+				ifs.close();
+
+				m_lua.script(curEntityScriptData);
                 sol::table entityTable = m_lua.get<sol::table>("entity");
                 Entity* curEntity = &(m_world->getEntity(entityTable.get<std::string>("name")));
                 
@@ -181,7 +185,7 @@ namespace re
 							}
 						}
 
-						std::string path = Locator::get<VFS>()->getDir(curEntityScriptName) + curEntityScriptName;
+						std::string path = Locator::get<VFS>()->getBasePath() + curEntityScriptName;
 						
 						std::ofstream out;
 						out.open(path, std::ofstream::out);

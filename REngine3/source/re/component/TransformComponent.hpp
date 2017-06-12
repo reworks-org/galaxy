@@ -20,7 +20,7 @@ namespace re
 	class TransformComponent : public Component, public sf::Transformable
 	{
 		friend class boost::serialization::access;
-        
+
 	public:
 		/*
 		* IMPORTS: none

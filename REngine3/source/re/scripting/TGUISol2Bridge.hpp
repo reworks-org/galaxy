@@ -11,9 +11,9 @@
 
 #include <TGUI/TGUI.hpp>
 
-#include "re/services/vfs/VFS.hpp"
+#include "re/services/VFS.hpp"
 #include "re/scripting/sol2/sol.hpp"
-#include "re/graphics/FontManager.hpp"
+#include "re/utility/ResourceManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 namespace tgui
@@ -27,14 +27,14 @@ namespace tgui
 	inline Button::Ptr loadButtonWithScript(Theme::Ptr theme, const std::string& script)
 	{
 		sol::state lua;
-		lua.script(re::Locator::get<re::VFS>()->toString(script));
+		lua.script_file(re::Locator::get<re::VFS>()->retrieve(script));
 		sol::table widget = lua.get<sol::table>("widgetButton");
 
 		Button::Ptr button = theme->load("Button");
 		button->setSize(widget.get<int>("w"), widget.get<int>("h"));
 		button->setPosition(widget.get<int>("x"), widget.get<int>("y"));
 		button->setText(widget.get<std::string>("text"));
-		button->setFont(re::Locator::get<re::FontManager>()->get(widget.get<std::string>("font")));
+		button->setFont(re::Locator::get<re::ResourceManager<sf::Font>>()->get(widget.get<std::string>("font")));
 		button->setOpacity(widget.get<float>("opacity"));
 		button->setTextSize(widget.get<int>("fontSize"));
 
@@ -50,12 +50,12 @@ namespace tgui
 	inline Label::Ptr loadLabelWithScript(Theme::Ptr theme, const std::string& script)
 	{
 		sol::state lua;
-		lua.script(re::Locator::get<re::VFS>()->toString(script));
+		lua.script_file(re::Locator::get<re::VFS>()->retrieve(script));
 		sol::table widget = lua.get<sol::table>("widgetLabel");
 
 		Label::Ptr label = theme->load("Label");
 		label->setAutoSize(widget.get<bool>("autoSize"));
-		label->setFont(re::Locator::get<re::FontManager>()->get(widget.get<std::string>("font")));
+		label->setFont(re::Locator::get<re::ResourceManager<sf::Font>>()->get(widget.get<std::string>("font")));
 		label->setOpacity(widget.get<float>("opacity"));
 		label->setPosition(widget.get<int>("x"), widget.get<int>("y"));
 		label->setSize(widget.get<int>("w"), widget.get<int>("h"));

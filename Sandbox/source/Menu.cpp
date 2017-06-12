@@ -13,7 +13,7 @@
 #include <re/entity/Entity.hpp>
 #include <re/graphics/Window.hpp>
 #include <re/services/Config.hpp>
-#include <re/services/vfs/VFS.hpp>
+#include <re/services/VFS.hpp>
 #include <re/systems/EventSystem.hpp>
 #include <re/systems/RenderSystem.hpp>
 #include <re/utility/Serialization.hpp>

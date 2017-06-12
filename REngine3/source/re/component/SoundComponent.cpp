@@ -9,7 +9,9 @@
 #include <map>
 
 #include "re/utility/Log.hpp"
+#include "re/services/VFS.hpp"
 #include "re/debug/imgui/imgui-SFML.h"
+#include "re/services/ServiceLocator.hpp"
 
 #include "SoundComponent.hpp"
 
@@ -42,12 +44,11 @@ namespace re
         
 		for (auto& kvp : m_keyValuePair)
 		{
-			m_sounds.emplace(kvp.first, std::make_pair(std::make_pair(std::make_unique<sf::SoundBuffer>(), std::make_unique<sf::physfs>()), std::make_unique<sf::Sound>()));
-			m_sounds[kvp.first].first.second->open(kvp.second.get<std::string>("file"));
+			m_sounds.emplace(kvp.first, std::make_pair(sf::SoundBuffer(), std::make_unique<sf::Sound>()));
 
-			RE_ASSERT(m_sounds[kvp.first].first.first->loadFromStream(*(m_sounds[kvp.first].first.second)), kvp.first + " did not load", "SoundComponent::init", "SoundComponent.cpp", 46);
+			RE_ASSERT(m_sounds[kvp.first].first.loadFromFile(Locator::get<VFS>()->retrieve(kvp.second.get<std::string>("file"))), kvp.first + " did not load", "SoundComponent::init", "SoundComponent.cpp", 49);
 
-			m_sounds[kvp.first].second->setBuffer(*(m_sounds[kvp.first].first.first));
+			m_sounds[kvp.first].second->setBuffer(m_sounds[kvp.first].first);
 			m_sounds[kvp.first].second->setVolume(kvp.second.get<float>("volume"));
 			m_sounds[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 

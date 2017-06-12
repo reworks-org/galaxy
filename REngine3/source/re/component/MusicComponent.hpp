@@ -14,14 +14,12 @@
 #include <SFML/Audio/Music.hpp>
 
 #include "re/types/Component.hpp"
-#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
 	class MusicComponent : public Component
 	{
 		friend class AudioSystem;
-        typedef std::unordered_map<std::string, std::pair<std::unique_ptr<sf::physfs>, std::unique_ptr<sf::Music>>> MusicStorage;
         
 	public:
 		/*
@@ -53,7 +51,7 @@ namespace re
 		void debugFunction(sol::table& table, const std::string& curEntityName) override;
 	
 	private:
-		MusicStorage m_music;
+		std::unordered_map<std::string, std::unique_ptr<sf::Music>> m_music;
 	};
 }
 

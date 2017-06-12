@@ -9,6 +9,8 @@
 #ifndef RENGINE3_RENDERSYSTEM_HPP_
 #define RENGINE3_RENDERSYSTEM_HPP_
 
+#include <SFML/Graphics/RenderTexture.hpp>
+
 #include "re/types/System.hpp"
 #include "re/graphics/Group.hpp"
 
@@ -16,6 +18,7 @@ namespace re
 {
 	class Window;
 	class World;
+	class PostEffect;
 
 	class RenderSystem : public System
 	{
@@ -25,7 +28,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Construct the system.
 		*/
-		RenderSystem(int numOfGroups);
+		RenderSystem(int numOfGroups, Window* window);
 
 		/*
 		* IMPORTS: none
@@ -67,7 +70,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean up the entitys.
 		*/
-		void render(Window* window);
+		void render(Window* window, PostEffect* effect = nullptr, bool smooth = false);
 
 		/*
 		* IMPORTS: none
@@ -78,6 +81,7 @@ namespace re
 
 	private:
 		std::vector<Group> m_groups;
+		sf::RenderTexture m_outputBuffer;
 	};
 }
 

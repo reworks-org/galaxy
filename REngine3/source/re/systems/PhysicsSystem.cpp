@@ -9,8 +9,6 @@
 #include <SFML/System/Time.hpp>
 
 #include "re/app/World.hpp"
-#include "re/services/vfs/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
 #include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"

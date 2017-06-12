@@ -11,10 +11,10 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include "re/services/VFS.hpp"
 #include "re/debug/imgui/imgui-sfml.h"
-#include "re/services/vfs/VFS.hpp"
-#include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
+#include "re/utility/ResourceManager.hpp"
 
 #include "SpriteComponent.hpp"
 
@@ -44,12 +44,13 @@ namespace re
 		{
 			if (texture == "")
 			{
-				setTexture(Locator::get<TextureAtlas>()->get(table.get<std::string>("altas_ref")));
+				setTexture(Locator::get<ResourceManager<sf::Texture>>()->get(table.get<std::string>("altas_ref")));
 			}
 			else
 			{
-				setTexture(Locator::get<TextureAtlas>()->get(table.get<std::string>(texture)));
+				setTexture(Locator::get<ResourceManager<sf::Texture>>()->get(table.get<std::string>(texture)));
 			}
+
 			sol::table rect = table.get<sol::table>("spriteRect");
 			setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
 		}
@@ -57,14 +58,13 @@ namespace re
 		{
 			if (texture == "")
 			{
-				// NEED TO CHECK IF FILE IS VALID, THEN CLOSE THE ORIGINAL BEFORE OPENING A NEW ONE!
-				m_textureStream.open(table.get<std::string>("texture"));
+				m_texture.loadFromFile(Locator::get<VFS>()->retrieve(table.get<std::string>("texture")));
 			}
 			else
 			{
-				m_textureStream.open(texture);
+				m_texture.loadFromFile(Locator::get<VFS>()->retrieve(texture));
 			}
-			m_texture.loadFromStream(m_textureStream);
+			
 			setTexture(m_texture);
 		}
 	}

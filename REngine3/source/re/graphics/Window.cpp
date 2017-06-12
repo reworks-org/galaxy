@@ -6,6 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/services/VFS.hpp"
+#include "re/services/ServiceLocator.hpp"
+
 #include "Window.hpp"
 
 namespace re
@@ -31,8 +34,7 @@ namespace re
 
 	void Window::loadIcon(const std::string& iconName)
 	{
-		m_iconStream.open(iconName);
-		m_windowIcon.loadFromStream(m_iconStream);
+		m_windowIcon.loadFromFile(Locator::get<VFS>()->retrieve(iconName));
 
 		int width = m_windowIcon.getSize().x;
 		int height = m_windowIcon.getSize().y;

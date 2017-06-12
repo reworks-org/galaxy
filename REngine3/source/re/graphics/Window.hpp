@@ -13,7 +13,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "re/types/Service.hpp"
-#include "re/services/vfs/sfmlphysfs.hpp"
 
 namespace re
 {
@@ -51,7 +50,6 @@ namespace re
 
 	private:
 		sf::Image m_windowIcon;
-		sf::physfs m_iconStream;
 
 	public:
 		sf::Event m_event;
