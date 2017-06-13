@@ -66,6 +66,8 @@ void Menu::loadResources()
 
 	m_gui.setWindow(*(m_window));
 
+	m_bloom = new re::BloomEffect;
+
 	if (m_doOnce)
 	{
 		#ifdef _WIN32
@@ -73,7 +75,7 @@ void Menu::loadResources()
 		#else
 			m_theme = std::make_shared<tgui::Theme>("Sandbox.app/Contents/Resources/ui/black.txt");
 		#endif
-
+		
 		m_doOnce = true;
 	}
 
@@ -84,6 +86,12 @@ void Menu::loadResources()
 	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
 	m_gui.add(time, "testlabel");
 
+	// Load shaders
+	Locator::get<ResourceManager<sf::Shader>>()->add("Fullpass.vert", "BrightnessPass", "Brightness.frag");
+	Locator::get<ResourceManager<sf::Shader>>()->add("Fullpass.vert", "DownSamplePass", "DownSample.frag");
+	Locator::get<ResourceManager<sf::Shader>>()->add("Fullpass.vert", "GaussianBlurPass", "GuassianBlur.frag");
+	Locator::get<ResourceManager<sf::Shader>>()->add("Fullpass.vert", "AddPass", "Add.frag");
+
 	Locator::get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](const std::string & a, const std::string& b)
 	{ 
 		Locator::get<World>()->getEntity("person").get<PhysicsComponent>()->m_isMovingVertically = false;
@@ -91,6 +99,8 @@ void Menu::loadResources()
 
 	m_minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
 	m_minimap.zoom(1.5f);
+
+	
 }
 
 void Menu::unloadResources()
@@ -103,10 +113,13 @@ void Menu::unloadResources()
 	m_world->getSystem<MoveSystem>()->clean();
 	m_world->getSystem<PhysicsSystem>()->clean();
 	m_world->getSystem<AnimationSystem>()->clean();
+	Locator::get<ResourceManager<sf::Shader>>()->clean();
 
 	m_world->clean();
 
 	m_window->setView(m_window->getDefaultView());
+
+	delete m_bloom;
 }
 
 void Menu::handlePollEvents(sf::Event& event)

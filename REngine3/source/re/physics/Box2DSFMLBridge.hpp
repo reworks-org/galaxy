@@ -14,8 +14,8 @@ namespace re
 {
 	namespace b2
 	{
-		static const double PIXELS_PER_METERS = 32.0;
-		static const double PI = 3.14159265358979323846;
+		static const float PIXELS_PER_METERS = 32.0;
+		static const float PI = 3.14159265358979323846;
 
 		/*
 		* IMPORTS: pixels

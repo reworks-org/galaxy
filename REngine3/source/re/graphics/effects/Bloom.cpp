@@ -49,21 +49,9 @@ product or activity.
 
 namespace re
 {
-	BloomEffect::BloomEffect()
-		: mBrightnessTexture()
-		, mFirstPassTextures()
-		, mSecondPassTextures()
-	{
-		
-	}
-
 	void BloomEffect::load()
 	{
-		// Load shaders
-		Locator::get<ResourceManager<sf::Shader>>()->add("BrightnessPass", "Fullpass.vert", "Brightness.frag");
-		Locator::get<ResourceManager<sf::Shader>>()->add("DownSamplePass", "Fullpass.vert", "DownSample.frag");
-		Locator::get<ResourceManager<sf::Shader>>()->add("GaussianBlurPass", "Fullpass.vert", "GuassianBlur.frag");
-		Locator::get<ResourceManager<sf::Shader>>()->add("AddPass", "Fullpass.vert", "Add.frag");
+		
 	}
 
 	void BloomEffect::apply(const sf::RenderTexture& input, sf::RenderTarget& output)
@@ -124,7 +112,7 @@ namespace re
 
 	void BloomEffect::blur(const sf::RenderTexture& input, sf::RenderTexture& output, sf::Vector2f offsetFactor)
 	{
-		sf::Shader& gaussianBlur = Locator::get<ResourceManager<sf::Shader>>()->get("GuassianBlurPass");
+		sf::Shader& gaussianBlur = Locator::get<ResourceManager<sf::Shader>>()->get("GaussianBlurPass");
 
 		gaussianBlur.setUniform("source", input.getTexture());
 		gaussianBlur.setUniform("offsetFactor", offsetFactor);

@@ -57,10 +57,9 @@ namespace re
 	class BloomEffect : public PostEffect
 	{
 	public:
-		BloomEffect();
 		void load();
 
-		virtual void		apply(const sf::RenderTexture& input, sf::RenderTarget& output);
+		virtual void		apply(const sf::RenderTexture& input, sf::RenderTarget& output) override;
 
 
 	private:

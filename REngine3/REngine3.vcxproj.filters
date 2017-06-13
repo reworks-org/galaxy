@@ -114,8 +114,8 @@
     <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
     <ClCompile Include="source\re\debug\DebugManager.cpp" />
     <ClCompile Include="source\re\graphics\PostEffect.cpp" />
-    <ClCompile Include="source\re\graphics\effects\Bloom.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
+    <ClCompile Include="source\re\graphics\effects\Bloom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -240,8 +240,8 @@
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
     <ClInclude Include="source\re\graphics\PostEffect.hpp" />
-    <ClInclude Include="source\re\graphics\effects\Bloom.hpp" />
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
+    <ClInclude Include="source\re\graphics\effects\Bloom.hpp" />
   </ItemGroup>
 </Project>

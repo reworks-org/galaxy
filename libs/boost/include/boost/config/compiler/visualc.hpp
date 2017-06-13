@@ -20,6 +20,8 @@
 //  No other comparisons (==, >, or <=) are safe.
 //
 
+// THIS FILE IS MODIFIED
+
 #define BOOST_MSVC _MSC_VER
 
 //
@@ -35,13 +37,6 @@
 #pragma warning( disable : 4503 ) // warning: decorated name length exceeded
 
 #define BOOST_HAS_PRAGMA_ONCE
-
-//
-// versions check:
-// we don't support Visual C++ prior to version 7.1:
-#if _MSC_VER < 1310
-#  error "Compiler not supported or configured - please reconfigure"
-#endif
 
 #if _MSC_FULL_VER < 180020827
 #  define BOOST_NO_FENV_H

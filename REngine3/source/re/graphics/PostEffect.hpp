@@ -53,7 +53,7 @@ namespace sf
 
 namespace re
 {
-	class PostEffect : sf::NonCopyable
+	class PostEffect
 	{
 	public:
 		virtual					~PostEffect();

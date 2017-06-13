@@ -50,6 +50,13 @@ namespace re
 		*/
 		Resource& get(const std::string& id);
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean the internal map up.
+		*/
+		void clean();
+
 	private:
 		std::map<std::string, std::unique_ptr<Resource>> m_resourceMap;
 	};
@@ -80,6 +87,12 @@ namespace re
 	Resource& ResourceManager<Resource>::get(const std::string& id)
 	{
 		return *(m_resourceMap[id]);
+	}
+
+	template<typename Resource>
+	void ResourceManager<Resource>::clean()
+	{
+		m_resourceMap.clear();
 	}
 }
 

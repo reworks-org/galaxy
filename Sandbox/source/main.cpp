@@ -31,7 +31,7 @@ public:
 	App(bool enableLogging, bool enableFileLogging, float32 gravity) : Application(enableLogging, enableFileLogging, gravity)
     {
 		#ifdef _WIN32
-			m_vfs.setBasePath("bin/assets/");
+			m_vfs.setBasePath("bin/assets");
 			m_config.parse("bin/config.lua");
 		#else
 			m_vfs.setBasePath("Sandbox.app/Contents/Resources/");

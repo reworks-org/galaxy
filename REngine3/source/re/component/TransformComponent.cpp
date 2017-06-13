@@ -64,7 +64,7 @@ namespace re
 		}
 
 		ImGui::Spacing();
-		if (ImGui::SliderAngle("Angle Modifier", &angle, 0.0f, 360.0f));
+		if (ImGui::SliderAngle("Angle Modifier", &angle, 0.0f, 360.0f))
 		{
 			updatePos = true;
 		}
