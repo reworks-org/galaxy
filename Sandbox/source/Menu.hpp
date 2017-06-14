@@ -11,7 +11,6 @@
 
 #include <re/systems/StateManager.hpp>
 #include <re/scripting/TGUISol2Bridge.hpp>
-#include <re/graphics/effects/Bloom.hpp>
 
 class Menu : public re::State
 {
@@ -72,7 +71,6 @@ private:
 	tgui::Gui m_gui;
 	tgui::Theme::Ptr m_theme;
 	sf::View m_minimap;
-	re::BloomEffect* m_bloom;
 	bool m_doOnce = true;
 };
 
