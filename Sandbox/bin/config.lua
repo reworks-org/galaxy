@@ -1,6 +1,7 @@
 config =
 {
     appTitle = "REngine3",
+    assetPath = "bin/assets/",
     ups = 60.0,
     versionMajor = 1,
     versionMinor = 0,

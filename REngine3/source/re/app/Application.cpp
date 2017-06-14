@@ -16,7 +16,7 @@
 
 namespace re
 {
-	Application::Application(bool enableLogging, bool enableFileLogging, float32 gravity)
+	Application::Application(float32 gravity)
 		:m_physicsManager(gravity)
 	{
 		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");

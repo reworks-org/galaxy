@@ -28,14 +28,14 @@ class App : public re::Application
 {
 public:
 	// See re::Application.
-	App(bool enableLogging, bool enableFileLogging, float32 gravity) : Application(enableLogging, enableFileLogging, gravity)
+	App(float32 gravity) : Application(gravity)
     {
 		#ifdef _WIN32
-			m_vfs.setBasePath("bin/assets");
 			m_config.parse("bin/config.lua");
+			m_vfs.setBasePath(m_config.lookup<std::string>("assetPath"));
 		#else
-			m_vfs.setBasePath("Sandbox.app/Contents/Resources/");
-			m_config.parse("Sandbox.app/Contents/config.lua");
+			m_config.parse("Sandbox.app/Contents/configMac.lua");
+			m_vfs.setBasePath(m_config.lookup<std::string>("assetPath"));
 		#endif
         
         m_appTitle = m_config.lookup<std::string>("appTitle");
@@ -103,7 +103,7 @@ private:
 
 int main()
 {
-	App app(true, false, (float32)9.81);
+	App app(9.81);
 	
 	return app.run();
 }

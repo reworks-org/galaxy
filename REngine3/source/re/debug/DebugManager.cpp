@@ -85,6 +85,7 @@ namespace re
 			
 			if (ImGui::Button("Reload State"))
 			{
+				showScriptEditor = false;
 				Locator::get<StateManager>()->reloadState();
 			}
 

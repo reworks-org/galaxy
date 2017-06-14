@@ -26,11 +26,11 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: true or false to enable logging and or file logging.
+		* IMPORTS: gravity of world.
 		* EXPORTS: none
 		* PURPOSE: Default constructor. Your child class will need to set up the rest of the engine.
 		*/
-		Application(bool enableLogging, bool enableFileLogging, float32 gravity);
+		Application(float32 gravity);
 
 		/*
 		* IMPORTS: none

@@ -45,6 +45,7 @@ namespace re
 			newFile << "config =" << std::endl;
 			newFile << "{" << std::endl;
 			newFile << "    appTitle = \"Default\"," << std::endl;
+			newFile << "    assetPath = \"bin/assets/\"," << std::endl;
 			newFile << "    ups = 60.0," << std::endl;
 			newFile << "    versionMajor = 1," << std::endl;
 			newFile << "    versionMinor = 0," << std::endl;
@@ -76,7 +77,7 @@ namespace re
 			}
 			else
 			{
-				RE_LOG(LogLevel::FATAL, "Failed to create config file", "ConfigReader::parse", "Config.cpp", 75);
+				RE_LOG(LogLevel::FATAL, "Failed to create config file", "ConfigReader::parse", "Config.cpp", 80);
 				success = false;
 			}
 

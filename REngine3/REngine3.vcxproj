@@ -358,6 +358,9 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source;source/re/physics/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/zlib/include/;$(SolutionDir)/libs/libxml2/include/;$(SolutionDir)/libs/tgui/include/;$(SolutionDir)/libs/sfml/include/</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
