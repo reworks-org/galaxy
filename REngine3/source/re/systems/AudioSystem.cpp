@@ -97,8 +97,31 @@ namespace re
 		}
 	}
 
+	void AudioSystem::stop()
+	{
+		for (auto& e : m_entitys)
+		{
+			auto* map = &(e.second->get<MusicComponent>()->m_music);
+			for (auto it = map->begin(); it != map->end(); it++)
+			{
+				float ov = it->second->stop();
+			}
+		}
+
+		for (auto& e : m_entitys)
+		{
+			auto* map = &(e.second->get<SoundComponent>()->m_sounds);
+			for (auto it = map->begin(); it != map->end(); it++)
+			{
+				float ov = it->second.second->stop();
+			}
+		}
+	}
+
 	void AudioSystem::clean()
 	{
+		stop();
+
 		m_entitys.clear();
 	}
 }

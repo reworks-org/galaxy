@@ -78,6 +78,13 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
+		* PURPOSE: Stops music.
+		*/
+		void stop();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
 		* PURPOSE: Clean the system.
 		*/
 		void clean() override;
