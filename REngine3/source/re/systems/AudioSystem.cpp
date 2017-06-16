@@ -101,19 +101,22 @@ namespace re
 	{
 		for (auto& e : m_entitys)
 		{
-			auto* map = &(e.second->get<MusicComponent>()->m_music);
-			for (auto it = map->begin(); it != map->end(); it++)
+			if (e.second->has<MusicComponent>())
 			{
-				float ov = it->second->stop();
+				auto* map = &(e.second->get<MusicComponent>()->m_music);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second->stop();
+				}
 			}
-		}
 
-		for (auto& e : m_entitys)
-		{
-			auto* map = &(e.second->get<SoundComponent>()->m_sounds);
-			for (auto it = map->begin(); it != map->end(); it++)
+			if (e.second->has<SoundComponent>())
 			{
-				float ov = it->second.second->stop();
+				auto* map = &(e.second->get<SoundComponent>()->m_sounds);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second.second->stop();
+				}
 			}
 		}
 	}
