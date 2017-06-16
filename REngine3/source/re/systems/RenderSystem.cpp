@@ -64,7 +64,7 @@ namespace re
 
 		if (e->has<TextComponent>())
 		{
-			m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>(), e->get<TransformComponent>());
+			m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>(), e->get<TextComponent>());
 		}
 	}
 
