@@ -45,6 +45,30 @@ namespace tgui
 	* IMPORTS: Smart Pointer to your tgui::Theme object, and name of lua script.
 	* EXPORTS: Smart Pointer to your widget.
 	* PURPOSE: To use a lua script to create the object instead of hard-coding it.
+	* NOTE: Does not connect a function, add to gui object or set a tooltip.
+	*/
+	inline Slider::Ptr loadSliderWithScript(Theme::Ptr theme, const std::string& script)
+	{
+		sol::state lua;
+		lua.script_file(re::Locator::get<re::VFS>()->retrieve(script));
+		sol::table widget = lua.get<sol::table>("widgetSlider");
+
+		Slider::Ptr slider = theme->load("Slider");
+		slider->setFont(re::Locator::get<re::ResourceManager<sf::Font>>()->get(widget.get<std::string>("font")));
+		slider->setMaximum(widget.get<int>("max"));
+		slider->setMinimum(widget.get<int>("min"));
+		slider->setOpacity(widget.get<float>("opacity"));
+		slider->setPosition(widget.get<int>("x"), widget.get<int>("y"));
+		slider->setSize(widget.get<int>("w"), widget.get<int>("h"));
+		slider->setValue(widget.get<int>("defaultValue"));
+
+		return slider;
+	}
+
+	/*
+	* IMPORTS: Smart Pointer to your tgui::Theme object, and name of lua script.
+	* EXPORTS: Smart Pointer to your widget.
+	* PURPOSE: To use a lua script to create the object instead of hard-coding it.
 	* NOTE: Does not add to gui object or set a tooltip.
 	*/
 	inline Label::Ptr loadLabelWithScript(Theme::Ptr theme, const std::string& script)
@@ -63,7 +87,7 @@ namespace tgui
 		label->setTextSize(widget.get<int>("fontSize"));
 
 		sol::table colour = widget.get<sol::table>("colour");
-		tgui::Color col(colour.get<sf::Uint8>("r"), colour.get<sf::Uint8>("g"), colour.get<sf::Uint8>("b"), colour.get<sf::Uint8>("a"));
+		tgui::Color col(colour.get<sf::Uint8>("r"), colour.get<sf::Uint8>("g"), colour.get<sf::Uint8>("b"), colour.get<sf::Uint8>("opacity"));
 		label->setTextColor(col);
 
 		// left is 0, center is 1, right is 2.
