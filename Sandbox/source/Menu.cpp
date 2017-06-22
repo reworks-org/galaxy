@@ -52,7 +52,6 @@ void Menu::loadResources()
 	m_window = Locator::get<Window>();
 	m_world = Locator::get<World>();
 	m_vfs = Locator::get<VFS>();
-	m_config = Locator::get<ConfigReader>();
 
 	m_world->registerEntitys("menuEntitys.lua");
 

@@ -37,7 +37,6 @@ void Load::loadResources()
 	m_window = Locator::get<Window>();
 	m_world = Locator::get<World>();
 	m_vfs = Locator::get<VFS>();
-	m_config = Locator::get<ConfigReader>();
 
 	m_world->registerEntitys("loadEntitys.lua");
 	m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));

@@ -18,6 +18,9 @@
 namespace sf
 {
 	class Event;
+	class Shader;
+	class Font;
+	class Texture;
 }
 
 namespace re
@@ -27,6 +30,9 @@ namespace re
 	class Window;
 	class ConfigReader;
 	class StateManager;
+	
+	template<typename Resource>
+	class ResourceManager;
 
 	class State
 	{
@@ -83,9 +89,11 @@ namespace re
 	protected:
 		// Services
 		Window* m_window;
-		ConfigReader* m_config;
 		World* m_world;
 		VFS* m_vfs;
+		ResourceManager<sf::Font>* m_fontManager;
+		ResourceManager<sf::Shader>* m_shaderManager;
+		ResourceManager<sf::Texture>* m_spriteSheetManager;
 	};
 
 	class StateManager : public Service

@@ -1,4 +1,2 @@
 v1.1:
  - bug fixes
- - fix config so it reads into predefined variables
- - fix config so it can write out values

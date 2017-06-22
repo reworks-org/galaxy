@@ -50,7 +50,7 @@ namespace re
 		int m_versionPatch = 0;
 
 		VFS m_vfs;
-		ConfigReader m_config;
+		ConfigReader m_engineConfig;
 		World m_world;
 		Window m_window;
 		StateManager m_stateManager;

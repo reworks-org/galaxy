@@ -11,12 +11,11 @@
 
 #include <string>
 
-#include "re/types/Service.hpp"
 #include "re/scripting/sol2/sol.hpp"
 
 namespace re
 {
-	class ConfigReader : public Service
+	class ConfigReader
 	{
 	public:
 		/*
@@ -27,6 +26,13 @@ namespace re
 		bool parse(const std::string& configFile);
 
 		/*
+		* IMPORTS: std::ofstream object
+		* EXPORTS: none
+		* PURPOSE: Create a custom empty config depending on what this class is used for.
+		*/
+		virtual void createEmptyConfig(std::ofstream& newFile);
+
+		/*
 		* IMPORTS: configValue - The name of the value to retrieve from the lua table in the config file.
 		* EXPORTS: T - a static_cast to the appropriate type of value.
 		* PURPOSE: To retrieve data from the config file to set up the engine.
@@ -34,7 +40,7 @@ namespace re
 		template<typename T>
 		T lookup(const std::string& configValue);
 
-	private:
+	protected:
 		sol::state m_lua;
 	};
 
