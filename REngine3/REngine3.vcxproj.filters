@@ -241,5 +241,6 @@
     <ClInclude Include="source\re\graphics\PostEffect.hpp" />
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
+    <ClInclude Include="source\re\utility\Utils.hpp" />
   </ItemGroup>
 </Project>

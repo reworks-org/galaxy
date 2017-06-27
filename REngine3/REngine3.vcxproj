@@ -258,6 +258,7 @@
     <ClInclude Include="source\re\utility\Log.hpp" />
     <ClInclude Include="source\re\utility\Random.hpp" />
     <ClInclude Include="source\re\utility\Serialization.hpp" />
+    <ClInclude Include="source\re\utility\Utils.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

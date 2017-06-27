@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include <map>
 #include <fstream>
 #include <iostream>
 #include <streambuf>
@@ -16,13 +17,52 @@
 
 namespace re
 {
+	void ConfigReader::writeTableToFile()
+	{
+		// Get a table with the components.
+		sol::table config = m_lua.get<sol::table>("config");
+
+		// Get key-value pairs from table
+		std::map<std::string, std::string> m_keyValuePair;
+		config.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+		});
+
+		std::ofstream out;
+		out.open(m_fullPath);
+
+		out << "config = " << std::endl;
+		out << "{" << std::endl;
+
+		for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end();)
+		{
+			if (++iter == m_keyValuePair.end())
+			{
+				out << "    " << iter->first << " = " << iter->second << std::endl;
+			}
+			else
+			{
+				out << "    " << iter->first << " = " << iter->second << "," << std::endl;
+			}
+		}
+
+		out << "}" << std::endl;
+		out.close();
+	}
+
+	void ConfigReader::setPath(const std::string& path)
+	{
+		m_path = path;
+	}
+
 	bool ConfigReader::parse(const std::string& configFile)
 	{
+		m_fullPath = m_path + configFile;
 		bool success = true;
 
 		// Check if config file exists.
 		std::ifstream cf;
-		cf.open(configFile);
+		cf.open(m_fullPath);
 
 		if (cf.good())
 		{
@@ -40,14 +80,14 @@ namespace re
 			RE_LOG(LogLevel::WARNING, "Failed to load config file! Creating one...", "ConfigReader::parse", "Config.cpp", 40);
 
 			std::ofstream newFile;
-			newFile.open(configFile);
+			newFile.open(m_fullPath);
 
 			createEmptyConfig(newFile);
 
 			newFile.close();
 
 			std::ifstream cf2;
-			cf2.open(configFile);
+			cf2.open(m_fullPath);
 
 			// Retry to load script.
 			if (cf2.good())

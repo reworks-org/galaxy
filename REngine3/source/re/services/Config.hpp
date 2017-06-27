@@ -19,7 +19,14 @@ namespace re
 	{
 	public:
 		/*
-		* IMPORTS: configFile - The name of the configuration file in the VFS.
+		* IMPORTS: path - location of config file.
+		* EXPORTS: none
+		* PURPOSE: Set up path for config reader.
+		*/
+		void setPath(const std::string& path);
+
+		/*
+		* IMPORTS: none
 		* EXPORTS: boolean - true means the config file was sucessfully parsed.
 		* PURPOSE: To load and parse the config file for the engine. Will create a default file if one is not found.
 		*/
@@ -33,6 +40,13 @@ namespace re
 		virtual void createEmptyConfig(std::ofstream& newFile);
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: write internal sol::state table to the config file.
+		*/
+		void writeTableToFile();
+
+		/*
 		* IMPORTS: configValue - The name of the value to retrieve from the lua table in the config file.
 		* EXPORTS: T - a static_cast to the appropriate type of value.
 		* PURPOSE: To retrieve data from the config file to set up the engine.
@@ -42,6 +56,8 @@ namespace re
 
 	protected:
 		sol::state m_lua;
+		std::string m_path;
+		std::string m_fullPath;
 	};
 
 	template<typename T>

@@ -31,7 +31,8 @@ public:
 	App(float32 gravity) : Application(gravity)
     {
 		#ifdef _WIN32
-			m_engineConfig.parse("bin/config.lua");
+			m_engineConfig.setPath("bin/");
+			m_engineConfig.parse("config.lua");
 			m_vfs.setBasePath(m_engineConfig.lookup<std::string>("assetPath"));
 		#else
 			m_engineConfig.parse("Sandbox.app/Contents/configMac.lua");
