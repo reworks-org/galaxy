@@ -20,6 +20,13 @@ namespace re
 	{
 	public:
 		/*
+		* IMPORTS: default volume for system.
+		* EXPORTS: none
+		* PURPOSE: Construct system
+		*/
+		AudioSystem(int defaultVolume = 50);
+
+		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Cleans up the system.
@@ -88,6 +95,9 @@ namespace re
 		* PURPOSE: Clean the system.
 		*/
 		void clean() override;
+
+	private:
+		int m_defaultVolume;
 	};
 }
 

@@ -69,6 +69,28 @@ namespace tgui
 	* IMPORTS: Smart Pointer to your tgui::Theme object, and name of lua script.
 	* EXPORTS: Smart Pointer to your widget.
 	* PURPOSE: To use a lua script to create the object instead of hard-coding it.
+	* NOTE: Does not connect a function, add to gui object or set a tooltip.
+	*/
+	inline CheckBox::Ptr loadCheckBoxWithScript(Theme::Ptr theme, const std::string& script)
+	{
+		sol::state lua;
+		lua.script_file(re::Locator::get<re::VFS>()->retrieve(script));
+		sol::table widget = lua.get<sol::table>("widgetCheckBox");
+
+		CheckBox::Ptr ck = theme->load("CheckBox");
+		ck->setFont(re::Locator::get<re::ResourceManager<sf::Font>>()->get(widget.get<std::string>("font")));
+		ck->setOpacity(widget.get<float>("opacity"));
+		ck->setPosition(widget.get<int>("x"), widget.get<int>("y"));
+		ck->setSize(widget.get<int>("w"), widget.get<int>("h"));
+		ck->setText(widget.get<std::string>("label"));
+
+		return ck;
+	}
+
+	/*
+	* IMPORTS: Smart Pointer to your tgui::Theme object, and name of lua script.
+	* EXPORTS: Smart Pointer to your widget.
+	* PURPOSE: To use a lua script to create the object instead of hard-coding it.
 	* NOTE: Does not add to gui object or set a tooltip.
 	*/
 	inline Label::Ptr loadLabelWithScript(Theme::Ptr theme, const std::string& script)

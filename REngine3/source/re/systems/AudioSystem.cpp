@@ -15,6 +15,11 @@
 
 namespace re
 {
+	AudioSystem::AudioSystem(int defaultVolume)
+	{
+		m_defaultVolume = defaultVolume;
+	}
+
 	AudioSystem::~AudioSystem()
 	{
 		m_entitys.clear();
@@ -29,6 +34,9 @@ namespace re
 				addEntity(&it.second);
 			}
 		}
+
+		setGlobalMusicVolume(m_defaultVolume);
+		setGlobalSoundVolume(m_defaultVolume);
 	}
 
 	void AudioSystem::addEntity(Entity* e)
@@ -73,12 +81,15 @@ namespace re
 	{
 		for (auto& e : m_entitys)
 		{
-			auto* map = &(e.second->get<MusicComponent>()->m_music);
-			for (auto it = map->begin(); it != map->end(); it++)
+			if (e.second->has<MusicComponent>())
 			{
-				float ov = it->second->getVolume();
-				float nv = (volume + ov) / 2.0f;
-				it->second->setVolume(nv);
+				auto* map = &(e.second->get<MusicComponent>()->m_music);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					float ov = it->second->getVolume();
+					float nv = (volume + ov) / 2.0f;
+					it->second->setVolume(nv);
+				}
 			}
 		}
 	}
@@ -87,12 +98,15 @@ namespace re
 	{
 		for (auto& e : m_entitys)
 		{
-			auto* map = &(e.second->get<SoundComponent>()->m_sounds);
-			for (auto it = map->begin(); it != map->end(); it++)
+			if (e.second->has<SoundComponent>())
 			{
-				float ov = it->second.second->getVolume();
-				float nv = (volume + ov) / 2.0f;
-				it->second.second->setVolume(nv);
+				auto* map = &(e.second->get<SoundComponent>()->m_sounds);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					float ov = it->second.second->getVolume();
+					float nv = (volume + ov) / 2.0f;
+					it->second.second->setVolume(nv);
+				}
 			}
 		}
 	}

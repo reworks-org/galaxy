@@ -242,5 +242,6 @@
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\utility\Utils.hpp" />
+    <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
   </ItemGroup>
 </Project>

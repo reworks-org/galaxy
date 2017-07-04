@@ -32,6 +32,28 @@ namespace re
 	{
 	}
 
+	void Window::make(int screenwidth, int screenheight, const std::string & title, sf::Uint32 style)
+	{
+		m_screenWidth = screenwidth;
+		m_screenHeight = screenheight;
+		m_title = title;
+		m_style = style;
+
+		create(sf::VideoMode(screenwidth, screenheight), title, style);
+	}
+
+	void Window::goFullscreen(bool value)
+	{
+		if (value == true)
+		{
+			create(sf::VideoMode(m_screenWidth, m_screenHeight), m_title, sf::Style::Default | sf::Style::Fullscreen);
+		}
+		else
+		{
+			create(sf::VideoMode(m_screenWidth, m_screenHeight), m_title, sf::Style::Default);
+		}
+	}
+
 	void Window::loadIcon(const std::string& iconName)
 	{
 		m_windowIcon.loadFromFile(Locator::get<VFS>()->retrieve(iconName));

@@ -42,6 +42,20 @@ namespace re
 		~Window() override;
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: This is an alternative to create() in renderwindow. This still calls that function, but also preserves the values passed to the function.
+		*/
+		void make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style);
+
+		/*
+		* IMPORTS: boolean - true is fullscreen.
+		* EXPORTS: none
+		* PURPOSE: Make the window fullscreen or not.
+		*/
+		void goFullscreen(bool value);
+
+		/*
 		* IMPORTS: name of the icon in the vfs
 		* EXPORTS: none
 		* PURPOSE: Loads the windows icon, make sure you call after adding VFS to the Locator class.
@@ -50,6 +64,10 @@ namespace re
 
 	private:
 		sf::Image m_windowIcon;
+		std::string m_title;
+		int m_screenWidth;
+		int m_screenHeight;
+		sf::Uint32 m_style;
 
 	public:
 		sf::Event m_event;

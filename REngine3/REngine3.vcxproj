@@ -162,6 +162,7 @@
     <ClInclude Include="source\re\graphics\sw\Line.hpp" />
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
+    <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />
     <ClInclude Include="source\re\physics\Box2DManager.hpp" />
     <ClInclude Include="source\re\physics\Box2DSFMLBridge.hpp" />
