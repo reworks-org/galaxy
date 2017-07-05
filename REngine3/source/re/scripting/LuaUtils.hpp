@@ -18,7 +18,12 @@ namespace re
 {
 	namespace lua
 	{
-		inline void writeTableToFile(sol::table& table, const std::string& filePath, const std::string& name)
+		/*
+		* IMPORTS: table to write out, file to write to, name of table
+		* EXPORTS: none
+		* PURPOSE: To write out a table to a file
+		*/
+		inline void writeTableToFile(sol::table& table, const std::string& filePath, const std::string& tableName)
 		{
 			// Get key-value pairs from table
 			std::map<std::string, std::string> m_keyValuePair;
@@ -29,7 +34,7 @@ namespace re
 			std::ofstream out;
 			out.open(filePath);
 
-			out << name << " = " << std::endl;
+			out << tableName << " = " << std::endl;
 			out << "{" << std::endl;
 
 			for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end();)

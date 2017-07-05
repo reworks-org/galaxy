@@ -17,10 +17,10 @@
 
 namespace re
 {
-	void ConfigReader::writeTableToFile()
+	void ConfigReader::writeTableToFile(const std::string& tableName)
 	{
 		// Get a table with the components.
-		sol::table config = m_lua.get<sol::table>("config");
+		sol::table config = m_lua.get<sol::table>(tableName);
 
 		// Get key-value pairs from table
 		std::map<std::string, std::string> m_keyValuePair;
@@ -31,7 +31,7 @@ namespace re
 		std::ofstream out;
 		out.open(m_fullPath);
 
-		out << "config = " << std::endl;
+		out << tableName << " = " << std::endl;
 		out << "{" << std::endl;
 
 		for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end();)
@@ -124,7 +124,6 @@ namespace re
 		newFile << "    renderingLayers = 2," << std::endl;
 		newFile << "    framerateLimit = 0," << std::endl;
 		newFile << "    keyRepeat = true," << std::endl;
-		newFile << "    fullscreen = false," << std::endl;
 		newFile << "    cursorVisible = true," << std::endl;
 		newFile << "    vsyncEnabled = false," << std::endl;
 		newFile << "    saveLog = false," << std::endl;

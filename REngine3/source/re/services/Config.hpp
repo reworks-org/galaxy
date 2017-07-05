@@ -40,11 +40,11 @@ namespace re
 		virtual void createEmptyConfig(std::ofstream& newFile);
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: table name to write.
 		* EXPORTS: none
 		* PURPOSE: write internal sol::state table to the config file.
 		*/
-		void writeTableToFile();
+		void writeTableToFile(const std::string& tableName);
 
 		/*
 		* IMPORTS: configValue - The name of the value to retrieve from the lua table in the config file.
@@ -53,6 +53,9 @@ namespace re
 		*/
 		template<typename T>
 		T lookup(const std::string& configValue);
+
+		template<typename T>
+		void changeValue(const std::string& name, T value);
 
 	protected:
 		sol::state m_lua;
@@ -66,6 +69,13 @@ namespace re
 		// Cast and return value retrieved from table.
 		sol::table configTable = m_lua["config"];        
 		return configTable.get<T>(configValue);
+	}
+
+	template<typename T>
+	void changeValue(const std::string& name, T value)
+	{
+		sol::table configTable = m_lua["config"];
+
 	}
 }
 

@@ -36,6 +36,12 @@ namespace re
 		loadTexture(table);
 	}
 
+	void SpriteComponent::loadSingleTexture(const std::string& texture)
+	{
+		m_texture.loadFromFile(Locator::get<VFS>()->retrieve(texture));
+		setTexture(m_texture);
+	}
+
 	void SpriteComponent::loadTexture(sol::table& table, const std::string& texture)
 	{
 		sol::object texRect = table["spriteRect"];

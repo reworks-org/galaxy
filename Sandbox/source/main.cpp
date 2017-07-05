@@ -47,15 +47,8 @@ public:
 		m_saveLog = m_engineConfig.lookup<bool>("saveLog");
 		m_enableDebug = m_engineConfig.lookup<bool>("enableDebug");
 
-        if (m_engineConfig.lookup<bool>("fullscreen"))
-        {
-            m_window.create(sf::VideoMode(m_engineConfig.lookup<int>("screenWidth"), m_engineConfig.lookup<int>("screenHeight")), m_appTitle, sf::Style::Default | sf::Style::Fullscreen);
-        }
-        else
-        {
-            m_window.create(sf::VideoMode(m_engineConfig.lookup<int>("screenWidth"), m_engineConfig.lookup<int>("screenHeight")), m_appTitle, sf::Style::Default);
-        }
-        
+        m_window.create(sf::VideoMode(m_engineConfig.lookup<int>("screenWidth"), m_engineConfig.lookup<int>("screenHeight")), m_appTitle, sf::Style::Default);
+              
         std::string msg = m_appTitle + " - v" + std::to_string(m_versionMajor) + "." + std::to_string(m_versionMinor) + "." + std::to_string(m_versionPatch);
         RE_LOG(re::LogLevel::INFO, msg, "App::App", "main.cpp", 51);
         

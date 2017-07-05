@@ -46,11 +46,11 @@ namespace re
 	{
 		if (value == true)
 		{
-			create(sf::VideoMode(m_screenWidth, m_screenHeight), m_title, sf::Style::Default | sf::Style::Fullscreen);
+			create(sf::VideoMode(m_screenWidth, m_screenHeight), m_title, m_style | sf::Style::Fullscreen);
 		}
 		else
 		{
-			create(sf::VideoMode(m_screenWidth, m_screenHeight), m_title, sf::Style::Default);
+			create(sf::VideoMode(m_screenWidth, m_screenHeight), m_title, m_style);
 		}
 	}
 

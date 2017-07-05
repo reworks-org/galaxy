@@ -11,7 +11,6 @@ config =
     renderingLayers = 3,
     framerateLimit = 0,
     keyRepeat = true,
-    fullscreen = false,
     cursorVisible = true,
     vsyncEnabled = false,
     saveLog = false,

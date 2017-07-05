@@ -41,6 +41,13 @@ namespace re
 		void init(sol::table& table) override;
 
 		/*
+		* IMPORTS: Name of a single texture in the vfs. DOES NOT WORK ON SPRITESHEETS! USE LOADTEXTURE() instead.
+		* EXPORTS: none
+		* PURPOSE: Load a single texture from vfs.
+		*/
+		void loadSingleTexture(const std::string& textureName);
+
+		/*
 		* IMPORTS: sol::table from lua script containing component data, and optionally specify a texture.
 		* EXPORTS: none
 		* PURPOSE: Load the texture.
