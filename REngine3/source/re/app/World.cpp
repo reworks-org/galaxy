@@ -68,6 +68,12 @@ namespace re
 		{
 			m_alive.emplace(it.first, Entity());
 			m_alive[it.first].init(it.second, m_components);
+			/*
+			if (m_alive[it.first].isDead())
+			{
+				killEntity(it.first);
+			}
+			*/
             m_loadedEntityScripts.push_back(it.second);
 		}
 	}

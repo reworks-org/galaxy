@@ -105,7 +105,6 @@
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
-    <ClCompile Include="source\re\systems\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
     <ClCompile Include="source\re\debug\imgui\imgui.cpp" />
@@ -115,6 +114,7 @@
     <ClCompile Include="source\re\debug\DebugManager.cpp" />
     <ClCompile Include="source\re\graphics\PostEffect.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
+    <ClCompile Include="source\re\services\StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -221,7 +221,6 @@
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\systems\StateManager.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
@@ -243,5 +242,6 @@
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\utility\Utils.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
+    <ClInclude Include="source\re\services\StateManager.hpp" />
   </ItemGroup>
 </Project>

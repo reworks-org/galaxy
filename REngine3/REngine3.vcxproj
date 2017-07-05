@@ -130,7 +130,7 @@
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
-    <ClCompile Include="source\re\systems\StateManager.cpp" />
+    <ClCompile Include="source\re\services\StateManager.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
   </ItemGroup>
@@ -251,7 +251,7 @@
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\systems\StateManager.hpp" />
+    <ClInclude Include="source\re\services\StateManager.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />

@@ -1,3 +1,5 @@
-v1.1:
+v1.0:
  - bug fixes
- - fix bug in audio system when changing sfx volume (probably affects music aswell)
+ - allow for entitys to start dead
+ - allow for entitys to be created and destroyed during the game
+ - change the way entitys are submitted to systems to take in the above
