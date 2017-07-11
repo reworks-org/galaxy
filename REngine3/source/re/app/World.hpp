@@ -22,11 +22,13 @@ namespace sf
 namespace re
 {
 	typedef std::map<std::string, Entity> EntityList;
-	typedef std::unordered_map<std::type_index, std::shared_ptr<System>> SystemList;
+	typedef std::unordered_map<std::type_index, std::pair<std::string, std::shared_ptr<System>>> SystemList;
 	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>> ComponentFactory;
 
 	class World : public Service
 	{
+		friend class Entity;
+
 	public:       
 		/*
 		* IMPORTS: none
@@ -43,11 +45,18 @@ namespace re
 		void init();
 
 		/*
-		* IMPORTS: id - assign an id to the entity
+		* IMPORTS: worldEntityScript - script file containing all the entitys to mass register.
+		* EXPORTS: none
+		* PURPOSE: To create new entitys and add them to the world.
+		*/
+		void registerEntitys(const std::string& worldEntityScript);
+
+		/*
+		* IMPORTS: entityScript - script file of an entity
 		* EXPORTS: none
 		* PURPOSE: To create a new entity and add it to the world.
 		*/
-		void registerEntitys(const std::string& entitysScript);
+		void registerEntity(const std::string& entityName, const std::string& entityScript);
 
 		/*
 		* IMPORTS: name of an entity to get
@@ -131,6 +140,13 @@ namespace re
 		*/
         EntityList& getDeadEntitys();
 		
+		/*
+		* IMPORTS: none
+		* EXPORTS: map of systems.
+		* PURPOSE: To get the map of systems.
+		*/
+		SystemList& getSystemList();
+
         /*
          * IMPORTS: none
          * EXPORTS: none
@@ -146,6 +162,13 @@ namespace re
 		*/
 		template<typename T>
 		std::shared_ptr<Component> makeComponent();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Adds entitys to correct systems.
+		*/
+		void emplaceEntitysInSystems();
 
 	private:
 		EntityList m_dead;
@@ -170,7 +193,7 @@ namespace re
         }
         else
         {
-            m_systems[typeid(T)] = system;
+            m_systems[typeid(T)] = std::make_pair(system->getTypeAsString(), system);
         }
 	}
 
@@ -181,7 +204,7 @@ namespace re
         
         RE_REVERSE_ASSERT_COMPARE(it, m_systems.end(), "Tried to access a non-existent system", "World::getSystem", "World.cpp", 169);
         
-        return std::dynamic_pointer_cast<T>(it->second);
+        return std::dynamic_pointer_cast<T>(it->second.second);
 	}
 
 	template<typename T>

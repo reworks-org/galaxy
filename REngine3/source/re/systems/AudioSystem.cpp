@@ -18,25 +18,12 @@ namespace re
 	AudioSystem::AudioSystem(int defaultVolume)
 	{
 		m_defaultVolume = defaultVolume;
+		m_typeAsString = "AudioSystem";
 	}
 
 	AudioSystem::~AudioSystem()
 	{
 		m_entitys.clear();
-	}
-
-	void AudioSystem::submit(World* world)
-	{
-		for (auto& it : world->getAliveEntitys())
-		{
-			if (it.second.has<MusicComponent>() || it.second.has<SoundComponent>())
-			{
-				addEntity(&it.second);
-			}
-		}
-
-		setGlobalMusicVolume(m_defaultVolume);
-		setGlobalSoundVolume(m_defaultVolume);
 	}
 
 	void AudioSystem::addEntity(Entity* e)
@@ -45,7 +32,7 @@ namespace re
 		{
 			e->m_systemIds.emplace("AudioSystem", std::type_index(typeid(AudioSystem)));
 		}
-		
+
 		m_entitys.emplace(e->m_name, e);
 	}
 

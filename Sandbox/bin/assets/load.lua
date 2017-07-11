@@ -1,6 +1,12 @@
 entity =
 {
 	name = "loadScreen",
+	isDead = false,
+	systems = 
+	{
+		[0] = "RenderSystem"
+	},
+
 	TransformComponent = 
 	{
 		x = 0,

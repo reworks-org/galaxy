@@ -12,9 +12,6 @@
 #include <vector>
 #include <string>
 
-// Convenience Macros
-#ifndef NDEBUG
-
 #define RE_LOG(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) re::Log::instance().log(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
 #define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_) re::Log::instance().printPrettyText(_LEVEL_, _MESSAGE_)
 #define RE_LOG_SAVE(_VALUE_) re::Log::instance().saveToLog(_VALUE_)
@@ -50,17 +47,6 @@
 			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
 			throw std::runtime_error("Refer to console or log file for details!"); \
 		}
-#else
-
-#define RE_LOG(_LEVEL_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
-#define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_)
-#define RE_LOG_SAVE(_VALUE_)
-#define RE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
-#define RE_REVERSE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
-#define RE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
-#define RE_REVERSE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_)
-
-#endif
 
 namespace re
 {

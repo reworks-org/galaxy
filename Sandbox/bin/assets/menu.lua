@@ -1,6 +1,12 @@
 entity=
 {
 	name="menu",
+	isDead = false,
+	systems = 
+	{
+		[0] = "AudioSystem",
+		[1] = "RenderSystem"
+	},
 	TransformComponent=
 	{
 		x=0,

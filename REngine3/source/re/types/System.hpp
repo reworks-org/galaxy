@@ -26,13 +26,6 @@ namespace re
 		virtual ~System();
 
 		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
-		*/
-		virtual void submit(World* world) = 0;
-
-		/*
 		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system. YOU NEED to call entitys list of system ids and push back the type id of the system your adding the entity to.
@@ -60,8 +53,16 @@ namespace re
 		*/
 		std::map<std::string, Entity*>& getEntitys();
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: std::string CONSTANT
+		* PURPOSE: Get the type of the system as a std::string.
+		*/
+		std::string getTypeAsString() const;
+
 	protected:
 		std::map<std::string, Entity*> m_entitys;
+		std::string m_typeAsString;
 	};
 }
 

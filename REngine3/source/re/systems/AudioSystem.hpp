@@ -24,7 +24,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Construct system
 		*/
-		AudioSystem(int defaultVolume = 50);
+		AudioSystem(int defaultVolume);
 
 		/*
 		* IMPORTS: none
@@ -32,13 +32,6 @@ namespace re
 		* PURPOSE: Cleans up the system.
 		*/
 		~AudioSystem() override;
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
-		*/
-		void submit(World* world) override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.

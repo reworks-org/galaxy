@@ -16,25 +16,23 @@
 
 namespace re
 {
+	MoveSystem::MoveSystem()
+	{
+		m_typeAsString = "MoveSystem";
+	}
+
 	MoveSystem::~MoveSystem()
 	{
 		m_entitys.clear();
 	}
 
-	void MoveSystem::submit(World* world)
-	{
-		for (auto& it : world->getAliveEntitys())
-		{
-			if (it.second.has<PhysicsComponent>() && it.second.has<TransformComponent>())
-			{
-				addEntity(&it.second);
-			}
-		}
-	}
-
 	void MoveSystem::addEntity(Entity* e)
 	{
-		e->m_systemIds.emplace("MoveSystem", std::type_index(typeid(MoveSystem)));
+		if (e->m_systemIds.find("MoveSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("MoveSystem", std::type_index(typeid(MoveSystem)));
+		}
+		
 		m_entitys.emplace(e->m_name, e);
 	}
 

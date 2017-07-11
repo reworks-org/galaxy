@@ -23,16 +23,16 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Cleans up the systems.
+		* PURPOSE: Constructor.
 		*/
-		~MoveSystem() override;
+		MoveSystem();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
+		* PURPOSE: Cleans up the systems.
 		*/
-		void submit(World* world) override;
+		~MoveSystem() override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.

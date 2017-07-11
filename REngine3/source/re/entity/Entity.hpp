@@ -21,8 +21,6 @@
 
 namespace re
 {
-	class World;
-
 	class Entity
 	{
 		friend class boost::serialization::access;

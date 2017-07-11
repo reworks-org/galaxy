@@ -40,8 +40,6 @@ void Load::loadResources()
 
 	m_world->registerEntitys("loadEntitys.lua");
 	m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
-
-	m_world->getSystem<RenderSystem>()->submit(m_world);
 }
 
 void Load::unloadResources()

@@ -38,13 +38,6 @@ namespace re
 		~RenderSystem() override;
 
 		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
-		*/
-		void submit(World* world) override;
-
-		/*
 		* IMPORTS: id of entity to add and its component list.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.

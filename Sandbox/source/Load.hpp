@@ -9,7 +9,7 @@
 #ifndef SANDBOX_LOAD_HPP_
 #define SANDBOX_LOAD_HPP_
 
-#include <re/systems/StateManager.hpp>
+#include <re/services/StateManager.hpp>
 
 class Load : public re::State
 {

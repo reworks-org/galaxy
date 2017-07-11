@@ -14,8 +14,8 @@ namespace re
 {
 	namespace b2
 	{
-		static const float PIXELS_PER_METERS = 32.0;
-		static const float PI = 3.14159265358979323846;
+		static const float PIXELS_PER_METERS = 32.0f;
+		static const float PI = 3.14159265358979323846f;
 
 		/*
 		* IMPORTS: pixels
@@ -47,7 +47,7 @@ namespace re
 		template<typename T>
 		T degToRad(T deg)
 		{
-			return (PI * deg) / 180.0;
+			return (PI * deg) / 180.0f;
 		}
 
 		/*
@@ -58,7 +58,7 @@ namespace re
 		template<typename T>
 		T radToDeg(T rad)
 		{
-			return (180.0 * rad) / PI;
+			return (180.0f * rad) / PI;
 		}
 	}
 }

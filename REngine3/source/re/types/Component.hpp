@@ -25,7 +25,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Abstract virtual destructor for components.
 		*/
-		virtual ~Component() {}
+		virtual inline ~Component() {};
 
 		/*
 		* IMPORTS: sol::table from lua script containing component data.
@@ -33,7 +33,7 @@ namespace re
 		* PURPOSE: Set up the component.
 		*/
 		virtual void init(sol::table& table) = 0;
-        
+
     protected:
         /*
          * IMPORTS: lua table and entity name

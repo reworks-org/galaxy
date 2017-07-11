@@ -1,5 +1,3 @@
 v1.0:
- - bug fixes
- - allow for entitys to start dead
- - allow for entitys to be created and destroyed during the game
- - change the way entitys are submitted to systems to take in the above
+
+- bug fixes

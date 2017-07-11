@@ -24,16 +24,16 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Cleans up the system.
+		* PURPOSE: Constructor.
 		*/
-		~AnimationSystem() override;
+		AnimationSystem();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
+		* PURPOSE: Cleans up the system.
 		*/
-		void submit(World* world) override;
+		~AnimationSystem() override;
 
 		/*
 		* IMPORTS: pointer to entity to add.

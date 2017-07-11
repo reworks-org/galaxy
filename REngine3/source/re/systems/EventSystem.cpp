@@ -15,20 +15,14 @@
 
 namespace re
 {
+	EventSystem::EventSystem()
+	{
+		m_typeAsString = "EventSystem";
+	}
+
 	EventSystem::~EventSystem()
 	{
 		m_entitys.clear();
-	}
-
-	void EventSystem::submit(World* world)
-	{
-		for (auto& it : world->getAliveEntitys())
-		{
-			if (it.second.has<EventComponent>())
-			{
-				addEntity(&it.second);
-			}
-		}
 	}
 
 	void EventSystem::addEntity(Entity* e)

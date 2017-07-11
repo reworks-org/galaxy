@@ -6,7 +6,9 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+#include "re/app/World.hpp"
 #include "re/services/VFS.hpp"
+#include "re/systems/RenderSystem.hpp"
 #include "re/debug/imgui/imgui-sfml.h"
 #include "re/utility/ResourceManager.hpp"
 #include "re/services/ServiceLocator.hpp"

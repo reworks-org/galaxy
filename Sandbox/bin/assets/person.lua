@@ -1,7 +1,15 @@
 entity =
 {
 	name = "person",
-	
+	isDead = false,
+	systems = 
+	{
+		[0] = "PhysicsSystem",
+		[1] = "RenderSystem",
+		[2] = "MoveSystem",
+		[3] = "EventSystem",
+		[4] = "AnimationSystem"
+	},
 	PhysicsComponent = 
 	{
 		x = 650,

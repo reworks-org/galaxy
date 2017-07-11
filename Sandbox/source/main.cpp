@@ -10,7 +10,7 @@
 #include <re/app/Application.hpp>
 #include <re/systems/EventSystem.hpp>
 #include <re/systems/RenderSystem.hpp>
-#include <re/systems/StateManager.hpp>
+#include <re/services/StateManager.hpp>
 #include <re/services/ServiceLocator.hpp>
 #include <re/systems/PhysicsSystem.hpp>
 #include <re/systems/AnimationSystem.hpp>
@@ -64,7 +64,7 @@ public:
         m_world.addSystem<MoveSystem>(std::make_shared<MoveSystem>());
         m_world.addSystem<PhysicsSystem>(std::make_shared<PhysicsSystem>(&m_physicsManager, m_targetUPS, 8, 3));
         m_world.addSystem<AnimationSystem>(std::make_shared<AnimationSystem>());
-        m_world.addSystem<AudioSystem>(std::make_shared<AudioSystem>());
+        m_world.addSystem<AudioSystem>(std::make_shared<AudioSystem>(50));
         
         // set up collision listener
         m_physicsManager.m_world->SetContactListener(&m_b2dcallbacks);
@@ -96,7 +96,7 @@ private:
 
 int main()
 {
-	App app(9.81);
+	App app(9.81f);
 	
 	return app.run();
 }

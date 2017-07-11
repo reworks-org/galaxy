@@ -27,16 +27,16 @@ namespace re
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Cleans up the events.
+		* PURPOSE: Constructor.
 		*/
-		~EventSystem() override;
-		
+		EventSystem();
+
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
+		* PURPOSE: Cleans up the events.
 		*/
-		void submit(World* world) override;
+		~EventSystem() override;
 
 		/*
 		* IMPORTS: id of entity to add and its component list.

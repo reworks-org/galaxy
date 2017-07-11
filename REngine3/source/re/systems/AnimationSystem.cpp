@@ -14,20 +14,14 @@
 
 namespace re
 {
+	AnimationSystem::AnimationSystem()
+	{
+		m_typeAsString = "AnimationSystem";
+	}
+
 	AnimationSystem::~AnimationSystem()
 	{
 		m_entitys.clear();
-	}
-
-	void AnimationSystem::submit(World* world)
-	{
-		for (auto& it : world->getAliveEntitys())
-		{
-			if (it.second.has<AnimationComponent>())
-			{
-				addEntity(&it.second);
-			}
-		}
 	}
 
 	void AnimationSystem::addEntity(Entity* e)
@@ -35,10 +29,10 @@ namespace re
 		if (e->m_systemIds.find("AnimationSystem") == e->m_systemIds.end())
 		{
 			e->m_systemIds.emplace("AnimationSystem", std::type_index(typeid(AnimationSystem)));
-			// we also want to adjust the first texture rectangle so it doesn't get missed out on...
-			e->get<SpriteComponent>()->setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
 		}
 		
+		// we also want to adjust the first texture rectangle so it doesn't get missed out on...
+		e->get<SpriteComponent>()->setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
 		m_entitys.emplace(e->m_name, e);
 	}
 

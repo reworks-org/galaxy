@@ -57,12 +57,6 @@ void Menu::loadResources()
 
 	m_world->getEntity("person").get<EventComponent>()->submitOnEvent(Events::MOUSE_PRESSED, []() { RE_LOG_PRINTPRETTY(LogLevel::INFO, "Click!"); });
 
-	m_world->getSystem<MoveSystem>()->submit(m_world);
-	m_world->getSystem<RenderSystem>()->submit(m_world);
-	m_world->getSystem<EventSystem>()->submit(m_world);
-	m_world->getSystem<PhysicsSystem>()->submit(m_world);
-	m_world->getSystem<AnimationSystem>()->submit(m_world);
-
 	m_gui.setWindow(*(m_window));
 
 	if (m_doOnce)
@@ -90,8 +84,6 @@ void Menu::loadResources()
 
 	m_minimap.setViewport(sf::FloatRect(0.75f, 0, 0.25f, 0.25f));
 	m_minimap.zoom(1.5f);
-
-	
 }
 
 void Menu::unloadResources()

@@ -1,6 +1,12 @@
 entity =
 {
 	name = "ground",
+	isDead = false,
+	systems = 
+	{
+		[0] = "PhysicsSystem",
+		[1] = "RenderSystem"
+	},
 
 	SpriteComponent =
 	{

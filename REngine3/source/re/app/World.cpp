@@ -34,7 +34,7 @@ namespace re
 		m_systems.clear();
 		m_components.clear();
 		m_componentFactory.clear();
-        m_loadedEntityScripts.clear();
+		m_loadedEntityScripts.clear();
 	}
 
 	void World::init()
@@ -49,10 +49,10 @@ namespace re
 		registerComponent<AnimationComponent>("AnimationComponent");
 	}
 
-	void World::registerEntitys(const std::string& entitysScript)
+	void World::registerEntitys(const std::string& worldEntityScript)
 	{
 		sol::state lua;
-		lua.script_file(Locator::get<VFS>()->retrieve(entitysScript));
+		lua.script_file(Locator::get<VFS>()->retrieve(worldEntityScript));
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -68,32 +68,45 @@ namespace re
 		{
 			m_alive.emplace(it.first, Entity());
 			m_alive[it.first].init(it.second, m_components);
-			/*
-			if (m_alive[it.first].isDead())
-			{
-				killEntity(it.first);
-			}
-			*/
-            m_loadedEntityScripts.push_back(it.second);
+
+			m_loadedEntityScripts.push_back(it.second);
 		}
+
+		emplaceEntitysInSystems();
+
+		m_entitysHaveChanged = true;
+		update(sf::Time::Zero);
+	}
+
+	void World::registerEntity(const std::string& entityName, const std::string& entityScript)
+	{
+		m_alive.emplace(entityName, Entity());
+		m_alive[entityName].init(entityScript, m_components);
+
+		m_loadedEntityScripts.push_back(entityScript);
+
+		emplaceEntitysInSystems();
+
+		m_entitysHaveChanged = true;
+		update(sf::Time::Zero);
 	}
 
 	Entity& World::getEntity(const std::string& name)
 	{
 		auto found = m_alive.find(name);
-        
-        if (found != m_alive.end())
-        {
-            return m_alive[name];
-        }
-        else
-        {
-            auto it = m_dead.find(name);
-            
-            RE_REVERSE_ASSERT_COMPARE(it, m_dead.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 85);
-            
-            return m_dead[name];
-        }
+
+		if (found != m_alive.end())
+		{
+			return m_alive[name];
+		}
+		else
+		{
+			auto it = m_dead.find(name);
+
+			RE_REVERSE_ASSERT_COMPARE(it, m_dead.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 85);
+
+			return m_dead[name];
+		}
 	}
 
 	void World::killEntity(const std::string& name)
@@ -127,7 +140,7 @@ namespace re
 					std::string name = it->second.m_name;
 					for (auto& s : it->second.m_systemIds)
 					{
-						m_systems[s.second]->removeEntity(name);
+						m_systems[s.second].second->removeEntity(name);
 					}
 
 					m_dead.insert(std::make_pair(name, std::move(it->second)));
@@ -150,7 +163,7 @@ namespace re
 
 					for (auto& s : m_alive[name].m_systemIds)
 					{
-						m_systems[s.second]->addEntity(&m_alive[name]);
+						m_systems[s.second].second->addEntity(&m_alive[name]);
 					}
 				}
 				else
@@ -160,6 +173,17 @@ namespace re
 			}
 
 			m_entitysHaveChanged = false;
+		}
+	}
+
+	void World::emplaceEntitysInSystems()
+	{
+		for (auto it = m_alive.begin(); it != m_alive.end(); ++it)
+		{
+			for (auto& s : it->second.m_systemIds)
+			{
+				m_systems[s.second].second->addEntity(&it->second);
+			}
 		}
 	}
 
@@ -184,6 +208,11 @@ namespace re
 	EntityList& World::getDeadEntitys()
 	{
 		return m_dead;
+	}
+
+	SystemList& World::getSystemList()
+	{
+		return m_systems;
 	}
     
     void World::entitysHaveChanged()

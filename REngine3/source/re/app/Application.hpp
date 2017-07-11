@@ -16,7 +16,7 @@
 #include "re/graphics/Window.hpp"
 #include "re/services/VFS.hpp"
 #include "re/debug/DebugManager.hpp"
-#include "re/systems/StateManager.hpp"
+#include "re/services/StateManager.hpp"
 #include "re/physics/Box2DManager.hpp"
 #include "re/utility/ResourceManager.hpp"
 

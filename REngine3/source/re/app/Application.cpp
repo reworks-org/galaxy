@@ -10,7 +10,7 @@
 #include <SFML/Graphics/Shader.hpp>
 
 #include "re/utility/Log.hpp"
-#include "re/systems/StateManager.hpp"
+#include "re/services/StateManager.hpp"
 
 #include "Application.hpp"
 

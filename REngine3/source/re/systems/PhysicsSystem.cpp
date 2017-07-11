@@ -24,6 +24,7 @@ namespace re
 		m_ups = ups;
 		m_velocityIterations = vi;
 		m_positionIterations = pi;
+		m_typeAsString = "PhysicsSystem";
 	}
 
 	PhysicsSystem::~PhysicsSystem()
@@ -37,17 +38,6 @@ namespace re
 
 		m_mapCollisions.clear();
 		m_manager = nullptr;
-	}
-
-	void PhysicsSystem::submit(World* world)
-	{
-		for (auto& it : world->getAliveEntitys())
-		{
-			if (it.second.has<PhysicsComponent>() && it.second.has<TransformComponent>())
-			{
-				addEntity(&it.second);
-			}
-		}
 	}
 
 	void PhysicsSystem::addEntity(Entity* e)

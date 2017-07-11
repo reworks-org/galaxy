@@ -31,23 +31,14 @@ namespace re
 		}
 
 		m_outputBuffer.create(window->getSize().x, window->getSize().y);
+
+		m_typeAsString = "RenderSystem";
 	}
 
 	RenderSystem::~RenderSystem()
 	{
 		m_groups.clear();
 		m_entitys.clear();
-	}
-
-	void RenderSystem::submit(World* world)
-	{
-		for (auto& it : world->getAliveEntitys())
-		{
-			if (it.second.has<SpriteComponent>() || it.second.has<TextComponent>())
-			{
-				addEntity(&it.second);
-			}
-		}
 	}
 
 	void RenderSystem::addEntity(Entity* e)
@@ -59,12 +50,18 @@ namespace re
 
 		if (e->has<SpriteComponent>())
 		{
-			m_groups[e->get<SpriteComponent>()->m_group].addDrawable(e->m_name, e->get<SpriteComponent>(), e->get<TransformComponent>());
+			if (m_groups[e->get<SpriteComponent>()->m_group].getDrawableMap().find(e->m_name) == m_groups[e->get<SpriteComponent>()->m_group].getDrawableMap().end())
+			{
+				m_groups[e->get<SpriteComponent>()->m_group].addDrawable(e->m_name, e->get<SpriteComponent>(), e->get<TransformComponent>());
+			}
 		}
 
 		if (e->has<TextComponent>())
 		{
-			m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>(), e->get<TextComponent>());
+			if (m_groups[e->get<TextComponent>()->m_group].getDrawableMap().find(e->m_name) == m_groups[e->get<TextComponent>()->m_group].getDrawableMap().end())
+			{
+				m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>(), e->get<TextComponent>());
+			}
 		}
 	}
 

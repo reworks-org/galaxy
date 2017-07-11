@@ -11,7 +11,9 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+#include "re/app/World.hpp"
 #include "re/services/VFS.hpp"
+#include "re/systems/RenderSystem.hpp"
 #include "re/debug/imgui/imgui-sfml.h"
 #include "re/services/ServiceLocator.hpp"
 #include "re/utility/ResourceManager.hpp"
@@ -32,7 +34,7 @@ namespace re
 	void SpriteComponent::init(sol::table& table)
 	{
 		m_group = table.get<sf::Uint32>("group");
-        
+		
 		loadTexture(table);
 	}
 

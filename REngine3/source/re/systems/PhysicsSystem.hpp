@@ -35,13 +35,6 @@ namespace re
 		~PhysicsSystem() override;
 
 		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Automatically adds entitys to the system.
-		*/
-		void submit(World* world) override;
-
-		/*
 		* IMPORTS: Pointer to entity to add.
 		* EXPORTS: none
 		* PURPOSE: Add an entitys components from the system.

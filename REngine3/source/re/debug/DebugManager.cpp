@@ -13,7 +13,7 @@
 
 #include "re/services/VFS.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/systems/StateManager.hpp"
+#include "re/services/StateManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/component/SpriteComponent.hpp"
 
@@ -120,7 +120,10 @@ namespace re
 					m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 				});
 
+				// Remove stuff that isn't components
 				m_keyValuePair.erase("name");
+				m_keyValuePair.erase("systems");
+				m_keyValuePair.erase("isDead");
 
 				for (auto& it : m_keyValuePair)
 				{
