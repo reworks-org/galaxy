@@ -40,7 +40,6 @@ entity=
 		bg =
 		{
 			file = "PleasingGuns.ogg",
-			volume = 40,
 			looping = true
 		}
 	}

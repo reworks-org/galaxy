@@ -64,7 +64,7 @@ public:
         m_world.addSystem<MoveSystem>(std::make_shared<MoveSystem>());
         m_world.addSystem<PhysicsSystem>(std::make_shared<PhysicsSystem>(&m_physicsManager, m_targetUPS, 8, 3));
         m_world.addSystem<AnimationSystem>(std::make_shared<AnimationSystem>());
-        m_world.addSystem<AudioSystem>(std::make_shared<AudioSystem>(50));
+        m_world.addSystem<AudioSystem>(std::make_shared<AudioSystem>(50, 50));
         
         // set up collision listener
         m_physicsManager.m_world->SetContactListener(&m_b2dcallbacks);

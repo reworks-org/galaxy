@@ -48,7 +48,6 @@ namespace re
             
 			RE_ASSERT(m_music[kvp.first]->openFromFile(Locator::get<VFS>()->retrieve(kvp.second.get<std::string>("file"))), kvp.first + " did not load", "MusicComponent::init", "MusicComponent.cpp", 49);
             
-			m_music[kvp.first]->setVolume(kvp.second.get<float>("volume"));
 			m_music[kvp.first]->setLoop(kvp.second.get<bool>("looping"));
 
 			sol::object obj = kvp.second["spacial"];
@@ -75,7 +74,6 @@ namespace re
 		static float att = 1.0f;
 		static float dis = 1.0f;
 		static sf::Time duration = sf::Time::Zero;
-		static float volume = 0.0f;
 
 		if (originalEntityName != curEntityName)
 		{
@@ -95,7 +93,6 @@ namespace re
 
 			isLoop = m_music[musicFiles[index]]->getLoop();
 			duration = m_music[musicFiles[index]]->getDuration();
-			volume = m_music[musicFiles[index]]->getVolume();
 			pos[0] = m_music[musicFiles[index]]->getPosition().x;
 			pos[1] = m_music[musicFiles[index]]->getPosition().y;
 			pos[2] = m_music[musicFiles[index]]->getPosition().z;
@@ -117,12 +114,6 @@ namespace re
 		ImGui::Spacing();
 		std::string text = "Duration: " + std::to_string(duration.asSeconds()) + " seconds";
 		ImGui::Text(text.c_str());
-
-		ImGui::Spacing();
-		if (ImGui::SliderFloat("Volume", &volume, 0, 100, "%.2f"))
-		{
-			m_music[musicFiles[index]]->setVolume(volume);
-		}
 
 		ImGui::Spacing();
 		if (ImGui::Checkbox("Is Looping?", &isLoop))

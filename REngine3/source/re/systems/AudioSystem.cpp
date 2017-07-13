@@ -8,6 +8,7 @@
 
 #include "re/app/World.hpp"
 #include "re/entity/Entity.hpp"
+#include "re/services/ServiceLocator.hpp"
 #include "re/component/SoundComponent.hpp"
 #include "re/component/MusicComponent.hpp"
 
@@ -15,15 +16,61 @@
 
 namespace re
 {
-	AudioSystem::AudioSystem(int defaultVolume)
+	AudioSystem::AudioSystem(int defaultEffectVolume, int defaultMusicVolume)
 	{
-		m_defaultVolume = defaultVolume;
+		m_effectVolume = defaultEffectVolume;
+		m_musicVolume = defaultMusicVolume;
 		m_typeAsString = "AudioSystem";
 	}
 
 	AudioSystem::~AudioSystem()
 	{
 		m_entitys.clear();
+	}
+
+	void AudioSystem::prepareAudio()
+	{
+		for (auto& e : Locator::get<World>()->getAliveEntitys())
+		{
+			if (e.second.has<MusicComponent>())
+			{
+				auto* map = &(e.second.get<MusicComponent>()->m_music);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second->setVolume(m_musicVolume);
+				}
+			}
+
+			if (e.second.has<SoundComponent>())
+			{
+				auto* map = &(e.second.get<SoundComponent>()->m_sounds);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second.second->setVolume(m_effectVolume);
+				}
+			}
+		}
+
+		for (auto& e : Locator::get<World>()->getDeadEntitys())
+		{
+			if (e.second.has<MusicComponent>())
+			{
+				auto* map = &(e.second.get<MusicComponent>()->m_music);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second->setVolume(m_musicVolume);
+				}
+			}
+
+			if (e.second.has<SoundComponent>())
+			{
+				auto* map = &(e.second.get<SoundComponent>()->m_sounds);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second.second->setVolume(m_effectVolume);
+				}
+			}
+		}
 	}
 
 	void AudioSystem::addEntity(Entity* e)
@@ -34,6 +81,7 @@ namespace re
 		}
 
 		m_entitys.emplace(e->m_name, e);
+
 	}
 
 	void AudioSystem::removeEntity(const std::string& name)
@@ -64,8 +112,10 @@ namespace re
 		return *(m_entitys[name]->get<MusicComponent>()->m_music[music]);
 	}
 
-	void AudioSystem::setGlobalMusicVolume(float volume)
+	void AudioSystem::setMusicVolume(int newVolume)
 	{
+		m_musicVolume = newVolume;
+
 		for (auto& e : m_entitys)
 		{
 			if (e.second->has<MusicComponent>())
@@ -73,16 +123,16 @@ namespace re
 				auto* map = &(e.second->get<MusicComponent>()->m_music);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					float ov = it->second->getVolume();
-					float nv = (volume + ov) / 2.0f;
-					it->second->setVolume(nv);
+					it->second->setVolume(m_musicVolume);
 				}
 			}
 		}
 	}
 
-	void AudioSystem::setGlobalSoundVolume(float volume)
+	void AudioSystem::setEffectVolume(int newVolume)
 	{
+		m_effectVolume = newVolume;
+
 		for (auto& e : m_entitys)
 		{
 			if (e.second->has<SoundComponent>())
@@ -90,12 +140,20 @@ namespace re
 				auto* map = &(e.second->get<SoundComponent>()->m_sounds);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					float ov = it->second.second->getVolume();
-					float nv = (volume + ov) / 2.0f;
-					it->second.second->setVolume(nv);
+					it->second.second->setVolume(m_effectVolume);
 				}
 			}
 		}
+	}
+
+	int AudioSystem::getEffectVolume() const
+	{
+		return m_effectVolume;
+	}
+
+	int AudioSystem::getMusicVolume() const
+	{
+		return m_musicVolume;
 	}
 
 	void AudioSystem::stop()

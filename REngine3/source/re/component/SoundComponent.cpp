@@ -49,7 +49,6 @@ namespace re
 			RE_ASSERT(m_sounds[kvp.first].first.loadFromFile(Locator::get<VFS>()->retrieve(kvp.second.get<std::string>("file"))), kvp.first + " did not load", "SoundComponent::init", "SoundComponent.cpp", 49);
 
 			m_sounds[kvp.first].second->setBuffer(m_sounds[kvp.first].first);
-			m_sounds[kvp.first].second->setVolume(kvp.second.get<float>("volume"));
 			m_sounds[kvp.first].second->setLoop(kvp.second.get<bool>("looping"));
 
 			sol::object obj = kvp.second["spacial"];
@@ -72,7 +71,6 @@ namespace re
 		static std::string originalEntityName = curEntityName;
 		static bool isLoop = true;
 		static bool rel = true;
-		static float volume = 0.0f;
 		static float pos[] = { 0.0f, 0.0f, 0.0f };
 		static float att = 1.0f;
 		static float dis = 1.0f;
@@ -94,7 +92,6 @@ namespace re
 			}
 
 			isLoop = m_sounds[soundFiles[index]].second->getLoop();
-			volume = m_sounds[soundFiles[index]].second->getVolume();
 			pos[0] = m_sounds[soundFiles[index]].second->getPosition().x;
 			pos[1] = m_sounds[soundFiles[index]].second->getPosition().y;
 			pos[2] = m_sounds[soundFiles[index]].second->getPosition().z;
@@ -111,12 +108,6 @@ namespace re
 		if ((size_t)index >= size)
 		{
 			index = (size - 1);
-		}
-
-		ImGui::Spacing();
-		if (ImGui::SliderFloat("Volume", &volume, 0, 100, "%.2f"))
-		{
-			m_sounds[soundFiles[index]].second->setVolume(volume);
 		}
 
 		ImGui::Spacing();

@@ -24,7 +24,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Construct system
 		*/
-		AudioSystem(int defaultVolume);
+		AudioSystem(int defaultEffectVolume, int defaultMusicVolume);
 
 		/*
 		* IMPORTS: none
@@ -32,6 +32,13 @@ namespace re
 		* PURPOSE: Cleans up the system.
 		*/
 		~AudioSystem() override;
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Sets up audio entitys.
+		*/
+		void prepareAudio();
 
 		/*
 		* IMPORTS: id of entity to add and its component list.
@@ -66,14 +73,28 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Change the volume of all music.
 		*/
-		void setGlobalMusicVolume(float volume);
+		void setMusicVolume(int newVolume);
 
 		/*
 		* IMPORTS: volume (0-100).
 		* EXPORTS: none
 		* PURPOSE: Change the volume of all sounds.
 		*/
-		void setGlobalSoundVolume(float volume);
+		void setEffectVolume(int newVolume);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: volume (0-100)
+		* PURPOSE: retrieve default volume
+		*/
+		int getEffectVolume() const;
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: volume (0-100)
+		* PURPOSE: retrieve default volume
+		*/
+		int getMusicVolume() const;
 
 		/*
 		* IMPORTS: none
@@ -90,7 +111,8 @@ namespace re
 		void clean() override;
 
 	private:
-		int m_defaultVolume;
+		int m_effectVolume;
+		int m_musicVolume;
 	};
 }
 
