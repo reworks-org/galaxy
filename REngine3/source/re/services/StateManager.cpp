@@ -32,7 +32,8 @@ namespace re
 		
 		if (s != nullptr)
 		{
-			s->loadResources();
+			m_currentState = s;
+			m_currentState->loadResources();
 		}
 		else
 		{

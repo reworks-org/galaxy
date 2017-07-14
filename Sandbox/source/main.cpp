@@ -87,6 +87,7 @@ public:
         m_window.loadIcon("icon.png");
         
         // create states Load::inst()
+		m_debugManager.specifyReloadState(Load::inst());
         m_stateManager.setState(Menu::inst());
     }
 
