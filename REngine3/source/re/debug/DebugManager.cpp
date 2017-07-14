@@ -86,7 +86,7 @@ namespace re
 			if (ImGui::Button("Reload State"))
 			{
 				showScriptEditor = false;
-				Locator::get<StateManager>()->reloadState();
+				Locator::get<StateManager>()->reloadState(m_reloadState);
 			}
 
 			ImGui::Spacing();
@@ -253,5 +253,10 @@ namespace re
            
 		    ImGui::End();
         }
+	}
+
+	void DebugManager::specifyReloadState(std::shared_ptr<State> s)
+	{
+		m_reloadState = s;
 	}
 }

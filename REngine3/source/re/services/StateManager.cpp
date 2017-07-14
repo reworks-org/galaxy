@@ -25,11 +25,19 @@ namespace re
 		m_currentState->loadResources();
 	}
 
-	void StateManager::reloadState()
+	void StateManager::reloadState(std::shared_ptr<State> s)
 	{
 		m_currentState->unloadResources();
 		Locator::get<World>()->entitysHaveChanged();
-		m_currentState->loadResources();
+		
+		if (s != nullptr)
+		{
+			s->loadResources();
+		}
+		else
+		{
+			m_currentState->loadResources();
+		}
 	}
 
 	void StateManager::setState(std::shared_ptr<State> s)

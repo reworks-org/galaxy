@@ -14,6 +14,8 @@
 
 namespace re
 {
+	class State;
+
     class DebugManager : public Service
     {
     public:
@@ -66,7 +68,15 @@ namespace re
 		*/
 		void useMenu();
 
+		/*
+		* IMPORTS: state pointer to reload to.
+		* EXPORTS: none
+		* PURPOSE: Set a state to reload too.
+		*/
+		void specifyReloadState(std::shared_ptr<State> s);
+
 	private:
+		std::shared_ptr<State> m_reloadState = nullptr;
 		bool m_enabled = false;
         bool m_init = false;
         sol::state m_lua;

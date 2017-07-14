@@ -107,11 +107,11 @@ namespace re
 	    void changeState(std::shared_ptr<State> s);
 
 		/*
-		* IMPORTS: none
+		* IMPORTS: optional state to reload to.
 		* EXPORTS: none
 		* PURPOSE: reloads the current state.
 		*/
-		void reloadState();
+		void reloadState(std::shared_ptr<State> s = nullptr);
 
 		/*
 		* IMPORTS: pointer to new state

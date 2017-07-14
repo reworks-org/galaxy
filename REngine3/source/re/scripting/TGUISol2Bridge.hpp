@@ -100,16 +100,14 @@ namespace tgui
 		sol::table widget = lua.get<sol::table>("widgetLabel");
 
 		Label::Ptr label = theme->load("Label");
-		label->setAutoSize(widget.get<bool>("autoSize"));
+		label->setAutoSize(true);
 		label->setFont(re::Locator::get<re::ResourceManager<sf::Font>>()->get(widget.get<std::string>("font")));
-		label->setOpacity(widget.get<float>("opacity"));
 		label->setPosition(widget.get<int>("x"), widget.get<int>("y"));
-		label->setSize(widget.get<int>("w"), widget.get<int>("h"));
 		label->setText(widget.get<std::string>("text"));
 		label->setTextSize(widget.get<int>("fontSize"));
 
 		sol::table colour = widget.get<sol::table>("colour");
-		tgui::Color col(colour.get<sf::Uint8>("r"), colour.get<sf::Uint8>("g"), colour.get<sf::Uint8>("b"), colour.get<sf::Uint8>("opacity"));
+		tgui::Color col(colour.get<sf::Uint8>("r"), colour.get<sf::Uint8>("g"), colour.get<sf::Uint8>("b"), colour.get<sf::Uint8>("a"));
 		label->setTextColor(col);
 
 		// left is 0, center is 1, right is 2.

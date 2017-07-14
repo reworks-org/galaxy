@@ -2,7 +2,6 @@ widgetLabel =
 {
 	autoSize = true,
 	font = "GameOver",
-	opacity = 1,
 	x = 555,
 	y = 10,
 	w = 100,
