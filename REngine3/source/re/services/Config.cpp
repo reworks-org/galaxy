@@ -12,42 +12,45 @@
 #include <streambuf>
 
 #include "re/utility/Log.hpp"
+#include "re/utility/Utils.hpp"
 
 #include "Config.hpp"
 
 namespace re
 {
-	void ConfigReader::writeTableToFile(const std::string& tableName)
+	void ConfigReader::writeConfigToFile()
 	{
-		// Get a table with the components.
-		sol::table config = m_lua.get<sol::table>(tableName);
-
 		// Get key-value pairs from table
 		std::map<std::string, std::string> m_keyValuePair;
-		config.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+		m_lua.for_each([&](std::pair<sol::object, sol::object> pair) 
+		{
+			if (pair.second.is<bool>())
+			{
+				m_keyValuePair.insert({ pair.first.as<std::string>(),  Utils::boolToStr(pair.second.as<bool>())});
+			}
+			else
+			{
+				m_keyValuePair.insert({ pair.first.as<std::string>(),  pair.second.as<std::string>() });
+			}
 		});
+
+		printf("a\n");
 
 		std::ofstream out;
 		out.open(m_fullPath);
 
-		out << tableName << " = " << std::endl;
-		out << "{" << std::endl;
+		printf("b\n");
 
-		for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end();)
+		for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end(); ++iter)
 		{
-			if (++iter == m_keyValuePair.end())
-			{
-				out << "    " << iter->first << " = " << iter->second << std::endl;
-			}
-			else
-			{
-				out << "    " << iter->first << " = " << iter->second << "," << std::endl;
-			}
+			out << iter->first << " = " << iter->second << std::endl;
 		}
 
-		out << "}" << std::endl;
+		printf("c\n");
+
 		out.close();
+
+		printf("d\n");
 	}
 
 	void ConfigReader::setPath(const std::string& path)
@@ -77,7 +80,7 @@ namespace re
 		{
 			cf.close();
 
-			RE_LOG(LogLevel::WARNING, "Failed to load config file! Creating one...", "ConfigReader::parse", "Config.cpp", 40);
+			RE_LOG(LogLevel::WARNING, "Failed to load config file! Creating one...", "ConfigReader::parse", "Config.cpp", 73);
 
 			std::ofstream newFile;
 			newFile.open(m_fullPath);
@@ -99,7 +102,7 @@ namespace re
 			}
 			else
 			{
-				RE_LOG(LogLevel::FATAL, "Failed to create config file", "ConfigReader::parse", "Config.cpp", 62);
+				RE_LOG(LogLevel::FATAL, "Failed to create config file", "ConfigReader::parse", "Config.cpp", 95);
 				success = false;
 			}
 
@@ -111,23 +114,20 @@ namespace re
 
 	void ConfigReader::createEmptyConfig(std::ofstream& newFile)
 	{
-		newFile << "config =" << std::endl;
-		newFile << "{" << std::endl;
-		newFile << "    appTitle = \"Default\"," << std::endl;
-		newFile << "    assetPath = \"bin/assets/\"," << std::endl;
-		newFile << "    ups = 60.0," << std::endl;
-		newFile << "    versionMajor = 1," << std::endl;
-		newFile << "    versionMinor = 0," << std::endl;
-		newFile << "    versionPatch = 0," << std::endl;
-		newFile << "    screenWidth = 640," << std::endl;
-		newFile << "    screenHeight = 480," << std::endl;
-		newFile << "    renderingLayers = 2," << std::endl;
-		newFile << "    framerateLimit = 0," << std::endl;
-		newFile << "    keyRepeat = true," << std::endl;
-		newFile << "    cursorVisible = true," << std::endl;
-		newFile << "    vsyncEnabled = false," << std::endl;
-		newFile << "    saveLog = false," << std::endl;
-		newFile << "    enableDebug = false" << std::endl;
-		newFile << "}" << std::endl;
+		newFile << "appTitle = \"Default\"" << std::endl;
+		newFile << "assetPath = \"bin/assets/\"" << std::endl;
+		newFile << "ups = 60.0" << std::endl;
+		newFile << "versionMajor = 1" << std::endl;
+		newFile << "versionMinor = 0" << std::endl;
+		newFile << "versionPatch = 0" << std::endl;
+		newFile << "screenWidth = 640" << std::endl;
+		newFile << "screenHeight = 480" << std::endl;
+		newFile << "renderingLayers = 2" << std::endl;
+		newFile << "framerateLimit = 0" << std::endl;
+		newFile << "keyRepeat = true" << std::endl;
+		newFile << "cursorVisible = true" << std::endl;
+		newFile << "vsyncEnabled = false" << std::endl;
+		newFile << "saveLog = false" << std::endl;
+		newFile << "enableDebug = false" << std::endl;
 	}
 }

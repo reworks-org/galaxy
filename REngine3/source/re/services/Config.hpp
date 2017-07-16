@@ -44,7 +44,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: write internal sol::state table to the config file.
 		*/
-		void writeTableToFile(const std::string& tableName);
+		void writeConfigToFile();
 
 		/*
 		* IMPORTS: configValue - The name of the value to retrieve from the lua table in the config file.
@@ -65,17 +65,14 @@ namespace re
 
 	template<typename T>
 	T ConfigReader::lookup(const std::string& configValue)
-	{
-		// Cast and return value retrieved from table.
-		sol::table configTable = m_lua["config"];        
-		return configTable.get<T>(configValue);
+	{  
+		return m_lua.get<T>(configValue);
 	}
 
 	template<typename T>
-	void changeValue(const std::string& name, T value)
+	void ConfigReader::changeValue(const std::string& name, T value)
 	{
-		sol::table configTable = m_lua["config"];
-
+		m_lua.set(name,value);
 	}
 }
 
