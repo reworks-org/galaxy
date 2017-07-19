@@ -45,6 +45,13 @@ namespace re
 		void init();
 
 		/*
+		* IMPORTS: entityScript - script file of an entity
+		* EXPORTS: none
+		* PURPOSE: To create a new entity and add it to the world.
+		*/
+		void registerEntity(const std::string& entityName, const std::string& entityScript);
+
+		/*
 		* IMPORTS: worldEntityScript - script file containing all the entitys to mass register.
 		* EXPORTS: none
 		* PURPOSE: To create new entitys and add them to the world.
@@ -52,11 +59,18 @@ namespace re
 		void registerEntitys(const std::string& worldEntityScript);
 
 		/*
-		* IMPORTS: entityScript - script file of an entity
+		* IMPORTS: preloadEntitysScript - script file containing all the entitys to mass preload.
 		* EXPORTS: none
-		* PURPOSE: To create a new entity and add it to the world.
+		* PURPOSE: To create entitys that are delayed from being put into the systems, but already have their components loaded.
 		*/
-		void registerEntity(const std::string& entityName, const std::string& entityScript);
+		void preloadEntitys(const std::string& preloadEntitysScript);
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Moves loaded entitys to alive/dead storage.
+		*/
+		void activatePreloadedEntitys();
 
 		/*
 		* IMPORTS: name of an entity to get
@@ -173,6 +187,7 @@ namespace re
 	private:
 		EntityList m_dead;
 		EntityList m_alive;
+		EntityList m_loaded;
 		SystemList m_systems;
 		ComponentHolder m_components;
 		ComponentFactory m_componentFactory;

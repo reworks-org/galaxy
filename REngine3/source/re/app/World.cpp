@@ -49,6 +49,19 @@ namespace re
 		registerComponent<AnimationComponent>("AnimationComponent");
 	}
 
+	void World::registerEntity(const std::string& entityName, const std::string& entityScript)
+	{
+		m_alive.emplace(entityName, Entity());
+		m_alive[entityName].init(entityScript, m_components);
+
+		m_loadedEntityScripts.push_back(entityScript);
+
+		emplaceEntitysInSystems();
+
+		m_entitysHaveChanged = true;
+		update(sf::Time::Zero);
+	}
+
 	void World::registerEntitys(const std::string& worldEntityScript)
 	{
 		sol::state lua;
@@ -62,7 +75,7 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
 		});
 
-		RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 64);
+		RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 78);
 
 		for (auto& it : m_keyValuePair)
 		{
@@ -78,17 +91,44 @@ namespace re
 		update(sf::Time::Zero);
 	}
 
-	void World::registerEntity(const std::string& entityName, const std::string& entityScript)
+	void World::preloadEntitys(const std::string& preloadEntitysScript)
 	{
-		m_alive.emplace(entityName, Entity());
-		m_alive[entityName].init(entityScript, m_components);
+		sol::state lua;
+		lua.script_file(Locator::get<VFS>()->retrieve(preloadEntitysScript));
+		sol::table world = lua.get<sol::table>("world");
+		sol::table entitylist = world.get<sol::table>("entitys");
 
-		m_loadedEntityScripts.push_back(entityScript);
+		// Get key-value pairs from table
+		std::map <std::string, std::string> m_keyValuePair;
+		entitylist.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+		});
+
+		RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to register an empty entity script", "World::preloadEntitys", "World.cpp", 107);
+
+		for (auto& it : m_keyValuePair)
+		{
+			m_loaded.emplace(it.first, Entity());
+			m_loaded[it.first].init(it.second, m_components);
+
+			m_loadedEntityScripts.push_back(it.second);
+		}
+	}
+
+	void World::activatePreloadedEntitys()
+	{
+		for (auto it = m_loaded.begin(); it != m_alive.end();)
+		{
+			m_alive.insert(std::make_pair(it->second.m_name, std::move(it->second)));
+			m_loaded.erase(it++);
+		}
 
 		emplaceEntitysInSystems();
 
 		m_entitysHaveChanged = true;
 		update(sf::Time::Zero);
+
+		m_loaded.clear();
 	}
 
 	Entity& World::getEntity(const std::string& name)
@@ -103,7 +143,7 @@ namespace re
 		{
 			auto it = m_dead.find(name);
 
-			RE_REVERSE_ASSERT_COMPARE(it, m_dead.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 85);
+			RE_REVERSE_ASSERT_COMPARE(it, m_dead.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 130);
 
 			return m_dead[name];
 		}
