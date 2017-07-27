@@ -32,14 +32,21 @@ namespace re
 	{
 	}
 
-	void Window::make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style)
+	void Window::make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style, bool fullscreen)
 	{
 		m_screenWidth = screenwidth;
 		m_screenHeight = screenheight;
 		m_title = title;
 		m_style = style;
 
-		create(sf::VideoMode(screenwidth, screenheight), title, style);
+		if (fullscreen)
+		{
+			create(sf::VideoMode(screenwidth, screenheight), title, style | sf::Style::Fullscreen);
+		}
+		else
+		{
+			create(sf::VideoMode(screenwidth, screenheight), title, style);
+		}
 	}
 
 	void Window::goFullscreen(bool value)

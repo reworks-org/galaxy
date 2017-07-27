@@ -45,8 +45,9 @@ namespace re
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: This is an alternative to create() in renderwindow. This still calls that function, but also preserves the values passed to the function.
+		* NOTE: DO NOT USE sf::Style::Fullscreen. Instead, pass the boolean.
 		*/
-		void make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style);
+		void make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style, bool fullscreen);
 
 		/*
 		* IMPORTS: boolean - true is fullscreen.
