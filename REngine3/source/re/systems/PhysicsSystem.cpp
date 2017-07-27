@@ -69,26 +69,6 @@ namespace re
 			transf->setPosition((float)b2::metersToPixels<double>(phys->m_body->GetPosition().x), (float)b2::metersToPixels<double>(phys->m_body->GetPosition().y));
 			transf->setRotation((float)b2::radToDeg<double>(phys->m_body->GetAngle()));
 
-			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == false) && (phys->m_isMovingVertically == true)))
-			{
-				e.second->get<AnimationComponent>()->pause();
-			}
-
-			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == true) && (phys->m_isMovingVertically == true)))
-			{
-				e.second->get<AnimationComponent>()->pause();
-			}
-
-			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == false) && (phys->m_isMovingVertically == false)))
-			{
-				e.second->get<AnimationComponent>()->pause();
-			}
-
-			if (e.second->has<AnimationComponent>() && ((phys->m_isMovingHorizontally == true) && (phys->m_isMovingVertically == false)))
-			{
-				e.second->get<AnimationComponent>()->play();
-			}
-
 			if (phys->m_body->GetLinearVelocity().x < 0.2f)
 			{
 				phys->m_isMovingHorizontally = false;

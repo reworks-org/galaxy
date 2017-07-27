@@ -47,7 +47,7 @@ Menu::~Menu()
 {
 }
 
-void Menu::loadResources()
+void Menu::load()
 {
 	m_window = Locator::get<Window>();
 	m_world = Locator::get<World>();
@@ -86,7 +86,7 @@ void Menu::loadResources()
 	m_minimap.zoom(1.5f);
 }
 
-void Menu::unloadResources()
+void Menu::unload()
 {
 	m_gui.removeAllWidgets();
 
@@ -181,4 +181,8 @@ void Menu::render()
 	m_world->getSystem<RenderSystem>()->render(m_window);
 
 	m_gui.draw();
+}
+
+void Menu::clean()
+{
 }

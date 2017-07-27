@@ -32,7 +32,7 @@ Load::~Load()
 {
 }
 
-void Load::loadResources()
+void Load::load()
 {
 	m_window = Locator::get<Window>();
 	m_world = Locator::get<World>();
@@ -42,7 +42,7 @@ void Load::loadResources()
 	m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
 }
 
-void Load::unloadResources()
+void Load::unload()
 {
 	m_world->getSystem<RenderSystem>()->clean();
 	m_world->clean();
@@ -92,4 +92,8 @@ void Load::update(sf::Time dt)
 void Load::render()
 {
 	m_world->getSystem<RenderSystem>()->render(m_window);
+}
+
+void Load::clean()
+{
 }

@@ -28,14 +28,14 @@ public:
 	* EXPORTS: none
 	* PURPOSE: Load the states resources.
 	*/
-	void loadResources() override;
+	void load() override;
 
 	/*
 	* IMPORTS: none
 	* EXPORTS: none
 	* PURPOSE: Unload the states resources.
 	*/
-	void unloadResources() override;
+	void unload() override;
 
 	/*
 	* IMPORTS: none
@@ -64,6 +64,13 @@ public:
 	* PURPOSE: Render state.
 	*/
 	void render() override;
+
+	/*
+	* IMPORTS: none
+	* EXPORTS: none
+	* PURPOSE: Clean up the state when your done with it.
+	*/
+	void clean() override;
 
 private:
 	static std::shared_ptr<re::State> m_loadState;

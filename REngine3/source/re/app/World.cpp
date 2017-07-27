@@ -31,6 +31,7 @@ namespace re
 	{
 		m_dead.clear();
 		m_alive.clear();
+		m_loaded.clear();
 		m_systems.clear();
 		m_components.clear();
 		m_componentFactory.clear();
@@ -231,7 +232,20 @@ namespace re
 	{
 		m_dead.clear();
 		m_alive.clear();
-		m_components.clear();
+		
+
+		// remove alive and dead components, but not preloaded. they are cleared at the end.
+		for (auto& it : m_alive)
+		{
+			m_components.erase(it.second.m_name);
+		}
+
+		for (auto& it : m_dead)
+		{
+			m_components.erase(it.second.m_name);
+		}
+
+
         m_loadedEntityScripts.clear();
 	}
 

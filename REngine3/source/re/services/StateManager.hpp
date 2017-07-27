@@ -49,14 +49,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Load the states resources.
 		*/
-	    virtual void loadResources() = 0;
+	    virtual void load() = 0;
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Unload the states resources.
 		*/
-	    virtual void unloadResources() = 0;
+	    virtual void unload() = 0;
 	    
 		/*
 		* IMPORTS: none
@@ -86,11 +86,19 @@ namespace re
 		*/
 	    virtual void render() = 0;
 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean up the state when your done with it.
+		*/
+		virtual void clean() = 0;
+
 	protected:
 		// Services
 		Window* m_window;
 		World* m_world;
 		VFS* m_vfs;
+		StateManager* m_stateManager;
 		ResourceManager<sf::Font>* m_fontManager;
 		ResourceManager<sf::Shader>* m_shaderManager;
 		ResourceManager<sf::Texture>* m_spriteSheetManager;
@@ -102,14 +110,14 @@ namespace re
 		/*
 		* IMPORTS: pointer to new state
 		* EXPORTS: none
-		* PURPOSE: Change the current state. This unloads and reloads resources.
+		* PURPOSE: Change the current state. Calls unload then load(), but NOT clean()!
 		*/
 	    void changeState(std::shared_ptr<State> s);
 
 		/*
 		* IMPORTS: optional state to reload to.
 		* EXPORTS: none
-		* PURPOSE: reloads the current state.
+		* PURPOSE: reloads the current state. Calls unload() and clean()
 		*/
 		void reloadState(std::shared_ptr<State> s = nullptr);
 
@@ -153,14 +161,21 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Load the states resources.
 		*/
-	    void loadResources();
+	    void load();
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Unload the states resources.
 		*/
-	    void unloadResources();
+	    void unload();
+
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Clean up the state when your done with it.
+		*/
+		void clean();
 			    
 	private:
 	    std::shared_ptr<State> m_currentState;

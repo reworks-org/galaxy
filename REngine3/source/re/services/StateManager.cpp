@@ -19,25 +19,27 @@ namespace re
 
 	void StateManager::changeState(std::shared_ptr<State> s)
 	{
-	    m_currentState->unloadResources();
+	    m_currentState->unload();
 		m_currentState = s;
         Locator::get<World>()->entitysHaveChanged();
-		m_currentState->loadResources();
+		m_currentState->load();
 	}
 
 	void StateManager::reloadState(std::shared_ptr<State> s)
 	{
-		m_currentState->unloadResources();
+		m_currentState->unload();
+		m_currentState->clean();
+
 		Locator::get<World>()->entitysHaveChanged();
 		
 		if (s != nullptr)
 		{
 			m_currentState = s;
-			m_currentState->loadResources();
+			m_currentState->load();
 		}
 		else
 		{
-			m_currentState->loadResources();
+			m_currentState->load();
 		}
 	}
 
@@ -66,13 +68,18 @@ namespace re
 		m_currentState->render();
 	}
 
-	void StateManager::loadResources()
+	void StateManager::load()
 	{
-		m_currentState->loadResources();
+		m_currentState->load();
 	}
 
-	void StateManager::unloadResources()
+	void StateManager::unload()
 	{
-		m_currentState->unloadResources();
+		m_currentState->unload();
+	}
+
+	void StateManager::clean()
+	{
+		m_currentState->clean();
 	}
 }

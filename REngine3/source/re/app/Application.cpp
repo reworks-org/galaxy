@@ -36,7 +36,7 @@ namespace re
 		sf::Time timeSinceLastUpdate = sf::Time::Zero;
 		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
 
-		m_stateManager.loadResources();
+		m_stateManager.load();
 		m_debugManager.init(m_window, m_enableDebug);
 
 		while (m_window.isOpen())
@@ -97,7 +97,8 @@ namespace re
 			}
 		}
 
-		m_stateManager.unloadResources();
+		m_stateManager.unload();
+		m_stateManager.clean();
 
 		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 78);
 		RE_LOG_SAVE(m_saveLog);
