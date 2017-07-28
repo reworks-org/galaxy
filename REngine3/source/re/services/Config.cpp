@@ -34,23 +34,15 @@ namespace re
 			}
 		});
 
-		printf("a\n");
-
 		std::ofstream out;
 		out.open(m_fullPath);
-
-		printf("b\n");
 
 		for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end(); ++iter)
 		{
 			out << iter->first << " = " << iter->second << std::endl;
 		}
 
-		printf("c\n");
-
 		out.close();
-
-		printf("d\n");
 	}
 
 	void ConfigReader::setPath(const std::string& path)
