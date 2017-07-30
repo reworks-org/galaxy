@@ -69,14 +69,16 @@ namespace re
 		void useMenu();
 
 		/*
-		* IMPORTS: state pointer to reload to.
+		* IMPORTS: state pointer to reload to, and a function to cleanup anything that normally isnt cleaned up at that time.
 		* EXPORTS: none
 		* PURPOSE: Set a state to reload too.
+		* NOTE: func() is called first when reloading.
 		*/
-		void specifyReloadState(std::shared_ptr<State> s);
+		void specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func);
 
 	private:
 		std::shared_ptr<State> m_reloadState = nullptr;
+		std::function<void(void)> m_reloadFunc;
 		bool m_enabled = false;
         bool m_init = false;
         sol::state m_lua;

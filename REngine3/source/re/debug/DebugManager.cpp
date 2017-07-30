@@ -86,6 +86,7 @@ namespace re
 			if (ImGui::Button("Reload State"))
 			{
 				showScriptEditor = false;
+				m_reloadFunc();
 				Locator::get<StateManager>()->reloadState(m_reloadState);
 			}
 
@@ -255,8 +256,9 @@ namespace re
         }
 	}
 
-	void DebugManager::specifyReloadState(std::shared_ptr<State> s)
+	void DebugManager::specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func)
 	{
 		m_reloadState = s;
+		m_reloadFunc = func;
 	}
 }

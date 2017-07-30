@@ -28,7 +28,6 @@ namespace re
 	void StateManager::reloadState(std::shared_ptr<State> s)
 	{
 		m_currentState->unload();
-		m_currentState->clean();
 
 		Locator::get<World>()->entitysHaveChanged();
 		
@@ -76,10 +75,5 @@ namespace re
 	void StateManager::unload()
 	{
 		m_currentState->unload();
-	}
-
-	void StateManager::clean()
-	{
-		m_currentState->clean();
 	}
 }

@@ -86,13 +86,6 @@ namespace re
 		*/
 	    virtual void render() = 0;
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up the state when your done with it.
-		*/
-		virtual void clean() = 0;
-
 	protected:
 		// Services
 		Window* m_window;
@@ -102,6 +95,9 @@ namespace re
 		ResourceManager<sf::Font>* m_fontManager;
 		ResourceManager<sf::Shader>* m_shaderManager;
 		ResourceManager<sf::Texture>* m_spriteSheetManager;
+
+		// Allows for loading stuff only once in load()
+		bool m_doneOnce = false;
 	};
 
 	class StateManager : public Service
@@ -169,13 +165,6 @@ namespace re
 		* PURPOSE: Unload the states resources.
 		*/
 	    void unload();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up the state when your done with it.
-		*/
-		void clean();
 			    
 	private:
 	    std::shared_ptr<State> m_currentState;

@@ -87,9 +87,20 @@ namespace re
 	void AudioSystem::removeEntity(const std::string& name)
 	{
 		auto found = m_entitys.find(name);
-
+		
 		if (found != m_entitys.end())
 		{
+			Entity* e = m_entitys[name];
+
+			if (e->has<MusicComponent>())
+			{
+				auto* map = &(e->get<MusicComponent>()->m_music);
+				for (auto it = map->begin(); it != map->end(); it++)
+				{
+					it->second->stop();
+				}
+			}
+			
 			m_entitys.erase(name);
 		}
 	}

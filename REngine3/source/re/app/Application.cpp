@@ -98,7 +98,6 @@ namespace re
 		}
 
 		m_stateManager.unload();
-		m_stateManager.clean();
 
 		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 78);
 		RE_LOG_SAVE(m_saveLog);
