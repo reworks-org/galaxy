@@ -123,7 +123,7 @@ namespace re
 			fontinput.resize(255);
         }
       
-		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
+		ImGui::Text("%s", std::string("Group: " + std::to_string(m_group)).c_str());
 
 		ImGui::Spacing();
 		if (ImGui::InputText("Font Picker", fontinput.data(), fontinput.size(), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))

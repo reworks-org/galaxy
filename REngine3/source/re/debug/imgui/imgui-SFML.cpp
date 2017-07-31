@@ -13,6 +13,12 @@
 #include <cstddef> // offsetof, NULL
 #include <cassert>
 
+#ifndef _WIN32
+#include <cstdlib> //fixes some bugs with libc++ not having fully c++11 compliant functions.
+#include <cmath>
+#include <stdlib.h>
+#endif
+
 // Supress warnings caused by converting from uint to void* in pCmd->TextureID
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Wint-to-void-pointer-cast" // warning : cast to 'void *' from smaller integer type 'int'

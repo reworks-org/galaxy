@@ -113,7 +113,7 @@ namespace re
 
 		ImGui::Spacing();
 		std::string text = "Duration: " + std::to_string(duration.asSeconds()) + " seconds";
-		ImGui::Text(text.c_str());
+		ImGui::Text("%s", text.c_str());
 
 		ImGui::Spacing();
 		if (ImGui::Checkbox("Is Looping?", &isLoop))

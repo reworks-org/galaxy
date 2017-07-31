@@ -43,7 +43,7 @@ namespace re
 			{
 				return true;
 			}
-			else if (str == "false")
+			else
 			{
 				return false;
 			}

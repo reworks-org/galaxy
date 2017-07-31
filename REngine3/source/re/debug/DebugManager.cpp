@@ -212,7 +212,7 @@ namespace re
 				}
 
 				ImGui::Spacing();
-                ImGui::Text(std::string("Name: " + curEntity->m_name).c_str());
+                ImGui::Text("%s", std::string("Name: " + curEntity->m_name).c_str());
 
 				ImGui::Spacing();
 				std::string stateButtonText = "Kill Entity";

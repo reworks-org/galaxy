@@ -79,7 +79,7 @@ namespace re
 
 	void SpriteComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		ImGui::Text(std::string("Group: " + std::to_string(m_group)).c_str());
+		ImGui::Text("%s", std::string("Group: " + std::to_string(m_group)).c_str());
 
 		static std::string texture = table.get<std::string>("texture");
 		static std::vector<char> buff(texture.begin(), texture.end());

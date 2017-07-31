@@ -15,6 +15,7 @@
 
 #include "re/services/vfs.hpp"
 #include "re/types/Service.hpp"
+#include "re/services/ServiceLocator.hpp"
 
 namespace re
 {
