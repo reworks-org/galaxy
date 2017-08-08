@@ -71,7 +71,7 @@ namespace re
                 // Display the debug manager
                 m_debugManager.useMenu();
                 
-				updates++;
+					updates++;
             }
             
 			// Render

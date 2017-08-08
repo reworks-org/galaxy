@@ -196,6 +196,7 @@ namespace re
         
     public:
         std::vector<std::string> m_loadedEntityScripts;
+		std::vector<std::string> m_preloadedEntityScripts;
         std::unordered_map<std::string, std::type_index> m_stringToComponentType;
 	};
 

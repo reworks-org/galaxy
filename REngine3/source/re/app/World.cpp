@@ -36,6 +36,7 @@ namespace re
 		m_components.clear();
 		m_componentFactory.clear();
 		m_loadedEntityScripts.clear();
+		m_preloadedEntityScripts.clear();
 	}
 
 	void World::init()
@@ -112,13 +113,13 @@ namespace re
 			m_loaded.emplace(it.first, Entity());
 			m_loaded[it.first].init(it.second, m_components);
 
-			m_loadedEntityScripts.push_back(it.second);
+			m_preloadedEntityScripts.push_back(it.second);
 		}
 	}
 
 	void World::activatePreloadedEntitys()
 	{
-		for (auto it = m_loaded.begin(); it != m_alive.end();)
+		for (auto it = m_loaded.begin(); it != m_loaded.end();)
 		{
 			m_alive.insert(std::make_pair(it->second.m_name, std::move(it->second)));
 			m_loaded.erase(it++);
@@ -130,6 +131,13 @@ namespace re
 		update(sf::Time::Zero);
 
 		m_loaded.clear();
+		
+		for (auto& v : m_preloadedEntityScripts)
+		{
+			m_loadedEntityScripts.push_back(v);
+		}
+
+		m_preloadedEntityScripts.clear();
 	}
 
 	Entity& World::getEntity(const std::string& name)
@@ -232,7 +240,6 @@ namespace re
 	{
 		m_dead.clear();
 		m_alive.clear();
-		
 
 		// remove alive and dead components, but not preloaded. they are cleared at the end.
 		for (auto& it : m_alive)
@@ -245,8 +252,7 @@ namespace re
 			m_components.erase(it.second.m_name);
 		}
 
-
-        m_loadedEntityScripts.clear();
+		m_loadedEntityScripts.clear();
 	}
 
 	ComponentFactory& World::getComponentFactory()

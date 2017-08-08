@@ -1,3 +1,6 @@
 v1.0:
 
 - bug fixes
+- remove box2d, completely redo physics system
+- impletment observer pattern for collisions (listerner model)
+- use tinyheaderes!
