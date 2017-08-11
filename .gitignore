@@ -16,5 +16,5 @@ REngine3/bin/
 REngine3/build/
 libs/tgui/lib/tgui-s-d.lib
 
-# Personal testing sandbox
-Sandbox/
+Sandbox/build/
+Sandbox/*.ini
