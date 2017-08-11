@@ -18,7 +18,7 @@ public:
     QuadTree& operator=(QuadTree&& qTree) = delete;         //TO DO
     void clear();
     void insert(const std::shared_ptr<Entity>& entity);
-    std::vector<std::weak_ptr<Entity>> retrievePossibleCollisions(std::shared_ptr<Entity>& entity);
+    std::vector<Entity*> retrievePossibleCollisions(std::shared_ptr<Entity>& entity);
     //For testing only
     void preOrderTraversal();
 private:
@@ -36,8 +36,8 @@ private:
     std::vector<std::shared_ptr<QuadTree>> nodes;
     std::vector<std::shared_ptr<PhysicsComponent>> m_components;
     sf::Rect<float> boundingBox;
-    std::vector<std::weak_ptr<Entity>>& retrieve(std::vector<std::weak_ptr<Entity>>& entities,
-                                                 const std::weak_ptr<Entity>& entity);
+    std::vector<Entity*>& retrieve(std::vector<Entity*>& entities,
+                                                 const Entity*& entity);
     bool hasChildren();
     void split();
     int getIndex(Rectangle& rect);

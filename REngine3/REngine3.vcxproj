@@ -41,6 +41,7 @@
     <ClCompile Include="source\re\graphics\sw\Line.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
+    <ClCompile Include="source\re\physics\QuadTree.cpp" />
     <ClCompile Include="source\re\physics\tinyc2.cpp" />
     <ClCompile Include="source\re\scripting\lua\lapi.c" />
     <ClCompile Include="source\re\scripting\lua\lauxlib.c" />
@@ -116,6 +117,7 @@
     <ClInclude Include="source\re\graphics\sw\Line.hpp" />
     <ClInclude Include="source\re\graphics\sw\Starfield.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
+    <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\physics\tinyc2.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />

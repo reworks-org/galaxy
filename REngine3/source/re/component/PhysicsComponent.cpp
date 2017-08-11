@@ -10,8 +10,6 @@
 #include "re/scripting/lua/lua.hpp"
 
 #include "re/debug/imgui/imgui-SFML.h"
-#include "re/physics/Box2DManager.hpp"
-#include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "PhysicsComponent.hpp"

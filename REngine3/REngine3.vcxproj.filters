@@ -69,6 +69,7 @@
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\services\StateManager.cpp" />
     <ClCompile Include="source\re\physics\tinyc2.cpp" />
+    <ClCompile Include="source\re\physics\QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\app\Application.hpp" />
@@ -149,5 +150,6 @@
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\services\StateManager.hpp" />
     <ClInclude Include="source\re\physics\tinyc2.hpp" />
+    <ClInclude Include="source\re\physics\QuadTree.hpp" />
   </ItemGroup>
 </Project>
