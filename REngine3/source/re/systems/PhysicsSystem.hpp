@@ -10,7 +10,6 @@
 #define RENGINE3_PHYSICSSYSTEM_HPP_
 
 #include "re/types/System.hpp"
-#include "re/physics/QuadTree.hpp"
 #include "re/physics/Box2DManager.hpp"
 
 namespace re
@@ -64,7 +63,12 @@ namespace re
 		void clean() override;
 
 	private:
-		QuadTree m_tree;
+		float m_ups;
+		int32 m_velocityIterations;
+		int32 m_positionIterations;
+
+		Box2DManager* m_manager;
+		std::vector<b2Body*> m_mapCollisions;
 	};
 }
 
