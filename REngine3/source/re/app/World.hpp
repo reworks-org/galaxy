@@ -108,6 +108,13 @@ namespace re
 		void clean();
 
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Cleans the preloaded entitys from world.
+		*/
+		void cleanPreloaded();
+
+		/*
 		* IMPORTS: type of component and name of component to register.
 		REMEMBER TO USE 'new' and the correct system type!
 		* EXPORTS: none
@@ -187,7 +194,7 @@ namespace re
 	private:
 		EntityList m_dead;
 		EntityList m_alive;
-		EntityList m_loaded;
+		EntityList m_preloaded;
 		SystemList m_systems;
 		ComponentHolder m_components;
 		ComponentFactory m_componentFactory;

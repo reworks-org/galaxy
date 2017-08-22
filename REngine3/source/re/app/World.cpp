@@ -31,7 +31,7 @@ namespace re
 	{
 		m_dead.clear();
 		m_alive.clear();
-		m_loaded.clear();
+		m_preloaded.clear();
 		m_systems.clear();
 		m_components.clear();
 		m_componentFactory.clear();
@@ -110,8 +110,8 @@ namespace re
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_loaded.emplace(it.first, Entity());
-			m_loaded[it.first].init(it.second, m_components);
+			m_preloaded.emplace(it.first, Entity());
+			m_preloaded[it.first].init(it.second, m_components);
 
 			m_preloadedEntityScripts.push_back(it.second);
 		}
@@ -119,10 +119,10 @@ namespace re
 
 	void World::activatePreloadedEntitys()
 	{
-		for (auto it = m_loaded.begin(); it != m_loaded.end();)
+		for (auto it = m_preloaded.begin(); it != m_preloaded.end();)
 		{
 			m_alive.insert(std::make_pair(it->second.m_name, std::move(it->second)));
-			m_loaded.erase(it++);
+			m_preloaded.erase(it++);
 		}
 
 		emplaceEntitysInSystems();
@@ -130,7 +130,7 @@ namespace re
 		m_entitysHaveChanged = true;
 		update(sf::Time::Zero);
 
-		m_loaded.clear();
+		m_preloaded.clear();
 		
 		for (auto& v : m_preloadedEntityScripts)
 		{
@@ -252,6 +252,18 @@ namespace re
 		m_dead.clear();
 		m_alive.clear();
 		m_loadedEntityScripts.clear();
+	}
+
+	void World::cleanPreloaded()
+	{
+		for (auto& it : m_preloaded)
+		{
+			m_components.erase(it.second.m_name);
+		}
+
+		m_preloaded.clear();
+		m_preloadedEntityScripts.clear();
+		
 	}
 
 	ComponentFactory& World::getComponentFactory()
