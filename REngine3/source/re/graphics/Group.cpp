@@ -18,7 +18,7 @@ namespace re
 		m_drawable.clear();
 	}
 
-	void Group::addDrawable(const std::string& name, std::shared_ptr<sf::Drawable> drawable, std::shared_ptr<sf::Transformable> transformable)
+	void Group::addDrawable(const std::string& name, sf::Drawable* drawable, sf::Transformable* transformable)
 	{
 		auto it = m_drawable.find(name);
 		if (it != m_drawable.end())

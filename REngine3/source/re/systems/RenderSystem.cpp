@@ -65,7 +65,7 @@ namespace re
 		}
 	}
 
-	void RenderSystem::addGenericDrawable(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> d, std::shared_ptr<sf::Transformable> t)
+	void RenderSystem::addGenericDrawable(Entity* e, sf::Uint32 group, sf::Drawable* d, sf::Transformable* t)
 	{
 		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
 		{

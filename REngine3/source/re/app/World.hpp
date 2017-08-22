@@ -22,8 +22,8 @@ namespace sf
 namespace re
 {
 	typedef std::map<std::string, Entity> EntityList;
-	typedef std::unordered_map<std::type_index, std::pair<std::string, std::shared_ptr<System>>> SystemList;
-	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>> ComponentFactory;
+	typedef std::unordered_map<std::type_index, std::pair<std::string, std::unique_ptr<System>>> SystemList;
+	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::unique_ptr<Component>()>>> ComponentFactory;
 
 	class World : public Service
 	{
@@ -123,7 +123,7 @@ namespace re
 		* PURPOSE: To create a system that operates on the entities and add it to the world. You can only have one of each system.
 		*/
 		template<typename T>
-		void addSystem(std::shared_ptr<System> system);
+		void addSystem(std::unique_ptr<System> system);
 
 		/*
 		* IMPORTS: template - use the type of system to retrieve that system.
@@ -131,7 +131,7 @@ namespace re
 		* PURPOSE: To retrieve a system from the world.
 		*/
 		template<typename T>
-		std::shared_ptr<T> getSystem();
+		T* getSystem();
 
 		/*
 		* IMPORTS: none
@@ -175,7 +175,7 @@ namespace re
 		* PURPOSE: To make a component of a particular type. Used by register component.
 		*/
 		template<typename T>
-		std::shared_ptr<Component> makeComponent();
+		std::unique_ptr<Component> makeComponent();
 
 		/*
 		* IMPORTS: none
@@ -201,7 +201,7 @@ namespace re
 	};
 
 	template<typename T>
-	void World::addSystem(std::shared_ptr<System> system)
+	void World::addSystem(std::unique_ptr<System> system)
 	{
         if(m_systems.find(std::type_index(typeid(T))) != m_systems.end())
         {
@@ -209,31 +209,31 @@ namespace re
         }
         else
         {
-            m_systems[typeid(T)] = std::make_pair(system->getTypeAsString(), system);
+            m_systems[typeid(T)] = std::make_pair(system->getTypeAsString(), std::move(system));
         }
 	}
 
 	template<typename T>
-	std::shared_ptr<T> World::getSystem()
+	T* World::getSystem()
 	{
         auto it = m_systems.find(std::type_index(typeid(T)));
         
         RE_REVERSE_ASSERT_COMPARE(it, m_systems.end(), "Tried to access a non-existent system", "World::getSystem", "World.cpp", 169);
         
-        return std::dynamic_pointer_cast<T>(it->second.second);
+        return dynamic_cast<T*>(it->second.second.get());
 	}
 
 	template<typename T>
-	std::shared_ptr<Component> World::makeComponent()
+	std::unique_ptr<Component> World::makeComponent()
 	{
-		return std::make_shared<T>();
+		return std::move(std::make_unique<T>());
 	}
 
 	template<typename T>
 	void World::registerComponent(const std::string& name)
 	{
 		RE_LOG(LogLevel::INFO, "Registering " + name + " in world", "World::registerComponent", "World.hpp", 183);
-		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::shared_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this)));
+		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::unique_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this)));
         m_stringToComponentType.emplace(name, std::type_index(typeid(T)));
 	}
 }

@@ -37,7 +37,6 @@ namespace re
 		}
 
 		m_mapCollisions.clear();
-		m_manager = nullptr;
 	}
 
 	void PhysicsSystem::addEntity(Entity* e)

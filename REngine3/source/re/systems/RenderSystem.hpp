@@ -49,7 +49,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Add a unique drawable to the system.
 		*/
-		void addGenericDrawable(Entity* e, sf::Uint32 group, std::shared_ptr<sf::Drawable> d, std::shared_ptr<sf::Transformable> t);
+		void addGenericDrawable(Entity* e, sf::Uint32 group, sf::Drawable* d, sf::Transformable* t);
 
 		/*
 		* IMPORTS: name (id) of entity to remove OR Object to remove. It does both.

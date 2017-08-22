@@ -44,7 +44,7 @@ namespace re
 	{
 		for (auto& it : m_entitys)
 		{
-			EventComponent* e = it.second->get<EventComponent>().get();
+			EventComponent* e = it.second->get<EventComponent>();
 			if (e->isSubscribed(type))
 			{
 				e->onEvent(type);

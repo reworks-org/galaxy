@@ -43,7 +43,7 @@ namespace re
         virtual void debugFunction(sol::table& table, const std::string& curEntityName) = 0;
 	};
 
-	typedef std::unordered_map<std::type_index, std::shared_ptr<Component>> ComponentList;
+	typedef std::unordered_map<std::type_index, std::unique_ptr<Component>> ComponentList;
 	typedef std::unordered_map<std::string, ComponentList> ComponentHolder;
 }
 

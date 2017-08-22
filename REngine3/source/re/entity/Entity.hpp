@@ -75,7 +75,7 @@ namespace re
 		* PURPOSE: To retrieve a component of an entity.
 		*/
 		template<typename T>
-		std::shared_ptr<T> get();
+		T* get();
         
 		/*
 		* IMPORTS: none
@@ -103,14 +103,14 @@ namespace re
 	};
 
 	template<typename T>
-	std::shared_ptr<T> Entity::get()
+	T* Entity::get()
 	{
 		auto it = m_components->find(std::type_index(typeid(T)));
 		auto end = m_components->end();
 
 		RE_REVERSE_ASSERT_COMPARE(it, end, "Tried to access non-existent component", "Entity::get", "Entity.cpp", 90);
 
-		return std::dynamic_pointer_cast<T>(it->second);
+		return dynamic_cast<T*>(it->second.get());
 	}
 
 	template<typename T>

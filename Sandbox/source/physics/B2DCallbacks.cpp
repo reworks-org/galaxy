@@ -20,8 +20,11 @@ SandboxContact::~SandboxContact()
 
 void SandboxContact::BeginContact(b2Contact* contact)
 {
-	std::string a = static_cast<re::PhysicsFixtureUserData*>(contact->GetFixtureA()->GetUserData())->m_str;
-	std::string b = static_cast<re::PhysicsFixtureUserData*>(contact->GetFixtureB()->GetUserData())->m_str;
+	std::string* aa = static_cast<std::string*>(contact->GetFixtureA()->GetUserData());
+	std::string* bb = static_cast<std::string*>(contact->GetFixtureB()->GetUserData());
+
+	std::string a = *(aa);
+	std::string b = *(bb);
 
 	if (a != "" && b != "")
 	{

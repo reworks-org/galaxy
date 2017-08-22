@@ -235,12 +235,9 @@ namespace re
 			}
 		}
 	}
-
+	
 	void World::clean()
 	{
-		m_dead.clear();
-		m_alive.clear();
-
 		// remove alive and dead components, but not preloaded. they are cleared at the end.
 		for (auto& it : m_alive)
 		{
@@ -252,6 +249,8 @@ namespace re
 			m_components.erase(it.second.m_name);
 		}
 
+		m_dead.clear();
+		m_alive.clear();
 		m_loadedEntityScripts.clear();
 	}
 

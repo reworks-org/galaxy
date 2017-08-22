@@ -17,16 +17,6 @@
 
 namespace re
 {
-	struct PhysicsFixtureUserData
-	{
-		PhysicsFixtureUserData(const std::string& str)
-		{
-			m_str = str;
-		}
-
-		std::string m_str = "";
-	};
-
 	class PhysicsComponent : public Component
 	{
 		friend class boost::serialization::access;

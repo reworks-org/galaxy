@@ -27,12 +27,24 @@ namespace re
 
 	PhysicsComponent::~PhysicsComponent()
 	{
-		for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
+		if (m_body)
 		{
-			PhysicsFixtureUserData* data = static_cast<PhysicsFixtureUserData*>(f->GetUserData());
-			delete data;
+			if (m_body->GetFixtureList())
+			{
+				for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
+				{
+					if (f)
+					{
+						if (f->GetUserData())
+						{
+							std::string* data = static_cast<std::string*>(f->GetUserData());
+							delete data;
+						}
+					}
+				}
+			}
 		}
-
+		
 		Locator::get<Box2DManager>()->m_world->DestroyBody(m_body);
 	}
 
@@ -85,7 +97,7 @@ namespace re
 			fixtureDef.friction = friction;
 			fixtureDef.restitution = restitution;
 			fixtureDef.shape = &b2shape;
-			fixtureDef.userData = static_cast<void*>(new PhysicsFixtureUserData(it.second.get<std::string>("id")));
+			fixtureDef.userData = static_cast<void*>(new std::string(it.second.get<std::string>("id")));
 
 			m_body->CreateFixture(&fixtureDef);
 		}

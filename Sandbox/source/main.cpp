@@ -59,12 +59,12 @@ public:
         m_window.requestFocus();
         
         // create systems
-        m_world.addSystem<RenderSystem>(std::make_shared<RenderSystem>(m_engineConfig.lookup<int>("renderingLayers"), &m_window));
-        m_world.addSystem<EventSystem>(std::make_shared<EventSystem>());
-        m_world.addSystem<MoveSystem>(std::make_shared<MoveSystem>());
-        m_world.addSystem<PhysicsSystem>(std::make_shared<PhysicsSystem>(&m_physicsManager, m_targetUPS, 8, 3));
-        m_world.addSystem<AnimationSystem>(std::make_shared<AnimationSystem>());
-        m_world.addSystem<AudioSystem>(std::make_shared<AudioSystem>(50, 50));
+        m_world.addSystem<RenderSystem>(std::make_unique<RenderSystem>(m_engineConfig.lookup<int>("renderingLayers"), &m_window));
+        m_world.addSystem<EventSystem>(std::make_unique<EventSystem>());
+        m_world.addSystem<MoveSystem>(std::make_unique<MoveSystem>());
+        m_world.addSystem<PhysicsSystem>(std::make_unique<PhysicsSystem>(&m_physicsManager, m_targetUPS, 8, 3));
+        m_world.addSystem<AnimationSystem>(std::make_unique<AnimationSystem>());
+        m_world.addSystem<AudioSystem>(std::make_unique<AudioSystem>(50, 50));
         
         // set up collision listener
         m_physicsManager.m_world->SetContactListener(&m_b2dcallbacks);

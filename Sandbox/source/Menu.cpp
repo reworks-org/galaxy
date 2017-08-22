@@ -70,12 +70,12 @@ void Menu::load()
 		m_doneOnce = true;
 	}
 
-	tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
-	button->connect("pressed", []() {Locator::get<StateManager>()->changeState(Load::inst()); });
-	m_gui.add(button, "testbutton");
+	//tgui::Button::Ptr button = tgui::loadButtonWithScript(m_theme, "ui/testbutton.lua");
+	//button->connect("pressed", []() {Locator::get<StateManager>()->changeState(Load::inst()); });
+	//m_gui.add(button, "testbutton");
 
-	tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
-	m_gui.add(time, "testlabel");
+	//tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
+	//m_gui.add(time, "testlabel");
 
 	Locator::get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](const std::string & a, const std::string& b)
 	{ 
@@ -169,7 +169,7 @@ void Menu::update(sf::Time dt)
 	m_world->getSystem<AnimationSystem>()->update(dt);
 	m_world->getSystem<PhysicsSystem>()->update(dt);
 
-	m_gui.get<tgui::Label>("testlabel")->setText(Time::getShortTime());
+	//m_gui.get<tgui::Label>("testlabel")->setText(Time::getShortTime());
 }
 
 void Menu::render()
