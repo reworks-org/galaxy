@@ -67,11 +67,6 @@ namespace re
 
 			transf->setPosition((float)b2::metersToPixels<double>(phys->m_body->GetPosition().x), (float)b2::metersToPixels<double>(phys->m_body->GetPosition().y));
 			transf->setRotation((float)b2::radToDeg<double>(phys->m_body->GetAngle()));
-
-			if (phys->m_body->GetLinearVelocity().x < 0.2f)
-			{
-				phys->m_isMovingHorizontally = false;
-			}
 		}
 	}
 

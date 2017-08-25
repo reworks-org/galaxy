@@ -50,6 +50,12 @@ namespace re
             auto phys = found->second->get<PhysicsComponent>();
             auto vel = phys->m_body->GetLinearVelocity();
             
+
+			if (phys->m_body->GetLinearVelocity().x < 0.2f)
+			{
+				phys->m_isMovingHorizontally = false;
+			}
+
             if (!phys->m_isMovingVertically)
             {
                 phys->m_isMovingHorizontally = true;
