@@ -22,6 +22,7 @@
 #include "re/component/PhysicsComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 #include "re/component/AnimationComponent.hpp"
+#include "re/component/CollisionComponent.hpp"
 
 #include "World.hpp"
 
@@ -48,6 +49,7 @@ namespace re
 		registerComponent<SpriteComponent>("SpriteComponent");
 		registerComponent<PhysicsComponent>("PhysicsComponent");
 		registerComponent<TransformComponent>("TransformComponent");
+		registerComponent<CollisionComponent>("CollisionComponent");
 		registerComponent<AnimationComponent>("AnimationComponent");
 	}
 

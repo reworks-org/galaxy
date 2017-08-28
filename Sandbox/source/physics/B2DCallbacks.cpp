@@ -8,7 +8,7 @@
 
 #include <utility>
 
-#include <re/physics/Box2DManager.hpp>
+#include <re/physics/PhysicsManager.hpp>
 #include <re/services/ServiceLocator.hpp>
 #include <re/component/PhysicsComponent.hpp>
 
@@ -28,7 +28,7 @@ void SandboxContact::BeginContact(b2Contact* contact)
 
 	if (a != "" && b != "")
 	{
-		auto map = re::Locator::get<re::Box2DManager>()->m_collisionFunctions;
+		auto map = re::Locator::get<re::PhysicsManager>()->m_collisionFunctions;
 		auto tree = map.find(std::make_pair(a, b));
 
 		if (tree != map.end())

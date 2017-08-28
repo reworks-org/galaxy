@@ -18,7 +18,7 @@
 
 namespace re
 {
-	PhysicsSystem::PhysicsSystem(Box2DManager* manager, float ups, int32 vi, int32 pi)
+	PhysicsSystem::PhysicsSystem(PhysicsManager* manager, float ups, int32 vi, int32 pi)
 	{
 		m_manager = manager;
 		m_ups = ups;

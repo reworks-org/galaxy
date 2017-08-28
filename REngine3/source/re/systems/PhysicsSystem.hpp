@@ -10,7 +10,7 @@
 #define RENGINE3_PHYSICSSYSTEM_HPP_
 
 #include "re/types/System.hpp"
-#include "re/physics/Box2DManager.hpp"
+#include "re/physics/PhysicsManager.hpp"
 
 namespace re
 {
@@ -25,7 +25,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		PhysicsSystem(Box2DManager* manager, float ups, int32 vi, int32 pi);
+		PhysicsSystem(PhysicsManager* manager, float ups, int32 vi, int32 pi);
 
 		/*
 		* IMPORTS: none
@@ -51,7 +51,7 @@ namespace re
 		/*
 		* IMPORTS: delta time
 		* EXPORTS: none
-		* PURPOSE: Handles collisions.
+		* PURPOSE: Handles physics.
 		*/
 		void update(sf::Time dt);
 
@@ -67,7 +67,7 @@ namespace re
 		int32 m_velocityIterations;
 		int32 m_positionIterations;
 
-		Box2DManager* m_manager;
+		PhysicsManager* m_manager;
 		std::vector<b2Body*> m_mapCollisions;
 	};
 }

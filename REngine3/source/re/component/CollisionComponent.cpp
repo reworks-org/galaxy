@@ -22,16 +22,16 @@ namespace re
 
 	void CollisionComponent::init(sol::table& table)
 	{
-		m_width = table.get<int>("width");
-		m_height = table.get<int>("height");
+		m_rect.width = table.get<int>("width");
+		m_rect.height = table.get<int>("height");
 	}
 
 	void CollisionComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
 		ImGui::Spacing();
-		ImGui::InputInt("Width Modifier", &m_width, 1, 2);
+		ImGui::InputInt("Width Modifier", &m_rect.width, 1, 2);
 
 		ImGui::Spacing();
-		ImGui::InputInt("Height Modifier", &m_height, 1, 2);
+		ImGui::InputInt("Height Modifier", &m_rect.height, 1, 2);
 	}
 }

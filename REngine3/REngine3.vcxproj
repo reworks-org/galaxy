@@ -42,7 +42,7 @@
     <ClCompile Include="source\re\graphics\sw\Line.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
-    <ClCompile Include="source\re\physics\Box2DManager.cpp" />
+    <ClCompile Include="source\re\physics\PhysicsManager.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\b2BroadPhase.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\b2CollideCircle.cpp" />
     <ClCompile Include="source\re\physics\Box2D\Collision\b2CollideEdge.cpp" />
@@ -129,6 +129,7 @@
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\systems\AudioSystem.cpp" />
+    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
     <ClCompile Include="source\re\systems\EventSystem.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
@@ -167,8 +168,9 @@
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
+    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />
-    <ClInclude Include="source\re\physics\Box2DManager.hpp" />
+    <ClInclude Include="source\re\physics\PhysicsManager.hpp" />
     <ClInclude Include="source\re\physics\Box2DSFMLBridge.hpp" />
     <ClInclude Include="source\re\physics\Box2D\Box2D.h" />
     <ClInclude Include="source\re\physics\Box2D\Collision\b2BroadPhase.h" />

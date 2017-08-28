@@ -9,6 +9,8 @@
 #ifndef RENGINE3_COLLISIONCOMPONENT_HPP_
 #define RENGINE3_COLLISIONCOMPONENT_HPP_
 
+#include <SFML/Graphics/Rect.hpp>
+
 #include "re/types/Component.hpp"
 
 namespace re
@@ -45,8 +47,7 @@ namespace re
 		void debugFunction(sol::table& table, const std::string& curEntityName) override;
 
 	public:
-		int m_width;
-		int m_height;
+		sf::Rect<int> m_rect;
 	};
 }
 

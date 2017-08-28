@@ -10,7 +10,7 @@
 #include "re/scripting/lua/lua.hpp"
 
 #include "re/debug/imgui/imgui-SFML.h"
-#include "re/physics/Box2DManager.hpp"
+#include "re/physics/PhysicsManager.hpp"
 #include "re/physics/Box2DSFMLBridge.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -45,7 +45,7 @@ namespace re
 			}
 		}
 		
-		Locator::get<Box2DManager>()->m_world->DestroyBody(m_body);
+		Locator::get<PhysicsManager>()->m_world->DestroyBody(m_body);
 	}
 
 	void PhysicsComponent::init(sol::table& table)
@@ -69,7 +69,7 @@ namespace re
 			break;
 		}
 		
-		m_body = Locator::get<Box2DManager>()->m_world->CreateBody(&bodyDef);
+		m_body = Locator::get<PhysicsManager>()->m_world->CreateBody(&bodyDef);
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		
 		// Get key-value pairs from table

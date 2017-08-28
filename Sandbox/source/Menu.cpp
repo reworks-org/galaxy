@@ -23,7 +23,7 @@
 #include <re/component/TransformComponent.hpp>
 #include <re/component/AnimationComponent.hpp>
 #include <re/systems/AnimationSystem.hpp>
-#include <re/physics/Box2DManager.hpp>
+#include <re/physics/PhysicsManager.hpp>
 #include <re/component/PhysicsComponent.hpp>
 #include <re/utility/Time.hpp>
 #include <re/utility/Serialization.hpp>
@@ -77,7 +77,7 @@ void Menu::load()
 	//tgui::Label::Ptr time = tgui::loadLabelWithScript(m_theme, "ui/testlabel.lua");
 	//m_gui.add(time, "testlabel");
 
-	Locator::get<Box2DManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](const std::string & a, const std::string& b)
+	Locator::get<PhysicsManager>()->m_collisionFunctions.emplace(std::make_pair("ground", "person"), [](const std::string & a, const std::string& b)
 	{ 
 		Locator::get<World>()->getEntity("person").get<PhysicsComponent>()->m_isMovingVertically = false;
 	});
@@ -90,7 +90,7 @@ void Menu::unload()
 {
 	m_gui.removeAllWidgets();
 
-	Locator::get<Box2DManager>()->clean();
+	Locator::get<PhysicsManager>()->clean();
 	m_world->getSystem<RenderSystem>()->clean();
 	m_world->getSystem<EventSystem>()->clean();
 	m_world->getSystem<MoveSystem>()->clean();

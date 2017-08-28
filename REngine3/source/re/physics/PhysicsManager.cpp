@@ -6,23 +6,23 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "Box2DManager.hpp"
+#include "PhysicsManager.hpp"
 
 namespace re
 {
-	Box2DManager::Box2DManager(float32 gravity)
+	PhysicsManager::PhysicsManager(float32 gravity)
 	{
 		m_gravity = b2Vec2(0.0, gravity);
 
 		m_world = new b2World(m_gravity);
 	}
 
-	Box2DManager::~Box2DManager()
+	PhysicsManager::~PhysicsManager()
 	{
 		delete m_world;
 	}
 
-	void Box2DManager::clean()
+	void PhysicsManager::clean()
 	{
 		m_collisionFunctions.clear();
 	}

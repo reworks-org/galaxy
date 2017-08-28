@@ -38,6 +38,11 @@ namespace re
 		*/
 		void insert(Entity* entity);
 
+		/*
+		* Return all objects that could collide with the given object
+		*/
+		std::vector<Entity*>& retrieve(std::vector<Entity*>& returnObjects, Entity* entity);
+
 	private:
 		/*
 		* Splits the node into 4 subnodes
@@ -50,8 +55,6 @@ namespace re
 		* of the parent node
 		*/
 		int getIndex(sf::Rect<int>& rect);
-		
-		void retrieve();
 
 	private:
 		int m_level;
@@ -59,6 +62,8 @@ namespace re
 		int m_maxObjects;
 		std::vector<Entity*> m_objects;
 		sf::Rect<int> m_bounds;
-		std::array<QuadTree, 4> m_nodes;
+		std::array<QuadTree*, 4> m_nodes;
 	};
 }
+
+#endif

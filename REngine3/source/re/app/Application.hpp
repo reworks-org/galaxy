@@ -12,12 +12,12 @@
 #include <SFML/Graphics/Font.hpp>
 
 #include "re/app/World.hpp"
+#include "re/services/VFS.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/services/VFS.hpp"
 #include "re/debug/DebugManager.hpp"
 #include "re/services/StateManager.hpp"
-#include "re/physics/Box2DManager.hpp"
+#include "re/physics/PhysicsManager.hpp"
 #include "re/utility/ResourceManager.hpp"
 
 namespace re
@@ -57,7 +57,7 @@ namespace re
 		ResourceManager<sf::Font> m_fontManager;
 		ResourceManager<sf::Shader> m_shaderManager;
 		ResourceManager<sf::Texture> m_spriteSheetManager;
-		Box2DManager m_physicsManager;
+		PhysicsManager m_physicsManager;
 		DebugManager m_debugManager;
 	};
 }

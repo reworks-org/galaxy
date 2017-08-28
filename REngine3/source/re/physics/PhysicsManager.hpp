@@ -18,7 +18,7 @@
 namespace re
 {
 	typedef std::map<std::pair<std::string, std::string>, std::function<void(const std::string&, const std::string&)>> CollisionFunctionMap;
-	class Box2DManager : public Service
+	class PhysicsManager : public Service
 	{
 	public:
 		/*
@@ -26,14 +26,14 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Default Constructor.
 		*/
-		Box2DManager(float32 gravity);
+		PhysicsManager(float32 gravity);
 
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
 		* PURPOSE: Default destructor.
 		*/
-		~Box2DManager();
+		~PhysicsManager();
 
 		/*
 		* IMPORTS: none

@@ -77,7 +77,7 @@ public:
 		Locator::provide<ResourceManager<sf::Shader>>(&m_shaderManager);
 		Locator::provide<ResourceManager<sf::Texture>>(&m_spriteSheetManager);
         Locator::provide<StateManager>(&m_stateManager);
-        Locator::provide<Box2DManager>(&m_physicsManager);
+        Locator::provide<PhysicsManager>(&m_physicsManager);
 		Locator::provide<DebugManager>(&m_debugManager);
         
         // add fonts
