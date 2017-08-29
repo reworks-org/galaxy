@@ -25,6 +25,7 @@
     <ClCompile Include="source\re\component\CollisionComponent.cpp" />
     <ClCompile Include="source\re\component\EventComponent.cpp" />
     <ClCompile Include="source\re\component\MusicComponent.cpp" />
+    <ClCompile Include="source\re\component\ParallaxComponent.cpp" />
     <ClCompile Include="source\re\component\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\component\SoundComponent.cpp" />
     <ClCompile Include="source\re\component\SpriteComponent.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="source\re\component\CollisionComponent.hpp" />
     <ClInclude Include="source\re\component\EventComponent.hpp" />
     <ClInclude Include="source\re\component\MusicComponent.hpp" />
+    <ClInclude Include="source\re\component\ParallaxComponent.hpp" />
     <ClInclude Include="source\re\component\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\component\SoundComponent.hpp" />
     <ClInclude Include="source\re\component\SpriteComponent.hpp" />

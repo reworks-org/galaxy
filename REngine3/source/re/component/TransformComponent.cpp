@@ -23,15 +23,8 @@ namespace re
 
 	void TransformComponent::init(sol::table& table)
 	{
-		sol::object x = table["x"];
-		sol::object y = table["y"];
-		sol::object a = table["angle"];
-
-		if (x != sol::nil && y != sol::nil && a != sol::nil)
-		{
-			setPosition(table.get<float>("x"), table.get<float>("y"));
-			setRotation(table.get<float>("angle"));
-		}
+		setPosition(table.get<float>("x"), table.get<float>("y"));
+		setRotation(table.get<float>("angle"));
 	}
 
 	void TransformComponent::debugFunction(sol::table& table, const std::string& curEntityName)
