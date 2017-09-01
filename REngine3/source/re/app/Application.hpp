@@ -40,14 +40,14 @@ namespace re
 		int run();
 
 	protected:
-		std::string m_appTitle = "";
-		float m_targetUPS = 60.f;
-		bool m_saveLog = false;
-		bool m_enableDebug = false;
+		std::string m_appTitle;
+		float m_targetUPS;
+		bool m_saveLog;
+		bool m_enableDebug;
 
-		int m_versionMajor = 1;
-		int m_versionMinor = 0;
-		int m_versionPatch = 0;
+		int m_versionMajor;
+		int m_versionMinor;
+		int m_versionPatch;
 
 		VFS m_vfs;
 		ConfigReader m_engineConfig;

@@ -28,10 +28,37 @@ namespace re
 
 	void CollisionComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		ImGui::Spacing();
-		ImGui::InputInt("Width Modifier", &m_rect.width, 1, 2);
+		static int w = m_rect.width;
+		static int h = m_rect.height;
+		static std::string originalEntityName = curEntityName;
+		static bool updatePos = true;
+
+		if (originalEntityName != curEntityName)
+		{
+			originalEntityName = curEntityName;
+			w = m_rect.width;
+			h = m_rect.height;
+			updatePos = true;
+		}
 
 		ImGui::Spacing();
-		ImGui::InputInt("Height Modifier", &m_rect.height, 1, 2);
+		if (ImGui::InputInt("Width Modifier", &w, 1, 2))
+		{
+			updatePos = true;
+		}
+
+		ImGui::Spacing();
+		if (ImGui::InputInt("Height Modifier", &h, 1, 2))
+		{
+			updatePos = true;
+		}
+
+		if (updatePos)
+		{
+			m_rect.width = w;
+			m_rect.height = h;
+
+			updatePos = false;
+		}
 	}
 }

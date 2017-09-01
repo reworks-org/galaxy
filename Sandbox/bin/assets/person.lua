@@ -10,6 +10,11 @@ entity =
 		[3] = "EventSystem",
 		[4] = "AnimationSystem"
 	},
+	CollisionComponent =
+	{
+		w = 64,
+		h = 205
+	},
 	PhysicsComponent = 
 	{
 		x = 650,

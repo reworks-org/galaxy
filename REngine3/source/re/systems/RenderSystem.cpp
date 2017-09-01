@@ -8,7 +8,6 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/graphics/PostEffect.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/TransformComponent.hpp"
@@ -18,6 +17,7 @@
 namespace re
 {
 	RenderSystem::RenderSystem(int numOfGroups, Window* window)
+	:m_typeAsString("RenderSystem")
 	{
 		int max = numOfGroups + 1;
 
@@ -31,8 +31,6 @@ namespace re
 		}
 
 		m_outputBuffer.create(window->getSize().x, window->getSize().y);
-
-		m_typeAsString = "RenderSystem";
 	}
 
 	RenderSystem::~RenderSystem()
@@ -48,31 +46,7 @@ namespace re
 			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 		}
 
-		if (e->has<SpriteComponent>())
-		{
-			if (m_groups[e->get<SpriteComponent>()->m_group].getDrawableMap().find(e->m_name) == m_groups[e->get<SpriteComponent>()->m_group].getDrawableMap().end())
-			{
-				m_groups[e->get<SpriteComponent>()->m_group].addDrawable(e->m_name, e->get<SpriteComponent>(), e->get<TransformComponent>());
-			}
-		}
-
-		if (e->has<TextComponent>())
-		{
-			if (m_groups[e->get<TextComponent>()->m_group].getDrawableMap().find(e->m_name) == m_groups[e->get<TextComponent>()->m_group].getDrawableMap().end())
-			{
-				m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>(), e->get<TextComponent>());
-			}
-		}
-	}
-
-	void RenderSystem::addGenericDrawable(Entity* e, sf::Uint32 group, sf::Drawable* d, sf::Transformable* t)
-	{
-		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
-		{
-			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
-		}
-
-		m_groups[group].addDrawable(e->m_name, d, t);
+		
 	}
 
 	void RenderSystem::removeEntity(const std::string& name)
@@ -87,7 +61,7 @@ namespace re
 		}
 	}
 
-	void RenderSystem::render(Window* window, PostEffect* effect, bool smooth)
+	void RenderSystem::render(Window* window, bool smooth)
 	{		
 		if (effect != nullptr)
 		{
@@ -102,7 +76,7 @@ namespace re
 
 			m_outputBuffer.display();
 
-			effect->apply(m_outputBuffer, (*window));
+			effect->apply(m_outputBuffer, *(window));
 		}
 		else
 		{

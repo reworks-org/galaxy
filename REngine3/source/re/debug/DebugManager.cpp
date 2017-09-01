@@ -28,6 +28,7 @@ namespace re
 	}
 
 	DebugManager::DebugManager()
+	:m_reloadState(nullptr), m_enabled(false), m_init(false), m_world(nullptr)
 	{
 	}
 

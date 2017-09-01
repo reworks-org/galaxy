@@ -23,8 +23,8 @@
 namespace re
 {
 	SpriteComponent::SpriteComponent()
+		:m_group(0)
 	{
-        m_group = 0;
 	}
 
 	SpriteComponent::~SpriteComponent()
@@ -34,14 +34,14 @@ namespace re
 	void SpriteComponent::init(sol::table& table)
 	{
 		m_group = table.get<sf::Uint32>("group");
-		
+
 		loadTexture(table);
 	}
 
 	void SpriteComponent::loadSingleTexture(const std::string& texture)
 	{
 		m_texture.loadFromFile(Locator::get<VFS>()->retrieve(texture));
-		setTexture(m_texture);
+		m_sprite.setTexture(m_texture);
 	}
 
 	void SpriteComponent::loadTexture(sol::table& table, const std::string& texture)
@@ -52,15 +52,15 @@ namespace re
 		{
 			if (texture == "")
 			{
-				setTexture(Locator::get<ResourceManager<sf::Texture>>()->get(table.get<std::string>("altas_ref")));
+				m_sprite.setTexture(Locator::get<ResourceManager<sf::Texture>>()->get(table.get<std::string>("altas_ref")));
 			}
 			else
 			{
-				setTexture(Locator::get<ResourceManager<sf::Texture>>()->get(table.get<std::string>(texture)));
+				m_sprite.setTexture(Locator::get<ResourceManager<sf::Texture>>()->get(table.get<std::string>(texture)));
 			}
 
 			sol::table rect = table.get<sol::table>("spriteRect");
-			setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
+			m_sprite.setTextureRect(sf::IntRect(rect.get<int>("tx"), rect.get<int>("ty"), rect.get<int>("tw"), rect.get<int>("th")));
 		}
 		else
 		{
@@ -72,8 +72,8 @@ namespace re
 			{
 				m_texture.loadFromFile(Locator::get<VFS>()->retrieve(texture));
 			}
-			
-			setTexture(m_texture);
+
+			m_sprite.setTexture(m_texture);
 		}
 	}
 
@@ -91,7 +91,7 @@ namespace re
 			buff.resize(255);
 			doneOnce = true;
 		}
-		
+
 		if (originalEntityName != curEntityName)
 		{
 			originalEntityName = curEntityName;
@@ -113,7 +113,7 @@ namespace re
 
 			std::string newTexture(buff.begin(), buff.end());
 			buff.clear();
-			
+
 			newTexture.erase(std::remove_if(newTexture.begin(), newTexture.end(), isspace), newTexture.end());
 			newTexture.shrink_to_fit();
 
@@ -124,12 +124,5 @@ namespace re
 
 			loadTexture(table, texture);
 		}
-	}
-
-	void SpriteComponent::draw(sf::RenderTarget& target, sf::RenderStates states) const
-	{
-		states.transform *= getTransform();
-		states.texture = &m_texture;
-		target.draw(m_vertices, 4, sf::TriangleStrip, states);
 	}
 }

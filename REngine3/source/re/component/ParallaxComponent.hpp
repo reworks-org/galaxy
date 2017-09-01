@@ -9,6 +9,9 @@
 #ifndef RENGINE3_PARALLAXCOMPONENT_HPP_
 #define RENGINE3_PARALLAXCOMPONENT_HPP_
 
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+
 #include "re/types/Component.hpp"
 
 namespace re
@@ -43,10 +46,18 @@ namespace re
 		* PURPOSE: debug component, change data, etc.
 		*/
 		void debugFunction(sol::table& table, const std::string& curEntityName) override;
-
+		
+		/*
+		* IMPORTS: none
+		* EXPORTS: parallax rects
+		* PURPOSE: to get the parallax dimensions for each parallax sprite
+		*/
+		const std::unordered_map<sf::Uint32, sf::Rect<int>>& getParallaxRects() const;
 		
 	private:
-		std::vector<sf::Sprite>
+		sf::Texture m_texture;
+		sf::Sprite m_sprite;
+		std::unordered_map<sf::Uint32, sf::Rect<int>> m_parallaxMaps;
 	};
 }
 

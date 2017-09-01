@@ -11,9 +11,8 @@
 namespace re
 {
 	PhysicsManager::PhysicsManager(float32 gravity)
+	m_gravity(b2Vec2(0.0, gravity))
 	{
-		m_gravity = b2Vec2(0.0, gravity);
-
 		m_world = new b2World(m_gravity);
 	}
 

@@ -17,11 +17,9 @@
 namespace re
 {
 	Entity::Entity()
+	:m_name(""), m_components(nullptr), m_isDead(false)
 	{
-        m_name = "";
-        m_components = nullptr;
         m_systemIds.clear();
-        m_isDead = false;
 	}
 
 	Entity::Entity(Entity&& e)

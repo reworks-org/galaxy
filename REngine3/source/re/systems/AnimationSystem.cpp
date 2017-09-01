@@ -15,8 +15,8 @@
 namespace re
 {
 	AnimationSystem::AnimationSystem()
+	:m_typeAsString("AnimationSystem")
 	{
-		m_typeAsString = "AnimationSystem";
 	}
 
 	AnimationSystem::~AnimationSystem()

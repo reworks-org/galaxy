@@ -17,10 +17,8 @@
 namespace re
 {
 	AudioSystem::AudioSystem(int defaultEffectVolume, int defaultMusicVolume)
+	:m_typeAsString("AudioSystem"), m_effectVolume(defaultEffectVolume), m_musicVolume(defaultMusicVolume)
 	{
-		m_effectVolume = defaultEffectVolume;
-		m_musicVolume = defaultMusicVolume;
-		m_typeAsString = "AudioSystem";
 	}
 
 	AudioSystem::~AudioSystem()

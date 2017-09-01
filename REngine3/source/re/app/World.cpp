@@ -28,6 +28,12 @@
 
 namespace re
 {
+	World::World()
+	:m_entitysHaveChanged(false)
+	{
+
+	}
+
 	World::~World()
 	{
 		m_dead.clear();

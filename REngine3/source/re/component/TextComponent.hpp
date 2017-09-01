@@ -15,7 +15,7 @@
 
 namespace re
 {
-	class TextComponent : public Component, public sf::Text
+	class TextComponent : public Component
 	{
 	public:
 		/*
@@ -47,6 +47,7 @@ namespace re
 		void debugFunction(sol::table& table, const std::string& curEntityName) override;
 
 	public:
+		sf::Text m_text;
 		sf::Uint32 m_group;
 	};
 }

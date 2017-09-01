@@ -29,7 +29,14 @@ namespace re
 	{
 		friend class Entity;
 
-	public:       
+	public: 
+		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Construct world.
+		*/ 
+		World();
+
 		/*
 		* IMPORTS: none
 		* EXPORTS: none
@@ -199,7 +206,7 @@ namespace re
 		ComponentHolder m_components;
 		ComponentFactory m_componentFactory;
         
-		bool m_entitysHaveChanged = false;
+		bool m_entitysHaveChanged;
         
     public:
         std::vector<std::string> m_loadedEntityScripts;

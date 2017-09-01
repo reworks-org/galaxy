@@ -1,9 +1,4 @@
 v1.0:
 
 - bug fixes
-- remove box2d, completely redo physics system
-- impletment observer pattern for collisions (listerner model)
-- use tinyheaderes!
-
 - parallax support
-- impletement a layered state  engine -> all rendering, collison, etc happenso n that layer, seperate to other layers.

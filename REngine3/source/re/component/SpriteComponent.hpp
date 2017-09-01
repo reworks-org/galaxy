@@ -16,7 +16,7 @@
 
 namespace re
 {
-	class SpriteComponent : public Component, public sf::Sprite
+	class SpriteComponent : public Component
 	{
 	public:
 		/*
@@ -61,20 +61,12 @@ namespace re
 		*/
 		void debugFunction(sol::table& table, const std::string& curEntityName) override;
 
-	private:
-		/*
-		* IMPORTS: RenderTarget & RenderStates
-		* EXPORTS: none
-		* PURPOSE: draw to target using states. See SFML documentation.
-		*/
-		void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
 	public:
 		sf::Uint32 m_group;
+		sf::Sprite m_sprite;
 
 	private:
 		sf::Texture m_texture;
-
 	};
 }
 

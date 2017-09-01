@@ -17,7 +17,7 @@
 namespace re
 {
 	Application::Application(float32 gravity)
-		:m_physicsManager(gravity)
+		:m_physicsManager(gravity), m_appTitle(""), m_targetUPS(60.0f), m_saveLog(false), m_enableDebug(false), m_versionMajor(0), m_versionMinor(0), m_versionPatch(1)
 	{
 		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");
 

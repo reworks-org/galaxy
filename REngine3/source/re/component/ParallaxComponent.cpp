@@ -1,194 +1,58 @@
 //
-//  AnimationComponent.cpp
+//  ParallaxComponent.cpp
 //  REngine3
 //
-//  Created by reworks on 16/08/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
-// 
-// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimationComponent
+//  Created by reworks on 29/08/2017.
+//  Copyright (c) 2017 reworks. All rights reserved.
+//
 
 #include <map>
 
-#include <SFML/Graphics/Rect.hpp>
+#include "re/services/VFS.hpp"
+#include "re/debug/imgui/imgui-sfml.h"
+#include "re/services/ServiceLocator.hpp"
 
-#include "re/utility/Log.hpp"
-#include "re/scripting/sol2/sol.hpp"
-#include "re/debug/imgui/imgui-SFML.h"
-
-#include "AnimationComponent.hpp"
+#include "ParallaxComponent.hpp"
 
 namespace re
 {
-	AnimationComponent::AnimationComponent()
+	ParallaxComponent::ParallaxComponent()
 	{
-        m_isLooped = false;
-        m_isPaused = false;
-        m_frameTime = sf::Time::Zero;
-        m_animations.clear();
-        m_currentTime = sf::Time::Zero;
-        m_currentFrame = 0;
-        m_activeAnimation = "";
 	}
 
-	AnimationComponent::~AnimationComponent()
+	ParallaxComponent::~ParallaxComponent()
 	{
-		m_animations.clear();
 	}
 
-	void AnimationComponent::init(sol::table& table)
+	void ParallaxComponent::init(sol::table& table)
 	{
-		m_frameTime = sf::milliseconds(table.get<int>("speed"));
-		m_currentFrame = 0;
-		m_isPaused = table.get<bool>("isPaused");
-		m_isLooped = table.get<bool>("isLooped");
+		m_texture.loadFromFile(Locator::get<VFS>()->retrieve(table.get<std::string>("texture")));
+		m_sprite.setTexture(m_texture);
 
-		changeAnimation(table.get<std::string>("defaultAnim"));
+		sol::table parallaxList = table.get<sol::table>("parallaxList");
 
-		m_animations.clear();
-		sol::table animTable = table.get<sol::table>("Animations");
-
-		std::map<std::string, sol::table> m_keyValuePairAnimations;
-		animTable.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePairAnimations.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+		std::map<std::string, sol::table> m_keyValuePairParallax;
+		parallaxList.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePairParallax.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
-        
-		RE_REVERSE_ASSERT(m_keyValuePairAnimations.empty(), "Tried to load animation with no frames", "AnimationComponent::init", "AnimationComponent.cpp", 47);
-        
-		for (auto& it : m_keyValuePairAnimations)
+
+		RE_REVERSE_ASSERT(m_keyValuePairParallax.empty(), "Attempted to use an empty parllax list", "ParallaxComponent::init", "ParallaxComponent.cpp", 39);
+
+		for (auto& it : m_keyValuePairParallax)
 		{
-			std::map<std::string, sol::table> m_keyValuePairFrames;
-			it.second.for_each([&](std::pair<sol::object, sol::object> pair) {
-				m_keyValuePairFrames.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
-			});
-
-			std::vector<sf::IntRect> tempvector;
-
-			for (auto& frames : m_keyValuePairFrames)
-			{
-				sf::IntRect temp(frames.second.get<int>("x"), frames.second.get<int>("y"), frames.second.get<int>("w"), frames.second.get<int>("h"));
-				tempvector.push_back(temp);
-			}
-
-			m_animations.emplace(it.first, tempvector);
-			tempvector.clear();
+			m_parallaxMaps.emplace(it.second.get<sf::Uint32>("layer"), sf::Rect<int>(it.second.get<int>("x"), it.second.get<int>("y"), it.second.get<int>("w"), it.second.get<int>("h")));
 		}
 	}
 
-	void AnimationComponent::debugFunction(sol::table& table, const std::string& curEntityName)
+	void ParallaxComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
-		static int frameTime = static_cast<int>(m_frameTime.asMilliseconds());
-		static bool looped = m_isLooped;
-		static std::string originalEntityName = curEntityName;
-		static std::vector<std::string> anims;
-		static int index = 0;
-		static bool doneOnce = false;
-
-		if (originalEntityName != curEntityName)
-		{
-			frameTime = static_cast<int>(m_frameTime.asMilliseconds());
-			looped = m_isLooped;
-			originalEntityName = curEntityName;
-			
-			anims.clear();
-			for (auto& it : m_animations)
-			{
-				anims.push_back(it.first);
-			}
-
-			auto it = std::find(anims.begin(), anims.end(), m_activeAnimation);
-			if (it != anims.end())
-			{
-				index = std::distance(anims.begin(), it);
-			}
-		}
-		
-		if (!doneOnce)
-		{
-			for (auto& it : m_animations)
-			{
-				anims.push_back(it.first);
-			}
-
-			doneOnce = true;
-		}
-
-		// change animation
-		// play, pause, stop animation
-
 		ImGui::Spacing();
-		if (ImGui::InputInt("Time Per Frame", &frameTime, 10))
-		{
-			if (frameTime < 0) frameTime = 0;
 
-			m_frameTime = sf::milliseconds(frameTime);
-		}
-
-		ImGui::Spacing();
-		ImGui::Checkbox("Is Looping", &looped);
-		m_isLooped = looped;
-
-		ImGui::Spacing();
-		if (ImGui::SFML::Combo("Change Animation", &index, anims))
-		{
-			changeAnimation(anims[index]);
-		}
-		
-
-		ImGui::Spacing();
-		if (ImGui::Button("Play animation"))
-		{
-			play();
-		}
-
-		ImGui::Spacing();
-		if (ImGui::Button("Pause animation"))
-		{
-			pause();
-		}
-
-		ImGui::Spacing();
-		if (ImGui::Button("Stop Animation"))
-		{
-			stop();
-		}
+		ImGui::Text("Please modify from script, then reload state.");
 	}
 
-	void AnimationComponent::changeAnimation(const std::string& animation)
+	const std::unordered_map<sf::Uint32, sf::Rect<int>>& ParallaxComponent::getParallaxRects() const
 	{
-		m_activeAnimation = animation;
-		m_currentFrame = 0;
-		m_currentTime = sf::Time::Zero;
-	}
-
-	void AnimationComponent::play()
-	{
-		m_isPaused = false;
-	}
-
-	void AnimationComponent::play(const std::string& animation)
-	{
-		if (m_activeAnimation != animation)
-		{
-			changeAnimation(animation);
-		}
-			
-		play();
-	}
-
-	void AnimationComponent::pause()
-	{
-		m_isPaused = true;
-	}
-
-	void AnimationComponent::stop()
-	{
-		m_isPaused = true;
-		m_currentFrame = 0;
-		m_currentTime = sf::Time::Zero;
-	}
-
-	bool AnimationComponent::isPaused() const
-	{
-		return m_isPaused;
+		return m_parallaxMaps;
 	}
 }

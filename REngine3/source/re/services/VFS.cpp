@@ -10,6 +10,11 @@
 
 namespace re
 {
+	VFS::VFS()
+	:m_basePath("")
+	{
+	}
+
 	void VFS::setBasePath(const std::string& path)
 	{
 		m_basePath = path + "/";

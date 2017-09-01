@@ -52,8 +52,8 @@ namespace re
 
 	public:
 		b2Body* m_body;
-		bool m_isMovingVertically = false;
-		bool m_isMovingHorizontally = false;
+		bool m_isMovingVertically;
+		bool m_isMovingHorizontally;
 
 	private:
 		// Boost.Serialization functions

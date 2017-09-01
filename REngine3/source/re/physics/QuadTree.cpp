@@ -14,16 +14,8 @@
 namespace re
 {
 	QuadTree::QuadTree(int level, sf::Rect<int>& bounds, int maxLevels, int maxObjects)
+	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects);
 	{
-		m_level = level;
-		m_bounds.height = bounds.height;
-		m_bounds.left = bounds.left;
-		m_bounds.top = bounds.top;
-		m_bounds.width = bounds.width;
-
-		m_maxLevels = maxLevels;
-		m_maxObjects = maxObjects;
-
 		for (auto& elem : m_nodes)
 		{
 			elem = nullptr;

@@ -77,10 +77,10 @@ namespace re
 		void specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func);
 
 	private:
-		std::shared_ptr<State> m_reloadState = nullptr;
+		std::shared_ptr<State> m_reloadState;
 		std::function<void(void)> m_reloadFunc;
-		bool m_enabled = false;
-        bool m_init = false;
+		bool m_enabled;
+        bool m_init;
         sol::state m_lua;
 		re::World* m_world;
     };

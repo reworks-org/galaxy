@@ -20,6 +20,13 @@ namespace re
 	{
 	public:
 		/*
+		* IMPORTS: none
+		* EXPORTS: none
+		* PURPOSE: Constructor
+		*/
+		VFS();
+
+		/*
 		* IMPORTS: path to main assets folder. DO NOT PUT A '/' AT THE END OF THE STRING!
 		* EXPORTS: none
 		* PURPOSE: Adds a folder to base path string
@@ -41,7 +48,7 @@ namespace re
 		std::string getBasePath() const;
 
 	private:
-		std::string m_basePath = "";
+		std::string m_basePath;
 	};
 }
 
