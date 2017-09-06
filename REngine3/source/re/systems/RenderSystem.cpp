@@ -8,8 +8,10 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
+#include "re/graphics/PostEffect.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
+#include "re/component/ParallaxComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -17,7 +19,6 @@
 namespace re
 {
 	RenderSystem::RenderSystem(int numOfGroups, Window* window)
-	:m_typeAsString("RenderSystem")
 	{
 		int max = numOfGroups + 1;
 
@@ -31,6 +32,8 @@ namespace re
 		}
 
 		m_outputBuffer.create(window->getSize().x, window->getSize().y);
+
+		m_typeAsString = "RenderSystem";
 	}
 
 	RenderSystem::~RenderSystem()
@@ -46,7 +49,33 @@ namespace re
 			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
 		}
 
-		
+		if (e->has<SpriteComponent>())
+		{
+			m_groups[e->get<SpriteComponent>()->m_group].addDrawable(e->m_name, e->get<SpriteComponent>()->m_sprite, e->get<TransformComponent>());
+		}
+
+		if (e->has<TextComponent>())
+		{
+			m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>()->m_text, e->get<TextComponent>()->m_text.getTransform());
+		}
+
+		if (e->has<ParallaxComponent>())
+		{
+			for (auto& it : e->get<ParallaxComponent>()->getParallaxRects())
+			{
+				m_groups[it.first].addDrawable(e->m_name, )
+			}
+		}
+	}
+
+	void RenderSystem::addGenericDrawable(Entity* e, sf::Uint32 group, sf::Drawable* d, sf::Transformable* t)
+	{
+		if (e->m_systemIds.find("RenderSystem") == e->m_systemIds.end())
+		{
+			e->m_systemIds.emplace("RenderSystem", std::type_index(typeid(RenderSystem)));
+		}
+
+		m_groups[group].addDrawable(e->m_name, d, t);
 	}
 
 	void RenderSystem::removeEntity(const std::string& name)
@@ -61,7 +90,7 @@ namespace re
 		}
 	}
 
-	void RenderSystem::render(Window* window, bool smooth)
+	void RenderSystem::render(Window* window, PostEffect* effect, bool smooth)
 	{		
 		if (effect != nullptr)
 		{
@@ -76,7 +105,7 @@ namespace re
 
 			m_outputBuffer.display();
 
-			effect->apply(m_outputBuffer, *(window));
+			effect->apply(m_outputBuffer, (*window));
 		}
 		else
 		{
