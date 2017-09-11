@@ -39,7 +39,6 @@
     <ClCompile Include="source\re\entity\Entity.cpp" />
     <ClCompile Include="source\re\graphics\EllipseShape.cpp" />
     <ClCompile Include="source\re\graphics\Group.cpp" />
-    <ClCompile Include="source\re\graphics\PostEffect.cpp" />
     <ClCompile Include="source\re\graphics\sw\Line.cpp" />
     <ClCompile Include="source\re\graphics\sw\Starfield.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
@@ -162,7 +161,6 @@
     <ClInclude Include="source\re\entity\Entity.hpp" />
     <ClInclude Include="source\re\graphics\EllipseShape.hpp" />
     <ClInclude Include="source\re\graphics\Group.hpp" />
-    <ClInclude Include="source\re\graphics\PostEffect.hpp" />
     <ClInclude Include="source\re\graphics\sw\Common.hpp" />
     <ClInclude Include="source\re\graphics\sw\Exception.hpp" />
     <ClInclude Include="source\re\graphics\sw\Line.hpp" />

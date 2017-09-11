@@ -41,13 +41,6 @@ namespace re
 		void init(sol::table& table) override;
 
 		/*
-		* IMPORTS: none
-		* EXPORTS: internal drawable sprite
-		* PURPOSE: To get the internal drawable sprite for rendering.
-		*/
-		sf::Drawable* getDrawable();
-
-		/*
 		* IMPORTS: lua table and entity name
 		* EXPORTS: Whether or not to save the changed table data.
 		* PURPOSE: debug component, change data, etc.
@@ -59,12 +52,11 @@ namespace re
 		* EXPORTS: parallax rects
 		* PURPOSE: to get the parallax dimensions for each parallax sprite
 		*/
-		const std::unordered_map<sf::Uint32, sf::Rect<int>>& getParallaxRects() const;
+		std::unordered_map<sf::Uint32, sf::Sprite>& getParallaxMap();
 		
 	private:
 		sf::Texture m_texture;
-		sf::Sprite m_sprite;
-		std::unordered_map<sf::Uint32, sf::Rect<int>> m_parallaxMaps;
+		std::unordered_map<sf::Uint32, sf::Sprite> m_parallaxMaps;
 	};
 }
 

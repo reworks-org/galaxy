@@ -39,7 +39,7 @@ void Load::load()
 	m_vfs = Locator::get<VFS>();
 
 	m_world->registerEntitys("loadEntitys.lua");
-	m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+	m_world->getEntity("loadScreen").get<SpriteComponent>()->m_sprite.setColor(sf::Color(255, 255, 255, m_alpha));
 }
 
 void Load::unload()
@@ -80,7 +80,7 @@ void Load::update(sf::Time dt)
 			m_alpha = 0;
 		}
 
-		m_world->getEntity("loadScreen").get<SpriteComponent>()->setColor(sf::Color(255, 255, 255, m_alpha));
+		m_world->getEntity("loadScreen").get<SpriteComponent>()->m_sprite.setColor(sf::Color(255, 255, 255, m_alpha));
 
 		if (m_alpha <= 0)
 		{

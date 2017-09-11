@@ -14,7 +14,7 @@
 namespace re
 {
 	QuadTree::QuadTree(int level, sf::Rect<int>& bounds, int maxLevels, int maxObjects)
-	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects);
+	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects)
 	{
 		for (auto& elem : m_nodes)
 		{
@@ -26,7 +26,7 @@ namespace re
 	{
 		m_objects.clear();
 
-		for (int i = 0; i < m_nodes.size(); ++i)
+		for (size_t i = 0; i < m_nodes.size(); ++i)
 		{
 			if (m_nodes[i] != nullptr)
 			{
@@ -42,8 +42,8 @@ namespace re
 		auto cc = entity->get<CollisionComponent>();
 		auto tc = entity->get<TransformComponent>()->getPosition();
 
-		cc->m_rect.left = tc.x;
-		cc->m_rect.top = tc.y;
+		cc->m_rect.left = (int)tc.x;
+		cc->m_rect.top = (int)tc.y;
 
 		if (m_nodes[0] != nullptr)
 		{
@@ -65,7 +65,7 @@ namespace re
 				split();
 			}
 
-			int i = 0;
+			size_t i = 0;
 			while (i < m_objects.size())
 			{
 				int index = getIndex(m_objects[i]->get<CollisionComponent>()->m_rect);

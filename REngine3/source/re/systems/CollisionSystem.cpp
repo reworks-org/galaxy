@@ -15,8 +15,9 @@
 namespace re
 {
 	CollisionSystem::CollisionSystem()
-	:m_typeAsString("CollisionSystem"), m_quadtree(nullptr)
+	:m_quadtree(nullptr)
 	{
+		m_typeAsString = "CollisionSystem";
 	}
 
 	CollisionSystem::~CollisionSystem()

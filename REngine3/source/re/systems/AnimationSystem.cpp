@@ -15,8 +15,8 @@
 namespace re
 {
 	AnimationSystem::AnimationSystem()
-	:m_typeAsString("AnimationSystem")
 	{
+		m_typeAsString = "AnimationSystem";
 	}
 
 	AnimationSystem::~AnimationSystem()
@@ -32,7 +32,7 @@ namespace re
 		}
 		
 		// we also want to adjust the first texture rectangle so it doesn't get missed out on...
-		e->get<SpriteComponent>()->setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
+		e->get<SpriteComponent>()->m_sprite.setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
 		m_entitys.emplace(e->m_name, e);
 	}
 
@@ -76,7 +76,7 @@ namespace re
 
 					}
 
-					sprite->setTextureRect(animation->m_animations[animation->m_activeAnimation][animation->m_currentFrame]);
+					sprite->m_sprite.setTextureRect(animation->m_animations[animation->m_activeAnimation][animation->m_currentFrame]);
 				}
 			}
 		}

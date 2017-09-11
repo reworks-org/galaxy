@@ -57,9 +57,9 @@ namespace re
 		int getIndex(sf::Rect<int>& rect);
 
 	private:
-		int m_level;
-		int m_maxLevels;
-		int m_maxObjects;
+		size_t m_level;
+		size_t m_maxLevels;
+		size_t m_maxObjects;
 		std::vector<Entity*> m_objects;
 		sf::Rect<int> m_bounds;
 		std::array<QuadTree*, 4> m_nodes;

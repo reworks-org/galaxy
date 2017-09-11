@@ -19,8 +19,9 @@
 namespace re
 {
 	PhysicsSystem::PhysicsSystem(PhysicsManager* manager, float ups, int32 vi, int32 pi)
-	:m_typeAsString("PhysicsSystem"), m_manager(manager), m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
+	:m_manager(manager), m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
 	{
+		m_typeAsString = "PhysicsSystem";
 	}
 
 	PhysicsSystem::~PhysicsSystem()

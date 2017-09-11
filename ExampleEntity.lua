@@ -22,8 +22,8 @@ entity =
 		texture = "parllax_combined.png",
 		parallaxList = 
 		{
-			bottom = { layer = 0, x = 0, y = 0, w = 64, h = 205 },
-			top = { layer = 2, x = 192, y = 0, w = 64, h = 205 }
+			bottom = { layer = 0, x = 0, y = 0, w = 64, h = 205, xpos = 0, ypos = 0 },
+			top = { layer = 2, x = 192, y = 0, w = 64, h = 205, xpos = 0, ypos = 0}
 		}
 	}
 }

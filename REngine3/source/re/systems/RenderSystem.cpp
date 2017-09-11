@@ -8,7 +8,6 @@
 
 #include "re/app/World.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/graphics/PostEffect.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/ParallaxComponent.hpp"
@@ -53,24 +52,24 @@ namespace re
 		{
 			auto sc = e->get<SpriteComponent>();
 
-			m_groups[sc->m_group].addDrawable(e->m_name, sc->m_sprite, e->get<TransformComponent>());
+			m_groups[sc->m_group].addDrawable(e->m_name, &(sc->m_sprite), e->get<TransformComponent>());
 		}
 
 		if (e->has<TextComponent>())
 		{
 			auto tc = e->get<TextComponent>();
 
-			m_groups[tc->m_group].addDrawable(e->m_name, tc->m_text, tc->m_text.getTransform());
+			m_groups[tc->m_group].addDrawable(e->m_name, &(tc->m_text), &(tc->m_text));
 		}
 
 		if (e->has<ParallaxComponent>())
 		{
 			auto pc = e->get<ParallaxComponent>();
-			auto& pr = pc->getParallaxRects();
+			auto& pr = pc->getParallaxMap();
 
 			for (auto& it : pr)
 			{
-				m_groups[it.first].addDrawable(e->m_name, pc->getDrawable(), 
+				m_groups[it.first].addDrawable(e->m_name, &(it.second), &(it.second));
 			}
 		}
 	}
@@ -89,38 +88,25 @@ namespace re
 	{
 		for (auto& v : m_groups)
 		{
-			auto found = v.getDrawableMap().find(name);
-			if (found != v.getDrawableMap().end())
-			{
-				v.getDrawableMap().erase(name);
-			}
+			v.getDrawableMap().erase(name);
 		}
 	}
 
-	void RenderSystem::render(Window* window, PostEffect* effect, bool smooth)
+	void RenderSystem::render(Window* window, bool smooth)
 	{		
-		if (effect != nullptr)
+		m_outputBuffer.clear();
+
+		m_outputBuffer.setSmooth(smooth);
+
+		for (auto& g : m_groups)
 		{
-			m_outputBuffer.clear();
-
-			m_outputBuffer.setSmooth(smooth);
-
-			for (auto& g : m_groups)
-			{
-				m_outputBuffer.draw(g);
-			}
-
-			m_outputBuffer.display();
-
-			effect->apply(m_outputBuffer, (*window));
+			m_outputBuffer.draw(g);
 		}
-		else
-		{
-			for (auto& g : m_groups)
-			{
-				window->draw(g);
-			}
-		}
+
+		m_outputBuffer.display();
+
+		sf::Sprite spr(m_outputBuffer.getTexture());
+		window->draw(spr);
 	}
 
 	void RenderSystem::clean()

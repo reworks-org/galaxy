@@ -17,8 +17,9 @@
 namespace re
 {
 	AudioSystem::AudioSystem(int defaultEffectVolume, int defaultMusicVolume)
-	:m_typeAsString("AudioSystem"), m_effectVolume(defaultEffectVolume), m_musicVolume(defaultMusicVolume)
+	:m_effectVolume(defaultEffectVolume), m_musicVolume(defaultMusicVolume)
 	{
+		m_typeAsString = "AudioSystem";
 	}
 
 	AudioSystem::~AudioSystem()
@@ -35,7 +36,7 @@ namespace re
 				auto* map = &(e.second.get<MusicComponent>()->m_music);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					it->second->setVolume(m_musicVolume);
+					it->second->setVolume((float)m_musicVolume);
 				}
 			}
 
@@ -44,7 +45,7 @@ namespace re
 				auto* map = &(e.second.get<SoundComponent>()->m_sounds);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					it->second.second->setVolume(m_effectVolume);
+					it->second.second->setVolume((float)m_effectVolume);
 				}
 			}
 		}
@@ -56,7 +57,7 @@ namespace re
 				auto* map = &(e.second.get<MusicComponent>()->m_music);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					it->second->setVolume(m_musicVolume);
+					it->second->setVolume((float)m_musicVolume);
 				}
 			}
 
@@ -65,7 +66,7 @@ namespace re
 				auto* map = &(e.second.get<SoundComponent>()->m_sounds);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					it->second.second->setVolume(m_effectVolume);
+					it->second.second->setVolume((float)m_effectVolume);
 				}
 			}
 		}
@@ -132,7 +133,7 @@ namespace re
 				auto* map = &(e.second->get<MusicComponent>()->m_music);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					it->second->setVolume(m_musicVolume);
+					it->second->setVolume((float)m_musicVolume);
 				}
 			}
 		}
@@ -149,7 +150,7 @@ namespace re
 				auto* map = &(e.second->get<SoundComponent>()->m_sounds);
 				for (auto it = map->begin(); it != map->end(); it++)
 				{
-					it->second.second->setVolume(m_effectVolume);
+					it->second.second->setVolume((float)m_effectVolume);
 				}
 			}
 		}

@@ -16,8 +16,8 @@
 namespace re
 {
 	EventSystem::EventSystem()
-	:m_typeAsString("EventSystem")
 	{
+		m_typeAsString = "EventSystem";
 	}
 
 	EventSystem::~EventSystem()

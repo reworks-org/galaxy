@@ -110,7 +110,6 @@
     <ClCompile Include="source\re\debug\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\re\debug\imgui\imgui-SFML.cpp" />
     <ClCompile Include="source\re\debug\DebugManager.cpp" />
-    <ClCompile Include="source\re\graphics\PostEffect.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\services\StateManager.cpp" />
     <ClCompile Include="source\re\physics\QuadTree.cpp" />
@@ -239,7 +238,6 @@
     <ClInclude Include="source\re\debug\imgui\stb_truetype.h" />
     <ClInclude Include="source\re\debug\DebugManager.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
-    <ClInclude Include="source\re\graphics\PostEffect.hpp" />
     <ClInclude Include="source\re\utility\ResourceManager.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\utility\Utils.hpp" />

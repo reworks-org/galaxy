@@ -18,17 +18,17 @@ namespace re
 {
 	ParallaxComponent::ParallaxComponent()
 	{
+		m_parallaxMaps.clear();
 	}
 
 	ParallaxComponent::~ParallaxComponent()
 	{
+		m_parallaxMaps.clear();
 	}
 
 	void ParallaxComponent::init(sol::table& table)
 	{
 		m_texture.loadFromFile(Locator::get<VFS>()->retrieve(table.get<std::string>("texture")));
-		m_sprite.setTexture(m_texture);
-
 		sol::table parallaxList = table.get<sol::table>("parallaxList");
 
 		std::map<std::string, sol::table> m_keyValuePairParallax;
@@ -40,13 +40,12 @@ namespace re
 
 		for (auto& it : m_keyValuePairParallax)
 		{
-			m_parallaxMaps.emplace(it.second.get<sf::Uint32>("layer"), sf::Rect<int>(it.second.get<int>("x"), it.second.get<int>("y"), it.second.get<int>("w"), it.second.get<int>("h")));
+			sf::Uint32 layer = it.second.get<sf::Uint32>("layer");
+			m_parallaxMaps.emplace(layer, sf::Sprite());
+			m_parallaxMaps[layer].setTexture(m_texture);
+			m_parallaxMaps[layer].setTextureRect(sf::Rect<int>(it.second.get<int>("x"), it.second.get<int>("y"), it.second.get<int>("w"), it.second.get<int>("h")));
+			m_parallaxMaps[layer].setPosition(it.second.get<float>("xpos"), it.second.get<float>("ypos"));
 		}
-	}
-
-	sf::Drawable* ParallaxComponent::getDrawable()
-	{
-		return m_sprite;
 	}
 
 	void ParallaxComponent::debugFunction(sol::table& table, const std::string& curEntityName)
@@ -56,7 +55,7 @@ namespace re
 		ImGui::Text("Please modify from script, then reload state.");
 	}
 
-	const std::unordered_map<sf::Uint32, sf::Rect<int>>& ParallaxComponent::getParallaxRects() const
+	std::unordered_map<sf::Uint32, sf::Sprite>& ParallaxComponent::getParallaxMap()
 	{
 		return m_parallaxMaps;
 	}

@@ -63,7 +63,7 @@ namespace re
 		* EXPORTS: none
 		* PURPOSE: Clean up the entitys.
 		*/
-		void render(Window* window, PostEffect* effect = nullptr, bool smooth = false);
+		void render(Window* window, bool smooth = false);
 
 		/*
 		* IMPORTS: none
