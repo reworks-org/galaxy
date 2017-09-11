@@ -51,19 +51,26 @@ namespace re
 
 		if (e->has<SpriteComponent>())
 		{
-			m_groups[e->get<SpriteComponent>()->m_group].addDrawable(e->m_name, e->get<SpriteComponent>()->m_sprite, e->get<TransformComponent>());
+			auto sc = e->get<SpriteComponent>();
+
+			m_groups[sc->m_group].addDrawable(e->m_name, sc->m_sprite, e->get<TransformComponent>());
 		}
 
 		if (e->has<TextComponent>())
 		{
-			m_groups[e->get<TextComponent>()->m_group].addDrawable(e->m_name, e->get<TextComponent>()->m_text, e->get<TextComponent>()->m_text.getTransform());
+			auto tc = e->get<TextComponent>();
+
+			m_groups[tc->m_group].addDrawable(e->m_name, tc->m_text, tc->m_text.getTransform());
 		}
 
 		if (e->has<ParallaxComponent>())
 		{
-			for (auto& it : e->get<ParallaxComponent>()->getParallaxRects())
+			auto pc = e->get<ParallaxComponent>();
+			auto& pr = pc->getParallaxRects();
+
+			for (auto& it : pr)
 			{
-				m_groups[it.first].addDrawable(e->m_name, )
+				m_groups[it.first].addDrawable(e->m_name, pc->getDrawable(), 
 			}
 		}
 	}

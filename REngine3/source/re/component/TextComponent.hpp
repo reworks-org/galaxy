@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+// NOTE: TextComponent maintains its own transformation.
+
 #ifndef RENGINE3_TEXTCOMPONENT_HPP_
 #define RENGINE3_TEXTCOMPONENT_HPP_
 

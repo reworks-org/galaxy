@@ -44,6 +44,11 @@ namespace re
 		}
 	}
 
+	sf::Drawable* ParallaxComponent::getDrawable()
+	{
+		return m_sprite;
+	}
+
 	void ParallaxComponent::debugFunction(sol::table& table, const std::string& curEntityName)
 	{
 		ImGui::Spacing();
