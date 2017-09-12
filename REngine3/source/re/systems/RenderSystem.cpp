@@ -93,7 +93,10 @@ namespace re
 	}
 
 	void RenderSystem::render(Window* window, bool smooth)
-	{		
+	{	
+		/*
+		// THIS TRASH IS SLOW AS
+
 		m_outputBuffer.clear();
 
 		m_outputBuffer.setSmooth(smooth);
@@ -107,6 +110,12 @@ namespace re
 
 		sf::Sprite spr(m_outputBuffer.getTexture());
 		window->draw(spr);
+		*/
+
+		for (auto& g : m_groups)
+		{
+			window->draw(g);
+		}
 	}
 
 	void RenderSystem::clean()

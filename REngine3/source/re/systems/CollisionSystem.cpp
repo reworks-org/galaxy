@@ -22,10 +22,13 @@ namespace re
 
 	CollisionSystem::~CollisionSystem()
 	{
-		m_quadtree->clear();
-		m_entitys.clear();
+		if (m_quadtree != nullptr)
+		{
+			m_quadtree->clear();
+			delete m_quadtree;
+		}
 
-		delete m_quadtree;
+		m_entitys.clear();
 	}
 
 	void CollisionSystem::addEntity(Entity* e)
