@@ -20,6 +20,7 @@
 #include "re/component/EventComponent.hpp"
 #include "re/component/SpriteComponent.hpp"
 #include "re/component/PhysicsComponent.hpp"
+#include "re/component/ParallaxComponent.hpp"
 #include "re/component/TransformComponent.hpp"
 #include "re/component/AnimationComponent.hpp"
 #include "re/component/CollisionComponent.hpp"
@@ -54,6 +55,7 @@ namespace re
 		registerComponent<EventComponent>("EventComponent");
 		registerComponent<SpriteComponent>("SpriteComponent");
 		registerComponent<PhysicsComponent>("PhysicsComponent");
+		registerComponent<ParallaxComponent>("ParallaxComponent");
 		registerComponent<TransformComponent>("TransformComponent");
 		registerComponent<CollisionComponent>("CollisionComponent");
 		registerComponent<AnimationComponent>("AnimationComponent");

@@ -74,6 +74,10 @@ namespace re
 					// handles any issues that might arise from this.
 					cl[m_name][cf->second.first]->init(kvp.second);
 				}
+				else
+				{
+					RE_LOG(LogLevel::WARNING, "Could not find TransformComponent in the component factory!", "Entity::Entity()", "Entity.cpp", 79);
+				}
 			}
 
 			auto cf = Locator::get<World>()->getComponentFactory().find(kvp.first);
@@ -83,6 +87,11 @@ namespace re
 			{
 				cl[m_name][cf->second.first] = cf->second.second();
 				cl[m_name][cf->second.first]->init(kvp.second);
+			}
+			else
+			{
+				std::string out = "Could not find " + kvp.first + "in the component factory!";
+				RE_LOG(LogLevel::WARNING, out, "Entity::Entity()", "Entity.cpp", 94);
 			}
 		}
 

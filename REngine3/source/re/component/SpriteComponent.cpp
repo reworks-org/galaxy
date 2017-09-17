@@ -41,6 +41,7 @@ namespace re
 	void SpriteComponent::loadSingleTexture(const std::string& texture)
 	{
 		m_texture.loadFromFile(Locator::get<VFS>()->retrieve(texture));
+
 		m_sprite.setTexture(m_texture);
 	}
 
@@ -73,6 +74,7 @@ namespace re
 				m_texture.loadFromFile(Locator::get<VFS>()->retrieve(texture));
 			}
 
+			m_texture.setRepeated(table.get<bool>("isRepeated"));
 			m_sprite.setTexture(m_texture);
 		}
 	}
