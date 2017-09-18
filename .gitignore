@@ -14,7 +14,7 @@ DerivedData/
 # Project stuff
 REngine3/bin/
 REngine3/build/
-libs/tgui/lib/tgui-s-d.lib
+libs/boost/
 
 # Sandbox Stuff
 Sandbox/bin/Debug/
