@@ -58,6 +58,18 @@ namespace re
 		m_world.init();
 	}
 
+	Application::~Application()
+	{
+		al_shutdown_native_dialog_addon();
+		al_uninstall_mouse();
+		al_uninstall_keyboard();
+		al_shutdown_ttf_addon();
+		al_shutdown_font_addon();
+		al_shutdown_image_addon();
+
+		// deinnit allegro???
+	}
+
 	int Application::run()
 	{
 		sf::Uint64 timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();

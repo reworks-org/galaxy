@@ -32,6 +32,11 @@ namespace re
 		/// 
 		Application(float32 gravity);
 
+		//
+		/// Cleans up engine.
+		/// 
+		~Application();
+
 		///
 		/// Return app->run() from your main method.
 		///
