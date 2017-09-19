@@ -7,21 +7,53 @@
 //
 
 #include <chrono>
-#include <SFML/Graphics/Shader.hpp>
+
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_font.h>
+#include <allegro5/allegro_image.h>
+#include <allegro5/allegro_native_dialog.h>
 
 #include "re/utility/Log.hpp"
 #include "re/services/StateManager.hpp"
 
 #include "Application.hpp"
 
+void engineConfig(std::ofstream& newFile)
+{
+	newFile << "appTitle = \"Default\"" << std::endl;
+	newFile << "assetPath = \"bin/assets/\"" << std::endl;
+	newFile << "ups = 60.0" << std::endl;
+	newFile << "versionMajor = 1" << std::endl;
+	newFile << "versionMinor = 0" << std::endl;
+	newFile << "versionPatch = 0" << std::endl;
+	newFile << "screenWidth = 640" << std::endl;
+	newFile << "screenHeight = 480" << std::endl;
+	newFile << "renderingLayers = 2" << std::endl;
+	newFile << "framerateLimit = 0" << std::endl;
+	newFile << "keyRepeat = true" << std::endl;
+	newFile << "cursorVisible = true" << std::endl;
+	newFile << "vsyncEnabled = false" << std::endl;
+	newFile << "saveLog = false" << std::endl;
+	newFile << "enableDebug = false" << std::endl;
+}
+
 namespace re
 {
 	Application::Application(float32 gravity)
-		:m_physicsManager(gravity), m_appTitle(""), m_targetUPS(60.0f), m_saveLog(false), m_enableDebug(false), m_versionMajor(0), m_versionMinor(0), m_versionPatch(1)
+		:m_physicsManager(gravity), m_appTitle(""), m_targetUPS(60.0f), m_saveLog(false), m_enableDebug(false), m_versionMajor(0), m_versionMinor(0), m_versionPatch(1),
+		m_engineConfig("config.cfg", engineConfig)
 	{
+		RE_LOG_PROVIDEWINDOW(&window);
 		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");
 
-        RE_ASSERT(sf::Shader::isAvailable(), "Shaders not avaliable on this system", "Application::Application", "Application.cpp", 23);
+		al_init();
+		al_init_image_addon();
+		al_init_font_addon();
+		al_init_ttf_addon();
+		al_install_keyboard();
+		al_install_mouse();
+		al_init_native_dialog_addon();
 
 		m_world.init();
 	}

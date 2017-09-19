@@ -3,21 +3,19 @@
 //  REngine3
 //
 //  Created by reworks on 8/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_APPLICATION_HPP_
 #define RENGINE3_APPLICATION_HPP_
 
-#include <SFML/Graphics/Font.hpp>
-
-#include "re/app/World.hpp"
+#include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/debug/DebugManager.hpp"
-#include "re/services/StateManager.hpp"
-#include "re/physics/PhysicsManager.hpp"
+#include "re/managers/DebugManager.hpp"
+#include "re/managers/StateManager.hpp"
+#include "re/managers/PhysicsManager.hpp"
 #include "re/utility/ResourceManager.hpp"
 
 namespace re
@@ -25,18 +23,20 @@ namespace re
 	class Application
 	{
 	public:
-		/*
-		* IMPORTS: gravity of world.
-		* EXPORTS: none
-		* PURPOSE: Default constructor. Your child class will need to set up the rest of the engine.
-		*/
+		///
+		/// \brief Default constructor.
+		///
+		/// Sets up the engine. You need to inherit this and call it from a subclass.
+		/// 
+		/// \param gravity Sets up the default gravity for Box2D.
+		/// 
 		Application(float32 gravity);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Runs the application. Return this from the main entry point.
-		*/
+		///
+		/// Return app->run() from your main method.
+		///
+		/// \return Returns EXIT_SUCCESS or EXIT_FAILURE.
+		/// 
 		int run();
 
 	protected:

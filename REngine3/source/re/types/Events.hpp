@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 5/08/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_EVENTS_HPP_
@@ -11,13 +11,13 @@
 
 namespace re
 {
+	// Just to make code look nicer.
 	typedef int EventType;
 
-	/*
-	* IMPORTS: none
-	* EXPORTS: none
-	* PURPOSE: List of event types. Inherit to define your own types. Don't forget to add the string equivalent to the converter map.
-	*/
+	///
+	/// List of event types. Inherit to define your own types. Don't forget to add the string equivalent to the converter map.
+	/// 0-3 taken. Start at 4.
+	///
 	struct Events
 	{
 		static const int MOUSE_PRESSED = 0;

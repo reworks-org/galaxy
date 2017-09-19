@@ -9,45 +9,24 @@
 #ifndef RENGINE3_WINDOW_HPP_
 #define RENGINE3_WINDOW_HPP_
 
-#include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
-
-#include "re/types/Service.hpp"
+#include <allegro5/display.h>
 
 namespace re
 {
-	class Window : public Service, public sf::RenderWindow
+	class Window
 	{
 	public:
-		/*
-		* See sf::RenderWindow Docs!
-		*/
+		///
+		/// \brief Sets up window.
+		/// 
+		/// Sets up all the data for the allegro window such as rendering.
+		///
 		Window();
 
-		/*
-		* See sf::RenderWindow Docs!
-		*/
-		Window(sf::VideoMode mode, const sf::String& title, sf::Uint32 style = sf::Style::Default, const sf::ContextSettings& settings = sf::ContextSettings());
-
-		/*
-		* See sf::RenderWindow Docs!
-		*/
-		Window(sf::WindowHandle handle, const sf::ContextSettings& settings = sf::ContextSettings());
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up classes.
-		*/
-		~Window() override;
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: This is an alternative to create() in renderwindow. This still calls that function, but also preserves the values passed to the function.
-		* NOTE: DO NOT USE sf::Style::Fullscreen. Instead, pass the boolean.
-		*/
-		void make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style, bool fullscreen);
+		///
+		/// Cleans up the window.
+		///
+		~Window();
 
 		/*
 		* IMPORTS: boolean - true is fullscreen.
@@ -63,15 +42,13 @@ namespace re
 		*/
 		void loadIcon(const std::string& iconName);
 
-	private:
-		sf::Image m_windowIcon;
-		std::string m_title;
-		int m_screenWidth;
-		int m_screenHeight;
-		sf::Uint32 m_style;
+		void close();
 
-	public:
-		sf::Event m_event;
+		ALLEGRO_DISPLAY* getDisplay();
+
+	private:
+		bool m_running;
+		ALLEGRO_DISPLAY* m_display;
 	};
 }
 

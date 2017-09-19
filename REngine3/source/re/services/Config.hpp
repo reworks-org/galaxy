@@ -3,76 +3,94 @@
 //  REngine3
 //
 //  Created by reworks on 17/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_CONFIG_HPP_
 #define RENGINE3_CONFIG_HPP_
 
 #include <string>
+#include <fstream>
+#include <functional>
 
-#include "re/scripting/sol2/sol.hpp"
+#include <allegro5/config.h>
+
+#include "re/utility/Utils.hpp"
 
 namespace re
 {
 	class ConfigReader
 	{
 	public:
-		/*
-		* IMPORTS: path - location of config file.
-		* EXPORTS: none
-		* PURPOSE: Set up path for config reader.
-		*/
-		void setPath(const std::string& path);
+		///
+		/// Open a config file.
+		///
+		/// \param config Path to the config file.
+		/// \param newFile A function pointer to a function that contains ofstream code to write a new config file.
+		///
+		ConfigReader(const std::string& fileName, std::function<void(std::ofstream&)> newFile);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: boolean - true means the config file was sucessfully parsed.
-		* PURPOSE: To load and parse the config file for the engine. Will create a default file if one is not found.
-		*/
-		bool parse(const std::string& configFile);
-
-		/*
-		* IMPORTS: std::ofstream object
-		* EXPORTS: none
-		* PURPOSE: Create a custom empty config depending on what this class is used for.
-		*/
-		virtual void createEmptyConfig(std::ofstream& newFile);
-
-		/*
-		* IMPORTS: table name to write.
-		* EXPORTS: none
-		* PURPOSE: write internal sol::state table to the config file.
-		*/
-		void writeConfigToFile();
-
-		/*
-		* IMPORTS: configValue - The name of the value to retrieve from the lua table in the config file.
-		* EXPORTS: T - a static_cast to the appropriate type of value.
-		* PURPOSE: To retrieve data from the config file to set up the engine.
-		*/
+		///
+		/// Clean up the config reader.
+		///
+		~ConfigReader();
+		
+		///
+		/// Set a value in the config.
+		///
+		/// \param section Section where the value is located.
+		/// \param key Key to refer to the value.
+		/// \param value Actual value to write.
+		///
 		template<typename T>
-		T lookup(const std::string& configValue);
+		void setValue(const std::string& section, const std::string& key, T value);
 
+		///
+		/// Remove a value from the config.
+		///
+		/// \param section Section where the value is located.
+		/// \param key Key to the value to remove.
+		///
+		void removeValue(const std::string& section, const std::string& key);
+
+		///
+		/// Removes an entire section from the config file. 
+		///
+		/// \param section to remove 
+		///
+		void removeSection(const std::string& section);
+
+		///
+		/// Saves the config file.
+		///
+		void save();
+
+		///
+		/// Lookup a value in the config file.
+		/// 
+		/// \param section Section where the value is located.
+		/// \param key Key to refer to the value.
+		/// 
+		/// \return Returns the value converted to T.
+		///
 		template<typename T>
-		void changeValue(const std::string& name, T value);
+		T lookup(const std::string& section, const std::string& key);
 
-	protected:
-		sol::state m_lua;
-		std::string m_path;
-		std::string m_fullPath;
+	private:
+		ALLEGRO_CONFIG* m_config;
+		std::string m_fileName;
 	};
 
 	template<typename T>
-	T ConfigReader::lookup(const std::string& configValue)
+	T ConfigReader::lookup(const std::string& section, const std::string& key)
 	{  
-		return m_lua.get<T>(configValue);
+		return Utils::convertString<T>(al_get_config_value(m_config, section.c_str(), key.c_str()));
 	}
 
 	template<typename T>
-	void ConfigReader::changeValue(const std::string& name, T value)
+	void ConfigReader::setValue(const std::string& section, const std::string& key, T value)
 	{
-		m_lua.set(name,value);
+		al_set_config_value(m_config, section.c_str(), key.c_str(), std::to_string(value).c_str());
 	}
 }
 

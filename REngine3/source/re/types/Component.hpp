@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 18/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_COMPONENT_HPP_
@@ -12,7 +12,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "re/scripting/sol2/sol.hpp"
+#include "sol2/sol.hpp"
 
 namespace re
 {
@@ -20,27 +20,29 @@ namespace re
 	{
         friend class Entity;
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Abstract virtual destructor for components.
-		*/
+		///
+		/// Virtual destructor to be inherited by child classes.
+		///
 		virtual inline ~Component() {};
 
-		/*
-		* IMPORTS: sol::table from lua script containing component data.
-		* EXPORTS: none
-		* PURPOSE: Set up the component.
-		*/
+		///
+		/// Initializes the component data.
+		///
+		/// \param sol::table Table containing component data from a sol::state.
+		///
 		virtual void init(sol::table& table) = 0;
 
     protected:
-        /*
-         * IMPORTS: lua table and entity name
-         * EXPORTS: Whether or not to save the changed table data.
-         * PURPOSE: debug component, change data, etc.
-         */
-        virtual void debugFunction(sol::table& table, const std::string& curEntityName) = 0;
+		///
+		/// \brief Modify a component in-game.
+		///
+		/// Uses IMGUI to modify a component and its script from inside the game. Allows you to tweak settings
+		/// and config until you find the right settings.
+		///
+		/// \param sol::table A table containing data about component.
+		/// \param curEntityName The current name of the entity this function is being called from.
+		///
+        virtual void debug(sol::table& table, const std::string& curEntityName) = 0;
 	};
 
 	typedef std::unordered_map<std::type_index, std::unique_ptr<Component>> ComponentList;

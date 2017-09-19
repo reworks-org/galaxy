@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 8/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_TIME_HPP_
@@ -18,12 +18,14 @@ namespace re
 {
 	namespace Time
 	{
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Get the current time and date in a std::string.
-		*/
-		inline std::string getCurrentTimeAndDate()
+		///
+		/// \brief Get the current time and date.
+		///
+		///  In XX:YY DD/MM/YYYY format.
+		///
+		/// \return Returns std::string.
+		///
+		inline std::string getCurrentDateTime()
 		{
 			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 			std::string temp = std::ctime(&time);
@@ -34,11 +36,13 @@ namespace re
 			return temp;
 		}
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Time and Date in XX::YY AM/PM format.
-		*/
+		///
+		/// \brief Get the current time.
+		///
+		///  Time and Date in XX:YY AM/PM format.
+		///
+		/// \return Returns std::string.
+		///
 		inline std::string getShortTime()
 		{
 			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -61,11 +65,11 @@ namespace re
 			return temp;
 		}
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Get a formatted time that contains no special characters.
-		*/
+		///
+		/// Get a formatted time that contains no special characters.
+		///
+		/// \return Returns std::string.
+		///
 		inline std::string getFormattedTime()
 		{
 			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());

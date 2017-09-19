@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
-    <ClCompile Include="source\Load.cpp" />
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\Menu.cpp" />
-    <ClCompile Include="source\physics\B2DCallbacks.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
-    <ClInclude Include="source\Load.hpp" />
-    <ClInclude Include="source\Menu.hpp" />
-    <ClInclude Include="source\physics\B2DCallbacks.hpp" />
   </ItemGroup>
 </Project>

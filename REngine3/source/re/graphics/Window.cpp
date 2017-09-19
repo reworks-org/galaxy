@@ -13,40 +13,25 @@
 
 namespace re
 {
-	Window::Window()
-	:sf::RenderWindow()
+	Window::Window(int width, int height)
+	:m_running(true)
 	{
-	}
-
-	Window::Window(sf::VideoMode mode, const sf::String& title, sf::Uint32 style, const sf::ContextSettings& settings)
-	:sf::RenderWindow(mode, title, style, settings)
-	{
-	}
-
-	Window::Window(sf::WindowHandle handle, const sf::ContextSettings& settings)
-	:sf::RenderWindow(handle, settings)
-	{
+		m_display = al_create_display(width, height);
 	}
 
 	Window::~Window()
 	{
+		al_destroy_display(m_window);
 	}
 
-	void Window::make(int screenwidth, int screenheight, const std::string& title, sf::Uint32 style, bool fullscreen)
+	void Window::close()
 	{
-		m_screenWidth = screenwidth;
-		m_screenHeight = screenheight;
-		m_title = title;
-		m_style = style;
+		m_running = false;
+	}
 
-		if (fullscreen)
-		{
-			create(sf::VideoMode(screenwidth, screenheight), title, style | sf::Style::Fullscreen);
-		}
-		else
-		{
-			create(sf::VideoMode(screenwidth, screenheight), title, style);
-		}
+	ALLEGRO_DISPLAY* Window::getDisplay()
+	{
+		return m_display;
 	}
 
 	void Window::goFullscreen(bool value)

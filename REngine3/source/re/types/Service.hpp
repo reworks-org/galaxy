@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 9/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_SERVICE_HPP_
@@ -14,11 +14,9 @@ namespace re
 	class Service
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Abstract virtual destructor for services.
-		*/
+		///
+		/// Virtual destructor to be inherited by child classes.
+		///
 		virtual ~Service() {}
 	};
 }

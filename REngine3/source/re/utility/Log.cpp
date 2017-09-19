@@ -3,16 +3,18 @@
 //  REngine3
 //
 //  Created by reworks on 17/04/2017.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #include <fstream>
 #include <iostream>
 
+#include <allegro5/allegro_native_dialog.h>
+
 #ifdef _WIN32
 #include "re/platform/Win32Log.hpp"
 #else
-#include "re/platform/POSIXLog.hpp"
+#include "re/platform/UNIXLog.hpp"
 #endif
 
 #include "re/utility/Time.hpp"
@@ -39,6 +41,11 @@ namespace re
 	{
 	}
 
+	void Log::provideWindow(Window* window)
+	{
+		m_windowRef = window;
+	}
+
 	void Log::log(LogLevel level, const std::string& message, const std::string& function, const std::string& file, int line)
 	{
 		std::string composedMessage = Time::getCurrentTimeAndDate() + "] - Message: " + message + ". Function: " + function + ". File: " + file + ". Line: " + std::to_string(line) + ".";
@@ -58,6 +65,9 @@ namespace re
 		case LogLevel::FATAL:
 			std::cout << RED << "RE_ERROR:   [" << composedMessage << GRAY << std::endl;
 			m_savedMessages.push_back("RE_ERROR:   [" + composedMessage);
+
+			al_show_native_message_box(m_windowRef->getDisplay(), "ERROR", nullptr, message.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+			m_windowRef->close();
 			break;
 		}
 	}
@@ -106,6 +116,9 @@ namespace re
 			m_savedMessages.push_back(top);
 			m_savedMessages.push_back(middle);
 			m_savedMessages.push_back(bottom);
+
+			al_show_native_message_box(m_windowRef->getDisplay(), "ERROR", nullptr, message.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+			m_windowRef->close();
 			break;
 		}
 	}

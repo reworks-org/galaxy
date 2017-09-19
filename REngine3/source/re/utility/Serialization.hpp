@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 20/10/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_SERIALIZATION_HPP_
@@ -14,10 +14,10 @@
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
-#include "re/app/World.hpp"
+#include "re/core/World.hpp"
 #include "re/services/ServiceLocator.hpp"
-#include "re/component/PhysicsComponent.hpp"
-#include "re/component/TransformComponent.hpp"
+#include "re/components/PhysicsComponent.hpp"
+#include "re/components/TransformComponent.hpp"
 
 // http://www.boost.org/doc/libs/1_62_0/libs/serialization/doc/index.html
 

@@ -1,4 +1,23 @@
-v1.0:
+- move to allegro
+- focus on RTTI
+- clean up C++ code
+- better documentation
+- update copyrights
+- includes
+- better exceptions and logging
 
-- bug fixes
-- parallax support
+done:
+
+services:
+	- config
+
+utility:
+	- log
+	- utils
+	- time
+	- random
+
+types:
+	- component
+	- events
+	- service

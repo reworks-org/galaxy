@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 10/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_SYSTEM_HPP_
@@ -11,25 +11,21 @@
 
 #include <map>
 
-#include "re/entity/Entity.hpp"
+#include "re/core/Entity.hpp"
 
 namespace re
 {    
 	class System
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Virtual destructor for systems.
-		*/
+		///
+		/// Virtual destructor for systems.
+		///
 		virtual ~System();
 
-		/*
-		* IMPORTS: id of entity to add and its component list.
-		* EXPORTS: none
-		* PURPOSE: Add an entitys components from the system. YOU NEED to call entitys list of system ids and push back the type id of the system your adding the entity to.
-		*/
+		///
+		/// Add an entitys components from the system. 
+		///
 		virtual void addEntity(Entity* e) = 0;
 
 		/*

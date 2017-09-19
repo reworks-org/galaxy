@@ -10,17 +10,20 @@
 #define RENGINE3_UTILS_HPP_
 
 #include <string>
+#include <sstream>
 
 namespace re
 {
 	namespace Utils
 	{
-		/*
-		* IMPORTS: bool value to write out.
-		* EXPORTS: std::string of bool
-		* PURPOSE: "convert" a boolean value to a std::string
-		*/
-		inline std::string boolToStr(bool value)
+		///
+		/// Converts a boolean to a std::string.
+		///
+		/// \param value Boolean value to convert.
+		///
+		/// \return Returns either "true" or "false".
+		///
+		inline std::string boolToString(bool value)
 		{
 			if (value == true)
 			{
@@ -32,12 +35,14 @@ namespace re
 			}
 		}
 
-		/*
-		* IMPORTS: std::string value to write out.
-		* EXPORTS: bool of std::string
-		* PURPOSE: "convert" a std::string value to a boolean
-		*/
-		inline bool strToBool(const std::string& str)
+		///
+		/// Converts a std::string to a boolean.
+		///
+		/// \param value std::string value to convert.
+		///
+		/// \return Returns either true or false.
+		///
+		inline bool stringToBool(const std::string& str)
 		{
 			if (str == "true")
 			{
@@ -47,6 +52,41 @@ namespace re
 			{
 				return false;
 			}
+		}
+
+		///
+		/// \brief Convert a std::string to any type, except boolean.
+		///
+		/// Thanks to: https://gist.github.com/timofurrer/2725779
+		///
+		/// \param data std::string containing type to convert.
+		///
+		/// \return Returns data as T type.
+		///
+		template <typename T>
+		T convertString(const std::string &data)
+		{
+			if (!data.empty())
+			{
+				T ret;
+				std::istringstream iss(data);
+				if (data.find("0x") != std::string::npos)
+				{
+					iss >> std::hex >> ret;
+				}
+				else
+				{
+					iss >> std::dec >> ret;
+				}
+
+				if (iss.fail())
+				{
+					std::cout << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
+					return T();
+				}
+				return ret;
+			}
+			return T();
 		}
 	}
 }
