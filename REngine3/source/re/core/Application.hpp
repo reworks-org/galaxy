@@ -45,23 +45,22 @@ namespace re
 		int run();
 
 	protected:
-		std::string m_appTitle;
-		float m_targetUPS;
-		bool m_saveLog;
-		bool m_enableDebug;
-
 		int m_versionMajor;
 		int m_versionMinor;
 		int m_versionPatch;
+		float m_targetUPS;
+		bool m_saveLog;
+		bool m_enableDebug;
+		std::string m_appTitle;
 
 		VFS m_vfs;
 		ConfigReader m_engineConfig;
-		World m_world;
 		Window m_window;
+		World m_world;
 		StateManager m_stateManager;
 		ResourceManager<sf::Font> m_fontManager;
 		ResourceManager<sf::Shader> m_shaderManager;
-		ResourceManager<sf::Texture> m_spriteSheetManager;
+		ResourceManager<ALLEGRO_BITMAP*> m_spriteSheetManager;
 		PhysicsManager m_physicsManager;
 		DebugManager m_debugManager;
 	};

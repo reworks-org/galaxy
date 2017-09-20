@@ -6,7 +6,12 @@
 - includes
 - better exceptions and logging
 
-done:
+done modules:
+
+graphics:
+	- window
+
+managers:
 
 services:
 	- config
@@ -19,8 +24,8 @@ utility:
 
 types:
 	- component
-	- events
 	- service
+	- system
 
 http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4

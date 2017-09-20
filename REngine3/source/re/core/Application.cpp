@@ -12,6 +12,7 @@
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_image.h>
+#include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_native_dialog.h>
 
 #include "re/utility/Log.hpp"
@@ -41,33 +42,29 @@ void engineConfig(std::ofstream& newFile)
 namespace re
 {
 	Application::Application(float32 gravity)
-		:m_physicsManager(gravity), m_appTitle(""), m_targetUPS(60.0f), m_saveLog(false), m_enableDebug(false), m_versionMajor(0), m_versionMinor(0), m_versionPatch(1),
-		m_engineConfig("config.cfg", engineConfig)
+	:m_window(),
+	 m_physicsManager(gravity),
+	 m_engineConfig("config.cfg", engineConfig)
 	{
 		RE_LOG_PROVIDEWINDOW(&window);
 		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");
 
-		al_init();
+		al_init(); // macro for al_install_system
 		al_init_image_addon();
-		al_init_font_addon();
-		al_init_ttf_addon();
+		al_init_native_dialog_addon();
 		al_install_keyboard();
 		al_install_mouse();
-		al_init_native_dialog_addon();
 
 		m_world.init();
 	}
 
 	Application::~Application()
 	{
-		al_shutdown_native_dialog_addon();
 		al_uninstall_mouse();
 		al_uninstall_keyboard();
-		al_shutdown_ttf_addon();
-		al_shutdown_font_addon();
+		al_shutdown_native_dialog_addon();
 		al_shutdown_image_addon();
-
-		// deinnit allegro???
+		al_uninstall_system();
 	}
 
 	int Application::run()
@@ -79,6 +76,7 @@ namespace re
 		sf::Clock clock;
 		sf::Time timeSinceLastUpdate = sf::Time::Zero;
 		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
+		ALLEGRO_EVENT l_event;
 
 		m_stateManager.load();
 		m_debugManager.init(m_window, m_enableDebug);
@@ -93,13 +91,13 @@ namespace re
 				timeSinceLastUpdate -= TimePerFrame;
 				
                 // Handle events that need to be polled
-                while (m_window.pollEvent(m_window.m_event))
+                while (al_get_next_event(m_window.getEvents(), &l_event))
                 {
-                    switch(m_window.m_event.type)
+                    switch(l_event.type)
                     {
-                        case sf::Event::Closed:
-                            m_window.close();
-                            break;
+					case ALLEGRO_EVENT_DISPLAY_CLOSE:
+						m_window.close();
+						break;
                     }
                     
                     m_debugManager.event(m_window.m_event);

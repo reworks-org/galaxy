@@ -10,7 +10,7 @@
 #define RENGINE3_VFS_HPP_
 
 #include <string>
-#include <unordered_map>
+#include <vector>
 
 #include "re/types/Service.hpp"
 
@@ -26,29 +26,12 @@ namespace re
 		*/
 		VFS();
 
-		/*
-		* IMPORTS: path to main assets folder. DO NOT PUT A '/' AT THE END OF THE STRING!
-		* EXPORTS: none
-		* PURPOSE: Adds a folder to base path string
-		*/
-		void setBasePath(const std::string& path);
-
-		/*
-		* IMPORTS: fileName - The name of the file.
-		* EXPORTS: std::string - path to file
-		* PURPOSE: To retrieve a file
-		*/
-		std::string retrieve(const std::string& fileName) const;
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: std::string - base path
-		* PURPOSE: To get base path
-		*/
-		std::string getBasePath() const;
+		~VFS();
+		void mount(const std::string& archive);
+		ALLEGRO_FILE* open(const std::string& file, const std::string& mode);
 
 	private:
-		std::string m_basePath;
+		std::vector<ALLEGRO_FILE*> m_filesToClean;
 	};
 }
 
