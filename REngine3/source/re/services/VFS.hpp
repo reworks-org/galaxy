@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 12/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_VFS_HPP_
@@ -12,6 +12,8 @@
 #include <string>
 #include <vector>
 
+#include <allegro5/file.h>
+
 #include "re/types/Service.hpp"
 
 namespace re
@@ -19,15 +21,32 @@ namespace re
 	class VFS : public Service
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Constructor
-		*/
+		///
+		/// Constructor.
+		///
 		VFS();
-
+		
+		///
+		/// Destructor.
+		//
 		~VFS();
+
+		///
+		/// \brief Mount an archive or folder.
+		///
+		/// This is done by physfs so it supports the most common archive types. You can also point to a folder.
+		///
+		/// \param archive Path or archive to mount.
+		///
 		void mount(const std::string& archive);
+
+		///
+		/// Open an ALLEGRO_FILE.
+		///
+		/// \param file The file in the VFS to open, and the mode: "r", "w", etc.
+		///
+		/// \return ALLEGRO_FILE*. This is automatically cleaned up by the VFS. DO NOT MANUALLY CLEAN THIS UP.
+		///
 		ALLEGRO_FILE* open(const std::string& file, const std::string& mode);
 
 	private:

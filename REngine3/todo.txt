@@ -13,8 +13,20 @@ graphics:
 
 managers:
 
+physics:
+	- box2dhelper
+
+platform:
+	- unixlog
+	- win32log
+
+scripting:
+	- LuaUtils	
+
 services:
 	- config
+	- vfs
+	- servicelocator
 
 utility:
 	- log
@@ -25,6 +37,7 @@ utility:
 types:
 	- component
 	- service
+	- colour
 	- system
 
 http://liballeg.org/a5docs/trunk/display.html

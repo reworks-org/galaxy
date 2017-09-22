@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 9/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_WINDOWS_HPP_
@@ -14,11 +14,11 @@
 
 namespace re
 {
-	/*
-	* IMPORTS: code - color code to use.
-	* EXPORTS: none
-	* PURPOSE: Change text colour of the console.
-	*/
+	///
+	/// Change the colour of the text being printed to the console.
+	///
+	/// \param code ACSII RE_COLOUR code to use.
+	///
 	inline const char* setConsoleTextColour(unsigned long code)
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

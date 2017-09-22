@@ -376,10 +376,8 @@
     <ClInclude Include="source\re\mangers\DebugManager.hpp" />
     <ClInclude Include="source\re\mangers\ResourceManager.hpp" />
     <ClInclude Include="source\re\mangers\StateManager.hpp" />
-    <ClInclude Include="source\re\physics\Box2DSFMLBridge.hpp" />
     <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
@@ -411,6 +409,8 @@
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
+    <ClInclude Include="source\re\types\Colour.hpp" />
+    <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

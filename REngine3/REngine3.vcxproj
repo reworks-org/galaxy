@@ -404,12 +404,10 @@
     <ClInclude Include="source\re\mangers\DebugManager.hpp" />
     <ClInclude Include="source\re\mangers\ResourceManager.hpp" />
     <ClInclude Include="source\re\mangers\StateManager.hpp" />
-    <ClInclude Include="source\re\physics\Box2DSFMLBridge.hpp" />
     <ClInclude Include="source\re\mangers\PhysicsManager.hpp" />
     <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\platform\UNIXLog.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\re\scripting\TGUISol2Bridge.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
@@ -419,11 +417,13 @@
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\re\types\Colour.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\utility\Log.hpp" />
+    <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\re\utility\Random.hpp" />
     <ClInclude Include="source\re\utility\Serialization.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />

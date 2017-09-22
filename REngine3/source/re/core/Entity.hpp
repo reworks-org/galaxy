@@ -116,14 +116,11 @@ namespace re
 	template<typename T>
 	bool Entity::has()
 	{
-		if (m_components->find(std::type_index(typeid(T))) != m_components->end())
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		bool out;
+
+		out = m_components->find(std::type_index(typeid(T))) != m_components->end() ? true : false;
+
+		return out;
 	}
 }
 

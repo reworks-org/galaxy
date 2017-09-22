@@ -17,13 +17,10 @@
 #include "re/platform/UNIXLog.hpp"
 #endif
 
+#include "re/types/Colour.hpp"
 #include "re/utility/Time.hpp"
 
 #include "Log.hpp"
-
-#define YELLOW setConsoleTextColour(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY)
-#define RED setConsoleTextColour(FOREGROUND_RED | FOREGROUND_INTENSITY)
-#define GRAY setConsoleTextColour(FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN)
 
 namespace re
 {
@@ -53,17 +50,17 @@ namespace re
 		switch (level)
 		{
 		case LogLevel::INFO:
-			std::cout << GRAY << "RE_INFO:    [" << composedMessage << GRAY << std::endl;
+			std::cout << setConsoleTextColour(RE_GRAY) << "RE_INFO:    [" << composedMessage << setConsoleTextColour(RE_GRAY) << std::endl;
 			m_savedMessages.push_back("RE_INFO:    [" + composedMessage);
 			break;
 
 		case LogLevel::WARNING:
-			std::cout << YELLOW << "RE_WARNING: [" << composedMessage << GRAY << std::endl;
+			std::cout << setConsoleTextColour(RE_YELLOW) << "RE_WARNING: [" << composedMessage << setConsoleTextColour(RE_GRAY) << std::endl;
 			m_savedMessages.push_back("RE_WARNING: [" + composedMessage);
 			break;
 
 		case LogLevel::FATAL:
-			std::cout << RED << "RE_ERROR:   [" << composedMessage << GRAY << std::endl;
+			std::cout << setConsoleTextColour(RE_RED) << "RE_ERROR:   [" << composedMessage << setConsoleTextColour(RE_GRAY) << std::endl;
 			m_savedMessages.push_back("RE_ERROR:   [" + composedMessage);
 
 			al_show_native_message_box(m_windowRef->getDisplay(), "ERROR", nullptr, message.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
@@ -89,9 +86,9 @@ namespace re
 		switch (level)
 		{
 		case LogLevel::INFO:
-			std::cout << GRAY << top << GRAY << std::endl;
-			std::cout << GRAY << middle << GRAY << std::endl;
-			std::cout << GRAY << bottom << GRAY << std::endl;
+			std::cout << setConsoleTextColour(RE_GRAY) << top << setConsoleTextColour(RE_GRAY) << std::endl;
+			std::cout << setConsoleTextColour(RE_GRAY) << middle << setConsoleTextColour(RE_GRAY) << std::endl;
+			std::cout << setConsoleTextColour(RE_GRAY) << bottom << setConsoleTextColour(RE_GRAY) << std::endl;
 
 			m_savedMessages.push_back(top);
 			m_savedMessages.push_back(middle);
@@ -99,9 +96,9 @@ namespace re
 			break;
 
 		case LogLevel::WARNING:
-			std::cout << YELLOW << top << GRAY << std::endl;
-			std::cout << YELLOW << middle << GRAY << std::endl;
-			std::cout << YELLOW << bottom << GRAY << std::endl;
+			std::cout << setConsoleTextColour(RE_YELLOW) << top << setConsoleTextColour(RE_GRAY) << std::endl;
+			std::cout << setConsoleTextColour(RE_YELLOW) << middle << setConsoleTextColour(RE_GRAY) << std::endl;
+			std::cout << setConsoleTextColour(RE_YELLOW) << bottom << setConsoleTextColour(RE_GRAY) << std::endl;
 
 			m_savedMessages.push_back(top);
 			m_savedMessages.push_back(middle);
@@ -109,9 +106,9 @@ namespace re
 			break;
 
 		case LogLevel::FATAL:
-			std::cout << RED << top << GRAY << std::endl;
-			std::cout << RED << middle << GRAY << std::endl;
-			std::cout << RED << bottom << GRAY << std::endl;
+			std::cout << setConsoleTextColour(RE_RED) << top << setConsoleTextColour(RE_GRAY) << std::endl;
+			std::cout << setConsoleTextColour(RE_RED) << middle << setConsoleTextColour(RE_GRAY) << std::endl;
+			std::cout << setConsoleTextColour(RE_RED) << bottom << setConsoleTextColour(RE_GRAY) << std::endl;
 
 			m_savedMessages.push_back(top);
 			m_savedMessages.push_back(middle);

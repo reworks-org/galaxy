@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 12/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #include <physfs.h>

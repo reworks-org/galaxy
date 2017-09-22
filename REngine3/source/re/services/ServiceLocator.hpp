@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 17/07/2016.
-//  Copyright � 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_SERVICELOCATOR_HPP_
@@ -20,34 +20,35 @@ namespace re
 	class Locator
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up the locator.
-		*/
+		///
+		/// Destructor
+		///
 		~Locator();
 
-		/*
-		* IMPORTS: <T> - The type of object, s - The service object reference.
-		* EXPORTS: none
-		* PURPOSE: To add an engine service to the engines locator.
-		*/
+		///
+		/// \brief To add a service to the engine.
+		///
+		/// A service is anything that inherits from Service base class.
+		/// The locator lets them be accessed from anywhere in the engine.
+		///
+		/// \param s The type of object, s - The service object reference.
+		///
 		template<typename T>
 		static void provide(Service* s);
 
-		/*
-		* IMPORTS: <T> - The type of object
-		* EXPORTS: none
-		* PURPOSE: To retrieve an engine service.
-		*/
+		///
+		/// To retrieve an engine service.
+		///
+		/// \return Service cast to correct type.
+		///
 		template<typename T>
 		static T* get();
 
-		/*
-		* IMPORTS: <T> - The type of object
-		* EXPORTS: none
-		* PURPOSE: To remove a service from the locator (does not delete the original object, that is handled by Application class).
-		*/
+		///
+		/// To remove a service from the locator (does not delete the original object, that is handled by Application class).
+		///
+		/// \param T The type of the object is used to identify which object to remove.
+		///
 		template<typename T>
 		static void remove();
 
@@ -64,7 +65,7 @@ namespace re
 
 		if (it != m_services.end()) 
 		{
-			RE_LOG(LogLevel::WARNING, "Tried to provide an already existing service", "Locator::provide", "ServiceLocator.hpp", 67);
+			RE_LOG(LogLevel::WARNING, "Tried to provide an already existing service.", "Locator::provide", "ServiceLocator.hpp", 68);
 		}
 		else 
 		{
@@ -75,34 +76,23 @@ namespace re
 	template<typename T>
 	T* Locator::get()
 	{
-		// Find type in the map.
+		T* out;
 		auto it = m_services.find(std::type_index(typeid(T)));
 
-		if (it != m_services.end()) 
-		{
-			// Cast to required type and return.
-			return dynamic_cast<T*>(it->second);
-		}
-		else 
-		{
-			return nullptr;
-		}
+		out = it != m_services.end() ? dynamic_cast<T*>(it->second) : nullptr;
+		return out;
 	}
 
 	template<typename T>
 	void Locator::remove()
 	{
-		// Find type in the map.
-		auto it = m_services.find(std::type_index(typeid(T)));
-
-		if (it != m_services.end())
+		if (m_services.find(std::type_index(typeid(T))) != m_services.end())
 		{
-			// Erase from map.
 			m_services.erase(typeid(T));
 		}
 		else
 		{
-			RE_LOG(LogLevel::WARNING, "Attempted to remove a service that doesnt exist", "Locator::remove", "ServiceLocator.hpp", 105);
+			RE_LOG(LogLevel::WARNING, "Attempted to remove a service that doesnt exist", "Locator::remove", "ServiceLocator.hpp", 99);
 		}
 	}
 }
