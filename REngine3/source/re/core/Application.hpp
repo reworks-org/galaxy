@@ -13,10 +13,10 @@
 #include "re/services/VFS.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/managers/DebugManager.hpp"
+#include "re/managers/FontManager.hpp"
 #include "re/managers/StateManager.hpp"
+#include "re/managers/DebugManager.hpp"
 #include "re/managers/PhysicsManager.hpp"
-#include "re/utility/ResourceManager.hpp"
 
 namespace re
 {
@@ -48,7 +48,7 @@ namespace re
 		int m_versionMajor;
 		int m_versionMinor;
 		int m_versionPatch;
-		float m_targetUPS;
+		double m_ups;
 		bool m_saveLog;
 		bool m_enableDebug;
 		std::string m_appTitle;
@@ -58,9 +58,7 @@ namespace re
 		Window m_window;
 		World m_world;
 		StateManager m_stateManager;
-		ResourceManager<sf::Font> m_fontManager;
-		ResourceManager<sf::Shader> m_shaderManager;
-		ResourceManager<ALLEGRO_BITMAP*> m_spriteSheetManager;
+		FontManager m_fontManager;
 		PhysicsManager m_physicsManager;
 		DebugManager m_debugManager;
 	};

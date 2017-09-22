@@ -5,6 +5,7 @@
 - update copyrights
 - includes
 - better exceptions and logging
+- https://wiki.allegro.cc/index.php?title=Achieving_Resolution_Independence
 
 done modules:
 
@@ -12,6 +13,7 @@ graphics:
 	- window
 
 managers:
+	- resourcemanager
 
 physics:
 	- box2dhelper

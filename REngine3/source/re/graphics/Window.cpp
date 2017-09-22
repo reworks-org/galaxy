@@ -41,7 +41,7 @@ namespace re
 
 		if (fullscreen)
 		{
-			al_set_display_flag(m_display, ALLEGRO_FULLSCREEN_WINDOW, true);
+			toggleFullscreen(true);
 		}
 
 		m_icon = al_load_bitmap(icon.c_str());

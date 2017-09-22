@@ -201,9 +201,10 @@
     <ClCompile Include="source\re\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
-    <ClCompile Include="source\re\mangers\DebugManager.cpp" />
-    <ClCompile Include="source\re\mangers\StateManager.cpp" />
-    <ClCompile Include="source\re\mangers\PhysicsManager.cpp" />
+    <ClCompile Include="source\re\managers\DebugManager.cpp" />
+    <ClCompile Include="source\re\managers\FontManager.cpp" />
+    <ClCompile Include="source\re\managers\StateManager.cpp" />
+    <ClCompile Include="source\re\managers\PhysicsManager.cpp" />
     <ClCompile Include="source\re\physics\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
@@ -401,10 +402,10 @@
     <ClInclude Include="source\re\libs\tmx\tmx.h" />
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
-    <ClInclude Include="source\re\mangers\DebugManager.hpp" />
-    <ClInclude Include="source\re\mangers\ResourceManager.hpp" />
-    <ClInclude Include="source\re\mangers\StateManager.hpp" />
-    <ClInclude Include="source\re\mangers\PhysicsManager.hpp" />
+    <ClInclude Include="source\re\managers\DebugManager.hpp" />
+    <ClInclude Include="source\re\managers\FontManager.hpp" />
+    <ClInclude Include="source\re\managers\StateManager.hpp" />
+    <ClInclude Include="source\re\managers\PhysicsManager.hpp" />
     <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\platform\UNIXLog.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
@@ -488,8 +489,15 @@
     <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
   </PropertyGroup>

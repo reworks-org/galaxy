@@ -173,8 +173,6 @@
     <ClCompile Include="source\re\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
-    <ClCompile Include="source\re\mangers\DebugManager.cpp" />
-    <ClCompile Include="source\re\mangers\StateManager.cpp" />
     <ClCompile Include="source\re\physics\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
@@ -187,7 +185,6 @@
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\types\System.cpp" />
     <ClCompile Include="source\re\utility\Log.cpp" />
-    <ClCompile Include="source\re\mangers\PhysicsManager.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
     <ClCompile Include="source\re\components\EventComponent.cpp" />
@@ -198,6 +195,10 @@
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
+    <ClCompile Include="source\re\managers\DebugManager.cpp" />
+    <ClCompile Include="source\re\managers\PhysicsManager.cpp" />
+    <ClCompile Include="source\re\managers\StateManager.cpp" />
+    <ClCompile Include="source\re\managers\FontManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\core\Application.hpp" />
@@ -373,9 +374,6 @@
     <ClInclude Include="source\re\libs\tmx\tmx.h" />
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
-    <ClInclude Include="source\re\mangers\DebugManager.hpp" />
-    <ClInclude Include="source\re\mangers\ResourceManager.hpp" />
-    <ClInclude Include="source\re\mangers\StateManager.hpp" />
     <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
@@ -396,7 +394,6 @@
     <ClInclude Include="source\re\utility\Serialization.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
     <ClInclude Include="source\re\utility\Utils.hpp" />
-    <ClInclude Include="source\re\mangers\PhysicsManager.hpp" />
     <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\platform\UNIXLog.hpp" />
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
@@ -411,6 +408,10 @@
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\types\Colour.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
+    <ClInclude Include="source\re\managers\DebugManager.hpp" />
+    <ClInclude Include="source\re\managers\PhysicsManager.hpp" />
+    <ClInclude Include="source\re\managers\StateManager.hpp" />
+    <ClInclude Include="source\re\managers\FontManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

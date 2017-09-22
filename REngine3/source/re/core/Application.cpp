@@ -10,13 +10,11 @@
 
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_ttf.h>
-#include <allegro5/allegro_font.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_native_dialog.h>
 
 #include "re/utility/Log.hpp"
-#include "re/services/StateManager.hpp"
 
 #include "Application.hpp"
 
@@ -49,9 +47,11 @@ namespace re
 		RE_LOG_PROVIDEWINDOW(&window);
 		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");
 
-		al_init(); // macro for al_install_system
+		al_init();
+		al_init_font_addon();
 		al_init_image_addon();
 		al_init_native_dialog_addon();
+
 		al_install_keyboard();
 		al_install_mouse();
 
@@ -62,33 +62,39 @@ namespace re
 	{
 		al_uninstall_mouse();
 		al_uninstall_keyboard();
+
 		al_shutdown_native_dialog_addon();
 		al_shutdown_image_addon();
+		al_shutdown_font_addon();
+
 		al_uninstall_system();
 	}
 
 	int Application::run()
 	{
-		sf::Uint64 timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+		std::uint64_t timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		int frames = 0;
 		int updates = 0;
 
-		sf::Clock clock;
-		sf::Time timeSinceLastUpdate = sf::Time::Zero;
-		const sf::Time TimePerFrame = sf::seconds(1.f / m_targetUPS);
+		ALLEGRO_TIMER* l_timer = al_create_timer(1.0 / m_ups);
+		ALLEGRO_TIMER* l_dt = al_create_timer(1.0 / m_ups);
+		std::uint64_t l_timeSinceLastUpdate = 0;
+		double l_timePerFrame = 1.0 / m_ups;
 		ALLEGRO_EVENT l_event;
 
 		m_stateManager.load();
 		m_debugManager.init(m_window, m_enableDebug);
 
+		al_start_timer(l_timer);
 		while (m_window.isOpen())
 		{
-			sf::Time dt = clock.restart();
-			timeSinceLastUpdate += dt;
+			al_set_timer_count(l_dt, al_get_timer_count(l_timer));
+			al_set_timer_count(l_timer, 0);
+			l_timeSinceLastUpdate += al_get_timer_count(l_dt);
             
-			while (timeSinceLastUpdate > TimePerFrame)
+			while (l_timeSinceLastUpdate > l_timePerFrame)
 			{
-				timeSinceLastUpdate -= TimePerFrame;
+				l_timeSinceLastUpdate -= l_timePerFrame;
 				
                 // Handle events that need to be polled
                 while (al_get_next_event(m_window.getEvents(), &l_event))
@@ -100,8 +106,8 @@ namespace re
 						break;
                     }
                     
-                    m_debugManager.event(m_window.m_event);
-                    m_stateManager.handlePollEvents(m_window.m_event);
+                    m_debugManager.event(&l_event);
+                    m_stateManager.handlePollEvents(&l_event);
                 }
                 
                 m_stateManager.handleEvents(m_window.m_event);
@@ -113,7 +119,7 @@ namespace re
                 // Display the debug manager
                 m_debugManager.useMenu();
                 
-					updates++;
+				updates++;
             }
             
 			// Render
@@ -138,6 +144,9 @@ namespace re
 				frames = 0;
 			}
 		}
+		al_stop_timer(l_timer);
+		al_destroy_timer(l_dt);
+		al_destroy_timer(l_timer);
 
 		m_stateManager.unload();
 
