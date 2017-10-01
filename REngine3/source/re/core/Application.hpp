@@ -16,7 +16,7 @@
 #include "re/managers/FontManager.hpp"
 #include "re/managers/StateManager.hpp"
 #include "re/managers/DebugManager.hpp"
-#include "re/managers/PhysicsManager.hpp"
+#include "re/managers/Box2DManager.hpp"
 
 namespace re
 {
@@ -30,7 +30,7 @@ namespace re
 		/// 
 		/// \param gravity Sets up the default gravity for Box2D.
 		/// 
-		Application(float32 gravity);
+		Application(int vMajor, int vMinor, int vPatch, double ups, bool saveLog, int width, int height, bool fullscreen, int msaa, int msaaValue, const std::string& title, const std::string& icon, float32 gravity);
 
 		//
 		/// Cleans up engine.
@@ -44,22 +44,20 @@ namespace re
 		/// 
 		int run();
 
-	protected:
+	private:
 		int m_versionMajor;
 		int m_versionMinor;
 		int m_versionPatch;
 		double m_ups;
 		bool m_saveLog;
-		bool m_enableDebug;
 		std::string m_appTitle;
 
 		VFS m_vfs;
-		ConfigReader m_engineConfig;
 		Window m_window;
 		World m_world;
 		StateManager m_stateManager;
 		FontManager m_fontManager;
-		PhysicsManager m_physicsManager;
+		Box2DManager m_b2dManager;
 		DebugManager m_debugManager;
 	};
 }

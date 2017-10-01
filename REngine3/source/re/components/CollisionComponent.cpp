@@ -6,27 +6,23 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/debug/imgui/imgui-sfml.h"
+#include "re/libs/imgui/imgui.h"
 
 #include "CollisionComponent.hpp"
 
 namespace re
 {
-	CollisionComponent::CollisionComponent()
+	CollisionComponent::CollisionComponent(sol::table& table)
 	{
+		m_rect.width = table.get<int>("width");
+		m_rect.height = table.get<int>("height");
 	}
 
 	CollisionComponent::~CollisionComponent()
 	{
 	}
 
-	void CollisionComponent::init(sol::table& table)
-	{
-		m_rect.width = table.get<int>("width");
-		m_rect.height = table.get<int>("height");
-	}
-
-	void CollisionComponent::debugFunction(sol::table& table, const std::string& curEntityName)
+	void CollisionComponent::debug(sol::table& table, const std::string& curEntityName)
 	{
 		static int w = m_rect.width;
 		static int h = m_rect.height;

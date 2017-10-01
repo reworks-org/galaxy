@@ -9,8 +9,11 @@
 #ifndef RENGINE3_DEBUGMANAGER_HPP_
 #define RENGINE3_DEBUGMANAGER_HPP_
 
-#include "re/app/World.hpp"
-#include "re/scripting/sol2/sol.hpp"
+#include "re/core/World.hpp"
+#include "re/libs/sol2/sol.hpp"
+
+union ALLEGRO_EVENT;
+struct ALLEGRO_DISPLAY;
 
 namespace re
 {
@@ -19,68 +22,55 @@ namespace re
     class DebugManager : public Service
     {
     public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default constructor.
-		*/
-		DebugManager();
+		///
+		/// Constructor.
+		///
+		/// \param display ALLEGRO_DISPLAY object.
+		///
+		DebugManager(ALLEGRO_DISPLAY* display);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up IMGUI.
-		*/
+		///
+		/// Destructor.
+		///
 		~DebugManager() override;
 
-		/*
-		* IMPORTS: renderwindow or target
-		* EXPORTS: none
-		* PURPOSE: To set up IMGUI.
-		*/
-		void init(sf::RenderTarget& target, bool debugEnabled);
+		///
+		/// Process events.
+		///
+		/// \param event ALLEGRO_EVENT object.
+		///
+		void event(ALLEGRO_EVENT* event);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Process IMGUI events.
-		*/
-		void event(const sf::Event& event);
+		///
+		/// Update IMGUI.
+		///
+		void update();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Update IMGUI.
-		*/
-		void update(sf::RenderWindow& window, sf::Time dt);
+		///
+		/// Draw IMGUI.
+		///
+		void render();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Draw IMGUI.
-		*/
-        void render(sf::RenderWindow& window);
+		///
+		/// \brief Display menu on screen.
+		///
+		/// Call between update and render. Calls the functions that make up the main debug menu.
+		///
+		void displayMenu();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: call between update and render. Calls the functions that make up the main debug menu.
-		*/
-		void useMenu();
-
-		/*
-		* IMPORTS: state pointer to reload to, and a function to cleanup anything that normally isnt cleaned up at that time.
-		* EXPORTS: none
-		* PURPOSE: Set a state to reload too.
-		* NOTE: func() is called first when reloading.
-		*/
+		///
+		/// \brief Set a state to reload too.
+		///
+		/// func() is called first when reloading.
+		///
+		/// \param s State pointer to reload to.
+		/// \param func Function to cleanup anything that normally isnt cleaned up at that time.
+		///
 		void specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func);
 
 	private:
 		std::shared_ptr<State> m_reloadState;
 		std::function<void(void)> m_reloadFunc;
-		bool m_enabled;
-        bool m_init;
         sol::state m_lua;
 		re::World* m_world;
     };

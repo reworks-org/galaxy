@@ -8,6 +8,7 @@
 
 #include <allegro5/timer.h>
 #include <allegro5/mouse.h>
+#include <allegro5/drawing.h>
 #include <allegro5/keyboard.h>
 #include <allegro5/bitmap_io.h>
 
@@ -31,7 +32,7 @@ namespace re
 		//al_set_new_window_position(x, y);
 
 		// Max 255 characters
-		al_set_new_window_title(title.c_str()));
+		al_set_new_window_title(title.c_str());
 
 		m_display = al_create_display(width, height);
 		if (!m_display)
@@ -44,21 +45,26 @@ namespace re
 			toggleFullscreen(true);
 		}
 
-		m_icon = al_load_bitmap(icon.c_str());
+		// allegro requires null over nullptr here.
+		m_icon = al_load_bitmap_f(Locator::get<VFS>()->open(icon, "r"), NULL);
 		al_set_display_icon(m_display, m_icon);
 
 		m_events = al_create_event_queue();
 		al_register_event_source(m_events, al_get_display_event_source(m_display));
 		al_register_event_source(m_events, al_get_mouse_event_source());
 		al_register_event_source(m_events, al_get_keyboard_event_source());
-		al_register_event_source(m_events, al_get_timer_event_source());
 	}
 	
 	Window::~Window()
 	{
 		al_destroy_event_queue(m_events);
 		al_destroy_bitmap(m_icon);
-		al_destroy_display(m_window);
+		al_destroy_display(m_display);
+	}
+
+	void Window::setTitle(const std::string& newTitle)
+	{
+		al_set_window_title(m_display, newTitle.c_str());
 	}
 
 	void Window::toggleFullscreen(bool onoff)
@@ -74,6 +80,16 @@ namespace re
 	bool Window::isOpen() const
 	{
 		return m_running;
+	}
+
+	void Window::clear(unsigned int r, unsigned int g, unsigned int b)
+	{
+		al_clear_to_color(al_map_rgb(r, g, b));
+	}
+
+	void Window::display()
+	{
+		al_flip_display();
 	}
 
 	ALLEGRO_DISPLAY* Window::getDisplay()

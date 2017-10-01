@@ -88,6 +88,21 @@ namespace re
 			}
 			return T();
 		}
+
+		///
+		/// \brief Ensures any null c-strings are converted to empty ones.
+		///
+		/// Credits: https://stackoverflow.com/a/1724514
+		///
+		/// \param s String to check.
+		///
+		/// \return Returns empty string if input is null.
+		///
+		///
+		inline const char* nullToEmpty(char const* s)
+		{
+			return (s ? s : "");
+		}
 	}
 }
 

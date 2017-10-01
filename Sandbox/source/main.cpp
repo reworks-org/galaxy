@@ -24,6 +24,25 @@
 
 using namespace re;
 
+void engineConfig(std::ofstream& newFile)
+{
+	newFile << "appTitle = \"Default\"" << std::endl;
+	newFile << "assetPath = \"bin/assets/\"" << std::endl;
+	newFile << "ups = 60.0" << std::endl;
+	newFile << "versionMajor = 1" << std::endl;
+	newFile << "versionMinor = 0" << std::endl;
+	newFile << "versionPatch = 0" << std::endl;
+	newFile << "screenWidth = 640" << std::endl;
+	newFile << "screenHeight = 480" << std::endl;
+	newFile << "renderingLayers = 2" << std::endl;
+	newFile << "framerateLimit = 0" << std::endl;
+	newFile << "keyRepeat = true" << std::endl;
+	newFile << "cursorVisible = true" << std::endl;
+	newFile << "vsyncEnabled = false" << std::endl;
+	newFile << "saveLog = false" << std::endl;
+	newFile << "enableDebug = false" << std::endl;
+}
+
 class App : public re::Application
 {
 public:

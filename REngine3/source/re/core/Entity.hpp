@@ -3,7 +3,7 @@
 //  REngine3
 //
 //  Created by reworks on 18/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_ENTITY_HPP_
@@ -25,73 +25,71 @@ namespace re
 	{
 		friend class boost::serialization::access;
 		friend class World;
-        
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default constructor.
-		*/
-		Entity();
+		///
+		/// Construct an entity from the data provided.
+		///
+		/// \param cl The component holder from the World.
+		/// \param script The script containing
+		///
+		Entity(const std::string& script, ComponentHolder& cl);
 
-		/*
-		* IMPORTS: Entity object.
-		* EXPORTS: none
-		* PURPOSE: R-Value constructor
-		*/
-		Entity(Entity&& e);
+		///
+		/// Disabled default constructor.
+		///
+		Entity() = delete;
+		
+		///
+		/// Disabled copy constructor.
+		///
+		Entity(const Entity& e) = delete;
 
-		/*
-		* IMPORTS: script - The name of the script in the VFS that defines the entity. Pointer to world.
-		* EXPORTS: none
-		* PURPOSE: Constructs the entity using data from the lua script provided.
-		*/
-		void init(const std::string& script, ComponentHolder& cl);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Cleanup the object when the program closes.
-		*/
+		///
+		/// Cleanup entity.
+		///
 		~Entity();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: const boolean
-		* PURPOSE: To check if the entity is dead or not.
-		*/
+		///
+		/// Checks if entity is dead.
+		///
+		/// \returns True if dead.
+		///
 		bool isDead() const;
 
-        /*
-         * IMPORTS: string of component name, lua table and cur entity name
-         * EXPORTS: Whether or not to save the changed table data.
-         * PURPOSE: To use the debug function of a component.
-         */
-        void useComponentDebugFunction(const std::string& componentName, sol::table& table, const std::string& curEntityName);
-        
-		/*
-		* IMPORTS: T - Type
-		* EXPORTS: shared_ptr to component of type defined by template.
-		* PURPOSE: To retrieve a component of an entity.
-		*/
+		///
+		/// Get a component.
+		///
+		/// \param T Type of component to get.
+		///
+		/// \return Returns pointer to component, or nullptr if not success.
+		///
 		template<typename T>
 		T* get();
         
-		/*
-		* IMPORTS: none
-		* EXPORTS: boolean - true if it does have a component.
-		* PURPOSE: To find out if an entity has a specific component. Type defined by template.
-		*/
+		///
+		/// Checks to see if entity has a component.
+		///
+		/// \param T Type of component to check.
+		///
+		/// \return Boolean. True if entity has component.
+		///
 		template<typename T>
 		bool has();
 
 	private:
-		// Boost.Serialization function
+		///
+		/// Boost.Serialization function
+		///
 		template<class Archive>
 		void serialize(Archive & ar, const unsigned int version)
 		{
 			ar & m_isDead;
 		}
+
+		///
+		/// Debug function for Debug Manager.
+		///
+		void useComponentDebugFunction(const std::string& componentName, sol::table& table, const std::string& curEntityName);
 
 	public:
 		std::string m_name;
@@ -106,11 +104,15 @@ namespace re
 	T* Entity::get()
 	{
 		auto it = m_components->find(std::type_index(typeid(T)));
-		auto end = m_components->end();
-
-		RE_REVERSE_ASSERT_COMPARE(it, end, "Tried to access non-existent component", "Entity::get", "Entity.cpp", 90);
-
-		return dynamic_cast<T*>(it->second.get());
+		if (it != m_components->end())
+		{
+			return dynamic_cast<T*>(it->second.get());
+		}
+		else
+		{
+			RE_LOG(LogLevel::WARNING, "Tried to access non-existant component", "Entity::get", "Entity.cpp", 118);
+			return nullptr;
+		}
 	}
 
 	template<typename T>

@@ -49,6 +49,17 @@ namespace re
 		///
 		ALLEGRO_FILE* open(const std::string& file, const std::string& mode);
 
+		///
+		/// \brief Open a file and return as a std::string.
+		///
+		/// Please note this string is self-contained. You don't need to free anything. Also note this only supports files that contain text!
+		///
+		/// \param file The file in the VFS to open.
+		///
+		/// \return Returns a std::string. This is a plain string containing the information.
+		///
+		std::string openAsString(const std::string& file);
+
 	private:
 		std::vector<ALLEGRO_FILE*> m_filesToClean;
 	};

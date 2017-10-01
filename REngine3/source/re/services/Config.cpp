@@ -12,10 +12,10 @@
 
 namespace re
 {
-	ConfigReader::ConfigReader(const std::string& fileName, std::function<void(std::ofstream)> newFile)
+	ConfigReader::ConfigReader(const std::string& fileName, std::function<void(std::ofstream&)>& newFile)
 		:m_fileName(fileName)
 	{
-		m_config = al_load_config_file(m_fileName.c_str()));
+		m_config = al_load_config_file(m_fileName.c_str());
 
 		if (!m_config)
 		{
@@ -28,7 +28,7 @@ namespace re
 
 			newConfig.close();
 
-			m_config = al_load_config_file(m_fileName.c_str()));
+			m_config = al_load_config_file(m_fileName.c_str());
 			if (!m_config)
 			{
 				RE_LOG(LogLevel::FATAL, "Failed to create and load a config file!", "ConfigReader::ConfigReader", "Config.cpp", 33);

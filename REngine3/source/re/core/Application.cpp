@@ -11,61 +11,61 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_image.h>
+#include <allegro5/allegro_video.h>
 #include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
+#include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
 
 #include "re/utility/Log.hpp"
 
 #include "Application.hpp"
 
-void engineConfig(std::ofstream& newFile)
-{
-	newFile << "appTitle = \"Default\"" << std::endl;
-	newFile << "assetPath = \"bin/assets/\"" << std::endl;
-	newFile << "ups = 60.0" << std::endl;
-	newFile << "versionMajor = 1" << std::endl;
-	newFile << "versionMinor = 0" << std::endl;
-	newFile << "versionPatch = 0" << std::endl;
-	newFile << "screenWidth = 640" << std::endl;
-	newFile << "screenHeight = 480" << std::endl;
-	newFile << "renderingLayers = 2" << std::endl;
-	newFile << "framerateLimit = 0" << std::endl;
-	newFile << "keyRepeat = true" << std::endl;
-	newFile << "cursorVisible = true" << std::endl;
-	newFile << "vsyncEnabled = false" << std::endl;
-	newFile << "saveLog = false" << std::endl;
-	newFile << "enableDebug = false" << std::endl;
-}
-
 namespace re
 {
-	Application::Application(float32 gravity)
-	:m_window(),
-	 m_physicsManager(gravity),
-	 m_engineConfig("config.cfg", engineConfig)
+	Application::Application(int vMajor, int vMinor, int vPatch, double ups, bool saveLog, int width, int height, bool fullscreen, int msaa, int msaaValue, const std::string& title, const std::string& icon, float32 gravity)
+	:m_versionMajor(vMajor),
+	 m_versionMinor(vMinor),
+	 m_versionPatch(vPatch),
+	 m_ups(ups),
+	 m_saveLog(saveLog),
+	 m_appTitle(title),
+	 m_vfs(), 
+	 m_window(width, height, fullscreen, msaa, msaaValue, title, icon), 
+	 m_world(), 
+	 m_stateManager(), 
+	 m_fontManager(), 
+	 m_b2dManager(gravity), 
+	 m_debugManager(m_window.getDisplay())
 	{
-		RE_LOG_PROVIDEWINDOW(&window);
-		RE_LOG_PRINTPRETTY(LogLevel::WARNING, "REngine3 Initialization Begin");
+		RE_LOG_PROVIDEWINDOW(&m_window);
 
 		al_init();
-		al_init_font_addon();
-		al_init_image_addon();
-		al_init_native_dialog_addon();
-
-		al_install_keyboard();
+		al_install_audio();
 		al_install_mouse();
+		al_install_keyboard();
 
-		m_world.init();
+		al_init_font_addon();
+		al_init_ttf_addon();
+		al_init_image_addon();
+		al_init_video_addon();
+		al_init_acodec_addon();
+		al_init_primitives_addon();
+		al_init_native_dialog_addon();
 	}
 
 	Application::~Application()
 	{
-		al_uninstall_mouse();
-		al_uninstall_keyboard();
-
 		al_shutdown_native_dialog_addon();
+		al_shutdown_primitives_addon();
+		al_shutdown_video_addon();
 		al_shutdown_image_addon();
+		al_shutdown_ttf_addon();
 		al_shutdown_font_addon();
+
+		al_uninstall_keyboard();
+		al_uninstall_mouse();
+		al_uninstall_audio();
 
 		al_uninstall_system();
 	}
@@ -83,7 +83,6 @@ namespace re
 		ALLEGRO_EVENT l_event;
 
 		m_stateManager.load();
-		m_debugManager.init(m_window, m_enableDebug);
 
 		al_start_timer(l_timer);
 		while (m_window.isOpen())
@@ -107,26 +106,25 @@ namespace re
                     }
                     
                     m_debugManager.event(&l_event);
-                    m_stateManager.handlePollEvents(&l_event);
                 }
                 
-                m_stateManager.handleEvents(m_window.m_event);
+                m_stateManager.event(&l_event);
                 
 				// Update
-				m_debugManager.update(m_window, TimePerFrame);
-				m_stateManager.update(TimePerFrame);
-
-                // Display the debug manager
-                m_debugManager.useMenu();
+				m_stateManager.update(l_dt);
+				m_debugManager.update();
                 
 				updates++;
             }
             
+			// Display the debug manager
+			m_debugManager.displayMenu();
+
 			// Render
-			m_window.clear(sf::Color::Black);
+			m_window.clear(255, 255, 255);
 
 			m_stateManager.render();
-			m_debugManager.render(m_window);
+			m_debugManager.render();
 
 			m_window.display();
 			frames++;
@@ -137,20 +135,21 @@ namespace re
 
 				std::string header = m_appTitle + "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
 
-                RE_LOG(LogLevel::INFO, header, "Application::run", "Application.cpp", 69);
+                RE_LOG(LogLevel::INFO, header, "Application::run", "Application.cpp", 155);
 				m_window.setTitle(header);
 
 				updates = 0;
 				frames = 0;
 			}
 		}
+
 		al_stop_timer(l_timer);
 		al_destroy_timer(l_dt);
 		al_destroy_timer(l_timer);
 
 		m_stateManager.unload();
 
-		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 78);
+		RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 169);
 		RE_LOG_SAVE(m_saveLog);
 
 		return EXIT_SUCCESS;

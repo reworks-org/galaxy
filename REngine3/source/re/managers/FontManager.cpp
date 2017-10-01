@@ -6,6 +6,8 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include <allegro5/allegro_ttf.h>
+
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -23,12 +25,13 @@ namespace re
 		m_fontMap.clear();
 	}
 
-	void FontManager::add(const std::string& file, const std::string& id)
+	void FontManager::add(const std::string& font, const std::string& id, int size)
 	{
-		m_fontMap.emplace(id, al_
+		m_fontMap.emplace(id, al_load_ttf_font_f(Locator::get<VFS>()->open(font, "r"), nullptr, size, NULL));
 	}
 
 	ALLEGRO_FONT* FontManager::get(const std::string& id)
 	{
+		return m_fontMap[id];
 	}
 }

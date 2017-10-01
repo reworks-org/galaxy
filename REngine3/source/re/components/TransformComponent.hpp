@@ -3,13 +3,12 @@
 //  REngine3
 //
 //  Created by reworks on 30/09/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_TRANSFORMCOMPONENT_HPP_
 #define RENGINE3_TRANSFORMCOMPONENT_HPP_
 
-#include <SFML/Graphics/Transformable.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
@@ -17,59 +16,54 @@
 
 namespace re
 {
-	class TransformComponent : public Component, public sf::Transformable
+	class TransformComponent : public Component
 	{
 		friend class boost::serialization::access;
 
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		TransformComponent();
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
+		TransformComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up component.
-		*/
+		///
+		/// Destructor.
+		///
 		~TransformComponent() override;
 
-		/*
-		* IMPORTS: sol::table containing data.
-		* EXPORTS: none
-		* PURPOSE: Set up component.
-		*/
-		void init(sol::table& table) override;
-
-		/*
-		* IMPORTS: lua table and entity name
-		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
-		*/
-		void debugFunction(sol::table& table, const std::string& curEntityName) override;
+	public:
+		float m_x;
+		float m_y;
+		float m_angle;
 
 	private:
-		// Boost.Serialization functions
+		///
+		/// Debug function used by IMGUI.
+		///
+		void debug(sol::table& table, const std::string& curEntityName) override;
+
+		///
+		/// Boost.Serialization saving.
+		///
 		template<class Archive>
 		void save(Archive & ar, const unsigned int version) const
 		{
-			ar & getPosition().x;
-			ar & getPosition().y;
-			ar & getRotation();
-		}
-
-		template<class Archive>
-		void load(Archive & ar, const unsigned int version)
-		{
-			float x, y, angle;
 			ar & x;
 			ar & y;
 			ar & angle;
+		}
 
-			setPosition(x, y);
-			setRotation(angle);
+		///
+		/// Boost.Serialization loading.
+		///
+		template<class Archive>
+		void load(Archive & ar, const unsigned int version)
+		{
+			ar & x;
+			ar & y;
+			ar & angle;
 		}
 
 		BOOST_SERIALIZATION_SPLIT_MEMBER()

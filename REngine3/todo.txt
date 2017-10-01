@@ -1,4 +1,4 @@
-- move to allegro
+- allegro
 - focus on RTTI
 - clean up C++ code
 - better documentation
@@ -9,38 +9,62 @@
 
 done modules:
 
+components:
+	- collision
+	- transform
+
+
+core:
+	- application
+	- world
+	- entity
+
 graphics:
 	- window
+	- Texturepacker
 
 managers:
-	- resourcemanager
+	- box2dmanager
+	- debugmanager
+	- fontmanager
+	- statemanager
+
+math:
+	- random
+	- rect
+	- vector2
+	- vector3
 
 physics:
 	- box2dhelper
+	- quadtree
 
 platform:
 	- unixlog
 	- win32log
+	- colour
 
 scripting:
 	- LuaUtils	
 
 services:
 	- config
-	- vfs
 	- servicelocator
+	- vfs
 
-utility:
-	- log
-	- utils
-	- time
-	- random
+systems:
+
 
 types:
 	- component
 	- service
-	- colour
+	- state
 	- system
+
+utility:
+	- log
+	- time
+	- utils
 
 http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4

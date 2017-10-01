@@ -3,199 +3,186 @@
 //  REngine3
 //
 //  Created by reworks on 9/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_WORLD_HPP_
 #define RENGINE3_WORLD_HPP_
 
-#include "re/utility/Log.hpp"
+#include <allegro5/timer.h>
+
 #include "re/types/System.hpp"
 #include "re/types/Service.hpp"
-#include "re/types/Component.hpp"
-
-namespace sf
-{
-	class Time;
-}
 
 namespace re
 {
 	typedef std::map<std::string, Entity> EntityList;
 	typedef std::unordered_map<std::type_index, std::pair<std::string, std::unique_ptr<System>>> SystemList;
-	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::unique_ptr<Component>()>>> ComponentFactory;
+	typedef std::unordered_map<std::string, std::pair<std::type_index, std::function<std::unique_ptr<Component>(sol::table&)>>> ComponentFactory;
 
 	class World : public Service
 	{
 		friend class Entity;
-
 	public: 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Construct world.
-		*/ 
+		///
+		/// \brief Construct World.
+		///
+		/// This also registers the inbuilt components.
+		///
 		World();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up world.
-		*/
+		///
+		/// Cleans up world.
+		///
 		~World() override;
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Set up world.
-		*/
-		void init();
+		///
+		/// Register an entity.
+		///
+		/// \param name Entity Name.
+		/// \param script Script file in the VFS.
+		///
+		void registerEntity(const std::string& name, const std::string& script);
 
-		/*
-		* IMPORTS: entityScript - script file of an entity
-		* EXPORTS: none
-		* PURPOSE: To create a new entity and add it to the world.
-		*/
-		void registerEntity(const std::string& entityName, const std::string& entityScript);
-
-		/*
-		* IMPORTS: worldEntityScript - script file containing all the entitys to mass register.
-		* EXPORTS: none
-		* PURPOSE: To create new entitys and add them to the world.
-		*/
+		///
+		/// Create a batch of entitys and add then to the world.
+		///
+		/// \param worldEntityScript Script file containing all the entitys to mass register.
+		///
 		void registerEntitys(const std::string& worldEntityScript);
 
-		/*
-		* IMPORTS: preloadEntitysScript - script file containing all the entitys to mass preload.
-		* EXPORTS: none
-		* PURPOSE: To create entitys that are delayed from being put into the systems, but already have their components loaded.
-		*/
+		///
+		/// To create entitys that are delayed from being put into the systems, but already have their components loaded.
+		///
+		/// \param preloadEntitysScript Script file containing all the entitys to mass preload.
+		///
 		void preloadEntitys(const std::string& preloadEntitysScript);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Moves loaded entitys to alive/dead storage.
-		*/
+		///
+		/// \brief Moves loaded entitys to alive/dead storage.
+		///
+		/// Specifically, moves entitys from m_preloaded to m_alive/m_dead.
+		///
 		void activatePreloadedEntitys();
 
-		/*
-		* IMPORTS: name of an entity to get
-		* EXPORTS: reference to that entity
-		* PURPOSE: To retrieve an entity from the world.
-		*/
-		Entity& getEntity(const std::string& name);
+		///
+		/// Retrieve an entity from the world.
+		///
+		/// \param name The name of the entity to retrieve.
+		///
+		/// \return Returns a reference to the entity.
+		///
+		Entity& get(const std::string& name);
 
-		/*
-		* IMPORTS: name - name of entity to kill.
-		* EXPORTS: none
-		* PURPOSE: Remove entity from systems, "killing" it.
-		*/
+		///
+		/// \brief Kill an entity.
+		///
+		/// Removes an entity from m_alive and moves it to m_dead.
+		///
+		/// \param name Name of entity to kill.
+		///
 		void killEntity(const std::string& name);
 
-		/*
-		* IMPORTS: name - name of entity to revive.
-		* EXPORTS: none
-		* PURPOSE: Add entity back to systems, "restoring (reviving)" it.
-		*/
-		void restoreEntity(const std::string& name);
+		///
+		/// \brief Revive an entity.
+		///
+		/// Removes an entity from m_dead and moves it to m_alive.
+		///
+		/// \param name Name of entity to revive.
+		///
+		void reviveEntity(const std::string& name);
 
-		/*
-		* IMPORTS: sf::Time delta time
-		* EXPORTS: none
-		* PURPOSE: Update world & entitys.
-		*/
-		void update(sf::Time dt);
+		///
+		/// \brief Update the world.
+		///
+		/// 
+		void update(ALLEGRO_TIMER* dt);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Cleans the world.
-		*/
-		void clean();
+		///
+		/// \brief Clear entitys from the world.
+		///
+		/// This also removes any component data assositated with those entitys.
+		///
+		void clearEntitys();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Cleans the preloaded entitys from world.
-		*/
-		void cleanPreloaded();
+		///
+		/// Cleans the preloaded entitys from world.
+		///
+		void clearPreloaded();
 
-		/*
-		* IMPORTS: type of component and name of component to register.
-		REMEMBER TO USE 'new' and the correct system type!
-		* EXPORTS: none
-		* PURPOSE: To create a new component within the factory.
-		*/
+		///
+		/// Retrieve internal component factory.
+		///
+		/// \return Reference to component factory.
+		///
+		ComponentFactory& getComponentFactory();
+
+		///
+		/// Retrieve internal alive entitys list.
+		///
+		/// \return Reference to alive entitys list.
+		///
+		EntityList& getAliveEntitys();
+
+		///
+		/// Retrieve internal dead entitys list.
+		///
+		/// \return Reference to dead entitys list.
+		///
+        EntityList& getDeadEntitys();
+		
+		///
+		/// Retrieve internal system list.
+		///
+		/// \return Reference to system list.
+		///
+		SystemList& getSystemList();
+		
+		///
+		/// \brief Set boolean flag if entitys have been changed.
+		///
+		/// This triggers the update entitys code in the update function.
+		///
+        void entitysHaveChanged();
+
+		///
+		/// Registers a new component with the world.
+		///
+		/// \param template Type of component to register.
+		/// \param name The name of the component (Should be same name as class/type).
+		///
 		template<typename T>
 		void registerComponent(const std::string& name);
 
-		/*
-		* IMPORTS: s - The system to create. This uses polymorphism. Define the type of system being created with the template.
-		REMEMBER TO USE 'new' and the correct system type!
-		* EXPORTS: none
-		* PURPOSE: To create a system that operates on the entities and add it to the world. You can only have one of each system.
-		*/
+		///
+		/// Registers a new system with the world.
+		///
+		/// \param template Type of the system to register.
+		/// \param system A unique_ptr to the new system. Use std::make_unique<T>()
+		///
 		template<typename T>
-		void addSystem(std::unique_ptr<System> system);
+		void registerSystem(std::unique_ptr<System> system);
 
-		/*
-		* IMPORTS: template - use the type of system to retrieve that system.
-		* EXPORTS: shared_ptr to that system.
-		* PURPOSE: To retrieve a system from the world.
-		*/
+		///
+		/// To retrieve a system from the world.
+		///
+		/// \param  template Use the type of system to retrieve that system.
+		///
+		/// \return Pointer to that system.
+		///
 		template<typename T>
-		T* getSystem();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: map of component factory.
-		* PURPOSE: To "make" a new component.
-		*/
-		ComponentFactory& getComponentFactory();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: map of alive entitys.
-		* PURPOSE: To get the alive entity database.
-		*/
-		EntityList& getAliveEntitys();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: map of dead entitys.
-		* PURPOSE: To get the dead entity database.
-		*/
-        EntityList& getDeadEntitys();
-		
-		/*
-		* IMPORTS: none
-		* EXPORTS: map of systems.
-		* PURPOSE: To get the map of systems.
-		*/
-		SystemList& getSystemList();
-
-        /*
-         * IMPORTS: none
-         * EXPORTS: none
-         * PURPOSE: Set boolean flag if entitys have been changed.
-         */
-        void entitysHaveChanged();
+		T* get();
         
 	private:
-		/*
-		* IMPORTS: type of component to make
-		* EXPORTS: shared_ptr to component.
-		* PURPOSE: To make a component of a particular type. Used by register component.
-		*/
+		///
+		/// Internal function to create components in factory.
+		///
 		template<typename T>
-		std::unique_ptr<Component> makeComponent();
+		std::unique_ptr<Component> makeComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Adds entitys to correct systems.
-		*/
+		///
+		/// Internal function to emplace entitys into correct systems.
+		///
 		void emplaceEntitysInSystems();
 
 	private:
@@ -215,11 +202,11 @@ namespace re
 	};
 
 	template<typename T>
-	void World::addSystem(std::unique_ptr<System> system)
+	void World::registerSystem(std::unique_ptr<System> system)
 	{
         if(m_systems.find(std::type_index(typeid(T))) != m_systems.end())
         {
-            RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system", "World::addSystem", "World.hpp", 156);
+            RE_LOG(LogLevel::WARNING, "Tried to create a pre existing system", "World::registerSystem", "World.hpp", 209);
         }
         else
         {
@@ -228,26 +215,30 @@ namespace re
 	}
 
 	template<typename T>
-	T* World::getSystem()
+	T* World::get()
 	{
-        auto it = m_systems.find(std::type_index(typeid(T)));
-        
-        RE_REVERSE_ASSERT_COMPARE(it, m_systems.end(), "Tried to access a non-existent system", "World::getSystem", "World.cpp", 169);
-        
-        return dynamic_cast<T*>(it->second.second.get());
+		if (m_systems.find(std::type_index(typeid(T))) != m_systems.end())
+		{
+			return dynamic_cast<T*>(it->second.second.get());
+		}
+		else
+		{
+			RE_LOG(LogLevel::Warning, "Tried to access a non-existent system.", "World::get<System>", "World.hpp", 226);
+			return nullptr;
+		}
 	}
 
 	template<typename T>
-	std::unique_ptr<Component> World::makeComponent()
+	std::unique_ptr<Component> World::makeComponent(sol::table& table)
 	{
-		return std::move(std::make_unique<T>());
+		return std::move(std::make_unique<T>(table));
 	}
 
 	template<typename T>
 	void World::registerComponent(const std::string& name)
 	{
-		RE_LOG(LogLevel::INFO, "Registering " + name + " in world", "World::registerComponent", "World.hpp", 183);
-		m_componentFactory.emplace(name, std::pair<std::type_index, std::function<std::unique_ptr<Component>()>>(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this)));
+		RE_LOG(LogLevel::INFO, "Registering " + name + " in world", "World::registerComponent", "World.hpp", 240);
+		m_componentFactory.emplace(name, std::make_pair(std::type_index(typeid(T)), std::bind(&World::makeComponent<T>, this, std::placeholders::_1)));
         m_stringToComponentType.emplace(name, std::type_index(typeid(T)));
 	}
 }

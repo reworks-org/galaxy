@@ -6,35 +6,20 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <map>
-
+#include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
-#include "re/scripting/sol2/sol.hpp"
 #include "re/services/ServiceLocator.hpp"
-
-#include "re/app/World.hpp"
 
 namespace re
 {
-	Entity::Entity()
+	Entity::Entity(const std::string& script, ComponentHolder& cl)
 	:m_name(""), m_components(nullptr), m_isDead(false)
 	{
         m_systemIds.clear();
-	}
 
-	Entity::Entity(Entity&& e)
-	{
-		m_name = e.m_name;
-		m_components = e.m_components;
-		m_systemIds = e.m_systemIds;
-		m_isDead = e.m_isDead;
-	}
-    
-	void Entity::init(const std::string& script, ComponentHolder& cl)
-	{
 		// Create lua state and load it from a script in the VFS.
 		sol::state lua;
-		lua.script_file(Locator::get<VFS>()->retrieve(script));
+		lua.script(Locator::get<VFS>()->openAsString(script));
 
 		// Get a table with the components.
 		sol::table entity = lua.get<sol::table>("entity");
@@ -52,8 +37,11 @@ namespace re
 		m_keyValuePair.erase("systems");
 		m_keyValuePair.erase("isDead");
 
-        RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to load an entity with no component data", "Entity::init", "Entity.cpp", 40);
-        
+		if (m_keyValuePair.empty())
+		{
+			RE_LOG(LogLevel::FATAL, "Attempted to load an entity with no component data", "Entity::Entity", "Entity.cpp", 42);
+		}
+
 		// Create list.
 		cl[m_name] = ComponentList();
 
@@ -62,36 +50,33 @@ namespace re
 			// If we have a physics component, then we automatically create the transformcomponent
 			if (kvp.first == "PhysicsComponent")
 			{
-				auto cf = Locator::get<World>()->getComponentFactory().find("TransformComponent");
-				auto end = Locator::get<World>()->getComponentFactory().end();
+				auto cf = Locator::get<World>()->getComponentFactory();
+				auto it = cf.find("TransformComponent");
 
-				if (cf != end)
+				if (it != cf.end())
 				{
-					cl[m_name][cf->second.first] = cf->second.second();
-
 					// We are passing it the physics component table, because it doesn't matter.
 					// Values are automatically fixed in the first update() call and transformcomponent
 					// handles any issues that might arise from this.
-					cl[m_name][cf->second.first]->init(kvp.second);
+					cl[m_name].emplace(it->second.first, it->second.second(kvp.second));
 				}
 				else
 				{
-					RE_LOG(LogLevel::WARNING, "Could not find TransformComponent in the component factory!", "Entity::Entity()", "Entity.cpp", 79);
+					RE_LOG(LogLevel::WARNING, "Could not find TransformComponent in the component factory!", "Entity::Entity()", "Entity.cpp", 65);
 				}
 			}
 
-			auto cf = Locator::get<World>()->getComponentFactory().find(kvp.first);
-			auto end = Locator::get<World>()->getComponentFactory().end();
+			auto cf = Locator::get<World>()->getComponentFactory();
+			auto it = cf.find(kvp.first);
 
-			if (cf != end)
+			if (it != cf.end())
 			{
-				cl[m_name][cf->second.first] = cf->second.second();
-				cl[m_name][cf->second.first]->init(kvp.second);
+				cl[m_name].emplace(it->second.first, it->second.second(kvp.second));
 			}
 			else
 			{
 				std::string out = "Could not find " + kvp.first + "in the component factory!";
-				RE_LOG(LogLevel::WARNING, out, "Entity::Entity()", "Entity.cpp", 94);
+				RE_LOG(LogLevel::WARNING, out, "Entity::Entity()", "Entity.cpp", 79);
 			}
 		}
 
@@ -129,6 +114,6 @@ namespace re
     
     void Entity::useComponentDebugFunction(const std::string& componentName, sol::table& table, const std::string& curEntityName)
     {
-		m_components->at(Locator::get<World>()->m_stringToComponentType.at(componentName))->debugFunction(table, curEntityName);
+		m_components->at(Locator::get<World>()->m_stringToComponentType.at(componentName))->debug(table, curEntityName);
     }
 }

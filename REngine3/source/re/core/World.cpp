@@ -3,27 +3,22 @@
 //  REngine3
 //
 //  Created by reworks on 9/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include <map>
-
-#include <SFML/System/Time.hpp>
-
 #include "re/services/VFS.hpp"
-#include "re/scripting/sol2/sol.hpp"
+#include "re/libs/sol2/sol.hpp"
 #include "re/services/ServiceLocator.hpp"
-
-#include "re/component/TextComponent.hpp"
-#include "re/component/SoundComponent.hpp"
-#include "re/component/MusicComponent.hpp"
-#include "re/component/EventComponent.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/PhysicsComponent.hpp"
-#include "re/component/ParallaxComponent.hpp"
-#include "re/component/TransformComponent.hpp"
-#include "re/component/AnimationComponent.hpp"
-#include "re/component/CollisionComponent.hpp"
+#include "re/components/TextComponent.hpp"
+#include "re/components/SoundComponent.hpp"
+#include "re/components/MusicComponent.hpp"
+#include "re/components/EventComponent.hpp"
+#include "re/components/SpriteComponent.hpp"
+#include "re/components/PhysicsComponent.hpp"
+#include "re/components/ParallaxComponent.hpp"
+#include "re/components/AnimationComponent.hpp"
+#include "re/components/TransformComponent.hpp"
+#include "re/components/CollisionComponent.hpp"
 
 #include "World.hpp"
 
@@ -32,7 +27,16 @@ namespace re
 	World::World()
 	:m_entitysHaveChanged(false)
 	{
-
+		registerComponent<TextComponent>("TextComponent");
+		registerComponent<SoundComponent>("SoundComponent");
+		registerComponent<MusicComponent>("MusicComponent");
+		registerComponent<EventComponent>("EventComponent");
+		registerComponent<SpriteComponent>("SpriteComponent");
+		registerComponent<PhysicsComponent>("PhysicsComponent");
+		registerComponent<ParallaxComponent>("ParallaxComponent");
+		registerComponent<TransformComponent>("TransformComponent");
+		registerComponent<CollisionComponent>("CollisionComponent");
+		registerComponent<AnimationComponent>("AnimationComponent");
 	}
 
 	World::~World()
@@ -47,37 +51,22 @@ namespace re
 		m_preloadedEntityScripts.clear();
 	}
 
-	void World::init()
+	void World::registerEntity(const std::string& name, const std::string& script)
 	{
-		registerComponent<TextComponent>("TextComponent");
-		registerComponent<SoundComponent>("SoundComponent");
-		registerComponent<MusicComponent>("MusicComponent");
-		registerComponent<EventComponent>("EventComponent");
-		registerComponent<SpriteComponent>("SpriteComponent");
-		registerComponent<PhysicsComponent>("PhysicsComponent");
-		registerComponent<ParallaxComponent>("ParallaxComponent");
-		registerComponent<TransformComponent>("TransformComponent");
-		registerComponent<CollisionComponent>("CollisionComponent");
-		registerComponent<AnimationComponent>("AnimationComponent");
-	}
-
-	void World::registerEntity(const std::string& entityName, const std::string& entityScript)
-	{
-		m_alive.emplace(entityName, Entity());
-		m_alive[entityName].init(entityScript, m_components);
-
-		m_loadedEntityScripts.push_back(entityScript);
+		m_alive.emplace(name, Entity(script, m_components));
+		m_loadedEntityScripts.push_back(script);
 
 		emplaceEntitysInSystems();
-
 		m_entitysHaveChanged = true;
-		update(sf::Time::Zero);
+
+		update(nullptr);
 	}
 
 	void World::registerEntitys(const std::string& worldEntityScript)
 	{
 		sol::state lua;
-		lua.script_file(Locator::get<VFS>()->retrieve(worldEntityScript));
+		lua.script(Locator::get<VFS>()->openAsString(worldEntityScript));
+
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -87,26 +76,27 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
 		});
 
-		RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 78);
+		if (m_keyValuePair.empty())
+		{
+			RE_LOG(LogLevel::WARNING, "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 82);
+		}
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_alive.emplace(it.first, Entity());
-			m_alive[it.first].init(it.second, m_components);
-
+			m_alive.emplace(it.first, Entity(it.second, m_components));
 			m_loadedEntityScripts.push_back(it.second);
 		}
 
 		emplaceEntitysInSystems();
-
 		m_entitysHaveChanged = true;
-		update(sf::Time::Zero);
+		
+		update(nullptr);
 	}
 
 	void World::preloadEntitys(const std::string& preloadEntitysScript)
 	{
 		sol::state lua;
-		lua.script_file(Locator::get<VFS>()->retrieve(preloadEntitysScript));
+		lua.script(Locator::get<VFS>()->openAsString(preloadEntitysScript));
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entitylist = world.get<sol::table>("entitys");
 
@@ -116,13 +106,14 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
 		});
 
-		RE_REVERSE_ASSERT(m_keyValuePair.empty(), "Attempted to register an empty entity script", "World::preloadEntitys", "World.cpp", 107);
+		if (m_keyValuePair.empty())
+		{
+			RE_LOG(LogLevel::WARNING, "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 111);
+		}
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_preloaded.emplace(it.first, Entity());
-			m_preloaded[it.first].init(it.second, m_components);
-
+			m_preloaded.emplace(it.first, Entity(it.second, m_components));
 			m_preloadedEntityScripts.push_back(it.second);
 		}
 	}
@@ -138,7 +129,7 @@ namespace re
 		emplaceEntitysInSystems();
 
 		m_entitysHaveChanged = true;
-		update(sf::Time::Zero);
+		update(nullptr);
 
 		m_preloaded.clear();
 		
@@ -150,21 +141,26 @@ namespace re
 		m_preloadedEntityScripts.clear();
 	}
 
-	Entity& World::getEntity(const std::string& name)
+	Entity& World::get(const std::string& name)
 	{
-		auto found = m_alive.find(name);
-
-		if (found != m_alive.end())
+		if (m_alive.find(name) != m_alive.end())
 		{
 			return m_alive[name];
 		}
 		else
 		{
-			auto it = m_dead.find(name);
+			if (m_dead.find(name) != m_dead.end())
+			{
+				return m_dead[name];
+			}
+			else
+			{
+				// This will close program and prompt user with error.
+				RE_LOG(LogLevel::FATAL, "Attempted to access non-existent entity", "World::get (entity)", "World.cpp", 159);
 
-			RE_REVERSE_ASSERT_COMPARE(it, m_dead.end(), "Attempted to access non-existant entity", "World::getEntity", "World.cpp", 130);
-
-			return m_dead[name];
+				// program never reaches this point, which is why we return an empty entity object.
+				return Entity();
+			}
 		}
 	}
 
@@ -178,7 +174,7 @@ namespace re
 		}
 	}
 
-	void World::restoreEntity(const std::string& name)
+	void World::reviveEntity(const std::string& name)
 	{
 		m_entitysHaveChanged = true;
 
@@ -188,7 +184,7 @@ namespace re
 		}
 	}
 
-	void World::update(sf::Time dt)
+	void World::update(ALLEGRO_TIMER* dt)
 	{
 		if (m_entitysHaveChanged)
 		{
@@ -234,19 +230,8 @@ namespace re
 			m_entitysHaveChanged = false;
 		}
 	}
-
-	void World::emplaceEntitysInSystems()
-	{
-		for (auto it = m_alive.begin(); it != m_alive.end(); ++it)
-		{
-			for (auto& s : it->second.m_systemIds)
-			{
-				m_systems[s.second].second->addEntity(&it->second);
-			}
-		}
-	}
 	
-	void World::clean()
+	void World::clearEntitys()
 	{
 		// remove alive and dead components, but not preloaded. they are cleared at the end.
 		for (auto& it : m_alive)
@@ -264,7 +249,7 @@ namespace re
 		m_loadedEntityScripts.clear();
 	}
 
-	void World::cleanPreloaded()
+	void World::clearPreloaded()
 	{
 		for (auto& it : m_preloaded)
 		{
@@ -300,4 +285,15 @@ namespace re
     {
         m_entitysHaveChanged = true;
     }
+
+	void World::emplaceEntitysInSystems()
+	{
+		for (auto it = m_alive.begin(); it != m_alive.end(); ++it)
+		{
+			for (auto& s : it->second.m_systemIds)
+			{
+				m_systems[s.second].second->addEntity(&it->second);
+			}
+		}
+	}
 }

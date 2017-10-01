@@ -3,43 +3,38 @@
 //  REngine3
 //
 //  Created by reworks on 12/11/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef RENGINE3_BOX2DMANAGER_HPP_
 #define RENGINE3_BOX2DMANAGER_HPP_
 
-#include <map>
-
-#include "re/entity/Entity.hpp"
+#include "re/core/Entity.hpp"
 #include "re/types/Service.hpp"
-#include "re/physics/Box2D/Box2D.h"
+#include "re/libs/Box2D/Box2D.h"
 
 namespace re
 {
 	typedef std::map<std::pair<std::string, std::string>, std::function<void(const std::string&, const std::string&)>> CollisionFunctionMap;
-	class PhysicsManager : public Service
+
+	class Box2DManager : public Service
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		PhysicsManager(float32 gravity);
+		///
+		/// Constructor. Sets up Box2D systems.
+		///
+		/// \param gravity A gravity value for Box2D to use in simulations.
+		///
+		Box2DManager(float32 gravity);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default destructor.
-		*/
-		~PhysicsManager();
+		///
+		/// Destructor
+		///
+		~Box2DManager();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: clean up manager.
-		*/
+		///
+		/// Cleans up any collision functions.
+		///
 		void clean();
 
 	public:

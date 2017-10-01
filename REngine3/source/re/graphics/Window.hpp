@@ -39,6 +39,13 @@ namespace re
 		~Window();
 
 		///
+		/// Change the title.
+		///
+		/// \param newTitle The new title string.
+		///
+		void setTitle(const std::string& newTitle);
+
+		///
 		/// Toggle window between fullscreen and windowed.
 		///
 		/// \param onoff Boolean. True or False.
@@ -56,6 +63,20 @@ namespace re
 		/// \return Const boolean.
 		///
 		bool isOpen() const;
+
+		///
+		/// Clears the window to an RGB colour.
+		///
+		/// \param r Red value.
+		/// \param g Green value.
+		/// \param b Blue value.
+		///
+		void clear(unsigned int r, unsigned int g, unsigned int b);
+
+		///
+		/// Display contents drawn to window.
+		///
+		void display();
 
 		///
 		/// Retrieves the internal display.

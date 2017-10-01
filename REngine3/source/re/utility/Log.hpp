@@ -19,38 +19,6 @@
 #define RE_LOG_PRINTPRETTY(_LEVEL_, _MESSAGE_) re::Log::instance().printPrettyText(_LEVEL_, _MESSAGE_)
 #define RE_LOG_SAVE(_VALUE_) re::Log::instance().saveToLog(_VALUE_)
 
-#define RE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
-		if (!(_VALUE_)) \
-        { \
-			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
-			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
-			throw std::runtime_error("Refer to console or log file for details!"); \
-		}
-
-#define RE_REVERSE_ASSERT(_VALUE_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
-		if ((_VALUE_)) \
-        { \
-			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
-			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
-			throw std::runtime_error("Refer to console or log file for details!"); \
-		}
-
-#define RE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
-		if ((_VALUEA_) != (_VALUEB_)) \
-        { \
-			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
-			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
-			throw std::runtime_error("Refer to console or log file for details!"); \
-		}
-
-#define RE_REVERSE_ASSERT_COMPARE(_VALUEA_, _VALUEB_, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_) \
-		if ((_VALUEA_) == (_VALUEB_)) \
-        { \
-			RE_LOG_PRINTPRETTY(re::LogLevel::FATAL, "ASSERTION FAILED!"); \
-			RE_LOG(re::LogLevel::FATAL, _MESSAGE_, _FUNCTION_, _FILE_, _LINE_); \
-			throw std::runtime_error("Refer to console or log file for details!"); \
-		}
-
 // Horrible static class implementation...
 namespace re
 {

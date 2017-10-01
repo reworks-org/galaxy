@@ -32,7 +32,8 @@
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\Entity.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
-    <ClCompile Include="source\re\graphics\Group.cpp" />
+    <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
+    <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\libs\agui\ActionEvent.cpp" />
     <ClCompile Include="source\re\libs\agui\ActionListener.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="source\re\libs\imgui\imgui.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui_draw.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imgui_impl_a5.cpp" />
     <ClCompile Include="source\re\libs\lua\lapi.c" />
     <ClCompile Include="source\re\libs\lua\lauxlib.c" />
     <ClCompile Include="source\re\libs\lua\lbaselib.c" />
@@ -204,7 +206,7 @@
     <ClCompile Include="source\re\managers\DebugManager.cpp" />
     <ClCompile Include="source\re\managers\FontManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
-    <ClCompile Include="source\re\managers\PhysicsManager.cpp" />
+    <ClCompile Include="source\re\managers\Box2DManager.cpp" />
     <ClCompile Include="source\re\physics\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
@@ -232,7 +234,8 @@
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\Entity.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
-    <ClInclude Include="source\re\graphics\Group.hpp" />
+    <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
+    <ClInclude Include="source\re\graphics\Layer.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\libs\agui\ActionEvent.hpp" />
     <ClInclude Include="source\re\libs\agui\ActionListener.hpp" />
@@ -368,6 +371,7 @@
     <ClInclude Include="source\re\libs\Box2D\Rope\b2Rope.h" />
     <ClInclude Include="source\re\libs\imgui\imconfig.h" />
     <ClInclude Include="source\re\libs\imgui\imgui.h" />
+    <ClInclude Include="source\re\libs\imgui\imgui_impl_a5.h" />
     <ClInclude Include="source\re\libs\imgui\imgui_internal.h" />
     <ClInclude Include="source\re\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="source\re\libs\imgui\stb_textedit.h" />
@@ -405,7 +409,10 @@
     <ClInclude Include="source\re\managers\DebugManager.hpp" />
     <ClInclude Include="source\re\managers\FontManager.hpp" />
     <ClInclude Include="source\re\managers\StateManager.hpp" />
-    <ClInclude Include="source\re\managers\PhysicsManager.hpp" />
+    <ClInclude Include="source\re\managers\Box2DManager.hpp" />
+    <ClInclude Include="source\re\math\Vector2.hpp" />
+    <ClInclude Include="source\re\math\Rect.hpp" />
+    <ClInclude Include="source\re\math\Vector3.hpp" />
     <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\platform\UNIXLog.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
@@ -418,14 +425,15 @@
     <ClInclude Include="source\re\systems\EventSystem.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\types\Colour.hpp" />
+    <ClInclude Include="source\re\platform\ConsoleColour.hpp" />
     <ClInclude Include="source\re\types\Component.hpp" />
     <ClInclude Include="source\re\types\Events.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
+    <ClInclude Include="source\re\types\State.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\utility\Log.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
-    <ClInclude Include="source\re\utility\Random.hpp" />
+    <ClInclude Include="source\re\math\Random.hpp" />
     <ClInclude Include="source\re\utility\Serialization.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
     <ClInclude Include="source\re\utility\Utils.hpp" />

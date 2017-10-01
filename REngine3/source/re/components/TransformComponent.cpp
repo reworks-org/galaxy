@@ -3,31 +3,27 @@
 //  REngine3
 //
 //  Created by reworks on 30/09/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/debug/imgui/imgui-sfml.h"
-#include "re/physics/Box2DSFMLBridge.hpp"
+#include "re/libs/imgui/imgui.h"
 
 #include "TransformComponent.hpp"
 
 namespace re
 {
-	TransformComponent::TransformComponent()
+	TransformComponent::TransformComponent(sol::table& table)
 	{
+		m_x = table.get<float>("x");
+		m_y = table.get<float>("y");
+		m_angle = table.get<float>("angle");
 	}
 
 	TransformComponent::~TransformComponent()
 	{
 	}
 
-	void TransformComponent::init(sol::table& table)
-	{
-		setPosition(table.get<float>("x"), table.get<float>("y"));
-		setRotation(table.get<float>("angle"));
-	}
-
-	void TransformComponent::debugFunction(sol::table& table, const std::string& curEntityName)
+	void TransformComponent::debug(sol::table& table, const std::string& curEntityName)
 	{
 		static float x = getPosition().x;
 		static float y = getPosition().y;

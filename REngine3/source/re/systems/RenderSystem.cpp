@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include "re/app/World.hpp"
+#include "re/core/World.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/component/TextComponent.hpp"
 #include "re/component/SpriteComponent.hpp"

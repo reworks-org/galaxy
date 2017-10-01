@@ -19,7 +19,7 @@ namespace re
 		return m_entitys;
 	}
 
-	std::string& System::getTypeAsString() const
+	const std::string& System::getTypeAsString() const
 	{
 		return m_typeAsString;
 	}

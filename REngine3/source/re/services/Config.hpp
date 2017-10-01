@@ -28,7 +28,7 @@ namespace re
 		/// \param config Path to the config file.
 		/// \param newFile A function pointer to a function that contains ofstream code to write a new config file.
 		///
-		ConfigReader(const std::string& fileName, std::function<void(std::ofstream&)> newFile);
+		ConfigReader(const std::string& fileName, std::function<void(std::ofstream&)>& newFile);
 
 		///
 		/// Clean up the config reader.

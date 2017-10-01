@@ -6,9 +6,6 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-
 #include "Group.hpp"
 
 namespace re

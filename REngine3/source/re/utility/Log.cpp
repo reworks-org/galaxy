@@ -17,8 +17,8 @@
 #include "re/platform/UNIXLog.hpp"
 #endif
 
-#include "re/types/Colour.hpp"
 #include "re/utility/Time.hpp"
+#include "re/platform/ConsoleColour.hpp"
 
 #include "Log.hpp"
 
@@ -45,7 +45,7 @@ namespace re
 
 	void Log::log(LogLevel level, const std::string& message, const std::string& function, const std::string& file, int line)
 	{
-		std::string composedMessage = Time::getCurrentTimeAndDate() + "] - Message: " + message + ". Function: " + function + ". File: " + file + ". Line: " + std::to_string(line) + ".";
+		std::string composedMessage = Time::getCurrentDateTime() + "] - Message: " + message + ". Function: " + function + ". File: " + file + ". Line: " + std::to_string(line) + ".";
 		
 		switch (level)
 		{
@@ -128,7 +128,10 @@ namespace re
 			std::string logFileName = Time::getFormattedTime() + ".log";
 
 			m_outputLogFile.open(logFileName);
-			RE_REVERSE_ASSERT(m_outputLogFile.fail(), "Failed to open log file for saving!", "Log::saveToLog", "Log.cpp", 122);
+			if (m_outputLogFile.fail())
+			{
+				RE_LOG(LogLevel::WARNING, "Failed to open log file for saving!", "Log::saveToLog", "Log.cpp", 133);
+			}
 
 			for (size_t i = 0, ilen = m_savedMessages.size(); i < ilen; ++i)
 			{

@@ -17,7 +17,7 @@
 
 namespace re
 {
-	SoundComponent::SoundComponent()
+	SoundComponent::SoundComponent(sol::table& table)
 	{
         m_sounds.clear();
 	}

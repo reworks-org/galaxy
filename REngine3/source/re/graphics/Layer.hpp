@@ -1,27 +1,24 @@
 //
-//  Group.hpp
+//  Layer.hpp
 //  REngine3
 //
 //  Created by reworks on 11/08/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_GROUP_HPP_
-#define RENGINE3_GROUP_HPP_
+#ifndef RENGINE3_LAYER_HPP_
+#define RENGINE3_LAYER_HPP_
 
 #include <map>
 #include <memory>
 #include <vector>
 #include <string>
 
-#include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/Transformable.hpp>
-
 namespace re
 {
 	typedef std::vector<std::pair<sf::Drawable*, sf::Transformable*>> RenderableContainer;
 
-	class Group : public sf::Drawable
+	class Layer
 	{
 	public:
 		/*

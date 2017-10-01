@@ -26,12 +26,15 @@ namespace re
 		~FontManager() override;
 
 		///
-		/// Add a font to the manager.
+		/// \brief Add a font to the manager.
 		///
-		/// \param file Name of file in vfs to add.
+		/// You can have multiple of the same font file provided the size is different for each.
+		///
+		/// \param font Name of font in vfs to add.
 		/// \param id Key to access font.
+		/// \param size Font size to load.
 		///
-		void add(const std::string& file, const std::string& id);
+		void add(const std::string& font, const std::string& id, int size);
 
 		///
 		/// Retrieve a font.

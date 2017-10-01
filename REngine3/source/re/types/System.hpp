@@ -54,7 +54,7 @@ namespace re
 		///
 		/// \return Returns a CONSTANT std::string that you can't modify.
 		///
-		std::string& getTypeAsString() const;
+		const std::string& getTypeAsString() const;
 
 	protected:
 		std::map<std::string, Entity*> m_entitys;

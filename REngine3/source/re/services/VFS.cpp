@@ -48,7 +48,7 @@ namespace re
 	ALLEGRO_FILE* VFS::open(const std::string& file, const std::string& mode)
 	{
 		ALLEGRO_FILE* pointer = nullptr;
-		if (PHYSFS_exists(file.c_str())
+		if (PHYSFS_exists(file.c_str()))
 		{
 			pointer = al_fopen(file.c_str(), mode.c_str());
 			m_filesToClean.push_back(pointer);
@@ -59,5 +59,34 @@ namespace re
 		}
 
 		return pointer;
+	}
+
+	std::string VFS::openAsString(const std::string& file)
+	{
+		ALLEGRO_FILE* f = open(file, "r");
+		if (!f)
+		{
+			RE_LOG(LogLevel::WARNING, "Failed to open file!", "VFS::openAsString", "VFS.cpp", 69);
+			return "";
+		}
+
+		ALLEGRO_USTR* ustr = nullptr;
+		ustr = al_fget_ustr(f);
+		if (!ustr)
+		{
+			RE_LOG(LogLevel::WARNING, "Failed to read string!", "VFS::openAsString", "VFS.cpp", 77);
+			return "";
+		}
+
+		char* buff = al_cstr_dup(ustr);
+		auto buffLen = strlen(buff);
+
+		std::string str(buff, buffLen);
+
+		al_free(buff);
+		al_ustr_free(ustr);
+		al_fclose(f);
+
+		return str;
 	}
 }

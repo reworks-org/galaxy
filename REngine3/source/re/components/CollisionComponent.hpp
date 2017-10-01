@@ -9,8 +9,7 @@
 #ifndef RENGINE3_COLLISIONCOMPONENT_HPP_
 #define RENGINE3_COLLISIONCOMPONENT_HPP_
 
-#include <SFML/Graphics/Rect.hpp>
-
+#include "re/math/Rect.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
@@ -18,36 +17,26 @@ namespace re
 	class CollisionComponent : public Component
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		CollisionComponent();
+		///
+		/// Default Constructor
+		///
+		/// \param table sol::table containing data.
+		///
+		CollisionComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up component.
-		*/
+		///
+		/// Destructor.
+		///
 		~CollisionComponent() override;
-
-		/*
-		* IMPORTS: sol::table containing data.
-		* EXPORTS: none
-		* PURPOSE: Set up component.
-		*/
-		void init(sol::table& table) override;
-
-		/*
-		* IMPORTS: lua table and entity name
-		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
-		*/
-		void debugFunction(sol::table& table, const std::string& curEntityName) override;
+		
+	private:
+		///
+		/// Debug function called by debug manager.
+		///
+		void debug(sol::table& table, const std::string& curEntityName) override;
 
 	public:
-		sf::Rect<int> m_rect;
+		Rect<int> m_rect;
 	};
 }
 

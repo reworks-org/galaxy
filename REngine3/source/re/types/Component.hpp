@@ -25,13 +25,6 @@ namespace re
 		///
 		virtual inline ~Component() {};
 
-		///
-		/// Initializes the component data.
-		///
-		/// \param sol::table Table containing component data from a sol::state.
-		///
-		virtual void init(sol::table& table) = 0;
-
     protected:
 		///
 		/// \brief Modify a component in-game.
