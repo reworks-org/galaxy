@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
-    <ClCompile Include="source\re\components\CollisionComponent.cpp" />
     <ClCompile Include="source\re\components\EventComponent.cpp" />
     <ClCompile Include="source\re\components\MusicComponent.cpp" />
     <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
@@ -207,7 +206,7 @@
     <ClCompile Include="source\re\managers\FontManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
     <ClCompile Include="source\re\managers\Box2DManager.cpp" />
-    <ClCompile Include="source\re\physics\QuadTree.cpp" />
+    <ClCompile Include="source\re\math\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
@@ -222,7 +221,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
-    <ClInclude Include="source\re\components\CollisionComponent.hpp" />
     <ClInclude Include="source\re\components\EventComponent.hpp" />
     <ClInclude Include="source\re\components\MusicComponent.hpp" />
     <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
@@ -413,7 +411,7 @@
     <ClInclude Include="source\re\math\Vector2.hpp" />
     <ClInclude Include="source\re\math\Rect.hpp" />
     <ClInclude Include="source\re\math\Vector3.hpp" />
-    <ClInclude Include="source\re\physics\QuadTree.hpp" />
+    <ClInclude Include="source\re\math\QuadTree.hpp" />
     <ClInclude Include="source\re\platform\UNIXLog.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />

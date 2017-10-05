@@ -12,6 +12,7 @@
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
+#include "re/math/Rect.hpp"
 #include "re/types/Component.hpp"
 
 namespace re
@@ -34,8 +35,7 @@ namespace re
 		~TransformComponent() override;
 
 	public:
-		float m_x;
-		float m_y;
+		Rect<float> m_rect;
 		float m_angle;
 
 	private:
@@ -48,22 +48,32 @@ namespace re
 		/// Boost.Serialization saving.
 		///
 		template<class Archive>
-		void save(Archive & ar, const unsigned int version) const
+		void save(Archive& ar, const unsigned int version) const
 		{
-			ar & x;
-			ar & y;
-			ar & angle;
+			ar & m_rect.x;
+			ar & m_rect.y;
+			ar & m_rect.width;
+			ar & m_rect.height;
+			ar & m_angle;
 		}
 
 		///
 		/// Boost.Serialization loading.
 		///
 		template<class Archive>
-		void load(Archive & ar, const unsigned int version)
+		void load(Archive& ar, const unsigned int version)
 		{
+			float x, y, w, h;
 			ar & x;
 			ar & y;
+			ar & w;
+			ar & h;
 			ar & angle;
+
+			m_rect.x = x;
+			m_rect.x = y;
+			m_rect.width = w;
+			m_rect.height = h;
 		}
 
 		BOOST_SERIALIZATION_SPLIT_MEMBER()

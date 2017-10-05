@@ -172,7 +172,6 @@
     <ClCompile Include="source\re\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
-    <ClCompile Include="source\re\physics\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
@@ -190,7 +189,6 @@
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
-    <ClCompile Include="source\re\components\CollisionComponent.cpp" />
     <ClCompile Include="source\re\components\EventComponent.cpp" />
     <ClCompile Include="source\re\components\MusicComponent.cpp" />
     <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
@@ -201,6 +199,7 @@
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
+    <ClCompile Include="source\re\math\QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\core\Application.hpp" />
@@ -375,7 +374,6 @@
     <ClInclude Include="source\re\libs\tmx\tmx.h" />
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
-    <ClInclude Include="source\re\physics\QuadTree.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
@@ -408,7 +406,6 @@
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
-    <ClInclude Include="source\re\components\CollisionComponent.hpp" />
     <ClInclude Include="source\re\components\EventComponent.hpp" />
     <ClInclude Include="source\re\components\MusicComponent.hpp" />
     <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
@@ -420,6 +417,7 @@
     <ClInclude Include="source\re\graphics\Layer.hpp" />
     <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
     <ClInclude Include="source\re\platform\ConsoleColour.hpp" />
+    <ClInclude Include="source\re\math\QuadTree.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

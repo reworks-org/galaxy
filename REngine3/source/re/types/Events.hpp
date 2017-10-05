@@ -18,7 +18,7 @@ namespace re
 	/// List of event types. Inherit to define your own types. Don't forget to add the string equivalent to the converter map.
 	/// 0-3 taken. Start at 4.
 	///
-	struct Events
+	struct Event
 	{
 		static const int MOUSE_PRESSED = 0;
 		static const int MOUSE_RELEASED = 1;

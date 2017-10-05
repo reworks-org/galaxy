@@ -16,6 +16,8 @@ namespace re
 	{
 		m_x = table.get<float>("x");
 		m_y = table.get<float>("y");
+		m_rect.width = table.get<float>("width");
+		m_rect.height = table.get<float>("height");
 		m_angle = table.get<float>("angle");
 	}
 
@@ -25,29 +27,43 @@ namespace re
 
 	void TransformComponent::debug(sol::table& table, const std::string& curEntityName)
 	{
-		static float x = getPosition().x;
-		static float y = getPosition().y;
-		static float angle = b2::degToRad<float>(getRotation());
+		static float x = m_rect.x;
+		static float y = m_rect.y;
+		static int w = m_rect.width;
+		static int h = m_rect.height;
+		static float angle = b2::degToRad<float>(m_angle);
 		static std::string originalEntityName = curEntityName;
 		static bool updatePos = true;
 
 		if (originalEntityName != curEntityName)
 		{
 			originalEntityName = curEntityName;
-			x = getPosition().x;
-			y = getPosition().y;
-			angle = b2::degToRad<float>(getRotation());
+			x = m_rect.x;
+			y = m_rect.y;
+			angle = b2::degToRad<float>(m_angle);
 			updatePos = true;
 		}
 
 		ImGui::Spacing();
-		if (ImGui::InputFloat("x pixel pos", &x))
+		if (ImGui::InputFloat("X Modifier", &x))
 		{
 			updatePos = true;
 		}
 
 		ImGui::Spacing();
-		if (ImGui::InputFloat("y pixel pos", &y))
+		if (ImGui::InputFloat("Y Modifier", &y))
+		{
+			updatePos = true;
+		}
+
+		ImGui::Spacing();
+		if (ImGui::InputInt("Width Modifier", &w, 1, 2))
+		{
+			updatePos = true;
+		}
+
+		ImGui::Spacing();
+		if (ImGui::InputInt("Height Modifier", &h, 1, 2))
 		{
 			updatePos = true;
 		}
@@ -60,8 +76,11 @@ namespace re
 
 		if (updatePos)
 		{
-			setPosition(x, y);
-			setRotation(b2::radToDeg<float>(angle));
+			m_rect.x = x;
+			m_rect.y = y;
+			m_rect.width = w;
+			m_rect.height = h;
+			m_angle = b2::radToDeg<float>(angle);
 
 			updatePos = false;
 		}

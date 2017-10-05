@@ -39,15 +39,11 @@ namespace re
 
 	void QuadTree::insert(Entity* entity)
 	{
-		auto cc = entity->get<CollisionComponent>();
-		auto tc = entity->get<TransformComponent>()->getPosition();
-
-		cc->m_rect.left = (int)tc.x;
-		cc->m_rect.top = (int)tc.y;
+		auto tc_rect = entity->get<TransformComponent>()->m_rect;
 
 		if (m_nodes[0] != nullptr)
 		{
-			int index = getIndex(cc->m_rect);
+			int index = getIndex(tc_rect);
 			if (index != -1)
 			{
 				m_nodes[index]->insert(entity);
@@ -68,7 +64,7 @@ namespace re
 			size_t i = 0;
 			while (i < m_objects.size())
 			{
-				int index = getIndex(m_objects[i]->get<CollisionComponent>()->m_rect);
+				int index = getIndex(m_objects[i]->get<TransformComponent>()->m_rect);
 				if (index != -1)
 				{
 					m_nodes[index]->insert(m_objects[i]);
@@ -84,7 +80,7 @@ namespace re
 
 	void QuadTree::retrieve(std::vector<Entity*>& returnObjects, Entity* entity)
 	{
-		auto rect = entity->get<CollisionComponent>()->m_rect;
+		auto rect = entity->get<TransformComponent>()->m_rect;
 
 		int index = getIndex(rect);
 		if (index != -1 && m_nodes[0] != nullptr)
