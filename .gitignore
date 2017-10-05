@@ -2,18 +2,19 @@
 .DS_Store
 
 # Visual Studio stuff
+packages/
 *.sdf
 *.VC.db
-.vs/REngine3/v15/*.VC.db
-.vs/REngine3/v15/*.VC.db-shm
-.vs/REngine3/v15/*.VC.db-wal
+.vs/rework/v15/*.VC.db
+.vs/rework/v15/*.VC.db-shm
+.vs/rework/v15/*.VC.db-wal
 
 # XCode stuff
 DerivedData/
 
 # Project stuff
-REngine3/bin/
-REngine3/build/
+rework/bin/
+rework/build/
 libs/boost/
 tools/Allegro-Texture-Packer/in/
 tools/Allegro-Texture-Packer/out/

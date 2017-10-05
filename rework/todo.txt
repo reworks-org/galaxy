@@ -1,0 +1,29 @@
+- allegro
+- focus on RTTI
+- clean up C++ code
+- better documentation
+- update copyrights
+- includes
+- better exceptions and logging
+- https://wiki.allegro.cc/index.php?title=Achieving_Resolution_Independence
+
+- quadtree bounds are level
+- "collison rect" is rect that is camera
+- only get entitys that are inside or border the "camera"
+
+- better layering
+- better message (event) system
+- better ecs structure
+- redo states and layers?
+- fix up states and events
+- look extensively into boost (such as logging...)
+- atlas idea: https://github.com/Nooskewl/crystal-picnic/blob/master/src/atlas.cpp
+- docs / readthedocs -> repo wiki / repo website
+
+done modules:
+
+
+http://liballeg.org/a5docs/trunk/display.html
+https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
+https://readthedocs.org/
+https://www.stack.nl/~dimitri/doxygen/download.html

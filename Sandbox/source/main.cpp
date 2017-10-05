@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
+/*
 #include <re/utility/Log.hpp>
 #include <re/app/Application.hpp>
 #include <re/systems/EventSystem.hpp>
@@ -114,9 +115,13 @@ private:
 	SandboxContact m_b2dcallbacks;
 };
 
+*/
+
+#include <re/core/Application.hpp>
+
 int main(int argc, char **argv)
 {
-	App app(9.81f);
+	re::Application sandbox(60.0);
 	
-	return app.run();
+	return sandbox.run();
 }

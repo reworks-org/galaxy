@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="source\re\core\Application.hpp" />
+    <ClInclude Include="source\re\utility\Time.hpp" />
+    <ClInclude Include="source\re\libs\entityx\3rdparty\catch.hpp" />
+    <ClInclude Include="source\re\libs\entityx\3rdparty\simplesignal.h" />
+    <ClInclude Include="source\re\libs\entityx\deps\Dependencies.h" />
+    <ClInclude Include="source\re\libs\entityx\help\NonCopyable.h" />
+    <ClInclude Include="source\re\libs\entityx\help\Pool.h" />
+    <ClInclude Include="source\re\libs\entityx\help\Timer.h" />
+    <ClInclude Include="source\re\libs\entityx\tags\TagsComponent.h" />
+    <ClInclude Include="source\re\libs\entityx\config.h" />
+    <ClInclude Include="source\re\libs\entityx\Entity.h" />
+    <ClInclude Include="source\re\libs\entityx\entityx.h" />
+    <ClInclude Include="source\re\libs\entityx\Event.h" />
+    <ClInclude Include="source\re\libs\entityx\quick.h" />
+    <ClInclude Include="source\re\libs\entityx\System.h" />
+    <ClInclude Include="source\re\utility\Log.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\re\core\Application.cpp" />
+    <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
+    <ClCompile Include="source\re\libs\entityx\help\Timer.cc" />
+    <ClCompile Include="source\re\libs\entityx\Entity.cc" />
+    <ClCompile Include="source\re\libs\entityx\Event.cc" />
+    <ClCompile Include="source\re\libs\entityx\System.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
