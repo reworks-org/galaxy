@@ -1,13 +1,13 @@
 //
 //  VFS.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 12/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_VFS_HPP_
-#define RENGINE3_VFS_HPP_
+#ifndef REWORK_VFS_HPP_
+#define REWORK_VFS_HPP_
 
 #include <string>
 #include <vector>

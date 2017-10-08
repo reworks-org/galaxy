@@ -1,13 +1,13 @@
 //
 //  LuaUtils.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 02/07/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_LUAUTILS_HPP_
-#define RENGINE3_LUAUTILS_HPP_
+#ifndef REWORK_LUAUTILS_HPP_
+#define REWORK_LUAUTILS_HPP_
 
 #include <map>
 #include <string>

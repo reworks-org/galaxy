@@ -1,13 +1,13 @@
 //
 //  Rect.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 26/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_RECT_HPP_
-#define RENGINE3_RECT_HPP_
+#ifndef REWORK_RECT_HPP_
+#define REWORK_RECT_HPP_
 
 namespace re
 {
@@ -114,12 +114,7 @@ namespace re
 	template<typename T>
 	bool Rect<T>::contains(T _x, T _y)
 	{
-		bool out = false;
-
-		if ((_x > x ) && (_x < (x + width)) && (_y > y) && (_y < (y + height)))
-		{
-			out = true;
-		}
+		bool out = ((_x > x) && (_x < (x + width)) && (_y > y) && (_y < (y + height))) ? true : false;
 
 		return out;
 	}

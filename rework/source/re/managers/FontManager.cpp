@@ -1,6 +1,6 @@
 //
 //  FontManager.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 22/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
@@ -25,9 +25,9 @@ namespace re
 		m_fontMap.clear();
 	}
 
-	void FontManager::add(const std::string& font, const std::string& id, int size)
+	void FontManager::add(const std::string& font, const std::string& name, int size)
 	{
-		m_fontMap.emplace(id, al_load_ttf_font_f(Locator::get<VFS>()->open(font, "r"), nullptr, size, NULL));
+		m_fontMap.emplace(name, al_load_ttf_font_f(Locator::get<VFS>()->open(font, "r"), nullptr, size, NULL));
 	}
 
 	ALLEGRO_FONT* FontManager::get(const std::string& id)

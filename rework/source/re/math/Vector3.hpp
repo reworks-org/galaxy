@@ -1,13 +1,13 @@
 //
 //  Vector3.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 26/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_VECTOR3_HPP_
-#define RENGINE3_VECTOR3_HPP_
+#ifndef REWORK_VECTOR3_HPP_
+#define REWORK_VECTOR3_HPP_
 
 namespace re
 {
@@ -77,7 +77,7 @@ namespace re
 	}
 
 	template<typename T>
-	Vector3<T>::Vector3(T _x, T _y, T_z)
+	Vector3<T>::Vector3(T _x, T _y, T _z)
 		: x(_x), y(_y), z(_z)
 	{
 	}

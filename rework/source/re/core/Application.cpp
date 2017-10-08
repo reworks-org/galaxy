@@ -1,9 +1,9 @@
 //
 //  Application.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 8/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #include <allegro5/allegro.h>
@@ -16,32 +16,17 @@
 #include <allegro5/allegro_native_dialog.h>
 
 #include "re/utility/Log.hpp"
-
-#include "Application.hpp"
 #include "re/utility/Time.hpp"
 
-#include <chrono>
-#include <iostream>
-
-// https://github.com/alecthomas/entityx/blob/master/examples/example.cc
+#include "Application.hpp"
 
 namespace re
 {
-	Application::Application(int vMajor, int vMinor, int vPatch, double ups, bool saveLog, int width, int height, bool fullscreen, int msaa, int msaaValue, const std::string& title, const std::string& icon, float32 gravity)
-	:m_versionMajor(vMajor),
-	 m_versionMinor(vMinor),
-	 m_versionPatch(vPatch),
-	 m_ups(ups),
-	 m_saveLog(saveLog),
-	 m_appTitle(title),
-	 m_vfs(), 
-	 m_window(width, height, fullscreen, msaa, msaaValue, title, icon), 
-	 m_world(), 
-	 m_stateManager(), 
-	 m_fontManager(), 
-	 m_b2dManager(gravity), 
-	 m_debugManager(m_window.getDisplay())
+	Application::Application()
 	{
+		Log::init();
+		std::srand(std::time(nullptr));
+
 		al_init();
 		al_install_audio();
 		al_install_mouse();
@@ -74,18 +59,21 @@ namespace re
 
 	int Application::run()
 	{
+		int frames = 0;
+		int updates = 0;
 		double timePerFrame = 1.0 / 60.0;
 
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
 		ALLEGRO_EVENT event;
-		ALLEGRO_EVENT_QUEUE* eq = al_create_event_queue();
 
 		al_register_event_source(eq, al_get_timer_event_source(clock));
 		al_register_event_source(eq, al_get_keyboard_event_source());
-
-		m_stateManager.load();
 		
+		std::uint64_t timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		al_start_timer(clock);
+
+		// load state?
+
 		while (m_window.isOpen());
 		{
 			while (al_get_next_event(eq, &event))
@@ -93,49 +81,39 @@ namespace re
 				switch (event.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
+					// event
+					// update
+					updates++;	
 					break;
 
-				case ALLEGRO_EVENT_KEY_DOWN:
+				case ALLEGRO_EVENT_DISPLAY_CLOSE:
 					running = false;
 					break;
 				}
 			}
-                   // switch(l_event.type)
-                    //{
-					//case ALLEGRO_EVENT_DISPLAY_CLOSE:
-					//	m_window.close();
-					//	break;
-                //    }
-                    
-                    //m_debugManager.event(&l_event);
-            //    }
-                
-               // m_stateManager.event(&l_event);
-                
-				// Update
-				//m_stateManager.update(l_dt);
-				//m_debugManager.update();
-            
-			// Display the debug manager
-			//m_debugManager.displayMenu();
 
-			// Render
-			//m_window.clear(255, 255, 255);
+			// render
+			frames++;
 
-			//m_stateManager.render();
-			//m_debugManager.render();
+			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
+			{
+				timer += 1000;
 
-			//m_window.display();
+				std::string header = m_appTitle + "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
+
+				BOOST_LOG_TRIVIAL(logging::trivial::info) << header;
+
+				updates = 0;
+				frames = 0;
+			}
 		}
+
+		// unload state
 
 		al_stop_timer(clock);
 		al_destroy_timer(clock);
 		al_destroy_event_queue(eq);
-
-		//m_stateManager.unload();
-
-		//RE_LOG(LogLevel::INFO, "Program quit successfully", "Application::run", "Application.cpp", 169);
-		//RE_LOG_SAVE(m_saveLog);
+		BOOST_LOG_TRIVIAL(logging::trivial::info) << "Application close.";
 
 		return EXIT_SUCCESS;
 	}

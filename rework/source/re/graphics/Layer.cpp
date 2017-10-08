@@ -1,6 +1,6 @@
 //
 //  Group.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 11/08/2016.
 //  Copyright (c) 2016 reworks. All rights reserved.

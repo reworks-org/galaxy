@@ -1,13 +1,13 @@
 //
 //  ConsoleColour.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 22/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_CONSOLECOLOUR_HPP_
-#define RENGINE3_CONSOLECOLOUR_HPP_
+#ifndef REWORK_CONSOLECOLOUR_HPP_
+#define REWORK_CONSOLECOLOUR_HPP_
 
 #ifdef _WIN32
 	#include <Windows.h>

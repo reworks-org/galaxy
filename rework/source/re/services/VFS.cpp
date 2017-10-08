@@ -1,6 +1,6 @@
 //
 //  VFS.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 12/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
@@ -19,7 +19,7 @@ namespace re
 	{
 		if (!PHYSFS_init(nullptr))
 		{
-			RE_LOG(LogLevel::FATAL, std::string(PHYSFS_getLastError()), "VFS::VFS", "VFS.cpp", 19);
+			BOOST_LOG_TRIVIAL(error) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
 		}
 
 		al_set_physfs_file_interface();
@@ -40,8 +40,7 @@ namespace re
 	{
 		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
 		{
-			std::string msg = "Cannot load: " + archive;
-			RE_LOG(LogLevel::WARNING, msg, "VFS::mount", "VFS.cpp", 33);
+			BOOST_LOG_TRIVIAL(error) << "Cannot load: " << archive << std::endl;
 		}
 	}
 
@@ -55,7 +54,7 @@ namespace re
 		}
 		else
 		{
-			RE_LOG(LogLevel::WARNING, "Tried to open a file that does not exist!", "VFS::open", "VFS.cpp", 58);
+			BOOST_LOG_TRIVIAL(warning) << "Tried to open a file that does not exist!" << std::endl;
 		}
 
 		return pointer;
@@ -66,7 +65,7 @@ namespace re
 		ALLEGRO_FILE* f = open(file, "r");
 		if (!f)
 		{
-			RE_LOG(LogLevel::WARNING, "Failed to open file!", "VFS::openAsString", "VFS.cpp", 69);
+			BOOST_LOG_TRIVIAL(error) << "Failed to open: " << file << std::endl;
 			return "";
 		}
 
@@ -74,7 +73,7 @@ namespace re
 		ustr = al_fget_ustr(f);
 		if (!ustr)
 		{
-			RE_LOG(LogLevel::WARNING, "Failed to read string!", "VFS::openAsString", "VFS.cpp", 77);
+			BOOST_LOG_TRIVIAL(error) << "Failed to read string from file!" << std::endl;
 			return "";
 		}
 

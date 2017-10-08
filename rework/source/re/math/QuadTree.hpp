@@ -13,7 +13,6 @@
 #include <vector>
 
 #include "re/math/Rect.hpp"
-#include "re/core/Entity.hpp"
 
 namespace re
 {

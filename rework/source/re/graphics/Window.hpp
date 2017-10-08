@@ -1,13 +1,13 @@
 //
 //  Window.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 19/09/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_WINDOW_HPP_
-#define RENGINE3_WINDOW_HPP_
+#ifndef REWORK_WINDOW_HPP_
+#define REWORK_WINDOW_HPP_
 
 #include <allegro5/events.h>
 #include <allegro5/bitmap.h>
@@ -26,12 +26,12 @@ namespace re
 		/// \param width Window width.
 		/// \param height Window height.
 		/// \param fullscreen Should the window be fullscreen on startup, true or false.
-		/// \param msaa Enable or disable MultiSample AntiAliasing. 1 is true, 0 is false.
+		/// \param msaa Enable or disable MultiSample AntiAliasing.
 		/// \param msaaValue Strength of MSAA. 2, 4, 8, 16 are valid values. Set to 0 if msaa is disabled.
 		/// \param title Window title. Must be smaller than 255 characters.
 		/// \param icon Path to window icon. Must be 512x512.
 		///
-		Window(int width, int height, bool fullscreen, int msaa, int msaaValue, const std::string& title, const std::string& icon);
+		Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon);
 
 		///
 		/// Cleans up the window.

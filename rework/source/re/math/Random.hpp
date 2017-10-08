@@ -1,13 +1,13 @@
 //
 //  Random.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 18/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_RANDOM_HPP_
-#define RENGINE3_RANDOM_HPP_
+#ifndef REWORK_RANDOM_HPP_
+#define REWORK_RANDOM_HPP_
 
 #include <random>
 

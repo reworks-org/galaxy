@@ -6,6 +6,8 @@
 - includes
 - better exceptions and logging
 - https://wiki.allegro.cc/index.php?title=Achieving_Resolution_Independence
+- const / constexpr
+- excess copying
 
 - quadtree bounds are level
 - "collison rect" is rect that is camera
@@ -18,9 +20,70 @@
 - fix up states and events
 - look extensively into boost (such as logging...)
 - atlas idea: https://github.com/Nooskewl/crystal-picnic/blob/master/src/atlas.cpp
-- docs / readthedocs -> repo wiki / repo website
+- docs / readthedocs -> repo wiki / repo website / repo settings
+- may have to update entityx::world in statemanager
+- may need to reposition allegro window //al_set_new_window_position(x, y);
 
 done modules:
+
+components:
+	-
+
+core:
+	- 
+
+graphics:
+	- texturepacker
+	- window
+
+libs:
+	- n/a
+
+managers:
+	- box2dmanager
+	- fontmanager
+	- statemanager
+
+math:
+	- random
+	- rect
+	- vector2
+	- vector3
+
+physics:
+	- box2dhelper
+
+platform:
+	- consolecolour
+	- unixlog
+	- win32log
+
+scripting:
+	- luautils
+
+services:
+	- Config
+	- ServiceLocator
+	- VFS
+
+systems:
+	-
+
+types:
+	- Service
+	- State
+
+utility:
+	- Log
+	- Time
+	- Utils
+
+
+
+
+
+
+
 
 
 http://liballeg.org/a5docs/trunk/display.html

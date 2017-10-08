@@ -1,16 +1,18 @@
 //
 //  Utils.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 26/06/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_UTILS_HPP_
-#define RENGINE3_UTILS_HPP_
+#ifndef REWORK_UTILS_HPP_
+#define REWORK_UTILS_HPP_
 
 #include <string>
 #include <sstream>
+
+#include "re/utility/Log.hpp"
 
 namespace re
 {
@@ -25,14 +27,9 @@ namespace re
 		///
 		inline std::string boolToString(bool value)
 		{
-			if (value == true)
-			{
-				return "true";
-			}
-			else
-			{
-				return "false";
-			}
+			std::string out = (value == true) ? "true" : "false";
+			return out;
+			
 		}
 
 		///
@@ -42,16 +39,10 @@ namespace re
 		///
 		/// \return Returns either true or false.
 		///
-		inline bool stringToBool(const std::string& str)
+		inline constexpr bool stringToBool(const std::string& str)
 		{
-			if (str == "true")
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			bool out = (str == "true") ? true : false;
+			return out;
 		}
 
 		///
@@ -81,7 +72,7 @@ namespace re
 
 				if (iss.fail())
 				{
-					std::cout << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
+					BOOST_LOG_TRIVIAL(loglevel::warning) << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
 					return T();
 				}
 				return ret;
@@ -99,7 +90,7 @@ namespace re
 		/// \return Returns empty string if input is null.
 		///
 		///
-		inline const char* nullToEmpty(char const* s)
+		inline constexpr const char* nullToEmpty(char const* s)
 		{
 			return (s ? s : "");
 		}

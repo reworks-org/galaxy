@@ -1,13 +1,13 @@
 //
 //  StateManager.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 5/10/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_STATEMANAGER_HPP_
-#define RENGINE3_STATEMANAGER_HPP_
+#ifndef REWORK_STATEMANAGER_HPP_
+#define REWORK_STATEMANAGER_HPP_
 
 #include <memory>
 

@@ -1,13 +1,13 @@
 //
 //  FontManager.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 22/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_FONTMANAGER_HPP_
-#define RENGINE3_FONTMANAGER_HPP_
+#ifndef REWORK_FONTMANAGER_HPP_
+#define REWORK_FONTMANAGER_HPP_
 
 #include <unordered_map>
 
@@ -31,10 +31,10 @@ namespace re
 		/// You can have multiple of the same font file provided the size is different for each.
 		///
 		/// \param font Name of font in vfs to add.
-		/// \param id Key to access font.
+		/// \param name Key to access font.
 		/// \param size Font size to load.
 		///
-		void add(const std::string& font, const std::string& id, int size);
+		void add(const std::string& font, const std::string& name, int size);
 
 		///
 		/// Retrieve a font.

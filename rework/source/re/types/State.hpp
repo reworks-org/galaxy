@@ -1,33 +1,26 @@
 //
 //  State.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 27/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_STATE_HPP_
-#define RENGINE3_STATE_HPP_
+#ifndef REWORK_STATE_HPP_
+#define REWORK_STATE_HPP_
 
 union ALLEGRO_EVENT;
 struct ALLEGRO_TIMER;
 
 namespace re
 {
-	class VFS;
-	class World;
-	class Window;
-	class FontManager;
-	class ConfigReader;
-	class StateManager;
-
 	class State
 	{
 	public:
 		///
 		/// Destructor.
 		///
-		virtual ~State() {};
+		virtual inline ~State() {};
 
 		///
 		/// Load the states resources.
@@ -57,13 +50,6 @@ namespace re
 		virtual void render() = 0;
 
 	protected:
-		// Services
-		Window* m_window;
-		World* m_world;
-		VFS* m_vfs;
-		StateManager* m_stateManager;
-		FontManager* m_fontManager;
-
 		// Allows for loading stuff only once in load()
 		bool m_doneOnce = false;
 	};

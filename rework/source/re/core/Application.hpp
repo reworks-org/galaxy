@@ -1,13 +1,13 @@
 //
 //  Application.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 8/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_APPLICATION_HPP_
-#define RENGINE3_APPLICATION_HPP_
+#ifndef REWORK_APPLICATION_HPP_
+#define REWORK_APPLICATION_HPP_
 
 /*
 #include "re/core/World.hpp"
@@ -34,9 +34,7 @@ namespace re
 		/// 
 		/// \param gravity Sets up the default gravity for Box2D.
 		/// 
-		//Application(int vMajor, int vMinor, int vPatch, double ups, bool saveLog, int width, int height, bool fullscreen, int msaa, int msaaValue, const std::string& title, const std::string& icon, float32 gravity);
-
-		Application(double ups);
+		Application();
 
 		//
 		/// Cleans up engine.

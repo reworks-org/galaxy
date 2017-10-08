@@ -1,13 +1,13 @@
 //
 //  Serialization.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 20/10/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_SERIALIZATION_HPP_
-#define RENGINE3_SERIALIZATION_HPP_
+#ifndef REWORK_SERIALIZATION_HPP_
+#define REWORK_SERIALIZATION_HPP_
 
 #include <fstream>
 

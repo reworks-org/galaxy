@@ -1,13 +1,13 @@
 //
 //  Service.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 9/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_SERVICE_HPP_
-#define RENGINE3_SERVICE_HPP_
+#ifndef REWORK_SERVICE_HPP_
+#define REWORK_SERVICE_HPP_
 
 namespace re
 {
@@ -15,9 +15,9 @@ namespace re
 	{
 	public:
 		///
-		/// Virtual destructor to be inherited by child classes.
+		/// Virtual destructor to be inherited by derived classes.
 		///
-		virtual ~Service() {}
+		virtual inline ~Service() {}
 	};
 }
 

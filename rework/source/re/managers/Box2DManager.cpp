@@ -1,6 +1,6 @@
 //
 //  Box2DManager.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 12/11/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
@@ -11,9 +11,8 @@
 namespace re
 {
 	Box2DManager::Box2DManager(float32 gravity)
-	:m_gravity(b2Vec2(0.0, gravity))
 	{
-		m_world = new b2World(m_gravity);
+		m_world = new b2World(b2Vec2(0.0, gravity));
 	}
 
 	Box2DManager::~Box2DManager()
@@ -26,5 +25,15 @@ namespace re
 	void Box2DManager::clean()
 	{
 		m_collisionFunctions.clear();
+	}
+
+	b2World* Box2DManager::world()
+	{
+		return m_world;
+	}
+
+	CollisionFunctionMap& Box2DManager::getCollisionFunctions()
+	{
+		return m_collisionFunctions;
 	}
 }

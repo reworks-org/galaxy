@@ -1,6 +1,6 @@
 //
 //  Window.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 19/09/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
@@ -19,7 +19,7 @@
 
 namespace re
 {
-	Window::Window(int width, int height, bool fullscreen, int msaa, int msaaValue, const std::string& title, const std::string& icon)
+	Window::Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon)
 	:m_running(true)
 	{
 		al_set_new_display_flags(ALLEGRO_WINDOWED | ALLEGRO_OPENGL_3_0 | ALLEGRO_OPENGL_FORWARD_COMPATIBLE);
@@ -29,7 +29,6 @@ namespace re
 		al_set_new_display_option(ALLEGRO_UPDATE_DISPLAY_REGION, 1, ALLEGRO_SUGGEST);
 		al_set_new_display_option(ALLEGRO_SUPPORT_NPOT_BITMAP, 1, ALLEGRO_REQUIRE);
 		al_set_new_display_option(ALLEGRO_CAN_DRAW_INTO_BITMAP, 1, ALLEGRO_REQUIRE);
-		//al_set_new_window_position(x, y);
 
 		// Max 255 characters
 		al_set_new_window_title(title.c_str());
@@ -37,7 +36,7 @@ namespace re
 		m_display = al_create_display(width, height);
 		if (!m_display)
 		{
-			RE_LOG(LogLevel::FATAL, "Could not create a display!", "Window::Window", "Window.cpp", 39);
+			BOOST_LOG_TRIVIAL(error) << "Could not create a display!" << std::endl;
 		}
 
 		if (fullscreen)

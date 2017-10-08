@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\re\core\Application.hpp" />
+    <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
+    <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\catch.hpp" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\simplesignal.h" />
     <ClInclude Include="source\re\libs\entityx\config.h" />
@@ -33,19 +35,48 @@
     <ClInclude Include="source\re\libs\entityx\quick.h" />
     <ClInclude Include="source\re\libs\entityx\System.h" />
     <ClInclude Include="source\re\libs\entityx\tags\TagsComponent.h" />
+    <ClInclude Include="source\re\managers\Box2DManager.hpp" />
+    <ClInclude Include="source\re\managers\FontManager.hpp" />
+    <ClInclude Include="source\re\managers\StateManager.hpp" />
+    <ClInclude Include="source\re\math\Random.hpp" />
+    <ClInclude Include="source\re\math\Rect.hpp" />
+    <ClInclude Include="source\re\math\Vector2.hpp" />
+    <ClInclude Include="source\re\math\Vector3.hpp" />
+    <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
+    <ClInclude Include="source\re\platform\ConsoleColour.hpp" />
+    <ClInclude Include="source\re\platform\UNIXLog.hpp" />
+    <ClInclude Include="source\re\platform\Win32Log.hpp" />
+    <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
+    <ClInclude Include="source\re\services\Config.hpp" />
+    <ClInclude Include="source\re\services\ServiceLocator.hpp" />
+    <ClInclude Include="source\re\services\VFS.hpp" />
+    <ClInclude Include="source\re\types\Service.hpp" />
+    <ClInclude Include="source\re\types\State.hpp" />
     <ClInclude Include="source\re\utility\Log.hpp" />
     <ClInclude Include="source\re\utility\Time.hpp" />
+    <ClInclude Include="source\re\utility\Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\re\core\Application.cpp" />
+    <ClCompile Include="source\re\core\World.cpp" />
+    <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
+    <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\libs\entityx\Entity.cc" />
     <ClCompile Include="source\re\libs\entityx\Event.cc" />
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
     <ClCompile Include="source\re\libs\entityx\help\Timer.cc" />
     <ClCompile Include="source\re\libs\entityx\System.cc" />
+    <ClCompile Include="source\re\managers\Box2DManager.cpp" />
+    <ClCompile Include="source\re\managers\FontManager.cpp" />
+    <ClCompile Include="source\re\managers\StateManager.cpp" />
+    <ClCompile Include="source\re\services\Config.cpp" />
+    <ClCompile Include="source\re\services\ServiceLocator.cpp" />
+    <ClCompile Include="source\re\services\VFS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>

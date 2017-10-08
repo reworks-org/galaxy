@@ -1,13 +1,13 @@
 //
 //  Box2DHelper.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 22/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_BOX2DHELPER_HPP_
-#define RENGINE3_BOX2DHELPER_HPP_
+#ifndef REWORK_BOX2DHELPER_HPP_
+#define REWORK_BOX2DHELPER_HPP_
 
 // If 32 doesnt work, try 30 or 60.
 #define RE_PIXELS_PER_METERS 32.0f
@@ -23,7 +23,7 @@ namespace re
 	/// \return Returns meters.
 	///
 	template<typename T>
-	T pixelsToMeters(T pixels)
+	T constexpr pixelsToMeters(T pixels)
 	{
 		return pixels / RE_PIXELS_PER_METERS;
 	}
@@ -36,7 +36,7 @@ namespace re
 	/// \return Returns pixels.
 	///
 	template<typename T>
-	T metersToPixels(T meters)
+	T constexpr metersToPixels(T meters)
 	{
 		return meters * RE_PIXELS_PER_METERS;
 	}
@@ -49,7 +49,7 @@ namespace re
 	/// \return Returns radians.
 	///
 	template<typename T>
-	T degToRad(T deg)
+	T constexpr degToRad(T deg)
 	{
 		return (RE_PI * deg) / 180.0f;
 	}
@@ -62,7 +62,7 @@ namespace re
 	/// \return Returns degrees.
 	///
 	template<typename T>
-	T radToDeg(T rad)
+	T constexpr radToDeg(T rad)
 	{
 		return (180.0f * rad) / RE_PI;
 	}

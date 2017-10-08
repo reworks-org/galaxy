@@ -132,6 +132,7 @@ namespace re
 			free(packed_image_file_array[i].file_name);
 			al_destroy_bitmap(packed_image_file_array[i].bitmap);
 		}
+
 		free(packed_image_file_array);
 
 		al_destroy_config(pack_config);

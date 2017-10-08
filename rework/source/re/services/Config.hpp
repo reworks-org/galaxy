@@ -1,13 +1,13 @@
 //
 //  Config.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 17/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_CONFIG_HPP_
-#define RENGINE3_CONFIG_HPP_
+#ifndef REWORK_CONFIG_HPP_
+#define REWORK_CONFIG_HPP_
 
 #include <string>
 #include <fstream>
@@ -26,7 +26,7 @@ namespace re
 		/// Open a config file.
 		///
 		/// \param config Path to the config file.
-		/// \param newFile A function pointer to a function that contains ofstream code to write a new config file.
+		/// \param newFile A function pointer to a function that contains ofstream code to write a default config file.
 		///
 		ConfigReader(const std::string& fileName, std::function<void(std::ofstream&)>& newFile);
 
@@ -54,9 +54,16 @@ namespace re
 		void removeValue(const std::string& section, const std::string& key);
 
 		///
+		/// Add a section to the config file.
+		///
+		/// \param section Section to add.
+		///
+		void addSection(const std::string& section);
+
+		///
 		/// Removes an entire section from the config file. 
 		///
-		/// \param section to remove 
+		/// \param section Section to remove 
 		///
 		void removeSection(const std::string& section);
 

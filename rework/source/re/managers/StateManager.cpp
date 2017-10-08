@@ -1,13 +1,10 @@
 //
 //  StateManager.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 5/10/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
-
-#include "re/core/World.hpp"
-#include "re/services/ServiceLocator.hpp"
 
 #include "StateManager.hpp"
 
@@ -42,15 +39,12 @@ namespace re
 	{
 		m_currentState->unload();
 		m_currentState = s;
-		Locator::get<World>()->entitysHaveChanged();
 		m_currentState->load();
 	}
 
 	void StateManager::reloadState(std::shared_ptr<State> s)
 	{
 		m_currentState->unload();
-
-		Locator::get<World>()->entitysHaveChanged();
 
 		if (s != nullptr)
 		{

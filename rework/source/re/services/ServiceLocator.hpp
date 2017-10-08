@@ -1,13 +1,13 @@
 //
 //  ServiceLocator.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 17/07/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_SERVICELOCATOR_HPP_
-#define RENGINE3_SERVICELOCATOR_HPP_
+#ifndef REWORK_SERVICELOCATOR_HPP_
+#define REWORK_SERVICELOCATOR_HPP_
 
 #include <typeindex>
 #include <unordered_map>
@@ -60,16 +60,13 @@ namespace re
 	template<typename T>
 	void Locator::provide(Service* s)
 	{
-		// Find type in the map.
-		auto it = m_services.find(std::type_index(typeid(T)));
-
-		if (it != m_services.end()) 
+		if (m_services.find(std::type_index(typeid(T))) != m_services.end())
 		{
-			RE_LOG(LogLevel::WARNING, "Tried to provide an already existing service.", "Locator::provide", "ServiceLocator.hpp", 68);
+			BOOST_LOG_TRIVIAL(loglevel::warning) << "Tried to provide an already existing service." << std::endl;
 		}
 		else 
 		{
-			m_services[typeid(T)] = s;
+			m_services.emplace(std::type_index(typeid(T)), s);
 		}
 	}
 
@@ -79,7 +76,7 @@ namespace re
 		T* out;
 		auto it = m_services.find(std::type_index(typeid(T)));
 
-		out = it != m_services.end() ? dynamic_cast<T*>(it->second) : nullptr;
+		out = (it != m_services.end()) ? dynamic_cast<T*>(it->second) : nullptr;
 		return out;
 	}
 
@@ -88,11 +85,11 @@ namespace re
 	{
 		if (m_services.find(std::type_index(typeid(T))) != m_services.end())
 		{
-			m_services.erase(typeid(T));
+			m_services.erase(std::type_index(typeid(T)));
 		}
 		else
 		{
-			RE_LOG(LogLevel::WARNING, "Attempted to remove a service that doesnt exist", "Locator::remove", "ServiceLocator.hpp", 99);
+			BOOST_LOG_TRIVIAL(loglevel::warning) << "Attempted to remove a service that doesnt exist." << std::endl;
 		}
 	}
 }

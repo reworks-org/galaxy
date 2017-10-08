@@ -1,13 +1,13 @@
 //
 //  Vector2.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 26/09/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_VECTOR2_HPP_
-#define RENGINE3_VECTOR2_HPP_
+#ifndef REWORK_VECTOR2_HPP_
+#define REWORK_VECTOR2_HPP_
 
 namespace re
 {

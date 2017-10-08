@@ -1,10 +1,10 @@
 // This code is based off of https://github.com/seibelj/Allegro-Texture-Packer/tree/master/c
 // That code was licensed as MIT. See tools/Allegro-Texture-Packer/LICENSE-allegrotexturepacker.txt in repo root for details.
-// This is essentially a port to C++, with some additions to support string ids, physfs, and uses rengine3 coding style.
+// This is essentially a port to C++, with some additions to support string ids, physfs, and uses rework coding style.
 // Most of the logic belongs to the original author.
 
-#ifndef RENGINE3_TEXTUREPACKER_HPP_
-#define RENGINE3_TEXTUREPACKER_HPP_
+#ifndef REWORK_TEXTUREPACKER_HPP_
+#define REWORK_TEXTUREPACKER_HPP_
 
 #include <string>
 #include <unordered_map>

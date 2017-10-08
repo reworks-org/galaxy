@@ -1,6 +1,10 @@
 # Mac OS stuff
 .DS_Store
 
+#Windows stuff
+Thumbs.db
+*.lnk
+
 # Visual Studio stuff
 packages/
 *.sdf

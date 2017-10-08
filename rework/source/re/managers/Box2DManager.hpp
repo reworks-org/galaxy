@@ -1,16 +1,19 @@
 //
 //  Box2DManager.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 12/11/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_BOX2DMANAGER_HPP_
-#define RENGINE3_BOX2DMANAGER_HPP_
+#ifndef REWORK_BOX2DMANAGER_HPP_
+#define REWORK_BOX2DMANAGER_HPP_
 
+#include <map>
+#include <functional>
+
+#include "Box2D/Box2D.h"
 #include "re/types/Service.hpp"
-#include "re/libs/Box2D/Box2D.h"
 
 namespace re
 {
@@ -32,16 +35,27 @@ namespace re
 		~Box2DManager();
 
 		///
-		/// Cleans up any collision functions.
+		/// Removes any collision functions in the map.
 		///
 		void clean();
 
-	public:
-		b2World* m_world;
-		CollisionFunctionMap m_collisionFunctions;
+		///
+		/// Access the Box2D world.
+		///
+		/// \return Returns pointer to Box2D world.
+		///
+		b2World* world();
+
+		///
+		/// Access the map containing functions to execute on collision.
+		///
+		/// \return Returns reference to collision function map.
+		///
+		CollisionFunctionMap& getCollisionFunctions();
 
 	private:
-		b2Vec2 m_gravity;
+		b2World* m_world;
+		CollisionFunctionMap m_collisionFunctions;
 	};
 }
 
