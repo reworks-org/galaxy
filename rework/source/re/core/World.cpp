@@ -43,6 +43,14 @@ namespace re
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
+		if (components.get<bool>("special"))
+		{
+			m_entitys.emplace(components.get<std::string>("name"), e);
+			m_keyValuePair.erase("name");
+		}
+		
+		m_keyValuePair.erase("special");
+
 		for (auto& it : m_keyValuePair)
 		{
 			if (!assignSystemComponents(it.first, it.second, e))
@@ -87,6 +95,14 @@ namespace re
 			components.for_each([&](std::pair<sol::object, sol::object> pair) {
 				m_ekv.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 			});
+
+			if (components.get<bool>("special"))
+			{
+				m_entitys.emplace(components.get<std::string>("name"), e);
+				m_ekv.erase("name");
+			}
+
+			m_ekv.erase("special");
 
 			for (auto& eit : m_ekv)
 			{

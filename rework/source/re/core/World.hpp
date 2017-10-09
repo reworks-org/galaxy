@@ -80,6 +80,9 @@ namespace re
 		ex::EventManager m_eventManager;
 		ex::EntityManager m_entityManager;
 		ex::SystemManager m_systemManager;
+
+	private:
+		std::unordered_map<std::string, ex::Entity> m_entitys;
 	};
 }
 
