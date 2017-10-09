@@ -72,7 +72,7 @@ namespace re
 
 				if (iss.fail())
 				{
-					BOOST_LOG_TRIVIAL(loglevel::warning) << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
+					BOOST_LOG_TRIVIAL(warning) << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
 					return T();
 				}
 				return ret;

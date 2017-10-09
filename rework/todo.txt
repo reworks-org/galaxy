@@ -30,7 +30,7 @@ components:
 	-
 
 core:
-	- 
+	- world (kinda)
 
 graphics:
 	- texturepacker

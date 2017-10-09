@@ -27,7 +27,14 @@ namespace re
 
 	void FontManager::add(const std::string& font, const std::string& name, int size)
 	{
-		m_fontMap.emplace(name, al_load_ttf_font_f(Locator::get<VFS>()->open(font, "r"), nullptr, size, NULL));
+		if (m_fontMap.find(name) != m_fontMap.end())
+		{
+			BOOST_LOG_TRIVIAL(warning) << "Attempted to create existing font!" << std::endl;
+		}
+		else
+		{
+			m_fontMap.emplace(name, al_load_ttf_font_f(Locator::get<VFS>()->open(font, "r"), nullptr, size, NULL));
+		}
 	}
 
 	ALLEGRO_FONT* FontManager::get(const std::string& id)

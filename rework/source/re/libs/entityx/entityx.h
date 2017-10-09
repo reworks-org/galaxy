@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENTITYX_ENTITYX_H_
+#define ENTITYX_ENTITYX_H_
 
 #include "entityx/config.h"
 #include "entityx/Event.h"
@@ -7,3 +8,5 @@
 #include "entityx/quick.h"
 
 namespace ex = entityx;
+
+#endif

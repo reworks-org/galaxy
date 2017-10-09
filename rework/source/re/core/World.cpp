@@ -6,6 +6,13 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include <map>
+
+#include "sol2/sol.hpp"
+#include "re/utility/Log.hpp"
+#include "re/services/VFS.hpp"
+#include "re/services/ServiceLocator.hpp"
+
 #include "World.hpp"
 
 // https://github.com/alecthomas/entityx/blob/master/README.md
@@ -24,193 +31,127 @@ namespace re
 
 	void World::createEntity(const std::string& script)
 	{
+		sol::state lua;
+		lua.script(Locator::get<VFS>()->openAsString(script));
+		sol::table components = lua.get<sol::table>("entity");
+		
 		ex::Entity e = m_entityManager.create();
+
+		// Get key-value pairs from table
+		std::map <std::string, sol::table> m_keyValuePair;
+		components.for_each([&](std::pair<sol::object, sol::object> pair) {
+			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+		});
+
+		for (auto& it : m_keyValuePair)
+		{
+			if (!assignSystemComponents(it.first, it.second, e))
+			{
+				if (!m_assignUserComponents(it.first, it.second, e))
+				{
+					BOOST_LOG_TRIVIAL(warning) << "Attempted to register unknown component! script: " << script << std::endl;
+				}
+			}
+		}
 	}
 
 	void World::createEntities(const std::string& batchScript)
 	{
 		sol::state lua;
-		lua.script(Locator::get<VFS>()->openAsString(worldEntityScript));
+		lua.script(Locator::get<VFS>()->openAsString(batchScript));
 
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entitylist = world.get<sol::table>("entitys");
 
 		// Get key-value pairs from table
-		std::map <std::string, std::string> m_keyValuePair;
+		std::map <int, std::string> m_keyValuePair;
 		entitylist.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+			m_keyValuePair.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
 		});
 
 		if (m_keyValuePair.empty())
 		{
-			RE_LOG(LogLevel::WARNING, "Attempted to register an empty entity script", "World::registerEntitys", "World.cpp", 82);
+			BOOST_LOG_TRIVIAL(error) << "Attempted to register an empty entity script." << std::endl;
+			return;
 		}
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_alive.emplace(it.first, Entity(it.second, m_components));
-			m_loadedEntityScripts.push_back(it.second);
-		}
+			lua.script(Locator::get<VFS>()->openAsString(it.second));
+			sol::table components = lua.get<sol::table>("entity");
 
-		emplaceEntitysInSystems();
-		m_entitysHaveChanged = true;
-		
-		update(nullptr);
+			ex::Entity e = m_entityManager.create();
+
+			// Get key-value pairs from table
+			std::map <std::string, sol::table> m_ekv;
+			components.for_each([&](std::pair<sol::object, sol::object> pair) {
+				m_ekv.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+			});
+
+			for (auto& eit : m_ekv)
+			{
+				if (!assignSystemComponents(eit.first, eit.second, e))
+				{
+					if (!m_assignUserComponents(eit.first, eit.second, e))
+					{
+						BOOST_LOG_TRIVIAL(warning) << "Attempted to register unknown component! script: " << it.second << std::endl;
+					}
+				}
+			}
+		}
 	}
 
-	Entity& World::get(const std::string& name)
+	void World::update(double dt)
 	{
-		if (m_alive.find(name) != m_alive.end())
+		m_systemManager.update_all(dt);
+	}
+
+	void World::registerAssignUserComponentsFunction(std::function<bool(const std::string&, sol::table&, ex::Entity&)>& aucf)
+	{
+		m_assignUserComponents = aucf;
+	}
+
+	bool World::assignSystemComponents(const std::string& name, sol::table& table, ex::Entity& e)
+	{
+		bool out = true;
+
+		if (name == "AnimationComponent")
 		{
-			return m_alive[name];
+			e.assign<AnimationComponent>(table);
+		}
+		else if (name == "MusicComponent")
+		{
+			e.assign<MusicComponent>(table);
+		}
+		else if (name == "ParallaxComponent")
+		{
+			e.assign<ParallaxComponent>(table);
+		}
+		else if (name == "PhysicsComponent")
+		{
+			e.assign<PhysicsComponent>(table);
+		}
+		else if (name == "SoundComponent")
+		{
+			e.assign<SoundComponent>(table);
+		}
+		else if (name == "SpriteComponent")
+		{
+			e.assign<SpriteComponent>(table);
+		}
+		else if (name == "TextComponent")
+		{
+			e.assign<TextComponent>(table);
+		}
+		else if (name == "TransformComponent")
+		{
+			e.assign<TransformComponent>(table);
 		}
 		else
 		{
-			if (m_dead.find(name) != m_dead.end())
-			{
-				return m_dead[name];
-			}
-			else
-			{
-				// This will close program and prompt user with error.
-				RE_LOG(LogLevel::FATAL, "Attempted to access non-existent entity", "World::get (entity)", "World.cpp", 159);
-
-				// program never reaches this point, which is why we return an empty entity object.
-				return Entity();
-			}
-		}
-	}
-
-	void World::killEntity(const std::string& name)
-	{
-		m_entitysHaveChanged = true;
-
-		if (m_alive.find(name) != m_alive.end())
-		{
-			m_alive[name].m_isDead = true;
-		}
-	}
-
-	void World::reviveEntity(const std::string& name)
-	{
-		m_entitysHaveChanged = true;
-
-		if (m_dead.find(name) != m_dead.end())
-		{
-			m_dead[name].m_isDead = false;
-		}
-	}
-
-	void World::update(ALLEGRO_TIMER* dt)
-	{
-		if (m_entitysHaveChanged)
-		{
-			for (auto it = m_alive.begin(); it != m_alive.end();)
-			{
-				if (it->second.m_isDead)
-				{
-					std::string name = it->second.m_name;
-					for (auto& s : it->second.m_systemIds)
-					{
-						m_systems[s.second].second->removeEntity(name);
-					}
-
-					m_dead.insert(std::make_pair(name, std::move(it->second)));
-					m_alive.erase(it++);
-				}
-				else
-				{
-					++it;
-				}
-			}
-
-			for (auto it = m_dead.begin(); it != m_dead.end();)
-			{
-				if (!it->second.m_isDead)
-				{
-					std::string name = it->second.m_name;
-
-					m_alive.insert(std::make_pair(name, std::move(it->second)));
-					m_dead.erase(it++);
-
-					for (auto& s : m_alive[name].m_systemIds)
-					{
-						m_systems[s.second].second->addEntity(&m_alive[name]);
-					}
-				}
-				else
-				{
-					++it;
-				}
-			}
-
-			m_entitysHaveChanged = false;
-		}
-	}
-	
-	void World::clearEntitys()
-	{
-		// remove alive and dead components, but not preloaded. they are cleared at the end.
-		for (auto& it : m_alive)
-		{
-			m_components.erase(it.second.m_name);
+			out = false;
 		}
 
-		for (auto& it : m_dead)
-		{
-			m_components.erase(it.second.m_name);
-		}
-
-		m_dead.clear();
-		m_alive.clear();
-		m_loadedEntityScripts.clear();
-	}
-
-	void World::clearPreloaded()
-	{
-		for (auto& it : m_preloaded)
-		{
-			m_components.erase(it.second.m_name);
-		}
-
-		m_preloaded.clear();
-		m_preloadedEntityScripts.clear();
-		
-	}
-
-	ComponentFactory& World::getComponentFactory()
-	{
-		return m_componentFactory;
-	}
-
-	EntityList& World::getAliveEntitys()
-	{
-		return m_alive;
-	}
-
-	EntityList& World::getDeadEntitys()
-	{
-		return m_dead;
-	}
-
-	SystemList& World::getSystemList()
-	{
-		return m_systems;
-	}
-    
-    void World::entitysHaveChanged()
-    {
-        m_entitysHaveChanged = true;
-    }
-
-	void World::emplaceEntitysInSystems()
-	{
-		for (auto it = m_alive.begin(); it != m_alive.end(); ++it)
-		{
-			for (auto& s : it->second.m_systemIds)
-			{
-				m_systems[s.second].second->addEntity(&it->second);
-			}
-		}
+		return out;
 	}
 }
