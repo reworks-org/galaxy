@@ -39,7 +39,7 @@ namespace re
 		///
 		/// \param dt Delta Time from game loop.
 		///
-		void update(ALLEGRO_TIMER* dt);
+		void update(double dt);
 
 		///
 		/// Render the current state.

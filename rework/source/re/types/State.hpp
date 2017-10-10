@@ -10,7 +10,6 @@
 #define REWORK_STATE_HPP_
 
 union ALLEGRO_EVENT;
-struct ALLEGRO_TIMER;
 
 namespace re
 {
@@ -42,7 +41,7 @@ namespace re
 		///
 		/// \param dt Delta Time from game loop.
 		///
-		virtual void update(ALLEGRO_TIMER* dt) = 0;
+		virtual void update(double dt) = 0;
 
 		///
 		/// Render the current state.

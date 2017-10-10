@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
     <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="source\re\managers\Box2DManager.hpp" />
     <ClInclude Include="source\re\managers\FontManager.hpp" />
     <ClInclude Include="source\re\managers\StateManager.hpp" />
+    <ClInclude Include="source\re\math\QuadTree.hpp" />
     <ClInclude Include="source\re\math\Random.hpp" />
     <ClInclude Include="source\re\math\Rect.hpp" />
     <ClInclude Include="source\re\math\Vector2.hpp" />
@@ -57,6 +59,7 @@
     <ClInclude Include="source\re\utility\Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
@@ -68,6 +71,7 @@
     <ClCompile Include="source\re\managers\Box2DManager.cpp" />
     <ClCompile Include="source\re\managers\FontManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
+    <ClCompile Include="source\re\math\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />

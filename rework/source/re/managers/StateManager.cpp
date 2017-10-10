@@ -25,7 +25,7 @@ namespace re
         m_currentState->event(event);
     }
     
-	void StateManager::update(ALLEGRO_TIMER* dt)
+	void StateManager::update(double dt)
 	{
 		m_currentState->update(dt);
 	}

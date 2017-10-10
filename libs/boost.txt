@@ -1,2 +1,2 @@
 The boost library is very large. It is not included in the repo.
-The version of boost used is 1.65.1 for MSVC 14.1 (vs2017) 64bit.
+The version of boost used is boost_1_65_1-msvc-14.1-64

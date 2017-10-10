@@ -14,6 +14,11 @@
 
 #include "re/math/Rect.hpp"
 
+namespace ex
+{
+	class Entity;
+}
+
 namespace re
 {
 	class QuadTree
@@ -41,7 +46,7 @@ namespace re
 		///
 		/// \param entity The entity to insert.
 		///
-		void insert(Entity* entity);
+		void insert(ex::Entity& e);
 
 		///
 		/// Return all objects that could collide with the given object.
@@ -49,7 +54,7 @@ namespace re
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param entity Entity to check for collisions with.
 		///
-		void retrieve(std::vector<Entity*>& returnObjects, Entity* entity);
+		void retrieve(std::vector<ex::Entity>& returnObjects, ex::Entity& e);
 
 	private:
 		///
@@ -68,7 +73,7 @@ namespace re
 		size_t m_level;
 		size_t m_maxLevels;
 		size_t m_maxObjects;
-		std::vector<Entity*> m_objects;
+		std::vector<ex::Entity> m_objects;
 		Rect<int> m_bounds;
 		std::array<QuadTree*, 4> m_nodes;
 	};

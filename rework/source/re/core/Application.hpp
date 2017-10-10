@@ -9,18 +9,13 @@
 #ifndef REWORK_APPLICATION_HPP_
 #define REWORK_APPLICATION_HPP_
 
-/*
-#include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/managers/FontManager.hpp"
 #include "re/managers/StateManager.hpp"
-#include "re/managers/DebugManager.hpp"
 #include "re/managers/Box2DManager.hpp"
-*/
-
-#include <string>
+#include "re/managers/DebugManager.hpp"
 
 namespace re
 {
@@ -31,10 +26,14 @@ namespace re
 		/// \brief Default constructor.
 		///
 		/// Sets up the engine. You need to inherit this and call it from a subclass.
+		/// YOU MUST CALL m_world->m_systemManager.configure() after adding custom systems.
+		/// THIS CONSTRUCTOR DOES NOT CALL IT.
 		/// 
-		/// \param gravity Sets up the default gravity for Box2D.
-		/// 
-		Application();
+		/// \param archive Path or archive to mount.
+		/// \param config Path to the config file.
+		/// \param newConfig A function pointer to a function that contains ofstream code to write a default config file.
+		///
+		Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)>& newConfig);
 
 		//
 		/// Cleans up engine.
@@ -44,26 +43,24 @@ namespace re
 		///
 		/// Return app->run() from your main method.
 		///
-		/// \return Returns EXIT_SUCCESS or EXIT_FAILURE.
+		/// \return Returns EXIT_SUCCESS.
 		/// 
 		int run();
 
-	private:
-		//int m_versionMajor;
-		//int m_versionMinor;
-		//int m_versionPatch;
-		double m_ups;
-		double m_timePerFrame;
-		//bool m_saveLog;
+	protected:
+		int m_versionMajor;
+		int m_versionMinor;
+		int m_versionPatch;
 		std::string m_appTitle;
 
-		//VFS m_vfs;
-		//Window m_window;
-		//World m_world;
-		//StateManager m_stateManager;
-		//FontManager m_fontManager;
-		//Box2DManager m_b2dManager;
-		//DebugManager m_debugManager;
+		VFS* m_vfs;
+		ConfigReader* m_engineConfig;
+		Window* m_window;
+		World* m_world;
+		StateManager* m_stateManager;
+		FontManager* m_fontManager;
+		Box2DManager* m_b2dManager;
+		DebugManager* m_debugManager;
 	};
 }
 

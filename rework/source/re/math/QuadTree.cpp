@@ -6,6 +6,7 @@
 //  Code ported from:
 //  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
+#include "entityx/Entity.h"
 #include "re/components/TransformComponent.hpp"
 #include "re/components/CollisionComponent.hpp"
 
@@ -37,9 +38,12 @@ namespace re
 		}
 	}
 
-	void QuadTree::insert(Entity* entity)
+	void QuadTree::insert(ex::Entity& e)
 	{
-		auto tc_rect = entity->get<TransformComponent>()->m_rect;
+		auto tc_handle = e.component<TransformComponent>();
+		auto cc_handle = e.component<CollisionComponent>();
+
+		Rect<int> rect(tc_handle.m_x, tc_handle.m_y, cc_handle.m_width, cc_handle.m_height);
 
 		if (m_nodes[0] != nullptr)
 		{

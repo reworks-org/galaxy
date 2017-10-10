@@ -22,12 +22,14 @@
 
 namespace re
 {
-	Application::Application()
+	Application::Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)>& newConfig)
 	{
 		Log::init();
+		BOOST_LOG_TRIVIAL(info) << "App init." << std::endl;
+
 		std::srand(std::time(nullptr));
 
-		al_init();
+		al_install_system(ALLEGRO_VERSION_INT, atexit);
 		al_install_audio();
 		al_install_mouse();
 		al_install_keyboard();
@@ -39,10 +41,30 @@ namespace re
 		al_init_acodec_addon();
 		al_init_primitives_addon();
 		al_init_native_dialog_addon();
+
+		m_vfs = new VFS(archive);
+		m_engineConfig = new ConfigReader(config, newConfig);
+		m_window = new Window(m_engineConfig->lookup<int>("width"), m_engineConfig->lookup<int>("height"), m_engineConfig->lookup<bool>("fullscreen"), m_engineConfig->lookup<bool>("msaa"), m_engineConfig->lookup<int>("msaaValue"), m_engineConfig->lookup<std::string>("title"), m_engineConfig->lookup<std::string>("icon"));
+		m_world = new World();
+		m_stateManager = new StateManager();
+		m_fontManager = new FontManager();
+		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("gravity"));
+		m_debugManager = new DebugManager(m_window->getDisplay());
+
+		m_world->m_systemManager.
 	}
 
 	Application::~Application()
 	{
+		delete m_debugManager;
+		delete m_b2dManager;
+		delete m_fontManager;
+		delete m_stateManager;
+		delete m_world;
+		delete m_window;
+		delete m_engineConfig;
+		delete m_vfs;
+
 		al_shutdown_native_dialog_addon();
 		al_shutdown_primitives_addon();
 		al_shutdown_video_addon();
@@ -53,7 +75,6 @@ namespace re
 		al_uninstall_keyboard();
 		al_uninstall_mouse();
 		al_uninstall_audio();
-
 		al_uninstall_system();
 	}
 
@@ -66,13 +87,12 @@ namespace re
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
 		ALLEGRO_EVENT event;
 
-		al_register_event_source(eq, al_get_timer_event_source(clock));
-		al_register_event_source(eq, al_get_keyboard_event_source());
-		
 		std::uint64_t timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		al_start_timer(clock);
 
-		// load state?
+		m_stateManager.load();
+
+		m_stateManager.event(&event);
 
 		while (m_window.isOpen());
 		{
@@ -81,8 +101,8 @@ namespace re
 				switch (event.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
-					// event
-					// update
+					m_stateManager.update(timePerFrame);
+					m_world.update(dt);
 					updates++;	
 					break;
 
@@ -92,28 +112,28 @@ namespace re
 				}
 			}
 
-			// render
+			m_window.clear(255, 255, 255);
+
+			m_stateManager.render();
+
+			m_window.display();
 			frames++;
 
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
 			{
 				timer += 1000;
-
-				std::string header = m_appTitle + "  |  " + std::to_string(updates) + " ups, " + std::to_string(frames) + " fps";
-
-				BOOST_LOG_TRIVIAL(logging::trivial::info) << header;
-
+				BOOST_LOG_TRIVIAL(info) << m_appTitle << "  |  " + updates << " ups, " << frames << " fps" << std::endl;
+				
 				updates = 0;
 				frames = 0;
 			}
 		}
 
-		// unload state
+		m_stateManager.unload();
 
 		al_stop_timer(clock);
 		al_destroy_timer(clock);
-		al_destroy_event_queue(eq);
-		BOOST_LOG_TRIVIAL(logging::trivial::info) << "Application close.";
+		BOOST_LOG_TRIVIAL(info) << "App close." << std::endl;
 
 		return EXIT_SUCCESS;
 	}

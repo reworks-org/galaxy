@@ -1,49 +1,12 @@
 //
 //  main.cpp
-//  REngine3
+//  Sandbox
 //
 //  Created by reworks on 8/07/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 /*
-#include <re/utility/Log.hpp>
-#include <re/app/Application.hpp>
-#include <re/systems/EventSystem.hpp>
-#include <re/systems/RenderSystem.hpp>
-#include <re/services/StateManager.hpp>
-#include <re/services/ServiceLocator.hpp>
-#include <re/systems/PhysicsSystem.hpp>
-#include <re/systems/AnimationSystem.hpp>
-#include <re/systems/AudioSystem.hpp>
-
-#include "gamesystems/MoveSystem.hpp"
-#include "physics/B2DCallbacks.hpp"
-
-#include "Menu.hpp"
-#include "Load.hpp"
-
-using namespace re;
-
-void engineConfig(std::ofstream& newFile)
-{
-	newFile << "appTitle = \"Default\"" << std::endl;
-	newFile << "assetPath = \"bin/assets/\"" << std::endl;
-	newFile << "ups = 60.0" << std::endl;
-	newFile << "versionMajor = 1" << std::endl;
-	newFile << "versionMinor = 0" << std::endl;
-	newFile << "versionPatch = 0" << std::endl;
-	newFile << "screenWidth = 640" << std::endl;
-	newFile << "screenHeight = 480" << std::endl;
-	newFile << "renderingLayers = 2" << std::endl;
-	newFile << "framerateLimit = 0" << std::endl;
-	newFile << "keyRepeat = true" << std::endl;
-	newFile << "cursorVisible = true" << std::endl;
-	newFile << "vsyncEnabled = false" << std::endl;
-	newFile << "saveLog = false" << std::endl;
-	newFile << "enableDebug = false" << std::endl;
-}
-
 class App : public re::Application
 {
 public:
@@ -90,15 +53,7 @@ public:
         m_physicsManager.m_world->SetContactListener(&m_b2dcallbacks);
         
         // provide services
-        Locator::provide<World>(&m_world);
-        Locator::provide<VFS>(&m_vfs);
-        Locator::provide<Window>(&m_window);
-        Locator::provide<ResourceManager<sf::Font>>(&m_fontManager);
-		Locator::provide<ResourceManager<sf::Shader>>(&m_shaderManager);
-		Locator::provide<ResourceManager<sf::Texture>>(&m_spriteSheetManager);
-        Locator::provide<StateManager>(&m_stateManager);
-        Locator::provide<PhysicsManager>(&m_physicsManager);
-		Locator::provide<DebugManager>(&m_debugManager);
+        
         
         // add fonts
         m_fontManager.add("game_over.ttf", "GameOver");
@@ -117,11 +72,47 @@ private:
 
 */
 
+#include <iostream>
+
 #include <re/core/Application.hpp>
+
+class Game : public re::Application
+{
+public:
+	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)>& newConfig) : re::Application(archive, config, newConfig)
+	{
+		re::Locator::provide<re::World>(m_world);
+		re::Locator::provide<re::VFS>(m_vfs);
+		re::Locator::provide<re::Window>(m_window);
+		re::Locator::provide<re::StateManager>(m_stateManager);
+		re::Locator::provide<re::PhysicsManager>(m_physicsManager);
+		re::Locator::provide<re::DebugManager>(m_debugManager);
+
+		// Register Systems
+		m_world->m_systemManager.configure();
+	}
+};
 
 int main(int argc, char **argv)
 {
-	re::Application sandbox(60.0);
-	
+	Game sandbox("data.archive", "config.lua", [](std::ofstream& newConfig)
+	{
+		newConfig << "appTitle = \"Default\"" << std::endl;
+		newConfig << "assetPath = \"bin/assets/\"" << std::endl;
+		newConfig << "ups = 60.0" << std::endl;
+		newConfig << "versionMajor = 1" << std::endl;
+		newConfig << "versionMinor = 0" << std::endl;
+		newConfig << "versionPatch = 0" << std::endl;
+		newConfig << "screenWidth = 640" << std::endl;
+		newConfig << "screenHeight = 480" << std::endl;
+		newConfig << "renderingLayers = 2" << std::endl;
+		newConfig << "framerateLimit = 0" << std::endl;
+		newConfig << "keyRepeat = true" << std::endl;
+		newConfig << "cursorVisible = true" << std::endl;
+		newConfig << "vsyncEnabled = false" << std::endl;
+		newConfig << "saveLog = false" << std::endl;
+		newConfig << "enableDebug = false" << std::endl;
+	});
+
 	return sandbox.run();
 }

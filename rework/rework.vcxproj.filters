@@ -37,6 +37,8 @@
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\core\Application.hpp" />
+    <ClInclude Include="source\re\math\QuadTree.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -53,6 +55,8 @@
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
+    <ClCompile Include="source\re\core\Application.cpp" />
+    <ClCompile Include="source\re\math\QuadTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

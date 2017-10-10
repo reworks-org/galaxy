@@ -9,6 +9,7 @@
 #ifndef REWORK_WORLD_HPP_
 #define REWORK_WORLD_HPP_
 
+#include "sol2/sol.hpp"
 #include "entityx/entityx.h"
 #include "re/types/Service.hpp"
 
@@ -55,7 +56,7 @@ namespace re
 		///
 		/// \param aucf Function pointer. return type: bool. params: std::string, sol::table, ex::entity.
 		///
-		void registerAssignUserComponentsFunction(std::function<bool(const std::string&, sol::table&, ex::Entity)>& aucf);
+		void registerAssignUserComponentsFunction(std::function<bool(const std::string&, sol::table&, ex::Entity&)>& aucf);
 
 	private:
 		///

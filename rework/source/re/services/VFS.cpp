@@ -25,6 +25,18 @@ namespace re
 		al_set_physfs_file_interface();
 	}
 
+	VFS::VFS(const std::string& archive)
+	{
+		if (!PHYSFS_init(nullptr))
+		{
+			BOOST_LOG_TRIVIAL(error) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
+		}
+
+		al_set_physfs_file_interface();
+
+		mount(archive);
+	}
+
 	VFS::~VFS()
 	{
 		for (auto& elem : m_filesToClean)

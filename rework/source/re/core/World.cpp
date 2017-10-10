@@ -8,15 +8,11 @@
 
 #include <map>
 
-#include "sol2/sol.hpp"
 #include "re/utility/Log.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "World.hpp"
-
-// https://github.com/alecthomas/entityx/blob/master/README.md
-// https://github.com/alecthomas/entityx/blob/master/examples/example.cc
 
 namespace re
 {

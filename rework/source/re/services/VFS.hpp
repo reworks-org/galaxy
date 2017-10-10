@@ -27,6 +27,13 @@ namespace re
 		VFS();
 		
 		///
+		/// Constructor, also takes a parameter to call mount().
+		///
+		/// \param archive Path or archive to mount.
+		///
+		VFS(const std::string& archive);
+
+		///
 		/// Destructor.
 		//
 		~VFS();

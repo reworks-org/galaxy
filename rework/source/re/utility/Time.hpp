@@ -28,7 +28,7 @@ namespace re
 		///
 		inline constexpr std::int32_t secondsToMilliseconds(float seconds)
 		{
-			return milliseconds * 1000;
+			return seconds * 1000;
 		}
 
 		///
