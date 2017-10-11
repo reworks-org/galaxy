@@ -75,6 +75,7 @@ private:
 #include <iostream>
 
 #include <re/core/Application.hpp>
+#include <re/services/ServiceLocator.hpp>
 
 class Game : public re::Application
 {

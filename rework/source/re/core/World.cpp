@@ -11,6 +11,9 @@
 #include "re/utility/Log.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
+#include "re/components/TransformComponent.hpp"
+#include "re/components/CollisionComponent.hpp"
+#include "re/components/PhysicsComponent.hpp"
 
 #include "World.hpp"
 
@@ -130,6 +133,10 @@ namespace re
 		if (name == "AnimationComponent")
 		{
 			e.assign<AnimationComponent>(table);
+		}
+		else if (name == "CollisionComponent")
+		{
+			e.assign<CollisionComponent>(table);
 		}
 		else if (name == "MusicComponent")
 		{

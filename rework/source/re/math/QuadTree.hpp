@@ -1,6 +1,6 @@
 //
 //  QuadTree.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 28/08/2017.
 //  Code ported from:
@@ -13,11 +13,7 @@
 #include <vector>
 
 #include "re/math/Rect.hpp"
-
-namespace ex
-{
-	class Entity;
-}
+#include "entityx/entityx.h"
 
 namespace re
 {
@@ -32,7 +28,7 @@ namespace re
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(int level, Rect<int>& bounds, int maxLevels = 5, int maxObjects = 10);
+		QuadTree(size_t level, Rect<int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
 
 		///
 		/// Clears the quadtree of all data.
@@ -67,7 +63,7 @@ namespace re
 		///
 		/// -1 means object cannot completely fit within a child node and is part of the parent node.
 		///
-		int getIndex(Rect<int>& rect);
+		int getIndex(Rect<float>& rect);
 
 	private:
 		size_t m_level;

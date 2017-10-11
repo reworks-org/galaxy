@@ -48,9 +48,6 @@ namespace re
 		int run();
 
 	protected:
-		int m_versionMajor;
-		int m_versionMinor;
-		int m_versionPatch;
 		std::string m_appTitle;
 
 		VFS* m_vfs;

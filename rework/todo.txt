@@ -16,7 +16,7 @@
 - look extensively into boost (such as logging...)
 - atlas idea: https://github.com/Nooskewl/crystal-picnic/blob/master/src/atlas.cpp
 - docs / readthedocs -> repo wiki / repo website / repo settings
-- may have to update entityx::world in statemanager
+- add systems to applciation
 - may need to reposition allegro window //al_set_new_window_position(x, y);
 
 https://github.com/alecthomas/entityx/blob/master/README.md
@@ -25,10 +25,11 @@ https://github.com/alecthomas/entityx/blob/master/examples/example.cc
 done modules:
 
 components:
-	-
+	- physics
+	- collision
+	- transform
 
 core:
-	- application (kinda)
 	- world (kinda)
 
 graphics:
@@ -44,6 +45,7 @@ managers:
 	- statemanager
 
 math:
+	- quadtree
 	- random
 	- rect
 	- vector2

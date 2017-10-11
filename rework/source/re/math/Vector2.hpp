@@ -27,41 +27,6 @@ namespace re
 		/// \param _y Y value.
 		///
 		Vector2(T _x, T _y);
-		
-		///
-		/// Negative overload.
-		///
-		Vector2<T> operator-(const Vector2<T>& a);
-
-		///
-		/// += overload.
-		///
-		Vector2<T>& operator+=(Vector2<T>& a, const Vector2<T>& b);
-		
-		///
-		/// -= overload.
-		///
-		Vector2<T>& operator-=(Vector2<T>& a, const Vector2<T>& b);
-		
-		///
-		/// + overload.
-		///
-		Vector2<T> operator+(const Vector2<T>& a, const Vector2<T>& b);
-
-		///
-		/// - overload.
-		///
-		Vector2<T> operator-(const Vector2<T>& a, const Vector2<T>& b);
-
-		///
-		/// == overload.
-		///
-		bool operator==(const Vector2<T>& a, const Vector2<T>& b);
-
-		///
-		/// != overload.
-		///
-		bool operator!=(const Vector2<T>& a, const Vector2<T>& b);
 
 	public:
 		T x;
@@ -81,13 +46,13 @@ namespace re
 	}
 	
 	template<typename T>
-	Vector2<T> Vector2<T>::operator-(const Vector2<T>& a)
+	Vector2<T> operator-(const Vector2<T>& a)
 	{
 		return Vector2<T>(-a.x, -a.y);
 	}
 
 	template<typename T>
-	Vector2<T>& Vector2<T>::operator+=(Vector2<T>& a, const Vector2<T>& b)
+	Vector2<T>& operator+=(Vector2<T>& a, const Vector2<T>& b)
 	{
 		a.x += b.x;
 		a.y += b.y;
@@ -96,7 +61,7 @@ namespace re
 	}
 
 	template<typename T>
-	Vector2<T>& Vector2<T>::operator-=(Vector2<T>& a, const Vector2<T>& b)
+	Vector2<T>& operator-=(Vector2<T>& a, const Vector2<T>& b)
 	{
 		a.x -= b.x;
 		a.y -= b.y;
@@ -105,26 +70,26 @@ namespace re
 	}
 
 	template<typename T>
-	Vector2<T> Vector2<T>::operator+(const Vector2<T>& a, const Vector2<T>& b)
+	Vector2<T> operator+(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return Vector2<T>(a.x + b.x, a.y + b.y);
 	}
 
 	template<typename T>
-	Vector2<T> Vector2<T>::operator-(const Vector2<T>& a, const Vector2<T>& b)
+	Vector2<T> operator-(const Vector2<T>& a, const Vector2<T>& b)
 	{
 	
 		return Vector2<T>(a.x - b.x, a.y - b.y);
 	}
 
 	template<typename T>
-	bool Vector2<T>::operator==(const Vector2<T>& a, const Vector2<T>& b)
+	bool operator==(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return (a.x == b.x) && (a.y == b.y);
 	}
 
 	template<typename T>
-	bool Vector2<T>::operator!=(const Vector2<T>& a, const Vector2<T>& b)
+	bool operator!=(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return (a.x != b.x) || (a.y != b.y);
 	}

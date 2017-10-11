@@ -6,15 +6,14 @@
 //  Code ported from:
 //  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
-#include "entityx/Entity.h"
-#include "re/components/TransformComponent.hpp"
 #include "re/components/CollisionComponent.hpp"
+#include "re/components/TransformComponent.hpp"
 
 #include "QuadTree.hpp"
 
 namespace re
 {
-	QuadTree::QuadTree(int level, Rect<int>& bounds, int maxLevels, int maxObjects)
+	QuadTree::QuadTree(size_t level, Rect<int>& bounds, size_t maxLevels, size_t maxObjects)
 	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects)
 	{
 		for (auto& elem : m_nodes)
@@ -43,20 +42,20 @@ namespace re
 		auto tc_handle = e.component<TransformComponent>();
 		auto cc_handle = e.component<CollisionComponent>();
 
-		Rect<int> rect(tc_handle.m_x, tc_handle.m_y, cc_handle.m_width, cc_handle.m_height);
+		Rect<float> rect(tc_handle->m_x, tc_handle->m_y, (float)cc_handle->m_width, (float)cc_handle->m_height);
 
 		if (m_nodes[0] != nullptr)
 		{
-			int index = getIndex(tc_rect);
+			int index = getIndex(rect);
 			if (index != -1)
 			{
-				m_nodes[index]->insert(entity);
+				m_nodes[index]->insert(e);
 				
 				return;
 			}
 		}
 
-		m_objects.push_back(entity);
+		m_objects.push_back(e);
 
 		if (m_objects.size() > m_maxObjects && m_level < m_maxLevels)
 		{
@@ -68,7 +67,12 @@ namespace re
 			size_t i = 0;
 			while (i < m_objects.size())
 			{
-				int index = getIndex(m_objects[i]->get<TransformComponent>()->m_rect);
+				auto tc_handle_ = m_objects[i].component<TransformComponent>();
+				auto cc_handle_ = m_objects[i].component<CollisionComponent>();
+
+				Rect<float> rect_(tc_handle_->m_x, tc_handle_->m_y, (float)cc_handle_->m_width, (float)cc_handle_->m_height);
+
+				int index = getIndex(rect_);
 				if (index != -1)
 				{
 					m_nodes[index]->insert(m_objects[i]);
@@ -82,14 +86,17 @@ namespace re
 		}
 	}
 
-	void QuadTree::retrieve(std::vector<Entity*>& returnObjects, Entity* entity)
+	void QuadTree::retrieve(std::vector<ex::Entity>& returnObjects, ex::Entity& e)
 	{
-		auto rect = entity->get<TransformComponent>()->m_rect;
+		auto tc_handle = e.component<TransformComponent>();
+		auto cc_handle = e.component<CollisionComponent>();
+
+		Rect<float> rect(tc_handle->m_x, tc_handle->m_y, (float)cc_handle->m_width, (float)cc_handle->m_height);
 
 		int index = getIndex(rect);
 		if (index != -1 && m_nodes[0] != nullptr)
 		{
-			m_nodes[index]->retrieve(returnObjects, entity);
+			m_nodes[index]->retrieve(returnObjects, e);
 		}
 
 		returnObjects.insert(returnObjects.begin(), m_objects.begin(), m_objects.end());
@@ -99,25 +106,25 @@ namespace re
 	{
 		int subWidth = (m_bounds.width / 2);
 		int subHeight = (m_bounds.height / 2);
-		int x = m_bounds.left;
-		int y = m_bounds.top;
+		int x = m_bounds.x;
+		int y = m_bounds.y;
 		
-		m_nodes[0] = new QuadTree(m_level + 1, Rect<int>(x + subWidth, y, subWidth, subHeight), m_maxLevels, m_maxObjects);
-		m_nodes[1] = new QuadTree(m_level + 1, Rect<int>(x, y, subWidth, subHeight), m_maxLevels, m_maxObjects);
-		m_nodes[2] = new QuadTree(m_level + 1, Rect<int>(x, y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
-		m_nodes[3] = new QuadTree(m_level + 1, Rect<int>(x + subWidth, y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[0] = new QuadTree(m_level + (size_t)1, Rect<int>(x + subWidth, y, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[1] = new QuadTree(m_level + (size_t)1, Rect<int>(x, y, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[2] = new QuadTree(m_level + (size_t)1, Rect<int>(x, y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[3] = new QuadTree(m_level + (size_t)1, Rect<int>(x + subWidth, y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
 	}
 
-	int QuadTree::getIndex(Rect<int>& rect)
+	int QuadTree::getIndex(Rect<float>& rect)
 	{
 		int index = -1;
-		double verticalMidpoint = m_bounds.left + (m_bounds.width / 2);
-		double horizontalMidpoint = m_bounds.top + (m_bounds.height / 2);
+		double verticalMidpoint = m_bounds.x + (m_bounds.width / 2);
+		double horizontalMidpoint = m_bounds.y + (m_bounds.height / 2);
 
-		bool topQuadrant = (rect.top < horizontalMidpoint && rect.top + rect.height < horizontalMidpoint);
-		bool bottomQuadrant = (rect.top > horizontalMidpoint);
+		bool topQuadrant = (rect.y < horizontalMidpoint && rect.y + rect.height < horizontalMidpoint);
+		bool bottomQuadrant = (rect.y > horizontalMidpoint);
 
-		if (rect.left < verticalMidpoint && rect.left + rect.width < verticalMidpoint)
+		if (rect.x < verticalMidpoint && rect.x + rect.width < verticalMidpoint)
 		{
 			if (topQuadrant)
 			{
@@ -128,7 +135,7 @@ namespace re
 				index = 2;
 			}
 		}
-		else if (rect.left > verticalMidpoint)
+		else if (rect.x > verticalMidpoint)
 		{
 			if (topQuadrant)
 			{

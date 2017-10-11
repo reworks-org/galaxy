@@ -39,6 +39,9 @@
     <ClInclude Include="source\re\core\World.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\math\QuadTree.hpp" />
+    <ClInclude Include="source\re\components\TransformComponent.hpp" />
+    <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
+    <ClInclude Include="source\re\components\CollisionComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -57,6 +60,9 @@
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
+    <ClCompile Include="source\re\components\TransformComponent.cpp" />
+    <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
+    <ClCompile Include="source\re\components\CollisionComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

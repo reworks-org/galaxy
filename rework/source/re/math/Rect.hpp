@@ -50,41 +50,6 @@ namespace re
 		///
 		bool overlaps(const Rect<T>& a, const Rect<T>& b);
 
-		///
-		/// Negative overload.
-		///
-		Rect<T> operator-(const Rect<T>& a);
-
-		///
-		/// += overload.
-		///
-		Rect<T>& operator+=(Rect<T>& a, const Rect<T>& b);
-
-		///
-		/// -= overload.
-		///
-		Rect<T>& operator-=(Rect<T>& a, const Rect<T>& b);
-
-		///
-		/// + overload.
-		///
-		Rect<T> operator+(const Rect<T>& a, const Rect<T>& b);
-
-		///
-		/// - overload.
-		///
-		Rect<T> operator-(const Rect<T>& a, const Rect<T>& b);
-
-		///
-		/// == overload.
-		///
-		bool operator==(const Rect<T>& a, const Rect<T>& b);
-
-		///
-		/// != overload.
-		///
-		bool operator!=(const Rect<T>& a, const Rect<T>& b);
-
 	public:
 		T x;
 		T y;
@@ -134,13 +99,19 @@ namespace re
 	}
 
 	template<typename T>
-	Rect<T> Rect<T>::operator-(const Rect<T>& a)
+	bool Rect<T>::valueInRange(T value, T min, T max)
+	{
+		return (value >= min) && (value <= max);
+	}
+
+	template<typename T>
+	Rect<T> operator-(const Rect<T>& a)
 	{
 		return Rect<T>(-a.x, -a.y, -a.width, -a.height);
 	}
 
 	template<typename T>
-	Rect<T>& Rect<T>::operator+=(Rect<T>& a, const Rect<T>& b)
+	Rect<T>& operator+=(Rect<T>& a, const Rect<T>& b)
 	{
 		a.x += b.x;
 		a.y += b.y;
@@ -151,7 +122,7 @@ namespace re
 	}
 
 	template<typename T>
-	Rect<T>& Rect<T>::operator-=(Rect<T>& a, const Rect<T>& b)
+	Rect<T>& operator-=(Rect<T>& a, const Rect<T>& b)
 	{
 		a.x -= b.x;
 		a.y -= b.y;
@@ -162,33 +133,27 @@ namespace re
 	}
 
 	template<typename T>
-	Rect<T> Rect<T>::operator+(const Rect<T>& a, const Rect<T>& b)
+	Rect<T> operator+(const Rect<T>& a, const Rect<T>& b)
 	{
 		return Rect<T>(a.x + b.x, a.y + b.y, a.z + b.z);
 	}
 
 	template<typename T>
-	Rect<T> Rect<T>::operator-(const Rect<T>& a, const Rect<T>& b)
+	Rect<T> operator-(const Rect<T>& a, const Rect<T>& b)
 	{
 		return Rect<T>(a.x - b.x, a.y - b.y, a.width - b.width, a.height - b.height);
 	}
 
 	template<typename T>
-	bool Rect<T>::operator==(const Rect<T>& a, const Rect<T>& b)
+	bool operator==(const Rect<T>& a, const Rect<T>& b)
 	{
 		return (a.x == b.x) && (a.y == b.y) && (a.width == b.width) && (a.height == b.height);
 	}
 
 	template<typename T>
-	bool Rect<T>::operator!=(const Rect<T>& a, const Rect<T>& b)
+	bool operator!=(const Rect<T>& a, const Rect<T>& b)
 	{
 		return (a.x != b.x) || (a.y != b.y) || (a.width != b.width) || (a.height != b.height);
-	}
-
-	template<typename T>
-	bool Rect<T>::valueInRange(T value, T min, T max)
-	{
-		return (value >= min) && (value <= max);
 	}
 }
 

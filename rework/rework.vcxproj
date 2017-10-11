@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\re\components\CollisionComponent.hpp" />
+    <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
+    <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
     <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
@@ -59,6 +62,9 @@
     <ClInclude Include="source\re\utility\Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\re\components\CollisionComponent.cpp" />
+    <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
+    <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\TexturePacker.cpp" />

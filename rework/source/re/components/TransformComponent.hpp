@@ -1,22 +1,22 @@
 //
 //  TransformComponent.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 30/09/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_TRANSFORMCOMPONENT_HPP_
-#define RENGINE3_TRANSFORMCOMPONENT_HPP_
+#ifndef REWORK_TRANSFORMCOMPONENT_HPP_
+#define REWORK_TRANSFORMCOMPONENT_HPP_
 
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
-#include "re/math/Rect.hpp"
+#include "sol2/sol.hpp"
 
 namespace re
 {
-	class TransformComponent : public Component
+	class TransformComponent
 	{
 		friend class boost::serialization::access;
 
@@ -31,28 +31,17 @@ namespace re
 		///
 		/// Destructor.
 		///
-		~TransformComponent() override;
-
-	public:
-		Rect<float> m_rect;
-		float m_angle;
+		~TransformComponent();
 
 	private:
-		///
-		/// Debug function used by IMGUI.
-		///
-		void debug(sol::table& table, const std::string& curEntityName) override;
-
 		///
 		/// Boost.Serialization saving.
 		///
 		template<class Archive>
 		void save(Archive& ar, const unsigned int version) const
 		{
-			ar & m_rect.x;
-			ar & m_rect.y;
-			ar & m_rect.width;
-			ar & m_rect.height;
+			ar & m_x;
+			ar & m_y;
 			ar & m_angle;
 		}
 
@@ -62,20 +51,17 @@ namespace re
 		template<class Archive>
 		void load(Archive& ar, const unsigned int version)
 		{
-			float x, y, w, h;
-			ar & x;
-			ar & y;
-			ar & w;
-			ar & h;
-			ar & angle;
-
-			m_rect.x = x;
-			m_rect.x = y;
-			m_rect.width = w;
-			m_rect.height = h;
+			ar & m_x;
+			ar & m_y;
+			ar & m_angle;
 		}
 
 		BOOST_SERIALIZATION_SPLIT_MEMBER()
+
+	public:
+		float m_x;
+		float m_y;
+		float m_angle;
 	};
 }
 

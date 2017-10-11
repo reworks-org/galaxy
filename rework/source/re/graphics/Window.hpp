@@ -9,7 +9,6 @@
 #ifndef REWORK_WINDOW_HPP_
 #define REWORK_WINDOW_HPP_
 
-#include <allegro5/events.h>
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
 
@@ -85,18 +84,10 @@ namespace re
 		///
 		ALLEGRO_DISPLAY* getDisplay();
 
-		///
-		/// Retrieves the internal event queue.
-		///
-		/// \return Returns pointer to ALLEGRO_EVENT_QUEUE.
-		///
-		ALLEGRO_EVENT_QUEUE* getEvents();
-
 	private:
 		bool m_running;
 		ALLEGRO_BITMAP* m_icon;
 		ALLEGRO_DISPLAY* m_display;
-		ALLEGRO_EVENT_QUEUE* m_events;
 	};
 }
 

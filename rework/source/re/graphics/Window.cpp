@@ -47,16 +47,10 @@ namespace re
 		// allegro requires null over nullptr here.
 		m_icon = al_load_bitmap_f(Locator::get<VFS>()->open(icon, "r"), NULL);
 		al_set_display_icon(m_display, m_icon);
-
-		m_events = al_create_event_queue();
-		al_register_event_source(m_events, al_get_display_event_source(m_display));
-		al_register_event_source(m_events, al_get_mouse_event_source());
-		al_register_event_source(m_events, al_get_keyboard_event_source());
 	}
 	
 	Window::~Window()
 	{
-		al_destroy_event_queue(m_events);
 		al_destroy_bitmap(m_icon);
 		al_destroy_display(m_display);
 	}
@@ -94,10 +88,5 @@ namespace re
 	ALLEGRO_DISPLAY* Window::getDisplay()
 	{	
 		return m_display;
-	}
-
-	ALLEGRO_EVENT_QUEUE* Window::getEvents()
-	{
-		return m_events;
 	}
 }

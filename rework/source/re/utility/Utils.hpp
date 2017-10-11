@@ -46,9 +46,10 @@ namespace re
 		}
 
 		///
-		/// \brief Convert a std::string to any type, except boolean.
+		/// \brief Convert a std::string to any type.
 		///
 		/// Thanks to: https://gist.github.com/timofurrer/2725779
+		/// Some adjustments have been made.
 		///
 		/// \param data std::string containing type to convert.
 		///
@@ -60,6 +61,17 @@ namespace re
 			if (!data.empty())
 			{
 				T ret;
+
+				if (std::is_same<T, std::string>::value)
+				{
+					return data;
+				}
+
+				if (std::is_same<T, bool>::value)
+				{
+					return Utils::stringToBool(data);
+				}
+
 				std::istringstream iss(data);
 				if (data.find("0x") != std::string::npos)
 				{

@@ -1,64 +1,45 @@
 //
 //  PhysicsComponent.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 10/11/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_PHYSICSCOMPONENT_HPP_
-#define RENGINE3_PHYSICSCOMPONENT_HPP_
+#ifndef REWORK_PHYSICSCOMPONENT_HPP_
+#define REWORK_PHYSICSCOMPONENT_HPP_
 
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 
-#include "re/types/Component.hpp"
-#include "re/physics/Box2D/Dynamics/b2Body.h"
+#include "sol2/sol.hpp"
+#include "Box2D/Dynamics/b2Body.h"
 
 namespace re
 {
-	class PhysicsComponent : public Component
+	class PhysicsComponent
 	{
 		friend class boost::serialization::access;
 
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		PhysicsComponent();
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
+		PhysicsComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up component.
-		*/
-		~PhysicsComponent() override;
-
-		/*
-		* IMPORTS: sol::table containing data.
-		* EXPORTS: none
-		* PURPOSE: Set up component.
-		*/
-		void init(sol::table& table) override;
-
-		/*
-		* IMPORTS: lua table and entity name
-		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
-		*/
-		void debugFunction(sol::table& table, const std::string& curEntityName) override;
-
-	public:
-		b2Body* m_body;
-		bool m_isMovingVertically;
-		bool m_isMovingHorizontally;
+		///
+		/// Destructor.
+		///
+		~PhysicsComponent();
 
 	private:
-		// Boost.Serialization functions
+		///
+		/// Boost.Serialization save
+		///
 		template<class Archive>
-		void save(Archive & ar, const unsigned int version) const
+		void save(Archive& ar, const unsigned int version) const
 		{
 			ar & m_body->GetPosition().x;
 			ar & m_body->GetPosition().y;
@@ -66,12 +47,13 @@ namespace re
 			ar & m_body->GetAngularVelocity();
 			ar & m_body->GetLinearVelocity().x;
 			ar & m_body->GetLinearVelocity().y;
-			ar & m_isMovingVertically;
-			ar & m_isMovingHorizontally;
 		}
 
+		///
+		/// Boost.Serialization load
+		///
 		template<class Archive>
-		void load(Archive & ar, const unsigned int version)
+		void load(Archive& ar, const unsigned int version)
 		{
 			float32 x, y, angle, angleVelocity, linearX, linearY;
 			ar & x;
@@ -80,8 +62,6 @@ namespace re
 			ar & angleVelocity;
 			ar & linearX;
 			ar & linearY;
-			ar & m_isMovingVertically;
-			ar & m_isMovingHorizontally;
 
 			m_body->SetTransform(b2Vec2(x, y), angle);
 			m_body->SetAngularVelocity(angleVelocity);
@@ -89,6 +69,9 @@ namespace re
 		}
 
 		BOOST_SERIALIZATION_SPLIT_MEMBER()
+
+	public:
+		b2Body* m_body;
 	};
 }
 
