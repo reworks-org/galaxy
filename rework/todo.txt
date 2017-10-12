@@ -22,6 +22,24 @@
 https://github.com/alecthomas/entityx/blob/master/README.md
 https://github.com/alecthomas/entityx/blob/master/examples/example.cc
 
+renderer:
+- only draw stuff that is in view - think quadtree
+- spritecomponent should rely on texture atlas -> 
+- each srpiute compnent has rectangle and z layering
+- each text component should draw text to bitmap -> then atlas...
+- use atlas drawing for performance :3
+
+atlas =
+{
+	menubg = 
+	{
+		x = 0, 
+		y = 0,
+		w = 1280,
+		h = 720
+	},
+}
+
 done modules:
 
 components:
