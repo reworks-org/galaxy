@@ -13,6 +13,7 @@
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/managers/FontManager.hpp"
+#include "re/managers/AudioManager.hpp"
 #include "re/managers/StateManager.hpp"
 #include "re/managers/Box2DManager.hpp"
 #include "re/managers/DebugManager.hpp"
@@ -33,7 +34,7 @@ namespace re
 		/// \param config Path to the config file.
 		/// \param newConfig A function pointer to a function that contains ofstream code to write a default config file.
 		///
-		Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)>& newConfig);
+		Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig);
 
 		//
 		/// Cleans up engine.
@@ -56,6 +57,7 @@ namespace re
 		World* m_world;
 		StateManager* m_stateManager;
 		FontManager* m_fontManager;
+		AudioManager* m_audioManager;
 		Box2DManager* m_b2dManager;
 		DebugManager* m_debugManager;
 	};

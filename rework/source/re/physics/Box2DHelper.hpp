@@ -15,56 +15,59 @@
 
 namespace re
 {
-	///
-	/// Convert pixels to meters.
-	///
-	/// \param pixels Pixels to convert.
-	///
-	/// \return Returns meters.
-	///
-	template<typename T>
-	T constexpr pixelsToMeters(T pixels)
+	namespace b2
 	{
-		return pixels / RE_PIXELS_PER_METERS;
-	}
+		///
+		/// Convert pixels to meters.
+		///
+		/// \param pixels Pixels to convert.
+		///
+		/// \return Returns meters.
+		///
+		template<typename T>
+		T constexpr pixelsToMeters(T pixels)
+		{
+			return pixels / RE_PIXELS_PER_METERS;
+		}
 
-	///
-	/// Convert meters to pixels.
-	///
-	/// \param meters Meters to convert.
-	///
-	/// \return Returns pixels.
-	///
-	template<typename T>
-	T constexpr metersToPixels(T meters)
-	{
-		return meters * RE_PIXELS_PER_METERS;
-	}
+		///
+		/// Convert meters to pixels.
+		///
+		/// \param meters Meters to convert.
+		///
+		/// \return Returns pixels.
+		///
+		template<typename T>
+		T constexpr metersToPixels(T meters)
+		{
+			return meters * RE_PIXELS_PER_METERS;
+		}
 
-	///
-	/// Convert degrees to radians.
-	///
-	/// \param deg Degrees to convert.
-	///
-	/// \return Returns radians.
-	///
-	template<typename T>
-	T constexpr degToRad(T deg)
-	{
-		return (RE_PI * deg) / 180.0f;
-	}
+		///
+		/// Convert degrees to radians.
+		///
+		/// \param deg Degrees to convert.
+		///
+		/// \return Returns radians.
+		///
+		template<typename T>
+		T constexpr degToRad(T deg)
+		{
+			return (RE_PI * deg) / 180.0f;
+		}
 
-	///
-	/// Convert radians to degrees.
-	///
-	/// \param rad Radians to convert.
-	///
-	/// \return Returns degrees.
-	///
-	template<typename T>
-	T constexpr radToDeg(T rad)
-	{
-		return (180.0f * rad) / RE_PI;
+		///
+		/// Convert radians to degrees.
+		///
+		/// \param rad Radians to convert.
+		///
+		/// \return Returns degrees.
+		///
+		template<typename T>
+		T constexpr radToDeg(T rad)
+		{
+			return (180.0f * rad) / RE_PI;
+		}
 	}
 }
 

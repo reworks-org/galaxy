@@ -11,7 +11,6 @@
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_image.h>
 #include <allegro5/allegro_video.h>
-#include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
@@ -23,7 +22,7 @@
 
 namespace re
 {
-	Application::Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)>& newConfig)
+	Application::Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig)
 	{
 		Log::init();
 		BOOST_LOG_TRIVIAL(info) << "App init." << std::endl;
@@ -48,7 +47,8 @@ namespace re
 		m_window = new Window(m_engineConfig->lookup<int>("window", "width"), m_engineConfig->lookup<int>("window", "height"), m_engineConfig->lookup<bool>("window", "fullscreen"), m_engineConfig->lookup<bool>("window", "msaa"), m_engineConfig->lookup<int>("window", "msaaValue"), m_engineConfig->lookup<std::string>("window", "title"), m_engineConfig->lookup<std::string>("window", "icon"));
 		m_world = new World();
 		m_stateManager = new StateManager();
-		m_fontManager = new FontManager();
+		m_fontManager = new FontManager(m_engineConfig->lookup<std::string>("fontmanager", "fontScript"));
+		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"));
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
 		m_debugManager = new DebugManager(m_window->getDisplay());
 	}

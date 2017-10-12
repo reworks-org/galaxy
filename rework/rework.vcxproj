@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\re\audio\Music.hpp" />
+    <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
@@ -39,6 +41,7 @@
     <ClInclude Include="source\re\libs\entityx\quick.h" />
     <ClInclude Include="source\re\libs\entityx\System.h" />
     <ClInclude Include="source\re\libs\entityx\tags\TagsComponent.h" />
+    <ClInclude Include="source\re\managers\AudioManager.hpp" />
     <ClInclude Include="source\re\managers\Box2DManager.hpp" />
     <ClInclude Include="source\re\managers\FontManager.hpp" />
     <ClInclude Include="source\re\managers\StateManager.hpp" />
@@ -62,6 +65,8 @@
     <ClInclude Include="source\re\utility\Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\re\audio\Music.cpp" />
+    <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
@@ -74,6 +79,7 @@
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
     <ClCompile Include="source\re\libs\entityx\help\Timer.cc" />
     <ClCompile Include="source\re\libs\entityx\System.cc" />
+    <ClCompile Include="source\re\managers\AudioManager.cpp" />
     <ClCompile Include="source\re\managers\Box2DManager.cpp" />
     <ClCompile Include="source\re\managers\FontManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />

@@ -11,24 +11,27 @@
 
 #include "sol2/sol.hpp"
 
-class CollisionComponent
+namespace re
 {
-public:
-	///
-	/// Constructor.
-	///
-	/// \param table sol::table containing data.
-	///
-	CollisionComponent(sol::table& table);
+	class CollisionComponent
+	{
+	public:
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
+		CollisionComponent(sol::table& table);
 
-	///
-	/// Destructor.
-	///
-	~CollisionComponent();
+		///
+		/// Destructor.
+		///
+		~CollisionComponent();
 
-public:
-	int m_width;
-	int m_height;
-};
+	public:
+		int m_width;
+		int m_height;
+	};
+}
 
 #endif

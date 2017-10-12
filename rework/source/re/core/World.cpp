@@ -11,9 +11,15 @@
 #include "re/utility/Log.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
-#include "re/components/TransformComponent.hpp"
+#include "re/components/AnimationComponent.hpp"
 #include "re/components/CollisionComponent.hpp"
+#include "re/components/MusicComponent.hpp"
+#include "re/components/ParallaxComponent.hpp"
 #include "re/components/PhysicsComponent.hpp"
+#include "re/components/SoundComponent.hpp"
+#include "re/components/SpriteComponent.hpp"
+#include "re/components/TextComponent.hpp"
+#include "re/components/TransformComponent.hpp"
 
 #include "World.hpp"
 
@@ -37,14 +43,14 @@ namespace re
 		ex::Entity e = m_entityManager.create();
 
 		// Get key-value pairs from table
-		std::map <std::string, sol::table> m_keyValuePair;
+		std::map<std::string, sol::table> m_keyValuePair;
 		components.for_each([&](std::pair<sol::object, sol::object> pair) {
 			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
 		if (components.get<bool>("special"))
 		{
-			m_entitys.emplace(components.get<std::string>("name"), e);
+			m_entitys.insert(components.get<std::string>("name"), e);
 			m_keyValuePair.erase("name");
 		}
 		
@@ -97,7 +103,7 @@ namespace re
 
 			if (components.get<bool>("special"))
 			{
-				m_entitys.emplace(components.get<std::string>("name"), e);
+				m_entitys.insert(components.get<std::string>("name"), e);
 				m_ekv.erase("name");
 			}
 

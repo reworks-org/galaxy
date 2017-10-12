@@ -42,6 +42,9 @@
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
+    <ClInclude Include="source\re\managers\AudioManager.hpp" />
+    <ClInclude Include="source\re\audio\Music.hpp" />
+    <ClInclude Include="source\re\audio\Sound.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -63,6 +66,9 @@
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
+    <ClCompile Include="source\re\managers\AudioManager.cpp" />
+    <ClCompile Include="source\re\audio\Music.cpp" />
+    <ClCompile Include="source\re\audio\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

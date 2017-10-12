@@ -80,13 +80,12 @@ private:
 class Game : public re::Application
 {
 public:
-	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)>& newConfig) : re::Application(archive, config, newConfig)
+	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : re::Application(archive, config, newConfig)
 	{
 		re::Locator::provide<re::World>(m_world);
 		re::Locator::provide<re::VFS>(m_vfs);
-		re::Locator::provide<re::Window>(m_window);
 		re::Locator::provide<re::StateManager>(m_stateManager);
-		re::Locator::provide<re::PhysicsManager>(m_physicsManager);
+		re::Locator::provide<re::Box2DManager>(m_b2dManager);
 		re::Locator::provide<re::DebugManager>(m_debugManager);
 
 		// Register Systems
@@ -94,26 +93,28 @@ public:
 	}
 };
 
+void newConfigFunc(std::ofstream& newConfig)
+{
+	newConfig << "appTitle = \"Default\"" << std::endl;
+	newConfig << "assetPath = \"bin/assets/\"" << std::endl;
+	newConfig << "ups = 60.0" << std::endl;
+	newConfig << "versionMajor = 1" << std::endl;
+	newConfig << "versionMinor = 0" << std::endl;
+	newConfig << "versionPatch = 0" << std::endl;
+	newConfig << "screenWidth = 640" << std::endl;
+	newConfig << "screenHeight = 480" << std::endl;
+	newConfig << "renderingLayers = 2" << std::endl;
+	newConfig << "framerateLimit = 0" << std::endl;
+	newConfig << "keyRepeat = true" << std::endl;
+	newConfig << "cursorVisible = true" << std::endl;
+	newConfig << "vsyncEnabled = false" << std::endl;
+	newConfig << "saveLog = false" << std::endl;
+	newConfig << "enableDebug = false" << std::endl;
+}
+
 int main(int argc, char **argv)
 {
-	Game sandbox("data.archive", "config.lua", [](std::ofstream& newConfig)
-	{
-		newConfig << "appTitle = \"Default\"" << std::endl;
-		newConfig << "assetPath = \"bin/assets/\"" << std::endl;
-		newConfig << "ups = 60.0" << std::endl;
-		newConfig << "versionMajor = 1" << std::endl;
-		newConfig << "versionMinor = 0" << std::endl;
-		newConfig << "versionPatch = 0" << std::endl;
-		newConfig << "screenWidth = 640" << std::endl;
-		newConfig << "screenHeight = 480" << std::endl;
-		newConfig << "renderingLayers = 2" << std::endl;
-		newConfig << "framerateLimit = 0" << std::endl;
-		newConfig << "keyRepeat = true" << std::endl;
-		newConfig << "cursorVisible = true" << std::endl;
-		newConfig << "vsyncEnabled = false" << std::endl;
-		newConfig << "saveLog = false" << std::endl;
-		newConfig << "enableDebug = false" << std::endl;
-	});
+	Game sandbox("data.archive", "config.lua", newConfigFunc);
 
 	return sandbox.run();
 }

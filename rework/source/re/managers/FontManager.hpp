@@ -21,21 +21,21 @@ namespace re
 	{
 	public:
 		///
+		/// \brief Construct FontManager and add fonts.
+		///
+		/// You can have multiple of the same font file provided the id and size are different.
+		/// E.g. "Arial12" or "Arial14".
+		///
+		/// \param script Script file containing font data to parse.
+		///
+		FontManager(const std::string& script);
+
+		///
 		/// Cleanup fonts.
 		///
 		~FontManager() override;
 
-		///
-		/// \brief Add a font to the manager.
-		///
-		/// You can have multiple of the same font file provided the size is different for each.
-		///
-		/// \param font Name of font in vfs to add.
-		/// \param name Key to access font.
-		/// \param size Font size to load.
-		///
-		void add(const std::string& font, const std::string& name, int size);
-
+		
 		///
 		/// Retrieve a font.
 		///

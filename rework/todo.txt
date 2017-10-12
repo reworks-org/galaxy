@@ -19,6 +19,13 @@
 - add systems to applciation
 - may need to reposition allegro window //al_set_new_window_position(x, y);
 
+- audio is now assosiated with systems and events
+- loads from and audiomanager
+- adapt fontmanager and audiomanager to read from scripts...lua ones...
+- finish implementing sound and music
+	- http://liballeg.org/a5docs/trunk/audio.html#al_play_sample
+	- https://www.youtube.com/watch?v=3W8VSmcsb6g&list=PL6B459AAE1642C8B4&index=19
+
 https://github.com/alecthomas/entityx/blob/master/README.md
 https://github.com/alecthomas/entityx/blob/master/examples/example.cc
 
@@ -58,6 +65,7 @@ libs:
 	- n/a
 
 managers:
+	- audiomanager
 	- box2dmanager
 	- fontmanager
 	- statemanager

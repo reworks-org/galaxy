@@ -62,16 +62,6 @@ namespace re
 			{
 				T ret;
 
-				if (std::is_same<T, std::string>::value)
-				{
-					return data;
-				}
-
-				if (std::is_same<T, bool>::value)
-				{
-					return Utils::stringToBool(data);
-				}
-
 				std::istringstream iss(data);
 				if (data.find("0x") != std::string::npos)
 				{
@@ -90,6 +80,28 @@ namespace re
 				return ret;
 			}
 			return T();
+		}
+
+		///
+		/// Template specialization for convertString for std::string.
+		///
+		/// \see convertString
+		///
+		template<>
+		std::string convertString<std::string>(const std::string& data)
+		{
+			return data;
+		}
+
+		///
+		/// Template specialization for convertString for bool.
+		///
+		/// \see convertString
+		///
+		template<>
+		bool convertString<bool>(const std::string& data)
+		{
+			return Utils::stringToBool(data);
 		}
 
 		///

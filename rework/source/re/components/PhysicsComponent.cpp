@@ -39,7 +39,7 @@ namespace re
 			break;
 		}
 		
-		m_body = Locator::get<Box2DManager>()->m_world->CreateBody(&bodyDef);
+		m_body = Locator::get<Box2DManager>()->world()->CreateBody(&bodyDef);
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		
 		// Get key-value pairs from table
@@ -98,11 +98,6 @@ namespace re
 			}
 		}
 		
-		Locator::get<PhysicsManager>()->m_world->DestroyBody(m_body);
-	}
-
-	void PhysicsComponent::init(sol::table& table)
-	{
-		
+		Locator::get<Box2DManager>()->world()->DestroyBody(m_body);
 	}
 }

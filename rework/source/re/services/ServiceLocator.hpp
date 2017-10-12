@@ -62,7 +62,7 @@ namespace re
 	{
 		if (m_services.find(std::type_index(typeid(T))) != m_services.end())
 		{
-			BOOST_LOG_TRIVIAL(loglevel::warning) << "Tried to provide an already existing service." << std::endl;
+			BOOST_LOG_TRIVIAL(warning) << "Tried to provide an already existing service." << std::endl;
 		}
 		else 
 		{
@@ -89,7 +89,7 @@ namespace re
 		}
 		else
 		{
-			BOOST_LOG_TRIVIAL(loglevel::warning) << "Attempted to remove a service that doesnt exist." << std::endl;
+			BOOST_LOG_TRIVIAL(warning) << "Attempted to remove a service that doesnt exist." << std::endl;
 		}
 	}
 }
