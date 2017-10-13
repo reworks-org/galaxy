@@ -19,7 +19,7 @@ namespace re
 	{
 		std::string fn = table.get<std::string>("file");
 		std::string ext = boost::filesystem::extension(fn);
-		m_sample = al_load_sample_f(Locator::get<VFS>()->open(fn, "r"), ext.c_str());
+		m_sound = al_load_sample_f(Locator::get<VFS>()->open(fn, "r"), ext.c_str());
 
 		m_pan = table.get<float>("pan");
 		m_speed = table.get<float>("speed");
@@ -28,6 +28,6 @@ namespace re
 
 	Sound::~Sound()
 	{
-		al_destroy_sample(m_sample);
+		al_destroy_sample(m_sound);
 	}
 }

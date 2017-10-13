@@ -36,7 +36,7 @@ namespace re
 		float m_speed;
 		float m_volume;
 
-		ALLEGRO_SAMPLE* m_sample;
+		ALLEGRO_SAMPLE* m_sound;
 	};
 }
 
