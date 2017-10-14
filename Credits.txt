@@ -1,1 +1,6 @@
 Code that isn't mine has a releveant LICENSE.txt file included. Refer to those files.
+
+sercode.ttf:
+	Link: http://www.dafont.com/secret-code.font
+	License: MIT
+	- Used in the creation of the logo (logo.png).

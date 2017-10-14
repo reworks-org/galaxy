@@ -38,6 +38,9 @@ renderer:
 
 - split update and rendering threads?
 
+http://liballeg.org/a5docs/trunk/font.html#al_get_text_width
+http://liballeg.org/a5docs/trunk/graphics.html#al_create_bitmap
+
 done modules:
 
 audio:
