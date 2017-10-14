@@ -21,6 +21,8 @@ IMGUI_API bool    ImGui_ImplA5_ProcessEvent(ALLEGRO_EVENT* event);
 IMGUI_API bool    Imgui_ImplA5_CreateDeviceObjects();
 IMGUI_API void    ImGui_ImplA5_InvalidateDeviceObjects();
 
+#include <vector>
+
 // Allows use of std::vector in some widgets.
 // This is not originally part of this file.
 namespace imgui
