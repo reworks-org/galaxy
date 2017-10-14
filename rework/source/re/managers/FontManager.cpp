@@ -25,12 +25,12 @@ namespace re
 		sol::table fonts = lua.get<sol::table>("fonts");
 
 		// Get key-value pairs from table
-		std::map<std::string, sol::table> m_keyValuePair;
+		std::map<std::string, sol::table> kvp;
 		fonts.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		for (auto& it : m_keyValuePair)
+		for (auto& it : kvp)
 		{
 			std::string fn = it.second.get<std::string>("font");
 			m_fontMap.emplace(it.first, al_load_ttf_font_f(Locator::get<VFS>()->open(fn, "r"), fn.c_str(), it.second.get<int>("size"), NULL));

@@ -1,56 +1,35 @@
 //
 //  TextComponent.hpp
-//  REngine3
+//  rework
 //
-//  Created by reworks on 19/08/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Created by reworks on 14/10/2017.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-// NOTE: TextComponent maintains its own transformation.
+#ifndef REWORK_TEXTCOMPONENT_HPP_
+#define REWORK_TEXTCOMPONENT_HPP_
 
-#ifndef RENGINE3_TEXTCOMPONENT_HPP_
-#define RENGINE3_TEXTCOMPONENT_HPP_
-
-#include <SFML/Graphics/Text.hpp>
-
-#include "re/types/Component.hpp"
+#include "sol2/sol.hpp"
 
 namespace re
 {
-	class TextComponent : public Component
+	class TextComponent
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		TextComponent();
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
+		TextComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean up the component.
-		*/
-		~TextComponent() override;
-
-		/*
-		* IMPORTS: sol::table from lua script containing component data.
-		* EXPORTS: none
-		* PURPOSE: Set up the component.
-		*/
-		void init(sol::table& table) override;
-
-		/*
-		* IMPORTS: lua table and entity name
-		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
-		*/
-		void debugFunction(sol::table& table, const std::string& curEntityName) override;
+		///
+		/// Destructor.
+		///
+		~TextComponent();
 
 	public:
-		sf::Text m_text;
-		sf::Uint32 m_group;
+		unsigned int m_layer;
 	};
 }
 

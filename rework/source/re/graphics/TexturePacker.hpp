@@ -41,7 +41,7 @@ namespace re
 		TexturePacker(const std::string& atlas);
 
 		///
-		/// Frees all memory used by the texture packer. Call this when you are finished
+		/// Frees all memory used by the texture packer.
 		///
 		~TexturePacker();
 

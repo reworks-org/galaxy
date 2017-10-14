@@ -36,16 +36,7 @@ renderer:
 - each text component should draw text to bitmap -> then atlas...
 - use atlas drawing for performance :3
 
-atlas =
-{
-	menubg = 
-	{
-		x = 0, 
-		y = 0,
-		w = 1280,
-		h = 720
-	},
-}
+- split update and rendering threads?
 
 done modules:
 
@@ -62,6 +53,7 @@ core:
 	- world (kinda)
 
 graphics:
+	- shader
 	- texturepacker
 	- window
 
@@ -72,6 +64,7 @@ managers:
 	- audiomanager
 	- box2dmanager
 	- fontmanager
+	- shadermanager
 	- statemanager
 
 math:

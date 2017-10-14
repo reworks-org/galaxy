@@ -214,6 +214,10 @@
     <ClInclude Include="source\re\libs\tmx\tmx.h" />
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
+    <ClInclude Include="source\re\components\SpriteComponent.hpp" />
+    <ClInclude Include="source\re\graphics\Shader.hpp" />
+    <ClInclude Include="source\re\managers\ShaderManager.hpp" />
+    <ClInclude Include="source\re\components\TextComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -406,6 +410,10 @@
     <ClCompile Include="source\re\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
+    <ClCompile Include="source\re\components\SpriteComponent.cpp" />
+    <ClCompile Include="source\re\graphics\Shader.cpp" />
+    <ClCompile Include="source\re\managers\ShaderManager.cpp" />
+    <ClCompile Include="source\re\components\TextComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -23,9 +23,12 @@
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
+    <ClInclude Include="source\re\components\SpriteComponent.hpp" />
+    <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\graphics\Shader.hpp" />
     <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\libs\agui\ActionEvent.hpp" />
@@ -213,6 +216,7 @@
     <ClInclude Include="source\re\managers\AudioManager.hpp" />
     <ClInclude Include="source\re\managers\Box2DManager.hpp" />
     <ClInclude Include="source\re\managers\FontManager.hpp" />
+    <ClInclude Include="source\re\managers\ShaderManager.hpp" />
     <ClInclude Include="source\re\managers\StateManager.hpp" />
     <ClInclude Include="source\re\math\QuadTree.hpp" />
     <ClInclude Include="source\re\math\Random.hpp" />
@@ -238,9 +242,12 @@
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
+    <ClCompile Include="source\re\components\SpriteComponent.cpp" />
+    <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
+    <ClCompile Include="source\re\graphics\Shader.cpp" />
     <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\libs\agui\ActionEvent.cpp" />
@@ -419,6 +426,7 @@
     <ClCompile Include="source\re\managers\AudioManager.cpp" />
     <ClCompile Include="source\re\managers\Box2DManager.cpp" />
     <ClCompile Include="source\re\managers\FontManager.cpp" />
+    <ClCompile Include="source\re\managers\ShaderManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />

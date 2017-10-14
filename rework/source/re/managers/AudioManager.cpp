@@ -22,12 +22,12 @@ namespace re
 		sol::table audio = lua.get<sol::table>("audio");
 
 		// Get key-value pairs from table
-		std::map<std::string, sol::table> m_keyValuePair;
+		std::map<std::string, sol::table> kvp;
 		audio.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		for (auto& it : m_keyValuePair)
+		for (auto& it : kvp)
 		{
 			if (it.second.get<std::string>("type") == "sound")
 			{
