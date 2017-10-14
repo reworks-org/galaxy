@@ -48,7 +48,7 @@ namespace re
 		m_world = new World();
 		m_stateManager = new StateManager();
 		m_fontManager = new FontManager(m_engineConfig->lookup<std::string>("fontmanager", "fontScript"));
-		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"));
+		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"), m_engineConfig->lookup<int>("audiomanager", "reserveSamples"));
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
 		m_debugManager = new DebugManager(m_window->getDisplay());
 	}

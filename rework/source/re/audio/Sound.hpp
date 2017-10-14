@@ -17,7 +17,6 @@ namespace re
 {
 	class Sound
 	{
-		friend class AudioManager;
 	public:
 		///
 		/// Constructor.
@@ -30,6 +29,32 @@ namespace re
 		/// Destructor.
 		///
 		~Sound();
+
+		///
+		/// Play the sound.
+		///
+		void play();
+
+		///
+		/// Change the pan.
+		///
+		/// \param pan 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
+		///
+		void setPan(float pan);
+
+		///
+		/// Change the speed.
+		///
+		/// \param speed Relative speed at which the sample is played. 1.0 is normal. 0.5 is at 50% speed, etc.
+		///
+		void setSpeed(float speed);
+
+		///
+		/// Change the volume.
+		///
+		/// \param volume Relative volume (gain) at which the sample is played. 1.0 is 100%. 0.5 is 50%, etc.
+		///
+		void setVolume(float volume);
 
 	private:
 		float m_pan;

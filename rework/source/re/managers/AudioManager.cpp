@@ -15,10 +15,8 @@
 
 namespace re
 {
-	AudioManager::AudioManager(const std::string& script)
+	AudioManager::AudioManager(const std::string& script, int reserveSamples)
 	{
-		int sampleCounter = 0;
-
 		sol::state lua;
 		lua.script(Locator::get<VFS>()->openAsString(script));
 		sol::table audio = lua.get<sol::table>("audio");
@@ -31,20 +29,32 @@ namespace re
 
 		for (auto& it : m_keyValuePair)
 		{
-			m_audioMap.emplace(it.first, it.second);
-			++sampleCounter;
+			if (it.second.get<std::string>("type") == "sound")
+			{
+				m_soundMap.emplace(it.first, it.second);
+			}
+			else if (it.second.get<std::string>("type") == "music")
+			{
+				m_musicMap.emplace(it.first, it.second);
+			}
 		}
 
-		al_reserve_samples(sampleCounter);
+		al_reserve_samples(reserveSamples);
 	}
 
 	AudioManager::~AudioManager()
 	{
-		m_audioMap.clear();
+		m_soundMap.clear();
+		m_musicMap.clear();
 	}
 
-	Sound* AudioManager::get(const std::string& id)
+	Sound* AudioManager::getSound(const std::string& name)
 	{
-		return &(m_audioMap.at(id));
+		return &(m_soundMap.at(name));
+	}
+
+	Music* AudioManager::getMusic(const std::string& name)
+	{
+		return &(m_musicMap.at(name));
 	}
 }

@@ -24,26 +24,36 @@ namespace re
 		/// \brief Construct AudioManager and add sounds or music.
 		///
 		/// \param script Script file containing sound/music data to parse.
+		/// \param reserveSamples Allegro samples to reserve. Basically the number of sounds playing simultaneously.
 		///
-		AudioManager(const std::string& script);
+		AudioManager(const std::string& script, int reserveSamples);
 
 		///
 		/// Cleanup fonts.
 		///
 		~AudioManager() override;
-
 		
 		///
 		/// Retrieve a sound.
 		///
-		/// \param id The key of the sound to retrieve.
+		/// \param name The name of the sound to retrieve.
 		///
 		/// \return Returns a pointer to the sound.
 		///
-		Sound* get(const std::string& id);
+		Sound* getSound(const std::string& name);
+
+		///
+		/// Retrieve a music file.
+		///
+		/// \param name The name of the music to retrieve.
+		///
+		/// \return Returns a pointer to the music.
+		///
+		Music* getMusic(const std::string& name);
 
 	private:
-		std::unordered_map<std::string, Sound> m_audioMap;
+		std::unordered_map<std::string, Sound> m_soundMap;
+		std::unordered_map<std::string, Music> m_musicMap;
 	};
 }
 
