@@ -56,3 +56,16 @@ namespace ImGui
 }
 */
 
+#include "re/math/Vector2.hpp"
+
+#define IM_VEC2_CLASS_EXTRA                                             \
+    template <typename T>                                               \
+    ImVec2(const re::Vector2<T>& v) {                                   \
+        x = static_cast<float>(v.x);                                    \
+        y = static_cast<float>(v.y);                                    \
+    }                                                                   \
+                                                                        \
+    template <typename T>                                               \
+    operator re::Vector2<T>() const {                                   \
+        return re::Vector2<T>(x, y);                                    \
+}

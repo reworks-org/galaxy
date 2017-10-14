@@ -112,12 +112,6 @@ utility:
 
 
 
-
-
-
-
-
 http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
 https://readthedocs.org/
-https://www.stack.nl/~dimitri/doxygen/download.html
