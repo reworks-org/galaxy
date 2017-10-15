@@ -10,8 +10,8 @@
 
 namespace re
 {
-	ParallaxBitmap::ParallaxBitmap(const std::string& atlasName, float x, float y, float velx, float vely, float dirx, float diry)
-		:m_atlasName(atlasName), m_x(x), m_y(y), m_velX(velx), m_velY(vely), m_dirX(dirx), m_dirY(diry)
+	ParallaxBitmap::ParallaxBitmap(const std::string& atlasName, float x, float y, float speed, int layer)
+		:m_atlasName(atlasName), m_x(x), m_y(y), m_speed(speed), m_layer(layer)
 	{
 	}
 

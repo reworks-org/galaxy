@@ -36,6 +36,7 @@ renderer:
 - each text component should draw text to bitmap -> then atlas...
 - use atlas drawing for performance :3
 - camera system?
+- rename m_keyValuePairs to kvp
 - split update and rendering threads?
 
 http://liballeg.org/a5docs/trunk/font.html#al_get_text_width
@@ -49,6 +50,7 @@ audio:
 
 components:
 	- collision
+	- parallax
 	- physics
 	- sprite
 	- text

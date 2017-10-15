@@ -10,6 +10,7 @@
 #define REWORK_PARALLAXCOMPONENT_HPP_
 
 #include "sol2/sol.hpp"
+#include "re/graphics/ParallaxBitmap.hpp"
 
 namespace re
 {
@@ -29,7 +30,7 @@ namespace re
 		~ParallaxComponent();
 		
 	public:
-		
+		std::vector<ParallaxBitmap> m_pb;
 	};
 }
 

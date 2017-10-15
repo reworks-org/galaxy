@@ -43,20 +43,20 @@ namespace re
 		ex::Entity e = m_entityManager.create();
 
 		// Get key-value pairs from table
-		std::map<std::string, sol::table> m_keyValuePair;
+		std::map<std::string, sol::table> kvp;
 		components.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
 		if (components.get<bool>("special"))
 		{
 			m_entitys.insert(components.get<std::string>("name"), e);
-			m_keyValuePair.erase("name");
+			kvp.erase("name");
 		}
 		
-		m_keyValuePair.erase("special");
+		kvp.erase("special");
 
-		for (auto& it : m_keyValuePair)
+		for (auto& it : kvp)
 		{
 			if (!assignSystemComponents(it.first, it.second, e))
 			{
