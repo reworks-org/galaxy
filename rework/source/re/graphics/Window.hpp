@@ -12,9 +12,11 @@
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
 
+#include "re/types/Service.hpp"
+
 namespace re
 {
-	class Window
+	class Window : public Service
 	{
 	public:
 		///
@@ -35,7 +37,7 @@ namespace re
 		///
 		/// Cleans up the window.
 		///
-		~Window();
+		~Window() override;
 
 		///
 		/// Change the title.

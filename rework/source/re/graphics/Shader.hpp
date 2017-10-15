@@ -17,7 +17,7 @@ namespace re
 {
 	class Shader
 	{
-	private:
+	public:
 		///
 		/// Constructor.
 		///

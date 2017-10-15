@@ -8,7 +8,7 @@
 - https://wiki.allegro.cc/index.php?title=Achieving_Resolution_Independence
 - const / constexpr
 - excess copying
-
+- fix services destructors...
 - quadtree bounds are level
 - "collison rect" is rect that is camera
 - only get entitys that are inside or border the "camera"
@@ -35,7 +35,7 @@ renderer:
 - each srpiute compnent has rectangle and z layering
 - each text component should draw text to bitmap -> then atlas...
 - use atlas drawing for performance :3
-
+- camera system?
 - split update and rendering threads?
 
 http://liballeg.org/a5docs/trunk/font.html#al_get_text_width
@@ -48,12 +48,14 @@ audio:
 	- music
 
 components:
-	- physics
 	- collision
+	- physics
+	- sprite
+	- text
 	- transform
 
 core:
-	- world (kinda)
+	- world
 
 graphics:
 	- shader

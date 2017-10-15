@@ -2,7 +2,7 @@
 //  TextComponent.hpp
 //  rework
 //
-//  Created by reworks on 14/10/2017.
+//  Created by reworks on 19/08/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
@@ -28,8 +28,18 @@ namespace re
 		///
 		~TextComponent();
 
+		///
+		/// Draw text. Convience function.
+		///
+		void draw();
+
 	public:
+		std::string m_text;
 		unsigned int m_layer;
+		ALLEGRO_COLOR m_colour;
+		ALLEGRO_FONT* m_font;
+		float m_x;
+		float m_y;
 	};
 }
 

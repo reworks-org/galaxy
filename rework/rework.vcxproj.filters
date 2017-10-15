@@ -218,6 +218,8 @@
     <ClInclude Include="source\re\graphics\Shader.hpp" />
     <ClInclude Include="source\re\managers\ShaderManager.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
+    <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
+    <ClInclude Include="source\re\graphics\ParallaxBitmap.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -414,6 +416,8 @@
     <ClCompile Include="source\re\graphics\Shader.cpp" />
     <ClCompile Include="source\re\managers\ShaderManager.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
+    <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
+    <ClCompile Include="source\re\graphics\ParallaxBitmap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

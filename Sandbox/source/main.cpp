@@ -87,6 +87,7 @@ public:
 		re::Locator::provide<re::StateManager>(m_stateManager);
 		re::Locator::provide<re::Box2DManager>(m_b2dManager);
 		re::Locator::provide<re::DebugManager>(m_debugManager);
+		re::Locator::provide<re::Window>(m_window);
 
 		// Register Systems
 		m_world->m_systemManager.configure();

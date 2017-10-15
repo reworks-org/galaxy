@@ -1,62 +1,35 @@
 //
 //  ParallaxComponent.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 29/08/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_PARALLAXCOMPONENT_HPP_
-#define RENGINE3_PARALLAXCOMPONENT_HPP_
+#ifndef REWORK_PARALLAXCOMPONENT_HPP_
+#define REWORK_PARALLAXCOMPONENT_HPP_
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Texture.hpp>
-
-#include "re/types/Component.hpp"
+#include "sol2/sol.hpp"
 
 namespace re
 {
-	class ParallaxComponent : public Component
+	class ParallaxComponent
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		ParallaxComponent();
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
+		ParallaxComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Destructor. Cleans up component.
-		*/
-		~ParallaxComponent() override;
-
-		/*
-		* IMPORTS: sol::table from lua script containing component data.
-		* EXPORTS: none
-		* PURPOSE: Set up the component.
-		*/
-		void init(sol::table& table) override;
-
-		/*
-		* IMPORTS: lua table and entity name
-		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
-		*/
-		void debugFunction(sol::table& table, const std::string& curEntityName) override;
+		///
+		/// Destructor.
+		///
+		~ParallaxComponent();
 		
-		/*
-		* IMPORTS: none
-		* EXPORTS: parallax rects
-		* PURPOSE: to get the parallax dimensions for each parallax sprite
-		*/
-		std::unordered_map<sf::Uint32, sf::Sprite>& getParallaxMap();
+	public:
 		
-	private:
-		sf::Texture m_texture;
-		std::unordered_map<sf::Uint32, sf::Sprite> m_parallaxMaps;
 	};
 }
 
