@@ -6,8 +6,6 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include <allegro5/allegro_font.h>
-
 #include "re/managers/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -17,7 +15,6 @@ namespace re
 {
 	TextComponent::TextComponent(sol::table& table)
 	{
-		m_layer = table.get<unsigned int>("layer");
 		m_text = table.get<std::string>("text");
 		m_font = Locator::get<FontManager>()->get(table.get<std::string>("font"));
 

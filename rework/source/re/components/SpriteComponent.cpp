@@ -12,7 +12,6 @@ namespace re
 {
 	SpriteComponent::SpriteComponent(sol::table& table)
 	{
-		m_layer = table.get<unsigned int>("layer");
 		m_spriteName = table.get<std::string>("spriteName");	
 	}
 

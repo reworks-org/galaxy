@@ -15,7 +15,7 @@
 
 #include <allegro5/config.h>
 
-#include "re/utility/Utils.hpp"
+#include "re/utils/Utils.hpp"
 
 namespace re
 {

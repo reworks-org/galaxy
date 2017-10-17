@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/utility/Log.hpp"
+#include "re/utils/Log.hpp"
 
 #include "Config.hpp"
 

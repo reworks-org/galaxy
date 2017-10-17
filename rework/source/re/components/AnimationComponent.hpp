@@ -1,108 +1,81 @@
 //
 //  AnimationComponent.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 16/08/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
-// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimatedSprite
 
-#ifndef RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
-#define RENGINE3_ANIMATEDSPRITECOMPONENT_HPP_
+#ifndef REWORK_ANIMATIONCOMPONENT_HPP_
+#define REWORK_ANIMATIONCOMPONENT_HPP_
 
-#include <SFML/System/Time.hpp>
-
-#include "re/types/Component.hpp"
+#include "sol2/sol.hpp"
+#include "re/math/Rect.hpp"
 
 namespace re
 {
-	class AnimationComponent : public Component
+	class AnimationComponent
 	{
-		friend class AnimationSystem;
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		AnimationComponent();
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
+		AnimationComponent(sol::table& table);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Destructor. Cleans up component.
-		*/
-		~AnimationComponent() override;
+		///
+		/// Destructor.
+		///
+		~AnimationComponent();
 
-		/*
-		* IMPORTS: sol::table from lua script containing component data.
-		* EXPORTS: none
-		* PURPOSE: Set up the component.
-		*/
-		void init(sol::table& table) override;
-
-		/*
-		* IMPORTS: lua table and entity name
-		* EXPORTS: Whether or not to save the changed table data.
-		* PURPOSE: debug component, change data, etc.
-		*/
-		void debugFunction(sol::table& table, const std::string& curEntityName) override;
-
-		/*
-		* IMPORTS: animation name
-		* EXPORTS: none
-		* PURPOSE: Change the active animation
-		*/
+		///
+		/// Change the current animation.
+		///
+		/// \param animation The name of the animation type to change to as defined in lua file. E.g. "walking" -> "running"
+		///
 		void changeAnimation(const std::string& animation);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Plays the active animation.
-		*/
+		///
+		/// Play the animation.
+		///
 		void play();
 
-		/*
-		* IMPORTS: animation name
-		* EXPORTS: none
-		* PURPOSE: Plays a specific animation.
-		*/
+		///
+		/// Play a specific animation.
+		///
+		/// \param animation Animation to change to to play.
+		///
 		void play(const std::string& animation);
 	
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Pauses active animation.
-		*/
+		///
+		/// Pause animation.
+		///
 		void pause();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Stops the active animation.
-		*/
+		///
+		/// Rest animation frames to beginning.
+		///
 		void stop();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: boolean value
-		* PURPOSE: Is the animation paused or not.
-		*/
+		///
+		/// Check if animation is paused.
+		///
 		bool isPaused() const;
 
 	private:
 		bool m_isPaused;
         
-		sf::Time m_frameTime;
-		sf::Time m_currentTime;
+		float m_frameTime;
+		float m_currentTime;
         
 		std::size_t m_currentFrame;
 		std::string m_activeAnimation;
-		std::unordered_map<std::string, std::vector<sf::IntRect>> m_animations;
+		std::unordered_map<std::string, std::vector<Rect<int>>> m_animations;
 
 	public:
 		bool m_isLooped;
-		sf::IntRect m_currentFrameRect;
+		Rect<int> m_currentFrameRect;
 	};
 }
 

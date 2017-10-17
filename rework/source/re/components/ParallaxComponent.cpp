@@ -22,7 +22,7 @@ namespace re
 
 		for (auto& it : kvp)
 		{
-			m_pb.emplace_back(it.second.get<std::string>(atlasName), it.second.get<float>("x"), it.second.get<float>("y"), it.second.get<float>("speed"), it.second.get<int>("layer"));
+			m_pb.emplace_back(it.second.get<std::string>("atlasName"), it.second.get<float>("x"), it.second.get<float>("y"), it.second.get<float>("speed"), it.second.get<int>("layer"));
 		}
 	}
 

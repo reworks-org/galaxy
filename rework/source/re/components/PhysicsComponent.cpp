@@ -8,7 +8,7 @@
 
 #include <map>
 
-#include "re/utility/Log.hpp"
+#include "re/utils/Log.hpp"
 #include "re/physics/Box2DHelper.hpp"
 #include "re/managers/Box2DManager.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -43,17 +43,17 @@ namespace re
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		
 		// Get key-value pairs from table
-		std::map <std::string, sol::table> m_keyValuePair;
+		std::map<std::string, sol::table> kvp;
 		fixtureList.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		if (m_keyValuePair.empty())
+		if (kvp.empty())
 		{
 			BOOST_LOG_TRIVIAL(warning) << "Attempted to use an empty fixture list." << std::endl;
 		}
 		
-		for (auto& it : m_keyValuePair)
+		for (auto& it : kvp)
 		{
 			float32 w = it.second.get<float32>("w");
 			float32 h = it.second.get<float32>("h");

@@ -17,6 +17,7 @@
 #include "re/managers/StateManager.hpp"
 #include "re/managers/Box2DManager.hpp"
 #include "re/managers/DebugManager.hpp"
+#include "re/graphics/TexturePacker.hpp"
 
 namespace re
 {
@@ -60,6 +61,7 @@ namespace re
 		AudioManager* m_audioManager;
 		Box2DManager* m_b2dManager;
 		DebugManager* m_debugManager;
+		TexturePacker* m_texturePacker;
 	};
 }
 

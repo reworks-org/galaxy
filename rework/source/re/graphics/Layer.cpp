@@ -1,50 +1,35 @@
 //
-//  Group.cpp
+//  Layer.cpp
 //  rework
 //
 //  Created by reworks on 11/08/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "Group.hpp"
+#include "re/core/World.hpp"
+#include "re/services/ServiceLocator.hpp"
+#include "re/components/TextComponent.hpp"
+#include "re/components/LayerComponent.hpp"
+#include "re/components/SpriteComponent.hpp"
+#include "re/components/TransformComponent.hpp"
+
+#include "Layer.hpp"
 
 namespace re
 {
-	Group::~Group()
+	Layer::Layer(TexturePacker* atlas)
 	{
-		m_drawable.clear();
 	}
 
-	void Group::addDrawable(const std::string& name, sf::Drawable* drawable, sf::Transformable* transformable)
+	Layer::~Layer()
 	{
-		auto it = m_drawable.find(name);
-		if (it != m_drawable.end())
-		{
-			m_drawable[name].push_back(std::make_pair(drawable, transformable));
-		}
-		else
-		{
-			m_drawable.emplace(name, RenderableContainer());
-			m_drawable[name].push_back(std::make_pair(drawable, transformable));
-		}
 	}
 
-	void Group::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	void Layer::draw()
 	{
-		sf::RenderStates copy = states;
-		for (auto& it : m_drawable)
+		Locator::get<World>()->m_entityManager.each<SpriteComponent, TransformComponent>([](Entity entity, SpriteComponent& sc, TransformComponent& tc))
 		{
-			for (auto& v : it.second)
-			{
-				copy.transform *= v.second->getTransform();
-				target.draw(*(v.first), copy);
-				copy = states;
-			}
-		}
-	}
-
-	std::map<std::string, RenderableContainer>& Group::getDrawableMap()
-	{
-		return m_drawable;
+			m_atlas->al_draw_packed_bitmap(sc->m_spriteName, tc->m_x, tc->m_y, 0);
+		};)
 	}
 }

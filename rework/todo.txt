@@ -49,6 +49,7 @@ audio:
 	- music
 
 components:
+	- animation
 	- collision
 	- parallax
 	- physics
@@ -57,9 +58,11 @@ components:
 	- transform
 
 core:
+	- application
 	- world
 
 graphics:
+	- parallaxbitmap
 	- shader
 	- texturepacker
 	- window

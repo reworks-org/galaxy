@@ -15,8 +15,8 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
 
-#include "re/utility/Log.hpp"
-#include "re/utility/Time.hpp"
+#include "re/utils/Log.hpp"
+#include "re/utils/Time.hpp"
 
 #include "Application.hpp"
 
@@ -44,17 +44,19 @@ namespace re
 
 		m_vfs = new VFS(archive);
 		m_engineConfig = new ConfigReader(config, newConfig);
-		m_window = new Window(m_engineConfig->lookup<int>("window", "width"), m_engineConfig->lookup<int>("window", "height"), m_engineConfig->lookup<bool>("window", "fullscreen"), m_engineConfig->lookup<bool>("window", "msaa"), m_engineConfig->lookup<int>("window", "msaaValue"), m_engineConfig->lookup<std::string>("window", "title"), m_engineConfig->lookup<std::string>("window", "icon"));
+		m_window = new Window(m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height"), m_engineConfig->lookup<bool>("graphics", "fullscreen"), m_engineConfig->lookup<bool>("graphics", "msaa"), m_engineConfig->lookup<int>("graphics", "msaaValue"), m_engineConfig->lookup<std::string>("graphics", "title"), m_engineConfig->lookup<std::string>("graphics", "icon"));
 		m_world = new World();
 		m_stateManager = new StateManager();
 		m_fontManager = new FontManager(m_engineConfig->lookup<std::string>("fontmanager", "fontScript"));
 		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"), m_engineConfig->lookup<int>("audiomanager", "reserveSamples"));
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
 		m_debugManager = new DebugManager(m_window->getDisplay());
+		m_texturePacker = new TexturePacker(m_engineConfig->lookup<std::string>("graphics", "atlas"));
 	}
 
 	Application::~Application()
 	{
+		delete m_texturePacker;
 		delete m_debugManager;
 		delete m_b2dManager;
 		delete m_fontManager;

@@ -13,9 +13,8 @@
 
 namespace re
 {
-	class SpriteComponent
+	struct SpriteComponent
 	{
-	public:
 		///
 		/// Constructor.
 		///
@@ -27,9 +26,7 @@ namespace re
 		/// Destructor.
 		///
 		~SpriteComponent();
-
-	public:
-		unsigned int m_layer;
+		
 		std::string m_spriteName;
 	};
 }

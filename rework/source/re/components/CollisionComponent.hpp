@@ -13,9 +13,8 @@
 
 namespace re
 {
-	class CollisionComponent
+	struct CollisionComponent
 	{
-	public:
 		///
 		/// Constructor.
 		///
@@ -27,8 +26,7 @@ namespace re
 		/// Destructor.
 		///
 		~CollisionComponent();
-
-	public:
+		
 		int m_width;
 		int m_height;
 	};

@@ -7,8 +7,8 @@
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
 
+#include "re/utils/Utils.hpp"
 #include "re/services/VFS.hpp"
-#include "re/utility/Utils.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "TexturePacker.hpp"

@@ -9,7 +9,7 @@
 #include <physfs.h>
 #include <allegro5/allegro_physfs.h>
 
-#include "re/utility/Log.hpp"
+#include "re/utils/Log.hpp"
 
 #include "VFS.hpp"
 

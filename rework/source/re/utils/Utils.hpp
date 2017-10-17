@@ -12,7 +12,7 @@
 #include <string>
 #include <sstream>
 
-#include "re/utility/Log.hpp"
+#include "re/utils/Log.hpp"
 
 namespace re
 {
@@ -56,7 +56,7 @@ namespace re
 		/// \return Returns data as T type.
 		///
 		template <typename T>
-		T convertString(const std::string &data)
+		inline T convertString(const std::string &data)
 		{
 			if (!data.empty())
 			{
@@ -88,7 +88,7 @@ namespace re
 		/// \see convertString
 		///
 		template<>
-		std::string convertString<std::string>(const std::string& data)
+		inline std::string convertString<std::string>(const std::string& data)
 		{
 			return data;
 		}
@@ -99,7 +99,7 @@ namespace re
 		/// \see convertString
 		///
 		template<>
-		bool convertString<bool>(const std::string& data)
+		inline bool convertString<bool>(const std::string& data)
 		{
 			return Utils::stringToBool(data);
 		}

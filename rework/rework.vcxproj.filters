@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="source\re\utility\Time.hpp" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\catch.hpp" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\simplesignal.h" />
     <ClInclude Include="source\re\libs\entityx\deps\Dependencies.h" />
@@ -15,10 +14,8 @@
     <ClInclude Include="source\re\libs\entityx\Event.h" />
     <ClInclude Include="source\re\libs\entityx\quick.h" />
     <ClInclude Include="source\re\libs\entityx\System.h" />
-    <ClInclude Include="source\re\utility\Log.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />
-    <ClInclude Include="source\re\utility\Utils.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
@@ -220,6 +217,11 @@
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\re\graphics\ParallaxBitmap.hpp" />
+    <ClInclude Include="source\re\components\AnimationComponent.hpp" />
+    <ClInclude Include="source\re\utils\Log.hpp" />
+    <ClInclude Include="source\re\utils\Time.hpp" />
+    <ClInclude Include="source\re\utils\Utils.hpp" />
+    <ClInclude Include="source\re\components\LayerComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -418,6 +420,8 @@
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\re\graphics\ParallaxBitmap.cpp" />
+    <ClCompile Include="source\re\components\AnimationComponent.cpp" />
+    <ClCompile Include="source\re\components\LayerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

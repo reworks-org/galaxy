@@ -12,7 +12,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "re/utility/Log.hpp"
+#include "re/utils/Log.hpp"
 #include "re/types/Service.hpp"
 
 namespace re

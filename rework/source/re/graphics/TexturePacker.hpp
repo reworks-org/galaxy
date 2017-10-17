@@ -12,6 +12,8 @@
 #include <allegro5/bitmap.h>
 #include <allegro5/config.h>
 
+#include "re/types/Service.hpp"
+
 typedef int AL_PACKED_IMAGE_ID;
 
 struct packed_image
@@ -31,7 +33,7 @@ struct packed_image_file
 
 namespace re
 {
-	class TexturePacker
+	class TexturePacker : public Service
 	{
 	public:
 		///
@@ -43,7 +45,7 @@ namespace re
 		///
 		/// Frees all memory used by the texture packer.
 		///
-		~TexturePacker();
+		~TexturePacker() override;
 
 		///
 		/// Like al_draw_bitmap

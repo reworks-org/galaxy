@@ -14,9 +14,8 @@
 
 namespace re
 {
-	class ParallaxComponent
+	struct ParallaxComponent
 	{
-	public:
 		///
 		/// Constructor.
 		///
@@ -29,7 +28,6 @@ namespace re
 		///
 		~ParallaxComponent();
 		
-	public:
 		std::vector<ParallaxBitmap> m_pb;
 	};
 }

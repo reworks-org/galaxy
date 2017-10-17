@@ -8,15 +8,14 @@
 
 #include <map>
 
-#include "re/utility/Log.hpp"
+#include "re/utils/Log.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/components/AnimationComponent.hpp"
 #include "re/components/CollisionComponent.hpp"
-#include "re/components/MusicComponent.hpp"
+#include "re/components/LayerComponent.hpp"
 #include "re/components/ParallaxComponent.hpp"
 #include "re/components/PhysicsComponent.hpp"
-#include "re/components/SoundComponent.hpp"
 #include "re/components/SpriteComponent.hpp"
 #include "re/components/TextComponent.hpp"
 #include "re/components/TransformComponent.hpp"
@@ -50,7 +49,7 @@ namespace re
 
 		if (components.get<bool>("special"))
 		{
-			m_entitys.insert(components.get<std::string>("name"), e);
+			m_entitys.emplace(components.get<std::string>("name"), e);
 			kvp.erase("name");
 		}
 		
@@ -77,18 +76,18 @@ namespace re
 		sol::table entitylist = world.get<sol::table>("entitys");
 
 		// Get key-value pairs from table
-		std::map <int, std::string> m_keyValuePair;
+		std::map <int, std::string> kvp;
 		entitylist.for_each([&](std::pair<sol::object, sol::object> pair) {
-			m_keyValuePair.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
+			kvp.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
 		});
 
-		if (m_keyValuePair.empty())
+		if (kvp.empty())
 		{
 			BOOST_LOG_TRIVIAL(error) << "Attempted to register an empty entity script." << std::endl;
 			return;
 		}
 
-		for (auto& it : m_keyValuePair)
+		for (auto& it : kvp)
 		{
 			lua.script(Locator::get<VFS>()->openAsString(it.second));
 			sol::table components = lua.get<sol::table>("entity");
@@ -103,7 +102,7 @@ namespace re
 
 			if (components.get<bool>("special"))
 			{
-				m_entitys.insert(components.get<std::string>("name"), e);
+				m_entitys.emplace(components.get<std::string>("name"), e);
 				m_ekv.erase("name");
 			}
 
@@ -144,9 +143,9 @@ namespace re
 		{
 			e.assign<CollisionComponent>(table);
 		}
-		else if (name == "MusicComponent")
+		else if (name == "LayerComponent")
 		{
-			e.assign<MusicComponent>(table);
+			e.assign<LayerComponent>(table);
 		}
 		else if (name == "ParallaxComponent")
 		{
@@ -155,10 +154,6 @@ namespace re
 		else if (name == "PhysicsComponent")
 		{
 			e.assign<PhysicsComponent>(table);
-		}
-		else if (name == "SoundComponent")
-		{
-			e.assign<SoundComponent>(table);
 		}
 		else if (name == "SpriteComponent")
 		{

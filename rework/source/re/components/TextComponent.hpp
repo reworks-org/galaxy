@@ -9,6 +9,8 @@
 #ifndef REWORK_TEXTCOMPONENT_HPP_
 #define REWORK_TEXTCOMPONENT_HPP_
 
+#include <allegro5/allegro_font.h>
+
 #include "sol2/sol.hpp"
 
 namespace re
@@ -35,7 +37,6 @@ namespace re
 
 	public:
 		std::string m_text;
-		unsigned int m_layer;
 		ALLEGRO_COLOR m_colour;
 		ALLEGRO_FONT* m_font;
 		float m_x;

@@ -21,7 +21,9 @@
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\audio\Sound.hpp" />
+    <ClInclude Include="source\re\components\AnimationComponent.hpp" />
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
+    <ClInclude Include="source\re\components\LayerComponent.hpp" />
     <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
@@ -235,14 +237,16 @@
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />
-    <ClInclude Include="source\re\utility\Log.hpp" />
-    <ClInclude Include="source\re\utility\Time.hpp" />
-    <ClInclude Include="source\re\utility\Utils.hpp" />
+    <ClInclude Include="source\re\utils\Log.hpp" />
+    <ClInclude Include="source\re\utils\Time.hpp" />
+    <ClInclude Include="source\re\utils\Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\audio\Music.cpp" />
     <ClCompile Include="source\re\audio\Sound.cpp" />
+    <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
+    <ClCompile Include="source\re\components\LayerComponent.cpp" />
     <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
