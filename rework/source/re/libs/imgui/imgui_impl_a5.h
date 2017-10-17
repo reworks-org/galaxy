@@ -27,7 +27,7 @@ IMGUI_API void    ImGui_ImplA5_InvalidateDeviceObjects();
 // This is not originally part of this file.
 namespace imgui
 {
-	namespace vec 
+	namespace al
 	{
 		static auto vector_getter = [](void* vec, int idx, const char** out_text)
 		{

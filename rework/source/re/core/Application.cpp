@@ -87,7 +87,6 @@ namespace re
 		std::uint64_t timer = 0;
 
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
-		ALLEGRO_EVENT event;
 		ALLEGRO_EVENT_QUEUE* eventQueue = al_create_event_queue();
 
 		al_register_event_source(eventQueue, al_get_display_event_source(m_window->getDisplay()));
@@ -102,15 +101,18 @@ namespace re
 
 		while (m_window->isOpen());
 		{
-			while (al_get_next_event(eventQueue, &event))
+			ALLEGRO_EVENT ev;
+			while (al_get_next_event(eventQueue, &ev))
 			{
-				m_stateManager->event(&event);
+				m_stateManager->event(&ev);
+				m_debugManager->event(&ev);
 
 				switch (event.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
 					m_stateManager->update(timePerFrame);
 					m_world->update(timePerFrame);
+					m_debugManager->update();
 					updates++;	
 					break;
 
@@ -120,9 +122,12 @@ namespace re
 				}
 			}
 
+			m_debugManager->displayMenu();
+
 			m_window->clear(255, 255, 255);
 
 			m_stateManager->render();
+			m_debugManager->render();
 
 			m_window->display();
 			frames++;

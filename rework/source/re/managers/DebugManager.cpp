@@ -1,6 +1,6 @@
 //
 //  DebugManager.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 20/04/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
@@ -11,14 +11,12 @@
 
 #include <allegro5/events.h>
 
-#include "re/libs/imgui/imgui.h"
-#include "re/libs/imgui/imgui_impl_a5.h"
-
+#include "imgui/imgui.h"
+#include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
-#include "re/graphics/Window.hpp"
+#include "imgui/imgui_impl_a5.h"
 #include "re/managers/StateManager.hpp"
 #include "re/services/ServiceLocator.hpp"
-#include "re/components/SpriteComponent.hpp"
 
 #include "DebugManager.hpp"
 
@@ -32,7 +30,7 @@ namespace re
 	}
 
 	DebugManager::DebugManager(ALLEGRO_DISPLAY* display)
-	:m_reloadState(nullptr), m_enabled(false), m_init(false)
+	:m_reloadState(nullptr)
 	{
 		m_world = Locator::get<World>();
 		ImGui_ImplA5_Init(display);
@@ -61,10 +59,9 @@ namespace re
 	void DebugManager::displayMenu()
 	{
 		static int index = 0;
-		static int indexComponent = 0;
 		static bool showScriptEditor = false;
 
-		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
 
 		if (ImGui::Button("Reload State"))
 		{
@@ -75,13 +72,13 @@ namespace re
 
 		ImGui::Spacing();
 
-		ImGui::Text("Entity Manager");
+		ImGui::Text("Entity Editor");
 		ImGui::Spacing();
+
+		ImGui::al::Combo("Entity Selector", &index, m_world->m_entityScripts);
 
 		if (m_world->m_loadedEntityScripts.empty() == false)
 		{
-			ImGui::SFML::Combo("Entity Selector", &index, m_world->m_loadedEntityScripts);
-
 			size_t size = m_world->m_loadedEntityScripts.size();
 			if ((size_t)index >= size)
 			{

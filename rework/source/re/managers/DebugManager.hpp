@@ -1,16 +1,15 @@
 //
 //  DebugManager.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 20/04/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_DEBUGMANAGER_HPP_
-#define RENGINE3_DEBUGMANAGER_HPP_
+#ifndef REWORK_DEBUGMANAGER_HPP_
+#define REWORK_DEBUGMANAGER_HPP_
 
-#include "re/core/World.hpp"
-#include "re/libs/sol2/sol.hpp"
+#include "re/types/Service.hpp"
 
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;
@@ -18,6 +17,7 @@ struct ALLEGRO_DISPLAY;
 namespace re
 {
 	class State;
+	class World;
 
     class DebugManager : public Service
     {
@@ -71,7 +71,6 @@ namespace re
 	private:
 		std::shared_ptr<State> m_reloadState;
 		std::function<void(void)> m_reloadFunc;
-        sol::state m_lua;
 		re::World* m_world;
     };
 }

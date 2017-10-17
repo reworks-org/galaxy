@@ -17,6 +17,7 @@ namespace re
 {
 	class World : public Service
 	{
+		friend class DebugManager;
 	public: 
 		///
 		/// \brief Construct World.
@@ -84,6 +85,7 @@ namespace re
 
 	private:
 		std::unordered_map<std::string, ex::Entity> m_entitys;
+		std::unordered_map<std::string, std::string> m_entityScripts;
 	};
 }
 

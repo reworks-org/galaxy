@@ -222,6 +222,32 @@
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
     <ClInclude Include="source\re\components\LayerComponent.hpp" />
+    <ClInclude Include="source\re\managers\DebugManager.hpp" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\aes.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\aes_via_ace.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\aesopt.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\aestab.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\brg_endian.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\brg_types.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\entropy.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\fileenc.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\hmac.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\prng.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\pwd2key.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\aes\sha1.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\crypt.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\ioapi.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\ioapi_buf.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\ioapi_mem.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\iowin32.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\unzip.h" />
+    <ClInclude Include="source\re\libs\zipper\minizip\zip.h" />
+    <ClInclude Include="source\re\libs\zipper\tps\dirent.h" />
+    <ClInclude Include="source\re\libs\zipper\CDirEntry.h" />
+    <ClInclude Include="source\re\libs\zipper\defs.h" />
+    <ClInclude Include="source\re\libs\zipper\tools.h" />
+    <ClInclude Include="source\re\libs\zipper\unzipper.h" />
+    <ClInclude Include="source\re\libs\zipper\zipper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -422,6 +448,29 @@
     <ClCompile Include="source\re\graphics\ParallaxBitmap.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\LayerComponent.cpp" />
+    <ClCompile Include="source\re\managers\DebugManager.cpp" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\aescrypt.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\aeskey.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\aestab.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\entropy.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\fileenc.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\hmac.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\prng.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\pwd2key.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\aes\sha1.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\ioapi.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\ioapi_buf.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\ioapi_mem.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\iowin32.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\miniunz.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\minizip.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\unzip.c" />
+    <ClCompile Include="source\re\libs\zipper\minizip\zip.c" />
+    <ClCompile Include="source\re\libs\zipper\tps\dirent.c" />
+    <ClCompile Include="source\re\libs\zipper\CDirEntry.cpp" />
+    <ClCompile Include="source\re\libs\zipper\tools.cpp" />
+    <ClCompile Include="source\re\libs\zipper\unzipper.cpp" />
+    <ClCompile Include="source\re\libs\zipper\zipper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -67,6 +67,14 @@ namespace re
 		///
 		std::string openAsString(const std::string& file);
 
+		///
+		/// Write a string to the archive.
+		///
+		/// \param fileName Name of file in the archive to write to.
+		/// \param data Data to write to the file.
+		///
+		void writeStringToArchive(const std::string& fileName, const std::string& data, const std::string& pathInArchive);
+
 	private:
 		std::vector<ALLEGRO_FILE*> m_filesToClean;
 	};
