@@ -36,7 +36,6 @@ namespace re
 	void World::createEntity(const std::string& script)
 	{
 		std::string scrData = Locator::get<VFS>()->openAsString(script);
-		m_entityScripts.emplace(script, scrData);
 
 		sol::state lua;
 		lua.script(scrData);
@@ -54,6 +53,7 @@ namespace re
 		{
 			m_entitys.emplace(components.get<std::string>("name"), e);
 			kvp.erase("name");
+			m_entityScripts.emplace(script, scrData);
 		}
 		
 		kvp.erase("special");
@@ -93,7 +93,7 @@ namespace re
 		for (auto& it : kvp)
 		{
 			std::string scrData = Locator::get<VFS>()->openAsString(it.second);
-			m_entityScripts.emplace(it.second, scrData);
+			
 			lua.script(scrData);
 			sol::table components = lua.get<sol::table>("entity");
 
@@ -109,6 +109,7 @@ namespace re
 			{
 				m_entitys.emplace(components.get<std::string>("name"), e);
 				m_ekv.erase("name");
+				m_entityScripts.emplace(it.second, scrData);
 			}
 
 			m_ekv.erase("special");

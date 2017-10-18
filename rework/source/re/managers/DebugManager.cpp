@@ -30,7 +30,7 @@ namespace re
 	}
 
 	DebugManager::DebugManager(ALLEGRO_DISPLAY* display)
-	:m_reloadState(nullptr)
+	:m_reloadState(nullptr), m_disabled(false);
 	{
 		m_world = Locator::get<World>();
 		ImGui_ImplA5_Init(display);
@@ -41,72 +41,90 @@ namespace re
 		ImGui_ImplA5_Shutdown();
 	}
 
+	void DebugManager::disable(bool isDisabled)
+	{
+		m_disabled = isDisabled;
+	}
+
 	void DebugManager::event(ALLEGRO_EVENT* event)
 	{
-		ImGui_ImplA5_ProcessEvent(event);
+		if (!m_disabled)
+		{
+			ImGui_ImplA5_ProcessEvent(event);
+		}
 	}
 
 	void DebugManager::update()
 	{
-		ImGui_ImplA5_NewFrame();
+		if (!m_disabled)
+		{
+			ImGui_ImplA5_NewFrame();
+		}
 	}
 
 	void DebugManager::render()
 	{
-		ImGui::Render();
+		if (!m_disabled)
+		{
+			ImGui::Render();
+		}
 	}
 
 	void DebugManager::displayMenu()
 	{
-		static int index = 0;
-		static bool showScriptEditor = false;
-
-		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
-
-		if (ImGui::Button("Reload State"))
+		if (!m_disabled)
 		{
-			showScriptEditor = false;
-			m_reloadFunc();
-			Locator::get<StateManager>()->reloadState(m_reloadState);
-		}
+			static int index = 0;
+			static bool showScriptEditor = false;
+			static std::vector<std::string> entityScripts;
 
-		ImGui::Spacing();
+			entityScripts.clear();
+			entityScripts.reserve(m_world->m_entityScripts.size());
+			for (auto const& map : m_world->m_entityScripts)
+			{
+				entityScripts.push_back(map.first);
+			}
 
-		ImGui::Text("Entity Editor");
-		ImGui::Spacing();
+			ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
 
-		ImGui::al::Combo("Entity Selector", &index, m_world->m_entityScripts);
+			if (ImGui::Button("Reload State"))
+			{
+				showScriptEditor = false;
+				m_reloadFunc();
+				Locator::get<StateManager>()->reloadState(m_reloadState);
+			}
 
-		if (m_world->m_loadedEntityScripts.empty() == false)
-		{
-			size_t size = m_world->m_loadedEntityScripts.size();
+			ImGui::Spacing();
+
+			ImGui::Text("Entity Editor");
+			ImGui::Spacing();
+
+			ImGui::al::Combo("Entity Selector", &index, entityScripts);
+
+			size_t size = entityScripts.size();
 			if ((size_t)index >= size)
 			{
 				index = (size - 1);
 			}
 
-			std::string curEntityScriptName = m_world->m_loadedEntityScripts[index];
-
-			std::ifstream ifs(Locator::get<VFS>()->retrieve(curEntityScriptName));
-			std::string curEntityScriptData((std::istreambuf_iterator<char>(ifs)), (std::istreambuf_iterator<char>()));
-			ifs.close();
+			std::string curEntityScriptName = entityScripts[index];
+			std::string curEntityScriptData = m_world->m_entityScripts[entityScripts[index]];
 
 			m_lua.script(curEntityScriptData);
 			sol::table entityTable = m_lua.get<sol::table>("entity");
-			Entity* curEntity = &(m_world->getEntity(entityTable.get<std::string>("name")));
+			ex::Entity& e = m_world->m_entitys[entityTable.get<std::string>("name")];
 
-			std::map<std::string, sol::table> m_keyValuePair;
+			std::map<std::string, sol::table> kvp;
 			std::vector<std::string> componentNames;
 			entityTable.for_each([&](std::pair<sol::object, sol::object> pair) {
-				m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+				kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 			});
 
 			// Remove stuff that isn't components
-			m_keyValuePair.erase("name");
-			m_keyValuePair.erase("systems");
-			m_keyValuePair.erase("isDead");
+			kvp.erase("name");
+			kvp.erase("special");
 
-			for (auto& it : m_keyValuePair)
+			for (auto& it : kvp)
 			{
 				componentNames.push_back(it.first);
 			}
@@ -134,7 +152,7 @@ namespace re
 				if (!doneOnce)
 				{
 					// this should be large enough...i hope
-					scriptData.resize(2000);
+					scriptData.resize(4000);
 					doneOnce = true;
 				}
 
@@ -144,7 +162,7 @@ namespace re
 
 					scriptData.clear();
 					scriptData = std::vector<char>(curEntityScriptData.begin(), curEntityScriptData.end());
-					scriptData.resize(2000);
+					scriptData.resize(4000);
 				}
 
 				ImGui::SetNextWindowSize(ImVec2(420, 500), ImGuiSetCond_FirstUseEver);
@@ -185,54 +203,29 @@ namespace re
 
 					scriptData.clear();
 					scriptData = std::vector<char>(dataOut.begin(), dataOut.end());
-					scriptData.resize(2000);
+					scriptData.resize(4000);
 				}
 
 				ImGui::End();
 			}
 
 			ImGui::Spacing();
-			ImGui::Text("%s", std::string("Name: " + curEntity->m_name).c_str());
+			ImGui::al::Combo("Component Selector", &indexComponent, componentNames);
 
+			if ((size_t)indexComponent >= componentNames.size())
+			{
+				indexComponent = (componentNames.size() - 1);
+			}
+
+			std::string curComponent = componentNames[indexComponent];
+
+			ImGui::Separator();
 			ImGui::Spacing();
-			std::string stateButtonText = "Kill Entity";
-			if (curEntity->isDead())
-			{
-				stateButtonText = "Revive Entity";
-			}
 
-			if (ImGui::Button(stateButtonText.c_str()))
-			{
-				if (stateButtonText == "Kill Entity")
-				{
-					m_world->killEntity(curEntity->m_name);
-				}
-				else
-				{
-					m_world->restoreEntity(curEntity->m_name);
-				}
-			}
-			else
-			{
-				ImGui::Spacing();
-				ImGui::SFML::Combo("Component Selector", &indexComponent, componentNames);
+			// Do component stuff???
 
-				if ((size_t)indexComponent >= componentNames.size())
-				{
-					indexComponent = (componentNames.size() - 1);
-				}
-
-				std::string curComponent = componentNames[indexComponent];
-				sol::table curTable = entityTable.get<sol::table>(curComponent);
-
-				ImGui::Separator();
-				ImGui::Spacing();
-
-				curEntity->useComponentDebugFunction(curComponent, curTable, entityTable.get<std::string>("name"));
-			}
+			ImGui::End();
 		}
-
-		ImGui::End();
 	}
 
 	void DebugManager::specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func)

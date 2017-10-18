@@ -9,6 +9,7 @@
 #ifndef REWORK_DEBUGMANAGER_HPP_
 #define REWORK_DEBUGMANAGER_HPP_
 
+#include "sol2/sol.hpp"
 #include "re/types/Service.hpp"
 
 union ALLEGRO_EVENT;
@@ -33,6 +34,13 @@ namespace re
 		/// Destructor.
 		///
 		~DebugManager() override;
+
+		///
+		/// Set if debug manager is disabled...
+		///
+		/// \param isDisabled Boolean. Set to true to disable.
+		///
+		void disable(bool isDisabled);
 
 		///
 		/// Process events.
@@ -72,6 +80,8 @@ namespace re
 		std::shared_ptr<State> m_reloadState;
 		std::function<void(void)> m_reloadFunc;
 		re::World* m_world;
+		sol::state m_lua;
+		bool m_disabled;
     };
 }
 

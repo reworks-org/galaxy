@@ -52,6 +52,10 @@ namespace re
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
 		m_debugManager = new DebugManager(m_window->getDisplay());
 		m_texturePacker = new TexturePacker(m_engineConfig->lookup<std::string>("graphics", "atlas"));
+
+		#ifdef NDEBUG
+			m_debugManager->disable(true);
+		#endif
 	}
 
 	Application::~Application()
