@@ -144,13 +144,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>ALLEGRO_STATICLINK;WIN64;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../rework/source/;../rework/source/re/libs/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/libxml2/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../rework/source/;../rework/source/re/libs/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libcharset.lib;libxml2.lib;rework.lib;libboost_system-vc141-mt-sgd-1_65_1.lib;libboost_filesystem-vc141-mt-sgd-1_65_1.lib;libboost_serialization-vc141-mt-sgd-1_65_1.lib;opengl32.lib;ws2_32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)libs/libxml2/lib/;$(SolutionDir)libs/boost/lib/;../rework/bin/Debug/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rework.lib;opengl32.lib;ws2_32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../rework/bin/Debug/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -185,7 +185,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>ALLEGRO_STATICLINK;WIN64;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../rework/source/;../rework/source/re/libs/;$(SolutionDir)/libs/boost/include/;$(SolutionDir)/libs/libxml2/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../rework/source/;../rework/source/re/libs/</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
@@ -193,8 +193,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libcharset.lib;libxml2.lib;rework.lib;libboost_system-vc141-mt-s-1_65_1.lib;libboost_filesystem-vc141-mt-s-1_65_1.lib;libboost_serialization-vc141-mt-s-1_65_1.lib;opengl32.lib;kernel32.lib;winmm.lib;ws2_32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)libs/libxml2/lib/;$(SolutionDir)libs/boost/lib/;../rework/bin/Release/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rework.lib;opengl32.lib;kernel32.lib;winmm.lib;ws2_32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../rework/bin/Release/</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

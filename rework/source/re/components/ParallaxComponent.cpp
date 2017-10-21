@@ -8,6 +8,8 @@
 
 #include <map>
 
+#include "imgui/imgui_impl_a5.h"
+
 #include "ParallaxComponent.hpp"
 
 namespace re

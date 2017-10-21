@@ -8,7 +8,7 @@
 
 #include <algorithm>
 
-#include "imgui/imgui.h"
+#include "imgui/imgui_impl_a5.h"
 #include "re/managers/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -40,30 +40,15 @@ namespace re
 	void TextComponent::debug()
 	{
 		static bool update = false;
-
-		char buff[1024];
-		if (ImGui::InputText("Text:", &buff, sizeof(buff), ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			m_text = buff;
-			m_text.erase(std::remove_if(m_text.begin(), m_text.end(), '\r'), m_text.end());
-			m_text.erase(std::remove_if(m_text.begin(), m_text.end(), '\n'), m_text.end());
-
-			m_text.shrink_to_fit();
-		}
+		
+		ImGui::stl::InputText("Text: ", &m_text, ImGuiInputTextFlags_EnterReturnsTrue);
 
 		ImGui::Spacing();
 
-		char fontbuff[1024];
-		if (ImGui::InputText("Font Picker", &fontbuff, sizeof(fontbuff), ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		std::string font = "";
+		if (ImGui::stl::InputText("Font Picker", &font, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			std::string font_temp = fontbuff;
-			font_temp.erase(std::remove_if(font_temp.begin(), font_temp.end(), isspace), font_temp.end());
-			font_temp.erase(std::remove_if(font_temp.begin(), font_temp.end(), '\r'), font_temp.end());
-			font_temp.erase(std::remove_if(font_temp.begin(), font_temp.end(), '\n'), font_temp.end());
-
-			font_temp.shrink_to_fit();
-
-			m_font = Locator::get<FontManager>()->get(font_temp);
+			m_font = Locator::get<FontManager>()->get(font);
 		}
 
 		ImGui::Spacing();
@@ -79,7 +64,7 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Text("Colour Modifiers: ");
 
-		unsigned int r, g, b, a = 0;
+		int r, g, b, a = 0;
 		if (ImGui::SliderInt("Red Editor", &r, 0, 255))
 		{
 			update = true;

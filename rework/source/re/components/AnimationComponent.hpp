@@ -74,7 +74,7 @@ namespace re
 		float m_frameTime;
 		float m_currentTime;
         
-		std::size_t m_currentFrame;
+		int m_currentFrame;
 		std::string m_activeAnimation;
 		std::unordered_map<std::string, std::vector<Rect<int>>> m_animations;
 

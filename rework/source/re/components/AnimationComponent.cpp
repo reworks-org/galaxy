@@ -9,9 +9,9 @@
 
 #include <map>
 
-#include "imgui/imgui.h"
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
+#include "imgui/imgui_impl_a5.h"
 
 #include "AnimationComponent.hpp"
 
@@ -111,7 +111,7 @@ namespace re
 		ImGui::InputFloat("Time Per Frame", &m_frameTime);
 
 		ImGui::Spacing();
-		ImGui::InputInt("Current Frame". &m_currentFrame);
+		ImGui::InputInt("Current Frame", &m_currentFrame);
 
 		ImGui::Spacing();
 		ImGui::Checkbox("Is Looping", &m_isLooped);

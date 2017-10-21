@@ -8,6 +8,8 @@
 
 #include <algorithm>
 
+#include "imgui/imgui_impl_a5.h"
+
 #include "SpriteComponent.hpp"
 
 namespace re
@@ -23,16 +25,6 @@ namespace re
 
 	void SpriteComponent::debug()
 	{
-		char[1024] buff;
-		if (ImGui::InputText("Sprite Name (in atlas):", &buff, sizeof(buff), ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			m_spriteName = buff;
-
-			m_spriteName.erase(std::remove_if(m_spriteName.begin(), m_spriteName.end(), isspace), m_spriteName.end());
-			m_spriteName.erase(std::remove_if(m_spriteName.begin(), m_spriteName.end(), '\r'), m_spriteName.end());
-			m_spriteName.erase(std::remove_if(m_spriteName.begin(), m_spriteName.end(), '\n'), m_spriteName.end());
-
-			m_spriteName.shrink_to_fit();
-		}
+		ImGui::stl::InputText("Sprite Name (in atlas):", &m_spriteName, ImGuiInputTextFlags_EnterReturnsTrue);
 	}
 }

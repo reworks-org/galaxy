@@ -11,7 +11,6 @@
 
 #include <allegro5/events.h>
 
-#include "imgui/imgui.h"
 #include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
 #include "imgui/imgui_impl_a5.h"
@@ -100,7 +99,7 @@ namespace re
 			ImGui::Text("Entity Editor");
 			ImGui::Spacing();
 
-			ImGui::al::Combo("Entity Selector", &index, entityScripts);
+			ImGui::stl::Combo("Entity Selector", &index, entityScripts);
 
 			size_t size = entityScripts.size();
 			if ((size_t)index >= size)
@@ -161,7 +160,7 @@ namespace re
 				ImGui::Separator();
 				ImGui::Spacing();
 
-				ImGui::stl::InputTextMultiline("", &curEntityScriptData, mVec2(420, 500), ImGuiInputTextFlags_EnterReturnsTrue);
+				ImGui::stl::InputTextMultiline("", &curEntityScriptData, ImVec2(420, 500), ImGuiInputTextFlags_EnterReturnsTrue);
 
 				ImGui::Separator();
 				ImGui::Spacing();

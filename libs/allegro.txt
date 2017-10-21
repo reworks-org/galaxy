@@ -1,1 +1,0 @@
-Installed via nuget from Visual Studio 2017.

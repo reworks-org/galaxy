@@ -39,8 +39,14 @@ renderer:
 - rename m_keyValuePairs to kvp
 - split update and rendering threads?
 
-http://liballeg.org/a5docs/trunk/font.html#al_get_text_width
-http://liballeg.org/a5docs/trunk/graphics.html#al_create_bitmap
+- reimplement logging
+- implement serialization
+	- call serializecomponetns from serailize suystem using eneityx
+	- serializecomponents contain information about what this entity needs to load
+	- use al_config format to easily support classes that require serialization
+
+
+- review config reader input and output
 
 done modules:
 

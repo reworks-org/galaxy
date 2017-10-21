@@ -19,7 +19,6 @@ DerivedData/
 # Project stuff
 rework/bin/
 rework/build/
-libs/boost/
 tools/Allegro-Texture-Packer/in/
 tools/Allegro-Texture-Packer/out/
 
