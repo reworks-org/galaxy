@@ -29,7 +29,7 @@ IMGUI_API void    ImGui_ImplA5_InvalidateDeviceObjects();
 // https://github.com/simongeilfus/Cinder-ImGui
 namespace ImGui
 {
-	namespace al
+	namespace stl
 	{
 		inline bool ListBox(const char* label, int* current_item, const std::vector<std::string>& items, int height_in_items = -1)
 		{

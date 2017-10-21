@@ -146,24 +146,11 @@ namespace re
 
 			if (showScriptEditor)
 			{
-				static std::vector<char> scriptData(curEntityScriptData.begin(), curEntityScriptData.end());
-				static bool doneOnce = false;
 				static std::string first = curEntityScriptName;
-
-				if (!doneOnce)
-				{
-					// this should be large enough...i hope
-					scriptData.resize(4000);
-					doneOnce = true;
-				}
 
 				if (first != entityScripts[index])
 				{
 					first = entityScripts[index];
-
-					scriptData.clear();
-					scriptData = std::vector<char>(curEntityScriptData.begin(), curEntityScriptData.end());
-					scriptData.resize(4000);
 				}
 
 				ImGui::SetNextWindowSize(ImVec2(420, 500), ImGuiSetCond_FirstUseEver);
@@ -174,38 +161,21 @@ namespace re
 				ImGui::Separator();
 				ImGui::Spacing();
 
-				ImGui::InputTextMultiline("", scriptData.data(), scriptData.size(), ImVec2(420, 500), ImGuiInputTextFlags_EnterReturnsTrue);
+				ImGui::stl::InputTextMultiline("", &curEntityScriptData, mVec2(420, 500), ImGuiInputTextFlags_EnterReturnsTrue);
 
 				ImGui::Separator();
 				ImGui::Spacing();
 
 				if (ImGui::Button("Save Changes"))
 				{
-					for (auto& v : scriptData)
-					{
-						if (!v)
-						{
-							v = ' ';
-						}
-					}
-
-					std::string dataOut(scriptData.begin(), scriptData.end());
-					trimFromEnd(dataOut);
-					dataOut.erase(std::remove(dataOut.begin(), dataOut.end(), '\r'), dataOut.end());
-
-					dataOut.shrink_to_fit();
-					Locator::get<VFS>()->writeStringToArchive(curEntityScriptName, dataOut, "scripts/");
-
-					scriptData.clear();
-					scriptData = std::vector<char>(dataOut.begin(), dataOut.end());
-					scriptData.resize(4000);
+					Locator::get<VFS>()->writeStringToArchive(curEntityScriptName, curEntityScriptData, "scripts/");
 				}
 
 				ImGui::End();
 			}
 
 			ImGui::Spacing();
-			ImGui::al::Combo("Component Selector", &indexComponent, componentNames);
+			ImGui::stl::Combo("Component Selector", &indexComponent, componentNames);
 
 			if ((size_t)indexComponent >= componentNames.size())
 			{
