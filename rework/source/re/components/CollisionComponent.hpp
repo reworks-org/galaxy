@@ -13,8 +13,9 @@
 
 namespace re
 {
-	struct CollisionComponent
+	class CollisionComponent
 	{
+	public:
 		///
 		/// Constructor.
 		///
@@ -26,7 +27,13 @@ namespace re
 		/// Destructor.
 		///
 		~CollisionComponent();
-		
+
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
+
+	public:
 		int m_width;
 		int m_height;
 	};

@@ -23,32 +23,69 @@ IMGUI_API void    ImGui_ImplA5_InvalidateDeviceObjects();
 
 #include <vector>
 
-// Allows use of std::vector in some widgets.
+// Allows use of STL types in some widgets
 // This is not originally part of this file.
-namespace imgui
+// Credits for code:
+// https://github.com/simongeilfus/Cinder-ImGui
+namespace ImGui
 {
 	namespace al
 	{
-		static auto vector_getter = [](void* vec, int idx, const char** out_text)
+		inline bool ListBox(const char* label, int* current_item, const std::vector<std::string>& items, int height_in_items = -1)
 		{
-			auto& vector = *static_cast<std::vector<std::string>*>(vec);
-			if (idx < 0 || idx >= static_cast<int>(vector.size())) { return false; }
-			*out_text = vector.at(idx).c_str();
-			return true;
-		};
+			// copy names to a vector
+			std::vector<const char*> names;
+			for (auto item : items) {
+				char *cname = new char[item.size() + 1];
+				std::strcpy(cname, item.c_str());
+				names.push_back(cname);
+			}
 
-		inline bool Combo(const char* label, int* currIndex, std::vector<std::string>& values)
-		{
-			if (values.empty()) { return false; }
-			return ImGui::Combo(label, currIndex, vector_getter,
-				static_cast<void*>(&values), values.size());
+			bool result = ImGui::ListBox(label, current_item, names.data(), names.size(), height_in_items);
+			// cleanup
+			for (auto &name : names) delete[] name;
+			return result;
 		}
 
-		inline bool ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
+		inline bool InputText(const char* label, std::string* buf, ImGuiInputTextFlags flags = 0, ImGuiTextEditCallback callback = NULL, void* user_data = NULL)
 		{
-			if (values.empty()) { return false; }
-			return ImGui::ListBox(label, currIndex, vector_getter,
-				static_cast<void*>(&values), values.size());
+			// conversion
+			char *buffer = new char[buf->size() + 128];
+			std::strcpy(buffer, buf->c_str());
+			bool result = ImGui::InputText(label, buffer, buf->size() + 128, flags, callback, user_data);
+			if (result) {
+				*buf = std::string(buffer);
+			}
+			// cleanup
+			delete[] buffer;
+			return result;
+		}
+
+		inline bool InputTextMultiline(const char* label, std::string* buf, const ImVec2& size = ImVec2(0, 0), ImGuiInputTextFlags flags = 0, ImGuiTextEditCallback callback = NULL, void* user_data = NULL)
+		{
+			// conversion
+			char *buffer = new char[buf->size() + 128];
+			std::strcpy(buffer, buf->c_str());
+			bool result = ImGui::InputTextMultiline(label, buffer, buf->size() + 128, size, flags, callback, user_data);
+			if (result) {
+				*buf = std::string(buffer);
+			}
+			// cleanup
+			delete[] buffer;
+			return result;
+		}
+
+		inline bool Combo(const char* label, int* current_item, const std::vector<std::string>& items, int height_in_items = -1)
+		{
+			// conversion
+			std::string itemsNames;
+			for (auto item : items)
+				itemsNames += item + '\0';
+			itemsNames += '\0';
+
+			std::vector<char> charArray(itemsNames.begin(), itemsNames.end());
+			bool result = ImGui::Combo(label, current_item, (const char*)&charArray[0], height_in_items);
+			return result;
 		}
 	}
 }

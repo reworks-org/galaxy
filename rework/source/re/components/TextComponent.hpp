@@ -21,7 +21,7 @@ namespace re
 		///
 		/// Constructor.
 		///
-		/// \param table sol::table containing data.
+		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters.
 		///
 		TextComponent(sol::table& table);
 
@@ -34,6 +34,11 @@ namespace re
 		/// Draw text. Convience function.
 		///
 		void draw();
+
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
 
 	public:
 		std::string m_text;

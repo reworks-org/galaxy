@@ -13,10 +13,17 @@
 
 namespace re
 {
-	struct LayerComponent
+	class LayerComponent
 	{
+	public:
 		LayerComponent(sol::table& table);
+		~LayerComponent();
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
 
+	public:
 		std::size_t m_layer;
 	};
 }

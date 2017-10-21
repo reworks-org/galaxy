@@ -18,16 +18,16 @@ extern "C"
 # include <utime.h>
 #endif
 
-#include <zip.h>
-#include <unzip.h>
-#include <ioapi_mem.h>
+#include "minizip/zip.h"
+#include "minizip/unzip.h"
+#include "minizip/ioapi_mem.h"
 #define CASESENSITIVITY (0)
 #define WRITEBUFFERSIZE (8192)
 #define MAXFILENAME (256)
 
 #if (defined(_WIN32)) || (defined(_WIN64))
 #define USEWIN32IOAPI
-#include "iowin32.h"
+#include "minizip/iowin32.h"
 #endif
 }
 

@@ -8,6 +8,7 @@
 
 #include <map>
 
+#include "imgui/imgui.h"
 #include "re/utils/Log.hpp"
 #include "re/physics/Box2DHelper.hpp"
 #include "re/managers/Box2DManager.hpp"
@@ -99,5 +100,14 @@ namespace re
 		}
 		
 		Locator::get<Box2DManager>()->world()->DestroyBody(m_body);
+	}
+
+	void PhysicsComponent::debug()
+	{
+		ImGui::Text("Edit the script to make changes.");
+
+		ImGui::Spacing();
+
+		ImGui::Text("This is done because there are issues with manually setting stuff in box2d.");
 	}
 }

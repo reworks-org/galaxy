@@ -29,4 +29,13 @@ namespace re
 	ParallaxComponent::~ParallaxComponent()
 	{
 	}
+
+	void ParallaxComponent::debug()
+	{
+		ImGui::Text("Edit the script to make changes.");
+
+		ImGui::Spacing();
+
+		ImGui::Text("This is done because alot of parallax stuff changes dynamically.");
+	}
 }

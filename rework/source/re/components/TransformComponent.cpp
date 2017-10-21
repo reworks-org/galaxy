@@ -6,6 +6,8 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include "imgui/imgui.h"
+
 #include "TransformComponent.hpp"
 
 namespace re
@@ -19,5 +21,16 @@ namespace re
 
 	TransformComponent::~TransformComponent()
 	{
+	}
+
+	void TransformComponent::debug()
+	{
+		ImGui::InputFloat("X Pos", &m_x);
+
+		ImGui::Spacing();
+		ImGui::InputFloat("Y Pos", &m_y);
+
+		ImGui::Spacing();
+		ImGui::SliderAngle("Angle Modifier", &m_angle, 0.0f, 360.0f);
 	}
 }

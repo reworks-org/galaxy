@@ -51,32 +51,13 @@ namespace re
 		void update(double dt);
 
 		///
-		/// \brief Register a function that assigns user components to entitys.
+		/// Registers a component with the world.
 		///
-		/// See m_assignUserComponents documentation.
+		/// \param T - Type of component to register, i.e. AnimationComponent.
+		/// \param name - Name of component in string format i.e. "AnimationComponent".
 		///
-		/// \param aucf Function pointer. return type: bool. params: std::string, sol::table, ex::entity.
-		///
-		void registerAssignUserComponentsFunction(std::function<bool(const std::string&, sol::table&, ex::Entity&)>& aucf);
-
-	private:
-		///
-		/// System implementation of assignUserComponents()
-		///
-		bool assignSystemComponents(const std::string& name, sol::table& table, ex::Entity& e);
-
-		///
-		/// \brief Assigns user components to entitys.
-		///
-		/// See assignSystemComponents() implementation on how to implement.
-		///
-		/// \param name Name of Component to assign.
-		/// \param table sol::table of component data.
-		/// \param e Entity to assign components to.
-		///
-		/// \return bool True if it managed to assign an entity, false if it could not assign a component to the entity.
-		///
-		std::function<bool(const std::string&, sol::table&, ex::Entity&)> m_assignUserComponents;
+		template<typename T>
+		void registerComponent(const std::string& name);
 
 	public:
 		ex::EventManager m_eventManager;
@@ -86,7 +67,24 @@ namespace re
 	private:
 		std::unordered_map<std::string, ex::Entity> m_entitys;
 		std::unordered_map<std::string, std::string> m_entityScripts;
+		std::unordered_map<std::string, std::function<void(ex::Entity&, sol::table&)>> m_componentAssign;
+		std::unordered_map<std::string, std::function<void(ex::Entity&)>> m_componentDebug;
 	};
+
+	template<typename T>
+	void World::registerComponent(const std::string& name)
+	{
+		// push back a lambda that calls e->assign and one that calls e->debug.
+		m_componentAssign.emplace(name, [](ex::Entity& e, sol::table& table)
+		{
+			e.assign<T>(table);
+		});
+
+		m_componentDebug.emplace(name, [](ex::Entity& e)
+		{
+			e.component<T>->debug();
+		});
+	}
 }
 
 #endif

@@ -60,13 +60,7 @@ namespace re
 
 		for (auto& it : kvp)
 		{
-			if (!assignSystemComponents(it.first, it.second, e))
-			{
-				if (!m_assignUserComponents(it.first, it.second, e))
-				{
-					BOOST_LOG_TRIVIAL(warning) << "Attempted to register unknown component! script: " << script << std::endl;
-				}
-			}
+			m_componentAssign[it.first](e, it.second);
 		}
 	}
 
@@ -116,13 +110,7 @@ namespace re
 
 			for (auto& eit : m_ekv)
 			{
-				if (!assignSystemComponents(eit.first, eit.second, e))
-				{
-					if (!m_assignUserComponents(eit.first, eit.second, e))
-					{
-						BOOST_LOG_TRIVIAL(warning) << "Attempted to register unknown component! script: " << it.second << std::endl;
-					}
-				}
+				m_componentAssign[eit.first](e, eit.second);
 			}
 		}
 	}
@@ -130,54 +118,5 @@ namespace re
 	void World::update(double dt)
 	{
 		m_systemManager.update_all(dt);
-	}
-
-	void World::registerAssignUserComponentsFunction(std::function<bool(const std::string&, sol::table&, ex::Entity&)>& aucf)
-	{
-		m_assignUserComponents = aucf;
-	}
-
-	bool World::assignSystemComponents(const std::string& name, sol::table& table, ex::Entity& e)
-	{
-		bool out = true;
-
-		if (name == "AnimationComponent")
-		{
-			e.assign<AnimationComponent>(table);
-		}
-		else if (name == "CollisionComponent")
-		{
-			e.assign<CollisionComponent>(table);
-		}
-		else if (name == "LayerComponent")
-		{
-			e.assign<LayerComponent>(table);
-		}
-		else if (name == "ParallaxComponent")
-		{
-			e.assign<ParallaxComponent>(table);
-		}
-		else if (name == "PhysicsComponent")
-		{
-			e.assign<PhysicsComponent>(table);
-		}
-		else if (name == "SpriteComponent")
-		{
-			e.assign<SpriteComponent>(table);
-		}
-		else if (name == "TextComponent")
-		{
-			e.assign<TextComponent>(table);
-		}
-		else if (name == "TransformComponent")
-		{
-			e.assign<TransformComponent>(table);
-		}
-		else
-		{
-			out = false;
-		}
-
-		return out;
 	}
 }

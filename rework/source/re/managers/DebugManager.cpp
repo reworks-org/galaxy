@@ -30,7 +30,7 @@ namespace re
 	}
 
 	DebugManager::DebugManager(ALLEGRO_DISPLAY* display)
-	:m_reloadState(nullptr), m_disabled(false);
+	:m_reloadState(nullptr), m_disabled(false)
 	{
 		m_world = Locator::get<World>();
 		ImGui_ImplA5_Init(display);
@@ -75,6 +75,7 @@ namespace re
 		if (!m_disabled)
 		{
 			static int index = 0;
+			static int indexComponent = 0;
 			static bool showScriptEditor = false;
 			static std::vector<std::string> entityScripts;
 
@@ -156,9 +157,9 @@ namespace re
 					doneOnce = true;
 				}
 
-				if (first != m_world->m_loadedEntityScripts[index])
+				if (first != entityScripts[index])
 				{
-					first = m_world->m_loadedEntityScripts[index];
+					first = entityScripts[index];
 
 					scriptData.clear();
 					scriptData = std::vector<char>(curEntityScriptData.begin(), curEntityScriptData.end());
@@ -188,18 +189,12 @@ namespace re
 						}
 					}
 
-					std::string path = Locator::get<VFS>()->getBasePath() + curEntityScriptName;
-
-					std::ofstream out;
-					out.open(path, std::ofstream::out);
-
 					std::string dataOut(scriptData.begin(), scriptData.end());
 					trimFromEnd(dataOut);
 					dataOut.erase(std::remove(dataOut.begin(), dataOut.end(), '\r'), dataOut.end());
 
 					dataOut.shrink_to_fit();
-					out << dataOut << std::endl;
-					out.close();
+					Locator::get<VFS>()->writeStringToArchive(curEntityScriptName, dataOut, "scripts/");
 
 					scriptData.clear();
 					scriptData = std::vector<char>(dataOut.begin(), dataOut.end());
@@ -222,7 +217,7 @@ namespace re
 			ImGui::Separator();
 			ImGui::Spacing();
 
-			// Do component stuff???
+			m_world->m_componentDebug[curComponent](e);
 
 			ImGui::End();
 		}

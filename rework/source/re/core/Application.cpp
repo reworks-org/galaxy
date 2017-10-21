@@ -17,6 +17,7 @@
 
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
+#include "re/core/World.hpp"
 
 #include "Application.hpp"
 
@@ -111,7 +112,7 @@ namespace re
 				m_stateManager->event(&ev);
 				m_debugManager->event(&ev);
 
-				switch (event.type)
+				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
 					m_stateManager->update(timePerFrame);

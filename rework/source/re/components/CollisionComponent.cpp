@@ -6,6 +6,7 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include "imgui/imgui.h"
 #include "CollisionComponent.hpp"
 
 namespace re
@@ -18,5 +19,13 @@ namespace re
 
 	CollisionComponent::~CollisionComponent()
 	{
+	}
+
+	void CollisionComponent::debug()
+	{
+		ImGui::InputInt("Width Modifier", &m_width, 1, 2);
+
+		ImGui::Spacing();
+		ImGui::InputInt("Height Modifier", &m_height, 1, 2);
 	}
 }

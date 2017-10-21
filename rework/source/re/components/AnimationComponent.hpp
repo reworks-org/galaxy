@@ -63,6 +63,11 @@ namespace re
 		///
 		bool isPaused() const;
 
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
+
 	private:
 		bool m_isPaused;
         

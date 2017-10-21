@@ -13,8 +13,9 @@
 
 namespace re
 {
-	struct SpriteComponent
+	class SpriteComponent
 	{
+	public:
 		///
 		/// Constructor.
 		///
@@ -27,6 +28,12 @@ namespace re
 		///
 		~SpriteComponent();
 		
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
+
+	public:
 		std::string m_spriteName;
 	};
 }

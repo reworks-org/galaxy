@@ -14,8 +14,9 @@
 
 namespace re
 {
-	struct ParallaxComponent
+	class ParallaxComponent
 	{
+	public:
 		///
 		/// Constructor.
 		///
@@ -28,6 +29,12 @@ namespace re
 		///
 		~ParallaxComponent();
 		
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
+
+	public:
 		std::vector<ParallaxBitmap> m_pb;
 	};
 }

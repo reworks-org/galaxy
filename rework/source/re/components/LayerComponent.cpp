@@ -14,4 +14,10 @@ namespace re
 	{
 		m_layer = table.get<std::size_t>("layer");
 	}
+	LayerComponent::~LayerComponent()
+	{
+	}
+	void LayerComponent::debug()
+	{
+	}
 }

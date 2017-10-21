@@ -9,6 +9,7 @@
 
 #include <map>
 
+#include "imgui/imgui.h"
 #include "re/utils/Log.hpp"
 #include "re/utils/Time.hpp"
 
@@ -103,5 +104,34 @@ namespace re
 	bool AnimationComponent::isPaused() const
 	{
 		return m_isPaused;
+	}
+
+	void AnimationComponent::debug()
+	{
+		ImGui::InputFloat("Time Per Frame", &m_frameTime);
+
+		ImGui::Spacing();
+		ImGui::InputInt("Current Frame". &m_currentFrame);
+
+		ImGui::Spacing();
+		ImGui::Checkbox("Is Looping", &m_isLooped);
+
+		ImGui::Spacing();
+		if (ImGui::Button("Play animation"))
+		{
+			play();
+		}
+
+		ImGui::Spacing();
+		if (ImGui::Button("Pause animation"))
+		{
+			pause();
+		}
+
+		ImGui::Spacing();
+		if (ImGui::Button("Stop Animation"))
+		{
+			stop();
+		}
 	}
 }

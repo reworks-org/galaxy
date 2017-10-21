@@ -3,13 +3,12 @@
 #include <algorithm>
 #include <iterator>
 
-#include <CDirEntry.h>
+#include "CDirEntry.h"
 
 #include <cstdio>
 
 #if defined(WIN32) && !defined(CYGWIN)
 #  include "tps/dirent.h"
-#  include "tps/dirent.c"
 #else
 #  include <sys/types.h>
 #  include <dirent.h>
@@ -94,7 +93,7 @@ namespace zipper {
   std::string currentPath()
   {
     char buffer[1024];
-    getcwd(buffer, 1024);
+    _getcwd(buffer, 1024);
     std::string result(buffer);
     return result;
 
