@@ -25,7 +25,6 @@
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
     <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
-    <ClCompile Include="source\re\components\SerializeComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
@@ -245,7 +244,6 @@
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
     <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
-    <ClInclude Include="source\re\components\SerializeComponent.hpp" />
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />

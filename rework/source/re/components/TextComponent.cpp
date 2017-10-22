@@ -26,6 +26,7 @@ namespace re
 		
 		m_x = table.get<float>("x");
 		m_y = table.get<float>("y");
+		m_layer = table.get<unsigned int>("layer");
 	}
 
 	TextComponent::~TextComponent()
@@ -60,6 +61,13 @@ namespace re
 
 		ImGui::Spacing();
 		ImGui::InputFloat("y-pos", &m_y);
+
+		ImGui::Spacing();
+		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))
+		{
+			if (m_layer < 0)
+				m_layer = 0;
+		}
 
 		ImGui::Spacing();
 		ImGui::Text("Colour Modifiers: ");

@@ -29,6 +29,9 @@ renderer:
 - use atlas drawing for performance :3
 - camera system?
 - split update and rendering threads?
+https://gamedev.stackexchange.com/questions/58086/rendering-order-in-an-entity-system
+
+- particle engine
 
 - implement serialization
 	- call serializecomponetns from serailize suystem using eneityx

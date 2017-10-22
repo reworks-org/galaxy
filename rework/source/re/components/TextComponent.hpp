@@ -46,6 +46,7 @@ namespace re
 		ALLEGRO_FONT* m_font;
 		float m_x;
 		float m_y;
+		unsigned int m_layer;
 	};
 }
 

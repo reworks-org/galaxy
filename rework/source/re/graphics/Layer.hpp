@@ -9,6 +9,7 @@
 #ifndef REWORK_LAYER_HPP_
 #define REWORK_LAYER_HPP_
 
+#include "entityx/entityx.h"
 #include "re/graphics/TexturePacker.hpp"
 
 namespace re
@@ -28,7 +29,13 @@ namespace re
 		///
 		void draw();
 
+		void insert(ex::Entity& e);
+
+		void sort();
+
 	private:
+		std::vector<ex::Entity> m_sprites;
+		std::vector<ex::Entity> m_texts;
 		TexturePacker* m_atlas;
 	};
 }

@@ -35,6 +35,7 @@ namespace re
 
 	public:
 		std::string m_spriteName;
+		unsigned int m_layer;
 	};
 }
 
