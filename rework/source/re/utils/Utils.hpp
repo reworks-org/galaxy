@@ -12,12 +12,33 @@
 #include <string>
 #include <sstream>
 
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 
 namespace re
 {
 	namespace Utils
 	{
+		///
+		/// \brief Get an extension.
+		///
+		/// Thanks to: https://stackoverflow.com/a/4505931
+		///
+		/// \param filename Name of file with an extension to retrieve. ONLY WORKS FOR FILES. DO NOT USE FOR PATHS! ESPECIALLY PATHS WITH DOTS IN THEM!
+		///
+		/// \return string containing extension.
+		///
+		std::string getExtension(const std::string& filename)
+		{
+			if (filename.find_last_of(".") != std::string::npos)
+			{
+				return filename.substr(filename.find_last_of(".") + 1);
+			}
+			else
+			{
+				return "";
+			}
+		}
+
 		///
 		/// Converts a boolean to a std::string.
 		///
@@ -74,7 +95,7 @@ namespace re
 
 				if (iss.fail())
 				{
-					BOOST_LOG_TRIVIAL(warning) << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
+					LOG_S(FATAL) << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
 					return T();
 				}
 				return ret;

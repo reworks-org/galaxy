@@ -15,9 +15,10 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
 
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 #include "re/utils/Time.hpp"
 #include "re/core/World.hpp"
+#include "re/services/ServiceLocator.hpp"
 
 #include "Application.hpp"
 
@@ -25,10 +26,19 @@ namespace re
 {
 	Application::Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig)
 	{
-		Log::init();
-		BOOST_LOG_TRIVIAL(info) << "App init." << std::endl;
-
 		std::srand(std::time(nullptr));
+
+		int temp = 0;
+		loguru::init(temp, nullptr);
+		std::string lname = "log_" + Time::getFormattedTime() + ".log";
+		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
+		loguru::set_fatal_handler([](const loguru::Message& message)
+		{
+			al_show_native_message_box(NULL, "FATAL", message.prefix, message.message, NULL, ALLEGRO_MESSAGEBOX_ERROR);
+			throw std::runtime_error("See logs.");
+		});
+
+		LOG_S(INFO) << "App init." << std::endl;
 
 		al_install_system(ALLEGRO_VERSION_INT, atexit);
 		al_install_audio();
@@ -140,7 +150,7 @@ namespace re
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
 			{
 				timer += 1000;
-				BOOST_LOG_TRIVIAL(info) << m_appTitle << "  |  " + updates << " ups, " << frames << " fps" << std::endl;
+				LOG_S(INFO) << m_appTitle << "  |  " + updates << " ups, " << frames << " fps" << std::endl;
 				
 				updates = 0;
 				frames = 0;
@@ -152,7 +162,7 @@ namespace re
 		al_stop_timer(clock);
 		al_destroy_event_queue(eventQueue);
 		al_destroy_timer(clock);
-		BOOST_LOG_TRIVIAL(info) << "App close." << std::endl;
+		LOG_S(INFO) << "App close." << std::endl;
 
 		return EXIT_SUCCESS;
 	}

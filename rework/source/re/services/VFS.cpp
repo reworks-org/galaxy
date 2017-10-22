@@ -12,7 +12,7 @@
 #include <allegro5/allegro_physfs.h>
 
 #include "zipper/zipper.h"
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 
 #include "VFS.hpp"
 
@@ -22,7 +22,7 @@ namespace re
 	{
 		if (!PHYSFS_init(nullptr))
 		{
-			BOOST_LOG_TRIVIAL(error) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
+			LOG_S(FATAL) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
 		}
 
 		al_set_physfs_file_interface();
@@ -32,7 +32,7 @@ namespace re
 	{
 		if (!PHYSFS_init(nullptr))
 		{
-			BOOST_LOG_TRIVIAL(error) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
+			LOG_S(FATAL) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
 		}
 
 		al_set_physfs_file_interface();
@@ -55,7 +55,7 @@ namespace re
 	{
 		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
 		{
-			BOOST_LOG_TRIVIAL(error) << "Cannot load: " << archive << std::endl;
+			LOG_S(FATAL) << "Cannot load: " << archive << std::endl;
 		}
 	}
 
@@ -69,7 +69,7 @@ namespace re
 		}
 		else
 		{
-			BOOST_LOG_TRIVIAL(warning) << "Tried to open a file that does not exist!" << std::endl;
+			LOG_S(WARNING) << "Tried to open a file that does not exist!" << std::endl;
 		}
 
 		return pointer;
@@ -80,7 +80,7 @@ namespace re
 		ALLEGRO_FILE* f = open(file, "r");
 		if (!f)
 		{
-			BOOST_LOG_TRIVIAL(error) << "Failed to open: " << file << std::endl;
+			LOG_S(FATAL) << "Failed to open: " << file << std::endl;
 			return "";
 		}
 
@@ -88,7 +88,7 @@ namespace re
 		ustr = al_fget_ustr(f);
 		if (!ustr)
 		{
-			BOOST_LOG_TRIVIAL(error) << "Failed to read string from file!" << std::endl;
+			LOG_S(FATAL) << "Failed to read string from file!" << std::endl;
 			return "";
 		}
 

@@ -9,7 +9,7 @@
 
 #include <map>
 
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 #include "re/utils/Time.hpp"
 #include "imgui/imgui_impl_a5.h"
 
@@ -39,7 +39,7 @@ namespace re
 
 		if (kvp.empty())
 		{
-			BOOST_LOG_TRIVIAL(warning) << "Tried to load animation with no frames!" << std::endl;
+			LOG_S(FATAL) << "Tried to load animation with no frames!" << std::endl;
 		}
 
 		for (auto& it : kvp)

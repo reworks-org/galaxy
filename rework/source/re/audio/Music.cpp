@@ -6,8 +6,7 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include <boost/filesystem.hpp>
-
+#include "re/utils/Utils.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -18,7 +17,7 @@ namespace re
 	Music::Music(sol::table& table)
 	{
 		std::string fn = table.get<std::string>("file");
-		std::string ext = boost::filesystem::extension(fn);
+		std::string ext = Utils::getExtension(fn);
 
 		m_music = al_load_sample_f(Locator::get<VFS>()->open(fn, "r"), ext.c_str());
 		m_instance = al_create_sample_instance(m_music);
@@ -42,7 +41,7 @@ namespace re
 				break;
 
 			default:
-				BOOST_LOG_TRIVIAL(warning) << "Invalid playmode. Setting to loop..." << std::endl;
+				LOG_S(WARNING) << "Invalid playmode. Setting to loop..." << std::endl;
 				al_set_sample_instance_playmode(m_instance, ALLEGRO_PLAYMODE_LOOP);
 				break;
 		}

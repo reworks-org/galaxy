@@ -218,6 +218,7 @@
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\components\SerializeComponent.cpp" />
+    <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -463,7 +464,6 @@
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />
-    <ClInclude Include="source\re\utils\Log.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
     <ClInclude Include="source\re\components\SerializeComponent.hpp" />

@@ -9,7 +9,7 @@
 #include <map>
 
 #include "imgui/imgui.h"
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 #include "re/physics/Box2DHelper.hpp"
 #include "re/managers/Box2DManager.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -51,7 +51,7 @@ namespace re
 
 		if (kvp.empty())
 		{
-			BOOST_LOG_TRIVIAL(warning) << "Attempted to use an empty fixture list." << std::endl;
+			LOG_S(FATAL) << "Attempted to use an empty fixture list." << std::endl;
 		}
 		
 		for (auto& it : kvp)

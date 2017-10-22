@@ -6,6 +6,7 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include <map>
 #include <sstream>
 #include <fstream>
 

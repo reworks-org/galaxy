@@ -161,6 +161,9 @@ Website: www.ilikebigbits.com
 	* Any arguments to LOG_IF functions are only evaluated if the test passes.
 */
 
+// I want streams
+#define LOGURU_WITH_STREAMS 1
+
 // Disable all warnings from gcc/clang:
 #if defined(__clang__)
 	#pragma clang system_header

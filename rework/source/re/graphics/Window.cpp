@@ -36,7 +36,7 @@ namespace re
 		m_display = al_create_display(width, height);
 		if (!m_display)
 		{
-			BOOST_LOG_TRIVIAL(error) << "Could not create a display!" << std::endl;
+			LOG_S(FATAL) << "Could not create a display!" << std::endl;
 		}
 
 		if (fullscreen)

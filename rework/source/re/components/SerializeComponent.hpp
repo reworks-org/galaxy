@@ -9,6 +9,13 @@
 #ifndef REWORK_SERIALIZECOMPONENT_HPP_
 #define REWORK_SERIALIZECOMPONENT_HPP_
 
+#include "sol2/sol.hpp"
+
+namespace ex
+{
+	class Entity;
+}
+
 namespace re
 {
 	class SerializeComponent

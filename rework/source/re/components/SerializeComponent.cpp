@@ -6,6 +6,8 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
+#include "entityx/Entity.h"
+
 #include "SerializeComponent.hpp"
 
 namespace re

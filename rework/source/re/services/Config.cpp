@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 
 #include "Config.hpp"
 
@@ -19,7 +19,7 @@ namespace re
 
 		if (!m_config)
 		{
-			BOOST_LOG_TRIVIAL(warning) << "Failed to load config file. Creating default..." << std::endl;
+			LOG_S(WARNING) << "Failed to load config file. Creating default..." << std::endl;
 
 			std::ofstream newConfig;
 			newConfig.open(m_fileName);
@@ -31,7 +31,7 @@ namespace re
 			m_config = al_load_config_file(m_fileName.c_str());
 			if (!m_config)
 			{
-				BOOST_LOG_TRIVIAL(error) << "Failed to create and load a config file!" << std::endl;
+				LOG_S(FATAL) << "Failed to create and load a config file!" << std::endl;
 			}
 		}
 	}
@@ -61,7 +61,7 @@ namespace re
 		bool saved = al_save_config_file(m_fileName.c_str(), m_config);
 		if (!saved)
 		{
-			BOOST_LOG_TRIVIAL(error) << "Failed to save config file." << std::endl;
+			LOG_S(ERROR) << "Failed to save config file." << std::endl;
 		}
 	}
 }

@@ -12,7 +12,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 #include "re/types/Service.hpp"
 
 namespace re
@@ -62,7 +62,7 @@ namespace re
 	{
 		if (m_services.find(std::type_index(typeid(T))) != m_services.end())
 		{
-			BOOST_LOG_TRIVIAL(warning) << "Tried to provide an already existing service." << std::endl;
+			LOG_S(WARNING) << "Tried to provide an already existing service." << std::endl;
 		}
 		else 
 		{
@@ -89,7 +89,7 @@ namespace re
 		}
 		else
 		{
-			BOOST_LOG_TRIVIAL(warning) << "Attempted to remove a service that doesnt exist." << std::endl;
+			LOG_S(WARNING) << "Attempted to remove a service that doesnt exist." << std::endl;
 		}
 	}
 }

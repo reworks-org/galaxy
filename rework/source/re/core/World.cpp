@@ -8,7 +8,7 @@
 
 #include <map>
 
-#include "re/utils/Log.hpp"
+#include "loguru/loguru.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/components/AnimationComponent.hpp"
@@ -80,7 +80,7 @@ namespace re
 
 		if (kvp.empty())
 		{
-			BOOST_LOG_TRIVIAL(error) << "Attempted to register an empty entity script." << std::endl;
+			LOG_S(FATAL) << "Attempted to register an empty entity script." << std::endl;
 			return;
 		}
 

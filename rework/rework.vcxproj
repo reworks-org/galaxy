@@ -167,6 +167,7 @@
     <ClCompile Include="source\re\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui_impl_a5.cpp" />
+    <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
     <ClCompile Include="source\re\libs\lua\lapi.c" />
     <ClCompile Include="source\re\libs\lua\lauxlib.c" />
     <ClCompile Include="source\re\libs\lua\lbaselib.c" />
@@ -483,7 +484,6 @@
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />
-    <ClInclude Include="source\re\utils\Log.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
   </ItemGroup>
