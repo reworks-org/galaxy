@@ -19,13 +19,6 @@ namespace re
 
 	SerializeComponent::~SerializeComponent()
 	{
-	}
-
-	void SerializeComponent::save(ex::Entity& e)
-	{
-	}
-
-	void SerializeComponent::load(ex::Entity& e)
-	{
+		m_id = "";
 	}
 }

@@ -10,6 +10,11 @@
 
 namespace re
 {
+	StateManager::~StateManager()
+	{
+		m_currentState = nullptr;
+	}
+
 	void StateManager::load()
 	{
 		m_currentState->load();

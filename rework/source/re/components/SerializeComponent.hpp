@@ -11,23 +11,24 @@
 
 #include "sol2/sol.hpp"
 
-namespace ex
-{
-	class Entity;
-}
-
 namespace re
 {
 	class SerializeComponent
 	{
 	public:
+		///
+		/// Constructor.
+		///
+		/// \param table sol::table containing data.
+		///
 		SerializeComponent(sol::table& table);
+
+		///
+		/// Destructor.
+		///
 		~SerializeComponent();
 
-		void save(ex::Entity& e);
-		void load(ex::Entity& e);
-
-	private:
+	public:
 		std::string m_id;
 	};
 }

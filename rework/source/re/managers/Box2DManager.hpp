@@ -32,7 +32,7 @@ namespace re
 		///
 		/// Destructor
 		///
-		~Box2DManager();
+		~Box2DManager() override;
 
 		///
 		/// Removes any collision functions in the map.

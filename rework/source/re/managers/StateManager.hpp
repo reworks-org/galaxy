@@ -20,6 +20,11 @@ namespace re
 	{
 	public:	 
 		///
+		/// Destructor.
+		///
+		~StateManager() override;
+
+		///
 		/// Load the states resources.
 		///
 		void load();

@@ -36,7 +36,7 @@ namespace re
 		///
 		/// Destructor.
 		//
-		~VFS();
+		~VFS() override;
 
 		///
 		/// \brief Mount an archive or folder.

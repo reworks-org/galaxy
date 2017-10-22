@@ -27,7 +27,7 @@ namespace re
 		///
 		/// \return string containing extension.
 		///
-		std::string getExtension(const std::string& filename)
+		inline std::string getExtension(const std::string& filename)
 		{
 			if (filename.find_last_of(".") != std::string::npos)
 			{
