@@ -29,9 +29,29 @@ namespace re
 		///
 		void draw();
 
-		void insert(ex::Entity& e);
+		///
+		/// Insert a sprite into this layer.
+		///
+		/// \param e Entity to insert.
+		///
+		void insertSprite(ex::Entity& e);
+		
+		///
+		/// Insert a text object into this layer.
+		///
+		/// \param e Entity to insert.
+		///
+		void insertText(ex::Entity& e);
 
+		///
+		/// 
+		///
 		void sort();
+		
+		///
+		///
+		///
+		void clean();
 
 	private:
 		std::vector<ex::Entity> m_sprites;

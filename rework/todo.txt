@@ -32,7 +32,6 @@ renderer:
 https://gamedev.stackexchange.com/questions/58086/rendering-order-in-an-entity-system
 
 - particle engine
-
 - implement serialization
 	- call serializecomponetns from serailize suystem using eneityx
 	- serializecomponents contain information about what this entity needs to load
@@ -41,3 +40,23 @@ https://gamedev.stackexchange.com/questions/58086/rendering-order-in-an-entity-s
 http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
 https://readthedocs.org/
+
+
+
+update()
+{
+
+	e.each<spr>(e, sc)
+	{
+		layers[sc.layer](sc);
+	}
+
+}
+
+draw()
+{
+	for (auto& l : layers)
+	{
+		l.draw()
+	}
+}

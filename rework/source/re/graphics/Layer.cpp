@@ -19,6 +19,11 @@ namespace re
 {
 	Layer::Layer(TexturePacker* atlas)
 	{
+		m_sprites.clear();
+		m_texts.clear();
+
+		m_sprites.reserve(20);
+		m_texts.reserve(20);
 	}
 
 	Layer::~Layer()
@@ -27,26 +32,51 @@ namespace re
 
 	void Layer::draw()
 	{
-		for (auto& sc : m_sprites)
+		for (auto& e : m_sprites)
 		{
-			m_atlas->al_draw_packed_bitmap(sc->m_spriteName, tc->m_x, tc->m_y, 0);
+			m_atlas->al_draw_tinted_scaled_rotated_packed_bitmap(e.component<SpriteComponent>()->m_spriteName, al_map_rgba_f(1, 1, 1, 1), 0, 0, e.component<TransformComponent>()->m_x, e.component<TransformComponent>()->m_y, 1, 1, e.component<TransformComponent>()->m_angle, 0);
+		}
+
+		for (auto& e : m_texts)
+		{
+			e.component<TextComponent>()->draw();
 		}
 	}
 
-	void Layer::insert(ex::Entity& e)
+	void Layer::insertSprite(ex::Entity& e)
 	{
-		m_entities.push_back(e);
+		m_sprites.push_back(e);
 	}
 
+	void Layer::insertText(ex::Entity& e)
+	{
+		m_texts.push_back(e);
+	}
+
+	/*
 	void Layer::sort()
 	{
-		std::sort(m_sprites.begin(), m_sprites.end(), [](ex::Entity a, ex::Entity b) {
-			
-			return a.component<SpriteComponent>()->m_layer < b->m_layer;
+		std::sort(m_sprites.begin(), m_sprites.end(), [](ex::Entity& a, ex::Entity& b)
+		{
+			return a.component<SpriteComponent>()->m_layer < b.component<SpriteComponent>()->m_layer;
 		});
 
-		std::sort(m_texts.begin(), m_texts.end(), [](ex::ComponentHandle<TextComponent> a, ex::ComponentHandle<TextComponent> b) {
-			return a->m_layer < b->m_layer;
+		std::sort(m_texts.begin(), m_texts.end(), [](ex::Entity& a, ex::Entity& b) 
+		{
+			return a.component<TextComponent>()->m_layer < b.component<TextComponent>()->m_layer;
 		});
+
+		m_sprites.shrink_to_fit();
+		m_texts.shrink_to_fit();
+	}
+	*/
+
+	void Layer::clean()
+	{
+		m_sprites.clear();
+		m_texts.clear();
+
+		m_sprites.reserve(20);
+		m_texts.reserve(20);
 	}
 }

@@ -34,6 +34,5 @@ namespace re
 			if (m_layer < 0)
 				m_layer = 0;
 		}
-	
 	}
 }

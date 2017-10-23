@@ -218,6 +218,7 @@
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
+    <ClCompile Include="source\re\graphics\Layer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -466,6 +467,7 @@
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
     <ClInclude Include="source\re\libs\loguru\loguru.hpp" />
+    <ClInclude Include="source\re\graphics\Layer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

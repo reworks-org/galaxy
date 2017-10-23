@@ -30,6 +30,7 @@
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
+    <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\graphics\ParallaxBitmap.cpp" />
     <ClCompile Include="source\re\graphics\Shader.cpp" />
     <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
@@ -249,6 +250,7 @@
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\graphics\Layer.hpp" />
     <ClInclude Include="source\re\graphics\ParallaxBitmap.hpp" />
     <ClInclude Include="source\re\graphics\Shader.hpp" />
     <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
