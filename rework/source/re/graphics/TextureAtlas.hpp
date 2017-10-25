@@ -3,8 +3,8 @@
 // This is essentially a port to C++, with some additions to support string ids, physfs, and uses rework coding style.
 // Most of the logic belongs to the original author.
 
-#ifndef REWORK_TEXTUREPACKER_HPP_
-#define REWORK_TEXTUREPACKER_HPP_
+#ifndef REWORK_TEXTUREATLAS_HPP_
+#define REWORK_TEXTUREATLAS_HPP_
 
 #include <string>
 #include <unordered_map>
@@ -33,19 +33,19 @@ struct packed_image_file
 
 namespace re
 {
-	class TexturePacker : public Service
+	class TextureAtlas : public Service
 	{
 	public:
 		///
 		/// Initialize the texture packer.pack_file_name and all referenced
 		/// packed image files must be in the root of pack_file_path
 		///
-		TexturePacker(const std::string& atlas);
+		TextureAtlas(const std::string& atlas);
 
 		///
 		/// Frees all memory used by the texture packer.
 		///
-		~TexturePacker() override;
+		~TextureAtlas() override;
 
 		///
 		/// Like al_draw_bitmap

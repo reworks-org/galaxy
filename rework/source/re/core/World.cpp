@@ -13,7 +13,6 @@
 #include "re/services/ServiceLocator.hpp"
 #include "re/components/AnimationComponent.hpp"
 #include "re/components/CollisionComponent.hpp"
-#include "re/components/LayerComponent.hpp"
 #include "re/components/ParallaxComponent.hpp"
 #include "re/components/PhysicsComponent.hpp"
 #include "re/components/SpriteComponent.hpp"

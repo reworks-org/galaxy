@@ -5,16 +5,13 @@
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
-    <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
-    <ClCompile Include="source\re\graphics\ParallaxBitmap.cpp" />
     <ClCompile Include="source\re\graphics\Shader.cpp" />
-    <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5CursorProvider.cpp" />
     <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5Font.cpp" />
@@ -219,22 +216,21 @@
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
+    <ClCompile Include="source\re\systems\RenderSystem.cpp" />
+    <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
-    <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
-    <ClInclude Include="source\re\graphics\ParallaxBitmap.hpp" />
     <ClInclude Include="source\re\graphics\Shader.hpp" />
-    <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5.hpp" />
     <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5CursorProvider.hpp" />
@@ -468,6 +464,9 @@
     <ClInclude Include="source\re\utils\Utils.hpp" />
     <ClInclude Include="source\re\libs\loguru\loguru.hpp" />
     <ClInclude Include="source\re\graphics\Layer.hpp" />
+    <ClInclude Include="source\re\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="source\re\types\Renderable.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

@@ -10,6 +10,7 @@
 #define REWORK_PARALLAXCOMPONENT_HPP_
 
 #include "sol2/sol.hpp"
+#include "re/types/Renderable.hpp"
 #include "re/graphics/ParallaxBitmap.hpp"
 
 namespace re
@@ -22,7 +23,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		ParallaxComponent(sol::table& table);
+		ParallaxComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

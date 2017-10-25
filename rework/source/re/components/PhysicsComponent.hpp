@@ -12,6 +12,11 @@
 #include "sol2/sol.hpp"
 #include "Box2D/Dynamics/b2Body.h"
 
+namespace ex
+{
+	class Entity;
+}
+
 namespace re
 {
 	class PhysicsComponent
@@ -22,7 +27,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		PhysicsComponent(sol::table& table);
+		PhysicsComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

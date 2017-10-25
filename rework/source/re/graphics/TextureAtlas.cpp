@@ -11,11 +11,11 @@
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
-#include "TexturePacker.hpp"
+#include "TextureAtlas.hpp"
 
 namespace re
 {
-	TexturePacker::TexturePacker(const std::string& atlas)
+	TextureAtlas::TextureAtlas(const std::string& atlas)
 	{
 		pack_config = al_load_config_file_f(Locator::get<VFS>()->open(atlas, "rw"));
 
@@ -123,7 +123,7 @@ namespace re
 		while (looping);
 	}
 
-	TexturePacker::~TexturePacker()
+	TextureAtlas::~TextureAtlas()
 	{
 		free(packed_image_array);
 
@@ -138,7 +138,7 @@ namespace re
 		al_destroy_config(pack_config);
 	}
 
-	void TexturePacker::al_draw_packed_bitmap(const std::string& p_img_id_s, float dx, float dy, int flags)
+	void TextureAtlas::al_draw_packed_bitmap(const std::string& p_img_id_s, float dx, float dy, int flags)
 	{
 		int p_img_int = m_strToID[p_img_id_s];
 
@@ -152,7 +152,7 @@ namespace re
 		);
 	}
 
-	void TexturePacker::al_draw_tinted_packed_bitmap(const std::string& p_img_id_s, ALLEGRO_COLOR tint,
+	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& p_img_id_s, ALLEGRO_COLOR tint,
 		float dx, float dy, int flags) 
 	{
 		int p_img_int = m_strToID[p_img_id_s];
@@ -168,7 +168,7 @@ namespace re
 		);
 	}
 
-	void TexturePacker::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& p_img_id_s,
+	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& p_img_id_s,
 		ALLEGRO_COLOR tint,
 		float cx, float cy, float dx, float dy, float xscale, float yscale,
 		float angle, int flags) 
@@ -187,7 +187,7 @@ namespace re
 		);
 	}
 
-	ALLEGRO_BITMAP* TexturePacker::al_create_packed_bitmap(const std::string& p_img_id_s)
+	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(const std::string& p_img_id_s)
 	{
 		int p_img_int = m_strToID[p_img_id_s];
 

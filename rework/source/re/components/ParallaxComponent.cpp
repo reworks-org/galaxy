@@ -8,13 +8,14 @@
 
 #include <map>
 
+#include "entityx/Entity.h"
 #include "imgui/imgui_impl_a5.h"
 
 #include "ParallaxComponent.hpp"
 
 namespace re
 {
-	ParallaxComponent::ParallaxComponent(sol::table& table)
+	ParallaxComponent::ParallaxComponent(ex::Entity& e, sol::table& table)
 	{
 		// Get key-value pairs from table
 		std::map<std::string, sol::table> kvp;

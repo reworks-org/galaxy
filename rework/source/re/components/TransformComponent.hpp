@@ -21,7 +21,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		TransformComponent(sol::table& table);
+		TransformComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

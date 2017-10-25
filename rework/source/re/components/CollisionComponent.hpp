@@ -11,6 +11,11 @@
 
 #include "sol2/sol.hpp"
 
+namespace ex
+{
+	class Entity;
+}
+
 namespace re
 {
 	class CollisionComponent
@@ -21,7 +26,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		CollisionComponent(sol::table& table);
+		CollisionComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

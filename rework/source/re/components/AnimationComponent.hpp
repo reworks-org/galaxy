@@ -12,6 +12,11 @@
 #include "sol2/sol.hpp"
 #include "re/math/Rect.hpp"
 
+namespace ex
+{
+	class Entity;
+}
+
 namespace re
 {
 	class AnimationComponent
@@ -22,7 +27,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		AnimationComponent(sol::table& table);
+		AnimationComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

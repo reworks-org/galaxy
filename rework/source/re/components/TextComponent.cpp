@@ -8,15 +8,17 @@
 
 #include <algorithm>
 
+#include "entityx/Entity.h"
 #include "imgui/imgui_impl_a5.h"
 #include "re/managers/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
+#include "re/components/TransformComponent.hpp"
 
 #include "TextComponent.hpp"
 
 namespace re
 {
-	TextComponent::TextComponent(sol::table& table)
+	TextComponent::TextComponent(ex::Entity& e, sol::table& table)
 	{
 		m_text = table.get<std::string>("text");
 		m_font = Locator::get<FontManager>()->get(table.get<std::string>("font"));
@@ -24,18 +26,14 @@ namespace re
 		sol::table colour = table.get<sol::table>("colour");
 		m_colour = al_map_rgba(colour.get<unsigned char>("r"), colour.get<unsigned char>("g"), colour.get<unsigned char>("b"), colour.get<unsigned char>("a"));
 		
-		m_x = table.get<float>("x");
-		m_y = table.get<float>("y");
-		m_layer = table.get<unsigned int>("layer");
+		m_offsetX = table.get<float>("offsetX");
+		m_offsetY = table.get<float>("offsetY");
+		m_layer = table.get<int>("layer");
+		m_entity = e;
 	}
 
 	TextComponent::~TextComponent()
 	{
-	}
-
-	void TextComponent::draw()
-	{
-		al_draw_text(m_font, m_colour, m_x, m_y, 0, m_text.c_str());
 	}
 
 	void TextComponent::debug()
@@ -57,10 +55,10 @@ namespace re
 		ImGui::Separator();
 
 		ImGui::Spacing();
-		ImGui::InputFloat("x-pos", &m_x);
+		ImGui::InputFloat("x-pos", &m_offsetX);
 
 		ImGui::Spacing();
-		ImGui::InputFloat("y-pos", &m_y);
+		ImGui::InputFloat("y-pos", &m_offsetY);
 
 		ImGui::Spacing();
 		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))
@@ -98,5 +96,10 @@ namespace re
 			m_colour = al_map_rgba(r, g, b, a);
 			update = false;
 		}
+	}
+
+	void TextComponent::render()
+	{
+		al_draw_text(m_font, m_colour, m_entity.component<TransformComponent>()->m_x + m_offsetX, m_entity.component<TransformComponent>()->m_y+ m_offsetY, 0, m_text.c_str());
 	}
 }

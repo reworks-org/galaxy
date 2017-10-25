@@ -6,13 +6,14 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "imgui/imgui.h"
+#include "entityx/Entity.h"
+#include "imgui/imgui_impl_a5.h"
 
 #include "TransformComponent.hpp"
 
 namespace re
 {
-	TransformComponent::TransformComponent(sol::table& table)
+	TransformComponent::TransformComponent(ex::Entity& e, sol::table& table)
 	{
 		m_x = table.get<float>("x");
 		m_y = table.get<float>("y");

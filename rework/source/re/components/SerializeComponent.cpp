@@ -12,7 +12,7 @@
 
 namespace re
 {
-	SerializeComponent::SerializeComponent(sol::table& table)
+	SerializeComponent::SerializeComponent(ex::Entity& e, sol::table& table)
 	{
 		m_id = table.get<std::string>("id");
 	}

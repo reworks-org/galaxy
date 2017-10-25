@@ -12,10 +12,11 @@
 #include <allegro5/allegro_font.h>
 
 #include "sol2/sol.hpp"
+#include "re/types/Renderable.hpp"
 
 namespace re
 {
-	class TextComponent
+	class TextComponent : public Renderable
 	{
 	public:
 		///
@@ -23,30 +24,30 @@ namespace re
 		///
 		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters.
 		///
-		TextComponent(sol::table& table);
+		TextComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
 		///
-		~TextComponent();
-
-		///
-		/// Draw text. Convience function.
-		///
-		void draw();
-
+		~TextComponent() override;
+		
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
 		///
 		void debug();
 
+	private:
+		///
+		/// Draw text.
+		///
+		void render() override;
+
 	public:
 		std::string m_text;
 		ALLEGRO_COLOR m_colour;
 		ALLEGRO_FONT* m_font;
-		float m_x;
-		float m_y;
-		unsigned int m_layer;
+		float m_offsetX;
+		float m_offsetY;
 	};
 }
 

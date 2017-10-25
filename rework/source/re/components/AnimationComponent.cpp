@@ -9,6 +9,7 @@
 
 #include <map>
 
+#include "entityx/Entity.h"
 #include "loguru/loguru.hpp"
 #include "re/utils/Time.hpp"
 #include "imgui/imgui_impl_a5.h"
@@ -17,7 +18,7 @@
 
 namespace re
 {
-	AnimationComponent::AnimationComponent(sol::table& table)
+	AnimationComponent::AnimationComponent(ex::Entity& e, sol::table& table)
 	:m_isLooped(false), m_isPaused(false), m_frameTime(0.0f), m_currentTime(0.0f), m_currentFrame(0), m_activeAnimation("")
 	{
         m_animations.clear();

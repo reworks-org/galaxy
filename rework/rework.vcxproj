@@ -23,7 +23,6 @@
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\CollisionComponent.cpp" />
-    <ClCompile Include="source\re\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
@@ -31,9 +30,8 @@
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
-    <ClCompile Include="source\re\graphics\ParallaxBitmap.cpp" />
     <ClCompile Include="source\re\graphics\Shader.cpp" />
-    <ClCompile Include="source\re\graphics\TexturePacker.cpp" />
+    <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\graphics\Window.cpp" />
     <ClCompile Include="source\re\libs\agui\ActionEvent.cpp" />
     <ClCompile Include="source\re\libs\agui\ActionListener.cpp" />
@@ -237,13 +235,13 @@
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
+    <ClCompile Include="source\re\systems\RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
     <ClInclude Include="source\re\components\CollisionComponent.hpp" />
-    <ClInclude Include="source\re\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
@@ -251,9 +249,8 @@
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
     <ClInclude Include="source\re\graphics\Layer.hpp" />
-    <ClInclude Include="source\re\graphics\ParallaxBitmap.hpp" />
     <ClInclude Include="source\re\graphics\Shader.hpp" />
-    <ClInclude Include="source\re\graphics\TexturePacker.hpp" />
+    <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\re\graphics\Window.hpp" />
     <ClInclude Include="source\re\libs\agui\ActionEvent.hpp" />
     <ClInclude Include="source\re\libs\agui\ActionListener.hpp" />
@@ -482,6 +479,8 @@
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
+    <ClInclude Include="source\re\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\re\types\Renderable.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />

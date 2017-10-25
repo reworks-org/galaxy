@@ -7,9 +7,8 @@
 //
 
 #include "re/core/World.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/graphics/TextureAtlas.hpp"
 #include "re/components/TextComponent.hpp"
-#include "re/components/LayerComponent.hpp"
 #include "re/components/SpriteComponent.hpp"
 #include "re/components/TransformComponent.hpp"
 
@@ -17,66 +16,33 @@
 
 namespace re
 {
-	Layer::Layer(TexturePacker* atlas)
+	Layer::Layer(unsigned int defaultAlloc)
+		:m_defaultAlloc(defaultAlloc)
 	{
-		m_sprites.clear();
-		m_texts.clear();
-
-		m_sprites.reserve(20);
-		m_texts.reserve(20);
+		clean();
 	}
 
 	Layer::~Layer()
 	{
+		m_renderables.clear();
 	}
 
-	void Layer::draw()
+	void Layer::render()
 	{
-		for (auto& e : m_sprites)
+		for (auto& r : m_renderables)
 		{
-			m_atlas->al_draw_tinted_scaled_rotated_packed_bitmap(e.component<SpriteComponent>()->m_spriteName, al_map_rgba_f(1, 1, 1, 1), 0, 0, e.component<TransformComponent>()->m_x, e.component<TransformComponent>()->m_y, 1, 1, e.component<TransformComponent>()->m_angle, 0);
-		}
-
-		for (auto& e : m_texts)
-		{
-			e.component<TextComponent>()->draw();
+			r->render();
 		}
 	}
 
-	void Layer::insertSprite(ex::Entity& e)
+	void Layer::insert(Renderable* rc)
 	{
-		m_sprites.push_back(e);
+		m_renderables.push_back(rc);
 	}
-
-	void Layer::insertText(ex::Entity& e)
-	{
-		m_texts.push_back(e);
-	}
-
-	/*
-	void Layer::sort()
-	{
-		std::sort(m_sprites.begin(), m_sprites.end(), [](ex::Entity& a, ex::Entity& b)
-		{
-			return a.component<SpriteComponent>()->m_layer < b.component<SpriteComponent>()->m_layer;
-		});
-
-		std::sort(m_texts.begin(), m_texts.end(), [](ex::Entity& a, ex::Entity& b) 
-		{
-			return a.component<TextComponent>()->m_layer < b.component<TextComponent>()->m_layer;
-		});
-
-		m_sprites.shrink_to_fit();
-		m_texts.shrink_to_fit();
-	}
-	*/
 
 	void Layer::clean()
 	{
-		m_sprites.clear();
-		m_texts.clear();
-
-		m_sprites.reserve(20);
-		m_texts.reserve(20);
+		m_renderables.clear();
+		m_renderables.reserve(20);
 	}
 }

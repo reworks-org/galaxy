@@ -77,7 +77,7 @@ namespace re
 		// push back a lambda that calls e->assign and one that calls e->debug.
 		m_componentAssign.emplace(name, [](ex::Entity& e, sol::table& table)
 		{
-			e.assign<T>(table);
+			e.assign<T>(e, table);
 		});
 
 		m_componentDebug.emplace(name, [](ex::Entity& e)

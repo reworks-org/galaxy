@@ -1101,4 +1101,3 @@ template <> struct hash<const entityx::Entity> {
   }
 };
 }
-

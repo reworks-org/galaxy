@@ -32,6 +32,7 @@ renderer:
 https://gamedev.stackexchange.com/questions/58086/rendering-order-in-an-entity-system
 
 - particle engine
+- parallax
 - implement serialization
 	- call serializecomponetns from serailize suystem using eneityx
 	- serializecomponents contain information about what this entity needs to load
@@ -41,22 +42,8 @@ http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
 https://readthedocs.org/
 
+renderables store original type with template metaprogramming
+give spritecomponetn a reference to its entity for its draw function
 
-
-update()
-{
-
-	e.each<spr>(e, sc)
-	{
-		layers[sc.layer](sc);
-	}
-
-}
-
-draw()
-{
-	for (auto& l : layers)
-	{
-		l.draw()
-	}
-}
+docs about component dependencies
+-> always make transform first!

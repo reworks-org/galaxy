@@ -7,11 +7,13 @@
 //
 
 #include "imgui/imgui.h"
+#include "entityx/Entity.h"
+
 #include "CollisionComponent.hpp"
 
 namespace re
 {
-	CollisionComponent::CollisionComponent(sol::table& table)
+	CollisionComponent::CollisionComponent(ex::Entity& e, sol::table& table)
 	{
 		m_width = table.get<int>("width");
 		m_height = table.get<int>("height");

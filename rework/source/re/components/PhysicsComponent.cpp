@@ -9,20 +9,22 @@
 #include <map>
 
 #include "imgui/imgui.h"
+#include "entityx/entityx.h"
 #include "loguru/loguru.hpp"
 #include "re/physics/Box2DHelper.hpp"
 #include "re/managers/Box2DManager.hpp"
 #include "re/services/ServiceLocator.hpp"
+#include "re/components/TransformComponent.hpp"
 
 #include "PhysicsComponent.hpp"
 
 namespace re
 {
-	PhysicsComponent::PhysicsComponent(sol::table& table)
+	PhysicsComponent::PhysicsComponent(ex::Entity& e, sol::table& table)
 	:m_body(nullptr)
 	{
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::pixelsToMeters<float32>(table.get<float32>("x")), b2::pixelsToMeters<float32>(table.get<float32>("y")));
+		bodyDef.position.Set(b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_x), b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_y));
 
 		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))

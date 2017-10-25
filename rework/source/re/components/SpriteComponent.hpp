@@ -10,10 +10,11 @@
 #define REWORK_SPRITECOMPONENT_HPP_
 
 #include "sol2/sol.hpp"
+#include "re/types/Renderable.hpp"
 
 namespace re
 {
-	class SpriteComponent
+	class SpriteComponent : public Renderable
 	{
 	public:
 		///
@@ -21,21 +22,26 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		SpriteComponent(sol::table& table);
+		SpriteComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
 		///
-		~SpriteComponent();
+		~SpriteComponent() override;
 		
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
 		///
 		void debug();
 
+	private:
+		///
+		/// Render sprite. Called by rendersystem.
+		///
+		void render() override;
+
 	public:
 		std::string m_spriteName;
-		unsigned int m_layer;
 	};
 }
 

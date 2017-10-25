@@ -11,6 +11,11 @@
 
 #include "sol2/sol.hpp"
 
+namespace ex
+{
+	class Entity;
+}
+
 namespace re
 {
 	class SerializeComponent
@@ -21,7 +26,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		SerializeComponent(sol::table& table);
+		SerializeComponent(ex::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
