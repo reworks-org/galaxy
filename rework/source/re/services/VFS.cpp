@@ -11,7 +11,6 @@
 #include <physfs.h>
 #include <allegro5/allegro_physfs.h>
 
-#include "zipper/zipper.h"
 #include "loguru/loguru.hpp"
 
 #include "VFS.hpp"
@@ -83,23 +82,5 @@ namespace re
 		al_fclose(f);
 
 		return str;
-	}
-
-	void VFS::writeStringToArchive(const std::string& fileName, const std::string& data, const std::string& pathInArchive)
-	{
-		std::string archive = PHYSFS_getRealDir(fileName.c_str());
-
-		std::ofstream temp;
-		temp.open(fileName);
-		temp << data;
-		temp.close();
-
-		std::string arch_write = pathInArchive + fileName;
-
-
-
-		zipper::Zipper zipper(archive);
-		zipper.add(arch_write);
-		zipper.close();
 	}
 }

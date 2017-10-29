@@ -29,8 +29,8 @@ namespace re
 		}).base(), s.end());
 	}
 
-	DebugManager::DebugManager(ALLEGRO_DISPLAY* display)
-	:m_reloadState(nullptr), m_disabled(false)
+	DebugManager::DebugManager(ALLEGRO_DISPLAY* display, const std::string& scriptLocationInArchive)
+	:m_reloadState(nullptr), m_disabled(false), m_scriptLocationInArchive(scriptLocationInArchive)
 	{
 		m_world = Locator::get<World>();
 		ImGui_ImplA5_Init(display);
@@ -76,7 +76,6 @@ namespace re
 		{
 			static int index = 0;
 			static int indexComponent = 0;
-			static bool showScriptEditor = false;
 			static std::vector<std::string> entityScripts;
 
 			entityScripts.clear();
@@ -90,7 +89,6 @@ namespace re
 
 			if (ImGui::Button("Reload State"))
 			{
-				showScriptEditor = false;
 				m_reloadFunc();
 				Locator::get<StateManager>()->reloadState(m_reloadState);
 			}
@@ -128,50 +126,6 @@ namespace re
 			for (auto& it : kvp)
 			{
 				componentNames.push_back(it.first);
-			}
-
-			ImGui::Spacing();
-
-			if (ImGui::Button("Toggle Script Editor"))
-			{
-				if (showScriptEditor == true)
-				{
-					showScriptEditor = false;
-				}
-				else
-				{
-					showScriptEditor = true;
-				}
-			}
-
-			if (showScriptEditor)
-			{
-				static std::string first = curEntityScriptName;
-
-				if (first != entityScripts[index])
-				{
-					first = entityScripts[index];
-				}
-
-				ImGui::SetNextWindowSize(ImVec2(420, 500), ImGuiSetCond_FirstUseEver);
-				ImGui::SetNextWindowPosCenter();
-
-				std::string name = "Script Editor: " + curEntityScriptName;
-				ImGui::Begin(name.c_str(), (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
-				ImGui::Separator();
-				ImGui::Spacing();
-
-				ImGui::stl::InputTextMultiline("", &curEntityScriptData, ImVec2(420, 500), ImGuiInputTextFlags_EnterReturnsTrue);
-
-				ImGui::Separator();
-				ImGui::Spacing();
-
-				if (ImGui::Button("Save Changes"))
-				{
-					Locator::get<VFS>()->writeStringToArchive(curEntityScriptName, curEntityScriptData, "scripts/");
-				}
-
-				ImGui::End();
 			}
 
 			ImGui::Spacing();

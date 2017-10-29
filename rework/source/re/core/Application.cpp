@@ -27,7 +27,7 @@ namespace re
 	{
 		std::srand(std::time(nullptr));
 
-		std::string lname = "log_" + Time::getFormattedTime() + ".log";
+		std::string lname = "logs/log_" + Time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
@@ -72,7 +72,7 @@ namespace re
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
 		re::Locator::provide<re::Box2DManager>(m_b2dManager);
 		
-		m_debugManager = new DebugManager(m_window->getDisplay());
+		m_debugManager = new DebugManager(m_window->getDisplay(), m_engineConfig->lookup<std::string>("debugmanager", "scriptLocationInArchive"));
 		re::Locator::provide<re::DebugManager>(m_debugManager);
 		
 		m_textureAtlas = new TextureAtlas(m_engineConfig->lookup<std::string>("graphics", "atlas"));

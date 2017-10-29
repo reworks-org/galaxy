@@ -129,6 +129,10 @@ void newConfigFunc(std::ofstream& newConfig)
 	newConfig << "gravity = 9.81" << std::endl;
 	newConfig << std::endl;
 
+	newConfig << "[debugmanager]" << std::endl;
+	newConfig << "scriptLocationInArchive = \"\"" << std::endl;
+	newConfig << std::endl;
+
 	newConfig << "[fontmanager]" << std::endl;
 	newConfig << "fontScript = fonts.lua" << std::endl;
 	newConfig << std::endl;

@@ -25,7 +25,7 @@ namespace re
 		packed_image_file_array = (struct packed_image_file*)calloc(total_packed_image_files, sizeof(struct packed_image_file));
 
 		const char *c_all_files_str = al_get_config_value(pack_config, "file_metadata", "files");
-		char *all_files_str = _strdup(c_all_files_str);
+		char *all_files_str = strdup(c_all_files_str);
 
 		char *img_file_name;
 		const char delim[2] = ",";
@@ -33,7 +33,7 @@ namespace re
 		int i = 0;
 
 		while (img_file_name != NULL) {
-			packed_image_file_array[i].file_name = (char*)calloc(strlen(img_file_name), sizeof(char));
+			packed_image_file_array[i].file_name = (char*)calloc(strlen(img_file_name)+1, sizeof(char));
 			strcpy(packed_image_file_array[i].file_name, img_file_name);
 			packed_image_file_array[i].bitmap = al_load_bitmap(img_file_name);
 
@@ -51,7 +51,7 @@ namespace re
 		ALLEGRO_CONFIG_SECTION* sec;
 		std::string str_firstsec = Utils::nullToEmpty(al_get_first_config_section(pack_config, &sec));
 
-		if (str_firstsec != "")
+		if (str_firstsec != "" && str_firstsec != "file_metadata")
 		{
 			const char *id_str = al_get_config_value(pack_config, str_firstsec.c_str(), "id");
 			const char *x_str = al_get_config_value(pack_config, str_firstsec.c_str(), "x");
@@ -81,11 +81,11 @@ namespace re
 			m_strToID.emplace(str_firstsec, (AL_PACKED_IMAGE_ID)id);
 		}
 
-		bool looping = true;
-		std::string str_secondsec = "";
-		do
+		std::string str_secondsec = "empty";
+		while (str_secondsec != "")
 		{
 			str_secondsec = Utils::nullToEmpty(al_get_next_config_section(&sec));
+			
 			if (str_secondsec != "" && str_secondsec != "file_metadata")
 			{
 				const char *id_str = al_get_config_value(pack_config, str_secondsec.c_str(), "id");
@@ -113,14 +113,9 @@ namespace re
 				packed_image_array[id].w = atoi(w_str);
 				packed_image_array[id].h = atoi(h_str);
 
-				m_strToID.emplace(str_secondsec, (AL_PACKED_IMAGE_ID)id);
+				m_strToID.emplace(str_firstsec, (AL_PACKED_IMAGE_ID)id);
 			}
-			else
-			{
-				looping = false;
-			}
-		} 
-		while (looping);
+		}
 	}
 
 	TextureAtlas::~TextureAtlas()

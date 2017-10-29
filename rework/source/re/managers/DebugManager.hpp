@@ -27,8 +27,9 @@ namespace re
 		/// Constructor.
 		///
 		/// \param display ALLEGRO_DISPLAY object.
+		/// \param scriptLocationInArchive Location of scripts inside archives mounted with physfs.
 		///
-		DebugManager(ALLEGRO_DISPLAY* display);
+		DebugManager(ALLEGRO_DISPLAY* display, const std::string& scriptLocationInArchive);
 
 		///
 		/// Destructor.
@@ -82,6 +83,7 @@ namespace re
 		re::World* m_world;
 		sol::state m_lua;
 		bool m_disabled;
+		std::string m_scriptLocationInArchive;
     };
 }
 

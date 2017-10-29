@@ -43,7 +43,4 @@ https://readthedocs.org/
 docs about component dependencies
 -> always make transform first!
 
-fix vfs writing to archive
-fix debug script writing
-fix texture atlas crash on unload -> redo it!
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
