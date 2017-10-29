@@ -48,15 +48,6 @@ namespace re
 		void mount(const std::string& archive);
 
 		///
-		/// Open an ALLEGRO_FILE.
-		///
-		/// \param file The file in the VFS to open, and the mode: "r", "w", etc.
-		///
-		/// \return ALLEGRO_FILE*. This is automatically cleaned up by the VFS. DO NOT MANUALLY CLEAN THIS UP.
-		///
-		ALLEGRO_FILE* open(const std::string& file, const std::string& mode);
-
-		///
 		/// \brief Open a file and return as a std::string.
 		///
 		/// Please note this string is self-contained. You don't need to free anything. Also note this only supports files that contain text!
@@ -74,9 +65,6 @@ namespace re
 		/// \param data Data to write to the file.
 		///
 		void writeStringToArchive(const std::string& fileName, const std::string& data, const std::string& pathInArchive);
-
-	private:
-		std::vector<ALLEGRO_FILE*> m_filesToClean;
 	};
 }
 

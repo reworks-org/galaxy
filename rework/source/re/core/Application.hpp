@@ -9,15 +9,17 @@
 #ifndef REWORK_APPLICATION_HPP_
 #define REWORK_APPLICATION_HPP_
 
+#include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
+#include "re/graphics/Camera.hpp"
 #include "re/managers/FontManager.hpp"
 #include "re/managers/AudioManager.hpp"
 #include "re/managers/StateManager.hpp"
 #include "re/managers/Box2DManager.hpp"
 #include "re/managers/DebugManager.hpp"
-#include "re/graphics/TexturePacker.hpp"
+#include "re/graphics/TextureAtlas.hpp"
 
 namespace re
 {
@@ -61,7 +63,8 @@ namespace re
 		AudioManager* m_audioManager;
 		Box2DManager* m_b2dManager;
 		DebugManager* m_debugManager;
-		TexturePacker* m_texturePacker;
+		TextureAtlas* m_textureAtlas;
+		Camera* m_camera;
 	};
 }
 

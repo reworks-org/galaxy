@@ -7,6 +7,4 @@
 #include "entityx/System.h"
 #include "entityx/quick.h"
 
-namespace ex = entityx;
-
 #endif

@@ -6,7 +6,6 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/utils/Utils.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -17,10 +16,19 @@ namespace re
 	Music::Music(sol::table& table)
 	{
 		std::string fn = table.get<std::string>("file");
-		std::string ext = Utils::getExtension(fn);
 
-		m_music = al_load_sample_f(Locator::get<VFS>()->open(fn, "r"), ext.c_str());
+		m_music = al_load_sample(fn.c_str());
+		
+		if (!m_music)
+		{
+			LOG_S(FATAL) << "Failed to load file: " << fn << std::endl;
+		}
+
 		m_instance = al_create_sample_instance(m_music);
+		if (!m_instance)
+		{
+			LOG_S(FATAL) << "Failed to create instance: " << fn << std::endl;
+		}
 
 		// 0 - play once
 		// 1 - loop

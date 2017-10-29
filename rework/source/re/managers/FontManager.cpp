@@ -33,7 +33,7 @@ namespace re
 		for (auto& it : kvp)
 		{
 			std::string fn = it.second.get<std::string>("font");
-			m_fontMap.emplace(it.first, al_load_ttf_font_f(Locator::get<VFS>()->open(fn, "r"), fn.c_str(), it.second.get<int>("size"), NULL));
+			m_fontMap.emplace(it.first, al_load_ttf_font(fn.c_str(), it.second.get<int>("size"), NULL));
 		}
 	}
 

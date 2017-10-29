@@ -11,11 +11,7 @@
 
 #include "sol2/sol.hpp"
 #include "re/math/Rect.hpp"
-
-namespace ex
-{
-	class Entity;
-}
+#include "entityx/Entity.h"
 
 namespace re
 {
@@ -27,7 +23,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		AnimationComponent(ex::Entity& e, sol::table& table);
+		AnimationComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

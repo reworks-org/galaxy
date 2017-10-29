@@ -10,6 +10,8 @@
 #define REWORK_TRANSFORMCOMPONENT_HPP_
 
 #include "sol2/sol.hpp"
+#include "entityx/Entity.h"
+#include "re/math/Rect.hpp"
 
 namespace re
 {
@@ -21,7 +23,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		TransformComponent(ex::Entity& e, sol::table& table);
+		TransformComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
@@ -34,8 +36,7 @@ namespace re
 		void debug();
 
 	public:
-		float m_x;
-		float m_y;
+		Rect<float, int> m_rect;
 		float m_angle;
 	};
 }

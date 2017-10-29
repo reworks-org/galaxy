@@ -1,0 +1,120 @@
+
+
+
+
+
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2017-10-29 11:11:57.440 (   0.231s) [                ]             loguru.hpp:1974     0| Logging to 'log_SunOct291111.log', mode: 'a', verbosity: 9
+2017-10-29 11:11:57.441 (   0.232s) [                ]        application.cpp:37       0| App init.
+
+2017-10-29 11:11:58.888 (   1.679s) [                ]        application.cpp:172      0| e an already existing service. ups, 945 fps
+
+2017-10-29 11:11:59.888 (   2.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 1110 fps
+
+2017-10-29 11:12:00.888 (   3.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 1001 fps
+
+2017-10-29 11:12:01.888 (   4.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 950 fps
+
+2017-10-29 11:12:02.888 (   5.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 942 fps
+
+2017-10-29 11:12:02.908 (   5.699s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:03.888 (   6.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 896 fps
+
+2017-10-29 11:12:04.889 (   7.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 891 fps
+
+2017-10-29 11:12:05.888 (   8.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 883 fps
+
+2017-10-29 11:12:06.888 (   9.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 877 fps
+
+2017-10-29 11:12:07.888 (  10.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 870 fps
+
+2017-10-29 11:12:07.925 (  10.716s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:08.888 (  11.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 897 fps
+
+2017-10-29 11:12:09.889 (  12.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 900 fps
+
+2017-10-29 11:12:10.889 (  13.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 873 fps
+
+2017-10-29 11:12:11.888 (  14.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 901 fps
+
+2017-10-29 11:12:12.888 (  15.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 888 fps
+
+2017-10-29 11:12:12.941 (  15.732s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:13.889 (  16.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 866 fps
+
+2017-10-29 11:12:14.888 (  17.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 875 fps
+
+2017-10-29 11:12:15.889 (  18.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 860 fps
+
+2017-10-29 11:12:16.888 (  19.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 865 fps
+
+2017-10-29 11:12:17.889 (  20.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 886 fps
+
+2017-10-29 11:12:17.957 (  20.748s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:18.888 (  21.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 848 fps
+
+2017-10-29 11:12:19.888 (  22.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 867 fps
+
+2017-10-29 11:12:20.889 (  23.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 869 fps
+
+2017-10-29 11:12:21.888 (  24.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 882 fps
+
+2017-10-29 11:12:22.888 (  25.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 843 fps
+
+2017-10-29 11:12:22.974 (  25.765s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:23.889 (  26.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 859 fps
+
+2017-10-29 11:12:24.889 (  27.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 871 fps
+
+2017-10-29 11:12:25.888 (  28.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 866 fps
+
+2017-10-29 11:12:26.888 (  29.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 873 fps
+
+2017-10-29 11:12:27.888 (  30.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 772 fps
+
+2017-10-29 11:12:27.991 (  30.782s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:28.888 (  31.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 672 fps
+
+2017-10-29 11:12:29.888 (  32.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 800 fps
+
+2017-10-29 11:12:30.888 (  33.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 679 fps
+
+2017-10-29 11:12:31.888 (  34.678s) [                ]        application.cpp:172      0|  an already existing service. ups, 674 fps
+
+2017-10-29 11:12:32.888 (  35.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 687 fps
+
+2017-10-29 11:12:33.009 (  35.799s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:33.888 (  36.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 689 fps
+
+2017-10-29 11:12:34.888 (  37.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 673 fps
+
+2017-10-29 11:12:35.889 (  38.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 685 fps
+
+2017-10-29 11:12:36.888 (  39.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 686 fps
+
+2017-10-29 11:12:37.888 (  40.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 662 fps
+
+2017-10-29 11:12:38.025 (  40.816s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:38.888 (  41.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 689 fps
+
+2017-10-29 11:12:39.888 (  42.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 668 fps
+
+2017-10-29 11:12:40.889 (  43.680s) [                ]        application.cpp:172      0|  an already existing service. ups, 666 fps
+
+2017-10-29 11:12:41.888 (  44.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 663 fps
+
+2017-10-29 11:12:42.888 (  45.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 687 fps
+
+2017-10-29 11:12:43.041 (  45.832s) [                ]               test.cpp:54       0| Boop!
+
+2017-10-29 11:12:43.888 (  46.679s) [                ]        application.cpp:172      0|  an already existing service. ups, 692 fps
+

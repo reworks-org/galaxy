@@ -10,12 +10,14 @@
 #define REWORK_RENDERSYSTEM_HPP_
 
 #include "re/core/World.hpp"
+#include "re/utils/Utils.hpp"
+#include "re/math/QuadTree.hpp"
 #include "re/graphics/Layer.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 namespace re
 {
-	class RenderSystem : public ex::System<RenderSystem>
+	class RenderSystem : public entityx::System<RenderSystem>
 	{
 	public:
 		///
@@ -39,7 +41,7 @@ namespace re
 		///
 		/// Dont actually call this, this is called by entity x internal system manager.
 		///
-		void update(ex::EntityManager& es, ex::EventManager& events, ex::TimeDelta dt);
+		void update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt) override;
 
 		///
 		/// Render entitys.
@@ -52,27 +54,31 @@ namespace re
 		void clean();
 
 		///
-		/// Function to register the updating of renderable components in layers.
+		/// Function to register the components that are renderable.
+		/// Call this only once, with all components.
 		///
-		/// \param T Type - Type of component to register for creation.
-		///
-		template<typename T>
-		void registerComponentUpdateFunction()
+		template<typename ... Components>
+		void registerRenderableComponents()
 		{
-			m_cuf.emplace_back([this]() 
+			m_clf = [this](entityx::Entity& e)
 			{
-				Locator::get<World>()->m_entityManager.each<T>([](ex::Entity& e, T& rc)
+				auto& tuple = e.components<Components...>();
+				Utils::for_each_in_tuple(tuple, [this](auto &elem)
 				{
-					m_layers[rc.m_layer].insert(rc);
-				};);
-			});
+					if (elem)
+					{
+						m_layers[elem->m_layer].insert(dynamic_cast<Renderable*>(elem.get()));
+					}
+				});
+			};
 		}
 
 	private:
+		QuadTree* m_quadtree;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
 		std::vector<Layer> m_layers;
-		std::vector<std::function<void(void)>> m_cuf;
+		std::function<void(entityx::Entity&)> m_clf;
 	};
 }
 

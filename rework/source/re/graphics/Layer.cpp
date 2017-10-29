@@ -6,12 +6,6 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/core/World.hpp"
-#include "re/graphics/TextureAtlas.hpp"
-#include "re/components/TextComponent.hpp"
-#include "re/components/SpriteComponent.hpp"
-#include "re/components/TransformComponent.hpp"
-
 #include "Layer.hpp"
 
 namespace re
@@ -29,7 +23,7 @@ namespace re
 
 	void Layer::render()
 	{
-		for (auto& r : m_renderables)
+		for (auto r : m_renderables)
 		{
 			r->render();
 		}

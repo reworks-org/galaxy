@@ -73,11 +73,18 @@ namespace re
 	template<typename T>
 	T* Locator::get()
 	{
-		T* out;
 		auto it = m_services.find(std::type_index(typeid(T)));
 
-		out = (it != m_services.end()) ? dynamic_cast<T*>(it->second) : nullptr;
-		return out;
+		if (it != m_services.end())
+		{
+			return dynamic_cast<T*>(it->second);
+		}
+		else
+		{
+			LOG_S(FATAL) << "Attempted to access a service that doesnt exist." << std::endl;
+			
+			return nullptr;
+		}
 	}
 
 	template<typename T>

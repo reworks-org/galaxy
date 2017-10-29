@@ -11,7 +11,7 @@
 
 namespace re
 {
-	template<typename T>
+	template<typename T1, typename T2 = T1>
 	class Rect
 	{
 	public:
@@ -28,7 +28,7 @@ namespace re
 		/// \param _w Width value.
 		/// \param _h Height value.
 		///
-		Rect(T _x, T _y, T _width, T _height);
+		Rect(T1 _x, T1 _y, T2 _width, T2 _height);
 
 		///
 		/// Does the rectangle contain the point (x, y).
@@ -38,7 +38,7 @@ namespace re
 		///
 		/// \return true if contains the point.
 		///
-		bool contains(T _x, T _y);
+		bool contains(T1 _x, T1 _y);
 
 		///
 		/// Do the rectangles a and b overlap.
@@ -48,44 +48,44 @@ namespace re
 		///
 		/// \return Returns true if there is an overlap.
 		///
-		bool overlaps(const Rect<T>& a, const Rect<T>& b);
+		bool overlaps(const Rect<T1, T2>& a, const Rect<T1, T2>& b);
 
 	public:
-		T x;
-		T y;
-		T width;
-		T height;
+		T1 x;
+		T1 y;
+		T2 width;
+		T2 height;
 
 	private:
 		///
 		/// Private function to determine if value is in range.
 		/// From: https://stackoverflow.com/a/306379
 		///
-		bool valueInRange(T value, T min, T max);
+		bool valueInRange(T1 value, T1 min, T1 max);
 	};
 
-	template<typename T>
-	Rect<T>::Rect()
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2>::Rect()
 		:x(0), y(0), width(0), height(0)
 	{
 	}
 
-	template<typename T>
-	Rect<T>::Rect(T _x, T _y, T _width, T _height)
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2>::Rect(T1 _x, T1 _y, T2 _width, T2 _height)
 		: x(_x), y(_y), width(_width), height(_height)
 	{
 	}
 
-	template<typename T>
-	bool Rect<T>::contains(T _x, T _y)
+	template<typename T1, typename T2 = T1>
+	bool Rect<T1, T2>::contains(T1 _x, T1 _y)
 	{
 		bool out = ((_x > x) && (_x < (x + width)) && (_y > y) && (_y < (y + height))) ? true : false;
 
 		return out;
 	}
 
-	template<typename T>
-	bool Rect<T>::overlaps(const Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	bool Rect<T1, T2>::overlaps(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		// Thanks: https://stackoverflow.com/a/306379
 
@@ -98,20 +98,20 @@ namespace re
 		return xOverlap && yOverlap;
 	}
 
-	template<typename T>
-	bool Rect<T>::valueInRange(T value, T min, T max)
+	template<typename T1, typename T2 = T1>
+	bool Rect<T1, T2>::valueInRange(T1 value, T1 min, T1 max)
 	{
 		return (value >= min) && (value <= max);
 	}
 
-	template<typename T>
-	Rect<T> operator-(const Rect<T>& a)
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2> operator-(const Rect<T1, T2>& a)
 	{
 		return Rect<T>(-a.x, -a.y, -a.width, -a.height);
 	}
 
-	template<typename T>
-	Rect<T>& operator+=(Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2>& operator+=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		a.x += b.x;
 		a.y += b.y;
@@ -121,8 +121,8 @@ namespace re
 		return a;
 	}
 
-	template<typename T>
-	Rect<T>& operator-=(Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2>& operator-=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		a.x -= b.x;
 		a.y -= b.y;
@@ -132,26 +132,26 @@ namespace re
 		return a;
 	}
 
-	template<typename T>
-	Rect<T> operator+(const Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2> operator+(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		return Rect<T>(a.x + b.x, a.y + b.y, a.z + b.z);
 	}
 
-	template<typename T>
-	Rect<T> operator-(const Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	Rect<T1, T2> operator-(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		return Rect<T>(a.x - b.x, a.y - b.y, a.width - b.width, a.height - b.height);
 	}
 
-	template<typename T>
-	bool operator==(const Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	bool operator==(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		return (a.x == b.x) && (a.y == b.y) && (a.width == b.width) && (a.height == b.height);
 	}
 
-	template<typename T>
-	bool operator!=(const Rect<T>& a, const Rect<T>& b)
+	template<typename T1, typename T2 = T1>
+	bool operator!=(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		return (a.x != b.x) || (a.y != b.y) || (a.width != b.width) || (a.height != b.height);
 	}

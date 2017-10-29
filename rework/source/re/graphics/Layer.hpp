@@ -9,7 +9,7 @@
 #ifndef REWORK_LAYER_HPP_
 #define REWORK_LAYER_HPP_
 
-#include "entityx/entityx.h"
+#include "re/types/Renderable.hpp"
 
 namespace re
 {
@@ -40,10 +40,11 @@ namespace re
 		/// \param sc SpriteComponent to insert.
 		///
 		void insert(Renderable* rc);
+
 		///
 		/// Sort containers.
 		///
-		//void sort();
+		/// void sort();
 		
 		///
 		/// Remove data from containers.

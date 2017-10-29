@@ -9,17 +9,19 @@
 #ifndef REWORK_STATE_HPP_
 #define REWORK_STATE_HPP_
 
+#include <memory>
+
 union ALLEGRO_EVENT;
 
 namespace re
 {
-	class State
+	class BaseState
 	{
 	public:
 		///
 		/// Destructor.
 		///
-		virtual inline ~State() {};
+		virtual inline ~BaseState() {};
 
 		///
 		/// Load the states resources.
@@ -47,6 +49,25 @@ namespace re
 		/// Render the current state.
 		///
 		virtual void render() = 0;
+	};
+
+	template<typename Derived>
+	class State : public BaseState
+	{
+	public:
+		///
+		/// Destructor.
+		///
+		virtual inline ~State() {};
+
+		///
+		/// Retrieve instance of state.
+		///
+		inline static std::shared_ptr<Derived> inst()
+		{
+			static std::shared_ptr<Derived> m_statePtr = std::make_shared<Derived>();
+			return m_statePtr;
+		}
 
 	protected:
 		// Allows for loading stuff only once in load()

@@ -10,12 +10,8 @@
 #define REWORK_PHYSICSCOMPONENT_HPP_
 
 #include "sol2/sol.hpp"
+#include "entityx/Entity.h"
 #include "Box2D/Dynamics/b2Body.h"
-
-namespace ex
-{
-	class Entity;
-}
 
 namespace re
 {
@@ -27,7 +23,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		PhysicsComponent(ex::Entity& e, sol::table& table);
+		PhysicsComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

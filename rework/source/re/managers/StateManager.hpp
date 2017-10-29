@@ -58,7 +58,7 @@ namespace re
 		///
 		/// \param s Pointer to new state.
 		///
-		void changeState(std::shared_ptr<State> s);
+		void changeState(std::shared_ptr<BaseState> s);
 
 		///
 		/// \brief Reloads the current state.
@@ -67,7 +67,7 @@ namespace re
 		///
 		/// \param s Optional pointer to a state to reload to.
 		///
-		void reloadState(std::shared_ptr<State> s = nullptr);
+		void reloadState(std::shared_ptr<BaseState> s = nullptr);
 
 		///
 		/// \brief Set a new active state.
@@ -76,10 +76,10 @@ namespace re
 		///
 		/// \param s Pointer to new state.
 		///
-		void setState(std::shared_ptr<State> s);
+		void setState(std::shared_ptr<BaseState> s);
 			    
 	private:
-	    std::shared_ptr<State> m_currentState;
+	    std::shared_ptr<BaseState> m_currentState;
 	};
 }
 

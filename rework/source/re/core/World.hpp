@@ -60,29 +60,29 @@ namespace re
 		void registerComponent(const std::string& name);
 
 	public:
-		ex::EventManager m_eventManager;
-		ex::EntityManager m_entityManager;
-		ex::SystemManager m_systemManager;
+		entityx::EventManager m_eventManager;
+		entityx::EntityManager m_entityManager;
+		entityx::SystemManager m_systemManager;
 
 	private:
-		std::unordered_map<std::string, ex::Entity> m_entitys;
+		std::unordered_map<std::string, entityx::Entity> m_entitys;
 		std::unordered_map<std::string, std::string> m_entityScripts;
-		std::unordered_map<std::string, std::function<void(ex::Entity&, sol::table&)>> m_componentAssign;
-		std::unordered_map<std::string, std::function<void(ex::Entity&)>> m_componentDebug;
+		std::unordered_map<std::string, std::function<void(entityx::Entity&, sol::table&)>> m_componentAssign;
+		std::unordered_map<std::string, std::function<void(entityx::Entity&)>> m_componentDebug;
 	};
 
 	template<typename T>
 	void World::registerComponent(const std::string& name)
 	{
 		// push back a lambda that calls e->assign and one that calls e->debug.
-		m_componentAssign.emplace(name, [](ex::Entity& e, sol::table& table)
+		m_componentAssign.emplace(name, [](entityx::Entity& e, sol::table& table)
 		{
 			e.assign<T>(e, table);
 		});
 
-		m_componentDebug.emplace(name, [](ex::Entity& e)
+		m_componentDebug.emplace(name, [](entityx::Entity& e)
 		{
-			e.component<T>->debug();
+			e.component<T>()->debug();
 		});
 	}
 }

@@ -54,7 +54,7 @@ namespace re
 		}
 	}
 
-	void DebugManager::update()
+	void DebugManager::newFrame()
 	{
 		if (!m_disabled)
 		{
@@ -113,7 +113,7 @@ namespace re
 
 			m_lua.script(curEntityScriptData);
 			sol::table entityTable = m_lua.get<sol::table>("entity");
-			ex::Entity& e = m_world->m_entitys[entityTable.get<std::string>("name")];
+			entityx::Entity& e = m_world->m_entitys[entityTable.get<std::string>("name")];
 
 			std::map<std::string, sol::table> kvp;
 			std::vector<std::string> componentNames;
@@ -193,7 +193,7 @@ namespace re
 		}
 	}
 
-	void DebugManager::specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func)
+	void DebugManager::specifyReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func)
 	{
 		m_reloadState = s;
 		m_reloadFunc = func;

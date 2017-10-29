@@ -28,7 +28,7 @@ namespace re
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(size_t level, Rect<int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
+		QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
 
 		///
 		/// Clears the quadtree of all data.
@@ -42,17 +42,29 @@ namespace re
 		///
 		/// \param entity The entity to insert.
 		///
-		void insert(ex::Entity& e);
+		void insert(entityx::Entity& e);
 
 		///
-		/// Return all objects that could collide with the given object.
+		/// Return all objects that could collide with the given entity.
 		///
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param entity Entity to check for collisions with.
 		///
-		void retrieve(std::vector<ex::Entity>& returnObjects, ex::Entity& e);
+		void retrieve(std::vector<entityx::Entity>& returnObjects, entityx::Entity& e);
+
+		///
+		/// Return all objects that could collide with the given rect.
+		///
+		/// \param returnObjects A vector containing the entitys that could collide with the entity.
+		/// \param rect Rect to check for collisions with.
+		///
+		void retrieve(std::vector<entityx::Entity>& returnObjects, Rect<float, int>& rect);
 
 	private:
+		QuadTree() = delete;
+		QuadTree(QuadTree&&) = delete;
+		QuadTree(const QuadTree &) = delete;
+
 		///
 		/// Splits the node into 4 subnodes.
 		///
@@ -63,14 +75,14 @@ namespace re
 		///
 		/// -1 means object cannot completely fit within a child node and is part of the parent node.
 		///
-		int getIndex(Rect<float>& rect);
+		int getIndex(Rect<float, int>& rect);
 
 	private:
 		size_t m_level;
 		size_t m_maxLevels;
 		size_t m_maxObjects;
-		std::vector<ex::Entity> m_objects;
-		Rect<int> m_bounds;
+		std::vector<entityx::Entity> m_objects;
+		Rect<float, int> m_bounds;
 		std::array<QuadTree*, 4> m_nodes;
 	};
 }

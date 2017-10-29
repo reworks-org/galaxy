@@ -6,7 +6,10 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/components/SpriteComponent.hpp"
+#include <allegro5/display.h>
+
+#include "re/graphics/Camera.hpp"
+#include "re/components/RenderableComponent.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -30,8 +33,16 @@ namespace re
 		m_layers.clear();
 	}
 
-	void RenderSystem::update(ex::EntityManager& es, ex::EventManager& events, ex::TimeDelta dt)
+	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
+		auto& cameraBounds = Locator::get<Camera>()->m_bounds;
+		m_quadtree = new QuadTree(1, cameraBounds, 5, 20);
+
+		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)
+		{
+			m_quadtree->insert(e);
+		});
+
 		clean();
 
 		m_layers.resize(0);
@@ -40,14 +51,29 @@ namespace re
 		{
 			m_layers.emplace_back(m_defaultAlloc);
 		}
+
+		std::vector<entityx::Entity> e;
+		m_quadtree->retrieve(e, cameraBounds);
+
+		for (auto& elem : e)
+		{
+			m_clf(elem);
+		}
+
+		m_quadtree->clear();
+		delete m_quadtree;
 	}
 
 	void RenderSystem::render()
 	{
+		al_hold_bitmap_drawing(true);
+
 		for (auto& l : m_layers)
 		{
 			l.render();
 		}
+
+		al_hold_bitmap_drawing(false);
 	}
 
 	void RenderSystem::clean()

@@ -9,7 +9,6 @@
 #include <map>
 
 #include "imgui/imgui.h"
-#include "entityx/entityx.h"
 #include "loguru/loguru.hpp"
 #include "re/physics/Box2DHelper.hpp"
 #include "re/managers/Box2DManager.hpp"
@@ -20,11 +19,11 @@
 
 namespace re
 {
-	PhysicsComponent::PhysicsComponent(ex::Entity& e, sol::table& table)
+	PhysicsComponent::PhysicsComponent(entityx::Entity& e, sol::table& table)
 	:m_body(nullptr)
 	{
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_x), b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_y));
+		bodyDef.position.Set(b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_rect.x), b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_rect.y));
 
 		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))

@@ -77,46 +77,70 @@ private:
 #include <re/core/Application.hpp>
 #include <re/services/ServiceLocator.hpp>
 
+#include <re/components/AnimationComponent.hpp>
+#include <re/components/CollisionComponent.hpp> 
+#include <re/components/PhysicsComponent.hpp>
+#include <re/components/RenderableComponent.hpp>
+#include <re/components/SpriteComponent.hpp>
+#include <re/components/TextComponent.hpp>
+#include <re/components/TransformComponent.hpp>
+
+#include <re/systems/RenderSystem.hpp>
+
+#include "Test.hpp"
+
 class Game : public re::Application
 {
 public:
 	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : re::Application(archive, config, newConfig)
 	{
-		re::Locator::provide<re::World>(m_world);
-		re::Locator::provide<re::VFS>(m_vfs);
-		re::Locator::provide<re::StateManager>(m_stateManager);
-		re::Locator::provide<re::Box2DManager>(m_b2dManager);
-		re::Locator::provide<re::DebugManager>(m_debugManager);
-		re::Locator::provide<re::Window>(m_window);
-		re::Locator::provide<re::TexturePacker>(m_texturePacker);
+		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
+		m_world->registerComponent<re::CollisionComponent>("CollisionComponent");
+		m_world->registerComponent<re::PhysicsComponent>("PhysicsComponent");
+		m_world->registerComponent<re::RenderableComponent>("RenderableComponent");
+		m_world->registerComponent<re::SpriteComponent>("SpriteComponent");
+		m_world->registerComponent<re::TextComponent>("TextComponent");
+		m_world->registerComponent<re::TransformComponent>("TransformComponent");
 
-		// Register Systems
+		m_world->m_systemManager.add<re::RenderSystem>(2);
 		m_world->m_systemManager.configure();
+		
+		m_world->m_systemManager.system<re::RenderSystem>()->registerRenderableComponents<re::TextComponent, re::SpriteComponent>();
+
+		m_debugManager->specifyReloadState(Test::inst(), []() {});
+		m_stateManager->setState(Test::inst());
 	}
 };
 
 void newConfigFunc(std::ofstream& newConfig)
 {
-	newConfig << "appTitle = \"Default\"" << std::endl;
-	newConfig << "assetPath = \"bin/assets/\"" << std::endl;
-	newConfig << "ups = 60.0" << std::endl;
-	newConfig << "versionMajor = 1" << std::endl;
-	newConfig << "versionMinor = 0" << std::endl;
-	newConfig << "versionPatch = 0" << std::endl;
-	newConfig << "screenWidth = 640" << std::endl;
-	newConfig << "screenHeight = 480" << std::endl;
-	newConfig << "renderingLayers = 2" << std::endl;
-	newConfig << "framerateLimit = 0" << std::endl;
-	newConfig << "keyRepeat = true" << std::endl;
-	newConfig << "cursorVisible = true" << std::endl;
-	newConfig << "vsyncEnabled = false" << std::endl;
-	newConfig << "saveLog = false" << std::endl;
-	newConfig << "enableDebug = false" << std::endl;
+	newConfig << "[graphics]" << std::endl;	
+	newConfig << "width = 1280" << std::endl;
+	newConfig << "height = 720" << std::endl;
+	newConfig << "fullscreen = false" << std::endl;
+	newConfig << "msaa = true" << std::endl;
+	newConfig << "msaaValue = 2" << std::endl;
+	newConfig << "title = Sandbox" << std::endl;
+	newConfig << "icon = icon.png" << std::endl;
+	newConfig << "atlas = test.atlas" << std::endl;
+	newConfig << std::endl;
+
+	newConfig << "[box2d]" << std::endl;
+	newConfig << "gravity = 9.81" << std::endl;
+	newConfig << std::endl;
+
+	newConfig << "[fontmanager]" << std::endl;
+	newConfig << "fontScript = fonts.lua" << std::endl;
+	newConfig << std::endl;
+
+	newConfig << "[audiomanager]" << std::endl;
+	newConfig << "audioScript = audio.lua" << std::endl;
+	newConfig << "reserveSamples = 16" << std::endl;
 }
 
 int main(int argc, char **argv)
 {
-	Game sandbox("data.archive", "config.lua", newConfigFunc);
+	Game sandbox("bin/data.zip", "config.cfg", newConfigFunc);
 
 	return sandbox.run();
 }

@@ -17,7 +17,7 @@ namespace re
 {
 	TextureAtlas::TextureAtlas(const std::string& atlas)
 	{
-		pack_config = al_load_config_file_f(Locator::get<VFS>()->open(atlas, "rw"));
+		pack_config = al_load_config_file(atlas.c_str());
 
 		// Load all the packed image files into bitmaps
 		const char *total_files_str = al_get_config_value(pack_config, "file_metadata", "total_files");
@@ -35,7 +35,7 @@ namespace re
 		while (img_file_name != NULL) {
 			packed_image_file_array[i].file_name = (char*)calloc(strlen(img_file_name), sizeof(char));
 			strcpy(packed_image_file_array[i].file_name, img_file_name);
-			packed_image_file_array[i].bitmap = al_load_bitmap_f(Locator::get<VFS>()->open(std::string(img_file_name), "rw"), NULL);
+			packed_image_file_array[i].bitmap = al_load_bitmap(img_file_name);
 
 			i++;
 			img_file_name = strtok(NULL, delim);
@@ -86,7 +86,7 @@ namespace re
 		do
 		{
 			str_secondsec = Utils::nullToEmpty(al_get_next_config_section(&sec));
-			if (str_secondsec != "")
+			if (str_secondsec != "" && str_secondsec != "file_metadata")
 			{
 				const char *id_str = al_get_config_value(pack_config, str_secondsec.c_str(), "id");
 				const char *x_str = al_get_config_value(pack_config, str_secondsec.c_str(), "x");
@@ -132,7 +132,6 @@ namespace re
 			free(packed_image_file_array[i].file_name);
 			al_destroy_bitmap(packed_image_file_array[i].bitmap);
 		}
-
 		free(packed_image_file_array);
 
 		al_destroy_config(pack_config);

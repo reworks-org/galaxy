@@ -1,4 +1,4 @@
-//
+ //
 //  VFS.cpp
 //  rework
 //
@@ -42,12 +42,6 @@ namespace re
 
 	VFS::~VFS()
 	{
-		for (auto& elem : m_filesToClean)
-		{
-			al_fclose(elem);
-		}
-		m_filesToClean.clear();
-
 		PHYSFS_deinit();
 	}
 
@@ -59,46 +53,33 @@ namespace re
 		}
 	}
 
-	ALLEGRO_FILE* VFS::open(const std::string& file, const std::string& mode)
+	std::string VFS::openAsString(const std::string& file)
 	{
-		ALLEGRO_FILE* pointer = nullptr;
+		ALLEGRO_FILE* f = nullptr;
 		if (PHYSFS_exists(file.c_str()))
 		{
-			pointer = al_fopen(file.c_str(), mode.c_str());
-			m_filesToClean.push_back(pointer);
+			f = al_fopen(file.c_str(), "r");
 		}
 		else
 		{
-			LOG_S(WARNING) << "Tried to open a file that does not exist!" << std::endl;
+			LOG_S(FATAL) << "Tried to open a file that does not exist!" << std::endl;
 		}
 
-		return pointer;
-	}
-
-	std::string VFS::openAsString(const std::string& file)
-	{
-		ALLEGRO_FILE* f = open(file, "r");
 		if (!f)
 		{
 			LOG_S(FATAL) << "Failed to open: " << file << std::endl;
 			return "";
 		}
 
-		ALLEGRO_USTR* ustr = nullptr;
-		ustr = al_fget_ustr(f);
-		if (!ustr)
-		{
-			LOG_S(FATAL) << "Failed to read string from file!" << std::endl;
-			return "";
-		}
+		auto size = al_fsize(f);
+		char* buff = new char[size + 1];
+		buff[size] = '\0';
 
-		char* buff = al_cstr_dup(ustr);
-		auto buffLen = strlen(buff);
+		al_fread(f, buff, size);
+		
+		std::string str = buff;
 
-		std::string str(buff, buffLen);
-
-		al_free(buff);
-		al_ustr_free(ustr);
+		delete[] buff;
 		al_fclose(f);
 
 		return str;
@@ -114,6 +95,8 @@ namespace re
 		temp.close();
 
 		std::string arch_write = pathInArchive + fileName;
+
+
 
 		zipper::Zipper zipper(archive);
 		zipper.add(arch_write);

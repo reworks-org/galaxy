@@ -13,8 +13,6 @@
 
 namespace re
 {
-	friend class Layer;
-
 	class Renderable
 	{
 	public:
@@ -23,7 +21,6 @@ namespace re
 		///
 		virtual inline ~Renderable() {}
 
-	protected:
 		///
 		/// Render Component.
 		///

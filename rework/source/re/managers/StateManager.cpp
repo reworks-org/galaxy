@@ -40,14 +40,14 @@ namespace re
 		m_currentState->render();
 	}
 
-	void StateManager::changeState(std::shared_ptr<State> s)
+	void StateManager::changeState(std::shared_ptr<BaseState> s)
 	{
 		m_currentState->unload();
 		m_currentState = s;
 		m_currentState->load();
 	}
 
-	void StateManager::reloadState(std::shared_ptr<State> s)
+	void StateManager::reloadState(std::shared_ptr<BaseState> s)
 	{
 		m_currentState->unload();
 
@@ -62,7 +62,7 @@ namespace re
 		}
 	}
 
-	void StateManager::setState(std::shared_ptr<State> s)
+	void StateManager::setState(std::shared_ptr<BaseState> s)
 	{
 		m_currentState = s;
 	}

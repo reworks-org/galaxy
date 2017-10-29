@@ -8,7 +8,6 @@
 
 #include <algorithm>
 
-#include "entityx/Entity.h"
 #include "imgui/imgui_impl_a5.h"
 #include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -18,7 +17,7 @@
 
 namespace re
 {
-	SpriteComponent::SpriteComponent(ex::Entity& e, sol::table& table)
+	SpriteComponent::SpriteComponent(entityx::Entity& e, sol::table& table)
 	{
 		m_spriteName = table.get<std::string>("spriteName");
 		m_layer = table.get<int>("layer");
@@ -43,6 +42,6 @@ namespace re
 
 	void SpriteComponent::render()
 	{
-		Locator::get<TextureAtlas>()->al_draw_tinted_scaled_rotated_packed_bitmap(m_entity.component<SpriteComponent>()->m_spriteName, al_map_rgba_f(1, 1, 1, 1), 0, 0, m_entity.component<TransformComponent>()->m_x, m_entity.component<TransformComponent>()->m_y, 1, 1, m_entity.component<TransformComponent>()->m_angle, 0);
+		Locator::get<TextureAtlas>()->al_draw_tinted_scaled_rotated_packed_bitmap(m_entity.component<SpriteComponent>()->m_spriteName, al_map_rgba_f(1, 1, 1, 1), 0, 0, m_entity.component<TransformComponent>()->m_rect.x, m_entity.component<TransformComponent>()->m_rect.y, 1, 1, m_entity.component<TransformComponent>()->m_angle, 0);
 	}
 }

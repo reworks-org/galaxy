@@ -17,8 +17,8 @@ struct ALLEGRO_DISPLAY;
 
 namespace re
 {
-	class State;
 	class World;
+	class BaseState; 
 
     class DebugManager : public Service
     {
@@ -50,9 +50,9 @@ namespace re
 		void event(ALLEGRO_EVENT* event);
 
 		///
-		/// Update IMGUI.
+		/// Begin new imgui frame.
 		///
-		void update();
+		void newFrame();
 
 		///
 		/// Draw IMGUI.
@@ -74,10 +74,10 @@ namespace re
 		/// \param s State pointer to reload to.
 		/// \param func Function to cleanup anything that normally isnt cleaned up at that time.
 		///
-		void specifyReloadState(std::shared_ptr<State> s, std::function<void(void)> func);
+		void specifyReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func);
 
 	private:
-		std::shared_ptr<State> m_reloadState;
+		std::shared_ptr<BaseState> m_reloadState;
 		std::function<void(void)> m_reloadFunc;
 		re::World* m_world;
 		sol::state m_lua;

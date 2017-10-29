@@ -7,6 +7,8 @@
 //
 
 #include "loguru/loguru.hpp"
+#include "re/services/VFS.hpp"
+#include "re/services/ServiceLocator.hpp"
 
 #include "Config.hpp"
 
@@ -15,7 +17,7 @@ namespace re
 	ConfigReader::ConfigReader(const std::string& fileName, std::function<void(std::ofstream&)>& newFile)
 	:m_fileName(fileName)
 	{
-		m_config = al_load_config_file(m_fileName.c_str());
+		m_config = al_load_config_file(fileName.c_str());
 
 		if (!m_config)
 		{

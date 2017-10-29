@@ -44,4 +44,9 @@ namespace re
 	{
 		al_use_shader(m_shader);
 	}
+
+	void Shader::disable()
+	{
+		al_use_shader(NULL);
+	}
 }

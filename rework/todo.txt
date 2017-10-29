@@ -26,10 +26,8 @@ https://github.com/alecthomas/entityx/blob/master/examples/example.cc
 
 renderer:
 - only draw stuff that is in view - think quadtree
-- use atlas drawing for performance :3
 - camera system?
 - split update and rendering threads?
-https://gamedev.stackexchange.com/questions/58086/rendering-order-in-an-entity-system
 
 - particle engine
 - parallax
@@ -42,8 +40,10 @@ http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
 https://readthedocs.org/
 
-renderables store original type with template metaprogramming
-give spritecomponetn a reference to its entity for its draw function
-
 docs about component dependencies
 -> always make transform first!
+
+fix vfs writing to archive
+fix debug script writing
+fix texture atlas crash on unload -> redo it!
+profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling

@@ -26,7 +26,7 @@ namespace re
 		///
 		/// \return Returns 32bit integer.
 		///
-		inline constexpr std::int32_t secondsToMilliseconds(float seconds)
+		inline constexpr std::int32_t secondsToMilliseconds(double seconds)
 		{
 			return seconds * 1000;
 		}
@@ -38,7 +38,7 @@ namespace re
 		///
 		/// \return Returns 64bit integer.
 		///
-		inline constexpr std::int64_t secondsToMicroseconds(float seconds)
+		inline constexpr std::int64_t secondsToMicroseconds(double seconds)
 		{
 			return seconds * 1000000;
 		}
@@ -50,7 +50,7 @@ namespace re
 		///
 		/// \return Returns float.
 		///
-		inline constexpr float millisecondsToSeconds(std::int32_t milliseconds)
+		inline constexpr double millisecondsToSeconds(std::int32_t milliseconds)
 		{
 			return milliseconds / 1000.0f;
 		}
@@ -74,7 +74,7 @@ namespace re
 		///
 		/// \return Returns float.
 		///
-		inline constexpr float microsecondsToSeconds(std::int64_t microseconds)
+		inline constexpr double microsecondsToSeconds(std::int64_t microseconds)
 		{
 			return microseconds / 1000000.0f;
 		}
@@ -101,7 +101,7 @@ namespace re
 		///
 		/// \return Returns float. Doesn't actually do anything because we just want a way to compare with information.
 		///
-		inline constexpr float seconds(float seconds)
+		inline constexpr double seconds(double seconds)
 		{
 			return seconds;
 		}
@@ -116,7 +116,7 @@ namespace re
 		///
 		/// \return Returns float. Converts to seconds because thats what the main loop uses.
 		///
-		inline constexpr float milliseconds(std::int32_t milliseconds)
+		inline constexpr double milliseconds(std::int32_t milliseconds)
 		{
 			return Time::millisecondsToSeconds(milliseconds);
 		}
@@ -131,7 +131,7 @@ namespace re
 		///
 		/// \return Returns float. Converts to seconds because thats what the main loop uses.
 		///
-		inline constexpr float microseconds(std::int64_t microseconds)
+		inline constexpr double microseconds(std::int64_t microseconds)
 		{
 			return Time::microsecondsToSeconds(microseconds);
 		}

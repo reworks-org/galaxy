@@ -37,6 +37,11 @@ namespace re
 		///
 		void use();
 
+		///
+		/// Removes the shader from the current drawing target.
+		///
+		void disable();
+
 	private:
 		ALLEGRO_SHADER* m_shader;
 	};

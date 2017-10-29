@@ -45,8 +45,6 @@ class EntityManager;
 template <typename C, typename EM = EntityManager>
 class ComponentHandle;
 
-
-
 /** A convenience handle around an Entity::Id.
  *
  * If an entity is destroyed, any copies will be invalidated. Use valid() to

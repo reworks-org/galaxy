@@ -17,7 +17,6 @@
 
 #include "loguru/loguru.hpp"
 #include "re/utils/Time.hpp"
-#include "re/core/World.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "Application.hpp"
@@ -28,14 +27,11 @@ namespace re
 	{
 		std::srand(std::time(nullptr));
 
-		int temp = 0;
-		loguru::init(temp, nullptr);
 		std::string lname = "log_" + Time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
 			al_show_native_message_box(NULL, "FATAL", message.prefix, message.message, NULL, ALLEGRO_MESSAGEBOX_ERROR);
-			throw std::runtime_error("See logs.");
 		});
 
 		LOG_S(INFO) << "App init." << std::endl;
@@ -54,15 +50,37 @@ namespace re
 		al_init_native_dialog_addon();
 
 		m_vfs = new VFS(archive);
+		re::Locator::provide<re::VFS>(m_vfs);
+		
 		m_engineConfig = new ConfigReader(config, newConfig);
+		
 		m_window = new Window(m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height"), m_engineConfig->lookup<bool>("graphics", "fullscreen"), m_engineConfig->lookup<bool>("graphics", "msaa"), m_engineConfig->lookup<int>("graphics", "msaaValue"), m_engineConfig->lookup<std::string>("graphics", "title"), m_engineConfig->lookup<std::string>("graphics", "icon"));
+		re::Locator::provide<re::Window>(m_window);
+		
 		m_world = new World();
+		re::Locator::provide<re::World>(m_world);
+		
 		m_stateManager = new StateManager();
+		re::Locator::provide<re::StateManager>(m_stateManager);
+		
 		m_fontManager = new FontManager(m_engineConfig->lookup<std::string>("fontmanager", "fontScript"));
+		re::Locator::provide<re::FontManager>(m_fontManager);
+		
 		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"), m_engineConfig->lookup<int>("audiomanager", "reserveSamples"));
+		re::Locator::provide<re::AudioManager>(m_audioManager);
+		
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
+		re::Locator::provide<re::Box2DManager>(m_b2dManager);
+		
 		m_debugManager = new DebugManager(m_window->getDisplay());
-		m_texturePacker = new TexturePacker(m_engineConfig->lookup<std::string>("graphics", "atlas"));
+		re::Locator::provide<re::DebugManager>(m_debugManager);
+		
+		m_textureAtlas = new TextureAtlas(m_engineConfig->lookup<std::string>("graphics", "atlas"));
+		re::Locator::provide<re::TextureAtlas>(m_textureAtlas);
+		
+		// TEMP
+		m_camera = new Camera({ 0, 0, m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height") });
+		re::Locator::provide<re::Camera>(m_camera);
 
 		#ifdef NDEBUG
 			m_debugManager->disable(true);
@@ -71,7 +89,8 @@ namespace re
 
 	Application::~Application()
 	{
-		delete m_texturePacker;
+		delete m_camera;
+		delete m_textureAtlas;
 		delete m_debugManager;
 		delete m_b2dManager;
 		delete m_fontManager;
@@ -114,7 +133,7 @@ namespace re
 
 		m_stateManager->load();
 
-		while (m_window->isOpen());
+		while (m_window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
 			while (al_get_next_event(eventQueue, &ev))
@@ -127,7 +146,6 @@ namespace re
 				case ALLEGRO_EVENT_TIMER:
 					m_stateManager->update(timePerFrame);
 					m_world->update(timePerFrame);
-					m_debugManager->update();
 					updates++;	
 					break;
 
@@ -137,6 +155,7 @@ namespace re
 				}
 			}
 
+			m_debugManager->newFrame();
 			m_debugManager->displayMenu();
 
 			m_window->clear(255, 255, 255);

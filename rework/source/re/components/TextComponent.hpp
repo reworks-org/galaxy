@@ -24,7 +24,7 @@ namespace re
 		///
 		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters.
 		///
-		TextComponent(ex::Entity& e, sol::table& table);
+		TextComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
@@ -36,7 +36,6 @@ namespace re
 		///
 		void debug();
 
-	private:
 		///
 		/// Draw text.
 		///

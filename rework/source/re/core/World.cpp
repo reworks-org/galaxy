@@ -11,13 +11,6 @@
 #include "loguru/loguru.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
-#include "re/components/AnimationComponent.hpp"
-#include "re/components/CollisionComponent.hpp"
-#include "re/components/ParallaxComponent.hpp"
-#include "re/components/PhysicsComponent.hpp"
-#include "re/components/SpriteComponent.hpp"
-#include "re/components/TextComponent.hpp"
-#include "re/components/TransformComponent.hpp"
 
 #include "World.hpp"
 
@@ -40,7 +33,7 @@ namespace re
 		lua.script(scrData);
 		sol::table components = lua.get<sol::table>("entity");
 		
-		ex::Entity e = m_entityManager.create();
+		entityx::Entity e = m_entityManager.create();
 
 		// Get key-value pairs from table
 		std::map<std::string, sol::table> kvp;
@@ -90,7 +83,7 @@ namespace re
 			lua.script(scrData);
 			sol::table components = lua.get<sol::table>("entity");
 
-			ex::Entity e = m_entityManager.create();
+			entityx::Entity e = m_entityManager.create();
 
 			// Get key-value pairs from table
 			std::map <std::string, sol::table> m_ekv;

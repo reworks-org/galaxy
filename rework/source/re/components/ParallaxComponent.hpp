@@ -23,7 +23,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		ParallaxComponent(ex::Entity& e, sol::table& table);
+		ParallaxComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.

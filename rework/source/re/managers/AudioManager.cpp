@@ -17,6 +17,9 @@ namespace re
 {
 	AudioManager::AudioManager(const std::string& script, int reserveSamples)
 	{
+		al_restore_default_mixer();
+		al_reserve_samples(reserveSamples);
+
 		sol::state lua;
 		lua.script(Locator::get<VFS>()->openAsString(script));
 		sol::table audio = lua.get<sol::table>("audio");
@@ -38,8 +41,6 @@ namespace re
 				m_musicMap.emplace(it.first, it.second);
 			}
 		}
-
-		al_reserve_samples(reserveSamples);
 	}
 
 	AudioManager::~AudioManager()

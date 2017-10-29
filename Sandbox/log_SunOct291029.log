@@ -1,0 +1,20 @@
+
+
+
+
+
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2017-10-29 10:29:22.409 (   0.257s) [                ]             loguru.hpp:1974     0| Logging to 'log_SunOct291029.log', mode: 'a', verbosity: 9
+2017-10-29 10:29:22.409 (   0.257s) [                ]        application.cpp:37       0| App init.
+
+
+
+
+
+
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2017-10-29 10:29:52.648 (   0.306s) [                ]             loguru.hpp:1974     0| Logging to 'log_SunOct291029.log', mode: 'a', verbosity: 9
+2017-10-29 10:29:52.649 (   0.307s) [                ]        application.cpp:37       0| App init.
+

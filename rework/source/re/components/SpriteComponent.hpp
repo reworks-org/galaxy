@@ -22,7 +22,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		SpriteComponent(ex::Entity& e, sol::table& table);
+		SpriteComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
@@ -34,7 +34,6 @@ namespace re
 		///
 		void debug();
 
-	private:
 		///
 		/// Render sprite. Called by rendersystem.
 		///

@@ -45,7 +45,7 @@ namespace re
 		}
 
 		// allegro requires null over nullptr here.
-		m_icon = al_load_bitmap_f(Locator::get<VFS>()->open(icon, "r"), NULL);
+		m_icon = al_load_bitmap(icon.c_str());
 		al_set_display_icon(m_display, m_icon);
 	}
 	

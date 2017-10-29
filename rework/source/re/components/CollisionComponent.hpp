@@ -10,11 +10,7 @@
 #define REWORK_COLLISIONCOMPONENT_HPP_
 
 #include "sol2/sol.hpp"
-
-namespace ex
-{
-	class Entity;
-}
+#include "entityx/Entity.h"
 
 namespace re
 {
@@ -26,7 +22,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		CollisionComponent(ex::Entity& e, sol::table& table);
+		CollisionComponent(entityx::Entity& e, sol::table& table);
 
 		///
 		/// Destructor.
@@ -39,8 +35,6 @@ namespace re
 		void debug();
 
 	public:
-		int m_width;
-		int m_height;
 	};
 }
 

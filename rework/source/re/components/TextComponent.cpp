@@ -8,7 +8,6 @@
 
 #include <algorithm>
 
-#include "entityx/Entity.h"
 #include "imgui/imgui_impl_a5.h"
 #include "re/managers/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -18,7 +17,7 @@
 
 namespace re
 {
-	TextComponent::TextComponent(ex::Entity& e, sol::table& table)
+	TextComponent::TextComponent(entityx::Entity& e, sol::table& table)
 	{
 		m_text = table.get<std::string>("text");
 		m_font = Locator::get<FontManager>()->get(table.get<std::string>("font"));
@@ -70,36 +69,21 @@ namespace re
 		ImGui::Spacing();
 		ImGui::Text("Colour Modifiers: ");
 
-		int r, g, b, a = 0;
-		if (ImGui::SliderInt("Red Editor", &r, 0, 255))
-		{
-			update = true;
-		}
+		ImGui::Spacing();
+		ImGui::SliderFloat("Red Editor", &m_colour.r, 0, 255);
 
-		if (ImGui::SliderInt("Green Editor", &g, 0, 255))
-		{
-			update = true;
-		}
+		ImGui::Spacing();
+		ImGui::SliderFloat("Green Editor", &m_colour.g, 0, 255);
 
-		if (ImGui::SliderInt("Blue Editor", &b, 0, 255))
-		{
-			update = true;
-		}
+		ImGui::Spacing();
+		ImGui::SliderFloat("Blue Editor", &m_colour.b, 0, 255);
 
-		if (ImGui::SliderInt("Alpha Editor", &a, 0, 255))
-		{
-			update = true;
-		}
-
-		if (update)
-		{
-			m_colour = al_map_rgba(r, g, b, a);
-			update = false;
-		}
+		ImGui::Spacing();
+		ImGui::SliderFloat("Alpha Editor", &m_colour.a, 0, 255);
 	}
 
 	void TextComponent::render()
 	{
-		al_draw_text(m_font, m_colour, m_entity.component<TransformComponent>()->m_x + m_offsetX, m_entity.component<TransformComponent>()->m_y+ m_offsetY, 0, m_text.c_str());
+		al_draw_text(m_font, m_colour, m_entity.component<TransformComponent>()->m_rect.x + m_offsetX, m_entity.component<TransformComponent>()->m_rect.y + m_offsetY, 0, m_text.c_str());
 	}
 }

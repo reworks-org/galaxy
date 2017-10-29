@@ -6,7 +6,6 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/utils/Utils.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -17,8 +16,7 @@ namespace re
 	Sound::Sound(sol::table& table)
 	{
 		std::string fn = table.get<std::string>("file");
-		std::string ext = Utils::getExtension(fn);
-		m_sound = al_load_sample_f(Locator::get<VFS>()->open(fn, "r"), ext.c_str());
+		m_sound = al_load_sample(fn.c_str());
 
 		// volume (gain) - relative volume at which the sample is played; 1.0 is normal.
 		// pan - 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
