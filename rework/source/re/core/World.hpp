@@ -63,9 +63,9 @@ namespace re
 		entityx::EventManager m_eventManager;
 		entityx::EntityManager m_entityManager;
 		entityx::SystemManager m_systemManager;
+		std::unordered_map<std::string, entityx::Entity> m_entitys;
 
 	private:
-		std::unordered_map<std::string, entityx::Entity> m_entitys;
 		std::unordered_map<std::string, std::string> m_entityScripts;
 		std::unordered_map<std::string, std::function<void(entityx::Entity&, sol::table&)>> m_componentAssign;
 		std::unordered_map<std::string, std::function<void(entityx::Entity&)>> m_componentDebug;

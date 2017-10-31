@@ -52,8 +52,6 @@ namespace re
 		int run();
 
 	protected:
-		std::string m_appTitle;
-
 		VFS* m_vfs;
 		ConfigReader* m_engineConfig;
 		Window* m_window;

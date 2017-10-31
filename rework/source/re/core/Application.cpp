@@ -50,37 +50,37 @@ namespace re
 		al_init_native_dialog_addon();
 
 		m_vfs = new VFS(archive);
-		re::Locator::provide<re::VFS>(m_vfs);
+		Locator::provide<VFS>(m_vfs);
 		
 		m_engineConfig = new ConfigReader(config, newConfig);
 		
 		m_window = new Window(m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height"), m_engineConfig->lookup<bool>("graphics", "fullscreen"), m_engineConfig->lookup<bool>("graphics", "msaa"), m_engineConfig->lookup<int>("graphics", "msaaValue"), m_engineConfig->lookup<std::string>("graphics", "title"), m_engineConfig->lookup<std::string>("graphics", "icon"));
-		re::Locator::provide<re::Window>(m_window);
+		Locator::provide<Window>(m_window);
 		
 		m_world = new World();
-		re::Locator::provide<re::World>(m_world);
+		Locator::provide<World>(m_world);
 		
 		m_stateManager = new StateManager();
-		re::Locator::provide<re::StateManager>(m_stateManager);
+		Locator::provide<StateManager>(m_stateManager);
 		
 		m_fontManager = new FontManager(m_engineConfig->lookup<std::string>("fontmanager", "fontScript"));
-		re::Locator::provide<re::FontManager>(m_fontManager);
+		Locator::provide<FontManager>(m_fontManager);
 		
 		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"), m_engineConfig->lookup<int>("audiomanager", "reserveSamples"));
-		re::Locator::provide<re::AudioManager>(m_audioManager);
+		Locator::provide<AudioManager>(m_audioManager);
 		
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
-		re::Locator::provide<re::Box2DManager>(m_b2dManager);
+		Locator::provide<Box2DManager>(m_b2dManager);
 		
 		m_debugManager = new DebugManager(m_window->getDisplay());
-		re::Locator::provide<re::DebugManager>(m_debugManager);
+		Locator::provide<DebugManager>(m_debugManager);
 		
 		m_textureAtlas = new TextureAtlas(m_engineConfig->lookup<std::string>("graphics", "atlas"));
-		re::Locator::provide<re::TextureAtlas>(m_textureAtlas);
+		Locator::provide<TextureAtlas>(m_textureAtlas);
 		
 		// TEMP
 		m_camera = new Camera({ 0, 0, m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height") });
-		re::Locator::provide<re::Camera>(m_camera);
+		Locator::provide<Camera>(m_camera);
 
 		#ifdef NDEBUG
 			m_debugManager->disable(true);
@@ -169,7 +169,7 @@ namespace re
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
 			{
 				timer += 1000;
-				LOG_S(INFO) << m_appTitle << "  |  " + updates << " ups, " << frames << " fps" << std::endl;
+				LOG_S(INFO) << updates << " ups, " << frames << " fps" << std::endl;
 				
 				updates = 0;
 				frames = 0;

@@ -26,7 +26,13 @@ Test::~Test()
 void Test::load()
 {
 	//Locator::get<World>()->createEntity("test.lua");
-	Locator::get<World>()->createEntities("world.lua");
+	
+	if (!m_doneOnce)
+	{
+		Locator::get<World>()->createEntities("world.lua");
+		m_doneOnce = true;
+	}
+
 	Locator::get<AudioManager>()->getMusic("background")->play();
 }
 
