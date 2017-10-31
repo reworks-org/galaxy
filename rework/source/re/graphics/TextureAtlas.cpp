@@ -113,7 +113,7 @@ namespace re
 				packed_image_array[id].w = atoi(w_str);
 				packed_image_array[id].h = atoi(h_str);
 
-				m_strToID.emplace(str_firstsec, (AL_PACKED_IMAGE_ID)id);
+				m_strToID.emplace(str_secondsec, (AL_PACKED_IMAGE_ID)id);
 			}
 		}
 	}

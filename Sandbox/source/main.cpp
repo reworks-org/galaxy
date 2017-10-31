@@ -104,8 +104,8 @@ public:
 		m_world->registerComponent<re::TransformComponent>("TransformComponent");
 		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
 
-		m_world->m_systemManager.add<re::RenderSystem>(2);
 		m_world->m_systemManager.add<re::AnimationSystem>();
+		m_world->m_systemManager.add<re::RenderSystem>(2);
 		m_world->m_systemManager.configure();
 		
 		m_world->m_systemManager.system<re::RenderSystem>()->registerRenderableComponents<re::TextComponent, re::SpriteComponent>();
