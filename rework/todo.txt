@@ -51,9 +51,11 @@ profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/be
 - remove entityx from component headers
 
 test:
-- animation, collision, physics systems & components
+- collision, physics systems & components
 - box2d helper
 - box2d manager
 - shadermanager / shaders
 - camera (implement first!)
 - resolution independence (implement first!)
+
+update physics quadtree according to camera positon -> means less to check
