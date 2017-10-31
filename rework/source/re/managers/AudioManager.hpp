@@ -51,6 +51,20 @@ namespace re
 		///
 		Music* getMusic(const std::string& name);
 
+		///
+		/// Change system music volume.
+		///
+		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain.
+		///
+		void changeMusicVolume(float volume);
+
+		///
+		/// Change system sound effect volume.
+		///
+		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain.
+		///
+		void changeSoundVolume(float volume);
+
 	private:
 		std::unordered_map<std::string, Sound> m_soundMap;
 		std::unordered_map<std::string, Music> m_musicMap;

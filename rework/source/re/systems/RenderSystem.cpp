@@ -18,7 +18,6 @@ namespace re
 	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc)
 		:m_layerCount(layers), m_defaultAlloc(defaultAlloc)
 	{
-		m_layers.resize(0);
 		m_layers.clear();
 
 		m_layers.reserve(m_layerCount);
@@ -45,7 +44,6 @@ namespace re
 
 		clean();
 
-		m_layers.resize(0);
 		m_layers.reserve(m_layerCount);
 		for (unsigned int i = 0; i < m_layerCount; ++i)
 		{

@@ -5,33 +5,26 @@
 //  Created by reworks on 16/08/2016.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
-// Code adapted from here: https://github.com/SFML/SFML/wiki/Source:-AnimationComponent
 
 #include <map>
 
 #include "loguru/loguru.hpp"
-#include "re/utils/Time.hpp"
 #include "imgui/imgui_impl_a5.h"
+#include "re/components/SpriteComponent.hpp"
 
 #include "AnimationComponent.hpp"
 
 namespace re
 {
 	AnimationComponent::AnimationComponent(entityx::Entity& e, sol::table& table)
-	:m_isLooped(false), m_isPaused(false), m_frameTime(0.0f), m_currentTime(0.0f), m_currentFrame(0), m_activeAnimation("")
+		:m_currentFrameTime(0.0)
 	{
-        m_animations.clear();
-
-		m_frameTime = Time::milliseconds(table.get<std::int32_t>("speed"));
-		m_currentFrame = 0;
-		m_isPaused = table.get<bool>("isPaused");
-		m_isLooped = table.get<bool>("isLooped");
-
-		changeAnimation(table.get<std::string>("defaultAnim"));
-
 		m_animations.clear();
-		sol::table animTable = table.get<sol::table>("Animations");
 
+		m_isPaused = table.get<bool>("paused");
+		m_activeAnimation = table.get<std::string>("defaultAnim");
+
+		sol::table animTable = table.get<sol::table>("Animations");
 		std::map<std::string, sol::table> kvp;
 		animTable.for_each([&](std::pair<sol::object, sol::object> pair) {
 			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
@@ -39,26 +32,12 @@ namespace re
 
 		if (kvp.empty())
 		{
-			LOG_S(FATAL) << "Tried to load animation with no frames!" << std::endl;
+			LOG_S(WARNING) << "Loading animationcomponent with no animations!" << std::endl;
 		}
 
 		for (auto& it : kvp)
 		{
-			std::map<std::string, sol::table> kvf;
-			it.second.for_each([&](std::pair<sol::object, sol::object> pair) {
-				kvf.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
-			});
-
-			std::vector<Rect<int>> tempvector;
-
-			for (auto& frames : kvf)
-			{
-				Rect<int> temp(frames.second.get<int>("x"), frames.second.get<int>("y"), frames.second.get<int>("w"), frames.second.get<int>("h"));
-				tempvector.push_back(temp);
-			}
-
-			m_animations.emplace(it.first, tempvector);
-			tempvector.clear();
+			m_animations.emplace(it.first, it.second);
 		}
 	}
 
@@ -69,9 +48,9 @@ namespace re
 
 	void AnimationComponent::changeAnimation(const std::string& animation)
 	{
+		m_animations.at(m_activeAnimation).m_currentFrame = 0;
+		m_currentFrameTime = 0.0;
 		m_activeAnimation = animation;
-		m_currentFrame = 0;
-		m_currentTime = 0.0f;
 	}
 
 	void AnimationComponent::play()
@@ -97,24 +76,23 @@ namespace re
 	void AnimationComponent::stop()
 	{
 		m_isPaused = true;
-		m_currentFrame = 0;
-		m_currentTime = 0.0f;
-	}
-
-	bool AnimationComponent::isPaused() const
-	{
-		return m_isPaused;
+		m_animations.at(m_activeAnimation).m_currentFrame = 0;
+		m_currentFrameTime = 0.0;
 	}
 
 	void AnimationComponent::debug()
 	{
-		ImGui::InputFloat("Time Per Frame", &m_frameTime);
+		ImGui::Checkbox("Is Paused", &m_isPaused);
 
 		ImGui::Spacing();
-		ImGui::InputInt("Current Frame", &m_currentFrame);
+		if (ImGui::stl::InputText("Active Animation", &m_activeAnimation, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			changeAnimation(m_activeAnimation);
+			play();
+		}
 
 		ImGui::Spacing();
-		ImGui::Checkbox("Is Looping", &m_isLooped);
+		m_animations.at(m_activeAnimation).debug();
 
 		ImGui::Spacing();
 		if (ImGui::Button("Play animation"))

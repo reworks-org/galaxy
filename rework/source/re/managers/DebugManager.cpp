@@ -29,8 +29,8 @@ namespace re
 		}).base(), s.end());
 	}
 
-	DebugManager::DebugManager(ALLEGRO_DISPLAY* display, const std::string& scriptLocationInArchive)
-	:m_reloadState(nullptr), m_disabled(false), m_scriptLocationInArchive(scriptLocationInArchive)
+	DebugManager::DebugManager(ALLEGRO_DISPLAY* display)
+	:m_reloadState(nullptr), m_disabled(false)
 	{
 		m_world = Locator::get<World>();
 		ImGui_ImplA5_Init(display);

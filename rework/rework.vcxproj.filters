@@ -201,6 +201,8 @@
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\re\components\RenderableComponent.cpp" />
     <ClCompile Include="source\re\graphics\Camera.cpp" />
+    <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\re\graphics\Animation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -409,9 +411,6 @@
     <ClInclude Include="source\re\math\Vector2.hpp" />
     <ClInclude Include="source\re\math\Vector3.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
-    <ClInclude Include="source\re\platform\ConsoleColour.hpp" />
-    <ClInclude Include="source\re\platform\UNIXLog.hpp" />
-    <ClInclude Include="source\re\platform\Win32Log.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
@@ -427,6 +426,8 @@
     <ClInclude Include="source\re\types\Renderable.hpp" />
     <ClInclude Include="source\re\components\RenderableComponent.hpp" />
     <ClInclude Include="source\re\graphics\Camera.hpp" />
+    <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\re\graphics\Animation.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

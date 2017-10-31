@@ -70,7 +70,7 @@ namespace re
 		}
 
 	protected:
-		// Allows for loading stuff only once in load()
+		/// Allows for loading stuff only once in load()
 		bool m_doneOnce = false;
 	};
 }

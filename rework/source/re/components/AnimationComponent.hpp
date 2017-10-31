@@ -9,9 +9,8 @@
 #ifndef REWORK_ANIMATIONCOMPONENT_HPP_
 #define REWORK_ANIMATIONCOMPONENT_HPP_
 
-#include "sol2/sol.hpp"
-#include "re/math/Rect.hpp"
 #include "entityx/Entity.h"
+#include "re/graphics/Animation.hpp"
 
 namespace re
 {
@@ -60,28 +59,15 @@ namespace re
 		void stop();
 
 		///
-		/// Check if animation is paused.
-		///
-		bool isPaused() const;
-
-		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
 		///
 		void debug();
 
-	private:
-		bool m_isPaused;
-        
-		float m_frameTime;
-		float m_currentTime;
-        
-		int m_currentFrame;
-		std::string m_activeAnimation;
-		std::unordered_map<std::string, std::vector<Rect<int>>> m_animations;
-
 	public:
-		bool m_isLooped;
-		Rect<int> m_currentFrameRect;
+		bool m_isPaused;
+		double m_currentFrameTime;
+		std::string m_activeAnimation;
+		std::unordered_map<std::string, Animation> m_animations;
 	};
 }
 

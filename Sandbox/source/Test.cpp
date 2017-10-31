@@ -12,6 +12,7 @@
 #include <loguru/loguru.hpp>
 #include <re/graphics/Window.hpp>
 #include <re/systems/RenderSystem.hpp>
+#include <re/managers/AudioManager.hpp>
 #include <re/services/ServiceLocator.hpp>
 
 #include "Test.hpp"
@@ -24,11 +25,14 @@ Test::~Test()
 
 void Test::load()
 {
-	Locator::get<World>()->createEntity("test.lua");
+	//Locator::get<World>()->createEntity("test.lua");
+	Locator::get<World>()->createEntities("world.lua");
+	Locator::get<AudioManager>()->getMusic("background")->play();
 }
 
 void Test::unload()
 {
+	Locator::get<AudioManager>()->getMusic("background")->stop();
 	Locator::get<World>()->m_systemManager.system<RenderSystem>()->clean();
 }
 
@@ -38,6 +42,26 @@ void Test::event(ALLEGRO_EVENT* event)
 	{
 	case ALLEGRO_EVENT_DISPLAY_CLOSE:
 		Locator::get<Window>()->close();
+
+	case ALLEGRO_EVENT_KEY_DOWN:
+		switch (event->keyboard.keycode)
+		{
+			case ALLEGRO_KEY_ESCAPE:
+				Locator::get<Window>()->close();
+				break;
+
+			case ALLEGRO_KEY_SPACE:
+				Locator::get<AudioManager>()->getSound("space")->play();
+				break;
+
+			case ALLEGRO_KEY_F:
+				Locator::get<Window>()->toggleFullscreen(true);
+				break;
+
+			case ALLEGRO_KEY_W:
+				Locator::get<Window>()->toggleFullscreen(false);
+				break;
+		}
 		break;
 	}
 }

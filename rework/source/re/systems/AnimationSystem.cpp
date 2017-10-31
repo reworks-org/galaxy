@@ -1,14 +1,14 @@
 //
 //  AnimationSystem.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 10/11/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/app/World.hpp"
-#include "re/component/SpriteComponent.hpp"
-#include "re/component/AnimationComponent.hpp"
+#include "re/utils/Time.hpp"
+#include "re/components/SpriteComponent.hpp"
+#include "re/components/AnimationComponent.hpp"
 
 #include "AnimationSystem.hpp"
 
@@ -16,74 +16,40 @@ namespace re
 {
 	AnimationSystem::AnimationSystem()
 	{
-		m_typeAsString = "AnimationSystem";
 	}
 
 	AnimationSystem::~AnimationSystem()
 	{
-		m_entitys.clear();
 	}
 
-	void AnimationSystem::addEntity(Entity* e)
+	void AnimationSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
-		if (e->m_systemIds.find("AnimationSystem") == e->m_systemIds.end())
+		es.each<AnimationComponent, SpriteComponent>([dt](entityx::Entity entity, AnimationComponent& ac, SpriteComponent& sc)
 		{
-			e->m_systemIds.emplace("AnimationSystem", std::type_index(typeid(AnimationSystem)));
-		}
-		
-		// we also want to adjust the first texture rectangle so it doesn't get missed out on...
-		e->get<SpriteComponent>()->m_sprite.setTextureRect(e->get<AnimationComponent>()->m_animations[e->get<AnimationComponent>()->m_activeAnimation][e->get<AnimationComponent>()->m_currentFrame]);
-		m_entitys.emplace(e->m_name, e);
-	}
-
-	void AnimationSystem::removeEntity(const std::string& name)
-	{
-		m_entitys.erase(name);
-	}
-
-    // Based off of
-    // https://github.com/miguelmartin75/anax/blob/master/examples/common/src/Systems/AnimationSystem.cpp
-	void AnimationSystem::update(sf::Time dt)
-	{
-		for (auto& e : m_entitys)
-		{
-			auto animation = e.second->get<AnimationComponent>();
-			auto sprite = e.second->get<SpriteComponent>();
-
-			if (!animation->m_isPaused)
+			if (!ac.m_isPaused)
 			{
-				// add delta time
-				animation->m_currentTime += dt;
-
-				// if current time is bigger then the frame time advance one frame
-				if (animation->m_currentTime >= animation->m_frameTime)
+				auto timepassed = (dt * ac.m_animations.at(ac.m_activeAnimation).m_speed);
+				ac.m_currentFrameTime += timepassed;
+				
+				if (ac.m_currentFrameTime >= Time::milliseconds(ac.m_animations.at(ac.m_activeAnimation).m_timePerFrame))
 				{
-					// reset time, but keep the remainder
-					animation->m_currentTime = sf::milliseconds(animation->m_currentTime.asMilliseconds() % animation->m_frameTime.asMilliseconds());
+					ac.m_currentFrameTime = 0.0;
+					ac.m_animations.at(ac.m_activeAnimation).m_currentFrame++;
 
-					// get next Frame index
-					if (animation->m_currentFrame + 1 < animation->m_animations[animation->m_activeAnimation].size())
-						animation->m_currentFrame++;
-					else
+					if (ac.m_animations.at(ac.m_activeAnimation).m_currentFrame > (ac.m_animations.at(ac.m_activeAnimation).m_totalFrames - 1))
 					{
-						// animation has ended
-						animation->m_currentFrame = 0; // reset to start
+						ac.m_animations.at(ac.m_activeAnimation).m_currentFrame = 0;
 
-						if (!animation->m_isLooped)
+						if (!ac.m_animations.at(ac.m_activeAnimation).m_isLooped)
 						{
-							animation->m_isPaused = true;
+							ac.stop();
 						}
-
 					}
 
-					sprite->m_sprite.setTextureRect(animation->m_animations[animation->m_activeAnimation][animation->m_currentFrame]);
+					sc.m_spriteName = ac.m_animations.at(ac.m_activeAnimation).m_frames[ac.m_animations.at(ac.m_activeAnimation).m_currentFrame];
+
 				}
 			}
-		}
-	}
-
-	void AnimationSystem::clean()
-	{
-		m_entitys.clear();
+		});
 	}
 }

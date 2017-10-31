@@ -58,4 +58,26 @@ namespace re
 	{
 		return &(m_musicMap.at(name));
 	}
+
+	void AudioManager::changeMusicVolume(float volume)
+	{
+		if (volume > 1.0) { volume = 1.0f; }
+		if (volume < 0.0) { volume = 0.0f; }
+
+		for (auto& it : m_musicMap)
+		{
+			it.second.setVolume(volume);
+		}
+	}
+
+	void AudioManager::changeSoundVolume(float volume)
+	{
+		if (volume > 1.0) { volume = 1.0f; }
+		if (volume < 0.0) { volume = 0.0f; }
+
+		for (auto& it : m_soundMap)
+		{
+			it.second.setVolume(volume);
+		}
+	}
 }

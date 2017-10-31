@@ -30,7 +30,7 @@ namespace re
 
 	void SpriteComponent::debug()
 	{
-		ImGui::stl::InputText("Sprite Name (in atlas):", &m_spriteName, ImGuiInputTextFlags_EnterReturnsTrue);
+		ImGui::stl::InputText("Sprite Name (in atlas):", &m_spriteName, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
 
 		ImGui::Spacing();
 		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))

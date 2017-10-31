@@ -60,6 +60,8 @@ namespace ImGui
 			}
 			// cleanup
 			delete[] buffer;
+			buf->shrink_to_fit();
+
 			return result;
 		}
 
@@ -74,6 +76,8 @@ namespace ImGui
 			}
 			// cleanup
 			delete[] buffer;
+			buf->shrink_to_fit();
+
 			return result;
 		}
 

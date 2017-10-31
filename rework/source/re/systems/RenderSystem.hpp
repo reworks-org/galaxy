@@ -24,7 +24,7 @@ namespace re
 		/// \brief Constructor.
 		///
 		/// Automatically registers system component functions.
-		/// You need to manually register your components by calling registerComponetUpdateFunction()
+		/// You need to manually register your components by calling registerRenderableComponents()
 		///
 		/// \param layers Number of layers to draw to.
 		/// \param defaultAlloc Minimum amount of space reserved in std::vector for entitys.

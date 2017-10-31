@@ -84,6 +84,7 @@ private:
 #include <re/components/SpriteComponent.hpp>
 #include <re/components/TextComponent.hpp>
 #include <re/components/TransformComponent.hpp>
+#include <re/systems/AnimationSystem.hpp>
 
 #include <re/systems/RenderSystem.hpp>
 
@@ -101,13 +102,15 @@ public:
 		m_world->registerComponent<re::SpriteComponent>("SpriteComponent");
 		m_world->registerComponent<re::TextComponent>("TextComponent");
 		m_world->registerComponent<re::TransformComponent>("TransformComponent");
+		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
 
 		m_world->m_systemManager.add<re::RenderSystem>(2);
+		m_world->m_systemManager.add<re::AnimationSystem>();
 		m_world->m_systemManager.configure();
 		
 		m_world->m_systemManager.system<re::RenderSystem>()->registerRenderableComponents<re::TextComponent, re::SpriteComponent>();
 
-		m_debugManager->specifyReloadState(Test::inst(), []() {});
+		m_debugManager->specifyReloadState(Test::inst(), []() { LOG_S(INFO) << "RESETTING STATE!" << std::endl; });
 		m_stateManager->setState(Test::inst());
 	}
 };
@@ -127,10 +130,6 @@ void newConfigFunc(std::ofstream& newConfig)
 
 	newConfig << "[box2d]" << std::endl;
 	newConfig << "gravity = 9.81" << std::endl;
-	newConfig << std::endl;
-
-	newConfig << "[debugmanager]" << std::endl;
-	newConfig << "scriptLocationInArchive = \"\"" << std::endl;
 	newConfig << std::endl;
 
 	newConfig << "[fontmanager]" << std::endl;

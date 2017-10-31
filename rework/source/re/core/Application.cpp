@@ -72,7 +72,7 @@ namespace re
 		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
 		re::Locator::provide<re::Box2DManager>(m_b2dManager);
 		
-		m_debugManager = new DebugManager(m_window->getDisplay(), m_engineConfig->lookup<std::string>("debugmanager", "scriptLocationInArchive"));
+		m_debugManager = new DebugManager(m_window->getDisplay());
 		re::Locator::provide<re::DebugManager>(m_debugManager);
 		
 		m_textureAtlas = new TextureAtlas(m_engineConfig->lookup<std::string>("graphics", "atlas"));
