@@ -59,3 +59,6 @@ test:
 - resolution independence (implement first!)
 
 update physics quadtree according to camera positon -> means less to check
+make some api calls have alternative shorthands.
+e.g. Locator::get<World>()->m_systemManager to World::SystemManager()-> or something...
+using typedefs maybe? or #defines?
