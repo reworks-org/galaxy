@@ -40,15 +40,10 @@ http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
 https://readthedocs.org/
 
-docs about component dependencies
--> always make transform first!, SPRITE SECOND
-
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 
 - achieve resolution independence
 - camera
-- remove intercomponent dependencies
-- remove entityx from component headers
 
 test:
 - collision, physics systems & components

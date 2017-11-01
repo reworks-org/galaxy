@@ -203,6 +203,7 @@
     <ClCompile Include="source\re\graphics\Camera.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
+    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -428,6 +429,7 @@
     <ClInclude Include="source\re\graphics\Camera.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
+    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

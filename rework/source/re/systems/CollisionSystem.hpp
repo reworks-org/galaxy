@@ -1,73 +1,57 @@
 //
 //  CollisionSystem.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 28/08/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_COLLISIONSYSTEM_HPP_
-#define RENGINE3_COLLISIONSYSTEM_HPP_
+#ifndef REWORK_COLLISIONSYSTEM_HPP_
+#define REWORK_COLLISIONSYSTEM_HPP_
 
-#include "re/types/System.hpp"
-#include "re/physics/QuadTree.hpp"
+#include "entityx/System.h"
+#include "re/math/QuadTree.hpp"
 
 namespace re
 {
-	class CollisionSystem : public System
+	class CollisionSystem : public entityx::System<CollisionSystem>
 	{
 	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Constructor.
-		*/
+		///
+		/// Constructor.
+		///
 		CollisionSystem();
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Cleans up the system.
-		*/
+		///
+		/// Destructor.
+		///
 		~CollisionSystem() override;
+		
+		///
+		/// Set up the internal quad tree.
+		///
+		/// \param level Layer of the quadtree (99% of the time this is 0).
+		/// \param bounds Bounds of the quadtree (usually camera or level, etc).
+		/// \param maxLevels how many levels in the quadtree.
+		/// \param maxObjects Maximum number of objects per node.
+		///
+		void setUpQuadTree(int level, Rect<float, int>& bounds, int maxLevels = 5, int maxObjects = 10);
 
-		/*
-		* IMPORTS: id of entity to add and its component list.
-		* EXPORTS: none
-		* PURPOSE: Add an entitys components from the system.
-		*/
-		void addEntity(Entity* e) override;
-
-		/*
-		* IMPORTS: id of entity to remove
-		* EXPORTS: none
-		* PURPOSE: Remove an entitys components from the system.
-		*/
-		void removeEntity(const std::string& name) override;
-
-		/*
-		* IMPORTS: See QuadTree Constructor.
-		* EXPORTS: none
-		* PURPOSE: Set up quadtree. See QuadTree Constructor.
-		*/
-		void setUpQuadTree(int level, sf::Rect<int>& bounds, int maxLevels = 5, int maxObjects = 10);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Handles collisions.
-		*/
-		void update();
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean the system.
-		*/
-		void clean() override;
+		///
+		/// \brief Update the system.
+		///
+		/// Dont actually call this, this is called by entity x internal system manager.
+		///
+		void update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt) override;
+		
+		///
+		/// Clean up system.
+		///
+		void clean();
 
 	private:
 		QuadTree* m_quadtree;
+		std::vector<entityx::Entity> m_possibleCollisions;
 	};
 }
 

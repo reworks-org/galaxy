@@ -1,14 +1,15 @@
 //
 //  CollisionSystem.cpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 28/08/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "re/physics/PhysicsManager.hpp"
+#include "entityx/entityx.h"
 #include "re/services/ServiceLocator.hpp"
-#include "re/component/CollisionComponent.hpp"
+#include "re/components/CollisionComponent.hpp"
+#include "re/components/TransformComponent.hpp"
 
 #include "CollisionSystem.hpp"
 
@@ -17,7 +18,6 @@ namespace re
 	CollisionSystem::CollisionSystem()
 	:m_quadtree(nullptr)
 	{
-		m_typeAsString = "CollisionSystem";
 	}
 
 	CollisionSystem::~CollisionSystem()
@@ -27,51 +27,32 @@ namespace re
 			m_quadtree->clear();
 			delete m_quadtree;
 		}
-
-		m_entitys.clear();
 	}
 
-	void CollisionSystem::addEntity(Entity* e)
-	{
-		if (e->m_systemIds.find("CollisionSystem") == e->m_systemIds.end())
-		{
-			e->m_systemIds.emplace("CollisionSystem", std::type_index(typeid(CollisionSystem)));
-		}
-
-		m_entitys.emplace(e->m_name, e);
-	}
-
-	void CollisionSystem::removeEntity(const std::string& name)
-	{
-		m_entitys.erase(name);
-	}
-
-	void CollisionSystem::setUpQuadTree(int level, sf::Rect<int>& bounds, int maxLevels, int maxObjects)
+	void CollisionSystem::setUpQuadTree(int level, Rect<float, int>& bounds, int maxLevels, int maxObjects)
 	{
 		m_quadtree = new QuadTree(level, bounds, maxLevels, maxObjects);
 	}
 
-	void CollisionSystem::update()
+	void CollisionSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
 		m_quadtree->clear();
-		for (auto& it : m_entitys)
+		
+		es.each<CollisionComponent>([this](entityx::Entity& e, CollisionComponent& cc)
 		{
-			m_quadtree->insert(it.second);
-		}
+			m_quadtree->insert(e);
+		});
 
-		std::vector<Entity*> m_possibleCollisions;
-		for (auto& it : m_entitys)
+		es.each<CollisionComponent, TransformComponent>([this](entityx::Entity& e, CollisionComponent& cc, TransformComponent& tc)
 		{
 			m_possibleCollisions.clear();
-			m_quadtree->retrieve(m_possibleCollisions, it.second);
-
+			m_quadtree->retrieve(m_possibleCollisions, e);
+			
 			for (auto& elem : m_possibleCollisions)
 			{
-				if (it.second->get<CollisionComponent>()->m_rect.intersects(elem->get<CollisionComponent>()->m_rect))
+				if (elem.component<TransformComponent>()->m_rect.overlaps(tc.m_rect))
 				{
-					std::string a = it.second->m_name;
-					std::string b = elem->m_name;
-
+					/*
 					auto map = Locator::get<PhysicsManager>()->m_collisionFunctions;
 					auto tree = map.find(std::make_pair(a, b));
 
@@ -79,14 +60,14 @@ namespace re
 					{
 						tree->second(a, b);
 					}
+					*/
 				}
 			}
-		}
+		});
 	}
 
 	void CollisionSystem::clean()
 	{
 		m_quadtree->clear();
-		m_entitys.clear();
 	}
 }

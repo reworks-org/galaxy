@@ -43,12 +43,11 @@ namespace re
 		///
 		/// Do the rectangles a and b overlap.
 		///
-		/// \param a Left rectangle.
 		/// \param b Right rectangle.
 		///
 		/// \return Returns true if there is an overlap.
 		///
-		bool overlaps(const Rect<T1, T2>& a, const Rect<T1, T2>& b);
+		bool overlaps(const Rect<T1, T2>& b);
 
 	public:
 		T1 x;
@@ -85,15 +84,15 @@ namespace re
 	}
 
 	template<typename T1, typename T2 = T1>
-	bool Rect<T1, T2>::overlaps(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	bool Rect<T1, T2>::overlaps(const Rect<T1, T2>& b)
 	{
 		// Thanks: https://stackoverflow.com/a/306379
 
-		bool xOverlap = valueInRange<T>(a.x, b.x, b.x + b.width) ||
-			valueInRange<T>(b.x, a.x, a.x + a.width);
+		bool xOverlap = valueInRange(x, b.x, b.x + b.width) ||
+			valueInRange(b.x, x, x + width);
 
-		bool yOverlap = valueInRange<T>(a.y, b.y, b.y + b.height) ||
-			valueInRange<T>(b.y, a.y, a.y + a.height);
+		bool yOverlap = valueInRange(y, b.y, b.y + b.height) ||
+			valueInRange(b.y, y, y + height);
 
 		return xOverlap && yOverlap;
 	}
@@ -107,7 +106,7 @@ namespace re
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2> operator-(const Rect<T1, T2>& a)
 	{
-		return Rect<T>(-a.x, -a.y, -a.width, -a.height);
+		return Rect<T1, T2>(-a.x, -a.y, -a.width, -a.height);
 	}
 
 	template<typename T1, typename T2 = T1>
@@ -135,13 +134,13 @@ namespace re
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2> operator+(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		return Rect<T>(a.x + b.x, a.y + b.y, a.z + b.z);
+		return Rect<T1, T2>(a.x + b.x, a.y + b.y, a.z + b.z);
 	}
 
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2> operator-(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		return Rect<T>(a.x - b.x, a.y - b.y, a.width - b.width, a.height - b.height);
+		return Rect<T1, T2>(a.x - b.x, a.y - b.y, a.width - b.width, a.height - b.height);
 	}
 
 	template<typename T1, typename T2 = T1>

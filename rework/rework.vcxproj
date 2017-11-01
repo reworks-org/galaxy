@@ -220,6 +220,7 @@
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -440,6 +441,7 @@
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\types\Renderable.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />

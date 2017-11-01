@@ -23,7 +23,7 @@ namespace re
 	:m_body(nullptr)
 	{
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_rect.x), b2::pixelsToMeters<float32>(e.component<TransformComponent>()->m_rect.y));
+		bodyDef.position.Set(b2::pixelsToMeters<float32>(table.get<float>("x")), b2::pixelsToMeters<float32>(table.get<float>("y")));
 
 		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))

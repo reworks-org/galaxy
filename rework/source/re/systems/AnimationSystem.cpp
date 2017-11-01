@@ -24,7 +24,7 @@ namespace re
 
 	void AnimationSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
-		es.each<AnimationComponent, SpriteComponent>([dt](entityx::Entity entity, AnimationComponent& ac, SpriteComponent& sc)
+		es.each<AnimationComponent, SpriteComponent>([dt](entityx::Entity& entity, AnimationComponent& ac, SpriteComponent& sc)
 		{
 			if (!ac.m_isPaused)
 			{
