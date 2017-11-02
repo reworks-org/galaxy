@@ -22,6 +22,6 @@ namespace re
 
 	void CollisionComponent::debug()
 	{
-		ImGui::Text("Flag class. Nothing else.");
+		ImGui::Text("Flag class. Nothing editable.");
 	}
 }

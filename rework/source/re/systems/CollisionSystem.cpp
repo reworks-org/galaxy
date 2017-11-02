@@ -52,15 +52,7 @@ namespace re
 			{
 				if (elem.component<TransformComponent>()->m_rect.overlaps(tc.m_rect))
 				{
-					/*
-					auto map = Locator::get<PhysicsManager>()->m_collisionFunctions;
-					auto tree = map.find(std::make_pair(a, b));
-
-					if (tree != map.end())
-					{
-						tree->second(a, b);
-					}
-					*/
+					
 				}
 			}
 		});
