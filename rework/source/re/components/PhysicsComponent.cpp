@@ -82,25 +82,8 @@ namespace re
 
 	PhysicsComponent::~PhysicsComponent()
 	{
-		if (m_body)
-		{
-			if (m_body->GetFixtureList())
-			{
-				for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
-				{
-					if (f)
-					{
-						if (f->GetUserData())
-						{
-							std::string* data = static_cast<std::string*>(f->GetUserData());
-							delete data;
-						}
-					}
-				}
-			}
-		}
-		
-		Locator::get<Box2DManager>()->world()->DestroyBody(m_body);
+		/// CLEANUP IS HANDLED BY BOX2D MANAGER. THIS IS BECAUSE WE DONT KNOW WHEN DESTRUCTORS ARE CALLED, AND CLEANUP CODE MUST BE CALLED BEFORE 
+		/// CLEANUP OF BOX2DMANAGER!
 	}
 
 	void PhysicsComponent::debug()

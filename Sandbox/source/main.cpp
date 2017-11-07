@@ -78,7 +78,6 @@ private:
 #include <re/services/ServiceLocator.hpp>
 
 #include <re/components/AnimationComponent.hpp>
-#include <re/components/CollisionComponent.hpp> 
 #include <re/components/PhysicsComponent.hpp>
 #include <re/components/RenderableComponent.hpp>
 #include <re/components/SpriteComponent.hpp>
@@ -87,6 +86,7 @@ private:
 #include <re/systems/AnimationSystem.hpp>
 
 #include <re/systems/RenderSystem.hpp>
+#include <re/systems/PhysicsSystem.hpp>
 
 #include "Test.hpp"
 
@@ -96,7 +96,6 @@ public:
 	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : re::Application(archive, config, newConfig)
 	{
 		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
-		m_world->registerComponent<re::CollisionComponent>("CollisionComponent");
 		m_world->registerComponent<re::PhysicsComponent>("PhysicsComponent");
 		m_world->registerComponent<re::RenderableComponent>("RenderableComponent");
 		m_world->registerComponent<re::SpriteComponent>("SpriteComponent");
@@ -106,6 +105,7 @@ public:
 
 		m_world->m_systemManager.add<re::AnimationSystem>();
 		m_world->m_systemManager.add<re::RenderSystem>(2);
+		m_world->m_systemManager.add<re::PhysicsSystem>(m_engineConfig->lookup<float>("box2d", "ups"), m_engineConfig->lookup<int32>("box2d", "velocityIterations"), m_engineConfig->lookup<int32>("box2d", "positionIterations"));
 		m_world->m_systemManager.configure();
 		
 		m_world->m_systemManager.system<re::RenderSystem>()->registerRenderableComponents<re::TextComponent, re::SpriteComponent>();
@@ -115,35 +115,36 @@ public:
 	}
 };
 
-void newConfigFunc(std::ofstream& newConfig)
-{
-	newConfig << "[graphics]" << std::endl;	
-	newConfig << "width = 1280" << std::endl;
-	newConfig << "height = 720" << std::endl;
-	newConfig << "fullscreen = false" << std::endl;
-	newConfig << "msaa = true" << std::endl;
-	newConfig << "msaaValue = 2" << std::endl;
-	newConfig << "title = Sandbox" << std::endl;
-	newConfig << "icon = icon.png" << std::endl;
-	newConfig << "atlas = test.atlas" << std::endl;
-	newConfig << std::endl;
-
-	newConfig << "[box2d]" << std::endl;
-	newConfig << "gravity = 9.81" << std::endl;
-	newConfig << std::endl;
-
-	newConfig << "[fontmanager]" << std::endl;
-	newConfig << "fontScript = fonts.lua" << std::endl;
-	newConfig << std::endl;
-
-	newConfig << "[audiomanager]" << std::endl;
-	newConfig << "audioScript = audio.lua" << std::endl;
-	newConfig << "reserveSamples = 16" << std::endl;
-}
-
 int main(int argc, char **argv)
 {
-	Game sandbox("bin/data.zip", "config.cfg", newConfigFunc);
+	Game sandbox("bin/data.zip", "config.cfg", [](std::ofstream& newConfig)
+	{
+		newConfig << "[graphics]" << std::endl;
+		newConfig << "width = 1280" << std::endl;
+		newConfig << "height = 720" << std::endl;
+		newConfig << "fullscreen = false" << std::endl;
+		newConfig << "msaa = true" << std::endl;
+		newConfig << "msaaValue = 2" << std::endl;
+		newConfig << "title = Sandbox" << std::endl;
+		newConfig << "icon = icon.png" << std::endl;
+		newConfig << "atlas = test.atlas" << std::endl;
+		newConfig << std::endl;
+
+		newConfig << "[box2d]" << std::endl;
+		newConfig << "gravity = 9.81" << std::endl;
+		newConfig << "ups = 60.0" << std::endl;
+		newConfig << "velocityIterations = 8" << std::endl;
+		newConfig << "positionIterations = 3" << std::endl;
+		newConfig << std::endl;
+
+		newConfig << "[fontmanager]" << std::endl;
+		newConfig << "fontScript = fonts.lua" << std::endl;
+		newConfig << std::endl;
+
+		newConfig << "[audiomanager]" << std::endl;
+		newConfig << "audioScript = audio.lua" << std::endl;
+		newConfig << "reserveSamples = 16" << std::endl;
+	});
 
 	return sandbox.run();
 }

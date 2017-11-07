@@ -22,14 +22,13 @@
     <ClCompile Include="source\re\audio\Music.cpp" />
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
-    <ClCompile Include="source\re\components\CollisionComponent.cpp" />
+    <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\components\RenderableComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
-    <ClCompile Include="source\re\events\CollisionEvent.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\Camera.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
@@ -210,6 +209,7 @@
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
     <ClCompile Include="source\re\managers\AudioManager.cpp" />
+    <ClCompile Include="source\re\managers\Box2DManager.cpp" />
     <ClCompile Include="source\re\managers\DebugManager.cpp" />
     <ClCompile Include="source\re\managers\FontManager.cpp" />
     <ClCompile Include="source\re\managers\ShaderManager.cpp" />
@@ -219,21 +219,20 @@
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
-    <ClCompile Include="source\re\systems\CollisionSystem.cpp" />
+    <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
-    <ClInclude Include="source\re\components\CollisionComponent.hpp" />
+    <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\components\RenderableComponent.hpp" />
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
-    <ClInclude Include="source\re\events\CollisionEvent.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\graphics\Camera.hpp" />
     <ClInclude Include="source\re\graphics\Layer.hpp" />
@@ -424,6 +423,7 @@
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
     <ClInclude Include="source\re\managers\AudioManager.hpp" />
+    <ClInclude Include="source\re\managers\Box2DManager.hpp" />
     <ClInclude Include="source\re\managers\DebugManager.hpp" />
     <ClInclude Include="source\re\managers\FontManager.hpp" />
     <ClInclude Include="source\re\managers\ShaderManager.hpp" />
@@ -439,7 +439,7 @@
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
-    <ClInclude Include="source\re\systems\CollisionSystem.hpp" />
+    <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\types\Renderable.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />

@@ -1,74 +1,50 @@
 //
 //  PhysicsSystem.hpp
-//  REngine3
+//  rework
 //
 //  Created by reworks on 8/11/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef RENGINE3_PHYSICSSYSTEM_HPP_
-#define RENGINE3_PHYSICSSYSTEM_HPP_
+#ifndef REWORK_PHYSICSSYSTEM_HPP_
+#define REWORK_PHYSICSSYSTEM_HPP_
 
-#include "re/types/System.hpp"
-#include "re/physics/PhysicsManager.hpp"
+#include "entityx/System.h"
 
 namespace re
 {
 	class Box2DManager;
-	class TMXMap;
 
-	class PhysicsSystem : public System
+	class PhysicsSystem : public entityx::System<PhysicsSystem>
 	{
 	public:
-		/*
-		* IMPORTS: Pointer to manager service, updates per second, velocity iterations and position iterations, usingTilemapCollisions is true if we need to worry about tilemap collisions.
-		* EXPORTS: none
-		* PURPOSE: Default Constructor.
-		*/
-		PhysicsSystem(PhysicsManager* manager, float ups, int32 vi, int32 pi);
+		///
+		/// Construct the system.
+		///
+		/// \param ups Updates per second for physics system.
+		/// \param vi Box2D velocity iterations.
+		/// \param pi Box2D position iterations.
+		///
+		PhysicsSystem(float ups, int32 vi, int32 pi);
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Cleans up the systems.
-		*/
+		///
+		/// Destructor.
+		///
 		~PhysicsSystem() override;
-
-		/*
-		* IMPORTS: Pointer to entity to add.
-		* EXPORTS: none
-		* PURPOSE: Add an entitys components from the system.
-		*/
-		void addEntity(Entity* e) override;
-
-		/*
-		* IMPORTS: id of entity to remove
-		* EXPORTS: none
-		* PURPOSE: Remove an entitys components from the system.
-		*/
-		void removeEntity(const std::string& name) override;
-
-		/*
-		* IMPORTS: delta time
-		* EXPORTS: none
-		* PURPOSE: Handles physics.
-		*/
-		void update(sf::Time dt);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean the system.
-		*/
-		void clean() override;
+		
+		///
+		/// \brief Update the system.
+		///
+		/// Dont actually call this, this is called by entity x internal system manager.
+		///
+		void update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt) override;
 
 	private:
 		float m_ups;
 		int32 m_velocityIterations;
 		int32 m_positionIterations;
 
-		PhysicsManager* m_manager;
-		std::vector<b2Body*> m_mapCollisions;
+		Box2DManager* m_manager;
 	};
 }
 

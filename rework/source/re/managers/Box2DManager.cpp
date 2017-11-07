@@ -7,6 +7,9 @@
 //
 
 #include "Box2DManager.hpp"
+#include "re/components/PhysicsComponent.hpp"
+#include "re/services/ServiceLocator.hpp"
+#include "re/core/World.hpp"
 
 namespace re
 {
@@ -18,6 +21,33 @@ namespace re
 	Box2DManager::~Box2DManager()
 	{
 		m_collisionFunctions.clear();
+
+		Locator::get<World>()->m_entityManager.each<PhysicsComponent>([this](entityx::Entity& e, PhysicsComponent& pc)
+		{
+			if (pc.m_body)
+			{
+				if (pc.m_body->GetFixtureList())
+				{
+					for (b2Fixture* f = pc.m_body->GetFixtureList(); f; f = f->GetNext())
+					{
+						if (f)
+						{
+							if (f->GetUserData())
+							{
+								std::string* data = static_cast<std::string*>(f->GetUserData());
+
+								if (data)
+								{
+									delete data;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			m_world->DestroyBody(pc.m_body);
+		});
 
 		delete m_world;
 	}
