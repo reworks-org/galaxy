@@ -61,11 +61,7 @@ void Test::event(ALLEGRO_EVENT* event)
 				break;
 
 			case ALLEGRO_KEY_F:
-				Locator::get<Window>()->toggleFullscreen(true);
-				break;
-
-			case ALLEGRO_KEY_W:
-				Locator::get<Window>()->toggleFullscreen(false);
+				Locator::get<Window>()->toggleFullscreen();
 				break;
 		}
 		break;

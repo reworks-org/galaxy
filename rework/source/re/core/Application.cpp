@@ -17,6 +17,7 @@
 
 #include "loguru/loguru.hpp"
 #include "re/utils/Time.hpp"
+#include "imgui/imgui_impl_a5.h"
 #include "re/services/ServiceLocator.hpp"
 
 #include "Application.hpp"
@@ -151,6 +152,12 @@ namespace re
 
 				case ALLEGRO_EVENT_DISPLAY_CLOSE:
 					m_window->close();
+					break;
+
+				case ALLEGRO_EVENT_DISPLAY_RESIZE:
+					ImGui_ImplA5_InvalidateDeviceObjects();
+					al_acknowledge_resize(m_window->getDisplay());
+					Imgui_ImplA5_CreateDeviceObjects();
 					break;
 				}
 			}

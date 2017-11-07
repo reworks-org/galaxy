@@ -46,14 +46,10 @@ profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/be
 - camera
 
 test:
-- collision, physics systems & components
-- box2d helper
-- box2d manager
 - shadermanager / shaders
 - camera (implement first!)
 - resolution independence (implement first!)
 
-update physics quadtree according to camera positon -> means less to check
 make some api calls have alternative shorthands.
 e.g. Locator::get<World>()->m_systemManager to World::SystemManager()-> or something...
 using typedefs maybe? or #defines?

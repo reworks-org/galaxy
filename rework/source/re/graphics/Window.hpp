@@ -11,7 +11,9 @@
 
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
+#include <allegro5/fullscreen_mode.h>
 
+#include "re/math/Rect.hpp"
 #include "re/types/Service.hpp"
 
 namespace re
@@ -49,9 +51,7 @@ namespace re
 		///
 		/// Toggle window between fullscreen and windowed.
 		///
-		/// \param onoff Boolean. True or False.
-		///
-		void toggleFullscreen(bool onoff);
+		void toggleFullscreen();
 
 		///
 		/// Sets m_running to false, to close application.
@@ -88,8 +88,12 @@ namespace re
 
 	private:
 		bool m_running;
+		bool m_fullscreen;
 		ALLEGRO_BITMAP* m_icon;
 		ALLEGRO_DISPLAY* m_display;
+		ALLEGRO_DISPLAY_MODE m_displayData;
+		ALLEGRO_BITMAP* m_fullscreenBuffer;
+		Rect<int> m_fullscreenScale;
 	};
 }
 
