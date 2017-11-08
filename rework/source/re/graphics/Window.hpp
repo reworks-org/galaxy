@@ -11,9 +11,8 @@
 
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
-#include <allegro5/fullscreen_mode.h>
 
-#include "re/math/Rect.hpp"
+#include "re/math/Vector2.hpp"
 #include "re/types/Service.hpp"
 
 namespace re
@@ -91,9 +90,8 @@ namespace re
 		bool m_fullscreen;
 		ALLEGRO_BITMAP* m_icon;
 		ALLEGRO_DISPLAY* m_display;
-		ALLEGRO_DISPLAY_MODE m_displayData;
 		ALLEGRO_BITMAP* m_fullscreenBuffer;
-		Rect<int> m_fullscreenScale;
+		Vector2<int> m_fullscreenScale;
 	};
 }
 

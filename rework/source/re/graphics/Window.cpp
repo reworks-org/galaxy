@@ -10,6 +10,7 @@
 
 #include <allegro5/timer.h>
 #include <allegro5/mouse.h>
+#include <allegro5/monitor.h>
 #include <allegro5/drawing.h>
 #include <allegro5/keyboard.h>
 #include <allegro5/bitmap_io.h>
@@ -19,8 +20,6 @@
 #include "re/services/ServiceLocator.hpp"
 
 #include "Window.hpp"
-
-// https://wiki.allegro.cc/index.php?title=Achieving_Resolution_Independence
 
 namespace re
 {
@@ -49,24 +48,16 @@ namespace re
 			al_set_display_flag(m_display, ALLEGRO_FULLSCREEN_WINDOW, true);
 		}
 
-		// allegro requires null over nullptr here.
 		m_icon = al_load_bitmap(icon.c_str());
 		al_set_display_icon(m_display, m_icon);
 
-		al_get_display_mode(al_get_num_display_modes() - 1, &m_displayData);
+		ALLEGRO_MONITOR_INFO info;
+		al_get_monitor_info(0, &info);
 		
-		int sx = width / m_displayData.width;
-		int sy = height / m_displayData.height;
-		int scale = std::min(sx, sy);
+		m_fullscreenScale.x = ((info.x2 - info.x1) / 2) - (width / 2);
+		m_fullscreenScale.y = ((info.y2 - info.y1) / 2) - (height / 2);
 
-		m_fullscreenScale.width = m_displayData.width * scale;
-		m_fullscreenScale.height = m_displayData.height * scale;
-		m_fullscreenScale.x = (width - m_fullscreenScale.width) / 2;
-		m_fullscreenScale.y = (height - m_fullscreenScale.height) / 2;
-
-		LOG_S(INFO) << "width: " << m_displayData.width << " height: " << m_displayData.height << std::endl;
-
-		m_fullscreenBuffer = al_create_bitmap(m_displayData.width, m_displayData.height);
+		m_fullscreenBuffer = al_create_bitmap(width, height);
 	}
 	
 	Window::~Window()
@@ -121,7 +112,7 @@ namespace re
 		{
 			al_set_target_bitmap(al_get_backbuffer(m_display));
 			al_clear_to_color(al_map_rgba(0, 0, 0, 255));
-			al_draw_scaled_bitmap(m_fullscreenBuffer, 0, 0, m_displayData.width, m_displayData.height, m_fullscreenScale.x, m_fullscreenScale.y, m_fullscreenScale.width, m_fullscreenScale.height, 0);
+			al_draw_bitmap(m_fullscreenBuffer, m_fullscreenScale.x, m_fullscreenScale.y, 0);
 		}
 		
 		al_flip_display();
