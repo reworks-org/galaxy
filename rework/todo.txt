@@ -5,28 +5,19 @@
 - update copyrights
 - includes
 - better exceptions and logging
-- https://wiki.allegro.cc/index.php?title=Achieving_Resolution_Independence
 - const / constexpr
 - excess copying
-- fix services destructors...
+
 - quadtree bounds are level
 - "collison rect" is rect that is camera
 - only get entitys that are inside or border the "camera"
 
-- atlas idea: https://github.com/Nooskewl/crystal-picnic/blob/master/src/atlas.cpp
 - docs / readthedocs -> repo wiki / repo website / repo settings
-- add systems to applciation
-- may need to reposition allegro window //al_set_new_window_position(x, y);
-	
-- audio is now assosiated with systems and events
-- loads from and audiomanager
 
 https://github.com/alecthomas/entityx/blob/master/README.md
 https://github.com/alecthomas/entityx/blob/master/examples/example.cc
 
 renderer:
-- only draw stuff that is in view - think quadtree
-- camera system?
 - split update and rendering threads?
 
 - particle engine
@@ -42,13 +33,11 @@ https://readthedocs.org/
 
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 
-- achieve resolution independence
 - camera
 
 test:
 - shadermanager / shaders
 - camera (implement first!)
-- resolution independence (implement first!)
 
 make some api calls have alternative shorthands.
 e.g. Locator::get<World>()->m_systemManager to World::SystemManager()-> or something...

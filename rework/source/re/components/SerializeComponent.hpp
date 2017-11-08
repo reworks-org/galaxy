@@ -32,9 +32,6 @@ namespace re
 		/// Destructor.
 		///
 		~SerializeComponent();
-
-	public:
-		std::string m_id;
 	};
 }
 

@@ -46,9 +46,6 @@ void Test::event(ALLEGRO_EVENT* event)
 {
 	switch (event->type)
 	{
-	case ALLEGRO_EVENT_DISPLAY_CLOSE:
-		Locator::get<Window>()->close();
-
 	case ALLEGRO_EVENT_KEY_DOWN:
 		switch (event->keyboard.keycode)
 		{
@@ -73,7 +70,7 @@ void Test::update(double dt)
 	static double counter = 0.0;
 	counter += dt;
 
-	constexpr auto time = Time::seconds(5);
+	constexpr auto time = Time::seconds(3.5);
 
 	if (counter >= time)
 	{

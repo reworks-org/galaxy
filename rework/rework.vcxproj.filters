@@ -203,6 +203,7 @@
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\managers\Box2DManager.cpp" />
+    <ClCompile Include="source\re\components\SerializeComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -428,6 +429,7 @@
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\re\managers\Box2DManager.hpp" />
+    <ClInclude Include="source\re\components\SerializeComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
