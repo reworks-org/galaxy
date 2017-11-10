@@ -31,12 +31,12 @@ namespace re
 	{
 	}
 
-	void Serializer::serializeEntitys()
+	void Serializer::serializeEntitys(const std::string& saveFile)
 	{
 		Locator::get<World>()->m_entityManager.each<SerializeComponent, TransformComponent>([](entityx::Entity entity, SerializeComponent& sc, TransformComponent& tc)
 		{
 			{
-				std::ofstream save(m_savePath+"")
+				std::ofstream save(m_savePath + saveFile);
 			}
 		});
 	}
