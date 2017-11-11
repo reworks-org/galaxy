@@ -12,11 +12,14 @@
 #include "sol2/sol.hpp"
 #include "entityx/Entity.h"
 #include "re/math/Rect.hpp"
+#include "cereal/access.hpp"
 
 namespace re
 {
 	class TransformComponent
 	{
+		friend class cereal::access;
+
 	public:
 		///
 		/// Constructor.
@@ -38,6 +41,14 @@ namespace re
 	public:
 		Rect<float, int> m_rect;
 		float m_angle;
+
+	private:
+		/// This method lets cereal know which data members to serialize.
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(m_rect.x, m_rect.y, m_rect.width, m_rect.height, m_angle);
+		}
 	};
 }
 

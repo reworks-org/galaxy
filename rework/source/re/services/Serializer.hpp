@@ -17,11 +17,12 @@ namespace re
 		Serializer(const std::string& savePath);
 		~Serializer();
 		
-		void serializeEntitys();
+		void saveEntityData(const std::string& saveFile);
+		void loadEntityData(const std::string& saveFile);
 
-	private:
+	public:
 		std::string m_savePath;
-	}
+	};
 }
 
 #endif

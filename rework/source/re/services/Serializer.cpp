@@ -6,19 +6,20 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include "cereal/archives/json.hpp"
+#include <fstream>
+
+#include "cereal/archives/xml.hpp"
 
 #include "re/core/World.hpp"
 #include "re/services/ServiceLocator.hpp"
 
+#include "re/components/PhysicsComponent.hpp"
 #include "re/components/SerializeComponent.hpp"
 #include "re/components/TransformComponent.hpp"
-#include "re/components/PhysicsComponent.hpp"
-#include "re/components/AnimationComponent.hpp"
 
 #include "Serializer.hpp"
 
-// https://uscilab.github.io/cereal/serialization_archives.html
+// https://uscilab.github.io/cereal/quickstart.html
 
 namespace re
 {
@@ -31,13 +32,35 @@ namespace re
 	{
 	}
 
-	void Serializer::serializeEntitys(const std::string& saveFile)
+	void Serializer::saveEntityData(const std::string& saveFile)
 	{
-		Locator::get<World>()->m_entityManager.each<SerializeComponent, TransformComponent>([](entityx::Entity entity, SerializeComponent& sc, TransformComponent& tc)
+		std::ofstream saveStream(m_savePath + saveFile);
+		cereal::XMLOutputArchive ar(saveStream);
+
+		Locator::get<World>()->m_entityManager.each<SerializeComponent, TransformComponent>([&](entityx::Entity entity, SerializeComponent& sc, TransformComponent& tc)
 		{
-			{
-				std::ofstream save(m_savePath + saveFile);
-			}
+			ar(cereal::make_nvp(sc.m_id, tc));
+		});
+
+		Locator::get<World>()->m_entityManager.each<SerializeComponent, PhysicsComponent>([&](entityx::Entity entity, SerializeComponent& sc, PhysicsComponent& pc)
+		{
+			ar(cereal::make_nvp(sc.m_id, pc));
+		});
+	}
+
+	void Serializer::loadEntityData(const std::string& saveFile)
+	{
+		std::ifstream loadStream(m_savePath + saveFile);
+		cereal::XMLInputArchive ar(loadStream);
+
+		Locator::get<World>()->m_entityManager.each<SerializeComponent, TransformComponent>([&](entityx::Entity entity, SerializeComponent& sc, TransformComponent& tc)
+		{
+			ar(cereal::make_nvp(sc.m_id, tc));
+		});
+
+		Locator::get<World>()->m_entityManager.each<SerializeComponent, PhysicsComponent>([&](entityx::Entity entity, SerializeComponent& sc, PhysicsComponent& pc)
+		{
+			ar(cereal::make_nvp(sc.m_id, pc));
 		});
 	}
 }

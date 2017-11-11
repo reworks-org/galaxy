@@ -33,7 +33,7 @@ namespace re
 		///
 		~SerializeComponent();
 
-	private:
+	public:
 		std::string m_id;
 	};
 }

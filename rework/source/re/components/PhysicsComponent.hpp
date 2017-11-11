@@ -11,12 +11,15 @@
 
 #include "sol2/sol.hpp"
 #include "entityx/Entity.h"
+#include "cereal/access.hpp"
 #include "Box2D/Dynamics/b2Body.h"
 
 namespace re
 {
 	class PhysicsComponent
 	{
+		friend class cereal::access;
+
 	public:
 		///
 		/// Constructor.
@@ -37,20 +40,28 @@ namespace re
 
 	public:
 		b2Body* m_body;
+
+	private:
+		/// This method lets cereal know which data members to save.
+		template<class Archive>
+		void save(Archive& archive) const
+		{
+			archive(m_body->GetPosition().x, m_body->GetPosition().y, m_body->GetAngle(), m_body->GetAngularVelocity(), m_body->GetLinearVelocity().x, m_body->GetLinearVelocity().y);
+		}
+
+		/// This method lets cereal know which data members to load.
+		template<class Archive>
+		void load(Archive& archive)
+		{
+			float32 x, y, angle, angleVel, linearX, linearY = 0.0f;
+
+			archive(x, y, angle, angleVel, linearX, linearY);
+
+			m_body->SetTransform(b2Vec2(x, y), angle);
+			m_body->SetAngularVelocity(angleVel);
+			m_body->SetLinearVelocity(b2Vec2(linearX, linearY));
+		}
 	};
 }
 
 #endif
-
-/*
-ar & m_body->GetPosition().x;
-ar & m_body->GetPosition().y;
-ar & m_body->GetAngle();
-ar & m_body->GetAngularVelocity();
-ar & m_body->GetLinearVelocity().x;
-ar & m_body->GetLinearVelocity().y;
-
-m_body->SetTransform(b2Vec2(x, y), angle);
-m_body->SetAngularVelocity(angleVelocity);
-m_body->SetLinearVelocity(b2Vec2(linearX, linearY));
-*/
