@@ -80,7 +80,7 @@ namespace re
 		Locator::provide<TextureAtlas>(m_textureAtlas);
 		
 		// TEMP
-		m_camera = new Camera({ 0, 0, m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height") });
+		m_camera = new Camera({ 800, 300, m_engineConfig->lookup<int>("graphics", "cameraWidth"), m_engineConfig->lookup<int>("graphics", "cameraHeight") });
 		Locator::provide<Camera>(m_camera);
 
 		#ifdef NDEBUG

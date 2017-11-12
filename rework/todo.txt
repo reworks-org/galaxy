@@ -42,3 +42,5 @@ test:
 make some api calls have alternative shorthands.
 e.g. Locator::get<World>()->m_systemManager to World::SystemManager()-> or something...
 using typedefs maybe? or #defines?
+
+fix quadtree
