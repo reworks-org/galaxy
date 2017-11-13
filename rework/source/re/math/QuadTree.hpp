@@ -28,7 +28,7 @@ namespace re
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
+		QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);		
 
 		///
 		/// Clears the quadtree of all data.
@@ -78,9 +78,9 @@ namespace re
 		int getIndex(Rect<float, int>& rect);
 
 	private:
-		size_t m_level;
-		size_t m_maxLevels;
-		size_t m_maxObjects;
+		int m_level;
+		int m_maxLevels;
+		int m_maxObjects;
 		std::vector<entityx::Entity> m_objects;
 		Rect<float, int> m_bounds;
 		std::array<QuadTree*, 4> m_nodes;
