@@ -3,72 +3,27 @@
 //  Sandbox
 //
 //  Created by reworks on 21/11/2016.
-//  Copyright (c) 2016 reworks. All rights reserved.
+//  Copyright (c) 2017 reworks. All rights reserved.
 //
 
 #ifndef SANDBOX_MOVESYSTEM_HPP_
 #define SANDBOX_MOVESYSTEM_HPP_
 
-#include <re/types/System.hpp>
+#include <entityx/System.h>
 
-// BASIC MOVE SYSTEM EXAMPLE SYSTEM
-
-namespace re
+/// BASIC MOVE SYSTEM EXAMPLE SYSTEM
+class MoveSystem : public entityx::System<MoveSystem>
 {
-	class World;
+public:
+	MoveSystem(const std::string& playerName);
+	~MoveSystem() override;
 
-	class MoveSystem : public System
-	{
-	public:
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Constructor.
-		*/
-		MoveSystem();
+	void move(double velocity);
+	void jump(double velocity);
+	void update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt) override;
 
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Cleans up the systems.
-		*/
-		~MoveSystem() override;
-
-		/*
-		* IMPORTS: id of entity to add and its component list.
-		* EXPORTS: none
-		* PURPOSE: Add an entitys components from the system.
-		*/
-		void addEntity(Entity* e) override;
-
-		/*
-		* IMPORTS: id of entity to remove
-		* EXPORTS: none
-		* PURPOSE: Remove an entitys components from the system.
-		*/
-		void removeEntity(const std::string& name) override;
-
-		/*
-		* IMPORTS: name of entity and the horizontal velocity
-		* EXPORTS: none
-		* PURPOSE: Move an entity.
-		*/
-		void move(const std::string& name, double velocity);
-
-		/*
-		* IMPORTS: name of entity and the vertical velocity
-		* EXPORTS: none
-		* PURPOSE: Make an entity jump.
-		*/
-		void jump(const std::string& name, double velocity);
-
-		/*
-		* IMPORTS: none
-		* EXPORTS: none
-		* PURPOSE: Clean the system.
-		*/
-		void clean() override;
-	};
-}
+private:
+	std::string m_player;
+};
 
 #endif

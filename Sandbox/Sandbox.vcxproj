@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Test.cpp" />
   </ItemGroup>
@@ -26,6 +27,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
     <ClInclude Include="source\Test.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

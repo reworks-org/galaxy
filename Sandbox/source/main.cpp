@@ -88,6 +88,8 @@ private:
 #include <re/systems/RenderSystem.hpp>
 #include <re/systems/PhysicsSystem.hpp>
 
+#include "gamesystems/MoveSystem.hpp"
+
 #include "Test.hpp"
 
 class Game : public re::Application
@@ -106,6 +108,7 @@ public:
 		m_world->m_systemManager.add<re::AnimationSystem>();
 		m_world->m_systemManager.add<re::RenderSystem>(2);
 		m_world->m_systemManager.add<re::PhysicsSystem>(m_engineConfig->lookup<float>("box2d", "ups"), m_engineConfig->lookup<int32>("box2d", "velocityIterations"), m_engineConfig->lookup<int32>("box2d", "positionIterations"));
+		m_world->m_systemManager.add<MoveSystem>("player");
 		m_world->m_systemManager.configure();
 		
 		m_world->m_systemManager.system<re::RenderSystem>()->registerRenderableComponents<re::TextComponent, re::SpriteComponent>();

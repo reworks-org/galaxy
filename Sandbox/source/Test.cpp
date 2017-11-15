@@ -15,9 +15,19 @@
 #include <re/managers/AudioManager.hpp>
 #include <re/services/ServiceLocator.hpp>
 
+#include "gamesystems/MoveSystem.hpp"
+
 #include "Test.hpp"
 
 using namespace re;
+
+namespace moving
+{
+	static bool north = false;
+	static bool south = false;
+	static bool east = false;
+	static bool west = false;
+}
 
 Test::~Test()
 {
@@ -53,15 +63,59 @@ void Test::event(ALLEGRO_EVENT* event)
 				Locator::get<Window>()->close();
 				break;
 
-			case ALLEGRO_KEY_SPACE:
+			case ALLEGRO_KEY_P:
 				Locator::get<AudioManager>()->getSound("space")->play();
 				break;
 
 			case ALLEGRO_KEY_F:
 				Locator::get<Window>()->toggleFullscreen();
 				break;
+
+			case ALLEGRO_KEY_A:
+				moving::west = true;
+				break;
+
+			case ALLEGRO_KEY_D:
+				moving::east = true;
+				break;
+
+			case ALLEGRO_KEY_SPACE:
+					moving::north = true;
+				break;
+		}
+	break;
+
+	case ALLEGRO_EVENT_KEY_UP:
+		switch (event->keyboard.keycode)
+		{
+		case ALLEGRO_KEY_A:
+			moving::west = false;
+			break;
+
+		case ALLEGRO_KEY_D:
+			moving::east = false;
+			break;
+
+		case ALLEGRO_KEY_SPACE:
+			moving::north = false;
+			break;
 		}
 		break;
+	}
+
+	if (moving::north)
+	{
+		Locator::get<World>()->m_systemManager.system<MoveSystem>()->jump(5);
+	}
+
+	if (moving::west)
+	{
+		Locator::get<World>()->m_systemManager.system<MoveSystem>()->move(-5);
+	}
+
+	if (moving::east)
+	{
+		Locator::get<World>()->m_systemManager.system<MoveSystem>()->move(5);
 	}
 }
 
