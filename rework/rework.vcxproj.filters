@@ -205,6 +205,7 @@
     <ClCompile Include="source\re\managers\Box2DManager.cpp" />
     <ClCompile Include="source\re\components\SerializeComponent.cpp" />
     <ClCompile Include="source\re\services\Serializer.cpp" />
+    <ClCompile Include="source\re\mapping\TMXMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -511,6 +512,8 @@
     <ClInclude Include="source\re\libs\cereal\cereal.hpp" />
     <ClInclude Include="source\re\libs\cereal\macros.hpp" />
     <ClInclude Include="source\re\services\Serializer.hpp" />
+    <ClInclude Include="source\re\mapping\TMXHelper.hpp" />
+    <ClInclude Include="source\re\mapping\TMXMap.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

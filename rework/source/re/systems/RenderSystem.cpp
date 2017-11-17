@@ -34,8 +34,9 @@ namespace re
 
 	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
-		auto& cameraBounds = Locator::get<Camera>()->m_bounds;
-		m_quadtree = new QuadTree(1, cameraBounds, 5, 20);
+		// get current level dimensions
+		// draw quadtree around level.
+		m_quadtree = new QuadTree(?, ?, ?, ?);
 
 		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)
 		{
