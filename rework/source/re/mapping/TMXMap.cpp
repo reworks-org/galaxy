@@ -21,7 +21,7 @@ namespace re
 		// might be a better idea?
 		// we shall see.
 		// each layer should be a bitmap so we can instert it into layer render engine
-
+		// movesystem needs to grab tile information in order to make actions occur
 	}
 
 	TMXMap::~TMXMap()
