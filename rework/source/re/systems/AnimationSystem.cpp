@@ -28,25 +28,27 @@ namespace re
 		{
 			if (!ac.m_isPaused)
 			{
-				auto timepassed = (dt * ac.m_animations.at(ac.m_activeAnimation).m_speed);
+				Animation* animation = &(ac.m_animations.at(ac.m_activeAnimation));
+
+				auto timepassed = (dt * animation->m_speed);
 				ac.m_currentFrameTime += timepassed;
-				
-				if (ac.m_currentFrameTime >= Time::milliseconds(ac.m_animations.at(ac.m_activeAnimation).m_timePerFrame))
+
+				if (ac.m_currentFrameTime >= Time::milliseconds(animation->m_timePerFrame))
 				{
 					ac.m_currentFrameTime = 0.0;
-					ac.m_animations.at(ac.m_activeAnimation).m_currentFrame++;
+					animation->m_currentFrame++;
 
-					if (ac.m_animations.at(ac.m_activeAnimation).m_currentFrame > (ac.m_animations.at(ac.m_activeAnimation).m_totalFrames - 1))
+					if (animation->m_currentFrame > (animation->m_totalFrames - 1))
 					{
-						ac.m_animations.at(ac.m_activeAnimation).m_currentFrame = 0;
+						animation->m_currentFrame = 0;
 
-						if (!ac.m_animations.at(ac.m_activeAnimation).m_isLooped)
+						if (!animation->m_isLooped)
 						{
 							ac.stop();
 						}
 					}
 
-					sc.m_spriteName = ac.m_animations.at(ac.m_activeAnimation).m_frames[ac.m_animations.at(ac.m_activeAnimation).m_currentFrame];
+					sc.m_spriteName = animation->m_frames[animation->m_currentFrame];
 
 				}
 			}

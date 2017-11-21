@@ -22,6 +22,11 @@ namespace re
 	namespace tmx
 	{
 		///
+		/// Line thickness for objects.
+		///
+		static float LINE_THICKNESS = 2.5;
+
+		///
 		/// Sets up tmx loading / destruction functions for allegro images.
 		///
 		static inline void setUpLoaders()

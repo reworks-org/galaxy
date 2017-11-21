@@ -34,8 +34,15 @@ namespace re
 		al_set_new_display_option(ALLEGRO_SUPPORT_NPOT_BITMAP, 1, ALLEGRO_REQUIRE);
 		al_set_new_display_option(ALLEGRO_CAN_DRAW_INTO_BITMAP, 1, ALLEGRO_REQUIRE);
 
-		// Max 255 characters
-		al_set_new_window_title(title.c_str());
+		if (title.size() >= 255)
+		{
+			std::string temp = title.substr(0, 255);
+			al_set_new_window_title(temp.c_str());
+		}
+		else
+		{
+			al_set_new_window_title(title.c_str());
+		}
 
 		m_display = al_create_display(width, height);
 		if (!m_display)
