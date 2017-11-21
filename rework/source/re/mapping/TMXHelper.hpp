@@ -38,7 +38,7 @@ namespace re
 		///
 		/// Wrapper around al_img_loader.
 		///
-		void* al_img_loader(const char* path)
+		static inline void* al_img_loader(const char* path)
 		{
 			return (void*)al_load_bitmap(path);
 		}
