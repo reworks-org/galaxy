@@ -129,7 +129,7 @@ void Test::update(double dt)
 	if (counter >= time)
 	{
 		LOG_S(INFO) << "Boop!" << std::endl;
-		counter = 0.0;
+		counter = 0.0f;
 	}
 }
 

@@ -516,6 +516,7 @@
     <ClInclude Include="source\re\mapping\TMXHelper.hpp" />
     <ClInclude Include="source\re\mapping\TMXMap.hpp" />
     <ClInclude Include="source\re\mapping\Level.hpp" />
+    <ClInclude Include="source\re\types\Defines.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
