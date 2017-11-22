@@ -216,7 +216,6 @@
     <ClCompile Include="source\re\managers\ShaderManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
-    <ClCompile Include="source\re\mapping\TMXMap.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
     <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\Serializer.cpp" />
@@ -514,7 +513,6 @@
     <ClInclude Include="source\re\managers\StateManager.hpp" />
     <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\mapping\TMXHelper.hpp" />
-    <ClInclude Include="source\re\mapping\TMXMap.hpp" />
     <ClInclude Include="source\re\math\QuadTree.hpp" />
     <ClInclude Include="source\re\math\Random.hpp" />
     <ClInclude Include="source\re\math\Rect.hpp" />
