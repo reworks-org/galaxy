@@ -9,9 +9,19 @@
 #ifndef REWORK_DEFINES_HPP_
 #define REWORK_DEFINES_HPP_
 
-// #define AUDIO_MANAGER Locator::get<AudioManager>
-// #define AudioManager Locator::get<AudioManager>
-// #define audioManager Locator::get<AudioManager>
-// #define AUDIOMANAGER Locator::get<AudioManager>
+///
+/// Shortcuts to use.
+///
+
+#define vfs Locator::get<VFS>
+#define window Locator::get<Window>
+#define world Locator::get<World>
+#define stateManager Locator::get<StateManager>
+#define fontManager Locator::get<FontManager>
+#define audioManager Locator::get<AudioManager>
+#define b2dManager Locator::get<Box2DManager>
+#define debugManager Locator::get<DebugManager>
+#define textureAtlas Locator::get<TextureAtlas>
+#define camera Locator::get<Camera>
 
 #endif
