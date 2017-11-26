@@ -9,15 +9,36 @@
 #ifndef REWORK_CAMERA_HPP_
 #define REWORK_CAMERA_HPP_
 
-#include "re/math/Rect.hpp"
-#include "re/types/Service.hpp"
+#include "entityx/Entity.h"
+#include "re/mapping/Level.hpp"
 
 namespace re
 {
-	struct Camera : public Service
+	class Camera
 	{
+		///
+		/// Constructor.
+		///
+		/// \param e Entity for the camera to follow. Entity MUST have a transform component.
+		///
+		Camera(entityx::Entity e);
+
+		///
+		/// Constructor.
+		///
+		/// \param bounds Bounds for the camera to follow.
+		///
 		Camera(Rect<float, int> bounds);
 
+		///
+		/// Constructor.
+		///
+		/// \param level 
+		///
+		void update(Level* level);
+
+	private:
+		entityx::Entity m_entityToFollow;
 		Rect<float, int> m_bounds;
 	};
 }

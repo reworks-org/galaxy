@@ -36,7 +36,7 @@ namespace re
 	{
 		// get current level dimensions
 		// draw quadtree around level.
-		m_quadtree = new QuadTree(?, ?, ?, ?);
+		m_quadtree = new QuadTree(1, )
 
 		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)
 		{

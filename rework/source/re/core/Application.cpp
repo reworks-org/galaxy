@@ -78,10 +78,6 @@ namespace re
 		
 		m_textureAtlas = new TextureAtlas(m_engineConfig->lookup<std::string>("graphics", "atlas"));
 		Locator::provide<TextureAtlas>(m_textureAtlas);
-		
-		// TEMP
-		m_camera = new Camera({ 800, 300, m_engineConfig->lookup<int>("graphics", "cameraWidth"), m_engineConfig->lookup<int>("graphics", "cameraHeight") });
-		Locator::provide<Camera>(m_camera);
 
 		#ifdef NDEBUG
 			m_debugManager->disable(true);

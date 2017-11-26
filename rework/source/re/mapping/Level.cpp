@@ -20,7 +20,9 @@ namespace re
 		lua.script(Locator::get<VFS>()->openAsString(script));
 		sol::table level = lua.get<sol::table>("level");
 
-		m_map = tmx_load(level.get<std::string>("map");
+		std::string mapData = Locator::get<VFS>()->openAsString("map");
+		m_map = tmx_load_buffer(mapData.c_str(), mapData.length());
+
 		m_dimensions.x = level.get<float>("x");
 		m_dimensions.y = level.get<float>("y");
 		m_dimensions.width = level.get<int>("width");

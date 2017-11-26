@@ -26,6 +26,9 @@ namespace re
 	Window::Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon)
 	:m_running(true), m_fullscreen(fullscreen)
 	{
+		m_size.x = width;
+		m_size.y = height;
+
 		al_set_new_display_flags(ALLEGRO_WINDOWED | ALLEGRO_OPENGL_3_0 | ALLEGRO_PROGRAMMABLE_PIPELINE);
 		al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, msaa, ALLEGRO_SUGGEST);
 		al_set_new_display_option(ALLEGRO_SAMPLES, msaaValue, ALLEGRO_SUGGEST);
@@ -126,7 +129,12 @@ namespace re
 	}
 
 	ALLEGRO_DISPLAY* Window::getDisplay()
-	{	
+	{
 		return m_display;
+	}
+
+	Vector2<int>& Window::getSize() const
+	{
+		return m_size;
 	}
 }

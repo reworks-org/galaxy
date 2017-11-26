@@ -85,6 +85,13 @@ namespace re
 		///
 		ALLEGRO_DISPLAY* getDisplay();
 
+		///
+		/// Retrieves the window size.
+		///
+		/// \return Returns CONST vector2 of type int.
+		///
+		Vector2<int>& getSize() const;
+
 	private:
 		bool m_running;
 		bool m_fullscreen;
@@ -92,6 +99,7 @@ namespace re
 		ALLEGRO_DISPLAY* m_display;
 		ALLEGRO_BITMAP* m_fullscreenBuffer;
 		Vector2<int> m_fullscreenScale;
+		Vector2<int> m_size;
 	};
 }
 

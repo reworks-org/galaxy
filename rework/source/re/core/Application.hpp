@@ -13,7 +13,6 @@
 #include "re/services/VFS.hpp"
 #include "re/services/Config.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/graphics/Camera.hpp"
 #include "re/managers/FontManager.hpp"
 #include "re/managers/AudioManager.hpp"
 #include "re/managers/StateManager.hpp"
@@ -62,7 +61,6 @@ namespace re
 		Box2DManager* m_b2dManager;
 		DebugManager* m_debugManager;
 		TextureAtlas* m_textureAtlas;
-		Camera* m_camera;
 	};
 }
 
