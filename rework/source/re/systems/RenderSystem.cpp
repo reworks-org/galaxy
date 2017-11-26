@@ -34,8 +34,7 @@ namespace re
 
 	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
-		// get current level dimensions
-		// draw quadtree around level.
+		// level bounds
 		m_quadtree = new QuadTree(1, )
 
 		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)

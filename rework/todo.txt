@@ -50,3 +50,25 @@ serializer
 camera
 movesystem
 rendersystem
+
+
+
+render gui according to screen
+render world according to camera
+screen is camera
+
+render quadtree bounds is level bounds.
+each layer of a map is a bitmap
+so each layer is seperate and we only render a subsection of the bitmap based off of the camera
+-> then we pass that to the layering system
+e.g.
+layer 0 - bg
+layer 1 - animated bg
+layer 2 - player
+layer 3 - top of tree layer
+
+etc
+
+only bitmaps we update are ones marked "animated"
+AnimatedTile -> Tile?
+look into new tmx docs
