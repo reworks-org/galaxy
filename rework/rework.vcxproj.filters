@@ -206,6 +206,7 @@
     <ClCompile Include="source\re\components\SerializeComponent.cpp" />
     <ClCompile Include="source\re\services\Serializer.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
+    <ClCompile Include="source\re\mapping\TMXLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -515,6 +516,7 @@
     <ClInclude Include="source\re\mapping\TMXHelper.hpp" />
     <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\types\Defines.hpp" />
+    <ClInclude Include="source\re\mapping\TMXLayer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

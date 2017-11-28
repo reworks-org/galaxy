@@ -7,11 +7,6 @@
 - better exceptions and logging
 - const / constexpr
 - excess copying
-
-- quadtree bounds are level
-- "collison rect" is rect that is camera
-- only get entitys that are inside or border the "camera"
-
 - docs / readthedocs -> repo wiki / repo website / repo settings
 
 https://github.com/alecthomas/entityx/blob/master/README.md
@@ -33,31 +28,19 @@ https://readthedocs.org/
 
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 
-- camera
-
 test:
 - shadermanager / shaders
-- camera (implement first!)
-
-make some api calls have alternative shorthands.
-e.g. Locator::get<World>()->m_systemManager to World::SystemManager()-> or something...
-using typedefs maybe? or #defines?
-e.g. AUDIOMANAGER()->play("song");
-or AudioManager()->play("song");
-etc...
+- camera / level / tmx
 
 serializer
 camera
 movesystem
 rendersystem
 
-
-
 render gui according to screen
 render world according to camera
 screen is camera
 
-render quadtree bounds is level bounds.
 each layer of a map is a bitmap
 so each layer is seperate and we only render a subsection of the bitmap based off of the camera
 -> then we pass that to the layering system
@@ -72,3 +55,6 @@ etc
 only bitmaps we update are ones marked "animated"
 AnimatedTile -> Tile?
 look into new tmx docs
+
+implement packing code myself...
+replace shitty external tools...

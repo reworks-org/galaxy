@@ -86,7 +86,6 @@ namespace re
 
 	Application::~Application()
 	{
-		delete m_camera;
 		delete m_textureAtlas;
 		delete m_debugManager;
 		delete m_b2dManager;

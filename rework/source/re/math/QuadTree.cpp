@@ -21,6 +21,15 @@ namespace re
 		}
 	}
 
+	QuadTree::QuadTree(size_t level, const Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
+		:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects)
+	{
+		for (auto& elem : m_nodes)
+		{
+			elem = nullptr;
+		}
+	}
+
 	void QuadTree::clear()
 	{
 		m_objects.clear();
@@ -77,7 +86,7 @@ namespace re
 		}
 	}
 
-	void QuadTree::retrieve(std::vector<entityx::Entity>& returnObjects, entityx::Entity & e)
+	void QuadTree::retrieve(std::vector<entityx::Entity>& returnObjects, entityx::Entity& e)
 	{
 		auto tc_rect = e.component<TransformComponent>()->m_rect;
 		
@@ -101,6 +110,17 @@ namespace re
 		returnObjects.insert(returnObjects.end(), m_objects.begin(), m_objects.end());
 	}
 
+	void QuadTree::retrieve(std::vector<entityx::Entity>& returnObjects, const Rect<float, int>& rect)
+	{
+		int index = getIndex(rect);
+		if (index != -1 && m_nodes[0] != nullptr)
+		{
+			m_nodes[index]->retrieve(returnObjects, rect);
+		}
+
+		returnObjects.insert(returnObjects.end(), m_objects.begin(), m_objects.end());
+	}
+
 	void QuadTree::split()
 	{
 		int subWidth = (m_bounds.width / 2);
@@ -113,6 +133,46 @@ namespace re
 	}
 
 	int QuadTree::getIndex(Rect<float, int>& rect)
+	{
+		int index = -1;
+		float verticalMidpoint = m_bounds.x + (m_bounds.width / 2);
+		float horizontalMidpoint = m_bounds.y + (m_bounds.height / 2);
+
+		// Object can completely fit within the top quadrants
+		bool topQuadrant = (rect.y < horizontalMidpoint && rect.y + rect.height < horizontalMidpoint);
+
+		// Object can completely fit within the bottom quadrants
+		bool bottomQuadrant = (rect.y > horizontalMidpoint);
+
+		// Object can completely fit within the left quadrants
+		if (rect.x < verticalMidpoint && rect.x + rect.width < verticalMidpoint)
+		{
+			if (topQuadrant)
+			{
+				index = 1;
+			}
+			else if (bottomQuadrant)
+			{
+				index = 2;
+			}
+		}
+		// Object can completely fit within the right quadrants
+		else if (rect.x > verticalMidpoint)
+		{
+			if (topQuadrant)
+			{
+				index = 0;
+			}
+			else if (bottomQuadrant)
+			{
+				index = 3;
+			}
+		}
+
+		return index;
+	}
+
+	int QuadTree::getIndex(const Rect<float, int>& rect)
 	{
 		int index = -1;
 		float verticalMidpoint = m_bounds.x + (m_bounds.width / 2);

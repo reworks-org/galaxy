@@ -31,20 +31,28 @@ namespace re
 	class Level
 	{
 	public:
+		///
+		/// Level constructor.
+		///
+		/// \param script Lua script outlining level data.
+		///
 		Level(const std::string& script);
+
+		///
+		/// Destructor.
+		///
 		~Level();
 
 		///
-		/// Return current map dimensions.
+		/// Return current map bounds.
 		///
-		/// \return Rect<int> CONST
+		/// \return Rect<float, int> CONST
 		///
-		Rect<int>& getDimensions() const;
+		const Rect<float, int>& getBounds() const;
 
 	private:
 		tmx_map* m_map;
-		Rect<float, int> m_dimensions;
-		std::vector<ALLEGRO_BITMAP*> m_layers;
+		Rect<float, int> m_bounds;
 	};
 }
 

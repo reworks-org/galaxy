@@ -133,7 +133,7 @@ namespace re
 		return m_display;
 	}
 
-	Vector2<int>& Window::getSize() const
+	const Vector2<int>& Window::getSize() const
 	{
 		return m_size;
 	}

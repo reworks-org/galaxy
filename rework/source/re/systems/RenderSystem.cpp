@@ -8,15 +8,14 @@
 
 #include <allegro5/display.h>
 
-#include "re/graphics/Camera.hpp"
 #include "re/components/RenderableComponent.hpp"
 
 #include "RenderSystem.hpp"
 
 namespace re
 {
-	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc)
-		:m_layerCount(layers), m_defaultAlloc(defaultAlloc)
+	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, size_t quadtreeLayers, size_t quadtreeMaxObjects)
+		:m_camera(nullptr), m_level(nullptr), m_layerCount(layers), m_defaultAlloc(defaultAlloc), m_quadtreeLayers(quadtreeLayers), m_quadtreeMaxObjects(quadtreeMaxObjects)
 	{
 		m_layers.clear();
 
@@ -35,7 +34,7 @@ namespace re
 	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
 		// level bounds
-		m_quadtree = new QuadTree(1, )
+		m_quadtree = new QuadTree(0, m_level->getBounds(), m_quadtreeLayers, m_quadtreeMaxObjects);
 
 		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)
 		{
@@ -51,7 +50,7 @@ namespace re
 		}
 
 		std::vector<entityx::Entity> e;
-		m_quadtree->retrieve(e, cameraBounds);
+		m_quadtree->retrieve(e, m_camera->getBounds());
 
 		for (auto& elem : e)
 		{
@@ -82,5 +81,15 @@ namespace re
 		}
 
 		m_layers.clear();
+	}
+
+	void RenderSystem::setCamera(Camera* camera)
+	{
+		m_camera = camera;
+	}
+
+	void RenderSystem::setLevel(Level* level)
+	{
+		m_level = level;
 	}
 }

@@ -16,6 +16,7 @@ namespace re
 {
 	class Camera
 	{
+	public:
 		///
 		/// Constructor.
 		///
@@ -36,6 +37,13 @@ namespace re
 		/// \param level 
 		///
 		void update(Level* level);
+
+		///
+		/// Return current camera bounds.
+		///
+		/// \return Rect<int> CONST
+		///
+		const Rect<float, int>& getBounds() const;
 
 	private:
 		entityx::Entity m_entityToFollow;

@@ -90,7 +90,7 @@ namespace re
 		///
 		/// \return Returns CONST vector2 of type int.
 		///
-		Vector2<int>& getSize() const;
+		const Vector2<int>& getSize() const;
 
 	private:
 		bool m_running;

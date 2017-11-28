@@ -9,11 +9,10 @@
 #ifndef REWORK_RENDERSYSTEM_HPP_
 #define REWORK_RENDERSYSTEM_HPP_
 
-#include "re/core/World.hpp"
 #include "re/utils/Utils.hpp"
 #include "re/math/QuadTree.hpp"
 #include "re/graphics/Layer.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/graphics/Camera.hpp"
 
 namespace re
 {
@@ -29,7 +28,7 @@ namespace re
 		/// \param layers Number of layers to draw to.
 		/// \param defaultAlloc Minimum amount of space reserved in std::vector for entitys.
 		///
-		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20);
+		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20, size_t quadtreeLayers = 5, size_t quadtreeMaxObjects = 10);
 
 		///
 		/// Destructor.
@@ -54,6 +53,20 @@ namespace re
 		void clean();
 
 		///
+		/// Set current camera.
+		///
+		/// \param camera Camera to use.
+		///
+		void setCamera(Camera* camera);
+
+		///
+		/// Set current level.
+		///
+		/// \param level Level to use.
+		///
+		void setLevel(Level* level);
+
+		///
 		/// Function to register the components that are renderable.
 		/// Call this only once, with all components.
 		///
@@ -75,8 +88,12 @@ namespace re
 
 	private:
 		QuadTree* m_quadtree;
+		Camera* m_camera;
+		Level* m_level;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
+		size_t m_quadtreeLayers;
+		size_t m_quadtreeMaxObjects;
 		std::vector<Layer> m_layers;
 		std::function<void(entityx::Entity&)> m_clf;
 	};

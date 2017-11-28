@@ -23,10 +23,12 @@ namespace re
 		std::string mapData = Locator::get<VFS>()->openAsString("map");
 		m_map = tmx_load_buffer(mapData.c_str(), mapData.length());
 
-		m_dimensions.x = level.get<float>("x");
-		m_dimensions.y = level.get<float>("y");
-		m_dimensions.width = level.get<int>("width");
-		m_dimensions.height = level.get<int>("height");
+		m_bounds.x = 0;
+		m_bounds.y = 0;
+		m_bounds.width = m_map->width;
+		m_bounds.height = m_map->height;
+
+
 	}
 
 	Level::~Level()
@@ -34,8 +36,8 @@ namespace re
 		tmx_map_free(m_map);
 	}
 
-	Rect<int>& Level::getDimensions() const
+	const Rect<float, int>& Level::getBounds() const
 	{
-		return m_dimensions;
+		return m_bounds;
 	}
 }

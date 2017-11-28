@@ -24,23 +24,27 @@ namespace re
 		///
 		/// Line thickness for objects.
 		///
-		static float LINE_THICKNESS = 2.5;
+		static float LINE_THICKNESS = 1.0f;
 
 		///
-		/// Sets up tmx loading / destruction functions for allegro images.
+		/// Wrapper around al_load_bitmap for tmx lib. Code by:
+		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
+		/// Same license as tmx library.
+		///
+		static inline void* al_img_loader(const char* path)
+		{
+			return (void*)al_load_bitmap(path);
+		}
+
+		///
+		/// Sets up tmx loading / destruction functions for allegro images. Code by:
+		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
+		/// Same license as tmx library.
 		///
 		static inline void setUpLoaders()
 		{
 			tmx_img_load_func = al_img_loader;
 			tmx_img_free_func = (void(*)(void*))al_destroy_bitmap;
-		}
-
-		///
-		/// Wrapper around al_img_loader.
-		///
-		static inline void* al_img_loader(const char* path)
-		{
-			return (void*)al_load_bitmap(path);
 		}
 
 		///

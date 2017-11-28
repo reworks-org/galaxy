@@ -13,11 +13,6 @@
 
 #include "Camera.hpp"
 
-// https://wiki.allegro.cc/index.php?title=How_to_implement_a_camera
-// https://gamedev.stackexchange.com/questions/46228/implementing-a-camera-viewport-to-a-2d-game
-// http://lazyfoo.net/tutorials/SDL/30_scrolling/index.php
-// https://stackoverflow.com/questions/3614823/2d-platform-game-camera-in-c
-
 namespace re
 {
 	Camera::Camera(entityx::Entity e)
@@ -49,12 +44,18 @@ namespace re
 	{
 		auto tc = m_entityToFollow.component<TransformComponent>();
 
-		m_bounds.x = tc->m_rect.x;
-		m_bounds.y = tc->m_rect.y;
+		m_bounds.x = (tc->m_rect.x + tc->m_rect.width / 2) - m_bounds.width / 2;
+		m_bounds.y = (tc->m_rect.y + tc->m_rect.height / 2) - m_bounds.height / 2;
 
 		if (m_bounds.x < 0) { m_bounds.x = 0; }
 		if (m_bounds.y < 0) { m_bounds.y = 0; }
-		if (m_bounds.x > LEVEL_WIDTH - m_bounds.width) { m_bounds.x = LEVEL_WIDTH - m_bounds.width; }
-		if (m_bounds.y > LEVEL_HEIGHT - m_bounds.height) { m_bounds.y = LEVEL_HEIGHT - m_bounds.height; }
+		if (m_bounds.x > level->getBounds().width - m_bounds.width) { m_bounds.x = level->getBounds().width - m_bounds.width; }
+		if (m_bounds.y > level->getBounds().height - m_bounds.height) { m_bounds.y = level->getBounds().height - m_bounds.height; }
+
+	}
+
+	const Rect<float, int>& Camera::getBounds() const
+	{
+		return m_bounds;
 	}
 }

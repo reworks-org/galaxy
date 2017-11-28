@@ -31,6 +31,16 @@ namespace re
 		QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);		
 
 		///
+		/// Constructor. CONST BOUNDS
+		///
+		/// \param level The level of the quadtree inside the tree. 0 for surface.
+		/// \param bounds CONST Bounds of the quadtree, usually the level.
+		/// \param maxLevels Maximum number of levels inside the quadtree.
+		/// \param maxObjects Maximum number of objects inside a node.
+		///
+		QuadTree(size_t level, const Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
+
+		///
 		/// Clears the quadtree of all data.
 		///
 		void clear();
@@ -60,6 +70,14 @@ namespace re
 		///
 		void retrieve(std::vector<entityx::Entity>& returnObjects, Rect<float, int>& rect);
 
+		///
+		/// Return all objects that could collide with the given rect. CONST FUNCTION
+		///
+		/// \param returnObjects A vector containing the entitys that could collide with the entity.
+		/// \param rect CONST Rect to check for collisions with.
+		///
+		void retrieve(std::vector<entityx::Entity>& returnObjects, const Rect<float, int>& rect);
+
 	private:
 		QuadTree() = delete;
 		QuadTree(QuadTree&&) = delete;
@@ -76,6 +94,13 @@ namespace re
 		/// -1 means object cannot completely fit within a child node and is part of the parent node.
 		///
 		int getIndex(Rect<float, int>& rect);
+
+		///
+		/// \brief Determine which node the object belongs to. CONST FUNCTION
+		///
+		/// -1 means object cannot completely fit within a child node and is part of the parent node.
+		///
+		int getIndex(const Rect<float, int>& rect);
 
 	private:
 		int m_level;
