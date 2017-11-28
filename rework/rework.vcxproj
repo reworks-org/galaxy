@@ -159,6 +159,11 @@
     <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
     <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
     <ClCompile Include="source\re\libs\Box2D\Rope\b2Rope.cpp" />
+    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagecrop.cpp" />
+    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagepacker.cpp" />
+    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagesort.cpp" />
+    <ClCompile Include="source\re\libs\cheetahtexturepacker\main.cpp" />
+    <ClCompile Include="source\re\libs\cheetahtexturepacker\maxrects.cpp" />
     <ClCompile Include="source\re\libs\entityx\Entity.cc" />
     <ClCompile Include="source\re\libs\entityx\Event.cc" />
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -455,6 +460,8 @@
     <ClInclude Include="source\re\libs\cereal\types\utility.hpp" />
     <ClInclude Include="source\re\libs\cereal\types\valarray.hpp" />
     <ClInclude Include="source\re\libs\cereal\types\vector.hpp" />
+    <ClInclude Include="source\re\libs\cheetahtexturepacker\imagepacker.h" />
+    <ClInclude Include="source\re\libs\cheetahtexturepacker\maxrects.h" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\catch.hpp" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\simplesignal.h" />
     <ClInclude Include="source\re\libs\entityx\config.h" />

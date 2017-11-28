@@ -28,6 +28,16 @@ namespace re
 		///
 		Vector2(T _x, T _y);
 
+		///
+		/// For when it makes sense to use width over x. Kinda like std::string's length() and size().
+		///
+		T width();
+
+		///
+		/// For when it makes sense to use height over y. Kinda like std::string's length() and size().
+		///
+		T height();
+
 	public:
 		T x;
 		T y;
@@ -43,6 +53,18 @@ namespace re
 	Vector2<T>::Vector2(T _x, T _y)
 		:x(_x), y(_y)
 	{
+	}
+
+	template<typename T>
+	inline T Vector2<T>::width()
+	{
+		return x;
+	}
+
+	template<typename T>
+	inline T Vector2<T>::height()
+	{
+		return y;
 	}
 	
 	template<typename T>
