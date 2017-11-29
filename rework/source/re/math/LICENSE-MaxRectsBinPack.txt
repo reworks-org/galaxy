@@ -30,3 +30,6 @@ All the code is released to Public Domain. Patches and comments are welcome.
 It makes me happy to hear if someone finds the algorithms useful.
 
    Jukka Jylänki
+
+
+Code is modified to work in rework by reworks.

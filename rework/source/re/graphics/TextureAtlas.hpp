@@ -1,35 +1,18 @@
-// This code is based off of https://github.com/seibelj/Allegro-Texture-Packer/tree/master/c
-// That code was licensed as MIT. See tools/Allegro-Texture-Packer/LICENSE-allegrotexturepacker.txt in repo root for details.
-// This is essentially a port to C++, with some additions to support string ids, physfs, and uses rework coding style.
-// Most of the logic belongs to the original author.
+//
+//  TextureAtlas.hpp
+//  rework
+//
+//  Created by reworks on 29/11/2017.
+//  Copyright (c) 2017 reworks. All rights reserved.
+//
 
 #ifndef REWORK_TEXTUREATLAS_HPP_
 #define REWORK_TEXTUREATLAS_HPP_
 
-#include <string>
 #include <unordered_map>
 
-#include <allegro5/bitmap.h>
-#include <allegro5/config.h>
-
+#include "re/math/Rect.hpp"
 #include "re/types/Service.hpp"
-
-typedef int AL_PACKED_IMAGE_ID;
-
-struct packed_image
-{
-	int x;
-	int y;
-	int w;
-	int h;
-	int file_idx;
-};
-
-struct packed_image_file
-{
-	char *file_name;
-	ALLEGRO_BITMAP *bitmap;
-};
 
 namespace re
 {
@@ -37,13 +20,14 @@ namespace re
 	{
 	public:
 		///
-		/// Initialize the texture packer.pack_file_name and all referenced
-		/// packed image files must be in the root of pack_file_path
+		/// \brief Cosntructor.
 		///
-		TextureAtlas(const std::string& atlas);
+		/// Loads all textures and performs a maxrectbinpack algorithm on them, then frees textures.
+		///
+		TextureAtlas();
 
 		///
-		/// Frees all memory used by the texture packer.
+		/// Destructor. Frees texture atlas.
 		///
 		~TextureAtlas() override;
 
@@ -51,20 +35,20 @@ namespace re
 		/// Like al_draw_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_bitmap
 		///
-		void al_draw_packed_bitmap(const std::string& p_img_id_s, float dx, float dy, int flags);
+		void al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_bitmap
 		///
-		void al_draw_tinted_packed_bitmap(const std::string& p_img_id_s, ALLEGRO_COLOR tint,
+		void al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint,
 			float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_scaled_rotated_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_scaled_rotated_bitmap
 		///
-		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& p_img_id_s,
+		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture,
 			ALLEGRO_COLOR tint,
 			float cx, float cy, float dx, float dy, float xscale, float yscale,
 			float angle, int flags);
@@ -78,15 +62,12 @@ namespace re
 		///
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_create_sub_bitmap
 		///
-		ALLEGRO_BITMAP *al_create_packed_bitmap(const std::string& p_img_id_s);
+		ALLEGRO_BITMAP *al_create_packed_bitmap(const std::string& texture);
 
 	private:
-		ALLEGRO_CONFIG *pack_config;
-		int total_packed_image_files;
-		packed_image *packed_image_array;
-		packed_image_file *packed_image_file_array;
-
-		std::unordered_map<std::string, AL_PACKED_IMAGE_ID> m_strToID;
+		ALLEGRO_BITMAP* m_atlas;
+		size_t m_powerOfTwoDimension;
+		std::unordered_map<std::string, Rect<int>> m_packedTextures;
 	};
 }
 

@@ -207,6 +207,7 @@
     <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\mapping\TMXLayer.cpp" />
     <ClCompile Include="source\re\services\ConfigReader.cpp" />
+    <ClCompile Include="source\re\math\MaxRectsBinPack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -517,5 +518,6 @@
     <ClInclude Include="source\re\types\Defines.hpp" />
     <ClInclude Include="source\re\mapping\TMXLayer.hpp" />
     <ClInclude Include="source\re\services\ConfigReader.hpp" />
+    <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
   </ItemGroup>
 </Project>
