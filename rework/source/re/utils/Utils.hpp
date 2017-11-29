@@ -65,6 +65,22 @@ namespace re
 		}
 
 		///
+		/// \brief Remove an extension.
+		///
+		/// Thanks to: http://stackoverflow.com/a/6417908
+		///
+		/// \param filename Name of the file with the extension to remove. ONLY WORKS FOR FILES. DO NOT USE FOR PATHS! ESPECIALLY PATHS WITH DOTS IN THEM!
+		///
+		/// \return filename without extension.
+		///
+		inline std::string removeExtension(const std::string& filename)
+		{
+			size_t lastdot = filename.find_last_of(".");
+			if (lastdot == std::string::npos) return filename;
+			return filename.substr(0, lastdot);
+		}
+
+		///
 		/// Converts a boolean to a std::string.
 		///
 		/// \param value Boolean value to convert.

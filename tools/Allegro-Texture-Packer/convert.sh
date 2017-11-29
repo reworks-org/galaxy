@@ -1,1 +1,0 @@
-python convert_atlas.py out

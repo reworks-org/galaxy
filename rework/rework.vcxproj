@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -159,11 +159,6 @@
     <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
     <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
     <ClCompile Include="source\re\libs\Box2D\Rope\b2Rope.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagecrop.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagepacker.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagesort.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\main.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\maxrects.cpp" />
     <ClCompile Include="source\re\libs\entityx\Entity.cc" />
     <ClCompile Include="source\re\libs\entityx\Event.cc" />
     <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
@@ -223,7 +218,7 @@
     <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\mapping\TMXLayer.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
-    <ClCompile Include="source\re\services\Config.cpp" />
+    <ClCompile Include="source\re\services\ConfigReader.cpp" />
     <ClCompile Include="source\re\services\Serializer.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
@@ -460,8 +455,6 @@
     <ClInclude Include="source\re\libs\cereal\types\utility.hpp" />
     <ClInclude Include="source\re\libs\cereal\types\valarray.hpp" />
     <ClInclude Include="source\re\libs\cereal\types\vector.hpp" />
-    <ClInclude Include="source\re\libs\cheetahtexturepacker\imagepacker.h" />
-    <ClInclude Include="source\re\libs\cheetahtexturepacker\maxrects.h" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\catch.hpp" />
     <ClInclude Include="source\re\libs\entityx\3rdparty\simplesignal.h" />
     <ClInclude Include="source\re\libs\entityx\config.h" />
@@ -529,7 +522,7 @@
     <ClInclude Include="source\re\math\Vector3.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\re\services\Config.hpp" />
+    <ClInclude Include="source\re\services\ConfigReader.hpp" />
     <ClInclude Include="source\re\services\Serializer.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
@@ -542,12 +535,6 @@
     <ClInclude Include="source\re\types\State.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>

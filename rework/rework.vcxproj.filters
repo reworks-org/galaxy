@@ -189,7 +189,6 @@
     <ClCompile Include="source\re\managers\ShaderManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
-    <ClCompile Include="source\re\services\Config.cpp" />
     <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
@@ -207,11 +206,7 @@
     <ClCompile Include="source\re\services\Serializer.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\mapping\TMXLayer.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagecrop.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagepacker.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\imagesort.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\main.cpp" />
-    <ClCompile Include="source\re\libs\cheetahtexturepacker\maxrects.cpp" />
+    <ClCompile Include="source\re\services\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -418,7 +413,6 @@
     <ClInclude Include="source\re\math\Vector3.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\re\services\Config.hpp" />
     <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
@@ -522,13 +516,6 @@
     <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\types\Defines.hpp" />
     <ClInclude Include="source\re\mapping\TMXLayer.hpp" />
-    <ClInclude Include="source\re\libs\cheetahtexturepacker\imagepacker.h" />
-    <ClInclude Include="source\re\libs\cheetahtexturepacker\maxrects.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="source\re\services\ConfigReader.hpp" />
   </ItemGroup>
 </Project>

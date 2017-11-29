@@ -53,9 +53,10 @@ namespace re
 		m_vfs = new VFS(archive);
 		Locator::provide<VFS>(m_vfs);
 		
-		m_engineConfig = new ConfigReader(config, newConfig);
+		m_configReader = new ConfigReader(config, newConfig);
+		Locator::provide<ConfigReader>(m_configReader);
 		
-		m_window = new Window(m_engineConfig->lookup<int>("graphics", "width"), m_engineConfig->lookup<int>("graphics", "height"), m_engineConfig->lookup<bool>("graphics", "fullscreen"), m_engineConfig->lookup<bool>("graphics", "msaa"), m_engineConfig->lookup<int>("graphics", "msaaValue"), m_engineConfig->lookup<std::string>("graphics", "title"), m_engineConfig->lookup<std::string>("graphics", "icon"));
+		m_window = new Window(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::provide<Window>(m_window);
 		
 		m_world = new World();
@@ -64,19 +65,19 @@ namespace re
 		m_stateManager = new StateManager();
 		Locator::provide<StateManager>(m_stateManager);
 		
-		m_fontManager = new FontManager(m_engineConfig->lookup<std::string>("fontmanager", "fontScript"));
+		m_fontManager = new FontManager(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
 		Locator::provide<FontManager>(m_fontManager);
 		
-		m_audioManager = new AudioManager(m_engineConfig->lookup<std::string>("audiomanager", "audioScript"), m_engineConfig->lookup<int>("audiomanager", "reserveSamples"));
+		m_audioManager = new AudioManager(m_configReader->lookup<std::string>(config, "audiomanager", "audioScript"), m_configReader->lookup<int>(config, "audiomanager", "reserveSamples"));
 		Locator::provide<AudioManager>(m_audioManager);
 		
-		m_b2dManager = new Box2DManager(m_engineConfig->lookup<float32>("box2d", "gravity"));
+		m_b2dManager = new Box2DManager(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		Locator::provide<Box2DManager>(m_b2dManager);
 		
 		m_debugManager = new DebugManager(m_window->getDisplay());
 		Locator::provide<DebugManager>(m_debugManager);
 		
-		m_textureAtlas = new TextureAtlas(m_engineConfig->lookup<std::string>("graphics", "atlas"));
+		m_textureAtlas = new TextureAtlas(m_configReader->lookup<std::string>(config, "graphics", "atlas"));
 		Locator::provide<TextureAtlas>(m_textureAtlas);
 
 		#ifdef NDEBUG
@@ -93,7 +94,7 @@ namespace re
 		delete m_stateManager;
 		delete m_world;
 		delete m_window;
-		delete m_engineConfig;
+		delete m_configReader;
 		delete m_vfs;
 
 		al_shutdown_native_dialog_addon();

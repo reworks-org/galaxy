@@ -41,6 +41,15 @@ namespace re
 		bool contains(T1 _x, T1 _y);
 
 		///
+		/// Does the rectangle contain another rectangle.
+		///
+		/// \param b Rectangle to check.
+		///
+		/// \return Returns true if the rectangle is completely inside, not on the edge.
+		///
+		bool contains(const Rect<T1, T2>& b);
+
+		///
 		/// Do the rectangles a and b overlap.
 		///
 		/// \param b Right rectangle.
@@ -79,6 +88,14 @@ namespace re
 	bool Rect<T1, T2>::contains(T1 _x, T1 _y)
 	{
 		bool out = ((_x > x) && (_x < (x + width)) && (_y > y) && (_y < (y + height))) ? true : false;
+
+		return out;
+	}
+
+	template<typename T1, typename T2>
+	bool Rect<T1, T2>::contains(const Rect<T1, T2>& b)
+	{
+		bool out = ((b.x + b.width) < (x + width) && (b.x) > (x) && (b.y) >(y) && (b.y + b.height) < (y + height)) ? true : false;
 
 		return out;
 	}

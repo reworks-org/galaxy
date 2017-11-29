@@ -11,7 +11,7 @@
 
 #include "re/core/World.hpp"
 #include "re/services/VFS.hpp"
-#include "re/services/Config.hpp"
+#include "re/services/ConfigReader.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/managers/FontManager.hpp"
 #include "re/managers/AudioManager.hpp"
@@ -52,7 +52,7 @@ namespace re
 
 	protected:
 		VFS* m_vfs;
-		ConfigReader* m_engineConfig;
+		ConfigReader* m_configReader;
 		Window* m_window;
 		World* m_world;
 		StateManager* m_stateManager;

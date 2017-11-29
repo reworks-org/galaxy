@@ -29,14 +29,9 @@ namespace re
 		Vector2(T _x, T _y);
 
 		///
-		/// For when it makes sense to use width over x. Kinda like std::string's length() and size().
+		/// Swaps x (width) and y (height).
 		///
-		T width();
-
-		///
-		/// For when it makes sense to use height over y. Kinda like std::string's length() and size().
-		///
-		T height();
+		void transpose();
 
 	public:
 		T x;
@@ -56,15 +51,12 @@ namespace re
 	}
 
 	template<typename T>
-	inline T Vector2<T>::width()
+	inline void Vector2<T>::transpose()
 	{
-		return x;
-	}
+		T oldX = x;
 
-	template<typename T>
-	inline T Vector2<T>::height()
-	{
-		return y;
+		x = y;
+		y = oldX;
 	}
 	
 	template<typename T>
