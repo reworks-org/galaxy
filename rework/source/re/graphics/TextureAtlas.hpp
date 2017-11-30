@@ -27,7 +27,9 @@ namespace re
 		///
 		/// Loads all textures and performs a maxrectbinpack algorithm on them, then frees textures.
 		///
-		TextureAtlas();
+		/// \param powerOfTwoDimension The power of two to create the sprite sheet. E.g. 11 would result in an atas size of 2048x2048.
+		///
+		TextureAtlas(size_t powerOfTwoDimension);
 
 		///
 		/// Destructor. Frees texture atlas.
@@ -65,7 +67,6 @@ namespace re
 
 	private:
 		ALLEGRO_BITMAP* m_atlas;
-		size_t m_powerOfTwoDimension;
 		std::unordered_map<std::string, Rect<int>> m_packedTextures;
 	};
 }

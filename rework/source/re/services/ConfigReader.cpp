@@ -35,12 +35,12 @@ namespace re
 			}
 			else
 			{
-				m_configs.emplace(Utils::removeExtension(config), ptr);
+				m_configs.emplace(config, ptr);
 			}
 		}
 		else
 		{
-			m_configs.emplace(Utils::removeExtension(config), ptr);
+			m_configs.emplace(config, ptr);
 		}
 	}
 
@@ -61,7 +61,7 @@ namespace re
 		}
 		else
 		{
-			m_configs.emplace(Utils::removeExtension(config), ptr);
+			m_configs.emplace(config, ptr);
 		}
 	}
 	

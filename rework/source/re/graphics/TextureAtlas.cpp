@@ -21,12 +21,11 @@
 
 namespace re
 {
-	TextureAtlas::TextureAtlas()
+	TextureAtlas::TextureAtlas(size_t powerOfTwoDimension)
 	{
-		// Default of 2048.
-		m_powerOfTwoDimension = std::pow(2, 11);
-		m_atlas = al_create_bitmap(m_powerOfTwoDimension, m_powerOfTwoDimension);
-		rbp::MaxRectsBinPack bin(m_powerOfTwoDimension, m_powerOfTwoDimension, false);
+		size_t atlasSize = std::pow(2, powerOfTwoDimension);
+		m_atlas = al_create_bitmap(atlasSize, atlasSize);
+		rbp::MaxRectsBinPack bin(atlasSize, atlasSize, false);
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
 		al_set_target_bitmap(m_atlas);
 		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
@@ -39,7 +38,7 @@ namespace re
 
 			if (!(packedRect.height > 0))
 			{
-				LOG_S(FATAL) << "Failed to pack a texture! Texture: " << *i << std::endl;
+				LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i << std::endl;
 			}
 
 			al_draw_bitmap(bitmap, packedRect.x, packedRect.y, 0);
