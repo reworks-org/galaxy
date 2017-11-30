@@ -11,6 +11,9 @@
 
 #include <unordered_map>
 
+#include <allegro5/color.h>
+#include <allegro5/bitmap.h>
+
 #include "re/math/Rect.hpp"
 #include "re/types/Service.hpp"
 
@@ -41,17 +44,13 @@ namespace re
 		/// Like al_draw_tinted_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_bitmap
 		///
-		void al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint,
-			float dx, float dy, int flags);
+		void al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_scaled_rotated_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_scaled_rotated_bitmap
 		///
-		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture,
-			ALLEGRO_COLOR tint,
-			float cx, float cy, float dx, float dy, float xscale, float yscale,
-			float angle, int flags);
+		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
 
 		///
 		/// Calls al_create_sub_bitmap() properly and returns the bitmap of the
@@ -62,7 +61,7 @@ namespace re
 		///
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_create_sub_bitmap
 		///
-		ALLEGRO_BITMAP *al_create_packed_bitmap(const std::string& texture);
+		ALLEGRO_BITMAP* al_create_packed_bitmap(const std::string& texture);
 
 	private:
 		ALLEGRO_BITMAP* m_atlas;

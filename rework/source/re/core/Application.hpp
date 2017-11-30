@@ -31,6 +31,7 @@ namespace re
 		/// Sets up the engine. You need to inherit this and call it from a subclass.
 		/// YOU MUST CALL m_world->m_systemManager.configure() after adding custom systems.
 		/// THIS CONSTRUCTOR DOES NOT CALL IT.
+		/// Also calls std::srand(std::time(nullptr)) for you.
 		/// 
 		/// \param archive Path or archive to mount.
 		/// \param config Path to the config file.

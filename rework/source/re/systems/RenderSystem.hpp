@@ -28,7 +28,7 @@ namespace re
 		/// \param layers Number of layers to draw to.
 		/// \param defaultAlloc Minimum amount of space reserved in std::vector for entitys.
 		///
-		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20, size_t quadtreeLayers = 5, size_t quadtreeMaxObjects = 10);
+		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20, int quadtreeLayers = 5, int quadtreeMaxObjects = 10);
 
 		///
 		/// Destructor.
@@ -92,8 +92,8 @@ namespace re
 		Level* m_level;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
-		size_t m_quadtreeLayers;
-		size_t m_quadtreeMaxObjects;
+		int m_quadtreeLayers;
+		int m_quadtreeMaxObjects;
 		std::vector<Layer> m_layers;
 		std::function<void(entityx::Entity&)> m_clf;
 	};

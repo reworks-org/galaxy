@@ -538,6 +538,9 @@
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -609,6 +612,8 @@
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Linkage-libiconv>static</Linkage-libiconv>
+    <Linkage-libxml2>static</Linkage-libxml2>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
@@ -629,6 +634,8 @@
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Linkage-libiconv>static</Linkage-libiconv>
+    <Linkage-libxml2>static</Linkage-libxml2>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -650,9 +657,9 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source/;source/re/libs/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -688,9 +695,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>LIBXML_STATIC;NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>source/;source/re/libs/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -704,10 +711,6 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\libxml2.redist.2.7.8.7\build\native\libxml2.redist.targets" Condition="Exists('..\packages\libxml2.redist.2.7.8.7\build\native\libxml2.redist.targets')" />
-    <Import Project="..\packages\libxml2.2.7.8.7\build\native\libxml2.targets" Condition="Exists('..\packages\libxml2.2.7.8.7\build\native\libxml2.targets')" />
-    <Import Project="..\packages\libiconv.redist.1.14.0.11\build\native\libiconv.redist.targets" Condition="Exists('..\packages\libiconv.redist.1.14.0.11\build\native\libiconv.redist.targets')" />
-    <Import Project="..\packages\libiconv.1.14.0.11\build\native\libiconv.targets" Condition="Exists('..\packages\libiconv.1.14.0.11\build\native\libiconv.targets')" />
     <Import Project="..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets" Condition="Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" />
     <Import Project="..\packages\Allegro.5.2.3.1\build\native\Allegro.targets" Condition="Exists('..\packages\Allegro.5.2.3.1\build\native\Allegro.targets')" />
   </ImportGroup>
@@ -715,10 +718,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\libxml2.redist.2.7.8.7\build\native\libxml2.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libxml2.redist.2.7.8.7\build\native\libxml2.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\libxml2.2.7.8.7\build\native\libxml2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libxml2.2.7.8.7\build\native\libxml2.targets'))" />
-    <Error Condition="!Exists('..\packages\libiconv.redist.1.14.0.11\build\native\libiconv.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libiconv.redist.1.14.0.11\build\native\libiconv.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\libiconv.1.14.0.11\build\native\libiconv.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libiconv.1.14.0.11\build\native\libiconv.targets'))" />
     <Error Condition="!Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets'))" />
     <Error Condition="!Exists('..\packages\Allegro.5.2.3.1\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.3.1\build\native\Allegro.targets'))" />
   </Target>

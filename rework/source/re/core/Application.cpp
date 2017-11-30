@@ -77,7 +77,7 @@ namespace re
 		m_debugManager = new DebugManager(m_window->getDisplay());
 		Locator::provide<DebugManager>(m_debugManager);
 		
-		m_textureAtlas = new TextureAtlas(m_configReader->lookup<std::string>(config, "graphics", "atlas"));
+		m_textureAtlas = new TextureAtlas();
 		Locator::provide<TextureAtlas>(m_textureAtlas);
 
 		#ifdef NDEBUG

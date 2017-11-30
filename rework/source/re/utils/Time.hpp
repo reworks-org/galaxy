@@ -28,7 +28,7 @@ namespace re
 		///
 		inline constexpr std::int32_t secondsToMilliseconds(double seconds)
 		{
-			return seconds * 1000;
+			return (seconds * 1000.0);
 		}
 
 		///
@@ -40,7 +40,7 @@ namespace re
 		///
 		inline constexpr std::int64_t secondsToMicroseconds(double seconds)
 		{
-			return seconds * 1000000;
+			return seconds * 1000000.0;
 		}
 
 		///
@@ -52,7 +52,7 @@ namespace re
 		///
 		inline constexpr double millisecondsToSeconds(std::int32_t milliseconds)
 		{
-			return milliseconds / 1000.0f;
+			return milliseconds / 1000.0;
 		}
 
 		///
@@ -88,7 +88,7 @@ namespace re
 		///
 		inline constexpr std::int32_t microsecondsToMilliseconds(std::int64_t microseconds)
 		{
-			return microseconds / 1000;
+			return microseconds / 1000.0;
 		}
 
 		///

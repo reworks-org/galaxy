@@ -14,7 +14,7 @@
 
 namespace re
 {
-	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, size_t quadtreeLayers, size_t quadtreeMaxObjects)
+	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, int quadtreeLayers, int quadtreeMaxObjects)
 		:m_camera(nullptr), m_level(nullptr), m_layerCount(layers), m_defaultAlloc(defaultAlloc), m_quadtreeLayers(quadtreeLayers), m_quadtreeMaxObjects(quadtreeMaxObjects)
 	{
 		m_layers.clear();

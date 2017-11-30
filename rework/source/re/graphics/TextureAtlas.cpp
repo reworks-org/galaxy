@@ -13,7 +13,9 @@
 #include <allegro5/bitmap_draw.h>
 
 #include "loguru/loguru.hpp"
+#include "re/graphics/Window.hpp"
 #include "re/math/MaxRectsBinPack.hpp"
+#include "re/services/ServiceLocator.hpp"
 
 #include "TextureAtlas.hpp"
 
@@ -30,7 +32,7 @@ namespace re
 		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
 		
 		char** efl = PHYSFS_enumerateFiles("textures");
-		for (char** i = rc; *i != NULL; i++)
+		for (char** i = efl; *i != NULL; i++)
 		{
 			ALLEGRO_BITMAP* bitmap = al_load_bitmap(*i);
 			Rect<int> packedRect = bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
@@ -40,14 +42,14 @@ namespace re
 				LOG_S(FATAL) << "Failed to pack a texture! Texture: " << *i << std::endl;
 			}
 
-			al_draw_bitmap(bitmap, packedRect.x, packedRect.y);
+			al_draw_bitmap(bitmap, packedRect.x, packedRect.y, 0);
 			m_packedTextures.emplace(*i, packedRect);
 			
 			al_destroy_bitmap(bitmap);
 		}
 
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(m_display));
+		al_set_target_bitmap(al_get_backbuffer(Locator::get<Window>()->getDisplay()));
 		
 		PHYSFS_freeList(efl);
 	}

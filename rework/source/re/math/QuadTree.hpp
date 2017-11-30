@@ -28,7 +28,7 @@ namespace re
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);		
+		QuadTree(int level, Rect<float, int>& bounds, int maxLevels = 5, int maxObjects = 10);
 
 		///
 		/// Constructor. CONST BOUNDS
@@ -38,7 +38,7 @@ namespace re
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(size_t level, const Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
+		QuadTree(int level, const Rect<float, int>& bounds, int maxLevels = 5, int maxObjects = 10);
 
 		///
 		/// Clears the quadtree of all data.

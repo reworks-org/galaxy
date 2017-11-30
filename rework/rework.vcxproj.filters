@@ -520,4 +520,7 @@
     <ClInclude Include="source\re\services\ConfigReader.hpp" />
     <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>
