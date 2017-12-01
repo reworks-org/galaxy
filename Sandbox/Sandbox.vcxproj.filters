@@ -4,6 +4,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Test.cpp" />
     <ClCompile Include="source\gamesystems\MoveSystem.cpp" />
+    <ClCompile Include="source\TestLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -11,5 +12,6 @@
   <ItemGroup>
     <ClInclude Include="source\Test.hpp" />
     <ClInclude Include="source\gamesystems\MoveSystem.hpp" />
+    <ClInclude Include="source\TestLevel.hpp" />
   </ItemGroup>
 </Project>

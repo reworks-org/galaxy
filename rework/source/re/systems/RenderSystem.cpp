@@ -8,6 +8,8 @@
 
 #include <allegro5/display.h>
 
+#include "re/graphics/Window.hpp"
+#include "re/services/ServiceLocator.hpp"
 #include "re/components/RenderableComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -34,7 +36,14 @@ namespace re
 	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
 		// level bounds
-		m_quadtree = new QuadTree(0, m_level->getBounds(), m_quadtreeLayers, m_quadtreeMaxObjects);
+		if (m_level != nullptr)
+		{
+			m_quadtree = new QuadTree(0, m_level->getBounds(), m_quadtreeLayers, m_quadtreeMaxObjects);
+		}
+		else
+		{
+			m_quadtree = new QuadTree(0, {0, 0, Locator::get<Window>()->getSize().x, Locator::get<Window>()->getSize().y}, m_quadtreeLayers, m_quadtreeMaxObjects);
+		}
 
 		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)
 		{
@@ -50,7 +59,15 @@ namespace re
 		}
 
 		std::vector<entityx::Entity> e;
-		m_quadtree->retrieve(e, m_camera->getBounds());
+		
+		if (m_camera != nullptr)
+		{
+			m_quadtree->retrieve(e, m_camera->getBounds());
+		}
+		else
+		{
+			m_quadtree->retrieve(e, {0, 0, Locator::get<Window>()->getSize().x, Locator::get<Window>()->getSize().y});
+		}
 
 		for (auto& elem : e)
 		{

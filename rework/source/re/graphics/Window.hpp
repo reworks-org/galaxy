@@ -9,6 +9,8 @@
 #ifndef REWORK_WINDOW_HPP_
 #define REWORK_WINDOW_HPP_
 
+#include <string>
+
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
 

@@ -13,6 +13,7 @@
 #include <allegro5/bitmap_draw.h>
 
 #include "loguru/loguru.hpp"
+#include "re/utils/Utils.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/math/MaxRectsBinPack.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -42,7 +43,7 @@ namespace re
 			}
 
 			al_draw_bitmap(bitmap, packedRect.x, packedRect.y, 0);
-			m_packedTextures.emplace(*i, packedRect);
+			m_packedTextures.emplace(Utils::removeExtension(std::string(*i)), packedRect);
 			
 			al_destroy_bitmap(bitmap);
 		}
@@ -60,21 +61,25 @@ namespace re
 
 	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags)
 	{
-		al_draw_bitmap_region(m_atlas, m_packedTextures[texture].x, m_packedTextures[texture].y, m_packedTextures[texture].width, m_packedTextures[texture].height, dx, dy, flags);
+		auto pr = m_packedTextures[texture];
+		al_draw_bitmap_region(m_atlas, pr.x, pr.y, pr.width, pr.height, dx, dy, flags);
 	}
 
 	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags) 
 	{
-		al_draw_tinted_bitmap_region(m_atlas, tint, m_packedTextures[texture].x, m_packedTextures[texture].y, m_packedTextures[texture].width, m_packedTextures[texture].height, dx, dy, flags);
+		auto pr = m_packedTextures[texture];
+		al_draw_tinted_bitmap_region(m_atlas, tint, pr.x, pr.y, pr.width, pr.height, dx, dy, flags);
 	}
 
 	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
 	{
-		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, m_packedTextures[texture].x, m_packedTextures[texture].y, m_packedTextures[texture].width, m_packedTextures[texture].height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
+		auto pr = m_packedTextures[texture];
+		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.x, pr.y, pr.width, pr.height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
 	}
 
 	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(const std::string& texture)
 	{
-		return al_create_sub_bitmap(m_atlas, m_packedTextures[texture].x, m_packedTextures[texture].y, m_packedTextures[texture].width, m_packedTextures[texture].height);
+		auto pr = m_packedTextures[texture];
+		return al_create_sub_bitmap(m_atlas, pr.x, pr.y, pr.width, pr.height);
 	}
 }

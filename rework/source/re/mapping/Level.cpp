@@ -27,8 +27,6 @@ namespace re
 		m_bounds.y = 0;
 		m_bounds.width = m_map->width;
 		m_bounds.height = m_map->height;
-
-
 	}
 
 	Level::~Level()

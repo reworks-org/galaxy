@@ -6,7 +6,6 @@ Thumbs.db
 *.lnk
 
 # Visual Studio stuff
-packages/
 *.sdf
 *.VC.db
 .vs/rework/v15/*.VC.db
@@ -19,8 +18,8 @@ DerivedData/
 # Project stuff
 rework/bin/
 rework/build/
-tools/Allegro-Texture-Packer/in/
-tools/Allegro-Texture-Packer/out/
+packages/Allegro.5.2.3.1/
+packages/AllegroDeps.1.7.0.0/
 
 # Sandbox Stuff
 Sandbox/bin/Debug/

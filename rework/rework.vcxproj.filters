@@ -523,4 +523,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+  </ItemGroup>
 </Project>

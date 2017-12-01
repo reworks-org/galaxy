@@ -41,7 +41,7 @@ namespace re
 		///
 		/// Destructor.
 		///
-		~Level();
+		virtual ~Level();
 
 		///
 		/// Return current map bounds.
@@ -50,7 +50,7 @@ namespace re
 		///
 		const Rect<float, int>& getBounds() const;
 
-	private:
+	protected:
 		tmx_map* m_map;
 		Rect<float, int> m_bounds;
 	};
