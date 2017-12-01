@@ -31,7 +31,7 @@ namespace re
 		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 		/// Same license as tmx library.
 		///
-		static inline void* al_img_loader(const char* path)
+		static inline void* tmx_img_loader(const char* path)
 		{
 			return (void*)al_load_bitmap(path);
 		}
@@ -43,7 +43,7 @@ namespace re
 		///
 		static inline void setUpLoaders()
 		{
-			tmx_img_load_func = al_img_loader;
+			tmx_img_load_func = tmx_img_loader;
 			tmx_img_free_func = (void(*)(void*))al_destroy_bitmap;
 		}
 
@@ -180,28 +180,29 @@ namespace re
 		}
 
 		///
-		/// Draw all layer. Code by:
+		/// Process all layers. Code by:
 		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
+		/// Modified by: reworks
 		/// Same license as tmx library.
 		///
-		static inline void draw_all_layer_types(tmx_map *map, tmx_layer *layers) {
+		static inline void process_all_layer_types(tmx_map *map, tmx_layer *layers, 
+			std::function<void(tmx_map*, tmx_layer*)> objLayerFunc,
+			std::function<void(tmx_map*, tmx_layer*)> imgLayerFunc,
+			std::function<void(tmx_map*, tmx_layer*)> tileLayerFunc
+		) {
 			while (layers) {
 				if (layers->visible) {
 					if (layers->type == L_GROUP) {
-						draw_all_layer_types(map, layers->content.group_head);
+						process_all_layer_types(map, layers->content.group_head, objLayerFunc, imgLayerFunc, tileLayerFunc);
 					}
 					else if (layers->type == L_OBJGR) {
-						draw_objects(layers->content.objgr);
+						objLayerFunc(map, layers);
 					}
 					else if (layers->type == L_IMAGE) {
-						if (layers->opacity < 1.) {
-							float op = layers->opacity;
-							al_draw_tinted_bitmap((ALLEGRO_BITMAP*)layers->content.image->resource_image, al_map_rgba_f(op, op, op, op), 0, 0, 0);
-						}
-						al_draw_bitmap((ALLEGRO_BITMAP*)layers->content.image->resource_image, 0, 0, 0);
+						imgLayerFunc(map, layers);
 					}
 					else if (layers->type == L_LAYER) {
-						draw_layer(map, layers);
+						tileLayerFunc(map, layers);
 					}
 				}
 				layers = layers->next;
