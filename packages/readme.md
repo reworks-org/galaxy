@@ -1,3 +1,0 @@
-# Packages
-
-These are the packages used by the engine. Installed via nuget from visual studio project.

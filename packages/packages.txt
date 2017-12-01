@@ -1,4 +1,0 @@
-Nuget Libaries:
-
-Allegro.5.2.3.1
-AllegroDeps.1.7.0.0
