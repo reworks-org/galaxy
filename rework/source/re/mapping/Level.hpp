@@ -14,17 +14,26 @@
 #include "re/math/Rect.hpp"
 #include "re/mapping/TMXHelper.hpp"
 
-// grab tiles between camera coords
-// in order to only render those
-// since we need to refresh the map every time we update the quadtree
-// we can then update the animations aswell. no need to worry about loading
-// static map once.
-// unless we only render a subsection of an al_bitmap.
-// might be a better idea?
-// we shall see.
+// we can then update the animations aswell.
 // each layer should be a bitmap so we can instert it into layer render engine
 // movesystem needs to grab tile information in order to make actions occur
-// new idea: break up levels into seperate components to be processed by a level system! eggcelent idea! :D
+// create following animated_tile struct:
+/*
+struct AnimatedTile
+{
+	unsigned int gid;
+	int dest_x;
+	int dest_y;
+	int cur_frame;
+
+};
+
+or something similar.
+Refer to tmx map docs.
+*/
+
+// https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
+// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 
 namespace re
 {

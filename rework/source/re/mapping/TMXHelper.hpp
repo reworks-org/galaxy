@@ -15,6 +15,9 @@
 #include <allegro5/bitmap_io.h>
 #include <allegro5/allegro_primitives.h>
 
+#include "re/graphics/TextureAtlas.hpp"
+#include "re/services/ServiceLocator.hpp"
+
 #include "tmx/tmx.h"
 
 namespace re
@@ -27,32 +30,11 @@ namespace re
 		static float LINE_THICKNESS = 1.0f;
 
 		///
-		/// Wrapper around al_load_bitmap for tmx lib. Code by:
-		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
-		/// Same license as tmx library.
-		///
-		static inline void* tmx_img_loader(const char* path)
-		{
-			return (void*)al_load_bitmap(path);
-		}
-
-		///
-		/// Sets up tmx loading / destruction functions for allegro images. Code by:
-		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
-		/// Same license as tmx library.
-		///
-		static inline void setUpLoaders()
-		{
-			tmx_img_load_func = tmx_img_loader;
-			tmx_img_free_func = (void(*)(void*))al_destroy_bitmap;
-		}
-
-		///
 		/// Convert TMX colour to allegro colour. Code by:
 		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 		/// Same license as tmx library.
 		///
-		static inline ALLEGRO_COLOR int_to_al_color(int color)
+		static inline ALLEGRO_COLOR int_to_al_color(unsigned int color)
 		{
 			unsigned char r, g, b;
 
@@ -61,6 +43,23 @@ namespace re
 			b = (color) & 0xFF;
 
 			return al_map_rgb(r, g, b);
+		}
+
+		///
+		/// Convert TMX colour to allegro colour. Code by:
+		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
+		/// Same license as tmx library.
+		/// Modified by reworks from int_to_al_color.
+		///
+		static inline ALLEGRO_COLOR int_to_al_color_opacity(unsigned int color, double opacity)
+		{
+			unsigned char r, g, b;
+
+			r = (color >> 16) & 0xFF;
+			g = (color >> 8) & 0xFF;
+			b = (color) & 0xFF;
+
+			return al_map_rgba(r, g, b, opacity);
 		}
 
 		///
@@ -146,6 +145,25 @@ namespace re
 		/// Draw a layer. Code by:
 		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 		/// Same license as tmx library.
+		/// Modified by reworks.
+		///
+		static inline void draw_image_layer(tmx_layer* layer)
+		{
+			float op = layer->opacity;
+			if (op < 1.0)
+			{
+				Locator::get<TextureAtlas>()->al_draw_tinted_packed_bitmap(layer->content.image->source, al_map_rgba_f(op, op, op, op), 0, 0, 0);
+			}
+			else
+			{
+				Locator::get<TextureAtlas>()->al_draw_packed_bitmap(layer->content.image->source, 0, 0, 0);
+			}
+		}
+
+		///
+		/// Draw a layer. Code by:
+		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
+		/// Same license as tmx library.
 		///
 		static inline void draw_layer(tmx_map *map, tmx_layer *layer)
 		{
@@ -182,8 +200,8 @@ namespace re
 		///
 		/// Process all layers. Code by:
 		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
-		/// Modified by: reworks
 		/// Same license as tmx library.
+		/// Modified by reworks.
 		///
 		static inline void process_all_layer_types(tmx_map *map, tmx_layer *layers, 
 			std::function<void(tmx_map*, tmx_layer*)> objLayerFunc,

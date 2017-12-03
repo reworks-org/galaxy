@@ -42,7 +42,7 @@ public:
 		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
 
 		m_world->m_systemManager.add<re::AnimationSystem>();
-		m_world->m_systemManager.add<re::RenderSystem>(2);
+		m_world->m_systemManager.add<re::RenderSystem>(4);
 		m_world->m_systemManager.add<re::PhysicsSystem>(m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int32>(config, "box2d", "velocityIterations"), m_configReader->lookup<int32>(config, "box2d", "positionIterations"));
 		m_world->m_systemManager.add<MoveSystem>("player");
 		m_world->m_systemManager.configure();
@@ -62,14 +62,14 @@ int main(int argc, char **argv)
 	Game sandbox("bin/data.zip", "config.cfg", [](std::ofstream& newConfig)
 	{
 		newConfig << "[graphics]" << std::endl;
-		newConfig << "width = 1280" << std::endl;
-		newConfig << "height = 720" << std::endl;
+		newConfig << "width = 640" << std::endl;
+		newConfig << "height = 480" << std::endl;
 		newConfig << "fullscreen = false" << std::endl;
 		newConfig << "msaa = true" << std::endl;
 		newConfig << "msaaValue = 2" << std::endl;
 		newConfig << "title = Sandbox" << std::endl;
 		newConfig << "icon = icon.png" << std::endl;
-		newConfig << "atlas = test.atlas" << std::endl;
+		newConfig << "atlasPowerOf = 13" << std::endl;
 		newConfig << std::endl;
 
 		newConfig << "[box2d]" << std::endl;

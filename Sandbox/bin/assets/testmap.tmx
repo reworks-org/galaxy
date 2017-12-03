@@ -8,6 +8,9 @@
  </tileset>
  <imagelayer name="bg_forest">
   <image source="bg_forest.png" width="1280" height="720"/>
+  <properties>
+   <property name="layer" type="int" value="0"/>
+  </properties>
  </imagelayer>
  <layer name="tiles" width="80" height="45">
   <data encoding="base64">

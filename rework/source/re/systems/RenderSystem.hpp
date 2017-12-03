@@ -85,6 +85,13 @@ namespace re
 				});
 			};
 		}
+		
+		///
+		/// Retrieve number of rendering layers.
+		///
+		/// \return unsigned int CONST.
+		///
+		unsigned int getRenderingLayers() const;
 
 	private:
 		QuadTree* m_quadtree;
@@ -96,6 +103,12 @@ namespace re
 		int m_quadtreeMaxObjects;
 		std::vector<Layer> m_layers;
 		std::function<void(entityx::Entity&)> m_clf;
+
+	private:
+		///
+		/// Allocate internal layers.
+		///
+		void allocLayers();
 	};
 }
 

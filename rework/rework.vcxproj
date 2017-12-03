@@ -531,7 +531,6 @@
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\re\types\Defines.hpp" />
     <ClInclude Include="source\re\types\Renderable.hpp" />
     <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />

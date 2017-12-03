@@ -20,6 +20,7 @@ public:
 
 private:
 	std::vector<b2Body*> m_mapCollisions;
+	std::vector<ALLEGRO_BITMAP*> m_mapBitmaps;
 };
 
 #endif
