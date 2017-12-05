@@ -91,3 +91,8 @@ TestLevel::~TestLevel()
 		re::Locator::get<re::Box2DManager>()->world()->DestroyBody(body);
 	}
 }
+
+void TestLevel::update()
+{
+
+}

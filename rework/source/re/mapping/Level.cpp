@@ -38,4 +38,9 @@ namespace re
 	{
 		return m_bounds;
 	}
+
+	void Level::addAnimatedTile(AnimatedTile& tile)
+	{
+		m_animatedTiles.emplace_back(tile);
+	}
 }

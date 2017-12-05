@@ -165,7 +165,7 @@ namespace re
 		/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 		/// Same license as tmx library.
 		///
-		static inline void draw_layer(tmx_map *map, tmx_layer *layer)
+		static inline void draw_layer(tmx_map *map, tmx_layer *layer, Level* level)
 		{
 			unsigned long i, j;
 			unsigned int gid, x, y, w, h, flags;
@@ -193,6 +193,11 @@ namespace re
 							}
 							flags = gid_extract_flags(layer->content.gids[(i*map->width) + j]);
 							al_draw_tinted_bitmap_region(tileset, al_map_rgba_f(op, op, op, op), x, y, w, h, j*ts->tile_width, i*ts->tile_height, flags);
+						}
+						else
+						{
+							// if it does have animation
+							level->addAnimatedTile();
 						}
 					}
 				}

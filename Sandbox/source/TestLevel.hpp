@@ -18,6 +18,8 @@ public:
 	TestLevel(const std::string& script);
 	~TestLevel() override;
 
+	void update() override;
+
 private:
 	std::vector<b2Body*> m_mapCollisions;
 	std::vector<ALLEGRO_BITMAP*> m_mapBitmaps;
