@@ -16,15 +16,6 @@
 
 namespace re
 {
-	void RenderSystem::allocLayers()
-	{
-		m_layers.reserve(m_layerCount);
-		for (unsigned int i = 0; i < m_layerCount; ++i)
-		{
-			m_layers.emplace_back(m_defaultAlloc);
-		}
-	}
-
 	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, int quadtreeLayers, int quadtreeMaxObjects)
 		:m_camera(nullptr), m_level(nullptr), m_layerCount(layers), m_defaultAlloc(defaultAlloc), m_quadtreeLayers(quadtreeLayers), m_quadtreeMaxObjects(quadtreeMaxObjects)
 	{
@@ -112,5 +103,14 @@ namespace re
 	unsigned int RenderSystem::getRenderingLayers() const
 	{
 		return m_layerCount;
+	}
+
+	void RenderSystem::allocLayers()
+	{
+		m_layers.reserve(m_layerCount);
+		for (unsigned int i = 0; i < m_layerCount; ++i)
+		{
+			m_layers.emplace_back(m_defaultAlloc);
+		}
 	}
 }

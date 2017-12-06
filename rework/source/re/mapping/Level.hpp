@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "re/math/Rect.hpp"
+#include "re/types/Renderable.hpp"
 #include "re/mapping/TMXHelper.hpp"
 #include "re/mapping/AnimatedTile.hpp"
 
@@ -24,7 +25,7 @@
 
 namespace re
 {
-	class Level
+	class Level : public Renderable
 	{
 	public:
 		///
