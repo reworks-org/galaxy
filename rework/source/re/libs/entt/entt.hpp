@@ -1,0 +1,17 @@
+#include "core/family.hpp"
+#include "core/hashed_string.hpp"
+#include "core/ident.hpp"
+#include "entity/actor.hpp"
+#include "entity/registry.hpp"
+#include "entity/sparse_set.hpp"
+#include "entity/traits.hpp"
+#include "entity/view.hpp"
+// locator headers
+#include "process/process.hpp"
+#include "process/scheduler.hpp"
+// resource headers
+#include "signal/bus.hpp"
+#include "signal/delegate.hpp"
+#include "signal/emitter.hpp"
+#include "signal/sigh.hpp"
+#include "signal/signal.hpp"

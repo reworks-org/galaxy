@@ -134,11 +134,6 @@
     <ClCompile Include="source\re\libs\Box2D\Dynamics\b2World.cpp" />
     <ClCompile Include="source\re\libs\Box2D\Dynamics\b2WorldCallbacks.cpp" />
     <ClCompile Include="source\re\libs\Box2D\Rope\b2Rope.cpp" />
-    <ClCompile Include="source\re\libs\entityx\help\Pool.cc" />
-    <ClCompile Include="source\re\libs\entityx\help\Timer.cc" />
-    <ClCompile Include="source\re\libs\entityx\Entity.cc" />
-    <ClCompile Include="source\re\libs\entityx\Event.cc" />
-    <ClCompile Include="source\re\libs\entityx\System.cc" />
     <ClCompile Include="source\re\libs\imgui\imgui.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui_draw.cpp" />
@@ -351,19 +346,6 @@
     <ClInclude Include="source\re\libs\Box2D\Dynamics\b2WorldCallbacks.h" />
     <ClInclude Include="source\re\libs\Box2D\Rope\b2Rope.h" />
     <ClInclude Include="source\re\libs\Box2D\Box2D.h" />
-    <ClInclude Include="source\re\libs\entityx\3rdparty\catch.hpp" />
-    <ClInclude Include="source\re\libs\entityx\3rdparty\simplesignal.h" />
-    <ClInclude Include="source\re\libs\entityx\deps\Dependencies.h" />
-    <ClInclude Include="source\re\libs\entityx\help\NonCopyable.h" />
-    <ClInclude Include="source\re\libs\entityx\help\Pool.h" />
-    <ClInclude Include="source\re\libs\entityx\help\Timer.h" />
-    <ClInclude Include="source\re\libs\entityx\tags\TagsComponent.h" />
-    <ClInclude Include="source\re\libs\entityx\config.h" />
-    <ClInclude Include="source\re\libs\entityx\Entity.h" />
-    <ClInclude Include="source\re\libs\entityx\entityx.h" />
-    <ClInclude Include="source\re\libs\entityx\Event.h" />
-    <ClInclude Include="source\re\libs\entityx\quick.h" />
-    <ClInclude Include="source\re\libs\entityx\System.h" />
     <ClInclude Include="source\re\libs\imgui\imconfig.h" />
     <ClInclude Include="source\re\libs\imgui\imgui.h" />
     <ClInclude Include="source\re\libs\imgui\imgui_impl_a5.h" />
@@ -517,6 +499,23 @@
     <ClInclude Include="source\re\services\ConfigReader.hpp" />
     <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
     <ClInclude Include="source\re\mapping\AnimatedTile.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\family.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\actor.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\registry.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\sparse_set.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\traits.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\view.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\process.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\scheduler.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\bus.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\delegate.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\emitter.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
+    <ClInclude Include="source\re\libs\entt\entt.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

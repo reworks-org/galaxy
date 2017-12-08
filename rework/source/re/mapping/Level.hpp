@@ -50,7 +50,7 @@ namespace re
 		///
 		/// Update the level.
 		///
-		void update() = 0;
+		virtual void update() = 0;
 
 		void addAnimatedTile(AnimatedTile& tile);
 

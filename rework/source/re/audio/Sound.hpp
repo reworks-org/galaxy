@@ -1,10 +1,10 @@
-//
-//  Sound.hpp
-//  rework
-//
-//  Created by reworks on 12/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Sound.hpp
+///  rework
+///
+///  Created by reworks on 12/10/2017.
+///  Copyright (c) 2017 reworks. All rights reserved.
+///
 
 #ifndef REWORK_SOUND_HPP_
 #define REWORK_SOUND_HPP_

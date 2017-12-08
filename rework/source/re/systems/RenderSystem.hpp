@@ -45,6 +45,7 @@ namespace re
 		///
 		/// Render entitys.
 		///
+		template<typename ... Components>
 		void render();
 
 		///
