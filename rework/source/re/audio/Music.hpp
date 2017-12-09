@@ -1,10 +1,11 @@
-//
-//  Music.hpp
-//  rework
-//
-//  Created by reworks on 13/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Music.hpp
+///  rework
+///
+///  Created by reworks on 13/10/2017.
+///  Copyright (c) 2017 reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_MUSIC_HPP_
 #define REWORK_MUSIC_HPP_

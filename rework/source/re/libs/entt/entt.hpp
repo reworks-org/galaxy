@@ -6,10 +6,8 @@
 #include "entity/sparse_set.hpp"
 #include "entity/traits.hpp"
 #include "entity/view.hpp"
-// locator headers
 #include "process/process.hpp"
 #include "process/scheduler.hpp"
-// resource headers
 #include "signal/bus.hpp"
 #include "signal/delegate.hpp"
 #include "signal/emitter.hpp"
