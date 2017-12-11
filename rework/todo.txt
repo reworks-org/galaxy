@@ -60,6 +60,7 @@ namespace my_project {
 - use '' for characters over "".
 - dont use std::bind.
 - use nullptr
+- std::string_view
 
 
 

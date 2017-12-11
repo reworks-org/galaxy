@@ -17,6 +17,10 @@ namespace re
 	Sound::Sound(sol::table& table)
 	{
 		m_sound = al_load_sample(table.get<std::string>("file").c_str());
+		if (!m_sound)
+		{
+			LOG_S(WARNING) << "Unable to load sound file: " << table.get<std::string>("file");
+		}
 
 		// volume (gain) - relative volume at which the sample is played; 1.0 is normal.
 		// pan - 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.

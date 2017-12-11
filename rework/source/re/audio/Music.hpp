@@ -12,7 +12,7 @@
 
 #include <allegro5/allegro_audio.h>
 
-#include "sol2/sol.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
@@ -49,29 +49,48 @@ namespace re
 		///
 		/// Change the pan.
 		///
-		/// \param pan 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
+		/// \param pan CONST 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
 		///
-		void setPan(float pan);
+		void setPan(const float pan);
 
 		///
 		/// Change the speed.
 		///
-		/// \param speed Relative speed at which the sample is played. 1.0 is normal. 0.5 is at 50% speed, etc.
+		/// \param speed CONST Relative speed at which the sample is played. 1.0 is normal. 0.5 is at 50% speed, etc.
 		///
-		void setSpeed(float speed);
+		void setSpeed(const float speed);
 
 		///
 		/// Change the volume.
 		///
-		/// \param volume Relative volume (gain) at which the sample is played. 1.0 is 100%. 0.5 is 50%, etc.
+		/// \param volume CONST Relative volume (gain) at which the sample is played. 1.0 is 100%. 0.5 is 50%, etc.
 		///
-		void setVolume(float volume);
+		void setVolume(const float volume);
 
 	private:
 		unsigned int m_position;
 
 		ALLEGRO_SAMPLE* m_music;
 		ALLEGRO_SAMPLE_INSTANCE* m_instance;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Music() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		Music(const Music&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		Music(Music&&) = delete;
 	};
 }
 

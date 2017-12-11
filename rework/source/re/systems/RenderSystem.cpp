@@ -30,6 +30,7 @@ namespace re
 
 	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
 	{
+		// ratherr than create amnd de;lete qiuadtree, just allocate stack quadtree.
 		// level bounds
 		if (m_level != nullptr)
 		{

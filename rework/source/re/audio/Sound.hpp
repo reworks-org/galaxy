@@ -39,21 +39,21 @@ namespace re
 		///
 		/// Change the pan.
 		///
-		/// \param pan 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
+		/// \param pan CONST 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
 		///
 		void setPan(const float pan);
 
 		///
 		/// Change the speed.
 		///
-		/// \param speed Relative speed at which the sample is played. 1.0 is normal. 0.5 is at 50% speed, etc.
+		/// \param speed CONST Relative speed at which the sample is played. 1.0 is normal. 0.5 is at 50% speed, etc.
 		///
 		void setSpeed(const float speed);
 
 		///
 		/// Change the volume.
 		///
-		/// \param volume Relative volume (gain) at which the sample is played. 1.0 is 100%. 0.5 is 50%, etc.
+		/// \param volume CONST Relative volume (gain) at which the sample is played. 1.0 is 100%. 0.5 is 50%, etc.
 		///
 		void setVolume(const float volume);
 
@@ -63,6 +63,25 @@ namespace re
 		float m_volume;
 
 		ALLEGRO_SAMPLE* m_sound;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Sound() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		Sound(const Sound&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		Sound(Sound&&) = delete;
 	};
 }
 

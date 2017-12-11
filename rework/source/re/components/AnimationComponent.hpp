@@ -1,15 +1,15 @@
-//
-//  AnimationComponent.hpp
-//  rework
-//
-//  Created by reworks on 16/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  AnimationComponent.hpp
+///  rework
+///
+///  Created by reworks on 16/08/2016.
+///  Copyright (c) 2017 reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_ANIMATIONCOMPONENT_HPP_
 #define REWORK_ANIMATIONCOMPONENT_HPP_
 
-#include "entityx/Entity.h"
 #include "re/graphics/Animation.hpp"
 
 namespace re
@@ -22,7 +22,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		AnimationComponent(entityx::Entity& e, sol::table& table);
+		AnimationComponent(sol::table& table);
 
 		///
 		/// Destructor.
@@ -68,6 +68,25 @@ namespace re
 		double m_currentFrameTime;
 		std::string m_activeAnimation;
 		std::unordered_map<std::string, Animation> m_animations;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		AnimationComponent() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		AnimationComponent(const AnimationComponent&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		AnimationComponent(AnimationComponent&&) = delete;
 	};
 }
 

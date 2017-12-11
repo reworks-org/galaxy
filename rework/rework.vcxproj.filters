@@ -379,7 +379,6 @@
     <ClInclude Include="source\re\libs\lua\lundump.h" />
     <ClInclude Include="source\re\libs\lua\lvm.h" />
     <ClInclude Include="source\re\libs\lua\lzio.h" />
-    <ClInclude Include="source\re\libs\sol2\sol.hpp" />
     <ClInclude Include="source\re\libs\tmx\tmx.h" />
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
@@ -499,23 +498,8 @@
     <ClInclude Include="source\re\services\ConfigReader.hpp" />
     <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
     <ClInclude Include="source\re\mapping\AnimatedTile.hpp" />
-    <ClInclude Include="source\re\libs\entt\core\family.hpp" />
-    <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
-    <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\actor.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\registry.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\sparse_set.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\traits.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\view.hpp" />
-    <ClInclude Include="source\re\libs\entt\process\process.hpp" />
-    <ClInclude Include="source\re\libs\entt\process\scheduler.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\bus.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\delegate.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\dispatcher.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\emitter.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
-    <ClInclude Include="source\re\libs\entt\entt.hpp" />
+    <ClInclude Include="source\re\libs\sol2\sol.hpp" />
+    <ClInclude Include="source\re\libs\sol2\sol_forward.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

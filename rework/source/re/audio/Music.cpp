@@ -1,11 +1,13 @@
-//
-//  Music.cpp
-//  rework
-//
-//  Created by reworks on 13/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Music.cpp
+///  rework
+///
+///  Created by reworks on 13/10/2017.
+///  Copyright (c) 2017 reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
+#include "sol2/sol.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -15,26 +17,22 @@ namespace re
 {
 	Music::Music(sol::table& table)
 	{
-		std::string fn = table.get<std::string>("file");
-
-		m_music = al_load_sample(fn.c_str());
-		
+		m_music = al_load_sample(table.get<std::string>("file").c_str());
 		if (!m_music)
 		{
-			LOG_S(FATAL) << "Failed to load file: " << fn << std::endl;
+			LOG_S(WARNING) << "Failed to load music file: " << table.get<std::string>("file");
 		}
 
 		m_instance = al_create_sample_instance(m_music);
 		if (!m_instance)
 		{
-			LOG_S(FATAL) << "Failed to create instance: " << fn << std::endl;
+			LOG_S(WARNING) << "Failed to create instance: " << table.get<std::string>("file");
 		}
 
 		// 0 - play once
 		// 1 - loop
 		// 2 - 
-		int playmode = table.get<int>("playmode");
-		switch (playmode)
+		switch (table.get<int>("playmode"))
 		{
 			case 0:
 				al_set_sample_instance_playmode(m_instance, ALLEGRO_PLAYMODE_ONCE);
@@ -49,7 +47,7 @@ namespace re
 				break;
 
 			default:
-				LOG_S(WARNING) << "Invalid playmode. Setting to loop..." << std::endl;
+				LOG_S(WARNING) << "Invalid playmode. Setting to loop...";
 				al_set_sample_instance_playmode(m_instance, ALLEGRO_PLAYMODE_LOOP);
 				break;
 		}
@@ -85,17 +83,17 @@ namespace re
 		al_play_sample_instance(m_instance);
 	}
 
-	void Music::setPan(float pan)
+	void Music::setPan(const float pan)
 	{
 		al_set_sample_instance_pan(m_instance, pan);
 	}
 
-	void Music::setSpeed(float speed)
+	void Music::setSpeed(const float speed)
 	{
 		al_set_sample_instance_speed(m_instance, speed);
 	}
 
-	void Music::setVolume(float volume)
+	void Music::setVolume(const float volume)
 	{
 		al_set_sample_instance_gain(m_instance, volume);
 	}
