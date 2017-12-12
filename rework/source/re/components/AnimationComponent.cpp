@@ -3,7 +3,7 @@
 ///  rework
 ///
 ///  Created by reworks on 16/08/2016.
-///  Copyright (c) 2017 reworks.
+///  Copyright (c) 2018+ reworks.
 ///  Refer to LICENSE.txt for more details.
 ///
 
@@ -17,7 +17,7 @@
 
 namespace re
 {
-	AnimationComponent::AnimationComponent(sol::table& table)
+	AnimationComponent::AnimationComponent(const sol::table& table)
 		:m_currentFrameTime(0.0)
 	{
 		m_isPaused = table.get<bool>("paused");

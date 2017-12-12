@@ -1,12 +1,15 @@
-//
-//  TextComponent.cpp
-//  rework
-//
-//  Created by reworks on 19/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  TextComponent.cpp
+///  rework
+///
+///  Created by reworks on 19/08/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <algorithm>
+
+#include <allegro5/allegro_font.h>
 
 #include "imgui/imgui_impl_a5.h"
 #include "re/managers/FontManager.hpp"
@@ -17,7 +20,7 @@
 
 namespace re
 {
-	TextComponent::TextComponent(entityx::Entity& e, sol::table& table)
+	TextComponent::TextComponent(sol::table& table)
 	{
 		m_text = table.get<std::string>("text");
 		m_font = Locator::get<FontManager>()->get(table.get<std::string>("font"));

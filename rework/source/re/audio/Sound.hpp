@@ -3,16 +3,16 @@
 ///  rework
 ///
 ///  Created by reworks on 12/10/2017.
-///  Copyright (c) 2017 reworks.
+///  Copyright (c) 2018+ reworks.
 ///  Refer to LICENSE.txt for more details.
 ///
 
 #ifndef REWORK_SOUND_HPP_
 #define REWORK_SOUND_HPP_
 
-#include <allegro5/allegro_audio.h>
-
 #include "sol2/sol_forward.hpp"
+
+typedef struct ALLEGRO_SAMPLE ALLEGRO_SAMPLE;
 
 namespace re
 {
@@ -24,7 +24,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		Sound(sol::table& table);
+		Sound(const sol::table& table);
 		
 		///
 		/// Destructor.

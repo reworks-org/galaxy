@@ -71,7 +71,8 @@ namespace my_project {
 
 
 
-
+- tags?
+- renderableinfo 
 - docs / readthedocs -> repo wiki / repo website / repo settings
 renderer:
 - split update and rendering threads?

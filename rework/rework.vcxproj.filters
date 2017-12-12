@@ -190,7 +190,6 @@
     <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="source\re\components\RenderableComponent.cpp" />
     <ClCompile Include="source\re\graphics\Camera.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
@@ -405,7 +404,6 @@
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\re\types\Renderable.hpp" />
-    <ClInclude Include="source\re\components\RenderableComponent.hpp" />
     <ClInclude Include="source\re\graphics\Camera.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />

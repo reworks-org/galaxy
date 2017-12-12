@@ -1,18 +1,19 @@
-//
-//  PhysicsComponent.hpp
-//  rework
-//
-//  Created by reworks on 10/11/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  PhysicsComponent.hpp
+///  rework
+///
+///  Created by reworks on 10/11/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_PHYSICSCOMPONENT_HPP_
 #define REWORK_PHYSICSCOMPONENT_HPP_
 
-#include "sol2/sol.hpp"
-#include "entityx/Entity.h"
 #include "cereal/access.hpp"
-#include "Box2D/Dynamics/b2Body.h"
+#include "sol2/sol_forward.hpp"
+
+class b2Body;
 
 namespace re
 {
@@ -26,7 +27,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		PhysicsComponent(entityx::Entity& e, sol::table& table);
+		PhysicsComponent(const sol::table& table);
 
 		///
 		/// Destructor.
@@ -61,6 +62,24 @@ namespace re
 			m_body->SetAngularVelocity(angleVel);
 			m_body->SetLinearVelocity(b2Vec2(linearX, linearY));
 		}
+
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		PhysicsComponent() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		PhysicsComponent(const PhysicsComponent&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		PhysicsComponent(PhysicsComponent&&) = delete;
 	};
 }
 

@@ -1,30 +1,32 @@
-//
-//  TextComponent.hpp
-//  rework
-//
-//  Created by reworks on 19/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  TextComponent.hpp
+///  rework
+///
+///  Created by reworks on 19/08/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_TEXTCOMPONENT_HPP_
 #define REWORK_TEXTCOMPONENT_HPP_
 
-#include <allegro5/allegro_font.h>
+#include <allegro5/color.h>
 
-#include "sol2/sol.hpp"
-#include "re/types/Renderable.hpp"
+#include "sol2/sol_forward.hpp"
+
+typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 
 namespace re
 {
-	class TextComponent : public Renderable
+	class TextComponent
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters.
+		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters (in lua file).
 		///
-		TextComponent(entityx::Entity& e, sol::table& table);
+		TextComponent( sol::table& table);
 
 		///
 		/// Destructor.
@@ -36,17 +38,12 @@ namespace re
 		///
 		void debug();
 
-		///
-		/// Draw text.
-		///
-		void render() override;
-
 	public:
-		std::string m_text;
-		ALLEGRO_COLOR m_colour;
-		ALLEGRO_FONT* m_font;
 		float m_offsetX;
 		float m_offsetY;
+		std::string m_text;
+		ALLEGRO_FONT* m_font;
+		ALLEGRO_COLOR m_colour;
 	};
 }
 

@@ -1,18 +1,20 @@
-//
-//  TransformComponent.cpp
-//  rework
-//
-//  Created by reworks on 30/09/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  TransformComponent.cpp
+///  rework
+///
+///  Created by reworks on 30/09/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
+#include "sol2/sol.hpp"
 #include "imgui/imgui_impl_a5.h"
 
 #include "TransformComponent.hpp"
 
 namespace re
 {
-	TransformComponent::TransformComponent(entityx::Entity& e, sol::table& table)
+	TransformComponent::TransformComponent(sol::table& table)
 	{
 		m_rect.x = table.get<float>("x");
 		m_rect.y = table.get<float>("y");

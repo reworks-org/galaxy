@@ -1,20 +1,16 @@
-//
-//  SerializeComponent.hpp
-//  rework
-//
-//  Created by reworks on 21/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  SerializeComponent.hpp
+///  rework
+///
+///  Created by reworks on 21/10/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_SERIALIZECOMPONENT_HPP_
 #define REWORK_SERIALIZECOMPONENT_HPP_
 
-#include "sol2/sol.hpp"
-
-namespace ex
-{
-	class Entity;
-}
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
@@ -26,15 +22,39 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		SerializeComponent(ex::Entity& e, sol::table& table);
+		SerializeComponent(const sol::table& table);
 
 		///
 		/// Destructor.
 		///
 		~SerializeComponent();
 
+		///
+		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
+		///
+		void debug();
+
 	public:
 		std::string m_id;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		SerializeComponent() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		SerializeComponent(const SerializeComponent&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		SerializeComponent(SerializeComponent&&) = delete;
 	};
 }
 

@@ -1,18 +1,18 @@
-//
-//  TransformComponent.hpp
-//  rework
-//
-//  Created by reworks on 30/09/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  TransformComponent.hpp
+///  rework
+///
+///  Created by reworks on 30/09/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_TRANSFORMCOMPONENT_HPP_
 #define REWORK_TRANSFORMCOMPONENT_HPP_
 
-#include "sol2/sol.hpp"
-#include "entityx/Entity.h"
 #include "re/math/Rect.hpp"
 #include "cereal/access.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
@@ -26,7 +26,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		TransformComponent(entityx::Entity& e, sol::table& table);
+		TransformComponent(const sol::table& table);
 
 		///
 		/// Destructor.
@@ -39,8 +39,8 @@ namespace re
 		void debug();
 
 	public:
-		Rect<float, int> m_rect;
 		float m_angle;
+		Rect<float, int> m_rect;
 
 	private:
 		/// This method lets cereal know which data members to serialize.
