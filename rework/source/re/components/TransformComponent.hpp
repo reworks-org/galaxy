@@ -16,7 +16,7 @@
 
 namespace re
 {
-	class TransformComponent
+	class TransformComponent final
 	{
 		friend class cereal::access;
 
@@ -27,6 +27,11 @@ namespace re
 		/// \param table sol::table containing data.
 		///
 		TransformComponent(const sol::table& table);
+
+		///
+		/// Move Constructor.
+		///
+		TransformComponent(TransformComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -49,6 +54,18 @@ namespace re
 		{
 			archive(m_rect.x, m_rect.y, m_rect.width, m_rect.height, m_angle);
 		}
+		
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		TransformComponent() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		TransformComponent(const TransformComponent&) = delete;
 	};
 }
 

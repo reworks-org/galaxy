@@ -14,7 +14,7 @@
 
 namespace re
 {
-	class AnimationComponent
+	class AnimationComponent final
 	{
 	public:
 		///
@@ -23,6 +23,11 @@ namespace re
 		/// \param table sol::table containing data.
 		///
 		AnimationComponent(const sol::table& table);
+
+		///
+		/// Move Constructor.
+		///
+		AnimationComponent(AnimationComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -81,12 +86,6 @@ namespace re
 		/// Deleted.
 		///
 		AnimationComponent(const AnimationComponent&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		AnimationComponent(AnimationComponent&&) = delete;
 	};
 }
 

@@ -13,9 +13,11 @@ Adjustments:
 ///  Refer to LICENSE.txt for more details.
 ///
 
+- group headers.
 - improve documentation
 - RTTI
 - logging
+- mark classes final
 - excess copying
 - includes
 - Types start with upper case: MyClass.
@@ -70,7 +72,7 @@ namespace my_project {
 
 
 
-
+- need to look at the way servicelocator, states, and systems are to be implemented.
 - tags?
 - renderableinfo 
 - docs / readthedocs -> repo wiki / repo website / repo settings

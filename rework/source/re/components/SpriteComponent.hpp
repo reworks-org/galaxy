@@ -1,20 +1,20 @@
-//
-//  SpriteComponent.hpp
-//  rework
-//
-//  Created by reworks on 12/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  SpriteComponent.hpp
+///  rework
+///
+///  Created by reworks on 12/08/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_SPRITECOMPONENT_HPP_
 #define REWORK_SPRITECOMPONENT_HPP_
 
-#include "sol2/sol.hpp"
-#include "re/types/Renderable.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
-	class SpriteComponent : public Renderable
+	class SpriteComponent final
 	{
 	public:
 		///
@@ -22,7 +22,12 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		SpriteComponent(entityx::Entity& e, sol::table& table);
+		SpriteComponent(const sol::table& table);
+
+		///
+		/// Move Constructor.
+		///
+		SpriteComponent(SpriteComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -34,13 +39,21 @@ namespace re
 		///
 		void debug();
 
-		///
-		/// Render sprite. Called by rendersystem.
-		///
-		void render() override;
-
 	public:
 		std::string m_spriteName;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		SpriteComponent() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		SpriteComponent(const SpriteComponent&) = delete;
 	};
 }
 

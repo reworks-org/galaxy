@@ -52,36 +52,36 @@ namespace re
 
 		m_vfs = new VFS(archive);
 		Locator::provide<VFS>(m_vfs);
-		
+
 		m_configReader = new ConfigReader(config, newConfig);
 		Locator::provide<ConfigReader>(m_configReader);
-		
+
 		m_window = new Window(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::provide<Window>(m_window);
-		
+
 		m_world = new World();
 		Locator::provide<World>(m_world);
-		
+
 		m_stateManager = new StateManager();
 		Locator::provide<StateManager>(m_stateManager);
-		
+
 		m_fontManager = new FontManager(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
 		Locator::provide<FontManager>(m_fontManager);
-		
+
 		m_audioManager = new AudioManager(m_configReader->lookup<std::string>(config, "audiomanager", "audioScript"), m_configReader->lookup<int>(config, "audiomanager", "reserveSamples"));
 		Locator::provide<AudioManager>(m_audioManager);
-		
+
 		m_b2dManager = new Box2DManager(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		Locator::provide<Box2DManager>(m_b2dManager);
-		
+
 		m_debugManager = new DebugManager(m_window->getDisplay());
 		Locator::provide<DebugManager>(m_debugManager);
-		
+
 		m_textureAtlas = new TextureAtlas(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
 		Locator::provide<TextureAtlas>(m_textureAtlas);
 
 		#ifdef NDEBUG
-			m_debugManager->disable(true);
+		m_debugManager->disable(true);
 		#endif
 	}
 

@@ -17,7 +17,7 @@ class b2Body;
 
 namespace re
 {
-	class PhysicsComponent
+	class PhysicsComponent final
 	{
 		friend class cereal::access;
 
@@ -28,6 +28,11 @@ namespace re
 		/// \param table sol::table containing data.
 		///
 		PhysicsComponent(const sol::table& table);
+		
+		///
+		/// Move Constructor.
+		///
+		PhysicsComponent(PhysicsComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -74,12 +79,6 @@ namespace re
 		/// Deleted.
 		///
 		PhysicsComponent(const PhysicsComponent&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		PhysicsComponent(PhysicsComponent&&) = delete;
 	};
 }
 

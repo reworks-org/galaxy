@@ -1,10 +1,11 @@
-//
-//  World.cpp
-//  rework
-//
-//  Created by reworks on 9/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  World.cpp
+///  rework
+///
+///  Created by reworks on 09/07/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <map>
 
@@ -16,15 +17,6 @@
 
 namespace re
 {
-	World::World()
-	:m_entityManager(m_eventManager), m_systemManager(m_entityManager, m_eventManager)
-	{
-	}
-
-	World::~World()
-	{
-	}
-
 	void World::createEntity(const std::string& script)
 	{
 		std::string scrData = Locator::get<VFS>()->openAsString(script);

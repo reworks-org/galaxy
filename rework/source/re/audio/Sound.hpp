@@ -16,7 +16,7 @@ typedef struct ALLEGRO_SAMPLE ALLEGRO_SAMPLE;
 
 namespace re
 {
-	class Sound
+	class Sound final
 	{
 	public:
 		///

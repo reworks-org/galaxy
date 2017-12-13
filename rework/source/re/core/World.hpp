@@ -1,47 +1,51 @@
-//
-//  World.hpp
-//  rework
-//
-//  Created by reworks on 9/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  World.hpp
+///  rework
+///
+///  Created by reworks on 09/07/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_WORLD_HPP_
 #define REWORK_WORLD_HPP_
 
-#include "sol2/sol.hpp"
-#include "entityx/entityx.h"
-#include "re/types/Service.hpp"
+#include <typeindex>
+#include <string_view>
+#include <unordered_map>
+
+#include "entt/entt.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
-	class World : public Service
+	class World final
 	{
 		friend class DebugManager;
 	public: 
 		///
-		/// \brief Construct World.
+		/// Construct World.
 		///
-		World();
+		World() = default;
 
 		///
 		/// Cleans up world.
 		///
-		~World() override;
+		~World() = default;
 
 		///
 		/// Register an entity.
 		///
 		/// \param script Script file in the VFS.
 		///
-		void createEntity(const std::string& script);
+		void createEntity(std::string_view script);
 
 		///
 		/// Automatically create a batch of entitys from a script.
 		///
 		/// \param batchScript Script file containing all the entity/script (k/v) to register.
 		///
-		void createEntities(const std::string& batchScript);
+		void createEntities(std::string_view batchScript);
 
 		///
 		/// \brief Update the world.
@@ -55,35 +59,48 @@ namespace re
 		///
 		/// \param T - Type of component to register, i.e. AnimationComponent.
 		/// \param name - Name of component in string format i.e. "AnimationComponent".
+		/// \param debug - True if the component has a debug() method. False if it does not.
 		///
 		template<typename T>
-		void registerComponent(const std::string& name);
-
-	public:
-		entityx::EventManager m_eventManager;
-		entityx::EntityManager m_entityManager;
-		entityx::SystemManager m_systemManager;
-		std::unordered_map<std::string, entityx::Entity> m_entitys;
+		void registerComponent(const std::string& name, bool debug = true);
 
 	private:
-		std::unordered_map<std::string, std::string> m_entityScripts;
-		std::unordered_map<std::string, std::function<void(entityx::Entity&, sol::table&)>> m_componentAssign;
-		std::unordered_map<std::string, std::function<void(entityx::Entity&)>> m_componentDebug;
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		World(const World&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		World(World&&) = delete;
+
+	private:
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(const std::uint32_t, const sol::table&)>> m_componentAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(const std::uint32_t)>> m_componentDebug;
+
+	public:
+		entt::DefaultRegistry m_registery;
+		std::unordered_map<std::type_index, std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename T>
-	void World::registerComponent(const std::string& name)
+	void World::registerComponent(const std::string& name, bool debug)
 	{
-		// push back a lambda that calls e->assign and one that calls e->debug.
-		m_componentAssign.emplace(name, [](entityx::Entity& e, sol::table& table)
+		m_componentAssign.emplace(name, [this](const EntitySize e, const sol::table& table)
 		{
-			e.assign<T>(e, table);
+			m_registery.assign<T>(e, table);
 		});
 
-		m_componentDebug.emplace(name, [](entityx::Entity& e)
+		if (debug)
 		{
-			e.component<T>()->debug();
-		});
+			m_componentDebug.emplace(name, [this](const EntitySize e)
+			{
+				m_registery.get<T>(e)->debug();
+			});
+		}
 	}
 }
 

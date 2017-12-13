@@ -14,7 +14,7 @@
 
 namespace re
 {
-	class SerializeComponent
+	class SerializeComponent final
 	{
 	public:
 		///
@@ -23,6 +23,11 @@ namespace re
 		/// \param table sol::table containing data.
 		///
 		SerializeComponent(const sol::table& table);
+
+		///
+		/// Move Constructor.
+		///
+		SerializeComponent(SerializeComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -49,12 +54,6 @@ namespace re
 		/// Deleted.
 		///
 		SerializeComponent(const SerializeComponent&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		SerializeComponent(SerializeComponent&&) = delete;
 	};
 }
 

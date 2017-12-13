@@ -17,7 +17,7 @@ typedef struct ALLEGRO_SAMPLE_INSTANCE ALLEGRO_SAMPLE_INSTANCE;
 
 namespace re
 {
-	class Music
+	class Music final
 	{
 	public:
 		///

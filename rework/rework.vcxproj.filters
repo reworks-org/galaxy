@@ -184,7 +184,6 @@
     <ClCompile Include="source\re\managers\ShaderManager.cpp" />
     <ClCompile Include="source\re\managers\StateManager.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
-    <ClCompile Include="source\re\services\ServiceLocator.cpp" />
     <ClCompile Include="source\re\services\VFS.cpp" />
     <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
@@ -393,9 +392,7 @@
     <ClInclude Include="source\re\math\Vector3.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\re\services\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
-    <ClInclude Include="source\re\types\Service.hpp" />
     <ClInclude Include="source\re\types\State.hpp" />
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
@@ -403,7 +400,6 @@
     <ClInclude Include="source\re\graphics\Layer.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="source\re\types\Renderable.hpp" />
     <ClInclude Include="source\re\graphics\Camera.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
@@ -498,6 +494,28 @@
     <ClInclude Include="source\re\mapping\AnimatedTile.hpp" />
     <ClInclude Include="source\re\libs\sol2\sol.hpp" />
     <ClInclude Include="source\re\libs\sol2\sol_forward.hpp" />
+    <ClInclude Include="source\re\graphics\RenderInfo.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\family.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\actor.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\registry.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\sparse_set.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\traits.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\view.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\process.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\scheduler.hpp" />
+    <ClInclude Include="source\re\libs\entt\resource\cache.hpp" />
+    <ClInclude Include="source\re\libs\entt\resource\handle.hpp" />
+    <ClInclude Include="source\re\libs\entt\resource\loader.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\bus.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\delegate.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\emitter.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
+    <ClInclude Include="source\re\libs\entt\entt.hpp" />
+    <ClInclude Include="source\re\utils\ServiceLocator.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

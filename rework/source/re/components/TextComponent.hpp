@@ -18,7 +18,7 @@ typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 
 namespace re
 {
-	class TextComponent
+	class TextComponent final
 	{
 	public:
 		///
@@ -26,7 +26,12 @@ namespace re
 		///
 		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters (in lua file).
 		///
-		TextComponent( sol::table& table);
+		TextComponent(const sol::table& table);
+
+		///
+		/// Move Constructor.
+		///
+		TextComponent(TextComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -44,6 +49,19 @@ namespace re
 		std::string m_text;
 		ALLEGRO_FONT* m_font;
 		ALLEGRO_COLOR m_colour;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		TextComponent() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		TextComponent(const TextComponent&) = delete;
 	};
 }
 

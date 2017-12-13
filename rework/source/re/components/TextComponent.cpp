@@ -8,9 +8,9 @@
 ///
 
 #include <algorithm>
-
 #include <allegro5/allegro_font.h>
 
+#include "sol2/sol.hpp"
 #include "imgui/imgui_impl_a5.h"
 #include "re/managers/FontManager.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -20,7 +20,7 @@
 
 namespace re
 {
-	TextComponent::TextComponent(sol::table& table)
+	TextComponent::TextComponent(const sol::table& table)
 	{
 		m_text = table.get<std::string>("text");
 		m_font = Locator::get<FontManager>()->get(table.get<std::string>("font"));
@@ -31,7 +31,6 @@ namespace re
 		m_offsetX = table.get<float>("offsetX");
 		m_offsetY = table.get<float>("offsetY");
 		m_layer = table.get<int>("layer");
-		m_entity = e;
 	}
 
 	TextComponent::~TextComponent()
@@ -66,7 +65,9 @@ namespace re
 		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))
 		{
 			if (m_layer < 0)
+			{
 				m_layer = 0;
+			}
 		}
 
 		ImGui::Spacing();
@@ -83,10 +84,5 @@ namespace re
 
 		ImGui::Spacing();
 		ImGui::SliderFloat("Alpha Editor", &m_colour.a, 0, 255);
-	}
-
-	void TextComponent::render()
-	{
-		al_draw_text(m_font, m_colour, m_entity.component<TransformComponent>()->m_rect.x + m_offsetX, m_entity.component<TransformComponent>()->m_rect.y + m_offsetY, 0, m_text.c_str());
 	}
 }

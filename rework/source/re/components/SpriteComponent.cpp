@@ -1,13 +1,15 @@
-//
-//  SpriteComponent.cpp
-//  rework
-//
-//  Created by reworks on 10/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  SpriteComponent.cpp
+///  rework
+///
+///  Created by reworks on 12/08/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <algorithm>
 
+#include "sol2/sol.hpp"
 #include "imgui/imgui_impl_a5.h"
 #include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
@@ -17,11 +19,10 @@
 
 namespace re
 {
-	SpriteComponent::SpriteComponent(entityx::Entity& e, sol::table& table)
+	SpriteComponent::SpriteComponent(const sol::table& table)
 	{
 		m_spriteName = table.get<std::string>("spriteName");
 		m_layer = table.get<int>("layer");
-		m_entity = e;
 	}
 
 	SpriteComponent::~SpriteComponent()
@@ -36,12 +37,9 @@ namespace re
 		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))
 		{
 			if (m_layer < 0)
+			{
 				m_layer = 0;
+			}
 		}
-	}
-
-	void SpriteComponent::render()
-	{
-		Locator::get<TextureAtlas>()->al_draw_tinted_scaled_rotated_packed_bitmap(m_entity.component<SpriteComponent>()->m_spriteName, al_map_rgba_f(1, 1, 1, 1), 0, 0, m_entity.component<TransformComponent>()->m_rect.x, m_entity.component<TransformComponent>()->m_rect.y, 1, 1, m_entity.component<TransformComponent>()->m_angle, 0);
 	}
 }
