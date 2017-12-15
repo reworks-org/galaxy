@@ -38,6 +38,8 @@ Adjustments:
 - use const std::string& val for objects.
 - use smart pointers
 - avoid macros. use:
+- give templates meaningful names
+- cend() over end()
 namespace my_project {
   struct Constants {
     // if the above macro would be expanded, then the following line would be:

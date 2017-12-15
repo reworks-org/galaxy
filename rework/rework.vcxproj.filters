@@ -516,6 +516,7 @@
     <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
     <ClInclude Include="source\re\libs\entt\entt.hpp" />
     <ClInclude Include="source\re\utils\ServiceLocator.hpp" />
+    <ClInclude Include="source\re\types\System.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

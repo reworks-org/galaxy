@@ -10,6 +10,7 @@
 #include <map>
 
 #include "loguru/loguru.hpp"
+#include "re/types/System.hpp"
 #include "re/services/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
@@ -17,7 +18,7 @@
 
 namespace re
 {
-	void World::createEntity(const std::string& script)
+	void World::createEntity(std::string_view script)
 	{
 		std::string scrData = Locator::get<VFS>()->openAsString(script);
 
@@ -48,7 +49,7 @@ namespace re
 		}
 	}
 
-	void World::createEntities(const std::string& batchScript)
+	void World::createEntities(std::string_view batchScript)
 	{
 		sol::state lua;
 		lua.script(Locator::get<VFS>()->openAsString(batchScript));

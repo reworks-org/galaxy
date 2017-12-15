@@ -526,6 +526,7 @@
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\services\ConfigReader.hpp" />
     <ClInclude Include="source\re\services\Serializer.hpp" />
+    <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\utils\ServiceLocator.hpp" />
     <ClInclude Include="source\re\services\VFS.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
@@ -660,6 +661,7 @@
       <PreprocessorDefinitions>LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -702,6 +704,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <WholeProgramOptimization>false</WholeProgramOptimization>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
