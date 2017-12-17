@@ -13,15 +13,14 @@
 #include <string_view>
 #include <unordered_map>
 
-#include "entt/entt.hpp"
+#include "re/types/System.hpp"
 #include "sol2/sol_forward.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class System;
-	class World final
+	class World final : public ServiceLocator<World>
 	{
-		friend class DebugManager;
 	public: 
 		///
 		/// Construct World.
@@ -52,25 +51,35 @@ namespace re
 		///
 		/// \param dt timePerFrame from application loop, or delta time.
 		/// 
-		void update(double dt);
+		void update(const double dt);
+
+		///
+		/// Registers a tag with the world.
+		///
+		/// \param Tag - Type of tag to register, i.e. PlayerTag.
+		/// \param name - Name of tag in string format i.e. "PlayerTag".
+		///
+		template<typename Tag>
+		void registerTag(entt::HashedString name);
 
 		///
 		/// Registers a component with the world.
 		///
-		/// \param T - Type of component to register, i.e. AnimationComponent.
+		/// \param Component - Type of component to register, i.e. AnimationComponent.
 		/// \param name - Name of component in string format i.e. "AnimationComponent".
 		/// \param debug - True if the component has a debug() method. False if it does not.
 		///
 		template<typename Component>
-		void registerComponent(entt::HashedString hs, bool debug = true);
+		void registerComponent(entt::HashedString name, bool debug = true);
 
 		///
 		/// Registers a system with the world.
 		///
 		/// \param System Type of system to register.
+		/// \param Args Argument(s) for system contructor.
 		///
-		template<typename System, typename ... Args>
-		void registerSystem(Args&& ... args);
+		template<typename System, typename... Args>
+		void registerSystem(Args&&... args);
 
 		///
 		/// Retrieve a system.
@@ -80,7 +89,7 @@ namespace re
 		/// \return Returns a pointer to the system object.
 		///
 		template<typename System>
-		System* get();
+		System* getSystem();
 
 		///
 		/// \brief Remove a system.
@@ -107,33 +116,93 @@ namespace re
 
 	private:
 		std::uint32_t m_systemIDCounter = 0;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(const std::uint32_t, const sol::table&)>> m_componentAssign;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(const std::uint32_t)>> m_componentDebug;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_tagAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_componentAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_componentDebug;
 
 	public:
 		entt::DefaultRegistry m_registery;
 		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 	};
 
-	template<typename Component>
-	void World::registerComponent(entt::HashedString hs, bool debug)
+	template<typename Tag>
+	void World::registerTag(entt::HashedString name)
 	{
-		m_componentAssign.emplace(name, [this](const EntitySize e, const sol::table& table)
-		{
-			m_registery.assign<Component>(e, table);
-		});
-
-		if (debug)
-		{
-			m_componentDebug.emplace(name, [this](const EntitySize e)
+		#ifdef NDEBUG
+			m_tagAssign.emplace(name, [this](entt::Entity e)
 			{
-				m_registery.get<Component>(e)->debug();
+				m_registery.attach<Tag>(e);
 			});
-		}
+		#else
+			if (m_tagAssign.find(name) != m_tagAssign.end())
+			{
+				m_tagAssign.emplace(name, [this](entt::Entity e)
+				{
+					if (!m_registery.has<Tag>())
+					{
+						m_registery.attach<Tag>(e);
+					}
+					else
+					{
+						LOG_S(WARNING) << "Attempted to attach duplicate tag!";
+					}
+				});
+			}
+			else
+			{
+				LOG_S(WARNING) << "Attempted to register duplicate tag!";
+			}
+		#endif
 	}
 
-	template<typename System, typename ... Args>
-	void World::registerSystem(Args&& ... args)
+	template<typename Component>
+	void World::registerComponent(entt::HashedString name, bool debug)
+	{
+		#ifdef NDEBUG
+			m_componentAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
+			{
+				m_registery.assign<Component>(e, table);
+			});
+
+			if (debug)
+			{
+				m_componentDebug.emplace(name, [this](entt::Entity e)
+				{
+					m_registery.get<Component>(e)->debug();
+				});
+			}
+		#else
+			if (m_componentAssign.find(name) != m_componentAssign.end())
+			{
+				m_componentAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
+				{
+					m_registery.assign<Component>(e, table);
+				});
+			}
+			else
+			{
+				LOG_S(WARNING) << "Attempted to register duplicate component!";
+			}
+
+			if (debug)
+			{
+				if (m_componentDebug.find(name) != m_componentDebug.end())
+				{
+					m_componentDebug.emplace(name, [this](entt::Entity e)
+					{
+						m_registery.get<Component>(e)->debug();
+					});
+				}
+				else
+				{
+					LOG_S(WARNING) << "Attempted to register duplicate component debug function!";
+				}
+			}
+		#endif
+	}
+
+	template<typename System, typename... Args>
+	void World::registerSystem(Args&&... args)
 	{
 		/// Here, we have two seperate methods. Debug has some more access checks.
 		/// We remove the extra checks in release mode to ensure speed.
@@ -145,7 +214,7 @@ namespace re
 			if (m_systems.find(System::m_id) != m_systems.cend())
 			{
 				System::m_id = m_systemIDCounter;
-				m_systems[System::m_id] = std::make_unique<System>(std::forward<Args>(args) ...);
+				m_systems[System::m_id] = std::make_unique<System>(std::forward<Args>(args)...);
 				++m_systemIDCounter;
 			}
 			else
@@ -156,7 +225,7 @@ namespace re
 	}
 
 	template<typename System>
-	System* World::get()
+	System* World::getSystem()
 	{
 		/// Here, we have two seperate methods. Debug has some more access checks.
 		/// We remove the extra checks in release mode to ensure speed.

@@ -1,24 +1,17 @@
-//
-//  Application.hpp
-//  rework
-//
-//  Created by reworks on 8/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Application.hpp
+///  rework
+///
+///  Created by reworks on 08/07/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_APPLICATION_HPP_
 #define REWORK_APPLICATION_HPP_
 
-#include "re/core/World.hpp"
-#include "re/services/VFS.hpp"
-#include "re/services/ConfigReader.hpp"
-#include "re/graphics/Window.hpp"
-#include "re/managers/FontManager.hpp"
-#include "re/managers/AudioManager.hpp"
-#include "re/managers/StateManager.hpp"
-#include "re/managers/Box2DManager.hpp"
-#include "re/managers/DebugManager.hpp"
-#include "re/graphics/TextureAtlas.hpp"
+#include <fstream>
+#include <string_view>
 
 namespace re
 {
@@ -26,42 +19,48 @@ namespace re
 	{
 	public:
 		///
-		/// \brief Default constructor.
-		///
-		/// Sets up the engine. You need to inherit this and call it from a subclass.
-		/// YOU MUST CALL m_world->m_systemManager.configure() after adding custom systems.
-		/// THIS CONSTRUCTOR DOES NOT CALL IT.
-		/// Also calls std::srand(std::time(nullptr)) for you.
+		/// Cleans up engine related memory usage.
 		/// 
-		/// \param archive Path or archive to mount.
-		/// \param config Path to the config file.
-		/// \param newConfig A function pointer to a function that contains ofstream code to write a default config file.
-		///
-		Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig);
-
-		//
-		/// Cleans up engine.
-		/// 
-		~Application();
+		virtual ~Application();
 
 		///
 		/// Return app->run() from your main method.
 		///
 		/// \return Returns EXIT_SUCCESS.
 		/// 
-		int run();
+		virtual int run() final;
 
 	protected:
-		VFS* m_vfs;
-		ConfigReader* m_configReader;
-		Window* m_window;
-		World* m_world;
-		StateManager* m_stateManager;
-		FontManager* m_fontManager;
-		AudioManager* m_audioManager;
-		Box2DManager* m_b2dManager;
-		DebugManager* m_debugManager;
-		TextureAtlas* m_textureAtlas;
+		///
+		/// \brief Default constructor.
+		///
+		/// Sets up the engine. You need to inherit this and call it from a subclass.
+		/// Also calls std::srand(std::time(nullptr)) for you.
+		/// 
+		/// \param archive Path or archive to mount.
+		/// \param config Path to the config file.
+		/// \param newConfig A function pointer to a function that contains ofstream code to write a default config file.
+		///
+		Application(std::string_view archive, std::string_view config, std::function<void(std::ofstream&)> newConfig);
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Application() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		Application(const Application&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		Application(Application&&) = delete;
 	};
 }
 

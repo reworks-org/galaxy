@@ -9,10 +9,9 @@
 
 #include <map>
 
+#include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
-#include "re/types/System.hpp"
 #include "re/services/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
 
 #include "World.hpp"
 
@@ -20,88 +19,71 @@ namespace re
 {
 	void World::createEntity(std::string_view script)
 	{
-		std::string scrData = Locator::get<VFS>()->openAsString(script);
-
 		sol::state lua;
-		lua.script(scrData);
-		sol::table components = lua.get<sol::table>("entity");
+		lua.script(VFS::get()->openAsString(script));
 		
-		entityx::Entity e = m_entityManager.create();
+		entt::Entity entity = m_registery.create();
+		sol::table components = lua.get<sol::table>("entity");
 
-		// Get key-value pairs from table
 		std::map<std::string, sol::table> kvp;
-		components.for_each([&](std::pair<sol::object, sol::object> pair) {
+		components.for_each([&](std::pair<sol::object, sol::object> pair)
+		{
 			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
 		});
 
-		if (components.get<bool>("special"))
+		if (components.get<bool>("hasTags"))
 		{
-			m_entitys.emplace(components.get<std::string>("name"), e);
-			kvp.erase("name");
-			m_entityScripts.emplace(script, scrData);
+			sol::table tags = componets.get<sol::table>("tags");
+
+			std::map<int, std::string> tagsKVP;
+			components.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				tagsKVP.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
+			});
+
+			for (auto& it : tagsKVP)
+			{
+				m_tagAssign[it.second](entity);
+			}
+
+			kvp.erase("tags");
 		}
-		
-		kvp.erase("special");
+		kvp.erase("hasTags");
 
 		for (auto& it : kvp)
 		{
-			m_componentAssign[it.first](e, it.second);
+			m_componentAssign[it.first](entity, it.second);
 		}
 	}
 
 	void World::createEntities(std::string_view batchScript)
-	{
-		sol::state lua;
-		lua.script(Locator::get<VFS>()->openAsString(batchScript));
+	{	
+		std::map<int, std::string_view> kvp;
 
-		sol::table world = lua.get<sol::table>("world");
-		sol::table entitylist = world.get<sol::table>("entitys");
-
-		// Get key-value pairs from table
-		std::map <int, std::string> kvp;
-		entitylist.for_each([&](std::pair<sol::object, sol::object> pair) {
-			kvp.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
-		});
-
-		if (kvp.empty())
 		{
-			LOG_S(FATAL) << "Attempted to register an empty entity script." << std::endl;
-			return;
+			sol::state lua;
+			lua.script(VFS::get()->openAsString(batchScript));
+
+			sol::table world = lua.get<sol::table>("world");
+			sol::table entityList = world.get<sol::table>("entitys");
+
+			entitylist.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				kvp.insert({ pair.first.as<int>(), pair.second.as<std::string_view>() });
+			});
 		}
 
 		for (auto& it : kvp)
 		{
-			std::string scrData = Locator::get<VFS>()->openAsString(it.second);
-			
-			lua.script(scrData);
-			sol::table components = lua.get<sol::table>("entity");
-
-			entityx::Entity e = m_entityManager.create();
-
-			// Get key-value pairs from table
-			std::map <std::string, sol::table> m_ekv;
-			components.for_each([&](std::pair<sol::object, sol::object> pair) {
-				m_ekv.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
-			});
-
-			if (components.get<bool>("special"))
-			{
-				m_entitys.emplace(components.get<std::string>("name"), e);
-				m_ekv.erase("name");
-				m_entityScripts.emplace(it.second, scrData);
-			}
-
-			m_ekv.erase("special");
-
-			for (auto& eit : m_ekv)
-			{
-				m_componentAssign[eit.first](e, eit.second);
-			}
+			createEntity(it.second);
 		}
 	}
 
-	void World::update(double dt)
+	void World::update(const double dt)
 	{
-		m_systemManager.update_all(dt);
+		for (auto& system : m_systems)
+		{
+			system.second->update(dt, m_registery);
+		}
 	}
 }

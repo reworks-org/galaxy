@@ -66,15 +66,7 @@ namespace my_project {
 - use nullptr
 - std::string_view
 
-
-
-
-
-
-
-
-
-- need to look at the way servicelocator, states, and systems are to be implemented.
+- need to look at the way servicelocator and states are implemented.
 - tags?
 - renderableinfo 
 - docs / readthedocs -> repo wiki / repo website / repo settings

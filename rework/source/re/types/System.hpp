@@ -12,6 +12,8 @@
 
 #include <cstdint>
 
+#include "entt/entt.hpp"
+
 namespace re
 {
 	class System
@@ -26,7 +28,7 @@ namespace re
 		///
 		/// \param dt Delta Time.
 		///
-		virtual void update(const double dt) = 0;
+		virtual void update(const double dt, entt::DefaultRegistry& registery) = 0;
 
 	public:
 		static std::uint32_t m_id;

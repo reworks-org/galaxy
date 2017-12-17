@@ -14,11 +14,11 @@
 
 #include <allegro5/file.h>
 
-#include "re/types/Service.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class VFS : public Service
+	class VFS : public ServiceLocator<VFS>
 	{
 	public:
 		///

@@ -11,7 +11,6 @@
 
 #include "sol2/sol.hpp"
 #include "re/services/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
 
 #include "Sound.hpp"
 

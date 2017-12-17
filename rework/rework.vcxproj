@@ -28,9 +28,11 @@
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
+    <ClCompile Include="source\re\core\DebugInterface.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\Camera.cpp" />
+    <ClCompile Include="source\re\resources\FontBook.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\graphics\Shader.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
@@ -203,18 +205,16 @@
     <ClCompile Include="source\re\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
-    <ClCompile Include="source\re\managers\AudioManager.cpp" />
-    <ClCompile Include="source\re\managers\Box2DManager.cpp" />
-    <ClCompile Include="source\re\managers\DebugManager.cpp" />
-    <ClCompile Include="source\re\managers\FontManager.cpp" />
-    <ClCompile Include="source\re\managers\ShaderManager.cpp" />
-    <ClCompile Include="source\re\managers\StateManager.cpp" />
+    <ClCompile Include="source\re\core\StateManager.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\math\MaxRectsBinPack.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
-    <ClCompile Include="source\re\services\ConfigReader.cpp" />
-    <ClCompile Include="source\re\services\Serializer.cpp" />
-    <ClCompile Include="source\re\services\VFS.cpp" />
+    <ClCompile Include="source\re\physics\Box2DManager.cpp" />
+    <ClCompile Include="source\re\resources\AudioManager.cpp" />
+    <ClCompile Include="source\re\resources\ShaderManager.cpp" />
+    <ClCompile Include="source\re\utils\ConfigReader.cpp" />
+    <ClCompile Include="source\re\fs\Serializer.cpp" />
+    <ClCompile Include="source\re\fs\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
@@ -229,7 +229,9 @@
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
+    <ClInclude Include="source\re\core\DebugInterface.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\resources\FontBook.hpp" />
     <ClInclude Include="source\re\graphics\RenderInfo.hpp" />
     <ClInclude Include="source\re\libs\entt\core\family.hpp" />
     <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
@@ -508,12 +510,7 @@
     <ClInclude Include="source\re\libs\tmx\tmx.h" />
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
-    <ClInclude Include="source\re\managers\AudioManager.hpp" />
-    <ClInclude Include="source\re\managers\Box2DManager.hpp" />
-    <ClInclude Include="source\re\managers\DebugManager.hpp" />
-    <ClInclude Include="source\re\managers\FontManager.hpp" />
-    <ClInclude Include="source\re\managers\ShaderManager.hpp" />
-    <ClInclude Include="source\re\managers\StateManager.hpp" />
+    <ClInclude Include="source\re\core\StateManager.hpp" />
     <ClInclude Include="source\re\mapping\Level.hpp" />
     <ClInclude Include="source\re\mapping\TMXHelper.hpp" />
     <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
@@ -523,12 +520,16 @@
     <ClInclude Include="source\re\math\Vector2.hpp" />
     <ClInclude Include="source\re\math\Vector3.hpp" />
     <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
+    <ClInclude Include="source\re\physics\Box2DManager.hpp" />
+    <ClInclude Include="source\re\resources\AudioManager.hpp" />
+    <ClInclude Include="source\re\resources\ShaderManager.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\re\services\ConfigReader.hpp" />
-    <ClInclude Include="source\re\services\Serializer.hpp" />
+    <ClInclude Include="source\re\types\ResourceLoader.hpp" />
+    <ClInclude Include="source\re\utils\ConfigReader.hpp" />
+    <ClInclude Include="source\re\fs\Serializer.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
-    <ClInclude Include="source\re\utils\ServiceLocator.hpp" />
-    <ClInclude Include="source\re\services\VFS.hpp" />
+    <ClInclude Include="source\re\types\ServiceLocator.hpp" />
+    <ClInclude Include="source\re\fs\VFS.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
@@ -658,7 +659,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>LIBXML_STATIC;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -697,7 +698,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>LIBXML_STATIC;NDEBUG;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_LIB;%(PreprocessorDefinitions);</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>

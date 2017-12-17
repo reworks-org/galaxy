@@ -16,9 +16,15 @@
 namespace re
 {
 	template<typename Service>
-	class ServiceLocator final
+	class ServiceLocator
 	{
+		friend Service;
 	public:
+		///
+		/// Destructor.
+		///
+		virtual ~ServiceLocator() = default;
+
 		///
 		/// Make a new service.
 		///
@@ -43,11 +49,11 @@ namespace re
 		///
 		/// Retrieves service.
 		///
-		/// \return Returns a unique_ptr to the service.
+		/// \return Returns a pointer to the service.
 		///
-		inline static std::unique_ptr<Service> get()
+		inline static Service* get()
 		{
-			return m_servicePtr;
+			return m_servicePtr.get();
 		}
 
 	private:
@@ -56,9 +62,8 @@ namespace re
 	private:
 		///
 		/// Default constructor.
-		/// Deleted.
 		///
-		ServiceLocator() = delete;
+		ServiceLocator() = default;
 
 		///
 		/// Copy Constructor.
@@ -71,12 +76,6 @@ namespace re
 		/// Deleted.
 		///
 		ServiceLocator(ServiceLocator&&) = delete;
-
-		///
-		/// Destructor.
-		/// Deleted.
-		///
-		~ServiceLocator() = delete;
 	};
 }
 

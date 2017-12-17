@@ -1,10 +1,11 @@
-//
-//  Application.cpp
-//  rework
-//
-//  Created by reworks on 8/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Application.cpp
+///  rework
+///
+///  Created by reworks on 08/07/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <allegro5/events.h>
 #include <allegro5/allegro.h>
@@ -15,16 +16,23 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
 
-#include "loguru/loguru.hpp"
+#include "re/fs/VFS.hpp"
+#include "re/core/World.hpp"
 #include "re/utils/Time.hpp"
-#include "imgui/imgui_impl_a5.h"
-#include "re/services/ServiceLocator.hpp"
+#include "re/graphics/Window.hpp"
+#include "re/core/StateManager.hpp"
+#include "re/utils/ConfigReader.hpp"
+#include "re/core/DebugInterface.hpp"
+#include "re/resources/FontLoader.hpp"
+#include "re/resources/AudioLoader.hpp"
+#include "re/graphics/TextureAtlas.hpp"
+#include "re/resources/ShaderLoader.hpp"
 
 #include "Application.hpp"
 
 namespace re
 {
-	Application::Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig)
+	Application::Application(std::string_view archive, std::string_view config, std::function<void(std::ofstream&)> newConfig)
 	{
 		std::srand(std::time(nullptr));
 
@@ -38,9 +46,9 @@ namespace re
 		LOG_S(INFO) << "App init." << std::endl;
 
 		al_install_system(ALLEGRO_VERSION_INT, atexit);
-		al_install_audio();
-		al_install_mouse();
 		al_install_keyboard();
+		al_install_mouse();
+		al_install_audio();
 
 		al_init_font_addon();
 		al_init_ttf_addon();
@@ -50,52 +58,38 @@ namespace re
 		al_init_primitives_addon();
 		al_init_native_dialog_addon();
 
-		m_vfs = new VFS(archive);
-		Locator::provide<VFS>(m_vfs);
+		VFS::make(archive);
+		ConfigReader::make(config, newConfig);
 
-		m_configReader = new ConfigReader(config, newConfig);
-		Locator::provide<ConfigReader>(m_configReader);
+		Window::make(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 
-		m_window = new Window(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
-		Locator::provide<Window>(m_window);
-
-		m_world = new World();
-		Locator::provide<World>(m_world);
-
-		m_stateManager = new StateManager();
-		Locator::provide<StateManager>(m_stateManager);
-
-		m_fontManager = new FontManager(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
-		Locator::provide<FontManager>(m_fontManager);
-
-		m_audioManager = new AudioManager(m_configReader->lookup<std::string>(config, "audiomanager", "audioScript"), m_configReader->lookup<int>(config, "audiomanager", "reserveSamples"));
-		Locator::provide<AudioManager>(m_audioManager);
-
-		m_b2dManager = new Box2DManager(m_configReader->lookup<float32>(config, "box2d", "gravity"));
-		Locator::provide<Box2DManager>(m_b2dManager);
-
-		m_debugManager = new DebugManager(m_window->getDisplay());
-		Locator::provide<DebugManager>(m_debugManager);
-
-		m_textureAtlas = new TextureAtlas(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
-		Locator::provide<TextureAtlas>(m_textureAtlas);
+		World::make();
+		DebugInterface::make(m_window->getDisplay());
+		StateManager::make();
+		TextureAtlas::make(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
+		FontLoader::make(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
+		ShaderLoader::make();
+		AudioLoader::make(m_configReader->lookup<std::string>(config, "audiomanager", "audioScript"), m_configReader->lookup<int>(config, "audiomanager", "reserveSamples"));
+		PhysicsWorld::make(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 
 		#ifdef NDEBUG
-		m_debugManager->disable(true);
+			DebugInterface::get()->disable(true);
 		#endif
 	}
 
 	Application::~Application()
 	{
-		delete m_textureAtlas;
-		delete m_debugManager;
-		delete m_b2dManager;
-		delete m_fontManager;
-		delete m_stateManager;
-		delete m_world;
-		delete m_window;
-		delete m_configReader;
-		delete m_vfs;
+		PhysicsWorld::destroy();
+		AudioLoader::destroy();
+		ShaderLoader::destroy();
+		FontLoader::destroy();
+		TextureAtlas::destroy();
+		StateManager::destroy();
+		DebugInterface::destroy();
+		World::destroy();
+		Window::destroy();
+		ConfigReader::destroy();
+		VFS::destroy();
 
 		al_shutdown_native_dialog_addon();
 		al_shutdown_primitives_addon();
@@ -104,23 +98,31 @@ namespace re
 		al_shutdown_ttf_addon();
 		al_shutdown_font_addon();
 
-		al_uninstall_keyboard();
-		al_uninstall_mouse();
 		al_uninstall_audio();
+		al_uninstall_mouse();
+		al_uninstall_keyboard();
 		al_uninstall_system();
 	}
 
 	int Application::run()
 	{
-		int frames = 0;
-		int updates = 0;
+		#ifndef NDEBUG
+			int frames = 0;
+			int updates = 0;
+		#endif
+
 		double timePerFrame = 1.0 / 60.0;
 		std::uint64_t timer = 0;
+
+		World* world = World::get();
+		Window* window = Window::get();
+		StateManager* stateManager = StateManager::get();
+		DebugInterface* debugInterface = DebugInterface::get();
 
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
 		ALLEGRO_EVENT_QUEUE* eventQueue = al_create_event_queue();
 
-		al_register_event_source(eventQueue, al_get_display_event_source(m_window->getDisplay()));
+		al_register_event_source(eventQueue, al_get_display_event_source(window->getDisplay()));
 		al_register_event_source(eventQueue, al_get_mouse_event_source());
 		al_register_event_source(eventQueue, al_get_keyboard_event_source());
 		al_register_event_source(eventQueue, al_get_timer_event_source(clock));
@@ -128,63 +130,70 @@ namespace re
 		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		al_start_timer(clock);
 
-		m_stateManager->load();
+		stateManager->load();
 
-		while (m_window->isOpen())
+		while (window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
 			while (al_get_next_event(eventQueue, &ev))
 			{
-				m_stateManager->event(&ev);
-				m_debugManager->event(&ev);
+				stateManager->event(&ev);
+				debugInterface->event(&ev);
 
 				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
-					m_stateManager->update(timePerFrame);
-					m_world->update(timePerFrame);
-					updates++;	
+					stateManager->update(timePerFrame);
+					world->update(timePerFrame);
+
+					#ifndef NDEBUG
+						updates++;	
+					#endif
+
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_CLOSE:
-					m_window->close();
+					window->close();
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_RESIZE:
 					ImGui_ImplA5_InvalidateDeviceObjects();
-					al_acknowledge_resize(m_window->getDisplay());
+					al_acknowledge_resize(window->getDisplay());
 					Imgui_ImplA5_CreateDeviceObjects();
 					break;
 				}
 			}
 
-			m_debugManager->newFrame();
-			m_debugManager->displayMenu();
+			debugInterface->newFrame();
+			debugInterface->displayMenu();
 
-			m_window->clear(255, 255, 255);
+			window->clear(255, 255, 255);
 
-			m_stateManager->render();
-			m_debugManager->render();
+			stateManager->render();
+			debugInterface->render();
 
-			m_window->display();
-			frames++;
+			window->display();
 
-			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
-			{
-				timer += 1000;
-				LOG_S(INFO) << updates << " ups, " << frames << " fps" << std::endl;
-				
-				updates = 0;
-				frames = 0;
-			}
+			#ifndef NDEBUG
+				frames++;
+
+				if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
+				{
+					timer += 1000;
+					LOG_S(INFO) << updates << " ups, " << frames << " fps";
+
+					updates = 0;
+					frames = 0;
+				}
+			#endif
 		}
 
-		m_stateManager->unload();
+		stateManager->unload();
 
 		al_stop_timer(clock);
 		al_destroy_event_queue(eventQueue);
 		al_destroy_timer(clock);
-		LOG_S(INFO) << "App close." << std::endl;
+		LOG_S(INFO) << "App close.";
 
 		return EXIT_SUCCESS;
 	}
