@@ -90,6 +90,7 @@ test:
 - shadermanager / shaders
 - camera / level / tmx
 
+fix debug interface implementation
 serializer
 camera
 movesystem

@@ -188,13 +188,10 @@
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
-    <ClCompile Include="source\re\components\SerializeComponent.cpp" />
     <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\math\MaxRectsBinPack.cpp" />
     <ClCompile Include="source\re\utils\ConfigReader.cpp" />
-    <ClCompile Include="source\re\fs\Serializer.cpp" />
     <ClCompile Include="source\re\fs\VFS.cpp" />
-    <ClCompile Include="source\re\core\DebugInterface.cpp" />
     <ClCompile Include="source\re\resources\AudioManager.cpp" />
     <ClCompile Include="source\re\resources\ShaderManager.cpp" />
     <ClCompile Include="source\re\physics\Box2DManager.cpp" />
@@ -399,7 +396,6 @@
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
-    <ClInclude Include="source\re\components\SerializeComponent.hpp" />
     <ClInclude Include="source\re\libs\cereal\archives\adapters.hpp" />
     <ClInclude Include="source\re\libs\cereal\archives\binary.hpp" />
     <ClInclude Include="source\re\libs\cereal\archives\json.hpp" />
@@ -509,9 +505,7 @@
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\types\ServiceLocator.hpp" />
     <ClInclude Include="source\re\utils\ConfigReader.hpp" />
-    <ClInclude Include="source\re\fs\Serializer.hpp" />
     <ClInclude Include="source\re\fs\VFS.hpp" />
-    <ClInclude Include="source\re\core\DebugInterface.hpp" />
     <ClInclude Include="source\re\resources\ShaderManager.hpp" />
     <ClInclude Include="source\re\resources\AudioManager.hpp" />
     <ClInclude Include="source\re\physics\Box2DManager.hpp" />

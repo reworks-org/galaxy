@@ -1,14 +1,14 @@
- //
-//  VFS.cpp
-//  rework
-//
-//  Created by reworks on 12/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
-
-#include <fstream>
+///
+///  VFS.cpp
+///  rework
+///
+///  Created by reworks on 12/07/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <physfs.h>
+#include <allegro5/file.h>
 #include <allegro5/allegro_physfs.h>
 
 #include "loguru/loguru.hpp"
@@ -21,7 +21,7 @@ namespace re
 	{
 		if (!PHYSFS_init(nullptr))
 		{
-			LOG_S(FATAL) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
+			LOG_S(FATAL) << "PHYSFS ERROR: " << PHYSFS_getLastError();
 		}
 
 		al_set_physfs_file_interface();
@@ -31,12 +31,12 @@ namespace re
 	{
 		if (!PHYSFS_init(nullptr))
 		{
-			LOG_S(FATAL) << "PHYSFS ERROR: " << std::string(PHYSFS_getLastError()) << std::endl;
+			LOG_S(FATAL) << "PHYSFS ERROR: " << PHYSFS_getLastError();
 		}
 
 		al_set_physfs_file_interface();
 
-		mount(archive);
+		mount(archive.c_str());
 	}
 
 	VFS::~VFS()
@@ -48,7 +48,7 @@ namespace re
 	{
 		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
 		{
-			LOG_S(FATAL) << "Cannot load: " << archive << std::endl;
+			LOG_S(FATAL) << "Cannot load: " << archive;
 		}
 	}
 
@@ -61,12 +61,12 @@ namespace re
 		}
 		else
 		{
-			LOG_S(FATAL) << "Tried to open a file that does not exist!" << std::endl;
+			LOG_S(FATAL) << "Tried to open a file that does not exist!";
 		}
 
 		if (!f)
 		{
-			LOG_S(FATAL) << "Failed to open: " << file << std::endl;
+			LOG_S(FATAL) << "Failed to open: " << file;
 			return "";
 		}
 
@@ -75,7 +75,7 @@ namespace re
 		buff[size] = '\0';
 
 		al_fread(f, buff, size);
-		
+
 		std::string str = buff;
 
 		delete[] buff;

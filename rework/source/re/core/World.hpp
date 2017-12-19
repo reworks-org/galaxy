@@ -30,7 +30,7 @@ namespace re
 		///
 		/// Cleans up world.
 		///
-		~World() = default;
+		~World() override = default;
 
 		///
 		/// Register an entity.

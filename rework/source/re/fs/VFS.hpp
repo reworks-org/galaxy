@@ -1,18 +1,16 @@
-//
-//  VFS.hpp
-//  rework
-//
-//  Created by reworks on 12/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  VFS.hpp
+///  rework
+///
+///  Created by reworks on 12/07/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_VFS_HPP_
 #define REWORK_VFS_HPP_
 
 #include <string>
-#include <vector>
-
-#include <allegro5/file.h>
 
 #include "re/types/ServiceLocator.hpp"
 
@@ -57,6 +55,19 @@ namespace re
 		/// \return Returns a std::string. This is a plain string containing the information.
 		///
 		std::string openAsString(const std::string& file);
+
+	private:
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		VFS(const VFS&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		VFS(VFS&&) = delete;
 	};
 }
 

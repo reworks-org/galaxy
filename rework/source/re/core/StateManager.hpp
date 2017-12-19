@@ -1,24 +1,30 @@
-//
-//  StateManager.hpp
-//  rework
-//
-//  Created by reworks on 5/10/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  StateManager.hpp
+///  rework
+///
+///  Created by reworks on 5/10/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_STATEMANAGER_HPP_
 #define REWORK_STATEMANAGER_HPP_
 
 #include <memory>
 
-#include "re/types/State.hpp"
-#include "re/types/Service.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class StateManager : public Service
+	class BaseState;
+	class StateManager final : public ServiceLocator<StateManager>
 	{
-	public:	 
+	public:
+		///
+		/// Constructor.
+		///
+		StateManager() = default;
+
 		///
 		/// Destructor.
 		///
@@ -79,7 +85,21 @@ namespace re
 		void setState(std::shared_ptr<BaseState> s);
 			    
 	private:
-	    std::shared_ptr<BaseState> m_currentState;
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		StateManager(const StateManager&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		StateManager(StateManager&&) = delete;
+
+
+	private:
+	    std::shared_ptr<BaseState> m_currentState = nullptr;
 	};
 }
 

@@ -1,52 +1,48 @@
-//
-//  DebugManager.cpp
-//  rework
-//
-//  Created by reworks on 20/04/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
-
-#include <map>
-#include <sstream>
-#include <fstream>
+///
+///  DebugInterface.cpp
+///  rework
+///
+///  Created by reworks on 20/04/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <allegro5/events.h>
+#include <allegro5/display.h>
 
 #include "re/core/World.hpp"
-#include "re/services/VFS.hpp"
 #include "imgui/imgui_impl_a5.h"
-#include "re/managers/StateManager.hpp"
-#include "re/services/ServiceLocator.hpp"
 
-#include "DebugManager.hpp"
+#include "DebugInterface.hpp"
 
 namespace re
 {
 	// https://stackoverflow.com/a/217605
-	void trimFromEnd(std::string &s) {
-		s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch) {
+	void trimFromEnd(std::string &s)
+	{
+		s.erase(std::find_if(s.rbegin(), s.rend(), [](int ch)
+		{
 			return !std::isspace(ch);
 		}).base(), s.end());
 	}
 
-	DebugManager::DebugManager(ALLEGRO_DISPLAY* display)
+	DebugInterface::DebugInterface(ALLEGRO_DISPLAY* display)
 	:m_reloadState(nullptr), m_disabled(false)
 	{
-		m_world = Locator::get<World>();
 		ImGui_ImplA5_Init(display);
 	}
 
-	DebugManager::~DebugManager()
+	DebugInterface::~DebugInterface()
 	{
 		ImGui_ImplA5_Shutdown();
 	}
 
-	void DebugManager::disable(bool isDisabled)
+	void DebugInterface::disable(bool isDisabled)
 	{
 		m_disabled = isDisabled;
 	}
 
-	void DebugManager::event(ALLEGRO_EVENT* event)
+	void DebugInterface::event(ALLEGRO_EVENT* event)
 	{
 		if (!m_disabled)
 		{
@@ -54,7 +50,7 @@ namespace re
 		}
 	}
 
-	void DebugManager::newFrame()
+	void DebugInterface::newFrame()
 	{
 		if (!m_disabled)
 		{
@@ -62,7 +58,7 @@ namespace re
 		}
 	}
 
-	void DebugManager::render()
+	void DebugInterface::render()
 	{
 		if (!m_disabled)
 		{
@@ -70,21 +66,12 @@ namespace re
 		}
 	}
 
-	void DebugManager::displayMenu()
+	void DebugInterface::displayMenu()
 	{
+		World
+		/*
 		if (!m_disabled)
 		{
-			static int index = 0;
-			static int indexComponent = 0;
-			static std::vector<std::string> entityScripts;
-
-			entityScripts.clear();
-			entityScripts.reserve(m_world->m_entityScripts.size());
-			for (auto const& map : m_world->m_entityScripts)
-			{
-				entityScripts.push_back(map.first);
-			}
-
 			ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
 
 			if (ImGui::Button("Reload State"))
@@ -145,9 +132,10 @@ namespace re
 
 			ImGui::End();
 		}
+		*/
 	}
 
-	void DebugManager::specifyReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func)
+	void DebugInterface::specifyReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func)
 	{
 		m_reloadState = s;
 		m_reloadFunc = func;

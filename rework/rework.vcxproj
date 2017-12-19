@@ -23,12 +23,10 @@
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
-    <ClCompile Include="source\re\components\SerializeComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
     <ClCompile Include="source\re\core\Application.cpp" />
-    <ClCompile Include="source\re\core\DebugInterface.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\Camera.cpp" />
@@ -213,7 +211,6 @@
     <ClCompile Include="source\re\resources\AudioManager.cpp" />
     <ClCompile Include="source\re\resources\ShaderManager.cpp" />
     <ClCompile Include="source\re\utils\ConfigReader.cpp" />
-    <ClCompile Include="source\re\fs\Serializer.cpp" />
     <ClCompile Include="source\re\fs\VFS.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
@@ -224,12 +221,10 @@
     <ClInclude Include="source\re\audio\Sound.hpp" />
     <ClInclude Include="source\re\components\AnimationComponent.hpp" />
     <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
-    <ClInclude Include="source\re\components\SerializeComponent.hpp" />
     <ClInclude Include="source\re\components\SpriteComponent.hpp" />
     <ClInclude Include="source\re\components\TextComponent.hpp" />
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
-    <ClInclude Include="source\re\core\DebugInterface.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
     <ClInclude Include="source\re\resources\FontBook.hpp" />
     <ClInclude Include="source\re\graphics\RenderInfo.hpp" />
@@ -526,7 +521,6 @@
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\types\ResourceLoader.hpp" />
     <ClInclude Include="source\re\utils\ConfigReader.hpp" />
-    <ClInclude Include="source\re\fs\Serializer.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\types\ServiceLocator.hpp" />
     <ClInclude Include="source\re\fs\VFS.hpp" />

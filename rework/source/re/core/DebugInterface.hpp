@@ -1,26 +1,26 @@
-//
-//  DebugManager.hpp
-//  rework
-//
-//  Created by reworks on 20/04/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  DebugInterface.hpp
+///  rework
+///
+///  Created by reworks on 20/04/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
-#ifndef REWORK_DEBUGMANAGER_HPP_
-#define REWORK_DEBUGMANAGER_HPP_
+#ifndef REWORK_DEBUGINTERFACE_HPP_
+#define REWORK_DEBUGINTERFACE_HPP_
 
-#include "sol2/sol.hpp"
-#include "re/types/Service.hpp"
+#include <functional>
+
+#include "re/types/ServiceLocator.hpp"
 
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;
 
 namespace re
 {
-	class World;
 	class BaseState; 
-
-    class DebugManager : public Service
+    class DebugInterface : public ServiceLocator<DebugInterface>
     {
     public:
 		///
@@ -28,12 +28,12 @@ namespace re
 		///
 		/// \param display ALLEGRO_DISPLAY object.
 		///
-		DebugManager(ALLEGRO_DISPLAY* display);
+		DebugInterface(ALLEGRO_DISPLAY* display);
 
 		///
 		/// Destructor.
 		///
-		~DebugManager() override;
+		~DebugInterface() override;
 
 		///
 		/// Set if debug manager is disabled...
@@ -43,7 +43,7 @@ namespace re
 		void disable(bool isDisabled);
 
 		///
-		/// Process events.
+		/// Process imgui events.
 		///
 		/// \param event ALLEGRO_EVENT object.
 		///
@@ -62,7 +62,7 @@ namespace re
 		///
 		/// \brief Display menu on screen.
 		///
-		/// Call between update and render. Calls the functions that make up the main debug menu.
+		/// Call between update and render. Calls the functions that make up the main debug menu. ImGui functions mainly.
 		///
 		void displayMenu();
 
@@ -77,11 +77,22 @@ namespace re
 		void specifyReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func);
 
 	private:
-		std::shared_ptr<BaseState> m_reloadState;
-		std::function<void(void)> m_reloadFunc;
-		re::World* m_world;
-		sol::state m_lua;
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		DebugInterface(const DebugInterface&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		DebugInterface(DebugInterface&&) = delete;
+
+	private:
 		bool m_disabled;
+		std::function<void(void)> m_reloadFunc;
+		std::shared_ptr<BaseState> m_reloadState;
     };
 }
 

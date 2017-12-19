@@ -1,10 +1,13 @@
-//
-//  StateManager.cpp
-//  rework
-//
-//  Created by reworks on 5/10/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  StateManager.cpp
+///  rework
+///
+///  Created by reworks on 5/10/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
+
+#include "re/types/BaseState.hpp"
 
 #include "StateManager.hpp"
 
@@ -12,7 +15,7 @@ namespace re
 {
 	StateManager::~StateManager()
 	{
-		m_currentState = nullptr;
+		m_currentState.reset();
 	}
 
 	void StateManager::load()
