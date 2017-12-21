@@ -12,6 +12,7 @@
 
 #include <functional>
 
+#include "sol2/sol_forward.hpp"
 #include "re/types/ServiceLocator.hpp"
 
 union ALLEGRO_EVENT;
@@ -19,7 +20,7 @@ struct ALLEGRO_DISPLAY;
 
 namespace re
 {
-	class BaseState; 
+	class BaseState;
     class DebugInterface : public ServiceLocator<DebugInterface>
     {
     public:
@@ -91,6 +92,8 @@ namespace re
 
 	private:
 		bool m_disabled;
+		bool m_doneOnce;
+		sol::state m_lua;
 		std::function<void(void)> m_reloadFunc;
 		std::shared_ptr<BaseState> m_reloadState;
     };
