@@ -199,6 +199,7 @@
     <ClCompile Include="source\re\core\StateManager.cpp" />
     <ClCompile Include="source\re\core\DebugInterface.cpp" />
     <ClCompile Include="source\re\components\SerializeComponent.cpp" />
+    <ClCompile Include="source\re\libs\imgui\TextEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -517,6 +518,8 @@
     <ClInclude Include="source\re\core\DebugInterface.hpp" />
     <ClInclude Include="source\re\components\SerializeComponent.hpp" />
     <ClInclude Include="source\re\libs\imgui\imgui_stl.h" />
+    <ClInclude Include="source\re\libs\serpent\Serpent.hpp" />
+    <ClInclude Include="source\re\libs\imgui\TextEditor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

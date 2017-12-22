@@ -32,6 +32,7 @@
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\graphics\Camera.cpp" />
+    <ClCompile Include="source\re\libs\imgui\TextEditor.cpp" />
     <ClCompile Include="source\re\resources\FontBook.cpp" />
     <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\graphics\Shader.cpp" />
@@ -231,6 +232,8 @@
     <ClInclude Include="source\re\core\DebugInterface.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
     <ClInclude Include="source\re\libs\imgui\imgui_stl.h" />
+    <ClInclude Include="source\re\libs\imgui\TextEditor.h" />
+    <ClInclude Include="source\re\libs\serpent\Serpent.hpp" />
     <ClInclude Include="source\re\resources\FontBook.hpp" />
     <ClInclude Include="source\re\graphics\RenderInfo.hpp" />
     <ClInclude Include="source\re\libs\entt\core\family.hpp" />

@@ -96,23 +96,18 @@ namespace re
 			if (ImGui::stl::Combo("Select script:", &scriptIndex, m_scripts))
 			{
 				m_lua.script(VFS::get()->openAsString(m_scripts[scriptIndex]));
-			}
+			}			
 			
-			/*
-			https://github.com/Csabix/imgui/tree/master/auto
-			https://github.com/pkulchenko/serpent
-			https://github.com/BalazsJako/ImGuiColorTextEdit
-			https://github.com/ocornut/imgui/issues/300
-			https://github.com/Flix01/imgui/tree/2015-10-Addons/addons
-			*/
-			
-			
-			
-			
-			
-			
-			
-			
+
+			/// https://github.com/Csabix/imgui/tree/master/auto
+			/// https://github.com/ocornut/imgui/issues/300
+			/// https://github.com/Flix01/imgui/tree/2015-10-Addons/addons
+
+
+
+
+
+
 			ImGui::stl::Combo("Entity Selector", &index, entityScripts);
 
 			size_t size = entityScripts.size();
