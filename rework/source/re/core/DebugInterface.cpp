@@ -7,15 +7,18 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
+#include <map>
 #include <physfs.h>
 #include <allegro5/events.h>
 #include <allegro5/display.h>
 
-#include "sol2/sol.hpp"
 #include "re/fs/VFS.hpp"
 #include "re/core/World.hpp"
+#include "imgui/TextEditor.h"
 #include "imgui/imgui_impl_a5.h"
+#include "imgui/auto/impl_base.h"
 #include "re/core/StateManager.hpp"
+#include "re/scripting/Sol2ImguiAutoImpl.hpp"
 
 #include "DebugInterface.hpp"
 
@@ -63,7 +66,8 @@ namespace re
 
 	void DebugInterface::displayMenu()
 	{
-		static std::vector<std::string> m_scripts;
+		static std::vector<std::string> scripts;
+		static std::map<std::string, sol::table> components;
 		static int scriptIndex = 0;
 
 		if (!m_doneOnce)
@@ -71,7 +75,7 @@ namespace re
 			char** scriptArray = PHYSFS_enumerateFiles("scripts");
 			for (char** i = efl; *i != NULL; ++i)
 			{
-				m_scripts.emplace_back(*i);
+				scripts.emplace_back(*i);
 			}
 			PHYSFS_freeList(scriptArray);
 
@@ -93,21 +97,25 @@ namespace re
 			ImGui::Separator();
 			ImGui::Spacing();
 
-			if (ImGui::stl::Combo("Select script:", &scriptIndex, m_scripts))
+			if (ImGui::stl::Combo("Select script:", &scriptIndex, scripts))
 			{
-				m_lua.script(VFS::get()->openAsString(m_scripts[scriptIndex]));
+				m_lua.script(VFS::get()->openAsString(scripts[scriptIndex]));
+				
+				sol::table entity = m_lua.get<sol::table>("entity");
+				components.clear();
+
+				entity.for_each([&](std::pair<sol::object, sol::object> pair)
+				{
+					components.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
+				});
+
+				components.erase("tags");
+				components.erase("hasTags");
 			}			
 			
+			ImGui::Auto(components, "Components");
 
-			/// https://github.com/Csabix/imgui/tree/master/auto
-			/// https://github.com/ocornut/imgui/issues/300
-			/// https://github.com/Flix01/imgui/tree/2015-10-Addons/addons
-
-
-
-
-
-
+			/*
 			ImGui::stl::Combo("Entity Selector", &index, entityScripts);
 
 			size_t size = entityScripts.size();
@@ -152,7 +160,7 @@ namespace re
 			ImGui::Spacing();
 
 			m_world->m_componentDebug[curComponent](e);
-
+			*/
 			ImGui::End();
 		}
 	}

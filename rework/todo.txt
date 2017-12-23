@@ -90,6 +90,8 @@ test:
 - shadermanager / shaders
 - camera / level / tmx
 
+- remove std::map::insert because we can just use sol::object::as
+
 fix debug interface implementation
 serializer
 camera

@@ -36,7 +36,7 @@ namespace re
 			sol::table tags = componets.get<sol::table>("tags");
 
 			std::map<int, std::string> tagsKVP;
-			components.for_each([&](std::pair<sol::object, sol::object> pair)
+			tags.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				tagsKVP.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
 			});
