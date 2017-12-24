@@ -176,10 +176,8 @@
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
     <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
-    <ClCompile Include="source\re\graphics\Layer.cpp" />
     <ClCompile Include="source\re\systems\RenderSystem.cpp" />
     <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="source\re\graphics\Camera.cpp" />
     <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
@@ -193,8 +191,6 @@
     <ClCompile Include="source\re\physics\Box2DManager.cpp" />
     <ClCompile Include="source\re\resources\FontBook.cpp" />
     <ClCompile Include="source\re\core\StateManager.cpp" />
-    <ClCompile Include="source\re\core\DebugInterface.cpp" />
-    <ClCompile Include="source\re\components\SerializeComponent.cpp" />
     <ClCompile Include="source\re\libs\imgui\auto\auto.cpp" />
     <ClCompile Include="source\re\libs\imgui\minizip\ioapi.c" />
     <ClCompile Include="source\re\libs\imgui\minizip\unzip.c" />
@@ -393,10 +389,8 @@
     <ClInclude Include="source\re\utils\Time.hpp" />
     <ClInclude Include="source\re\utils\Utils.hpp" />
     <ClInclude Include="source\re\libs\loguru\loguru.hpp" />
-    <ClInclude Include="source\re\graphics\Layer.hpp" />
     <ClInclude Include="source\re\systems\RenderSystem.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="source\re\graphics\Camera.hpp" />
     <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
@@ -486,7 +480,6 @@
     <ClInclude Include="source\re\mapping\AnimatedTile.hpp" />
     <ClInclude Include="source\re\libs\sol2\sol.hpp" />
     <ClInclude Include="source\re\libs\sol2\sol_forward.hpp" />
-    <ClInclude Include="source\re\graphics\RenderInfo.hpp" />
     <ClInclude Include="source\re\libs\entt\core\family.hpp" />
     <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
     <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
@@ -517,8 +510,6 @@
     <ClInclude Include="source\re\resources\FontBook.hpp" />
     <ClInclude Include="source\re\types\ResourceLoader.hpp" />
     <ClInclude Include="source\re\core\StateManager.hpp" />
-    <ClInclude Include="source\re\core\DebugInterface.hpp" />
-    <ClInclude Include="source\re\components\SerializeComponent.hpp" />
     <ClInclude Include="source\re\libs\imgui\imgui_stl.h" />
     <ClInclude Include="source\re\libs\serpent\Serpent.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\config.hpp" />

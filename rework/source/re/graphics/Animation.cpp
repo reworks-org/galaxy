@@ -1,13 +1,15 @@
-//
-//  Animation.cpp
-//  rework
-//
-//  Created by reworks on 31/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Animation.cpp
+///  rework
+///
+///  Created by reworks on 31/10/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <map>
 
+#include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
 #include "imgui/imgui_impl_a5.h"
 
@@ -27,20 +29,17 @@ namespace re
 
 		sol::table frames = table.get<sol::table>("frames");
 		m_frames.resize(m_totalFrames);
-
-		std::map<int, std::string> kvp;
-		frames.for_each([&](std::pair<sol::object, sol::object> pair) {
-			kvp.insert({ pair.first.as<int>(), pair.second.as<std::string>() });
-		});
-
-		if (kvp.empty())
+		
+		if (!frames.empty())
 		{
-			LOG_S(WARNING) << "Loading animation with no frames!" << std::endl;
+			frames.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				m_frames[pair.first.as<int>()] = pair.second.as<std::string>();
+			});
 		}
-
-		for (auto& it : kvp)
+		else
 		{
-			m_frames[it.first] = it.second;
+			LOG_S(WARNING) << "Tried to load animation with no frames!";
 		}
 	}
 

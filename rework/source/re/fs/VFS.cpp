@@ -61,12 +61,12 @@ namespace re
 		}
 		else
 		{
-			LOG_S(FATAL) << "Tried to open a file that does not exist!";
+			LOG_S(ERROR) << "Tried to open a file that does not exist!";
 		}
 
 		if (!f)
 		{
-			LOG_S(FATAL) << "Failed to open: " << file;
+			LOG_S(ERROR) << "Failed to open: " << file;
 			return "";
 		}
 

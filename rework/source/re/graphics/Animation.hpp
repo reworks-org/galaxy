@@ -1,15 +1,16 @@
-//
-//  Animation.hpp
-//  rework
-//
-//  Created by reworks on 31/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Animation.hpp
+///  rework
+///
+///  Created by reworks on 31/10/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_ANIMATION_HPP_
 #define REWORK_ANIMATION_HPP_
 
-#include "sol2/sol.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
@@ -23,6 +24,22 @@ namespace re
 		///
 		Animation(sol::table& table);
 
+		///
+		/// Copy Constructor.
+		///
+		Animation(const Animation&) = default;
+
+		///
+		/// Move Constructor.
+		///
+		Animation(Animation&&) = default;
+
+		///
+		/// Destructor.
+		///
+		~Animation() = default;
+
+	protected:
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
 		///
