@@ -1,10 +1,11 @@
-//
-//  Window.hpp
-//  rework
-//
-//  Created by reworks on 19/09/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Window.hpp
+///  rework
+///
+///  Created by reworks on 19/09/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_WINDOW_HPP_
 #define REWORK_WINDOW_HPP_
