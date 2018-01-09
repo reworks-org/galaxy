@@ -1,10 +1,11 @@
-//
-//  Vector2.hpp
-//  rework
-//
-//  Created by reworks on 26/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Vector2.hpp
+///  rework
+///
+///  Created by reworks on 26/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_VECTOR2_HPP_
 #define REWORK_VECTOR2_HPP_
@@ -23,10 +24,20 @@ namespace re
 		///
 		/// Value constructor.
 		///
-		/// \param _x X value.
-		/// \param _y Y value.
+		/// \param x X value.
+		/// \param y Y value.
 		///
-		Vector2(T _x, T _y);
+		Vector2(T x, T y);
+
+		///
+		/// Copy Constructor.
+		///
+		Vector2(const Vector2&) = default;
+
+		///
+		/// Move Constructor.
+		///
+		Vector2(Vector2&&) = default;
 
 		///
 		/// Swaps x (width) and y (height).
@@ -34,42 +45,42 @@ namespace re
 		void transpose();
 
 	public:
-		T x;
-		T y;
+		T m_x;
+		T m_y;
 	};
 
 	template<typename T>
 	Vector2<T>::Vector2()
-		:x(0), y(0)
+		:m_x(0), m_y(0)
 	{
 	}
 
 	template<typename T>
-	Vector2<T>::Vector2(T _x, T _y)
-		:x(_x), y(_y)
+	Vector2<T>::Vector2(T x, T y)
+		: m_x(x), m_y(y)
 	{
 	}
 
 	template<typename T>
 	inline void Vector2<T>::transpose()
 	{
-		T oldX = x;
+		T oldX = m_x;
 
-		x = y;
-		y = oldX;
+		m_x = y;
+		m_y = oldX;
 	}
 	
 	template<typename T>
 	Vector2<T> operator-(const Vector2<T>& a)
 	{
-		return Vector2<T>(-a.x, -a.y);
+		return Vector2<T>(-a.m_x, -a.m_y);
 	}
 
 	template<typename T>
 	Vector2<T>& operator+=(Vector2<T>& a, const Vector2<T>& b)
 	{
-		a.x += b.x;
-		a.y += b.y;
+		a.m_x += b.m_x;
+		a.m_y += b.m_y;
 
 		return a;
 	}
@@ -77,8 +88,8 @@ namespace re
 	template<typename T>
 	Vector2<T>& operator-=(Vector2<T>& a, const Vector2<T>& b)
 	{
-		a.x -= b.x;
-		a.y -= b.y;
+		a.m_x -= b.m_x;
+		a.m_y -= b.m_y;
 
 		return a;
 	}
@@ -86,26 +97,26 @@ namespace re
 	template<typename T>
 	Vector2<T> operator+(const Vector2<T>& a, const Vector2<T>& b)
 	{
-		return Vector2<T>(a.x + b.x, a.y + b.y);
+		return Vector2<T>(a.m_x + b.m_x, a.m_y + b.m_y);
 	}
 
 	template<typename T>
 	Vector2<T> operator-(const Vector2<T>& a, const Vector2<T>& b)
 	{
 	
-		return Vector2<T>(a.x - b.x, a.y - b.y);
+		return Vector2<T>(a.m_x - b.m_x, a.m_y - b.m_y);
 	}
 
 	template<typename T>
 	bool operator==(const Vector2<T>& a, const Vector2<T>& b)
 	{
-		return (a.x == b.x) && (a.y == b.y);
+		return (a.m_x == b.m_x) && (a.m_y == b.m_y);
 	}
 
 	template<typename T>
 	bool operator!=(const Vector2<T>& a, const Vector2<T>& b)
 	{
-		return (a.x != b.x) || (a.y != b.y);
+		return (a.m_x != b.m_x) || (a.m_y != b.m_y);
 	}
 }
 

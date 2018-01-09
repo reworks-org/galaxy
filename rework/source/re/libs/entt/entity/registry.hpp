@@ -29,7 +29,7 @@ namespace entt {
  * @tparam Entity A valid entity type (see entt_traits for more details).
  */
 template<typename Entity>
-class EntitySize {
+class Registry {
     using tag_family = Family<struct InternalRegistryTagFamily>;
     using component_family = Family<struct InternalRegistryComponentFamily>;
     using view_family = Family<struct InternalRegistryViewFamily>;
@@ -229,6 +229,33 @@ public:
      */
     size_type size() const noexcept {
         return entities.size() - available.size();
+    }
+
+    /**
+     * @brief Increases the capacity of the pool for a given component.
+     *
+     * If the new capacity is greater than the current capacity, new storage is
+     * allocated, otherwise the method does nothing.
+     *
+     * @tparam Component Type of component for which to reserve storage.
+     * @param cap Desired capacity.
+     */
+    template<typename Component>
+    void reserve(size_type cap) {
+        ensure<Component>().reserve(cap);
+    }
+
+    /**
+     * @brief Increases the capacity of a registry in terms of entities.
+     *
+     * If the new capacity is greater than the current capacity, new storage is
+     * allocated, otherwise the method does nothing.
+     *
+     * @param cap Desired capacity.
+     */
+    void reserve(size_type cap) {
+        entities.reserve(cap);
+        available.reserve(cap);
     }
 
     /**
@@ -723,10 +750,8 @@ public:
      * comparison function should be equivalent to the following:
      *
      * @code{.cpp}
-     * bool(auto e1, auto e2)
+     * bool(const Component &, const Component &)
      * @endcode
-     *
-     * Where `e1` and `e2` are valid entity identifiers.
      *
      * @tparam Component Type of components to sort.
      * @tparam Compare Type of comparison function object.
@@ -1037,6 +1062,7 @@ private:
  */
 using Entity = std::uint32_t;
 using DefaultRegistry = Registry<Entity>;
+
 
 }
 

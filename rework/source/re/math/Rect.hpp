@@ -1,10 +1,11 @@
-//
-//  Rect.hpp
-//  rework
-//
-//  Created by reworks on 26/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Rect.hpp
+///  rework
+///
+///  Created by reworks on 26/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_RECT_HPP_
 #define REWORK_RECT_HPP_
@@ -23,12 +24,22 @@ namespace re
 		///
 		/// Value constructor.
 		///
-		/// \param _x X value.
-		/// \param _y Y value.
-		/// \param _w Width value.
-		/// \param _h Height value.
+		/// \param x X value.
+		/// \param y Y value.
+		/// \param w Width value.
+		/// \param h Height value.
 		///
-		Rect(T1 _x, T1 _y, T2 _width, T2 _height);
+		Rect(T1 x, T1 y, T2 width, T2 height);
+
+		///
+		/// Copy Constructor.
+		///
+		Rect(const Rect&) = default;
+
+		///
+		/// Move Constructor.
+		///
+		Rect(Rect&&) = default;
 
 		///
 		/// Does the rectangle contain the point (x, y).
@@ -38,7 +49,7 @@ namespace re
 		///
 		/// \return true if contains the point.
 		///
-		bool contains(T1 _x, T1 _y);
+		bool contains(T1 x, T1 y);
 
 		///
 		/// Does the rectangle contain another rectangle.
@@ -59,10 +70,10 @@ namespace re
 		bool overlaps(const Rect<T1, T2>& b);
 
 	public:
-		T1 x;
-		T1 y;
-		T2 width;
-		T2 height;
+		T1 m_x;
+		T1 m_y;
+		T2 m_width;
+		T2 m_height;
 
 	private:
 		///
@@ -74,20 +85,20 @@ namespace re
 
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2>::Rect()
-		:x(0), y(0), width(0), height(0)
+		:m_x(0), m_y(0), m_width(0), m_height(0)
 	{
 	}
 
 	template<typename T1, typename T2 = T1>
-	Rect<T1, T2>::Rect(T1 _x, T1 _y, T2 _width, T2 _height)
-		: x(_x), y(_y), width(_width), height(_height)
+	Rect<T1, T2>::Rect(T1 x, T1 y, T2 width, T2 height)
+		: m_x(x), m_y(y), m_width(width), m_height(height)
 	{
 	}
 
 	template<typename T1, typename T2 = T1>
-	bool Rect<T1, T2>::contains(T1 _x, T1 _y)
+	bool Rect<T1, T2>::contains(T1 x, T1 y)
 	{
-		bool out = ((_x > x) && (_x < (x + width)) && (_y > y) && (_y < (y + height))) ? true : false;
+		bool out = ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height))) ? true : false;
 
 		return out;
 	}
@@ -95,7 +106,7 @@ namespace re
 	template<typename T1, typename T2>
 	bool Rect<T1, T2>::contains(const Rect<T1, T2>& b)
 	{
-		bool out = ((b.x + b.width) < (x + width) && (b.x) > (x) && (b.y) >(y) && (b.y + b.height) < (y + height)) ? true : false;
+		bool out = ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) >(m_y) && (b.m_y + b.m_height) < (m_y + m_height)) ? true : false;
 
 		return out;
 	}
@@ -105,11 +116,11 @@ namespace re
 	{
 		// Thanks: https://stackoverflow.com/a/306379
 
-		bool xOverlap = valueInRange(x, b.x, b.x + b.width) ||
-			valueInRange(b.x, x, x + width);
+		bool xOverlap = valueInRange(m_x, b.m_x, b.m_x + b.m_width) ||
+			valueInRange(b.m_x, m_x, m_x + m_width);
 
-		bool yOverlap = valueInRange(y, b.y, b.y + b.height) ||
-			valueInRange(b.y, y, y + height);
+		bool yOverlap = valueInRange(m_y, b.m_y, b.m_y + b.m_height) ||
+			valueInRange(b.m_y, m_y, m_y + m_height);
 
 		return xOverlap && yOverlap;
 	}
@@ -123,16 +134,16 @@ namespace re
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2> operator-(const Rect<T1, T2>& a)
 	{
-		return Rect<T1, T2>(-a.x, -a.y, -a.width, -a.height);
+		return Rect<T1, T2>(-a.m_x, -a.m_y, -a.m_width, -a.m_height);
 	}
 
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2>& operator+=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		a.x += b.x;
-		a.y += b.y;
-		a.width += b.width;
-		a.height += a.height;
+		a.m_x += b.m_x;
+		a.m_y += b.m_y;
+		a.m_width += b.m_width;
+		a.m_height += a.m_height;
 
 		return a;
 	}
@@ -140,10 +151,10 @@ namespace re
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2>& operator-=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		a.x -= b.x;
-		a.y -= b.y;
-		a.width -= b.width;
-		a.height -= b.height;
+		a.m_x -= b.m_x;
+		a.m_y -= b.m_y;
+		a.m_width -= b.m_width;
+		a.m_height -= b.m_height;
 
 		return a;
 	}
@@ -151,25 +162,25 @@ namespace re
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2> operator+(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		return Rect<T1, T2>(a.x + b.x, a.y + b.y, a.z + b.z);
+		return Rect<T1, T2>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
 	}
 
 	template<typename T1, typename T2 = T1>
 	Rect<T1, T2> operator-(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		return Rect<T1, T2>(a.x - b.x, a.y - b.y, a.width - b.width, a.height - b.height);
+		return Rect<T1, T2>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_width - b.m_width, a.m_height - b.m_height);
 	}
 
 	template<typename T1, typename T2 = T1>
 	bool operator==(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		return (a.x == b.x) && (a.y == b.y) && (a.width == b.width) && (a.height == b.height);
+		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_width == b.m_width) && (a.m_height == b.m_height);
 	}
 
 	template<typename T1, typename T2 = T1>
 	bool operator!=(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
-		return (a.x != b.x) || (a.y != b.y) || (a.width != b.width) || (a.height != b.height);
+		return (a.m_x != b.m_x) || (a.m_y != b.m_y) || (a.m_width != b.m_width) || (a.m_height != b.m_height);
 	}
 }
 

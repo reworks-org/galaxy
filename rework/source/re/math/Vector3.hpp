@@ -1,10 +1,11 @@
-//
-//  Vector3.hpp
-//  rework
-//
-//  Created by reworks on 26/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Vector3.hpp
+///  rework
+///
+///  Created by reworks on 26/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_VECTOR3_HPP_
 #define REWORK_VECTOR3_HPP_
@@ -23,42 +24,52 @@ namespace re
 		///
 		/// Value constructor.
 		///
-		/// \param _x X value.
-		/// \param _y Y value.
-		/// \param _z Z value.
+		/// \param x X value.
+		/// \param y Y value.
+		/// \param z Z value.
 		///
-		Vector3(T _x, T _y, T _z);
+		Vector3(T x, T y, T z);
+
+		///
+		/// Copy Constructor.
+		///
+		Vector3(const Vector3&) = default;
+
+		///
+		/// Move Constructor.
+		///
+		Vector3(Vector3&&) = default;
 
 	public:
-		T x;
-		T y;
-		T Z;
+		T m_x;
+		T m_y;
+		T m_Z;
 	};
 
 	template<typename T>
 	Vector3<T>::Vector3()
-		:x(0), y(0), z(0)
+		:m_x(0), m_y(0), m_z(0)
 	{
 	}
 
 	template<typename T>
-	Vector3<T>::Vector3(T _x, T _y, T _z)
-		: x(_x), y(_y), z(_z)
+	Vector3<T>::Vector3(T x, T y, T z)
+		: m_x(x), m_y(y), m_z(z)
 	{
 	}
 
 	template<typename T>
 	Vector3<T> operator-(const Vector3<T>& a)
 	{
-		return Vector3<T>(-a.x, -a.y, -a.z);
+		return Vector3<T>(-a.m_x, -a.m_y, -a.m_z);
 	}
 
 	template<typename T>
 	Vector3<T>& operator+=(Vector3<T>& a, const Vector3<T>& b)
 	{
-		a.x += b.x;
-		a.y += b.y;
-		a.z += b.z;
+		a.m_x += b.m_x;
+		a.m_y += b.m_y;
+		a.m_z += b.m_z;
 
 		return a;
 	}
@@ -66,9 +77,9 @@ namespace re
 	template<typename T>
 	Vector3<T>& operator-=(Vector3<T>& a, const Vector3<T>& b)
 	{
-		a.x -= b.x;
-		a.y -= b.y;
-		a.z -= b.z;
+		a.m_x -= b.m_x;
+		a.m_y -= b.m_y;
+		a.m_z -= b.m_z;
 
 		return a;
 	}
@@ -76,26 +87,26 @@ namespace re
 	template<typename T>
 	Vector3<T> operator+(const Vector3<T>& a, const Vector3<T>& b)
 	{
-		return Vector3<T>(a.x + b.x, a.y + b.y, a.z + b.z);
+		return Vector3<T>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
 	}
 
 	template<typename T>
 	Vector3<T> operator-(const Vector3<T>& a, const Vector3<T>& b)
 	{
 
-		return Vector3<T>(a.x - b.x, a.y - b.y, a.z - b.z);
+		return Vector3<T>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_z - b.m_z);
 	}
 
 	template<typename T>
 	bool operator==(const Vector3<T>& a, const Vector3<T>& b)
 	{
-		return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_z == b.m_z);
 	}
 
 	template<typename T>
 	bool operator!=(const Vector3<T>& a, const Vector3<T>& b)
 	{
-		return (a.x != b.x) || (a.y != b.y) || (a.z != b.z);
+		return (a.m_x != b.m_x) || (a.m_y != b.m_y) || (a.m_z != b.m_z);
 	}
 }
 

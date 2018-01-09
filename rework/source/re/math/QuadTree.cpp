@@ -1,11 +1,12 @@
-//
-//  QuadTree.cpp
-//  REngine3
-//
-//  Created by reworks on 28/08/2017.
-//  Code ported from:
-//  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
+///
+///  QuadTree.cpp
+///  rework
+///
+///  Written by reworks on 28/08/2017.
+///  Code ported from:
+///  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
+#include "re/core/World.hpp"
 #include "re/components/TransformComponent.hpp"
 
 #include "QuadTree.hpp"
@@ -45,9 +46,9 @@ namespace re
 		}
 	}
 
-	void QuadTree::insert(entityx::Entity& e)
+	void QuadTree::insert(entt::Entity e)
 	{
-		auto tc_rect = e.component<TransformComponent>()->m_rect;
+		auto tc_rect = World::get()->m_registery.get<TransformComponent>(e).m_rect;
 
 		if (m_nodes[0] != nullptr)
 		{
@@ -72,7 +73,7 @@ namespace re
 			int i = 0;
 			while (i < m_objects.size())
 			{
-				int index = getIndex(m_objects[i].component<TransformComponent>()->m_rect);
+				int index = getIndex(World::get()->m_registery.get<TransformComponent>(m_objects[i]).m_rect);
 				if (index != -1)
 				{
 					m_nodes[index]->insert(m_objects[i]);
@@ -86,9 +87,9 @@ namespace re
 		}
 	}
 
-	void QuadTree::retrieve(std::vector<entityx::Entity>& returnObjects, entityx::Entity& e)
+	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, entt::Entity e)
 	{
-		auto tc_rect = e.component<TransformComponent>()->m_rect;
+		auto tc_rect = World::get()->m_registery.get<TransformComponent>(e).m_rect;
 		
 		int index = getIndex(tc_rect);
 		if (index != -1 && m_nodes[0] != nullptr)
@@ -99,7 +100,7 @@ namespace re
 		returnObjects.insert(returnObjects.end(), m_objects.begin(), m_objects.end());
 	}
 
-	void QuadTree::retrieve(std::vector<entityx::Entity>& returnObjects, Rect<float, int>& rect)
+	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, Rect<float, int>& rect)
 	{
 		int index = getIndex(rect);
 		if (index != -1 && m_nodes[0] != nullptr)
@@ -110,7 +111,7 @@ namespace re
 		returnObjects.insert(returnObjects.end(), m_objects.begin(), m_objects.end());
 	}
 
-	void QuadTree::retrieve(std::vector<entityx::Entity>& returnObjects, const Rect<float, int>& rect)
+	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, const Rect<float, int>& rect)
 	{
 		int index = getIndex(rect);
 		if (index != -1 && m_nodes[0] != nullptr)
@@ -123,29 +124,29 @@ namespace re
 
 	void QuadTree::split()
 	{
-		int subWidth = (m_bounds.width / 2);
-		int subHeight = (m_bounds.height / 2);
+		int subWidth = (m_bounds.m_width / 2);
+		int subHeight = (m_bounds.m_height / 2);
 
-		m_nodes[0] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.x + subWidth, m_bounds.y, subWidth, subHeight), m_maxLevels, m_maxObjects);
-		m_nodes[1] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.x, m_bounds.y, subWidth, subHeight), m_maxLevels, m_maxObjects);
-		m_nodes[2] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.x, m_bounds.y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
-		m_nodes[3] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.x + subWidth, m_bounds.y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[0] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.m_x + subWidth, m_bounds.m_y, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[1] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.m_x, m_bounds.m_y, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[2] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.m_x, m_bounds.m_y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
+		m_nodes[3] = new QuadTree(m_level + 1, Rect<float, int>(m_bounds.m_x + subWidth, m_bounds.m_y + subHeight, subWidth, subHeight), m_maxLevels, m_maxObjects);
 	}
 
 	int QuadTree::getIndex(Rect<float, int>& rect)
 	{
 		int index = -1;
-		float verticalMidpoint = m_bounds.x + (m_bounds.width / 2);
-		float horizontalMidpoint = m_bounds.y + (m_bounds.height / 2);
+		float verticalMidpoint = m_bounds.m_x + (m_bounds.m_width / 2);
+		float horizontalMidpoint = m_bounds.m_y + (m_bounds.m_height / 2);
 
 		// Object can completely fit within the top quadrants
-		bool topQuadrant = (rect.y < horizontalMidpoint && rect.y + rect.height < horizontalMidpoint);
+		bool topQuadrant = (rect.m_y < horizontalMidpoint && rect.m_y + rect.m_height < horizontalMidpoint);
 
 		// Object can completely fit within the bottom quadrants
-		bool bottomQuadrant = (rect.y > horizontalMidpoint);
+		bool bottomQuadrant = (rect.m_y > horizontalMidpoint);
 
 		// Object can completely fit within the left quadrants
-		if (rect.x < verticalMidpoint && rect.x + rect.width < verticalMidpoint)
+		if (rect.m_x < verticalMidpoint && rect.m_x + rect.m_width < verticalMidpoint)
 		{
 			if (topQuadrant)
 			{
@@ -157,7 +158,7 @@ namespace re
 			}
 		}
 		// Object can completely fit within the right quadrants
-		else if (rect.x > verticalMidpoint)
+		else if (rect.m_x > verticalMidpoint)
 		{
 			if (topQuadrant)
 			{
@@ -175,17 +176,17 @@ namespace re
 	int QuadTree::getIndex(const Rect<float, int>& rect)
 	{
 		int index = -1;
-		float verticalMidpoint = m_bounds.x + (m_bounds.width / 2);
-		float horizontalMidpoint = m_bounds.y + (m_bounds.height / 2);
+		float verticalMidpoint = m_bounds.m_x + (m_bounds.m_width / 2);
+		float horizontalMidpoint = m_bounds.m_y + (m_bounds.m_height / 2);
 
 		// Object can completely fit within the top quadrants
-		bool topQuadrant = (rect.y < horizontalMidpoint && rect.y + rect.height < horizontalMidpoint);
+		bool topQuadrant = (rect.m_y < horizontalMidpoint && rect.m_y + rect.m_height < horizontalMidpoint);
 
 		// Object can completely fit within the bottom quadrants
-		bool bottomQuadrant = (rect.y > horizontalMidpoint);
+		bool bottomQuadrant = (rect.m_y > horizontalMidpoint);
 
 		// Object can completely fit within the left quadrants
-		if (rect.x < verticalMidpoint && rect.x + rect.width < verticalMidpoint)
+		if (rect.m_x < verticalMidpoint && rect.m_x + rect.m_width < verticalMidpoint)
 		{
 			if (topQuadrant)
 			{
@@ -197,7 +198,7 @@ namespace re
 			}
 		}
 		// Object can completely fit within the right quadrants
-		else if (rect.x > verticalMidpoint)
+		else if (rect.m_x > verticalMidpoint)
 		{
 			if (topQuadrant)
 			{

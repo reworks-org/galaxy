@@ -212,7 +212,6 @@
     <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\re\libs\tmx\tsx.c" />
     <ClCompile Include="source\re\core\StateManager.cpp" />
-    <ClCompile Include="source\re\mapping\Level.cpp" />
     <ClCompile Include="source\re\math\MaxRectsBinPack.cpp" />
     <ClCompile Include="source\re\math\QuadTree.cpp" />
     <ClCompile Include="source\re\physics\Box2DManager.cpp" />
@@ -234,6 +233,23 @@
     <ClInclude Include="source\re\components\TransformComponent.hpp" />
     <ClInclude Include="source\re\core\Application.hpp" />
     <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\family.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\actor.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\registry.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\sparse_set.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\traits.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\view.hpp" />
+    <ClInclude Include="source\re\libs\entt\entt.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\process.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\scheduler.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\bus.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\delegate.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\emitter.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\cast_to_layout_compatible.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\config.hpp" />
@@ -292,29 +308,8 @@
     <ClInclude Include="source\re\libs\imgui\TextEditor.h" />
     <ClInclude Include="source\re\libs\serpent\Serpent.hpp" />
     <ClInclude Include="source\re\resources\FontBook.hpp" />
-    <ClInclude Include="source\re\libs\entt\core\family.hpp" />
-    <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
-    <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\actor.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\registry.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\sparse_set.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\traits.hpp" />
-    <ClInclude Include="source\re\libs\entt\entity\view.hpp" />
-    <ClInclude Include="source\re\libs\entt\entt.hpp" />
-    <ClInclude Include="source\re\libs\entt\process\process.hpp" />
-    <ClInclude Include="source\re\libs\entt\process\scheduler.hpp" />
-    <ClInclude Include="source\re\libs\entt\resource\cache.hpp" />
-    <ClInclude Include="source\re\libs\entt\resource\handle.hpp" />
-    <ClInclude Include="source\re\libs\entt\resource\loader.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\bus.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\delegate.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\dispatcher.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\emitter.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
-    <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
     <ClInclude Include="source\re\libs\sol2\sol.hpp" />
     <ClInclude Include="source\re\libs\sol2\sol_forward.hpp" />
-    <ClInclude Include="source\re\mapping\AnimatedTile.hpp" />
     <ClInclude Include="source\re\graphics\Animation.hpp" />
     <ClInclude Include="source\re\graphics\Shader.hpp" />
     <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
@@ -561,8 +556,6 @@
     <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\re\libs\tmx\tsx.h" />
     <ClInclude Include="source\re\core\StateManager.hpp" />
-    <ClInclude Include="source\re\mapping\Level.hpp" />
-    <ClInclude Include="source\re\mapping\TMXHelper.hpp" />
     <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
     <ClInclude Include="source\re\math\QuadTree.hpp" />
     <ClInclude Include="source\re\math\Random.hpp" />
@@ -712,7 +705,7 @@
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -755,7 +748,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

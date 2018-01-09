@@ -37,14 +37,14 @@ namespace re
 		///
 		/// \param script Script file in the VFS.
 		///
-		void createEntity(std::string_view script);
+		void createEntity(const std::string& script);
 
 		///
 		/// Automatically create a batch of entitys from a script.
 		///
 		/// \param batchScript Script file containing all the entity/script (k/v) to register.
 		///
-		void createEntities(std::string_view batchScript);
+		void createEntities(const std::string& batchScript);
 
 		///
 		/// \brief Update the world.

@@ -11,16 +11,15 @@
 #define REWORK_WINDOW_HPP_
 
 #include <string>
-
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
 
 #include "re/math/Vector2.hpp"
-#include "re/types/Service.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class Window : public Service
+	class Window : public ServiceLocator<Window>
 	{
 	public:
 		///
@@ -101,8 +100,21 @@ namespace re
 		ALLEGRO_BITMAP* m_icon;
 		ALLEGRO_DISPLAY* m_display;
 		ALLEGRO_BITMAP* m_fullscreenBuffer;
-		Vector2<int> m_fullscreenScale;
 		Vector2<int> m_size;
+		Vector2<int> m_fullscreenScale;
+
+	private:
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		Window(const Window&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		Window(Window&&) = delete;
 	};
 }
 

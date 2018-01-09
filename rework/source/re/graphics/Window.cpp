@@ -7,7 +7,6 @@
 //
 
 #include <algorithm>
-
 #include <allegro5/timer.h>
 #include <allegro5/mouse.h>
 #include <allegro5/monitor.h>
@@ -16,19 +15,15 @@
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
 
-#include "re/services/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/fs/VFS.hpp"
 
 #include "Window.hpp"
 
 namespace re
 {
 	Window::Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon)
-	:m_running(true), m_fullscreen(fullscreen)
+	:m_running(true), m_fullscreen(fullscreen), m_size(width, height)
 	{
-		m_size.x = width;
-		m_size.y = height;
-
 		al_set_new_display_flags(ALLEGRO_WINDOWED | ALLEGRO_OPENGL_3_0 | ALLEGRO_PROGRAMMABLE_PIPELINE);
 		al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, msaa, ALLEGRO_SUGGEST);
 		al_set_new_display_option(ALLEGRO_SAMPLES, msaaValue, ALLEGRO_SUGGEST);
@@ -50,7 +45,7 @@ namespace re
 		m_display = al_create_display(width, height);
 		if (!m_display)
 		{
-			LOG_S(FATAL) << "Could not create a display!" << std::endl;
+			LOG_S(FATAL) << "Could not create a display!";
 		}
 
 		if (m_fullscreen == true)

@@ -1,10 +1,10 @@
-//
-//  QuadTree.hpp
-//  rework
-//
-//  Created by reworks on 28/08/2017.
-//  Code ported from:
-//  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
+///
+///  QuadTree.hpp
+///  rework
+///
+///  Written by reworks on 28/08/2017.
+///  Code ported from:
+///  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
 #ifndef RENGINE3_QUADTREE_HPP_
 #define RENGINE3_QUADTREE_HPP_
@@ -12,8 +12,8 @@
 #include <array>
 #include <vector>
 
+#include "entt/entt.hpp"
 #include "re/math/Rect.hpp"
-#include "entityx/entityx.h"
 
 namespace re
 {
@@ -52,7 +52,7 @@ namespace re
 		///
 		/// \param entity The entity to insert.
 		///
-		void insert(entityx::Entity& e);
+		void insert(entt::Entity e);
 
 		///
 		/// Return all objects that could collide with the given entity.
@@ -60,7 +60,7 @@ namespace re
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param entity Entity to check for collisions with.
 		///
-		void retrieve(std::vector<entityx::Entity>& returnObjects, entityx::Entity& e);
+		void retrieve(std::vector<entt::Entity>& returnObjects, entt::Entity e);
 
 		///
 		/// Return all objects that could collide with the given rect.
@@ -68,7 +68,7 @@ namespace re
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param rect Rect to check for collisions with.
 		///
-		void retrieve(std::vector<entityx::Entity>& returnObjects, Rect<float, int>& rect);
+		void retrieve(std::vector<entt::Entity>& returnObjects, Rect<float, int>& rect);
 
 		///
 		/// Return all objects that could collide with the given rect. CONST FUNCTION
@@ -76,11 +76,22 @@ namespace re
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param rect CONST Rect to check for collisions with.
 		///
-		void retrieve(std::vector<entityx::Entity>& returnObjects, const Rect<float, int>& rect);
+		void retrieve(std::vector<entt::Entity>& returnObjects, const Rect<float, int>& rect);
 
 	private:
+		///
+		/// Default constructor.
+		///
 		QuadTree() = delete;
+
+		///
+		/// Move constructor.
+		///
 		QuadTree(QuadTree&&) = delete;
+
+		///
+		/// Copy constructor.
+		///
 		QuadTree(const QuadTree &) = delete;
 
 		///
@@ -106,7 +117,7 @@ namespace re
 		int m_level;
 		int m_maxLevels;
 		int m_maxObjects;
-		std::vector<entityx::Entity> m_objects;
+		std::vector<entt::Entity> m_objects;
 		Rect<float, int> m_bounds;
 		std::array<QuadTree*, 4> m_nodes;
 	};

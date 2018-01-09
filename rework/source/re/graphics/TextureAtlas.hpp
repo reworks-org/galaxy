@@ -1,29 +1,29 @@
-//
-//  TextureAtlas.hpp
-//  rework
-//
-//  Created by reworks on 29/11/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  TextureAtlas.hpp
+///  rework
+///
+///  Created by reworks on 29/11/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_TEXTUREATLAS_HPP_
 #define REWORK_TEXTUREATLAS_HPP_
 
 #include <unordered_map>
-
 #include <allegro5/color.h>
 #include <allegro5/bitmap.h>
 
 #include "re/math/Rect.hpp"
-#include "re/types/Service.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class TextureAtlas : public Service
+	class TextureAtlas final : public ServiceLocator<TextureAtlas>
 	{
 	public:
 		///
-		/// \brief Cosntructor.
+		/// \brief Constructor.
 		///
 		/// Loads all textures and performs a maxrectbinpack algorithm on them, then frees textures.
 		///
@@ -40,19 +40,19 @@ namespace re
 		/// Like al_draw_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_bitmap
 		///
-		void al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags);
+		void al_draw_packed_bitmap(std::string_view texture, float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_bitmap
 		///
-		void al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags);
+		void al_draw_tinted_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_scaled_rotated_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_scaled_rotated_bitmap
 		///
-		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
+		void al_draw_tinted_scaled_rotated_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
 
 		///
 		/// Calls al_create_sub_bitmap() properly and returns the bitmap of the
@@ -63,11 +63,24 @@ namespace re
 		///
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_create_sub_bitmap
 		///
-		ALLEGRO_BITMAP* al_create_packed_bitmap(const std::string& texture);
+		ALLEGRO_BITMAP* al_create_packed_bitmap(std::string_view texture);
 
 	private:
 		ALLEGRO_BITMAP* m_atlas;
-		std::unordered_map<std::string, Rect<int>> m_packedTextures;
+		std::unordered_map<std::string_view, Rect<int>> m_packedTextures;
+
+	private:
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		TextureAtlas(const TextureAtlas&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		TextureAtlas(TextureAtlas&&) = delete;
 	};
 }
 

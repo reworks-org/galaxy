@@ -1,10 +1,11 @@
-//
-//  TextureAtlas.cpp
-//  rework
-//
-//  Created by reworks on 29/11/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  TextureAtlas.cpp
+///  rework
+///
+///  Created by reworks on 29/11/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <physfs.h>
 #include <allegro5/display.h>
@@ -39,7 +40,7 @@ namespace re
 
 			if (!(packedRect.height > 0))
 			{
-				LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i << std::endl;
+				LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i;
 			}
 
 			al_draw_bitmap(bitmap, packedRect.x, packedRect.y, 0);
@@ -49,7 +50,7 @@ namespace re
 		}
 
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Locator::get<Window>()->getDisplay()));
+		al_set_target_bitmap(al_get_backbuffer(Window::get()->getDisplay()));
 		
 		PHYSFS_freeList(efl);
 	}
@@ -59,25 +60,25 @@ namespace re
 		al_destroy_bitmap(m_atlas);
 	}
 
-	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags)
+	void TextureAtlas::al_draw_packed_bitmap(std::string_view texture, float dx, float dy, int flags)
 	{
 		auto pr = m_packedTextures[texture];
 		al_draw_bitmap_region(m_atlas, pr.x, pr.y, pr.width, pr.height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags) 
+	void TextureAtlas::al_draw_tinted_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float dx, float dy, int flags) 
 	{
 		auto pr = m_packedTextures[texture];
 		al_draw_tinted_bitmap_region(m_atlas, tint, pr.x, pr.y, pr.width, pr.height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
+	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
 	{
 		auto pr = m_packedTextures[texture];
 		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.x, pr.y, pr.width, pr.height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
 	}
 
-	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(const std::string& texture)
+	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(std::string_view texture)
 	{
 		auto pr = m_packedTextures[texture];
 		return al_create_sub_bitmap(m_atlas, pr.x, pr.y, pr.width, pr.height);

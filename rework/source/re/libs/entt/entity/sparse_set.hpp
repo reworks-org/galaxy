@@ -118,6 +118,19 @@ public:
     SparseSet & operator=(SparseSet &&) = default;
 
     /**
+     * @brief Increases the capacity of a sparse set.
+     *
+     * If the new capacity is greater than the current capacity, new storage is
+     * allocated, otherwise the method does nothing.
+     *
+     * @param cap Desired capacity.
+     */
+    void reserve(size_type cap) {
+        reverse.reserve(cap);
+        direct.reserve(cap);
+    }
+
+    /**
      * @brief Returns the number of elements in a sparse set.
      *
      * The number of elements is also the size of the internal packed array.
@@ -293,7 +306,9 @@ public:
     void swap(pos_type lhs, pos_type rhs) noexcept {
         assert(lhs < direct.size());
         assert(rhs < direct.size());
-        std::swap(reverse[direct[lhs]], reverse[direct[rhs]]);
+        const auto src = direct[lhs] & traits_type::entity_mask;
+        const auto dst = direct[rhs] & traits_type::entity_mask;
+        std::swap(reverse[src], reverse[dst]);
         std::swap(direct[lhs], direct[rhs]);
     }
 
@@ -399,6 +414,19 @@ public:
     SparseSet & operator=(const SparseSet &) = delete;
     /*! @brief Default move assignment operator. @return This sparse set. */
     SparseSet & operator=(SparseSet &&) = default;
+
+    /**
+     * @brief Increases the capacity of a sparse set.
+     *
+     * If the new capacity is greater than the current capacity, new storage is
+     * allocated, otherwise the method does nothing.
+     *
+     * @param cap Desired capacity.
+     */
+    void reserve(size_type cap) {
+        underlying_type::reserve(cap);
+        instances.reserve(cap);
+    }
 
     /**
      * @brief Direct access to the array of objects.
@@ -517,13 +545,20 @@ public:
      * iterators returns them in the expected order. See `begin` and `end` for
      * more details.
      *
+     * The comparison function object must return `true` if the first element
+     * is _less_ than the second one, `false` otherwise. The signature of the
+     * comparison function should be equivalent to the following:
+     *
+     * @code{.cpp}
+     * bool(const Type &, const Type &)
+     * @endcode
+     *
      * @note
      * Attempting to iterate elements using the raw pointer returned by `data`
      * gives no guarantees on the order, even though `sort` has been invoked.
      *
-     * @tparam Compare Type of the comparison function.
-     * @param compare A comparison function whose signature shall be equivalent
-     * to: `bool(const Type &, const Type &)`.
+     * @tparam Compare Type of comparison function object.
+     * @param compare A valid comparison function object.
      */
     template<typename Compare>
     void sort(Compare compare) {
@@ -534,8 +569,8 @@ public:
             return compare(const_cast<const object_type &>(instances[rhs]), const_cast<const object_type &>(instances[lhs]));
         });
 
-        for(pos_type i = 0; i < copy.size(); ++i) {
-            auto curr = i;
+        for(pos_type pos = 0, last = copy.size(); pos < last; ++pos) {
+            auto curr = pos;
             auto next = copy[curr];
 
             while(curr != next) {

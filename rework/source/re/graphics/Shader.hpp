@@ -1,17 +1,18 @@
-//
-//  Shader.hpp
-//  rework
-//
-//  Created by reworks on 14/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Shader.hpp
+///  rework
+///
+///  Created by reworks on 14/10/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_SHADER_HPP_
 #define REWORK_SHADER_HPP_
 
 #include <allegro5/shader.h>
 
-#include "sol2/sol.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace re
 {
@@ -24,6 +25,21 @@ namespace re
 		/// \param table sol::table containing data.
 		///
 		Shader(sol::table& table);
+
+		///
+		/// Default constructor.
+		///
+		Shader() = default;
+
+		///
+		/// Copy Constructor.
+		///
+		Shader(const Shader&) = default;
+
+		///
+		/// Move Constructor.
+		///
+		Shader(Shader&&) = default;
 
 		///
 		/// Destructor.

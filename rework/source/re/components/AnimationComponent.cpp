@@ -7,8 +7,6 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#include <map>
-
 #include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
 #include "imgui/imgui_impl_a5.h"
@@ -24,20 +22,16 @@ namespace re
 		m_activeAnimation = table.get<std::string>("defaultAnim");
 
 		sol::table animTable = table.get<sol::table>("Animations");
-		std::map<std::string, sol::table> kvp;
-		animTable.for_each([&](std::pair<sol::object, sol::object> pair) 
+		if (!animTable.empty())
 		{
-			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
-		});
-
-		if (kvp.empty())
-		{
-			LOG_S(WARNING) << "Loading AnimationComponent with no animations!";
+			animTable.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				m_animations.emplace(pair.first.as<std::string>(), pair.second.as<sol::table>());
+			});
 		}
-
-		for (auto& it : kvp)
+		else
 		{
-			m_animations.emplace(it.first, it.second);
+			LOG_S(WARNING) << "Tried to load AnimationComponent with no Animations!";
 		}
 	}
 

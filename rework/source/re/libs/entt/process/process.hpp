@@ -10,28 +10,6 @@
 namespace entt {
 
 
-namespace {
-
-
-struct BaseProcess {
-    enum class State: unsigned int {
-        UNINITIALIZED = 0,
-        RUNNING,
-        PAUSED,
-        SUCCEEDED,
-        FAILED,
-        ABORTED,
-        FINISHED
-    };
-
-    template<State state>
-    using tag = std::integral_constant<State, state>;
-};
-
-
-}
-
-
 /**
  * @brief Base class for processes.
  *
@@ -82,17 +60,30 @@ struct BaseProcess {
  * @tparam Delta Type to use to provide elapsed time.
  */
 template<typename Derived, typename Delta>
-class Process: private BaseProcess {
+class Process {
+    enum class State: unsigned int {
+        UNINITIALIZED = 0,
+        RUNNING,
+        PAUSED,
+        SUCCEEDED,
+        FAILED,
+        ABORTED,
+        FINISHED
+    };
+
+    template<State state>
+    using tag = std::integral_constant<State, state>;
+
     template<typename Target = Derived>
-    auto tick(int, tag<State::UNINITIALIZED>)
-    -> decltype(std::declval<Target>().init()) {
-        static_cast<Target *>(this)->init();
+    auto tick(int, tag<State::UNINITIALIZED>, void *data)
+    -> decltype(std::declval<Target>().init(data)) {
+        static_cast<Target *>(this)->init(data);
     }
 
     template<typename Target = Derived>
-    auto tick(int, tag<State::RUNNING>, Delta delta)
-    -> decltype(std::declval<Target>().update(delta)) {
-        static_cast<Target *>(this)->update(delta);
+    auto tick(int, tag<State::RUNNING>, Delta delta, void *data)
+    -> decltype(std::declval<Target>().update(delta, data)) {
+        static_cast<Target *>(this)->update(delta, data);
     }
 
     template<typename Target = Derived>
@@ -227,15 +218,16 @@ public:
     /**
      * @brief Updates a process and its internal state if required.
      * @param delta Elapsed time.
+     * @param data Optional data.
      */
-    void tick(Delta delta) {
+    void tick(Delta delta, void *data = nullptr) {
         switch (current) {
         case State::UNINITIALIZED:
-            tick(0, tag<State::UNINITIALIZED>{});
+            tick(0, tag<State::UNINITIALIZED>{}, data);
             current = State::RUNNING;
             // no break on purpose, tasks are executed immediately
         case State::RUNNING:
-            tick(0, tag<State::RUNNING>{}, delta);
+            tick(0, tag<State::RUNNING>{}, delta, data);
         default:
             // suppress warnings
             break;
@@ -322,9 +314,10 @@ struct ProcessAdaptor: Process<ProcessAdaptor<Func, Delta>, Delta>, private Func
     /**
      * @brief Updates a process and its internal state if required.
      * @param delta Elapsed time.
+     * @param data Optional data.
      */
-    void update(Delta delta) {
-        Func::operator()(delta, [this](){ this->succeed(); }, [this](){ this->fail(); });
+    void update(Delta delta, void *data) {
+        Func::operator()(delta, data, [this](){ this->succeed(); }, [this](){ this->fail(); });
     }
 };
 
