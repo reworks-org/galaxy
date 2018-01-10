@@ -27,11 +27,6 @@ namespace re
 		Shader(sol::table& table);
 
 		///
-		/// Default constructor.
-		///
-		Shader() = default;
-
-		///
 		/// Copy Constructor.
 		///
 		Shader(const Shader&) = default;
@@ -60,6 +55,13 @@ namespace re
 
 	private:
 		ALLEGRO_SHADER* m_shader;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Shader() = delete;
 	};
 }
 

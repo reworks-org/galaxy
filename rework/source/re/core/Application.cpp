@@ -21,12 +21,12 @@
 #include "re/utils/Time.hpp"
 #include "re/graphics/Window.hpp"
 #include "re/core/StateManager.hpp"
-#include "re/utils/ConfigReader.hpp"
 #include "re/core/DebugInterface.hpp"
 #include "re/resources/FontLoader.hpp"
 #include "re/resources/AudioLoader.hpp"
 #include "re/graphics/TextureAtlas.hpp"
 #include "re/resources/ShaderLoader.hpp"
+#include "re/resources/ConfigReader.hpp"
 
 #include "Application.hpp"
 
@@ -69,12 +69,13 @@ namespace re
 		TextureAtlas::make(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
 		FontLoader::make(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
 		ShaderLoader::make();
-		AudioLoader::make(m_configReader->lookup<std::string>(config, "audiomanager", "audioScript"), m_configReader->lookup<int>(config, "audiomanager", "reserveSamples"));
 		PhysicsWorld::make(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 
 		#ifdef NDEBUG
 			DebugInterface::get()->disable(true);
 		#endif
+
+		al_reserve_samples(ConfigReader::get()->lookup<int>(config, "audio", "reserveSamples"));
 	}
 
 	Application::~Application()

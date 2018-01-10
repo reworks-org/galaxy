@@ -1,10 +1,11 @@
-//
-//  LuaUtils.hpp
-//  rework
-//
-//  Created by reworks on 02/07/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  LuaUtils.hpp
+///  rework
+///
+///  Created by reworks on 02/07/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_LUAUTILS_HPP_
 #define REWORK_LUAUTILS_HPP_
@@ -26,21 +27,21 @@ namespace re
 		/// \param file The file to write the data into.
 		/// \param tableName The name of the table in the text file.
 		///
-		inline void writeTableToFile(sol::table& table, const std::string& file, const std::string& tableName)
+		inline void writeTableToFile(sol::table& table, std::string_view file, std::string_view tableName)
 		{
-			// Get key-value pairs from table
-			std::map<std::string, std::string> m_keyValuePair;
-			table.for_each([&](std::pair<sol::object, sol::object> pair) {
-				m_keyValuePair.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+			std::map<std::string, std::string> kvp;
+			table.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				kvp.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
 			});
 
 			std::ofstream out(file);
 			out << tableName << " = " << std::endl;
 			out << "{" << std::endl;
 
-			for (auto iter = m_keyValuePair.begin(); iter != m_keyValuePair.end();)
+			for (auto iter = kvp.begin(); iter != kvp.end();)
 			{
-				if (++iter == m_keyValuePair.end())
+				if (++iter == kvp.end())
 				{
 					out << "    " << iter->first << " = " << iter->second << std::endl;
 				}

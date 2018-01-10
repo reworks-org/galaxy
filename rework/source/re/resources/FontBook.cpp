@@ -1,43 +1,42 @@
-//
-//  FontManager.cpp
-//  rework
-//
-//  Created by reworks on 22/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
-
-#include <map>
+///
+///  FontBook.cpp
+///  rework
+///
+///  Created by reworks on 22/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include <allegro5/allegro_ttf.h>
 
 #include "sol2/sol.hpp"
-#include "re/services/VFS.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/fs/VFS.hpp"
 
-#include "FontManager.hpp"
+#include "FontBook.hpp"
 
 namespace re
 {
-	FontManager::FontManager(const std::string& script)
+	FontBook::FontBook(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::get<VFS>()->openAsString(script));
+		lua.script(VFS::get()->openAsString(script));
 		sol::table fonts = lua.get<sol::table>("fonts");
 
-		// Get key-value pairs from table
-		std::map<std::string, sol::table> kvp;
-		fonts.for_each([&](std::pair<sol::object, sol::object> pair) {
-			kvp.insert({ pair.first.as<std::string>(), pair.second.as<sol::table>() });
-		});
-
-		for (auto& it : kvp)
+		fonts.for_each([&](std::pair<sol::object, sol::object> pair)
 		{
-			std::string fn = it.second.get<std::string>("font");
-			m_fontMap.emplace(it.first, al_load_ttf_font(fn.c_str(), it.second.get<int>("size"), NULL));
-		}
+			auto key = pair.first.as<entt::HashedString>();
+			auto value = pair.second.as<sol::table>();
+
+			m_fontMap.emplace(key, al_load_ttf_font(value.get<std::string>("font").c_str(), value.get<int>("size"), NULL));
+		});
 	}
 
-	FontManager::~FontManager()
+	FontBook::~FontBook()
+	{
+		clean();
+	}
+	
+	void FontBook::clean()
 	{
 		for (auto& it : m_fontMap)
 		{
@@ -45,10 +44,5 @@ namespace re
 		}
 
 		m_fontMap.clear();
-	}
-
-	ALLEGRO_FONT* FontManager::get(const std::string& id)
-	{
-		return m_fontMap[id];
 	}
 }

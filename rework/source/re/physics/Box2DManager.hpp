@@ -1,10 +1,11 @@
-//
-//  Box2DManager.hpp
-//  rework
-//
-//  Created by reworks on 12/11/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Box2DManager.hpp
+///  rework
+///
+///  Created by reworks on 12/11/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_BOX2DMANAGER_HPP_
 #define REWORK_BOX2DMANAGER_HPP_
@@ -13,13 +14,11 @@
 #include <functional>
 
 #include "Box2D/Box2D.h"
-#include "re/types/Service.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	typedef std::map<std::pair<std::string, std::string>, std::function<void(const std::string&, const std::string&)>> CollisionFunctionMap;
-
-	class Box2DManager : public Service
+	class Box2DManager : public ServiceLocator<Box2DManager>
 	{
 	public:
 		///
@@ -39,23 +38,28 @@ namespace re
 		///
 		void clean();
 
-		///
-		/// Access the Box2D world.
-		///
-		/// \return Returns pointer to Box2D world.
-		///
-		b2World* world();
-
-		///
-		/// Access the map containing functions to execute on collision.
-		///
-		/// \return Returns reference to collision function map.
-		///
-		CollisionFunctionMap& getCollisionFunctions();
+	public:
+		std::unique_ptr<b2World> m_world;
+		std::map<std::pair<std::string_view, std::string_view>, std::function<void(std::string_view, std::string_view)>> m_collisionFunctions;
 
 	private:
-		b2World* m_world;
-		CollisionFunctionMap m_collisionFunctions;
+		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		Box2DManager() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		Box2DManager(const Box2DManager&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		Box2DManager(Box2DManager&&) = delete;
 	};
 }
 

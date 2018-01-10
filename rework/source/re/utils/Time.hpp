@@ -1,10 +1,11 @@
-//
-//  Time.hpp
-//  rework
-//
-//  Created by reworks on 8/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Time.hpp
+///  rework
+///
+///  Created by reworks on 08/07/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_TIME_HPP_
 #define REWORK_TIME_HPP_
@@ -17,7 +18,7 @@
 
 namespace re
 {
-	namespace Time
+	namespace time
 	{
 		///
 		/// Convert seconds to milliseconds.
@@ -76,7 +77,7 @@ namespace re
 		///
 		inline constexpr double microsecondsToSeconds(std::int64_t microseconds)
 		{
-			return microseconds / 1000000.0f;
+			return microseconds / 1000000.0;
 		}
 
 		///
@@ -118,7 +119,7 @@ namespace re
 		///
 		inline constexpr double milliseconds(std::int32_t milliseconds)
 		{
-			return Time::millisecondsToSeconds(milliseconds);
+			return time::millisecondsToSeconds(milliseconds);
 		}
 
 		///
@@ -133,7 +134,7 @@ namespace re
 		///
 		inline constexpr double microseconds(std::int64_t microseconds)
 		{
-			return Time::microsecondsToSeconds(microseconds);
+			return time::microsecondsToSeconds(microseconds);
 		}
 
 		///

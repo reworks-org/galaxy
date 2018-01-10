@@ -1,28 +1,31 @@
-//
-//  Box2DManager.cpp
-//  rework
-//
-//  Created by reworks on 12/11/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Box2DManager.cpp
+///  rework
+///
+///  Created by reworks on 12/11/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
+
+#include "re/core/World.hpp"
+#include "re/services/ServiceLocator.hpp"
+#include "re/components/PhysicsComponent.hpp"
 
 #include "Box2DManager.hpp"
-#include "re/components/PhysicsComponent.hpp"
-#include "re/services/ServiceLocator.hpp"
-#include "re/core/World.hpp"
 
 namespace re
 {
 	Box2DManager::Box2DManager(float32 gravity)
 	{
-		m_world = new b2World(b2Vec2(0.0, gravity));
+		m_world = std::make_unique<b2World>(b2Vec2(0.0, gravity));
 	}
 
 	Box2DManager::~Box2DManager()
 	{
 		m_collisionFunctions.clear();
 
-		Locator::get<World>()->m_entityManager.each<PhysicsComponent>([this](entityx::Entity& e, PhysicsComponent& pc)
+		auto physicsView = World::get()->m_registery.view<PhysicsComponent>();
+		physicsView.each<PhysicsComponent>([this](entt::Entity entity, PhysicsComponent& pc)
 		{
 			if (pc.m_body)
 			{
@@ -48,22 +51,10 @@ namespace re
 
 			m_world->DestroyBody(pc.m_body);
 		});
-
-		delete m_world;
 	}
 
 	void Box2DManager::clean()
 	{
 		m_collisionFunctions.clear();
-	}
-
-	b2World* Box2DManager::world()
-	{
-		return m_world;
-	}
-
-	CollisionFunctionMap& Box2DManager::getCollisionFunctions()
-	{
-		return m_collisionFunctions;
 	}
 }

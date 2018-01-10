@@ -1,10 +1,11 @@
-//
-//  Utils.hpp
-//  rework
-//
-//  Created by reworks on 26/06/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Utils.hpp
+///  rework
+///
+///  Created by reworks on 26/06/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_UTILS_HPP_
 #define REWORK_UTILS_HPP_
@@ -16,7 +17,7 @@
 
 namespace re
 {
-	namespace Utils
+	namespace utils
 	{
 		///
 		/// \brief Do something to each item in tuple.
@@ -25,7 +26,8 @@ namespace re
 		/// Credits: https://stackoverflow.com/a/26902803
 		/// 
 		template<class F, class...Ts, std::size_t...Is>
-		inline void for_each_in_tuple(std::tuple<Ts...> & tuple, F func, std::index_sequence<Is...>) {
+		inline void for_each_in_tuple(std::tuple<Ts...> & tuple, F func, std::index_sequence<Is...>)
+		{
 			using expander = int[];
 			(void)expander {
 				0, ((void)func(std::get<Is>(tuple)), 0)...
@@ -39,7 +41,8 @@ namespace re
 		/// Credits: https://stackoverflow.com/a/26902803
 		/// 
 		template<class F, class...Ts>
-		inline void for_each_in_tuple(std::tuple<Ts...> & tuple, F func) {
+		inline void for_each_in_tuple(std::tuple<Ts...> & tuple, F func)
+		{
 			for_each_in_tuple(tuple, func, std::make_index_sequence<sizeof...(Ts)>());
 		}
 
@@ -52,7 +55,7 @@ namespace re
 		///
 		/// \return string containing extension.
 		///
-		inline std::string getExtension(const std::string& filename)
+		inline constexpr std::string getExtension(const std::string& filename)
 		{
 			if (filename.find_last_of(".") != std::string::npos)
 			{
@@ -73,7 +76,7 @@ namespace re
 		///
 		/// \return filename without extension.
 		///
-		inline std::string removeExtension(const std::string& filename)
+		inline constexpr std::string removeExtension(const std::string& filename)
 		{
 			size_t lastdot = filename.find_last_of(".");
 			if (lastdot == std::string::npos) return filename;
@@ -87,7 +90,7 @@ namespace re
 		///
 		/// \return Returns either "true" or "false".
 		///
-		inline std::string boolToString(bool value)
+		inline constexpr std::string boolToString(bool value)
 		{
 			std::string out = (value == true) ? "true" : "false";
 			return out;
@@ -101,7 +104,7 @@ namespace re
 		///
 		/// \return Returns either true or false.
 		///
-		inline constexpr bool stringToBool(const std::string& str)
+		inline constexpr bool stringToBool(std::string_view str)
 		{
 			bool out = (str == "true") ? true : false;
 			return out;
@@ -136,11 +139,13 @@ namespace re
 
 				if (iss.fail())
 				{
-					LOG_S(FATAL) << "Convert error: cannot convert string '" << data << "' to value" << std::endl;
+					LOG_S(ERROR) << "Convert error: cannot convert string '" << data << "' to value";
 					return T();
 				}
+
 				return ret;
 			}
+
 			return T();
 		}
 
@@ -163,7 +168,7 @@ namespace re
 		template<>
 		inline bool convertString<bool>(const std::string& data)
 		{
-			return Utils::stringToBool(data);
+			return utils::stringToBool(data);
 		}
 
 		///

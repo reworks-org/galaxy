@@ -63,6 +63,13 @@ namespace re
 
 		/// Each frames name is a texture in the TextureAtlas.
 		std::vector<std::string> m_frames;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Animation() = delete;
 	};
 }
 

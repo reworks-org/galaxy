@@ -1,23 +1,23 @@
-//
-//  FontManager.hpp
-//  rework
-//
-//  Created by reworks on 22/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  FontBook.hpp
+///  rework
+///
+///  Created by reworks on 22/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
-#ifndef REWORK_FONTMANAGER_HPP_
-#define REWORK_FONTMANAGER_HPP_
-
-#include <unordered_map>
+#ifndef REWORK_FONTBOOK_HPP_
+#define REWORK_FONTBOOK_HPP_
 
 #include <allegro5/allegro_font.h>
 
-#include "re/types/Service.hpp"
+#include "re/types/ResourceCache.hpp"
+#include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class FontManager : public Service
+	class FontBook final : public ServiceLocator<FontBook>, public ResourceCache<ALLEGRO_FONT*>
 	{
 	public:
 		///
@@ -28,25 +28,36 @@ namespace re
 		///
 		/// \param script Script file containing font data to parse.
 		///
-		FontManager(const std::string& script);
+		FontBook(const std::string& script);
 
 		///
 		/// Cleanup fonts.
 		///
-		~FontManager() override;
+		~FontBook() override;
 
-		
 		///
-		/// Retrieve a font.
+		/// Clean up resources.
 		///
-		/// \param id The key of the font to retrieve.
-		///
-		/// \return Returns a pointer to the font.
-		///
-		ALLEGRO_FONT* get(const std::string& id);
+		void clean() override;
 
 	private:
-		std::unordered_map<std::string, ALLEGRO_FONT*> m_fontMap;
+		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		FontBook() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		FontBook(const FontBook&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		FontBook(FontBook&&) = delete;
 	};
 }
 

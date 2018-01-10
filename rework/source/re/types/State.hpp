@@ -1,10 +1,11 @@
-//
-//  State.hpp
-//  rework
-//
-//  Created by reworks on 27/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  State.hpp
+///  rework
+///
+///  Created by reworks on 27/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_STATE_HPP_
 #define REWORK_STATE_HPP_
@@ -21,7 +22,7 @@ namespace re
 		///
 		/// Destructor.
 		///
-		virtual inline ~BaseState() {};
+		virtual ~BaseState() = default;
 
 		///
 		/// Load the states resources.
@@ -43,7 +44,7 @@ namespace re
 		///
 		/// \param dt Delta Time from game loop.
 		///
-		virtual void update(double dt) = 0;
+		virtual void update(const double dt) = 0;
 
 		///
 		/// Render the current state.
@@ -54,11 +55,13 @@ namespace re
 	template<typename Derived>
 	class State : public BaseState
 	{
+		friend Derived;
+		friend BaseState;
 	public:
 		///
 		/// Destructor.
 		///
-		virtual inline ~State() {};
+		virtual ~State() = default;
 
 		///
 		/// Retrieve instance of state.
@@ -69,9 +72,27 @@ namespace re
 			return m_statePtr;
 		}
 
-	protected:
+	private:
 		/// Allows for loading stuff only once in load()
 		bool m_doneOnce = false;
+
+	private:
+		///
+		/// Default constructor.
+		///
+		State() = default;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		State(const State&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		State(State&&) = delete;
 	};
 }
 

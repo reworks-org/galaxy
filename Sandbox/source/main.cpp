@@ -79,13 +79,14 @@ int main(int argc, char **argv)
 		newConfig << "positionIterations = 3" << std::endl;
 		newConfig << std::endl;
 
-		newConfig << "[fontmanager]" << std::endl;
+		newConfig << "[font]" << std::endl;
 		newConfig << "fontScript = fonts.lua" << std::endl;
 		newConfig << std::endl;
 
-		newConfig << "[audiomanager]" << std::endl;
-		newConfig << "audioScript = audio.lua" << std::endl;
-		newConfig << "reserveSamples = 16" << std::endl;
+		newConfig << "[audio]" << std::endl;
+		newConfig << "musicScript = music.lua" << std::endl;
+		newConfig << "soundScript = sound.lua" << std::endl;
+		newConfig << "reserveSamples = 32" << std::endl;
 	});
 
 	return sandbox.run();

@@ -183,10 +183,7 @@
     <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\re\math\MaxRectsBinPack.cpp" />
-    <ClCompile Include="source\re\utils\ConfigReader.cpp" />
     <ClCompile Include="source\re\fs\VFS.cpp" />
-    <ClCompile Include="source\re\resources\AudioManager.cpp" />
-    <ClCompile Include="source\re\resources\ShaderManager.cpp" />
     <ClCompile Include="source\re\physics\Box2DManager.cpp" />
     <ClCompile Include="source\re\resources\FontBook.cpp" />
     <ClCompile Include="source\re\core\StateManager.cpp" />
@@ -204,6 +201,10 @@
     <ClCompile Include="source\re\libs\imgui\imguinodegrapheditor.cpp" />
     <ClCompile Include="source\re\libs\imgui\imguivariouscontrols.cpp" />
     <ClCompile Include="source\re\libs\imgui\TextEditor.cpp" />
+    <ClCompile Include="source\re\resources\ShaderLibrary.cpp" />
+    <ClCompile Include="source\re\resources\SoundPlayer.cpp" />
+    <ClCompile Include="source\re\resources\MusicPlayer.cpp" />
+    <ClCompile Include="source\re\utils\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -478,16 +479,11 @@
     <ClInclude Include="source\re\libs\sol2\sol_forward.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />
     <ClInclude Include="source\re\types\ServiceLocator.hpp" />
-    <ClInclude Include="source\re\utils\ConfigReader.hpp" />
     <ClInclude Include="source\re\fs\VFS.hpp" />
-    <ClInclude Include="source\re\resources\ShaderManager.hpp" />
-    <ClInclude Include="source\re\resources\AudioManager.hpp" />
     <ClInclude Include="source\re\physics\Box2DManager.hpp" />
     <ClInclude Include="source\re\resources\FontBook.hpp" />
-    <ClInclude Include="source\re\types\ResourceLoader.hpp" />
     <ClInclude Include="source\re\core\StateManager.hpp" />
     <ClInclude Include="source\re\libs\imgui\imgui_stl.h" />
-    <ClInclude Include="source\re\libs\serpent\Serpent.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\config.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core14.hpp" />
     <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core14_classic.hpp" />
@@ -561,6 +557,11 @@
     <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
     <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
     <ClInclude Include="source\re\libs\entt\entt.hpp" />
+    <ClInclude Include="source\re\resources\ShaderLibrary.hpp" />
+    <ClInclude Include="source\re\types\ResourceCache.hpp" />
+    <ClInclude Include="source\re\resources\SoundPlayer.hpp" />
+    <ClInclude Include="source\re\resources\MusicPlayer.hpp" />
+    <ClInclude Include="source\re\utils\ConfigReader.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,22 +1,23 @@
-//
-//  Box2DHelper.hpp
-//  rework
-//
-//  Created by reworks on 22/09/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Box2DHelper.hpp
+///  rework
+///
+///  Created by reworks on 22/09/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_BOX2DHELPER_HPP_
 #define REWORK_BOX2DHELPER_HPP_
-
-// If 32 doesnt work, try 30 or 60.
-#define RE_PIXELS_PER_METERS 32.0f
-#define RE_PI 3.14159265358979323846f
 
 namespace re
 {
 	namespace b2
 	{
+		/// If 32 doesnt work, try 30 or 60.
+		static constexpr double PIXELS_PER_METER = 32.0;
+		static constexpr double PI = 3.14159265358979323846;
+
 		///
 		/// Convert pixels to meters.
 		///
@@ -25,9 +26,9 @@ namespace re
 		/// \return Returns meters.
 		///
 		template<typename T>
-		T constexpr pixelsToMeters(T pixels)
+		constexpr T pixelsToMeters(T pixels)
 		{
-			return pixels / RE_PIXELS_PER_METERS;
+			return static_cast<T>(pixels) / static_cast<T>(RE_PIXELS_PER_METERS);
 		}
 
 		///
@@ -38,9 +39,9 @@ namespace re
 		/// \return Returns pixels.
 		///
 		template<typename T>
-		T constexpr metersToPixels(T meters)
+		constexpr T metersToPixels(T meters)
 		{
-			return meters * RE_PIXELS_PER_METERS;
+			return static_cast<T>(meters) * static_cast<T>(RE_PIXELS_PER_METERS);
 		}
 
 		///
@@ -51,9 +52,9 @@ namespace re
 		/// \return Returns radians.
 		///
 		template<typename T>
-		T constexpr degToRad(T deg)
+		constexpr T degToRad(T deg)
 		{
-			return (RE_PI * deg) / 180.0f;
+			return (static_cast<T>(RE_PI) * deg) / static_cast<T>(180.0);
 		}
 
 		///
@@ -64,9 +65,9 @@ namespace re
 		/// \return Returns degrees.
 		///
 		template<typename T>
-		T constexpr radToDeg(T rad)
+		constexpr T radToDeg(T rad)
 		{
-			return (180.0f * rad) / RE_PI;
+			return (static_cast<T>(180.0) * rad) / static_cast<T>(RE_PI);
 		}
 	}
 }

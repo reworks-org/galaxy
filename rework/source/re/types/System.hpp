@@ -12,7 +12,7 @@
 
 #include <cstdint>
 
-#include "entt/entt.hpp"
+#include "entt/entity/registry.hpp"
 
 namespace re
 {
@@ -21,7 +21,8 @@ namespace re
 	public:
 		///
 		/// Virtual destructor.
-		virtual inline ~System() = default;
+		///
+		virtual ~System() = default;
 
 		///
 		/// Update method.
