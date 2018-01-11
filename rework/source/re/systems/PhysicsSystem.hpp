@@ -1,21 +1,21 @@
-//
-//  PhysicsSystem.hpp
-//  rework
-//
-//  Created by reworks on 8/11/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+/// PhysicsSystem.hpp
+/// rework
+///
+///  Created by reworks on 08/11/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_PHYSICSSYSTEM_HPP_
 #define REWORK_PHYSICSSYSTEM_HPP_
 
-#include "entityx/System.h"
+#include "re/types/System.hpp"
 
 namespace re
 {
 	class Box2DManager;
-
-	class PhysicsSystem : public entityx::System<PhysicsSystem>
+	class PhysicsSystem final : public System
 	{
 	public:
 		///
@@ -25,24 +25,43 @@ namespace re
 		/// \param vi Box2D velocity iterations.
 		/// \param pi Box2D position iterations.
 		///
-		PhysicsSystem(float ups, int32 vi, int32 pi);
+		PhysicsSystem(float ups, int vi, int pi);
 
 		///
 		/// Destructor.
 		///
-		~PhysicsSystem() override;
+		~PhysicsSystem() override = default;
 		
 		///
 		/// \brief Update the system.
 		///
-		/// Dont actually call this, this is called by entity x internal system manager.
+		/// Dont actually call this, this is called by the world automatically.
 		///
-		void update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt) override;
+		void update(const double dt, entt::DefaultRegistry& registery) override;
+
+	private:
+		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		PhysicsSystem() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		PhysicsSystem(const PhysicsSystem&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		PhysicsSystem(PhysicsSystem&&) = delete;
 
 	private:
 		float m_ups;
-		int32 m_velocityIterations;
-		int32 m_positionIterations;
+		int m_velocityIterations;
+		int m_positionIterations;
 
 		Box2DManager* m_manager;
 	};

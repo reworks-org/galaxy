@@ -3,7 +3,7 @@
 ///  rework
 ///
 ///  Created by reworks on 13/12/2017.
-///  Copyright (c) 2017 reworks.
+///  Copyright (c) 2018+ reworks.
 ///  Refer to LICENSE.txt for more details.
 ///
 
@@ -19,11 +19,11 @@ namespace re
 	///
 	struct RenderType
 	{
-		static const int SPRITE = 0;
-		static const int TEXT = 1;
-		static const int TILEMAP = 2;
-		static const int TILEMAP_ANIMATED = 3;
-		static const int TILEMAP_IMAGE = 4;
+		static constexpr int SPRITE = 0;
+		static constexpr int TEXT = 1;
+		static constexpr int TILEMAP = 2;
+		static constexpr int TILEMAP_ANIMATED = 3;
+		static constexpr int TILEMAP_IMAGE = 4;
 	};
 
 	///

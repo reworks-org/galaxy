@@ -1,10 +1,11 @@
-//
-//  AnimationSystem.cpp
-//  rework
-//
-//  Created by reworks on 10/11/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+/// AnimationSystem.cpp
+/// rework
+///
+///  Created by reworks on 10/11/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include "re/utils/Time.hpp"
 #include "re/components/SpriteComponent.hpp"
@@ -14,26 +15,18 @@
 
 namespace re
 {
-	AnimationSystem::AnimationSystem()
+	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
-	}
-
-	AnimationSystem::~AnimationSystem()
-	{
-	}
-
-	void AnimationSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
-	{
-		es.each<AnimationComponent, SpriteComponent>([dt](entityx::Entity& entity, AnimationComponent& ac, SpriteComponent& sc)
+		registery.view<AnimationComponent, SpriteComponent>().each([dt](entt::Entity entity, AnimationComponent& ac, SpriteComponent& sc)
 		{
 			if (!ac.m_isPaused)
 			{
-				Animation* animation = &(ac.m_animations.at(ac.m_activeAnimation));
+				Animation* animation = &(ac.m_animations[ac.m_activeAnimation]);
 
 				auto timepassed = (dt * animation->m_speed);
 				ac.m_currentFrameTime += timepassed;
 
-				if (ac.m_currentFrameTime >= Time::milliseconds(animation->m_timePerFrame))
+				if (ac.m_currentFrameTime >= time::milliseconds(animation->m_timePerFrame))
 				{
 					ac.m_currentFrameTime = 0.0;
 					animation->m_currentFrame++;

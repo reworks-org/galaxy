@@ -12,11 +12,11 @@
 #include <allegro5/drawing.h>
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
+#include <allegro5/allegro_font.h>
 
 #include "loguru/loguru.hpp"
 #include "re/utils/Utils.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/math/MaxRectsBinPack.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "TextureAtlas.hpp"
@@ -27,7 +27,8 @@ namespace re
 	{
 		size_t atlasSize = std::pow(2, powerOfTwoDimension);
 		m_atlas = al_create_bitmap(atlasSize, atlasSize);
-		rbp::MaxRectsBinPack bin(atlasSize, atlasSize, false);
+		m_bin.Init(atlasSize, atlasSize, false);
+
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
 		al_set_target_bitmap(m_atlas);
 		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
@@ -43,7 +44,7 @@ namespace re
 				LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i;
 			}
 
-			al_draw_bitmap(bitmap, packedRect.x, packedRect.y, 0);
+			al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
 			m_packedTextures.emplace(Utils::removeExtension(std::string(*i)), packedRect);
 			
 			al_destroy_bitmap(bitmap);
@@ -58,6 +59,40 @@ namespace re
 	TextureAtlas::~TextureAtlas()
 	{
 		al_destroy_bitmap(m_atlas);
+	}
+
+	void TextureAtlas::addTextureToAtlas(std::string_view ID, ALLEGRO_BITMAP* textureData)
+	{
+		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
+		Rect<int> packedRect = bin.Insert(al_get_bitmap_width(textureData), al_get_bitmap_height(textureData), heuristic);
+
+		if (!(packedRect.height > 0))
+		{
+			LOG_S(WARNING) << "Failed to pack a texture! Texture: " << textureID;
+		}
+
+		al_set_target_bitmap(m_atlas);
+		al_draw_bitmap(textureData, packedRect.m_x, packedRect.m_y, 0);
+		al_flip_display();
+		al_set_target_bitmap(al_get_backbuffer(Window::get()->getDisplay()));
+
+		m_packedTextures.emplace(ID, packedRect);
+	}
+
+	void TextureAtlas::addTextToAtlas(std::string_view ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
+	{
+		int w = al_get_text_width(font, text.c_str());
+		int h = al_get_font_line_height(font);
+		ALLEGRO_BITMAP* bitmap = al_create_bitmap(w, h);
+		
+		al_set_target_bitmap(bitmap);
+		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
+		al_draw_text(font, col, 0, 0, 0, text.c_str());
+		al_flip_display();
+
+		addTextureToAtlas(ID, bitmap);
+
+		al_destroy_bitmap(bitmap);
 	}
 
 	void TextureAtlas::al_draw_packed_bitmap(std::string_view texture, float dx, float dy, int flags)

@@ -28,7 +28,7 @@ namespace re
 		template<typename T>
 		constexpr T pixelsToMeters(T pixels)
 		{
-			return static_cast<T>(pixels) / static_cast<T>(RE_PIXELS_PER_METERS);
+			return static_cast<T>(pixels) / static_cast<T>(PIXELS_PER_METER);
 		}
 
 		///
@@ -41,7 +41,7 @@ namespace re
 		template<typename T>
 		constexpr T metersToPixels(T meters)
 		{
-			return static_cast<T>(meters) * static_cast<T>(RE_PIXELS_PER_METERS);
+			return static_cast<T>(meters) * static_cast<T>(PIXELS_PER_METER);
 		}
 
 		///
@@ -54,7 +54,7 @@ namespace re
 		template<typename T>
 		constexpr T degToRad(T deg)
 		{
-			return (static_cast<T>(RE_PI) * deg) / static_cast<T>(180.0);
+			return (static_cast<T>(PI) * deg) / static_cast<T>(180.0);
 		}
 
 		///
@@ -67,7 +67,7 @@ namespace re
 		template<typename T>
 		constexpr T radToDeg(T rad)
 		{
-			return (static_cast<T>(180.0) * rad) / static_cast<T>(RE_PI);
+			return (static_cast<T>(180.0) * rad) / static_cast<T>(PI);
 		}
 	}
 }

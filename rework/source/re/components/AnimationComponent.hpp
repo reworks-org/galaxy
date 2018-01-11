@@ -10,6 +10,8 @@
 #ifndef REWORK_ANIMATIONCOMPONENT_HPP_
 #define REWORK_ANIMATIONCOMPONENT_HPP_
 
+#include <unordered_map>
+
 #include "re/graphics/Animation.hpp"
 
 namespace re

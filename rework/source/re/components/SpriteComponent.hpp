@@ -32,7 +32,7 @@ namespace re
 		///
 		/// Destructor.
 		///
-		~SpriteComponent() override;
+		~SpriteComponent();
 		
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.

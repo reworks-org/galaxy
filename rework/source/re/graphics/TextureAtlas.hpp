@@ -15,6 +15,7 @@
 #include <allegro5/bitmap.h>
 
 #include "re/math/Rect.hpp"
+#include "re/math/MaxRectsBinPack.hpp"
 #include "re/types/ServiceLocator.hpp"
 
 namespace re
@@ -35,6 +36,28 @@ namespace re
 		/// Destructor. Frees texture atlas.
 		///
 		~TextureAtlas() override;
+
+		///
+		/// \brief Add a texture to the atlas.
+		///
+		/// Usually used when you generate a texture, such as a tilemap, that is not included in the assets.
+		///
+		/// \param ID ID of texture to add. Do not include extension.
+		/// \param textureData Bitmap to add. WARNING! textureData WILL NOT BE FREED BY THIS FUNCTION!
+		///
+		void addTextureToAtlas(std::string_view ID, ALLEGRO_BITMAP* textureData);
+
+		///
+		/// \brief Add bitmap text to the atlas.
+		///
+		/// Usually used when you want to render text.
+		///
+		/// \param ID ID of texture to add. Do not include extension.
+		/// \param text Text to draw.
+		/// \param font Font to use.
+		/// \param col Colour to use.
+		///
+		void addTextToAtlas(std::string_view ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
 
 		///
 		/// Like al_draw_bitmap
@@ -68,6 +91,8 @@ namespace re
 	private:
 		ALLEGRO_BITMAP* m_atlas;
 		std::unordered_map<std::string_view, Rect<int>> m_packedTextures;
+
+		rbp::MaxRectsBinPack m_bin;
 
 	private:
 		///

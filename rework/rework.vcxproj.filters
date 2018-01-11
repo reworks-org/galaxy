@@ -205,6 +205,7 @@
     <ClCompile Include="source\re\resources\SoundPlayer.cpp" />
     <ClCompile Include="source\re\resources\MusicPlayer.cpp" />
     <ClCompile Include="source\re\utils\ConfigReader.cpp" />
+    <ClCompile Include="source\re\libs\entt\entt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />

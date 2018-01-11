@@ -29,6 +29,7 @@
     <ClCompile Include="source\re\core\Application.cpp" />
     <ClCompile Include="source\re\core\World.cpp" />
     <ClCompile Include="source\re\graphics\Animation.cpp" />
+    <ClCompile Include="source\re\libs\entt\entt.cpp" />
     <ClCompile Include="source\re\libs\imgui\auto\auto.cpp" />
     <ClCompile Include="source\re\libs\imgui\imgui.cpp" />
     <ClCompile Include="source\re\libs\imgui\imguidatechooser.cpp" />

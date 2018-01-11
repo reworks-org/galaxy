@@ -1,16 +1,11 @@
-//
-//  RenderSystem.cpp
-//  rework
-//
-//  Created by reworks on 6/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
-
-#include <allegro5/display.h>
-
-#include "re/graphics/Window.hpp"
-#include "re/services/ServiceLocator.hpp"
-#include "re/components/RenderableComponent.hpp"
+///
+/// RenderSystem.cpp
+/// rework
+///
+///  Created by reworks on 06/08/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include "RenderSystem.hpp"
 
@@ -28,7 +23,7 @@ namespace re
 		m_layers.clear();
 	}
 
-	void RenderSystem::update(entityx::EntityManager& es, entityx::EventManager& events, entityx::TimeDelta dt)
+	void RenderSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
 		// ratherr than create amnd de;lete qiuadtree, just allocate stack quadtree.
 		// level bounds

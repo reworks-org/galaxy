@@ -18,12 +18,14 @@ namespace re
 {
 	class System
 	{
+		friend class World;
 	public:
 		///
 		/// Virtual destructor.
 		///
 		virtual ~System() = default;
 
+	protected:
 		///
 		/// Update method.
 		///
@@ -31,7 +33,7 @@ namespace re
 		///
 		virtual void update(const double dt, entt::DefaultRegistry& registery) = 0;
 
-	public:
+	protected:
 		static std::uint32_t m_id;
 	};
 }
