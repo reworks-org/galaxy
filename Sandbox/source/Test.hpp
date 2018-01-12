@@ -9,8 +9,8 @@
 #ifndef SANDBOX_TEST_HPP_
 #define SANDBOX_TEST_HPP_
 
-#include <re/types/State.hpp>
-#include <re/managers/StateManager.hpp>
+#include <sl/types/State.hpp>
+#include <sl/managers/StateManager.hpp>
 
 class Test : public sl::State<Test>
 {

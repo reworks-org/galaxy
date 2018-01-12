@@ -7,13 +7,13 @@
 //
 
 #include <allegro5/events.h>
-#include <re/core/World.hpp>
-#include <re/utils/Time.hpp>
+#include <sl/cosl/World.hpp>
+#include <sl/utils/Time.hpp>
 #include <loguru/loguru.hpp>
-#include <re/graphics/Window.hpp>
-#include <re/systems/RenderSystem.hpp>
-#include <re/managers/AudioManager.hpp>
-#include <re/services/ServiceLocator.hpp>
+#include <sl/graphics/Window.hpp>
+#include <sl/systems/RenderSystem.hpp>
+#include <sl/managers/AudioManager.hpp>
+#include <sl/services/ServiceLocator.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
 

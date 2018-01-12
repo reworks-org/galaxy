@@ -6,10 +6,10 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include <re/core/World.hpp>
-#include <re/physics/Box2DHelper.hpp>
-#include <re/systems/RenderSystem.hpp>
-#include <re/services/ServiceLocator.hpp>
+#include <sl/cosl/World.hpp>
+#include <sl/physics/Box2DHelper.hpp>
+#include <sl/systems/RenderSystem.hpp>
+#include <sl/services/ServiceLocator.hpp>
 
 #include "TestLevel.hpp"
 

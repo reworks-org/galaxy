@@ -6,10 +6,10 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <re/core/World.hpp>
-#include <re/services/ServiceLocator.hpp>
-#include <re/components/PhysicsComponent.hpp>
-#include <re/components/TransformComponent.hpp>
+#include <sl/cosl/World.hpp>
+#include <sl/services/ServiceLocator.hpp>
+#include <sl/components/PhysicsComponent.hpp>
+#include <sl/components/TransformComponent.hpp>
 
 #include "MoveSystem.hpp"
 

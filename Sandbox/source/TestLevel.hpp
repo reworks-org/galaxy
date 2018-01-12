@@ -9,8 +9,8 @@
 #ifndef STARLIGHT_TESTLEVEL_HPP_
 #define STARLIGHT_TESTLEVEL_HPP_
 
-#include <re/mapping/Level.hpp>
-#include <re/managers/Box2DManager.hpp>
+#include <sl/mapping/Level.hpp>
+#include <sl/managers/Box2DManager.hpp>
 
 class TestLevel : public sl::Level
 {

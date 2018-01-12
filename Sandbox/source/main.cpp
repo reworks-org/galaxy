@@ -8,21 +8,21 @@
 
 #include <iostream>
 
-#include <re/core/Application.hpp>
-#include <re/services/ServiceLocator.hpp>
+#include <sl/cosl/Application.hpp>
+#include <sl/services/ServiceLocator.hpp>
 
-#include <re/components/AnimationComponent.hpp>
-#include <re/components/PhysicsComponent.hpp>
-#include <re/components/RenderableComponent.hpp>
-#include <re/components/SpriteComponent.hpp>
-#include <re/components/TextComponent.hpp>
-#include <re/components/TransformComponent.hpp>
-#include <re/systems/AnimationSystem.hpp>
+#include <sl/components/AnimationComponent.hpp>
+#include <sl/components/PhysicsComponent.hpp>
+#include <sl/components/RenderableComponent.hpp>
+#include <sl/components/SpriteComponent.hpp>
+#include <sl/components/TextComponent.hpp>
+#include <sl/components/TransformComponent.hpp>
+#include <sl/systems/AnimationSystem.hpp>
 
-#include <re/systems/RenderSystem.hpp>
-#include <re/systems/PhysicsSystem.hpp>
+#include <sl/systems/RenderSystem.hpp>
+#include <sl/systems/PhysicsSystem.hpp>
 
-#include <re/mapping/TMXHelper.hpp>
+#include <sl/mapping/TMXHelper.hpp>
 
 #include "gamesystems/MoveSystem.hpp"
 
