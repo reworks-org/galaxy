@@ -35,18 +35,18 @@ namespace sl
 			}
 			else
 			{
-				m_configs.emplace(entt::HashedString(config.c_str()), ptr);
+				m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
 			}
 		}
 		else
 		{
-			m_configs.emplace(entt::HashedString(config.c_str()), ptr);
+			m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
 		}
 	}
 
 	ConfigReader::~ConfigReader()
 	{
-		for (auto& it : m_configs)
+		for (auto& it : m_resourceMap)
 		{
 			al_destroy_config(it.second);
 		}
@@ -61,28 +61,28 @@ namespace sl
 		}
 		else
 		{
-			m_configs.emplace(entt::HashedString(config.c_str()), ptr);
+			m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
 		}
 	}
 	
 	void ConfigReader::removeValue(entt::HashedString config, const std::string& section, const std::string& key)
 	{
-		al_remove_config_key(m_configs[config], section.c_str(), key.c_str());
+		al_remove_config_key(m_resourceMap[config], section.c_str(), key.c_str());
 	}
 
 	void ConfigReader::addSection(entt::HashedString config, const std::string& section)
 	{
-		al_add_config_section(m_configs[config], section.c_str());
+		al_add_config_section(m_resourceMap[config], section.c_str());
 	}
 
 	void ConfigReader::removeSection(entt::HashedString config, const std::string& section)
 	{
-		al_remove_config_section(m_configs[config], section.c_str());
+		al_remove_config_section(m_resourceMap[config], section.c_str());
 	}
 
 	void ConfigReader::save(const std::string& config)
 	{
-		bool saved = al_save_config_file(config.c_str(), m_configs[entt::HashedString(config.c_str())]);
+		bool saved = al_save_config_file(config.c_str(), m_resourceMap[entt::HashedString(config.c_str())]);
 		if (!saved)
 		{
 			LOG_S(ERROR) << "Failed to save config file: " << config << ".";

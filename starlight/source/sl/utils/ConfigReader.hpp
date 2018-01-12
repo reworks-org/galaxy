@@ -13,12 +13,12 @@
 #include <functional>
 #include <allegro5/config.h>
 
+#include "sl/types/ResourceCache.hpp"
 #include "sl/types/ServiceLocator.hpp"
-#include "entt/cosl/hashed_string.hpp"
 
 namespace sl
 {
-	class ConfigReader : public ServiceLocator<ConfigReader>
+	class ConfigReader : public ServiceLocator<ConfigReader>, public ResourceCache<ALLEGRO_CONFIG*>
 	{
 	public:
 		///
@@ -90,9 +90,6 @@ namespace sl
 		T lookup(entt::HashedString config, const std::string& section, const std::string& key);
 
 	private:
-		std::unordered_map<entt::HashedString::hash_type, ALLEGRO_CONFIG*> m_configs;
-
-	private:
 		///
 		/// Default Constructor.
 		/// Deleted.
@@ -115,13 +112,13 @@ namespace sl
 	template<typename T>
 	T ConfigReader::lookup(entt::HashedString config, const std::string& section, const std::string& key)
 	{  
-		return utils::convertString<T>(al_get_config_value(m_configs[config], section.c_str(), key.c_str()));
+		return utils::convertString<T>(al_get_config_value(m_resourceMap[config], section.c_str(), key.c_str()));
 	}
 
 	template<typename T>
 	void ConfigReader::setValue(entt::HashedString config, const std::string& section, const std::string& key, T value)
 	{
-		al_set_config_value(m_configs[config], section.c_str(), key.c_str(), std::to_string(value).c_str());
+		al_set_config_value(m_resourceMap[config], section.c_str(), key.c_str(), std::to_string(value).c_str());
 	}
 }
 
