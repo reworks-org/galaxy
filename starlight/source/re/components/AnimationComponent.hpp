@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_ANIMATIONCOMPONENT_HPP_
-#define REWORK_ANIMATIONCOMPONENT_HPP_
+#ifndef STARLIGHT_ANIMATIONCOMPONENT_HPP_
+#define STARLIGHT_ANIMATIONCOMPONENT_HPP_
 
 #include <unordered_map>
 

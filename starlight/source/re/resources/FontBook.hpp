@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_FONTBOOK_HPP_
-#define REWORK_FONTBOOK_HPP_
+#ifndef STARLIGHT_FONTBOOK_HPP_
+#define STARLIGHT_FONTBOOK_HPP_
 
 #include <allegro5/allegro_font.h>
 

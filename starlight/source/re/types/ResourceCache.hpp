@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_RESOURCECACHE_HPP_
-#define REWORK_RESOURCECACHE_HPP_
+#ifndef STARLIGHT_RESOURCECACHE_HPP_
+#define STARLIGHT_RESOURCECACHE_HPP_
 
 #include <type_traits>
 #include <unordered_map>

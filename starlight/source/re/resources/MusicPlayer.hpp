@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_MUSICPLAYER_HPP_
-#define REWORK_MUSICPLAYER_HPP_
+#ifndef STARLIGHT_MUSICPLAYER_HPP_
+#define STARLIGHT_MUSICPLAYER_HPP_
 
 #include "re/audio/Music.hpp"
 #include "re/types/ResourceCache.hpp"

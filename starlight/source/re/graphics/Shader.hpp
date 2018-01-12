@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_SHADER_HPP_
-#define REWORK_SHADER_HPP_
+#ifndef STARLIGHT_SHADER_HPP_
+#define STARLIGHT_SHADER_HPP_
 
 #include <allegro5/shader.h>
 

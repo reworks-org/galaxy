@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_TEXTUREATLAS_HPP_
-#define REWORK_TEXTUREATLAS_HPP_
+#ifndef STARLIGHT_TEXTUREATLAS_HPP_
+#define STARLIGHT_TEXTUREATLAS_HPP_
 
 #include <unordered_map>
 #include <allegro5/color.h>

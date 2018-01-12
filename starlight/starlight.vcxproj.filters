@@ -206,6 +206,7 @@
     <ClCompile Include="source\re\resources\MusicPlayer.cpp" />
     <ClCompile Include="source\re\utils\ConfigReader.cpp" />
     <ClCompile Include="source\re\libs\entt\entt.cpp" />
+    <ClCompile Include="source\re\components\RenderableComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\re\audio\Music.hpp" />
@@ -563,6 +564,7 @@
     <ClInclude Include="source\re\resources\SoundPlayer.hpp" />
     <ClInclude Include="source\re\resources\MusicPlayer.hpp" />
     <ClInclude Include="source\re\utils\ConfigReader.hpp" />
+    <ClInclude Include="source\re\components\RenderableComponent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

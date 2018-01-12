@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_TRANSFORMCOMPONENT_HPP_
-#define REWORK_TRANSFORMCOMPONENT_HPP_
+#ifndef STARLIGHT_TRANSFORMCOMPONENT_HPP_
+#define STARLIGHT_TRANSFORMCOMPONENT_HPP_
 
 #include "re/math/Rect.hpp"
 #include "cereal/access.hpp"

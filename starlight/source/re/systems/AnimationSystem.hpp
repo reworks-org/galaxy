@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_ANIMATIONSYSTEM_HPP_
-#define REWORK_ANIMATIONSYSTEM_HPP_
+#ifndef STARLIGHT_ANIMATIONSYSTEM_HPP_
+#define STARLIGHT_ANIMATIONSYSTEM_HPP_
 
 #include "re/types/System.hpp"
 

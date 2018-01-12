@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_WORLD_HPP_
-#define REWORK_WORLD_HPP_
+#ifndef STARLIGHT_WORLD_HPP_
+#define STARLIGHT_WORLD_HPP_
 
 #include <string_view>
 #include <unordered_map>

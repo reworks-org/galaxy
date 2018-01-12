@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_RENDERSYSTEM_HPP_
-#define REWORK_RENDERSYSTEM_HPP_
+#ifndef STARLIGHT_RENDERSYSTEM_HPP_
+#define STARLIGHT_RENDERSYSTEM_HPP_
 
 #include "re/types/System.hpp"
 
@@ -32,12 +32,6 @@ namespace sl
 		/// Destructor.
 		///
 		~RenderSystem() override;
-
-		///
-		/// Render entitys.
-		///
-		template<typename ... Components>
-		void render();
 
 		///
 		/// Clean up system.

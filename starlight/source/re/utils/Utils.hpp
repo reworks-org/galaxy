@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_UTILS_HPP_
-#define REWORK_UTILS_HPP_
+#ifndef STARLIGHT_UTILS_HPP_
+#define STARLIGHT_UTILS_HPP_
 
 #include <string>
 #include <sstream>

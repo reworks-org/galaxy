@@ -7,12 +7,13 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_TEXTCOMPONENT_HPP_
-#define REWORK_TEXTCOMPONENT_HPP_
+#ifndef STARLIGHT_TEXTCOMPONENT_HPP_
+#define STARLIGHT_TEXTCOMPONENT_HPP_
 
 #include <allegro5/color.h>
 
 #include "sol2/sol_forward.hpp"
+#include "entt/core/hashed_string.hpp"
 
 typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 
@@ -49,6 +50,7 @@ namespace sl
 		std::string m_text;
 		ALLEGRO_FONT* m_font;
 		ALLEGRO_COLOR m_colour;
+		entt::HashedString m_id;
 
 	private:
 		///

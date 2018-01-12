@@ -23,6 +23,7 @@
     <ClCompile Include="source\re\audio\Sound.cpp" />
     <ClCompile Include="source\re\components\AnimationComponent.cpp" />
     <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
+    <ClCompile Include="source\re\components\RenderableComponent.cpp" />
     <ClCompile Include="source\re\components\SpriteComponent.cpp" />
     <ClCompile Include="source\re\components\TextComponent.cpp" />
     <ClCompile Include="source\re\components\TransformComponent.cpp" />
@@ -570,6 +571,7 @@
     <ClInclude Include="source\re\resources\ShaderLibrary.hpp" />
     <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\re\scripting\Sol2ImguiAutoImpl.hpp" />
+    <ClInclude Include="source\re\components\RenderableComponent.hpp" />
     <ClInclude Include="source\re\types\ResourceCache.hpp" />
     <ClInclude Include="source\re\utils\ConfigReader.hpp" />
     <ClInclude Include="source\re\types\System.hpp" />

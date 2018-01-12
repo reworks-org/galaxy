@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_VFS_HPP_
-#define REWORK_VFS_HPP_
+#ifndef STARLIGHT_VFS_HPP_
+#define STARLIGHT_VFS_HPP_
 
 #include <string>
 

@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_SHADERLIBRARY_HPP_
-#define REWORK_SHADERLIBRARY_HPP_
+#ifndef STARLIGHT_SHADERLIBRARY_HPP_
+#define STARLIGHT_SHADERLIBRARY_HPP_
 
 #include "re/graphics/Shader.hpp"
 #include "re/types/ResourceCache.hpp"

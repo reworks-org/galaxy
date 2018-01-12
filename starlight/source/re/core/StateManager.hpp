@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_STATEMANAGER_HPP_
-#define REWORK_STATEMANAGER_HPP_
+#ifndef STARLIGHT_STATEMANAGER_HPP_
+#define STARLIGHT_STATEMANAGER_HPP_
 
 #include <memory>
 

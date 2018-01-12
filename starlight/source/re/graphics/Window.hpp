@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_WINDOW_HPP_
-#define REWORK_WINDOW_HPP_
+#ifndef STARLIGHT_WINDOW_HPP_
+#define STARLIGHT_WINDOW_HPP_
 
 #include <string>
 #include <allegro5/bitmap.h>

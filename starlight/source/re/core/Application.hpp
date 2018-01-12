@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_APPLICATION_HPP_
-#define REWORK_APPLICATION_HPP_
+#ifndef STARLIGHT_APPLICATION_HPP_
+#define STARLIGHT_APPLICATION_HPP_
 
 #include <fstream>
 #include <string_view>

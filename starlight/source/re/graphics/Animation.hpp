@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_ANIMATION_HPP_
-#define REWORK_ANIMATION_HPP_
+#ifndef STARLIGHT_ANIMATION_HPP_
+#define STARLIGHT_ANIMATION_HPP_
 
 #include "sol2/sol_forward.hpp"
 

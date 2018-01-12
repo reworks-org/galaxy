@@ -12,7 +12,8 @@
 
 #include "sol2/sol.hpp"
 #include "imgui/imgui_impl_a5.h"
-#include "re/managers/FontManager.hpp"
+#include "re/resources/FontBook.hpp"
+#include "re/graphics/TextureAtlas.hpp"
 #include "re/services/ServiceLocator.hpp"
 #include "re/components/TransformComponent.hpp"
 
@@ -22,8 +23,9 @@ namespace sl
 {
 	TextComponent::TextComponent(const sol::table& table)
 	{
+		m_id = entt::HashedString(table.get<const char*>("id"));
 		m_text = table.get<std::string>("text");
-		m_font = Locator::get<FontManager>()->get(table.get<std::string>("font"));
+		m_font = FontBook::get()->get(table.get<std::string>("font"));
 
 		sol::table colour = table.get<sol::table>("colour");
 		m_colour = al_map_rgba(colour.get<unsigned char>("r"), colour.get<unsigned char>("g"), colour.get<unsigned char>("b"), colour.get<unsigned char>("a"));
@@ -31,6 +33,8 @@ namespace sl
 		m_offsetX = table.get<float>("offsetX");
 		m_offsetY = table.get<float>("offsetY");
 		m_layer = table.get<int>("layer");
+
+		TextureAtlas::get()->addTextToAtlas(m_id, m_text, m_font, m_colour);
 	}
 
 	void TextComponent::debug()

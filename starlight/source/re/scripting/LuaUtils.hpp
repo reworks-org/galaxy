@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_LUAUTILS_HPP_
-#define REWORK_LUAUTILS_HPP_
+#ifndef STARLIGHT_LUAUTILS_HPP_
+#define STARLIGHT_LUAUTILS_HPP_
 
 #include <map>
 #include <string>

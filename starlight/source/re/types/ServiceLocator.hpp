@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_SERVICELOCATOR_HPP_
-#define REWORK_SERVICELOCATOR_HPP_
+#ifndef STARLIGHT_SERVICELOCATOR_HPP_
+#define STARLIGHT_SERVICELOCATOR_HPP_
 
 #include <memory>
 #include <utility>

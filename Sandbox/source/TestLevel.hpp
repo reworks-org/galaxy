@@ -6,8 +6,8 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#ifndef REWORK_TESTLEVEL_HPP_
-#define REWORK_TESTLEVEL_HPP_
+#ifndef STARLIGHT_TESTLEVEL_HPP_
+#define STARLIGHT_TESTLEVEL_HPP_
 
 #include <re/mapping/Level.hpp>
 #include <re/managers/Box2DManager.hpp>

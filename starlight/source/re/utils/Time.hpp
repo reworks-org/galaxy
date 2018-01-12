@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_TIME_HPP_
-#define REWORK_TIME_HPP_
+#ifndef STARLIGHT_TIME_HPP_
+#define STARLIGHT_TIME_HPP_
 
 #include <ctime>
 #include <chrono>

@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_RANDOM_HPP_
-#define REWORK_RANDOM_HPP_
+#ifndef STARLIGHT_RANDOM_HPP_
+#define STARLIGHT_RANDOM_HPP_
 
 #include <random>
 

@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_PHYSICSSYSTEM_HPP_
-#define REWORK_PHYSICSSYSTEM_HPP_
+#ifndef STARLIGHT_PHYSICSSYSTEM_HPP_
+#define STARLIGHT_PHYSICSSYSTEM_HPP_
 
 #include "re/types/System.hpp"
 

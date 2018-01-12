@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_SOL2IMGUIAUTOIMPL_HPP_
-#define REWORK_SOL2IMGUIAUTOIMPL_HPP_
+#ifndef STARLIGHT_SOL2IMGUIAUTOIMPL_HPP_
+#define STARLIGHT_SOL2IMGUIAUTOIMPL_HPP_
 
 #include "sol2/sol.hpp"
 #include "imgui/auto/core.h"

@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_MUSIC_HPP_
-#define REWORK_MUSIC_HPP_
+#ifndef STARLIGHT_MUSIC_HPP_
+#define STARLIGHT_MUSIC_HPP_
 
 #include "sol2/sol_forward.hpp"
 

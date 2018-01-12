@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_STATE_HPP_
-#define REWORK_STATE_HPP_
+#ifndef STARLIGHT_STATE_HPP_
+#define STARLIGHT_STATE_HPP_
 
 #include <memory>
 
@@ -19,6 +19,21 @@ namespace sl
 	class BaseState
 	{
 	public:
+		///
+		/// Default constructor.
+		///
+		BaseState() = default;
+
+		///
+		/// Copy Constructor.
+		///
+		BaseState(const BaseState&) = default;
+
+		///
+		/// Move Constructor.
+		///
+		BaseState(BaseState&&) = default;
+
 		///
 		/// Destructor.
 		///

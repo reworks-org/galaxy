@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_VECTOR3_HPP_
-#define REWORK_VECTOR3_HPP_
+#ifndef STARLIGHT_VECTOR3_HPP_
+#define STARLIGHT_VECTOR3_HPP_
 
 namespace sl
 {

@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_PHYSICSCOMPONENT_HPP_
-#define REWORK_PHYSICSCOMPONENT_HPP_
+#ifndef STARLIGHT_PHYSICSCOMPONENT_HPP_
+#define STARLIGHT_PHYSICSCOMPONENT_HPP_
 
 #include "cereal/access.hpp"
 #include "sol2/sol_forward.hpp"

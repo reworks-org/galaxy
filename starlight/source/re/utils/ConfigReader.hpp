@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_CONFIGREADER_HPP_
-#define REWORK_CONFIGREADER_HPP_
+#ifndef STARLIGHT_CONFIGREADER_HPP_
+#define STARLIGHT_CONFIGREADER_HPP_
 
 #include <functional>
 #include <allegro5/config.h>

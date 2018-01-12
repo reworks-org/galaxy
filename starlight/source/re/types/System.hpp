@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_SYSTEM_HPP_
-#define REWORK_SYSTEM_HPP_
+#ifndef STARLIGHT_SYSTEM_HPP_
+#define STARLIGHT_SYSTEM_HPP_
 
 #include <cstdint>
 

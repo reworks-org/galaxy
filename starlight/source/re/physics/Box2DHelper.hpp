@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_BOX2DHELPER_HPP_
-#define REWORK_BOX2DHELPER_HPP_
+#ifndef STARLIGHT_BOX2DHELPER_HPP_
+#define STARLIGHT_BOX2DHELPER_HPP_
 
 namespace sl
 {

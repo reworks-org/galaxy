@@ -7,8 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_RECT_HPP_
-#define REWORK_RECT_HPP_
+#ifndef STARLIGHT_RECT_HPP_
+#define STARLIGHT_RECT_HPP_
 
 namespace sl
 {
