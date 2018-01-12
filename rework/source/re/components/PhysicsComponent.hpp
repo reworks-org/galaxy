@@ -35,9 +35,12 @@ namespace re
 		PhysicsComponent(PhysicsComponent&&) = default;
 
 		///
-		/// Destructor.
+		/// \brief Destructor.
 		///
-		~PhysicsComponent();
+		/// CLEANUP IS HANDLED BY BOX2D MANAGER. THIS IS BECAUSE WE DONT KNOW WHEN DESTRUCTORS ARE CALLED, AND CLEANUP CODE MUST BE CALLED BEFORE 
+		/// CLEANUP OF BOX2DMANAGER!
+		///
+		~PhysicsComponent() = default;
 
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.

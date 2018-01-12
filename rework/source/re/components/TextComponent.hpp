@@ -36,7 +36,7 @@ namespace re
 		///
 		/// Destructor.
 		///
-		~TextComponent() override;
+		~TextComponent() = default;
 		
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.

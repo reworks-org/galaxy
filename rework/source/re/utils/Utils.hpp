@@ -55,7 +55,7 @@ namespace re
 		///
 		/// \return string containing extension.
 		///
-		inline constexpr std::string getExtension(const std::string& filename)
+		inline std::string getExtension(const std::string& filename)
 		{
 			if (filename.find_last_of(".") != std::string::npos)
 			{
@@ -76,7 +76,7 @@ namespace re
 		///
 		/// \return filename without extension.
 		///
-		inline constexpr std::string removeExtension(const std::string& filename)
+		inline std::string removeExtension(const std::string& filename)
 		{
 			size_t lastdot = filename.find_last_of(".");
 			if (lastdot == std::string::npos) return filename;
@@ -90,7 +90,7 @@ namespace re
 		///
 		/// \return Returns either "true" or "false".
 		///
-		inline constexpr std::string boolToString(bool value)
+		inline std::string boolToString(bool value)
 		{
 			std::string out = (value == true) ? "true" : "false";
 			return out;

@@ -15,12 +15,13 @@
 #include <allegro5/bitmap.h>
 
 #include "re/math/Rect.hpp"
+#include "re/types/ResourceCache.hpp"
 #include "re/math/MaxRectsBinPack.hpp"
 #include "re/types/ServiceLocator.hpp"
 
 namespace re
 {
-	class TextureAtlas final : public ServiceLocator<TextureAtlas>
+	class TextureAtlas final : public ServiceLocator<TextureAtlas>, public ResourceCache<Rect<int>>
 	{
 	public:
 		///
@@ -45,7 +46,7 @@ namespace re
 		/// \param ID ID of texture to add. Do not include extension.
 		/// \param textureData Bitmap to add. WARNING! textureData WILL NOT BE FREED BY THIS FUNCTION!
 		///
-		void addTextureToAtlas(std::string_view ID, ALLEGRO_BITMAP* textureData);
+		void addTextureToAtlas(entt::HashedString ID, ALLEGRO_BITMAP* textureData);
 
 		///
 		/// \brief Add bitmap text to the atlas.
@@ -57,25 +58,25 @@ namespace re
 		/// \param font Font to use.
 		/// \param col Colour to use.
 		///
-		void addTextToAtlas(std::string_view ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
+		void addTextToAtlas(entt::HashedString ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
 
 		///
 		/// Like al_draw_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_bitmap
 		///
-		void al_draw_packed_bitmap(std::string_view texture, float dx, float dy, int flags);
+		void al_draw_packed_bitmap(entt::HashedString, float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_bitmap
 		///
-		void al_draw_tinted_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float dx, float dy, int flags);
+		void al_draw_tinted_packed_bitmap(entt::HashedString texture, ALLEGRO_COLOR tint, float dx, float dy, int flags);
 
 		///
 		/// Like al_draw_tinted_scaled_rotated_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_scaled_rotated_bitmap
 		///
-		void al_draw_tinted_scaled_rotated_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
+		void al_draw_tinted_scaled_rotated_packed_bitmap(entt::HashedString texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
 
 		///
 		/// Calls al_create_sub_bitmap() properly and returns the bitmap of the
@@ -86,15 +87,24 @@ namespace re
 		///
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_create_sub_bitmap
 		///
-		ALLEGRO_BITMAP* al_create_packed_bitmap(std::string_view texture);
+		ALLEGRO_BITMAP* al_create_packed_bitmap(entt::HashedString texture);
+
+		///
+		/// Clean up resources.
+		///
+		void clean() override;
 
 	private:
 		ALLEGRO_BITMAP* m_atlas;
-		std::unordered_map<std::string_view, Rect<int>> m_packedTextures;
-
 		rbp::MaxRectsBinPack m_bin;
 
 	private:
+		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		TextureAtlas() = delete;
+
 		///
 		/// Copy Constructor.
 		/// Deleted.

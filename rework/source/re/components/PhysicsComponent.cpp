@@ -12,8 +12,7 @@
 #include "imgui/imgui_impl_a5.h"
 #include "Box2D/Dynamics/b2Body.h"
 #include "re/physics/Box2DHelper.hpp"
-#include "re/managers/Box2DManager.hpp"
-#include "re/services/ServiceLocator.hpp"
+#include "re/physics/Box2DManager.hpp"
 
 #include "PhysicsComponent.hpp"
 
@@ -41,7 +40,7 @@ namespace re
 			break;
 		}
 		
-		m_body = Box2DManager::get()->world()->CreateBody(&bodyDef);
+		m_body = Box2DManager::get()->m_world->CreateBody(&bodyDef);
 
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		if (!fixtureList.empty())
@@ -55,7 +54,7 @@ namespace re
 				float32 h = second.get<float32>("h");
 
 				b2PolygonShape b2shape;
-				b2shape.SetAsBox(b2::pixelsToMeters<float32>(w / 2.0f), b2::pixelsToMeters<float32>(h / 2.0f), b2Vec2(b2::pixelsToMeters<float32>(w / 2.0f), b2::pixelsToMeters<float32>(h / 2.0f)), it.second.get<float32>("angle"));
+				b2shape.SetAsBox(b2::pixelsToMeters<float32>(w / 2.0f), b2::pixelsToMeters<float32>(h / 2.0f), b2Vec2(b2::pixelsToMeters<float32>(w / 2.0f), b2::pixelsToMeters<float32>(h / 2.0f)), second.get<float32>("angle"));
 
 				b2FixtureDef fixtureDef;
 				fixtureDef.density = second.get<float32>("density");
@@ -73,12 +72,6 @@ namespace re
 		}
 		
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
-	}
-
-	PhysicsComponent::~PhysicsComponent()
-	{
-		/// CLEANUP IS HANDLED BY BOX2D MANAGER. THIS IS BECAUSE WE DONT KNOW WHEN DESTRUCTORS ARE CALLED, AND CLEANUP CODE MUST BE CALLED BEFORE 
-		/// CLEANUP OF BOX2DMANAGER!
 	}
 
 	void PhysicsComponent::debug()

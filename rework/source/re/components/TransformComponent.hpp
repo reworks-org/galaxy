@@ -36,7 +36,7 @@ namespace re
 		///
 		/// Destructor.
 		///
-		~TransformComponent();
+		~TransformComponent() = default;
 
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.

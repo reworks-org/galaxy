@@ -14,7 +14,7 @@
 
 namespace re
 {
-	Shader::Shader(sol::table& table)
+	Shader::Shader(const sol::table& table)
 	{
 		m_shader = al_create_shader(ALLEGRO_SHADER_GLSL);
 

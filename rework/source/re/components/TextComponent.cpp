@@ -33,10 +33,6 @@ namespace re
 		m_layer = table.get<int>("layer");
 	}
 
-	TextComponent::~TextComponent()
-	{
-	}
-
 	void TextComponent::debug()
 	{
 		static bool update = false;

@@ -24,7 +24,7 @@ namespace re
 		///
 		/// \param table sol::table containing data.
 		///
-		Shader(sol::table& table);
+		Shader(const sol::table& table);
 
 		///
 		/// Copy Constructor.

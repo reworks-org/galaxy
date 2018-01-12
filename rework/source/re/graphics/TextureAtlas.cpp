@@ -17,7 +17,6 @@
 #include "loguru/loguru.hpp"
 #include "re/utils/Utils.hpp"
 #include "re/graphics/Window.hpp"
-#include "re/services/ServiceLocator.hpp"
 
 #include "TextureAtlas.hpp"
 
@@ -37,15 +36,15 @@ namespace re
 		for (char** i = efl; *i != NULL; i++)
 		{
 			ALLEGRO_BITMAP* bitmap = al_load_bitmap(*i);
-			Rect<int> packedRect = bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
+			Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
 
-			if (!(packedRect.height > 0))
+			if (!(packedRect.m_height > 0))
 			{
 				LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i;
 			}
 
 			al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
-			m_packedTextures.emplace(Utils::removeExtension(std::string(*i)), packedRect);
+			m_resourceMap.emplace(entt::HashedString(utils::removeExtension(std::string(*i)).c_str()), packedRect);
 			
 			al_destroy_bitmap(bitmap);
 		}
@@ -58,17 +57,17 @@ namespace re
 
 	TextureAtlas::~TextureAtlas()
 	{
-		al_destroy_bitmap(m_atlas);
+		clean();
 	}
 
-	void TextureAtlas::addTextureToAtlas(std::string_view ID, ALLEGRO_BITMAP* textureData)
+	void TextureAtlas::addTextureToAtlas(entt::HashedString ID, ALLEGRO_BITMAP* textureData)
 	{
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
-		Rect<int> packedRect = bin.Insert(al_get_bitmap_width(textureData), al_get_bitmap_height(textureData), heuristic);
+		Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(textureData), al_get_bitmap_height(textureData), heuristic);
 
-		if (!(packedRect.height > 0))
+		if (!(packedRect.m_height > 0))
 		{
-			LOG_S(WARNING) << "Failed to pack a texture! Texture: " << textureID;
+			LOG_S(WARNING) << "Failed to pack a texture! Texture: " << ID;
 		}
 
 		al_set_target_bitmap(m_atlas);
@@ -76,10 +75,10 @@ namespace re
 		al_flip_display();
 		al_set_target_bitmap(al_get_backbuffer(Window::get()->getDisplay()));
 
-		m_packedTextures.emplace(ID, packedRect);
+		m_resourceMap.emplace(ID, packedRect);
 	}
 
-	void TextureAtlas::addTextToAtlas(std::string_view ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
+	void TextureAtlas::addTextToAtlas(entt::HashedString ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
 	{
 		int w = al_get_text_width(font, text.c_str());
 		int h = al_get_font_line_height(font);
@@ -95,27 +94,32 @@ namespace re
 		al_destroy_bitmap(bitmap);
 	}
 
-	void TextureAtlas::al_draw_packed_bitmap(std::string_view texture, float dx, float dy, int flags)
+	void TextureAtlas::al_draw_packed_bitmap(entt::HashedString texture, float dx, float dy, int flags)
 	{
-		auto pr = m_packedTextures[texture];
+		auto pr = m_resourceMap[texture];
 		al_draw_bitmap_region(m_atlas, pr.x, pr.y, pr.width, pr.height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float dx, float dy, int flags) 
+	void TextureAtlas::al_draw_tinted_packed_bitmap(entt::HashedString texture, ALLEGRO_COLOR tint, float dx, float dy, int flags) 
 	{
-		auto pr = m_packedTextures[texture];
+		auto pr = m_resourceMap[texture];
 		al_draw_tinted_bitmap_region(m_atlas, tint, pr.x, pr.y, pr.width, pr.height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(std::string_view texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
+	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(entt::HashedString texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
 	{
-		auto pr = m_packedTextures[texture];
+		auto pr = m_resourceMap[texture];
 		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.x, pr.y, pr.width, pr.height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
 	}
 
-	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(std::string_view texture)
+	void TextureAtlas::clean()
 	{
-		auto pr = m_packedTextures[texture];
+		al_destroy_bitmap(m_atlas);
+	}
+
+	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(entt::HashedString texture)
+	{
+		auto pr = m_resourceMap[texture];
 		return al_create_sub_bitmap(m_atlas, pr.x, pr.y, pr.width, pr.height);
 	}
 }

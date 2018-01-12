@@ -1060,8 +1060,7 @@ private:
  * The default registry is the best choice for almost all the applications.<br/>
  * Users should have a really good reason to choose something different.
  */
-using Entity = std::uint32_t;
-using DefaultRegistry = Registry<Entity>;
+using DefaultRegistry = Registry<std::uint32_t>;
 
 
 }

@@ -25,10 +25,6 @@ namespace re
 		m_layer = table.get<int>("layer");
 	}
 
-	SpriteComponent::~SpriteComponent()
-	{
-	}
-
 	void SpriteComponent::debug()
 	{
 		ImGui::stl::InputText("Sprite Name (in atlas):", &m_spriteName, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);

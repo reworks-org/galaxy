@@ -20,7 +20,6 @@ namespace re
 	template<typename Resource>
 	class ResourceCache
 	{
-		friend Resource;
 	public:
 		///
 		/// Destructor.
@@ -34,8 +33,7 @@ namespace re
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		inline typename std::enable_if<std::is_pointer<Resource>::value, Resource>::type
-		get(entt::HashedString id)
+		inline typename std::enable_if<std::is_pointer<Resource>::value, Resource>::type get(entt::HashedString id)
 		{
 			return m_resourceMap[id];
 		}
@@ -58,15 +56,16 @@ namespace re
 		///
 		virtual void clean() = 0;
 
-	private:
+	protected:
 		std::unordered_map<entt::HashedString::hash_type, Resource> m_resourceMap;
 
-	private:
+	protected:
 		///
 		/// Default constructor.
 		///
 		ResourceCache() = default;
 
+	private:
 		///
 		/// Copy Constructor.
 		/// Deleted.
