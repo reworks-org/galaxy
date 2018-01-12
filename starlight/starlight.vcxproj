@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\re\audio\Music.cpp" />
+    <ClCompile Include="source\re\audio\Sound.cpp" />
+    <ClCompile Include="source\re\components\AnimationComponent.cpp" />
+    <ClCompile Include="source\re\components\PhysicsComponent.cpp" />
+    <ClCompile Include="source\re\components\SpriteComponent.cpp" />
+    <ClCompile Include="source\re\components\TextComponent.cpp" />
+    <ClCompile Include="source\re\components\TransformComponent.cpp" />
+    <ClCompile Include="source\re\core\Application.cpp" />
+    <ClCompile Include="source\re\core\World.cpp" />
+    <ClCompile Include="source\re\graphics\Animation.cpp" />
+    <ClCompile Include="source\re\libs\entt\entt.cpp" />
+    <ClCompile Include="source\re\libs\imgui\auto\auto.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imgui.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imguidatechooser.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imguifilesystem.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imguilistview.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imguinodegrapheditor.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imguivariouscontrols.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imgui_demo.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imgui_draw.cpp" />
+    <ClCompile Include="source\re\libs\imgui\imgui_impl_a5.cpp" />
+    <ClCompile Include="source\re\libs\imgui\minizip\ioapi.c" />
+    <ClCompile Include="source\re\libs\imgui\minizip\unzip.c" />
+    <ClCompile Include="source\re\libs\imgui\minizip\zip.c" />
+    <ClCompile Include="source\re\libs\imgui\TextEditor.cpp" />
+    <ClCompile Include="source\re\resources\FontBook.cpp" />
+    <ClCompile Include="source\re\graphics\Shader.cpp" />
+    <ClCompile Include="source\re\graphics\TextureAtlas.cpp" />
+    <ClCompile Include="source\re\graphics\Window.cpp" />
+    <ClCompile Include="source\re\libs\agui\ActionEvent.cpp" />
+    <ClCompile Include="source\re\libs\agui\ActionListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5CursorProvider.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5Font.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5FontLoader.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5Graphics.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5Image.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5ImageLoader.cpp" />
+    <ClCompile Include="source\re\libs\agui\Backends\Allegro5\Allegro5Input.cpp" />
+    <ClCompile Include="source\re\libs\agui\BaseTypes.cpp" />
+    <ClCompile Include="source\re\libs\agui\BlinkingEvent.cpp" />
+    <ClCompile Include="source\re\libs\agui\BorderLayout.cpp" />
+    <ClCompile Include="source\re\libs\agui\Clipboard\Clipboard.cpp" />
+    <ClCompile Include="source\re\libs\agui\Clipboard\WinClipboard.cpp" />
+    <ClCompile Include="source\re\libs\agui\Color.cpp" />
+    <ClCompile Include="source\re\libs\agui\CursorProvider.cpp" />
+    <ClCompile Include="source\re\libs\agui\Dimension.cpp" />
+    <ClCompile Include="source\re\libs\agui\EmptyWidget.cpp" />
+    <ClCompile Include="source\re\libs\agui\EventArgs.cpp" />
+    <ClCompile Include="source\re\libs\agui\FlowLayout.cpp" />
+    <ClCompile Include="source\re\libs\agui\FocusListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\FocusManager.cpp" />
+    <ClCompile Include="source\re\libs\agui\Font.cpp" />
+    <ClCompile Include="source\re\libs\agui\Graphics.cpp" />
+    <ClCompile Include="source\re\libs\agui\GridLayout.cpp" />
+    <ClCompile Include="source\re\libs\agui\Gui.cpp" />
+    <ClCompile Include="source\re\libs\agui\Image.cpp" />
+    <ClCompile Include="source\re\libs\agui\Input.cpp" />
+    <ClCompile Include="source\re\libs\agui\KeyboardListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Layout.cpp" />
+    <ClCompile Include="source\re\libs\agui\MouseListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Point.cpp" />
+    <ClCompile Include="source\re\libs\agui\Rectangle.cpp" />
+    <ClCompile Include="source\re\libs\agui\ResizableBorderLayout.cpp" />
+    <ClCompile Include="source\re\libs\agui\ResizableText.cpp" />
+    <ClCompile Include="source\re\libs\agui\SelectionListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\TableLayout.cpp" />
+    <ClCompile Include="source\re\libs\agui\TapListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\TopContainer.cpp" />
+    <ClCompile Include="source\re\libs\agui\Transform.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widget.cpp" />
+    <ClCompile Include="source\re\libs\agui\WidgetListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Button\Button.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Button\ButtonGroup.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Button\ButtonListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\CheckBox\CheckBox.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\CheckBox\CheckBoxListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\DropDown\DropDown.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\DropDown\DropDownListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Frame\Frame.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Frame\FrameListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ImageWidget\ImageWidget.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Label\Label.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Label\LabelListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ListBox\ListBox.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ListBox\ListBoxListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\PopUp\PopUpMenu.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\PopUp\PopUpMenuItem.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\RadioButton\RadioButton.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\RadioButton\RadioButtonGroup.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\RadioButton\RadioButtonListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ScrollBar\HScrollBar.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ScrollBar\HScrollBarListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ScrollBar\VScrollBar.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ScrollBar\VScrollBarListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ScrollPane\ScrollPane.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Slider\Slider.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Slider\SliderListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Tab\Tab.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Tab\TabbedPane.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\Tab\TabbedPaneListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\TextBox\ExtendedTextBox.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\TextBox\TextBox.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\TextBox\TextBoxListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\TextField\TextField.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\TextField\TextFieldListener.cpp" />
+    <ClCompile Include="source\re\libs\agui\Widgets\ToolTip\ToolTip.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2BroadPhase.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2CollideCircle.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2CollideEdge.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2CollidePolygon.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2Collision.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2Distance.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2DynamicTree.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\b2TimeOfImpact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\Shapes\b2ChainShape.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\Shapes\b2CircleShape.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\Shapes\b2EdgeShape.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Collision\Shapes\b2PolygonShape.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Common\b2BlockAllocator.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Common\b2Draw.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Common\b2Math.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Common\b2Settings.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Common\b2StackAllocator.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Common\b2Timer.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\b2Body.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\b2ContactManager.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\b2Fixture.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\b2Island.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\b2World.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\b2WorldCallbacks.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2CircleContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2Contact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2ContactSolver.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Contacts\b2PolygonContact.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2DistanceJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2FrictionJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2GearJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2Joint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2MotorJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2MouseJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2PulleyJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2RopeJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
+    <ClCompile Include="source\re\libs\Box2D\Rope\b2Rope.cpp" />
+    <ClCompile Include="source\re\libs\loguru\loguru.cpp" />
+    <ClCompile Include="source\re\libs\lua\lapi.c" />
+    <ClCompile Include="source\re\libs\lua\lauxlib.c" />
+    <ClCompile Include="source\re\libs\lua\lbaselib.c" />
+    <ClCompile Include="source\re\libs\lua\lbitlib.c" />
+    <ClCompile Include="source\re\libs\lua\lcode.c" />
+    <ClCompile Include="source\re\libs\lua\lcorolib.c" />
+    <ClCompile Include="source\re\libs\lua\lctype.c" />
+    <ClCompile Include="source\re\libs\lua\ldblib.c" />
+    <ClCompile Include="source\re\libs\lua\ldebug.c" />
+    <ClCompile Include="source\re\libs\lua\ldo.c" />
+    <ClCompile Include="source\re\libs\lua\ldump.c" />
+    <ClCompile Include="source\re\libs\lua\lfunc.c" />
+    <ClCompile Include="source\re\libs\lua\lgc.c" />
+    <ClCompile Include="source\re\libs\lua\linit.c" />
+    <ClCompile Include="source\re\libs\lua\liolib.c" />
+    <ClCompile Include="source\re\libs\lua\llex.c" />
+    <ClCompile Include="source\re\libs\lua\lmathlib.c" />
+    <ClCompile Include="source\re\libs\lua\lmem.c" />
+    <ClCompile Include="source\re\libs\lua\loadlib.c" />
+    <ClCompile Include="source\re\libs\lua\lobject.c" />
+    <ClCompile Include="source\re\libs\lua\lopcodes.c" />
+    <ClCompile Include="source\re\libs\lua\loslib.c" />
+    <ClCompile Include="source\re\libs\lua\lparser.c" />
+    <ClCompile Include="source\re\libs\lua\lstate.c" />
+    <ClCompile Include="source\re\libs\lua\lstring.c" />
+    <ClCompile Include="source\re\libs\lua\lstrlib.c" />
+    <ClCompile Include="source\re\libs\lua\ltable.c" />
+    <ClCompile Include="source\re\libs\lua\ltablib.c" />
+    <ClCompile Include="source\re\libs\lua\ltm.c" />
+    <ClCompile Include="source\re\libs\lua\lundump.c" />
+    <ClCompile Include="source\re\libs\lua\lutf8lib.c" />
+    <ClCompile Include="source\re\libs\lua\lvm.c" />
+    <ClCompile Include="source\re\libs\lua\lzio.c" />
+    <ClCompile Include="source\re\libs\tmx\tmx.c" />
+    <ClCompile Include="source\re\libs\tmx\tmx_err.c" />
+    <ClCompile Include="source\re\libs\tmx\tmx_hash.c" />
+    <ClCompile Include="source\re\libs\tmx\tmx_mem.c" />
+    <ClCompile Include="source\re\libs\tmx\tmx_utils.c" />
+    <ClCompile Include="source\re\libs\tmx\tmx_xml.c" />
+    <ClCompile Include="source\re\libs\tmx\tsx.c" />
+    <ClCompile Include="source\re\core\StateManager.cpp" />
+    <ClCompile Include="source\re\math\MaxRectsBinPack.cpp" />
+    <ClCompile Include="source\re\math\QuadTree.cpp" />
+    <ClCompile Include="source\re\physics\Box2DManager.cpp" />
+    <ClCompile Include="source\re\resources\MusicPlayer.cpp" />
+    <ClCompile Include="source\re\resources\SoundPlayer.cpp" />
+    <ClCompile Include="source\re\resources\ShaderLibrary.cpp" />
+    <ClCompile Include="source\re\utils\ConfigReader.cpp" />
+    <ClCompile Include="source\re\fs\VFS.cpp" />
+    <ClCompile Include="source\re\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\re\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="source\re\systems\RenderSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\re\audio\Music.hpp" />
+    <ClInclude Include="source\re\audio\Sound.hpp" />
+    <ClInclude Include="source\re\components\AnimationComponent.hpp" />
+    <ClInclude Include="source\re\components\PhysicsComponent.hpp" />
+    <ClInclude Include="source\re\components\SpriteComponent.hpp" />
+    <ClInclude Include="source\re\components\TextComponent.hpp" />
+    <ClInclude Include="source\re\components\TransformComponent.hpp" />
+    <ClInclude Include="source\re\core\Application.hpp" />
+    <ClInclude Include="source\re\core\World.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\family.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\hashed_string.hpp" />
+    <ClInclude Include="source\re\libs\entt\core\ident.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\actor.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\registry.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\sparse_set.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\traits.hpp" />
+    <ClInclude Include="source\re\libs\entt\entity\view.hpp" />
+    <ClInclude Include="source\re\libs\entt\entt.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\process.hpp" />
+    <ClInclude Include="source\re\libs\entt\process\scheduler.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\bus.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\delegate.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\emitter.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\sigh.hpp" />
+    <ClInclude Include="source\re\libs\entt\signal\signal.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\cast_to_layout_compatible.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\config.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core14.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core14_classic.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core14_loophole.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core17.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\core17_generated.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\detectors.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\fields_count.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\for_each_field_impl.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\functional.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\io.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\make_flat_tuple_of_references.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\offset_based_getter.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\rvalue_t.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\sequence_tuple.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\size_array.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\detail\stdtuple.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\core.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\functions_for.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\functors.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\global_ops.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\io.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\ops.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\flat\tuple_size.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\core.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\functions_for.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\functors.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\global_ops.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\io.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\ops.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\boost\pfr\precise\tuple_size.hpp" />
+    <ClInclude Include="source\re\libs\imgui\auto\core.h" />
+    <ClInclude Include="source\re\libs\imgui\auto\impl_base.h" />
+    <ClInclude Include="source\re\libs\imgui\dirent_portable.h" />
+    <ClInclude Include="source\re\libs\imgui\imconfig.h" />
+    <ClInclude Include="source\re\libs\imgui\imgui.h" />
+    <ClInclude Include="source\re\libs\imgui\imguidatechooser.h" />
+    <ClInclude Include="source\re\libs\imgui\imguifilesystem.h" />
+    <ClInclude Include="source\re\libs\imgui\imguilistview.h" />
+    <ClInclude Include="source\re\libs\imgui\imguinodegrapheditor.h" />
+    <ClInclude Include="source\re\libs\imgui\imguivariouscontrols.h" />
+    <ClInclude Include="source\re\libs\imgui\imgui_impl_a5.h" />
+    <ClInclude Include="source\re\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="source\re\libs\imgui\imgui_stl.h" />
+    <ClInclude Include="source\re\libs\imgui\minizip\crypt.h" />
+    <ClInclude Include="source\re\libs\imgui\minizip\ioapi.h" />
+    <ClInclude Include="source\re\libs\imgui\minizip\unzip.h" />
+    <ClInclude Include="source\re\libs\imgui\minizip\zip.h" />
+    <ClInclude Include="source\re\libs\imgui\stb_rect_pack.h" />
+    <ClInclude Include="source\re\libs\imgui\stb_textedit.h" />
+    <ClInclude Include="source\re\libs\imgui\stb_truetype.h" />
+    <ClInclude Include="source\re\libs\imgui\TextEditor.h" />
+    <ClInclude Include="source\re\resources\FontBook.hpp" />
+    <ClInclude Include="source\re\libs\sol2\sol.hpp" />
+    <ClInclude Include="source\re\libs\sol2\sol_forward.hpp" />
+    <ClInclude Include="source\re\graphics\Animation.hpp" />
+    <ClInclude Include="source\re\graphics\Shader.hpp" />
+    <ClInclude Include="source\re\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="source\re\graphics\Window.hpp" />
+    <ClInclude Include="source\re\libs\agui\ActionEvent.hpp" />
+    <ClInclude Include="source\re\libs\agui\ActionListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Agui.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5CursorProvider.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5Font.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5FontLoader.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5Graphics.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5Image.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5ImageLoader.hpp" />
+    <ClInclude Include="source\re\libs\agui\Backends\Allegro5\Allegro5Input.hpp" />
+    <ClInclude Include="source\re\libs\agui\BaseTypes.hpp" />
+    <ClInclude Include="source\re\libs\agui\BlinkingEvent.hpp" />
+    <ClInclude Include="source\re\libs\agui\BorderLayout.hpp" />
+    <ClInclude Include="source\re\libs\agui\Clipboard\Clipboard.hpp" />
+    <ClInclude Include="source\re\libs\agui\Clipboard\OSXClipboard.hpp" />
+    <ClInclude Include="source\re\libs\agui\Clipboard\WinClipboard.hpp" />
+    <ClInclude Include="source\re\libs\agui\Color.hpp" />
+    <ClInclude Include="source\re\libs\agui\CursorProvider.hpp" />
+    <ClInclude Include="source\re\libs\agui\Dimension.hpp" />
+    <ClInclude Include="source\re\libs\agui\EmptyWidget.hpp" />
+    <ClInclude Include="source\re\libs\agui\Enumerations.hpp" />
+    <ClInclude Include="source\re\libs\agui\EventArgs.hpp" />
+    <ClInclude Include="source\re\libs\agui\FlowLayout.hpp" />
+    <ClInclude Include="source\re\libs\agui\FocusListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\FocusManager.hpp" />
+    <ClInclude Include="source\re\libs\agui\Font.hpp" />
+    <ClInclude Include="source\re\libs\agui\FontLoader.hpp" />
+    <ClInclude Include="source\re\libs\agui\Graphics.hpp" />
+    <ClInclude Include="source\re\libs\agui\GridLayout.hpp" />
+    <ClInclude Include="source\re\libs\agui\Gui.hpp" />
+    <ClInclude Include="source\re\libs\agui\Image.hpp" />
+    <ClInclude Include="source\re\libs\agui\ImageLoader.hpp" />
+    <ClInclude Include="source\re\libs\agui\Input.hpp" />
+    <ClInclude Include="source\re\libs\agui\KeyboardListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Layout.hpp" />
+    <ClInclude Include="source\re\libs\agui\MouseListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Platform.hpp" />
+    <ClInclude Include="source\re\libs\agui\Point.hpp" />
+    <ClInclude Include="source\re\libs\agui\Rectangle.hpp" />
+    <ClInclude Include="source\re\libs\agui\ResizableBorderLayout.hpp" />
+    <ClInclude Include="source\re\libs\agui\ResizableText.hpp" />
+    <ClInclude Include="source\re\libs\agui\SelectionListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\TableLayout.hpp" />
+    <ClInclude Include="source\re\libs\agui\TapListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\TopContainer.hpp" />
+    <ClInclude Include="source\re\libs\agui\Transform.hpp" />
+    <ClInclude Include="source\re\libs\agui\UTF8.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widget.hpp" />
+    <ClInclude Include="source\re\libs\agui\WidgetListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Button\Button.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Button\ButtonGroup.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Button\ButtonListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\CheckBox\CheckBox.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\CheckBox\CheckBoxListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\DropDown\DropDown.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\DropDown\DropDownListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Frame\Frame.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Frame\FrameListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ImageWidget\ImageWidget.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Label\Label.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Label\LabelListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ListBox\ListBox.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ListBox\ListBoxListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\PopUp\PopUpMenu.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\PopUp\PopUpMenuItem.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\RadioButton\RadioButton.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\RadioButton\RadioButtonGroup.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\RadioButton\RadioButtonListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ScrollBar\HScrollBar.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ScrollBar\HScrollBarListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ScrollBar\VScrollBar.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ScrollBar\VScrollBarListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ScrollPane\ScrollPane.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Slider\Slider.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Slider\SliderListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Tab\Tab.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Tab\TabbedPane.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\Tab\TabbedPaneListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\TextBox\ExtendedTextBox.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\TextBox\TextBox.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\TextBox\TextBoxListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\TextField\TextField.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\TextField\TextFieldListener.hpp" />
+    <ClInclude Include="source\re\libs\agui\Widgets\ToolTip\ToolTip.hpp" />
+    <ClInclude Include="source\re\libs\Box2D\Box2D.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\b2BroadPhase.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\b2Collision.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\b2Distance.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\b2DynamicTree.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\b2TimeOfImpact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\Shapes\b2ChainShape.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\Shapes\b2CircleShape.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\Shapes\b2EdgeShape.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\Shapes\b2PolygonShape.h" />
+    <ClInclude Include="source\re\libs\Box2D\Collision\Shapes\b2Shape.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2BlockAllocator.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2Draw.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2GrowableStack.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2Math.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2Settings.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2StackAllocator.h" />
+    <ClInclude Include="source\re\libs\Box2D\Common\b2Timer.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2Body.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2ContactManager.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2Fixture.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2Island.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2TimeStep.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2World.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\b2WorldCallbacks.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2CircleContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2Contact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2ContactSolver.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Contacts\b2PolygonContact.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2DistanceJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2FrictionJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2GearJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2Joint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2MotorJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2MouseJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2PrismaticJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2PulleyJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2RevoluteJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2RopeJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2WeldJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Dynamics\Joints\b2WheelJoint.h" />
+    <ClInclude Include="source\re\libs\Box2D\Rope\b2Rope.h" />
+    <ClInclude Include="source\re\libs\cereal\access.hpp" />
+    <ClInclude Include="source\re\libs\cereal\archives\adapters.hpp" />
+    <ClInclude Include="source\re\libs\cereal\archives\binary.hpp" />
+    <ClInclude Include="source\re\libs\cereal\archives\json.hpp" />
+    <ClInclude Include="source\re\libs\cereal\archives\portable_binary.hpp" />
+    <ClInclude Include="source\re\libs\cereal\archives\xml.hpp" />
+    <ClInclude Include="source\re\libs\cereal\cereal.hpp" />
+    <ClInclude Include="source\re\libs\cereal\details\helpers.hpp" />
+    <ClInclude Include="source\re\libs\cereal\details\polymorphic_impl.hpp" />
+    <ClInclude Include="source\re\libs\cereal\details\polymorphic_impl_fwd.hpp" />
+    <ClInclude Include="source\re\libs\cereal\details\static_object.hpp" />
+    <ClInclude Include="source\re\libs\cereal\details\traits.hpp" />
+    <ClInclude Include="source\re\libs\cereal\details\util.hpp" />
+    <ClInclude Include="source\re\libs\cereal\external\base64.hpp" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\allocators.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\document.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\encodedstream.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\encodings.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\error\en.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\error\error.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\filereadstream.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\filewritestream.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\fwd.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\biginteger.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\diyfp.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\dtoa.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\ieee754.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\itoa.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\meta.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\pow10.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\regex.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\stack.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\strtod.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\internal\swap.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\memorybuffer.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\memorystream.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\pointer.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\prettywriter.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\rapidjson.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\reader.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\schema.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\stream.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\stringbuffer.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidjson\writer.h" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidxml\rapidxml.hpp" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="source\re\libs\cereal\external\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="source\re\libs\cereal\macros.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\array.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\base_class.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\bitset.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\boost_variant.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\chrono.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\common.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\complex.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\concepts\pair_associative_container.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\deque.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\forward_list.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\functional.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\list.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\map.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\memory.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\polymorphic.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\queue.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\set.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\stack.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\string.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\tuple.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\unordered_map.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\unordered_set.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\utility.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\valarray.hpp" />
+    <ClInclude Include="source\re\libs\cereal\types\vector.hpp" />
+    <ClInclude Include="source\re\libs\loguru\loguru.hpp" />
+    <ClInclude Include="source\re\libs\lua\lapi.h" />
+    <ClInclude Include="source\re\libs\lua\lauxlib.h" />
+    <ClInclude Include="source\re\libs\lua\lcode.h" />
+    <ClInclude Include="source\re\libs\lua\lctype.h" />
+    <ClInclude Include="source\re\libs\lua\ldebug.h" />
+    <ClInclude Include="source\re\libs\lua\ldo.h" />
+    <ClInclude Include="source\re\libs\lua\lfunc.h" />
+    <ClInclude Include="source\re\libs\lua\lgc.h" />
+    <ClInclude Include="source\re\libs\lua\llex.h" />
+    <ClInclude Include="source\re\libs\lua\llimits.h" />
+    <ClInclude Include="source\re\libs\lua\lmem.h" />
+    <ClInclude Include="source\re\libs\lua\lobject.h" />
+    <ClInclude Include="source\re\libs\lua\lopcodes.h" />
+    <ClInclude Include="source\re\libs\lua\lparser.h" />
+    <ClInclude Include="source\re\libs\lua\lprefix.h" />
+    <ClInclude Include="source\re\libs\lua\lstate.h" />
+    <ClInclude Include="source\re\libs\lua\lstring.h" />
+    <ClInclude Include="source\re\libs\lua\ltable.h" />
+    <ClInclude Include="source\re\libs\lua\ltm.h" />
+    <ClInclude Include="source\re\libs\lua\lua.h" />
+    <ClInclude Include="source\re\libs\lua\lua.hpp" />
+    <ClInclude Include="source\re\libs\lua\luaconf.h" />
+    <ClInclude Include="source\re\libs\lua\lualib.h" />
+    <ClInclude Include="source\re\libs\lua\lundump.h" />
+    <ClInclude Include="source\re\libs\lua\lvm.h" />
+    <ClInclude Include="source\re\libs\lua\lzio.h" />
+    <ClInclude Include="source\re\libs\tmx\tmx.h" />
+    <ClInclude Include="source\re\libs\tmx\tmx_utils.h" />
+    <ClInclude Include="source\re\libs\tmx\tsx.h" />
+    <ClInclude Include="source\re\core\StateManager.hpp" />
+    <ClInclude Include="source\re\math\MaxRectsBinPack.hpp" />
+    <ClInclude Include="source\re\math\QuadTree.hpp" />
+    <ClInclude Include="source\re\math\Random.hpp" />
+    <ClInclude Include="source\re\math\Rect.hpp" />
+    <ClInclude Include="source\re\math\Vector2.hpp" />
+    <ClInclude Include="source\re\math\Vector3.hpp" />
+    <ClInclude Include="source\re\physics\Box2DHelper.hpp" />
+    <ClInclude Include="source\re\physics\Box2DManager.hpp" />
+    <ClInclude Include="source\re\resources\MusicPlayer.hpp" />
+    <ClInclude Include="source\re\resources\SoundPlayer.hpp" />
+    <ClInclude Include="source\re\resources\ShaderLibrary.hpp" />
+    <ClInclude Include="source\re\scripting\LuaUtils.hpp" />
+    <ClInclude Include="source\re\scripting\Sol2ImguiAutoImpl.hpp" />
+    <ClInclude Include="source\re\types\ResourceCache.hpp" />
+    <ClInclude Include="source\re\utils\ConfigReader.hpp" />
+    <ClInclude Include="source\re\types\System.hpp" />
+    <ClInclude Include="source\re\types\ServiceLocator.hpp" />
+    <ClInclude Include="source\re\fs\VFS.hpp" />
+    <ClInclude Include="source\re\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\re\systems\PhysicsSystem.hpp" />
+    <ClInclude Include="source\re\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\re\types\State.hpp" />
+    <ClInclude Include="source\re\utils\Time.hpp" />
+    <ClInclude Include="source\re\utils\Utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{34866465-2C60-442B-A13B-C1CF20EFE537}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>starlight</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>starlight</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Linkage-libiconv>static</Linkage-libiconv>
+    <Linkage-libxml2>static</Linkage-libxml2>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Linkage-libiconv>static</Linkage-libiconv>
+    <Linkage-libxml2>static</Linkage-libxml2>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>source/;source/re/libs/;$(SolutionDir)libs/boost/include/;$(SolutionDir)libs/allegro/include/;$(SolutionDir)libs/libxml2/include/;$(SolutionDir)libs/allegrodeps/include/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>SFML_STATIC;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>source/;source/re/libs/;$(SolutionDir)libs/boost/include/;$(SolutionDir)libs/allegro/include/;$(SolutionDir)libs/libxml2/include/;$(SolutionDir)libs/allegrodeps/include/</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>source/;source/re/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets" Condition="Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" />
+    <Import Project="..\packages\Allegro.5.2.3.1\build\native\Allegro.targets" Condition="Exists('..\packages\Allegro.5.2.3.1\build\native\Allegro.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets'))" />
+    <Error Condition="!Exists('..\packages\Allegro.5.2.3.1\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.3.1\build\native\Allegro.targets'))" />
+  </Target>
+</Project>

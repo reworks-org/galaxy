@@ -12,7 +12,7 @@
 #include <re/types/State.hpp>
 #include <re/managers/StateManager.hpp>
 
-class Test : public re::State<Test>
+class Test : public sl::State<Test>
 {
 public:
 	~Test() override;

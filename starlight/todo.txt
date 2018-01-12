@@ -1,0 +1,120 @@
+Adjustments:
+- All comments to be /// slashes.
+- All comments to have proper grammer.
+- All comments to have a space after slashes.
+- New header format:
+
+///
+///  <HEADER_NAME>.hpp
+///  <PROJECT>
+///
+///  Created by <AUTHOR> on <DATE>.
+///  Copyright (c) <YEAR> <AUTHOR>.
+///  Refer to LICENSE.txt for more details.
+///
+
+- group headers.
+- improve documentation
+- RTTI
+- logging
+- mark classes final
+- excess copying
+- includes
+- Types start with upper case: MyClass.
+- Functions and variables start with lower case: myMethod.
+- Constants are all upper case: const double PI=3.14159265358979323;.
+- Macro names use upper case with underscores: INT_MAX.
+- Template parameter names use camel case: InputIterator.
+- All other names use snake case: unordered_map.
+- Name private data with a m_
+- function parameters be plain myCasing
+- no _naming
+- blocks all the time = {}
+- shorten long lines
+- use default assignment
+- files should all be .hpp and .cpp
+- manually state out casts (static_cast) (dynamic_cast) -> dynamic for references and pointers
+- use const for function parameters when not changing that value. e.g. const int i.
+- use const std::string& val for objects.
+- use smart pointers
+- avoid macros. use:
+- give templates meaningful names
+- cend() over end()
+namespace my_project {
+  struct Constants {
+    // if the above macro would be expanded, then the following line would be:
+    //   static const double 3.14159 = 3.14159;
+    // which leads to a compile-time error. Sometimes such errors are hard to understand.
+    static constexpr double PI = 3.14159;
+  };
+}
+
+- make sure using override and final (final functions cannot be overridden)
+- avoid globals.
+- forward declare when possible.
+- use initializer lists
+- keep code simple
+- reduce temporary objects.
+- avoid shared pointers
+- use ? operator
+- use lambdas for complex string switching.
+- remove std::endl -> use "\n"
+- use doubles over floats
+- use ++i over i++.
+- use '' for characters over "".
+- dont use std::bind.
+- use nullptr
+- const std::string&
+
+- need to look at the way servicelocator and states are implemented.
+- tags?
+- renderableinfo 
+- docs / readthedocs -> repo wiki / repo website / repo settings
+renderer:
+- split update and rendering threads?
+
+- particle engine
+- parallax
+- implement serialization
+	- call serializecomponetns from serailize suystem using eneityx
+	- serializecomponents contain information about what this entity needs to load
+	- use al_config format to easily support classes that require serialization
+
+http://liballeg.org/a5docs/trunk/display.html
+https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
+https://readthedocs.org/
+
+profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
+
+test:
+- shadermanager / shaders
+- camera / level / tmx
+
+- remove std::map::insert because we can just use sol::object::as
+
+fix debug interface implementation
+serializer
+camera
+movesystem
+rendersystem
+
+render gui according to screen
+render world according to camera
+screen is camera
+
+each layer of a map is a bitmap
+so each layer is seperate and we only render a subsection of the bitmap based off of the camera
+-> then we pass that to the layering system
+e.g.
+layer 0 - bg
+layer 1 - animated bg
+layer 2 - player
+layer 3 - top of tree layer
+
+etc
+
+only bitmaps we update are ones marked "animated"
+AnimatedTile -> Tile?
+look into new tmx docs
+
+replace shitty external tools...

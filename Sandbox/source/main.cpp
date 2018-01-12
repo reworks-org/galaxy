@@ -28,29 +28,29 @@
 
 #include "Test.hpp"
 
-class Game : public re::Application
+class Game : public sl::Application
 {
 public:
-	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : re::Application(archive, config, newConfig)
+	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archive, config, newConfig)
 	{
-		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
-		m_world->registerComponent<re::PhysicsComponent>("PhysicsComponent");
-		m_world->registerComponent<re::RenderableComponent>("RenderableComponent");
-		m_world->registerComponent<re::SpriteComponent>("SpriteComponent");
-		m_world->registerComponent<re::TextComponent>("TextComponent");
-		m_world->registerComponent<re::TransformComponent>("TransformComponent");
-		m_world->registerComponent<re::AnimationComponent>("AnimationComponent");
+		m_world->registerComponent<sl::AnimationComponent>("AnimationComponent");
+		m_world->registerComponent<sl::PhysicsComponent>("PhysicsComponent");
+		m_world->registerComponent<sl::RenderableComponent>("RenderableComponent");
+		m_world->registerComponent<sl::SpriteComponent>("SpriteComponent");
+		m_world->registerComponent<sl::TextComponent>("TextComponent");
+		m_world->registerComponent<sl::TransformComponent>("TransformComponent");
+		m_world->registerComponent<sl::AnimationComponent>("AnimationComponent");
 
-		m_world->m_systemManager.add<re::AnimationSystem>();
-		m_world->m_systemManager.add<re::RenderSystem>(4);
-		m_world->m_systemManager.add<re::PhysicsSystem>(m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int32>(config, "box2d", "velocityIterations"), m_configReader->lookup<int32>(config, "box2d", "positionIterations"));
+		m_world->m_systemManager.add<sl::AnimationSystem>();
+		m_world->m_systemManager.add<sl::RenderSystem>(4);
+		m_world->m_systemManager.add<sl::PhysicsSystem>(m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int32>(config, "box2d", "velocityIterations"), m_configReader->lookup<int32>(config, "box2d", "positionIterations"));
 		m_world->m_systemManager.add<MoveSystem>("player");
 		m_world->m_systemManager.configure();
 		
-		m_world->m_systemManager.system<re::RenderSystem>()->registerRenderableComponents<re::TextComponent, re::SpriteComponent>();
+		m_world->m_systemManager.system<sl::RenderSystem>()->registerRenderableComponents<sl::TextComponent, sl::SpriteComponent>();
 
-		re::tmx::LINE_THICKNESS = 2.5f;
-		re::tmx::setUpLoaders();
+		sl::tmx::LINE_THICKNESS = 2.5f;
+		sl::tmx::setUpLoaders();
 
 		m_debugManager->specifyReloadState(Test::inst(), []() { LOG_S(INFO) << "RESETTING STATE!" << std::endl; });
 		m_stateManager->setState(Test::inst());

@@ -1,6 +1,6 @@
 //
 //  TestLevel.hpp
-//  rework
+//  starlight
 //
 //  Created by reworks on 01/12/2017.
 //  Copyright (c) 2017 reworks. All rights reserved.
@@ -12,7 +12,7 @@
 #include <re/mapping/Level.hpp>
 #include <re/managers/Box2DManager.hpp>
 
-class TestLevel : public re::Level
+class TestLevel : public sl::Level
 {
 public:
 	TestLevel(const std::string& script);

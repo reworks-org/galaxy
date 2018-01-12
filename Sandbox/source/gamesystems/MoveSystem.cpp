@@ -13,7 +13,7 @@
 
 #include "MoveSystem.hpp"
 
-using namespace re;
+using namespace sl;
 
 MoveSystem::MoveSystem(const std::string& playerName)
 	:m_player(playerName)

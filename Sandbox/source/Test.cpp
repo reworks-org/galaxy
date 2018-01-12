@@ -19,7 +19,7 @@
 
 #include "Test.hpp"
 
-using namespace re;
+using namespace sl;
 
 namespace moving
 {
