@@ -13,6 +13,7 @@
 #include <type_traits>
 #include <unordered_map>
 
+#include "re/utils/Utils.hpp"
 #include "entt/core/hashed_string.hpp"
 
 namespace re
@@ -33,22 +34,9 @@ namespace re
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		inline typename std::enable_if<std::is_pointer<Resource>::value, Resource>::type get(entt::HashedString id)
+		inline typename utils::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(entt::HashedString id)
 		{
 			return m_resourceMap[id];
-		}
-
-		///
-		/// Retrieve a resource.
-		///
-		/// \param name The name of the resource to retrieve.
-		///
-		/// \return Returns a reference to the resource.
-		///
-		inline typename std::enable_if<!std::is_pointer<Resource>::value, Resource>::type
-		get(entt::HashedString id)
-		{
-			return &(m_resourceMap[id]);
 		}
 
 		///
@@ -65,7 +53,6 @@ namespace re
 		///
 		ResourceCache() = default;
 
-	private:
 		///
 		/// Copy Constructor.
 		/// Deleted.

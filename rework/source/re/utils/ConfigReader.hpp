@@ -13,7 +13,6 @@
 #include <functional>
 #include <allegro5/config.h>
 
-#include "re/utils/Utils.hpp"
 #include "re/types/ServiceLocator.hpp"
 #include "entt/core/hashed_string.hpp"
 

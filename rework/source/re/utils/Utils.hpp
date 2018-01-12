@@ -20,6 +20,32 @@ namespace re
 	namespace utils
 	{
 		///
+		///
+		///
+		template<bool Cond, class T = void>
+		struct ReturnReferenceIfFalse
+		{
+		};
+
+		///
+		///
+		///
+		template<typename T>
+		struct ReturnReferenceIfFalse<true, T>
+		{
+			typedef T type;
+		};
+
+		///
+		///
+		///
+		template<typename T>
+		struct ReturnReferenceIfFalse<false, T>
+		{
+			typedef T& type;
+		};
+
+		///
 		/// \brief Do something to each item in tuple.
 		///
 		/// Different overload.
@@ -104,7 +130,7 @@ namespace re
 		///
 		/// \return Returns either true or false.
 		///
-		inline constexpr bool stringToBool(std::string_view str)
+		inline constexpr bool stringToBool(const std::string& str)
 		{
 			bool out = (str == "true") ? true : false;
 			return out;
