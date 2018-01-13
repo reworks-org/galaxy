@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -29,17 +26,15 @@
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
     <ClCompile Include="source\sl\components\PhysicsComponent.cpp" />
-    <ClCompile Include="source\sl\components\RenderableComponent.cpp" />
+    <ClCompile Include="source\sl\components\RenderComponent.cpp" />
     <ClCompile Include="source\sl\components\SpriteComponent.cpp" />
     <ClCompile Include="source\sl\components\TextComponent.cpp" />
     <ClCompile Include="source\sl\components\TransformComponent.cpp" />
     <ClCompile Include="source\sl\core\Application.cpp" />
     <ClCompile Include="source\sl\core\StateManager.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
-    <ClCompile Include="source\sl\fs\Serializer.cpp" />
     <ClCompile Include="source\sl\fs\VFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
-    <ClCompile Include="source\sl\graphics\Layer.cpp" />
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
     <ClCompile Include="source\sl\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\sl\graphics\Window.cpp" />
@@ -232,7 +227,8 @@
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
-    <ClCompile Include="source\sl\tag\LevelTag.cpp" />
+    <ClCompile Include="source\sl\tags\CameraTag.cpp" />
+    <ClCompile Include="source\sl\tags\LevelTag.cpp" />
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -240,17 +236,15 @@
     <ClInclude Include="source\sl\audio\Sound.hpp" />
     <ClInclude Include="source\sl\components\AnimationComponent.hpp" />
     <ClInclude Include="source\sl\components\PhysicsComponent.hpp" />
-    <ClInclude Include="source\sl\components\RenderableComponent.hpp" />
+    <ClInclude Include="source\sl\components\RenderComponent.hpp" />
     <ClInclude Include="source\sl\components\SpriteComponent.hpp" />
     <ClInclude Include="source\sl\components\TextComponent.hpp" />
     <ClInclude Include="source\sl\components\TransformComponent.hpp" />
     <ClInclude Include="source\sl\core\Application.hpp" />
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
-    <ClInclude Include="source\sl\fs\Serializer.hpp" />
     <ClInclude Include="source\sl\fs\VFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
-    <ClInclude Include="source\sl\graphics\Layer.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\sl\graphics\Window.hpp" />
@@ -586,7 +580,9 @@
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\sl\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
-    <ClInclude Include="source\sl\tag\LevelTag.hpp" />
+    <ClInclude Include="source\sl\tags\CameraTag.hpp" />
+    <ClInclude Include="source\sl\tags\LevelTag.hpp" />
+    <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
@@ -594,6 +590,9 @@
     <ClInclude Include="source\sl\utils\ConfigReader.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -651,6 +650,18 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -662,6 +673,18 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\</IntDir>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -738,5 +761,14 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets" Condition="Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" />
+    <Import Project="..\packages\Allegro.5.2.3.1\build\native\Allegro.targets" Condition="Exists('..\packages\Allegro.5.2.3.1\build\native\Allegro.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets'))" />
+    <Error Condition="!Exists('..\packages\Allegro.5.2.3.1\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Allegro.5.2.3.1\build\native\Allegro.targets'))" />
+  </Target>
 </Project>

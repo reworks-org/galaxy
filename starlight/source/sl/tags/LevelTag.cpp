@@ -13,7 +13,7 @@
 
 #include "Level.hpp"
 
-namespace re
+namespace sl
 {
 	Level::Level(const std::string& script)
 	{

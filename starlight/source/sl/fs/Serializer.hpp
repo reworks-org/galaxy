@@ -9,7 +9,7 @@
 #ifndef REWORK_SERIALIZE_HPP_
 #define REWORK_SERIALIZE_HPP_
 
-namespace re
+namespace sl
 {
 	class Serializer
 	{

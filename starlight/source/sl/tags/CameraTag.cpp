@@ -1,10 +1,11 @@
-//
-//  Camera.cpp
-//  rework
-//
-//  Created by reworks on 28/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  CameraTag.cpp
+///  starlight
+///
+///  Created by reworks on 28/10/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include "loguru/loguru.hpp"
 #include "re/graphics/Window.hpp"
@@ -13,7 +14,7 @@
 
 #include "Camera.hpp"
 
-namespace re
+namespace sl
 {
 	Camera::Camera(entityx::Entity e)
 		:m_entityToFollow(e)

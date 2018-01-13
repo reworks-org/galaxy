@@ -41,6 +41,8 @@ namespace sl
 		///
 		void clean();
 
+		void render(entt::DefaultRegistry& registery);
+
 		///
 		/// Retrieve number of rendering layers.
 		///

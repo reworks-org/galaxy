@@ -7,9 +7,15 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
+#include <allegro5/display.h>
+
+#include "loguru/loguru.hpp"
 #include "sl/math/QuadTree.hpp"
+#include "sl/tags/LevelTag.hpp"
+#include "sl/tags/CameraTag.hpp"
+#include "sl/graphics/RenderType.hpp"
+#include "sl/components/RenderComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
-#include "sl/components/RenderableComponent.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -29,7 +35,7 @@ namespace sl
 
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
-		auto view = registery.view<RenderableComponent>();
+		auto view = registery.view<RenderComponent>();
 
 		m_entitys.clear();
 		m_entitys.reserve(view.size());
@@ -37,7 +43,7 @@ namespace sl
 		LevelTag& level = registery.get<LevelTag>();
 		m_quadtree.updateBounds(level.getBounds());
 
-		view.each([this](entt::Entity e, RenderableComponent& rc)
+		view.each([this](entt::Entity e, RenderComponent& rc)
 		{
 			m_quadtree.insert(e);
 		});
@@ -48,17 +54,39 @@ namespace sl
 		{
 			return registery.get<TransformComponent>(a).m_layer < registery.get<TransformComponent>(b).m_layer;
 		});
-
-
 	}
 
-	void RenderSystem::render()
+	void RenderSystem::render(entt::DefaultRegistry& registery)
 	{
 		al_hold_bitmap_drawing(true);
 
-		for (auto& l : m_layers)
+		for (entt::Entity entity : m_entitys)
 		{
-			l.render();
+			auto& rc = registery.get<RenderComponent>(entity);
+			for (auto& type : rc.m_renderTypes)
+			{
+				switch (type)
+				{
+				case RenderTypes::SPRITE:
+					break;
+
+				case RenderTypes::TEXT:
+					break;
+
+				case RenderTypes::PARALLAX:
+					break;
+
+				case RenderTypes::PARTICLE:
+					break;
+
+				case RenderTypes::MAP:
+					break;
+
+				default:
+					LOG_S(ERROR) << "Tried to render a type that is not renderable! Type (see RenderType.hpp): " << std::to_string(type);
+					break;
+				}
+			}
 		}
 
 		al_hold_bitmap_drawing(false);

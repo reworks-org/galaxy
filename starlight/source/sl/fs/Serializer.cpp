@@ -21,7 +21,7 @@
 
 // https://uscilab.github.io/cereal/quickstart.html
 
-namespace re
+namespace sl
 {
 	Serializer::Serializer(const std::string& savePath)
 	:m_savePath(savePath)

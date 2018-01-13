@@ -44,9 +44,7 @@ namespace sl
 		///
 		void debug();
 
-	public:
-		float m_offsetX;
-		float m_offsetY;
+	private:
 		std::string m_text;
 		ALLEGRO_FONT* m_font;
 		ALLEGRO_COLOR m_colour;

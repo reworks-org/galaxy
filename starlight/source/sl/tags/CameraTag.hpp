@@ -1,20 +1,18 @@
-//
-//  Camera.hpp
-//  rework
-//
-//  Created by reworks on 28/10/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  CameraTag.hpp
+///  starlight
+///
+///  Created by reworks on 28/10/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #ifndef REWORK_CAMERA_HPP_
 #define REWORK_CAMERA_HPP_
 
-#include "entityx/Entity.h"
-#include "re/mapping/Level.hpp"
-
-namespace re
+namespace sl
 {
-	class Camera
+	class CameraTag
 	{
 	public:
 		///
@@ -22,7 +20,7 @@ namespace re
 		///
 		/// \param e Entity for the camera to follow. Entity MUST have a transform component.
 		///
-		Camera(entityx::Entity e);
+		Camera(const sol::table);
 
 		///
 		/// Constructor.

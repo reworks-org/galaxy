@@ -24,9 +24,9 @@
 // https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
 // https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 
-namespace re
+namespace sl
 {
-	class Level : public Renderable
+	class LevelTag
 	{
 	public:
 		///
