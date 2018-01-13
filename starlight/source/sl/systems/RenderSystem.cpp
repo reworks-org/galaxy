@@ -7,44 +7,42 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/math/QuadTree.hpp"
+#include "sl/components/TransformComponent.hpp"
 #include "sl/components/RenderableComponent.hpp"
 
 #include "RenderSystem.hpp"
 
 namespace sl
 {
-	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, int quadtreeLayers, int quadtreeMaxObjects)
-		:m_camera(nullptr), m_level(nullptr), m_layerCount(layers), m_defaultAlloc(defaultAlloc), m_quadtreeLayers(quadtreeLayers), m_quadtreeMaxObjects(quadtreeMaxObjects)
+	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, int quadTreeLevels, int quadtreeMaxObjects)
+		:m_layerCount(layers), m_defaultAlloc(defaultAlloc), m_quadtree(0, {0.0f, 0.0f, 0, 0}, quadTreeLevels, quadtreeMaxObjects)
 	{
-		m_layers.clear();
 		allocLayers();
 	}
 
 	RenderSystem::~RenderSystem()
 	{
 		m_layers.clear();
+		m_entitys.clear();
 	}
 
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
-		registery.view<RenderableFlag>().each
-		/*
-		// ratherr than create amnd de;lete qiuadtree, just allocate stack quadtree.
-		// level bounds
-		if (m_level != nullptr)
-		{
-			m_quadtree = new QuadTree(0, m_level->getBounds(), m_quadtreeLayers, m_quadtreeMaxObjects);
-		}
-		else
-		{
-			m_quadtree = new QuadTree(0, {0, 0, Locator::get<Window>()->getSize().x, Locator::get<Window>()->getSize().y}, m_quadtreeLayers, m_quadtreeMaxObjects);
-		}
+		auto view = registery.view<RenderableComponent>();
+		
+		LevelTag& level = registery.get<LevelTag>();
+		m_quadtree.updateBounds(level.getBounds());
 
-		es.each<RenderableComponent>([this](entityx::Entity& e, RenderableComponent& rc)
+		view.each([this](entt::Entity e, RenderableComponent& rc)
 		{
-			m_quadtree->insert(e);
+			m_quadtree.insert(e);
 		});
 
+
+
+
+		/*
 		clean();
 		allocLayers();
 
@@ -89,16 +87,6 @@ namespace sl
 		}
 
 		m_layers.clear();
-	}
-
-	void RenderSystem::setCamera(Camera* camera)
-	{
-		m_camera = camera;
-	}
-
-	void RenderSystem::setLevel(Level* level)
-	{
-		m_level = level;
 	}
 
 	unsigned int RenderSystem::getRenderingLayers() const

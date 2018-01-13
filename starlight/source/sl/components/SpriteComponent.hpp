@@ -11,6 +11,7 @@
 #define STARLIGHT_SPRITECOMPONENT_HPP_
 
 #include "sol2/sol_forward.hpp"
+#include "entt/core/hashed_string.hpp"
 
 namespace sl
 {
@@ -40,7 +41,7 @@ namespace sl
 		void debug();
 
 	public:
-		std::string m_spriteName;
+		entt::HashedString m_spriteName;
 
 	private:
 		///

@@ -1,10 +1,11 @@
-//
-//  Layer.cpp
-//  rework
-//
-//  Created by reworks on 11/08/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  Layer.cpp
+///  starlight
+///
+///  Created by reworks on 11/08/2016.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include "Layer.hpp"
 

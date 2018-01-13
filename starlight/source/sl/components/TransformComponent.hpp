@@ -44,6 +44,7 @@ namespace sl
 		void debug();
 
 	public:
+		int m_layer;
 		float m_angle;
 		Rect<float, int> m_rect;
 

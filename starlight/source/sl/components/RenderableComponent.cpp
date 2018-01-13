@@ -1,5 +1,5 @@
 ///
-/// RenderableFlag.hpp
+/// RenderableComponent.cpp
 /// starlight
 ///
 ///  Created by reworks on 12/01/2018.
@@ -9,12 +9,16 @@
 
 #include "imgui/imgui.h"
 
-#include "RenderableFlag.hpp"
+#include "RenderableComponent.hpp"
 
 namespace sl
 {
-	void RenderableFlag::debug()
+	RenderableComponent::RenderableComponent(const sol::table& table)
 	{
-		ImGui::Text("Flag component.");
+	}
+
+	void RenderableComponent::debug()
+	{
+		// to do
 	}
 }

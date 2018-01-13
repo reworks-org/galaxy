@@ -14,6 +14,7 @@
 
 namespace sl
 {
+	class QuadTree;
 	class RenderSystem : public System
 	{
 	public:
@@ -25,8 +26,10 @@ namespace sl
 		///
 		/// \param layers Number of layers to draw to.
 		/// \param defaultAlloc Minimum amount of space reserved in std::vector for entitys.
+		/// \param quadTreeLevels Maximum depth of a quadtree.
+		/// \param quadtreeMaxObjects Maximim number of entitys in a node.
 		///
-		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20, int quadtreeLayers = 5, int quadtreeMaxObjects = 10);
+		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20, int quadTreeLevels = 5, int quadtreeMaxObjects = 10);
 
 		///
 		/// Destructor.
@@ -38,40 +41,6 @@ namespace sl
 		///
 		void clean();
 
-		///
-		/// Set current camera.
-		///
-		/// \param camera Camera to use.
-		///
-		void setCamera(Camera* camera);
-
-		///
-		/// Set current level.
-		///
-		/// \param level Level to use.
-		///
-		void setLevel(Level* level);
-
-		///
-		/// Function to register the components that are renderable.
-		/// Call this only once, with all components.
-		///
-		template<typename ... Components>
-		void registerRenderableComponents()
-		{
-			m_clf = [this](entityx::Entity& e)
-			{
-				auto& tuple = e.components<Components...>();
-				Utils::for_each_in_tuple(tuple, [this](auto &elem)
-				{
-					if (elem)
-					{
-						m_layers[elem->m_layer].insert(dynamic_cast<Renderable*>(elem.get()));
-					}
-				});
-			};
-		}
-		
 		///
 		/// Retrieve number of rendering layers.
 		///
@@ -111,16 +80,11 @@ namespace sl
 		RenderSystem(RenderSystem&&) = delete;
 
 	private:
-		QuadTree* m_quadtree;
-		Camera* m_camera;
-		Level* m_level;
+		QuadTree m_quadtree;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
-		int m_quadtreeLayers;
-		int m_quadtreeMaxObjects;
 		std::vector<Layer> m_layers;
-		std::function<void(entityx::Entity&)> m_clf;
-
+		std::vector<entt::Entity> m_entitys;
 	};
 }
 

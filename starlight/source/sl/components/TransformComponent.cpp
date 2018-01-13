@@ -16,6 +16,7 @@ namespace sl
 {
 	TransformComponent::TransformComponent(const sol::table& table)
 	{
+		m_layer = table.get<int>("layer");
 		m_rect.m_x = table.get<float>("x");
 		m_rect.m_y = table.get<float>("y");
 		m_rect.m_width = table.get<int>("width");

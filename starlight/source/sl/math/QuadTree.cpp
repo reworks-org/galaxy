@@ -31,6 +31,11 @@ namespace sl
 		}
 	}
 
+	QuadTree::~QuadTree()
+	{
+		clear();
+	}
+
 	void QuadTree::clear()
 	{
 		m_objects.clear();
@@ -44,6 +49,11 @@ namespace sl
 				m_nodes[i] = nullptr;
 			}
 		}
+	}
+
+	void QuadTree::updateBounds(const Rect<float, int>& newBounds)
+	{
+		m_bounds = newBounds;
 	}
 
 	void QuadTree::insert(entt::Entity e)

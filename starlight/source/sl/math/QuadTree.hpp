@@ -41,9 +41,21 @@ namespace sl
 		QuadTree(int level, const Rect<float, int>& bounds, int maxLevels = 5, int maxObjects = 10);
 
 		///
+		/// Destructor.
+		///
+		~QuadTree();
+
+		///
 		/// Clears the quadtree of all data.
 		///
 		void clear();
+
+		///
+		/// Update the quadtree bounds.
+		///
+		/// \param newBounds a Rect of type <float, int>.
+		///
+		void updateBounds(const Rect<float, int>& newBounds);
 
 		///
 		/// \brief Insert the object into the quadtree.

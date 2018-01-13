@@ -30,10 +30,11 @@
     <ClCompile Include="source\sl\core\Application.cpp" />
     <ClCompile Include="source\sl\core\StateManager.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
-    <ClCompile Include="source\sl\flags\RenderableFlag.cpp" />
+    <ClCompile Include="source\sl\components\RenderableComponent.cpp" />
     <ClCompile Include="source\sl\fs\Serializer.cpp" />
     <ClCompile Include="source\sl\fs\VFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
+    <ClCompile Include="source\sl\graphics\Layer.cpp" />
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
     <ClCompile Include="source\sl\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\sl\graphics\Window.cpp" />
@@ -226,6 +227,7 @@
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
+    <ClCompile Include="source\sl\tag\LevelTag.cpp" />
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -240,10 +242,11 @@
     <ClInclude Include="source\sl\core\Application.hpp" />
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
-    <ClInclude Include="source\sl\flags\RenderableFlag.hpp" />
+    <ClInclude Include="source\sl\components\RenderableComponent.hpp" />
     <ClInclude Include="source\sl\fs\Serializer.hpp" />
     <ClInclude Include="source\sl\fs\VFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
+    <ClInclude Include="source\sl\graphics\Layer.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\sl\graphics\Window.hpp" />
@@ -579,6 +582,7 @@
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\sl\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\sl\tag\LevelTag.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />

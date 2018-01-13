@@ -26,7 +26,7 @@ namespace sl
 	{
 		m_manager->m_world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 
-		registery.view<PhysicsComponent, TransformComponent>().each([dt](std::uint32_t entity, PhysicsComponent& pc, TransformComponent& tc)
+		registery.view<PhysicsComponent, TransformComponent>().each([dt](entt::Entity, PhysicsComponent& pc, TransformComponent& tc)
 		{
 			tc.m_rect.m_x = b2::metersToPixels<float>(pc.m_body->GetPosition().x);
 			tc.m_rect.m_y = b2::metersToPixels<float>(pc.m_body->GetPosition().y);

@@ -1,13 +1,14 @@
-//
-//  Level.cpp
-//  rework
-//
-//  Created by reworks on 21/11/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  LevelTag.cpp
+///  starlight
+///
+///  Created by reworks on 21/11/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
 #include "sol2/sol.hpp"
-#include "re/services/VFS.hpp"
+#include "re/fs/VFS.hpp"
 #include "re/services/ServiceLocator.hpp"
 
 #include "Level.hpp"
@@ -17,7 +18,7 @@ namespace re
 	Level::Level(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::get<VFS>()->openAsString(script));
+		lua.script(VFS::get()->openAsString(script));
 		sol::table level = lua.get<sol::table>("level");
 
 		std::string mapData = Locator::get<VFS>()->openAsString("map");

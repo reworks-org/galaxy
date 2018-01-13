@@ -1,13 +1,14 @@
-//
-//  Level.hpp
-//  rework
-//
-//  Created by reworks on 21/11/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+///  LevelTag.hpp
+///  starlight
+///
+///  Created by reworks on 21/11/2017.
+///  Copyright (c) 2018+ reworks.
+///  Refer to LICENSE.txt for more details.
+///
 
-#ifndef REWORK_LEVEL_HPP_
-#define REWORK_LEVEL_HPP_
+#ifndef STARLIGHT_LEVELTAG_HPP_
+#define STARLIGHT_LEVELTAG_HPP_
 
 #include <vector>
 

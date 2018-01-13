@@ -16,6 +16,7 @@
 #include "sl/types/System.hpp"
 #include "sol2/sol_forward.hpp"
 #include "sl/types/ServiceLocator.hpp"
+#include "entt/core/hashed_string.hpp"
 
 namespace sl
 {

@@ -208,7 +208,9 @@
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
-    <ClCompile Include="source\sl\flags\RenderableFlag.cpp" />
+    <ClCompile Include="source\sl\components\RenderableComponent.cpp" />
+    <ClCompile Include="source\sl\graphics\Layer.cpp" />
+    <ClCompile Include="source\sl\tag\LevelTag.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp" />
@@ -567,6 +569,8 @@
     <ClInclude Include="source\sl\utils\ConfigReader.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />
-    <ClInclude Include="source\sl\flags\RenderableFlag.hpp" />
+    <ClInclude Include="source\sl\components\RenderableComponent.hpp" />
+    <ClInclude Include="source\sl\graphics\Layer.hpp" />
+    <ClInclude Include="source\sl\tag\LevelTag.hpp" />
   </ItemGroup>
 </Project>

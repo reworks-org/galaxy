@@ -21,21 +21,11 @@ namespace sl
 {
 	SpriteComponent::SpriteComponent(const sol::table& table)
 	{
-		m_spriteName = table.get<std::string>("spriteName");
-		m_layer = table.get<int>("layer");
+		m_spriteName = entt::HashedString(table.get<const char*>("spriteName"));
 	}
 
 	void SpriteComponent::debug()
 	{
-		ImGui::stl::InputText("Sprite Name (in atlas):", &m_spriteName, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
-
-		ImGui::Spacing();
-		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))
-		{
-			if (m_layer < 0)
-			{
-				m_layer = 0;
-			}
-		}
+		//ImGui::stl::InputText("Sprite Name (in atlas):", &m_spriteName, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue);
 	}
 }
