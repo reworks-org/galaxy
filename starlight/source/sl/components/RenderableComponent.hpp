@@ -10,9 +10,10 @@
 #ifndef STARLIGHT_RENDERABLECOMPONENT_HPP_
 #define STARLIGHT_RENDERABLECOMPONENT_HPP_
 
-#include <utility>
-
+#include "sl/core/World.hpp"
+#include "sl/utils/Utils.hpp"
 #include "sol2/sol_forward.hpp"
+#include "entt/entity/registry.hpp"
 #include "entt/core/hashed_string.hpp"
 
 namespace sl
@@ -40,6 +41,7 @@ namespace sl
 		template<typename... Renderables>
 		void attachRenderables(entt::Entity e);
 
+
 	private:
 		///
 		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
@@ -62,7 +64,14 @@ namespace sl
 	template<typename... Renderables>
 	void RenderableComponent::attachRenderables(entt::Entity e)
 	{
-		
+		auto tuple = entt::getMultiComponents<Renderables...>(World::get()->m_registery, e);
+		utils::for_each_in_tuple(tuple, [this](auto& elem)
+		{
+			if (elem)
+			{
+
+			}
+		});
 	}
 }
 

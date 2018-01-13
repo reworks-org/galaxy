@@ -6,18 +6,14 @@ Thumbs.db
 *.lnk
 
 # Visual Studio stuff
-*.sdf
-*.VC.db
-.vs/rework/v15/*.VC.db
-.vs/rework/v15/*.VC.db-shm
-.vs/rework/v15/*.VC.db-wal
+.vs/
 
 # XCode stuff
 DerivedData/
 
 # Project stuff
-rework/bin/
-rework/build/
+starlight/bin/
+starlight/build/
 packages/Allegro.5.2.3.1/
 packages/AllegroDeps.1.7.0.0/
 

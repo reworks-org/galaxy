@@ -1064,6 +1064,12 @@ using Entity = std::uint32_t;
 using DefaultRegistry = Registry<Entity>;
 
 
+template<typename... Components>
+inline auto getMultiComponents(entt::DefaultRegistry& reg, entt::Entity entity)
+{
+	return std::make_tuple(reg.get<Components>(entity)...);
+}
+
 }
 
 

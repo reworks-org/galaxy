@@ -30,7 +30,10 @@ namespace sl
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
 		auto view = registery.view<RenderableComponent>();
-		
+
+		m_entitys.clear();
+		m_entitys.reserve(view.size());
+
 		LevelTag& level = registery.get<LevelTag>();
 		m_quadtree.updateBounds(level.getBounds());
 
@@ -39,32 +42,14 @@ namespace sl
 			m_quadtree.insert(e);
 		});
 
+		m_quadtree.retrieve(m_entitys, registery.get<CameraTag>().getBounds());
 
-
-
-		/*
-		clean();
-		allocLayers();
-
-		std::vector<entityx::Entity> e;
-		
-		if (m_camera != nullptr)
+		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::Entity a, entt::Entity b)
 		{
-			m_quadtree->retrieve(e, m_camera->getBounds());
-		}
-		else
-		{
-			m_quadtree->retrieve(e, {0, 0, Locator::get<Window>()->getSize().x, Locator::get<Window>()->getSize().y});
-		}
+			return registery.get<TransformComponent>(a).m_layer < registery.get<TransformComponent>(b).m_layer;
+		});
 
-		for (auto& elem : e)
-		{
-			m_clf(elem);
-		}
 
-		m_quadtree->clear();
-		delete m_quadtree;
-		*/
 	}
 
 	void RenderSystem::render()
