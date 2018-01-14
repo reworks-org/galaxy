@@ -25,6 +25,7 @@
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
+    <ClCompile Include="source\sl\components\ParticleComponent.cpp" />
     <ClCompile Include="source\sl\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\sl\components\RenderComponent.cpp" />
     <ClCompile Include="source\sl\components\SpriteComponent.cpp" />
@@ -225,16 +226,18 @@
     <ClCompile Include="source\sl\resources\ShaderLibrary.cpp" />
     <ClCompile Include="source\sl\resources\SoundPlayer.cpp" />
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\sl\systems\ParticleSystem.cpp" />
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
     <ClCompile Include="source\sl\tags\CameraTag.cpp" />
-    <ClCompile Include="source\sl\tags\LevelTag.cpp" />
+    <ClCompile Include="source\sl\mapping\Level.cpp" />
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp" />
     <ClInclude Include="source\sl\audio\Sound.hpp" />
     <ClInclude Include="source\sl\components\AnimationComponent.hpp" />
+    <ClInclude Include="source\sl\components\ParticleComponent.hpp" />
     <ClInclude Include="source\sl\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\sl\components\RenderComponent.hpp" />
     <ClInclude Include="source\sl\components\SpriteComponent.hpp" />
@@ -579,10 +582,11 @@
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp" />
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\sl\systems\ParticleSystem.hpp" />
     <ClInclude Include="source\sl\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
     <ClInclude Include="source\sl\tags\CameraTag.hpp" />
-    <ClInclude Include="source\sl\tags\LevelTag.hpp" />
+    <ClInclude Include="source\sl\mapping\Level.hpp" />
     <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\ServiceLocator.hpp" />

@@ -10,14 +10,16 @@
 #include <allegro5/display.h>
 
 #include "loguru/loguru.hpp"
+#include "sl/core/World.hpp"
 #include "sl/math/QuadTree.hpp"
-#include "sl/tags/LevelTag.hpp"
+#include "sl/mapping/Level.hpp"
 #include "sl/tags/CameraTag.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 #include "sl/components/TextComponent.hpp"
 #include "sl/components/SpriteComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/ParticleComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -41,15 +43,14 @@ namespace sl
 		m_entitys.clear();
 		m_entitys.reserve(view.size());
 
-		LevelTag& level = registery.get<LevelTag>();
-		m_quadtree.updateBounds(level.getBounds());
+		m_quadtree.updateBounds(World::get()->m_currentLevel->getBounds());
 
 		view.each([this](entt::Entity e, RenderComponent& rc)
 		{
 			m_quadtree.insert(e);
 		});
 
-		m_quadtree.retrieve(m_entitys, registery.get<CameraTag>().getBounds());
+		m_quadtree.retrieve(m_entitys, registery.get<CameraTag>().m_bounds);
 
 		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::Entity a, entt::Entity b)
 		{
@@ -60,7 +61,7 @@ namespace sl
 	void RenderSystem::render(entt::DefaultRegistry& registery)
 	{
 		al_hold_bitmap_drawing(true);
-
+		
 		for (entt::Entity entity : m_entitys)
 		{
 			auto& rc = registery.get<RenderComponent>(entity);
@@ -70,12 +71,12 @@ namespace sl
 				{
 				case RenderTypes::SPRITE:
 					auto sprtuple = registery.get<TransformComponent, SpriteComponent>(entity);
-					TextureAtlas::al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, std::get<0>(sprtuple).m_rect.m_x, std::get<0>(sprtuple).m_rect.m_y, 0);
+					TextureAtlas::get()->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, std::get<0>(sprtuple).m_rect.m_x, std::get<0>(sprtuple).m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::TEXT:
 					auto textuple = registery.get<TransformComponent, TextComponent>(entity);
-					TextureAtlas::al_draw_packed_bitmap(std::get<1>(textuple).m_id, std::get<0>(textuple).m_rect.m_x, std::get<0>(textuple).m_rect.m_y, 0);
+					TextureAtlas::get()->al_draw_packed_bitmap(std::get<1>(textuple).m_id, std::get<0>(textuple).m_rect.m_x, std::get<0>(textuple).m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::PARALLAX:

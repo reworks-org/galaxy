@@ -15,6 +15,7 @@
 
 #include "sl/types/System.hpp"
 #include "sol2/sol_forward.hpp"
+#include "sl/mapping/Level.hpp"
 #include "sl/types/ServiceLocator.hpp"
 #include "entt/core/hashed_string.hpp"
 
@@ -123,6 +124,7 @@ namespace sl
 
 	public:
 		entt::DefaultRegistry m_registery;
+		std::unique_ptr<Level> m_currentLevel;
 		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 	};
 

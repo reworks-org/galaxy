@@ -118,3 +118,10 @@ AnimatedTile -> Tile?
 look into new tmx docs
 
 replace shitty external tools...
+
+// we can then update the animations aswell.
+// each layer should be a bitmap so we can instert it into layer render engine
+// movesystem needs to grab tile information in order to make actions occur
+
+// https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
+// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c

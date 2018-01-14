@@ -72,6 +72,8 @@ namespace sl
 
 	void World::update(const double dt)
 	{
+		m_currentLevel->update(dt);
+
 		for (auto& system : m_systems)
 		{
 			system.second->update(dt, m_registery);

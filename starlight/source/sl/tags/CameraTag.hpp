@@ -7,12 +7,15 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_CAMERA_HPP_
-#define REWORK_CAMERA_HPP_
+#ifndef REWORK_CAMERATAG_HPP_
+#define REWORK_CAMERATAG_HPP_
+
+#include "sl/math/Rect.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace sl
 {
-	class CameraTag
+	class CameraTag final
 	{
 	public:
 		///
@@ -20,32 +23,33 @@ namespace sl
 		///
 		/// \param e Entity for the camera to follow. Entity MUST have a transform component.
 		///
-		Camera(const sol::table);
+		CameraTag(const sol::table& table);
 
 		///
-		/// Constructor.
+		/// Move Constructor.
 		///
-		/// \param bounds Bounds for the camera to follow.
-		///
-		Camera(Rect<float, int> bounds);
+		CameraTag(CameraTag&&) = default;
 
 		///
-		/// Constructor.
+		/// Destructor.
 		///
-		/// \param level 
-		///
-		void update(Level* level);
+		virtual ~CameraTag() = default;
 
-		///
-		/// Return current camera bounds.
-		///
-		/// \return Rect<int> CONST
-		///
-		const Rect<float, int>& getBounds() const;
+	public:
+		Rect<float, int> m_bounds;
 
 	private:
-		entityx::Entity m_entityToFollow;
-		Rect<float, int> m_bounds;
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		CameraTag() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		CameraTag(const CameraTag&) = delete;
 	};
 }
 
