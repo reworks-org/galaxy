@@ -69,3 +69,11 @@ namespace ImGui
     operator sl::Vector2<T>() const {                                   \
         return sl::Vector2<T>(x, y);                                    \
 }
+
+//Imgui string extension
+#define IMGUI_STD_EXT
+
+#ifdef IMGUI_STD_EXT
+#include <string>
+#include <vector>
+#endif // IMGUI_STD_EXT

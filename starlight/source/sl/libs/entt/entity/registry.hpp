@@ -2,6 +2,7 @@
 #define ENTT_ENTITY_REGISTRY_HPP
 
 
+#include <tuple>
 #include <vector>
 #include <memory>
 #include <utility>
@@ -9,7 +10,8 @@
 #include <cstdint>
 #include <cassert>
 #include <algorithm>
-#include "../cosl/family.hpp"
+#include <type_traits>
+#include "../core/family.hpp"
 #include "sparse_set.hpp"
 #include "traits.hpp"
 #include "view.hpp"
@@ -644,7 +646,7 @@ public:
      *
      * @tparam Component Type of component to get.
      * @param entity A valid entity identifier.
-     * @return A reference to the instance of the component owned by the entity.
+     * @return A reference to the component owned by the entity.
      */
     template<typename Component>
     const Component & get(entity_type entity) const noexcept {
@@ -664,11 +666,51 @@ public:
      *
      * @tparam Component Type of component to get.
      * @param entity A valid entity identifier.
-     * @return A reference to the instance of the component owned by the entity.
+     * @return A reference to the component owned by the entity.
      */
     template<typename Component>
     Component & get(entity_type entity) noexcept {
         return const_cast<Component &>(const_cast<const Registry *>(this)->get<Component>(entity));
+    }
+
+    /**
+     * @brief Returns a reference to the given components for an entity.
+     *
+     * @warning
+     * Attempting to use an invalid entity or to get components from an entity
+     * that doesn't own them results in undefined behavior.<br/>
+     * An assertion will abort the execution at runtime in debug mode in case of
+     * invalid entity or if the entity doesn't own instances of the given
+     * components.
+     *
+     * @tparam Component Type of components to get.
+     * @param entity A valid entity identifier.
+     * @return References to the components owned by the entity.
+     */
+    template<typename... Component>
+    std::enable_if_t<(sizeof...(Component) > 1), std::tuple<const Component &...>>
+    get(entity_type entity) const noexcept {
+        return std::tuple<const Component &...>{ get<Component>(entity)... };
+    }
+
+    /**
+     * @brief Returns a reference to the given components for an entity.
+     *
+     * @warning
+     * Attempting to use an invalid entity or to get components from an entity
+     * that doesn't own them results in undefined behavior.<br/>
+     * An assertion will abort the execution at runtime in debug mode in case of
+     * invalid entity or if the entity doesn't own instances of the given
+     * components.
+     *
+     * @tparam Component Type of components to get.
+     * @param entity A valid entity identifier.
+     * @return References to the components owned by the entity.
+     */
+    template<typename... Component>
+    std::enable_if_t<(sizeof...(Component) > 1), std::tuple<Component &...>>
+    get(entity_type entity) noexcept {
+        return std::tuple<Component &...>{ get<Component>(entity)... };
     }
 
     /**
@@ -1060,15 +1102,8 @@ private:
  * The default registry is the best choice for almost all the applications.<br/>
  * Users should have a really good reason to choose something different.
  */
-using Entity = std::uint32_t;
-using DefaultRegistry = Registry<Entity>;
+using DefaultRegistry = Registry<std::uint32_t>;
 
-
-template<typename... Components>
-inline auto getMultiComponents(entt::DefaultRegistry& reg, entt::Entity entity)
-{
-	return std::make_tuple(reg.get<Components>(entity)...);
-}
 
 }
 

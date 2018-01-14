@@ -14,6 +14,9 @@
 #include "sl/tags/LevelTag.hpp"
 #include "sl/tags/CameraTag.hpp"
 #include "sl/graphics/RenderType.hpp"
+#include "sl/graphics/TextureAtlas.hpp"
+#include "sl/components/TextComponent.hpp"
+#include "sl/components/SpriteComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -21,15 +24,13 @@
 
 namespace sl
 {
-	RenderSystem::RenderSystem(unsigned int layers, unsigned int defaultAlloc, int quadTreeLevels, int quadtreeMaxObjects)
-		:m_layerCount(layers), m_defaultAlloc(defaultAlloc), m_quadtree(0, {0.0f, 0.0f, 0, 0}, quadTreeLevels, quadtreeMaxObjects)
+	RenderSystem::RenderSystem(int quadTreeLevels, int quadtreeMaxObjects)
+	:m_quadtree(0, {0.0f, 0.0f, 0, 0}, quadTreeLevels, quadtreeMaxObjects)
 	{
-		allocLayers();
 	}
 
 	RenderSystem::~RenderSystem()
 	{
-		m_layers.clear();
 		m_entitys.clear();
 	}
 
@@ -68,9 +69,13 @@ namespace sl
 				switch (type)
 				{
 				case RenderTypes::SPRITE:
+					auto sprtuple = registery.get<TransformComponent, SpriteComponent>(entity);
+					TextureAtlas::al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, std::get<0>(sprtuple).m_rect.m_x, std::get<0>(sprtuple).m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::TEXT:
+					auto textuple = registery.get<TransformComponent, TextComponent>(entity);
+					TextureAtlas::al_draw_packed_bitmap(std::get<1>(textuple).m_id, std::get<0>(textuple).m_rect.m_x, std::get<0>(textuple).m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::PARALLAX:
@@ -90,29 +95,5 @@ namespace sl
 		}
 
 		al_hold_bitmap_drawing(false);
-	}
-
-	void RenderSystem::clean()
-	{
-		for (auto& l : m_layers)
-		{
-			l.clean();
-		}
-
-		m_layers.clear();
-	}
-
-	unsigned int RenderSystem::getRenderingLayers() const
-	{
-		return m_layerCount;
-	}
-
-	void RenderSystem::allocLayers()
-	{
-		m_layers.reserve(m_layerCount);
-		for (unsigned int i = 0; i < m_layerCount; ++i)
-		{
-			m_layers.emplace_back(m_defaultAlloc);
-		}
 	}
 }

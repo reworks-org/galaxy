@@ -37,25 +37,13 @@ namespace sl
 		~RenderSystem() override;
 
 		///
-		/// Clean up system.
+		/// Render entitys.
 		///
-		void clean();
-
+		/// \param registery Default entity registery.
+		/// 
 		void render(entt::DefaultRegistry& registery);
 
-		///
-		/// Retrieve number of rendering layers.
-		///
-		/// \return unsigned int CONST.
-		///
-		unsigned int getRenderingLayers() const;
-
 	private:
-		///
-		/// Allocate internal layers.
-		///
-		void allocLayers();
-
 		///
 		/// \brief Update the system.
 		///
@@ -85,7 +73,6 @@ namespace sl
 		QuadTree m_quadtree;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
-		std::vector<Layer> m_layers;
 		std::vector<entt::Entity> m_entitys;
 	};
 }

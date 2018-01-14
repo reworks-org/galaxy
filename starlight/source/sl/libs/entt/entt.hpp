@@ -1,9 +1,9 @@
-#ifndef ENTT_ALL_HPP_
-#define ENTT_ALL_HPP_
+#ifndef ENTT_INCLUDEALL_HPP_
+#define ENTT_INCLUDEALL_HPP_
 
-#include "entt/cosl/family.hpp"
-#include "entt/cosl/hashed_string.hpp"
-#include "entt/cosl/ident.hpp"
+#include "entt/core/family.hpp"
+#include "entt/core/hashed_string.hpp"
+#include "entt/core/ident.hpp"
 #include "entt/entity/actor.hpp"
 #include "entt/entity/registry.hpp"
 #include "entt/entity/sparse_set.hpp"

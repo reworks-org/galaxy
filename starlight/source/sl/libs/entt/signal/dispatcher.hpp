@@ -6,7 +6,7 @@
 #include <memory>
 #include <utility>
 #include <cstdint>
-#include "../cosl/family.hpp"
+#include "../core/family.hpp"
 #include "signal.hpp"
 #include "sigh.hpp"
 

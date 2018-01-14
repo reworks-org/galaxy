@@ -13,7 +13,7 @@
 #include <allegro5/color.h>
 
 #include "sol2/sol_forward.hpp"
-#include "entt/cosl/hashed_string.hpp"
+#include "entt/core/hashed_string.hpp"
 
 typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 

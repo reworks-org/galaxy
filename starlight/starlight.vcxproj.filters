@@ -432,9 +432,6 @@
     <ClCompile Include="source\sl\libs\Box2D\Rope\b2Rope.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\libs\entt\entt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\auto\auto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -640,6 +637,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\components\RenderComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\libs\entt\entt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1322,57 +1322,6 @@
     <ClInclude Include="source\sl\libs\cereal\macros.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\family.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\ident.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\actor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\registry.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\sparse_set.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\traits.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\view.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\process\process.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\process\scheduler.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\bus.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\delegate.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\dispatcher.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\signal.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entt.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\auto\boost\pfr\detail\cast_to_layout_compatible.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1716,6 +1665,60 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\graphics\RenderType.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\family.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\ident.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\actor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\registry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\sparse_set.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\view.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\process\process.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\process\scheduler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\bus.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\delegate.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\dispatcher.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\signal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entt.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\imgui\auto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

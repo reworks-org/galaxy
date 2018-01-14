@@ -476,6 +476,7 @@
     <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp" />
     <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp" />
     <ClInclude Include="source\sl\libs\entt\signal\signal.hpp" />
+    <ClInclude Include="source\sl\libs\imgui\auto.h" />
     <ClInclude Include="source\sl\libs\imgui\auto\boost\pfr.hpp" />
     <ClInclude Include="source\sl\libs\imgui\auto\boost\pfr\detail\cast_to_layout_compatible.hpp" />
     <ClInclude Include="source\sl\libs\imgui\auto\boost\pfr\detail\config.hpp" />

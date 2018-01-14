@@ -10,13 +10,6 @@
 #ifndef STARLIGHT_LEVELTAG_HPP_
 #define STARLIGHT_LEVELTAG_HPP_
 
-#include <vector>
-
-#include "re/math/Rect.hpp"
-#include "re/types/Renderable.hpp"
-#include "re/mapping/TMXHelper.hpp"
-#include "re/mapping/AnimatedTile.hpp"
-
 // we can then update the animations aswell.
 // each layer should be a bitmap so we can instert it into layer render engine
 // movesystem needs to grab tile information in order to make actions occur
@@ -34,12 +27,12 @@ namespace sl
 		///
 		/// \param script Lua script outlining level data.
 		///
-		Level(const std::string& script);
+		LevelTag(const std::string& script);
 
 		///
 		/// Destructor.
 		///
-		virtual ~Level();
+		virtual ~LevelTag();
 
 		///
 		/// Return current map bounds.
