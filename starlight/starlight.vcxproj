@@ -34,6 +34,7 @@
     <ClCompile Include="source\sl\core\Application.cpp" />
     <ClCompile Include="source\sl\core\StateManager.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
+    <ClCompile Include="source\sl\events\EventManager.cpp" />
     <ClCompile Include="source\sl\fs\VFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
+    <ClInclude Include="source\sl\events\EventManager.hpp" />
     <ClInclude Include="source\sl\events\EventTypes.hpp" />
     <ClInclude Include="source\sl\fs\VFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
