@@ -246,6 +246,8 @@
     <ClInclude Include="source\sl\core\Application.hpp" />
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
+    <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
+    <ClInclude Include="source\sl\events\EventTypes.hpp" />
     <ClInclude Include="source\sl\fs\VFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
@@ -473,12 +475,6 @@
     <ClInclude Include="source\sl\libs\entt\entt.hpp" />
     <ClInclude Include="source\sl\libs\entt\process\process.hpp" />
     <ClInclude Include="source\sl\libs\entt\process\scheduler.hpp" />
-    <ClInclude Include="source\sl\libs\entt\signal\bus.hpp" />
-    <ClInclude Include="source\sl\libs\entt\signal\delegate.hpp" />
-    <ClInclude Include="source\sl\libs\entt\signal\dispatcher.hpp" />
-    <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp" />
-    <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp" />
-    <ClInclude Include="source\sl\libs\entt\signal\signal.hpp" />
     <ClInclude Include="source\sl\libs\imgui\auto.h" />
     <ClInclude Include="source\sl\libs\imgui\auto\boost\pfr.hpp" />
     <ClInclude Include="source\sl\libs\imgui\auto\boost\pfr\detail\cast_to_layout_compatible.hpp" />

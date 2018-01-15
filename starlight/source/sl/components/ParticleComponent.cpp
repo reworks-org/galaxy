@@ -11,13 +11,13 @@
 
 namespace sl
 {
-	ParticleComponent::ParticleComponent(float x, float y, float alpha, entt::HashedString id)
-	:m_x(x), m_y(y), m_alpha(alpha), m_atlasID(id)
+	ParticleComponent::ParticleComponent(const Vector2<float>& position, const Vector2<float>& direction, float alpha, entt::HashedString id)
+		:m_position(position), m_direction(direction), m_alpha(alpha), m_id(id)
 	{
 	}
 
-	void ParticleComponent::debug()
+	ParticleComponent::ParticleComponent(float px, float py, float dx, float dy, float alpha, entt::HashedString id)
+		:m_position(px, py), m_direction(dx, dy), m_alpha(alpha), m_id(id)
 	{
-		// to do
 	}
 }

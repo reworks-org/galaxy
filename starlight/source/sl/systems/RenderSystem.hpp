@@ -53,7 +53,7 @@ namespace sl
 
 		///
 		/// Default Constructor.
-		/// Deletd.
+		/// Deleted.
 		///
 		RenderSystem() = delete;
 

@@ -10,6 +10,7 @@
 #ifndef STARLIGHT_PARTICLECOMPONENT_HPP_
 #define STARLIGHT_PARTICLECOMPONENT_HPP_
 
+#include "sl/math/Vector2.hpp"
 #include "entt/core/hashed_string.hpp"
 
 namespace sl
@@ -20,12 +21,24 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		/// \param x XPOS.
-		/// \param y YPOS.
+		/// \param position x, y Position.
+		/// \param direction x, y direction travelling.
 		/// \param alpha Alpha value (opacity).
 		/// \param id ID of particle texture in atlas.
 		///
-		ParticleComponent(float x, float y, float alpha, entt::HashedString id);
+		ParticleComponent(const Vector2<float>& position, const Vector2<float>& direction, float alpha, entt::HashedString id);
+
+		///
+		/// Constructor.
+		///
+		/// \param px x Position.
+		/// \param py y Position.
+		/// \param dx Direction of particle x.
+		/// \param dy Direction of particle y.
+		/// \param alpha Alpha value (opacity).
+		/// \param id ID of particle texture in atlas.
+		///
+		ParticleComponent(float px, float py, float dx, float dy, float alpha, entt::HashedString id);
 
 		///
 		/// Move Constructor.
@@ -38,18 +51,13 @@ namespace sl
 		~ParticleComponent() = default;
 
 	public:
-		float m_x;
-		float m_y;
+		Vector2<float> m_position;
+		Vector2<float> m_direction;
 		float m_alpha;
 
-		entt::HashedString m_atlasID;
+		entt::HashedString m_id;
 
 	private:
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
-
 		///
 		/// Default constructor.
 		/// Deleted.

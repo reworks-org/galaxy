@@ -11,10 +11,5 @@
 #include "entt/entity/view.hpp"
 #include "entt/process/process.hpp"
 #include "entt/process/scheduler.hpp"
-#include "entt/signal/bus.hpp"
-#include "entt/signal/delegate.hpp"
-#include "entt/signal/emitter.hpp"
-#include "entt/signal/sigh.hpp"
-#include "entt/signal/signal.hpp"
 
 #endif
