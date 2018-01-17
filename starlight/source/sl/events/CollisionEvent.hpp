@@ -10,15 +10,14 @@
 #ifndef STARLIGHT_COLLISIONEVENT_HPP_
 #define STARLIGHT_COLLISIONEVENT_HPP_
 
-#include "entt/entity/registry.hpp"
-
 struct CollisionEvent
 {
 	/// Entity A in collision.
-	entt::Entity a;
+	/// We use the non typedef of entt::Entity because it saves us having to include a bunch of headers...
+	unsigned int a;
 
 	/// Entity B in collision.
-	entt::Entity b;
+	unsigned int b;
 
 	/// Optional amount of particles to display.
 	int particle_count = 0;

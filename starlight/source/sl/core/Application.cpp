@@ -7,7 +7,6 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#include <allegro5/events.h>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_image.h>
@@ -17,16 +16,19 @@
 #include <allegro5/allegro_native_dialog.h>
 
 #include "sl/fs/VFS.hpp"
-#include "sl/cosl/World.hpp"
+#include "sl/core/World.hpp"
 #include "sl/utils/Time.hpp"
 #include "sl/graphics/Window.hpp"
-#include "sl/cosl/StateManager.hpp"
-#include "sl/cosl/DebugInterface.hpp"
-#include "sl/resources/FontLoader.hpp"
-#include "sl/resources/AudioLoader.hpp"
+#include "sl/core/StateManager.hpp"
+#include "sl/core/DebugInterface.hpp"
+#include "sl/events/EventManager.hpp"
+#include "sl/utils/ConfigReader.hpp"
+#include "sl/resources/FontBook.hpp"
+#include "sl/physics/Box2DManager.hpp"
+#include "sl/resources/SoundPlayer.hpp"
+#include "sl/resources/MusicPlayer.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
-#include "sl/resources/ShaderLoader.hpp"
-#include "sl/resources/ConfigReader.hpp"
+#include "sl/resources/ShaderLibrary.hpp"
 
 #include "Application.hpp"
 
@@ -67,9 +69,12 @@ namespace sl
 		DebugInterface::make(m_window->getDisplay());
 		StateManager::make();
 		TextureAtlas::make(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
-		FontLoader::make(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
-		ShaderLoader::make();
-		PhysicsWorld::make(m_configReader->lookup<float32>(config, "box2d", "gravity"));
+		FontBook::make(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
+		ShaderLibrary::make();
+		MusicPlayer::make(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
+		SoundPlayer::make(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
+		Box2DManager::make(m_configReader->lookup<float32>(config, "box2d", "gravity"));
+		EventManager::make();
 
 		#ifdef NDEBUG
 			DebugInterface::get()->disable(true);
@@ -80,10 +85,12 @@ namespace sl
 
 	Application::~Application()
 	{
-		PhysicsWorld::destroy();
-		AudioLoader::destroy();
-		ShaderLoader::destroy();
-		FontLoader::destroy();
+		EventManager::destroy();
+		Box2DManager::destroy();
+		SoundPlayer::destroy();
+		MusicPlayer::destroy();
+		ShaderLibrary::destroy();
+		FontBook::destroy();
 		TextureAtlas::destroy();
 		StateManager::destroy();
 		DebugInterface::destroy();
@@ -119,14 +126,14 @@ namespace sl
 		Window* window = Window::get();
 		StateManager* stateManager = StateManager::get();
 		DebugInterface* debugInterface = DebugInterface::get();
+		EventManager* eventManager = EventManager::get();
 
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
-		ALLEGRO_EVENT_QUEUE* eventQueue = al_create_event_queue();
-
-		al_register_event_source(eventQueue, al_get_display_event_source(window->getDisplay()));
-		al_register_event_source(eventQueue, al_get_mouse_event_source());
-		al_register_event_source(eventQueue, al_get_keyboard_event_source());
-		al_register_event_source(eventQueue, al_get_timer_event_source(clock));
+		
+		al_register_event_source(eventManager->m_queue, al_get_display_event_source(window->getDisplay()));
+		al_register_event_source(eventManager->m_queue, al_get_mouse_event_source());
+		al_register_event_source(eventManager->m_queue, al_get_keyboard_event_source());
+		al_register_event_source(eventManager->m_queue, al_get_timer_event_source(clock));
 
 		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		al_start_timer(clock);
@@ -136,7 +143,7 @@ namespace sl
 		while (window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
-			while (al_get_next_event(eventQueue, &ev))
+			while (al_get_next_event(eventManager->, &ev))
 			{
 				stateManager->event(&ev);
 				debugInterface->event(&ev);
@@ -192,8 +199,8 @@ namespace sl
 		stateManager->unload();
 
 		al_stop_timer(clock);
-		al_destroy_event_queue(eventQueue);
 		al_destroy_timer(clock);
+
 		LOG_S(INFO) << "App close.";
 
 		return EXIT_SUCCESS;
