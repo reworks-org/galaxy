@@ -145,9 +145,10 @@ namespace sl
 			ALLEGRO_EVENT ev;
 			while (al_get_next_event(eventManager->, &ev))
 			{
+				world->event(&ev);
 				stateManager->event(&ev);
 				debugInterface->event(&ev);
-
+				
 				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:

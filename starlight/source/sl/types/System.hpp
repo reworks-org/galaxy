@@ -14,6 +14,8 @@
 
 #include "entt/entity/registry.hpp"
 
+typedef union ALLEGRO_EVENT ALLEGRO_EVENT;
+
 namespace sl
 {
 	class System
@@ -26,6 +28,13 @@ namespace sl
 		virtual ~System() = default;
 
 	protected:
+		///
+		/// Lets systems recieve events.
+		///
+		/// \param event ALLEGRO_EVENT passed by application class.
+		///
+		virtual void event(ALLEGRO_EVENT* event) = 0;
+
 		///
 		/// Update method.
 		///

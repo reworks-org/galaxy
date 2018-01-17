@@ -40,7 +40,6 @@ namespace sl
 
 	public:
 		std::unique_ptr<b2World> m_world;
-		std::map<std::pair<const std::string&, const std::string&>, std::function<void(const std::string&, const std::string&)>> m_collisionFunctions;
 
 	private:
 		///

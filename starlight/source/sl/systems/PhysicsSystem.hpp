@@ -14,7 +14,9 @@
 
 namespace sl
 {
+	class World;
 	class Box2DManager;
+
 	class PhysicsSystem final : public System
 	{
 	public:
@@ -31,7 +33,15 @@ namespace sl
 		/// Destructor.
 		///
 		~PhysicsSystem() override = default;
-		
+
+	private:
+		///
+		/// Lets systems recieve events.
+		///
+		/// \param event ALLEGRO_EVENT passed by application class.
+		///
+		void event(ALLEGRO_EVENT* event) override;
+
 		///
 		/// \brief Update the system.
 		///
@@ -39,7 +49,6 @@ namespace sl
 		///
 		void update(const double dt, entt::DefaultRegistry& registery) override;
 
-	private:
 		///
 		/// Default Constructor.
 		/// Deleted.
@@ -63,7 +72,9 @@ namespace sl
 		int m_velocityIterations;
 		int m_positionIterations;
 
+		World* m_world;
 		Box2DManager* m_manager;
+		std::map<std::pair<entt::Entity, entt::Entity>, std::function<void(entt::Entity, entt::Entity)>> m_collisionFunctions;
 	};
 }
 

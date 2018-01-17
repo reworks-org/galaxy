@@ -49,6 +49,13 @@ namespace sl
 		void createEntities(const std::string& batchScript);
 
 		///
+		/// Process world events.
+		///
+		/// \param event Event data structure from application class.
+		/// 
+		void event(ALLEGRO_EVENT* event);
+
+		///
 		/// \brief Update the world.
 		///
 		/// \param dt timePerFrame from application loop, or delta time.

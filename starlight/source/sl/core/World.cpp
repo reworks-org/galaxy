@@ -70,6 +70,14 @@ namespace sl
 		});
 	}
 
+	void World::event(ALLEGRO_EVENT* event)
+	{
+		for (auto& system : m_systems)
+		{
+			system.second->event(event);
+		}
+	}
+
 	void World::update(const double dt)
 	{
 		m_currentLevel->update(dt);

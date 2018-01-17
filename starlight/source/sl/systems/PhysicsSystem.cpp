@@ -7,9 +7,15 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
+#include <utility>
+
+#include "sl/core/World.hpp"
+#include "sl/events/EventTypes.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
+#include "sl/events/CollisionEvent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
+#include "sl/components/ParticleComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "PhysicsSystem.hpp"
@@ -19,7 +25,24 @@ namespace sl
 	PhysicsSystem::PhysicsSystem(float ups, int vi, int pi)
 	:m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
 	{
+		m_world = World::get();
 		m_manager = Box2DManager::get();
+	}
+
+	void PhysicsSystem::event(ALLEGRO_EVENT* event)
+	{
+		switch (event->type)
+		{
+		case EventTypes::COLLISION_EVENT:
+			auto event = static_cast<CollisionEvent*>(event->user.data1);
+			auto kvp = m_collisionFunctions.find(std::make_pair(event->a, event->b));
+
+			if (kvp != m_collisionFunctions.end())
+			{
+				kvp->second(event->a, event->b);
+			}
+			break;
+		}
 	}
 
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registery)
