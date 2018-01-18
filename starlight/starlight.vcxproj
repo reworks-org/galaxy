@@ -25,6 +25,7 @@
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
+    <ClCompile Include="source\sl\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\sl\components\ParticleComponent.cpp" />
     <ClCompile Include="source\sl\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\sl\components\RenderComponent.cpp" />
@@ -37,6 +38,7 @@
     <ClCompile Include="source\sl\events\EventManager.cpp" />
     <ClCompile Include="source\sl\fs\VFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
+    <ClCompile Include="source\sl\graphics\ParallaxSprite.cpp" />
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
     <ClCompile Include="source\sl\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\sl\graphics\Window.cpp" />
@@ -227,6 +229,7 @@
     <ClCompile Include="source\sl\resources\ShaderLibrary.cpp" />
     <ClCompile Include="source\sl\resources\SoundPlayer.cpp" />
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\sl\systems\ParallaxSystem.cpp" />
     <ClCompile Include="source\sl\systems\ParticleSystem.cpp" />
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
@@ -238,6 +241,7 @@
     <ClInclude Include="source\sl\audio\Music.hpp" />
     <ClInclude Include="source\sl\audio\Sound.hpp" />
     <ClInclude Include="source\sl\components\AnimationComponent.hpp" />
+    <ClInclude Include="source\sl\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\sl\components\ParticleComponent.hpp" />
     <ClInclude Include="source\sl\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\sl\components\RenderComponent.hpp" />
@@ -253,6 +257,7 @@
     <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp" />
     <ClInclude Include="source\sl\fs\VFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
+    <ClInclude Include="source\sl\graphics\ParallaxSprite.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\sl\graphics\Window.hpp" />
@@ -581,6 +586,7 @@
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp" />
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\sl\systems\ParallaxSystem.hpp" />
     <ClInclude Include="source\sl\systems\ParticleSystem.hpp" />
     <ClInclude Include="source\sl\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />

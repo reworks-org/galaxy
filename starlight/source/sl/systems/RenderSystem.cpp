@@ -2,9 +2,9 @@
 /// RenderSystem.cpp
 /// starlight
 ///
-///  Created by reworks on 06/08/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 06/08/2016.
+/// Copyright (c) 2018+ reworks.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <allegro5/display.h>
@@ -20,6 +20,7 @@
 #include "sl/components/SpriteComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
+#include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -89,6 +90,10 @@ namespace sl
 					break;
 
 				case RenderTypes::PARALLAX:
+					//auto paraltuple = registery.get<TransformComponent, ParallaxComponent>(entity);
+					//auto& transformParallax = std::get<0>(paraltuple);
+					
+					//m_atlas->al_draw_packed_bitmap(std::get<1>(paraltuple).m_atlasID, transformParallax.m_rect.m_x, transformParallax.m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::PARTICLE:

@@ -50,8 +50,8 @@ namespace sl
 		~ParticleComponent() = default;
 
 	public:
-		float m_alpha;
 		float m_fade;
+		float m_alpha;
 		Vector2<float> m_direction;
 
 		entt::HashedString m_id;

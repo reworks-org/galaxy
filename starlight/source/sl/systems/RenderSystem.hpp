@@ -2,9 +2,9 @@
 /// RenderSystem.hpp
 /// starlight
 ///
-///  Created by reworks on 06/08/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 06/08/2016.
+/// Copyright (c) 2018+ reworks.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_RENDERSYSTEM_HPP_

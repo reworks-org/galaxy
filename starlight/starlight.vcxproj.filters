@@ -651,6 +651,15 @@
     <ClCompile Include="source\sl\events\EventManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\components\ParallaxComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\systems\ParallaxSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\graphics\ParallaxSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1728,6 +1737,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\components\ParallaxComponent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\systems\ParallaxSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\graphics\ParallaxSprite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

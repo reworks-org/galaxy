@@ -73,7 +73,6 @@ namespace my_project {
 renderer:
 - split update and rendering threads?
 
-- particle engine
 - parallax
 - implement serialization
 	- call serializecomponetns from serailize suystem using eneityx
