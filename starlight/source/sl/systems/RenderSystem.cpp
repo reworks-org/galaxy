@@ -29,11 +29,16 @@ namespace sl
 	RenderSystem::RenderSystem(int quadTreeLevels, int quadtreeMaxObjects)
 	:m_quadtree(0, {0.0f, 0.0f, 0, 0}, quadTreeLevels, quadtreeMaxObjects)
 	{
+		m_atlas = TextureAtlas::get();
 	}
 
 	RenderSystem::~RenderSystem()
 	{
 		m_entitys.clear();
+	}
+
+	void RenderSystem::event(ALLEGRO_EVENT* event)
+	{
 	}
 
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registery)
@@ -71,18 +76,27 @@ namespace sl
 				{
 				case RenderTypes::SPRITE:
 					auto sprtuple = registery.get<TransformComponent, SpriteComponent>(entity);
-					TextureAtlas::get()->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, std::get<0>(sprtuple).m_rect.m_x, std::get<0>(sprtuple).m_rect.m_y, 0);
+					auto& transformSprite = std::get<0>(sprtuple);
+
+					m_atlas->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::TEXT:
 					auto textuple = registery.get<TransformComponent, TextComponent>(entity);
-					TextureAtlas::get()->al_draw_packed_bitmap(std::get<1>(textuple).m_id, std::get<0>(textuple).m_rect.m_x, std::get<0>(textuple).m_rect.m_y, 0);
+					auto& transformText = std::get<0>(textuple);
+
+					m_atlas->al_draw_packed_bitmap(std::get<1>(textuple).m_id, transformText.m_rect.m_x, transformText.m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::PARALLAX:
 					break;
 
 				case RenderTypes::PARTICLE:
+					auto partuple = registery.get<TransformComponent, ParticleComponent>(entity);
+					auto& transformParticle = std::get<0>(partuple);
+					auto& particle = std::get<1>(partuple);
+
+					m_atlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(1.0f, 1.0f, 1.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
 					break;
 
 				case RenderTypes::MAP:

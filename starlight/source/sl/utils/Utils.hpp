@@ -79,6 +79,23 @@ namespace sl
 		}
 
 		///
+		/// \brief Calculate the percentage in a custom range.
+		///
+		/// Thanks to: https://stackoverflow.com/a/25835683
+		///
+		/// \param input The value to check the percentage of.
+		/// \param min The value representing 0%.
+		/// \param max The value representing 100%.
+		/// 
+		/// \return Returns the percentage of the value in that range.
+		///
+		template<typename T>
+		inline constexpr T customPercentage(T input, T min, T max)
+		{
+			return (((input - min) * 100) / (max - min));
+		}
+
+		///
 		/// \brief Get an extension.
 		///
 		/// Thanks to: https://stackoverflow.com/a/4505931

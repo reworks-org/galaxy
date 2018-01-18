@@ -24,6 +24,11 @@ namespace sl
 		m_angle = table.get<float>("angle");
 	}
 
+	TransformComponent::TransformComponent(int layer, float angle, const Rect<float, int>& rect)
+		:m_layer(layer), m_angle(angle), m_rect(rect)
+	{
+	}
+
 	void TransformComponent::debug()
 	{
 		ImGui::InputFloat("X Pos", &m_rect.m_x);

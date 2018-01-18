@@ -9,13 +9,11 @@
 
 #include <utility>
 
-#include "sl/core/World.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
 #include "sl/events/CollisionEvent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
-#include "sl/components/ParticleComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "PhysicsSystem.hpp"
@@ -34,12 +32,12 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::COLLISION_EVENT:
-			auto event = static_cast<CollisionEvent*>(event->user.data1);
-			auto kvp = m_collisionFunctions.find(std::make_pair(event->a, event->b));
+			auto collisionEvent = static_cast<CollisionEvent*>(event->user.data1);
+			auto kvp = m_collisionFunctions.find(std::make_pair(collisionEvent->a, collisionEvent->b));
 
 			if (kvp != m_collisionFunctions.end())
 			{
-				kvp->second(event->a, event->b);
+				kvp->second(collisionEvent->a, collisionEvent->b);
 			}
 			break;
 		}

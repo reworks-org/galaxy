@@ -250,6 +250,7 @@
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\EventManager.hpp" />
     <ClInclude Include="source\sl\events\EventTypes.hpp" />
+    <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp" />
     <ClInclude Include="source\sl\fs\VFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />

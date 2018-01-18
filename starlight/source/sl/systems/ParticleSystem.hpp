@@ -14,13 +14,15 @@
 
 namespace sl
 {
+	class World;
+
 	class ParticleSystem : public System
 	{
 	public:
 		///
 		/// Default Constructor.
 		///
-		ParticleSystem() = default;
+		ParticleSystem();
 
 		///
 		/// Destructor.
@@ -28,6 +30,16 @@ namespace sl
 		~ParticleSystem() override = default;
 
 	private:
+		World* m_world;
+
+	private:
+		///
+		/// Lets systems recieve events.
+		///
+		/// \param event ALLEGRO_EVENT passed by application class.
+		///
+		void event(ALLEGRO_EVENT* event) override;
+
 		///
 		/// \brief Update the system.
 		///

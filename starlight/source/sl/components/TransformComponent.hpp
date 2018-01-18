@@ -29,6 +29,15 @@ namespace sl
 		TransformComponent(const sol::table& table);
 
 		///
+		/// Alternate Constructor.
+		///
+		/// \param layer Layer to render on.
+		/// \param angle Angle to render at.
+		/// \param rect Position x, y and Dimensions width, height.
+		///
+		TransformComponent(int layer, float angle, const Rect<float, int>& rect);
+
+		///
 		/// Move Constructor.
 		///
 		TransformComponent(TransformComponent&&) = default;

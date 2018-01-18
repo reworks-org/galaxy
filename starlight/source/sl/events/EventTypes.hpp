@@ -23,6 +23,7 @@ struct EventTypes
 {
 	static constexpr int BASE_EVENT = ALLEGRO_GET_EVENT_TYPE('S', 'T', 'A', 'R') + ALLEGRO_GET_EVENT_TYPE('L', 'I', 'T', 'E');
 	static constexpr int COLLISION_EVENT = BASE_EVENT + 1;
+	static constexpr int PARTICLE_EMIT_EVENT = BASE_EVENT + 2;
 };
 
 typedef int EventType;

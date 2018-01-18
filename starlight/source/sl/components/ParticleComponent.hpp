@@ -21,24 +21,23 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		/// \param position x, y Position.
 		/// \param direction x, y direction travelling.
 		/// \param alpha Alpha value (opacity).
+		/// \param fade How much to reduce the alpha by per 1/60th a second.
 		/// \param id ID of particle texture in atlas.
 		///
-		ParticleComponent(const Vector2<float>& position, const Vector2<float>& direction, float alpha, entt::HashedString id);
+		ParticleComponent(const Vector2<float>& direction, float alpha, float fade, entt::HashedString id);
 
 		///
 		/// Constructor.
 		///
-		/// \param px x Position.
-		/// \param py y Position.
 		/// \param dx Direction of particle x.
 		/// \param dy Direction of particle y.
 		/// \param alpha Alpha value (opacity).
+		/// \param fade How much to reduce the alpha by per 1/60th a second.
 		/// \param id ID of particle texture in atlas.
 		///
-		ParticleComponent(float px, float py, float dx, float dy, float alpha, entt::HashedString id);
+		ParticleComponent(float dx, float dy, float alpha, float fade, entt::HashedString id);
 
 		///
 		/// Move Constructor.
@@ -51,9 +50,9 @@ namespace sl
 		~ParticleComponent() = default;
 
 	public:
-		Vector2<float> m_position;
-		Vector2<float> m_direction;
 		float m_alpha;
+		float m_fade;
+		Vector2<float> m_direction;
 
 		entt::HashedString m_id;
 

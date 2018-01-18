@@ -15,21 +15,18 @@
 namespace sl
 {
 	class QuadTree;
+	class TextureAtlas;
+
 	class RenderSystem : public System
 	{
 	public:
 		///
-		/// \brief Constructor.
+		/// Constructor.
 		///
-		/// Automatically registers system component functions.
-		/// You need to manually register your components by calling registerRenderableComponents()
-		///
-		/// \param layers Number of layers to draw to.
-		/// \param defaultAlloc Minimum amount of space reserved in std::vector for entitys.
 		/// \param quadTreeLevels Maximum depth of a quadtree.
 		/// \param quadtreeMaxObjects Maximim number of entitys in a node.
 		///
-		RenderSystem(unsigned int layers, unsigned int defaultAlloc = 20, int quadTreeLevels = 5, int quadtreeMaxObjects = 10);
+		RenderSystem(int quadTreeLevels = 5, int quadtreeMaxObjects = 10);
 
 		///
 		/// Destructor.
@@ -44,6 +41,13 @@ namespace sl
 		void render(entt::DefaultRegistry& registery);
 
 	private:
+		///
+		/// Lets systems recieve events.
+		///
+		/// \param event ALLEGRO_EVENT passed by application class.
+		///
+		void event(ALLEGRO_EVENT* event) override;
+
 		///
 		/// \brief Update the system.
 		///
@@ -71,6 +75,7 @@ namespace sl
 
 	private:
 		QuadTree m_quadtree;
+		TextureAtlas* m_atlas;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
 		std::vector<entt::Entity> m_entitys;
