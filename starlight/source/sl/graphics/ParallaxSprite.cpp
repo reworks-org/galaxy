@@ -11,8 +11,8 @@
 
 namespace sl
 {
-	ParallaxSprite::ParallaxSprite(float velX, float velY, float speed, entt::HashedString id)
-		:m_velocity(velX, velY), m_speed(speed), m_atlasID(id)
+	ParallaxSprite::ParallaxSprite(int layer, float speed, float posX, float posY, const char* id)
+		:m_layer(layer), m_speed(speed), m_position(posX, posY), m_atlasID(id);
 	{
 	}
 }

@@ -21,7 +21,7 @@ namespace sl
 		///
 		/// Construct to parameters.
 		///
-		ParallaxSprite(float velX, float velY, float speed, entt::HashedString id);
+		ParallaxSprite(int layer, float speed, float posX, float posY, const char* id);
 
 		///
 		/// Move Constructor.
@@ -39,8 +39,9 @@ namespace sl
 		~ParallaxSprite() = default;
 
 	public:
+		int m_layer;
 		float m_speed;
-		Vector2<float> m_velocity;
+		Vector2<float> m_position;
 
 		entt::HashedString m_atlasID;
 

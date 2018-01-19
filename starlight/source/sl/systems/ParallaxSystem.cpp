@@ -20,9 +20,9 @@ namespace sl
 
 	void ParallaxSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
-		registery.view<ParallaxComponent, TransformComponent>().each([this](entt::Entity entity, ParallaxComponent& pc, TransformComponent& tc)
+		registery.view<ParallaxComponent>().each([this](entt::Entity entity, ParallaxComponent& pc)
 		{
-						
+			
 		});
 	}
 }
