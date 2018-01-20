@@ -18,6 +18,7 @@
 #include "sl/fs/VFS.hpp"
 #include "sl/core/World.hpp"
 #include "sl/utils/Time.hpp"
+#include "sl/events/Keys.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateManager.hpp"
 #include "sl/core/DebugInterface.hpp"
@@ -63,18 +64,24 @@ namespace sl
 		VFS::make(archive);
 		ConfigReader::make(config, newConfig);
 
-		Window::make(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
+		Window::make(ConfigReader::get()->lookup<int>(config, "graphics", "width"), ConfigReader::get()->lookup<int>(config, "graphics", "height"), ConfigReader::get()->lookup<bool>(config, "graphics", "fullscreen"), ConfigReader::get()->lookup<bool>(config, "graphics", "msaa"), ConfigReader::get()->lookup<int>(config, "graphics", "msaaValue"), ConfigReader::get()->lookup<std::string>(config, "graphics", "title"), ConfigReader::get()->lookup<std::string>(config, "graphics", "icon"));
 
 		World::make();
 		DebugInterface::make(m_window->getDisplay());
 		StateManager::make();
-		TextureAtlas::make(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
-		FontBook::make(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
+		TextureAtlas::make(ConfigReader::get()->lookup<size_t>(config, "graphics", "atlasPowerOf"));
+		FontBook::make(ConfigReader::get()->lookup<std::string>(config, "fontmanager", "fontScript"));
 		ShaderLibrary::make();
-		MusicPlayer::make(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
-		SoundPlayer::make(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
-		Box2DManager::make(m_configReader->lookup<float32>(config, "box2d", "gravity"));
+		MusicPlayer::make(ConfigReader::get()->lookup<std::string>(config, "audio", "musicScript"));
+		SoundPlayer::make(ConfigReader::get()->lookup<std::string>(config, "audio", "soundScript"));
+		Box2DManager::make(ConfigReader::get()->lookup<float32>(config, "box2d", "gravity"));
 		EventManager::make();
+
+		Keys::KEY_FORWARD = ConfigReader::get()->lookup<int>(config, "keys", "forward");
+		Keys::KEY_BACKWARD = ConfigReader::get()->lookup<int>(config, "keys", "backward");
+		Keys::KEY_LEFT = ConfigReader::get()->lookup<int>(config, "keys", "left");
+		Keys::KEY_RIGHT = ConfigReader::get()->lookup<int>(config, "keys", "right");
+		Keys::KEY_QUIT = ConfigReader::get()->lookup<int>(config, "keys", "quit");
 
 		#ifdef NDEBUG
 			DebugInterface::get()->disable(true);

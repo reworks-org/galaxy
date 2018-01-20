@@ -29,15 +29,6 @@ namespace sl
 		///
 		~ParallaxSystem() override = default;
 
-		///
-		///
-		///
-		template<typename Tag>
-		void registerPlayerTag(entt::DefaultRegistry& registery);
-
-	private:
-		std::function<entt::Entity(void)> m_getPlayerTag;
-
 	private:
 		///
 		/// Lets systems recieve events.
@@ -65,12 +56,6 @@ namespace sl
 		///
 		ParallaxSystem(ParallaxSystem&&) = delete;
 	};
-
-	template<typename Tag>
-	void ParallaxSystem::registerPlayerTag(entt::DefaultRegistry& registery)
-	{
-		registery.get<Tag>();
-	}
 }
 
 #endif

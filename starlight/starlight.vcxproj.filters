@@ -1748,6 +1748,9 @@
     <ClInclude Include="source\sl\graphics\ParallaxSprite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\events\Keys.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
