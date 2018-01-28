@@ -40,12 +40,6 @@ namespace sl
 	public:
 		std::vector<ParallaxSprite> m_parallaxSprites;
 
-	private:
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
-
 		///
 		/// Default constructor.
 		/// Deleted.

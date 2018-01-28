@@ -18,11 +18,6 @@
 
 namespace sl
 {
-	void ParallaxSystem::setPlayerEntity(entt::Entity entity)
-	{
-		m_player = entity;
-	}
-
 	void ParallaxSystem::event(ALLEGRO_EVENT* event)
 	{
 		switch (event->type)

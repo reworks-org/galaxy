@@ -21,9 +21,10 @@ namespace sl
 			sol::table internalTable = pair.second.as<sol::table>();
 			m_parallaxSprites.emplace_back(internalTable.get<float>("velX"), internalTable.get<float>("velY"), internalTable.get<float>("speed"), entt::HashedString(internalTable.get<const char*>("id")));
 		});
-	}
 
-	void ParallaxComponent::debug()
-	{
+		std::sort(m_parallaxSprites.begin(), m_parallaxSprites.end(), [](const ParallaxSprite& a, const ParallaxSprite& b)
+		{
+			return a.m_layer > b.m_layer;
+		});
 	}
 }
