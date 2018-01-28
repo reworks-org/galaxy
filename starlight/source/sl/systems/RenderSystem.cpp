@@ -89,13 +89,6 @@ namespace sl
 					m_atlas->al_draw_packed_bitmap(std::get<1>(textuple).m_id, transformText.m_rect.m_x, transformText.m_rect.m_y, 0);
 					break;
 
-				case RenderTypes::PARALLAX:
-					//auto paraltuple = registery.get<TransformComponent, ParallaxComponent>(entity);
-					//auto& transformParallax = std::get<0>(paraltuple);
-					
-					//m_atlas->al_draw_packed_bitmap(std::get<1>(paraltuple).m_atlasID, transformParallax.m_rect.m_x, transformParallax.m_rect.m_y, 0);
-					break;
-
 				case RenderTypes::PARTICLE:
 					auto partuple = registery.get<TransformComponent, ParticleComponent>(entity);
 					auto& transformParticle = std::get<0>(partuple);
