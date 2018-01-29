@@ -73,6 +73,7 @@ namespace my_project {
 renderer:
 - split update and rendering threads?
 
+- debug stuff
 - parallax
 - implement serialization
 	- call serializecomponetns from serailize suystem using eneityx

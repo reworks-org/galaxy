@@ -33,11 +33,6 @@ namespace sl
 		///
 		~Box2DManager() override;
 
-		///
-		/// Removes any collision functions in the map.
-		///
-		void clean();
-
 	public:
 		std::unique_ptr<b2World> m_world;
 

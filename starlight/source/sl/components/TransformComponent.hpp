@@ -38,19 +38,9 @@ namespace sl
 		TransformComponent(int layer, float angle, const Rect<float, int>& rect);
 
 		///
-		/// Move Constructor.
-		///
-		TransformComponent(TransformComponent&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~TransformComponent() = default;
-
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
 
 	public:
 		int m_layer;
@@ -70,12 +60,6 @@ namespace sl
 		/// Deleted.
 		///
 		TransformComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		TransformComponent(const TransformComponent&) = delete;
 	};
 }
 

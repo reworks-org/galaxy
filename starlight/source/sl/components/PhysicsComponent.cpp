@@ -9,7 +9,6 @@
 
 #include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
-#include "imgui/imgui_impl_a5.h"
 #include "Box2D/Dynamics/b2Body.h"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
@@ -72,14 +71,5 @@ namespace sl
 		}
 		
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
-	}
-
-	void PhysicsComponent::debug()
-	{
-		ImGui::Text("Edit the script to make changes.");
-
-		ImGui::Spacing();
-
-		ImGui::Text("This is done because there are issues with manually setting stuff in box2d.");
 	}
 }

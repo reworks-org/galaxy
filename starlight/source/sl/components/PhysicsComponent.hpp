@@ -28,11 +28,6 @@ namespace sl
 		/// \param table sol::table containing data.
 		///
 		PhysicsComponent(const sol::table& table);
-		
-		///
-		/// Move Constructor.
-		///
-		PhysicsComponent(PhysicsComponent&&) = default;
 
 		///
 		/// \brief Destructor.
@@ -41,11 +36,6 @@ namespace sl
 		/// CLEANUP OF BOX2DMANAGER!
 		///
 		~PhysicsComponent() = default;
-
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
 
 	public:
 		b2Body* m_body;
@@ -76,12 +66,6 @@ namespace sl
 		/// Deleted.
 		///
 		PhysicsComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		PhysicsComponent(const PhysicsComponent&) = delete;
 	};
 }
 

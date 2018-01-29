@@ -166,11 +166,8 @@
     <ClCompile Include="source\sl\libs\entt\entt.cpp" />
     <ClCompile Include="source\sl\libs\imgui\auto\auto.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui.cpp" />
-    <ClCompile Include="source\sl\libs\imgui\imguidatechooser.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imguifilesystem.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imguilistview.cpp" />
-    <ClCompile Include="source\sl\libs\imgui\imguinodegrapheditor.cpp" />
-    <ClCompile Include="source\sl\libs\imgui\imguivariouscontrols.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui_impl_a5.cpp" />
@@ -520,11 +517,8 @@
     <ClInclude Include="source\sl\libs\imgui\dirent_portable.h" />
     <ClInclude Include="source\sl\libs\imgui\imconfig.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui.h" />
-    <ClInclude Include="source\sl\libs\imgui\imguidatechooser.h" />
     <ClInclude Include="source\sl\libs\imgui\imguifilesystem.h" />
     <ClInclude Include="source\sl\libs\imgui\imguilistview.h" />
-    <ClInclude Include="source\sl\libs\imgui\imguinodegrapheditor.h" />
-    <ClInclude Include="source\sl\libs\imgui\imguivariouscontrols.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui_impl_a5.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui_internal.h" />
     <ClInclude Include="source\sl\libs\imgui\minizip\crypt.h" />
@@ -700,7 +694,7 @@
       <PreprocessorDefinitions>LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../starlight/source/;../starlight/source/sl/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -752,7 +746,7 @@
       <AdditionalIncludeDirectories>../starlight/source/;../starlight/source/sl/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

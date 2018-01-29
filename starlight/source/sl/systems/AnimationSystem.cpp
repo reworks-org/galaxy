@@ -41,7 +41,8 @@ namespace sl
 						}
 					}
 
-					sc.m_spriteName = animation->m_frames[animation->m_currentFrame];
+					entt::HashedString hs{ animation->m_frames[animation->m_currentFrame].c_str() };
+					sc.m_spriteName = hs;
 
 				}
 			}

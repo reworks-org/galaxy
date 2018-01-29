@@ -15,10 +15,6 @@ namespace sl
 	{
 	}
 
-	Level::~Level()
-	{
-	}
-
 	const Rect<float, int>& Level::getBounds() const
 	{
 		return m_bounds;

@@ -18,6 +18,8 @@ namespace sl
 {
 	class AnimationComponent final
 	{
+		friend class Animation;
+
 	public:
 		///
 		/// Constructor.
@@ -25,11 +27,6 @@ namespace sl
 		/// \param table sol::table containing data.
 		///
 		AnimationComponent(const sol::table& table);
-
-		///
-		/// Move Constructor.
-		///
-		AnimationComponent(AnimationComponent&&) = default;
 
 		///
 		/// Destructor.
@@ -65,11 +62,6 @@ namespace sl
 		///
 		void stop();
 
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
-
 	public:
 		bool m_isPaused;
 		double m_currentFrameTime;
@@ -82,12 +74,6 @@ namespace sl
 		/// Deleted.
 		///
 		AnimationComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		AnimationComponent(const AnimationComponent&) = delete;
 	};
 }
 

@@ -28,6 +28,10 @@
 #pragma clang diagnostic ignored "-Wold-style-cast"
 #endif
 
+#ifndef IMGUI_DEFINE_PLACEMENT_NEW
+	#define IMGUI_DEFINE_PLACEMENT_NEW
+#endif
+
 //-----------------------------------------------------------------------------
 // Forward Declarations
 //-----------------------------------------------------------------------------

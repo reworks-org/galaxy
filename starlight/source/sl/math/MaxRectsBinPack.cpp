@@ -38,10 +38,10 @@ namespace rbp
 		allowRotations = rotations;
 
 		sl::Rect<int> n;
-		n.x = 0;
-		n.y = 0;
-		n.width = width;
-		n.height = height;
+		n.m_x = 0;
+		n.m_y = 0;
+		n.m_width = width;
+		n.m_height = height;
 
 		usedRectangles.clear();
 
@@ -64,7 +64,7 @@ namespace rbp
 		case RectBestAreaFit: newNode = FindPositionForNewNodeBestAreaFit(width, height, score1, score2); break;
 		}
 
-		if (newNode.height == 0)
+		if (newNode.m_height == 0)
 			return newNode;
 
 		size_t numRectanglesToProcess = freeRectangles.size();
@@ -99,7 +99,7 @@ namespace rbp
 			{
 				int score1;
 				int score2;
-				sl::Rect<int> newNode = ScoreRect(rects[i].x, rects[i].y, method, score1, score2);
+				sl::Rect<int> newNode = ScoreRect(rects[i].m_x, rects[i].m_y, method, score1, score2);
 
 				if (score1 < bestScore1 || (score1 == bestScore1 && score2 < bestScore2))
 				{
@@ -154,7 +154,7 @@ namespace rbp
 		}
 
 		// Cannot fit the current rectangle.
-		if (newNode.height == 0)
+		if (newNode.m_height == 0)
 		{
 			score1 = std::numeric_limits<int>::max();
 			score2 = std::numeric_limits<int>::max();
@@ -168,7 +168,7 @@ namespace rbp
 	{
 		unsigned long usedSurfaceArea = 0;
 		for (size_t i = 0; i < usedRectangles.size(); ++i)
-			usedSurfaceArea += usedRectangles[i].width * usedRectangles[i].height;
+			usedSurfaceArea += usedRectangles[i].m_width * usedRectangles[i].m_height;
 
 		return (float)usedSurfaceArea / (binWidth * binHeight);
 	}
@@ -184,30 +184,30 @@ namespace rbp
 		for (size_t i = 0; i < freeRectangles.size(); ++i)
 		{
 			// Try to place the rectangle in upright (non-flipped) orientation.
-			if (freeRectangles[i].width >= width && freeRectangles[i].height >= height)
+			if (freeRectangles[i].m_width >= width && freeRectangles[i].m_height >= height)
 			{
-				int topSideY = freeRectangles[i].y + height;
-				if (topSideY < bestY || (topSideY == bestY && freeRectangles[i].x < bestX))
+				int topSideY = freeRectangles[i].m_y + height;
+				if (topSideY < bestY || (topSideY == bestY && freeRectangles[i].m_x < bestX))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = width;
-					bestNode.height = height;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = width;
+					bestNode.m_height = height;
 					bestY = topSideY;
-					bestX = freeRectangles[i].x;
+					bestX = freeRectangles[i].m_x;
 				}
 			}
-			if (allowRotations && freeRectangles[i].width >= height && freeRectangles[i].height >= width)
+			if (allowRotations && freeRectangles[i].m_width >= height && freeRectangles[i].m_height >= width)
 			{
-				int topSideY = freeRectangles[i].y + width;
-				if (topSideY < bestY || (topSideY == bestY && freeRectangles[i].x < bestX))
+				int topSideY = freeRectangles[i].m_y + width;
+				if (topSideY < bestY || (topSideY == bestY && freeRectangles[i].m_x < bestX))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = height;
-					bestNode.height = width;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = height;
+					bestNode.m_height = width;
 					bestY = topSideY;
-					bestX = freeRectangles[i].x;
+					bestX = freeRectangles[i].m_x;
 				}
 			}
 		}
@@ -226,37 +226,37 @@ namespace rbp
 		for (size_t i = 0; i < freeRectangles.size(); ++i)
 		{
 			// Try to place the rectangle in upright (non-flipped) orientation.
-			if (freeRectangles[i].width >= width && freeRectangles[i].height >= height)
+			if (freeRectangles[i].m_width >= width && freeRectangles[i].m_height >= height)
 			{
-				int leftoverHoriz = std::abs(freeRectangles[i].width - width);
-				int leftoverVert = std::abs(freeRectangles[i].height - height);
+				int leftoverHoriz = std::abs(freeRectangles[i].m_width - width);
+				int leftoverVert = std::abs(freeRectangles[i].m_height - height);
 				int shortSideFit = std::min(leftoverHoriz, leftoverVert);
 				int longSideFit = std::max(leftoverHoriz, leftoverVert);
 
 				if (shortSideFit < bestShortSideFit || (shortSideFit == bestShortSideFit && longSideFit < bestLongSideFit))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = width;
-					bestNode.height = height;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = width;
+					bestNode.m_height = height;
 					bestShortSideFit = shortSideFit;
 					bestLongSideFit = longSideFit;
 				}
 			}
 
-			if (freeRectangles[i].width >= height && freeRectangles[i].height >= width)
+			if (freeRectangles[i].m_width >= height && freeRectangles[i].m_height >= width)
 			{
-				int flippedLeftoverHoriz = std::abs(freeRectangles[i].width - height);
-				int flippedLeftoverVert = std::abs(freeRectangles[i].height - width);
+				int flippedLeftoverHoriz = std::abs(freeRectangles[i].m_width - height);
+				int flippedLeftoverVert = std::abs(freeRectangles[i].m_height - width);
 				int flippedShortSideFit = std::min(flippedLeftoverHoriz, flippedLeftoverVert);
 				int flippedLongSideFit = std::max(flippedLeftoverHoriz, flippedLeftoverVert);
 
 				if (flippedShortSideFit < bestShortSideFit || (flippedShortSideFit == bestShortSideFit && flippedLongSideFit < bestLongSideFit))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = height;
-					bestNode.height = width;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = height;
+					bestNode.m_height = width;
 					bestShortSideFit = flippedShortSideFit;
 					bestLongSideFit = flippedLongSideFit;
 				}
@@ -277,37 +277,37 @@ namespace rbp
 		for (size_t i = 0; i < freeRectangles.size(); ++i)
 		{
 			// Try to place the rectangle in upright (non-flipped) orientation.
-			if (freeRectangles[i].width >= width && freeRectangles[i].height >= height)
+			if (freeRectangles[i].m_width >= width && freeRectangles[i].m_height >= height)
 			{
-				int leftoverHoriz = std::abs(freeRectangles[i].width - width);
-				int leftoverVert = std::abs(freeRectangles[i].height - height);
+				int leftoverHoriz = std::abs(freeRectangles[i].m_width - width);
+				int leftoverVert = std::abs(freeRectangles[i].m_height - height);
 				int shortSideFit = std::min(leftoverHoriz, leftoverVert);
 				int longSideFit = std::max(leftoverHoriz, leftoverVert);
 
 				if (longSideFit < bestLongSideFit || (longSideFit == bestLongSideFit && shortSideFit < bestShortSideFit))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = width;
-					bestNode.height = height;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = width;
+					bestNode.m_height = height;
 					bestShortSideFit = shortSideFit;
 					bestLongSideFit = longSideFit;
 				}
 			}
 
-			if (allowRotations && freeRectangles[i].width >= height && freeRectangles[i].height >= width)
+			if (allowRotations && freeRectangles[i].m_width >= height && freeRectangles[i].m_height >= width)
 			{
-				int leftoverHoriz = std::abs(freeRectangles[i].width - height);
-				int leftoverVert = std::abs(freeRectangles[i].height - width);
+				int leftoverHoriz = std::abs(freeRectangles[i].m_width - height);
+				int leftoverVert = std::abs(freeRectangles[i].m_height - width);
 				int shortSideFit = std::min(leftoverHoriz, leftoverVert);
 				int longSideFit = std::max(leftoverHoriz, leftoverVert);
 
 				if (longSideFit < bestLongSideFit || (longSideFit == bestLongSideFit && shortSideFit < bestShortSideFit))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = height;
-					bestNode.height = width;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = height;
+					bestNode.m_height = width;
 					bestShortSideFit = shortSideFit;
 					bestLongSideFit = longSideFit;
 				}
@@ -327,38 +327,38 @@ namespace rbp
 
 		for (size_t i = 0; i < freeRectangles.size(); ++i)
 		{
-			int areaFit = freeRectangles[i].width * freeRectangles[i].height - width * height;
+			int areaFit = freeRectangles[i].m_width * freeRectangles[i].m_height - width * height;
 
 			// Try to place the rectangle in upright (non-flipped) orientation.
-			if (freeRectangles[i].width >= width && freeRectangles[i].height >= height)
+			if (freeRectangles[i].m_width >= width && freeRectangles[i].m_height >= height)
 			{
-				int leftoverHoriz = std::abs(freeRectangles[i].width - width);
-				int leftoverVert = std::abs(freeRectangles[i].height - height);
+				int leftoverHoriz = std::abs(freeRectangles[i].m_width - width);
+				int leftoverVert = std::abs(freeRectangles[i].m_height - height);
 				int shortSideFit = std::min(leftoverHoriz, leftoverVert);
 
 				if (areaFit < bestAreaFit || (areaFit == bestAreaFit && shortSideFit < bestShortSideFit))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = width;
-					bestNode.height = height;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = width;
+					bestNode.m_height = height;
 					bestShortSideFit = shortSideFit;
 					bestAreaFit = areaFit;
 				}
 			}
 
-			if (allowRotations && freeRectangles[i].width >= height && freeRectangles[i].height >= width)
+			if (allowRotations && freeRectangles[i].m_width >= height && freeRectangles[i].m_height >= width)
 			{
-				int leftoverHoriz = std::abs(freeRectangles[i].width - height);
-				int leftoverVert = std::abs(freeRectangles[i].height - width);
+				int leftoverHoriz = std::abs(freeRectangles[i].m_width - height);
+				int leftoverVert = std::abs(freeRectangles[i].m_height - width);
 				int shortSideFit = std::min(leftoverHoriz, leftoverVert);
 
 				if (areaFit < bestAreaFit || (areaFit == bestAreaFit && shortSideFit < bestShortSideFit))
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = height;
-					bestNode.height = width;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = height;
+					bestNode.m_height = width;
 					bestShortSideFit = shortSideFit;
 					bestAreaFit = areaFit;
 				}
@@ -386,10 +386,10 @@ namespace rbp
 
 		for (size_t i = 0; i < usedRectangles.size(); ++i)
 		{
-			if (usedRectangles[i].x == x + width || usedRectangles[i].x + usedRectangles[i].width == x)
-				score += CommonIntervalLength(usedRectangles[i].y, usedRectangles[i].y + usedRectangles[i].height, y, y + height);
-			if (usedRectangles[i].y == y + height || usedRectangles[i].y + usedRectangles[i].height == y)
-				score += CommonIntervalLength(usedRectangles[i].x, usedRectangles[i].x + usedRectangles[i].width, x, x + width);
+			if (usedRectangles[i].m_x == x + width || usedRectangles[i].m_x + usedRectangles[i].m_width == x)
+				score += CommonIntervalLength(usedRectangles[i].m_y, usedRectangles[i].m_y + usedRectangles[i].m_height, y, y + height);
+			if (usedRectangles[i].m_y == y + height || usedRectangles[i].m_y + usedRectangles[i].m_height == y)
+				score += CommonIntervalLength(usedRectangles[i].m_x, usedRectangles[i].m_x + usedRectangles[i].m_width, x, x + width);
 		}
 		return score;
 	}
@@ -404,27 +404,27 @@ namespace rbp
 		for (size_t i = 0; i < freeRectangles.size(); ++i)
 		{
 			// Try to place the rectangle in upright (non-flipped) orientation.
-			if (freeRectangles[i].width >= width && freeRectangles[i].height >= height)
+			if (freeRectangles[i].m_width >= width && freeRectangles[i].m_height >= height)
 			{
-				int score = ContactPointScoreNode(freeRectangles[i].x, freeRectangles[i].y, width, height);
+				int score = ContactPointScoreNode(freeRectangles[i].m_x, freeRectangles[i].m_y, width, height);
 				if (score > bestContactScore)
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = width;
-					bestNode.height = height;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = width;
+					bestNode.m_height = height;
 					bestContactScore = score;
 				}
 			}
-			if (freeRectangles[i].width >= height && freeRectangles[i].height >= width)
+			if (freeRectangles[i].m_width >= height && freeRectangles[i].m_height >= width)
 			{
-				int score = ContactPointScoreNode(freeRectangles[i].x, freeRectangles[i].y, height, width);
+				int score = ContactPointScoreNode(freeRectangles[i].m_x, freeRectangles[i].m_y, height, width);
 				if (score > bestContactScore)
 				{
-					bestNode.x = freeRectangles[i].x;
-					bestNode.y = freeRectangles[i].y;
-					bestNode.width = height;
-					bestNode.height = width;
+					bestNode.m_x = freeRectangles[i].m_x;
+					bestNode.m_y = freeRectangles[i].m_y;
+					bestNode.m_width = height;
+					bestNode.m_height = width;
 					bestContactScore = score;
 				}
 			}
@@ -435,46 +435,46 @@ namespace rbp
 	bool MaxRectsBinPack::SplitFreeNode(sl::Rect<int> freeNode, const sl::Rect<int> &usedNode)
 	{
 		// Test with SAT if the rectangles even intersect.
-		if (usedNode.x >= freeNode.x + freeNode.width || usedNode.x + usedNode.width <= freeNode.x ||
-			usedNode.y >= freeNode.y + freeNode.height || usedNode.y + usedNode.height <= freeNode.y)
+		if (usedNode.m_x >= freeNode.m_x + freeNode.m_width || usedNode.m_x + usedNode.m_width <= freeNode.m_x ||
+			usedNode.m_y >= freeNode.m_y + freeNode.m_height || usedNode.m_y + usedNode.m_height <= freeNode.m_y)
 			return false;
 
-		if (usedNode.x < freeNode.x + freeNode.width && usedNode.x + usedNode.width > freeNode.x)
+		if (usedNode.m_x < freeNode.m_x + freeNode.m_width && usedNode.m_x + usedNode.m_width > freeNode.m_x)
 		{
 			// New node at the top side of the used node.
-			if (usedNode.y > freeNode.y && usedNode.y < freeNode.y + freeNode.height)
+			if (usedNode.m_y > freeNode.m_y && usedNode.m_y < freeNode.m_y + freeNode.m_height)
 			{
 				sl::Rect<int> newNode = freeNode;
-				newNode.height = usedNode.y - newNode.y;
+				newNode.m_height = usedNode.m_y - newNode.m_y;
 				freeRectangles.push_back(newNode);
 			}
 
 			// New node at the bottom side of the used node.
-			if (usedNode.y + usedNode.height < freeNode.y + freeNode.height)
+			if (usedNode.m_y + usedNode.m_height < freeNode.m_y + freeNode.m_height)
 			{
 				sl::Rect<int> newNode = freeNode;
-				newNode.y = usedNode.y + usedNode.height;
-				newNode.height = freeNode.y + freeNode.height - (usedNode.y + usedNode.height);
+				newNode.m_y = usedNode.m_y + usedNode.m_height;
+				newNode.m_height = freeNode.m_y + freeNode.m_height - (usedNode.m_y + usedNode.m_height);
 				freeRectangles.push_back(newNode);
 			}
 		}
 
-		if (usedNode.y < freeNode.y + freeNode.height && usedNode.y + usedNode.height > freeNode.y)
+		if (usedNode.m_y < freeNode.m_y + freeNode.m_height && usedNode.m_y + usedNode.m_height > freeNode.m_y)
 		{
 			// New node at the left side of the used node.
-			if (usedNode.x > freeNode.x && usedNode.x < freeNode.x + freeNode.width)
+			if (usedNode.m_x > freeNode.m_x && usedNode.m_x < freeNode.m_x + freeNode.m_width)
 			{
 				sl::Rect<int> newNode = freeNode;
-				newNode.width = usedNode.x - newNode.x;
+				newNode.m_width = usedNode.m_x - newNode.m_x;
 				freeRectangles.push_back(newNode);
 			}
 
 			// New node at the right side of the used node.
-			if (usedNode.x + usedNode.width < freeNode.x + freeNode.width)
+			if (usedNode.m_x + usedNode.m_width < freeNode.m_x + freeNode.m_width)
 			{
 				sl::Rect<int> newNode = freeNode;
-				newNode.x = usedNode.x + usedNode.width;
-				newNode.width = freeNode.x + freeNode.width - (usedNode.x + usedNode.width);
+				newNode.m_x = usedNode.m_x + usedNode.m_width;
+				newNode.m_width = freeNode.m_x + freeNode.m_width - (usedNode.m_x + usedNode.m_width);
 				freeRectangles.push_back(newNode);
 			}
 		}

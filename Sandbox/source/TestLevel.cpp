@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 reworks. All rights reserved.
 //
 
-#include <sl/cosl/World.hpp>
+#include <sl/core/World.hpp>
 #include <sl/physics/Box2DHelper.hpp>
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/services/ServiceLocator.hpp>

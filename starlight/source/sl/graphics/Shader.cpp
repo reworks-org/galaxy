@@ -7,6 +7,7 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
+#include "sol2/sol.hpp"
 #include "sl/fs/VFS.hpp"
 #include "loguru/loguru.hpp"
 

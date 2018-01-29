@@ -456,19 +456,10 @@
     <ClCompile Include="source\sl\libs\imgui\imgui_impl_a5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguidatechooser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\imguifilesystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\imguilistview.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguinodegrapheditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguivariouscontrols.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\TextEditor.cpp">
@@ -1469,19 +1460,10 @@
     <ClInclude Include="source\sl\libs\imgui\imgui_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguidatechooser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\imguifilesystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\imguilistview.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguinodegrapheditor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguivariouscontrols.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\stb_rect_pack.h">

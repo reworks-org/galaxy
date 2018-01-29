@@ -13,6 +13,7 @@
 #include <unordered_map>
 #include <allegro5/color.h>
 #include <allegro5/bitmap.h>
+#include <allegro5/allegro_font.h>
 
 #include "sl/math/Rect.hpp"
 #include "sl/types/ResourceCache.hpp"

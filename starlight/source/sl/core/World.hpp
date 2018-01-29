@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_WORLD_HPP_
 #define STARLIGHT_WORLD_HPP_
 
-#include <string_view>
+#include <functional>
 #include <unordered_map>
 
 #include "sl/types/System.hpp"

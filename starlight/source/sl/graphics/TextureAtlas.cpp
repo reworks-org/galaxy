@@ -12,7 +12,6 @@
 #include <allegro5/drawing.h>
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
-#include <allegro5/allegro_font.h>
 
 #include "loguru/loguru.hpp"
 #include "sl/utils/Utils.hpp"

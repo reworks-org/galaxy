@@ -11,7 +11,6 @@
 #define STARLIGHT_APPLICATION_HPP_
 
 #include <fstream>
-#include <string_view>
 
 namespace sl
 {

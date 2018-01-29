@@ -40,6 +40,11 @@ namespace sl
 		Vector2(Vector2&&) = default;
 
 		///
+		/// Assignment Operator.
+		///
+		Vector2& operator=(const Vector2&) = default;
+
+		///
 		/// Swaps x (width) and y (height).
 		///
 		void transpose();

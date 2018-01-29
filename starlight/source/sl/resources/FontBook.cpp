@@ -27,7 +27,7 @@ namespace sl
 			auto key = pair.first.as<entt::HashedString>();
 			auto value = pair.second.as<sol::table>();
 
-			m_fontMap.emplace(key, al_load_ttf_font(value.get<std::string>("font").c_str(), value.get<int>("size"), NULL));
+			m_resourceMap.emplace(key, al_load_ttf_font(value.get<std::string>("font").c_str(), value.get<int>("size"), NULL));
 		});
 	}
 
@@ -38,11 +38,11 @@ namespace sl
 	
 	void FontBook::clean()
 	{
-		for (auto& it : m_fontMap)
+		for (auto& it : m_resourceMap)
 		{
 			al_destroy_font(it.second);
 		}
 
-		m_fontMap.clear();
+		m_resourceMap.clear();
 	}
 }

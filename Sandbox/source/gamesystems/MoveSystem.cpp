@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 reworks. All rights reserved.
 //
 
-#include <sl/cosl/World.hpp>
+#include <sl/core/World.hpp>
 #include <sl/services/ServiceLocator.hpp>
 #include <sl/components/PhysicsComponent.hpp>
 #include <sl/components/TransformComponent.hpp>

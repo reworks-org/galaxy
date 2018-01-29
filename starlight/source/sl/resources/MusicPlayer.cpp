@@ -18,9 +18,6 @@ namespace sl
 {
 	MusicPlayer::MusicPlayer(const std::string& script)
 	{
-		al_restore_default_mixer();
-		al_reserve_samples(reserveSamples);
-
 		sol::state lua;
 		lua.script(VFS::get()->openAsString(script));
 		sol::table music = lua.get<sol::table>("music");

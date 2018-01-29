@@ -20,7 +20,6 @@
 #include "sl/components/SpriteComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
-#include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -75,33 +74,44 @@ namespace sl
 			{
 				switch (type)
 				{
-				case RenderTypes::SPRITE:
-					auto sprtuple = registery.get<TransformComponent, SpriteComponent>(entity);
-					auto& transformSprite = std::get<0>(sprtuple);
+					case RenderTypes::SPRITE:
+					{
+						auto sprtuple = registery.get<TransformComponent, SpriteComponent>(entity);
+						auto& transformSprite = std::get<0>(sprtuple);
 
-					m_atlas->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0);
+						m_atlas->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0);
+					}
 					break;
 
-				case RenderTypes::TEXT:
-					auto textuple = registery.get<TransformComponent, TextComponent>(entity);
-					auto& transformText = std::get<0>(textuple);
+					case RenderTypes::TEXT:
+					{
+						auto textuple = registery.get<TransformComponent, TextComponent>(entity);
+						auto& transformText = std::get<0>(textuple);
 
-					m_atlas->al_draw_packed_bitmap(std::get<1>(textuple).m_id, transformText.m_rect.m_x, transformText.m_rect.m_y, 0);
+						m_atlas->al_draw_packed_bitmap(std::get<1>(textuple).m_id, transformText.m_rect.m_x, transformText.m_rect.m_y, 0);
+					}
 					break;
 
-				case RenderTypes::PARTICLE:
-					auto partuple = registery.get<TransformComponent, ParticleComponent>(entity);
-					auto& transformParticle = std::get<0>(partuple);
-					auto& particle = std::get<1>(partuple);
+					case RenderTypes::PARTICLE:
+					{
+						auto partuple = registery.get<TransformComponent, ParticleComponent>(entity);
+						auto& transformParticle = std::get<0>(partuple);
+						auto& particle = std::get<1>(partuple);
 
-					m_atlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(1.0f, 1.0f, 1.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
+						m_atlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(1.0f, 1.0f, 1.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
+					}
 					break;
 
-				case RenderTypes::MAP:
+					case RenderTypes::MAP:
+					{
+
+					}
 					break;
 
-				default:
-					LOG_S(ERROR) << "Tried to render a type that is not renderable! Type (see RenderType.hpp): " << std::to_string(type);
+					default:
+					{
+						LOG_S(ERROR) << "Tried to render a type that is not renderable! Type (see RenderType.hpp): " << std::to_string(type);
+					}
 					break;
 				}
 			}

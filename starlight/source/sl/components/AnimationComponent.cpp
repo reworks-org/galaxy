@@ -9,7 +9,6 @@
 
 #include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
-#include "imgui/imgui_impl_a5.h"
 
 #include "AnimationComponent.hpp"
 
@@ -72,38 +71,5 @@ namespace sl
 		m_isPaused = true;
 		m_animations[m_activeAnimation].m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
-	}
-
-	void AnimationComponent::debug()
-	{
-		ImGui::Checkbox("Is Paused", &m_isPaused);
-
-		ImGui::Spacing();
-		if (ImGui::stl::InputText("Active Animation", &m_activeAnimation, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			changeAnimation(m_activeAnimation);
-			play();
-		}
-
-		ImGui::Spacing();
-		m_animations[m_activeAnimation].debug();
-
-		ImGui::Spacing();
-		if (ImGui::Button("Play animation"))
-		{
-			play();
-		}
-
-		ImGui::Spacing();
-		if (ImGui::Button("Pause animation"))
-		{
-			pause();
-		}
-
-		ImGui::Spacing();
-		if (ImGui::Button("Stop Animation"))
-		{
-			stop();
-		}
 	}
 }

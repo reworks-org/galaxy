@@ -39,12 +39,6 @@ namespace sl
 		///
 		~Animation() = default;
 
-	protected:
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
-
 	public:
 		/// True / False
 		bool m_isLooped;

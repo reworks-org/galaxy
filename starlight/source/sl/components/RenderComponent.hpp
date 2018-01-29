@@ -27,11 +27,6 @@ namespace sl
 		RenderComponent(const sol::table& table);
 
 		///
-		/// Move Constructor.
-		///
-		RenderComponent(RenderComponent&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~RenderComponent() = default;
@@ -41,21 +36,10 @@ namespace sl
 
 	private:
 		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
-
-		///
 		/// Default constructor.
 		/// Deleted.
 		///
 		RenderComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		RenderComponent(const RenderComponent&) = delete;
 	};
 }
 

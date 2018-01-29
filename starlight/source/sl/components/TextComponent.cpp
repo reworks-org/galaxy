@@ -8,14 +8,10 @@
 ///
 
 #include <algorithm>
-#include <allegro5/allegro_font.h>
 
 #include "sol2/sol.hpp"
-#include "imgui/imgui_impl_a5.h"
 #include "sl/resources/FontBook.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
-#include "sl/services/ServiceLocator.hpp"
-#include "sl/components/TransformComponent.hpp"
 
 #include "TextComponent.hpp"
 
@@ -35,54 +31,5 @@ namespace sl
 		m_layer = table.get<int>("layer");
 
 		TextureAtlas::get()->addTextToAtlas(m_id, m_text, m_font, m_colour);
-	}
-
-	void TextComponent::debug()
-	{
-		static bool update = false;
-		
-		ImGui::stl::InputText("Text: ", &m_text, ImGuiInputTextFlags_EnterReturnsTrue);
-
-		ImGui::Spacing();
-
-		std::string font = "";
-		if (ImGui::stl::InputText("Font Picker", &font, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			m_font = Locator::get<FontManager>()->get(font);
-		}
-
-		ImGui::Spacing();
-		ImGui::Text("Position Modifiers: ");
-		ImGui::Separator();
-
-		ImGui::Spacing();
-		ImGui::InputFloat("x-pos", &m_offsetX);
-
-		ImGui::Spacing();
-		ImGui::InputFloat("y-pos", &m_offsetY);
-
-		ImGui::Spacing();
-		if (ImGui::InputInt("Layer: ", &m_layer, 1, 2))
-		{
-			if (m_layer < 0)
-			{
-				m_layer = 0;
-			}
-		}
-
-		ImGui::Spacing();
-		ImGui::Text("Colour Modifiers: ");
-
-		ImGui::Spacing();
-		ImGui::SliderFloat("Red Editor", &m_colour.r, 0, 255);
-
-		ImGui::Spacing();
-		ImGui::SliderFloat("Green Editor", &m_colour.g, 0, 255);
-
-		ImGui::Spacing();
-		ImGui::SliderFloat("Blue Editor", &m_colour.b, 0, 255);
-
-		ImGui::Spacing();
-		ImGui::SliderFloat("Alpha Editor", &m_colour.a, 0, 255);
 	}
 }

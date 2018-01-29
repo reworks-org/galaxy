@@ -7,6 +7,8 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
+#include <fstream>
+
 #include "sl/fs/VFS.hpp"
 #include "loguru/loguru.hpp"
 
@@ -91,6 +93,6 @@ namespace sl
 
 	void ConfigReader::clean()
 	{
-
+		m_resourceMap.clear();
 	}
 }

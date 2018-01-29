@@ -7,7 +7,7 @@
 //
 
 #include <allegro5/events.h>
-#include <sl/cosl/World.hpp>
+#include <sl/core/World.hpp>
 #include <sl/utils/Time.hpp>
 #include <loguru/loguru.hpp>
 #include <sl/graphics/Window.hpp>

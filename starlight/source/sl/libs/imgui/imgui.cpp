@@ -10552,7 +10552,7 @@ int autoBufferTextInputCallbackFunction(ImGuiTextEditCallbackData *data)
 template<std::size_t padding = 512, typename Container> //can be used for std::vector<char> as well, but it is probably not needed
 void autoBufferResize1(Container &buf)
 {
-+	if (buf.size() < padding) //fix initial state
+	if (buf.size() < padding) //fix initial state
 	{
 		buf.resize(buf.size() + padding);
 		buf.resize(buf.capacity());

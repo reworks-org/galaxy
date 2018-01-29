@@ -6,7 +6,7 @@
 ///  Code ported from:
 ///  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
-#include "sl/cosl/World.hpp"
+#include "sl/core/World.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "QuadTree.hpp"

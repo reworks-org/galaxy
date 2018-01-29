@@ -23,7 +23,6 @@ namespace sl
 	PhysicsSystem::PhysicsSystem(float ups, int vi, int pi)
 	:m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
 	{
-		m_world = World::get();
 		m_manager = Box2DManager::get();
 	}
 
@@ -32,7 +31,7 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::COLLISION_EVENT:
-			auto collisionEvent = static_cast<CollisionEvent*>(event->user.data1);
+			auto collisionEvent = (CollisionEvent*)event->user.data1;
 			auto kvp = m_collisionFunctions.find(std::make_pair(collisionEvent->a, collisionEvent->b));
 
 			if (kvp != m_collisionFunctions.end())

@@ -8,7 +8,6 @@
 ///
 
 #include "sol2/sol.hpp"
-#include "imgui/imgui_impl_a5.h"
 
 #include "TransformComponent.hpp"
 
@@ -27,22 +26,5 @@ namespace sl
 	TransformComponent::TransformComponent(int layer, float angle, const Rect<float, int>& rect)
 		:m_layer(layer), m_angle(angle), m_rect(rect)
 	{
-	}
-
-	void TransformComponent::debug()
-	{
-		ImGui::InputFloat("X Pos", &m_rect.m_x);
-
-		ImGui::Spacing();
-		ImGui::InputFloat("Y Pos", &m_rect.m_y);
-
-		ImGui::Spacing();
-		ImGui::InputInt("Width Modifier", &m_rect.m_width, 1, 2);
-
-		ImGui::Spacing();
-		ImGui::InputInt("Height Modifier", &m_rect.m_height, 1, 2);
-
-		ImGui::Spacing();
-		ImGui::SliderAngle("Angle Modifier", &m_angle, 0.0f, 360.0f);
 	}
 }

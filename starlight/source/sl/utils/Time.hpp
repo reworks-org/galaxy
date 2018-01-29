@@ -29,7 +29,7 @@ namespace sl
 		///
 		inline constexpr std::int32_t secondsToMilliseconds(double seconds)
 		{
-			return (seconds * 1000.0);
+			return static_cast<std::int32_t>(seconds * 1000.0);
 		}
 
 		///
@@ -41,7 +41,7 @@ namespace sl
 		///
 		inline constexpr std::int64_t secondsToMicroseconds(double seconds)
 		{
-			return seconds * 1000000.0;
+			return static_cast<std::int64_t>(seconds * 1000000.0);
 		}
 
 		///
@@ -53,7 +53,7 @@ namespace sl
 		///
 		inline constexpr double millisecondsToSeconds(std::int32_t milliseconds)
 		{
-			return milliseconds / 1000.0;
+			return static_cast<double>(milliseconds) / 1000.0;
 		}
 
 		///
@@ -65,7 +65,7 @@ namespace sl
 		///
 		inline constexpr std::int64_t millisecondsToMicroseconds(std::int32_t milliseconds)
 		{
-			return  milliseconds * 1000;
+			return static_cast<std::int64_t>(milliseconds * 1000);
 		}
 
 		///
@@ -77,7 +77,7 @@ namespace sl
 		///
 		inline constexpr double microsecondsToSeconds(std::int64_t microseconds)
 		{
-			return microseconds / 1000000.0;
+			return static_cast<double>(microseconds / 1000000.0);
 		}
 
 		///
@@ -89,7 +89,7 @@ namespace sl
 		///
 		inline constexpr std::int32_t microsecondsToMilliseconds(std::int64_t microseconds)
 		{
-			return microseconds / 1000.0;
+			return static_cast<std::int32_t>(static_cast<double>(microseconds) / 1000.0);
 		}
 
 		///

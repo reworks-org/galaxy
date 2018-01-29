@@ -29,10 +29,10 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::PARTICLE_EMIT_EVENT:
-			auto particleEvent = static_cast<ParticleEmitEvent*>(event->user.data1);
-			auto size = particleEvent->particleCount.size();
+			auto particleEvent = (ParticleEmitEvent*)event->user.data1;
+			auto size = particleEvent->textureIDS.size();
 
-			if (size != particleEvent->textureIDS.size())
+			if (size != particleEvent->particleCount.size())
 			{
 				LOG_S(ERROR) << "Particle count and texture id are not same size std::vectors!";
 
@@ -41,12 +41,12 @@ namespace sl
 			}
 			else
 			{
-				for (auto i = 0; i < size; ++i)
+				for (std::uint32_t i = 0; i < size; ++i)
 				{
-					for (auto amountOfParticles = 0; amountOfParticles < particleEvent[i]; ++amountOfParticles)
+					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->particleCount[amountOfParticles]; ++amountOfParticles)
 					{
 						entt::Entity entity = m_world->m_registery.create();
-						m_world->m_registery.assign<TransformComponent>(entity, particleEvent->layer, 0.0f, { particleEvent->xPos, particleEvent->yPos, 0, 0 });
+						m_world->m_registery.assign<TransformComponent>(entity, particleEvent->layer, 0.0f, Rect<float, int>(particleEvent->xPos, particleEvent->yPos, 0, 0));
 						m_world->m_registery.assign<ParticleComponent>(entity, Random::random(particleEvent->upper, particleEvent->lower), Random::random(particleEvent->upper, particleEvent->lower), 255, particleEvent->fade, particleEvent->textureIDS[i]);
 					}
 				}
@@ -58,7 +58,7 @@ namespace sl
 
 	void ParticleSystem::update(const double dt, entt::DefaultRegistry& registery)
 	{
-		m_world->m_registery.view<ParticleComponent, TransformComponent>().each([this](entt::Entity e, ParticleComponent& pc, TransformComponent& tc)
+		m_world->m_registery.view<ParticleComponent, TransformComponent>().each([this](entt::Entity entity, ParticleComponent& pc, TransformComponent& tc)
 		{
 			if (pc.m_alpha <= 0)
 			{

@@ -42,6 +42,11 @@ namespace sl
 		Rect(Rect&&) = default;
 
 		///
+		/// Assignment Operator.
+		///
+		Rect& operator=(const Rect&) = default;
+
+		///
 		/// Does the rectangle contain the point (x, y).
 		///
 		/// \param x X coordinate.

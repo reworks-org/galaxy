@@ -10,7 +10,8 @@
 #include <allegro5/allegro_audio.h>
 
 #include "sol2/sol.hpp"
-#include "sl/services/VFS.hpp"
+#include "sl/fs/VFS.hpp"
+#include "loguru/loguru.hpp"
 
 #include "Sound.hpp"
 

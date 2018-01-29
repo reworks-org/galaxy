@@ -7,8 +7,7 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/cosl/World.hpp"
-#include "sl/services/ServiceLocator.hpp"
+#include "sl/core/World.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 
 #include "Box2DManager.hpp"
@@ -22,10 +21,7 @@ namespace sl
 
 	Box2DManager::~Box2DManager()
 	{
-		m_collisionFunctions.clear();
-
-		auto physicsView = World::get()->m_registery.view<PhysicsComponent>();
-		physicsView.each<PhysicsComponent>([this](entt::Entity entity, PhysicsComponent& pc)
+		World::get()->m_registery.view<PhysicsComponent>().each([this](entt::Entity entity, PhysicsComponent& pc)
 		{
 			if (pc.m_body)
 			{
@@ -51,10 +47,5 @@ namespace sl
 
 			m_world->DestroyBody(pc.m_body);
 		});
-	}
-
-	void Box2DManager::clean()
-	{
-		m_collisionFunctions.clear();
 	}
 }

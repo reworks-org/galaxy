@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-#include <sl/cosl/Application.hpp>
+#include <sl/core/Application.hpp>
 #include <sl/services/ServiceLocator.hpp>
 
 #include <sl/components/AnimationComponent.hpp>

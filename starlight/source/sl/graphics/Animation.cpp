@@ -11,7 +11,6 @@
 
 #include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
-#include "imgui/imgui_impl_a5.h"
 
 #include "Animation.hpp"
 
@@ -41,16 +40,5 @@ namespace sl
 		{
 			LOG_S(WARNING) << "Tried to load animation with no frames!";
 		}
-	}
-
-	void Animation::debug()
-	{
-		ImGui::Checkbox("Is Looped", &m_isLooped);
-
-		ImGui::Spacing();
-		ImGui::InputFloat("Speed", &m_speed, 0.1, 0.1);
-
-		ImGui::Spacing();
-		ImGui::InputInt("Time Per Frame", &m_timePerFrame, 10, 20);
 	}
 }

@@ -89,6 +89,11 @@ namespace sl
 		template<typename T>
 		T lookup(entt::HashedString config, const std::string& section, const std::string& key);
 
+		///
+		/// Clean up resources.
+		///
+		void clean() override;
+
 	private:
 		///
 		/// Default Constructor.

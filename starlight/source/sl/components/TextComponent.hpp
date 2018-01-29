@@ -30,25 +30,17 @@ namespace sl
 		TextComponent(const sol::table& table);
 
 		///
-		/// Move Constructor.
-		///
-		TextComponent(TextComponent&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~TextComponent() = default;
-		
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
+
+	public:
+		entt::HashedString m_id;
 
 	private:
 		std::string m_text;
 		ALLEGRO_FONT* m_font;
 		ALLEGRO_COLOR m_colour;
-		entt::HashedString m_id;
 
 	private:
 		///
@@ -56,12 +48,6 @@ namespace sl
 		/// Deleted.
 		///
 		TextComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		TextComponent(const TextComponent&) = delete;
 	};
 }
 

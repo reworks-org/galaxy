@@ -40,6 +40,11 @@ namespace sl
 		///
 		Vector3(Vector3&&) = default;
 
+		///
+		/// Assignment Operator.
+		///
+		Vector3& operator=(const Vector3&) = default;
+
 	public:
 		T m_x;
 		T m_y;

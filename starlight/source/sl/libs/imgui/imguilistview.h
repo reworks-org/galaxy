@@ -122,7 +122,7 @@ TODO: Header columns with type HT_CUSTOM have never been tested.
 */
 
 #ifndef IMGUI_API
-#include <imgui.h>
+#include "imgui/imgui.h"
 #endif //IMGUI_API
 
 #include <stdio.h>  // snprintf(...) TODO: see if it's worth moving stuff to imguilistview.cpp (now it's empty)

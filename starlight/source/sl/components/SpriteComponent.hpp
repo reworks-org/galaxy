@@ -26,19 +26,9 @@ namespace sl
 		SpriteComponent(const sol::table& table);
 
 		///
-		/// Move Constructor.
-		///
-		SpriteComponent(SpriteComponent&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~SpriteComponent() = default;
-		
-		///
-		/// Calls imgui debug functions. Don't call this, done for you by debugmanager.
-		///
-		void debug();
 
 	public:
 		entt::HashedString m_spriteName;
@@ -49,12 +39,6 @@ namespace sl
 		/// Deleted.
 		///
 		SpriteComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		SpriteComponent(const SpriteComponent&) = delete;
 	};
 }
 

@@ -16,6 +16,7 @@
 #include <allegro5/bitmap_draw.h>
 
 #include "sl/fs/VFS.hpp"
+#include "loguru/loguru.hpp"
 
 #include "Window.hpp"
 
@@ -59,8 +60,8 @@ namespace sl
 		ALLEGRO_MONITOR_INFO info;
 		al_get_monitor_info(0, &info);
 		
-		m_fullscreenScale.x = ((info.x2 - info.x1) / 2) - (width / 2);
-		m_fullscreenScale.y = ((info.y2 - info.y1) / 2) - (height / 2);
+		m_fullscreenScale.m_x = ((info.x2 - info.x1) / 2) - (width / 2);
+		m_fullscreenScale.m_y = ((info.y2 - info.y1) / 2) - (height / 2);
 
 		m_fullscreenBuffer = al_create_bitmap(width, height);
 	}
@@ -117,7 +118,7 @@ namespace sl
 		{
 			al_set_target_bitmap(al_get_backbuffer(m_display));
 			al_clear_to_color(al_map_rgba(0, 0, 0, 255));
-			al_draw_bitmap(m_fullscreenBuffer, m_fullscreenScale.x, m_fullscreenScale.y, 0);
+			al_draw_bitmap(m_fullscreenBuffer, m_fullscreenScale.m_x, m_fullscreenScale.m_y, 0);
 		}
 		
 		al_flip_display();

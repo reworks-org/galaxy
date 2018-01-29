@@ -40,11 +40,6 @@ namespace sl
 		ParticleComponent(float dx, float dy, float alpha, float fade, entt::HashedString id);
 
 		///
-		/// Move Constructor.
-		///
-		ParticleComponent(ParticleComponent&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~ParticleComponent() = default;
@@ -62,12 +57,6 @@ namespace sl
 		/// Deleted.
 		///
 		ParticleComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		ParticleComponent(const ParticleComponent&) = delete;
 	};
 }
 
