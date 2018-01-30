@@ -19,7 +19,7 @@ namespace sl
 	SoundPlayer::SoundPlayer(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::get()->openAsString(script));
+		lua.script(VFS::inst()->openAsString(script));
 		sol::table sound = lua.get<sol::table>("sound");
 
 		sound.for_each([this](std::pair<sol::object, sol::object> pair)

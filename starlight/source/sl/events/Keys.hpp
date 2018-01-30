@@ -18,11 +18,11 @@ namespace sl
 	///
 	struct Keys
 	{
-		static int KEY_FORWARD = 0;
-		static int KEY_BACKWARD = 0;
-		static int KEY_LEFT = 0;
-		static int KEY_RIGHT = 0;
-		static int KEY_QUIT = 0;
+		static inline int KEY_FORWARD = 0;
+		static inline int KEY_BACKWARD = 0;
+		static inline int KEY_LEFT = 0;
+		static inline int KEY_RIGHT = 0;
+		static inline int KEY_QUIT = 0;
 
 	};
 }

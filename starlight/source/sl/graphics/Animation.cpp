@@ -16,6 +16,11 @@
 
 namespace sl
 {
+	Animation::Animation()
+	{
+		LOG_S(FATAL) << "Program attempted to create a default constructed Animation!";
+	}
+
 	Animation::Animation(sol::table& table)
 		:m_currentFrame(0)
 	{

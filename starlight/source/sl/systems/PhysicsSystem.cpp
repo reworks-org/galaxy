@@ -23,7 +23,7 @@ namespace sl
 	PhysicsSystem::PhysicsSystem(float ups, int vi, int pi)
 	:m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
 	{
-		m_manager = Box2DManager::get();
+		m_manager = Box2DManager::inst();
 	}
 
 	void PhysicsSystem::event(ALLEGRO_EVENT* event)

@@ -7,7 +7,7 @@
 ///  Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/types/BaseState.hpp"
+#include "sl/types/State.hpp"
 
 #include "StateManager.hpp"
 

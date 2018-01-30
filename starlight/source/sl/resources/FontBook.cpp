@@ -19,7 +19,7 @@ namespace sl
 	FontBook::FontBook(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::get()->openAsString(script));
+		lua.script(VFS::inst()->openAsString(script));
 		sol::table fonts = lua.get<sol::table>("fonts");
 
 		fonts.for_each([&](std::pair<sol::object, sol::object> pair)

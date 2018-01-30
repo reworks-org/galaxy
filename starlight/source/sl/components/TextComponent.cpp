@@ -21,15 +21,11 @@ namespace sl
 	{
 		m_id = entt::HashedString(table.get<const char*>("id"));
 		m_text = table.get<std::string>("text");
-		m_font = FontBook::get()->get(table.get<std::string>("font"));
+		m_font = FontBook::inst()->get(entt::HashedString(table.get<std::string>("font").c_str()));
 
 		sol::table colour = table.get<sol::table>("colour");
 		m_colour = al_map_rgba(colour.get<unsigned char>("r"), colour.get<unsigned char>("g"), colour.get<unsigned char>("b"), colour.get<unsigned char>("a"));
-		
-		m_offsetX = table.get<float>("offsetX");
-		m_offsetY = table.get<float>("offsetY");
-		m_layer = table.get<int>("layer");
 
-		TextureAtlas::get()->addTextToAtlas(m_id, m_text, m_font, m_colour);
+		TextureAtlas::inst()->addTextToAtlas(m_id, m_text, m_font, m_colour);
 	}
 }

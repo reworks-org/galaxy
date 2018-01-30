@@ -49,7 +49,7 @@ namespace sl
 		}
 
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Window::get()->getDisplay()));
+		al_set_target_bitmap(al_get_backbuffer(Window::inst()->getDisplay()));
 		
 		PHYSFS_freeList(efl);
 	}
@@ -72,7 +72,7 @@ namespace sl
 		al_set_target_bitmap(m_atlas);
 		al_draw_bitmap(textureData, packedRect.m_x, packedRect.m_y, 0);
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Window::get()->getDisplay()));
+		al_set_target_bitmap(al_get_backbuffer(Window::inst()->getDisplay()));
 
 		m_resourceMap.emplace(ID, packedRect);
 	}

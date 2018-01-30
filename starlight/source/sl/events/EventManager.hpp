@@ -40,12 +40,12 @@ namespace sl
 		///
 		/// \param id The string ID of the event to create.
 		/// \param type An EventType (int). Use one from EventTypes data structure.
-		/// \param data1 First data package included with event.
+		/// \param data1 First data package included with event. E.g. float a; then pass &a.
 		/// \param data2 Second data package included with event.
 		/// \param data3 Third data package included with event.
 		/// \param data4 Fourth data package included with event.
 		///
-		void createUserEvent(entt::HashedString id, EventType type, int* data1 = nullptr, int* data2 = nullptr, int* data3 = nullptr, int* data4 = nullptr);
+		void createUserEvent(entt::HashedString id, EventType type, intptr_t data1 = NULL, intptr_t data2 = NULL, intptr_t data3 = NULL, intptr_t data4 = NULL);
 
 		///
 		/// Emit a user event.

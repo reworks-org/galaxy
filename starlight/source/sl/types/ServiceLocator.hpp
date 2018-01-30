@@ -51,7 +51,7 @@ namespace sl
 		///
 		/// \return Returns a pointer to the service.
 		///
-		inline static Service* get()
+		inline static Service* inst()
 		{
 			return m_servicePtr.get();
 		}

@@ -21,7 +21,6 @@
 #include "sl/events/Keys.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateManager.hpp"
-#include "sl/core/DebugInterface.hpp"
 #include "sl/events/EventManager.hpp"
 #include "sl/utils/ConfigReader.hpp"
 #include "sl/resources/FontBook.hpp"
@@ -39,11 +38,12 @@ namespace sl
 	{
 		std::srand(std::time(nullptr));
 
-		std::string lname = "logs/log_" + Time::getFormattedTime() + ".log";
+		std::string lname = "logs/log_" + time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
 			al_show_native_message_box(NULL, "FATAL", message.prefix, message.message, NULL, ALLEGRO_MESSAGEBOX_ERROR);
+			throw new std::exception(message.message);
 		});
 
 		LOG_S(INFO) << "App init." << std::endl;
@@ -64,30 +64,30 @@ namespace sl
 		VFS::make(archive);
 		ConfigReader::make(config, newConfig);
 
-		Window::make(ConfigReader::get()->lookup<int>(config, "graphics", "width"), ConfigReader::get()->lookup<int>(config, "graphics", "height"), ConfigReader::get()->lookup<bool>(config, "graphics", "fullscreen"), ConfigReader::get()->lookup<bool>(config, "graphics", "msaa"), ConfigReader::get()->lookup<int>(config, "graphics", "msaaValue"), ConfigReader::get()->lookup<std::string>(config, "graphics", "title"), ConfigReader::get()->lookup<std::string>(config, "graphics", "icon"));
+		Window::make(ConfigReader::inst()->lookup<int>(config, "graphics", "width"), ConfigReader::inst()->lookup<int>(config, "graphics", "height"), ConfigReader::inst()->lookup<bool>(config, "graphics", "fullscreen"), ConfigReader::inst()->lookup<bool>(config, "graphics", "msaa"), ConfigReader::inst()->lookup<int>(config, "graphics", "msaaValue"), ConfigReader::inst()->lookup<std::string>(config, "graphics", "title"), ConfigReader::inst()->lookup<std::string>(config, "graphics", "icon"));
 
 		World::make();
-		DebugInterface::make(m_window->getDisplay());
+		//DebugInterface::make(m_window->getDisplay());
 		StateManager::make();
-		TextureAtlas::make(ConfigReader::get()->lookup<size_t>(config, "graphics", "atlasPowerOf"));
-		FontBook::make(ConfigReader::get()->lookup<std::string>(config, "fontmanager", "fontScript"));
+		TextureAtlas::make(ConfigReader::inst()->lookup<size_t>(config, "graphics", "atlasPowerOf"));
+		FontBook::make(ConfigReader::inst()->lookup<std::string>(config, "fontmanager", "fontScript"));
 		ShaderLibrary::make();
-		MusicPlayer::make(ConfigReader::get()->lookup<std::string>(config, "audio", "musicScript"));
-		SoundPlayer::make(ConfigReader::get()->lookup<std::string>(config, "audio", "soundScript"));
-		Box2DManager::make(ConfigReader::get()->lookup<float32>(config, "box2d", "gravity"));
+		MusicPlayer::make(ConfigReader::inst()->lookup<std::string>(config, "audio", "musicScript"));
+		SoundPlayer::make(ConfigReader::inst()->lookup<std::string>(config, "audio", "soundScript"));
+		Box2DManager::make(ConfigReader::inst()->lookup<float32>(config, "box2d", "gravity"));
 		EventManager::make();
 
-		Keys::KEY_FORWARD = ConfigReader::get()->lookup<int>(config, "keys", "forward");
-		Keys::KEY_BACKWARD = ConfigReader::get()->lookup<int>(config, "keys", "backward");
-		Keys::KEY_LEFT = ConfigReader::get()->lookup<int>(config, "keys", "left");
-		Keys::KEY_RIGHT = ConfigReader::get()->lookup<int>(config, "keys", "right");
-		Keys::KEY_QUIT = ConfigReader::get()->lookup<int>(config, "keys", "quit");
+		Keys::KEY_FORWARD = ConfigReader::inst()->lookup<int>(config, "keys", "forward");
+		Keys::KEY_BACKWARD = ConfigReader::inst()->lookup<int>(config, "keys", "backward");
+		Keys::KEY_LEFT = ConfigReader::inst()->lookup<int>(config, "keys", "left");
+		Keys::KEY_RIGHT = ConfigReader::inst()->lookup<int>(config, "keys", "right");
+		Keys::KEY_QUIT = ConfigReader::inst()->lookup<int>(config, "keys", "quit");
 
 		#ifdef NDEBUG
-			DebugInterface::get()->disable(true);
+			//DebugInterface::get()->disable(true);
 		#endif
 
-		al_reserve_samples(ConfigReader::get()->lookup<int>(config, "audio", "reserveSamples"));
+		al_reserve_samples(ConfigReader::inst()->lookup<int>(config, "audio", "reserveSamples"));
 	}
 
 	Application::~Application()
@@ -100,7 +100,7 @@ namespace sl
 		FontBook::destroy();
 		TextureAtlas::destroy();
 		StateManager::destroy();
-		DebugInterface::destroy();
+		//DebugInterface::destroy();
 		World::destroy();
 		Window::destroy();
 		ConfigReader::destroy();
@@ -129,11 +129,11 @@ namespace sl
 		double timePerFrame = 1.0 / 60.0;
 		std::uint64_t timer = 0;
 
-		World* world = World::get();
-		Window* window = Window::get();
-		StateManager* stateManager = StateManager::get();
-		DebugInterface* debugInterface = DebugInterface::get();
-		EventManager* eventManager = EventManager::get();
+		World* world = World::inst();
+		Window* window = Window::inst();
+		StateManager* stateManager = StateManager::inst();
+		//DebugInterface* debugInterface = DebugInterface::inst();
+		EventManager* eventManager = EventManager::inst();
 
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
 		
@@ -150,11 +150,11 @@ namespace sl
 		while (window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
-			while (al_get_next_event(eventManager->, &ev))
+			while (al_get_next_event(eventManager->m_queue, &ev))
 			{
 				world->event(&ev);
 				stateManager->event(&ev);
-				debugInterface->event(&ev);
+				//debugInterface->event(&ev);
 				
 				switch (ev.type)
 				{
@@ -173,20 +173,20 @@ namespace sl
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_RESIZE:
-					ImGui_ImplA5_InvalidateDeviceObjects();
-					al_acknowledge_resize(window->getDisplay());
-					Imgui_ImplA5_CreateDeviceObjects();
+					//ImGui_ImplA5_InvalidateDeviceObjects();
+					//al_acknowledge_resize(window->getDisplay());
+					//Imgui_ImplA5_CreateDeviceObjects();
 					break;
 				}
 			}
 
-			debugInterface->newFrame();
-			debugInterface->displayMenu();
+			//debugInterface->newFrame();
+			//debugInterface->displayMenu();
 
 			window->clear(255, 255, 255);
 
 			stateManager->render();
-			debugInterface->render();
+			//debugInterface->render();
 
 			window->display();
 

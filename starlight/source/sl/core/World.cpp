@@ -20,7 +20,7 @@ namespace sl
 	void World::createEntity(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::get()->openAsString(script));
+		lua.script(VFS::inst()->openAsString(script));
 		
 		entt::Entity entity = m_registery.create();
 		sol::table components = lua.get<sol::table>("entity");
@@ -60,7 +60,7 @@ namespace sl
 	void World::createEntities(const std::string& batchScript)
 	{	
 		sol::state lua;
-		lua.script(VFS::get()->openAsString(batchScript));
+		lua.script(VFS::inst()->openAsString(batchScript));
 
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entityList = world.get<sol::table>("entitys");

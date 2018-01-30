@@ -39,7 +39,7 @@ namespace sl
 			break;
 		}
 		
-		m_body = Box2DManager::get()->m_world->CreateBody(&bodyDef);
+		m_body = Box2DManager::inst()->m_world->CreateBody(&bodyDef);
 
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		if (!fixtureList.empty())

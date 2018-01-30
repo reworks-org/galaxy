@@ -17,7 +17,7 @@ namespace sl
 	ShaderLibrary::ShaderLibrary(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::get()->openAsString(script));
+		lua.script(VFS::inst()->openAsString(script));
 		sol::table shaders = lua.get<sol::table>("shaders");
 
 		shaders.for_each([this](std::pair<sol::object, sol::object> pair)

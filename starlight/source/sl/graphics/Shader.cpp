@@ -21,12 +21,12 @@ namespace sl
 
 		// http://liballeg.org/a5docs/trunk/shader.html
 
-		if (!al_attach_shader_source(m_shader, ALLEGRO_VERTEX_SHADER, VFS::get()->openAsString(table.get<std::string>("vertexShader")).c_str()))
+		if (!al_attach_shader_source(m_shader, ALLEGRO_VERTEX_SHADER, VFS::inst()->openAsString(table.get<std::string>("vertexShader")).c_str()))
 		{
 			LOG_S(ERROR) << "Could not attach vertex shader. Allegro Log: " << al_get_shader_log(m_shader);
 		}
 
-		if (!al_attach_shader_source(m_shader, ALLEGRO_PIXEL_SHADER, VFS::get()->openAsString(table.get<std::string>("pixelShader")).c_str()))
+		if (!al_attach_shader_source(m_shader, ALLEGRO_PIXEL_SHADER, VFS::inst()->openAsString(table.get<std::string>("pixelShader")).c_str()))
 		{
 			LOG_S(ERROR) << "Could not attach pixel shader. Allegro Log: " << al_get_shader_log(m_shader);
 		}

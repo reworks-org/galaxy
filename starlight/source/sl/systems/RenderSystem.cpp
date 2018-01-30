@@ -29,7 +29,7 @@ namespace sl
 	RenderSystem::RenderSystem(int quadTreeLevels, int quadtreeMaxObjects)
 	:m_quadtree(0, {0.0f, 0.0f, 0, 0}, quadTreeLevels, quadtreeMaxObjects)
 	{
-		m_atlas = TextureAtlas::get();
+		m_atlas = TextureAtlas::inst();
 	}
 
 	RenderSystem::~RenderSystem()
@@ -48,7 +48,7 @@ namespace sl
 		m_entitys.clear();
 		m_entitys.reserve(view.size());
 
-		m_quadtree.updateBounds(World::get()->m_currentLevel->getBounds());
+		m_quadtree.updateBounds(World::inst()->m_currentLevel->getBounds());
 
 		view.each([this](entt::Entity e, RenderComponent& rc)
 		{

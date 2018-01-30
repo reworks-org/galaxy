@@ -49,7 +49,7 @@ namespace sl
 		/// \param value Actual value to write.
 		///
 		template<typename T>
-		void setValue(entt::HashedString config, const std::string& section, const std::string& key, T value);
+		void setValue(const std::string& config, const std::string& section, const std::string& key, T value);
 
 		///
 		/// Remove a value from the config.
@@ -87,7 +87,7 @@ namespace sl
 		/// \return Returns the value converted to T.
 		///
 		template<typename T>
-		T lookup(entt::HashedString config, const std::string& section, const std::string& key);
+		T lookup(const std::string& config, const std::string& section, const std::string& key);
 
 		///
 		/// Clean up resources.
@@ -115,15 +115,15 @@ namespace sl
 	};
 
 	template<typename T>
-	T ConfigReader::lookup(entt::HashedString config, const std::string& section, const std::string& key)
+	T ConfigReader::lookup(const std::string& config, const std::string& section, const std::string& key)
 	{  
-		return utils::convertString<T>(al_get_config_value(m_resourceMap[config], section.c_str(), key.c_str()));
+		return utils::convertString<T>(al_get_config_value(m_resourceMap[entt::HashedString(config.c_str())], section.c_str(), key.c_str()));
 	}
 
 	template<typename T>
-	void ConfigReader::setValue(entt::HashedString config, const std::string& section, const std::string& key, T value)
+	void ConfigReader::setValue(const std::string& config, const std::string& section, const std::string& key, T value)
 	{
-		al_set_config_value(m_resourceMap[config], section.c_str(), key.c_str(), std::to_string(value).c_str());
+		al_set_config_value(m_resourceMap[entt::HashedString(config.c_str())], section.c_str(), key.c_str(), std::to_string(value).c_str());
 	}
 }
 

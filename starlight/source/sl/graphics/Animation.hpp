@@ -18,6 +18,13 @@ namespace sl
 	{
 	public:
 		///
+		/// Default constructor.
+		/// MSVC won't compile this class without a default constructor.
+		/// Warning: This WILL throw an exception! IT IS NOT MEANT TO HAVE A DEFAULT CONSTRUCTOR!
+		///
+		Animation();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -57,13 +64,6 @@ namespace sl
 
 		/// Each frames name is a texture in the TextureAtlas.
 		std::vector<std::string> m_frames;
-
-	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		Animation() = delete;
 	};
 }
 

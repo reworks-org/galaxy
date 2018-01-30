@@ -25,7 +25,7 @@ namespace sl
 		al_destroy_event_queue(m_queue);
 	}
 
-	void EventManager::createUserEvent(entt::HashedString id, EventType type, int* data1, int* data2, int* data3, int* data4)
+	void EventManager::createUserEvent(entt::HashedString id, EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4)
 	{
 		ALLEGRO_EVENT ev;
 		

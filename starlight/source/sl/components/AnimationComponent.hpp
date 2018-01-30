@@ -18,8 +18,6 @@ namespace sl
 {
 	class AnimationComponent final
 	{
-		friend class Animation;
-
 	public:
 		///
 		/// Constructor.

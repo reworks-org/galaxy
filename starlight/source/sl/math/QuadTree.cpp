@@ -58,7 +58,7 @@ namespace sl
 
 	void QuadTree::insert(entt::Entity e)
 	{
-		auto tc_rect = World::get()->m_registery.get<TransformComponent>(e).m_rect;
+		auto tc_rect = World::inst()->m_registery.get<TransformComponent>(e).m_rect;
 
 		if (m_nodes[0] != nullptr)
 		{
@@ -83,7 +83,7 @@ namespace sl
 			int i = 0;
 			while (i < m_objects.size())
 			{
-				int index = getIndex(World::get()->m_registery.get<TransformComponent>(m_objects[i]).m_rect);
+				int index = getIndex(World::inst()->m_registery.get<TransformComponent>(m_objects[i]).m_rect);
 				if (index != -1)
 				{
 					m_nodes[index]->insert(m_objects[i]);
@@ -99,7 +99,7 @@ namespace sl
 
 	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, entt::Entity e)
 	{
-		auto tc_rect = World::get()->m_registery.get<TransformComponent>(e).m_rect;
+		auto tc_rect = World::inst()->m_registery.get<TransformComponent>(e).m_rect;
 		
 		int index = getIndex(tc_rect);
 		if (index != -1 && m_nodes[0] != nullptr)

@@ -13,7 +13,6 @@
 #include <functional>
 
 #include "sol2/sol_forward.hpp"
-#include "re/types/ServiceLocator.hpp"
 
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;

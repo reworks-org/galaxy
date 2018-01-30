@@ -21,7 +21,7 @@ namespace sl
 {
 	ParticleSystem::ParticleSystem()
 	{
-		m_world = World::get();
+		m_world = World::inst();
 	}
 
 	void ParticleSystem::event(ALLEGRO_EVENT* event)
