@@ -1,10 +1,10 @@
 ///
-///  QuadTree.hpp
-///  starlight
+/// QuadTree.hpp
+/// starlight
 ///
-///  Written by reworks on 28/08/2017.
-///  Code ported from:
-///  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
+/// Written by reworks on 28/08/2017.
+/// Code ported from:
+/// https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
 #ifndef RENGINE3_QUADTREE_HPP_
 #define RENGINE3_QUADTREE_HPP_
@@ -95,16 +95,6 @@ namespace sl
 		/// Default constructor.
 		///
 		QuadTree() = delete;
-
-		///
-		/// Move constructor.
-		///
-		QuadTree(QuadTree&&) = delete;
-
-		///
-		/// Copy constructor.
-		///
-		QuadTree(const QuadTree &) = delete;
 
 		///
 		/// Splits the node into 4 subnodes.

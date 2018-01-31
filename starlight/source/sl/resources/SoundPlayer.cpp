@@ -1,10 +1,10 @@
 ///
-///  SoundPlayer.cpp
-///  starlight
+/// SoundPlayer.cpp
+/// starlight
 ///
-///  Created by reworks on 12/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <allegro5/allegro_audio.h>

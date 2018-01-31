@@ -1,10 +1,10 @@
 ///
-///  ShaderLibrary.hpp
-///  starlight
+/// ShaderLibrary.hpp
+/// starlight
 ///
-///  Created by reworks on 14/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 14/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SHADERLIBRARY_HPP_
@@ -42,18 +42,6 @@ namespace sl
 		/// Deleted.
 		///
 		ShaderLibrary() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		ShaderLibrary(const ShaderLibrary&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		ShaderLibrary(ShaderLibrary&&) = delete;
 	};
 }
 

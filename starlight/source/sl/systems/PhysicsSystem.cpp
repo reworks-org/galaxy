@@ -2,9 +2,9 @@
 /// PhysicsSystem.cpp
 /// starlight
 ///
-///  Created by reworks on 08/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 08/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <utility>
@@ -32,21 +32,21 @@ namespace sl
 		{
 		case EventTypes::COLLISION_EVENT:
 			auto collisionEvent = (CollisionEvent*)event->user.data1;
-			auto kvp = m_collisionFunctions.find(std::make_pair(collisionEvent->a, collisionEvent->b));
+			auto kvp = m_collisionFunctions.find(std::make_pair(collisionEvent->m_entityA, collisionEvent->m_entityB));
 
 			if (kvp != m_collisionFunctions.end())
 			{
-				kvp->second(collisionEvent->a, collisionEvent->b);
+				kvp->second(collisionEvent->m_entityA, collisionEvent->m_entityB);
 			}
 			break;
 		}
 	}
 
-	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registery)
+	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		m_manager->m_world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 
-		registery.view<PhysicsComponent, TransformComponent>().each([dt](entt::Entity, PhysicsComponent& pc, TransformComponent& tc)
+		registry.view<PhysicsComponent, TransformComponent>().each([dt](entt::Entity entity, PhysicsComponent& pc, TransformComponent& tc)
 		{
 			tc.m_rect.m_x = b2::metersToPixels<float>(pc.m_body->GetPosition().x);
 			tc.m_rect.m_y = b2::metersToPixels<float>(pc.m_body->GetPosition().y);

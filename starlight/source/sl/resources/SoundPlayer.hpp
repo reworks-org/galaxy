@@ -1,10 +1,10 @@
 ///
-///  SoundPlayer.hpp
-///  starlight
+/// SoundPlayer.hpp
+/// starlight
 ///
-///  Created by reworks on 12/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SOUNDPLAYER_HPP_
@@ -49,18 +49,6 @@ namespace sl
 		/// Deleted.
 		///
 		SoundPlayer() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		SoundPlayer(const SoundPlayer&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		SoundPlayer(SoundPlayer&&) = delete;
 	};
 }
 

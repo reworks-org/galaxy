@@ -1,10 +1,10 @@
 ///
-///  StateManager.cpp
-///  starlight
+/// StateManager.cpp
+/// starlight
 ///
-///  Created by reworks on 5/10/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 5/10/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sl/types/State.hpp"

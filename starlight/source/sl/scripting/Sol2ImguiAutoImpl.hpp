@@ -1,10 +1,10 @@
 ///
-///  Sol2ImguiAutoImpl.hpp
-///  starlight
+/// Sol2ImguiAutoImpl.hpp
+/// starlight
 ///
-///  Created by reworks on 20/04/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 20/04/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SOL2IMGUIAUTOIMPL_HPP_

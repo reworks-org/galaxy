@@ -1,10 +1,10 @@
 ///
-///  ServiceLocator.hpp
-///  starlight
+/// ServiceLocator.hpp
+/// starlight
 ///
-///  Created by reworks on 17/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 17/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SERVICELOCATOR_HPP_
@@ -57,9 +57,6 @@ namespace sl
 		}
 
 	private:
-		static std::unique_ptr<Service> m_servicePtr;
-
-	private:
 		///
 		/// Default constructor.
 		///
@@ -76,6 +73,9 @@ namespace sl
 		/// Deleted.
 		///
 		ServiceLocator(ServiceLocator&&) = delete;
+
+	private:
+		static std::unique_ptr<Service> m_servicePtr;
 	};
 }
 

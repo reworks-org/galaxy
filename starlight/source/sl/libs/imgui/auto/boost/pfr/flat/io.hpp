@@ -25,9 +25,9 @@ namespace boost { namespace pfr {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s{12, 13};
-///     flat_write(std::cout, s); // outputs '{12, 13}'
+///    struct my_struct { int i, short s; };
+///    my_struct s{12, 13};
+///    flat_write(std::cout, s); // outputs '{12, 13}'
 /// \endcode
 template <class Char, class Traits, class T>
 void flat_write(std::basic_ostream<Char, Traits>& out, const T& value) {
@@ -42,13 +42,13 @@ void flat_write(std::basic_ostream<Char, Traits>& out, const T& value) {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s;
-///     std::stringstream ss;
-///     ss << "{ 12, 13 }";
-///     ss >> s;
-///     assert(s.i == 12);
-///     assert(s.i == 13);
+///    struct my_struct { int i, short s; };
+///    my_struct s;
+///    std::stringstream ss;
+///    ss << "{ 12, 13 }";
+///    ss >> s;
+///    assert(s.i == 12);
+///    assert(s.i == 13);
 /// \endcode
 template <class Char, class Traits, class T>
 void flat_read(std::basic_istream<Char, Traits>& in, T& value) {

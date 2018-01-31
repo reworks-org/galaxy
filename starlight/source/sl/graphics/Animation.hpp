@@ -1,10 +1,10 @@
 ///
-///  Animation.hpp
-///  starlight
+/// Animation.hpp
+/// starlight
 ///
-///  Created by reworks on 31/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 31/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_ANIMATION_HPP_
@@ -30,16 +30,6 @@ namespace sl
 		/// \param table sol::table containing data.
 		///
 		Animation(sol::table& table);
-
-		///
-		/// Copy Constructor.
-		///
-		Animation(const Animation&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		Animation(Animation&&) = default;
 
 		///
 		/// Destructor.

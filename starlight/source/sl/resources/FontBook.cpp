@@ -1,10 +1,10 @@
 ///
-///  FontBook.cpp
-///  starlight
+/// FontBook.cpp
+/// starlight
 ///
-///  Created by reworks on 22/09/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 22/09/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <allegro5/allegro_ttf.h>

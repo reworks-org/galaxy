@@ -1,10 +1,10 @@
 ///
-///  World.hpp
-///  starlight
+/// World.hpp
+/// starlight
 ///
-///  Created by reworks on 09/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 09/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_WORLD_HPP_
@@ -109,30 +109,17 @@ namespace sl
 		///
 		template<typename System>
 		void remove();
-
-	private:
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		World(const World&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		World(World&&) = delete;
+		
+	public:
+		entt::DefaultRegistry m_registery;
+		std::unique_ptr<Level> m_currentLevel;
+		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 
 	private:
 		std::uint32_t m_systemIDCounter = 0;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_tagAssign;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_componentAssign;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_componentDebug;
-
-	public:
-		entt::DefaultRegistry m_registery;
-		std::unique_ptr<Level> m_currentLevel;
-		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Tag>

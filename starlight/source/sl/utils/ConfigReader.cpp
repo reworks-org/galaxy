@@ -1,10 +1,10 @@
 ///
-///  ConfigReader.cpp
-///  starlight
+/// ConfigReader.cpp
+/// starlight
 ///
-///  Created by reworks on 17/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 17/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <fstream>
@@ -37,12 +37,12 @@ namespace sl
 			}
 			else
 			{
-				m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
+				m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
 			}
 		}
 		else
 		{
-			m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
+			m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
 		}
 	}
 
@@ -63,7 +63,7 @@ namespace sl
 		}
 		else
 		{
-			m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
+			m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
 		}
 	}
 	
@@ -84,7 +84,7 @@ namespace sl
 
 	void ConfigReader::save(const std::string& config)
 	{
-		bool saved = al_save_config_file(config.c_str(), m_resourceMap[entt::HashedString(config.c_str())]);
+		bool saved = al_save_config_file(config.c_str(), m_resourceMap[entt::HashedString{ config.c_str() }]);
 		if (!saved)
 		{
 			LOG_S(ERROR) << "Failed to save config file: " << config << ".";

@@ -48,12 +48,6 @@ namespace re
 		/// Deleted.
 		///
 		SerializeComponent() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		SerializeComponent(const SerializeComponent&) = delete;
 	};
 }
 

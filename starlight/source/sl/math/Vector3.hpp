@@ -1,10 +1,10 @@
 ///
-///  Vector3.hpp
-///  starlight
+/// Vector3.hpp
+/// starlight
 ///
-///  Created by reworks on 26/09/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 26/09/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_VECTOR3_HPP_
@@ -29,21 +29,6 @@ namespace sl
 		/// \param z Z value.
 		///
 		Vector3(T x, T y, T z);
-
-		///
-		/// Copy Constructor.
-		///
-		Vector3(const Vector3&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		Vector3(Vector3&&) = default;
-
-		///
-		/// Assignment Operator.
-		///
-		Vector3& operator=(const Vector3&) = default;
 
 	public:
 		T m_x;

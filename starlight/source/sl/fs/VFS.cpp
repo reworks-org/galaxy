@@ -1,10 +1,10 @@
 ///
-///  VFS.cpp
-///  starlight
+/// VFS.cpp
+/// starlight
 ///
-///  Created by reworks on 12/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <physfs.h>

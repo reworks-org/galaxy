@@ -2,9 +2,9 @@
 /// AnimationSystem.cpp
 /// starlight
 ///
-///  Created by reworks on 10/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 10/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sl/utils/Time.hpp"
@@ -15,9 +15,9 @@
 
 namespace sl
 {
-	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registery)
+	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		registery.view<AnimationComponent, SpriteComponent>().each([dt](entt::Entity entity, AnimationComponent& ac, SpriteComponent& sc)
+		registry.view<AnimationComponent, SpriteComponent>().each([dt](entt::Entity entity, AnimationComponent& ac, SpriteComponent& sc)
 		{
 			if (!ac.m_isPaused)
 			{
@@ -40,10 +40,8 @@ namespace sl
 							ac.stop();
 						}
 					}
-
-					entt::HashedString hs{ animation->m_frames[animation->m_currentFrame].c_str() };
-					sc.m_spriteName = hs;
-
+					
+					sc.m_spriteName = animation->m_frames[animation->m_currentFrame];
 				}
 			}
 		});

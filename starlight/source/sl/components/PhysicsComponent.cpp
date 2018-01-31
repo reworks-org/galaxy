@@ -1,10 +1,10 @@
 ///
-///  PhysicsComponent.cpp
-///  starlight
+/// PhysicsComponent.cpp
+/// starlight
 ///
-///  Created by reworks on 10/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 10/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sol2/sol.hpp"
@@ -71,5 +71,10 @@ namespace sl
 		}
 		
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
+	}
+
+	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent &)
+	{
+		return *this;
 	}
 }

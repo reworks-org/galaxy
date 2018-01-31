@@ -1,10 +1,10 @@
 ///
-///  World.cpp
-///  starlight
+/// World.cpp
+/// starlight
 ///
-///  Created by reworks on 09/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 09/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <map>
@@ -46,10 +46,10 @@ namespace sl
 				m_tagAssign[it.second](entity);
 			}
 
-			kvp.erase(entt::HashedString("hasTags"));
+			kvp.erase(entt::HashedString{ "hasTags" });
 		}
 
-		kvp.erase(entt::HashedString("hasTags"));
+		kvp.erase(entt::HashedString{ "hasTags" });
 
 		for (auto& it : kvp)
 		{

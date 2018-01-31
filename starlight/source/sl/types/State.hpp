@@ -1,10 +1,10 @@
 ///
-///  State.hpp
-///  starlight
+/// State.hpp
+/// starlight
 ///
-///  Created by reworks on 27/09/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 27/09/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_STATE_HPP_
@@ -23,16 +23,6 @@ namespace sl
 		/// Default constructor.
 		///
 		BaseState() = default;
-
-		///
-		/// Copy Constructor.
-		///
-		BaseState(const BaseState&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		BaseState(BaseState&&) = default;
 
 		///
 		/// Destructor.
@@ -88,26 +78,14 @@ namespace sl
 		}
 
 	private:
-		/// Allows for loading stuff only once in load()
-		bool m_doneOnce = false;
-
-	private:
 		///
 		/// Default constructor.
 		///
 		State() = default;
 
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		State(const State&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		State(State&&) = delete;
+	private:
+		/// Allows for loading stuff only once in load()
+		bool m_doneOnce = false;
 	};
 }
 

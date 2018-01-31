@@ -1,10 +1,10 @@
 ///
-///  CameraTag.cpp
-///  starlight
+/// CameraTag.cpp
+/// starlight
 ///
-///  Created by reworks on 28/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 28/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sol2/sol.hpp"
@@ -19,6 +19,11 @@ namespace sl
 		m_bounds.m_y = 0;
 		m_bounds.m_width = table.get<int>("width");
 		m_bounds.m_height = table.get<int>("height");
+	}
+
+	CameraTag& CameraTag::operator=(const CameraTag &)
+	{
+		return *this;
 	}
 
 	/*

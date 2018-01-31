@@ -1,10 +1,10 @@
 ///
-///  Rect.hpp
-///  starlight
+/// Rect.hpp
+/// starlight
 ///
-///  Created by reworks on 26/09/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 26/09/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_RECT_HPP_
@@ -30,21 +30,6 @@ namespace sl
 		/// \param h Height value.
 		///
 		Rect(T1 x, T1 y, T2 width, T2 height);
-
-		///
-		/// Copy Constructor.
-		///
-		Rect(const Rect&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		Rect(Rect&&) = default;
-
-		///
-		/// Assignment Operator.
-		///
-		Rect& operator=(const Rect&) = default;
 
 		///
 		/// Does the rectangle contain the point (x, y).

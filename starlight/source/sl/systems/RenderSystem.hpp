@@ -3,7 +3,7 @@
 /// starlight
 ///
 /// Created by reworks on 06/08/2016.
-/// Copyright (c) 2018+ reworks.
+/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -36,11 +36,17 @@ namespace sl
 		///
 		/// Render entitys.
 		///
-		/// \param registery Default entity registery.
+		/// \param registry Default entity registry.
 		/// 
-		void render(entt::DefaultRegistry& registery);
+		void render(entt::DefaultRegistry& registry);
 
 	private:
+		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		RenderSystem() = delete;
+		
 		///
 		/// Lets systems recieve events.
 		///
@@ -53,25 +59,7 @@ namespace sl
 		///
 		/// Dont actually call this, this is called by the world automatically.
 		///
-		void update(const double dt, entt::DefaultRegistry& registery) override;
-
-		///
-		/// Default Constructor.
-		/// Deleted.
-		///
-		RenderSystem() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		RenderSystem(const RenderSystem&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		RenderSystem(RenderSystem&&) = delete;
+		void update(const double dt, entt::DefaultRegistry& registry) override;
 
 	private:
 		QuadTree m_quadtree;

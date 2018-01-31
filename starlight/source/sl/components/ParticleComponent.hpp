@@ -1,17 +1,18 @@
 ///
-///  ParticleComponent.hpp
-///  starlight
+/// ParticleComponent.hpp
+/// starlight
 ///
-///  Created by reworks on 14/01/2018.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 14/01/2018.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_PARTICLECOMPONENT_HPP_
 #define STARLIGHT_PARTICLECOMPONENT_HPP_
 
+#include <string>
+
 #include "sl/math/Vector2.hpp"
-#include "entt/core/hashed_string.hpp"
 
 namespace sl
 {
@@ -26,7 +27,7 @@ namespace sl
 		/// \param fade How much to reduce the alpha by per 1/60th a second.
 		/// \param id ID of particle texture in atlas.
 		///
-		ParticleComponent(const Vector2<float>& direction, float alpha, float fade, entt::HashedString id);
+		ParticleComponent(const Vector2<float>& direction, float alpha, float fade, const std::string& id);
 
 		///
 		/// Constructor.
@@ -37,26 +38,31 @@ namespace sl
 		/// \param fade How much to reduce the alpha by per 1/60th a second.
 		/// \param id ID of particle texture in atlas.
 		///
-		ParticleComponent(float dx, float dy, float alpha, float fade, entt::HashedString id);
+		ParticleComponent(float dx, float dy, float alpha, float fade, const std::string& id);
 
 		///
 		/// Destructor.
 		///
 		~ParticleComponent() = default;
 
+		///
+		/// Default move assignment overload.
+		///
+		ParticleComponent& operator=(const ParticleComponent&);
+
+	private:
+		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		ParticleComponent() = delete;
+
 	public:
 		float m_fade;
 		float m_alpha;
 		Vector2<float> m_direction;
 
-		entt::HashedString m_id;
-
-	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		ParticleComponent() = delete;
+		std::string m_id;
 	};
 }
 

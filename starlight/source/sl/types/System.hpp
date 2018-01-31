@@ -1,10 +1,10 @@
 ///
-///  System.hpp
-///  starlight
+/// System.hpp
+/// starlight
 ///
-///  Created by reworks on 15/12/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 15/12/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SYSTEM_HPP_
@@ -29,6 +29,11 @@ namespace sl
 
 	protected:
 		///
+		/// Default constructor.
+		///
+		System() = default;
+
+		///
 		/// Lets systems recieve events.
 		///
 		/// \param event ALLEGRO_EVENT passed by application class.
@@ -40,7 +45,7 @@ namespace sl
 		///
 		/// \param dt Delta Time.
 		///
-		virtual void update(const double dt, entt::DefaultRegistry& registery) = 0;
+		virtual void update(const double dt, entt::DefaultRegistry& registry) = 0;
 
 	protected:
 		static std::uint32_t m_id;

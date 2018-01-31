@@ -1,10 +1,10 @@
 ///
-///  ResourceCache.hpp
-///  starlight
+/// ResourceCache.hpp
+/// starlight
 ///
-///  Created by reworks on 17/12/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 17/12/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_RESOURCECACHE_HPP_
@@ -45,9 +45,6 @@ namespace sl
 		virtual void clean() = 0;
 
 	protected:
-		std::unordered_map<entt::HashedString::hash_type, Resource> m_resourceMap;
-
-	protected:
 		///
 		/// Default constructor.
 		///
@@ -64,6 +61,9 @@ namespace sl
 		/// Deleted.
 		///
 		ResourceCache(ResourceCache&&) = delete;
+
+	protected:
+		std::unordered_map<entt::HashedString::hash_type, Resource> m_resourceMap;
 	};
 }
 

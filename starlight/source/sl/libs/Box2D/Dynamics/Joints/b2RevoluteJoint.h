@@ -31,7 +31,7 @@
 /// rather than the center of mass because:
 /// 1. you might not know where the center of mass will be.
 /// 2. if you add/remove shapes from a body and recompute the mass,
-///    the joints will be broken.
+///   the joints will be broken.
 struct b2RevoluteJointDef : public b2JointDef
 {
 	b2RevoluteJointDef()

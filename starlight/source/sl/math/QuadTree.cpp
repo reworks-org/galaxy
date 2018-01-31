@@ -1,10 +1,10 @@
 ///
-///  QuadTree.cpp
-///  starlight
+/// QuadTree.cpp
+/// starlight
 ///
-///  Written by reworks on 28/08/2017.
-///  Code ported from:
-///  https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
+/// Written by reworks on 28/08/2017.
+/// Code ported from:
+/// https://gamedevelopment.tutsplus.com/tutorials/quick-tip-use-quadtrees-to-detect-likely-collisions-in-2d-space--gamedev-374
 
 #include "sl/core/World.hpp"
 #include "sl/components/TransformComponent.hpp"

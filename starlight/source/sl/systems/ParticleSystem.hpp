@@ -2,9 +2,9 @@
 /// ParticleSystem.hpp
 /// starlight
 ///
-///  Created by reworks on 15/01/2018.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 15/01/2018.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_PARTICLESYSTEM_HPP_
@@ -30,9 +30,6 @@ namespace sl
 		~ParticleSystem() override = default;
 
 	private:
-		World* m_world;
-
-	private:
 		///
 		/// Lets systems recieve events.
 		///
@@ -45,19 +42,10 @@ namespace sl
 		///
 		/// Dont actually call this, this is called by the world automatically.
 		///
-		void update(const double dt, entt::DefaultRegistry& registery) override;
+		void update(const double dt, entt::DefaultRegistry& registry) override;
 
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		ParticleSystem(const ParticleSystem&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		ParticleSystem(ParticleSystem&&) = delete;
+	private:
+		World* m_world;
 	};
 }
 

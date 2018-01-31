@@ -1,10 +1,10 @@
 ///
-///  CameraTag.hpp
-///  starlight
+/// CameraTag.hpp
+/// starlight
 ///
-///  Created by reworks on 28/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 28/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef REWORK_CAMERATAG_HPP_
@@ -26,17 +26,14 @@ namespace sl
 		CameraTag(const sol::table& table);
 
 		///
-		/// Move Constructor.
-		///
-		CameraTag(CameraTag&&) = default;
-
-		///
 		/// Destructor.
 		///
 		virtual ~CameraTag() = default;
 
-	public:
-		Rect<float, int> m_bounds;
+		///
+		/// Default move assignment overload.
+		///
+		CameraTag& operator=(const CameraTag&);
 
 	private:
 		///
@@ -45,11 +42,8 @@ namespace sl
 		///
 		CameraTag() = delete;
 
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		CameraTag(const CameraTag&) = delete;
+	public:
+		Rect<float, int> m_bounds;
 	};
 }
 

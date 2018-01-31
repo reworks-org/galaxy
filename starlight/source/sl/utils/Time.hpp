@@ -1,10 +1,10 @@
 ///
-///  Time.hpp
-///  starlight
+/// Time.hpp
+/// starlight
 ///
-///  Created by reworks on 08/07/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 08/07/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_TIME_HPP_
@@ -140,7 +140,7 @@ namespace sl
 		///
 		/// \brief Get the current time and date.
 		///
-		///  In XX:YY DD/MM/YYYY format.
+		/// In XX:YY DD/MM/YYYY format.
 		///
 		/// \return Returns std::string.
 		///
@@ -158,7 +158,7 @@ namespace sl
 		///
 		/// \brief Get the current time.
 		///
-		///  Time and Date in XX:YY AM/PM format.
+		/// Time and Date in XX:YY AM/PM format.
 		///
 		/// \return Returns std::string.
 		///

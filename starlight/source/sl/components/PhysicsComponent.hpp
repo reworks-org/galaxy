@@ -1,10 +1,10 @@
 ///
-///  PhysicsComponent.hpp
-///  starlight
+/// PhysicsComponent.hpp
+/// starlight
 ///
-///  Created by reworks on 10/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 10/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_PHYSICSCOMPONENT_HPP_
@@ -37,18 +37,30 @@ namespace sl
 		///
 		~PhysicsComponent() = default;
 
-	public:
-		b2Body* m_body;
+		///
+		/// Default move assignment overload.
+		///
+		PhysicsComponent& operator=(const PhysicsComponent&);
 
 	private:
-		/// This method lets cereal know which data members to save.
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		PhysicsComponent() = delete;
+
+		///
+		/// This method lets cereal know which data members to save.\
+		///
 		template<class Archive>
 		void save(Archive& archive) const
 		{
 			archive(m_body->GetPosition().x, m_body->GetPosition().y, m_body->GetAngle(), m_body->GetAngularVelocity(), m_body->GetLinearVelocity().x, m_body->GetLinearVelocity().y);
 		}
 
+		///
 		/// This method lets cereal know which data members to load.
+		///
 		template<class Archive>
 		void load(Archive& archive)
 		{
@@ -61,11 +73,8 @@ namespace sl
 			m_body->SetLinearVelocity(b2Vec2(linearX, linearY));
 		}
 
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		PhysicsComponent() = delete;
+	public:
+		b2Body* m_body;
 	};
 }
 

@@ -1,10 +1,10 @@
 ///
-///  Random.hpp
-///  starlight
+/// Random.hpp
+/// starlight
 ///
-///  Created by reworks on 18/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 18/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_RANDOM_HPP_

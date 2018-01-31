@@ -1,10 +1,10 @@
 ///
-///  Box2DHelper.hpp
-///  starlight
+/// Box2DHelper.hpp
+/// starlight
 ///
-///  Created by reworks on 22/09/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 22/09/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_BOX2DHELPER_HPP_

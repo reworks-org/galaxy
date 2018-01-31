@@ -1,10 +1,10 @@
 ///
-///  AnimationComponent.hpp
-///  starlight
+/// AnimationComponent.hpp
+/// starlight
 ///
-///  Created by reworks on 16/08/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 16/08/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_ANIMATIONCOMPONENT_HPP_
@@ -60,11 +60,10 @@ namespace sl
 		///
 		void stop();
 
-	public:
-		bool m_isPaused;
-		double m_currentFrameTime;
-		std::string m_activeAnimation;
-		std::unordered_map<std::string, Animation> m_animations;
+		///
+		/// Default move assignment overload.
+		///
+		AnimationComponent& operator=(const AnimationComponent&);
 
 	private:
 		///
@@ -72,6 +71,12 @@ namespace sl
 		/// Deleted.
 		///
 		AnimationComponent() = delete;
+
+	public:
+		bool m_isPaused;
+		double m_currentFrameTime;
+		std::string m_activeAnimation;
+		std::unordered_map<std::string, Animation> m_animations;
 	};
 }
 

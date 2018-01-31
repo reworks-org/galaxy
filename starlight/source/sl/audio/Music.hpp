@@ -1,10 +1,10 @@
 ///
-///  Music.hpp
-///  starlight
+/// Music.hpp
+/// starlight
 ///
-///  Created by reworks on 13/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 13/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_MUSIC_HPP_
@@ -69,29 +69,17 @@ namespace sl
 		void setVolume(const float volume);
 
 	private:
-		unsigned int m_position;
-
-		ALLEGRO_SAMPLE* m_music;
-		ALLEGRO_SAMPLE_INSTANCE* m_instance;
-
-	private:
 		///
 		/// Default constructor.
 		/// Deleted.
 		///
 		Music() = delete;
 
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		Music(const Music&) = delete;
+	private:
+		unsigned int m_position;
 
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		Music(Music&&) = delete;
+		ALLEGRO_SAMPLE* m_music;
+		ALLEGRO_SAMPLE_INSTANCE* m_instance;
 	};
 }
 

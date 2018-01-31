@@ -1,10 +1,10 @@
 ///
-///  VFS.hpp
-///  starlight
+/// VFS.hpp
+/// starlight
 ///
-///  Created by reworks on 12/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_VFS_HPP_
@@ -55,19 +55,6 @@ namespace sl
 		/// \return Returns a std::string. This is a plain string containing the information.
 		///
 		std::string openAsString(const std::string& file);
-
-	private:
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		VFS(const VFS&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		VFS(VFS&&) = delete;
 	};
 }
 

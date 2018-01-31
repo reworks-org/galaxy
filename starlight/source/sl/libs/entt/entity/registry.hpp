@@ -1105,6 +1105,7 @@ private:
 using Entity = std::uint32_t;
 using DefaultRegistry = Registry<Entity>;
 
+
 }
 
 

@@ -2,9 +2,9 @@
 /// PhysicsSystem.hpp
 /// starlight
 ///
-///  Created by reworks on 08/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 08/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_PHYSICSSYSTEM_HPP_
@@ -35,6 +35,12 @@ namespace sl
 
 	private:
 		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		PhysicsSystem() = delete;
+		
+		///
 		/// Lets systems recieve events.
 		///
 		/// \param event ALLEGRO_EVENT passed by application class.
@@ -46,25 +52,7 @@ namespace sl
 		///
 		/// Dont actually call this, this is called by the world automatically.
 		///
-		void update(const double dt, entt::DefaultRegistry& registery) override;
-
-		///
-		/// Default Constructor.
-		/// Deleted.
-		///
-		PhysicsSystem() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		PhysicsSystem(const PhysicsSystem&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		PhysicsSystem(PhysicsSystem&&) = delete;
+		void update(const double dt, entt::DefaultRegistry& registry) override;
 
 	private:
 		float m_ups;

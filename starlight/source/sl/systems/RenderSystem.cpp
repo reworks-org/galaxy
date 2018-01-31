@@ -3,7 +3,7 @@
 /// starlight
 ///
 /// Created by reworks on 06/08/2016.
-/// Copyright (c) 2018+ reworks.
+/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -41,11 +41,12 @@ namespace sl
 	{
 	}
 
-	void RenderSystem::update(const double dt, entt::DefaultRegistry& registery)
+	void RenderSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		auto view = registery.view<RenderComponent>();
+		static_assert(std::is_move_constructible_v<ParticleComponent> && std::is_move_assignable_v<ParticleComponent>);
+		auto view = registry.view<RenderComponent>();
 
-		m_entitys.clear();
+		m_entitys.clear(); 
 		m_entitys.reserve(view.size());
 
 		m_quadtree.updateBounds(World::inst()->m_currentLevel->getBounds());
@@ -55,28 +56,28 @@ namespace sl
 			m_quadtree.insert(e);
 		});
 
-		m_quadtree.retrieve(m_entitys, registery.get<CameraTag>().m_bounds);
+		m_quadtree.retrieve(m_entitys, registry.get<CameraTag>().m_bounds);
 
 		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::Entity a, entt::Entity b)
 		{
-			return registery.get<TransformComponent>(a).m_layer < registery.get<TransformComponent>(b).m_layer;
+			return registry.get<TransformComponent>(a).m_layer < registry.get<TransformComponent>(b).m_layer;
 		});
 	}
 
-	void RenderSystem::render(entt::DefaultRegistry& registery)
+	void RenderSystem::render(entt::DefaultRegistry& registry)
 	{
 		al_hold_bitmap_drawing(true);
 		
 		for (entt::Entity entity : m_entitys)
 		{
-			auto& rc = registery.get<RenderComponent>(entity);
+			auto& rc = registry.get<RenderComponent>(entity);
 			for (auto& type : rc.m_renderTypes)
 			{
 				switch (type)
 				{
 					case RenderTypes::SPRITE:
 					{
-						auto sprtuple = registery.get<TransformComponent, SpriteComponent>(entity);
+						auto sprtuple = registry.get<TransformComponent, SpriteComponent>(entity);
 						auto& transformSprite = std::get<0>(sprtuple);
 
 						m_atlas->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0);
@@ -85,7 +86,7 @@ namespace sl
 
 					case RenderTypes::TEXT:
 					{
-						auto textuple = registery.get<TransformComponent, TextComponent>(entity);
+						auto textuple = registry.get<TransformComponent, TextComponent>(entity);
 						auto& transformText = std::get<0>(textuple);
 
 						m_atlas->al_draw_packed_bitmap(std::get<1>(textuple).m_id, transformText.m_rect.m_x, transformText.m_rect.m_y, 0);
@@ -94,7 +95,7 @@ namespace sl
 
 					case RenderTypes::PARTICLE:
 					{
-						auto partuple = registery.get<TransformComponent, ParticleComponent>(entity);
+						auto partuple = registry.get<TransformComponent, ParticleComponent>(entity);
 						auto& transformParticle = std::get<0>(partuple);
 						auto& particle = std::get<1>(partuple);
 

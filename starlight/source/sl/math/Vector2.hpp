@@ -1,10 +1,10 @@
 ///
-///  Vector2.hpp
-///  starlight
+/// Vector2.hpp
+/// starlight
 ///
-///  Created by reworks on 26/09/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 26/09/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_VECTOR2_HPP_
@@ -28,21 +28,6 @@ namespace sl
 		/// \param y Y value.
 		///
 		Vector2(T x, T y);
-
-		///
-		/// Copy Constructor.
-		///
-		Vector2(const Vector2&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		Vector2(Vector2&&) = default;
-
-		///
-		/// Assignment Operator.
-		///
-		Vector2& operator=(const Vector2&) = default;
 
 		///
 		/// Swaps x (width) and y (height).

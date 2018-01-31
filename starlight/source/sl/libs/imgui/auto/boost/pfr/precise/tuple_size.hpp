@@ -26,7 +26,7 @@ namespace boost { namespace pfr {
 ///
 /// \b Example:
 /// \code
-///     std::array<int, boost::pfr::tuple_size<my_structure>::value > a;
+///    std::array<int, boost::pfr::tuple_size<my_structure>::value > a;
 /// \endcode
 template <class T>
 using tuple_size = detail::size_t_< boost::pfr::detail::fields_count<T>() >;
@@ -40,7 +40,7 @@ using tuple_size = detail::size_t_< boost::pfr::detail::fields_count<T>() >;
 ///
 /// \b Example:
 /// \code
-///     std::array<int, boost::pfr::tuple_size_v<my_structure> > a;
+///    std::array<int, boost::pfr::tuple_size_v<my_structure> > a;
 /// \endcode
 template <class T>
 constexpr std::size_t tuple_size_v = tuple_size<T>::value;

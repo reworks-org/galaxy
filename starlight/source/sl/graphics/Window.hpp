@@ -1,10 +1,10 @@
 ///
-///  Window.hpp
-///  starlight
+/// Window.hpp
+/// starlight
 ///
-///  Created by reworks on 19/09/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 19/09/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_WINDOW_HPP_
@@ -102,19 +102,6 @@ namespace sl
 		ALLEGRO_BITMAP* m_fullscreenBuffer;
 		Vector2<int> m_size;
 		Vector2<int> m_fullscreenScale;
-
-	private:
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		Window(const Window&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		Window(Window&&) = delete;
 	};
 }
 

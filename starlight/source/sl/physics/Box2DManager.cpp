@@ -1,10 +1,10 @@
 ///
-///  Box2DManager.cpp
-///  starlight
+/// Box2DManager.cpp
+/// starlight
 ///
-///  Created by reworks on 12/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sl/core/World.hpp"

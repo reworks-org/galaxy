@@ -1,10 +1,10 @@
 ///
-///  LuaUtils.hpp
-///  starlight
+/// LuaUtils.hpp
+/// starlight
 ///
-///  Created by reworks on 02/07/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 02/07/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_LUAUTILS_HPP_

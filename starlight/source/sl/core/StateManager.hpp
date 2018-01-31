@@ -1,10 +1,10 @@
 ///
-///  StateManager.hpp
-///  starlight
+/// StateManager.hpp
+/// starlight
 ///
-///  Created by reworks on 5/10/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 5/10/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_STATEMANAGER_HPP_
@@ -83,20 +83,6 @@ namespace sl
 		/// \param s Pointer to new state.
 		///
 		void setState(std::shared_ptr<BaseState> s);
-			    
-	private:
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		StateManager(const StateManager&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		StateManager(StateManager&&) = delete;
-
 
 	private:
 	    std::shared_ptr<BaseState> m_currentState = nullptr;

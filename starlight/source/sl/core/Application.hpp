@@ -1,10 +1,10 @@
 ///
-///  Application.hpp
-///  starlight
+/// Application.hpp
+/// starlight
 ///
-///  Created by reworks on 08/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 08/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_APPLICATION_HPP_
@@ -47,7 +47,7 @@ namespace sl
 		/// Default constructor.
 		/// Deleted.
 		///
-		Application() = delete;
+		Application() = default;
 
 		///
 		/// Copy Constructor.

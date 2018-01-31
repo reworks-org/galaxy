@@ -33,10 +33,10 @@ namespace boost { namespace pfr {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s {10, 11};
-///     assert(boost::pfr::get<0>(s) == 10);
-///     boost::pfr::get<1>(s) = 0;
+///    struct my_struct { int i, short s; };
+///    my_struct s {10, 11};
+///    assert(boost::pfr::get<0>(s) == 10);
+///    boost::pfr::get<1>(s) = 0;
 /// \endcode
 template <std::size_t I, class T>
 constexpr decltype(auto) get(const T& val) noexcept {
@@ -57,7 +57,7 @@ constexpr decltype(auto) get(T& val) noexcept {
 ///
 /// \b Example:
 /// \code
-///     std::vector<  boost::pfr::tuple_element<0, my_structure>::type  > v;
+///    std::vector<  boost::pfr::tuple_element<0, my_structure>::type  > v;
 /// \endcode
 template <std::size_t I, class T>
 using tuple_element = detail::sequence_tuple::tuple_element<I, decltype( ::boost::pfr::detail::tie_as_tuple(std::declval<T&>()) ) >;
@@ -69,7 +69,7 @@ using tuple_element = detail::sequence_tuple::tuple_element<I, decltype( ::boost
 ///
 /// \b Example:
 /// \code
-///     std::vector<  boost::pfr::tuple_element_t<0, my_structure>  > v;
+///    std::vector<  boost::pfr::tuple_element_t<0, my_structure>  > v;
 /// \endcode
 template <std::size_t I, class T>
 using tuple_element_t = typename tuple_element<I, T>::type;
@@ -83,10 +83,10 @@ using tuple_element_t = typename tuple_element<I, T>::type;
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s {10, 11};
-///     std::tuple<int, short> t = make_tuple(s);
-///     assert(get<0>(t) == 10);
+///    struct my_struct { int i, short s; };
+///    my_struct s {10, 11};
+///    std::tuple<int, short> t = make_tuple(s);
+///    assert(get<0>(t) == 10);
 /// \endcode
 template <class T>
 constexpr auto structure_to_tuple(const T& val) noexcept {
@@ -105,10 +105,10 @@ constexpr auto structure_to_tuple(const T& val) noexcept {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s;
-///     tie(s) = std::tuple<int, short>{10, 11};
-///     assert(s.s == 11);
+///    struct my_struct { int i, short s; };
+///    my_struct s;
+///    tie(s) = std::tuple<int, short>{10, 11};
+///    assert(s.s == 11);
 /// \endcode
 template <class T>
 constexpr auto structure_tie(T& val) noexcept {
@@ -123,9 +123,9 @@ constexpr auto structure_tie(T& val) noexcept {
 /// \b Requires: C++17 or \constexprinit{C++14 constexpr aggregate intializable type}.
 ///
 /// \param func must have one of the following signatures:
-///     * any_return_type func(U&& field)                // field of value is perfect forwarded to function
-///     * any_return_type func(U&& field, std::size_t i)
-///     * any_return_type func(U&& value, I i)  // Here I is an `std::integral_constant<size_t, field_index>`
+///    * any_return_type func(U&& field)                // field of value is perfect forwarded to function
+///    * any_return_type func(U&& field, std::size_t i)
+///    * any_return_type func(U&& value, I i)  // Here I is an `std::integral_constant<size_t, field_index>`
 ///
 /// \param value To each field of this variable will be the `func` applied.
 ///
@@ -133,10 +133,10 @@ constexpr auto structure_tie(T& val) noexcept {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     int sum = 0;
-///     for_each_field(my_struct{20, 22}, [&sum](const auto& field) { sum += field; });
-///     assert(sum == 42);
+///    struct my_struct { int i, short s; };
+///    int sum = 0;
+///    for_each_field(my_struct{20, 22}, [&sum](const auto& field) { sum += field; });
+///    assert(sum == 42);
 /// \endcode
 template <class T, class F>
 void for_each_field(T&& value, F&& func) {

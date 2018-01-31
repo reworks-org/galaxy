@@ -18,17 +18,17 @@
 ///
 /// \b Example:
 /// \code
-///     #include <boost/pfr/precise/functions_for.hpp>
-///     struct comparable_struct {      // No operators defined for that structure
-///         int i; short s; char data[7]; bool bl; int a,b,c,d,e,f;
-///     };
-///     BOOST_PFR_PRECISE_FUNCTIONS_FOR(comparable_struct)
-///     // ...
+///    #include <boost/pfr/precise/functions_for.hpp>
+///    struct comparable_struct {      // No operators defined for that structure
+///        int i; short s; char data[7]; bool bl; int a,b,c,d,e,f;
+///    };
+///    BOOST_PFR_PRECISE_FUNCTIONS_FOR(comparable_struct)
+///    // ...
 ///
-///     comparable_struct s1 {0, 1, "Hello", false, 6,7,8,9,10,11};
-///     comparable_struct s2 {0, 1, "Hello", false, 6,7,8,9,10,11111};
-///     assert(s1 < s2);
-///     std::cout << s1 << std::endl; // Outputs: {0, 1, H, e, l, l, o, , , 0, 6, 7, 8, 9, 10, 11}
+///    comparable_struct s1 {0, 1, "Hello", false, 6,7,8,9,10,11};
+///    comparable_struct s2 {0, 1, "Hello", false, 6,7,8,9,10,11111};
+///    assert(s1 < s2);
+///    std::cout << s1 << std::endl; // Outputs: {0, 1, H, e, l, l, o, , , 0, 6, 7, 8, 9, 10, 11}
 /// \endcode
 ///
 /// \rcast14

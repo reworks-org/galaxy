@@ -2,9 +2,9 @@
 /// ParticleEmitEvent.hpp
 /// starlight
 ///
-///  Created by reworks on 18/01/2018.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 18/01/2018.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_PARTICLEEMITEVENT_HPP_
@@ -23,42 +23,42 @@ struct ParticleEmitEvent
 	///
 	/// Number of particles to emit for each type.
 	///
-	std::vector<unsigned int> particleCount;
+	std::vector<unsigned int> m_particleCount;
 
 	///
 	/// ID's of the textures to use in the atlas.
 	///
-	std::vector<entt::HashedString> textureIDS;
+	std::vector<entt::HashedString> m_textureIDS;
 
 	///
 	/// X position to emit from.
 	///
-	float xPos;
+	float m_x;
 
 	///
 	/// Y position to emit from.
 	///
-	float yPos;
+	float m_y;
 
 	///
 	/// Direction max value.
 	///
-	float upper;
+	float m_upper;
 
 	///
 	/// Direction min value.
 	///
-	float lower;
+	float m_lower;
 
 	///
 	/// Layer to draw on.
 	///
-	int layer;
+	int m_layer;
 
 	///
 	/// How much to reduce the alpha by per 1/60th a second.
 	///
-	float fade;
+	float m_fade;
 };
 
 #endif

@@ -5,12 +5,12 @@ Adjustments:
 - New header format:
 
 ///
-///  <HEADER_NAME>.hpp
-///  <PROJECT>
+/// <HEADER_NAME>.hpp
+/// <PROJECT>
 ///
-///  Created by <AUTHOR> on <DATE>.
-///  Copyright (c) <YEAR> <AUTHOR>.
-///  Refer to LICENSE.txt for more details.
+/// Created by <AUTHOR> on <DATE>.
+/// MIT LICENSE.
+/// Refer to LICENSE.txt for more details.
 ///
 
 - group headers.
@@ -48,7 +48,6 @@ namespace my_project {
     static constexpr double PI = 3.14159;
   };
 }
-
 - make sure using override and final (final functions cannot be overridden)
 - avoid globals.
 - forward declare when possible.
@@ -65,14 +64,15 @@ namespace my_project {
 - dont use std::bind.
 - use nullptr
 - const std::string&
-
+- functions before variables.
+- public before private, protected in middle.
 - need to look at the way servicelocator and states are implemented.
 - tags?
 - renderableinfo 
 - docs / readthedocs -> repo wiki / repo website / repo settings
 renderer:
 - split update and rendering threads?
-
+- clean up event code
 - debug stuff
 - parallax
 - implement serialization

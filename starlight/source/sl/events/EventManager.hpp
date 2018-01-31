@@ -2,9 +2,9 @@
 /// EventManager.hpp
 /// starlight
 ///
-///  Created by reworks on 15/01/2018.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 15/01/2018.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_EVENTMANAGER_HPP_
@@ -64,19 +64,6 @@ namespace sl
 
 	private:
 		ALLEGRO_EVENT_SOURCE m_userSource;
-
-	private:
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		EventManager(EventManager&&) = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		EventManager(const EventManager&) = delete;  
 	};
 }
 

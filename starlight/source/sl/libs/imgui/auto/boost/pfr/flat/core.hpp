@@ -26,10 +26,10 @@ namespace boost { namespace pfr {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s {10, 11};
-///     assert(boost::pfr::flat_get<0>(s) == 10);
-///     boost::pfr::flat_get<1>(s) = 0;
+///    struct my_struct { int i, short s; };
+///    my_struct s {10, 11};
+///    assert(boost::pfr::flat_get<0>(s) == 10);
+///    boost::pfr::flat_get<1>(s) = 0;
 /// \endcode
 template <std::size_t I, class T>
 decltype(auto) flat_get(const T& val) noexcept {
@@ -48,7 +48,7 @@ decltype(auto) flat_get(T& val /* @cond */, std::enable_if_t< std::is_trivially_
 ///
 /// \b Example:
 /// \code
-///     std::vector<  boost::pfr::flat_tuple_element<0, my_structure>::type  > v;
+///    std::vector<  boost::pfr::flat_tuple_element<0, my_structure>::type  > v;
 /// \endcode
 template <std::size_t I, class T>
 using flat_tuple_element = std::remove_reference<
@@ -60,7 +60,7 @@ using flat_tuple_element = std::remove_reference<
 ///
 /// \b Example:
 /// \code
-///     std::vector<  boost::pfr::flat_tuple_element_t<0, my_structure>  > v;
+///    std::vector<  boost::pfr::flat_tuple_element_t<0, my_structure>  > v;
 /// \endcode
 template <std::size_t I, class T>
 using flat_tuple_element_t = typename flat_tuple_element<I, T>::type;
@@ -72,10 +72,10 @@ using flat_tuple_element_t = typename flat_tuple_element<I, T>::type;
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s {10, 11};
-///     std::tuple<int, short> t = flat_make_tuple(s);
-///     assert(flat_get<0>(t) == 10);
+///    struct my_struct { int i, short s; };
+///    my_struct s {10, 11};
+///    std::tuple<int, short> t = flat_make_tuple(s);
+///    assert(flat_get<0>(t) == 10);
 /// \endcode
 template <class T>
 auto flat_structure_to_tuple(const T& val) noexcept {
@@ -94,10 +94,10 @@ auto flat_structure_to_tuple(const T& val) noexcept {
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     my_struct s;
-///     flat_structure_tie(s) = std::tuple<int, short>{10, 11};
-///     assert(s.s == 11);
+///    struct my_struct { int i, short s; };
+///    my_struct s;
+///    flat_structure_tie(s) = std::tuple<int, short>{10, 11};
+///    assert(s.s == 11);
 /// \endcode
 template <class T>
 auto flat_structure_tie(T& val /* @cond */, std::enable_if_t< std::is_trivially_assignable<T, T>::value>* = 0 /* @endcond */) noexcept {
@@ -112,18 +112,18 @@ auto flat_structure_tie(T& val /* @cond */, std::enable_if_t< std::is_trivially_
 /// \rcast
 ///
 /// \param func must have one of the following signatures:
-///     * any_return_type func(U&& field)                // field of value is perfect forwarded to function
-///     * any_return_type func(U&& field, std::size_t i)
-///     * any_return_type func(U&& value, I i)  // Here I is an `std::integral_constant<size_t, field_index>`
+///    * any_return_type func(U&& field)                // field of value is perfect forwarded to function
+///    * any_return_type func(U&& field, std::size_t i)
+///    * any_return_type func(U&& value, I i)  // Here I is an `std::integral_constant<size_t, field_index>`
 ///
 /// \param value After \flattening{flattening} to each field of this variable will be the `func` applied.
 ///
 /// \b Example:
 /// \code
-///     struct my_struct { int i, short s; };
-///     int sum = 0;
-///     for_each_field(my_struct{20, 22}, [&sum](const auto& field) { sum += field; });
-///     assert(sum == 42);
+///    struct my_struct { int i, short s; };
+///    int sum = 0;
+///    for_each_field(my_struct{20, 22}, [&sum](const auto& field) { sum += field; });
+///    assert(sum == 42);
 /// \endcode
 template <class T, class F>
 void flat_for_each_field(T&& value, F&& func) {

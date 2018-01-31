@@ -20,7 +20,7 @@ namespace boost { namespace pfr {
 ///
 /// \b Example:
 /// \code
-///     std::array<int, boost::pfr::flat_tuple_size<my_structure>::value > a;
+///    std::array<int, boost::pfr::flat_tuple_size<my_structure>::value > a;
 /// \endcode
 template <class T>
 using flat_tuple_size = boost::pfr::detail::size_t_<decltype(boost::pfr::detail::tie_as_flat_tuple(std::declval<T&>()))::size_v>;
@@ -30,7 +30,7 @@ using flat_tuple_size = boost::pfr::detail::size_t_<decltype(boost::pfr::detail:
 ///
 /// \b Example:
 /// \code
-///     std::array<int, boost::pfr::flat_tuple_size_v<my_structure> > a;
+///    std::array<int, boost::pfr::flat_tuple_size_v<my_structure> > a;
 /// \endcode
 template <class T>
 constexpr std::size_t flat_tuple_size_v = flat_tuple_size<T>::value;

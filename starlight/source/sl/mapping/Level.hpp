@@ -1,10 +1,10 @@
 ///
-///  Level.hpp
-///  starlight
+/// Level.hpp
+/// starlight
 ///
-///  Created by reworks on 21/11/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 21/11/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_LEVEL_HPP_
@@ -25,16 +25,6 @@ namespace sl
 		Level(const Rect<float, int>& bounds);
 
 		///
-		/// Copy Constructor.
-		///
-		Level(const Level&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		Level(Level&&) = default;
-
-		///
 		/// Destructor.
 		///
 		virtual ~Level() = default;
@@ -51,15 +41,15 @@ namespace sl
 		///
 		virtual void update(const double dt) = 0;
 
-	protected:
-		Rect<float, int> m_bounds;
-
 	private:
 		///
 		/// Default constructor.
 		/// Deleted.
 		///
 		Level() = delete;
+
+	protected:
+		Rect<float, int> m_bounds;
 	};
 }
 

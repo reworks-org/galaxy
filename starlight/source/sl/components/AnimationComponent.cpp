@@ -1,10 +1,10 @@
 ///
-///  AnimationComponent.cpp
-///  starlight
+/// AnimationComponent.cpp
+/// starlight
 ///
-///  Created by reworks on 16/08/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 16/08/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sol2/sol.hpp"
@@ -71,5 +71,10 @@ namespace sl
 		m_isPaused = true;
 		m_animations[m_activeAnimation].m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
+	}
+
+	AnimationComponent& AnimationComponent::operator=(const AnimationComponent &)
+	{
+		return *this;
 	}
 }

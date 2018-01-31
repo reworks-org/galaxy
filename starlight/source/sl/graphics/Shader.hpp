@@ -1,10 +1,10 @@
 ///
-///  Shader.hpp
-///  starlight
+/// Shader.hpp
+/// starlight
 ///
-///  Created by reworks on 14/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 14/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SHADER_HPP_
@@ -27,16 +27,6 @@ namespace sl
 		Shader(const sol::table& table);
 
 		///
-		/// Copy Constructor.
-		///
-		Shader(const Shader&) = default;
-
-		///
-		/// Move Constructor.
-		///
-		Shader(Shader&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Shader();
@@ -54,14 +44,14 @@ namespace sl
 		void disable();
 
 	private:
-		ALLEGRO_SHADER* m_shader;
-
-	private:
 		///
 		/// Default constructor.
 		/// Deleted.
 		///
 		Shader() = delete;
+
+	private:
+		ALLEGRO_SHADER* m_shader;
 	};
 }
 

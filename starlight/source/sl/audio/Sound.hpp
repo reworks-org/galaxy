@@ -1,10 +1,10 @@
 ///
-///  Sound.hpp
-///  starlight
+/// Sound.hpp
+/// starlight
 ///
-///  Created by reworks on 12/10/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/10/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SOUND_HPP_
@@ -58,30 +58,18 @@ namespace sl
 		void setVolume(const float volume);
 
 	private:
-		float m_pan;
-		float m_speed;
-		float m_volume;
-
-		ALLEGRO_SAMPLE* m_sound;
-
-	private:
 		///
 		/// Default constructor.
 		/// Deleted.
 		///
 		Sound() = delete;
 
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		Sound(const Sound&) = delete;
+	private:
+		float m_pan;
+		float m_speed;
+		float m_volume;
 
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		Sound(Sound&&) = delete;
+		ALLEGRO_SAMPLE* m_sound;
 	};
 }
 

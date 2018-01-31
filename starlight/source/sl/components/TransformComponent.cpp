@@ -1,10 +1,10 @@
 ///
-///  TransformComponent.cpp
-///  starlight
+/// TransformComponent.cpp
+/// starlight
 ///
-///  Created by reworks on 30/09/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 30/09/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include "sol2/sol.hpp"
@@ -26,5 +26,10 @@ namespace sl
 	TransformComponent::TransformComponent(int layer, float angle, const Rect<float, int>& rect)
 		:m_layer(layer), m_angle(angle), m_rect(rect)
 	{
+	}
+
+	TransformComponent& TransformComponent::operator=(const TransformComponent &)
+	{
+		return *this;
 	}
 }

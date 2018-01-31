@@ -1,10 +1,10 @@
 ///
-///  TextureAtlas.cpp
-///  starlight
+/// TextureAtlas.cpp
+/// starlight
 ///
-///  Created by reworks on 29/11/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 29/11/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <physfs.h>
@@ -43,7 +43,7 @@ namespace sl
 			}
 
 			al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
-			m_resourceMap.emplace(entt::HashedString(utils::removeExtension(std::string(*i)).c_str()), packedRect);
+			m_resourceMap.emplace(entt::HashedString{ utils::removeExtension(*i).c_str() }, packedRect);
 			
 			al_destroy_bitmap(bitmap);
 		}
@@ -59,7 +59,7 @@ namespace sl
 		clean();
 	}
 
-	void TextureAtlas::addTextureToAtlas(entt::HashedString ID, ALLEGRO_BITMAP* textureData)
+	void TextureAtlas::addTextureToAtlas(const std::string& ID, ALLEGRO_BITMAP* textureData)
 	{
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
 		Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(textureData), al_get_bitmap_height(textureData), heuristic);
@@ -74,10 +74,10 @@ namespace sl
 		al_flip_display();
 		al_set_target_bitmap(al_get_backbuffer(Window::inst()->getDisplay()));
 
-		m_resourceMap.emplace(ID, packedRect);
+		m_resourceMap.emplace(entt::HashedString{ ID.c_str() }, packedRect);
 	}
 
-	void TextureAtlas::addTextToAtlas(entt::HashedString ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
+	void TextureAtlas::addTextToAtlas(const std::string& ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
 	{
 		int w = al_get_text_width(font, text.c_str());
 		int h = al_get_font_line_height(font);
@@ -93,21 +93,21 @@ namespace sl
 		al_destroy_bitmap(bitmap);
 	}
 
-	void TextureAtlas::al_draw_packed_bitmap(entt::HashedString texture, float dx, float dy, int flags)
+	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags)
 	{
-		auto pr = m_resourceMap[texture];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 		al_draw_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_packed_bitmap(entt::HashedString texture, ALLEGRO_COLOR tint, float dx, float dy, int flags) 
+	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags)
 	{
-		auto pr = m_resourceMap[texture];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 		al_draw_tinted_bitmap_region(m_atlas, tint, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(entt::HashedString texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
+	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
 	{
-		auto pr = m_resourceMap[texture];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
 	}
 
@@ -116,9 +116,9 @@ namespace sl
 		al_destroy_bitmap(m_atlas);
 	}
 
-	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(entt::HashedString texture)
+	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(const std::string& texture)
 	{
-		auto pr = m_resourceMap[texture];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);
 	}
 }

@@ -1,10 +1,10 @@
 ///
-///  Application.cpp
-///  starlight
+/// Application.cpp
+/// starlight
 ///
-///  Created by reworks on 08/07/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 08/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #include <allegro5/allegro.h>
@@ -71,7 +71,7 @@ namespace sl
 		StateManager::make();
 		TextureAtlas::make(ConfigReader::inst()->lookup<size_t>(config, "graphics", "atlasPowerOf"));
 		FontBook::make(ConfigReader::inst()->lookup<std::string>(config, "fontmanager", "fontScript"));
-		ShaderLibrary::make();
+		ShaderLibrary::make(ConfigReader::inst()->lookup<std::string>(config, "graphics", "shaderScript"));
 		MusicPlayer::make(ConfigReader::inst()->lookup<std::string>(config, "audio", "musicScript"));
 		SoundPlayer::make(ConfigReader::inst()->lookup<std::string>(config, "audio", "soundScript"));
 		Box2DManager::make(ConfigReader::inst()->lookup<float32>(config, "box2d", "gravity"));

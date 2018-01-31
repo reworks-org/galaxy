@@ -2,9 +2,9 @@
 /// RenderComponent.hpp
 /// starlight
 ///
-///  Created by reworks on 12/01/2018.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/01/2018.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_RENDERCOMPONENT_HPP_
@@ -31,8 +31,10 @@ namespace sl
 		///
 		~RenderComponent() = default;
 
-	public:
-		std::vector<unsigned int> m_renderTypes;
+		///
+		/// Default move assignment overload.
+		///
+		RenderComponent& operator=(const RenderComponent&);
 
 	private:
 		///
@@ -40,6 +42,9 @@ namespace sl
 		/// Deleted.
 		///
 		RenderComponent() = delete;
+
+	public:
+		std::vector<unsigned int> m_renderTypes;
 	};
 }
 

@@ -1,10 +1,10 @@
 ///
-///  Box2DManager.hpp
-///  starlight
+/// Box2DManager.hpp
+/// starlight
 ///
-///  Created by reworks on 12/11/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/11/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_BOX2DMANAGER_HPP_
@@ -33,9 +33,6 @@ namespace sl
 		///
 		~Box2DManager() override;
 
-	public:
-		std::unique_ptr<b2World> m_world;
-
 	private:
 		///
 		/// Default Constructor.
@@ -43,17 +40,8 @@ namespace sl
 		///
 		Box2DManager() = delete;
 
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		Box2DManager(const Box2DManager&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		Box2DManager(Box2DManager&&) = delete;
+	public:
+		std::unique_ptr<b2World> m_world;
 	};
 }
 

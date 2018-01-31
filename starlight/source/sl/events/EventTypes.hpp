@@ -2,9 +2,9 @@
 /// EventTypes.hpp
 /// starlight
 ///
-///  Created by reworks on 15/01/2018.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 15/01/2018.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_EVENTTYPES_HPP_

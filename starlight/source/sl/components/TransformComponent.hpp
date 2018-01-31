@@ -1,10 +1,10 @@
 ///
-///  TransformComponent.hpp
-///  starlight
+/// TransformComponent.hpp
+/// starlight
 ///
-///  Created by reworks on 30/09/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 30/09/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_TRANSFORMCOMPONENT_HPP_
@@ -42,24 +42,31 @@ namespace sl
 		///
 		~TransformComponent() = default;
 
-	public:
-		int m_layer;
-		float m_angle;
-		Rect<float, int> m_rect;
+		///
+		/// Default move assignment overload.
+		///
+		TransformComponent& operator=(const TransformComponent&);
 
 	private:
-		/// This method lets cereal know which data members to serialize.
-		template<class Archive>
-		void serialize(Archive& archive)
-		{
-			archive(m_rect.x, m_rect.y, m_rect.width, m_rect.height, m_angle);
-		}
-		
 		///
 		/// Default constructor.
 		/// Deleted.
 		///
 		TransformComponent() = delete;
+
+		///
+		/// This method lets cereal know which data members to serialize.
+		///
+		template<class Archive>
+		void serialize(Archive& archive)
+		{
+			archive(m_rect.x, m_rect.y, m_rect.width, m_rect.height, m_angle);
+		}
+
+	public:
+		int m_layer;
+		float m_angle;
+		Rect<float, int> m_rect;
 	};
 }
 

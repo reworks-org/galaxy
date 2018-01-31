@@ -1,17 +1,16 @@
 ///
-///  SpriteComponent.hpp
-///  starlight
+/// SpriteComponent.hpp
+/// starlight
 ///
-///  Created by reworks on 12/08/2016.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 12/08/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef STARLIGHT_SPRITECOMPONENT_HPP_
 #define STARLIGHT_SPRITECOMPONENT_HPP_
 
 #include "sol2/sol_forward.hpp"
-#include "entt/core/hashed_string.hpp"
 
 namespace sl
 {
@@ -30,8 +29,10 @@ namespace sl
 		///
 		~SpriteComponent() = default;
 
-	public:
-		entt::HashedString m_spriteName;
+		///
+		/// Default move assignment overload.
+		///
+		SpriteComponent& operator=(const SpriteComponent&);
 
 	private:
 		///
@@ -39,6 +40,9 @@ namespace sl
 		/// Deleted.
 		///
 		SpriteComponent() = delete;
+
+	public:
+		std::string m_spriteName;
 	};
 }
 
