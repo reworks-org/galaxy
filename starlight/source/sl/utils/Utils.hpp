@@ -153,7 +153,7 @@ namespace sl
 		///
 		/// \return Returns either true or false.
 		///
-		inline constexpr bool stringToBool(const std::string& str)
+		inline bool stringToBool(const std::string& str)
 		{
 			bool out = (str == "true") ? true : false;
 			return out;
