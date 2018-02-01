@@ -12,8 +12,6 @@
 
 #include <vector>
 
-#include "entt/core/hashed_string.hpp"
-
 ///
 /// Please note, index [0] of particle count applies to index [0] of texture ids.
 /// It's expected they are of the same length!
@@ -28,7 +26,7 @@ struct ParticleEmitEvent
 	///
 	/// ID's of the textures to use in the atlas.
 	///
-	std::vector<entt::HashedString> m_textureIDS;
+	std::vector<std::string> m_textureIDS;
 
 	///
 	/// X position to emit from.

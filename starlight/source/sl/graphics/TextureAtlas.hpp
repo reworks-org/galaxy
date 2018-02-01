@@ -32,7 +32,7 @@ namespace sl
 		///
 		/// \param powerOfTwoDimension The power of two to create the sprite sheet. E.g. 11 would result in an atas size of 2048x2048.
 		///
-		TextureAtlas(size_t powerOfTwoDimension);
+		TextureAtlas(int powerOfTwoDimension);
 
 		///
 		/// Destructor. Frees texture atlas.

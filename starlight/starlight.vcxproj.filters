@@ -627,9 +627,6 @@
     <ClCompile Include="source\sl\components\RenderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\libs\entt\entt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\mapping\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

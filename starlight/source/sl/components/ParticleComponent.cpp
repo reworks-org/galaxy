@@ -11,11 +11,6 @@
 
 namespace sl
 {
-	ParticleComponent::ParticleComponent(const Vector2<float>& direction, float alpha, float fade, const std::string& id)
-		:m_direction(direction), m_alpha(alpha), m_fade(fade), m_id(id)
-	{
-	}
-
 	ParticleComponent::ParticleComponent(float dx, float dy, float alpha, float fade, const std::string& id)
 		:m_direction(dx, dy), m_alpha(alpha), m_fade(fade), m_id(id)
 	{

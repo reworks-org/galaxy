@@ -29,6 +29,13 @@ namespace sl
 
 	private:
 		///
+		/// Lets systems recieve events.
+		///
+		/// \param event ALLEGRO_EVENT passed by application class.
+		///
+		void event(ALLEGRO_EVENT* event) override;
+
+		///
 		/// \brief Update the system.
 		///
 		/// Dont actually call this, this is called by the world automatically.

@@ -22,16 +22,6 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		/// \param direction x, y direction travelling.
-		/// \param alpha Alpha value (opacity).
-		/// \param fade How much to reduce the alpha by per 1/60th a second.
-		/// \param id ID of particle texture in atlas.
-		///
-		ParticleComponent(const Vector2<float>& direction, float alpha, float fade, const std::string& id);
-
-		///
-		/// Constructor.
-		///
 		/// \param dx Direction of particle x.
 		/// \param dy Direction of particle y.
 		/// \param alpha Alpha value (opacity).

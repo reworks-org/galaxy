@@ -22,7 +22,7 @@ namespace sl
 		sol::state lua;
 		lua.script(VFS::inst()->openAsString(script));
 		
-		entt::Entity entity = m_registery.create();
+		entt::Entity entity = m_registry.create();
 		sol::table components = lua.get<sol::table>("entity");
 
 		std::map<entt::HashedString::hash_type, sol::table> kvp;
@@ -84,7 +84,7 @@ namespace sl
 
 		for (auto& system : m_systems)
 		{
-			system.second->update(dt, m_registery);
+			system.second->update(dt, m_registry);
 		}
 	}
 }

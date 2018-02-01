@@ -21,9 +21,9 @@
 
 namespace sl
 {
-	TextureAtlas::TextureAtlas(size_t powerOfTwoDimension)
+	TextureAtlas::TextureAtlas(int powerOfTwoDimension)
 	{
-		size_t atlasSize = std::pow(2, powerOfTwoDimension);
+		int atlasSize = std::pow(2, powerOfTwoDimension);
 		m_atlas = al_create_bitmap(atlasSize, atlasSize);
 		m_bin.Init(atlasSize, atlasSize, false);
 

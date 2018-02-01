@@ -111,7 +111,7 @@ namespace sl
 		void remove();
 		
 	public:
-		entt::DefaultRegistry m_registery;
+		entt::DefaultRegistry m_registry;
 		std::unique_ptr<Level> m_currentLevel;
 		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 

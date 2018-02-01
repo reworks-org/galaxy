@@ -45,12 +45,16 @@ namespace sl
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		m_manager->m_world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
-
-		registry.view<PhysicsComponent, TransformComponent>().each([dt](entt::Entity entity, PhysicsComponent& pc, TransformComponent& tc)
+		
+		auto view = registry.view<PhysicsComponent, TransformComponent>();
+		for (entt::Entity entity : view)
 		{
+			PhysicsComponent& pc = view.get<PhysicsComponent>(entity);
+			TransformComponent& tc = view.get<TransformComponent>(entity);
+
 			tc.m_rect.m_x = b2::metersToPixels<float>(pc.m_body->GetPosition().x);
 			tc.m_rect.m_y = b2::metersToPixels<float>(pc.m_body->GetPosition().y);
 			tc.m_angle = b2::radToDeg<float>(pc.m_body->GetAngle());
-		});
+		}
 	}
 }

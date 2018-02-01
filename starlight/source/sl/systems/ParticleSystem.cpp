@@ -45,9 +45,10 @@ namespace sl
 				{
 					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->m_particleCount[amountOfParticles]; ++amountOfParticles)
 					{
-						entt::Entity entity = m_world->m_registery.create();
-						m_world->m_registery.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
-						m_world->m_registery.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), 255, particleEvent->m_fade, particleEvent->m_textureIDS[i]);
+						entt::Entity entity = m_world->m_registry.create();
+						m_world->m_registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
+						
+						m_world->m_registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), 255.0f, particleEvent->m_fade, particleEvent->m_textureIDS[i]);
 					}
 				}
 			}
@@ -58,19 +59,23 @@ namespace sl
 
 	void ParticleSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		m_world->m_registery.view<ParticleComponent, TransformComponent>().each([this](entt::Entity entity, ParticleComponent& pc, TransformComponent& tc)
+		auto view = registry.view<ParticleComponent, TransformComponent>();
+		for (entt::Entity entity : view)
 		{
+			ParticleComponent& pc = view.get<ParticleComponent>(entity);
+			TransformComponent& tc = view.get<TransformComponent>(entity);
+
 			if (pc.m_alpha <= 0)
 			{
-				m_world->m_registery.destroy(entity);
+				m_world->m_registry.destroy(entity);
 			}
 			else
 			{
 				tc.m_rect.m_x += pc.m_direction.m_x;
 				tc.m_rect.m_y += pc.m_direction.m_y;
-				
+
 				pc.m_alpha -= pc.m_fade;
 			}
-		});
+		}
 	}
 }

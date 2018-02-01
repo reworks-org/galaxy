@@ -21,7 +21,7 @@ namespace sl
 
 	Box2DManager::~Box2DManager()
 	{
-		World::inst()->m_registery.view<PhysicsComponent>().each([this](entt::Entity entity, PhysicsComponent& pc)
+		World::inst()->m_registry.view<PhysicsComponent>().each([this](entt::Entity entity, PhysicsComponent& pc)
 		{
 			if (pc.m_body)
 			{

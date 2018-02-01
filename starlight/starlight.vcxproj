@@ -163,7 +163,6 @@
     <ClCompile Include="source\sl\libs\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Rope\b2Rope.cpp" />
-    <ClCompile Include="source\sl\libs\entt\entt.cpp" />
     <ClCompile Include="source\sl\libs\imgui\auto\auto.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imguifilesystem.cpp" />

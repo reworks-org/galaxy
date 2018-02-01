@@ -43,7 +43,6 @@ namespace sl
 
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		static_assert(std::is_move_constructible_v<ParticleComponent> && std::is_move_assignable_v<ParticleComponent>);
 		auto view = registry.view<RenderComponent>();
 
 		m_entitys.clear(); 
@@ -51,10 +50,10 @@ namespace sl
 
 		m_quadtree.updateBounds(World::inst()->m_currentLevel->getBounds());
 
-		view.each([this](entt::Entity e, RenderComponent& rc)
+		for (entt::Entity entity : view)
 		{
-			m_quadtree.insert(e);
-		});
+			m_quadtree.insert(entity);
+		}
 
 		m_quadtree.retrieve(m_entitys, registry.get<CameraTag>().m_bounds);
 

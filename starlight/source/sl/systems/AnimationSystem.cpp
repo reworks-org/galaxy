@@ -15,10 +15,18 @@
 
 namespace sl
 {
+	void AnimationSystem::event(ALLEGRO_EVENT* event)
+	{
+	}
+
 	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		registry.view<AnimationComponent, SpriteComponent>().each([dt](entt::Entity entity, AnimationComponent& ac, SpriteComponent& sc)
+		auto view = registry.view<AnimationComponent, SpriteComponent>();
+		for (entt::Entity entity : view)
 		{
+			AnimationComponent& ac = view.get<AnimationComponent>(entity);
+			SpriteComponent& sc = view.get<SpriteComponent>(entity);
+
 			if (!ac.m_isPaused)
 			{
 				Animation* animation = &(ac.m_animations[ac.m_activeAnimation]);
@@ -40,10 +48,10 @@ namespace sl
 							ac.stop();
 						}
 					}
-					
+
 					sc.m_spriteName = animation->m_frames[animation->m_currentFrame];
 				}
 			}
-		});
+		}
 	}
 }
