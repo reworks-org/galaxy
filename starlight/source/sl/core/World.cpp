@@ -74,7 +74,7 @@ namespace sl
 	{
 		for (auto& system : m_systems)
 		{
-			system.second->event(event);
+			system.second->event(event, m_registry);
 		}
 	}
 
