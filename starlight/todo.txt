@@ -1,11 +1,4 @@
-- debug stuff
-- implement serialization
-	- call serializecomponetns from serailize suystem using eneityx
-	- serializecomponents contain information about what this entity needs to load
-	- use al_config format to easily support classes that require serialization
-
-http://liballeg.org/a5docs/trunk/display.html
-https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
+DOCS: generate with doxygen, put on readthedocs
 https://readthedocs.org/
 
 render gui according to screen
@@ -31,6 +24,12 @@ movesystem needs to grab tile information in order to make actions occur
 
 https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
 https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
+
+- debug stuff
+- implement serialization
+	- call serializecomponetns from serailize suystem using eneityx
+	- serializecomponents contain information about what this entity needs to load
+	- use al_config format to easily support classes that require serialization
 
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 test everything
