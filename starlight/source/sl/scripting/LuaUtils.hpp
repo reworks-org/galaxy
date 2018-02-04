@@ -10,9 +10,8 @@
 #ifndef STARLIGHT_LUAUTILS_HPP_
 #define STARLIGHT_LUAUTILS_HPP_
 
-#include <map>
-#include <string>
 #include <fstream>
+#include <string_view>
 
 #include "sol2/sol.hpp"
 
@@ -27,29 +26,16 @@ namespace sl
 		/// \param file The file to write the data into.
 		/// \param tableName The name of the table in the text file.
 		///
-		inline void writeTableToFile(sol::table& table, const std::string& file, const std::string& tableName)
+		inline void writeTableToFile(const sol::table& table, std::string_view file, std::string_view tableName)
 		{
-			std::map<std::string, std::string> kvp;
+			std::ofstream out(file);
+			out << tableName << " = " << "\n";
+			out << "{" << "\n";
+
 			table.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				kvp.insert({ pair.first.as<std::string>(), pair.second.as<std::string>() });
+				out << "    " << pair.first.as<std::string_view>() << " = " << pair.second.as<std::string_view>() << "," << "\n";
 			});
-
-			std::ofstream out(file);
-			out << tableName << " = " << std::endl;
-			out << "{" << std::endl;
-
-			for (auto iter = kvp.begin(); iter != kvp.end();)
-			{
-				if (++iter == kvp.end())
-				{
-					out << "    " << iter->first << " = " << iter->second << std::endl;
-				}
-				else
-				{
-					out << "    " << iter->first << " = " << iter->second << "," << std::endl;
-				}
-			}
 
 			out << "}" << std::endl;
 			out.close();

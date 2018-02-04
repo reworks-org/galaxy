@@ -7,6 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <string_view>
 #include <allegro5/allegro_audio.h>
 
 #include "sol2/sol.hpp"
@@ -22,7 +23,7 @@ namespace sl
 		m_sound = al_load_sample(table.get<std::string>("file").c_str());
 		if (!m_sound)
 		{
-			LOG_S(WARNING) << "Unable to load sound file: " << table.get<std::string>("file");
+			LOG_S(WARNING) << "Unable to load sound file: " << table.get<std::string_view>("file");
 		}
 
 		/// volume (gain) - relative volume at which the sample is played; 1.0 is normal.

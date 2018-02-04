@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
+    <Text Include="style.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\sl\audio\Music.cpp">

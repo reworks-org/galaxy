@@ -16,7 +16,7 @@ namespace sl
 	{
 	}
 
-	ParticleComponent& ParticleComponent::operator=(const ParticleComponent &)
+	ParticleComponent& ParticleComponent::operator=(const ParticleComponent&)
 	{
 		return *this;
 	}

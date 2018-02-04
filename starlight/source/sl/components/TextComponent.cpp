@@ -29,7 +29,7 @@ namespace sl
 		TextureAtlas::inst()->addTextToAtlas(m_id.c_str(), m_text, m_font, m_colour);
 	}
 
-	TextComponent& TextComponent::operator=(const TextComponent &)
+	TextComponent& TextComponent::operator=(const TextComponent&)
 	{
 		return *this;
 	}

@@ -28,15 +28,15 @@
 				break;
 
 			case sol::type::lua_nil:
-				LOG_S(WARNING) << "Nill value for: " << pair.first.as<std::string>();
+				LOG_S(WARNING) << "Nill value for: " << pair.first.as<std::string_view>();
 				break;
 
 			case sol::type::nil:
-				LOG_S(WARNING) << "Nill value for: " << pair.first.as<std::string>();
+				LOG_S(WARNING) << "Nill value for: " << pair.first.as<std::string_view>();
 				break;
 
 			case sol::type::none:
-				LOG_S(WARNING) << "No value for: " << pair.first.as<std::string>();
+				LOG_S(WARNING) << "No value for: " << pair.first.as<std::string_view>();
 				break;
 
 			case sol::type::number:

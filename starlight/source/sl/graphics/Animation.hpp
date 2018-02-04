@@ -53,7 +53,7 @@ namespace sl
 		unsigned int m_currentFrame;
 
 		/// Each frames name is a texture in the TextureAtlas.
-		std::vector<std::string> m_frames;
+		std::vector<std::string_view> m_frames;
 	};
 }
 

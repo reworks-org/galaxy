@@ -45,14 +45,14 @@ namespace sl
 		/// \param data3 Third data package included with event.
 		/// \param data4 Fourth data package included with event.
 		///
-		void createUserEvent(entt::HashedString id, EventType type, intptr_t data1 = NULL, intptr_t data2 = NULL, intptr_t data3 = NULL, intptr_t data4 = NULL);
+		void createUserEvent(const std::string& id, EventType type, intptr_t data1 = NULL, intptr_t data2 = NULL, intptr_t data3 = NULL, intptr_t data4 = NULL);
 
 		///
 		/// Emit a user event.
 		///
 		/// \param id ID of event to emit.
 		///
-		void emitUserEvent(entt::HashedString id);
+		void emitUserEvent(const std::string& id);
 
 		///
 		/// Clean up resources.

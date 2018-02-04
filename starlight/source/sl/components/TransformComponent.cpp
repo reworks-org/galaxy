@@ -28,7 +28,7 @@ namespace sl
 	{
 	}
 
-	TransformComponent& TransformComponent::operator=(const TransformComponent &)
+	TransformComponent& TransformComponent::operator=(const TransformComponent&)
 	{
 		return *this;
 	}

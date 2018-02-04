@@ -46,7 +46,7 @@ namespace sl
 			throw new std::exception(message.message);
 		});
 
-		LOG_S(INFO) << "App init." << std::endl;
+		LOG_S(INFO) << "App init.";
 
 		al_install_system(ALLEGRO_VERSION_INT, atexit);
 		al_install_keyboard();

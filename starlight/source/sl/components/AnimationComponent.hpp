@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// \param animation The name of the animation type to change to as defined in lua file. E.g. "walking" -> "running"
 		///
-		void changeAnimation(const std::string& animation);
+		void changeAnimation(std::string_view animation);
 
 		///
 		/// Play the animation.
@@ -48,7 +48,7 @@ namespace sl
 		///
 		/// \param animation Animation to change to to play.
 		///
-		void play(const std::string& animation);
+		void play(std::string_view animation);
 	
 		///
 		/// Pause animation.
@@ -75,8 +75,8 @@ namespace sl
 	public:
 		bool m_isPaused;
 		double m_currentFrameTime;
-		std::string m_activeAnimation;
-		std::unordered_map<std::string, Animation> m_animations;
+		std::string_view m_activeAnimation;
+		std::unordered_map<std::string_view, Animation> m_animations;
 	};
 }
 

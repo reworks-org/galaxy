@@ -38,7 +38,7 @@ namespace sl
 		{
 			frames.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_frames[pair.first.as<int>()] = pair.second.as<std::string>();
+				m_frames[pair.first.as<int>()] = pair.second.as<std::string_view>();
 			});
 		}
 		else

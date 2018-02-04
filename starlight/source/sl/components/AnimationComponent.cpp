@@ -18,14 +18,14 @@ namespace sl
 		:m_currentFrameTime(0.0)
 	{
 		m_isPaused = table.get<bool>("paused");
-		m_activeAnimation = table.get<std::string>("defaultAnim");
+		m_activeAnimation = table.get<std::string_view>("defaultAnim");
 
 		sol::table animTable = table.get<sol::table>("Animations");
 		if (!animTable.empty())
 		{
 			animTable.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_animations.emplace(pair.first.as<std::string>(), pair.second.as<sol::table>());
+				m_animations.emplace(pair.first.as<std::string_view>(), pair.second.as<sol::table>());
 			});
 		}
 		else
@@ -39,7 +39,7 @@ namespace sl
 		m_animations.clear();
 	}
 
-	void AnimationComponent::changeAnimation(const std::string& animation)
+	void AnimationComponent::changeAnimation(std::string_view animation)
 	{
 		m_animations[m_activeAnimation].m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
@@ -51,7 +51,7 @@ namespace sl
 		m_isPaused = false;
 	}
 
-	void AnimationComponent::play(const std::string& animation)
+	void AnimationComponent::play(std::string_view animation)
 	{
 		if (m_activeAnimation != animation)
 		{
@@ -73,7 +73,7 @@ namespace sl
 		m_currentFrameTime = 0.0;
 	}
 
-	AnimationComponent& AnimationComponent::operator=(const AnimationComponent &)
+	AnimationComponent& AnimationComponent::operator=(const AnimationComponent&)
 	{
 		return *this;
 	}

@@ -25,7 +25,7 @@ namespace sl
 		al_destroy_event_queue(m_queue);
 	}
 
-	void EventManager::createUserEvent(entt::HashedString id, EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4)
+	void EventManager::createUserEvent(const std::string& id, EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4)
 	{
 		ALLEGRO_EVENT ev;
 		
@@ -35,12 +35,12 @@ namespace sl
 		ev.user.data3 = data3;
 		ev.user.data4 = data4;
 
-		m_resourceMap.emplace(id, ev);
+		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, ev);
 	}
 
-	void EventManager::emitUserEvent(entt::HashedString id)
+	void EventManager::emitUserEvent(const std::string& id)
 	{
-		al_emit_user_event(&m_userSource, &(m_resourceMap[id]), nullptr);
+		al_emit_user_event(&m_userSource, &(m_resourceMap[entt::HashedString{ id.c_str() }]), nullptr);
 	}
 
 	void EventManager::clean()

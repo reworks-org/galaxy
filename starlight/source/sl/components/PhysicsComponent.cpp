@@ -73,7 +73,7 @@ namespace sl
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
 
-	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent &)
+	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent&)
 	{
 		return *this;
 	}

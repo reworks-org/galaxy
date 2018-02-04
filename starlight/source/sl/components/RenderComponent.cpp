@@ -21,7 +21,7 @@ namespace sl
 		});
 	}
 
-	RenderComponent& RenderComponent::operator=(const RenderComponent &)
+	RenderComponent& RenderComponent::operator=(const RenderComponent&)
 	{
 		return *this;
 	}

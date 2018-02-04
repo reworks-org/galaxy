@@ -7,6 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <string_view>
 #include <allegro5/allegro_audio.h>
 
 #include "sol2/sol.hpp"
@@ -22,13 +23,13 @@ namespace sl
 		m_music = al_load_sample(table.get<std::string>("file").c_str());
 		if (!m_music)
 		{
-			LOG_S(WARNING) << "Failed to load music file: " << table.get<std::string>("file");
+			LOG_S(WARNING) << "Failed to load music file: " << table.get<std::string_view>("file");
 		}
 
 		m_instance = al_create_sample_instance(m_music);
 		if (!m_instance)
 		{
-			LOG_S(WARNING) << "Failed to create instance: " << table.get<std::string>("file");
+			LOG_S(WARNING) << "Failed to create instance: " << table.get<std::string_view>("file");
 		}
 
 		/// 0 - play once

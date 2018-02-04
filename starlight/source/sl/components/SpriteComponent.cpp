@@ -20,7 +20,7 @@ namespace sl
 		m_spriteName = table.get<std::string>("spriteName");
 	}
 
-	SpriteComponent& SpriteComponent::operator=(const SpriteComponent &)
+	SpriteComponent& SpriteComponent::operator=(const SpriteComponent&)
 	{
 		return *this;
 	}

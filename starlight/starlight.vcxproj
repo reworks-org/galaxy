@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="style.txt" />
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
