@@ -1,6 +1,4 @@
-- split update and rendering threads?
 - debug stuff
-- parallax
 - implement serialization
 	- call serializecomponetns from serailize suystem using eneityx
 	- serializecomponents contain information about what this entity needs to load
@@ -9,10 +7,6 @@
 http://liballeg.org/a5docs/trunk/display.html
 https://www.youtube.com/watch?v=NAFK0WOArZA&index=4&list=PL6B459AAE1642C8B4
 https://readthedocs.org/
-
-profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
-
-test everything
 
 render gui according to screen
 render world according to camera
@@ -27,20 +21,17 @@ layer 1 - animated bg
 layer 2 - player
 layer 3 - top of tree layer
 
-etc
-
 only bitmaps we update are ones marked "animated"
 AnimatedTile -> Tile?
 look into new tmx docs
 
-replace shitty external tools...
+we can then update the animations aswell.
+each layer should be a bitmap so we can instert it into layer render engine
+movesystem needs to grab tile information in order to make actions occur
 
-// we can then update the animations aswell.
-// each layer should be a bitmap so we can instert it into layer render engine
-// movesystem needs to grab tile information in order to make actions occur
+https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
+https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 
-// https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
-// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
-
-use string_view
-move to clang
+profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
+test everything
+replace shitty external tools

@@ -26,7 +26,7 @@ namespace sl
 		m_manager = Box2DManager::inst();
 	}
 
-	void PhysicsSystem::event(ALLEGRO_EVENT* event)
+	void PhysicsSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
 	{
 		switch (event->type)
 		{

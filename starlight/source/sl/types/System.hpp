@@ -38,7 +38,7 @@ namespace sl
 		///
 		/// \param event ALLEGRO_EVENT passed by application class.
 		///
-		virtual void event(ALLEGRO_EVENT* event) = 0;
+		virtual void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) = 0;
 
 		///
 		/// Update method.

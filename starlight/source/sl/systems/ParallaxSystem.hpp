@@ -1,33 +1,31 @@
 ///
-/// ParticleSystem.hpp
+/// ParallaxSystem.hpp
 /// starlight
 ///
-/// Created by reworks on 15/01/2018.
+/// Created by reworks on 04/02/2018.
 /// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_PARTICLESYSTEM_HPP_
-#define STARLIGHT_PARTICLESYSTEM_HPP_
+#ifndef STARLIGHT_PARALLAXSYSTEM_HPP_
+#define STARLIGHT_PARALLAXSYSTEM_HPP_
 
 #include "sl/types/System.hpp"
 
 namespace sl
 {
-	class World;
-
-	class ParticleSystem final : public System
+	class ParallaxSystem final : public System
 	{
 	public:
 		///
 		/// Default Constructor.
 		///
-		ParticleSystem() = default;
+		ParallaxSystem() = default;
 
 		///
 		/// Destructor.
 		///
-		~ParticleSystem() override = default;
+		~ParallaxSystem() override = default;
 
 	private:
 		///

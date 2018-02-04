@@ -15,7 +15,7 @@
 
 namespace sl
 {
-	void AnimationSystem::event(ALLEGRO_EVENT* event)
+	void AnimationSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
 	{
 	}
 

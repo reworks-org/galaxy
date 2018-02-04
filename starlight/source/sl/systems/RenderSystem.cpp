@@ -37,7 +37,7 @@ namespace sl
 		m_entitys.clear();
 	}
 
-	void RenderSystem::event(ALLEGRO_EVENT* event)
+	void RenderSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
 	{
 	}
 

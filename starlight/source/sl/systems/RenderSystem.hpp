@@ -17,7 +17,7 @@ namespace sl
 	class QuadTree;
 	class TextureAtlas;
 
-	class RenderSystem : public System
+	class RenderSystem final : public System
 	{
 	public:
 		///
@@ -52,7 +52,7 @@ namespace sl
 		///
 		/// \param event ALLEGRO_EVENT passed by application class.
 		///
-		void event(ALLEGRO_EVENT* event) override;
+		void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) override;
 
 		///
 		/// \brief Update the system.

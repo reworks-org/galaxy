@@ -8,7 +8,6 @@
 ///
 
 #include "loguru/loguru.hpp"
-#include "sl/core/World.hpp"
 #include "sl/math/Random.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/events/ParticleEmitEvent.hpp"
@@ -19,12 +18,7 @@
 
 namespace sl
 {
-	ParticleSystem::ParticleSystem()
-	{
-		m_world = World::inst();
-	}
-
-	void ParticleSystem::event(ALLEGRO_EVENT* event)
+	void ParticleSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
 	{
 		switch (event->type)
 		{
@@ -45,10 +39,10 @@ namespace sl
 				{
 					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->m_particleCount[amountOfParticles]; ++amountOfParticles)
 					{
-						entt::Entity entity = m_world->m_registry.create();
-						m_world->m_registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
+						entt::Entity entity = registry.create();
+						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
 						
-						m_world->m_registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), 255.0f, particleEvent->m_fade, particleEvent->m_textureIDS[i]);
+						registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), 255.0f, particleEvent->m_fade, particleEvent->m_textureIDS[i]);
 					}
 				}
 			}
@@ -67,7 +61,7 @@ namespace sl
 
 			if (pc.m_alpha <= 0)
 			{
-				m_world->m_registry.destroy(entity);
+				registry.destroy(entity);
 			}
 			else
 			{
