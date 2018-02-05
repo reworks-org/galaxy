@@ -8,6 +8,8 @@
 ///
 
 #include "sol2/sol.hpp"
+#include "sl/core/World.hpp"
+#include "sl/components/TransformComponent.hpp"
 
 #include "CameraTag.hpp"
 
@@ -26,19 +28,17 @@ namespace sl
 		return *this;
 	}
 
-	/*
-	void Camera::update(Level* level)
+	void CameraTag::update(unsigned int playerEntity)
 	{
-		auto tc = m_entityToFollow.component<TransformComponent>();
+		Level* level = World::inst()->m_currentLevel.get();
+		TransformComponent& tc = World::inst()->m_registry.get<TransformComponent>(playerEntity);
 
-		m_bounds.x = (tc->m_rect.x + tc->m_rect.width / 2) - m_bounds.width / 2;
-		m_bounds.y = (tc->m_rect.y + tc->m_rect.height / 2) - m_bounds.height / 2;
+		m_bounds.m_x = (tc.m_rect.m_x + tc.m_rect.m_width / 2) - m_bounds.m_width / 2;
+		m_bounds.m_y = (tc.m_rect.m_y + tc.m_rect.m_height / 2) - m_bounds.m_height / 2;
 
-		if (m_bounds.x < 0) { m_bounds.x = 0; }
-		if (m_bounds.y < 0) { m_bounds.y = 0; }
-		if (m_bounds.x > level->getBounds().width - m_bounds.width) { m_bounds.x = level->getBounds().width - m_bounds.width; }
-		if (m_bounds.y > level->getBounds().height - m_bounds.height) { m_bounds.y = level->getBounds().height - m_bounds.height; }
-
+		if (m_bounds.m_x < 0) { m_bounds.m_x = 0; }
+		if (m_bounds.m_y < 0) { m_bounds.m_y = 0; }
+		if (m_bounds.m_x > level->getBounds().m_width - m_bounds.m_width) { m_bounds.m_x = level->getBounds().m_width - m_bounds.m_width; }
+		if (m_bounds.m_y > level->getBounds().m_height - m_bounds.m_height) { m_bounds.m_y = level->getBounds().m_height - m_bounds.m_height; }
 	}
-	*/
 }

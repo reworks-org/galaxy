@@ -26,7 +26,9 @@ https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
 https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 
 - debug stuff
+
 - implement serialization
+	- wait on entt serialization capabilities
 	- call serializecomponetns from serailize suystem using eneityx
 	- serializecomponents contain information about what this entity needs to load
 	- use al_config format to easily support classes that require serialization

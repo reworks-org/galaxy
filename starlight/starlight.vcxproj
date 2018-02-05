@@ -225,6 +225,7 @@
     <ClCompile Include="source\sl\resources\ShaderLibrary.cpp" />
     <ClCompile Include="source\sl\resources\SoundPlayer.cpp" />
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\sl\systems\CameraSystem.cpp" />
     <ClCompile Include="source\sl\systems\ParallaxSystem.cpp" />
     <ClCompile Include="source\sl\systems\ParticleSystem.cpp" />
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
@@ -580,6 +581,7 @@
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp" />
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\sl\systems\CameraSystem.hpp" />
     <ClInclude Include="source\sl\systems\ParallaxSystem.hpp" />
     <ClInclude Include="source\sl\systems\ParticleSystem.hpp" />
     <ClInclude Include="source\sl\systems\PhysicsSystem.hpp" />

@@ -17,6 +17,7 @@ namespace sl
 {
 	class CameraTag final
 	{
+		friend class CameraSystem;
 	public:
 		///
 		/// Constructor.
@@ -41,6 +42,12 @@ namespace sl
 		/// Deleted.
 		///
 		CameraTag() = delete;
+
+		///
+		/// Update the camera position. Called internally by CameraSystem.
+		/// We use the base type rather than the typedef to avoid includes.
+		///
+		void update(unsigned int playerEntity);
 
 	public:
 		Rect<float, int> m_bounds;

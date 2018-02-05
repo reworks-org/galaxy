@@ -21,6 +21,12 @@ struct PlayerMoveEvent
 	/// How much to move the player by vertically.
 	///
 	float m_verticalSpeed;
+
+	///
+	/// The player entity.
+	/// We use the base type rather than the typedef to avoid includes.
+	///
+	unsigned int m_playerEntity;
 };
 
 #endif

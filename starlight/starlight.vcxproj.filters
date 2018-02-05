@@ -646,6 +646,9 @@
     <ClCompile Include="source\sl\systems\ParallaxSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\systems\CameraSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1726,6 +1729,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\systems\CameraSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
