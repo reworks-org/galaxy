@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_LEVEL_HPP_
 #define STARLIGHT_LEVEL_HPP_
 
+#include <string>
+
 #include "sl/math/Rect.hpp"
 
 namespace sl
@@ -22,7 +24,7 @@ namespace sl
 		///
 		/// \param bounds Bounds of level.
 		///
-		Level(const Rect<float, int>& bounds);
+		Level(const std::string& mapFile, const Rect<float, int>& bounds);
 
 		///
 		/// Destructor.

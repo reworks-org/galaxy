@@ -55,6 +55,8 @@ namespace sl
 		{
 			m_componentAssign[it.first](entity, it.second);
 		}
+
+		m_inUse.push_back(entity);
 	}
 
 	void World::createEntities(const std::string& batchScript)
@@ -85,6 +87,14 @@ namespace sl
 		for (auto& system : m_systems)
 		{
 			system.second->update(dt, m_registry);
+		}
+	}
+
+	void World::destroyCurrentEntities()
+	{
+		for (auto& entity : m_inUse)
+		{
+			m_registry.destroy(entity);
 		}
 	}
 }

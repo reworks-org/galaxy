@@ -20,6 +20,11 @@ namespace sl
 		m_spriteName = table.get<std::string>("spriteName");
 	}
 
+	SpriteComponent::SpriteComponent(const std::string& spriteName)
+		:m_spriteName(spriteName)
+	{
+	}
+
 	SpriteComponent& SpriteComponent::operator=(const SpriteComponent&)
 	{
 		return *this;

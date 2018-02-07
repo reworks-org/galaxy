@@ -1734,6 +1734,9 @@
     <ClInclude Include="source\sl\systems\CameraSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\mapping\TMXUtils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

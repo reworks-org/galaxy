@@ -25,6 +25,13 @@ namespace sl
 		SpriteComponent(const sol::table& table);
 
 		///
+		/// Alternate constructor.
+		///
+		/// \param spriteName Name of the sprite in the atlas.
+		///
+		SpriteComponent(const std::string& spriteName);
+
+		///
 		/// Destructor.
 		///
 		~SpriteComponent() = default;

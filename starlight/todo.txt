@@ -5,6 +5,8 @@ render gui according to screen
 render world according to camera
 screen is camera
 
+- add tinting and opacity support to sprites.
+
 each layer of a map is a bitmap
 so each layer is seperate and we only render a subsection of the bitmap based off of the camera
 -> then we pass that to the layering system

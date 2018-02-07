@@ -56,11 +56,16 @@ namespace sl
 		void event(ALLEGRO_EVENT* event);
 
 		///
-		/// \brief Update the world.
+		/// Update the world.
 		///
 		/// \param dt timePerFrame from application loop, or delta time.
 		/// 
 		void update(const double dt);
+
+		///
+		/// Destroys currently active entities.
+		///
+		void destroyCurrentEntities();
 
 		///
 		/// Registers a tag with the world.
@@ -112,6 +117,7 @@ namespace sl
 		
 	public:
 		entt::DefaultRegistry m_registry;
+		std::vector<entt::Entity> m_inUse;
 		std::unique_ptr<Level> m_currentLevel;
 		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 

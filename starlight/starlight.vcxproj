@@ -566,6 +566,7 @@
     <ClInclude Include="source\sl\libs\tmx\tmx.h" />
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\sl\libs\tmx\tsx.h" />
+    <ClInclude Include="source\sl\mapping\TMXUtils.hpp" />
     <ClInclude Include="source\sl\math\MaxRectsBinPack.hpp" />
     <ClInclude Include="source\sl\math\QuadTree.hpp" />
     <ClInclude Include="source\sl\math\Random.hpp" />
