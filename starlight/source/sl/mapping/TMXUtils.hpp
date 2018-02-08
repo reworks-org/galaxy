@@ -136,21 +136,14 @@ namespace sl
 		///
 		/// Process the image layer(s).
 		///
-		static inline void processImageLayer(tmx_layer* layer)
+		static inline void processImageLayers(tmx_layer* layer)
 		{
 			float op = layer->opacity;
 
 			entt::Entity entity = World::inst()->m_registry.create();
-			World::inst()->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source));
-
-			if (op < 1.0f)
-			{
-				TextureAtlas::inst()->al_draw_tinted_packed_bitmap(utils::removeExtension(layer->content.image->source), al_map_rgba_f(op, op, op, op), 0, 0, 0);
-			}
-			else
-			{
-				TextureAtlas::inst()->al_draw_packed_bitmap(utils::removeExtension(layer->content.image->source), 0, 0, 0);
-			}
+			World::inst()->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source), op);
+			World::inst()->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, {layer->offsetx, layer->offsety, layer->content.image->width, layer->content.image->height});
+			World::inst()->m_inUse.push_back(entity);
 		}
 
 		static inline void drawLayer(tmx_map *map, tmx_layer *layer)

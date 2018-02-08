@@ -28,8 +28,9 @@ namespace sl
 		/// Alternate constructor.
 		///
 		/// \param spriteName Name of the sprite in the atlas.
+		/// \param opacity Opacity of sprite. From 1.0f to 0.0f, therefore 0.5f is 50%.
 		///
-		SpriteComponent(const std::string& spriteName);
+		SpriteComponent(const std::string& spriteName, float opacity);
 
 		///
 		/// Destructor.
@@ -49,6 +50,7 @@ namespace sl
 		SpriteComponent() = delete;
 
 	public:
+		float m_opacity;
 		std::string m_spriteName;
 	};
 }

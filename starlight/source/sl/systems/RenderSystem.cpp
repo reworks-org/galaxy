@@ -78,8 +78,9 @@ namespace sl
 					{
 						auto sprtuple = registry.get<TransformComponent, SpriteComponent>(entity);
 						auto& transformSprite = std::get<0>(sprtuple);
+						auto& spriteSprite = std::get<1>(sprtuple);
 
-						m_atlas->al_draw_packed_bitmap(std::get<1>(sprtuple).m_spriteName, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0);
+						m_atlas->al_draw_tinted_scaled_rotated_packed_bitmap(spriteSprite.m_spriteName, al_map_rgba_f(0.0f, 0.0f, 0.0f, spriteSprite.m_opacity), 0.0f, 0.0f, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0.0f, 0.0f, transformSprite.m_angle, 0);
 					}
 					break;
 
@@ -87,8 +88,9 @@ namespace sl
 					{
 						auto textuple = registry.get<TransformComponent, TextComponent>(entity);
 						auto& transformText = std::get<0>(textuple);
+						auto& textText = std::get<1>(textuple);
 
-						m_atlas->al_draw_packed_bitmap(std::get<1>(textuple).m_id, transformText.m_rect.m_x, transformText.m_rect.m_y, 0);
+						m_atlas->al_draw_tinted_scaled_rotated_packed_bitmap(textText.m_id, al_map_rgba_f(0.0f, 0.0f, 0.0f, 1.0f), 0.0f, 0.0f, transformText.m_rect.m_x, transformText.m_rect.m_y, 0.0f, 0.0f, transformText.m_angle, 0);
 					}
 					break;
 
@@ -98,7 +100,7 @@ namespace sl
 						auto& transformParticle = std::get<0>(partuple);
 						auto& particle = std::get<1>(partuple);
 
-						m_atlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(1.0f, 1.0f, 1.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
+						m_atlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(0.0f, 0.0f, 0.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
 					}
 					break;
 
