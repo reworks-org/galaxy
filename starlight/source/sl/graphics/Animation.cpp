@@ -28,7 +28,7 @@ namespace sl
 
 		m_isLooped = table.get<bool>("looped");
 		m_speed = table.get<float>("speed");
-		m_timePerFrame = table.get<std::int32_t>("timePerFrame");
+		m_timePerFrame = table.get<std::uint32_t>("timePerFrame");
 		m_totalFrames = table.get<unsigned int>("totalFrames");
 
 		sol::table frames = table.get<sol::table>("frames");
@@ -45,5 +45,10 @@ namespace sl
 		{
 			LOG_S(WARNING) << "Tried to load animation with no frames!";
 		}
+	}
+
+	Animation::Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string_view>& frames)
+		:m_isLooped(isLooped), m_speed(speed), m_timePerFrame(timePerFrame), m_totalFrames(totalFrames), m_currentFrame(currentFrame), m_frames(frames)
+	{
 	}
 }

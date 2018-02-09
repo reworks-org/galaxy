@@ -27,9 +27,9 @@ namespace sl
 		///
 		/// \return Returns 32bit integer.
 		///
-		inline constexpr std::int32_t secondsToMilliseconds(double seconds)
+		inline constexpr std::uint32_t secondsToMilliseconds(double seconds)
 		{
-			return static_cast<std::int32_t>(seconds * 1000.0);
+			return static_cast<std::uint32_t>(seconds * 1000.0);
 		}
 
 		///
@@ -39,9 +39,9 @@ namespace sl
 		///
 		/// \return Returns 64bit integer.
 		///
-		inline constexpr std::int64_t secondsToMicroseconds(double seconds)
+		inline constexpr std::uint64_t secondsToMicroseconds(double seconds)
 		{
-			return static_cast<std::int64_t>(seconds * 1000000.0);
+			return static_cast<std::uint64_t>(seconds * 1000000.0);
 		}
 
 		///
@@ -51,7 +51,7 @@ namespace sl
 		///
 		/// \return Returns float.
 		///
-		inline constexpr double millisecondsToSeconds(std::int32_t milliseconds)
+		inline constexpr double millisecondsToSeconds(std::uint32_t milliseconds)
 		{
 			return static_cast<double>(milliseconds) / 1000.0;
 		}
@@ -63,9 +63,9 @@ namespace sl
 		///
 		/// \return Returns 64bit integer.
 		///
-		inline constexpr std::int64_t millisecondsToMicroseconds(std::int32_t milliseconds)
+		inline constexpr std::uint64_t millisecondsToMicroseconds(std::uint32_t milliseconds)
 		{
-			return static_cast<std::int64_t>(milliseconds * 1000);
+			return static_cast<std::uint64_t>(milliseconds * 1000);
 		}
 
 		///
@@ -75,7 +75,7 @@ namespace sl
 		///
 		/// \return Returns float.
 		///
-		inline constexpr double microsecondsToSeconds(std::int64_t microseconds)
+		inline constexpr double microsecondsToSeconds(std::uint64_t microseconds)
 		{
 			return static_cast<double>(microseconds / 1000000.0);
 		}
@@ -87,9 +87,9 @@ namespace sl
 		///
 		/// \return Returns 32bit integer.
 		///
-		inline constexpr std::int32_t microsecondsToMilliseconds(std::int64_t microseconds)
+		inline constexpr std::uint32_t microsecondsToMilliseconds(std::uint64_t microseconds)
 		{
-			return static_cast<std::int32_t>(static_cast<double>(microseconds) / 1000.0);
+			return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
 		}
 
 		///
@@ -117,7 +117,7 @@ namespace sl
 		///
 		/// \return Returns float. Converts to seconds because thats what the main loop uses.
 		///
-		inline constexpr double milliseconds(std::int32_t milliseconds)
+		inline constexpr double milliseconds(std::uint32_t milliseconds)
 		{
 			return time::millisecondsToSeconds(milliseconds);
 		}
@@ -132,7 +132,7 @@ namespace sl
 		///
 		/// \return Returns float. Converts to seconds because thats what the main loop uses.
 		///
-		inline constexpr double microseconds(std::int64_t microseconds)
+		inline constexpr double microseconds(std::uint64_t microseconds)
 		{
 			return time::microsecondsToSeconds(microseconds);
 		}

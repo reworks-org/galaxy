@@ -62,6 +62,14 @@ namespace sl
 		void addTextToAtlas(const std::string& ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
 
 		///
+		/// Add a new rectangle to the atlas, but it uses an existing texture.
+		///
+		/// \param ID ID of texture to add. Do not include extension.
+		/// \param Rect x,y -> Upper Left, Upper Right on atlas, w,h -> Width and Height of area to cover.
+		///
+		void addRectToAtlas(const std::string& ID, const Rect<int>& rect);
+
+		///
 		/// Like al_draw_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_bitmap
 		///
@@ -88,7 +96,7 @@ namespace sl
 		///
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_create_sub_bitmap
 		///
-		ALLEGRO_BITMAP* al_create_packed_bitmap(const std::string& texture);
+		ALLEGRO_BITMAP* al_create_packed_sub_bitmap(const std::string& texture);
 
 		///
 		/// Clean up resources.

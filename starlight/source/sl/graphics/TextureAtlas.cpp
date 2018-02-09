@@ -64,7 +64,7 @@ namespace sl
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
 		Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(textureData), al_get_bitmap_height(textureData), heuristic);
 
-		if (!(packedRect.m_height > 0))
+		if (packedRect.m_height <= 0)
 		{
 			LOG_S(WARNING) << "Failed to pack a texture! Texture: " << ID;
 		}
@@ -93,6 +93,11 @@ namespace sl
 		al_destroy_bitmap(bitmap);
 	}
 
+	void TextureAtlas::addRectToAtlas(const std::string& ID, const Rect<int>& rect)
+	{
+		m_resourceMap.emplace(entt::HashedString{ ID.c_str() }, rect);
+	}
+
 	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags)
 	{
 		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
@@ -116,7 +121,7 @@ namespace sl
 		al_destroy_bitmap(m_atlas);
 	}
 
-	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_bitmap(const std::string& texture)
+	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_sub_bitmap(const std::string& texture)
 	{
 		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);

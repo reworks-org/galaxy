@@ -11,13 +11,16 @@
 #define STARLIGHT_TMXUTILS_HPP_
 
 #include <allegro5/color.h>
+#include <allegro5/bitmap_draw.h>
 #include <allegro5/allegro_primitives.h>
 
 #include "tmx/tmx.h"
 #include "sl/core/World.hpp"
 #include "sl/utils/Utils.hpp"
+#include "sl/graphics/Window.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 #include "sl/components/SpriteComponent.hpp"
+#include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 /// Sorry...can't stand american english...
@@ -139,47 +142,136 @@ namespace sl
 		static inline void processImageLayers(tmx_layer* layer)
 		{
 			float op = layer->opacity;
+			World* world = World::inst();
 
-			entt::Entity entity = World::inst()->m_registry.create();
-			World::inst()->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source), op);
-			World::inst()->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, {layer->offsetx, layer->offsety, layer->content.image->width, layer->content.image->height});
-			World::inst()->m_inUse.push_back(entity);
+			entt::Entity entity = world->m_registry.create();
+			world->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source), op);
+			world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, {layer->offsetx, layer->offsety, layer->content.image->width, layer->content.image->height});
+			world->m_inUse.push_back(entity);
 		}
 
-		static inline void drawLayer(tmx_map *map, tmx_layer *layer)
+		///
+		/// Process a tile layer.
+		///
+		static inline void processLayer(tmx_map *map, tmx_layer *layer)
 		{
 			unsigned long i, j;
 			unsigned int gid, x, y, w, h, flags;
-			float op;
+			unsigned int counter = 0;
 			tmx_tileset *ts;
 			tmx_image *im;
-			ALLEGRO_BITMAP *tileset;
-			op = layer->opacity;
+			std::string identifier;
+			ALLEGRO_BITMAP* tileset;
+			float op = layer->opacity;
+
+			World* world = World::inst();
+			entt::Entity entity = world->m_registry.create();
+			world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, { layer->offsetx, layer->offsety, map->width, map->height });
+
+			ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width, map->height);
+			al_set_target_bitmap(tileLayer);
+			al_clear_to_color(intToColour(m_map->backgroundcolor, op));
+			al_hold_bitmap_drawing(true);
+
 			for (i = 0; i<map->height; i++)
 			{
 				for (j = 0; j<map->width; j++)
 				{
-					gid = gid_clear_flags(layer->content.gids[(i*map->width) + j]);
-					if (map->tiles[gid] != NULL) {
-						ts = map->tiles[gid]->tileset;
-						im = map->tiles[gid]->image;
-						x = map->tiles[gid]->ul_x;
-						y = map->tiles[gid]->ul_y;
-						w = ts->tile_width;
-						h = ts->tile_height;
-						if (im)
+					gid = gidClearFlags(layer->content.gids[(i*map->width) + j]);
+					if (map->tiles[gid] != NULL)
+					{
+						if (!(map->tiles[gid]->animation))
 						{
-							tileset = (ALLEGRO_BITMAP*)im->resource_image;
+							ts = map->tiles[gid]->tileset;
+							im = map->tiles[gid]->image;
+							x = map->tiles[gid]->ul_x;
+							y = map->tiles[gid]->ul_y;
+							w = ts->tile_width;
+							h = ts->tile_height;
+
+							if (im)
+							{
+								identifier = utils::removeExtension(im->source);
+								tileset = TextureAtlas::inst()->al_create_packed_sub_bitmap(identifier);
+							}
+							else
+							{
+								identifier = utils::removeExtension(ts->image->source);
+								tileset = TextureAtlas::inst()->al_create_packed_sub_bitmap(identifier);
+							}
+
+							flags = gidExtractFlags(layer->content.gids[(i*map->width) + j]);
+							al_draw_tinted_bitmap_region(tileset, al_map_rgba_f(0.0f, 0.0f, 0.0f, op), x, y, w, h, j*ts->tile_width, i*ts->tile_height, flags);
+							al_destroy_bitmap(tileset);
 						}
 						else
 						{
-							tileset = (ALLEGRO_BITMAP*)ts->image->resource_image;
-						}
+							ts = map->tiles[gid]->tileset;
+							im = map->tiles[gid]->image;
+							w = ts->tile_width;
+							h = ts->tile_height;
 
-						flags = gid_extract_flags(layer->content.gids[(i*map->width) + j]);
-						al_draw_tinted_bitmap_region(tileset, al_map_rgba_f(op, op, op, op), x, y, w, h, j*ts->tile_width, i*ts->tile_height, flags);
+							if (im)
+							{
+								identifier = utils::removeExtension(im->source);
+							}
+							else
+							{
+								identifier = utils::removeExtension(ts->image->source);
+							}
+
+							auto pr = TextureAtlas::inst()->get(entt::HashedString{ identifier });
+							x = pr.m_x + map->tiles[gid]->ul_x;
+							y = pr.m_y + map->tiles[gid]->ul_y;
+
+							std::string id(layer->name);
+							id += "AnimatedTile" + std::to_string(counter);
+							TextureAtlas::addRectToAtlas(id, {x, y, w, h});
+
+							entt::Entity animatedEntity = world->m_registry.create();
+							world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, {j*ts->tile_width, i*ts->tile_height, w, h});
+							world->m_registry.assign<SpriteComponent>(animatedEntity, id, op);
+							world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, w, h, layer->name);
+							world->m_inUse.push_back(animatedEntity);
+
+							++counter;
+						}
 					}
 				}
+			}
+
+			al_hold_bitmap_drawing(false);
+			al_flip_display();
+			al_set_target_backbuffer(Window::inst()->getDisplay());
+			TextureAtlas::addTextureToAtlas(layer->name, tileLayer);
+			al_destroy_bitmap(tileLayer);
+
+			world->m_registry.assign<SpriteComponent>(entity, layer->name, op);
+			world->m_inUse.push_back(entity);
+		}
+
+		static inline void draw_all_layers(tmx_map *map, tmx_layer *layers)
+		{
+			while (layers) {
+				if (layers->visible) {
+					if (layers->type == L_GROUP) {
+						draw_all_layers(map, layers->content.group_head);
+					}
+					else if (layers->type == L_OBJGR) {
+						draw_objects(layers->content.objgr);
+					}
+					else if (layers->type == L_IMAGE) {
+						if (layers->opacity < 1.) {
+							float op = layers->opacity;
+							al_draw_tinted_bitmap((ALLEGRO_BITMAP*)layers->content.image->resource_image, al_map_rgba_f(op, op, op, op), 0, 0, 0);
+						}
+						al_draw_bitmap((ALLEGRO_BITMAP*)layers->content.image->resource_image, 0, 0, 0);
+					}
+					else if (layers->type == L_LAYER) {
+						draw_layer(map, layers);
+					}
+				}
+				layers = layers->next;
 			}
 		}
 	}

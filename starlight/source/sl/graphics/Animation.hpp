@@ -32,6 +32,18 @@ namespace sl
 		Animation(sol::table& table);
 
 		///
+		/// Constructor.
+		///
+		/// \param isLooped Should this animation be looping?
+		/// \param speed Speed to play the animation at, multiplier, so 1.0f is regular speed.
+		/// \param timePerFrame how many milliseconds in a frame.
+		/// \param totalFrames Total number of frames
+		/// \param currentFrame Current frame index.
+		/// \param frames A vector containing textureatlas ids of frames.
+		///
+		Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string_view>& frames);
+
+		///
 		/// Destructor.
 		///
 		~Animation() = default;
@@ -40,11 +52,11 @@ namespace sl
 		/// True / False
 		bool m_isLooped;
 
-		/// 1.0 is default... is a multiplier
+		/// Multiplier, so 1.0f is regular speed.
 		float m_speed;
 
 		/// How long for each frame in milliseconds.
-		std::int32_t m_timePerFrame;
+		std::uint32_t m_timePerFrame;
 
 		/// Total number of frames in animation.
 		unsigned int m_totalFrames;

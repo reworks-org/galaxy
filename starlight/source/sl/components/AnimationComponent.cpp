@@ -7,8 +7,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "tmx/tmx.h"
 #include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
+#include "sl/graphics/TextureAtlas.hpp"
 
 #include "AnimationComponent.hpp"
 
@@ -32,6 +34,29 @@ namespace sl
 		{
 			LOG_S(WARNING) << "Tried to load AnimationComponent with no Animations!";
 		}
+	}
+
+	AnimationComponent::AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight, const std::string& layerName)
+		:m_currentFrameTime(0.0), m_isPaused(false)
+	{
+		std::vector<std::string_view> frames;
+		frames.clear(); // ensure empty, no junk data allowed
+		frames.reserve(tile->animation_len); // helps prevent too many reallocations
+
+		for (unsigned int i = 0; i < tile->animation_len; ++i)
+		{
+			int subX = x + map->tiles[tile->animation[i].tile_id]->ul_x;
+			int subY = y + map->tiles[tile->animation[i].tile_id]->ul_y;
+
+			std::string id = layerName + "AnimatedTileInternal" + std::to_string(i);
+			TextureAtlas::inst()->addRectToAtlas(id, { subX, subY, tileWidth, tileHeight });
+			frames.push_back(id.c_str());
+
+			m_animations.emplace(std::make_pair<std::string_view, Animation>(id.c_str(), { true, 1.0f, static_cast<std::uint32_t>(tile->animation[i].duration), tile->animation_len, 0, frames }));
+		}
+
+		frames.shrink_to_fit(); // ensure no extra elements
+		m_activeAnimation = frames[0];
 	}
 
 	AnimationComponent::~AnimationComponent()

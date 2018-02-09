@@ -14,6 +14,9 @@
 
 #include "sl/graphics/Animation.hpp"
 
+typedef struct _tmx_map tmx_map;
+typedef struct _tmx_tile tmx_tile;
+
 namespace sl
 {
 	class AnimationComponent final
@@ -25,6 +28,19 @@ namespace sl
 		/// \param table sol::table containing data.
 		///
 		AnimationComponent(const sol::table& table);
+
+		///
+		/// Constructor.
+		///
+		/// \param map Map data - needed to look up tiles.
+		/// \param tile A tmx_tile containing animation data required to construct component.
+		/// \param x xpos of original tilemap on atlas.
+		/// \param y ypos of original tilemap on atlas.
+		/// \param tileWidth Width of current tile.
+		/// \param tileHeight Height of current tile.
+		/// \param layerName Ensures unique ids by using layerName as a base.
+		///
+		AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight, const std::string& layerName);
 
 		///
 		/// Destructor.
