@@ -15,14 +15,13 @@ namespace sl
 	///
 	/// Render Types. 
 	/// Struct over enum so you can inherit.
-	/// 0-3 reserved by library.
+	/// 0-2 reserved by library.
 	///
 	struct RenderTypes
 	{
 		static constexpr unsigned int SPRITE = 0;
 		static constexpr unsigned int TEXT = 1;
 		static constexpr unsigned int PARTICLE = 2;
-		static constexpr unsigned int MAP = 3;
 	};
 
 	typedef int RenderType;

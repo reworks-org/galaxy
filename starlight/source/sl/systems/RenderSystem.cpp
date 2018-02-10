@@ -104,12 +104,6 @@ namespace sl
 					}
 					break;
 
-					case RenderTypes::MAP:
-					{
-
-					}
-					break;
-
 					default:
 					{
 						LOG_S(ERROR) << "Tried to render a type that is not renderable! Type (see RenderType.hpp): " << std::to_string(type);
