@@ -14,6 +14,8 @@
 
 #include "sl/math/Rect.hpp"
 
+typedef struct _tmx_map tmx_map;
+
 namespace sl
 {
 	class Level
@@ -29,7 +31,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		virtual ~Level() = default;
+		virtual ~Level();
 
 		///
 		/// Return current map bounds.
@@ -51,6 +53,7 @@ namespace sl
 		Level() = delete;
 
 	protected:
+		tmx_map* m_map;
 		Rect<float, int> m_bounds;
 	};
 }
