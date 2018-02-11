@@ -19,6 +19,7 @@
 #include "sl/utils/Utils.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
+#include "boost/numeric/conversion/cast.hpp"
 #include "sl/components/SpriteComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
@@ -112,7 +113,7 @@ namespace sl
 
 			entt::Entity entity = world->m_registry.create();
 			world->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source), op);
-			world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, {layer->offsetx, layer->offsety, layer->content.image->width, layer->content.image->height});
+			world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
 			world->m_inUse.push_back(entity);
 		}
 
@@ -130,7 +131,7 @@ namespace sl
 			tmx_object *head = objgr->head;
 
 			entt::Entity entity = world->m_registry.create();
-			world->m_registry.assign<TransformComponent>(entity, 9999, 0.0f, { 0, 0, w, h }); // We use a super large layer height to ensure this component is always on top.
+			world->m_registry.assign<TransformComponent>(entity, 9999, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 			ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 			al_set_target_bitmap(objects);
@@ -190,7 +191,7 @@ namespace sl
 
 			World* world = World::inst();
 			entt::Entity entity = world->m_registry.create();
-			world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, { layer->offsetx, layer->offsety, map->width * map->tile_width, map->height * map->tile_height });
+			world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
 
 			ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width * map->tile_width, map->height * map->tile_height);
 			al_set_target_bitmap(tileLayer);
@@ -251,12 +252,12 @@ namespace sl
 
 							std::string id(layer->name);
 							id += "AnimatedTile" + std::to_string(counter);
-							TextureAtlas::inst()->addRectToAtlas(id, {x, y, w, h});
+							TextureAtlas::inst()->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 
 							entt::Entity animatedEntity = world->m_registry.create();
-							world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, {j*ts->tile_width, i*ts->tile_height, w, h});
+							world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 							world->m_registry.assign<SpriteComponent>(animatedEntity, id, op);
-							world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, w, h, layer->name);
+							world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
 							world->m_inUse.push_back(animatedEntity);
 
 							++counter;

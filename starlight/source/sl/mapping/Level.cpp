@@ -18,7 +18,7 @@ namespace sl
 		:m_bounds(bounds)
 	{
 		std::string data = VFS::inst()->openAsString(mapFile);
-		m_map = tmx_load_buffer(data.c_str(), data.length());
+		m_map = tmx_load_buffer(data.c_str(), boost::numeric_cast<int>(data.size()));
 	
 		tmxutils::processAllLayers(m_map, m_map->ly_head);
 	}

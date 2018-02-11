@@ -26,7 +26,7 @@ namespace sl
 		/// \param file The file to write the data into.
 		/// \param tableName The name of the table in the text file.
 		///
-		inline void writeTableToFile(const sol::table& table, std::string_view file, std::string_view tableName)
+		static inline void writeTableToFile(const sol::table& table, std::string_view file, std::string_view tableName)
 		{
 			std::ofstream out(file);
 			out << tableName << " = " << "\n";
