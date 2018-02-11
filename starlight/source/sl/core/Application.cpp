@@ -84,12 +84,12 @@ namespace sl
 		Keys::KEY_QUIT = ConfigReader::inst()->lookup<int>(config, "keys", "quit");
 
 		#ifdef NDEBUG
-			//DebugInterface::get()->disable(true);
+			// DebugInterface::get()->disable(true);
 		#endif
 
 		al_reserve_samples(ConfigReader::inst()->lookup<int>(config, "audio", "reserveSamples"));
 		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
-		//al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA) -> apparently default allegro setting???
+		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA) -> apparently default allegro setting???
 	}
 
 	Application::~Application()
