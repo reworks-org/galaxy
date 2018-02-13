@@ -12,6 +12,8 @@
 
 #include "sol2/sol_forward.hpp"
 
+namespace entt { typedef std::uint32_t Entity }
+
 namespace sl
 {
 	class SpriteComponent final
@@ -20,9 +22,10 @@ namespace sl
 		///
 		/// Constructor.
 		///
+		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data.
 		///
-		SpriteComponent(const sol::table& table);
+		SpriteComponent(entt::Entity entity, const sol::table& table);
 
 		///
 		/// Alternate constructor.

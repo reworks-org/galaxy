@@ -16,7 +16,7 @@
 
 namespace sl
 {
-	AnimationComponent::AnimationComponent(const sol::table& table)
+	AnimationComponent::AnimationComponent(entt::Entity entity, const sol::table& table)
 		:m_currentFrameTime(0.0)
 	{
 		m_isPaused = table.get<bool>("paused");

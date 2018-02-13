@@ -14,3 +14,6 @@ need to implement tile types:
 
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 test everything
+
+debug tools - log, console (component / script editor???)
+redo collisions and ensure that it can also manage collisions with map objects

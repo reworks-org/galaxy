@@ -31,7 +31,7 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::COLLISION_EVENT:
-			auto collisionEvent = (CollisionEvent*)event->user.data1;
+			CollisionEvent& collisionEvent = (CollisionEvent)event->user.data1;
 			auto kvp = m_collisionFunctions.find(std::make_pair(collisionEvent->m_entityA, collisionEvent->m_entityB));
 
 			if (kvp != m_collisionFunctions.end())

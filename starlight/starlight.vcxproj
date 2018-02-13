@@ -26,6 +26,7 @@
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
+    <ClCompile Include="source\sl\components\CollisionDataComponent.cpp" />
     <ClCompile Include="source\sl\components\ParallaxComponent.cpp" />
     <ClCompile Include="source\sl\components\ParticleComponent.cpp" />
     <ClCompile Include="source\sl\components\PhysicsComponent.cpp" />
@@ -219,6 +220,7 @@
     <ClCompile Include="source\sl\libs\tmx\tsx.c" />
     <ClCompile Include="source\sl\math\MaxRectsBinPack.cpp" />
     <ClCompile Include="source\sl\math\QuadTree.cpp" />
+    <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp" />
     <ClCompile Include="source\sl\physics\Box2DManager.cpp" />
     <ClCompile Include="source\sl\resources\FontBook.cpp" />
     <ClCompile Include="source\sl\resources\MusicPlayer.cpp" />
@@ -238,6 +240,7 @@
     <ClInclude Include="source\sl\audio\Music.hpp" />
     <ClInclude Include="source\sl\audio\Sound.hpp" />
     <ClInclude Include="source\sl\components\AnimationComponent.hpp" />
+    <ClInclude Include="source\sl\components\CollisionDataComponent.hpp" />
     <ClInclude Include="source\sl\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\sl\components\ParticleComponent.hpp" />
     <ClInclude Include="source\sl\components\PhysicsComponent.hpp" />
@@ -2548,6 +2551,7 @@
     <ClInclude Include="source\sl\math\Rect.hpp" />
     <ClInclude Include="source\sl\math\Vector2.hpp" />
     <ClInclude Include="source\sl\math\Vector3.hpp" />
+    <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp" />
     <ClInclude Include="source\sl\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\sl\physics\Box2DManager.hpp" />
     <ClInclude Include="source\sl\resources\FontBook.hpp" />

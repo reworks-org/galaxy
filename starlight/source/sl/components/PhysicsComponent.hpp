@@ -14,6 +14,7 @@
 #include "sol2/sol_forward.hpp"
 
 class b2Body;
+namespace entt { typedef std::uint32_t Entity }
 
 namespace sl
 {
@@ -25,9 +26,10 @@ namespace sl
 		///
 		/// Constructor.
 		///
+		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data.
 		///
-		PhysicsComponent(const sol::table& table);
+		PhysicsComponent(entt::Entity entity, const sol::table& table);
 
 		///
 		/// \brief Destructor.

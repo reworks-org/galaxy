@@ -13,7 +13,7 @@
 
 namespace sl
 {
-	ParallaxComponent::ParallaxComponent(const sol::table& table)
+	ParallaxComponent::ParallaxComponent(entt::Entity entity, const sol::table& table)
 	{
 		m_verticalSpeed = table.get<float>("verticalSpeed");
 		m_horizontalSpeed = table.get<float>("horizontalSpeed");

@@ -13,7 +13,7 @@
 
 namespace sl
 {
-	RenderComponent::RenderComponent(const sol::table& table)
+	RenderComponent::RenderComponent(entt::Entity entity, const sol::table& table)
 	{
 		table.for_each([&](sol::object key, sol::object value)
 		{

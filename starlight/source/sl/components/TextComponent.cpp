@@ -17,7 +17,7 @@
 
 namespace sl
 {
-	TextComponent::TextComponent(const sol::table& table)
+	TextComponent::TextComponent(entt::Entity entity, const sol::table& table)
 	{
 		m_id = table.get<std::string>("id");
 		m_text = table.get<std::string>("text");

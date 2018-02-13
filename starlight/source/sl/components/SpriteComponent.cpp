@@ -15,7 +15,7 @@
 
 namespace sl
 {
-	SpriteComponent::SpriteComponent(const sol::table& table)
+	SpriteComponent::SpriteComponent(entt::Entity entity, const sol::table& table)
 	{
 		m_spriteName = table.get<std::string>("spriteName");
 		m_opacity = table.get<float>("opacity");

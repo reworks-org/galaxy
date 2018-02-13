@@ -17,6 +17,8 @@
 typedef struct _tmx_map tmx_map;
 typedef struct _tmx_tile tmx_tile;
 
+namespace entt { typedef std::uint32_t Entity }
+
 namespace sl
 {
 	class AnimationComponent final
@@ -25,9 +27,10 @@ namespace sl
 		///
 		/// Constructor.
 		///
+		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data.
 		///
-		AnimationComponent(const sol::table& table);
+		AnimationComponent(entt::Entity entity, const sol::table& table);
 
 		///
 		/// Constructor.

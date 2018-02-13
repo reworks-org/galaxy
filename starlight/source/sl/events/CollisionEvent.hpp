@@ -10,19 +10,27 @@
 #ifndef STARLIGHT_COLLISIONEVENT_HPP_
 #define STARLIGHT_COLLISIONEVENT_HPP_
 
+namespace entt { typedef std::uint32_t Entity }
+
 struct CollisionEvent
 {
 	///
-	/// Entity A in collision.
-	/// We use the non typedef of entt::Entity because it saves us having to include a bunch of headers...
+	/// Constructor.
 	///
-	unsigned int m_entityA;
+	inline CollisionEvent(entt::Entity a, entt::Entity b)
+	:m_entityA(a), m_entityB(b)
+	{
+	}
+
+	///
+	/// Entity A in collision.
+	///
+	entt::Entity m_entityA;
 
 	///
 	/// Entity B in collision.
-	/// We use the non typedef of entt::Entity because it saves us having to include a bunch of headers...
 	///
-	unsigned int m_entityB;
+	entt::Entity m_entityB;
 };
 
 #endif

@@ -164,42 +164,19 @@ namespace sl
 		#ifdef NDEBUG
 			m_componentAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
 			{
-				m_registery.assign<Component>(e, table);
+				m_registery.assign<Component>(e, e, table);
 			});
-
-			if (debug)
-			{
-				m_componentDebug.emplace(name, [this](entt::Entity e)
-				{
-					m_registery.get<Component>(e)->debug();
-				});
-			}
 		#else
-			if (m_componentAssign.find(name) != m_componentAssign.end())
+			if (m_componentAssign.find(name) == m_componentAssign.end())
 			{
 				m_componentAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
 				{
-					m_registery.assign<Component>(e, table);
+					m_registery.assign<Component>(e, e, table);
 				});
 			}
 			else
 			{
 				LOG_S(WARNING) << "Attempted to register duplicate component!";
-			}
-
-			if (debug)
-			{
-				if (m_componentDebug.find(name) != m_componentDebug.end())
-				{
-					m_componentDebug.emplace(name, [this](entt::Entity e)
-					{
-						m_registery.get<Component>(e)->debug();
-					});
-				}
-				else
-				{
-					LOG_S(WARNING) << "Attempted to register duplicate component debug function!";
-				}
 			}
 		#endif
 	}
@@ -214,7 +191,7 @@ namespace sl
 			m_systems[System::m_id] = std::make_unique<System>(std::forward<Args>(args) ...);
 			++m_systemIDCounter;
 		#else
-			if (m_systems.find(System::m_id) != m_systems.cend())
+			if (m_systems.find(System::m_id) == m_systems.cend())
 			{
 				System::m_id = m_systemIDCounter;
 				m_systems[System::m_id] = std::make_unique<System>(std::forward<Args>(args)...);
@@ -235,7 +212,7 @@ namespace sl
 		#ifdef NDEBUG
 			return dynamic_cast<System*>(m_systems[System::m_id].get());
 		#else
-			if (m_systems.find(System::m_id) != m_systems.cend())
+			if (m_systems.find(System::m_id) == m_systems.cend())
 			{
 				return dynamic_cast<System*>(m_systems[System::m_id].get());
 			}
@@ -255,7 +232,7 @@ namespace sl
 			m_systems[System::m_id].reset();
 			m_systems.erase(System::m_id);
 		#else
-			if (m_systems.find(System::m_id) != m_systems.cend())
+			if (m_systems.find(System::m_id) == m_systems.cend())
 			{
 				m_systems[System::m_id].reset();
 				m_systems.erase(System::m_id);

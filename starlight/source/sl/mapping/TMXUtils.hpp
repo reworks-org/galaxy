@@ -24,13 +24,13 @@
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
-/// Sorry...can't stand american english...
+/// American English? Ew.
 #define ALLEGRO_COLOUR ALLEGRO_COLOR
 
 namespace sl
 {
 	///
-	/// Most of the following code is taken from:
+	/// Some of the following code is taken from or based on:
 	/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 	/// https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
 	/// Code is licensed under the same license as the library (tmxlib):
@@ -61,7 +61,7 @@ namespace sl
 		///
 		/// Draws a line. 
 		///
-		static inline void drawPolyline(double **points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
+		static inline void drawPolyline(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
 		{
 			int i;
 			for (i = 1; i<pointsc; i++) 
@@ -73,7 +73,7 @@ namespace sl
 		///
 		/// Draws a polygon.
 		///
-		static inline void drawPolygon(double **points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
+		static inline void drawPolygon(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
 		{
 			drawPolyline(points, x, y, pointsc, colour);
 			if (pointsc > 2)
@@ -120,7 +120,7 @@ namespace sl
 		///
 		/// Process the object layer.
 		///
-		static inline void processObjects(tmx_map* map, tmx_object_group *objgr)
+		static inline void processObjects(tmx_map* map, tmx_object_group* objgr)
 		{
 			World* world = World::inst();
 			static unsigned int poCounter = 0;
@@ -178,7 +178,7 @@ namespace sl
 		///
 		/// Process a tile layer.
 		///
-		static inline void processLayer(tmx_map *map, tmx_layer *layer)
+		static inline void processLayer(tmx_map* map, tmx_layer* layer)
 		{
 			unsigned long i, j;
 			unsigned int gid, x, y, w, h, flags;
@@ -276,7 +276,10 @@ namespace sl
 			world->m_inUse.push_back(entity);
 		}
 
-		static inline void processAllLayers(tmx_map *map, tmx_layer *layers)
+		///
+		/// Loop through and process all layers.
+		///
+		static inline void processAllLayers(tmx_map* map, tmx_layer* layers)
 		{
 			while (layers)
 			{

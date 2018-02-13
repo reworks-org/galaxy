@@ -90,6 +90,8 @@ namespace sl
 		al_reserve_samples(ConfigReader::inst()->lookup<int>(config, "audio", "reserveSamples"));
 		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
 		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA) -> apparently default allegro setting???
+
+		Box2DManager::inst()->m_world->SetContactListener(&m_engineCallbacks);
 	}
 
 	Application::~Application()

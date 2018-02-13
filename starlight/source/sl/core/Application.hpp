@@ -11,6 +11,7 @@
 #define STARLIGHT_APPLICATION_HPP_
 
 #include <fstream>
+#include "sl/physics/Box2DCallbacks.hpp"
 
 namespace sl
 {
@@ -60,6 +61,9 @@ namespace sl
 		/// Deleted.
 		///
 		Application(Application&&) = delete;
+
+	private:
+		CollisionContact m_engineCallbacks;
 	};
 }
 

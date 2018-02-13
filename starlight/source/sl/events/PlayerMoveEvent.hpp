@@ -10,8 +10,18 @@
 #ifndef STARLIGHT_PLAYERMOVEEVENT_HPP_
 #define STARLIGHT_PLAYERMOVEEVENT_HPP_
 
+namespace entt { typedef std::uint32_t Entity }
+
 struct PlayerMoveEvent
 {
+	///
+	/// Constructor.
+	///
+	inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::Entity playerEntity)
+		:m_horizontalSpeed(horizontalSpeed), m_verticalSpeed(verticalSpeed), m_playerEntity(playerEntity)
+	{
+	}
+
 	///
 	/// How much to move the player by horizontally.
 	///
@@ -24,9 +34,8 @@ struct PlayerMoveEvent
 
 	///
 	/// The player entity.
-	/// We use the base type rather than the typedef to avoid includes.
 	///
-	unsigned int m_playerEntity;
+	entt::Entity m_playerEntity;
 };
 
 #endif

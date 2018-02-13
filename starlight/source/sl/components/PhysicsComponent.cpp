@@ -17,7 +17,7 @@
 
 namespace sl
 {
-	PhysicsComponent::PhysicsComponent(const sol::table& table)
+	PhysicsComponent::PhysicsComponent(entt::Entity entity, const sol::table& table)
 	:m_body(nullptr)
 	{
 		b2BodyDef bodyDef;
@@ -60,7 +60,7 @@ namespace sl
 				fixtureDef.friction = second.get<float32>("friction");
 				fixtureDef.restitution = second.get<float32>("restitution");
 				fixtureDef.shape = &b2shape;
-				fixtureDef.userData = static_cast<void*>(new std::string(first));
+				fixtureDef.userData = static_cast<void*>(new entt::Entity{ entity });
 
 				m_body->CreateFixture(&fixtureDef);
 			});

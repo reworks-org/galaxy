@@ -13,7 +13,7 @@
 
 namespace sl
 {
-	TransformComponent::TransformComponent(const sol::table& table)
+	TransformComponent::TransformComponent(entt::Entity entity, const sol::table& table)
 	{
 		m_layer = table.get<int>("layer");
 		m_rect.m_x = table.get<float>("x");

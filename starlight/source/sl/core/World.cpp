@@ -53,7 +53,7 @@ namespace sl
 
 		for (auto& it : kvp)
 		{
-			m_componentAssign[it.first](entity, it.second);
+			m_componentAssign[it.first](entity, entity, it.second);
 		}
 
 		m_inUse.push_back(entity);

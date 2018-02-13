@@ -20,31 +20,19 @@ namespace sl
 
 	EventManager::~EventManager()
 	{
-		clean();
-
 		al_destroy_event_queue(m_queue);
 	}
 
-	void EventManager::createUserEvent(const std::string& id, EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4)
+	void EventManager::emitEvent(EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4)
 	{
 		ALLEGRO_EVENT ev;
-		
+
 		ev.type = type;
 		ev.user.data1 = data1;
 		ev.user.data2 = data2;
 		ev.user.data3 = data3;
 		ev.user.data4 = data4;
 
-		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, ev);
-	}
-
-	void EventManager::emitUserEvent(const std::string& id)
-	{
-		al_emit_user_event(&m_userSource, &(m_resourceMap[entt::HashedString{ id.c_str() }]), nullptr);
-	}
-
-	void EventManager::clean()
-	{
-		m_resourceMap.clear();
+		al_emit_user_event(&m_userSource, &ev, nullptr);
 	}
 }
