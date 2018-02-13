@@ -17,3 +17,7 @@ test everything
 
 debug tools - log, console (component / script editor???)
 redo collisions and ensure that it can also manage collisions with map objects
+
+collision eventing other links:
+https://www.gamedev.net/forums/topic/669494-dealing-with-different-collision-responses-in-an-entity-component-system/
+https://www.reddit.com/r/gamedev/comments/3tzqtu/how_do_you_handle_collision_in_an_entity/
