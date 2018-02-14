@@ -29,6 +29,14 @@
 #include "sl/resources/MusicPlayer.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 #include "sl/resources/ShaderLibrary.hpp"
+#include "sl/components/TextComponent.hpp"
+#include "sl/components/RenderComponent.hpp"
+#include "sl/components/SpriteComponent.hpp"
+#include "sl/components/PhysicsComponent.hpp"
+#include "sl/components/ParticleComponent.hpp"
+#include "sl/components/ParallaxComponent.hpp"
+#include "sl/components/AnimationComponent.hpp"
+#include "sl/components/TransformComponent.hpp"
 
 #include "Application.hpp"
 
@@ -92,6 +100,23 @@ namespace sl
 		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA) -> apparently default allegro setting???
 
 		Box2DManager::inst()->m_world->SetContactListener(&m_engineCallbacks);
+
+		World::inst()->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
+			sol::constructors<AnimationComponent(entt::Entity, const sol::table&)>(),
+			"changeAnimation", &AnimationComponent::changeAnimation,
+			"play", sol::overload(sol::resolve<void(void)>(&AnimationComponent::play), sol::resolve<void(std::string_view)>(&AnimationComponent::play)),
+			"pause", &AnimationComponent::pause,
+			"stop", &AnimationComponent::stop,
+			"m_isPaused", &AnimationComponent::m_isPaused,
+			"m_currentFrameTime", &AnimationComponent::m_currentFrameTime,
+			"m_activeAnimation", &AnimationComponent::m_activeAnimation,
+			"m_animations", &AnimationComponent::m_animations
+			);
+
+		//World::inst()->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
+		//https://sol2.readthedocs.io/en/latest/tutorial/functions.html
+		//	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
+		//	);
 	}
 
 	Application::~Application()
