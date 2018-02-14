@@ -68,8 +68,10 @@ namespace sl
 				
 				cw.for_each([&](std::pair<sol::object, sol::object> pair)
 				{
-					fixtureDef.filter.maskBits = fixtureDef.filter.maskBits | pair.second.as<std::uint16_t>();
+					mb = mb | pair.second.as<std::uint16_t>();
 				});
+
+				fixtureDef.filter.maskBits = mb;
 
 				m_body->CreateFixture(&fixtureDef);
 			});

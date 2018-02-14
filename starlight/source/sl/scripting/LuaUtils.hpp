@@ -23,7 +23,7 @@ namespace sl
 		/// \param file The file to write the data into.
 		/// \param tableName The name of the table in the text file.
 		///
-		static void writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName);
+		void writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName);
 	}
 }
 
