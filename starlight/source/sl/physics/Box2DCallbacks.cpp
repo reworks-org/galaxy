@@ -10,6 +10,7 @@
 #include "entt/entity/registry.hpp"
 #include "sl/events/EventManager.hpp"
 #include "sl/events/CollisionEvent.hpp"
+#include "Box2D/Dynamics/Contacts/b2Contact.h"
 
 #include "Box2DCallbacks.hpp"
 
@@ -17,10 +18,16 @@ namespace sl
 {
 	void CollisionContact::BeginContact(b2Contact* contact)
 	{
-		entt::Entity* a = static_cast<entt::Entity*>(contact->GetFixtureA()->GetUserData());
-		entt::Entity* b = static_cast<entt::Entity*>(contact->GetFixtureB()->GetUserData());
+		b2Fixture* fixtureA = contact->GetFixtureA();
+		b2Fixture* fixtureB = contact->GetFixtureB();
 
-		EventManager::inst()->emitEvent(EventTypes::COLLISION_EVENT, (int*)CollisionEvent {*a, *b});
+		entt::Entity* a = static_cast<entt::Entity*>(fixtureA->GetUserData());
+		entt::Entity* b = static_cast<entt::Entity*>(fixtureB->GetUserData());
+		
+		EventManager::inst()->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
+		{  
+			delete (CollisionEvent*)uev->data1;
+		});
 	}
 
 	void CollisionContact::EndContact(b2Contact* contact)

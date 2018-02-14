@@ -17,6 +17,11 @@
 
 namespace sl
 {
+	World::World()
+	{
+		m_lua.open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8);
+	}
+
 	void World::createEntity(const std::string& script)
 	{
 		sol::state lua;

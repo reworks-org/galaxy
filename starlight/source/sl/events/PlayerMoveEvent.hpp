@@ -10,32 +10,37 @@
 #ifndef STARLIGHT_PLAYERMOVEEVENT_HPP_
 #define STARLIGHT_PLAYERMOVEEVENT_HPP_
 
-namespace entt { typedef std::uint32_t Entity }
+#include <cinttypes>
 
-struct PlayerMoveEvent
+namespace entt { typedef std::uint32_t Entity; }
+
+namespace sl
 {
-	///
-	/// Constructor.
-	///
-	inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::Entity playerEntity)
-		:m_horizontalSpeed(horizontalSpeed), m_verticalSpeed(verticalSpeed), m_playerEntity(playerEntity)
+	struct PlayerMoveEvent
 	{
-	}
+		///
+		/// Constructor.
+		///
+		inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::Entity playerEntity)
+			:m_horizontalSpeed(horizontalSpeed), m_verticalSpeed(verticalSpeed), m_playerEntity(playerEntity)
+		{
+		}
 
-	///
-	/// How much to move the player by horizontally.
-	///
-	float m_horizontalSpeed;
+		///
+		/// How much to move the player by horizontally.
+		///
+		float m_horizontalSpeed;
 
-	///
-	/// How much to move the player by vertically.
-	///
-	float m_verticalSpeed;
+		///
+		/// How much to move the player by vertically.
+		///
+		float m_verticalSpeed;
 
-	///
-	/// The player entity.
-	///
-	entt::Entity m_playerEntity;
-};
+		///
+		/// The player entity.
+		///
+		entt::Entity m_playerEntity;
+	};
+}
 
 #endif

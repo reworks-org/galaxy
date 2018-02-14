@@ -13,8 +13,8 @@
 #include <functional>
 #include <unordered_map>
 
+#include "sol2/sol.hpp"
 #include "sl/types/System.hpp"
-#include "sol2/sol_forward.hpp"
 #include "sl/mapping/Level.hpp"
 #include "sl/types/ServiceLocator.hpp"
 #include "entt/core/hashed_string.hpp"
@@ -27,7 +27,7 @@ namespace sl
 		///
 		/// Construct World.
 		///
-		World() = default;
+		World();
 
 		///
 		/// Cleans up world.
@@ -116,6 +116,7 @@ namespace sl
 		void remove();
 		
 	public:
+		sol::state m_lua;
 		entt::DefaultRegistry m_registry;
 		std::vector<entt::Entity> m_inUse;
 		std::unique_ptr<Level> m_currentLevel;
@@ -124,7 +125,7 @@ namespace sl
 	private:
 		std::uint32_t m_systemIDCounter = 0;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_tagAssign;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_componentAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, entt::Entity, const sol::table&)>> m_componentAssign;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_componentDebug;
 	};
 

@@ -17,7 +17,7 @@
 typedef struct _tmx_map tmx_map;
 typedef struct _tmx_tile tmx_tile;
 
-namespace entt { typedef std::uint32_t Entity }
+namespace entt { typedef std::uint32_t Entity; }
 
 namespace sl
 {

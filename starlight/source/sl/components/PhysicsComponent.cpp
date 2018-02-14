@@ -61,6 +61,15 @@ namespace sl
 				fixtureDef.restitution = second.get<float32>("restitution");
 				fixtureDef.shape = &b2shape;
 				fixtureDef.userData = static_cast<void*>(new entt::Entity{ entity });
+				fixtureDef.filter.categoryBits = second.get<std::uint16_t>("collisionType");
+
+				sol::table cw = second.get<sol::table>("collidesWith");
+				std::uint16_t mb = 0x000;
+				
+				cw.for_each([&](std::pair<sol::object, sol::object> pair)
+				{
+					fixtureDef.filter.maskBits = fixtureDef.filter.maskBits | pair.second.as<std::uint16_t>();
+				});
 
 				m_body->CreateFixture(&fixtureDef);
 			});

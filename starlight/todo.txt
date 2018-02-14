@@ -5,19 +5,20 @@ need to implement tile types:
 	- movesystem needs to grab tile information in order to make actions occur / leave that game side? -> Best course of action?
 	- implement map limits -> camera / tilemap / player pos?
 
-- debug stuff
 - implement serialization
 	- wait on entt serialization capabilities
-	- call serializecomponetns from serailize suystem using eneityx
-	- serializecomponents contain information about what this entity needs to load
-	- use al_config format to easily support classes that require serialization
 
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
-test everything
+test everything - but im not writing tests for an entire game programming library... sorry... :( sandbox will be my "test"
 
-debug tools - log, console (component / script editor???)
+debug tools - log, console (component / script editor??? -> create entity and add components functionality?
 redo collisions and ensure that it can also manage collisions with map objects
 
-collision eventing other links:
-https://www.gamedev.net/forums/topic/669494-dealing-with-different-collision-responses-in-an-entity-component-system/
-https://www.reddit.com/r/gamedev/comments/3tzqtu/how_do_you_handle_collision_in_an_entity/
+or have functions that deal with a specific type of collision between two entitys? and we just manually check which is which. -> eg.g a WallCollision Function or a PoisonSwap collision function?
+Can store dis data anywhar?
+
+lua script support:
+	- register lua usertypes
+	- load functions from lua script to C++ map ->physicssystem constructor?
+		- call function that way.
+

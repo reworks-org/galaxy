@@ -23,7 +23,7 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::PARTICLE_EMIT_EVENT:
-			auto particleEvent = (ParticleEmitEvent*)event->user.data1;
+			ParticleEmitEvent* particleEvent = (ParticleEmitEvent*)event->user.data1;
 			auto size = particleEvent->m_textureIDS.size();
 
 			if (size != particleEvent->m_particleCount.size())

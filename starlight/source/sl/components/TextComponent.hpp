@@ -15,7 +15,7 @@
 #include "sol2/sol_forward.hpp"
 
 typedef struct ALLEGRO_FONT ALLEGRO_FONT;
-namespace entt { typedef std::uint32_t Entity }
+namespace entt { typedef std::uint32_t Entity; }
 
 namespace sl
 {
@@ -28,7 +28,7 @@ namespace sl
 		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data. Text parameter is max of 1024 characters. Font parameter is max of 1024 characters (in lua file).
 		///
-		TextComponent(const sol::table& table);
+		TextComponent(entt::Entity entity, const sol::table& table);
 
 		///
 		/// Destructor.

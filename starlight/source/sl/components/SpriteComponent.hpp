@@ -12,7 +12,7 @@
 
 #include "sol2/sol_forward.hpp"
 
-namespace entt { typedef std::uint32_t Entity }
+namespace entt { typedef std::uint32_t Entity; }
 
 namespace sl
 {

@@ -11,6 +11,7 @@
 #define STARLIGHT_PHYSICSSYSTEM_HPP_
 
 #include "sl/types/System.hpp"
+#include "sol2/sol_forward.hpp"
 
 namespace sl
 {
@@ -60,7 +61,7 @@ namespace sl
 		int m_positionIterations;
 
 		Box2DManager* m_manager;
-		std::map<std::pair<entt::Entity, entt::Entity>, std::function<void(entt::Entity, entt::Entity)>> m_collisionFunctions;
+		std::map<std::pair<std::uint16_t, std::uint16_t>, sol::function> m_collisions;
 	};
 }
 

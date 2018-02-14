@@ -9,6 +9,7 @@
 
 #include <utility>
 
+#include "sol2/sol.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
@@ -31,13 +32,9 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::COLLISION_EVENT:
-			CollisionEvent& collisionEvent = (CollisionEvent)event->user.data1;
-			auto kvp = m_collisionFunctions.find(std::make_pair(collisionEvent->m_entityA, collisionEvent->m_entityB));
+			CollisionEvent* ce = (CollisionEvent*)event->user.data1;
+			m_collisions[std::make_pair(ce->m_typeA, ce->m_typeB)](ce->m_a, ce->m_b);
 
-			if (kvp != m_collisionFunctions.end())
-			{
-				kvp->second(collisionEvent->m_entityA, collisionEvent->m_entityB);
-			}
 			break;
 		}
 	}

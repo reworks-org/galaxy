@@ -42,8 +42,9 @@ namespace sl
 		/// \param data2 Second data package included with event.
 		/// \param data3 Third data package included with event.
 		/// \param data4 Fourth data package included with event.
+		/// \param dtor A function to clean up any memory allocated with data1-data4.
 		///
-		void emitEvent(EventType type, intptr_t data1 = NULL, intptr_t data2 = NULL, intptr_t data3 = NULL, intptr_t data4 = NULL);
+		void emitEvent(EventType type, intptr_t data1 = NULL, intptr_t data2 = NULL, intptr_t data3 = NULL, intptr_t data4 = NULL, void(*dtor)(ALLEGRO_USER_EVENT *) = nullptr);
 
 	public:
 		ALLEGRO_EVENT_QUEUE* m_queue;

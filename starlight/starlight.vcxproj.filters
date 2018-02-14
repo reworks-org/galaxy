@@ -652,7 +652,7 @@
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\components\CollisionDataComponent.cpp">
+    <ClCompile Include="source\sl\scripting\LuaUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -7671,7 +7671,7 @@
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\components\CollisionDataComponent.hpp">
+    <ClInclude Include="source\sl\events\CollisionTypes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,7 +20,7 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::PLAYER_MOVE_EVENT:
-			auto playerMoveEvent = (PlayerMoveEvent*)event->user.data1;
+			PlayerMoveEvent* playerMoveEvent = (PlayerMoveEvent*)event->user.data1;
 			CameraTag& camera = registry.get<CameraTag>();
 			camera.update(playerMoveEvent->m_playerEntity);
 
