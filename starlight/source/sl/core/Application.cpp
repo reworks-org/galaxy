@@ -19,6 +19,7 @@
 #include "sl/core/World.hpp"
 #include "sl/utils/Time.hpp"
 #include "sl/events/Keys.hpp"
+#include "sl/math/Vector3.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateManager.hpp"
 #include "sl/events/EventManager.hpp"
@@ -101,6 +102,63 @@ namespace sl
 
 		Box2DManager::inst()->m_world->SetContactListener(&m_engineCallbacks);
 
+		LOG_S(INFO) << "Registering lua usertypes." << "\n";
+
+		World::inst()->m_lua.new_usertype<Vector2<int>>("Vector2i",
+			sol::constructors<Vector2<int>(), Vector2<int>(int, int)>(),
+			"transpose", &Vector2<int>::transpose,
+			"x", &Vector2<int>::m_x,
+			"y", &Vector2<int>::m_y
+			);
+
+		World::inst()->m_lua.new_usertype<Vector2<float>>("Vector2f",
+			sol::constructors<Vector2<float>(), Vector2<float>(float, float)>(),
+			"transpose", &Vector2<float>::transpose,
+			"x", &Vector2<float>::m_x,
+			"y", &Vector2<float>::m_y
+			);
+
+		World::inst()->m_lua.new_usertype<Vector3<int>>("Vector3i",
+			sol::constructors<Vector3<int>(), Vector3<int>(int, int, int)>(),
+			"x", &Vector3<int>::m_x,
+			"y", &Vector3<int>::m_y,
+			"z", &Vector3<int>::m_z
+			);
+
+		World::inst()->m_lua.new_usertype<Vector3<float>>("Vector3f",
+			sol::constructors<Vector3<float>(), Vector3<float>(float, float, float)>(),
+			"x", &Vector3<float>::m_x,
+			"y", &Vector3<float>::m_y,
+			"z", &Vector3<float>::m_z
+			);
+
+		World::inst()->m_lua.new_usertype<Rect<int>>("iRect",
+			sol::constructors<Rect<int>(), Rect<int>(int, int, int, int)>(),
+			"contains", sol::overload(sol::resolve<bool(int, int)>(&Rect<int>::contains), sol::resolve<bool(const Rect<int>&)>(&Rect<int>::contains)),
+			"x", &Rect<int>::m_x,
+			"y", &Rect<int>::m_y,
+			"width", &Rect<int>::m_width,
+			"height", &Rect<int>::m_height
+			);
+
+		World::inst()->m_lua.new_usertype<Rect<int>>("fRect",
+			sol::constructors<Rect<float>(), Rect<float>(float, float, float, float)>(),
+			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float>::contains), sol::resolve<bool(const Rect<float>&)>(&Rect<float>::contains)),
+			"x", &Rect<float>::m_x,
+			"y", &Rect<float>::m_y,
+			"width", &Rect<float>::m_width,
+			"height", &Rect<float>::m_height
+			);
+
+		World::inst()->m_lua.new_usertype<Rect<float, int>>("fRect",
+			sol::constructors<Rect<float, int>(), Rect<float, int>(float, float, int, int)>(),
+			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float, int>::contains), sol::resolve<bool(const Rect<float, int>&)>(&Rect<float, int>::contains)),
+			"x", &Rect<float, int>::m_x,
+			"y", &Rect<float, int>::m_y,
+			"width", &Rect<float, int>::m_width,
+			"height", &Rect<float, int>::m_height
+			);
+
 		World::inst()->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
 			sol::constructors<AnimationComponent(entt::Entity, const sol::table&)>(),
 			"changeAnimation", &AnimationComponent::changeAnimation,
@@ -113,10 +171,21 @@ namespace sl
 			"m_animations", &AnimationComponent::m_animations
 			);
 
-		//World::inst()->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
-		//https://sol2.readthedocs.io/en/latest/tutorial/functions.html
-		//	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
-		//	);
+		World::inst()->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
+			sol::constructors<ParallaxComponent(entt::Entity, const sol::table&)>(),
+			"verticalSpeed", &ParallaxComponent::m_verticalSpeed,
+			"horizontalSpeed", &ParallaxComponent::m_horizontalSpeed
+			);
+
+		World::inst()->m_lua.new_usertype<ParticleComponent>("ParticleComponent",
+			sol::constructors<ParticleComponent(float, float, float, float, const std::string&)>(),
+			"fade", &ParticleComponent::m_fade,
+			"alpha", &ParticleComponent::m_alpha,
+			"direction", &ParticleComponent::m_direction,
+			"id", &ParticleComponent::m_id
+			);
+
+		
 	}
 
 	Application::~Application()

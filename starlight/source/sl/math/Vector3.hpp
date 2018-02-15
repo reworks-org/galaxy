@@ -33,7 +33,7 @@ namespace sl
 	public:
 		T m_x;
 		T m_y;
-		T m_Z;
+		T m_z;
 	};
 
 	template<typename T>

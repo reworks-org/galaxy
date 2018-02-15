@@ -52,7 +52,7 @@ namespace sl
 		PhysicsComponent() = delete;
 
 		///
-		/// This method lets cereal know which data members to save.\
+		/// This method lets cereal know which data members to save.
 		///
 		template<class Archive>
 		void save(Archive& archive) const
