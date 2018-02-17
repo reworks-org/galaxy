@@ -655,6 +655,9 @@
     <ClCompile Include="source\sl\scripting\LuaUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\scripting\Sol2enttWorkaround.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -7672,6 +7675,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\events\CollisionTypes.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\scripting\Sol2enttWorkaround.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

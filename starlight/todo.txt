@@ -10,6 +10,8 @@ need to implement tile types:
 
 profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 test everything - but im not writing tests for an entire game programming library... sorry... :( sandbox will be my "test"
+static code analysis
+review all engine warnings
 
 debug tools - log, console (component / script editor??? -> create entity and add components functionality?
 redo collisions and ensure that it can also manage collisions with map objects
@@ -22,3 +24,6 @@ lua script support:
 	- load functions from lua script to C++ map ->physicssystem constructor?
 		- call function that way.
 
+https://sol2.readthedocs.io/en/latest/api/usertype.html
+https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
+https://sol2.readthedocs.io/en/latest/tutorial/functions.html

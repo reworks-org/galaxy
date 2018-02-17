@@ -12,6 +12,7 @@
 
 #include <fstream>
 #include "sl/physics/Box2DCallbacks.hpp"
+#include "sl/scripting/Sol2enttWorkaround.hpp"
 
 namespace sl
 {
@@ -63,6 +64,7 @@ namespace sl
 		Application(Application&&) = delete;
 
 	private:
+		Sol2enttWorkaround m_workaround;
 		CollisionContact m_engineCallbacks;
 	};
 }

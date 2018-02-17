@@ -56,7 +56,7 @@ namespace sl
 	{
 		T oldX = m_x;
 
-		m_x = y;
+		m_x = m_y;
 		m_y = oldX;
 	}
 	

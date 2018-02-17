@@ -10,6 +10,8 @@
 #include <utility>
 
 #include "sol2/sol.hpp"
+#include "sl/fs/VFS.hpp"
+#include "sl/core/World.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
@@ -21,10 +23,11 @@
 
 namespace sl
 {
-	PhysicsSystem::PhysicsSystem(float ups, int vi, int pi)
+	PhysicsSystem::PhysicsSystem(const std::string& functionScript, float ups, int vi, int pi)
 	:m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
 	{
 		m_manager = Box2DManager::inst();
+		World::inst()->m_lua.script(VFS::inst()->openAsString(functionScript));
 	}
 
 	void PhysicsSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
@@ -34,7 +37,6 @@ namespace sl
 		case EventTypes::COLLISION_EVENT:
 			CollisionEvent* ce = (CollisionEvent*)event->user.data1;
 			m_collisions[std::make_pair(ce->m_typeA, ce->m_typeB)](ce->m_a, ce->m_b);
-
 			break;
 		}
 	}

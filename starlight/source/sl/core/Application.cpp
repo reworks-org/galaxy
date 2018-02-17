@@ -102,21 +102,27 @@ namespace sl
 
 		Box2DManager::inst()->m_world->SetContactListener(&m_engineCallbacks);
 
+		m_workaround.setRegistry(&(World::inst()->m_registry));
+
 		LOG_S(INFO) << "Registering lua usertypes." << "\n";
+
+		World::inst()->m_lua.new_usertype<std::uint32_t>("uint32_t");
+
+		World::inst()->m_lua.new_usertype<entt::Entity>("entity");
 
 		World::inst()->m_lua.new_usertype<Vector2<int>>("Vector2i",
 			sol::constructors<Vector2<int>(), Vector2<int>(int, int)>(),
 			"transpose", &Vector2<int>::transpose,
 			"x", &Vector2<int>::m_x,
 			"y", &Vector2<int>::m_y
-			);
+		);
 
 		World::inst()->m_lua.new_usertype<Vector2<float>>("Vector2f",
 			sol::constructors<Vector2<float>(), Vector2<float>(float, float)>(),
 			"transpose", &Vector2<float>::transpose,
 			"x", &Vector2<float>::m_x,
 			"y", &Vector2<float>::m_y
-			);
+		);
 
 		World::inst()->m_lua.new_usertype<Vector3<int>>("Vector3i",
 			sol::constructors<Vector3<int>(), Vector3<int>(int, int, int)>(),
@@ -130,7 +136,7 @@ namespace sl
 			"x", &Vector3<float>::m_x,
 			"y", &Vector3<float>::m_y,
 			"z", &Vector3<float>::m_z
-			);
+		);
 
 		World::inst()->m_lua.new_usertype<Rect<int>>("iRect",
 			sol::constructors<Rect<int>(), Rect<int>(int, int, int, int)>(),
@@ -139,25 +145,25 @@ namespace sl
 			"y", &Rect<int>::m_y,
 			"width", &Rect<int>::m_width,
 			"height", &Rect<int>::m_height
-			);
+		);
 
-		World::inst()->m_lua.new_usertype<Rect<int>>("fRect",
+		World::inst()->m_lua.new_usertype<Rect<float>>("fRect",
 			sol::constructors<Rect<float>(), Rect<float>(float, float, float, float)>(),
 			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float>::contains), sol::resolve<bool(const Rect<float>&)>(&Rect<float>::contains)),
 			"x", &Rect<float>::m_x,
 			"y", &Rect<float>::m_y,
 			"width", &Rect<float>::m_width,
 			"height", &Rect<float>::m_height
-			);
+		);
 
-		World::inst()->m_lua.new_usertype<Rect<float, int>>("fRect",
+		World::inst()->m_lua.new_usertype<Rect<float, int>>("fiRect",
 			sol::constructors<Rect<float, int>(), Rect<float, int>(float, float, int, int)>(),
 			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float, int>::contains), sol::resolve<bool(const Rect<float, int>&)>(&Rect<float, int>::contains)),
 			"x", &Rect<float, int>::m_x,
 			"y", &Rect<float, int>::m_y,
 			"width", &Rect<float, int>::m_width,
 			"height", &Rect<float, int>::m_height
-			);
+		);
 
 		World::inst()->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
 			sol::constructors<AnimationComponent(entt::Entity, const sol::table&)>(),
@@ -169,13 +175,13 @@ namespace sl
 			"m_currentFrameTime", &AnimationComponent::m_currentFrameTime,
 			"m_activeAnimation", &AnimationComponent::m_activeAnimation,
 			"m_animations", &AnimationComponent::m_animations
-			);
+		);
 
 		World::inst()->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
 			sol::constructors<ParallaxComponent(entt::Entity, const sol::table&)>(),
 			"verticalSpeed", &ParallaxComponent::m_verticalSpeed,
 			"horizontalSpeed", &ParallaxComponent::m_horizontalSpeed
-			);
+		);
 
 		World::inst()->m_lua.new_usertype<ParticleComponent>("ParticleComponent",
 			sol::constructors<ParticleComponent(float, float, float, float, const std::string&)>(),
@@ -183,9 +189,50 @@ namespace sl
 			"alpha", &ParticleComponent::m_alpha,
 			"direction", &ParticleComponent::m_direction,
 			"id", &ParticleComponent::m_id
-			);
+		);
 
-		
+		World::inst()->m_lua.new_usertype<SpriteComponent>("SpriteComponent",
+			sol::constructors<SpriteComponent(entt::Entity, const sol::table&), SpriteComponent(const std::string&, float)>(),
+			"opacity", &SpriteComponent::m_opacity,
+			"spriteName", &SpriteComponent::m_spriteName
+		);
+
+		World::inst()->m_lua.new_usertype<RenderComponent>("RenderComponent",
+			sol::constructors<RenderComponent(entt::Entity, const sol::table&)>(),
+			"renderTypes", &RenderComponent::m_renderTypes
+		);
+
+		World::inst()->m_lua.new_usertype<TransformComponent>("TransformComponent",
+			sol::constructors<TransformComponent(entt::Entity, const sol::table&), TransformComponent(int, float, const Rect<float, int>&)>(),
+			"layer", &TransformComponent::m_layer,
+			"angle", &TransformComponent::m_angle,
+			"rect", &TransformComponent::m_rect
+		);
+
+		World::inst()->m_lua.new_usertype<TextComponent>("TextComponent",
+			sol::constructors<TextComponent(entt::Entity, const sol::table&)>(),
+			"id", &TextComponent::m_id
+		);
+
+		World::inst()->m_lua.new_usertype<PhysicsComponent>("PhysicsComponent",
+			sol::constructors<PhysicsComponent(entt::Entity, const sol::table&)>()
+		);
+
+		World::inst()->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
+			sol::constructors<Sol2enttWorkaround()>(),
+			/*"create", &Sol2enttWorkaround::create,*/
+			"destroy", &Sol2enttWorkaround::destroy,
+			"getAnimationComponent", &Sol2enttWorkaround::get<AnimationComponent>,
+			"getParallaxComponent", &Sol2enttWorkaround::get<ParallaxComponent>,
+			"getParticleComponent", &Sol2enttWorkaround::get<ParticleComponent>,
+			"getPhysicsComponent", &Sol2enttWorkaround::get<PhysicsComponent>,
+			"getRenderComponent", &Sol2enttWorkaround::get<RenderComponent>,
+			"getSpriteComponent", &Sol2enttWorkaround::get<SpriteComponent>,
+			"getTextComponent", &Sol2enttWorkaround::get<TextComponent>,
+			"getTransformComponent", &Sol2enttWorkaround::get<TransformComponent>
+		);
+
+		World::inst()->m_lua["registry"] = m_workaround;
 	}
 
 	Application::~Application()

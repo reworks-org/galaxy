@@ -23,11 +23,12 @@ namespace sl
 		///
 		/// Construct the system.
 		///
+		/// \param functionScript Script containing physics collision functions.
 		/// \param ups Updates per second for physics system.
 		/// \param vi Box2D velocity iterations.
 		/// \param pi Box2D position iterations.
 		///
-		PhysicsSystem(float ups, int vi, int pi);
+		PhysicsSystem(const std::string& functionScript, float ups, int vi, int pi);
 
 		///
 		/// Destructor.

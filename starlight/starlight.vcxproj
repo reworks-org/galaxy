@@ -226,6 +226,7 @@
     <ClCompile Include="source\sl\resources\ShaderLibrary.cpp" />
     <ClCompile Include="source\sl\resources\SoundPlayer.cpp" />
     <ClCompile Include="source\sl\scripting\LuaUtils.cpp" />
+    <ClCompile Include="source\sl\scripting\Sol2enttWorkaround.cpp" />
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\sl\systems\CameraSystem.cpp" />
     <ClCompile Include="source\sl\systems\ParallaxSystem.cpp" />
@@ -2559,6 +2560,7 @@
     <ClInclude Include="source\sl\resources\ShaderLibrary.hpp" />
     <ClInclude Include="source\sl\resources\SoundPlayer.hpp" />
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp" />
+    <ClInclude Include="source\sl\scripting\Sol2enttWorkaround.hpp" />
     <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp" />
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\sl\systems\CameraSystem.hpp" />
@@ -2683,6 +2685,7 @@
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>false</ConformanceMode>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -2691,6 +2694,7 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <Lib />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
