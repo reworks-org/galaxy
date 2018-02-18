@@ -24,3 +24,5 @@ https://sol2.readthedocs.io/en/latest/tutorial/functions.html
 
 do headers that contain all of "core" and "graphics", etc
 then have one header that includes everything
+
+need to document all classes aswell
