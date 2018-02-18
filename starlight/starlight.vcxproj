@@ -210,6 +210,7 @@
     <ClCompile Include="source\sl\libs\lua\lutf8lib.c" />
     <ClCompile Include="source\sl\libs\lua\lvm.c" />
     <ClCompile Include="source\sl\libs\lua\lzio.c" />
+    <ClCompile Include="source\sl\libs\MaxRectsBinPack\MaxRectsBinPack.cpp" />
     <ClCompile Include="source\sl\libs\tmx\tmx.c" />
     <ClCompile Include="source\sl\libs\tmx\tmx_err.c" />
     <ClCompile Include="source\sl\libs\tmx\tmx_hash.c" />
@@ -217,7 +218,6 @@
     <ClCompile Include="source\sl\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\sl\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\sl\libs\tmx\tsx.c" />
-    <ClCompile Include="source\sl\math\MaxRectsBinPack.cpp" />
     <ClCompile Include="source\sl\math\QuadTree.cpp" />
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp" />
     <ClCompile Include="source\sl\physics\Box2DManager.cpp" />
@@ -238,8 +238,10 @@
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\sl\Audio.hpp" />
     <ClInclude Include="source\sl\audio\Music.hpp" />
     <ClInclude Include="source\sl\audio\Sound.hpp" />
+    <ClInclude Include="source\sl\Components.hpp" />
     <ClInclude Include="source\sl\components\AnimationComponent.hpp" />
     <ClInclude Include="source\sl\components\ParallaxComponent.hpp" />
     <ClInclude Include="source\sl\components\ParticleComponent.hpp" />
@@ -248,10 +250,13 @@
     <ClInclude Include="source\sl\components\SpriteComponent.hpp" />
     <ClInclude Include="source\sl\components\TextComponent.hpp" />
     <ClInclude Include="source\sl\components\TransformComponent.hpp" />
+    <ClInclude Include="source\sl\Core.hpp" />
     <ClInclude Include="source\sl\core\Application.hpp" />
     <ClInclude Include="source\sl\core\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
+    <ClInclude Include="source\sl\Debug.hpp" />
+    <ClInclude Include="source\sl\Events.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\CollisionTypes.hpp" />
     <ClInclude Include="source\sl\events\EventManager.hpp" />
@@ -259,7 +264,9 @@
     <ClInclude Include="source\sl\events\Keys.hpp" />
     <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp" />
     <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp" />
+    <ClInclude Include="source\sl\FS.hpp" />
     <ClInclude Include="source\sl\fs\VirtualFS.hpp" />
+    <ClInclude Include="source\sl\Graphics.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
@@ -2541,43 +2548,52 @@
     <ClInclude Include="source\sl\libs\lua\lundump.h" />
     <ClInclude Include="source\sl\libs\lua\lvm.h" />
     <ClInclude Include="source\sl\libs\lua\lzio.h" />
+    <ClInclude Include="source\sl\libs\MaxRectsBinPack\MaxRectsBinPack.hpp" />
     <ClInclude Include="source\sl\libs\sol2\sol.hpp" />
     <ClInclude Include="source\sl\libs\sol2\sol_forward.hpp" />
     <ClInclude Include="source\sl\libs\tmx\tmx.h" />
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\sl\libs\tmx\tsx.h" />
+    <ClInclude Include="source\sl\Mapping.hpp" />
     <ClInclude Include="source\sl\mapping\TMXUtils.hpp" />
-    <ClInclude Include="source\sl\math\MaxRectsBinPack.hpp" />
+    <ClInclude Include="source\sl\Math.hpp" />
     <ClInclude Include="source\sl\math\QuadTree.hpp" />
     <ClInclude Include="source\sl\math\Random.hpp" />
     <ClInclude Include="source\sl\math\Rect.hpp" />
     <ClInclude Include="source\sl\math\Vector2.hpp" />
     <ClInclude Include="source\sl\math\Vector3.hpp" />
+    <ClInclude Include="source\sl\Physics.hpp" />
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp" />
     <ClInclude Include="source\sl\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\sl\physics\Box2DManager.hpp" />
+    <ClInclude Include="source\sl\Resources.hpp" />
     <ClInclude Include="source\sl\resources\FontBook.hpp" />
     <ClInclude Include="source\sl\resources\MusicPlayer.hpp" />
     <ClInclude Include="source\sl\resources\ShaderLibrary.hpp" />
     <ClInclude Include="source\sl\resources\SoundPlayer.hpp" />
+    <ClInclude Include="source\sl\Scripting.hpp" />
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp" />
     <ClInclude Include="source\sl\scripting\Sol2enttWorkaround.hpp" />
     <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp" />
+    <ClInclude Include="source\sl\Systems.hpp" />
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\sl\systems\CameraSystem.hpp" />
     <ClInclude Include="source\sl\systems\ParallaxSystem.hpp" />
     <ClInclude Include="source\sl\systems\ParticleSystem.hpp" />
     <ClInclude Include="source\sl\systems\PhysicsSystem.hpp" />
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\sl\Tags.hpp" />
     <ClInclude Include="source\sl\tags\CameraTag.hpp" />
     <ClInclude Include="source\sl\mapping\Level.hpp" />
     <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />
+    <ClInclude Include="source\sl\Utils.hpp" />
     <ClInclude Include="source\sl\utils\ConfigReader.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />
+    <ClInclude Include="source\Starlight.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
