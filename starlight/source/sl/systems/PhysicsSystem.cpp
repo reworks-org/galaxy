@@ -28,6 +28,19 @@ namespace sl
 	{
 		m_manager = Box2DManager::inst();
 		World::inst()->m_lua.script(VFS::inst()->openAsString(functionScript));
+		
+		sol::table funcs = World::inst()->m_lua.get<sol::table>("physicsFuncs");
+		funcs.for_each([this](sol::object key, sol::object value)
+		{
+			sol::table funcTable = value.as<sol::table>();
+
+			std::uint16_t first = funcTable.get<std::uint16_t>("first");
+			std::uint16_t second = funcTable.get<std::uint16_t>("second");
+			std::string id = funcTable.get<std::string>("id");
+
+			m_collisions.emplace(std::make_pair(first, second), World::inst()->m_lua.get<sol::function>(id));
+			m_collisions.emplace(std::make_pair(second, first), World::inst()->m_lua.get<sol::function>(id)); // reverse in case collision happens other way.
+		});
 	}
 
 	void PhysicsSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)

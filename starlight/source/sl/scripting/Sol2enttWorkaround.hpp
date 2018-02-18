@@ -41,13 +41,23 @@ namespace sl
 		///
 		/// Wrapper for entt's create function.
 		///
+		/// \return Entity ID for newly created entity.
+		///
 		///entt::Entity create();
 
 		///
 		/// Wrapper for entt's destroy function.
 		///
+		/// \param entity Entity to destroy.
+		///
 		void destroy(entt::Entity entity);
 
+		///
+		/// Wrapper for retrieving a component with entt.
+		///
+		/// \param Component Type of component to retrieve.
+		/// \param entity Entity to retrieve the component from.
+		///
 		template<typename Component>
 		Component& get(entt::Entity entity);
 

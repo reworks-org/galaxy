@@ -19,10 +19,8 @@ redo collisions and ensure that it can also manage collisions with map objects
 or have functions that deal with a specific type of collision between two entitys? and we just manually check which is which. -> eg.g a WallCollision Function or a PoisonSwap collision function?
 Can store dis data anywhar?
 
-lua script support:
-	- register lua usertypes
-	- load functions from lua script to C++ map ->physicssystem constructor?
-		- call function that way.
+integrate lua better
+redo service locators... again...
 
 https://sol2.readthedocs.io/en/latest/api/usertype.html
 https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html

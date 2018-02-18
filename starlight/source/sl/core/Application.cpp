@@ -107,7 +107,7 @@ namespace sl
 		LOG_S(INFO) << "Registering lua usertypes." << "\n";
 
 		World::inst()->m_lua.new_usertype<std::uint32_t>("uint32_t");
-
+		World::inst()->m_lua.new_usertype<std::uint16_t>("uint16_t");
 		World::inst()->m_lua.new_usertype<entt::Entity>("entity");
 
 		World::inst()->m_lua.new_usertype<Vector2<int>>("Vector2i",
