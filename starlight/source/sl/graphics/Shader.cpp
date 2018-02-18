@@ -8,8 +8,9 @@
 ///
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
 #include "loguru/loguru.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "Shader.hpp"
 
@@ -21,12 +22,12 @@ namespace sl
 
 		// http://liballeg.org/a5docs/trunk/shader.html
 
-		if (!al_attach_shader_source(m_shader, ALLEGRO_VERTEX_SHADER, VFS::inst()->openAsString(table.get<std::string>("vertexShader")).c_str()))
+		if (!al_attach_shader_source(m_shader, ALLEGRO_VERTEX_SHADER, Locator::m_virtualFS->openAsString(table.get<const char*>("vertexShader")).c_str()))
 		{
 			LOG_S(ERROR) << "Could not attach vertex shader. Allegro Log: " << al_get_shader_log(m_shader);
 		}
 
-		if (!al_attach_shader_source(m_shader, ALLEGRO_PIXEL_SHADER, VFS::inst()->openAsString(table.get<std::string>("pixelShader")).c_str()))
+		if (!al_attach_shader_source(m_shader, ALLEGRO_PIXEL_SHADER, Locator::m_virtualFS->openAsString(table.get<const char*>("pixelShader")).c_str()))
 		{
 			LOG_S(ERROR) << "Could not attach pixel shader. Allegro Log: " << al_get_shader_log(m_shader);
 		}

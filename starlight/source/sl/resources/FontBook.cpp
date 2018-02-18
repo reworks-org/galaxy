@@ -10,7 +10,8 @@
 #include <allegro5/allegro_ttf.h>
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "FontBook.hpp"
 
@@ -19,7 +20,7 @@ namespace sl
 	FontBook::FontBook(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::inst()->openAsString(script));
+		lua.script(Locator::m_virtualFS->openAsString(script));
 		sol::table fonts = lua.get<sol::table>("fonts");
 
 		fonts.for_each([&](std::pair<sol::object, sol::object> pair)
@@ -27,7 +28,7 @@ namespace sl
 			auto key = pair.first.as<entt::HashedString>();
 			auto value = pair.second.as<sol::table>();
 
-			m_resourceMap.emplace(key, al_load_ttf_font(value.get<std::string>("font").c_str(), value.get<int>("size"), NULL));
+			m_resourceMap.emplace(key, al_load_ttf_font(value.get<const char*>("font"), value.get<int>("size"), NULL));
 		});
 	}
 

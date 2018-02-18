@@ -7,8 +7,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "sl/mapping/TMXUtils.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "Level.hpp"
 
@@ -17,7 +18,7 @@ namespace sl
 	Level::Level(const std::string& mapFile, const Rect<float, int>& bounds)
 		:m_bounds(bounds)
 	{
-		std::string data = VFS::inst()->openAsString(mapFile);
+		std::string data = Locator::m_virtualFS->openAsString(mapFile);
 		m_map = tmx_load_buffer(data.c_str(), boost::numeric_cast<int>(data.size()));
 	
 		tmxutils::processAllLayers(m_map, m_map->ly_head);

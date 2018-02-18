@@ -8,7 +8,8 @@
 ///
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "ShaderLibrary.hpp"
 
@@ -17,7 +18,7 @@ namespace sl
 	ShaderLibrary::ShaderLibrary(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::inst()->openAsString(script));
+		lua.script(Locator::m_virtualFS->openAsString(script));
 		sol::table shaders = lua.get<sol::table>("shaders");
 
 		shaders.for_each([this](std::pair<sol::object, sol::object> pair)

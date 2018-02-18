@@ -10,8 +10,9 @@
 #include <map>
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
 #include "loguru/loguru.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "World.hpp"
 
@@ -25,7 +26,7 @@ namespace sl
 	void World::createEntity(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::inst()->openAsString(script));
+		lua.script(Locator::m_virtualFS->openAsString(script));
 		
 		entt::Entity entity = m_registry.create();
 		sol::table components = lua.get<sol::table>("entity");
@@ -67,7 +68,7 @@ namespace sl
 	void World::createEntities(const std::string& batchScript)
 	{	
 		sol::state lua;
-		lua.script(VFS::inst()->openAsString(batchScript));
+		lua.script(Locator::m_virtualFS->openAsString(batchScript));
 
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entityList = world.get<sol::table>("entitys");

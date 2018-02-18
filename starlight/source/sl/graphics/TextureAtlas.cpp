@@ -16,6 +16,7 @@
 #include "loguru/loguru.hpp"
 #include "sl/utils/Utils.hpp"
 #include "sl/graphics/Window.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "TextureAtlas.hpp"
 
@@ -49,7 +50,7 @@ namespace sl
 		}
 
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Window::inst()->getDisplay()));
+		al_set_target_bitmap(al_get_backbuffer(Locator::m_window->getDisplay()));
 		
 		PHYSFS_freeList(efl);
 	}
@@ -72,7 +73,7 @@ namespace sl
 		al_set_target_bitmap(m_atlas);
 		al_draw_bitmap(textureData, packedRect.m_x, packedRect.m_y, 0);
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Window::inst()->getDisplay()));
+		al_set_target_bitmap(al_get_backbuffer(Locator::m_window->getDisplay()));
 
 		m_resourceMap.emplace(entt::HashedString{ ID.c_str() }, packedRect);
 	}

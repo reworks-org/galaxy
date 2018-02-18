@@ -10,6 +10,7 @@
 #include "tmx/tmx.h"
 #include "sol2/sol.hpp"
 #include "loguru/loguru.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 
 #include "AnimationComponent.hpp"
@@ -49,7 +50,7 @@ namespace sl
 			int subY = y + map->tiles[tile->animation[i].tile_id]->ul_y;
 
 			std::string id = layerName + "AnimatedTileInternal" + std::to_string(i);
-			TextureAtlas::inst()->addRectToAtlas(id, { subX, subY, tileWidth, tileHeight });
+			Locator::m_textureAtlas->addRectToAtlas(id, { subX, subY, tileWidth, tileHeight });
 			frames.push_back(id.c_str());
 
 			m_animations.emplace(std::make_pair<std::string_view, Animation>(id.c_str(), { true, 1.0f, static_cast<std::uint32_t>(tile->animation[i].duration), tile->animation_len, 0, frames }));

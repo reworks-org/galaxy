@@ -12,11 +12,10 @@
 
 #include "sl/audio/Music.hpp"
 #include "sl/types/ResourceCache.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class MusicPlayer final : public ServiceLocator<MusicPlayer>, public ResourceCache<Music>
+	class MusicPlayer final : public ResourceCache<Music>
 	{
 	public:
 		///

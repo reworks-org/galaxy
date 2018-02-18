@@ -8,6 +8,7 @@
 ///
 
 #include "entt/entity/registry.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/events/EventManager.hpp"
 #include "sl/events/CollisionEvent.hpp"
 #include "Box2D/Dynamics/Contacts/b2Contact.h"
@@ -24,7 +25,7 @@ namespace sl
 		entt::Entity* a = static_cast<entt::Entity*>(fixtureA->GetUserData());
 		entt::Entity* b = static_cast<entt::Entity*>(fixtureB->GetUserData());
 		
-		EventManager::inst()->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
+		Locator::m_eventManager->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
 		{  
 			delete (CollisionEvent*)uev->data1;
 		});

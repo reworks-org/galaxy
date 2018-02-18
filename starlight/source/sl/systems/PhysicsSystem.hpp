@@ -15,8 +15,6 @@
 
 namespace sl
 {
-	class Box2DManager;
-
 	class PhysicsSystem final : public System
 	{
 	public:
@@ -61,7 +59,6 @@ namespace sl
 		int m_velocityIterations;
 		int m_positionIterations;
 
-		Box2DManager* m_manager;
 		std::map<std::pair<std::uint16_t, std::uint16_t>, sol::function> m_collisions;
 	};
 }

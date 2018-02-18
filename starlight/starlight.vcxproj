@@ -37,7 +37,7 @@
     <ClCompile Include="source\sl\core\StateManager.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
     <ClCompile Include="source\sl\events\EventManager.cpp" />
-    <ClCompile Include="source\sl\fs\VFS.cpp" />
+    <ClCompile Include="source\sl\fs\VirtualFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
     <ClCompile Include="source\sl\graphics\TextureAtlas.cpp" />
@@ -249,6 +249,7 @@
     <ClInclude Include="source\sl\components\TextComponent.hpp" />
     <ClInclude Include="source\sl\components\TransformComponent.hpp" />
     <ClInclude Include="source\sl\core\Application.hpp" />
+    <ClInclude Include="source\sl\core\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
@@ -258,7 +259,7 @@
     <ClInclude Include="source\sl\events\Keys.hpp" />
     <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp" />
     <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp" />
-    <ClInclude Include="source\sl\fs\VFS.hpp" />
+    <ClInclude Include="source\sl\fs\VirtualFS.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
@@ -2572,7 +2573,6 @@
     <ClInclude Include="source\sl\mapping\Level.hpp" />
     <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
-    <ClInclude Include="source\sl\types\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />
     <ClInclude Include="source\sl\utils\ConfigReader.hpp" />

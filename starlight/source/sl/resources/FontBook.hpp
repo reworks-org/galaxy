@@ -13,11 +13,10 @@
 #include <allegro5/allegro_font.h>
 
 #include "sl/types/ResourceCache.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class FontBook final : public ServiceLocator<FontBook>, public ResourceCache<ALLEGRO_FONT*>
+	class FontBook final : public ResourceCache<ALLEGRO_FONT*>
 	{
 	public:
 		///

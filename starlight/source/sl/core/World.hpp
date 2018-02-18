@@ -16,12 +16,11 @@
 #include "sol2/sol.hpp"
 #include "sl/types/System.hpp"
 #include "sl/mapping/Level.hpp"
-#include "sl/types/ServiceLocator.hpp"
 #include "entt/core/hashed_string.hpp"
 
 namespace sl
 {
-	class World final : public ServiceLocator<World>
+	class World final
 	{
 	public: 
 		///
@@ -32,12 +31,12 @@ namespace sl
 		///
 		/// Cleans up world.
 		///
-		~World() override = default;
+		~World() = default;
 
 		///
 		/// Register an entity.
 		///
-		/// \param script Script file in the VFS.
+		/// \param script Script file in the VirtualFS.
 		///
 		void createEntity(const std::string& script);
 

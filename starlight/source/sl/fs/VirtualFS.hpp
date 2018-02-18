@@ -1,5 +1,5 @@
 ///
-/// VFS.hpp
+/// VirtualFS.hpp
 /// starlight
 ///
 /// Created by reworks on 12/07/2016.
@@ -7,34 +7,32 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_VFS_HPP_
-#define STARLIGHT_VFS_HPP_
+#ifndef STARLIGHT_VIRTUALFS_HPP_
+#define STARLIGHT_VIRTUALFS_HPP_
 
 #include <string>
 
-#include "sl/types/ServiceLocator.hpp"
-
 namespace sl
 {
-	class VFS : public ServiceLocator<VFS>
+	class VirtualFS
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		VFS();
+		VirtualFS();
 		
 		///
 		/// Constructor, also takes a parameter to call mount().
 		///
 		/// \param archive Path or archive to mount.
 		///
-		VFS(const std::string& archive);
+		VirtualFS(const std::string& archive);
 
 		///
 		/// Destructor.
 		//
-		~VFS() override;
+		~VirtualFS();
 
 		///
 		/// \brief Mount an archive or folder.
@@ -50,7 +48,7 @@ namespace sl
 		///
 		/// Please note this string is self-contained. You don't need to free anything. Also note this only supports files that contain text!
 		///
-		/// \param file The file in the VFS to open.
+		/// \param file The file in the VirtualFS to open.
 		///
 		/// \return Returns a std::string. This is a plain string containing the information.
 		///

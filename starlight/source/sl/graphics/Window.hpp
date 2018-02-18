@@ -15,11 +15,10 @@
 #include <allegro5/display.h>
 
 #include "sl/math/Vector2.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class Window : public ServiceLocator<Window>
+	class Window final
 	{
 	public:
 		///
@@ -40,7 +39,7 @@ namespace sl
 		///
 		/// Cleans up the window.
 		///
-		~Window() override;
+		~Window();
 
 		///
 		/// Change the title.
@@ -93,6 +92,13 @@ namespace sl
 		/// \return Returns CONST vector2 of type int.
 		///
 		const Vector2<int>& getSize() const;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Window() = delete;
 
 	private:
 		bool m_running;

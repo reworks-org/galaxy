@@ -14,11 +14,10 @@
 #include <functional>
 
 #include "Box2D/Box2D.h"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class Box2DManager : public ServiceLocator<Box2DManager>
+	class Box2DManager
 	{
 	public:
 		///
@@ -31,7 +30,7 @@ namespace sl
 		///
 		/// Destructor
 		///
-		~Box2DManager() override;
+		~Box2DManager();
 
 	private:
 		///
@@ -41,7 +40,7 @@ namespace sl
 		Box2DManager() = delete;
 
 	public:
-		std::unique_ptr<b2World> m_world;
+		std::unique_ptr<b2World> m_b2world;
 	};
 }
 

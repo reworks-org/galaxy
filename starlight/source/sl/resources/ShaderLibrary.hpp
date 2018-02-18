@@ -12,11 +12,10 @@
 
 #include "sl/graphics/Shader.hpp"
 #include "sl/types/ResourceCache.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class ShaderLibrary final : public ServiceLocator<ShaderLibrary>, public ResourceCache<Shader>
+	class ShaderLibrary final : public ResourceCache<Shader>
 	{
 	public:
 		///

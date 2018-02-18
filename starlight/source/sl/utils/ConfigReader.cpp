@@ -9,7 +9,7 @@
 
 #include <fstream>
 
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "loguru/loguru.hpp"
 
 #include "ConfigReader.hpp"

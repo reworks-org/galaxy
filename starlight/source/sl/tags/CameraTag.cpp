@@ -9,6 +9,7 @@
 
 #include "sol2/sol.hpp"
 #include "sl/core/World.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "CameraTag.hpp"
@@ -30,8 +31,8 @@ namespace sl
 
 	void CameraTag::update(unsigned int playerEntity)
 	{
-		Level* level = World::inst()->m_currentLevel.get();
-		TransformComponent& tc = World::inst()->m_registry.get<TransformComponent>(playerEntity);
+		Level* level = Locator::m_world->m_currentLevel.get();
+		TransformComponent& tc = Locator::m_world->m_registry.get<TransformComponent>(playerEntity);
 
 		m_bounds.m_x = (tc.m_rect.m_x + tc.m_rect.m_width / 2) - m_bounds.m_width / 2;
 		m_bounds.m_y = (tc.m_rect.m_y + tc.m_rect.m_height / 2) - m_bounds.m_height / 2;

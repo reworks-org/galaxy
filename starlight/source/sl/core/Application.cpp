@@ -15,21 +15,10 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_native_dialog.h>
 
-#include "sl/fs/VFS.hpp"
-#include "sl/core/World.hpp"
 #include "sl/utils/Time.hpp"
 #include "sl/events/Keys.hpp"
 #include "sl/math/Vector3.hpp"
-#include "sl/graphics/Window.hpp"
-#include "sl/core/StateManager.hpp"
-#include "sl/events/EventManager.hpp"
-#include "sl/utils/ConfigReader.hpp"
-#include "sl/resources/FontBook.hpp"
-#include "sl/physics/Box2DManager.hpp"
-#include "sl/resources/SoundPlayer.hpp"
-#include "sl/resources/MusicPlayer.hpp"
-#include "sl/graphics/TextureAtlas.hpp"
-#include "sl/resources/ShaderLibrary.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/components/TextComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/SpriteComponent.hpp"
@@ -69,76 +58,87 @@ namespace sl
 		al_init_acodec_addon();
 		al_init_primitives_addon();
 		al_init_native_dialog_addon();
+		
+		m_virtualFS = std::make_unique<VirtualFS>(archive);
+		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 
-		VFS::make(archive);
-		ConfigReader::make(config, newConfig);
+		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 
-		Window::make(ConfigReader::inst()->lookup<int>(config, "graphics", "width"), ConfigReader::inst()->lookup<int>(config, "graphics", "height"), ConfigReader::inst()->lookup<bool>(config, "graphics", "fullscreen"), ConfigReader::inst()->lookup<bool>(config, "graphics", "msaa"), ConfigReader::inst()->lookup<int>(config, "graphics", "msaaValue"), ConfigReader::inst()->lookup<std::string>(config, "graphics", "title"), ConfigReader::inst()->lookup<std::string>(config, "graphics", "icon"));
+		m_world = std::make_unique<World>();
+		//m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+		m_stateManager = std::make_unique<StateManager>();
+		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
+		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
+		m_shaderLibrary = std::make_unique<ShaderLibrary>(m_configReader->lookup<std::string>(config, "graphics", "shaderScript"));
+		m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
+		m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
+		m_box2dManager = std::make_unique<Box2DManager>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
+		m_eventManager = std::make_unique<EventManager>();
 
-		World::make();
-		//DebugInterface::make(m_window->getDisplay());
-		StateManager::make();
-		TextureAtlas::make(ConfigReader::inst()->lookup<size_t>(config, "graphics", "atlasPowerOf"));
-		FontBook::make(ConfigReader::inst()->lookup<std::string>(config, "fontmanager", "fontScript"));
-		ShaderLibrary::make(ConfigReader::inst()->lookup<std::string>(config, "graphics", "shaderScript"));
-		MusicPlayer::make(ConfigReader::inst()->lookup<std::string>(config, "audio", "musicScript"));
-		SoundPlayer::make(ConfigReader::inst()->lookup<std::string>(config, "audio", "soundScript"));
-		Box2DManager::make(ConfigReader::inst()->lookup<float32>(config, "box2d", "gravity"));
-		EventManager::make();
+		Locator::m_virtualFS = m_virtualFS.get();
+		Locator::m_configReader = m_configReader.get();
+		Locator::m_window = m_window.get();
+		Locator::m_world = m_world.get();
+		//Locator::m_debugInterface = m_debugInterface.get();
+		Locator::m_stateManager = m_stateManager.get();
+		Locator::m_textureAtlas = m_textureAtlas.get();
+		Locator::m_fontBook = m_fontBook.get();
+		Locator::m_shaderLibrary = m_shaderLibrary.get();
+		Locator::m_musicPlayer = m_musicPlayer.get();
+		Locator::m_soundPlayer = m_soundPlayer.get();
+		Locator::m_box2dManager = m_box2dManager.get();
+		Locator::m_eventManager = m_eventManager.get();
 
-		Keys::KEY_FORWARD = ConfigReader::inst()->lookup<int>(config, "keys", "forward");
-		Keys::KEY_BACKWARD = ConfigReader::inst()->lookup<int>(config, "keys", "backward");
-		Keys::KEY_LEFT = ConfigReader::inst()->lookup<int>(config, "keys", "left");
-		Keys::KEY_RIGHT = ConfigReader::inst()->lookup<int>(config, "keys", "right");
-		Keys::KEY_QUIT = ConfigReader::inst()->lookup<int>(config, "keys", "quit");
+		Keys::KEY_FORWARD = m_configReader->lookup<int>(config, "keys", "forward");
+		Keys::KEY_BACKWARD = m_configReader->lookup<int>(config, "keys", "backward");
+		Keys::KEY_LEFT = m_configReader->lookup<int>(config, "keys", "left");
+		Keys::KEY_RIGHT = m_configReader->lookup<int>(config, "keys", "right");
+		Keys::KEY_QUIT = m_configReader->lookup<int>(config, "keys", "quit");
 
-		#ifdef NDEBUG
-			// DebugInterface::get()->disable(true);
-		#endif
-
-		al_reserve_samples(ConfigReader::inst()->lookup<int>(config, "audio", "reserveSamples"));
+		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
 		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
-		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA) -> apparently default allegro setting???
 
-		Box2DManager::inst()->m_world->SetContactListener(&m_engineCallbacks);
+		// Apparently this is the default allegro settings. This is here for a reference.
+		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA)
 
-		m_workaround.setRegistry(&(World::inst()->m_registry));
+		m_box2dManager->m_b2world->SetContactListener(&m_engineCallbacks);
+		m_workaround.setRegistry(&(m_world->m_registry));
 
 		LOG_S(INFO) << "Registering lua usertypes." << "\n";
 
-		World::inst()->m_lua.new_usertype<std::uint32_t>("uint32_t");
-		World::inst()->m_lua.new_usertype<std::uint16_t>("uint16_t");
-		World::inst()->m_lua.new_usertype<entt::Entity>("entity");
+		m_world->m_lua.new_usertype<std::uint32_t>("uint32_t");
+		m_world->m_lua.new_usertype<std::uint16_t>("uint16_t");
+		m_world->m_lua.new_usertype<entt::Entity>("entity");
 
-		World::inst()->m_lua.new_usertype<Vector2<int>>("Vector2i",
+		m_world->m_lua.new_usertype<Vector2<int>>("Vector2i",
 			sol::constructors<Vector2<int>(), Vector2<int>(int, int)>(),
 			"transpose", &Vector2<int>::transpose,
 			"x", &Vector2<int>::m_x,
 			"y", &Vector2<int>::m_y
 		);
 
-		World::inst()->m_lua.new_usertype<Vector2<float>>("Vector2f",
+		m_world->m_lua.new_usertype<Vector2<float>>("Vector2f",
 			sol::constructors<Vector2<float>(), Vector2<float>(float, float)>(),
 			"transpose", &Vector2<float>::transpose,
 			"x", &Vector2<float>::m_x,
 			"y", &Vector2<float>::m_y
 		);
 
-		World::inst()->m_lua.new_usertype<Vector3<int>>("Vector3i",
+		m_world->m_lua.new_usertype<Vector3<int>>("Vector3i",
 			sol::constructors<Vector3<int>(), Vector3<int>(int, int, int)>(),
 			"x", &Vector3<int>::m_x,
 			"y", &Vector3<int>::m_y,
 			"z", &Vector3<int>::m_z
 			);
 
-		World::inst()->m_lua.new_usertype<Vector3<float>>("Vector3f",
+		m_world->m_lua.new_usertype<Vector3<float>>("Vector3f",
 			sol::constructors<Vector3<float>(), Vector3<float>(float, float, float)>(),
 			"x", &Vector3<float>::m_x,
 			"y", &Vector3<float>::m_y,
 			"z", &Vector3<float>::m_z
 		);
 
-		World::inst()->m_lua.new_usertype<Rect<int>>("iRect",
+		m_world->m_lua.new_usertype<Rect<int>>("iRect",
 			sol::constructors<Rect<int>(), Rect<int>(int, int, int, int)>(),
 			"contains", sol::overload(sol::resolve<bool(int, int)>(&Rect<int>::contains), sol::resolve<bool(const Rect<int>&)>(&Rect<int>::contains)),
 			"x", &Rect<int>::m_x,
@@ -147,7 +147,7 @@ namespace sl
 			"height", &Rect<int>::m_height
 		);
 
-		World::inst()->m_lua.new_usertype<Rect<float>>("fRect",
+		m_world->m_lua.new_usertype<Rect<float>>("fRect",
 			sol::constructors<Rect<float>(), Rect<float>(float, float, float, float)>(),
 			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float>::contains), sol::resolve<bool(const Rect<float>&)>(&Rect<float>::contains)),
 			"x", &Rect<float>::m_x,
@@ -156,7 +156,7 @@ namespace sl
 			"height", &Rect<float>::m_height
 		);
 
-		World::inst()->m_lua.new_usertype<Rect<float, int>>("fiRect",
+		m_world->m_lua.new_usertype<Rect<float, int>>("fiRect",
 			sol::constructors<Rect<float, int>(), Rect<float, int>(float, float, int, int)>(),
 			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float, int>::contains), sol::resolve<bool(const Rect<float, int>&)>(&Rect<float, int>::contains)),
 			"x", &Rect<float, int>::m_x,
@@ -165,7 +165,7 @@ namespace sl
 			"height", &Rect<float, int>::m_height
 		);
 
-		World::inst()->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
+		m_world->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
 			sol::constructors<AnimationComponent(entt::Entity, const sol::table&)>(),
 			"changeAnimation", &AnimationComponent::changeAnimation,
 			"play", sol::overload(sol::resolve<void(void)>(&AnimationComponent::play), sol::resolve<void(std::string_view)>(&AnimationComponent::play)),
@@ -177,13 +177,13 @@ namespace sl
 			"m_animations", &AnimationComponent::m_animations
 		);
 
-		World::inst()->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
+		m_world->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
 			sol::constructors<ParallaxComponent(entt::Entity, const sol::table&)>(),
 			"verticalSpeed", &ParallaxComponent::m_verticalSpeed,
 			"horizontalSpeed", &ParallaxComponent::m_horizontalSpeed
 		);
 
-		World::inst()->m_lua.new_usertype<ParticleComponent>("ParticleComponent",
+		m_world->m_lua.new_usertype<ParticleComponent>("ParticleComponent",
 			sol::constructors<ParticleComponent(float, float, float, float, const std::string&)>(),
 			"fade", &ParticleComponent::m_fade,
 			"alpha", &ParticleComponent::m_alpha,
@@ -191,34 +191,34 @@ namespace sl
 			"id", &ParticleComponent::m_id
 		);
 
-		World::inst()->m_lua.new_usertype<SpriteComponent>("SpriteComponent",
+		m_world->m_lua.new_usertype<SpriteComponent>("SpriteComponent",
 			sol::constructors<SpriteComponent(entt::Entity, const sol::table&), SpriteComponent(const std::string&, float)>(),
 			"opacity", &SpriteComponent::m_opacity,
 			"spriteName", &SpriteComponent::m_spriteName
 		);
 
-		World::inst()->m_lua.new_usertype<RenderComponent>("RenderComponent",
+		m_world->m_lua.new_usertype<RenderComponent>("RenderComponent",
 			sol::constructors<RenderComponent(entt::Entity, const sol::table&)>(),
 			"renderTypes", &RenderComponent::m_renderTypes
 		);
 
-		World::inst()->m_lua.new_usertype<TransformComponent>("TransformComponent",
+		m_world->m_lua.new_usertype<TransformComponent>("TransformComponent",
 			sol::constructors<TransformComponent(entt::Entity, const sol::table&), TransformComponent(int, float, const Rect<float, int>&)>(),
 			"layer", &TransformComponent::m_layer,
 			"angle", &TransformComponent::m_angle,
 			"rect", &TransformComponent::m_rect
 		);
 
-		World::inst()->m_lua.new_usertype<TextComponent>("TextComponent",
+		m_world->m_lua.new_usertype<TextComponent>("TextComponent",
 			sol::constructors<TextComponent(entt::Entity, const sol::table&)>(),
 			"id", &TextComponent::m_id
 		);
 
-		World::inst()->m_lua.new_usertype<PhysicsComponent>("PhysicsComponent",
+		m_world->m_lua.new_usertype<PhysicsComponent>("PhysicsComponent",
 			sol::constructors<PhysicsComponent(entt::Entity, const sol::table&)>()
 		);
 
-		World::inst()->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
+		m_world->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
 			sol::constructors<Sol2enttWorkaround()>(),
 			/*"create", &Sol2enttWorkaround::create,*/
 			"destroy", &Sol2enttWorkaround::destroy,
@@ -232,24 +232,24 @@ namespace sl
 			"getTransformComponent", &Sol2enttWorkaround::get<TransformComponent>
 		);
 
-		World::inst()->m_lua["registry"] = m_workaround;
+		m_world->m_lua["registry"] = m_workaround;
 	}
 
 	Application::~Application()
 	{
-		EventManager::destroy();
-		Box2DManager::destroy();
-		SoundPlayer::destroy();
-		MusicPlayer::destroy();
-		ShaderLibrary::destroy();
-		FontBook::destroy();
-		TextureAtlas::destroy();
-		StateManager::destroy();
-		//DebugInterface::destroy();
-		World::destroy();
-		Window::destroy();
-		ConfigReader::destroy();
-		VFS::destroy();
+		m_eventManager.reset();
+		m_box2dManager.reset();
+		m_soundPlayer.reset();
+		m_musicPlayer.reset();
+		m_shaderLibrary.reset();
+		m_fontBook.reset();
+		m_textureAtlas.reset();
+		m_stateManager.reset();
+		//m_debugInterface.reset();
+		m_world.reset();
+		m_window.reset();
+		m_configReader.reset();
+		m_virtualFS.reset();
 
 		al_shutdown_native_dialog_addon();
 		al_shutdown_primitives_addon();
@@ -269,43 +269,39 @@ namespace sl
 		#ifndef NDEBUG
 			int frames = 0;
 			int updates = 0;
+			std::uint64_t timer = 0;
 		#endif
 
 		double timePerFrame = 1.0 / 60.0;
-		std::uint64_t timer = 0;
 
-		World* world = World::inst();
-		Window* window = Window::inst();
-		StateManager* stateManager = StateManager::inst();
-		//DebugInterface* debugInterface = DebugInterface::inst();
-		EventManager* eventManager = EventManager::inst();
-
-		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
+		al_register_event_source(Locator::m_eventManager->m_queue, al_get_display_event_source(Locator::m_window->getDisplay()));
+		al_register_event_source(Locator::m_eventManager->m_queue, al_get_mouse_event_source());
+		al_register_event_source(Locator::m_eventManager->m_queue, al_get_keyboard_event_source());
 		
-		al_register_event_source(eventManager->m_queue, al_get_display_event_source(window->getDisplay()));
-		al_register_event_source(eventManager->m_queue, al_get_mouse_event_source());
-		al_register_event_source(eventManager->m_queue, al_get_keyboard_event_source());
-		al_register_event_source(eventManager->m_queue, al_get_timer_event_source(clock));
-
-		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
+		al_register_event_source(Locator::m_eventManager->m_queue, al_get_timer_event_source(clock));
 		al_start_timer(clock);
+		
+		Locator::m_stateManager->load();
 
-		stateManager->load();
+		#ifndef NDEBUG
+			timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+		#endif
 
-		while (window->isOpen())
+		while (Locator::m_window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
-			while (al_get_next_event(eventManager->m_queue, &ev))
+			while (al_get_next_event(Locator::m_eventManager->m_queue, &ev))
 			{
-				world->event(&ev);
-				stateManager->event(&ev);
+				Locator::m_world->event(&ev);
+				Locator::m_stateManager->event(&ev);
 				//debugInterface->event(&ev);
 				
 				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
-					stateManager->update(timePerFrame);
-					world->update(timePerFrame);
+					Locator::m_stateManager->update(timePerFrame);
+					Locator::m_world->update(timePerFrame);
 
 					#ifndef NDEBUG
 						updates++;	
@@ -314,7 +310,7 @@ namespace sl
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_CLOSE:
-					window->close();
+					Locator::m_window->close();
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_RESIZE:
@@ -328,12 +324,12 @@ namespace sl
 			//debugInterface->newFrame();
 			//debugInterface->displayMenu();
 
-			window->clear(255, 255, 255);
+			Locator::m_window->clear(255, 255, 255);
 
-			stateManager->render();
+			Locator::m_stateManager->render();
 			//debugInterface->render();
 
-			window->display();
+			Locator::m_window->display();
 
 			#ifndef NDEBUG
 				frames++;
@@ -349,7 +345,7 @@ namespace sl
 			#endif
 		}
 
-		stateManager->unload();
+		Locator::m_stateManager->unload();
 
 		al_stop_timer(clock);
 		al_destroy_timer(clock);

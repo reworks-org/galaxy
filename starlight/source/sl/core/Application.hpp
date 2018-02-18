@@ -11,7 +11,21 @@
 #define STARLIGHT_APPLICATION_HPP_
 
 #include <fstream>
+
+#include "sl/core/World.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/graphics/Window.hpp"
+#include "sl/core/StateManager.hpp"
+#include "sl/utils/ConfigReader.hpp"
+#include "sl/resources/FontBook.hpp"
+#include "sl/events/EventManager.hpp"
+#include "sl/physics/Box2DManager.hpp"
+#include "sl/resources/SoundPlayer.hpp"
+#include "sl/resources/MusicPlayer.hpp"
+#include "sl/graphics/TextureAtlas.hpp"
 #include "sl/physics/Box2DCallbacks.hpp"
+//#include "sl/debug/DebugInterface.hpp"
+#include "sl/resources/ShaderLibrary.hpp"
 #include "sl/scripting/Sol2enttWorkaround.hpp"
 
 namespace sl
@@ -64,6 +78,20 @@ namespace sl
 		Application(Application&&) = delete;
 
 	private:
+		std::unique_ptr<World> m_world;
+		std::unique_ptr<Window> m_window;
+		std::unique_ptr<Box2DManager> m_box2dManager;
+		std::unique_ptr<ConfigReader> m_configReader;
+		std::unique_ptr<EventManager> m_eventManager;
+		std::unique_ptr<FontBook> m_fontBook;
+		std::unique_ptr<MusicPlayer> m_musicPlayer;
+		std::unique_ptr<ShaderLibrary> m_shaderLibrary;
+		std::unique_ptr<SoundPlayer> m_soundPlayer;
+		std::unique_ptr<StateManager> m_stateManager;
+		std::unique_ptr<TextureAtlas> m_textureAtlas;
+		std::unique_ptr<VirtualFS> m_virtualFS;
+		//std::unique_ptr<DebugInterface> m_debugInterface;
+
 		Sol2enttWorkaround m_workaround;
 		CollisionContact m_engineCallbacks;
 	};

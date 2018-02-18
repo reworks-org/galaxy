@@ -15,7 +15,6 @@
 namespace sl
 {
 	class QuadTree;
-	class TextureAtlas;
 
 	class RenderSystem final : public System
 	{
@@ -63,7 +62,6 @@ namespace sl
 
 	private:
 		QuadTree m_quadtree;
-		TextureAtlas* m_atlas;
 		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
 		std::vector<entt::Entity> m_entitys;

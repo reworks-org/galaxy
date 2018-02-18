@@ -11,7 +11,7 @@
 #include <allegro5/allegro_audio.h>
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "loguru/loguru.hpp"
 
 #include "Music.hpp"
@@ -20,7 +20,7 @@ namespace sl
 {
 	Music::Music(const sol::table& table)
 	{
-		m_music = al_load_sample(table.get<std::string>("file").c_str());
+		m_music = al_load_sample(table.get<const char*>("file"));
 		if (!m_music)
 		{
 			LOG_S(WARNING) << "Failed to load music file: " << table.get<std::string_view>("file");

@@ -10,9 +10,10 @@
 #include <utility>
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "sl/core/World.hpp"
 #include "sl/events/EventTypes.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
 #include "sl/events/CollisionEvent.hpp"
@@ -26,10 +27,9 @@ namespace sl
 	PhysicsSystem::PhysicsSystem(const std::string& functionScript, float ups, int vi, int pi)
 	:m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
 	{
-		m_manager = Box2DManager::inst();
-		World::inst()->m_lua.script(VFS::inst()->openAsString(functionScript));
+		Locator::m_world->m_lua.script(Locator::m_virtualFS->openAsString(functionScript));
 		
-		sol::table funcs = World::inst()->m_lua.get<sol::table>("physicsFuncs");
+		sol::table funcs = Locator::m_world->m_lua.get<sol::table>("physicsFuncs");
 		funcs.for_each([this](sol::object key, sol::object value)
 		{
 			sol::table funcTable = value.as<sol::table>();
@@ -38,8 +38,10 @@ namespace sl
 			std::uint16_t second = funcTable.get<std::uint16_t>("second");
 			std::string id = funcTable.get<std::string>("id");
 
-			m_collisions.emplace(std::make_pair(first, second), World::inst()->m_lua.get<sol::function>(id));
-			m_collisions.emplace(std::make_pair(second, first), World::inst()->m_lua.get<sol::function>(id)); // reverse in case collision happens other way.
+			m_collisions.emplace(std::make_pair(first, second), Locator::m_world->m_lua.get<sol::function>(id));
+
+			// Now we need to emplace the reverse in case collision happens the other way.
+			m_collisions.emplace(std::make_pair(second, first), Locator::m_world->m_lua.get<sol::function>(id));
 		});
 	}
 
@@ -56,7 +58,7 @@ namespace sl
 
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		m_manager->m_world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
+		Locator::m_box2dManager->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 		
 		auto view = registry.view<PhysicsComponent, TransformComponent>();
 		for (entt::Entity entity : view)

@@ -12,12 +12,10 @@
 
 #include <memory>
 
-#include "sl/types/ServiceLocator.hpp"
-
 namespace sl
 {
 	class BaseState;
-	class StateManager final : public ServiceLocator<StateManager>
+	class StateManager final
 	{
 	public:
 		///
@@ -28,7 +26,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~StateManager() override;
+		~StateManager();
 
 		///
 		/// Load the states resources.

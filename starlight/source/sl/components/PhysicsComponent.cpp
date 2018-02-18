@@ -11,6 +11,7 @@
 #include "loguru/loguru.hpp"
 #include "Box2D/Dynamics/b2Body.h"
 #include "sl/physics/Box2DHelper.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DManager.hpp"
 
 #include "PhysicsComponent.hpp"
@@ -39,7 +40,7 @@ namespace sl
 			break;
 		}
 		
-		m_body = Box2DManager::inst()->m_world->CreateBody(&bodyDef);
+		m_body = Locator::m_box2dManager->m_b2world->CreateBody(&bodyDef);
 
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		if (!fixtureList.empty())

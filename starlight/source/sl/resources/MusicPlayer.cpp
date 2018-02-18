@@ -10,7 +10,8 @@
 #include <allegro5/allegro_audio.h>
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "MusicPlayer.hpp"
 
@@ -19,7 +20,7 @@ namespace sl
 	MusicPlayer::MusicPlayer(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(VFS::inst()->openAsString(script));
+		lua.script(Locator::m_virtualFS->openAsString(script));
 		sol::table music = lua.get<sol::table>("music");
 
 		music.for_each([this](std::pair<sol::object, sol::object> pair)

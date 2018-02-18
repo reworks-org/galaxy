@@ -13,11 +13,10 @@
 #include <allegro5/events.h>
 
 #include "sl/events/EventTypes.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class EventManager : public ServiceLocator<EventManager>
+	class EventManager final
 	{
 	public:
 		///

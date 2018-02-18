@@ -49,9 +49,6 @@
     <ClCompile Include="source\sl\core\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\fs\VFS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\graphics\Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -658,6 +655,9 @@
     <ClCompile Include="source\sl\scripting\Sol2enttWorkaround.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\fs\VirtualFS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -688,9 +688,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\World.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\fs\VFS.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\graphics\Animation.hpp">
@@ -1537,9 +1534,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\types\ResourceCache.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\types\ServiceLocator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\types\State.hpp">
@@ -7678,6 +7672,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\scripting\Sol2enttWorkaround.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\fs\VirtualFS.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\core\ServiceLocator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

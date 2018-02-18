@@ -15,7 +15,7 @@
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
 
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "loguru/loguru.hpp"
 
 #include "Window.hpp"

@@ -14,11 +14,10 @@
 #include <allegro5/config.h>
 
 #include "sl/types/ResourceCache.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class ConfigReader : public ServiceLocator<ConfigReader>, public ResourceCache<ALLEGRO_CONFIG*>
+	class ConfigReader final : public ResourceCache<ALLEGRO_CONFIG*>
 	{
 	public:
 		///

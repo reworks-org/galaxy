@@ -25,7 +25,7 @@ namespace sl
 	{
 	public:
 		///
-		/// Constructor.
+		/// Animated Component Constructor.
 		///
 		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data.
@@ -33,7 +33,7 @@ namespace sl
 		AnimationComponent(entt::Entity entity, const sol::table& table);
 
 		///
-		/// Constructor.
+		/// Animated Tile Constructor.
 		///
 		/// \param map Map data - needed to look up tiles.
 		/// \param tile A tmx_tile containing animation data required to construct component.

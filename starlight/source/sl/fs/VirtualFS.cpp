@@ -1,5 +1,5 @@
 ///
-/// VFS.cpp
+/// VirtualFS.cpp
 /// starlight
 ///
 /// Created by reworks on 12/07/2016.
@@ -13,11 +13,11 @@
 
 #include "loguru/loguru.hpp"
 
-#include "VFS.hpp"
+#include "VirtualFS.hpp"
 
 namespace sl
 {
-	VFS::VFS()
+	VirtualFS::VirtualFS()
 	{
 		if (!PHYSFS_init(nullptr))
 		{
@@ -27,7 +27,7 @@ namespace sl
 		al_set_physfs_file_interface();
 	}
 
-	VFS::VFS(const std::string& archive)
+	VirtualFS::VirtualFS(const std::string& archive)
 	{
 		if (!PHYSFS_init(nullptr))
 		{
@@ -39,12 +39,12 @@ namespace sl
 		mount(archive.c_str());
 	}
 
-	VFS::~VFS()
+	VirtualFS::~VirtualFS()
 	{
 		PHYSFS_deinit();
 	}
 
-	void VFS::mount(const std::string& archive)
+	void VirtualFS::mount(const std::string& archive)
 	{
 		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
 		{
@@ -52,7 +52,7 @@ namespace sl
 		}
 	}
 
-	std::string VFS::openAsString(const std::string& file)
+	std::string VirtualFS::openAsString(const std::string& file)
 	{
 		ALLEGRO_FILE* f = nullptr;
 		if (PHYSFS_exists(file.c_str()))

@@ -18,11 +18,10 @@
 #include "sl/math/Rect.hpp"
 #include "sl/types/ResourceCache.hpp"
 #include "sl/math/MaxRectsBinPack.hpp"
-#include "sl/types/ServiceLocator.hpp"
 
 namespace sl
 {
-	class TextureAtlas final : public ServiceLocator<TextureAtlas>, public ResourceCache<Rect<int>>
+	class TextureAtlas final : public ResourceCache<Rect<int>>
 	{
 	public:
 		///

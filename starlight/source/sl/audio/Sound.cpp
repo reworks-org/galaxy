@@ -11,7 +11,7 @@
 #include <allegro5/allegro_audio.h>
 
 #include "sol2/sol.hpp"
-#include "sl/fs/VFS.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "loguru/loguru.hpp"
 
 #include "Sound.hpp"
@@ -20,7 +20,7 @@ namespace sl
 {
 	Sound::Sound(const sol::table& table)
 	{
-		m_sound = al_load_sample(table.get<std::string>("file").c_str());
+		m_sound = al_load_sample(table.get<const char*>("file"));
 		if (!m_sound)
 		{
 			LOG_S(WARNING) << "Unable to load sound file: " << table.get<std::string_view>("file");
