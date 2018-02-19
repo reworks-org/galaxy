@@ -1,46 +1,35 @@
 ///
-///  DebugInterface.hpp
-///  rework
+/// DebugInterface.hpp
+/// starlight
 ///
-///  Created by reworks on 20/04/2017.
-///  Copyright (c) 2018+ reworks.
-///  Refer to LICENSE.txt for more details.
+/// Created by reworks on 20/04/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_DEBUGINTERFACE_HPP_
-#define REWORK_DEBUGINTERFACE_HPP_
-
-#include <functional>
-
-#include "sol2/sol_forward.hpp"
+#ifndef STARLIGHT_DEBUGINTERFACE_HPP_
+#define STARLIGHT_DEBUGINTERFACE_HPP_
 
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;
 
-namespace re
+namespace sl
 {
-	class BaseState;
-    class DebugInterface : public ServiceLocator<DebugInterface>
+    class DebugInterface
     {
     public:
 		///
 		/// Constructor.
 		///
 		/// \param display ALLEGRO_DISPLAY object.
+		/// \param isDisabled Boolean. Set to true to disable.
 		///
-		DebugInterface(ALLEGRO_DISPLAY* display);
+		DebugInterface(ALLEGRO_DISPLAY* display, bool isDisabled);
 
 		///
 		/// Destructor.
 		///
-		~DebugInterface() override;
-
-		///
-		/// Set if debug manager is disabled...
-		///
-		/// \param isDisabled Boolean. Set to true to disable.
-		///
-		void disable(bool isDisabled);
+		~DebugInterface();
 
 		///
 		/// Process imgui events.
@@ -66,35 +55,15 @@ namespace re
 		///
 		void displayMenu();
 
-		///
-		/// \brief Set a state to reload too.
-		///
-		/// func() is called first when reloading.
-		///
-		/// \param s State pointer to reload to.
-		/// \param func Function to cleanup anything that normally isnt cleaned up at that time.
-		///
-		void specifyReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func);
-
 	private:
 		///
-		/// Copy Constructor.
+		/// Default Constructor.
 		/// Deleted.
 		///
-		DebugInterface(const DebugInterface&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		DebugInterface(DebugInterface&&) = delete;
+		DebugInterface() = delete;
 
 	private:
 		bool m_disabled;
-		bool m_doneOnce;
-		sol::state m_lua;
-		std::function<void(void)> m_reloadFunc;
-		std::shared_ptr<BaseState> m_reloadState;
     };
 }
 

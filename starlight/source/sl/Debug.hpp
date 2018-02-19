@@ -10,6 +10,6 @@
 #ifndef STARLIGHT_DEBUGHEADER_HPP_
 #define STARLIGHT_DEBUGHEADER_HPP_
 
-//#include "sl/debug/DebugInterface.hpp"
+#include "sl/debug/DebugInterface.hpp"
 
 #endif

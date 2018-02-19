@@ -658,6 +658,9 @@
     <ClCompile Include="source\sl\libs\MaxRectsBinPack\MaxRectsBinPack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\debug\DebugInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -7726,6 +7729,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Starlight.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\debug\DebugInterface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

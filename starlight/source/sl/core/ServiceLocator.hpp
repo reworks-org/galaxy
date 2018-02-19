@@ -24,7 +24,7 @@ namespace sl
 	class StateManager;
 	class TextureAtlas;
 	class VirtualFS;
-	//class DebugInterface;
+	class DebugInterface;
 
 	class Locator
 	{
@@ -66,7 +66,7 @@ namespace sl
 		static StateManager* m_stateManager;
 		static TextureAtlas* m_textureAtlas;
 		static VirtualFS* m_virtualFS;
-		//static DebugInterface* m_debugInterface;
+		static DebugInterface* m_debugInterface;
 	};
 }
 

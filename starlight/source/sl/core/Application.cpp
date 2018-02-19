@@ -18,6 +18,7 @@
 #include "sl/utils/Time.hpp"
 #include "sl/events/Keys.hpp"
 #include "sl/math/Vector3.hpp"
+#include "imgui/imgui_impl_a5.h"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/components/TextComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
@@ -65,7 +66,7 @@ namespace sl
 		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 
 		m_world = std::make_unique<World>();
-		//m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+		m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
 		m_stateManager = std::make_unique<StateManager>();
 		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
 		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
@@ -79,7 +80,7 @@ namespace sl
 		Locator::m_configReader = m_configReader.get();
 		Locator::m_window = m_window.get();
 		Locator::m_world = m_world.get();
-		//Locator::m_debugInterface = m_debugInterface.get();
+		Locator::m_debugInterface = m_debugInterface.get();
 		Locator::m_stateManager = m_stateManager.get();
 		Locator::m_textureAtlas = m_textureAtlas.get();
 		Locator::m_fontBook = m_fontBook.get();
@@ -129,7 +130,7 @@ namespace sl
 			"x", &Vector3<int>::m_x,
 			"y", &Vector3<int>::m_y,
 			"z", &Vector3<int>::m_z
-			);
+		);
 
 		m_world->m_lua.new_usertype<Vector3<float>>("Vector3f",
 			sol::constructors<Vector3<float>(), Vector3<float>(float, float, float)>(),
@@ -245,7 +246,7 @@ namespace sl
 		m_fontBook.reset();
 		m_textureAtlas.reset();
 		m_stateManager.reset();
-		//m_debugInterface.reset();
+		m_debugInterface.reset();
 		m_world.reset();
 		m_window.reset();
 		m_configReader.reset();
@@ -274,34 +275,34 @@ namespace sl
 
 		double timePerFrame = 1.0 / 60.0;
 
-		al_register_event_source(Locator::m_eventManager->m_queue, al_get_display_event_source(Locator::m_window->getDisplay()));
-		al_register_event_source(Locator::m_eventManager->m_queue, al_get_mouse_event_source());
-		al_register_event_source(Locator::m_eventManager->m_queue, al_get_keyboard_event_source());
+		al_register_event_source(m_eventManager->m_queue, al_get_display_event_source(m_window->getDisplay()));
+		al_register_event_source(m_eventManager->m_queue, al_get_mouse_event_source());
+		al_register_event_source(m_eventManager->m_queue, al_get_keyboard_event_source());
 		
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
-		al_register_event_source(Locator::m_eventManager->m_queue, al_get_timer_event_source(clock));
+		al_register_event_source(m_eventManager->m_queue, al_get_timer_event_source(clock));
 		al_start_timer(clock);
 		
-		Locator::m_stateManager->load();
+		m_stateManager->load();
 
 		#ifndef NDEBUG
 			timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		#endif
 
-		while (Locator::m_window->isOpen())
+		while (m_window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
-			while (al_get_next_event(Locator::m_eventManager->m_queue, &ev))
+			while (al_get_next_event(m_eventManager->m_queue, &ev))
 			{
-				Locator::m_world->event(&ev);
-				Locator::m_stateManager->event(&ev);
-				//debugInterface->event(&ev);
+				m_world->event(&ev);
+				m_stateManager->event(&ev);
+				m_debugInterface->event(&ev);
 				
 				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
-					Locator::m_stateManager->update(timePerFrame);
-					Locator::m_world->update(timePerFrame);
+					m_stateManager->update(timePerFrame);
+					m_world->update(timePerFrame);
 
 					#ifndef NDEBUG
 						updates++;	
@@ -310,26 +311,26 @@ namespace sl
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_CLOSE:
-					Locator::m_window->close();
+					m_window->close();
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_RESIZE:
-					//ImGui_ImplA5_InvalidateDeviceObjects();
-					//al_acknowledge_resize(window->getDisplay());
-					//Imgui_ImplA5_CreateDeviceObjects();
+					ImGui_ImplA5_InvalidateDeviceObjects();
+					al_acknowledge_resize(m_window->getDisplay());
+					Imgui_ImplA5_CreateDeviceObjects();
 					break;
 				}
 			}
 
-			//debugInterface->newFrame();
-			//debugInterface->displayMenu();
+			m_debugInterface->newFrame();
+			m_debugInterface->displayMenu();
 
-			Locator::m_window->clear(255, 255, 255);
+			m_window->clear(255, 255, 255);
 
-			Locator::m_stateManager->render();
-			//debugInterface->render();
+			m_stateManager->render();
+			m_debugInterface->render();
 
-			Locator::m_window->display();
+			m_window->display();
 
 			#ifndef NDEBUG
 				frames++;
@@ -345,7 +346,7 @@ namespace sl
 			#endif
 		}
 
-		Locator::m_stateManager->unload();
+		m_stateManager->unload();
 
 		al_stop_timer(clock);
 		al_destroy_timer(clock);

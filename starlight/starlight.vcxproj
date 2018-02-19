@@ -36,6 +36,7 @@
     <ClCompile Include="source\sl\core\Application.cpp" />
     <ClCompile Include="source\sl\core\StateManager.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
+    <ClCompile Include="source\sl\debug\DebugInterface.cpp" />
     <ClCompile Include="source\sl\events\EventManager.cpp" />
     <ClCompile Include="source\sl\fs\VirtualFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
@@ -256,6 +257,7 @@
     <ClInclude Include="source\sl\core\StateManager.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
     <ClInclude Include="source\sl\Debug.hpp" />
+    <ClInclude Include="source\sl\debug\DebugInterface.hpp" />
     <ClInclude Include="source\sl\Events.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\CollisionTypes.hpp" />
