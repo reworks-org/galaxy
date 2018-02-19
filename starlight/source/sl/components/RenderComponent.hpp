@@ -22,6 +22,11 @@ namespace sl
 	{
 	public:
 		///
+		/// Default constructor.
+		///
+		RenderComponent() = default;
+
+		///
 		/// Constructor.
 		///
 		/// \param entity Entity to attach to component fixtures.
@@ -38,13 +43,6 @@ namespace sl
 		/// Default move assignment overload.
 		///
 		RenderComponent& operator=(const RenderComponent&);
-
-	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		RenderComponent() = delete;
 
 	public:
 		std::vector<unsigned int> m_renderTypes;

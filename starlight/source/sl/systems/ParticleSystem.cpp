@@ -10,7 +10,9 @@
 #include "loguru/loguru.hpp"
 #include "sl/math/Random.hpp"
 #include "sl/events/EventTypes.hpp"
+#include "sl/graphics/RenderType.hpp"
 #include "sl/events/ParticleEmitEvent.hpp"
+#include "sl/components/RenderComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -40,9 +42,12 @@ namespace sl
 					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->m_particleCount[amountOfParticles]; ++amountOfParticles)
 					{
 						entt::Entity entity = registry.create();
-						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
 						
+						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
 						registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), 255.0f, particleEvent->m_fade, particleEvent->m_textureIDS[i]);
+						RenderComponent& rc = registry.assign<RenderComponent>(entity);
+						rc.m_renderTypes.resize(1);
+						rc.m_renderTypes[0] = RenderTypes::PARTICLE;
 					}
 				}
 			}

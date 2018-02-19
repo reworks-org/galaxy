@@ -18,10 +18,13 @@
 #include "sl/core/World.hpp"
 #include "sl/utils/Utils.hpp"
 #include "sl/graphics/Window.hpp"
+#include "sl/graphics/RenderType.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 #include "boost/numeric/conversion/cast.hpp"
 #include "sl/components/SpriteComponent.hpp"
+#include "sl/components/RenderComponent.hpp"
+#include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -114,11 +117,17 @@ namespace sl
 			entt::Entity entity = Locator::m_world->m_registry.create();
 			Locator::m_world->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source), op);
 			Locator::m_world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
+
+			RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(entity);
+			rc.m_renderTypes.resize(1);
+			rc.m_renderTypes[0] = RenderTypes::SPRITE;
+
 			Locator::m_world->m_inUse.push_back(entity);
 		}
 
 		///
 		/// Process the object layer.
+		/// Please note collisions only support objects of type "OT_SQUARE" (rectangles).
 		///
 		static inline void processObjects(tmx_map* map, tmx_object_group* objgr)
 		{
@@ -142,6 +151,14 @@ namespace sl
 				{
 					if (head->obj_type == OT_SQUARE)
 					{
+						entt::Entity objentity = Locator::m_world->m_registry.create();
+
+						sol::state tempLua;
+						tempLua.script(Locator::m_virtualFS->openAsString(head->name));
+
+						Locator::m_world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempLua.get<sol::table>("PhysicsObject"));
+						Locator::m_world->m_inUse.push_back(objentity);
+
 						al_draw_rectangle(head->x, head->y, head->x + head->width, head->y + head->height, color, LINE_THICKNESS);
 					}
 					else if (head->obj_type == OT_POLYGON)
@@ -168,6 +185,10 @@ namespace sl
 			Locator::m_textureAtlas->addTextureToAtlas(id, objects);
 
 			Locator::m_world->m_registry.assign<SpriteComponent>(entity, id, 1.0f);
+			RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(entity);
+			rc.m_renderTypes.resize(1);
+			rc.m_renderTypes[0] = RenderTypes::SPRITE;
+
 			Locator::m_world->m_inUse.push_back(entity);
 
 			al_destroy_bitmap(objects);
@@ -256,6 +277,11 @@ namespace sl
 							Locator::m_world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 							Locator::m_world->m_registry.assign<SpriteComponent>(animatedEntity, id, op);
 							Locator::m_world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
+
+							RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(animatedEntity);
+							rc.m_renderTypes.resize(1);
+							rc.m_renderTypes[0] = RenderTypes::SPRITE;
+
 							Locator::m_world->m_inUse.push_back(animatedEntity);
 
 							++counter;
@@ -271,6 +297,10 @@ namespace sl
 			al_destroy_bitmap(tileLayer);
 
 			Locator::m_world->m_registry.assign<SpriteComponent>(entity, layer->name, op);
+			RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(entity);
+			rc.m_renderTypes.resize(1);
+			rc.m_renderTypes[0] = RenderTypes::SPRITE;
+
 			Locator::m_world->m_inUse.push_back(entity);
 		}
 
