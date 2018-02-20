@@ -14,14 +14,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/O1_size_fwd.hpp>
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/aux_/has_size.hpp>
-#include <boost/mpl/aux_/config/forwarding.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/O1_size_fwd.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/aux_/has_size.hpp>
+#include <sl/libs/boost/mpl/aux_/config/forwarding.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 namespace boost { namespace mpl {
 

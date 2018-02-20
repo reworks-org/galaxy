@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/CheckBox/CheckBoxListener.hpp"
+#include "sl/libs/Agui/Widgets/CheckBox/CheckBoxListener.hpp"
 namespace agui {
 	CheckBoxListener::CheckBoxListener(void)
 	{

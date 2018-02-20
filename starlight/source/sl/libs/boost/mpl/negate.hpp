@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/integral_c.hpp>
-#include <boost/mpl/aux_/msvc_eti_base.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/aux_/config/eti.hpp>
-#include <boost/mpl/aux_/config/integral.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/integral_c.hpp>
+#include <sl/libs/boost/mpl/aux_/msvc_eti_base.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/aux_/config/eti.hpp>
+#include <sl/libs/boost/mpl/aux_/config/integral.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
 
 namespace boost { namespace mpl {
 

@@ -14,14 +14,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/integral_c.hpp>
-#include <boost/mpl/aux_/range_c/front.hpp>
-#include <boost/mpl/aux_/range_c/back.hpp>
-#include <boost/mpl/aux_/range_c/size.hpp>
-#include <boost/mpl/aux_/range_c/O1_size.hpp>
-#include <boost/mpl/aux_/range_c/empty.hpp>
-#include <boost/mpl/aux_/range_c/iterator.hpp>
-#include <boost/mpl/aux_/range_c/tag.hpp>
+#include <sl/libs/boost/mpl/integral_c.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/front.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/back.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/size.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/O1_size.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/empty.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/iterator.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/tag.hpp>
 
 namespace boost { namespace mpl {
 

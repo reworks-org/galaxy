@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 // flags for MSVC 6.5's so-called "early template instantiation bug"
 #if    !defined(BOOST_MPL_CFG_MSVC_60_ETI_BUG) \

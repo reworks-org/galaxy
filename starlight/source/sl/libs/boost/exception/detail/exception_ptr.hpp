@@ -6,19 +6,19 @@
 #ifndef UUID_618474C2DE1511DEB74A388C56D89593
 #define UUID_618474C2DE1511DEB74A388C56D89593
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 #ifdef BOOST_NO_EXCEPTIONS
 #error This header requires exception handling to be enabled.
 #endif
-#include <boost/exception/exception.hpp>
-#include <boost/exception/info.hpp>
-#include <boost/exception/diagnostic_information.hpp>
-#include <boost/exception/detail/clone_current_exception.hpp>
-#include <boost/exception/detail/type_info.hpp>
+#include <sl/libs/boost/exception/exception.hpp>
+#include <sl/libs/boost/exception/info.hpp>
+#include <sl/libs/boost/exception/diagnostic_information.hpp>
+#include <sl/libs/boost/exception/detail/clone_current_exception.hpp>
+#include <sl/libs/boost/exception/detail/type_info.hpp>
 #ifndef BOOST_NO_RTTI
-#include <boost/core/demangle.hpp>
+#include <sl/libs/boost/core/demangle.hpp>
 #endif
-#include <boost/shared_ptr.hpp>
+#include <sl/libs/boost/shared_ptr.hpp>
 #include <stdexcept>
 #include <new>
 #include <ios>

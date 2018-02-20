@@ -15,9 +15,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/clear_fwd.hpp>
-#include <boost/mpl/set/aux_/set0.hpp>
-#include <boost/mpl/set/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/clear_fwd.hpp>
+#include <sl/libs/boost/mpl/set/aux_/set0.hpp>
+#include <sl/libs/boost/mpl/set/aux_/tag.hpp>
 
 namespace boost { namespace mpl {
 

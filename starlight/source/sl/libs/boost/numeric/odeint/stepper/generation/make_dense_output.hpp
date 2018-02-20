@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/generation/make_dense_output.hpp
+ sl/libs/boost/numeric/odeint/stepper/generation/make_dense_output.hpp
 
  [begin_description]
  Factory function to simplify the creation of dense output steppers from error steppers.

@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/TextBox/TextBoxListener.hpp"
+#include "sl/libs/Agui/Widgets/TextBox/TextBoxListener.hpp"
 namespace agui
 {
 	TextBoxListener::TextBoxListener(void)

@@ -17,6 +17,6 @@
 
 #define AUX778076_OP_NAME shift_right
 #define AUX778076_OP_TOKEN >>
-#include <boost/mpl/aux_/shift_op.hpp>
+#include <sl/libs/boost/mpl/aux_/shift_op.hpp>
 
 #endif // BOOST_MPL_SHIFT_RIGHT_HPP_INCLUDED

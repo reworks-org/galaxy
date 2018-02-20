@@ -18,9 +18,9 @@
 #define BOOST_NUMERIC_UBLAS_TRAITS_C_ARRAY_HPP
 
 
-#include <boost/numeric/ublas/traits.hpp>
-#include <boost/numeric/ublas/traits/const_iterator_type.hpp>
-#include <boost/numeric/ublas/traits/iterator_type.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/traits/const_iterator_type.hpp>
+#include <sl/libs/boost/numeric/ublas/traits/iterator_type.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
 

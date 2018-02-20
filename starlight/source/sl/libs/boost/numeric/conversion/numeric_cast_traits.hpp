@@ -9,7 +9,7 @@
 #ifndef BOOST_NUMERIC_CAST_TRAITS_HPP
 #define BOOST_NUMERIC_CAST_TRAITS_HPP
 
-#include <boost/numeric/conversion/converter_policies.hpp>
+#include <sl/libs/boost/numeric/conversion/converter_policies.hpp>
 
 namespace boost { namespace numeric {
 
@@ -24,8 +24,8 @@ namespace boost { namespace numeric {
 }}//namespace boost::numeric;
 
 #if !defined( BOOST_NUMERIC_CONVERSION_RELAX_BUILT_IN_CAST_TRAITS )
-#include <boost/cstdint.hpp>
-#include <boost/numeric/conversion/detail/numeric_cast_traits.hpp>
+#include <sl/libs/boost/cstdint.hpp>
+#include <sl/libs/boost/numeric/conversion/detail/numeric_cast_traits.hpp>
 #endif//!defined BOOST_NUMERIC_CONVERSION_RELAX_BUILT_IN_CAST_TRAITS
 
 #endif//BOOST_NUMERIC_CAST_TRAITS_HPP

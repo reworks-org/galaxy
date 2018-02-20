@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/KeyboardListener.hpp"
+#include "sl/libs/Agui/KeyboardListener.hpp"
 
 namespace agui {
 	KeyboardListener::KeyboardListener(void)

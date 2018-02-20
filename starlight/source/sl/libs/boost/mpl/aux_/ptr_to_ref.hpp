@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/static_cast.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/static_cast.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 
 #if BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1400)) \

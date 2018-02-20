@@ -14,34 +14,34 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/less.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/less.hpp>
+#include <sl/libs/boost/mpl/lambda.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if BOOST_WORKAROUND(__BORLANDC__, BOOST_TESTED_AT(0x610))
 #   define BOOST_MPL_CFG_STRIPPED_DOWN_LOWER_BOUND_IMPL
 #endif
 
 #if !defined(BOOST_MPL_CFG_STRIPPED_DOWN_LOWER_BOUND_IMPL)
-#   include <boost/mpl/minus.hpp>
-#   include <boost/mpl/divides.hpp>
-#   include <boost/mpl/size.hpp>
-#   include <boost/mpl/advance.hpp>
-#   include <boost/mpl/begin_end.hpp>
-#   include <boost/mpl/long.hpp>
-#   include <boost/mpl/eval_if.hpp>
-#   include <boost/mpl/prior.hpp>
-#   include <boost/mpl/deref.hpp>
-#   include <boost/mpl/apply.hpp>
-#   include <boost/mpl/aux_/value_wknd.hpp>
+#   include <sl/libs/boost/mpl/minus.hpp>
+#   include <sl/libs/boost/mpl/divides.hpp>
+#   include <sl/libs/boost/mpl/size.hpp>
+#   include <sl/libs/boost/mpl/advance.hpp>
+#   include <sl/libs/boost/mpl/begin_end.hpp>
+#   include <sl/libs/boost/mpl/long.hpp>
+#   include <sl/libs/boost/mpl/eval_if.hpp>
+#   include <sl/libs/boost/mpl/prior.hpp>
+#   include <sl/libs/boost/mpl/deref.hpp>
+#   include <sl/libs/boost/mpl/apply.hpp>
+#   include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
 #else
-#   include <boost/mpl/not.hpp>
-#   include <boost/mpl/find.hpp>
-#   include <boost/mpl/bind.hpp>
+#   include <sl/libs/boost/mpl/not.hpp>
+#   include <sl/libs/boost/mpl/find.hpp>
+#   include <sl/libs/boost/mpl/bind.hpp>
 #endif
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 namespace boost { namespace mpl {
 

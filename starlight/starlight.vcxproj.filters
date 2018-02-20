@@ -15,10 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.txt" />
-    <Text Include="style.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\sl\audio\Music.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -457,12 +453,6 @@
     <ClCompile Include="source\sl\libs\imgui\imguifilesystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguilistview.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\TextEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\libs\loguru\loguru.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -659,6 +649,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\debug\DebugInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\libs\imgui\imguidatechooser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\libs\imgui\imguitexteditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\libs\imgui\imguinodegrapheditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1374,9 +1373,6 @@
     <ClInclude Include="source\sl\libs\imgui\imguifilesystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguilistview.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\stb_rect_pack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1384,9 +1380,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\stb_truetype.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\TextEditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\loguru\loguru.hpp">
@@ -7732,6 +7725,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\debug\DebugInterface.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\imgui\imguidatechooser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\imgui\imguitexteditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\imgui\imguinodegrapheditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

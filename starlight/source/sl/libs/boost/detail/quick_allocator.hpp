@@ -18,6 +18,6 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/smart_ptr/detail/quick_allocator.hpp>
+#include <sl/libs/boost/smart_ptr/detail/quick_allocator.hpp>
 
 #endif  // #ifndef BOOST_DETAIL_QUICK_ALLOCATOR_HPP_INCLUDED

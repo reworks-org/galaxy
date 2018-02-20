@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/util/state_wrapper.hpp
+ sl/libs/boost/numeric/odeint/util/state_wrapper.hpp
 
  [begin_description]
  State wrapper for the state type in all stepper. The state wrappers are responsible for construction,
@@ -20,11 +20,11 @@
 #define BOOST_NUMERIC_ODEINT_UTIL_STATE_WRAPPER_HPP_INCLUDED
 
 
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/resize.hpp>
-#include <boost/numeric/odeint/util/same_size.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resize.hpp>
+#include <sl/libs/boost/numeric/odeint/util/same_size.hpp>
 
 
 namespace boost {

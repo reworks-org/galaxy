@@ -16,29 +16,29 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/identity.hpp>
-#   include <boost/mpl/next.hpp>
-#   include <boost/mpl/if.hpp>
-#   include <boost/mpl/apply.hpp>
-#   include <boost/mpl/aux_/value_wknd.hpp>
+#   include <sl/libs/boost/mpl/identity.hpp>
+#   include <sl/libs/boost/mpl/next.hpp>
+#   include <sl/libs/boost/mpl/if.hpp>
+#   include <sl/libs/boost/mpl/apply.hpp>
+#   include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
 #endif
 
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER iter_fold_if_impl.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/limits/unrolling.hpp>
-#   include <boost/preprocessor/arithmetic/sub.hpp>
-#   include <boost/preprocessor/repeat.hpp>
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/dec.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/mpl/limits/unrolling.hpp>
+#   include <sl/libs/boost/preprocessor/arithmetic/sub.hpp>
+#   include <sl/libs/boost/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/dec.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

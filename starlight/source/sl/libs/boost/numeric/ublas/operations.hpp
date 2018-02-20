@@ -17,10 +17,10 @@
 #ifndef BOOST_NUMERIC_UBLAS_OPERATIONS_HPP
 #define BOOST_NUMERIC_UBLAS_OPERATIONS_HPP
 
-#include <boost/numeric/ublas/operation/begin.hpp>
-#include <boost/numeric/ublas/operation/end.hpp>
-#include <boost/numeric/ublas/operation/num_columns.hpp>
-#include <boost/numeric/ublas/operation/num_rows.hpp>
-#include <boost/numeric/ublas/operation/size.hpp>
+#include <sl/libs/boost/numeric/ublas/operation/begin.hpp>
+#include <sl/libs/boost/numeric/ublas/operation/end.hpp>
+#include <sl/libs/boost/numeric/ublas/operation/num_columns.hpp>
+#include <sl/libs/boost/numeric/ublas/operation/num_rows.hpp>
+#include <sl/libs/boost/numeric/ublas/operation/size.hpp>
 
 #endif

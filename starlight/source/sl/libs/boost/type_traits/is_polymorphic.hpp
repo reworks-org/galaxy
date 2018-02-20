@@ -8,12 +8,12 @@
 #ifndef BOOST_TT_IS_POLYMORPHIC_HPP
 #define BOOST_TT_IS_POLYMORPHIC_HPP
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 #ifndef BOOST_IS_POLYMORPHIC
-#include <boost/type_traits/is_class.hpp>
+#include <sl/libs/boost/type_traits/is_class.hpp>
 #endif
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if defined(BOOST_MSVC) && (BOOST_MSVC >= 1700)
 #pragma warning(push)

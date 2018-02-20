@@ -20,24 +20,24 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/bind_fwd.hpp>
-#   include <boost/mpl/placeholders.hpp>
-#   include <boost/mpl/next.hpp>
-#   include <boost/mpl/protect.hpp>
-#   include <boost/mpl/apply_wrap.hpp>
-#   include <boost/mpl/limits/arity.hpp>
-#   include <boost/mpl/aux_/na.hpp>
-#   include <boost/mpl/aux_/arity_spec.hpp>
-#   include <boost/mpl/aux_/type_wrapper.hpp>
-#   include <boost/mpl/aux_/yes_no.hpp>
+#   include <sl/libs/boost/mpl/bind_fwd.hpp>
+#   include <sl/libs/boost/mpl/placeholders.hpp>
+#   include <sl/libs/boost/mpl/next.hpp>
+#   include <sl/libs/boost/mpl/protect.hpp>
+#   include <sl/libs/boost/mpl/apply_wrap.hpp>
+#   include <sl/libs/boost/mpl/limits/arity.hpp>
+#   include <sl/libs/boost/mpl/aux_/na.hpp>
+#   include <sl/libs/boost/mpl/aux_/arity_spec.hpp>
+#   include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#   include <sl/libs/boost/mpl/aux_/yes_no.hpp>
 #   if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION)
-#       include <boost/type_traits/is_reference.hpp>
+#       include <sl/libs/boost/type_traits/is_reference.hpp>
 #   endif 
 #endif
 
-#include <boost/mpl/aux_/config/bind.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/bind.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
@@ -47,28 +47,28 @@
 #   else
 #       define BOOST_MPL_PREPROCESSED_HEADER bind.hpp
 #   endif
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/aux_/preprocessor/params.hpp>
-#   include <boost/mpl/aux_/preprocessor/default_params.hpp>
-#   include <boost/mpl/aux_/preprocessor/def_params_tail.hpp>
-#   include <boost/mpl/aux_/preprocessor/partial_spec_params.hpp>
-#   include <boost/mpl/aux_/preprocessor/ext_params.hpp>
-#   include <boost/mpl/aux_/preprocessor/repeat.hpp>
-#   include <boost/mpl/aux_/preprocessor/enum.hpp>
-#   include <boost/mpl/aux_/preprocessor/add.hpp>
-#   include <boost/mpl/aux_/config/dmc_ambiguous_ctps.hpp>
-#   include <boost/mpl/aux_/config/ctps.hpp>
-#   include <boost/mpl/aux_/config/ttp.hpp>
-#   include <boost/mpl/aux_/config/dtp.hpp>
-#   include <boost/mpl/aux_/nttp_decl.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/default_params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/def_params_tail.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/partial_spec_params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/ext_params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/enum.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/add.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/dmc_ambiguous_ctps.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ttp.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/dtp.hpp>
+#   include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
 
-#   include <boost/preprocessor/iterate.hpp>
-#   include <boost/preprocessor/comma_if.hpp>
-#   include <boost/preprocessor/cat.hpp>
-#   include <boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/iterate.hpp>
+#   include <sl/libs/boost/preprocessor/comma_if.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
 
 namespace boost { namespace mpl {
 
@@ -293,19 +293,19 @@ template< typename T > struct is_bind_template
 
 
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <boost/mpl/bind.hpp>))
+    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <sl/libs/boost/mpl/bind.hpp>))
 #include BOOST_PP_ITERATE()
 
 #if !defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) \
     && !defined(BOOST_MPL_CFG_NO_TEMPLATE_TEMPLATE_PARAMETERS)
 /// if_/eval_if specializations
 #   define AUX778076_SPEC_NAME if_
-#   define BOOST_PP_ITERATION_PARAMS_1 (3,(3, 3, <boost/mpl/bind.hpp>))
+#   define BOOST_PP_ITERATION_PARAMS_1 (3,(3, 3, <sl/libs/boost/mpl/bind.hpp>))
 #   include BOOST_PP_ITERATE()
 
 #if !defined(BOOST_MPL_CFG_DMC_AMBIGUOUS_CTPS)
 #   define AUX778076_SPEC_NAME eval_if
-#   define BOOST_PP_ITERATION_PARAMS_1 (3,(3, 3, <boost/mpl/bind.hpp>))
+#   define BOOST_PP_ITERATION_PARAMS_1 (3,(3, 3, <sl/libs/boost/mpl/bind.hpp>))
 #   include BOOST_PP_ITERATE()
 #endif
 #endif
@@ -319,7 +319,7 @@ namespace aux {
 #define AUX778076_COUNT_ARGS_PREFIX bind
 #define AUX778076_COUNT_ARGS_DEFAULT na
 #define AUX778076_COUNT_ARGS_ARITY BOOST_MPL_LIMIT_METAFUNCTION_ARITY
-#include <boost/mpl/aux_/count_args.hpp>
+#include <sl/libs/boost/mpl/aux_/count_args.hpp>
 }
 
 // bind
@@ -391,7 +391,7 @@ struct BOOST_PP_CAT(bind,i_)<
     {
      private:
         typedef mpl::arg<1> n1;
-#       define BOOST_PP_ITERATION_PARAMS_2 (3,(1, i_, <boost/mpl/bind.hpp>))
+#       define BOOST_PP_ITERATION_PARAMS_2 (3,(1, i_, <sl/libs/boost/mpl/bind.hpp>))
 #       include BOOST_PP_ITERATE()
 
         typedef typename AUX778076_SPEC_NAME<
@@ -432,7 +432,7 @@ struct BOOST_PP_CAT(bind,i_)
 #   endif // BOOST_MPL_CFG_NO_UNNAMED_PLACEHOLDER_SUPPORT
 
 #   if i_ > 0
-#       define BOOST_PP_ITERATION_PARAMS_2 (3,(1, i_, <boost/mpl/bind.hpp>))
+#       define BOOST_PP_ITERATION_PARAMS_2 (3,(1, i_, <sl/libs/boost/mpl/bind.hpp>))
 #       include BOOST_PP_ITERATE()
 #   endif
 

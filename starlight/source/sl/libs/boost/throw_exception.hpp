@@ -14,7 +14,7 @@
 #endif
 
 //
-//  boost/throw_exception.hpp
+//  sl/libs/boost/throw_exception.hpp
 //
 //  Copyright (c) 2002 Peter Dimov and Multi Media Ltd.
 //  Copyright (c) 2008-2009 Emil Dotchevski and Reverge Studios, Inc.
@@ -26,8 +26,8 @@
 //  http://www.boost.org/libs/utility/throw_exception.html
 //
 
-#include "boost/detail/workaround.hpp"
-#include "boost/config.hpp"
+#include "sl/libs/boost/detail/workaround.hpp"
+#include "sl/libs/boost/config.hpp"
 #include <exception>
 
 #if !defined( BOOST_EXCEPTION_DISABLE ) && defined( __BORLANDC__ ) && BOOST_WORKAROUND( __BORLANDC__, BOOST_TESTED_AT(0x593) )
@@ -39,9 +39,9 @@
 #endif
 
 #if !defined( BOOST_EXCEPTION_DISABLE )
-# include "boost/exception/exception.hpp"
+# include "sl/libs/boost/exception/exception.hpp"
 #if !defined(BOOST_THROW_EXCEPTION_CURRENT_FUNCTION)
-# include "boost/current_function.hpp"
+# include "sl/libs/boost/current_function.hpp"
 # define BOOST_THROW_EXCEPTION_CURRENT_FUNCTION BOOST_CURRENT_FUNCTION
 #endif
 # define BOOST_THROW_EXCEPTION(x) ::boost::exception_detail::throw_exception_(x,BOOST_THROW_EXCEPTION_CURRENT_FUNCTION,__FILE__,__LINE__)

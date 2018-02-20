@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/generation/make_controlled.hpp
+ sl/libs/boost/numeric/odeint/stepper/generation/make_controlled.hpp
 
  [begin_description]
  Factory function to simplify the creation of controlled steppers from error steppers.

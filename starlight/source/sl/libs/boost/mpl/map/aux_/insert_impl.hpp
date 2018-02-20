@@ -15,13 +15,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/insert_fwd.hpp>
-#include <boost/mpl/next_prior.hpp>
-#include <boost/mpl/map/aux_/contains_impl.hpp>
-#include <boost/mpl/map/aux_/item.hpp>
-#include <boost/mpl/map/aux_/tag.hpp>
-#include <boost/mpl/aux_/na.hpp>
-#include <boost/mpl/aux_/config/typeof.hpp>
+#include <sl/libs/boost/mpl/insert_fwd.hpp>
+#include <sl/libs/boost/mpl/next_prior.hpp>
+#include <sl/libs/boost/mpl/map/aux_/contains_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/item.hpp>
+#include <sl/libs/boost/mpl/map/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/aux_/na.hpp>
+#include <sl/libs/boost/mpl/aux_/config/typeof.hpp>
 
 namespace boost { namespace mpl {
 

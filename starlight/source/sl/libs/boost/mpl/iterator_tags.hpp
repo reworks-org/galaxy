@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
 
 namespace boost { namespace mpl {
 

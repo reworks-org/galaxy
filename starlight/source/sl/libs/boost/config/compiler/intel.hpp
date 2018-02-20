@@ -18,7 +18,7 @@
 
 #ifdef _MSC_VER
 
-#include <boost/config/compiler/visualc.hpp>
+#include <sl/libs/boost/config/compiler/visualc.hpp>
 
 #undef BOOST_MSVC
 #undef BOOST_MSVC_FULL_VER
@@ -41,7 +41,7 @@
 
 #else // defined(_MSC_VER)
 
-#include <boost/config/compiler/gcc.hpp>
+#include <sl/libs/boost/config/compiler/gcc.hpp>
 
 #undef BOOST_GCC_VERSION
 #undef BOOST_GCC_CXX11
@@ -99,7 +99,7 @@
 
 #else // defined(__INTEL_COMPILER) && (__INTEL_COMPILER >= 1500) && (defined(_MSC_VER) || defined(__GNUC__))
 
-#include <boost/config/compiler/common_edg.hpp>
+#include <sl/libs/boost/config/compiler/common_edg.hpp>
 
 #if defined(__INTEL_COMPILER)
 #if __INTEL_COMPILER == 9999
@@ -174,7 +174,7 @@
 #  define BOOST_NO_POINTER_TO_MEMBER_TEMPLATE_PARAMETERS
 #endif
 
-// See http://aspn.activestate.com/ASPN/Mail/Message/boost/1614864
+// See http://aspn.activestate.com/ASPN/Mail/Message/sl/libs/boost/1614864
 #if BOOST_INTEL_CXX_VERSION < 600
 #  define BOOST_NO_INTRINSIC_WCHAR_T
 #else

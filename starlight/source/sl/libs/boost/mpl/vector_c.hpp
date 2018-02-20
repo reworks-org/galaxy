@@ -15,13 +15,13 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/limits/vector.hpp>
-#   include <boost/mpl/aux_/nttp_decl.hpp>
-#   include <boost/mpl/aux_/config/preprocessor.hpp>
+#   include <sl/libs/boost/mpl/limits/vector.hpp>
+#   include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/preprocessor.hpp>
 
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/cat.hpp>
-#   include <boost/preprocessor/stringize.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/stringize.hpp>
 
 #if !defined(BOOST_NEEDS_TOKEN_PASTING_OP_FOR_TOKENS_JUXTAPOSING)
 #   define AUX778076_VECTOR_C_HEADER \
@@ -33,29 +33,29 @@
     /**/
 #endif
 
-#   include BOOST_PP_STRINGIZE(boost/mpl/vector/AUX778076_VECTOR_C_HEADER)
+#   include BOOST_PP_STRINGIZE(sl/libs/boost/mpl/vector/AUX778076_VECTOR_C_HEADER)
 #   undef AUX778076_VECTOR_C_HEADER
 #   include <climits>
 #endif
 
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER vector_c.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/limits/vector.hpp>
+#   include <sl/libs/boost/mpl/limits/vector.hpp>
 
 #   define AUX778076_SEQUENCE_NAME vector_c
 #   define AUX778076_SEQUENCE_LIMIT BOOST_MPL_LIMIT_VECTOR_SIZE
 #   define AUX778076_SEQUENCE_NAME_N(n) BOOST_PP_CAT(BOOST_PP_CAT(vector,n),_c)
 #   define AUX778076_SEQUENCE_CONVERT_CN_TO(z,n,TARGET) TARGET(BOOST_PP_CAT(C,n))
 #   define AUX778076_SEQUENCE_INTEGRAL_WRAPPER
-#   include <boost/mpl/aux_/sequence_wrapper.hpp>
+#   include <sl/libs/boost/mpl/aux_/sequence_wrapper.hpp>
 
 #endif // BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS
 #endif // BOOST_MPL_VECTOR_C_HPP_INCLUDED

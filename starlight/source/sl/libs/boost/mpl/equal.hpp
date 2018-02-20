@@ -14,23 +14,23 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/iter_fold_if_impl.hpp>
-#include <boost/mpl/aux_/iter_apply.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/not.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/always.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/bind.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/aux_/msvc_eti_base.hpp>
+#include <sl/libs/boost/mpl/aux_/iter_fold_if_impl.hpp>
+#include <sl/libs/boost/mpl/aux_/iter_apply.hpp>
+#include <sl/libs/boost/mpl/and.hpp>
+#include <sl/libs/boost/mpl/not.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/always.hpp>
+#include <sl/libs/boost/mpl/bool.hpp>
+#include <sl/libs/boost/mpl/lambda.hpp>
+#include <sl/libs/boost/mpl/bind.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/aux_/msvc_eti_base.hpp>
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost { namespace mpl {
 

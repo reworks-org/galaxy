@@ -14,16 +14,16 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/fold.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/integral_c.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/aux_/msvc_eti_base.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/aux_/config/forwarding.hpp>
+#include <sl/libs/boost/mpl/fold.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/integral_c.hpp>
+#include <sl/libs/boost/mpl/identity.hpp>
+#include <sl/libs/boost/mpl/eval_if.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/aux_/msvc_eti_base.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/aux_/config/forwarding.hpp>
 
 namespace boost { namespace mpl {
 

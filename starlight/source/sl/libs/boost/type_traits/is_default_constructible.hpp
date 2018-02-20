@@ -10,16 +10,16 @@
 #define BOOST_TT_IS_DEFAULT_CONSTRUCTIBLE_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if BOOST_WORKAROUND(BOOST_GCC_VERSION, < 40700)
-#include <boost/type_traits/is_abstract.hpp>
+#include <sl/libs/boost/type_traits/is_abstract.hpp>
 #endif
 
 #if !defined(BOOST_NO_CXX11_DECLTYPE) && !BOOST_WORKAROUND(BOOST_MSVC, < 1800) && !BOOST_WORKAROUND(BOOST_GCC_VERSION, < 40500)
 
-#include <boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
 
 namespace boost{
 
@@ -65,7 +65,7 @@ namespace boost{
 
 #else
 
-#include <boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
 
 namespace boost{
 

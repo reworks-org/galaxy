@@ -12,19 +12,19 @@
 #define BOOST_TT_HAS_TRIVIAL_MOVE_CONSTRUCTOR_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 #ifdef BOOST_HAS_TRIVIAL_MOVE_CONSTRUCTOR
 
 #if defined(BOOST_MSVC) || defined(BOOST_INTEL)
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
 #endif
 
 #if defined(__GNUC__) || defined(__clang)
-#include <boost/type_traits/is_constructible.hpp>
-#include <boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
 #endif
 
 
@@ -35,8 +35,8 @@ template <typename T> struct has_trivial_move_constructor : public integral_cons
 #else
 
 #ifdef __SUNPRO_CC
-#include <boost/type_traits/is_constructible.hpp>
-#include <boost/type_traits/remove_const.hpp>
+#include <sl/libs/boost/type_traits/is_constructible.hpp>
+#include <sl/libs/boost/type_traits/remove_const.hpp>
 #if __cplusplus >= 201103
 #define SOLARIS_EXTRA_CHECK && is_constructible<typename remove_const<T>::type, typename remove_const<T>::type&&>::value
 #endif
@@ -46,8 +46,8 @@ template <typename T> struct has_trivial_move_constructor : public integral_cons
 #define SOLARIS_EXTRA_CHECK
 #endif
 
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
 
 namespace boost {
 

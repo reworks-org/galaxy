@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/detail/integrate_adaptive.hpp
+ sl/libs/boost/numeric/odeint/integrate/detail/integrate_adaptive.hpp
 
  [begin_description]
  Default Integrate adaptive implementation.
@@ -20,16 +20,16 @@
 
 #include <stdexcept>
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
-#include <boost/numeric/odeint/stepper/controlled_step_result.hpp>
-#include <boost/numeric/odeint/iterator/integrate/detail/integrate_const.hpp>
-#include <boost/numeric/odeint/iterator/adaptive_time_iterator.hpp>
-#include <boost/numeric/odeint/iterator/integrate/detail/functors.hpp>
-#include <boost/numeric/odeint/util/bind.hpp>
-#include <boost/numeric/odeint/util/unwrap_reference.hpp>
-#include <boost/numeric/odeint/util/copy.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/controlled_step_result.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/integrate/detail/integrate_const.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/adaptive_time_iterator.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/integrate/detail/functors.hpp>
+#include <sl/libs/boost/numeric/odeint/util/bind.hpp>
+#include <sl/libs/boost/numeric/odeint/util/unwrap_reference.hpp>
+#include <sl/libs/boost/numeric/odeint/util/copy.hpp>
 
-#include <boost/numeric/odeint/util/detail/less_with_sign.hpp>
+#include <sl/libs/boost/numeric/odeint/util/detail/less_with_sign.hpp>
 
 namespace boost {
 namespace numeric {

@@ -11,9 +11,9 @@
 #ifndef _BOOST_UBLAS_EXPRESSION_TYPE_
 #define _BOOST_UBLAS_EXPRESSION_TYPE_
 
-#include <boost/numeric/ublas/exception.hpp>
-#include <boost/numeric/ublas/traits.hpp>
-#include <boost/numeric/ublas/functional.hpp>
+#include <sl/libs/boost/numeric/ublas/exception.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/functional.hpp>
 
 
 // Expression templates based on ideas of Todd Veldhuizen and Geoffrey Furnish

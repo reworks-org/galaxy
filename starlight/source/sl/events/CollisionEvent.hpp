@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_COLLISIONEVENT_HPP_
 #define STARLIGHT_COLLISIONEVENT_HPP_
 
+#include <cinttypes>
+
 namespace entt { typedef std::uint32_t Entity; }
 
 namespace sl

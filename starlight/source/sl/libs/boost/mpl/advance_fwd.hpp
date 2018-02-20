@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/common_name_wknd.hpp>
+#include <sl/libs/boost/mpl/aux_/common_name_wknd.hpp>
 
 namespace boost { namespace mpl {
 

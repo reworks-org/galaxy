@@ -11,13 +11,13 @@
 #ifndef BOOST_TT_IS_NOTHROW_MOVE_ASSIGNABLE_HPP_INCLUDED
 #define BOOST_TT_IS_NOTHROW_MOVE_ASSIGNABLE_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/has_trivial_move_assign.hpp>
-#include <boost/type_traits/has_nothrow_assign.hpp>
-#include <boost/type_traits/is_array.hpp>
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/declval.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_move_assign.hpp>
+#include <sl/libs/boost/type_traits/has_nothrow_assign.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
 
 namespace boost {
 

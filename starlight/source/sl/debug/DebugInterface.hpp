@@ -10,11 +10,15 @@
 #ifndef STARLIGHT_DEBUGINTERFACE_HPP_
 #define STARLIGHT_DEBUGINTERFACE_HPP_
 
+#include <functional>
+
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;
 
 namespace sl
 {
+	class BaseState;
+
     class DebugInterface
     {
     public:
@@ -55,6 +59,16 @@ namespace sl
 		///
 		void displayMenu();
 
+		///
+		/// \brief Set a state to reload too.
+		///
+		/// func() is called first when reloading.
+		///
+		/// \param s State pointer to reload to.
+		/// \param func Function to cleanup anything that normally isnt cleaned up at that time.
+		///
+		void setReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func);
+
 	private:
 		///
 		/// Default Constructor.
@@ -64,6 +78,8 @@ namespace sl
 
 	private:
 		bool m_disabled;
+		std::function<void(void)> m_reloadFunc;
+		std::shared_ptr<BaseState> m_reloadState;
     };
 }
 

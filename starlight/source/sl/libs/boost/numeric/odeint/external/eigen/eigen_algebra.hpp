@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/eigen/eigen_algebra.hpp
+  sl/libs/boost/numeric/odeint/external/eigen/eigen_algebra.hpp
 
   [begin_description]
   tba.
@@ -19,7 +19,7 @@
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_EIGEN_EIGEN_ALGEBRA_HPP_INCLUDED
 
 #include <Eigen/Dense>
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
 
 // Necessary routines for Eigen matrices to work with vector_space_algebra
 // from odeint

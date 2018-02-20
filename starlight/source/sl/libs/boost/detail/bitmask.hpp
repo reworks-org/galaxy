@@ -1,4 +1,4 @@
-//  boost/detail/bitmask.hpp  ------------------------------------------------//
+//  sl/libs/boost/detail/bitmask.hpp  ------------------------------------------------//
 
 //  Copyright Beman Dawes 2006
 
@@ -17,8 +17,8 @@
 #ifndef BOOST_BITMASK_HPP
 #define BOOST_BITMASK_HPP
 
-#include <boost/config.hpp>
-#include <boost/cstdint.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/cstdint.hpp>
 
 #define BOOST_BITMASK(Bitmask)                                            \
                                                                           \

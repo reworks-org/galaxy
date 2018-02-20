@@ -40,7 +40,7 @@
 
 #ifndef AGUI_LAYOUT_HPP
 #define AGUI_LAYOUT_HPP
-#include "Agui/Widget.hpp"
+#include "sl/libs/Agui/Widget.hpp"
 
 namespace agui 
 {	/**

@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
 
 namespace boost { namespace mpl {
 

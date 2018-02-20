@@ -15,17 +15,17 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/map/aux_/map0.hpp>
-#include <boost/mpl/map/aux_/at_impl.hpp>
-#include <boost/mpl/map/aux_/tag.hpp>
-#include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/aux_/nttp_decl.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/map/aux_/map0.hpp>
+#include <sl/libs/boost/mpl/map/aux_/at_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/iterator_tags.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
 
 namespace boost { namespace mpl {
 

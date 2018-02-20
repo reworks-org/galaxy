@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/detail/rotating_buffer.hpp
+ sl/libs/boost/numeric/odeint/stepper/detail/rotating_buffer.hpp
 
  [begin_description]
  Implemetation of a rotating (cyclic) buffer for use in the Adam Bashforth stepper
@@ -18,7 +18,7 @@
 #ifndef BOOST_NUMERIC_ODEINT_STEPPER_DETAIL_ROTATING_BUFFER_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_STEPPER_DETAIL_ROTATING_BUFFER_HPP_INCLUDED
 
-#include <boost/array.hpp>
+#include <sl/libs/boost/array.hpp>
 
 namespace boost {
 namespace numeric {

@@ -13,9 +13,9 @@
 #ifndef _BOOST_UBLAS_VECTOR_PROXY_
 #define _BOOST_UBLAS_VECTOR_PROXY_
 
-#include <boost/numeric/ublas/vector_expression.hpp>
-#include <boost/numeric/ublas/detail/vector_assign.hpp>
-#include <boost/numeric/ublas/detail/temporary.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/vector_assign.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/temporary.hpp>
 
 // Iterators based on ideas of Jeremy Siek
 

@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/ptr_to_ref.hpp>
-#include <boost/mpl/aux_/config/operators.hpp>
+#include <sl/libs/boost/mpl/aux_/ptr_to_ref.hpp>
+#include <sl/libs/boost/mpl/aux_/config/operators.hpp>
 
 #if defined(BOOST_MPL_CFG_USE_OPERATORS_OVERLOADING)
 
-#   include <boost/mpl/aux_/static_cast.hpp>
+#   include <sl/libs/boost/mpl/aux_/static_cast.hpp>
 
 #   define BOOST_MPL_AUX_OVERLOAD_VALUE_BY_KEY  operator/
 #   define BOOST_MPL_AUX_OVERLOAD_ITEM_BY_ORDER operator|

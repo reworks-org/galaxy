@@ -9,9 +9,9 @@
 
 #include <map>
 
-#include "sol2/sol.hpp"
-#include "loguru/loguru.hpp"
 #include "sl/fs/VirtualFS.hpp"
+#include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "World.hpp"

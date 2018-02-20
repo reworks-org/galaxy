@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/config.hpp
+ sl/libs/boost/numeric/odeint/config.hpp
 
  [begin_description]
  Sets configurations for odeint and used libraries. Should be included before any other odeint library
@@ -41,7 +41,7 @@
 
 
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #if __cplusplus >= 201103L
 #define BOOST_NUMERIC_ODEINT_CXX11 1

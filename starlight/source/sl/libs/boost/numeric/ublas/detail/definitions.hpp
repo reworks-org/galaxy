@@ -17,7 +17,7 @@
 namespace boost { namespace numeric { namespace ublas {
 
     namespace detail {
-        /* Borrowed from boost/concept_checks.hpp
+        /* Borrowed from sl/libs/boost/concept_checks.hpp
            "inline" is used for ignore_unused_variable_warning()
            to make sure there is no overhead with g++.
          */

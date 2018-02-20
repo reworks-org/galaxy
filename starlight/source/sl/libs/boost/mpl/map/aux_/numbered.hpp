@@ -17,11 +17,11 @@
 
 #else
 
-#include <boost/mpl/aux_/config/typeof.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
-#include <boost/preprocessor/enum_params.hpp>
-#include <boost/preprocessor/dec.hpp>
-#include <boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/mpl/aux_/config/typeof.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/preprocessor/enum_params.hpp>
+#include <sl/libs/boost/preprocessor/dec.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
 
 #define i_ BOOST_PP_FRAME_ITERATION(1)
 

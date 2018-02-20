@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/Frame/Frame.hpp"
+#include "sl/libs/Agui/Widgets/Frame/Frame.hpp"
 
 namespace agui {
 	Frame::~Frame(void)

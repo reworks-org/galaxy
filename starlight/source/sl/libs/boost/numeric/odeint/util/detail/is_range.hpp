@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/util/detail/is_range.hpp
+ sl/libs/boost/numeric/odeint/util/detail/is_range.hpp
 
  [begin_description]
  is_range implementation. Taken from the boost::range library.
@@ -26,10 +26,10 @@
 #endif
 
 #include <cstddef>
-#include <boost/range/config.hpp>
-#include <boost/mpl/has_xxx.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/and.hpp>
+#include <sl/libs/boost/range/config.hpp>
+#include <sl/libs/boost/mpl/has_xxx.hpp>
+#include <sl/libs/boost/mpl/bool.hpp>
+#include <sl/libs/boost/mpl/and.hpp>
 
 namespace boost {
 namespace numeric {

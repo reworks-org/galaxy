@@ -12,10 +12,10 @@
 # ifndef BOOST_PREPROCESSOR_SEQ_REMOVE_HPP
 # define BOOST_PREPROCESSOR_SEQ_REMOVE_HPP
 #
-# include <boost/preprocessor/arithmetic/inc.hpp>
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/seq/first_n.hpp>
-# include <boost/preprocessor/seq/rest_n.hpp>
+# include <sl/libs/boost/preprocessor/arithmetic/inc.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/seq/first_n.hpp>
+# include <sl/libs/boost/preprocessor/seq/rest_n.hpp>
 #
 # /* BOOST_PP_SEQ_REMOVE */
 #

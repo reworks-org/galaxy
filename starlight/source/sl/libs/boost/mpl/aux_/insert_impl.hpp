@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/reverse_fold.hpp>
-#include <boost/mpl/iterator_range.hpp>
-#include <boost/mpl/clear.hpp>
-#include <boost/mpl/push_front.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/traits_lambda_spec.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/mpl/reverse_fold.hpp>
+#include <sl/libs/boost/mpl/iterator_range.hpp>
+#include <sl/libs/boost/mpl/clear.hpp>
+#include <sl/libs/boost/mpl/push_front.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/traits_lambda_spec.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost { namespace mpl {
 

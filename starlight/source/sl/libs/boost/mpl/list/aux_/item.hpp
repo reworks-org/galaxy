@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/list/aux_/tag.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/list/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 namespace boost { namespace mpl {
 

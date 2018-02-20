@@ -12,8 +12,8 @@
 # ifndef BOOST_PREPROCESSOR_CONTROL_DEDUCE_D_HPP
 # define BOOST_PREPROCESSOR_CONTROL_DEDUCE_D_HPP
 #
-# include <boost/preprocessor/control/while.hpp>
-# include <boost/preprocessor/detail/auto_rec.hpp>
+# include <sl/libs/boost/preprocessor/control/while.hpp>
+# include <sl/libs/boost/preprocessor/detail/auto_rec.hpp>
 #
 # /* BOOST_PP_DEDUCE_D */
 #

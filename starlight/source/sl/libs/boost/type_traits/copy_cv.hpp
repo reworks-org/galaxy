@@ -9,11 +9,11 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/add_const.hpp>
-#include <boost/type_traits/add_volatile.hpp>
-#include <boost/type_traits/conditional.hpp>
+#include <sl/libs/boost/type_traits/is_const.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/add_const.hpp>
+#include <sl/libs/boost/type_traits/add_volatile.hpp>
+#include <sl/libs/boost/type_traits/conditional.hpp>
 
 namespace boost
 {

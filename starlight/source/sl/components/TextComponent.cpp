@@ -9,7 +9,7 @@
 
 #include <algorithm>
 
-#include "sol2/sol.hpp"
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"

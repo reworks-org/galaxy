@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/sort_impl.hpp>
-#include <boost/mpl/aux_/inserter_algorithm.hpp>
+#include <sl/libs/boost/mpl/aux_/sort_impl.hpp>
+#include <sl/libs/boost/mpl/aux_/inserter_algorithm.hpp>
 
 namespace boost { namespace mpl {
 

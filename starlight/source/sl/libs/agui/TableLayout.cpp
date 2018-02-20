@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/TableLayout.hpp"
+#include "sl/libs/Agui/TableLayout.hpp"
 #include <math.h>
 
 namespace agui

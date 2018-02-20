@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/long_fwd.hpp>
+#include <sl/libs/boost/mpl/long_fwd.hpp>
 
 #define AUX_WRAPPER_VALUE_TYPE long
-#include <boost/mpl/aux_/integral_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/integral_wrapper.hpp>
 
 #endif // BOOST_MPL_LONG_HPP_INCLUDED

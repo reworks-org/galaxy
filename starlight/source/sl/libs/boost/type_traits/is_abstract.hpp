@@ -49,14 +49,14 @@
 //
 
 #include <cstddef> // size_t
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 #ifndef BOOST_IS_ABSTRACT
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/is_class.hpp>
+#include <sl/libs/boost/static_assert.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/is_class.hpp>
 #ifdef BOOST_NO_IS_ABSTRACT
-#include <boost/type_traits/is_polymorphic.hpp>
+#include <sl/libs/boost/type_traits/is_polymorphic.hpp>
 #endif
 #endif
 

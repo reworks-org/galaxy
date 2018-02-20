@@ -8,8 +8,8 @@
 
 #ifndef ASSIGNMENT_HPP
 #define ASSIGNMENT_HPP
-#include <boost/numeric/ublas/vector_expression.hpp>
-#include <boost/numeric/ublas/matrix_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_expression.hpp>
 
 /*! \file assignment.hpp
     \brief uBlas assignment operator <<=.

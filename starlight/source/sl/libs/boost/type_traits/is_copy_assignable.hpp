@@ -9,22 +9,22 @@
 #ifndef BOOST_TT_IS_COPY_ASSIGNABLE_HPP_INCLUDED
 #define BOOST_TT_IS_COPY_ASSIGNABLE_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/is_base_and_derived.hpp>
-#include <boost/noncopyable.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/is_base_and_derived.hpp>
+#include <sl/libs/boost/noncopyable.hpp>
 
 #if !defined(BOOST_NO_CXX11_DELETED_FUNCTIONS) && !defined(BOOST_NO_CXX11_DECLTYPE) \
    && !defined(BOOST_INTEL_CXX_VERSION) && \
       !(defined(BOOST_MSVC) && _MSC_VER == 1800)
 #define BOOST_TT_CXX11_IS_COPY_ASSIGNABLE
-#include <boost/type_traits/declval.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
 #else
    //For compilers without decltype
-   #include <boost/type_traits/is_const.hpp>
-   #include <boost/type_traits/is_array.hpp>
-   #include <boost/type_traits/add_reference.hpp>
-   #include <boost/type_traits/remove_reference.hpp>
+   #include <sl/libs/boost/type_traits/is_const.hpp>
+   #include <sl/libs/boost/type_traits/is_array.hpp>
+   #include <sl/libs/boost/type_traits/add_reference.hpp>
+   #include <sl/libs/boost/type_traits/remove_reference.hpp>
 #endif
 
 namespace boost {
@@ -64,7 +64,7 @@ struct is_copy_assignable_impl2 {
     // If you see errors like this:
     //
     //      `'T::operator=(const T&)' is private`
-    //      `boost/type_traits/is_copy_assignable.hpp:NN:M: error: within this context`
+    //      `sl/libs/boost/type_traits/is_copy_assignable.hpp:NN:M: error: within this context`
     //
     // then you are trying to call that macro for a structure defined like that:
     //

@@ -14,28 +14,28 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/not.hpp>
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/sequence_tag_fwd.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/aux_/has_tag.hpp>
-#include <boost/mpl/aux_/has_begin.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/aux_/config/eti.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/not.hpp>
+#include <sl/libs/boost/mpl/and.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/bool.hpp>
+#include <sl/libs/boost/mpl/sequence_tag_fwd.hpp>
+#include <sl/libs/boost/mpl/identity.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/aux_/has_tag.hpp>
+#include <sl/libs/boost/mpl/aux_/has_begin.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/aux_/config/eti.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 #if BOOST_WORKAROUND(BOOST_MSVC, < 1300)
-#   include <boost/mpl/aux_/msvc_is_class.hpp>
+#   include <sl/libs/boost/mpl/aux_/msvc_is_class.hpp>
 #elif BOOST_WORKAROUND(BOOST_MSVC, == 1300)
-#   include <boost/type_traits/is_class.hpp>
+#   include <sl/libs/boost/type_traits/is_class.hpp>
 #endif
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost { namespace mpl {
 

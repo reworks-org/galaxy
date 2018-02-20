@@ -13,11 +13,11 @@
 #ifndef _BOOST_UBLAS_LU_
 #define _BOOST_UBLAS_LU_
 
-#include <boost/numeric/ublas/operation.hpp>
-#include <boost/numeric/ublas/vector_proxy.hpp>
-#include <boost/numeric/ublas/matrix_proxy.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/triangular.hpp>
+#include <sl/libs/boost/numeric/ublas/operation.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_proxy.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_proxy.hpp>
+#include <sl/libs/boost/numeric/ublas/vector.hpp>
+#include <sl/libs/boost/numeric/ublas/triangular.hpp>
 
 // LU factorizations in the spirit of LAPACK and Golub & van Loan
 

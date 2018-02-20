@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/integrate_times.hpp
+ sl/libs/boost/numeric/odeint/integrate/integrate_times.hpp
 
  [begin_description]
  Integration of ODEs with observation at user defined points
@@ -18,13 +18,13 @@
 #ifndef BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_TIMES_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_TIMES_HPP_INCLUDED
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
-#include <boost/range.hpp>
+#include <sl/libs/boost/range.hpp>
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
-#include <boost/numeric/odeint/iterator/integrate/null_observer.hpp>
-#include <boost/numeric/odeint/iterator/integrate/detail/integrate_times.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/integrate/null_observer.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/integrate/detail/integrate_times.hpp>
 
 namespace boost {
 namespace numeric {

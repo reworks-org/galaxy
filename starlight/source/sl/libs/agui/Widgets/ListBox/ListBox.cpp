@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/ListBox/ListBox.hpp"
-#include "Agui/EmptyWidget.hpp"
+#include "sl/libs/Agui/Widgets/ListBox/ListBox.hpp"
+#include "sl/libs/Agui/EmptyWidget.hpp"
 namespace agui {
 	//used to sort items
 	struct LBCompare

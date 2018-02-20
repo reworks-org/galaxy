@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/compute/compute_operations_dispatcher.hpp
+  sl/libs/boost/numeric/odeint/external/compute/compute_operations_dispatcher.hpp
 
   [begin_description]
   operations_dispatcher specialization for Boost.Compute
@@ -18,10 +18,10 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_OPERATIONS_DISPATCHER_HPP_DEFINED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_OPERATIONS_DISPATCHER_HPP_DEFINED
 
-#include <boost/compute/container/vector.hpp>
+#include <sl/libs/boost/compute/container/vector.hpp>
 
-#include <boost/numeric/odeint/external/compute/compute_operations.hpp>
-#include <boost/numeric/odeint/algebra/operations_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/external/compute/compute_operations.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/operations_dispatcher.hpp>
 
 namespace boost {
 namespace numeric {

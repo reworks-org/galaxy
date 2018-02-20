@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/gsl/gsl_wrapper.hpp
+ sl/libs/boost/numeric/odeint/external/gsl/gsl_wrapper.hpp
 
  [begin_description]
  Wrapper for gsl_vector.
@@ -22,14 +22,14 @@
 
 #include <gsl/gsl_vector.h>
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/range.hpp>
-#include <boost/iterator/iterator_facade.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/range.hpp>
+#include <sl/libs/boost/iterator/iterator_facade.hpp>
 
 
-#include <boost/numeric/odeint/util/state_wrapper.hpp>
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/copy.hpp>
+#include <sl/libs/boost/numeric/odeint/util/state_wrapper.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/copy.hpp>
 
 class const_gsl_vector_iterator;
 

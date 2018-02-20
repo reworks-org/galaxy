@@ -6,12 +6,12 @@
 #ifndef FILE_boost_type_traits_integral_promotion_hpp_INCLUDED
 #define FILE_boost_type_traits_integral_promotion_hpp_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_enum.hpp>
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/is_const.hpp>
+#include <sl/libs/boost/type_traits/is_enum.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
 
 namespace boost {
 
@@ -35,7 +35,7 @@ template<> struct need_promotion<unsigned short int> : public true_type {};
     template<> struct need_promotion<T>          \
         : public integral_constant<bool, (sizeof(T) < sizeof(int))> {};
 
-// Same set of integral types as in boost/type_traits/is_integral.hpp.
+// Same set of integral types as in sl/libs/boost/type_traits/is_integral.hpp.
 // Please, keep in sync.
 #if (defined(BOOST_INTEL_CXX_VERSION) && defined(_MSC_VER) && (BOOST_INTEL_CXX_VERSION <= 600)) \
     || (defined(__BORLANDC__) && (__BORLANDC__ == 0x600) && (_MSC_VER < 1300))

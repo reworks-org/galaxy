@@ -14,11 +14,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/insert_range_fwd.hpp>
-#include <boost/mpl/set/aux_/tag.hpp>
-#include <boost/mpl/placeholders.hpp>
-#include <boost/mpl/fold.hpp>
-#include <boost/mpl/insert.hpp>
+#include <sl/libs/boost/mpl/insert_range_fwd.hpp>
+#include <sl/libs/boost/mpl/set/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/placeholders.hpp>
+#include <sl/libs/boost/mpl/fold.hpp>
+#include <sl/libs/boost/mpl/insert.hpp>
 
 namespace boost { namespace mpl {
 

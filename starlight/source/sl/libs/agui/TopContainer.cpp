@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/TopContainer.hpp"
-#include "Agui/Gui.hpp"
+#include "sl/libs/Agui/TopContainer.hpp"
+#include "sl/libs/Agui/Gui.hpp"
 namespace agui
 {
 	TopContainer::TopContainer( Gui* manager, FocusManager* focusMan )

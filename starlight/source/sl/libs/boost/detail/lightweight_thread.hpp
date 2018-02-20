@@ -7,7 +7,7 @@
 # pragma once
 #endif
 
-//  boost/detail/lightweight_thread.hpp
+//  sl/libs/boost/detail/lightweight_thread.hpp
 //
 //  Copyright (c) 2002 Peter Dimov and Multi Media Ltd.
 //  Copyright (c) 2008 Peter Dimov
@@ -16,7 +16,7 @@
 //  See accompanying file LICENSE_1_0.txt or copy at
 //  http://www.boost.org/LICENSE_1_0.txt
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 #include <memory>
 #include <cerrno>
 

@@ -9,11 +9,11 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/type_traits/detail/composite_pointer_type.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
-#include <boost/type_traits/is_base_of.hpp>
-#include <boost/type_traits/conditional.hpp>
-#include <boost/config.hpp>
+#include <sl/libs/boost/type_traits/detail/composite_pointer_type.hpp>
+#include <sl/libs/boost/type_traits/remove_pointer.hpp>
+#include <sl/libs/boost/type_traits/is_base_of.hpp>
+#include <sl/libs/boost/type_traits/conditional.hpp>
+#include <sl/libs/boost/config.hpp>
 #include <cstddef>
 
 namespace boost

@@ -9,17 +9,17 @@
 #ifndef BOOST_TT_IS_BASE_AND_DERIVED_HPP_INCLUDED
 #define BOOST_TT_IS_BASE_AND_DERIVED_HPP_INCLUDED
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 #ifndef BOOST_IS_BASE_OF
-#include <boost/type_traits/is_class.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/config.hpp>
-#include <boost/static_assert.hpp>
+#include <sl/libs/boost/type_traits/is_class.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_convertible.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/static_assert.hpp>
 #endif
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost {
 

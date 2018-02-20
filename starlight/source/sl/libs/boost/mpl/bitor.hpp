@@ -32,7 +32,7 @@
 #define AUX778076_OP_NAME   bitor_
 #define AUX778076_OP_PREFIX bitor
 #define AUX778076_OP_TOKEN  |
-#include <boost/mpl/aux_/arithmetic_op.hpp>
+#include <sl/libs/boost/mpl/aux_/arithmetic_op.hpp>
 
 #if defined(_MSC_VER) && !defined(__clang__)
 #ifndef __GCCXML__

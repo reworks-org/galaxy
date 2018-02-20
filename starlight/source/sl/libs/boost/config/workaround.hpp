@@ -38,7 +38,7 @@
 
 #ifndef BOOST_STRICT_CONFIG
 
-#include "boost/config.hpp"
+#include "sl/libs/boost/config.hpp"
 
 #ifndef __BORLANDC__
 #define __BORLANDC___WORKAROUND_GUARD 1

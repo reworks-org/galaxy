@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/max_step_checker.hpp
+ sl/libs/boost/numeric/odeint/integrate/max_step_checker.hpp
 
  [begin_description]
  Throws exception if too many steps are performed.
@@ -20,8 +20,8 @@
 #include <stdexcept>
 #include <cstdio>
 
-#include <boost/throw_exception.hpp>
-#include <boost/numeric/odeint/util/odeint_error.hpp>
+#include <sl/libs/boost/throw_exception.hpp>
+#include <sl/libs/boost/numeric/odeint/util/odeint_error.hpp>
 
 
 namespace boost {

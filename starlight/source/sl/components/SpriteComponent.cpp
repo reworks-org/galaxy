@@ -9,7 +9,7 @@
 
 #include <algorithm>
 
-#include "sol2/sol.hpp"
+#include "sl/libs/sol2/sol.hpp"
 
 #include "SpriteComponent.hpp"
 

@@ -41,9 +41,9 @@
 #ifndef AGUI_FRAME_HPP
 #define AGUI_FRAME_HPP
 
-#include "Agui/Widget.hpp"
-#include "Agui/EmptyWidget.hpp"
-#include "Agui/Widgets/Frame/FrameListener.hpp"
+#include "sl/libs/Agui/Widget.hpp"
+#include "sl/libs/Agui/EmptyWidget.hpp"
+#include "sl/libs/Agui/Widgets/Frame/FrameListener.hpp"
 namespace agui {
 	/**
 	 * Class that represents a movable and resizable Frame / Window.

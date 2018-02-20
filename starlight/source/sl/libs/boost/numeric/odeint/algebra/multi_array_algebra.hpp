@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/algebra/multi_array_algebra.hpp
+  sl/libs/boost/numeric/odeint/algebra/multi_array_algebra.hpp
 
   [begin_description]
   tba.
@@ -19,10 +19,10 @@
 #define BOOST_NUMERIC_ODEINT_ALGEBRA_MULTI_ARRAY_ALGEBRA_HPP_DEFINED
 
 
-#include <boost/numeric/odeint/algebra/detail/for_each.hpp>
-#include <boost/numeric/odeint/algebra/detail/norm_inf.hpp>
-#include <boost/numeric/odeint/algebra/norm_result_type.hpp>
-#include <boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/detail/for_each.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/detail/norm_inf.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/norm_result_type.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
 
 
 namespace boost {

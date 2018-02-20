@@ -15,13 +15,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/transform.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/transform.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/iterator_tags.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/lambda.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
 
 namespace boost { namespace mpl {
 

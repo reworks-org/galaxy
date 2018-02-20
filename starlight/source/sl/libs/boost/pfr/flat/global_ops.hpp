@@ -7,19 +7,19 @@
 #define BOOST_PFR_FLAT_GLOBAL_OPS_HPP
 #pragma once
 
-#include <boost/pfr/detail/config.hpp>
+#include <sl/libs/boost/pfr/detail/config.hpp>
 
-#include <boost/pfr/flat/functors.hpp>
-#include <boost/pfr/flat/core.hpp>
-#include <boost/pfr/flat/io.hpp>
+#include <sl/libs/boost/pfr/flat/functors.hpp>
+#include <sl/libs/boost/pfr/flat/core.hpp>
+#include <sl/libs/boost/pfr/flat/io.hpp>
 
-/// \file boost/pfr/flat/global_ops.hpp
+/// \file sl/libs/boost/pfr/flat/global_ops.hpp
 /// Contains comparison operators and stream operators for any POD types that do not have their own operators.
 /// If POD is comparable or streamable using it's own operator (but not it's conversion operator), then the original operator is used.
 ///
 /// \b Example:
 /// \code
-///    #include <boost/pfr/flat/global_ops.hpp>
+///    #include <sl/libs/boost/pfr/flat/global_ops.hpp>
 ///    struct comparable_struct {      // No operators defined for that structure
 ///        int i; short s; char data[7]; bool bl; int a,b,c,d,e,f;
 ///    };

@@ -9,24 +9,24 @@
 #ifndef BOOST_TT_HAS_TRIVIAL_CONSTRUCTOR_HPP_INCLUDED
 #define BOOST_TT_HAS_TRIVIAL_CONSTRUCTOR_HPP_INCLUDED
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/is_default_constructible.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_default_constructible.hpp>
 
 #ifdef BOOST_HAS_TRIVIAL_CONSTRUCTOR
 #ifdef BOOST_HAS_SGI_TYPE_TRAITS
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 #elif defined(__GNUC__) || defined(__SUNPRO_CC)
-#include <boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
 #ifdef BOOST_INTEL
-#include <boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
 #endif
 #endif
 #endif
 
 
 #if (defined(__GNUC__) && (__GNUC__ * 100 + __GNUC_MINOR__ >= 409)) || defined(BOOST_CLANG) || (defined(__SUNPRO_CC) && defined(BOOST_HAS_TRIVIAL_CONSTRUCTOR))
-#include <boost/type_traits/is_default_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_default_constructible.hpp>
 #define BOOST_TT_TRIVIAL_CONSTRUCT_FIX && is_default_constructible<T>::value
 #else
 //

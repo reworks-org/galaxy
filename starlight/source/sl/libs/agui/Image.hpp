@@ -40,10 +40,10 @@
 
 #ifndef AGUI_IMAGE_HPP
 #define AGUI_IMAGE_HPP
-#include "Agui/Platform.hpp"
-#include "Agui/Color.hpp"
-#include "Agui/Point.hpp"
-#include "Agui/Enumerations.hpp"
+#include "sl/libs/Agui/Platform.hpp"
+#include "sl/libs/Agui/Color.hpp"
+#include "sl/libs/Agui/Point.hpp"
+#include "sl/libs/Agui/Enumerations.hpp"
 namespace agui
 {
 

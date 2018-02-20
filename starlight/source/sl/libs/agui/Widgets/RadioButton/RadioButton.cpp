@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/RadioButton/RadioButton.hpp"
-#include "Agui/Widgets/RadioButton/RadioButtonListener.hpp"
+#include "sl/libs/Agui/Widgets/RadioButton/RadioButton.hpp"
+#include "sl/libs/Agui/Widgets/RadioButton/RadioButtonListener.hpp"
 namespace agui {
 	RadioButton::RadioButton()
     :	sidePadding(6), radioButtonState(DEFAULT),

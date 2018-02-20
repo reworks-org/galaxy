@@ -9,16 +9,16 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/type_traits/detail/common_arithmetic_type.hpp>
-#include <boost/type_traits/detail/composite_pointer_type.hpp>
-#include <boost/type_traits/detail/composite_member_pointer_type.hpp>
-#include <boost/type_traits/type_identity.hpp>
-#include <boost/type_traits/is_class.hpp>
-#include <boost/type_traits/is_union.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/is_member_pointer.hpp>
-#include <boost/type_traits/conditional.hpp>
+#include <sl/libs/boost/type_traits/detail/common_arithmetic_type.hpp>
+#include <sl/libs/boost/type_traits/detail/composite_pointer_type.hpp>
+#include <sl/libs/boost/type_traits/detail/composite_member_pointer_type.hpp>
+#include <sl/libs/boost/type_traits/type_identity.hpp>
+#include <sl/libs/boost/type_traits/is_class.hpp>
+#include <sl/libs/boost/type_traits/is_union.hpp>
+#include <sl/libs/boost/type_traits/is_convertible.hpp>
+#include <sl/libs/boost/type_traits/is_pointer.hpp>
+#include <sl/libs/boost/type_traits/is_member_pointer.hpp>
+#include <sl/libs/boost/type_traits/conditional.hpp>
 
 namespace boost
 {

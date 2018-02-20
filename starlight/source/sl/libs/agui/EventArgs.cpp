@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/EventArgs.hpp"
+#include "sl/libs/Agui/EventArgs.hpp"
 namespace agui {
 	Point MouseEvent::getPosition() const
 	{

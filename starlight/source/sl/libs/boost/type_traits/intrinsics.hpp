@@ -10,10 +10,10 @@
 
 #ifndef BOOST_TT_DISABLE_INTRINSICS
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #ifndef BOOST_TT_CONFIG_HPP_INCLUDED
-#include <boost/type_traits/detail/config.hpp>
+#include <sl/libs/boost/type_traits/detail/config.hpp>
 #endif
 
 //
@@ -55,7 +55,7 @@
 #ifdef BOOST_HAS_SGI_TYPE_TRAITS
     // Hook into SGI's __type_traits class, this will pick up user supplied
     // specializations as well as SGI - compiler supplied specializations.
-#   include <boost/type_traits/is_same.hpp>
+#   include <sl/libs/boost/type_traits/is_same.hpp>
 #   ifdef __NetBSD__
       // There are two different versions of type_traits.h on NetBSD on Spark
       // use an implicit include via algorithm instead, to make sure we get
@@ -159,7 +159,7 @@
 // Note that these intrinsics are disabled for the CUDA meta-compiler as it appears
 // to not support them, even though the underlying clang compiler does so.
 // This is a rubbish fix as it basically stops type traits from working correctly, 
-// but maybe the best we can do for now.  See https://svn.boost.org/trac/boost/ticket/10694
+// but maybe the best we can do for now.  See https://svn.boost.org/trac/sl/libs/boost/ticket/10694
 //
 //
 // Note that even though these intrinsics rely on other type traits classes
@@ -320,9 +320,9 @@
 #endif
 
 #if defined(__ghs__) && (__GHS_VERSION_NUMBER >= 600)
-#   include <boost/type_traits/is_same.hpp>
-#   include <boost/type_traits/is_reference.hpp>
-#   include <boost/type_traits/is_volatile.hpp>
+#   include <sl/libs/boost/type_traits/is_same.hpp>
+#   include <sl/libs/boost/type_traits/is_reference.hpp>
+#   include <sl/libs/boost/type_traits/is_volatile.hpp>
 
 #   define BOOST_IS_UNION(T) __is_union(T)
 #   define BOOST_IS_POD(T) __is_pod(T)
@@ -346,10 +346,10 @@
 #endif
 
 # if defined(__CODEGEARC__)
-#   include <boost/type_traits/is_same.hpp>
-#   include <boost/type_traits/is_reference.hpp>
-#   include <boost/type_traits/is_volatile.hpp>
-#   include <boost/type_traits/is_void.hpp>
+#   include <sl/libs/boost/type_traits/is_same.hpp>
+#   include <sl/libs/boost/type_traits/is_reference.hpp>
+#   include <sl/libs/boost/type_traits/is_volatile.hpp>
+#   include <sl/libs/boost/type_traits/is_void.hpp>
 
 #   define BOOST_IS_UNION(T) __is_union(T)
 #   define BOOST_IS_POD(T) __is_pod(T)

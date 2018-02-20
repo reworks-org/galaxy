@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Image.hpp"
-#include "Agui/ImageLoader.hpp"
+#include "sl/libs/Agui/Image.hpp"
+#include "sl/libs/Agui/ImageLoader.hpp"
 
 namespace agui
 {

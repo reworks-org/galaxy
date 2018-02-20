@@ -13,9 +13,9 @@
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
 
-#include "loguru/loguru.hpp"
 #include "sl/utils/Utils.hpp"
 #include "sl/graphics/Window.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "TextureAtlas.hpp"

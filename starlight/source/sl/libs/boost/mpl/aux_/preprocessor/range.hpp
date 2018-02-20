@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/preprocessor/seq/subseq.hpp>
-#include <boost/preprocessor/repetition/repeat.hpp>
-#include <boost/preprocessor/arithmetic/add.hpp>
+#include <sl/libs/boost/preprocessor/seq/subseq.hpp>
+#include <sl/libs/boost/preprocessor/repetition/repeat.hpp>
+#include <sl/libs/boost/preprocessor/arithmetic/add.hpp>
 
 #define BOOST_MPL_PP_RANGE_ITEM(z,n,_) (n)
 

@@ -40,9 +40,9 @@
 
 #ifndef AGUI_DROPDOWN_HPP
 #define AGUI_DROPDOWN_HPP
-#include "Agui/Widget.hpp"
-#include "Agui/Widgets/ListBox/ListBox.hpp"
-#include "Agui/Widgets/DropDown/DropDownListener.hpp"
+#include "sl/libs/Agui/Widget.hpp"
+#include "sl/libs/Agui/Widgets/ListBox/ListBox.hpp"
+#include "sl/libs/Agui/Widgets/DropDown/DropDownListener.hpp"
 namespace agui {
 		/**
 	 * Class that represents a DropDown.

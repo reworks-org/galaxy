@@ -14,8 +14,8 @@
 # ifndef BOOST_PREPROCESSOR_CONTROL_DETAIL_MSVC_WHILE_HPP
 # define BOOST_PREPROCESSOR_CONTROL_DETAIL_MSVC_WHILE_HPP
 #
-# include <boost/preprocessor/control/if.hpp>
-# include <boost/preprocessor/tuple/eat.hpp>
+# include <sl/libs/boost/preprocessor/control/if.hpp>
+# include <sl/libs/boost/preprocessor/tuple/eat.hpp>
 #
 # define BOOST_PP_WHILE_1(p, o, s) BOOST_PP_IF(p(2, s), BOOST_PP_WHILE_2, s BOOST_PP_TUPLE_EAT_3)(p, o, o(2, s))
 # define BOOST_PP_WHILE_2(p, o, s) BOOST_PP_IF(p(3, s), BOOST_PP_WHILE_3, s BOOST_PP_TUPLE_EAT_3)(p, o, o(3, s))

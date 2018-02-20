@@ -15,7 +15,7 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_AUX_PP_COUNTER)
-#   include <boost/mpl/aux_/config/msvc.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
 #   if BOOST_WORKAROUND(BOOST_MSVC, >= 1300)
 #       define BOOST_MPL_AUX_PP_COUNTER() __COUNTER__
 #   else

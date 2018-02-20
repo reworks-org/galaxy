@@ -2,7 +2,7 @@
 #define BOOST_DETAIL_INTERLOCKED_HPP_INCLUDED
 
 //
-//  boost/detail/interlocked.hpp
+//  sl/libs/boost/detail/interlocked.hpp
 //
 //  Copyright 2005 Peter Dimov
 //
@@ -11,7 +11,7 @@
 //  http://www.boost.org/LICENSE_1_0.txt)
 //
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 // MS compatible compilers support #pragma once
 #ifdef BOOST_HAS_PRAGMA_ONCE

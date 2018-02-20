@@ -6,8 +6,8 @@
 #ifndef UUID_63EE924290FB11DC87BB856555D89593
 #define UUID_63EE924290FB11DC87BB856555D89593
 
-#include <boost/exception/info.hpp>
-#include <boost/tuple/tuple.hpp>
+#include <sl/libs/boost/exception/info.hpp>
+#include <sl/libs/boost/tuple/tuple.hpp>
 
 #if (__GNUC__*100+__GNUC_MINOR__>301) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)
 #pragma GCC system_header

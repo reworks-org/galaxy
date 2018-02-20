@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/compute/compute_resize.hpp
+ sl/libs/boost/numeric/odeint/external/compute/compute_resize.hpp
 
  [begin_description]
  Enable resizing for Boost.Compute vector
@@ -18,9 +18,9 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_RESIZE_HPP_DEFINED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_RESIZE_HPP_DEFINED
 
-#include <boost/compute/container/vector.hpp>
+#include <sl/libs/boost/compute/container/vector.hpp>
 
-#include <boost/numeric/odeint/util/copy.hpp>
+#include <sl/libs/boost/numeric/odeint/util/copy.hpp>
 
 namespace boost {
 namespace numeric {

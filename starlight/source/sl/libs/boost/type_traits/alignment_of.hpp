@@ -9,11 +9,11 @@
 #ifndef BOOST_TT_ALIGNMENT_OF_HPP_INCLUDED
 #define BOOST_TT_ALIGNMENT_OF_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 #include <cstddef>
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 #ifdef BOOST_MSVC
 #   pragma warning(push)

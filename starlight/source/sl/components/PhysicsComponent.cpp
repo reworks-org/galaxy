@@ -7,12 +7,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sol2/sol.hpp"
-#include "loguru/loguru.hpp"
-#include "Box2D/Dynamics/b2Body.h"
+#include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DManager.hpp"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
 
 #include "PhysicsComponent.hpp"
 

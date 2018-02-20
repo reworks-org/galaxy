@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/count_fwd.hpp>
-#include <boost/mpl/count_if.hpp>
-#include <boost/mpl/same_as.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/mpl/aux_/traits_lambda_spec.hpp>
+#include <sl/libs/boost/mpl/count_fwd.hpp>
+#include <sl/libs/boost/mpl/count_if.hpp>
+#include <sl/libs/boost/mpl/same_as.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/traits_lambda_spec.hpp>
 
 namespace boost { namespace mpl {
 

@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/copy.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/copy.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
 
 namespace boost { namespace mpl {
 

@@ -15,11 +15,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/O1_size.hpp>
-#include <boost/mpl/arg.hpp>
-#include <boost/mpl/aux_/reverse_fold_impl.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/O1_size.hpp>
+#include <sl/libs/boost/mpl/arg.hpp>
+#include <sl/libs/boost/mpl/aux_/reverse_fold_impl.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
 
 namespace boost { namespace mpl {
 

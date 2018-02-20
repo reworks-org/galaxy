@@ -17,7 +17,7 @@
 
 #include "sl/math/Rect.hpp"
 #include "sl/types/ResourceCache.hpp"
-#include "MaxRectsBinPack/MaxRectsBinPack.hpp"
+#include "sl/libs/MaxRectsBinPack/MaxRectsBinPack.hpp"
 
 namespace sl
 {

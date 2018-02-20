@@ -1,4 +1,4 @@
-//  boost/catch_exceptions.hpp -----------------------------------------------//
+//  sl/libs/boost/catch_exceptions.hpp -----------------------------------------------//
 
 //  Copyright Beman Dawes 1995-2001.  Distributed under the Boost
 //  Software License, Version 1.0. (See accompanying file
@@ -23,7 +23,7 @@
 #include <typeinfo>           // for bad_cast, bad_typeid
 #include <exception>          // for exception, bad_exception
 #include <stdexcept>          // for std exception hierarchy
-#include <boost/cstdlib.hpp>  // for exit codes
+#include <sl/libs/boost/cstdlib.hpp>  // for exit codes
 #include <ostream>         // for ostream
 
 # if defined(__BORLANDC__) && (__BORLANDC__ <= 0x0551)

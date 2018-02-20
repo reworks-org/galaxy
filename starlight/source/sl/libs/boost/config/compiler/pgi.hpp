@@ -12,7 +12,7 @@
 #define BOOST_COMPILER "PGI compiler version " BOOST_STRINGIZE(BOOST_COMPILER_VERSION)
 
 // PGI is mostly GNU compatible.  So start with that.
-#include <boost/config/compiler/gcc.hpp>
+#include <sl/libs/boost/config/compiler/gcc.hpp>
 
 // Now adjust for things that are different.
 

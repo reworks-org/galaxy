@@ -41,8 +41,8 @@
 #ifndef AGUI_ALLEGRO5_FONT_MANAGER_HPP
 #define AGUI_ALLEGRO5_FONT_MANAGER_HPP
 
-#include "Agui/FontLoader.hpp"
-#include "Agui/Backends/Allegro5/Allegro5Font.hpp"
+#include "sl/libs/Agui/FontLoader.hpp"
+#include "sl/libs/Agui/Backends/Allegro5/Allegro5Font.hpp"
 
 //Allegro 5 
 #include <allegro5/allegro.h>

@@ -38,9 +38,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/ResizableText.hpp"
-#include "Agui/Graphics.hpp"
-#include "Agui/Font.hpp"
+#include "sl/libs/Agui/ResizableText.hpp"
+#include "sl/libs/Agui/Graphics.hpp"
+#include "sl/libs/Agui/Font.hpp"
 namespace agui
 {
 	void ResizableText::drawTextArea( Graphics *g, 

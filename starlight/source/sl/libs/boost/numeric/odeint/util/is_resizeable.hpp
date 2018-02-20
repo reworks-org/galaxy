@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/util/is_resizeable.hpp
+ sl/libs/boost/numeric/odeint/util/is_resizeable.hpp
 
  [begin_description]
  Metafunction to determine if a state type can resized. For usage in the steppers.
@@ -21,16 +21,16 @@
 
 #include <vector>
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/fusion/include/front.hpp>
-#include <boost/fusion/include/is_sequence.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/remove_reference.hpp>
+#include <sl/libs/boost/fusion/include/front.hpp>
+#include <sl/libs/boost/fusion/include/is_sequence.hpp>
 
-#include <boost/mpl/find_if.hpp>
-#include <boost/mpl/end.hpp>
-#include <boost/mpl/placeholders.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/mpl/find_if.hpp>
+#include <sl/libs/boost/mpl/end.hpp>
+#include <sl/libs/boost/mpl/placeholders.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost {
 namespace numeric {

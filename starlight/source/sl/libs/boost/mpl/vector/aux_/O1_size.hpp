@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/O1_size_fwd.hpp>
-#include <boost/mpl/minus.hpp>
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/vector/aux_/tag.hpp>
-#include <boost/mpl/aux_/config/typeof.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/O1_size_fwd.hpp>
+#include <sl/libs/boost/mpl/minus.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/vector/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/aux_/config/typeof.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
 
 namespace boost { namespace mpl {
 

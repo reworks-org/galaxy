@@ -16,7 +16,7 @@
 #   include "../detail/core14.hpp"
 #endif
 
-/// \file boost/pfr/functors.hpp
+/// \file sl/libs/boost/pfr/functors.hpp
 /// Contains functors that are close to the Standard Library ones.
 /// Each functor iterates over fields of the type.
 ///

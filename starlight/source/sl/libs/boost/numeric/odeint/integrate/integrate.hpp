@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/integrate.hpp
+ sl/libs/boost/numeric/odeint/integrate/integrate.hpp
 
  [begin_description]
  Convenience methods which choose the stepper for the current ODE.
@@ -18,15 +18,15 @@
 #ifndef BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_HPP_INCLUDED
 
-#include <boost/utility/enable_if.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
 
-#include <boost/numeric/odeint/stepper/runge_kutta_dopri5.hpp>
-#include <boost/numeric/odeint/stepper/controlled_runge_kutta.hpp>
-#include <boost/numeric/odeint/integrate/null_observer.hpp>
-#include <boost/numeric/odeint/integrate/integrate_adaptive.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/runge_kutta_dopri5.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/controlled_runge_kutta.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/null_observer.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/integrate_adaptive.hpp>
 
 // for has_value_type trait
-#include <boost/numeric/odeint/algebra/detail/extract_value_type.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/detail/extract_value_type.hpp>
 
 
 namespace boost {

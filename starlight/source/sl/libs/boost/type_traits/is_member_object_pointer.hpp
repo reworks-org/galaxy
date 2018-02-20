@@ -10,8 +10,8 @@
 #ifndef BOOST_TT_IS_MEMBER_OBJECT_POINTER_HPP_INCLUDED
 #define BOOST_TT_IS_MEMBER_OBJECT_POINTER_HPP_INCLUDED
 
-#include <boost/type_traits/is_member_pointer.hpp>
-#include <boost/type_traits/is_member_function_pointer.hpp>
+#include <sl/libs/boost/type_traits/is_member_pointer.hpp>
+#include <sl/libs/boost/type_traits/is_member_function_pointer.hpp>
 
 namespace boost {
 

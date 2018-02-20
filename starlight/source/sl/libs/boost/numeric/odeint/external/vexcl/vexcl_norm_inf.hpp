@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/vexcl/vexcl_norm_inf.hpp
+  sl/libs/boost/numeric/odeint/external/vexcl/vexcl_norm_inf.hpp
 
   [begin_description]
   vector_space_norm_inf specialization for vexcl
@@ -25,7 +25,7 @@
 #include <vexcl/multivector.hpp>
 #include <vexcl/reductor.hpp>
 
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
 
 namespace boost {
 namespace numeric {

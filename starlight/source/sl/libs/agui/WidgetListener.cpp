@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/WidgetListener.hpp"
+#include "sl/libs/Agui/WidgetListener.hpp"
 namespace agui {
 	WidgetListener::WidgetListener(void)
 	{

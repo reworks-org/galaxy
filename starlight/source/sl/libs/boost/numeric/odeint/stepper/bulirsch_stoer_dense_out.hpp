@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/bulirsch_stoer_dense_out.hpp
+ sl/libs/boost/numeric/odeint/stepper/bulirsch_stoer_dense_out.hpp
 
  [begin_description]
  Implementaiton of the Burlish-Stoer method with dense output
@@ -24,28 +24,28 @@
 
 #include <algorithm>
 
-#include <boost/config.hpp> // for min/max guidelines
+#include <sl/libs/boost/config.hpp> // for min/max guidelines
 
-#include <boost/numeric/odeint/util/bind.hpp>
+#include <sl/libs/boost/numeric/odeint/util/bind.hpp>
 
-#include <boost/math/special_functions/binomial.hpp>
+#include <sl/libs/boost/math/special_functions/binomial.hpp>
 
-#include <boost/numeric/odeint/stepper/controlled_runge_kutta.hpp>
-#include <boost/numeric/odeint/stepper/modified_midpoint.hpp>
-#include <boost/numeric/odeint/stepper/controlled_step_result.hpp>
-#include <boost/numeric/odeint/algebra/range_algebra.hpp>
-#include <boost/numeric/odeint/algebra/default_operations.hpp>
-#include <boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
-#include <boost/numeric/odeint/algebra/operations_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/controlled_runge_kutta.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/modified_midpoint.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/controlled_step_result.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/range_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/default_operations.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/operations_dispatcher.hpp>
 
-#include <boost/numeric/odeint/util/state_wrapper.hpp>
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/resizer.hpp>
-#include <boost/numeric/odeint/util/unit_helper.hpp>
+#include <sl/libs/boost/numeric/odeint/util/state_wrapper.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resizer.hpp>
+#include <sl/libs/boost/numeric/odeint/util/unit_helper.hpp>
 
-#include <boost/numeric/odeint/integrate/max_step_checker.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/max_step_checker.hpp>
 
-#include <boost/type_traits.hpp>
+#include <sl/libs/boost/type_traits.hpp>
 
 
 namespace boost {

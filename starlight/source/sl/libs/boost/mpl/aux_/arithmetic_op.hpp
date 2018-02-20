@@ -14,29 +14,29 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/integral_c.hpp>
-#   include <boost/mpl/aux_/largest_int.hpp>
-#   include <boost/mpl/aux_/value_wknd.hpp>
+#   include <sl/libs/boost/mpl/integral_c.hpp>
+#   include <sl/libs/boost/mpl/aux_/largest_int.hpp>
+#   include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
 #endif
 
 #if !defined(AUX778076_OP_PREFIX)
 #   define AUX778076_OP_PREFIX AUX778076_OP_NAME
 #endif
 
-#include <boost/mpl/aux_/numeric_op.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/numeric_op.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER AUX778076_OP_PREFIX.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/aux_/config/workaround.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 
 namespace boost { namespace mpl {

@@ -14,18 +14,18 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/multiset/aux_/tag.hpp>
-#include <boost/mpl/count_fwd.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/aux_/type_wrapper.hpp>
-#include <boost/mpl/aux_/static_cast.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/multiset/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/count_fwd.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/static_cast.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
 
 #if BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
-#   include <boost/mpl/if.hpp>
-#   include <boost/type_traits/is_reference.hpp>
+#   include <sl/libs/boost/mpl/if.hpp>
+#   include <sl/libs/boost/type_traits/is_reference.hpp>
 #endif
 
 namespace boost { namespace mpl {

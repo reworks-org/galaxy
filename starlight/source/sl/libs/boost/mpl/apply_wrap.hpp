@@ -19,37 +19,37 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/aux_/arity.hpp>
-#   include <boost/mpl/aux_/has_apply.hpp>
-#   include <boost/mpl/aux_/na.hpp>
-#   include <boost/mpl/aux_/msvc_never_true.hpp>
+#   include <sl/libs/boost/mpl/aux_/arity.hpp>
+#   include <sl/libs/boost/mpl/aux_/has_apply.hpp>
+#   include <sl/libs/boost/mpl/aux_/na.hpp>
+#   include <sl/libs/boost/mpl/aux_/msvc_never_true.hpp>
 #endif
 
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER apply_wrap.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/limits/arity.hpp>
-#   include <boost/mpl/aux_/preprocessor/params.hpp>
-#   include <boost/mpl/aux_/preprocessor/enum.hpp>
-#   include <boost/mpl/aux_/preprocessor/add.hpp>
-#   include <boost/mpl/aux_/config/bcc.hpp>
-#   include <boost/mpl/aux_/config/ctps.hpp>
-#   include <boost/mpl/aux_/config/dtp.hpp>
-#   include <boost/mpl/aux_/config/eti.hpp>
-#   include <boost/mpl/aux_/config/msvc.hpp>
-#   include <boost/mpl/aux_/config/workaround.hpp>
+#   include <sl/libs/boost/mpl/limits/arity.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/enum.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/add.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/bcc.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/dtp.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/eti.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
-#   include <boost/preprocessor/comma_if.hpp>
-#   include <boost/preprocessor/logical/and.hpp>
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/iterate.hpp>
+#   include <sl/libs/boost/preprocessor/comma_if.hpp>
+#   include <sl/libs/boost/preprocessor/logical/and.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/iterate.hpp>
 
 
 namespace boost { namespace mpl {
@@ -65,7 +65,7 @@ namespace boost { namespace mpl {
 
 
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <boost/mpl/apply_wrap.hpp>))
+    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <sl/libs/boost/mpl/apply_wrap.hpp>))
 #include BOOST_PP_ITERATE()
 
 
@@ -92,7 +92,7 @@ namespace boost { namespace mpl {
 #define AUX778076_MSVC_DTW_NAME BOOST_PP_CAT(msvc_apply,i_)
 #define AUX778076_MSVC_DTW_ORIGINAL_NAME apply
 #define AUX778076_MSVC_DTW_ARITY i_
-#include <boost/mpl/aux_/msvc_dtw.hpp>
+#include <sl/libs/boost/mpl/aux_/msvc_dtw.hpp>
 
 template<
       typename F BOOST_PP_COMMA_IF(i_) AUX778076_APPLY_WRAP_PARAMS(i_, typename T)
@@ -114,7 +114,7 @@ template<
 struct BOOST_PP_CAT(apply_wrap_impl,i_);
 
 #define BOOST_PP_ITERATION_PARAMS_2 \
-    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY - i_, <boost/mpl/apply_wrap.hpp>))
+    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY - i_, <sl/libs/boost/mpl/apply_wrap.hpp>))
 #include BOOST_PP_ITERATE()
 
 template<

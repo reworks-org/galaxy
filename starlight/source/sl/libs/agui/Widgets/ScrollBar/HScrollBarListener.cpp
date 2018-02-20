@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/ScrollBar/HScrollBarListener.hpp"
+#include "sl/libs/Agui/Widgets/ScrollBar/HScrollBarListener.hpp"
 
 namespace agui {
 	HScrollBarListener::HScrollBarListener(void)

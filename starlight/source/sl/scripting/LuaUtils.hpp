@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_LUAUTILS_HPP_
 #define STARLIGHT_LUAUTILS_HPP_
 
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {

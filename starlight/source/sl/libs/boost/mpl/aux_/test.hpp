@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/test/test_case.hpp>
-#include <boost/mpl/aux_/test/data.hpp>
-#include <boost/mpl/aux_/test/assert.hpp>
-#include <boost/detail/lightweight_test.hpp>
+#include <sl/libs/boost/mpl/aux_/test/test_case.hpp>
+#include <sl/libs/boost/mpl/aux_/test/data.hpp>
+#include <sl/libs/boost/mpl/aux_/test/assert.hpp>
+#include <sl/libs/boost/detail/lightweight_test.hpp>
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 int main()
 {

@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/thrust/thrust_operations_dispatcher.hpp
+  sl/libs/boost/numeric/odeint/external/thrust/thrust_operations_dispatcher.hpp
 
   [begin_description]
   operations_dispatcher specialization for thrust
@@ -21,8 +21,8 @@
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
 
-#include <boost/numeric/odeint/external/thrust/thrust_operations.hpp>
-#include <boost/numeric/odeint/algebra/operations_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/external/thrust/thrust_operations.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/operations_dispatcher.hpp>
 
 // support for the standard thrust containers
 

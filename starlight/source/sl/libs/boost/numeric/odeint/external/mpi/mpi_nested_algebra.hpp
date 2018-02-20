@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/mpi/mpi_nested_algebra.hpp
+ sl/libs/boost/numeric/odeint/external/mpi/mpi_nested_algebra.hpp
 
  [begin_description]
  Nested parallelized algebra for MPI.
@@ -19,8 +19,8 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_MPI_MPI_NESTED_ALGEBRA_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_MPI_MPI_NESTED_ALGEBRA_HPP_INCLUDED
 
-#include <boost/numeric/odeint/algebra/norm_result_type.hpp>
-#include <boost/numeric/odeint/util/n_ary_helper.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/norm_result_type.hpp>
+#include <sl/libs/boost/numeric/odeint/util/n_ary_helper.hpp>
 
 namespace boost {
 namespace numeric {

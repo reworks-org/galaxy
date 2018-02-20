@@ -15,11 +15,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/preprocessor/seq/size.hpp>
-#include <boost/preprocessor/arithmetic/dec.hpp>
-#include <boost/preprocessor/punctuation/paren.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/config/config.hpp>
+#include <sl/libs/boost/preprocessor/seq/size.hpp>
+#include <sl/libs/boost/preprocessor/arithmetic/dec.hpp>
+#include <sl/libs/boost/preprocessor/punctuation/paren.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/preprocessor/config/config.hpp>
 
 // returns 1 if 'seq' is a PP-sequence, 0 otherwise:
 //

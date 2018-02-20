@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/adl_barrier.hpp>
-#include <boost/mpl/aux_/nttp_decl.hpp>
+#include <sl/libs/boost/mpl/aux_/adl_barrier.hpp>
+#include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
 
 BOOST_MPL_AUX_ADL_BARRIER_NAMESPACE_OPEN
 

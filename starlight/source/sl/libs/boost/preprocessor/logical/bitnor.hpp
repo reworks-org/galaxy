@@ -12,7 +12,7 @@
 # ifndef BOOST_PREPROCESSOR_LOGICAL_BITNOR_HPP
 # define BOOST_PREPROCESSOR_LOGICAL_BITNOR_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
 #
 # /* BOOST_PP_BITNOR */
 #

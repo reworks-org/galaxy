@@ -9,7 +9,7 @@
 #define BOOST_TT_IS_COMPLEX_HPP
 
 #include <complex>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 namespace boost {
 

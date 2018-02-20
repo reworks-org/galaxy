@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Backends/Allegro5/Allegro5ImageLoader.hpp"
+#include "sl/libs/Agui/Backends/Allegro5/Allegro5ImageLoader.hpp"
 namespace agui {
 
 	Image* Allegro5ImageLoader::loadImage( const std::string &fileName, 

@@ -18,9 +18,9 @@
 # pragma message("NOTE: Use of this header (bool_trait_def.hpp) is deprecated")
 #endif
 
-#include <boost/type_traits/detail/template_arity_spec.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/config.hpp>
+#include <sl/libs/boost/type_traits/detail/template_arity_spec.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/config.hpp>
 
 //
 // Unfortunately some libraries have started using this header without

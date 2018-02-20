@@ -12,12 +12,12 @@
 # ifndef BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_VARIADIC_HPP
 # define BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_VARIADIC_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
 #
 # if BOOST_PP_VARIADICS
 #
-# include <boost/preprocessor/punctuation/is_begin_parens.hpp>
-# include <boost/preprocessor/facilities/detail/is_empty.hpp>
+# include <sl/libs/boost/preprocessor/punctuation/is_begin_parens.hpp>
+# include <sl/libs/boost/preprocessor/facilities/detail/is_empty.hpp>
 #
 #if BOOST_PP_VARIADICS_MSVC && _MSC_VER <= 1400
 #

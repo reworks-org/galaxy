@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/key_type_fwd.hpp>
-#include <boost/mpl/set/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/key_type_fwd.hpp>
+#include <sl/libs/boost/mpl/set/aux_/tag.hpp>
 
 namespace boost { namespace mpl {
 

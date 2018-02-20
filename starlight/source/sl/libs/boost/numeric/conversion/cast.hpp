@@ -21,17 +21,17 @@
 #ifndef BOOST_NUMERIC_CONVERSION_CAST_25OCT2001_HPP
 #define BOOST_NUMERIC_CONVERSION_CAST_25OCT2001_HPP
 
-#include "boost/detail/workaround.hpp"
+#include "sl/libs/boost/detail/workaround.hpp"
 
 #if BOOST_WORKAROUND(BOOST_MSVC, < 1300) || BOOST_WORKAROUND(__BORLANDC__, BOOST_TESTED_AT(0x582))
 
-#include "boost/numeric/conversion/detail/old_numeric_cast.hpp"
+#include "sl/libs/boost/numeric/conversion/detail/old_numeric_cast.hpp"
 
 #else
 
-#include "boost/type.hpp"
-#include "boost/numeric/conversion/converter.hpp"
-#include "boost/numeric/conversion/numeric_cast_traits.hpp"
+#include "sl/libs/boost/type.hpp"
+#include "sl/libs/boost/numeric/conversion/converter.hpp"
+#include "sl/libs/boost/numeric/conversion/numeric_cast_traits.hpp"
 
 namespace boost
 {

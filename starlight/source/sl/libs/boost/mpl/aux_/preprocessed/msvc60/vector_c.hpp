@@ -6,7 +6,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 
-// Preprocessed version of "boost/mpl/vector_c.hpp" header
+// Preprocessed version of "sl/libs/boost/mpl/vector_c.hpp" header
 // -- DO NOT modify by hand!
 
 namespace boost { namespace mpl {

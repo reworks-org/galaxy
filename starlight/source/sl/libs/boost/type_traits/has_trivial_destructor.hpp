@@ -9,27 +9,27 @@
 #ifndef BOOST_TT_HAS_TRIVIAL_DESTRUCTOR_HPP_INCLUDED
 #define BOOST_TT_HAS_TRIVIAL_DESTRUCTOR_HPP_INCLUDED
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 #ifdef BOOST_HAS_TRIVIAL_DESTRUCTOR
 
 #if defined(BOOST_INTEL) || defined(BOOST_MSVC)
-#include <boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
 #endif
 #ifdef BOOST_HAS_SGI_TYPE_TRAITS
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 #endif
 
 #if defined(__GNUC__) || defined(__clang__) || defined(__SUNPRO_CC)
-#include <boost/type_traits/is_destructible.hpp>
+#include <sl/libs/boost/type_traits/is_destructible.hpp>
 #endif
 
 namespace boost {
 
 template <typename T> struct has_trivial_destructor : public integral_constant<bool, BOOST_HAS_TRIVIAL_DESTRUCTOR(T)>{};
 #else
-#include <boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
 
 namespace boost{
 

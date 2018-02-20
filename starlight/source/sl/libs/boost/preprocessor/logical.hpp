@@ -14,16 +14,16 @@
 # ifndef BOOST_PREPROCESSOR_LOGICAL_HPP
 # define BOOST_PREPROCESSOR_LOGICAL_HPP
 #
-# include <boost/preprocessor/logical/and.hpp>
-# include <boost/preprocessor/logical/bitand.hpp>
-# include <boost/preprocessor/logical/bitnor.hpp>
-# include <boost/preprocessor/logical/bitor.hpp>
-# include <boost/preprocessor/logical/bitxor.hpp>
-# include <boost/preprocessor/logical/bool.hpp>
-# include <boost/preprocessor/logical/compl.hpp>
-# include <boost/preprocessor/logical/nor.hpp>
-# include <boost/preprocessor/logical/not.hpp>
-# include <boost/preprocessor/logical/or.hpp>
-# include <boost/preprocessor/logical/xor.hpp>
+# include <sl/libs/boost/preprocessor/logical/and.hpp>
+# include <sl/libs/boost/preprocessor/logical/bitand.hpp>
+# include <sl/libs/boost/preprocessor/logical/bitnor.hpp>
+# include <sl/libs/boost/preprocessor/logical/bitor.hpp>
+# include <sl/libs/boost/preprocessor/logical/bitxor.hpp>
+# include <sl/libs/boost/preprocessor/logical/bool.hpp>
+# include <sl/libs/boost/preprocessor/logical/compl.hpp>
+# include <sl/libs/boost/preprocessor/logical/nor.hpp>
+# include <sl/libs/boost/preprocessor/logical/not.hpp>
+# include <sl/libs/boost/preprocessor/logical/or.hpp>
+# include <sl/libs/boost/preprocessor/logical/xor.hpp>
 #
 # endif

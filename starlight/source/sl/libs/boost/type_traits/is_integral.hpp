@@ -9,8 +9,8 @@
 #ifndef BOOST_TT_IS_INTEGRAL_HPP_INCLUDED
 #define BOOST_TT_IS_INTEGRAL_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 namespace boost {
 
@@ -47,7 +47,7 @@ template<> struct is_integral<bool> : public true_type{};
 template<> struct is_integral<wchar_t> : public true_type{};
 #endif
 
-// Same set of integral types as in boost/type_traits/integral_promotion.hpp.
+// Same set of integral types as in sl/libs/boost/type_traits/integral_promotion.hpp.
 // Please, keep in sync. -- Alexander Nasonov
 #if (defined(BOOST_INTEL_CXX_VERSION) && defined(_MSC_VER) && (BOOST_INTEL_CXX_VERSION <= 600)) \
     || (defined(__BORLANDC__) && (__BORLANDC__ == 0x600) && (_MSC_VER < 1300))

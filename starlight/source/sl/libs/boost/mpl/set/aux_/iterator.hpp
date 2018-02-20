@@ -15,14 +15,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/set/aux_/set0.hpp>
-#include <boost/mpl/has_key.hpp>
-#include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/set/aux_/set0.hpp>
+#include <sl/libs/boost/mpl/has_key.hpp>
+#include <sl/libs/boost/mpl/iterator_tags.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/eval_if.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/identity.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
 
 namespace boost { namespace mpl {
 

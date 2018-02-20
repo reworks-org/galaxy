@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/erase_key_fwd.hpp>
-#include <boost/mpl/sequence_tag.hpp>
-#include <boost/mpl/aux_/erase_key_impl.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/aux_/config/msvc_typename.hpp>
+#include <sl/libs/boost/mpl/erase_key_fwd.hpp>
+#include <sl/libs/boost/mpl/sequence_tag.hpp>
+#include <sl/libs/boost/mpl/aux_/erase_key_impl.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc_typename.hpp>
 
 namespace boost { namespace mpl {
 

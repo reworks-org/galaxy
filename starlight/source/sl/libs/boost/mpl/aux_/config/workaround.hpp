@@ -14,6 +14,6 @@
 // $Date$
 // $Revision$
 
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #endif // BOOST_MPL_AUX_CONFIG_WORKAROUND_HPP_INCLUDED

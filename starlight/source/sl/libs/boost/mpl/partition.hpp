@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/stable_partition.hpp>
-#include <boost/mpl/aux_/inserter_algorithm.hpp>
+#include <sl/libs/boost/mpl/stable_partition.hpp>
+#include <sl/libs/boost/mpl/aux_/inserter_algorithm.hpp>
 
 namespace boost { namespace mpl {
 

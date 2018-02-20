@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/TextBox/ExtendedTextBox.hpp"
+#include "sl/libs/Agui/Widgets/TextBox/ExtendedTextBox.hpp"
 #include <algorithm>
 namespace agui {
 	ExtendedTextBox::~ExtendedTextBox(void)

@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/check_adapter.hpp
+ sl/libs/boost/numeric/odeint/integrate/check_adapter.hpp
 
  [begin_description]
  Adapters to add checking facility to stepper and observer
@@ -16,8 +16,8 @@
 #ifndef BOOST_NUMERIC_ODEINT_INTEGRATE_CHECK_ADAPTER_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_INTEGRATE_CHECK_ADAPTER_HPP_INCLUDED
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
-#include <boost/numeric/odeint/stepper/controlled_step_result.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/controlled_step_result.hpp>
 
 
 namespace boost {

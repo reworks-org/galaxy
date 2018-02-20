@@ -9,7 +9,7 @@
 #
 # /* See http://www.boost.org for most recent version. */
 #
-# include <boost/preprocessor/slot/detail/shared.hpp>
+# include <sl/libs/boost/preprocessor/slot/detail/shared.hpp>
 #
 # undef BOOST_PP_ITERATION_START_5
 #

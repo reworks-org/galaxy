@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/advance.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/aux_/traits_lambda_spec.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/advance.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/aux_/traits_lambda_spec.hpp>
 
 namespace boost { namespace mpl {
 

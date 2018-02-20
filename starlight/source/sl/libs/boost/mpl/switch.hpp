@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/find_if.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/pair.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/find_if.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/lambda.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/pair.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
 
 namespace boost { namespace mpl {
 

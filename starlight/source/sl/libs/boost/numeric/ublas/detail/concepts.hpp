@@ -13,7 +13,7 @@
 #ifndef _BOOST_UBLAS_CONCEPTS_
 #define _BOOST_UBLAS_CONCEPTS_
 
-#include <boost/concept_check.hpp>
+#include <sl/libs/boost/concept_check.hpp>
 
 // Concept checks based on ideas of Jeremy Siek
 

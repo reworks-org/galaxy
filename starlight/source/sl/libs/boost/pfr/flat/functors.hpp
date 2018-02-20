@@ -12,7 +12,7 @@
 #include "../detail/functional.hpp"
 #include "core.hpp"
 
-/// \file boost/pfr/functors.hpp
+/// \file sl/libs/boost/pfr/functors.hpp
 /// Contains functors that can work with PODs and are close to the Standard Library ones.
 /// Each functor \flattening{flattens} the POD type and iterates over its fields.
 ///

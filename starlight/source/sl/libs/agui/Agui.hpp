@@ -40,7 +40,7 @@
 
 #ifndef AGUI_HPP
 #define AGUI_HPP
-#include "Agui/Widget.hpp"
-#include "Agui/Gui.hpp"
-#include "Agui/TopContainer.hpp"
+#include "sl/libs/Agui/Widget.hpp"
+#include "sl/libs/Agui/Gui.hpp"
+#include "sl/libs/Agui/TopContainer.hpp"
 #endif

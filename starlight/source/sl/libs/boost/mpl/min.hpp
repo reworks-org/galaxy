@@ -14,6 +14,6 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/min_max.hpp>
+#include <sl/libs/boost/mpl/min_max.hpp>
 
 #endif // BOOST_MPL_MIN_HPP_INCLUDED

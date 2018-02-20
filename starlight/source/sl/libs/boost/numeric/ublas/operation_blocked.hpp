@@ -13,9 +13,9 @@
 #ifndef _BOOST_UBLAS_OPERATION_BLOCKED_
 #define _BOOST_UBLAS_OPERATION_BLOCKED_
 
-#include <boost/numeric/ublas/traits.hpp>
-#include <boost/numeric/ublas/detail/vector_assign.hpp> // indexing_vector_assign
-#include <boost/numeric/ublas/detail/matrix_assign.hpp> // indexing_matrix_assign
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/vector_assign.hpp> // indexing_vector_assign
+#include <sl/libs/boost/numeric/ublas/detail/matrix_assign.hpp> // indexing_matrix_assign
 
 
 namespace boost { namespace numeric { namespace ublas {

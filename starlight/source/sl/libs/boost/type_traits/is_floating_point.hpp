@@ -8,7 +8,7 @@
 #ifndef BOOST_TYPE_TRAITS_IS_FLOATING_HPP_INCLUDED
 #define BOOST_TYPE_TRAITS_IS_FLOATING_HPP_INCLUDED
 
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 namespace boost {
 

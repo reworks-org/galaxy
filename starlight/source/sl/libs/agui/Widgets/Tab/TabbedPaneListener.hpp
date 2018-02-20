@@ -41,7 +41,7 @@
 #ifndef AGUI_TABBED_PANE_LISTENER_HPP
 #define  AGUI_TABBED_PANE_LISTENER_HPP
 
-#include "Agui/Platform.hpp"
+#include "sl/libs/Agui/Platform.hpp"
 
 namespace agui {
 	class AGUI_CORE_DECLSPEC Widget;

@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/adl_barrier.hpp>
-#include <boost/config.hpp> // make sure 'size_t' is placed into 'std'
+#include <sl/libs/boost/mpl/aux_/adl_barrier.hpp>
+#include <sl/libs/boost/config.hpp> // make sure 'size_t' is placed into 'std'
 #include <cstddef>
 
 BOOST_MPL_AUX_ADL_BARRIER_NAMESPACE_OPEN

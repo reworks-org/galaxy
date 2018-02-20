@@ -14,19 +14,19 @@
 #include <allegro5/bitmap_draw.h>
 #include <allegro5/allegro_primitives.h>
 
-#include "tmx/tmx.h"
+#include "sl/libs/tmx/tmx.h"
 #include "sl/core/World.hpp"
 #include "sl/utils/Utils.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
-#include "boost/numeric/conversion/cast.hpp"
 #include "sl/components/SpriteComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
+#include "sl/libs/boost/numeric/conversion/cast.hpp"
 
 /// American English? Ew.
 #define ALLEGRO_COLOUR ALLEGRO_COLOR

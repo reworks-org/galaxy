@@ -15,11 +15,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/pair.hpp>
-#include <boost/mpl/aux_/lambda_spec.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/eval_if.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/pair.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_spec.hpp>
 
 namespace boost { namespace mpl { 
 

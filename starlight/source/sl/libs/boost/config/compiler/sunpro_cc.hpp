@@ -59,8 +59,8 @@
 
 #    if (__SUNPRO_CC < 0x570)
 #      define BOOST_NO_TEMPLATE_TEMPLATES
-       // see http://lists.boost.org/MailArchives/boost/msg47184.php
-       // and http://lists.boost.org/MailArchives/boost/msg47220.php
+       // see http://lists.boost.org/MailArchives/sl/libs/boost/msg47184.php
+       // and http://lists.boost.org/MailArchives/sl/libs/boost/msg47220.php
 #      define BOOST_NO_INCLASS_MEMBER_INITIALIZATION
 #      define BOOST_NO_SFINAE
 #      define BOOST_NO_ARRAY_TYPE_SPECIALIZATIONS

@@ -6,10 +6,10 @@
 #ifndef UUID_C3E1741C754311DDB2834CCA55D89593
 #define UUID_C3E1741C754311DDB2834CCA55D89593
 
-#include <boost/config.hpp>
-#include <boost/core/typeinfo.hpp>
-#include <boost/core/demangle.hpp>
-#include <boost/current_function.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/core/typeinfo.hpp>
+#include <sl/libs/boost/core/demangle.hpp>
+#include <sl/libs/boost/current_function.hpp>
 #include <string>
 
 #if (__GNUC__*100+__GNUC_MINOR__>301) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)

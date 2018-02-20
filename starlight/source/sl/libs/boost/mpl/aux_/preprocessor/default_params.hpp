@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/preprocessor.hpp>
+#include <sl/libs/boost/mpl/aux_/config/preprocessor.hpp>
 
 // BOOST_MPL_PP_DEFAULT_PARAMS(0,T,int): <nothing>
 // BOOST_MPL_PP_DEFAULT_PARAMS(1,T,int): T1 = int
@@ -23,7 +23,7 @@
 
 #if !defined(BOOST_MPL_CFG_NO_OWN_PP_PRIMITIVES)
 
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 #   define BOOST_MPL_PP_DEFAULT_PARAMS(n,p,v) \
     BOOST_PP_CAT(BOOST_MPL_PP_DEFAULT_PARAMS_,n)(p,v) \
@@ -42,11 +42,11 @@
 
 #else
 
-#   include <boost/preprocessor/tuple/elem.hpp>
-#   include <boost/preprocessor/comma_if.hpp>
-#   include <boost/preprocessor/repeat.hpp>
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/tuple/elem.hpp>
+#   include <sl/libs/boost/preprocessor/comma_if.hpp>
+#   include <sl/libs/boost/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 #   define BOOST_MPL_PP_AUX_DEFAULT_PARAM_FUNC(unused, i, pv) \
     BOOST_PP_COMMA_IF(i) \

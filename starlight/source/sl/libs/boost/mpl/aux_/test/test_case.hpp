@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
 
 #define MPL_TEST_CASE() void BOOST_PP_CAT(test,__LINE__)()
 

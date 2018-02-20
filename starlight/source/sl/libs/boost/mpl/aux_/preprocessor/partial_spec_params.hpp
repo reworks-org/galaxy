@@ -14,11 +14,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/limits/arity.hpp>
-#include <boost/mpl/aux_/preprocessor/params.hpp>
-#include <boost/mpl/aux_/preprocessor/enum.hpp>
-#include <boost/mpl/aux_/preprocessor/sub.hpp>
-#include <boost/preprocessor/comma_if.hpp>
+#include <sl/libs/boost/mpl/limits/arity.hpp>
+#include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
+#include <sl/libs/boost/mpl/aux_/preprocessor/enum.hpp>
+#include <sl/libs/boost/mpl/aux_/preprocessor/sub.hpp>
+#include <sl/libs/boost/preprocessor/comma_if.hpp>
 
 #define BOOST_MPL_PP_PARTIAL_SPEC_PARAMS(n, param, def) \
 BOOST_MPL_PP_PARAMS(n, param) \

@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/TextField/TextField.hpp"
+#include "sl/libs/Agui/Widgets/TextField/TextField.hpp"
 namespace agui {
 	TextField::TextField(void)
     :maxCharacterSkip(8),maxLength(100),caretPosition(0),caretLocation(0),

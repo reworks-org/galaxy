@@ -10,20 +10,20 @@
 #ifndef BOOST_TT_IS_CLASS_HPP_INCLUDED
 #define BOOST_TT_IS_CLASS_HPP_INCLUDED
 
-#include <boost/type_traits/detail/config.hpp>
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/detail/config.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 #ifndef BOOST_IS_CLASS
-#   include <boost/type_traits/is_union.hpp>
+#   include <sl/libs/boost/type_traits/is_union.hpp>
 
 #ifdef BOOST_TT_HAS_CONFORMING_IS_CLASS_IMPLEMENTATION
-#   include <boost/type_traits/detail/yes_no_type.hpp>
+#   include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
 #else
-#   include <boost/type_traits/is_scalar.hpp>
-#   include <boost/type_traits/is_array.hpp>
-#   include <boost/type_traits/is_reference.hpp>
-#   include <boost/type_traits/is_void.hpp>
-#   include <boost/type_traits/is_function.hpp>
+#   include <sl/libs/boost/type_traits/is_scalar.hpp>
+#   include <sl/libs/boost/type_traits/is_array.hpp>
+#   include <sl/libs/boost/type_traits/is_reference.hpp>
+#   include <sl/libs/boost/type_traits/is_void.hpp>
+#   include <sl/libs/boost/type_traits/is_function.hpp>
 #endif
 
 #endif // BOOST_IS_CLASS
@@ -38,7 +38,7 @@ namespace detail {
 // This is actually the conforming implementation which works with
 // abstract classes.  However, enough compilers have trouble with
 // it that most will use the one in
-// boost/type_traits/object_traits.hpp. This implementation
+// sl/libs/boost/type_traits/object_traits.hpp. This implementation
 // actually works with VC7.0, but other interactions seem to fail
 // when we use it.
 

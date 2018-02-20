@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/noncopyable.hpp>
+#include <sl/libs/boost/noncopyable.hpp>
 
 enum enum_ {};
 struct UDT {};

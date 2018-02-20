@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/multiset/aux_/tag.hpp>
-#include <boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/multiset/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
 
 namespace boost { namespace mpl {
 

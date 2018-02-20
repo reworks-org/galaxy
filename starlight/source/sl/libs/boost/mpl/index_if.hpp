@@ -14,16 +14,16 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/find_if_pred.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/iter_fold_if.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/mpl/aux_/find_if_pred.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/iter_fold_if.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost { namespace mpl {
 

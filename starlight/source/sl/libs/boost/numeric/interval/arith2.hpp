@@ -14,16 +14,16 @@
 #ifndef BOOST_NUMERIC_INTERVAL_ARITH2_HPP
 #define BOOST_NUMERIC_INTERVAL_ARITH2_HPP
 
-#include <boost/config.hpp>
-#include <boost/numeric/interval/detail/interval_prototype.hpp>
-#include <boost/numeric/interval/detail/test_input.hpp>
-#include <boost/numeric/interval/detail/bugs.hpp>
-#include <boost/numeric/interval/detail/division.hpp>
-#include <boost/numeric/interval/arith.hpp>
-#include <boost/numeric/interval/policies.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/numeric/interval/detail/interval_prototype.hpp>
+#include <sl/libs/boost/numeric/interval/detail/test_input.hpp>
+#include <sl/libs/boost/numeric/interval/detail/bugs.hpp>
+#include <sl/libs/boost/numeric/interval/detail/division.hpp>
+#include <sl/libs/boost/numeric/interval/arith.hpp>
+#include <sl/libs/boost/numeric/interval/policies.hpp>
 #include <algorithm>
 #include <cassert>
-#include <boost/config/no_tr1/cmath.hpp>
+#include <sl/libs/boost/config/no_tr1/cmath.hpp>
 
 namespace boost {
 namespace numeric {

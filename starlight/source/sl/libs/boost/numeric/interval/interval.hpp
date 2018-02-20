@@ -12,7 +12,7 @@
 
 #include <stdexcept>
 #include <string>
-#include <boost/numeric/interval/detail/interval_prototype.hpp>
+#include <sl/libs/boost/numeric/interval/detail/interval_prototype.hpp>
 
 namespace boost {
 namespace numeric {

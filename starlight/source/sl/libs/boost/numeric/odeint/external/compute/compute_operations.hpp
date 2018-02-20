@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/compute/compute_operations.hpp
+ sl/libs/boost/numeric/odeint/external/compute/compute_operations.hpp
 
  [begin_description]
  Operations of Boost.Compute zipped iterators. Is the counterpart of the compute_algebra.
@@ -18,8 +18,8 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_OPERATIONS_HPP_DEFINED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_OPERATIONS_HPP_DEFINED
 
-#include <boost/preprocessor/repetition.hpp>
-#include <boost/compute.hpp>
+#include <sl/libs/boost/preprocessor/repetition.hpp>
+#include <sl/libs/boost/compute.hpp>
 
 namespace boost {
 namespace numeric {

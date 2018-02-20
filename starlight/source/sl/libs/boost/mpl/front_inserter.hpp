@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/push_front.hpp>
-#include <boost/mpl/inserter.hpp>
+#include <sl/libs/boost/mpl/push_front.hpp>
+#include <sl/libs/boost/mpl/inserter.hpp>
 
 namespace boost { namespace mpl {
 

@@ -14,20 +14,20 @@
 #ifndef BOOST_TT_DETAIL_IS_MEM_FUN_POINTER_IMPL_HPP_INCLUDED
 #define BOOST_TT_DETAIL_IS_MEM_FUN_POINTER_IMPL_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #if defined(BOOST_TT_PREPROCESSING_MODE)
 //
 // Maintenance mode, hide include dependencies
 // from trackers:
 //
-#define PPI <boost/preprocessor/iterate.hpp>
+#define PPI <sl/libs/boost/preprocessor/iterate.hpp>
 #include PPI
 #undef PPI
-#define PPI <boost/preprocessor/enum_params.hpp>
+#define PPI <sl/libs/boost/preprocessor/enum_params.hpp>
 #include PPI
 #undef PPI
-#define PPI <boost/preprocessor/comma_if.hpp>
+#define PPI <sl/libs/boost/preprocessor/comma_if.hpp>
 #include PPI
 #undef PPI
 #endif
@@ -674,7 +674,7 @@ struct is_mem_fun_pointer_impl<R (T::*)( T0 , T1 , T2 , T3 , T4 , T5 , T6 , T7 ,
 
 #undef BOOST_STATIC_CONSTANT
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3, (0, 25, "boost/type_traits/detail/is_mem_fun_pointer_impl.hpp"))
+    (3, (0, 25, "sl/libs/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp"))
 #include BOOST_PP_ITERATE()
 
 #endif // BOOST_TT_PREPROCESSING_MODE

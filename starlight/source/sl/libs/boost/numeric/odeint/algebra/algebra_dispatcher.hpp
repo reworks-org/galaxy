@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/algebra/algebra_dispatcher.hpp
+ sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp
 
  [begin_description]
  Algebra dispatcher to automatically chose suitable algebra.
@@ -17,19 +17,19 @@
 #ifndef BOOST_NUMERIC_ODEINT_ALGEBRA_ALGEBRA_DISPATCHER_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_ALGEBRA_ALGEBRA_DISPATCHER_HPP_INCLUDED
 
-#include <boost/numeric/odeint/config.hpp>
+#include <sl/libs/boost/numeric/odeint/config.hpp>
 
 #include <complex>
-#include <boost/type_traits/is_floating_point.hpp>
+#include <sl/libs/boost/type_traits/is_floating_point.hpp>
 
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/vector.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
 
-#include <boost/numeric/odeint/algebra/range_algebra.hpp>
-#include <boost/numeric/odeint/algebra/array_algebra.hpp>
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/range_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/array_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
 
-#include <boost/array.hpp>
+#include <sl/libs/boost/array.hpp>
 
 
 namespace boost {

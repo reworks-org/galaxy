@@ -12,7 +12,7 @@
 //    Fixed is_pointer, is_reference, is_const, is_volatile, is_same, 
 //    is_member_pointer based on the Simulated Partial Specialization work 
 //    of Mat Marcus and Jesse Jones. See  http://opensource.adobe.com or 
-//    http://groups.yahoo.com/group/boost/message/5441 
+//    http://groups.yahoo.com/group/sl/libs/boost/message/5441 
 //    Some workarounds in here use ideas suggested from "Generic<Programming>: 
 //    Mappings between Types and Values" 
 //    by Andrei Alexandrescu (see http://www.cuj.com/experts/1810/alexandr.html).
@@ -21,8 +21,8 @@
 #ifndef BOOST_TT_IS_MEMBER_POINTER_HPP_INCLUDED
 #define BOOST_TT_IS_MEMBER_POINTER_HPP_INCLUDED
 
-#include <boost/detail/workaround.hpp>
-#include <boost/type_traits/is_member_function_pointer.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
+#include <sl/libs/boost/type_traits/is_member_function_pointer.hpp>
 
 namespace boost {
 

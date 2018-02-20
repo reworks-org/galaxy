@@ -10,10 +10,10 @@
 #ifndef BOOST_NUMERIC_INTERVAL_DETAIL_DIVISION_HPP
 #define BOOST_NUMERIC_INTERVAL_DETAIL_DIVISION_HPP
 
-#include <boost/numeric/interval/detail/interval_prototype.hpp>
-#include <boost/numeric/interval/detail/bugs.hpp>
-#include <boost/numeric/interval/detail/test_input.hpp>
-#include <boost/numeric/interval/rounded_arith.hpp>
+#include <sl/libs/boost/numeric/interval/detail/interval_prototype.hpp>
+#include <sl/libs/boost/numeric/interval/detail/bugs.hpp>
+#include <sl/libs/boost/numeric/interval/detail/test_input.hpp>
+#include <sl/libs/boost/numeric/interval/rounded_arith.hpp>
 #include <algorithm>
 
 namespace boost {

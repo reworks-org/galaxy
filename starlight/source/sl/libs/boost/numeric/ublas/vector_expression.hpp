@@ -13,7 +13,7 @@
 #ifndef _BOOST_UBLAS_VECTOR_EXPRESSION_
 #define _BOOST_UBLAS_VECTOR_EXPRESSION_
 
-#include <boost/numeric/ublas/expression_types.hpp>
+#include <sl/libs/boost/numeric/ublas/expression_types.hpp>
 
 
 // Expression templates based on ideas of Todd Veldhuizen and Geoffrey Furnish

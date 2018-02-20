@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/vexcl/vexcl_abs.hpp
+  sl/libs/boost/numeric/odeint/external/vexcl/vexcl_abs.hpp
 
   [begin_description]
   abs() specialization for vexcl

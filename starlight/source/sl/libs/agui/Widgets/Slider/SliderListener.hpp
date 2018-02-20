@@ -40,7 +40,7 @@
 
 #ifndef AGUI_SLIDER_LISTENER_HPP
 #define AGUI_SLIDER_LISTENER_HPP
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/Agui/BaseTypes.hpp"
 namespace agui {
 	class Slider;
 	/**

@@ -19,10 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="style.txt" />
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
@@ -168,15 +164,16 @@
     <ClCompile Include="source\sl\libs\Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="source\sl\libs\imgui\auto\auto.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui.cpp" />
+    <ClCompile Include="source\sl\libs\imgui\imguidatechooser.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imguifilesystem.cpp" />
-    <ClCompile Include="source\sl\libs\imgui\imguilistview.cpp" />
+    <ClCompile Include="source\sl\libs\imgui\imguinodegrapheditor.cpp" />
+    <ClCompile Include="source\sl\libs\imgui\imguitexteditor.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui_demo.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\sl\libs\imgui\imgui_impl_a5.cpp" />
     <ClCompile Include="source\sl\libs\imgui\minizip\ioapi.c" />
     <ClCompile Include="source\sl\libs\imgui\minizip\unzip.c" />
     <ClCompile Include="source\sl\libs\imgui\minizip\zip.c" />
-    <ClCompile Include="source\sl\libs\imgui\TextEditor.cpp" />
     <ClCompile Include="source\sl\libs\loguru\loguru.cpp" />
     <ClCompile Include="source\sl\libs\lua\lapi.c" />
     <ClCompile Include="source\sl\libs\lua\lauxlib.c" />
@@ -2511,8 +2508,10 @@
     <ClInclude Include="source\sl\libs\imgui\dirent_portable.h" />
     <ClInclude Include="source\sl\libs\imgui\imconfig.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui.h" />
+    <ClInclude Include="source\sl\libs\imgui\imguidatechooser.h" />
     <ClInclude Include="source\sl\libs\imgui\imguifilesystem.h" />
-    <ClInclude Include="source\sl\libs\imgui\imguilistview.h" />
+    <ClInclude Include="source\sl\libs\imgui\imguinodegrapheditor.h" />
+    <ClInclude Include="source\sl\libs\imgui\imguitexteditor.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui_impl_a5.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui_internal.h" />
     <ClInclude Include="source\sl\libs\imgui\minizip\crypt.h" />
@@ -2522,7 +2521,6 @@
     <ClInclude Include="source\sl\libs\imgui\stb_rect_pack.h" />
     <ClInclude Include="source\sl\libs\imgui\stb_textedit.h" />
     <ClInclude Include="source\sl\libs\imgui\stb_truetype.h" />
-    <ClInclude Include="source\sl\libs\imgui\TextEditor.h" />
     <ClInclude Include="source\sl\libs\loguru\loguru.hpp" />
     <ClInclude Include="source\sl\libs\lua\lapi.h" />
     <ClInclude Include="source\sl\libs\lua\lauxlib.h" />
@@ -2699,7 +2697,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../starlight/source/;../starlight/source/sl/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../starlight/source/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <ConformanceMode>false</ConformanceMode>
@@ -2753,7 +2751,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../starlight/source/;../starlight/source/sl/libs/;../packages/libxml2/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../starlight/source/;../packages/libxml2/include/</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <LanguageStandard>stdcpplatest</LanguageStandard>

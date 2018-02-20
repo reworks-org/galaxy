@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Backends/Allegro5/Allegro5FontLoader.hpp"
+#include "sl/libs/Agui/Backends/Allegro5/Allegro5FontLoader.hpp"
 namespace agui {
 
 	Font* Allegro5FontLoader::loadFont( const std::string &fileName, int height, FontFlags fontFlags, float borderWidth, agui::Color borderColor )

@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/observer_collection.hpp
+ sl/libs/boost/numeric/odeint/integrate/observer_collection.hpp
 
  [begin_description]
  Collection of observers, which are all called during the evolution of the ODE.
@@ -20,7 +20,7 @@
 
 #include <vector>
 
-#include <boost/function.hpp>
+#include <sl/libs/boost/function.hpp>
 
 namespace boost {
 namespace numeric {

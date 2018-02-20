@@ -10,8 +10,8 @@
 #ifndef STARLIGHT_PHYSICSCOMPONENT_HPP_
 #define STARLIGHT_PHYSICSCOMPONENT_HPP_
 
-#include "cereal/access.hpp"
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/cereal/access.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 class b2Body;
 namespace entt { typedef std::uint32_t Entity; }

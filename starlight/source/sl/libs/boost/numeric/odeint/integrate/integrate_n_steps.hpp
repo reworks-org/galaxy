@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/integrate_n_steps.hpp
+ sl/libs/boost/numeric/odeint/integrate/integrate_n_steps.hpp
 
  [begin_description]
  Integration of n steps with constant time size. Adaptive and dense-output methods are fully supported.
@@ -18,12 +18,12 @@
 #ifndef BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_N_STEPS_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_N_STEPS_HPP_INCLUDED
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
-#include <boost/numeric/odeint/integrate/null_observer.hpp>
-#include <boost/numeric/odeint/integrate/detail/integrate_n_steps.hpp>
-#include <boost/numeric/odeint/integrate/check_adapter.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/null_observer.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/detail/integrate_n_steps.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/check_adapter.hpp>
 
 namespace boost {
 namespace numeric {

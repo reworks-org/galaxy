@@ -13,7 +13,7 @@
 #ifndef _BOOST_UBLAS_OPERATION_SPARSE_
 #define _BOOST_UBLAS_OPERATION_SPARSE_
 
-#include <boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
 
 // These scaled additions were borrowed from MTL unashamedly.
 // But Alexei Novakov had a lot of ideas to improve these. Thanks.

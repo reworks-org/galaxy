@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/vexcl/vexcl.hpp
+  sl/libs/boost/numeric/odeint/external/vexcl/vexcl.hpp
 
   [begin_description]
   includes all headers required for using vexcl in odeint
@@ -18,11 +18,11 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_VEXCL_VEXCL_HPP_DEFINED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_VEXCL_VEXCL_HPP_DEFINED
 
-#include <boost/numeric/odeint/external/vexcl/vexcl_algebra_dispatcher.hpp>
-#include <boost/numeric/odeint/external/vexcl/vexcl_resize.hpp>
-#include <boost/numeric/odeint/external/vexcl/vexcl_same_instance.hpp>
-#include <boost/numeric/odeint/external/vexcl/vexcl_norm_inf.hpp>
-#include <boost/numeric/odeint/external/vexcl/vexcl_abs.hpp>
-#include <boost/numeric/odeint/external/vexcl/vexcl_copy.hpp>
+#include <sl/libs/boost/numeric/odeint/external/vexcl/vexcl_algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/external/vexcl/vexcl_resize.hpp>
+#include <sl/libs/boost/numeric/odeint/external/vexcl/vexcl_same_instance.hpp>
+#include <sl/libs/boost/numeric/odeint/external/vexcl/vexcl_norm_inf.hpp>
+#include <sl/libs/boost/numeric/odeint/external/vexcl/vexcl_abs.hpp>
+#include <sl/libs/boost/numeric/odeint/external/vexcl/vexcl_copy.hpp>
 
 #endif // BOOST_NUMERIC_ODEINT_EXTERNAL_VEXCL_VEXCL_HPP_DEFINED

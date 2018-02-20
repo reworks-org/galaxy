@@ -14,11 +14,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/is_sequence.hpp>
-#include <boost/mpl/single_view.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/is_sequence.hpp>
+#include <sl/libs/boost/mpl/single_view.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
 
 namespace boost { namespace mpl {
 

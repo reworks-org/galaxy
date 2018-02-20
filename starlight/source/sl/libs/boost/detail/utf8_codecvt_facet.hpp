@@ -29,7 +29,7 @@
 //   library is strange. 
 // Until the above points are fixed, a library which wants to use utf8 must:
 // - include this header in one of it's headers or sources
-// - include the corresponding boost/detail/utf8_codecvt_facet.ipp file in one
+// - include the corresponding sl/libs/boost/detail/utf8_codecvt_facet.ipp file in one
 //   of its sources
 // - before including either file, the library must define
 //   - BOOST_UTF8_BEGIN_NAMESPACE to the namespace declaration that must be used
@@ -43,7 +43,7 @@
 //             namespace boost { namespace program_options {
 //    #define BOOST_UTF8_END_NAMESPACE }}
 //    #define BOOST_UTF8_DECL BOOST_PROGRAM_OPTIONS_DECL
-//    #include <boost/detail/utf8_codecvt_facet.ipp>
+//    #include <sl/libs/boost/detail/utf8_codecvt_facet.ipp>
 //
 // Essentially, each library will have its own copy of utf8 code, in
 // different namespaces. 
@@ -83,8 +83,8 @@
 #include <cwchar>   // for mbstate_t
 #include <cstddef>  // for std::size_t
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if defined(BOOST_NO_STDC_NAMESPACE)
 namespace std {

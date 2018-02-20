@@ -10,7 +10,7 @@ or copy at http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_TT_MAKE_VOID_HPP_INCLUDED
 #define BOOST_TT_MAKE_VOID_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 namespace boost {
 

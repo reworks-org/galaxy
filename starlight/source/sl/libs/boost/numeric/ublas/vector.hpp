@@ -17,12 +17,12 @@
 #ifndef _BOOST_UBLAS_VECTOR_
 #define _BOOST_UBLAS_VECTOR_
 
-#include <boost/config.hpp>
-#include <boost/numeric/ublas/storage.hpp>
-#include <boost/numeric/ublas/vector_expression.hpp>
-#include <boost/numeric/ublas/detail/vector_assign.hpp>
-#include <boost/serialization/collection_size_type.hpp>
-#include <boost/serialization/nvp.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/numeric/ublas/storage.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/vector_assign.hpp>
+#include <sl/libs/boost/serialization/collection_size_type.hpp>
+#include <sl/libs/boost/serialization/nvp.hpp>
 
 #ifdef BOOST_UBLAS_CPP_GE_2011
 #include <array>

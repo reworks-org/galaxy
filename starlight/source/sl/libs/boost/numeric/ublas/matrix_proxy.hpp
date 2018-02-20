@@ -13,10 +13,10 @@
 #ifndef _BOOST_UBLAS_MATRIX_PROXY_
 #define _BOOST_UBLAS_MATRIX_PROXY_
 
-#include <boost/numeric/ublas/matrix_expression.hpp>
-#include <boost/numeric/ublas/detail/vector_assign.hpp>
-#include <boost/numeric/ublas/detail/matrix_assign.hpp>
-#include <boost/numeric/ublas/detail/temporary.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/vector_assign.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/matrix_assign.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/temporary.hpp>
 
 // Iterators based on ideas of Jeremy Siek
 

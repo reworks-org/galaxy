@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/vexcl/vexcl_copy.hpp
+ sl/libs/boost/numeric/odeint/external/vexcl/vexcl_copy.hpp
 
  [begin_description]
  copy_impl specializations for vexcl
@@ -21,7 +21,7 @@
 #include <vexcl/vector.hpp>
 #include <vexcl/multivector.hpp>
 
-#include <boost/numeric/odeint/util/copy.hpp>
+#include <sl/libs/boost/numeric/odeint/util/copy.hpp>
 
 namespace boost {
 namespace numeric {

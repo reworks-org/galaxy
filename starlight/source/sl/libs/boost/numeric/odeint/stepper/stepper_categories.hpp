@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/stepper_categories.hpp
+ sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp
 
  [begin_description]
  Definition of all stepper categories.
@@ -18,7 +18,7 @@
 #ifndef BOOST_NUMERIC_ODEINT_STEPPER_STEPPER_CATEGORIES_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_STEPPER_STEPPER_CATEGORIES_HPP_INCLUDED
 
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 namespace boost {
 namespace numeric {

@@ -41,7 +41,7 @@
 #ifndef AGUI_LABEL_LISTENER_HPP
 #define AGUI_LABEL_LISTENER_HPP
 
-#include "Agui/Widgets/Label/Label.hpp"
+#include "sl/libs/Agui/Widgets/Label/Label.hpp"
 namespace agui {
 		/**
      * Abstract class for Label Listeners.

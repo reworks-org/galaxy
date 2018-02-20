@@ -15,23 +15,23 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/map/aux_/contains_impl.hpp>
-#include <boost/mpl/map/aux_/at_impl.hpp>
-//#include <boost/mpl/map/aux_/O1_size.hpp>
-#include <boost/mpl/map/aux_/insert_impl.hpp>
-#include <boost/mpl/map/aux_/insert_range_impl.hpp>
-#include <boost/mpl/map/aux_/erase_impl.hpp>
-#include <boost/mpl/map/aux_/erase_key_impl.hpp>
-#include <boost/mpl/map/aux_/has_key_impl.hpp>
-#include <boost/mpl/map/aux_/key_type_impl.hpp>
-#include <boost/mpl/map/aux_/value_type_impl.hpp>
-#include <boost/mpl/map/aux_/clear_impl.hpp>
-#include <boost/mpl/map/aux_/size_impl.hpp>
-#include <boost/mpl/map/aux_/empty_impl.hpp>
-#include <boost/mpl/map/aux_/begin_end_impl.hpp>
-#include <boost/mpl/map/aux_/iterator.hpp>
-#include <boost/mpl/map/aux_/item.hpp>
-#include <boost/mpl/map/aux_/map0.hpp>
-#include <boost/mpl/map/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/map/aux_/contains_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/at_impl.hpp>
+//#include <sl/libs/boost/mpl/map/aux_/O1_size.hpp>
+#include <sl/libs/boost/mpl/map/aux_/insert_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/insert_range_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/erase_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/erase_key_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/has_key_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/key_type_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/value_type_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/clear_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/size_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/empty_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/begin_end_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/iterator.hpp>
+#include <sl/libs/boost/mpl/map/aux_/item.hpp>
+#include <sl/libs/boost/mpl/map/aux_/map0.hpp>
+#include <sl/libs/boost/mpl/map/aux_/tag.hpp>
 
 #endif // BOOST_MPL_MAP_MAP0_HPP_INCLUDED

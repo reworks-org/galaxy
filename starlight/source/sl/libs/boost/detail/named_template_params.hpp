@@ -11,10 +11,10 @@
 #ifndef BOOST_DETAIL_NAMED_TEMPLATE_PARAMS_HPP
 #define BOOST_DETAIL_NAMED_TEMPLATE_PARAMS_HPP
 
-#include <boost/type_traits/conversion_traits.hpp>
-#include <boost/type_traits/composite_traits.hpp> // for is_reference
+#include <sl/libs/boost/type_traits/conversion_traits.hpp>
+#include <sl/libs/boost/type_traits/composite_traits.hpp> // for is_reference
 #if defined(__BORLANDC__)
-#include <boost/type_traits/ice.hpp>
+#include <sl/libs/boost/type_traits/ice.hpp>
 #endif
 
 namespace boost {
@@ -131,7 +131,7 @@ namespace boost {
     // the iterator_adaptor type when creating iterator adaptors) and
     // a traits class. The select class should have a single typedef
     // named "type" that produces the default for TYPE.  See
-    // boost/iterator_adaptors.hpp for an example usage.  Also,
+    // sl/libs/boost/iterator_adaptors.hpp for an example usage.  Also,
     // applications of this macro must be placed in namespace
     // boost::detail.
 

@@ -253,10 +253,10 @@
 // prefix and suffix headers:
 //
 #ifndef BOOST_ABI_PREFIX
-#  define BOOST_ABI_PREFIX "boost/config/abi/msvc_prefix.hpp"
+#  define BOOST_ABI_PREFIX "sl/libs/boost/config/abi/msvc_prefix.hpp"
 #endif
 #ifndef BOOST_ABI_SUFFIX
-#  define BOOST_ABI_SUFFIX "boost/config/abi/msvc_suffix.hpp"
+#  define BOOST_ABI_SUFFIX "sl/libs/boost/config/abi/msvc_suffix.hpp"
 #endif
 
 #ifndef BOOST_COMPILER

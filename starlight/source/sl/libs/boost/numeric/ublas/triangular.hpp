@@ -13,9 +13,9 @@
 #ifndef _BOOST_UBLAS_TRIANGULAR_
 #define _BOOST_UBLAS_TRIANGULAR_
 
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/detail/temporary.hpp>
-#include <boost/type_traits/remove_const.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/temporary.hpp>
+#include <sl/libs/boost/type_traits/remove_const.hpp>
 
 // Iterators based on ideas of Jeremy Siek
 

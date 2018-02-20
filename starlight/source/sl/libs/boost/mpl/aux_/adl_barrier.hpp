@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/adl.hpp>
-#include <boost/mpl/aux_/config/gcc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/adl.hpp>
+#include <sl/libs/boost/mpl/aux_/config/gcc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_ADL_BARRIER_NAMESPACE)
 

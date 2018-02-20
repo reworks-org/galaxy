@@ -13,11 +13,11 @@
 #ifndef _BOOST_UBLAS_MATRIX_SPARSE_
 #define _BOOST_UBLAS_MATRIX_SPARSE_
 
-#include <boost/numeric/ublas/vector_sparse.hpp>
-#include <boost/numeric/ublas/matrix_expression.hpp>
-#include <boost/numeric/ublas/detail/matrix_assign.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_sparse.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/matrix_assign.hpp>
 #if BOOST_UBLAS_TYPE_CHECK
-#include <boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
 #endif
 
 // Iterators based on ideas of Jeremy Siek

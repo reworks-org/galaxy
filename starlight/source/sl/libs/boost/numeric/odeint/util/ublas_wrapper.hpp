@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/util/ublas_wrapper.hpp
+ sl/libs/boost/numeric/odeint/util/ublas_wrapper.hpp
 
  [begin_description]
  Resizing for ublas::vector and ublas::matrix
@@ -19,18 +19,18 @@
 #define BOOST_NUMERIC_ODEINT_UTIL_UBLAS_WRAPPER_HPP_INCLUDED
 
 
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/lu.hpp>
-#include <boost/numeric/ublas/vector_expression.hpp>
-#include <boost/numeric/ublas/matrix_expression.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/numeric/ublas/vector.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/lu.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_expression.hpp>
 
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
-#include <boost/numeric/odeint/algebra/default_operations.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/default_operations.hpp>
 
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/state_wrapper.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/state_wrapper.hpp>
 
 
 /* extend ublas by a few operations */

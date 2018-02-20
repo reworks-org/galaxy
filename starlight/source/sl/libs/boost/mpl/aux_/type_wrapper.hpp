@@ -15,7 +15,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

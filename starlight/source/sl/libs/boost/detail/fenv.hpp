@@ -5,7 +5,7 @@
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 =============================================================================*/
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #if defined(BOOST_NO_FENV_H)
   #error This platform does not have a floating point environment

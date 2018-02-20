@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/thrust/thrust_resize.hpp
+ sl/libs/boost/numeric/odeint/external/thrust/thrust_resize.hpp
 
  [begin_description]
  Enable resizing for thrusts device and host_vector.
@@ -18,15 +18,15 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_THRUST_THRUST_RESIZE_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_THRUST_THRUST_RESIZE_HPP_INCLUDED
 
-#include <boost/range.hpp>
+#include <sl/libs/boost/range.hpp>
 
 #include <thrust/device_vector.h>
 #include <thrust/host_vector.h>
 #include <thrust/distance.h>
 
-#include <boost/numeric/odeint/util/resize.hpp>
-#include <boost/numeric/odeint/util/same_size.hpp>
-#include <boost/numeric/odeint/util/copy.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resize.hpp>
+#include <sl/libs/boost/numeric/odeint/util/same_size.hpp>
+#include <sl/libs/boost/numeric/odeint/util/copy.hpp>
 
 namespace boost {
 namespace numeric {

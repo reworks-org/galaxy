@@ -7,7 +7,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 //
 
-// Preprocessed version of "boost/mpl/map/map50.hpp" header
+// Preprocessed version of "sl/libs/boost/mpl/map/map50.hpp" header
 // -- DO NOT modify by hand!
 
 namespace boost { namespace mpl {

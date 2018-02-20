@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/algebra/detail/macros.hpp
+ sl/libs/boost/numeric/odeint/algebra/detail/macros.hpp
 
  [begin_description]
  Some macros for type checking.
@@ -21,8 +21,8 @@
 
 //type traits aren't working with nvcc
 #ifndef __CUDACC__
-#include <boost/type_traits.hpp>
-#include <boost/static_assert.hpp>
+#include <sl/libs/boost/type_traits.hpp>
+#include <sl/libs/boost/static_assert.hpp>
 
 #define BOOST_ODEINT_CHECK_CONTAINER_TYPE( Type1 , Type2 ) \
         BOOST_STATIC_ASSERT(( boost::is_same< typename boost::remove_const< Type1 >::type , Type2 >::value ))

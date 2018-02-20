@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/Button/ButtonGroup.hpp"
+#include "sl/libs/Agui/Widgets/Button/ButtonGroup.hpp"
 namespace agui {
 	ButtonGroup::ButtonGroup(void)
 	{

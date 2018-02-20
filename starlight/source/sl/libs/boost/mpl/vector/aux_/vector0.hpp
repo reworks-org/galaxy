@@ -14,14 +14,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/aux_/na.hpp>
-#include <boost/mpl/aux_/type_wrapper.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/aux_/na.hpp>
+#include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
 
-#include <boost/mpl/vector/aux_/iterator.hpp>
-#include <boost/mpl/vector/aux_/tag.hpp>
-#include <boost/mpl/aux_/config/typeof.hpp>
+#include <sl/libs/boost/mpl/vector/aux_/iterator.hpp>
+#include <sl/libs/boost/mpl/vector/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/aux_/config/typeof.hpp>
 
 namespace boost { namespace mpl {
 

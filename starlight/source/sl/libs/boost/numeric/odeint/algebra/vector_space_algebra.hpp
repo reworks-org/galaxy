@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/algebra/vector_space_algebra.hpp
+ sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp
 
  [begin_description]
  An algebra for types which have vector space semantics, hence types on which the operators +,-,* are well defined.
@@ -20,7 +20,7 @@
 
 #include <complex>
 
-#include <boost/type_traits/remove_reference.hpp>
+#include <sl/libs/boost/type_traits/remove_reference.hpp>
 
 
 namespace boost {

@@ -40,7 +40,7 @@
 
 #ifndef AGUI_POINT_HPP
 #define AGUI_POINT_HPP
-#include "Agui/Platform.hpp"
+#include "sl/libs/Agui/Platform.hpp"
 #include <stdlib.h>
 #include <string>
 #include <sstream>

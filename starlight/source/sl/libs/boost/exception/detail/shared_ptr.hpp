@@ -10,7 +10,7 @@
 #include  <memory>
 namespace boost { namespace exception_detail { using std::shared_ptr; } }
 #else
-#include <boost/shared_ptr.hpp>
+#include <sl/libs/boost/shared_ptr.hpp>
 namespace boost { namespace exception_detail { using boost::shared_ptr; } }
 #endif
 

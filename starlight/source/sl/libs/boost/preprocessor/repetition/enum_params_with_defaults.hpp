@@ -14,8 +14,8 @@
 # ifndef BOOST_PREPROCESSOR_REPETITION_ENUM_PARAMS_WITH_DEFAULTS_HPP
 # define BOOST_PREPROCESSOR_REPETITION_ENUM_PARAMS_WITH_DEFAULTS_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/repetition/enum_binary_params.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/repetition/enum_binary_params.hpp>
 #
 # /* BOOST_PP_ENUM_PARAMS_WITH_DEFAULTS */
 #

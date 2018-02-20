@@ -14,21 +14,21 @@
 #ifndef BOOST_TT_DETAIL_IS_MEM_FUN_POINTER_TESTER_HPP_INCLUDED
 #define BOOST_TT_DETAIL_IS_MEM_FUN_POINTER_TESTER_HPP_INCLUDED
 
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/detail/config.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/detail/config.hpp>
 
 #if defined(BOOST_TT_PREPROCESSING_MODE)
 //
 // Maintentance mode, hide include dependencies
 // from dependency trackers:
 //
-#define PPI <boost/preprocessor/iterate.hpp>
+#define PPI <sl/libs/boost/preprocessor/iterate.hpp>
 #include PPI
 #undef PPI
-#define PPI <boost/preprocessor/enum_params.hpp>
+#define PPI <sl/libs/boost/preprocessor/enum_params.hpp>
 #include PPI
 #undef PPI
-#define <boost/preprocessor/comma_if.hpp>
+#define <sl/libs/boost/preprocessor/comma_if.hpp>
 #include PPI
 #undef
 #endif
@@ -1711,7 +1711,7 @@ yes_type is_mem_fun_pointer_tester(R (__cdecl T::*const volatile*)( T0 , T1 , T2
 #else
 
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3, (0, 25, "boost/type_traits/detail/is_mem_fun_pointer_tester.hpp"))
+    (3, (0, 25, "sl/libs/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp"))
 #include BOOST_PP_ITERATE()
 
 #endif // BOOST_TT_PREPROCESSING_MODE

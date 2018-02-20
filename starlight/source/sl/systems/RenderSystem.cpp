@@ -9,11 +9,11 @@
 
 #include <allegro5/display.h>
 
-#include "loguru/loguru.hpp"
 #include "sl/core/World.hpp"
 #include "sl/math/QuadTree.hpp"
 #include "sl/mapping/Level.hpp"
 #include "sl/tags/CameraTag.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"

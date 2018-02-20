@@ -16,6 +16,6 @@
 
 #define AUX778076_OP_NAME greater_equal
 #define AUX778076_OP_TOKEN >=
-#include <boost/mpl/aux_/comparison_op.hpp>
+#include <sl/libs/boost/mpl/aux_/comparison_op.hpp>
 
 #endif // BOOST_MPL_GREATER_EQUAL_HPP_INCLUDED

@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/algebra/detail/extract_value_type.hpp
+ sl/libs/boost/numeric/odeint/algebra/detail/extract_value_type.hpp
 
  [begin_description]
  Extract true value type from complex types (eg. std::complex)
@@ -17,8 +17,8 @@
 #ifndef BOOST_NUMERIC_ODEINT_ALGEBRA_DETAIL_EXTRACT_VALUE_TYPE_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_ALGEBRA_DETAIL_EXTRACT_VALUE_TYPE_HPP_INCLUDED
 
-#include <boost/utility.hpp>
-#include <boost/mpl/has_xxx.hpp>
+#include <sl/libs/boost/utility.hpp>
+#include <sl/libs/boost/mpl/has_xxx.hpp>
 
 BOOST_MPL_HAS_XXX_TRAIT_DEF(value_type)
 

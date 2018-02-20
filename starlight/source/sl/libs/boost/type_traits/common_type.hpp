@@ -9,17 +9,17 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/config.hpp>
-#include <boost/type_traits/decay.hpp>
-#include <boost/type_traits/declval.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/decay.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if defined(BOOST_NO_CXX11_DECLTYPE)
-#include <boost/type_traits/detail/common_type_impl.hpp>
+#include <sl/libs/boost/type_traits/detail/common_type_impl.hpp>
 #endif
 
 #if !defined(BOOST_NO_CXX11_TEMPLATE_ALIASES) && !defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES)
-#include <boost/type_traits/detail/mp_defer.hpp>
+#include <sl/libs/boost/type_traits/detail/mp_defer.hpp>
 #endif
 
 namespace boost

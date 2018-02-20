@@ -40,8 +40,8 @@
 
 #ifndef AGUI_TAP_LISTENER_HPP
 #define AGUI_TAP_LISTENER_HPP
-#include "Agui/Platform.hpp"
-#include "Agui/EventArgs.hpp"
+#include "sl/libs/Agui/Platform.hpp"
+#include "sl/libs/Agui/EventArgs.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC Widget;
 	/**

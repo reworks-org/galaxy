@@ -7,9 +7,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "tmx/tmx.h"
-#include "sol2/sol.hpp"
-#include "loguru/loguru.hpp"
+#include "sl/libs/tmx/tmx.h"
+#include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 

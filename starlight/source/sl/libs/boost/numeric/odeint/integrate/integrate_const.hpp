@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/integrate_const.hpp
+ sl/libs/boost/numeric/odeint/integrate/integrate_const.hpp
 
  [begin_description]
  Constant integration of ODEs, meaning that the state of the ODE is observed on constant time intervals.
@@ -19,13 +19,13 @@
 #ifndef BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_CONST_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_CONST_HPP_INCLUDED
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
-#include <boost/numeric/odeint/integrate/null_observer.hpp>
-#include <boost/numeric/odeint/integrate/check_adapter.hpp>
-#include <boost/numeric/odeint/integrate/detail/integrate_const.hpp>
-#include <boost/numeric/odeint/integrate/detail/integrate_adaptive.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/null_observer.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/check_adapter.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/detail/integrate_const.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/detail/integrate_adaptive.hpp>
 
 namespace boost {
 namespace numeric {

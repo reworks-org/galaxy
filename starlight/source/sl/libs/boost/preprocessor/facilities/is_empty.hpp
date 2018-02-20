@@ -13,20 +13,20 @@
 # ifndef BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_HPP
 # define BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
 #
 # if BOOST_PP_VARIADICS
 #
-# include <boost/preprocessor/facilities/is_empty_variadic.hpp>
+# include <sl/libs/boost/preprocessor/facilities/is_empty_variadic.hpp>
 #
 # else
 #
 # if ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MSVC() && ~BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_MWCC()
-# include <boost/preprocessor/tuple/elem.hpp>
-# include <boost/preprocessor/facilities/identity.hpp>
+# include <sl/libs/boost/preprocessor/tuple/elem.hpp>
+# include <sl/libs/boost/preprocessor/facilities/identity.hpp>
 # else
-# include <boost/preprocessor/cat.hpp>
-# include <boost/preprocessor/detail/split.hpp>
+# include <sl/libs/boost/preprocessor/cat.hpp>
+# include <sl/libs/boost/preprocessor/detail/split.hpp>
 # endif
 #
 # /* BOOST_PP_IS_EMPTY */

@@ -10,16 +10,16 @@
 #define BOOST_TT_HAS_NOTHROW_CONSTRUCTOR_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 #ifdef BOOST_HAS_NOTHROW_CONSTRUCTOR
 
 #if defined(BOOST_MSVC) || defined(BOOST_INTEL)
-#include <boost/type_traits/has_trivial_constructor.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_constructor.hpp>
 #endif
 #if defined(__GNUC__ ) || defined(__SUNPRO_CC) || defined(__clang__)
-#include <boost/type_traits/is_default_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_default_constructible.hpp>
 #endif
 
 namespace boost {
@@ -28,8 +28,8 @@ template <class T> struct has_nothrow_constructor : public integral_constant<boo
 
 #elif !defined(BOOST_NO_CXX11_NOEXCEPT)
 
-#include <boost/type_traits/is_default_constructible.hpp>
-#include <boost/type_traits/remove_all_extents.hpp>
+#include <sl/libs/boost/type_traits/is_default_constructible.hpp>
+#include <sl/libs/boost/type_traits/remove_all_extents.hpp>
 
 #ifdef BOOST_MSVC
 #pragma warning(push)
@@ -51,7 +51,7 @@ template <class T> struct has_nothrow_constructor : public detail::has_nothrow_c
 
 #else
 
-#include <boost/type_traits/has_trivial_constructor.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_constructor.hpp>
 
 namespace boost {
 

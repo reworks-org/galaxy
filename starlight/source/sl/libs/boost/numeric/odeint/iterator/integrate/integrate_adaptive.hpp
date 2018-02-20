@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/integrate/integrate_adaptive.hpp
+ sl/libs/boost/numeric/odeint/integrate/integrate_adaptive.hpp
 
  [begin_description]
  Adaptive integration of ODEs.
@@ -18,11 +18,11 @@
 #ifndef BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_ADAPTIVE_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_INTEGRATE_INTEGRATE_ADAPTIVE_HPP_INCLUDED
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
-#include <boost/numeric/odeint/iterator/integrate/null_observer.hpp>
-#include <boost/numeric/odeint/iterator/integrate/detail/integrate_adaptive.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/integrate/null_observer.hpp>
+#include <sl/libs/boost/numeric/odeint/iterator/integrate/detail/integrate_adaptive.hpp>
 
 namespace boost {
 namespace numeric {

@@ -18,14 +18,14 @@
 #define BOOST_NUMERIC_ODEINT_UTIL_BIND_HPP_INCLUDED
 
 
-#include <boost/numeric/odeint/config.hpp>
+#include <sl/libs/boost/numeric/odeint/config.hpp>
 
 
 #if BOOST_NUMERIC_ODEINT_CXX11 
     #include <functional>
 #else
 #define BOOST_BIND_NO_PLACEHOLDERS
-#include <boost/bind.hpp>
+#include <sl/libs/boost/bind.hpp>
 #endif
 
 namespace boost {
@@ -67,7 +67,7 @@ boost::arg<2> _2;
 // the following is the suggested way. Unfortunately it does not work with all compilers.
 
 #ifdef BOOST_NO_CXX11_HDR_FUNCTIONAL
-#include <boost/bind.hpp>
+#include <sl/libs/boost/bind.hpp>
 #else
 #include <functional>
 #endif

@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/thrust/thrust_algebra_dispatcher.hpp
+  sl/libs/boost/numeric/odeint/external/thrust/thrust_algebra_dispatcher.hpp
 
   [begin_description]
   algebra_dispatcher specialization for thrust
@@ -21,8 +21,8 @@
 #include <thrust/host_vector.h>
 #include <thrust/device_vector.h>
 
-#include <boost/numeric/odeint/external/thrust/thrust_algebra.hpp>
-#include <boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/external/thrust/thrust_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
 
 // specializations for the standard thrust containers
 

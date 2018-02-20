@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/pop_front_fwd.hpp>
-#include <boost/mpl/aux_/traits_lambda_spec.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/pop_front_fwd.hpp>
+#include <sl/libs/boost/mpl/aux_/traits_lambda_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
 
 namespace boost { namespace mpl {
 

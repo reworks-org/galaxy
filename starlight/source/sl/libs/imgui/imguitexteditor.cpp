@@ -2,8 +2,9 @@
 #include <chrono>
 #include <string>
 #include <regex>
+#include <cmath>
 
-#include "TextEditor.h"
+#include "imguitexteditor.h"
 
 static const int cTextStart = 7;
 
@@ -375,7 +376,7 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 	mWithinRender = true;
 
 	ImGuiIO& io = ImGui::GetIO();
-	auto xadv = (io.Fonts->Fonts[0]->IndexXAdvance['X']);
+	auto xadv = (io.Fonts->Fonts[0]->IndexAdvanceX['X']);
 	mCharAdvance = ImVec2(xadv, io.Fonts->Fonts[0]->FontSize + mLineSpacing);
 
 	ImGui::PushStyleColor(ImGuiCol_ChildWindowBg, ImGui::ColorConvertU32ToFloat4(mPalette[(int)PaletteIndex::Background]));
@@ -393,6 +394,9 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 		if (ImGui::IsWindowHovered())
 			ImGui::SetMouseCursor(ImGuiMouseCursor_TextInput);
 		//ImGui::CaptureKeyboardFromApp(true);
+
+		io.WantCaptureKeyboard = true;
+		io.WantTextInput = true;
 
 		if (!IsReadOnly() && ImGui::IsKeyPressed('Z'))
 			if (ctrl && !shift && !alt)
@@ -441,6 +445,8 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 			Cut();
 		else if (!ctrl && shift && !alt && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Delete)))
 			Cut();
+		else if (ctrl && !shift && !alt && ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_A)))
+			SelectAll();
 
 		if (!IsReadOnly())
 		{
@@ -479,6 +485,7 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 			}
 			else if (ImGui::IsMouseDragging(0) && ImGui::IsMouseDown(0))
 			{
+				io.WantCaptureMouse = true;
 				mState.mCursorPosition = mInteractiveEnd = SanitizeCoordinates(ScreenPosToCoordinates(ImGui::GetMousePos()));
 				SetSelection(mInteractiveStart, mInteractiveEnd, mWordSelectionMode);
 			}
@@ -535,18 +542,19 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 			}
 
 			static char buf[16];
+			auto start = ImVec2(lineStartScreenPos.x + scrollX, lineStartScreenPos.y);
 
 			if (mBreakpoints.find(lineNo + 1) != mBreakpoints.end())
 			{
-				auto end = ImVec2(lineStartScreenPos.x + contentSize.x, lineStartScreenPos.y + mCharAdvance.y);
-				drawList->AddRectFilled(lineStartScreenPos, end, mPalette[(int)PaletteIndex::Breakpoint]);
+				auto end = ImVec2(lineStartScreenPos.x + contentSize.x + 2.0f * scrollX, lineStartScreenPos.y + mCharAdvance.y);
+				drawList->AddRectFilled(start, end, mPalette[(int)PaletteIndex::Breakpoint]);
 			}
 
 			auto errorIt = mErrorMarkers.find(lineNo + 1);
 			if (errorIt != mErrorMarkers.end())
 			{
-				auto end = ImVec2(lineStartScreenPos.x + contentSize.x, lineStartScreenPos.y + mCharAdvance.y);
-				drawList->AddRectFilled(lineStartScreenPos, end, mPalette[(int)PaletteIndex::ErrorMarker]);
+				auto end = ImVec2(lineStartScreenPos.x + contentSize.x + 2.0f * scrollX, lineStartScreenPos.y + mCharAdvance.y);
+				drawList->AddRectFilled(start, end, mPalette[(int)PaletteIndex::ErrorMarker]);
 
 				if (ImGui::IsMouseHoveringRect(lineStartScreenPos, end))
 				{
@@ -571,7 +579,6 @@ void TextEditor::Render(const char* aTitle, const ImVec2& aSize, bool aBorder)
 
 				if (!HasSelection())
 				{
-					auto start = ImVec2(lineStartScreenPos.x + scrollX, lineStartScreenPos.y);
 					auto end = ImVec2(start.x + contentSize.x + scrollX, start.y + mCharAdvance.y);
 					drawList->AddRectFilled(start, end, mPalette[(int)(focused ? PaletteIndex::CurrentLineFill : PaletteIndex::CurrentLineFillInactive)]);
 					drawList->AddRect(start, end, mPalette[(int)PaletteIndex::CurrentLineEdge], 1.0f);
@@ -1162,6 +1169,11 @@ void TextEditor::SelectWordUnderCursor()
 	SetSelection(FindWordStart(c), FindWordEnd(c));
 }
 
+void TextEditor::SelectAll()
+{
+	SetSelection(Coordinates(0, 0), Coordinates((int)mLines.size(), 0));
+}
+
 bool TextEditor::HasSelection() const
 {
 	return mState.mSelectionEnd > mState.mSelectionStart;
@@ -1315,6 +1327,35 @@ const TextEditor::Palette & TextEditor::GetLightPalette()
 	};
 	return p;
 }
+
+const TextEditor::Palette & TextEditor::GetRetroBluePalette()
+{
+	static Palette p = {
+		0xff00ffff,	// None
+		0xffffff00,	// Keyword	
+		0xff00ff00,	// Number
+		0xff808000,	// String
+		0xff808000, // Char literal
+		0xffffffff, // Punctuation
+		0xff008000,	// Preprocessor
+		0xff00ffff, // Identifier
+		0xffffffff, // Known identifier
+		0xffff00ff, // Preproc identifier
+		0xff808080, // Comment (single line)
+		0xff404040, // Comment (multi line)
+		0xff800000, // Background
+		0xff0080ff, // Cursor
+		0x80ffff00, // Selection
+		0xa00000ff, // ErrorMarker
+		0x80ff8000, // Breakpoint
+		0xff808000, // Line number
+		0x40000000, // Current line fill
+		0x40808080, // Current line fill (inactive)
+		0x40000000, // Current line edge
+	};
+	return p;
+}
+
 
 std::string TextEditor::GetText() const
 {

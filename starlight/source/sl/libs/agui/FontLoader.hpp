@@ -41,7 +41,7 @@
 #ifndef AGUI_FONT_MANAGER_HPP
 #define AGUI_FONT_MANAGER_HPP
 
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/Agui/BaseTypes.hpp"
 namespace agui {
 	
 	/**

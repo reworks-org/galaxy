@@ -16,12 +16,12 @@
 
 #if !defined(BOOST_MPL_CFG_COMPILER_DIR)
 
-#   include <boost/mpl/aux_/config/dtp.hpp>
-#   include <boost/mpl/aux_/config/ttp.hpp>
-#   include <boost/mpl/aux_/config/ctps.hpp>
-#   include <boost/mpl/aux_/config/msvc.hpp>
-#   include <boost/mpl/aux_/config/gcc.hpp>
-#   include <boost/mpl/aux_/config/workaround.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/dtp.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ttp.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/gcc.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #   if BOOST_WORKAROUND(BOOST_MSVC, < 1300)
 #       define BOOST_MPL_CFG_COMPILER_DIR msvc60

@@ -14,22 +14,22 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/partition.hpp>
-#include <boost/mpl/copy.hpp>
-#include <boost/mpl/vector.hpp>
-#include <boost/mpl/back_inserter.hpp>
-#include <boost/mpl/front_inserter.hpp>
-#include <boost/mpl/iterator_range.hpp>
-#include <boost/mpl/joint_view.hpp>
-#include <boost/mpl/single_view.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/empty.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/eval_if.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/mpl/less.hpp>
-#include <boost/mpl/aux_/na.hpp>
+#include <sl/libs/boost/mpl/partition.hpp>
+#include <sl/libs/boost/mpl/copy.hpp>
+#include <sl/libs/boost/mpl/vector.hpp>
+#include <sl/libs/boost/mpl/back_inserter.hpp>
+#include <sl/libs/boost/mpl/front_inserter.hpp>
+#include <sl/libs/boost/mpl/iterator_range.hpp>
+#include <sl/libs/boost/mpl/joint_view.hpp>
+#include <sl/libs/boost/mpl/single_view.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/empty.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/eval_if.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/identity.hpp>
+#include <sl/libs/boost/mpl/less.hpp>
+#include <sl/libs/boost/mpl/aux_/na.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

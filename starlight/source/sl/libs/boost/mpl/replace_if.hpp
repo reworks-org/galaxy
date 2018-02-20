@@ -16,11 +16,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/transform.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/aux_/inserter_algorithm.hpp>
-#include <boost/mpl/aux_/config/forwarding.hpp>
+#include <sl/libs/boost/mpl/transform.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/aux_/inserter_algorithm.hpp>
+#include <sl/libs/boost/mpl/aux_/config/forwarding.hpp>
 
 namespace boost { namespace mpl {
 

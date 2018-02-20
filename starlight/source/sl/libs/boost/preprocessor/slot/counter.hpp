@@ -12,7 +12,7 @@
 # ifndef BOOST_PREPROCESSOR_SLOT_COUNTER_HPP
 # define BOOST_PREPROCESSOR_SLOT_COUNTER_HPP
 #
-# include <boost/preprocessor/slot/detail/def.hpp>
+# include <sl/libs/boost/preprocessor/slot/detail/def.hpp>
 #
 # /* BOOST_PP_COUNTER */
 #
@@ -20,6 +20,6 @@
 #
 # /* BOOST_PP_UPDATE_COUNTER */
 #
-# define BOOST_PP_UPDATE_COUNTER() <boost/preprocessor/slot/detail/counter.hpp>
+# define BOOST_PP_UPDATE_COUNTER() <sl/libs/boost/preprocessor/slot/detail/counter.hpp>
 #
 # endif

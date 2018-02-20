@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/contains_fwd.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/map/aux_/at_impl.hpp>
-#include <boost/mpl/map/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/contains_fwd.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/map/aux_/at_impl.hpp>
+#include <sl/libs/boost/mpl/map/aux_/tag.hpp>
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost { namespace mpl {
 

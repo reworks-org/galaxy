@@ -9,12 +9,12 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/type_traits/copy_cv.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/is_base_of.hpp>
-#include <boost/config.hpp>
+#include <sl/libs/boost/type_traits/copy_cv.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_void.hpp>
+#include <sl/libs/boost/type_traits/is_base_of.hpp>
+#include <sl/libs/boost/config.hpp>
 #include <cstddef>
 
 namespace boost

@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/numeric_cast.hpp>
-#include <boost/mpl/apply_wrap.hpp>
-#include <boost/mpl/aux_/config/forwarding.hpp>
+#include <sl/libs/boost/mpl/numeric_cast.hpp>
+#include <sl/libs/boost/mpl/apply_wrap.hpp>
+#include <sl/libs/boost/mpl/aux_/config/forwarding.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

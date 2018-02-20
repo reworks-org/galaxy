@@ -13,7 +13,7 @@
 #include <stdexcept>
 #include <string>
 #include <cassert>
-#include <boost/limits.hpp>
+#include <sl/libs/boost/limits.hpp>
 
 namespace boost {
 namespace numeric {

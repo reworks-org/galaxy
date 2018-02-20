@@ -10,9 +10,9 @@
 #ifndef BOOST_NUMERIC_CONVERSION_CONVERSION_TRAITS_FLC_12NOV2002_HPP
 #define BOOST_NUMERIC_CONVERSION_CONVERSION_TRAITS_FLC_12NOV2002_HPP
 
-#include "boost/numeric/conversion/detail/conversion_traits.hpp"
-#include "boost/detail/workaround.hpp"
-#include "boost/config.hpp"
+#include "sl/libs/boost/numeric/conversion/detail/conversion_traits.hpp"
+#include "sl/libs/boost/detail/workaround.hpp"
+#include "sl/libs/boost/config.hpp"
 
 namespace boost { namespace numeric
 {

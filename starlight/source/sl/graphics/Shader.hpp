@@ -12,7 +12,7 @@
 
 #include <allegro5/shader.h>
 
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {

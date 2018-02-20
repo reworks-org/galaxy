@@ -41,9 +41,9 @@
 #ifndef AGUI_ALLEGRO5_GRAPHICS_MANAGER
 #define AGUI_ALLEGRO5_GRAPHICS_MANAGER
 
-#include "Agui/Graphics.hpp"
-#include "Agui/Backends/Allegro5/Allegro5Image.hpp"
-#include "Agui/Backends/Allegro5/Allegro5Font.hpp"
+#include "sl/libs/Agui/Graphics.hpp"
+#include "sl/libs/Agui/Backends/Allegro5/Allegro5Image.hpp"
+#include "sl/libs/Agui/Backends/Allegro5/Allegro5Font.hpp"
 
 
 //Allegro 5 

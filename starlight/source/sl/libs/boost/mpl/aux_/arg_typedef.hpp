@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/lambda.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/lambda.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if defined(BOOST_MPL_CFG_NO_FULL_LAMBDA_SUPPORT) \
     || BOOST_WORKAROUND(__DMC__, BOOST_TESTED_AT(0x840))

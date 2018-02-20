@@ -14,20 +14,20 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/multiset/aux_/tag.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/aux_/type_wrapper.hpp>
-#include <boost/mpl/aux_/yes_no.hpp>
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/static_cast.hpp>
-#include <boost/mpl/aux_/config/arrays.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/multiset/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/yes_no.hpp>
+#include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
+#include <sl/libs/boost/mpl/aux_/static_cast.hpp>
+#include <sl/libs/boost/mpl/aux_/config/arrays.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if BOOST_WORKAROUND(BOOST_MSVC, <= 1300)
-#   include <boost/mpl/eval_if.hpp>
-#   include <boost/mpl/next.hpp>
-#   include <boost/type_traits/is_same.hpp>
+#   include <sl/libs/boost/mpl/eval_if.hpp>
+#   include <sl/libs/boost/mpl/next.hpp>
+#   include <sl/libs/boost/type_traits/is_same.hpp>
 #endif
 
 

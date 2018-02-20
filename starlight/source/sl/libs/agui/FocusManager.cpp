@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/FocusManager.hpp"
-#include "Agui/Widget.hpp"
+#include "sl/libs/Agui/FocusManager.hpp"
+#include "sl/libs/Agui/Widget.hpp"
 namespace agui
 {
 

@@ -8,12 +8,12 @@
 #ifndef BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE__HPP
 #define BOOST_TYPE_TRAITS_EXT_ADD_RVALUE_REFERENCE__HPP
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 //----------------------------------------------------------------------------//
 
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/is_void.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
 
 //----------------------------------------------------------------------------//
 //                                                                            //

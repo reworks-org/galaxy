@@ -13,7 +13,7 @@
 #include <nt2/include/functions/globalmax.hpp>
 #include <nt2/include/functions/abs.hpp>
 
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
 
 namespace boost { namespace numeric { namespace odeint
 {

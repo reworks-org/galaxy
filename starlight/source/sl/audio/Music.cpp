@@ -10,9 +10,9 @@
 #include <string_view>
 #include <allegro5/allegro_audio.h>
 
-#include "sol2/sol.hpp"
 #include "sl/fs/VirtualFS.hpp"
-#include "loguru/loguru.hpp"
+#include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 #include "Music.hpp"
 

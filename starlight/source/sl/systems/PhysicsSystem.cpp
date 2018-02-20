@@ -9,9 +9,9 @@
 
 #include <utility>
 
-#include "sol2/sol.hpp"
-#include "sl/fs/VirtualFS.hpp"
 #include "sl/core/World.hpp"
+#include "sl/fs/VirtualFS.hpp"
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"

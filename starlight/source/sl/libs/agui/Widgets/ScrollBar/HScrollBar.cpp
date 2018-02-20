@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/ScrollBar/HScrollBar.hpp"
+#include "sl/libs/Agui/Widgets/ScrollBar/HScrollBar.hpp"
 namespace agui {
 	HScrollBar::HScrollBar( Widget *thumb /*= NULL*/,
 		Widget *leftArrow /*= NULL*/, 

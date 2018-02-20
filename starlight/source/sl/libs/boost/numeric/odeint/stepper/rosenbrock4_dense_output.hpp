@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/rosenbrock4_dense_output.hpp
+ sl/libs/boost/numeric/odeint/stepper/rosenbrock4_dense_output.hpp
 
  [begin_description]
  Dense output for Rosenbrock 4.
@@ -22,12 +22,12 @@
 
 #include <utility>
 
-#include <boost/numeric/odeint/util/bind.hpp>
+#include <sl/libs/boost/numeric/odeint/util/bind.hpp>
 
-#include <boost/numeric/odeint/stepper/rosenbrock4_controller.hpp>
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/rosenbrock4_controller.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
 
-#include <boost/numeric/odeint/integrate/max_step_checker.hpp>
+#include <sl/libs/boost/numeric/odeint/integrate/max_step_checker.hpp>
 
 
 namespace boost {

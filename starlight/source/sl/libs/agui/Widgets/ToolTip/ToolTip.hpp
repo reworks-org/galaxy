@@ -41,7 +41,7 @@
 #ifndef AGUI_TOOLTIP_HPP
 #define AGUI_TOOLTIP_HPP
 
-#include "Agui/Widget.hpp"
+#include "sl/libs/Agui/Widget.hpp"
 namespace agui {
 
 	 /**

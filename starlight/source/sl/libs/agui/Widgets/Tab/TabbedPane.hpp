@@ -41,10 +41,10 @@
 #ifndef AGUI_TABBED_PANE_HPP
 #define AGUI_TABBED_PANE_HPP
 
-#include "Agui/Widget.hpp"
-#include "Agui/EmptyWidget.hpp"
-#include "Agui/Widgets/Tab/Tab.hpp"
-#include "Agui/Widgets/Tab/TabbedPaneListener.hpp"
+#include "sl/libs/Agui/Widget.hpp"
+#include "sl/libs/Agui/EmptyWidget.hpp"
+#include "sl/libs/Agui/Widgets/Tab/Tab.hpp"
+#include "sl/libs/Agui/Widgets/Tab/TabbedPaneListener.hpp"
 namespace agui {
 	/**
 	 * Class that represents a container to hold Tabs.

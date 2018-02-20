@@ -16,6 +16,6 @@
 
 
 // BOOST_INTEL_CXX_VERSION is defined here:
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #endif // BOOST_MPL_AUX_CONFIG_INTEL_HPP_INCLUDED

@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Rectangle.hpp"
+#include "sl/libs/Agui/Rectangle.hpp"
 
 namespace agui
 {

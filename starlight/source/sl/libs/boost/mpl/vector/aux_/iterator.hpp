@@ -14,18 +14,18 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/vector/aux_/at.hpp>
-#include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/plus.hpp>
-#include <boost/mpl/minus.hpp>
-#include <boost/mpl/advance_fwd.hpp>
-#include <boost/mpl/distance_fwd.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/prior.hpp>
-#include <boost/mpl/aux_/nttp_decl.hpp>
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/vector/aux_/at.hpp>
+#include <sl/libs/boost/mpl/iterator_tags.hpp>
+#include <sl/libs/boost/mpl/plus.hpp>
+#include <sl/libs/boost/mpl/minus.hpp>
+#include <sl/libs/boost/mpl/advance_fwd.hpp>
+#include <sl/libs/boost/mpl/distance_fwd.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/prior.hpp>
+#include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
+#include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 namespace boost { namespace mpl {
 

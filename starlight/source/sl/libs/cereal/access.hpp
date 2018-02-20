@@ -34,8 +34,8 @@
 #include <cstdint>
 #include <functional>
 
-#include "cereal/macros.hpp"
-#include "cereal/details/helpers.hpp"
+#include "sl/libs/cereal/macros.hpp"
+#include "sl/libs/cereal/details/helpers.hpp"
 
 namespace cereal
 {

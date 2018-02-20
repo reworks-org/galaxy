@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/vexcl/vexcl_algebra_dispatcher.hpp
+  sl/libs/boost/numeric/odeint/external/vexcl/vexcl_algebra_dispatcher.hpp
 
   [begin_description]
   algebra_dispatcher specialization for vexcl
@@ -21,8 +21,8 @@
 #include <vexcl/vector.hpp>
 #include <vexcl/multivector.hpp>
 
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
-#include <boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
 
 
 namespace boost {

@@ -8,7 +8,7 @@
 #endif
 
 //
-//  boost/detail/lightweight_mutex.hpp - lightweight mutex
+//  sl/libs/boost/detail/lightweight_mutex.hpp - lightweight mutex
 //
 //  Copyright (c) 2002, 2003 Peter Dimov and Multi Media Ltd.
 //
@@ -17,6 +17,6 @@
 //  http://www.boost.org/LICENSE_1_0.txt
 //
 
-#include <boost/smart_ptr/detail/lightweight_mutex.hpp>
+#include <sl/libs/boost/smart_ptr/detail/lightweight_mutex.hpp>
 
 #endif // #ifndef BOOST_DETAIL_LIGHTWEIGHT_MUTEX_HPP_INCLUDED

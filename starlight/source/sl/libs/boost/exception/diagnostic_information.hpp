@@ -6,18 +6,18 @@
 #ifndef UUID_0552D49838DD11DD90146B8956D89593
 #define UUID_0552D49838DD11DD90146B8956D89593
 
-#include <boost/config.hpp>
-#include <boost/exception/get_error_info.hpp>
-#include <boost/exception/info.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/exception/get_error_info.hpp>
+#include <sl/libs/boost/exception/info.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
 #ifndef BOOST_NO_RTTI
-#include <boost/core/demangle.hpp>
+#include <sl/libs/boost/core/demangle.hpp>
 #endif
 #include <exception>
 #include <sstream>
 #include <string>
 #ifndef BOOST_NO_EXCEPTIONS
-#include <boost/exception/current_exception_cast.hpp>
+#include <sl/libs/boost/exception/current_exception_cast.hpp>
 #endif
 
 #if (__GNUC__*100+__GNUC_MINOR__>301) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)

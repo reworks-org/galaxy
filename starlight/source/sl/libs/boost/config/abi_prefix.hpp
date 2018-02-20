@@ -9,10 +9,10 @@
 #ifndef BOOST_CONFIG_ABI_PREFIX_HPP
 # define BOOST_CONFIG_ABI_PREFIX_HPP
 #else
-# error double inclusion of header boost/config/abi_prefix.hpp is an error
+# error double inclusion of header sl/libs/boost/config/abi_prefix.hpp is an error
 #endif
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 // this must occur after all other includes and before any code appears:
 #ifdef BOOST_HAS_ABI_HEADERS

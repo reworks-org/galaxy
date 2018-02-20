@@ -1,4 +1,4 @@
-//  boost/identifier.hpp  ----------------------------------------------------//
+//  sl/libs/boost/identifier.hpp  ----------------------------------------------------//
 
 //  Copyright Beman Dawes 2006
 
@@ -10,8 +10,8 @@
 #ifndef BOOST_IDENTIFIER_HPP
 #define BOOST_IDENTIFIER_HPP
 
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_base_of.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
+#include <sl/libs/boost/type_traits/is_base_of.hpp>
 #include <iosfwd>
 
 namespace boost

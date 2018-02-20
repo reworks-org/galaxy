@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/Tab/Tab.hpp"
-#include "Agui/Widgets/Tab/TabbedPane.hpp"
+#include "sl/libs/Agui/Widgets/Tab/Tab.hpp"
+#include "sl/libs/Agui/Widgets/Tab/TabbedPane.hpp"
 namespace agui {
 	Tab::Tab(void)
 	: mouseInside(false), tabPane(NULL)

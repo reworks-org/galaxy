@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/push_back_fwd.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/list/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/push_back_fwd.hpp>
+#include <sl/libs/boost/mpl/bool.hpp>
+#include <sl/libs/boost/mpl/list/aux_/tag.hpp>
 
 namespace boost { namespace mpl {
 

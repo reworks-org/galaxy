@@ -13,7 +13,7 @@
 #ifndef BOOST_DETAIL_TEMPLATED_STREAMS_HPP
 #define BOOST_DETAIL_TEMPLATED_STREAMS_HPP
 
-#include "boost/config.hpp"
+#include "sl/libs/boost/config.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // (detail) BOOST_TEMPLATED_STREAM_* macros

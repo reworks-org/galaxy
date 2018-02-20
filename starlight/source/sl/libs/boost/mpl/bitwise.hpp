@@ -15,10 +15,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/bitand.hpp>
-#include <boost/mpl/bitor.hpp>
-#include <boost/mpl/bitxor.hpp>
-#include <boost/mpl/shift_left.hpp>
-#include <boost/mpl/shift_right.hpp>
+#include <sl/libs/boost/mpl/bitand.hpp>
+#include <sl/libs/boost/mpl/bitor.hpp>
+#include <sl/libs/boost/mpl/bitxor.hpp>
+#include <sl/libs/boost/mpl/shift_left.hpp>
+#include <sl/libs/boost/mpl/shift_right.hpp>
 
 #endif // BOOST_MPL_BITWISE_HPP_INCLUDED

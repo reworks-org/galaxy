@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/gcc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/gcc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 // GCC and EDG-based compilers incorrectly reject the following code:
 //   template< typename T, T n > struct a;

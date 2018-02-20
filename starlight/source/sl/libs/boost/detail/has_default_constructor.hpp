@@ -9,7 +9,7 @@
 #ifndef BOOST_DETAIL_HAS_DEFAULT_CONSTRUCTOR_HPP_INCLUDED
 #define BOOST_DETAIL_HAS_DEFAULT_CONSTRUCTOR_HPP_INCLUDED
 
-#include <boost/type_traits/has_trivial_constructor.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_constructor.hpp>
 
 namespace boost { namespace detail {
 

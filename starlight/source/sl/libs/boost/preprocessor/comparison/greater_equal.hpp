@@ -14,8 +14,8 @@
 # ifndef BOOST_PREPROCESSOR_COMPARISON_GREATER_EQUAL_HPP
 # define BOOST_PREPROCESSOR_COMPARISON_GREATER_EQUAL_HPP
 #
-# include <boost/preprocessor/comparison/less_equal.hpp>
-# include <boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/comparison/less_equal.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
 #
 # /* BOOST_PP_GREATER_EQUAL */
 #

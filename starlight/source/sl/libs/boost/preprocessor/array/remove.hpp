@@ -12,16 +12,16 @@
 # ifndef BOOST_PREPROCESSOR_ARRAY_REMOVE_HPP
 # define BOOST_PREPROCESSOR_ARRAY_REMOVE_HPP
 #
-# include <boost/preprocessor/arithmetic/inc.hpp>
-# include <boost/preprocessor/array/elem.hpp>
-# include <boost/preprocessor/array/push_back.hpp>
-# include <boost/preprocessor/array/size.hpp>
-# include <boost/preprocessor/comparison/not_equal.hpp>
-# include <boost/preprocessor/control/deduce_d.hpp>
-# include <boost/preprocessor/control/iif.hpp>
-# include <boost/preprocessor/control/while.hpp>
-# include <boost/preprocessor/tuple/eat.hpp>
-# include <boost/preprocessor/tuple/elem.hpp>
+# include <sl/libs/boost/preprocessor/arithmetic/inc.hpp>
+# include <sl/libs/boost/preprocessor/array/elem.hpp>
+# include <sl/libs/boost/preprocessor/array/push_back.hpp>
+# include <sl/libs/boost/preprocessor/array/size.hpp>
+# include <sl/libs/boost/preprocessor/comparison/not_equal.hpp>
+# include <sl/libs/boost/preprocessor/control/deduce_d.hpp>
+# include <sl/libs/boost/preprocessor/control/iif.hpp>
+# include <sl/libs/boost/preprocessor/control/while.hpp>
+# include <sl/libs/boost/preprocessor/tuple/eat.hpp>
+# include <sl/libs/boost/preprocessor/tuple/elem.hpp>
 #
 # /* BOOST_PP_ARRAY_REMOVE */
 #

@@ -11,8 +11,8 @@
 #define BOOST_TT_EXTENT_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 namespace boost {
 

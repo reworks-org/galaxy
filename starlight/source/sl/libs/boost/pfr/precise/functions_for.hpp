@@ -18,7 +18,7 @@
 ///
 /// \b Example:
 /// \code
-///    #include <boost/pfr/precise/functions_for.hpp>
+///    #include <sl/libs/boost/pfr/precise/functions_for.hpp>
 ///    struct comparable_struct {      // No operators defined for that structure
 ///        int i; short s; char data[7]; bool bl; int a,b,c,d,e,f;
 ///    };

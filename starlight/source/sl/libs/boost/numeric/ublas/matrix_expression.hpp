@@ -13,7 +13,7 @@
 #ifndef _BOOST_UBLAS_MATRIX_EXPRESSION_
 #define _BOOST_UBLAS_MATRIX_EXPRESSION_
 
-#include <boost/numeric/ublas/vector_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/vector_expression.hpp>
 
 // Expression templates based on ideas of Todd Veldhuizen and Geoffrey Furnish
 // Iterators based on ideas of Jeremy Siek

@@ -7,9 +7,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "loguru/loguru.hpp"
 #include "sl/math/Random.hpp"
 #include "sl/events/EventTypes.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/events/ParticleEmitEvent.hpp"
 #include "sl/components/RenderComponent.hpp"

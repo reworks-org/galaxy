@@ -50,16 +50,16 @@
 //C runtime
 #include <cmath> 
 #include <ctime>
-#include "Agui/Platform.hpp"
-#include "Agui/Enumerations.hpp"
-#include "Agui/Point.hpp"
-#include "Agui/Dimension.hpp"
-#include "Agui/Rectangle.hpp"
-#include "Agui/UTF8.hpp"
-#include "Agui/Font.hpp"
-#include "Agui/Image.hpp"
-#include "Agui/ActionEvent.hpp"
-#include "Agui/ResizableText.hpp"
+#include "sl/libs/Agui/Platform.hpp"
+#include "sl/libs/Agui/Enumerations.hpp"
+#include "sl/libs/Agui/Point.hpp"
+#include "sl/libs/Agui/Dimension.hpp"
+#include "sl/libs/Agui/Rectangle.hpp"
+#include "sl/libs/Agui/UTF8.hpp"
+#include "sl/libs/Agui/Font.hpp"
+#include "sl/libs/Agui/Image.hpp"
+#include "sl/libs/Agui/ActionEvent.hpp"
+#include "sl/libs/Agui/ResizableText.hpp"
 
 namespace agui {
 

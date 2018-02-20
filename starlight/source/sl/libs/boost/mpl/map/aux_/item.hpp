@@ -15,18 +15,18 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/pair.hpp>
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/prior.hpp>
-#include <boost/mpl/map/aux_/map0.hpp>
-#include <boost/mpl/aux_/order_impl.hpp>
-#include <boost/mpl/aux_/yes_no.hpp>
-#include <boost/mpl/aux_/type_wrapper.hpp>
-#include <boost/mpl/aux_/config/arrays.hpp>
-#include <boost/mpl/aux_/config/typeof.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/pair.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/prior.hpp>
+#include <sl/libs/boost/mpl/map/aux_/map0.hpp>
+#include <sl/libs/boost/mpl/aux_/order_impl.hpp>
+#include <sl/libs/boost/mpl/aux_/yes_no.hpp>
+#include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/config/arrays.hpp>
+#include <sl/libs/boost/mpl/aux_/config/typeof.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
 
 
 namespace boost { namespace mpl {

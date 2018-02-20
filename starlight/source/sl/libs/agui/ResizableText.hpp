@@ -42,10 +42,10 @@
 #define AGUI_RESIZABLE_TEXT_HPP
 #include <stdlib.h>
 #include <vector>
-#include "Agui/Platform.hpp"
-#include "Agui/UTF8.hpp"
-#include "Agui/Rectangle.hpp"
-#include "Agui/Enumerations.hpp"
+#include "sl/libs/Agui/Platform.hpp"
+#include "sl/libs/Agui/UTF8.hpp"
+#include "sl/libs/Agui/Rectangle.hpp"
+#include "sl/libs/Agui/Enumerations.hpp"
 namespace agui
 {
 	class AGUI_CORE_DECLSPEC Font;

@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/Label/Label.hpp"
-#include "Agui/Widgets/Label/LabelListener.hpp"
+#include "sl/libs/Agui/Widgets/Label/Label.hpp"
+#include "sl/libs/Agui/Widgets/Label/LabelListener.hpp"
 
 namespace agui {
 	Label::Label(void)

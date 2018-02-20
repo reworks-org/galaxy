@@ -38,9 +38,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Gui.hpp"
-#include "Agui/TopContainer.hpp"
-#include "Agui/Widgets/ToolTip/ToolTip.hpp"
+#include "sl/libs/Agui/Gui.hpp"
+#include "sl/libs/Agui/TopContainer.hpp"
+#include "sl/libs/Agui/Widgets/ToolTip/ToolTip.hpp"
 namespace agui
 {
 	Gui::~Gui(void)

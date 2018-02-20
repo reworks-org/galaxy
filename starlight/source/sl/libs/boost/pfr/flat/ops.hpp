@@ -13,7 +13,7 @@
 #include "functors.hpp"
 #include "io.hpp"
 
-/// \file boost/pfr/flat/ops.hpp
+/// \file sl/libs/boost/pfr/flat/ops.hpp
 /// Contains comparison operators and stream operators for any POD types that do not have their own operators.
 /// If POD is comparable or streamable using it's own operator or it's conversion operator, then the original operator is used.
 ///
@@ -21,7 +21,7 @@
 ///
 /// \b Example:
 /// \code
-///    #include <boost/pfr/flat/ops.hpp>
+///    #include <sl/libs/boost/pfr/flat/ops.hpp>
 ///    struct comparable_struct {      // No operators defined for that structure
 ///        int i; short s; char data[7]; bool bl; int a,b,c,d,e,f;
 ///    };

@@ -13,7 +13,7 @@
 #ifndef _BOOST_UBLAS_OPERATION_
 #define _BOOST_UBLAS_OPERATION_
 
-#include <boost/numeric/ublas/matrix_proxy.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_proxy.hpp>
 
 /** \file operation.hpp
  *  \brief This file contains some specialized products.

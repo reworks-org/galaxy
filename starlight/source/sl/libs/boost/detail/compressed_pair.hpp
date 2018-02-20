@@ -22,10 +22,10 @@
 
 #include <algorithm>
 
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/is_empty.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/call_traits.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/type_traits/is_empty.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/call_traits.hpp>
 
 #ifdef BOOST_MSVC
 # pragma warning(push)

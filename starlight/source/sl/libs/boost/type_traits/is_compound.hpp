@@ -9,7 +9,7 @@
 #ifndef BOOST_TT_IS_COMPOUND_HPP_INCLUDED
 #define BOOST_TT_IS_COMPOUND_HPP_INCLUDED
 
-#include <boost/type_traits/is_fundamental.hpp>
+#include <sl/libs/boost/type_traits/is_fundamental.hpp>
 
 namespace boost {
 

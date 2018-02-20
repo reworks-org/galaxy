@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/PopUp/PopUpMenuItem.hpp"
-#include "Agui/Widgets/PopUp/PopUpMenu.hpp"
+#include "sl/libs/Agui/Widgets/PopUp/PopUpMenuItem.hpp"
+#include "sl/libs/Agui/Widgets/PopUp/PopUpMenu.hpp"
 
 namespace agui {
 

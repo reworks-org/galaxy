@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Font.hpp"
-#include "Agui/FontLoader.hpp"
+#include "sl/libs/Agui/Font.hpp"
+#include "sl/libs/Agui/FontLoader.hpp"
 namespace agui
 {
 	FontLoader* Font::loader = NULL;

@@ -16,7 +16,7 @@
 #include <iostream>
 #endif
 
-#include <boost/numeric/ublas/detail/config.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/config.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
 

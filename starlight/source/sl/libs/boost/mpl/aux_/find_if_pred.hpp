@@ -11,8 +11,8 @@
 //
 // See http://www.boost.org/libs/mpl for documentation.
 
-#include <boost/mpl/aux_/iter_apply.hpp>
-#include <boost/mpl/not.hpp>
+#include <sl/libs/boost/mpl/aux_/iter_apply.hpp>
+#include <sl/libs/boost/mpl/not.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

@@ -13,10 +13,10 @@
 #include <functional>
 #include <unordered_map>
 
-#include "sol2/sol.hpp"
 #include "sl/types/System.hpp"
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/mapping/Level.hpp"
-#include "entt/core/hashed_string.hpp"
+#include "sl/libs/entt/core/hashed_string.hpp"
 
 namespace sl
 {

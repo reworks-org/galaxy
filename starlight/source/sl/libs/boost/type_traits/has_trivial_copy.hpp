@@ -10,20 +10,20 @@
 #define BOOST_TT_HAS_TRIVIAL_COPY_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
 
 #if (defined(__GNUC__) && (__GNUC__ * 100 + __GNUC_MINOR__ >= 409)) || defined(BOOST_CLANG) || (defined(__SUNPRO_CC) && defined(BOOST_HAS_TRIVIAL_COPY))
-#include <boost/type_traits/is_copy_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_copy_constructible.hpp>
 #define BOOST_TT_TRIVIAL_CONSTRUCT_FIX && is_copy_constructible<T>::value
 #else
 #define BOOST_TT_TRIVIAL_CONSTRUCT_FIX
 #endif
 
 #ifdef BOOST_INTEL
-#include <boost/type_traits/add_const.hpp>
-#include <boost/type_traits/add_lvalue_reference.hpp>
+#include <sl/libs/boost/type_traits/add_const.hpp>
+#include <sl/libs/boost/type_traits/add_lvalue_reference.hpp>
 #endif
 
 namespace boost {

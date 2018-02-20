@@ -9,7 +9,7 @@
 #define BOOST_TYPE_TRAITS_IS_FLOAT_HPP_INCLUDED
 
 // should be the last #include
-#include <boost/type_traits/is_floating_point.hpp>
+#include <sl/libs/boost/type_traits/is_floating_point.hpp>
 
 namespace boost {
 

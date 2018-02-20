@@ -9,12 +9,12 @@
 #ifndef BOOST_UBLAS_MATRIX_VECTOR_HPP
 #define BOOST_UBLAS_MATRIX_VECTOR_HPP
 
-#include <boost/numeric/ublas/matrix_proxy.hpp>//for matrix_row, matrix_column and matrix_expression
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/iterator/iterator_facade.hpp>
-#include <boost/range/iterator_range.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_proxy.hpp>//for matrix_row, matrix_column and matrix_expression
+#include <sl/libs/boost/numeric/ublas/vector.hpp>
+#include <sl/libs/boost/iterator/iterator_facade.hpp>
+#include <sl/libs/boost/range/iterator_range.hpp>
+#include <sl/libs/boost/type_traits/is_convertible.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
 

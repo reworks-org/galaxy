@@ -8,12 +8,12 @@
 //  See http://www.boost.org/libs/conversion for Documentation.
 
 //  Revision History
-//  23 JUN 05  Code extracted from /boost/cast.hpp into this new header.
+//  23 JUN 05  Code extracted from /sl/libs/boost/cast.hpp into this new header.
 //             Keeps this legacy version of numeric_cast<> for old compilers
-//             wich can't compile the new version in /boost/numeric/conversion/cast.hpp
+//             wich can't compile the new version in /sl/libs/boost/numeric/conversion/cast.hpp
 //             (Fernando Cacciola)
 //  02 Apr 01  Removed BOOST_NO_LIMITS workarounds and included
-//             <boost/limits.hpp> instead (the workaround did not
+//             <sl/libs/boost/limits.hpp> instead (the workaround did not
 //             actually compile when BOOST_NO_LIMITS was defined in
 //             any case, so we loose nothing). (John Maddock)
 //  21 Jan 01  Undid a bug I introduced yesterday. numeric_cast<> never
@@ -21,7 +21,7 @@
 //             vc-stlport.
 //  20 Jan 01  Moved BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS to config.hpp.
 //             Removed unused BOOST_EXPLICIT_TARGET macro. Moved
-//             boost::detail::type to boost/type.hpp. Made it compile with
+//             boost::detail::type to sl/libs/boost/type.hpp. Made it compile with
 //             stock gcc again (Dave Abrahams)
 //  29 Nov 00  Remove nested namespace cast, cleanup spacing before Formal
 //             Review (Beman Dawes)
@@ -46,19 +46,19 @@
 #ifndef BOOST_OLD_NUMERIC_CAST_HPP
 #define BOOST_OLD_NUMERIC_CAST_HPP
 
-# include <boost/config.hpp>
+# include <sl/libs/boost/config.hpp>
 # include <cassert>
 # include <typeinfo>
-# include <boost/type.hpp>
-# include <boost/limits.hpp>
-# include <boost/numeric/conversion/converter_policies.hpp>
+# include <sl/libs/boost/type.hpp>
+# include <sl/libs/boost/limits.hpp>
+# include <sl/libs/boost/numeric/conversion/converter_policies.hpp>
 
 //  It has been demonstrated numerous times that MSVC 6.0 fails silently at link
 //  time if you use a template function which has template parameters that don't
 //  appear in the function's argument list.
 //
 //  TODO: Add this to config.hpp?
-//  FLC: This macro is repeated in boost/cast.hpp but only locally (is undefined at the bottom)
+//  FLC: This macro is repeated in sl/libs/boost/cast.hpp but only locally (is undefined at the bottom)
 //       so is OK to reproduce it here.
 # if defined(BOOST_MSVC) && BOOST_MSVC < 1300
 #  define BOOST_EXPLICIT_DEFAULT_TARGET , ::boost::type<Target>* = 0

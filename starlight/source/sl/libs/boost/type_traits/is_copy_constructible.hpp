@@ -9,12 +9,12 @@
 #ifndef BOOST_TT_IS_COPY_CONSTRUCTIBLE_HPP_INCLUDED
 #define BOOST_TT_IS_COPY_CONSTRUCTIBLE_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if !defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES) && !defined(BOOST_NO_CXX11_DECLTYPE) && !BOOST_WORKAROUND(BOOST_MSVC, < 1800) && !BOOST_WORKAROUND(BOOST_GCC_VERSION, < 40900)
 
-#include <boost/type_traits/is_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_constructible.hpp>
 
 #if !BOOST_WORKAROUND(BOOST_MSVC, <= 1800)
 
@@ -37,8 +37,8 @@ template <> struct is_copy_constructible<void volatile> : public false_type{};
 // an incorrect value, which just defers the issue into the users code) as well.  We can at least fix
 // boost::non_copyable as a base class as a special case:
 //
-#include <boost/type_traits/is_base_and_derived.hpp>
-#include <boost/noncopyable.hpp>
+#include <sl/libs/boost/type_traits/is_base_and_derived.hpp>
+#include <sl/libs/boost/noncopyable.hpp>
 
 namespace boost {
 
@@ -63,14 +63,14 @@ namespace boost {
 
 #else
 
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/is_base_and_derived.hpp>
-#include <boost/type_traits/add_reference.hpp>
-#include <boost/type_traits/is_rvalue_reference.hpp>
-#include <boost/type_traits/declval.hpp>
-#include <boost/type_traits/is_array.hpp>
-#include <boost/type_traits/declval.hpp>
-#include <boost/noncopyable.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/is_base_and_derived.hpp>
+#include <sl/libs/boost/type_traits/add_reference.hpp>
+#include <sl/libs/boost/type_traits/is_rvalue_reference.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
+#include <sl/libs/boost/noncopyable.hpp>
 
 #ifdef BOOST_MSVC
 #pragma warning(push)
@@ -112,7 +112,7 @@ namespace boost {
          // If you see errors like this:
          //
          //      `'T::T(const T&)' is private`
-         //      `boost/type_traits/is_copy_constructible.hpp:68:5: error: within this context`
+         //      `sl/libs/boost/type_traits/is_copy_constructible.hpp:68:5: error: within this context`
          //
          // then you are trying to call that macro for a structure defined like that:
          //

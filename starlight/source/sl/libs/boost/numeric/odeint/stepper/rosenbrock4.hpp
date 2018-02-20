@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/rosenbrock4.hpp
+ sl/libs/boost/numeric/odeint/stepper/rosenbrock4.hpp
 
  [begin_description]
  Implementation of the Rosenbrock 4 method for solving stiff ODEs. Note, that a
@@ -21,21 +21,21 @@
 #define BOOST_NUMERIC_ODEINT_STEPPER_ROSENBROCK4_HPP_INCLUDED
 
 
-#include <boost/numeric/odeint/util/bind.hpp>
-#include <boost/numeric/odeint/util/unwrap_reference.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/lu.hpp>
+#include <sl/libs/boost/numeric/odeint/util/bind.hpp>
+#include <sl/libs/boost/numeric/odeint/util/unwrap_reference.hpp>
+#include <sl/libs/boost/numeric/ublas/vector.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/lu.hpp>
 
-#include <boost/numeric/odeint/stepper/stepper_categories.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/stepper_categories.hpp>
 
-#include <boost/numeric/odeint/util/ublas_wrapper.hpp>
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/resizer.hpp>
+#include <sl/libs/boost/numeric/odeint/util/ublas_wrapper.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resizer.hpp>
 
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/lu.hpp>
+#include <sl/libs/boost/numeric/ublas/vector.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/lu.hpp>
 
 
 namespace boost {

@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/vexcl/vexcl_resize.hpp
+ sl/libs/boost/numeric/odeint/external/vexcl/vexcl_resize.hpp
 
  [begin_description]
  Enable resizing for vexcl vector and multivector.
@@ -22,9 +22,9 @@
 #include <vexcl/vector.hpp>
 #include <vexcl/multivector.hpp>
 
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/resize.hpp>
-#include <boost/numeric/odeint/util/same_size.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resize.hpp>
+#include <sl/libs/boost/numeric/odeint/util/same_size.hpp>
 
 namespace boost {
 namespace numeric {

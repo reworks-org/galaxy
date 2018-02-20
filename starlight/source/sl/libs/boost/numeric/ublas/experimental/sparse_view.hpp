@@ -11,15 +11,15 @@
 #ifndef _BOOST_UBLAS_SPARSE_VIEW_
 #define _BOOST_UBLAS_SPARSE_VIEW_
 
-#include <boost/numeric/ublas/matrix_expression.hpp>
-#include <boost/numeric/ublas/detail/matrix_assign.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_expression.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/matrix_assign.hpp>
 #if BOOST_UBLAS_TYPE_CHECK
-#include <boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
 #endif
 
-#include <boost/next_prior.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/numeric/ublas/storage.hpp>
+#include <sl/libs/boost/next_prior.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/numeric/ublas/storage.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
 

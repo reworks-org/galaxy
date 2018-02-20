@@ -14,11 +14,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/equal_to.hpp>
-#include <boost/mpl/not_equal_to.hpp>
-#include <boost/mpl/less.hpp>
-#include <boost/mpl/greater.hpp>
-#include <boost/mpl/less_equal.hpp>
-#include <boost/mpl/greater_equal.hpp>
+#include <sl/libs/boost/mpl/equal_to.hpp>
+#include <sl/libs/boost/mpl/not_equal_to.hpp>
+#include <sl/libs/boost/mpl/less.hpp>
+#include <sl/libs/boost/mpl/greater.hpp>
+#include <sl/libs/boost/mpl/less_equal.hpp>
+#include <sl/libs/boost/mpl/greater_equal.hpp>
 
 #endif // BOOST_MPL_COMPARISON_HPP_INCLUDED

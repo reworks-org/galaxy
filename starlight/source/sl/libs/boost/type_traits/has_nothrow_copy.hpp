@@ -9,25 +9,25 @@
 #ifndef BOOST_TT_HAS_NOTHROW_COPY_HPP_INCLUDED
 #define BOOST_TT_HAS_NOTHROW_COPY_HPP_INCLUDED
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 #ifdef BOOST_HAS_NOTHROW_COPY
 
 #if defined(BOOST_CLANG) || defined(__GNUC__) || defined(__ghs__) || defined(__CODEGEARC__) || defined(__SUNPRO_CC)
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/is_copy_constructible.hpp>
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_copy_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
 #ifdef BOOST_INTEL
-#include <boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
 #endif
 #elif defined(BOOST_MSVC) || defined(BOOST_INTEL)
-#include <boost/type_traits/has_trivial_copy.hpp>
-#include <boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_copy.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
 #ifdef BOOST_INTEL
-#include <boost/type_traits/add_lvalue_reference.hpp>
-#include <boost/type_traits/add_const.hpp>
+#include <sl/libs/boost/type_traits/add_lvalue_reference.hpp>
+#include <sl/libs/boost/type_traits/add_const.hpp>
 #endif
 #endif
 
@@ -37,8 +37,8 @@ template <class T> struct has_nothrow_copy_constructor : public integral_constan
 
 #elif !defined(BOOST_NO_CXX11_NOEXCEPT)
 
-#include <boost/type_traits/declval.hpp>
-#include <boost/type_traits/is_copy_constructible.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
+#include <sl/libs/boost/type_traits/is_copy_constructible.hpp>
 
 namespace boost{
 
@@ -55,7 +55,7 @@ template <class T> struct has_nothrow_copy_constructor : public detail::has_noth
 
 #else
 
-#include <boost/type_traits/has_trivial_copy.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_copy.hpp>
 
 namespace boost{
 

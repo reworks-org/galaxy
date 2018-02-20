@@ -11,21 +11,21 @@
 #ifndef BOOST_TT_IS_ENUM_HPP_INCLUDED
 #define BOOST_TT_IS_ENUM_HPP_INCLUDED
 
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 #ifndef BOOST_IS_ENUM
-#include <boost/type_traits/add_reference.hpp>
-#include <boost/type_traits/is_arithmetic.hpp>
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/add_reference.hpp>
+#include <sl/libs/boost/type_traits/is_arithmetic.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/is_convertible.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
 #ifdef __GNUC__
-#include <boost/type_traits/is_function.hpp>
+#include <sl/libs/boost/type_traits/is_function.hpp>
 #endif
-#include <boost/type_traits/detail/config.hpp>
+#include <sl/libs/boost/type_traits/detail/config.hpp>
 #if defined(BOOST_TT_HAS_CONFORMING_IS_CLASS_IMPLEMENTATION) 
-#  include <boost/type_traits/is_class.hpp>
-#  include <boost/type_traits/is_union.hpp>
+#  include <sl/libs/boost/type_traits/is_class.hpp>
+#  include <sl/libs/boost/type_traits/is_union.hpp>
 #endif
 #endif
 

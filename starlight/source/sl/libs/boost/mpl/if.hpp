@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/static_cast.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
-#include <boost/mpl/aux_/config/integral.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
+#include <sl/libs/boost/mpl/aux_/static_cast.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/aux_/config/integral.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 namespace boost { namespace mpl {
 

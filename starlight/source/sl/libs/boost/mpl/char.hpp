@@ -14,9 +14,9 @@
 // $Date: 2008-06-14 08:41:37 -0700 (Sat, 16 Jun 2008) $
 // $Revision: 24874 $
 
-#include <boost/mpl/char_fwd.hpp>
+#include <sl/libs/boost/mpl/char_fwd.hpp>
 
 #define AUX_WRAPPER_VALUE_TYPE char
-#include <boost/mpl/aux_/integral_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/integral_wrapper.hpp>
 
 #endif // BOOST_MPL_CHAR_HPP_INCLUDED

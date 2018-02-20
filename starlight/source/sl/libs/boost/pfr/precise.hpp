@@ -6,8 +6,8 @@
 #ifndef BOOST_PFR_PRECISE_HPP
 #define BOOST_PFR_PRECISE_HPP
 
-/// \file boost/pfr/precise.hpp
-/// Includes all the Boost.PFR headers that do not define `flat_*` functions, except \xmlonly<link linkend='header.boost.pfr.precise.global_ops_hpp'>boost/pfr/precise/global_ops.hpp</link>\endxmlonly
+/// \file sl/libs/boost/pfr/precise.hpp
+/// Includes all the Boost.PFR headers that do not define `flat_*` functions, except \xmlonly<link linkend='header.boost.pfr.precise.global_ops_hpp'>sl/libs/boost/pfr/precise/global_ops.hpp</link>\endxmlonly
 
 #include "precise/core.hpp"
 #include "precise/functors.hpp"

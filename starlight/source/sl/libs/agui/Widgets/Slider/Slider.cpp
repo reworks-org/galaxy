@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/Slider/Slider.hpp"
+#include "sl/libs/Agui/Widgets/Slider/Slider.hpp"
 namespace agui {
 	Slider::Slider( Widget *marker /*= NULL*/ )
     : orientation(HORIZONTAL),centerRatio(0.5f),

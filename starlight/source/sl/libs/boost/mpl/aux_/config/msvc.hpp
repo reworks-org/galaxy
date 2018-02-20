@@ -16,6 +16,6 @@
 
 
 // BOOST_MSVC is defined here:
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #endif // BOOST_MPL_AUX_CONFIG_MSVC_HPP_INCLUDED

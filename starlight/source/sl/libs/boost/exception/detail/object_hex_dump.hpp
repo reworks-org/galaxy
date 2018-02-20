@@ -6,7 +6,7 @@
 #ifndef UUID_6F463AC838DF11DDA3E6909F56D89593
 #define UUID_6F463AC838DF11DDA3E6909F56D89593
 
-#include <boost/exception/detail/type_info.hpp>
+#include <sl/libs/boost/exception/detail/type_info.hpp>
 #include <iomanip>
 #include <ios>
 #include <string>

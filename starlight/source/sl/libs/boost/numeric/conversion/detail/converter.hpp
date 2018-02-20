@@ -12,13 +12,13 @@
 
 #include <functional>
 
-#include "boost/numeric/conversion/detail/meta.hpp"
-#include "boost/numeric/conversion/detail/conversion_traits.hpp"
-#include "boost/numeric/conversion/bounds.hpp"
+#include "sl/libs/boost/numeric/conversion/detail/meta.hpp"
+#include "sl/libs/boost/numeric/conversion/detail/conversion_traits.hpp"
+#include "sl/libs/boost/numeric/conversion/bounds.hpp"
 
-#include "boost/type_traits/is_same.hpp"
+#include "sl/libs/boost/type_traits/is_same.hpp"
 
-#include "boost/mpl/integral_c.hpp"
+#include "sl/libs/boost/mpl/integral_c.hpp"
 
 namespace boost { namespace numeric { namespace convdetail
 {

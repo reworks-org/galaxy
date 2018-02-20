@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/ScrollPane/ScrollPane.hpp"
+#include "sl/libs/Agui/Widgets/ScrollPane/ScrollPane.hpp"
 namespace agui {
 
 	ScrollPane::ScrollPane( HScrollBar *hScroll /*= NULL*/,

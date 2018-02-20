@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/algebra/range_algebra.hpp
+ sl/libs/boost/numeric/odeint/algebra/range_algebra.hpp
 
  [begin_description]
  Default algebra, which works with the most state types, like vector< double >, boost::array< double >, boost::range.
@@ -19,13 +19,13 @@
 #ifndef BOOST_NUMERIC_ODEINT_ALGEBRA_RANGE_ALGEBRA_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_ALGEBRA_RANGE_ALGEBRA_HPP_INCLUDED
 
-#include <boost/range.hpp>
-#include <boost/mpl/size_t.hpp>
+#include <sl/libs/boost/range.hpp>
+#include <sl/libs/boost/mpl/size_t.hpp>
 
-#include <boost/numeric/odeint/algebra/detail/macros.hpp>
-#include <boost/numeric/odeint/algebra/detail/for_each.hpp>
-#include <boost/numeric/odeint/algebra/detail/norm_inf.hpp>
-#include <boost/numeric/odeint/algebra/norm_result_type.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/detail/macros.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/detail/for_each.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/detail/norm_inf.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/norm_result_type.hpp>
 
 namespace boost {
 namespace numeric {

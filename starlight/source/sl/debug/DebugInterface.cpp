@@ -10,14 +10,17 @@
 #include <allegro5/events.h>
 #include <allegro5/display.h>
 
-#include "imgui/imgui_impl_a5.h"
+#include "sl/core/StateManager.hpp"
+#include "sl/core/ServiceLocator.hpp"
+#include "sl/libs/imgui/imgui_impl_a5.h"
+#include "sl/libs/imgui/imguinodegrapheditor.h"
 
 #include "DebugInterface.hpp"
 
 namespace sl
 {
 	DebugInterface::DebugInterface(ALLEGRO_DISPLAY* display, bool isDisabled)
-	:m_reloadState(nullptr), m_disabled(isDisabled)
+	:m_reloadState(nullptr)
 	{
 		ImGui_ImplA5_Init(display);
 	}
@@ -55,6 +58,20 @@ namespace sl
 	{
 		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
 
+		if (ImGui::Button("Reset game"))
+		{
+			m_reloadFunc();
+			Locator::m_stateManager->reloadState(m_reloadState);
+		}
+
+		ImGui::TestNodeGraphEditor();
+
 		ImGui::End();
+	}
+
+	void DebugInterface::setReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func)
+	{
+		m_reloadState = s;
+		m_reloadFunc = func;
 	}
 }

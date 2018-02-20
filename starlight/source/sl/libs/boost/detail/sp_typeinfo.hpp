@@ -9,7 +9,7 @@
 
 //  detail/sp_typeinfo.hpp
 //
-//  Deprecated, please use boost/core/typeinfo.hpp
+//  Deprecated, please use sl/libs/boost/core/typeinfo.hpp
 //
 //  Copyright 2007 Peter Dimov
 //
@@ -17,7 +17,7 @@
 //  See accompanying file LICENSE_1_0.txt or copy at
 //  http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/core/typeinfo.hpp>
+#include <sl/libs/boost/core/typeinfo.hpp>
 
 namespace boost
 {

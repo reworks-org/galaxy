@@ -16,25 +16,25 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/bool.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/type_wrapper.hpp>
-#include <boost/mpl/aux_/yes_no.hpp>
-#include <boost/mpl/aux_/config/gcc.hpp>
-#include <boost/mpl/aux_/config/has_xxx.hpp>
-#include <boost/mpl/aux_/config/msvc_typename.hpp>
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/bool.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/yes_no.hpp>
+#include <sl/libs/boost/mpl/aux_/config/gcc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/has_xxx.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc_typename.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
-#include <boost/preprocessor/array/elem.hpp>
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/control/if.hpp>
-#include <boost/preprocessor/repetition/enum_params.hpp>
-#include <boost/preprocessor/repetition/enum_trailing_params.hpp>
+#include <sl/libs/boost/preprocessor/array/elem.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/preprocessor/control/if.hpp>
+#include <sl/libs/boost/preprocessor/repetition/enum_params.hpp>
+#include <sl/libs/boost/preprocessor/repetition/enum_trailing_params.hpp>
 
 #if BOOST_WORKAROUND( __BORLANDC__, BOOST_TESTED_AT(0x590) )
-# include <boost/type_traits/is_class.hpp>
+# include <sl/libs/boost/type_traits/is_class.hpp>
 #endif
 
 #if !defined(BOOST_MPL_CFG_NO_HAS_XXX)
@@ -48,8 +48,8 @@
 
 // Modified dwa 8/Oct/02 to handle reference types.
 
-#   include <boost/mpl/if.hpp>
-#   include <boost/mpl/bool.hpp>
+#   include <sl/libs/boost/mpl/if.hpp>
+#   include <sl/libs/boost/mpl/bool.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

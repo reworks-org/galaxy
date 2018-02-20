@@ -20,13 +20,13 @@
 // Hide these #include from dependency analysers as
 // these are required in maintenance mode only:
 //
-#define PP1 <boost/preprocessor/iterate.hpp>
+#define PP1 <sl/libs/boost/preprocessor/iterate.hpp>
 #include PP1
 #undef PP1
-#define PP1 <boost/preprocessor/enum_params.hpp>
+#define PP1 <sl/libs/boost/preprocessor/enum_params.hpp>
 #include PP1
 #undef PP1
-#define PP1 <boost/preprocessor/comma_if.hpp>
+#define PP1 <sl/libs/boost/preprocessor/comma_if.hpp>
 #include PP1
 #undef PP1
 #endif
@@ -151,7 +151,7 @@ struct is_function_ptr_helper<R (*)( T0 , T1 , T2 , T3 , T4 , T5 , T6 , T7 , T8 
 
 #undef BOOST_STATIC_CONSTANT
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3, (0, 25, "boost/type_traits/detail/is_function_ptr_helper.hpp"))
+    (3, (0, 25, "sl/libs/boost/type_traits/detail/is_function_ptr_helper.hpp"))
 #include BOOST_PP_ITERATE()
 
 #endif // BOOST_TT_PREPROCESSING_MODE

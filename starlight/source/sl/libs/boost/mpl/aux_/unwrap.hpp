@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/ref.hpp>
-#include <boost/mpl/aux_/config/gpu.hpp>
+#include <sl/libs/boost/ref.hpp>
+#include <sl/libs/boost/mpl/aux_/config/gpu.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

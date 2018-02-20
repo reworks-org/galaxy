@@ -14,9 +14,9 @@
 # ifndef BOOST_PREPROCESSOR_COMPARISON_EQUAL_HPP
 # define BOOST_PREPROCESSOR_COMPARISON_EQUAL_HPP
 #
-# include <boost/preprocessor/comparison/not_equal.hpp>
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/logical/compl.hpp>
+# include <sl/libs/boost/preprocessor/comparison/not_equal.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/logical/compl.hpp>
 #
 # /* BOOST_PP_EQUAL */
 #

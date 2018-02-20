@@ -9,11 +9,11 @@
 #ifndef BOOST_TT_IS_SCALAR_HPP_INCLUDED
 #define BOOST_TT_IS_SCALAR_HPP_INCLUDED
 
-#include <boost/type_traits/is_arithmetic.hpp>
-#include <boost/type_traits/is_enum.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/is_member_pointer.hpp>
-#include <boost/config.hpp>
+#include <sl/libs/boost/type_traits/is_arithmetic.hpp>
+#include <sl/libs/boost/type_traits/is_enum.hpp>
+#include <sl/libs/boost/type_traits/is_pointer.hpp>
+#include <sl/libs/boost/type_traits/is_member_pointer.hpp>
+#include <sl/libs/boost/config.hpp>
 
 namespace boost {
 

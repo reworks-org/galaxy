@@ -9,7 +9,7 @@
 #ifndef BOOST_TT_DETAIL_ICE_AND_HPP_INCLUDED
 #define BOOST_TT_DETAIL_ICE_AND_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 //
 // This header is deprecated and no longer used by type_traits:

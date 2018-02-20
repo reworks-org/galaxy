@@ -16,13 +16,13 @@ copy at http://www.boost.org/LICENSE_1_0.txt)
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_MTL4_RESIZE_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_MTL4_RESIZE_HPP_INCLUDED
 
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/resize.hpp>
-#include <boost/numeric/odeint/util/same_size.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resize.hpp>
+#include <sl/libs/boost/numeric/odeint/util/same_size.hpp>
 
-#include <boost/numeric/mtl/vector/dense_vector.hpp>
-#include <boost/numeric/mtl/matrix/dense2D.hpp>
-#include <boost/numeric/mtl/matrix/compressed2D.hpp>
+#include <sl/libs/boost/numeric/mtl/vector/dense_vector.hpp>
+#include <sl/libs/boost/numeric/mtl/matrix/dense2D.hpp>
+#include <sl/libs/boost/numeric/mtl/matrix/compressed2D.hpp>
 
 
 namespace boost {

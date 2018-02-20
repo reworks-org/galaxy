@@ -13,9 +13,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/preprocessor/expr_if.hpp>
-#include <boost/preprocessor/inc.hpp>
-#include <boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/preprocessor/expr_if.hpp>
+#include <sl/libs/boost/preprocessor/inc.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
 
 #if !defined(AUX778076_COUNT_ARGS_PARAM_NAME)
 #   define AUX778076_COUNT_ARGS_PARAM_NAME T
@@ -29,8 +29,8 @@
 
 #if !defined(AUX778076_COUNT_ARGS_USE_STANDARD_PP_PRIMITIVES)
 
-#   include <boost/mpl/aux_/preprocessor/repeat.hpp>
-#   include <boost/mpl/aux_/preprocessor/params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
 
 #   define AUX778076_COUNT_ARGS_REPEAT BOOST_MPL_PP_REPEAT
 #   define AUX778076_COUNT_ARGS_PARAMS(param) \
@@ -42,9 +42,9 @@
 
 #else
 
-#   include <boost/preprocessor/enum_shifted_params.hpp>
-#   include <boost/preprocessor/repeat.hpp>
-#   include <boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/enum_shifted_params.hpp>
+#   include <sl/libs/boost/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
 
 #   define AUX778076_COUNT_ARGS_REPEAT BOOST_PP_REPEAT
 #   define AUX778076_COUNT_ARGS_PARAMS(param) \

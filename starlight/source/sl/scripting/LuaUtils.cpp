@@ -9,7 +9,7 @@
 
 #include <fstream>
 
-#include "sol2/sol.hpp"
+#include "sl/libs/sol2/sol.hpp"
 
 #include "LuaUtils.hpp"
 

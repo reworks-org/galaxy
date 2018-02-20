@@ -15,13 +15,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/preprocessor/is_seq.hpp>
+#include <sl/libs/boost/mpl/aux_/preprocessor/is_seq.hpp>
 
-#include <boost/preprocessor/if.hpp>
-#include <boost/preprocessor/logical/bitand.hpp>
-#include <boost/preprocessor/logical/compl.hpp>
-#include <boost/preprocessor/tuple/eat.hpp>
-#include <boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/preprocessor/if.hpp>
+#include <sl/libs/boost/preprocessor/logical/bitand.hpp>
+#include <sl/libs/boost/preprocessor/logical/compl.hpp>
+#include <sl/libs/boost/preprocessor/tuple/eat.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
 
 // compares tokens 'a' and 'b' for equality:
 //

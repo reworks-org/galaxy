@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

@@ -19,9 +19,9 @@
 #define BOOST_NUMERIC_UBLAS_TRAITS_CONST_ITERATOR_TYPE_HPP
 
 
-#include <boost/numeric/ublas/fwd.hpp>
-#include <boost/numeric/ublas/tags.hpp>
-#include <boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/fwd.hpp>
+#include <sl/libs/boost/numeric/ublas/tags.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
 
 
 namespace boost { namespace numeric { namespace ublas {

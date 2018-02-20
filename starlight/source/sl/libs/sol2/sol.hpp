@@ -1647,7 +1647,7 @@ namespace sol {
 #define SOL_EXCEPTIONS_SAFE_PROPAGATION
 #endif // Exceptions can be propagated safely using C++-compiled Lua
 #else
-#include "lua/lua.hpp"
+#include "sl/libs/lua/lua.hpp"
 #endif // C++ Mangling for Lua
 
 #ifdef LUAJIT_VERSION
@@ -2988,7 +2988,7 @@ namespace sol {
   // end of sol/in_place.hpp
 
 #if defined(SOL_USE_BOOST)
-#include <boost/optional.hpp>
+#include <sl/libs/boost/optional.hpp>
 #else
   // beginning of sol/optional_implementation.hpp
 
@@ -4166,7 +4166,7 @@ namespace sol {
 #ifdef SOL_CXX17_FEATURES
 #endif // C++17 features
 #ifdef SOL_USE_BOOST
-#include <boost/functional/hash.hpp>
+#include <sl/libs/boost/functional/hash.hpp>
 #endif
 
 namespace sol {
@@ -16727,7 +16727,7 @@ namespace sol {
 	#include <bitset>
 
 	#ifdef SOL_USE_BOOST
-	#include <boost/unordered_map.hpp>
+	#include <sl/libs/boost/unordered_map.hpp>
 	#endif // Using Boost
 
 	namespace sol {

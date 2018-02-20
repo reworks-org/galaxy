@@ -15,23 +15,23 @@
 
 #include <iterator>
 #include <complex>
-#include <boost/config/no_tr1/cmath.hpp>
+#include <sl/libs/boost/config/no_tr1/cmath.hpp>
 
-#include <boost/numeric/ublas/detail/config.hpp>
-#include <boost/numeric/ublas/detail/iterator.hpp>
-#include <boost/numeric/ublas/detail/returntype_deduction.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/config.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/iterator.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/returntype_deduction.hpp>
 #ifdef BOOST_UBLAS_USE_INTERVAL
-#include <boost/numeric/interval.hpp>
+#include <sl/libs/boost/numeric/interval.hpp>
 #endif
 
-#include <boost/type_traits.hpp>
+#include <sl/libs/boost/type_traits.hpp>
 #include <complex>
-#include <boost/typeof/typeof.hpp>
-#include <boost/utility/enable_if.hpp>
-#include <boost/type_traits/is_float.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_unsigned.hpp>
-#include <boost/mpl/and.hpp>
+#include <sl/libs/boost/typeof/typeof.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
+#include <sl/libs/boost/type_traits/is_float.hpp>
+#include <sl/libs/boost/type_traits/is_integral.hpp>
+#include <sl/libs/boost/type_traits/is_unsigned.hpp>
+#include <sl/libs/boost/mpl/and.hpp>
 
 // anonymous namespace to avoid ADL issues
 namespace {

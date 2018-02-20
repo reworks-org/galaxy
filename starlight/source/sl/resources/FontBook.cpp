@@ -9,8 +9,8 @@
 
 #include <allegro5/allegro_ttf.h>
 
-#include "sol2/sol.hpp"
 #include "sl/fs/VirtualFS.hpp"
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "FontBook.hpp"

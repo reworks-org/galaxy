@@ -14,12 +14,12 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/plus.hpp>
-#include <boost/mpl/minus.hpp>
-#include <boost/mpl/times.hpp>
-#include <boost/mpl/divides.hpp>
-#include <boost/mpl/modulus.hpp>
-#include <boost/mpl/negate.hpp>
-#include <boost/mpl/multiplies.hpp> // deprecated
+#include <sl/libs/boost/mpl/plus.hpp>
+#include <sl/libs/boost/mpl/minus.hpp>
+#include <sl/libs/boost/mpl/times.hpp>
+#include <sl/libs/boost/mpl/divides.hpp>
+#include <sl/libs/boost/mpl/modulus.hpp>
+#include <sl/libs/boost/mpl/negate.hpp>
+#include <sl/libs/boost/mpl/multiplies.hpp> // deprecated
 
 #endif // BOOST_MPL_ARITHMETIC_HPP_INCLUDED

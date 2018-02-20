@@ -18,46 +18,46 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/ttp.hpp>
-#include <boost/mpl/aux_/config/lambda.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ttp.hpp>
+#include <sl/libs/boost/mpl/aux_/config/lambda.hpp>
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/aux_/template_arity_fwd.hpp>
-#   include <boost/mpl/int.hpp>
+#   include <sl/libs/boost/mpl/aux_/template_arity_fwd.hpp>
+#   include <sl/libs/boost/mpl/int.hpp>
 #   if !defined(BOOST_MPL_CFG_NO_FULL_LAMBDA_SUPPORT)
 #   if defined(BOOST_MPL_CFG_EXTENDED_TEMPLATE_PARAMETERS_MATCHING)
-#       include <boost/mpl/aux_/type_wrapper.hpp>
+#       include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
 #   endif
 #   else
-#       include <boost/mpl/aux_/has_rebind.hpp>
+#       include <sl/libs/boost/mpl/aux_/has_rebind.hpp>
 #   endif
 #endif
 
-#include <boost/mpl/aux_/config/static_constant.hpp>
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER template_arity.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
 #   if !defined(BOOST_MPL_CFG_NO_FULL_LAMBDA_SUPPORT)
 #   if defined(BOOST_MPL_CFG_EXTENDED_TEMPLATE_PARAMETERS_MATCHING)
 
-#   include <boost/mpl/limits/arity.hpp>
-#   include <boost/mpl/aux_/preprocessor/range.hpp>
-#   include <boost/mpl/aux_/preprocessor/repeat.hpp>
-#   include <boost/mpl/aux_/preprocessor/params.hpp>
-#   include <boost/mpl/aux_/nttp_decl.hpp>
+#   include <sl/libs/boost/mpl/limits/arity.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/range.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
+#   include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
 
-#   include <boost/preprocessor/seq/fold_left.hpp>
-#   include <boost/preprocessor/comma_if.hpp>
-#   include <boost/preprocessor/iterate.hpp>
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/seq/fold_left.hpp>
+#   include <sl/libs/boost/preprocessor/comma_if.hpp>
+#   include <sl/libs/boost/preprocessor/iterate.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 #   define AUX778076_ARITY BOOST_PP_INC(BOOST_MPL_LIMIT_METAFUNCTION_ARITY)
 
@@ -91,7 +91,7 @@ struct max_arity
 arity_tag<0>::type arity_helper(...);
 
 #   define BOOST_PP_ITERATION_LIMITS (1, AUX778076_ARITY)
-#   define BOOST_PP_FILENAME_1 <boost/mpl/aux_/template_arity.hpp>
+#   define BOOST_PP_FILENAME_1 <sl/libs/boost/mpl/aux_/template_arity.hpp>
 #   include BOOST_PP_ITERATE()
 
 template< typename F, BOOST_MPL_AUX_NTTP_DECL(int, N) >
@@ -129,7 +129,7 @@ struct template_arity
 #   endif // BOOST_MPL_CFG_EXTENDED_TEMPLATE_PARAMETERS_MATCHING
 #   else // BOOST_MPL_CFG_NO_FULL_LAMBDA_SUPPORT
 
-#   include <boost/mpl/aux_/config/eti.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/eti.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

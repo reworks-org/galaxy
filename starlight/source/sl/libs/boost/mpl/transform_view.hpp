@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/lambda.hpp>
-#include <boost/mpl/aux_/transform_iter.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/lambda.hpp>
+#include <sl/libs/boost/mpl/aux_/transform_iter.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
 
 namespace boost { namespace mpl {
 

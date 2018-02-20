@@ -40,7 +40,7 @@
 
 #ifndef AGUI_ALLEGRO5_IMAGE_HPP
 #define AGUI_ALLEGRO5_IMAGE_HPP
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/Agui/BaseTypes.hpp"
 
 //Allegro 5 
 #include <allegro5/allegro.h>

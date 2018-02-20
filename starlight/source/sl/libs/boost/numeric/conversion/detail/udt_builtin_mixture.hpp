@@ -10,12 +10,12 @@
 #ifndef BOOST_NUMERIC_CONVERSION_DETAIL_UDT_BUILTIN_MIXTURE_FLC_12NOV2002_HPP
 #define BOOST_NUMERIC_CONVERSION_DETAIL_UDT_BUILTIN_MIXTURE_FLC_12NOV2002_HPP
 
-#include "boost/type_traits/is_arithmetic.hpp"
+#include "sl/libs/boost/type_traits/is_arithmetic.hpp"
 
-#include "boost/numeric/conversion/udt_builtin_mixture_enum.hpp"
-#include "boost/numeric/conversion/detail/meta.hpp"
+#include "sl/libs/boost/numeric/conversion/udt_builtin_mixture_enum.hpp"
+#include "sl/libs/boost/numeric/conversion/detail/meta.hpp"
 
-#include "boost/mpl/integral_c.hpp"
+#include "sl/libs/boost/mpl/integral_c.hpp"
 
 namespace boost { namespace numeric { namespace convdetail
 {

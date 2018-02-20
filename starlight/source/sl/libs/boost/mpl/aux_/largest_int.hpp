@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/aux_/config/integral.hpp>
-#include <boost/config.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/aux_/config/integral.hpp>
+#include <sl/libs/boost/config.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

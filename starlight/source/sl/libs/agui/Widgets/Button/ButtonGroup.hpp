@@ -41,9 +41,9 @@
 #ifndef AGUI_BUTTON_GROUP_HPP
 #define AGUI_BUTTON_GROUP_HPP
 
-#include "Agui/Widgets/Button/ButtonListener.hpp"
-#include "Agui/Widgets/Button/Button.hpp"
-#include "Agui/ActionListener.hpp"
+#include "sl/libs/Agui/Widgets/Button/ButtonListener.hpp"
+#include "sl/libs/Agui/Widgets/Button/Button.hpp"
+#include "sl/libs/Agui/ActionListener.hpp"
 
 
 namespace agui {

@@ -6,9 +6,9 @@
 #ifndef UUID_CE6983AC753411DDA764247956D89593
 #define UUID_CE6983AC753411DDA764247956D89593
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 #ifndef BOOST_NO_CXX11_RVALUE_REFERENCES
-#include <boost/type_traits/is_nothrow_move_constructible.hpp>
+#include <sl/libs/boost/type_traits/is_nothrow_move_constructible.hpp>
 #endif
 #include <utility>
 #include <string>

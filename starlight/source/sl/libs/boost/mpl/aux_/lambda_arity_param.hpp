@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/ttp.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ttp.hpp>
 
 #if !defined(BOOST_MPL_CFG_EXTENDED_TEMPLATE_PARAMETERS_MATCHING)
 #   define BOOST_MPL_AUX_LAMBDA_ARITY_PARAM(param)    

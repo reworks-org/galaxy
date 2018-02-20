@@ -6,7 +6,7 @@
 #ifndef UUID_F0EE17BE6C1211DE87FF459155D89593
 #define UUID_F0EE17BE6C1211DE87FF459155D89593
 
-#include <boost/exception/info.hpp>
+#include <sl/libs/boost/exception/info.hpp>
 #include <errno.h>
 #include <string.h>
 

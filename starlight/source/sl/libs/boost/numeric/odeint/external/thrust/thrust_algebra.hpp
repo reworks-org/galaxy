@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/thrust/thrust_algebra.hpp
+ sl/libs/boost/numeric/odeint/external/thrust/thrust_algebra.hpp
 
  [begin_description]
  An algebra for thrusts device_vectors.
@@ -24,7 +24,7 @@
 #include <thrust/for_each.h>
 #include <thrust/iterator/zip_iterator.h>
 
-#include <boost/range.hpp>
+#include <sl/libs/boost/range.hpp>
 
 namespace boost {
 namespace numeric {

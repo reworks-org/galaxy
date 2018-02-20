@@ -15,11 +15,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/has_key_fwd.hpp>
-#include <boost/mpl/sequence_tag.hpp>
-#include <boost/mpl/aux_/has_key_impl.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/lambda_support.hpp>
+#include <sl/libs/boost/mpl/has_key_fwd.hpp>
+#include <sl/libs/boost/mpl/sequence_tag.hpp>
+#include <sl/libs/boost/mpl/aux_/has_key_impl.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
 
 namespace boost { namespace mpl {
 

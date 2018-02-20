@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/multiset/aux_/item.hpp>
-#include <boost/mpl/multiset/aux_/tag.hpp>
-#include <boost/mpl/insert_fwd.hpp>
+#include <sl/libs/boost/mpl/multiset/aux_/item.hpp>
+#include <sl/libs/boost/mpl/multiset/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/insert_fwd.hpp>
 
 namespace boost { namespace mpl {
 

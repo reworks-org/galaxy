@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/config.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/config.hpp>
 
 #if    !defined(BOOST_MPL_CFG_NO_NONTYPE_TEMPLATE_PARTIAL_SPEC) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE) \
@@ -25,6 +25,6 @@
 
 #endif
 
-// BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION is defined in <boost/config.hpp>
+// BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION is defined in <sl/libs/boost/config.hpp>
 
 #endif // BOOST_MPL_AUX_CONFIG_CTPS_HPP_INCLUDED

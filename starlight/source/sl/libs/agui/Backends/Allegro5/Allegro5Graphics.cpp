@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Backends/Allegro5/Allegro5Graphics.hpp"
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/Agui/Backends/Allegro5/Allegro5Graphics.hpp"
+#include "sl/libs/Agui/BaseTypes.hpp"
 
 namespace agui {
 	void Allegro5Graphics::setClippingRectangle

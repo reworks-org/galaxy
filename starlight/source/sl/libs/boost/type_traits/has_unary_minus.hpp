@@ -16,7 +16,7 @@
    ::boost::is_pointer< Rhs_noref >::value
 
 
-#include <boost/type_traits/detail/has_prefix_operator.hpp>
+#include <sl/libs/boost/type_traits/detail/has_prefix_operator.hpp>
 
 #undef BOOST_TT_TRAIT_NAME
 #undef BOOST_TT_TRAIT_OP

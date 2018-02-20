@@ -9,8 +9,8 @@
 
 #include <map>
 
-#include "sol2/sol.hpp"
-#include "loguru/loguru.hpp"
+#include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 #include "Animation.hpp"
 

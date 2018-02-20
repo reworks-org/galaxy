@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/TextBox/TextBox.hpp"
-#include "Agui/EmptyWidget.hpp"
+#include "sl/libs/Agui/Widgets/TextBox/TextBox.hpp"
+#include "sl/libs/Agui/EmptyWidget.hpp"
 
 namespace agui {
 	TextBox::TextBox( HScrollBar *hScroll /*= NULL*/,

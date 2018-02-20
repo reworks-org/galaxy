@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/mpi/mpi.hpp
+ sl/libs/boost/numeric/odeint/external/mpi/mpi.hpp
 
  [begin_description]
  Wrappers for MPI.
@@ -19,7 +19,7 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_MPI_MPI_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_MPI_MPI_HPP_INCLUDED
 
-#include <boost/numeric/odeint/external/mpi/mpi_vector_state.hpp>
-#include <boost/numeric/odeint/external/mpi/mpi_nested_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/external/mpi/mpi_vector_state.hpp>
+#include <sl/libs/boost/numeric/odeint/external/mpi/mpi_nested_algebra.hpp>
 
 #endif

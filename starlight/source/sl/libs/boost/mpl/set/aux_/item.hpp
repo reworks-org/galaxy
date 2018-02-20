@@ -15,13 +15,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/long.hpp>
-#include <boost/mpl/void.hpp>
-#include <boost/mpl/next.hpp>
-#include <boost/mpl/prior.hpp>
-#include <boost/mpl/set/aux_/set0.hpp>
-#include <boost/mpl/aux_/type_wrapper.hpp>
-#include <boost/mpl/aux_/config/arrays.hpp>
+#include <sl/libs/boost/mpl/long.hpp>
+#include <sl/libs/boost/mpl/void.hpp>
+#include <sl/libs/boost/mpl/next.hpp>
+#include <sl/libs/boost/mpl/prior.hpp>
+#include <sl/libs/boost/mpl/set/aux_/set0.hpp>
+#include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#include <sl/libs/boost/mpl/aux_/config/arrays.hpp>
 
 namespace boost { namespace mpl {
 

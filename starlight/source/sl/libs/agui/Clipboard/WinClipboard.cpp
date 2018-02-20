@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Clipboard/WinClipboard.hpp"
+#include "sl/libs/Agui/Clipboard/WinClipboard.hpp"
 #include <windows.h>
 namespace agui
 {

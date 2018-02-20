@@ -14,7 +14,7 @@
 #include "core.hpp"
 #include "io.hpp"
 
-/// \file boost/pfr/precise/ops.hpp
+/// \file sl/libs/boost/pfr/precise/ops.hpp
 /// Contains comparison operators and stream operators for types that do not have their own operators.
 /// If type is comparable or streamable using it's own operator or it's conversion operator, then the original operator is used.
 ///
@@ -26,7 +26,7 @@
 ///
 /// \b Example:
 /// \code
-///    #include <boost/pfr/precise/ops.hpp>
+///    #include <sl/libs/boost/pfr/precise/ops.hpp>
 ///    struct comparable_struct {      // No operators defined for that structure
 ///        int i; short s; char data[7]; bool bl; int a,b,c,d,e,f;
 ///    };

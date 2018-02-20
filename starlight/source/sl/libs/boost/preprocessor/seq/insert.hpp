@@ -12,9 +12,9 @@
 # ifndef BOOST_PREPROCESSOR_SEQ_INSERT_HPP
 # define BOOST_PREPROCESSOR_SEQ_INSERT_HPP
 #
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/seq/first_n.hpp>
-# include <boost/preprocessor/seq/rest_n.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/seq/first_n.hpp>
+# include <sl/libs/boost/preprocessor/seq/rest_n.hpp>
 #
 # /* BOOST_PP_SEQ_INSERT */
 #

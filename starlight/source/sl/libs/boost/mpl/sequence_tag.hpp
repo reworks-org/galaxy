@@ -14,14 +14,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/sequence_tag_fwd.hpp>
-#include <boost/mpl/aux_/has_tag.hpp>
-#include <boost/mpl/aux_/has_begin.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
-#include <boost/mpl/aux_/is_msvc_eti_arg.hpp>
-#include <boost/mpl/aux_/config/eti.hpp>
-#include <boost/mpl/aux_/yes_no.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/sequence_tag_fwd.hpp>
+#include <sl/libs/boost/mpl/aux_/has_tag.hpp>
+#include <sl/libs/boost/mpl/aux_/has_begin.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/is_msvc_eti_arg.hpp>
+#include <sl/libs/boost/mpl/aux_/config/eti.hpp>
+#include <sl/libs/boost/mpl/aux_/yes_no.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 namespace boost { namespace mpl {
 

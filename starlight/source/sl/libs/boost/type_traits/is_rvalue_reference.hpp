@@ -9,8 +9,8 @@
 #ifndef BOOST_TT_IS_RVALUE_REFERENCE_HPP_INCLUDED
 #define BOOST_TT_IS_RVALUE_REFERENCE_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 namespace boost {
 

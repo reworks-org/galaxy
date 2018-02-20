@@ -12,7 +12,7 @@
 
 #include <cstdint>
 
-#include "entt/entity/registry.hpp"
+#include "sl/libs/entt/entity/registry.hpp"
 
 typedef union ALLEGRO_EVENT ALLEGRO_EVENT;
 

@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/overload_resolution.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/overload_resolution.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 // agurt, 11/jan/03: signals a stub-only 'has_xxx' implementation
 

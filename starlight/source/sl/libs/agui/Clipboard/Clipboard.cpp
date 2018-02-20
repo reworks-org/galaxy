@@ -39,13 +39,13 @@
  */
 
 
-#include "Agui/Clipboard/Clipboard.hpp"
+#include "sl/libs/Agui/Clipboard/Clipboard.hpp"
 #if defined(_WIN32)
-#include "Agui/Clipboard/WinClipboard.hpp"
+#include "sl/libs/Agui/Clipboard/WinClipboard.hpp"
 // TODO This was not working for us because of some Cocoa issues.
 // So far the clipboard is not needed anyway.
 // #elif defined(__APPLE__)
-// #include "Agui/Clipboard/OSXClipboard.hpp"
+// #include "sl/libs/Agui/Clipboard/OSXClipboard.hpp"
 #else
 #endif
 

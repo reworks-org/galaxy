@@ -8,8 +8,8 @@
 #ifndef BOOST_TT_IS_VIRTUAL_BASE_OF_HPP_INCLUDED
 #define BOOST_TT_IS_VIRTUAL_BASE_OF_HPP_INCLUDED
 
-#include <boost/type_traits/is_base_of.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_base_of.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost {
 namespace detail {

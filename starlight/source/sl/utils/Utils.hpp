@@ -13,7 +13,7 @@
 #include <string>
 #include <sstream>
 
-#include "loguru/loguru.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 namespace sl
 {

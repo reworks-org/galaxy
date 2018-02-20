@@ -7,7 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sol2/sol.hpp"
+#include "sl/libs/sol2/sol.hpp"
 
 #include "ParallaxComponent.hpp"
 

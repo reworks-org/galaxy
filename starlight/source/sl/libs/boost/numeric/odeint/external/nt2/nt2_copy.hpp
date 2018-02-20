@@ -12,7 +12,7 @@
 
 #include <nt2/core/container/table/table.hpp>
 
-#include <boost/numeric/odeint/util/copy.hpp>
+#include <sl/libs/boost/numeric/odeint/util/copy.hpp>
 
 namespace boost { namespace numeric { namespace odeint {
 

@@ -40,7 +40,7 @@
 
 #ifndef AGUI_RADIO_BUTTON_HPP
 #define AGUI_RADIO_BUTTON_HPP
-#include "Agui/Widget.hpp"
+#include "sl/libs/Agui/Widget.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC RadioButtonListener;
 	/**

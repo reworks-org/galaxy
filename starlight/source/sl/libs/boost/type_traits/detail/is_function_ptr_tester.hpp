@@ -14,16 +14,16 @@
 #ifndef BOOST_TT_DETAIL_IS_FUNCTION_PTR_TESTER_HPP_INCLUDED
 #define BOOST_TT_DETAIL_IS_FUNCTION_PTR_TESTER_HPP_INCLUDED
 
-#include <boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
 
 #if defined(BOOST_TT_PREPROCESSING_MODE)
 //
 // Hide include dependencies from analysers since they're
 // only require in maintenance mode:
 //
-#define PP1 <boost/preprocessor/iterate.hpp>
-#define PP2 <boost/preprocessor/enum_params.hpp>
-#define PP3 <boost/preprocessor/comma_if.hpp>
+#define PP1 <sl/libs/boost/preprocessor/iterate.hpp>
+#define PP2 <sl/libs/boost/preprocessor/enum_params.hpp>
+#define PP3 <sl/libs/boost/preprocessor/comma_if.hpp>
 #include PP1
 #include PP2
 #include PP3
@@ -410,7 +410,7 @@ yes_type is_function_ptr_tester(R (__cdecl*)( T0 , T1 , T2 , T3 , T4 , T5 , T6 ,
 #else
 
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3, (0, 25, "boost/type_traits/detail/is_function_ptr_tester.hpp"))
+    (3, (0, 25, "sl/libs/boost/type_traits/detail/is_function_ptr_tester.hpp"))
 #include BOOST_PP_ITERATE()
 
 #endif // BOOST_TT_PREPROCESSING_MODE

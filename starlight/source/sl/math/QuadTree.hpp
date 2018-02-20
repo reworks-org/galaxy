@@ -12,8 +12,9 @@
 #include <array>
 #include <vector>
 
-#include "entt/entt.hpp"
 #include "sl/math/Rect.hpp"
+
+namespace entt { typedef std::uint32_t Entity; }
 
 namespace sl
 {

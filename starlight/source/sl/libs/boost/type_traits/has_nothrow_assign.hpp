@@ -10,28 +10,28 @@
 #define BOOST_TT_HAS_NOTHROW_ASSIGN_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
 
 #if !defined(BOOST_HAS_NOTHROW_ASSIGN) || defined(BOOST_MSVC) || defined(BOOST_INTEL)
-#include <boost/type_traits/has_trivial_assign.hpp>
+#include <sl/libs/boost/type_traits/has_trivial_assign.hpp>
 #if !defined(BOOST_NO_CXX11_NOEXCEPT) && !defined(BOOST_NO_CXX11_RVALUE_REFERENCES)
-#include <boost/type_traits/declval.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/type_traits/is_assignable.hpp>
-#include <boost/type_traits/add_reference.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include <sl/libs/boost/type_traits/declval.hpp>
+#include <sl/libs/boost/type_traits/is_const.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/is_assignable.hpp>
+#include <sl/libs/boost/type_traits/add_reference.hpp>
+#include <sl/libs/boost/type_traits/remove_reference.hpp>
 #endif
 #endif
 #if defined(__GNUC__) || defined(__SUNPRO_CC) || defined(__clang__)
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_volatile.hpp>
-#include <boost/type_traits/is_assignable.hpp>
-#include <boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/is_const.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_assignable.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
 #ifdef BOOST_INTEL
-#include <boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
 #endif
 #endif
 

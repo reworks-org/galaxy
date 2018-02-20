@@ -14,7 +14,7 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if BOOST_WORKAROUND(__BORLANDC__, < 0x561)
 // agurt, 12/nov/02: to suppress the bogus "Cannot have both a template class 

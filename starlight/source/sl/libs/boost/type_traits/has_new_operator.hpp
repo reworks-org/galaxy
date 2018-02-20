@@ -11,9 +11,9 @@
 
 #include <new> // std::nothrow_t
 #include <cstddef> // std::size_t
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if defined(new) 
 #  if BOOST_WORKAROUND(BOOST_MSVC, >= 1310)

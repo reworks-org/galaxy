@@ -10,9 +10,9 @@
 #ifndef BOOST_NUMERIC_INTERVAL_COMPARE_TRIBOOL_HPP
 #define BOOST_NUMERIC_INTERVAL_COMPARE_TRIBOOL_HPP
 
-#include <boost/numeric/interval/detail/interval_prototype.hpp>
-#include <boost/numeric/interval/detail/test_input.hpp>
-#include <boost/logic/tribool.hpp>
+#include <sl/libs/boost/numeric/interval/detail/interval_prototype.hpp>
+#include <sl/libs/boost/numeric/interval/detail/test_input.hpp>
+#include <sl/libs/boost/logic/tribool.hpp>
 
 namespace boost {
 namespace numeric {

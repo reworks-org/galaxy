@@ -14,10 +14,10 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/is_msvc_eti_arg.hpp>
-#include <boost/mpl/aux_/config/eti.hpp>
-#include <boost/mpl/aux_/config/gcc.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/is_msvc_eti_arg.hpp>
+#include <sl/libs/boost/mpl/aux_/config/eti.hpp>
+#include <sl/libs/boost/mpl/aux_/config/gcc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 namespace boost { namespace mpl { namespace aux {
 

@@ -9,12 +9,12 @@
 #ifndef BOOST_TT_DECAY_HPP_INCLUDED
 #define BOOST_TT_DECAY_HPP_INCLUDED
 
-#include <boost/type_traits/is_array.hpp>
-#include <boost/type_traits/is_function.hpp>
-#include <boost/type_traits/remove_bounds.hpp>
-#include <boost/type_traits/add_pointer.hpp>
-#include <boost/type_traits/remove_reference.hpp>
-#include <boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/type_traits/is_array.hpp>
+#include <sl/libs/boost/type_traits/is_function.hpp>
+#include <sl/libs/boost/type_traits/remove_bounds.hpp>
+#include <sl/libs/boost/type_traits/add_pointer.hpp>
+#include <sl/libs/boost/type_traits/remove_reference.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
 
 namespace boost 
 {

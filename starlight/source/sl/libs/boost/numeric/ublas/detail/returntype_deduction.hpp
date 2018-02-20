@@ -8,15 +8,15 @@
 #ifndef _BOOST_UBLAS_NUMERICTYPE_DEDUCTION_
 #define _BOOST_UBLAS_NUMERICTYPE_DEDUCTION_
 
-// See original in boost-sandbox/boost/utility/type_deduction.hpp for comments
+// See original in boost-sandbox/sl/libs/boost/utility/type_deduction.hpp for comments
 
-#include <boost/mpl/vector/vector20.hpp>
-#include <boost/mpl/at.hpp>
-#include <boost/mpl/or.hpp>
-#include <boost/mpl/identity.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <sl/libs/boost/mpl/vector/vector20.hpp>
+#include <sl/libs/boost/mpl/at.hpp>
+#include <sl/libs/boost/mpl/or.hpp>
+#include <sl/libs/boost/mpl/identity.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
 

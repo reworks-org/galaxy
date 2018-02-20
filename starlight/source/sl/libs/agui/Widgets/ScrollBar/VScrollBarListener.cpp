@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/ScrollBar/VScrollBarListener.hpp"
-#include "Agui/Widgets/ScrollBar/VScrollBar.hpp"
+#include "sl/libs/Agui/Widgets/ScrollBar/VScrollBarListener.hpp"
+#include "sl/libs/Agui/Widgets/ScrollBar/VScrollBar.hpp"
 namespace agui {
 	VScrollBarListener::VScrollBarListener(void)
 	{

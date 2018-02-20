@@ -13,9 +13,9 @@
 #ifndef BOOST_UBLAS_HERMITIAN_H
 #define BOOST_UBLAS_HERMITIAN_H
 
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/triangular.hpp>  // for resize_preserve
-#include <boost/numeric/ublas/detail/temporary.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/triangular.hpp>  // for resize_preserve
+#include <sl/libs/boost/numeric/ublas/detail/temporary.hpp>
 
 // Iterators based on ideas of Jeremy Siek
 // Hermitian matrices are square. Thanks to Peter Schmitteckert for spotting this.

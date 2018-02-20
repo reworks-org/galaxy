@@ -15,9 +15,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/preprocessor/enum_params.hpp>
-#include <boost/preprocessor/dec.hpp>
-#include <boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/preprocessor/enum_params.hpp>
+#include <sl/libs/boost/preprocessor/dec.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
 
 #define i_ BOOST_PP_FRAME_ITERATION(1)
 

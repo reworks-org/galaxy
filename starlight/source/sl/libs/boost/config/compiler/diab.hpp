@@ -10,7 +10,7 @@
 #     error "Unknown Diab compiler version - please run the configure tests and report the results"
 #endif
 
-#include "boost/config/compiler/common_edg.hpp"
+#include "sl/libs/boost/config/compiler/common_edg.hpp"
 
 #define BOOST_HAS_LONG_LONG
 #define BOOST_NO_TWO_PHASE_NAME_LOOKUP

@@ -12,26 +12,26 @@
 #define BOOST_TT_HAS_TRIVIAL_MOVE_ASSIGN_HPP_INCLUDED
 
 #include <cstddef> // size_t
-#include <boost/type_traits/intrinsics.hpp>
-#include <boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/intrinsics.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
 
 #if !defined(BOOST_HAS_TRIVIAL_MOVE_ASSIGN) || defined(BOOST_MSVC) || defined(BOOST_INTEL)
-#include <boost/type_traits/is_pod.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_pod.hpp>
+#include <sl/libs/boost/type_traits/is_const.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
 #ifdef BOOST_MSVC
-#include <boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
 #endif
 #endif
 
 #if defined(__GNUC__) || defined(__clang)
-#include <boost/type_traits/is_assignable.hpp>
-#include <boost/type_traits/is_volatile.hpp>
+#include <sl/libs/boost/type_traits/is_assignable.hpp>
+#include <sl/libs/boost/type_traits/is_volatile.hpp>
 #endif
 
 #ifdef __SUNPRO_CC
-#include <boost/type_traits/is_assignable.hpp>
-#include <boost/type_traits/remove_const.hpp>
+#include <sl/libs/boost/type_traits/is_assignable.hpp>
+#include <sl/libs/boost/type_traits/remove_const.hpp>
 #if __cplusplus >= 201103
 #define SOLARIS_EXTRA_CHECK && is_assignable<typename remove_const<T>::type&, typename remove_const<T>::type&&>::value
 #endif

@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/external/openmp/openmp.hpp
+ sl/libs/boost/numeric/odeint/external/openmp/openmp.hpp
 
  [begin_description]
  Wrappers for OpenMP.
@@ -20,12 +20,12 @@
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_OPENMP_OPENMP_HPP_INCLUDED
 
 // level 1: parallel iteration over random access container
-#include <boost/numeric/odeint/external/openmp/openmp_range_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/external/openmp/openmp_range_algebra.hpp>
 
 // level 2: split range state
-#include <boost/numeric/odeint/external/openmp/openmp_state.hpp>
+#include <sl/libs/boost/numeric/odeint/external/openmp/openmp_state.hpp>
 
 // level 3: process a random access container of sub-states in parallel
-#include <boost/numeric/odeint/external/openmp/openmp_nested_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/external/openmp/openmp_nested_algebra.hpp>
 
 #endif

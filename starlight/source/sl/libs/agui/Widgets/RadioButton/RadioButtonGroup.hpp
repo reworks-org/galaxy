@@ -41,8 +41,8 @@
 #ifndef AGUI_RADIO_BUTTON_GROUP_HPP
 #define AGUI_RADIO_BUTTON_GROUP_HPP
 
-#include "Agui/Widgets/RadioButton/RadioButtonListener.hpp"
-#include "Agui/Widgets/RadioButton/RadioButton.hpp"
+#include "sl/libs/Agui/Widgets/RadioButton/RadioButtonListener.hpp"
+#include "sl/libs/Agui/Widgets/RadioButton/RadioButton.hpp"
 
 namespace agui {
 	/**

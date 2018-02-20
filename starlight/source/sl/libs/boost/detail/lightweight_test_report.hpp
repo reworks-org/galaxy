@@ -1,4 +1,4 @@
-//  boost/detail/lightweight_test_reporter.hpp  ----------------------------------------//
+//  sl/libs/boost/detail/lightweight_test_reporter.hpp  ----------------------------------------//
 
 //  Copyright Beman Dawes 2014
 
@@ -13,15 +13,15 @@
 //  must be supplied by the user.                                                       //
 //                                                                                      //
 //  Note: cpp_main(argc, argv) is called from a try block in main(), which is           //
-//  supplied by <boost/detail/lightweight_main.hpp> as is a catch block that reports    //
+//  supplied by <sl/libs/boost/detail/lightweight_main.hpp> as is a catch block that reports    //
 //  std::exception what().                                                              //
 //                                                                                      //
 //--------------------------------------------------------------------------------------//
 
-#include <boost/config.hpp>
-#include <boost/version.hpp>
-#include <boost/detail/lightweight_test.hpp>
-#include <boost/detail/lightweight_main.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/version.hpp>
+#include <sl/libs/boost/detail/lightweight_test.hpp>
+#include <sl/libs/boost/detail/lightweight_main.hpp>
 #include <iostream>
 
 int test_main(int argc, char* argv[]);

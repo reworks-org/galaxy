@@ -14,6 +14,6 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
 
 #endif // BOOST_MPL_END_HPP_INCLUDED

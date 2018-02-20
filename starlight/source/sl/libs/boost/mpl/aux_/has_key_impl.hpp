@@ -15,8 +15,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/has_key_fwd.hpp>
-#include <boost/mpl/aux_/traits_lambda_spec.hpp>
+#include <sl/libs/boost/mpl/has_key_fwd.hpp>
+#include <sl/libs/boost/mpl/aux_/traits_lambda_spec.hpp>
 
 namespace boost { namespace mpl {
 

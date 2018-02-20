@@ -6,8 +6,8 @@
 #ifndef BOOST_PFR_FLAT_HPP
 #define BOOST_PFR_FLAT_HPP
 
-/// \file boost/pfr/flat.hpp
-/// Includes all the Boost.PFR headers that define `flat_*` functions, except \xmlonly<link linkend='header.boost.pfr.flat.global_ops_hpp'>boost/pfr/flat/global_ops.hpp</link>\endxmlonly
+/// \file sl/libs/boost/pfr/flat.hpp
+/// Includes all the Boost.PFR headers that define `flat_*` functions, except \xmlonly<link linkend='header.boost.pfr.flat.global_ops_hpp'>sl/libs/boost/pfr/flat/global_ops.hpp</link>\endxmlonly
 
 #include "flat/core.hpp"
 #include "flat/functors.hpp"

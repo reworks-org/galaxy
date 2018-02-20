@@ -26,13 +26,13 @@
 
 #include <algorithm>
 #ifndef BOOST_OBJECT_TYPE_TRAITS_HPP
-#include <boost/type_traits/object_traits.hpp>
+#include <sl/libs/boost/type_traits/object_traits.hpp>
 #endif
 #ifndef BOOST_SAME_TRAITS_HPP
-#include <boost/type_traits/same_traits.hpp>
+#include <sl/libs/boost/type_traits/same_traits.hpp>
 #endif
 #ifndef BOOST_CALL_TRAITS_HPP
-#include <boost/call_traits.hpp>
+#include <sl/libs/boost/call_traits.hpp>
 #endif
 
 namespace boost

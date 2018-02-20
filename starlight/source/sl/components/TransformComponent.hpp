@@ -11,8 +11,8 @@
 #define STARLIGHT_TRANSFORMCOMPONENT_HPP_
 
 #include "sl/math/Rect.hpp"
-#include "cereal/access.hpp"
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/cereal/access.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace entt { typedef std::uint32_t Entity; }
 

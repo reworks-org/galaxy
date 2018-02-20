@@ -10,7 +10,7 @@
 #ifndef BOOST_TT_ADD_VOLATILE_HPP_INCLUDED
 #define BOOST_TT_ADD_VOLATILE_HPP_INCLUDED
 
-#include <boost/config.hpp>
+#include <sl/libs/boost/config.hpp>
 
 namespace boost {
 

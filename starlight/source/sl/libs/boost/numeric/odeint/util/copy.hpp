@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/util/copy.hpp
+ sl/libs/boost/numeric/odeint/util/copy.hpp
 
  [begin_description]
  Copy abstraction for the usage in the steppers.
@@ -19,11 +19,11 @@
 #define BOOST_NUMERIC_ODEINT_UTIL_COPY_HPP_INCLUDED
 
 
-#include <boost/range/algorithm/copy.hpp>
+#include <sl/libs/boost/range/algorithm/copy.hpp>
 
-#include <boost/utility/enable_if.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
 
-#include <boost/numeric/odeint/util/detail/is_range.hpp>
+#include <sl/libs/boost/numeric/odeint/util/detail/is_range.hpp>
 
 namespace boost {
 namespace numeric {

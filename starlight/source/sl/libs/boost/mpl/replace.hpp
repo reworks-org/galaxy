@@ -16,9 +16,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/replace_if.hpp>
-#include <boost/mpl/same_as.hpp>
-#include <boost/mpl/aux_/inserter_algorithm.hpp>
+#include <sl/libs/boost/mpl/replace_if.hpp>
+#include <sl/libs/boost/mpl/same_as.hpp>
+#include <sl/libs/boost/mpl/aux_/inserter_algorithm.hpp>
 
 namespace boost { namespace mpl {
 

@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/empty_fwd.hpp>
-#include <boost/mpl/equal_to.hpp>
-#include <boost/mpl/aux_/range_c/tag.hpp>
+#include <sl/libs/boost/mpl/empty_fwd.hpp>
+#include <sl/libs/boost/mpl/equal_to.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/tag.hpp>
 
 namespace boost { namespace mpl {
 

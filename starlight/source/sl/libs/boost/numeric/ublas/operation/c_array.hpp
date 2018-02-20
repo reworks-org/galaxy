@@ -17,7 +17,7 @@
 #ifndef BOOST_NUMERIC_UBLAS_OPERATION_C_ARRAY_HPP
 #define BOOST_NUMERIC_UBLAS_OPERATION_C_ARRAY_HPP
 
-#include <boost/numeric/ublas/traits/c_array.hpp>
+#include <sl/libs/boost/numeric/ublas/traits/c_array.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
 

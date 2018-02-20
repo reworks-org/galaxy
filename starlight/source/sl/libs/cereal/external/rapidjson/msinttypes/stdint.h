@@ -73,7 +73,7 @@
 #define UINT64_C(val) val##ui64
 
 // 7.18.4.2 Macros for greatest-width integer constants
-// These #ifndef's are needed to prevent collisions with <boost/cstdint.hpp>.
+// These #ifndef's are needed to prevent collisions with <sl/libs/boost/cstdint.hpp>.
 // Check out Issue 9 for the details.
 #ifndef INTMAX_C //   [
 #  define INTMAX_C   INT64_C
@@ -284,7 +284,7 @@ typedef uint64_t  uintmax_t;
 #define UINT64_C(val) val##ui64
 
 // 7.18.4.2 Macros for greatest-width integer constants
-// These #ifndef's are needed to prevent collisions with <boost/cstdint.hpp>.
+// These #ifndef's are needed to prevent collisions with <sl/libs/boost/cstdint.hpp>.
 // Check out Issue 9 for the details.
 #ifndef INTMAX_C //   [
 #  define INTMAX_C   INT64_C

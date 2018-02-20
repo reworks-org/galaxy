@@ -9,7 +9,7 @@
 #ifndef BOOST_TT_REMOVE_BOUNDS_HPP_INCLUDED
 #define BOOST_TT_REMOVE_BOUNDS_HPP_INCLUDED
 
-#include <boost/type_traits/remove_extent.hpp>
+#include <sl/libs/boost/type_traits/remove_extent.hpp>
 
 namespace boost 
 {

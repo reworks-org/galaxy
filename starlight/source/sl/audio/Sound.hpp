@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_SOUND_HPP_
 #define STARLIGHT_SOUND_HPP_
 
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 typedef struct ALLEGRO_SAMPLE ALLEGRO_SAMPLE;
 

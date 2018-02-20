@@ -1,6 +1,6 @@
 /*
  [auto_generated]
- boost/numeric/odeint/stepper/generation/generation_rosenbrock4.hpp
+ sl/libs/boost/numeric/odeint/stepper/generation/generation_rosenbrock4.hpp
 
  [begin_description]
  Enable the factory functions for the controller and the dense output of the Rosenbrock4 method.
@@ -18,9 +18,9 @@
 #ifndef BOOST_NUMERIC_ODEINT_STEPPER_GENERATION_GENERATION_ROSENBROCK4_HPP_INCLUDED
 #define BOOST_NUMERIC_ODEINT_STEPPER_GENERATION_GENERATION_ROSENBROCK4_HPP_INCLUDED
 
-#include <boost/numeric/odeint/stepper/rosenbrock4.hpp>
-#include <boost/numeric/odeint/stepper/rosenbrock4_controller.hpp>
-#include <boost/numeric/odeint/stepper/rosenbrock4_dense_output.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/rosenbrock4.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/rosenbrock4_controller.hpp>
+#include <sl/libs/boost/numeric/odeint/stepper/rosenbrock4_dense_output.hpp>
 
 
 namespace boost {

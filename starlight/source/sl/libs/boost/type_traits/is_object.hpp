@@ -9,10 +9,10 @@
 #ifndef BOOST_TT_IS_OBJECT_HPP_INCLUDED
 #define BOOST_TT_IS_OBJECT_HPP_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/is_function.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/is_void.hpp>
+#include <sl/libs/boost/type_traits/is_function.hpp>
 
 namespace boost {
 

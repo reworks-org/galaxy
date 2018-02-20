@@ -11,7 +11,7 @@
 #include <allegro5/file.h>
 #include <allegro5/allegro_physfs.h>
 
-#include "loguru/loguru.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 #include "VirtualFS.hpp"
 

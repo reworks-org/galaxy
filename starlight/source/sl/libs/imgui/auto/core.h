@@ -1,17 +1,17 @@
 #pragma once
-#include <imgui/imgui.h>
+#include "sl/libs/imgui/imgui.h"
 #include <type_traits>
 #include <string>
 
 #if _MSC_VER == 1900
 #	include <tuple>
 #	include <typeinfo>
-#	include "boost/pfr/flat/core.hpp"
+#	include "sl/libs/boost/pfr/flat/core.hpp"
 #	define IMGUI_AUTO_STRUCT_TO_TUPLE boost::pfr::flat_structure_tie
 #elif _MSC_VER > 1900
 #	include <tuple>
 #	include <typeinfo>
-#	include "boost/pfr/precise/core.hpp"
+#	include "sl/libs/boost/pfr/precise/core.hpp"
 #	define IMGUI_AUTO_STRUCT_TO_TUPLE boost::pfr::structure_tie
 #endif
 

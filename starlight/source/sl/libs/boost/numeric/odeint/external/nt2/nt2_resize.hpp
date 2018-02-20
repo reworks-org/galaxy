@@ -11,7 +11,7 @@
 
 #include <nt2/core/container/table/table.hpp>
 
-#include <boost/numeric/odeint/util/same_size.hpp>
+#include <sl/libs/boost/numeric/odeint/util/same_size.hpp>
 
 namespace boost { namespace numeric { namespace odeint {
 

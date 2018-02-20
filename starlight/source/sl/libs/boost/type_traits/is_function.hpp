@@ -11,14 +11,14 @@
 #ifndef BOOST_TT_IS_FUNCTION_HPP_INCLUDED
 #define BOOST_TT_IS_FUNCTION_HPP_INCLUDED
 
-#include <boost/type_traits/is_reference.hpp>
-#include <boost/type_traits/detail/config.hpp>
+#include <sl/libs/boost/type_traits/is_reference.hpp>
+#include <sl/libs/boost/type_traits/detail/config.hpp>
 
 #if !defined(BOOST_TT_TEST_MS_FUNC_SIGS)
-#   include <boost/type_traits/detail/is_function_ptr_helper.hpp>
+#   include <sl/libs/boost/type_traits/detail/is_function_ptr_helper.hpp>
 #else
-#   include <boost/type_traits/detail/is_function_ptr_tester.hpp>
-#   include <boost/type_traits/detail/yes_no_type.hpp>
+#   include <sl/libs/boost/type_traits/detail/is_function_ptr_tester.hpp>
+#   include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
 #endif
 
 // is a type a function?

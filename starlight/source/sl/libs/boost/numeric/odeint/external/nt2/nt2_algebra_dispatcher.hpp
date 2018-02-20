@@ -11,8 +11,8 @@
 
 #include <nt2/core/container/table/table.hpp>
 
-#include <boost/numeric/odeint/algebra/vector_space_algebra.hpp>
-#include <boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/vector_space_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
 
 namespace boost { namespace numeric { namespace odeint {
 template<typename T, typename S>

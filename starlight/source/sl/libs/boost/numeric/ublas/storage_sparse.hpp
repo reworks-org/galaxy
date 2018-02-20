@@ -14,13 +14,13 @@
 #define _BOOST_UBLAS_STORAGE_SPARSE_
 
 #include <map>
-#include <boost/serialization/collection_size_type.hpp>
-#include <boost/serialization/nvp.hpp>
-#include <boost/serialization/array.hpp>
-#include <boost/serialization/map.hpp>
-#include <boost/serialization/base_object.hpp>
+#include <sl/libs/boost/serialization/collection_size_type.hpp>
+#include <sl/libs/boost/serialization/nvp.hpp>
+#include <sl/libs/boost/serialization/array.hpp>
+#include <sl/libs/boost/serialization/map.hpp>
+#include <sl/libs/boost/serialization/base_object.hpp>
 
-#include <boost/numeric/ublas/storage.hpp>
+#include <sl/libs/boost/numeric/ublas/storage.hpp>
 
 
 namespace boost { namespace numeric { namespace ublas {

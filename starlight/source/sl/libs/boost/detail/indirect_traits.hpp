@@ -4,26 +4,26 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 #ifndef INDIRECT_TRAITS_DWA2002131_HPP
 # define INDIRECT_TRAITS_DWA2002131_HPP
-# include <boost/type_traits/is_function.hpp>
-# include <boost/type_traits/is_reference.hpp>
-# include <boost/type_traits/is_pointer.hpp>
-# include <boost/type_traits/is_class.hpp>
-# include <boost/type_traits/is_const.hpp>
-# include <boost/type_traits/is_volatile.hpp>
-# include <boost/type_traits/is_member_function_pointer.hpp>
-# include <boost/type_traits/is_member_pointer.hpp>
-# include <boost/type_traits/remove_cv.hpp>
-# include <boost/type_traits/remove_reference.hpp>
-# include <boost/type_traits/remove_pointer.hpp>
+# include <sl/libs/boost/type_traits/is_function.hpp>
+# include <sl/libs/boost/type_traits/is_reference.hpp>
+# include <sl/libs/boost/type_traits/is_pointer.hpp>
+# include <sl/libs/boost/type_traits/is_class.hpp>
+# include <sl/libs/boost/type_traits/is_const.hpp>
+# include <sl/libs/boost/type_traits/is_volatile.hpp>
+# include <sl/libs/boost/type_traits/is_member_function_pointer.hpp>
+# include <sl/libs/boost/type_traits/is_member_pointer.hpp>
+# include <sl/libs/boost/type_traits/remove_cv.hpp>
+# include <sl/libs/boost/type_traits/remove_reference.hpp>
+# include <sl/libs/boost/type_traits/remove_pointer.hpp>
 
-# include <boost/detail/workaround.hpp>
+# include <sl/libs/boost/detail/workaround.hpp>
 
-# include <boost/mpl/eval_if.hpp>
-# include <boost/mpl/if.hpp>
-# include <boost/mpl/bool.hpp>
-# include <boost/mpl/and.hpp>
-# include <boost/mpl/not.hpp>
-# include <boost/mpl/aux_/lambda_support.hpp>
+# include <sl/libs/boost/mpl/eval_if.hpp>
+# include <sl/libs/boost/mpl/if.hpp>
+# include <sl/libs/boost/mpl/bool.hpp>
+# include <sl/libs/boost/mpl/and.hpp>
+# include <sl/libs/boost/mpl/not.hpp>
+# include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
 
 
 namespace boost { namespace detail {

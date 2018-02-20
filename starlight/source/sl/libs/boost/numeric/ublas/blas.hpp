@@ -10,7 +10,7 @@
 #ifndef _BOOST_UBLAS_BLAS_
 #define _BOOST_UBLAS_BLAS_
 
-#include <boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
 
 namespace boost { namespace numeric { namespace ublas {
     

@@ -13,10 +13,10 @@
 #ifndef _BOOST_UBLAS_VECTOR_OF_VECTOR_
 #define _BOOST_UBLAS_VECTOR_OF_VECTOR_
 
-#include <boost/type_traits.hpp>
+#include <sl/libs/boost/type_traits.hpp>
 
-#include <boost/numeric/ublas/storage_sparse.hpp>
-#include <boost/numeric/ublas/matrix_sparse.hpp>
+#include <sl/libs/boost/numeric/ublas/storage_sparse.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix_sparse.hpp>
 
 // Iterators based on ideas of Jeremy Siek
 

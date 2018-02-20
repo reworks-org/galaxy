@@ -19,10 +19,10 @@
 #define BOOST_NUMERIC_UBLAS_OPERATION_END_HPP
 
 
-#include <boost/numeric/ublas/expression_types.hpp>
-#include <boost/numeric/ublas/fwd.hpp>
-#include <boost/numeric/ublas/traits/const_iterator_type.hpp>
-#include <boost/numeric/ublas/traits/iterator_type.hpp>
+#include <sl/libs/boost/numeric/ublas/expression_types.hpp>
+#include <sl/libs/boost/numeric/ublas/fwd.hpp>
+#include <sl/libs/boost/numeric/ublas/traits/const_iterator_type.hpp>
+#include <sl/libs/boost/numeric/ublas/traits/iterator_type.hpp>
 
 
 namespace boost { namespace numeric { namespace ublas {

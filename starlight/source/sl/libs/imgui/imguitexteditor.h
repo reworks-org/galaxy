@@ -8,11 +8,8 @@
 #include <unordered_map>
 #include <map>
 #include <regex>
-#include "imgui/imgui.h"
+#include "imgui.h"
 
-///
-/// https://github.com/BalazsJako/ImGuiColorTextEdit/
-///
 class TextEditor
 {
 public:
@@ -200,6 +197,7 @@ public:
 	void SetSelectionEnd(const Coordinates& aPosition);
 	void SetSelection(const Coordinates& aStart, const Coordinates& aEnd, bool awordmode = false);
 	void SelectWordUnderCursor();
+	void SelectAll();
 	bool HasSelection() const;
 
 	void Copy();
@@ -214,6 +212,7 @@ public:
 
 	static const Palette& GetDarkPalette();
 	static const Palette& GetLightPalette();
+	static const Palette& GetRetroBluePalette();
 
 private:
 	typedef std::vector<std::pair<std::regex, PaletteIndex>> RegexList;
@@ -312,3 +311,4 @@ private:
 	ImVec2 mCharAdvance;
 	Coordinates mInteractiveStart, mInteractiveEnd;
 };
+

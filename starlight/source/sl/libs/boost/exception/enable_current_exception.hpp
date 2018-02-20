@@ -6,6 +6,6 @@
 #ifndef UUID_851700A4F7CF11E6B2EE06DD14915323
 #define UUID_851700A4F7CF11E6B2EE06DD14915323
 
-#include <boost/exception/exception.hpp>
+#include <sl/libs/boost/exception/exception.hpp>
 
 #endif

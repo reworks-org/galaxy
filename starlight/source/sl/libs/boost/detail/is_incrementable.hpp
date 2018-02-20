@@ -4,11 +4,11 @@
 #ifndef IS_INCREMENTABLE_DWA200415_HPP
 # define IS_INCREMENTABLE_DWA200415_HPP
 
-# include <boost/type_traits/integral_constant.hpp>
-# include <boost/type_traits/remove_cv.hpp>
-# include <boost/mpl/aux_/lambda_support.hpp>
-# include <boost/mpl/bool.hpp>
-# include <boost/detail/workaround.hpp>
+# include <sl/libs/boost/type_traits/integral_constant.hpp>
+# include <sl/libs/boost/type_traits/remove_cv.hpp>
+# include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
+# include <sl/libs/boost/mpl/bool.hpp>
+# include <sl/libs/boost/detail/workaround.hpp>
 
 namespace boost { namespace detail {
 
@@ -120,6 +120,6 @@ struct is_postfix_incrementable :
 
 } // namespace boost
 
-# include <boost/type_traits/detail/bool_trait_undef.hpp>
+# include <sl/libs/boost/type_traits/detail/bool_trait_undef.hpp>
 
 #endif // IS_INCREMENTABLE_DWA200415_HPP

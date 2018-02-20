@@ -9,8 +9,8 @@
 
 #include <allegro5/allegro_audio.h>
 
-#include "sol2/sol.hpp"
 #include "sl/fs/VirtualFS.hpp"
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "MusicPlayer.hpp"

@@ -14,14 +14,14 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/less.hpp>
-#include <boost/mpl/iter_fold.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/if.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/apply.hpp>
-#include <boost/mpl/aux_/common_name_wknd.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/less.hpp>
+#include <sl/libs/boost/mpl/iter_fold.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/apply.hpp>
+#include <sl/libs/boost/mpl/aux_/common_name_wknd.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
 
 namespace boost { namespace mpl {
 

@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_SOL2ENTTWORKAROUND_HPP_
 #define STARLIGHT_SOL2ENTTWORKAROUND_HPP_
 
-#include "entt/entity/registry.hpp"
+#include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl
 {

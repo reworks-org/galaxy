@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Input.hpp"
+#include "sl/libs/Agui/Input.hpp"
 #include <stdio.h>
 #include <ctime>
 namespace agui

@@ -14,7 +14,7 @@
 #include <unordered_map>
 
 #include "sl/utils/Utils.hpp"
-#include "entt/core/hashed_string.hpp"
+#include "sl/libs/entt/core/hashed_string.hpp"
 
 namespace sl
 {

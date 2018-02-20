@@ -9,16 +9,16 @@
 #
 # /* See http://www.boost.org for most recent version. */
 #
-# include <boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
 #
 # if BOOST_PP_CONFIG_FLAGS() & BOOST_PP_CONFIG_DMC()
-#     include <boost/preprocessor/detail/dmc/auto_rec.hpp>
+#     include <sl/libs/boost/preprocessor/detail/dmc/auto_rec.hpp>
 # else
 #
 # ifndef BOOST_PREPROCESSOR_DETAIL_AUTO_REC_HPP
 # define BOOST_PREPROCESSOR_DETAIL_AUTO_REC_HPP
 #
-# include <boost/preprocessor/control/iif.hpp>
+# include <sl/libs/boost/preprocessor/control/iif.hpp>
 #
 # /* BOOST_PP_AUTO_REC */
 #

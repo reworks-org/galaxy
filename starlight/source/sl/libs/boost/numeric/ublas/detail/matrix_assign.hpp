@@ -13,7 +13,7 @@
 #ifndef _BOOST_UBLAS_MATRIX_ASSIGN_
 #define _BOOST_UBLAS_MATRIX_ASSIGN_
 
-#include <boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
 // Required for make_conformant storage
 #include <vector>
 

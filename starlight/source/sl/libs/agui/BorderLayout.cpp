@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/BorderLayout.hpp"
+#include "sl/libs/Agui/BorderLayout.hpp"
 
 namespace agui
 {

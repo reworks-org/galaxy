@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Graphics.hpp"
+#include "sl/libs/Agui/Graphics.hpp"
 namespace agui {
 	void Graphics::pushClippingRect( const Rectangle &rect )
 	{

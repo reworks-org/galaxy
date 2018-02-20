@@ -11,7 +11,7 @@
 #define STARLIGHT_PHYSICSSYSTEM_HPP_
 
 #include "sl/types/System.hpp"
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {

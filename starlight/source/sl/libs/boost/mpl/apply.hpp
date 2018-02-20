@@ -19,40 +19,40 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/apply_fwd.hpp>
-#   include <boost/mpl/apply_wrap.hpp>
-#   include <boost/mpl/placeholders.hpp>
-#   include <boost/mpl/lambda.hpp>
-#   include <boost/mpl/aux_/na.hpp>
-#   include <boost/mpl/aux_/lambda_support.hpp>
+#   include <sl/libs/boost/mpl/apply_fwd.hpp>
+#   include <sl/libs/boost/mpl/apply_wrap.hpp>
+#   include <sl/libs/boost/mpl/placeholders.hpp>
+#   include <sl/libs/boost/mpl/lambda.hpp>
+#   include <sl/libs/boost/mpl/aux_/na.hpp>
+#   include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
 #endif
 
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER apply.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/limits/arity.hpp>
-#   include <boost/mpl/aux_/preprocessor/params.hpp>
-#   include <boost/mpl/aux_/preprocessor/default_params.hpp>
-#   include <boost/mpl/aux_/preprocessor/partial_spec_params.hpp>
-#   include <boost/mpl/aux_/preprocessor/enum.hpp>
-#   include <boost/mpl/aux_/config/lambda.hpp>
-#   include <boost/mpl/aux_/config/dtp.hpp>
-#   include <boost/mpl/aux_/nttp_decl.hpp>
-#   include <boost/mpl/aux_/config/eti.hpp>
-#   include <boost/mpl/aux_/config/msvc.hpp>
-#   include <boost/mpl/aux_/config/workaround.hpp>
+#   include <sl/libs/boost/mpl/limits/arity.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/default_params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/partial_spec_params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/enum.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/lambda.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/dtp.hpp>
+#   include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/eti.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
-#   include <boost/preprocessor/comma_if.hpp>
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/iterate.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/comma_if.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/iterate.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 namespace boost { namespace mpl {
 
@@ -92,7 +92,7 @@ namespace boost { namespace mpl {
 
 
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <boost/mpl/apply.hpp>))
+    (3,(0, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <sl/libs/boost/mpl/apply.hpp>))
 #include BOOST_PP_ITERATE()
 
 #   if !defined(BOOST_MPL_CFG_NO_APPLY_TEMPLATE)
@@ -104,7 +104,7 @@ namespace aux {
 #define AUX778076_COUNT_ARGS_PREFIX apply
 #define AUX778076_COUNT_ARGS_DEFAULT na
 #define AUX778076_COUNT_ARGS_ARITY BOOST_MPL_LIMIT_METAFUNCTION_ARITY
-#include <boost/mpl/aux_/count_args.hpp>
+#include <sl/libs/boost/mpl/aux_/count_args.hpp>
 }
 
 

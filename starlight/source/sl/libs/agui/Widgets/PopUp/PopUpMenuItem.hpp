@@ -40,7 +40,7 @@
 
 #ifndef AGUI_POPUP_MENU_ITEM_HPP
 #define AGUI_POPUP_MENU_ITEM_HPP
-#include "Agui/Widget.hpp"
+#include "sl/libs/Agui/Widget.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC PopUpMenu;
 	 /**

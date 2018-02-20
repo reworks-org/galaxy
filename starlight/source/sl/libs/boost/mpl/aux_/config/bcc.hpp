@@ -14,7 +14,7 @@
 // $Date: 2004-09-02 10:41:37 -0500 (Thu, 02 Sep 2004) $
 // $Revision: 24874 $
 
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if    !defined(BOOST_MPL_CFG_BCC590_WORKAROUNDS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE) \

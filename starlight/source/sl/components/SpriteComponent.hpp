@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_SPRITECOMPONENT_HPP_
 #define STARLIGHT_SPRITECOMPONENT_HPP_
 
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace entt { typedef std::uint32_t Entity; }
 

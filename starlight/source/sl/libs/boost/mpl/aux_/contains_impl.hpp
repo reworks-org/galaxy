@@ -15,15 +15,15 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/contains_fwd.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/find.hpp>
-#include <boost/mpl/not.hpp>
-#include <boost/mpl/aux_/traits_lambda_spec.hpp>
-#include <boost/mpl/aux_/config/forwarding.hpp>
-#include <boost/mpl/aux_/config/static_constant.hpp>
+#include <sl/libs/boost/mpl/contains_fwd.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/find.hpp>
+#include <sl/libs/boost/mpl/not.hpp>
+#include <sl/libs/boost/mpl/aux_/traits_lambda_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/config/forwarding.hpp>
+#include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
 
-#include <boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
 
 namespace boost { namespace mpl {
 

@@ -11,8 +11,8 @@
 #ifndef BOOST_TT_IS_MEMBER_FUNCTION_POINTER_HPP_INCLUDED
 #define BOOST_TT_IS_MEMBER_FUNCTION_POINTER_HPP_INCLUDED
 
-#include <boost/type_traits/detail/config.hpp>
-#include <boost/detail/workaround.hpp>
+#include <sl/libs/boost/type_traits/detail/config.hpp>
+#include <sl/libs/boost/detail/workaround.hpp>
 
 #if !BOOST_WORKAROUND(__BORLANDC__, < 0x600) && !defined(BOOST_TT_TEST_MS_FUNC_SIGS)
    //
@@ -20,14 +20,14 @@
    // __stdcall etc function types, where as the partial specialisation
    // version does not do so.
    //
-#   include <boost/type_traits/detail/is_mem_fun_pointer_impl.hpp>
-#   include <boost/type_traits/remove_cv.hpp>
-#   include <boost/type_traits/integral_constant.hpp>
+#   include <sl/libs/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp>
+#   include <sl/libs/boost/type_traits/remove_cv.hpp>
+#   include <sl/libs/boost/type_traits/integral_constant.hpp>
 #else
-#   include <boost/type_traits/is_reference.hpp>
-#   include <boost/type_traits/is_array.hpp>
-#   include <boost/type_traits/detail/yes_no_type.hpp>
-#   include <boost/type_traits/detail/is_mem_fun_pointer_tester.hpp>
+#   include <sl/libs/boost/type_traits/is_reference.hpp>
+#   include <sl/libs/boost/type_traits/is_array.hpp>
+#   include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#   include <sl/libs/boost/type_traits/detail/is_mem_fun_pointer_tester.hpp>
 #endif
 
 namespace boost {

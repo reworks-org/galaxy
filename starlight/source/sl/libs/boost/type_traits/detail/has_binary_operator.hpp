@@ -6,20 +6,20 @@
 //
 //  See http://www.boost.org/libs/type_traits for most recent version including documentation.
 
-#include <boost/config.hpp>
-#include <boost/type_traits/detail/yes_no_type.hpp>
-#include <boost/type_traits/integral_constant.hpp>
-#include <boost/type_traits/is_base_of.hpp>
-#include <boost/type_traits/is_const.hpp>
-#include <boost/type_traits/is_convertible.hpp>
-#include <boost/type_traits/is_fundamental.hpp>
-#include <boost/type_traits/is_integral.hpp>
-#include <boost/type_traits/is_pointer.hpp>
-#include <boost/type_traits/is_same.hpp>
-#include <boost/type_traits/is_void.hpp>
-#include <boost/type_traits/remove_cv.hpp>
-#include <boost/type_traits/remove_pointer.hpp>
-#include <boost/type_traits/remove_reference.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/detail/yes_no_type.hpp>
+#include <sl/libs/boost/type_traits/integral_constant.hpp>
+#include <sl/libs/boost/type_traits/is_base_of.hpp>
+#include <sl/libs/boost/type_traits/is_const.hpp>
+#include <sl/libs/boost/type_traits/is_convertible.hpp>
+#include <sl/libs/boost/type_traits/is_fundamental.hpp>
+#include <sl/libs/boost/type_traits/is_integral.hpp>
+#include <sl/libs/boost/type_traits/is_pointer.hpp>
+#include <sl/libs/boost/type_traits/is_same.hpp>
+#include <sl/libs/boost/type_traits/is_void.hpp>
+#include <sl/libs/boost/type_traits/remove_cv.hpp>
+#include <sl/libs/boost/type_traits/remove_pointer.hpp>
+#include <sl/libs/boost/type_traits/remove_reference.hpp>
 
 // cannot include this header without getting warnings of the kind:
 // gcc:

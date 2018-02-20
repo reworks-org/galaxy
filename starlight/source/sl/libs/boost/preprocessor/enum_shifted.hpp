@@ -12,6 +12,6 @@
 # ifndef BOOST_PREPROCESSOR_ENUM_SHIFTED_HPP
 # define BOOST_PREPROCESSOR_ENUM_SHIFTED_HPP
 #
-# include <boost/preprocessor/repetition/enum_shifted.hpp>
+# include <sl/libs/boost/preprocessor/repetition/enum_shifted.hpp>
 #
 # endif

@@ -6,11 +6,11 @@
 #ifndef UUID_8D22C4CA9CC811DCAA9133D256D89593
 #define UUID_8D22C4CA9CC811DCAA9133D256D89593
 
-#include <boost/config.hpp>
-#include <boost/exception/exception.hpp>
-#include <boost/exception/to_string_stub.hpp>
-#include <boost/exception/detail/error_info_impl.hpp>
-#include <boost/exception/detail/shared_ptr.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/exception/exception.hpp>
+#include <sl/libs/boost/exception/to_string_stub.hpp>
+#include <sl/libs/boost/exception/detail/error_info_impl.hpp>
+#include <sl/libs/boost/exception/detail/shared_ptr.hpp>
 #include <map>
 
 #if (__GNUC__*100+__GNUC_MINOR__>301) && !defined(BOOST_EXCEPTION_ENABLE_WARNINGS)

@@ -14,15 +14,15 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/iterator_tags.hpp>
-#include <boost/mpl/advance_fwd.hpp>
-#include <boost/mpl/distance_fwd.hpp>
-#include <boost/mpl/next_prior.hpp>
-#include <boost/mpl/deref.hpp>
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/aux_/nttp_decl.hpp>
-#include <boost/mpl/aux_/value_wknd.hpp>
-#include <boost/mpl/aux_/config/ctps.hpp>
+#include <sl/libs/boost/mpl/iterator_tags.hpp>
+#include <sl/libs/boost/mpl/advance_fwd.hpp>
+#include <sl/libs/boost/mpl/distance_fwd.hpp>
+#include <sl/libs/boost/mpl/next_prior.hpp>
+#include <sl/libs/boost/mpl/deref.hpp>
+#include <sl/libs/boost/mpl/int.hpp>
+#include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
+#include <sl/libs/boost/mpl/aux_/value_wknd.hpp>
+#include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
 
 namespace boost { namespace mpl { 
 

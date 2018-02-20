@@ -14,8 +14,8 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/assert.hpp>
-#include <boost/preprocessor/cat.hpp>
+#include <sl/libs/boost/mpl/assert.hpp>
+#include <sl/libs/boost/preprocessor/cat.hpp>
 
 #define MPL_ASSERT(pred)                BOOST_MPL_ASSERT(pred)
 #define MPL_ASSERT_NOT(pred)            BOOST_MPL_ASSERT_NOT(pred)

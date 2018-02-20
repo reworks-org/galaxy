@@ -19,9 +19,9 @@
 #define BOOST_NUMERIC_UBLAS_OPERATION_NUM_COLUMNS_HPP
 
 
-#include <boost/numeric/ublas/detail/config.hpp>
-#include <boost/numeric/ublas/expression_types.hpp>
-#include <boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/config.hpp>
+#include <sl/libs/boost/numeric/ublas/expression_types.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
 
 
 namespace boost { namespace numeric { namespace ublas {

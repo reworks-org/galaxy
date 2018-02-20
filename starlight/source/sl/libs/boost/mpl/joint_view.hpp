@@ -14,11 +14,11 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/joint_iter.hpp>
-#include <boost/mpl/plus.hpp>
-#include <boost/mpl/size_fwd.hpp>
-#include <boost/mpl/begin_end.hpp>
-#include <boost/mpl/aux_/na_spec.hpp>
+#include <sl/libs/boost/mpl/aux_/joint_iter.hpp>
+#include <sl/libs/boost/mpl/plus.hpp>
+#include <sl/libs/boost/mpl/size_fwd.hpp>
+#include <sl/libs/boost/mpl/begin_end.hpp>
+#include <sl/libs/boost/mpl/aux_/na_spec.hpp>
 
 namespace boost { namespace mpl {
 

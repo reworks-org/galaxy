@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/pop_front_fwd.hpp>
-#include <boost/mpl/next_prior.hpp>
-#include <boost/mpl/list/aux_/tag.hpp>
+#include <sl/libs/boost/mpl/pop_front_fwd.hpp>
+#include <sl/libs/boost/mpl/next_prior.hpp>
+#include <sl/libs/boost/mpl/list/aux_/tag.hpp>
 
 namespace boost { namespace mpl {
 

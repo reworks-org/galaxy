@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/FocusListener.hpp"
-#include "Agui/Widget.hpp"
+#include "sl/libs/Agui/FocusListener.hpp"
+#include "sl/libs/Agui/Widget.hpp"
 namespace agui {
 	FocusListener::FocusListener(void)
 	{

@@ -38,17 +38,17 @@
 
    (C) Copyright 2006 David Abrahams - http://www.boost.org.
 
-   See /boost/serialization/export.hpp, /boost/archive/detail/register_archive.hpp,
-   and /boost/serialization/void_cast.hpp for their implementation. Additional details
+   See /sl/libs/boost/serialization/export.hpp, /sl/libs/boost/archive/detail/register_archive.hpp,
+   and /sl/libs/boost/serialization/void_cast.hpp for their implementation. Additional details
    found in other files split across serialization and archive.
 */
 #ifndef CEREAL_DETAILS_POLYMORPHIC_IMPL_HPP_
 #define CEREAL_DETAILS_POLYMORPHIC_IMPL_HPP_
 
-#include "cereal/details/polymorphic_impl_fwd.hpp"
-#include "cereal/details/static_object.hpp"
-#include "cereal/types/memory.hpp"
-#include "cereal/types/string.hpp"
+#include "sl/libs/cereal/details/polymorphic_impl_fwd.hpp"
+#include "sl/libs/cereal/details/static_object.hpp"
+#include "sl/libs/cereal/types/memory.hpp"
+#include "sl/libs/cereal/types/string.hpp"
 #include <functional>
 #include <typeindex>
 #include <map>

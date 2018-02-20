@@ -16,8 +16,8 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <Box2D/Collision/Shapes/b2ChainShape.h>
-#include <Box2D/Collision/Shapes/b2EdgeShape.h>
+#include <sl/libs/Box2D/Collision/Shapes/b2ChainShape.h>
+#include <sl/libs/Box2D/Collision/Shapes/b2EdgeShape.h>
 #include <new>
 #include <string.h>
 

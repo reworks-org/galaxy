@@ -19,31 +19,31 @@
 // $Revision$
 
 #if !defined(BOOST_MPL_PREPROCESSING_MODE)
-#   include <boost/mpl/empty_base.hpp>
-#   include <boost/mpl/aux_/na_spec.hpp>
-#   include <boost/mpl/aux_/lambda_support.hpp>
+#   include <sl/libs/boost/mpl/empty_base.hpp>
+#   include <sl/libs/boost/mpl/aux_/na_spec.hpp>
+#   include <sl/libs/boost/mpl/aux_/lambda_support.hpp>
 #endif
 
-#include <boost/mpl/aux_/config/use_preprocessed.hpp>
+#include <sl/libs/boost/mpl/aux_/config/use_preprocessed.hpp>
 
 #if !defined(BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS) \
     && !defined(BOOST_MPL_PREPROCESSING_MODE)
 
 #   define BOOST_MPL_PREPROCESSED_HEADER inherit.hpp
-#   include <boost/mpl/aux_/include_preprocessed.hpp>
+#   include <sl/libs/boost/mpl/aux_/include_preprocessed.hpp>
 
 #else
 
-#   include <boost/mpl/limits/arity.hpp>
-#   include <boost/mpl/aux_/preprocessor/params.hpp>
-#   include <boost/mpl/aux_/preprocessor/default_params.hpp>
-#   include <boost/mpl/aux_/preprocessor/enum.hpp>
-#   include <boost/mpl/aux_/config/ctps.hpp>
-#   include <boost/mpl/aux_/config/dtp.hpp>
+#   include <sl/libs/boost/mpl/limits/arity.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/default_params.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/enum.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/dtp.hpp>
 
-#   include <boost/preprocessor/iterate.hpp>
-#   include <boost/preprocessor/dec.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/iterate.hpp>
+#   include <sl/libs/boost/preprocessor/dec.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 namespace boost { namespace mpl {
 
@@ -160,7 +160,7 @@ struct inherit2
 BOOST_MPL_AUX_NA_SPEC(2, inherit2)
 
 #define BOOST_PP_ITERATION_PARAMS_1 \
-    (3,(3, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <boost/mpl/inherit.hpp>))
+    (3,(3, BOOST_MPL_LIMIT_METAFUNCTION_ARITY, <sl/libs/boost/mpl/inherit.hpp>))
 #include BOOST_PP_ITERATE()
 
 }}

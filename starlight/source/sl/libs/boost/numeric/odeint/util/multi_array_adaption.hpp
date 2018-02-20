@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/util/multi_array_adaption.hpp
+  sl/libs/boost/numeric/odeint/util/multi_array_adaption.hpp
 
   [begin_description]
   tba.
@@ -20,13 +20,13 @@
 
 
 
-#include <boost/numeric/odeint/util/is_resizeable.hpp>
-#include <boost/numeric/odeint/util/resize.hpp>
-#include <boost/numeric/odeint/util/same_size.hpp>
+#include <sl/libs/boost/numeric/odeint/util/is_resizeable.hpp>
+#include <sl/libs/boost/numeric/odeint/util/resize.hpp>
+#include <sl/libs/boost/numeric/odeint/util/same_size.hpp>
 
-#include <boost/mpl/and.hpp>
-#include <boost/mpl/bool.hpp>
-#include <boost/multi_array.hpp>
+#include <sl/libs/boost/mpl/and.hpp>
+#include <sl/libs/boost/mpl/bool.hpp>
+#include <sl/libs/boost/multi_array.hpp>
 
 
 namespace boost {

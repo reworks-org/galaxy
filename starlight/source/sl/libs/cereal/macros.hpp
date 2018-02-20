@@ -63,7 +63,7 @@
     (e.g. 32 vs 64 bit), which may use different underlying types for
     std::size_t.
 
-    More information can be found in cereal/details/helpers.hpp.
+    More information can be found in sl/libs/cereal/details/helpers.hpp.
 
     If you choose to modify this type, ensure that you use a fixed
     size type (e.g. uint32_t). */

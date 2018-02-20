@@ -15,16 +15,16 @@
 // $Date$
 // $Revision$
 
-#   include <boost/mpl/limits/unrolling.hpp>
-#   include <boost/mpl/aux_/preprocessor/repeat.hpp>
-#   include <boost/mpl/aux_/config/ctps.hpp>
-#   include <boost/mpl/aux_/nttp_decl.hpp>
+#   include <sl/libs/boost/mpl/limits/unrolling.hpp>
+#   include <sl/libs/boost/mpl/aux_/preprocessor/repeat.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/ctps.hpp>
+#   include <sl/libs/boost/mpl/aux_/nttp_decl.hpp>
 
-#   include <boost/preprocessor/arithmetic/sub.hpp>
-#   include <boost/preprocessor/iterate.hpp>
-#   include <boost/preprocessor/dec.hpp>
-#   include <boost/preprocessor/inc.hpp>
-#   include <boost/preprocessor/cat.hpp>
+#   include <sl/libs/boost/preprocessor/arithmetic/sub.hpp>
+#   include <sl/libs/boost/preprocessor/iterate.hpp>
+#   include <sl/libs/boost/preprocessor/dec.hpp>
+#   include <sl/libs/boost/preprocessor/inc.hpp>
+#   include <sl/libs/boost/preprocessor/cat.hpp>
 
 // local macros, #undef-ined at the end of the header
 
@@ -81,7 +81,7 @@ struct AUX778076_FOLD_IMPL_NAME;
     && !defined(BOOST_MPL_CFG_NO_NONTYPE_TEMPLATE_PARTIAL_SPEC)
 
 #   define BOOST_PP_ITERATION_PARAMS_1 \
-    (3,(0, BOOST_MPL_LIMIT_UNROLLING, <boost/mpl/aux_/reverse_fold_impl_body.hpp>))
+    (3,(0, BOOST_MPL_LIMIT_UNROLLING, <sl/libs/boost/mpl/aux_/reverse_fold_impl_body.hpp>))
 #   include BOOST_PP_ITERATE()
 
 // implementation for N that exceeds BOOST_MPL_LIMIT_UNROLLING
@@ -171,7 +171,7 @@ template< BOOST_MPL_AUX_NTTP_DECL(long, N) >
 struct AUX778076_FOLD_CHUNK_NAME;
 
 #   define BOOST_PP_ITERATION_PARAMS_1 \
-    (3,(0, BOOST_MPL_LIMIT_UNROLLING, <boost/mpl/aux_/reverse_fold_impl_body.hpp>))
+    (3,(0, BOOST_MPL_LIMIT_UNROLLING, <sl/libs/boost/mpl/aux_/reverse_fold_impl_body.hpp>))
 #   include BOOST_PP_ITERATE()
 
 // implementation for N that exceeds BOOST_MPL_LIMIT_UNROLLING

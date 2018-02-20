@@ -4,9 +4,9 @@
 #ifndef BOOST_DETAIL_IS_XXX_DWA20051011_HPP
 # define BOOST_DETAIL_IS_XXX_DWA20051011_HPP
 
-# include <boost/config.hpp>
-# include <boost/mpl/bool.hpp>
-# include <boost/preprocessor/enum_params.hpp>
+# include <sl/libs/boost/config.hpp>
+# include <sl/libs/boost/mpl/bool.hpp>
+# include <sl/libs/boost/preprocessor/enum_params.hpp>
 
 
 #  define BOOST_DETAIL_IS_XXX_DEF(name, qualified_name, nargs)  \

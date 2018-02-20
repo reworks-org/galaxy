@@ -12,7 +12,7 @@
 
 #include <allegro5/color.h>
 
-#include "sol2/sol_forward.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 namespace entt { typedef std::uint32_t Entity; }

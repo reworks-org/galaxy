@@ -38,8 +38,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Widgets/Button/Button.hpp"
-#include "Agui/Widgets/Button/ButtonListener.hpp"
+#include "sl/libs/Agui/Widgets/Button/Button.hpp"
+#include "sl/libs/Agui/Widgets/Button/ButtonListener.hpp"
 
 namespace agui {
 	Button::Button()

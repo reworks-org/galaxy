@@ -12,13 +12,13 @@
 #include <ios>
 #include <limits>
 
-#include <boost/config.hpp>
-#include <boost/integer_traits.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/integer_traits.hpp>
 
 #ifndef BOOST_NO_IS_ABSTRACT
 // Fix for SF:1358600 - lexical_cast & pure virtual functions & VC 8 STL
-#include <boost/mpl/if.hpp>
-#include <boost/type_traits/is_abstract.hpp>
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/type_traits/is_abstract.hpp>
 #endif
 
 #if defined(BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS) || \
@@ -28,9 +28,9 @@
 #endif
 
 #ifdef BOOST_LCAST_NO_COMPILE_TIME_PRECISION
-#include <boost/assert.hpp>
+#include <sl/libs/boost/assert.hpp>
 #else
-#include <boost/static_assert.hpp>
+#include <sl/libs/boost/static_assert.hpp>
 #endif
 
 namespace boost { namespace detail {

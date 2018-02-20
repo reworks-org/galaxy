@@ -12,11 +12,11 @@
 # ifndef BOOST_PREPROCESSOR_IS_BEGIN_PARENS_HPP
 # define BOOST_PREPROCESSOR_IS_BEGIN_PARENS_HPP
 
-# include <boost/preprocessor/config/config.hpp>
+# include <sl/libs/boost/preprocessor/config/config.hpp>
 
 #if BOOST_PP_VARIADICS
 
-#include <boost/preprocessor/punctuation/detail/is_begin_parens.hpp>
+#include <sl/libs/boost/preprocessor/punctuation/detail/is_begin_parens.hpp>
 
 #if BOOST_PP_VARIADICS_MSVC && _MSC_VER <= 1400
 

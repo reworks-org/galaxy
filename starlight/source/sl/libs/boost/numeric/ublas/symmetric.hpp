@@ -13,9 +13,9 @@
 #ifndef _BOOST_UBLAS_SYMMETRIC_
 #define _BOOST_UBLAS_SYMMETRIC_
 
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/triangular.hpp>
-#include <boost/numeric/ublas/detail/temporary.hpp>
+#include <sl/libs/boost/numeric/ublas/matrix.hpp>
+#include <sl/libs/boost/numeric/ublas/triangular.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/temporary.hpp>
 
 // Iterators based on ideas of Jeremy Siek
 // Symmetric matrices are square. Thanks to Peter Schmitteckert for spotting this.

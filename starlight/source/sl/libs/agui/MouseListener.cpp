@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/MouseListener.hpp"
+#include "sl/libs/Agui/MouseListener.hpp"
 namespace agui {
 	MouseListener::MouseListener(void)
 	{

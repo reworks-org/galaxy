@@ -7,11 +7,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "entt/entity/registry.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/events/EventManager.hpp"
 #include "sl/events/CollisionEvent.hpp"
-#include "Box2D/Dynamics/Contacts/b2Contact.h"
+#include "sl/libs/entt/entity/registry.hpp"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2Contact.h"
 
 #include "Box2DCallbacks.hpp"
 

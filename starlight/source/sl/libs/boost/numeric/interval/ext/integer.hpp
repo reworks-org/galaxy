@@ -10,8 +10,8 @@
 #ifndef BOOST_NUMERIC_INTERVAL_EXT_INTEGER_HPP
 #define BOOST_NUMERIC_INTERVAL_EXT_INTEGER_HPP
 
-#include <boost/numeric/interval/detail/interval_prototype.hpp>
-#include <boost/numeric/interval/detail/test_input.hpp>
+#include <sl/libs/boost/numeric/interval/detail/interval_prototype.hpp>
+#include <sl/libs/boost/numeric/interval/detail/test_input.hpp>
 
 namespace boost {
 namespace numeric {

@@ -14,9 +14,9 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/O1_size_fwd.hpp>
-#include <boost/mpl/aux_/range_c/size.hpp>
-#include <boost/mpl/aux_/range_c/tag.hpp>
+#include <sl/libs/boost/mpl/O1_size_fwd.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/size.hpp>
+#include <sl/libs/boost/mpl/aux_/range_c/tag.hpp>
 
 namespace boost { namespace mpl {
 

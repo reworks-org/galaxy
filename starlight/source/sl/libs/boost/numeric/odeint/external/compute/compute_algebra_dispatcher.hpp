@@ -1,6 +1,6 @@
 /*
   [auto_generated]
-  boost/numeric/odeint/external/compute/compute_algebra_dispatcher.hpp
+  sl/libs/boost/numeric/odeint/external/compute/compute_algebra_dispatcher.hpp
 
   [begin_description]
   algebra_dispatcher specialization for Boost.Compute
@@ -18,10 +18,10 @@
 #ifndef BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_ALGEBRA_DISPATCHER_HPP_DEFINED
 #define BOOST_NUMERIC_ODEINT_EXTERNAL_COMPUTE_COMPUTE_ALGEBRA_DISPATCHER_HPP_DEFINED
 
-#include <boost/compute/container/vector.hpp>
+#include <sl/libs/boost/compute/container/vector.hpp>
 
-#include <boost/numeric/odeint/external/compute/compute_algebra.hpp>
-#include <boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
+#include <sl/libs/boost/numeric/odeint/external/compute/compute_algebra.hpp>
+#include <sl/libs/boost/numeric/odeint/algebra/algebra_dispatcher.hpp>
 
 namespace boost {
 namespace numeric {

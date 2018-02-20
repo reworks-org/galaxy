@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/FlowLayout.hpp"
+#include "sl/libs/Agui/FlowLayout.hpp"
 namespace agui
 {
 

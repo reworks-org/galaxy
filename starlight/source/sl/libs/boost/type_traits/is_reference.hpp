@@ -12,8 +12,8 @@
 #ifndef BOOST_TT_IS_REFERENCE_HPP_INCLUDED
 #define BOOST_TT_IS_REFERENCE_HPP_INCLUDED
 
-#include <boost/type_traits/is_lvalue_reference.hpp>
-#include <boost/type_traits/is_rvalue_reference.hpp>
+#include <sl/libs/boost/type_traits/is_lvalue_reference.hpp>
+#include <sl/libs/boost/type_traits/is_rvalue_reference.hpp>
 
 namespace boost {
 

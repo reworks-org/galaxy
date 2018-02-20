@@ -14,13 +14,13 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/typeof.hpp>
+#include <sl/libs/boost/mpl/aux_/config/typeof.hpp>
 
 #if defined(BOOST_MPL_CFG_TYPEOF_BASED_SEQUENCES)
 
-#   include <boost/mpl/begin_end_fwd.hpp>
-#   include <boost/mpl/vector/aux_/iterator.hpp>
-#   include <boost/mpl/vector/aux_/tag.hpp>
+#   include <sl/libs/boost/mpl/begin_end_fwd.hpp>
+#   include <sl/libs/boost/mpl/vector/aux_/iterator.hpp>
+#   include <sl/libs/boost/mpl/vector/aux_/tag.hpp>
 
 namespace boost { namespace mpl {
 

@@ -14,27 +14,27 @@
 // $Date$
 // $Revision$
 
-#include <boost/mpl/aux_/config/msvc.hpp>
-#include <boost/mpl/aux_/config/intel.hpp>
-#include <boost/mpl/aux_/config/workaround.hpp>
+#include <sl/libs/boost/mpl/aux_/config/msvc.hpp>
+#include <sl/libs/boost/mpl/aux_/config/intel.hpp>
+#include <sl/libs/boost/mpl/aux_/config/workaround.hpp>
 
 #if BOOST_WORKAROUND(__EDG_VERSION__, <= 244) && !defined(BOOST_INTEL_CXX_VERSION)
-#   include <boost/mpl/has_xxx.hpp>
+#   include <sl/libs/boost/mpl/has_xxx.hpp>
 #elif BOOST_WORKAROUND(BOOST_MSVC, < 1300)
-#   include <boost/mpl/has_xxx.hpp>
-#   include <boost/mpl/if.hpp>
-#   include <boost/mpl/bool.hpp>
-#   include <boost/mpl/aux_/msvc_is_class.hpp>
+#   include <sl/libs/boost/mpl/has_xxx.hpp>
+#   include <sl/libs/boost/mpl/if.hpp>
+#   include <sl/libs/boost/mpl/bool.hpp>
+#   include <sl/libs/boost/mpl/aux_/msvc_is_class.hpp>
 #elif BOOST_WORKAROUND(__BORLANDC__, BOOST_TESTED_AT(0x610))
-#   include <boost/mpl/if.hpp>
-#   include <boost/mpl/bool.hpp>
-#   include <boost/mpl/aux_/yes_no.hpp>
-#   include <boost/mpl/aux_/config/static_constant.hpp>
-#   include <boost/type_traits/is_class.hpp>
+#   include <sl/libs/boost/mpl/if.hpp>
+#   include <sl/libs/boost/mpl/bool.hpp>
+#   include <sl/libs/boost/mpl/aux_/yes_no.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
+#   include <sl/libs/boost/type_traits/is_class.hpp>
 #else
-#   include <boost/mpl/aux_/type_wrapper.hpp>
-#   include <boost/mpl/aux_/yes_no.hpp>
-#   include <boost/mpl/aux_/config/static_constant.hpp>
+#   include <sl/libs/boost/mpl/aux_/type_wrapper.hpp>
+#   include <sl/libs/boost/mpl/aux_/yes_no.hpp>
+#   include <sl/libs/boost/mpl/aux_/config/static_constant.hpp>
 #endif
 
 namespace boost { namespace mpl { namespace aux {

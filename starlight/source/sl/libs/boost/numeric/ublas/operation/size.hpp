@@ -16,14 +16,14 @@
 #define BOOST_NUMERIC_UBLAS_OPERATION_SIZE_HPP
 
 
-#include <boost/mpl/has_xxx.hpp> 
-#include <boost/mpl/if.hpp>
-#include <boost/numeric/ublas/detail/config.hpp>
-#include <boost/numeric/ublas/expression_types.hpp>
-#include <boost/numeric/ublas/fwd.hpp>
-#include <boost/numeric/ublas/tags.hpp>
-#include <boost/numeric/ublas/traits.hpp>
-#include <boost/utility/enable_if.hpp>
+#include <sl/libs/boost/mpl/has_xxx.hpp> 
+#include <sl/libs/boost/mpl/if.hpp>
+#include <sl/libs/boost/numeric/ublas/detail/config.hpp>
+#include <sl/libs/boost/numeric/ublas/expression_types.hpp>
+#include <sl/libs/boost/numeric/ublas/fwd.hpp>
+#include <sl/libs/boost/numeric/ublas/tags.hpp>
+#include <sl/libs/boost/numeric/ublas/traits.hpp>
+#include <sl/libs/boost/utility/enable_if.hpp>
 #include <cstddef>
 
 

@@ -38,7 +38,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "Agui/Layout.hpp"
+#include "sl/libs/Agui/Layout.hpp"
 
 namespace agui
 {

@@ -6,9 +6,9 @@
 #ifndef FILE_boost_type_traits_promote_hpp_INCLUDED
 #define FILE_boost_type_traits_promote_hpp_INCLUDED
 
-#include <boost/config.hpp>
-#include <boost/type_traits/integral_promotion.hpp>
-#include <boost/type_traits/floating_point_promotion.hpp>
+#include <sl/libs/boost/config.hpp>
+#include <sl/libs/boost/type_traits/integral_promotion.hpp>
+#include <sl/libs/boost/type_traits/floating_point_promotion.hpp>
 
 namespace boost {
 
