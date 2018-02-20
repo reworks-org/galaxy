@@ -3,11 +3,13 @@
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\GameState.cpp" />
+    <ClCompile Include="source\GameLevel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\GameState.hpp" />
+    <ClInclude Include="source\GameLevel.hpp" />
   </ItemGroup>
 </Project>

@@ -25,8 +25,10 @@ namespace sl
 		/// Level constructor.
 		///
 		/// \param bounds Bounds of level.
+		/// \param loadMap Load a map from mapFile.
+		/// \param mapFile Map file name in the virtual file system.
 		///
-		Level(const std::string& mapFile, const Rect<float, int>& bounds);
+		Level(const Rect<float, int>& bounds, bool loadMap = false, const std::string& mapFile = "");
 
 		///
 		/// Destructor.

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\GameLevel.cpp" />
     <ClCompile Include="source\GameState.cpp" />
     <ClCompile Include="source\main.cpp" />
   </ItemGroup>
@@ -26,6 +27,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\GameLevel.hpp" />
     <ClInclude Include="source\GameState.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

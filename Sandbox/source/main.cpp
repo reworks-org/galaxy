@@ -7,11 +7,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <memory>
+
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
 #include <sl/mapping/TMXUtils.hpp>
 
 #include "GameState.hpp"
+#include "GameLevel.hpp"
 
 class Sandbox : public sl::Application
 {
@@ -25,6 +28,8 @@ public:
 		{
 			LOG_S(INFO) << "Reloaded state.";
 		});
+
+		m_world->m_currentLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 640, 480 });
 	}
 };
 

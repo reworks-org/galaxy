@@ -25,6 +25,7 @@ void GameState::unload()
 
 void GameState::event(ALLEGRO_EVENT* event)
 {
+
 }
 
 void GameState::update(double dt)

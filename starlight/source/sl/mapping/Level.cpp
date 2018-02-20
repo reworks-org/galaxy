@@ -15,13 +15,16 @@
 
 namespace sl
 {
-	Level::Level(const std::string& mapFile, const Rect<float, int>& bounds)
+	Level::Level(const Rect<float, int>& bounds, bool loadMap, const std::string& mapFile)
 		:m_bounds(bounds)
 	{
-		std::string data = Locator::m_virtualFS->openAsString(mapFile);
-		m_map = tmx_load_buffer(data.c_str(), boost::numeric_cast<int>(data.size()));
-	
-		tmxutils::processAllLayers(m_map, m_map->ly_head);
+		if (loadMap)
+		{
+			std::string data = Locator::m_virtualFS->openAsString(mapFile);
+			m_map = tmx_load_buffer(data.c_str(), boost::numeric_cast<int>(data.size()));
+
+			tmxutils::processAllLayers(m_map, m_map->ly_head);
+		}
 	}
 
 	Level::~Level()
