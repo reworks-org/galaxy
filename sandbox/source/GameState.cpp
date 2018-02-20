@@ -25,7 +25,7 @@ void GameState::unload()
 
 void GameState::event(ALLEGRO_EVENT* event)
 {
-
+	// escape to close window
 }
 
 void GameState::update(double dt)
