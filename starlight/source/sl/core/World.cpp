@@ -11,8 +11,17 @@
 
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
+#include "sl/tags/CameraTag.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
+#include "sl/components/TextComponent.hpp"
+#include "sl/components/RenderComponent.hpp"
+#include "sl/components/SpriteComponent.hpp"
+#include "sl/components/PhysicsComponent.hpp"
+#include "sl/components/ParticleComponent.hpp"
+#include "sl/components/ParallaxComponent.hpp"
+#include "sl/components/AnimationComponent.hpp"
+#include "sl/components/TransformComponent.hpp"
 
 #include "World.hpp"
 
@@ -21,6 +30,17 @@ namespace sl
 	World::World()
 	{
 		m_lua.open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8);
+
+		registerComponent<AnimationComponent>("AnimationComponent");
+		registerComponent<ParallaxComponent>("ParallaxComponent");
+		registerComponent<ParticleComponent>("ParticleComponent");
+		registerComponent<PhysicsComponent>("PhysicsComponent");
+		registerComponent<RenderComponent>("RenderComponent");
+		registerComponent<SpriteComponent>("SpriteComponent");
+		registerComponent<TextComponent>("TextComponent");
+		registerComponent<TransformComponent>("TransformComponent");
+
+		registerTag<CameraTag>("CameraTag");
 	}
 
 	void World::createEntity(const std::string& script)
@@ -40,17 +60,10 @@ namespace sl
 		if (components.get<bool>("hasTags"))
 		{
 			sol::table tags = components.get<sol::table>("tags");
-
-			std::map<int, entt::HashedString::hash_type> tagsKVP;
 			tags.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				tagsKVP.insert({ pair.first.as<int>(), pair.second.as<entt::HashedString>() });
+				m_tagAssign[pair.first.as<entt::HashedString>()](entity, pair.second.as<sol::table>());
 			});
-
-			for (auto& it : tagsKVP)
-			{
-				m_tagAssign[it.second](entity);
-			}
 
 			kvp.erase(entt::HashedString{ "hasTags" });
 		}
@@ -59,7 +72,7 @@ namespace sl
 
 		for (auto& it : kvp)
 		{
-			m_componentAssign[it.first](entity, entity, it.second);
+			m_componentAssign[it.first](entity, it.second);
 		}
 
 		m_inUse.push_back(entity);

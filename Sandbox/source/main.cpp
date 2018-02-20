@@ -1,65 +1,27 @@
-//
-//  main.cpp
-//  Sandbox
-//
-//  Created by reworks on 8/07/2016.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+/// main.cpp
+/// sandbox
+///
+/// Created by reworks on 08/07/2016.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
+///
 
-#include <iostream>
-
+#include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
-#include <sl/services/ServiceLocator.hpp>
 
-#include <sl/components/AnimationComponent.hpp>
-#include <sl/components/PhysicsComponent.hpp>
-#include <sl/components/RenderableComponent.hpp>
-#include <sl/components/SpriteComponent.hpp>
-#include <sl/components/TextComponent.hpp>
-#include <sl/components/TransformComponent.hpp>
-#include <sl/systems/AnimationSystem.hpp>
-
-#include <sl/systems/RenderSystem.hpp>
-#include <sl/systems/PhysicsSystem.hpp>
-
-#include <sl/mapping/TMXHelper.hpp>
-
-#include "gamesystems/MoveSystem.hpp"
-
-#include "Test.hpp"
-
-class Game : public sl::Application
+class Sandbox : public sl::Application
 {
 public:
-	Game(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archive, config, newConfig)
+	Sandbox(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archive, config, newConfig)
 	{
-		m_world->registerComponent<sl::AnimationComponent>("AnimationComponent");
-		m_world->registerComponent<sl::PhysicsComponent>("PhysicsComponent");
-		m_world->registerComponent<sl::RenderableComponent>("RenderableComponent");
-		m_world->registerComponent<sl::SpriteComponent>("SpriteComponent");
-		m_world->registerComponent<sl::TextComponent>("TextComponent");
-		m_world->registerComponent<sl::TransformComponent>("TransformComponent");
-		m_world->registerComponent<sl::AnimationComponent>("AnimationComponent");
-
-		m_world->m_systemManager.add<sl::AnimationSystem>();
-		m_world->m_systemManager.add<sl::RenderSystem>(4);
-		m_world->m_systemManager.add<sl::PhysicsSystem>(m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int32>(config, "box2d", "velocityIterations"), m_configReader->lookup<int32>(config, "box2d", "positionIterations"));
-		m_world->m_systemManager.add<MoveSystem>("player");
-		m_world->m_systemManager.configure();
-		
-		m_world->m_systemManager.system<sl::RenderSystem>()->registerRenderableComponents<sl::TextComponent, sl::SpriteComponent>();
-
-		sl::tmx::LINE_THICKNESS = 2.5f;
-		sl::tmx::setUpLoaders();
-
-		m_debugManager->specifyReloadState(Test::inst(), []() { LOG_S(INFO) << "RESETTING STATE!" << std::endl; });
-		m_stateManager->setState(Test::inst());
+		//m_debugInterface->setReloadState();
 	}
 };
 
 int main(int argc, char **argv)
 {
-	Game sandbox("bin/data.zip", "config.cfg", [](std::ofstream& newConfig)
+	Sandbox sandbox("bin/data.zip", "config.cfg", [](std::ofstream& newConfig)
 	{
 		newConfig << "[graphics]" << std::endl;
 		newConfig << "width = 640" << std::endl;
@@ -87,6 +49,20 @@ int main(int argc, char **argv)
 		newConfig << "musicScript = music.lua" << std::endl;
 		newConfig << "soundScript = sound.lua" << std::endl;
 		newConfig << "reserveSamples = 32" << std::endl;
+		newConfig << std::endl;
+
+		newConfig << "# see allegro key codes" << std::endl;
+		newConfig << "[keys]" << std::endl;
+		newConfig << "forward = 23" << std::endl;
+		newConfig << "backward = 19" << std::endl;
+		newConfig << "left = 1" << std::endl;
+		newConfig << "right = 4" << std::endl;
+		newConfig << "quit = 59" << std::endl;
+		newConfig << std::endl;
+		
+		newConfig << "[debug]" << std::endl;
+		newConfig << "isDisabled = false" << std::endl;
+		newConfig << std::endl;
 	});
 
 	return sandbox.run();

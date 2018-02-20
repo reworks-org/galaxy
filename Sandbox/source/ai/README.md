@@ -1,1 +1,0 @@
-AI is better done by project rather than something a basic game framework has.

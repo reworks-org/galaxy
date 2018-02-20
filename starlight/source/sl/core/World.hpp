@@ -80,10 +80,9 @@ namespace sl
 		///
 		/// \param Component - Type of component to register, i.e. AnimationComponent.
 		/// \param name - Name of component in string format i.e. "AnimationComponent".
-		/// \param debug - True if the component has a debug() method. False if it does not.
 		///
 		template<typename Component>
-		void registerComponent(entt::HashedString name, bool debug = true);
+		void registerComponent(entt::HashedString name);
 
 		///
 		/// Registers a system with the world.
@@ -119,31 +118,30 @@ namespace sl
 		entt::DefaultRegistry m_registry;
 		std::vector<entt::Entity> m_inUse;
 		std::unique_ptr<Level> m_currentLevel;
-		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 
-	private:
+	protected:
 		std::uint32_t m_systemIDCounter = 0;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_tagAssign;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, entt::Entity, const sol::table&)>> m_componentAssign;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity)>> m_componentDebug;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_tagAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_componentAssign;
+		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Tag>
 	void World::registerTag(entt::HashedString name)
 	{
 		#ifdef NDEBUG
-			m_tagAssign.emplace(name, [this](entt::Entity e)
+			m_tagAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
 			{
-				m_registery.attach<Tag>(e);
+				m_registry.attach<Tag>(e, table);
 			});
 		#else
 			if (m_tagAssign.find(name) != m_tagAssign.end())
 			{
-				m_tagAssign.emplace(name, [this](entt::Entity e)
+				m_tagAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
 				{
-					if (!m_registery.has<Tag>())
+					if (!m_registry.has<Tag>())
 					{
-						m_registery.attach<Tag>(e);
+						m_registry.attach<Tag>(e, table);
 					}
 					else
 					{
@@ -159,24 +157,24 @@ namespace sl
 	}
 
 	template<typename Component>
-	void World::registerComponent(entt::HashedString name, bool debug)
+	void World::registerComponent(entt::HashedString name)
 	{
 		#ifdef NDEBUG
-			m_componentAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
+			m_componentAssign.emplace(name, [this](entt::Entity entity, const sol::table& table)
 			{
-				m_registery.assign<Component>(e, e, table);
+				m_registry.assign<Component>(entity, entity, table);
 			});
 		#else
-			if (m_componentAssign.find(name) == m_componentAssign.end())
+			if (m_componentAssign.find(name) != m_componentAssign.end())
 			{
-				m_componentAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
-				{
-					m_registery.assign<Component>(e, e, table);
-				});
+				LOG_S(WARNING) << "Attempted to register duplicate component!";
 			}
 			else
 			{
-				LOG_S(WARNING) << "Attempted to register duplicate component!";
+				m_componentAssign.emplace(name, [this](entt::Entity entity, const sol::table& table)
+				{
+					m_registry.assign<Component>(entity, entity, table);
+				});
 			}
 		#endif
 	}
