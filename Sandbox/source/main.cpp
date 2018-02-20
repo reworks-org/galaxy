@@ -9,13 +9,22 @@
 
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
+#include <sl/mapping/TMXUtils.hpp>
+
+#include "GameState.hpp"
 
 class Sandbox : public sl::Application
 {
 public:
 	Sandbox(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archive, config, newConfig)
 	{
-		//m_debugInterface->setReloadState();
+		sl::tmxutils::LINE_THICKNESS = 2.5f;
+
+		m_stateManager->setState(GameState::inst());
+		m_debugInterface->setReloadState(GameState::inst(), []()
+		{
+			LOG_S(INFO) << "Reloaded state.";
+		});
 	}
 };
 

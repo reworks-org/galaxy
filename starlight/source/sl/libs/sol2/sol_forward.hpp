@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 
-// Copyright (c) 2013-2017 Rapptz, ThePhD and contributors
+// Copyright (c) 2013-2018 Rapptz, ThePhD and contributors
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy of
 // this software and associated documentation files (the "Software"), to deal in
@@ -20,8 +20,8 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // This file was generated with a script.
-// Generated 2018-01-31 02:05:24.772464 UTC
-// This header was generated with sol v2.19.0 (revision 49d99d1)
+// Generated 2018-02-10 21:24:10.349205 UTC
+// This header was generated with sol v2.19.0 (revision af7b468)
 // https://github.com/ThePhD/sol2
 
 #ifndef SOL_SINGLE_INCLUDE_FORWARD_HPP
@@ -44,19 +44,6 @@
 #endif // noexcept is part of a function's type
 #endif // compiler-specific checks
 #endif // C++17 only
-
-#if defined(_WIN32) || defined(_MSC_VER)
-#ifndef SOL_CODECVT_SUPPORT
-#define SOL_CODECVT_SUPPORT 1
-#endif // sol codecvt support
-#elif defined(__GNUC__)
-#if __GNUC__ >= 5
-#ifndef SOL_CODECVT_SUPPORT
-#define SOL_CODECVT_SUPPORT 1
-#endif // codecvt support
-#endif // g++ 5.x.x (MinGW too)
-#else
-#endif // Windows/VC++ vs. g++ vs Others
 
 #ifdef _MSC_VER
 #if defined(_DEBUG) && !defined(NDEBUG)
@@ -162,6 +149,10 @@
 #endif // SOL_UNORDERED_MAP_COMPATIBLE_HASH
 #endif // Boost has unordered_map with Compatible Key and CompatibleHash
 
+#ifndef SOL_STACK_STRING_OPTIMIZATION_SIZE
+#define SOL_STACK_STRING_OPTIMIZATION_SIZE 1024
+#endif // Optimized conversion routines using a KB or so off the stack
+
 // end of sol/feature_test.hpp
 
 namespace sol {
@@ -219,26 +210,26 @@ namespace sol {
 	using main_protected_function = main_safe_function;
 	using stack_protected_function = stack_safe_function;
 	using stack_aligned_protected_function = stack_aligned_safe_function;
-	#ifdef SOL_SAFE_FUNCTION
+#ifdef SOL_SAFE_FUNCTION
 	using function = protected_function;
 	using main_function = main_protected_function;
 	using stack_function = stack_protected_function;
-	#else
+#else
 	using function = unsafe_function;
 	using main_function = main_unsafe_function;
 	using stack_function = stack_unsafe_function;
-	#endif
+#endif
 	using stack_aligned_function = stack_aligned_unsafe_function;
 	using stack_aligned_stack_handler_function = basic_protected_function<stack_reference, true, stack_reference>;
 
 	struct unsafe_function_result;
 	struct protected_function_result;
 	using safe_function_result = protected_function_result;
-	#ifdef SOL_SAFE_FUNCTION
+#ifdef SOL_SAFE_FUNCTION
 	using function_result = safe_function_result;
-	#else
+#else
 	using function_result = unsafe_function_result;
-	#endif
+#endif
 
 	template <typename base_t>
 	class basic_object;
@@ -293,6 +284,6 @@ namespace sol {
 	struct filter_wrapper;
 } // namespace sol
 
-  // end of sol/forward.hpp
+// end of sol/forward.hpp
 
 #endif // SOL_SINGLE_INCLUDE_FORWARD_HPP

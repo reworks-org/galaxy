@@ -11,3 +11,4 @@
 	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
 	https://sol2.readthedocs.io/en/latest/tutorial/functions.html
 - ensure release builds work
+- fix config creating new config file

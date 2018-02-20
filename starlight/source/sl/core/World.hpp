@@ -137,6 +137,10 @@ namespace sl
 		#else
 			if (m_tagAssign.find(name) != m_tagAssign.end())
 			{
+				LOG_S(WARNING) << "Attempted to register duplicate tag!";
+			}
+			else
+			{
 				m_tagAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
 				{
 					if (!m_registry.has<Tag>())
@@ -148,10 +152,6 @@ namespace sl
 						LOG_S(WARNING) << "Attempted to attach duplicate tag!";
 					}
 				});
-			}
-			else
-			{
-				LOG_S(WARNING) << "Attempted to register duplicate tag!";
 			}
 		#endif
 	}

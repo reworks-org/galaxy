@@ -61,33 +61,42 @@ namespace sl
 		al_init_native_dialog_addon();
 		
 		m_virtualFS = std::make_unique<VirtualFS>(archive);
+		Locator::m_virtualFS = m_virtualFS.get();
+
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
+		Locator::m_configReader = m_configReader.get();
 
 		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
+		Locator::m_window = m_window.get();
 
 		m_world = std::make_unique<World>();
-		m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
-		m_stateManager = std::make_unique<StateManager>();
-		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
-		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "fontmanager", "fontScript"));
-		m_shaderLibrary = std::make_unique<ShaderLibrary>(m_configReader->lookup<std::string>(config, "graphics", "shaderScript"));
-		m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
-		m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
-		m_box2dManager = std::make_unique<Box2DManager>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
-		m_eventManager = std::make_unique<EventManager>();
-
-		Locator::m_virtualFS = m_virtualFS.get();
-		Locator::m_configReader = m_configReader.get();
-		Locator::m_window = m_window.get();
 		Locator::m_world = m_world.get();
+
+		m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
 		Locator::m_debugInterface = m_debugInterface.get();
+
+		m_stateManager = std::make_unique<StateManager>();
 		Locator::m_stateManager = m_stateManager.get();
+
+		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
 		Locator::m_textureAtlas = m_textureAtlas.get();
+
+		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
 		Locator::m_fontBook = m_fontBook.get();
+
+		m_shaderLibrary = std::make_unique<ShaderLibrary>(m_configReader->lookup<std::string>(config, "graphics", "shaderScript"));
 		Locator::m_shaderLibrary = m_shaderLibrary.get();
+
+		m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
 		Locator::m_musicPlayer = m_musicPlayer.get();
+
+		m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
 		Locator::m_soundPlayer = m_soundPlayer.get();
+
+		m_box2dManager = std::make_unique<Box2DManager>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		Locator::m_box2dManager = m_box2dManager.get();
+
+		m_eventManager = std::make_unique<EventManager>();
 		Locator::m_eventManager = m_eventManager.get();
 
 		Keys::KEY_FORWARD = m_configReader->lookup<int>(config, "keys", "forward");

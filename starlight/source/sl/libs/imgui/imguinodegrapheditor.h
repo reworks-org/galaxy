@@ -359,7 +359,7 @@ namespace ImGui {
 			OutputNode = output_node; OutputSlot = output_slot;
 		}
 
-		friend struct NodeGraphEditor;
+		friend class NodeGraphEditor;
 	};
 
 	class NodeGraphEditor

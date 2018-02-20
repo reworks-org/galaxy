@@ -22,12 +22,17 @@ namespace sl
 	DebugInterface::DebugInterface(ALLEGRO_DISPLAY* display, bool isDisabled)
 	:m_reloadState(nullptr)
 	{
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		ImGui_ImplA5_Init(display);
+
+		ImGui::StyleColorsDark();
 	}
 
 	DebugInterface::~DebugInterface()
 	{
 		ImGui_ImplA5_Shutdown();
+		ImGui::DestroyContext();
 	}
 
 	void DebugInterface::event(ALLEGRO_EVENT* event)
@@ -51,6 +56,7 @@ namespace sl
 		if (!m_disabled)
 		{
 			ImGui::Render();
+			ImGui_ImplA5_RenderDrawData(ImGui::GetDrawData());
 		}
 	}
 

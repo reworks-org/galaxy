@@ -77,7 +77,7 @@ namespace sl
 		///
 		Application(Application&&) = delete;
 
-	private:
+	protected:
 		std::unique_ptr<World> m_world;
 		std::unique_ptr<Window> m_window;
 		std::unique_ptr<Box2DManager> m_box2dManager;
