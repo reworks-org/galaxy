@@ -59,15 +59,21 @@ namespace sl
 		al_init_acodec_addon();
 		al_init_primitives_addon();
 		al_init_native_dialog_addon();
-		
+
 		m_virtualFS = std::make_unique<VirtualFS>(archive);
 		Locator::m_virtualFS = m_virtualFS.get();
 
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 		Locator::m_configReader = m_configReader.get();
 
+		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
+
 		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::m_window = m_window.get();
+
+		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
+		// Apparently this is the default allegro settings. This is here for a reference.
+		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA)
 
 		m_world = std::make_unique<World>();
 		Locator::m_world = m_world.get();
@@ -104,12 +110,6 @@ namespace sl
 		Keys::KEY_LEFT = m_configReader->lookup<int>(config, "keys", "left");
 		Keys::KEY_RIGHT = m_configReader->lookup<int>(config, "keys", "right");
 		Keys::KEY_QUIT = m_configReader->lookup<int>(config, "keys", "quit");
-
-		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
-		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
-
-		// Apparently this is the default allegro settings. This is here for a reference.
-		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA)
 
 		m_box2dManager->m_b2world->SetContactListener(&m_engineCallbacks);
 		m_workaround.setRegistry(&(m_world->m_registry));

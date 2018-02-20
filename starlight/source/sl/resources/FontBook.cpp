@@ -23,13 +23,16 @@ namespace sl
 		lua.script(Locator::m_virtualFS->openAsString(script));
 		sol::table fonts = lua.get<sol::table>("fonts");
 
-		fonts.for_each([&](std::pair<sol::object, sol::object> pair)
+		if (!fonts.empty())
 		{
-			auto key = pair.first.as<entt::HashedString>();
-			auto value = pair.second.as<sol::table>();
+			fonts.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				auto key = entt::HashedString{ pair.first.as<const char*>() };
+				auto value = pair.second.as<sol::table>();
 
-			m_resourceMap.emplace(key, al_load_ttf_font(value.get<const char*>("font"), value.get<int>("size"), NULL));
-		});
+				m_resourceMap.emplace(key, al_load_ttf_font(value.get<const char*>("font"), value.get<int>("size"), NULL));
+			});
+		}
 	}
 
 	FontBook::~FontBook()

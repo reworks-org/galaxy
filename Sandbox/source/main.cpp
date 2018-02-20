@@ -41,6 +41,7 @@ int main(int argc, char **argv)
 		newConfig << "title = Sandbox" << std::endl;
 		newConfig << "icon = icon.png" << std::endl;
 		newConfig << "atlasPowerOf = 13" << std::endl;
+		newConfig << "shaderScript = shaders.lua" << std::endl;
 		newConfig << std::endl;
 
 		newConfig << "[box2d]" << std::endl;

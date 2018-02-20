@@ -21,10 +21,13 @@ namespace sl
 		lua.script(Locator::m_virtualFS->openAsString(script));
 		sol::table shaders = lua.get<sol::table>("shaders");
 
-		shaders.for_each([this](std::pair<sol::object, sol::object> pair)
+		if (!shaders.empty())
 		{
-			m_resourceMap.emplace(pair.first.as<entt::HashedString>(), pair.second.as<sol::table>());
-		});
+			shaders.for_each([this](std::pair<sol::object, sol::object> pair)
+			{
+				m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, pair.second.as<sol::table>());
+			});
+		}
 	}
 
 	ShaderLibrary::~ShaderLibrary()

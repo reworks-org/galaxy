@@ -21,12 +21,15 @@ namespace sl
 	{
 		sol::state lua;
 		lua.script(Locator::m_virtualFS->openAsString(script));
-		sol::table sound = lua.get<sol::table>("sound");
+		sol::table sounds = lua.get<sol::table>("sounds");
 
-		sound.for_each([this](std::pair<sol::object, sol::object> pair)
+		if (!sounds.empty())
 		{
-			m_resourceMap.emplace(pair.first.as<entt::HashedString>(), pair.second.as<sol::table>());
-		});
+			sounds.for_each([this](std::pair<sol::object, sol::object> pair)
+			{
+				m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, pair.second.as<sol::table>());
+			});
+		}
 	}
 
 	SoundPlayer::~SoundPlayer()
