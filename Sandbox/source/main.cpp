@@ -35,7 +35,7 @@ public:
 
 int main(int argc, char **argv)
 {
-	Sandbox sandbox("bin/data.zip", "config.cfg", [](std::ofstream& newConfig)
+	Sandbox sandbox("bin/data.zip", "bin/config.cfg", [](std::ofstream& newConfig)
 	{
 		newConfig << "[graphics]" << std::endl;
 		newConfig << "width = 640" << std::endl;

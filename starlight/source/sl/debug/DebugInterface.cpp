@@ -70,7 +70,12 @@ namespace sl
 			Locator::m_stateManager->reloadState(m_reloadState);
 		}
 
-		ImGui::TestNodeGraphEditor();
+		if(ImGui::Button("Open Console"))
+		{
+			// Open game console
+		}
+
+		// Console should take commands for geme
 
 		ImGui::End();
 	}

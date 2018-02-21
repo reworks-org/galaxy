@@ -3081,6 +3081,7 @@ namespace ImGui {
 		}
 		return NULL;
 	}
+
 	void TestNodeGraphEditor() {
 		static ImGui::NodeGraphEditor nge;
 		if (nge.isInited()) {
