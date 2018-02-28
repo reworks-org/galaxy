@@ -12,3 +12,4 @@
 	https://sol2.readthedocs.io/en/latest/tutorial/functions.html
 
 - implement custom hash tables instead of unordered_maps.
+- let debug menu load different levels
