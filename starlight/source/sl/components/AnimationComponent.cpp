@@ -41,13 +41,12 @@ namespace sl
 		:m_currentFrameTime(0.0), m_isPaused(false)
 	{
 		std::vector<std::string_view> frames;
-		frames.clear(); // ensure empty, no junk data allowed
 		frames.reserve(tile->animation_len); // helps prevent too many reallocations
 
 		for (unsigned int i = 0; i < tile->animation_len; ++i)
 		{
-			int subX = x + map->tiles[tile->animation[i].tile_id]->ul_x;
-			int subY = y + map->tiles[tile->animation[i].tile_id]->ul_y;
+			int subX = x + map->tiles[tile->animation[i].tile_id + 1]->ul_x;
+			int subY = y + map->tiles[tile->animation[i].tile_id + 1]->ul_y;
 
 			std::string id = layerName + "AnimatedTileInternal" + std::to_string(i);
 			Locator::m_textureAtlas->addRectToAtlas(id, { subX, subY, tileWidth, tileHeight });

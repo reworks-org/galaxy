@@ -13,3 +13,4 @@
 
 - implement custom hash tables instead of unordered_maps.
 - let debug menu load different levels
+- fix texture atlas texture loading from location manually specify

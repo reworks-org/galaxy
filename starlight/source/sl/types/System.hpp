@@ -46,9 +46,6 @@ namespace sl
 		/// \param dt Delta Time.
 		///
 		virtual void update(const double dt, entt::DefaultRegistry& registry) = 0;
-
-	protected:
-		static std::uint32_t m_id;
 	};
 }
 

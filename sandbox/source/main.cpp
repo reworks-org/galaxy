@@ -8,9 +8,13 @@
 ///
 
 #include <memory>
-
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
+#include <sl/systems/RenderSystem.hpp>
+#include <sl/systems/CameraSystem.hpp>
+#include <sl/systems/PhysicsSystem.hpp>
+#include <sl/systems/AnimationSystem.hpp>
+#include <allegro5/allegro_native_dialog.h>
 
 #include "GameState.hpp"
 #include "GameLevel.hpp"
@@ -20,13 +24,24 @@ class Sandbox : public sl::Application
 public:
 	Sandbox(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archive, config, newConfig)
 	{
+		LOG_S(INFO) << "Registering systems...";
+		
+		m_world->registerSystem<sl::RenderSystem>(5, 10);
+		m_world->registerSystem<sl::CameraSystem>();
+		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
+		m_world->registerSystem<sl::AnimationSystem>();
+
+		LOG_S(INFO) << "Constructing sandbox...";
+		entt::Entity cameraEntity = m_world->m_registry.create();
+		m_world->m_registry.attach<sl::CameraTag>(cameraEntity, sl::Rect<float, int>{0.0f, 0.0f, 256, 256});
+
 		m_stateManager->setState(GameState::inst());
 		m_debugInterface->setReloadState(GameState::inst(), []()
 		{
 			LOG_S(INFO) << "Reloaded state.";
 		});
 
-		m_world->m_currentLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 640, 480 });
+		m_world->m_currentLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
 	}
 };
 
@@ -83,9 +98,14 @@ int main(int argc, char **argv)
 
 		success = sandbox.run();
 	}
-	catch(std::runtime_error& e)
+	catch(const std::exception& e)
 	{
+		al_show_native_message_box(nullptr, "Runtime Exception", "Error Message:", e.what(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
 		LOG_S(INFO) << "EXCEPTION OUTPUT: " << e.what();
+	}
+	catch (...)
+	{
+		LOG_S(WARNING) << "Threw an unknown exception. Why are you not inheriting from std::exception?";
 	}
 
 	return success;

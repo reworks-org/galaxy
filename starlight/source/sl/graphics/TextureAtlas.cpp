@@ -33,9 +33,16 @@ namespace sl
 		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
 		
 		char** efl = PHYSFS_enumerateFiles("textures");
+
+		if (!efl)
+		{
+			LOG_S(WARNING) << "Could not find textures!";
+		}
+
 		for (char** i = efl; *i != NULL; i++)
 		{
-			ALLEGRO_BITMAP* bitmap = al_load_bitmap(*i);
+			std::string loc = "textures/" + std::string(*i);
+			ALLEGRO_BITMAP* bitmap = al_load_bitmap(loc.c_str());
 			Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
 
 			if (!(packedRect.m_height > 0))

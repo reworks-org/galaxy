@@ -41,11 +41,10 @@ namespace sl
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
-			al_show_native_message_box(NULL, "FATAL", message.prefix, message.message, NULL, ALLEGRO_MESSAGEBOX_ERROR);
 			throw std::runtime_error(message.message);
 		});
 
-		LOG_S(INFO) << "App init.";
+		LOG_S(INFO) << "Constructing app...";
 
 		al_install_system(ALLEGRO_VERSION_INT, atexit);
 		al_install_keyboard();

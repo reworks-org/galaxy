@@ -22,9 +22,16 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		/// \param e Entity for the camera to follow. Entity MUST have a transform component.
+		/// \param table Table containing bounds.
 		///
 		CameraTag(const sol::table& table);
+
+		///
+		/// Constructor.
+		///
+		/// \param bounds Rect bounds of camera.
+		///
+		CameraTag(const Rect<float, int>& bounds);
 
 		///
 		/// Destructor.

@@ -24,6 +24,11 @@ namespace sl
 		m_bounds.m_height = table.get<int>("height");
 	}
 
+	CameraTag::CameraTag(const Rect<float, int>& bounds)
+		:m_bounds(bounds)
+	{
+	}
+
 	CameraTag& CameraTag::operator=(const CameraTag &)
 	{
 		return *this;

@@ -10,7 +10,6 @@
 #include <allegro5/display.h>
 
 #include "sl/core/World.hpp"
-#include "sl/math/QuadTree.hpp"
 #include "sl/mapping/Level.hpp"
 #include "sl/tags/CameraTag.hpp"
 #include "sl/libs/loguru/loguru.hpp"

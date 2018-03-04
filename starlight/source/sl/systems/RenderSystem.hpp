@@ -11,11 +11,10 @@
 #define STARLIGHT_RENDERSYSTEM_HPP_
 
 #include "sl/types/System.hpp"
+#include "sl/math/QuadTree.hpp"
 
 namespace sl
 {
-	class QuadTree;
-
 	class RenderSystem final : public System
 	{
 	public:

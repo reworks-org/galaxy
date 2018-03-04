@@ -10,6 +10,7 @@
 #ifndef STARLIGHT_WORLD_HPP_
 #define STARLIGHT_WORLD_HPP_
 
+#include <typeindex>
 #include <functional>
 #include <unordered_map>
 
@@ -17,6 +18,10 @@
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/mapping/Level.hpp"
 #include "sl/libs/entt/core/hashed_string.hpp"
+
+#ifndef NDEBUG
+	#include "sl/libs/loguru/loguru.hpp"
+#endif
 
 namespace sl
 {
@@ -120,10 +125,9 @@ namespace sl
 		std::unique_ptr<Level> m_currentLevel;
 
 	protected:
-		std::uint32_t m_systemIDCounter = 0;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_tagAssign;
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_componentAssign;
-		std::unordered_map<std::uint32_t, std::unique_ptr<System>> m_systems;
+		std::unordered_map<std::type_index, std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Tag>
@@ -185,19 +189,15 @@ namespace sl
 		/// Here, we have two seperate methods. Debug has some more access checks.
 		/// We remove the extra checks in release mode to ensure speed.
 		#ifdef NDEBUG
-			System::m_id = m_systemIDCounter;
-			m_systems[System::m_id] = std::make_unique<System>(std::forward<Args>(args) ...);
-			++m_systemIDCounter;
+			m_systems[std::type_index(typeid(System))] = std::make_unique<System>(std::forward<Args>(args)...);
 		#else
-			if (m_systems.find(System::m_id) == m_systems.cend())
+			if (m_systems.find(std::type_index(typeid(System))) != m_systems.end())
 			{
-				System::m_id = m_systemIDCounter;
-				m_systems[System::m_id] = std::make_unique<System>(std::forward<Args>(args)...);
-				++m_systemIDCounter;
+				LOG_S(WARNING) << "Attempted to register duplicate system!";
 			}
 			else
 			{
-				LOG_S(WARNING) << "Attempted to register duplicate system!";
+				m_systems[std::type_index(typeid(System))] = std::make_unique<System>(std::forward<Args>(args)...);
 			}
 		#endif
 	}
@@ -208,15 +208,15 @@ namespace sl
 		/// Here, we have two seperate methods. Debug has some more access checks.
 		/// We remove the extra checks in release mode to ensure speed.
 		#ifdef NDEBUG
-			return dynamic_cast<System*>(m_systems[System::m_id].get());
+			return dynamic_cast<System*>(m_systems[std::type_index(typeid(System))].get());
 		#else
-			if (m_systems.find(System::m_id) == m_systems.cend())
+			if (m_systems.find(std::type_index(typeid(System))) != m_systems.end())
 			{
-				return dynamic_cast<System*>(m_systems[System::m_id].get());
+				return dynamic_cast<System*>(m_systems[std::type_index(typeid(System))].get());
 			}
 			else
 			{
-				LOG_S(ERROR) << "Attempted to access non-existent system.";
+				LOG_S(WARNING) << "Attempted to access non-existent system.";
 			}
 		#endif
 	}
@@ -230,7 +230,7 @@ namespace sl
 			m_systems[System::m_id].reset();
 			m_systems.erase(System::m_id);
 		#else
-			if (m_systems.find(System::m_id) == m_systems.cend())
+			if (m_systems.find(System::m_id) != m_systems.end())
 			{
 				m_systems[System::m_id].reset();
 				m_systems.erase(System::m_id);

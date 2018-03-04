@@ -37,7 +37,7 @@ namespace sl
 
 		if (!m_internalMap)
 		{
-			LOG_S(FATAL) << "Failed to load map! File: " << mapFile;
+			LOG_S(FATAL) << "Failed to load map! File: " << mapFile << " Internal Error: " << tmx_strerr();
 		}
 	}
 
@@ -130,11 +130,19 @@ namespace sl
 				{
 					entt::Entity objentity = Locator::m_world->m_registry.create();
 
-					sol::state tempLua;
-					tempLua.script(Locator::m_virtualFS->openAsString(head->name));
+					sol::state templua;
+					templua.script(Locator::m_virtualFS->openAsString(head->name));
+					sol::table tempPO = templua.get<sol::table>("PhysicsObject");
 
-					Locator::m_world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempLua.get<sol::table>("PhysicsObject"));
-					Locator::m_world->m_inUse.push_back(objentity);
+					if (!tempPO.empty())
+					{
+						Locator::m_world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempPO);
+						Locator::m_world->m_inUse.push_back(objentity);
+					}
+					else
+					{
+						LOG_S(ERROR) << "Physics Object table was empty! Script Name: " << head->name;
+					}
 
 					al_draw_rectangle(head->x, head->y, head->x + head->width, head->y + head->height, color, m_lineThickness);
 				}
@@ -267,6 +275,10 @@ namespace sl
 
 						++counter;
 					}
+				}
+				else
+				{
+					LOG_S(ERROR) << "Map tiles are NULL! Internal Error: " << tmx_strerr();
 				}
 			}
 		}

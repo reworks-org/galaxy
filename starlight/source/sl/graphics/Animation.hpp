@@ -18,13 +18,6 @@ namespace sl
 	{
 	public:
 		///
-		/// Default constructor.
-		/// MSVC won't compile this class without a default constructor.
-		/// Warning: This WILL throw an exception! IT IS NOT MEANT TO HAVE A DEFAULT CONSTRUCTOR!
-		///
-		Animation();
-
-		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -47,6 +40,13 @@ namespace sl
 		/// Destructor.
 		///
 		~Animation() = default;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Animation() = delete;
 
 	public:
 		/// True / False
