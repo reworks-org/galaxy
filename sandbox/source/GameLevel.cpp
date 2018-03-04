@@ -10,7 +10,7 @@
 #include "GameLevel.hpp"
 
 GameLevel::GameLevel(const sl::Rect<float, int>& bounds)
-	:Level(bounds, false, "")
+	:Level(bounds, "desert.tmx", 2.5f)
 {
 }
 

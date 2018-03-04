@@ -22,8 +22,9 @@ namespace sl
 	///
 	struct CollisionTypes
 	{
-		static constexpr std::uint16_t WALL_COLLISION = 0x0001;
-		static constexpr std::uint16_t HURT_TERRAIN_COLLISION = 0x0002;
+		static constexpr std::uint16_t PLAYER_COLLISION = 0x0001;
+		static constexpr std::uint16_t WALL_COLLISION = 0x0002;
+		static constexpr std::uint16_t HURT_TERRAIN_COLLISION = 0x0003;
 	};
 
 	typedef unsigned int CollisionType;

@@ -216,6 +216,7 @@
     <ClCompile Include="source\sl\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\sl\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\sl\libs\tmx\tsx.c" />
+    <ClCompile Include="source\sl\mapping\TMXMap.cpp" />
     <ClCompile Include="source\sl\math\QuadTree.cpp" />
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp" />
     <ClCompile Include="source\sl\physics\Box2DManager.cpp" />
@@ -257,7 +258,7 @@
     <ClInclude Include="source\sl\debug\DebugInterface.hpp" />
     <ClInclude Include="source\sl\Events.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
-    <ClInclude Include="source\sl\events\CollisionTypes.hpp" />
+    <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
     <ClInclude Include="source\sl\events\EventManager.hpp" />
     <ClInclude Include="source\sl\events\EventTypes.hpp" />
     <ClInclude Include="source\sl\events\Keys.hpp" />
@@ -2555,7 +2556,7 @@
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\sl\libs\tmx\tsx.h" />
     <ClInclude Include="source\sl\Mapping.hpp" />
-    <ClInclude Include="source\sl\mapping\TMXUtils.hpp" />
+    <ClInclude Include="source\sl\mapping\TMXMap.hpp" />
     <ClInclude Include="source\sl\Math.hpp" />
     <ClInclude Include="source\sl\math\QuadTree.hpp" />
     <ClInclude Include="source\sl\math\Random.hpp" />

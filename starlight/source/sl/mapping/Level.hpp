@@ -11,13 +11,13 @@
 #define STARLIGHT_LEVEL_HPP_
 
 #include <string>
+#include <memory>
 
 #include "sl/math/Rect.hpp"
 
-typedef struct _tmx_map tmx_map;
-
 namespace sl
 {
+	class TMXMap;
 	class Level
 	{
 	public:
@@ -25,10 +25,9 @@ namespace sl
 		/// Level constructor.
 		///
 		/// \param bounds Bounds of level.
-		/// \param loadMap Load a map from mapFile.
 		/// \param mapFile Map file name in the virtual file system.
 		///
-		Level(const Rect<float, int>& bounds, bool loadMap = false, const std::string& mapFile = "");
+		Level(const Rect<float, int>& bounds, const std::string& mapFile = "", float lineThickness = 1.0f);
 
 		///
 		/// Destructor.
@@ -55,7 +54,7 @@ namespace sl
 		Level() = delete;
 
 	protected:
-		tmx_map* m_map;
+		std::unique_ptr<TMXMap> m_map;
 		Rect<float, int> m_bounds;
 	};
 }
