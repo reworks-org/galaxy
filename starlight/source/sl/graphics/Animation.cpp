@@ -33,7 +33,7 @@ namespace sl
 		{
 			frames.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_frames[pair.first.as<int>()] = pair.second.as<std::string_view>();
+				m_frames[pair.first.as<int>()] = pair.second.as<std::string>();
 			});
 		}
 		else
@@ -42,8 +42,18 @@ namespace sl
 		}
 	}
 
-	Animation::Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string_view>& frames)
+	Animation::Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string>& frames)
 		:m_isLooped(isLooped), m_speed(speed), m_timePerFrame(timePerFrame), m_totalFrames(totalFrames), m_currentFrame(currentFrame), m_frames(frames)
+	{
+	}
+
+	Animation::Animation(Animation&& animation)
+	:m_isLooped(animation.m_isLooped), m_speed(animation.m_speed), m_timePerFrame(animation.m_timePerFrame), m_totalFrames(animation.m_totalFrames), m_currentFrame(animation.m_currentFrame), m_frames(animation.m_frames)
+	{
+	}
+
+	Animation::Animation(const Animation& animation)
+	: m_isLooped(animation.m_isLooped), m_speed(animation.m_speed), m_timePerFrame(animation.m_timePerFrame), m_totalFrames(animation.m_totalFrames), m_currentFrame(animation.m_currentFrame), m_frames(animation.m_frames)
 	{
 	}
 }

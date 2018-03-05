@@ -176,7 +176,7 @@ namespace sl
 		m_world->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
 			sol::constructors<AnimationComponent(entt::Entity, const sol::table&)>(),
 			"changeAnimation", &AnimationComponent::changeAnimation,
-			"play", sol::overload(sol::resolve<void(void)>(&AnimationComponent::play), sol::resolve<void(std::string_view)>(&AnimationComponent::play)),
+			"play", sol::overload(sol::resolve<void(void)>(&AnimationComponent::play), sol::resolve<void(const std::string&)>(&AnimationComponent::play)),
 			"pause", &AnimationComponent::pause,
 			"stop", &AnimationComponent::stop,
 			"m_isPaused", &AnimationComponent::m_isPaused,

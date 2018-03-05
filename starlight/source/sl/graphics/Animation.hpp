@@ -34,7 +34,17 @@ namespace sl
 		/// \param currentFrame Current frame index.
 		/// \param frames A vector containing textureatlas ids of frames.
 		///
-		Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string_view>& frames);
+		Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string>& frames);
+
+		///
+		/// Copy Constructor.
+		///
+		Animation(Animation&& animation);
+
+		///
+		/// Move Constructor.
+		///
+		Animation(const Animation& animation);
 
 		///
 		/// Destructor.
@@ -65,7 +75,7 @@ namespace sl
 		unsigned int m_currentFrame;
 
 		/// Each frames name is a texture in the TextureAtlas.
-		std::vector<std::string_view> m_frames;
+		std::vector<std::string> m_frames;
 	};
 }
 

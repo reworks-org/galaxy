@@ -11,6 +11,14 @@
 	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
 	https://sol2.readthedocs.io/en/latest/tutorial/functions.html
 
-- implement custom hash tables instead of unordered_maps.
+- implement custom hash tables / hash maps instead of unordered_maps. -> this lets me write tests and proper documentation, comments etc
 - let debug menu load different levels
 - fix texture atlas texture loading from location manually specify
+- impletement data structures and put on github.
+- performance considerations with data structures.
+- write stl implementation for practice - focus on implementation reather than efficiency -> this lets me write tests and proper documentation, comments etc
+- raknet multiplayer
+- implement sparse set
+- switch from vulkan to opengl -> "Quasar" OpenGL Renderer -> this lets me write tests and proper documentation, comments etc
+- https://gyp.gsrc.io/
+- https://learnopengl.com/
