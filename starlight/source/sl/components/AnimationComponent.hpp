@@ -95,7 +95,7 @@ namespace sl
 		bool m_isPaused;
 		double m_currentFrameTime;
 		std::string m_activeAnimation;
-		std::unordered_map<std::string, Animation*> m_animations;
+		std::unordered_map<std::string, Animation> m_animations;
 	};
 }
 

@@ -29,7 +29,7 @@ namespace sl
 
 			if (!ac.m_isPaused)
 			{
-				Animation* animation = ac.m_animations.at(ac.m_activeAnimation);
+				Animation* animation = &(ac.m_animations.at(ac.m_activeAnimation));
 
 				auto timepassed = (dt * animation->m_speed);
 				ac.m_currentFrameTime += timepassed;

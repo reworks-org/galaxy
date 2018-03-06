@@ -28,7 +28,7 @@ namespace sl
 		{
 			animTable.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_animations.emplace(pair.first.as<std::string>(), new Animation{ pair.second.as<sol::table>() });
+				m_animations.emplace(pair.first.as<std::string>(), pair.second.as<sol::table>());
 			});
 		}
 		else
@@ -48,13 +48,16 @@ namespace sl
 			int subX = x + map->tiles[tile->animation[i].tile_id + 1]->ul_x;
 			int subY = y + map->tiles[tile->animation[i].tile_id + 1]->ul_y;
 
+			// not unique id
+
 			std::string id = layerName + "AnimatedTileInternal" + std::to_string(i);
 			Locator::m_textureAtlas->addRectToAtlas(id, { subX, subY, tileWidth, tileHeight });
 			frames.push_back(id);
-
-			Animation* anim = new Animation(true, 1.0f, static_cast<std::uint32_t>(tile->animation[i].duration), tile->animation_len, static_cast<unsigned int>(0), frames);
-			m_animations.emplace(id, anim);
 		}
+
+		// need unique id, multiple frames per animation, one animation per tile, thus each tile has 1 animation.
+		// need to add support in animationsystem for "AnimationFrame" which allows for frames to have different speeds.
+		m_animations.emplace(id, Animation{ true, 1.0f, static_cast<std::uint32_t>(tile->animation[i].duration), tile->animation_len, static_cast<unsigned int>(0), frames });
 
 		frames.shrink_to_fit(); // ensure no extra elements
 		m_activeAnimation = frames[0];
@@ -62,17 +65,12 @@ namespace sl
 
 	AnimationComponent::~AnimationComponent()
 	{
-		for (auto& pair : m_animations)
-		{
-			delete pair.second;
-		}
-
 		m_animations.clear();
 	}
 
 	void AnimationComponent::changeAnimation(const std::string& animation)
 	{
-		m_animations.at(m_activeAnimation)->m_currentFrame = 0;
+		m_animations.at(m_activeAnimation).m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
 		m_activeAnimation = animation;
 	}
@@ -100,7 +98,7 @@ namespace sl
 	void AnimationComponent::stop()
 	{
 		m_isPaused = true;
-		m_animations.at(m_activeAnimation)->m_currentFrame = 0;
+		m_animations.at(m_activeAnimation).m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
 	}
 
