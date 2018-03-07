@@ -36,6 +36,7 @@
     <ClCompile Include="source\sl\events\EventManager.cpp" />
     <ClCompile Include="source\sl\fs\VirtualFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
+    <ClCompile Include="source\sl\graphics\AnimationFrame.cpp" />
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
     <ClCompile Include="source\sl\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\sl\graphics\Window.cpp" />
@@ -258,6 +259,7 @@
     <ClInclude Include="source\sl\debug\DebugInterface.hpp" />
     <ClInclude Include="source\sl\Events.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
+    <ClInclude Include="source\sl\graphics\AnimationFrame.hpp" />
     <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
     <ClInclude Include="source\sl\events\EventManager.hpp" />
     <ClInclude Include="source\sl\events\EventTypes.hpp" />
@@ -2559,7 +2561,7 @@
     <ClInclude Include="source\sl\mapping\TMXMap.hpp" />
     <ClInclude Include="source\sl\Math.hpp" />
     <ClInclude Include="source\sl\math\QuadTree.hpp" />
-    <ClInclude Include="source\sl\math\Random.hpp" />
+    <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\math\Rect.hpp" />
     <ClInclude Include="source\sl\math\Vector2.hpp" />
     <ClInclude Include="source\sl\math\Vector3.hpp" />
@@ -2593,6 +2595,7 @@
     <ClInclude Include="source\sl\Utils.hpp" />
     <ClInclude Include="source\sl\utils\ConfigReader.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
+    <ClInclude Include="source\sl\utils\UniqueRandom.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />
     <ClInclude Include="source\Starlight.hpp" />
   </ItemGroup>

@@ -14,6 +14,7 @@
 #include "sl/utils/Utils.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/graphics/Window.hpp"
+#include "sl/utils/UniqueRandom.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
@@ -184,7 +185,6 @@ namespace sl
 	{
 		unsigned long i, j;
 		unsigned int gid, x, y, w, h, flags;
-		unsigned int counter = 0;
 		tmx_tileset *ts;
 		tmx_image *im;
 		std::string identifier;
@@ -259,7 +259,7 @@ namespace sl
 						y = pr.m_y + map->tiles[gid]->ul_y;
 
 						std::string id(layer->name);
-						id += "AnimatedTile" + std::to_string(counter);
+						id += "AnimatedTile" + std::to_string(UniqueRandom::random<unsigned int>(0, UINT_MAX));
 						Locator::m_textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 
 						entt::Entity animatedEntity = Locator::m_world->m_registry.create();
@@ -272,8 +272,6 @@ namespace sl
 						rc.m_renderTypes[0] = RenderTypes::SPRITE;
 
 						Locator::m_world->m_inUse.push_back(animatedEntity);
-
-						++counter;
 					}
 				}
 				else

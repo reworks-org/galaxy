@@ -23,7 +23,6 @@ namespace sl
 
 		m_isLooped = table.get<bool>("looped");
 		m_speed = table.get<float>("speed");
-		m_timePerFrame = table.get<std::uint32_t>("timePerFrame");
 		m_totalFrames = table.get<unsigned int>("totalFrames");
 
 		sol::table frames = table.get<sol::table>("frames");
@@ -33,7 +32,8 @@ namespace sl
 		{
 			frames.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_frames[pair.first.as<int>()] = pair.second.as<std::string>();
+				sol::table frameTable = pair.second.as<sol::table>();
+				m_frames[pair.first.as<int>()] = AnimationFrame{ frameTable.get<std::uint32_t>("timePerFrame"), frameTable.get<std::string>("frameTextureID") };
 			});
 		}
 		else
@@ -42,18 +42,18 @@ namespace sl
 		}
 	}
 
-	Animation::Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string>& frames)
-		:m_isLooped(isLooped), m_speed(speed), m_timePerFrame(timePerFrame), m_totalFrames(totalFrames), m_currentFrame(currentFrame), m_frames(frames)
+	Animation::Animation(bool isLooped, float speed, unsigned int totalFrames, unsigned int currentFrame, const std::vector<AnimationFrame>& frames)
+		:m_isLooped(isLooped), m_speed(speed), m_totalFrames(totalFrames), m_currentFrame(currentFrame), m_frames(frames)
 	{
 	}
 
 	Animation::Animation(Animation&& animation)
-	:m_isLooped(animation.m_isLooped), m_speed(animation.m_speed), m_timePerFrame(animation.m_timePerFrame), m_totalFrames(animation.m_totalFrames), m_currentFrame(animation.m_currentFrame), m_frames(animation.m_frames)
+	:m_isLooped(animation.m_isLooped), m_speed(animation.m_speed), m_totalFrames(animation.m_totalFrames), m_currentFrame(animation.m_currentFrame), m_frames(animation.m_frames)
 	{
 	}
 
 	Animation::Animation(const Animation& animation)
-	: m_isLooped(animation.m_isLooped), m_speed(animation.m_speed), m_timePerFrame(animation.m_timePerFrame), m_totalFrames(animation.m_totalFrames), m_currentFrame(animation.m_currentFrame), m_frames(animation.m_frames)
+	: m_isLooped(animation.m_isLooped), m_speed(animation.m_speed), m_totalFrames(animation.m_totalFrames), m_currentFrame(animation.m_currentFrame), m_frames(animation.m_frames)
 	{
 	}
 }

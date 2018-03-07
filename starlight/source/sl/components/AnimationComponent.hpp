@@ -33,7 +33,10 @@ namespace sl
 		AnimationComponent(entt::Entity entity, const sol::table& table);
 
 		///
-		/// Animated Tile Constructor.
+		/// \brief Animated Tile Constructor.
+		///
+		/// Please note that because this is used to construct an animated tile,
+		/// it only supports constructing ONE animation.
 		///
 		/// \param map Map data - needed to look up tiles.
 		/// \param tile A tmx_tile containing animation data required to construct component.

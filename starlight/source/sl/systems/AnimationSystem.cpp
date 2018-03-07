@@ -34,11 +34,13 @@ namespace sl
 				auto timepassed = (dt * animation->m_speed);
 				ac.m_currentFrameTime += timepassed;
 
-				if (ac.m_currentFrameTime >= time::milliseconds(animation->m_timePerFrame))
+				if (ac.m_currentFrameTime >= time::milliseconds(animation->m_frames[animation->m_currentFrame].m_timePerFrame))
 				{
 					ac.m_currentFrameTime = 0.0;
 					animation->m_currentFrame++;
 
+					// current frame is an index so we need to take 1 from total frames
+					// arrays start at 0!
 					if (animation->m_currentFrame > (animation->m_totalFrames - 1))
 					{
 						animation->m_currentFrame = 0;
@@ -49,7 +51,7 @@ namespace sl
 						}
 					}
 
-					sc.m_spriteName = animation->m_frames[animation->m_currentFrame];
+					sc.m_spriteName = animation->m_frames[animation->m_currentFrame].m_frameTextureID;
 				}
 			}
 		}

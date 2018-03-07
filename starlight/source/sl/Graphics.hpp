@@ -10,6 +10,7 @@
 #ifndef STARLIGHT_GRAPHICSHEADER_HPP_
 #define STARLIGHT_GRAPHICSHEADER_HPP_
 
+#include "sl/graphics/AnimationFrame.hpp"
 #include "sl/graphics/Animation.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/graphics/Shader.hpp"

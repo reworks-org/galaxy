@@ -663,6 +663,9 @@
     <ClCompile Include="source\sl\mapping\TMXMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\graphics\AnimationFrame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1482,9 +1485,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\math\QuadTree.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\math\Random.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\math\Rect.hpp">
@@ -7737,6 +7737,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\mapping\TMXMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\graphics\AnimationFrame.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\utils\Random.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\utils\UniqueRandom.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

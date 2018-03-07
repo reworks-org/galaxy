@@ -7,9 +7,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <climits>
+
 #include "sl/libs/tmx/tmx.h"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
+#include "sl/utils/UniqueRandom.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 
@@ -40,27 +43,21 @@ namespace sl
 	AnimationComponent::AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight, const std::string& layerName)
 		:m_currentFrameTime(0.0), m_isPaused(false)
 	{
-		std::vector<std::string> frames;
-		frames.reserve(tile->animation_len); // helps prevent too many reallocations
+		std::string aID = "AnimatedTile" + std::to_string(UniqueRandom::random<unsigned int>(0, UINT_MAX));
+		m_animations.emplace(aID, Animation{ true, 1.0f, tile->animation_len, static_cast<unsigned int>(0), std::vector<AnimationFrame>() });
+		m_animations.at(aID).m_frames.clear(); // ensure empty with default values
 
 		for (unsigned int i = 0; i < tile->animation_len; ++i)
 		{
 			int subX = x + map->tiles[tile->animation[i].tile_id + 1]->ul_x;
 			int subY = y + map->tiles[tile->animation[i].tile_id + 1]->ul_y;
 
-			// not unique id
-
-			std::string id = layerName + "AnimatedTileInternal" + std::to_string(i);
-			Locator::m_textureAtlas->addRectToAtlas(id, { subX, subY, tileWidth, tileHeight });
-			frames.push_back(id);
+			std::string iaID = layerName + "AnimatedTileInternal" + std::to_string(UniqueRandom::random<unsigned int>(0, UINT_MAX));
+			Locator::m_textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
+			m_animations.at(aID).m_frames.emplace_back(AnimationFrame{ static_cast<std::uint32_t>(tile->animation[i].duration), iaID});
 		}
-
-		// need unique id, multiple frames per animation, one animation per tile, thus each tile has 1 animation.
-		// need to add support in animationsystem for "AnimationFrame" which allows for frames to have different speeds.
-		m_animations.emplace(id, Animation{ true, 1.0f, static_cast<std::uint32_t>(tile->animation[i].duration), tile->animation_len, static_cast<unsigned int>(0), frames });
-
-		frames.shrink_to_fit(); // ensure no extra elements
-		m_activeAnimation = frames[0];
+		
+		m_activeAnimation = m_animations.at(aID).m_frames[0].m_frameTextureID;
 	}
 
 	AnimationComponent::~AnimationComponent()

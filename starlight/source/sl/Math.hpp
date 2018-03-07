@@ -11,7 +11,6 @@
 #define STARLIGHT_MATHHEADER_HPP_
 
 #include "sl/math/QuadTree.hpp"
-#include "sl/math/Random.hpp"
 #include "sl/math/Rect.hpp"
 #include "sl/math/Vector2.hpp"
 #include "sl/math/Vector3.hpp"

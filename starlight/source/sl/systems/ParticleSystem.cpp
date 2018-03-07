@@ -7,7 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/math/Random.hpp"
+#include "sl/utils/Random.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/graphics/RenderType.hpp"

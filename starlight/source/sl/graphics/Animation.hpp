@@ -11,6 +11,7 @@
 #define STARLIGHT_ANIMATION_HPP_
 
 #include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/graphics/AnimationFrame.hpp"
 
 namespace sl
 {
@@ -29,12 +30,11 @@ namespace sl
 		///
 		/// \param isLooped Should this animation be looping?
 		/// \param speed Speed to play the animation at, multiplier, so 1.0f is regular speed.
-		/// \param timePerFrame how many milliseconds in a frame.
 		/// \param totalFrames Total number of frames
 		/// \param currentFrame Current frame index.
-		/// \param frames A vector containing textureatlas ids of frames.
+		/// \param frames A vector containing AnimationFrames.
 		///
-		Animation(bool isLooped, float speed, std::uint32_t timePerFrame, unsigned int totalFrames, unsigned int currentFrame, const std::vector<std::string>& frames);
+		Animation(bool isLooped, float speed, unsigned int totalFrames, unsigned int currentFrame, const std::vector<AnimationFrame>& frames);
 
 		///
 		/// Copy Constructor.
@@ -65,17 +65,14 @@ namespace sl
 		/// Multiplier, so 1.0f is regular speed.
 		float m_speed;
 
-		/// How long for each frame in milliseconds.
-		std::uint32_t m_timePerFrame;
-
 		/// Total number of frames in animation.
 		unsigned int m_totalFrames;
 
 		/// current frame
 		unsigned int m_currentFrame;
 
-		/// Each frames name is a texture in the TextureAtlas.
-		std::vector<std::string> m_frames;
+		/// Each frame contains a duration and a textureID.
+		std::vector<AnimationFrame> m_frames;
 	};
 }
 
