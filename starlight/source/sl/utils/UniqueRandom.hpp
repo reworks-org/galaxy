@@ -41,9 +41,10 @@ namespace sl
 			conditional_distribution<T> dist(min, max);
 
 			T value = dist(mt);
-			auto result = std::find_if(m_usedNumbers.begin(), m_usedNumbers.end(), [&](const std::any& any) -> bool
+			auto result = std::find_if(m_usedNumbers.begin(), m_usedNumbers.end(), [&](std::any& any) -> bool
 			{
-				return (value == std::any_cast<T>(any));
+				T other = std::any_cast<T>(any);
+				return (value == other);
 			});
 
 			if (result != m_usedNumbers.end())
