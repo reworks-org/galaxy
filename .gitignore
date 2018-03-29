@@ -14,8 +14,6 @@ DerivedData/
 # Project stuff
 starlight/bin/
 starlight/build/
-packages/Allegro.5.2.3.1/
-packages/AllegroDeps.1.7.0.0/
 
 # Sandbox Stuff
 Sandbox/bin/Debug/

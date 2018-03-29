@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(PlatformToolset.Contains(v120))'">
+    <AllegroLib>$(MSBuildThisFileDirectory)v120\$(Platform)\deps\lib\</AllegroLib>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PlatformToolset.Contains(v140))'">
+    <AllegroLib>$(MSBuildThisFileDirectory)v140\$(Platform)\deps\lib\</AllegroLib>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PlatformToolset.Contains(v141))'">
+    <AllegroLib>$(MSBuildThisFileDirectory)v141\$(Platform)\deps\lib\</AllegroLib>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Allegro_LibraryType)'=='StaticMonolithRelease'">
+    <Allegro_AddonImageDeps>
+      $(AllegroLib)jpeg.lib;
+      $(AllegroLib)libpng16.lib;
+      $(AllegroLib)zlib.lib
+    </Allegro_AddonImageDeps>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Allegro_LibraryType)'=='StaticMonolithRelease'">
+    <Allegro_AddonTTFDeps>
+      $(AllegroLib)freetype.lib
+    </Allegro_AddonTTFDeps>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Allegro_LibraryType)'=='StaticMonolithRelease'">
+    <Allegro_AddonAcodecDeps>
+      $(AllegroLib)dumb.lib;
+      $(AllegroLib)FLAC.lib;
+      $(AllegroLib)vorbis.lib;
+      $(AllegroLib)vorbisfile.lib;
+      $(AllegroLib)ogg.lib;
+      $(AllegroLib)opus.lib;
+      $(AllegroLib)opusfile.lib
+    </Allegro_AddonAcodecDeps>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Allegro_LibraryType)'=='StaticMonolithRelease'">
+    <Allegro_AddonPhysfsDeps>
+      $(AllegroLib)physfs.lib
+    </Allegro_AddonPhysfsDeps>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Allegro_LibraryType)'=='StaticMonolithRelease'">
+    <Allegro_AddonVideoDeps>
+      $(AllegroLib)theoradec.lib
+    </Allegro_AddonVideoDeps>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>
+        $(MSBuildThisFileDirectory)\include\;
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>
+        $(Allegro_AddonImageDeps);
+        $(Allegro_AddonTTFDeps);
+        $(Allegro_AddonAcodecDeps);
+        $(Allegro_AddonPhysfsDeps);
+        $(Allegro_AddonVideoDeps);
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+</Project>
