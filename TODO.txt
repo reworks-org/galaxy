@@ -16,3 +16,5 @@
 	- how many entitys to create of each type from each script
 	- i.e. scripts are basicically templates for entity creation 
 	- reemove concepts of unique entityys
+
+- travis-ci / osx / linux builds
