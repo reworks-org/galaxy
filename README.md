@@ -4,4 +4,6 @@
 
 Game programming library using Allegro 5.2, Lua 5.3, and C++17.
 
+This project currently only supports Windows x64.
+
 ![starlight](logo.png?raw=true "starlight")
