@@ -167,7 +167,7 @@ namespace sl
 		al_flip_display();
 		al_set_target_backbuffer(Locator::m_window->getDisplay());
 
-		std::string id = "ObjectLayerNo" + std::to_string(poCounter);
+		std::string id = "ObjectLayerNo" + std::to_string(UniqueRandom::random<unsigned int>(0, UINT_MAX)) + std::to_string(poCounter);
 		Locator::m_textureAtlas->addTextureToAtlas(id, objects);
 
 		Locator::m_world->m_registry.assign<SpriteComponent>(entity, id, 1.0f);
