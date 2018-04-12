@@ -17,8 +17,8 @@ starlight/build/
 bin/
 
 # Sandbox Stuff
-Sandbox/bin/Debug/
-Sandbox/bin/Release/
-Sandbox/build/
-Sandbox/*.ini
-Sandbox/logs/
+sandbox/bin/Debug/
+sandbox/bin/Release/
+sandbox/build/
+sandbox/logs/
+sandbox/*.ini
