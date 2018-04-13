@@ -54,10 +54,10 @@ namespace sl
 
 			std::string iaID = layerName + "AnimatedTileInternal" + std::to_string(time::getTimeSinceEpoch());
 			Locator::m_textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
-			m_animations.at(aID).m_frames.emplace_back(AnimationFrame{ static_cast<std::uint32_t>(tile->animation[i].duration), iaID});
+			m_animations.at(aID).m_frames.emplace_back(AnimationFrame{ static_cast<std::uint32_t>(tile->animation[i].duration), iaID });
 		}
 		
-		m_activeAnimation = m_animations.at(aID).m_frames[0].m_frameTextureID;
+		m_activeAnimation = aID;
 	}
 
 	AnimationComponent::~AnimationComponent()

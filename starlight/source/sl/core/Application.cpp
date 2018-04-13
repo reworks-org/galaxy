@@ -274,6 +274,8 @@ namespace sl
 
 	int Application::run()
 	{
+		LOG_S(INFO) << "Starting main loop..." << "\n";
+
 		#ifndef NDEBUG
 			int frames = 0;
 			int updates = 0;
