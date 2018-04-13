@@ -11,10 +11,10 @@
 #include <allegro5/allegro_primitives.h>
 
 #include "sl/core/World.hpp"
+#include "sl/utils/Time.hpp"
 #include "sl/utils/Utils.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/graphics/Window.hpp"
-#include "sl/utils/UniqueRandom.hpp"
 #include "sl/graphics/RenderType.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
@@ -167,7 +167,7 @@ namespace sl
 		al_flip_display();
 		al_set_target_backbuffer(Locator::m_window->getDisplay());
 
-		std::string id = "ObjectLayerNo" + std::to_string(UniqueRandom::random<unsigned int>(0, UINT_MAX)) + std::to_string(poCounter);
+		std::string id = "ObjectLayerNo" + std::to_string(time::getTimeSinceEpoch()) + std::to_string(poCounter);
 		Locator::m_textureAtlas->addTextureToAtlas(id, objects);
 
 		Locator::m_world->m_registry.assign<SpriteComponent>(entity, id, 1.0f);
@@ -259,7 +259,7 @@ namespace sl
 						y = pr.m_y + map->tiles[gid]->ul_y;
 
 						std::string id(layer->name);
-						id += "AnimatedTile" + std::to_string(UniqueRandom::random<unsigned int>(0, UINT_MAX));
+						id += "AnimatedTile" + std::to_string(time::getTimeSinceEpoch());
 						Locator::m_textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 
 						entt::Entity animatedEntity = Locator::m_world->m_registry.create();

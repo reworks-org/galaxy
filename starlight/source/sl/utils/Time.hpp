@@ -138,6 +138,22 @@ namespace sl
 		}
 
 		///
+		/// \brief Returns High-Precision count of time passed since Epoch (Jan 1st, 1970).
+		///
+		/// Thanks to stackoverflow:
+		/// https://stackoverflow.com/a/41580187
+		///
+		/// \param t Another point in time to use.
+		///
+		/// \return double High Precision time passed since epoch.
+		///
+		inline constexpr double getTimeSinceEpoch(std::chrono::high_resolution_clock::time_point* t = nullptr)
+		{
+			using clock = std::chrono::high_resolution_clock;
+			return std::chrono::duration<double>((t != nullptr ? *t : clock::now()).time_since_epoch()).count();
+		}
+
+		///
 		/// \brief Get the current time and date.
 		///
 		/// In XX:YY DD/MM/YYYY format.

@@ -49,8 +49,8 @@ int main(int argc, char **argv)
 {
 	auto success = EXIT_FAILURE;
 	
-	//try
-	//{
+	try
+	{
 		Sandbox sandbox("bin/data.zip", "bin/config.cfg", [](std::ofstream& newConfig)
 		{
 			newConfig << "[graphics]" << std::endl;
@@ -97,16 +97,16 @@ int main(int argc, char **argv)
 		});
 
 		success = sandbox.run();
-	//}
-	//catch(const std::exception& e)
-	//{
-		//al_show_native_message_box(nullptr, "Runtime Exception", "Error Message:", e.what(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
-		//LOG_S(INFO) << "EXCEPTION OUTPUT: " << e.what();
-	//}
-	//catch (...)
-	//{
-		//LOG_S(WARNING) << "Threw an unknown exception. Why are you not inheriting from std::exception?";
-	//}
+	}
+	catch(const std::exception& e)
+	{
+		LOG_S(INFO) << "EXCEPTION OUTPUT: " << e.what();
+		al_show_native_message_box(nullptr, "Runtime Exception", "Error Message:", e.what(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+	}
+	catch (...)
+	{
+		LOG_S(WARNING) << "Threw an unknown exception. Why are you not inheriting from std::exception?";
+	}
 
 	return success;
 }
