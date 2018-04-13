@@ -43,8 +43,15 @@ namespace sl
 			T value = dist(mt);
 			auto result = std::find_if(UniqueRandom::m_usedNumbers.begin(), UniqueRandom::m_usedNumbers.end(), [&](std::any any) -> bool
 			{
-				T other = std::any_cast<T>(any);
-				return (value == other);
+				if (any.has_value())
+				{
+					T other = std::any_cast<T>(any);
+					return (value == other);
+				}
+				else
+				{
+					return false;
+				}
 			});
 
 			if (result != m_usedNumbers.end())
