@@ -40,7 +40,7 @@
 
 #ifndef AGUI_CURSOR_PROVIDER
 #define AGUI_CURSOR_PROVIDER
-#include "sl/libs/Agui/Platform.hpp"
+#include "Agui/Platform.hpp"
 namespace agui
 {
 	 /**

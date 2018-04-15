@@ -41,7 +41,7 @@
 #ifndef AGUI_EMPTY_WIDGET_HPP
 #define AGUI_EMPTY_WIDGET_HPP
 
-#include "sl/libs/Agui/Widget.hpp"
+#include "Agui/Widget.hpp"
 namespace agui {
 	/**
      * Simple dummy class for a widget.

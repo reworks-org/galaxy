@@ -20,8 +20,8 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // This file was generated with a script.
-// Generated 2018-04-02 01:52:17.091762 UTC
-// This header was generated with sol v2.19.5 (revision 612c123)
+// Generated 2018-04-13 18:36:16.720493 UTC
+// This header was generated with sol v2.19.5 (revision d9aef04)
 // https://github.com/ThePhD/sol2
 
 #ifndef SOL_SINGLE_INCLUDE_FORWARD_HPP
@@ -43,6 +43,15 @@
 #define SOL_NOEXCEPT_FUNCTION_TYPE 1
 #endif // noexcept is part of a function's type
 #endif // compiler-specific checks
+#if defined(__clang__) && defined(__APPLE__)
+#if defined(__has_include)
+#if __has_include(<variant>)
+#define SOL_STD_VARIANT 1
+#endif // has include nonsense
+#endif // __has_include
+#else
+#define SOL_STD_VARIANT 1
+#endif // Clang screws up variant
 #endif // C++17 only
 
 #ifdef _MSC_VER
@@ -210,26 +219,26 @@ namespace sol {
 	using main_protected_function = main_safe_function;
 	using stack_protected_function = stack_safe_function;
 	using stack_aligned_protected_function = stack_aligned_safe_function;
-	#ifdef SOL_SAFE_FUNCTION
+#ifdef SOL_SAFE_FUNCTION
 	using function = protected_function;
 	using main_function = main_protected_function;
 	using stack_function = stack_protected_function;
-	#else
+#else
 	using function = unsafe_function;
 	using main_function = main_unsafe_function;
 	using stack_function = stack_unsafe_function;
-	#endif
+#endif
 	using stack_aligned_function = stack_aligned_unsafe_function;
 	using stack_aligned_stack_handler_function = basic_protected_function<stack_reference, true, stack_reference>;
 
 	struct unsafe_function_result;
 	struct protected_function_result;
 	using safe_function_result = protected_function_result;
-	#ifdef SOL_SAFE_FUNCTION
+#ifdef SOL_SAFE_FUNCTION
 	using function_result = safe_function_result;
-	#else
+#else
 	using function_result = unsafe_function_result;
-	#endif
+#endif
 
 	template <typename base_t>
 	class basic_object;
@@ -284,6 +293,6 @@ namespace sol {
 	struct filter_wrapper;
 } // namespace sol
 
-  // end of sol/forward.hpp
+// end of sol/forward.hpp
 
 #endif // SOL_SINGLE_INCLUDE_FORWARD_HPP

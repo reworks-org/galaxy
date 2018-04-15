@@ -40,7 +40,7 @@
 
 #ifndef AGUI_CHECKBOX_LISTENER_HPP
 #define AGUI_CHECKBOX_LISTENER_HPP
-#include "sl/libs/Agui/Widgets/CheckBox/CheckBox.hpp"
+#include "Agui/Widgets/CheckBox/CheckBox.hpp"
 namespace agui {
 	/**
      * Abstract class for CheckBox Listeners.

@@ -42,7 +42,7 @@
 #define AGUI_GRAPHICS_HPP
 
 
-#include "sl/libs/Agui/BaseTypes.hpp"
+#include "Agui/BaseTypes.hpp"
 #include <stack>
 namespace agui {
 	/**

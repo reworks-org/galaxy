@@ -41,7 +41,7 @@
 #ifndef AGUI_GRID_LAYOUT_HPP
 #define AGUI_GRID_LAYOUT_HPP
 
-#include "sl/libs/Agui/Layout.hpp"
+#include "Agui/Layout.hpp"
 namespace agui
 {
 	/**

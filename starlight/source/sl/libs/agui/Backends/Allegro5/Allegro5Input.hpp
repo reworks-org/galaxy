@@ -40,7 +40,7 @@
 
 #ifndef AGUI_ALLEGRO5_INPUT
 #define AGUI_ALLEGRO5_INPUT
-#include "sl/libs/Agui/Input.hpp"
+#include "Agui/Input.hpp"
 #include <vector>
 
 #include <allegro5/allegro.h>

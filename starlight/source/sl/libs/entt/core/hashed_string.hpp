@@ -2,6 +2,7 @@
 #define ENTT_CORE_HASHED_STRING_HPP
 
 
+#include <cstddef>
 #include <cstdint>
 
 
@@ -50,7 +51,7 @@ public:
      * @tparam N Number of characters of the identifier.
      * @param str Human-readable identifer.
      */
-    template <size_t N>
+    template <std::size_t N>
     constexpr HashedString(const char (&str)[N]) noexcept
         : hash{helper(offset, str)}, str{str}
     {}

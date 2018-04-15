@@ -50,7 +50,9 @@ namespace sl
 
 	ALLEGRO_COLOUR TMXMap::intToColour(int colour, unsigned char opacity)
 	{
-		unsigned char r, g, b;
+		unsigned char r = 0;
+		unsigned char g = 0;
+		unsigned char b = 0;
 
 		r = (colour >> 16) & 0xFF;
 		g = (colour >> 8) & 0xFF;
@@ -183,12 +185,19 @@ namespace sl
 
 	void TMXMap::processLayer(tmx_map* map, tmx_layer* layer)
 	{
-		unsigned long i, j;
-		unsigned int gid, x, y, w, h, flags;
-		tmx_tileset *ts;
-		tmx_image *im;
+		unsigned long i = 0;
+		unsigned long j = 0;
+		unsigned int gid = 0;
+		unsigned int x = 0;
+		unsigned int y = 0;
+		unsigned int w = 0;
+		unsigned int h = 0;
+		unsigned int flags = 0;
+
+		tmx_tileset *ts = nullptr;
+		tmx_image *im = nullptr;
 		std::string identifier;
-		ALLEGRO_BITMAP* tileset;
+		ALLEGRO_BITMAP* tileset = nullptr;
 		float op = layer->opacity;
 
 		entt::Entity entity = Locator::m_world->m_registry.create();

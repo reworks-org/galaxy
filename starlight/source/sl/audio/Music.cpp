@@ -19,6 +19,7 @@
 namespace sl
 {
 	Music::Music(const sol::table& table)
+		:m_position(0), m_music(nullptr), m_instance(nullptr)
 	{
 		m_music = al_load_sample(table.get<const char*>("file"));
 		if (!m_music)

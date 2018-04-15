@@ -41,10 +41,10 @@
 #ifndef AGUI_ALLEGRO5_HPP
 #define AGUI_ALLEGRO5_HPP
 
-#include "sl/libs/Agui/Backends/Allegro5/Allegro5Graphics.hpp"
-#include "sl/libs/Agui/Backends/Allegro5/Allegro5ImageLoader.hpp"
-#include "sl/libs/Agui/Backends/Allegro5/Allegro5FontLoader.hpp"
-#include "sl/libs/Agui/Backends/Allegro5/Allegro5Input.hpp"
-#include "sl/libs/Agui/Backends/Allegro5/Allegro5CursorProvider.hpp"
+#include "Agui/Backends/Allegro5/Allegro5Graphics.hpp"
+#include "Agui/Backends/Allegro5/Allegro5ImageLoader.hpp"
+#include "Agui/Backends/Allegro5/Allegro5FontLoader.hpp"
+#include "Agui/Backends/Allegro5/Allegro5Input.hpp"
+#include "Agui/Backends/Allegro5/Allegro5CursorProvider.hpp"
 
 #endif

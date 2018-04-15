@@ -40,10 +40,10 @@
 
 #ifndef AGUI_RECTANGLE_HPP
 #define AGUI_RECTANGLE_HPP
-#include "sl/libs/Agui/Platform.hpp"
-#include "sl/libs/Agui/Point.hpp"
-#include "sl/libs/Agui/Dimension.hpp"
-#include "sl/libs/Agui/Color.hpp"
+#include "Agui/Platform.hpp"
+#include "Agui/Point.hpp"
+#include "Agui/Dimension.hpp"
+#include "Agui/Color.hpp"
 #include <stdlib.h>
 #include <string>
 #include <sstream>

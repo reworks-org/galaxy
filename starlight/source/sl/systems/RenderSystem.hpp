@@ -61,7 +61,6 @@ namespace sl
 
 	private:
 		QuadTree m_quadtree;
-		unsigned int m_layerCount;
 		unsigned int m_defaultAlloc;
 		std::vector<entt::Entity> m_entitys;
 	};

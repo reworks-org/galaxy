@@ -40,7 +40,7 @@
 
 #ifndef AGUI_HSCROLLBAR_LISTENER_HPP
 #define AGUI_HSCROLLBAR_LISTENER_HPP
-#include "sl/libs/Agui/Platform.hpp"
+#include "Agui/Platform.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC HScrollBar;
 	/**

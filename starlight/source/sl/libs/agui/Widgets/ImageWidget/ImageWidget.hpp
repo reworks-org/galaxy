@@ -41,8 +41,8 @@
 #ifndef AGUI_ImageWidget_HPP
 #define AGUI_ImageWidget_HPP
 
-#include "sl/libs/Agui/Widget.hpp"
-#include "sl/libs/Agui/EmptyWidget.hpp"
+#include "Agui/Widget.hpp"
+#include "Agui/EmptyWidget.hpp"
 namespace agui {
 	/**
 	 * Class that represents a Image as widget.

@@ -67,13 +67,12 @@ namespace cereal
     class CEREAL_DLL_EXPORT StaticObject
     {
       private:
-        //! Forces instantiation at pre-execution time
-        static void instantiate( T const & ) {}
 
         static T & create()
         {
           static T t;
-          instantiate(instance);
+          //! Forces instantiation at pre-execution time
+          (void)instance;
           return t;
         }
 
@@ -95,6 +94,7 @@ namespace cereal
             std::unique_lock<std::mutex> lock;
           #else
           public:
+	          LockGuard(LockGuard const &) = default; // prevents implicit copy ctor warning
             ~LockGuard() CEREAL_NOEXCEPT {} // prevents variable not used
           #endif
         };

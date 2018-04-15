@@ -40,7 +40,7 @@
 
 #ifndef AGUI_DIMENSION_HPP
 #define AGUI_DIMENSION_HPP
-#include "sl/libs/Agui/Platform.hpp"
+#include "Agui/Platform.hpp"
 #include <stdlib.h>
 #include <string>
 #include <sstream>

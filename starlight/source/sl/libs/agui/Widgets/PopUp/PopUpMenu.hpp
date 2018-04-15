@@ -41,10 +41,10 @@
 #ifndef AGUI_POPUP_MENU_HPP
 #define AGUI_POPUP_MENU_HPP
 
-#include "sl/libs/Agui/Widget.hpp"
-#include "sl/libs/Agui/Widgets/Button/Button.hpp"
-#include "sl/libs/Agui/Widgets/PopUp/PopUpMenuItem.hpp"
-#include "sl/libs/Agui/MouseListener.hpp"
+#include "Agui/Widget.hpp"
+#include "Agui/Widgets/Button/Button.hpp"
+#include "Agui/Widgets/PopUp/PopUpMenuItem.hpp"
+#include "Agui/MouseListener.hpp"
 namespace agui {
 
 	 /**

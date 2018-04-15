@@ -40,7 +40,7 @@
 
 #ifndef AGUI_UTF8_HPP
 #define AGUI_UTF8_HPP
-#include "sl/libs/Agui/Platform.hpp"
+#include "Agui/Platform.hpp"
 #include <stdlib.h>
 #include <string>
 namespace agui

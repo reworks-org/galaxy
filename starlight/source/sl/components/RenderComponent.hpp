@@ -24,7 +24,7 @@ namespace sl
 		///
 		/// Default constructor.
 		///
-		RenderComponent() = default;
+		RenderComponent() noexcept = default;
 
 		///
 		/// Constructor.

@@ -63,7 +63,7 @@
     (e.g. 32 vs 64 bit), which may use different underlying types for
     std::size_t.
 
-    More information can be found in sl/libs/cereal/details/helpers.hpp.
+    More information can be found in cereal/details/helpers.hpp.
 
     If you choose to modify this type, ensure that you use a fixed
     size type (e.g. uint32_t). */
@@ -131,5 +131,16 @@
     #endif // end CEREAL_HAS_NOEXCEPT
   #endif // end !defined(CEREAL_HAS_NOEXCEPT)
 #endif // ifndef CEREAL_NOEXCEPT
+
+// ######################################################################
+//! Checks if C++17 is available
+#if __cplusplus >= 201703L || (defined(_MSVC_LANG) && _MSVC_LANG >= 201703L)
+#define CEREAL_HAS_CPP17
+#endif
+
+//! Checks if C++14 is available
+#if __cplusplus >= 201402L
+#define CEREAL_HAS_CPP14
+#endif
 
 #endif // CEREAL_MACROS_HPP_

@@ -15,7 +15,7 @@
 namespace sl
 {
 	QuadTree::QuadTree(int level, Rect<float, int>& bounds, int maxLevels, int maxObjects)
-	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects)
+	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()
 	{
 		for (auto& elem : m_nodes)
 		{
@@ -24,7 +24,7 @@ namespace sl
 	}
 
 	QuadTree::QuadTree(int level, const Rect<float, int>& bounds, int maxLevels, int maxObjects)
-		:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects)
+		:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()
 	{
 		for (auto& elem : m_nodes)
 		{

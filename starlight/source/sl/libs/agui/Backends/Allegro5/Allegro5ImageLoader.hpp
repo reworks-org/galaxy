@@ -41,8 +41,8 @@
 #ifndef AGUI_ALLEGRO5_IMAGE_MANAGER_HPP
 #define AGUI_ALLEGRO5_IMAGE_MANAGER_HPP
 
-#include "sl/libs/Agui/ImageLoader.hpp"
-#include "sl/libs/Agui/Backends/Allegro5/Allegro5Image.hpp"
+#include "Agui/ImageLoader.hpp"
+#include "Agui/Backends/Allegro5/Allegro5Image.hpp"
 
 
 //Allegro 5 

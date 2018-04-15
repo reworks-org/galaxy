@@ -8,7 +8,7 @@
 
 #include <fstream>
 
-#include "cereal/archives/xml.hpp"
+#include "sl/libs/cereal/archives/xml.hpp"
 
 #include "re/core/World.hpp"
 #include "re/services/ServiceLocator.hpp"

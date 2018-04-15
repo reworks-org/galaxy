@@ -41,7 +41,7 @@
 #ifndef AGUI_EXTENDED_TEXTBOX_HPP
 #define AGUI_EXTENDED_TEXTBOX_HPP
 
-#include "sl/libs/Agui/Widgets/TextBox/TextBox.hpp"
+#include "Agui/Widgets/TextBox/TextBox.hpp"
 #include <map>
 namespace agui {
 	/**

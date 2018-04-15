@@ -41,7 +41,7 @@
 #ifndef AGUI_LABEL_HPP
 #define AGUI_LABEL_HPP
 
-#include "sl/libs/Agui/Widget.hpp"
+#include "Agui/Widget.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC LabelListener;
 

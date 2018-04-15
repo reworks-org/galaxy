@@ -152,7 +152,7 @@ Container data, large structs and tuples are hidden by default.
 		ImGui::Auto(R"code(
 	static float f = 3.14;
 	ImGui::Auto(f, "f");)code");
-		static float f = 3.14;
+		static float f = 3.14f;
 		ImGui::Auto(f, "f");
 
 		ImGui::NewLine(); ImGui::Separator();
@@ -283,7 +283,7 @@ Container data, large structs and tuples are hidden by default.
 		ImGui::Auto(R"code(
 	static std::array<float,5> farray = { 1.2, 3.4, 5.6, 7.8, 9.0 };
 	ImGui::Auto(farray, "std::array");)code");
-		static std::array<float, 5> farray = { 1.2, 3.4 , 5.6, 7.8, 9.0};
+		static std::array<float, 5> farray = { 1.2f, 3.4f , 5.6f, 7.8f, 9.0f};
 		ImGui::Auto(farray, "std::array");
 
 
@@ -292,7 +292,7 @@ Container data, large structs and tuples are hidden by default.
 		ImGui::Auto(R"code(
 	static float farr[5] = { 1.2, 3.4, 5.6, 7.8, 9.0 };
 	ImGui::Auto(farr, "float[5]");)code");
-		static float farr[5] = { 11.2, 3.4, 5.6, 7.8, 911.0 };
+		static float farr[5] = { 11.2f, 3.4f, 5.6f, 7.8f, 911.0f };
 		ImGui::Auto(farr, "float[5]");
 
 		ImGui::Unindent();

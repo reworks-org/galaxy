@@ -160,12 +160,12 @@ namespace sl
 		}
 
 		///
-		/// \brief Convert a std::string to any type.
+		/// \brief Convert a std::string to any numerical type.
 		///
 		/// Thanks to: https://gist.github.com/timofurrer/2725779
 		/// Some adjustments have been made.
 		///
-		/// \param data std::string containing type to convert.
+		/// \param data std::string containing a numerical type to convert.
 		///
 		/// \return Returns data as T type.
 		///
@@ -174,7 +174,7 @@ namespace sl
 		{
 			if (!data.empty())
 			{
-				T ret;
+				T ret = (T)0;
 
 				std::istringstream iss(data);
 				if (data.find("0x") != std::string::npos)

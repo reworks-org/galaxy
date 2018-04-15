@@ -10,7 +10,7 @@
 	https://sol2.readthedocs.io/en/latest/api/usertype.html
 	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
 	https://sol2.readthedocs.io/en/latest/tutorial/functions.html
-- category headers for v1.0.
+- fix category headers for v1.0.
 - let debug menu load different levels
 - entity creation scripts need to be generic
 	- how many entitys to create of each type from each script

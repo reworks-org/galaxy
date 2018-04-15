@@ -38,7 +38,7 @@
 
    (C) Copyright 2006 David Abrahams - http://www.boost.org.
 
-   See /sl/libs/boost/serialization/export.hpp and /sl/libs/boost/archive/detail/register_archive.hpp for their
+   See /boost/serialization/export.hpp and /boost/archive/detail/register_archive.hpp for their
    implementation.
 */
 

@@ -41,10 +41,10 @@
 #ifndef AGUI_VSCROLLBAR_HPP
 #define AGUI_VSCROLLBAR_HPP
 
-#include "sl/libs/Agui/Widget.hpp"
-#include "sl/libs/Agui/Widgets/Button/Button.hpp"
-#include "sl/libs/Agui/MouseListener.hpp"
-#include "sl/libs/Agui/Widgets/ScrollBar/VScrollBarListener.hpp"
+#include "Agui/Widget.hpp"
+#include "Agui/Widgets/Button/Button.hpp"
+#include "Agui/MouseListener.hpp"
+#include "Agui/Widgets/ScrollBar/VScrollBarListener.hpp"
 namespace agui {
 		/**
 	 * Class that represents a Vertical ScrollBar.

@@ -41,7 +41,7 @@
 #ifndef AGUI_TAB_HPP
 #define AGUI_TAB_HPP
 
-#include "sl/libs/Agui/Widget.hpp"
+#include "Agui/Widget.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC TabbedPane;
 	/**

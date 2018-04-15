@@ -11,7 +11,7 @@
 
 namespace sl
 {
-	EventManager::EventManager()
+	EventManager::EventManager() noexcept
 	{
 		m_queue = al_create_event_queue();
 		al_init_user_event_source(&m_userSource);
@@ -23,7 +23,7 @@ namespace sl
 		al_destroy_event_queue(m_queue);
 	}
 
-	void EventManager::emitEvent(EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4, void(*dtor)(ALLEGRO_USER_EVENT *))
+	void EventManager::emitEvent(EventType type, intptr_t data1, intptr_t data2, intptr_t data3, intptr_t data4, void(*dtor)(ALLEGRO_USER_EVENT *)) noexcept
 	{
 		ALLEGRO_EVENT ev;
 

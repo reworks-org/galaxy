@@ -28,7 +28,7 @@ namespace entt {
  * Example of use (pseudocode):
  *
  * @code{.cpp}
- * scheduler.attach([](auto delta, auto succeed, auto fail) {
+ * scheduler.attach([](auto delta, void *, auto succeed, auto fail) {
  *     // code
  * }).then<MyProcess>(arguments...);
  * @endcode
@@ -64,7 +64,7 @@ class Scheduler final {
         {}
 
         template<typename Proc, typename... Args>
-        decltype(auto) then(Args&&... args) && {
+        decltype(auto) then(Args &&... args) && {
             static_assert(std::is_base_of<Process<Proc, Delta>, Proc>::value, "!");
             handler = Lambda::operator()(handler, tag<Proc>{}, std::forward<Args>(args)...);
             return std::move(*this);
@@ -181,7 +181,7 @@ public:
      * // schedules a task in the form of a process class
      * scheduler.attach<MyProcess>(arguments...)
      * // appends a child in the form of a lambda function
-     * .then([](auto delta, auto succeed, auto fail) {
+     * .then([](auto delta, void *, auto succeed, auto fail) {
      *     // code
      * })
      * // appends a child in the form of another process class
@@ -194,7 +194,7 @@ public:
      * @return An opaque object to use to concatenate processes.
      */
     template<typename Proc, typename... Args>
-    auto attach(Args&&... args) {
+    auto attach(Args &&... args) {
         static_assert(std::is_base_of<Process<Proc, Delta>, Proc>::value, "!");
 
         auto proc = typename ProcessHandler::instance_type{new Proc{std::forward<Args>(args)...}, &Scheduler::deleter<Proc>};
@@ -237,11 +237,11 @@ public:
      *
      * @code{.cpp}
      * // schedules a task in the form of a lambda function
-     * scheduler.attach([](auto delta, auto succeed, auto fail) {
+     * scheduler.attach([](auto delta, void *, auto succeed, auto fail) {
      *     // code
      * })
      * // appends a child in the form of another lambda function
-     * .then([](auto delta, auto succeed, auto fail) {
+     * .then([](auto delta, void *, auto succeed, auto fail) {
      *     // code
      * })
      * // appends a child in the form of a process class
@@ -274,7 +274,7 @@ public:
     void update(Delta delta, void *data = nullptr) {
         bool clean = false;
 
-        for(auto pos = handlers.size(); pos > 0; --pos) {
+        for(auto pos = handlers.size(); pos; --pos) {
             auto &handler = handlers[pos-1];
             const bool dead = handler.update(handler, delta, data);
             clean = clean || dead;

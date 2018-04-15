@@ -19,6 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="source\sl\libs\cereal\external\rapidxml\manual.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
@@ -40,83 +47,6 @@
     <ClCompile Include="source\sl\graphics\Shader.cpp" />
     <ClCompile Include="source\sl\graphics\TextureAtlas.cpp" />
     <ClCompile Include="source\sl\graphics\Window.cpp" />
-    <ClCompile Include="source\sl\libs\agui\ActionEvent.cpp" />
-    <ClCompile Include="source\sl\libs\agui\ActionListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5CursorProvider.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5Font.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5FontLoader.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5Graphics.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5Image.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5ImageLoader.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Backends\Allegro5\Allegro5Input.cpp" />
-    <ClCompile Include="source\sl\libs\agui\BaseTypes.cpp" />
-    <ClCompile Include="source\sl\libs\agui\BlinkingEvent.cpp" />
-    <ClCompile Include="source\sl\libs\agui\BorderLayout.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Clipboard\Clipboard.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Clipboard\WinClipboard.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Color.cpp" />
-    <ClCompile Include="source\sl\libs\agui\CursorProvider.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Dimension.cpp" />
-    <ClCompile Include="source\sl\libs\agui\EmptyWidget.cpp" />
-    <ClCompile Include="source\sl\libs\agui\EventArgs.cpp" />
-    <ClCompile Include="source\sl\libs\agui\FlowLayout.cpp" />
-    <ClCompile Include="source\sl\libs\agui\FocusListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\FocusManager.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Font.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Graphics.cpp" />
-    <ClCompile Include="source\sl\libs\agui\GridLayout.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Gui.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Image.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Input.cpp" />
-    <ClCompile Include="source\sl\libs\agui\KeyboardListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Layout.cpp" />
-    <ClCompile Include="source\sl\libs\agui\MouseListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Point.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Rectangle.cpp" />
-    <ClCompile Include="source\sl\libs\agui\ResizableBorderLayout.cpp" />
-    <ClCompile Include="source\sl\libs\agui\ResizableText.cpp" />
-    <ClCompile Include="source\sl\libs\agui\SelectionListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\TableLayout.cpp" />
-    <ClCompile Include="source\sl\libs\agui\TapListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\TopContainer.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Transform.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widget.cpp" />
-    <ClCompile Include="source\sl\libs\agui\WidgetListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Button\Button.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Button\ButtonGroup.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Button\ButtonListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\CheckBox\CheckBox.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\CheckBox\CheckBoxListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\DropDown\DropDown.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\DropDown\DropDownListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Frame\Frame.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Frame\FrameListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ImageWidget\ImageWidget.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Label\Label.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Label\LabelListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ListBox\ListBox.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ListBox\ListBoxListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\PopUp\PopUpMenu.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\PopUp\PopUpMenuItem.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\RadioButton\RadioButton.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\RadioButton\RadioButtonGroup.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\RadioButton\RadioButtonListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ScrollBar\HScrollBar.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ScrollBar\HScrollBarListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ScrollBar\VScrollBar.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ScrollBar\VScrollBarListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ScrollPane\ScrollPane.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Slider\Slider.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Slider\SliderListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Tab\Tab.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Tab\TabbedPane.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\Tab\TabbedPaneListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\TextBox\ExtendedTextBox.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\TextBox\TextBox.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\TextBox\TextBoxListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\TextField\TextField.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\TextField\TextFieldListener.cpp" />
-    <ClCompile Include="source\sl\libs\agui\Widgets\ToolTip\ToolTip.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Collision\b2BroadPhase.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Collision\b2CollideCircle.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Collision\b2CollideEdge.cpp" />
@@ -217,6 +147,7 @@
     <ClCompile Include="source\sl\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\sl\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\sl\libs\tmx\tsx.c" />
+    <ClCompile Include="source\sl\mapping\Level.cpp" />
     <ClCompile Include="source\sl\mapping\TMXMap.cpp" />
     <ClCompile Include="source\sl\math\QuadTree.cpp" />
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp" />
@@ -234,7 +165,6 @@
     <ClCompile Include="source\sl\systems\PhysicsSystem.cpp" />
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
     <ClCompile Include="source\sl\tags\CameraTag.cpp" />
-    <ClCompile Include="source\sl\mapping\Level.cpp" />
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -259,8 +189,6 @@
     <ClInclude Include="source\sl\debug\DebugInterface.hpp" />
     <ClInclude Include="source\sl\Events.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
-    <ClInclude Include="source\sl\graphics\AnimationFrame.hpp" />
-    <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
     <ClInclude Include="source\sl\events\EventManager.hpp" />
     <ClInclude Include="source\sl\events\EventTypes.hpp" />
     <ClInclude Include="source\sl\events\Keys.hpp" />
@@ -270,6 +198,8 @@
     <ClInclude Include="source\sl\fs\VirtualFS.hpp" />
     <ClInclude Include="source\sl\Graphics.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
+    <ClInclude Include="source\sl\graphics\AnimationFrame.hpp" />
+    <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\sl\graphics\Window.hpp" />
@@ -284,6 +214,13 @@
     <ClInclude Include="source\sl\libs\agui\Backends\Allegro5\Allegro5Image.hpp" />
     <ClInclude Include="source\sl\libs\agui\Backends\Allegro5\Allegro5ImageLoader.hpp" />
     <ClInclude Include="source\sl\libs\agui\Backends\Allegro5\Allegro5Input.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2Font.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2FontLoader.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2Graphics.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2Image.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2ImageLoader.hpp" />
+    <ClInclude Include="source\sl\libs\agui\Backends\SFML2\SFML2Input.hpp" />
     <ClInclude Include="source\sl\libs\agui\BaseTypes.hpp" />
     <ClInclude Include="source\sl\libs\agui\BlinkingEvent.hpp" />
     <ClInclude Include="source\sl\libs\agui\BorderLayout.hpp" />
@@ -2470,9 +2407,9 @@
     <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="source\sl\libs\cereal\macros.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\array.hpp" />
+    <ClInclude Include="source\sl\libs\cereal\types\atomic.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\base_class.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\bitset.hpp" />
-    <ClInclude Include="source\sl\libs\cereal\types\boost_variant.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\chrono.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\common.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\complex.hpp" />
@@ -2483,6 +2420,7 @@
     <ClInclude Include="source\sl\libs\cereal\types\list.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\map.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\memory.hpp" />
+    <ClInclude Include="source\sl\libs\cereal\types\optional.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\polymorphic.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\queue.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\set.hpp" />
@@ -2493,18 +2431,31 @@
     <ClInclude Include="source\sl\libs\cereal\types\unordered_set.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\utility.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\valarray.hpp" />
+    <ClInclude Include="source\sl\libs\cereal\types\variant.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\vector.hpp" />
+    <ClInclude Include="source\sl\libs\cereal\version.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\family.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\ident.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\actor.hpp" />
+    <ClInclude Include="source\sl\libs\entt\entity\entt_traits.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\registry.hpp" />
+    <ClInclude Include="source\sl\libs\entt\entity\snapshot.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\sparse_set.hpp" />
-    <ClInclude Include="source\sl\libs\entt\entity\traits.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\view.hpp" />
     <ClInclude Include="source\sl\libs\entt\entt.hpp" />
+    <ClInclude Include="source\sl\libs\entt\locator\locator.hpp" />
     <ClInclude Include="source\sl\libs\entt\process\process.hpp" />
     <ClInclude Include="source\sl\libs\entt\process\scheduler.hpp" />
+    <ClInclude Include="source\sl\libs\entt\resource\cache.hpp" />
+    <ClInclude Include="source\sl\libs\entt\resource\handle.hpp" />
+    <ClInclude Include="source\sl\libs\entt\resource\loader.hpp" />
+    <ClInclude Include="source\sl\libs\entt\signal\bus.hpp" />
+    <ClInclude Include="source\sl\libs\entt\signal\delegate.hpp" />
+    <ClInclude Include="source\sl\libs\entt\signal\dispatcher.hpp" />
+    <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp" />
+    <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp" />
+    <ClInclude Include="source\sl\libs\entt\signal\signal.hpp" />
     <ClInclude Include="source\sl\libs\imgui\auto.h" />
     <ClInclude Include="source\sl\libs\imgui\auto\core.h" />
     <ClInclude Include="source\sl\libs\imgui\auto\impl_base.h" />
@@ -2558,10 +2509,10 @@
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\sl\libs\tmx\tsx.h" />
     <ClInclude Include="source\sl\Mapping.hpp" />
+    <ClInclude Include="source\sl\mapping\Level.hpp" />
     <ClInclude Include="source\sl\mapping\TMXMap.hpp" />
     <ClInclude Include="source\sl\Math.hpp" />
     <ClInclude Include="source\sl\math\QuadTree.hpp" />
-    <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\math\Rect.hpp" />
     <ClInclude Include="source\sl\math\Vector2.hpp" />
     <ClInclude Include="source\sl\math\Vector3.hpp" />
@@ -2569,6 +2520,7 @@
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp" />
     <ClInclude Include="source\sl\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\sl\physics\Box2DManager.hpp" />
+    <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
     <ClInclude Include="source\sl\Resources.hpp" />
     <ClInclude Include="source\sl\resources\FontBook.hpp" />
     <ClInclude Include="source\sl\resources\MusicPlayer.hpp" />
@@ -2587,19 +2539,15 @@
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
     <ClInclude Include="source\sl\Tags.hpp" />
     <ClInclude Include="source\sl\tags\CameraTag.hpp" />
-    <ClInclude Include="source\sl\mapping\Level.hpp" />
-    <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />
     <ClInclude Include="source\sl\Utils.hpp" />
     <ClInclude Include="source\sl\utils\ConfigReader.hpp" />
+    <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />
     <ClInclude Include="source\Starlight.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -2669,6 +2617,8 @@
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -2686,6 +2636,8 @@
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -2703,6 +2655,8 @@
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -2720,6 +2674,8 @@
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

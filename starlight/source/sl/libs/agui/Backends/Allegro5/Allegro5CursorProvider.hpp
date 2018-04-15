@@ -40,7 +40,7 @@
 
 #ifndef AGUI_ALLEGRO5_CURSOR_PROVIDER
 #define AGUI_ALLEGRO5_CURSOR_PROVIDER
-#include "sl/libs/Agui/CursorProvider.hpp"
+#include "Agui/CursorProvider.hpp"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro5.h>
 namespace agui

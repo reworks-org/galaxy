@@ -40,7 +40,7 @@
 
 #ifndef AGUI_BLINKING_EVENT_HPP
 #define AGUI_BLINKING_EVENT_HPP
-#include "sl/libs/Agui/Platform.hpp"
+#include "Agui/Platform.hpp"
 namespace agui
 {
 	

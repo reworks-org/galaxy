@@ -20,7 +20,7 @@
 namespace sl
 {
 	DebugInterface::DebugInterface(ALLEGRO_DISPLAY* display, bool isDisabled)
-	:m_reloadState(nullptr)
+	:m_reloadState(nullptr), m_disabled(isDisabled)
 	{
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;

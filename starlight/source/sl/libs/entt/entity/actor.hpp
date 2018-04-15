@@ -22,6 +22,8 @@ template<typename Entity, typename Delta>
 struct Actor {
     /*! @brief Type of registry used internally. */
     using registry_type = Registry<Entity>;
+    /*! @brief Underlying entity identifier. */
+    using entity_type = Entity;
     /*! @brief Type used to provide elapsed time. */
     using delta_type = Delta;
 
@@ -63,8 +65,8 @@ struct Actor {
      * @return A reference to the newly created component.
      */
     template<typename Component, typename... Args>
-    Component & set(Args&&... args) {
-        return reg.template accomodate<Component>(entity, std::forward<Args>(args)...);
+    Component & set(Args &&... args) {
+        return reg.template accommodate<Component>(entity, std::forward<Args>(args)...);
     }
 
     /**
@@ -143,7 +145,7 @@ private:
  * @tparam Delta Type to use to provide elapsed time.
  */
 template<typename Delta>
-using DefaultActor = Actor<std::uint32_t, Delta>;
+using DefaultActor = Actor<DefaultRegistry::entity_type, Delta>;
 
 
 }
