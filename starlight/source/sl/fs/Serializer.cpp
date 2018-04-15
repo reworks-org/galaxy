@@ -1,66 +1,32 @@
-//
-//  Serializer.cpp
-//  rework
-//
-//  Created by reworks on 9/11/2017.
-//  Copyright (c) 2017 reworks. All rights reserved.
-//
+///
+/// Serializer.cpp
+/// starlight
+///
+/// Created by reworks on 09/11/2017.
+/// MIT License.
+/// Refer to LICENSE.txt for more details.
+///
 
-#include <fstream>
-
-#include "sl/libs/cereal/archives/xml.hpp"
-
-#include "re/core/World.hpp"
-#include "re/services/ServiceLocator.hpp"
-
-#include "re/components/PhysicsComponent.hpp"
-#include "re/components/SerializeComponent.hpp"
-#include "re/components/TransformComponent.hpp"
+#include "sl/libs/cereal/archives/json.hpp"
 
 #include "Serializer.hpp"
 
-// https://uscilab.github.io/cereal/quickstart.html
+/*
+	https://github.com/skypjack/entt/blob/master/test/snapshot/snapshot.cpp
+*/
 
 namespace sl
 {
-	Serializer::Serializer(const std::string& savePath)
-	:m_savePath(savePath)
+	Serializer::Serializer(const std::string& saveFilePath) noexcept
+	:m_saveFilePath(saveFilePath)
 	{
 	}
 
-	Serializer::~Serializer()
+	void Serializer::createFrameworkSnapshot()
 	{
 	}
 
-	void Serializer::saveEntityData(const std::string& saveFile)
+	void Serializer::loadFrameworkSnapshot()
 	{
-		std::ofstream saveStream(m_savePath + saveFile);
-		cereal::XMLOutputArchive ar(saveStream);
-
-		Locator::get<World>()->m_entityManager.each<SerializeComponent, TransformComponent>([&](entityx::Entity entity, SerializeComponent& sc, TransformComponent& tc)
-		{
-			ar(cereal::make_nvp(sc.m_id, tc));
-		});
-
-		Locator::get<World>()->m_entityManager.each<SerializeComponent, PhysicsComponent>([&](entityx::Entity entity, SerializeComponent& sc, PhysicsComponent& pc)
-		{
-			ar(cereal::make_nvp(sc.m_id, pc));
-		});
-	}
-
-	void Serializer::loadEntityData(const std::string& saveFile)
-	{
-		std::ifstream loadStream(m_savePath + saveFile);
-		cereal::XMLInputArchive ar(loadStream);
-
-		Locator::get<World>()->m_entityManager.each<SerializeComponent, TransformComponent>([&](entityx::Entity entity, SerializeComponent& sc, TransformComponent& tc)
-		{
-			ar(cereal::make_nvp(sc.m_id, tc));
-		});
-
-		Locator::get<World>()->m_entityManager.each<SerializeComponent, PhysicsComponent>([&](entityx::Entity entity, SerializeComponent& sc, PhysicsComponent& pc)
-		{
-			ar(cereal::make_nvp(sc.m_id, pc));
-		});
 	}
 }

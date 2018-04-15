@@ -16,7 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="source\sl\libs\cereal\external\rapidxml\manual.html" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -440,6 +439,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\utils\ConfigReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\fs\Serializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -6987,9 +6989,6 @@
     <ClInclude Include="source\sl\libs\cereal\archives\portable_binary.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\cereal\archives\xml.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\cereal\details\helpers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -7111,18 +7110,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\cereal\external\rapidjson\writer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_iterators.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_print.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\cereal\external\base64.hpp">
@@ -7582,6 +7569,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\Starlight.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\fs\Serializer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

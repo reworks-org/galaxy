@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="source\sl\libs\cereal\external\rapidxml\manual.html" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -41,6 +40,7 @@
     <ClCompile Include="source\sl\core\World.cpp" />
     <ClCompile Include="source\sl\debug\DebugInterface.cpp" />
     <ClCompile Include="source\sl\events\EventManager.cpp" />
+    <ClCompile Include="source\sl\fs\Serializer.cpp" />
     <ClCompile Include="source\sl\fs\VirtualFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
     <ClCompile Include="source\sl\graphics\AnimationFrame.cpp" />
@@ -195,6 +195,7 @@
     <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp" />
     <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp" />
     <ClInclude Include="source\sl\FS.hpp" />
+    <ClInclude Include="source\sl\fs\Serializer.hpp" />
     <ClInclude Include="source\sl\fs\VirtualFS.hpp" />
     <ClInclude Include="source\sl\Graphics.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
@@ -2357,7 +2358,6 @@
     <ClInclude Include="source\sl\libs\cereal\archives\binary.hpp" />
     <ClInclude Include="source\sl\libs\cereal\archives\json.hpp" />
     <ClInclude Include="source\sl\libs\cereal\archives\portable_binary.hpp" />
-    <ClInclude Include="source\sl\libs\cereal\archives\xml.hpp" />
     <ClInclude Include="source\sl\libs\cereal\cereal.hpp" />
     <ClInclude Include="source\sl\libs\cereal\details\helpers.hpp" />
     <ClInclude Include="source\sl\libs\cereal\details\polymorphic_impl.hpp" />
@@ -2401,10 +2401,6 @@
     <ClInclude Include="source\sl\libs\cereal\external\rapidjson\stream.h" />
     <ClInclude Include="source\sl\libs\cereal\external\rapidjson\stringbuffer.h" />
     <ClInclude Include="source\sl\libs\cereal\external\rapidjson\writer.h" />
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml.hpp" />
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_iterators.hpp" />
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_print.hpp" />
-    <ClInclude Include="source\sl\libs\cereal\external\rapidxml\rapidxml_utils.hpp" />
     <ClInclude Include="source\sl\libs\cereal\macros.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\array.hpp" />
     <ClInclude Include="source\sl\libs\cereal\types\atomic.hpp" />
