@@ -12,6 +12,7 @@
 
 #include <unordered_map>
 
+#include "sl/libs/cereal/access.hpp"
 #include "sl/graphics/Animation.hpp"
 
 typedef struct _tmx_map tmx_map;
@@ -23,6 +24,8 @@ namespace sl
 {
 	class AnimationComponent final
 	{
+		friend class cereal::access;
+
 	public:
 		///
 		/// Animated Component Constructor.
@@ -93,6 +96,15 @@ namespace sl
 		/// Deleted.
 		///
 		AnimationComponent() = delete;
+
+		///
+		/// Cereal serialize function.
+		///
+		template <class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_isPaused, m_currentFrameTime, m_activeAnimation, m_animations);
+		}
 
 	public:
 		bool m_isPaused;

@@ -106,7 +106,7 @@ namespace rbp
 					bestScore1 = score1;
 					bestScore2 = score2;
 					bestNode = newNode;
-					bestRectIndex = i;
+					bestRectIndex = (int)i;
 				}
 			}
 

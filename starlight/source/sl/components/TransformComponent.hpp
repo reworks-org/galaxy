@@ -58,12 +58,12 @@ namespace sl
 		TransformComponent() = delete;
 
 		///
-		/// This method lets cereal know which data members to serialize.
+		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& archive)
+		void serialize(Archive& ar)
 		{
-			archive(m_rect.x, m_rect.y, m_rect.width, m_rect.height, m_angle);
+			ar(m_layer, m_angle, m_rect);
 		}
 
 	public:

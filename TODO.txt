@@ -18,3 +18,4 @@
 	- reemove concepts of unique entityys
 
 - travis-ci / osx / linux builds
+- ensure relevant classes are marked final

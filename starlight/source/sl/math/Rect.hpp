@@ -10,11 +10,15 @@
 #ifndef STARLIGHT_RECT_HPP_
 #define STARLIGHT_RECT_HPP_
 
+#include "sl/libs/cereal/access.hpp"
+
 namespace sl
 {
 	template<typename T1, typename T2 = T1>
 	class Rect
 	{
+		friend class cereal::access;
+
 	public:
 		///
 		/// Default constructor. Values are initialized to 0.
@@ -59,18 +63,27 @@ namespace sl
 		///
 		bool overlaps(const Rect<T1, T2>& b);
 
-	public:
-		T1 m_x;
-		T1 m_y;
-		T2 m_width;
-		T2 m_height;
-
 	private:
 		///
 		/// Private function to determine if value is in range.
 		/// From: https://stackoverflow.com/a/306379
 		///
 		bool valueInRange(T1 value, T1 min, T1 max);
+
+		///
+		/// Cereal serialize function.
+		///
+		template <class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_x, m_y, m_width, m_height);
+		}
+
+	public:
+		T1 m_x;
+		T1 m_y;
+		T2 m_width;
+		T2 m_height;
 	};
 
 	template<typename T1, typename T2>

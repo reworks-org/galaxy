@@ -13,10 +13,14 @@
 #include <string>
 #include <cinttypes>
 
+#include "sl/libs/cereal/access.hpp"
+
 namespace sl
 {
-	class AnimationFrame
+	class AnimationFrame final
 	{
+		friend class cereal::access;
+
 	public:
 		///
 		/// \brief Default Constructor.
@@ -48,6 +52,16 @@ namespace sl
 		/// Default move assignment overload.
 		///
 		AnimationFrame& operator=(const AnimationFrame&);
+
+	private:
+		///
+		/// Cereal serialize function.
+		/// 
+		template<class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_timePerFrame, m_frameTextureID);
+		}
 
 	public:
 		std::uint32_t m_timePerFrame;

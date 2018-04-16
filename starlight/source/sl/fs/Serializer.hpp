@@ -11,6 +11,7 @@
 #define STARLIGHT_SERIALIZER_HPP_
 
 #include "sl/libs/entt/entity/snapshot.hpp"
+#include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl
 {
@@ -34,14 +35,18 @@ namespace sl
 		///
 		/// You must override this in a derived class.
 		///
-		virtual void createGameSnapshot() = 0;
+		/// \param source Source registry to serialize entities from.
+		///
+		virtual void createGameSnapshot(const entt::DefaultRegistry& source) = 0;
 
 		///
 		/// \brief Load a snapshot for game specfic data.
 		///
 		/// You must override this in a derived class.
 		///
-		virtual	void loadGameSnapshot() = 0;
+		/// \param destination Destination registry to deserialize entities to.
+		///
+		virtual	void loadGameSnapshot(entt::DefaultRegistry& destination) = 0;
 
 	protected:
 		///
@@ -49,14 +54,20 @@ namespace sl
 		///
 		///  You need to call this in your user functions! This also calls entt snapshot api for you so no need to worry.
 		///
-		virtual void createFrameworkSnapshot() final;
+		/// \param archive Archive to write save data to.
+		/// \param source Source registry to serialize entities from.
+		///
+		virtual void createFrameworkSnapshot(cereal::JSONOutputArchive& archive, const entt::DefaultRegistry& source) final;
 
 		///
 		/// \brief Loads a snapshot of important data in the game engine and reads it into the game.
 		///
 		///  You need to call this in your user functions! This also calls entt snapshot api for you so no need to worry.
 		///
-		virtual void loadFrameworkSnapshot() final;
+		/// \param archive Archive to read save data from.
+		/// \param destination Destination registry to deserialize entities to.
+		///
+		virtual void loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination) final;
 
 	protected:
 		std::string m_saveFilePath;

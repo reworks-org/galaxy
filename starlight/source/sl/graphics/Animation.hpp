@@ -10,13 +10,16 @@
 #ifndef STARLIGHT_ANIMATION_HPP_
 #define STARLIGHT_ANIMATION_HPP_
 
+#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 #include "sl/graphics/AnimationFrame.hpp"
 
 namespace sl
 {
-	class Animation
+	class Animation final
 	{
+		friend class cereal::access;
+
 	public:
 		///
 		/// Constructor.
@@ -57,6 +60,15 @@ namespace sl
 		/// Deleted.
 		///
 		Animation() = delete;
+
+		///
+		/// Cereal serialize function.
+		///
+		template <class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_currentFrame, m_frames);
+		}
 
 	public:
 		/// True / False

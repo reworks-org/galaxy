@@ -52,23 +52,23 @@ namespace sl
 		PhysicsComponent() = delete;
 
 		///
-		/// This method lets cereal know which data members to save.
+		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void save(Archive& archive) const
+		void save(Archive& ar) const
 		{
-			archive(m_body->GetPosition().x, m_body->GetPosition().y, m_body->GetAngle(), m_body->GetAngularVelocity(), m_body->GetLinearVelocity().x, m_body->GetLinearVelocity().y);
+			ar(m_body->GetPosition().x, m_body->GetPosition().y, m_body->GetAngle(), m_body->GetAngularVelocity(), m_body->GetLinearVelocity().x, m_body->GetLinearVelocity().y);
 		}
 
 		///
-		/// This method lets cereal know which data members to load.
+		/// Cereal deserialize function.
 		///
 		template<class Archive>
-		void load(Archive& archive)
+		void load(Archive& ar)
 		{
 			float32 x, y, angle, angleVel, linearX, linearY = 0.0f;
 
-			archive(x, y, angle, angleVel, linearX, linearY);
+			ar(x, y, angle, angleVel, linearX, linearY);
 
 			m_body->SetTransform(b2Vec2(x, y), angle);
 			m_body->SetAngularVelocity(angleVel);

@@ -11,10 +11,6 @@
 
 #include "Serializer.hpp"
 
-/*
-	https://github.com/skypjack/entt/blob/master/test/snapshot/snapshot.cpp
-*/
-
 namespace sl
 {
 	Serializer::Serializer(const std::string& saveFilePath) noexcept
@@ -22,11 +18,12 @@ namespace sl
 	{
 	}
 
-	void Serializer::createFrameworkSnapshot()
+	void Serializer::createFrameworkSnapshot(cereal::JSONOutputArchive& archive, const entt::DefaultRegistry& source)
 	{
+		source.snapshot().entities(archive).destroyed(archive).component<>(archive).tag<>(archive);
 	}
 
-	void Serializer::loadFrameworkSnapshot()
+	void Serializer::loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination)
 	{
 	}
 }

@@ -44,7 +44,7 @@ namespace sl
 
 		if (m_bounds.m_x < 0) { m_bounds.m_x = 0; }
 		if (m_bounds.m_y < 0) { m_bounds.m_y = 0; }
-		if (m_bounds.m_x > level->getBounds().m_width - m_bounds.m_width) { m_bounds.m_x = level->getBounds().m_width - m_bounds.m_width; }
-		if (m_bounds.m_y > level->getBounds().m_height - m_bounds.m_height) { m_bounds.m_y = level->getBounds().m_height - m_bounds.m_height; }
+		if (m_bounds.m_x > level->getBounds().m_width - m_bounds.m_width) { m_bounds.m_x = (float)level->getBounds().m_width - (float)m_bounds.m_width; }
+		if (m_bounds.m_y > level->getBounds().m_height - m_bounds.m_height) { m_bounds.m_y = (float)level->getBounds().m_height - (float)m_bounds.m_height; }
 	}
 }
