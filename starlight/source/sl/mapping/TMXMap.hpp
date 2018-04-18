@@ -88,7 +88,7 @@ namespace sl
 		/// Process the object layer.
 		/// Please note collisions only support objects of type "OT_SQUARE" (rectangles).
 		///
-		void processObjects(tmx_map* map, tmx_object_group* objgr);
+		void processObjects(tmx_map* map, tmx_layer* layer);
 
 		///
 		/// Process a tile layer.

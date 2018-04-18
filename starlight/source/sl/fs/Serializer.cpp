@@ -25,5 +25,8 @@ namespace sl
 
 	void Serializer::loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination)
 	{
+		/*
+			continous mode pretty sure
+		*/
 	}
 }

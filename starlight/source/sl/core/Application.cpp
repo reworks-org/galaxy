@@ -333,7 +333,6 @@ namespace sl
 
 			m_debugInterface->newFrame();
 			m_debugInterface->displayMenu();
-
 			m_window->clear(255, 255, 255);
 
 			m_stateManager->render();

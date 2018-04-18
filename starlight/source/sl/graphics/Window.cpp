@@ -109,7 +109,7 @@ namespace sl
 			al_set_target_bitmap(m_fullscreenBuffer);
 		}
 
-		al_clear_to_color(al_map_rgb(r, g, b));
+		al_clear_to_color(al_map_rgba(r, g, b, 255));
 	}
 
 	void Window::display()

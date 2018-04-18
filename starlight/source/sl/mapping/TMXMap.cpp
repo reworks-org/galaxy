@@ -109,8 +109,9 @@ namespace sl
 		Locator::m_world->m_inUse.push_back(entity);
 	}
 
-	void TMXMap::processObjects(tmx_map* map, tmx_object_group* objgr)
+	void TMXMap::processObjects(tmx_map* map, tmx_layer* layer)
 	{
+		tmx_object_group* objgr = layer->content.objgr;
 		static unsigned int poCounter = 0;
 		unsigned int w = map->width * map->tile_width;
 		unsigned int h = map->height * map->tile_height;
@@ -119,7 +120,7 @@ namespace sl
 		tmx_object *head = objgr->head;
 
 		entt::Entity entity = Locator::m_world->m_registry.create();
-		Locator::m_world->m_registry.assign<TransformComponent>(entity, 9999, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
+		Locator::m_world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 		al_set_target_bitmap(objects);
@@ -316,7 +317,7 @@ namespace sl
 				}
 				else if (layers->type == L_OBJGR)
 				{
-					processObjects(m_internalMap, layers->content.objgr);
+					processObjects(m_internalMap, layers);
 				}
 				else if (layers->type == L_IMAGE)
 				{

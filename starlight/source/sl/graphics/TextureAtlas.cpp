@@ -80,7 +80,7 @@ namespace sl
 		al_set_target_bitmap(m_atlas);
 		al_draw_bitmap(textureData, packedRect.m_x, packedRect.m_y, 0);
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Locator::m_window->getDisplay()));
+		al_set_target_backbuffer(Locator::m_window->getDisplay());
 
 		m_resourceMap.emplace(entt::HashedString{ ID.c_str() }, packedRect);
 	}

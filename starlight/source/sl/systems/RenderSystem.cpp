@@ -47,26 +47,27 @@ namespace sl
 		m_entitys.clear(); 
 		m_entitys.reserve(view.size());
 
-		m_quadtree.updateBounds(Locator::m_world->m_currentLevel->getBounds());
+		//m_quadtree.updateBounds(Locator::m_world->m_currentLevel->getBounds());
 
 		for (entt::Entity entity : view)
 		{
-			m_quadtree.insert(entity);
+			//m_quadtree.insert(entity);
+			m_entitys.push_back(entity);
 		}
 
-		m_quadtree.retrieve(m_entitys, registry.get<CameraTag>().m_bounds);
+		//m_quadtree.retrieve(m_entitys, registry.get<CameraTag>().m_bounds);
 
 		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::Entity a, entt::Entity b)
 		{
-			return registry.get<TransformComponent>(a).m_layer < registry.get<TransformComponent>(b).m_layer;
+			return registry.get<TransformComponent>(a).m_layer > registry.get<TransformComponent>(b).m_layer;
 		});
 	}
 
 	void RenderSystem::render(entt::DefaultRegistry& registry)
 	{
 		al_hold_bitmap_drawing(true);
-		
-		for (entt::Entity entity : m_entitys)
+		// m_entitys
+		for (entt::Entity entity : registry.view<RenderComponent>())
 		{
 			auto& rc = registry.get<RenderComponent>(entity);
 			for (auto& type : rc.m_renderTypes)
@@ -79,7 +80,7 @@ namespace sl
 						auto& transformSprite = std::get<0>(sprtuple);
 						auto& spriteSprite = std::get<1>(sprtuple);
 
-						Locator::m_textureAtlas->al_draw_tinted_scaled_rotated_packed_bitmap(spriteSprite.m_spriteName, al_map_rgba_f(0.0f, 0.0f, 0.0f, spriteSprite.m_opacity), 0.0f, 0.0f, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 0.0f, 0.0f, transformSprite.m_angle, 0);
+						Locator::m_textureAtlas->al_draw_tinted_scaled_rotated_packed_bitmap(spriteSprite.m_spriteName, al_map_rgba_f(1.0f, 1.0f, 1.0f, spriteSprite.m_opacity), 0.0f, 0.0f, transformSprite.m_rect.m_x, transformSprite.m_rect.m_y, 1.0f, 1.0f, transformSprite.m_angle, 0);
 					}
 					break;
 
@@ -89,7 +90,7 @@ namespace sl
 						auto& transformText = std::get<0>(textuple);
 						auto& textText = std::get<1>(textuple);
 
-						Locator::m_textureAtlas->al_draw_tinted_scaled_rotated_packed_bitmap(textText.m_id, al_map_rgba_f(0.0f, 0.0f, 0.0f, 1.0f), 0.0f, 0.0f, transformText.m_rect.m_x, transformText.m_rect.m_y, 0.0f, 0.0f, transformText.m_angle, 0);
+						Locator::m_textureAtlas->al_draw_tinted_scaled_rotated_packed_bitmap(textText.m_id, al_map_rgba_f(1.0f, 1.0f, 1.0f, 1.0f), 0.0f, 0.0f, transformText.m_rect.m_x, transformText.m_rect.m_y, 1.0f, 1.0f, transformText.m_angle, 0);
 					}
 					break;
 
@@ -99,7 +100,7 @@ namespace sl
 						auto& transformParticle = std::get<0>(partuple);
 						auto& particle = std::get<1>(partuple);
 
-						Locator::m_textureAtlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(0.0f, 0.0f, 0.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
+						Locator::m_textureAtlas->al_draw_tinted_packed_bitmap(particle.m_id, al_map_rgba_f(1.0f, 1.0f, 1.0f, utils::customPercentage(particle.m_alpha, 0.0f, 255.0f)), transformParticle.m_rect.m_x, transformParticle.m_rect.m_y, 0);
 					}
 					break;
 

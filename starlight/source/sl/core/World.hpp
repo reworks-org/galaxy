@@ -217,6 +217,7 @@ namespace sl
 			else
 			{
 				LOG_S(WARNING) << "Attempted to access non-existent system.";
+				return nullptr;
 			}
 		#endif
 	}
