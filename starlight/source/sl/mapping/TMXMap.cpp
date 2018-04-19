@@ -124,7 +124,7 @@ namespace sl
 
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 		al_set_target_bitmap(objects);
-		al_clear_to_color(al_map_rgba(0, 0, 0, 0));
+		al_clear_to_color(al_map_rgba_f(1.0f, 1.0f, 1.0f, 0.0f));
 
 		while (head)
 		{
@@ -206,7 +206,7 @@ namespace sl
 
 		ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width * map->tile_width, map->height * map->tile_height);
 		al_set_target_bitmap(tileLayer);
-		al_clear_to_color(intToColour(map->backgroundcolor, op));
+		al_clear_to_color(intToColour(map->backgroundcolor, 0));
 		al_hold_bitmap_drawing(true);
 
 		for (i = 0; i<map->height; i++)

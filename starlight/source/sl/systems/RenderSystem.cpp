@@ -59,15 +59,16 @@ namespace sl
 
 		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::Entity a, entt::Entity b)
 		{
-			return registry.get<TransformComponent>(a).m_layer > registry.get<TransformComponent>(b).m_layer;
+			return registry.get<TransformComponent>(a).m_layer < registry.get<TransformComponent>(b).m_layer;
 		});
 	}
 
 	void RenderSystem::render(entt::DefaultRegistry& registry)
 	{
 		al_hold_bitmap_drawing(true);
+
 		// m_entitys
-		for (entt::Entity entity : registry.view<RenderComponent>())
+		for (entt::Entity entity : m_entitys)
 		{
 			auto& rc = registry.get<RenderComponent>(entity);
 			for (auto& type : rc.m_renderTypes)

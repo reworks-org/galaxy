@@ -330,10 +330,10 @@ namespace sl
 					break;
 				}
 			}
-
+			
 			m_debugInterface->newFrame();
 			m_debugInterface->displayMenu();
-			m_window->clear(255, 255, 255);
+			m_window->clear(0, 0, 0);
 
 			m_stateManager->render();
 			m_debugInterface->render();

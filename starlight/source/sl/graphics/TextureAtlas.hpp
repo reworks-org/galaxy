@@ -98,6 +98,14 @@ namespace sl
 		ALLEGRO_BITMAP* al_create_packed_sub_bitmap(const std::string& texture);
 
 		///
+		/// Draws the internal full texture atlas to the screen. Useful for debugging.
+		///
+		/// \param x X coord.
+		/// \param y Y coord.
+		///
+		void drawInternalTexture(float x = 0.0f, float y = 0.0f);
+
+		///
 		/// Clean up resources.
 		///
 		void clean() override;

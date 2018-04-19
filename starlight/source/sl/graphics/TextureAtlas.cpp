@@ -30,7 +30,7 @@ namespace sl
 
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
 		al_set_target_bitmap(m_atlas);
-		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
+		al_clear_to_color(al_map_rgba(255, 255, 255, 0));
 		
 		char** efl = PHYSFS_enumerateFiles("textures");
 
@@ -133,5 +133,10 @@ namespace sl
 	{
 		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);
+	}
+
+	void TextureAtlas::drawInternalTexture(float x, float y)
+	{
+		al_draw_bitmap(m_atlas, x, y, 0);
 	}
 }

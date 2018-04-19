@@ -109,7 +109,7 @@ namespace sl
 			al_set_target_bitmap(m_fullscreenBuffer);
 		}
 
-		al_clear_to_color(al_map_rgba(r, g, b, 255));
+		al_clear_to_color(al_map_rgba(r, g, b, 0));
 	}
 
 	void Window::display()
@@ -117,7 +117,7 @@ namespace sl
 		if (m_fullscreen)
 		{
 			al_set_target_bitmap(al_get_backbuffer(m_display));
-			al_clear_to_color(al_map_rgba(0, 0, 0, 255));
+			al_clear_to_color(al_map_rgba(0, 0, 0, 0));
 			al_draw_bitmap(m_fullscreenBuffer, m_fullscreenScale.m_x, m_fullscreenScale.m_y, 0);
 		}
 		
