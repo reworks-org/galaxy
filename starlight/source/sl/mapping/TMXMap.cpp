@@ -15,10 +15,9 @@
 #include "sl/utils/Utils.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/graphics/Window.hpp"
-#include "sl/graphics/RenderType.hpp"
+#include "sl/resources/FontBook.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
-#include "sl/components/SpriteComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
@@ -33,7 +32,7 @@ namespace sl
 	:m_lineThickness(lineThickness), m_internalMapData("")
 	{
 		//m_externalTileset = tmx_make_tileset_manager();
-		m_internalMapData = Locator::m_virtualFS->openAsString(mapFile);
+		m_internalMapData = Locator::virtualFS->openAsString(mapFile);
 		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), boost::numeric_cast<int>(m_internalMapData.size()));
 
 		if (!m_internalMap)
@@ -98,15 +97,11 @@ namespace sl
 	{
 		float op = layer->opacity;
 
-		entt::Entity entity = Locator::m_world->m_registry.create();
-		Locator::m_world->m_registry.assign<SpriteComponent>(entity, utils::removeExtension(layer->content.image->source), op);
-		Locator::m_world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
+		entt::Entity entity = Locator::world->m_registry.create();
+		Locator::world->m_registry.assign<RenderComponent>(entity, op, utils::removeExtension(layer->content.image->source));
+		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
 
-		RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(entity);
-		rc.m_renderTypes.resize(1);
-		rc.m_renderTypes[0] = RenderTypes::SPRITE;
-
-		Locator::m_world->m_inUse.push_back(entity);
+		Locator::world->m_inUse.push_back(entity);
 	}
 
 	void TMXMap::processObjects(tmx_map* map, tmx_layer* layer)
@@ -119,8 +114,8 @@ namespace sl
 		ALLEGRO_COLOR color = intToColour(objgr->color, 255);
 		tmx_object *head = objgr->head;
 
-		entt::Entity entity = Locator::m_world->m_registry.create();
-		Locator::m_world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
+		entt::Entity entity = Locator::world->m_registry.create();
+		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 		al_set_target_bitmap(objects);
@@ -132,16 +127,16 @@ namespace sl
 			{
 				if (head->obj_type == OT_SQUARE)
 				{
-					entt::Entity objentity = Locator::m_world->m_registry.create();
+					entt::Entity objentity = Locator::world->m_registry.create();
 
 					sol::state templua;
-					templua.script(Locator::m_virtualFS->openAsString(head->name));
+					templua.script(Locator::virtualFS->openAsString(head->name));
 					sol::table tempPO = templua.get<sol::table>("PhysicsObject");
 
 					if (!tempPO.empty())
 					{
-						Locator::m_world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempPO);
-						Locator::m_world->m_inUse.push_back(objentity);
+						Locator::world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempPO);
+						Locator::world->m_inUse.push_back(objentity);
 					}
 					else
 					{
@@ -162,23 +157,39 @@ namespace sl
 				{
 					al_draw_ellipse(head->x + head->width / 2.0, head->y + head->height / 2.0, head->width / 2.0, head->height / 2.0, color, m_lineThickness);
 				}
+				else if (head->obj_type == OT_TEXT)
+				{
+					// first we stop drawing the current bitmap
+					al_flip_display();
+					
+					tmx_text* textElement = head->content.text;
+					std::string objTextID = "ObjectLayerText" + std::to_string(time::getTimeSinceEpoch()) + std::string(textElement->text);
+
+					std::string objTextFont = std::string(textElement->fontfamily) + std::to_string(textElement->pixelsize);
+					objTextFont.erase(std::remove_if(objTextFont.begin(), objTextFont.end(), isspace), objTextFont.end());
+
+					Locator::textureAtlas->addTextToAtlas(objTextID, textElement->text, Locator::fontBook->get(entt::HashedString{ objTextFont.c_str() }), intToColour(textElement->color, 255));
+
+					entt::Entity objText = Locator::world->m_registry.create();
+					Locator::world->m_registry.assign<RenderComponent>(objText, 1.0f, objTextID);
+					Locator::world->m_registry.assign<TransformComponent>(objText, tmx_get_property(layer->properties, "layer")->value.integer, static_cast<float>(head->rotation), Rect<float, int>{ static_cast<float>(head->x), static_cast<float>(head->y), boost::numeric_cast<int>(head->width), boost::numeric_cast<int>(head->height) });
+
+					// then we continue drawing, but don't clear it.
+					al_set_target_bitmap(objects);
+				}
 			}
 
 			head = head->next;
 		}
 
 		al_flip_display();
-		al_set_target_backbuffer(Locator::m_window->getDisplay());
+		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		std::string id = "ObjectLayerNo" + std::to_string(time::getTimeSinceEpoch()) + std::to_string(poCounter);
-		Locator::m_textureAtlas->addTextureToAtlas(id, objects);
+		Locator::textureAtlas->addTextureToAtlas(id, objects);
 
-		Locator::m_world->m_registry.assign<SpriteComponent>(entity, id, 1.0f);
-		RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(entity);
-		rc.m_renderTypes.resize(1);
-		rc.m_renderTypes[0] = RenderTypes::SPRITE;
-
-		Locator::m_world->m_inUse.push_back(entity);
+		Locator::world->m_registry.assign<RenderComponent>(entity, 1.0f, id);
+		Locator::world->m_inUse.push_back(entity);
 
 		al_destroy_bitmap(objects);
 		++poCounter;
@@ -201,8 +212,8 @@ namespace sl
 		ALLEGRO_BITMAP* tileset = nullptr;
 		float op = layer->opacity;
 
-		entt::Entity entity = Locator::m_world->m_registry.create();
-		Locator::m_world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
+		entt::Entity entity = Locator::world->m_registry.create();
+		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
 
 		ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width * map->tile_width, map->height * map->tile_height);
 		al_set_target_bitmap(tileLayer);
@@ -228,7 +239,7 @@ namespace sl
 						if (im)
 						{
 							identifier = utils::removeExtension(im->source);
-							tileset = Locator::m_textureAtlas->al_create_packed_sub_bitmap(identifier);
+							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 						else
 						{
@@ -236,11 +247,11 @@ namespace sl
 							/*
 							if (utils::getExtension(ts->image->source) == ".tsx")
 							{
-								std::string data = Locator::m_virtualFS->openAsString(ts->image->source);
+								std::string data = Locator::virtualFS->openAsString(ts->image->source);
 								tmx_load_tileset_buffer(m_externalTilesets, data.c_str(), boost::numeric_cast<int>(data.size()), identifier);
 							}
 							*/
-							tileset = Locator::m_textureAtlas->al_create_packed_sub_bitmap(identifier);
+							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 
 						flags = gidExtractFlags(layer->content.gids[(i*map->width) + j]);
@@ -264,24 +275,20 @@ namespace sl
 						}
 
 						entt::HashedString hs{ identifier.c_str() };
-						Rect<int> pr = Locator::m_textureAtlas->get(hs);
+						Rect<int> pr = Locator::textureAtlas->get(hs);
 						x = pr.m_x + map->tiles[gid]->ul_x;
 						y = pr.m_y + map->tiles[gid]->ul_y;
 
 						std::string id(layer->name);
 						id += "AnimatedTile" + std::to_string(time::getTimeSinceEpoch());
-						Locator::m_textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
+						Locator::textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 
-						entt::Entity animatedEntity = Locator::m_world->m_registry.create();
-						Locator::m_world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
-						Locator::m_world->m_registry.assign<SpriteComponent>(animatedEntity, id, op);
-						Locator::m_world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
+						entt::Entity animatedEntity = Locator::world->m_registry.create();
+						Locator::world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
+						Locator::world->m_registry.assign<RenderComponent>(animatedEntity, op, id);
+						Locator::world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
 
-						RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(animatedEntity);
-						rc.m_renderTypes.resize(1);
-						rc.m_renderTypes[0] = RenderTypes::SPRITE;
-
-						Locator::m_world->m_inUse.push_back(animatedEntity);
+						Locator::world->m_inUse.push_back(animatedEntity);
 					}
 				}
 				else
@@ -293,16 +300,12 @@ namespace sl
 
 		al_hold_bitmap_drawing(false);
 		al_flip_display();
-		al_set_target_backbuffer(Locator::m_window->getDisplay());
-		Locator::m_textureAtlas->addTextureToAtlas(layer->name, tileLayer);
+		al_set_target_backbuffer(Locator::window->getDisplay());
+		Locator::textureAtlas->addTextureToAtlas(layer->name, tileLayer);
 		al_destroy_bitmap(tileLayer);
 
-		Locator::m_world->m_registry.assign<SpriteComponent>(entity, layer->name, op);
-		RenderComponent& rc = Locator::m_world->m_registry.assign<RenderComponent>(entity);
-		rc.m_renderTypes.resize(1);
-		rc.m_renderTypes[0] = RenderTypes::SPRITE;
-
-		Locator::m_world->m_inUse.push_back(entity);
+		Locator::world->m_registry.assign<RenderComponent>(entity, op, layer->name);
+		Locator::world->m_inUse.push_back(entity);
 	}
 
 	void TMXMap::processAllLayers(tmx_layer* layers)

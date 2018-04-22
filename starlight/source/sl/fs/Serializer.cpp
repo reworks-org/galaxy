@@ -7,6 +7,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/components/PhysicsComponent.hpp"
+#include "sl/components/AnimationComponent.hpp"
+#include "sl/components/TransformComponent.hpp"
+
 #include "sl/libs/cereal/archives/json.hpp"
 
 #include "Serializer.hpp"
@@ -20,13 +24,12 @@ namespace sl
 
 	void Serializer::createFrameworkSnapshot(cereal::JSONOutputArchive& archive, const entt::DefaultRegistry& source)
 	{
-		source.snapshot().entities(archive).destroyed(archive).component<>(archive).tag<>(archive);
+		//source.snapshot().entities(archive).destroyed(archive).component<AnimationComponent, PhysicsComponent, TransformComponent>(archive).tag<>(archive);
 	}
 
 	void Serializer::loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination)
 	{
-		/*
-			continous mode pretty sure
-		*/
+		//entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
+		//loader.entities(archive).destroyed(archive).component<AnimationComponent, PhysicsComponent, TransformComponent>(archive).tag<>(archive);
 	}
 }

@@ -1,5 +1,4 @@
 - implement serialization
-	- wait on entt serialization capabilities
 - need to document all classes aswell
 - profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 - fix up and rewrite sandbox to test all parts of engine
@@ -10,6 +9,9 @@
 	https://sol2.readthedocs.io/en/latest/api/usertype.html
 	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
 	https://sol2.readthedocs.io/en/latest/tutorial/functions.html
+	- allow for creating entities in lua.
+	- even assigning components!
+
 - fix category headers for v1.0.
 - let debug menu load different levels
 - entity creation scripts need to be generic
@@ -20,3 +22,11 @@
 - travis-ci / osx / linux builds
 - ensure relevant classes are marked final noexcept
 - improved documentation
+- improve rendering system -> make renderable components inherit from a renderanleComponent? then that contains the right data
+	- much faster! much wow.
+- patch out debug systems in realease mode? or have config option in release mode set to false by default?
+- uhh figure out shaders completely forgot about them. woops.
+- string view
+- fix update method registry view iteration
+- adjust text rendering
+- adjust text loading from tmxmaps

@@ -14,9 +14,7 @@
 #include "sl/tags/CameraTag.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
-#include "sl/components/TextComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
-#include "sl/components/SpriteComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/ParallaxComponent.hpp"
@@ -36,8 +34,6 @@ namespace sl
 		registerComponent<ParticleComponent>("ParticleComponent");
 		registerComponent<PhysicsComponent>("PhysicsComponent");
 		registerComponent<RenderComponent>("RenderComponent");
-		registerComponent<SpriteComponent>("SpriteComponent");
-		registerComponent<TextComponent>("TextComponent");
 		registerComponent<TransformComponent>("TransformComponent");
 
 		registerTag<CameraTag>("CameraTag");
@@ -46,7 +42,7 @@ namespace sl
 	void World::createEntity(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::m_virtualFS->openAsString(script));
+		lua.script(Locator::virtualFS->openAsString(script));
 		
 		entt::Entity entity = m_registry.create();
 		sol::table components = lua.get<sol::table>("entity");
@@ -81,7 +77,7 @@ namespace sl
 	void World::createEntities(const std::string& batchScript)
 	{	
 		sol::state lua;
-		lua.script(Locator::m_virtualFS->openAsString(batchScript));
+		lua.script(Locator::virtualFS->openAsString(batchScript));
 
 		sol::table world = lua.get<sol::table>("world");
 		sol::table entityList = world.get<sol::table>("entitys");

@@ -20,7 +20,7 @@ namespace sl
 	SoundPlayer::SoundPlayer(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::m_virtualFS->openAsString(script));
+		lua.script(Locator::virtualFS->openAsString(script));
 		sol::table sounds = lua.get<sol::table>("sounds");
 
 		if (!sounds.empty())

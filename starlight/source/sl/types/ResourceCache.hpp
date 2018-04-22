@@ -36,7 +36,19 @@ namespace sl
 		///
 		inline typename utils::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(entt::HashedString id)
 		{
-			return m_resourceMap[id];
+			#ifdef NDEBUG
+				return m_resourceMap[id];
+			#else
+				if (m_resourceMap.find(id) != m_resourceMap.end())
+				{
+					return m_resourceMap[id];
+				}
+				else
+				{
+					LOG_S(WARNING) << "Attempted to access a non-existant resource: " << *id;
+					return m_resourceMap.at(id); // we use at here because it throws an exception
+				}
+			#endif
 		}
 
 		///

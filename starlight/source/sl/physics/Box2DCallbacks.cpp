@@ -25,7 +25,7 @@ namespace sl
 		entt::Entity* a = static_cast<entt::Entity*>(fixtureA->GetUserData());
 		entt::Entity* b = static_cast<entt::Entity*>(fixtureB->GetUserData());
 		
-		Locator::m_eventManager->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
+		Locator::eventManager->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
 		{  
 			delete (CollisionEvent*)uev->data1;
 		});

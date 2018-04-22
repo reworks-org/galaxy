@@ -18,7 +18,7 @@ namespace sl
 	ShaderLibrary::ShaderLibrary(const std::string& script)
 	{
 		sol::state lua;
-		lua.script(Locator::m_virtualFS->openAsString(script));
+		lua.script(Locator::virtualFS->openAsString(script));
 		sol::table shaders = lua.get<sol::table>("shaders");
 
 		if (!shaders.empty())

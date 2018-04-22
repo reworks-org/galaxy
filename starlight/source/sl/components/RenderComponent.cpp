@@ -15,10 +15,13 @@ namespace sl
 {
 	RenderComponent::RenderComponent(entt::Entity entity, const sol::table& table)
 	{
-		table.for_each([&](sol::object key, sol::object value)
-		{
-			m_renderTypes.push_back(value.as<unsigned int>());
-		});
+		m_opacity = table.get<float>("opacity");
+		m_textureName = table.get<std::string>("textureName");
+	}
+
+	RenderComponent::RenderComponent(float opacity, const std::string& textureName)
+		:m_opacity(opacity), m_textureName(textureName)
+	{
 	}
 
 	RenderComponent& RenderComponent::operator=(const RenderComponent&)

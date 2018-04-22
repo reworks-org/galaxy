@@ -32,8 +32,6 @@
     <ClCompile Include="source\sl\components\ParticleComponent.cpp" />
     <ClCompile Include="source\sl\components\PhysicsComponent.cpp" />
     <ClCompile Include="source\sl\components\RenderComponent.cpp" />
-    <ClCompile Include="source\sl\components\SpriteComponent.cpp" />
-    <ClCompile Include="source\sl\components\TextComponent.cpp" />
     <ClCompile Include="source\sl\components\TransformComponent.cpp" />
     <ClCompile Include="source\sl\core\Application.cpp" />
     <ClCompile Include="source\sl\core\StateManager.cpp" />
@@ -177,8 +175,6 @@
     <ClInclude Include="source\sl\components\ParticleComponent.hpp" />
     <ClInclude Include="source\sl\components\PhysicsComponent.hpp" />
     <ClInclude Include="source\sl\components\RenderComponent.hpp" />
-    <ClInclude Include="source\sl\components\SpriteComponent.hpp" />
-    <ClInclude Include="source\sl\components\TextComponent.hpp" />
     <ClInclude Include="source\sl\components\TransformComponent.hpp" />
     <ClInclude Include="source\sl\Core.hpp" />
     <ClInclude Include="source\sl\core\Application.hpp" />
@@ -200,7 +196,6 @@
     <ClInclude Include="source\sl\Graphics.hpp" />
     <ClInclude Include="source\sl\graphics\Animation.hpp" />
     <ClInclude Include="source\sl\graphics\AnimationFrame.hpp" />
-    <ClInclude Include="source\sl\graphics\RenderType.hpp" />
     <ClInclude Include="source\sl\graphics\Shader.hpp" />
     <ClInclude Include="source\sl\graphics\TextureAtlas.hpp" />
     <ClInclude Include="source\sl\graphics\Window.hpp" />
@@ -2535,6 +2530,7 @@
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
     <ClInclude Include="source\sl\Tags.hpp" />
     <ClInclude Include="source\sl\tags\CameraTag.hpp" />
+    <ClInclude Include="source\sl\types\Renderable.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />

@@ -30,9 +30,9 @@ namespace sl
 	{
 		if (functionScript != "")
 		{
-			Locator::m_world->m_lua.script(Locator::m_virtualFS->openAsString(functionScript));
+			Locator::world->m_lua.script(Locator::virtualFS->openAsString(functionScript));
 
-			sol::table funcs = Locator::m_world->m_lua.get<sol::table>("physicsFuncs");
+			sol::table funcs = Locator::world->m_lua.get<sol::table>("physicsFuncs");
 			funcs.for_each([this](sol::object key, sol::object value)
 			{
 				sol::table funcTable = value.as<sol::table>();
@@ -41,10 +41,10 @@ namespace sl
 				std::uint16_t second = funcTable.get<std::uint16_t>("second");
 				std::string id = funcTable.get<std::string>("id");
 
-				m_collisions.emplace(std::make_pair(first, second), Locator::m_world->m_lua.get<sol::function>(id));
+				m_collisions.emplace(std::make_pair(first, second), Locator::world->m_lua.get<sol::function>(id));
 
 				// Now we need to emplace the reverse in case collision happens the other way.
-				m_collisions.emplace(std::make_pair(second, first), Locator::m_world->m_lua.get<sol::function>(id));
+				m_collisions.emplace(std::make_pair(second, first), Locator::world->m_lua.get<sol::function>(id));
 			});
 		}
 		else
@@ -66,7 +66,7 @@ namespace sl
 
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		Locator::m_box2dManager->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
+		Locator::box2dManager->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 		
 		auto view = registry.view<PhysicsComponent, TransformComponent>();
 		for (entt::Entity entity : view)

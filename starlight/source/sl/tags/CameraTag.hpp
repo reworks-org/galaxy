@@ -11,6 +11,7 @@
 #define REWORK_CAMERATAG_HPP_
 
 #include "sl/math/Rect.hpp"
+#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
@@ -18,6 +19,7 @@ namespace sl
 	class CameraTag final
 	{
 		friend class CameraSystem;
+		friend class cereal::access;
 	public:
 		///
 		/// Constructor.
@@ -55,6 +57,15 @@ namespace sl
 		/// We use the base type rather than the typedef to avoid includes.
 		///
 		void update(unsigned int playerEntity);
+
+		///
+		/// Cereal serialize function.
+		///
+		template<class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_bounds);
+		}
 
 	public:
 		Rect<float, int> m_bounds;

@@ -26,6 +26,12 @@ namespace sl
 	class VirtualFS;
 	class DebugInterface;
 
+	///
+	/// Provides access to services in the framework.
+	/// This does not follow typical member variable naming (no 'm_' prefix)
+	/// So that the code looks nicer when using the Locator. E.g:
+	/// Locator::world-> vs Locator::world->
+	///
 	class Locator
 	{
 	public:
@@ -54,19 +60,19 @@ namespace sl
 		Locator(Locator&&) = delete;
 
 	public:
-		static inline World* m_world = nullptr;
-		static inline Window* m_window = nullptr;
-		static inline Box2DManager* m_box2dManager = nullptr;
-		static inline ConfigReader* m_configReader = nullptr;
-		static inline EventManager* m_eventManager = nullptr;
-		static inline FontBook* m_fontBook = nullptr;
-		static inline MusicPlayer* m_musicPlayer = nullptr;
-		static inline ShaderLibrary* m_shaderLibrary = nullptr;
-		static inline SoundPlayer* m_soundPlayer = nullptr;
-		static inline StateManager* m_stateManager = nullptr;
-		static inline TextureAtlas* m_textureAtlas = nullptr;
-		static inline VirtualFS* m_virtualFS = nullptr;
-		static inline DebugInterface* m_debugInterface = nullptr;
+		static inline World* world = nullptr;
+		static inline Window* window = nullptr;
+		static inline Box2DManager* box2dManager = nullptr;
+		static inline ConfigReader* configReader = nullptr;
+		static inline EventManager* eventManager = nullptr;
+		static inline FontBook* fontBook = nullptr;
+		static inline MusicPlayer* musicPlayer = nullptr;
+		static inline ShaderLibrary* shaderLibrary = nullptr;
+		static inline SoundPlayer* soundPlayer = nullptr;
+		static inline StateManager* stateManager = nullptr;
+		static inline TextureAtlas* textureAtlas = nullptr;
+		static inline VirtualFS* virtualFS = nullptr;
+		static inline DebugInterface* debugInterface = nullptr;
 	};
 }
 

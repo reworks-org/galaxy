@@ -22,7 +22,7 @@ namespace sl
 
 	Box2DManager::~Box2DManager()
 	{
-		Locator::m_world->m_registry.view<PhysicsComponent>().each([this](entt::Entity entity, PhysicsComponent& pc)
+		Locator::world->m_registry.view<PhysicsComponent>().each([this](entt::Entity entity, PhysicsComponent& pc)
 		{
 			for (b2Fixture* f = pc.m_body->GetFixtureList(); f; f = f->GetNext())
 			{

@@ -53,7 +53,7 @@ namespace sl
 			int subY = y + map->tiles[tile->animation[i].tile_id + 1]->ul_y;
 
 			std::string iaID = layerName + "AnimatedTileInternal" + std::to_string(time::getTimeSinceEpoch());
-			Locator::m_textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
+			Locator::textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
 			m_animations.at(aID).m_frames.emplace_back(AnimationFrame{ static_cast<std::uint32_t>(tile->animation[i].duration), iaID });
 		}
 		

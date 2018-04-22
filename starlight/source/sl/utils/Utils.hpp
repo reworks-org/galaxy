@@ -87,12 +87,12 @@ namespace sl
 		/// \param min The value representing 0%.
 		/// \param max The value representing 100%.
 		/// 
-		/// \return Returns the percentage of the value in that range.
+		/// \return Returns the percentage of the value in that range betwen 0 and 1. E.g. 39% is 0.39.
 		///
 		template<typename T>
 		inline constexpr T customPercentage(T input, T min, T max)
 		{
-			return (((input - min) * 100) / (max - min));
+			return ((input - min) / (max - min));
 		}
 
 		///

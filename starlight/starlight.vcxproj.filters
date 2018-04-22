@@ -42,12 +42,6 @@
     <ClCompile Include="source\sl\components\RenderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\components\SpriteComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\components\TextComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\components\TransformComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -467,12 +461,6 @@
     <ClInclude Include="source\sl\components\RenderComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\components\SpriteComponent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\components\TextComponent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\components\TransformComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -516,9 +504,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\graphics\AnimationFrame.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\graphics\RenderType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\graphics\Shader.hpp">
@@ -7572,6 +7557,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\fs\Serializer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\types\Renderable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

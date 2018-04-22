@@ -12,6 +12,7 @@
 
 #include <vector>
 
+#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
 namespace entt { typedef std::uint32_t Entity; }
@@ -20,12 +21,8 @@ namespace sl
 {
 	class RenderComponent final
 	{
+		friend class cereal::access;
 	public:
-		///
-		/// Default constructor.
-		///
-		RenderComponent() noexcept = default;
-
 		///
 		/// Constructor.
 		///
@@ -33,6 +30,14 @@ namespace sl
 		/// \param table sol::table containing data.
 		/// 
 		RenderComponent(entt::Entity entity, const sol::table& table);
+
+		///
+		/// Alternate Constructor.
+		///
+		/// \param opacity Opacity of Texture / Sprite Texture.
+		/// \param textureName Name of the sprite in the VFS.
+		///
+		RenderComponent(float opacity, const std::string& textureName);
 
 		///
 		/// Destructor.
@@ -44,8 +49,24 @@ namespace sl
 		///
 		RenderComponent& operator=(const RenderComponent&);
 
+	private:
+		///
+		/// Default constructor.
+		///
+		RenderComponent() = delete;
+
+		///
+		/// Cereal serialize function.
+		///
+		template<class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_opacity, m_textureName);
+		}
+
 	public:
-		std::vector<unsigned int> m_renderTypes;
+		float m_opacity;
+		std::string m_textureName;
 	};
 }
 

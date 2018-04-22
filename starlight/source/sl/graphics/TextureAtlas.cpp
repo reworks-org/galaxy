@@ -57,7 +57,7 @@ namespace sl
 		}
 
 		al_flip_display();
-		al_set_target_bitmap(al_get_backbuffer(Locator::m_window->getDisplay()));
+		al_set_target_bitmap(al_get_backbuffer(Locator::window->getDisplay()));
 		
 		PHYSFS_freeList(efl);
 	}
@@ -80,7 +80,7 @@ namespace sl
 		al_set_target_bitmap(m_atlas);
 		al_draw_bitmap(textureData, packedRect.m_x, packedRect.m_y, 0);
 		al_flip_display();
-		al_set_target_backbuffer(Locator::m_window->getDisplay());
+		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		m_resourceMap.emplace(entt::HashedString{ ID.c_str() }, packedRect);
 	}
@@ -92,7 +92,7 @@ namespace sl
 		ALLEGRO_BITMAP* bitmap = al_create_bitmap(w, h);
 		
 		al_set_target_bitmap(bitmap);
-		al_clear_to_color(al_map_rgba(255, 255, 255, 255));
+		al_clear_to_color(al_map_rgba(255, 255, 255, 0));
 		al_draw_text(font, col, 0, 0, 0, text.c_str());
 		al_flip_display();
 

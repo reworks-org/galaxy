@@ -40,7 +40,7 @@ namespace sl
 			break;
 		}
 		
-		m_body = Locator::m_box2dManager->m_b2world->CreateBody(&bodyDef);
+		m_body = Locator::box2dManager->m_b2world->CreateBody(&bodyDef);
 
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		if (!fixtureList.empty())

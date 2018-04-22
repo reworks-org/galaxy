@@ -67,7 +67,7 @@ namespace sl
 		if (ImGui::Button("Reset game"))
 		{
 			m_reloadFunc();
-			Locator::m_stateManager->reloadState(m_reloadState);
+			Locator::stateManager->reloadState(m_reloadState);
 		}
 
 		if(ImGui::Button("Open Console"))

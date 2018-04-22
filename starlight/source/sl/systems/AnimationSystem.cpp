@@ -8,7 +8,7 @@
 ///
 
 #include "sl/utils/Time.hpp"
-#include "sl/components/SpriteComponent.hpp"
+#include "sl/components/RenderComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 
 #include "AnimationSystem.hpp"
@@ -21,11 +21,11 @@ namespace sl
 
 	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		auto view = registry.view<AnimationComponent, SpriteComponent>();
+		auto view = registry.view<AnimationComponent, RenderComponent>();
 		for (entt::Entity entity : view)
 		{
 			AnimationComponent& ac = view.get<AnimationComponent>(entity);
-			SpriteComponent& sc = view.get<SpriteComponent>(entity);
+			RenderComponent& rc = view.get<RenderComponent>(entity);
 
 			if (!ac.m_isPaused)
 			{
@@ -51,7 +51,7 @@ namespace sl
 						}
 					}
 
-					sc.m_spriteName = animation->m_frames[animation->m_currentFrame].m_frameTextureID;
+					rc.m_textureName = animation->m_frames[animation->m_currentFrame].m_frameTextureID;
 				}
 			}
 		}

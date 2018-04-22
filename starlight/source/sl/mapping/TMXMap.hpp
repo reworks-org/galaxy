@@ -87,6 +87,7 @@ namespace sl
 		///
 		/// Process the object layer.
 		/// Please note collisions only support objects of type "OT_SQUARE" (rectangles).
+		/// When loading texts, fonts must be named: FontfamilySize e.g. Arial18
 		///
 		void processObjects(tmx_map* map, tmx_layer* layer);
 

@@ -38,11 +38,9 @@ namespace sl
 		///
 		/// \param dx Direction of particle x.
 		/// \param dy Direction of particle y.
-		/// \param alpha Alpha value (opacity).
 		/// \param fade How much to reduce the alpha by per 1/60th a second.
-		/// \param id ID of particle texture in atlas.
 		///
-		ParticleComponent(float dx, float dy, float alpha, float fade, const std::string& id);
+		ParticleComponent(float dx, float dy, float fade);
 
 		///
 		/// Destructor.
@@ -63,10 +61,7 @@ namespace sl
 
 	public:
 		float m_fade;
-		float m_alpha;
 		Vector2<float> m_direction;
-
-		std::string m_id;
 	};
 }
 

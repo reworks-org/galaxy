@@ -56,7 +56,8 @@ namespace sl
 		int m_layer;
 
 		///
-		/// How much to reduce the alpha by per 1/60th a second.
+		/// How much to reduce the alpha by per 1/60th a second. 
+		/// Remember opacity is from 0.0f to 1.0f.
 		///
 		float m_fade;
 	};
