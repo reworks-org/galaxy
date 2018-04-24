@@ -87,7 +87,11 @@ namespace sl
 		///
 		/// Process the object layer.
 		/// Please note collisions only support objects of type "OT_SQUARE" (rectangles).
-		/// When loading texts, fonts must be named: FontfamilySize e.g. Arial18
+		/// When loading texts, fonts are named FontFamily then Size in points.
+		/// So when naming fonts make sure they are the same as the font family name specificed in the tmx, WITHOUT SPACES!
+		/// So for example, a font family named "Sans Serif" and pixel size of 37 means your table name in fonts.lua should be:
+		/// SansSerif27. You can get the font point size and pixel size from the tmx map. 
+		/// The info box on the left when selecting text shows u font family and pixel size, and if you click onthe text it will show you font point size.
 		///
 		void processObjects(tmx_map* map, tmx_layer* layer);
 

@@ -63,7 +63,6 @@ namespace sl
 	{
 		al_hold_bitmap_drawing(true);
 
-		// m_entitys
 		for (entt::Entity& entity : m_entitys)
 		{
 			auto& rc = registry.get<RenderComponent>(entity);

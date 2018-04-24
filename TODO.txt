@@ -28,5 +28,5 @@
 - uhh figure out shaders completely forgot about them. woops.
 - string view
 - fix update method registry view iteration
-- adjust text rendering
-- adjust text loading from tmxmaps
+- text loading from tmx maps
+- fix quadtree rendering

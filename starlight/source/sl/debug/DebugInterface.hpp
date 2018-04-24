@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_DEBUGINTERFACE_HPP_
 #define STARLIGHT_DEBUGINTERFACE_HPP_
 
+#ifndef NDEBUG
+
 #include <functional>
 
 union ALLEGRO_EVENT;
@@ -82,5 +84,7 @@ namespace sl
 		std::shared_ptr<BaseState> m_reloadState;
     };
 }
+
+#endif
 
 #endif

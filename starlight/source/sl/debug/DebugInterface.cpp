@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#ifndef NDEBUG
+
 #include <allegro5/events.h>
 #include <allegro5/display.h>
 
@@ -86,3 +88,5 @@ namespace sl
 		m_reloadFunc = func;
 	}
 }
+
+#endif

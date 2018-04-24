@@ -74,8 +74,10 @@ namespace sl
 		m_world = std::make_unique<World>();
 		Locator::world = m_world.get();
 
-		m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
-		Locator::debugInterface = m_debugInterface.get();
+		#ifndef NDEBUG
+			m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+			Locator::debugInterface = m_debugInterface.get();
+		#endif
 
 		m_stateManager = std::make_unique<StateManager>();
 		Locator::stateManager = m_stateManager.get();
@@ -237,7 +239,11 @@ namespace sl
 		m_fontBook.reset();
 		m_textureAtlas.reset();
 		m_stateManager.reset();
-		m_debugInterface.reset();
+		
+		#ifndef NDEBUG
+			m_debugInterface.reset();
+		#endif
+
 		m_world.reset();
 		m_window.reset();
 		m_configReader.reset();
@@ -289,8 +295,11 @@ namespace sl
 			{
 				m_world->event(&ev);
 				m_stateManager->event(&ev);
-				m_debugInterface->event(&ev);
-				
+
+				#ifndef NDEBUG
+					m_debugInterface->event(&ev);
+				#endif
+
 				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
@@ -308,19 +317,32 @@ namespace sl
 					break;
 
 				case ALLEGRO_EVENT_DISPLAY_RESIZE:
-					ImGui_ImplA5_InvalidateDeviceObjects();
+					#ifndef NDEBUG
+						ImGui_ImplA5_InvalidateDeviceObjects();
+					#endif
+					
 					al_acknowledge_resize(m_window->getDisplay());
-					Imgui_ImplA5_CreateDeviceObjects();
-					break;
+					
+					#ifndef NDEBUG
+						Imgui_ImplA5_CreateDeviceObjects();
+					#endif
+
+				break;
 				}
 			}
 			
-			m_debugInterface->newFrame();
-			m_debugInterface->displayMenu();
+			#ifndef NDEBUG
+				m_debugInterface->newFrame();
+				m_debugInterface->displayMenu();
+			#endif
+
 			m_window->clear(0, 0, 0);
 
 			m_stateManager->render();
-			m_debugInterface->render();
+
+			#ifndef NDEBUG
+				m_debugInterface->render();
+			#endif
 
 			m_window->display();
 

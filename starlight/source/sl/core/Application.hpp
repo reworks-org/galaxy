@@ -90,7 +90,9 @@ namespace sl
 		std::unique_ptr<StateManager> m_stateManager;
 		std::unique_ptr<TextureAtlas> m_textureAtlas;
 		std::unique_ptr<VirtualFS> m_virtualFS;
-		std::unique_ptr<DebugInterface> m_debugInterface;
+		#ifndef NDEBUG
+			std::unique_ptr<DebugInterface> m_debugInterface;
+		#endif
 
 		Sol2enttWorkaround m_workaround;
 		CollisionContact m_engineCallbacks;

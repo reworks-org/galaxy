@@ -24,7 +24,9 @@ namespace sl
 	class StateManager;
 	class TextureAtlas;
 	class VirtualFS;
-	class DebugInterface;
+	#ifndef NDEBUG
+		class DebugInterface;
+	#endif
 
 	///
 	/// Provides access to services in the framework.
@@ -72,7 +74,9 @@ namespace sl
 		static inline StateManager* stateManager = nullptr;
 		static inline TextureAtlas* textureAtlas = nullptr;
 		static inline VirtualFS* virtualFS = nullptr;
-		static inline DebugInterface* debugInterface = nullptr;
+		#ifndef NDEBUG
+			static inline DebugInterface* debugInterface = nullptr;
+		#endif
 	};
 }
 

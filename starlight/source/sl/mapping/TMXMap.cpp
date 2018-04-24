@@ -159,13 +159,15 @@ namespace sl
 				}
 				else if (head->obj_type == OT_TEXT)
 				{
+					/*
 					// first we stop drawing the current bitmap
 					al_flip_display();
 					
 					tmx_text* textElement = head->content.text;
 					std::string objTextID = "ObjectLayerText" + std::to_string(time::getTimeSinceEpoch()) + std::string(textElement->text);
 
-					std::string objTextFont = std::string(textElement->fontfamily) + std::to_string(textElement->pixelsize);
+					int points = std::floorf(static_cast<float>(textElement->pixelsize) * 72.0f / 96.0f);
+					std::string objTextFont = std::string(textElement->fontfamily) + std::to_string(points);
 					objTextFont.erase(std::remove_if(objTextFont.begin(), objTextFont.end(), isspace), objTextFont.end());
 
 					Locator::textureAtlas->addTextToAtlas(objTextID, textElement->text, Locator::fontBook->get(entt::HashedString{ objTextFont.c_str() }), intToColour(textElement->color, 255));
@@ -176,6 +178,7 @@ namespace sl
 
 					// then we continue drawing, but don't clear it.
 					al_set_target_bitmap(objects);
+					*/
 				}
 			}
 

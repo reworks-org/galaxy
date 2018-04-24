@@ -36,10 +36,12 @@ public:
 		m_world->m_registry.attach<sl::CameraTag>(cameraEntity, sl::Rect<float, int>{0.0f, 0.0f, 256, 256});
 
 		m_stateManager->setState(GameState::inst());
-		m_debugInterface->setReloadState(GameState::inst(), []()
-		{
-			LOG_S(INFO) << "Reloaded state.";
-		});
+		#ifndef NDEBUG
+			m_debugInterface->setReloadState(GameState::inst(), []()
+			{
+				LOG_S(INFO) << "Reloaded state.";
+			});
+		#endif
 
 	    m_world->m_currentLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
 	}
