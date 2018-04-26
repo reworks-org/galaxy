@@ -22,9 +22,6 @@
 - travis-ci / osx / linux builds
 - ensure relevant classes are marked final noexcept
 - improved documentation
-- improve rendering system -> make renderable components inherit from a renderanleComponent? then that contains the right data
-	- much faster! much wow.
-- patch out debug systems in realease mode? or have config option in release mode set to false by default?
 - uhh figure out shaders completely forgot about them. woops.
 - string view
 - fix update method registry view iteration

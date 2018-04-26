@@ -42,9 +42,19 @@ namespace sl
 			throw std::runtime_error(message.message);
 		});
 
+		al_register_assert_handler([](const char* expr, const char* file, int line, const char* func)
+		{
+			LOG_S(ERROR) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
+		});
+
+		al_register_trace_handler([](const char* trace)
+		{
+			LOG_S(INFO) << "ALLEGRO TRACE: " << trace;
+		});
+
 		LOG_S(INFO) << "Constructing app...";
 
-		al_install_system(ALLEGRO_VERSION_INT, atexit);
+		al_init();
 		al_install_keyboard();
 		al_install_mouse();
 		al_install_audio();

@@ -36,6 +36,7 @@ namespace sl
 		if (title.size() >= 255)
 		{
 			std::string temp = title.substr(0, 255);
+			LOG_S(INFO) << "Title longer than 255 chars, shrinking to: " << temp;
 			al_set_new_window_title(temp.c_str());
 		}
 		else
