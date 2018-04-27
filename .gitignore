@@ -14,7 +14,6 @@ DerivedData/
 # Project stuff
 starlight/bin/
 starlight/build/
-bin/
 
 # Sandbox Stuff
 sandbox/bin/Debug/
