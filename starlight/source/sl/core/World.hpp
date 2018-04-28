@@ -67,11 +67,6 @@ namespace sl
 		void update(const double dt);
 
 		///
-		/// Destroys currently active entities.
-		///
-		void destroyCurrentEntities();
-
-		///
 		/// Registers a tag with the world.
 		///
 		/// \param Tag - Type of tag to register, i.e. PlayerTag.
@@ -120,9 +115,8 @@ namespace sl
 		
 	public:
 		sol::state m_lua;
+		Level* m_currentLevel;
 		entt::DefaultRegistry m_registry;
-		std::vector<entt::Entity> m_inUse;
-		std::unique_ptr<Level> m_currentLevel;
 
 	protected:
 		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_tagAssign;

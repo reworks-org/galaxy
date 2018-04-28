@@ -27,3 +27,4 @@
 - fix update method registry view iteration
 - text loading from tmx maps
 - fix quadtree rendering
+- review how entities are being stored - remove any of this

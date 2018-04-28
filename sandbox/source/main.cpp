@@ -42,8 +42,6 @@ public:
 				LOG_S(INFO) << "Reloaded state.";
 			});
 		#endif
-
-	    m_world->m_currentLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
 	}
 };
 

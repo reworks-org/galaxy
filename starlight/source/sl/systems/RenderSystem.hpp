@@ -60,9 +60,11 @@ namespace sl
 		void update(const double dt, entt::DefaultRegistry& registry) override;
 
 	private:
-		QuadTree m_quadtree;
+		int m_quadTreeLevels;
+		int m_quadTreeMaxObjects;
 		unsigned int m_defaultAlloc;
 		std::vector<entt::Entity> m_entitys;
+		std::unique_ptr<QuadTree> m_quadtree;
 	};
 }
 

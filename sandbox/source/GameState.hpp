@@ -13,6 +13,8 @@
 #include <sl/types/State.hpp>
 #include <sl/core/StateManager.hpp>
 
+#include "GameLevel.hpp"
+
 class GameState : public sl::State<GameState>
 {
 public:
@@ -27,6 +29,7 @@ public:
 	void render() override;
 
 private:
+	std::unique_ptr<GameLevel> m_gameLevel;
 };
 
 #endif

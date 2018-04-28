@@ -31,10 +31,24 @@ void GameState::load()
 	auto& rc = Locator::world->m_registry.get<RenderComponent>(entity);
 	rc.m_renderTypes.push_back(RenderTypes::SPRITE);
 	*/
+
+	m_gameLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
+	Locator::world->m_currentLevel = m_gameLevel.get();
+
+	/*
+	Locator::world->m_registry.sort<TransformComponent>([](const auto& lhs, const auto& rhs)
+	{
+		return lhs.m_layer < rhs.m_layer;
+	});
+	*/
 }
 
 void GameState::unload()
 {
+	Locator::world->m_registry.reset();
+
+	m_gameLevel.reset();
+	Locator::world->m_currentLevel = nullptr;
 }
 
 void GameState::event(ALLEGRO_EVENT* event)

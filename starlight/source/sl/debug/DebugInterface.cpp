@@ -12,10 +12,10 @@
 #include <allegro5/events.h>
 #include <allegro5/display.h>
 
+#include "sl/graphics/Window.hpp"
 #include "sl/core/StateManager.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/imgui/imgui_impl_a5.h"
-#include "sl/libs/imgui/imguinodegrapheditor.h"
 
 #include "DebugInterface.hpp"
 
@@ -62,30 +62,63 @@ namespace sl
 		}
 	}
 
-	void DebugInterface::displayMenu()
-	{
-		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
-
-		if (ImGui::Button("Reset game"))
-		{
-			m_reloadFunc();
-			Locator::stateManager->reloadState(m_reloadState);
-		}
-
-		if(ImGui::Button("Open Console"))
-		{
-			// Open game console
-		}
-
-		// Console should take commands for geme
-
-		ImGui::End();
-	}
-
 	void DebugInterface::setReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func)
 	{
 		m_reloadState = s;
 		m_reloadFunc = func;
+	}
+
+	void DebugInterface::displayMenu()
+	{
+		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
+
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				if (ImGui::MenuItem("Reset State"))
+				{
+					m_reloadFunc();
+					Locator::stateManager->reloadState(m_reloadState);
+				}
+
+				if (ImGui::MenuItem("Close Game"))
+				{
+					Locator::window->close();
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Create"))
+			{
+				if (ImGui::MenuItem("New Entity(s)"))
+				{
+					showCreateEntityWindow();
+				}
+
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Tools"))
+			{
+				if (ImGui::MenuItem("Show Console"))
+				{
+
+				}
+
+				ImGui::EndMenu();
+			}
+			
+			ImGui::EndMenuBar();
+		}
+
+		ImGui::End();
+	}
+
+	void DebugInterface::showCreateEntityWindow()
+	{
+
 	}
 }
 

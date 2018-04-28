@@ -219,15 +219,6 @@
     <ClCompile Include="source\sl\libs\imgui\auto\auto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\minizip\ioapi.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\minizip\unzip.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\minizip\zip.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -238,15 +229,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\imgui_impl_a5.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguidatechooser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguifilesystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\libs\imgui\imguinodegrapheditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\libs\imgui\imguitexteditor.cpp">
@@ -7265,22 +7247,7 @@
     <ClInclude Include="source\sl\libs\imgui\auto\impl_base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\minizip\crypt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\minizip\ioapi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\minizip\unzip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\minizip\zip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\auto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\dirent_portable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\imconfig.h">
@@ -7293,15 +7260,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\imgui_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguidatechooser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguifilesystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\imgui\imguinodegrapheditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\imgui\imguitexteditor.h">

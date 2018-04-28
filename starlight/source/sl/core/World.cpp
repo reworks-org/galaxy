@@ -70,8 +70,6 @@ namespace sl
 		{
 			m_componentAssign[it.first](entity, it.second);
 		}
-
-		m_inUse.push_back(entity);
 	}
 
 	void World::createEntities(const std::string& batchScript)
@@ -89,27 +87,22 @@ namespace sl
 
 	void World::event(ALLEGRO_EVENT* event)
 	{
-		for (auto& system : m_systems)
+		for (auto& systemPair : m_systems)
 		{
-			system.second->event(event, m_registry);
+			systemPair.second->event(event, m_registry);
 		}
 	}
 
 	void World::update(const double dt)
 	{
-		m_currentLevel->update(dt);
-
-		for (auto& system : m_systems)
+		if (m_currentLevel)
 		{
-			system.second->update(dt, m_registry);
+			m_currentLevel->update(dt);
 		}
-	}
 
-	void World::destroyCurrentEntities()
-	{
-		for (auto& entity : m_inUse)
+		for (auto& systemPair : m_systems)
 		{
-			m_registry.destroy(entity);
+			systemPair.second->update(dt, m_registry);
 		}
 	}
 }

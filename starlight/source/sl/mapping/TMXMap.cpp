@@ -100,8 +100,6 @@ namespace sl
 		entt::Entity entity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, utils::removeExtension(layer->content.image->source));
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
-
-		Locator::world->m_inUse.push_back(entity);
 	}
 
 	void TMXMap::processObjects(tmx_map* map, tmx_layer* layer)
@@ -136,7 +134,6 @@ namespace sl
 					if (!tempPO.empty())
 					{
 						Locator::world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempPO);
-						Locator::world->m_inUse.push_back(objentity);
 					}
 					else
 					{
@@ -192,7 +189,6 @@ namespace sl
 		Locator::textureAtlas->addTextureToAtlas(id, objects);
 
 		Locator::world->m_registry.assign<RenderComponent>(entity, 1.0f, id);
-		Locator::world->m_inUse.push_back(entity);
 
 		al_destroy_bitmap(objects);
 		++poCounter;
@@ -290,8 +286,6 @@ namespace sl
 						Locator::world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 						Locator::world->m_registry.assign<RenderComponent>(animatedEntity, op, id);
 						Locator::world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
-
-						Locator::world->m_inUse.push_back(animatedEntity);
 					}
 				}
 				else
@@ -308,7 +302,6 @@ namespace sl
 		al_destroy_bitmap(tileLayer);
 
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, layer->name);
-		Locator::world->m_inUse.push_back(entity);
 	}
 
 	void TMXMap::processAllLayers(tmx_layer* layers)

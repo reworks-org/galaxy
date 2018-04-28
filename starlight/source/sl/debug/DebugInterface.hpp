@@ -55,13 +55,6 @@ namespace sl
 		void render();
 
 		///
-		/// \brief Display menu on screen.
-		///
-		/// Call between update and render. Calls the functions that make up the main debug menu. ImGui functions mainly.
-		///
-		void displayMenu();
-
-		///
 		/// \brief Set a state to reload too.
 		///
 		/// func() is called first when reloading.
@@ -71,12 +64,24 @@ namespace sl
 		///
 		void setReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func);
 
+		///
+		/// \brief Display menu on screen.
+		///
+		/// Call between update and render. Calls the functions that make up the main debug menu. ImGui functions mainly.
+		///
+		void displayMenu();
+
 	private:
 		///
 		/// Default Constructor.
 		/// Deleted.
 		///
 		DebugInterface() = delete;
+
+		///
+		/// Function used to display create entity dialogue.
+		/// 
+		void showCreateEntityWindow();
 
 	private:
 		bool m_disabled;
