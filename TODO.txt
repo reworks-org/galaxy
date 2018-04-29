@@ -28,3 +28,16 @@
 - text loading from tmx maps
 - fix quadtree rendering
 - review how entities are being stored - remove any of this
+- further split logging into debug and release modes.
+- write own logger
+
+saving to a zip:
+when program is running, get a list of temporarty files to save to zip.
+launch zip app, then close main app, then zip app loads all temp files,
+stores them in zip and saves everything
+then deletes temp files.
+https://msdn.microsoft.com/en-us/library/windows/desktop/ms682512(v=vs.85).aspx
+
+
+entity system -> any entity out of view should be disabled then reenabled if inside.
+sounds good ya?

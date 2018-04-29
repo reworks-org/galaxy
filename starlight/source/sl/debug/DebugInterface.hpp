@@ -14,6 +14,8 @@
 
 #include <functional>
 
+#include "sl/libs/imgui/imguitexteditor.h"
+
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;
 
@@ -80,11 +82,14 @@ namespace sl
 
 		///
 		/// Function used to display create entity dialogue.
+		///
+		/// \param show Controls if window is open or not.
 		/// 
-		void showCreateEntityWindow();
+		void showCreateEntityWindow(bool* show);
 
 	private:
 		bool m_disabled;
+		TextEditor m_editor;
 		std::function<void(void)> m_reloadFunc;
 		std::shared_ptr<BaseState> m_reloadState;
     };

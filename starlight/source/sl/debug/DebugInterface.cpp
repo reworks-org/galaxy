@@ -29,6 +29,9 @@ namespace sl
 		ImGui_ImplA5_Init(display);
 
 		ImGui::StyleColorsDark();
+
+		m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
+		m_editor.SetPalette(TextEditor::GetDarkPalette());
 	}
 
 	DebugInterface::~DebugInterface()
@@ -70,6 +73,9 @@ namespace sl
 
 	void DebugInterface::displayMenu()
 	{
+		static bool s_showCreateEntityWindow = false;
+
+
 		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
 
 		if (ImGui::BeginMenuBar())
@@ -92,9 +98,9 @@ namespace sl
 
 			if (ImGui::BeginMenu("Create"))
 			{
-				if (ImGui::MenuItem("New Entity(s)"))
+				if (ImGui::MenuItem("Entity Creator"))
 				{
-					showCreateEntityWindow();
+					s_showCreateEntityWindow = true;
 				}
 
 				ImGui::EndMenu();
@@ -113,12 +119,33 @@ namespace sl
 			ImGui::EndMenuBar();
 		}
 
+		if (s_showCreateEntityWindow)
+		{
+			showCreateEntityWindow(&s_showCreateEntityWindow);
+		}
+
 		ImGui::End();
 	}
 
-	void DebugInterface::showCreateEntityWindow()
+	void DebugInterface::showCreateEntityWindow(bool* show)
 	{
+		ImGui::Begin("Entity Creator", show, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
 
+		if (ImGui::Button("Open"))
+		{
+			// load text
+			// s_editor.SetText("");
+		}
+		
+		ImGui::SameLine();
+		
+		if (ImGui::Button("Save"))
+		{
+			// auto textToSave = s_editor.GetText();
+			// save text
+		}
+
+		ImGui::End();
 	}
 }
 
