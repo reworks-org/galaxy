@@ -40,7 +40,7 @@ namespace sl
 				{
 					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->m_particleCount[amountOfParticles]; ++amountOfParticles)
 					{
-						entt::Entity entity = registry.create();
+						entt::DefaultRegistry::entity_type entity = registry.create();
 						
 						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
 						registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), particleEvent->m_fade);
@@ -56,7 +56,7 @@ namespace sl
 	void ParticleSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		auto view = registry.view<ParticleComponent, TransformComponent, RenderComponent>();
-		for (entt::Entity entity : view)
+		for (entt::DefaultRegistry::entity_type entity : view)
 		{
 			ParticleComponent& pc = view.get<ParticleComponent>(entity);
 			TransformComponent& tc = view.get<TransformComponent>(entity);

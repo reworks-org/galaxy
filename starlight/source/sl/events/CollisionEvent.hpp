@@ -12,7 +12,7 @@
 
 #include <cinttypes>
 
-namespace entt { typedef std::uint32_t Entity; }
+#include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl
 {
@@ -21,7 +21,7 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		inline CollisionEvent(entt::Entity a, entt::Entity b, std::uint16_t typeA, std::uint16_t typeB)
+		inline CollisionEvent(entt::DefaultRegistry::entity_type a, entt::DefaultRegistry::entity_type b, std::uint16_t typeA, std::uint16_t typeB)
 			:m_a(a), m_b(b), m_typeA(typeA), m_typeB(typeB)
 		{
 		}
@@ -29,12 +29,12 @@ namespace sl
 		///
 		/// Entity A in collision.
 		///
-		entt::Entity m_a;
+		entt::DefaultRegistry::entity_type m_a;
 
 		///
 		/// Entity B in collision.
 		///
-		entt::Entity m_b;
+		entt::DefaultRegistry::entity_type m_b;
 
 		///
 		/// Fixture type A in collision.

@@ -35,7 +35,7 @@ namespace sl
 	{
 		std::srand(std::time(nullptr));
 
-		std::string lname = "logs/log_" + time::getFormattedTime() + ".log";
+		std::string lname = "logs/" + time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
@@ -49,7 +49,7 @@ namespace sl
 
 		al_register_trace_handler([](const char* trace)
 		{
-			LOG_S(INFO) << "ALLEGRO TRACE: " << trace;
+			LOG_S(INFO) << trace;
 		});
 
 		LOG_S(INFO) << "Constructing app...";
@@ -78,8 +78,7 @@ namespace sl
 
 		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
 		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
-		// Apparently this is the default allegro settings. This is here for a reference.
-		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA)
+		//al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA); // Apparently this is the default allegro settings. This is here for a reference.
 
 		m_world = std::make_unique<World>();
 		Locator::world = m_world.get();
@@ -126,7 +125,7 @@ namespace sl
 
 		m_world->m_lua.new_usertype<std::uint32_t>("uint32_t");
 		m_world->m_lua.new_usertype<std::uint16_t>("uint16_t");
-		m_world->m_lua.new_usertype<entt::Entity>("entity");
+		m_world->m_lua.new_usertype<entt::DefaultRegistry::entity_type>("entity");
 
 		m_world->m_lua.new_usertype<Vector2<int>>("Vector2i",
 			sol::constructors<Vector2<int>(), Vector2<int>(int, int)>(),
@@ -184,7 +183,7 @@ namespace sl
 		);
 
 		m_world->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
-			sol::constructors<AnimationComponent(entt::Entity, const sol::table&)>(),
+			sol::constructors<AnimationComponent(const sol::table&)>(),
 			"changeAnimation", &AnimationComponent::changeAnimation,
 			"play", sol::overload(sol::resolve<void(void)>(&AnimationComponent::play), sol::resolve<void(const std::string&)>(&AnimationComponent::play)),
 			"pause", &AnimationComponent::pause,
@@ -196,7 +195,7 @@ namespace sl
 		);
 
 		m_world->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
-			sol::constructors<ParallaxComponent(entt::Entity, const sol::table&)>(),
+			sol::constructors<ParallaxComponent(const sol::table&)>(),
 			"verticalSpeed", &ParallaxComponent::m_verticalSpeed,
 			"horizontalSpeed", &ParallaxComponent::m_horizontalSpeed
 		);
@@ -208,20 +207,21 @@ namespace sl
 		);
 
 		m_world->m_lua.new_usertype<RenderComponent>("RenderComponent",
-			sol::constructors<RenderComponent(entt::Entity, const sol::table&), RenderComponent(float, const std::string&)>(),
+			sol::constructors<RenderComponent(const sol::table&), RenderComponent(float, const std::string&)>(),
 			"opacity", &RenderComponent::m_opacity,
 			"textureName", &RenderComponent::m_textureName
 		);
 
 		m_world->m_lua.new_usertype<TransformComponent>("TransformComponent",
-			sol::constructors<TransformComponent(entt::Entity, const sol::table&), TransformComponent(int, float, const Rect<float, int>&)>(),
+			sol::constructors<TransformComponent(const sol::table&), TransformComponent(int, float, const Rect<float, int>&)>(),
 			"layer", &TransformComponent::m_layer,
 			"angle", &TransformComponent::m_angle,
 			"rect", &TransformComponent::m_rect
 		);
 
 		m_world->m_lua.new_usertype<PhysicsComponent>("PhysicsComponent",
-			sol::constructors<PhysicsComponent(entt::Entity, const sol::table&)>()
+			sol::constructors<PhysicsComponent(const sol::table&)>(),
+			"setFixtureEntity", &PhysicsComponent::setFixtureEntity
 		);
 
 		m_world->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
@@ -242,7 +242,6 @@ namespace sl
 	Application::~Application()
 	{
 		m_eventManager.reset();
-		m_box2dManager.reset();
 		m_soundPlayer.reset();
 		m_musicPlayer.reset();
 		m_shaderLibrary.reset();
@@ -255,6 +254,7 @@ namespace sl
 		#endif
 
 		m_world.reset();
+		m_box2dManager.reset();
 		m_window.reset();
 		m_configReader.reset();
 		m_virtualFS.reset();

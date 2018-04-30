@@ -63,7 +63,7 @@ namespace sl
 		int m_quadTreeLevels;
 		int m_quadTreeMaxObjects;
 		unsigned int m_defaultAlloc;
-		std::vector<entt::Entity> m_entitys;
+		std::vector<entt::DefaultRegistry::entity_type> m_entitys;
 		std::unique_ptr<QuadTree> m_quadtree;
 	};
 }

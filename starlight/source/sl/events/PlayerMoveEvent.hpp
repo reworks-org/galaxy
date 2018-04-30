@@ -12,7 +12,7 @@
 
 #include <cinttypes>
 
-namespace entt { typedef std::uint32_t Entity; }
+#include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl
 {
@@ -21,7 +21,7 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::Entity playerEntity)
+		inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::DefaultRegistry::entity_type playerEntity)
 			:m_horizontalSpeed(horizontalSpeed), m_verticalSpeed(verticalSpeed), m_playerEntity(playerEntity)
 		{
 		}
@@ -39,7 +39,7 @@ namespace sl
 		///
 		/// The player entity.
 		///
-		entt::Entity m_playerEntity;
+		entt::DefaultRegistry::entity_type m_playerEntity;
 	};
 }
 

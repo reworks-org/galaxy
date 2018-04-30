@@ -43,14 +43,14 @@ namespace sl
 		///
 		/// \return Entity ID for newly created entity.
 		///
-		///entt::Entity create();
+		///entt::DefaultRegistry::entity_type create();
 
 		///
 		/// Wrapper for entt's destroy function.
 		///
 		/// \param entity Entity to destroy.
 		///
-		void destroy(entt::Entity entity);
+		void destroy(entt::DefaultRegistry::entity_type entity);
 
 		///
 		/// Wrapper for retrieving a component with entt.
@@ -59,14 +59,14 @@ namespace sl
 		/// \param entity Entity to retrieve the component from.
 		///
 		template<typename Component>
-		Component& get(entt::Entity entity);
+		Component& get(entt::DefaultRegistry::entity_type entity);
 
 	private:
 		entt::DefaultRegistry* m_registry;
 	};
 
 	template<typename Component>
-	Component& Sol2enttWorkaround::get(entt::Entity entity)
+	Component& Sol2enttWorkaround::get(entt::DefaultRegistry::entity_type entity)
 	{
 		return m_registry->get<Component>(entity);
 	}

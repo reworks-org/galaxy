@@ -13,8 +13,9 @@
 #include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
+#include "sl/libs/entt/entity/registry.hpp"
+
 class b2Body;
-namespace entt { typedef std::uint32_t Entity; }
 
 namespace sl
 {
@@ -26,23 +27,26 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data.
 		///
-		PhysicsComponent(entt::Entity entity, const sol::table& table);
+		PhysicsComponent(const sol::table& table);
 
 		///
-		/// \brief Destructor.
+		/// Destructor.
 		///
-		/// CLEANUP IS HANDLED BY BOX2D MANAGER. THIS IS BECAUSE WE DONT KNOW WHEN DESTRUCTORS ARE CALLED, AND CLEANUP CODE MUST BE CALLED BEFORE 
-		/// CLEANUP OF BOX2DMANAGER!
-		///
-		~PhysicsComponent() = default;
+		~PhysicsComponent();
 
 		///
 		/// Default move assignment overload.
 		///
 		PhysicsComponent& operator=(const PhysicsComponent&);
+
+		///
+		/// Set the correct entity to the fixture data.
+		///
+		/// \param entity Entity this component belongs to.
+		///
+		void setFixtureEntity(entt::DefaultRegistry::entity_type entity);
 
 	private:
 		///

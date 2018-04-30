@@ -97,7 +97,7 @@ namespace sl
 	{
 		float op = layer->opacity;
 
-		entt::Entity entity = Locator::world->m_registry.create();
+		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, utils::removeExtension(layer->content.image->source));
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
 	}
@@ -112,7 +112,7 @@ namespace sl
 		ALLEGRO_COLOR color = intToColour(objgr->color, 255);
 		tmx_object *head = objgr->head;
 
-		entt::Entity entity = Locator::world->m_registry.create();
+		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
@@ -125,7 +125,7 @@ namespace sl
 			{
 				if (head->obj_type == OT_SQUARE)
 				{
-					entt::Entity objentity = Locator::world->m_registry.create();
+					entt::DefaultRegistry::entity_type objentity = Locator::world->m_registry.create();
 
 					sol::state templua;
 					templua.script(Locator::virtualFS->openAsString(head->name));
@@ -133,7 +133,8 @@ namespace sl
 
 					if (!tempPO.empty())
 					{
-						Locator::world->m_registry.assign<PhysicsComponent>(objentity, objentity, tempPO);
+						// Why is entt destroying this?
+						Locator::world->m_registry.assign<PhysicsComponent>(objentity, tempPO).setFixtureEntity(objentity);
 					}
 					else
 					{
@@ -169,7 +170,7 @@ namespace sl
 
 					Locator::textureAtlas->addTextToAtlas(objTextID, textElement->text, Locator::fontBook->get(entt::HashedString{ objTextFont.c_str() }), intToColour(textElement->color, 255));
 
-					entt::Entity objText = Locator::world->m_registry.create();
+					entt::DefaultRegistry::entity_type objText = Locator::world->m_registry.create();
 					Locator::world->m_registry.assign<RenderComponent>(objText, 1.0f, objTextID);
 					Locator::world->m_registry.assign<TransformComponent>(objText, tmx_get_property(layer->properties, "layer")->value.integer, static_cast<float>(head->rotation), Rect<float, int>{ static_cast<float>(head->x), static_cast<float>(head->y), boost::numeric_cast<int>(head->width), boost::numeric_cast<int>(head->height) });
 
@@ -211,7 +212,7 @@ namespace sl
 		ALLEGRO_BITMAP* tileset = nullptr;
 		float op = layer->opacity;
 
-		entt::Entity entity = Locator::world->m_registry.create();
+		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
 
 		ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width * map->tile_width, map->height * map->tile_height);
@@ -282,7 +283,7 @@ namespace sl
 						id += "AnimatedTile" + std::to_string(time::getTimeSinceEpoch());
 						Locator::textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 
-						entt::Entity animatedEntity = Locator::world->m_registry.create();
+						entt::DefaultRegistry::entity_type animatedEntity = Locator::world->m_registry.create();
 						Locator::world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 						Locator::world->m_registry.assign<RenderComponent>(animatedEntity, op, id);
 						Locator::world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);

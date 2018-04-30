@@ -46,14 +46,14 @@ namespace sl
 		m_entitys.clear(); 
 		m_entitys.reserve(view.size());
 
-		for (entt::Entity entity : view)
+		for (entt::DefaultRegistry::entity_type entity : view)
 		{
 			m_quadtree->insert(entity);
 		}
 		
 		m_quadtree->retrieve(m_entitys, registry.get<CameraTag>().m_bounds);
 
-		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::Entity a, entt::Entity b)
+		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::DefaultRegistry::entity_type a, entt::DefaultRegistry::entity_type b)
 		{
 			return registry.get<TransformComponent>(a).m_layer < registry.get<TransformComponent>(b).m_layer;
 		});
@@ -65,14 +65,7 @@ namespace sl
 	{
 		al_hold_bitmap_drawing(true);
 
-		/*
-		registry.view<TransformComponent, RenderComponent>().each([](auto entity, auto& tc, auto& rc)
-		{
-			Locator::textureAtlas->al_draw_tinted_scaled_rotated_packed_bitmap(rc.m_textureName, al_map_rgba_f(1.0f, 1.0f, 1.0f, rc.m_opacity), 0.0f, 0.0f, tc.m_rect.m_x, tc.m_rect.m_y, 1.0f, 1.0f, tc.m_angle, 0);
-		});
-		*/
-
-		for (entt::Entity& entity : m_entitys)
+		for (entt::DefaultRegistry::entity_type entity : m_entitys)
 		{
 			auto& rc = registry.get<RenderComponent>(entity);
 			auto& tc = registry.get<TransformComponent>(entity);

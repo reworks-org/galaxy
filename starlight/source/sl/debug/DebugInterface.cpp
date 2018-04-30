@@ -96,18 +96,18 @@ namespace sl
 				ImGui::EndMenu();
 			}
 
-			if (ImGui::BeginMenu("Create"))
+			if (ImGui::BeginMenu("Tools"))
 			{
 				if (ImGui::MenuItem("Entity Creator"))
 				{
 					s_showCreateEntityWindow = true;
 				}
 
-				ImGui::EndMenu();
-			}
+				if (ImGui::MenuItem("Entity Editor"))
+				{
 
-			if (ImGui::BeginMenu("Tools"))
-			{
+				}
+
 				if (ImGui::MenuItem("Show Console"))
 				{
 

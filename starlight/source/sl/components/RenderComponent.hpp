@@ -15,8 +15,6 @@
 #include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
-namespace entt { typedef std::uint32_t Entity; }
-
 namespace sl
 {
 	class RenderComponent final
@@ -26,10 +24,9 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		/// \param entity Entity to attach to component fixtures.
 		/// \param table sol::table containing data.
 		/// 
-		RenderComponent(entt::Entity entity, const sol::table& table);
+		RenderComponent(const sol::table& table);
 
 		///
 		/// Alternate Constructor.

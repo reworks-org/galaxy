@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// Cleans up world.
 		///
-		~World() = default;
+		~World();
 
 		///
 		/// Register an entity.
@@ -119,8 +119,8 @@ namespace sl
 		entt::DefaultRegistry m_registry;
 
 	protected:
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_tagAssign;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::Entity, const sol::table&)>> m_componentAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
 		std::unordered_map<std::type_index, std::unique_ptr<System>> m_systems;
 	};
 
@@ -128,9 +128,9 @@ namespace sl
 	void World::registerTag(entt::HashedString name)
 	{
 		#ifdef NDEBUG
-			m_tagAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
+			m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type e, const sol::table& table)
 			{
-				m_registry.attach<Tag>(e, table);
+				m_registry.assign<Tag>(entt::tag_t{}, e, table);
 			});
 		#else
 			if (m_tagAssign.find(name) != m_tagAssign.end())
@@ -139,11 +139,11 @@ namespace sl
 			}
 			else
 			{
-				m_tagAssign.emplace(name, [this](entt::Entity e, const sol::table& table)
+				m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type e, const sol::table& table)
 				{
 					if (!m_registry.has<Tag>())
 					{
-						m_registry.attach<Tag>(e, table);
+						m_registry.assign<Tag>(entt::tag_t{}, e, table);
 					}
 					else
 					{
@@ -158,9 +158,9 @@ namespace sl
 	void World::registerComponent(entt::HashedString name)
 	{
 		#ifdef NDEBUG
-			m_componentAssign.emplace(name, [this](entt::Entity entity, const sol::table& table)
+			m_componentAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
-				m_registry.assign<Component>(entity, entity, table);
+				m_registry.assign<Component>(entity, table);
 			});
 		#else
 			if (m_componentAssign.find(name) != m_componentAssign.end())
@@ -169,9 +169,9 @@ namespace sl
 			}
 			else
 			{
-				m_componentAssign.emplace(name, [this](entt::Entity entity, const sol::table& table)
+				m_componentAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
 				{
-					m_registry.assign<Component>(entity, entity, table);
+					m_registry.assign<Component>(entity, table);
 				});
 			}
 		#endif

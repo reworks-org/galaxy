@@ -22,15 +22,6 @@ namespace sl
 
 	Box2DManager::~Box2DManager()
 	{
-		Locator::world->m_registry.view<PhysicsComponent>().each([this](entt::Entity entity, PhysicsComponent& pc)
-		{
-			for (b2Fixture* f = pc.m_body->GetFixtureList(); f; f = f->GetNext())
-			{
-				entt::Entity* entity = static_cast<entt::Entity*>(f->GetUserData());
-				delete entity;
-			}
-
-			m_b2world->DestroyBody(pc.m_body);
-		});
+		m_b2world.reset();
 	}
 }

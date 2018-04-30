@@ -24,7 +24,7 @@ GameState::~GameState()
 void GameState::load()
 {
 	/*
-	entt::Entity entity = Locator::world->m_registry.create();
+	entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
 	Locator::world->m_registry.assign<SpriteComponent>(entity, "bg", 1.0f);
 	Locator::world->m_registry.assign<TransformComponent>(entity, 0, 0, Rect<float, int>{0, 0, 896, 576});
 	Locator::world->m_registry.assign<RenderComponent>(entity);

@@ -21,15 +21,11 @@ namespace sl
 
 	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		auto view = registry.view<AnimationComponent, RenderComponent>();
-		for (entt::Entity entity : view)
+		registry.view<AnimationComponent, RenderComponent>().each([&](entt::DefaultRegistry::entity_type entity, auto& ac, auto& rc)
 		{
-			AnimationComponent& ac = view.get<AnimationComponent>(entity);
-			RenderComponent& rc = view.get<RenderComponent>(entity);
-
 			if (!ac.m_isPaused)
 			{
-				Animation* animation = &(ac.m_animations.at(ac.m_activeAnimation));
+				Animation* animation = &(ac.m_animations[ac.m_activeAnimation]);
 
 				auto timepassed = (dt * animation->m_speed);
 				ac.m_currentFrameTime += timepassed;
@@ -54,6 +50,6 @@ namespace sl
 					rc.m_textureName = animation->m_frames[animation->m_currentFrame].m_frameTextureID;
 				}
 			}
-		}
+		});
 	}
 }

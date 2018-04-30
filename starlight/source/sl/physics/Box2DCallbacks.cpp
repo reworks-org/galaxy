@@ -22,8 +22,8 @@ namespace sl
 		b2Fixture* fixtureA = contact->GetFixtureA();
 		b2Fixture* fixtureB = contact->GetFixtureB();
 
-		entt::Entity* a = static_cast<entt::Entity*>(fixtureA->GetUserData());
-		entt::Entity* b = static_cast<entt::Entity*>(fixtureB->GetUserData());
+		entt::DefaultRegistry::entity_type* a = static_cast<entt::DefaultRegistry::entity_type*>(fixtureA->GetUserData());
+		entt::DefaultRegistry::entity_type* b = static_cast<entt::DefaultRegistry::entity_type*>(fixtureB->GetUserData());
 		
 		Locator::eventManager->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
 		{  

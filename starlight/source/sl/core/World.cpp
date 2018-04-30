@@ -39,12 +39,20 @@ namespace sl
 		registerTag<CameraTag>("CameraTag");
 	}
 
+	World::~World()
+	{
+		m_tagAssign.clear();
+		m_componentAssign.clear();
+		m_systems.clear();
+		m_registry.reset();
+	}
+
 	void World::createEntity(const std::string& script)
 	{
 		sol::state lua;
 		lua.script(Locator::virtualFS->openAsString(script));
 		
-		entt::Entity entity = m_registry.create();
+		entt::DefaultRegistry::entity_type entity = m_registry.create();
 		sol::table components = lua.get<sol::table>("entity");
 
 		std::map<entt::HashedString::hash_type, sol::table> kvp;
@@ -69,6 +77,11 @@ namespace sl
 		for (auto& it : kvp)
 		{
 			m_componentAssign[it.first](entity, it.second);
+
+			if (it.first == entt::HashedString{ "PhysicsComponent" })
+			{
+				m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
+			}
 		}
 	}
 

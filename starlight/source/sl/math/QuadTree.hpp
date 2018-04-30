@@ -65,7 +65,7 @@ namespace sl
 		///
 		/// \param entity The entity to insert.
 		///
-		void insert(entt::Entity e);
+		void insert(entt::DefaultRegistry::entity_type e);
 
 		///
 		/// Return all objects that could collide with the given entity.
@@ -73,7 +73,7 @@ namespace sl
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param entity Entity to check for collisions with.
 		///
-		void retrieve(std::vector<entt::Entity>& returnObjects, entt::Entity e);
+		void retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, entt::DefaultRegistry::entity_type e);
 
 		///
 		/// Return all objects that could collide with the given rect.
@@ -81,7 +81,7 @@ namespace sl
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param rect Rect to check for collisions with.
 		///
-		void retrieve(std::vector<entt::Entity>& returnObjects, Rect<float, int>& rect);
+		void retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, Rect<float, int>& rect);
 
 		///
 		/// Return all objects that could collide with the given rect. CONST FUNCTION
@@ -89,7 +89,7 @@ namespace sl
 		/// \param returnObjects A vector containing the entitys that could collide with the entity.
 		/// \param rect CONST Rect to check for collisions with.
 		///
-		void retrieve(std::vector<entt::Entity>& returnObjects, const Rect<float, int>& rect);
+		void retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, const Rect<float, int>& rect);
 
 	private:
 		///
@@ -120,7 +120,7 @@ namespace sl
 		int m_level;
 		int m_maxLevels;
 		int m_maxObjects;
-		std::vector<entt::Entity> m_objects;
+		std::vector<entt::DefaultRegistry::entity_type> m_objects;
 		Rect<float, int> m_bounds;
 		std::array<QuadTree*, 4> m_nodes;
 	};

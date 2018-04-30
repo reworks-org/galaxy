@@ -26,14 +26,14 @@ public:
 	{
 		LOG_S(INFO) << "Registering systems...";
 		
-		m_world->registerSystem<sl::RenderSystem>(5, 10);
+		m_world->registerSystem<sl::RenderSystem>(10, 50);
 		m_world->registerSystem<sl::CameraSystem>();
 		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
 		m_world->registerSystem<sl::AnimationSystem>();
 
 		LOG_S(INFO) << "Constructing sandbox...";
-		entt::Entity cameraEntity = m_world->m_registry.create();
-		m_world->m_registry.attach<sl::CameraTag>(cameraEntity, sl::Rect<float, int>{0.0f, 0.0f, 256, 256});
+		entt::DefaultRegistry::entity_type cameraEntity = m_world->m_registry.create();
+		m_world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 896, 576 });
 
 		m_stateManager->setState(GameState::inst());
 		#ifndef NDEBUG

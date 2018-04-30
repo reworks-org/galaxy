@@ -15,8 +15,6 @@
 #include "sl/math/Vector2.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
-namespace entt { typedef std::uint32_t Entity; }
-
 namespace sl
 {
 	class ParticleComponent final
@@ -28,10 +26,9 @@ namespace sl
 		/// This component was designed to be created and destroyed on the fly, not sure why you would want it created in a lua script,
 		/// but that option is avaliable.
 		///
-		/// \param entity Entity this component is attached to.
 		/// \param table Sol::table containing data.
 		///
-		ParticleComponent(entt::Entity entity, const sol::table& table);
+		ParticleComponent(const sol::table& table);
 
 		///
 		/// Constructor.

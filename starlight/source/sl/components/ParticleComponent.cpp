@@ -8,11 +8,12 @@
 ///
 
 #include "sl/libs/sol2/sol.hpp"
+
 #include "ParticleComponent.hpp"
 
 namespace sl
 {
-	ParticleComponent::ParticleComponent(entt::Entity entity, const sol::table& table)
+	ParticleComponent::ParticleComponent(const sol::table& table)
 	{
 		m_direction.m_x = table.get<float>("dx");
 		m_direction.m_y = table.get<float>("dy");

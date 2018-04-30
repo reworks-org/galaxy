@@ -24,7 +24,7 @@ namespace sl
 				PlayerMoveEvent* playerMoveEvent = (PlayerMoveEvent*)event->user.data1;
 				
 				auto view = registry.view<ParallaxComponent, TransformComponent>();
-				for (entt::Entity entity : view)
+				for (entt::DefaultRegistry::entity_type entity : view)
 				{
 					ParallaxComponent& pc = view.get<ParallaxComponent>(entity);
 					TransformComponent& tc = view.get<TransformComponent>(entity);

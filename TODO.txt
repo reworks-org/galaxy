@@ -22,14 +22,13 @@
 - travis-ci / osx / linux builds
 - ensure relevant classes are marked final noexcept
 - improved documentation
-- uhh figure out shaders completely forgot about them. woops.
 - string view
-- fix update method registry view iteration
+- fix update method registry view iteration - in progress
 - text loading from tmx maps
-- fix quadtree rendering
-- review how entities are being stored - remove any of this
+- review how entities are being stored - remove any of this - in progress
 - further split logging into debug and release modes.
-- write own logger
+- optimise code
+- discovered a weird bug where entt is destroying my physics objects
 
 saving to a zip:
 when program is running, get a list of temporarty files to save to zip.

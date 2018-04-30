@@ -13,7 +13,7 @@
 
 namespace sl
 {
-	RenderComponent::RenderComponent(entt::Entity entity, const sol::table& table)
+	RenderComponent::RenderComponent(const sol::table& table)
 	{
 		m_opacity = table.get<float>("opacity");
 		m_textureName = table.get<std::string>("textureName");

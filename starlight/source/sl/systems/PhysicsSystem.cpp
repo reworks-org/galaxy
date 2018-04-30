@@ -69,7 +69,7 @@ namespace sl
 		Locator::box2dManager->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 		
 		auto view = registry.view<PhysicsComponent, TransformComponent>();
-		for (entt::Entity entity : view)
+		for (entt::DefaultRegistry::entity_type entity : view)
 		{
 			PhysicsComponent& pc = view.get<PhysicsComponent>(entity);
 			TransformComponent& tc = view.get<TransformComponent>(entity);

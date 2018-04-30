@@ -18,7 +18,7 @@
 
 namespace sl
 {
-	PhysicsComponent::PhysicsComponent(entt::Entity entity, const sol::table& table)
+	PhysicsComponent::PhysicsComponent(const sol::table& table)
 	:m_body(nullptr)
 	{
 		b2BodyDef bodyDef;
@@ -61,7 +61,6 @@ namespace sl
 				fixtureDef.friction = second.get<float32>("friction");
 				fixtureDef.restitution = second.get<float32>("restitution");
 				fixtureDef.shape = &b2shape;
-				fixtureDef.userData = static_cast<void*>(new entt::Entity{ entity });
 				fixtureDef.filter.categoryBits = second.get<std::uint16_t>("collisionType");
 
 				sol::table cw = second.get<sol::table>("collidesWith");
@@ -85,8 +84,27 @@ namespace sl
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
 
+	PhysicsComponent::~PhysicsComponent()
+	{
+		for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
+		{
+			entt::DefaultRegistry::entity_type* entity = static_cast<entt::DefaultRegistry::entity_type*>(f->GetUserData());
+			delete entity;
+		}
+
+		Locator::box2dManager->m_b2world->DestroyBody(m_body);
+	}
+
 	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent&)
 	{
 		return *this;
+	}
+
+	void PhysicsComponent::setFixtureEntity(entt::DefaultRegistry::entity_type entity)
+	{
+		for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
+		{
+			f->SetUserData(static_cast<void*>(new entt::DefaultRegistry::entity_type{ entity }));
+		}
 	}
 }

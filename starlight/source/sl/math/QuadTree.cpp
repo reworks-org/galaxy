@@ -57,7 +57,7 @@ namespace sl
 		m_bounds = newBounds;
 	}
 
-	void QuadTree::insert(entt::Entity e)
+	void QuadTree::insert(entt::DefaultRegistry::entity_type e)
 	{
 		auto tc_rect = Locator::world->m_registry.get<TransformComponent>(e).m_rect;
 
@@ -98,7 +98,7 @@ namespace sl
 		}
 	}
 
-	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, entt::Entity e)
+	void QuadTree::retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, entt::DefaultRegistry::entity_type e)
 	{
 		auto tc_rect = Locator::world->m_registry.get<TransformComponent>(e).m_rect;
 		
@@ -111,7 +111,7 @@ namespace sl
 		returnObjects.insert(returnObjects.end(), m_objects.begin(), m_objects.end());
 	}
 
-	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, Rect<float, int>& rect)
+	void QuadTree::retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, Rect<float, int>& rect)
 	{
 		int index = getIndex(rect);
 		if (index != -1 && m_nodes[0] != nullptr)
@@ -122,7 +122,7 @@ namespace sl
 		returnObjects.insert(returnObjects.end(), m_objects.begin(), m_objects.end());
 	}
 
-	void QuadTree::retrieve(std::vector<entt::Entity>& returnObjects, const Rect<float, int>& rect)
+	void QuadTree::retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, const Rect<float, int>& rect)
 	{
 		int index = getIndex(rect);
 		if (index != -1 && m_nodes[0] != nullptr)

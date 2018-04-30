@@ -22,6 +22,14 @@ namespace sl
 
 	public:
 		///
+		/// \brief Default constructor.
+		///
+		/// This will throw an exception if you invoke it. This is here to allow stl maps to return animation objects from overloaded
+		/// brackets '[]' operators.
+		///
+		Animation();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -55,12 +63,6 @@ namespace sl
 		~Animation() = default;
 
 	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		Animation() = delete;
-
 		///
 		/// Cereal serialize function.
 		///
