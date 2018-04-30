@@ -41,3 +41,4 @@ https://msdn.microsoft.com/en-us/library/windows/desktop/ms682512(v=vs.85).aspx
 
 entity system -> any entity out of view should be disabled then reenabled if inside.
 sounds good ya?
+https://github.com/skypjack/entt/issues/69
