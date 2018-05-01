@@ -28,7 +28,7 @@
 - review how entities are being stored - remove any of this - in progress
 - further split logging into debug and release modes.
 - optimise code
-- discovered a weird bug where entt is destroying my physics objects
+- fix physics entity creation in tmxmap
 
 saving to a zip:
 when program is running, get a list of temporarty files to save to zip.

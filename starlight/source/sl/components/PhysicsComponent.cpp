@@ -19,7 +19,7 @@
 namespace sl
 {
 	PhysicsComponent::PhysicsComponent(const sol::table& table)
-	:m_body(nullptr)
+	:m_body(nullptr), m_entity(NULL)
 	{
 		b2BodyDef bodyDef;
 		bodyDef.position.Set(b2::pixelsToMeters<float32>(table.get<float>("x")), b2::pixelsToMeters<float32>(table.get<float>("y")));
@@ -86,13 +86,10 @@ namespace sl
 
 	PhysicsComponent::~PhysicsComponent()
 	{
-		for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
+		if (m_body)
 		{
-			entt::DefaultRegistry::entity_type* entity = static_cast<entt::DefaultRegistry::entity_type*>(f->GetUserData());
-			delete entity;
+			Locator::box2dManager->m_b2world->DestroyBody(m_body);
 		}
-
-		Locator::box2dManager->m_b2world->DestroyBody(m_body);
 	}
 
 	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent&)
@@ -102,9 +99,10 @@ namespace sl
 
 	void PhysicsComponent::setFixtureEntity(entt::DefaultRegistry::entity_type entity)
 	{
+		m_entity = entity;
 		for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
 		{
-			f->SetUserData(static_cast<void*>(new entt::DefaultRegistry::entity_type{ entity }));
+			f->SetUserData(static_cast<void*>(&m_entity));
 		}
 	}
 }

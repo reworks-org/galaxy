@@ -81,6 +81,9 @@ namespace sl
 
 	public:
 		b2Body* m_body;
+
+	private:
+		entt::DefaultRegistry::entity_type m_entity;
 	};
 }
 

@@ -125,16 +125,16 @@ namespace sl
 			{
 				if (head->obj_type == OT_SQUARE)
 				{
-					entt::DefaultRegistry::entity_type objentity = Locator::world->m_registry.create();
-
 					sol::state templua;
+					entt::DefaultRegistry::entity_type objentity = Locator::world->m_registry.create();
+					
 					templua.script(Locator::virtualFS->openAsString(head->name));
 					sol::table tempPO = templua.get<sol::table>("PhysicsObject");
 
 					if (!tempPO.empty())
 					{
-						// Why is entt destroying this?
-						Locator::world->m_registry.assign<PhysicsComponent>(objentity, tempPO).setFixtureEntity(objentity);
+						// something wierd is going on with these physics
+						//Locator::world->m_registry.assign<PhysicsComponent>(objentity, tempPO).setFixtureEntity(objentity);
 					}
 					else
 					{
