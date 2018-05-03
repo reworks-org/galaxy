@@ -24,6 +24,7 @@
 #include "sl/Scripting.hpp"
 #include "sl/Systems.hpp"
 #include "sl/Tags.hpp"
+#include "sl/Types.hpp"
 #include "sl/Utils.hpp"
 
 #endif

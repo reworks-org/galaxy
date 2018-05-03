@@ -11,6 +11,6 @@
 #define STARLIGHT_MAPPINGHEADER_HPP_
 
 #include "sl/mapping/Level.hpp"
-#include "sl/mapping/TMXUtils.hpp"
+#include "sl/mapping/TMXMap.hpp"
 
 #endif

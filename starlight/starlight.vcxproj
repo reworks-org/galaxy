@@ -2514,7 +2514,7 @@
     <ClInclude Include="source\sl\systems\RenderSystem.hpp" />
     <ClInclude Include="source\sl\Tags.hpp" />
     <ClInclude Include="source\sl\tags\CameraTag.hpp" />
-    <ClInclude Include="source\sl\types\Renderable.hpp" />
+    <ClInclude Include="source\sl\Types.hpp" />
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />

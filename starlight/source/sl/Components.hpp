@@ -15,8 +15,6 @@
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
-#include "sl/components/SpriteComponent.hpp"
-#include "sl/components/TextComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #endif

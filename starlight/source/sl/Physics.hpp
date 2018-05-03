@@ -13,5 +13,6 @@
 #include "sl/physics/Box2DCallbacks.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/physics/Box2DManager.hpp"
+#include "sl/physics/CollisionTypes.hpp"
 
 #endif

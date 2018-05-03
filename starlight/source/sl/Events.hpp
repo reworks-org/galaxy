@@ -11,7 +11,6 @@
 #define STARLIGHT_EVENTSHEADER_HPP_
 
 #include "sl/events/CollisionEvent.hpp"
-#include "sl/events/CollisionTypes.hpp"
 #include "sl/events/EventManager.hpp"
 #include "sl/events/EventTypes.hpp"
 #include "sl/events/Keys.hpp"
