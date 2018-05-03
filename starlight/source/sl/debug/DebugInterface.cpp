@@ -9,10 +9,12 @@
 
 #ifndef NDEBUG
 
+#include <physfs.h>
 #include <allegro5/events.h>
 #include <allegro5/display.h>
 
 #include "sl/core/World.hpp"
+#include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateManager.hpp"
@@ -77,7 +79,7 @@ struct ExampleAppConsole
 	void    Draw(const char* title, bool* p_open)
 	{
 		ImGui::SetNextWindowSize(ImVec2(520, 600), ImGuiCond_FirstUseEver);
-		if (!ImGui::Begin(title, p_open))
+		if (!ImGui::Begin(title, p_open, ImGuiWindowFlags_NoSavedSettings))
 		{
 			ImGui::End();
 			return;
@@ -107,7 +109,7 @@ struct ExampleAppConsole
 		ImGui::PopStyleVar();
 
 		const float footer_height_to_reserve = ImGui::GetStyle().ItemSpacing.y + ImGui::GetFrameHeightWithSpacing(); // 1 separator, 1 input text
-		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -footer_height_to_reserve), false, ImGuiWindowFlags_HorizontalScrollbar); // Leave room for 1 separator + 1 InputText
+		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -footer_height_to_reserve), false, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoSavedSettings); // Leave room for 1 separator + 1 InputText
 		if (ImGui::BeginPopupContextWindow())
 		{
 			if (ImGui::Selectable("Clear")) ClearLog();
@@ -185,7 +187,7 @@ struct ExampleAppConsole
 
 		/* need to figure out a way to return function results */
 		std::string result = luaState->do_string(command_line);
-		
+
 		if (Stricmp(command_line, "CLEAR") == 0)
 		{
 			ClearLog();
@@ -200,10 +202,10 @@ struct ExampleAppConsole
 		{
 			*p_open = false;
 		}
-		////else if (!result.valid())
-	//	{
-		//	AddLog("Invalid Lua Code!");
-		//}
+		else if (result.empty())
+		{
+			AddLog("You forgot the 'return' statement.");
+		}
 		else
 		{
 			AddLog(result.c_str());
@@ -267,8 +269,9 @@ namespace sl
 	{
 		static bool s_showCreateEntityWindow = false;
 		static bool s_showLuaConsole = false;
+		static bool s_showScriptEditor = false;
 
-		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
+		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
 
 		if (ImGui::BeginMenuBar())
 		{
@@ -295,9 +298,9 @@ namespace sl
 					s_showCreateEntityWindow = true;
 				}
 
-				if (ImGui::MenuItem("Entity Editor"))
+				if (ImGui::MenuItem("Script Editor"))
 				{
-
+					s_showScriptEditor = true;
 				}
 
 				if (ImGui::MenuItem("Show Console"))
@@ -313,34 +316,153 @@ namespace sl
 
 		if (s_showCreateEntityWindow)
 		{
-			showCreateEntityWindow(&s_showCreateEntityWindow);
+			
+		}
+
+		if (s_showScriptEditor)
+		{
+			static int s_index = 0;
+			static bool s_showFilesToLoad = false;
+			static std::string s_currentScript = "";
+			static std::vector<std::string> s_files;
+
+			ImGui::Begin("Script Editor", &s_showScriptEditor, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
+			ImGui::SetWindowSize(ImVec2(640, 480), ImGuiCond_FirstUseEver); //800, 600
+
+			auto cpos = m_editor.GetCursorPosition();
+			if (ImGui::BeginMenuBar())
+			{
+				if (ImGui::BeginMenu("File"))
+				{
+					if (ImGui::MenuItem("Open"))
+					{
+						s_showFilesToLoad = true;
+					}
+
+					if (ImGui::MenuItem("Save"))
+					{
+						Locator::virtualFS->writeToFile(s_currentScript, m_editor.GetText().c_str());
+					}
+
+					if (ImGui::MenuItem("Close"))
+					{
+						s_showScriptEditor = false;
+					}
+
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu("Edit"))
+				{
+					bool ro = m_editor.IsReadOnly();
+
+					if (ImGui::MenuItem("Undo", "ALT-Backspace", nullptr, !ro && m_editor.CanUndo()))
+					{
+						m_editor.Undo();
+					}
+
+					if (ImGui::MenuItem("Redo", "Ctrl-Y", nullptr, !ro && m_editor.CanRedo()))
+					{
+						m_editor.Redo();
+					}
+
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Copy", "Ctrl-C", nullptr, m_editor.HasSelection()))
+					{
+						m_editor.Copy();
+					}
+
+					if (ImGui::MenuItem("Cut", "Ctrl-X", nullptr, !ro && m_editor.HasSelection()))
+					{
+						m_editor.Cut();
+					}
+
+					if (ImGui::MenuItem("Delete", "Del", nullptr, !ro && m_editor.HasSelection()))
+					{
+						m_editor.Delete();
+					}
+
+					if (ImGui::MenuItem("Paste", "Ctrl-V", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
+					{
+						m_editor.Paste();
+					}
+
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Select all", nullptr, nullptr))
+					{
+						m_editor.SetSelection(TextEditor::Coordinates(), TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
+					}
+
+					ImGui::EndMenu();
+				}
+
+				ImGui::EndMenuBar();
+			}
+
+			if (s_showFilesToLoad)
+			{
+				s_index = 0;
+				s_files.clear();
+				s_currentScript = "";
+
+				char** efl = PHYSFS_enumerateFiles("scripts");
+				if (!efl)
+				{
+					LOG_S(WARNING) << "Could not load scripts!";
+				}
+				else
+				{
+					for (char** i = efl; *i != NULL; i++)
+					{
+						s_files.emplace_back("scripts/" + std::string(*i));
+					}
+				}
+
+				if (efl != NULL)
+				{
+					PHYSFS_freeList(efl);
+				}
+
+				ImGui::Begin("Select Script", &s_showFilesToLoad, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+
+				if (ImGui::ListBox("", &s_index, s_files))
+				{
+					s_currentScript = s_files[s_index];
+					std::string loadedText = Locator::virtualFS->openAsString(s_currentScript);
+					
+					if (loadedText.empty())
+					{
+						LOG_S(WARNING) << "Script file was empty! Or Loading failed. Check for other errors in log.";
+					}
+					else
+					{
+						m_editor.SetText(loadedText);
+					}
+
+					s_showFilesToLoad = false;
+				}
+
+				ImGui::End();
+			}
+
+			ImGui::Text("%6d/%-6d %6d lines  | %s | %s | %s | %s", cpos.mLine + 1, cpos.mColumn + 1, m_editor.GetTotalLines(),
+				m_editor.IsOverwrite() ? "Ovr" : "Ins",
+				m_editor.CanUndo() ? "*" : " ",
+				m_editor.GetLanguageDefinition().mName.c_str(), s_currentScript.c_str());
+
+			ImGui::Spacing();
+
+			m_editor.Render("Code Editor");
+
+			ImGui::End();
 		}
 
 		if (s_showLuaConsole)
 		{
 			static ExampleAppConsole console(&Locator::world->m_lua);
 			console.Draw("Lua Console", &s_showLuaConsole);
-		}
-
-		ImGui::End();
-	}
-
-	void DebugInterface::showCreateEntityWindow(bool* show)
-	{
-		ImGui::Begin("Entity Creator", show, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
-
-		if (ImGui::Button("Open"))
-		{
-			// load text
-			// s_editor.SetText("");
-		}
-		
-		ImGui::SameLine();
-		
-		if (ImGui::Button("Save"))
-		{
-			// auto textToSave = s_editor.GetText();
-			// save text
 		}
 
 		ImGui::End();

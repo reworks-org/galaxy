@@ -125,6 +125,7 @@ namespace sl
 			{
 				if (head->obj_type == OT_SQUARE)
 				{
+					/*
 					sol::state templua;
 					entt::DefaultRegistry::entity_type objentity = Locator::world->m_registry.create();
 					
@@ -134,12 +135,13 @@ namespace sl
 					if (!tempPO.empty())
 					{
 						// something wierd is going on with these physics
-						//Locator::world->m_registry.assign<PhysicsComponent>(objentity, tempPO).setFixtureEntity(objentity);
+						Locator::world->m_registry.assign<PhysicsComponent>(objentity, tempPO).setFixtureEntity(objentity);
 					}
 					else
 					{
 						LOG_S(ERROR) << "Physics Object table was empty! Script Name: " << head->name;
 					}
+					*/
 
 					al_draw_rectangle(head->x, head->y, head->x + head->width, head->y + head->height, color, m_lineThickness);
 				}

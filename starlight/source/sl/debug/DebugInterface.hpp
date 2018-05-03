@@ -23,6 +23,9 @@ namespace sl
 {
 	class BaseState;
 
+	///
+	/// Expects scripts to be in a subfolder labelled "scripts".
+	///
     class DebugInterface
     {
     public:
@@ -79,13 +82,6 @@ namespace sl
 		/// Deleted.
 		///
 		DebugInterface() = delete;
-
-		///
-		/// Function used to display create entity dialogue.
-		///
-		/// \param show Controls if window is open or not.
-		/// 
-		void showCreateEntityWindow(bool* show);
 
 	private:
 		bool m_disabled;

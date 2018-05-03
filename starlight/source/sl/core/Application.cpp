@@ -31,7 +31,7 @@
 
 namespace sl
 {
-	Application::Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig)
+	Application::Application(const std::vector<std::string>& archives, const std::string& config, std::function<void(std::ofstream&)> newConfig)
 	{
 		std::srand(std::time(nullptr));
 
@@ -45,11 +45,6 @@ namespace sl
 		al_register_assert_handler([](const char* expr, const char* file, int line, const char* func)
 		{
 			LOG_S(ERROR) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
-		});
-
-		al_register_trace_handler([](const char* trace)
-		{
-			LOG_S(INFO) << trace;
 		});
 
 		LOG_S(INFO) << "Constructing app...";
@@ -70,8 +65,9 @@ namespace sl
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 		Locator::configReader = m_configReader.get();
 
-		m_virtualFS = std::make_unique<VirtualFS>(archive);
+		m_virtualFS = std::make_unique<VirtualFS>(archives);
 		Locator::virtualFS = m_virtualFS.get();
+		m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
 
 		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::window = m_window.get();

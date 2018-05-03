@@ -22,7 +22,7 @@
 class Sandbox : public sl::Application
 {
 public:
-	Sandbox(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archive, config, newConfig)
+	Sandbox(const std::vector<std::string>& archives, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archives, config, newConfig)
 	{
 		LOG_S(INFO) << "Registering systems...";
 		
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 	
 	try
 	{
-		Sandbox sandbox("bin/data.zip", "bin/config.cfg", [](std::ofstream& newConfig)
+		Sandbox sandbox({ "bin/assets/", "bin/data.zip" }, "bin/config.cfg", [](std::ofstream& newConfig)
 		{
 			newConfig << "[graphics]" << std::endl;
 			newConfig << "width = 640" << std::endl;

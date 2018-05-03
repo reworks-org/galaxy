@@ -28,6 +28,7 @@ namespace sl
 		/// \brief Constructor.
 		///
 		/// Loads all textures and performs a maxrectbinpack algorithm on them, then frees textures.
+		/// Expects textures to be in a subfolder labelled "textures".
 		///
 		/// \param powerOfTwoDimension The power of two to create the sprite sheet. E.g. 11 would result in an atas size of 2048x2048.
 		///

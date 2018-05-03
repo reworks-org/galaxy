@@ -52,11 +52,11 @@ namespace sl
 		/// Sets up the engine. You need to inherit this and call it from a subclass.
 		/// Also calls std::srand(std::time(nullptr)) for you.
 		/// 
-		/// \param archive Path or archive to mount.
+		/// \param archives Array of archives to load. This can be directorys or archives.
 		/// \param config Path to the config file.
 		/// \param newConfig A function pointer to a function that contains ofstream code to write a default config file.
 		///
-		Application(const std::string& archive, const std::string& config, std::function<void(std::ofstream&)> newConfig);
+		Application(const std::vector<std::string>& archives, const std::string& config, std::function<void(std::ofstream&)> newConfig);
 
 	private:
 		///

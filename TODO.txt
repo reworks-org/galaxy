@@ -28,7 +28,8 @@
 - review how entities are being stored - remove any of this - in progress
 - further split logging into debug and release modes.
 - optimise code
-- fix physics entity creation in tmxmap
+- fix physics entity creation in tmxmap + loading of physics scripts.
+- make mount directories loaded from configreader, instead of manually hardcoding them.
 
 saving to a zip:
 when program is running, get a list of temporarty files to save to zip.
@@ -41,3 +42,6 @@ https://msdn.microsoft.com/en-us/library/windows/desktop/ms682512(v=vs.85).aspx
 entity system -> any entity out of view should be disabled then reenabled if inside.
 sounds good ya?
 https://github.com/skypjack/entt/issues/69
+
+physfs:
+reads files from zip, but if present in loose folder, that takes priority.

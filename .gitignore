@@ -21,3 +21,4 @@ sandbox/bin/Release/
 sandbox/build/
 sandbox/logs/
 sandbox/*.ini
+sandbox/*.log

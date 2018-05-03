@@ -38,28 +38,33 @@ namespace sl
 		{
 			LOG_S(WARNING) << "Could not find textures!";
 		}
-
-		for (char** i = efl; *i != NULL; i++)
+		else
 		{
-			std::string loc = "textures/" + std::string(*i);
-			ALLEGRO_BITMAP* bitmap = al_load_bitmap(loc.c_str());
-			Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
-
-			if (!(packedRect.m_height > 0))
+			for (char** i = efl; *i != NULL; i++)
 			{
-				LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i;
+				std::string loc = "textures/" + std::string(*i);
+				ALLEGRO_BITMAP* bitmap = al_load_bitmap(loc.c_str());
+				Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
+
+				if (!(packedRect.m_height > 0))
+				{
+					LOG_S(WARNING) << "Failed to pack a texture! Texture: " << *i;
+				}
+
+				al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
+				m_resourceMap.emplace(entt::HashedString{ utils::removeExtension(*i).c_str() }, packedRect);
+
+				al_destroy_bitmap(bitmap);
 			}
-
-			al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
-			m_resourceMap.emplace(entt::HashedString{ utils::removeExtension(*i).c_str() }, packedRect);
-			
-			al_destroy_bitmap(bitmap);
 		}
-
+		
 		al_flip_display();
 		al_set_target_bitmap(al_get_backbuffer(Locator::window->getDisplay()));
 		
-		PHYSFS_freeList(efl);
+		if (efl != NULL)
+		{
+			PHYSFS_freeList(efl);
+		}
 	}
 
 	TextureAtlas::~TextureAtlas()
