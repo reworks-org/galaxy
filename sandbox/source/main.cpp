@@ -8,7 +8,6 @@
 ///
 
 #include <memory>
-#include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/systems/CameraSystem.hpp>
@@ -32,8 +31,6 @@ public:
 		m_world->registerSystem<sl::AnimationSystem>();
 
 		LOG_S(INFO) << "Constructing sandbox...";
-		entt::DefaultRegistry::entity_type cameraEntity = m_world->m_registry.create();
-		m_world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 896, 576 });
 
 		m_stateManager->setState(GameState::inst());
 		#ifndef NDEBUG
@@ -53,46 +50,50 @@ int main(int argc, char **argv)
 	{
 		Sandbox sandbox({ "bin/assets/", "bin/data.zip" }, "bin/config.cfg", [](std::ofstream& newConfig)
 		{
-			newConfig << "[graphics]" << std::endl;
-			newConfig << "width = 640" << std::endl;
-			newConfig << "height = 480" << std::endl;
-			newConfig << "fullscreen = false" << std::endl;
-			newConfig << "msaa = true" << std::endl;
-			newConfig << "msaaValue = 2" << std::endl;
-			newConfig << "title = Sandbox" << std::endl;
-			newConfig << "icon = icon.png" << std::endl;
-			newConfig << "atlasPowerOf = 13" << std::endl;
-			newConfig << "shaderScript = shaders.lua" << std::endl;
+			newConfig << "[graphics]\n";
+			newConfig << "width = 640\n";
+			newConfig << "height = 480\n";
+			newConfig << "fullscreen = false\n";
+			newConfig << "msaa = true\n";
+			newConfig << "msaaValue = 2\n";
+			newConfig << "title = Sandbox\n";
+			newConfig << "icon = icon.png\n";
+			newConfig << "atlasPowerOf = 13\n";
+			newConfig << "shaderScript = scripts/shaders.lua\n";
 			newConfig << std::endl;
 
-			newConfig << "[box2d]" << std::endl;
-			newConfig << "gravity = 9.81" << std::endl;
-			newConfig << "ups = 60.0" << std::endl;
-			newConfig << "velocityIterations = 8" << std::endl;
-			newConfig << "positionIterations = 3" << std::endl;
+			newConfig << "[box2d]\n";
+			newConfig << "gravity = 9.81\n";
+			newConfig << "ups = 60.0\n";
+			newConfig << "velocityIterations = 8\n";
+			newConfig << "positionIterations = 3\n";
 			newConfig << std::endl;
 
-			newConfig << "[font]" << std::endl;
-			newConfig << "fontScript = fonts.lua" << std::endl;
+			newConfig << "[font]\n";
+			newConfig << "fontScript = scripts/fonts.lua\n";
 			newConfig << std::endl;
 
-			newConfig << "[audio]" << std::endl;
-			newConfig << "musicScript = music.lua" << std::endl;
-			newConfig << "soundScript = sound.lua" << std::endl;
-			newConfig << "reserveSamples = 32" << std::endl;
+			newConfig << "[audio]\n";
+			newConfig << "musicScript = scripts/music.lua\n";
+			newConfig << "soundScript = scripts/sound.lua\n";
+			newConfig << "reserveSamples = 32\n";
 			newConfig << std::endl;
 
-			newConfig << "# see allegro key codes" << std::endl;
-			newConfig << "[keys]" << std::endl;
-			newConfig << "forward = 23" << std::endl;
-			newConfig << "backward = 19" << std::endl;
-			newConfig << "left = 1" << std::endl;
-			newConfig << "right = 4" << std::endl;
-			newConfig << "quit = 59" << std::endl;
+			newConfig << "# see allegro key codes\n";
+			newConfig << "[keys]\n";
+			newConfig << "forward = 23\n";
+			newConfig << "backward = 19\n";
+			newConfig << "left = 1\n";
+			newConfig << "right = 4\n";
+			newConfig << "quit = 59\n";
 			newConfig << std::endl;
 
-			newConfig << "[debug]" << std::endl;
-			newConfig << "isDisabled = false" << std::endl;
+			newConfig << "[debug]\n";
+			newConfig << "isDisabled = false\n";
+			newConfig << std::endl;
+
+			newConfig << "[fs]\n";
+			newConfig << "writeDir = bin/assets/\n";
 			newConfig << std::endl;
 		});
 

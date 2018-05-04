@@ -4,7 +4,7 @@
 - fix up and rewrite sandbox to test all parts of engine
 - static code analysis
 - review all compilation warnings
-- debug tools - log, console (component / script editor??? -> create entity and add components functionality?
+- existing entity editor
 - integrate lua better
 	https://sol2.readthedocs.io/en/latest/api/usertype.html
 	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
@@ -17,7 +17,7 @@
 - entity creation scripts need to be generic
 	- how many entitys to create of each type from each script
 	- i.e. scripts are basicically templates for entity creation 
-	- reemove concepts of unique entityys
+	- reemove concepts of unique entitys
 
 - travis-ci / osx / linux builds
 - ensure relevant classes are marked final noexcept

@@ -7,11 +7,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/core/World.hpp"
-#include "sl/core/ServiceLocator.hpp"
-#include "sl/systems/RenderSystem.hpp"
-#include "sl/components/RenderComponent.hpp"
-#include "sl/components/TransformComponent.hpp"
+#include <sl/core/World.hpp>
+#include <sl/tags/CameraTag.hpp>
+#include <sl/core/ServiceLocator.hpp>
+#include <sl/systems/RenderSystem.hpp>
+#include <sl/components/RenderComponent.hpp>
+#include <sl/components/TransformComponent.hpp>
 
 #include "GameState.hpp"
 
@@ -31,6 +32,9 @@ void GameState::load()
 	auto& rc = Locator::world->m_registry.get<RenderComponent>(entity);
 	rc.m_renderTypes.push_back(RenderTypes::SPRITE);
 	*/
+
+	entt::DefaultRegistry::entity_type cameraEntity = Locator::world->m_registry.create();
+	Locator::world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 896, 576 });
 
 	m_gameLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
 	Locator::world->m_currentLevel = m_gameLevel.get();

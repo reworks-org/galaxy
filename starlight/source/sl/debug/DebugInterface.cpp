@@ -267,9 +267,9 @@ namespace sl
 
 	void DebugInterface::displayMenu()
 	{
-		static bool s_showCreateEntityWindow = false;
 		static bool s_showLuaConsole = false;
 		static bool s_showScriptEditor = false;
+		static std::string s_buff = "";
 
 		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
 
@@ -293,11 +293,6 @@ namespace sl
 
 			if (ImGui::BeginMenu("Tools"))
 			{
-				if (ImGui::MenuItem("Entity Creator"))
-				{
-					s_showCreateEntityWindow = true;
-				}
-
 				if (ImGui::MenuItem("Script Editor"))
 				{
 					s_showScriptEditor = true;
@@ -314,9 +309,12 @@ namespace sl
 			ImGui::EndMenuBar();
 		}
 
-		if (s_showCreateEntityWindow)
+		if (ImGui::InputText("Create Entity from Script", s_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			
+			if (!s_buff.empty())
+			{
+				Locator::world->createEntity(s_buff);
+			}
 		}
 
 		if (s_showScriptEditor)
