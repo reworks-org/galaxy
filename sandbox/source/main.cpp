@@ -34,75 +34,84 @@ public:
 
 int main(int argc, char **argv)
 {
-	auto success = EXIT_FAILURE;
-	
-	try
+	bool restart = false;
+
+	do
 	{
-		Sandbox sandbox("bin/config.cfg", [](std::ofstream& newConfig)
+		restart = false;
+
 		{
-			newConfig << "[graphics]\n";
-			newConfig << "width = 640\n";
-			newConfig << "height = 480\n";
-			newConfig << "fullscreen = false\n";
-			newConfig << "msaa = true\n";
-			newConfig << "msaaValue = 2\n";
-			newConfig << "title = Sandbox\n";
-			newConfig << "icon = icon.png\n";
-			newConfig << "atlasPowerOf = 13\n";
-			newConfig << "shaderScript = scripts/shaders.lua\n";
-			newConfig << std::endl;
+			try
+			{
+				Sandbox sandbox("bin/config.cfg", [](std::ofstream& newConfig)
+				{
+					newConfig << "[graphics]\n";
+					newConfig << "width = 640\n";
+					newConfig << "height = 480\n";
+					newConfig << "fullscreen = false\n";
+					newConfig << "msaa = true\n";
+					newConfig << "msaaValue = 2\n";
+					newConfig << "title = Sandbox\n";
+					newConfig << "icon = icon.png\n";
+					newConfig << "atlasPowerOf = 13\n";
+					newConfig << "shaderScript = scripts/shaders.lua\n";
+					newConfig << std::endl;
 
-			newConfig << "[box2d]\n";
-			newConfig << "gravity = 9.81\n";
-			newConfig << "ups = 60.0\n";
-			newConfig << "velocityIterations = 8\n";
-			newConfig << "positionIterations = 3\n";
-			newConfig << std::endl;
+					newConfig << "[box2d]\n";
+					newConfig << "gravity = 9.81\n";
+					newConfig << "ups = 60.0\n";
+					newConfig << "velocityIterations = 8\n";
+					newConfig << "positionIterations = 3\n";
+					newConfig << std::endl;
 
-			newConfig << "[font]\n";
-			newConfig << "fontScript = scripts/fonts.lua\n";
-			newConfig << std::endl;
+					newConfig << "[font]\n";
+					newConfig << "fontScript = scripts/fonts.lua\n";
+					newConfig << std::endl;
 
-			newConfig << "[audio]\n";
-			newConfig << "musicScript = scripts/music.lua\n";
-			newConfig << "soundScript = scripts/sound.lua\n";
-			newConfig << "reserveSamples = 32\n";
-			newConfig << std::endl;
+					newConfig << "[audio]\n";
+					newConfig << "musicScript = scripts/music.lua\n";
+					newConfig << "soundScript = scripts/sound.lua\n";
+					newConfig << "reserveSamples = 32\n";
+					newConfig << std::endl;
 
-			newConfig << "# see allegro key codes\n";
-			newConfig << "[keys]\n";
-			newConfig << "forward = 23\n";
-			newConfig << "backward = 19\n";
-			newConfig << "left = 1\n";
-			newConfig << "right = 4\n";
-			newConfig << "quit = 59\n";
-			newConfig << std::endl;
+					newConfig << "# see allegro key codes\n";
+					newConfig << "[keys]\n";
+					newConfig << "forward = 23\n";
+					newConfig << "backward = 19\n";
+					newConfig << "left = 1\n";
+					newConfig << "right = 4\n";
+					newConfig << "quit = 59\n";
+					newConfig << std::endl;
 
-			newConfig << "[debug]\n";
-			newConfig << "isDisabled = false\n";
-			newConfig << std::endl;
+					newConfig << "[debug]\n";
+					newConfig << "isDisabled = false\n";
+					newConfig << std::endl;
 
-			newConfig << "[fs]\n";
-			newConfig << "writeDir = bin/assets/\n";
-			newConfig << std::endl;
+					newConfig << "[fs]\n";
+					newConfig << "writeDir = bin/assets/\n";
+					newConfig << std::endl;
 
-			newConfig << "[archives]\n";
-			newConfig << "bin/assets/\n";
-			newConfig << "bin/data.zip\n";
-			newConfig << std::endl;
-		});
+					newConfig << "[archives]\n";
+					newConfig << "bin/assets/\n";
+					newConfig << "bin/data.zip\n";
+					newConfig << std::endl;
+				});
 
-		success = sandbox.run();
-	}
-	catch(const std::exception& e)
-	{
-		LOG_S(INFO) << "EXCEPTION OUTPUT: " << e.what();
-		al_show_native_message_box(nullptr, "Runtime Exception", "Error Message:", e.what(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
-	}
-	catch (...)
-	{
-		LOG_S(WARNING) << "Threw an unknown exception. Why are you not inheriting from std::exception?";
-	}
+				restart = sandbox.run();
+			}
+			catch (const std::exception& e)
+			{
+				LOG_S(INFO) << "EXCEPTION OUTPUT: " << e.what();
+				al_show_native_message_box(nullptr, "Runtime Exception", "Error Message:", e.what(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+			}
+			catch (...)
+			{
+				LOG_S(WARNING) << "Threw an unknown exception. Why are you not inheriting from std::exception?";
+			}
+		}
 
-	return success;
+	} while (restart);
+		
+
+	return 0;
 }

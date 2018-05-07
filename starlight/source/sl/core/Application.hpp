@@ -41,9 +41,9 @@ namespace sl
 		///
 		/// Return app->run() from your main method.
 		///
-		/// \return Returns EXIT_SUCCESS.
+		/// \return Returns true if the program should restart.
 		/// 
-		virtual int run() final;
+		virtual bool run() final;
 
 	protected:
 		///
@@ -95,6 +95,9 @@ namespace sl
 
 		Sol2enttWorkaround m_workaround;
 		CollisionContact m_engineCallbacks;
+
+	private:
+		bool m_restart;
 	};
 }
 

@@ -62,7 +62,9 @@ namespace sl
 		///
 		/// Call between update and render. Calls the functions that make up the main debug menu. ImGui functions mainly.
 		///
-		void displayMenu();
+		/// \param restart Pointer to boolean controlling if program should restart on exit.
+		///
+		void displayMenu(bool* restart);
 
 	private:
 		///

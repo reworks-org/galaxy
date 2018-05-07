@@ -161,6 +161,7 @@ void ImGui_ImplA5_InvalidateDeviceObjects()
 
 bool ImGui_ImplA5_Init(ALLEGRO_DISPLAY* display)
 {
+	g_Time = 0.0;
     g_Display = display;
 
     // Create custom vertex declaration.
@@ -208,6 +209,7 @@ bool ImGui_ImplA5_Init(ALLEGRO_DISPLAY* display)
 void ImGui_ImplA5_Shutdown()
 {
     ImGui_ImplA5_InvalidateDeviceObjects();
+	g_Time = 0.0;
 }
 
 // You can read the io.WantCaptureMouse, io.WantCaptureKeyboard flags to tell if dear imgui wants to use your inputs.

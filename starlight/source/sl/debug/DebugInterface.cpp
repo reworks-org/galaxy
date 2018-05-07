@@ -258,7 +258,7 @@ namespace sl
 		}
 	}
 
-	void DebugInterface::displayMenu()
+	void DebugInterface::displayMenu(bool* restart)
 	{
 		static bool s_showLuaConsole = false;
 		static bool s_showScriptEditor = false;
@@ -270,6 +270,12 @@ namespace sl
 		{
 			if (ImGui::BeginMenu("File"))
 			{
+				if (ImGui::MenuItem("Restart Game"))
+				{
+					*restart = true;
+					Locator::window->close();
+				}
+
 				if (ImGui::MenuItem("Quit Game"))
 				{
 					Locator::window->close();

@@ -30,3 +30,6 @@
 - fix physics entity creation in tmxmap + loading of physics scripts.
 - create entities from nothing in debug manager
 - reload game from in game
+- let sandbox exit, then return a bool if it should reload or not.
+- then reconstruct sandbox and run again.
+- review use of static keyword

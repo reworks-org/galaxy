@@ -32,6 +32,7 @@
 namespace sl
 {
 	Application::Application(const std::string& config, std::function<void(std::ofstream&)> newConfig)
+	:m_restart(false)
 	{
 		std::srand(std::time(nullptr));
 
@@ -47,7 +48,7 @@ namespace sl
 			LOG_S(ERROR) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
 		});
 
-		al_init();
+		bool res = al_install_system(ALLEGRO_VERSION_INT, nullptr);
 		al_install_keyboard();
 		al_install_mouse();
 		al_install_audio();
@@ -264,7 +265,7 @@ namespace sl
 		al_uninstall_system();
 	}
 
-	int Application::run()
+	bool Application::run()
 	{
 		#ifndef NDEBUG
 			int frames = 0;
@@ -333,7 +334,7 @@ namespace sl
 			
 			#ifndef NDEBUG
 				m_debugInterface->newFrame();
-				m_debugInterface->displayMenu();
+				m_debugInterface->displayMenu(&m_restart);
 			#endif
 
 			m_window->clear(0, 0, 0);
@@ -365,6 +366,6 @@ namespace sl
 		al_stop_timer(clock);
 		al_destroy_timer(clock);
 
-		return EXIT_SUCCESS;
+		return m_restart;
 	}
 }
