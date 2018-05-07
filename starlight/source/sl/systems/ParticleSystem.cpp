@@ -55,13 +55,9 @@ namespace sl
 
 	void ParticleSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		auto view = registry.view<ParticleComponent, TransformComponent, RenderComponent>();
-		for (entt::DefaultRegistry::entity_type entity : view)
+		registry.view<ParticleComponent, TransformComponent, RenderComponent>()
+			.each([&](entt::DefaultRegistry::entity_type entity, ParticleComponent& pc, TransformComponent& tc, RenderComponent& rc)
 		{
-			ParticleComponent& pc = view.get<ParticleComponent>(entity);
-			TransformComponent& tc = view.get<TransformComponent>(entity);
-			RenderComponent& rc = view.get<RenderComponent>(entity);
-
 			if (rc.m_opacity <= 0.0f)
 			{
 				registry.destroy(entity);
@@ -73,6 +69,6 @@ namespace sl
 
 				rc.m_opacity -= pc.m_fade;
 			}
-		}
+		});
 	}
 }

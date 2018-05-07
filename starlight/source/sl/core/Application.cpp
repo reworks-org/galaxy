@@ -31,7 +31,7 @@
 
 namespace sl
 {
-	Application::Application(const std::vector<std::string>& archives, const std::string& config, std::function<void(std::ofstream&)> newConfig)
+	Application::Application(const std::string& config, std::function<void(std::ofstream&)> newConfig)
 	{
 		std::srand(std::time(nullptr));
 
@@ -46,8 +46,6 @@ namespace sl
 		{
 			LOG_S(ERROR) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
 		});
-
-		LOG_S(INFO) << "Constructing app...";
 
 		al_init();
 		al_install_keyboard();
@@ -65,7 +63,7 @@ namespace sl
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 		Locator::configReader = m_configReader.get();
 
-		m_virtualFS = std::make_unique<VirtualFS>(archives);
+		m_virtualFS = std::make_unique<VirtualFS>(m_configReader->getSection(config, "archives"));
 		Locator::virtualFS = m_virtualFS.get();
 		m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
 
@@ -87,7 +85,7 @@ namespace sl
 		m_stateManager = std::make_unique<StateManager>();
 		Locator::stateManager = m_stateManager.get();
 
-		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<size_t>(config, "graphics", "atlasPowerOf"));
+		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		Locator::textureAtlas = m_textureAtlas.get();
 
 		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
@@ -116,8 +114,6 @@ namespace sl
 
 		m_box2dManager->m_b2world->SetContactListener(&m_engineCallbacks);
 		m_workaround.setRegistry(&(m_world->m_registry));
-
-		LOG_S(INFO) << "Registering lua usertypes." << "\n";
 
 		m_world->m_lua.new_usertype<std::uint32_t>("uint32_t");
 		m_world->m_lua.new_usertype<std::uint16_t>("uint16_t");
@@ -270,8 +266,6 @@ namespace sl
 
 	int Application::run()
 	{
-		LOG_S(INFO) << "Starting main loop..." << "\n";
-
 		#ifndef NDEBUG
 			int frames = 0;
 			int updates = 0;
@@ -370,8 +364,6 @@ namespace sl
 
 		al_stop_timer(clock);
 		al_destroy_timer(clock);
-
-		LOG_S(INFO) << "App close.";
 
 		return EXIT_SUCCESS;
 	}

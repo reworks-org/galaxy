@@ -67,16 +67,12 @@ namespace sl
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		Locator::box2dManager->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
-		
-		auto view = registry.view<PhysicsComponent, TransformComponent>();
-		for (entt::DefaultRegistry::entity_type entity : view)
+			
+		registry.view<PhysicsComponent, TransformComponent>().each([&](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc, TransformComponent& tc)
 		{
-			PhysicsComponent& pc = view.get<PhysicsComponent>(entity);
-			TransformComponent& tc = view.get<TransformComponent>(entity);
-
 			tc.m_rect.m_x = b2::metersToPixels<float>(pc.m_body->GetPosition().x);
 			tc.m_rect.m_y = b2::metersToPixels<float>(pc.m_body->GetPosition().y);
 			tc.m_angle = b2::radToDeg<float>(pc.m_body->GetAngle());
-		}
+		});
 	}
 }

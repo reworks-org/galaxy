@@ -91,6 +91,26 @@ namespace sl
 		}
 	}
 
+	std::vector<std::string> ConfigReader::getSection(const std::string& config, const std::string& section)
+	{
+		ALLEGRO_CONFIG_ENTRY* entry;
+		std::vector<std::string> output;
+
+		const char* first = al_get_first_config_entry(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), &entry);
+		output.emplace_back(first);
+
+		while (entry)
+		{
+			const char* next = al_get_next_config_entry(&entry);
+			if (next)
+			{
+				output.emplace_back(next);
+			}
+		}
+
+		return output;
+	}
+
 	void ConfigReader::clean()
 	{
 		m_resourceMap.clear();

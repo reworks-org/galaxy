@@ -21,24 +21,14 @@
 class Sandbox : public sl::Application
 {
 public:
-	Sandbox(const std::vector<std::string>& archives, const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(archives, config, newConfig)
+	Sandbox(const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(config, newConfig)
 	{
-		LOG_S(INFO) << "Registering systems...";
-		
 		m_world->registerSystem<sl::RenderSystem>(10, 50);
 		m_world->registerSystem<sl::CameraSystem>();
 		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
 		m_world->registerSystem<sl::AnimationSystem>();
 
-		LOG_S(INFO) << "Constructing sandbox...";
-
 		m_stateManager->setState(GameState::inst());
-		#ifndef NDEBUG
-			m_debugInterface->setReloadState(GameState::inst(), []()
-			{
-				LOG_S(INFO) << "Reloaded state.";
-			});
-		#endif
 	}
 };
 
@@ -48,7 +38,7 @@ int main(int argc, char **argv)
 	
 	try
 	{
-		Sandbox sandbox({ "bin/assets/", "bin/data.zip" }, "bin/config.cfg", [](std::ofstream& newConfig)
+		Sandbox sandbox("bin/config.cfg", [](std::ofstream& newConfig)
 		{
 			newConfig << "[graphics]\n";
 			newConfig << "width = 640\n";
@@ -94,6 +84,11 @@ int main(int argc, char **argv)
 
 			newConfig << "[fs]\n";
 			newConfig << "writeDir = bin/assets/\n";
+			newConfig << std::endl;
+
+			newConfig << "[archives]\n";
+			newConfig << "bin/assets/\n";
+			newConfig << "bin/data.zip\n";
 			newConfig << std::endl;
 		});
 

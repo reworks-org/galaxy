@@ -17,7 +17,6 @@
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
-#include "sl/core/StateManager.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/imgui/imgui_impl_a5.h"
 
@@ -216,7 +215,7 @@ struct ExampleAppConsole
 namespace sl
 {
 	DebugInterface::DebugInterface(ALLEGRO_DISPLAY* display, bool isDisabled)
-	:m_reloadState(nullptr), m_disabled(isDisabled)
+	:m_disabled(isDisabled)
 	{
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -259,12 +258,6 @@ namespace sl
 		}
 	}
 
-	void DebugInterface::setReloadState(std::shared_ptr<BaseState> s, std::function<void(void)> func)
-	{
-		m_reloadState = s;
-		m_reloadFunc = func;
-	}
-
 	void DebugInterface::displayMenu()
 	{
 		static bool s_showLuaConsole = false;
@@ -277,13 +270,7 @@ namespace sl
 		{
 			if (ImGui::BeginMenu("File"))
 			{
-				if (ImGui::MenuItem("Reset State"))
-				{
-					m_reloadFunc();
-					Locator::stateManager->reloadState(m_reloadState);
-				}
-
-				if (ImGui::MenuItem("Close Game"))
+				if (ImGui::MenuItem("Quit Game"))
 				{
 					Locator::window->close();
 				}

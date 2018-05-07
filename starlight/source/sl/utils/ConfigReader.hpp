@@ -88,6 +88,7 @@ namespace sl
 		///
 		/// Lookup a value in the config file.
 		/// 
+		/// \param config Name of the config file to read.
 		/// \param section Section where the value is located.
 		/// \param key Key to refer to the value.
 		/// 
@@ -95,6 +96,16 @@ namespace sl
 		///
 		template<typename T>
 		T lookup(const std::string& config, const std::string& section, const std::string& key);
+
+		///
+		/// Returns an entire section in a config file.
+		/// 
+		/// \param config Name of the config file to read.
+		/// \param section Section where the value is located.
+		/// 
+		/// \return Returns std::vector of std::strings of each entry in config.
+		///
+		std::vector<std::string> getSection(const std::string& config, const std::string& section);
 
 		///
 		/// Clean up resources.
