@@ -26,12 +26,12 @@ namespace sl
 
 	void Serializer::createFrameworkSnapshot(cereal::JSONOutputArchive& archive, const entt::DefaultRegistry& source)
 	{
-		source.snapshot().entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive);
+		//source.snapshot().entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive);
 	}
 
 	void Serializer::loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination)
 	{
-		entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
-		loader.entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive).orphans().shrink();
+		//entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
+		//loader.entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive).orphans().shrink();
 	}
 }
