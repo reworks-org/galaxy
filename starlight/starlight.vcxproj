@@ -2420,6 +2420,7 @@
     <ClInclude Include="source\sl\libs\cereal\types\vector.hpp" />
     <ClInclude Include="source\sl\libs\cereal\version.hpp" />
     <ClInclude Include="source\sl\libs\entt\config\config.h" />
+    <ClInclude Include="source\sl\libs\entt\core\algorithm.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\family.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\ident.hpp" />

@@ -483,7 +483,7 @@ class View final {
             return other.begin == begin;
         }
 
-        bool operator!=(const Iterator &other) const ENTT_NOEXCEPT {
+        inline bool operator!=(const Iterator &other) const ENTT_NOEXCEPT {
             return !(*this == other);
         }
 
@@ -506,7 +506,7 @@ class View final {
 
     template<typename Comp, typename Other, typename It>
     inline std::enable_if_t<std::is_same<Comp, Other>::value, const Other &>
-    get(It &it, Entity) const { return *(it++); }
+    get(const It &it, Entity) const { return *it; }
 
     template<typename Comp, typename Other, typename It>
     inline std::enable_if_t<!std::is_same<Comp, Other>::value, const Other &>
@@ -517,7 +517,7 @@ class View final {
         const auto extent = std::min({ std::get<pool_type<Component> &>(pools).extent()... });
         auto &pool = std::get<pool_type<Comp> &>(pools);
 
-        std::for_each(pool.view_type::cbegin(), pool.view_type::cend(), [&func, raw = pool.cbegin(), extent, this](const auto entity) mutable {
+        std::for_each(pool.view_type::cbegin(), pool.view_type::cend(), [func = std::move(func), raw = pool.cbegin(), extent, this](const auto entity) mutable {
             const auto sz = size_type(entity & traits_type::entity_mask);
 
             if(sz < extent) {
@@ -530,6 +530,8 @@ class View final {
                     func(entity, this->get<Comp, Component>(raw, entity)...);
                 }
             }
+
+            ++raw;
         });
     }
 

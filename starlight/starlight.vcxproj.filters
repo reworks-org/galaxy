@@ -7514,5 +7514,8 @@
     <ClInclude Include="source\sl\Types.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\algorithm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

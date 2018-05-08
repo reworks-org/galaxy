@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/tags/CameraTag.hpp"
+#include "sl/components/RenderComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
@@ -24,12 +26,12 @@ namespace sl
 
 	void Serializer::createFrameworkSnapshot(cereal::JSONOutputArchive& archive, const entt::DefaultRegistry& source)
 	{
-		//source.snapshot().entities(archive).destroyed(archive).component<AnimationComponent, PhysicsComponent, TransformComponent>(archive).tag<>(archive);
+		source.snapshot().entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive);
 	}
 
 	void Serializer::loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination)
 	{
-		//entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
-		//loader.entities(archive).destroyed(archive).component<AnimationComponent, PhysicsComponent, TransformComponent>(archive).tag<>(archive);
+		entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
+		loader.entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive).orphans().shrink();
 	}
 }
