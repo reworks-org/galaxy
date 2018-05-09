@@ -89,6 +89,7 @@ namespace sl
 		if (m_body)
 		{
 			Locator::box2dManager->m_b2world->DestroyBody(m_body);
+			m_body = nullptr;
 		}
 	}
 

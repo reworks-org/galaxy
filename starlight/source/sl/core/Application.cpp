@@ -48,7 +48,7 @@ namespace sl
 			LOG_S(ERROR) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
 		});
 
-		bool res = al_install_system(ALLEGRO_VERSION_INT, nullptr);
+		al_install_system(ALLEGRO_VERSION_INT, nullptr);
 		al_install_keyboard();
 		al_install_mouse();
 		al_install_audio();
