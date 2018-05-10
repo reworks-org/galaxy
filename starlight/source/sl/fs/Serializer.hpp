@@ -37,7 +37,7 @@ namespace sl
 		///
 		/// \param source Source registry to serialize entities from.
 		///
-		virtual void createGameSnapshot(const entt::DefaultRegistry& source) = 0;
+		virtual void createGameSnapshot(entt::DefaultRegistry& source) = 0;
 
 		///
 		/// \brief Load a snapshot for game specfic data.
@@ -57,7 +57,7 @@ namespace sl
 		/// \param archive Archive to write save data to.
 		/// \param source Source registry to serialize entities from.
 		///
-		virtual void createFrameworkSnapshot(cereal::JSONOutputArchive& archive, const entt::DefaultRegistry& source) final;
+		virtual void createFrameworkSnapshot(cereal::JSONOutputArchive& archive, entt::DefaultRegistry& source) final;
 
 		///
 		/// \brief Loads a snapshot of important data in the game engine and reads it into the game.
@@ -67,7 +67,7 @@ namespace sl
 		/// \param archive Archive to read save data from.
 		/// \param destination Destination registry to deserialize entities to.
 		///
-		virtual void loadFrameworkSnapshot(const cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination) final;
+		virtual void loadFrameworkSnapshot(cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination) final;
 
 	protected:
 		std::string m_saveFilePath;

@@ -14,6 +14,7 @@
 #include <cinttypes>
 
 #include "sl/libs/cereal/access.hpp"
+#include "sl/libs/cereal/types/string.hpp"
 
 namespace sl
 {

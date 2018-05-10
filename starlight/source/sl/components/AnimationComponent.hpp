@@ -12,8 +12,10 @@
 
 #include <unordered_map>
 
-#include "sl/libs/cereal/access.hpp"
 #include "sl/graphics/Animation.hpp"
+#include "sl/libs/cereal/access.hpp"
+#include "sl/libs/cereal/types/string.hpp"
+#include "sl/libs/cereal/types/unordered_map.hpp"
 
 typedef struct _tmx_map tmx_map;
 typedef struct _tmx_tile tmx_tile;
@@ -97,7 +99,7 @@ namespace sl
 		///
 		/// Cereal serialize function.
 		///
-		template <class Archive>
+		template<class Archive>
 		void serialize(Archive& ar)
 		{
 			ar(m_isPaused, m_currentFrameTime, m_activeAnimation, m_animations);
