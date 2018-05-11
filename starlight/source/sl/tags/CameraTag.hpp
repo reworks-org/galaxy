@@ -7,8 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REWORK_CAMERATAG_HPP_
-#define REWORK_CAMERATAG_HPP_
+#ifndef STARLIGHT_CAMERATAG_HPP_
+#define STARLIGHT_CAMERATAG_HPP_
 
 #include "sl/math/Rect.hpp"
 #include "sl/libs/cereal/access.hpp"
@@ -21,6 +21,15 @@ namespace sl
 		friend class CameraSystem;
 		friend class cereal::access;
 	public:
+		///
+		/// \brief Default Constructor.
+		///
+		/// Do NOT default construct this!
+		/// Will throw an exception.
+		/// Only here because entt requires it to deserialize if something goes wrong.
+		///
+		CameraTag();
+
 		///
 		/// Constructor.
 		///
@@ -46,12 +55,6 @@ namespace sl
 		CameraTag& operator=(const CameraTag&);
 
 	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		CameraTag() = delete;
-
 		///
 		/// Update the camera position. Called internally by CameraSystem.
 		/// We use the base type rather than the typedef to avoid includes.

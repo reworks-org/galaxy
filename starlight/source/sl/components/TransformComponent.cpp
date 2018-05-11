@@ -8,11 +8,17 @@
 ///
 
 #include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 #include "TransformComponent.hpp"
 
 namespace sl
 {
+	TransformComponent::TransformComponent()
+	{
+		LOG_S(FATAL) << "Tried to construct a default-initialized TransformComponent!";
+	}
+
 	TransformComponent::TransformComponent(const sol::table& table)
 	{
 		m_layer = table.get<int>("layer");

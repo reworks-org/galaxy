@@ -16,6 +16,11 @@
 
 namespace sl
 {
+	CameraTag::CameraTag()
+	{
+		LOG_S(FATAL) << "Tried to construct a default-initialized CameraTag!";
+	}
+
 	CameraTag::CameraTag(const sol::table& table)
 	{
 		m_bounds.m_x = 0;

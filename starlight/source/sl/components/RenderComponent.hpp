@@ -22,6 +22,15 @@ namespace sl
 		friend class cereal::access;
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Do NOT default construct this!
+		/// Will throw an exception.
+		/// Only here because entt requires it to deserialize if something goes wrong.
+		///
+		RenderComponent();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -47,11 +56,6 @@ namespace sl
 		RenderComponent& operator=(const RenderComponent&);
 
 	private:
-		///
-		/// Default constructor.
-		///
-		RenderComponent() = delete;
-
 		///
 		/// Cereal serialize function.
 		///

@@ -20,6 +20,11 @@
 
 namespace sl
 {
+	AnimationComponent::AnimationComponent()
+	{
+		LOG_S(FATAL) << "Tried to construct a default-initialized AnimationComponent!";
+	}
+
 	AnimationComponent::AnimationComponent(const sol::table& table)
 		:m_currentFrameTime(0.0)
 	{

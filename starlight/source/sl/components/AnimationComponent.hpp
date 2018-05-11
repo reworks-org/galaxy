@@ -28,6 +28,15 @@ namespace sl
 
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Do NOT default construct this!
+		/// Will throw an exception.
+		/// Only here because entt requires it to deserialize if something goes wrong.
+		///
+		AnimationComponent();
+
+		///
 		/// Animated Component Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -90,12 +99,6 @@ namespace sl
 		AnimationComponent& operator=(const AnimationComponent&);
 
 	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		AnimationComponent() = delete;
-
 		///
 		/// Cereal serialize function.
 		///

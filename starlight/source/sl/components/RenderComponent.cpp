@@ -8,11 +8,17 @@
 ///
 
 #include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 #include "RenderComponent.hpp"
 
 namespace sl
 {
+	RenderComponent::RenderComponent()
+	{
+		LOG_S(FATAL) << "Tried to construct a default-initialized RenderComponent!";
+	}
+
 	RenderComponent::RenderComponent(const sol::table& table)
 	{
 		m_opacity = table.get<float>("opacity");

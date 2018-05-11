@@ -17,6 +17,7 @@
 #include "sl/types/System.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/mapping/Level.hpp"
+#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/entt/core/hashed_string.hpp"
 
 #ifndef NDEBUG
@@ -27,6 +28,7 @@ namespace sl
 {
 	class World final
 	{
+		friend class cereal::access;
 	public: 
 		///
 		/// Construct World.
@@ -113,6 +115,17 @@ namespace sl
 		template<typename System>
 		void remove();
 		
+	private:
+		///
+		/// Cereal serialize function.
+		///
+		template<class Archive>
+		void serialize(Archive& ar)
+		{
+			//ar();
+			//need to serialize levels
+		}
+
 	public:
 		sol::state m_lua;
 		Level* m_currentLevel;

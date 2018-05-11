@@ -23,6 +23,15 @@ namespace sl
 
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Do NOT default construct this!
+		/// Will throw an exception.
+		/// Only here because entt requires it to deserialize if something goes wrong.
+		///
+		PhysicsComponent();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -47,12 +56,6 @@ namespace sl
 		void setFixtureEntity(entt::DefaultRegistry::entity_type entity);
 
 	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		PhysicsComponent() = delete;
-
 		///
 		/// Cereal serialize function.
 		///

@@ -17,9 +17,7 @@
 namespace sl
 {
 	Animation::Animation()
-	:m_isLooped(false), m_speed(0), m_totalFrames(0), m_currentFrame(0)
 	{
-		m_frames.clear();
 		LOG_S(FATAL) << "Tried to construct a default-initialized animation!";
 	}
 

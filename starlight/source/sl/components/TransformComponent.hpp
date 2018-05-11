@@ -22,6 +22,15 @@ namespace sl
 
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Do NOT default construct this!
+		/// Will throw an exception.
+		/// Only here because entt requires it to deserialize if something goes wrong.
+		///
+		TransformComponent();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -48,12 +57,6 @@ namespace sl
 		TransformComponent& operator=(const TransformComponent&);
 
 	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		TransformComponent() = delete;
-
 		///
 		/// Cereal serialize function.
 		///

@@ -18,6 +18,11 @@
 
 namespace sl
 {
+	PhysicsComponent::PhysicsComponent()
+	{
+		LOG_S(FATAL) << "Tried to construct a default-initialized PhysicsComponent!";
+	}
+
 	PhysicsComponent::PhysicsComponent(const sol::table& table)
 	:m_body(nullptr), m_entity(NULL)
 	{
