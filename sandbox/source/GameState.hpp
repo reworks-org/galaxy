@@ -10,8 +10,7 @@
 #ifndef SANDBOX_GAMESTATE_HPP_
 #define SANDBOX_GAMESTATE_HPP_
 
-#include <sl/types/State.hpp>
-#include <sl/core/StateManager.hpp>
+#include <sl/core/StateMachine.hpp>
 
 #include "GameLevel.hpp"
 

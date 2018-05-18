@@ -10,34 +10,17 @@
 #ifndef STARLIGHT_STATE_HPP_
 #define STARLIGHT_STATE_HPP_
 
-#include <memory>
-
 union ALLEGRO_EVENT;
 
 namespace sl
 {
-	class BaseState
+	class State
 	{
 	public:
 		///
-		/// Default constructor.
-		///
-		BaseState() = default;
-
-		///
 		/// Destructor.
 		///
-		virtual ~BaseState() = default;
-
-		///
-		/// Load the states resources.
-		///
-		virtual void load() = 0;
-
-		///
-		/// Unload the states resources.
-		///
-		virtual void unload() = 0;
+		virtual ~State() = default;
 
 		///
 		/// Handle any events for this state.
@@ -55,37 +38,12 @@ namespace sl
 		/// Render the current state.
 		///
 		virtual void render() = 0;
-	};
 
-	template<typename Derived>
-	class State : public BaseState
-	{
-		friend Derived;
-		friend BaseState;
-	public:
-		///
-		/// Destructor.
-		///
-		virtual ~State() = default;
-
-		///
-		/// Retrieve instance of state.
-		///
-		inline static std::shared_ptr<Derived> inst()
-		{
-			static std::shared_ptr<Derived> m_statePtr = std::make_shared<Derived>();
-			return m_statePtr;
-		}
-
-	private:
+	protected:
 		///
 		/// Default constructor.
 		///
 		State() = default;
-
-	private:
-		/// Allows for loading stuff only once in load()
-		bool m_doneOnce = false;
 	};
 }
 

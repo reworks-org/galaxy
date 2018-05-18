@@ -12,7 +12,7 @@
 
 #include "sl/core/Application.hpp"
 #include "sl/core/ServiceLocator.hpp"
-#include "sl/core/StateManager.hpp"
+#include "sl/core/StateMachine.hpp"
 #include "sl/core/World.hpp"
 
 #endif

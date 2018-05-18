@@ -15,7 +15,7 @@
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/graphics/Window.hpp"
-#include "sl/core/StateManager.hpp"
+#include "sl/core/StateMachine.hpp"
 #include "sl/utils/ConfigReader.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/events/EventManager.hpp"
@@ -86,7 +86,7 @@ namespace sl
 		std::unique_ptr<MusicPlayer> m_musicPlayer;
 		std::unique_ptr<ShaderLibrary> m_shaderLibrary;
 		std::unique_ptr<SoundPlayer> m_soundPlayer;
-		std::unique_ptr<StateManager> m_stateManager;
+		std::unique_ptr<StateMachine> m_stateMachine;
 		std::unique_ptr<TextureAtlas> m_textureAtlas;
 		std::unique_ptr<VirtualFS> m_virtualFS;
 		#ifndef NDEBUG

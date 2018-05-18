@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -34,7 +34,7 @@
     <ClCompile Include="source\sl\components\RenderComponent.cpp" />
     <ClCompile Include="source\sl\components\TransformComponent.cpp" />
     <ClCompile Include="source\sl\core\Application.cpp" />
-    <ClCompile Include="source\sl\core\StateManager.cpp" />
+    <ClCompile Include="source\sl\core\StateMachine.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
     <ClCompile Include="source\sl\debug\DebugInterface.cpp" />
     <ClCompile Include="source\sl\events\EventManager.cpp" />
@@ -173,7 +173,7 @@
     <ClInclude Include="source\sl\Core.hpp" />
     <ClInclude Include="source\sl\core\Application.hpp" />
     <ClInclude Include="source\sl\core\ServiceLocator.hpp" />
-    <ClInclude Include="source\sl\core\StateManager.hpp" />
+    <ClInclude Include="source\sl\core\StateMachine.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
     <ClInclude Include="source\sl\Debug.hpp" />
     <ClInclude Include="source\sl\debug\DebugInterface.hpp" />

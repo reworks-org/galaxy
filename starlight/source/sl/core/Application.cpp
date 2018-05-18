@@ -83,7 +83,7 @@ namespace sl
 			Locator::debugInterface = m_debugInterface.get();
 		#endif
 
-		m_stateManager = std::make_unique<StateManager>();
+		m_stateMachine = std::make_unique<StateMachine>();
 		Locator::stateManager = m_stateManager.get();
 
 		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
@@ -219,7 +219,7 @@ namespace sl
 
 		m_world->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
 			sol::constructors<Sol2enttWorkaround()>(),
-			/*"create", &Sol2enttWorkaround::create,*/
+			"create", &Sol2enttWorkaround::create,
 			"destroy", &Sol2enttWorkaround::destroy,
 			"getAnimationComponent", &Sol2enttWorkaround::get<AnimationComponent>,
 			"getParallaxComponent", &Sol2enttWorkaround::get<ParallaxComponent>,
@@ -240,7 +240,7 @@ namespace sl
 		m_shaderLibrary.reset();
 		m_fontBook.reset();
 		m_textureAtlas.reset();
-		m_stateManager.reset();
+		m_stateMachine.reset();
 		
 		#ifndef NDEBUG
 			m_debugInterface.reset();
@@ -283,8 +283,6 @@ namespace sl
 		al_register_event_source(m_eventManager->m_queue, al_get_timer_event_source(clock));
 		al_start_timer(clock);
 		
-		m_stateManager->load();
-
 		#ifndef NDEBUG
 			timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 		#endif

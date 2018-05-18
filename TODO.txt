@@ -18,8 +18,11 @@
 	- i.e. scripts are basicically templates for entity creation 
 	- reemove concepts of unique entitys
 
+- more debug code, split based off of build type.
+	- more logging / error checking / exceptions
 - travis-ci / osx / linux builds
 - ensure relevant classes are marked final noexcept
+- change all hashed string usage to std::string_views
 - improved documentation
 - string view
 - fix update method registry view iteration - in progress
@@ -35,6 +38,9 @@
 - add ability to write and save new scripts from script editor. -> just a popup box and an if_not_opened boolean -> then same saving code -> should be easy
 
 fix level / state design (want to load / savebased off of an id)
+- loading screens between states
+- resources are loaded on a differnet thread
 http://gameprogrammingpatterns.com/state.html
+https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/

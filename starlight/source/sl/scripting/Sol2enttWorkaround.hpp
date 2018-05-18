@@ -43,7 +43,7 @@ namespace sl
 		///
 		/// \return Entity ID for newly created entity.
 		///
-		///entt::DefaultRegistry::entity_type create();
+		entt::DefaultRegistry::entity_type create();
 
 		///
 		/// Wrapper for entt's destroy function.

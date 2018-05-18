@@ -15,12 +15,12 @@ namespace sl
 	{
 		m_registry = registry;
 	}
-	/*
+
 	entt::DefaultRegistry::entity_type Sol2enttWorkaround::create()
 	{
 		return m_registry->create();
 	}
-	*/
+
 	void Sol2enttWorkaround::destroy(entt::DefaultRegistry::entity_type entity)
 	{
 		m_registry->destroy(entity);
