@@ -84,7 +84,7 @@ namespace sl
 		#endif
 
 		m_stateMachine = std::make_unique<StateMachine>();
-		Locator::stateManager = m_stateManager.get();
+		Locator::stateMachine = m_stateMachine.get();
 
 		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		Locator::textureAtlas = m_textureAtlas.get();
@@ -293,7 +293,7 @@ namespace sl
 			while (al_get_next_event(m_eventManager->m_queue, &ev))
 			{
 				m_world->event(&ev);
-				m_stateManager->event(&ev);
+				m_stateMachine->event(&ev);
 
 				#ifndef NDEBUG
 					m_debugInterface->event(&ev);
@@ -302,7 +302,7 @@ namespace sl
 				switch (ev.type)
 				{
 				case ALLEGRO_EVENT_TIMER:
-					m_stateManager->update(timePerFrame);
+					m_stateMachine->update(timePerFrame);
 					m_world->update(timePerFrame);
 
 					#ifndef NDEBUG
@@ -337,7 +337,7 @@ namespace sl
 
 			m_window->clear(0, 0, 0);
 
-			m_stateManager->render();
+			m_stateMachine->render();
 
 			#ifndef NDEBUG
 				m_debugInterface->render();
@@ -358,8 +358,6 @@ namespace sl
 				}
 			#endif
 		}
-
-		m_stateManager->unload();
 
 		al_stop_timer(clock);
 		al_destroy_timer(clock);

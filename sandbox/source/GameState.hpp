@@ -14,21 +14,15 @@
 
 #include "GameLevel.hpp"
 
-class GameState : public sl::State<GameState>
+class GameState : public sl::State
 {
 public:
 	GameState() = default;
 	~GameState() override;
 
-	void load() override;
-	void unload() override;
-
 	void event(ALLEGRO_EVENT* event) override;
 	void update(double dt) override;
 	void render() override;
-
-private:
-	std::unique_ptr<GameLevel> m_gameLevel;
 };
 
 #endif

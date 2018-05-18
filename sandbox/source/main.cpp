@@ -8,6 +8,7 @@
 ///
 
 #include <memory>
+#include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/systems/CameraSystem.hpp>
@@ -28,8 +29,18 @@ public:
 		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
 		m_world->registerSystem<sl::AnimationSystem>();
 
-		m_stateManager->setState(GameState::inst());
+		m_stateMachine->addState<GameState>("game");
+		m_stateMachine->push("game");
+
+		entt::DefaultRegistry::entity_type cameraEntity = m_world->m_registry.create();
+		m_world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 896, 576 });
+
+		m_gameLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
+		m_world->m_currentLevel = m_gameLevel.get();
 	}
+
+private:
+	std::unique_ptr<GameLevel> m_gameLevel;
 };
 
 int main(int argc, char **argv)

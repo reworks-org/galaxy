@@ -20,38 +20,7 @@ using namespace sl;
 
 GameState::~GameState()
 {
-}
-
-void GameState::load()
-{
-	/*
-	entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
-	Locator::world->m_registry.assign<SpriteComponent>(entity, "bg", 1.0f);
-	Locator::world->m_registry.assign<TransformComponent>(entity, 0, 0, Rect<float, int>{0, 0, 896, 576});
-	Locator::world->m_registry.assign<RenderComponent>(entity);
-	auto& rc = Locator::world->m_registry.get<RenderComponent>(entity);
-	rc.m_renderTypes.push_back(RenderTypes::SPRITE);
-	*/
-
-	entt::DefaultRegistry::entity_type cameraEntity = Locator::world->m_registry.create();
-	Locator::world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 896, 576 });
-
-	m_gameLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
-	Locator::world->m_currentLevel = m_gameLevel.get();
-
-	/*
-	Locator::world->m_registry.sort<TransformComponent>([](const auto& lhs, const auto& rhs)
-	{
-		return lhs.m_layer < rhs.m_layer;
-	});
-	*/
-}
-
-void GameState::unload()
-{
 	Locator::world->m_registry.reset();
-
-	m_gameLevel.reset();
 	Locator::world->m_currentLevel = nullptr;
 }
 

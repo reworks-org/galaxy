@@ -7,8 +7,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/types/State.hpp"
-
 #ifndef NDEBUG
 	#include "sl/libs/loguru/loguru.hpp"
 #endif
@@ -22,7 +20,7 @@ namespace sl
 		#ifdef NDEBUG
 			m_states[m_stack.top()]->event(event);
 		#else
-			if (!m_stack.empty())
+			if (!m_stack.empty() && !m_states.empty())
 			{
 				m_states[m_stack.top()]->event(event);
 			}
@@ -32,11 +30,11 @@ namespace sl
 	void StateMachine::update(const double dt)
 	{
 		#ifdef NDEBUG
-			m_stack.top()->update(dt);
+			m_states[m_stack.top()]->update(dt);
 		#else
-			if (!m_stack.empty())
+			if (!m_stack.empty() && !m_states.empty())
 			{
-				m_stack.top()->update(dt);
+				m_states[m_stack.top()]->update(dt);
 			}
 		#endif
 	}
@@ -44,27 +42,27 @@ namespace sl
 	void StateMachine::render()
 	{
 		#ifdef NDEBUG
-			m_stack.top()->render();
+			m_states[m_stack.top()]->render();
 		#else
-			if (!m_stack.empty())
+			if (!m_stack.empty() && !m_states.empty())
 			{
-				m_stack.top()->render();
+				m_states[m_stack.top()]->render();
 			}
 		#endif
 	}
 
-	void StateMachine::push(entt::HashedString state)
+	void StateMachine::push(std::string_view state)
 	{
 		#ifdef NDEBUG
-			m_stack.push(m_states[state].get());
+			m_stack.push(state);
 		#else
 			if (m_states.find(state) != m_states.end())
 			{
-				m_stack.push(m_states[state].get());
+				m_stack.push(state);
 			}
 			else
 			{
-				LOG_S(WARNING) << "Tried to push a non-existant state: " << *state;
+				LOG_S(WARNING) << "Tried to push a non-existant state: " << state;
 			}
 		#endif
 	}

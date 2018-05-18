@@ -21,7 +21,7 @@ namespace sl
 	class MusicPlayer;
 	class ShaderLibrary;
 	class SoundPlayer;
-	class StateManager;
+	class StateMachine;
 	class TextureAtlas;
 	class VirtualFS;
 	#ifndef NDEBUG
@@ -71,7 +71,7 @@ namespace sl
 		static inline MusicPlayer* musicPlayer = nullptr;
 		static inline ShaderLibrary* shaderLibrary = nullptr;
 		static inline SoundPlayer* soundPlayer = nullptr;
-		static inline StateManager* stateManager = nullptr;
+		static inline StateMachine* stateMachine = nullptr;
 		static inline TextureAtlas* textureAtlas = nullptr;
 		static inline VirtualFS* virtualFS = nullptr;
 		#ifndef NDEBUG
