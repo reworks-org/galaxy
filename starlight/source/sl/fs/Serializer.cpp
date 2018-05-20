@@ -15,8 +15,6 @@
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
-#include "sl/libs/cereal/archives/json.hpp"
-
 #include "Serializer.hpp"
 
 namespace sl

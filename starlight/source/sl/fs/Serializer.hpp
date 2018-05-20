@@ -12,6 +12,7 @@
 
 #include "sl/libs/entt/entity/snapshot.hpp"
 #include "sl/libs/entt/entity/registry.hpp"
+#include "sl/libs/cereal/archives/json.hpp"
 
 namespace sl
 {
