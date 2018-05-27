@@ -16,7 +16,6 @@
 
 #include "sl/types/System.hpp"
 #include "sl/libs/sol2/sol.hpp"
-#include "sl/mapping/Level.hpp"
 #include "sl/libs/cereal/access.hpp"
 #include "sl/libs/entt/core/hashed_string.hpp"
 
@@ -128,7 +127,6 @@ namespace sl
 
 	public:
 		sol::state m_lua;
-		Level* m_currentLevel;
 		entt::DefaultRegistry m_registry;
 
 	protected:

@@ -4,13 +4,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\GameLevel.cpp" />
     <ClCompile Include="source\GameState.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Serialize.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\GameLevel.hpp" />
     <ClInclude Include="source\GameState.hpp" />
     <ClInclude Include="source\Serialize.hpp" />
   </ItemGroup>

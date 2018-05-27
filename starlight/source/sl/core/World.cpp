@@ -108,11 +108,6 @@ namespace sl
 
 	void World::update(const double dt)
 	{
-		if (m_currentLevel)
-		{
-			m_currentLevel->update(dt);
-		}
-
 		for (auto& systemPair : m_systems)
 		{
 			systemPair.second->update(dt, m_registry);

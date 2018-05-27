@@ -10,19 +10,21 @@
 #ifndef SANDBOX_GAMESTATE_HPP_
 #define SANDBOX_GAMESTATE_HPP_
 
+#include <sl/mapping/TMXMap.hpp>
 #include <sl/core/StateMachine.hpp>
-
-#include "GameLevel.hpp"
 
 class GameState : public sl::State
 {
 public:
-	GameState() = default;
+	GameState();
 	~GameState() override;
 
 	void event(ALLEGRO_EVENT* event) override;
 	void update(double dt) override;
 	void render() override;
+
+private:
+	std::unique_ptr<sl::TMXMap> map;
 };
 
 #endif

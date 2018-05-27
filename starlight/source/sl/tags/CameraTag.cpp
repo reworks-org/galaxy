@@ -42,6 +42,7 @@ namespace sl
 
 	void CameraTag::update(unsigned int playerEntity)
 	{
+		/*
 		if (Locator::world->m_currentLevel)
 		{
 			TransformComponent& tc = Locator::world->m_registry.get<TransformComponent>(playerEntity);
@@ -54,5 +55,6 @@ namespace sl
 			if (m_bounds.m_x > Locator::world->m_currentLevel->getBounds().m_width - m_bounds.m_width) { m_bounds.m_x = (float)Locator::world->m_currentLevel->getBounds().m_width - (float)m_bounds.m_width; }
 			if (m_bounds.m_y > Locator::world->m_currentLevel->getBounds().m_height - m_bounds.m_height) { m_bounds.m_y = (float)Locator::world->m_currentLevel->getBounds().m_height - (float)m_bounds.m_height; }
 		}
+		*/
 	}
 }

@@ -17,7 +17,7 @@
 	- how many entitys to create of each type from each script
 	- i.e. scripts are basicically templates for entity creation 
 	- reemove concepts of unique entitys
-
+- double check virtual destructors
 - more debug code, split based off of build type.
 	- more logging / error checking / exceptions
 - travis-ci / osx / linux builds
@@ -44,3 +44,5 @@ http://gameprogrammingpatterns.com/state.html
 https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
+
+- frustrum culling? https://gamedev.stackexchange.com/questions/14713/culling-for-a-2d-platformer-game

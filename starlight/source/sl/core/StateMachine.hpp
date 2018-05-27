@@ -74,6 +74,14 @@ namespace sl
 		///
 		void pop();
 
+		///
+		/// \brief The current top state.
+		///
+		/// \return Returns StateType* pointer or just a State* by default.
+		///
+		template<typename State = State>
+		State* top();
+
 	private:
 		std::stack<std::string_view> m_stack;
 		std::unordered_map<std::string_view, std::unique_ptr<State>> m_states;
@@ -83,6 +91,19 @@ namespace sl
 	void StateMachine::addState(std::string_view id, Args&&... args)
 	{
 		m_states.emplace(id, std::make_unique<State>(std::forward<Args>(args)...));
+	}
+
+	template<typename State = State>
+	State* StateMachine::top()
+	{
+		#ifdef NDEBUG
+			return m_states[m_stack.top()].get();
+		#else
+			if (!m_stack.empty() && !m_states.empty())
+			{
+				return m_states[m_stack.top()].get();
+			}
+		#endif
 	}
 }
 

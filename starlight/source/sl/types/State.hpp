@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_STATE_HPP_
 #define STARLIGHT_STATE_HPP_
 
+#include "sl/math/Rect.hpp"
+
 union ALLEGRO_EVENT;
 
 namespace sl
@@ -38,6 +40,9 @@ namespace sl
 		/// Render the current state.
 		///
 		virtual void render() = 0;
+
+	public:
+		Rect<float, int> m_bounds;
 
 	protected:
 		///

@@ -48,9 +48,6 @@
     <ClCompile Include="source\sl\core\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\core\StateManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\core\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -360,9 +357,6 @@
     <ClCompile Include="source\sl\libs\tmx\tsx.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\mapping\Level.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\mapping\TMXMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -420,6 +414,9 @@
     <ClCompile Include="source\sl\fs\Serializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\core\StateMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -450,9 +447,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\ServiceLocator.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\core\StateManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\World.hpp">
@@ -7358,9 +7352,6 @@
     <ClInclude Include="source\sl\libs\tmx\tsx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\mapping\Level.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\mapping\TMXMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -7515,6 +7506,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\entt\core\algorithm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\core\StateMachine.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

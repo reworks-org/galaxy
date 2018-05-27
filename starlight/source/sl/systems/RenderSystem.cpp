@@ -9,9 +9,8 @@
 
 #include <allegro5/display.h>
 
-#include "sl/core/World.hpp"
-#include "sl/mapping/Level.hpp"
 #include "sl/tags/CameraTag.hpp"
+#include "sl/core/StateMachine.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
@@ -41,7 +40,7 @@ namespace sl
 	{
 		auto view = registry.view<RenderComponent, TransformComponent>();
 		m_quadtree = std::make_unique<QuadTree>(0, Rect<float, int>{ 0.0f, 0.0f, 0, 0 }, m_quadTreeLevels, m_quadTreeMaxObjects);
-		m_quadtree->updateBounds(Locator::world->m_currentLevel->getBounds());
+		m_quadtree->updateBounds(Locator::stateMachine->top()->m_bounds);
 
 		m_entitys.clear(); 
 		m_entitys.reserve(view.size());

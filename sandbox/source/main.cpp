@@ -17,7 +17,6 @@
 #include <allegro5/allegro_native_dialog.h>
 
 #include "GameState.hpp"
-#include "GameLevel.hpp"
 
 class Sandbox : public sl::Application
 {
@@ -34,13 +33,7 @@ public:
 
 		entt::DefaultRegistry::entity_type cameraEntity = m_world->m_registry.create();
 		m_world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 896, 576 });
-
-		m_gameLevel = std::make_unique<GameLevel>(sl::Rect<float, int>{ 0, 0, 896, 576 });
-		m_world->m_currentLevel = m_gameLevel.get();
 	}
-
-private:
-	std::unique_ptr<GameLevel> m_gameLevel;
 };
 
 int main(int argc, char **argv)

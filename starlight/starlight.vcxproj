@@ -139,7 +139,6 @@
     <ClCompile Include="source\sl\libs\tmx\tmx_utils.c" />
     <ClCompile Include="source\sl\libs\tmx\tmx_xml.c" />
     <ClCompile Include="source\sl\libs\tmx\tsx.c" />
-    <ClCompile Include="source\sl\mapping\Level.cpp" />
     <ClCompile Include="source\sl\mapping\TMXMap.cpp" />
     <ClCompile Include="source\sl\math\QuadTree.cpp" />
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp" />
@@ -2485,7 +2484,6 @@
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\sl\libs\tmx\tsx.h" />
     <ClInclude Include="source\sl\Mapping.hpp" />
-    <ClInclude Include="source\sl\mapping\Level.hpp" />
     <ClInclude Include="source\sl\mapping\TMXMap.hpp" />
     <ClInclude Include="source\sl\Math.hpp" />
     <ClInclude Include="source\sl\math\QuadTree.hpp" />
