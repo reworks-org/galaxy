@@ -24,7 +24,7 @@ namespace sl
 	///
 	/// Expects scripts to be in a subfolder labelled "scripts".
 	///
-    class DebugInterface
+    class DebugInterface final
     {
     public:
 		///

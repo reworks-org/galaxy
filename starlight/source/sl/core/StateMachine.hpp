@@ -93,7 +93,7 @@ namespace sl
 		m_states.emplace(id, std::make_unique<State>(std::forward<Args>(args)...));
 	}
 
-	template<typename State = State>
+	template<typename State>
 	State* StateMachine::top()
 	{
 		#ifdef NDEBUG
@@ -102,6 +102,10 @@ namespace sl
 			if (!m_stack.empty() && !m_states.empty())
 			{
 				return m_states[m_stack.top()].get();
+			}
+			else
+			{
+				return nullptr;
 			}
 		#endif
 	}

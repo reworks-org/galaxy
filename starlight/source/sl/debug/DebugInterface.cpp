@@ -17,6 +17,7 @@
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
+#include "sl/core/StateMachine.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/imgui/imgui_impl_a5.h"
 
@@ -93,7 +94,7 @@ struct ExampleAppConsole
 			ImGui::EndPopup();
 		}
 
-		ImGui::TextWrapped("Enter 'CLEAR' to clear, HISTORY for history, Exit for exit, or lua code.");
+		ImGui::TextWrapped("Enter 'CLEAR' to clear, HISTORY for history, Exit for exit, or lua code. Prefix lua code with 'return' to get an output.");
 
 		// TODO: display items starting from the bottom
 
@@ -263,6 +264,7 @@ namespace sl
 		static bool s_showLuaConsole = false;
 		static bool s_showScriptEditor = false;
 		static std::string s_buff = "";
+		static std::string s_stateBuff = "";
 
 		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
 
@@ -300,6 +302,21 @@ namespace sl
 			}
 			
 			ImGui::EndMenuBar();
+		}
+
+		if (ImGui::InputText("Push State", s_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			if (!s_stateBuff.empty())
+			{
+				Locator::stateMachine->push(s_stateBuff);
+			}
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Pop State"))
+		{
+			Locator::stateMachine->pop();
 		}
 
 		if (ImGui::InputText("Create Entity from Script", s_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))

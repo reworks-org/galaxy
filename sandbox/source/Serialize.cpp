@@ -16,10 +16,15 @@ Serialize::Serialize(const std::string& path)
 
 void Serialize::createGameSnapshot(entt::DefaultRegistry& source)
 {
-	//createFrameworkSnapshot(, source);
+	//std::ofstream(m_saveFilePath) saveFile;
+	//cereal::JSONOutputArchive ar(saveFile);
+
+	//createFrameworkSnapshot(ar, source);
 }
 
 void Serialize::loadGameSnapshot(entt::DefaultRegistry& destination)
 {
-	//loadFrameworkSnapshot(, destination);
+	//std::ifstream(/*loadfile path*/);
+	//cereal::JSONInputArchive ar(loadFile);
+	//loadFrameworkSnapshot(ar, destination);
 }

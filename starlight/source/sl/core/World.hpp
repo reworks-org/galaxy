@@ -12,12 +12,11 @@
 
 #include <typeindex>
 #include <functional>
+#include <string_view>
 #include <unordered_map>
 
 #include "sl/types/System.hpp"
 #include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/cereal/access.hpp"
-#include "sl/libs/entt/core/hashed_string.hpp"
 
 #ifndef NDEBUG
 	#include "sl/libs/loguru/loguru.hpp"
@@ -27,7 +26,6 @@ namespace sl
 {
 	class World final
 	{
-		friend class cereal::access;
 	public: 
 		///
 		/// Construct World.
@@ -74,7 +72,7 @@ namespace sl
 		/// \param name - Name of tag in string format i.e. "PlayerTag".
 		///
 		template<typename Tag>
-		void registerTag(entt::HashedString name);
+		void registerTag(std::string_view name);
 
 		///
 		/// Registers a component with the world.
@@ -83,7 +81,7 @@ namespace sl
 		/// \param name - Name of component in string format i.e. "AnimationComponent".
 		///
 		template<typename Component>
-		void registerComponent(entt::HashedString name);
+		void registerComponent(std::string_view name);
 
 		///
 		/// Registers a system with the world.
@@ -113,30 +111,19 @@ namespace sl
 		///
 		template<typename System>
 		void remove();
-		
-	private:
-		///
-		/// Cereal serialize function.
-		///
-		template<class Archive>
-		void serialize(Archive& ar)
-		{
-			//ar();
-			//need to serialize levels
-		}
 
 	public:
 		sol::state m_lua;
 		entt::DefaultRegistry m_registry;
 
 	protected:
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
+		std::unordered_map<std::string_view, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
+		std::unordered_map<std::string_view, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
 		std::unordered_map<std::type_index, std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Tag>
-	void World::registerTag(entt::HashedString name)
+	void World::registerTag(std::string_view name)
 	{
 		#ifdef NDEBUG
 			m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type e, const sol::table& table)
@@ -166,7 +153,7 @@ namespace sl
 	}
 
 	template<typename Component>
-	void World::registerComponent(entt::HashedString name)
+	void World::registerComponent(std::string_view name)
 	{
 		#ifdef NDEBUG
 			m_componentAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)

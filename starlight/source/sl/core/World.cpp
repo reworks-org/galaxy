@@ -55,10 +55,10 @@ namespace sl
 		entt::DefaultRegistry::entity_type entity = m_registry.create();
 		sol::table components = lua.get<sol::table>("entity");
 
-		std::map<entt::HashedString::hash_type, sol::table> kvp;
+		std::map<std::string_view, sol::table> kvp;
 		components.for_each([&](std::pair<sol::object, sol::object> pair)
 		{
-			kvp.insert({ entt::HashedString{ pair.first.as<const char*>() }, pair.second.as<sol::table>() });
+			kvp.insert({ pair.first.as<const char*>(), pair.second.as<sol::table>() });
 		});
 
 		if (components.get<bool>("hasTags"))
@@ -66,19 +66,17 @@ namespace sl
 			sol::table tags = components.get<sol::table>("tags");
 			tags.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_tagAssign[entt::HashedString{ pair.first.as<const char*>() }](entity, pair.second.as<sol::table>());
+				m_tagAssign[pair.first.as<const char*>()](entity, pair.second.as<sol::table>());
 			});
 
-			kvp.erase(entt::HashedString{ "hasTags" });
+			kvp.erase("hasTags");
 		}
-
-		kvp.erase(entt::HashedString{ "hasTags" });
 
 		for (auto& it : kvp)
 		{
 			m_componentAssign[it.first](entity, it.second);
 
-			if (it.first == entt::HashedString{ "PhysicsComponent" })
+			if (it.first == "PhysicsComponent")
 			{
 				m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
 			}

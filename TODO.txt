@@ -12,7 +12,6 @@
 	- even assigning components!
 
 - fix category headers for v1.0.
-- let debug menu load different levels
 - entity creation scripts need to be generic
 	- how many entitys to create of each type from each script
 	- i.e. scripts are basicically templates for entity creation 
@@ -34,8 +33,6 @@
 - create entities from nothing in debug manager
 - review use of static keyword
 - https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
-- add ability to load a script into lua from debug menu
-- add ability to write and save new scripts from script editor. -> just a popup box and an if_not_opened boolean -> then same saving code -> should be easy
 
 fix level / state design (want to load / savebased off of an id)
 - loading screens between states
@@ -45,4 +42,4 @@ https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 
-- frustrum culling? https://gamedev.stackexchange.com/questions/14713/culling-for-a-2d-platformer-game
+- frustrum culling? https://gamedev.stackexchange.com/questions/14713/culling-for-a-2d-platformer-game (already done as quadtree 2d space rendering?)
