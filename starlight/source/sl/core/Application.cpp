@@ -229,7 +229,13 @@ namespace sl
 			"getTransformComponent", &Sol2enttWorkaround::get<TransformComponent>
 		);
 
-		m_world->m_lua["registry"] = m_workaround;
+		m_world->m_lua["registry"] = &m_workaround;
+
+		// state manipulation
+		m_world->m_lua.new_usertype<StateMachine>("StateMachine", 
+			"push", &StateMachine::push,
+			"pop", &StateMachine::pop);
+		m_world->m_lua["stateMachine"] = m_stateMachine.get();
 	}
 
 	Application::~Application()

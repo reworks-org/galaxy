@@ -40,7 +40,19 @@ namespace sl
 	{
 		auto view = registry.view<RenderComponent, TransformComponent>();
 		m_quadtree = std::make_unique<QuadTree>(0, Rect<float, int>{ 0.0f, 0.0f, 0, 0 }, m_quadTreeLevels, m_quadTreeMaxObjects);
-		m_quadtree->updateBounds(Locator::stateMachine->top()->m_bounds);
+		
+		#ifdef NDEBUG
+			m_quadtree->updateBounds(Locator::stateMachine->top()->m_bounds);
+		#else
+			if (Locator::stateMachine->top() != nullptr)
+			{
+				m_quadtree->updateBounds(Locator::stateMachine->top()->m_bounds);
+			}
+			else
+			{
+				m_quadtree->updateBounds(Rect<float, int>{ 0.0f, 0.0f, 0, 0 });
+			}
+		#endif
 
 		m_entitys.clear(); 
 		m_entitys.reserve(view.size());

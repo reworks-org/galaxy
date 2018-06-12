@@ -202,10 +202,6 @@ struct ExampleAppConsole
 		{
 			*p_open = false;
 		}
-		else if (result.empty())
-		{
-			AddLog("You forgot the 'return' statement.");
-		}
 		else
 		{
 			AddLog(result.c_str());
@@ -308,7 +304,7 @@ namespace sl
 		{
 			if (!s_stateBuff.empty())
 			{
-				Locator::stateMachine->push(s_stateBuff);
+				Locator::stateMachine->push(s_stateBuff.c_str());
 			}
 		}
 

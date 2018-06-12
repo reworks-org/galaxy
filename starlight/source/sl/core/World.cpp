@@ -58,28 +58,21 @@ namespace sl
 		std::map<std::string_view, sol::table> kvp;
 		components.for_each([&](std::pair<sol::object, sol::object> pair)
 		{
-			kvp.insert({ pair.first.as<const char*>(), pair.second.as<sol::table>() });
+			m_componentAssign[pair.first.as<const char*>()](entity, pair.second.as<sol::table>());
+
+			if (pair.first.as<const char*>() == "PhysicsComponent")
+			{
+				m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
+			}
 		});
 
-		if (components.get<bool>("hasTags"))
+		sol::table tags = components.get<sol::table>("tags");
+		if (!tags.empty())
 		{
-			sol::table tags = components.get<sol::table>("tags");
 			tags.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				m_tagAssign[pair.first.as<const char*>()](entity, pair.second.as<sol::table>());
 			});
-
-			kvp.erase("hasTags");
-		}
-
-		for (auto& it : kvp)
-		{
-			m_componentAssign[it.first](entity, it.second);
-
-			if (it.first == "PhysicsComponent")
-			{
-				m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
-			}
 		}
 	}
 
