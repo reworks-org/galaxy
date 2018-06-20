@@ -7,13 +7,22 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/libs/loguru/loguru.hpp"
+
 #include "Sol2enttWorkaround.hpp"
 
 namespace sl
 {
 	void Sol2enttWorkaround::setRegistry(entt::DefaultRegistry* registry)
 	{
-		m_registry = registry;
+		if (!registry)
+		{
+			LOG_S(ERROR) << "Tried to set a nullptr registry!";
+		}
+		else
+		{
+			m_registry = registry;
+		}
 	}
 
 	entt::DefaultRegistry::entity_type Sol2enttWorkaround::create()

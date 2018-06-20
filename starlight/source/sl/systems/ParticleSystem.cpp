@@ -24,22 +24,22 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::PARTICLE_EMIT_EVENT:
+			// Retrieve particle event information.
 			ParticleEmitEvent* particleEvent = (ParticleEmitEvent*)event->user.data1;
 			auto size = particleEvent->m_textureIDS.size();
 
 			if (size != particleEvent->m_particleCount.size())
 			{
-				LOG_S(ERROR) << "Particle count and texture id are not same size std::vectors!";
-
-				// We are forced to exit the function early, to avoid crashing the program.
-				return;
+				LOG_S(ERROR) << "The number of texture id's and the number of particles are not the same size!";
 			}
 			else
 			{
 				for (std::uint32_t i = 0; i < size; ++i)
 				{
+					// For each particle...
 					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->m_particleCount[amountOfParticles]; ++amountOfParticles)
 					{
+						// ...Create an entity of that particle to be rendered to screen.
 						entt::DefaultRegistry::entity_type entity = registry.create();
 						
 						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
@@ -55,15 +55,18 @@ namespace sl
 
 	void ParticleSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
+		// Iterate over ParticleComponent entities.
 		registry.view<ParticleComponent, TransformComponent, RenderComponent>()
 			.each([&](entt::DefaultRegistry::entity_type entity, ParticleComponent& pc, TransformComponent& tc, RenderComponent& rc)
 		{
+			// If the opacity is below 0, i.e. invisible, destroy the entity.
 			if (rc.m_opacity <= 0.0f)
 			{
 				registry.destroy(entity);
 			}
 			else
 			{
+				// Otherwise, increment the direction the particle is travelling in and fade it out a little bit more.
 				tc.m_rect.m_x += pc.m_direction.m_x;
 				tc.m_rect.m_y += pc.m_direction.m_y;
 

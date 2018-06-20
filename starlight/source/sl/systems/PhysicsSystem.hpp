@@ -10,11 +10,16 @@
 #ifndef STARLIGHT_PHYSICSSYSTEM_HPP_
 #define STARLIGHT_PHYSICSSYSTEM_HPP_
 
+#include <map>
+
 #include "sl/types/System.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {
+	///
+	/// Process's entities with a PhysicsComponent.
+	///
 	class PhysicsSystem final : public System
 	{
 	public:
@@ -55,10 +60,24 @@ namespace sl
 		void update(const double dt, entt::DefaultRegistry& registry) override;
 
 	private:
+		///
+		/// Updates per second physics system should operate at.
+		///
 		float m_ups;
+
+		///
+		/// Number of iterations of velocity per update.
+		///
 		int m_velocityIterations;
+
+		///
+		/// Number of iterations of position per update.
+		///
 		int m_positionIterations;
 
+		///
+		/// Collision map function between two entities, using lua to define the functions to call.
+		///
 		std::map<std::pair<std::uint16_t, std::uint16_t>, sol::function> m_collisions;
 	};
 }

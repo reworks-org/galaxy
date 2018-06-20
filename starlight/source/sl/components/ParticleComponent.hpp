@@ -10,13 +10,14 @@
 #ifndef STARLIGHT_PARTICLECOMPONENT_HPP_
 #define STARLIGHT_PARTICLECOMPONENT_HPP_
 
-#include <string>
-
 #include "sl/math/Vector2.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {
+	///
+	/// Data about the particles an entity can emit.
+	///
 	class ParticleComponent final
 	{
 	public:
@@ -57,7 +58,14 @@ namespace sl
 		ParticleComponent() = delete;
 
 	public:
+		///
+		/// Rate the particles should fade at. 0.0 - 1.0.
+		///
 		float m_fade;
+
+		///
+		/// The direction the particles will travel in.
+		///
 		Vector2<float> m_direction;
 	};
 }

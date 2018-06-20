@@ -15,6 +15,8 @@
 namespace sl
 {
 	///
+	/// \brief An event that contains information about particles to emit.
+	///
 	/// Please note, index [0] of particle count applies to index [0] of texture ids.
 	/// It's expected they are of the same length!
 	///

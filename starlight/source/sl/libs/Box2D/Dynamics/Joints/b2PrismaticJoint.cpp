@@ -16,9 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-#include <sl/libs/Box2D/Dynamics/b2Body.h>
-#include <sl/libs/Box2D/Dynamics/b2TimeStep.h>
+#include "sl/libs/Box2D/Dynamics/Joints/b2PrismaticJoint.h"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
+#include "sl/libs/Box2D/Dynamics/b2TimeStep.h"
 
 // Linear constraint (point-to-line)
 // d = p2 - p1 = x2 + r2 - x1 - r1
@@ -586,23 +586,32 @@ bool b2PrismaticJoint::IsMotorEnabled() const
 
 void b2PrismaticJoint::EnableMotor(bool flag)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_enableMotor = flag;
+	if (flag != m_enableMotor)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_enableMotor = flag;
+	}
 }
 
 void b2PrismaticJoint::SetMotorSpeed(float32 speed)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_motorSpeed = speed;
+	if (speed != m_motorSpeed)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_motorSpeed = speed;
+	}
 }
 
 void b2PrismaticJoint::SetMaxMotorForce(float32 force)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_maxMotorForce = force;
+	if (force != m_maxMotorForce)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_maxMotorForce = force;
+	}
 }
 
 float32 b2PrismaticJoint::GetMotorForce(float32 inv_dt) const

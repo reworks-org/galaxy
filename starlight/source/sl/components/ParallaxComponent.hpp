@@ -10,12 +10,13 @@
 #ifndef STARLIGHT_PARALLAXCOMPONENT_HPP_
 #define STARLIGHT_PARALLAXCOMPONENT_HPP_
 
-#include <string>
-
 #include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {
+	///
+	/// Stores data for the entitys parallax texture.
+	///
 	class ParallaxComponent final
 	{
 	public:
@@ -44,7 +45,14 @@ namespace sl
 		ParallaxComponent() = delete;
 
 	public:
+		///
+		/// Vertical speed to move the background at.
+		///
 		float m_verticalSpeed;
+
+		///
+		/// Horizontal speed to move the background at.
+		///
 		float m_horizontalSpeed;
 	};
 }

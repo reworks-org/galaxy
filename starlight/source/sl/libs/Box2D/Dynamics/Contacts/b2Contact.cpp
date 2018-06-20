@@ -16,23 +16,23 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Dynamics/Contacts/b2Contact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2CircleContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2PolygonContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2ContactSolver.h>
+#include "sl/libs/Box2D/Dynamics/Contacts/b2Contact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2CircleContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2PolygonContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2ContactSolver.h"
 
-#include <sl/libs/Box2D/Collision/b2Collision.h>
-#include <sl/libs/Box2D/Collision/b2TimeOfImpact.h>
-#include <sl/libs/Box2D/Collision/Shapes/b2Shape.h>
-#include <sl/libs/Box2D/Common/b2BlockAllocator.h>
-#include <sl/libs/Box2D/Dynamics/b2Body.h>
-#include <sl/libs/Box2D/Dynamics/b2Fixture.h>
-#include <sl/libs/Box2D/Dynamics/b2World.h>
+#include "sl/libs/Box2D/Collision/b2Collision.h"
+#include "sl/libs/Box2D/Collision/b2TimeOfImpact.h"
+#include "sl/libs/Box2D/Collision/Shapes/b2Shape.h"
+#include "sl/libs/Box2D/Common/b2BlockAllocator.h"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
+#include "sl/libs/Box2D/Dynamics/b2Fixture.h"
+#include "sl/libs/Box2D/Dynamics/b2World.h"
 
 b2ContactRegister b2Contact::s_registers[b2Shape::e_typeCount][b2Shape::e_typeCount];
 bool b2Contact::s_initialized = false;
@@ -94,7 +94,7 @@ b2Contact* b2Contact::Create(b2Fixture* fixtureA, int32 indexA, b2Fixture* fixtu
 	}
 	else
 	{
-		return NULL;
+		return nullptr;
 	}
 }
 
@@ -135,18 +135,18 @@ b2Contact::b2Contact(b2Fixture* fA, int32 indexA, b2Fixture* fB, int32 indexB)
 
 	m_manifold.pointCount = 0;
 
-	m_prev = NULL;
-	m_next = NULL;
+	m_prev = nullptr;
+	m_next = nullptr;
 
-	m_nodeA.contact = NULL;
-	m_nodeA.prev = NULL;
-	m_nodeA.next = NULL;
-	m_nodeA.other = NULL;
+	m_nodeA.contact = nullptr;
+	m_nodeA.prev = nullptr;
+	m_nodeA.next = nullptr;
+	m_nodeA.other = nullptr;
 
-	m_nodeB.contact = NULL;
-	m_nodeB.prev = NULL;
-	m_nodeB.next = NULL;
-	m_nodeB.other = NULL;
+	m_nodeB.contact = nullptr;
+	m_nodeB.prev = nullptr;
+	m_nodeB.next = nullptr;
+	m_nodeB.other = nullptr;
 
 	m_toiCount = 0;
 

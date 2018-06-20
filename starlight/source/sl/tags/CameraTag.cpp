@@ -20,11 +20,13 @@ namespace sl
 {
 	CameraTag::CameraTag()
 	{
+		// Throw an exception if this class is default constructed.
 		LOG_S(FATAL) << "Tried to construct a default-initialized CameraTag!";
 	}
 
 	CameraTag::CameraTag(const sol::table& table)
 	{
+		// Set values from lua table.
 		m_bounds.m_x = 0;
 		m_bounds.m_y = 0;
 		m_bounds.m_width = table.get<int>("width");
@@ -34,6 +36,7 @@ namespace sl
 	CameraTag::CameraTag(const Rect<float, int>& bounds)
 		:m_bounds(bounds)
 	{
+		// Argument constructor.
 	}
 
 	CameraTag& CameraTag::operator=(const CameraTag &)
@@ -43,11 +46,14 @@ namespace sl
 
 	void CameraTag::update(unsigned int playerEntity)
 	{
+		// Retrieve transformcomponent of player.
 		TransformComponent& tc = Locator::world->m_registry.get<TransformComponent>(playerEntity);
 
+		// Calculate new (x, y) of the camera.
 		m_bounds.m_x = (tc.m_rect.m_x + tc.m_rect.m_width / 2) - m_bounds.m_width / 2;
 		m_bounds.m_y = (tc.m_rect.m_y + tc.m_rect.m_height / 2) - m_bounds.m_height / 2;
 
+		// Then correct values if "out of bounds".
 		if (m_bounds.m_x < 0) { m_bounds.m_x = 0; }
 		if (m_bounds.m_y < 0) { m_bounds.m_y = 0; }
 		if (m_bounds.m_x > Locator::stateMachine->top()->m_bounds.m_width - m_bounds.m_width) { m_bounds.m_x = (float)Locator::stateMachine->top()->m_bounds.m_width - (float)m_bounds.m_width; }

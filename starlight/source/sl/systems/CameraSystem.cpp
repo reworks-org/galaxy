@@ -20,6 +20,7 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::PLAYER_MOVE_EVENT:
+			// When the player moves, update the camera's position to align with the new player position.
 			PlayerMoveEvent* playerMoveEvent = (PlayerMoveEvent*)event->user.data1;
 			CameraTag& camera = registry.get<CameraTag>();
 			camera.update(playerMoveEvent->m_playerEntity);
@@ -30,5 +31,6 @@ namespace sl
 
 	void CameraSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
+		// Only need to update camera when player moves.
 	}
 }

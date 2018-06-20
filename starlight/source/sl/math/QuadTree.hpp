@@ -14,11 +14,12 @@
 
 #include "sl/math/Rect.hpp"
 
-namespace entt { typedef std::uint32_t Entity; }
-
 namespace sl
 {
-	class QuadTree
+	///
+	/// Implementation of a quadtree to divide up 2D space for efficient physics collision and rendering only stuff on screen.
+	///
+	class QuadTree final
 	{
 	public:
 		///
@@ -117,12 +118,35 @@ namespace sl
 		int getIndex(const Rect<float, int>& rect);
 
 	private:
+		///
+		/// Current level in the quadtree.
+		///
 		int m_level;
+
+		///
+		/// Maximum levels the quadtree can have.
+		///
 		int m_maxLevels;
+
+		///
+		/// Maximum number of objects a quadtree can have per node.
+		///
 		int m_maxObjects;
-		std::vector<entt::DefaultRegistry::entity_type> m_objects;
+
+		///
+		/// The bounds of the quadtree.
+		///
 		Rect<float, int> m_bounds;
+
+		///
+		/// The nodes of the quadtree.
+		///
 		std::array<QuadTree*, 4> m_nodes;
+
+		///
+		/// The objects stored in the nodes.
+		///
+		std::vector<entt::DefaultRegistry::entity_type> m_objects;
 	};
 }
 

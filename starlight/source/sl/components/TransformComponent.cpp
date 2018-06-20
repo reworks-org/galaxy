@@ -16,11 +16,13 @@ namespace sl
 {
 	TransformComponent::TransformComponent()
 	{
+		// Throw an exception if this class is default constructed.
 		LOG_S(FATAL) << "Tried to construct a default-initialized TransformComponent!";
 	}
 
 	TransformComponent::TransformComponent(const sol::table& table)
 	{
+		// Retrieve the values from the lua table.
 		m_layer = table.get<int>("layer");
 		m_rect.m_x = table.get<float>("x");
 		m_rect.m_y = table.get<float>("y");
@@ -32,6 +34,7 @@ namespace sl
 	TransformComponent::TransformComponent(int layer, float angle, const Rect<float, int>& rect)
 		:m_layer(layer), m_angle(angle), m_rect(rect)
 	{
+		// Constructs the component from parameters instead of lua.
 	}
 
 	TransformComponent& TransformComponent::operator=(const TransformComponent&)

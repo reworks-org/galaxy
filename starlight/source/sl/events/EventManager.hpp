@@ -16,6 +16,9 @@
 
 namespace sl
 {
+	///
+	/// Used to create and emit user events in allegro.
+	///
 	class EventManager final
 	{
 	public:
@@ -24,7 +27,7 @@ namespace sl
 		///
 		/// Initialises event queue.
 		///
-		EventManager() noexcept;
+		EventManager();
 
 		///
 		/// Cleans up events.
@@ -46,9 +49,15 @@ namespace sl
 		void emitEvent(EventType type, intptr_t data1 = NULL, intptr_t data2 = NULL, intptr_t data3 = NULL, intptr_t data4 = NULL, void(*dtor)(ALLEGRO_USER_EVENT *) = nullptr) noexcept;
 
 	public:
+		///
+		/// The user queue of events.
+		///
 		ALLEGRO_EVENT_QUEUE* m_queue;
 
 	private:
+		///
+		/// The source to emit user events from.
+		///
 		ALLEGRO_EVENT_SOURCE m_userSource;
 	};
 }

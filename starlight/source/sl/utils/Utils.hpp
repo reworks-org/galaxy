@@ -60,6 +60,7 @@ namespace sl
 		template<class F, class...Ts, std::size_t...Is>
 		inline void for_each_in_tuple(std::tuple<Ts...> & tuple, F func, std::index_sequence<Is...>)
 		{
+			// Expands a tuple.
 			using expander = int[];
 			(void)expander {
 				0, ((void)func(std::get<Is>(tuple)), 0)...
@@ -75,6 +76,7 @@ namespace sl
 		template<class F, class...Ts>
 		inline void for_each_in_tuple(std::tuple<Ts...> & tuple, F func)
 		{
+			// Iterates over a tuple.
 			for_each_in_tuple(tuple, func, std::make_index_sequence<sizeof...(Ts)>());
 		}
 
@@ -176,6 +178,7 @@ namespace sl
 			{
 				T ret = (T)0;
 
+				// Create stringstream and use it to convert strings to variables.
 				std::istringstream iss(data);
 				if (data.find("0x") != std::string::npos)
 				{

@@ -16,9 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Dynamics/Joints/b2WheelJoint.h>
-#include <sl/libs/Box2D/Dynamics/b2Body.h>
-#include <sl/libs/Box2D/Dynamics/b2TimeStep.h>
+#include "sl/libs/Box2D/Dynamics/Joints/b2WheelJoint.h"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
+#include "sl/libs/Box2D/Dynamics/b2TimeStep.h"
 
 // Linear constraint (point-to-line)
 // d = pB - pA = xB + rB - xA - rA
@@ -402,23 +402,32 @@ bool b2WheelJoint::IsMotorEnabled() const
 
 void b2WheelJoint::EnableMotor(bool flag)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_enableMotor = flag;
+	if (flag != m_enableMotor)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_enableMotor = flag;
+	}
 }
 
 void b2WheelJoint::SetMotorSpeed(float32 speed)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_motorSpeed = speed;
+	if (speed != m_motorSpeed)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_motorSpeed = speed;
+	}
 }
 
 void b2WheelJoint::SetMaxMotorTorque(float32 torque)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_maxMotorTorque = torque;
+	if (torque != m_maxMotorTorque)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_maxMotorTorque = torque;
+	}
 }
 
 float32 b2WheelJoint::GetMotorTorque(float32 inv_dt) const

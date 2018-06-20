@@ -32,4 +32,4 @@ It makes me happy to hear if someone finds the algorithms useful.
    Jukka Jylänki
 
 
-Code is modified to work in rework by reworks.
+Code has been modified for use in starlight by reworks, specifically the use of starlight datatypes.

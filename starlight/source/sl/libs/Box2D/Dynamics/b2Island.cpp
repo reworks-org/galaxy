@@ -16,16 +16,16 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Collision/b2Distance.h>
-#include <sl/libs/Box2D/Dynamics/b2Island.h>
-#include <sl/libs/Box2D/Dynamics/b2Body.h>
-#include <sl/libs/Box2D/Dynamics/b2Fixture.h>
-#include <sl/libs/Box2D/Dynamics/b2World.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2Contact.h>
-#include <sl/libs/Box2D/Dynamics/Contacts/b2ContactSolver.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2Joint.h>
-#include <sl/libs/Box2D/Common/b2StackAllocator.h>
-#include <sl/libs/Box2D/Common/b2Timer.h>
+#include "sl/libs/Box2D/Collision/b2Distance.h"
+#include "sl/libs/Box2D/Dynamics/b2Island.h"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
+#include "sl/libs/Box2D/Dynamics/b2Fixture.h"
+#include "sl/libs/Box2D/Dynamics/b2World.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2Contact.h"
+#include "sl/libs/Box2D/Dynamics/Contacts/b2ContactSolver.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2Joint.h"
+#include "sl/libs/Box2D/Common/b2StackAllocator.h"
+#include "sl/libs/Box2D/Common/b2Timer.h"
 
 /*
 Position Correction Notes
@@ -515,7 +515,7 @@ void b2Island::SolveTOI(const b2TimeStep& subStep, int32 toiIndexA, int32 toiInd
 
 void b2Island::Report(const b2ContactVelocityConstraint* constraints)
 {
-	if (m_listener == NULL)
+	if (m_listener == nullptr)
 	{
 		return;
 	}

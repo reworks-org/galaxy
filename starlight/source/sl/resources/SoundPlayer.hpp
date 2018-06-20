@@ -15,6 +15,9 @@
 
 namespace sl
 {
+	///
+	/// Manages all the sound effects the library uses.
+	///
 	class SoundPlayer final : public ResourceCache<Sound>
 	{
 	public:

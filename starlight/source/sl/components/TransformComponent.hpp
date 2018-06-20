@@ -16,10 +16,13 @@
 
 namespace sl
 {
+	///
+	/// Allows for an entity to be transformed - x, y, z, etc.
+	/// Required for rendering.
+	///
 	class TransformComponent final
 	{
 		friend class cereal::access;
-
 	public:
 		///
 		/// \brief Default Constructor.
@@ -67,8 +70,19 @@ namespace sl
 		}
 
 	public:
+		///
+		/// Layer the entity is on.
+		///
 		int m_layer;
+
+		///
+		/// The angle the entity is rotated to.
+		///
 		float m_angle;
+
+		///
+		/// Dimensions of the entity.
+		///
 		Rect<float, int> m_rect;
 	};
 }

@@ -16,6 +16,9 @@ namespace sl
 {
 	class World;
 
+	///
+	/// Process's entities with ParticleComponents.
+	///
 	class ParticleSystem final : public System
 	{
 	public:

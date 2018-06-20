@@ -15,6 +15,9 @@
 
 namespace sl
 {
+	///
+	/// System that handles rendering of entities with a RenderComponent.
+	///
 	class RenderSystem final : public System
 	{
 	public:
@@ -60,10 +63,24 @@ namespace sl
 		void update(const double dt, entt::DefaultRegistry& registry) override;
 
 	private:
+		///
+		/// Maximum number of levels the quadtree should have.
+		///
 		int m_quadTreeLevels;
+
+		///
+		/// Maximum number of renderable objects each node in the quadtree can have.
+		///
 		int m_quadTreeMaxObjects;
-		unsigned int m_defaultAlloc;
+
+		///
+		/// his is used to sort entities by Z-layer after figuring out which ones to render with the quadtree.
+		///
 		std::vector<entt::DefaultRegistry::entity_type> m_entitys;
+
+		///
+		/// The quadtree to process 2D screenspace with.
+		///
 		std::unique_ptr<QuadTree> m_quadtree;
 	};
 }

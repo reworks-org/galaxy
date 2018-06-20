@@ -17,23 +17,17 @@
 
 namespace sl
 {
+	///
+	/// Represents an animation. Can be constructed via a lua table or an argument constructor.
+	///
 	class Animation final
 	{
 		friend class cereal::access;
-
 	public:
-		///
-		/// \brief Default constructor.
-		///
-		/// This will throw an exception if you invoke it. This is here to allow stl maps to return animation objects from overloaded
-		/// brackets '[]' operators.
-		///
-		Animation();
-
 		///
 		/// Constructor.
 		///
-		/// \param table sol::table containing data.
+		/// \param table sol::table containing data. Frames MUST be in order.
 		///
 		Animation(sol::table& table);
 
@@ -65,6 +59,12 @@ namespace sl
 
 	private:
 		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Animation() = delete;
+
+		///
 		/// Cereal serialize function.
 		///
 		template <class Archive>
@@ -74,19 +74,31 @@ namespace sl
 		}
 
 	public:
-		/// True / False
+		///
+		/// Is the animation looping or not.
+		///
 		bool m_isLooped;
 
+		///
+		/// Speed of the animation.
 		/// Multiplier, so 1.0f is regular speed.
+		///
 		float m_speed;
 
+		///
 		/// Total number of frames in animation.
+		///
 		unsigned int m_totalFrames;
 
-		/// current frame
+		///
+		/// The current frame the animation is on.
+		///
 		unsigned int m_currentFrame;
 
+		///
+		/// The frames that make up the animation.
 		/// Each frame contains a duration and a textureID.
+		///
 		std::vector<AnimationFrame> m_frames;
 	};
 }

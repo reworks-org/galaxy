@@ -19,7 +19,7 @@
 #ifndef B2_COLLISION_H
 #define B2_COLLISION_H
 
-#include <sl/libs/Box2D/Common/b2Math.h>
+#include "sl/libs/Box2D/Common/b2Math.h"
 #include <limits.h>
 
 /// @file

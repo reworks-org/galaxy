@@ -10,8 +10,6 @@
 #ifndef STARLIGHT_TEXTUREATLAS_HPP_
 #define STARLIGHT_TEXTUREATLAS_HPP_
 
-#include <unordered_map>
-#include <allegro5/color.h>
 #include <allegro5/bitmap.h>
 #include <allegro5/allegro_font.h>
 
@@ -21,6 +19,10 @@
 
 namespace sl
 {
+	///
+	/// A texture atlas containing all the textures and rasterized text in the game.
+	/// This means rendering can be very efficient because only one texture has to be loaded and no switching takes place.
+	///
 	class TextureAtlas final : public ResourceCache<Rect<int>>
 	{
 	public:
@@ -28,11 +30,12 @@ namespace sl
 		/// \brief Constructor.
 		///
 		/// Loads all textures and performs a maxrectbinpack algorithm on them, then frees textures.
-		/// Expects textures to be in a subfolder labelled "textures".
-		///
+		/// Textures should be located inside textureFolderPath.
+		/// 
+		/// \param textureFolderPath The location in the VFS where all the textures are stored.
 		/// \param powerOfTwoDimension The power of two to create the sprite sheet. E.g. 11 would result in an atas size of 2048x2048.
 		///
-		TextureAtlas(int powerOfTwoDimension);
+		TextureAtlas(const std::string& textureFolderPath, int powerOfTwoDimension);
 
 		///
 		/// Destructor. Frees texture atlas.
@@ -47,7 +50,7 @@ namespace sl
 		/// \param ID ID of texture to add. Do not include extension.
 		/// \param textureData Bitmap to add. WARNING! textureData WILL NOT BE FREED BY THIS FUNCTION!
 		///
-		void addTextureToAtlas(const std::string& ID, ALLEGRO_BITMAP* textureData);
+		void addTexture(std::string_view id, ALLEGRO_BITMAP* textureData);
 
 		///
 		/// \brief Add bitmap text to the atlas.
@@ -59,7 +62,31 @@ namespace sl
 		/// \param font Font to use.
 		/// \param col Colour to use.
 		///
-		void addTextToAtlas(const std::string& ID, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
+		void addText(std::string_view id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
+
+		///
+		/// \brief A function that takes a lua script to add a batch of text.
+		///
+		/// Example:
+		/// TextList =
+		/// {
+		///     helloWorld =
+		///     {
+		///         text = "Hello, World!",
+		///			font = "ExampleFont",
+		///			col = 
+		///			{
+		///				r = 0,
+		///				g = 0,
+		///				b = 0,
+		///				a = 255
+		///			}
+		///     }
+		/// }
+		///
+		/// \param script Name of the script file.
+		///
+		void batchAddText(const std::string& script);
 
 		///
 		/// Add a new rectangle to the atlas, but it uses an existing texture.
@@ -67,7 +94,7 @@ namespace sl
 		/// \param ID ID of texture to add. Do not include extension.
 		/// \param Rect x,y -> Upper Left, Upper Right on atlas, w,h -> Width and Height of area to cover.
 		///
-		void addRectToAtlas(const std::string& ID, const Rect<int>& rect);
+		void addRectToAtlas(std::string_view id, const Rect<int>& rect);
 
 		///
 		/// Like al_draw_bitmap
@@ -88,6 +115,7 @@ namespace sl
 		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
 
 		///
+		/// 
 		/// Calls al_create_sub_bitmap() properly and returns the bitmap of the
 		/// packed image. You can then draw and manipulate the bitmap yourself.
 		///
@@ -106,11 +134,6 @@ namespace sl
 		///
 		void drawInternalTexture(float x = 0.0f, float y = 0.0f);
 
-		///
-		/// Clean up resources.
-		///
-		void clean() override;
-
 	private:
 		///
 		/// Default Constructor.
@@ -118,8 +141,21 @@ namespace sl
 		///
 		TextureAtlas() = delete;
 
+		///
+		/// Clean up resources.
+		/// There is no way to re-create the atlas without destroying it.
+		///
+		void clean() override;
+
 	private:
+		///
+		/// The bitmap of all the textures in the game.
+		///
 		ALLEGRO_BITMAP* m_atlas;
+
+		///
+		/// Contains the rectangles outlining all the textures on the atlas bitmap.
+		///
 		rbp::MaxRectsBinPack m_bin;
 	};
 }

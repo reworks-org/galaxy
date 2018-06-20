@@ -36,7 +36,7 @@
     <ClCompile Include="source\sl\core\Application.cpp" />
     <ClCompile Include="source\sl\core\StateMachine.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
-    <ClCompile Include="source\sl\debug\DebugInterface.cpp" />
+    <ClCompile Include="source\sl\core\DebugInterface.cpp" />
     <ClCompile Include="source\sl\events\EventManager.cpp" />
     <ClCompile Include="source\sl\fs\Serializer.cpp" />
     <ClCompile Include="source\sl\fs\VirtualFS.cpp" />
@@ -142,7 +142,7 @@
     <ClCompile Include="source\sl\mapping\TMXMap.cpp" />
     <ClCompile Include="source\sl\math\QuadTree.cpp" />
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp" />
-    <ClCompile Include="source\sl\physics\Box2DManager.cpp" />
+    <ClCompile Include="source\sl\physics\Box2DHelper.cpp" />
     <ClCompile Include="source\sl\resources\FontBook.cpp" />
     <ClCompile Include="source\sl\resources\MusicPlayer.cpp" />
     <ClCompile Include="source\sl\resources\ShaderLibrary.cpp" />
@@ -174,8 +174,7 @@
     <ClInclude Include="source\sl\core\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\core\StateMachine.hpp" />
     <ClInclude Include="source\sl\core\World.hpp" />
-    <ClInclude Include="source\sl\Debug.hpp" />
-    <ClInclude Include="source\sl\debug\DebugInterface.hpp" />
+    <ClInclude Include="source\sl\core\DebugInterface.hpp" />
     <ClInclude Include="source\sl\Events.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\EventManager.hpp" />
@@ -323,6 +322,8 @@
     <ClInclude Include="source\sl\libs\boost\config\detail\select_platform_config.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\detail\select_stdlib_config.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\detail\suffix.hpp" />
+    <ClInclude Include="source\sl\libs\boost\config\header_deprecated.hpp" />
+    <ClInclude Include="source\sl\libs\boost\config\helper_macros.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\no_tr1\cmath.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\no_tr1\complex.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\no_tr1\functional.hpp" />
@@ -347,6 +348,7 @@
     <ClInclude Include="source\sl\libs\boost\config\platform\vxworks.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\platform\win32.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\platform\zos.hpp" />
+    <ClInclude Include="source\sl\libs\boost\config\pragma_message.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\requires_threads.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\stdlib\dinkumware.hpp" />
     <ClInclude Include="source\sl\libs\boost\config\stdlib\libcomo.hpp" />
@@ -2156,6 +2158,7 @@
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\composite_member_pointer_type.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\composite_pointer_type.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\config.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\detail\detector.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\has_binary_operator.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\has_postfix_operator.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\has_prefix_operator.hpp" />
@@ -2165,11 +2168,14 @@
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\ice_or.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\is_function_ptr_helper.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\is_function_ptr_tester.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\detail\is_likely_lambda.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\is_mem_fun_pointer_impl.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\is_mem_fun_pointer_tester.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\mp_defer.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\template_arity_spec.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\detail\yes_no_type.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\detected.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\detected_or.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\extent.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\floating_point_promotion.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\function_traits.hpp" />
@@ -2236,6 +2242,7 @@
     <ClInclude Include="source\sl\libs\boost\type_traits\is_base_of.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_base_of_tr1.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_class.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_complete.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_complex.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_compound.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_const.hpp" />
@@ -2245,6 +2252,9 @@
     <ClInclude Include="source\sl\libs\boost\type_traits\is_copy_constructible.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_default_constructible.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_destructible.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_detected.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_detected_convertible.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_detected_exact.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_empty.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_enum.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_final.hpp" />
@@ -2253,12 +2263,14 @@
     <ClInclude Include="source\sl\libs\boost\type_traits\is_function.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_fundamental.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_integral.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_list_constructible.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_lvalue_reference.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_member_function_pointer.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_member_object_pointer.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_member_pointer.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_nothrow_move_assignable.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_nothrow_move_constructible.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_nothrow_swappable.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_object.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_pod.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\is_pointer.hpp" />
@@ -2277,6 +2289,7 @@
     <ClInclude Include="source\sl\libs\boost\type_traits\make_signed.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\make_unsigned.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\make_void.hpp" />
+    <ClInclude Include="source\sl\libs\boost\type_traits\nonesuch.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\object_traits.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\promote.hpp" />
     <ClInclude Include="source\sl\libs\boost\type_traits\rank.hpp" />
@@ -2424,8 +2437,10 @@
     <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp" />
     <ClInclude Include="source\sl\libs\entt\core\ident.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\actor.hpp" />
+    <ClInclude Include="source\sl\libs\entt\entity\entity.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\entt_traits.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\helper.hpp" />
+    <ClInclude Include="source\sl\libs\entt\entity\prototype.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\registry.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\snapshot.hpp" />
     <ClInclude Include="source\sl\libs\entt\entity\sparse_set.hpp" />
@@ -2445,6 +2460,7 @@
     <ClInclude Include="source\sl\libs\imgui\imconfig.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui.h" />
     <ClInclude Include="source\sl\libs\imgui\imguitexteditor.h" />
+    <ClInclude Include="source\sl\libs\imgui\imgui_console.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui_impl_a5.h" />
     <ClInclude Include="source\sl\libs\imgui\imgui_internal.h" />
     <ClInclude Include="source\sl\libs\imgui\stb_rect_pack.h" />
@@ -2493,7 +2509,6 @@
     <ClInclude Include="source\sl\Physics.hpp" />
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp" />
     <ClInclude Include="source\sl\physics\Box2DHelper.hpp" />
-    <ClInclude Include="source\sl\physics\Box2DManager.hpp" />
     <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
     <ClInclude Include="source\sl\Resources.hpp" />
     <ClInclude Include="source\sl\resources\FontBook.hpp" />

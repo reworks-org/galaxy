@@ -10,27 +10,18 @@
 #ifndef STARLIGHT_ANIMATIONFRAME_HPP_
 #define STARLIGHT_ANIMATIONFRAME_HPP_
 
-#include <string>
-#include <cinttypes>
-
 #include "sl/libs/cereal/access.hpp"
 #include "sl/libs/cereal/types/string.hpp"
 
 namespace sl
 {
+	///
+	/// Represents a single frame of an animation.
+	///
 	class AnimationFrame final
 	{
 		friend class cereal::access;
-
 	public:
-		///
-		/// \brief Default Constructor.
-		///
-		/// Please note this is only so a vector can be created with default initialized values.
-		/// Not properly constructing the vector data will lead to issues.
-		///
-		AnimationFrame();
-
 		///
 		/// Constructor.
 		///
@@ -56,6 +47,12 @@ namespace sl
 
 	private:
 		///
+		/// Default Constructor.
+		/// Deleted.
+		///
+		AnimationFrame() = delete;
+
+		///
 		/// Cereal serialize function.
 		/// 
 		template<class Archive>
@@ -65,7 +62,14 @@ namespace sl
 		}
 
 	public:
+		///
+		/// Time to spend on this frame.
+		///
 		std::uint32_t m_timePerFrame;
+
+		///
+		/// ID of the texture for this frame in the TextureAtlas.
+		///
 		std::string m_frameTextureID;
 	};
 }

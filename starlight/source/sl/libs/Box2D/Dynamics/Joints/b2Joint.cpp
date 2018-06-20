@@ -16,27 +16,27 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Dynamics/Joints/b2Joint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2DistanceJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2WheelJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2MouseJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2PrismaticJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2PulleyJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2GearJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2WeldJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2FrictionJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2RopeJoint.h>
-#include <sl/libs/Box2D/Dynamics/Joints/b2MotorJoint.h>
-#include <sl/libs/Box2D/Dynamics/b2Body.h>
-#include <sl/libs/Box2D/Dynamics/b2World.h>
-#include <sl/libs/Box2D/Common/b2BlockAllocator.h>
+#include "sl/libs/Box2D/Dynamics/Joints/b2Joint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2DistanceJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2WheelJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2MouseJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2RevoluteJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2PrismaticJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2PulleyJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2GearJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2WeldJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2FrictionJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2RopeJoint.h"
+#include "sl/libs/Box2D/Dynamics/Joints/b2MotorJoint.h"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
+#include "sl/libs/Box2D/Dynamics/b2World.h"
+#include "sl/libs/Box2D/Common/b2BlockAllocator.h"
 
 #include <new>
 
 b2Joint* b2Joint::Create(const b2JointDef* def, b2BlockAllocator* allocator)
 {
-	b2Joint* joint = NULL;
+	b2Joint* joint = nullptr;
 
 	switch (def->type)
 	{
@@ -185,8 +185,8 @@ b2Joint::b2Joint(const b2JointDef* def)
 	b2Assert(def->bodyA != def->bodyB);
 
 	m_type = def->type;
-	m_prev = NULL;
-	m_next = NULL;
+	m_prev = nullptr;
+	m_next = nullptr;
 	m_bodyA = def->bodyA;
 	m_bodyB = def->bodyB;
 	m_index = 0;
@@ -194,15 +194,15 @@ b2Joint::b2Joint(const b2JointDef* def)
 	m_islandFlag = false;
 	m_userData = def->userData;
 
-	m_edgeA.joint = NULL;
-	m_edgeA.other = NULL;
-	m_edgeA.prev = NULL;
-	m_edgeA.next = NULL;
+	m_edgeA.joint = nullptr;
+	m_edgeA.other = nullptr;
+	m_edgeA.prev = nullptr;
+	m_edgeA.next = nullptr;
 
-	m_edgeB.joint = NULL;
-	m_edgeB.other = NULL;
-	m_edgeB.prev = NULL;
-	m_edgeB.next = NULL;
+	m_edgeB.joint = nullptr;
+	m_edgeB.other = nullptr;
+	m_edgeB.prev = nullptr;
+	m_edgeB.next = nullptr;
 }
 
 bool b2Joint::IsActive() const

@@ -15,15 +15,15 @@
 #include <string_view>
 #include <unordered_map>
 
-#include "sl/types/System.hpp"
 #include "sl/libs/sol2/sol.hpp"
-
-#ifndef NDEBUG
-	#include "sl/libs/loguru/loguru.hpp"
-#endif
+#include "sl/types/System.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 
 namespace sl
 {
+	///
+	/// The World class. Contains the entitys and systems and other library stuff, like the main lua state.
+	///
 	class World final
 	{
 	public: 
@@ -113,126 +113,104 @@ namespace sl
 		void remove();
 
 	public:
+		///
+		/// The main lua instance. Use this when doing lua things.
+		///
 		sol::state m_lua;
+		
+		///
+		/// The registry containing all the game entities.
+		///
 		entt::DefaultRegistry m_registry;
 
-	protected:
+	private:
+		///
+		/// Used to allow for tag assigning without having to know the tag type.
+		///
 		std::unordered_map<std::string_view, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
+
+		///
+		/// Used to allow for component assigning without having to know the tag type.
+		///
 		std::unordered_map<std::string_view, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
+
+		///
+		/// Systems storage.
+		///
 		std::unordered_map<std::type_index, std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Tag>
 	void World::registerTag(std::string_view name)
 	{
-		#ifdef NDEBUG
-			m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type e, const sol::table& table)
+		// Make sure there are no duplicate tags before registering.
+		if (m_tagAssign.find(name) != m_tagAssign.end())
+		{
+			LOG_S(WARNING) << "Attempted to register duplicate tag: " << name;
+		}
+		else
+		{
+			m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
-				m_registry.assign<Tag>(entt::tag_t{}, e, table);
+				m_registry.assign<Tag>(entt::tag_t{}, entity, table);
 			});
-		#else
-			if (m_tagAssign.find(name) != m_tagAssign.end())
-			{
-				LOG_S(WARNING) << "Attempted to register duplicate tag!";
-			}
-			else
-			{
-				m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type e, const sol::table& table)
-				{
-					if (!m_registry.has<Tag>())
-					{
-						m_registry.assign<Tag>(entt::tag_t{}, e, table);
-					}
-					else
-					{
-						LOG_S(WARNING) << "Attempted to attach duplicate tag!";
-					}
-				});
-			}
-		#endif
+		}
 	}
 
 	template<typename Component>
 	void World::registerComponent(std::string_view name)
 	{
-		#ifdef NDEBUG
+		// Make sure there are no duplicate components for the hashmap before registering.
+		if (m_componentAssign.find(name) != m_componentAssign.end())
+		{
+			LOG_S(WARNING) << "Attempted to register duplicate component: " << name;
+		}
+		else
+		{
 			m_componentAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
 				m_registry.assign<Component>(entity, table);
 			});
-		#else
-			if (m_componentAssign.find(name) != m_componentAssign.end())
-			{
-				LOG_S(WARNING) << "Attempted to register duplicate component!";
-			}
-			else
-			{
-				m_componentAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
-				{
-					m_registry.assign<Component>(entity, table);
-				});
-			}
-		#endif
+		}
 	}
 
 	template<typename System, typename... Args>
 	void World::registerSystem(Args&&... args)
 	{
-		/// Here, we have two seperate methods. Debug has some more access checks.
-		/// We remove the extra checks in release mode to ensure speed.
-		#ifdef NDEBUG
+		// Make sure no duplicate systems when registering.
+		if (m_systems.find(std::type_index(typeid(System))) != m_systems.end())
+		{
+			LOG_S(WARNING) << "Attempted to register duplicate system!";
+		}
+		else
+		{
+			// Create system at system type by forwarding arguments.
 			m_systems[std::type_index(typeid(System))] = std::make_unique<System>(std::forward<Args>(args)...);
-		#else
-			if (m_systems.find(std::type_index(typeid(System))) != m_systems.end())
-			{
-				LOG_S(WARNING) << "Attempted to register duplicate system!";
-			}
-			else
-			{
-				m_systems[std::type_index(typeid(System))] = std::make_unique<System>(std::forward<Args>(args)...);
-			}
-		#endif
+		}
 	}
 
 	template<typename System>
 	System* World::getSystem()
 	{
-		/// Here, we have two seperate methods. Debug has some more access checks.
-		/// We remove the extra checks in release mode to ensure speed.
-		#ifdef NDEBUG
-			return dynamic_cast<System*>(m_systems[std::type_index(typeid(System))].get());
-		#else
-			if (m_systems.find(std::type_index(typeid(System))) != m_systems.end())
-			{
-				return dynamic_cast<System*>(m_systems[std::type_index(typeid(System))].get());
-			}
-			else
-			{
-				LOG_S(WARNING) << "Attempted to access non-existent system.";
-				return nullptr;
-			}
-		#endif
+		// Return a pointer to the system of the type System.
+		return dynamic_cast<System*>(m_systems[std::type_index(typeid(System))].get());
 	}
 
 	template<typename System>
 	void World::remove()
 	{
-		/// Here, we have two seperate methods. Debug has some more access checks.
-		/// We remove the extra checks in release mode to ensure speed.
-		#ifdef NDEBUG
-			m_systems[System::m_id].reset();
-			m_systems.erase(System::m_id);
-		#else
-			if (m_systems.find(System::m_id) != m_systems.end())
-			{
-				m_systems[System::m_id].reset();
-				m_systems.erase(System::m_id);
-			}
-			else
-			{
-				LOG_S(WARNING) << "Attempted to remove non-existent system.";
-			}
-		#endif
+		// Check to make sure system exists.
+		auto type = std::type_index(typeid(System));
+		if (m_systems.find(type) != m_systems.end())
+		{
+			// Then call the systems destructor and erase it from the map.
+			m_systems[type].reset();
+			m_systems.erase(type);
+		}
+		else
+		{
+			LOG_S(WARNING) << "Attempted to remove non-existent system: " << type.name();
+		}
 	}
 }
 

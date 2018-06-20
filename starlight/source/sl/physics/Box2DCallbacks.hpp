@@ -14,6 +14,9 @@
 
 namespace sl
 {
+	///
+	/// This is the class that handles Box2D collisions for this library.
+	///
 	class CollisionContact final : public b2ContactListener
 	{
 	public:

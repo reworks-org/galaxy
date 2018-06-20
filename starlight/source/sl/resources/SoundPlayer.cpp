@@ -7,10 +7,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <allegro5/allegro_audio.h>
-
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "SoundPlayer.hpp"
@@ -19,36 +18,46 @@ namespace sl
 {
 	SoundPlayer::SoundPlayer(const std::string& script)
 	{
-		sol::state lua;
-		lua.script(Locator::virtualFS->openAsString(script));
-		sol::table sounds = lua.get<sol::table>("sounds");
+		// Load lua script from VFS.
+		sol::state loader;
+		loader.script(Locator::virtualFS->openAsString(script));
+		sol::table sounds = loader.get<sol::table>("sounds");
 
 		if (!sounds.empty())
 		{
+			// Iterate over each sound effect in the lua table and construct it in place.
 			sounds.for_each([this](std::pair<sol::object, sol::object> pair)
 			{
-				m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, pair.second.as<sol::table>());
+				m_resourceMap.emplace(pair.first.as<const char*>(), pair.second.as<sol::table>());
 			});
+		}
+		else
+		{
+			LOG_S(WARNING) << "Loaded empty sound table for script: " << script;
 		}
 	}
 
 	SoundPlayer::~SoundPlayer()
 	{
+		// See clean().
 		clean();
 	}
 
 	void SoundPlayer::changeSoundVolume(float volume)
 	{
-		if (volume > 1.0)
+		// Correct volume range.
+		if (volume > 1.0f)
 		{
 			volume = 1.0f;
 		}
 
-		if (volume < 0.0)
+		// Correct volume range.
+		if (volume < 0.0f)
 		{
 			volume = 0.0f;
 		}
 
+		// Adjust volume of the sound effects.
 		for (auto& it : m_resourceMap)
 		{
 			it.second.setVolume(volume);
@@ -57,6 +66,7 @@ namespace sl
 
 	void SoundPlayer::clean()
 	{
+		// Sound objects are wrapped in classes so destructors handle cleaning of object data.
 		m_resourceMap.clear();
 	}
 }

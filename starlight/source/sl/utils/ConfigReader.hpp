@@ -17,6 +17,10 @@
 
 namespace sl
 {
+	///
+	/// Allows you to read, write and manipulate an allegro config file.
+	/// Supports multiple allegro config files.
+	///
 	class ConfigReader final : public ResourceCache<ALLEGRO_CONFIG*>
 	{
 	public:
@@ -51,7 +55,7 @@ namespace sl
 		/// \param value Actual value to write.
 		///
 		template<typename T>
-		void setValue(entt::HashedString config, const std::string& section, const std::string& key, T value);
+		void setValue(const std::string& config, const std::string& section, const std::string& key, T value);
 
 		///
 		/// Remove a value from the config.
@@ -60,7 +64,7 @@ namespace sl
 		/// \param section Section where the value is located.
 		/// \param key Key to the value to remove.
 		///
-		void removeValue(entt::HashedString config, const std::string& section, const std::string& key);
+		void removeValue(const std::string& config, const std::string& section, const std::string& key);
 
 		///
 		/// Add a section to the config file.
@@ -68,7 +72,7 @@ namespace sl
 		/// \param config Name of the config file to read.
 		/// \param section Section to add.
 		///
-		void addSection(entt::HashedString config, const std::string& section);
+		void addSection(const std::string& config, const std::string& section);
 
 		///
 		/// Removes an entire section from the config file. 
@@ -76,7 +80,7 @@ namespace sl
 		/// \param config Name of the config file to read.
 		/// \param section Section to remove 
 		///
-		void removeSection(entt::HashedString config, const std::string& section);
+		void removeSection(const std::string& config, const std::string& section);
 
 		///
 		/// Saves the config file.
@@ -123,12 +127,14 @@ namespace sl
 	template<typename T>
 	T ConfigReader::lookup(const std::string& config, const std::string& section, const std::string& key)
 	{  
-		return utils::convertString<T>(al_get_config_value(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), key.c_str()));
+		// Convert retrieved value to correct type.
+		return utils::convertString<T>(al_get_config_value(m_resourceMap[config.c_str()], section.c_str(), key.c_str()));
 	}
 
 	template<typename T>
-	void ConfigReader::setValue(entt::HashedString config, const std::string& section, const std::string& key, T value)
+	void ConfigReader::setValue(const std::string& config, const std::string& section, const std::string& key, T value)
 	{
+		// Set value of a section.
 		al_set_config_value(m_resourceMap[config], section.c_str(), key.c_str(), std::to_string(value).c_str());
 	}
 }

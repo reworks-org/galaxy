@@ -17,6 +17,9 @@
 
 namespace sl
 {
+	///
+	/// Controls an entitys physics.
+	///
 	class PhysicsComponent final
 	{
 		friend class cereal::access;
@@ -81,9 +84,15 @@ namespace sl
 		}
 
 	public:
+		///
+		/// Pointer to the Box2D physics body data.
+		///
 		b2Body* m_body;
 
 	private:
+		///
+		/// We need to reference the entity this component belongs to in order for collisions to know 'what' collided.
+		///
 		entt::DefaultRegistry::entity_type m_entity;
 	};
 }

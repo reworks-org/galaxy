@@ -16,6 +16,9 @@
 
 namespace sl
 {
+	///
+	/// Represents a "camera" object in gamedev, usually player perspective.
+	///
 	class CameraTag final
 	{
 		friend class CameraSystem;
@@ -71,6 +74,9 @@ namespace sl
 		}
 
 	public:
+		///
+		/// The dimensions of the camera. Does not have to be the same as the screen.
+		///
 		Rect<float, int> m_bounds;
 	};
 }

@@ -10,11 +10,17 @@
 #ifndef STARLIGHT_VECTOR2_HPP_
 #define STARLIGHT_VECTOR2_HPP_
 
+#include "sl/libs/cereal/access.hpp"
+
 namespace sl
 {
+	///
+	/// Represents a 2 variable vector object.
+	///
 	template<typename T>
-	class Vector2
+	class Vector2 final
 	{
+		friend class cereal::access;
 	public:
 		///
 		/// Default constructor. Values are initialized to 0.
@@ -30,12 +36,30 @@ namespace sl
 		Vector2(T x, T y);
 
 		///
-		/// Swaps x (width) and y (height).
+		/// Swaps x and y.
 		///
 		void transpose();
 
+	private:
+		///
+		/// Cereal serialize function.
+		///
+		template <class Archive>
+		void serialize(Archive& ar)
+		{
+			ar(m_x, m_y);
+		}
+
+
 	public:
+		///
+		/// X value.
+		///
 		T m_x;
+
+		///
+		/// Y value.
+		///
 		T m_y;
 	};
 
@@ -43,29 +67,38 @@ namespace sl
 	Vector2<T>::Vector2()
 		:m_x(0), m_y(0)
 	{
+		// Default initialized constructor.
 	}
 
 	template<typename T>
 	Vector2<T>::Vector2(T x, T y)
 		: m_x(x), m_y(y)
 	{
+		// Argument constructor.
 	}
 
 	template<typename T>
 	inline void Vector2<T>::transpose()
 	{
+		// Swaps X and Y.
 		T oldX = m_x;
 
 		m_x = m_y;
 		m_y = oldX;
 	}
 	
+	///
+	/// Negative operator overload.
+	///
 	template<typename T>
 	Vector2<T> operator-(const Vector2<T>& a)
 	{
 		return Vector2<T>(-a.m_x, -a.m_y);
 	}
 
+	///
+	/// Addition assignment operator overload.
+	///
 	template<typename T>
 	Vector2<T>& operator+=(Vector2<T>& a, const Vector2<T>& b)
 	{
@@ -75,6 +108,9 @@ namespace sl
 		return a;
 	}
 
+	///
+	/// Subtraction assignment operator overload.
+	///
 	template<typename T>
 	Vector2<T>& operator-=(Vector2<T>& a, const Vector2<T>& b)
 	{
@@ -84,12 +120,18 @@ namespace sl
 		return a;
 	}
 
+	///
+	/// Addition operator overload.
+	///
 	template<typename T>
 	Vector2<T> operator+(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return Vector2<T>(a.m_x + b.m_x, a.m_y + b.m_y);
 	}
 
+	///
+	/// Subtraction operator overload.
+	///
 	template<typename T>
 	Vector2<T> operator-(const Vector2<T>& a, const Vector2<T>& b)
 	{
@@ -97,12 +139,18 @@ namespace sl
 		return Vector2<T>(a.m_x - b.m_x, a.m_y - b.m_y);
 	}
 
+	///
+	/// Equality operator overload.
+	///
 	template<typename T>
 	bool operator==(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return (a.m_x == b.m_x) && (a.m_y == b.m_y);
 	}
 
+	///
+	/// Not operator overload.
+	///
 	template<typename T>
 	bool operator!=(const Vector2<T>& a, const Vector2<T>& b)
 	{

@@ -16,6 +16,9 @@ union ALLEGRO_EVENT;
 
 namespace sl
 {
+	///
+	/// Represents a "state" of the application i.e. gamestate, battlestate, menustate, etc...
+	///
 	class State
 	{
 	public:
@@ -41,14 +44,18 @@ namespace sl
 		///
 		virtual void render() = 0;
 
-	public:
-		Rect<float, int> m_bounds;
-
 	protected:
 		///
 		/// Default constructor.
 		///
 		State() = default;
+
+	public:
+		///
+		/// The dimensions for the state, used with a quadtree to decide what to render to screen.
+		/// This could be the screen size or the map size for example.
+		///
+		Rect<float, int> m_bounds;
 	};
 }
 

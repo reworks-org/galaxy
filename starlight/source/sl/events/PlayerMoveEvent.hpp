@@ -10,13 +10,14 @@
 #ifndef STARLIGHT_PLAYERMOVEEVENT_HPP_
 #define STARLIGHT_PLAYERMOVEEVENT_HPP_
 
-#include <cinttypes>
-
 #include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl
 {
-	struct PlayerMoveEvent
+	///
+	/// A player move event used by the library.
+	///
+	struct PlayerMoveEvent final
 	{
 		///
 		/// Constructor.

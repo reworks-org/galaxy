@@ -62,6 +62,9 @@ namespace sl
 		Component& get(entt::DefaultRegistry::entity_type entity);
 
 	private:
+		///
+		/// Pointer to the registry used by the World class.
+		///
 		entt::DefaultRegistry* m_registry;
 	};
 

@@ -16,10 +16,10 @@
  * 3. This notice may not be removed or altered from any source distribution.
  */
 
-#include <sl/libs/Box2D/Collision/b2Collision.h>
-#include <sl/libs/Box2D/Collision/Shapes/b2CircleShape.h>
-#include <sl/libs/Box2D/Collision/Shapes/b2EdgeShape.h>
-#include <sl/libs/Box2D/Collision/Shapes/b2PolygonShape.h>
+#include "sl/libs/Box2D/Collision/b2Collision.h"
+#include "sl/libs/Box2D/Collision/Shapes/b2CircleShape.h"
+#include "sl/libs/Box2D/Collision/Shapes/b2EdgeShape.h"
+#include "sl/libs/Box2D/Collision/Shapes/b2PolygonShape.h"
 
 
 // Compute contact points for edge versus circle.
@@ -432,7 +432,7 @@ void b2EPCollider::Collide(b2Manifold* manifold, const b2EdgeShape* edgeA, const
 		m_polygonB.normals[i] = b2Mul(m_xf.q, polygonB->m_normals[i]);
 	}
 	
-	m_radius = 2.0f * b2_polygonRadius;
+	m_radius = polygonB->m_radius + edgeA->m_radius;
 	
 	manifold->pointCount = 0;
 	

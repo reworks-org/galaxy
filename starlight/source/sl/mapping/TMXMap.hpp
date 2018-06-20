@@ -14,14 +14,14 @@
 #include <allegro5/color.h>
 
 #include "sl/libs/tmx/tmx.h"
-#include "sl/libs/tmx/tsx.h"
 
-/// American English? Ew.
+/// Non-Americanised spelling macro.
 #define ALLEGRO_COLOUR ALLEGRO_COLOR
 
 namespace sl
 {
 	///
+	/// Wrapper around a tmx map from tmxlib parser.
 	/// Some of the following code is taken from or based on:
 	/// https://github.com/baylej/tmx/blob/master/examples/allegro/allegro.c
 	/// https://github.com/baylej/tmx/blob/master/examples/dumper/dumper.c
@@ -30,7 +30,7 @@ namespace sl
 	///
 	/// Also please note that external tilesets (.tsx) is not currently supported.
 	///
-	class TMXMap
+	class TMXMap final
 	{
 	public:
 		///
@@ -101,12 +101,21 @@ namespace sl
 		void processLayer(tmx_map* map, tmx_layer* layer);
 
 	public:
+		///
+		/// The internal tmx_map data structure this class wraps around.
+		///
 		tmx_map* m_internalMap;
 
 	private:
+		///
+		/// Map data buffer. This is here to ensure the data tmx_map uses never goes out of scope until object is destroyed.
+		/// A std::string is used over a char* array because a std::string can clean up after itself if something goes wrong.
+		///
 		std::string m_internalMapData;
-		//tmx_tileset_manager* m_externalTilesets;
-
+		
+		///
+		/// The thickness of the object lines.
+		///
 		float m_lineThickness;
 	};
 }

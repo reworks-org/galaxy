@@ -14,6 +14,9 @@
 
 namespace sl
 {
+	///
+	/// Process entities with an AnimationComponent.
+	///
 	class AnimationSystem final : public System
 	{
 	public:

@@ -8,6 +8,7 @@
 ///
 
 #include <memory>
+#include <sl/events/Keys.hpp>
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
 #include <sl/systems/RenderSystem.hpp>
@@ -28,7 +29,13 @@ public:
 		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
 		m_world->registerSystem<sl::AnimationSystem>();
 
-		m_stateMachine->addState<GameState>("game");
+		sl::Keys::KEY_FORWARD = m_configReader->lookup<unsigned int>(config, "keys", "forward");
+		sl::Keys::KEY_BACKWARD = m_configReader->lookup<unsigned int>(config, "keys", "backward");
+		sl::Keys::KEY_LEFT = m_configReader->lookup<unsigned int>(config, "keys", "left");
+		sl::Keys::KEY_RIGHT = m_configReader->lookup<unsigned int>(config, "keys", "right");
+		sl::Keys::KEY_QUIT = m_configReader->lookup<unsigned int>(config, "keys", "quit");
+
+		m_stateMachine->createState<GameState>("game");
 		m_stateMachine->push("game");
 
 		entt::DefaultRegistry::entity_type cameraEntity = m_world->m_registry.create();
@@ -88,11 +95,13 @@ int main(int argc, char **argv)
 					newConfig << std::endl;
 
 					newConfig << "[debug]\n";
+					newConfig << "scriptFilePath = scripts/\n";
 					newConfig << "isDisabled = false\n";
 					newConfig << std::endl;
 
 					newConfig << "[fs]\n";
 					newConfig << "writeDir = bin/assets/\n";
+					newConfig << "textureFolderPath = textures/\n";
 					newConfig << std::endl;
 
 					newConfig << "[archives]\n";

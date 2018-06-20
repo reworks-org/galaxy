@@ -16,6 +16,9 @@
 
 namespace sl
 {
+	///
+	/// Provides interfaces to serialize game components with.
+	///
 	class Serializer
 	{
 	public:
@@ -71,6 +74,9 @@ namespace sl
 		virtual void loadFrameworkSnapshot(cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination) final;
 
 	protected:
+		///
+		/// Path where the save files are located.
+		///
 		std::string m_saveFilePath;
 	};
 }

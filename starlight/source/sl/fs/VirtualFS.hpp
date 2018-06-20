@@ -10,14 +10,18 @@
 #ifndef STARLIGHT_VIRTUALFS_HPP_
 #define STARLIGHT_VIRTUALFS_HPP_
 
-#include <string>
 #include <vector>
 
 typedef struct ALLEGRO_FILE ALLEGRO_FILE;
 
 namespace sl
 {
-	class VirtualFS
+	///
+	/// Represents a virtual file system.
+	/// A virtual file system can allow for using archives, file overrides, etc.
+	/// Uses PhysFS under the hood.
+	///
+	class VirtualFS final
 	{
 	public:
 		///

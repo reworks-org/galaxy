@@ -16,7 +16,6 @@
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"
-#include "sl/physics/Box2DManager.hpp"
 #include "sl/events/CollisionEvent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
@@ -30,26 +29,37 @@ namespace sl
 	{
 		if (functionScript != "")
 		{
+			// Process collision functions.
 			Locator::world->m_lua.script(Locator::virtualFS->openAsString(functionScript));
 
+			// For each function in the script...
 			sol::table funcs = Locator::world->m_lua.get<sol::table>("physicsFuncs");
-			funcs.for_each([this](sol::object key, sol::object value)
+			if (!funcs.empty())
 			{
-				sol::table funcTable = value.as<sol::table>();
+				funcs.for_each([this](sol::object key, sol::object value)
+				{
+					// ...get function information and add it to the collision map...
+					sol::table funcTable = value.as<sol::table>();
 
-				std::uint16_t first = funcTable.get<std::uint16_t>("first");
-				std::uint16_t second = funcTable.get<std::uint16_t>("second");
-				std::string id = funcTable.get<std::string>("id");
+					std::uint16_t first = funcTable.get<std::uint16_t>("first");
+					std::uint16_t second = funcTable.get<std::uint16_t>("second");
+					std::string id = funcTable.get<std::string>("id");
 
-				m_collisions.emplace(std::make_pair(first, second), Locator::world->m_lua.get<sol::function>(id));
+					// ...and then add the function to sol2.
+					m_collisions.emplace(std::make_pair(first, second), Locator::world->m_lua.get<sol::function>(id));
 
-				// Now we need to emplace the reverse in case collision happens the other way.
-				m_collisions.emplace(std::make_pair(second, first), Locator::world->m_lua.get<sol::function>(id));
-			});
+					// Now we need to emplace the reverse in case collision happens the other way.
+					m_collisions.emplace(std::make_pair(second, first), Locator::world->m_lua.get<sol::function>(id));
+				});
+			}
+			else
+			{
+				LOG_S(WARNING) << "No collision functions found for script: " << functionScript;
+			}
 		}
 		else
 		{
-			LOG_S(WARNING) << "No collision function script!";
+			LOG_S(WARNING) << "No collision function script for PhysicsSystem!";
 		}
 	}
 
@@ -58,6 +68,7 @@ namespace sl
 		switch (event->type)
 		{
 		case EventTypes::COLLISION_EVENT:
+			// When a collision event happens, call the correct collision function using information from collision event.
 			CollisionEvent* ce = (CollisionEvent*)event->user.data1;
 			m_collisions[std::make_pair(ce->m_typeA, ce->m_typeB)](ce->m_a, ce->m_b);
 			break;
@@ -66,13 +77,15 @@ namespace sl
 
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
-		Locator::box2dManager->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
+		// Update Box2D world.
+		Locator::box2dHelper->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 			
+		// Iterate over entities, updating their transformcomponent to match the physics component.
 		registry.view<PhysicsComponent, TransformComponent>().each([&](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc, TransformComponent& tc)
 		{
-			tc.m_rect.m_x = b2::metersToPixels<float>(pc.m_body->GetPosition().x);
-			tc.m_rect.m_y = b2::metersToPixels<float>(pc.m_body->GetPosition().y);
-			tc.m_angle = b2::radToDeg<float>(pc.m_body->GetAngle());
+			tc.m_rect.m_x = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().x);
+			tc.m_rect.m_y = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().y);
+			tc.m_angle = Box2DHelper::radToDeg<float>(pc.m_body->GetAngle());
 		});
 	}
 }

@@ -16,9 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Dynamics/Joints/b2RevoluteJoint.h>
-#include <sl/libs/Box2D/Dynamics/b2Body.h>
-#include <sl/libs/Box2D/Dynamics/b2TimeStep.h>
+#include "sl/libs/Box2D/Dynamics/Joints/b2RevoluteJoint.h"
+#include "sl/libs/Box2D/Dynamics/b2Body.h"
+#include "sl/libs/Box2D/Dynamics/b2TimeStep.h"
 
 // Point-to-point constraint
 // C = p2 - p1
@@ -416,9 +416,12 @@ bool b2RevoluteJoint::IsMotorEnabled() const
 
 void b2RevoluteJoint::EnableMotor(bool flag)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_enableMotor = flag;
+	if (flag != m_enableMotor)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_enableMotor = flag;
+	}
 }
 
 float32 b2RevoluteJoint::GetMotorTorque(float32 inv_dt) const
@@ -428,16 +431,22 @@ float32 b2RevoluteJoint::GetMotorTorque(float32 inv_dt) const
 
 void b2RevoluteJoint::SetMotorSpeed(float32 speed)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_motorSpeed = speed;
+	if (speed != m_motorSpeed)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_motorSpeed = speed;
+	}
 }
 
 void b2RevoluteJoint::SetMaxMotorTorque(float32 torque)
 {
-	m_bodyA->SetAwake(true);
-	m_bodyB->SetAwake(true);
-	m_maxMotorTorque = torque;
+	if (torque != m_maxMotorTorque)
+	{
+		m_bodyA->SetAwake(true);
+		m_bodyB->SetAwake(true);
+		m_maxMotorTorque = torque;
+	}
 }
 
 bool b2RevoluteJoint::IsLimitEnabled() const

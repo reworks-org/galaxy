@@ -7,7 +7,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <string_view>
 #include <allegro5/allegro_audio.h>
 
 #include "sl/fs/VirtualFS.hpp"
@@ -20,15 +19,19 @@ namespace sl
 {
 	Sound::Sound(const sol::table& table)
 	{
-		m_sound = al_load_sample(table.get<const char*>("file"));
+		// Read the lua table to get the sample file name.
+		// Then load it into allegro and check if it was created.
+		const char* file = table.get<const char*>("file");
+		m_sound = al_load_sample(file);
 		if (!m_sound)
 		{
-			LOG_S(WARNING) << "Unable to load sound file: " << table.get<std::string_view>("file");
+			LOG_S(FATAL) << "Unable to find sound file: " << file;
 		}
 
-		/// volume (gain) - relative volume at which the sample is played; 1.0 is normal.
-		/// pan - 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
-		/// speed - relative speed at which the sample is played; 1.0 is normal.
+		// Retrieve sample values from lua table.
+		// volume (gain) - relative volume at which the sample is played; 1.0 is normal.
+		// pan - 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
+		// speed - relative speed at which the sample is played; 1.0 is normal.
 		m_pan = table.get<float>("pan");
 		m_speed = table.get<float>("speed");
 		m_volume = table.get<float>("volume");
@@ -36,26 +39,65 @@ namespace sl
 
 	Sound::~Sound()
 	{
+		// Destroy sample when object is destroyed.
+		// To prevent memory leaks.
 		al_destroy_sample(m_sound);
 	}
 
 	void Sound::play()
 	{
+		// Play the sample once.
 		al_play_sample(m_sound, m_volume, m_pan, m_speed, ALLEGRO_PLAYMODE_ONCE, nullptr);
 	}
 
 	void Sound::setPan(const float pan)
 	{
-		m_pan = pan;
+		// Correct the pan and set it.
+		if (pan > 1.0f)
+		{
+			m_pan = 1.0f;
+		}
+		else if (pan < -1.0f)
+		{
+			m_pan = -1.0f;
+		}
+		else
+		{
+			m_pan = pan;
+		}
 	}
 
 	void Sound::setSpeed(const float speed)
 	{
-		m_speed = speed;
+		// Correct the speed and set it.
+		if (speed > 1.0f)
+		{
+			m_speed = 1.0f;
+		}
+		else if (speed < 0.0f)
+		{
+			m_speed = 0.0f;
+		}
+		else
+		{
+			m_speed = speed;
+		}
 	}
 
 	void Sound::setVolume(const float volume)
 	{
-		m_volume = volume;
+		// Correct the volume and set it.
+		if (volume > 1.0f)
+		{
+			m_volume = 1.0f;
+		}
+		else if (volume < 0.0f)
+		{
+			m_volume = 0.0f;
+		}
+		else
+		{
+			m_volume = volume;
+		}
 	}
 }

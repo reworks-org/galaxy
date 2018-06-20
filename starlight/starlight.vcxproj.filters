@@ -51,9 +51,6 @@
     <ClCompile Include="source\sl\core\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\debug\DebugInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\events\EventManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -366,9 +363,6 @@
     <ClCompile Include="source\sl\physics\Box2DCallbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\physics\Box2DManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\resources\FontBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -411,10 +405,16 @@
     <ClCompile Include="source\sl\utils\ConfigReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\fs\Serializer.cpp">
+    <ClCompile Include="source\sl\core\StateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\core\StateMachine.cpp">
+    <ClCompile Include="source\sl\core\DebugInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\physics\Box2DHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\fs\Serializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -450,9 +450,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\World.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\debug\DebugInterface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\events\CollisionEvent.hpp">
@@ -7370,12 +7367,6 @@
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\physics\Box2DHelper.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\physics\Box2DManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\physics\CollisionTypes.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -7451,9 +7442,6 @@
     <ClInclude Include="source\sl\Core.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\Debug.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\Events.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -7490,9 +7478,6 @@
     <ClInclude Include="source\Starlight.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\fs\Serializer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\entt\entity\utility.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -7509,6 +7494,66 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\StateMachine.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\imgui\imgui_console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\core\DebugInterface.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\config\header_deprecated.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\config\helper_macros.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\config\pragma_message.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\detail\detector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\detail\is_likely_lambda.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\detected.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\detected_or.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_complete.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_detected.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_detected_convertible.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_detected_exact.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_list_constructible.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\is_nothrow_swappable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\boost\type_traits\nonesuch.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\entity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\prototype.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\physics\Box2DHelper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\fs\Serializer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

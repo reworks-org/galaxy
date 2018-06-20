@@ -16,15 +16,32 @@
 
 namespace sl
 {
-	class Shader
+	///
+	/// Represents a shader object.
+	/// Can be GLSL or HLSL.
+	/// Wrapper for Allegro's shader structures.
+	/// http://liballeg.org/a5docs/trunk/shader.html
+	///
+	class Shader final
 	{
 	public:
 		///
-		/// Constructor.
+		/// \brief Lua Constructor.
+		///
+		/// Platform is AUTO by default, so you can create GLSL or HLSL shaders.
 		///
 		/// \param table sol::table containing data.
 		///
 		Shader(const sol::table& table);
+
+		///
+		/// Argument Constructor.
+		///
+		/// \param platform Which type of Shader it is (HLSL, GLSL, or AUTO).
+		/// \param vertexShader File containing vertex shader code in the VFS.
+		/// \param pixelShader File containing pixel shader code in the VFS.
+		///
+		Shader(ALLEGRO_SHADER_PLATFORM platform, const std::string& vertexShader, const std::string& pixelShader);
 
 		///
 		/// Destructor.
@@ -51,6 +68,9 @@ namespace sl
 		Shader() = delete;
 
 	private:
+		///
+		/// Allegro shader object this class wraps around.
+		///
 		ALLEGRO_SHADER* m_shader;
 	};
 }

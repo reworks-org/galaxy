@@ -10,7 +10,6 @@
 #ifndef STARLIGHT_WINDOW_HPP_
 #define STARLIGHT_WINDOW_HPP_
 
-#include <string>
 #include <allegro5/bitmap.h>
 #include <allegro5/display.h>
 
@@ -18,6 +17,9 @@
 
 namespace sl
 {
+	///
+	/// Window class that covers the app window and rendering.
+	///
 	class Window final
 	{
 	public:
@@ -54,7 +56,7 @@ namespace sl
 		void toggleFullscreen();
 
 		///
-		/// Sets m_running to false, to close application.
+		/// Sets m_isOpen to false, to close application.
 		///
 		void close();
 
@@ -101,12 +103,41 @@ namespace sl
 		Window() = delete;
 
 	private:
-		bool m_running;
+		///
+		/// Keeps track if the window is still open or not. 
+		///
+		bool m_isOpen;
+		
+		///
+		/// Keeps track if the window is in fullscreen mode or not.
+		///
 		bool m_fullscreen;
+
+		///
+		/// Bitmap image for window icon. 
+		///
 		ALLEGRO_BITMAP* m_icon;
+
+		///
+		/// Pointer to display data structure.
+		///
 		ALLEGRO_DISPLAY* m_display;
+
+		///
+		/// Bitmap used to draw to when in fullscreen mode.
+		///
 		ALLEGRO_BITMAP* m_fullscreenBuffer;
+
+		///
+		/// Size of the window in pixels.
+		///
 		Vector2<int> m_size;
+
+		///
+		/// Scale of fullscreen mode. Set by Window constructor for you.
+		/// Used to determine where to render the window in the middle of the screen when fullscreen,
+		/// if the window is smaller than the fullscreen dimensions.
+		///
 		Vector2<int> m_fullscreenScale;
 	};
 }

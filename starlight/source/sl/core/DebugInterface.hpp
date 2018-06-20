@@ -10,8 +10,6 @@
 #ifndef STARLIGHT_DEBUGINTERFACE_HPP_
 #define STARLIGHT_DEBUGINTERFACE_HPP_
 
-#ifndef NDEBUG
-
 #include "sl/libs/imgui/imguitexteditor.h"
 
 union ALLEGRO_EVENT;
@@ -22,7 +20,8 @@ namespace sl
 	class BaseState;
 
 	///
-	/// Expects scripts to be in a subfolder labelled "scripts".
+	/// Manages the ImGui debug gui that assists in gamedev.
+	/// Allows for the creation of some really cool tools.
 	///
     class DebugInterface final
     {
@@ -30,10 +29,11 @@ namespace sl
 		///
 		/// Constructor.
 		///
+		/// \param scriptFolderPath This should be the folder in the VFS where the script files are located.
 		/// \param display ALLEGRO_DISPLAY object.
 		/// \param isDisabled Boolean. Set to true to disable.
 		///
-		DebugInterface(ALLEGRO_DISPLAY* display, bool isDisabled);
+		DebugInterface(const std::string& scriptFolderPath, ALLEGRO_DISPLAY* display, bool isDisabled);
 
 		///
 		/// Destructor.
@@ -53,7 +53,7 @@ namespace sl
 		void newFrame();
 
 		///
-		/// Draw IMGUI.
+		/// Draw interface.
 		///
 		void render();
 
@@ -74,11 +74,22 @@ namespace sl
 		DebugInterface() = delete;
 
 	private:
+		///
+		/// Toggles if the debug ui is disabled or not.
+		///
 		bool m_disabled;
+
+		///
+		/// This should be the folder in the VFS where the script files are located. I.e. If all scripts
+		/// are in a folder called "scripts/" at root then set this to "scripts/".
+		///
+		std::string m_scriptFolderPath;
+
+		///
+		/// Text editor instance for the script editor gui.
+		///
 		TextEditor m_editor;
     };
 }
-
-#endif
 
 #endif

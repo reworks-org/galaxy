@@ -15,6 +15,9 @@
 
 namespace sl
 {
+	///
+	/// Manages all the music the library uses.
+	///
 	class MusicPlayer final : public ResourceCache<Music>
 	{
 	public:

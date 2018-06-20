@@ -19,12 +19,15 @@ namespace sl
 {
 	void CollisionContact::BeginContact(b2Contact* contact)
 	{
+		// Get colliding fixtures from contact.
 		b2Fixture* fixtureA = contact->GetFixtureA();
 		b2Fixture* fixtureB = contact->GetFixtureB();
 
+		// Retrieve the entity the fixtures belong to.
 		entt::DefaultRegistry::entity_type* a = static_cast<entt::DefaultRegistry::entity_type*>(fixtureA->GetUserData());
 		entt::DefaultRegistry::entity_type* b = static_cast<entt::DefaultRegistry::entity_type*>(fixtureB->GetUserData());
 		
+		// Emit the collision event based off of the info provided.
 		Locator::eventManager->emitEvent(EventTypes::COLLISION_EVENT, (intptr_t)(new CollisionEvent(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits)), NULL, NULL, NULL, [](ALLEGRO_USER_EVENT* uev)
 		{  
 			delete (CollisionEvent*)uev->data1;
@@ -33,5 +36,7 @@ namespace sl
 
 	void CollisionContact::EndContact(b2Contact* contact)
 	{
+		// At the moment we don't care what happens when a collision ends.
+		// This would be implemented later tho.
 	}
 }

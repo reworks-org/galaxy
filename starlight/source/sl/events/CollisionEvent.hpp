@@ -10,12 +10,13 @@
 #ifndef STARLIGHT_COLLISIONEVENT_HPP_
 #define STARLIGHT_COLLISIONEVENT_HPP_
 
-#include <cinttypes>
-
 #include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl
 {
+	///
+	/// Contains data relating to a collision event.
+	///
 	struct CollisionEvent
 	{
 		///

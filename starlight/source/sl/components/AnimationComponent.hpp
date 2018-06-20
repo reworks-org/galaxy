@@ -22,6 +22,9 @@ typedef struct _tmx_tile tmx_tile;
 
 namespace sl
 {
+	///
+	/// Stores data for an entity about its animations.
+	///
 	class AnimationComponent final
 	{
 		friend class cereal::access;
@@ -89,7 +92,7 @@ namespace sl
 		void pause();
 
 		///
-		/// Rest animation frames to beginning.
+		/// Stop the animation. If you call play() the animation starts from the beginning.
 		///
 		void stop();
 
@@ -109,9 +112,24 @@ namespace sl
 		}
 
 	public:
+		///
+		/// Controls if the animation is paused or not.
+		///
 		bool m_isPaused;
+		
+		///
+		/// Current amount of time spent on the frame.
+		///
 		double m_currentFrameTime;
+		
+		///
+		/// Active animation being... animated.
+		///
 		std::string m_activeAnimation;
+		
+		///
+		/// Storage of the animations.
+		///
 		std::unordered_map<std::string, Animation> m_animations;
 	};
 }

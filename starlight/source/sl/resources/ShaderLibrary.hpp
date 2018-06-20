@@ -15,6 +15,9 @@
 
 namespace sl
 {
+	///
+	/// Manages all the shaders the library uses.
+	///
 	class ShaderLibrary final : public ResourceCache<Shader>
 	{
 	public:

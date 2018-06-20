@@ -16,6 +16,9 @@
 
 namespace sl
 {
+	///
+	/// Manages all the fonts the library uses.
+	///
 	class FontBook final : public ResourceCache<ALLEGRO_FONT*>
 	{
 	public:

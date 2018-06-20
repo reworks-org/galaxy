@@ -14,6 +14,9 @@
 
 namespace sl
 {
+	///
+	/// System to process the game camera.
+	///
 	class CameraSystem final : public System
 	{
 	public:

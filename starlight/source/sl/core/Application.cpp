@@ -16,7 +16,6 @@
 #include <allegro5/allegro_native_dialog.h>
 
 #include "sl/utils/Time.hpp"
-#include "sl/events/Keys.hpp"
 #include "sl/math/Vector3.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/imgui/imgui_impl_a5.h"
@@ -34,8 +33,10 @@ namespace sl
 	Application::Application(const std::string& config, std::function<void(std::ofstream&)> newConfig)
 	:m_restart(false)
 	{
+		// Seed pseudo-random algorithms.
 		std::srand(std::time(nullptr));
 
+		// Set up logging and set loguru to throw an exception on fatal errors.
 		std::string lname = "logs/" + time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
@@ -43,11 +44,15 @@ namespace sl
 			throw std::runtime_error(message.message);
 		});
 
+		// Set allegro to throw loguru errors when an assert is tirggered.
 		al_register_assert_handler([](const char* expr, const char* file, int line, const char* func)
 		{
-			LOG_S(ERROR) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
+			LOG_S(FATAL) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
 		});
 
+		// Initialize all of allegros systems.
+		// We dont use al_init() macro because we to manually have control
+		// over when allegro shutsdown.
 		al_install_system(ALLEGRO_VERSION_INT, nullptr);
 		al_install_keyboard();
 		al_install_mouse();
@@ -60,6 +65,9 @@ namespace sl
 		al_init_acodec_addon();
 		al_init_primitives_addon();
 		al_init_native_dialog_addon();
+
+		// Set up all of the difference services.
+		// The services are configured based off of the config file.
 
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 		Locator::configReader = m_configReader.get();
@@ -78,15 +86,13 @@ namespace sl
 		m_world = std::make_unique<World>();
 		Locator::world = m_world.get();
 
-		#ifndef NDEBUG
-			m_debugInterface = std::make_unique<DebugInterface>(m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
-			Locator::debugInterface = m_debugInterface.get();
-		#endif
+		m_debugInterface = std::make_unique<DebugInterface>(m_configReader->lookup<std::string>(config, "debug", "scriptFilePath"), m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+		Locator::debugInterface = m_debugInterface.get();
 
 		m_stateMachine = std::make_unique<StateMachine>();
 		Locator::stateMachine = m_stateMachine.get();
 
-		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
+		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<std::string>(config, "fs", "textureFolderPath"), m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		Locator::textureAtlas = m_textureAtlas.get();
 
 		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
@@ -101,21 +107,16 @@ namespace sl
 		m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
 		Locator::soundPlayer = m_soundPlayer.get();
 
-		m_box2dManager = std::make_unique<Box2DManager>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
-		Locator::box2dManager = m_box2dManager.get();
+		m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
+		Locator::box2dHelper = m_box2dHelper.get();
 
 		m_eventManager = std::make_unique<EventManager>();
 		Locator::eventManager = m_eventManager.get();
 
-		Keys::KEY_FORWARD = m_configReader->lookup<int>(config, "keys", "forward");
-		Keys::KEY_BACKWARD = m_configReader->lookup<int>(config, "keys", "backward");
-		Keys::KEY_LEFT = m_configReader->lookup<int>(config, "keys", "left");
-		Keys::KEY_RIGHT = m_configReader->lookup<int>(config, "keys", "right");
-		Keys::KEY_QUIT = m_configReader->lookup<int>(config, "keys", "quit");
-
-		m_box2dManager->m_b2world->SetContactListener(&m_engineCallbacks);
+		m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 		m_workaround.setRegistry(&(m_world->m_registry));
 
+		// Now all the usertypes we want to access from lua are registered.
 		m_world->m_lua.new_usertype<std::uint32_t>("uint32_t");
 		m_world->m_lua.new_usertype<std::uint16_t>("uint16_t");
 		m_world->m_lua.new_usertype<entt::DefaultRegistry::entity_type>("entity");
@@ -231,7 +232,7 @@ namespace sl
 
 		m_world->m_lua["registry"] = &m_workaround;
 
-		// state manipulation
+		// Including state so we can manipulate it from the debug interface and console.
 		m_world->m_lua.new_usertype<StateMachine>("StateMachine", 
 			"push", &StateMachine::push,
 			"pop", &StateMachine::pop);
@@ -240,6 +241,10 @@ namespace sl
 
 	Application::~Application()
 	{
+		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
+		// It actually only really matters box2d is destroyed after the world because the physics code rely
+		// on the box2d system to be destroyed unfortunately.
+		// And of course the file system being the last to be destroyed.
 		m_eventManager.reset();
 		m_soundPlayer.reset();
 		m_musicPlayer.reset();
@@ -247,17 +252,14 @@ namespace sl
 		m_fontBook.reset();
 		m_textureAtlas.reset();
 		m_stateMachine.reset();
-		
-		#ifndef NDEBUG
-			m_debugInterface.reset();
-		#endif
-
+		m_debugInterface.reset();
 		m_world.reset();
-		m_box2dManager.reset();
+		m_box2dHelper.reset();
 		m_window.reset();
 		m_configReader.reset();
 		m_virtualFS.reset();
 
+		// Clean up allegro aswell.
 		al_shutdown_native_dialog_addon();
 		al_shutdown_primitives_addon();
 		al_shutdown_video_addon();
@@ -273,98 +275,84 @@ namespace sl
 
 	bool Application::run()
 	{
-		#ifndef NDEBUG
-			int frames = 0;
-			int updates = 0;
-			std::uint64_t timer = 0;
-		#endif
-
+		// This is to measure UPS and FPS.
+		int frames = 0;
+		int updates = 0;
+		std::uint64_t timer = 0;
+		
+		// This is to ensure gameloop is running at 60 UPS, independant of FPS.
 		double timePerFrame = 1.0 / 60.0;
 
+		// Set system event sources. User event registration is handled by event manager.
 		al_register_event_source(m_eventManager->m_queue, al_get_display_event_source(m_window->getDisplay()));
 		al_register_event_source(m_eventManager->m_queue, al_get_mouse_event_source());
 		al_register_event_source(m_eventManager->m_queue, al_get_keyboard_event_source());
 		
+		// Our clock for ensuring gameloop speed.
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
 		al_register_event_source(m_eventManager->m_queue, al_get_timer_event_source(clock));
 		al_start_timer(clock);
 		
-		#ifndef NDEBUG
-			timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-		#endif
+		// The timer in milliseconds for UPS and FPS.
+		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+		// Gameloop. Pretty easy to understand.
+		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
 		while (m_window->isOpen())
 		{
 			ALLEGRO_EVENT ev;
 			while (al_get_next_event(m_eventManager->m_queue, &ev))
 			{
+				// Events
 				m_world->event(&ev);
 				m_stateMachine->event(&ev);
-
-				#ifndef NDEBUG
-					m_debugInterface->event(&ev);
-				#endif
+				m_debugInterface->event(&ev);
 
 				switch (ev.type)
 				{
-				case ALLEGRO_EVENT_TIMER:
-					m_stateMachine->update(timePerFrame);
-					m_world->update(timePerFrame);
+					case ALLEGRO_EVENT_TIMER:
+						// Updates
+						m_stateMachine->update(timePerFrame);
+						m_world->update(timePerFrame);
+						updates++;
+						break;
 
-					#ifndef NDEBUG
-						updates++;	
-					#endif
+					case ALLEGRO_EVENT_DISPLAY_CLOSE:
+						m_window->close();
+						break;
 
-					break;
-
-				case ALLEGRO_EVENT_DISPLAY_CLOSE:
-					m_window->close();
-					break;
-
-				case ALLEGRO_EVENT_DISPLAY_RESIZE:
-					#ifndef NDEBUG
+					case ALLEGRO_EVENT_DISPLAY_RESIZE:
 						ImGui_ImplA5_InvalidateDeviceObjects();
-					#endif
-					
-					al_acknowledge_resize(m_window->getDisplay());
-					
-					#ifndef NDEBUG
+						al_acknowledge_resize(m_window->getDisplay());
 						Imgui_ImplA5_CreateDeviceObjects();
-					#endif
-
-				break;
+						break;
 				}
 			}
 			
-			#ifndef NDEBUG
-				m_debugInterface->newFrame();
-				m_debugInterface->displayMenu(&m_restart);
-			#endif
+			// We need to "display" the debug ui before the renderer stuff is called.
+			// Because this sets up all the textures, api calls, etc.
+			m_debugInterface->newFrame();
+			m_debugInterface->displayMenu(&m_restart);
 
 			m_window->clear(0, 0, 0);
-
+			
 			m_stateMachine->render();
-
-			#ifndef NDEBUG
-				m_debugInterface->render();
-			#endif
+			m_debugInterface->render();
 
 			m_window->display();
 
-			#ifndef NDEBUG
-				frames++;
+			frames++;
+			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
+			{
+				timer += 1000;
+				LOG_S(INFO) << updates << " ups, " << frames << " fps";
 
-				if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
-				{
-					timer += 1000;
-					LOG_S(INFO) << updates << " ups, " << frames << " fps";
-
-					updates = 0;
-					frames = 0;
-				}
-			#endif
+				updates = 0;
+				frames = 0;
+			}
 		}
 
+		// Clean up the clock. Everything else is cleaned up by RAII usage.
 		al_stop_timer(clock);
 		al_destroy_timer(clock);
 

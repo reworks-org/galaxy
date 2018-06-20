@@ -23,13 +23,31 @@ namespace sl
 	///
 	struct EventTypes
 	{
-		static constexpr int BASE_EVENT = ALLEGRO_GET_EVENT_TYPE('S', 'T', 'A', 'R');
-		static constexpr int COLLISION_EVENT = BASE_EVENT + 1;
-		static constexpr int PARTICLE_EMIT_EVENT = BASE_EVENT + 2;
-		static constexpr int PLAYER_MOVE_EVENT = BASE_EVENT + 3;
+		///
+		/// The base event value all other events must start from.
+		///
+		static constexpr unsigned int BASE_EVENT = ALLEGRO_GET_EVENT_TYPE('S', 'T', 'A', 'R');
+
+		///
+		/// Collision event identifier.
+		///
+		static constexpr unsigned int COLLISION_EVENT = BASE_EVENT + 1;
+
+		///
+		/// Particle emit event identifier.
+		///
+		static constexpr unsigned int PARTICLE_EMIT_EVENT = BASE_EVENT + 2;
+
+		///
+		/// Player movement event identifier.
+		///
+		static constexpr unsigned int PLAYER_MOVE_EVENT = BASE_EVENT + 3;
 	};
 
-	typedef int EventType;
+	///
+	/// Allows the usage of EventType to make code more understandable.
+	///
+	typedef unsigned int EventType;
 }
 
 #endif

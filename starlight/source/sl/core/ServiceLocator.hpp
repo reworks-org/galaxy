@@ -12,9 +12,10 @@
 
 namespace sl
 {
+	// This avoids mass includes.
 	class World;
 	class Window;
-	class Box2DManager;
+	class Box2DHelper;
 	class ConfigReader;
 	class EventManager;
 	class FontBook;
@@ -24,15 +25,13 @@ namespace sl
 	class StateMachine;
 	class TextureAtlas;
 	class VirtualFS;
-	#ifndef NDEBUG
-		class DebugInterface;
-	#endif
+	class DebugInterface;
 
 	///
 	/// Provides access to services in the framework.
 	/// This does not follow typical member variable naming (no 'm_' prefix)
 	/// So that the code looks nicer when using the Locator. E.g:
-	/// Locator::world-> vs Locator::world->
+	/// Locator::m_world-> vs Locator::world->
 	///
 	class Locator
 	{
@@ -62,21 +61,70 @@ namespace sl
 		Locator(Locator&&) = delete;
 
 	public:
+		///
+		/// Pointer to World service.
+		///
 		static inline World* world = nullptr;
+		
+		///
+		/// Pointer to Window service.
+		///
 		static inline Window* window = nullptr;
-		static inline Box2DManager* box2dManager = nullptr;
+		
+		///
+		/// Pointer to Box2DManager service.
+		///
+		static inline Box2DHelper* box2dHelper = nullptr;
+		
+		///
+		/// Pointer to ConfigReader service.
+		///
 		static inline ConfigReader* configReader = nullptr;
+
+		///
+		/// Pointer to EventManager service.
+		///
 		static inline EventManager* eventManager = nullptr;
+		
+		///
+		/// Pointer to FontBook service.
+		///
 		static inline FontBook* fontBook = nullptr;
+
+		///
+		/// Pointer to MusicPlayer service.
+		///		
 		static inline MusicPlayer* musicPlayer = nullptr;
+		
+		///
+		/// Pointer to ShaderLibrary service.
+		///
 		static inline ShaderLibrary* shaderLibrary = nullptr;
+		
+		///
+		/// Pointer to SoundPlayer service.
+		///
 		static inline SoundPlayer* soundPlayer = nullptr;
+		
+		///
+		/// Pointer to StateMachine service.
+		///
 		static inline StateMachine* stateMachine = nullptr;
+		
+		///
+		/// Pointer to TextureAtlas service.
+		///
 		static inline TextureAtlas* textureAtlas = nullptr;
+		
+		///
+		/// Pointer to VirtualFS service.
+		///
 		static inline VirtualFS* virtualFS = nullptr;
-		#ifndef NDEBUG
-			static inline DebugInterface* debugInterface = nullptr;
-		#endif
+		
+		///
+		/// Pointer to DebugInterface service.
+		///
+		static inline DebugInterface* debugInterface = nullptr;
 	};
 }
 

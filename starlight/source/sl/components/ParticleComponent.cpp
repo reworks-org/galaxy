@@ -15,6 +15,7 @@ namespace sl
 {
 	ParticleComponent::ParticleComponent(const sol::table& table)
 	{
+		// Retrieve the values from the lua table.
 		m_direction.m_x = table.get<float>("dx");
 		m_direction.m_y = table.get<float>("dy");
 
@@ -24,6 +25,7 @@ namespace sl
 	ParticleComponent::ParticleComponent(float dx, float dy, float fade)
 		:m_direction(dx, dy), m_fade(fade)
 	{
+		// Constructs the component from parameters instead of lua.
 	}
 
 	ParticleComponent& ParticleComponent::operator=(const ParticleComponent&)

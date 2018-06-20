@@ -14,6 +14,9 @@
 
 namespace sl
 {
+	///
+	/// Process's parallax entities, that have a ParallaxComponent.
+	///
 	class ParallaxSystem final : public System
 	{
 	public:

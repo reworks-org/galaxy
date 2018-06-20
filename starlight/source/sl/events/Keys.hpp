@@ -13,17 +13,39 @@
 namespace sl
 {
 	///
-	/// Use this data structure to configure and check keybinds.
+	/// \brief Use this data structure to configure and check keybinds.
+	///
 	/// You need to assign values to these keys, otherwise they all default to 0.
+	/// The value you set must be a valid ALLEGRO keycode.
+	/// See: https://liballeg.org/a5docs/5.2.4/keyboard.html#key-codes
+	/// Or "allegro5/keycodes.h"
 	///
 	struct Keys
 	{
-		static inline int KEY_FORWARD = 0;
-		static inline int KEY_BACKWARD = 0;
-		static inline int KEY_LEFT = 0;
-		static inline int KEY_RIGHT = 0;
-		static inline int KEY_QUIT = 0;
+		///
+		/// Key to represent forward movement.
+		///
+		static inline unsigned int KEY_FORWARD = 0;
 
+		///
+		/// Key to represent backward movement.
+		///
+		static inline unsigned int KEY_BACKWARD = 0;
+
+		///
+		/// Key to represent left movement.
+		///
+		static inline unsigned int KEY_LEFT = 0;
+
+		///
+		/// Key to represent right movement.
+		///
+		static inline unsigned int KEY_RIGHT = 0;
+
+		///
+		/// Represents a key that when pressed closes the application.
+		///
+		static inline unsigned int KEY_QUIT = 0;
 	};
 }
 

@@ -11,7 +11,6 @@
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/core/ServiceLocator.hpp"
-#include "sl/physics/Box2DManager.hpp"
 #include "sl/libs/Box2D/Dynamics/b2Body.h"
 
 #include "PhysicsComponent.hpp"
@@ -20,16 +19,18 @@ namespace sl
 {
 	PhysicsComponent::PhysicsComponent()
 	{
+		// Throw an exception if this class is default constructed.
 		LOG_S(FATAL) << "Tried to construct a default-initialized PhysicsComponent!";
 	}
 
 	PhysicsComponent::PhysicsComponent(const sol::table& table)
 	:m_body(nullptr), m_entity(NULL)
 	{
+		// Construct body definition.
 		b2BodyDef bodyDef;
-		bodyDef.position.Set(b2::pixelsToMeters<float32>(table.get<float>("x")), b2::pixelsToMeters<float32>(table.get<float>("y")));
+		bodyDef.position.Set(Box2DHelper::pixelsToMeters<float32>(table.get<float>("x")), Box2DHelper::pixelsToMeters<float32>(table.get<float>("y")));
 
-		/// 0 = static, 1 = kinematic, 2 = dynamic
+		// 0 = static, 1 = kinematic, 2 = dynamic
 		switch (table.get<int>("bodyType"))
 		{
 		case 0:
@@ -45,8 +46,10 @@ namespace sl
 			break;
 		}
 		
-		m_body = Locator::box2dManager->m_b2world->CreateBody(&bodyDef);
+		// Use box2d to create the body data in the physics world.
+		m_body = Locator::box2dHelper->m_b2world->CreateBody(&bodyDef);
 
+		// Set up the details of the body using lua scripts.
 		sol::table fixtureList = table.get<sol::table>("fixtureList");
 		if (!fixtureList.empty())
 		{
@@ -59,7 +62,7 @@ namespace sl
 				float32 h = second.get<float32>("h");
 
 				b2PolygonShape b2shape;
-				b2shape.SetAsBox(b2::pixelsToMeters<float32>(w / 2.0f), b2::pixelsToMeters<float32>(h / 2.0f), b2Vec2(b2::pixelsToMeters<float32>(w / 2.0f), b2::pixelsToMeters<float32>(h / 2.0f)), second.get<float32>("angle"));
+				b2shape.SetAsBox(Box2DHelper::pixelsToMeters<float32>(w / 2.0f), Box2DHelper::pixelsToMeters<float32>(h / 2.0f), b2Vec2(Box2DHelper::pixelsToMeters<float32>(w / 2.0f), Box2DHelper::pixelsToMeters<float32>(h / 2.0f)), second.get<float32>("angle"));
 
 				b2FixtureDef fixtureDef;
 				fixtureDef.density = second.get<float32>("density");
@@ -83,6 +86,8 @@ namespace sl
 		}
 		else
 		{
+			// This is only a warning because the game can still run with a body that has no fixtures. 
+			// Although it would not work correctly, it would not cause a crash.
 			LOG_S(WARNING) << "Fixture List is empty!";
 		}
 		
@@ -91,9 +96,10 @@ namespace sl
 
 	PhysicsComponent::~PhysicsComponent()
 	{
+		// The world is destroyed before the manager, which means this will not result in undefined behaviour.
 		if (m_body)
 		{
-			Locator::box2dManager->m_b2world->DestroyBody(m_body);
+			Locator::box2dHelper->m_b2world->DestroyBody(m_body);
 			m_body = nullptr;
 		}
 	}
@@ -105,6 +111,7 @@ namespace sl
 
 	void PhysicsComponent::setFixtureEntity(entt::DefaultRegistry::entity_type entity)
 	{
+		// Sets the entity this fixture belongs to to use it in collisions.
 		m_entity = entity;
 		for (b2Fixture* f = m_body->GetFixtureList(); f; f = f->GetNext())
 		{

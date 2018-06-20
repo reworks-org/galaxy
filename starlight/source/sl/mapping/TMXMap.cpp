@@ -31,20 +31,56 @@ namespace sl
 	TMXMap::TMXMap(const std::string& mapFile, float lineThickness)
 	:m_lineThickness(lineThickness), m_internalMapData("")
 	{
-		//m_externalTileset = tmx_make_tileset_manager();
+		// Load map data from vfs.
 		m_internalMapData = Locator::virtualFS->openAsString(mapFile);
+
+		// Then parse it with tmxlib.
 		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), boost::numeric_cast<int>(m_internalMapData.size()));
 
+		// Checking to make sure its valid.
 		if (!m_internalMap)
 		{
-			LOG_S(FATAL) << "Failed to load map! File: " << mapFile << " Internal Error: " << tmx_strerr();
+			LOG_S(FATAL) << "Failed to load map! File: " << mapFile << ". tmxlib Error: " << tmx_strerr();
 		}
 	}
 
 	TMXMap::~TMXMap()
 	{
+		// Free up all memory used. The usual.
 		tmx_map_free(m_internalMap);
-		//tmx_free_tileset_manager(m_externalTileset);
+		m_internalMapData.clear();
+	}
+
+	void TMXMap::processAllLayers(tmx_layer* layers)
+	{
+		// The layer structure is a linked-list.
+		// So for each layer...
+		while (layers)
+		{
+			if (layers->visible)
+			{
+				// ...process based off of type but only if visible.
+				if (layers->type == L_GROUP)
+				{
+					processAllLayers(layers->content.group_head);
+				}
+				else if (layers->type == L_OBJGR)
+				{
+					processObjects(m_internalMap, layers);
+				}
+				else if (layers->type == L_IMAGE)
+				{
+					processImageLayer(layers);
+				}
+				else if (layers->type == L_LAYER)
+				{
+					processLayer(m_internalMap, layers);
+				}
+			}
+
+			// Proceed to next layer in the list.
+			layers = layers->next;
+		}
 	}
 
 	ALLEGRO_COLOUR TMXMap::intToColour(int colour, unsigned char opacity)
@@ -189,7 +225,7 @@ namespace sl
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		std::string id = "ObjectLayerNo" + std::to_string(time::getTimeSinceEpoch()) + std::to_string(poCounter);
-		Locator::textureAtlas->addTextureToAtlas(id, objects);
+		Locator::textureAtlas->addTexture(id, objects);
 
 		Locator::world->m_registry.assign<RenderComponent>(entity, 1.0f, id);
 
@@ -246,13 +282,6 @@ namespace sl
 						else
 						{
 							identifier = utils::removeExtension(ts->image->source);
-							/*
-							if (utils::getExtension(ts->image->source) == ".tsx")
-							{
-								std::string data = Locator::virtualFS->openAsString(ts->image->source);
-								tmx_load_tileset_buffer(m_externalTilesets, data.c_str(), boost::numeric_cast<int>(data.size()), identifier);
-							}
-							*/
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 
@@ -276,8 +305,7 @@ namespace sl
 							identifier = utils::removeExtension(ts->image->source);
 						}
 
-						entt::HashedString hs{ identifier.c_str() };
-						Rect<int> pr = Locator::textureAtlas->get(hs);
+						Rect<int> pr = Locator::textureAtlas->get(identifier.c_str());
 						x = pr.m_x + map->tiles[gid]->ul_x;
 						y = pr.m_y + map->tiles[gid]->ul_y;
 
@@ -301,37 +329,9 @@ namespace sl
 		al_hold_bitmap_drawing(false);
 		al_flip_display();
 		al_set_target_backbuffer(Locator::window->getDisplay());
-		Locator::textureAtlas->addTextureToAtlas(layer->name, tileLayer);
+		Locator::textureAtlas->addTexture(layer->name, tileLayer);
 		al_destroy_bitmap(tileLayer);
 
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, layer->name);
-	}
-
-	void TMXMap::processAllLayers(tmx_layer* layers)
-	{
-		while (layers)
-		{
-			if (layers->visible)
-			{
-				if (layers->type == L_GROUP)
-				{
-					processAllLayers(layers->content.group_head);
-				}
-				else if (layers->type == L_OBJGR)
-				{
-					processObjects(m_internalMap, layers);
-				}
-				else if (layers->type == L_IMAGE)
-				{
-					processImageLayer(layers);
-				}
-				else if (layers->type == L_LAYER)
-				{
-					processLayer(m_internalMap, layers);
-				}
-			}
-
-			layers = layers->next;
-		}
 	}
 }

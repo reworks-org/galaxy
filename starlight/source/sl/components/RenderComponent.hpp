@@ -17,6 +17,9 @@
 
 namespace sl
 {
+	///
+	/// Allows for an entity to be rendered.
+	///
 	class RenderComponent final
 	{
 		friend class cereal::access;
@@ -66,7 +69,14 @@ namespace sl
 		}
 
 	public:
+		///
+		/// Opacity of entity. 0.0 - 1.0.
+		///
 		float m_opacity;
+
+		///
+		/// Name of the sprite or text in the textureatlas to render.
+		///
 		std::string m_textureName;
 	};
 }

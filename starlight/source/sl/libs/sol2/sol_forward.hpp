@@ -20,8 +20,8 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // This file was generated with a script.
-// Generated 2018-04-18 00:12:41.996673 UTC
-// This header was generated with sol v2.20.0 (revision 8b77411)
+// Generated 2018-06-16 11:58:58.882218 UTC
+// This header was generated with sol v2.20.3 (revision 968989b)
 // https://github.com/ThePhD/sol2
 
 #ifndef SOL_SINGLE_INCLUDE_FORWARD_HPP
@@ -221,6 +221,10 @@
 
 // end of sol/config.hpp
 
+// beginning of sol/config_setup.hpp
+
+// end of sol/config_setup.hpp
+
 // end of sol/feature_test.hpp
 
 namespace sol {
@@ -350,6 +354,11 @@ namespace sol {
 	struct protect_t;
 	template <typename F, typename... Filters>
 	struct filter_wrapper;
+
+	template <typename T>
+	struct usertype_traits;
+	template <typename T>
+	struct unique_usertype_traits;
 } // namespace sol
 
   // end of sol/forward.hpp

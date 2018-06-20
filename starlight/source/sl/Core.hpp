@@ -11,6 +11,7 @@
 #define STARLIGHT_COREHEADER_HPP_
 
 #include "sl/core/Application.hpp"
+#include "sl/core/DebugInterface.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/core/StateMachine.hpp"
 #include "sl/core/World.hpp"

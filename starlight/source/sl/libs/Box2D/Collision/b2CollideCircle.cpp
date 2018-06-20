@@ -16,9 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-#include <sl/libs/Box2D/Collision/b2Collision.h>
-#include <sl/libs/Box2D/Collision/Shapes/b2CircleShape.h>
-#include <sl/libs/Box2D/Collision/Shapes/b2PolygonShape.h>
+#include "sl/libs/Box2D/Collision/b2Collision.h"
+#include "sl/libs/Box2D/Collision/Shapes/b2CircleShape.h"
+#include "sl/libs/Box2D/Collision/Shapes/b2PolygonShape.h"
 
 void b2CollideCircles(
 	b2Manifold* manifold,

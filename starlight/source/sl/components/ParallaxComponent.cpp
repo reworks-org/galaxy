@@ -15,6 +15,7 @@ namespace sl
 {
 	ParallaxComponent::ParallaxComponent(const sol::table& table)
 	{
+		// Retrieve the values from the lua table.
 		m_verticalSpeed = table.get<float>("verticalSpeed");
 		m_horizontalSpeed = table.get<float>("horizontalSpeed");
 	}

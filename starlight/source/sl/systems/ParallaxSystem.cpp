@@ -23,15 +23,12 @@ namespace sl
 			case EventTypes::PLAYER_MOVE_EVENT:
 				PlayerMoveEvent* playerMoveEvent = (PlayerMoveEvent*)event->user.data1;
 				
-				auto view = registry.view<ParallaxComponent, TransformComponent>();
-				for (entt::DefaultRegistry::entity_type entity : view)
+				// If a player moves, move the parallax background aswell, at the speed defined in the ParallaxComponent.
+				registry.view<ParallaxComponent, TransformComponent>().each([&](entt::DefaultRegistry::entity_type entity, ParallaxComponent& pc, TransformComponent& tc)
 				{
-					ParallaxComponent& pc = view.get<ParallaxComponent>(entity);
-					TransformComponent& tc = view.get<TransformComponent>(entity);
-
 					tc.m_rect.m_x += playerMoveEvent->m_horizontalSpeed * pc.m_horizontalSpeed;
 					tc.m_rect.m_y += playerMoveEvent->m_verticalSpeed * pc.m_verticalSpeed;
-				}
+				});
 
 				break;
 		}
@@ -39,5 +36,6 @@ namespace sl
 
 	void ParallaxSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
+		// Parallax do not need to be updated for now. Only when a player moves.
 	}
 }

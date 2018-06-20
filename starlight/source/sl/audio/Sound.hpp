@@ -16,6 +16,10 @@ typedef struct ALLEGRO_SAMPLE ALLEGRO_SAMPLE;
 
 namespace sl
 {
+	///
+	/// Representation of a sound effect.
+	/// Well, a wrapper around ALLEGRO_SAMPLE for sfx, anyway.
+	///
 	class Sound final
 	{
 	public:
@@ -60,15 +64,29 @@ namespace sl
 	private:
 		///
 		/// Default constructor.
-		/// Deleted.
+		/// Deleted. We don't want a sound to be constructed without data.
 		///
 		Sound() = delete;
 
 	private:
+		///
+		/// The pan of the sample. Between -1.0 and 1.0.
+		///
 		float m_pan;
+
+		///
+		/// Speed at which the sample is played. 0.0 - 1.0.
+		///
 		float m_speed;
+
+		///
+		/// Volume of the sample. 0.0 - 1.0.
+		///
 		float m_volume;
 
+		///
+		/// Pointer to the sound file in memory.
+		///
 		ALLEGRO_SAMPLE* m_sound;
 	};
 }

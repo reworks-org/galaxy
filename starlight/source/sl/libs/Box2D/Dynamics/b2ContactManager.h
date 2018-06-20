@@ -19,7 +19,7 @@
 #ifndef B2_CONTACT_MANAGER_H
 #define B2_CONTACT_MANAGER_H
 
-#include <sl/libs/Box2D/Collision/b2BroadPhase.h>
+#include "sl/libs/Box2D/Collision/b2BroadPhase.h"
 
 class b2Contact;
 class b2ContactFilter;

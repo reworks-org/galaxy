@@ -18,7 +18,7 @@
 
 #ifndef B2_GROWABLE_STACK_H
 #define B2_GROWABLE_STACK_H
-#include <sl/libs/Box2D/Common/b2Settings.h>
+#include "sl/libs/Box2D/Common/b2Settings.h"
 #include <string.h>
 
 /// This is a growable LIFO stack with an initial capacity of N.
@@ -40,7 +40,7 @@ public:
 		if (m_stack != m_array)
 		{
 			b2Free(m_stack);
-			m_stack = NULL;
+			m_stack = nullptr;
 		}
 	}
 

@@ -1,5 +1,5 @@
 - implement serialization
-- need to document all classes aswell
+
 - profile code for lags https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 - fix up and rewrite sandbox to test all parts of engine
 - static code analysis
@@ -14,26 +14,17 @@
 - fix category headers for v1.0.
 - entity creation scripts need to be generic
 	- how many entitys to create of each type from each script
-	- i.e. scripts are basicically templates for entity creation 
-	- reemove concepts of unique entitys
-- double check virtual destructors
+	- i.e. scripts are basicically templates for entity creation
+	- remove concepts of unique entitys
 - more debug code, split based off of build type.
 	- more logging / error checking / exceptions
 - travis-ci / osx / linux builds
-- ensure relevant classes are marked final noexcept
-- change all hashed string usage to std::string_views
-- improved documentation
-- string view
 - fix update method registry view iteration - in progress
 - text loading from tmx maps
-- review how entities are being stored - remove any of this - in progress
-- further split logging into debug and release modes.
-- optimise code
 - fix physics entity creation in tmxmap + loading of physics scripts.
-- create entities from nothing in debug manager
-- review use of static keyword
+- Components and the default constructor issue. test with serialization first.
 - https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
-
+- sort out dependency librarys, try to reduce amount / update them.
 fix level / state design (want to load / savebased off of an id)
 - loading screens between states
 - resources are loaded on a differnet thread
@@ -41,5 +32,23 @@ http://gameprogrammingpatterns.com/state.html
 https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
+- tmxmap documentation and code cleanup.
+- remove loguru and cereal for boost libs and other libs aswell try to minimize dependencies.
+- move single headers to pair files
+- fix usage of std::string in resourcecache and configreader.
+	- also fix usage of std::string_view.
 
-- frustrum culling? https://gamedev.stackexchange.com/questions/14713/culling-for-a-2d-platformer-game (already done as quadtree 2d space rendering?)
+
+classes to serialize:
+- music
+	- serialize as part of audio resources
+- transformcomponent
+- physicscomponent
+	- may need to update internal entity during deserialization
+- rendercomponent
+- anmationcomponent
+- statemachine
+- registry in world.hpp
+- animation
+- animationframe
+- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
