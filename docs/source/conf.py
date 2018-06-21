@@ -15,7 +15,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import subprocess, sys
 
 # -- Project information -----------------------------------------------------
 
@@ -174,9 +174,28 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-import subprocess, os
+# Adding ability to build doxygen docs. Thanks to breathe project. https://breathe.readthedocs.io/en/latest/readthedocs.html
+def run_doxygen(folder):
+    """Run the doxygen make command in the designated folder"""
 
-read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+    try:
+        retcode = subprocess.call("cd %s; make" % folder, shell=True)
+        if retcode < 0:
+            sys.stderr.write("doxygen terminated by signal %s" % (-retcode))
+    except OSError as e:
+        sys.stderr.write("doxygen execution failed: %s" % e)
 
-if read_the_docs_build:
-	subprocess.call('cd ../ ; doxygen', shell=True)
+
+def generate_doxygen_xml(app):
+    """Run the doxygen make commands if we're on the ReadTheDocs server"""
+
+    read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+
+    if read_the_docs_build:
+
+        run_doxygen("../")
+
+def setup(app):
+
+    # Add hook for building doxygen xml when needed
+    app.connect("builder-inited", generate_doxygen_xml)
