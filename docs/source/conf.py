@@ -17,6 +17,8 @@
 # sys.path.insert(0, os.path.abspath('.'))
 import subprocess, sys
 
+sys.path.append("../breathe/")
+
 # -- Project information -----------------------------------------------------
 
 project = 'starlight'
@@ -46,6 +48,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'breathe'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -174,12 +177,16 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-# Adding ability to build doxygen docs. Thanks to breathe project. https://breathe.readthedocs.io/en/latest/readthedocs.html
-def run_doxygen(folder):
+# Adding ability to build doxygen docs. https://breathe.readthedocs.io/en/latest/index.html
+breathe_projects = { "starlight": "../html/" }
+
+breathe_default_project = "starlight"
+
+def run_doxygen():
     """Run the doxygen make command in the designated folder"""
 
     try:
-        retcode = subprocess.call("cd %s; make" % folder, shell=True)
+        retcode = subprocess.call("cd ../; doxygen Doxyfile", shell=True)
         if retcode < 0:
             sys.stderr.write("doxygen terminated by signal %s" % (-retcode))
     except OSError as e:
@@ -193,7 +200,7 @@ def generate_doxygen_xml(app):
 
     if read_the_docs_build:
 
-        run_doxygen("../")
+        run_doxygen()
 
 def setup(app):
 
