@@ -17,15 +17,15 @@
 # sys.path.insert(0, os.path.abspath('.'))
 import subprocess, sys, os
 
-# make sure pip and doxygen is installed.
-subprocess.call("pip install breathe", shell=True)
-subprocess.call("doxygen --version", shell=True)
-
 # build doxygen docs
 read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
 
 if read_the_docs_build:
     subprocess.call('cd ../; doxygen Doxyfile', shell=True)
+
+# make sure pip and doxygen is installed.
+subprocess.call("pip install breathe", shell=True)
+subprocess.call("pip install sphinx_rtd_theme", shell=True)
 
 # -- Project information -----------------------------------------------------
 
@@ -34,9 +34,9 @@ copyright = '2018, reworks'
 author = 'reworks'
 
 # The short X.Y version
-version = ''
+version = '0.0'
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '0.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -77,7 +77,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = English
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -87,7 +87,7 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-
+highlight_language = 'c++'
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
