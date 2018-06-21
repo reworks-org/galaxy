@@ -36,7 +36,7 @@ namespace sl
 				ac.m_currentFrameTime += timepassed;
 
 				// If the time passed is greater than the time allowed per frame...
-				if (ac.m_currentFrameTime >= time::milliseconds(animation->m_frames[animation->m_currentFrame].m_timePerFrame))
+				if (ac.m_currentFrameTime >= Time::milliseconds(animation->m_frames[animation->m_currentFrame].m_timePerFrame))
 				{
 					// ...reset current frame time and increment the current frame.
 					ac.m_currentFrameTime = 0.0;

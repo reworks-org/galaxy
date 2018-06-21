@@ -14,7 +14,7 @@
 
 namespace sl
 {
-	namespace lua
+	struct LuaUtils
 	{
 		///
 		/// This writes out a sol::table (or sol::state) into a text file.
@@ -23,8 +23,8 @@ namespace sl
 		/// \param file The file to write the data into.
 		/// \param tableName The name of the table in the text file.
 		///
-		void writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName);
-	}
+		static void writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName);
+	};
 }
 
 #endif

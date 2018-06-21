@@ -62,7 +62,7 @@ namespace sl
 			components.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				// Use the assign function to create components for entities without having to know the type.
-				m_componentAssign[pair.first.as<const char*>()](entity, pair.second.as<sol::table>());
+				m_componentAssign[entt::HashedString{ pair.first.as<const char*>() }](entity, pair.second.as<sol::table>());
 
 				// Then if its the physics component, we set up the fixture collision callback entity.
 				if (pair.first.as<const char*>() == "PhysicsComponent")
@@ -79,7 +79,7 @@ namespace sl
 			tags.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				// Use the assign function to create tags for entities without having to know the type.
-				m_tagAssign[pair.first.as<const char*>()](entity, pair.second.as<sol::table>());
+				m_tagAssign[entt::HashedString{ pair.first.as<const char*>() }](entity, pair.second.as<sol::table>());
 			});
 		}
 	}

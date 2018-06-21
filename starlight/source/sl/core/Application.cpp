@@ -37,7 +37,7 @@ namespace sl
 		std::srand(std::time(nullptr));
 
 		// Set up logging and set loguru to throw an exception on fatal errors.
-		std::string lname = "logs/" + time::getFormattedTime() + ".log";
+		std::string lname = "logs/" + Time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{

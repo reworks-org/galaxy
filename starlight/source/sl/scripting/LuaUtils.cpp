@@ -15,28 +15,25 @@
 
 namespace sl
 {
-	namespace lua
+	void LuaUtils::writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName)
 	{
-		void writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName)
+		// Opens a file to write to and prints formatting correctly.
+		std::ofstream out(file);
+		out << tableName << " = " << "\n";
+		out << "{" << "\n";
+
+		// Loops over each pair in table to write out.
+		table.for_each([&](std::pair<sol::object, sol::object> pair)
 		{
-			// Opens a file to write to and prints formatting correctly.
-			std::ofstream out(file);
-			out << tableName << " = " << "\n";
-			out << "{" << "\n";
+			out << "    " << pair.first.as<std::string>() << " = " << pair.second.as<std::string>() << "," << "\n";
+		});
 
-			// Loops over each pair in table to write out.
-			table.for_each([&](std::pair<sol::object, sol::object> pair)
-			{
-				out << "    " << pair.first.as<std::string>() << " = " << pair.second.as<std::string>() << "," << "\n";
-			});
+		// Erase last ',' from table.
+		out << '\b\b';
+		out << " ";
 
-			// Erase last ',' from table.
-			out << '\b\b';
-			out << " ";
-
-			// Close up table and flush stream.
-			out << "}" << std::endl;
-			out.close();
-		}
+		// Close up table and flush stream.
+		out << "}" << std::endl;
+		out.close();
 	}
 }

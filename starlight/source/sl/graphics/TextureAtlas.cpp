@@ -61,7 +61,7 @@ namespace sl
 
 				// ...then draw it to the atlas bitmap.
 				al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
-				m_resourceMap.emplace(utils::removeExtension(*i).c_str(), packedRect);
+				m_resourceMap.emplace(entt::HashedString{ Utils::removeExtension(*i).c_str() }, packedRect);
 
 				al_destroy_bitmap(bitmap);
 			}
@@ -82,7 +82,7 @@ namespace sl
 		clean();
 	}
 
-	void TextureAtlas::addTexture(std::string_view id, ALLEGRO_BITMAP* textureData)
+	void TextureAtlas::addTexture(const std::string& id, ALLEGRO_BITMAP* textureData)
 	{
 		// Set the algorithm to use when packing the bin, in this case bestshortsidefit.
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
@@ -102,10 +102,10 @@ namespace sl
 		// Then make sure rendering target is set back to window.
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
-		m_resourceMap.emplace(id, packedRect);
+		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, packedRect);
 	}
 
-	void TextureAtlas::addText(std::string_view id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
+	void TextureAtlas::addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
 	{
 		// Get text dimensions and create bitmap of that size.
 		int w = al_get_text_width(font, text.c_str());
@@ -119,7 +119,7 @@ namespace sl
 		al_flip_display();
 
 		// Then add that bitmap to the atlas.
-		addTexture(id, bitmap);
+		addTexture(id.c_str(), bitmap);
 
 		// We only have to destroy bitmap because addTexture() resets rendertarget to display.
 		al_destroy_bitmap(bitmap);
@@ -143,15 +143,15 @@ namespace sl
 		});
 	}
 
-	void TextureAtlas::addRectToAtlas(std::string_view id, const Rect<int>& rect)
+	void TextureAtlas::addRectToAtlas(const std::string& id, const Rect<int>& rect)
 	{
-		m_resourceMap.emplace(id, rect);
+		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, rect);
 	}
 
 	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[texture.c_str()];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 
 		// Draw that texture on the atlas.
 		al_draw_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
@@ -160,7 +160,7 @@ namespace sl
 	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[texture.c_str()];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 
 		// Draw that texture on the atlas.
 		al_draw_tinted_bitmap_region(m_atlas, tint, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
@@ -169,7 +169,7 @@ namespace sl
 	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[texture.c_str()];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 
 		// Draw that texture on the atlas.
 		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
@@ -183,7 +183,7 @@ namespace sl
 	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_sub_bitmap(const std::string& texture)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[texture.c_str()];
+		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 
 		// Return sub-bitmap of that texture from the atlas.
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);

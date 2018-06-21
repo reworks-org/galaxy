@@ -35,6 +35,7 @@ namespace sl
 		/// Lets systems recieve events.
 		///
 		/// \param event ALLEGRO_EVENT passed by application class.
+		/// \param registry Default entity registry.
 		///
 		void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) override;
 
@@ -42,6 +43,9 @@ namespace sl
 		/// \brief Update the system.
 		///
 		/// Dont actually call this, this is called by the world automatically.
+		///
+		/// \param dt Delta Time from update loop.
+		/// \param registry Default entity registry.
 		///
 		void update(const double dt, entt::DefaultRegistry& registry) override;
 	};

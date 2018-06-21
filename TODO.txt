@@ -34,10 +34,6 @@ https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-g
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 - tmxmap documentation and code cleanup.
 - remove loguru and cereal for boost libs and other libs aswell try to minimize dependencies.
-- move single headers to pair files
-- fix usage of std::string in resourcecache and configreader.
-	- also fix usage of std::string_view.
-
 
 classes to serialize:
 - music

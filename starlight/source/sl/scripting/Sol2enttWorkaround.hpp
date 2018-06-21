@@ -55,7 +55,6 @@ namespace sl
 		///
 		/// Wrapper for retrieving a component with entt.
 		///
-		/// \param Component Type of component to retrieve.
 		/// \param entity Entity to retrieve the component from.
 		///
 		template<typename Component>

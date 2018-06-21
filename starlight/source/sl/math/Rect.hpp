@@ -32,8 +32,8 @@ namespace sl
 		///
 		/// \param x X value.
 		/// \param y Y value.
-		/// \param w Width value.
-		/// \param h Height value.
+		/// \param width Width value.
+		/// \param height Height value.
 		///
 		Rect(T1 x, T1 y, T2 width, T2 height);
 

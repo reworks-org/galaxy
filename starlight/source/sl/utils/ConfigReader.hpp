@@ -128,14 +128,14 @@ namespace sl
 	T ConfigReader::lookup(const std::string& config, const std::string& section, const std::string& key)
 	{  
 		// Convert retrieved value to correct type.
-		return utils::convertString<T>(al_get_config_value(m_resourceMap[config.c_str()], section.c_str(), key.c_str()));
+		return Utils::convertString<T>(al_get_config_value(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), key.c_str()));
 	}
 
 	template<typename T>
 	void ConfigReader::setValue(const std::string& config, const std::string& section, const std::string& key, T value)
 	{
 		// Set value of a section.
-		al_set_config_value(m_resourceMap[config], section.c_str(), key.c_str(), std::to_string(value).c_str());
+		al_set_config_value(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), key.c_str(), std::to_string(value).c_str());
 	}
 }
 

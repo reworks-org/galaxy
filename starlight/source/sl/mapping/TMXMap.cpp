@@ -134,7 +134,7 @@ namespace sl
 		float op = layer->opacity;
 
 		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
-		Locator::world->m_registry.assign<RenderComponent>(entity, op, utils::removeExtension(layer->content.image->source));
+		Locator::world->m_registry.assign<RenderComponent>(entity, op, Utils::removeExtension(layer->content.image->source));
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
 	}
 
@@ -200,7 +200,7 @@ namespace sl
 					al_flip_display();
 					
 					tmx_text* textElement = head->content.text;
-					std::string objTextID = "ObjectLayerText" + std::to_string(time::getTimeSinceEpoch()) + std::string(textElement->text);
+					std::string objTextID = "ObjectLayerText" + std::to_string(Time::getTimeSinceEpoch()) + std::string(textElement->text);
 
 					int points = std::floorf(static_cast<float>(textElement->pixelsize) * 72.0f / 96.0f);
 					std::string objTextFont = std::string(textElement->fontfamily) + std::to_string(points);
@@ -223,8 +223,8 @@ namespace sl
 
 		al_flip_display();
 		al_set_target_backbuffer(Locator::window->getDisplay());
-
-		std::string id = "ObjectLayerNo" + std::to_string(time::getTimeSinceEpoch()) + std::to_string(poCounter);
+		
+		std::string id = "ObjectLayerNo" + std::to_string(Time::getTimeSinceEpoch()) + std::to_string(poCounter);
 		Locator::textureAtlas->addTexture(id, objects);
 
 		Locator::world->m_registry.assign<RenderComponent>(entity, 1.0f, id);
@@ -276,12 +276,12 @@ namespace sl
 
 						if (im)
 						{
-							identifier = utils::removeExtension(im->source);
+							identifier = Utils::removeExtension(im->source);
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 						else
 						{
-							identifier = utils::removeExtension(ts->image->source);
+							identifier = Utils::removeExtension(ts->image->source);
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 
@@ -298,11 +298,11 @@ namespace sl
 
 						if (im)
 						{
-							identifier = utils::removeExtension(im->source);
+							identifier = Utils::removeExtension(im->source);
 						}
 						else
 						{
-							identifier = utils::removeExtension(ts->image->source);
+							identifier = Utils::removeExtension(ts->image->source);
 						}
 
 						Rect<int> pr = Locator::textureAtlas->get(identifier.c_str());
@@ -310,7 +310,7 @@ namespace sl
 						y = pr.m_y + map->tiles[gid]->ul_y;
 
 						std::string id(layer->name);
-						id += "AnimatedTile" + std::to_string(time::getTimeSinceEpoch());
+						id += "AnimatedTile" + std::to_string(Time::getTimeSinceEpoch());
 						Locator::textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
 
 						entt::DefaultRegistry::entity_type animatedEntity = Locator::world->m_registry.create();

@@ -28,7 +28,7 @@ namespace sl
 			// Iterate over each sound effect in the lua table and construct it in place.
 			sounds.for_each([this](std::pair<sol::object, sol::object> pair)
 			{
-				m_resourceMap.emplace(pair.first.as<const char*>(), pair.second.as<sol::table>());
+				m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, pair.second.as<sol::table>());
 			});
 		}
 		else

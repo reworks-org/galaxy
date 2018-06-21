@@ -12,6 +12,7 @@ Thumbs.db
 DerivedData/
 
 # Project stuff
+docs/
 starlight/bin/
 starlight/build/
 

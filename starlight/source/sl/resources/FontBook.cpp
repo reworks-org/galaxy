@@ -39,7 +39,7 @@ namespace sl
 				}
 				else
 				{
-					m_resourceMap.emplace(pair.first.as<const char*>(), font);
+					m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, font);
 				}
 			});
 		}

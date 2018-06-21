@@ -39,12 +39,12 @@ namespace sl
 			}
 			else
 			{
-				m_resourceMap.emplace(config.c_str(), ptr);
+				m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
 			}
 		}
 		else
 		{
-			m_resourceMap.emplace(config.c_str(), ptr);
+			m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
 		}
 	}
 
@@ -64,28 +64,28 @@ namespace sl
 		}
 		else
 		{
-			m_resourceMap.emplace(config.c_str(), ptr);
+			m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
 		}
 	}
 	
 	void ConfigReader::removeValue(const std::string& config, const std::string& section, const std::string& key)
 	{
-		al_remove_config_key(m_resourceMap[config], section.c_str(), key.c_str());
+		al_remove_config_key(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), key.c_str());
 	}
 
 	void ConfigReader::addSection(const std::string& config, const std::string& section)
 	{
-		al_add_config_section(m_resourceMap[config], section.c_str());
+		al_add_config_section(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str());
 	}
 
 	void ConfigReader::removeSection(const std::string& config, const std::string& section)
 	{
-		al_remove_config_section(m_resourceMap[config], section.c_str());
+		al_remove_config_section(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str());
 	}
 
 	void ConfigReader::save(const std::string& config)
 	{
-		bool saved = al_save_config_file(config.c_str(), m_resourceMap[config.c_str()]);
+		bool saved = al_save_config_file(config.c_str(), m_resourceMap[entt::HashedString{ config.c_str() }]);
 		if (!saved)
 		{
 			LOG_S(ERROR) << "Failed to save config file: " << config << ".";
@@ -97,7 +97,7 @@ namespace sl
 		ALLEGRO_CONFIG_ENTRY* entry;
 		std::vector<std::string> output;
 
-		const char* first = al_get_first_config_entry(m_resourceMap[config.c_str()], section.c_str(), &entry);
+		const char* first = al_get_first_config_entry(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), &entry);
 		output.emplace_back(first);
 
 		// Iterate over each config entry and add sections to vector.

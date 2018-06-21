@@ -47,22 +47,22 @@ namespace sl
 		///
 		/// Usually used when you generate a texture, such as a tilemap, that is not included in the assets.
 		///
-		/// \param ID ID of texture to add. Do not include extension.
+		/// \param id ID of texture to add. Do not include extension.
 		/// \param textureData Bitmap to add. WARNING! textureData WILL NOT BE FREED BY THIS FUNCTION!
 		///
-		void addTexture(std::string_view id, ALLEGRO_BITMAP* textureData);
+		void addTexture(const std::string& id, ALLEGRO_BITMAP* textureData);
 
 		///
 		/// \brief Add bitmap text to the atlas.
 		///
 		/// Usually used when you want to render text.
 		///
-		/// \param ID ID of texture to add. Do not include extension.
+		/// \param id ID of texture to add. Do not include extension.
 		/// \param text Text to draw.
 		/// \param font Font to use.
 		/// \param col Colour to use.
 		///
-		void addText(std::string_view id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
+		void addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
 
 		///
 		/// \brief A function that takes a lua script to add a batch of text.
@@ -91,10 +91,10 @@ namespace sl
 		///
 		/// Add a new rectangle to the atlas, but it uses an existing texture.
 		///
-		/// \param ID ID of texture to add. Do not include extension.
-		/// \param Rect x,y -> Upper Left, Upper Right on atlas, w,h -> Width and Height of area to cover.
+		/// \param id ID of texture to add. Do not include extension.
+		/// \param rect x,y -> Upper Left, Upper Right on atlas, w,h -> Width and Height of area to cover.
 		///
-		void addRectToAtlas(std::string_view id, const Rect<int>& rect);
+		void addRectToAtlas(const std::string& id, const Rect<int>& rect);
 
 		///
 		/// Like al_draw_bitmap

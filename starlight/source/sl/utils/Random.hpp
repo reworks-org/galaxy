@@ -14,7 +14,10 @@
 
 namespace sl
 {
-	namespace Random
+	///
+	/// Contains static random number generation functions.
+	///
+	struct Random
 	{	
 		///
 		/// http://stackoverflow.com/a/32907541
@@ -31,7 +34,7 @@ namespace sl
 		/// \return Returns type T.
 		///
 		template<typename T>
-		inline T random(T min, T max)
+		static inline T random(T min, T max)
 		{
 			std::random_device rd;
 			std::mt19937 mt(rd());
@@ -40,7 +43,7 @@ namespace sl
 
 			return dist(mt);
 		}
-	}
+	};
 }
 
 #endif

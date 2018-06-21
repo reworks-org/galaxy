@@ -12,12 +12,12 @@
 
 #include <typeindex>
 #include <functional>
-#include <string_view>
 #include <unordered_map>
 
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/types/System.hpp"
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
+#include "sl/libs/entt/core/hashed_string.hpp"
 
 namespace sl
 {
@@ -68,34 +68,29 @@ namespace sl
 		///
 		/// Registers a tag with the world.
 		///
-		/// \param Tag - Type of tag to register, i.e. PlayerTag.
 		/// \param name - Name of tag in string format i.e. "PlayerTag".
 		///
 		template<typename Tag>
-		void registerTag(std::string_view name);
+		void registerTag(const std::string& name);
 
 		///
 		/// Registers a component with the world.
 		///
-		/// \param Component - Type of component to register, i.e. AnimationComponent.
 		/// \param name - Name of component in string format i.e. "AnimationComponent".
 		///
 		template<typename Component>
-		void registerComponent(std::string_view name);
+		void registerComponent(const std::string& name);
 
 		///
 		/// Registers a system with the world.
 		///
-		/// \param System Type of system to register.
-		/// \param Args Argument(s) for system contructor.
+		/// \param args Argument(s) for system contructor.
 		///
 		template<typename System, typename... Args>
 		void registerSystem(Args&&... args);
 
 		///
 		/// Retrieve a system.
-		///
-		/// \param System Template type. Type of system to fetch.
 		///
 		/// \return Returns a pointer to the system object.
 		///
@@ -105,9 +100,7 @@ namespace sl
 		///
 		/// \brief Remove a system.
 		///
-		/// This de-registers the system, so you will need to call World::registerSystem.
-		///
-		/// \param System Template type to remove.
+		/// This de-registers the system, so you will need to call World::registerSystem to use it again.
 		///
 		template<typename System>
 		void remove();
@@ -127,12 +120,12 @@ namespace sl
 		///
 		/// Used to allow for tag assigning without having to know the tag type.
 		///
-		std::unordered_map<std::string_view, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
 
 		///
 		/// Used to allow for component assigning without having to know the tag type.
 		///
-		std::unordered_map<std::string_view, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
 
 		///
 		/// Systems storage.
@@ -141,16 +134,19 @@ namespace sl
 	};
 
 	template<typename Tag>
-	void World::registerTag(std::string_view name)
+	void World::registerTag(const std::string& name)
 	{
+		// Create hashed string to use.
+		entt::HashedString hs{ name.c_str() };
+
 		// Make sure there are no duplicate tags before registering.
-		if (m_tagAssign.find(name) != m_tagAssign.end())
+		if (m_tagAssign.find(hs) != m_tagAssign.end())
 		{
 			LOG_S(WARNING) << "Attempted to register duplicate tag: " << name;
 		}
 		else
 		{
-			m_tagAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
+			m_tagAssign.emplace(hs, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
 				m_registry.assign<Tag>(entt::tag_t{}, entity, table);
 			});
@@ -158,16 +154,19 @@ namespace sl
 	}
 
 	template<typename Component>
-	void World::registerComponent(std::string_view name)
+	void World::registerComponent(const std::string& name)
 	{
+		// Create hashed string to use.
+		entt::HashedString hs{ name.c_str() };
+
 		// Make sure there are no duplicate components for the hashmap before registering.
-		if (m_componentAssign.find(name) != m_componentAssign.end())
+		if (m_componentAssign.find(hs) != m_componentAssign.end())
 		{
 			LOG_S(WARNING) << "Attempted to register duplicate component: " << name;
 		}
 		else
 		{
-			m_componentAssign.emplace(name, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
+			m_componentAssign.emplace(hs, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
 				m_registry.assign<Component>(entity, table);
 			});
@@ -177,15 +176,18 @@ namespace sl
 	template<typename System, typename... Args>
 	void World::registerSystem(Args&&... args)
 	{
+		// Get type index to use as key.
+		std::type_index t(typeid(System));
+
 		// Make sure no duplicate systems when registering.
-		if (m_systems.find(std::type_index(typeid(System))) != m_systems.end())
+		if (m_systems.find(t) != m_systems.end())
 		{
 			LOG_S(WARNING) << "Attempted to register duplicate system!";
 		}
 		else
 		{
 			// Create system at system type by forwarding arguments.
-			m_systems[std::type_index(typeid(System))] = std::make_unique<System>(std::forward<Args>(args)...);
+			m_systems[t] = std::make_unique<System>(std::forward<Args>(args)...);
 		}
 	}
 
@@ -199,17 +201,19 @@ namespace sl
 	template<typename System>
 	void World::remove()
 	{
+		// Get type index to use as key.
+		std::type_index t(typeid(System));
+
 		// Check to make sure system exists.
-		auto type = std::type_index(typeid(System));
-		if (m_systems.find(type) != m_systems.end())
+		if (m_systems.find(t) != m_systems.end())
 		{
 			// Then call the systems destructor and erase it from the map.
-			m_systems[type].reset();
+			m_systems[t].reset();
 			m_systems.erase(type);
 		}
 		else
 		{
-			LOG_S(WARNING) << "Attempted to remove non-existent system: " << type.name();
+			LOG_S(WARNING) << "Attempted to remove non-existent system id: " << t.name;
 		}
 	}
 }

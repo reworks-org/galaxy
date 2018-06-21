@@ -157,6 +157,8 @@
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
     <ClCompile Include="source\sl\tags\CameraTag.cpp" />
     <ClCompile Include="source\sl\utils\ConfigReader.cpp" />
+    <ClCompile Include="source\sl\utils\Time.cpp" />
+    <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\Audio.hpp" />

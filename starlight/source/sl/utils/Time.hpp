@@ -10,132 +10,102 @@
 #ifndef STARLIGHT_TIME_HPP_
 #define STARLIGHT_TIME_HPP_
 
-#include <ctime>
-#include <chrono>
 #include <string>
-#include <cstdint>
-#include <algorithm>
+#include <chrono>
 
 namespace sl
 {
-	namespace time
+	///
+	/// Contains Time-related static utility functions.
+	///
+	struct Time
 	{
 		///
 		/// Convert seconds to milliseconds.
 		///
 		/// \param seconds Seconds to convert.
 		///
-		/// \return Returns 32bit integer.
+		/// \return Returns const std::uint32_t.
 		///
-		inline constexpr std::uint32_t secondsToMilliseconds(double seconds)
-		{
-			return static_cast<std::uint32_t>(seconds * 1000.0);
-		}
+		static const std::uint32_t secondsToMilliseconds(double seconds);
 
 		///
 		/// Convert seconds to microseconds.
 		///
 		/// \param seconds Seconds to convert.
 		///
-		/// \return Returns 64bit integer.
+		/// \return Returns const std::uint64_t.
 		///
-		inline constexpr std::uint64_t secondsToMicroseconds(double seconds)
-		{
-			return static_cast<std::uint64_t>(seconds * 1000000.0);
-		}
+		static const std::uint64_t secondsToMicroseconds(double seconds);
 
 		///
 		/// Convert milliseconds to seconds.
 		///
 		/// \param milliseconds Milliseconds to convert.
 		///
-		/// \return Returns float.
+		/// \return Returns const double.
 		///
-		inline constexpr double millisecondsToSeconds(std::uint32_t milliseconds)
-		{
-			return static_cast<double>(milliseconds) / 1000.0;
-		}
+		static const double millisecondsToSeconds(std::uint32_t milliseconds);
 
 		///
 		/// Convert milliseconds to microseconds.
 		///
 		/// \param milliseconds Milliseconds to convert.
 		///
-		/// \return Returns 64bit integer.
+		/// \return Returns const std::uint64_t.
 		///
-		inline constexpr std::uint64_t millisecondsToMicroseconds(std::uint32_t milliseconds)
-		{
-			return static_cast<std::uint64_t>(milliseconds * 1000);
-		}
+		static const std::uint64_t millisecondsToMicroseconds(std::uint32_t milliseconds);
 
 		///
 		/// Convert microseconds to seconds.
 		///
 		/// \param microseconds Microseconds to convert.
 		///
-		/// \return Returns float.
+		/// \return Returns const double.
 		///
-		inline constexpr double microsecondsToSeconds(std::uint64_t microseconds)
-		{
-			return static_cast<double>(microseconds / 1000000.0);
-		}
+		static const double microsecondsToSeconds(std::uint64_t microseconds);
 
 		///
 		/// Convert microseconds to milliseconds.
 		///
 		/// \param microseconds Microseconds to convert.
 		///
-		/// \return Returns 32bit integer.
+		/// \return Returns std::uint32_t.
 		///
-		inline constexpr std::uint32_t microsecondsToMilliseconds(std::uint64_t microseconds)
-		{
-			return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
-		}
+		static const std::uint32_t microsecondsToMilliseconds(std::uint64_t microseconds);
 
 		///
 		/// \brief seconds function.
 		///
 		/// Use this when counting time with the main loop.
-		/// E.g. \code{.cpp} if (counter > Time::seconds(3)) { /*do something */ } \endcode
 		///
 		/// \param seconds Number of seconds to compare.
 		///
-		/// \return Returns float. Doesn't actually do anything because we just want a way to compare with information.
+		/// \return Returns const double Doesn't actually do anything because we just want a way to compare with information.
 		///
-		inline constexpr double seconds(double seconds)
-		{
-			return seconds;
-		}
+		static const double seconds(double seconds);
 
 		///
 		/// \brief milliseconds function.
 		///
 		/// Use this when counting time with the main loop.
-		/// E.g. \code{.cpp} if (counter > Time::milliseconds(1000)) { /*do something */ } \endcode
 		///
-		/// \param seconds Number of milliseconds to compare.
+		/// \param milliseconds Number of seconds to compare.
 		///
-		/// \return Returns float. Converts to seconds because thats what the main loop uses.
+		/// \return Returns const double Converts to seconds because thats what the main loop uses.
 		///
-		inline constexpr double milliseconds(std::uint32_t milliseconds)
-		{
-			return time::millisecondsToSeconds(milliseconds);
-		}
+		static const double milliseconds(std::uint32_t milliseconds);
 
 		///
 		/// \brief microseconds function.
 		///
 		/// Use this when counting time with the main loop.
-		/// E.g. \code{.cpp} if (counter > Time::microseconds(1000000)) { /*do something */ } \endcode
 		///
-		/// \param seconds Number of microseconds to compare.
+		/// \param microseconds Number of microseconds to compare.
 		///
-		/// \return Returns float. Converts to seconds because thats what the main loop uses.
+		/// \return Returns const double Converts to seconds because thats what the main loop uses.
 		///
-		inline constexpr double microseconds(std::uint64_t microseconds)
-		{
-			return time::microsecondsToSeconds(microseconds);
-		}
+		static const double microseconds(std::uint64_t microseconds);
 
 		///
 		/// \brief Returns High-Precision count of time passed since Epoch (Jan 1st, 1970).
@@ -145,84 +115,35 @@ namespace sl
 		///
 		/// \param t Another point in time to use.
 		///
-		/// \return double High Precision time passed since epoch.
+		/// \return const double High Precision time passed since epoch.
 		///
-		inline constexpr double getTimeSinceEpoch(std::chrono::high_resolution_clock::time_point* t = nullptr)
-		{
-			using clock = std::chrono::high_resolution_clock;
-			return std::chrono::duration<double>((t != nullptr ? *t : clock::now()).time_since_epoch()).count();
-		}
+		static const double getTimeSinceEpoch(std::chrono::high_resolution_clock::time_point* t = nullptr);
 
 		///
 		/// \brief Get the current time and date.
 		///
 		/// In XX:YY DD/MM/YYYY format.
 		///
-		/// \return Returns std::string.
+		/// \return Returns const std::string of the current DateTime.
 		///
-		inline std::string getCurrentDateTime()
-		{
-			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-			std::string temp = std::ctime(&time);
-
-			// Remove pesky newlines
-			temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
-
-			return temp;
-		}
+		static std::string getCurrentDateTime();
 
 		///
 		/// \brief Get the current time.
 		///
 		/// Time and Date in XX:YY AM/PM format.
 		///
-		/// \return Returns std::string.
+		/// \return Returns std::string shortened Time.
 		///
-		inline std::string getShortTime()
-		{
-			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-			std::string temp = std::ctime(&time);
-
-			// Remove pesky newlines
-			temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
-
-			temp.erase(temp.length() - 8);
-
-			if (std::stoi(temp.substr(11, 2)) >= 12) {
-				temp.append(" PM");
-			}
-			else {
-				temp.append(" AM");
-			}
-
-			temp = temp.substr(11, 8);
-
-			return temp;
-		}
+		static std::string getShortTime();
 
 		///
 		/// Get a formatted time that contains no special characters.
 		///
-		/// \return Returns std::string.
+		/// \return Returns std::string formatted Time.
 		///
-		inline std::string getFormattedTime()
-		{
-			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-			std::string temp = std::ctime(&time);
-
-			// Remove pesky newlines
-			temp.erase(std::remove(temp.begin(), temp.end(), '\n'), temp.end());
-
-			// Remove special characters
-			temp.erase(std::remove(temp.begin(), temp.end(), ' '), temp.end());
-			temp.erase(std::remove(temp.begin(), temp.end(), ':'), temp.end());
-
-			// Trim string
-			temp = temp.substr(0, 12);
-
-			return temp;
-		}
-	}
+		static std::string getFormattedTime();
+	};
 }
 
 #endif
