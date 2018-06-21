@@ -15,9 +15,16 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import subprocess, sys
+import subprocess, sys, os
 
+# make sure pip is installed.
 subprocess.call("pip install breathe", shell=True)
+
+# build doxygen docs
+read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+
+if read_the_docs_build:
+    subprocess.call('cd ../; doxygen Doxyfile', shell=True)
 
 # -- Project information -----------------------------------------------------
 
@@ -193,28 +200,9 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-# doxygen with breathe
+# breathe settings
 breathe_projects = {
     "starlight":"../xml/",
 }
 
 breathe_default_project = "starlight"
-
-def run_doxygen():
-    try:
-        retcode = subprocess.call("doxygen ../Doxyfile", shell=True)
-        if retcode < 0:
-            sys.stderr.write("doxygen terminated by signal %s" % (-retcode))
-    except OSError as e:
-        sys.stderr.write("doxygen execution failed: %s" % e)
-
-
-def generate_doxygen_xml(app):
-    read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
-
-    if read_the_docs_build:
-        run_doxygen()
-
-
-def setup(app):
-    app.connect("builder-inited", generate_doxygen_xml)
