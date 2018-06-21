@@ -2022,7 +2022,7 @@ DOCBOOK_PROGRAMLISTING = NO
 # is still experimental and incomplete at the moment.
 # The default value is: NO.
 
-GENERATE_AUTOGEN_DEF   = YES
+GENERATE_AUTOGEN_DEF   = NO
 
 #---------------------------------------------------------------------------
 # Configuration options related to the Perl module output
