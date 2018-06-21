@@ -19,7 +19,7 @@ import subprocess, sys, os
 
 # make sure pip and doxygen is installed.
 subprocess.call("pip install breathe", shell=True)
-subprocess.call("apt-get install doxygen", shell=True)
+subprocess.call("doxygen --version", shell=True)
 
 # build doxygen docs
 read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
