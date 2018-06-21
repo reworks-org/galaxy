@@ -1,5 +1,5 @@
 .. starlight documentation master file, created by
-   sphinx-quickstart on Thu Jun 21 18:01:55 2018.
+   sphinx-quickstart on Thu Jun 21 18:50:47 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -24,4 +24,5 @@ Indices and tables
 .. doxygenstruct::
 .. doxygenenum::
 .. doxygentypedef::
-.. doxygenclass::
+.. doxygenclass:: my_class
+    :project: starlight
