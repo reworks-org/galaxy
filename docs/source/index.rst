@@ -3,26 +3,35 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to starlight's documentation!
+.. image:: ../logo_docs.png
+	:target: https://github.com/reworks/starlight
+	:align: center
+
+starlight documentation
 =====================================
+*A Modern C++ game programming framework.*
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
+   :name: mastertoc
 
+   class
+   struct
+   enum
+   function
+   typedef
 
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 
+
 .. doxygenindex::
-.. doxygenfunction::
-.. doxygenstruct::
-.. doxygenenum::
-.. doxygentypedef::
-.. doxygenclass:: my_class
-    :project: starlight
+
+
+.. _starlight: https://github.com/reworks/starlight
+.. _issues: https://github.com/reworks/starlight/issues

@@ -1,0 +1,4 @@
+typedefs
+==========
+
+.. doxygentypedef::
