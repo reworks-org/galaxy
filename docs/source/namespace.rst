@@ -1,5 +1,5 @@
-functions
+namespaces
 ==========
 
-.. doxygenfunction::
+.. doxygennamespace::
    :project: starlight

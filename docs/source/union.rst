@@ -1,5 +1,5 @@
-functions
+unions
 ==========
 
-.. doxygenfunction::
+.. doxygenunion::
    :project: starlight

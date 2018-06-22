@@ -1,5 +1,5 @@
-functions
+define
 ==========
 
-.. doxygenfunction::
+.. doxygendefine::
    :project: starlight

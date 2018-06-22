@@ -2,3 +2,4 @@ structs
 ==========
 
 .. doxygenstruct::
+   :project: starlight

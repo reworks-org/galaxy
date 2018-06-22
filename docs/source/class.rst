@@ -2,3 +2,4 @@ classes
 ==========
 
 .. doxygenclass::
+   :project: starlight

@@ -1,5 +1,5 @@
-functions
+variables
 ==========
 
-.. doxygenfunction::
+.. doxygenvariable::
    :project: starlight

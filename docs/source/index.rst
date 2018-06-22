@@ -16,21 +16,23 @@ starlight documentation
    :caption: Contents:
    :name: mastertoc
 
+   index
    class
-   struct
+   define
    enum
+   enumvalue
    function
+   namespace
+   source
+   struct
    typedef
+   union
+   variable
 
 
-Indices and tables
+Search
 ==================
-
-* :ref:`genindex`
 * :ref:`search`
-
-
-.. doxygenindex::
 
 
 .. _starlight: https://github.com/reworks/starlight

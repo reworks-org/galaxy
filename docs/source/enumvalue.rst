@@ -1,5 +1,5 @@
-functions
+enumvalue
 ==========
 
-.. doxygenfunction::
+.. doxygenenumvalue::
    :project: starlight

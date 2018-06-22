@@ -2,3 +2,4 @@ enums
 ==========
 
 .. doxygenenum::
+   :project: starlight
