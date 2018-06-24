@@ -10,6 +10,7 @@
 #ifndef STARLIGHT_FSHEADER_HPP_
 #define STARLIGHT_FSHEADER_HPP_
 
+#include "sl/utils/ConfigReader.hpp"
 #include "sl/fs/Serializer.hpp"
 #include "sl/fs/VirtualFS.hpp"
 

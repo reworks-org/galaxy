@@ -42,9 +42,13 @@ namespace sl
 		PhysicsComponent(const sol::table& table);
 
 		///
-		/// Destructor.
+		/// \brief Destructor. See desc for important info.
 		///
-		~PhysicsComponent();
+		// The manager iterates over all physics components and destroys the bodies.
+		// Eww coupling but it is a workaround for a wierd behaviour where entt seems to destroy components as its assigning the component.
+		// So what would happen is the body data would be freed causing a string of exceptions when dat that no longer exists gets accessed.
+		///
+		~PhysicsComponent() = default;
 
 		///
 		/// Default move assignment overload.

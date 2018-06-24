@@ -116,6 +116,16 @@ namespace sl
 		///
 		entt::DefaultRegistry m_registry;
 
+		///
+		/// The path to the folder containing game scripts.
+		///
+		std::string m_scriptFolderPath;
+
+		///
+		/// The path to the folder containing game textures.
+		///
+		std::string m_textureFolderPath;
+
 	private:
 		///
 		/// Used to allow for tag assigning without having to know the tag type.

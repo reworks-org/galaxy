@@ -14,9 +14,9 @@
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
+#include "sl/fs/ConfigReader.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateMachine.hpp"
-#include "sl/utils/ConfigReader.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/DebugInterface.hpp"
 #include "sl/events/EventManager.hpp"

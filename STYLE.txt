@@ -1,7 +1,7 @@
-Adjustments:
-- All comments to be /// slashes.
+- All code comments to be // slashes.
 - All comments to have proper grammer.
 - All comments to have a space after slashes.
+- Use doxygen format.
 - New header format:
 
 ///

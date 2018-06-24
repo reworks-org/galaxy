@@ -402,9 +402,6 @@
     <ClCompile Include="source\sl\tags\CameraTag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\utils\ConfigReader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\core\StateMachine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -421,6 +418,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\utils\Time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\fs\ConfigReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -7427,9 +7427,6 @@
     <ClInclude Include="source\sl\types\System.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\utils\ConfigReader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\utils\Random.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -7560,6 +7557,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\fs\Serializer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\fs\ConfigReader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

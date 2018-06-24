@@ -46,6 +46,7 @@ namespace sl
 		///
 		~TMXMap();
 
+	private:
 		///
 		/// Loop through and process all layers.
 		///
@@ -53,7 +54,6 @@ namespace sl
 		///
 		void processAllLayers(tmx_layer* layers);
 
-	private:
 		///
 		/// Convert TMX colour to allegro colour.
 		///

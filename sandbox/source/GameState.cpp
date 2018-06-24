@@ -21,7 +21,6 @@ using namespace sl;
 GameState::GameState()
 {
 	map = std::make_unique<sl::TMXMap>("csv.tmx", 2.5f);
-	map->processAllLayers(map->m_internalMap->ly_head);
 	m_bounds.m_height = map->m_internalMap->height;
 	m_bounds.m_width = map->m_internalMap->width;
 	m_bounds.m_x = 0;

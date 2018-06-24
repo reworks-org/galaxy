@@ -81,18 +81,23 @@ namespace sl
 
 		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
 		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
-		//al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA); // Apparently this is the default allegro settings. This is here for a reference.
+
+		// Apparently this is the default allegro settings. This is here for a reference.
+		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA);
 
 		m_world = std::make_unique<World>();
 		Locator::world = m_world.get();
 
-		m_debugInterface = std::make_unique<DebugInterface>(m_configReader->lookup<std::string>(config, "debug", "scriptFilePath"), m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+		m_world->m_scriptFolderPath = m_configReader->lookup<std::string>(config, "fs", "scriptFolderPath");
+		m_world->m_textureFolderPath = m_configReader->lookup<std::string>(config, "fs", "textureFolderPath");
+
+		m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
 		Locator::debugInterface = m_debugInterface.get();
 
 		m_stateMachine = std::make_unique<StateMachine>();
 		Locator::stateMachine = m_stateMachine.get();
 
-		m_textureAtlas = std::make_unique<TextureAtlas>(m_configReader->lookup<std::string>(config, "fs", "textureFolderPath"), m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
+		m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		Locator::textureAtlas = m_textureAtlas.get();
 
 		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
@@ -241,6 +246,12 @@ namespace sl
 
 	Application::~Application()
 	{
+		// Iterate over entities, destroying their Box2D body data.
+		// Yeah, no idea why this has to be done here, entt has some really weird behaviour that's causing a number of unexpected issues.
+		Locator::world->m_registry.view<PhysicsComponent>().each([this](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc) {
+			Locator::box2dHelper->m_b2world->DestroyBody(pc.m_body);
+		});
+
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 		// It actually only really matters box2d is destroyed after the world because the physics code rely
 		// on the box2d system to be destroyed unfortunately.
@@ -251,10 +262,10 @@ namespace sl
 		m_shaderLibrary.reset();
 		m_fontBook.reset();
 		m_textureAtlas.reset();
+		m_debugInterface.reset(); 
 		m_stateMachine.reset();
-		m_debugInterface.reset();
-		m_world.reset();
 		m_box2dHelper.reset();
+		m_world.reset();
 		m_window.reset();
 		m_configReader.reset();
 		m_virtualFS.reset();

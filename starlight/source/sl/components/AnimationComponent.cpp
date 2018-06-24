@@ -69,12 +69,6 @@ namespace sl
 		m_activeAnimation = aID;
 	}
 
-	AnimationComponent::~AnimationComponent()
-	{
-		// Destroy all animations.
-		m_animations.clear();
-	}
-
 	void AnimationComponent::changeAnimation(const std::string& animation)
 	{
 		// Simply reset the time and change the active animation.

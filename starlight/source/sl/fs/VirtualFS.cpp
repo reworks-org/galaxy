@@ -82,12 +82,12 @@ namespace sl
 		}
 		else
 		{
-			LOG_S(ERROR) << "Tried to open a file that does not exist! | " << PHYSFS_getLastError();
+			LOG_S(ERROR) << "Tried to open a file that does not exist: " << file << ". " << PHYSFS_getLastError();
 		}
 
 		if (!f)
 		{
-			LOG_S(ERROR) << "Failed to open: " << file << " | " << PHYSFS_getLastError();
+			LOG_S(ERROR) << "Failed to open: " << file << ". " << PHYSFS_getLastError();
 		}
 
 		return f;

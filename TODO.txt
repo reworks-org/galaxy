@@ -15,7 +15,7 @@
 	- remove concepts of unique entitys
 - travis-ci / osx / linux builds
 - text loading from tmx maps
-- fix physics entity creation in tmxmap + loading of physics scripts.
+- more physics shapes from tmx maps.
 - https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
 - sort out dependency librarys, try to reduce amount / update them.
 fix level / state design (want to load / savebased off of an id)
@@ -25,13 +25,15 @@ http://gameprogrammingpatterns.com/state.html
 https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
-- tmxmap documentation and code cleanup.
 - remove loguru and cereal for boost libs and other libs aswell try to minimize dependencies.
 - better code integration
 	- https://github.com/algorys/cmakeconverter for travis-ci
 	- appveyor also needs to have access to more compilers
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
+- make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
+- make a note about objects and physics in tmxmap docs.
+- make a note about entt destroying components and to not allocate memory using components
 
 classes to serialize:
 - music

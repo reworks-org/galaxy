@@ -81,7 +81,11 @@ namespace sl
 
 				fixtureDef.filter.maskBits = mb;
 
-				m_body->CreateFixture(&fixtureDef);
+				// Make sure when creating fixture it is properly created.
+				if (!m_body->CreateFixture(&fixtureDef))
+				{
+					LOG_S(FATAL) << "Failed to create fixturedef for PhysicsComponent.";
+				}
 			});
 		}
 		else
@@ -92,16 +96,6 @@ namespace sl
 		}
 		
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
-	}
-
-	PhysicsComponent::~PhysicsComponent()
-	{
-		// The world is destroyed before the manager, which means this will not result in undefined behaviour.
-		if (m_body)
-		{
-			Locator::box2dHelper->m_b2world->DestroyBody(m_body);
-			m_body = nullptr;
-		}
 	}
 
 	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent&)

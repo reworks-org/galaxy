@@ -95,12 +95,12 @@ int main(int argc, char **argv)
 					newConfig << std::endl;
 
 					newConfig << "[debug]\n";
-					newConfig << "scriptFilePath = scripts/\n";
 					newConfig << "isDisabled = false\n";
 					newConfig << std::endl;
 
 					newConfig << "[fs]\n";
 					newConfig << "writeDir = bin/assets/\n";
+					newConfig << "scriptFolderPath = scripts/\n";
 					newConfig << "textureFolderPath = textures/\n";
 					newConfig << std::endl;
 

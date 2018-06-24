@@ -1,5 +1,0 @@
-DOCUMENTATION GENERATED WITH DOXYGEN
-
-https://www.stack.nl/~dimitri/doxygen/
-
-<URL>

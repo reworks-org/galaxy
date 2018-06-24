@@ -65,7 +65,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~AnimationComponent();
+		~AnimationComponent() = default;
 
 		///
 		/// Change the current animation.
