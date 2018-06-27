@@ -1,5 +1,0 @@
-define
-==========
-
-.. doxygendefine::
-   :project: starlight

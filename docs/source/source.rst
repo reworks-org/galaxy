@@ -1,2 +1,0 @@
-.. doxygenfile::
-   :project: starlight

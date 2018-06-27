@@ -1,5 +1,0 @@
-typedefs
-==========
-
-.. doxygentypedef::
-   :project: starlight

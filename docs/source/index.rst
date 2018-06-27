@@ -17,17 +17,6 @@ starlight documentation
    :name: mastertoc
 
    index
-   class
-   define
-   enum
-   enumvalue
-   function
-   namespace
-   source
-   struct
-   typedef
-   union
-   variable
 
 
 Search
@@ -37,3 +26,10 @@ Search
 
 .. _starlight: https://github.com/reworks/starlight
 .. _issues: https://github.com/reworks/starlight/issues
+
+.. doxygenindex::
+.. doxygenfunction::
+.. doxygenstruct::
+.. doxygenenum::
+.. doxygentypedef::
+.. doxygenclass::

@@ -1,5 +1,0 @@
-enumvalue
-==========
-
-.. doxygenenumvalue::
-   :project: starlight

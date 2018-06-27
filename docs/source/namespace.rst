@@ -1,5 +1,0 @@
-namespaces
-==========
-
-.. doxygennamespace::
-   :project: starlight

@@ -1,5 +1,0 @@
-variables
-==========
-
-.. doxygenvariable::
-   :project: starlight

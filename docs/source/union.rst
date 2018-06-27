@@ -1,5 +1,0 @@
-unions
-==========
-
-.. doxygenunion::
-   :project: starlight

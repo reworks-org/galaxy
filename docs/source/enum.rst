@@ -1,5 +1,0 @@
-enums
-==========
-
-.. doxygenenum::
-   :project: starlight

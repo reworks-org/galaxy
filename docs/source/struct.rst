@@ -1,5 +1,0 @@
-structs
-==========
-
-.. doxygenstruct::
-   :project: starlight

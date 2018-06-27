@@ -1,5 +1,0 @@
-functions
-==========
-
-.. doxygenfunction::
-   :project: starlight

@@ -207,3 +207,5 @@ breathe_projects = {
 }
 
 breathe_default_project = "starlight"
+
+breathe_implementation_filename_extensions = ['.c', '.cc', '.cpp']
