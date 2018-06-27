@@ -9,5 +9,10 @@ fonts =
 	{
 		font = "sercode.ttf",
 		size = 60
+	},
+	SecretCode80 =
+	{
+		font = "sercode.ttf",
+		size = 80
 	}
 }

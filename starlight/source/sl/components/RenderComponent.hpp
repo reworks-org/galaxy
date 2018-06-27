@@ -43,7 +43,7 @@ namespace sl
 		///
 		/// Alternate Constructor.
 		///
-		/// \param opacity Opacity of Texture / Sprite Texture.
+		/// \param opacity Opacity of Texture / Sprite Texture. From 0.0f - 1.0f.
 		/// \param textureName Name of the sprite in the VFS.
 		///
 		RenderComponent(float opacity, const std::string& textureName);
@@ -70,7 +70,7 @@ namespace sl
 
 	public:
 		///
-		/// Opacity of entity. 0.0 - 1.0.
+		/// Opacity of entity. From 0.0f - 1.0f.
 		///
 		float m_opacity;
 

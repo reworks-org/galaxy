@@ -32,8 +32,12 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
 - make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
-- make a note about objects and physics in tmxmap docs.
+- make a note about objects and physics in tmxmap docs with name of object being script name.
 - make a note about entt destroying components and to not allocate memory using components
+- make a note in docs that when making text objects in map, text fontfamily and size must be in fontbook in format: fontfamilySize and that parse code will remove spaces first.
+	- and size is pixelsize not pointsize
+- and about the layer for objects being explictitly specified in properites of layer.
+- make a note that the engine operates on degrees, but allegro draws in radians.
 
 classes to serialize:
 - music

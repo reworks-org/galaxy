@@ -163,9 +163,11 @@ namespace sl
 		tmx_object_group* objgr = layer->content.objgr;
 
 		// Prep for layer contstruction.
+		sol::state loader;
 		tmx_object *head = objgr->head;
 		ALLEGRO_COLOR color = intToColour(objgr->color, 255);
 
+		// Create objects bitmap.
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 		al_set_target_bitmap(objects);
 
@@ -189,7 +191,6 @@ namespace sl
 						std::string physObjScriptPath = Locator::world->m_scriptFolderPath + std::string(head->name);
 
 						// Prepare to create entity and load data.
-						sol::state loader;
 						entt::DefaultRegistry::entity_type physObjEntity = Locator::world->m_registry.create();
 
 						// Process script.
@@ -230,26 +231,52 @@ namespace sl
 				}
 				else if (head->obj_type == OT_TEXT)
 				{
-					/*
-					// first we stop drawing the current bitmap
+					// First we stop drawing the current bitmap...
 					al_flip_display();
-					
-					tmx_text* textElement = head->content.text;
-					std::string objTextID = "ObjectLayerText" + std::to_string(Time::getTimeSinceEpoch()) + std::string(textElement->text);
 
-					int points = std::floorf(static_cast<float>(textElement->pixelsize) * 72.0f / 96.0f);
-					std::string objTextFont = std::string(textElement->fontfamily) + std::to_string(points);
+					// Then get the information about the text.
+					tmx_text* objText = head->content.text;
+					std::string objTextID = "ObjectLayerText" + std::to_string(Time::getTimeSinceEpoch()) + std::string(objText->text);
+
+					// Create text texture in atlas.
+					std::string objTextFont = std::string(objText->fontfamily) + std::to_string(objText->pixelsize);
 					objTextFont.erase(std::remove_if(objTextFont.begin(), objTextFont.end(), isspace), objTextFont.end());
+					
+					// Get text alignment.
+					int alignment = 0;
+					switch (objText->halign)
+					{
+					case tmx_horizontal_align::HA_LEFT:
+						alignment = ALLEGRO_ALIGN_LEFT;
+						break;
 
-					Locator::textureAtlas->addTextToAtlas(objTextID, textElement->text, Locator::fontBook->get(entt::HashedString{ objTextFont.c_str() }), intToColour(textElement->color, 255));
+					case tmx_horizontal_align::HA_CENTER:
+						alignment = ALLEGRO_ALIGN_CENTER;
+						break;
 
-					entt::DefaultRegistry::entity_type objText = Locator::world->m_registry.create();
-					Locator::world->m_registry.assign<RenderComponent>(objText, 1.0f, objTextID);
-					Locator::world->m_registry.assign<TransformComponent>(objText, tmx_get_property(layer->properties, "layer")->value.integer, static_cast<float>(head->rotation), Rect<float, int>{ static_cast<float>(head->x), static_cast<float>(head->y), boost::numeric_cast<int>(head->width), boost::numeric_cast<int>(head->height) });
+					case tmx_horizontal_align::HA_RIGHT:
+						alignment = ALLEGRO_ALIGN_RIGHT;
+						break;
+
+					case tmx_horizontal_align::HA_NONE:
+						alignment = 0;
+						break;
+
+					default:
+						alignment = 0;
+						break;
+					}
+
+					// Add text to the texture atlas using retrieved values.
+					Locator::textureAtlas->addText(objTextID, objText->text, Locator::fontBook->get(objTextFont.c_str()), intToColour(objText->color, 255), alignment);
+					
+					// Then create the entity for it.
+					entt::DefaultRegistry::entity_type objTextEntity = Locator::world->m_registry.create();
+					Locator::world->m_registry.assign<RenderComponent>(objTextEntity, 1.0f, objTextID);
+					Locator::world->m_registry.assign<TransformComponent>(objTextEntity, tmx_get_property(layer->properties, "layer")->value.integer, static_cast<float>(head->rotation), Rect<float, int>{ static_cast<float>(head->x), static_cast<float>(head->y), boost::numeric_cast<int>(head->width), boost::numeric_cast<int>(head->height) });
 
 					// then we continue drawing, but don't clear it.
 					al_set_target_bitmap(objects);
-					*/
 				}
 			}
 

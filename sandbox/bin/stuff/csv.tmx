@@ -92,7 +92,7 @@ baz</property>
    <ellipse/>
   </object>
   <object id="5" name="text" x="122.33" y="117.33" width="226.368" height="161.784" rotation="10">
-   <text fontfamily="Secret Code" pixelsize="80" wrap="1" color="#ff0000">Hello World</text>
+   <text fontfamily="Secret Code" pixelsize="80" wrap="1" color="#55ffff">Hello World</text>
   </object>
   <object id="6" name="LeftWall.lua" x="-32" y="0" width="32" height="576"/>
   <object id="8" name="BottomWall.lua" x="-32" y="576" width="928" height="32"/>

@@ -44,7 +44,7 @@ namespace sl
 		/// Alternate Constructor.
 		///
 		/// \param layer Layer to render on.
-		/// \param angle Angle to render at.
+		/// \param angle Angle to render at. In degrees.
 		/// \param rect Position x, y and Dimensions width, height.
 		///
 		TransformComponent(int layer, float angle, const Rect<float, int>& rect);
@@ -77,6 +77,7 @@ namespace sl
 
 		///
 		/// The angle the entity is rotated to.
+		/// In degrees.
 		///
 		float m_angle;
 

@@ -61,8 +61,9 @@ namespace sl
 		/// \param text Text to draw.
 		/// \param font Font to use.
 		/// \param col Colour to use.
+		/// \param flags ALLEGRO flags to pass to text rendering.
 		///
-		void addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col);
+		void addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col, int flags = 0);
 
 		///
 		/// \brief A function that takes a lua script to add a batch of text.

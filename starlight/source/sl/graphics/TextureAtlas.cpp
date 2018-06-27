@@ -14,10 +14,12 @@
 #include <allegro5/bitmap_draw.h>
 
 #include "sl/fs/VirtualFS.hpp"
+#include "sl/math/Vector2.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/resources/FontBook.hpp"
+#include "sl/physics/Box2DHelper.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "TextureAtlas.hpp"
@@ -71,10 +73,8 @@ namespace sl
 		al_flip_display();
 		al_set_target_bitmap(al_get_backbuffer(Locator::window->getDisplay()));
 		
-		if (efl != NULL)
-		{
-			PHYSFS_freeList(efl);
-		}
+		// Free up the list.
+		PHYSFS_freeList(efl);
 	}
 
 	TextureAtlas::~TextureAtlas()
@@ -105,17 +105,48 @@ namespace sl
 		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, packedRect);
 	}
 
-	void TextureAtlas::addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col)
+	void TextureAtlas::addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col, int flags)
 	{
-		// Get text dimensions and create bitmap of that size.
-		int w = al_get_text_width(font, text.c_str());
-		int h = al_get_font_line_height(font);
-		ALLEGRO_BITMAP* bitmap = al_create_bitmap(w, h);
-		
+		// We set as a pair with a vector2 because it lets us pass 2 arguments through extra, along with font.
+		// Because allegro wont except a lamba with a capture, and I don't want any global functions or variables.
+		// Vector2 default-constructs to 0, which is what is wanted.
+		std::pair<ALLEGRO_FONT*, Vector2<int>> fwh;
+		fwh.first = font;
+
+		// Calculate bitmap width and height.
+		al_do_multiline_text(font, text.length(), text.c_str(), [](int line_num, const char* line, int size, void* extra) -> bool
+		{
+			// Get fwh pointer.
+			auto* fwhPtr = static_cast<std::pair<ALLEGRO_FONT*, Vector2<int>>*>(extra);
+
+			// Retrieve text dimensions.
+			int textWidth = 0;
+			int textHeight = 0;
+			int bbx, bby; // We dont care about this.
+			
+			al_get_text_dimensions(fwhPtr->first, line, &bbx, &bby, &textWidth, &textHeight);
+
+			// Make sure the width is the same as the largest text line's width.
+			if (textWidth >= fwhPtr->second.m_x)
+			{
+				fwhPtr->second.m_x = textWidth;
+			}
+
+			// And that the height takes into account each line of text and the gap between lines.
+			fwhPtr->second.m_y += (textHeight + al_get_font_line_height(fwhPtr->first));
+
+			return true;
+		}, &fwh);
+
+		ALLEGRO_BITMAP* bitmap = al_create_bitmap(fwh.second.m_x, fwh.second.m_y);
+
 		// Then draw the text to that bitmap so it can be added to the atlas.
 		al_set_target_bitmap(bitmap);
 		al_clear_to_color(al_map_rgba(255, 255, 255, 0));
-		al_draw_text(font, col, 0, 0, 0, text.c_str());
+
+		// We pass 0 for line height so allegro defaults to font_line_height like in the calculations above.
+		al_draw_multiline_text(font, col, 0, 0, text.length(), 0, flags, text.c_str());
+
 		al_flip_display();
 
 		// Then add that bitmap to the atlas.
@@ -172,7 +203,7 @@ namespace sl
 		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
 
 		// Draw that texture on the atlas.
-		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, tint, cx, cy, dx, dy, xscale, yscale, angle, flags);
+		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, tint, cx, cy, dx, dy, xscale, yscale, Box2DHelper::degToRad<float>(angle), flags);
 	}
 
 	void TextureAtlas::clean()

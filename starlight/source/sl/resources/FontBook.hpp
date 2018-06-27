@@ -26,7 +26,7 @@ namespace sl
 		/// \brief Construct FontManager and add fonts.
 		///
 		/// You can have multiple of the same font file provided the id and size are different.
-		/// E.g. "Arial12" or "Arial14".
+		/// E.g. "Arial12" or "Arial14". Size should be pixel size.
 		///
 		/// \param script Script file containing font data to parse.
 		///
