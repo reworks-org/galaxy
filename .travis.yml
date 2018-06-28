@@ -36,8 +36,8 @@ notifications:
     on_failure: always
 
 before_install:
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install liballegro5.2 && sudo apt-get install libxml2
-- if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2
+- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install liballegro5.2 && sudo apt-get install libxml2; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2; fi
 
 install:
   - git clone --recursive https://github.com/algorys/cmakeconverter.git
