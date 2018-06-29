@@ -2,6 +2,9 @@ language: cpp
 sudo: required
 dist: trusty
 
+services:
+  - docker
+
 git:
   depth: false
 
