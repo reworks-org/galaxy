@@ -92,6 +92,7 @@ namespace sl
 		/// So for example, a font family named "Sans Serif" and pixel size of 37 means your table name in fonts.lua should be:
 		/// SansSerif27. You can get the font point size and pixel size from the tmx map. 
 		/// The info box on the left when selecting text shows u font family and pixel size, and if you click onthe text it will show you font point size.
+		/// And ofcourse, the layer must be named "collision" for physics data to be created.
 		///
 		void processObjects(tmx_map* map, tmx_layer* layer);
 

@@ -59,22 +59,31 @@ namespace sl
 		///
 		/// Thanks to: https://stackoverflow.com/a/4505931
 		///
-		/// \param filename Name of file with an extension to retrieve. ONLY WORKS FOR FILES. DO NOT USE FOR PATHS! ESPECIALLY PATHS WITH DOTS IN THEM!
+		/// \param fileName Name of file with an extension to retrieve. ONLY WORKS FOR FILES. DO NOT USE FOR PATHS! ESPECIALLY PATHS WITH DOTS IN THEM!
 		///
-		/// \return string containing extension.
+		/// \return string containing extension, otherwise empty string if no extension.
 		///
-		static const std::string getExtension(const std::string& filename);
+		static const std::string getExtension(const std::string& fileName);
 
 		///
 		/// \brief Remove an extension.
 		///
 		/// Thanks to: http://stackoverflow.com/a/6417908
 		///
-		/// \param filename Name of the file with the extension to remove. ONLY WORKS FOR FILES. DO NOT USE FOR PATHS! ESPECIALLY PATHS WITH DOTS IN THEM!
+		/// \param fileName Name of the file with the extension to remove. ONLY WORKS FOR FILES. DO NOT USE FOR PATHS! ESPECIALLY PATHS WITH DOTS IN THEM!
 		///
-		/// \return filename without extension.
+		/// \return fileName without extension.
 		///
-		static const std::string removeExtension(const std::string& filename);
+		static const std::string removeExtension(const std::string& fileName);
+
+		///
+		/// \brief Retrieve a base name of a file in a path.
+		///
+		/// \param pathWithFileName Be careful with this. It is cross-platform but avoid any special cases i.e. paths with dots in them, or multiple slashes, etc.
+		///
+		/// \return std::string of the file name without the path.
+		///
+		static const std::string getBaseName(const std::string& pathWithFileName);
 
 		///
 		/// Converts a boolean to a std::string.

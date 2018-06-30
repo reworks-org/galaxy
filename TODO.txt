@@ -13,19 +13,14 @@
 	- how many entitys to create of each type from each script
 	- i.e. scripts are basicically templates for entity creation
 	- remove concepts of unique entitys
-- travis-ci / osx / linux builds
-- text loading from tmx maps
 - more physics shapes from tmx maps.
 - https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
-- sort out dependency librarys, try to reduce amount / update them.
-fix level / state design (want to load / savebased off of an id)
 - loading screens between states
 - resources are loaded on a differnet thread
 http://gameprogrammingpatterns.com/state.html
 https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
-- remove loguru and cereal for boost libs and other libs aswell try to minimize dependencies.
 - better code integration
 	- https://github.com/algorys/cmakeconverter for travis-ci
 	- appveyor also needs to have access to more compilers
@@ -57,3 +52,6 @@ docs notes:
 	- and size is pixelsize not pointsize
 - and about the layer for objects being explictitly specified in properites of layer.
 - make a note that the engine operates on degrees, but allegro draws in radians.
+- make a note about layerrs and tmx mpa
+- make a note aboutt physics objects only being created if layreri s named collision, also note that it doesnt matter where textrues and stuff in tmx path too because only the last file name in the path is used.
+	- i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine will process this as "tiles.png"

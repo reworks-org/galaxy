@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="28" height="18" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#ffff7f" nextobjectid="12">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="28" height="18" tilewidth="32" tileheight="32" backgroundcolor="#ffff7f" nextobjectid="6">
  <properties>
   <property name="alt" type="file" value="b64zlib.tmx"/>
   <property name="bool_false" type="bool" value="false"/>
   <property name="bool_true" type="bool" value="true"/>
   <property name="colour" type="color" value="#cc1a1a1a"/>
+  <property name="layer" type="int" value="0"/>
   <property name="multilines">foo
 bar
 baz</property>
@@ -12,7 +13,7 @@ baz</property>
   <property name="xml" value="libxml2"/>
  </properties>
  <tileset firstgid="1" name="base" tilewidth="32" tileheight="32" spacing="1" tilecount="9" columns="3">
-  <image source="numbers.png" width="100" height="100"/>
+  <image source="textures/numbers.png" width="100" height="100"/>
   <tile id="0">
    <properties>
     <property name="number" type="int" value="1"/>
@@ -46,7 +47,7 @@ baz</property>
  </tileset>
  <group name="Group">
   <imagelayer name="Image">
-   <image source="bg.jpg" width="896" height="576"/>
+   <image source="textures/bg.jpg" width="896" height="576"/>
    <properties>
     <property name="alt" value="rainbow"/>
     <property name="layer" type="int" value="0"/>
@@ -78,10 +79,11 @@ baz</property>
 </data>
   </layer>
  </group>
- <objectgroup color="#aa0000" name="collision">
+ <objectgroup color="#aa0000" name="Objects">
   <properties>
    <property name="layer" type="int" value="2"/>
   </properties>
+  <object id="1" name="square" type="spawn" x="128" y="128" width="192" height="192" rotation="22.5"/>
   <object id="2" name="polygon" x="492" y="325">
    <polygon points="20,-5 -44,-197 180,-229"/>
   </object>
@@ -91,12 +93,8 @@ baz</property>
   <object id="4" name="ellipse" x="672" y="352" width="160" height="160">
    <ellipse/>
   </object>
-  <object id="5" name="text" x="122.33" y="117.33" width="226.368" height="161.784" rotation="10">
-   <text fontfamily="Secret Code" pixelsize="80" wrap="1" color="#55ffff">Hello World</text>
+  <object id="5" name="text" x="251" y="16" width="353" height="209" rotation="10">
+   <text fontfamily="Secret Code" pixelsize="80" wrap="1" color="#ff0000">Hello There!</text>
   </object>
-  <object id="6" name="LeftWall.lua" x="-32" y="0" width="32" height="576"/>
-  <object id="8" name="BottomWall.lua" x="-32" y="576" width="928" height="32"/>
-  <object id="9" name="RightWall.lua" x="896" y="0" width="32" height="608"/>
-  <object id="10" name="TopWall.lua" x="-32" y="-32" width="960" height="32"/>
  </objectgroup>
 </map>

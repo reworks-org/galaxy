@@ -11,12 +11,14 @@
 
 namespace sl
 {
-	const std::string Utils::getExtension(const std::string& filename)
+	const std::string Utils::getExtension(const std::string& fileName)
 	{
 		// Find the last point, which means everything after is the extension, and get a substring of it.
-		if (filename.find_last_of(".") != std::string::npos)
+		// Otherwise return an empty string signifying no extension.
+		std::size_t lastDot = fileName.find_last_of(".");
+		if (lastDot != std::string::npos)
 		{
-			return filename.substr(filename.find_last_of(".") + 1);
+			return fileName.substr(lastDot + 1);
 		}
 		else
 		{
@@ -24,17 +26,33 @@ namespace sl
 		}
 	}
 
-	const std::string Utils::removeExtension(const std::string& filename)
+	const std::string Utils::removeExtension(const std::string& fileName)
 	{
 		// Return everything before final dot, since that is everything before the extension.
-		size_t lastdot = filename.find_last_of(".");
-		if (lastdot == std::string::npos)
+		// Otherwise just return the file if there is no extension.
+		std::size_t lastDot = fileName.find_last_of(".");
+		if (lastDot != std::string::npos)
 		{
-			return filename;
+			return fileName.substr(0, lastDot);
 		}
 		else
 		{
-			return filename.substr(0, lastdot);
+			return fileName;
+		}
+	}
+
+	const std::string Utils::getBaseName(const std::string& pathWithFileName)
+	{
+		// Return everything after the last path splitters.
+		// Otherwise just return the name if there is no path splitting.
+		std::size_t base = pathWithFileName.find_last_of("/\\");
+		if (base != std::string::npos)
+		{
+			return pathWithFileName.substr(base + 1);
+		}
+		else
+		{
+			return pathWithFileName;
 		}
 	}
 

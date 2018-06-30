@@ -66,7 +66,7 @@ namespace sl
 				// ...process based off of type but only if visible.
 				if (layers->type == L_GROUP)
 				{
-					// If its a ordinary layer, process it.
+					// If its in a group, we process the group as if it was a map.
 					processAllLayers(layers->content.group_head);
 				}
 				else if (layers->type == L_OBJGR)
@@ -150,7 +150,7 @@ namespace sl
 		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
 
 		// Set up a render component and transform component using information from the layer.
-		Locator::world->m_registry.assign<RenderComponent>(entity, op, Utils::removeExtension(layer->content.image->source));
+		Locator::world->m_registry.assign<RenderComponent>(entity, op, Utils::removeExtension(Utils::getBaseName(layer->content.image->source)));
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
 	}
 
@@ -184,30 +184,33 @@ namespace sl
 			{
 				if (head->obj_type == OT_SQUARE)
 				{
-					// If it is a square, check for a name and if so create an entity to process physics data in box2d with.
-					if (Utils::nullToEmpty(head->name) != "")
+					// If it is a square, and the layer name is collision, check for a name and if so create an entity to process physics data in box2d with.
+					if (std::string(layer->name) == "collision")
 					{
-						// Get path to script.
-						std::string physObjScriptPath = Locator::world->m_scriptFolderPath + std::string(head->name);
-
-						// Prepare to create entity and load data.
-						entt::DefaultRegistry::entity_type physObjEntity = Locator::world->m_registry.create();
-
-						// Process script.
-						loader.script(Locator::virtualFS->openAsString(physObjScriptPath));
-						sol::table physicsObjectTable = loader.get<sol::table>("PhysicsObject");
-
-						if (!physicsObjectTable.empty())
+						if (Utils::nullToEmpty(head->name) != "")
 						{
-							// Then assign lua tables to components to create them.
-							Locator::world->m_registry.assign<PhysicsComponent>(physObjEntity, physicsObjectTable);
+							// Get path to script.
+							std::string physObjScriptPath = Locator::world->m_scriptFolderPath + std::string(head->name);
 
-							// Then retrieve the registered component and ensure fixtures have correct collision entities.
-							Locator::world->m_registry.get<PhysicsComponent>(physObjEntity).setFixtureEntity(physObjEntity);
-						}
-						else
-						{
-							LOG_S(WARNING) << "Physics Object table was empty! Script Name: " << head->name;
+							// Prepare to create entity and load data.
+							entt::DefaultRegistry::entity_type physObjEntity = Locator::world->m_registry.create();
+
+							// Process script.
+							loader.script(Locator::virtualFS->openAsString(physObjScriptPath));
+							sol::table physicsObjectTable = loader.get<sol::table>("PhysicsObject");
+
+							if (!physicsObjectTable.empty())
+							{
+								// Then assign lua tables to components to create them.
+								Locator::world->m_registry.assign<PhysicsComponent>(physObjEntity, physicsObjectTable);
+
+								// Then retrieve the registered component and ensure fixtures have correct collision entities.
+								Locator::world->m_registry.get<PhysicsComponent>(physObjEntity).setFixtureEntity(physObjEntity);
+							}
+							else
+							{
+								LOG_S(WARNING) << "Physics Object table was empty! Script Name: " << head->name;
+							}
 						}
 					}
 
@@ -353,13 +356,13 @@ namespace sl
 						if (im)
 						{
 							// Retrieve the image name and get the sub-bitmap for the tile image.
-							identifier = Utils::removeExtension(im->source);
+							identifier = Utils::removeExtension(Utils::getBaseName(im->source));
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 						else
 						{
 							// Else retrieve tileset from texture atlas.
-							identifier = Utils::removeExtension(ts->image->source);
+							identifier = Utils::removeExtension(Utils::getBaseName(ts->image->source));
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 
@@ -383,12 +386,12 @@ namespace sl
 						if (im)
 						{
 							// Retrieve the image name and get the sub-bitmap for the tile image.
-							identifier = Utils::removeExtension(im->source);
+							identifier = Utils::removeExtension(Utils::getBaseName(im->source));
 						}
 						else
 						{
 							// Else retrieve tileset from texture atlas.
-							identifier = Utils::removeExtension(ts->image->source);
+							identifier = Utils::removeExtension(Utils::getBaseName(ts->image->source));
 						}
 
 						// We get that extact tile from the atlas by offsetting the postion of the tile texture in the atlas by
@@ -408,10 +411,6 @@ namespace sl
 						Locator::world->m_registry.assign<RenderComponent>(animatedEntity, op, id);
 						Locator::world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
 					}
-				}
-				else
-				{
-					LOG_S(ERROR) << "Map tiles are NULL! Internal Error: " << tmx_strerr();
 				}
 			}
 		}

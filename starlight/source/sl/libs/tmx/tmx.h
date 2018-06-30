@@ -29,6 +29,11 @@ extern "C" {
 #define TMX_FLIPPED_DIAGONALLY   0x20000000
 #define TMX_FLIP_BITS_REMOVAL    0x1FFFFFFF
 
+/*define zlib, added by starlight framework*/
+#ifndef WANT_ZLIB
+#define WANT_ZLIB
+#endif
+
 /*
 	Configuration
 */

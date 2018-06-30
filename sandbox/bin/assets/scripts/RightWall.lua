@@ -1,14 +1,14 @@
 PhysicsObject =
 {
-	x = 896,
+	x = 1280,
 	y = 0,
 	bodyType = 0,
 	fixtureList =
 	{
 		Wall =
 		{
-			w = 32,
-			h = 608,
+			w = 16,
+			h = 720,
 			angle = 0,
 			density = 1,
 			friction = 1,
