@@ -368,7 +368,7 @@ namespace sl
 
 						// Retrieve any flags and pass to the allegro draw function, drawing the tile to the master tilemap layer image.
 						flags = gidExtractFlags(layer->content.gids[(i*map->width) + j]);
-						al_draw_tinted_bitmap_region(tileset, al_map_rgba_f(0.0f, 0.0f, 0.0f, op), x, y, w, h, j*ts->tile_width, i*ts->tile_height, flags);
+						al_draw_tinted_bitmap_region(tileset, al_map_rgba_f(op, op, op, op), x, y, w, h, j*ts->tile_width, i*ts->tile_height, flags);
 						
 						// Then destroy the used up tileset.
 						al_destroy_bitmap(tileset);
