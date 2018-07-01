@@ -2608,13 +2608,13 @@
     <Allegro_AddonFont>true</Allegro_AddonFont>
     <Allegro_AddonColor>true</Allegro_AddonColor>
     <Allegro_AddonVideo>true</Allegro_AddonVideo>
-    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
     <Allegro_AddonImage>true</Allegro_AddonImage>
     <Allegro_AddonTTF>true</Allegro_AddonTTF>
     <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
