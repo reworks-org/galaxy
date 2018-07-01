@@ -52,7 +52,7 @@ docs notes:
 - make a note about layerrs and tmx mpa
 - make a note aboutt physics objects only being created if layreri s named collision, also note that it doesnt matter where textrues and stuff in tmx path too because only the last file name in the path is used.
 	- i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine wl process this as "tiles.png"\
-
+- only embedded tilesets supported for now.
 
 
 

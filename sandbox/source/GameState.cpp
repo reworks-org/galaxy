@@ -21,7 +21,7 @@ using namespace sl;
 
 GameState::GameState()
 {
-	map = std::make_unique<sl::TMXMap>("sewers.tmx", 2.5f);
+	map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
 	m_bounds.m_height = map->m_internalMap->height;
 	m_bounds.m_width = map->m_internalMap->width;
 	m_bounds.m_x = 0;
