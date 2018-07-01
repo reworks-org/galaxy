@@ -73,6 +73,8 @@ namespace sl
 
 	Music::~Music()
 	{
+		stop();
+
 		// Destroy instance and music when object is destroyed.
 		al_destroy_sample_instance(m_instance);
 		al_destroy_sample(m_music);

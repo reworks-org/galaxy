@@ -38,7 +38,28 @@ namespace sl
 		///
 		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain.
 		///
-		void changeMusicVolume(float volume);
+		void changeVolume(float volume);
+
+		///
+		/// Play a song from the beginning.
+		///
+		/// \param music The music file to use.
+		///
+		void play(const char* music);
+
+		///
+		/// Stops a song.
+		///
+		/// \param music The music file to use.
+		///
+		void stop(const char* music);
+
+		///
+		/// Resumes a stopped song from the position where it stopped.
+		///
+		/// \param music The music file to use.
+		///
+		void resume(const char* music);
 
 		///
 		/// Clean up resources.

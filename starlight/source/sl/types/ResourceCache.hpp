@@ -41,15 +41,9 @@ namespace sl
 		{
 			// Create hashed string.
 			entt::HashedString hs{ id };
-			if (m_resourceMap.find(hs) != m_resourceMap.end())
-			{
-				return m_resourceMap[hs];
-			}
-			else
-			{
-				LOG_S(FATAL) << "Attempted to access a non-existant resource: " << id;
-				return m_resourceMap.at(hs); // at() is used here because it throws an exception if it does not exist.
-			}
+
+			// at() is used because it throws an exception.
+			return m_resourceMap.at(hs);
 		}
 
 		///

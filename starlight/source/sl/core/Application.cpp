@@ -126,6 +126,7 @@ namespace sl
 		m_world->m_lua.new_usertype<std::uint16_t>("uint16_t");
 		m_world->m_lua.new_usertype<entt::DefaultRegistry::entity_type>("entity");
 
+		// Engine usertypes.
 		m_world->m_lua.new_usertype<Vector2<int>>("Vector2i",
 			sol::constructors<Vector2<int>(), Vector2<int>(int, int)>(),
 			"transpose", &Vector2<int>::transpose,
@@ -223,6 +224,7 @@ namespace sl
 			"setFixtureEntity", &PhysicsComponent::setFixtureEntity
 		);
 
+		// Entt
 		m_world->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
 			sol::constructors<Sol2enttWorkaround()>(),
 			"create", &Sol2enttWorkaround::create,
@@ -242,6 +244,14 @@ namespace sl
 			"push", &StateMachine::push,
 			"pop", &StateMachine::pop);
 		m_world->m_lua["stateMachine"] = m_stateMachine.get();
+
+		// AudioPlayer
+		m_world->m_lua.new_usertype<MusicPlayer>("MusicPlayer",
+			"play", &MusicPlayer::play,
+			"stop", &MusicPlayer::stop,
+			"resume", &MusicPlayer::resume,
+			"changeVolume", &MusicPlayer::changeVolume);
+		m_world->m_lua["musicPlayer"] = m_musicPlayer.get();
 	}
 
 	Application::~Application()

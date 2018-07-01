@@ -13,6 +13,7 @@
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/components/RenderComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
+#include <sl/resources/MusicPlayer.hpp>
 
 #include "GameState.hpp"
 
@@ -25,6 +26,8 @@ GameState::GameState()
 	m_bounds.m_width = map->m_internalMap->width;
 	m_bounds.m_x = 0;
 	m_bounds.m_y = 0;
+
+	Locator::musicPlayer->get("background").play();
 }
 
 GameState::~GameState()

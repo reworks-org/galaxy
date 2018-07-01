@@ -43,7 +43,7 @@ namespace sl
 		clean();
 	}
 
-	void MusicPlayer::changeMusicVolume(float volume)
+	void MusicPlayer::changeVolume(float volume)
 	{
 		// Correct volume range.
 		if (volume > 1.0)
@@ -54,7 +54,7 @@ namespace sl
 		// Correct volume range.
 		if (volume < 0.0) 
 		{
-			volume = 0.0f; 
+			volume = 0.0f;
 		}
 
 		// Adjust volume of the music.
@@ -62,6 +62,21 @@ namespace sl
 		{
 			it.second.setVolume(volume);
 		}
+	}
+
+	void MusicPlayer::play(const char* music)
+	{
+		get(music).play();
+	}
+
+	void MusicPlayer::stop(const char* music)
+	{
+		get(music).stop();
+	}
+
+	void MusicPlayer::resume(const char* music)
+	{
+		get(music).resume();
 	}
 
 	void MusicPlayer::clean()

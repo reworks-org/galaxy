@@ -43,7 +43,7 @@ namespace sl
 		clean();
 	}
 
-	void SoundPlayer::changeSoundVolume(float volume)
+	void SoundPlayer::changeVolume(float volume)
 	{
 		// Correct volume range.
 		if (volume > 1.0f)

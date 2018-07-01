@@ -316,7 +316,7 @@ namespace sl
 
 		tmx_tileset *ts = nullptr;
 		tmx_image *im = nullptr;
-		std::string identifier;
+		std::string identifier = "";
 		ALLEGRO_BITMAP* tileset = nullptr;
 		float op = layer->opacity;
 

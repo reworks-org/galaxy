@@ -82,7 +82,7 @@ namespace ImGui
 				ImGui::EndPopup();
 			}
 
-			ImGui::TextWrapped("Enter 'CLEAR' to clear, HISTORY for history, Exit for exit, or lua code. Prefix lua code with 'return' to get an output.");
+			ImGui::TextWrapped("Enter 'CLEAR' to clear, HISTORY for history, EXIT for exit, or lua code. Prefix lua code with 'return' to get an output.");
 
 			// TODO: display items starting from the bottom
 

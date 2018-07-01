@@ -37,22 +37,22 @@ namespace sl
 		/// Destructor.
 		///
 		~Music();
-
+		
 		///
 		/// Play the song from the beginning.
 		///
 		void play();
 
 		///
-		/// Stops the song.
+		/// Stops the current song.
 		///
 		void stop();
 
 		///
-		/// Resumes a stopped song from the position where it stopped.
+		/// Resumes the currently stopped song from the position where it stopped.
 		///
 		void resume();
-		
+
 		///
 		/// Change the pan.
 		///

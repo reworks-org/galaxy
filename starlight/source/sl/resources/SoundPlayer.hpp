@@ -38,7 +38,7 @@ namespace sl
 		///
 		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain.
 		///
-		void changeSoundVolume(float volume);
+		void changeVolume(float volume);
 
 		///
 		/// Clean up resources.
