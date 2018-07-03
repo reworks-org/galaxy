@@ -108,8 +108,7 @@ namespace sl
 	void TMXMap::drawPolyline(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
 	{
 		// Iterate over the points to draw and draw them in a line.
-		int i;
-		for (i = 1; i<pointsc; i++)
+		for (int i = 1; i < pointsc; i++)
 		{
 			al_draw_line(x + points[i - 1][0], y + points[i - 1][1], x + points[i][0], y + points[i][1], colour, m_lineThickness);
 		}
@@ -157,7 +156,8 @@ namespace sl
 	void TMXMap::processObjects(tmx_map* map, tmx_layer* layer)
 	{
 		// Retrieve layer data.
-		static unsigned int poCounter = 0;
+		static unsigned int s_poCounter = 0;
+		bool objectIsDrawn = false;
 		unsigned int w = map->width * map->tile_width;
 		unsigned int h = map->height * map->tile_height;
 		tmx_object_group* objgr = layer->content.objgr;
@@ -170,10 +170,6 @@ namespace sl
 		// Create objects bitmap.
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 		al_set_target_bitmap(objects);
-
-		// Assign object to an entity and create transform data.
-		entt::DefaultRegistry::entity_type objLayerEntity = Locator::world->m_registry.create();
-		Locator::world->m_registry.assign<TransformComponent>(objLayerEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 		// Prepare to draw texture to render.
 		al_clear_to_color(al_map_rgba_f(1.0f, 1.0f, 1.0f, 0.0f));
@@ -216,21 +212,26 @@ namespace sl
 
 					// Then draw object to object layer.
 					al_draw_rectangle(head->x, head->y, head->x + head->width, head->y + head->height, color, m_lineThickness);
+
+					objectIsDrawn = true;
 				}
 				else if (head->obj_type == OT_POLYGON)
 				{
 					// Draw polygon object to object layer.
 					drawPolygon(head->content.shape->points, head->x, head->y, head->content.shape->points_len, color);
+					objectIsDrawn = true;
 				}
 				else if (head->obj_type == OT_POLYLINE)
 				{
 					// Draw polyline object to object layer.
 					drawPolyline(head->content.shape->points, head->x, head->y, head->content.shape->points_len, color);
+					objectIsDrawn = true;
 				}
 				else if (head->obj_type == OT_ELLIPSE)
 				{
 					// Draw ellipse object to object layer.
 					al_draw_ellipse(head->x + head->width / 2.0, head->y + head->height / 2.0, head->width / 2.0, head->height / 2.0, color, m_lineThickness);
+					objectIsDrawn = true;
 				}
 				else if (head->obj_type == OT_TEXT)
 				{
@@ -290,16 +291,23 @@ namespace sl
 		al_flip_display();
 		al_set_target_backbuffer(Locator::window->getDisplay());
 		
-		// Then add it to the texture atlas ensuring a unique id.
-		std::string id = "ObjectLayerNo" + std::to_string(Time::getTimeSinceEpoch()) + std::to_string(poCounter);
-		Locator::textureAtlas->addTexture(id, objects);
+		if (objectIsDrawn)
+		{
+			// Assign object to an entity and create transform data.
+			entt::DefaultRegistry::entity_type objLayerEntity = Locator::world->m_registry.create();
+			Locator::world->m_registry.assign<TransformComponent>(objLayerEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
-		// Add the new texture to a render component for the entity.
-		Locator::world->m_registry.assign<RenderComponent>(objLayerEntity, 1.0f, id);
+			// Then add it to the texture atlas ensuring a unique id.
+			std::string id = "ObjectLayerNo" + std::to_string(Time::getTimeSinceEpoch()) + std::to_string(s_poCounter);
+			Locator::textureAtlas->addTexture(id, objects);
+
+			// Add the new texture to a render component for the entity.
+			Locator::world->m_registry.assign<RenderComponent>(objLayerEntity, 1.0f, id);
+		}
 
 		// Cleanup.
 		al_destroy_bitmap(objects);
-		++poCounter;
+		++s_poCounter;
 	}
 
 	void TMXMap::processLayer(tmx_map* map, tmx_layer* layer)
@@ -320,10 +328,6 @@ namespace sl
 		ALLEGRO_BITMAP* tileset = nullptr;
 		float op = layer->opacity;
 
-		// Create entity for layer tilemap.
-		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
-		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
-
 		// Set up drawing for the tilemap.
 		ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width * map->tile_width, map->height * map->tile_height);
 		al_set_target_bitmap(tileLayer);
@@ -331,16 +335,17 @@ namespace sl
 		al_hold_bitmap_drawing(true);
 
 		// Iterate over each tile in the tilemap.
-		for (i = 0; i<map->height; i++)
+		for (i = 0; i < map->height; i++)
 		{
-			for (j = 0; j<map->width; j++)
+			for (j = 0; j < map->width; j++)
 			{
 				// Retrieve the tile grid id, clearing the flags, making sure the tile at that gid is not NULL.
 				gid = gidClearFlags(layer->content.gids[(i*map->width) + j]);
 
-				tmx_tile* gidTile = map->tiles[gid];
-				if (gidTile != nullptr)
+				if (map->tiles[gid] != NULL)
 				{
+					tmx_tile* gidTile = map->tiles[gid];
+					
 					// If the tile has no animation.
 					if (!(gidTile->animation))
 					{
@@ -425,6 +430,9 @@ namespace sl
 		al_destroy_bitmap(tileLayer);
 
 		// And assign the tilemap render id to an entity so it can be rendered.
+		// Create entity for layer tilemap.
+		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
+		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, layer->name);
 	}
 }

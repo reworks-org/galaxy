@@ -3,13 +3,13 @@
  <tileset firstgid="1" name="platformer_tiles" tilewidth="16" tileheight="16" tilecount="4" columns="4">
   <image source="textures/tiles.png" width="64" height="16"/>
  </tileset>
- <imagelayer name="bg">
+ <imagelayer name="platformerTMXbg">
   <image source="textures/bg_forest.png" width="1280" height="720"/>
   <properties>
    <property name="layer" type="int" value="0"/>
   </properties>
  </imagelayer>
- <layer name="tiles" width="80" height="45">
+ <layer name="platformerTMXtiles" width="80" height="45">
   <properties>
    <property name="layer" type="int" value="1"/>
   </properties>
@@ -61,7 +61,7 @@
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3
 </data>
  </layer>
- <objectgroup name="text">
+ <objectgroup name="platformerTMXtext">
   <properties>
    <property name="layer" type="int" value="2"/>
   </properties>

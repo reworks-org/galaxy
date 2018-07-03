@@ -54,7 +54,7 @@ docs notes:
 	- i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine wl process this as "tiles.png"\
 - only embedded tilesets supported for now.
 - tile rendeirng issues, refer to original code ?
-
+- ensure tmx layer names are unique for ALL maps.
 
 
 

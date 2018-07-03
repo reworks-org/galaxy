@@ -86,8 +86,15 @@ namespace sl
 	{
 		// Set the algorithm to use when packing the bin, in this case bestshortsidefit.
 		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
-		Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(textureData), al_get_bitmap_height(textureData), heuristic);
+		int w = al_get_bitmap_width(textureData);
+		int h = al_get_bitmap_height(textureData);
+		Rect<int> packedRect = m_bin.Insert(w, h, heuristic);
 		
+		// Correct width and height.
+		// For some reason the algorithm was reversing this.
+		packedRect.m_width = w;
+		packedRect.m_height = h;
+
 		// Making sure it was actually packed.
 		if (packedRect.m_height <= 0)
 		{
