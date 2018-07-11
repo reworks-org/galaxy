@@ -9,21 +9,38 @@
 
 #include "Serializer.hpp"
 
+#include "sl/core/StateMachine.hpp"
+#include "sl/core/ServiceLocator.hpp"
+#include "sl/resources/MusicPlayer.hpp"
+
 namespace sl
 {
-	Serializer::Serializer(const std::string& saveFilePath) noexcept
+	Serializer::Serializer(const std::string& saveFilePath)
 	:m_saveFilePath(saveFilePath)
 	{
 	}
 
-	void Serializer::createFrameworkSnapshot(cereal::JSONOutputArchive& archive, entt::DefaultRegistry& source)
+	void Serializer::createFrameworkSnapshot(cereal::JSONOutputArchive& oarchive, entt::DefaultRegistry& source)
 	{
-		//source.snapshot().entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive);
+		// Serialise current music position.
+		for (auto& pair : Locator::musicPlayer->m_resourceMap)
+		{
+			oarchive(pair.second);
+		}
+
+		// Serialize the state machine
+		oarchive(*(Locator::stateMachine));
 	}
 
-	void Serializer::loadFrameworkSnapshot(cereal::JSONInputArchive& archive, entt::DefaultRegistry& destination)
+	void Serializer::loadFrameworkSnapshot(cereal::JSONInputArchive& iarchive, entt::DefaultRegistry& destination)
 	{
-		//entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
-		//loader.entities(archive).component<AnimationComponent, TransformComponent, PhysicsComponent, RenderComponent>(archive).tag<CameraTag>(archive).destroyed(archive).orphans().shrink();
+		// Deserialise current music position.
+		for (auto& pair : Locator::musicPlayer->m_resourceMap)
+		{
+			iarchive(pair.second);
+		}
+
+		// Deserialize the state machine
+		iarchive(*(Locator::stateMachine));
 	}
 }

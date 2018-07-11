@@ -99,6 +99,49 @@ namespace sl
 		});
 	}
 
+	void World::createDuplicateEntities(const std::string& script)
+	{
+		// Load the script into a lua instance.
+		sol::state loader;
+		loader.script(Locator::virtualFS->openAsString(script));
+
+		sol::table table = loader.get<sol::table>("entity");
+		unsigned int count = table.get<unsigned int>("count");
+
+		for (unsigned int i = 0; i < count; ++i)
+		{
+			// Create entity.
+			entt::DefaultRegistry::entity_type entity = m_registry.create();
+
+			// Loop over components
+			if (!table.empty())
+			{
+				table.for_each([&](std::pair<sol::object, sol::object> pair)
+				{
+					// Use the assign function to create components for entities without having to know the type.
+					m_componentAssign[entt::HashedString{ pair.first.as<const char*>() }](entity, pair.second.as<sol::table>());
+
+					// Then if its the physics component, we set up the fixture collision callback entity.
+					if (pair.first.as<const char*>() == "PhysicsComponent")
+					{
+						m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
+					}
+				});
+			}
+
+			// Loop over tags and assign.
+			sol::table tags = table.get<sol::table>("tags");
+			if (!tags.empty())
+			{
+				tags.for_each([&](std::pair<sol::object, sol::object> pair)
+				{
+					// Use the assign function to create tags for entities without having to know the type.
+					m_tagAssign[entt::HashedString{ pair.first.as<const char*>() }](entity, pair.second.as<sol::table>());
+				});
+			}
+		}
+	}
+
 	void World::event(ALLEGRO_EVENT* event)
 	{
 		// Process systems events.

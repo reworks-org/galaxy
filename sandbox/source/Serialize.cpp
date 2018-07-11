@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <fstream>
+
 #include "Serialize.hpp"
 
 Serialize::Serialize(const std::string& path)
@@ -14,17 +16,28 @@ Serialize::Serialize(const std::string& path)
 {
 }
 
-void Serialize::createGameSnapshot(entt::DefaultRegistry& source)
+void Serialize::createGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& source)
 {
-	//std::ofstream(m_saveFilePath) saveFile;
-	//cereal::JSONOutputArchive ar(saveFile);
-
-	//createFrameworkSnapshot(ar, source);
+	std::ofstream saveFile; 
+	saveFile.open(m_saveFilePath + saveFileName, std::ofstream::out);
+	
+	{
+		cereal::JSONOutputArchive ar(saveFile);
+		createFrameworkSnapshot(ar, source);
+	}
+	
+	saveFile.close();
 }
 
-void Serialize::loadGameSnapshot(entt::DefaultRegistry& destination)
+void Serialize::loadGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& destination)
 {
-	//std::ifstream(/*loadfile path*/);
-	//cereal::JSONInputArchive ar(loadFile);
-	//loadFrameworkSnapshot(ar, destination);
+	std::ifstream saveFile;
+	saveFile.open(m_saveFilePath + saveFileName, std::ifstream::in);
+
+	{
+		cereal::JSONInputArchive ar(saveFile);
+		loadFrameworkSnapshot(ar, destination);
+	}
+
+	saveFile.close();
 }

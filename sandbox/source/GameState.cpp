@@ -8,11 +8,13 @@
 ///
 
 #include <sl/core/World.hpp>
+#include <allegro5/keyboard.h>
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/ServiceLocator.hpp>
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/components/RenderComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
+#include <sl/graphics/Window.hpp>
 #include <sl/resources/MusicPlayer.hpp>
 
 #include "GameState.hpp"
@@ -20,6 +22,7 @@
 using namespace sl;
 
 GameState::GameState()
+	:serialize("savefiles/")
 {
 	map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
 	m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
@@ -37,7 +40,25 @@ GameState::~GameState()
 
 void GameState::event(ALLEGRO_EVENT* event)
 {
-	// escape to close window
+	switch (event->type)
+	{
+	case ALLEGRO_EVENT_KEY_DOWN:
+		switch (event->keyboard.keycode)
+		{
+		case ALLEGRO_KEY_ESCAPE:
+			Locator::window->close();
+			break;
+
+		case ALLEGRO_KEY_S:
+			serialize.createGameSnapshot("test.sav", Locator::world->m_registry);
+			break;
+
+		case ALLEGRO_KEY_L:
+			serialize.loadGameSnapshot("test.sav", Locator::world->m_registry);
+			break;
+		}
+		break;
+	}
 }
 
 void GameState::update(double dt)

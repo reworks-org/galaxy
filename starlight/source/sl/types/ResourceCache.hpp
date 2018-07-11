@@ -24,6 +24,7 @@ namespace sl
 	template<typename Resource>
 	class ResourceCache
 	{
+		friend class Serializer;
 	public:
 		///
 		/// Destructor.

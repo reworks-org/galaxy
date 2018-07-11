@@ -10,6 +10,8 @@
 #ifndef SANDBOX_GAMESTATE_HPP_
 #define SANDBOX_GAMESTATE_HPP_
 
+#include "Serialize.hpp"
+
 #include <sl/mapping/TMXMap.hpp>
 #include <sl/core/StateMachine.hpp>
 
@@ -25,6 +27,7 @@ public:
 
 private:
 	std::unique_ptr<sl::TMXMap> map;
+	Serialize serialize;
 };
 
 #endif

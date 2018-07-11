@@ -47,9 +47,18 @@ namespace sl
 		///
 		/// Automatically create a batch of entitys from a script.
 		///
-		/// \param batchScript Script file containing all the entity/script (k/v) to register.
+		/// \param script Script file containing all the entity/script (k/v) to register.
 		///
-		void createEntities(const std::string& batchScript);
+		void createEntities(const std::string& script);
+
+		///
+		/// \brief Create a batch of entities that all use one type of script.
+		///
+		/// Script is the same as a normal entity script but it also has an entityCount =;
+		///
+		/// \param script Script file containing entities information.
+		///
+		void createDuplicateEntities(const std::string& script);
 
 		///
 		/// Process world events.

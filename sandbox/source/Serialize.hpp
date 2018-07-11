@@ -12,13 +12,19 @@
 
 #include <sl/fs/Serializer.hpp>
 
+// uses std::ofstream / std::ifstream for file saving / loading.
 class Serialize : public sl::Serializer
 {
 public:
+	///
+	/// Constructor.
+	///
+	/// \param path Expected to end in '/'.
+	///
 	Serialize(const std::string& path);
 
-	void createGameSnapshot(entt::DefaultRegistry& source) override final;
-	void loadGameSnapshot(entt::DefaultRegistry& destination) override final;
+	void createGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& source) override final;
+	void loadGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& destination) override final;
 };
 
 #endif
