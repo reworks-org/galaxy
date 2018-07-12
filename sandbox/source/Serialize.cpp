@@ -58,7 +58,7 @@ void Serialize::loadGameSnapshot(const std::string& saveFileName, entt::DefaultR
 
 	// then we have to update physics entities in a new scope.
 	// Iterate over entities, updating their transformcomponent to match the physics component.
-	sl::Locator::world->m_registry.view <sl::PhysicsComponent>().each([&](entt::DefaultRegistry::entity_type entity, sl::PhysicsComponent& pc)
+	sl::Locator::world->m_registry.view<sl::PhysicsComponent>().each([&](entt::DefaultRegistry::entity_type entity, sl::PhysicsComponent& pc)
 	{
 		pc.setFixtureEntity(entity);
 	});

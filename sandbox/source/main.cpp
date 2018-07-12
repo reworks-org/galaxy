@@ -66,7 +66,7 @@ int main(int argc, char **argv)
 					newConfig << "icon = icon.png\n";
 					newConfig << "atlasPowerOf = 13\n";
 					newConfig << "shaderScript = scripts/shaders.lua\n";
-					newConfig << "nullTexture = null.png\n";
+					newConfig << "nullTexture = null\n";
 					newConfig << std::endl;
 
 					newConfig << "[box2d]\n";
@@ -84,8 +84,8 @@ int main(int argc, char **argv)
 					newConfig << "musicScript = scripts/music.lua\n";
 					newConfig << "soundScript = scripts/sound.lua\n";
 					newConfig << "reserveSamples = 32\n";
-					newConfig << "nullMusic = null.ogg\n";
-					newConfig << "nullSound = null.ogg\n";
+					newConfig << "nullMusic = null\n";
+					newConfig << "nullSound = null\n";
 					newConfig << std::endl;
 
 					newConfig << "# see allegro key codes\n";
