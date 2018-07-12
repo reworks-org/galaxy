@@ -14,6 +14,12 @@
 
 namespace sl
 {
+	Animation::Animation()
+	:m_isLooped(false), m_speed(1.0f), m_totalFrames(0), m_currentFrame(0)
+	{
+		m_frames.clear();
+	}
+
 	Animation::Animation(sol::table& table)
 		:m_currentFrame(0)
 	{

@@ -9,9 +9,10 @@
 
 #include <allegro5/allegro_audio.h>
 
-#include "sl/fs/VirtualFS.hpp"
+#include "sl/core/World.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
+#include "sl/core/ServiceLocator.hpp"
 
 #include "Sound.hpp"
 
@@ -21,8 +22,8 @@ namespace sl
 	{
 		// Read the lua table to get the sample file name.
 		// Then load it into allegro and check if it was created.
-		const char* file = table.get<const char*>("file");
-		m_sound = al_load_sample(file);
+		std::string file = Locator::world->m_soundFolderPath + table.get<std::string>("file");
+		m_sound = al_load_sample(file.c_str());
 		if (!m_sound)
 		{
 			LOG_S(FATAL) << "Unable to find sound file: " << file;

@@ -46,12 +46,12 @@ docs notes:
 - make a note that the engine operates on degrees, but allegro draws in radians.
 - make a note about layerrs and tmx mpa
 - make a note aboutt physics objects only being created if layreri s named collision, also note that it doesnt matter where textrues and stuff in tmx path too because only the last file name in the path is used.
-	- i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine wl process this as "tiles.png"\
+	- i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine wl process this as "tiles.png"
 - only embedded tilesets supported for now.
 - tile rendeirng issues, refer to original code ?
 - ensure tmx layer names are unique for ALL maps.
-
-
+- when serializing, you have to serialize engine components and tags, engine does not do it for you and then manually update physicscomponents parent entity.
+- talk about nulltexture and nullsound and nullanimation, etc which is used on defaultconstructed components.
 
 sandbox notes:
 - loading screens between states

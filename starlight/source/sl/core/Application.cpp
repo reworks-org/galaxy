@@ -90,6 +90,8 @@ namespace sl
 
 		m_world->m_scriptFolderPath = m_configReader->lookup<std::string>(config, "fs", "scriptFolderPath");
 		m_world->m_textureFolderPath = m_configReader->lookup<std::string>(config, "fs", "textureFolderPath");
+		m_world->m_musicFolderPath = m_configReader->lookup<std::string>(config, "fs", "musicFolderPath");
+		m_world->m_soundFolderPath = m_configReader->lookup<std::string>(config, "fs", "soundFolderPath");
 
 		m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
 		Locator::debugInterface = m_debugInterface.get();
@@ -100,6 +102,8 @@ namespace sl
 		m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		Locator::textureAtlas = m_textureAtlas.get();
 
+		m_textureAtlas->m_nullTexture = m_configReader->lookup<std::string>(config, "graphics", "nullTexture");
+
 		m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
 		Locator::fontBook = m_fontBook.get();
 
@@ -109,8 +113,12 @@ namespace sl
 		m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
 		Locator::musicPlayer = m_musicPlayer.get();
 
+		m_musicPlayer->m_nullMusic = m_configReader->lookup<std::string>(config, "audio", "nullMusic");
+
 		m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
 		Locator::soundPlayer = m_soundPlayer.get();
+
+		m_soundPlayer->m_nullSound = m_configReader->lookup<std::string>(config, "audio", "nullSound");
 
 		m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		Locator::box2dHelper = m_box2dHelper.get();

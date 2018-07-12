@@ -19,9 +19,9 @@
 namespace sl
 {
 	AnimationComponent::AnimationComponent()
+		:m_currentFrameTime(0.0), m_isPaused(true), m_activeAnimation("")
 	{
-		// Throw an exception if this class is default constructed.
-		LOG_S(FATAL) << "Tried to construct a default-initialized AnimationComponent!";
+		m_animations.clear();
 	}
 
 	AnimationComponent::AnimationComponent(const sol::table& table)

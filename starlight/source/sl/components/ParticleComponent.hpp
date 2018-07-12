@@ -22,6 +22,13 @@ namespace sl
 	{
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Contains empty data values.
+		///
+		ParticleComponent();
+
+		///
 		/// \brief Constructor.
 		///
 		/// This component was designed to be created and destroyed on the fly, not sure why you would want it created in a lua script,
@@ -49,13 +56,6 @@ namespace sl
 		/// Default move assignment overload.
 		///
 		ParticleComponent& operator=(const ParticleComponent&);
-
-	private:
-		///
-		/// Default Constructor.
-		/// Deleted.
-		///
-		ParticleComponent() = delete;
 
 	public:
 		///

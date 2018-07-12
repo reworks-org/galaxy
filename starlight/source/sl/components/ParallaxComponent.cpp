@@ -13,6 +13,11 @@
 
 namespace sl
 {
+	ParallaxComponent::ParallaxComponent()
+		:m_verticalSpeed(0.0f), m_horizontalSpeed(0.0f)
+	{
+	}
+
 	ParallaxComponent::ParallaxComponent(const sol::table& table)
 	{
 		// Retrieve the values from the lua table.

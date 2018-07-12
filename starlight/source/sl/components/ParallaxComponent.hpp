@@ -21,6 +21,13 @@ namespace sl
 	{
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Contains empty data values.
+		///
+		ParallaxComponent();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data.
@@ -36,13 +43,6 @@ namespace sl
 		/// Default move assignment overload.
 		///
 		ParallaxComponent& operator=(const ParallaxComponent&);
-
-	private:
-		///
-		/// Default Constructor.
-		/// Deleted.
-		///
-		ParallaxComponent() = delete;
 
 	public:
 		///

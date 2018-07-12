@@ -24,7 +24,8 @@ namespace sl
 		///
 		/// \brief Construct SoundPlayer and add sound.
 		///
-		/// \param script Script file containing sound data to parse.
+		/// \param script Script file containing sound data to parse. You do not need to append folder path to
+		///        the sound file paths, done for you by engine using paths in config.
 		///
 		SoundPlayer(const std::string& script);
 
@@ -51,6 +52,12 @@ namespace sl
 		/// Deleted.
 		///
 		SoundPlayer() = delete;
+
+	public:
+		///
+		/// The null sound file name.
+		///
+		std::string m_nullSound;
 	};
 }
 

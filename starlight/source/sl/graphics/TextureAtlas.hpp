@@ -148,6 +148,12 @@ namespace sl
 		///
 		void clean() override;
 
+	public:
+		///
+		/// The null texture file name.
+		///
+		std::string m_nullTexture;
+
 	private:
 		///
 		/// The bitmap of all the textures in the game.

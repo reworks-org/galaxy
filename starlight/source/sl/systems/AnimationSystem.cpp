@@ -29,7 +29,7 @@ namespace sl
 			if (!ac.m_isPaused)
 			{
 				// Get currently active animation for the entity.
-				Animation* animation = &(ac.m_animations.at(ac.m_activeAnimation));
+				Animation* animation = &(ac.m_animations[ac.m_activeAnimation]);
 
 				// Increment timepassed for that animation frame.
 				auto timepassed = (dt * animation->m_speed);

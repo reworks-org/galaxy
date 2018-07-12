@@ -8,16 +8,16 @@
 ///
 
 #include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
+#include "sl/core/ServiceLocator.hpp"
+#include "sl/graphics/TextureAtlas.hpp"
 
 #include "RenderComponent.hpp"
 
 namespace sl
 {
 	RenderComponent::RenderComponent()
+		:m_opacity(1.0f), m_textureName(Locator::textureAtlas->m_nullTexture)
 	{
-		// Throw an exception if this class is default constructed.
-		LOG_S(FATAL) << "Tried to construct a default-initialized RenderComponent!";
 	}
 
 	RenderComponent::RenderComponent(const sol::table& table)

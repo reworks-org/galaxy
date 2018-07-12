@@ -57,8 +57,8 @@ int main(int argc, char **argv)
 				Sandbox sandbox("bin/config.cfg", [](std::ofstream& newConfig)
 				{
 					newConfig << "[graphics]\n";
-					newConfig << "width = 640\n";
-					newConfig << "height = 480\n";
+					newConfig << "width = 1280\n";
+					newConfig << "height = 720\n";
 					newConfig << "fullscreen = false\n";
 					newConfig << "msaa = true\n";
 					newConfig << "msaaValue = 2\n";
@@ -66,6 +66,7 @@ int main(int argc, char **argv)
 					newConfig << "icon = icon.png\n";
 					newConfig << "atlasPowerOf = 13\n";
 					newConfig << "shaderScript = scripts/shaders.lua\n";
+					newConfig << "nullTexture = null.png\n";
 					newConfig << std::endl;
 
 					newConfig << "[box2d]\n";
@@ -83,6 +84,8 @@ int main(int argc, char **argv)
 					newConfig << "musicScript = scripts/music.lua\n";
 					newConfig << "soundScript = scripts/sound.lua\n";
 					newConfig << "reserveSamples = 32\n";
+					newConfig << "nullMusic = null.ogg\n";
+					newConfig << "nullSound = null.ogg\n";
 					newConfig << std::endl;
 
 					newConfig << "# see allegro key codes\n";
@@ -102,6 +105,8 @@ int main(int argc, char **argv)
 					newConfig << "writeDir = bin/assets/\n";
 					newConfig << "scriptFolderPath = scripts/\n";
 					newConfig << "textureFolderPath = textures/\n";
+					newConfig << "musicFolderPath = music/\n";
+					newConfig << "soundFolderPath = sound/\n";
 					newConfig << std::endl;
 
 					newConfig << "[archives]\n";

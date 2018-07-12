@@ -17,6 +17,7 @@
 namespace sl
 {
 	SoundPlayer::SoundPlayer(const std::string& script)
+		:m_nullSound("")
 	{
 		// Load lua script from VFS.
 		sol::state loader;

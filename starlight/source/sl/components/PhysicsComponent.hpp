@@ -14,6 +14,7 @@
 #include "sl/libs/sol2/sol_forward.hpp"
 #include "sl/libs/Box2D/Dynamics/b2Body.h"
 #include "sl/libs/entt/entity/registry.hpp"
+#include "sl/libs/entt/entity/snapshot.hpp"
 
 namespace sl
 {
@@ -23,14 +24,11 @@ namespace sl
 	class PhysicsComponent final
 	{
 		friend class cereal::access;
-
 	public:
 		///
 		/// \brief Default Constructor.
 		///
-		/// Do NOT default construct this!
-		/// Will throw an exception.
-		/// Only here because entt requires it to deserialize if something goes wrong.
+		/// Contains empty data values.
 		///
 		PhysicsComponent();
 

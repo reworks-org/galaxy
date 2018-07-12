@@ -24,7 +24,8 @@ namespace sl
 		///
 		/// \brief Construct MusicPlayer and add music.
 		///
-		/// \param script Script file containing sound/music data to parse.
+		/// \param script Script file containing sound data to parse. You do not need to append folder path to
+		///        the music file paths, done for you by engine using paths in config.
 		///
 		MusicPlayer(const std::string& script);
 
@@ -72,6 +73,12 @@ namespace sl
 		/// Deleted.
 		///
 		MusicPlayer() = delete;
+
+	public:
+		///
+		/// The null music file name.
+		///
+		std::string m_nullMusic;
 	};
 }
 

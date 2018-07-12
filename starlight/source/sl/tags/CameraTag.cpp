@@ -9,8 +9,8 @@
 
 #include "sl/core/World.hpp"
 #include "sl/libs/sol2/sol.hpp"
+#include "sl/graphics/Window.hpp"
 #include "sl/core/StateMachine.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -19,9 +19,8 @@
 namespace sl
 {
 	CameraTag::CameraTag()
+		:m_bounds(0.0f, 0.0f, Locator::window->getSize().m_x, Locator::window->getSize().m_y)
 	{
-		// Throw an exception if this class is default constructed.
-		LOG_S(FATAL) << "Tried to construct a default-initialized CameraTag!";
 	}
 
 	CameraTag::CameraTag(const sol::table& table)

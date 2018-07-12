@@ -135,6 +135,16 @@ namespace sl
 		///
 		std::string m_textureFolderPath;
 
+		///
+		/// The path to the folder containing game music.
+		///
+		std::string m_musicFolderPath;
+
+		///
+		/// The path to the folder containing game sound effects.
+		///
+		std::string m_soundFolderPath;
+
 	private:
 		///
 		/// Used to allow for tag assigning without having to know the tag type.

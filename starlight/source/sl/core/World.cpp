@@ -22,7 +22,7 @@
 namespace sl
 {
 	World::World()
-	:m_scriptFolderPath(""), m_textureFolderPath("")
+	:m_scriptFolderPath(""), m_textureFolderPath(""), m_musicFolderPath(""), m_soundFolderPath("")
 	{
 		// Set up lua and register all the libraries we need.
 		m_lua.open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8);

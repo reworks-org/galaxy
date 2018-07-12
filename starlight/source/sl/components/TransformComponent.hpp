@@ -27,9 +27,7 @@ namespace sl
 		///
 		/// \brief Default Constructor.
 		///
-		/// Do NOT default construct this!
-		/// Will throw an exception.
-		/// Only here because entt requires it to deserialize if something goes wrong.
+		/// Contains empty data values.
 		///
 		TransformComponent();
 

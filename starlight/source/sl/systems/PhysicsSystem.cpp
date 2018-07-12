@@ -83,9 +83,13 @@ namespace sl
 		// Iterate over entities, updating their transformcomponent to match the physics component.
 		registry.view<PhysicsComponent, TransformComponent>().each([&](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc, TransformComponent& tc)
 		{
-			tc.m_rect.m_x = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().x);
-			tc.m_rect.m_y = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().y);
-			tc.m_angle = Box2DHelper::radToDeg<float>(pc.m_body->GetAngle());
+			// Make sure physics body is valid.
+			if (pc.m_body != nullptr)
+			{
+				tc.m_rect.m_x = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().x);
+				tc.m_rect.m_y = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().y);
+				tc.m_angle = Box2DHelper::radToDeg<float>(pc.m_body->GetAngle());
+			}
 		});
 	}
 }

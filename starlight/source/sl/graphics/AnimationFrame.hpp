@@ -23,6 +23,13 @@ namespace sl
 		friend class cereal::access;
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Contains null data values.
+		///
+		AnimationFrame();
+
+		///
 		/// Constructor.
 		///
 		/// \param timePerFrame How long the animation should stay on this frame.
@@ -46,12 +53,6 @@ namespace sl
 		AnimationFrame& operator=(const AnimationFrame&);
 
 	private:
-		///
-		/// Default Constructor.
-		/// Deleted.
-		///
-		AnimationFrame() = delete;
-
 		///
 		/// Cereal serialize function.
 		/// 

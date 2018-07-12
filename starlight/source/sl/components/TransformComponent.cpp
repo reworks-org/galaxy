@@ -8,16 +8,14 @@
 ///
 
 #include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 
 #include "TransformComponent.hpp"
 
 namespace sl
 {
 	TransformComponent::TransformComponent()
+		:m_layer(0), m_rect(0.0f, 0.0f, 0, 0), m_angle(0.0f)
 	{
-		// Throw an exception if this class is default constructed.
-		LOG_S(FATAL) << "Tried to construct a default-initialized TransformComponent!";
 	}
 
 	TransformComponent::TransformComponent(const sol::table& table)

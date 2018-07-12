@@ -1,0 +1,83 @@
+{
+    "value0": {
+        "value0": 0
+    },
+    "value1": {
+        "value0": 68355
+    },
+    "value2": {
+        "value0": {
+            "container": [
+                "game"
+            ]
+        }
+    },
+    "value3": 4,
+    "value4": 3,
+    "value5": 2,
+    "value6": 1,
+    "value7": 0,
+    "value8": 0,
+    "value9": 0,
+    "value10": 3,
+    "value11": 0,
+    "value12": {
+        "value0": 1.0,
+        "value1": "bg_forest"
+    },
+    "value13": 1,
+    "value14": {
+        "value0": 1.0,
+        "value1": "platformerTMXtiles"
+    },
+    "value15": 2,
+    "value16": {
+        "value0": 1.0,
+        "value1": "ObjectLayerText33664.701673AYY SIR"
+    },
+    "value17": 3,
+    "value18": 0,
+    "value19": {
+        "value0": 0,
+        "value1": 0.0,
+        "value2": {
+            "value0": 0.0,
+            "value1": 0.0,
+            "value2": 1280,
+            "value3": 720
+        }
+    },
+    "value20": 1,
+    "value21": {
+        "value0": 1,
+        "value1": 0.0,
+        "value2": {
+            "value0": 0.0,
+            "value1": 0.0,
+            "value2": 1280,
+            "value3": 720
+        }
+    },
+    "value22": 2,
+    "value23": {
+        "value0": 2,
+        "value1": 0.0,
+        "value2": {
+            "value0": 77.16670227050781,
+            "value1": 69.16670227050781,
+            "value2": 344,
+            "value3": 80
+        }
+    },
+    "value24": 0,
+    "value25": 1,
+    "value26": 3,
+    "value27": {
+        "value0": {
+            "value0": 0.0,
+            "value1": 0.0,
+            "value2": 1280,
+            "value3": 720
+        }
+    }
+}

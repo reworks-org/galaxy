@@ -27,6 +27,7 @@
 namespace sl
 {
 	TextureAtlas::TextureAtlas(const std::string& textureFolderPath, int powerOfTwoDimension)
+		:m_nullTexture("")
 	{
 		// Create atlas size from power of 2, since the algorithms work best with power of 2's.
 		int atlasSize = std::pow(2, powerOfTwoDimension);

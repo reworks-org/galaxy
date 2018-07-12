@@ -25,6 +25,13 @@ namespace sl
 		friend class cereal::access;
 	public:
 		///
+		/// \brief Default Constructor.
+		///
+		/// Contains empty data values.
+		///
+		Animation();
+
+		///
 		/// Constructor.
 		///
 		/// \param table sol::table containing data. Frames MUST be in order.
@@ -58,12 +65,6 @@ namespace sl
 		~Animation() = default;
 
 	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		Animation() = delete;
-
 		///
 		/// Cereal serialize function.
 		///

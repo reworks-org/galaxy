@@ -13,6 +13,11 @@
 
 namespace sl
 {
+	ParticleComponent::ParticleComponent()
+		:m_fade(0.0f), m_direction(0.0f, 0.0f)
+	{
+	}
+
 	ParticleComponent::ParticleComponent(const sol::table& table)
 	{
 		// Retrieve the values from the lua table.
