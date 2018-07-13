@@ -52,17 +52,18 @@ before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install -r cmakeconverter/requirements.txt"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install cmakeconverter/"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/reworks/starlight.git"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd reworks/starlight"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake-converter --solution=starlight.sln --std=c++17"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake-converter --solution=$PWD/starlight/starlight.sln --std=c++17"; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive https://github.com/algorys/cmakeconverter.git; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then pip3 install -r cmakeconverter/requirements.txt; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then pip3 install cmakeconverter/; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then cd reworks/starlight; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then cmake-converter --solution=reworks/starlight/starlight.sln --std=c++17; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive https://github.com/reworks/starlight.git; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then cmake-converter --solution=$PWD/starlight/starlight.sln --std=c++17; fi
 
 script:
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd starlight"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake .."; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make"; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then cd starlight; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then cmake ..; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then make; fi
 
