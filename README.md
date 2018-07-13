@@ -5,7 +5,7 @@
 [![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=latest)](https://starlight.readthedocs.io/en/latest/?badge=latest)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.md)
 
-Game programming framework using Allegro 5.2.4, Lua 5.3, and C++17. 64bit OS only.
+Game programming framework using Allegro 5.2.4, Lua 5.3, and C++17.
 
 This project currently has Visual Studio 2017 build files and uses [cmake-converter](https://github.com/algorys/cmakeconverter) to generate linux and os x build scripts.
 

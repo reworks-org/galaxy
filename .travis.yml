@@ -41,22 +41,14 @@ notifications:
 before_install:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker pull ubuntu:18.04; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2; fi
 
 install:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get update"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y build-essential clang-6.0 g++-7 cmake git liballegro5.2 libxml2 python3 python3-pip"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y git cmake build-essential clang-6.0 g++-7 libxml2 liballegro5.2 "; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2; fi
 
 before_script:
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/algorys/cmakeconverter.git"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install -r cmakeconverter/requirements.txt"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install cmakeconverter/"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/reworks/starlight.git"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake-converter --solution=./starlight/starlight.sln --std=c++17"; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive https://github.com/algorys/cmakeconverter.git; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then pip3 install -r cmakeconverter/requirements.txt; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then pip3 install cmakeconverter/; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then cmake-converter --solution=./starlight.sln --std=c++17; fi
 
 script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd ./starlight"; fi

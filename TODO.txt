@@ -20,6 +20,9 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- appveyor also needs to have access to more compilers
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
+- restore 32bit solution files
+- redo build systems
+- set up virtualbox to test linux and mac builds
 
 Serializable classes:
 - music
