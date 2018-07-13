@@ -48,9 +48,11 @@ install:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y build-essential clang-6.0 g++-7 cmake git liballegro5.2 libxml2 python3 python3-pip"; fi
 
 before_script:
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/reworks/starlight.git"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/algorys/cmakeconverter.git"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install -r cmakeconverter/requirements.txt"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install cmakeconverter/"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd starlight"; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake-converter --solution=starlight.sln --std=c++17"; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive https://github.com/algorys/cmakeconverter.git; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then pip3 install -r cmakeconverter/requirements.txt; fi
@@ -60,7 +62,6 @@ before_script:
 script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake .."; fi
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make"; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then 
 - if [ $TRAVIS_OS_NAME == osx ]; then cmake ..; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then make; fi
 
