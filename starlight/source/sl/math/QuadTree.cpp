@@ -14,7 +14,7 @@
 
 namespace sl
 {
-	QuadTree::QuadTree(int level, Rect<float, int>& bounds, int maxLevels, int maxObjects)
+	QuadTree::QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
 	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()
 	{
 		// Ensure each node is set to nullptr not junk data.
@@ -24,7 +24,7 @@ namespace sl
 		}
 	}
 
-	QuadTree::QuadTree(int level, const Rect<float, int>& bounds, int maxLevels, int maxObjects)
+	QuadTree::QuadTree(size_t level, const Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
 		:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()
 	{
 		// Ensure each node is set to nullptr not junk data.
@@ -46,7 +46,7 @@ namespace sl
 		m_objects.clear();
 
 		// Clean up all nodes.
-		for (int i = 0; i <  m_nodes.size(); i++)
+		for (size_t i = 0; i < m_nodes.size(); i++)
 		{
 			if (m_nodes[i] != nullptr)
 			{
@@ -89,7 +89,7 @@ namespace sl
 				split();
 			}
 
-			int i = 0;
+			size_t i = 0;
 			while (i < m_objects.size())
 			{
 				int index = getIndex(Locator::world->m_registry.get<TransformComponent>(m_objects[i]).m_rect);

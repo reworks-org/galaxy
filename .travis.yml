@@ -39,15 +39,30 @@ notifications:
     on_failure: always
 
 before_install:
-- if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update && sudo apt-get install liballegro5.2 && sudo apt-get install libxml2; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker pull ubuntu:18.04; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2; fi
 
 install:
-  - git clone --recursive https://github.com/algorys/cmakeconverter.git
-  - pip3 install -r cmakeconverter/requirements.txt
-  - pip3 install cmakeconverter/
-  - cmake-converter --solution=starlight.sln --std=c++17
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get update"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y build-essential clang-6.0 g++-7 cmake git liballegro5.2 libxml2"; fi
+
+before_script:
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/algorys/cmakeconverter.git"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install -r cmakeconverter/requirements.txt"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "pip3 install cmakeconverter/"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake-converter --solution=starlight.sln --std=c++17"; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive https://github.com/algorys/cmakeconverter.git; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then pip3 install -r cmakeconverter/requirements.txt; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then pip3 install cmakeconverter/; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then cmake-converter --solution=starlight.sln --std=c++17; fi
 
 script:
-- cmake ..
-- make
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake .."; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make"; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then 
+- if [ $TRAVIS_OS_NAME == osx ]; then cmake ..; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then make; fi
+
+after_script:
+- if [ $TRAVIS_OS_NAME == linux ]; then docker stop travis-ci; fi

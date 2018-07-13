@@ -30,7 +30,7 @@ namespace sl
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(int level, Rect<float, int>& bounds, int maxLevels = 5, int maxObjects = 10);
+		QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
 
 		///
 		/// Constructor. CONST BOUNDS
@@ -40,7 +40,7 @@ namespace sl
 		/// \param maxLevels Maximum number of levels inside the quadtree.
 		/// \param maxObjects Maximum number of objects inside a node.
 		///
-		QuadTree(int level, const Rect<float, int>& bounds, int maxLevels = 5, int maxObjects = 10);
+		QuadTree(size_t level, const Rect<float, int>& bounds, size_t maxLevels = 5, size_t maxObjects = 10);
 
 		///
 		/// Destructor.
@@ -121,17 +121,17 @@ namespace sl
 		///
 		/// Current level in the quadtree.
 		///
-		int m_level;
+		size_t m_level;
 
 		///
 		/// Maximum levels the quadtree can have.
 		///
-		int m_maxLevels;
+		size_t m_maxLevels;
 
 		///
 		/// Maximum number of objects a quadtree can have per node.
 		///
-		int m_maxObjects;
+		size_t m_maxObjects;
 
 		///
 		/// The bounds of the quadtree.
