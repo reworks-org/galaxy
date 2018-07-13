@@ -45,7 +45,7 @@ before_install:
 
 install:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get update"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y build-essential clang-6.0 g++-7 cmake git liballegro5.2 libxml2"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y build-essential clang-6.0 g++-7 cmake git liballegro5.2 libxml2 python3 python3-pip"; fi
 
 before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/algorys/cmakeconverter.git"; fi
