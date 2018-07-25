@@ -17,21 +17,10 @@ matrix:
         sources: ['ubuntu-toolchain-r-test']
         packages: ['g++-7']
     env: COMPILER=g++-7
-  - os: linux
-    compiler: clang
-    addons:
-      apt:
-        sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-6.0']
-        packages: ['clang-6.0', 'g++-7']
-    env: COMPILER=clang++-6.0
   - os: osx
     osx_image: xcode9.4
     compiler: clang
     env: COMPILER=clang++
-#  - os: osx
-#    osx_image: xcode10.0
-#    compiler: clang
-#    env: COMPILER=clang++
 
 notifications:
   email:
@@ -44,17 +33,20 @@ before_install:
 
 install:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get update"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y git cmake build-essential clang-6.0 g++-7 libxml2 liballegro5.2 "; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y git build-essential clang-6.0 g++-7 libxml2 liballegro5.2 curl"; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install allegro && brew install libxml2 && brew install curl; fi
 
 before_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive https://github.com/reworks/starlight.git"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "curl -L -o premake5.tar.gz https://github.com/premake/premake-core/releases/download/v5.0.0-alpha12/premake-5.0.0-alpha12-linux.tar.gz"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "tar -xzf premake5.tar.gz"; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then curl -L -o premake5.tar.gz https://github.com/premake/premake-core/releases/download/v5.0.0-alpha12/premake-5.0.0-alpha12-macosx.tar.gz; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then tar -xzf premake5.tar.gz; fi
 
 script:
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd ./starlight"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cmake ."; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make"; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then cmake .; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "./premake5 --cc=gcc --file=./starlight/premake5.lua --os=linux --verbose gmake"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd ./starlight && make"; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then ./premake5 --cc=clang --file=./premake5.lua --os=macosx --verbose gmake; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then make; fi
 
 after_script:
