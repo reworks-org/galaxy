@@ -2612,6 +2612,8 @@
     <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -2631,6 +2633,8 @@
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -2650,6 +2654,8 @@
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -2669,6 +2675,8 @@
     <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\code analysis.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -2692,6 +2700,13 @@
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
     <Lib />
+    <PostBuildEvent>
+      <Command>call cd $(SolutionDir)starlight &amp;&amp; xcopy /e /v /i /y source headers &amp;&amp; cd headers &amp;&amp; del /s *.cpp &amp;&amp; del /s *.c</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -2715,6 +2730,13 @@
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>call cd $(SolutionDir)starlight &amp;&amp; xcopy /e /v /i /y source headers &amp;&amp; cd headers &amp;&amp; del /s *.cpp &amp;&amp; del /s *.c</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -2742,6 +2764,13 @@
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
+    <PostBuildEvent>
+      <Command>call cd $(SolutionDir)starlight &amp;&amp; xcopy /e /v /i /y source headers &amp;&amp; cd headers &amp;&amp; del /s *.cpp &amp;&amp; del /s *.c</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -2767,6 +2796,13 @@
     <ProjectReference>
       <LinkLibraryDependencies>true</LinkLibraryDependencies>
     </ProjectReference>
+    <PostBuildEvent>
+      <Command>call cd $(SolutionDir)starlight &amp;&amp; xcopy /e /v /i /y source headers &amp;&amp; cd headers &amp;&amp; del /s *.cpp &amp;&amp; del /s *.c</Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
