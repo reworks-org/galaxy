@@ -22,6 +22,7 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
 - redo build systems
 - set up virtualbox to test linux and mac builds
+- set up a compnent and system for scrolling backgrounds.
 
 Serializable classes:
 - music
