@@ -423,6 +423,12 @@
     <ClCompile Include="source\sl\fs\ConfigReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\components\ScrollingBackgroundComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\systems\ScrollingBackgroundSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -7563,6 +7569,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\components\ScrollingBackgroundComponent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\systems\ScrollingBackgroundSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

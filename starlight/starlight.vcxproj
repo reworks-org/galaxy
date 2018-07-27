@@ -25,6 +25,8 @@
     <Text Include="..\TODO.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\sl\systems\ScrollingBackgroundSystem.cpp" />
+    <ClCompile Include="source\sl\components\ScrollingBackgroundComponent.cpp" />
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
@@ -161,6 +163,8 @@
     <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\sl\systems\ScrollingBackgroundSystem.hpp" />
+    <ClInclude Include="source\sl\components\ScrollingBackgroundComponent.hpp" />
     <ClInclude Include="source\sl\Audio.hpp" />
     <ClInclude Include="source\sl\audio\Music.hpp" />
     <ClInclude Include="source\sl\audio\Sound.hpp" />

@@ -15,6 +15,7 @@
 #include <sl/systems/CameraSystem.hpp>
 #include <sl/systems/PhysicsSystem.hpp>
 #include <sl/systems/AnimationSystem.hpp>
+#include <sl/systems/ScrollingBackgroundSystem.hpp>
 #include <allegro5/allegro_native_dialog.h>
 
 #include "GameState.hpp"
@@ -28,6 +29,7 @@ public:
 		m_world->registerSystem<sl::CameraSystem>();
 		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
 		m_world->registerSystem<sl::AnimationSystem>();
+		m_world->registerSystem<sl::ScrollingBackgroundSystem>();
 
 		sl::Keys::KEY_FORWARD = m_configReader->lookup<unsigned int>(config, "keys", "forward");
 		sl::Keys::KEY_BACKWARD = m_configReader->lookup<unsigned int>(config, "keys", "backward");

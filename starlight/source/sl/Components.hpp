@@ -15,6 +15,7 @@
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/ScrollingBackgroundComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #endif

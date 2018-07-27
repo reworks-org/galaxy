@@ -16,5 +16,6 @@
 #include "sl/systems/ParticleSystem.hpp"
 #include "sl/systems/PhysicsSystem.hpp"
 #include "sl/systems/RenderSystem.hpp"
+#include "sl/systems/ScrollingBackgroundSystem.hpp"
 
 #endif

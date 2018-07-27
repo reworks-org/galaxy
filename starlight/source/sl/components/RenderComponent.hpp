@@ -42,9 +42,9 @@ namespace sl
 		/// Alternate Constructor.
 		///
 		/// \param opacity Opacity of Texture / Sprite Texture. From 0.0f - 1.0f.
-		/// \param textureName Name of the sprite in the VFS.
+		/// \param atlasID Name of the sprite in the texture atlas.
 		///
-		RenderComponent(float opacity, const std::string& textureName);
+		RenderComponent(float opacity, const std::string& atlasID);
 
 		///
 		/// Destructor.

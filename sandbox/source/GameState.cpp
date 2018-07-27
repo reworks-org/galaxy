@@ -14,6 +14,7 @@
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/components/RenderComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
+#include <sl/components/ScrollingBackgroundComponent.hpp>
 #include <sl/graphics/Window.hpp>
 #include <sl/resources/MusicPlayer.hpp>
 
@@ -24,13 +25,20 @@ using namespace sl;
 GameState::GameState()
 	:serialize("savefiles/")
 {
-	map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
-	m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
-	m_bounds.m_width = map->m_internalMap->width * map->m_internalMap->tile_width;
+	//map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
+	//m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
+	//m_bounds.m_width = map->m_internalMap->width * map->m_internalMap->tile_width;
+	m_bounds.m_height = 0;
+	m_bounds.m_width = 0;
 	m_bounds.m_x = 0;
 	m_bounds.m_y = 0;
 
-	Locator::musicPlayer->get("background").play();
+	//Locator::musicPlayer->get("background").play();
+
+	entt::DefaultRegistry::entity_type scrolledEntity = Locator::world->m_registry.create();
+	Locator::world->m_registry.assign<TransformComponent>(scrolledEntity, 1, 0.0f, Rect<float, int>{ 0.0f, 0.0f, 1280, 720 });
+	Locator::world->m_registry.assign<ScrollingBackgroundComponent>(scrolledEntity, 1.0f);
+	Locator::world->m_registry.assign<RenderComponent>(scrolledEntity, 1.0f, "bg_forest");
 }
 
 GameState::~GameState()

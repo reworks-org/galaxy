@@ -27,8 +27,8 @@ namespace sl
 		m_textureName = table.get<std::string>("textureName");
 	}
 
-	RenderComponent::RenderComponent(float opacity, const std::string& textureName)
-		:m_opacity(opacity), m_textureName(textureName)
+	RenderComponent::RenderComponent(float opacity, const std::string& atlasID)
+		:m_opacity(opacity), m_textureName(atlasID)
 	{
 		// Constructs the component from parameters instead of lua.
 	}
