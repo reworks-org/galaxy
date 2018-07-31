@@ -40,6 +40,16 @@ namespace sl
 		///
 		~StateMachine() = default;
 	    
+		///
+		/// Load the current state resources.
+		///
+		void load();
+
+		///
+		/// Unloads the current state resources.
+		///
+		void unload();
+
         ///
 		/// Poll for events in the current state.
 		///

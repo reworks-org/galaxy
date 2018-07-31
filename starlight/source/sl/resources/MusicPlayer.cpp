@@ -7,6 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
@@ -21,7 +22,9 @@ namespace sl
 	{
 		// Load lua script from VFS.
 		sol::state loader;
-		loader.script(Locator::virtualFS->openAsString(script));
+
+		std::string fullPath = Locator::world->m_scriptFolderPath + script;
+		loader.script(Locator::virtualFS->openAsString(fullPath));
 		sol::table music = loader.get<sol::table>("music");
 
 		if (!music.empty())

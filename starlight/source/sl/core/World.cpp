@@ -16,6 +16,7 @@
 #include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
+#include "sl/components/ScrollingBackgroundComponent.hpp"
 
 #include "World.hpp"
 
@@ -33,6 +34,7 @@ namespace sl
 		registerComponent<ParticleComponent>("ParticleComponent");
 		registerComponent<PhysicsComponent>("PhysicsComponent");
 		registerComponent<RenderComponent>("RenderComponent");
+		registerComponent<ScrollingBackgroundComponent>("ScrollingBackgroundComponent");
 		registerComponent<TransformComponent>("TransformComponent");
 
 		registerTag<CameraTag>("CameraTag");
@@ -51,7 +53,9 @@ namespace sl
 	{
 		// Set up a lua state to load the script into.
 		sol::state loader;
-		loader.script(Locator::virtualFS->openAsString(script));
+
+		std::string fullPath = m_scriptFolderPath + script;
+		loader.script(Locator::virtualFS->openAsString(fullPath));
 		
 		// Create entity.
 		entt::DefaultRegistry::entity_type entity = m_registry.create();
@@ -89,7 +93,9 @@ namespace sl
 	{	
 		// This just batch calls createEntity on a list of entitys.
 		sol::state loader;
-		loader.script(Locator::virtualFS->openAsString(batchScript));
+
+		std::string fullPath = m_scriptFolderPath + batchScript;
+		loader.script(Locator::virtualFS->openAsString(fullPath));
 
 		sol::table entityList = loader.get<sol::table>("entityList");
 		entityList.for_each([&](std::pair<sol::object, sol::object> pair)
@@ -103,7 +109,9 @@ namespace sl
 	{
 		// Load the script into a lua instance.
 		sol::state loader;
-		loader.script(Locator::virtualFS->openAsString(script));
+
+		std::string fullPath = m_scriptFolderPath + script;
+		loader.script(Locator::virtualFS->openAsString(fullPath));
 
 		sol::table table = loader.get<sol::table>("entity");
 		unsigned int count = table.get<unsigned int>("count");

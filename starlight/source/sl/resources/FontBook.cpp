@@ -9,6 +9,7 @@
 
 #include <allegro5/allegro_ttf.h>
 
+#include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
@@ -22,7 +23,9 @@ namespace sl
 	{
 		// Load lua script from VFS.
 		sol::state loader;
-		loader.script(Locator::virtualFS->openAsString(script));
+
+		std::string fullPath = Locator::world->m_scriptFolderPath + script;
+		loader.script(Locator::virtualFS->openAsString(fullPath));
 		sol::table fonts = loader.get<sol::table>("fonts");
 
 		if (!fonts.empty())

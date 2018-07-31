@@ -325,6 +325,9 @@ namespace sl
 		// The timer in milliseconds for UPS and FPS.
 		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
+		// load the first state
+		m_stateMachine->load();
+
 		// Gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
 		while (m_window->isOpen())
@@ -380,6 +383,9 @@ namespace sl
 				frames = 0;
 			}
 		}
+
+		// unload the last state
+		m_stateMachine->unload();
 
 		// Clean up the clock. Everything else is cleaned up by RAII usage.
 		al_stop_timer(clock);

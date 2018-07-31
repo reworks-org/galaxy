@@ -13,7 +13,25 @@
 
 namespace sl
 {
-    void StateMachine::event(ALLEGRO_EVENT* event)
+	void StateMachine::load()
+	{
+		// Check to make sure update is valid to call.
+		if (!m_stack.empty() && !m_states.empty())
+		{
+			m_states[m_stack.top()]->load();
+		}
+	}
+
+	void StateMachine::unload()
+	{
+		// Check to make sure update is valid to call.
+		if (!m_stack.empty() && !m_states.empty())
+		{
+			m_states[m_stack.top()]->unload();
+		}
+	}
+
+	void StateMachine::event(ALLEGRO_EVENT* event)
     {
 		// Check to make sure event is valid to call.
 		if (!m_stack.empty() && !m_states.empty())

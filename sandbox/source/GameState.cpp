@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <sl/libs/entt/entity/helper.hpp>
+
 #include <sl/core/World.hpp>
 #include <allegro5/keyboard.h>
 #include <sl/tags/CameraTag.hpp>
@@ -44,6 +46,14 @@ GameState::GameState()
 GameState::~GameState()
 {
 	Locator::world->m_registry.reset();
+}
+
+void GameState::load()
+{
+}
+
+void GameState::unload()
+{
 }
 
 void GameState::event(ALLEGRO_EVENT* event)

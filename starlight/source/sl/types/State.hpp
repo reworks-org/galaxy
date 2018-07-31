@@ -28,6 +28,16 @@ namespace sl
 		virtual ~State() = default;
 
 		///
+		/// Load the current state resources.
+		///
+		virtual void load() = 0;
+
+		///
+		/// Unloads the current state resources.
+		///
+		virtual void unload() = 0;
+
+		///
 		/// Handle any events for this state.
 		///
 		virtual void event(ALLEGRO_EVENT* event) = 0;

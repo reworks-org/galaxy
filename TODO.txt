@@ -56,6 +56,8 @@ docs notes:
 - ensure tmx layer names are unique for ALL maps.
 - when serializing, you have to serialize engine components and tags, engine does not do it for you and then manually update physicscomponents parent entity.
 - talk about nulltexture and nullsound and nullanimation, etc which is used on defaultconstructed components.
+- docs note that first state is automatically loaded and last state is automatically unloaded
+- docs note abouit registering tags and components
 
 sandbox notes:
 - loading screens between states
