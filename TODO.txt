@@ -22,8 +22,6 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
 - redo build systems
 - set up virtualbox to test linux and mac builds
-- each state might have to have its own render system or regstiry or dynamically load / unload enities between states? 
-- manually load the first state and destory the last state.
 - google test, premake5
 
 

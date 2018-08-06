@@ -22,7 +22,6 @@
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
-#include "sl/libs/boost/numeric/conversion/cast.hpp"
 
 #include "TMXMap.hpp"
 
@@ -35,7 +34,7 @@ namespace sl
 		m_internalMapData = Locator::virtualFS->openAsString(mapFile);
 
 		// Then parse it with tmxlib.
-		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), boost::numeric_cast<int>(m_internalMapData.size()));
+		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), static_cast<int>(m_internalMapData.size()));
 
 		// Checking to make sure its valid.
 		if (!m_internalMap)
@@ -150,7 +149,7 @@ namespace sl
 
 		// Set up a render component and transform component using information from the layer.
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, Utils::removeExtension(Utils::getBaseName(layer->content.image->source)));
-		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(layer->content.image->width), boost::numeric_cast<int>(layer->content.image->height) });
+		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), static_cast<int>(layer->content.image->width), static_cast<int>(layer->content.image->height) });
 	}
 
 	void TMXMap::processObjects(tmx_map* map, tmx_layer* layer)
@@ -277,7 +276,7 @@ namespace sl
 					// Then create the entity for it.
 					entt::DefaultRegistry::entity_type objTextEntity = Locator::world->m_registry.create();
 					Locator::world->m_registry.assign<RenderComponent>(objTextEntity, 1.0f, objTextID);
-					Locator::world->m_registry.assign<TransformComponent>(objTextEntity, tmx_get_property(layer->properties, "layer")->value.integer, static_cast<float>(head->rotation), Rect<float, int>{ static_cast<float>(head->x), static_cast<float>(head->y), boost::numeric_cast<int>(head->width), boost::numeric_cast<int>(head->height) });
+					Locator::world->m_registry.assign<TransformComponent>(objTextEntity, tmx_get_property(layer->properties, "layer")->value.integer, static_cast<float>(head->rotation), Rect<float, int>{ static_cast<float>(head->x), static_cast<float>(head->y), static_cast<int>(head->width), static_cast<int>(head->height) });
 
 					// then we continue drawing, but don't clear it.
 					al_set_target_bitmap(objects);
@@ -295,7 +294,7 @@ namespace sl
 		{
 			// Assign object to an entity and create transform data.
 			entt::DefaultRegistry::entity_type objLayerEntity = Locator::world->m_registry.create();
-			Locator::world->m_registry.assign<TransformComponent>(objLayerEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
+			Locator::world->m_registry.assign<TransformComponent>(objLayerEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, static_cast<int>(w), static_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 			// Then add it to the texture atlas ensuring a unique id.
 			std::string id = "ObjectLayerNo" + std::to_string(Time::getTimeSinceEpoch()) + std::to_string(s_poCounter);
@@ -408,13 +407,13 @@ namespace sl
 						// Create unique atlas rectangle for that tile. No need to duplicate data.
 						std::string id(layer->name);
 						id += "AnimatedTile" + std::to_string(Time::getTimeSinceEpoch());
-						Locator::textureAtlas->addRectToAtlas(id, { boost::numeric_cast<int>(x), boost::numeric_cast<int>(y), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
-
+						Locator::textureAtlas->addRectToAtlas(id, { static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h) });
+						
 						// Then create that entity and assign all the data to it.
 						entt::DefaultRegistry::entity_type animatedEntity = Locator::world->m_registry.create();
-						Locator::world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{boost::numeric_cast<float>(j*ts->tile_width), boost::numeric_cast<float>(i*ts->tile_height), boost::numeric_cast<int>(w), boost::numeric_cast<int>(h) });
+						Locator::world->m_registry.assign<TransformComponent>(animatedEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{static_cast<float>(j*ts->tile_width), static_cast<float>(i*ts->tile_height), static_cast<int>(w), static_cast<int>(h) });
 						Locator::world->m_registry.assign<RenderComponent>(animatedEntity, op, id);
-						Locator::world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, boost::numeric_cast<int>(w), boost::numeric_cast<int>(h), layer->name);
+						Locator::world->m_registry.assign<AnimationComponent>(animatedEntity, map, map->tiles[gid], pr.m_x, pr.m_y, static_cast<int>(w), static_cast<int>(h), layer->name);
 					}
 				}
 			}
@@ -432,7 +431,7 @@ namespace sl
 		// And assign the tilemap render id to an entity so it can be rendered.
 		// Create entity for layer tilemap.
 		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
-		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), boost::numeric_cast<int>(map->width * map->tile_width), boost::numeric_cast<int>(map->height * map->tile_height) });
+		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), static_cast<int>(map->width * map->tile_width), static_cast<int>(map->height * map->tile_height) });
 		Locator::world->m_registry.assign<RenderComponent>(entity, op, layer->name);
 	}
 }
