@@ -150,7 +150,6 @@
     <ClCompile Include="source\sl\resources\ShaderLibrary.cpp" />
     <ClCompile Include="source\sl\resources\SoundPlayer.cpp" />
     <ClCompile Include="source\sl\scripting\LuaUtils.cpp" />
-    <ClCompile Include="source\sl\scripting\Sol2enttWorkaround.cpp" />
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp" />
     <ClCompile Include="source\sl\systems\CameraSystem.cpp" />
     <ClCompile Include="source\sl\systems\ParallaxSystem.cpp" />
@@ -511,8 +510,6 @@
     <ClInclude Include="source\sl\resources\SoundPlayer.hpp" />
     <ClInclude Include="source\sl\Scripting.hpp" />
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp" />
-    <ClInclude Include="source\sl\scripting\Sol2enttWorkaround.hpp" />
-    <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp" />
     <ClInclude Include="source\sl\Systems.hpp" />
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp" />
     <ClInclude Include="source\sl\systems\CameraSystem.hpp" />

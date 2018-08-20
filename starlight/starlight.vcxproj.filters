@@ -375,9 +375,6 @@
     <ClCompile Include="source\sl\scripting\LuaUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\scripting\Sol2enttWorkaround.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1308,12 +1305,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\scripting\LuaUtils.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\scripting\Sol2enttWorkaround.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\scripting\Sol2ImguiAutoImpl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp">

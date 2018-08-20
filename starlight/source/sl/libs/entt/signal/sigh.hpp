@@ -11,13 +11,24 @@
 namespace entt {
 
 
-namespace internal {
-
-
 /**
  * @cond TURN_OFF_DOXYGEN
  * Internal details not to be documented.
  */
+
+
+namespace internal {
+
+
+template<typename>
+struct sigh_traits;
+
+
+template<typename Ret, typename... Args>
+struct sigh_traits<Ret(Args...)> {
+    using proto_fn_type = Ret(void *, Args...);
+    using call_type = std::pair<void *, proto_fn_type *>;
+};
 
 
 template<typename, typename>
@@ -26,8 +37,7 @@ struct Invoker;
 
 template<typename Ret, typename... Args, typename Collector>
 struct Invoker<Ret(Args...), Collector> {
-    using proto_fn_type = Ret(void *, Args...);
-    using call_type = std::pair<void *, proto_fn_type *>;
+    using proto_fn_type = typename sigh_traits<Ret(Args...)>::proto_fn_type;
 
     virtual ~Invoker() = default;
 
@@ -39,8 +49,7 @@ struct Invoker<Ret(Args...), Collector> {
 
 template<typename... Args, typename Collector>
 struct Invoker<void(Args...), Collector> {
-    using proto_fn_type = void(void *, Args...);
-    using call_type = std::pair<void *, proto_fn_type *>;
+    using proto_fn_type = typename sigh_traits<void(Args...)>::proto_fn_type;
 
     virtual ~Invoker() = default;
 
@@ -78,13 +87,13 @@ template<typename Function>
 using DefaultCollectorType = typename DefaultCollector<Function>::collector_type;
 
 
+}
+
+
 /**
  * Internal details not to be documented.
  * @endcond TURN_OFF_DOXYGEN
  */
-
-
-}
 
 
 /**
@@ -132,12 +141,16 @@ class Sink<Ret(Args...)> final {
     template<typename, typename>
     friend class SigH;
 
-    using proto_fn_type = Ret(void *, Args...);
-    using call_type = std::pair<void *, proto_fn_type *>;
+    using call_type = typename internal::sigh_traits<Ret(Args...)>::call_type;
 
     template<Ret(*Function)(Args...)>
     static Ret proto(void *, Args... args) {
         return (Function)(args...);
+    }
+
+    template<typename Class, Ret(Class:: *Member)(Args... args) const>
+    static Ret proto(void *instance, Args... args) {
+        return (static_cast<const Class *>(instance)->*Member)(args...);
     }
 
     template<typename Class, Ret(Class:: *Member)(Args... args)>
@@ -145,7 +158,7 @@ class Sink<Ret(Args...)> final {
         return (static_cast<Class *>(instance)->*Member)(args...);
     }
 
-    Sink(std::vector<call_type> &calls) ENTT_NOEXCEPT
+    Sink(std::vector<call_type> *calls) ENTT_NOEXCEPT
         : calls{calls}
     {}
 
@@ -161,7 +174,7 @@ public:
     template<Ret(*Function)(Args...)>
     void connect() {
         disconnect<Function>();
-        calls.emplace_back(nullptr, &proto<Function>);
+        calls->emplace_back(nullptr, &proto<Function>);
     }
 
     /**
@@ -177,10 +190,29 @@ public:
      * @tparam Member Member function to connect to the signal.
      * @param instance A valid instance of type pointer to `Class`.
      */
-    template <typename Class, Ret(Class:: *Member)(Args...) = &Class::receive>
+    template<typename Class, Ret(Class:: *Member)(Args...) const = &Class::receive>
     void connect(Class *instance) {
         disconnect<Class, Member>(instance);
-        calls.emplace_back(instance, &proto<Class, Member>);
+        calls->emplace_back(instance, &proto<Class, Member>);
+    }
+
+    /**
+     * @brief Connects a member function for a given instance to a signal.
+     *
+     * The signal isn't responsible for the connected object. Users must
+     * guarantee that the lifetime of the instance overcomes the one of the
+     * signal. On the other side, the signal handler performs checks to
+     * avoid multiple connections for the same member function of a given
+     * instance.
+     *
+     * @tparam Class Type of class to which the member function belongs.
+     * @tparam Member Member function to connect to the signal.
+     * @param instance A valid instance of type pointer to `Class`.
+     */
+    template<typename Class, Ret(Class:: *Member)(Args...) = &Class::receive>
+    void connect(Class *instance) {
+        disconnect<Class, Member>(instance);
+        calls->emplace_back(instance, &proto<Class, Member>);
     }
 
     /**
@@ -190,7 +222,19 @@ public:
     template<Ret(*Function)(Args...)>
     void disconnect() {
         call_type target{nullptr, &proto<Function>};
-        calls.erase(std::remove(calls.begin(), calls.end(), std::move(target)), calls.end());
+        calls->erase(std::remove(calls->begin(), calls->end(), std::move(target)), calls->end());
+    }
+
+    /**
+     * @brief Disconnects the given member function from a signal.
+     * @tparam Class Type of class to which the member function belongs.
+     * @tparam Member Member function to connect to the signal.
+     * @param instance A valid instance of type pointer to `Class`.
+     */
+    template<typename Class, Ret(Class:: *Member)(Args...) const>
+    void disconnect(Class *instance) {
+        call_type target{instance, &proto<Class, Member>};
+        calls->erase(std::remove(calls->begin(), calls->end(), std::move(target)), calls->end());
     }
 
     /**
@@ -202,7 +246,7 @@ public:
     template<typename Class, Ret(Class:: *Member)(Args...)>
     void disconnect(Class *instance) {
         call_type target{instance, &proto<Class, Member>};
-        calls.erase(std::remove(calls.begin(), calls.end(), std::move(target)), calls.end());
+        calls->erase(std::remove(calls->begin(), calls->end(), std::move(target)), calls->end());
     }
 
     /**
@@ -213,18 +257,18 @@ public:
     template<typename Class>
     void disconnect(Class *instance) {
         auto func = [instance](const call_type &call) { return call.first == instance; };
-        calls.erase(std::remove_if(calls.begin(), calls.end(), std::move(func)), calls.end());
+        calls->erase(std::remove_if(calls->begin(), calls->end(), std::move(func)), calls->end());
     }
 
     /**
      * @brief Disconnects all the listeners from a signal.
      */
     void disconnect() {
-        calls.clear();
+        calls->clear();
     }
 
 private:
-    std::vector<call_type> &calls;
+    std::vector<call_type> *calls;
 };
 
 
@@ -253,7 +297,7 @@ private:
  */
 template<typename Ret, typename... Args, typename Collector>
 class SigH<Ret(Args...), Collector> final: private internal::Invoker<Ret(Args...), Collector> {
-    using call_type = typename internal::Invoker<Ret(Args...), Collector>::call_type;
+    using call_type = typename internal::sigh_traits<Ret(Args...)>::call_type;
 
 public:
     /*! @brief Unsigned integer type. */
@@ -296,7 +340,7 @@ public:
      * @return A temporary sink object.
      */
     sink_type sink() ENTT_NOEXCEPT {
-        return { calls };
+        return { &calls };
     }
 
     /**

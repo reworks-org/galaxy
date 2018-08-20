@@ -16,13 +16,13 @@ https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
 https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 - better code integration
-	- https://github.com/algorys/cmakeconverter for travis-ci
 	- appveyor also needs to have access to more compilers
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
 - redo build systems
 - set up virtualbox to test linux and mac builds
 - google test, premake5
+- run scripts from console
 
 
 Serializable classes:

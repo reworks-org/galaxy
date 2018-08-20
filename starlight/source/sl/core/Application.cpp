@@ -25,8 +25,25 @@
 #include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
+#include "sl/components/ScrollingBackgroundComponent.hpp"
 
 #include "Application.hpp"
+
+///
+/// Unique namespace to protect enttDestroyWorkaround.
+///
+namespace
+{
+	///
+	/// Workaround function to allow sol2 to destroy entt entities.
+	///
+	/// \param entity Entity to destroy.
+	///
+	void enttDestroyWorkaround(entt::DefaultRegistry::entity_type entity)
+	{
+		sl::Locator::world->m_registry.destroy(entity);
+	}
+}
 
 namespace sl
 {
@@ -127,7 +144,6 @@ namespace sl
 		Locator::eventManager = m_eventManager.get();
 
 		m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
-		m_workaround.setRegistry(&(m_world->m_registry));
 
 		// Now all the usertypes we want to access from lua are registered.
 		m_world->m_lua.new_usertype<std::uint32_t>("uint32_t");
@@ -233,19 +249,20 @@ namespace sl
 		);
 
 		// Entt
-		m_world->m_lua.new_usertype<Sol2enttWorkaround>("Registry",
-			sol::constructors<Sol2enttWorkaround()>(),
-			"create", &Sol2enttWorkaround::create,
-			"destroy", &Sol2enttWorkaround::destroy,
-			"getAnimationComponent", &Sol2enttWorkaround::get<AnimationComponent>,
-			"getParallaxComponent", &Sol2enttWorkaround::get<ParallaxComponent>,
-			"getParticleComponent", &Sol2enttWorkaround::get<ParticleComponent>,
-			"getPhysicsComponent", &Sol2enttWorkaround::get<PhysicsComponent>,
-			"getRenderComponent", &Sol2enttWorkaround::get<RenderComponent>,
-			"getTransformComponent", &Sol2enttWorkaround::get<TransformComponent>
+		m_world->m_lua.new_usertype<entt::DefaultRegistry>("Registry",
+			sol::constructors<entt::DefaultRegistry()>(),
+			"create", sol::resolve<entt::DefaultRegistry::entity_type(void)>(&entt::DefaultRegistry::create),
+			"destroy", &enttDestroyWorkaround,
+			"getAnimationComponent", sol::resolve<AnimationComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<AnimationComponent>),
+			"getParallaxComponent", sol::resolve<ParallaxComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<ParallaxComponent>),
+			"getParticleComponent", sol::resolve<ParticleComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<ParticleComponent>),
+			"getPhysicsComponent", sol::resolve<PhysicsComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<PhysicsComponent>),
+			"getRenderComponent", sol::resolve<RenderComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<RenderComponent>),
+			"getTransformComponent", sol::resolve<TransformComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<TransformComponent>),
+			"getScrollingComponent", sol::resolve<ScrollingBackgroundComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<ScrollingBackgroundComponent>)
 		);
 
-		m_world->m_lua["registry"] = &m_workaround;
+		m_world->m_lua["registry"] = &(m_world->m_registry);
 
 		// Including state so we can manipulate it from the debug interface and console.
 		m_world->m_lua.new_usertype<StateMachine>("StateMachine", 

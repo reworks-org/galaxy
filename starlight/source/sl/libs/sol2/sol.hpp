@@ -20,8 +20,8 @@
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // This file was generated with a script.
-// Generated 2018-06-16 11:58:58.595822 UTC
-// This header was generated with sol v2.20.3 (revision 968989b)
+// Generated 2018-08-04 15:02:30.421859 UTC
+// This header was generated with sol v2.20.3 (revision daa9993)
 // https://github.com/ThePhD/sol2
 
 #ifndef SOL_SINGLE_INCLUDE_HPP
@@ -135,8 +135,8 @@
 
 #if defined(SOL_CHECK_ARGUMENTS) && SOL_CHECK_ARGUMENTS
 
-// Checks low-level getter function
-// (and thusly, affects nearly entire framework)
+	// Checks low-level getter function
+	// (and thusly, affects nearly entire framework)
 #if !defined(SOL_SAFE_GETTER)
 #define SOL_SAFE_GETTER 1
 #endif
@@ -394,13 +394,13 @@ namespace sol {
 	struct unique_usertype_traits;
 } // namespace sol
 
-  // end of sol/forward.hpp
+// end of sol/forward.hpp
 
-  // beginning of sol/state.hpp
+// beginning of sol/state.hpp
 
-  // beginning of sol/state_view.hpp
+// beginning of sol/state_view.hpp
 
-  // beginning of sol/error.hpp
+// beginning of sol/error.hpp
 
 #include <stdexcept>
 #include <string>
@@ -442,17 +442,17 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/error.hpp
+// end of sol/error.hpp
 
-  // beginning of sol/table.hpp
+// beginning of sol/table.hpp
 
-  // beginning of sol/table_core.hpp
+// beginning of sol/table_core.hpp
 
-  // beginning of sol/proxy.hpp
+// beginning of sol/proxy.hpp
 
-  // beginning of sol/traits.hpp
+// beginning of sol/traits.hpp
 
-  // beginning of sol/tuple.hpp
+// beginning of sol/tuple.hpp
 
 #include <tuple>
 #include <cstddef>
@@ -520,9 +520,9 @@ namespace sol {
 	} // namespace meta
 } // namespace sol
 
-  // end of sol/tuple.hpp
+// end of sol/tuple.hpp
 
-  // beginning of sol/bind_traits.hpp
+// beginning of sol/bind_traits.hpp
 
 namespace sol {
 	namespace meta {
@@ -885,12 +885,12 @@ namespace sol {
 			/* __stdcall cannot be applied to functions with varargs*/
 			/*template <typename R, typename... Args>
 			struct fx_traits<__stdcall R(Args..., ...) noexcept, false> : basic_traits<true, true, void, R, Args...> {
-			typedef R(__stdcall* function_pointer_type)(Args..., ...) noexcept;
+				typedef R(__stdcall* function_pointer_type)(Args..., ...) noexcept;
 			};
 
 			template <typename R, typename... Args>
 			struct fx_traits<R (__stdcall *)(Args..., ...) noexcept, false> : basic_traits<true, true, void, R, Args...> {
-			typedef R(__stdcall* function_pointer_type)(Args..., ...) noexcept;
+				typedef R(__stdcall* function_pointer_type)(Args..., ...) noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -901,7 +901,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) noexcept;
 			};*/
 
 			/* Const Volatile */
@@ -913,7 +913,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) const noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -924,7 +924,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) const volatile noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const volatile noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const volatile noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -935,7 +935,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) & noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) & noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) & noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -946,7 +946,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) const& noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const& noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const& noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -957,7 +957,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) const volatile& noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const volatile& noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const volatile& noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -968,7 +968,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) && noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) && noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) && noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -979,7 +979,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) const&& noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const&& noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const&& noexcept;
 			};*/
 
 			template <typename T, typename R, typename... Args>
@@ -990,7 +990,7 @@ namespace sol {
 			/* __stdcall does not work with varargs */
 			/*template <typename T, typename R, typename... Args>
 			struct fx_traits<R (__stdcall T::*)(Args..., ...) const volatile&& noexcept, false> : basic_traits<true, true, T, R, Args...> {
-			typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const volatile&& noexcept;
+				typedef R (__stdcall T::*function_pointer_type)(Args..., ...) const volatile&& noexcept;
 			};*/
 			#endif // noexcept is part of a function's type
 			#endif // __stdcall x86 VC++ bug
@@ -1039,9 +1039,9 @@ namespace sol {
 	}
 } // namespace sol::meta
 
-  // end of sol/bind_traits.hpp
+// end of sol/bind_traits.hpp
 
-  // beginning of sol/string_view.hpp
+// beginning of sol/string_view.hpp
 
 #if defined(SOL_CXX17_FEATURES) && SOL_CXX17_FEATURES
 #include <string_view>
@@ -1191,11 +1191,12 @@ namespace sol {
 	#endif // C++17 Support
 } // namespace sol
 
-  // end of sol/string_view.hpp
+// end of sol/string_view.hpp
 
 #include <type_traits>
 #include <cstdint>
 #include <memory>
+#include <array>
 #include <iterator>
 #include <iosfwd>
 
@@ -1874,25 +1875,25 @@ namespace sol {
 	} // namespace detail
 } // namespace sol
 
-  // end of sol/traits.hpp
+// end of sol/traits.hpp
 
-  // beginning of sol/function.hpp
+// beginning of sol/function.hpp
 
-  // beginning of sol/stack.hpp
+// beginning of sol/stack.hpp
 
-  // beginning of sol/trampoline.hpp
+// beginning of sol/trampoline.hpp
 
-  // beginning of sol/types.hpp
+// beginning of sol/types.hpp
 
-  // beginning of sol/optional.hpp
+// beginning of sol/optional.hpp
 
-  // beginning of sol/compatibility.hpp
+// beginning of sol/compatibility.hpp
 
-  // beginning of sol/compatibility/version.hpp
+// beginning of sol/compatibility/version.hpp
 
 #if defined(SOL_USING_CXX_LUA) && SOL_USING_CXX_LUA
 #include "sl/libs/lua/lua.h"
-#include "sl/libs/lua/ualib.h"
+#include "sl/libs/lua/lualib.h"
 #include "sl/libs/lua/lauxlib.h"
 #if defined(SOL_USING_CXX_LUAJIT) && SOL_USING_CXX_LUAJIT
 #include "sl/libs/lua/luajit.h"
@@ -1923,7 +1924,7 @@ namespace sol {
 #define SOL_LUA_VERSION 502
 #endif // Lua Version 502, 501 || luajit, 500
 
-  // end of sol/compatibility/version.hpp
+// end of sol/compatibility/version.hpp
 
 #if !defined(SOL_NO_COMPAT) || !(SOL_NO_COMPAT)
 
@@ -1935,7 +1936,7 @@ namespace sol {
 #ifndef COMPAT53_INCLUDE_SOURCE
 #define COMPAT53_INCLUDE_SOURCE 1
 #endif // Build Compat Layer Inline
-  // beginning of sol/compatibility/compat-5.3.h
+// beginning of sol/compatibility/compat-5.3.h
 
 #ifndef KEPLER_PROJECT_COMPAT53_H_
 #define KEPLER_PROJECT_COMPAT53_H_
@@ -2792,9 +2793,9 @@ static const char *compat53_getF(lua_State *L, void *ud, size_t *size) {
 		lf->n = 0;  /* no more pre-read characters */
 	}
 	else {  /* read a block from file */
-			/* 'fread' can return > 0 *and* set the EOF flag. If next call to
-			'compat53_getF' called 'fread', it might still wait for user input.
-			The next check avoids this problem. */
+		   /* 'fread' can return > 0 *and* set the EOF flag. If next call to
+		   'compat53_getF' called 'fread', it might still wait for user input.
+		   The next check avoids this problem. */
 		if (feof(lf->f)) return NULL;
 		*size = fread(lf->buff, 1, sizeof(lf->buff), lf->f);  /* read block */
 	}
@@ -3252,12 +3253,12 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/in_place.hpp
+// end of sol/in_place.hpp
 
 #if defined(SOL_USE_BOOST) && SOL_USE_BOOST
 #include <boost/optional.hpp>
 #else
-  // beginning of sol/optional_implementation.hpp
+// beginning of sol/optional_implementation.hpp
 
 #include <initializer_list>
 #include <cassert>
@@ -3355,13 +3356,13 @@ namespace sol {
 
 	// BEGIN workaround for missing is_trivially_destructible
 	#if defined TR2_OPTIONAL_GCC_4_8_AND_HIGHER___
-	// leave it: it is already there
+		// leave it: it is already there
 	#elif defined TR2_OPTIONAL_CLANG_3_4_2_AND_HIGHER_
-	// leave it: it is already there
+		// leave it: it is already there
 	#elif defined TR2_OPTIONAL_MSVC_2015_AND_HIGHER___
-	// leave it: it is already there
+		// leave it: it is already there
 	#elif defined TR2_OPTIONAL_DISABLE_EMULATION_OF_TYPE_TRAITS
-	// leave it: the user doesn't want it
+		// leave it: the user doesn't want it
 	#else
 	template <typename T>
 	using is_trivially_destructible = ::std::has_trivial_destructor<T>;
@@ -3369,16 +3370,16 @@ namespace sol {
 	// END workaround for missing is_trivially_destructible
 
 	#if (defined TR2_OPTIONAL_GCC_4_7_AND_HIGHER___)
-	// leave it; our metafunctions are already defined.
+		// leave it; our metafunctions are already defined.
 	#elif defined TR2_OPTIONAL_CLANG_3_4_2_AND_HIGHER_
-	// leave it; our metafunctions are already defined.
+		// leave it; our metafunctions are already defined.
 	#elif defined TR2_OPTIONAL_MSVC_2015_AND_HIGHER___
-	// leave it: it is already there
+		// leave it: it is already there
 	#elif defined TR2_OPTIONAL_DISABLE_EMULATION_OF_TYPE_TRAITS
-	// leave it: the user doesn't want it
+		// leave it: the user doesn't want it
 	#else
 
-	// workaround for missing traits in GCC and CLANG
+		// workaround for missing traits in GCC and CLANG
 	template <class T>
 	struct is_nothrow_move_constructible {
 		static constexprbool value = ::std::is_nothrow_constructible<T, T&&>::value;
@@ -3418,7 +3419,7 @@ namespace sol {
 
 	#endif
 
-	// 20.5.4, optional for object types
+		// 20.5.4, optional for object types
 	template <class T>
 	class optional;
 
@@ -4368,7 +4369,7 @@ namespace std {
 #undef TR2_OPTIONAL_REQUIRES
 #undef TR2_OPTIONAL_ASSERTED_EXPRESSION
 
-  // end of sol/optional_implementation.hpp
+// end of sol/optional_implementation.hpp
 
 #endif // Boost vs. Better optional
 
@@ -4389,9 +4390,9 @@ namespace sol {
 	} // namespace meta
 } // namespace sol
 
-  // end of sol/optional.hpp
+// end of sol/optional.hpp
 
-  // beginning of sol/forward_detail.hpp
+// beginning of sol/forward_detail.hpp
 
 namespace sol {
 	namespace detail {
@@ -4426,9 +4427,9 @@ namespace sol {
 	} // namespace usertype_detail
 } // namespace sol
 
-  // end of sol/forward_detail.hpp
+// end of sol/forward_detail.hpp
 
-  // beginning of sol/raii.hpp
+// beginning of sol/raii.hpp
 
 namespace sol {
 	namespace detail {
@@ -4437,7 +4438,7 @@ namespace sol {
 			static void construct(T&& obj, Args&&... args) {
 				typedef meta::unqualified_t<T> Tu;
 				std::allocator<Tu> alloc{};
-				std::allocator_traits<std::allocator<Tu>>::construct(alloc, obj, std::forward<Args>(args)...);
+				std::allocator_traits<std::allocator<Tu>>::construct(alloc, std::forward<T>(obj), std::forward<Args>(args)...);
 			}
 
 			template <typename T, typename... Args>
@@ -4549,11 +4550,9 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/raii.hpp
+// end of sol/raii.hpp
 
-  // beginning of sol/filters.hpp
-
-#include <array>
+// beginning of sol/filters.hpp
 
 namespace sol {
 	namespace detail {
@@ -4616,7 +4615,7 @@ namespace sol {
 	}
 } // namespace sol
 
-  // end of sol/filters.hpp
+// end of sol/filters.hpp
 
 #if defined(SOL_CXX17_FEATURES) && SOL_CXX17_FEATURES
 #ifdef SOL_STD_VARIANT
@@ -5189,17 +5188,17 @@ namespace sol {
 
 	inline const std::string& to_string(call_status c) {
 		static const std::array<std::string, 10> names{ {
-				"ok",
-				"yielded",
-				"runtime",
-				"memory",
-				"handler",
-				"gc",
-				"syntax",
-				"file",
-				"CRITICAL_EXCEPTION_FAILURE",
-				"CRITICAL_INDETERMINATE_STATE_FAILURE"
-			} };
+			"ok",
+			"yielded",
+			"runtime",
+			"memory",
+			"handler",
+			"gc",
+			"syntax",
+			"file",
+			"CRITICAL_EXCEPTION_FAILURE",
+			"CRITICAL_INDETERMINATE_STATE_FAILURE"
+		} };
 		switch (c) {
 		case call_status::ok:
 			return names[0];
@@ -5242,14 +5241,14 @@ namespace sol {
 
 	inline const std::string& to_string(load_status c) {
 		static const std::array<std::string, 7> names{ {
-				"ok",
-				"memory",
-				"gc",
-				"syntax",
-				"file",
-				"CRITICAL_EXCEPTION_FAILURE",
-				"CRITICAL_INDETERMINATE_STATE_FAILURE"
-			} };
+			"ok",
+			"memory",
+			"gc",
+			"syntax",
+			"file",
+			"CRITICAL_EXCEPTION_FAILURE",
+			"CRITICAL_INDETERMINATE_STATE_FAILURE"
+		} };
 		switch (c) {
 		case load_status::ok:
 			return names[0];
@@ -5271,10 +5270,10 @@ namespace sol {
 
 	inline const std::string& to_string(load_mode c) {
 		static const std::array<std::string, 3> names{ {
-				"bt",
-				"t",
-				"b",
-			} };
+			"bt",
+			"t",
+			"b",
+		} };
 		return names[static_cast<std::size_t>(c)];
 	}
 
@@ -5352,7 +5351,7 @@ namespace sol {
 			"next",
 			"__type",
 			"__typeinfo"
-			} };
+		} };
 		return names;
 	}
 
@@ -5531,6 +5530,9 @@ namespace sol {
 		struct lua_type_of<void*> : std::integral_constant<type, type::lightuserdata> {};
 
 		template <>
+		struct lua_type_of<const void*> : std::integral_constant<type, type::lightuserdata> {};
+
+		template <>
 		struct lua_type_of<lightuserdata_value> : std::integral_constant<type, type::lightuserdata> {};
 
 		template <>
@@ -5623,6 +5625,12 @@ namespace sol {
 
 		template <typename C, C v, template <typename...> class V, typename T, typename... Args>
 		struct accumulate<C, v, V, T, Args...> : accumulate<C, v + V<T>::value, V, Args...> {};
+
+		template <typename C, C v, template <typename...> class V, typename List>
+		struct accumulate_list;
+
+		template <typename C, C v, template <typename...> class V, typename... Args>
+		struct accumulate_list<C, v, V, types<Args...>> : accumulate<C, v, V, Args...> {};
 	} // namespace detail
 
 	template <typename T>
@@ -5729,9 +5737,9 @@ namespace sol {
 	public:
 		typedef std::integral_constant<bool, meta::count_for<is_variadic_arguments, typename base_t::args_list>::value != 0> runtime_variadics_t;
 		static const std::size_t true_arity = base_t::arity;
-		static const std::size_t arity = base_t::arity - meta::count_for<is_transparent_argument, typename base_t::args_list>::value;
+		static const std::size_t arity = detail::accumulate_list<std::size_t, 0, lua_size, typename base_t::args_list>::value - meta::count_for<is_transparent_argument, typename base_t::args_list>::value;
 		static const std::size_t true_free_arity = base_t::free_arity;
-		static const std::size_t free_arity = base_t::free_arity - meta::count_for<is_transparent_argument, typename base_t::args_list>::value;
+		static const std::size_t free_arity = detail::accumulate_list<std::size_t, 0, lua_size, typename base_t::free_args_list>::value - meta::count_for<is_transparent_argument, typename base_t::args_list>::value;
 	};
 
 	template <typename T>
@@ -5760,7 +5768,7 @@ namespace sol {
 	struct is_environment : std::integral_constant<bool, is_userdata<T>::value || is_table<T>::value> {};
 
 	template <typename T>
-	struct is_automagical : std::true_type {};
+	struct is_automagical : meta::neg<std::is_array<meta::unqualified_t<T>>> {};
 
 	template <typename T>
 	inline type type_of() {
@@ -5811,7 +5819,7 @@ namespace sol {
 	} // namespace detail
 } // namespace sol
 
-  // end of sol/types.hpp
+// end of sol/types.hpp
 
 #include <exception>
 #include <cstring>
@@ -5829,7 +5837,7 @@ namespace sol {
 	namespace detail {
 		inline const char(&default_exception_handler_name())[11]{
 			static const char name[11] = "sol.\xE2\x98\xA2\xE2\x98\xA2";
-		return name;
+			return name;
 		}
 
 			// must push at least 1 object on the stack
@@ -6000,15 +6008,15 @@ namespace sol {
 	}
 } // sol
 
-  // end of sol/trampoline.hpp
+// end of sol/trampoline.hpp
 
-  // beginning of sol/stack_core.hpp
+// beginning of sol/stack_core.hpp
 
-  // beginning of sol/inheritance.hpp
+// beginning of sol/inheritance.hpp
 
-  // beginning of sol/usertype_traits.hpp
+// beginning of sol/usertype_traits.hpp
 
-  // beginning of sol/demangle.hpp
+// beginning of sol/demangle.hpp
 
 #include <cctype>
 #if defined(__GNUC__) && defined(__MINGW32__) && (__GNUC__ < 6)
@@ -6024,7 +6032,7 @@ namespace sol {
 		inline std::string ctti_get_type_name() {
 			// cardinal sins from MINGW
 			using namespace std;
-			static const std::array<std::string, 2> removals = { { "{anonymous}", "(anonymous namespace)" } };
+			static const std::array<std::string, 2> removals = { {"{anonymous}", "(anonymous namespace)"} };
 			std::string name = __PRETTY_FUNCTION__;
 			std::size_t start = name.find_first_of('[');
 			start = name.find_first_of('=', start);
@@ -6058,7 +6066,7 @@ namespace sol {
 		#elif defined(_MSC_VER)
 		template <typename T>
 		inline std::string ctti_get_type_name() {
-			static const std::array<std::string, 7> removals = { { "public:", "private:", "protected:", "struct ", "class ", "`anonymous-namespace'", "`anonymous namespace'" } };
+			static const std::array<std::string, 7> removals = { {"public:", "private:", "protected:", "struct ", "class ", "`anonymous-namespace'", "`anonymous namespace'"} };
 			std::string name = __FUNCSIG__;
 			std::size_t start = name.find("get_type_name");
 			if (start == std::string::npos)
@@ -6104,7 +6112,7 @@ namespace sol {
 		inline std::string short_demangle_once() {
 			std::string realname = ctti_get_type_name<T>();
 			// This isn't the most complete but it'll do for now...?
-			static const std::array<std::string, 10> ops = { { "operator<", "operator<<", "operator<<=", "operator<=", "operator>", "operator>>", "operator>>=", "operator>=", "operator->", "operator->*" } };
+			static const std::array<std::string, 10> ops = { {"operator<", "operator<<", "operator<<=", "operator<=", "operator>", "operator>>", "operator>>=", "operator>=", "operator->", "operator->*"} };
 			int level = 0;
 			std::ptrdiff_t idx = 0;
 			for (idx = static_cast<std::ptrdiff_t>(realname.empty() ? 0 : realname.size() - 1); idx > 0; --idx) {
@@ -6152,7 +6160,7 @@ namespace sol {
 	}
 } // namespace sol::detail
 
-  // end of sol/demangle.hpp
+// end of sol/demangle.hpp
 
 namespace sol {
 
@@ -6186,7 +6194,7 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/usertype_traits.hpp
+// end of sol/usertype_traits.hpp
 
 namespace sol {
 	template <typename... Args>
@@ -6298,9 +6306,9 @@ namespace sol {
 	} // namespace detail
 } // namespace sol
 
-  // end of sol/inheritance.hpp
+// end of sol/inheritance.hpp
 
-  // beginning of sol/error_handler.hpp
+// beginning of sol/error_handler.hpp
 
 namespace sol {
 
@@ -6420,11 +6428,11 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/error_handler.hpp
+// end of sol/error_handler.hpp
 
-  // beginning of sol/reference.hpp
+// beginning of sol/reference.hpp
 
-  // beginning of sol/stack_reference.hpp
+// beginning of sol/stack_reference.hpp
 
 namespace sol {
 	namespace detail {
@@ -6440,7 +6448,7 @@ namespace sol {
 
 	class stack_reference {
 	private:
-		lua_State * luastate = nullptr;
+		lua_State* luastate = nullptr;
 		int index = 0;
 
 	protected:
@@ -6513,6 +6521,11 @@ namespace sol {
 			return index;
 		}
 
+		const void* pointer() const noexcept {
+			const void* vp = lua_topointer(lua_state(), stack_index());
+			return vp;
+		}
+
 		type get_type() const noexcept {
 			int result = lua_type(lua_state(), index);
 			return static_cast<type>(result);
@@ -6553,13 +6566,13 @@ namespace sol {
 	}
 } // namespace sol
 
-  // end of sol/stack_reference.hpp
+// end of sol/stack_reference.hpp
 
 namespace sol {
 	namespace detail {
 		inline const char(&default_main_thread_name())[9]{
 			static const char name[9] = "sol.\xF0\x9F\x93\x8C";
-		return name;
+			return name;
 		}
 	} // namespace detail
 
@@ -6957,6 +6970,12 @@ namespace sol {
 			return !(ref == LUA_NOREF || ref == LUA_REFNIL);
 		}
 
+		const void* pointer() const noexcept {
+			int si = push();
+			const void* vp = lua_topointer(lua_state(), -si);
+			return vp;
+		}
+
 		explicit operator bool() const noexcept {
 			return valid();
 		}
@@ -7005,9 +7024,9 @@ namespace sol {
 	}
 } // namespace sol
 
-  // end of sol/reference.hpp
+// end of sol/reference.hpp
 
-  // beginning of sol/tie.hpp
+// beginning of sol/tie.hpp
 
 namespace sol {
 
@@ -7080,9 +7099,9 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/tie.hpp
+// end of sol/tie.hpp
 
-  // beginning of sol/stack_guard.hpp
+// beginning of sol/stack_guard.hpp
 
 namespace sol {
 	namespace detail {
@@ -7122,7 +7141,7 @@ namespace sol {
 	};
 } // namespace sol
 
-  // end of sol/stack_guard.hpp
+// end of sol/stack_guard.hpp
 
 #include <vector>
 #include <forward_list>
@@ -7854,7 +7873,8 @@ namespace sol {
 
 		template <typename T, typename Handler>
 		inline decltype(auto) unqualified_check_get(lua_State* L, int index, Handler&& handler, record& tracking) {
-			check_getter<T> cg{};
+			typedef meta::unqualified_t<T> Tu;
+			check_getter<Tu> cg{};
 			(void)cg;
 			return cg.get(L, index, std::forward<Handler>(handler), tracking);
 		}
@@ -7895,6 +7915,9 @@ namespace sol {
 			#if defined(SOL_SAFE_GETTER) && SOL_SAFE_GETTER
 			template <typename T>
 			inline auto tagged_unqualified_get(types<T>, lua_State* L, int index, record& tracking) -> decltype(stack_detail::unchecked_unqualified_get<T>(L, index, tracking)) {
+				if (is_lua_reference<T>::value) {
+					return stack_detail::unchecked_unqualified_get<T>(L, index, tracking);
+				}
 				auto op = unqualified_check_get<T>(L, index, type_panic_c_str, tracking);
 				return *std::move(op);
 			}
@@ -7906,6 +7929,9 @@ namespace sol {
 
 			template <typename T>
 			inline auto tagged_get(types<T>, lua_State* L, int index, record& tracking) -> decltype(stack_detail::unchecked_get<T>(L, index, tracking)) {
+				if (is_lua_reference<T>::value) {
+					return stack_detail::unchecked_get<T>(L, index, tracking);
+				}
 				auto op = check_get<T>(L, index, type_panic_c_str, tracking);
 				return *std::move(op);
 			}
@@ -8105,11 +8131,11 @@ namespace sol {
 	} // namespace stack
 } // namespace sol
 
-  // end of sol/stack_core.hpp
+// end of sol/stack_core.hpp
 
-  // beginning of sol/stack_check.hpp
+// beginning of sol/stack_check.hpp
 
-  // beginning of sol/stack_check_unqualified.hpp
+// beginning of sol/stack_check_unqualified.hpp
 
 #include <cmath>
 #ifdef SOL_CXX17_FEATURES
@@ -8229,9 +8255,9 @@ namespace sol {
 				if (!success) {
 					// expected type, actual type
 					#if defined(SOL_STRINGS_ARE_NUMBERS) && SOL_STRINGS_ARE_NUMBERS
-					handler(L, index, type::number, t, "not a numeric type");
-					#else
 					handler(L, index, type::number, type_of(L, index), "not a numeric type or numeric string");
+					#else
+					handler(L, index, type::number, t, "not a numeric type");
 					#endif
 				}
 				return success;
@@ -8725,9 +8751,9 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_check_unqualified.hpp
+// end of sol/stack_check_unqualified.hpp
 
-  // beginning of sol/stack_check_qualified.hpp
+// beginning of sol/stack_check_qualified.hpp
 
 namespace sol {
 	namespace stack {
@@ -8799,15 +8825,15 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_check_qualified.hpp
+// end of sol/stack_check_qualified.hpp
 
-  // end of sol/stack_check.hpp
+// end of sol/stack_check.hpp
 
-  // beginning of sol/stack_get.hpp
+// beginning of sol/stack_get.hpp
 
-  // beginning of sol/stack_get_unqualified.hpp
+// beginning of sol/stack_get_unqualified.hpp
 
-  // beginning of sol/overload.hpp
+// beginning of sol/overload.hpp
 
 namespace sol {
 	template <typename... Functions>
@@ -8829,9 +8855,9 @@ namespace sol {
 	}
 } // namespace sol
 
-  // end of sol/overload.hpp
+// end of sol/overload.hpp
 
-  // beginning of sol/unicode.hpp
+// beginning of sol/unicode.hpp
 
 namespace sol {
 	// Everything here was lifted pretty much straight out of
@@ -9836,6 +9862,14 @@ namespace sol {
 			}
 		};
 
+		template <>
+		struct getter<const void*> {
+			static const void* get(lua_State* L, int index, record& tracking) {
+				tracking.use(1);
+				return lua_touserdata(L, index);
+			}
+		};
+
 		template <typename T>
 		struct getter<detail::as_value_tag<T>> {
 			static T* get_no_lua_nil(lua_State* L, int index, record& tracking) {
@@ -10012,9 +10046,9 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_get_unqualified.hpp
+// end of sol/stack_get_unqualified.hpp
 
-  // beginning of sol/stack_get_qualified.hpp
+// beginning of sol/stack_get_qualified.hpp
 
 namespace sol {
 	namespace stack {
@@ -10057,13 +10091,13 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_get_qualified.hpp
+// end of sol/stack_get_qualified.hpp
 
-  // end of sol/stack_get.hpp
+// end of sol/stack_get.hpp
 
-  // beginning of sol/stack_check_get.hpp
+// beginning of sol/stack_check_get.hpp
 
-  // beginning of sol/stack_check_get_unqualified.hpp
+// beginning of sol/stack_check_get_unqualified.hpp
 
 namespace sol {
 	namespace stack {
@@ -10087,7 +10121,7 @@ namespace sol {
 			static optional<T> get(lua_State* L, int index, Handler&& handler, record& tracking) {
 				// actually check if it's none here, otherwise
 				// we'll have a none object inside an optional!
-				bool success = stack::check<T>(L, index, no_panic);
+				bool success = lua_isnoneornil(L, index) == 0 && stack::check<T>(L, index, no_panic);
 				if (!success) {
 					// expected type, actual type
 					tracking.use(static_cast<int>(success));
@@ -10095,14 +10129,6 @@ namespace sol {
 					return nullopt;
 				}
 				return stack_detail::unchecked_get<T>(L, index, tracking);
-			}
-		};
-
-		template <typename T>
-		struct check_getter<optional<T>> {
-			template <typename Handler>
-			static decltype(auto) get(lua_State* L, int index, Handler&&, record& tracking) {
-				return check_get<T>(L, index, no_panic, tracking);
 			}
 		};
 
@@ -10224,33 +10250,22 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_check_get_unqualified.hpp
+// end of sol/stack_check_get_unqualified.hpp
 
-  // beginning of sol/stack_check_get_qualified.hpp
+// beginning of sol/stack_check_get_qualified.hpp
 
 namespace sol {
 	namespace stack {
 		template <typename T, typename C>
-		struct qualified_check_getter {
-			typedef decltype(stack_detail::unchecked_get<T>(nullptr, 0, std::declval<record&>())) R;
-
-			template <typename Handler>
-			static optional<R> get(lua_State* L, int index, Handler&& handler, record& tracking) {
-				if (!check<T>(L, index, std::forward<Handler>(handler))) {
-					tracking.use(static_cast<int>(!lua_isnone(L, index)));
-					return nullopt;
-				}
-				return stack_detail::unchecked_get<T>(L, index, tracking);
-			}
-		};
+		struct qualified_check_getter : check_getter<meta::unqualified_t<T>, C> {};
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_check_get_qualified.hpp
+// end of sol/stack_check_get_qualified.hpp
 
-  // end of sol/stack_check_get.hpp
+// end of sol/stack_check_get.hpp
 
-  // beginning of sol/stack_push.hpp
+// beginning of sol/stack_push.hpp
 
 #include <limits>
 #if defined(SOL_CXX17_FEATURES) && SOL_CXX17_FEATURES
@@ -10681,6 +10696,14 @@ namespace sol {
 		struct pusher<void*> {
 			static int push(lua_State* L, void* userdata) {
 				lua_pushlightuserdata(L, userdata);
+				return 1;
+			}
+		};
+
+		template <>
+		struct pusher<const void*> {
+			static int push(lua_State* L, const void* userdata) {
+				lua_pushlightuserdata(L, const_cast<void*>(userdata));
 				return 1;
 			}
 		};
@@ -11271,9 +11294,9 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_push.hpp
+// end of sol/stack_push.hpp
 
-  // beginning of sol/stack_pop.hpp
+// beginning of sol/stack_pop.hpp
 
 namespace sol {
 	namespace stack {
@@ -11298,9 +11321,9 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_pop.hpp
+// end of sol/stack_pop.hpp
 
-  // beginning of sol/stack_field.hpp
+// beginning of sol/stack_field.hpp
 
 namespace sol {
 	namespace stack {
@@ -11546,9 +11569,9 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_field.hpp
+// end of sol/stack_field.hpp
 
-  // beginning of sol/stack_probe.hpp
+// beginning of sol/stack_probe.hpp
 
 namespace sol {
 	namespace stack {
@@ -11608,7 +11631,7 @@ namespace sol {
 	}
 } // namespace sol::stack
 
-  // end of sol/stack_probe.hpp
+// end of sol/stack_probe.hpp
 
 namespace sol {
 	namespace detail {
@@ -11834,15 +11857,15 @@ namespace sol {
 	} // namespace stack
 } // namespace sol
 
-  // end of sol/stack.hpp
+// end of sol/stack.hpp
 
-  // beginning of sol/unsafe_function.hpp
+// beginning of sol/unsafe_function.hpp
 
-  // beginning of sol/function_result.hpp
+// beginning of sol/function_result.hpp
 
-  // beginning of sol/protected_function_result.hpp
+// beginning of sol/protected_function_result.hpp
 
-  // beginning of sol/proxy_base.hpp
+// beginning of sol/proxy_base.hpp
 
 namespace sol {
 	struct proxy_base_tag {};
@@ -11873,9 +11896,9 @@ namespace sol {
 	};
 } // namespace sol
 
-  // end of sol/proxy_base.hpp
+// end of sol/proxy_base.hpp
 
-  // beginning of sol/stack_iterator.hpp
+// beginning of sol/stack_iterator.hpp
 
 namespace sol {
 	template <typename proxy_t, bool is_const>
@@ -12001,16 +12024,16 @@ namespace sol {
 	}
 } // namespace sol
 
-  // end of sol/stack_iterator.hpp
+// end of sol/stack_iterator.hpp
 
-  // beginning of sol/stack_proxy.hpp
+// beginning of sol/stack_proxy.hpp
 
-  // beginning of sol/stack_proxy_base.hpp
+// beginning of sol/stack_proxy_base.hpp
 
 namespace sol {
 	struct stack_proxy_base : public proxy_base<stack_proxy_base> {
 	private:
-		lua_State * L;
+		lua_State* L;
 		int index;
 
 	public:
@@ -12075,7 +12098,7 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/stack_proxy_base.hpp
+// end of sol/stack_proxy_base.hpp
 
 namespace sol {
 	struct stack_proxy : public stack_proxy_base {
@@ -12113,12 +12136,12 @@ namespace sol {
 	} // namespace stack
 } // namespace sol
 
-  // end of sol/stack_proxy.hpp
+// end of sol/stack_proxy.hpp
 
 namespace sol {
 	struct protected_function_result : public proxy_base<protected_function_result> {
 	private:
-		lua_State * L;
+		lua_State* L;
 		int index;
 		int returncount;
 		int popcount;
@@ -12305,14 +12328,14 @@ namespace sol {
 	} // namespace stack
 } // namespace sol
 
-  // end of sol/protected_function_result.hpp
+// end of sol/protected_function_result.hpp
 
-  // beginning of sol/unsafe_function_result.hpp
+// beginning of sol/unsafe_function_result.hpp
 
 namespace sol {
 	struct unsafe_function_result : public proxy_base<unsafe_function_result> {
 	private:
-		lua_State * L;
+		lua_State* L;
 		int index;
 		int returncount;
 
@@ -12449,7 +12472,7 @@ namespace sol {
 	} // namespace stack
 } // namespace sol
 
-  // end of sol/unsafe_function_result.hpp
+// end of sol/unsafe_function_result.hpp
 
 namespace sol {
 
@@ -12497,13 +12520,13 @@ namespace sol {
 	}
 } // namespace sol
 
-  // end of sol/function_result.hpp
+// end of sol/function_result.hpp
 
-  // beginning of sol/function_types.hpp
+// beginning of sol/function_types.hpp
 
-  // beginning of sol/function_types_core.hpp
+// beginning of sol/function_types_core.hpp
 
-  // beginning of sol/wrapper.hpp
+// beginning of sol/wrapper.hpp
 
 namespace sol {
 
@@ -12771,7 +12794,7 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/wrapper.hpp
+// end of sol/wrapper.hpp
 
 namespace sol {
 	namespace function_detail {
@@ -12789,13 +12812,13 @@ namespace sol {
 	}
 } // namespace sol::function_detail
 
-  // end of sol/function_types_core.hpp
+// end of sol/function_types_core.hpp
 
-  // beginning of sol/function_types_templated.hpp
+// beginning of sol/function_types_templated.hpp
 
-  // beginning of sol/call.hpp
+// beginning of sol/call.hpp
 
-  // beginning of sol/protect.hpp
+// beginning of sol/protect.hpp
 
 namespace sol {
 
@@ -12821,9 +12844,9 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/protect.hpp
+// end of sol/protect.hpp
 
-  // beginning of sol/property.hpp
+// beginning of sol/property.hpp
 
 namespace sol {
 
@@ -12937,7 +12960,7 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/property.hpp
+// end of sol/property.hpp
 
 namespace sol {
 	namespace usertype_detail {
@@ -13668,7 +13691,7 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/call.hpp
+// end of sol/call.hpp
 
 namespace sol {
 	namespace function_detail {
@@ -13792,9 +13815,9 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/function_types_templated.hpp
+// end of sol/function_types_templated.hpp
 
-  // beginning of sol/function_types_stateless.hpp
+// beginning of sol/function_types_stateless.hpp
 
 namespace sol {
 	namespace function_detail {
@@ -14032,9 +14055,9 @@ namespace sol {
 	}
 } // namespace sol::function_detail
 
-  // end of sol/function_types_stateless.hpp
+// end of sol/function_types_stateless.hpp
 
-  // beginning of sol/function_types_stateful.hpp
+// beginning of sol/function_types_stateful.hpp
 
 namespace sol {
 	namespace function_detail {
@@ -14139,9 +14162,9 @@ namespace sol {
 	}
 } // namespace sol::function_detail
 
-  // end of sol/function_types_stateful.hpp
+// end of sol/function_types_stateful.hpp
 
-  // beginning of sol/function_types_overloaded.hpp
+// beginning of sol/function_types_overloaded.hpp
 
 namespace sol {
 	namespace function_detail {
@@ -14173,9 +14196,9 @@ namespace sol {
 	}
 } // namespace sol::function_detail
 
-  // end of sol/function_types_overloaded.hpp
+// end of sol/function_types_overloaded.hpp
 
-  // beginning of sol/resolve.hpp
+// beginning of sol/resolve.hpp
 
 namespace sol {
 
@@ -14322,7 +14345,7 @@ namespace sol {
 
 } // namespace sol
 
-  // end of sol/resolve.hpp
+// end of sol/resolve.hpp
 
 namespace sol {
 	namespace function_detail {
@@ -14830,7 +14853,7 @@ namespace sol {
 	} // namespace stack
 } // namespace sol
 
-  // end of sol/function_types.hpp
+// end of sol/function_types.hpp
 
 namespace sol {
 	template <typename base_t, bool aligned = false>
@@ -14940,17 +14963,17 @@ namespace sol {
 	};
 } // namespace sol
 
-  // end of sol/unsafe_function.hpp
+// end of sol/unsafe_function.hpp
 
-  // beginning of sol/protected_function.hpp
+// beginning of sol/protected_function.hpp
 
-  // beginning of sol/protected_handler.hpp
+// beginning of sol/protected_handler.hpp
 
 namespace sol {
 	namespace detail {
 		inline const char(&default_handler_name())[9]{
 			static const char name[9] = "sol.\xF0\x9F\x94\xA9";
-		return name;
+			return name;
 		}
 
 			template <bool b, typename target_t = reference>
@@ -15021,7 +15044,7 @@ namespace sol {
 	} // namespace detail
 } // namespace sol
 
-  // end of sol/protected_handler.hpp
+// end of sol/protected_handler.hpp
 
 namespace sol {
 	template <typename base_t, bool aligned = false, typename handler_t = reference>
@@ -15299,7 +15322,7 @@ namespace sol {
 	};
 } // namespace sol
 
-  // end of sol/protected_function.hpp
+// end of sol/protected_function.hpp
 
 	namespace sol {
 		template <typename... Ret, typename... Args>
@@ -15391,7 +15414,7 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/function.hpp
+	// end of sol/function.hpp
 
 	namespace sol {
 		template <typename Table, typename Key>
@@ -15605,13 +15628,13 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/proxy.hpp
+	// end of sol/proxy.hpp
 
-	  // beginning of sol/usertype.hpp
+	// beginning of sol/usertype.hpp
 
-	  // beginning of sol/usertype_metatable.hpp
+	// beginning of sol/usertype_metatable.hpp
 
-	  // beginning of sol/deprecate.hpp
+	// beginning of sol/deprecate.hpp
 
 	#ifndef SOL_DEPRECATED
 	#ifdef _MSC_VER
@@ -15632,11 +15655,11 @@ namespace sol {
 		}
 	} // namespace sol::detail
 
-	  // end of sol/deprecate.hpp
+	// end of sol/deprecate.hpp
 
-	  // beginning of sol/object.hpp
+	// beginning of sol/object.hpp
 
-	  // beginning of sol/object_base.hpp
+	// beginning of sol/object_base.hpp
 
 	namespace sol {
 
@@ -15693,9 +15716,9 @@ namespace sol {
 		};
 	} // namespace sol
 
-	  // end of sol/object_base.hpp
+	// end of sol/object_base.hpp
 
-	  // beginning of sol/userdata.hpp
+	// beginning of sol/userdata.hpp
 
 	namespace sol {
 		template <typename base_type>
@@ -15808,9 +15831,9 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/userdata.hpp
+	// end of sol/userdata.hpp
 
-	  // beginning of sol/as_args.hpp
+	// beginning of sol/as_args.hpp
 
 	namespace sol {
 		template <typename T>
@@ -15837,14 +15860,14 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/as_args.hpp
+	// end of sol/as_args.hpp
 
-	  // beginning of sol/variadic_args.hpp
+	// beginning of sol/variadic_args.hpp
 
 	namespace sol {
 		struct variadic_args {
 		private:
-			lua_State * L;
+			lua_State* L;
 			int index;
 			int stacktop;
 
@@ -15992,7 +16015,7 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/variadic_args.hpp
+	// end of sol/variadic_args.hpp
 
 	namespace sol {
 
@@ -16114,11 +16137,11 @@ namespace sol {
 		}
 	} // namespace sol
 
-	  // end of sol/object.hpp
+	// end of sol/object.hpp
 
-	  // beginning of sol/container_usertype_metatable.hpp
+	// beginning of sol/container_usertype_metatable.hpp
 
-	  // beginning of sol/container_traits.hpp
+	// beginning of sol/container_traits.hpp
 
 	namespace sol {
 
@@ -16433,6 +16456,21 @@ namespace sol {
 			};
 
 			template <typename T>
+			struct has_traits_size_test {
+			private:
+				typedef std::array<char, 1> one;
+				typedef std::array<char, 2> two;
+
+				template <typename C>
+				static one test(decltype(&C::size));
+				template <typename C>
+				static two test(...);
+
+			public:
+				static const bool value = sizeof(test<T>(0)) == sizeof(char);
+			};
+
+			template <typename T>
 			using has_clear = meta::boolean<has_clear_test<T>::value>;
 
 			template <typename T>
@@ -16475,7 +16513,7 @@ namespace sol {
 			using has_traits_add = meta::boolean<has_traits_add_test<T>::value>;
 
 			template <typename T>
-			using has_traits_size = meta::has_size<T>;
+			using has_traits_size = meta::boolean<has_traits_size_test<T>::value>;
 
 			template <typename T>
 			using has_traits_clear = has_clear<T>;
@@ -17559,7 +17597,7 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/container_traits.hpp
+	// end of sol/container_traits.hpp
 
 	namespace sol {
 
@@ -17581,17 +17619,17 @@ namespace sol {
 				typedef usertype_detail::map_t<std::string, lua_CFunction> call_map;
 				static const call_map calls{
 					{ "at", &at_call },
-				{ "get", &real_get_call },
-				{ "set", &real_set_call },
-				{ "size", &real_length_call },
-				{ "add", &real_add_call },
-				{ "empty", &real_empty_call },
-				{ "insert", &real_insert_call },
-				{ "clear", &real_clear_call },
-				{ "find", &real_find_call },
-				{ "erase", &real_erase_call },
-				{ "pairs", &pairs_call },
-				{ "next", &next_call },
+					{ "get", &real_get_call },
+					{ "set", &real_set_call },
+					{ "size", &real_length_call },
+					{ "add", &real_add_call },
+					{ "empty", &real_empty_call },
+					{ "insert", &real_insert_call },
+					{ "clear", &real_clear_call },
+					{ "find", &real_find_call },
+					{ "erase", &real_erase_call },
+					{ "pairs", &pairs_call },
+					{ "next", &next_call },
 				};
 				auto maybenameview = stack::unqualified_check_get<string_view>(L, 2);
 				if (maybenameview) {
@@ -17856,25 +17894,25 @@ namespace sol {
 						static const char* metakey = is_shim ? &usertype_traits<as_container_t<std::remove_pointer_t<T>>>::metatable()[0] : &usertype_traits<T>::metatable()[0];
 						static const std::array<luaL_Reg, 19> reg = { {
 							{ "__pairs", &meta_cumt::pairs_call },
-						{ "__ipairs", &meta_cumt::ipairs_call },
-						{ "__len", &meta_cumt::length_call },
-						{ "__index", &meta_cumt::index_call },
-						{ "__newindex", &meta_cumt::new_index_call },
-						{ "pairs", &meta_cumt::pairs_call },
-						{ "next", &meta_cumt::next_call },
-						{ "at", &meta_cumt::at_call },
-						{ "get", &meta_cumt::get_call },
-						{ "set", &meta_cumt::set_call },
-						{ "size", &meta_cumt::length_call },
-						{ "empty", &meta_cumt::empty_call },
-						{ "clear", &meta_cumt::clear_call },
-						{ "insert", &meta_cumt::insert_call },
-						{ "add", &meta_cumt::add_call },
-						{ "find", &meta_cumt::find_call },
-						{ "erase", &meta_cumt::erase_call },
-						std::is_pointer<T>::value ? luaL_Reg{ nullptr, nullptr } : luaL_Reg{ "__gc", &detail::usertype_alloc_destruct<T> },
-						{ nullptr, nullptr }
-							} };
+							{ "__ipairs", &meta_cumt::ipairs_call },
+							{ "__len", &meta_cumt::length_call },
+							{ "__index", &meta_cumt::index_call },
+							{ "__newindex", &meta_cumt::new_index_call },
+							{ "pairs", &meta_cumt::pairs_call },
+							{ "next", &meta_cumt::next_call },
+							{ "at", &meta_cumt::at_call },
+							{ "get", &meta_cumt::get_call },
+							{ "set", &meta_cumt::set_call },
+							{ "size", &meta_cumt::length_call },
+							{ "empty", &meta_cumt::empty_call },
+							{ "clear", &meta_cumt::clear_call },
+							{ "insert", &meta_cumt::insert_call },
+							{ "add", &meta_cumt::add_call },
+							{ "find", &meta_cumt::find_call },
+							{ "erase", &meta_cumt::erase_call },
+							std::is_pointer<T>::value ? luaL_Reg{ nullptr, nullptr } : luaL_Reg{ "__gc", &detail::usertype_alloc_destruct<T> },
+							{ nullptr, nullptr }
+						} };
 
 						if (luaL_newmetatable(L, metakey) == 1) {
 							luaL_setfuncs(L, reg.data(), 0);
@@ -17976,9 +18014,9 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/container_usertype_metatable.hpp
+	// end of sol/container_usertype_metatable.hpp
 
-	  // beginning of sol/usertype_core.hpp
+	// beginning of sol/usertype_core.hpp
 
 	#include <sstream>
 
@@ -18038,7 +18076,7 @@ namespace sol {
 
 			template <typename T, typename Op>
 			int comparsion_operator_wrap(lua_State* L) {
-				auto maybel = stack::unqualified_check_get<T>(L, 1);
+				auto maybel = stack::unqualified_check_get<T&>(L, 1);
 				if (maybel) {
 					auto mayber = stack::unqualified_check_get<T&>(L, 2);
 					if (mayber) {
@@ -18230,7 +18268,7 @@ namespace sol {
 		} // namespace stack::stack_detail
 	} // namespace sol
 
-	  // end of sol/usertype_core.hpp
+	// end of sol/usertype_core.hpp
 
 	#include <cstdio>
 	#include <bitset>
@@ -18435,7 +18473,7 @@ namespace sol {
 			int runtime_new_index(lua_State* L, void*, int runtimetarget);
 
 			template <typename T, bool is_simple>
-			inline int metatable_newindex(lua_State* L) {
+			inline int metatable_new_index(lua_State* L) {
 				if (is_toplevel(L)) {
 					auto non_indexable = [&L]() {
 						if (is_simple) {
@@ -18719,11 +18757,11 @@ namespace sol {
 
 			template <typename... Args, typename = std::enable_if_t<sizeof...(Args) == sizeof...(Tn)>>
 			usertype_metatable(Args&&... args)
-				: usertype_metatable_core(&usertype_detail::indexing_fail<T, true>, &usertype_detail::metatable_newindex<T, false>), usertype_detail::registrar(), functions(std::forward<Args>(args)...), destructfunc(nullptr), callconstructfunc(nullptr), indexbase(&core_indexing_call<true>), newindexbase(&core_indexing_call<false>), indexbaseclasspropogation(usertype_detail::walk_all_bases<true>), newindexbaseclasspropogation(usertype_detail::walk_all_bases<false>), baseclasscheck(nullptr), baseclasscast(nullptr), secondarymeta(contains_variable()), properties() {
+				: usertype_metatable_core(&usertype_detail::indexing_fail<T, true>, &usertype_detail::metatable_new_index<T, false>), usertype_detail::registrar(), functions(std::forward<Args>(args)...), destructfunc(nullptr), callconstructfunc(nullptr), indexbase(&core_indexing_call<true>), newindexbase(&core_indexing_call<false>), indexbaseclasspropogation(usertype_detail::walk_all_bases<true>), newindexbaseclasspropogation(usertype_detail::walk_all_bases<false>), baseclasscheck(nullptr), baseclasscast(nullptr), secondarymeta(contains_variable()), properties() {
 				properties.reset();
-				std::initializer_list<typename usertype_detail::mapping_t::value_type> ilist{ { std::pair<std::string, usertype_detail::call_information>(usertype_detail::make_string(std::get<I * 2>(functions)),
+				std::initializer_list<typename usertype_detail::mapping_t::value_type> ilist{ {std::pair<std::string, usertype_detail::call_information>(usertype_detail::make_string(std::get<I * 2>(functions)),
 					usertype_detail::call_information(&usertype_metatable::real_find_call<I * 2, I * 2 + 1, true>,
-						&usertype_metatable::real_find_call<I * 2, I * 2 + 1, false>)) }... };
+						&usertype_metatable::real_find_call<I * 2, I * 2 + 1, false>))}... };
 				this->mapping.insert(ilist);
 				for (const auto& n : meta_function_names()) {
 					this->mapping.erase(n);
@@ -18757,7 +18795,7 @@ namespace sol {
 				return is_index ? f.indexfunc(L) : f.newindexfunc(L);
 			}
 
-			template <bool is_index, bool toplevel = false>
+			template <bool is_index, bool toplevel = false, bool is_meta_bound = false>
 			static int core_indexing_call(lua_State* L) {
 				usertype_metatable& f = toplevel
 					? static_cast<usertype_metatable&>(stack::get<light<usertype_metatable>>(L, upvalue_index(usertype_detail::metatable_index)))
@@ -18796,6 +18834,9 @@ namespace sol {
 				if (found) {
 					return ret;
 				}
+				if (is_meta_bound) {
+					return is_index ? usertype_detail::indexing_fail<T, is_index>(L) : usertype_detail::metatable_new_index<T, false>(L);
+				}
 				return toplevel ? (is_index ? f.indexfunc(L) : f.newindexfunc(L)) : -1;
 			}
 
@@ -18805,6 +18846,14 @@ namespace sol {
 
 			static int real_new_index_call(lua_State* L) {
 				return core_indexing_call<false, true>(L);
+			}
+
+			static int real_meta_index_call(lua_State* L) {
+				return core_indexing_call<true, true, true>(L);
+			}
+
+			static int real_meta_new_index_call(lua_State* L) {
+				return core_indexing_call<false, true, true>(L);
 			}
 
 			template <std::size_t Idx, bool is_index = true, bool is_variable = false>
@@ -18841,6 +18890,14 @@ namespace sol {
 
 			static int new_index_call(lua_State* L) {
 				return detail::typed_static_trampoline<decltype(&real_new_index_call), (&real_new_index_call)>(L);
+			}
+
+			static int meta_index_call(lua_State* L) {
+				return detail::typed_static_trampoline<decltype(&real_meta_index_call), (&real_meta_index_call)>(L);
+			}
+
+			static int meta_new_index_call(lua_State* L) {
+				return detail::typed_static_trampoline<decltype(&real_meta_new_index_call), (&real_meta_new_index_call)>(L);
 			}
 
 			virtual int push_um(lua_State* L) override {
@@ -18996,8 +19053,8 @@ namespace sol {
 							stack::set_field(L, meta_function::call_function, make_closure(um.callconstructfunc, nullptr, make_light(um), make_light(umc)), metabehind.stack_index());
 						}
 
-						stack::set_field(L, meta_function::index, make_closure(umt_t::index_call, nullptr, make_light(um), make_light(umc), nullptr, usertype_detail::toplevel_magic), metabehind.stack_index());
-						stack::set_field(L, meta_function::new_index, make_closure(umt_t::new_index_call, nullptr, make_light(um), make_light(umc), nullptr, usertype_detail::toplevel_magic), metabehind.stack_index());
+						stack::set_field(L, meta_function::index, make_closure(umt_t::meta_index_call, nullptr, make_light(um), make_light(umc), nullptr, usertype_detail::toplevel_magic), metabehind.stack_index());
+						stack::set_field(L, meta_function::new_index, make_closure(umt_t::meta_new_index_call, nullptr, make_light(um), make_light(umc), nullptr, usertype_detail::toplevel_magic), metabehind.stack_index());
 						stack::set_field(L, metatable_key, metabehind, t.stack_index());
 						metabehind.pop();
 					}
@@ -19012,9 +19069,9 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/usertype_metatable.hpp
+	// end of sol/usertype_metatable.hpp
 
-	  // beginning of sol/simple_usertype_metatable.hpp
+	// beginning of sol/simple_usertype_metatable.hpp
 
 	namespace sol {
 
@@ -19049,7 +19106,7 @@ namespace sol {
 						else {
 							return is_index
 								? indexing_fail<T, is_index>(L)
-								: metatable_newindex<T, true>(L);
+								: metatable_new_index<T, true>(L);
 						}
 					}
 				}
@@ -19099,19 +19156,19 @@ namespace sol {
 					else {
 						return is_index
 							? indexing_fail<T, is_index>(L)
-							: metatable_newindex<T, true>(L);
+							: metatable_new_index<T, true>(L);
 					}
 				}
 				/* Check table storage first for a method that works
 				luaL_getmetatable(L, sm.metakey);
 				if (type_of(L, -1) != type::lua_nil) {
-				stack::get_field<false, true>(L, accessor.c_str(), lua_gettop(L));
-				if (type_of(L, -1) != type::lua_nil) {
-				// Woo, we found it?
-				lua_remove(L, -2);
-				return 1;
-				}
-				lua_pop(L, 1);
+					stack::get_field<false, true>(L, accessor.c_str(), lua_gettop(L));
+					if (type_of(L, -1) != type::lua_nil) {
+						// Woo, we found it?
+						lua_remove(L, -2);
+						return 1;
+					}
+					lua_pop(L, 1);
 				}
 				lua_pop(L, 1);
 				*/
@@ -19138,7 +19195,7 @@ namespace sol {
 					else {
 						return is_index
 							? indexing_fail<T, is_index>(L)
-							: metatable_newindex<T, true>(L);
+							: metatable_new_index<T, true>(L);
 					}
 				}
 				return -1;
@@ -19640,7 +19697,7 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/simple_usertype_metatable.hpp
+	// end of sol/simple_usertype_metatable.hpp
 
 	namespace sol {
 
@@ -19726,9 +19783,9 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/usertype.hpp
+	// end of sol/usertype.hpp
 
-	  // beginning of sol/table_iterator.hpp
+	// beginning of sol/table_iterator.hpp
 
 	namespace sol {
 
@@ -19820,7 +19877,7 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/table_iterator.hpp
+	// end of sol/table_iterator.hpp
 
 	namespace sol {
 		namespace detail {
@@ -19904,9 +19961,9 @@ namespace sol {
 			void tuple_set(std::index_sequence<I...>, Pairs&& pairs) {
 				auto pp = stack::push_pop < top_level && (is_global<decltype(detail::forward_get<I * 2>(pairs))...>::value) >(*this);
 				void(detail::swallow{ (stack::set_field<top_level, raw>(base_t::lua_state(),
-					detail::forward_get<I * 2>(pairs),
-					detail::forward_get<I * 2 + 1>(pairs),
-					lua_gettop(base_t::lua_state())),
+									   detail::forward_get<I * 2>(pairs),
+									   detail::forward_get<I * 2 + 1>(pairs),
+									   lua_gettop(base_t::lua_state())),
 					0)... });
 			}
 
@@ -20393,7 +20450,7 @@ namespace sol {
 		};
 	} // namespace sol
 
-	  // end of sol/table_core.hpp
+	// end of sol/table_core.hpp
 
 	namespace sol {
 		typedef table_core<false> table;
@@ -20411,9 +20468,9 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/table.hpp
+	// end of sol/table.hpp
 
-	  // beginning of sol/environment.hpp
+	// beginning of sol/environment.hpp
 
 	namespace sol {
 
@@ -20614,14 +20671,14 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/environment.hpp
+	// end of sol/environment.hpp
 
-	  // beginning of sol/load_result.hpp
+	// beginning of sol/load_result.hpp
 
 	namespace sol {
 		struct load_result : public proxy_base<load_result> {
 		private:
-			lua_State * L;
+			lua_State* L;
 			int index;
 			int returncount;
 			int popcount;
@@ -20737,9 +20794,9 @@ namespace sol {
 		};
 	} // namespace sol
 
-	  // end of sol/load_result.hpp
+	// end of sol/load_result.hpp
 
-	  // beginning of sol/state_handling.hpp
+	// beginning of sol/state_handling.hpp
 
 	#if defined(SOL_PRINT_ERRORS) && SOL_PRINT_ERRORS
 	#endif
@@ -20888,13 +20945,13 @@ namespace sol {
 		}
 	} // namespace sol
 
-	  // end of sol/state_handling.hpp
+	// end of sol/state_handling.hpp
 
 	namespace sol {
 
 		class state_view {
 		private:
-			lua_State * L;
+			lua_State* L;
 			table reg;
 			global_table global;
 
@@ -21524,9 +21581,9 @@ namespace sol {
 		};
 	} // namespace sol
 
-	  // end of sol/state_view.hpp
+	// end of sol/state_view.hpp
 
-	  // beginning of sol/thread.hpp
+	// beginning of sol/thread.hpp
 
 	namespace sol {
 		struct lua_thread_state {
@@ -21691,7 +21748,7 @@ namespace sol {
 		typedef basic_thread<stack_reference> stack_thread;
 	} // namespace sol
 
-	  // end of sol/thread.hpp
+	// end of sol/thread.hpp
 
 	namespace sol {
 
@@ -21726,9 +21783,9 @@ namespace sol {
 		};
 	} // namespace sol
 
-	  // end of sol/state.hpp
+	// end of sol/state.hpp
 
-	  // beginning of sol/coroutine.hpp
+	// beginning of sol/coroutine.hpp
 
 	namespace sol {
 		template <typename base_t>
@@ -21936,11 +21993,11 @@ namespace sol {
 		};
 	} // namespace sol
 
-	  // end of sol/coroutine.hpp
+	// end of sol/coroutine.hpp
 
-	  // beginning of sol/variadic_results.hpp
+	// beginning of sol/variadic_results.hpp
 
-	  // beginning of sol/as_returns.hpp
+	// beginning of sol/as_returns.hpp
 
 	namespace sol {
 		template <typename T>
@@ -21968,7 +22025,7 @@ namespace sol {
 		} // namespace stack
 	} // namespace sol
 
-	  // end of sol/as_returns.hpp
+	// end of sol/as_returns.hpp
 
 	namespace sol {
 
@@ -21991,7 +22048,7 @@ namespace sol {
 
 	} // namespace sol
 
-	  // end of sol/variadic_results.hpp
+	// end of sol/variadic_results.hpp
 
 	#if defined(__GNUC__)
 	#pragma GCC diagnostic pop
@@ -22010,6 +22067,6 @@ namespace sol {
 	#endif // Unreal Engine 4 Bullshit
 
 	#endif // SOL_HPP
-	  // end of sol.hpp
+	// end of sol.hpp
 
 	#endif // SOL_SINGLE_INCLUDE_HPP

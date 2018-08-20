@@ -26,7 +26,6 @@
 #include "sl/graphics/TextureAtlas.hpp"
 #include "sl/physics/Box2DCallbacks.hpp"
 #include "sl/resources/ShaderLibrary.hpp"
-#include "sl/scripting/Sol2enttWorkaround.hpp"
 
 namespace sl
 {
@@ -144,11 +143,6 @@ namespace sl
 		/// Controls the debug UI which allows you to have control over the game from ingame. Console, script editing, etc.
 		///
 		std::unique_ptr<DebugInterface> m_debugInterface;
-
-		///
-		/// Allows for entt to be used with Sol2.
-		///
-		Sol2enttWorkaround m_workaround;
 
 		///
 		/// Collision callback functions for Box2D.
