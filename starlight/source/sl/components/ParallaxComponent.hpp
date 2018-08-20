@@ -35,6 +35,14 @@ namespace sl
 		ParallaxComponent(const sol::table& table);
 
 		///
+		/// Constructor.
+		///
+		/// \param verticalSpeed Speed to move background vertically.
+		/// \param horizontalSpeed Speed to move background horizontally.
+		///
+		ParallaxComponent(float verticalSpeed, float horizontalSpeed);
+
+		///
 		/// Destructor.
 		///
 		~ParallaxComponent() = default;

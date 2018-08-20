@@ -25,6 +25,11 @@ namespace sl
 		m_horizontalSpeed = table.get<float>("horizontalSpeed");
 	}
 
+	ParallaxComponent::ParallaxComponent(float verticalSpeed, float horizontalSpeed)
+		:m_verticalSpeed(verticalSpeed), m_horizontalSpeed(horizontalSpeed)
+	{
+	}
+
 	ParallaxComponent& ParallaxComponent::operator=(const ParallaxComponent&)
 	{
 		return *this;

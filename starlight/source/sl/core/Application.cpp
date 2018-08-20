@@ -17,33 +17,11 @@
 
 #include "sl/utils/Time.hpp"
 #include "sl/math/Vector3.hpp"
-#include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/imgui/imgui_impl_a5.h"
-#include "sl/components/RenderComponent.hpp"
+#include "sl/scripting/Sol2Interface.hpp"
 #include "sl/components/PhysicsComponent.hpp"
-#include "sl/components/ParticleComponent.hpp"
-#include "sl/components/ParallaxComponent.hpp"
-#include "sl/components/AnimationComponent.hpp"
-#include "sl/components/TransformComponent.hpp"
-#include "sl/components/ScrollingBackgroundComponent.hpp"
 
 #include "Application.hpp"
-
-///
-/// Unique namespace to protect enttDestroyWorkaround.
-///
-namespace
-{
-	///
-	/// Workaround function to allow sol2 to destroy entt entities.
-	///
-	/// \param entity Entity to destroy.
-	///
-	void enttDestroyWorkaround(entt::DefaultRegistry::entity_type entity)
-	{
-		sl::Locator::world->m_registry.destroy(entity);
-	}
-}
 
 namespace sl
 {
@@ -248,11 +226,20 @@ namespace sl
 			"setFixtureEntity", &PhysicsComponent::setFixtureEntity
 		);
 
-		// Entt
+		m_world->m_lua.new_usertype<ScrollingBackgroundComponent>("ScrollingBackgroundComponent",
+			sol::constructors<ScrollingBackgroundComponent(const sol::table&), ScrollingBackgroundComponent(float)>()
+		);
+
 		m_world->m_lua.new_usertype<entt::DefaultRegistry>("Registry",
 			sol::constructors<entt::DefaultRegistry()>(),
 			"create", sol::resolve<entt::DefaultRegistry::entity_type(void)>(&entt::DefaultRegistry::create),
-			"destroy", &enttDestroyWorkaround,
+			"destroy", &Sol2Interface::enttDestroyWorkaround,
+			"assignAnimationComponent", &Sol2Interface::assignAnimationComponent,
+			"assignParallaxComponent", &Sol2Interface::assignParallaxComponent,
+			"assignParticleComponent", &Sol2Interface::assignParticleComponent,
+			"assignRenderComponent", &Sol2Interface::assignRenderComponent,
+			"assignSBComponent", &Sol2Interface::assignSBComponent,
+			"assignTransformComponent", &Sol2Interface::assignTransformComponent,
 			"getAnimationComponent", sol::resolve<AnimationComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<AnimationComponent>),
 			"getParallaxComponent", sol::resolve<ParallaxComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<ParallaxComponent>),
 			"getParticleComponent", sol::resolve<ParticleComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<ParticleComponent>),

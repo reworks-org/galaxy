@@ -161,6 +161,7 @@
     <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\sl\scripting\Sol2Interface.hpp" />
     <ClInclude Include="source\sl\systems\ScrollingBackgroundSystem.hpp" />
     <ClInclude Include="source\sl\components\ScrollingBackgroundComponent.hpp" />
     <ClInclude Include="source\sl\Audio.hpp" />

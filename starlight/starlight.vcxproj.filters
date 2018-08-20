@@ -1526,5 +1526,8 @@
     <ClInclude Include="source\sl\systems\ScrollingBackgroundSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\scripting\Sol2Interface.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
