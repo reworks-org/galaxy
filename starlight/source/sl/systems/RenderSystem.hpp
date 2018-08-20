@@ -78,7 +78,7 @@ namespace sl
 		int m_quadTreeMaxObjects;
 
 		///
-		/// his is used to sort entities by Z-layer after figuring out which ones to render with the quadtree.
+		/// This is used to sort entities by Z-layer after figuring out which ones to render with the quadtree.
 		///
 		std::vector<entt::DefaultRegistry::entity_type> m_entitys;
 

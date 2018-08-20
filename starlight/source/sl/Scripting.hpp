@@ -10,8 +10,7 @@
 #ifndef STARLIGHT_SCRIPTINGHEADER_HPP_
 #define STARLIGHT_SCRIPTINGHEADER_HPP_
 
+#include "sl/scripting/Sol2Interface.hpp"
 #include "sl/scripting/LuaUtils.hpp"
-#include "sl/scripting/Sol2enttWorkaround.hpp"
-#include "sl/scripting/Sol2ImguiAutoImpl.hpp"
 
 #endif
