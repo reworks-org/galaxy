@@ -10,10 +10,8 @@
 #include <physfs.h>
 
 #include "sl/core/World.hpp"
-#include "sl/fs/VirtualFS.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateMachine.hpp"
-#include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/imgui/imgui_impl_a5.h"
 #include "sl/libs/imgui/imgui_console.h"
 

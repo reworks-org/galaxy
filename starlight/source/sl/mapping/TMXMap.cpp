@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include <allegro5/bitmap_draw.h>
 #include <allegro5/allegro_primitives.h>
 
@@ -148,7 +150,7 @@ namespace sl
 		entt::DefaultRegistry::entity_type entity = Locator::world->m_registry.create();
 
 		// Set up a render component and transform component using information from the layer.
-		Locator::world->m_registry.assign<RenderComponent>(entity, op, Utils::removeExtension(Utils::getBaseName(layer->content.image->source)));
+		Locator::world->m_registry.assign<RenderComponent>(entity, op, std::filesystem::path(layer->content.image->source).stem().string());
 		Locator::world->m_registry.assign<TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), static_cast<int>(layer->content.image->width), static_cast<int>(layer->content.image->height) });
 	}
 
@@ -360,13 +362,13 @@ namespace sl
 						if (im)
 						{
 							// Retrieve the image name and get the sub-bitmap for the tile image.
-							identifier = Utils::removeExtension(Utils::getBaseName(im->source));
+							identifier = std::filesystem::path(im->source).stem().string();
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 						else
 						{
 							// Else retrieve tileset from texture atlas.
-							identifier = Utils::removeExtension(Utils::getBaseName(ts->image->source));
+							identifier = std::filesystem::path(ts->image->source).stem().string();
 							tileset = Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 						}
 
@@ -390,12 +392,12 @@ namespace sl
 						if (im)
 						{
 							// Retrieve the image name and get the sub-bitmap for the tile image.
-							identifier = Utils::removeExtension(Utils::getBaseName(im->source));
+							identifier = std::filesystem::path(im->source).stem().string();
 						}
 						else
 						{
 							// Else retrieve tileset from texture atlas.
-							identifier = Utils::removeExtension(Utils::getBaseName(ts->image->source));
+							identifier = std::filesystem::path(ts->image->source).stem().string();
 						}
 
 						// We get that extact tile from the atlas by offsetting the postion of the tile texture in the atlas by

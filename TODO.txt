@@ -22,10 +22,8 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - redo build systems
 - set up virtualbox to test linux and mac builds
 - google test, premake5
-- run scripts from console
 - update imgui and remove loguru, run own solution.
 	- try to further minimize dependencies.
-- see if entt has a proper working sort algorithm for views yet.
 
 Serializable classes:
 - music

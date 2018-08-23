@@ -4,8 +4,12 @@
 #ifndef imgui_console_h
 #define imgui_console_h
 
+#include <filesystem>
+
+#include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/imgui/imgui.h"
+#include "sl/core/ServiceLocator.hpp"
 
 namespace ImGui
 {
@@ -83,6 +87,7 @@ namespace ImGui
 			}
 
 			ImGui::TextWrapped("Enter 'CLEAR' to clear, HISTORY for history, EXIT for exit, or lua code. Prefix lua code with 'return' to get an output.");
+			ImGui::TextWrapped("Enter a file with a .lua extension to attempt to execute that file.");
 
 			// TODO: display items starting from the bottom
 
@@ -173,9 +178,6 @@ namespace ImGui
 				}
 			History.push_back(Strdup(command_line));
 
-			/* need to figure out a way to return function results */
-			std::string result = luaState->do_string(command_line);
-
 			if (Stricmp(command_line, "CLEAR") == 0)
 			{
 				ClearLog();
@@ -190,8 +192,14 @@ namespace ImGui
 			{
 				*p_open = false;
 			}
+			else if (std::filesystem::path(command_line).extension() == ".lua")
+			{
+				std::string result = luaState->do_string(sl::Locator::virtualFS->openAsString(command_line));
+				AddLog(result.c_str());
+			}
 			else
 			{
+				std::string result = luaState->do_string(command_line);
 				AddLog(result.c_str());
 			}
 		}

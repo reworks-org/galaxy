@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include <physfs.h>
 #include <allegro5/display.h>
 #include <allegro5/drawing.h>
@@ -64,7 +66,8 @@ namespace sl
 
 				// ...then draw it to the atlas bitmap.
 				al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
-				m_resourceMap.emplace(entt::HashedString{ Utils::removeExtension(*i).c_str() }, packedRect);
+				
+				m_resourceMap.emplace(entt::HashedString{ std::filesystem::path(*i).stem().string().c_str() }, packedRect);
 
 				al_destroy_bitmap(bitmap);
 			}
