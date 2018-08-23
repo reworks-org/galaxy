@@ -158,4 +158,16 @@ namespace sl
 
 		return success;
 	}
+
+	bool VirtualFS::has(const std::string& file)
+	{
+		if (PHYSFS_exists(file.c_str()) != 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

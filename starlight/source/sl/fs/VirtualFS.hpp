@@ -98,6 +98,15 @@ namespace sl
 		/// \return true on success.
 		///
 		bool writeToFile(const std::string& file, const char* data);
+
+		///
+		/// Checks to see if a file exists in the VFS.
+		///
+		/// \param file File to see if exists.
+		///
+		/// \return boolean True if file exists.
+		///
+		bool has(const std::string& file);
 	};
 }
 

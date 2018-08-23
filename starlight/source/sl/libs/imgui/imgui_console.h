@@ -194,8 +194,16 @@ namespace ImGui
 			}
 			else if (std::filesystem::path(command_line).extension() == ".lua")
 			{
-				std::string result = luaState->do_string(sl::Locator::virtualFS->openAsString(command_line));
-				AddLog(result.c_str());
+				if (sl::Locator::virtualFS->has(command_line))
+				{
+					std::string result = luaState->do_string(sl::Locator::virtualFS->openAsString(command_line));
+					AddLog(result.c_str());
+				}
+				else
+				{
+					AddLog("ERROR: Script not found!");
+				}
+				
 			}
 			else
 			{

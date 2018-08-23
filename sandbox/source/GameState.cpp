@@ -68,11 +68,11 @@ void GameState::event(ALLEGRO_EVENT* event)
 			break;
 
 		case ALLEGRO_KEY_S:
-			serialize.createGameSnapshot("test.sav", Locator::world->m_registry);
+			//serialize.createGameSnapshot("test.sav", Locator::world->m_registry);
 			break;
 
 		case ALLEGRO_KEY_L:
-			serialize.loadGameSnapshot("test.sav", Locator::world->m_registry);
+			//serialize.loadGameSnapshot("test.sav", Locator::world->m_registry);
 			break;
 		}
 		break;
