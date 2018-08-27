@@ -180,7 +180,9 @@ namespace sl
 
 					if (ImGui::MenuItem("Close"))
 					{
+						s_showFilesToLoad = false;
 						s_showScriptEditor = false;
+						m_editor.SetText("");
 					}
 
 					ImGui::EndMenu();
