@@ -31,6 +31,9 @@ namespace sl
 		// Seed pseudo-random algorithms.
 		std::srand(std::time(nullptr));
 
+		// Supposed to improve performance.
+		std::ios::sync_with_stdio(false);
+
 		// Set up logging and set loguru to throw an exception on fatal errors.
 		std::string lname = "logs/" + Time::getFormattedTime() + ".log";
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
