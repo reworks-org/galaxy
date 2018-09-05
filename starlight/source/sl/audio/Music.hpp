@@ -32,7 +32,7 @@ namespace sl
 		/// \param table sol::table containing data.
 		///			     music file path does not need to contain folder path, done for you based off of engine config.
 		///
-		Music(const sol::table& table);
+		explicit Music(const sol::table& table);
 
 		///
 		/// Destructor.
@@ -84,9 +84,9 @@ namespace sl
 
 		///
 		/// Cereal serialize function.
-		///
+		///	
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			stop();
 			ar(m_position);
