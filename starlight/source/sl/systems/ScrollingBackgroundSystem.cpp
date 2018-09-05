@@ -11,6 +11,7 @@
 #include "sl/graphics/Window.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 #include "sl/components/ScrollingBackgroundComponent.hpp"
 
@@ -26,7 +27,8 @@ namespace sl
 	void ScrollingBackgroundSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// For each entity with a scrolling background.
-		registry.view<TransformComponent, RenderComponent, ScrollingBackgroundComponent>().each([&](entt::DefaultRegistry::entity_type entity, TransformComponent& tc, RenderComponent& rc, ScrollingBackgroundComponent& sc)
+		registry.view<TransformComponent, RenderComponent, ScrollingBackgroundComponent, EnabledComponent>()
+			.each([&](entt::DefaultRegistry::entity_type entity, TransformComponent& tc, RenderComponent& rc, ScrollingBackgroundComponent& sc, EnabledComponent& ec)
 		{
 			// Correct for boundaries.
 			if (tc.m_rect.m_x < -1279)

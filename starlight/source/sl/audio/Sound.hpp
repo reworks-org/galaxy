@@ -29,7 +29,7 @@ namespace sl
 		/// \param table sol::table containing data.
 		///			     sound file path does not need to contain folder path, done for you based off of engine config.
 		///
-		explicit Sound(const sol::table& table);
+		Sound(const sol::table& table);
 		
 		///
 		/// Destructor.

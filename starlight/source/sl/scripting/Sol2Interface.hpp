@@ -14,6 +14,7 @@
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/entt/entity/registry.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
@@ -35,6 +36,14 @@ namespace sl
 		inline void enttDestroyWorkaround(entt::DefaultRegistry::entity_type entity)
 		{
 			sl::Locator::world->m_registry.destroy(entity);
+		}
+
+		///
+		/// Workaround function to allow sol2 to assign components to entt entities.
+		///
+		inline void assignEnabledComponent(entt::DefaultRegistry::entity_type entity)
+		{
+			sl::Locator::world->m_registry.assign<EnabledComponent>(entity);
 		}
 
 		///

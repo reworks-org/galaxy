@@ -9,6 +9,7 @@
 
 #include <fstream>
 
+#include <sl/components/EnabledComponent.hpp>
 #include <sl/components/AnimationComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
 #include <sl/components/PhysicsComponent.hpp>
@@ -32,7 +33,7 @@ void Serialize::createGameSnapshot(const std::string& saveFileName, entt::Defaul
 	{
 		cereal::JSONOutputArchive ar(saveFile);
 		createFrameworkSnapshot(ar, source);
-		source.snapshot().entities(ar).destroyed(ar).component<sl::AnimationComponent, sl::RenderComponent, sl::TransformComponent, sl::PhysicsComponent>(ar).tag<sl::CameraTag>(ar);
+		source.snapshot().entities(ar).destroyed(ar).component<sl::AnimationComponent, sl::EnabledComponent, sl::RenderComponent, sl::TransformComponent, sl::PhysicsComponent>(ar).tag<sl::CameraTag>(ar);
 	}
 	
 	saveFile.close();
@@ -49,7 +50,7 @@ void Serialize::loadGameSnapshot(const std::string& saveFileName, entt::DefaultR
 			loadFrameworkSnapshot(ar, destination);
 
 			entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader{ destination };
-			loader.entities(ar).destroyed(ar).component<sl::AnimationComponent, sl::RenderComponent, sl::TransformComponent, sl::PhysicsComponent>(ar)
+			loader.entities(ar).destroyed(ar).component<sl::AnimationComponent, sl::EnabledComponent, sl::RenderComponent, sl::TransformComponent, sl::PhysicsComponent>(ar)
 				.tag<sl::CameraTag>(ar).orphans().shrink();
 		}
 

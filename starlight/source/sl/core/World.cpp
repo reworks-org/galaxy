@@ -11,6 +11,7 @@
 #include "sl/tags/CameraTag.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/ParallaxComponent.hpp"
@@ -30,6 +31,7 @@ namespace sl
 
 		// Register the library components and tags.
 		registerComponent<AnimationComponent>("AnimationComponent");
+		registerComponent<EnabledComponent>("EnabledComponent");
 		registerComponent<ParallaxComponent>("ParallaxComponent");
 		registerComponent<ParticleComponent>("ParticleComponent");
 		registerComponent<PhysicsComponent>("PhysicsComponent");
@@ -49,7 +51,7 @@ namespace sl
 		m_registry.reset();
 	}
 
-	void World::createEntity(const std::string& script)
+	entt::DefaultRegistry::entity_type World::createEntity(const std::string& script)
 	{
 		// Set up a lua state to load the script into.
 		sol::state loader;
@@ -78,15 +80,18 @@ namespace sl
 		}
 
 		// Loop over tags and assign.
-		sol::table tags = components.get<sol::table>("tags");
-		if (!tags.empty())
+		auto tags = components["Tags"];
+		if (tags.valid())
 		{
+			sol::table tags = components.get<sol::table>("tags");
 			tags.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				// Use the assign function to create tags for entities without having to know the type.
 				m_tagAssign[entt::HashedString{ pair.first.as<const char*>() }](entity, pair.second.as<sol::table>());
 			});
 		}
+
+		return entity;
 	}
 
 	void World::createEntities(const std::string& batchScript)

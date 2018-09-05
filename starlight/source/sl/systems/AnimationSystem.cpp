@@ -9,6 +9,7 @@
 
 #include "sl/utils/Time.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
 
 #include "AnimationSystem.hpp"
@@ -23,7 +24,8 @@ namespace sl
 	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// For each entity with an animation.
-		registry.view<AnimationComponent, RenderComponent>().each([&](entt::DefaultRegistry::entity_type entity, auto& ac, auto& rc)
+		registry.view<AnimationComponent, RenderComponent, EnabledComponent>()
+			.each([&](entt::DefaultRegistry::entity_type entity, AnimationComponent& ac, RenderComponent& rc, EnabledComponent& ec)
 		{
 			// Only update animation if it is not paused.
 			if (!ac.m_isPaused)

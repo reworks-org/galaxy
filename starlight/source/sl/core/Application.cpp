@@ -237,6 +237,8 @@ namespace sl
 			sol::constructors<entt::DefaultRegistry()>(),
 			"create", sol::resolve<entt::DefaultRegistry::entity_type(void)>(&entt::DefaultRegistry::create),
 			"destroy", &Sol2Interface::enttDestroyWorkaround,
+			"disable", sol::resolve<void(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::remove<EnabledComponent>),
+			"assignEnabledComponent", &Sol2Interface::assignEnabledComponent,
 			"assignAnimationComponent", &Sol2Interface::assignAnimationComponent,
 			"assignParallaxComponent", &Sol2Interface::assignParallaxComponent,
 			"assignParticleComponent", &Sol2Interface::assignParticleComponent,

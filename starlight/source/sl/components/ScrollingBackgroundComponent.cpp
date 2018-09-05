@@ -11,6 +11,7 @@
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "ScrollingBackgroundComponent.hpp"
@@ -24,6 +25,7 @@ namespace sl
 		m_secondEntity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<RenderComponent>(m_secondEntity);
 		Locator::world->m_registry.assign<TransformComponent>(m_secondEntity);
+		Locator::world->m_registry.assign<EnabledComponent>(m_secondEntity);
 	}
 
 	ScrollingBackgroundComponent::ScrollingBackgroundComponent(const sol::table& table)
@@ -37,6 +39,7 @@ namespace sl
 		m_secondEntity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<RenderComponent>(m_secondEntity);
 		Locator::world->m_registry.assign<TransformComponent>(m_secondEntity);
+		Locator::world->m_registry.assign<EnabledComponent>(m_secondEntity);
 	}
 
 	ScrollingBackgroundComponent::ScrollingBackgroundComponent(float speed)
@@ -49,10 +52,24 @@ namespace sl
 		m_secondEntity = Locator::world->m_registry.create();
 		Locator::world->m_registry.assign<RenderComponent>(m_secondEntity);
 		Locator::world->m_registry.assign<TransformComponent>(m_secondEntity);
+		Locator::world->m_registry.assign<EnabledComponent>(m_secondEntity);
+	}
+
+	ScrollingBackgroundComponent::~ScrollingBackgroundComponent()
+	{
+		if (sl::Locator::world->m_registry.valid(m_secondEntity))
+		{
+			sl::Locator::world->m_registry.destroy(m_secondEntity);
+		}
 	}
 
 	ScrollingBackgroundComponent& ScrollingBackgroundComponent::operator=(const ScrollingBackgroundComponent &)
 	{
 		return *this;
+	}
+
+	void ScrollingBackgroundComponent::disableInternalEntity()
+	{
+		sl::Locator::world->m_registry.remove<EnabledComponent>(m_secondEntity);
 	}
 }

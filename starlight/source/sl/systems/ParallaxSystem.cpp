@@ -9,6 +9,7 @@
 
 #include "sl/events/EventTypes.hpp"
 #include "sl/events/PlayerMoveEvent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -24,7 +25,8 @@ namespace sl
 				PlayerMoveEvent* playerMoveEvent = (PlayerMoveEvent*)event->user.data1;
 				
 				// If a player moves, move the parallax background aswell, at the speed defined in the ParallaxComponent.
-				registry.view<ParallaxComponent, TransformComponent>().each([&](entt::DefaultRegistry::entity_type entity, ParallaxComponent& pc, TransformComponent& tc)
+				registry.view<ParallaxComponent, TransformComponent, EnabledComponent>()
+					.each([&](entt::DefaultRegistry::entity_type entity, ParallaxComponent& pc, TransformComponent& tc, EnabledComponent& ec)
 				{
 					tc.m_rect.m_x += playerMoveEvent->m_horizontalSpeed * pc.m_horizontalSpeed;
 					tc.m_rect.m_y += playerMoveEvent->m_verticalSpeed * pc.m_verticalSpeed;

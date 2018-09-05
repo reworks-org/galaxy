@@ -46,12 +46,17 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~ScrollingBackgroundComponent() = default;
+		~ScrollingBackgroundComponent();
 
 		///
 		/// Default move assignment overload.
 		///
 		ScrollingBackgroundComponent& operator=(const ScrollingBackgroundComponent&);
+
+		///
+		/// Call this to disable the internal second entity.
+		///
+		void disableInternalEntity();
 
 	private:
 		///

@@ -175,14 +175,18 @@ namespace sl
 
 					if (ImGui::MenuItem("Save"))
 					{
-						Locator::virtualFS->writeToFile(s_currentScript, m_editor.GetText().c_str());
+						if (!s_currentScript.empty())
+						{
+							Locator::virtualFS->writeToFile(s_currentScript, m_editor.GetText().c_str());
+						}
 					}
 
 					if (ImGui::MenuItem("Close"))
 					{
 						s_showFilesToLoad = false;
 						s_showScriptEditor = false;
-						m_editor.SetText("");
+						s_currentScript = "";
+						m_editor.SetText(" ");
 					}
 
 					ImGui::EndMenu();

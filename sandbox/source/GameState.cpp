@@ -15,6 +15,7 @@
 #include <sl/core/ServiceLocator.hpp>
 #include <sl/systems/RenderSystem.hpp>
 #include <sl/components/RenderComponent.hpp>
+#include <sl/components/EnabledComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
 #include <sl/components/ScrollingBackgroundComponent.hpp>
 #include <sl/graphics/Window.hpp>
@@ -41,6 +42,7 @@ GameState::GameState()
 	Locator::world->m_registry.assign<TransformComponent>(scrolledEntity, 1, 0.0f, Rect<float, int>{ 0.0f, 0.0f, 1280, 720 });
 	Locator::world->m_registry.assign<ScrollingBackgroundComponent>(scrolledEntity, 1.0f);
 	Locator::world->m_registry.assign<RenderComponent>(scrolledEntity, 1.0f, "bg_forest");
+	Locator::world->m_registry.assign<EnabledComponent>(scrolledEntity);
 }
 
 GameState::~GameState()

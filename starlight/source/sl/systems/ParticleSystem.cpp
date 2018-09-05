@@ -12,6 +12,7 @@
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/events/ParticleEmitEvent.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -45,6 +46,7 @@ namespace sl
 						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
 						registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), particleEvent->m_fade);
 						registry.assign<RenderComponent>(entity, 1.0f, particleEvent->m_textureIDS[i]);
+						registry.assign<EnabledComponent>(entity);
 					}
 				}
 			}
@@ -56,8 +58,8 @@ namespace sl
 	void ParticleSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// Iterate over ParticleComponent entities.
-		registry.view<ParticleComponent, TransformComponent, RenderComponent>()
-			.each([&](entt::DefaultRegistry::entity_type entity, ParticleComponent& pc, TransformComponent& tc, RenderComponent& rc)
+		registry.view<ParticleComponent, TransformComponent, RenderComponent, EnabledComponent>()
+			.each([&](entt::DefaultRegistry::entity_type entity, ParticleComponent& pc, TransformComponent& tc, RenderComponent& rc, EnabledComponent& ec)
 		{
 			// If the opacity is below 0, i.e. invisible, destroy the entity.
 			if (rc.m_opacity <= 0.0f)

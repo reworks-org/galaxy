@@ -423,6 +423,9 @@
     <ClCompile Include="source\sl\systems\ScrollingBackgroundSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\components\EnabledComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1527,6 +1530,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\scripting\Sol2Interface.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\components\EnabledComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

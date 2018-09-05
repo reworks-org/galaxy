@@ -11,6 +11,7 @@
 #define STARLIGHT_COMPONENTSHEADER_HPP_
 
 #include "sl/components/AnimationComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/ParallaxComponent.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"

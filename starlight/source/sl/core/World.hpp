@@ -42,7 +42,9 @@ namespace sl
 		///
 		/// \param script Script file in the VirtualFS.
 		///
-		void createEntity(const std::string& script);
+		/// \return Entity created.
+		///
+		entt::DefaultRegistry::entity_type createEntity(const std::string& script);
 
 		///
 		/// Automatically create a batch of entitys from a script.

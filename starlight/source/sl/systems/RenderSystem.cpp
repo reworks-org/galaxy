@@ -12,6 +12,7 @@
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 #include "sl/components/RenderComponent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
@@ -39,7 +40,7 @@ namespace sl
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// Retrieve the current entities to render and reset the quadtree.
-		auto view = registry.view<RenderComponent, TransformComponent>();
+		auto view = registry.view<RenderComponent, TransformComponent, EnabledComponent>();
 		m_quadtree = std::make_unique<QuadTree>(0, Locator::stateMachine->top()->m_bounds, m_quadTreeLevels, m_quadTreeMaxObjects);
 		
 		// Prepare entity vector.

@@ -17,6 +17,7 @@
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/events/CollisionEvent.hpp"
+#include "sl/components/EnabledComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -81,7 +82,8 @@ namespace sl
 		Locator::box2dHelper->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
 			
 		// Iterate over entities, updating their transformcomponent to match the physics component.
-		registry.view<PhysicsComponent, TransformComponent>().each([&](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc, TransformComponent& tc)
+		registry.view<PhysicsComponent, TransformComponent, EnabledComponent>()
+			.each([&](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc, TransformComponent& tc, EnabledComponent& ec)
 		{
 			// Make sure physics body is valid.
 			if (pc.m_body != nullptr)
