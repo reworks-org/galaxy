@@ -40,10 +40,10 @@
 
 #ifndef AGUI_FONT_HPP
 #define AGUI_FONT_HPP
-#include "Agui/Platform.hpp"
-#include "Agui/UTF8.hpp"
-#include "Agui/Color.hpp"
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/agui/Platform.hpp"
+#include "sl/libs/agui/UTF8.hpp"
+#include "sl/libs/agui/Color.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
 namespace agui
 {
 

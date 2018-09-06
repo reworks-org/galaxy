@@ -40,8 +40,8 @@
 
 #ifndef AGUI_ACTION_LISTENER_HPP
 #define AGUI_ACTION_LISTENER_HPP
-#include "Agui/Platform.hpp"
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/agui/Platform.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
 namespace agui {
 
 	class AGUI_CORE_DECLSPEC Widget;

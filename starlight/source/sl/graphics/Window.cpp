@@ -12,13 +12,14 @@
 #include <allegro5/bitmap_draw.h>
 
 #include "sl/libs/loguru/loguru.hpp"
+#include "sl/libs/agui/TopContainer.hpp"
 
 #include "Window.hpp"
 
 namespace sl
 {
-	Window::Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon)
-	:m_isOpen(true), m_fullscreen(fullscreen), m_size(width, height)
+	Window::Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon, const std::string& defaultFont, int defaultFontSize)
+	:m_isOpen(true), m_fullscreen(fullscreen), m_size(width, height), m_uiDefaultFont(nullptr)
 	{
 		// Set the display options for the window based off of the params from the config.
 		al_set_new_display_flags(ALLEGRO_WINDOWED | ALLEGRO_RESIZABLE | ALLEGRO_OPENGL | ALLEGRO_PROGRAMMABLE_PIPELINE);
@@ -40,7 +41,7 @@ namespace sl
 		{
 			al_set_new_window_title(title.c_str());
 		}
-
+		
 		// Create the display making sure it was successful.
 		m_display = al_create_display(width, height);
 		if (!m_display)
@@ -68,11 +69,27 @@ namespace sl
 		m_fullscreenScale.m_y = ((info.y2 - info.y1) / 2) - (height / 2);
 
 		m_fullscreenBuffer = al_create_bitmap(width, height);
+
+		// Set up AGUI.
+		agui::Image::setImageLoader(&m_uiImageLoader);
+		agui::Font::setFontLoader(&m_uiFontLoader);
+
+		agui::Color::setPremultiplyAlpha(true);
+
+		m_ui.setInput(&m_uiInputHandler);
+		m_ui.setGraphics(&m_uiGraphicsHandler);
+
+		m_uiDefaultFont = agui::Font::load(defaultFont, defaultFontSize);
+		agui::Widget::setGlobalFont(m_uiDefaultFont);
 	}
 	
 	Window::~Window()
 	{
-		// Clean up allegro window data.
+		// Clean up allegro window data and ui.
+		
+		m_ui.getTop()->clear();
+		delete m_uiDefaultFont;
+		
 		al_destroy_bitmap(m_icon);
 		al_destroy_bitmap(m_fullscreenBuffer);
 		al_destroy_display(m_display);

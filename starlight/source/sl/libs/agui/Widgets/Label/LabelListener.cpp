@@ -38,31 +38,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef AGUI_SFML2_FONT_HPP
-#define AGUI_SFML2_FONT_HPP
-#include "Agui/BaseTypes.hpp"
-#include <SFML/Graphics.hpp>
-namespace agui
-{
-	class AGUI_BACKEND_DECLSPEC SFML2Font : public Font
+#include "sl/libs/agui/Widgets/Label/LabelListener.hpp"
+namespace agui {
+	LabelListener::LabelListener(void)
 	{
-		sf::Font* sfFont;
-		bool autoFree;
-		int characterSize;
-		std::string path;
-	public:
-		SFML2Font(void);
-		virtual void free();
-		sf::Font* getFont() const;
-		virtual int getLineHeight() const;
-		virtual int getHeight() const;
-		void setHeight(int characterSize);
-		virtual int getTextWidth(const std::string &text) const;
-		virtual const std::string& getPath() const;
-		SFML2Font(const std::string &fileName, int height, FontFlags fontFlags = FONT_DEFAULT_FLAGS);
-		virtual void setFont(sf::Font* font, const std::string &path, int characterSize, bool autoFree = false);
-		virtual void reload(const std::string &fileName, int height, FontFlags fontFlags  = FONT_DEFAULT_FLAGS , float borderWidth = 0, agui::Color borderColor = agui::Color());
-		virtual ~SFML2Font(void);
-	};
+	}
+
+	LabelListener::~LabelListener(void)
+	{
+	}
 }
-#endif

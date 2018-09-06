@@ -41,7 +41,7 @@
 #ifndef MOUSE_LISTENER_HPP
 #define MOUSE_LISTENER_HPP
 
-#include "Agui/EventArgs.hpp"
+#include "sl/libs/agui/EventArgs.hpp"
 namespace agui {
 	/**
      * Abstract class for Mouse Listeners.

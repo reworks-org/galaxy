@@ -38,39 +38,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef AGUI_SFML2_INPUT_HPP
-#define AGUI_SFML2_INPUT_HPP
-#include "Agui/Input.hpp"
-#include <SFML/Graphics.hpp>
-#include <list>
-namespace agui
-{
-	class AGUI_BACKEND_DECLSPEC SFML2Input : public Input
-	{
-		sf::Clock clock; // starts the clock
-		bool alt;
-		bool shift;
-		bool control;
-		bool meta;
+#include "sl/libs/agui/Backends/Allegro5/Allegro5FontLoader.hpp"
+namespace agui {
 
-		bool lmbDown;
-		bool rmbDown;
-		bool mmbDown;
-		int lastMouseX;
-		int lastMouseY;
-		std::list<sf::Keyboard::Key> m_keys;
-		sf::Keyboard::Key m_prev;
-		ExtendedKeyEnum getExtendedKey(sf::Keyboard::Key key) const;
-		bool isModifierKey(sf::Keyboard::Key key);
-		KeyEnum getKeyFromKeycode(sf::Keyboard::Key key) const;
-		bool createMouse(const sf::Event &event, MouseInput& input);
-		KeyboardInput createKeyboard(KeyEnum key,ExtendedKeyEnum extKey,unsigned int unichar, bool down);
-		void removeKeyFromList(sf::Keyboard::Key key);
-	public:
-		SFML2Input(void);
-		virtual double getTime() const;
-		virtual void processEvent(const sf::Event &event);
-		virtual ~SFML2Input(void);
-	};
+	Font* Allegro5FontLoader::loadFont( const std::string &fileName, int height, FontFlags fontFlags, float borderWidth, agui::Color borderColor )
+	{
+		return new Allegro5Font(fileName,height,fontFlags,borderWidth,borderColor);
+	}
+
+  Font* Allegro5FontLoader::loadEmptyFont()
+  {
+    return new Allegro5Font();
+  }
 }
-#endif

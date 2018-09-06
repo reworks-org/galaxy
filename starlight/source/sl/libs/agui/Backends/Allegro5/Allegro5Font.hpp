@@ -40,7 +40,7 @@
 
 #ifndef AGUI_ALLEGRO5_FONT_HPP
 #define AGUI_ALLEGRO5_FONT_HPP
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
 
 //Allegro 5 
 #include <allegro5/allegro.h>

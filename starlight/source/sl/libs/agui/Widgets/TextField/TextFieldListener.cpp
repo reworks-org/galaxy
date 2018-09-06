@@ -38,12 +38,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef AGUI_SFML2_HPP
-#define AGUI_SFML2_HPP
-#include "Agui/Backends/SFML2/SFML2Graphics.hpp"
-#include "Agui/Backends/SFML2/SFML2ImageLoader.hpp"
-#include "Agui/Backends/SFML2/SFML2FontLoader.hpp"
-#include "Agui/Backends/SFML2/SFML2Input.hpp"
-#include "Agui/Backends/SFML2/SFML2Font.hpp"
-#include "Agui/Backends/SFML2/SFML2Image.hpp"
-#endif
+#include "sl/libs/agui/Widgets/TextField/TextFieldListener.hpp"
+namespace agui {
+	TextFieldListener::TextFieldListener(void)
+	{
+	}
+
+	TextFieldListener::~TextFieldListener(void)
+	{
+	}
+}

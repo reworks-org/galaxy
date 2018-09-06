@@ -128,12 +128,28 @@ namespace sl
 		ALLEGRO_BITMAP* al_create_packed_sub_bitmap(const std::string& texture);
 
 		///
+		/// Dumps internal atlas. May take a while.
+		///
+		/// \param filename Name to save file with, including extension you want.
+		///
+		void dumpAtlas(const std::string& filename);
+
+		///
 		/// Draws the internal full texture atlas to the screen. Useful for debugging.
 		///
 		/// \param x X coord.
 		/// \param y Y coord.
 		///
 		void drawInternalTexture(float x = 0.0f, float y = 0.0f);
+
+		///
+		/// \brief Retrieve internal atlas texture.
+		///
+		/// DO NOT FREE!
+		///
+		/// \return Bitmap to internal atlas texture.
+		///
+		ALLEGRO_BITMAP* getInternalAtlas() const;
 
 	private:
 		///

@@ -41,7 +41,7 @@
 #ifndef AGUI_KEYBOARD_LISTENER_HPP
 #define AGUI_KEYBOARD_LISTENER_HPP
 
-#include "Agui/EventArgs.hpp"
+#include "sl/libs/agui/EventArgs.hpp"
 namespace agui {
 	/**
      * Abstract class for Keyboard Listeners.

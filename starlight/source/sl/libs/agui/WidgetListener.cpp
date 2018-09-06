@@ -38,20 +38,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef AGUI_SFML2_FONT_MANAGER_HPP
-#define AGUI_SFML2_FONT_MANAGER_HPP
-
-#include "Agui/FontLoader.hpp"
-namespace agui
-{
-	class AGUI_BACKEND_DECLSPEC SFML2FontLoader : public FontLoader
+#include "sl/libs/agui/WidgetListener.hpp"
+namespace agui {
+	WidgetListener::WidgetListener(void)
 	{
-	public:
-		SFML2FontLoader(void);
-		virtual Font* loadFont(const std::string &fileName, int height, FontFlags fontFlags = FONT_DEFAULT_FLAGS, float borderWidth = 0, agui::Color borderColor = agui::Color());
-		virtual Font* loadEmptyFont();
-		virtual ~SFML2FontLoader(void);
-	};
+	}
 
 }
-#endif

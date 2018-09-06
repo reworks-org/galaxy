@@ -41,7 +41,7 @@
 #ifndef AGUI_EVENT_ARGS_HPP
 #define AGUI_EVENT_ARGS_HPP
 
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC Widget;
 	/**

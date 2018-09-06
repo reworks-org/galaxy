@@ -10,6 +10,7 @@
 #include <sl/libs/entt/entity/helper.hpp>
 
 #include <sl/core/World.hpp>
+#include <sl/graphics/TextureAtlas.hpp>
 #include <allegro5/keyboard.h>
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/ServiceLocator.hpp>
@@ -36,7 +37,7 @@ GameState::GameState()
 	m_bounds.m_x = 0;
 	m_bounds.m_y = 0;
 
-	//Locator::musicPlayer->get("background").play();
+	Locator::musicPlayer->get("background").play();
 
 	entt::DefaultRegistry::entity_type scrolledEntity = Locator::world->m_registry.create();
 	Locator::world->m_registry.assign<TransformComponent>(scrolledEntity, 1, 0.0f, Rect<float, int>{ 0.0f, 0.0f, 1280, 720 });
@@ -52,6 +53,8 @@ GameState::~GameState()
 
 void GameState::load()
 {
+	//sl::Locator::world->createEntity("load.lua");
+	//Locator::textureAtlas->dumpAtlas("atlas.png");
 }
 
 void GameState::unload()

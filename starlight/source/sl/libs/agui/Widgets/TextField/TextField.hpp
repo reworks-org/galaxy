@@ -41,10 +41,10 @@
 #ifndef AGUI_TEXTFIELD_HPP
 #define AGUI_TEXTFIELD_HPP
 
-#include "Agui/Widget.hpp"
-#include "Agui/Widgets/TextField/TextFieldListener.hpp"
-#include "Agui/BlinkingEvent.hpp"
-#include "Agui/Clipboard/Clipboard.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/Widgets/TextField/TextFieldListener.hpp"
+#include "sl/libs/agui/BlinkingEvent.hpp"
+#include "sl/libs/agui/Clipboard/Clipboard.hpp"
 namespace agui {
 	/**
 	 * Class that represents a TextField.

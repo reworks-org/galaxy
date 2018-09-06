@@ -40,7 +40,7 @@
 
 #ifndef AGUI_RESIZABLE_BORDER_LAYOUT_HPP
 #define AGUI_RESIZABLE_BORDER_LAYOUT_HPP
-#include "Agui/BorderLayout.hpp"
+#include "sl/libs/agui/BorderLayout.hpp"
 
 namespace agui
 {

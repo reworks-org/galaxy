@@ -40,7 +40,7 @@
 
 #ifndef AGUI_COLOR_HPP
 #define AGUI_COLOR_HPP
-#include "Agui/Platform.hpp"
+#include "sl/libs/agui/Platform.hpp"
 namespace agui
 {
 	/**

@@ -41,17 +41,17 @@
 #ifndef AGUI_WIDGET_HPP
 #define AGUI_WIDGET_HPP
 
-#include "Agui/BaseTypes.hpp"
-#include "Agui/EventArgs.hpp"
-#include "Agui/Gui.hpp"
-#include "Agui/KeyboardListener.hpp"
-#include "Agui/MouseListener.hpp"
-#include "Agui/FocusListener.hpp"
-#include "Agui/WidgetListener.hpp"
-#include "Agui/ActionListener.hpp"
-#include "Agui/Graphics.hpp"
-#include "Agui/FocusManager.hpp"
-#include "Agui/CursorProvider.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
+#include "sl/libs/agui/EventArgs.hpp"
+#include "sl/libs/agui/Gui.hpp"
+#include "sl/libs/agui/KeyboardListener.hpp"
+#include "sl/libs/agui/MouseListener.hpp"
+#include "sl/libs/agui/FocusListener.hpp"
+#include "sl/libs/agui/WidgetListener.hpp"
+#include "sl/libs/agui/ActionListener.hpp"
+#include "sl/libs/agui/Graphics.hpp"
+#include "sl/libs/agui/FocusManager.hpp"
+#include "sl/libs/agui/CursorProvider.hpp"
 #include <list>
 
 

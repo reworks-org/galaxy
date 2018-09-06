@@ -40,10 +40,10 @@
 
 #ifndef AGUI_HSCROLLBAR_HPP
 #define AGUI_HSCROLLBAR_HPP
-#include "Agui/Widget.hpp"
-#include "Agui/Widgets/Button/Button.hpp"
-#include "Agui/MouseListener.hpp"
-#include "Agui/Widgets/ScrollBar/HScrollBarListener.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/Widgets/Button/Button.hpp"
+#include "sl/libs/agui/MouseListener.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/HScrollBarListener.hpp"
 namespace agui {
 	/**
 	 * Class that represents a Horizontal ScrollBar.

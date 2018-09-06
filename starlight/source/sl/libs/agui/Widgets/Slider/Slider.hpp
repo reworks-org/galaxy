@@ -41,9 +41,9 @@
 #ifndef AGUI_SLIDER_HPP
 #define AGUI_SLIDER_HPP
 
-#include "Agui/Widget.hpp"
-#include "Agui/Widgets/Button/Button.hpp"
-#include "Agui/Widgets/Slider/SliderListener.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/Widgets/Button/Button.hpp"
+#include "sl/libs/agui/Widgets/Slider/SliderListener.hpp"
 namespace agui {
 		/**
 	 * Class that represents a Slider that can be set vertically or horizontally.

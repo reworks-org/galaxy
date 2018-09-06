@@ -41,19 +41,19 @@
 #ifndef AGUI_GUI_HPP
 #define AGUI_GUI_HPP
 
-#include "Agui/Graphics.hpp"
-#include "Agui/Widget.hpp"
-#include "Agui/EventArgs.hpp"
+#include "sl/libs/agui/Graphics.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/EventArgs.hpp"
 #include <stack>
 #include <queue>
-#include "Agui/Input.hpp"
-#include "Agui/BaseTypes.hpp"
-#include "Agui/FocusManager.hpp"
-#include "Agui/KeyboardListener.hpp"
-#include "Agui/MouseListener.hpp"
-#include "Agui/CursorProvider.hpp"
-#include "Agui/Transform.hpp"
-#include "Agui/TapListener.hpp"
+#include "sl/libs/agui/Input.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
+#include "sl/libs/agui/FocusManager.hpp"
+#include "sl/libs/agui/KeyboardListener.hpp"
+#include "sl/libs/agui/MouseListener.hpp"
+#include "sl/libs/agui/CursorProvider.hpp"
+#include "sl/libs/agui/Transform.hpp"
+#include "sl/libs/agui/TapListener.hpp"
 namespace agui
 {
 	class AGUI_CORE_DECLSPEC TopContainer;

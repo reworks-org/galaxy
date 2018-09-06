@@ -40,12 +40,12 @@
 
 #ifndef AGUI_LISTBOX_HPP
 #define AGUI_LISTBOX_HPP
-#include "Agui/Widget.hpp"
-#include "Agui/Widgets/ScrollBar/HScrollBar.hpp"
-#include "Agui/Widgets/ScrollBar/VScrollBar.hpp"
-#include "Agui/MouseListener.hpp"
-#include "Agui/SelectionListener.hpp"
-#include "Agui/Widgets/ListBox/ListBoxListener.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/HScrollBar.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/VScrollBar.hpp"
+#include "sl/libs/agui/MouseListener.hpp"
+#include "sl/libs/agui/SelectionListener.hpp"
+#include "sl/libs/agui/Widgets/ListBox/ListBoxListener.hpp"
 namespace agui {
 		/**
 	 * Class that represents ListBox.

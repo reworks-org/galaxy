@@ -40,7 +40,7 @@
 
 #ifndef AGUI_FOCUS_MANAGER
 #define AGUI_FOCUS_MANAGER
-#include "Agui/Platform.hpp"
+#include "sl/libs/agui/Platform.hpp"
 
 namespace agui
 {

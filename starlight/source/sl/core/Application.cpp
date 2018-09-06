@@ -31,8 +31,8 @@ namespace sl
 		// Seed pseudo-random algorithms.
 		std::srand(std::time(nullptr));
 
-		// Supposed to improve performance.
-		std::ios::sync_with_stdio(false);
+		// Supposed to improve performance. Need to run tests and ensure we aren't using C stdio.
+		// std::ios::sync_with_stdio(false);
 
 		// Set up logging and set loguru to throw an exception on fatal errors.
 		std::string lname = "logs/" + Time::getFormattedTime() + ".log";
@@ -74,7 +74,10 @@ namespace sl
 		Locator::virtualFS = m_virtualFS.get();
 		m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
 
-		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
+		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), 
+			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), 
+			m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"), 
+			m_configReader->lookup<std::string>(config, "font", "defaultFont"), m_configReader->lookup<int>(config, "font", "defaultFontSize"));
 		Locator::window = m_window.get();
 
 		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
@@ -341,20 +344,22 @@ namespace sl
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
 		while (m_window->isOpen())
 		{
-			ALLEGRO_EVENT ev;
-			while (al_get_next_event(m_eventManager->m_queue, &ev))
+			ALLEGRO_EVENT event;
+			while (al_get_next_event(m_eventManager->m_queue, &event))
 			{
 				// Events
-				m_world->event(&ev);
-				m_stateMachine->event(&ev);
-				m_debugInterface->event(&ev);
+				m_stateMachine->event(&event);
+				m_world->event(&event);
+				m_window->m_uiInputHandler.processEvent(event);
+				m_debugInterface->event(&event);
 
-				switch (ev.type)
+				switch (event.type)
 				{
 					case ALLEGRO_EVENT_TIMER:
 						// Updates
 						m_stateMachine->update(timePerFrame);
 						m_world->update(timePerFrame);
+						m_window->m_ui.logic();
 						updates++;
 						break;
 
@@ -366,6 +371,12 @@ namespace sl
 						ImGui_ImplA5_InvalidateDeviceObjects();
 						al_acknowledge_resize(m_window->getDisplay());
 						Imgui_ImplA5_CreateDeviceObjects();
+
+						m_window->m_ui.resizeToDisplay();
+						break;
+
+					case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
+						m_window->m_ui.resizeToDisplay();
 						break;
 				}
 			}
@@ -378,6 +389,7 @@ namespace sl
 			m_window->clear(0, 0, 0);
 			
 			m_stateMachine->render();
+			m_window->m_ui.render();
 			m_debugInterface->render();
 
 			m_window->display();

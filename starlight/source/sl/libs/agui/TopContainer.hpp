@@ -41,7 +41,7 @@
 #ifndef AGUI_TOP_CONTAINER_HPP
 #define AGUI_TOP_CONTAINER_HPP
 
-#include "Agui/Widget.hpp"
+#include "sl/libs/agui/Widget.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC Gui;
 	class AGUI_CORE_DECLSPEC FocusManager;

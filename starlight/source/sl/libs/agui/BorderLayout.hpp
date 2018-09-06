@@ -41,7 +41,7 @@
 #ifndef AGUI_BORER_LAYOUT_HPP
 #define	AGUI_BORER_LAYOUT_HPP
 
-#include "Agui/Layout.hpp"
+#include "sl/libs/agui/Layout.hpp"
 
 namespace agui
 {

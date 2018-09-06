@@ -41,7 +41,7 @@
 #ifndef AGUI_WIDGET_LISTENER_HPP
 #define AGUI_WIDGET_LISTENER_HPP
 
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
 namespace agui {
 	/**
      * Abstract class for Widget Listeners.

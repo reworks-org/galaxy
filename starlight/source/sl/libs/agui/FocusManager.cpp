@@ -38,28 +38,105 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef AGUI_SFML2_IMAGE_HPP
-#define AGUI_SFML2_IMAGE_HPP
-#include "Agui/BaseTypes.hpp"
-#include <SFML/Graphics.hpp>
+#include "sl/libs/agui/FocusManager.hpp"
+#include "sl/libs/agui/Widget.hpp"
 namespace agui
 {
-	class AGUI_BACKEND_DECLSPEC SFML2Image : public Image
-	{
-		sf::Texture *sfTexture;
-		bool autoFree;
-	public:
-		SFML2Image(void);
-		virtual int getWidth() const;
-		virtual int getHeight() const;
-		virtual Color getPixel(int x, int y) const;
-		virtual void setPixel(int x, int y, const Color& color);
-		virtual bool isAutoFreeing() const;
-		sf::Texture* getBitmap() const;
-		virtual void free();
-		SFML2Image(const std::string& fileName);
-		virtual void setBitmap(sf::Texture* bitmap, bool autoFree = false);
-		virtual ~SFML2Image(void);
-	};
+
+FocusManager::FocusManager(void)
+: focusedWidget(NULL), modalWidget(NULL)
+{
 }
-#endif
+
+FocusManager::~FocusManager(void)
+{
+}
+
+bool FocusManager::widgetIsModalChild( Widget* widget )
+{
+		if(!modalWidget)
+		{
+			return false;
+		}
+
+		if(widget == modalWidget)
+		{
+			return true;
+		}
+		Widget* currentParent = widget;
+		if(widget)
+		{
+			while (currentParent)
+			{
+				if(currentParent == modalWidget)
+				{
+					return true;
+				}
+				if(!currentParent->getParent())
+				{
+					return false;
+				}
+				currentParent = currentParent->getParent();
+			}
+
+		}
+		return false;
+	}
+
+	void FocusManager::setFocusedWidget( Widget* widget )
+	{
+		//changes the focused widget
+
+		if(focusedWidget)
+			if(focusedWidget != widget)
+				focusedWidget->focusLost();
+
+		focusedWidget = widget;
+
+		if(widget)
+			if(widget->isFocusable() && widget->isVisible() 
+				&& widget->isEnabled())
+				widget->focusGained();
+	}
+
+	bool FocusManager::requestModalFocus( Widget* widget )
+	{
+		if(modalWidget == NULL && widget)
+		{
+			if(focusedWidget != widget)
+			{
+				widget->focus();
+			}
+			modalWidget = widget;
+			widget->modalFocusGained();
+			return true;
+		}
+		return false;
+	}
+
+	bool FocusManager::releaseModalFocus( Widget* widget )
+	{
+		if(widgetIsModalChild(widget))
+		{
+			modalWidget->modalFocusLost();
+			modalWidget = NULL;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	Widget* FocusManager::getFocusedWidget() const
+	{
+		return focusedWidget;
+	}
+
+	Widget* FocusManager::getModalWidget() const
+	{
+		return modalWidget;
+	}
+
+}
+

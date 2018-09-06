@@ -41,7 +41,7 @@
 #ifndef AGUI_BITMAP_MANAGER
 #define AGUI_BITMAP_MANAGER
 
-#include "Agui/BaseTypes.hpp"
+#include "sl/libs/agui/BaseTypes.hpp"
 	namespace agui {
 	/**
      * Abstract class to load images.

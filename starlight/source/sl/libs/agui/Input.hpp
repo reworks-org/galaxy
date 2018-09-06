@@ -40,8 +40,8 @@
 
 #ifndef AGUI_INPUT_HPP
 #define AGUI_INPUT_HPP
-#include "Agui/Platform.hpp"
-#include "Agui/EventArgs.hpp"
+#include "sl/libs/agui/Platform.hpp"
+#include "sl/libs/agui/EventArgs.hpp"
 #include <queue>
 
 namespace agui

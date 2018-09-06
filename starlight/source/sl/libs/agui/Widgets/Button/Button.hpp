@@ -41,7 +41,7 @@
 #ifndef AGUI_BUTTON_HPP
 #define AGUI_BUTTON_HPP
 
-#include "Agui/Widget.hpp"
+#include "sl/libs/agui/Widget.hpp"
 namespace agui {
 	class AGUI_CORE_DECLSPEC ButtonListener;
 

@@ -37,7 +37,6 @@ namespace sl
 
 		// Set the algorithm to use when packing the bin, in this case bestshortsidefit.
 		m_bin.Init(atlasSize, atlasSize, false);
-		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
 
 		al_set_target_bitmap(m_atlas);
 		al_clear_to_color(al_map_rgba(255, 255, 255, 0));
@@ -57,8 +56,8 @@ namespace sl
 				std::string loc = "textures/" + std::string(*i);
 				ALLEGRO_BITMAP* bitmap = al_load_bitmap(loc.c_str());
 
-				/// ...then fit it into the atlas...
-				Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), heuristic);
+				// ...then fit it into the atlas...
+				Rect<int> packedRect = m_bin.Insert(al_get_bitmap_width(bitmap), al_get_bitmap_height(bitmap), rbp::MaxRectsBinPack::RectBestAreaFit);
 				if (!(packedRect.m_height > 0))
 				{
 					LOG_S(FATAL) << "Failed to pack a texture! Texture: " << *i;
@@ -231,9 +230,19 @@ namespace sl
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);
 	}
 
+	void TextureAtlas::dumpAtlas(const std::string& filename)
+	{
+		al_save_bitmap(filename.c_str(), m_atlas);
+	}
+
 	void TextureAtlas::drawInternalTexture(float x, float y)
 	{
 		// Draw the entire atlas to the screen. Useful for debugging.
 		al_draw_bitmap(m_atlas, x, y, 0);
+	}
+
+	ALLEGRO_BITMAP* TextureAtlas::getInternalAtlas() const
+	{
+		return m_atlas;
 	}
 }

@@ -38,20 +38,52 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef AGUI_SFML2_IMAGE_LOADER_HPP
-#define AGUI_SFML2_IMAGE_LOADER_HPP
-#include "Agui/BaseTypes.hpp"
-#include "Agui/ImageLoader.hpp"
+#include "sl/libs/agui/BlinkingEvent.hpp"
+
 namespace agui
 {
-	class AGUI_BACKEND_DECLSPEC SFML2ImageLoader : public ImageLoader
+	BlinkingEvent::BlinkingEvent(void)
+    : blinkInterval(0.5), lastBlinkTime(0), blinking(true),
+	blinkNeedsInvalidation(false)
 	{
-	public:
-		SFML2ImageLoader(void);
-		virtual Image* loadImage(const std::string &fileName, bool convertMask = false,
-			bool converToDisplayFormat = false);
-		virtual ~SFML2ImageLoader(void);
-	};
+	}
 
+	BlinkingEvent::~BlinkingEvent(void)
+	{
+	}
+
+	void BlinkingEvent::processBlinkEvent( double elapsedTime )
+	{
+		if(elapsedTime > lastBlinkTime)
+		{
+			blinking = !blinking;
+			lastBlinkTime = elapsedTime + blinkInterval;
+		}
+		else if(blinkNeedsInvalidation)
+		{
+			lastBlinkTime = elapsedTime + blinkInterval;
+			blinkNeedsInvalidation = false;
+		}
+	}
+
+	bool BlinkingEvent::isBlinking() const
+	{
+		return blinking;
+	}
+
+	void BlinkingEvent::invalidateBlink()
+	{
+		blinkNeedsInvalidation = true;
+	}
+
+	void BlinkingEvent::setBlinking( bool blinking )
+	{
+		this->blinking = blinking;
+	}
+
+	void BlinkingEvent::setBlinkingInverval( double interval )
+	{
+		blinkInterval = interval;
+		blinkNeedsInvalidation = true;
+	}
 }
-#endif

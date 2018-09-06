@@ -41,13 +41,13 @@
 #ifndef AGUI_SCROLLPANE_HPP
 #define AGUI_SCROLLPANE_HPP
 
-#include "Agui/Widget.hpp"
-#include "Agui/EmptyWidget.hpp"
-#include "Agui/Widgets/ScrollBar/HScrollBar.hpp"
-#include "Agui/Widgets/ScrollBar/VScrollBar.hpp"
-#include "Agui/WidgetListener.hpp"
-#include "Agui/MouseListener.hpp"
-#include "Agui/KeyboardListener.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/EmptyWidget.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/HScrollBar.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/VScrollBar.hpp"
+#include "sl/libs/agui/WidgetListener.hpp"
+#include "sl/libs/agui/MouseListener.hpp"
+#include "sl/libs/agui/KeyboardListener.hpp"
 
 namespace agui {
 	/**

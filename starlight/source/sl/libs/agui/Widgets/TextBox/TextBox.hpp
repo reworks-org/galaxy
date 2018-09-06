@@ -41,13 +41,13 @@
 #ifndef AGUI_TEXTBOX_HPP
 #define AGUI_TEXTBOX_HPP
 
-#include "Agui/Widget.hpp"
-#include "Agui/Widgets/ScrollBar/HScrollBar.hpp"
-#include "Agui/Widgets/ScrollBar/VScrollBar.hpp"
-#include "Agui/MouseListener.hpp"
-#include "Agui/BlinkingEvent.hpp"
-#include "Agui/Widgets/TextBox/TextBoxListener.hpp"
-#include "Agui/Clipboard/Clipboard.hpp"
+#include "sl/libs/agui/Widget.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/HScrollBar.hpp"
+#include "sl/libs/agui/Widgets/ScrollBar/VScrollBar.hpp"
+#include "sl/libs/agui/MouseListener.hpp"
+#include "sl/libs/agui/BlinkingEvent.hpp"
+#include "sl/libs/agui/Widgets/TextBox/TextBoxListener.hpp"
+#include "sl/libs/agui/Clipboard/Clipboard.hpp"
 
 namespace agui {
 	/**
