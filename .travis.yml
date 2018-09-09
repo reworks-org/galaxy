@@ -45,9 +45,9 @@ before_script:
 
 script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "./premake5 --cc=gcc --file=./starlight/premake5.lua --os=linux --verbose gmake"; fi
-- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd ./starlight && make"; fi
+- if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd ./starlight/build && make"; fi
 - if [ $TRAVIS_OS_NAME == osx ]; then ./premake5 --cc=clang --file=./premake5.lua --os=macosx --verbose gmake; fi
-- if [ $TRAVIS_OS_NAME == osx ]; then make; fi
+- if [ $TRAVIS_OS_NAME == osx ]; then cd build && make; fi
 
 after_script:
 - if [ $TRAVIS_OS_NAME == linux ]; then docker stop travis-ci; fi
