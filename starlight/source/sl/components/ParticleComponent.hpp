@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// \param table Sol::table containing data.
 		///
-		ParticleComponent(const sol::table& table);
+		explicit ParticleComponent(const sol::table& table);
 
 		///
 		/// Constructor.
@@ -51,11 +51,6 @@ namespace sl
 		/// Destructor.
 		///
 		~ParticleComponent() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		ParticleComponent& operator=(const ParticleComponent&);
 
 	public:
 		///

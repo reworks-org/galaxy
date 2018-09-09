@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data. Frames MUST be in order.
 		///
-		Animation(sol::table& table);
+		explicit Animation(sol::table& table);
 
 		///
 		/// Constructor.

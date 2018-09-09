@@ -32,7 +32,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		///
-		ParallaxComponent(const sol::table& table);
+		explicit ParallaxComponent(const sol::table& table);
 
 		///
 		/// Constructor.
@@ -40,17 +40,12 @@ namespace sl
 		/// \param verticalSpeed Speed to move background vertically.
 		/// \param horizontalSpeed Speed to move background horizontally.
 		///
-		ParallaxComponent(float verticalSpeed, float horizontalSpeed);
+		explicit ParallaxComponent(float verticalSpeed, float horizontalSpeed);
 
 		///
 		/// Destructor.
 		///
 		~ParallaxComponent() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		ParallaxComponent& operator=(const ParallaxComponent&);
 
 	public:
 		///

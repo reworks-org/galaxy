@@ -21,20 +21,12 @@ namespace sl
 	}
 
 	RenderComponent::RenderComponent(const sol::table& table)
+	:m_textureName(table.get<std::string>("textureName")), m_opacity(table.get<float>("opacity"))
 	{
-		// Retrieve the values from the lua table.
-		m_opacity = table.get<float>("opacity");
-		m_textureName = table.get<std::string>("textureName");
 	}
 
 	RenderComponent::RenderComponent(float opacity, const std::string& atlasID)
 		:m_opacity(opacity), m_textureName(atlasID)
 	{
-		// Constructs the component from parameters instead of lua.
-	}
-
-	RenderComponent& RenderComponent::operator=(const RenderComponent&)
-	{
-		return *this;
 	}
 }

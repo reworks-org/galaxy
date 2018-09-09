@@ -31,7 +31,7 @@ namespace sl
 		///
 		/// \param gravity A gravity value for Box2D to use in simulations.
 		///
-		Box2DHelper(float32 gravity);
+		explicit Box2DHelper(float32 gravity);
 
 		///
 		/// Destructor

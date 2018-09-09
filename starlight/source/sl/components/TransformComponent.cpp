@@ -34,9 +34,4 @@ namespace sl
 	{
 		// Constructs the component from parameters instead of lua.
 	}
-
-	TransformComponent& TransformComponent::operator=(const TransformComponent&)
-	{
-		return *this;
-	}
 }

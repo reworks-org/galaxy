@@ -63,11 +63,6 @@ namespace sl
 		}
 	}
 
-	ScrollingBackgroundComponent& ScrollingBackgroundComponent::operator=(const ScrollingBackgroundComponent &)
-	{
-		return *this;
-	}
-
 	void ScrollingBackgroundComponent::disableInternalEntity()
 	{
 		sl::Locator::world->m_registry.remove<EnabledComponent>(m_secondEntity);

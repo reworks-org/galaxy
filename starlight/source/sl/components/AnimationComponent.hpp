@@ -42,7 +42,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		///
-		AnimationComponent(const sol::table& table);
+		explicit AnimationComponent(const sol::table& table);
 
 		///
 		/// \brief Animated Tile Constructor.
@@ -93,11 +93,6 @@ namespace sl
 		/// Stop the animation. If you call play() the animation starts from the beginning.
 		///
 		void stop();
-
-		///
-		/// Default move assignment overload.
-		///
-		AnimationComponent& operator=(const AnimationComponent&);
 
 	private:
 		///

@@ -29,7 +29,8 @@ namespace sl
 		});
 
 		// Erase last ',' from table.
-		out << '\b\b';
+		out << '\b';
+		out << '\b';
 		out << " ";
 
 		// Close up table and flush stream.

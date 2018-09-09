@@ -27,7 +27,7 @@ namespace sl
 		/// \param script Script file containing sound data to parse. You do not need to append folder path to
 		///        the sound file paths, done for you by engine using paths in config.
 		///
-		SoundPlayer(const std::string& script);
+		explicit SoundPlayer(const std::string& script);
 
 		///
 		/// Cleanup fonts.

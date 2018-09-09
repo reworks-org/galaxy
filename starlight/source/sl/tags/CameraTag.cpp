@@ -38,11 +38,6 @@ namespace sl
 		// Argument constructor.
 	}
 
-	CameraTag& CameraTag::operator=(const CameraTag &)
-	{
-		return *this;
-	}
-
 	void CameraTag::update(unsigned int playerEntity)
 	{
 		// Retrieve transformcomponent of player.

@@ -30,7 +30,7 @@ namespace sl
 		///
 		/// \param script Script file containing font data to parse.
 		///
-		FontBook(const std::string& script);
+		explicit FontBook(const std::string& script);
 
 		///
 		/// Cleanup fonts.

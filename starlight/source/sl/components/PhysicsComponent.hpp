@@ -37,7 +37,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		///
-		PhysicsComponent(const sol::table& table);
+		explicit PhysicsComponent(const sol::table& table);
 
 		///
 		/// \brief Destructor. See desc for important info.
@@ -47,11 +47,6 @@ namespace sl
 		// So what would happen is the body data would be freed causing a string of exceptions when dat that no longer exists gets accessed.
 		///
 		~PhysicsComponent() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		PhysicsComponent& operator=(const PhysicsComponent&);
 
 		///
 		/// Set the correct entity to the fixture data.

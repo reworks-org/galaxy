@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		/// 
-		RenderComponent(const sol::table& table);
+		explicit RenderComponent(const sol::table& table);
 
 		///
 		/// Alternate Constructor.
@@ -50,11 +50,6 @@ namespace sl
 		/// Destructor.
 		///
 		~RenderComponent() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		RenderComponent& operator=(const RenderComponent&);
 
 	private:
 		///

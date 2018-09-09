@@ -34,24 +34,19 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		///
-		ScrollingBackgroundComponent(const sol::table& table);
+		explicit ScrollingBackgroundComponent(const sol::table& table);
 
 		///
 		/// Alternate Constructor.
 		///
 		/// \param speed Speed to move the background at.
 		///
-		ScrollingBackgroundComponent(float speed);
+		explicit ScrollingBackgroundComponent(float speed);
 
 		///
 		/// Destructor.
 		///
 		~ScrollingBackgroundComponent();
-
-		///
-		/// Default move assignment overload.
-		///
-		ScrollingBackgroundComponent& operator=(const ScrollingBackgroundComponent&);
 
 		///
 		/// Call this to disable the internal second entity.
@@ -60,14 +55,14 @@ namespace sl
 
 	private:
 		///
-		/// The secondary entity that keeps track of the second lot of texture data to render.
-		///
-		entt::DefaultRegistry::entity_type m_secondEntity;
-
-		///
 		/// Speed to move the background at.
 		///
 		float m_speed;
+		
+		///
+		/// The secondary entity that keeps track of the second lot of texture data to render.
+		///
+		entt::DefaultRegistry::entity_type m_secondEntity;
 	};
 }
 

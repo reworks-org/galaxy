@@ -34,7 +34,7 @@ namespace sl
 		///
 		/// \param archives Array of archives to load. This can be directorys or archives.
 		///
-		VirtualFS(const std::vector<std::string>& archives);
+		explicit VirtualFS(const std::vector<std::string>& archives);
 
 		///
 		/// Destructor.

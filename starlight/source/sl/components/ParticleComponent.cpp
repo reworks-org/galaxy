@@ -32,9 +32,4 @@ namespace sl
 	{
 		// Constructs the component from parameters instead of lua.
 	}
-
-	ParticleComponent& ParticleComponent::operator=(const ParticleComponent&)
-	{
-		return *this;
-	}
 }

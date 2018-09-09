@@ -160,7 +160,7 @@ namespace sl
 		al_flip_display();
 
 		// Then add that bitmap to the atlas.
-		addTexture(id.c_str(), bitmap);
+		addTexture(id, bitmap);
 
 		// We only have to destroy bitmap because addTexture() resets rendertarget to display.
 		al_destroy_bitmap(bitmap);

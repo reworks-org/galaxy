@@ -32,7 +32,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		///
-		Shader(const sol::table& table);
+		explicit Shader(const sol::table& table);
 
 		///
 		/// Argument Constructor.

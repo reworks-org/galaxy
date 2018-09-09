@@ -36,24 +36,19 @@ namespace sl
 		///
 		/// \param table Table containing bounds.
 		///
-		CameraTag(const sol::table& table);
+		explicit CameraTag(const sol::table& table);
 
 		///
 		/// Constructor.
 		///
 		/// \param bounds Rect bounds of camera.
 		///
-		CameraTag(const Rect<float, int>& bounds);
+		explicit CameraTag(const Rect<float, int>& bounds);
 
 		///
 		/// Destructor.
 		///
 		virtual ~CameraTag() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		CameraTag& operator=(const CameraTag&);
 
 	private:
 		///

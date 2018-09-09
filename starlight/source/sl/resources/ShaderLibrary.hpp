@@ -26,7 +26,7 @@ namespace sl
 		///
 		/// \param script Script file containing shader info to parse.
 		///
-		ShaderLibrary(const std::string& script);
+		explicit ShaderLibrary(const std::string& script);
 
 		///
 		/// Destructor. Cleans up shaders.

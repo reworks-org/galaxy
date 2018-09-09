@@ -19,19 +19,13 @@ namespace sl
 	}
 
 	ParallaxComponent::ParallaxComponent(const sol::table& table)
+		:m_verticalSpeed(table.get<float>("verticalSpeed")), m_horizontalSpeed(table.get<float>("horizontalSpeed"))
 	{
 		// Retrieve the values from the lua table.
-		m_verticalSpeed = table.get<float>("verticalSpeed");
-		m_horizontalSpeed = table.get<float>("horizontalSpeed");
 	}
 
 	ParallaxComponent::ParallaxComponent(float verticalSpeed, float horizontalSpeed)
 		:m_verticalSpeed(verticalSpeed), m_horizontalSpeed(horizontalSpeed)
 	{
-	}
-
-	ParallaxComponent& ParallaxComponent::operator=(const ParallaxComponent&)
-	{
-		return *this;
 	}
 }

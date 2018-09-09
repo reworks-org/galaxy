@@ -16,9 +16,4 @@ namespace sl
 	EnabledComponent::EnabledComponent(const sol::table& table)
 	{
 	}
-
-	EnabledComponent& EnabledComponent::operator=(const EnabledComponent&)
-	{
-		return *this;
-	}
 }

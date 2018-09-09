@@ -25,19 +25,16 @@ namespace sl
 	}
 
 	AnimationComponent::AnimationComponent(const sol::table& table)
-		:m_currentFrameTime(0.0)
+		:m_currentFrameTime(0.0), m_isPaused(table.get<bool>("paused")), m_activeAnimation(table.get<std::string>("defaultAnim"))
 	{
 		// Set up component based on lua table data.
-		m_isPaused = table.get<bool>("paused");
-		m_activeAnimation = table.get<std::string>("defaultAnim");
-
 		sol::table animTable = table.get<sol::table>("Animations");
 		if (!animTable.empty())
 		{
 			// Then create the animations.
 			animTable.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_animations.emplace(pair.first.as<std::string>(), pair.second.as<sol::table>());
+				m_animations.emplace(pair.first.as<std::string>(), Animation{ pair.second.as<sol::table>() });
 			});
 		}
 		else
@@ -103,10 +100,5 @@ namespace sl
 		m_isPaused = true;
 		m_animations.at(m_activeAnimation).m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
-	}
-
-	AnimationComponent& AnimationComponent::operator=(const AnimationComponent&)
-	{
-		return *this;
 	}
 }

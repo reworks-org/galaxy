@@ -31,11 +31,8 @@
 namespace sl
 {
 	TMXMap::TMXMap(const std::string& mapFile, float lineThickness)
-	:m_lineThickness(lineThickness), m_internalMapData("")
+	:m_lineThickness(lineThickness), m_internalMapData(Locator::virtualFS->openAsString(mapFile))
 	{
-		// Load map data from vfs.
-		m_internalMapData = Locator::virtualFS->openAsString(mapFile);
-
 		// Then parse it with tmxlib.
 		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), static_cast<int>(m_internalMapData.size()));
 

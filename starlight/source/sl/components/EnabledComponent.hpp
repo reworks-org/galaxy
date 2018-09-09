@@ -34,17 +34,12 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		/// 
-		EnabledComponent(const sol::table& table);
+		explicit EnabledComponent(const sol::table& table);
 
 		///
 		/// Destructor.
 		///
 		~EnabledComponent() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		EnabledComponent& operator=(const EnabledComponent&);
 
 	private:
 		///

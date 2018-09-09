@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data.
 		///
-		TransformComponent(const sol::table& table);
+		explicit TransformComponent(const sol::table& table);
 
 		///
 		/// Alternate Constructor.
@@ -51,11 +51,6 @@ namespace sl
 		/// Destructor.
 		///
 		~TransformComponent() = default;
-
-		///
-		/// Default move assignment overload.
-		///
-		TransformComponent& operator=(const TransformComponent&);
 
 	private:
 		///

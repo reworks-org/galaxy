@@ -97,11 +97,6 @@ namespace sl
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
 
-	PhysicsComponent& PhysicsComponent::operator=(const PhysicsComponent&)
-	{
-		return *this;
-	}
-
 	void PhysicsComponent::setFixtureEntity(entt::DefaultRegistry::entity_type entity)
 	{
 		// Sets the entity this fixture belongs to to use it in collisions.
