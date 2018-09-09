@@ -12,10 +12,10 @@ Resources used in sandbox demo:
 Various from opengameart.org. No copyright infringement intended.
 
 
-## packages/AllegroDeps.1.7.0.0:
-See various source files for licenses!
+## packages/allegro_deps:
+See source files for licenses.
 
-## packages/Allegro.5.2.4.0:
+## packages/allegro:
 Copyright (c) 2004-2015 the Allegro 5 Development Team
 
 This software is provided 'as-is', without any express or implied
