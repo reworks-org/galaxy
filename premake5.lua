@@ -52,7 +52,7 @@ workspace "starlight"
 		postbuildcommands { "call cd $(SolutionDir)starlight && xcopy /e /v /i /y source headers && cd headers && del /s *.cpp && del /s *.c" }
 
 	filter { "platforms:Win32 or Win64", "configurations:Debug"}
-		links { "libxml2", "opengl32", "jpeg", "libpng16", "zlib", "freetype", "dumb", "FLAC", "vorbis", "vorbisfile", "ogg", "opus", "opusfile", "physfs", "theoradec", "allegro", "allegro_main", "allegro_image", "allegro_physfs", "allegro_color", "allegro_memfile", "allegro_font", "allegro_ttf", "allegro_primitives", "allegro_dialog", "allegro_audio", "allegro_acodec", "allegro_video" }
+		links { "libxml2", "opengl32", "jpeg", "libpng16", "zlib", "freetype", "dumb", "FLAC", "vorbis", "vorbisfile", "ogg", "opus", "opusfile", "physfs", "theoradec", "allegro", "allegro_main-debug", "allegro_image-debug", "allegro_physfs-debug", "allegro_color-debug", "allegro_memfile-debug", "allegro_font-debug", "allegro_ttf-debug", "allegro_primitives-debug", "allegro_dialog-debug", "allegro_audio-debug", "allegro_acodec-debug", "allegro_video-debug" }
 
 	filter { "platforms:Win32 or Win64", "configurations:Release"}
 		links { "libxml2", "opengl32", "jpeg", "libpng16", "zlib", "freetype", "dumb", "FLAC", "vorbis", "vorbisfile", "ogg", "opus", "opusfile", "physfs", "theoradec", "allegro_monolith", "winmm", "Shlwapi", "psapi", "dsound" }

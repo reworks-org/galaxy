@@ -15,4 +15,15 @@ This project uses [premake5](https://github.com/premake/premake-core/) and suppo
 Can be built from [doxygen](https://github.com/reworks/starlight/tree/master/docs) Doxyfile or viewed at [readthedocs](https://starlight.readthedocs.io/en/latest/).
 
 
+## Features
+- C++17 codebase.
+- Build around ECS principles.
+- premake5 build system.
+- Fast logging provided by loguru.
+- Imgui for debug ui tools.
+- Sol2 for lua integration.
+- libxml2 for XML support.
+- Allegro5 backend.
+- tmx-c for loading and using tmx maps.
+
 ![starlight](logo.png?raw=true "starlight")
