@@ -1,8 +1,4 @@
--- premake5.lua
-
--- workaround
--- os.target()
--- --os=macosx 
+-- premake5.lua 
 
 workspace "starlight"
 	platforms { "Win32", "Win64", "MacOS", "Linux" }
