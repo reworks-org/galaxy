@@ -1,6 +1,5 @@
 - profile code for lag https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 - test code for memory leaks
-- static code analysis
 - review all compilation warnings
 - integrate lua better
 	https://sol2.readthedocs.io/en/latest/api/usertype.html
