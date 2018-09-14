@@ -76,8 +76,7 @@ namespace sl
 
 		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), 
 			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), 
-			m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"), 
-			m_configReader->lookup<std::string>(config, "font", "defaultFont"), m_configReader->lookup<int>(config, "font", "defaultFontSize"));
+			m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::window = m_window.get();
 
 		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
@@ -350,7 +349,6 @@ namespace sl
 				// Events
 				m_stateMachine->event(&event);
 				m_world->event(&event);
-				m_window->m_uiInputHandler.processEvent(event);
 				m_debugInterface->event(&event);
 
 				switch (event.type)
@@ -359,7 +357,6 @@ namespace sl
 						// Updates
 						m_stateMachine->update(timePerFrame);
 						m_world->update(timePerFrame);
-						m_window->m_ui.logic();
 						updates++;
 						break;
 
@@ -371,12 +368,6 @@ namespace sl
 						ImGui_ImplA5_InvalidateDeviceObjects();
 						al_acknowledge_resize(m_window->getDisplay());
 						Imgui_ImplA5_CreateDeviceObjects();
-
-						m_window->m_ui.resizeToDisplay();
-						break;
-
-					case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
-						m_window->m_ui.resizeToDisplay();
 						break;
 				}
 			}
@@ -389,7 +380,6 @@ namespace sl
 			m_window->clear(0, 0, 0);
 			
 			m_stateMachine->render();
-			m_window->m_ui.render();
 			m_debugInterface->render();
 
 			m_window->display();

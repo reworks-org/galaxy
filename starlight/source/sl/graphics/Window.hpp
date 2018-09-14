@@ -10,12 +10,9 @@
 #ifndef STARLIGHT_WINDOW_HPP_
 #define STARLIGHT_WINDOW_HPP_
 
+#include <allegro5/display.h>
+
 #include "sl/math/Vector2.hpp"
-#include "sl/libs/agui/Gui.hpp"
-#include "sl/libs/agui/Backends/Allegro5/Allegro5Input.hpp"
-#include "sl/libs/agui/Backends/Allegro5/Allegro5Graphics.hpp"
-#include "sl/libs/agui/Backends/Allegro5/Allegro5FontLoader.hpp"
-#include "sl/libs/agui/Backends/Allegro5/Allegro5ImageLoader.hpp"
 
 namespace sl
 {
@@ -37,10 +34,8 @@ namespace sl
 		/// \param msaaValue Strength of MSAA. 2, 4, 8, 16 are valid values. Set to 0 if msaa is disabled.
 		/// \param title Window title. Must be smaller than 255 characters.
 		/// \param icon Path to window icon. Must be 512x512.
-		/// \param defaultFont Filename of the default font file to use for widget ui.
-		/// \param defaultFontSize Size of the default font to use for widget ui.
 		///
-		Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon, const std::string& defaultFont, int defaultFontSize);
+		Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon);
 
 		///
 		/// Cleans up the window.
@@ -106,17 +101,6 @@ namespace sl
 		///
 		Window() = delete;
 
-	public:
-		///
-		/// The main UI object.
-		///
-		agui::Gui m_ui;
-
-		///
-		/// AGUI input handler for allegro5 based games.
-		///
-		agui::Allegro5Input m_uiInputHandler;
-
 	private:
 		///
 		/// Keeps track if the window is still open or not. 
@@ -154,26 +138,6 @@ namespace sl
 		/// if the window is smaller than the fullscreen dimensions.
 		///
 		Vector2<int> m_fullscreenScale;
-
-		///
-		/// AGUI graphics handler for allegro5 based games.
-		///
-		agui::Allegro5Graphics m_uiGraphicsHandler;
-
-		///
-		/// AGUI image loader for allegro5 based games.
-		///
-		agui::Allegro5ImageLoader m_uiImageLoader;
-
-		///
-		/// AGUI font loader for allegro5 based games.
-		///
-		agui::Allegro5FontLoader m_uiFontLoader;
-
-		///
-		/// Default font for AGUI widgets.
-		///
-		agui::Font* m_uiDefaultFont;
 	};
 }
 

@@ -19,6 +19,7 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - googletest or some other testing framework
 - update imgui and remove loguru, run own solution.
 	- try to further minimize dependencies.
+- write own ui.
 
 - travis-ci build system:
 [![Linux & OSX Build Status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
