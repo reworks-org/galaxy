@@ -1,0 +1,15 @@
+# os stuff
+Thumbs.db
+.DS_Store
+
+*.lnk
+
+# Visual Studio stuff
+.vs/
+
+# project stuff
+Quasar/bin/
+Quasar/build/
+
+Testbed/bin/
+Testbed/build/
