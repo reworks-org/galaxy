@@ -12,8 +12,9 @@
 #include "sl/core/World.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/StateMachine.hpp"
-#include "sl/libs/imgui/imgui_impl_a5.h"
+#include "sl/libs/imgui/imgui_stl.h"
 #include "sl/libs/imgui/imgui_console.h"
+#include "sl/libs/imgui/imgui_impl_allegro5.h"
 
 #include "DebugInterface.hpp"
 
@@ -25,8 +26,9 @@ namespace sl
 		// Set up imgui context from allegro's display.
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		ImGui_ImplA5_Init(display);
+		ImGui_ImplAllegro5_Init(display);
 
+		// Setup style
 		ImGui::StyleColorsDark();
 
 		// Then set up the text editor for lua script editing.
@@ -37,7 +39,7 @@ namespace sl
 	DebugInterface::~DebugInterface()
 	{
 		// Clean up all the imgui data.
-		ImGui_ImplA5_Shutdown();
+		ImGui_ImplAllegro5_Shutdown();
 		ImGui::DestroyContext();
 	}
 
@@ -46,7 +48,7 @@ namespace sl
 		// If not disabled, process gui events.
 		if (!m_disabled)
 		{
-			ImGui_ImplA5_ProcessEvent(event);
+			ImGui_ImplAllegro5_ProcessEvent(event);
 		}
 	}
 
@@ -55,7 +57,8 @@ namespace sl
 		// If not disabled, create a new frame for drawing widgets to.
 		if (!m_disabled)
 		{
-			ImGui_ImplA5_NewFrame();
+			ImGui_ImplAllegro5_NewFrame();
+			ImGui::NewFrame();
 		}
 	}
 
@@ -65,7 +68,7 @@ namespace sl
 		if (!m_disabled)
 		{
 			ImGui::Render();
-			ImGui_ImplA5_RenderDrawData(ImGui::GetDrawData());
+			ImGui_ImplAllegro5_RenderDrawData(ImGui::GetDrawData());
 		}
 	}
 

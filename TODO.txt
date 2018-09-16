@@ -21,7 +21,6 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 [![Linux & OSX Build Status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
 This project uses [premake5](https://github.com/premake/premake-core/) and supports Windows, Linux and Mac OS. Please note that only Ubuntu 18.04 is supported for linux.
 
-- update imgui.
 - write own ui.
 - reflect on box2d / or custom simple physics solution.
 - write own logging system?

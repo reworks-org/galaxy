@@ -11,10 +11,6 @@ Thumbs.db
 # XCode stuff
 DerivedData/
 
-# nuget
-packages/Allegro.5.2.4.0/
-packages/AllegroDeps.1.7.0.0/
-
 # Project stuff
 docs/build/
 docs/html/

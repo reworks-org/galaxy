@@ -1,2 +1,0 @@
-under same license as imgui from:
-https://github.com/Csabix/imgui/tree/master/auto

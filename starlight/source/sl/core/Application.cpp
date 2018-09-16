@@ -17,9 +17,9 @@
 
 #include "sl/utils/Time.hpp"
 #include "sl/math/Vector3.hpp"
-#include "sl/libs/imgui/imgui_impl_a5.h"
 #include "sl/scripting/Sol2Interface.hpp"
 #include "sl/components/PhysicsComponent.hpp"
+#include "sl/libs/imgui/imgui_impl_allegro5.h"
 
 #include "Application.hpp"
 
@@ -370,9 +370,9 @@ namespace sl
 						break;
 
 					case ALLEGRO_EVENT_DISPLAY_RESIZE:
-						ImGui_ImplA5_InvalidateDeviceObjects();
+						ImGui_ImplAllegro5_InvalidateDeviceObjects();
 						al_acknowledge_resize(m_window->getDisplay());
-						Imgui_ImplA5_CreateDeviceObjects();
+						ImGui_ImplAllegro5_CreateDeviceObjects();
 						break;
 				}
 			}

@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_DEBUGINTERFACE_HPP_
 #define STARLIGHT_DEBUGINTERFACE_HPP_
 
-#include "sl/libs/imgui/imguitexteditor.h"
+#include "sl/libs/imgui/imgui_texteditor.h"
 
 union ALLEGRO_EVENT;
 struct ALLEGRO_DISPLAY;
