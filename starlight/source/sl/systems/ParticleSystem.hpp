@@ -11,6 +11,7 @@
 #define STARLIGHT_PARTICLESYSTEM_HPP_
 
 #include "sl/types/System.hpp"
+#include "sl/events/EmitParticleEvent.hpp"
 
 namespace sl
 {
@@ -25,22 +26,21 @@ namespace sl
 		///
 		/// Default Constructor.
 		///
-		ParticleSystem() = default;
+		ParticleSystem();
 
 		///
 		/// Destructor.
 		///
 		~ParticleSystem() override = default;
 
-	private:
 		///
-		/// Lets systems recieve events.
+		/// Function to connect to the event dispatcher.
 		///
-		/// \param event ALLEGRO_EVENT passed by application class.
-		/// \param registry Default entity registry.
+		/// \param pe ParticleSystem will recieve emit particle events.
 		///
-		void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) override;
+		void receive(const EmitParticleEvent& pe);
 
+	private:
 		///
 		/// \brief Update the system.
 		///

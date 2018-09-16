@@ -155,21 +155,12 @@ namespace sl
 		}
 	}
 
-	void World::event(ALLEGRO_EVENT* event)
-	{
-		// Process systems events.
-		for (auto& systemPair : m_systems)
-		{
-			systemPair.second->event(event, m_registry);
-		}
-	}
-
 	void World::update(const double dt)
 	{
 		// Update systems.
-		for (auto& systemPair : m_systems)
+		for (auto& pair : m_systems)
 		{
-			systemPair.second->update(dt, m_registry);
+			pair.second->update(dt, m_registry);
 		}
 	}
 }

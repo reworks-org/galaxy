@@ -64,6 +64,9 @@ namespace sl
 		al_init_primitives_addon();
 		al_init_native_dialog_addon();
 
+		// Create queue for game to recieve events.
+		m_queue = al_create_event_queue();
+
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
 
@@ -74,8 +77,8 @@ namespace sl
 		Locator::virtualFS = m_virtualFS.get();
 		m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
 
-		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"), 
-			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), 
+		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"),
+			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"),
 			m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::window = m_window.get();
 
@@ -123,8 +126,8 @@ namespace sl
 		m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		Locator::box2dHelper = m_box2dHelper.get();
 
-		m_eventManager = std::make_unique<EventManager>();
-		Locator::eventManager = m_eventManager.get();
+		m_dispatcher = std::make_unique<entt::Dispatcher>();
+		Locator::dispatcher = m_dispatcher.get();
 
 		m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 
@@ -285,19 +288,22 @@ namespace sl
 		// It actually only really matters box2d is destroyed after the world because the physics code rely
 		// on the box2d system to be destroyed unfortunately.
 		// And of course the file system being the last to be destroyed.
-		m_eventManager.reset();
+		m_dispatcher.reset();
 		m_soundPlayer.reset();
 		m_musicPlayer.reset();
 		m_shaderLibrary.reset();
 		m_fontBook.reset();
 		m_textureAtlas.reset();
-		m_debugInterface.reset(); 
+		m_debugInterface.reset();
 		m_stateMachine.reset();
 		m_box2dHelper.reset();
 		m_world.reset();
 		m_window.reset();
 		m_configReader.reset();
 		m_virtualFS.reset();
+
+		// Clean up the event queue.
+		al_destroy_event_queue(m_queue);
 
 		// Clean up allegro aswell.
 		al_shutdown_native_dialog_addon();
@@ -324,13 +330,13 @@ namespace sl
 		double timePerFrame = 1.0 / 60.0;
 
 		// Set system event sources. User event registration is handled by event manager.
-		al_register_event_source(m_eventManager->m_queue, al_get_display_event_source(m_window->getDisplay()));
-		al_register_event_source(m_eventManager->m_queue, al_get_mouse_event_source());
-		al_register_event_source(m_eventManager->m_queue, al_get_keyboard_event_source());
+		al_register_event_source(m_queue, al_get_display_event_source(m_window->getDisplay()));
+		al_register_event_source(m_queue, al_get_mouse_event_source());
+		al_register_event_source(m_queue, al_get_keyboard_event_source());
 		
 		// Our clock for ensuring gameloop speed.
 		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
-		al_register_event_source(m_eventManager->m_queue, al_get_timer_event_source(clock));
+		al_register_event_source(m_queue, al_get_timer_event_source(clock));
 		al_start_timer(clock);
 		
 		// The timer in milliseconds for UPS and FPS.
@@ -344,11 +350,10 @@ namespace sl
 		while (m_window->isOpen())
 		{
 			ALLEGRO_EVENT event;
-			while (al_get_next_event(m_eventManager->m_queue, &event))
+			while (al_get_next_event(m_queue, &event))
 			{
 				// Events
 				m_stateMachine->event(&event);
-				m_world->event(&event);
 				m_debugInterface->event(&event);
 
 				switch (event.type)

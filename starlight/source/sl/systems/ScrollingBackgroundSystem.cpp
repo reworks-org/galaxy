@@ -19,11 +19,6 @@
 
 namespace sl
 {
-	void ScrollingBackgroundSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
-	{
-		// Nothing on event for now.
-	}
-
 	void ScrollingBackgroundSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// For each entity with a scrolling background.

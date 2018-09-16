@@ -10,6 +10,11 @@
 #ifndef STARLIGHT_SERVICELOCATOR_HPP_
 #define STARLIGHT_SERVICELOCATOR_HPP_
 
+namespace entt
+{
+	class Dispatcher;
+}
+
 namespace sl
 {
 	// This avoids mass includes.
@@ -17,7 +22,6 @@ namespace sl
 	class Window;
 	class Box2DHelper;
 	class ConfigReader;
-	class EventManager;
 	class FontBook;
 	class MusicPlayer;
 	class ShaderLibrary;
@@ -29,9 +33,7 @@ namespace sl
 
 	///
 	/// Provides access to services in the framework.
-	/// This does not follow typical member variable naming (no 'm_' prefix)
-	/// So that the code looks nicer when using the Locator. E.g:
-	/// Locator::m_world-> vs Locator::world->
+	/// Cannot be created, copied or moved.
 	///
 	class Locator
 	{
@@ -60,6 +62,18 @@ namespace sl
 		///
 		Locator(Locator&&) = delete;
 
+		///
+		/// Copy assignment operator.
+		/// Deleted.
+		///
+		Locator& Locator::operator= (const Locator &) = delete;
+
+		///
+		/// Move assignment operator.
+		/// Deleted.
+		///
+		Locator& Locator::operator= (Locator &&) = delete;
+
 	public:
 		///
 		/// Pointer to World service.
@@ -82,9 +96,9 @@ namespace sl
 		static inline ConfigReader* configReader = nullptr;
 
 		///
-		/// Pointer to EventManager service.
+		/// Pointer to the event dispatcher service.
 		///
-		static inline EventManager* eventManager = nullptr;
+		static inline entt::Dispatcher* dispatcher = nullptr;
 		
 		///
 		/// Pointer to FontBook service.

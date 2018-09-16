@@ -61,14 +61,7 @@ namespace sl
 		/// \param script Script file containing entities information.
 		///
 		void createDuplicateEntities(const std::string& script);
-
-		///
-		/// Process world events.
-		///
-		/// \param event Event data structure from application class.
-		/// 
-		void event(ALLEGRO_EVENT* event);
-
+		
 		///
 		/// Update the world.
 		///
@@ -226,7 +219,7 @@ namespace sl
 	System* World::getSystem()
 	{
 		// Return a pointer to the system of the type System.
-		return dynamic_cast<System*>(m_systems[std::type_index(typeid(System))].get());
+		return dynamic_cast<System*>(m_systems[typeid(System)].get());
 	}
 
 	template<typename System>

@@ -12,11 +12,10 @@
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/libs/sol2/sol.hpp"
-#include "sl/events/EventTypes.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"
-#include "sl/events/CollisionEvent.hpp"
+#include "sl/libs/entt/signal/dispatcher.hpp"
 #include "sl/components/EnabledComponent.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
@@ -62,18 +61,15 @@ namespace sl
 		{
 			LOG_S(WARNING) << "No collision function script for PhysicsSystem!";
 		}
+
+		// Attach collision listener.
+		Locator::dispatcher->sink<CollisionEvent>().connect(this);
 	}
 
-	void PhysicsSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
+	void PhysicsSystem::receive(const CollisionEvent& ce)
 	{
-		switch (event->type)
-		{
-		case EventTypes::COLLISION_EVENT:
-			// When a collision event happens, call the correct collision function using information from collision event.
-			CollisionEvent* ce = (CollisionEvent*)event->user.data1;
-			m_collisions[std::make_pair(ce->m_typeA, ce->m_typeB)](ce->m_a, ce->m_b);
-			break;
-		}
+		// When a collision event happens, call the correct collision function using information from collision event.
+		m_collisions[std::make_pair(ce.m_typeA, ce.m_typeB)](ce.m_a, ce.m_b);
 	}
 
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)

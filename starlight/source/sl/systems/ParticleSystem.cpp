@@ -7,12 +7,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/core/World.hpp"
 #include "sl/utils/Random.hpp"
-#include "sl/events/EventTypes.hpp"
 #include "sl/libs/loguru/loguru.hpp"
-#include "sl/events/ParticleEmitEvent.hpp"
+#include "sl/core/ServiceLocator.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/EnabledComponent.hpp"
+#include "sl/libs/entt/signal/dispatcher.hpp"
 #include "sl/components/ParticleComponent.hpp"
 #include "sl/components/TransformComponent.hpp"
 
@@ -20,38 +21,28 @@
 
 namespace sl
 {
-	void ParticleSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
+	ParticleSystem::ParticleSystem()
 	{
-		switch (event->type)
-		{
-		case EventTypes::PARTICLE_EMIT_EVENT:
-			// Retrieve particle event information.
-			ParticleEmitEvent* particleEvent = (ParticleEmitEvent*)event->user.data1;
-			auto size = particleEvent->m_textureIDS.size();
+		// Attach collision listener.
+		Locator::dispatcher->sink<EmitParticleEvent>().connect(this);
+	}
 
-			if (size != particleEvent->m_particleCount.size())
+	void ParticleSystem::receive(const EmitParticleEvent& pe)
+	{
+		for (auto& pair : pe.m_particles)
+		{
+			// For each particle...
+			unsigned int amount = pair.second;
+			for (unsigned int i = 0; i < amount; ++i)
 			{
-				LOG_S(ERROR) << "The number of texture id's and the number of particles are not the same size!";
+				// ...Create an entity of that particle to be rendered to screen.
+				auto entity = Locator::world->m_registry.create();
+
+				Locator::world->m_registry.assign<TransformComponent>(entity, pe.m_layer, 0.0f, Rect<float, int>(pe.m_x, pe.m_y, 0, 0));
+				Locator::world->m_registry.assign<ParticleComponent>(entity, Random::random(pe.m_upper, pe.m_lower), Random::random(pe.m_upper, pe.m_lower), pe.m_fade);
+				Locator::world->m_registry.assign<RenderComponent>(entity, 1.0f, pair.first);
+				Locator::world->m_registry.assign<EnabledComponent>(entity);
 			}
-			else
-			{
-				for (std::uint32_t i = 0; i < size; ++i)
-				{
-					// For each particle...
-					for (std::uint32_t amountOfParticles = 0; amountOfParticles < particleEvent->m_particleCount[amountOfParticles]; ++amountOfParticles)
-					{
-						// ...Create an entity of that particle to be rendered to screen.
-						entt::DefaultRegistry::entity_type entity = registry.create();
-						
-						registry.assign<TransformComponent>(entity, particleEvent->m_layer, 0.0f, Rect<float, int>(particleEvent->m_x, particleEvent->m_y, 0, 0));
-						registry.assign<ParticleComponent>(entity, Random::random(particleEvent->m_upper, particleEvent->m_lower), Random::random(particleEvent->m_upper, particleEvent->m_lower), particleEvent->m_fade);
-						registry.assign<RenderComponent>(entity, 1.0f, particleEvent->m_textureIDS[i]);
-						registry.assign<EnabledComponent>(entity);
-					}
-				}
-			}
-			
-			break;
 		}
 	}
 

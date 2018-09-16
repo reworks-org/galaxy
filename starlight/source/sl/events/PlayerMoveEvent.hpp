@@ -30,17 +30,17 @@ namespace sl
 		///
 		/// How much to move the player by horizontally.
 		///
-		float m_horizontalSpeed;
+		float m_horizontalSpeed = 0.0f;
 
 		///
 		/// How much to move the player by vertically.
 		///
-		float m_verticalSpeed;
+		float m_verticalSpeed = 0.0f;
 
 		///
 		/// The player entity.
 		///
-		entt::DefaultRegistry::entity_type m_playerEntity;
+		entt::DefaultRegistry::entity_type m_playerEntity = 0;
 	};
 }
 

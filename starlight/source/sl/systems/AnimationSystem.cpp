@@ -16,11 +16,6 @@
 
 namespace sl
 {
-	void AnimationSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
-	{
-		// Nothing on event for now.
-	}
-
 	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// For each entity with an animation.

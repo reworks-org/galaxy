@@ -11,6 +11,7 @@
 #define STARLIGHT_APPLICATION_HPP_
 
 #include <fstream>
+#include <allegro5/events.h>
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
@@ -19,13 +20,13 @@
 #include "sl/core/StateMachine.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/DebugInterface.hpp"
-#include "sl/events/EventManager.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/resources/SoundPlayer.hpp"
 #include "sl/resources/MusicPlayer.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 #include "sl/physics/Box2DCallbacks.hpp"
 #include "sl/resources/ShaderLibrary.hpp"
+#include "sl/libs/entt/signal/dispatcher.hpp"
 
 namespace sl
 {
@@ -102,7 +103,7 @@ namespace sl
 		///
 		/// Process game events.
 		/// 
-		std::unique_ptr<EventManager> m_eventManager;
+		std::unique_ptr<entt::Dispatcher> m_dispatcher;
 
 		///
 		/// Manages font resources.
@@ -154,6 +155,11 @@ namespace sl
 		/// This is returned as true if the debug menu tells the game to restart.
 		///
 		bool m_restart;
+
+		///
+		/// Allegro event queue. Where allegro stores its events.
+		///
+		ALLEGRO_EVENT_QUEUE* m_queue;
 	};
 }
 

@@ -12,8 +12,6 @@
 
 #include "sl/libs/entt/entity/registry.hpp"
 
-typedef union ALLEGRO_EVENT ALLEGRO_EVENT;
-
 namespace sl
 {
 	///
@@ -27,20 +25,12 @@ namespace sl
 		/// Virtual destructor.
 		///
 		virtual ~System() = default;
-
+		
 	protected:
 		///
 		/// Default constructor.
 		///
 		System() = default;
-
-		///
-		/// Lets systems recieve events.
-		///
-		/// \param event ALLEGRO_EVENT passed by application class.
-		/// \param registry The registry used by the World class which contains all the application entities.
-		///
-		virtual void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) = 0;
 
 		///
 		/// Update method.

@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_PANEL_HPP_
 #define STARLIGHT_PANEL_HPP_
 
+#include "sl/ui/Widget.hpp"
+
 namespace sl
 {
 	///
@@ -27,6 +29,17 @@ namespace sl
 		/// Destructor.
 		///
 		~Panel();
+
+		///
+		/// Add a new widget to the panel.
+		///
+		void add(Widget* widget);
+
+	private:
+		///
+		/// Collection of widgets on the panel.
+		///
+		std::vector<Widget*> m_widgets;
 	};
 }
 

@@ -17,7 +17,7 @@ namespace sl
 	///
 	/// Contains data relating to a collision event.
 	///
-	struct CollisionEvent
+	struct CollisionEvent final
 	{
 		///
 		/// Constructor.
@@ -30,22 +30,22 @@ namespace sl
 		///
 		/// Entity A in collision.
 		///
-		entt::DefaultRegistry::entity_type m_a;
+		entt::DefaultRegistry::entity_type m_a = 0;
 
 		///
 		/// Entity B in collision.
 		///
-		entt::DefaultRegistry::entity_type m_b;
+		entt::DefaultRegistry::entity_type m_b = 0;
 
 		///
 		/// Fixture type A in collision.
 		///
-		std::uint16_t m_typeA;
+		std::uint16_t m_typeA = 0;
 
 		///
 		/// Fixture type B in collision.
 		///
-		std::uint16_t m_typeB;
+		std::uint16_t m_typeB = 0;
 	};
 }
 

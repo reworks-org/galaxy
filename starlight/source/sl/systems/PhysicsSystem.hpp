@@ -13,6 +13,7 @@
 #include <map>
 
 #include "sl/types/System.hpp"
+#include "sl/events/CollisionEvent.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
@@ -38,20 +39,19 @@ namespace sl
 		///
 		~PhysicsSystem() override = default;
 
+		///
+		/// Function to connect to the event dispatcher.
+		///
+		/// \param ce PhysicsSystem will recieve collision events.
+		///
+		void receive(const CollisionEvent& ce);
+
 	private:
 		///
 		/// Default Constructor.
 		/// Deleted.
 		///
 		PhysicsSystem() = delete;
-		
-		///
-		/// Lets systems recieve events.
-		///
-		/// \param event ALLEGRO_EVENT passed by application class.
-		/// \param registry Default entity registry.
-		///
-		void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) override;
 
 		///
 		/// \brief Update the system.

@@ -8,11 +8,9 @@
 ///
 
 #include <memory>
-#include <sl/events/Keys.hpp>
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
 #include <sl/systems/RenderSystem.hpp>
-#include <sl/systems/CameraSystem.hpp>
 #include <sl/systems/PhysicsSystem.hpp>
 #include <sl/systems/AnimationSystem.hpp>
 #include <sl/systems/ScrollingBackgroundSystem.hpp>
@@ -26,16 +24,9 @@ public:
 	Sandbox(const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(config, newConfig)
 	{
 		m_world->registerSystem<sl::RenderSystem>(20, 100);
-		m_world->registerSystem<sl::CameraSystem>();
 		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
 		m_world->registerSystem<sl::AnimationSystem>();
 		m_world->registerSystem<sl::ScrollingBackgroundSystem>();
-
-		sl::Keys::KEY_FORWARD = m_configReader->lookup<unsigned int>(config, "keys", "forward");
-		sl::Keys::KEY_BACKWARD = m_configReader->lookup<unsigned int>(config, "keys", "backward");
-		sl::Keys::KEY_LEFT = m_configReader->lookup<unsigned int>(config, "keys", "left");
-		sl::Keys::KEY_RIGHT = m_configReader->lookup<unsigned int>(config, "keys", "right");
-		sl::Keys::KEY_QUIT = m_configReader->lookup<unsigned int>(config, "keys", "quit");
 
 		m_stateMachine->createState<GameState>("game");
 		m_stateMachine->push("game");
@@ -88,15 +79,6 @@ int main(int argc, char **argv)
 					newConfig << "reserveSamples = 32\n";
 					newConfig << "nullMusic = null\n";
 					newConfig << "nullSound = null\n";
-					newConfig << std::endl;
-
-					newConfig << "# see allegro key codes\n";
-					newConfig << "[keys]\n";
-					newConfig << "forward = 23\n";
-					newConfig << "backward = 19\n";
-					newConfig << "left = 1\n";
-					newConfig << "right = 4\n";
-					newConfig << "quit = 59\n";
 					newConfig << std::endl;
 
 					newConfig << "[debug]\n";

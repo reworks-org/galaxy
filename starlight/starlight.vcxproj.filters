@@ -48,9 +48,6 @@
     <ClCompile Include="source\sl\core\World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\events\EventManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\fs\VirtualFS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -375,9 +372,6 @@
     <ClCompile Include="source\sl\systems\AnimationSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\systems\CameraSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\systems\ParallaxSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -492,24 +486,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\World.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\events\CollisionEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\events\EventManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\events\EventTypes.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\events\Keys.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\events\ParticleEmitEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\fs\VirtualFS.hpp">
@@ -1070,9 +1046,6 @@
     <ClInclude Include="source\sl\systems\AnimationSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\systems\CameraSystem.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\systems\ParallaxSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1214,72 +1187,6 @@
     <ClInclude Include="source\sl\fs\ConfigReader.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\config\config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\algorithm.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\family.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\ident.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\core\monostate.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\actor.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\entity.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\entt_traits.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\helper.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\prototype.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\registry.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\snapshot.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\sparse_set.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\utility.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\entity\view.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\process\process.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\process\scheduler.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\delegate.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\dispatcher.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\components\ScrollingBackgroundComponent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1328,5 +1235,86 @@
     <ClInclude Include="source\sl\ui\Widget.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\config\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\algorithm.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\family.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\hashed_string.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\ident.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\core\monostate.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\actor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\attachee.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\entity.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\entt_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\helper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\prototype.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\registry.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\snapshot.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\sparse_set.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\utility.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\entity\view.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\process\process.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\process\scheduler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\delegate.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\dispatcher.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\emitter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\entt\signal\sigh.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\events\CollisionEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\events\EmitParticleEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -32,14 +32,6 @@ namespace sl
 
 	private:
 		///
-		/// Lets systems recieve events.
-		///
-		/// \param event ALLEGRO_EVENT passed by application class.
-		/// \param registry Default entity registry.
-		///
-		void event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry) override;
-
-		///
 		/// \brief Update the system.
 		///
 		/// Dont actually call this, this is called by the world automatically.

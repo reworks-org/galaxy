@@ -32,11 +32,6 @@ namespace sl
 		m_entitys.clear();
 	}
 
-	void RenderSystem::event(ALLEGRO_EVENT* event, entt::DefaultRegistry& registry)
-	{
-		// No events are currently processed.
-	}
-
 	void RenderSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// Retrieve the current entities to render and reset the quadtree.
