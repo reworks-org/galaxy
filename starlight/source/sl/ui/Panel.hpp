@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_PANEL_HPP_
 #define STARLIGHT_PANEL_HPP_
 
+#include <allegro5/allegro_color.h>
+
 #include "sl/ui/Widget.hpp"
 
 namespace sl
@@ -17,13 +19,16 @@ namespace sl
 	///
 	/// A UI Panel holds and positions UI widgets on it.
 	///
-	class Panel
+	class Panel final
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		Panel();
+		/// \param bounds Dimension of the panel.
+		/// \param colour Colour of the panel. Can be transparent or opaque.
+		///
+		explicit Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR& colour) noexcept;
 
 		///
 		/// Destructor.
@@ -31,16 +36,62 @@ namespace sl
 		~Panel();
 
 		///
-		/// Add a new widget to the panel.
+		/// Add a new widget to the Panel.
 		///
-		void add(Widget* widget);
+		/// \param args Arguments for widget to construct.
+		///
+		/// \return Returns pointer to newly created widget.
+		///
+		template<typename _Widget, typename... Args>
+		_Widget* addWidget(Args&&... args);
+
+		///
+		/// Render Widgets.
+		///
+		void render();
+
+		///
+		/// Set visibility. Also affects widgets on panel.
+		///
+		void isVisible(bool isVisible);
 
 	private:
 		///
+		/// Primary Constructor.
+		///
+		Panel() = delete;
+
+	private:
+		///
+		/// Is the panel currently visible. I.e. being rendered.
+		///
+		bool m_isVisible;
+
+		///
+		/// Dimensions of the panel, relative to the screen.
+		///
+		sl::Rect<int> m_bounds;
+
+		///
+		/// The colour of the panel (if any).
+		///
+		ALLEGRO_COLOR m_colour;
+
+		///
 		/// Collection of widgets on the panel.
 		///
-		std::vector<Widget*> m_widgets;
+		std::vector<std::unique_ptr<BaseWidget>> m_widgets;
 	};
+
+	template<typename _Widget, typename... Args>
+	_Widget* Panel::addWidget(Args&&... args)
+	{
+		// Forward arguments to std::vector's construct in place method.
+		_Widget* ref = m_panels.emplace_back(std::make_unique<_Widget>(std::forward<Args>(args)...)).get();
+
+		// Then return a pointer to object placed.
+		return ref;
+	}
 }
 
 #endif

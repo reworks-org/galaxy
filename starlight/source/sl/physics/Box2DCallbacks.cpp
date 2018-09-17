@@ -23,11 +23,11 @@ namespace sl
 		b2Fixture* fixtureB = contact->GetFixtureB();
 
 		// Retrieve the entity the fixtures belong to.
-		entt::DefaultRegistry::entity_type* a = static_cast<entt::DefaultRegistry::entity_type*>(fixtureA->GetUserData());
-		entt::DefaultRegistry::entity_type* b = static_cast<entt::DefaultRegistry::entity_type*>(fixtureB->GetUserData());
+		entt::DefaultRegistry::entity_type a = *static_cast<entt::DefaultRegistry::entity_type*>(fixtureA->GetUserData());
+		entt::DefaultRegistry::entity_type b = *static_cast<entt::DefaultRegistry::entity_type*>(fixtureB->GetUserData());
 		
 		// Emit the collision event based off of the info provided.
-		Locator::dispatcher->trigger<CollisionEvent>(*a, *b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits);
+		Locator::dispatcher->trigger<CollisionEvent>(a, b, fixtureA->GetFilterData().categoryBits, fixtureB->GetFilterData().categoryBits);
 	}
 
 	void CollisionContact::EndContact(b2Contact* contact)

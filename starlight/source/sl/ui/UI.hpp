@@ -18,14 +18,15 @@ namespace sl
 {
 	///
 	/// Manages UI for a dynamic array of Panels.
+	/// Stores panels as unique_ptrs.
 	///
-	class UI
+	class UI final
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		UI();
+		explicit UI() noexcept = default;
 
 		///
 		/// Destructor.
@@ -35,17 +36,12 @@ namespace sl
 		///
 		/// Add a Panel to the UI.
 		///
-		void addPanel(Panel* panel);
-
+		/// \param args Arguments for panel to construct.
 		///
-		/// Process UI events.
+		/// \return Returns pointer to newly created panel.
 		///
-		void event();
-
-		///
-		/// Update UI.
-		///
-		void update();
+		template<typename... Args>
+		Panel* addPanel(Args&&... args);
 
 		///
 		/// Render UI to screen.
@@ -54,10 +50,20 @@ namespace sl
 
 	private:
 		///
-		/// Data structure housing Panels.
+		/// Collection of panels in the ui.
 		///
-		std::vector<Panel*> m_panels;
+		std::vector<std::unique_ptr<Panel>> m_panels;
 	};
+
+	template<typename... Args>
+	Panel* UI::addPanel(Args&&... args)
+	{
+		// Forward arguments to std::vector's construct in place method.
+		Panel* ref = m_panels.emplace_back(std::make_unique<Panel>(std::forward<Args>(args)...)).get();
+
+		// Then return a pointer to object placed.
+		return ref;
+	}
 }
 
 #endif

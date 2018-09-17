@@ -24,6 +24,7 @@ This project uses [premake5](https://github.com/premake/premake-core/) and suppo
 - write own ui.
 - reflect on box2d / or custom simple physics solution.
 - write own logging system?
+- improve debug / release split: imgui and logging.
 
 
 

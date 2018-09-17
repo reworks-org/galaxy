@@ -11,31 +11,18 @@
 
 namespace sl
 {
-	UI::UI()
-	{
-
-	}
-
 	UI::~UI()
 	{
-
-	}
-
-	void UI::addPanel(Panel * panel)
-	{
-	}
-
-	void UI::event()
-	{
-	}
-
-	void UI::update()
-	{
+		// Ensure unique_ptr's are deconstructed and detroyed.
+		m_panels.clear();
 	}
 
 	void UI::render()
 	{
+		// Iterate over panels and call each widgets render function.
+		for (auto& panel : m_panels)
+		{
+			panel->render();
+		}
 	}
-
-
 }
