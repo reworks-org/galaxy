@@ -11,6 +11,8 @@
 #define STARLIGHT_WIDGET_HPP_
 
 #include "sl/math/Rect.hpp"
+#include "sl/core/ServiceLocator.hpp"
+#include "sl/libs/entt/signal/dispatcher.hpp"
 
 namespace sl
 {
@@ -73,8 +75,18 @@ namespace sl
 		///
 		/// Protected constructor. Only want derived classes to construct this.
 		///
-		explicit Widget() noexcept = default;
+		/// \param bounds Dimensions of the widget, relative to the panel.
+		///
+		explicit Widget(const sl::Rect<int>& bounds) noexcept;
 	};
+
+	template<typename Event>
+	Widget<Event>::Widget(const sl::Rect<int>& bounds) noexcept
+		:BaseWidget(bounds)
+	{
+		// Adds recieve() method to dispatcher automatically.
+
+	}
 }
 
 #endif

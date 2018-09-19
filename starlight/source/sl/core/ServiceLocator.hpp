@@ -138,7 +138,9 @@ namespace sl
 		///
 		/// Pointer to DebugInterface service.
 		///
-		static inline DebugInterface* debugInterface = nullptr;
+		#ifdef _DEBUG
+			static inline DebugInterface* debugInterface = nullptr;
+		#endif
 	};
 }
 

@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_DEBUGINTERFACE_HPP_
 #define STARLIGHT_DEBUGINTERFACE_HPP_
 
+#ifdef _DEBUG
+
 #include "sl/libs/imgui/imgui_texteditor.h"
 
 union ALLEGRO_EVENT;
@@ -91,5 +93,7 @@ namespace sl
 		TextEditor m_editor;
     };
 }
+
+#endif
 
 #endif

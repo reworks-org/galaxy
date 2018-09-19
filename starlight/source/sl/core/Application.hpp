@@ -143,7 +143,9 @@ namespace sl
 		///
 		/// Controls the debug UI which allows you to have control over the game from ingame. Console, script editing, etc.
 		///
-		std::unique_ptr<DebugInterface> m_debugInterface;
+		#ifdef _DEBUG
+			std::unique_ptr<DebugInterface> m_debugInterface;
+		#endif
 
 		///
 		/// Collision callback functions for Box2D.

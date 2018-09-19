@@ -1325,6 +1325,9 @@
     <ClInclude Include="source\sl\libs\tmx\tsx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\ui\events\ButtonEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

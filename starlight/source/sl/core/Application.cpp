@@ -36,6 +36,7 @@ namespace sl
 
 		// Set up logging and set loguru to throw an exception on fatal errors.
 		std::string lname = "logs/" + Time::getFormattedTime() + ".log";
+		loguru::g_flush_interval_ms = 0;
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
@@ -96,8 +97,10 @@ namespace sl
 		m_world->m_musicFolderPath = m_configReader->lookup<std::string>(config, "fs", "musicFolderPath");
 		m_world->m_soundFolderPath = m_configReader->lookup<std::string>(config, "fs", "soundFolderPath");
 
-		m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
-		Locator::debugInterface = m_debugInterface.get();
+		#ifdef _DEBUG
+			m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+			Locator::debugInterface = m_debugInterface.get();
+		#endif
 
 		m_stateMachine = std::make_unique<StateMachine>();
 		Locator::stateMachine = m_stateMachine.get();
@@ -294,7 +297,9 @@ namespace sl
 		m_shaderLibrary.reset();
 		m_fontBook.reset();
 		m_textureAtlas.reset();
-		m_debugInterface.reset();
+		#ifdef _DEBUG 
+			m_debugInterface.reset(); 
+		#endif
 		m_stateMachine.reset();
 		m_box2dHelper.reset();
 		m_world.reset();
@@ -354,7 +359,9 @@ namespace sl
 			{
 				// Events
 				m_stateMachine->event(&event);
-				m_debugInterface->event(&event);
+				#ifdef _DEBUG 
+					m_debugInterface->event(&event); 
+				#endif
 
 				switch (event.type)
 				{
@@ -370,22 +377,27 @@ namespace sl
 						break;
 
 					case ALLEGRO_EVENT_DISPLAY_RESIZE:
-						ImGui_ImplAllegro5_InvalidateDeviceObjects();
-						al_acknowledge_resize(m_window->getDisplay());
-						ImGui_ImplAllegro5_CreateDeviceObjects();
+						#ifdef _DEBUG
+							ImGui_ImplAllegro5_InvalidateDeviceObjects();
+							al_acknowledge_resize(m_window->getDisplay());
+							ImGui_ImplAllegro5_CreateDeviceObjects();
+						#endif
 						break;
 				}
 			}
 			
 			// We need to "display" the debug ui before the renderer stuff is called.
 			// Because this sets up all the textures, api calls, etc.
-			m_debugInterface->newFrame();
-			m_debugInterface->displayMenu(&m_restart);
-
+			#ifdef _DEBUG
+				m_debugInterface->newFrame();
+				m_debugInterface->displayMenu(&m_restart);
+			#endif
 			m_window->clear(0, 0, 0);
 			
 			m_stateMachine->render();
-			m_debugInterface->render();
+			#ifdef _DEBUG
+				m_debugInterface->render();
+			#endif
 
 			m_window->display();
 

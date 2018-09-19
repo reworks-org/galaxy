@@ -7,6 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#ifdef _DEBUG
+
 #include <physfs.h>
 
 #include "sl/core/World.hpp"
@@ -322,3 +324,5 @@ namespace sl
 		ImGui::End();
 	}
 }
+
+#endif

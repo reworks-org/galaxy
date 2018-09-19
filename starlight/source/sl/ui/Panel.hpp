@@ -27,8 +27,9 @@ namespace sl
 		///
 		/// \param bounds Dimension of the panel.
 		/// \param colour Colour of the panel. Can be transparent or opaque.
+		/// \param bgImage Optional background image to use.
 		///
-		explicit Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR& colour) noexcept;
+		explicit Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR& colour, const std::string& bgImage = "");
 
 		///
 		/// Destructor.
@@ -55,6 +56,11 @@ namespace sl
 		///
 		void isVisible(bool isVisible);
 
+		///
+		/// Destroy all widgets.
+		///
+		void clear();
+
 	private:
 		///
 		/// Primary Constructor.
@@ -73,9 +79,9 @@ namespace sl
 		sl::Rect<int> m_bounds;
 
 		///
-		/// The colour of the panel (if any).
+		/// Background of the panel. Full colour or image.
 		///
-		ALLEGRO_COLOR m_colour;
+		ALLEGRO_BITMAP* m_background;
 
 		///
 		/// Collection of widgets on the panel.

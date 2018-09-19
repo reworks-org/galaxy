@@ -26,3 +26,6 @@ sandbox/build/
 sandbox/logs/
 sandbox/*.ini
 sandbox/*.log
+
+# temp
+ui/

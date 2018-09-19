@@ -442,6 +442,7 @@
     <ClInclude Include="source\sl\types\ResourceCache.hpp" />
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />
+    <ClInclude Include="source\sl\ui\events\ButtonEvent.hpp" />
     <ClInclude Include="source\sl\ui\Panel.hpp" />
     <ClInclude Include="source\sl\ui\UI.hpp" />
     <ClInclude Include="source\sl\ui\Widget.hpp" />
