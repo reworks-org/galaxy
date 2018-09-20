@@ -17,6 +17,15 @@ namespace sl
 		m_panels.clear();
 	}
 
+	void UI::update()
+	{
+		// Iterate over panels and call each widgets update function.
+		for (auto& panel : m_panels)
+		{
+			panel->update();
+		}
+	}
+
 	void UI::render()
 	{
 		// Iterate over panels and call each widgets render function.

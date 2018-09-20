@@ -44,6 +44,11 @@ namespace sl
 		Panel* addPanel(Args&&... args);
 
 		///
+		/// Update the UI.
+		///
+		void update();
+
+		///
 		/// Render UI to screen.
 		///
 		void render();

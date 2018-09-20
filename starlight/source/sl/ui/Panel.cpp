@@ -44,6 +44,18 @@ namespace sl
 		clear();
 	}
 
+	void Panel::update()
+	{
+		// Loop over widgets to update. Only if visible.
+		if (m_isVisible)
+		{
+			for (auto& widget : m_widgets)
+			{
+				widget->update();
+			}
+		}
+	}
+
 	void Panel::render()
 	{
 		// Only render panel if its visible. Simple.

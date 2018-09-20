@@ -11,12 +11,16 @@
 
 namespace sl
 {
-	BaseWidget::BaseWidget(const sl::Rect<int>& bounds) noexcept
-		:m_isVisible(true), m_bounds(bounds)
+	Widget::Widget(const sl::Rect<int>& bounds) noexcept
+		:m_bounds(bounds)
 	{
 	}
 
-	void BaseWidget::isVisible(bool isVisible)
+	Widget::~Widget()
+	{
+	}
+
+	void Widget::isVisible(bool isVisible)
 	{
 		m_isVisible = isVisible;
 	}

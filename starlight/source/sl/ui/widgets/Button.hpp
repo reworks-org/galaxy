@@ -11,26 +11,19 @@
 #define STARLIGHT_BUTTON_HPP_
 
 #include "sl/ui/Widget.hpp"
-#include "sl/ui/events/ButtonEvent.hpp"
 
 namespace sl
 {
-	class Button : public Widget<ButtonEvent>
+	class Button final : public Widget
 	{
+		friend class entt::Dispatcher;
 	public:
 		///
 		/// Constructor.
 		///
 		/// \param bounds Dimensions of the widget, relative to the panel.
 		///
-		Button(const sl::Rect<int>& bounds);
-
-		///
-		/// \brief Subscribe to an event.
-		///
-		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
-		///
-		void receive(const ButtonEvent& e)  override;
+		explicit Button(const sl::Rect<int>& bounds);
 
 		///
 		/// \brief Render the Widget.
@@ -38,6 +31,14 @@ namespace sl
 		/// This should only contain code on rendering the widget. Remember to check for visibility.
 		///
 		void render() override;
+
+	private:
+		///
+		/// \brief Allows for buttons to recieve mouse events. Automatically registered with entt.
+		///
+		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
+		///
+		void receive(const MouseEvent& e);
 	};
 }
 

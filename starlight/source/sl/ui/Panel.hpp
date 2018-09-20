@@ -47,6 +47,11 @@ namespace sl
 		_Widget* addWidget(Args&&... args);
 
 		///
+		/// Update the UI.
+		///
+		void update();
+
+		///
 		/// Render Widgets.
 		///
 		void render();
@@ -86,7 +91,7 @@ namespace sl
 		///
 		/// Collection of widgets on the panel.
 		///
-		std::vector<std::unique_ptr<BaseWidget>> m_widgets;
+		std::vector<std::unique_ptr<Widget>> m_widgets;
 	};
 
 	template<typename _Widget, typename... Args>
