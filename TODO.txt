@@ -23,6 +23,9 @@ This project uses [premake5](https://github.com/premake/premake-core/) and suppo
 
 - write own ui.
 - reflect on box2d / or custom simple physics solution.
+- move lua into system locator. use local variables over global variables.
+- ui should load from lua files maybe?
+- go over textbooks, appdev, etc to see if project can be improved.
 
 
 docs notes:
