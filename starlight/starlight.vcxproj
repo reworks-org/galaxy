@@ -174,7 +174,6 @@
     <ClInclude Include="source\sl\components\EnabledComponent.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\EmitParticleEvent.hpp" />
-    <ClInclude Include="source\sl\events\MouseEvent.hpp" />
     <ClInclude Include="source\sl\events\PlayerMoveEvent.hpp" />
     <ClInclude Include="source\sl\libs\Box2D\Box2D.h" />
     <ClInclude Include="source\sl\libs\Box2D\Collision\b2BroadPhase.h" />

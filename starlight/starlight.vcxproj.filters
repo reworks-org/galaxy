@@ -1325,9 +1325,6 @@
     <ClInclude Include="source\sl\libs\tmx\tsx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\events\MouseEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

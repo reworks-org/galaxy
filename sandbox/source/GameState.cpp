@@ -19,6 +19,7 @@
 #include <sl/components/EnabledComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
 #include <sl/components/ScrollingBackgroundComponent.hpp>
+#include <sl/libs/entt/signal/dispatcher.hpp>
 #include <sl/graphics/Window.hpp>
 #include <sl/resources/MusicPlayer.hpp>
 
@@ -65,6 +66,10 @@ void GameState::event(ALLEGRO_EVENT* event)
 {
 	switch (event->type)
 	{
+	case ALLEGRO_EVENT_MOUSE_AXES:
+		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
+		break;
+
 	case ALLEGRO_EVENT_KEY_DOWN:
 		switch (event->keyboard.keycode)
 		{

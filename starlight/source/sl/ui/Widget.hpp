@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_WIDGET_HPP_
 #define STARLIGHT_WIDGET_HPP_
 
+#include <allegro5/events.h>
+
 #include "sl/math/Rect.hpp"
 
 namespace sl

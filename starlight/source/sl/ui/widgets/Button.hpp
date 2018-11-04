@@ -11,7 +11,6 @@
 #define STARLIGHT_BUTTON_HPP_
 
 #include "sl/ui/Widget.hpp"
-#include "sl/events/MouseEvent.hpp"
 
 namespace sl
 {
@@ -24,9 +23,20 @@ namespace sl
 		///
 		enum class State
 		{
-			BUTTON_PRESSED,
-			BUTTON_RELEASED,
-			BUTTON_HOVER
+			///
+			/// When the mouse is not pressing or hovering over the button.
+			///
+			DEFAULT,
+
+			///
+			/// When it is being pressed by the mouse.
+			///
+			PRESSED,
+
+			///
+			/// When the mouse is hovering over the button.
+			///
+			HOVER
 		};
 
 	public:
@@ -50,7 +60,10 @@ namespace sl
 		///
 		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
 		///
-		void receive(const MouseEvent& e);
+		void receive(const ALLEGRO_MOUSE_EVENT& e);
+
+	private:
+		Button::State m_state;
 	};
 }
 
