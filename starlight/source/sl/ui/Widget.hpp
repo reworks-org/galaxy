@@ -33,6 +33,11 @@ namespace sl
 		void isVisible(bool isVisible);
 
 		///
+		/// ...
+		///
+		virtual void registerCallback(const std::function<void(void)>& callback) final;
+
+		///
 		/// Update the UI.
 		///
 		virtual void update() = 0;

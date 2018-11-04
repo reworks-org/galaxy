@@ -11,11 +11,6 @@
 
 namespace sl
 {
-	Widget::Widget(const sl::Rect<int>& bounds) noexcept
-		:m_bounds(bounds)
-	{
-	}
-
 	Widget::~Widget()
 	{
 	}
@@ -23,5 +18,15 @@ namespace sl
 	void Widget::isVisible(bool isVisible)
 	{
 		m_isVisible = isVisible;
+	}
+
+	void Widget::registerCallback(const std::function<void(void)>& callback)
+	{
+
+	}
+
+	Widget::Widget(const sl::Rect<int>& bounds) noexcept
+		:m_bounds(bounds)
+	{
 	}
 }
