@@ -17,7 +17,7 @@ namespace sl
 	Button::Button(const sl::Rect<int>& bounds)
 		:Widget(bounds)
 	{
-		Locator::dispatcher->sink<>().connect(this);
+		Locator::dispatcher->sink<MouseEvent>().connect(this);
 	}
 
 	void Button::render()

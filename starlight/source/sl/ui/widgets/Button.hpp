@@ -11,12 +11,24 @@
 #define STARLIGHT_BUTTON_HPP_
 
 #include "sl/ui/Widget.hpp"
+#include "sl/events/MouseEvent.hpp"
 
 namespace sl
 {
 	class Button final : public Widget
 	{
 		friend class entt::Dispatcher;
+
+		///
+		/// Defines a state for the button.
+		///
+		enum class State
+		{
+			BUTTON_PRESSED,
+			BUTTON_RELEASED,
+			BUTTON_HOVER
+		};
+
 	public:
 		///
 		/// Constructor.

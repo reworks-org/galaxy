@@ -17,7 +17,15 @@ namespace sl
 	///
 	struct MouseEvent
 	{
+		///
+		/// Current x position of mouse.
+		///
+		unsigned int x;
 
+		///
+		/// Current y position of mouse.
+		///
+		unsigned int y;
 	};
 }
 
