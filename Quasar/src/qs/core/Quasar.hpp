@@ -15,7 +15,17 @@ namespace qs
 	class Quasar
 	{
 	public:
-		Quasar();
+		///
+		/// Initializes SDL2 and creates OpenGL context.
+		///
+		/// \param flags Flags to pass to SDL_Init().
+		///
+		Quasar(Uint32 flags);
+
+		///
+		/// Cleans up SDL2 and OpenGL.
+		///
+		~Quasar();
 	};
 }
 

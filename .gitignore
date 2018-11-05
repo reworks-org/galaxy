@@ -13,3 +13,7 @@ Quasar/build/
 
 Testbed/bin/
 Testbed/build/
+
+
+# other
+docs/sdl2example.cpp
