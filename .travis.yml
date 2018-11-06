@@ -1,0 +1,88 @@
+language: cpp
+sudo: required
+dist: trusty
+
+git:
+  depth: false
+
+branches:
+  only:
+  - master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
+
+matrix:
+  include:
+    - os: linux
+    compiler: gcc
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - g++-7
+    env:
+      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+      - COMPILER=gcc
+    - os: linux
+    compiler: gcc
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - g++-8
+    env:
+      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+      - COMPILER=gcc
+    - os: linux
+    compiler: clang
+    addons:
+      apt:
+        sources:
+          - llvm-toolchain-trusty-5.0
+        packages:
+          - clang-5.0
+     env: 
+      - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+      - COMPILER=clang
+    - os: linux
+    compiler: clang
+    addons:
+      apt:
+        sources:
+          - llvm-toolchain-trusty-6.0
+        packages:
+          - clang-6.0
+     env: 
+      - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
+      - COMPILER=clang
+    - os: linux
+    compiler: clang
+    addons:
+      apt:
+        sources:
+          - llvm-toolchain-trusty-7.0
+        packages:
+          - clang-7.0
+     env: 
+      - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0"
+      - COMPILER=clang
+
+before_install:
+    - eval "${MATRIX_EVAL}"
+
+install:
+  - apt-get update
+  - apt-get install -y build-essential git libsdl2-2.0-0
+
+before_script:
+  - git clone --recursive https://github.com/premake/premake-core.git
+  - make -f ./premake-core/Bootstrap.mak linux
+
+script:
+- ./premake-core/premake5 --cc=$COMPILER --os=linux --file=./Quasar/premake5.lua --verbose gmake
+- cd ./Quasar/build/ && make

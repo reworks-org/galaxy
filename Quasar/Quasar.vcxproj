@@ -25,6 +25,7 @@
     <ClCompile Include="src\qs\core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\qs\utils\Error.hpp" />
     <ClInclude Include="src\qs\core\Quasar.hpp" />
     <ClInclude Include="src\qs\libs\glad\glad.h" />
     <ClInclude Include="src\qs\libs\glad\KHR\khrplatform.h" />

@@ -11,6 +11,7 @@
 #define QUASAR_WINDOW_HPP_
 
 #include <string>
+
 #include <SDL2/SDL_render.h>
 
 namespace qs

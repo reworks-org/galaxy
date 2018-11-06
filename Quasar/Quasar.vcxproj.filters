@@ -249,6 +249,7 @@
     <ClInclude Include="src\qs\libs\glm\vec4.hpp" />
     <ClInclude Include="src\qs\libs\glm\vector_relational.hpp" />
     <ClInclude Include="src\qs\core\Quasar.hpp" />
+    <ClInclude Include="src\qs\utils\Error.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\qs\libs\glm\detail\func_common.inl" />

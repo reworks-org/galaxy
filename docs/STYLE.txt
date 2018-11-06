@@ -13,7 +13,15 @@ Adjustments:
 /// Refer to LICENSE.txt for more details.
 ///
 
-- group headers.
+- group headers:
+	<stl>
+
+	<libs>
+
+	"headers"
+
+	"class header"
+
 - improve documentation
 - RTTI
 - logging

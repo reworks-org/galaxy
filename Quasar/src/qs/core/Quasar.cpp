@@ -9,6 +9,7 @@
 
 //https://learnopengl.com/Getting-started/Hello-Window
 
+#include <string>
 #include <SDL2/SDL.h>
 
 #include "Quasar.hpp"
