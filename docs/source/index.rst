@@ -4,12 +4,12 @@
    contain the root `toctree` directive.
 
 .. image:: ../logo_docs.png
-	:target: https://github.com/reworks/starlight
+	:target: https://github.com/reworks/Quasar
 	:align: center
 
-starlight documentation
+Quasar documentation
 =====================================
-*A Modern C++ game programming framework.*
+*Modern C++ OpenGL framework. Made for learning purposes.*
 
 .. toctree::
    :maxdepth: 1
@@ -24,8 +24,8 @@ Search
 * :ref:`search`
 
 
-.. _starlight: https://github.com/reworks/starlight
-.. _issues: https://github.com/reworks/starlight/issues
+.. _quasar: https://github.com/reworks/Quasar
+.. _issues: https://github.com/reworks/Quasar/issues
 
 .. doxygenindex::
 .. doxygenfunction::
