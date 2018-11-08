@@ -2,8 +2,7 @@
 /// Window.hpp
 /// Quasar
 ///
-/// Created by reworks on 16/09/2018.
-/// MIT LICENSE.
+/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -12,7 +11,7 @@
 
 #include <string>
 
-#include <SDL2/SDL_render.h>
+#include <SDL2/SDL.h>
 
 namespace qs
 {
@@ -23,44 +22,115 @@ namespace qs
 	{
 	public:
 		///
-		/// Construct a window.
+		/// Default constructed window.
+		///
+		Window();
+
+		///
+		/// \brief Construct a Window.
+		///
+		/// Shortcut to calling create(). Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
+		///
+		/// \param title Title of the window.
+		/// \param w Width of the window.
+		/// \param h Height of the window.
+		/// \param windowFlags SDL2 Window flags. You do not need to specify SDL_WINDOW_OPENGL or SDL_WINDOW_SHOWN.
+		///
+		explicit Window(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
+
+		///
+		/// \brief Destroys SDL Window and OpenGL context.
+		///
+		/// Shortcut of calling destroy(). Make sure SDL_Quit has not been called yet.
+		///
+		~Window() noexcept;
+
+		///
+		/// \brief Construct a Window.
+		///
+		/// Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
 		///
 		/// \param title Title of the window.
 		/// \param w Width of the window.
 		/// \param h Height of the window.
 		/// \param windowFlags SDL2 Window flags.
-		/// \param renderFlags SDL2 Renderer flags.
 		///
-		explicit Window(const std::string& title, int w, int h, Uint32 windowFlags = 0, Uint32 renderFlags = 0);
+		/// \return Returns true on success, false on failure.
+		///
+		bool create(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
 
 		///
-		/// Clean up class data.
+		/// \brief Destroys SDL Window and OpenGL context.
 		///
-		~Window();
+		/// Make sure SDL_Quit has not been called yet.
+		///
+		void destroy();
 
 		///
-		/// Retrieve our renderer.
+		/// Checks if window is currently open or not.
 		///
-		/// \return CONST pointer to SDL_Renderer object. We want it const because we don't want the pointer to change.
+		/// \return Returns true if window is currently open, false if not.
 		///
-		SDL_Renderer* getRenderer() const noexcept;
+		bool isOpen() const;
 
-	public:
 		///
-		/// Keep track of window state.
+		/// \brief Closes the current window.
 		///
-		bool m_isOpen;
+		/// Internally, sets isOpen to false.
+		///
+		void close();
+		
+		///
+		/// \brief Resize the Window and GL context.
+		///
+		/// You need to call this when the window resize event is triggered.
+		///
+		/// \param w New width of the window.
+		/// \param h new height of the window.
+		///
+		void resize(int w, int h);
+
+		///
+		/// Clears the Rendering buffer.
+		///
+		void clear();
+
+		///
+		/// \brief Renders the OpenGL buffer to the screen.
+		///
+		/// Basically calls SDL_GL_SwapWindow().
+		///
+		void swap();
+
+		///
+		/// Retrieve pointer to SDL_Window object.
+		///
+		/// \return Returns const pointer to SDL_Window.
+		///
+		SDL_Window* getWindow() const noexcept;
+
+		///
+		/// Retrieve gl context.
+		///
+		/// \return Reference to GL context;
+		///
+		SDL_GLContext& getContext() const noexcept;
 
 	private:
 		///
-		/// Pointer to window data.
+		/// Keeps track of window state.
+		///
+		bool m_isOpen;
+
+		///
+		/// SDL window data.
 		///
 		SDL_Window* m_window;
 
 		///
-		/// Pointer to renderer data.
+		/// OpenGL Context.
 		///
-		SDL_Renderer* m_renderer;
+		SDL_GLContext m_glContext;
 	};
 }
 

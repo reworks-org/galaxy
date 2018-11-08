@@ -1,9 +1,8 @@
 ///
-/// Quasar.hpp
+/// Error.hpp
 /// Quasar
 ///
-/// Created by reworks on 16/09/2018.
-/// MIT LICENSE.
+/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -11,37 +10,72 @@
 #define QUASAR_ERROR_HPP_
 
 #include <string>
+#include <vector>
 
 namespace qs
 {
+	///
+	/// Allows for Quasar to set an error message in a way that allows for other libraries to access it easily.
+	///
 	class Error
 	{
 	public:
 		///
-		/// Resets current error state.
+		/// Resets current error message and clears history. 
 		///
-		void clear();
+		~Error() noexcept;
+
+		///
+		/// Set a new Error Message.
+		///
+		/// \param message Message to set the current error message to.
+		///
+		void setError(const std::string& message) noexcept;
 
 		///
 		/// Gets the current error message.
 		///
-		std::string get();
+		/// \return Returns const reference std::string of current error message.
+		///
+		const std::string& current() const noexcept;
 
 		///
-		/// Prints all error messages.
+		/// Retrieve all error messages.
 		///
+		/// \return Returns const reference of history as a std::vector<std::string>.
+		///
+		const std::vector<std::string>& getHistory() const noexcept;
 
+		///
+		/// Resets current error mesage.
+		/// Does not reset history.
+		///
+		void clear() noexcept;
 
 	private:
 		///
+		/// Private Default Constructor.
+		/// Ensures class can't be constructed.
 		///
-		///
-		Error() = default;
-	};
+		explicit Error() noexcept;
 
-	///
-	/// Static declaration.
-	///
+	public:
+		///
+		/// Static handle to error class.
+		///
+		static Error handle;
+
+	private:
+		///
+		/// Contains the current error message.
+		///
+		std::string m_currentError;
+
+		///
+		/// Contains a history of all error messages.
+		///
+		std::vector<std::string> m_history;
+	};
 }
 
 #endif

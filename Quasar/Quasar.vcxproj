@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\qs\core\Quasar.cpp" />
+    <ClCompile Include="src\qs\Colour.cpp" />
     <ClCompile Include="src\qs\libs\glad\glad.c" />
     <ClCompile Include="src\qs\libs\glm\detail\glm.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
+    <ClCompile Include="src\qs\utils\Error.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\qs\utils\Error.hpp" />
-    <ClInclude Include="src\qs\core\Quasar.hpp" />
+    <ClInclude Include="src\qs\Colour.hpp" />
     <ClInclude Include="src\qs\libs\glad\glad.h" />
     <ClInclude Include="src\qs\libs\glad\KHR\khrplatform.h" />
     <ClInclude Include="src\qs\libs\glm\common.hpp" />
@@ -268,6 +268,7 @@
     <ClInclude Include="src\qs\libs\glm\vec4.hpp" />
     <ClInclude Include="src\qs\libs\glm\vector_relational.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
+    <ClInclude Include="src\qs\utils\Error.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\qs\libs\glm\detail\func_common.inl" />
@@ -399,6 +400,9 @@
     <None Include="src\qs\libs\glm\gtx\vector_angle.inl" />
     <None Include="src\qs\libs\glm\gtx\vector_query.inl" />
     <None Include="src\qs\libs\glm\gtx\wrap.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -9,3 +9,12 @@ https://gyp.gsrc.io/docs/UserDocumentation.md
 https://stackoverflow.com/questions/36064976/using-doxygen-in-read-the-docs
 http://lazyfoo.net/tutorials/SDL/51_SDL_and_modern_opengl/index.php
 https://learnopengl.com/Getting-started/Creating-a-window
+
+see about newer opengl stuff in like 4.0 and higher. haha 
+post processing later
+	- AA - SDL_GL_MULTISAMPLE?
+	- AF
+
+- method of options
+	- config structure? to be filled by user and retrieved by window. Might be gud.
+	- for AA and Hardware Acc in window...

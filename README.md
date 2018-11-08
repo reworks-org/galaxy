@@ -5,7 +5,7 @@
 [![Docs Status](https://readthedocs.org/projects/quasarlib/badge/?version=latest)](https://quasarlib.readthedocs.io/en/latest/?badge=latest)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
-OpenGL Renderer in Modern C++.
+2D OpenGL Renderer in Modern C++.
 
 ## Notes:
 - Requires C++17 compatible compiler and OpenGL 4+ capable GPU.

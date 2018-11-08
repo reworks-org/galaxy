@@ -9,7 +9,7 @@
 
 Quasar documentation
 =====================================
-*Modern C++ OpenGL framework. Made for learning purposes.*
+*2D Modern C++ OpenGL framework. Made for learning purposes.*
 
 .. toctree::
    :maxdepth: 1
