@@ -16,7 +16,7 @@ notifications:
 
 matrix:
   include:
-    - os: linux
+    os: linux
     compiler: gcc
     addons:
       apt:
@@ -27,7 +27,7 @@ matrix:
     env:
       - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
       - COMPILER=gcc
-    - os: linux
+    os: linux
     compiler: gcc
     addons:
       apt:
@@ -38,7 +38,7 @@ matrix:
     env:
       - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
       - COMPILER=gcc
-    - os: linux
+    os: linux
     compiler: clang
     addons:
       apt:
@@ -46,10 +46,10 @@ matrix:
           - llvm-toolchain-trusty-5.0
         packages:
           - clang-5.0
-     env: 
+    env: 
       - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
       - COMPILER=clang
-    - os: linux
+    os: linux
     compiler: clang
     addons:
       apt:
@@ -57,10 +57,10 @@ matrix:
           - llvm-toolchain-trusty-6.0
         packages:
           - clang-6.0
-     env: 
+    env: 
       - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
       - COMPILER=clang
-    - os: linux
+    os: linux
     compiler: clang
     addons:
       apt:
@@ -68,7 +68,7 @@ matrix:
           - llvm-toolchain-trusty-7.0
         packages:
           - clang-7.0
-     env: 
+    env: 
       - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0"
       - COMPILER=clang
 
