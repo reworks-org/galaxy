@@ -13,6 +13,8 @@
 
 #include <SDL2/SDL.h>
 
+#include "qs/Colour.hpp"
+
 namespace qs
 {
 	///
@@ -24,7 +26,7 @@ namespace qs
 		///
 		/// Default constructed window.
 		///
-		Window();
+		Window() noexcept;
 
 		///
 		/// \brief Construct a Window.
@@ -64,21 +66,21 @@ namespace qs
 		///
 		/// Make sure SDL_Quit has not been called yet.
 		///
-		void destroy();
+		void destroy() noexcept;
 
 		///
 		/// Checks if window is currently open or not.
 		///
 		/// \return Returns true if window is currently open, false if not.
 		///
-		bool isOpen() const;
+		bool isOpen() const noexcept;
 
 		///
 		/// \brief Closes the current window.
 		///
 		/// Internally, sets isOpen to false.
 		///
-		void close();
+		void close() noexcept;
 		
 		///
 		/// \brief Resize the Window and GL context.
@@ -88,33 +90,35 @@ namespace qs
 		/// \param w New width of the window.
 		/// \param h new height of the window.
 		///
-		void resize(int w, int h);
+		void resize(int w, int h) noexcept;
 
 		///
 		/// Clears the Rendering buffer.
 		///
-		void clear();
+		/// \param colour Colour to clear to.
+		///
+		void clear(const qs::Colour& colour) noexcept;
 
 		///
 		/// \brief Renders the OpenGL buffer to the screen.
 		///
 		/// Basically calls SDL_GL_SwapWindow().
 		///
-		void swap();
+		void swap() noexcept;
 
 		///
 		/// Retrieve pointer to SDL_Window object.
 		///
 		/// \return Returns const pointer to SDL_Window.
 		///
-		SDL_Window* getWindow() const noexcept;
+		SDL_Window* getWindow() noexcept;
 
 		///
 		/// Retrieve gl context.
 		///
 		/// \return Reference to GL context;
 		///
-		SDL_GLContext& getContext() const noexcept;
+		SDL_GLContext& getContext() noexcept;
 
 	private:
 		///

@@ -17,37 +17,79 @@ namespace qs
 	/// Represents a Colour. Uses clamped floats from 0.0 to 1.0.
 	/// Can be constructed from an SDL_Colour.
 	///
-	struct Colour
+	struct Colour final
 	{
 		///
+		/// \brief Default constructor.
 		///
+		/// Defaults to black, fully opaque.
 		///
-		Colour();
-		Colour(float r, float g, float b, float a);
-		Colour(SDL_Colour colour);
+		explicit Colour() noexcept;
+
+		///
+		/// Alternate constructor.
+		///
+		/// \param r Red colour. 0.0-1.0.
+		/// \param g Green colour. 0.0-1.0.
+		/// \param b Blue colour. 0.0-1.0.
+		/// \param a Alpha. 0.0-1.0.
+		///
+		explicit Colour(float r, float g, float b, float a) noexcept;
+
+		///
+		/// Construct qs::Colour from SDL_Colour.
+		///
+		/// \param colour Colour to construct from.
+		///
+		explicit Colour(SDL_Colour colour) noexcept;
+
+		///
+		/// Returns the colour in SDL2 colour format.
+		///
+		/// \return Returns filled out SDL_Colour.
+		///
+		SDL_Colour asSDL() noexcept;
 
 		//operators 
 		
 		///
-		/// Red value.
+		/// Red value. 0.0f-1.0f.
 		///
-		float m_r;
+		float m_red;
 
 		///
-		/// Green value.
+		/// Green value. 0.0f-1.0f.
 		///
-		float m_g;
+		float m_green;
 
 		///
-		/// Blue value.
+		/// Blue value. 0.0f-1.0f.
 		///
-		float m_b;
+		float m_blue;
 
 		///
-		/// Alpha value.
+		/// Alpha value. 0.0f-1.0f.
 		///
-		float m_a;
-	};|
+		float m_alpha;
+	};
+
+	///
+	/// qs::Colour == Ooperator overload.
+	///
+	inline bool operator==(const qs::Colour& a, const qs::Colour& b)
+	{
+		// Equality operator overloading.
+		return ((a.m_red == b.m_red) && (a.m_green == b.m_green) && (a.m_blue == b.m_blue) && (a.m_alpha == b.m_alpha));
+	}
+
+	///
+	/// qs::Colour != operator overload.
+	///
+	inline bool operator!=(const qs::Colour& a, const qs::Colour& b)
+	{
+		// Not operator overloading.
+		return ((a.m_red != b.m_red) || (a.m_green != b.m_green) || (a.m_blue != b.m_blue) || (a.m_alpha != b.m_alpha));
+	}
 }
 
 #endif

@@ -10,6 +10,11 @@
 
 namespace qs
 {
+	///
+	/// Static declaration.
+	///
+	qs::Error Error::handle;
+
 	Error::~Error() noexcept
 	{
 		clear();

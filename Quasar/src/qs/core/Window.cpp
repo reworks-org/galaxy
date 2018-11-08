@@ -13,18 +13,18 @@
 
 namespace qs
 {
-	Window::Window()
+	Window::Window() noexcept
 		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
 	{
 	}
 
-	Window::Window(const std::string& title, int w, int h, Uint32 windowFlags)
+	Window::Window(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
 		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
 	{
 		create(title, w, h, windowFlags);
 	}
 
-	Window::~Window()
+	Window::~Window() noexcept
 	{
 		// Call again to ensure everything is cleaned up.
 		// Has checks to ensure no null data is destroyed.
@@ -56,7 +56,7 @@ namespace qs
 		if (!m_window)
 		{
 			// Set error message.
-			qs::Error::handle.setError("Window failed to be created! SDL_Error: " += SDL_GetError());
+			qs::Error::handle.setError("Window failed to be created! SDL_Error: " + std::string(SDL_GetError()));
 			success = false;
 		}
 		else
@@ -68,7 +68,7 @@ namespace qs
 			if (!m_glContext)
 			{
 				// Set error message.
-				qs::Error::handle.setError("OpenGL context failed to be created! SDL_Error: " += SDL_GetError());
+				qs::Error::handle.setError("OpenGL context failed to be created! SDL_Error: " + std::string(SDL_GetError()));
 				success = false;
 			}
 			else
@@ -93,7 +93,7 @@ namespace qs
 		return success;
 	}
 
-	void Window::destroy()
+	void Window::destroy() noexcept
 	{
 		// Clean up GL context, checking to make sure its not already been destroyed.
 		if (m_glContext != nullptr)
@@ -110,39 +110,38 @@ namespace qs
 		}
 	}
 
-	bool Window::isOpen() const
+	bool Window::isOpen() const noexcept
 	{
 		return m_isOpen;
 	}
 
-	void Window::close()
+	void Window::close() noexcept
 	{
 		m_isOpen = false;
 	}
 
-	void Window::resize(int w, int h)
+	void Window::resize(int w, int h) noexcept
 	{
 		glViewport(0, 0, w, h);
 	}
 
-	void Window::clear()
+	void Window::clear(const qs::Colour& colour) noexcept
 	{
-		SDL_Color
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(colour.m_red, colour.m_green, colour.m_blue, colour.m_alpha);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
-	void Window::swap()
+	void Window::swap() noexcept
 	{
 		SDL_GL_SwapWindow(m_window);
 	}
 
-	SDL_Window* Window::getWindow() const noexcept
+	SDL_Window* Window::getWindow() noexcept
 	{
 		return m_window;
 	}
 
-	SDL_GLContext & Window::getContext() const noexcept
+	SDL_GLContext& Window::getContext() noexcept
 	{
 		return m_glContext;
 	}
