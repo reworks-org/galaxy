@@ -49,8 +49,6 @@ namespace qs
 		/// \return Returns filled out SDL_Colour.
 		///
 		SDL_Colour asSDL() noexcept;
-
-		//operators 
 		
 		///
 		/// Red value. 0.0f-1.0f.

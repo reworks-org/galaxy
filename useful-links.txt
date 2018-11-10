@@ -3,3 +3,5 @@ https://docs.travis-ci.com/user/languages/cpp/
 https://github.com/rubinius/rubinius/blob/master/.travis.yml
 https://codereview.stackexchange.com/questions/157448/error-handling-class
 https://learnopengl.com/Getting-started/Hello-Window
+https://github.com/google/googletest
+https://github.com/eddyxu/cpp-coveralls

@@ -39,10 +39,11 @@ namespace qs
 	Colour::Colour(SDL_Colour colour) noexcept
 	{
 		// Make sure math is done with division, not integer division.
-		m_red = static_cast<float>(colour.r) / 255.0f;
-		m_green = static_cast<float>(colour.g) / 255.0f;
-		m_blue = static_cast<float>(colour.b) / 255.0f;
-		m_alpha = static_cast<float>(colour.a) / 255.0f;
+		// And value is clamped.
+		m_red = std::clamp(static_cast<float>(colour.r) / 255.0f, 0.0f, 1.0f);
+		m_green = std::clamp(static_cast<float>(colour.g) / 255.0f, 0.0f, 1.0f);
+		m_blue = std::clamp(static_cast<float>(colour.b) / 255.0f, 0.0f, 1.0f);
+		m_alpha = std::clamp(static_cast<float>(colour.a) / 255.0f, 0.0f, 1.0f);
 	}
 
 	SDL_Colour Colour::asSDL() noexcept

@@ -24,6 +24,7 @@ namespace qs
 	void Error::setError(const std::string& message) noexcept
 	{
 		m_currentError = message;
+		m_history.push_back(message);
 	}
 
 	const std::string& Error::current() const noexcept

@@ -18,3 +18,7 @@ post processing later
 - method of options
 	- config structure? to be filled by user and retrieved by window. Might be gud.
 	- for AA and Hardware Acc in window...
+
+
+- fix travis-ci integration
+- coverall and test building for appveyor and travis-ci

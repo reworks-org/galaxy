@@ -89,15 +89,24 @@ project "Quasar"
 	files { "Quasar/src/**.hpp", "Quasar/src/**.cpp", "Quasar/src/**.h", "Quasar/src/**.c" }
 	links { "SDL2", "SDL2main" }
 
-project "TestBed"
+project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 	defines {  }
-	location "build/TestBed"
-	files { "TestBed/src/*.hpp", "TestBed/src/*.cpp" }
+	location "build/Sandbox"
+	files { "Sandbox/src/*.hpp", "Sandbox/src/*.cpp" }
 	links { "SDL2", "SDL2main", "Quasar" }
 	dependson { "Quasar" }
 	
+project "Tests"
+	kind "ConsoleApp"
+	language "C++"
+	defines {  }
+	location "build/Tests"
+	includedirs { "Tests/src/googletest" }
+	files { "Tests/src/*.h", "Tests/src/*.cc", "Tests/src/*.cpp" }
+	links { "SDL2", "SDL2main", "Quasar" }
+	dependson { "Quasar" }
 ---
 --- END PROJECTS
 ---
