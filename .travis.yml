@@ -67,12 +67,12 @@ before_install:
 
 install:
   - sudo apt-get update
-  - sudo apt-get install -y build-essential git libsdl2-2.0-0
+  - sudo apt-get install -y build-essential git libsdl2-2.0-0 curl
 
 before_script:
-  - git clone --recursive https://github.com/premake/premake-core.git
-  - make -f ./premake-core/Bootstrap.mak linux
+  - curl -o premake5.tar.gz https://github.com/premake/premake-core/releases/download/v5.0.0-alpha13/premake-5.0.0-alpha13-linux.tar.gz
+  - tar -xvzf premake5.tar.gz
 
 script:
-- ./premake-core/premake5 --cc=$COMPILER --os=linux --file=./Quasar/premake5.lua --verbose gmake
+- ./premake5 --cc=$COMPILER --os=linux --file=./Quasar/premake5.lua --verbose gmake
 - cd ./Quasar/build/ && make
