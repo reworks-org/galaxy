@@ -56,6 +56,7 @@ workspace "Quasar"
 ---
 	filter { "platforms:Win32 or Win64" }
 		system "windows"
+		systemversion ("10.0.17134.0")
 		includedirs { "Quasar/src", "libs/SDL2/include" }
 		flags { "NoPCH" }
 		defines { "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_CRT_SECURE_NO_DEPRECATE", "_CRT_NONSTDC_NO_DEPRECATE" }
@@ -88,7 +89,7 @@ project "Sandbox"
 	language "C++"
 	defines {  }
 	location "build/Sandbox"
-	files { "Sandbox/src/*.hpp", "Sandbox/src/*.cpp" }
+	files { "Sandbox/src/**.hpp", "Sandbox/src/**.cpp" }
 	links { "SDL2", "SDL2main", "Quasar" }
 	dependson { "Quasar" }
 	
@@ -98,7 +99,7 @@ project "Tests"
 	defines {  }
 	location "build/Tests"
 	includedirs { "Tests/src/googletest/" }
-	files { "Tests/src/*.h", "Tests/src/*.hpp", "Tests/src/*.cc", "Tests/src/*.cpp" }
+	files { "Tests/src/**.hpp", "Tests/src/**.cpp", "Tests/src/**.h", "Tests/src/**.cc" }
 	links { "SDL2", "SDL2main", "Quasar" }
 	dependson { "Quasar" }
 ---
