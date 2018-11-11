@@ -20,5 +20,4 @@ post processing later
 	- for AA and Hardware Acc in window...
 
 
-- fix travis-ci integration
-- coverall and test building for appveyor and travis-ci
+- clang-7 builds to travis-ci

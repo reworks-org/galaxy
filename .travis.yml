@@ -38,7 +38,6 @@ matrix:
 #    env: COMPILER=clang++-7.0
 
 before_install:
-  - pip install --user cpp-coveralls
   - export CC=${CCCOMPILER}
   - export CXX=${CXXCOMPILER}
 
@@ -56,4 +55,5 @@ script:
   - make config=release_linux64 all
 
 after_success:
-  - coveralls --gcov gcov-7 --gcov-options '\-lp' --root ${TRAVIS_BUILD_DIR} --build-root ${TRAVIS_BUILD_DIR}/build  --extension cpp --extension hpp --exclude deps --include src
+  - cd build/Tests/bin/Linux64/Debug/
+  - ./Tests
