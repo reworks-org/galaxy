@@ -25,8 +25,8 @@ matrix:
         packages:
           - g++-8
     env: 
-      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
-      - COMPILER=g++-8
+      - CCCOMPILER=gcc-8
+      - CXXCOMPILER=g++-8
 #    os: linux
 #    compiler: clang
 #    addons:
@@ -38,10 +38,9 @@ matrix:
 #    env: COMPILER=clang++-7.0
 
 before_install:
-# - pip install --user cpp-coveralls
-- export CC=gcc-8
-- export CXX=g++-8
-- export COMPILER=g++-8
+  - pip install --user cpp-coveralls
+  - export CC=${CCCOMPILER}
+  - export CXX=${CXXCOMPILER}
 
 install:
   - sudo apt-get update
@@ -52,6 +51,9 @@ before_script:
   - tar -xvzf premake5.tar.gz
 
 script:
-- ./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
-- make config=debug_linux64 all
-- make config=release_linux64 all
+  - ./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
+  - make config=debug_linux64 all
+  - make config=release_linux64 all
+
+after_success:
+  - coveralls --gcov gcov-7 --gcov-options '\-lp' --root ${TRAVIS_BUILD_DIR} --build-root ${TRAVIS_BUILD_DIR}/build  --extension cpp --extension hpp --exclude deps --include src
