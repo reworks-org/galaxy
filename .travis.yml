@@ -47,6 +47,6 @@ before_script:
   - tar -xvzf premake5.tar.gz
 
 script:
-- then ./premake5 --cc=$CC --os=linux --file=./premake5.lua --verbose gmake
+- ./premake5 --cc=$CC --os=linux --file=./premake5.lua --verbose gmake
 #- if [ $COMPILER == clang++-7.0 ]; then ./premake5 --cc=clang --os=linux --file=./premake5.lua --verbose gmake; fi
 - cd ./Quasar/build/ && make
