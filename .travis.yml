@@ -24,9 +24,7 @@ matrix:
           - ubuntu-toolchain-r-test
         packages:
           - g++-7
-    env:
-      - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-      - COMPILER=gcc
+    env: COMPILER=g++-7
     os: linux
     compiler: gcc
     addons:
@@ -35,9 +33,7 @@ matrix:
           - ubuntu-toolchain-r-test
         packages:
           - g++-8
-    env:
-      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
-      - COMPILER=gcc
+    env: COMPILER=g++-8
     os: linux
     compiler: clang
     addons:
@@ -46,9 +42,7 @@ matrix:
           - llvm-toolchain-trusty-5.0
         packages:
           - clang-5.0
-    env: 
-      - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-      - COMPILER=clang
+    env: COMPILER=clang++-5.0
     os: linux
     compiler: clang
     addons:
@@ -57,9 +51,7 @@ matrix:
           - llvm-toolchain-trusty-6.0
         packages:
           - clang-6.0
-    env: 
-      - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
-      - COMPILER=clang
+    env: COMPILER=clang++-6.0
     os: linux
     compiler: clang
     addons:
@@ -68,12 +60,10 @@ matrix:
           - llvm-toolchain-trusty-7.0
         packages:
           - clang-7.0
-    env: 
-      - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0"
-      - COMPILER=clang
+    env: COMPILER=clang++-7.0
 
 before_install:
-    - eval "${MATRIX_EVAL}"
+    - pip install --user cpp-coveralls
 
 install:
   - apt-get update
