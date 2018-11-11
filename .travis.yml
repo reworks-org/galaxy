@@ -23,35 +23,8 @@ matrix:
         sources:
           - ubuntu-toolchain-r-test
         packages:
-          - g++-7
-    env: COMPILER=g++-7
-    os: linux
-    compiler: gcc
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-        packages:
           - g++-8
     env: COMPILER=g++-8
-#    os: linux
-#    compiler: clang
-#    addons:
-#      apt:
-#        sources:
-#          - llvm-toolchain-trusty-5.0
-#        packages:
-#          - clang-5.0
-#    env: COMPILER=clang++-5.0
-#    os: linux
-#    compiler: clang
-#    addons:
-#      apt:
-#        sources:
-#          - llvm-toolchain-trusty-6.0
-#        packages:
-#          - clang-6.0
-#    env: COMPILER=clang++-6.0
 #    os: linux
 #    compiler: clang
 #    addons:
@@ -74,5 +47,6 @@ before_script:
   - tar -xvzf premake5.tar.gz
 
 script:
-- ./premake5 --cc=$COMPILER --os=linux --file=./Quasar/premake5.lua --verbose gmake
+- if [ $COMPILER == g++-8 ]; then ./premake5 --cc=gcc --os=linux --file=./Quasar/premake5.lua --verbose gmake; fi
+- if [ $COMPILER == clang++-7.0 ]; then ./premake5 --cc=clang --os=linux --file=./Quasar/premake5.lua --verbose gmake; fi
 - cd ./Quasar/build/ && make
