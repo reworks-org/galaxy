@@ -30,13 +30,13 @@ workspace "Quasar"
 	filter "platforms:Linux32"
 		system "linux"
 		architecture "x32"
-		includedirs { "Quasar/src", os.findheader("libsdl2-2.0.0") }
+		includedirs { "Quasar/src", os.findheader("libsdl2-dev") }
 		libdirs { os.findlib("libsdl2-2.0.0") }
 
 	filter "platforms:Linux64"
 		system "linux"
 		architecture "x64"
-		includedirs { "Quasar/src", os.findheader("libsdl2-2.0.0") }
+		includedirs { "Quasar/src", os.findheader("libsdl2-dev") }
 		libdirs { os.findlib("libsdl2-2.0.0") }
 ---
 --- END PLATFORM FILTERS
