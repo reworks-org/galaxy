@@ -1,6 +1,6 @@
 language: cpp
 sudo: required
-dist: trusty
+dist: xenial
 
 git:
   depth: false
@@ -34,24 +34,24 @@ matrix:
         packages:
           - g++-8
     env: COMPILER=g++-8
-    os: linux
-    compiler: clang
-    addons:
-      apt:
-        sources:
-          - llvm-toolchain-trusty-5.0
-        packages:
-          - clang-5.0
-    env: COMPILER=clang++-5.0
-    os: linux
-    compiler: clang
-    addons:
-      apt:
-        sources:
-          - llvm-toolchain-trusty-6.0
-        packages:
-          - clang-6.0
-    env: COMPILER=clang++-6.0
+#    os: linux
+#    compiler: clang
+#    addons:
+#      apt:
+#        sources:
+#          - llvm-toolchain-trusty-5.0
+#        packages:
+#          - clang-5.0
+#    env: COMPILER=clang++-5.0
+#    os: linux
+#    compiler: clang
+#    addons:
+#      apt:
+#        sources:
+#          - llvm-toolchain-trusty-6.0
+#        packages:
+#          - clang-6.0
+#    env: COMPILER=clang++-6.0
 #    os: linux
 #    compiler: clang
 #    addons:
