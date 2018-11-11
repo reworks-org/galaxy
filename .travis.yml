@@ -1,4 +1,4 @@
-#language: cpp
+language: cpp
 sudo: required
 dist: xenial
 
@@ -39,6 +39,9 @@ matrix:
 
 before_install:
 # - pip install --user cpp-coveralls
+- export CC=gcc-8
+- export CXX=g++-8
+- export COMPILER=g++-8
 
 install:
   - sudo apt-get update
