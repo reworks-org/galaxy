@@ -52,7 +52,7 @@ before_script:
   - tar -xvzf premake5.tar.gz
 
 script:
-- ./premake5 --cc=$CC --os=linux --file=./premake5.lua --verbose gmake
+- ./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
 - make config=debug_linux32 all
 - make config=release_linux32 all
 - make config=debug_linux64 all
