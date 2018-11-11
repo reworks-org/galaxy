@@ -23,7 +23,7 @@ matrix:
         sources:
           - ubuntu-toolchain-r-test
         packages:
-          - g++8-multilib
+          - g++8
     env: 
       - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
       - COMPILER=g++-8
@@ -53,7 +53,5 @@ before_script:
 
 script:
 - ./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
-- make config=debug_linux32 all
-- make config=release_linux32 all
 - make config=debug_linux64 all
 - make config=release_linux64 all
