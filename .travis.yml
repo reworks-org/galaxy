@@ -70,7 +70,7 @@ install:
   - sudo apt-get install -y build-essential git libsdl2-2.0-0 curl
 
 before_script:
-  - curl -o premake5.tar.gz https://github.com/premake/premake-core/releases/download/v5.0.0-alpha13/premake-5.0.0-alpha13-linux.tar.gz
+  - curl -L -o premake5.tar.gz https://github.com/premake/premake-core/releases/download/v5.0.0-alpha13/premake-5.0.0-alpha13-linux.tar.gz
   - tar -xvzf premake5.tar.gz
 
 script:
