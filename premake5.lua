@@ -3,6 +3,7 @@
 ---
 workspace "Quasar"
 	language "C++"
+	cppdialect "C++17"
 	platforms { "Win32", "Win64", "Linux32", "Linux64" }
 	configurations {"Debug", "Release"}
 ---

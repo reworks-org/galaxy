@@ -24,7 +24,9 @@ matrix:
           - ubuntu-toolchain-r-test
         packages:
           - g++-8
-    env: COMPILER=g++-8
+    env: 
+      - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+      - COMPILER=g++-8
 #    os: linux
 #    compiler: clang
 #    addons:
@@ -36,7 +38,7 @@ matrix:
 #    env: COMPILER=clang++-7.0
 
 before_install:
-  - pip install --user cpp-coveralls
+# - pip install --user cpp-coveralls
 
 install:
   - sudo apt-get update
@@ -48,6 +50,7 @@ before_script:
 
 script:
 - ./premake5 --cc=$CC --os=linux --file=./premake5.lua --verbose gmake
-#- if [ $COMPILER == clang++-7.0 ]; then ./premake5 --cc=clang --os=linux --file=./premake5.lua --verbose gmake; fi
+- make config=debug_linux32 all
+- make config=release_linux32 all
 - make config=debug_linux64 all
 - make config=release_linux64 all
