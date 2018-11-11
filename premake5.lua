@@ -73,7 +73,7 @@ workspace "Quasar"
 		links { "OpenGL32" }
 
 	filter { "platforms:Linux32 or Linux64"}
-		links { "GL" }
+		links { "GL", "dl", "pthread" }
 ---
 --- END SPECIFIC FILTERS
 ---
@@ -104,8 +104,8 @@ project "Tests"
 	language "C++"
 	defines {  }
 	location "build/Tests"
-	includedirs { "Tests/src/googletest" }
-	files { "Tests/src/*.h", "Tests/src/*.cc", "Tests/src/*.cpp" }
+	includedirs { "Tests/src/googletest/" }
+	files { "Tests/src/*.h", "Tests/src/*.hpp", "Tests/src/*.cc", "Tests/src/*.cpp" }
 	links { "SDL2", "SDL2main", "Quasar" }
 	dependson { "Quasar" }
 ---
