@@ -49,4 +49,4 @@ before_script:
 script:
 - ./premake5 --cc=$CC --os=linux --file=./premake5.lua --verbose gmake
 #- if [ $COMPILER == clang++-7.0 ]; then ./premake5 --cc=clang --os=linux --file=./premake5.lua --verbose gmake; fi
-- cd ./Quasar/build/ && make
+- cd ./build/ && make
