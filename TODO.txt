@@ -26,7 +26,10 @@ This project uses [premake5](https://github.com/premake/premake-core/) and suppo
 - move lua into system locator. use local variables over global variables.
 - ui should load from lua files maybe?
 - go over textbooks, appdev, etc to see if project can be improved.
-
+- math operator overloads need to return reference + inline
+- handles or integers / hashed strings over std::string in resource map
+- spdlog over loguru
+- handle errosr with bustom error class. i.e. return REsult ovuect, etc
 
 docs notes:
 	- make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
