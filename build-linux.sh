@@ -6,7 +6,3 @@ tar -xvzf premake5.tar.gz
 export CC=gcc-8
 export CXX=g++-8
 ./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
-make config=debug_linux32 all
-make config=debug_linux64 all
-make config=release_linux32 all
-make config=release_linux64 all

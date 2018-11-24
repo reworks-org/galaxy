@@ -8,21 +8,51 @@ Game programming library using Allegro 5.2.4, Lua 5.3, and C++17.
 
 ## Building
 You need git as a prereq to build. Other libraries are downloaded by the build script for you.
+
 On Mac OS X you also need [Homebrew](https://brew.sh/) installed.
 
 ### Windows:
 
 
+
 ### MacOSX:
 ```
 git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight
+cd reworks/starlight
+chmod +x build-macosx.sh
 ./build-macosx.sh
 ```
 
+Then you can check the makefile for your platform configs and run make on it. E.g.:
+
+```
+make config=debug_macos all
+make config=release_macos all
+```
+
+
 ### Linux:
+Please note that only Ubuntu 18.04 is tested and supported for building. Does build in a docker image.
+
 ```
 git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight
-./build-linux.sh
+cd reworks/starlight
+chmod +x build-linux.sh
+sudo ./build-linux.sh
+```
+
+Then you can check the makefile for your platform configs and run make on it. E.g.:
+
+```
+make config=debug_linux32 all
+make config=release_linux32 all
+```
+
+or
+
+```
+make config=debug_linux64 all
+make config=release_linux64 all
 ```
 
 
