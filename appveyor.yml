@@ -5,6 +5,8 @@ branches:
 
 shallow_clone: true
 skip_tags: true
+clone_folder: c:\projects\reworks\starlight
+
 image:
   - Visual Studio 2017
 
@@ -16,6 +18,9 @@ configuration:
   - Debug
   - Release
 
+install:
+- cmd: build-windows.bat
+
 build:
   parallel: true
-  project: starlight.sln
+  project: build/starlight/starlight.sln

@@ -9,7 +9,4 @@
     <ClInclude Include="source\GameState.hpp" />
     <ClInclude Include="source\Serialize.hpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
 </Project>
