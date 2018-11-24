@@ -1,3 +1,5 @@
+-- premake5 build script.
+
 ---
 --- START WORKSPACE
 ---
@@ -52,15 +54,15 @@ workspace "Quasar"
 
 
 ---
---- START PLATFORM FILTERS
+--- START SPECIFIC PLATFORM FILTERS
 ---
 	filter { "platforms:Win32 or Win64" }
 		system "windows"
-		systemversion ("10.0.17134.0")
-		includedirs { "Quasar/src", "libs/SDL2/include" }
+		systemversion "latest"
 		flags { "NoPCH" }
 		defines { "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_CRT_SECURE_NO_DEPRECATE", "_CRT_NONSTDC_NO_DEPRECATE" }
 		buildoptions { "/bigobj" }
+		includedirs { "Quasar/src", "libs/SDL2/include" }
 		links { "OpenGL32" }
 
 	filter { "platforms:Linux32 or Linux64"}
@@ -69,7 +71,7 @@ workspace "Quasar"
 		libdirs { os.findlib("libsdl2-2.0.0") }
 		links { "GL", "dl", "pthread" }
 ---
---- END SPECIFIC FILTERS
+--- END SPECIFIC PLATFORM FILTERS
 ---
 
 
@@ -78,15 +80,12 @@ workspace "Quasar"
 ---
 project "Quasar"
 	kind "StaticLib"
-	language "C++"
-	defines { "_LIB" }
 	location "build/Quasar"
 	files { "Quasar/src/**.hpp", "Quasar/src/**.cpp", "Quasar/src/**.h", "Quasar/src/**.c" }
 	links { "SDL2", "SDL2main" }
 
 project "Sandbox"
 	kind "ConsoleApp"
-	language "C++"
 	defines {  }
 	location "build/Sandbox"
 	files { "Sandbox/src/**.hpp", "Sandbox/src/**.cpp" }
@@ -95,7 +94,6 @@ project "Sandbox"
 	
 project "Tests"
 	kind "ConsoleApp"
-	language "C++"
 	defines {  }
 	location "build/Tests"
 	includedirs { "Tests/src/googletest/" }

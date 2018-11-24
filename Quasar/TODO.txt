@@ -21,3 +21,5 @@ post processing later
 
 
 - clang-7 builds to travis-ci
+- fix error and window tests. creating window is wrong and make sure error is more generic in case error message is changed during testing.
+- move to build script so can be build without appveyor or manual package installation. (copy dlls on windows too...)
