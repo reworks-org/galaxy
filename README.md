@@ -7,7 +7,22 @@
 Game programming library using Allegro 5.2.4, Lua 5.3, and C++17.
 
 ## Building
-This project can only currently be build from the provided visual studio 2017 build project. More build systems soon.
+You need git as a prereq to build. Other libraries are downloaded by the build script for you.
+
+### Windows:
+
+
+### MacOSX:
+```
+git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight
+./build-macosx.sh
+```
+
+### Linux:
+```
+git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight
+./build-linux.sh
+```
 
 
 ## Docs
