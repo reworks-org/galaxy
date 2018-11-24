@@ -1,6 +1,7 @@
 # starlight v0.0.0
 
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
+[![Windows build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
+[![Linux & Mac OSX build status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
 [![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=latest)](https://starlight.readthedocs.io/en/latest/?badge=latest)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.md)
 
