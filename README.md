@@ -18,8 +18,8 @@ On Mac OS X you also need [Homebrew](https://brew.sh/) installed.
 
 ### MacOSX:
 ```
-git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight
-cd reworks/starlight
+git clone --recursive --branch=master https://github.com/reworks/starlight.git build
+cd build
 chmod +x build-macosx.sh
 ./build-macosx.sh
 ```
@@ -36,8 +36,8 @@ make config=release_macos all
 Please note that only Ubuntu 18.04 is tested and supported for building. Does build in a docker image.
 
 ```
-git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight
-cd reworks/starlight
+git clone --recursive --branch=master https://github.com/reworks/starlight.git build
+cd build
 chmod +x build-linux.sh
 sudo ./build-linux.sh
 ```

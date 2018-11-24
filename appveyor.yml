@@ -23,4 +23,4 @@ install:
 
 build:
   parallel: true
-  project: build/starlight/starlight.sln
+  project: starlight.sln

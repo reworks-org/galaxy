@@ -42,14 +42,14 @@ before_install:
 script:
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get update"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y git"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd reworks/starlight"; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd build"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "chmod +x build-linux.sh"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "sudo ./build-linux.sh"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make config=debug_linux64 all"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make config=release_linux64 all"; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then cd reworks/starlight; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive --branch=master https://github.com/reworks/starlight.git build; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then cd build; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then chmod +x build-macosx.sh; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then ./build-macosx.sh; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then make config=debug_macos all; fi
