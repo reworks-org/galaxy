@@ -8,6 +8,7 @@ Game programming library using Allegro 5.2.4, Lua 5.3, and C++17.
 
 ## Building
 You need git as a prereq to build. Other libraries are downloaded by the build script for you.
+On Mac OS X you also need [Homebrew](https://brew.sh/) installed.
 
 ### Windows:
 

@@ -41,8 +41,10 @@ before_install:
 
 script:
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight"; fi
+  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd reworks/starlight"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "./build-linux.sh"; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive --branch=master https://github.com/reworks/starlight.git reworks/starlight; fi
+  - if [ $TRAVIS_OS_NAME == osx ]; then cd reworks/starlight; fi
   - if [ $TRAVIS_OS_NAME == osx ]; then ./build-macosx.sh; fi
 
 after_success:
