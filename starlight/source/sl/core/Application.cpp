@@ -23,6 +23,37 @@
 
 #include "Application.hpp"
 
+// GCC 8 Workaround.
+namespace sol
+{
+    template <>
+    struct is_automagical<sl::Rect<float, int>> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::AnimationComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::ParallaxComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::ParticleComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::RenderComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::TransformComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::PhysicsComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<sl::ScrollingBackgroundComponent> : std::false_type {};
+
+	template <>
+	struct is_automagical<entt::DefaultRegistry> : std::false_type {};
+}
+
 namespace sl
 {
 	Application::Application(const std::string& config, std::function<void(std::ofstream&)> newConfig)
