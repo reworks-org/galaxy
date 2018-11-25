@@ -11,6 +11,7 @@
 #define STARLIGHT_VIRTUALFS_HPP_
 
 #include <vector>
+#include <string>
 
 typedef struct ALLEGRO_FILE ALLEGRO_FILE;
 

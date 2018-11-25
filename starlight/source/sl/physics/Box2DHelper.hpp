@@ -97,25 +97,25 @@ namespace sl
 	};
 
 	template<typename T>
-	static constexpr T Box2DHelper::pixelsToMeters(T pixels)
+	constexpr T Box2DHelper::pixelsToMeters(T pixels)
 	{
 		return static_cast<T>(pixels) / static_cast<T>(PIXELS_PER_METER);
 	}
 
 	template<typename T>
-	static constexpr T Box2DHelper::metersToPixels(T meters)
+	constexpr T Box2DHelper::metersToPixels(T meters)
 	{
 		return static_cast<T>(meters) * static_cast<T>(PIXELS_PER_METER);
 	}
 
 	template<typename T>
-	static constexpr T Box2DHelper::degToRad(T deg)
+	constexpr T Box2DHelper::degToRad(T deg)
 	{
 		return (static_cast<T>(PI) * deg) / static_cast<T>(180.0);
 	}
 
 	template<typename T>
-	static constexpr T Box2DHelper::radToDeg(T rad)
+	constexpr T Box2DHelper::radToDeg(T rad)
 	{
 		return (static_cast<T>(180.0) * rad) / static_cast<T>(PI);
 	}
