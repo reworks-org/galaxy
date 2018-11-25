@@ -34,7 +34,8 @@ namespace sl
 			// Then create the animations.
 			animTable.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
-				m_animations.emplace(pair.first.as<std::string>(), Animation{ pair.second.as<sol::table>() });
+				sol::table input = pair.second.as<sol::table>();
+				m_animations.emplace(pair.first.as<std::string>(), Animation{ input });
 			});
 		}
 		else

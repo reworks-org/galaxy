@@ -6,7 +6,7 @@
 workspace "starlight"
 	language "C++"
 	cppdialect "C++17"
-	platforms { "Win32", "Win64", "MacOS", "Linux32", "Linux64" }
+	platforms { "Win32", "Win64", "MacOSX", "Linux32", "Linux64" }
 	configurations {"Debug", "Release"}
 ---
 --- END WORKSPACE
@@ -25,12 +25,12 @@ workspace "starlight"
 		defines { "WIN64" }
 		libdirs { "libs/libxml2/x64", "libs/allegro/x64/lib", "libs/allegro_deps/x64" }
 
-	filter "platforms:MacOS"
-		system "macosx"
-		architecture "x64"
-		includedirs { "starlight/source", os.findheader("libxml2"), os.findheader("allegro"), os.findheader("flac"), os.findheader("freetype"), os.findheader("libogg"), os.findheader("libvorbis"), os.findheader("opusfile"), os.findheader("physfs"), os.findheader("theora"), os.findheader("webp"), os.findheader("libpng"), os.findheader("opus"), os.findheader("jpeg"), os.findheader("openssl") }
-		libdirs { os.findlib("libxml2"), os.findlib("allegro"), os.findlib("flac"), os.findlib("freetype"), os.findlib("libogg"), os.findlib("libvorbis"), os.findlib("opusfile"), os.findlib("physfs"), os.findlib("theora"), os.findlib("webp"), os.findlib("libpng"), os.findlib("opus"), os.findlib("jpeg"), os.findlib("openssl") }
-		links { "libxml2", "allegro", "flac", "freetype", "libogg", "libvorbis", "opusfile", "physfs", "theora", "webp", "libpng", "opus", "jpeg", "openssl" }
+	--filter "platforms:MacOSX"
+		--system "macosx"
+		--architecture "x64"
+		--includedirs { "starlight/source", os.findheader("libxml2"), os.findheader("allegro") }
+		--libdirs { os.findlib("libxml2"), os.findlib("allegro") }
+		--links { "libxml2", "allegro" }
 
 	filter "platforms:Linux32"
 		architecture "x32"

@@ -233,11 +233,11 @@ namespace sl
 		{
 			// Then call the systems destructor and erase it from the map.
 			m_systems[t].reset();
-			m_systems.erase(type);
+			m_systems.erase(t);
 		}
 		else
 		{
-			LOG_S(WARNING) << "Attempted to remove non-existent system id: " << t.name;
+			LOG_S(WARNING) << "Attempted to remove non-existent system id: " << std::string(t.name);
 		}
 	}
 }

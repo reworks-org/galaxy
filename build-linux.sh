@@ -5,4 +5,4 @@ curl -L -o premake5.tar.gz https://github.com/premake/premake-core/releases/down
 tar -xvzf premake5.tar.gz
 export CC=gcc-8
 export CXX=g++-8
-./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
+./premake5 --cc=gcc --os=linux --file=premake5.lua --verbose gmake

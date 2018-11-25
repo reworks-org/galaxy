@@ -169,29 +169,29 @@ namespace sl
 
 			return T();
 		}
-
-		///
-		/// Template specialization for convertString for std::string.
-		///
-		/// \see convertString
-		///
-		template<>
-		static inline const std::string convertString<std::string>(const std::string& data)
-		{
-			return data;
-		}
-
-		///
-		/// Template specialization for convertString for bool.
-		///
-		/// \see convertString
-		///
-		template<>
-		static inline const bool convertString<bool>(const std::string& data)
-		{
-			return Utils::stringToBool(data);
-		}
 	};
-};
+
+	///
+	/// Template specialization for convertString for std::string.
+	///
+	/// \see convertString
+	///
+	template<>
+	inline const std::string Utils::convertString<std::string>(const std::string& data)
+	{
+		return data;
+	}
+
+	///
+	/// Template specialization for convertString for bool.
+	///
+	/// \see convertString
+	///
+	template<>
+	inline const bool Utils::convertString<bool>(const std::string& data)
+	{
+		return Utils::stringToBool(data);
+	}
+}
 
 #endif

@@ -66,13 +66,13 @@ namespace sl
 		/// Copy assignment operator.
 		/// Deleted.
 		///
-		Locator& Locator::operator= (const Locator &) = delete;
+		Locator& operator= (const Locator &) = delete;
 
 		///
 		/// Move assignment operator.
 		/// Deleted.
 		///
-		Locator& Locator::operator= (Locator &&) = delete;
+		Locator& operator= (Locator &&) = delete;
 
 	public:
 		///
