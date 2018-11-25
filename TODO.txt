@@ -30,6 +30,7 @@ This project uses [premake5](https://github.com/premake/premake-core/) and suppo
 - handles or integers / hashed strings over std::string in resource map
 - spdlog over loguru
 - handle errosr with bustom error class. i.e. return REsult ovuect, etc
+https://github.com/gabime/spdlog
 
 docs notes:
 	- make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
