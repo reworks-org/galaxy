@@ -11,19 +11,24 @@ Thumbs.db
 # XCode stuff
 DerivedData/
 
-# Project stuff
+# Docs stuff
 docs/build/
 docs/html/
 docs/xml/
+
+# starlight stuff
 starlight/bin/
 starlight/build/
-starlight/headers/
+starlight/obj/
 
 # Sandbox Stuff
 sandbox/bin/Debug/
 sandbox/bin/Release/
 sandbox/build/
+sandbox/obj/
 sandbox/logs/
+sandbox/bin/logs/
+sandbox/bin/savefiles/
 sandbox/*.ini
 sandbox/*.log
 

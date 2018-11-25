@@ -92,13 +92,13 @@ workspace "starlight"
 ---
 project "starlight"
 	kind "StaticLib"
-	location "build/starlight"
+	location "starlight/"
 	defines { "ALLEGRO_STATICLINK", "LIBXML_STATIC" }
 	files { "starlight/source/**.hpp", "starlight/source/**.cpp", "starlight/source/**.h", "starlight/source/**.c" }
 
 project "sandbox"
 	kind "ConsoleApp"
-	location "build/sandbox"
+	location "sandbox/"
 	defines { "ALLEGRO_STATICLINK", "LIBXML_STATIC" }
 	links { "starlight" }
 	dependson { "starlight" }
