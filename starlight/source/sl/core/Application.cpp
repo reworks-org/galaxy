@@ -24,6 +24,8 @@
 #include "Application.hpp"
 
 // GCC 8 Workaround.
+#ifdef __GNUC__
+
 namespace sol
 {
     template <>
@@ -53,6 +55,8 @@ namespace sol
 	template <>
 	struct is_automagical<entt::DefaultRegistry> : std::false_type {};
 }
+
+#endif
 
 namespace sl
 {

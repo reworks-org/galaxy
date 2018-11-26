@@ -16,10 +16,6 @@ https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-g
 https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
-- googletest or some other testing framework
-- travis-ci build system:
-[![Linux & OSX Build Status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
-This project uses [premake5](https://github.com/premake/premake-core/) and supports Windows, Linux and Mac OS. Please note that only Ubuntu 18.04 is supported for linux.
 
 - write own ui.
 - reflect on box2d / or custom simple physics solution.
@@ -28,9 +24,7 @@ This project uses [premake5](https://github.com/premake/premake-core/) and suppo
 - go over textbooks, appdev, etc to see if project can be improved.
 - math operator overloads need to return reference + inline
 - handles or integers / hashed strings over std::string in resource map
-- spdlog over loguru
 - handle errosr with bustom error class. i.e. return REsult ovuect, etc
-https://github.com/gabime/spdlog
 
 docs notes:
 	- make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
