@@ -2,9 +2,6 @@ language: cpp
 sudo: required
 dist: xenial
 
-services:
-  - docker
-
 git:
   depth: false
 
@@ -31,19 +28,15 @@ matrix:
       - CCCOMPILER=gcc-8
       - CXXCOMPILER=g++-8
 
-before_install:
-  - docker pull ubuntu:18.04
-  - docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash
+before_script:
+  - sudo add-apt-repository -y ppa:allegro/5.2
+  - sudo apt-get update
+  - sudo apt-get install -y git
 
 script:
-  - docker exec -ti travis-ci bash -c "apt-get update"
-  - docker exec -ti travis-ci bash -c "apt-get install -y git"
-  - docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"
-  - docker exec -ti travis-ci bash -c "cd build"
-  - docker exec -ti travis-ci bash -c "chmod +x build.sh"
-  - docker exec -ti travis-ci bash -c "./build.sh"
-  - docker exec -ti travis-ci bash -c "make config=debug_linux64 all"
-  - docker exec -ti travis-ci bash -c "make config=release_linux64 all"
-
-after_script:
-  - docker stop travis-ci
+  - git clone --recursive --branch=master https://github.com/reworks/starlight.git build
+  - cd build
+  - chmod +x build.sh
+  - sudo ./build.sh
+  - make config=debug_linux64 all
+  - make config=release_linux64 all

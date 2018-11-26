@@ -32,7 +32,14 @@ Build whole solution.
 
 
 ### Linux:
-Please note that only Ubuntu 18.04 is tested and supported for building. Does build in a docker image.
+Please note that only Ubuntu 18.04 is tested and supported for building. 
+You may need to add allegro 5.2 repositories to previous versions of Ubuntu to have the build script work. I.e.
+
+```
+sudo add-apt-repository ppa:allegro/5.2
+```
+
+
 
 ```
 git clone --recursive --branch=master https://github.com/reworks/starlight.git build
