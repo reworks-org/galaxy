@@ -36,12 +36,12 @@ before_install:
   - docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash
 
 script:
-  - docker exec -ti travis-ci bash -c "sudo apt-get update"
-  - docker exec -ti travis-ci bash -c "sudo apt-get install -y git"
+  - docker exec -ti travis-ci bash -c "apt-get update"
+  - docker exec -ti travis-ci bash -c "apt-get install -y git"
   - docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"
   - docker exec -ti travis-ci bash -c "cd build"
   - docker exec -ti travis-ci bash -c "chmod +x build.sh"
-  - docker exec -ti travis-ci bash -c "sudo ./build.sh"
+  - docker exec -ti travis-ci bash -c "./build.sh"
   - docker exec -ti travis-ci bash -c "make config=debug_linux64 all"
   - docker exec -ti travis-ci bash -c "make config=release_linux64 all"
 
