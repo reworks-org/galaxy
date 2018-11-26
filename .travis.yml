@@ -32,18 +32,18 @@ matrix:
       - CXXCOMPILER=g++-8
 
 before_install:
-  - then docker pull ubuntu:18.04
-  - then docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash
+  - docker pull ubuntu:18.04
+  - docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash
 
 script:
-  - then docker exec -ti travis-ci bash -c "apt-get update"
-  - then docker exec -ti travis-ci bash -c "apt-get install -y git"
-  - then docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"
-  - then docker exec -ti travis-ci bash -c "cd build"
-  - then docker exec -ti travis-ci bash -c "chmod +x build-linux.sh"
-  - then docker exec -ti travis-ci bash -c "sudo ./build-linux.sh"
-  - then docker exec -ti travis-ci bash -c "make config=debug_linux64 all"
-  - then docker exec -ti travis-ci bash -c "make config=release_linux64 all"
+  - docker exec -ti travis-ci bash -c "sudo apt-get update"
+  - docker exec -ti travis-ci bash -c "sudo apt-get install -y git"
+  - docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"
+  - docker exec -ti travis-ci bash -c "cd build"
+  - docker exec -ti travis-ci bash -c "chmod +x build.sh"
+  - docker exec -ti travis-ci bash -c "sudo ./build.sh"
+  - docker exec -ti travis-ci bash -c "make config=debug_linux64 all"
+  - docker exec -ti travis-ci bash -c "make config=release_linux64 all"
 
-after_success:
-  - then docker stop travis-ci
+after_script:
+  - docker stop travis-ci

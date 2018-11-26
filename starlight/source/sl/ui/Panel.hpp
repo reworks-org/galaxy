@@ -98,7 +98,7 @@ namespace sl
 	_Widget* Panel::addWidget(Args&&... args)
 	{
 		// Forward arguments to std::vector's construct in place method.
-		_Widget* ref = m_panels.emplace_back(std::make_unique<_Widget>(std::forward<Args>(args)...)).get();
+		_Widget* ref = m_widgets.emplace_back(std::make_unique<_Widget>(std::forward<Args>(args)...)).get();
 
 		// Then return a pointer to object placed.
 		return ref;
