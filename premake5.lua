@@ -6,7 +6,7 @@
 workspace "starlight"
 	language "C++"
 	cppdialect "C++17"
-	platforms { "Win32", "Win64", "MacOSX", "Linux32", "Linux64" }
+	platforms { "Win32", "Win64", "Linux32", "Linux64" }
 	configurations {"Debug", "Release"}
 ---
 --- END WORKSPACE
@@ -24,13 +24,6 @@ workspace "starlight"
 		architecture "x64"
 		defines { "WIN64" }
 		libdirs { "libs/libxml2/x64", "libs/allegro/x64/lib", "libs/allegro_deps/x64" }
-
-	--filter "platforms:MacOSX"
-		--system "macosx"
-		--architecture "x64"
-		--includedirs { "starlight/source", os.findheader("libxml2"), os.findheader("allegro") }
-		--libdirs { os.findlib("libxml2"), os.findlib("allegro") }
-		--links { "libxml2", "allegro" }
 
 	filter "platforms:Linux32"
 		architecture "x32"

@@ -19,10 +19,6 @@ notifications:
 
 matrix:
   include:
-    os: osx
-    osx_image: xcode10.1
-    compiler: clang
-    env: CXXCOMPILER=clang++
     os: linux
     compiler: gcc
     addons:
@@ -36,24 +32,18 @@ matrix:
       - CXXCOMPILER=g++-8
 
 before_install:
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker pull ubuntu:18.04; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash; fi
+  - then docker pull ubuntu:18.04
+  - then docker run --name travis-ci -v $TRAVIS_BUILD_DIR:/reworks/starlight -td ubuntu:18.04 /bin/bash
 
 script:
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get update"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "apt-get install -y git"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "cd build"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "chmod +x build-linux.sh"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "sudo ./build-linux.sh"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make config=debug_linux64 all"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker exec -ti travis-ci bash -c "make config=release_linux64 all"; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then git clone --recursive --branch=master https://github.com/reworks/starlight.git build; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then cd build; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then chmod +x build-macosx.sh; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then ./build-macosx.sh; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then make config=debug_macos all; fi
-  - if [ $TRAVIS_OS_NAME == osx ]; then make config=release_macos all; fi
+  - then docker exec -ti travis-ci bash -c "apt-get update"
+  - then docker exec -ti travis-ci bash -c "apt-get install -y git"
+  - then docker exec -ti travis-ci bash -c "git clone --recursive --branch=master https://github.com/reworks/starlight.git build"
+  - then docker exec -ti travis-ci bash -c "cd build"
+  - then docker exec -ti travis-ci bash -c "chmod +x build-linux.sh"
+  - then docker exec -ti travis-ci bash -c "sudo ./build-linux.sh"
+  - then docker exec -ti travis-ci bash -c "make config=debug_linux64 all"
+  - then docker exec -ti travis-ci bash -c "make config=release_linux64 all"
 
 after_success:
-  - if [ $TRAVIS_OS_NAME == linux ]; then docker stop travis-ci; fi
+  - then docker stop travis-ci

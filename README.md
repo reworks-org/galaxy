@@ -1,7 +1,7 @@
 # starlight
 
 [![Windows build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
-[![Linux & Mac OSX build status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
+[![Linux build status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
 [![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=latest)](https://starlight.readthedocs.io/en/latest/?badge=latest)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
@@ -9,8 +9,6 @@ Game programming library using Allegro 5.2.4, Lua 5.3, and C++17. This was built
 
 ## Building
 You need git as a prereq to build. Other libraries are downloaded by the build script for you.
-
-On Mac OS X you also need [Homebrew](https://brew.sh/) installed.
 
 For Windows, you can use premake, but a solution file is provided.
 
@@ -26,26 +24,10 @@ or
 
 ```
 Download repository using git or the web interface. Enter the directory.
-Run build-windows.bat. This will use premake5 to generate build files for you.
+Run build.bat. This will use premake5 to generate build files for you.
 Open starlight.sln
 Select build configuration and architecture.
 Build whole solution.
-```
-
-
-### MacOSX:
-```
-git clone --recursive --branch=master https://github.com/reworks/starlight.git build
-cd build
-chmod +x build-macosx.sh
-./build-macosx.sh
-```
-
-Then you can check the makefile for your platform configs and run make on it. E.g.:
-
-```
-make config=debug_macos all
-make config=release_macos all
 ```
 
 
@@ -55,8 +37,8 @@ Please note that only Ubuntu 18.04 is tested and supported for building. Does bu
 ```
 git clone --recursive --branch=master https://github.com/reworks/starlight.git build
 cd build
-chmod +x build-linux.sh
-sudo ./build-linux.sh
+chmod +x build.sh
+sudo ./build.sh
 ```
 
 Then you can check the makefile for your platform configs and run make on it. E.g.:
@@ -88,7 +70,7 @@ Can be built from [doxygen](https://github.com/reworks/starlight/tree/master/doc
 - [libxml2](http://xmlsoft.org/downloads.html) for XML support.
 - Built on top of [Allegro5](https://liballeg.org/).
 - [TMX parser](https://github.com/baylej/tmx) for loading TMX maps.
-- Cross-Platform compatibility.
+- Linux support!
 
 ## Credits
 

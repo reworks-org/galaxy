@@ -19,7 +19,7 @@ configuration:
   - Release
 
 #install:
-#- cmd: build-windows.bat
+#- cmd: build.bat
 
 build:
   parallel: true
