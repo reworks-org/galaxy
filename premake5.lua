@@ -74,7 +74,7 @@ workspace "starlight"
 
 	filter { "platforms:Linux32 or Linux64"}
 		system "linux"
-		includedirs { "starlight/source", "/usr/include/", "/usr/include/libxml2/" }
+		includedirs { "starlight/source", "/usr/include/", "/usr/include/libxml2/", os.findheader("libxml2-dev"), , os.findheader("liballegro5-dev") }
 		links { "GL", "stdc++fs", "xml2", "allegro", "allegro_ttf", "allegro_font", "allegro_main", "allegro_audio", "allegro_color", "allegro_image", "allegro_video", "allegro_acodec", "allegro_dialog", "allegro_physfs", "allegro_memfile", "allegro_primitives", "physfs", "pthread", "dl", "z" }
 		buildoptions { "-lstdc++fs" }
 ---
