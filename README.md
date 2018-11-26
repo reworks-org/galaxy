@@ -1,7 +1,6 @@
 # starlight
 
-[![Windows build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
-[![Linux build status](https://travis-ci.org/reworks/starlight.svg?branch=master)](https://travis-ci.org/reworks/starlight)
+[![Build Status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
 [![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=latest)](https://starlight.readthedocs.io/en/latest/?badge=latest)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
@@ -37,9 +36,8 @@ You may need to add allegro 5.2 repositories to previous versions of Ubuntu to h
 
 ```
 sudo add-apt-repository ppa:allegro/5.2
+sudo apt-get update
 ```
-
-
 
 ```
 git clone --recursive --branch=master https://github.com/reworks/starlight.git build
