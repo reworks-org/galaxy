@@ -1,6 +1,6 @@
 # starlight
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
+[![Build Status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/DomRe/starlight)
 [![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=latest)](https://starlight.readthedocs.io/en/latest/?badge=latest)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
@@ -67,9 +67,9 @@ Can be built from [doxygen](https://github.com/reworks/starlight/tree/master/doc
 
 ## Features
 - Uses Modern C++, including C++17 features.
-- Uses [ennt](https://github.com/skypjack/entt) and built around ECS principles.
+- Uses [entt](https://github.com/skypjack/entt) and built around ECS principles.
 - Build system provided by [premake5](https://premake.github.io/download.html).
-- Fast logging provided by [spdlog](https://github.com/gabime/spdlog).
+- Logging provided by [loguru](https://github.com/emilk/loguru).
 - [ImGui](https://github.com/ocornut/imgui) for making and using debugging and utility UI.
 - [sol2](https://github.com/ThePhD/sol2) for [Lua](https://www.lua.org/) integration.
 - [libxml2](http://xmlsoft.org/downloads.html) for XML support.
