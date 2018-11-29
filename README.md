@@ -89,5 +89,3 @@ sercode.ttf:
 
 Resources used in sandbox demo:
 Various from opengameart.org. No copyright infringement intended.
-
-![starlight](logo.png?raw=true "starlight")
