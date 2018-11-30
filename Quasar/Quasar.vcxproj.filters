@@ -4,8 +4,9 @@
     <ClCompile Include="src\qs\core\Window.cpp" />
     <ClCompile Include="src\qs\libs\glad\glad.c" />
     <ClCompile Include="src\qs\libs\glm\detail\glm.cpp" />
-    <ClCompile Include="src\qs\utils\Error.cpp" />
     <ClCompile Include="src\qs\Colour.cpp" />
+    <ClCompile Include="src\qs\error\Result.cpp" />
+    <ClCompile Include="src\qs\error\Error.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Window.hpp" />
@@ -249,8 +250,9 @@
     <ClInclude Include="src\qs\libs\glm\vec3.hpp" />
     <ClInclude Include="src\qs\libs\glm\vec4.hpp" />
     <ClInclude Include="src\qs\libs\glm\vector_relational.hpp" />
-    <ClInclude Include="src\qs\utils\Error.hpp" />
     <ClInclude Include="src\qs\Colour.hpp" />
+    <ClInclude Include="src\qs\error\Result.hpp" />
+    <ClInclude Include="src\qs\error\Error.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\qs\libs\glm\detail\func_common.inl" />

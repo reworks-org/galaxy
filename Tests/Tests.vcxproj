@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\TestWindow.cpp" />
+    <ClCompile Include="src\error\TestError.cpp" />
+    <ClCompile Include="src\error\TestResult.cpp" />
     <ClCompile Include="src\googletest\gtest-death-test.cc" />
     <ClCompile Include="src\googletest\gtest-filepath.cc" />
     <ClCompile Include="src\googletest\gtest-port.cc" />
@@ -29,7 +31,6 @@
     <ClCompile Include="src\googletest\gtest.cc" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\TestColour.cpp" />
-    <ClCompile Include="src\utils\TestError.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\googletest\gtest\gtest-death-test.h" />
