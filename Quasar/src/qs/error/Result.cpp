@@ -11,13 +11,12 @@
 namespace qs
 {
 	// Static declarations.
-	qs::Result qs::Result::SUCCESS{ qs::Result::Status::SUCCESS };
-	qs::Result qs::Result::ERROR{ qs::Result::Status::ERROR };
-	qs::Result qs::Result::FATAL{ qs::Result::Status::FATAL };
-	
+	qs::Result qs::Result::SUCCESS(qs::Result::Status::SUCCESS);
+	qs::Result qs::Result::ERROR(qs::Result::Status::ERROR);
+	qs::Result qs::Result::FATAL(qs::Result::Status::FATAL);
 
 	Result::Result()
-		:m_message(""), m_type(qs::Result::Status::SUCCESS)
+		:m_message(""), m_status(qs::Result::Status::SUCCESS)
 	{
 	}
 

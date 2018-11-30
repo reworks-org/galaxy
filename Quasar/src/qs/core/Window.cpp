@@ -6,7 +6,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "qs/utils/Error.hpp"
+#include "qs/error/Error.hpp"
 #include "qs/libs/glad/glad.h"
 
 #include "Window.hpp"

@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include <qs/core/Window.hpp>
-#include <qs/utils/Error.hpp>
+#include <qs/error/Error.hpp>
 
 int main(int argsc, char* argsv[])
 {

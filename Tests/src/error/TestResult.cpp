@@ -16,9 +16,9 @@ TEST(Result, ErrorHandling)
 {
 	// Set up results.
 	qs::Result default;
-	qs::Result success { qs::Result::Status::SUCCESS, "success" };
-	qs::Result error { qs::Result::Status::ERROR, "error" };
-	qs::Result fatal { qs::Result::Status::FATAL, "fatal" };
+	qs::Result success(qs::Result::Status::SUCCESS, "success");
+	qs::Result error(qs::Result::Status::ERROR, "error");
+	qs::Result fatal(qs::Result::Status::FATAL, "fatal");
 
 	// Test constructors.
 	ASSERT_EQ(default.m_status, qs::Result::Status::SUCCESS);

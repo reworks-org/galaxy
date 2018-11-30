@@ -19,6 +19,27 @@ namespace qs
 	struct Result
 	{
 		///
+		/// Error status to return. Specifically, the type of error.
+		///
+		enum class Status
+		{
+			///
+			/// When everything is good.
+			///
+			SUCCESS,
+
+			///
+			/// When there is an error or issue, but it does not affect the program running.
+			///
+			ERROR,
+
+			///
+			/// For when there is an unrecoverable error.
+			///
+			FATAL
+		};
+
+		///
 		/// Comparison object for success cases.
 		///
 		static qs::Result SUCCESS;
@@ -44,27 +65,6 @@ namespace qs
 		Result(qs::Result::Status status, const std::string& message = "");
 
 		///
-		/// Error status to return. Specifically, the type of error.
-		///
-		enum class Status
-		{
-			///
-			/// When everything is good.
-			///
-			SUCCESS,
-
-			///
-			/// When there is an error or issue, but it does not affect the program running.
-			///
-			ERROR,
-
-			///
-			/// For when there is an unrecoverable error.
-			///
-			FATAL
-		};
-
-		///
 		/// Message about the result.
 		///
 		std::string m_message;
@@ -78,17 +78,17 @@ namespace qs
 	///
 	/// Comparison operator for results.
 	///
-	bool operator==(const qs::Result& a, const qs::Result& b)
+	bool inline operator==(const qs::Result& a, const qs::Result& b)
 	{
-		return (a.m_type == b.m_type) ? true : false;
+		return (a.m_status == b.m_status) ? true : false;
 	}
 
 	///
 	/// Comparison operator for not results.
 	///
-	bool operator!=(const qs::Result& a, const qs::Result& b)
+	bool inline operator!=(const qs::Result& a, const qs::Result& b)
 	{
-		return (a.m_type != b.m_type) ? true : false;
+		return (a.m_status != b.m_status) ? true : false;
 	}
 }
 
