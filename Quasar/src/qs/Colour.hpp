@@ -24,7 +24,7 @@ namespace qs
 		///
 		/// Defaults to black, fully opaque.
 		///
-		explicit Colour() noexcept;
+		Colour() noexcept;
 
 		///
 		/// Alternate constructor.
@@ -74,7 +74,7 @@ namespace qs
 	///
 	/// qs::Colour == Ooperator overload.
 	///
-	inline bool operator==(const qs::Colour& a, const qs::Colour& b)
+	inline bool operator==(const qs::Colour& a, const qs::Colour& b) noexcept
 	{
 		// Equality operator overloading.
 		return ((a.m_red == b.m_red) && (a.m_green == b.m_green) && (a.m_blue == b.m_blue) && (a.m_alpha == b.m_alpha));
@@ -83,7 +83,7 @@ namespace qs
 	///
 	/// qs::Colour != operator overload.
 	///
-	inline bool operator!=(const qs::Colour& a, const qs::Colour& b)
+	inline bool operator!=(const qs::Colour& a, const qs::Colour& b) noexcept
 	{
 		// Not operator overloading.
 		return ((a.m_red != b.m_red) || (a.m_green != b.m_green) || (a.m_blue != b.m_blue) || (a.m_alpha != b.m_alpha));

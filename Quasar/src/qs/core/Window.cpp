@@ -6,7 +6,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "qs/error/Error.hpp"
 #include "qs/libs/glad/glad.h"
 
 #include "Window.hpp"
@@ -18,12 +17,6 @@ namespace qs
 	{
 	}
 
-	Window::Window(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
-		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
-	{
-		create(title, w, h, windowFlags);
-	}
-
 	Window::~Window() noexcept
 	{
 		// Call again to ensure everything is cleaned up.
@@ -31,9 +24,10 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
+	qs::Result Window::create(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
 	{
-		bool success = true;
+		// Function result.
+		qs::Result result;
 
 		// Set the version of OpenGL we want to use.
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -55,9 +49,10 @@ namespace qs
 		// Then if the window failed to create:
 		if (!m_window)
 		{
-			// Set error message.
-			qs::Error::handle.setError("Window failed to be created! SDL_Error: " + std::string(SDL_GetError()));
-			success = false;
+			// Set error info.
+			result.m_message = "Window failed to create! SDL_Error: ";
+			result.m_message += SDL_GetError();
+			result.m_status = qs::Result::Status::FAILURE;
 		}
 		else
 		{
@@ -67,20 +62,19 @@ namespace qs
 			// Then if context failed to create:
 			if (!m_glContext)
 			{
-				// Set error message.
-				qs::Error::handle.setError("OpenGL context failed to be created! SDL_Error: " + std::string(SDL_GetError()));
-				success = false;
+				// Set error info.
+				result.m_message = "OpenGL context failed to be created! SDL_Error: ";
+				result.m_message += SDL_GetError();
+				result.m_status = qs::Result::Status::FAILURE;
 			}
 			else
 			{
-				// REST OF CODE HERE.
-				//SDL_GL_SetSwapInterval(0);
-
 				// Set up glad gl loader with SDL2.
 				if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
 				{
-					qs::Error::handle.setError("Failed to init glad.");
-					success = false;
+					result.m_message = "Failed to init glad. glError: ";
+					result.m_message += std::to_string(glad_glGetError());
+					result.m_status = qs::Result::Status::FAILURE;
 				}
 				else
 				{
@@ -90,7 +84,7 @@ namespace qs
 			}
 		}
 
-		return success;
+		return result;
 	}
 
 	void Window::destroy() noexcept
@@ -120,8 +114,14 @@ namespace qs
 		m_isOpen = false;
 	}
 
+	void Window::onSizeChanged(int w, int h) noexcept
+	{
+		glViewport(0, 0, w, h);
+	}
+
 	void Window::resize(int w, int h) noexcept
 	{
+		SDL_SetWindowSize(m_window, w, h);
 		glViewport(0, 0, w, h);
 	}
 

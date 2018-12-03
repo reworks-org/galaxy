@@ -16,7 +16,7 @@ namespace qs
 	///
 	/// Returns from a function. Contains information about the result of the function.
 	///
-	struct Result
+	struct Result final
 	{
 		///
 		/// Error status to return. Specifically, the type of error.
@@ -29,14 +29,9 @@ namespace qs
 			SUCCESS,
 
 			///
-			/// When there is an error or issue, but it does not affect the program running.
+			/// When there is an error or issue, etc.
 			///
-			ERROR,
-
-			///
-			/// For when there is an unrecoverable error.
-			///
-			FATAL
+			FAILURE
 		};
 
 		///
@@ -45,24 +40,27 @@ namespace qs
 		static qs::Result SUCCESS;
 
 		///
-		/// Comparison object for error cases.
+		/// Comparison object for failed cases.
 		///
-		static qs::Result ERROR;
-
-		///
-		/// Comparison object for fatal cases.
-		///
-		static qs::Result FATAL;
+		static qs::Result FAILURE;
 
 		///
 		/// Default constructor.
 		///
-		Result();
+		Result() noexcept;
 
 		///
 		/// Alternate constructor.
 		///
-		Result(qs::Result::Status status, const std::string& message = "");
+		explicit Result(const std::string& message, qs::Result::Status status) noexcept;
+
+		///
+		/// Overload logical comparison operations.
+		///
+		explicit inline operator bool() const noexcept
+		{
+			return (m_status == qs::Result::Status::SUCCESS);
+		}
 
 		///
 		/// Message about the result.
@@ -78,7 +76,7 @@ namespace qs
 	///
 	/// Comparison operator for results.
 	///
-	bool inline operator==(const qs::Result& a, const qs::Result& b)
+	inline bool operator==(const qs::Result& a, const qs::Result& b) noexcept
 	{
 		return (a.m_status == b.m_status) ? true : false;
 	}
@@ -86,7 +84,7 @@ namespace qs
 	///
 	/// Comparison operator for not results.
 	///
-	bool inline operator!=(const qs::Result& a, const qs::Result& b)
+	inline bool operator!=(const qs::Result& a, const qs::Result& b) noexcept
 	{
 		return (a.m_status != b.m_status) ? true : false;
 	}

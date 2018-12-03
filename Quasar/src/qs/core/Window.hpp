@@ -11,9 +11,10 @@
 
 #include <string>
 
-#include <SDL2/SDL.h>
+#include <SDL2/SDL_video.h>
 
 #include "qs/Colour.hpp"
+#include "qs/utils/Result.hpp"
 
 namespace qs
 {
@@ -27,18 +28,6 @@ namespace qs
 		/// Default constructed window.
 		///
 		Window() noexcept;
-
-		///
-		/// \brief Construct a Window.
-		///
-		/// Shortcut to calling create(). Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
-		///
-		/// \param title Title of the window.
-		/// \param w Width of the window.
-		/// \param h Height of the window.
-		/// \param windowFlags SDL2 Window flags. You do not need to specify SDL_WINDOW_OPENGL or SDL_WINDOW_SHOWN.
-		///
-		explicit Window(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -59,7 +48,7 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
+		qs::Result create(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -83,9 +72,22 @@ namespace qs
 		void close() noexcept;
 		
 		///
-		/// \brief Resize the Window and GL context.
+		/// \brief Resizes the OpenGL viewport.
 		///
 		/// You need to call this when the window resize event is triggered.
+		/// Example: 
+		///
+		///	case SDL_WINDOWEVENT_SIZE_CHANGED:
+		///      onResize(event->window.data1, event->window.data2);
+		///      break;
+		///
+		/// \param w New width of the window.
+		/// \param h new height of the window.
+		///
+		void onSizeChanged(int w, int h) noexcept;
+
+		///
+		/// Resizes window and gl viewport.
 		///
 		/// \param w New width of the window.
 		/// \param h new height of the window.

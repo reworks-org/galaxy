@@ -7,6 +7,7 @@
 ///
 
 #include <qs/core/Window.hpp>
+#include <qs/utils/Result.hpp>
 
 #include "gtest/gtest.h"
 
@@ -20,23 +21,9 @@ TEST(Window, DefaultConstructor)
 	ASSERT_EQ(nullptr, window.getContext());
 
 	// Now test creation and destruction.
-	bool result = window.create("test", 800, 600, SDL_WINDOW_HIDDEN);
+	qs::Result result = window.create("test", 800, 600, SDL_WINDOW_HIDDEN);
 
-	ASSERT_EQ(true, result);
-	ASSERT_NE(nullptr, window.getWindow());
-	ASSERT_NE(nullptr, window.getContext());
-
-	window.destroy();
-	ASSERT_EQ(nullptr, window.getWindow());
-	ASSERT_EQ(nullptr, window.getContext());
-}
-
-TEST(Window, AlternateConstructor)
-{
-	// Make sure it is properly constructed from constructor and that it is properly destroyed.
-	qs::Window window("test", 800, 600, SDL_WINDOW_HIDDEN);
-
-	ASSERT_EQ(true, window.isOpen());
+	ASSERT_EQ(result, qs::Result::SUCCESS);
 	ASSERT_NE(nullptr, window.getWindow());
 	ASSERT_NE(nullptr, window.getContext());
 

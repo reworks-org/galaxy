@@ -17,7 +17,7 @@ post processing later
 
 - method of options
 	- config structure? to be filled by user and retrieved by window. Might be gud.
-	- for AA and Hardware Acc in window...
+	- for AA and Hardware Acc in window, and vsync. SDL_GL_SetSwapInterval(0);
 
 
 - clang-7 builds to travis-ci
