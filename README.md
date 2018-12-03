@@ -14,3 +14,7 @@
 - premake5 script provided for Windows and Linux.
 - Visual Studio 2017 project files provided for Windows.
 - Mac OS is not supported due to Apple depreciating OpenGL.
+
+## Tests:
+- Built as part of the project. Run the compiled binary.
+- Certain tests will fail when ran through continous integration, since, i.e. an sdl window cant be created.
