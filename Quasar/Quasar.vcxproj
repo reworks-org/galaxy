@@ -19,14 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\qs\Colour.cpp" />
+    <ClCompile Include="src\qs\core\Colour.cpp" />
+    <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\utils\Result.cpp" />
     <ClCompile Include="src\qs\libs\glad\glad.c" />
     <ClCompile Include="src\qs\libs\glm\detail\glm.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\qs\Colour.hpp" />
+    <ClInclude Include="src\qs\core\Colour.hpp" />
+    <ClInclude Include="src\qs\core\Shader.hpp" />
+    <ClInclude Include="src\qs\core\Sprite.hpp" />
     <ClInclude Include="src\qs\utils\Result.hpp" />
     <ClInclude Include="src\qs\libs\glad\glad.h" />
     <ClInclude Include="src\qs\libs\glad\KHR\khrplatform.h" />
@@ -400,6 +403,7 @@
     <None Include="src\qs\libs\glm\gtx\vector_angle.inl" />
     <None Include="src\qs\libs\glm\gtx\vector_query.inl" />
     <None Include="src\qs\libs\glm\gtx\wrap.inl" />
+    <None Include="src\qs\core\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

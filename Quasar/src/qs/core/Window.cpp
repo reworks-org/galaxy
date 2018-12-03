@@ -6,6 +6,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <iostream>
+
 #include "qs/libs/glad/glad.h"
 
 #include "Window.hpp"
@@ -80,6 +82,9 @@ namespace qs
 				{
 					// Set up the viewport.
 					glViewport(0, 0, w, h);
+
+					// Print OpenGL version.
+					std::cout << "OpenGL v" << glGetString(GL_VERSION) << std::endl;
 				}
 			}
 		}

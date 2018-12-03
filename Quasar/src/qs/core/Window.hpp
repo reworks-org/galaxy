@@ -13,7 +13,7 @@
 
 #include <SDL2/SDL_video.h>
 
-#include "qs/Colour.hpp"
+#include "qs/core/Colour.hpp"
 #include "qs/utils/Result.hpp"
 
 namespace qs

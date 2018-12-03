@@ -29,7 +29,7 @@
     <ClCompile Include="src\googletest\gtest-typed-test.cc" />
     <ClCompile Include="src\googletest\gtest.cc" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\TestColour.cpp" />
+    <ClCompile Include="src\core\TestColour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\googletest\gtest\gtest-death-test.h" />

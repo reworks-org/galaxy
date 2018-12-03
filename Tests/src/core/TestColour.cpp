@@ -6,7 +6,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/Colour.hpp>
+#include <qs/core/Colour.hpp>
 #include <SDL2/SDL_pixels.h>
 
 #include "gtest/gtest.h"
