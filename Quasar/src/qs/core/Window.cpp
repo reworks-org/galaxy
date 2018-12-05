@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "qs/libs/glad/glad.h"
+#include "qs/utils/Error.hpp"
 
 #include "Window.hpp"
 
@@ -19,6 +20,15 @@ namespace qs
 	{
 	}
 
+	Window::Window(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
+		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
+	{
+		if (!create(title, w, h, windowFlags))
+		{
+			qs::Error::handle.callback("Window.cpp", 28, "Window creation failed!");
+		}
+	}
+
 	Window::~Window() noexcept
 	{
 		// Call again to ensure everything is cleaned up.
@@ -26,13 +36,13 @@ namespace qs
 		destroy();
 	}
 
-	qs::Result Window::create(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
+	bool Window::create(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
 	{
 		// Function result.
-		qs::Result result;
+		bool result = true;
 
 		// Set the version of OpenGL we want to use.
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
@@ -45,6 +55,11 @@ namespace qs
 		// Make sure forward-compatible context.
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
 
+		// Set debug when compiling for debug mode.
+		#ifdef _DEBUG
+			SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
+		#endif
+
 		// Create the window from input, ensuring it is centered in the screen.
 		m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, windowFlags | SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
@@ -52,9 +67,11 @@ namespace qs
 		if (!m_window)
 		{
 			// Set error info.
-			result.m_message = "Window failed to create! SDL_Error: ";
-			result.m_message += SDL_GetError();
-			result.m_status = qs::Result::Status::FAILURE;
+			std::string msg = "Window failed to create! SDL_Error: ";
+			msg += SDL_GetError();
+			
+			qs::Error::handle.callback("Window.cpp", 59, msg);
+			result = false;
 		}
 		else
 		{
@@ -65,18 +82,21 @@ namespace qs
 			if (!m_glContext)
 			{
 				// Set error info.
-				result.m_message = "OpenGL context failed to be created! SDL_Error: ";
-				result.m_message += SDL_GetError();
-				result.m_status = qs::Result::Status::FAILURE;
+				std::string msg = "OpenGL context failed to be created! SDL_Error: ";
+				msg += SDL_GetError();
+
+				qs::Error::handle.callback("Window.cpp", 74, msg);
+				result = false;
 			}
 			else
 			{
 				// Set up glad gl loader with SDL2.
 				if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
 				{
-					result.m_message = "Failed to init glad. glError: ";
-					result.m_message += std::to_string(glad_glGetError());
-					result.m_status = qs::Result::Status::FAILURE;
+					std::string msg = "Failed to init glad.";
+
+					qs::Error::handle.callback("Window.cpp", 84, msg);
+					result = false;
 				}
 				else
 				{
@@ -84,7 +104,8 @@ namespace qs
 					glViewport(0, 0, w, h);
 
 					// Print OpenGL version.
-					std::cout << "OpenGL v" << glGetString(GL_VERSION) << std::endl;
+					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+					qs::Error::handle.callback("Window.cpp", 93, msg);
 				}
 			}
 		}

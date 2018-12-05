@@ -48,14 +48,7 @@ namespace qs
 
 	SDL_Colour Colour::asSDL() noexcept
 	{
-		SDL_Colour col;
-
 		// Makes sure floats are properly converted into 0..255 bytes.
-		col.r = fromFloat(m_red);
-		col.g = fromFloat(m_green);
-		col.b = fromFloat(m_blue);
-		col.a = fromFloat(m_alpha);
-
-		return col;
+		return { fromFloat(m_red), fromFloat(m_green), fromFloat(m_blue), fromFloat(m_alpha) };
 	}
 }

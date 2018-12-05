@@ -14,7 +14,6 @@
 #include <SDL2/SDL_video.h>
 
 #include "qs/core/Colour.hpp"
-#include "qs/utils/Result.hpp"
 
 namespace qs
 {
@@ -28,6 +27,19 @@ namespace qs
 		/// Default constructed window.
 		///
 		Window() noexcept;
+
+		///
+		/// \brief Window creation constructor.
+		///
+		/// Calls create().
+		/// Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
+		///
+		/// \param title Title of the window.
+		/// \param w Width of the window.
+		/// \param h Height of the window.
+		/// \param windowFlags SDL2 Window flags.
+		///
+		explicit Window(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -48,7 +60,7 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		qs::Result create(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
+		bool create(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.

@@ -9,53 +9,71 @@
 #ifndef QUASAR_SHADER_HPP_
 #define QUASAR_SHADER_HPP_
 
-#include "qs/utils/Result.hpp"
+#include <string>
+#include <filesystem>
 
 namespace qs
 {
 	///
-	/// Represents the source of a shader.
-	///
-	struct ShaderSource
-	{
-		///
-		/// The type of the shader. Vertex, fragment, etc.
-		///
-		GLenum m_type;
-
-		///
-		/// The source code of the shader.
-		///
-		std::string m_source;
-	};
-
-	///
 	/// Class for managing OpenGL shader programs.
 	///
-	class Shader
+	class Shader final
 	{
 	public:
 		///
-		/// Represents the type of the shader.
+		/// Default constructor.
 		///
-		enum class Type
-		{
-			VERTEX,
-			FRAGMENT,
-			GEOMETRY
-		};
+		Shader() noexcept;
 
-		Shader();
-		~Shader();
+		///
+		/// Creation Constructor.
+		///
+		/// \param vertexFile Path to vertex shader source code.
+		/// \param fragmentFile Path to fragment shader source code.
+		///
+		Shader(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
 
-		qs::Result load(const std::string& source, qs::Shader::Type type);
+		///
+		/// Default destructor.
+		///
+		~Shader() noexcept;
 
-		void use();
+		///
+		/// Loads a shader into OpenGL from source and sets up the shader program.
+		///
+		/// \param vertexFile Path to vertex shader source code.
+		/// \param fragmentFile Path to fragment shader source code.
+		///
+		/// \return boolean True if successful.
+		///
+		bool load(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
+
+		///
+		/// Enable this shader for rendering.
+		///
+		void use() noexcept;
+
+		///
+		/// Disable this currently active shader.
+		///
+		void disable() noexcept;
+
+		template<typename Type>
+		void setUniform(const std::string& name, Type value) const noexcept;
 
 	private:
-		qs::Shader::Type m_type;
+		///
+		/// OpenGL id of shader program.
+		///
 		unsigned int m_id;
+
+		std::unordered_map<std::string, int> m_cache;
 	};
+
+	template<typename Type>
+	inline void Shader::setUniform(const std::string& name, Type value) const noexcept
+	{
+	}
 }
 
 #endif

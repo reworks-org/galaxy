@@ -34,14 +34,14 @@ namespace qs
 		/// \param b Blue colour. 0.0-1.0.
 		/// \param a Alpha. 0.0-1.0.
 		///
-		explicit Colour(float r, float g, float b, float a) noexcept;
+		Colour(float r, float g, float b, float a) noexcept;
 
 		///
 		/// Construct qs::Colour from SDL_Colour.
 		///
 		/// \param colour Colour to construct from.
 		///
-		explicit Colour(SDL_Colour colour) noexcept;
+		Colour(SDL_Colour colour) noexcept;
 
 		///
 		/// Returns the colour in SDL2 colour format.

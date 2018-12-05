@@ -7,7 +7,7 @@
 2D OpenGL Renderer in Modern C++.
 
 ## Notes:
-- Requires C++17 compatible compiler and OpenGL 4+ capable GPU.
+- Requires C++17 compatible compiler and OpenGL 4.3+ capable GPU.
 - This was created as a method to learn OpenGL and professional Software Engineering processes. I.e. Software Testing, Software Documentation and Software Design.
 
 ## Building:

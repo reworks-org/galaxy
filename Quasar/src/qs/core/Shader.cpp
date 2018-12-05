@@ -6,68 +6,178 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <fstream>
+#include <sstream>
+
+#include "qs/utils/Error.hpp"
 #include "qs/libs/glad/glad.h"
 
 #include "Shader.hpp"
 
 namespace qs
 {
-	Shader::Shader()
-		:m_type(qs::Shader::Type::VERTEX), m_id(0)
+	Shader::Shader() noexcept
+		:m_id(0)
 	{
 	}
 
-	Shader::~Shader()
+	Shader::Shader(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile)
 	{
+		if (!load(vertexFile, fragmentFile))
+		{
+			qs::Error::handle.callback("Shader.cpp", 28, "Failed to create shader program!");
+		}
 	}
 
-	qs::Result Shader::load(const std::string& source, qs::Shader::Type type)
+	Shader::~Shader() noexcept
 	{
-		qs::Result result;
-		m_type = type;
+		glDeleteProgram(m_id);
+	}
 
-		// Determine the type of shader to create.
-		switch (m_type)
+	bool Shader::load(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile)
+	{
+		// Yes, all this is required to open a file in C++17. Sigh. OK here we go:
+		bool result = true;
+		unsigned int vertexID = 0;
+		unsigned int fragmentID = 0;
+
+		// Retrieve path into string format.
+		std::string vertexFileStr = vertexFile.string();
+		std::string fragmentFileStr = fragmentFile.string();
+
+		// Create an input stream of the file from disk in read only mode.
+		std::ifstream vertexStream(vertexFileStr, std::ios::in);
+		std::ifstream fragmentStream(fragmentFileStr, std::ios::in);
+		
+		// Check for errors...
+		if (!vertexStream)
 		{
-		case qs::Shader::Type::VERTEX:
-			m_id = glCreateShader(GL_VERTEX_SHADER);
-			break;
+			qs::Error::handle.callback("Shader.cpp", 55, "ifstream failed to open file: " + vertexFileStr);
 
-		case qs::Shader::Type::FRAGMENT:
-			m_id = glCreateShader(GL_FRAGMENT_SHADER);
-			break;
-
-		case qs::Shader::Type::GEOMETRY:
-			m_id = glCreateShader(GL_GEOMETRY_SHADER);
-			break;
+			result = false;
 		}
-	
-		// Attach source and compile shader.
-		const char* c_str = source.c_str();
-		glShaderSource(m_id, 1, &c_str, nullptr);
-		glCompileShader(m_id);
 
-		// Check for errors in compilation. First we have to check success of compile.
-		int success;
-		char log[512];
-		glGetShaderiv(m_id, GL_COMPILE_STATUS, &success);
-
-		if (!success)
+		if (!fragmentStream)
 		{
-			// Retrieve log and set error info.
-			glGetShaderInfoLog(m_id, 512, nullptr, log);
-			result.m_message = "Failed to compile shader. Log: ";
-			result.m_message += log;
-			result.m_status = qs::Result::Status::FAILURE;
+			qs::Error::handle.callback("Shader.cpp", 62, "ifstream failed to open file: " + fragmentFileStr);
+
+			result = false;
 		}
-		else
+
+		// If no errors occured, continue loading shader...
+		if (result)
 		{
-			// Create shader program.
+			// Then read entire input buffer in to a string stream object.
+			//  You can't read it directly into a std::string in a method that is resonably performant.
+			std::stringstream vertexBuffer;
+			std::stringstream fragmentBuffer;
+			vertexBuffer << vertexStream.rdbuf();
+			fragmentBuffer << fragmentStream.rdbuf();
+
+			if (!vertexBuffer)
+			{
+				qs::Error::handle.callback("Shader.cpp", 79, "stringstream failed to read vertexBuffer for: " + vertexFileStr);
+
+				result = false;
+			}
+
+			if (!fragmentBuffer)
+			{
+				qs::Error::handle.callback("Shader.cpp", 86, "stringstream failed to read fragmentBuffer for: " + fragmentFileStr);
+
+				result = false;
+			}
+
+			// Once again, if no errors, continue loading...
+			if (result)
+			{
+				// Error reporting for OpenGL.
+				int success = 0;
+				char infoLog[512];
+
+				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string. yeah.
+				std::string vertexSourceStr = vertexBuffer.str();
+				const char* vertexSource = vertexSourceStr.c_str();
+				
+				std::string fragmentSourceStr = fragmentBuffer.str();
+				const char* fragmentSource = fragmentSourceStr.c_str();
+
+				// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
+				vertexID = glCreateShader(GL_VERTEX_SHADER);
+				glShaderSource(vertexID, 1, &vertexSource, nullptr);
+				glCompileShader(vertexID);
+
+				glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
+				if (!success)
+				{
+					glGetShaderInfoLog(vertexID, 512, nullptr, infoLog);
+					
+					std::string err = "Failed to vertex compile shader. GL_ERROR: ";
+					err += infoLog;
+					qs::Error::handle.callback("Shader.cpp", 120, err);
+
+					result = false;
+				}
+
+				// Now do the same for the fragment shader.
+				fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
+				glShaderSource(fragmentID, 1, &fragmentSource, nullptr);
+				glCompileShader(fragmentID);
+
+				glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
+				if (!success)
+				{
+					glGetShaderInfoLog(fragmentID, 512, nullptr, infoLog);
+
+					std::string err = "Failed to compile fragment shader. GL_ERROR: ";
+					err += infoLog;
+					qs::Error::handle.callback("Shader.cpp", 137, err);
+
+					result = false;
+				}
+
+				// Hopefully by this point nothing has gone wrong...
+				if (result)
+				{
+					// Create and link program.
+					m_id = glCreateProgram();
+					glAttachShader(m_id, vertexID);
+					glAttachShader(m_id, fragmentID);
+					glLinkProgram(m_id);
+
+					glGetProgramiv(m_id, GL_LINK_STATUS, &success);
+					if (!success)
+					{
+						glGetProgramInfoLog(m_id, 512, nullptr, infoLog);
+
+						std::string err = "Failed to attach shaders. GL_ERROR: ";
+						err += infoLog;
+						qs::Error::handle.callback("Shader.cpp", 158, err);
+
+						result = false;
+					}
+				}
+			}
 		}
+
+		// Cleanup shaders.
+		glDeleteShader(vertexID);
+		glDeleteShader(fragmentID);
+
+		// Close the input stream since we are done.
+		vertexStream.close();
+		fragmentStream.close();
 
 		return result;
 	}
-	void Shader::use()
+
+	void Shader::use() noexcept
 	{
+		glUseProgram(m_id);
+	}
+
+	void Shader::disable() noexcept
+	{
+		glUseProgram(0);
 	}
 }

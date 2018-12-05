@@ -4,9 +4,14 @@
     <ClCompile Include="src\qs\core\Window.cpp" />
     <ClCompile Include="src\qs\libs\glad\glad.c" />
     <ClCompile Include="src\qs\libs\glm\detail\glm.cpp" />
-    <ClCompile Include="src\qs\utils\Result.cpp" />
     <ClCompile Include="src\qs\core\Colour.cpp" />
     <ClCompile Include="src\qs\core\Shader.cpp" />
+    <ClCompile Include="src\qs\utils\Error.cpp" />
+    <ClCompile Include="src\qs\vertex\VertexArray.cpp" />
+    <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
+    <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
+    <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
+    <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Window.hpp" />
@@ -250,10 +255,14 @@
     <ClInclude Include="src\qs\libs\glm\vec3.hpp" />
     <ClInclude Include="src\qs\libs\glm\vec4.hpp" />
     <ClInclude Include="src\qs\libs\glm\vector_relational.hpp" />
-    <ClInclude Include="src\qs\utils\Result.hpp" />
     <ClInclude Include="src\qs\core\Colour.hpp" />
-    <ClInclude Include="src\qs\core\Sprite.hpp" />
     <ClInclude Include="src\qs\core\Shader.hpp" />
+    <ClInclude Include="src\qs\utils\Error.hpp" />
+    <ClInclude Include="src\qs\vertex\VertexArray.hpp" />
+    <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
+    <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
+    <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
+    <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\qs\libs\glm\detail\func_common.inl" />
@@ -385,7 +394,6 @@
     <None Include="src\qs\libs\glm\gtx\vector_angle.inl" />
     <None Include="src\qs\libs\glm\gtx\vector_query.inl" />
     <None Include="src\qs\libs\glm\gtx\wrap.inl" />
-    <None Include="src\qs\core\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

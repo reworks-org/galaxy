@@ -11,7 +11,8 @@ Thumbs.db
 Quasar/bin/
 Quasar/build/
 
-Sandbox/bin/
+Sandbox/bin/Debug/
+Sandbox/bin/Release/
 Sandbox/build/
 
 Tests/bin/
