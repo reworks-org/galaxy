@@ -93,7 +93,7 @@ namespace qs
 			{
 				// Error reporting for OpenGL.
 				int success = 0;
-				char infoLog[512];
+				char infoLog[1024];
 
 				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string. yeah.
 				std::string vertexSourceStr = vertexBuffer.str();
@@ -110,7 +110,7 @@ namespace qs
 				glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
 				if (!success)
 				{
-					glGetShaderInfoLog(vertexID, 512, nullptr, infoLog);
+					glGetShaderInfoLog(vertexID, 1024, nullptr, infoLog);
 					
 					std::string err = "Failed to vertex compile shader. GL_ERROR: ";
 					err += infoLog;
@@ -127,7 +127,7 @@ namespace qs
 				glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
 				if (!success)
 				{
-					glGetShaderInfoLog(fragmentID, 512, nullptr, infoLog);
+					glGetShaderInfoLog(fragmentID, 1024, nullptr, infoLog);
 
 					std::string err = "Failed to compile fragment shader. GL_ERROR: ";
 					err += infoLog;
@@ -148,7 +148,7 @@ namespace qs
 					glGetProgramiv(m_id, GL_LINK_STATUS, &success);
 					if (!success)
 					{
-						glGetProgramInfoLog(m_id, 512, nullptr, infoLog);
+						glGetProgramInfoLog(m_id, 1024, nullptr, infoLog);
 
 						std::string err = "Failed to attach shaders. GL_ERROR: ";
 						err += infoLog;
@@ -179,5 +179,30 @@ namespace qs
 	void Shader::disable() noexcept
 	{
 		glUseProgram(0);
+	}
+
+	int Shader::getUniformLocation(const std::string& name)
+	{
+		// If uniform already exists return it from cache to avoid querying OpenGL, which is slow.
+		if (m_cache.find(name) != m_cache.end())
+		{
+			return m_cache[name];
+		}
+		else
+		{
+			// Otherwise, for the first time, retrieve location.
+			unsigned int location = glGetUniformLocation(m_id, name.c_str());
+			if (location != -1)
+			{
+				// Then if not error, add to hash map.
+				m_cache.emplace(name, location);
+			}
+			else
+			{
+				qs::Error::handle.callback("Shader.cpp", 199, "Failed to find uniform: " + name);
+			}
+
+			return location;
+		}
 	}
 }

@@ -70,6 +70,7 @@ workspace "Quasar"
 		includedirs { "Quasar/src", os.findheader("libsdl2-dev") }
 		libdirs { os.findlib("libsdl2-2.0.0") }
 		links { "GL", "dl", "pthread" }
+		buildoptions { "-lstdc++fs" }
 ---
 --- END SPECIFIC PLATFORM FILTERS
 ---

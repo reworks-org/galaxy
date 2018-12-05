@@ -59,7 +59,19 @@ namespace qs
 		void disable() noexcept;
 
 		template<typename Type>
-		void setUniform(const std::string& name, Type value) const noexcept;
+		void setUniform1(const std::string& name, Type v1) const noexcept;
+
+		template<typename Type>
+		void setUniform2(const std::string& name, Type v1, Type v2) const noexcept;
+
+		template<typename Type>
+		void setUniform3(const std::string& name, Type v1, Type v2, Type v3) const noexcept;
+
+		template<typename Type>
+		void setUniform4(const std::string& name, Type v1, Type v2, Type v3, Type v4) const noexcept;
+
+	private:
+		int getUniformLocation(const std::string& name);
 
 	private:
 		///
@@ -67,6 +79,9 @@ namespace qs
 		///
 		unsigned int m_id;
 
+		///
+		/// Cache of uniforms for better performance.
+		///
 		std::unordered_map<std::string, int> m_cache;
 	};
 
