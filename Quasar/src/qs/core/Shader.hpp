@@ -84,11 +84,6 @@ namespace qs
 		///
 		std::unordered_map<std::string, int> m_cache;
 	};
-
-	template<typename Type>
-	inline void Shader::setUniform(const std::string& name, Type value) const noexcept
-	{
-	}
 }
 
 #endif
