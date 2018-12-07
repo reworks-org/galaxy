@@ -56,8 +56,8 @@ namespace sl
 		}
 
 		// Set window icon.
-		m_icon = al_load_bitmap(icon.c_str());
-		al_set_display_icon(m_display, m_icon);
+		//m_icon = al_load_bitmap(icon.c_str());
+		//al_set_display_icon(m_display, m_icon);
 
 		// We get the monitor info in order to determine the correct size of the fullscreen window.
 		ALLEGRO_MONITOR_INFO info;

@@ -104,21 +104,21 @@ namespace sl
 	};
 
 	template<typename T1, typename T2>
-	Rect<T1, T2>::Rect()
+	inline Rect<T1, T2>::Rect()
 		:m_x(0), m_y(0), m_width(0), m_height(0)
 	{
 		// Default constructor.
 	}
 
 	template<typename T1, typename T2>
-	Rect<T1, T2>::Rect(T1 x, T1 y, T2 width, T2 height)
+	inline Rect<T1, T2>::Rect(T1 x, T1 y, T2 width, T2 height)
 		: m_x(x), m_y(y), m_width(width), m_height(height)
 	{
 		// Argument constructor.
 	}
 
 	template<typename T1, typename T2>
-	bool Rect<T1, T2>::contains(T1 x, T1 y)
+	inline bool Rect<T1, T2>::contains(T1 x, T1 y)
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
 		bool out = ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height))) ? true : false;
@@ -127,7 +127,7 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	bool Rect<T1, T2>::contains(const Rect<T1, T2>& b)
+	inline bool Rect<T1, T2>::contains(const Rect<T1, T2>& b)
 	{
 		// Checks if the rectangle contains another rectangle using math.
 		bool out = ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) >(m_y) && (b.m_y + b.m_height) < (m_y + m_height)) ? true : false;
@@ -136,7 +136,7 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	bool Rect<T1, T2>::overlaps(const Rect<T1, T2>& b)
+	inline bool Rect<T1, T2>::overlaps(const Rect<T1, T2>& b)
 	{
 		// Thanks: https://stackoverflow.com/a/306379
 
@@ -151,21 +151,21 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	bool Rect<T1, T2>::valueInRange(T1 value, T1 min, T1 max)
+	inline bool Rect<T1, T2>::valueInRange(T1 value, T1 min, T1 max)
 	{
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);
 	}
 
 	template<typename T1, typename T2>
-	Rect<T1, T2> operator-(const Rect<T1, T2>& a)
+	inline Rect<T1, T2> operator-(const Rect<T1, T2>& a)
 	{
 		// Negative operator overloading.
 		return Rect<T1, T2>(-a.m_x, -a.m_y, -a.m_width, -a.m_height);
 	}
 
 	template<typename T1, typename T2>
-	Rect<T1, T2>& operator+=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	inline Rect<T1, T2>& operator+=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		// Addition assignment operator overloading.
 		a.m_x += b.m_x;
@@ -177,7 +177,7 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	Rect<T1, T2>& operator-=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	inline Rect<T1, T2>& operator-=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		// Subtraction assignment operator overloading.
 		a.m_x -= b.m_x;
@@ -189,27 +189,27 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	Rect<T1, T2> operator+(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	inline Rect<T1, T2> operator+(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		return Rect<T1, T2>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
 	}
 
 	template<typename T1, typename T2>
-	Rect<T1, T2> operator-(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	inline Rect<T1, T2> operator-(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		// Subtraction operator overloading.
 		return Rect<T1, T2>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_width - b.m_width, a.m_height - b.m_height);
 	}
 
 	template<typename T1, typename T2>
-	bool operator==(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	inline bool operator==(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		// Equality operator overloading.
 		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_width == b.m_width) && (a.m_height == b.m_height);
 	}
 
 	template<typename T1, typename T2>
-	bool operator!=(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
+	inline bool operator!=(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		// Not equal to operator overloading.
 		return (a.m_x != b.m_x) || (a.m_y != b.m_y) || (a.m_width != b.m_width) || (a.m_height != b.m_height);

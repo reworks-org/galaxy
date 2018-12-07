@@ -24,7 +24,6 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - go over textbooks, appdev, etc to see if project can be improved.
 - math operator overloads need to return reference + inline
 - handles or integers / hashed strings over std::string in resource map
-- handle errosr with bustom error class. i.e. return REsult ovuect, etc
 
 docs notes:
 	- make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.

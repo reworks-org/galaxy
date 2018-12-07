@@ -459,9 +459,6 @@
     <ClCompile Include="source\sl\libs\tmx\tsx.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\utils\Error.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1278,9 +1275,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\tmx\tsx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\utils\Error.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

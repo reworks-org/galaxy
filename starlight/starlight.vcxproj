@@ -22,7 +22,6 @@
     <Text Include="..\TODO.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\sl\utils\Error.cpp" />
     <ClCompile Include="source\sl\components\EnabledComponent.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Collision\b2BroadPhase.cpp" />
     <ClCompile Include="source\sl\libs\Box2D\Collision\b2CollideCircle.cpp" />
@@ -172,7 +171,6 @@
     <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\sl\utils\Error.hpp" />
     <ClInclude Include="source\sl\components\EnabledComponent.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\EmitParticleEvent.hpp" />
