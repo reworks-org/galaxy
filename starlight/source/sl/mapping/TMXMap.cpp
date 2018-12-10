@@ -9,7 +9,6 @@
 
 #include <filesystem>
 
-#include <allegro5/bitmap_draw.h>
 #include <allegro5/allegro_primitives.h>
 
 #include "sl/core/World.hpp"
@@ -31,7 +30,7 @@
 namespace sl
 {
 	TMXMap::TMXMap(const std::string& mapFile, float lineThickness)
-	:m_lineThickness(lineThickness), m_internalMapData(Locator::virtualFS->openAsString(mapFile))
+		:m_lineThickness(lineThickness), m_internalMapData(Locator::virtualFS->openAsString(mapFile))
 	{
 		// Then parse it with tmxlib.
 		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), static_cast<int>(m_internalMapData.size()));
@@ -49,7 +48,11 @@ namespace sl
 	TMXMap::~TMXMap()
 	{
 		// Free up all memory used. The usual.
-		tmx_map_free(m_internalMap);
+		if (m_internalMap)
+		{
+			tmx_map_free(m_internalMap);
+		}
+
 		m_internalMapData.clear();
 	}
 

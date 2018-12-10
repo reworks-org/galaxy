@@ -40,12 +40,12 @@ namespace sl
 		/// \param verticalSpeed Speed to move background vertically.
 		/// \param horizontalSpeed Speed to move background horizontally.
 		///
-		explicit ParallaxComponent(float verticalSpeed, float horizontalSpeed);
+		ParallaxComponent(const float verticalSpeed, const float horizontalSpeed);
 
 		///
 		/// Destructor.
 		///
-		~ParallaxComponent() = default;
+		~ParallaxComponent() noexcept = default;
 
 	public:
 		///

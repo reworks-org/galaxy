@@ -11,8 +11,6 @@
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "FontBook.hpp"
@@ -63,7 +61,10 @@ namespace sl
 		// Iterate over each font in the map and ensure its destroyed properly.
 		for (auto& it : m_resourceMap)
 		{
-			al_destroy_font(it.second);
+			if (it.second)
+			{
+				al_destroy_font(it.second);
+			}
 		}
 
 		m_resourceMap.clear();

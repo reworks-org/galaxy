@@ -28,7 +28,7 @@ namespace sl
 		///
 		/// Destructor
 		///
-		~ScrollingBackgroundSystem() override = default;
+		~ScrollingBackgroundSystem() noexcept override = default;
 
 	private:
 		///

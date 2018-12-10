@@ -19,8 +19,6 @@ struct ALLEGRO_DISPLAY;
 
 namespace sl
 {
-	class BaseState;
-
 	///
 	/// Manages the ImGui debug gui that assists in gamedev.
 	/// Allows for the creation of some really cool tools.
@@ -33,14 +31,13 @@ namespace sl
 		///
 		/// \param scriptFolderPath This should be the folder in the VFS where the script files are located.
 		/// \param display ALLEGRO_DISPLAY object.
-		/// \param isDisabled Boolean. Set to true to disable.
 		///
-		DebugInterface(const std::string& scriptFolderPath, ALLEGRO_DISPLAY* display, bool isDisabled);
+		DebugInterface(const std::string& scriptFolderPath, ALLEGRO_DISPLAY* display);
 
 		///
 		/// Destructor.
 		///
-		~DebugInterface();
+		~DebugInterface() noexcept;
 
 		///
 		/// Process imgui events.
@@ -76,11 +73,6 @@ namespace sl
 		DebugInterface() = delete;
 
 	private:
-		///
-		/// Toggles if the debug ui is disabled or not.
-		///
-		bool m_disabled;
-
 		///
 		/// This should be the folder in the VFS where the script files are located. I.e. If all scripts
 		/// are in a folder called "scripts/" at root then set this to "scripts/".

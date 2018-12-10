@@ -28,7 +28,7 @@ namespace sl
 		///
 		/// Destructor
 		///
-		~AnimationSystem() override = default;
+		~AnimationSystem() noexcept override = default;
 
 	private:
 		///

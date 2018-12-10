@@ -19,6 +19,7 @@ namespace sl
 	}
 
 	TransformComponent::TransformComponent(const sol::table& table)
+		: m_layer(0), m_rect(0.0f, 0.0f, 0, 0), m_angle(0.0f)
 	{
 		// Retrieve the values from the lua table.
 		m_layer = table.get<int>("layer");
@@ -32,6 +33,5 @@ namespace sl
 	TransformComponent::TransformComponent(int layer, float angle, const Rect<float, int>& rect)
 		:m_layer(layer), m_angle(angle), m_rect(rect)
 	{
-		// Constructs the component from parameters instead of lua.
 	}
 }

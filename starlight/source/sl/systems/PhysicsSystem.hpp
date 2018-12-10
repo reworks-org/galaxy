@@ -37,7 +37,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~PhysicsSystem() override = default;
+		~PhysicsSystem() noexcept override = default;
 
 		///
 		/// Function to connect to the event dispatcher.
@@ -68,6 +68,11 @@ namespace sl
 		/// Updates per second physics system should operate at.
 		///
 		float m_ups;
+
+		///
+		/// Step of physics system.
+		///
+		float m_step;
 
 		///
 		/// Number of iterations of velocity per update.

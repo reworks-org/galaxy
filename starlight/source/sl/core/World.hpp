@@ -17,6 +17,7 @@
 #include "sl/types/System.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
+
 #include "sl/libs/entt/core/hashed_string.hpp"
 
 namespace sl
@@ -35,7 +36,7 @@ namespace sl
 		///
 		/// Cleans up world.
 		///
-		~World();
+		~World() noexcept;
 
 		///
 		/// Register an entity.
@@ -144,12 +145,12 @@ namespace sl
 		///
 		/// Used to allow for tag assigning without having to know the tag type.
 		///
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(const entt::DefaultRegistry::entity_type, const sol::table&)>> m_tagAssign;
 
 		///
 		/// Used to allow for component assigning without having to know the tag type.
 		///
-		std::unordered_map<entt::HashedString::hash_type, std::function<void(entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
+		std::unordered_map<entt::HashedString::hash_type, std::function<void(const entt::DefaultRegistry::entity_type, const sol::table&)>> m_componentAssign;
 
 		///
 		/// Systems storage.
@@ -158,10 +159,10 @@ namespace sl
 	};
 
 	template<typename Tag>
-	void World::registerTag(const std::string& name)
+	inline void World::registerTag(const std::string& name)
 	{
 		// Create hashed string to use.
-		entt::HashedString hs{ name.c_str() };
+		entt::HashedString hs(name.c_str());
 
 		// Make sure there are no duplicate tags before registering.
 		if (m_tagAssign.find(hs) != m_tagAssign.end())
@@ -170,7 +171,7 @@ namespace sl
 		}
 		else
 		{
-			m_tagAssign.emplace(hs, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
+			m_tagAssign.emplace(hs, [this](const entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
 				m_registry.assign<Tag>(entt::tag_t{}, entity, table);
 			});
@@ -178,10 +179,10 @@ namespace sl
 	}
 
 	template<typename Component>
-	void World::registerComponent(const std::string& name)
+	inline void World::registerComponent(const std::string& name)
 	{
 		// Create hashed string to use.
-		entt::HashedString hs{ name.c_str() };
+		entt::HashedString hs(name.c_str());
 
 		// Make sure there are no duplicate components for the hashmap before registering.
 		if (m_componentAssign.find(hs) != m_componentAssign.end())
@@ -190,7 +191,7 @@ namespace sl
 		}
 		else
 		{
-			m_componentAssign.emplace(hs, [this](entt::DefaultRegistry::entity_type entity, const sol::table& table)
+			m_componentAssign.emplace(hs, [this](const entt::DefaultRegistry::entity_type entity, const sol::table& table)
 			{
 				m_registry.assign<Component>(entity, table);
 			});
@@ -198,7 +199,7 @@ namespace sl
 	}
 
 	template<typename System, typename... Args>
-	void World::registerSystem(Args&&... args)
+	inline void World::registerSystem(Args&&... args)
 	{
 		// Get type index to use as key.
 		std::type_index t(typeid(System));
@@ -216,14 +217,14 @@ namespace sl
 	}
 
 	template<typename System>
-	System* World::getSystem()
+	inline System* World::getSystem()
 	{
 		// Return a pointer to the system of the type System.
 		return dynamic_cast<System*>(m_systems[typeid(System)].get());
 	}
 
 	template<typename System>
-	void World::remove()
+	inline void World::remove()
 	{
 		// Get type index to use as key.
 		std::type_index t(typeid(System));

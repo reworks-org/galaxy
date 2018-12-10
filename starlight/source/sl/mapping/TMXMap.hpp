@@ -28,7 +28,7 @@ namespace sl
 	/// Code is licensed under the same license as the library (tmxlib):
 	/// BSD 2-Clause "Simplified" License
 	///
-	/// Also please note that external tilesets (.tsx) is not currently supported.
+	/// Also please note that external tilesets (.tsx) are not currently supported.
 	///
 	class TMXMap final
 	{
@@ -44,7 +44,7 @@ namespace sl
 		///
 		/// Cleanup memory.
 		///
-		~TMXMap();
+		~TMXMap() noexcept;
 
 	private:
 		///

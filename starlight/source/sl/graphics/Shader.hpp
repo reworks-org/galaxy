@@ -41,24 +41,24 @@ namespace sl
 		/// \param vertexShader File containing vertex shader code in the VFS.
 		/// \param pixelShader File containing pixel shader code in the VFS.
 		///
-		Shader(ALLEGRO_SHADER_PLATFORM platform, const std::string& vertexShader, const std::string& pixelShader);
+		Shader(const ALLEGRO_SHADER_PLATFORM platform, const std::string& vertexShader, const std::string& pixelShader);
 
 		///
 		/// Destructor.
 		///
-		~Shader();
+		~Shader() noexcept;
 
 		///
 		/// \brief Use the shader.
 		///
 		/// Uses the shader for subsequent drawing operations on the current target bitmap i.e window.
 		///
-		void use();
+		void use() const;
 
 		///
 		/// Removes the shader from the current drawing target.
 		///
-		void disable();
+		void disable() const;
 
 	private:
 		///

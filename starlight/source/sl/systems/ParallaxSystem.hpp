@@ -28,7 +28,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~ParallaxSystem() override = default;
+		~ParallaxSystem() noexcept override = default;
 
 	private:
 		///

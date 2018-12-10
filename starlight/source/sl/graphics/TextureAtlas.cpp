@@ -10,7 +10,6 @@
 #include <filesystem>
 
 #include <physfs.h>
-#include <allegro5/display.h>
 #include <allegro5/drawing.h>
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
@@ -19,7 +18,6 @@
 #include "sl/math/Vector2.hpp"
 #include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/core/ServiceLocator.hpp"
@@ -112,10 +110,10 @@ namespace sl
 		// Then make sure rendering target is set back to window.
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
-		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, packedRect);
+		m_resourceMap.emplace(entt::HashedString(id.c_str()), packedRect);
 	}
 
-	void TextureAtlas::addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col, int flags)
+	void TextureAtlas::addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, const ALLEGRO_COLOR col, int flags)
 	{
 		// We set as a pair with a vector2 because it lets us pass 2 arguments through extra, along with font.
 		// Because allegro wont except a lamba with a capture, and I don't want any global functions or variables.
@@ -149,18 +147,24 @@ namespace sl
 		}, &fwh);
 
 		ALLEGRO_BITMAP* bitmap = al_create_bitmap(fwh.second.m_x, fwh.second.m_y);
+		if (!bitmap)
+		{
+			// Then draw the text to that bitmap so it can be added to the atlas.
+			al_set_target_bitmap(bitmap);
+			al_clear_to_color(al_map_rgba(255, 255, 255, 0));
 
-		// Then draw the text to that bitmap so it can be added to the atlas.
-		al_set_target_bitmap(bitmap);
-		al_clear_to_color(al_map_rgba(255, 255, 255, 0));
+			// We pass 0 for line height so allegro defaults to font_line_height like in the calculations above.
+			al_draw_multiline_text(font, col, 0, 0, text.length(), 0, flags, text.c_str());
 
-		// We pass 0 for line height so allegro defaults to font_line_height like in the calculations above.
-		al_draw_multiline_text(font, col, 0, 0, text.length(), 0, flags, text.c_str());
+			al_flip_display();
 
-		al_flip_display();
-
-		// Then add that bitmap to the atlas.
-		addTexture(id, bitmap);
+			// Then add that bitmap to the atlas.
+			addTexture(id, bitmap);
+		}
+		else
+		{
+			LOG_S(ERROR) << "Could not create text drawing target bitmap! Errno: " << al_get_errno();
+		}
 
 		// We only have to destroy bitmap because addTexture() resets rendertarget to display.
 		al_destroy_bitmap(bitmap);
@@ -186,31 +190,31 @@ namespace sl
 
 	void TextureAtlas::addRectToAtlas(const std::string& id, const Rect<int>& rect)
 	{
-		m_resourceMap.emplace(entt::HashedString{ id.c_str() }, rect);
+		m_resourceMap.emplace(entt::HashedString(id.c_str()), rect);
 	}
 
-	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags)
+	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, const float dx, const float dy, const int flags)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
+		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
 
 		// Draw that texture on the atlas.
 		al_draw_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags)
+	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, const ALLEGRO_COLOR tint, const float dx, const float dy, const int flags)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
+		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
 
 		// Draw that texture on the atlas.
 		al_draw_tinted_bitmap_region(m_atlas, tint, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
 	}
 
-	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags)
+	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, const ALLEGRO_COLOR tint, const float cx, const float cy, const float dx, const float dy, const float xscale, const float yscale, const float angle, const int flags)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
+		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
 
 		// Draw that texture on the atlas.
 		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, tint, cx, cy, dx, dy, xscale, yscale, Box2DHelper::degToRad<float>(angle), flags);
@@ -218,13 +222,16 @@ namespace sl
 
 	void TextureAtlas::clean()
 	{
-		al_destroy_bitmap(m_atlas);
+		if (m_atlas)
+		{
+			al_destroy_bitmap(m_atlas);
+		}
 	}
 
 	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_sub_bitmap(const std::string& texture)
 	{
 		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString{ texture.c_str() }];
+		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
 
 		// Return sub-bitmap of that texture from the atlas.
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);

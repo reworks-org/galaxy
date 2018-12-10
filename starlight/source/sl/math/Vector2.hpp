@@ -33,7 +33,7 @@ namespace sl
 		/// \param x X value.
 		/// \param y Y value.
 		///
-		Vector2(T x, T y);
+		Vector2(const T x, const T y);
 
 		///
 		/// Swaps x and y.
@@ -45,7 +45,7 @@ namespace sl
 		/// Cereal serialize function.
 		///
 		template <class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_x, m_y);
 		}
@@ -64,14 +64,14 @@ namespace sl
 	};
 
 	template<typename T>
-	Vector2<T>::Vector2()
+	inline Vector2<T>::Vector2()
 		:m_x(0), m_y(0)
 	{
 		// Default initialized constructor.
 	}
 
 	template<typename T>
-	Vector2<T>::Vector2(T x, T y)
+	inline Vector2<T>::Vector2(const T x, const T y)
 		: m_x(x), m_y(y)
 	{
 		// Argument constructor.
@@ -91,7 +91,7 @@ namespace sl
 	/// Negative operator overload.
 	///
 	template<typename T>
-	Vector2<T> operator-(const Vector2<T>& a)
+	inline Vector2<T> operator-(const Vector2<T>& a)
 	{
 		return Vector2<T>(-a.m_x, -a.m_y);
 	}
@@ -100,7 +100,7 @@ namespace sl
 	/// Addition assignment operator overload.
 	///
 	template<typename T>
-	Vector2<T>& operator+=(Vector2<T>& a, const Vector2<T>& b)
+	inline Vector2<T>& operator+=(Vector2<T>& a, const Vector2<T>& b)
 	{
 		a.m_x += b.m_x;
 		a.m_y += b.m_y;
@@ -112,7 +112,7 @@ namespace sl
 	/// Subtraction assignment operator overload.
 	///
 	template<typename T>
-	Vector2<T>& operator-=(Vector2<T>& a, const Vector2<T>& b)
+	inline Vector2<T>& operator-=(Vector2<T>& a, const Vector2<T>& b)
 	{
 		a.m_x -= b.m_x;
 		a.m_y -= b.m_y;
@@ -124,7 +124,7 @@ namespace sl
 	/// Addition operator overload.
 	///
 	template<typename T>
-	Vector2<T> operator+(const Vector2<T>& a, const Vector2<T>& b)
+	inline Vector2<T> operator+(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return Vector2<T>(a.m_x + b.m_x, a.m_y + b.m_y);
 	}
@@ -133,7 +133,7 @@ namespace sl
 	/// Subtraction operator overload.
 	///
 	template<typename T>
-	Vector2<T> operator-(const Vector2<T>& a, const Vector2<T>& b)
+	inline Vector2<T> operator-(const Vector2<T>& a, const Vector2<T>& b)
 	{
 	
 		return Vector2<T>(a.m_x - b.m_x, a.m_y - b.m_y);
@@ -143,7 +143,7 @@ namespace sl
 	/// Equality operator overload.
 	///
 	template<typename T>
-	bool operator==(const Vector2<T>& a, const Vector2<T>& b)
+	inline bool operator==(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return (a.m_x == b.m_x) && (a.m_y == b.m_y);
 	}
@@ -152,7 +152,7 @@ namespace sl
 	/// Not operator overload.
 	///
 	template<typename T>
-	bool operator!=(const Vector2<T>& a, const Vector2<T>& b)
+	inline bool operator!=(const Vector2<T>& a, const Vector2<T>& b)
 	{
 		return (a.m_x != b.m_x) || (a.m_y != b.m_y);
 	}

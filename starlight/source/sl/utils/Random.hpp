@@ -34,7 +34,7 @@ namespace sl
 		/// \return Returns type T.
 		///
 		template<typename T>
-		static inline T random(T min, T max)
+		static inline T random(const T min, const T max)
 		{
 			std::random_device rd;
 			std::mt19937 mt(rd());

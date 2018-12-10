@@ -10,15 +10,31 @@
 #include <allegro5/allegro_audio.h>
 
 #include "sl/core/World.hpp"
-#include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "Sound.hpp"
 
 namespace sl
 {
+	Sound::Sound(const std::string& file, const float pan, const float speed, const float volume)
+		:m_pan(0), m_speed(0), m_volume(0), m_sound(nullptr)
+	{
+		// Read the lua table to get the sample file name.
+		// Then load it into allegro and check if it was created.
+		std::string fullPath = Locator::world->m_soundFolderPath + file;
+		m_sound = al_load_sample(fullPath.c_str());
+		if (!m_sound)
+		{
+			LOG_S(FATAL) << "Unable to find sound file: " << file << ". Errno: " << al_get_errno();
+		}
+
+		setPan(pan);
+		setSpeed(speed);
+		setVolume(volume);
+	}
+
 	Sound::Sound(const sol::table& table)
+		:m_pan(0), m_speed(0), m_volume(0), m_sound(nullptr)
 	{
 		// Read the lua table to get the sample file name.
 		// Then load it into allegro and check if it was created.
@@ -26,26 +42,25 @@ namespace sl
 		m_sound = al_load_sample(file.c_str());
 		if (!m_sound)
 		{
-			LOG_S(FATAL) << "Unable to find sound file: " << file;
+			LOG_S(FATAL) << "Unable to find sound file: " << file << ". Errno: " << al_get_errno();
 		}
 
-		// Retrieve sample values from lua table.
-		// volume (gain) - relative volume at which the sample is played; 1.0 is normal.
-		// pan - 0.0 is centred, -1.0 is left, 1.0 is right, or ALLEGRO_AUDIO_PAN_NONE.
-		// speed - relative speed at which the sample is played; 1.0 is normal.
-		m_pan = table.get<float>("pan");
-		m_speed = table.get<float>("speed");
-		m_volume = table.get<float>("volume");
+		setPan(table.get<float>("pan"));
+		setSpeed(table.get<float>("speed"));
+		setVolume(table.get<float>("volume"));
 	}
 
 	Sound::~Sound()
 	{
 		// Destroy sample when object is destroyed.
 		// To prevent memory leaks.
-		al_destroy_sample(m_sound);
+		if (m_sound)
+		{
+			al_destroy_sample(m_sound);
+		}
 	}
 
-	void Sound::play()
+	void Sound::play() const
 	{
 		// Play the sample once.
 		al_play_sample(m_sound, m_volume, m_pan, m_speed, ALLEGRO_PLAYMODE_ONCE, nullptr);
@@ -53,52 +68,19 @@ namespace sl
 
 	void Sound::setPan(const float pan)
 	{
-		// Correct the pan and set it.
-		if (pan > 1.0f)
-		{
-			m_pan = 1.0f;
-		}
-		else if (pan < -1.0f)
-		{
-			m_pan = -1.0f;
-		}
-		else
-		{
-			m_pan = pan;
-		}
+		// Clamp the pan and set it.
+		m_pan = std::clamp(pan, -1.0f, 1.0f);
 	}
 
 	void Sound::setSpeed(const float speed)
 	{
-		// Correct the speed and set it.
-		if (speed > 1.0f)
-		{
-			m_speed = 1.0f;
-		}
-		else if (speed < 0.0f)
-		{
-			m_speed = 0.0f;
-		}
-		else
-		{
-			m_speed = speed;
-		}
+		// Check the speed and set it.
+		m_speed = std::max(0.1f, speed);
 	}
 
 	void Sound::setVolume(const float volume)
 	{
-		// Correct the volume and set it.
-		if (volume > 1.0f)
-		{
-			m_volume = 1.0f;
-		}
-		else if (volume < 0.0f)
-		{
-			m_volume = 0.0f;
-		}
-		else
-		{
-			m_volume = volume;
-		}
+		// Check the volume and set it.
+		m_volume = std::max(0.0f, volume);
 	}
 }

@@ -61,7 +61,7 @@ namespace sl
 		m_quadtree.reset();
 	}
 
-	void RenderSystem::render(entt::DefaultRegistry& registry)
+	void RenderSystem::render(const entt::DefaultRegistry& registry)
 	{
 		// This optimises rendering performance when rendering from 1 texture i.e. the texture atlas.
 		al_hold_bitmap_drawing(true);

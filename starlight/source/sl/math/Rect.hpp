@@ -35,7 +35,7 @@ namespace sl
 		/// \param width Width value.
 		/// \param height Height value.
 		///
-		Rect(T1 x, T1 y, T2 width, T2 height);
+		Rect(const T1 x, const T1 y, const T2 width, const T2 height);
 
 		///
 		/// Does the rectangle contain the point (x, y).
@@ -45,7 +45,7 @@ namespace sl
 		///
 		/// \return true if contains the point.
 		///
-		bool contains(T1 x, T1 y);
+		bool contains(const T1 x, const T1 y);
 
 		///
 		/// Does the rectangle contain another rectangle.
@@ -70,13 +70,13 @@ namespace sl
 		/// Private function to determine if value is in range.
 		/// From: https://stackoverflow.com/a/306379
 		///
-		bool valueInRange(T1 value, T1 min, T1 max);
+		bool valueInRange(const T1 value, const T1 min, const T1 max);
 
 		///
 		/// Cereal serialize function.
 		///
 		template <class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_x, m_y, m_width, m_height);
 		}
@@ -111,14 +111,14 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	inline Rect<T1, T2>::Rect(T1 x, T1 y, T2 width, T2 height)
+	inline Rect<T1, T2>::Rect(const T1 x, const T1 y, const T2 width, const T2 height)
 		: m_x(x), m_y(y), m_width(width), m_height(height)
 	{
 		// Argument constructor.
 	}
 
 	template<typename T1, typename T2>
-	inline bool Rect<T1, T2>::contains(T1 x, T1 y)
+	inline bool Rect<T1, T2>::contains(const T1 x, const T1 y)
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
 		bool out = ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height))) ? true : false;
@@ -151,7 +151,7 @@ namespace sl
 	}
 
 	template<typename T1, typename T2>
-	inline bool Rect<T1, T2>::valueInRange(T1 value, T1 min, T1 max)
+	inline bool Rect<T1, T2>::valueInRange(const T1 value, const T1 min, const T1 max)
 	{
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);

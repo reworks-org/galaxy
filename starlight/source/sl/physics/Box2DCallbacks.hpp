@@ -28,7 +28,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~CollisionContact() override = default;
+		~CollisionContact() noexcept override = default;
 
 		///
 		/// \brief Override the box2d contact functions on collision start.

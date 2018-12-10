@@ -62,7 +62,7 @@ namespace sl
 		///
 		/// \return Returns either "true" or "false".
 		///
-		static const std::string boolToString(bool value);
+		static const std::string boolToString(const bool value);
 
 		///
 		/// Converts a std::string to a boolean.
@@ -83,7 +83,7 @@ namespace sl
 		/// \return Returns empty string if input is null.
 		///
 		///
-		static const char* nullToEmpty(char const* s);
+		static const char* nullToEmpty(const char* s);
 
 		///
 		/// \brief Do something to each item in tuple.

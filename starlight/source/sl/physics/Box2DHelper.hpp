@@ -36,7 +36,7 @@ namespace sl
 		///
 		/// Destructor
 		///
-		~Box2DHelper();
+		~Box2DHelper() noexcept;
 
 		///
 		/// Convert pixels to meters.
@@ -97,25 +97,25 @@ namespace sl
 	};
 
 	template<typename T>
-	constexpr T Box2DHelper::pixelsToMeters(T pixels)
+	inline constexpr T Box2DHelper::pixelsToMeters(T pixels)
 	{
 		return static_cast<T>(pixels) / static_cast<T>(PIXELS_PER_METER);
 	}
 
 	template<typename T>
-	constexpr T Box2DHelper::metersToPixels(T meters)
+	inline constexpr T Box2DHelper::metersToPixels(T meters)
 	{
 		return static_cast<T>(meters) * static_cast<T>(PIXELS_PER_METER);
 	}
 
 	template<typename T>
-	constexpr T Box2DHelper::degToRad(T deg)
+	inline constexpr T Box2DHelper::degToRad(T deg)
 	{
 		return (static_cast<T>(PI) * deg) / static_cast<T>(180.0);
 	}
 
 	template<typename T>
-	constexpr T Box2DHelper::radToDeg(T rad)
+	inline constexpr T Box2DHelper::radToDeg(T rad)
 	{
 		return (static_cast<T>(180.0) * rad) / static_cast<T>(PI);
 	}

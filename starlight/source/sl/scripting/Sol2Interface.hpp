@@ -33,7 +33,7 @@ namespace sl
 		///
 		/// \param entity Entity to destroy.
 		///
-		inline void enttDestroyWorkaround(entt::DefaultRegistry::entity_type entity)
+		inline void enttDestroyWorkaround(const entt::DefaultRegistry::entity_type entity)
 		{
 			sl::Locator::world->m_registry.destroy(entity);
 		}
@@ -41,7 +41,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignEnabledComponent(entt::DefaultRegistry::entity_type entity)
+		inline void assignEnabledComponent(const entt::DefaultRegistry::entity_type entity)
 		{
 			sl::Locator::world->m_registry.assign<EnabledComponent>(entity);
 		}
@@ -49,7 +49,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignTransformComponent(entt::DefaultRegistry::entity_type entity, int layer, float angle, const Rect<float, int>& rect)
+		inline void assignTransformComponent(const entt::DefaultRegistry::entity_type entity, const int layer, const float angle, const Rect<float, int>& rect)
 		{
 			sl::Locator::world->m_registry.assign<TransformComponent>(entity, layer, angle, rect);
 		}
@@ -57,7 +57,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignSBComponent(entt::DefaultRegistry::entity_type entity, float speed)
+		inline void assignSBComponent(const entt::DefaultRegistry::entity_type entity, const float speed)
 		{
 			sl::Locator::world->m_registry.assign<ScrollingBackgroundComponent>(entity, speed);
 		}
@@ -65,7 +65,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignRenderComponent(entt::DefaultRegistry::entity_type entity, float opacity, const std::string& atlasID)
+		inline void assignRenderComponent(const entt::DefaultRegistry::entity_type entity, const float opacity, const std::string& atlasID)
 		{
 			sl::Locator::world->m_registry.assign<RenderComponent>(entity, opacity, atlasID);
 		}
@@ -73,7 +73,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignParticleComponent(entt::DefaultRegistry::entity_type entity, float dx, float dy, float fade)
+		inline void assignParticleComponent(const entt::DefaultRegistry::entity_type entity, const float dx, const float dy, const float fade)
 		{
 			sl::Locator::world->m_registry.assign<ParticleComponent>(entity, dx, dy, fade);
 		}
@@ -81,7 +81,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignParallaxComponent(entt::DefaultRegistry::entity_type entity, float verticalSpeed, float horizontalSpeed)
+		inline void assignParallaxComponent(const entt::DefaultRegistry::entity_type entity, const float verticalSpeed, const float horizontalSpeed)
 		{
 			sl::Locator::world->m_registry.assign<ParallaxComponent>(entity, verticalSpeed, horizontalSpeed);
 		}
@@ -89,7 +89,7 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignAnimationComponent(entt::DefaultRegistry::entity_type entity, tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight, const std::string& layerName)
+		inline void assignAnimationComponent(const entt::DefaultRegistry::entity_type entity, tmx_map* map, tmx_tile* tile, const int x, const int y, const int tileWidth, const int tileHeight, const std::string& layerName)
 		{
 			sl::Locator::world->m_registry.assign<AnimationComponent>(entity, map, tile, x, y, tileWidth, tileHeight, layerName);
 		}

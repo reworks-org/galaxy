@@ -21,28 +21,8 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - reflect on box2d / or custom simple physics solution.
 - move lua into system locator. use local variables over global variables.
 - ui should load from lua files maybe?
-- go over textbooks, appdev, etc to see if project can be improved.
-- math operator overloads need to return reference + inline
-- handles or integers / hashed strings over std::string in resource map
-
-docs notes:
-	- make a note in docs that when adding folder to the config file they must have a '/' on the end if they are folders.
-	- make a note about objects and physics in tmxmap docs with name of object being script name.
-	- make a note about entt destroying components and to not allocate memory using components
-	- make a note in docs that when making text objects in map, text fontfamily and size must be in fontbook in format: fontfamilySize and that parse code will remove spaces first.
-		- and size is pixelsize not pointsize
-	- and about the layer for objects being explictitly specified in properites of layer.
-	- make a note that the engine operates on degrees, but allegro draws in radians.
-	- make a note about layerrs and tmx mpa
-	- make a note aboutt physics objects only being created if layreri s named collision, also note that it doesnt matter where textrues and stuff in tmx path too because only the last file name in the path is used.
-		- i.e. if in tmx map the path for tiles is "textures/tiles.png" the engine wl process this as "tiles.png"
-	- only embedded tilesets supported for now.
-	- tile rendeirng issues, refer to original code ?
-	- ensure tmx layer names are unique for ALL maps.
-	- when serializing, you have to serialize engine components and tags, engine does not do it for you and then manually update physicscomponents parent entity.
-	- talk about nulltexture and nullsound and nullanimation, etc which is used on defaultconstructed components.
-	- docs note that first state is automatically loaded and last state is automatically unloaded
-	- docs note abouit registering tags and components
+- mapping improvements
+- finish serializer
 
     - sandbox notes:
 		- loading screens between states

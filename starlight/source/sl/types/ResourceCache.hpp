@@ -29,7 +29,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		virtual ~ResourceCache() = default;
+		virtual ~ResourceCache() noexcept = default;
 
 		///
 		/// Retrieve a resource.
@@ -41,7 +41,7 @@ namespace sl
 		inline typename sl::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(const char* id)
 		{
 			// Create hashed string.
-			entt::HashedString hs{ id };
+			entt::HashedString hs(id);
 
 			// at() is used because it throws an exception.
 			return m_resourceMap.at(hs);

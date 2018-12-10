@@ -48,20 +48,20 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		virtual ~CameraTag() = default;
+	    ~CameraTag() noexcept = default;
 
 	private:
 		///
 		/// Update the camera position. Called internally by CameraSystem.
 		/// We use the base type rather than the typedef to avoid includes.
 		///
-		void update(unsigned int playerEntity);
+		void update(const unsigned int playerEntity);
 
 		///
 		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_bounds);
 		}

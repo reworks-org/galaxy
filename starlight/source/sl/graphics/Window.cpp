@@ -11,6 +11,7 @@
 #include <allegro5/drawing.h>
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
+#include <allegro5/error.h>
 
 #include "sl/libs/loguru/loguru.hpp"
 
@@ -18,8 +19,8 @@
 
 namespace sl
 {
-	Window::Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon)
-	:m_isOpen(true), m_fullscreen(fullscreen), m_size(width, height)
+	Window::Window(const int width, const int height, const bool fullscreen, const bool msaa, const int msaaValue, const std::string& title, const std::string& icon)
+		:m_isOpen(true), m_fullscreen(fullscreen), m_icon(nullptr), m_display(nullptr), m_fullscreenBuffer(nullptr), m_size(width, height)
 	{
 		// Set the display options for the window based off of the params from the config.
 		al_set_new_display_flags(ALLEGRO_WINDOWED | ALLEGRO_RESIZABLE | ALLEGRO_OPENGL | ALLEGRO_PROGRAMMABLE_PIPELINE);
@@ -31,7 +32,7 @@ namespace sl
 		al_set_new_display_option(ALLEGRO_CAN_DRAW_INTO_BITMAP, 1, ALLEGRO_REQUIRE);
 
 		// Make sure title is the correct length.
-		if (title.size() >= 255)
+		if (title.size() > 255)
 		{
 			std::string temp = title.substr(0, 255);
 			LOG_S(WARNING) << "Title longer than 256 chars, shrinking to: " << temp;
@@ -56,8 +57,15 @@ namespace sl
 		}
 
 		// Set window icon.
-		//m_icon = al_load_bitmap(icon.c_str());
-		//al_set_display_icon(m_display, m_icon);
+		m_icon = al_load_bitmap(icon.c_str());
+		if (m_icon)
+		{
+			al_set_display_icon(m_display, m_icon);
+		}
+		else
+		{
+			LOG_S(ERROR) << "Allegro failed to load icon! Errno: " << al_get_errno();
+		}
 
 		// We get the monitor info in order to determine the correct size of the fullscreen window.
 		ALLEGRO_MONITOR_INFO info;
@@ -69,18 +77,38 @@ namespace sl
 		m_fullscreenScale.m_y = ((info.y2 - info.y1) / 2) - (height / 2);
 
 		m_fullscreenBuffer = al_create_bitmap(width, height);
+		if (!m_fullscreenBuffer)
+		{
+			LOG_S(FATAL) << "Allegro could not create fullscreen buffer! Errno: " << al_get_errno();
+		}
 	}
 	
 	Window::~Window()
 	{	
-		al_destroy_bitmap(m_icon);
-		al_destroy_bitmap(m_fullscreenBuffer);
-		al_destroy_display(m_display);
+		// Check to make sure we are not freeing nullptrs.
+
+		if (m_icon)
+		{
+			al_destroy_bitmap(m_icon);
+		}
+
+		if (m_fullscreenBuffer)
+		{
+			al_destroy_bitmap(m_fullscreenBuffer);
+		}
+
+		if (m_display)
+		{
+			al_destroy_display(m_display);
+		}
 	}
 
 	void Window::setTitle(const std::string& newTitle)
 	{
-		al_set_window_title(m_display, newTitle.c_str());
+		if (!newTitle.empty())
+		{
+			al_set_window_title(m_display, newTitle.c_str());
+		}
 	}
 
 	void Window::toggleFullscreen()
@@ -108,7 +136,7 @@ namespace sl
 		return m_isOpen;
 	}
 
-	void Window::clear(unsigned int r, unsigned int g, unsigned int b)
+	void Window::clear(unsigned int r, unsigned int g, unsigned int b) const
 	{
 		// When rendering in fullscreen mode, we have to draw to a buffer first.
 		if (m_fullscreen)
@@ -119,7 +147,7 @@ namespace sl
 		al_clear_to_color(al_map_rgba(r, g, b, 0));
 	}
 
-	void Window::display()
+	void Window::display() const
 	{
 		if (m_fullscreen)
 		{
@@ -132,7 +160,7 @@ namespace sl
 		al_flip_display();
 	}
 
-	ALLEGRO_DISPLAY* Window::getDisplay()
+	ALLEGRO_DISPLAY* Window::getDisplay() const
 	{
 		return m_display;
 	}

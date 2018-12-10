@@ -45,12 +45,12 @@ namespace sl
 		/// \param dy Direction of particle y.
 		/// \param fade How much to reduce the alpha by per 1/60th a second.
 		///
-		ParticleComponent(float dx, float dy, float fade);
+		ParticleComponent(const float dx, const float dy, const float fade);
 
 		///
 		/// Destructor.
 		///
-		~ParticleComponent() = default;
+		~ParticleComponent() noexcept = default;
 
 	public:
 		///

@@ -10,7 +10,6 @@
 #ifndef STARLIGHT_ANIMATION_HPP_
 #define STARLIGHT_ANIMATION_HPP_
 
-#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 #include "sl/graphics/AnimationFrame.hpp"
 #include "sl/libs/cereal/types/vector.hpp"
@@ -36,7 +35,7 @@ namespace sl
 		///
 		/// \param table sol::table containing data. Frames MUST be in order.
 		///
-		explicit Animation(sol::table& table);
+		explicit Animation(const sol::table& table);
 
 		///
 		/// Constructor.
@@ -47,7 +46,7 @@ namespace sl
 		/// \param currentFrame Current frame index.
 		/// \param frames A vector containing AnimationFrames.
 		///
-		Animation(bool isLooped, float speed, unsigned int totalFrames, unsigned int currentFrame, const std::vector<AnimationFrame>& frames);
+		Animation(const bool isLooped, const float speed, const unsigned int totalFrames, const unsigned int currentFrame, const std::vector<AnimationFrame>& frames);
 
 		///
 		/// Copy Constructor.
@@ -62,14 +61,14 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~Animation() = default;
+		~Animation() noexcept = default;
 
 	private:
 		///
 		/// Cereal serialize function.
 		///
 		template <class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_currentFrame, m_frames);
 		}

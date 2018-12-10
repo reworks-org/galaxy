@@ -22,8 +22,8 @@
 
 namespace sl
 {
-	DebugInterface::DebugInterface(const std::string& scriptFolderPath, ALLEGRO_DISPLAY* display, bool isDisabled)
-	:m_disabled(isDisabled), m_scriptFolderPath(scriptFolderPath)
+	DebugInterface::DebugInterface(const std::string& scriptFolderPath, ALLEGRO_DISPLAY* display)
+	:m_scriptFolderPath(scriptFolderPath)
 	{
 		// Set up imgui context from allegro's display.
 		ImGui::CreateContext();
@@ -48,30 +48,21 @@ namespace sl
 	void DebugInterface::event(ALLEGRO_EVENT* event)
 	{
 		// If not disabled, process gui events.
-		if (!m_disabled)
-		{
-			ImGui_ImplAllegro5_ProcessEvent(event);
-		}
+		ImGui_ImplAllegro5_ProcessEvent(event);
 	}
 
 	void DebugInterface::newFrame()
 	{
 		// If not disabled, create a new frame for drawing widgets to.
-		if (!m_disabled)
-		{
-			ImGui_ImplAllegro5_NewFrame();
-			ImGui::NewFrame();
-		}
+		ImGui_ImplAllegro5_NewFrame();
+		ImGui::NewFrame();
 	}
 
 	void DebugInterface::render()
 	{
 		// If not disabled, draw the imgui window.
-		if (!m_disabled)
-		{
-			ImGui::Render();
-			ImGui_ImplAllegro5_RenderDrawData(ImGui::GetDrawData());
-		}
+		ImGui::Render();
+		ImGui_ImplAllegro5_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void DebugInterface::displayMenu(bool* restart)

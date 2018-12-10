@@ -24,7 +24,7 @@ namespace sl
 		// Retrieve the values from the lua table.
 	}
 
-	ParallaxComponent::ParallaxComponent(float verticalSpeed, float horizontalSpeed)
+	ParallaxComponent::ParallaxComponent(const float verticalSpeed, const float horizontalSpeed)
 		:m_verticalSpeed(verticalSpeed), m_horizontalSpeed(horizontalSpeed)
 	{
 	}

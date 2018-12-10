@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_PARTICLEEMITEVENT_HPP_
 #define STARLIGHT_PARTICLEEMITEVENT_HPP_
 
-#include <unordered_map>
+#include <vector>
 
 namespace sl
 {
@@ -32,9 +32,9 @@ namespace sl
 		///
 		/// \brief Information about particles to emit.
 		/// 
-		/// Basically the string (key) is the texture atlas id and the unsigned int (value) is the amount of particles to emit for that texture.
+		/// The string is the texture atlas id and the unsigned int is the amount of particles to emit for that texture.
 		///
-		std::unordered_map<std::string, unsigned int> m_particles;
+		std::vector<std::pair<std::string, unsigned int>> m_particles;
 
 		///
 		/// X position to emit from.

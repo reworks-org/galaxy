@@ -41,12 +41,12 @@ namespace sl
 		///
 		/// \param speed Speed to move the background at.
 		///
-		explicit ScrollingBackgroundComponent(float speed);
+		ScrollingBackgroundComponent(const float speed);
 
 		///
 		/// Destructor.
 		///
-		~ScrollingBackgroundComponent();
+		~ScrollingBackgroundComponent() noexcept;
 
 		///
 		/// Call this to disable the internal second entity.
@@ -55,7 +55,7 @@ namespace sl
 
 	private:
 		///
-		/// Speed to move the background at.
+		/// Speed to move the background at. Any negatvie value is converted to a postitive one.
 		///
 		float m_speed;
 		

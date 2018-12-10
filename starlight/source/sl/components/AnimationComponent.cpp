@@ -10,7 +10,6 @@
 #include "sl/utils/Time.hpp"
 #include "sl/libs/tmx/tmx.h"
 #include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 
@@ -21,7 +20,6 @@ namespace sl
 	AnimationComponent::AnimationComponent()
 		:m_currentFrameTime(0.0), m_isPaused(true), m_activeAnimation("")
 	{
-		m_animations.clear();
 	}
 
 	AnimationComponent::AnimationComponent(const sol::table& table)
@@ -50,8 +48,8 @@ namespace sl
 	{
 		// Construct animation from raw data from a tmx tile map.
 		std::string aID = "AnimatedTile" + std::to_string(Time::getTimeSinceEpoch());
-		m_animations.emplace(aID, Animation{ true, 1.0f, tile->animation_len, static_cast<unsigned int>(0), std::vector<AnimationFrame>() });
-		m_animations.at(aID).m_frames.clear(); // ensure empty with default values
+		m_animations.emplace(aID, Animation { true, 1.0f, tile->animation_len, static_cast<unsigned int>(0), std::vector<AnimationFrame>() });
+		m_animations[aID].m_frames.clear(); // ensure empty with default values
 
 		// Construct animations for the tiles.
 		for (unsigned int i = 0; i < tile->animation_len; ++i)
@@ -61,16 +59,21 @@ namespace sl
 
 			std::string iaID = layerName + "AnimatedTileInternal" + std::to_string(Time::getTimeSinceEpoch());
 			Locator::textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
-			m_animations.at(aID).m_frames.emplace_back(AnimationFrame{ static_cast<std::uint32_t>(tile->animation[i].duration), iaID });
+			m_animations[aID].m_frames.emplace_back(AnimationFrame { static_cast<std::uint32_t>(tile->animation[i].duration), iaID });
 		}
 		
 		m_activeAnimation = aID;
 	}
 
+	AnimationComponent::~AnimationComponent()
+	{
+		m_animations.clear();
+	}
+
 	void AnimationComponent::changeAnimation(const std::string& animation)
 	{
 		// Simply reset the time and change the active animation.
-		m_animations.at(m_activeAnimation).m_currentFrame = 0;
+		m_animations[m_activeAnimation].m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
 		m_activeAnimation = animation;
 	}
@@ -99,7 +102,7 @@ namespace sl
 	{
 		// Resets the animation to the beginning.
 		m_isPaused = true;
-		m_animations.at(m_activeAnimation).m_currentFrame = 0;
+		m_animations[m_activeAnimation].m_currentFrame = 0;
 		m_currentFrameTime = 0.0;
 	}
 }

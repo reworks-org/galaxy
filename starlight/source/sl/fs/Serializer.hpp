@@ -10,7 +10,6 @@
 #ifndef STARLIGHT_SERIALIZER_HPP_
 #define STARLIGHT_SERIALIZER_HPP_
 
-#include "sl/libs/entt/entity/snapshot.hpp"
 #include "sl/libs/entt/entity/registry.hpp"
 #include "sl/libs/cereal/archives/json.hpp"
 
@@ -32,7 +31,7 @@ namespace sl
 		///
 		/// Default destructor.
 		///
-		~Serializer() = default;
+		~Serializer() noexcept = default;
 
 		///
 		/// \brief Create snapshot for game specfic data.
@@ -55,6 +54,11 @@ namespace sl
 		virtual	void loadGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& destination) = 0;
 
 	protected:
+		///
+		/// Default constructor.
+		///
+		Serializer();
+
 		///
 		/// \brief Creates a snapshot of important data in the game engine and writes it out. You need to call this in your user functions!
 		///

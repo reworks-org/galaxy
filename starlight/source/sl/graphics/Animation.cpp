@@ -17,10 +17,9 @@ namespace sl
 	Animation::Animation()
 	:m_isLooped(false), m_speed(1.0f), m_totalFrames(0), m_currentFrame(0)
 	{
-		m_frames.clear();
 	}
 
-	Animation::Animation(sol::table& table)
+	Animation::Animation(const sol::table& table)
 		:m_currentFrame(0)
 	{
 		// Set values based off of lua table.
@@ -45,7 +44,7 @@ namespace sl
 		}
 	}
 
-	Animation::Animation(bool isLooped, float speed, unsigned int totalFrames, unsigned int currentFrame, const std::vector<AnimationFrame>& frames)
+	Animation::Animation(const bool isLooped, const float speed, const unsigned int totalFrames, const unsigned int currentFrame, const std::vector<AnimationFrame>& frames)
 		:m_isLooped(isLooped), m_speed(speed), m_totalFrames(totalFrames), m_currentFrame(currentFrame), m_frames(frames)
 	{
 		// Argument constructor.

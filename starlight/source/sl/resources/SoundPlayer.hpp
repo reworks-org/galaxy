@@ -32,14 +32,14 @@ namespace sl
 		///
 		/// Cleanup fonts.
 		///
-		~SoundPlayer() override;
+		~SoundPlayer() noexcept override;
 
 		///
 		/// Change system sound effect volume.
 		///
-		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain.
+		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain. 0.0f minimum. 1.0f is normal. 2.0f is double, etc.
 		///
-		void changeVolume(float volume);
+		void changeVolume(const float volume);
 
 		///
 		/// Clean up resources.

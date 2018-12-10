@@ -46,7 +46,7 @@ namespace sl
 		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 		}
 	};

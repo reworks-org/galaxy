@@ -58,7 +58,7 @@ namespace sl
 		// Try to mount the archive to the VFS, else log error.
 		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
 		{
-			LOG_S(ERROR) << "Cannot load: " << archive << " | " << PHYSFS_getLastError();
+			LOG_S(FATAL) << "Cannot load: " << archive << " | " << PHYSFS_getLastError();
 		}
 	}
 
@@ -67,7 +67,7 @@ namespace sl
 		// Try to set the write dir for the VFS, else log error.
 		if (!PHYSFS_setWriteDir(dir.c_str()))
 		{
-			LOG_S(ERROR) << "Cannot set write dir: " << dir << "| " << PHYSFS_getLastError();
+			LOG_S(FATAL) << "Cannot set write dir: " << dir << "| " << PHYSFS_getLastError();
 		}
 	}
 
@@ -161,13 +161,6 @@ namespace sl
 
 	bool VirtualFS::has(const std::string& file)
 	{
-		if (PHYSFS_exists(file.c_str()) != 0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return (PHYSFS_exists(file.c_str()) != 0) ? true : false;
 	}
 }

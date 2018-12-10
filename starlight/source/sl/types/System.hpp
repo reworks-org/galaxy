@@ -24,7 +24,7 @@ namespace sl
 		///
 		/// Virtual destructor.
 		///
-		virtual ~System() = default;
+		virtual ~System() noexcept = default;
 		
 	protected:
 		///

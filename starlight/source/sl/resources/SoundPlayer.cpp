@@ -9,8 +9,6 @@
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "SoundPlayer.hpp"
@@ -32,7 +30,7 @@ namespace sl
 			// Iterate over each sound effect in the lua table and construct it in place.
 			sounds.for_each([this](std::pair<sol::object, sol::object> pair)
 			{
-				m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, pair.second.as<sol::table>());
+				m_resourceMap.emplace(entt::HashedString(pair.first.as<const char*>()), pair.second.as<sol::table>());
 			});
 		}
 		else
@@ -47,24 +45,15 @@ namespace sl
 		clean();
 	}
 
-	void SoundPlayer::changeVolume(float volume)
+	void SoundPlayer::changeVolume(const float volume)
 	{
 		// Correct volume range.
-		if (volume > 1.0f)
-		{
-			volume = 1.0f;
-		}
-
-		// Correct volume range.
-		if (volume < 0.0f)
-		{
-			volume = 0.0f;
-		}
+		float corrected = std::max(0.0f, volume);
 
 		// Adjust volume of the sound effects.
 		for (auto& it : m_resourceMap)
 		{
-			it.second.setVolume(volume);
+			it.second.setVolume(corrected);
 		}
 	}
 

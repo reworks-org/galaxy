@@ -22,7 +22,7 @@ namespace sl
 	/// A virtual file system can allow for using archives, file overrides, etc.
 	/// Uses PhysFS under the hood.
 	///
-	class VirtualFS final
+	class VirtualFS
 	{
 	public:
 		///
@@ -40,7 +40,7 @@ namespace sl
 		///
 		/// Destructor.
 		//
-		~VirtualFS();
+		~VirtualFS() noexcept;
 
 		///
 		/// \brief Mount an archive or folder.

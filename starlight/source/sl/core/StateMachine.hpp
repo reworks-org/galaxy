@@ -16,7 +16,6 @@
 
 #include "sl/types/State.hpp"
 #include "sl/libs/loguru/loguru.hpp"
-#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/cereal/types/stack.hpp"
 
 namespace sl
@@ -26,7 +25,7 @@ namespace sl
 	/// A seperate one would probably be needed for a character state system.
 	/// This was designed to be used purely for gamestates.
 	///
-	class StateMachine final
+	class StateMachine
 	{
 		friend class cereal::access;
 	public:
@@ -38,7 +37,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~StateMachine() = default;
+		~StateMachine() noexcept = default;
 	    
 		///
 		/// Load the current state resources.
@@ -77,14 +76,14 @@ namespace sl
 		/// \param args Arguments to construct the state.
 		///
 		template<typename State, typename ... Args>
-		void createState(std::string id, Args&&... args);
+		void createState(const std::string& id, Args&&... args);
 
 		///
 		/// Push a new state to the top of the stack.
 		///
 		/// \param state State ID to push.
 		///
-		void push(std::string state);
+		void push(const std::string& state);
 
 		///
 		/// Pop the top state.
@@ -104,7 +103,7 @@ namespace sl
 		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_stack);
 		}
@@ -126,25 +125,28 @@ namespace sl
 	};
 
 	template<typename State, typename ... Args>
-	void StateMachine::createState(std::string id, Args&&... args)
+	inline void StateMachine::createState(const std::string& id, Args&&... args)
 	{
 		// Construct in place by forwarding arguments to the object.
 		m_states.emplace(id, std::make_unique<State>(std::forward<Args>(args)...));
 	}
 
 	template<typename S>
-	S* StateMachine::top()
+	inline S* StateMachine::top()
 	{
+		S* output = nullptr;
+
 		// Ensure there are valid states and a non-empty stack
 		if (!m_stack.empty() && !m_states.empty())
 		{
-			return m_states[m_stack.top()].get();
+			output = m_states[m_stack.top()].get();
 		}
 		else
 		{
 			LOG_S(FATAL) << "Attempted to access a state while no states exist or stack is empty." << " Stack size: " << m_stack.size() << ". State map size: " << m_states.size() << ".";
-			return nullptr;
 		}
+
+		return output;
 	}
 }
 

@@ -35,7 +35,7 @@ namespace sl
 		/// \param timePerFrame How long the animation should stay on this frame.
 		/// \param frameTextureID The ID of the texture in the texture atlas.
 		///
-		AnimationFrame(std::uint32_t timePerFrame, const std::string& frameTextureID);
+		AnimationFrame(const std::uint32_t timePerFrame, const std::string& frameTextureID);
 
 		///
 		/// Copy Constructor.
@@ -52,12 +52,17 @@ namespace sl
 		///
 		AnimationFrame& operator=(const AnimationFrame&);
 
+		///
+		/// Default destructor.
+		///
+		~AnimationFrame() noexcept = default;
+
 	private:
 		///
 		/// Cereal serialize function.
 		/// 
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_timePerFrame, m_frameTextureID);
 		}

@@ -24,7 +24,7 @@
 #include "Application.hpp"
 
 // GCC 8 Workaround.
-#ifdef __GNUC__
+#if defined(__GNUC__) || defined(__GNUG__)
 
 namespace sol
 {
@@ -75,18 +75,32 @@ namespace sl
 		loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
 		loguru::set_fatal_handler([](const loguru::Message& message)
 		{
-			throw std::runtime_error(message.message);
+			std::string msg = std::string(message.preamble) + std::string(message.indentation) + std::string(message.prefix) + std::string(message.message);
+
+			ALLEGRO_DISPLAY* display = Locator::window->getDisplay();
+			if (display)
+			{
+				al_show_native_message_box(display, "FATAL", "Exception has occured!", msg.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+			}
+
+			throw std::runtime_error(msg);
+		});
+
+		// Set allegro to use loguru.
+		al_register_trace_handler([](const char* message) -> void
+		{
+			LOG_S(INFO) << "ALLEGRO TRACE: " << message;
 		});
 
 		// Set allegro to throw loguru errors when an assert is tirggered.
-		al_register_assert_handler([](const char* expr, const char* file, int line, const char* func)
+		al_register_assert_handler([](const char* expr, const char* file, int line, const char* func) -> void
 		{
-			LOG_S(FATAL) << "ALLEGRO ASSERT FAILURE: Expr: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
+			LOG_S(FATAL) << "ALLEGRO ASSERT: EXPR: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
 		});
 
 		// Initialize all of allegros systems.
-		// We dont use al_init() macro because we to manually have control
-		// over when allegro shutsdown.
+		// We dont use al_init() macro because manual control
+		// over when allegro shuts down is needed.
 		al_install_system(ALLEGRO_VERSION_INT, nullptr);
 		al_install_keyboard();
 		al_install_mouse();
@@ -109,6 +123,11 @@ namespace sl
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 		Locator::configReader = m_configReader.get();
 
+		// Apparently this is the default allegro settings. This is here for a reference.
+		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA);
+		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
+		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
+
 		m_virtualFS = std::make_unique<VirtualFS>(m_configReader->getSection(config, "archives"));
 		Locator::virtualFS = m_virtualFS.get();
 		m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
@@ -117,12 +136,6 @@ namespace sl
 			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"),
 			m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
 		Locator::window = m_window.get();
-
-		al_reserve_samples(m_configReader->lookup<int>(config, "audio", "reserveSamples"));
-		al_set_blender(ALLEGRO_ADD, ALLEGRO_ALPHA, ALLEGRO_INVERSE_ALPHA);
-
-		// Apparently this is the default allegro settings. This is here for a reference.
-		// al_set_blender(ALLEGRO_ADD, ALLEGRO_ONE, ALLEGRO_INVERSE_ALPHA);
 
 		m_world = std::make_unique<World>();
 		Locator::world = m_world.get();
@@ -133,7 +146,7 @@ namespace sl
 		m_world->m_soundFolderPath = m_configReader->lookup<std::string>(config, "fs", "soundFolderPath");
 
 		#ifdef _DEBUG
-			m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay(), m_configReader->lookup<bool>(config, "debug", "isDisabled"));
+			m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay());
 			Locator::debugInterface = m_debugInterface.get();
 		#endif
 

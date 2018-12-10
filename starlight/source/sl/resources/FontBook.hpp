@@ -35,7 +35,7 @@ namespace sl
 		///
 		/// Cleanup fonts.
 		///
-		~FontBook() override;
+		~FontBook() noexcept override;
 
 		///
 		/// Clean up resources.

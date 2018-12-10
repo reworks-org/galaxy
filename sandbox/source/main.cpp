@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 					newConfig << "title = Sandbox\n";
 					newConfig << "icon = icon.png\n";
 					newConfig << "atlasPowerOf = 13\n";
-					newConfig << "shaderScript = scripts/shaders.lua\n";
+					newConfig << "shaderScript = shaders.lua\n";
 					newConfig << "nullTexture = null\n";
 					newConfig << std::endl;
 
@@ -70,19 +70,15 @@ int main(int argc, char **argv)
 					newConfig << std::endl;
 
 					newConfig << "[font]\n";
-					newConfig << "fontScript = scripts/fonts.lua\n";
+					newConfig << "fontScript = fonts.lua\n";
 					newConfig << std::endl;
 
 					newConfig << "[audio]\n";
-					newConfig << "musicScript = scripts/music.lua\n";
-					newConfig << "soundScript = scripts/sound.lua\n";
+					newConfig << "musicScript = music.lua\n";
+					newConfig << "soundScript = sound.lua\n";
 					newConfig << "reserveSamples = 32\n";
 					newConfig << "nullMusic = null\n";
 					newConfig << "nullSound = null\n";
-					newConfig << std::endl;
-
-					newConfig << "[debug]\n";
-					newConfig << "isDisabled = false\n";
 					newConfig << std::endl;
 
 					newConfig << "[fs]\n";
@@ -95,7 +91,7 @@ int main(int argc, char **argv)
 
 					newConfig << "[archives]\n";
 					newConfig << "bin/assets/\n";
-					newConfig << "bin/data.zip\n";
+					//newConfig << "bin/data.zip\n";
 					newConfig << std::endl;
 				});
 

@@ -19,6 +19,7 @@
 namespace sl
 {
 	Shader::Shader(const sol::table& table)
+		:m_shader(nullptr)
 	{
 		// Create shader object.
 		m_shader = al_create_shader(ALLEGRO_SHADER_AUTO);
@@ -42,7 +43,8 @@ namespace sl
 		}
 	}
 
-	Shader::Shader(ALLEGRO_SHADER_PLATFORM platform, const std::string& vertexShader, const std::string& pixelShader)
+	Shader::Shader(const ALLEGRO_SHADER_PLATFORM platform, const std::string& vertexShader, const std::string& pixelShader)
+		:m_shader(nullptr)
 	{
 		// Create shader object.
 		m_shader = al_create_shader(platform);
@@ -68,15 +70,18 @@ namespace sl
 
 	Shader::~Shader()
 	{
-		al_destroy_shader(m_shader);
+		if (m_shader)
+		{
+			al_destroy_shader(m_shader);
+		}
 	}
 
-	void Shader::use()
+	void Shader::use() const
 	{
 		al_use_shader(m_shader);
 	}
 
-	void Shader::disable()
+	void Shader::disable() const
 	{
 		al_use_shader(nullptr);
 	}

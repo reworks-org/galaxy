@@ -32,14 +32,14 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~RenderSystem() override;
+		~RenderSystem() noexcept override;
 
 		///
 		/// Render entitys.
 		///
 		/// \param registry Default entity registry.
 		/// 
-		void render(entt::DefaultRegistry& registry);
+		void render(const entt::DefaultRegistry& registry);
 
 	private:
 		///

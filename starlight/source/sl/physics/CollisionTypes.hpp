@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_COLLISIONTYPES_HPP_
 #define STARLIGHT_COLLISIONTYPES_HPP_
 
+#include <cstdint>
+
 namespace sl
 {
 	///
@@ -39,7 +41,7 @@ namespace sl
 	///
 	/// Allows the usage of CollisionType to make code more understandable.
 	///
-	typedef unsigned int CollisionType;
+	typedef std::uint16_t CollisionType;
 }
 
 #endif

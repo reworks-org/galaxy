@@ -45,19 +45,19 @@ namespace sl
 		/// \param angle Angle to render at. In degrees.
 		/// \param rect Position x, y and Dimensions width, height.
 		///
-		TransformComponent(int layer, float angle, const Rect<float, int>& rect);
+		TransformComponent(const int layer, const float angle, const Rect<float, int>& rect);
 
 		///
 		/// Destructor.
 		///
-		~TransformComponent() = default;
+		~TransformComponent() noexcept = default;
 
 	private:
 		///
 		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_layer, m_angle, m_rect);
 		}

@@ -10,10 +10,8 @@
 #ifndef STARLIGHT_TEXTUREATLAS_HPP_
 #define STARLIGHT_TEXTUREATLAS_HPP_
 
-#include <allegro5/bitmap.h>
 #include <allegro5/allegro_font.h>
 
-#include "sl/math/Rect.hpp"
 #include "sl/types/ResourceCache.hpp"
 #include "sl/libs/MaxRectsBinPack/MaxRectsBinPack.hpp"
 
@@ -40,7 +38,7 @@ namespace sl
 		///
 		/// Destructor. Frees texture atlas.
 		///
-		~TextureAtlas() override;
+		~TextureAtlas() noexcept override;
 
 		///
 		/// \brief Add a texture to the atlas.
@@ -63,7 +61,7 @@ namespace sl
 		/// \param col Colour to use.
 		/// \param flags ALLEGRO flags to pass to text rendering.
 		///
-		void addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, ALLEGRO_COLOR col, int flags = 0);
+		void addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, const ALLEGRO_COLOR col, int flags = 0);
 
 		///
 		/// \brief A function that takes a lua script to add a batch of text.
@@ -101,19 +99,19 @@ namespace sl
 		/// Like al_draw_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_bitmap
 		///
-		void al_draw_packed_bitmap(const std::string& texture, float dx, float dy, int flags);
+		void al_draw_packed_bitmap(const std::string& texture, const float dx, const float dy, const int flags);
 
 		///
 		/// Like al_draw_tinted_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_bitmap
 		///
-		void al_draw_tinted_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float dx, float dy, int flags);
+		void al_draw_tinted_packed_bitmap(const std::string& texture, const ALLEGRO_COLOR tint, const float dx, const float dy, const int flags);
 
 		///
 		/// Like al_draw_tinted_scaled_rotated_bitmap
 		/// http://liballeg.org/a5docs/trunk/graphics.html#al_draw_tinted_scaled_rotated_bitmap
 		///
-		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, ALLEGRO_COLOR tint, float cx, float cy, float dx, float dy, float xscale, float yscale, float angle, int flags);
+		void al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, const ALLEGRO_COLOR tint, const float cx, const float cy, const float dx, const float dy, const float xscale, const float yscale, const float angle, const int flags);
 
 		///
 		/// 

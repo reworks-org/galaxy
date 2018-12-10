@@ -32,35 +32,35 @@ namespace sl
 		///
 		/// Cleanup fonts.
 		///
-		~MusicPlayer() override;
+		~MusicPlayer() noexcept override;
 
 		///
 		/// Change system music volume.
 		///
-		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain.
+		/// \param volume Relative volume at which the sample is played; 1.0 is normal. Allegro also refers to this as gain. 0.0f minimum. 1.0f is normal. 2.0f is double, etc.
 		///
-		void changeVolume(float volume);
+		void changeVolume(const float volume);
 
 		///
 		/// Play a song from the beginning.
 		///
 		/// \param music The music file to use.
 		///
-		void play(const char* music);
+		void play(const std::string& music);
 
 		///
 		/// Stops a song.
 		///
 		/// \param music The music file to use.
 		///
-		void stop(const char* music);
+		void stop(const std::string& music);
 
 		///
 		/// Resumes a stopped song from the position where it stopped.
 		///
 		/// \param music The music file to use.
 		///
-		void resume(const char* music);
+		void resume(const std::string& music);
 
 		///
 		/// Clean up resources.

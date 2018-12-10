@@ -38,7 +38,7 @@ namespace sl
 		// Argument constructor.
 	}
 
-	void CameraTag::update(unsigned int playerEntity)
+	void CameraTag::update(const unsigned int playerEntity)
 	{
 		// Retrieve transformcomponent of player.
 		TransformComponent& tc = Locator::world->m_registry.get<TransformComponent>(playerEntity);

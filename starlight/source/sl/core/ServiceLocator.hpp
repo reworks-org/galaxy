@@ -41,7 +41,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		virtual ~Locator() = default;
+		virtual ~Locator() noexcept = default;
 
 	private:
 		///

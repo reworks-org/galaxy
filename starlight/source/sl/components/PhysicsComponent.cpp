@@ -11,7 +11,6 @@
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/core/ServiceLocator.hpp"
-#include "sl/libs/Box2D/Dynamics/b2Body.h"
 
 #include "PhysicsComponent.hpp"
 
@@ -22,8 +21,41 @@ namespace sl
 	{
 	}
 
+	PhysicsComponent::PhysicsComponent(const float x, const float y, const b2BodyType bodyType, const std::vector<b2FixtureDef>& fixtures, const bool isRotationFixed)
+		:m_body(nullptr), m_entity(0)
+	{
+		// Construct body definition.
+		b2BodyDef bodyDef;
+		bodyDef.position.Set(Box2DHelper::pixelsToMeters<float32>(x), Box2DHelper::pixelsToMeters<float32>(y));
+
+		bodyDef.type = bodyType;
+
+		// Use box2d to create the body data in the physics world.
+		m_body = Locator::box2dHelper->m_b2world->CreateBody(&bodyDef);
+
+		if (!fixtures.empty())
+		{
+			for (auto& fixture : fixtures)
+			{
+				// Make sure when creating fixture it is properly created.
+				if (!m_body->CreateFixture(&fixture))
+				{
+					LOG_S(ERROR) << "Failed to create fixturedef for PhysicsComponent.";
+				}
+			}
+		}
+		else
+		{
+			// This is only a warning because the game can still run with a body that has no fixtures. 
+			// Although it would not work correctly, it would not cause a crash.
+			LOG_S(WARNING) << "Fixture List is empty!";
+		}
+
+		m_body->SetFixedRotation(isRotationFixed);
+	}
+
 	PhysicsComponent::PhysicsComponent(const sol::table& table)
-	:m_body(nullptr), m_entity(NULL)
+		:m_body(nullptr), m_entity(NULL)
 	{
 		// Construct body definition.
 		b2BodyDef bodyDef;
@@ -83,7 +115,7 @@ namespace sl
 				// Make sure when creating fixture it is properly created.
 				if (!m_body->CreateFixture(&fixtureDef))
 				{
-					LOG_S(FATAL) << "Failed to create fixturedef for PhysicsComponent.";
+					LOG_S(ERROR) << "Failed to create fixturedef for PhysicsComponent.";
 				}
 			});
 		}
@@ -97,7 +129,7 @@ namespace sl
 		m_body->SetFixedRotation(table.get<bool>("fixedRotation"));
 	}
 
-	void PhysicsComponent::setFixtureEntity(entt::DefaultRegistry::entity_type entity)
+	void PhysicsComponent::setFixtureEntity(const entt::DefaultRegistry::entity_type entity)
 	{
 		// Sets the entity this fixture belongs to to use it in collisions.
 		m_entity = entity;

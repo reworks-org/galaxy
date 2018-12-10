@@ -8,6 +8,7 @@
 ///
 
 #include "sl/utils/Time.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/EnabledComponent.hpp"
 #include "sl/components/AnimationComponent.hpp"
@@ -28,34 +29,41 @@ namespace sl
 				// Get currently active animation for the entity.
 				Animation* animation = &(ac.m_animations[ac.m_activeAnimation]);
 
-				// Increment timepassed for that animation frame.
-				auto timepassed = (dt * animation->m_speed);
-				ac.m_currentFrameTime += timepassed;
-
-				// If the time passed is greater than the time allowed per frame...
-				if (ac.m_currentFrameTime >= Time::milliseconds(animation->m_frames[animation->m_currentFrame].m_timePerFrame))
+				if (animation)
 				{
-					// ...reset current frame time and increment the current frame.
-					ac.m_currentFrameTime = 0.0;
-					animation->m_currentFrame++;
+					// Increment timepassed for that animation frame.
+					auto timepassed = (dt * animation->m_speed);
+					ac.m_currentFrameTime += timepassed;
 
-					// Make sure the new frame is not larger than the total amount of frames avaliable.
-					// If it is, reset animation to beginning.
-					// current frame is an index so we need to take 1 from total frames
-					// arrays start at 0!
-					if (animation->m_currentFrame > (animation->m_totalFrames - 1))
+					// If the time passed is greater than the time allowed per frame...
+					if (ac.m_currentFrameTime >= Time::milliseconds(animation->m_frames[animation->m_currentFrame].m_timePerFrame))
 					{
-						animation->m_currentFrame = 0;
+						// ...reset current frame time and increment the current frame.
+						ac.m_currentFrameTime = 0.0;
+						animation->m_currentFrame++;
 
-						// And finally stop animation if it is not looped.
-						if (!animation->m_isLooped)
+						// Make sure the new frame is not larger than the total amount of frames avaliable.
+						// If it is, reset animation to beginning.
+						// current frame is an index so we need to take 1 from total frames
+						// arrays start at 0!
+						if (animation->m_currentFrame > (animation->m_totalFrames - 1))
 						{
-							ac.stop();
-						}
-					}
+							animation->m_currentFrame = 0;
 
-					// Then update the animation frame to render within the the render component by changing the textureid.
-					rc.m_textureName = animation->m_frames[animation->m_currentFrame].m_frameTextureID;
+							// And finally stop animation if it is not looped.
+							if (!animation->m_isLooped)
+							{
+								ac.stop();
+							}
+						}
+
+						// Then update the animation frame to render within the the render component by changing the textureid.
+						rc.m_textureName = animation->m_frames[animation->m_currentFrame].m_frameTextureID;
+					}
+				}
+				else
+				{
+					LOG_S(ERROR) << "Retrieved a null animation for active animation: " << ac.m_activeAnimation;
 				}
 			}
 		});

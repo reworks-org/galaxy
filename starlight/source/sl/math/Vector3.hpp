@@ -34,14 +34,14 @@ namespace sl
 		/// \param y Y value.
 		/// \param z Z value.
 		///
-		Vector3(T x, T y, T z);
+		Vector3(const T x, const T y, const T z);
 
 	private:
 		///
 		/// Cereal serialize function.
 		///
 		template <class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_x, m_y, m_z);
 		}
@@ -64,14 +64,14 @@ namespace sl
 	};
 
 	template<typename T>
-	Vector3<T>::Vector3()
+	inline Vector3<T>::Vector3()
 		:m_x(0), m_y(0), m_z(0)
 	{
 		// Default initialized constructor.
 	}
 
 	template<typename T>
-	Vector3<T>::Vector3(T x, T y, T z)
+	inline Vector3<T>::Vector3(const T x, const T y, const T z)
 		: m_x(x), m_y(y), m_z(z)
 	{
 		// Argument constructor.
@@ -81,7 +81,7 @@ namespace sl
 	/// Operator overloading for Vector3 negative.
 	///
 	template<typename T>
-	Vector3<T> operator-(const Vector3<T>& a)
+	inline Vector3<T> operator-(const Vector3<T>& a)
 	{
 		return Vector3<T>(-a.m_x, -a.m_y, -a.m_z);
 	}
@@ -90,7 +90,7 @@ namespace sl
 	/// Operator overloading for Vector3 addition assignment.
 	///
 	template<typename T>
-	Vector3<T>& operator+=(Vector3<T>& a, const Vector3<T>& b)
+	inline Vector3<T>& operator+=(Vector3<T>& a, const Vector3<T>& b)
 	{
 		a.m_x += b.m_x;
 		a.m_y += b.m_y;
@@ -103,7 +103,7 @@ namespace sl
 	/// Operator overloading for Vector3 subtraction assignment.
 	///
 	template<typename T>
-	Vector3<T>& operator-=(Vector3<T>& a, const Vector3<T>& b)
+	inline Vector3<T>& operator-=(Vector3<T>& a, const Vector3<T>& b)
 	{
 		a.m_x -= b.m_x;
 		a.m_y -= b.m_y;
@@ -116,7 +116,7 @@ namespace sl
 	/// Operator overloading for Vector3 addition.
 	///
 	template<typename T>
-	Vector3<T> operator+(const Vector3<T>& a, const Vector3<T>& b)
+	inline Vector3<T> operator+(const Vector3<T>& a, const Vector3<T>& b)
 	{
 		return Vector3<T>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
 	}
@@ -125,7 +125,7 @@ namespace sl
 	/// Operator overloading for Vector3 subtraction.
 	///
 	template<typename T>
-	Vector3<T> operator-(const Vector3<T>& a, const Vector3<T>& b)
+	inline Vector3<T> operator-(const Vector3<T>& a, const Vector3<T>& b)
 	{
 		return Vector3<T>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_z - b.m_z);
 	}
@@ -134,7 +134,7 @@ namespace sl
 	/// Operator overloading for Vector3 equality
 	///
 	template<typename T>
-	bool operator==(const Vector3<T>& a, const Vector3<T>& b)
+	inline bool operator==(const Vector3<T>& a, const Vector3<T>& b)
 	{
 		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_z == b.m_z);
 	}
@@ -143,7 +143,7 @@ namespace sl
 	/// Operator overloading for Vector3 not equal operator.
 	///
 	template<typename T>
-	bool operator!=(const Vector3<T>& a, const Vector3<T>& b)
+	inline bool operator!=(const Vector3<T>& a, const Vector3<T>& b)
 	{
 		return (a.m_x != b.m_x) || (a.m_y != b.m_y) || (a.m_z != b.m_z);
 	}

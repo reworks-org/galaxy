@@ -35,12 +35,12 @@ namespace sl
 		/// \param title Window title. Must be smaller than 255 characters.
 		/// \param icon Path to window icon. Must be 512x512.
 		///
-		Window(int width, int height, bool fullscreen, bool msaa, int msaaValue, const std::string& title, const std::string& icon);
+		Window(const int width, const int height, const bool fullscreen, const bool msaa, const int msaaValue, const std::string& title, const std::string& icon);
 
 		///
 		/// Cleans up the window.
 		///
-		~Window();
+		~Window() noexcept;
 
 		///
 		/// Change the title.
@@ -73,19 +73,19 @@ namespace sl
 		/// \param g Green value.
 		/// \param b Blue value.
 		///
-		void clear(unsigned int r, unsigned int g, unsigned int b);
+		void clear(unsigned int r, unsigned int g, unsigned int b) const;
 
 		///
 		/// Display contents drawn to window.
 		///
-		void display();
+		void display() const;
 
 		///
 		/// Retrieves the internal display.
 		///
 		/// \return Returns pointer to ALLEGRO_DISPLAY.
 		///
-		ALLEGRO_DISPLAY* getDisplay();
+		ALLEGRO_DISPLAY* getDisplay() const;
 
 		///
 		/// Retrieves the window size.

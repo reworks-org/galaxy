@@ -18,12 +18,12 @@ workspace "starlight"
 	filter "platforms:Win32"
 		architecture "x32"
 		defines { "WIN32" }
-		libdirs { "libs/libxml2/x32", "libs/allegro/x32/lib", "libs/allegro_deps/x32" }
+		libdirs { "libs/libxml2/x32", "libs/allegro/x32/", "libs/allegro_deps/x32" }
 
 	filter "platforms:Win64"
 		architecture "x64"
 		defines { "WIN64" }
-		libdirs { "libs/libxml2/x64", "libs/allegro/x64/lib", "libs/allegro_deps/x64" }
+		libdirs { "libs/libxml2/x64", "libs/allegro/x64/", "libs/allegro_deps/x64" }
 
 	filter "platforms:Linux32"
 		architecture "x32"
@@ -64,13 +64,7 @@ workspace "starlight"
 		defines { "_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS", "_CRT_SECURE_NO_WARNINGS", "_CRT_SECURE_NO_DEPRECATE", "_CRT_NONSTDC_NO_DEPRECATE" }
 		buildoptions { "/bigobj" }
 		includedirs { "starlight/source", "libs/libxml2/include", "libs/allegro/include", "libs/allegro_deps/include" }
-		links { "libxml2", "opengl32", "dumb", "FLAC", "freetype", "jpeg", "libpng16", "ogg", "opus", "opusfile", "physfs", "theoradec", "vorbis", "vorbisfile", "zlib", "kernel32", "user32", "gdi32", "winspool", "comdlg32", "advapi32", "shell32", "ole32", "oleaut32", "uuid" }
-
-	filter { "platforms:Win32 or Win64", "configurations:Debug"}
-		links { "allegro-debug", "allegro_main-debug", "allegro_image-debug", "allegro_physfs-debug", "allegro_color-debug", "allegro_memfile-debug", "allegro_font-debug", "allegro_ttf-debug", "allegro_primitives-debug", "allegro_dialog-debug", "allegro_audio-debug", "allegro_acodec-debug", "allegro_video-debug" }
-
-	filter { "platforms:Win32 or Win64", "configurations:Release"}
-		links { "allegro_monolith-static", "winmm", "Shlwapi", "psapi", "dsound"}
+		links { "libxml2", "opengl32", "allegro_monolith-static", "dumb", "FLAC", "freetype", "jpeg", "libpng16", "ogg", "opus", "opusfile", "physfs", "theoradec", "vorbis", "vorbisfile", "zlib", "kernel32", "user32", "gdi32", "winspool", "comdlg32", "advapi32", "shell32", "ole32", "oleaut32", "uuid", "winmm", "Shlwapi", "psapi", "dsound" }
 
 	filter { "platforms:Linux32 or Linux64"}
 		system "linux"

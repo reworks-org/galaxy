@@ -31,7 +31,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~ParticleSystem() override = default;
+		~ParticleSystem() noexcept override = default;
 
 		///
 		/// Function to connect to the event dispatcher.

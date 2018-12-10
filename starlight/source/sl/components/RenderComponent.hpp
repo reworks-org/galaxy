@@ -44,19 +44,19 @@ namespace sl
 		/// \param opacity Opacity of Texture / Sprite Texture. From 0.0f - 1.0f.
 		/// \param atlasID Name of the sprite in the texture atlas.
 		///
-		RenderComponent(float opacity, const std::string& atlasID);
+		RenderComponent(const float opacity, const std::string& atlasID);
 
 		///
 		/// Destructor.
 		///
-		~RenderComponent() = default;
+		~RenderComponent() noexcept = default;
 
 	private:
 		///
 		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_opacity, m_textureName);
 		}

@@ -31,7 +31,7 @@ namespace sl
 		///
 		/// Destructor. Cleans up shaders.
 		///
-		~ShaderLibrary() override;
+		~ShaderLibrary() noexcept override;
 
 		///
 		/// Clean up resources.

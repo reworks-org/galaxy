@@ -9,7 +9,6 @@
 
 #include "sl/core/World.hpp"
 #include "sl/utils/Random.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/components/RenderComponent.hpp"
 #include "sl/components/EnabledComponent.hpp"

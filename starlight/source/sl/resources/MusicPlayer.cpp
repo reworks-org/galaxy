@@ -9,8 +9,6 @@
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "MusicPlayer.hpp"
@@ -47,40 +45,31 @@ namespace sl
 		clean();
 	}
 
-	void MusicPlayer::changeVolume(float volume)
+	void MusicPlayer::changeVolume(const float volume)
 	{
 		// Correct volume range.
-		if (volume > 1.0)
-		{ 
-			volume = 1.0f;
-		}
-	
-		// Correct volume range.
-		if (volume < 0.0) 
-		{
-			volume = 0.0f;
-		}
+		float corrected = std::max(0.0f, volume);
 
 		// Adjust volume of the music.
 		for (auto& it : m_resourceMap)
 		{
-			it.second.setVolume(volume);
+			it.second.setVolume(corrected);
 		}
 	}
 
-	void MusicPlayer::play(const char* music)
+	void MusicPlayer::play(const std::string& music)
 	{
-		get(music).play();
+		get(music.c_str()).play();
 	}
 
-	void MusicPlayer::stop(const char* music)
+	void MusicPlayer::stop(const std::string& music)
 	{
-		get(music).stop();
+		get(music.c_str()).stop();
 	}
 
-	void MusicPlayer::resume(const char* music)
+	void MusicPlayer::resume(const std::string& music)
 	{
-		get(music).resume();
+		get(music.c_str()).resume();
 	}
 
 	void MusicPlayer::clean()

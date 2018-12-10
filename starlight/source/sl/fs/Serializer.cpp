@@ -15,8 +15,13 @@
 
 namespace sl
 {
+	Serializer::Serializer()
+		:m_saveFilePath("")
+	{
+	}
+
 	Serializer::Serializer(const std::string& saveFilePath)
-	:m_saveFilePath(saveFilePath)
+		:m_saveFilePath(saveFilePath)
 	{
 	}
 

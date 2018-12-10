@@ -35,7 +35,7 @@ namespace sl
 		///
 		/// Clean up the config reader.
 		///
-		~ConfigReader() override;
+		~ConfigReader() noexcept override;
 
 		///
 		/// \brief Add another config to reader.
@@ -44,7 +44,9 @@ namespace sl
 		///
 		/// \param config Name of the config file to add in the vfs.
 		///
-		void add(const std::string& config);
+		/// \return True on success.
+		///
+		bool add(const std::string& config);
 		
 		///
 		/// Set a value in the config.
@@ -55,7 +57,7 @@ namespace sl
 		/// \param value Actual value to write.
 		///
 		template<typename T>
-		void setValue(const std::string& config, const std::string& section, const std::string& key, T value);
+		void setValue(const std::string& config, const std::string& section, const std::string& key, const T value);
 
 		///
 		/// Remove a value from the config.
@@ -87,7 +89,9 @@ namespace sl
 		///
 		/// \param config Name of the config file to save.
 		///
-		void save(const std::string& config);
+		/// \return True on success.
+		///
+		bool save(const std::string& config);
 
 		///
 		/// Lookup a value in the config file.
@@ -111,31 +115,37 @@ namespace sl
 		///
 		std::vector<std::string> getSection(const std::string& config, const std::string& section);
 
-		///
-		/// Clean up resources.
-		///
-		void clean() override;
-
 	private:
 		///
 		/// Default Constructor.
 		/// Deleted.
 		///
 		ConfigReader() = delete;
+
+		///
+		/// Clean up resources.
+		///
+		void clean() override;
 	};
 
 	template<typename T>
-	T ConfigReader::lookup(const std::string& config, const std::string& section, const std::string& key)
+	inline T ConfigReader::lookup(const std::string& config, const std::string& section, const std::string& key)
 	{  
 		// Convert retrieved value to correct type.
-		return Utils::convertString<T>(al_get_config_value(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), key.c_str()));
+		const char* output = al_get_config_value(m_resourceMap[entt::HashedString(config.c_str())], section.c_str(), key.c_str());
+		if (!output)
+		{
+			LOG_S(FATAL) << "Failed to get config value: " << key;
+		}
+
+		return Utils::convertString<T>(output);
 	}
 
 	template<typename T>
-	void ConfigReader::setValue(const std::string& config, const std::string& section, const std::string& key, T value)
+	inline void ConfigReader::setValue(const std::string& config, const std::string& section, const std::string& key, const T value)
 	{
 		// Set value of a section.
-		al_set_config_value(m_resourceMap[entt::HashedString{ config.c_str() }], section.c_str(), key.c_str(), std::to_string(value).c_str());
+		al_set_config_value(m_resourceMap[entt::HashedString(config.c_str())], section.c_str(), key.c_str(), std::to_string(value).c_str());
 	}
 }
 

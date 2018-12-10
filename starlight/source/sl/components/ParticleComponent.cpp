@@ -27,9 +27,8 @@ namespace sl
 		m_fade = table.get<float>("fade");
 	}
 
-	ParticleComponent::ParticleComponent(float dx, float dy, float fade)
+	ParticleComponent::ParticleComponent(const float dx, const float dy, const float fade)
 		:m_direction(dx, dy), m_fade(fade)
 	{
-		// Constructs the component from parameters instead of lua.
 	}
 }

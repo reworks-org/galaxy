@@ -25,7 +25,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		virtual ~State() = default;
+		virtual ~State() noexcept = default;
 
 		///
 		/// Load the current state resources.

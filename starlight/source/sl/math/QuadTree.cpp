@@ -14,7 +14,7 @@
 
 namespace sl
 {
-	QuadTree::QuadTree(size_t level, Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
+	QuadTree::QuadTree(const size_t level, Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
 	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()
 	{
 		// Ensure each node is set to nullptr not junk data.
@@ -24,7 +24,7 @@ namespace sl
 		}
 	}
 
-	QuadTree::QuadTree(size_t level, const Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
+	QuadTree::QuadTree(const size_t level, const Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
 		:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()
 	{
 		// Ensure each node is set to nullptr not junk data.
@@ -63,7 +63,7 @@ namespace sl
 		m_bounds = newBounds;
 	}
 
-	void QuadTree::insert(entt::DefaultRegistry::entity_type e)
+	void QuadTree::insert(const entt::DefaultRegistry::entity_type e)
 	{
 		auto tc_rect = Locator::world->m_registry.get<TransformComponent>(e).m_rect;
 
@@ -106,7 +106,7 @@ namespace sl
 		}
 	}
 
-	void QuadTree::retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, entt::DefaultRegistry::entity_type e)
+	void QuadTree::retrieve(std::vector<entt::DefaultRegistry::entity_type>& returnObjects, const entt::DefaultRegistry::entity_type e)
 	{
 		auto tc_rect = Locator::world->m_registry.get<TransformComponent>(e).m_rect;
 		

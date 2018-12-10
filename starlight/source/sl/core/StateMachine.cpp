@@ -7,8 +7,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/libs/loguru/loguru.hpp"
-
 #include "StateMachine.hpp"
 
 namespace sl
@@ -58,7 +56,7 @@ namespace sl
 		}
 	}
 
-	void StateMachine::push(std::string state)
+	void StateMachine::push(const std::string& state)
 	{
 		// Ensure that the state being pushed exists.
 		if (m_states.find(state) != m_states.end())

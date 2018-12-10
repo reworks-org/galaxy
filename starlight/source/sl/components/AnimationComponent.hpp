@@ -13,8 +13,6 @@
 #include <unordered_map>
 
 #include "sl/graphics/Animation.hpp"
-#include "sl/libs/cereal/access.hpp"
-#include "sl/libs/cereal/types/string.hpp"
 #include "sl/libs/cereal/types/unordered_map.hpp"
 
 typedef struct _tmx_map tmx_map;
@@ -63,7 +61,7 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~AnimationComponent() = default;
+		~AnimationComponent() noexcept;
 
 		///
 		/// Change the current animation.
@@ -99,7 +97,7 @@ namespace sl
 		/// Cereal serialize function.
 		///
 		template<class Archive>
-		void serialize(Archive& ar)
+		inline void serialize(Archive& ar)
 		{
 			ar(m_isPaused, m_currentFrameTime, m_activeAnimation, m_animations);
 		}

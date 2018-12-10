@@ -11,7 +11,7 @@
 
 namespace sl
 {
-	const std::string Utils::boolToString(bool value)
+	const std::string Utils::boolToString(const bool value)
 	{
 		std::string out = (value == true) ? "true" : "false";
 		return out;
@@ -24,7 +24,7 @@ namespace sl
 		return out;
 	}
 
-	const char* Utils::nullToEmpty(char const* s)
+	const char* Utils::nullToEmpty(const char* s)
 	{
 		return (s ? s : "");
 	}

@@ -11,7 +11,6 @@
 #define STARLIGHT_APPLICATION_HPP_
 
 #include <fstream>
-#include <allegro5/events.h>
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
@@ -39,10 +38,10 @@ namespace sl
 		///
 		/// Cleans up engine related memory usage.
 		/// 
-		virtual ~Application();
+		virtual ~Application() noexcept;
 
 		///
-		/// Return app->run() from your main method.
+		/// Runs the application.
 		///
 		/// \return Returns true if the program should restart.
 		/// 

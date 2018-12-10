@@ -11,8 +11,6 @@
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
-#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"
@@ -25,7 +23,7 @@
 namespace sl
 {
 	PhysicsSystem::PhysicsSystem(const std::string& functionScript, float ups, int vi, int pi)
-	:m_ups(ups), m_velocityIterations(vi), m_positionIterations(pi)
+	:m_ups(ups), m_step(0), m_velocityIterations(vi), m_positionIterations(pi)
 	{
 		if (functionScript != "")
 		{
@@ -64,6 +62,9 @@ namespace sl
 
 		// Attach collision listener.
 		Locator::dispatcher->sink<CollisionEvent>().connect(this);
+
+		// Calc step.
+		m_step = 1.0f / m_ups;
 	}
 
 	void PhysicsSystem::receive(const CollisionEvent& ce)
@@ -75,7 +76,7 @@ namespace sl
 	void PhysicsSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{
 		// Update Box2D world.
-		Locator::box2dHelper->m_b2world->Step(1.0f / m_ups, m_velocityIterations, m_positionIterations);
+		Locator::box2dHelper->m_b2world->Step(m_step, m_velocityIterations, m_positionIterations);
 			
 		// Iterate over entities, updating their transformcomponent to match the physics component.
 		registry.view<PhysicsComponent, TransformComponent, EnabledComponent>()
@@ -87,6 +88,10 @@ namespace sl
 				tc.m_rect.m_x = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().x);
 				tc.m_rect.m_y = Box2DHelper::metersToPixels<float>(pc.m_body->GetPosition().y);
 				tc.m_angle = Box2DHelper::radToDeg<float>(pc.m_body->GetAngle());
+			}
+			else
+			{
+				LOG_S(ERROR) << "PhysicsComponent body was nullptr!";
 			}
 		});
 	}
