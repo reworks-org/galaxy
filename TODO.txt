@@ -24,6 +24,16 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - mapping improvements
 - finish serializer
 
+
+- ui:
+	- add image support to tooltip.
+
+
+
+
+
+
+
     - sandbox notes:
 		- loading screens between states
 		- resources are loaded on a differnet thread

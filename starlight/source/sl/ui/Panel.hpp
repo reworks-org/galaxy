@@ -29,12 +29,12 @@ namespace sl
 		/// \param colour Colour of the panel. Can be transparent or opaque.
 		/// \param bgImage Optional background image to use.
 		///
-		explicit Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR& colour, const std::string& bgImage = "");
+		Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour, const std::string& bgImage = "");
 
 		///
 		/// Destructor.
 		///
-		~Panel();
+		~Panel() noexcept;
 
 		///
 		/// Add a new widget to the Panel.
@@ -43,8 +43,8 @@ namespace sl
 		///
 		/// \return Returns pointer to newly created widget.
 		///
-		template<typename _Widget, typename... Args>
-		_Widget* addWidget(Args&&... args);
+		template<typename WidgetType, typename... Args>
+		WidgetType* addWidget(Args&&... args);
 
 		///
 		/// Update the UI.
@@ -57,9 +57,16 @@ namespace sl
 		void render();
 
 		///
-		/// Set visibility. Also affects widgets on panel.
+		/// Set visibility.
 		///
-		void isVisible(bool isVisible);
+		/// \param isVisible True if visible.
+		///
+		void setVisibility(const bool isVisible);
+
+		///
+		/// Is the panel visible?
+		///
+		const bool isVisible() const;
 
 		///
 		/// Destroy all widgets.
@@ -94,11 +101,11 @@ namespace sl
 		std::vector<std::unique_ptr<Widget>> m_widgets;
 	};
 
-	template<typename _Widget, typename... Args>
-	_Widget* Panel::addWidget(Args&&... args)
+	template<typename WidgetType, typename... Args>
+	inline WidgetType* Panel::addWidget(Args&&... args)
 	{
 		// Forward arguments to std::vector's construct in place method.
-		_Widget* ref = m_widgets.emplace_back(std::make_unique<_Widget>(std::forward<Args>(args)...)).get();
+		WidgetType* ref = m_widgets.emplace_back(std::make_unique<WidgetType>(std::forward<Args>(args)...)).get();
 
 		// Then return a pointer to object placed.
 		return ref;

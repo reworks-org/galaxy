@@ -15,9 +15,6 @@
 
 #include "sl/libs/tmx/tmx.h"
 
-/// Non-Americanised spelling macro.
-#define ALLEGRO_COLOUR ALLEGRO_COLOR
-
 namespace sl
 {
 	///
@@ -57,17 +54,17 @@ namespace sl
 		///
 		/// Convert TMX colour to allegro colour.
 		///
-		ALLEGRO_COLOUR intToColour(int colour, unsigned char opacity);
+		ALLEGRO_COLOR intToColour(int colour, unsigned char opacity);
 
 		///
 		/// Draws a line. 
 		///
-		void drawPolyline(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour);
+		void drawPolyline(double** points, double x, double y, int pointsc, ALLEGRO_COLOR colour);
 
 		///
 		/// Draws a polygon.
 		///
-		void drawPolygon(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour);
+		void drawPolygon(double** points, double x, double y, int pointsc, ALLEGRO_COLOR colour);
 
 		///
 		/// Extracts tile gid flags.

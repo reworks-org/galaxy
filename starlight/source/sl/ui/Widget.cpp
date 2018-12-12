@@ -11,22 +11,28 @@
 
 namespace sl
 {
-	Widget::~Widget()
+	Widget::Widget(const sl::Rect<int>& bounds) noexcept
+		:m_bounds(bounds), m_isVisible(true), m_tooltip(nullptr)
 	{
 	}
 
-	void Widget::isVisible(bool isVisible)
+	Widget::~Widget()
+	{
+		m_tooltip.reset();
+	}
+
+	void Widget::setVisibility(const bool isVisible)
 	{
 		m_isVisible = isVisible;
 	}
 
-	void Widget::registerCallback(const std::function<void(void)>& callback)
+	const bool Widget::isVisible() const
 	{
-
+		return m_isVisible;
 	}
 
-	Widget::Widget(const sl::Rect<int>& bounds) noexcept
-		:m_bounds(bounds)
+	void Widget::setTooltip(std::unique_ptr<Tooltip> tooltip)
 	{
+		m_tooltip = std::move(tooltip);
 	}
 }

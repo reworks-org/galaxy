@@ -93,7 +93,7 @@ namespace sl
 		}
 	}
 
-	ALLEGRO_COLOUR TMXMap::intToColour(int colour, unsigned char opacity)
+	ALLEGRO_COLOR TMXMap::intToColour(int colour, unsigned char opacity)
 	{
 		unsigned char r = 0;
 		unsigned char g = 0;
@@ -107,7 +107,7 @@ namespace sl
 		return al_map_rgba(r, g, b, opacity);
 	}
 
-	void TMXMap::drawPolyline(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
+	void TMXMap::drawPolyline(double** points, double x, double y, int pointsc, ALLEGRO_COLOR colour)
 	{
 		// Iterate over the points to draw and draw them in a line.
 		for (int i = 1; i < pointsc; i++)
@@ -116,7 +116,7 @@ namespace sl
 		}
 	}
 
-	void TMXMap::drawPolygon(double** points, double x, double y, int pointsc, ALLEGRO_COLOUR colour)
+	void TMXMap::drawPolygon(double** points, double x, double y, int pointsc, ALLEGRO_COLOR colour)
 	{
 		// Iterate over each point and draw the lines so the result is a polygon.
 		drawPolyline(points, x, y, pointsc, colour);

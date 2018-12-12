@@ -8,13 +8,14 @@
 ///
 
 #include "sl/graphics/Window.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "Panel.hpp"
 
 namespace sl
 {
-	Panel::Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR& colour, const std::string& bgImage)
+	Panel::Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour, const std::string& bgImage)
 		:m_isVisible(true), m_bounds(bounds)
 	{
 		if (bgImage != "")
@@ -33,12 +34,20 @@ namespace sl
 
 			al_set_target_backbuffer(Locator::window->getDisplay());
 		}
+
+		if (!m_background)
+		{
+			LOG_S(ERROR) << "Failed to load background: " << bgImage;
+		}
 	}
 
 	Panel::~Panel()
 	{
 		// Destroy background.
-		al_destroy_bitmap(m_background);
+		if (m_background)
+		{
+			al_destroy_bitmap(m_background);
+		}
 
 		// Ensure widgets are cleaned up.
 		clear();
@@ -46,10 +55,10 @@ namespace sl
 
 	void Panel::update()
 	{
-		// Loop over widgets to update. Only if visible.
-		if (m_isVisible)
+		// Update all widgets.
+		for (auto& widget : m_widgets)
 		{
-			for (auto& widget : m_widgets)
+			if (widget->isVisible())
 			{
 				widget->update();
 			}
@@ -58,19 +67,24 @@ namespace sl
 
 	void Panel::render()
 	{
-		// Only render panel if its visible. Simple.
-		if (m_isVisible)
+		// Render all widgets.
+		for (auto& widget : m_widgets)
 		{
-			for (auto& widget : m_widgets)
+			if (widget->isVisible())
 			{
 				widget->render();
 			}
 		}
 	}
 
-	void Panel::isVisible(bool isVisible)
+	void Panel::setVisibility(const bool isVisible)
 	{
 		m_isVisible = isVisible;
+	}
+
+	const bool Panel::isVisible() const
+	{
+		return m_isVisible;
 	}
 
 	void Panel::clear()

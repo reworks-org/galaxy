@@ -156,6 +156,7 @@
     <ClCompile Include="source\sl\systems\RenderSystem.cpp" />
     <ClCompile Include="source\sl\tags\CameraTag.cpp" />
     <ClCompile Include="source\sl\ui\Panel.cpp" />
+    <ClCompile Include="source\sl\ui\Tooltip.cpp" />
     <ClCompile Include="source\sl\ui\UI.cpp" />
     <ClCompile Include="source\sl\ui\Widget.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Button.cpp" />
@@ -166,7 +167,6 @@
     <ClCompile Include="source\sl\ui\widgets\Slider.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Textbox.cpp" />
     <ClCompile Include="source\sl\ui\widgets\TextInput.cpp" />
-    <ClCompile Include="source\sl\ui\widgets\Tooltip.cpp" />
     <ClCompile Include="source\sl\utils\Time.cpp" />
     <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
@@ -429,6 +429,7 @@
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />
     <ClInclude Include="source\sl\ui\Panel.hpp" />
+    <ClInclude Include="source\sl\ui\Tooltip.hpp" />
     <ClInclude Include="source\sl\ui\UI.hpp" />
     <ClInclude Include="source\sl\ui\Widget.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Button.hpp" />
@@ -439,7 +440,6 @@
     <ClInclude Include="source\sl\ui\widgets\Slider.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Textbox.hpp" />
     <ClInclude Include="source\sl\ui\widgets\TextInput.hpp" />
-    <ClInclude Include="source\sl\ui\widgets\Tooltip.hpp" />
     <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />

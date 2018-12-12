@@ -26,12 +26,12 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		explicit UI() noexcept = default;
+		UI() = default;
 
 		///
 		/// Destructor.
 		///
-		~UI();
+		~UI() noexcept;
 
 		///
 		/// Add a Panel to the UI.
@@ -61,7 +61,7 @@ namespace sl
 	};
 
 	template<typename... Args>
-	Panel* UI::addPanel(Args&&... args)
+	inline Panel* UI::addPanel(Args&&... args)
 	{
 		// Forward arguments to std::vector's construct in place method.
 		Panel* ref = m_panels.emplace_back(std::make_unique<Panel>(std::forward<Args>(args)...)).get();

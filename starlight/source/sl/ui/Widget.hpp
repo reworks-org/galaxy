@@ -13,6 +13,7 @@
 #include <allegro5/events.h>
 
 #include "sl/math/Rect.hpp"
+#include "sl/ui/Tooltip.hpp"
 
 namespace sl
 {
@@ -25,29 +26,41 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		virtual ~Widget();
+		virtual ~Widget() noexcept;
 
 		///
-		/// Set visibility.
-		///
-		void isVisible(bool isVisible);
-
-		///
-		/// ...
-		///
-		virtual void registerCallback(const std::function<void(void)>& callback) final;
-
-		///
-		/// Update the UI.
+		/// Update the widget.
 		///
 		virtual void update() = 0;
 
 		///
-		/// \brief Render the Widget.
+		/// \brief Render the widget.
 		///
-		/// This should only contain code on rendering the widget. Remember to check for visibility.
+		/// This should only contain code on rendering the widget.
+		/// And don't forget to check for and draw the tooltip.
 		///
 		virtual void render() = 0;
+
+		///
+		/// Set visibility of widget.
+		///
+		/// \param isVisible Set to true if widget is visible.
+		///
+		virtual void setVisibility(const bool isVisible) final;
+
+		///
+		/// Is the widget visible?
+		///
+		/// \return True if visible.
+		///
+		virtual const bool isVisible() const final;
+
+		///
+		/// Sets the tooltip for this widget. Calls std::move() on the passed object.
+		///
+		/// \param tooltip std::unique_ptr to tooltip. Ideally constructed via std::make_unique.
+		///
+		virtual void setTooltip(std::unique_ptr<Tooltip> tooltip) final;
 
 	protected:
 		///
@@ -65,9 +78,14 @@ namespace sl
 
 	protected:
 		///
-		/// Is the panel currently visible. I.e. being rendered.
+		/// Is the widget currently visible. I.e. being rendered.
 		///
 		bool m_isVisible;
+
+		///
+		/// Tooltip for this widget.
+		///
+		std::unique_ptr<Tooltip> m_tooltip;
 	};
 }
 

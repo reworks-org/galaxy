@@ -38,10 +38,10 @@ namespace sl
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		inline typename sl::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(const char* id)
+		inline typename sl::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(const std::string& id)
 		{
 			// Create hashed string.
-			entt::HashedString hs(id);
+			entt::HashedString hs(id.c_str());
 
 			// at() is used because it throws an exception.
 			return m_resourceMap.at(hs);

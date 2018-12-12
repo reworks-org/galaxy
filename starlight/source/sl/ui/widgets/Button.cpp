@@ -17,11 +17,16 @@ namespace sl
 	Button::Button(const sl::Rect<int>& bounds)
 		:Widget(bounds)
 	{
-		//Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+		sl::Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+	}
+
+	Button::~Button()
+	{
 	}
 
 	void Button::render()
 	{
+		// Simply render depending on button state.
 		switch (m_state)
 		{
 		case Button::State::DEFAULT:

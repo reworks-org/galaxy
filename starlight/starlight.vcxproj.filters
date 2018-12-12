@@ -162,9 +162,6 @@
     <ClCompile Include="source\sl\ui\widgets\TextInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\ui\widgets\Tooltip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\ui\Panel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -459,6 +456,9 @@
     <ClCompile Include="source\sl\libs\tmx\tsx.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\ui\Tooltip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -681,9 +681,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\ui\widgets\TextInput.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\ui\widgets\Tooltip.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\ui\Panel.hpp">
@@ -1275,6 +1272,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\tmx\tsx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\ui\Tooltip.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

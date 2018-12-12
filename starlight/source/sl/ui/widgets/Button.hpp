@@ -14,10 +14,11 @@
 
 namespace sl
 {
+	///
+	/// Creates a clickable button.
+	///
 	class Button final : public Widget
 	{
-		friend class entt::Dispatcher;
-
 		///
 		/// Defines a state for the button.
 		///
@@ -48,13 +49,15 @@ namespace sl
 		explicit Button(const sl::Rect<int>& bounds);
 
 		///
-		/// \brief Render the Widget.
+		/// Destructor.
 		///
-		/// This should only contain code on rendering the widget. Remember to check for visibility.
+		~Button() noexcept override;
+
+		///
+		/// Render the Widget.
 		///
 		void render() override;
 
-	private:
 		///
 		/// \brief Allows for buttons to recieve mouse events. Automatically registered with entt.
 		///
@@ -63,6 +66,16 @@ namespace sl
 		void receive(const ALLEGRO_MOUSE_EVENT& e);
 
 	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Button() = delete;
+
+	private:
+		///
+		/// Current state of the button.
+		///
 		Button::State m_state;
 	};
 }
