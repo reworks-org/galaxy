@@ -23,11 +23,12 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - ui should load from lua files maybe?
 - mapping improvements
 - finish serializer
+- al_grab_mouse config support... (Lock mouse to window?)
 
 
 - ui:
 	- add image support to tooltip.
-
+	- expand mouse events into 3 types.
 
 
 

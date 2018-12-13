@@ -45,7 +45,6 @@ namespace sl
 		///
 		void receive(const ALLEGRO_MOUSE_EVENT& e);
 
-	private:
 		///
 		/// Draws the tooltip to the screen.
 		///
@@ -65,7 +64,7 @@ namespace sl
 		///
 		/// Text to draw.
 		///
-		const char* m_text;
+		std::string m_text;
 		
 		///
 		/// Max width for each line of tooltip text.

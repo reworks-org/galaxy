@@ -42,6 +42,14 @@ namespace sl
 		virtual void render() = 0;
 
 		///
+		/// Set offset of widget relative to panel.
+		///
+		/// \param x x-pos of panel to calc offset.
+		/// \param y y-pos of panel to calc offset.
+		///
+		virtual void setOffset(const int x, const int y) final;
+
+		///
 		/// Set visibility of widget.
 		///
 		/// \param isVisible Set to true if widget is visible.
@@ -56,11 +64,14 @@ namespace sl
 		virtual const bool isVisible() const final;
 
 		///
-		/// Sets the tooltip for this widget. Calls std::move() on the passed object.
+		/// Sets the tooltip for this widget.
 		///
-		/// \param tooltip std::unique_ptr to tooltip. Ideally constructed via std::make_unique.
+		/// \param args Arguments for widget to construct.
 		///
-		virtual void setTooltip(std::unique_ptr<Tooltip> tooltip) final;
+		/// \return Returns pointer to newly created widget.
+		///
+		template<typename... Args>
+		Tooltip* setTooltip(Args&&... args);
 
 	protected:
 		///
@@ -70,13 +81,22 @@ namespace sl
 		///
 		explicit Widget(const sl::Rect<int>& bounds) noexcept;
 
-	public:
+	protected:
 		///
 		/// Dimensional bounds of the widget.
 		///
 		sl::Rect<int> m_bounds;
 
-	protected:
+		///
+		/// Offset X of widget from panel.
+		///
+		int m_offsetX;
+
+		///
+		/// Offset Y of widget from panel.
+		///
+		int m_offsetY;
+
 		///
 		/// Is the widget currently visible. I.e. being rendered.
 		///
@@ -87,6 +107,16 @@ namespace sl
 		///
 		std::unique_ptr<Tooltip> m_tooltip;
 	};
+
+	template<typename... Args>
+	inline Tooltip* Widget::setTooltip(Args&&... args)
+	{
+		// Forward arguments make_unique to construct in place.
+		m_tooltip = std::make_unique<Tooltip>(std::forward<Args>(args)...);
+
+		// Then return a pointer to object placed.
+		return m_tooltip.get();
+	}
 }
 
 #endif

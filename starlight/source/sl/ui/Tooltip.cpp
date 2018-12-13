@@ -15,30 +15,32 @@
 namespace sl
 {
 	Tooltip::Tooltip(const std::string& text, const std::string& font, const ALLEGRO_COLOR col, const float maxWidth)
-		:m_text(text.c_str()), m_font(nullptr), m_col(col), m_maxWidth(maxWidth), m_lineHeight(0)
+		:m_text(text), m_font(nullptr), m_col(col), m_maxWidth(maxWidth), m_lineHeight(0)
 	{
 		// Create font and check for errors. The usual.
 		m_font = Locator::fontBook->get(font);
 		if (!m_font)
 		{
-			LOG_S(ERROR) << "Failed to get font: " << font;
+			LOG_S(FATAL) << "Failed to get font: " << font;
 		}
+		else
+		{
+			// Calculate and store line height to avoid doing this every draw call.
+			m_lineHeight = al_get_font_line_height(m_font);
 
-		// Calculate and store line height to avoid doing this every draw call.
-		m_lineHeight = al_get_font_line_height(m_font);
-
-		// Register the recieve() method with entt to mouse events.
-		sl::Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+			// Register the recieve() method with entt to mouse events.
+			sl::Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+		}
 	}
 
 	void Tooltip::receive(const ALLEGRO_MOUSE_EVENT& e)
 	{
-		m_x = e.x;
-		m_y = e.y;
+		m_x = e.x + 16;
+		m_y = e.y + 16;
 	}
 
 	void Tooltip::draw()
 	{
-		al_draw_multiline_text(m_font, m_col, m_x, m_y, m_maxWidth, m_lineHeight, ALLEGRO_ALIGN_LEFT, m_text);
+		al_draw_multiline_text(m_font, m_col, m_x, m_y, m_maxWidth, m_lineHeight, ALLEGRO_ALIGN_LEFT, m_text.c_str());
 	}
 }

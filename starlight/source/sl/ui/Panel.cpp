@@ -67,6 +67,9 @@ namespace sl
 
 	void Panel::render()
 	{
+		// Draw panel.
+		al_draw_bitmap(m_background, m_bounds.m_x, m_bounds.m_y, 0);
+
 		// Render all widgets.
 		for (auto& widget : m_widgets)
 		{

@@ -12,6 +12,8 @@
 
 #include "Serialize.hpp"
 
+
+#include <sl/ui/UI.hpp>
 #include <sl/mapping/TMXMap.hpp>
 #include <sl/core/StateMachine.hpp>
 
@@ -29,8 +31,9 @@ public:
 	void render() override;
 
 private:
-	std::unique_ptr<sl::TMXMap> map;
+	sl::UI m_ui;
 	Serialize serialize;
+	std::unique_ptr<sl::TMXMap> map;
 };
 
 #endif

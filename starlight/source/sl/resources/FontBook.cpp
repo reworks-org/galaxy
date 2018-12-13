@@ -32,7 +32,7 @@ namespace sl
 			fonts.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				auto valueTable = pair.second.as<sol::table>();
-				ALLEGRO_FONT* font = al_load_ttf_font(valueTable.get<const char*>("font"), valueTable.get<int>("size"), NULL);
+				ALLEGRO_FONT* font = al_load_ttf_font(valueTable.get<const char*>("font"), valueTable.get<int>("size"), 0);
 
 				if (!font)
 				{
@@ -40,7 +40,7 @@ namespace sl
 				}
 				else
 				{
-					m_resourceMap.emplace(entt::HashedString{ pair.first.as<const char*>() }, font);
+					m_resourceMap.emplace(entt::HashedString(pair.first.as<const char*>()), font);
 				}
 			});
 		}

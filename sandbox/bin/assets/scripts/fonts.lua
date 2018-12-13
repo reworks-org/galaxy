@@ -1,9 +1,14 @@
 fonts =
 {
-	GameOver18 =
+	GameOver32 =
 	{
 		font = "game_over.ttf",
-		size = 18
+		size = 32
+	},
+	GameOver66 =
+	{
+		font = "game_over.ttf",
+		size = 66
 	},
 	SecretCode60 =
 	{

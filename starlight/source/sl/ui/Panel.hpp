@@ -105,10 +105,13 @@ namespace sl
 	inline WidgetType* Panel::addWidget(Args&&... args)
 	{
 		// Forward arguments to std::vector's construct in place method.
-		WidgetType* ref = m_widgets.emplace_back(std::make_unique<WidgetType>(std::forward<Args>(args)...)).get();
+		Widget* ref = m_widgets.emplace_back(std::make_unique<WidgetType>(std::forward<Args>(args)...)).get();
+		
+		// Set offsets.
+		ref->setOffset(m_bounds.m_x, m_bounds.m_y);
 
 		// Then return a pointer to object placed.
-		return ref;
+		return dynamic_cast<WidgetType*>(ref);
 	}
 }
 

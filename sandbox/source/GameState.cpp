@@ -19,6 +19,7 @@
 #include <sl/components/EnabledComponent.hpp>
 #include <sl/components/TransformComponent.hpp>
 #include <sl/components/ScrollingBackgroundComponent.hpp>
+#include <sl/ui/widgets/Button.hpp>
 #include <sl/libs/entt/signal/dispatcher.hpp>
 #include <sl/graphics/Window.hpp>
 #include <sl/resources/MusicPlayer.hpp>
@@ -38,13 +39,28 @@ GameState::GameState()
 	m_bounds.m_x = 0;
 	m_bounds.m_y = 0;
 
-	Locator::musicPlayer->get("background").play();
+	//Locator::musicPlayer->get("background").play();
 
 	entt::DefaultRegistry::entity_type scrolledEntity = Locator::world->m_registry.create();
 	Locator::world->m_registry.assign<TransformComponent>(scrolledEntity, 1, 0.0f, Rect<float, int>{ 0.0f, 0.0f, 1280, 720 });
 	Locator::world->m_registry.assign<ScrollingBackgroundComponent>(scrolledEntity, 1.0f);
 	Locator::world->m_registry.assign<RenderComponent>(scrolledEntity, 1.0f, "bg_forest");
 	Locator::world->m_registry.assign<EnabledComponent>(scrolledEntity);
+
+	sl::Panel* main = m_ui.addPanel(sl::Rect<int>{ 0, 0, 180, 720 }, al_map_rgba(169, 169, 169, 255));
+	
+	std::array<ALLEGRO_COLOR, 3> cols = 
+	{
+		al_map_rgba(0, 0, 255, 255), al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 255, 0, 255)
+	};
+
+	sl::Button* test = main->addWidget<sl::Button>(20, 20, "Click me!", "SecretCode60", cols);
+	test->registerCallback([&]() -> void
+	{
+		LOG_S(INFO) << "BUTTON CLICKED!";
+	});
+
+	sl::Tooltip* tooltip = test->setTooltip("This is a tooltip.", "GameOver66", al_map_rgba(0, 0, 255, 255), 100);
 }
 
 GameState::~GameState()
@@ -70,6 +86,14 @@ void GameState::event(ALLEGRO_EVENT* event)
 		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
 		break;
 
+	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
+		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
+		break;
+
+	case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
+		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
+		break;
+
 	case ALLEGRO_EVENT_KEY_DOWN:
 		switch (event->keyboard.keycode)
 		{
@@ -91,9 +115,12 @@ void GameState::event(ALLEGRO_EVENT* event)
 
 void GameState::update(double dt)
 {
+	m_ui.update();
 }
 
 void GameState::render()
 {
 	Locator::world->getSystem<RenderSystem>()->render(Locator::world->m_registry);
+
+	m_ui.render();
 }
