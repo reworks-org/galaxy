@@ -103,9 +103,9 @@ int main(int argsc, char* argsv[])
 
 			shader.use();
 			va.bind();
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
-			va.unbind();
 
+			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			
 			window.swap();
 		}
 

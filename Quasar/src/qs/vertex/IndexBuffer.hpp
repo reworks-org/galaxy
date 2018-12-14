@@ -74,7 +74,7 @@ namespace qs
 	template<std::size_t size>
 	inline void IndexBuffer::create(const std::array<unsigned int, size>& indices, unsigned int glDrawType) noexcept
 	{
-		m_count = indices.size();
+		m_count = static_cast<unsigned int>(indices.size());
 
 		// Gen a single buffer for this object.
 		glGenBuffers(1, &m_id);
