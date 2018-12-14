@@ -29,14 +29,14 @@ namespace sl
 			m_lineHeight = al_get_font_line_height(m_font);
 
 			// Register the recieve() method with entt to mouse events.
-			sl::Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+			sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect(this);
 		}
 	}
 
-	void Tooltip::receive(const ALLEGRO_MOUSE_EVENT& e)
+	void Tooltip::receive(const sl::MouseMovedEvent& e)
 	{
-		m_x = e.x + 16;
-		m_y = e.y + 16;
+		m_x = e.m_x + 16;
+		m_y = e.m_y + 16;
 	}
 
 	void Tooltip::draw()

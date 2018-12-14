@@ -12,6 +12,9 @@
 
 #include <array>
 
+#include "sl/events/MouseMovedEvent.hpp"
+#include "sl/events/MousePressedEvent.hpp"
+#include "sl/events/MouseReleasedEvent.hpp"
 #include "sl/ui/Widget.hpp"
 
 namespace sl
@@ -83,11 +86,31 @@ namespace sl
 		void render() override;
 
 		///
-		/// \brief Allows for buttons to recieve mouse events. Automatically registered with entt.
+		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.
 		///
 		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
 		///
-		void receive(const ALLEGRO_MOUSE_EVENT& e);
+		/// \param e MousePressedEvent object.
+		///
+		void receivePress(const sl::MousePressedEvent& e);
+
+		///
+		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
+		///
+		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
+		///
+		/// \param e MouseReleasedEvent object.
+		///
+		void receiveRelease(const sl::MouseReleasedEvent& e);
+
+		///
+		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
+		///
+		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
+		///
+		/// \param e MouseMovedEvent object.
+		///
+		void recieveMoved(const sl::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.

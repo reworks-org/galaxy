@@ -22,7 +22,7 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		inline CollisionEvent(entt::DefaultRegistry::entity_type a, entt::DefaultRegistry::entity_type b, std::uint16_t typeA, std::uint16_t typeB)
+		inline CollisionEvent(entt::DefaultRegistry::entity_type a, entt::DefaultRegistry::entity_type b, std::uint16_t typeA, std::uint16_t typeB) noexcept
 			:m_a(a), m_b(b), m_typeA(typeA), m_typeB(typeB)
 		{
 		}

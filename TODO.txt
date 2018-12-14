@@ -24,11 +24,11 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - mapping improvements
 - finish serializer
 - al_grab_mouse config support... (Lock mouse to window?)
+- need to move some loading code into load state not applicationo constuictor.
 
 
 - ui:
 	- add image support to tooltip.
-	- expand mouse events into 3 types.
 
 
 

@@ -19,7 +19,9 @@ namespace sl
 	Button::Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images)
 		:Widget(bounds), m_callback(nullptr)
 	{
-		sl::Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<Button, &Button::receivePress>(this);
+		sl::Locator::dispatcher->sink<sl::MouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
+		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
 
 		for (auto i = 0; i < 3; ++i)
 		{
@@ -30,7 +32,9 @@ namespace sl
 	Button::Button(const int x, const int y, const std::string& text, const std::string& font, const std::array<ALLEGRO_COLOR, 3>& colors)
 		:Widget({ x, y, 0, 0 }), m_callback(nullptr)
 	{	
-		sl::Locator::dispatcher->sink<ALLEGRO_MOUSE_EVENT>().connect(this);
+		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<Button, &Button::receivePress>(this);
+		sl::Locator::dispatcher->sink<sl::MouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
+		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
 
 		ALLEGRO_FONT* ttf = Locator::fontBook->get(font);
 		if (!ttf)
@@ -103,7 +107,7 @@ namespace sl
 		}
 	}
 
-	void Button::receive(const ALLEGRO_MOUSE_EVENT& e)
+	void Button::receivePress(const sl::MousePressedEvent& e)
 	{
 		// If the mouse cursor is greater than the x axis but less than the total width of the button, and
 		// Less than the height of the cursor, but greather than the y of the cursor take its height.
@@ -113,14 +117,45 @@ namespace sl
 		int top = m_bounds.m_y + m_offsetY;
 		int bottom = top + m_bounds.m_height;
 
-		if ((e.x >= topleft) && (e.x <= topright) && (e.y >= top) && (e.y <= bottom))
+		if (((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom)) && e.m_button == 1)
+		{
+			m_state = Button::State::PRESSED;
+		}
+	}
+
+	void Button::receiveRelease(const sl::MouseReleasedEvent& e)
+	{
+		// If the mouse cursor is greater than the x axis but less than the total width of the button, and
+		// Less than the height of the cursor, but greather than the y of the cursor take its height.
+
+		int topleft = m_bounds.m_x + m_offsetX;
+		int topright = topleft + m_bounds.m_width;
+		int top = m_bounds.m_y + m_offsetY;
+		int bottom = top + m_bounds.m_height;
+
+		if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
 		{
 			m_state = Button::State::HOVER;
+		}
+		else
+		{
+			m_state = Button::State::DEFAULT;
+		}
+	}
 
-			if ((e.button == 1) && (e.pressure == 1.0f))
-			{
-				m_state = Button::State::PRESSED;
-			}
+	void Button::recieveMoved(const sl::MouseMovedEvent& e)
+	{
+		// If the mouse cursor is greater than the x axis but less than the total width of the button, and
+		// Less than the height of the cursor, but greather than the y of the cursor take its height.
+
+		int topleft = m_bounds.m_x + m_offsetX;
+		int topright = topleft + m_bounds.m_width;
+		int top = m_bounds.m_y + m_offsetY;
+		int bottom = top + m_bounds.m_height;
+
+		if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
+		{
+			m_state = Button::State::HOVER;
 		}
 		else
 		{

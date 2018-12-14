@@ -11,6 +11,7 @@
 #define STARLIGHT_TOOLTIP_HPP_
 
 #include "sl/resources/FontBook.hpp"
+#include "sl/events/MouseMovedEvent.hpp"
 
 namespace sl
 {
@@ -43,7 +44,7 @@ namespace sl
 		///
 		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
 		///
-		void receive(const ALLEGRO_MOUSE_EVENT& e);
+		void receive(const sl::MouseMovedEvent& e);
 
 		///
 		/// Draws the tooltip to the screen.

@@ -41,7 +41,7 @@ namespace sl
 				}
 				else
 				{
-					m_resourceMap.emplace(entt::HashedString{ config.c_str() }, ptr);
+					m_resourceMap.emplace(entt::HashedString(config.c_str()), ptr);
 				}
 			}
 

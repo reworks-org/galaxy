@@ -22,7 +22,7 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::DefaultRegistry::entity_type playerEntity)
+		inline PlayerMoveEvent(float horizontalSpeed, float verticalSpeed, entt::DefaultRegistry::entity_type playerEntity) noexcept
 			:m_horizontalSpeed(horizontalSpeed), m_verticalSpeed(verticalSpeed), m_playerEntity(playerEntity)
 		{
 		}

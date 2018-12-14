@@ -24,7 +24,7 @@ namespace sl
 		///
 		/// Don't forget to add the particles to the map through m_particles.
 		///
-		inline EmitParticleEvent(float x, float y, float upper, float lower, int layer, float fade)
+		inline EmitParticleEvent(float x, float y, float upper, float lower, int layer, float fade) noexcept
 			:m_x(x), m_y(y), m_upper(upper), m_lower(lower), m_layer(layer), m_fade(fade)
 		{
 		}

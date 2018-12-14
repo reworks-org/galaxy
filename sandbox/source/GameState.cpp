@@ -23,6 +23,9 @@
 #include <sl/libs/entt/signal/dispatcher.hpp>
 #include <sl/graphics/Window.hpp>
 #include <sl/resources/MusicPlayer.hpp>
+#include <sl/events/MouseMovedEvent.hpp>
+#include <sl/events/MousePressedEvent.hpp>
+#include <sl/events/MouseReleasedEvent.hpp>
 
 #include "GameState.hpp"
 
@@ -83,15 +86,15 @@ void GameState::event(ALLEGRO_EVENT* event)
 	switch (event->type)
 	{
 	case ALLEGRO_EVENT_MOUSE_AXES:
-		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
+		Locator::dispatcher->trigger<sl::MouseMovedEvent>(event->mouse.x, event->mouse.y, event->mouse.dx, event->mouse.dy);
 		break;
 
 	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
-		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
+		Locator::dispatcher->trigger<sl::MousePressedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
 		break;
 
 	case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
-		Locator::dispatcher->trigger<ALLEGRO_MOUSE_EVENT>(event->mouse);
+		Locator::dispatcher->trigger<sl::MouseReleasedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
 		break;
 
 	case ALLEGRO_EVENT_KEY_DOWN:

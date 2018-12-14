@@ -64,7 +64,7 @@ namespace sl
 				// ...then draw it to the atlas bitmap.
 				al_draw_bitmap(bitmap, packedRect.m_x, packedRect.m_y, 0);
 				
-				m_resourceMap.emplace(entt::HashedString{ std::filesystem::path(*i).stem().string().c_str() }, packedRect);
+				m_resourceMap.emplace(entt::HashedString(std::filesystem::path(*i).stem().string().c_str()), packedRect);
 
 				al_destroy_bitmap(bitmap);
 			}
