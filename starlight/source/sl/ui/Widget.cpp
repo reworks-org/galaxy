@@ -12,7 +12,7 @@
 namespace sl
 {
 	Widget::Widget(const sl::Rect<int>& bounds) noexcept
-		:m_bounds(bounds), m_isVisible(true), m_tooltip(nullptr), m_offsetX(0), m_offsetY(0)
+		:m_bounds(bounds), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_offsetX(0), m_offsetY(0)
 	{
 	}
 

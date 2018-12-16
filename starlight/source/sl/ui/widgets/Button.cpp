@@ -26,6 +26,10 @@ namespace sl
 		for (auto i = 0; i < 3; ++i)
 		{
 			m_images[i] = al_load_bitmap(images[i].c_str());
+			if (!m_images[i])
+			{
+				LOG_S(FATAL) << "Failed to load texture: " << images[i];
+			}
 		}
 	}
 
@@ -97,12 +101,12 @@ namespace sl
 			break;
 
 		case Button::State::HOVER:
+			al_draw_bitmap(m_images[2], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+			
 			if (m_tooltip)
 			{
 				m_tooltip->draw();
 			}
-
-			al_draw_bitmap(m_images[2], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 			break;
 		}
 	}

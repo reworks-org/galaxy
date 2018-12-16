@@ -25,10 +25,13 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - finish serializer
 - al_grab_mouse config support... (Lock mouse to window?)
 - need to move some loading code into load state not applicationo constuictor.
+- support for languages? strings file im thinking...
+- review automatic texture atlas texture loading
 
 
 - ui:
-	- add image support to tooltip.
+	- add image and primitives support to tooltips.
+	- shader support for ui
 
 
 

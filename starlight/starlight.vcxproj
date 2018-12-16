@@ -160,13 +160,12 @@
     <ClCompile Include="source\sl\ui\UI.cpp" />
     <ClCompile Include="source\sl\ui\Widget.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Button.cpp" />
-    <ClCompile Include="source\sl\ui\widgets\Checkbox.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Label.cpp" />
     <ClCompile Include="source\sl\ui\widgets\ProgressBar.cpp" />
-    <ClCompile Include="source\sl\ui\widgets\Radial.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Slider.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Textbox.cpp" />
     <ClCompile Include="source\sl\ui\widgets\TextInput.cpp" />
+    <ClCompile Include="source\sl\ui\widgets\ToggleButton.cpp" />
     <ClCompile Include="source\sl\utils\Time.cpp" />
     <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
@@ -397,13 +396,12 @@
     <ClInclude Include="source\sl\ui\UI.hpp" />
     <ClInclude Include="source\sl\ui\Widget.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Button.hpp" />
-    <ClInclude Include="source\sl\ui\widgets\Checkbox.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Label.hpp" />
     <ClInclude Include="source\sl\ui\widgets\ProgressBar.hpp" />
-    <ClInclude Include="source\sl\ui\widgets\Radial.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Slider.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Textbox.hpp" />
     <ClInclude Include="source\sl\ui\widgets\TextInput.hpp" />
+    <ClInclude Include="source\sl\ui\widgets\ToggleButton.hpp" />
     <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />

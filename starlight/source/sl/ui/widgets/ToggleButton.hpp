@@ -1,14 +1,14 @@
 ///
-/// Button.hpp
+/// ToggleButton.hpp
 /// starlight
 ///
-/// Created by reworks on 19/09/2018.
+/// Created by reworks on 16/12/2018.
 /// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_BUTTON_HPP_
-#define STARLIGHT_BUTTON_HPP_
+#ifndef STARLIGHT_TOGGLEBUTTON_HPP_
+#define STARLIGHT_TOGGLEBUTTON_HPP_
 
 #include <array>
 
@@ -20,9 +20,10 @@
 namespace sl
 {
 	///
-	/// Creates a clickable button.
+	/// Creates a button that toggles from one state to another.
+	//  Can be used to create check boxes or radial ui objects.
 	///
-	class Button final : public Widget
+	class ToggleButton final : public Widget
 	{
 		///
 		/// Defines a state for the button.
@@ -30,17 +31,17 @@ namespace sl
 		enum class State
 		{
 			///
-			/// When the mouse is not pressing or hovering over the button.
+			/// When the button is in an off state.
 			///
-			DEFAULT = 0,
+			OFF = 0,
 
 			///
-			/// When it is being pressed by the mouse.
+			/// When the button is in an on state.
 			///
-			PRESSED = 1,
+			ON = 1,
 
 			///
-			/// When the mouse is hovering over the button.
+			/// When the button is being hovered on.
 			///
 			HOVER = 2
 		};
@@ -51,26 +52,14 @@ namespace sl
 		///
 		/// \param bounds Dimensions of the widget, relative to the panel.
 		/// \param images Array of image names to load.
-		///			images[0] is default state, images[1] is pressed state and images[2] is mouse over (hover) state.				   
+		///			images[0] is OFF state, images[1] is ON state and images[2] is mouse over (hover) state.
 		///
-		Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images);
-
-		///
-		/// Text Constructor.
-		///
-		/// \param x x-pos, relative to the panel.
-		/// \param y y-pos, relative to the panel.
-		/// \param text Text of the button.
-		/// \param font Font of the text.
-		/// \param colours Array of colours for each state. 
-		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
-		///
-		Button(const int x, const int y, const std::string& text, const std::string& font, const std::array<ALLEGRO_COLOR, 3>& colors);
+		ToggleButton(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images);
 
 		///
 		/// Destructor.
 		///
-		~Button() noexcept override;
+		~ToggleButton() noexcept override;
 
 		///
 		/// Update the widget.
@@ -95,15 +84,6 @@ namespace sl
 		void receivePress(const sl::MousePressedEvent& e);
 
 		///
-		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
-		///
-		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
-		///
-		/// \param e MouseReleasedEvent object.
-		///
-		void receiveRelease(const sl::MouseReleasedEvent& e);
-
-		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
 		///
 		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
@@ -124,13 +104,13 @@ namespace sl
 		/// Default constructor.
 		/// Deleted.
 		///
-		Button() = delete;
+		ToggleButton() = delete;
 
 	private:
 		///
 		/// Current state of the button.
 		///
-		Button::State m_state;
+		ToggleButton::State m_state;
 
 		///
 		/// Images for each button state.

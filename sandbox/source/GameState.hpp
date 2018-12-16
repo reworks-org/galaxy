@@ -32,6 +32,7 @@ public:
 
 private:
 	sl::UI m_ui;
+	sl::Panel* m_panel;
 	Serialize serialize;
 	std::unique_ptr<sl::TMXMap> map;
 };

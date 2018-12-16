@@ -103,6 +103,11 @@ namespace sl
 		bool m_isVisible;
 
 		///
+		/// Toggle for drawing tooltip.
+		///
+		bool m_drawTooltip;
+
+		///
 		/// Tooltip for this widget.
 		///
 		std::unique_ptr<Tooltip> m_tooltip;

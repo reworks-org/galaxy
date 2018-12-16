@@ -23,6 +23,7 @@
 #include <sl/libs/entt/signal/dispatcher.hpp>
 #include <sl/graphics/Window.hpp>
 #include <sl/resources/MusicPlayer.hpp>
+#include <sl/ui/widgets/ProgressBar.hpp>
 #include <sl/events/MouseMovedEvent.hpp>
 #include <sl/events/MousePressedEvent.hpp>
 #include <sl/events/MouseReleasedEvent.hpp>
@@ -50,20 +51,23 @@ GameState::GameState()
 	Locator::world->m_registry.assign<RenderComponent>(scrolledEntity, 1.0f, "bg_forest");
 	Locator::world->m_registry.assign<EnabledComponent>(scrolledEntity);
 
-	sl::Panel* main = m_ui.addPanel(sl::Rect<int>{ 0, 0, 180, 720 }, al_map_rgba(169, 169, 169, 255));
+	m_panel = m_ui.addPanel(sl::Rect<int>{ 0, 0, 360, 720 }, al_map_rgba(169, 169, 169, 255));
 	
 	std::array<ALLEGRO_COLOR, 3> cols = 
 	{
 		al_map_rgba(0, 0, 255, 255), al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 255, 0, 255)
 	};
 
-	sl::Button* test = main->addWidget<sl::Button>(20, 20, "Click me!", "SecretCode60", cols);
-	test->registerCallback([&]() -> void
+	sl::Button* testbtn = m_panel->addWidget<sl::Button>(20, 20, "Click me!", "SecretCode60", cols);
+	testbtn->registerCallback([&]() -> void
 	{
 		LOG_S(INFO) << "BUTTON CLICKED!";
 	});
+	testbtn->setTooltip("This is a tooltip.", "GameOver66", al_map_rgba(0, 0, 255, 255), 100);
 
-	sl::Tooltip* tooltip = test->setTooltip("This is a tooltip.", "GameOver66", al_map_rgba(0, 0, 255, 255), 100);
+	sl::ProgressBar* bar = m_panel->addWidget<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(255, 0, 0, 255), al_map_rgba(192, 192, 192, 255));
+	bar->setProgress(0.67f);
+	bar->setTooltip("This is a bar.", "GameOver32", al_map_rgba(0, 0, 255, 255), 100);
 }
 
 GameState::~GameState()
@@ -102,6 +106,14 @@ void GameState::event(ALLEGRO_EVENT* event)
 		{
 		case ALLEGRO_KEY_ESCAPE:
 			Locator::window->close();
+			break;
+
+		case ALLEGRO_KEY_V:
+			m_panel->setVisibility(true);
+			break;
+
+		case ALLEGRO_KEY_H:
+			m_panel->setVisibility(false);
 			break;
 
 		case ALLEGRO_KEY_S:
