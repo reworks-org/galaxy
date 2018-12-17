@@ -12,10 +12,9 @@
 
 #include <array>
 
-#include "sl/events/MouseMovedEvent.hpp"
+#include "sl/ui/Widget.hpp"
 #include "sl/events/MousePressedEvent.hpp"
 #include "sl/events/MouseReleasedEvent.hpp"
-#include "sl/ui/Widget.hpp"
 
 namespace sl
 {
@@ -78,10 +77,7 @@ namespace sl
 		void update() override;
 
 		///
-		/// \brief Render the widget.
-		///
-		/// This should only contain code on rendering the widget.
-		/// And don't forget to check for and draw the tooltip.
+		/// Render the widget.
 		///
 		void render() override;
 

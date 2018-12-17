@@ -16,6 +16,8 @@
 #include <sl/ui/UI.hpp>
 #include <sl/mapping/TMXMap.hpp>
 #include <sl/core/StateMachine.hpp>
+#include <sl/ui/widgets/Label.hpp>
+#include <sl/ui/widgets/Slider.hpp>
 
 class GameState : public sl::State
 {
@@ -33,6 +35,9 @@ public:
 private:
 	sl::UI m_ui;
 	sl::Panel* m_panel;
+	sl::Slider* slider;
+	sl::Label* m_sliderLabel;
+	std::string sliderLabelStr;
 	Serialize serialize;
 	std::unique_ptr<sl::TMXMap> map;
 };

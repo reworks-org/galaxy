@@ -68,6 +68,19 @@ GameState::GameState()
 	sl::ProgressBar* bar = m_panel->addWidget<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(255, 0, 0, 255), al_map_rgba(192, 192, 192, 255));
 	bar->setProgress(0.67f);
 	bar->setTooltip("This is a bar.", "GameOver32", al_map_rgba(0, 0, 255, 255), 100);
+
+	std::ostringstream ss;
+	ss << bar->getPercentage();
+	std::string s = "Health Bar: " + ss.str() + "%";
+	sl::Label* label = m_panel->addWidget<sl::Label>(25, 80, s, "GameOver32", al_map_rgba(255, 255, 255, 255));
+
+	slider = m_panel->addWidget<sl::Slider>(sl::Rect<int>{5, 120, 200, 25}, 10, 40, al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 0, 255, 255));
+	slider->setTooltip("MOVE ME!!!", "GameOver32", al_map_rgba(0, 255, 0, 255), 100);
+
+	std::ostringstream ss2;
+	ss2 << slider->getPercentage();
+	sliderLabelStr = "Value: " + ss2.str() + "%";
+	m_sliderLabel = m_panel->addWidget<sl::Label>(5, 120, sliderLabelStr, "GameOver32", al_map_rgba(255, 255, 255, 255));
 }
 
 GameState::~GameState()
@@ -130,6 +143,11 @@ void GameState::event(ALLEGRO_EVENT* event)
 
 void GameState::update(double dt)
 {
+	std::ostringstream ss2;
+	ss2 << slider->getPercentage();
+	sliderLabelStr = "Value: " + ss2.str() + "%";
+	m_sliderLabel->setText(sliderLabelStr);
+
 	m_ui.update();
 }
 

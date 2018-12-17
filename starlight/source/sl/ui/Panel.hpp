@@ -23,13 +23,20 @@ namespace sl
 	{
 	public:
 		///
-		/// Constructor.
+		/// Primitives Constructor.
 		///
 		/// \param bounds Dimension of the panel.
 		/// \param colour Colour of the panel. Can be transparent or opaque.
-		/// \param bgImage Optional background image to use.
 		///
-		Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour, const std::string& bgImage = "");
+		Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour);
+
+		///
+		/// Image Constructor.
+		///
+		/// \param bounds Dimension of the panel.
+		/// \param image Background image to use.
+		///
+		Panel(const sl::Rect<int>& bounds, const std::string& image);
 
 		///
 		/// Destructor.
@@ -57,16 +64,11 @@ namespace sl
 		void render();
 
 		///
-		/// Set visibility.
+		/// Set visibility of panel and subsiquently all widgets.
 		///
 		/// \param isVisible True if visible.
 		///
 		void setVisibility(const bool isVisible);
-
-		///
-		/// Is the panel visible?
-		///
-		const bool isVisible() const;
 
 		///
 		/// Destroy all widgets.

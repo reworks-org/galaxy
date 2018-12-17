@@ -160,6 +160,7 @@
     <ClCompile Include="source\sl\ui\UI.cpp" />
     <ClCompile Include="source\sl\ui\Widget.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Button.cpp" />
+    <ClCompile Include="source\sl\ui\widgets\Image.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Label.cpp" />
     <ClCompile Include="source\sl\ui\widgets\ProgressBar.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Slider.cpp" />
@@ -396,6 +397,7 @@
     <ClInclude Include="source\sl\ui\UI.hpp" />
     <ClInclude Include="source\sl\ui\Widget.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Button.hpp" />
+    <ClInclude Include="source\sl\ui\widgets\Image.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Label.hpp" />
     <ClInclude Include="source\sl\ui\widgets\ProgressBar.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Slider.hpp" />

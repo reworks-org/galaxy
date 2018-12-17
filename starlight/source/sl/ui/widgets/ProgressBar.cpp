@@ -8,7 +8,6 @@
 ///
 
 #include <algorithm>
-#include <allegro5/allegro_primitives.h>
 
 #include "sl/graphics/Window.hpp"
 #include "sl/core/ServiceLocator.hpp"
@@ -25,30 +24,29 @@ namespace sl
 		m_background = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to create ProgressBar background bitmap.";
+			LOG_S(ERROR) << "Failed to create ProgressBar background bitmap.  Errno: " << al_get_errno();
 		}
 
 		m_bar = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_bar)
 		{
-			LOG_S(ERROR) << "Failed to create ProgressBar bar bitmap.";
+			LOG_S(ERROR) << "Failed to create ProgressBar bar bitmap. Errno: " << al_get_errno();
 		}
 
 		// Create bar bitmap.
 		al_set_target_bitmap(m_bar);
 		al_clear_to_color(foreCol);
-		al_draw_filled_rectangle(m_bounds.m_x, m_bounds.m_y, m_bounds.m_x + m_bounds.m_width, m_bounds.m_y + m_bounds.m_height, foreCol);
 		al_flip_display();
 
 		// Create background bitmap.
 		al_set_target_bitmap(m_background);
 		al_clear_to_color(backCol);
-		al_draw_filled_rectangle(m_bounds.m_x, m_bounds.m_y, m_bounds.m_x + m_bounds.m_width, m_bounds.m_y + m_bounds.m_height, backCol);
 		al_flip_display();
 
 		// Restore window.
 		al_set_target_backbuffer(Locator::window->getDisplay());
 		
+		// Register events.
 		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
 	}
 
@@ -58,13 +56,12 @@ namespace sl
 		m_bar = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_bar)
 		{
-			LOG_S(ERROR) << "Failed to create ProgressBar bar bitmap.";
+			LOG_S(ERROR) << "Failed to create ProgressBar bar bitmap. Errno: " << al_get_errno();
 		}
 
 		// Create bar bitmap.
 		al_set_target_bitmap(m_bar);
 		al_clear_to_color(col);
-		al_draw_filled_rectangle(m_bounds.m_x, m_bounds.m_y, m_bounds.m_x + m_bounds.m_width, m_bounds.m_y + m_bounds.m_height, col);
 		al_flip_display();
 
 		// Restore window.
@@ -74,7 +71,7 @@ namespace sl
 		m_background = al_load_bitmap(image.c_str());
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to load ProgressBar background bitmap: " << image;
+			LOG_S(ERROR) << "Failed to load ProgressBar background bitmap: " << image << " Errno: " << al_get_errno();
 		}
 	}
 
@@ -85,14 +82,14 @@ namespace sl
 		m_background = al_load_bitmap(image.c_str());
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to load ProgressBar background bitmap: " << image;
+			LOG_S(ERROR) << "Failed to load ProgressBar background bitmap: " << image << " Errno: " << al_get_errno();
 		}
 
 		// Load the bar texture.
 		m_bar = al_load_bitmap(barImage.c_str());
 		if (!m_bar)
 		{
-			LOG_S(ERROR) << "Failed to load ProgressBar bar image bitmap: " << image;
+			LOG_S(ERROR) << "Failed to load ProgressBar bar image bitmap: " << image << " Errno: " << al_get_errno();
 		}
 	}
 
@@ -111,37 +108,46 @@ namespace sl
 
 	void ProgressBar::recieve(const sl::MouseMovedEvent& e)
 	{
-		// If the mouse cursor is greater than the x axis but less than the total width of the button, and
-		// Less than the height of the cursor, but greather than the y of the cursor take its height.
-
-		int topleft = m_bounds.m_x + m_offsetX;
-		int topright = topleft + m_bounds.m_width;
-		int top = m_bounds.m_y + m_offsetY;
-		int bottom = top + m_bounds.m_height;
-
-		if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
+		if (m_isVisible)
 		{
-			m_drawTooltip = true;
-		}
-		else
-		{
-			m_drawTooltip = false;
+			// If the mouse cursor is greater than the x axis but less than the total width of the button, and
+			// Less than the height of the cursor, but greather than the y of the cursor take its height.
+
+			int topleft = m_bounds.m_x + m_offsetX;
+			int topright = topleft + m_bounds.m_width;
+			int top = m_bounds.m_y + m_offsetY;
+			int bottom = top + m_bounds.m_height;
+
+			if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
+			{
+				m_drawTooltip = true;
+			}
+			else
+			{
+				m_drawTooltip = false;
+			}
 		}
 	}
 
 	void ProgressBar::update()
 	{
-		m_barBounds.m_width = static_cast<int>(m_progress * m_bounds.m_width);
+		if (m_isVisible)
+		{
+			m_barBounds.m_width = static_cast<int>(m_progress * m_bounds.m_width);
+		}
 	}
 
 	void ProgressBar::render()
 	{
-		al_draw_bitmap(m_background, m_bounds.m_x, m_bounds.m_y, 0);
-		al_draw_bitmap_region(m_bar, 0, 0, m_barBounds.m_width, m_barBounds.m_height, m_barBounds.m_x, m_barBounds.m_y, 0);
-
-		if (m_tooltip && m_drawTooltip)
+		if (m_isVisible)
 		{
-			m_tooltip->draw();
+			al_draw_bitmap(m_background, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+			al_draw_bitmap_region(m_bar, 0, 0, m_barBounds.m_width, m_barBounds.m_height, m_barBounds.m_x + m_offsetX, m_barBounds.m_y + m_offsetY, 0);
+
+			if (m_tooltip && m_drawTooltip)
+			{
+				m_tooltip->draw();
+			}
 		}
 	}
 
@@ -155,5 +161,9 @@ namespace sl
 	{
 		return m_progress;
 	}
-	
+
+	const float ProgressBar::getPercentage() const
+	{
+		return m_progress * 100.0f;
+	}
 }

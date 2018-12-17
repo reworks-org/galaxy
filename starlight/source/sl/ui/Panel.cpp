@@ -15,29 +15,33 @@
 
 namespace sl
 {
-	Panel::Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour, const std::string& bgImage)
-		:m_isVisible(true), m_bounds(bounds)
+	Panel::Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour)
+		:m_isVisible(true), m_bounds(bounds), m_background(nullptr)
 	{
-		if (bgImage != "")
-		{
-			// If image is specified, load the image from the VFS. Allegro integrates with physfs naturally.
-			m_background = al_load_bitmap(bgImage.c_str());
-		}
-		else
-		{
-			// What is done here is that the rendertarget is set to the bitmap and we clear and draw that colour to it.
-			m_background = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
-
-			al_set_target_bitmap(m_background);
-			al_clear_to_color(colour);
-			al_flip_display();
-
-			al_set_target_backbuffer(Locator::window->getDisplay());
-		}
-
+		// What is done here is that the rendertarget is set to the bitmap and we clear and draw that colour to it.
+		m_background = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to load background: " << bgImage;
+			LOG_S(ERROR) << "Failed to create background for panel! Errno: " << al_get_errno();
+		}
+
+		// This just clears the bitmap to the colour we want. Simple way to create rectangle.
+		al_set_target_bitmap(m_background);
+		al_clear_to_color(colour);
+		al_flip_display();
+
+		// Then restore window as display render target.
+		al_set_target_backbuffer(Locator::window->getDisplay());
+	}
+
+	Panel::Panel(const sl::Rect<int>& bounds, const std::string& image)
+		:m_isVisible(true), m_bounds(bounds), m_background(nullptr)
+	{
+		// Load image and check for errors.
+		m_background = al_load_bitmap(image.c_str());
+		if (!m_background)
+		{
+			LOG_S(ERROR) << "Failed to load background: " << image << " Errno: " << al_get_errno();
 		}
 	}
 
@@ -55,10 +59,10 @@ namespace sl
 
 	void Panel::update()
 	{
-		// Update all widgets.
-		for (auto& widget : m_widgets)
+		if (m_isVisible)
 		{
-			if (widget->isVisible())
+			// Update all widgets.
+			for (auto& widget : m_widgets)
 			{
 				widget->update();
 			}
@@ -67,13 +71,13 @@ namespace sl
 
 	void Panel::render()
 	{
-		// Draw panel.
-		al_draw_bitmap(m_background, m_bounds.m_x, m_bounds.m_y, 0);
-
-		// Render all widgets.
-		for (auto& widget : m_widgets)
+		if (m_isVisible)
 		{
-			if (widget->isVisible())
+			// Draw panel.
+			al_draw_bitmap(m_background, m_bounds.m_x, m_bounds.m_y, 0);
+
+			// Render all widgets.
+			for (auto& widget : m_widgets)
 			{
 				widget->render();
 			}
@@ -83,11 +87,11 @@ namespace sl
 	void Panel::setVisibility(const bool isVisible)
 	{
 		m_isVisible = isVisible;
-	}
 
-	const bool Panel::isVisible() const
-	{
-		return m_isVisible;
+		for (auto& widget : m_widgets)
+		{
+			widget->setVisibility(isVisible);
+		}
 	}
 
 	void Panel::clear()

@@ -14,6 +14,9 @@
 
 namespace sl
 {
+	///
+	/// UI bar that is used to track progress of something.
+	///
 	class ProgressBar final : public Widget
 	{
 	public:
@@ -66,10 +69,7 @@ namespace sl
 		void update() override;
 
 		///
-		/// \brief Render the widget.
-		///
-		/// This should only contain code on rendering the widget.
-		/// And don't forget to check for and draw the tooltip.
+		/// Render the widget.
 		///
 		void render() override;
 
@@ -86,6 +86,20 @@ namespace sl
 		/// \return const float of progress.
 		///
 		const float getProgress() const;
+
+		///
+		/// Returns current progress of bar in a percentage.
+		///
+		/// \return const float progress as pertentage.
+		///
+		const float getPercentage() const;
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		ProgressBar() = delete;
 
 	private:
 		///

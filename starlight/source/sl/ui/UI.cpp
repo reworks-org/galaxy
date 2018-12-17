@@ -22,10 +22,7 @@ namespace sl
 		// Iterate over panels, update, and call each widgets update function.
 		for (auto& panel : m_panels)
 		{
-			if (panel->isVisible())
-			{
-				panel->update();
-			}
+			panel->update();
 		}
 	}
 
@@ -34,10 +31,7 @@ namespace sl
 		// Iterate over panels, render, and call each widgets render function.
 		for (auto& panel : m_panels)
 		{
-			if (panel->isVisible())
-			{
-				panel->render();
-			}
+			panel->render();
 		}
 	}
 }

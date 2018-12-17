@@ -29,7 +29,9 @@ namespace sl
 		virtual ~Widget() noexcept;
 
 		///
-		/// Update the widget.
+		/// \brief Update the widget.
+		///
+		/// Don't forget to check for visibility.
 		///
 		virtual void update() = 0;
 
@@ -37,7 +39,7 @@ namespace sl
 		/// \brief Render the widget.
 		///
 		/// This should only contain code on rendering the widget.
-		/// And don't forget to check for and draw the tooltip.
+		/// And don't forget to check for visibility and draw the tooltip.
 		///
 		virtual void render() = 0;
 
