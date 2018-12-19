@@ -28,12 +28,17 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - support for languages? strings file im thinking...
 - review automatic texture atlas texture loading
 - constexpr, sfinae, crtp
+- add callback to slider
+- 
 
 
 - ui:
 	- add image and primitives support to tooltips.
 	- shader support for ui
 	- reduce update and event calcs...hardcode more of these values into widget.
+	- slider should have callback function.
+	- for slider: should recieve mouse move event and check for button press, so mousemovedevent needs unsigned int button value.
+	- rename image to texture in arguments / params
 
 
 

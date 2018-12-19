@@ -20,8 +20,8 @@ namespace sl
 		///
 		/// Constructor.
 		///
-		inline MouseMovedEvent(const int x, const int y, const int dx, const int dy) noexcept
-			:m_x(x), m_y(y), m_dx(dx), m_dy(dy)
+		inline MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept
+			:m_x(x), m_y(y), m_dx(dx), m_dy(dy), m_pressure(pressure)
 		{
 		}
 
@@ -44,6 +44,11 @@ namespace sl
 		/// Change in y coord value since previous event.
 		///
 		int m_dy = 0;
+
+		///
+		/// Any pressure from any button click the mouse might be applying.
+		///
+		float m_pressure = 0.0f;
 	};
 }
 

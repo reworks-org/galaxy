@@ -45,7 +45,7 @@ namespace sl
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		// Register events.
-		//sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<Slider, &Slider::receiveMove>(this);
+		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<Slider, &Slider::receiveMove>(this);
 		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<Slider, &Slider::receivePress>(this);
 	}
 
@@ -95,6 +95,13 @@ namespace sl
 			if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
 			{
 				m_drawTooltip = true;
+
+				if (e.m_pressure == 1.0f)
+				{
+					m_drawTooltip = false;
+					int cursorPosOnSlider = e.m_x - topleft;
+					m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
+				}
 			}
 			else
 			{
@@ -115,22 +122,24 @@ namespace sl
 			int top = m_bounds.m_y + m_offsetY;
 			int bottom = top + m_bounds.m_height;
 
-			if ( ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom)) && (e.m_button == 1) )
+			if (((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom)) && (e.m_button == 1))
 			{
 				// We take away the button top left pos, because then we are left over with the position of the cursor on the widget.
 				// Then make sure the resulting value is within the bar width.
-				int cursorPosOnSlider = std::clamp(e.m_x - topleft, topleft, topright);
-				m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(topright), 0.0f, 1.0f);
+				m_drawTooltip = false;
+				int cursorPosOnSlider = e.m_x - topleft;
+				m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
 			}
-
-			m_drawTooltip = false;
 		}
 	}
 
 	void Slider::update()
 	{
-		// Draw marker centered on value.
-		m_markerX = m_value * (m_bounds.m_x + m_offsetX + m_bounds.m_width);
+		if (m_isVisible)
+		{
+			// Draw marker centered on value by taking away half the width of the marker.
+			m_markerX = (m_bounds.m_x + m_offsetX + (m_bounds.m_width * m_value)) - (static_cast<float>(al_get_bitmap_width(m_marker)) / 2.0f);
+		}
 	}
 
 	void Slider::render()
@@ -138,13 +147,18 @@ namespace sl
 		if (m_isVisible)
 		{
 			al_draw_bitmap(m_slider, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
-			al_draw_bitmap(m_marker, static_cast<int>(m_markerX), m_bounds.m_y + m_offsetY, 0);
+			al_draw_bitmap(m_marker, m_markerX, (m_bounds.m_y + m_offsetY) - al_get_bitmap_height(m_marker) / 4.0f, 0);
 
 			if (m_tooltip && m_drawTooltip)
 			{
 				m_tooltip->draw();
 			}
 		}
+	}
+
+	void Slider::setCallback(const std::function<void(const float)>& callback)
+	{
+		m_callback = callback;
 	}
 
 	const float Slider::getValue() const

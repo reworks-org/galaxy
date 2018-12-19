@@ -58,29 +58,29 @@ GameState::GameState()
 		al_map_rgba(0, 0, 255, 255), al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 255, 0, 255)
 	};
 
-	sl::Button* testbtn = m_panel->addWidget<sl::Button>(20, 20, "Click me!", "SecretCode60", cols);
+	sl::Button* testbtn = m_panel->add<sl::Button>(20, 20, "Click me!", "SecretCode60", cols);
 	testbtn->registerCallback([&]() -> void
 	{
 		LOG_S(INFO) << "BUTTON CLICKED!";
 	});
 	testbtn->setTooltip("This is a tooltip.", "GameOver66", al_map_rgba(0, 0, 255, 255), 100);
 
-	sl::ProgressBar* bar = m_panel->addWidget<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(255, 0, 0, 255), al_map_rgba(192, 192, 192, 255));
+	sl::ProgressBar* bar = m_panel->add<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(255, 0, 0, 255), al_map_rgba(192, 192, 192, 255));
 	bar->setProgress(0.67f);
 	bar->setTooltip("This is a bar.", "GameOver32", al_map_rgba(0, 0, 255, 255), 100);
 
 	std::ostringstream ss;
 	ss << bar->getPercentage();
 	std::string s = "Health Bar: " + ss.str() + "%";
-	sl::Label* label = m_panel->addWidget<sl::Label>(25, 80, s, "GameOver32", al_map_rgba(255, 255, 255, 255));
+	sl::Label* label = m_panel->add<sl::Label>(25, 80, s, "GameOver32", al_map_rgba(255, 255, 255, 255));
 
-	slider = m_panel->addWidget<sl::Slider>(sl::Rect<int>{5, 120, 200, 25}, 10, 40, al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 0, 255, 255));
+	slider = m_panel->add<sl::Slider>(sl::Rect<int>{5, 120, 200, 25}, 8, 50, al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 0, 255, 255));
 	slider->setTooltip("MOVE ME!!!", "GameOver32", al_map_rgba(0, 255, 0, 255), 100);
 
 	std::ostringstream ss2;
 	ss2 << slider->getPercentage();
 	sliderLabelStr = "Value: " + ss2.str() + "%";
-	m_sliderLabel = m_panel->addWidget<sl::Label>(5, 120, sliderLabelStr, "GameOver32", al_map_rgba(255, 255, 255, 255));
+	m_sliderLabel = m_panel->add<sl::Label>(5, 120, sliderLabelStr, "GameOver32", al_map_rgba(255, 255, 255, 255));
 }
 
 GameState::~GameState()
@@ -103,7 +103,7 @@ void GameState::event(ALLEGRO_EVENT* event)
 	switch (event->type)
 	{
 	case ALLEGRO_EVENT_MOUSE_AXES:
-		Locator::dispatcher->trigger<sl::MouseMovedEvent>(event->mouse.x, event->mouse.y, event->mouse.dx, event->mouse.dy);
+		Locator::dispatcher->trigger<sl::MouseMovedEvent>(event->mouse.x, event->mouse.y, event->mouse.dx, event->mouse.dy, event->mouse.pressure);
 		break;
 
 	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:

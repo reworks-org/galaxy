@@ -75,6 +75,13 @@ namespace sl
 		void render() override;
 
 		///
+		/// Set a callback function for when the value of the slider changes.
+		///
+		/// \param callback Lambda or function pointer to callback, return type void, parameter is a const float of "m_value".
+		///
+		void setCallback(const std::function<void(const float)>& callback);
+
+		///
 		/// Get current value of slider.
 		///
 		/// \return const float of value. 0.0f - 1.0f. I.e. 0.78f is 78%.
@@ -115,6 +122,11 @@ namespace sl
 		/// Marker texture.
 		///
 		ALLEGRO_BITMAP* m_marker;
+
+		///
+		/// Function callback when slider value changes  upon mouse release.
+		///
+		std::function<void(const float)> m_callback;
 	};
 }
 

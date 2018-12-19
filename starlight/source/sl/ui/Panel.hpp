@@ -51,7 +51,7 @@ namespace sl
 		/// \return Returns pointer to newly created widget.
 		///
 		template<typename WidgetType, typename... Args>
-		WidgetType* addWidget(Args&&... args);
+		WidgetType* add(Args&&... args);
 
 		///
 		/// Update the UI.
@@ -104,7 +104,7 @@ namespace sl
 	};
 
 	template<typename WidgetType, typename... Args>
-	inline WidgetType* Panel::addWidget(Args&&... args)
+	inline WidgetType* Panel::add(Args&&... args)
 	{
 		// Forward arguments to std::vector's construct in place method.
 		Widget* ref = m_widgets.emplace_back(std::make_unique<WidgetType>(std::forward<Args>(args)...)).get();
