@@ -55,6 +55,7 @@ int main(int argc, char **argv)
 					newConfig << "fullscreen = false\n";
 					newConfig << "msaa = true\n";
 					newConfig << "msaaValue = 2\n";
+					newConfig << "grabMouse = true\n";
 					newConfig << "title = Sandbox\n";
 					newConfig << "icon = icon.png\n";
 					newConfig << "atlasPowerOf = 13\n";

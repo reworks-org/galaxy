@@ -27,15 +27,16 @@ namespace sl
 		/// 
 		/// Sets up all the data for the allegro window such as rendering.
 		///
+		/// \param title Window title. Must be smaller than 255 characters.
+		/// \param icon Path to window icon. Must be 512x512.
 		/// \param width Window width.
 		/// \param height Window height.
 		/// \param fullscreen Should the window be fullscreen on startup, true or false.
 		/// \param msaa Enable or disable MultiSample AntiAliasing.
 		/// \param msaaValue Strength of MSAA. 2, 4, 8, 16 are valid values. Set to 0 if msaa is disabled.
-		/// \param title Window title. Must be smaller than 255 characters.
-		/// \param icon Path to window icon. Must be 512x512.
+		/// \param grabMouse Should the window confine the mouse?
 		///
-		Window(const int width, const int height, const bool fullscreen, const bool msaa, const int msaaValue, const std::string& title, const std::string& icon);
+		Window(const std::string& title, const std::string& icon, const int width, const int height, const bool fullscreen, const bool msaa, const int msaaValue, const bool grabMouse);
 
 		///
 		/// Cleans up the window.

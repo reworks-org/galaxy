@@ -7,11 +7,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <allegro5/error.h>
+#include <allegro5/mouse.h>
 #include <allegro5/monitor.h>
 #include <allegro5/drawing.h>
 #include <allegro5/bitmap_io.h>
 #include <allegro5/bitmap_draw.h>
-#include <allegro5/error.h>
 
 #include "sl/libs/loguru/loguru.hpp"
 
@@ -19,7 +20,7 @@
 
 namespace sl
 {
-	Window::Window(const int width, const int height, const bool fullscreen, const bool msaa, const int msaaValue, const std::string& title, const std::string& icon)
+	Window::Window(const std::string& title, const std::string& icon, const int width, const int height, const bool fullscreen, const bool msaa, const int msaaValue, const bool grabMouse)
 		:m_isOpen(true), m_fullscreen(fullscreen), m_icon(nullptr), m_display(nullptr), m_fullscreenBuffer(nullptr), m_size(width, height)
 	{
 		// Set the display options for the window based off of the params from the config.
@@ -51,9 +52,18 @@ namespace sl
 		}
 
 		// Set fullscreen flag.
-		if (m_fullscreen == true)
+		if (!al_set_display_flag(m_display, ALLEGRO_FULLSCREEN_WINDOW, true))
 		{
-			al_set_display_flag(m_display, ALLEGRO_FULLSCREEN_WINDOW, true);
+			LOG_S(ERROR) << "Failed to set fullscreen flag!";
+		}
+
+		// Set mouse grab flag.
+		if (grabMouse)
+		{
+			if (!al_grab_mouse(m_display))
+			{
+				LOG_S(ERROR) << "Failed to grab display mouse.";
+			}
 		}
 
 		// Set window icon.

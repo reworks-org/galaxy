@@ -132,9 +132,8 @@ namespace sl
 		Locator::virtualFS = m_virtualFS.get();
 		m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
 
-		m_window = std::make_unique<Window>(m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"),
-			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"),
-			m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"));
+		m_window = std::make_unique<Window>(m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"), m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"),
+			m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<bool>(config, "graphics", "grabMouse"));
 		Locator::window = m_window.get();
 
 		m_world = std::make_unique<World>();

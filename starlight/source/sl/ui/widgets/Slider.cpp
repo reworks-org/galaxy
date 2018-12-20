@@ -156,11 +156,6 @@ namespace sl
 		}
 	}
 
-	void Slider::setCallback(const std::function<void(const float)>& callback)
-	{
-		m_callback = callback;
-	}
-
 	const float Slider::getValue() const
 	{
 		return m_value;
