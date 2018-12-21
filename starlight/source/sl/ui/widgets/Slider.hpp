@@ -35,11 +35,12 @@ namespace sl
 		///
 		/// Image constructor.
 		///
-		/// \param bounds x,y,w,h of slider rectangle.
+		/// \param x x-pos relative to panel.
+		/// \param y y-pos relative to panel.
 		/// \param slider Texture of the slider.
 		/// \param marker Texture of the marker.
 		///
-		Slider(const sl::Rect<int>& bounds, const std::string& slider, const std::string& marker);
+		Slider(const int x, const int y, const std::string& slider, const std::string& marker);
 
 		///
 		/// Destructor.
@@ -67,7 +68,9 @@ namespace sl
 		///
 		/// Update the widget.
 		///
-		void update() override;
+		/// \param dt Delta Time.
+		///
+		void update(const double dt) override;
 
 		///
 		/// Render the widget.

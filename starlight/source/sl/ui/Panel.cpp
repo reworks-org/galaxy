@@ -57,14 +57,14 @@ namespace sl
 		clear();
 	}
 
-	void Panel::update()
+	void Panel::update(const double dt)
 	{
 		if (m_isVisible)
 		{
 			// Update all widgets.
 			for (auto& widget : m_widgets)
 			{
-				widget->update();
+				widget->update(dt);
 			}
 		}
 	}

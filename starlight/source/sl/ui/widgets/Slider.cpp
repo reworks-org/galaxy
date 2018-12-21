@@ -22,13 +22,13 @@ namespace sl
 		m_slider = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_slider)
 		{
-			LOG_S(ERROR) << "Failed to create Slider bitmap.  Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create Slider bitmap.  Errno: " << al_get_errno();
 		}
 
 		m_marker = al_create_bitmap(markerW, markerH);
 		if (!m_marker)
 		{
-			LOG_S(ERROR) << "Failed to create Slider marker bitmap. Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create Slider marker bitmap. Errno: " << al_get_errno();
 		}
 
 		// Create slider bitmap.
@@ -49,21 +49,27 @@ namespace sl
 		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<Slider, &Slider::receivePress>(this);
 	}
 
-	Slider::Slider(const sl::Rect<int>& bounds, const std::string& slider, const std::string& marker)
-		:Widget(bounds), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
+	Slider::Slider(const int x, const int y, const std::string& slider, const std::string& marker)
+		:Widget({ x, y, 0, 0 }), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Load slider texture and check for errors.
 		m_slider = al_load_bitmap(slider.c_str());
 		if (!m_slider)
 		{
-			LOG_S(ERROR) << "Failed to load Slider bitmap: " << slider << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to load Slider bitmap: " << slider << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_bounds.m_width = al_get_bitmap_width(m_slider);
+			m_bounds.m_height = al_get_bitmap_height(m_slider);
 		}
 
 		// Load marker texture and check for errors.
 		m_marker = al_load_bitmap(marker.c_str());
 		if (!m_marker)
 		{
-			LOG_S(ERROR) << "Failed to load Slider marker bitmap: " << marker << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to load Slider marker bitmap: " << marker << " Errno: " << al_get_errno();
 		}
 	}
 
@@ -133,7 +139,7 @@ namespace sl
 		}
 	}
 
-	void Slider::update()
+	void Slider::update(const double dt)
 	{
 		if (m_isVisible)
 		{

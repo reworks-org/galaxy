@@ -49,10 +49,10 @@ namespace sl
 		/// Image Constructor.
 		///
 		/// \param bounds Dimensions of the widget, relative to the panel.
-		/// \param images Array of image names to load.
-		///			images[0] is default state, images[1] is pressed state and images[2] is mouse over (hover) state.				   
+		/// \param images Array of texture names to load.
+		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.				   
 		///
-		Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images);
+		Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& textures);
 
 		///
 		/// Text Constructor.
@@ -69,12 +69,14 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~Button() noexcept override;
+		~Button() noexcept;
 
 		///
 		/// Update the widget.
 		///
-		void update() override;
+		/// \param dt Delta Time.
+		///
+		void update(const double dt) override;
 
 		///
 		/// Render the widget.
@@ -129,9 +131,9 @@ namespace sl
 		Button::State m_state;
 
 		///
-		/// Images for each button state.
+		/// textures for each button state.
 		///
-		std::array<ALLEGRO_BITMAP*, 3> m_images;
+		std::array<ALLEGRO_BITMAP*, 3> m_textures;
 
 		///
 		/// Callback function.

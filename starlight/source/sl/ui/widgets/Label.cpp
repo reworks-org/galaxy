@@ -15,7 +15,7 @@
 
 namespace sl
 {
-	Label::Label(int x, int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col)
+	Label::Label(const int x, const int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col)
 		:Widget({ x, y, 0, 0 }), m_text(text), m_colour(col)
 	{
 		// Create bitmap, draw text to it, then store it.
@@ -30,7 +30,7 @@ namespace sl
 	{
 	}
 
-	void Label::update()
+	void Label::update(const double dt)
 	{
 	}
 

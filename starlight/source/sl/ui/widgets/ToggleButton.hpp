@@ -50,21 +50,24 @@ namespace sl
 		///
 		/// Image Constructor.
 		///
-		/// \param bounds Dimensions of the widget, relative to the panel.
-		/// \param images Array of image names to load.
-		///			images[0] is OFF state, images[1] is ON state and images[2] is mouse over (hover) state.
+		/// \param x x-pos relative to panel.
+		/// \param y y-pos relative to panel.
+		/// \param textures Array of image names to load. Must be the same width and height.
+		///			textures[0] is OFF state, textures[1] is ON state and textures[2] is mouse over (hover) state.
 		///
-		ToggleButton(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images);
+		ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures);
 
 		///
 		/// Destructor.
 		///
-		~ToggleButton() noexcept override;
+		~ToggleButton() noexcept;
 
 		///
 		/// Update the widget.
 		///
-		void update() override;
+		/// \param dt Delta Time.
+		///
+		void update(const double dt) override;
 
 		///
 		/// Render the widget.
@@ -112,7 +115,7 @@ namespace sl
 		///
 		/// Images for each button state.
 		///
-		std::array<ALLEGRO_BITMAP*, 3> m_images;
+		std::array<ALLEGRO_BITMAP*, 3> m_textures;
 
 		///
 		/// Callback function.

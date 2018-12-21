@@ -52,7 +52,7 @@ namespace sl
 		}
 
 		// Set fullscreen flag.
-		if (!al_set_display_flag(m_display, ALLEGRO_FULLSCREEN_WINDOW, true))
+		if (!al_set_display_flag(m_display, ALLEGRO_FULLSCREEN_WINDOW, m_fullscreen))
 		{
 			LOG_S(ERROR) << "Failed to set fullscreen flag!";
 		}

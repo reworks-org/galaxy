@@ -17,12 +17,12 @@ namespace sl
 		m_panels.clear();
 	}
 	
-	void UI::update()
+	void UI::update(const double dt)
 	{
 		// Iterate over panels, update, and call each widgets update function.
 		for (auto& panel : m_panels)
 		{
-			panel->update();
+			panel->update(dt);
 		}
 	}
 

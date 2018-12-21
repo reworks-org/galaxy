@@ -46,7 +46,9 @@ namespace sl
 		///
 		/// Update the UI.
 		///
-		void update();
+		/// \param dt Delta Time.
+		///
+		void update(const double dt);
 
 		///
 		/// Render UI to screen.

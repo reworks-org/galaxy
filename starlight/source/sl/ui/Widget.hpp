@@ -33,7 +33,9 @@ namespace sl
 		///
 		/// Don't forget to check for visibility.
 		///
-		virtual void update() = 0;
+		/// \param dt Delta Time.
+		///
+		virtual void update(const double dt) = 0;
 
 		///
 		/// \brief Render the widget.

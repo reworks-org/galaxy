@@ -27,7 +27,7 @@ namespace sl
 		/// \param y y pos relative to UI panel.
 		/// \param texture Texture to display.
 		///
-		Image(int x, int y, const std::string& texture);
+		Image(const int x, const int y, const std::string& texture);
 
 		///
 		/// Destructor.
@@ -37,7 +37,9 @@ namespace sl
 		///
 		/// Update the widget.
 		///
-		void update() override;
+		/// \param dt Delta Time.
+		///
+		void update(const double dt) override;
 
 		///
 		/// Render the widget.

@@ -24,13 +24,13 @@ namespace sl
 		m_background = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to create ProgressBar background bitmap.  Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create ProgressBar background bitmap.  Errno: " << al_get_errno();
 		}
 
 		m_bar = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_bar)
 		{
-			LOG_S(ERROR) << "Failed to create ProgressBar bar bitmap. Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create ProgressBar bar bitmap. Errno: " << al_get_errno();
 		}
 
 		// Create bar bitmap.
@@ -50,13 +50,19 @@ namespace sl
 		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
 	}
 
-	ProgressBar::ProgressBar(const sl::Rect<int>& bounds, const sl::Rect<int> barBounds, const std::string& image, const ALLEGRO_COLOR col)
-		:Widget(bounds), m_barBounds(barBounds), m_progress(0.0f), m_background(nullptr), m_bar(nullptr)
+	ProgressBar::ProgressBar(const int x, const int y, const sl::Rect<int> barBounds, const std::string& texture, const ALLEGRO_COLOR col)
+		:Widget({ x, y, 0, 0 }), m_barBounds(barBounds), m_progress(0.0f), m_background(nullptr), m_bar(nullptr)
 	{
 		m_bar = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_bar)
 		{
-			LOG_S(ERROR) << "Failed to create ProgressBar bar bitmap. Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create ProgressBar bar bitmap. Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_bounds.m_width = al_get_bitmap_width(m_bar);
+			m_bounds.m_height = al_get_bitmap_height(m_bar);
 		}
 
 		// Create bar bitmap.
@@ -68,28 +74,40 @@ namespace sl
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		// Now the background / outline, etc..
-		m_background = al_load_bitmap(image.c_str());
+		m_background = al_load_bitmap(texture.c_str());
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to load ProgressBar background bitmap: " << image << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to load ProgressBar background bitmap: " << texture << " Errno: " << al_get_errno();
 		}
 	}
 
-	ProgressBar::ProgressBar(const sl::Rect<int>& bounds, const sl::Rect<int> barBounds, const std::string& image, const std::string& barImage)
-		:Widget(bounds), m_barBounds(barBounds), m_progress(0.0f), m_background(nullptr), m_bar(nullptr)
+	ProgressBar::ProgressBar(const int x, const int y, const int barX, const int barY, const std::string& texture, const std::string& barTexture)
+		:Widget({ x, y, 0, 0 }), m_barBounds({ barX, barY, 0, 0 }), m_progress(0.0f), m_background(nullptr), m_bar(nullptr)
 	{
 		// The background / outline, etc..
-		m_background = al_load_bitmap(image.c_str());
+		m_background = al_load_bitmap(texture.c_str());
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to load ProgressBar background bitmap: " << image << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to load ProgressBar background bitmap: " << texture << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_bounds.m_width = al_get_bitmap_width(m_background);
+			m_bounds.m_height = al_get_bitmap_height(m_background);
 		}
 
 		// Load the bar texture.
-		m_bar = al_load_bitmap(barImage.c_str());
+		m_bar = al_load_bitmap(barTexture.c_str());
 		if (!m_bar)
 		{
-			LOG_S(ERROR) << "Failed to load ProgressBar bar image bitmap: " << image << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to load ProgressBar bar image bitmap: " << barTexture << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_barBounds.m_width = al_get_bitmap_width(m_bar);
+			m_barBounds.m_height = al_get_bitmap_height(m_bar);
 		}
 	}
 
@@ -129,7 +147,7 @@ namespace sl
 		}
 	}
 
-	void ProgressBar::update()
+	void ProgressBar::update(const double dt)
 	{
 		if (m_isVisible)
 		{

@@ -29,7 +29,7 @@ namespace sl
 		/// \param font Label font.
 		/// \param col Label colour.
 		///
-		Label(int x, int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col);
+		Label(const int x, const int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col);
 		
 		///
 		/// Destructor.
@@ -39,7 +39,9 @@ namespace sl
 		///
 		/// Update the widget.
 		///
-		void update() override;
+		/// \param dt Delta Time.
+		///
+		void update(const double dt) override;
 
 		///
 		/// Render the widget.

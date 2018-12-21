@@ -32,22 +32,26 @@ namespace sl
 		///
 		/// Image constructor.
 		///
-		/// \param bounds x,y,w,h of progress bar rectangle, specifically the outline.
+		/// \param x x-pos relative to panel.
+		/// \param y y-pos relative to panel.
 		/// \param barBounds x,y,w,h Of the interal bar, in order to position it correctly within an outline texture.
-		/// \param image Image of the progress bar container.
+		/// \param texture Texture of the progress bar container.
 		/// \param col Colour of the progress bar.
 		///
-		ProgressBar(const sl::Rect<int>& bounds, const sl::Rect<int> barBounds, const std::string& image, const ALLEGRO_COLOR col);
+		ProgressBar(const int x, const int y, const sl::Rect<int> barBounds, const std::string& texture, const ALLEGRO_COLOR col);
 
 		///
 		/// Image constructor.
 		///
-		/// \param bounds x,y,w,h of progress bar rectangle, specifically the outline.
+		/// \param x x-pos relative to panel.
+		/// \param y y-pos relative to panel.
+		/// \param barX x-pos relative to container texture.
+		/// \param barY y-pos relative to container texture.
 		/// \param barBounds x,y,w,h Of the interal bar, in order to position it correctly within an outline texture.
-		/// \param image Image of the progress bar container.
-		/// \param barImage Seperate texture for the progress bar itself, not its outline.
+		/// \param texture Texture of the progress bar container.
+		/// \param barTexture Seperate texture for the progress bar itself, not its outline.
 		///
-		ProgressBar(const sl::Rect<int>& bounds, const sl::Rect<int> barBounds, const std::string& image, const std::string& barImage);
+		ProgressBar(const int x, const int y, const int barX, const int barY, const std::string& texture, const std::string& barTexture);
 
 		///
 		/// Destructor.
@@ -66,7 +70,9 @@ namespace sl
 		///
 		/// Update the widget.
 		///
-		void update() override;
+		/// \param dt Delta Time.
+		///
+		void update(const double dt) override;
 
 		///
 		/// Render the widget.

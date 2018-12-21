@@ -16,7 +16,7 @@
 
 namespace sl
 {
-	Button::Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images)
+	Button::Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& textures)
 		:Widget(bounds), m_callback(nullptr)
 	{
 		// Register events.
@@ -27,10 +27,10 @@ namespace sl
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)
 		{
-			m_images[i] = al_load_bitmap(images[i].c_str());
-			if (!m_images[i])
+			m_textures[i] = al_load_bitmap(textures[i].c_str());
+			if (!m_textures[i])
 			{
-				LOG_S(FATAL) << "Failed to load texture: " << images[i] << " Errno: " << al_get_errno();
+				LOG_S(FATAL) << "Failed to load texture: " << textures[i] << " Errno: " << al_get_errno();
 			}
 		}
 	}
@@ -65,7 +65,7 @@ namespace sl
 				al_draw_text(ttf, colors[i], 0, 0, ALLEGRO_ALIGN_LEFT, text.c_str());
 
 				al_flip_display();
-				m_images[i] = bitmap;
+				m_textures[i] = bitmap;
 			}
 
 			al_set_target_backbuffer(Locator::window->getDisplay());
@@ -74,16 +74,16 @@ namespace sl
 
 	Button::~Button()
 	{
-		for (ALLEGRO_BITMAP* image : m_images)
+		for (ALLEGRO_BITMAP* texture : m_textures)
 		{
-			if (image)
+			if (texture)
 			{
-				al_destroy_bitmap(image);
+				al_destroy_bitmap(texture);
 			}
 		}
 	}
 
-	void Button::update()
+	void Button::update(const double dt)
 	{
 		if (m_isVisible)
 		{
@@ -102,15 +102,15 @@ namespace sl
 			switch (m_state)
 			{
 			case Button::State::DEFAULT:
-				al_draw_bitmap(m_images[0], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_textures[0], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 				break;
 
 			case Button::State::PRESSED:
-				al_draw_bitmap(m_images[1], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_textures[1], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 				break;
 
 			case Button::State::HOVER:
-				al_draw_bitmap(m_images[2], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_textures[2], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 
 				if (m_tooltip)
 				{

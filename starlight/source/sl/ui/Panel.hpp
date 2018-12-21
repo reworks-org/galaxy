@@ -54,12 +54,14 @@ namespace sl
 		WidgetType* add(Args&&... args);
 
 		///
-		/// Update the UI.
+		/// Update the panel and widgets..
 		///
-		void update();
+		/// \param dt Delta Time.
+		///
+		void update(const double dt);
 
 		///
-		/// Render Widgets.
+		/// Render panel and widgets.
 		///
 		void render();
 

@@ -14,8 +14,8 @@
 
 namespace sl
 {
-	ToggleButton::ToggleButton(const sl::Rect<int>& bounds, const std::array<std::string, 3>& images)
-		:Widget(bounds), m_callback(nullptr)
+	ToggleButton::ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures)
+		:Widget({x, y, 0, 0}), m_callback(nullptr)
 	{
 		// Register events.
 		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
@@ -24,26 +24,30 @@ namespace sl
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)
 		{
-			m_images[i] = al_load_bitmap(images[i].c_str());
-			if (!m_images[i])
+			m_textures[i] = al_load_bitmap(textures[i].c_str());
+			if (!m_textures[i])
 			{
-				LOG_S(FATAL) << "Failed to load texture: " << images[i] << " Errno: " << al_get_errno();
+				LOG_S(FATAL) << "Failed to load texture: " << textures[i] << " Errno: " << al_get_errno();
 			}
 		}
+
+		// Set dimensions.
+		m_bounds.m_width = al_get_bitmap_width(m_textures[0]);
+		m_bounds.m_height = al_get_bitmap_height(m_textures[0]);
 	}
 
 	ToggleButton::~ToggleButton()
 	{
-		for (ALLEGRO_BITMAP* image : m_images)
+		for (ALLEGRO_BITMAP* texture : m_textures)
 		{
-			if (image)
+			if (texture)
 			{
-				al_destroy_bitmap(image);
+				al_destroy_bitmap(texture);
 			}
 		}
 	}
 
-	void ToggleButton::update()
+	void ToggleButton::update(const double dt)
 	{
 	}
 
@@ -55,15 +59,15 @@ namespace sl
 			switch (m_state)
 			{
 			case ToggleButton::State::OFF:
-				al_draw_bitmap(m_images[0], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_textures[0], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 				break;
 
 			case ToggleButton::State::ON:
-				al_draw_bitmap(m_images[1], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_textures[1], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 				break;
 
 			case ToggleButton::State::HOVER:
-				al_draw_bitmap(m_images[2], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_textures[2], m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
 
 				if (m_tooltip)
 				{

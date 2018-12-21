@@ -17,6 +17,7 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
 
+- constexpr, sfinae, crtp
 - write own ui.
 - reflect on box2d / or custom simple physics solution.
 - move lua into system locator. use local variables over global variables.
@@ -26,8 +27,9 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - need to move some loading code into load state not applicationo constuictor.
 - support for languages? strings file im thinking...
 - review automatic texture atlas texture loading
-- constexpr, sfinae, crtp
-
+- add key config support
+- add docs to testbox
+- improve features.
 
 - ui:
 	- add image and primitives support to tooltips.

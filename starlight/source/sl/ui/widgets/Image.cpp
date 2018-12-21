@@ -11,13 +11,19 @@
 
 namespace sl
 {
-	Image::Image(int x, int y, const std::string& texture)
+	Image::Image(const int x, const int y, const std::string& texture)
 		:Widget({ x, y, 0, 0 })
 	{
 		m_image = al_load_bitmap(texture.c_str());
 		if (!m_image)
 		{
-			LOG_S(ERROR) << "Failed to load texture: " << texture << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to load texture: " << texture << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_bounds.m_width = al_get_bitmap_width(m_image);
+			m_bounds.m_height = al_get_bitmap_height(m_image);
 		}
 	}
 
@@ -29,7 +35,7 @@ namespace sl
 		}
 	}
 
-	void Image::update()
+	void Image::update(const double dt)
 	{
 	}
 

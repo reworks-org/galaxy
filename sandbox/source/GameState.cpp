@@ -27,6 +27,9 @@
 #include <sl/events/MouseMovedEvent.hpp>
 #include <sl/events/MousePressedEvent.hpp>
 #include <sl/events/MouseReleasedEvent.hpp>
+#include <sl/events/Keys.hpp>
+#include <sl/events/KeyDownEvent.hpp>
+#include <sl/ui/widgets/Textbox.hpp>
 
 #include "GameState.hpp"
 
@@ -81,6 +84,10 @@ GameState::GameState()
 	ss2 << slider->getPercentage();
 	sliderLabelStr = "Value: " + ss2.str() + "%";
 	m_sliderLabel = m_panel->add<sl::Label>(5, 120, sliderLabelStr, "GameOver32", al_map_rgba(255, 255, 255, 255));
+
+	sl::Keys::TEXTBOX_CONFIRM = ALLEGRO_KEY_ENTER;
+
+	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "ui/frame.png", "ui/arrow.png", std::vector<std::string>{"This is a long message..."}, "GameOver32", al_map_rgba(255, 255, 255, 255), 100, "Speaker");
 }
 
 GameState::~GameState()
@@ -136,19 +143,23 @@ void GameState::event(ALLEGRO_EVENT* event)
 		case ALLEGRO_KEY_L:
 			//serialize.loadGameSnapshot("test.sav", Locator::world->m_registry);
 			break;
+
+		case ALLEGRO_KEY_ENTER:
+			Locator::dispatcher->trigger<sl::KeyDownEvent>(event->keyboard.keycode);
+			break;
 		}
 		break;
 	}
 }
 
-void GameState::update(double dt)
+void GameState::update(const double dt)
 {
 	std::ostringstream ss2;
 	ss2 << slider->getPercentage();
 	sliderLabelStr = "Value: " + ss2.str() + "%";
 	m_sliderLabel->setText(sliderLabelStr);
 
-	m_ui.update();
+	m_ui.update(dt);
 }
 
 void GameState::render()
