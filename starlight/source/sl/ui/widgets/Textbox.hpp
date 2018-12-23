@@ -31,11 +31,19 @@ namespace sl
 		/// \param indicator The texture that indicates when this message is finished.
 		/// \param messages List of messages to be displayed. Each entry in the vector is a message for one "page" of the text box.
 		/// \param font The font to draw the text in.
+		/// \param maxWidth Maximum width for each line of the text in the textbox. In pixels.
 		/// \param col Colour of the text to draw.
 		/// \param duration The duration in which to display each character at. 0 to always display text at once. In milliseconds.
 		/// \param speaker Optional. Specifys if a "speaker" is needed for the textbox. I.e. who is talking right now.
 		///
-		Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const std::string& font, const ALLEGRO_COLOR col, const unsigned int duration, const std::string& speaker = "");
+		Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const std::string& font, const unsigned int maxWidth, const ALLEGRO_COLOR col, const unsigned int duration, const std::string& speaker = "");
+
+		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		Textbox(const sol::table& table);
 
 		///
 		/// Destructor.
@@ -65,6 +73,13 @@ namespace sl
 
 	private:
 		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		Textbox() = delete;
+
+	private:
+		///
 		/// Frame texture.
 		///
 		ALLEGRO_BITMAP* m_frame;
@@ -88,7 +103,12 @@ namespace sl
 		/// Font to render text with.
 		///
 		ALLEGRO_FONT* m_font;
-		
+	
+		///
+		/// Maximum length for each line of the text in the textbox.
+		///
+		unsigned int m_maxWidth;
+
 		///
 		/// Colour of the text.
 		///
@@ -115,14 +135,19 @@ namespace sl
 		std::size_t m_characterIndex;
 
 		///
-		/// Current index.
+		/// Current "page" of textbox.
 		///
-		std::size_t m_index;
+		std::size_t m_page;
 
 		///
 		/// Toggle to draw lowered indicator or not.
 		///
 		bool m_drawLoweredIndicator;
+
+		///
+		/// Line height of the font.
+		///
+		int m_lineHeight;
 	};
 }
 

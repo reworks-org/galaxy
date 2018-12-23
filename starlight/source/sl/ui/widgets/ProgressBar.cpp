@@ -9,6 +9,7 @@
 
 #include <algorithm>
 
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"
@@ -102,6 +103,43 @@ namespace sl
 		if (!m_bar)
 		{
 			LOG_S(FATAL) << "Failed to load ProgressBar bar image bitmap: " << barTexture << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_barBounds.m_width = al_get_bitmap_width(m_bar);
+			m_barBounds.m_height = al_get_bitmap_height(m_bar);
+		}
+	}
+
+	ProgressBar::ProgressBar(const sol::table& table)
+		:Widget({ 0, 0, 0, 0 }), m_barBounds({ 0, 0, 0, 0 }), m_progress(0.0f), m_background(nullptr), m_bar(nullptr)
+	{
+		// Get position data.
+		m_bounds.m_x = table.get<int>("x");
+		m_bounds.m_y = table.get<int>("y");
+
+		m_barBounds.m_x = table.get<int>("barX");
+		m_barBounds.m_y = table.get<int>("barY");
+
+		// The background / outline, etc..
+		m_background = al_load_bitmap(table.get<const char*>("texture"));
+		if (!m_background)
+		{
+			LOG_S(FATAL) << "Failed to load ProgressBar background bitmap: " << table.get<const char*>("texture") << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_bounds.m_width = al_get_bitmap_width(m_background);
+			m_bounds.m_height = al_get_bitmap_height(m_background);
+		}
+
+		// Load the bar texture.
+		m_bar = al_load_bitmap(table.get<const char*>("barTexture"));
+		if (!m_bar)
+		{
+			LOG_S(FATAL) << "Failed to load ProgressBar bar image bitmap: " << table.get<const char*>("barTexture") << " Errno: " << al_get_errno();
 		}
 		else
 		{

@@ -165,7 +165,6 @@
     <ClCompile Include="source\sl\ui\widgets\ProgressBar.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Slider.cpp" />
     <ClCompile Include="source\sl\ui\widgets\Textbox.cpp" />
-    <ClCompile Include="source\sl\ui\widgets\TextInput.cpp" />
     <ClCompile Include="source\sl\ui\widgets\ToggleButton.cpp" />
     <ClCompile Include="source\sl\utils\Time.cpp" />
     <ClCompile Include="source\sl\utils\Utils.cpp" />
@@ -405,7 +404,6 @@
     <ClInclude Include="source\sl\ui\widgets\ProgressBar.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Slider.hpp" />
     <ClInclude Include="source\sl\ui\widgets\Textbox.hpp" />
-    <ClInclude Include="source\sl\ui\widgets\TextInput.hpp" />
     <ClInclude Include="source\sl\ui\widgets\ToggleButton.hpp" />
     <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />

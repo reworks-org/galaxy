@@ -14,6 +14,7 @@
 
 #include "sl/math/Rect.hpp"
 #include "sl/ui/Tooltip.hpp"
+#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {
@@ -22,6 +23,7 @@ namespace sl
 	///
 	class Widget
 	{
+		friend class Panel;
 	public:
 		///
 		/// Destructor.
@@ -46,14 +48,6 @@ namespace sl
 		virtual void render() = 0;
 
 		///
-		/// Set offset of widget relative to panel.
-		///
-		/// \param x x-pos of panel to calc offset.
-		/// \param y y-pos of panel to calc offset.
-		///
-		virtual void setOffset(const int x, const int y) final;
-
-		///
 		/// Set visibility of widget.
 		///
 		/// \param isVisible Set to true if widget is visible.
@@ -66,6 +60,13 @@ namespace sl
 		/// \return True if visible.
 		///
 		virtual const bool isVisible() const final;
+
+		///
+		/// Get ID of this widget.
+		///
+		/// \return const unsigned int ID value.
+		///
+		virtual const unsigned int id() const final;
 
 		///
 		/// Sets the tooltip for this widget.
@@ -115,6 +116,12 @@ namespace sl
 		/// Tooltip for this widget.
 		///
 		std::unique_ptr<Tooltip> m_tooltip;
+
+	private:
+		///
+		/// Widget ID.
+		///
+		unsigned int m_id;
 	};
 
 	template<typename... Args>

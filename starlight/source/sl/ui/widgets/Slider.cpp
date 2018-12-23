@@ -7,6 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"
@@ -70,6 +71,34 @@ namespace sl
 		if (!m_marker)
 		{
 			LOG_S(FATAL) << "Failed to load Slider marker bitmap: " << marker << " Errno: " << al_get_errno();
+		}
+	}
+
+	Slider::Slider(const sol::table& table)
+		:Widget({ 0, 0, 0, 0 }), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
+	{
+		// Get position data.
+		m_bounds.m_x = table.get<int>("x");
+		m_bounds.m_y = table.get<int>("y");
+
+		// Load slider texture and check for errors.
+		m_slider = al_load_bitmap(table.get<const char*>("slider"));
+		if (!m_slider)
+		{
+			LOG_S(FATAL) << "Failed to load Slider bitmap: " << table.get<const char*>("slider") << " Errno: " << al_get_errno();
+		}
+		else
+		{
+			// Set dimensions.
+			m_bounds.m_width = al_get_bitmap_width(m_slider);
+			m_bounds.m_height = al_get_bitmap_height(m_slider);
+		}
+
+		// Load marker texture and check for errors.
+		m_marker = al_load_bitmap(table.get<const char*>("marker"));
+		if (!m_marker)
+		{
+			LOG_S(FATAL) << "Failed to load Slider marker bitmap: " << table.get<const char*>("marker") << " Errno: " << al_get_errno();
 		}
 	}
 

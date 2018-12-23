@@ -7,6 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/ServiceLocator.hpp"
@@ -23,6 +24,41 @@ namespace sl
 		if (!m_font)
 		{
 			LOG_S(FATAL) << "Could not retrieve font: " << font;
+		}
+	}
+
+	Label::Label(const sol::table& table)
+		:Widget({ 0, 0, 0, 0 })
+	{
+		// Get position data.
+		m_bounds.m_x = table.get<int>("x");
+		m_bounds.m_y = table.get<int>("y");
+
+		// Get text data.
+		m_text = table.get<std::string>("text");
+		
+		// Get colour data.
+		sol::table colTable = table.get<sol::table>("colour");
+		if (!colTable.valid() || colTable.empty())
+		{
+			LOG_S(ERROR) << "Label table \"colour\" is invalid or empty for text: " << m_text;
+		}
+		else
+		{
+			m_colour = al_map_rgba
+			(
+				table.get<unsigned char>("r"),
+				table.get<unsigned char>("g"),
+				table.get<unsigned char>("b"),
+				table.get<unsigned char>("a")
+			);
+		}
+
+		// Create bitmap, draw text to it, then store it.
+		m_font = Locator::fontBook->get(table.get<std::string>("font"));
+		if (!m_font)
+		{
+			LOG_S(FATAL) << "Could not retrieve font: " << table.get<std::string>("font");
 		}
 	}
 

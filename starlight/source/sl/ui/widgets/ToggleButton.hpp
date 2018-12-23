@@ -58,6 +58,13 @@ namespace sl
 		ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures);
 
 		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		ToggleButton(const sol::table& table);
+
+		///
 		/// Destructor.
 		///
 		~ToggleButton() noexcept;

@@ -46,13 +46,14 @@ namespace sl
 
 	public:
 		///
-		/// Image Constructor.
+		/// Texture Constructor.
 		///
-		/// \param bounds Dimensions of the widget, relative to the panel.
-		/// \param images Array of texture names to load.
+		/// \param x x-pos of button relative to panel.
+		/// \param y y-pos of button relative to panel.
+		/// \param images Array of texture names to load. Need to be all the same dimensions.
 		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.				   
 		///
-		Button(const sl::Rect<int>& bounds, const std::array<std::string, 3>& textures);
+		Button(const int x, const int y, const std::array<std::string, 3>& textures);
 
 		///
 		/// Text Constructor.
@@ -65,6 +66,13 @@ namespace sl
 		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
 		///
 		Button(const int x, const int y, const std::string& text, const std::string& font, const std::array<ALLEGRO_COLOR, 3>& colors);
+
+		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		Button(const sol::table& table);
 
 		///
 		/// Destructor.

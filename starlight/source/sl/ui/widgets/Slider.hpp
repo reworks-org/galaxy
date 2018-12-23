@@ -33,6 +33,13 @@ namespace sl
 		Slider(const sl::Rect<int>& bounds, const int markerW, const int markerH, const ALLEGRO_COLOR slider, const ALLEGRO_COLOR marker);
 
 		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		Slider(const sol::table& table);
+
+		///
 		/// Image constructor.
 		///
 		/// \param x x-pos relative to panel.

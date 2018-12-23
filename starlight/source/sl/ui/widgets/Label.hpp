@@ -32,6 +32,13 @@ namespace sl
 		Label(const int x, const int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col);
 		
 		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		Label(const sol::table& table);
+
+		///
 		/// Destructor.
 		///
 		~Label() noexcept;

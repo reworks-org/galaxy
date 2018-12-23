@@ -18,10 +18,8 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
 
 - constexpr, sfinae, crtp
-- write own ui.
 - reflect on box2d / or custom simple physics solution.
 - move lua into system locator. use local variables over global variables.
-- ui should load from lua files maybe?
 - mapping improvements
 - finish serializer
 - need to move some loading code into load state not applicationo constuictor.
@@ -29,16 +27,12 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - review automatic texture atlas texture loading
 - add key config support
 - add docs to testbox
-- improve features.
-
+- fix restart 
 - ui:
-	- add image and primitives support to tooltips.
+	- add image and support to tooltips.
 	- shader support for ui
 	- reduce update and event calcs...hardcode more of these values into widget.
-	- slider should have callback function.
-	- for slider: should recieve mouse move event and check for button press, so mousemovedevent needs unsigned int button value.
-	- rename image to texture in arguments / params
-
+	- add key support to constructor or cal la function? probs better solution then make keys not final
 
 
 

@@ -87,7 +87,7 @@ GameState::GameState()
 
 	sl::Keys::TEXTBOX_CONFIRM = ALLEGRO_KEY_ENTER;
 
-	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "ui/frame.png", "ui/arrow.png", std::vector<std::string>{"This is a long message..."}, "GameOver32", al_map_rgba(255, 255, 255, 255), 100, "Speaker");
+	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "ui/frame.png", "ui/arrow.png", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, "GameOver32", 120, al_map_rgba(255, 255, 255, 255), 80, "Speaker");
 }
 
 GameState::~GameState()

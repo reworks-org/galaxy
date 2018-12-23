@@ -30,6 +30,13 @@ namespace sl
 		ProgressBar(const sl::Rect<int>& bounds, const ALLEGRO_COLOR foreCol, const ALLEGRO_COLOR backCol);
 
 		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		ProgressBar(const sol::table& table);
+
+		///
 		/// Image constructor.
 		///
 		/// \param x x-pos relative to panel.

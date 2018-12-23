@@ -7,6 +7,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"
 
@@ -20,6 +21,40 @@ namespace sl
 		// Register events.
 		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
 		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<ToggleButton, &ToggleButton::recieveMoved>(this);
+
+		// Load each bitmap from the array and check for errors.
+		for (auto i = 0; i < 3; ++i)
+		{
+			m_textures[i] = al_load_bitmap(textures[i].c_str());
+			if (!m_textures[i])
+			{
+				LOG_S(FATAL) << "Failed to load texture: " << textures[i] << " Errno: " << al_get_errno();
+			}
+		}
+
+		// Set dimensions.
+		m_bounds.m_width = al_get_bitmap_width(m_textures[0]);
+		m_bounds.m_height = al_get_bitmap_height(m_textures[0]);
+	}
+
+	ToggleButton::ToggleButton(const sol::table& table)
+		:Widget({0, 0, 0, 0}), m_callback(nullptr)
+	{
+		// Register events.
+		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
+		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<ToggleButton, &ToggleButton::recieveMoved>(this);
+
+		// Get position data.
+		m_bounds.m_x = table.get<int>("x");
+		m_bounds.m_y = table.get<int>("y");
+
+		// Get texture data.
+		std::array<std::string, 3> textures =
+		{
+			table.get<std::string>("offTexture"),
+			table.get<std::string>("onTexture"),
+			table.get<std::string>("hoverTexture")
+		};
 
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)

@@ -432,9 +432,6 @@
     <ClCompile Include="source\sl\ui\widgets\Textbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\ui\widgets\TextInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\ui\Panel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1137,9 +1134,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\ui\widgets\Textbox.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\ui\widgets\TextInput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\ui\Panel.hpp">

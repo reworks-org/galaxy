@@ -30,6 +30,13 @@ namespace sl
 		Image(const int x, const int y, const std::string& texture);
 
 		///
+		/// Lua Constructor.
+		///
+		/// \param table sol::table to create widget from.
+		///
+		Image(const sol::table& table);
+
+		///
 		/// Destructor.
 		///
 		~Image() noexcept;

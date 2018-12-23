@@ -54,6 +54,13 @@ namespace sl
 		WidgetType* add(Args&&... args);
 
 		///
+		/// Remove a widget.
+		///
+		/// \param id ID of widget to remove. Get by calling widget->id().
+		///
+		void remove(unsigned int id);
+
+		///
 		/// Update the panel and widgets..
 		///
 		/// \param dt Delta Time.
@@ -85,6 +92,11 @@ namespace sl
 
 	private:
 		///
+		/// ID Counter;
+		///
+		unsigned int m_counter;
+
+		///
 		/// Is the panel currently visible. I.e. being rendered.
 		///
 		bool m_isVisible;
@@ -102,17 +114,27 @@ namespace sl
 		///
 		/// Collection of widgets on the panel.
 		///
-		std::vector<std::unique_ptr<Widget>> m_widgets;
+		std::unordered_map<unsigned int, std::unique_ptr<Widget>> m_widgets;
 	};
 
 	template<typename WidgetType, typename... Args>
 	inline WidgetType* Panel::add(Args&&... args)
 	{
 		// Forward arguments to std::vector's construct in place method.
-		Widget* ref = m_widgets.emplace_back(std::make_unique<WidgetType>(std::forward<Args>(args)...)).get();
+		m_widgets.emplace(m_counter, std::make_unique<WidgetType>(std::forward<Args>(args)...));
+		Widget* ref = m_widgets[m_counter].get();
+		if (!ref)
+		{
+			LOG_S(FATAL) << "Failed to retrieve widget just emplaced... assumed id: " << m_counter;
+		}
 		
 		// Set offsets.
-		ref->setOffset(m_bounds.m_x, m_bounds.m_y);
+		ref->m_offsetX = m_bounds.m_x;
+		ref->m_offsetY = m_bounds.m_y;
+		ref->m_id = m_counter;
+
+		// Increment counter for next widget.
+		++m_counter;
 
 		// Then return a pointer to object placed.
 		return dynamic_cast<WidgetType*>(ref);

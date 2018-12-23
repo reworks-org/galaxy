@@ -81,7 +81,7 @@ namespace sl
 		///
 		/// Registers a component with the world.
 		///
-		/// \param name - Name of component in string format i.e. "AnimationComponent".
+		/// \param name - Name of component class in string format i.e. "AnimationComponent".
 		///
 		template<typename Component>
 		void registerComponent(const std::string& name);

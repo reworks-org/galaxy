@@ -16,7 +16,7 @@
 namespace sl
 {
 	Panel::Panel(const sl::Rect<int>& bounds, const ALLEGRO_COLOR colour)
-		:m_isVisible(true), m_bounds(bounds), m_background(nullptr)
+		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr)
 	{
 		// What is done here is that the rendertarget is set to the bitmap and we clear and draw that colour to it.
 		m_background = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
@@ -57,14 +57,28 @@ namespace sl
 		clear();
 	}
 
+	void Panel::remove(unsigned int id)
+	{
+		// Make sure widget actually exists before trying to remove it.
+		auto found = m_widgets.find(id);
+		if (found != m_widgets.end())
+		{
+			m_widgets.erase(id);
+		}
+		else
+		{
+			LOG_S(WARNING) << "Tried to remove a nonexistant widget of id: " << id;
+		}
+	}
+
 	void Panel::update(const double dt)
 	{
 		if (m_isVisible)
 		{
 			// Update all widgets.
-			for (auto& widget : m_widgets)
+			for (auto& pair : m_widgets)
 			{
-				widget->update(dt);
+				pair.second->update(dt);
 			}
 		}
 	}
@@ -77,9 +91,9 @@ namespace sl
 			al_draw_bitmap(m_background, m_bounds.m_x, m_bounds.m_y, 0);
 
 			// Render all widgets.
-			for (auto& widget : m_widgets)
+			for (auto& pair : m_widgets)
 			{
-				widget->render();
+				pair.second->render();
 			}
 		}
 	}
@@ -88,18 +102,18 @@ namespace sl
 	{
 		m_isVisible = isVisible;
 
-		for (auto& widget : m_widgets)
+		for (auto& pair : m_widgets)
 		{
-			widget->setVisibility(isVisible);
+			pair.second->setVisibility(isVisible);
 		}
 	}
 
 	void Panel::clear()
 	{
 		// Reset smart pointer then empty vector.
-		for (auto& widget : m_widgets)
+		for (auto& pair : m_widgets)
 		{
-			widget.reset();
+			pair.second.reset();
 		}
 
 		m_widgets.clear();
