@@ -456,6 +456,9 @@
     <ClCompile Include="source\sl\ui\widgets\Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\ui\widgets\TextInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1170,6 +1173,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\events\KeyUpEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\ui\widgets\TextInput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

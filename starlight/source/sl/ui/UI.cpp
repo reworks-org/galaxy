@@ -18,6 +18,7 @@
 #include "sl/ui/widgets/ProgressBar.hpp"
 #include "sl/ui/widgets/Slider.hpp"
 #include "sl/ui/widgets/Textbox.hpp"
+#include "sl/ui/widgets/TextInput.hpp"
 #include "sl/ui/widgets/ToggleButton.hpp"
 
 #include "UI.hpp"
@@ -33,6 +34,7 @@ namespace sl
 		registerWidget<ProgressBar>("ProgressBar");
 		registerWidget<Slider>("Slider");
 		registerWidget<Textbox>("Textbox");
+		registerWidget<TextInput>("TextInput");
 		registerWidget<ToggleButton>("ToggleButton");
 	}
 

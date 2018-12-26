@@ -33,6 +33,7 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- shader support for ui
 	- reduce update and event calcs...hardcode more of these values into widget.
 	- add key support to constructor or cal la function? probs better solution then make keys not final
+	- callback support for textinput and slider.
 
 
 

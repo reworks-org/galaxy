@@ -1,6 +1,6 @@
 # starlight
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/DomRe/starlight)
+[![Build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
 [![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=latest)](https://starlight.readthedocs.io/en/latest/?badge=latest)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 

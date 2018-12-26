@@ -149,16 +149,19 @@ namespace sl
 
 	void Textbox::receive(const sl::KeyDownEvent& e)
 	{
-		if (e.m_keycode == sl::Keys::TEXTBOX_CONFIRM)
+		if (m_isVisible)
 		{
-			++m_page;
-			if (m_page > (m_messages.size() - 1))
+			if (e.m_keycode == sl::Keys::TEXTBOX_CONFIRM)
 			{
-				m_page = (m_messages.size() - 1);
-			}
+				++m_page;
+				if (m_page > (m_messages.size() - 1))
+				{
+					m_page = (m_messages.size() - 1);
+				}
 
-			m_characterIndex = 0;
-			m_timePassed = 0.0;
+				m_characterIndex = 0;
+				m_timePassed = 0.0;
+			}
 		}
 	}
 
