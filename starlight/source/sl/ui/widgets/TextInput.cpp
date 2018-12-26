@@ -262,6 +262,7 @@ namespace sl
 					if (al_ustr_prev(m_text, &m_cursorPos) == true)
 					{
 						al_ustr_remove_chr(m_text, m_cursorPos);
+						al_ustr_prev(m_text, &m_startPos);
 					}
 
 				case ALLEGRO_KEY_DELETE:
@@ -279,10 +280,6 @@ namespace sl
 				if (usw >= m_bounds.m_width)
 				{
 					al_ustr_next(m_text, &m_startPos);
-				}
-				else
-				{
-					m_startPos = 0;
 				}
 			}
 		}

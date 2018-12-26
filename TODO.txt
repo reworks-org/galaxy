@@ -25,12 +25,14 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 - need to move some loading code into load state not applicationo constuictor.
 - support for languages? strings file im thinking...
 - review automatic texture atlas texture loading
-- add key config support
+- add beter key config support
 - add docs to testbox
 - fix restart 
 - ui:
 	- add image support to tooltips.
-	- shader support for ui
+	- shader support for ui -> specifically widgets?
+		- pointer to shader object to use?
+			- from sahder library?
 	- reduce update and event calcs...hardcode more of these values into widget.
 		- add offset when in construction, not during rendering,
 		- precalc dimensions of widgetr
@@ -38,7 +40,12 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- list widget
 	- ui should have a theme over seperate fonts/colours/etc.
 	- tooltip support for all widgets -> make it part of widget, including recieving code?
-	- properly document textinput
+	- finalize textinput
+		- needs more code documentation
+		- clamping text to field input needs to be improved.
+	- use a theme texture. so one texture for the theme and each part of the ui renders from that texture.
+		- like textureatlas, so we can use al_hold_drawing and stuff.
+		- but keep primitive constructors maybe?
 
 
 
