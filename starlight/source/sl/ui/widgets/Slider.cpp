@@ -182,7 +182,11 @@ namespace sl
 		if (m_isVisible)
 		{
 			al_draw_bitmap(m_slider, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
-			al_draw_bitmap(m_marker, m_markerX, (m_bounds.m_y + m_offsetY) - al_get_bitmap_height(m_marker) / 4.0f, 0);
+
+			// we center the marker so it is exactly half way on the texture.
+			al_draw_bitmap(m_marker, m_markerX, // x
+				(static_cast<float>((m_bounds.m_y + m_offsetY)) - (static_cast<float>(al_get_bitmap_height(m_marker)) / 2.0f)) + (static_cast<float>(al_get_bitmap_height(m_slider)) / 2.0f), // y
+				0);
 
 			if (m_tooltip && m_drawTooltip)
 			{

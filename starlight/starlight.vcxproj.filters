@@ -1178,5 +1178,8 @@
     <ClInclude Include="source\sl\ui\widgets\TextInput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="source\sl\events\KeyCharEvent.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

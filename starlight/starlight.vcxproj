@@ -188,6 +188,7 @@
     <ClInclude Include="source\sl\core\World.hpp" />
     <ClInclude Include="source\sl\events\CollisionEvent.hpp" />
     <ClInclude Include="source\sl\events\EmitParticleEvent.hpp" />
+    <ClInclude Include="source\sl\events\KeyCharEvent.hpp" />
     <ClInclude Include="source\sl\events\KeyDownEvent.hpp" />
     <ClInclude Include="source\sl\events\Keys.hpp" />
     <ClInclude Include="source\sl\events\KeyUpEvent.hpp" />

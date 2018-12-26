@@ -20,11 +20,40 @@ namespace sl
 	///
 	struct Keys final
 	{
-		static inline unsigned int KEY_FORWARD = 0;
-		static inline unsigned int KEY_BACKWARD = 0;
-		static inline unsigned int KEY_LEFT = 0;
-		static inline unsigned int KEY_RIGHT = 0;
-		static inline unsigned int TEXTBOX_CONFIRM = 0;
+		///
+		/// Commonly used to move the player forward.
+		///
+		static inline int KEY_FORWARD = 0;
+		
+		///
+		/// Commonly used to move the player backward.
+		///
+		static inline int KEY_BACKWARD = 0;
+
+		///
+		/// Commonly used to move the player left.
+		///
+		static inline int KEY_LEFT = 0;
+
+		///
+		/// Commonly used to move the player right.
+		///
+		static inline int KEY_RIGHT = 0;
+
+		///
+		/// Commonly used to confirm something in the ui.
+		///
+		static inline int UI_CONFIRM = 0;
+
+		///
+		/// Commonly used to move an indicator left in the ui.
+		///
+		static inline int UI_LEFT = 0;
+
+		///
+		/// Commonly used to move an indicator right in the ui.
+		///
+		static inline int UI_RIGHT = 0;
 	};
 }
 

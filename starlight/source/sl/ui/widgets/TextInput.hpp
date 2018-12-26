@@ -22,7 +22,7 @@
 #define STARLIGHT_TEXTINPUT_HPP_
 
 #include "sl/ui/Widget.hpp"
-#include "sl/events/KeyDownEvent.hpp"
+#include "sl/events/KeyCharEvent.hpp"
 #include "sl/events/MousePressedEvent.hpp"
 
 namespace sl
@@ -34,17 +34,36 @@ namespace sl
 	{
 	public:
 		///
-		/// Primitives constructor.
+		/// \brief Primitives constructor.
+		///
+		///  Text is drawn centered to field.
+		///
+		/// \param bounds x, y, w, h of field to draw, relative to the panel.
+		/// \param field Colour of field to draw.
+		/// \param indicator Colour of indicator to draw.
+		/// \param font Font to draw text in.
+		/// \param textCol Colour to draw text in.
 		///
 		TextInput(const sl::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, const std::string& font, const ALLEGRO_COLOR textCol);
 
 		///
 		/// Texture constructor.
 		///
-		TextInput(const int x, const int y, const std::string& field, const std::string& indicator, const std::string& font, const ALLEGRO_COLOR textCol);
+		/// \param x x-pos of field to draw, relative to the panel.
+		/// \param y y-pos of field to draw, relative to the panel.
+		/// \param field Texture of field to load.
+		/// \param indicator Texture of text position indicator to load.
+		/// \param font Font to draw text in.
+		/// \param textCol Colour to draw text in.
+		/// \param textX x-pos to draw text at on the widget, relative to the field texture x-pos.
+		/// \param textY y-pos to draw text at on the widget, relative to the field texture y-pos.
+		///
+		TextInput(const int x, const int y, const std::string& field, const std::string& indicator, const std::string& font, const ALLEGRO_COLOR textCol, int textX, int textY);
 
 		///
 		/// Lua constructor.
+		///
+		/// \param table Lua table containing data to construct widget from.
 		///
 		TextInput(const sol::table& table);
 
@@ -52,6 +71,15 @@ namespace sl
 		/// Destructor.
 		///
 		~TextInput() noexcept;
+
+		///
+		/// \brief Allows for input field to recieve MouseMovedEvents. Automatically registered with entt.
+		///
+		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
+		///
+		/// \param e MouseMovedEvent object.
+		///
+		void receiveMouseMoved(const sl::MouseMovedEvent& e);
 
 		///
 		/// \brief Allows for the input field to recieve MousePressedEvents. Automatically registered with entt.
@@ -63,13 +91,13 @@ namespace sl
 		void receiveMousePress(const sl::MousePressedEvent& e);
 		
 		///
-		/// \brief Allows for the input field to recieve keyboard events. Automatically registered with entt.
+		/// \brief Allows for the input field to recieve unicode keyboard events. Automatically registered with entt.
 		///
 		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
 		///
-		/// \param e KeyDownEvent object.
+		/// \param e KeyCharEvent object.
 		///
-		void receiveKeyPress(const sl::KeyDownEvent& e);
+		void receiveCharPress(const sl::KeyCharEvent& e);
 
 		///
 		/// Update the widget.
@@ -83,6 +111,18 @@ namespace sl
 		///
 		void render() override;
 
+		///
+		/// Stops input to the widget.
+		///
+		void stopInput();
+
+		///
+		/// Get current widget text.
+		///
+		/// \return Returns the current inputted text in a const char*.
+		///
+		std::string getText();
+
 	private:
 		///
 		/// Default constructor.
@@ -92,14 +132,34 @@ namespace sl
 
 	private:
 		///
-		/// Text that was inputted.
+		/// Is the indicator drawable.
 		///
-		std::string m_text;
+		bool m_drawIndicator;
+
+		///
+		/// Time passed for indicator.
+		///
+		double m_timePassed;
 
 		///
 		/// Keeps track to see if the input form is selected or not.
 		///
 		bool m_isSelected;
+		
+		///
+		/// Position of cursor in text.
+		///
+		int m_cursorPos;
+
+		///
+		/// Position to draw the text from.
+		///
+		int m_startPos;
+
+		///
+		/// Text that was inputted.
+		///
+		ALLEGRO_USTR* m_text;
 
 		///
 		/// Texture for input field.
@@ -120,5 +180,22 @@ namespace sl
 		/// Colour for text.
 		///
 		ALLEGRO_COLOR m_colour;
+
+		///
+		/// x-pos to draw text at on the widget, relative to the field texture x-pos.
+		/// 
+		int m_textX;
+
+		///
+		/// y-pos to draw text at on the widget, relative to the field texture y-pos.
+		///
+		int m_textY;
+
+		///
+		/// Used to store info from al_ref functions.
+		///
+		ALLEGRO_USTR_INFO m_info;
 	};
 }
+
+#endif

@@ -151,7 +151,7 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			if (e.m_keycode == sl::Keys::TEXTBOX_CONFIRM)
+			if (e.m_keycode == sl::Keys::UI_CONFIRM)
 			{
 				++m_page;
 				if (m_page > (m_messages.size() - 1))

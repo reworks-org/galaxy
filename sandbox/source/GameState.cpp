@@ -30,6 +30,7 @@
 #include <sl/events/Keys.hpp>
 #include <sl/events/KeyDownEvent.hpp>
 #include <sl/ui/widgets/Textbox.hpp>
+#include <sl/ui/widgets/TextInput.hpp>
 
 #include "GameState.hpp"
 
@@ -47,6 +48,8 @@ GameState::GameState()
 	m_bounds.m_y = 0;
 
 	//Locator::musicPlayer->get("background").play();
+
+	sl::Keys::UI_CONFIRM = ALLEGRO_KEY_ENTER;
 
 	entt::DefaultRegistry::entity_type scrolledEntity = Locator::world->m_registry.create();
 	Locator::world->m_registry.assign<TransformComponent>(scrolledEntity, 1, 0.0f, Rect<float, int>{ 0.0f, 0.0f, 1280, 720 });
@@ -85,9 +88,10 @@ GameState::GameState()
 	sliderLabelStr = "Value: " + ss2.str() + "%";
 	m_sliderLabel = m_panel->add<sl::Label>(5, 120, sliderLabelStr, "GameOver32", al_map_rgba(255, 255, 255, 255));
 
-	sl::Keys::TEXTBOX_CONFIRM = ALLEGRO_KEY_ENTER;
-
 	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "ui/frame.png", "ui/arrow.png", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, "GameOver32", 120, al_map_rgba(255, 255, 255, 255), 80, "Speaker");
+
+	sl::TextInput* ti = m_panel->add<sl::TextInput>(sl::Rect<int>{5, 500, 200, 64}, al_map_rgba(0, 0, 0, 255), al_map_rgba(255, 255, 255, 255), "GameOver32", al_map_rgba(255, 255, 255, 255));
+	ti->setTooltip("Input text here.", "GameOver32", al_map_rgba(0, 0, 255, 255), 100);
 }
 
 GameState::~GameState()
@@ -121,7 +125,12 @@ void GameState::event(ALLEGRO_EVENT* event)
 		Locator::dispatcher->trigger<sl::MouseReleasedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
 		break;
 
+	case ALLEGRO_EVENT_KEY_CHAR:
+		Locator::dispatcher->trigger<sl::KeyCharEvent>(event->keyboard.keycode, event->keyboard.unichar);
+		break;
+
 	case ALLEGRO_EVENT_KEY_DOWN:
+		Locator::dispatcher->trigger<sl::KeyDownEvent>(event->keyboard.keycode);
 		switch (event->keyboard.keycode)
 		{
 		case ALLEGRO_KEY_ESCAPE:
@@ -142,10 +151,6 @@ void GameState::event(ALLEGRO_EVENT* event)
 
 		case ALLEGRO_KEY_L:
 			//serialize.loadGameSnapshot("test.sav", Locator::world->m_registry);
-			break;
-
-		case ALLEGRO_KEY_ENTER:
-			Locator::dispatcher->trigger<sl::KeyDownEvent>(event->keyboard.keycode);
 			break;
 		}
 		break;
