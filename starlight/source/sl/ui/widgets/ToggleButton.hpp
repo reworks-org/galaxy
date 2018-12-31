@@ -48,21 +48,23 @@ namespace sl
 
 	public:
 		///
-		/// Image Constructor.
+		/// Texture Constructor.
 		///
 		/// \param x x-pos relative to panel.
 		/// \param y y-pos relative to panel.
-		/// \param textures Array of image names to load. Must be the same width and height.
+		/// \param textures Array of texture names in theme to use. Must be the same width and height.
 		///			textures[0] is OFF state, textures[1] is ON state and textures[2] is mouse over (hover) state.
+		/// \param theme Theme for this widget.
 		///
-		ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures);
+		ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme);
 
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme for this widget.
 		///
-		ToggleButton(const sol::table& table);
+		ToggleButton(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.

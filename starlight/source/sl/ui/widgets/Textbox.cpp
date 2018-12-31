@@ -18,14 +18,14 @@
 
 namespace sl
 {
-	Textbox::Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const std::string& font, const unsigned int maxWidth, const ALLEGRO_COLOR col, const unsigned int duration, const std::string& speaker)
-		:Widget({x, y, 0, 0}), m_frame(nullptr), m_indicator(nullptr), m_messages(messages), m_speaker(speaker), m_font(nullptr), m_maxWidth(maxWidth), m_colour(col), m_duration(duration), m_timePassed(0.0), m_indicatorTimePassed(0.0), m_characterIndex(0), m_page(0), m_drawLoweredIndicator(false), m_lineHeight(0)
+	Textbox::Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const unsigned int maxWidth, const unsigned int duration, UITheme* theme, const std::string& speaker)
+		:Widget({x, y, 0, 0}, theme), m_frame(nullptr), m_indicator(nullptr), m_messages(messages), m_speaker(speaker), m_maxWidth(maxWidth), m_duration(duration), m_timePassed(0.0), m_indicatorTimePassed(0.0), m_characterIndex(0), m_page(0), m_drawLoweredIndicator(false), m_lineHeight(0)
 	{
 		// Load frame texture.
-		m_frame = al_load_bitmap(frame.c_str());
+		m_frame = m_theme->widgetTexture(frame);
 		if (!m_frame)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << frame << "Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap: " << frame << "Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -35,28 +35,20 @@ namespace sl
 		}
 
 		// Load indicator texture.
-		m_indicator = al_load_bitmap(indicator.c_str());
+		m_indicator = m_theme->widgetTexture(indicator);
 		if (!m_indicator)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << indicator << "Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap: " << indicator << "Errno: " << al_get_errno();
 		}
 
-		// Load font.
-		m_font = Locator::fontBook->get(font);
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Failed to retrieve font: " << font << "Errno: " << al_get_errno();
-		}
-		else
-		{
-			m_lineHeight = al_get_font_line_height(m_font);
-		}
+		m_lineHeight = al_get_font_line_height(m_theme->font());
 
+		// Connects receive() method automatically.
 		Locator::dispatcher->sink<sl::KeyDownEvent>().connect(this);
 	}
 
-	Textbox::Textbox(const sol::table& table)
-		:Widget({ 0, 0, 0, 0 }), m_frame(nullptr), m_indicator(nullptr), m_font(nullptr), m_timePassed(0.0), m_indicatorTimePassed(0.0), m_characterIndex(0), m_page(0), m_drawLoweredIndicator(false), m_lineHeight(0)
+	Textbox::Textbox(const sol::table& table, UITheme* theme)
+		:Widget({ 0, 0, 0, 0 }, theme), m_frame(nullptr), m_indicator(nullptr), m_timePassed(0.0), m_indicatorTimePassed(0.0), m_characterIndex(0), m_page(0), m_drawLoweredIndicator(false), m_lineHeight(0)
 	{
 		// Get position data.
 		m_bounds.m_x = table.get<int>("x");
@@ -66,27 +58,12 @@ namespace sl
 		m_maxWidth = table.get<unsigned int>("maxWidth");
 		m_duration = table.get<unsigned int>("duration");
 		m_speaker = table.get<std::string>("speaker");
-		sol::table colTable = table.get<sol::table>("colour");
-		if (!colTable.valid() || colTable.empty())
-		{
-			LOG_S(ERROR) << "Textbox table \"colour\" is invalid or empty.";
-		}
-		else
-		{
-			m_colour = al_map_rgba
-			(
-				table.get<unsigned char>("r"),
-				table.get<unsigned char>("g"),
-				table.get<unsigned char>("b"),
-				table.get<unsigned char>("a")
-			);
-		}
-
+		
 		// Load frame texture.
-		m_frame = al_load_bitmap(table.get<const char*>("frame"));
+		m_frame = m_theme->widgetTexture(table.get<std::string>("frame"));
 		if (!m_frame)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << table.get<const char*>("frame") << "Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap: " << table.get<std::string>("frame") << "Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -96,22 +73,13 @@ namespace sl
 		}
 
 		// Load indicator texture.
-		m_indicator = al_load_bitmap(table.get<const char*>("indicator"));
+		m_indicator = m_theme->widgetTexture(table.get<std::string>("indicator"));
 		if (!m_indicator)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << table.get<const char*>("indicator") << "Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap: " << table.get<std::string>("indicator") << "Errno: " << al_get_errno();
 		}
 
-		// Load font.
-		m_font = Locator::fontBook->get(table.get<std::string>("font"));
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Failed to retrieve font: " << table.get<std::string>("font") << "Errno: " << al_get_errno();
-		}
-		else
-		{
-			m_lineHeight = al_get_font_line_height(m_font);
-		}
+		m_lineHeight = al_get_font_line_height(m_theme->font());
 
 		// Load messages
 		sol::table msgTable = table.get<sol::table>("messages");
@@ -128,7 +96,7 @@ namespace sl
 			});
 		}
 
-		// Attach event.
+		// Connects receive() method automatically.
 		Locator::dispatcher->sink<sl::KeyDownEvent>().connect(this);
 	}
 
@@ -196,20 +164,20 @@ namespace sl
 		if (m_isVisible)
 		{
 			// Draw frame on the bottom.
-			al_draw_bitmap(m_frame, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+			al_draw_bitmap(m_frame, m_bounds.m_x, m_bounds.m_y, 0);
 
 			// Then if there is a speaker, add that.
 			if (!m_speaker.empty())
 			{
-				al_draw_text(m_font, m_colour, m_bounds.m_x + m_offsetX + 2, m_bounds.m_y + m_offsetY + 2, 0, m_speaker.c_str());
+				al_draw_text(m_theme->font(), m_theme->colour(), m_bounds.m_x + 2, m_bounds.m_y + 2, 0, m_speaker.c_str());
 			}
 			
 			// Then draw the relevant text.
-			al_draw_multiline_text(m_font, m_colour, m_bounds.m_x + m_offsetX + 2, m_bounds.m_y + m_offsetY + m_lineHeight, m_maxWidth, m_lineHeight, 0, m_messages[m_page].substr(0, m_characterIndex).c_str());
+			al_draw_multiline_text(m_theme->font(), m_theme->colour(), m_bounds.m_x + 2, m_bounds.m_y + m_lineHeight, m_maxWidth, m_lineHeight, 0, m_messages[m_page].substr(0, m_characterIndex).c_str());
 
 			// Then draw the indicator finally.
-			float x = m_bounds.m_x + m_offsetX + m_bounds.m_width - al_get_bitmap_width(m_indicator) - 2;
-			float y = m_bounds.m_y + m_offsetY + m_bounds.m_height - al_get_bitmap_height(m_indicator) - 2;
+			float x = m_bounds.m_x + m_bounds.m_width - al_get_bitmap_width(m_indicator) - 2;
+			float y = m_bounds.m_y + m_bounds.m_height - al_get_bitmap_height(m_indicator) - 2;
 			if (m_drawLoweredIndicator)
 			{
 				y += 2;

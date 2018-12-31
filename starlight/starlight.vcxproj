@@ -156,6 +156,7 @@
     <ClCompile Include="source\sl\systems\ScrollingBackgroundSystem.cpp" />
     <ClCompile Include="source\sl\tags\CameraTag.cpp" />
     <ClCompile Include="source\sl\ui\Panel.cpp" />
+    <ClCompile Include="source\sl\ui\UITheme.cpp" />
     <ClCompile Include="source\sl\ui\Tooltip.cpp" />
     <ClCompile Include="source\sl\ui\UI.cpp" />
     <ClCompile Include="source\sl\ui\Widget.cpp" />
@@ -377,6 +378,7 @@
     <ClInclude Include="source\sl\math\Rect.hpp" />
     <ClInclude Include="source\sl\math\Vector2.hpp" />
     <ClInclude Include="source\sl\math\Vector3.hpp" />
+    <ClInclude Include="source\sl\math\Vector4.hpp" />
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp" />
     <ClInclude Include="source\sl\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
@@ -397,6 +399,7 @@
     <ClInclude Include="source\sl\types\State.hpp" />
     <ClInclude Include="source\sl\types\System.hpp" />
     <ClInclude Include="source\sl\ui\Panel.hpp" />
+    <ClInclude Include="source\sl\ui\UITheme.hpp" />
     <ClInclude Include="source\sl\ui\Tooltip.hpp" />
     <ClInclude Include="source\sl\ui\UI.hpp" />
     <ClInclude Include="source\sl\ui\Widget.hpp" />

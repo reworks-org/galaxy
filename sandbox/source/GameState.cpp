@@ -37,7 +37,7 @@
 using namespace sl;
 
 GameState::GameState()
-	:serialize("savefiles/")
+	:serialize("savefiles/"), m_theme("GameOver32", al_map_rgba(0, 255, 0, 255), "ui/master.png")
 {
 	//map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
 	//m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
@@ -57,6 +57,9 @@ GameState::GameState()
 	Locator::world->m_registry.assign<RenderComponent>(scrolledEntity, 1.0f, "bg_forest");
 	Locator::world->m_registry.assign<EnabledComponent>(scrolledEntity);
 
+	m_theme.defineWidgetTexture("frame", {9, 0, 256, 128});
+	m_theme.defineWidgetTexture("arrow", {0, 0, 8, 6});
+
 	m_panel = m_ui.addPanel(sl::Rect<int>{ 0, 0, 360, 720 }, al_map_rgba(169, 169, 169, 255));
 	
 	std::array<ALLEGRO_COLOR, 3> cols = 
@@ -64,34 +67,31 @@ GameState::GameState()
 		al_map_rgba(0, 0, 255, 255), al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 255, 0, 255)
 	};
 
-	sl::Button* testbtn = m_panel->add<sl::Button>(20, 20, "Click me!", "SecretCode60", cols);
+	sl::Button* testbtn = m_panel->add<sl::Button>(20, 20, "Click me!", cols, &m_theme);
 	testbtn->registerCallback([&]() -> void
 	{
 		LOG_S(INFO) << "BUTTON CLICKED!";
 	});
-	testbtn->setTooltip("This is a tooltip.", "GameOver66", al_map_rgba(0, 0, 255, 255), 100);
+	testbtn->setTooltip("This is a tooltip.", &m_theme, 100);
 
-	sl::ProgressBar* bar = m_panel->add<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(255, 0, 0, 255), al_map_rgba(192, 192, 192, 255));
+	sl::ProgressBar* bar = m_panel->add<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(192, 192, 192, 255), al_map_rgba(255, 0, 0, 255));
 	bar->setProgress(0.67f);
-	bar->setTooltip("This is a bar.", "GameOver32", al_map_rgba(0, 0, 255, 255), 100);
 
 	std::ostringstream ss;
 	ss << bar->getPercentage();
 	std::string s = "Health Bar: " + ss.str() + "%";
-	sl::Label* label = m_panel->add<sl::Label>(25, 80, s, "GameOver32", al_map_rgba(255, 255, 255, 255));
+	sl::Label* label = m_panel->add<sl::Label>(25, 80, s, &m_theme);
 
 	slider = m_panel->add<sl::Slider>(sl::Rect<int>{5, 120, 200, 25}, 8, 50, al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 0, 255, 255));
-	slider->setTooltip("MOVE ME!!!", "GameOver32", al_map_rgba(0, 255, 0, 255), 100);
 
 	std::ostringstream ss2;
 	ss2 << slider->getPercentage();
 	sliderLabelStr = "Value: " + ss2.str() + "%";
-	m_sliderLabel = m_panel->add<sl::Label>(5, 120, sliderLabelStr, "GameOver32", al_map_rgba(255, 255, 255, 255));
+	m_sliderLabel = m_panel->add<sl::Label>(5, 120, sliderLabelStr, &m_theme);
 
-	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "ui/frame.png", "ui/arrow.png", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, "GameOver32", 120, al_map_rgba(255, 255, 255, 255), 80, "Speaker");
+	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "frame", "arrow", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, 120, 80, &m_theme, "Speaker");
 
-	sl::TextInput* ti = m_panel->add<sl::TextInput>(sl::Rect<int>{5, 500, 200, 64}, al_map_rgba(0, 0, 0, 255), al_map_rgba(255, 255, 255, 255), "GameOver32", al_map_rgba(255, 255, 255, 255));
-	ti->setTooltip("Input text here.", "GameOver32", al_map_rgba(0, 0, 255, 255), 100);
+	sl::TextInput* ti = m_panel->add<sl::TextInput>(sl::Rect<int>{5, 500, 200, 64}, al_map_rgba(0, 0, 0, 255), al_map_rgba(255, 255, 255, 255), &m_theme);
 }
 
 GameState::~GameState()

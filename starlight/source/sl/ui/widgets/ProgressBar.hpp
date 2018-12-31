@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_PROGRESSBAR_HPP_
 #define STARLIGHT_PROGRESSBAR_HPP_
 
+#include "sl/math/Vector4.hpp"
+
 #include "sl/ui/Widget.hpp"
 
 namespace sl
@@ -24,41 +26,31 @@ namespace sl
 		/// Primitives constructor.
 		///
 		/// \param bounds x,y,w,h of progress bar rectangle, specifically the outline.
-		/// \param foreCol Colour of the progress bar itself.
-		/// \param backCol Colour of the progress bar background.
+		/// \param container Colour of the progress bar background.
+		/// \param bar Colour of the progress bar itself.
 		///
-		ProgressBar(const sl::Rect<int>& bounds, const ALLEGRO_COLOR foreCol, const ALLEGRO_COLOR backCol);
+		ProgressBar(const sl::Rect<int>& bounds, const ALLEGRO_COLOR container, const ALLEGRO_COLOR bar);
+
+		///
+		/// Texture constructor.
+		///
+		/// \param vec4 w = x-pos relative to panel.
+		///				x = y-pos relative to panel.
+		///				y = x-pos relative to container texture.
+		///				z = y-pos relative to container texture.
+		/// \param container Texture of the progress bar container in theme to use.
+		/// \param bar Seperate texture for the progress bar itself, not its outline in theme to use.
+		/// \param theme Theme of the widget to use.
+		///
+		ProgressBar(const sl::Vector4<int>& vec4, const std::string& container, const std::string& bar, UITheme* theme);
 
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme of the widget to use.
 		///
-		ProgressBar(const sol::table& table);
-
-		///
-		/// Image constructor.
-		///
-		/// \param x x-pos relative to panel.
-		/// \param y y-pos relative to panel.
-		/// \param barBounds x,y,w,h Of the interal bar, in order to position it correctly within an outline texture.
-		/// \param texture Texture of the progress bar container.
-		/// \param col Colour of the progress bar.
-		///
-		ProgressBar(const int x, const int y, const sl::Rect<int> barBounds, const std::string& texture, const ALLEGRO_COLOR col);
-
-		///
-		/// Image constructor.
-		///
-		/// \param x x-pos relative to panel.
-		/// \param y y-pos relative to panel.
-		/// \param barX x-pos relative to container texture.
-		/// \param barY y-pos relative to container texture.
-		/// \param barBounds x,y,w,h Of the interal bar, in order to position it correctly within an outline texture.
-		/// \param texture Texture of the progress bar container.
-		/// \param barTexture Seperate texture for the progress bar itself, not its outline.
-		///
-		ProgressBar(const int x, const int y, const int barX, const int barY, const std::string& texture, const std::string& barTexture);
+		ProgressBar(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -128,7 +120,7 @@ namespace sl
 		///
 		/// Outline/background texture.
 		///
-		ALLEGRO_BITMAP* m_background;
+		ALLEGRO_BITMAP* m_container;
 
 		///
 		/// Progress bar texture.

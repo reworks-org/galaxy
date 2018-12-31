@@ -22,28 +22,28 @@ namespace sl
 	{
 	public:
 		///
-		/// Constructor.
+		/// Texture Constructor.
 		///
 		///
 		/// \param x x-pos relative to panel.
 		/// \param y y-pos relative to panel.
-		/// \param frame The texture for the textbox frame.
-		/// \param indicator The texture that indicates when this message is finished.
+		/// \param frame The texture for the textbox frame in theme to use.
+		/// \param indicator The texture that indicates when this message is finished in theme to use.
 		/// \param messages List of messages to be displayed. Each entry in the vector is a message for one "page" of the text box.
-		/// \param font The font to draw the text in.
 		/// \param maxWidth Maximum width for each line of the text in the textbox. In pixels.
-		/// \param col Colour of the text to draw.
 		/// \param duration The duration in which to display each character at. 0 to always display text at once. In milliseconds.
+		/// \param theme Theme the widget will use.
 		/// \param speaker Optional. Specifys if a "speaker" is needed for the textbox. I.e. who is talking right now.
 		///
-		Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const std::string& font, const unsigned int maxWidth, const ALLEGRO_COLOR col, const unsigned int duration, const std::string& speaker = "");
+		Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const unsigned int maxWidth, const unsigned int duration, UITheme* theme, const std::string& speaker = "");
 
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme the widget will use.
 		///
-		Textbox(const sol::table& table);
+		Textbox(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -98,21 +98,11 @@ namespace sl
 		/// Current speaker.
 		///
 		std::string m_speaker;
-
-		///
-		/// Font to render text with.
-		///
-		ALLEGRO_FONT* m_font;
 	
 		///
 		/// Maximum length for each line of the text in the textbox.
 		///
 		unsigned int m_maxWidth;
-
-		///
-		/// Colour of the text.
-		///
-		ALLEGRO_COLOR m_colour;
 
 		///
 		/// Duration to display characters at. 0 to disable. In milliseconds.

@@ -21,22 +21,22 @@ namespace sl
 	{
 	public:
 		///
-		/// Constructor.
+		/// Text Constructor.
 		///
 		/// \param x x pos relative to UI panel.
 		/// \param y y pos relative to UI panel.
 		/// \param text Label text.
-		/// \param font Label font.
-		/// \param col Label colour.
+		/// \param theme Theme to use with widget.
 		///
-		Label(const int x, const int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col);
+		Label(const int x, const int y, const std::string& text, UITheme* theme);
 		
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme to use with widget.
 		///
-		Label(const sol::table& table);
+		Label(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -76,16 +76,6 @@ namespace sl
 		/// Text to display.
 		///
 		std::string m_text;
-
-		///
-		/// Text font.
-		///
-		ALLEGRO_FONT* m_font;
-
-		///
-		/// Text colour.
-		///
-		ALLEGRO_COLOR m_colour;
 	};
 }
 

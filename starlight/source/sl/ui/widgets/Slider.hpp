@@ -25,29 +25,31 @@ namespace sl
 		/// Primitives constructor.
 		///
 		/// \param bounds x,y,w,h of slider rectangle.
-		/// \param markerW Width of the marker object.
-		/// \param markerH Height of the marker object.
+		/// \param mw Width of the marker object.
+		/// \param mh Height of the marker object.
 		/// \param slider Colour of the slider itself.
 		/// \param marker Colour of the marker used to indicate position.
 		///
-		Slider(const sl::Rect<int>& bounds, const int markerW, const int markerH, const ALLEGRO_COLOR slider, const ALLEGRO_COLOR marker);
+		Slider(const sl::Rect<int>& bounds, const int mw, const int mh, const ALLEGRO_COLOR slider, const ALLEGRO_COLOR marker);
+
+		///
+		/// Texture constructor.
+		///
+		/// \param x x-pos of widget relative to panel.
+		/// \param y y-pos of widget relative to panel.
+		/// \param slider Texture of the slider in theme to use.
+		/// \param marker Texture of the marker in theme to use.
+		/// \param theme Theme of the widget to use.
+		///
+		Slider(const int x, const int y, const std::string& slider, const std::string& marker, UITheme* theme);
 
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme of the widget to use.
 		///
-		Slider(const sol::table& table);
-
-		///
-		/// Image constructor.
-		///
-		/// \param x x-pos relative to panel.
-		/// \param y y-pos relative to panel.
-		/// \param slider Texture of the slider.
-		/// \param marker Texture of the marker.
-		///
-		Slider(const int x, const int y, const std::string& slider, const std::string& marker);
+		Slider(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.

@@ -13,8 +13,11 @@
 #include "sl/resources/FontBook.hpp"
 #include "sl/events/MouseMovedEvent.hpp"
 
+
 namespace sl
 {
+	class UITheme;
+	
 	///
 	/// Displays text when hovering over a widget.
 	///
@@ -26,11 +29,10 @@ namespace sl
 		/// Constructor.
 		///
 		/// \param text Text to display on the tooltip.
-		/// \param font Font you want to use for the tooltip.
-		/// \param col Colour of the tooltip.
+		/// \param theme Theme the tooltip is using for font and colour.
 		/// \param maxWidth Maximum width of each line of text of the tooltip, in characters.
 		///
-		Tooltip(const std::string& text, const std::string& font, const ALLEGRO_COLOR col, const float maxWidth);
+		Tooltip(const std::string& text, UITheme* theme, const float maxWidth);
 
 		///
 		/// \brief Destructor.
@@ -78,14 +80,9 @@ namespace sl
 		float m_lineHeight;
 
 		///
-		/// Font to draw tooltip in.
+		/// Theme the tooltip is using for font and colour.
 		///
-		ALLEGRO_FONT* m_font;
-
-		///
-		/// Colour of the tooltip text.
-		///
-		ALLEGRO_COLOR m_col;
+		UITheme* m_theme;
 	};
 }
 

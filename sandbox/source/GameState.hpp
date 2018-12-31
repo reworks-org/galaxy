@@ -34,6 +34,7 @@ public:
 
 private:
 	sl::UI m_ui;
+	sl::UITheme m_theme;
 	sl::Panel* m_panel;
 	sl::Slider* slider;
 	sl::Label* m_sliderLabel;

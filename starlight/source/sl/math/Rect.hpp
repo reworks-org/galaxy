@@ -157,6 +157,9 @@ namespace sl
 		return (value >= min) && (value <= max);
 	}
 
+	///
+	/// Negative operator overload.
+	///
 	template<typename T1, typename T2>
 	inline Rect<T1, T2> operator-(const Rect<T1, T2>& a)
 	{
@@ -164,6 +167,9 @@ namespace sl
 		return Rect<T1, T2>(-a.m_x, -a.m_y, -a.m_width, -a.m_height);
 	}
 
+	///
+	/// Addition assignment operator overload.
+	///
 	template<typename T1, typename T2>
 	inline Rect<T1, T2>& operator+=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
@@ -176,6 +182,9 @@ namespace sl
 		return a;
 	}
 
+	///
+	/// Subtraction assignment operator overload.
+	///
 	template<typename T1, typename T2>
 	inline Rect<T1, T2>& operator-=(Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
@@ -188,12 +197,18 @@ namespace sl
 		return a;
 	}
 
+	///
+	/// Addition operator overload.
+	///
 	template<typename T1, typename T2>
 	inline Rect<T1, T2> operator+(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
 		return Rect<T1, T2>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
 	}
 
+	///
+	/// Subtraction operator overload.
+	///
 	template<typename T1, typename T2>
 	inline Rect<T1, T2> operator-(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
@@ -201,6 +216,9 @@ namespace sl
 		return Rect<T1, T2>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_width - b.m_width, a.m_height - b.m_height);
 	}
 
+	///
+	/// Equality operator overload.
+	///
 	template<typename T1, typename T2>
 	inline bool operator==(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{
@@ -208,6 +226,9 @@ namespace sl
 		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_width == b.m_width) && (a.m_height == b.m_height);
 	}
 
+	///
+	/// Not operator overload.
+	///
 	template<typename T1, typename T2>
 	inline bool operator!=(const Rect<T1, T2>& a, const Rect<T1, T2>& b)
 	{

@@ -21,16 +21,9 @@
 
 namespace sl
 {
-	TextInput::TextInput(const sl::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, const std::string& font, const ALLEGRO_COLOR textCol)
-		:Widget(bounds), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr), m_font(nullptr), m_colour(textCol)
+	TextInput::TextInput(const sl::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, UITheme* theme)
+		:Widget(bounds, theme), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr)
 	{
-		// Load font.
-		m_font = Locator::fontBook->get(font);
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Failed to load font: " << font << " Errno: " << al_get_errno();
-		}
-
 		// Create textures
 		m_field = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
 		if (!m_field)
@@ -69,21 +62,14 @@ namespace sl
 		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
 	}
 
-	TextInput::TextInput(const int x, const int y, const std::string& field, const std::string& indicator, const std::string& font, const ALLEGRO_COLOR textCol, int textX, int textY)
-		:Widget({ x, y, 0, 0 }), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr), m_font(nullptr), m_colour(textCol), m_textX(textX), m_textY(textY)
+	TextInput::TextInput(const sl::Vector4<int>& vec4, const std::string& field, const std::string& indicator, UITheme* theme)
+		:Widget({ vec4.m_w, vec4.m_x, 0, 0 }, theme), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr), m_textX(vec4.m_y), m_textY(vec4.m_z)
 	{
-		// Load font.
-		m_font = Locator::fontBook->get(font);
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Failed to load font: " << font << " Errno: " << al_get_errno();
-		}
-
-		// Create textures
-		m_field = al_load_bitmap(field.c_str());
+		// Load and validate field texture.
+		m_field = m_theme->widgetTexture(field);
 		if (!m_field)
 		{
-			LOG_S(FATAL) << "Failed to create TextInput field bitmap.  Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create TextInput field sub bitmap: " << field << " Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -92,10 +78,11 @@ namespace sl
 			m_bounds.m_height = al_get_bitmap_height(m_field);
 		}
 
-		m_indicator = al_load_bitmap(indicator.c_str());
+		// Load and validate indicator texture.
+		m_indicator = m_theme->widgetTexture(indicator);
 		if (!m_indicator)
 		{
-			LOG_S(FATAL) << "Failed to create TextInput indicator bitmap. Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create TextInput indicator sub bitmap: " << indicator << " Errno: " << al_get_errno();
 		}
 
 		// Set up events.
@@ -104,8 +91,8 @@ namespace sl
 		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
 	}
 
-	TextInput::TextInput(const sol::table& table)
-		:Widget({0, 0, 0, 0}), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr), m_font(nullptr)
+	TextInput::TextInput(const sol::table& table, UITheme* theme)
+		:Widget({0, 0, 0, 0}, theme), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr)
 	{
 		// Get position data.
 		m_bounds.m_x = table.get<int>("x");
@@ -115,18 +102,11 @@ namespace sl
 		m_textX = table.get<int>("textX");
 		m_textY = table.get<int>("textY");
 
-		// Load font.
-		m_font = Locator::fontBook->get(table.get<std::string>("font"));
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Failed to load font: " << table.get<std::string>("font") << " Errno: " << al_get_errno();
-		}
-
-		// Create textures
-		m_field = al_load_bitmap(table.get<const char*>("field"));
+		// Load and validate field texture.
+		m_field = m_theme->widgetTexture(table.get<std::string>("field"));
 		if (!m_field)
 		{
-			LOG_S(FATAL) << "Failed to create TextInput field bitmap.  Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create TextInput field sub bitmap: " << table.get<std::string>("field") << " Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -135,26 +115,11 @@ namespace sl
 			m_bounds.m_height = al_get_bitmap_height(m_field);
 		}
 
-		m_indicator = al_load_bitmap(table.get<const char*>("indicator"));
+		// Load and validate indicator texture.
+		m_indicator = m_theme->widgetTexture(table.get<std::string>("indicator"));
 		if (!m_indicator)
 		{
-			LOG_S(FATAL) << "Failed to create TextInput indicator bitmap. Errno: " << al_get_errno();
-		}
-
-		sol::table colTable = table.get<sol::table>("colTable");
-		if (!colTable.valid() || colTable.empty())
-		{
-			LOG_S(ERROR) << "TextInput table \"colTable\" is invalid or empty.";
-		}
-		else
-		{
-			m_colour = al_map_rgba
-			(
-				colTable.get<unsigned char>("r"),
-				colTable.get<unsigned char>("g"),
-				colTable.get<unsigned char>("b"),
-				colTable.get<unsigned char>("a")
-			);
+			LOG_S(FATAL) << "Failed to create TextInput indicator sub bitmap: " << table.get<std::string>("indicator") << " Errno: " << al_get_errno();
 		}
 
 		// Set up events.
@@ -187,15 +152,7 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			// If the mouse cursor is greater than the x axis but less than the total width of the button, and
-			// Less than the height of the cursor, but greather than the y of the cursor take its height.
-
-			int topleft = m_bounds.m_x + m_offsetX;
-			int topright = topleft + m_bounds.m_width;
-			int top = m_bounds.m_y + m_offsetY;
-			int bottom = top + m_bounds.m_height;
-
-			if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
+			if (contains(e.m_x, e.m_y))
 			{
 				m_drawTooltip = true;
 			}
@@ -210,15 +167,7 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			// If the mouse cursor is greater than the x axis but less than the total width of the button, and
-			// Less than the height of the cursor, but greather than the y of the cursor take its height.
-
-			int topleft = m_bounds.m_x + m_offsetX;
-			int topright = topleft + m_bounds.m_width;
-			int top = m_bounds.m_y + m_offsetY;
-			int bottom = top + m_bounds.m_height;
-
-			if (((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom)) && e.m_button == 1)
+			if (contains(e.m_x, e.m_y) && e.m_button == 1)
 			{
 				m_isSelected = true;
 			}
@@ -270,17 +219,22 @@ namespace sl
 					break;
 
 				default:
-					al_ustr_insert_chr(m_text, m_cursorPos, e.m_unichar);
-					m_cursorPos += al_utf8_width(e.m_unichar);
+					if (e.m_unichar >= ' ')
+					{
+						al_ustr_insert_chr(m_text, m_cursorPos, e.m_unichar);
+						m_cursorPos += al_utf8_width(e.m_unichar);
+					}
 					break;
 				}
+			}
 
-				// This ensures that the text does not go outside the input boundaries.
-				int usw = al_get_ustr_width(m_font, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
-				if (usw >= m_bounds.m_width)
-				{
-					al_ustr_next(m_text, &m_startPos);
-				}
+			// This ensures that the text does not go outside the input boundaries.
+			// By ensuring the shown text is the latest character, minus early characters to give the impression
+			// of scrolling text box.
+			int usw = al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+			if (usw >= (m_bounds.m_width - 2))
+			{
+				al_ustr_next(m_text, &m_startPos);
 			}
 		}
 	}
@@ -289,6 +243,18 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
+			if (m_isSelected)
+			{
+				// This ensures that the text does not go outside the input boundaries.
+				// By ensuring the shown text is the latest character, minus early characters to give the impression
+				// of scrolling text box.
+				int usw = al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+				if (usw >= (m_bounds.m_width - 2))
+				{
+					al_ustr_next(m_text, &m_startPos);
+				}
+			}
+
 			m_timePassed += dt;
 			if (m_timePassed >= Time::milliseconds(700))
 			{
@@ -305,7 +271,7 @@ namespace sl
 			// Draw field and indicator.
 			if (m_isSelected)
 			{
-				al_draw_bitmap(m_field, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+				al_draw_bitmap(m_field, m_bounds.m_x, m_bounds.m_y, 0);
 				
 				if (m_drawIndicator)
 				{
@@ -316,19 +282,17 @@ namespace sl
 					// Draw at x pos, which is the widget field x pos + the offset of the text + 1 character to mark the pos of the next character to type.
 					// Draw at y centered on field.
 					al_draw_bitmap(m_indicator, 
-						(m_bounds.m_x + m_offsetX) + al_get_ustr_width(m_font, al_ref_ustr(&m_info, m_text, m_startPos, after)), // x
-						(static_cast<float>((m_bounds.m_y + m_offsetY)) - (static_cast<float>(al_get_bitmap_height(m_indicator)) / 2.0f)) + (static_cast<float>(al_get_bitmap_height(m_field)) / 2.0f),  // y
+						m_bounds.m_x + al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, after)), // x
+						static_cast<float>(m_bounds.m_y) - (static_cast<float>(al_get_bitmap_height(m_indicator)) / 2.0f) + (static_cast<float>(al_get_bitmap_height(m_field)) / 2.0f),  // y
 					0);
 				}
 
-				al_draw_ustr(m_font, m_colour, m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
-				std::string str = getText();
-				str.c_str();
+				al_draw_ustr(m_theme->font(), m_theme->colour(), m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
 			}
 			else
 			{
-				al_draw_bitmap(m_field, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
-				al_draw_ustr(m_font, m_colour, m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+				al_draw_bitmap(m_field, m_bounds.m_x, m_bounds.m_y, 0);
+				al_draw_ustr(m_theme->font(), m_theme->colour(), m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
 			}
 
 			// Draw tooltip.

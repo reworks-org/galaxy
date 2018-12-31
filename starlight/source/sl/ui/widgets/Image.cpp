@@ -13,14 +13,14 @@
 
 namespace sl
 {
-	Image::Image(const int x, const int y, const std::string& texture)
-		:Widget({ x, y, 0, 0 })
+	Image::Image(const int x, const int y, const std::string& texture, UITheme* theme)
+		:Widget({ x, y, 0, 0 }, theme)
 	{
 		// Load image.
-		m_image = al_load_bitmap(texture.c_str());
+		m_image = m_theme->widgetTexture(texture);
 		if (!m_image)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << texture << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap: " << texture << " Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -30,18 +30,18 @@ namespace sl
 		}
 	}
 
-	Image::Image(const sol::table& table)
-		:Widget({ 0, 0, 0, 0 })
+	Image::Image(const sol::table& table, UITheme* theme)
+		:Widget({ 0, 0, 0, 0 }, theme)
 	{
 		// Get position data.
 		m_bounds.m_x = table.get<int>("x");
 		m_bounds.m_y = table.get<int>("y");
 
 		// Load image.
-		m_image = al_load_bitmap(table.get<const char*>("texture"));
+		m_image = m_theme->widgetTexture(table.get<std::string>("texture"));
 		if (!m_image)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << table.get<const char*>("texture") << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap: " << table.get<std::string>("texture") << " Errno: " << al_get_errno();
 		}
 		else
 		{

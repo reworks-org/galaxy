@@ -12,9 +12,8 @@
 
 #include <allegro5/events.h>
 
-#include "sl/math/Rect.hpp"
+#include "sl/ui/UITheme.hpp"
 #include "sl/ui/Tooltip.hpp"
-#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {
@@ -46,6 +45,14 @@ namespace sl
 		/// And don't forget to check for visibility and draw the tooltip.
 		///
 		virtual void render() = 0;
+
+		///
+		/// Does the widget contain the point x, y.
+		///
+		/// \param x x-pos of the point.
+		/// \param y y-pos of the point.
+		///
+		virtual bool contains(const int x, const int y) final;
 
 		///
 		/// Set visibility of widget.
@@ -83,24 +90,31 @@ namespace sl
 		/// Protected constructor. Only want derived classes to construct this.
 		///
 		/// \param bounds Dimensions of the widget, relative to the panel.
+		/// \param theme Theme to be used by this widget.
 		///
-		explicit Widget(const sl::Rect<int>& bounds) noexcept;
+		explicit Widget(const sl::Rect<int>& bounds, UITheme* theme);
+
+	private:
+		///
+		/// \brief Set the offset of the widget from the panel, and then calculates topleft, topright, top and bottom.
+		///
+		/// Call after you've constructed the widget.
+		///
+		/// \param x x-pos of the panel.
+		/// \param y y-pos of the panel.
+		///
+		virtual void setOffset(const int x, const int y) final;
 
 	protected:
 		///
-		/// Dimensional bounds of the widget.
+		/// X, Y, width and height of the widget.
 		///
 		sl::Rect<int> m_bounds;
 
 		///
-		/// Offset X of widget from panel.
+		/// Pointer to the theme used by the widget.
 		///
-		int m_offsetX;
-
-		///
-		/// Offset Y of widget from panel.
-		///
-		int m_offsetY;
+		UITheme* m_theme;
 
 		///
 		/// Is the widget currently visible. I.e. being rendered.

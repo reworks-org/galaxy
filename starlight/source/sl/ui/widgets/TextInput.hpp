@@ -1,14 +1,3 @@
-
-
-
-
-// recieve a button press, toggle on / off input.
-// allows for input to be recieved then append each key press to string and draw it. 
-// probs need a texture version and a primitives version?
-// and a lua constructor for texture version
-
-
-
 ///
 /// TextInput.hpp
 /// starlight
@@ -22,6 +11,7 @@
 #define STARLIGHT_TEXTINPUT_HPP_
 
 #include "sl/ui/Widget.hpp"
+#include "sl/math/Vector4.hpp"
 #include "sl/events/KeyCharEvent.hpp"
 #include "sl/events/MousePressedEvent.hpp"
 
@@ -41,31 +31,30 @@ namespace sl
 		/// \param bounds x, y, w, h of field to draw, relative to the panel.
 		/// \param field Colour of field to draw.
 		/// \param indicator Colour of indicator to draw.
-		/// \param font Font to draw text in.
-		/// \param textCol Colour to draw text in.
+		/// \param theme Theme the widget will use.
 		///
-		TextInput(const sl::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, const std::string& font, const ALLEGRO_COLOR textCol);
+		TextInput(const sl::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, UITheme* theme);
 
 		///
 		/// Texture constructor.
 		///
-		/// \param x x-pos of field to draw, relative to the panel.
-		/// \param y y-pos of field to draw, relative to the panel.
-		/// \param field Texture of field to load.
-		/// \param indicator Texture of text position indicator to load.
-		/// \param font Font to draw text in.
-		/// \param textCol Colour to draw text in.
-		/// \param textX x-pos to draw text at on the widget, relative to the field texture x-pos.
-		/// \param textY y-pos to draw text at on the widget, relative to the field texture y-pos.
+		/// \param vec4 w = x-pos of field relative to panel.
+		///				x = y-pos of field relative to panel.
+		///				y = x-pos of text to draw relative to field.
+		///				z = y-pos of text to draw relative to field.
+		/// \param field Texture of field to in theme to use.
+		/// \param indicator Texture of text position indicator in theme to use.
+		/// \param theme Theme the widget will use.
 		///
-		TextInput(const int x, const int y, const std::string& field, const std::string& indicator, const std::string& font, const ALLEGRO_COLOR textCol, int textX, int textY);
+		TextInput(const sl::Vector4<int>& vec4, const std::string& field, const std::string& indicator, UITheme* theme);
 
 		///
 		/// Lua constructor.
 		///
 		/// \param table Lua table containing data to construct widget from.
+		/// \param theme Theme the widget will use.
 		///
-		TextInput(const sol::table& table);
+		TextInput(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -170,16 +159,6 @@ namespace sl
 		/// Texture for current character position indicator.
 		///
 		ALLEGRO_BITMAP* m_indicator;
-
-		///
-		/// Font used for widget.
-		///
-		ALLEGRO_FONT* m_font;
-
-		///
-		/// Colour for text.
-		///
-		ALLEGRO_COLOR m_colour;
 
 		///
 		/// x-pos to draw text at on the widget, relative to the field texture x-pos.

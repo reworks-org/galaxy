@@ -16,8 +16,8 @@
 
 namespace sl
 {
-	Slider::Slider(const sl::Rect<int>& bounds, const int markerW, const int markerH, const ALLEGRO_COLOR slider, const ALLEGRO_COLOR marker)
-		:Widget(bounds), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
+	Slider::Slider(const sl::Rect<int>& bounds, const int mw, const int mh, const ALLEGRO_COLOR slider, const ALLEGRO_COLOR marker)
+		:Widget(bounds, nullptr), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Create textures
 		m_slider = al_create_bitmap(m_bounds.m_width, m_bounds.m_height);
@@ -26,7 +26,7 @@ namespace sl
 			LOG_S(FATAL) << "Failed to create Slider bitmap.  Errno: " << al_get_errno();
 		}
 
-		m_marker = al_create_bitmap(markerW, markerH);
+		m_marker = al_create_bitmap(mw, mh);
 		if (!m_marker)
 		{
 			LOG_S(FATAL) << "Failed to create Slider marker bitmap. Errno: " << al_get_errno();
@@ -50,14 +50,14 @@ namespace sl
 		sl::Locator::dispatcher->sink<sl::MousePressedEvent>().connect<Slider, &Slider::receivePress>(this);
 	}
 
-	Slider::Slider(const int x, const int y, const std::string& slider, const std::string& marker)
-		:Widget({ x, y, 0, 0 }), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
+	Slider::Slider(const int x, const int y, const std::string& slider, const std::string& marker, UITheme* theme)
+		:Widget({ x, y, 0, 0 }, theme), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Load slider texture and check for errors.
-		m_slider = al_load_bitmap(slider.c_str());
+		m_slider = m_theme->widgetTexture(slider);
 		if (!m_slider)
 		{
-			LOG_S(FATAL) << "Failed to load Slider bitmap: " << slider << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap Slider: " << slider << " Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -67,25 +67,25 @@ namespace sl
 		}
 
 		// Load marker texture and check for errors.
-		m_marker = al_load_bitmap(marker.c_str());
+		m_marker = m_theme->widgetTexture(marker);
 		if (!m_marker)
 		{
-			LOG_S(FATAL) << "Failed to load Slider marker bitmap: " << marker << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to crate sub bitmap Slider marker: " << marker << " Errno: " << al_get_errno();
 		}
 	}
 
-	Slider::Slider(const sol::table& table)
-		:Widget({ 0, 0, 0, 0 }), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
+	Slider::Slider(const sol::table& table, UITheme* theme)
+		:Widget({ 0, 0, 0, 0 }, theme), m_value(0.0f), m_markerX(0.0f), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Get position data.
 		m_bounds.m_x = table.get<int>("x");
 		m_bounds.m_y = table.get<int>("y");
 
 		// Load slider texture and check for errors.
-		m_slider = al_load_bitmap(table.get<const char*>("slider"));
+		m_slider = m_theme->widgetTexture(table.get<std::string>("slider"));
 		if (!m_slider)
 		{
-			LOG_S(FATAL) << "Failed to load Slider bitmap: " << table.get<const char*>("slider") << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to create sub bitmap Slider: " << table.get<std::string>("slider") << " Errno: " << al_get_errno();
 		}
 		else
 		{
@@ -95,10 +95,10 @@ namespace sl
 		}
 
 		// Load marker texture and check for errors.
-		m_marker = al_load_bitmap(table.get<const char*>("marker"));
+		m_marker = m_theme->widgetTexture(table.get<std::string>("marker"));
 		if (!m_marker)
 		{
-			LOG_S(FATAL) << "Failed to load Slider marker bitmap: " << table.get<const char*>("marker") << " Errno: " << al_get_errno();
+			LOG_S(FATAL) << "Failed to crate sub bitmap Slider marker: " << table.get<std::string>("marker") << " Errno: " << al_get_errno();
 		}
 	}
 
@@ -119,22 +119,14 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			// If the mouse cursor is greater than the x axis but less than the total width of the button, and
-			// Less than the height of the cursor, but greather than the y of the cursor take its height.
-
-			int topleft = m_bounds.m_x + m_offsetX;
-			int topright = topleft + m_bounds.m_width;
-			int top = m_bounds.m_y + m_offsetY;
-			int bottom = top + m_bounds.m_height;
-
-			if ((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom))
+			if (contains(e.m_x, e.m_y))
 			{
 				m_drawTooltip = true;
 
 				if (e.m_pressure == 1.0f)
 				{
 					m_drawTooltip = false;
-					int cursorPosOnSlider = e.m_x - topleft;
+					int cursorPosOnSlider = e.m_x - m_bounds.m_x;
 					m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
 				}
 			}
@@ -149,20 +141,12 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			// If the mouse cursor is greater than the x axis but less than the total width of the button, and
-			// Less than the height of the cursor, but greather than the y of the cursor take its height.
-
-			int topleft = m_bounds.m_x + m_offsetX;
-			int topright = topleft + m_bounds.m_width;
-			int top = m_bounds.m_y + m_offsetY;
-			int bottom = top + m_bounds.m_height;
-
-			if (((e.m_x >= topleft) && (e.m_x <= topright) && (e.m_y >= top) && (e.m_y <= bottom)) && (e.m_button == 1))
+			if (contains(e.m_x, e.m_y) && (e.m_button == 1))
 			{
 				// We take away the button top left pos, because then we are left over with the position of the cursor on the widget.
 				// Then make sure the resulting value is within the bar width.
 				m_drawTooltip = false;
-				int cursorPosOnSlider = e.m_x - topleft;
+				int cursorPosOnSlider = e.m_x - m_bounds.m_x;
 				m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
 			}
 		}
@@ -173,7 +157,7 @@ namespace sl
 		if (m_isVisible)
 		{
 			// Draw marker centered on value by taking away half the width of the marker.
-			m_markerX = (m_bounds.m_x + m_offsetX + (m_bounds.m_width * m_value)) - (static_cast<float>(al_get_bitmap_width(m_marker)) / 2.0f);
+			m_markerX = (m_bounds.m_x + (m_bounds.m_width * m_value)) - (static_cast<float>(al_get_bitmap_width(m_marker)) / 2.0f);
 		}
 	}
 
@@ -181,11 +165,11 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			al_draw_bitmap(m_slider, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, 0);
+			al_draw_bitmap(m_slider, m_bounds.m_x, m_bounds.m_y, 0);
 
 			// we center the marker so it is exactly half way on the texture.
 			al_draw_bitmap(m_marker, m_markerX, // x
-				(static_cast<float>((m_bounds.m_y + m_offsetY)) - (static_cast<float>(al_get_bitmap_height(m_marker)) / 2.0f)) + (static_cast<float>(al_get_bitmap_height(m_slider)) / 2.0f), // y
+				static_cast<float>(m_bounds.m_y) - (static_cast<float>(al_get_bitmap_height(m_marker)) / 2.0f) + (static_cast<float>(al_get_bitmap_height(m_slider)) / 2.0f), // y
 				0);
 
 			if (m_tooltip && m_drawTooltip)

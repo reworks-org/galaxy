@@ -21,20 +21,22 @@ namespace sl
 	{
 	public:
 		///
-		/// Constructor.
+		/// Texture Constructor.
 		///
 		/// \param x x pos relative to UI panel.
 		/// \param y y pos relative to UI panel.
-		/// \param texture Texture to display.
+		/// \param texture Texture in theme to use.
+		/// \param theme Theme to use with widget.
 		///
-		Image(const int x, const int y, const std::string& texture);
+		Image(const int x, const int y, const std::string& texture, UITheme* theme);
 
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme to use with widget.
 		///
-		Image(const sol::table& table);
+		Image(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.

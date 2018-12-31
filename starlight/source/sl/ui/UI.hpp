@@ -13,7 +13,6 @@
 #include <vector>
 
 #include "sl/ui/Panel.hpp"
-#include "sl/libs/sol2/sol_forward.hpp"
 
 namespace sl
 {
@@ -62,14 +61,15 @@ namespace sl
 		///
 		/// You need to have a constructor that takes a const sol::table& parameter in your widget class.
 		/// Don't forget to register your widget first!
+		/// You can specify multiple panels and also multiple UI themes.
 		///
 		/// \param luaScript The script needed to create the ui. The script folder is automatically appended!
-		/// 
-		/// \return Returns an unordered_map with the widgets created, and the key is the widget name. You will need to cast the pointers to the correct type.
+		/// \param widgetsMap An unordered_map to be filled with the widgets created, and the key is the widget name. You will need to cast the pointers to the correct type.
 		/// 		Each widget name has the structure: <Class>_<Name>. For example in your lua script, you would have Button_MenuQuit. This will create a button with the widget name of MenuQuit.
 		///			So in this hashmap you only get the <Name> as the key.
+		/// \param themesMap An unordered_map to be filled with the themes created. The key is the name of the theme table in the lua script.
 		///
-		std::unordered_map<std::string, Widget*> createFromScript(const std::string& luaScript);
+		void createFromScript(const std::string& luaScript, std::unordered_map<std::string, Widget*>* widgetsMap, std::unordered_map<std::string, UITheme>* themesMap);
 
 		///
 		/// Update the UI.
@@ -97,7 +97,7 @@ namespace sl
 		///
 		/// Used to allow for widget creation without having to know the widget type.
 		///
-		std::unordered_map<std::string, std::function<Widget*(Panel* panel, const sol::table&)>> m_widgetFactory;
+		std::unordered_map<std::string, std::function<Widget*(Panel*, const sol::table&, UITheme*)>> m_widgetFactory;
 	};
 
 	template<typename... Args>
@@ -124,9 +124,9 @@ namespace sl
 		}
 		else
 		{
-			m_widgetFactory.emplace(widget, [this](Panel* panel, const sol::table& table)
+			m_widgetFactory.emplace(widget, [this](Panel* panel, const sol::table& table, UITheme* theme)
 			{
-				return dynamic_cast<Widget*>(panel->add<WidgetType>(table));
+				return dynamic_cast<Widget*>(panel->add<WidgetType>(table, theme));
 			});
 		}
 	}

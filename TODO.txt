@@ -33,22 +33,9 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- shader support for ui -> specifically widgets?
 		- pointer to shader object to use?
 			- from sahder library?
-	- reduce update and event calcs...hardcode more of these values into widget.
-		- add offset when in construction, not during rendering,
-		- precalc dimensions of widgetr
-	- callback support for textinput and slider.
 	- list widget
-	- ui should have a theme over seperate fonts/colours/etc.
 	- tooltip support for all widgets -> make it part of widget, including recieving code?
-	- finalize textinput
-		- needs more code documentation
-		- clamping text to field input needs to be improved.
-	- use a theme texture. so one texture for the theme and each part of the ui renders from that texture.
-		- like textureatlas, so we can use al_hold_drawing and stuff.
-		- but keep primitive constructors maybe?
-
-
-
+	
 
     - sandbox notes:
 		- loading screens between states
@@ -68,3 +55,4 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 		- animationcomponent
 		- cameratag
 		- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
+		- vector4

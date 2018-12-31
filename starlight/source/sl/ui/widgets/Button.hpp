@@ -50,10 +50,11 @@ namespace sl
 		///
 		/// \param x x-pos of button relative to panel.
 		/// \param y y-pos of button relative to panel.
-		/// \param images Array of texture names to load. Need to be all the same dimensions.
-		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.				   
+		/// \param images Array of texture names in theme to use. Need to be all the same dimensions.
+		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.		
+		/// \param theme Theme for this widget.
 		///
-		Button(const int x, const int y, const std::array<std::string, 3>& textures);
+		Button(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme);
 
 		///
 		/// Text Constructor.
@@ -61,18 +62,19 @@ namespace sl
 		/// \param x x-pos, relative to the panel.
 		/// \param y y-pos, relative to the panel.
 		/// \param text Text of the button.
-		/// \param font Font of the text.
 		/// \param colours Array of colours for each state. 
 		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
+		/// \param theme Theme for this widget.
 		///
-		Button(const int x, const int y, const std::string& text, const std::string& font, const std::array<ALLEGRO_COLOR, 3>& colors);
+		Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colors, UITheme* theme);
 
 		///
 		/// Lua Constructor.
 		///
 		/// \param table sol::table to create widget from.
+		/// \param theme Theme for this widget.
 		///
-		Button(const sol::table& table);
+		Button(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.

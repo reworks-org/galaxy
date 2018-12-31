@@ -16,19 +16,13 @@
 
 namespace sl
 {
-	Label::Label(const int x, const int y, const std::string& text, const std::string& font, const ALLEGRO_COLOR col)
-		:Widget({ x, y, 0, 0 }), m_text(text), m_colour(col)
+	Label::Label(const int x, const int y, const std::string& text, UITheme* theme)
+		:Widget({ x, y, 0, 0 }, theme), m_text(text)
 	{
-		// Create bitmap, draw text to it, then store it.
-		m_font = Locator::fontBook->get(font);
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Could not retrieve font: " << font;
-		}
 	}
 
-	Label::Label(const sol::table& table)
-		:Widget({ 0, 0, 0, 0 })
+	Label::Label(const sol::table& table, UITheme* theme)
+		:Widget({ 0, 0, 0, 0 }, theme)
 	{
 		// Get position data.
 		m_bounds.m_x = table.get<int>("x");
@@ -36,30 +30,6 @@ namespace sl
 
 		// Get text data.
 		m_text = table.get<std::string>("text");
-		
-		// Get colour data.
-		sol::table colTable = table.get<sol::table>("colour");
-		if (!colTable.valid() || colTable.empty())
-		{
-			LOG_S(ERROR) << "Label table \"colour\" is invalid or empty for text: " << m_text;
-		}
-		else
-		{
-			m_colour = al_map_rgba
-			(
-				table.get<unsigned char>("r"),
-				table.get<unsigned char>("g"),
-				table.get<unsigned char>("b"),
-				table.get<unsigned char>("a")
-			);
-		}
-
-		// Create bitmap, draw text to it, then store it.
-		m_font = Locator::fontBook->get(table.get<std::string>("font"));
-		if (!m_font)
-		{
-			LOG_S(FATAL) << "Could not retrieve font: " << table.get<std::string>("font");
-		}
 	}
 
 	Label::~Label()
@@ -74,7 +44,7 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
-			al_draw_text(m_font, m_colour, m_bounds.m_x + m_offsetX, m_bounds.m_y + m_offsetY, ALLEGRO_ALIGN_LEFT, m_text.c_str());
+			al_draw_text(m_theme->font(), m_theme->colour(), m_bounds.m_x, m_bounds.m_y, 0, m_text.c_str());
 		}
 	}
 

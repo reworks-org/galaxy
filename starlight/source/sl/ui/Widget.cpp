@@ -11,14 +11,21 @@
 
 namespace sl
 {
-	Widget::Widget(const sl::Rect<int>& bounds) noexcept
-		:m_bounds(bounds), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_offsetX(0), m_offsetY(0), m_id(0)
+	Widget::Widget(const sl::Rect<int>& bounds, UITheme* theme)
+		:m_bounds(bounds), m_theme(theme), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
 	{
 	}
 
 	Widget::~Widget()
 	{
 		m_tooltip.reset();
+	}
+
+	bool Widget::contains(const int x, const int y)
+	{
+		// If the mouse cursor is greater than the x axis but less than the total width of the button, and
+		// Less than the height of the cursor, but greather than the y of the cursor take its height.
+		return m_bounds.contains((int)x, (int)y);
 	}
 
 	void Widget::setVisibility(const bool isVisible)
@@ -34,5 +41,11 @@ namespace sl
 	const unsigned int Widget::id() const
 	{
 		return m_id;
+	}
+
+	void Widget::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
 	}
 }

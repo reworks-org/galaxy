@@ -15,3 +15,4 @@
 	- talk about nulltexture and nullsound and nullanimation, etc which is used on defaultconstructed components.
 	-  that first state is automatically loaded and last state is automatically unloaded
 	-  abouit registering tags and components
+	- when creating widgets from lua, the theme needs to be the same as one from that script file.

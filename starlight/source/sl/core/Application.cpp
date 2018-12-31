@@ -17,6 +17,7 @@
 
 #include "sl/utils/Time.hpp"
 #include "sl/math/Vector3.hpp"
+#include "sl/math/Vector4.hpp"
 #include "sl/scripting/Sol2Interface.hpp"
 #include "sl/components/PhysicsComponent.hpp"
 #include "sl/libs/imgui/imgui_impl_allegro5.h"
@@ -214,6 +215,22 @@ namespace sl
 			"y", &Vector3<float>::m_y,
 			"z", &Vector3<float>::m_z
 		);
+
+		m_world->m_lua.new_usertype<Vector4<int>>("Vector4i",
+			sol::constructors<Vector4<int>(), Vector4<int>(int, int, int, int)>(),
+			"w", &Vector4<int>::m_w,
+			"x", &Vector4<int>::m_x,
+			"y", &Vector4<int>::m_y,
+			"z", &Vector4<int>::m_z
+			);
+
+		m_world->m_lua.new_usertype<Vector4<float>>("Vector4f",
+			sol::constructors<Vector4<float>(), Vector4<float>(float, float, float, float)>(),
+			"w", &Vector4<float>::m_w,
+			"x", &Vector4<float>::m_x,
+			"y", &Vector4<float>::m_y,
+			"z", &Vector4<float>::m_z
+			);
 
 		m_world->m_lua.new_usertype<Rect<int>>("iRect",
 			sol::constructors<Rect<int>(), Rect<int>(int, int, int, int)>(),

@@ -128,9 +128,8 @@ namespace sl
 			LOG_S(FATAL) << "Failed to retrieve widget just emplaced... assumed id: " << m_counter;
 		}
 		
-		// Set offsets.
-		ref->m_offsetX = m_bounds.m_x;
-		ref->m_offsetY = m_bounds.m_y;
+		// Set offset and id.
+		ref->setOffset(m_bounds.m_x, m_bounds.m_y);
 		ref->m_id = m_counter;
 
 		// Increment counter for next widget.
