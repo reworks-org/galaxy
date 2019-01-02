@@ -10,6 +10,7 @@
 #ifndef STARLIGHT_TOOLTIP_HPP_
 #define STARLIGHT_TOOLTIP_HPP_
 
+#include "sl/math/Vector2.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/events/MouseMovedEvent.hpp"
 
@@ -26,20 +27,30 @@ namespace sl
 		friend class Widget;
 	public:
 		///
-		/// Constructor.
+		/// Texture Constructor.
+		///
+		/// \param text Text to display on the tooltip.
+		/// \param texture Texture of the tooltip. Will be repeated across tooltip box from section.x to section.y.
+		///                Format should be Open Of Tooltip, Repeat Section For Text, Closing for tooltip, all seemless so it forms a complete graphic.
+		/// \param section The part of the texture to repeat to create variable sized textboxes. x is left coord and y is right coord across width not height!
+		/// \param theme Theme the tooltip is using for the master texture. Also font and text colour.
+		///
+		Tooltip(const std::string& text, const std::string& texture, const sl::Vector2<int>& section, UITheme* theme);
+
+		///
+		/// Primitives Constructor.
 		///
 		/// \param text Text to display on the tooltip.
 		/// \param theme Theme the tooltip is using for font and colour.
-		/// \param maxWidth Maximum width of each line of text of the tooltip, in characters.
 		///
-		Tooltip(const std::string& text, UITheme* theme, const float maxWidth);
+		Tooltip(const std::string& text, UITheme* theme);
 
 		///
 		/// \brief Destructor.
 		///
 		/// Clean up tooltip memory.
 		///
-		~Tooltip() noexcept = default;
+		~Tooltip() noexcept;
 
 		///
 		/// \brief Allows for buttons to recieve mouse events. Automatically registered with entt.
@@ -67,17 +78,7 @@ namespace sl
 		///
 		/// Text to draw.
 		///
-		std::string m_text;
-		
-		///
-		/// Max width for each line of tooltip text.
-		///
-		float m_maxWidth;
-
-		///
-		/// Line height of the font.
-		///
-		float m_lineHeight;
+		ALLEGRO_BITMAP* m_text;
 
 		///
 		/// Theme the tooltip is using for font and colour.

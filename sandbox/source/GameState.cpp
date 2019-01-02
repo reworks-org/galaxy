@@ -72,7 +72,7 @@ GameState::GameState()
 	{
 		LOG_S(INFO) << "BUTTON CLICKED!";
 	});
-	testbtn->setTooltip("This is a tooltip.", &m_theme, 100);
+	testbtn->setTooltip("This is a tooltip.", &m_theme);
 
 	sl::ProgressBar* bar = m_panel->add<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(192, 192, 192, 255), al_map_rgba(255, 0, 0, 255));
 	bar->setProgress(0.67f);
