@@ -130,9 +130,12 @@ public:
 	{
 		Char mChar;
 		PaletteIndex mColorIndex = PaletteIndex::Default;
+		bool mComment : 1;
 		bool mMultiLineComment : 1;
+		bool mPreprocessor : 1;
 
-		Glyph(Char aChar, PaletteIndex aColorIndex) : mChar(aChar), mColorIndex(aColorIndex), mMultiLineComment(false) {}
+		Glyph(Char aChar, PaletteIndex aColorIndex) : mChar(aChar), mColorIndex(aColorIndex), 
+			mComment(false), mMultiLineComment(false), mPreprocessor(false) {}
 	};
 
 	typedef std::vector<Glyph> Line;
@@ -148,7 +151,8 @@ public:
 		Keywords mKeywords;
 		Identifiers mIdentifiers;
 		Identifiers mPreprocIdentifiers;
-		std::string mCommentStart, mCommentEnd;
+		std::string mCommentStart, mCommentEnd, mSingleLineComment;
+		char mPreprocChar;
 		bool mAutoIndentation;
 
 		TokenizeCallback mTokenize;
@@ -158,7 +162,7 @@ public:
 		bool mCaseSensitive;
 		
 		LanguageDefinition()
-			: mTokenize(nullptr)
+			: mTokenize(nullptr), mPreprocChar('#'), mAutoIndentation(true), mCaseSensitive(true)
 		{
 		}
 		
@@ -177,7 +181,7 @@ public:
 	void SetLanguageDefinition(const LanguageDefinition& aLanguageDef);
 	const LanguageDefinition& GetLanguageDefinition() const { return mLanguageDefinition; }
 
-	const Palette& GetPalette() const { return mPalette; }
+	const Palette& GetPalette() const { return mPaletteBase; }
 	void SetPalette(const Palette& aValue);
 
 	void SetErrorMarkers(const ErrorMarkers& aMarkers) { mErrorMarkers = aMarkers; }
@@ -185,7 +189,9 @@ public:
 
 	void Render(const char* aTitle, const ImVec2& aSize = ImVec2(), bool aBorder = false);
 	void SetText(const std::string& aText);
+	void SetTextLines(const std::vector<std::string>& aLines);
 	std::string GetText() const;
+	std::vector<std::string> GetTextLines() const;
 	std::string GetSelectedText() const;
 	std::string GetCurrentLineText()const;
 	
@@ -305,6 +311,11 @@ private:
 	void DeleteSelection();
 	std::string GetWordUnderCursor() const;
 	std::string GetWordAt(const Coordinates& aCoords) const;
+	ImU32 GetGlyphColor(const Glyph& aGlyph) const;
+
+	void HandleKeyboardInputs();
+	void HandleMouseInputs();
+	void Render();
 
 	float mLineSpacing;
 	Lines mLines;
@@ -317,6 +328,7 @@ private:
 	bool mReadOnly;
 	bool mWithinRender;
 	bool mScrollToCursor;
+	bool mScrollToTop;
 	bool mTextChanged;
 	float  mTextStart;                   // position (in pixels) where a code line starts relative to the left of the TextEditor.
 	int  mLeftMargin;
@@ -324,13 +336,16 @@ private:
 	int mColorRangeMin, mColorRangeMax;
 	SelectionMode mSelectionMode;
 
+	Palette mPaletteBase;
 	Palette mPalette;
 	LanguageDefinition mLanguageDefinition;
 	RegexList mRegexList;
 
-	bool mCheckMultilineComments;
+	bool mCheckComments;
 	Breakpoints mBreakpoints;
 	ErrorMarkers mErrorMarkers;
 	ImVec2 mCharAdvance;
 	Coordinates mInteractiveStart, mInteractiveEnd;
+	
+	float mLastClick;
 };

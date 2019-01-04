@@ -83,6 +83,17 @@ namespace sl
 		/// Text editor instance for the script editor gui.
 		///
 		TextEditor m_editor;
+
+		// Variables that are used internally and are required to use the gui.
+		bool m_showLuaConsole = false;
+		bool m_showScriptEditor = false;
+		std::string m_buff = "";
+		std::string m_stateBuff = "";
+
+		int m_index = 0;
+		bool m_showFilesToLoad = false;
+		std::string m_currentScript = "";
+		std::vector<std::string> m_files;
     };
 }
 

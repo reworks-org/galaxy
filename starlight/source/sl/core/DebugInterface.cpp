@@ -26,6 +26,7 @@ namespace sl
 	:m_scriptFolderPath(scriptFolderPath)
 	{
 		// Set up imgui context from allegro's display.
+		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		ImGui_ImplAllegro5_Init(display);
@@ -67,13 +68,6 @@ namespace sl
 
 	void DebugInterface::displayMenu(bool* restart)
 	{
-		// Set up the variables required to use the gui.
-		// Declared static otherwise data would be reset / lost when losing scope.
-		static bool s_showLuaConsole = false;
-		static bool s_showScriptEditor = false;
-		static std::string s_buff = "";
-		static std::string s_stateBuff = "";
-
 		// Set up the gui.
 		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
 
@@ -103,13 +97,13 @@ namespace sl
 				// Open script editor.
 				if (ImGui::MenuItem("Script Editor"))
 				{
-					s_showScriptEditor = true;
+					m_showScriptEditor = true;
 				}
 
 				// Open Lua console.
 				if (ImGui::MenuItem("Show Console"))
 				{
-					s_showLuaConsole = true;
+					m_showLuaConsole = true;
 				}
 
 				ImGui::EndMenu();
@@ -119,11 +113,11 @@ namespace sl
 		}
 
 		// Push a state.
-		if (ImGui::InputText("Push State", s_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		if (ImGui::InputText("Push State", m_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			if (!s_stateBuff.empty())
+			if (!m_stateBuff.empty())
 			{
-				Locator::stateMachine->push(s_stateBuff.c_str());
+				Locator::stateMachine->push(m_stateBuff.c_str());
 			}
 		}
 
@@ -136,24 +130,18 @@ namespace sl
 		}
 
 		// Input the name of a script in the VFS to create an entity from.
-		if (ImGui::InputText("Create Entity from Script", s_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		if (ImGui::InputText("Create Entity from Script", m_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			if (!s_buff.empty())
+			if (!m_buff.empty())
 			{
-				Locator::world->createEntity(s_buff);
+				Locator::world->createEntity(m_buff);
 			}
 		}
 
-		if (s_showScriptEditor)
+		if (m_showScriptEditor)
 		{
-			// Set up variables.
-			static int s_index = 0;
-			static bool s_showFilesToLoad = false;
-			static std::string s_currentScript = "";
-			static std::vector<std::string> s_files;
-
 			// Open window, ensuring that there are scrollbars avaliable if text is bigger than window.
-			ImGui::Begin("Script Editor", &s_showScriptEditor, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
+			ImGui::Begin("Script Editor", &m_showScriptEditor, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
 			ImGui::SetWindowSize(ImVec2(640, 480), ImGuiCond_FirstUseEver); // 800, 600
 
 			// Define the gui layout.
@@ -166,22 +154,22 @@ namespace sl
 				{
 					if (ImGui::MenuItem("Open"))
 					{
-						s_showFilesToLoad = true;
+						m_showFilesToLoad = true;
 					}
 
 					if (ImGui::MenuItem("Save"))
 					{
-						if (!s_currentScript.empty())
+						if (!m_currentScript.empty())
 						{
-							Locator::virtualFS->writeToFile(s_currentScript, m_editor.GetText().c_str());
+							Locator::virtualFS->writeToFile(m_currentScript, m_editor.GetText().c_str());
 						}
 					}
 
 					if (ImGui::MenuItem("Close"))
 					{
-						s_showFilesToLoad = false;
-						s_showScriptEditor = false;
-						s_currentScript = "";
+						m_showFilesToLoad = false;
+						m_showScriptEditor = false;
+						m_currentScript = "";
 						m_editor.SetText(" ");
 					}
 
@@ -239,12 +227,12 @@ namespace sl
 			}
 			// End layout definition.
 
-			if (s_showFilesToLoad)
+			if (m_showFilesToLoad)
 			{
 				// Make sure variables are empty.
-				s_index = 0;
-				s_files.clear();
-				s_currentScript = "";
+				m_index = 0;
+				m_files.clear();
+				m_currentScript = "";
 
 				// Loop over scripts folder getting all script names using physfs.
 				char** efl = PHYSFS_enumerateFiles(m_scriptFolderPath.c_str());
@@ -257,7 +245,7 @@ namespace sl
 					for (char** i = efl; *i != NULL; i++)
 					{
 						// Make sure the path is added so the script can be saved to the overrides folder.
-						s_files.emplace_back(m_scriptFolderPath + std::string(*i));
+						m_files.emplace_back(m_scriptFolderPath + std::string(*i));
 					}
 				}
 
@@ -267,18 +255,18 @@ namespace sl
 					PHYSFS_freeList(efl);
 				}
 
-				ImGui::Begin("Select Script", &s_showFilesToLoad, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+				ImGui::Begin("Select Script", &m_showFilesToLoad, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 				// Then a listbox is used to display all the loaded scripts.
-				if (ImGui::ListBox("", &s_index, s_files))
+				if (ImGui::ListBox("", &m_index, m_files))
 				{
 					// Simply load the contents of the script using the vfs.
-					s_currentScript = s_files[s_index];
-					std::string loadedText = Locator::virtualFS->openAsString(s_currentScript);
+					m_currentScript = m_files[m_index];
+					std::string loadedText = Locator::virtualFS->openAsString(m_currentScript);
 					
 					if (loadedText.empty())
 					{
-						LOG_S(WARNING) << "Script file was empty! Or Loading failed. Check for other errors in log. Script: " << s_currentScript;
+						LOG_S(WARNING) << "Script file was empty! Or Loading failed. Check for other errors in log. Script: " << m_currentScript;
 					}
 					else
 					{
@@ -286,7 +274,7 @@ namespace sl
 						m_editor.SetText(loadedText);
 					}
 
-					s_showFilesToLoad = false;
+					m_showFilesToLoad = false;
 				}
 
 				ImGui::End();
@@ -296,7 +284,7 @@ namespace sl
 			ImGui::Text("%6d/%-6d %6d lines  | %s | %s | %s | %s", cpos.mLine + 1, cpos.mColumn + 1, m_editor.GetTotalLines(),
 				m_editor.IsOverwrite() ? "Ovr" : "Ins",
 				m_editor.CanUndo() ? "*" : " ",
-				m_editor.GetLanguageDefinition().mName.c_str(), s_currentScript.c_str());
+				m_editor.GetLanguageDefinition().mName.c_str(), m_currentScript.c_str());
 
 			ImGui::Spacing();
 
@@ -305,11 +293,11 @@ namespace sl
 			ImGui::End();
 		}
 
-		if (s_showLuaConsole)
+		if (m_showLuaConsole)
 		{
 			// Create and show console.
 			static ImGui::Console console;
-			console.Draw("Lua Console", &s_showLuaConsole);
+			console.Draw("Lua Console", &m_showLuaConsole);
 		}
 
 		ImGui::End();

@@ -115,6 +115,11 @@ namespace sl
 		/// The thickness of the object lines.
 		///
 		float m_lineThickness;
+
+		///
+		/// ID counter for physics objects.
+		///
+		unsigned int m_poCounter;
 	};
 }
 

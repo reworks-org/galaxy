@@ -17,10 +17,10 @@
 - finish serializer
 - need to move some loading code into load state not applicationo constuictor.
 - support for languages? strings file im thinking...
+- threads?
 - review automatic texture atlas texture loading
 - add better key config support
 - add docs to textbox
-- fix restart 
 - ui:
 	- shader support for ui -> specifically widgets?
 		- pointer to shader object to use?

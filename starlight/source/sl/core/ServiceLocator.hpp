@@ -80,7 +80,7 @@ namespace sl
 		///
 		/// The main lua instance. Use this when doing lua things.
 		///
-		static inline sol::state* lua;
+		static inline sol::state* lua = nullptr;
 
 		///
 		/// Pointer to World service.

@@ -30,7 +30,7 @@
 namespace sl
 {
 	TMXMap::TMXMap(const std::string& mapFile, float lineThickness)
-		:m_lineThickness(lineThickness), m_internalMapData(Locator::virtualFS->openAsString(mapFile))
+		:m_lineThickness(lineThickness), m_internalMapData(Locator::virtualFS->openAsString(mapFile)), m_poCounter(0)
 	{
 		// Then parse it with tmxlib.
 		m_internalMap = tmx_load_buffer(m_internalMapData.c_str(), static_cast<int>(m_internalMapData.size()));
@@ -159,7 +159,6 @@ namespace sl
 	void TMXMap::processObjects(tmx_map* map, tmx_layer* layer)
 	{
 		// Retrieve layer data.
-		static unsigned int s_poCounter = 0;
 		bool objectIsDrawn = false;
 		unsigned int w = map->width * map->tile_width;
 		unsigned int h = map->height * map->tile_height;
@@ -303,7 +302,7 @@ namespace sl
 			Locator::world->m_registry.assign<TransformComponent>(objLayerEntity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, Rect<float, int>{ 0.0f, 0.0f, static_cast<int>(w), static_cast<int>(h) }); // We use a super large layer height to ensure this component is always on top.
 
 			// Then add it to the texture atlas ensuring a unique id.
-			std::string id = "ObjectLayerNo" + std::to_string(Time::getTimeSinceEpoch()) + std::to_string(s_poCounter);
+			std::string id = "ObjectLayerNo" + std::to_string(Time::getTimeSinceEpoch()) + std::to_string(m_poCounter);
 			Locator::textureAtlas->addTexture(id, objects);
 
 			// Add the new texture to a render component for the entity.
@@ -312,7 +311,7 @@ namespace sl
 
 		// Cleanup.
 		al_destroy_bitmap(objects);
-		++s_poCounter;
+		++m_poCounter;
 	}
 
 	void TMXMap::processLayer(tmx_map* map, tmx_layer* layer)
