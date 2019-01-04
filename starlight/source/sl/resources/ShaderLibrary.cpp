@@ -17,11 +17,9 @@ namespace sl
 {
 	ShaderLibrary::ShaderLibrary(const std::string& script)
 	{
-		// Load lua script from VFS.
-		sol::state loader;
 		std::string fullPath = Locator::world->m_scriptFolderPath + script;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
-		sol::table shaders = loader.get<sol::table>("shaders");
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
+		sol::table shaders = Locator::lua->get<sol::table>("shaders");
 
 		if (!shaders.empty())
 		{

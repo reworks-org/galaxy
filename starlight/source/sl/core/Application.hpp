@@ -80,6 +80,11 @@ namespace sl
 
 	protected:
 		///
+		/// Master Lua state for application.
+		///
+		std::unique_ptr<sol::state> m_lua;
+
+		///
 		/// The world class, which manages entitys, components, tags, systems, and other important data.
 		///
 		std::unique_ptr<World> m_world;

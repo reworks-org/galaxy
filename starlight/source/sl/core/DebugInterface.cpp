@@ -308,7 +308,7 @@ namespace sl
 		if (s_showLuaConsole)
 		{
 			// Create and show console.
-			static ImGui::Console console(&Locator::world->m_lua);
+			static ImGui::Console console;
 			console.Draw("Lua Console", &s_showLuaConsole);
 		}
 

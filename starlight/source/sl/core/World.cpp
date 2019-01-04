@@ -26,9 +26,6 @@ namespace sl
 	World::World()
 	:m_scriptFolderPath(""), m_textureFolderPath(""), m_musicFolderPath(""), m_soundFolderPath("")
 	{
-		// Set up lua and register all the libraries we need.
-		m_lua.open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8);
-
 		// Register the library components and tags.
 		registerComponent<AnimationComponent>("AnimationComponent");
 		registerComponent<EnabledComponent>("EnabledComponent");
@@ -53,15 +50,12 @@ namespace sl
 
 	entt::DefaultRegistry::entity_type World::createEntity(const std::string& script)
 	{
-		// Set up a lua state to load the script into.
-		sol::state loader;
-
 		std::string fullPath = m_scriptFolderPath + script;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
 		
 		// Create entity.
 		entt::DefaultRegistry::entity_type entity = m_registry.create();
-		sol::table components = loader.get<sol::table>("entity");
+		sol::table components = Locator::lua->get<sol::table>("entity");
 
 		// Loop over components
 		if (!components.empty())
@@ -96,13 +90,10 @@ namespace sl
 
 	void World::createEntities(const std::string& batchScript)
 	{	
-		// This just batch calls createEntity on a list of entitys.
-		sol::state loader;
-
 		std::string fullPath = m_scriptFolderPath + batchScript;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
 
-		sol::table entityList = loader.get<sol::table>("entityList");
+		sol::table entityList = Locator::lua->get<sol::table>("entityList");
 		entityList.for_each([&](std::pair<sol::object, sol::object> pair)
 		{
 			// For each entity in list, create that entity.
@@ -112,13 +103,10 @@ namespace sl
 
 	void World::createDuplicateEntities(const std::string& script)
 	{
-		// Load the script into a lua instance.
-		sol::state loader;
-
 		std::string fullPath = m_scriptFolderPath + script;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
 
-		sol::table table = loader.get<sol::table>("entity");
+		sol::table table = Locator::lua->get<sol::table>("entity");
 		unsigned int count = table.get<unsigned int>("count");
 
 		for (unsigned int i = 0; i < count; ++i)

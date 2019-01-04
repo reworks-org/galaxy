@@ -9,27 +9,19 @@
 	- even assigning components!
 - fix category headers for v1.0.
 - more physics shapes from tmx maps.
-- https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
-http://gameprogrammingpatterns.com/state.html
-https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
-https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
-https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 - split up doxygen documentation on rtfd and take advantage of toc.
 	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
-
 - constexpr, sfinae, crtp
 - reflect on box2d / or custom simple physics solution.
-- move lua into system locator. use local variables over global variables.
 - mapping improvements
 - finish serializer
 - need to move some loading code into load state not applicationo constuictor.
 - support for languages? strings file im thinking...
 - review automatic texture atlas texture loading
-- add beter key config support
-- add docs to testbox
+- add better key config support
+- add docs to textbox
 - fix restart 
 - ui:
-	- add image support to tooltips.
 	- shader support for ui -> specifically widgets?
 		- pointer to shader object to use?
 			- from sahder library?
@@ -37,22 +29,29 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 	- tooltip support for all widgets -> make it part of widget, including recieving code?
 	
 
-    - sandbox notes:
-		- loading screens between states
-		- resources are loaded on a differnet thread
-		- fix up and rewrite sandbox to test all parts of engine
+- sandbox notes:
+	- loading screens between states
+	- resources are loaded on a differnet thread
+	- fix up and rewrite sandbox to test all parts of engine
 
-    - serializable classes:
-		- music
-		- statemachine
-		- animation
-		- animationframe
-		- registry in world.hpp
-		- transformcomponent
-		- physicscomponent
-			- may need to update internal entity during deserialization
-		- rendercomponent
-		- animationcomponent
-		- cameratag
-		- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
-		- vector4
+- serializable classes:
+    - music
+	- statemachine
+	- animation
+	- animationframe
+	- registry in world.hpp
+	- transformcomponent
+	- physicscomponent
+		- may need to update internal entity during deserialization
+	- rendercomponent
+	- animationcomponent
+	- cameratag
+	- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
+	- vector4
+
+useful info:
+	https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
+	http://gameprogrammingpatterns.com/state.html
+	https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
+	https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
+	https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/

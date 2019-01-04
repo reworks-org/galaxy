@@ -9,7 +9,6 @@
 
 #include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 
 #include "sl/ui/widgets/Button.hpp"
@@ -48,13 +47,13 @@ namespace sl
 	{
 		// Load script into lua.
 		std::string fullPath = Locator::world->m_scriptFolderPath + luaScript;
-		m_lua.script(Locator::virtualFS->openAsString(fullPath));
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
 
 		// Panel currently being created.
 		sl::Panel* panel = nullptr;
 
 		// Get master table and check for validity.
-		sol::table ui = m_lua.get<sol::table>("ui");
+		sol::table ui = Locator::lua->get<sol::table>("ui");
 		if (!ui.valid() || ui.empty())
 		{
 			LOG_S(ERROR) << "UI script table \"ui\" is invalid or empty for script: " << luaScript;

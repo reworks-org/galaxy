@@ -112,11 +112,6 @@ namespace sl
 
 	public:
 		///
-		/// The main lua instance. Use this when doing lua things.
-		///
-		sol::state m_lua;
-		
-		///
 		/// The registry containing all the game entities.
 		///
 		entt::DefaultRegistry m_registry;

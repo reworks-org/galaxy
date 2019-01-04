@@ -9,7 +9,6 @@
 
 #include "sl/utils/Time.hpp"
 #include "sl/libs/tmx/tmx.h"
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 

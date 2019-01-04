@@ -85,11 +85,6 @@ namespace sl
 
 	private:
 		///
-		/// Lua state for the UI.
-		///
-		sol::state m_lua;
-
-		///
 		/// Collection of panels in the ui.
 		///
 		std::vector<std::unique_ptr<Panel>> m_panels;

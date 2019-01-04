@@ -166,7 +166,6 @@ namespace sl
 		tmx_object_group* objgr = layer->content.objgr;
 
 		// Prep for layer contstruction.
-		sol::state loader;
 		tmx_object *head = objgr->head;
 		ALLEGRO_COLOR color = intToColour(objgr->color, 255);
 
@@ -196,8 +195,8 @@ namespace sl
 							Locator::world->m_registry.assign<EnabledComponent>(physObjEntity);
 
 							// Process script.
-							loader.script(Locator::virtualFS->openAsString(physObjScriptPath));
-							sol::table physicsObjectTable = loader.get<sol::table>("PhysicsObject");
+							Locator::lua->script(Locator::virtualFS->openAsString(physObjScriptPath));
+							sol::table physicsObjectTable = Locator::lua->get<sol::table>("PhysicsObject");
 
 							if (!physicsObjectTable.empty())
 							{

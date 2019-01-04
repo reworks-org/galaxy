@@ -7,7 +7,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 

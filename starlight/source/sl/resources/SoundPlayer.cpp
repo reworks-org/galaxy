@@ -18,12 +18,9 @@ namespace sl
 	SoundPlayer::SoundPlayer(const std::string& script)
 		:m_nullSound("")
 	{
-		// Load lua script from VFS.
-		sol::state loader;
-
 		std::string fullPath = Locator::world->m_scriptFolderPath + script;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
-		sol::table sounds = loader.get<sol::table>("sounds");
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
+		sol::table sounds = Locator::lua->get<sol::table>("sounds");
 
 		if (!sounds.empty())
 		{

@@ -9,7 +9,6 @@
 
 #include "sl/utils/Time.hpp"
 #include "sl/events/Keys.hpp"
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"

@@ -9,8 +9,8 @@
 
 #include <utility>
 
-#include "sl/core/World.hpp"
 #include "sl/fs/VirtualFS.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/physics/Box2DHelper.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"
@@ -28,10 +28,10 @@ namespace sl
 		if (functionScript != "")
 		{
 			// Process collision functions.
-			Locator::world->m_lua.script(Locator::virtualFS->openAsString(functionScript));
+			Locator::lua->script(Locator::virtualFS->openAsString(functionScript));
 
 			// For each function in the script...
-			sol::table funcs = Locator::world->m_lua.get<sol::table>("physicsFuncs");
+			sol::table funcs = Locator::lua->get<sol::table>("physicsFuncs");
 			if (!funcs.empty())
 			{
 				funcs.for_each([this](sol::object key, sol::object value)
@@ -44,10 +44,10 @@ namespace sl
 					std::string id = funcTable.get<std::string>("id");
 
 					// ...and then add the function to sol2.
-					m_collisions.emplace(std::make_pair(first, second), Locator::world->m_lua.get<sol::function>(id));
+					m_collisions.emplace(std::make_pair(first, second), Locator::lua->get<sol::function>(id));
 
 					// Now we need to emplace the reverse in case collision happens the other way.
-					m_collisions.emplace(std::make_pair(second, first), Locator::world->m_lua.get<sol::function>(id));
+					m_collisions.emplace(std::make_pair(second, first), Locator::lua->get<sol::function>(id));
 				});
 			}
 			else

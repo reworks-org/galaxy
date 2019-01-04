@@ -18,12 +18,9 @@ namespace sl
 	MusicPlayer::MusicPlayer(const std::string& script)
 		:m_nullMusic("")
 	{
-		// Load lua script from VFS.
-		sol::state loader;
-
 		std::string fullPath = Locator::world->m_scriptFolderPath + script;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
-		sol::table music = loader.get<sol::table>("music");
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
+		sol::table music = Locator::lua->get<sol::table>("music");
 
 		if (!music.empty())
 		{

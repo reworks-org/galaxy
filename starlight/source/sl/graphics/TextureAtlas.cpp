@@ -16,7 +16,6 @@
 
 #include "sl/fs/VirtualFS.hpp"
 #include "sl/math/Vector2.hpp"
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/physics/Box2DHelper.hpp"
@@ -172,12 +171,10 @@ namespace sl
 
 	void TextureAtlas::batchAddText(const std::string& script)
 	{
-		// Set up a lua state to parse script.
-		sol::state loader;
-		loader.script(Locator::virtualFS->openAsString(script));
+		Locator::lua->script(Locator::virtualFS->openAsString(script));
 
 		// Iterate over script getting each text configuration.
-		sol::table textList = loader.get<sol::table>("TextList");
+		sol::table textList = Locator::lua->get<sol::table>("TextList");
 		textList.for_each([&](std::pair<sol::object, sol::object> pair)
 		{
 			sol::table data = pair.second.as<sol::table>();

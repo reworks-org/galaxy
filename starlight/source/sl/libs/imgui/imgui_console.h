@@ -7,7 +7,6 @@
 #include <filesystem>
 
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/imgui/imgui.h"
 #include "sl/core/ServiceLocator.hpp"
 
@@ -25,11 +24,9 @@ namespace ImGui
 		bool                  ScrollToBottom;
 		ImVector<char*>       History;
 		int                   HistoryPos;    // -1: new line, 0..History.Size-1 browsing history.
-		sol::state* luaState;
 
-		Console(sol::state* state)
+		Console()
 		{
-			luaState = state;
 			ClearLog();
 			memset(InputBuf, 0, sizeof(InputBuf));
 			HistoryPos = -1;
@@ -205,7 +202,7 @@ namespace ImGui
 			{
 				if (sl::Locator::virtualFS->has(command_line))
 				{
-					std::string result = luaState->do_string(sl::Locator::virtualFS->openAsString(command_line));
+					std::string result = sl::Locator::lua->do_string(sl::Locator::virtualFS->openAsString(command_line));
 					AddLog(result.c_str());
 				}
 				else
@@ -216,7 +213,7 @@ namespace ImGui
 			}
 			else
 			{
-				std::string result = luaState->do_string(command_line);
+				std::string result = sl::Locator::lua->do_string(command_line);
 				AddLog(result.c_str());
 			}
 		}

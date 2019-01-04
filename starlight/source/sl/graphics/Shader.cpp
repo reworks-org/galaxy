@@ -10,7 +10,6 @@
 #include <allegro5/error.h>
 
 #include "sl/fs/VirtualFS.hpp"
-#include "sl/libs/sol2/sol.hpp"
 #include "sl/libs/loguru/loguru.hpp"
 #include "sl/core/ServiceLocator.hpp"
 

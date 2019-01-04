@@ -121,6 +121,12 @@ namespace sl
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
 
+		// Create lua instance and open libraries.
+		m_lua = std::make_unique<sol::state>();
+		m_lua->open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8);
+		Locator::lua = m_lua.get();
+
+		// Config reader.
 		m_configReader = std::make_unique<ConfigReader>(config, newConfig);
 		Locator::configReader = m_configReader.get();
 
@@ -183,40 +189,40 @@ namespace sl
 		m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 
 		// Now all the usertypes we want to access from lua are registered.
-		m_world->m_lua.new_usertype<std::uint32_t>("uint32_t");
-		m_world->m_lua.new_usertype<std::uint16_t>("uint16_t");
-		m_world->m_lua.new_usertype<entt::DefaultRegistry::entity_type>("entity");
+		Locator::lua->new_usertype<std::uint32_t>("uint32_t");
+		Locator::lua->new_usertype<std::uint16_t>("uint16_t");
+		Locator::lua->new_usertype<entt::DefaultRegistry::entity_type>("entity");
 
 		// Engine usertypes.
-		m_world->m_lua.new_usertype<Vector2<int>>("Vector2i",
+		Locator::lua->new_usertype<Vector2<int>>("Vector2i",
 			sol::constructors<Vector2<int>(), Vector2<int>(int, int)>(),
 			"transpose", &Vector2<int>::transpose,
 			"x", &Vector2<int>::m_x,
 			"y", &Vector2<int>::m_y
 		);
 
-		m_world->m_lua.new_usertype<Vector2<float>>("Vector2f",
+		Locator::lua->new_usertype<Vector2<float>>("Vector2f",
 			sol::constructors<Vector2<float>(), Vector2<float>(float, float)>(),
 			"transpose", &Vector2<float>::transpose,
 			"x", &Vector2<float>::m_x,
 			"y", &Vector2<float>::m_y
 		);
 
-		m_world->m_lua.new_usertype<Vector3<int>>("Vector3i",
+		Locator::lua->new_usertype<Vector3<int>>("Vector3i",
 			sol::constructors<Vector3<int>(), Vector3<int>(int, int, int)>(),
 			"x", &Vector3<int>::m_x,
 			"y", &Vector3<int>::m_y,
 			"z", &Vector3<int>::m_z
 		);
 
-		m_world->m_lua.new_usertype<Vector3<float>>("Vector3f",
+		Locator::lua->new_usertype<Vector3<float>>("Vector3f",
 			sol::constructors<Vector3<float>(), Vector3<float>(float, float, float)>(),
 			"x", &Vector3<float>::m_x,
 			"y", &Vector3<float>::m_y,
 			"z", &Vector3<float>::m_z
 		);
 
-		m_world->m_lua.new_usertype<Vector4<int>>("Vector4i",
+		Locator::lua->new_usertype<Vector4<int>>("Vector4i",
 			sol::constructors<Vector4<int>(), Vector4<int>(int, int, int, int)>(),
 			"w", &Vector4<int>::m_w,
 			"x", &Vector4<int>::m_x,
@@ -224,7 +230,7 @@ namespace sl
 			"z", &Vector4<int>::m_z
 			);
 
-		m_world->m_lua.new_usertype<Vector4<float>>("Vector4f",
+		Locator::lua->new_usertype<Vector4<float>>("Vector4f",
 			sol::constructors<Vector4<float>(), Vector4<float>(float, float, float, float)>(),
 			"w", &Vector4<float>::m_w,
 			"x", &Vector4<float>::m_x,
@@ -232,7 +238,7 @@ namespace sl
 			"z", &Vector4<float>::m_z
 			);
 
-		m_world->m_lua.new_usertype<Rect<int>>("iRect",
+		Locator::lua->new_usertype<Rect<int>>("iRect",
 			sol::constructors<Rect<int>(), Rect<int>(int, int, int, int)>(),
 			"contains", sol::overload(sol::resolve<bool(int, int)>(&Rect<int>::contains), sol::resolve<bool(const Rect<int>&)>(&Rect<int>::contains)),
 			"x", &Rect<int>::m_x,
@@ -241,7 +247,7 @@ namespace sl
 			"height", &Rect<int>::m_height
 		);
 
-		m_world->m_lua.new_usertype<Rect<float>>("fRect",
+		Locator::lua->new_usertype<Rect<float>>("fRect",
 			sol::constructors<Rect<float>(), Rect<float>(float, float, float, float)>(),
 			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float>::contains), sol::resolve<bool(const Rect<float>&)>(&Rect<float>::contains)),
 			"x", &Rect<float>::m_x,
@@ -250,7 +256,7 @@ namespace sl
 			"height", &Rect<float>::m_height
 		);
 
-		m_world->m_lua.new_usertype<Rect<float, int>>("fiRect",
+		Locator::lua->new_usertype<Rect<float, int>>("fiRect",
 			sol::constructors<Rect<float, int>(), Rect<float, int>(float, float, int, int)>(),
 			"contains", sol::overload(sol::resolve<bool(float, float)>(&Rect<float, int>::contains), sol::resolve<bool(const Rect<float, int>&)>(&Rect<float, int>::contains)),
 			"x", &Rect<float, int>::m_x,
@@ -259,7 +265,7 @@ namespace sl
 			"height", &Rect<float, int>::m_height
 		);
 
-		m_world->m_lua.new_usertype<AnimationComponent>("AnimationComponent",
+		Locator::lua->new_usertype<AnimationComponent>("AnimationComponent",
 			sol::constructors<AnimationComponent(const sol::table&)>(),
 			"changeAnimation", &AnimationComponent::changeAnimation,
 			"play", sol::overload(sol::resolve<void(void)>(&AnimationComponent::play), sol::resolve<void(const std::string&)>(&AnimationComponent::play)),
@@ -271,41 +277,41 @@ namespace sl
 			"m_animations", &AnimationComponent::m_animations
 		);
 
-		m_world->m_lua.new_usertype<ParallaxComponent>("ParallaxComponent",
+		Locator::lua->new_usertype<ParallaxComponent>("ParallaxComponent",
 			sol::constructors<ParallaxComponent(const sol::table&)>(),
 			"verticalSpeed", &ParallaxComponent::m_verticalSpeed,
 			"horizontalSpeed", &ParallaxComponent::m_horizontalSpeed
 		);
 
-		m_world->m_lua.new_usertype<ParticleComponent>("ParticleComponent",
+		Locator::lua->new_usertype<ParticleComponent>("ParticleComponent",
 			sol::constructors<ParticleComponent(float, float, float)>(),
 			"fade", &ParticleComponent::m_fade,
 			"direction", &ParticleComponent::m_direction
 		);
 
-		m_world->m_lua.new_usertype<RenderComponent>("RenderComponent",
+		Locator::lua->new_usertype<RenderComponent>("RenderComponent",
 			sol::constructors<RenderComponent(const sol::table&), RenderComponent(float, const std::string&)>(),
 			"opacity", &RenderComponent::m_opacity,
 			"textureName", &RenderComponent::m_textureName
 		);
 
-		m_world->m_lua.new_usertype<TransformComponent>("TransformComponent",
+		Locator::lua->new_usertype<TransformComponent>("TransformComponent",
 			sol::constructors<TransformComponent(const sol::table&), TransformComponent(int, float, const Rect<float, int>&)>(),
 			"layer", &TransformComponent::m_layer,
 			"angle", &TransformComponent::m_angle,
 			"rect", &TransformComponent::m_rect
 		);
 
-		m_world->m_lua.new_usertype<PhysicsComponent>("PhysicsComponent",
+		Locator::lua->new_usertype<PhysicsComponent>("PhysicsComponent",
 			sol::constructors<PhysicsComponent(const sol::table&)>(),
 			"setFixtureEntity", &PhysicsComponent::setFixtureEntity
 		);
 
-		m_world->m_lua.new_usertype<ScrollingBackgroundComponent>("ScrollingBackgroundComponent",
+		Locator::lua->new_usertype<ScrollingBackgroundComponent>("ScrollingBackgroundComponent",
 			sol::constructors<ScrollingBackgroundComponent(const sol::table&), ScrollingBackgroundComponent(float)>()
 		);
 
-		m_world->m_lua.new_usertype<entt::DefaultRegistry>("Registry",
+		Locator::lua->new_usertype<entt::DefaultRegistry>("Registry",
 			sol::constructors<entt::DefaultRegistry()>(),
 			"create", sol::resolve<entt::DefaultRegistry::entity_type(void)>(&entt::DefaultRegistry::create),
 			"destroy", &Sol2Interface::enttDestroyWorkaround,
@@ -326,21 +332,21 @@ namespace sl
 			"getScrollingComponent", sol::resolve<ScrollingBackgroundComponent&(entt::DefaultRegistry::entity_type)>(&entt::DefaultRegistry::get<ScrollingBackgroundComponent>)
 		);
 
-		m_world->m_lua["registry"] = &(m_world->m_registry);
+		Locator::lua->set("registry", &(m_world->m_registry));
 
 		// Including state so we can manipulate it from the debug interface and console.
-		m_world->m_lua.new_usertype<StateMachine>("StateMachine", 
+		Locator::lua->new_usertype<StateMachine>("StateMachine", 
 			"push", &StateMachine::push,
 			"pop", &StateMachine::pop);
-		m_world->m_lua["stateMachine"] = m_stateMachine.get();
+		Locator::lua->set("stateMachine", m_stateMachine.get());
 
 		// AudioPlayer
-		m_world->m_lua.new_usertype<MusicPlayer>("MusicPlayer",
+		Locator::lua->new_usertype<MusicPlayer>("MusicPlayer",
 			"play", &MusicPlayer::play,
 			"stop", &MusicPlayer::stop,
 			"resume", &MusicPlayer::resume,
 			"changeVolume", &MusicPlayer::changeVolume);
-		m_world->m_lua["musicPlayer"] = m_musicPlayer.get();
+		Locator::lua->set("musicPlayer", m_musicPlayer.get());
 	}
 
 	Application::~Application()
@@ -370,6 +376,7 @@ namespace sl
 		m_window.reset();
 		m_configReader.reset();
 		m_virtualFS.reset();
+		m_lua.reset();
 
 		// Clean up the event queue.
 		al_destroy_event_queue(m_queue);

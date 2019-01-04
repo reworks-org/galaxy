@@ -10,6 +10,8 @@
 #ifndef STARLIGHT_SERVICELOCATOR_HPP_
 #define STARLIGHT_SERVICELOCATOR_HPP_
 
+#include "sl/libs/sol2/sol.hpp"
+
 namespace entt
 {
 	class Dispatcher;
@@ -75,6 +77,11 @@ namespace sl
 		Locator& operator= (Locator &&) = delete;
 
 	public:
+		///
+		/// The main lua instance. Use this when doing lua things.
+		///
+		static inline sol::state* lua;
+
 		///
 		/// Pointer to World service.
 		///

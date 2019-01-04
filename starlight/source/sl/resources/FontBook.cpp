@@ -19,12 +19,9 @@ namespace sl
 {
 	FontBook::FontBook(const std::string& script)
 	{
-		// Load lua script from VFS.
-		sol::state loader;
-
 		std::string fullPath = Locator::world->m_scriptFolderPath + script;
-		loader.script(Locator::virtualFS->openAsString(fullPath));
-		sol::table fonts = loader.get<sol::table>("fonts");
+		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
+		sol::table fonts = Locator::lua->get<sol::table>("fonts");
 
 		if (!fonts.empty())
 		{
