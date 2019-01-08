@@ -14,8 +14,15 @@
 
 namespace sl
 {
-	struct LuaUtils
+	class LuaUtils final
 	{
+		friend class Application;
+	public:
+		///
+		/// Destructor.
+		///
+		virtual ~LuaUtils() noexcept = default;
+
 		///
 		/// This writes out a sol::table (or sol::state) into a text file.
 		///
@@ -24,6 +31,42 @@ namespace sl
 		/// \param tableName The name of the table in the text file.
 		///
 		static void writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName);
+
+	private:
+		///
+		/// Default constructor.
+		/// Deleted.
+		///
+		LuaUtils() = delete;
+
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		LuaUtils(const LuaUtils&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		LuaUtils(LuaUtils&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		/// Deleted.
+		///
+		LuaUtils& operator=(const LuaUtils &) = delete;
+
+		///
+		/// Move assignment operator.
+		/// Deleted.
+		///
+		LuaUtils& operator=(LuaUtils &&) = delete;
+
+		///
+		/// Registers starlight libraries' usertypes with Sol2. Called for you by Application class.
+		///
+		static void registerStarlightUsertypes();
 	};
 }
 

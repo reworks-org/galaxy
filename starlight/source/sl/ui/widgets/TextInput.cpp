@@ -9,8 +9,8 @@
 
 #include <allegro5/allegro.h>
 
+#include "sl/core/Keys.hpp"
 #include "sl/utils/Time.hpp"
-#include "sl/events/Keys.hpp"
 #include "sl/graphics/Window.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/ServiceLocator.hpp"

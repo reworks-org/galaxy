@@ -7,8 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "sl/core/Keys.hpp"
 #include "sl/utils/Time.hpp"
-#include "sl/events/Keys.hpp"
 #include "sl/resources/FontBook.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/libs/entt/signal/dispatcher.hpp"
@@ -120,12 +120,14 @@ namespace sl
 		{
 			if (e.m_keycode == sl::Keys::UI_CONFIRM)
 			{
+				// Make sure when going to the next "page" of text in a textbox that it doesn't trigger an out of bounds exception.
 				++m_page;
 				if (m_page > (m_messages.size() - 1))
 				{
 					m_page = (m_messages.size() - 1);
 				}
 
+				// Reset animations for the next page.
 				m_characterIndex = 0;
 				m_timePassed = 0.0;
 			}
@@ -136,7 +138,7 @@ namespace sl
 	{
 		if (m_isVisible && m_duration > 0)
 		{
-			// Update time passed and check if its exceeded the duration allowed for each character.
+			// Check to see if its time to proceed to the next frame of animation for the text box indicator.
 			m_indicatorTimePassed += dt;
 			if (m_indicatorTimePassed > Time::milliseconds(500))
 			{
@@ -145,6 +147,8 @@ namespace sl
 				m_indicatorTimePassed = 0.0;
 			}
 			
+			// Update time passed and check if its exceeded the duration allowed for each character.
+			// If so, update the index of the character to draw in the string.
 			m_timePassed += dt;
 			if (m_timePassed > Time::milliseconds(m_duration))
 			{

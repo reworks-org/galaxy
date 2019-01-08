@@ -1,57 +1,68 @@
-- profile code for lag https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
-- test code for memory leaks
-- review all compilation warnings
-- integrate lua better
-	https://sol2.readthedocs.io/en/latest/api/usertype.html
-	https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
-	https://sol2.readthedocs.io/en/latest/tutorial/functions.html
-	- allow for creating entities in lua.
-	- even assigning components!
-- fix category headers for v1.0.
-- more physics shapes from tmx maps.
-- split up doxygen documentation on rtfd and take advantage of toc.
-	- refer to: https://breathe.readthedocs.io/en/latest/index.html	
-- constexpr, sfinae, crtp
-- reflect on box2d / or custom simple physics solution.
-- mapping improvements
-- finish serializer
-- need to move some loading code into load state not applicationo constuictor.
-- support for languages? strings file im thinking...
-- threads?
-- review automatic texture atlas texture loading
-- add better key config support
-- add docs to textbox
-- ui:
-	- shader support for ui -> specifically widgets?
-		- pointer to shader object to use?
-			- from sahder library?
-	- list widget
-	- tooltip support for all widgets -> make it part of widget, including recieving code?
+- Code Quality:
+	- Code Profiling: https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
+	- Check for memory leaks.
+	- Review compilation warnings.
+	- More usage of SFINAE and CRTP?
+	- Better usage of constexpr and const style code in general.
+
 	
+- Lua:
+	- More support for lua usage.
+		- https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
+	- Allow for creating entities in lua.
+	- Allow for component assignment in lua to an entity.
 
-- sandbox notes:
-	- loading screens between states
-	- resources are loaded on a differnet thread
-	- fix up and rewrite sandbox to test all parts of engine
 
-- serializable classes:
-    - music
-	- statemachine
-	- animation
-	- animationframe
-	- registry in world.hpp
-	- transformcomponent
-	- physicscomponent
-		- may need to update internal entity during deserialization
-	- rendercomponent
-	- animationcomponent
-	- cameratag
-	- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
-	- vector4
+- Documentation:
+	- Properly organise documentation layout on RTFD, using toc.
+		- https://breathe.readthedocs.io/en/latest/index.html	
+	- Write tutorials.
 
-useful info:
-	https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/ -> ecs example usage 
-	http://gameprogrammingpatterns.com/state.html
-	https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
-	https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
-	https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
+
+- Mapping:
+	- Move to: https://github.com/fallahn/tmxlite
+		- Will help to trim down dependencies.
+	- Support for more physics shapes for tmx map objects.
+	- Improvements to mapping code in general. Probably needs a rewrite or a new libary.
+
+
+- Misc: 
+	- Review Box2D integration.
+	- Finish Cereal integration.
+		- Switch to MetaStuff: https://github.com/eliasdaler/MetaStuff
+		- To serialize:
+			- music
+			- statemachine
+			- animation
+			- animationframe
+			- registry in world.hpp
+			- transformcomponent
+			- physicscomponent
+				- may need to update internal entity during deserialization
+			- rendercomponent
+			- animationcomponent
+			- cameratag
+			- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
+			- vector4
+	- Language support using a string file?
+	- Debug Interface should be able to do more stuff.
+
+
+- UI:
+	- Shader support for widgets.
+		- Needs to integrate with shader library.
+	- List Widget.
+	- Rethink how tooltips are handled.
+
+
+- Sandbox:
+	- Sandbox needs to test all modules.
+	- Need to work out multithreading for loading states.
+
+
+- Useful Links:
+	- https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/
+	- http://gameprogrammingpatterns.com/state.html
+	- https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
+	- https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
+	- https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/

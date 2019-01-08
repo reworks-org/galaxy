@@ -50,7 +50,7 @@ namespace sl
 			for (char** i = efl; *i != NULL; i++)
 			{
 				// ...create a bitmap of the texture...
-				std::string loc = "textures/" + std::string(*i);
+				std::string loc = textureFolderPath + std::string(*i);
 				ALLEGRO_BITMAP* bitmap = al_load_bitmap(loc.c_str());
 
 				// ...then fit it into the atlas...
@@ -234,19 +234,14 @@ namespace sl
 		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);
 	}
 
-	void TextureAtlas::dumpAtlas(const std::string& filename)
+	void TextureAtlas::dumpAtlas(const std::string& fileName)
 	{
-		al_save_bitmap(filename.c_str(), m_atlas);
+		al_save_bitmap(fileName.c_str(), m_atlas);
 	}
 
 	void TextureAtlas::drawInternalTexture(float x, float y)
 	{
 		// Draw the entire atlas to the screen. Useful for debugging.
 		al_draw_bitmap(m_atlas, x, y, 0);
-	}
-
-	ALLEGRO_BITMAP* TextureAtlas::getInternalAtlas() const
-	{
-		return m_atlas;
 	}
 }

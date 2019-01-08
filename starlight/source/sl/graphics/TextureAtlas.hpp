@@ -128,9 +128,9 @@ namespace sl
 		///
 		/// Dumps internal atlas. May take a while.
 		///
-		/// \param filename Name to save file with, including extension you want.
+		/// \param fileName Name to save file with, including extension you want.
 		///
-		void dumpAtlas(const std::string& filename);
+		void dumpAtlas(const std::string& fileName);
 
 		///
 		/// Draws the internal full texture atlas to the screen. Useful for debugging.
@@ -139,15 +139,6 @@ namespace sl
 		/// \param y Y coord.
 		///
 		void drawInternalTexture(float x = 0.0f, float y = 0.0f);
-
-		///
-		/// \brief Retrieve internal atlas texture.
-		///
-		/// DO NOT FREE!
-		///
-		/// \return Bitmap to internal atlas texture.
-		///
-		ALLEGRO_BITMAP* getInternalAtlas() const;
 
 	private:
 		///

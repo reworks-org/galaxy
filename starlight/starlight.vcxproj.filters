@@ -1169,9 +1169,6 @@
     <ClInclude Include="source\sl\ui\widgets\Image.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\events\Keys.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\events\KeyDownEvent.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1188,6 +1185,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\math\Vector4.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\core\Keys.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

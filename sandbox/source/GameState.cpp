@@ -27,7 +27,7 @@
 #include <sl/events/MouseMovedEvent.hpp>
 #include <sl/events/MousePressedEvent.hpp>
 #include <sl/events/MouseReleasedEvent.hpp>
-#include <sl/events/Keys.hpp>
+#include <sl/core/Keys.hpp>
 #include <sl/events/KeyDownEvent.hpp>
 #include <sl/ui/widgets/Textbox.hpp>
 #include <sl/ui/widgets/TextInput.hpp>
