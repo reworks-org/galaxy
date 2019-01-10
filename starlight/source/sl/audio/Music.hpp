@@ -10,7 +10,6 @@
 #ifndef STARLIGHT_MUSIC_HPP_
 #define STARLIGHT_MUSIC_HPP_
 
-#include "sl/libs/cereal/access.hpp"
 #include "sl/libs/sol2/sol_forward.hpp"
 
 typedef struct ALLEGRO_SAMPLE ALLEGRO_SAMPLE;
@@ -25,7 +24,6 @@ namespace sl
 	///
 	class Music
 	{
-		friend class cereal::access;
 	public:
 		///
 		/// Constructor.
@@ -99,17 +97,6 @@ namespace sl
 		/// Deleted.
 		///
 		Music() = delete;
-
-		///
-		/// Cereal serialize function.
-		///	
-		template<class Archive>
-		inline void serialize(Archive& ar)
-		{
-			stop();
-			ar(m_position);
-			resume();
-		}
 
 	private:
 		///

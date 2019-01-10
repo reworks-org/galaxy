@@ -10,6 +10,7 @@
 #ifndef STARLIGHT_WINDOW_HPP_
 #define STARLIGHT_WINDOW_HPP_
 
+#include <string>
 #include <allegro5/display.h>
 
 #include "sl/math/Vector2.hpp"

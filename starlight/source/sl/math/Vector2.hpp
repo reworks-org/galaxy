@@ -10,8 +10,6 @@
 #ifndef STARLIGHT_VECTOR2_HPP_
 #define STARLIGHT_VECTOR2_HPP_
 
-#include "sl/libs/cereal/access.hpp"
-
 namespace sl
 {
 	///
@@ -20,7 +18,6 @@ namespace sl
 	template<typename T>
 	class Vector2 final
 	{
-		friend class cereal::access;
 	public:
 		///
 		/// Default constructor. Values are initialized to 0.
@@ -39,17 +36,6 @@ namespace sl
 		/// Swaps x and y.
 		///
 		void transpose();
-
-	private:
-		///
-		/// Cereal serialize function.
-		///
-		template <class Archive>
-		inline void serialize(Archive& ar)
-		{
-			ar(m_x, m_y);
-		}
-
 
 	public:
 		///

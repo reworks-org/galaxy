@@ -10,8 +10,6 @@
 #ifndef STARLIGHT_VECTOR3_HPP_
 #define STARLIGHT_VECTOR3_HPP_
 
-#include "sl/libs/cereal/access.hpp"
-
 namespace sl
 {
 	///
@@ -20,7 +18,6 @@ namespace sl
 	template<typename T>
 	class Vector3 final
 	{
-		friend class cereal::access;
 	public:
 		///
 		/// Default constructor. Values are initialized to 0.
@@ -34,17 +31,7 @@ namespace sl
 		/// \param y Y value.
 		/// \param z Z value.
 		///
-		Vector3(const T x, const T y, const T z);
-
-	private:
-		///
-		/// Cereal serialize function.
-		///
-		template <class Archive>
-		inline void serialize(Archive& ar)
-		{
-			ar(m_x, m_y, m_z);
-		}
+		Vector3(const T x, const T y, const T z);	
 
 	public:
 		///

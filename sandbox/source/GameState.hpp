@@ -10,9 +10,6 @@
 #ifndef SANDBOX_GAMESTATE_HPP_
 #define SANDBOX_GAMESTATE_HPP_
 
-#include "Serialize.hpp"
-
-
 #include <sl/ui/UI.hpp>
 #include <sl/mapping/TMXMap.hpp>
 #include <sl/core/StateMachine.hpp>
@@ -39,7 +36,6 @@ private:
 	sl::Slider* slider;
 	sl::Label* m_sliderLabel;
 	std::string sliderLabelStr;
-	Serialize serialize;
 	std::unique_ptr<sl::TMXMap> map;
 };
 

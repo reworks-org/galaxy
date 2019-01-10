@@ -10,8 +10,6 @@
 #ifndef STARLIGHT_RECT_HPP_
 #define STARLIGHT_RECT_HPP_
 
-#include "sl/libs/cereal/access.hpp"
-
 namespace sl
 {
 	///
@@ -20,7 +18,6 @@ namespace sl
 	template<typename T1, typename T2 = T1>
 	class Rect final
 	{
-		friend class cereal::access;
 	public:
 		///
 		/// Default constructor. Values are initialized to 0.
@@ -71,15 +68,6 @@ namespace sl
 		/// From: https://stackoverflow.com/a/306379
 		///
 		bool valueInRange(const T1 value, const T1 min, const T1 max);
-
-		///
-		/// Cereal serialize function.
-		///
-		template <class Archive>
-		inline void serialize(Archive& ar)
-		{
-			ar(m_x, m_y, m_width, m_height);
-		}
 
 	public:
 		///

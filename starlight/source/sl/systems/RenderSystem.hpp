@@ -36,10 +36,8 @@ namespace sl
 
 		///
 		/// Render entitys.
-		///
-		/// \param registry Default entity registry.
 		/// 
-		void render(const entt::DefaultRegistry& registry);
+		void render();
 
 	private:
 		///

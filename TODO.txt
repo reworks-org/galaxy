@@ -4,6 +4,7 @@
 	- Review compilation warnings.
 	- More usage of SFINAE and CRTP?
 	- Better usage of constexpr and const style code in general.
+	- Check code with CPPCheck.
 
 	
 - Lua:
@@ -28,22 +29,6 @@
 
 - Misc: 
 	- Review Box2D integration.
-	- Finish Cereal integration.
-		- Switch to MetaStuff: https://github.com/eliasdaler/MetaStuff
-		- To serialize:
-			- music
-			- statemachine
-			- animation
-			- animationframe
-			- registry in world.hpp
-			- transformcomponent
-			- physicscomponent
-				- may need to update internal entity during deserialization
-			- rendercomponent
-			- animationcomponent
-			- cameratag
-			- vector2, vector3, rect (but as types so they can be serialized, not important to serialize each one at game save / load leave it up to where they are being used).
-			- vector4
 	- Language support using a string file?
 	- Debug Interface should be able to do more stuff.
 

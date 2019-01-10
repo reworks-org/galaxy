@@ -10,81 +10,193 @@
 #ifndef STARLIGHT_SERIALIZER_HPP_
 #define STARLIGHT_SERIALIZER_HPP_
 
-#include "sl/libs/entt/entity/registry.hpp"
+#include "sl/math/Rect.hpp"
+#include "sl/math/Vector2.hpp"
+#include "sl/math/Vector3.hpp"
+#include "sl/math/Vector4.hpp"
+#include "sl/core/StateMachine.hpp"
+#include "sl/core/ServiceLocator.hpp"
+#include "sl/libs/loguru/loguru.hpp"
 #include "sl/libs/cereal/archives/json.hpp"
+#include "sl/components/PhysicsComponent.hpp"
 
 namespace sl
 {
 	///
-	/// Provides interfaces to serialize game components with.
+	/// A template to hold a parameter pack.
+	/// Thanks to: https://stackoverflow.com/a/52561399
 	///
-	class Serializer
+	template<typename...>
+	struct Typelist
+	{
+	};
+
+	///
+	/// Declaration of master Serializer class template.
+	/// Thanks to: https://stackoverflow.com/a/52561399
+	///
+	template<typename TypeListOne, typename TypeListTwo>
+	struct Serializer;
+
+	///
+	/// Class used to serialize game data.
+	/// Template parameters are types of entt components and tags to seralize, using template shenanigans.
+	/// Thanks to: https://stackoverflow.com/a/52561399
+	///
+	template<typename... Components, typename... Tags>
+	class Serializer<Typelist<Components...>, Typelist<Tags...>> final
 	{
 	public:
 		///
-		/// Constructor.
+		/// \brief Default constructor.
 		///
-		/// \param saveFilePath Path to the save file to read / write from. Expected to end in '/'.
-		///
-		Serializer(const std::string& saveFilePath);
-
-		///
-		/// Default destructor.
-		///
-		~Serializer() noexcept = default;
-
-		///
-		/// \brief Create snapshot for game specfic data.
-		///
-		/// You must override this in a derived class.
-		///
-		/// \param saveFileName Name of the save file to save to.
-		/// \param source Source registry to serialize entities from.
-		///
-		virtual void createGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& source) = 0;
-
-		///
-		/// \brief Load a snapshot for game specfic data.
-		///
-		/// You must override this in a derived class.
-		///
-		/// \param saveFileName Name of the save file to save to.
-		/// \param destination Destination registry to deserialize entities to.
-		///
-		virtual	void loadGameSnapshot(const std::string& saveFileName, entt::DefaultRegistry& destination) = 0;
-
-	protected:
-		///
-		/// Default constructor.
+		/// Save folder defaults to "saves/".
 		///
 		Serializer();
 
 		///
-		/// \brief Creates a snapshot of important data in the game engine and writes it out. You need to call this in your user functions!
+		/// Path constructor.
 		///
-		///  You need to call this in your user functions! This also calls entt snapshot api for you so no need to worry.
+		/// \param saveFilePath Path to the folder containing save files to read / write from. Expected to end in '/'.
 		///
-		/// \param oarchive Archive to write save data to.
-		/// \param source Source registry to serialize entities from.
-		///
-		virtual void createFrameworkSnapshot(cereal::JSONOutputArchive& oarchive, entt::DefaultRegistry& source) final;
+		Serializer(const std::string& saveFolder);
 
 		///
-		/// \brief Loads a snapshot of important data in the game engine and reads it into the game.
+		/// Destructor.
 		///
-		///  You need to call this in your user functions! This also calls entt snapshot api for you so no need to worry.
-		///
-		/// \param iarchive Archive to read save data from.
-		/// \param destination Destination registry to deserialize entities to.
-		///
-		virtual void loadFrameworkSnapshot(cereal::JSONInputArchive& iarchive, entt::DefaultRegistry& destination) final;
+		~Serializer() noexcept = default;
 
-	protected:
+		///
+		/// Serialize all data to a file in the save folder.
+		///
+		/// \param file Save file to write to.
+		/// \param registry Entt Registry to seralize.
+		///
+		void save(const std::string& file, entt::DefaultRegistry& registry);
+
+		///
+		/// Deserialize all data to a file in the save folder.
+		///
+		/// \param file Save file to load.
+		/// \param registry Entt Registry to seralize.
+		///
+		void load(const std::string& file, entt::DefaultRegistry& registry);
+
+	private:
+		///
+		///	Seralize entt data.
+		///
+		/// \param oarchive Cereal JSON output archive to serailize to.
+		/// \param registry Entt Registry to seralize.
+		///
+		void saveEntt(cereal::JSONOutputArchive& oarchive, entt::DefaultRegistry& registry);
+
+		///
+		/// Deserialize entt data.
+		/// \param iarchive Cereal JSON input archive to deserailize to.
+		/// \param registry Entt Registry to deseralize.
+		///
+		void loadEntt(cereal::JSONInputArchive& iarchive, entt::DefaultRegistry& registry);
+		
+	private:
 		///
 		/// Path where the save files are located.
 		///
-		std::string m_saveFilePath;
+		std::string m_saveFolder;
 	};
+
+	template<typename... Components, typename... Tags>
+	inline Serializer<Typelist<Components...>, Typelist<Tags...>>::Serializer()
+		:m_saveFolder("saves/")
+	{
+	}
+
+	template<typename... Components, typename... Tags>
+	inline Serializer<Typelist<Components...>, Typelist<Tags...>>::Serializer(const std::string& saveFolder)
+		:m_saveFolder(saveFolder)
+	{
+	}
+
+	template<typename... Components, typename... Tags>
+	inline void Serializer<Typelist<Components...>, Typelist<Tags...>>::save(const std::string& file, entt::DefaultRegistry& registry)
+	{
+		std::ofstream output(m_saveFolder + file);
+		if (!output)
+		{
+			LOG_S(ERROR) << "Failed to open save file: " << file;
+		}
+		else
+		{
+			{
+				// Create output archive in scope since cereal completes the process on scope exit.
+				cereal::JSONOutputArchive oa(output);
+
+				// Save all component and tag information, including important data in registry.
+				saveEntt(oa, registry);
+				
+				// Serialize the state machine.
+				oa(Locator::stateMachine);
+			}
+
+			// Check to make sure there are no errors that occured during the writing process.
+			if (!output)
+			{
+				LOG_S(ERROR) << "Failed to write data to save file: " << file;
+			}
+		}
+
+		output.close();
+	}
+
+	template<typename... Components, typename... Tags>
+	inline void Serializer<Typelist<Components...>, Typelist<Tags...>>::load(const std::string& file, entt::DefaultRegistry& registry)
+	{
+		std::ifstream input(m_saveFilePath + saveFileName);
+		if (!input)
+		{
+			LOG_S(ERROR) << "Failed to open save file: " << file;
+		}
+		else
+		{
+			{
+				// Create input archive in scope since cereal completes the process on scope exit.
+				cereal::JSONInputArchive ia(input);
+
+				// Load all component and tag information, including important data in registry.
+				loadEntt(ia, registry);
+
+				// Deserialize the state machine.
+				ia(Locator::stateMachine);
+			}
+
+			// Check to make sure there are no errors that occured during the writing process.
+			if (!input)
+			{
+				LOG_S(ERROR) << "Failed to load data from save file: " << file;
+			}
+
+			// Ensure that each physicscomponent now points to its new entity.
+			registry.view<sl::PhysicsComponent>().each([&](entt::DefaultRegistry::entity_type entity, sl::PhysicsComponent& pc)
+			{
+				pc.setFixtureEntity(entity);
+			});
+		}
+
+		input.close();
+	}
+
+	template<typename... Components, typename... Tags>
+	inline void Serializer<Typelist<Components...>, Typelist<Tags...>>::saveEntt(cereal::JSONOutputArchive& oarchive, entt::DefaultRegistry& registry)
+	{
+		registry.snapshot().entities(oarchive).destroyed(oarchive).component<Components...>(oarchive).tag<Tags...>(oarchive);
+	}
+
+	template<typename... Components, typename... Tags>
+	inline void Serializer<Typelist<Components...>, Typelist<Tags...>>::loadEntt(cereal::JSONInputArchive& iarchive, entt::DefaultRegistry& registry)
+	{
+		entt::ContinuousLoader<entt::DefaultRegistry::entity_type> loader(registry);
+		loader.entities(iarchive).destroyed(iarchive).component<Components...>(iarchive).tag<Tags...>(iarchive).orphans().shrink();
+	}
 }
 
 #endif

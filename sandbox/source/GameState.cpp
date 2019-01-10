@@ -37,7 +37,7 @@
 using namespace sl;
 
 GameState::GameState()
-	:serialize("savefiles/"), m_theme("GameOver32", al_map_rgba(0, 255, 0, 255), "ui/master.png")
+	:m_theme("GameOver32", al_map_rgba(0, 255, 0, 255), "ui/master.png")
 {
 	//map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
 	//m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
@@ -144,14 +144,6 @@ void GameState::event(ALLEGRO_EVENT* event)
 		case ALLEGRO_KEY_H:
 			m_panel->setVisibility(false);
 			break;
-
-		case ALLEGRO_KEY_S:
-			//serialize.createGameSnapshot("test.sav", Locator::world->m_registry);
-			break;
-
-		case ALLEGRO_KEY_L:
-			//serialize.loadGameSnapshot("test.sav", Locator::world->m_registry);
-			break;
 		}
 		break;
 	}
@@ -169,7 +161,7 @@ void GameState::update(const double dt)
 
 void GameState::render()
 {
-	Locator::world->getSystem<RenderSystem>()->render(Locator::world->m_registry);
+	Locator::world->getSystem<RenderSystem>()->render();
 
 	m_ui.render();
 }

@@ -16,3 +16,14 @@
 	-  that first state is automatically loaded and last state is automatically unloaded
 	-  abouit registering tags and components
 	- when creating widgets from lua, the theme needs to be the same as one from that script file.
+	- Classes with seralization:
+				- animationcomponent
+					- animation
+					- animationframe
+				- enabledcomponent
+				- physicscomponent
+					- may need to update internal entity during deserialization
+				- rendercomponent
+				- transformcomponent
+				- cameratag
+			- statemachine	

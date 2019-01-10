@@ -10,6 +10,9 @@
 #ifndef STARLIGHT_UITHEME_HPP_
 #define STARLIGHT_UITHEME_HPP_
 
+#include <string>
+#include <unordered_map>
+
 #include <allegro5/color.h>
 
 #include "sl/math/Rect.hpp"
