@@ -17,6 +17,8 @@
 # sys.path.insert(0, os.path.abspath('.'))
 import subprocess
 
+subprocess.call('cd ../; doxygen Doxyfile', shell=True)
+
 # -- Project information -----------------------------------------------------
 project = 'starlight'
 copyright = '2019, DomRe'
@@ -158,4 +160,3 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
-subprocess.call('cd ../; doxygen Doxyfile', shell=True)
