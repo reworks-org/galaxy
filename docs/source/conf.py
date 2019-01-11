@@ -15,24 +15,12 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import subprocess, sys, os
-
-# build doxygen docs
-read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
-
-if read_the_docs_build:
-    subprocess.call('cd ../; doxygen Doxyfile', shell=True)
-
-# make sure pip, breathe and exhale are installed.
-subprocess.call("pip install breathe", shell=True)
-subprocess.call("pip install exhale", shell=True)
-subprocess.call("pip install sphinx_rtd_theme", shell=True)
+import subprocess
 
 # -- Project information -----------------------------------------------------
-
 project = 'starlight'
-copyright = '2019, reworks'
-author = 'reworks'
+copyright = '2019, DomRe'
+author = 'DomRe'
 
 # The short X.Y version
 version = '0.0'
@@ -50,16 +38,8 @@ release = '0.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-	'breathe',
-	'exhale',
     'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -68,7 +48,6 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-
 # source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
 
@@ -90,43 +69,25 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-# Tell sphinx what the primary language being documented is.
-primary_domain = 'cpp'
 
-# Tell sphinx what the pygments highlight language should be.
-highlight_language = 'cpp'
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# Guzzle theme options (see theme.conf for more information)
-html_theme_options = {
-    'canonical_url': '',
-    'analytics_id': '',
-    'logo_only': False,
-    'display_version': True,
-    'prev_next_buttons_location': 'bottom',
-    'style_external_links': False,
-    'vcs_pageview_mode': '',
-    # Toc options
-    'collapse_navigation': False,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
-}
+# html_theme_options = {}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+html_extra_path = ['../html']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -170,7 +131,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'starlight.tex', 'starlight Documentation',
-     'reworks', 'manual'),
+     'DomRe', 'manual'),
 ]
 
 
@@ -197,37 +158,4 @@ texinfo_documents = [
 
 
 # -- Extension configuration -------------------------------------------------
-
-# -- Options for intersphinx extension ---------------------------------------
-
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
-
-# -- Options for todo extension ----------------------------------------------
-
-# If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = True
-
-# breathe settings
-breathe_projects = {
-    "starlight":"../xml/",
-}
-
-breathe_default_project = "starlight"
-
-breathe_implementation_filename_extensions = ['.c', '.cc', '.cpp']
-
-# Setup the exhale extension
-exhale_args = {
-    # These arguments are required
-    "containmentFolder":     "./exhale",
-    "rootFileName":          "root.rst",
-    "rootFileTitle":         "starlight",
-    "doxygenStripFromPath":  "..",
-    # Suggested optional arguments
-    "createTreeView":        True,
-    # TIP: if using the sphinx-bootstrap-theme, you need
-    # "treeViewIsBootstrap": True,
-    "exhaleExecutesDoxygen": False,
-    "exhaleDoxygenStdin":    "INPUT = "
-}
+subprocess.call('cd ../; doxygen Doxyfile', shell=True)
