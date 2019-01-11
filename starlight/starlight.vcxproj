@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\TODO.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\sl\audio\Music.cpp" />
     <ClCompile Include="source\sl\audio\Sound.cpp" />
     <ClCompile Include="source\sl\components\AnimationComponent.cpp" />
@@ -414,6 +411,9 @@
     <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\docs\TODO.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

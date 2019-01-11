@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\TODO.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\sl\audio\Music.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1190,5 +1187,8 @@
     <ClInclude Include="source\sl\core\Keys.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\docs\TODO.txt" />
   </ItemGroup>
 </Project>
