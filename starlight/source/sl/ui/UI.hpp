@@ -65,8 +65,8 @@ namespace sl
 		///
 		/// \param luaScript The script needed to create the ui. The script folder is automatically appended!
 		/// \param widgetsMap An unordered_map to be filled with the widgets created, and the key is the widget name. You will need to cast the pointers to the correct type.
-		/// 		Each widget name has the structure: <Class>_<Name>. For example in your lua script, you would have Button_MenuQuit. This will create a button with the widget name of MenuQuit.
-		///			So in this hashmap you only get the <Name> as the key.
+		/// 		Each widget name has the structure: "Class"_"Name". For example in your lua script, you would have Button_MenuQuit. This will create a button with the widget name of MenuQuit.
+		///			So in this hashmap you only get the "Name" as the key.
 		/// \param themesMap An unordered_map to be filled with the themes created. The key is the name of the theme table in the lua script.
 		///
 		void createFromScript(const std::string& luaScript, std::unordered_map<std::string, Widget*>* widgetsMap, std::unordered_map<std::string, UITheme>* themesMap);

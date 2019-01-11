@@ -61,7 +61,7 @@ namespace sl
 		void remove(unsigned int id);
 
 		///
-		/// Update the panel and widgets..
+		/// Update the panel and widgets.
 		///
 		/// \param dt Delta Time.
 		///

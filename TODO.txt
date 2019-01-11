@@ -31,6 +31,7 @@
 	- Review Box2D integration.
 	- Language support using a string file?
 	- Debug Interface should be able to do more stuff.
+	- Finish seralizer for userdata.
 
 
 - UI:

@@ -50,7 +50,7 @@ namespace sl
 		///
 		/// \param x x-pos of button relative to panel.
 		/// \param y y-pos of button relative to panel.
-		/// \param images Array of texture names in theme to use. Need to be all the same dimensions.
+		/// \param textures Array of texture names in theme to use. Need to be all the same dimensions.
 		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.		
 		/// \param theme Theme for this widget.
 		///
@@ -66,7 +66,7 @@ namespace sl
 		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
 		/// \param theme Theme for this widget.
 		///
-		Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colors, UITheme* theme);
+		Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colours, UITheme* theme);
 
 		///
 		/// Lua Constructor.

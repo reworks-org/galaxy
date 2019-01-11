@@ -39,7 +39,7 @@ namespace sl
 		sl::Locator::dispatcher->sink<sl::MouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
 	}
 
-	Button::Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colors, UITheme* theme)
+	Button::Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colours, UITheme* theme)
 		:Widget({ x, y, 0, 0 }, theme), m_callback(nullptr)
 	{	
 		// Find correct button size.
@@ -53,7 +53,7 @@ namespace sl
 			al_set_target_bitmap(bitmap);
 			al_clear_to_color(al_map_rgba(0, 0, 0, 0));
 
-			al_draw_text(m_theme->font(), colors[i], 0, 0, ALLEGRO_ALIGN_LEFT, text.c_str());
+			al_draw_text(m_theme->font(), colours[i], 0, 0, ALLEGRO_ALIGN_LEFT, text.c_str());
 
 			al_flip_display();
 			m_textures[i] = bitmap;

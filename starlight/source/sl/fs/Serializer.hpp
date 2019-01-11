@@ -57,7 +57,7 @@ namespace sl
 		///
 		/// Path constructor.
 		///
-		/// \param saveFilePath Path to the folder containing save files to read / write from. Expected to end in '/'.
+		/// \param saveFolder Path to the folder containing save files to read / write from. Expected to end in '/'.
 		///
 		Serializer(const std::string& saveFolder);
 
