@@ -54,9 +54,8 @@ namespace sl
 		/// \param y ypos of original tilemap on atlas.
 		/// \param tileWidth Width of current tile.
 		/// \param tileHeight Height of current tile.
-		/// \param layerName Ensures unique ids by using layerName as a base.
 		///
-		AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight, const std::string& layerName);
+		AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight);
 
 		///
 		/// Destructor.

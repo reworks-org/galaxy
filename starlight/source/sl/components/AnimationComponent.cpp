@@ -7,8 +7,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/utils/Time.hpp"
 #include "sl/libs/tmx/tmx.h"
+#include "sl/utils/Time.hpp"
 #include "sl/core/ServiceLocator.hpp"
 #include "sl/graphics/TextureAtlas.hpp"
 
@@ -42,7 +42,7 @@ namespace sl
 		}
 	}
 
-	AnimationComponent::AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight, const std::string& layerName)
+	AnimationComponent::AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight)
 		:m_currentFrameTime(0.0), m_isPaused(false)
 	{
 		// Construct animation from raw data from a tmx tile map.
@@ -56,7 +56,7 @@ namespace sl
 			int subX = x + map->tiles[tile->animation[i].tile_id + 1]->ul_x;
 			int subY = y + map->tiles[tile->animation[i].tile_id + 1]->ul_y;
 
-			std::string iaID = layerName + "AnimatedTileInternal" + std::to_string(Time::getTimeSinceEpoch());
+			std::string iaID = "AnimatedTileInternal" + std::to_string(Time::getTimeSinceEpoch());
 			Locator::textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
 			m_animations[aID].m_frames.emplace_back(AnimationFrame { static_cast<std::uint32_t>(tile->animation[i].duration), iaID });
 		}

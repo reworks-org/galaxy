@@ -7,8 +7,6 @@
 #include <string.h>
 #include <ctype.h> /* is */
 
-#include "tmx.h"
-#include "tsx.h"
 #include "tmx_utils.h"
 
 /*
@@ -243,6 +241,10 @@ int data_decode(const char *source, enum enccmp_t type, size_t gids_count, int32
 		if (!(b64dec = b64_decode(source, &b64_len))) return 0;
 		*gids = (int32_t*)zlib_decompress(b64dec, b64_len, (unsigned int)(gids_count*sizeof(int32_t)));
 		tmx_free_func(b64dec);
+		if (!(*gids)) return 0;
+	}
+	else if (type==B64) {
+		*gids = (int32_t*)b64_decode(source, &b64_len);
 		if (!(*gids)) return 0;
 	}
 
@@ -544,15 +546,18 @@ size_t dirpath_len(const char *str) {
 
 /* ("C:\Maps\map.tmx", "tilesets\ts1.tsx") => "C:\Maps\tilesets\ts1.tsx" */
 char* mk_absolute_path(const char *base_path, const char *rel_path) {
+	size_t dp_len, rp_len, ap_len;
+	char *res;
+
 	if (base_path == NULL) {
 		return tmx_strdup(rel_path);
 	}
 	/* if base_path is a directory, it MUST have a trailing path separator */
-	size_t dp_len = dirpath_len(base_path);
-	size_t rp_len = strlen(rel_path);
-	size_t ap_len = dp_len + rp_len;
+	dp_len = dirpath_len(base_path);
+	rp_len = strlen(rel_path);
+	ap_len = dp_len + rp_len;
 
-	char* res = (char*)tmx_alloc_func(NULL, ap_len+1);
+	res = (char*)tmx_alloc_func(NULL, ap_len+1);
 	if (!res) {
 		tmx_errno = E_ALLOC;
 		return NULL;
@@ -576,4 +581,29 @@ void* load_image(void **ptr, const char *base_path, const char *rel_path) {
 		return(*ptr);
 	}
 	return (void*)1;
+}
+
+/* Resource Manager helper functions */
+int add_tileset(tmx_resource_manager *rc_mgr, const char *key, tmx_tileset *value) {
+	resource_holder *rc_holder;
+	if (value) {
+		rc_holder = pack_tileset_resource(value);
+		if (rc_holder) {
+			hashtable_set((void*)rc_mgr, key, (void*)rc_holder, resource_deallocator);
+			return 1;
+		}
+	}
+	return 0;
+}
+int add_template(tmx_resource_manager *rc_mgr, const char *key, tmx_template *value) {
+	resource_holder *rc_holder;
+	if (value)
+	{
+		rc_holder = pack_template_resource(value);
+		if (rc_holder) {
+			hashtable_set((void*)rc_mgr, key, (void*)rc_holder, resource_deallocator);
+			return 1;
+		}
+	}
+	return 0;
 }

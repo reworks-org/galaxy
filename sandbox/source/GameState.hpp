@@ -11,7 +11,6 @@
 #define SANDBOX_GAMESTATE_HPP_
 
 #include <sl/ui/UI.hpp>
-#include <sl/mapping/TMXMap.hpp>
 #include <sl/core/StateMachine.hpp>
 #include <sl/ui/widgets/Label.hpp>
 #include <sl/ui/widgets/Slider.hpp>
@@ -36,7 +35,6 @@ private:
 	sl::Slider* slider;
 	sl::Label* m_sliderLabel;
 	std::string sliderLabelStr;
-	std::unique_ptr<sl::TMXMap> map;
 };
 
 #endif

@@ -20,10 +20,7 @@
 
 
 - Mapping:
-	- Move to: https://github.com/fallahn/tmxlite
-		- Will help to trim down dependencies.
-	- Support for more physics shapes for tmx map objects.
-	- Improvements to mapping code in general. Probably needs a rewrite or a new libary.
+	- Support text objects from Tiled.
 
 
 - Misc: 

@@ -363,12 +363,6 @@
     <ClCompile Include="source\sl\libs\tmx\tmx_xml.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\libs\tmx\tsx.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\sl\mapping\TMXMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\math\QuadTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -457,6 +451,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\sl\ui\UITheme.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sl\mapping\TiledMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1049,12 +1046,6 @@
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\tmx\tsx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\mapping\TMXMap.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\math\QuadTree.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1185,6 +1176,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\Keys.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\mapping\TiledMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
