@@ -15,9 +15,8 @@
 
 
 - Documentation:
-	- Properly organise documentation layout on RTFD, using toc.
-		- https://breathe.readthedocs.io/en/latest/index.html	
 	- Write tutorials.
+	- Merge tutorials, notes and style guide with doxygen docs.
 
 
 - Mapping:
@@ -31,7 +30,6 @@
 	- Review Box2D integration.
 	- Language support using a string file?
 	- Debug Interface should be able to do more stuff.
-	- Finish seralizer for userdata.
 
 
 - UI:

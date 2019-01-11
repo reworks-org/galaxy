@@ -82,6 +82,24 @@ namespace sl
 		///
 		void load(const std::string& file, entt::DefaultRegistry& registry);
 
+		///
+		/// \brief Set a lambda to call when seralizing, containing game specific data to be serialized.
+		///
+		/// Ensure that you seralize in the same order you deseralize! See cereal for a guide to seralizing.
+		///
+		/// \param callback Lambda function.
+		///
+		void setSaveCallback(std::function<void(cereal::JSONOutputArchive&)>& callback);
+
+		///
+		/// \brief Set a lambda to call when deseralizing, containing game specific data to be deserialized.
+		///
+		/// Ensure that you deseralize in the same order you seralize! See cereal for a guide to deseralizing.
+		///
+		/// \param callback Lambda function.
+		///
+		void setLoadCallback(std::function<void(cereal::JSONInputArchive&)>& callback);
+
 	private:
 		///
 		///	Seralize entt data.
@@ -93,6 +111,7 @@ namespace sl
 
 		///
 		/// Deserialize entt data.
+		///
 		/// \param iarchive Cereal JSON input archive to deserailize to.
 		/// \param registry Entt Registry to deseralize.
 		///
@@ -103,6 +122,16 @@ namespace sl
 		/// Path where the save files are located.
 		///
 		std::string m_saveFolder;
+
+		///
+		/// User callback for seralizing game specific data.
+		///
+		std::function<void(cereal::JSONOutputArchive&)> m_saveCallback;
+
+		///
+		/// User callback for deseralizing game specific data.
+		///
+		std::function<void(cereal::JSONInputArchive&)> m_loadCallback;
 	};
 
 	template<typename... Components, typename... Tags>
@@ -136,6 +165,9 @@ namespace sl
 				
 				// Serialize the state machine.
 				oa(Locator::stateMachine);
+
+				// User data to seralize.
+				m_saveCallback(oa);
 			}
 
 			// Check to make sure there are no errors that occured during the writing process.
@@ -167,6 +199,9 @@ namespace sl
 
 				// Deserialize the state machine.
 				ia(Locator::stateMachine);
+
+				// User data to deseralize.
+				m_loadCallback(ia);
 			}
 
 			// Check to make sure there are no errors that occured during the writing process.
@@ -183,6 +218,18 @@ namespace sl
 		}
 
 		input.close();
+	}
+
+	template<typename... Components, typename... Tags>
+	inline void Serializer<Typelist<Components...>, Typelist<Tags...>>::setSaveCallback(std::function<void(cereal::JSONOutputArchive&)>& callback)
+	{
+		m_saveCallback = callback;
+	}
+
+	template<typename... Components, typename... Tags>
+	inline void Serializer<Typelist<Components...>, Typelist<Tags...>>::setLoadCallback(std::function<void(cereal::JSONInputArchive&)>& callback)
+	{
+		m_loadCallback = callback;
 	}
 
 	template<typename... Components, typename... Tags>
