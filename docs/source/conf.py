@@ -23,14 +23,15 @@ read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
 if read_the_docs_build:
     subprocess.call('cd ../; doxygen Doxyfile', shell=True)
 
-# make sure pip and doxygen is installed.
+# make sure pip, breathe and exhale are installed.
 subprocess.call("pip install breathe", shell=True)
+subprocess.call("pip install exhale", shell=True)
 subprocess.call("pip install sphinx_rtd_theme", shell=True)
 
 # -- Project information -----------------------------------------------------
 
 project = 'starlight'
-copyright = '2018, reworks'
+copyright = '2019, reworks'
 author = 'reworks'
 
 # The short X.Y version
@@ -50,6 +51,7 @@ release = '0.0.0'
 # ones.
 extensions = [
 	'breathe',
+	'exhale',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.intersphinx',
@@ -66,6 +68,7 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
+
 # source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
 
@@ -87,7 +90,11 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-highlight_language = 'c++'
+# Tell sphinx what the primary language being documented is.
+primary_domain = 'cpp'
+
+# Tell sphinx what the pygments highlight language should be.
+highlight_language = 'cpp'
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -109,7 +116,7 @@ html_theme_options = {
     'style_external_links': False,
     'vcs_pageview_mode': '',
     # Toc options
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
@@ -209,3 +216,18 @@ breathe_projects = {
 breathe_default_project = "starlight"
 
 breathe_implementation_filename_extensions = ['.c', '.cc', '.cpp']
+
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    "containmentFolder":     "./exhale",
+    "rootFileName":          "root.rst",
+    "rootFileTitle":         "starlight",
+    "doxygenStripFromPath":  "..",
+    # Suggested optional arguments
+    "createTreeView":        True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    # "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": False,
+    "exhaleDoxygenStdin":    "INPUT = "
+}
