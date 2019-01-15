@@ -10,6 +10,7 @@
 - Lua:
 	- More support for lua usage.
 		- https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
+		- Integrate Lua with Command API. Will be very useful to be able to execute commands like that in a generic way.
 
 
 - Documentation:
