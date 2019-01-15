@@ -34,7 +34,6 @@
     <ClCompile Include="source\sl\core\StateMachine.cpp" />
     <ClCompile Include="source\sl\core\World.cpp" />
     <ClCompile Include="source\sl\fs\ConfigReader.cpp" />
-    <ClCompile Include="source\sl\fs\Serializer.cpp" />
     <ClCompile Include="source\sl\fs\VirtualFS.cpp" />
     <ClCompile Include="source\sl\graphics\Animation.cpp" />
     <ClCompile Include="source\sl\graphics\AnimationFrame.cpp" />
@@ -179,6 +178,7 @@
     <ClInclude Include="source\sl\components\ScrollingBackgroundComponent.hpp" />
     <ClInclude Include="source\sl\components\TransformComponent.hpp" />
     <ClInclude Include="source\sl\core\Application.hpp" />
+    <ClInclude Include="source\sl\core\Command.hpp" />
     <ClInclude Include="source\sl\core\DebugInterface.hpp" />
     <ClInclude Include="source\sl\core\ServiceLocator.hpp" />
     <ClInclude Include="source\sl\core\StateMachine.hpp" />

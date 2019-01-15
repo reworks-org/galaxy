@@ -10,8 +10,6 @@
 - Lua:
 	- More support for lua usage.
 		- https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
-	- Allow for creating entities in lua.
-	- Allow for component assignment in lua to an entity.
 
 
 - Documentation:
@@ -27,6 +25,8 @@
 	- Review Box2D integration.
 	- Language support using a string file?
 	- Debug Interface should be able to do more stuff.
+	- Implement command in engine where needed.
+	- game design patterns
 
 
 - UI:

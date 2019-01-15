@@ -89,9 +89,9 @@ namespace sl
 		///
 		/// Workaround function to allow sol2 to assign components to entt entities.
 		///
-		inline void assignAnimationComponent(const entt::DefaultRegistry::entity_type entity, tmx_map* map, tmx_tile* tile, const int x, const int y, const int tileWidth, const int tileHeight)
+		inline void assignAnimationComponent(const entt::DefaultRegistry::entity_type entity, const sol::table& table)
 		{
-			sl::Locator::world->m_registry.assign<AnimationComponent>(entity, map, tile, x, y, tileWidth, tileHeight);
+			sl::Locator::world->m_registry.assign<AnimationComponent>(entity, table);
 		}
 	}
 }

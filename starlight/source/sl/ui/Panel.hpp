@@ -127,13 +127,15 @@ namespace sl
 		{
 			LOG_S(FATAL) << "Failed to retrieve widget just emplaced... assumed id: " << m_counter;
 		}
-		
-		// Set offset and id.
-		ref->setOffset(m_bounds.m_x, m_bounds.m_y);
-		ref->m_id = m_counter;
+		else
+		{
+			// Set offset and id.
+			ref->setOffset(m_bounds.m_x, m_bounds.m_y);
+			ref->m_id = m_counter;
 
-		// Increment counter for next widget.
-		++m_counter;
+			// Increment counter for next widget.
+			++m_counter;
+		}
 
 		// Then return a pointer to object placed.
 		return dynamic_cast<WidgetType*>(ref);

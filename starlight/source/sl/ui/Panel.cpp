@@ -35,7 +35,7 @@ namespace sl
 	}
 
 	Panel::Panel(const sl::Rect<int>& bounds, const std::string& image)
-		:m_isVisible(true), m_bounds(bounds), m_background(nullptr)
+		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr)
 	{
 		// Load image and check for errors.
 		m_background = al_load_bitmap(image.c_str());

@@ -195,7 +195,7 @@ namespace sl
 					break;
 
 				case ALLEGRO_KEY_END:
-					m_cursorPos = al_ustr_size(m_text);
+					m_cursorPos = static_cast<int>(al_ustr_size(m_text));
 					break;
 
 				case ALLEGRO_KEY_LEFT:
@@ -221,7 +221,7 @@ namespace sl
 					if (e.m_unichar >= ' ')
 					{
 						al_ustr_insert_chr(m_text, m_cursorPos, e.m_unichar);
-						m_cursorPos += al_utf8_width(e.m_unichar);
+						m_cursorPos += static_cast<int>(al_utf8_width(e.m_unichar));
 					}
 					break;
 				}
@@ -230,7 +230,7 @@ namespace sl
 			// This ensures that the text does not go outside the input boundaries.
 			// By ensuring the shown text is the latest character, minus early characters to give the impression
 			// of scrolling text box.
-			int usw = al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+			int usw = static_cast<int>(al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, static_cast<int>(al_ustr_size(m_text)))));
 			if (usw >= (m_bounds.m_width - 2))
 			{
 				al_ustr_next(m_text, &m_startPos);
@@ -247,7 +247,7 @@ namespace sl
 				// This ensures that the text does not go outside the input boundaries.
 				// By ensuring the shown text is the latest character, minus early characters to give the impression
 				// of scrolling text box.
-				int usw = al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+				int usw = static_cast<int>(al_get_ustr_width(m_theme->font(), al_ref_ustr(&m_info, m_text, m_startPos, static_cast<int>(al_ustr_size(m_text)))));
 				if (usw >= (m_bounds.m_width - 2))
 				{
 					al_ustr_next(m_text, &m_startPos);
@@ -286,12 +286,12 @@ namespace sl
 					0);
 				}
 
-				al_draw_ustr(m_theme->font(), m_theme->colour(), m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+				al_draw_ustr(m_theme->font(), m_theme->colour(), m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, static_cast<int>(al_ustr_size(m_text))));
 			}
 			else
 			{
 				al_draw_bitmap(m_field, m_bounds.m_x, m_bounds.m_y, 0);
-				al_draw_ustr(m_theme->font(), m_theme->colour(), m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, al_ustr_size(m_text)));
+				al_draw_ustr(m_theme->font(), m_theme->colour(), m_textX, m_textY, 0, al_ref_ustr(&m_info, m_text, m_startPos, static_cast<int>(al_ustr_size(m_text))));
 			}
 
 			// Draw tooltip.

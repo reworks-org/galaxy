@@ -60,9 +60,6 @@
     <ClCompile Include="source\sl\fs\ConfigReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\sl\fs\Serializer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\sl\fs\VirtualFS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1179,6 +1176,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\mapping\TiledMap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\core\Command.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

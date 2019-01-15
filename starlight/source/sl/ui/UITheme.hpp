@@ -44,7 +44,7 @@ namespace sl
 		///
 		/// \param table Lua table containing info.
 		///
-		UITheme(const sol::table& table);
+		explicit UITheme(const sol::table& table);
 
 		///
 		/// Destructor.

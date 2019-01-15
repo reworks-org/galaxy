@@ -40,7 +40,7 @@ namespace sl
 		///
 		/// \param map .tmx map file in the VFS to load.
 		///
-		TiledMap(const std::string& map);
+		explicit TiledMap(const std::string& map);
 
 		///
 		/// \brief Destructor.

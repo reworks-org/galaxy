@@ -8,7 +8,7 @@
 ///
 
 #include <sl/libs/entt/entity/helper.hpp>
-
+#include <sl/core/Command.hpp>
 #include <sl/core/World.hpp>
 #include <sl/graphics/TextureAtlas.hpp>
 #include <allegro5/keyboard.h>

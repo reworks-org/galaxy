@@ -41,7 +41,7 @@ namespace sl
 		///
 		/// \param speed Speed to move the background at.
 		///
-		ScrollingBackgroundComponent(const float speed);
+		explicit ScrollingBackgroundComponent(const float speed);
 
 		///
 		/// Destructor.

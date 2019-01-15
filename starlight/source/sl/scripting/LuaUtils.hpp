@@ -14,6 +14,9 @@
 
 namespace sl
 {
+	///
+	/// Class that contains useful functions for interacting with Lua.
+	///
 	class LuaUtils final
 	{
 		friend class Application;

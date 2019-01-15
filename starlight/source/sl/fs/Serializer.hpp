@@ -59,7 +59,7 @@ namespace sl
 		///
 		/// \param saveFolder Path to the folder containing save files to read / write from. Expected to end in '/'.
 		///
-		Serializer(const std::string& saveFolder);
+		explicit Serializer(const std::string& saveFolder);
 
 		///
 		/// Destructor.
