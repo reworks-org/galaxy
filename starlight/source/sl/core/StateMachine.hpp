@@ -132,7 +132,7 @@ namespace sl
 		// Construct in place by forwarding arguments to the object.
 		m_states.emplace(id, std::make_unique<State>(std::forward<Args>(args)...));
 
-		return m_states[id].get();
+		return dynamic_cast<State*>(m_states[id].get());
 	}
 
 	template<typename S>

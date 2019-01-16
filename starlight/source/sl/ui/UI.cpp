@@ -43,7 +43,7 @@ namespace sl
 		m_panels.clear();
 	}
 	
-	void UI::createFromScript(const std::string& luaScript, std::unordered_map<std::string, Widget*>* widgetsMap, std::unordered_map<std::string, UITheme>* themesMap)
+	void UI::createFromScript(const std::string& luaScript, WidgetStorage* widgetsMap, ThemeStorage* themesMap)
 	{
 		// Load script into lua.
 		std::string fullPath = Locator::world->m_scriptFolderPath + luaScript;

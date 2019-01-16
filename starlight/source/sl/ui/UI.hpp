@@ -16,6 +16,9 @@
 
 namespace sl
 {
+	typedef std::unordered_map<std::string, Widget*> WidgetStorage;
+	typedef std::unordered_map<std::string, UITheme> ThemeStorage;
+	
 	///
 	/// Manages UI for a dynamic array of Panels.
 	/// Stores panels as unique_ptrs.
@@ -69,7 +72,7 @@ namespace sl
 		///			So in this hashmap you only get the "Name" as the key.
 		/// \param themesMap An unordered_map to be filled with the themes created. The key is the name of the theme table in the lua script.
 		///
-		void createFromScript(const std::string& luaScript, std::unordered_map<std::string, Widget*>* widgetsMap, std::unordered_map<std::string, UITheme>* themesMap);
+		void createFromScript(const std::string& luaScript, WidgetStorage* widgetsMap, ThemeStorage* themesMap);
 
 		///
 		/// Update the UI.
