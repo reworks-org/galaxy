@@ -91,8 +91,7 @@ int main(int argc, char **argv)
 					newConfig << std::endl;
 
 					newConfig << "[archives]\n";
-					newConfig << "bin/assets/\n";
-					//newConfig << "bin/data.zip\n";
+					newConfig << "bin/assets/";
 					newConfig << std::endl;
 				});
 

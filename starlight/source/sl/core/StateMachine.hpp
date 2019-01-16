@@ -75,8 +75,10 @@ namespace sl
 		/// \param id Name of the state to identify it by.
 		/// \param args Arguments to construct the state.
 		///
+		/// \return Returns pointer to newly created state.
+		///
 		template<typename State, typename ... Args>
-		void createState(const std::string& id, Args&&... args);
+		State* createState(const std::string& id, Args&&... args);
 
 		///
 		/// Push a new state to the top of the stack.
@@ -125,10 +127,12 @@ namespace sl
 	};
 
 	template<typename State, typename ... Args>
-	inline void StateMachine::createState(const std::string& id, Args&&... args)
+	inline State* StateMachine::createState(const std::string& id, Args&&... args)
 	{
 		// Construct in place by forwarding arguments to the object.
 		m_states.emplace(id, std::make_unique<State>(std::forward<Args>(args)...));
+
+		return m_states[id].get();
 	}
 
 	template<typename S>

@@ -27,7 +27,7 @@
 	- Language support using a string file?
 	- Debug Interface should be able to do more stuff.
 	- Implement command in engine where needed.
-	- game design patterns
+	- Should each game state have its own registry and layer?
 
 
 - UI:

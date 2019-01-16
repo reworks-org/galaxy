@@ -60,6 +60,13 @@ namespace sl
 		///
 		State() = default;
 
+		///
+		/// Default constructor.
+		///
+		/// \param bounds Rendering bounds for this state.
+		///
+		inline State(const sl::Rect<float, int>& bounds) : m_bounds(bounds) {}
+
 	public:
 		///
 		/// The dimensions for the state, used with a quadtree to decide what to render to screen.
