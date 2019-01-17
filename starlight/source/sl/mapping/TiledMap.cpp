@@ -36,14 +36,14 @@
 ///
 namespace libtmx
 {
-	ALLEGRO_COLOR int_to_al_color(int color) {
+	ALLEGRO_COLOR int_to_al_color(int color, unsigned char opacity) {
 		unsigned char r, g, b;
 
 		r = (color >> 16) & 0xFF;
 		g = (color >> 8) & 0xFF;
 		b = (color) & 0xFF;
 
-		return al_map_rgb(r, g, b);
+		return al_map_rgba(r, g, b, opacity);
 	}
 
 	void draw_polyline(double **points, double x, double y, int pointsc, ALLEGRO_COLOR color) {
@@ -82,7 +82,7 @@ namespace libtmx
 		sl::Locator::world->m_registry.assign<sl::RenderComponent>(entity, layer->opacity, std::filesystem::path(layer->content.image->source).stem().string());
 
 		// Assign Transform component.
-		sl::Locator::world->m_registry.assign<sl::TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f,
+		sl::Locator::world->m_registry.assign<sl::TransformComponent>(entity, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
 			sl::Rect<float, int>{static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), static_cast<int>(layer->content.image->width), static_cast<int>(layer->content.image->height)});
 
 		// Assign Enabled component.
@@ -99,15 +99,15 @@ namespace libtmx
 
 		// Prep for layer contstruction.
 		tmx_object *head = objgr->head;
-		ALLEGRO_COLOR color = libtmx::int_to_al_color(objgr->color);
-		color.a = 1.0f;
+		ALLEGRO_COLOR color = libtmx::int_to_al_color(objgr->color, 255);
+		color.a = layer->opacity;
 
 		// Create objects bitmap.
 		ALLEGRO_BITMAP* objects = al_create_bitmap(w, h);
 		al_set_target_bitmap(objects);
 
 		// Prepare to draw texture to render.
-		al_clear_to_color(al_map_rgba_f(1.0f, 1.0f, 1.0f, 0.0f));
+		al_clear_to_color(al_map_rgba(255, 255, 255, 0));
 
 		// Iterate over object layer like this because it is a linked list.
 		while (head)
@@ -161,7 +161,7 @@ namespace libtmx
 			sl::Locator::world->m_registry.assign<sl::EnabledComponent>(entity);
 
 			// Assign transform component.
-			sl::Locator::world->m_registry.assign<sl::TransformComponent>(entity, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f, sl::Rect<float, int>{0.0f, 0.0f, static_cast<int>(w), static_cast<int>(h)});
+			sl::Locator::world->m_registry.assign<sl::TransformComponent>(entity, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f, sl::Rect<float, int>{0.0f, 0.0f, static_cast<int>(w), static_cast<int>(h)});
 
 			// Then add it to the texture atlas ensuring a unique id and assign object to render component.
 			std::string id = "TmxObject" + std::to_string(sl::Time::getTimeSinceEpoch());
@@ -193,7 +193,7 @@ namespace libtmx
 		// Set up drawing for the tilemap.
 		ALLEGRO_BITMAP* tileLayer = al_create_bitmap(map->width * map->tile_width, map->height * map->tile_height);
 		al_set_target_bitmap(tileLayer);
-		al_clear_to_color(libtmx::int_to_al_color(map->backgroundcolor));
+		al_clear_to_color(libtmx::int_to_al_color(map->backgroundcolor, 0));
 		al_hold_bitmap_drawing(true);
 
 		// Iterate over each tile in the tilemap.
@@ -234,9 +234,6 @@ namespace libtmx
 						// Retrieve any flags and pass to the allegro draw function, drawing the tile to the master tilemap layer image.
 						flags = libtmx::gid_extract_flags(layer->content.gids[(i*map->width) + j]);
 						al_draw_tinted_bitmap_region(tileset, al_map_rgba_f(op, op, op, op), x, y, w, h, j*ts->tile_width, i*ts->tile_height, flags);
-
-						// Then destroy the used up tileset.
-						al_destroy_bitmap(tileset);
 					}
 					else
 					{
@@ -257,7 +254,7 @@ namespace libtmx
 						sl::Locator::world->m_registry.assign<sl::EnabledComponent>(ate);
 
 						// Assign transform component.
-						sl::Locator::world->m_registry.assign<sl::TransformComponent>(ate, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f,
+						sl::Locator::world->m_registry.assign<sl::TransformComponent>(ate, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
 							sl::Rect<float, int>{static_cast<float>(j*ts->tile_width), static_cast<float>(i*ts->tile_height), static_cast<int>(w), static_cast<int>(h)});
 
 						// Assign render component.
@@ -266,6 +263,9 @@ namespace libtmx
 						// Assign animated component.
 						sl::Locator::world->m_registry.assign<sl::AnimationComponent>(ate, map, map->tiles[gid], pr.m_x, pr.m_y, w, h);
 					}
+
+					// Then destroy the used up tileset.
+					al_destroy_bitmap(tileset);
 				}
 			}
 		}
@@ -287,7 +287,7 @@ namespace libtmx
 		sl::Locator::world->m_registry.assign<sl::EnabledComponent>(tle);
 
 		// Assign transform component.
-		sl::Locator::world->m_registry.assign<sl::TransformComponent>(tle, tmx_get_property(layer->properties, "layer")->value.integer, 0.0f,
+		sl::Locator::world->m_registry.assign<sl::TransformComponent>(tle, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
 			sl::Rect<float, int>(layer->offsetx, layer->offsety, map->width * map->tile_width, map->height * map->tile_height));
 
 		// Assign render component.
