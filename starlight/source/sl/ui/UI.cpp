@@ -78,6 +78,9 @@ namespace sl
 					}
 					else
 					{
+						// Name.
+						std::string themeTableName = pair.first.as<std::string>();
+
 						// Retrieve colour.
 						ALLEGRO_COLOR themeCol;
 						sol::table colTable = themeTable.get<sol::table>("colour");
@@ -95,16 +98,34 @@ namespace sl
 								colTable.get<unsigned char>("a")
 							);
 						}
-						
+
 						// Have to work around std::pair's constructor issues.
 						themesMap->emplace(std::piecewise_construct,
-							std::forward_as_tuple(pair.first.as<std::string>()),
+							std::forward_as_tuple(themeTableName),
 							std::forward_as_tuple(themeTable.get<std::string>("font"), themeCol, themeTable.get<std::string>("masterTexture")));
+
+						// Retrieve all the texture rectangle definitions.
+						sol::table textureRects = themeTable.get<sol::table>("textureRects");
+						if (!textureRects.valid() || textureRects.empty())
+						{
+							LOG_S(ERROR) << "UI script table \"textureRects\" is invalid or empty for script: " << luaScript;
+						}
+						else
+						{
+							textureRects.for_each([&](std::pair<sol::object, sol::object> pair)
+							{
+								std::string trID = pair.first.as<std::string>();
+								sol::table trTable = pair.second.as<sol::table>();
+
+								themesMap->at(themeTableName).defineWidgetTexture(trID, { trTable.get<int>("x"), trTable.get<int>("y"), trTable.get<int>("w"), trTable.get<int>("h") });
+							});
+						}
 					}
 				});
 			}
 
 			sol::table panelsTable = ui.get<sol::table>("panels");
+			int x = 0, y = 0, w = 0, h = 0;
 			if (!panelsTable.valid() || panelsTable.empty())
 			{
 				LOG_S(ERROR) << "UI script table \"panels\" is invalid or empty for script: " << luaScript;
@@ -130,48 +151,49 @@ namespace sl
 						}
 						else
 						{
-							int x = bounds.get<int>("x");
-							int y = bounds.get<int>("y");
-							int w = bounds.get<int>("w");
-							int h = bounds.get<int>("h");
+							x = bounds.get<int>("x");
+							y = bounds.get<int>("y");
+							w = bounds.get<int>("w");
+							h = bounds.get<int>("h");
+						}
 
-							// Check to see if colour / image exists.
-							auto colourCheck = panelTable["colour"];
-							auto imageCheck = panelTable["image"];
-							if (colourCheck.valid())
+						// Check to see if colour / image exists.
+						auto colourCheck = panelTable["colour"];
+						auto themeCheck = panelTable["theme"]; // Name of theme from above.
+						if (colourCheck.valid())
+						{
+							// Make sure colour is not empty.
+							sol::table colour = panelTable.get<sol::table>("colour");
+							if (!colour.valid() || colour.empty())
 							{
-								// Make sure colour is not empty.
-								sol::table colour = panelTable.get<sol::table>("colour");
-								if (!colour.valid() || colour.empty())
-								{
-									LOG_S(ERROR) << "Panel table \"colour\" is invalid or empty for script: " << luaScript;
-								}
-								else
-								{
-									unsigned char r = colour.get<unsigned char>("r");
-									unsigned char g = colour.get<unsigned char>("g");
-									unsigned char b = colour.get<unsigned char>("b");
-									unsigned char a = colour.get<unsigned char>("a");
-
-									panel = addPanel(sl::Rect<int>{x, y, w, h}, al_map_rgba(r, g, b, a));
-								}
-							}
-							else if (imageCheck.valid()) // Else if image is valid.
-							{
-								std::string image = panelTable.get<std::string>("image");
-								if (!image.empty())
-								{
-									panel = addPanel(sl::Rect<int>{x, y, w, h}, image);
-								}
-								else
-								{
-									LOG_S(ERROR) << "Panel table image string is empty for script: " << luaScript;
-								}
+								LOG_S(ERROR) << "Panel table \"colour\" is invalid or empty for script: " << luaScript;
 							}
 							else
 							{
-								LOG_S(ERROR) << "Found no valid image or colour table for UI in script: " << luaScript;
+								unsigned char r = colour.get<unsigned char>("r");
+								unsigned char g = colour.get<unsigned char>("g");
+								unsigned char b = colour.get<unsigned char>("b");
+								unsigned char a = colour.get<unsigned char>("a");
+
+								panel = addPanel(sl::Rect<int>{x, y, w, h}, al_map_rgba(r, g, b, a));
 							}
+						}
+						else if (themeCheck.valid()) // Else if image is valid.
+						{
+							std::string themeName = panelTable.get<std::string>("theme");
+							std::string themeTextureID = panelTable.get<std::string>("themeTextureID");
+							if (!themeName.empty())
+							{
+								panel = addPanel(sl::Rect<int>{x, y, w, h}, &(themesMap->at(themeName)), themeTextureID);
+							}
+							else
+							{
+								LOG_S(ERROR) << "Panel table image string is empty for script: " << luaScript;
+							}
+						}
+						else
+						{
+							LOG_S(ERROR) << "Found no valid image or colour table for UI in script: " << luaScript;
 						}
 
 						// Now to load the widgets.

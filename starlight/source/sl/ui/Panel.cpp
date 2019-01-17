@@ -34,14 +34,14 @@ namespace sl
 		al_set_target_backbuffer(Locator::window->getDisplay());
 	}
 
-	Panel::Panel(const sl::Rect<int>& bounds, const std::string& image)
+	Panel::Panel(const sl::Rect<int>& bounds, UITheme* theme, const std::string& texture)
 		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr)
 	{
 		// Load image and check for errors.
-		m_background = al_load_bitmap(image.c_str());
+		m_background = theme->widgetTexture(texture);
 		if (!m_background)
 		{
-			LOG_S(ERROR) << "Failed to load background: " << image << " Errno: " << al_get_errno();
+			LOG_S(ERROR) << "Failed to load background: " << texture << ". From theme widget. al_errno: " << al_get_errno();
 		}
 	}
 

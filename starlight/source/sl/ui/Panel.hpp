@@ -34,9 +34,10 @@ namespace sl
 		/// Image Constructor.
 		///
 		/// \param bounds Dimension of the panel.
-		/// \param image Background image to use.
+		/// \param theme Theme to use containing panel texture.
+		/// \param texture Texture from the theme's master texture to use.
 		///
-		Panel(const sl::Rect<int>& bounds, const std::string& image);
+		Panel(const sl::Rect<int>& bounds, UITheme* theme, const std::string& texture);
 
 		///
 		/// Destructor.
@@ -107,7 +108,7 @@ namespace sl
 		sl::Rect<int> m_bounds;
 
 		///
-		/// Background of the panel. Full colour or image.
+		/// Background of the panel. Full colour or texture.
 		///
 		ALLEGRO_BITMAP* m_background;
 
