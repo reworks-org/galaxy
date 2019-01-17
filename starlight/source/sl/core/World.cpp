@@ -24,7 +24,7 @@
 namespace sl
 {
 	World::World()
-	:m_scriptFolderPath(""), m_textureFolderPath(""), m_musicFolderPath(""), m_soundFolderPath("")
+	:m_scriptFolderPath(""), m_textureFolderPath(""), m_musicFolderPath(""), m_soundFolderPath(""), m_fontFolderPath("")
 	{
 		// Register the library components and tags.
 		registerComponent<AnimationComponent>("AnimationComponent");

@@ -136,6 +136,10 @@ namespace sl
 		///
 		std::string m_soundFolderPath;
 
+		///
+		/// The path to the folder containing game font files.
+		std::string m_fontFolderPath;
+
 	private:
 		///
 		/// Used to allow for tag assigning without having to know the tag type.

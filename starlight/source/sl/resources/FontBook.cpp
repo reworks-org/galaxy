@@ -29,7 +29,8 @@ namespace sl
 			fonts.for_each([&](std::pair<sol::object, sol::object> pair)
 			{
 				auto valueTable = pair.second.as<sol::table>();
-				ALLEGRO_FONT* font = al_load_ttf_font(valueTable.get<const char*>("font"), valueTable.get<int>("size"), 0);
+				std::string path = Locator::world->m_fontFolderPath + valueTable.get<std::string>("font");
+				ALLEGRO_FONT* font = al_load_ttf_font(path.c_str(), valueTable.get<int>("size"), 0);
 
 				if (!font)
 				{

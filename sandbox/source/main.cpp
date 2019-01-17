@@ -88,6 +88,7 @@ int main(int argc, char **argv)
 					newConfig << "textureFolderPath = textures/\n";
 					newConfig << "musicFolderPath = music/\n";
 					newConfig << "soundFolderPath = sound/\n";
+					newConfig << "fontFolderPath = fonts/\n";
 					newConfig << std::endl;
 
 					newConfig << "[archives]\n";

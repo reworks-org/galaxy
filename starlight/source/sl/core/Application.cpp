@@ -114,6 +114,7 @@ namespace sl
 		m_world->m_textureFolderPath = m_configReader->lookup<std::string>(config, "fs", "textureFolderPath");
 		m_world->m_musicFolderPath = m_configReader->lookup<std::string>(config, "fs", "musicFolderPath");
 		m_world->m_soundFolderPath = m_configReader->lookup<std::string>(config, "fs", "soundFolderPath");
+		m_world->m_fontFolderPath = m_configReader->lookup<std::string>(config, "fs", "fontFolderPath");
 
 		#ifdef _DEBUG
 			m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay());
