@@ -192,7 +192,7 @@ namespace sl
 								if (ttCheck.valid())
 								{
 									sol::table ttTable = wfTable["tooltip"];
-									createdWidget->setTooltip(ttTable.get<std::string>("text"), ttTable.get<std::string>("texture"), sl::Vector2<int>{ttTable.get<int>("sectionX"), ttTable.get<int>("sectionY")}, &(themesMap->at(ttTable.get<std::string>("theme"))));
+									createdWidget->setTooltip(ttTable.get<std::string>("text"), ttTable.get<std::string>("texture"), sl::Vector2<int>{ttTable.get<int>("sectionL"), ttTable.get<int>("sectionR")}, &(themesMap->at(ttTable.get<std::string>("theme"))));
 								}
 
 								widgetsMap->emplace(widgetName, createdWidget);
