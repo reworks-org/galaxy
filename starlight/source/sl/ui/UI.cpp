@@ -78,48 +78,10 @@ namespace sl
 					}
 					else
 					{
-						// Name.
-						std::string themeTableName = pair.first.as<std::string>();
-
-						// Retrieve colour.
-						ALLEGRO_COLOR themeCol;
-						sol::table colTable = themeTable.get<sol::table>("colour");
-						if (!colTable.valid() || colTable.empty())
-						{
-							LOG_S(ERROR) << "Theme table \"colour\" is invalid or empty.";
-						}
-						else
-						{
-							themeCol = al_map_rgba
-							(
-								colTable.get<unsigned char>("r"),
-								colTable.get<unsigned char>("g"),
-								colTable.get<unsigned char>("b"),
-								colTable.get<unsigned char>("a")
-							);
-						}
-
 						// Have to work around std::pair's constructor issues.
 						themesMap->emplace(std::piecewise_construct,
-							std::forward_as_tuple(themeTableName),
-							std::forward_as_tuple(themeTable.get<std::string>("font"), themeCol, themeTable.get<std::string>("masterTexture")));
-
-						// Retrieve all the texture rectangle definitions.
-						sol::table textureRects = themeTable.get<sol::table>("textureRects");
-						if (!textureRects.valid() || textureRects.empty())
-						{
-							LOG_S(ERROR) << "UI script table \"textureRects\" is invalid or empty for script: " << luaScript;
-						}
-						else
-						{
-							textureRects.for_each([&](std::pair<sol::object, sol::object> pair)
-							{
-								std::string trID = pair.first.as<std::string>();
-								sol::table trTable = pair.second.as<sol::table>();
-
-								themesMap->at(themeTableName).defineWidgetTexture(trID, { trTable.get<int>("x"), trTable.get<int>("y"), trTable.get<int>("w"), trTable.get<int>("h") });
-							});
-						}
+							std::forward_as_tuple(pair.first.as<std::string>()),
+							std::forward_as_tuple(themeTable));
 					}
 				});
 			}

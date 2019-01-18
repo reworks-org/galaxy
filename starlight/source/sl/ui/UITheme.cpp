@@ -28,7 +28,7 @@ namespace sl
 		m_masterTexture = al_load_bitmap(masterTexture.c_str());
 		if (!m_masterTexture)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << masterTexture << " Errno: " << al_get_errno();
+			LOG_S(ERROR) << "Failed to load texture: " << masterTexture << " Errno: " << al_get_errno();
 		}
 	}
 
@@ -46,7 +46,7 @@ namespace sl
 		m_masterTexture = al_load_bitmap(table.get<std::string>("masterTexture").c_str());
 		if (!m_masterTexture)
 		{
-			LOG_S(FATAL) << "Failed to load texture: " << table.get<std::string>("masterTexture") << " Errno: " << al_get_errno();
+			LOG_S(ERROR) << "Failed to load texture: " << table.get<std::string>("masterTexture") << " Errno: " << al_get_errno();
 		}
 
 		// Colour table.
@@ -64,6 +64,23 @@ namespace sl
 				table.get<unsigned char>("b"),
 				table.get<unsigned char>("a")
 			);
+		}
+
+		// Retrieve all the texture rectangle definitions.
+		sol::table textureRects = table.get<sol::table>("textureRects");
+		if (!textureRects.valid() || textureRects.empty())
+		{
+			LOG_S(ERROR) << "UITheme table \"textureRects\" is invalid or empty!";
+		}
+		else
+		{
+			textureRects.for_each([&](std::pair<sol::object, sol::object> pair)
+			{
+				std::string trID = pair.first.as<std::string>();
+				sol::table trTable = pair.second.as<sol::table>();
+
+				defineWidgetTexture(trID, { trTable.get<int>("x"), trTable.get<int>("y"), trTable.get<int>("w"), trTable.get<int>("h") });
+			});
 		}
 	}
 
