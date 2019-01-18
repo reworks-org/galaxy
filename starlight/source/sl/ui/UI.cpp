@@ -225,6 +225,14 @@ namespace sl
 									LOG_S(ERROR) << "Widget failed to be created: " << fullName;
 								}
 
+								// Make tooltip if there is the table for one.
+								auto ttCheck = wfTable["tooltip"];
+								if (ttCheck.valid())
+								{
+									sol::table ttTable = wfTable["tooltip"];
+									createdWidget->setTooltip(ttTable.get<std::string>("text"), ttTable.get<std::string>("texture"), sl::Vector2<int>{ttTable.get<int>("sectionX"), ttTable.get<int>("sectionY")}, &(themesMap->at(ttTable.get<std::string>("theme"))));
+								}
+
 								widgetsMap->emplace(widgetName, createdWidget);
 							});
 						}

@@ -50,11 +50,12 @@ namespace sl
 		///
 		/// \param x x-pos of button relative to panel.
 		/// \param y y-pos of button relative to panel.
+		/// \param label Label to place on the button.
 		/// \param textures Array of texture names in theme to use. Need to be all the same dimensions.
 		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.		
 		/// \param theme Theme for this widget.
 		///
-		Button(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme);
+		Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme);
 
 		///
 		/// Text Constructor.
@@ -149,6 +150,11 @@ namespace sl
 		/// Callback function.
 		///
 		std::function<void()> m_callback;
+
+		///
+		/// Label for button.
+		///
+		std::string m_label;
 	};
 }
 

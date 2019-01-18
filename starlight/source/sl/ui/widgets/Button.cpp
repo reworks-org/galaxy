@@ -16,8 +16,8 @@
 
 namespace sl
 {
-	Button::Button(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme)
-		:Widget({x, y, 0, 0}, theme), m_callback(nullptr)
+	Button::Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme)
+		:Widget({x, y, 0, 0}, theme), m_callback(nullptr), m_label(label)
 	{
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)
@@ -40,7 +40,7 @@ namespace sl
 	}
 
 	Button::Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colours, UITheme* theme)
-		:Widget({ x, y, 0, 0 }, theme), m_callback(nullptr)
+		:Widget({ x, y, 0, 0 }, theme), m_callback(nullptr), m_label("")
 	{	
 		// Find correct button size.
 		m_bounds.m_width = al_get_text_width(m_theme->font(), text.c_str());
@@ -68,7 +68,7 @@ namespace sl
 	}
 
 	Button::Button(const sol::table& table, UITheme* theme)
-		:Widget({ 0, 0, 0, 0 }, theme), m_callback(nullptr)
+		:Widget({ 0, 0, 0, 0 }, theme), m_callback(nullptr), m_label("")
 	{
 		// Get position data.
 		m_bounds.m_x = table.get<int>("x");
@@ -91,6 +91,9 @@ namespace sl
 				LOG_S(FATAL) << "Failed to create sub bitmap: " << textures[i] << " Errno: " << al_get_errno();
 			}
 		}
+
+		// Label.
+		m_label = table.get<std::string>("label");
 
 		// Set dimensions.
 		m_bounds.m_width = al_get_bitmap_width(m_textures[0]);
@@ -133,14 +136,20 @@ namespace sl
 			{
 			case Button::State::DEFAULT:
 				al_draw_bitmap(m_textures[0], m_bounds.m_x, m_bounds.m_y, 0);
+				
+				al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_textures[0]) / 2.0f) + m_bounds.m_x, (al_get_bitmap_height(m_textures[0]) / 2.0f) + m_bounds.m_y, ALLEGRO_ALIGN_CENTER, m_label.c_str());
 				break;
 
 			case Button::State::PRESSED:
 				al_draw_bitmap(m_textures[1], m_bounds.m_x, m_bounds.m_y, 0);
+				
+				al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_textures[1]) / 2.0f) + m_bounds.m_x, (al_get_bitmap_height(m_textures[1]) / 2.0f) + m_bounds.m_y, ALLEGRO_ALIGN_CENTER, m_label.c_str());
 				break;
 
 			case Button::State::HOVER:
 				al_draw_bitmap(m_textures[2], m_bounds.m_x, m_bounds.m_y, 0);
+
+				al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_textures[2]) / 2.0f) + m_bounds.m_x, (al_get_bitmap_height(m_textures[2]) / 2.0f) + m_bounds.m_y, ALLEGRO_ALIGN_CENTER, m_label.c_str());
 
 				if (m_tooltip)
 				{
