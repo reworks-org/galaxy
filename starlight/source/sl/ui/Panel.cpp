@@ -87,10 +87,10 @@ namespace sl
 	{
 		if (m_isVisible)
 		{
+			al_hold_bitmap_drawing(true);
+
 			// Draw panel.
 			al_draw_bitmap(m_background, m_bounds.m_x, m_bounds.m_y, 0);
-
-			al_hold_bitmap_drawing(true);
 
 			// Render all widgets.
 			for (auto& pair : m_widgets)

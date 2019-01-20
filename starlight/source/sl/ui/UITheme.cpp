@@ -57,13 +57,7 @@ namespace sl
 		}
 		else
 		{
-			m_colour = al_map_rgba
-			(
-				table.get<unsigned char>("r"),
-				table.get<unsigned char>("g"),
-				table.get<unsigned char>("b"),
-				table.get<unsigned char>("a")
-			);
+			m_colour = al_map_rgba(colTable.get<int>("r"), colTable.get<int>("g"), colTable.get<int>("b"), colTable.get<int>("a"));
 		}
 
 		// Retrieve all the texture rectangle definitions.

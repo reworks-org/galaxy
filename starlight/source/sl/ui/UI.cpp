@@ -79,9 +79,7 @@ namespace sl
 					else
 					{
 						// Have to work around std::pair's constructor issues.
-						themesMap->emplace(std::piecewise_construct,
-							std::forward_as_tuple(pair.first.as<std::string>()),
-							std::forward_as_tuple(themeTable));
+						themesMap->emplace(pair.first.as<std::string>(), themeTable);
 					}
 				});
 			}
@@ -132,12 +130,7 @@ namespace sl
 							}
 							else
 							{
-								unsigned char r = colour.get<unsigned char>("r");
-								unsigned char g = colour.get<unsigned char>("g");
-								unsigned char b = colour.get<unsigned char>("b");
-								unsigned char a = colour.get<unsigned char>("a");
-
-								panel = addPanel(sl::Rect<int>{x, y, w, h}, al_map_rgba(r, g, b, a));
+								panel = addPanel(sl::Rect<int>{x, y, w, h}, al_map_rgba(colour.get<int>("r"), colour.get<int>("g"), colour.get<int>("b"), colour.get<int>("a")));
 							}
 						}
 						else if (themeCheck.valid()) // Else if image is valid.
@@ -173,8 +166,8 @@ namespace sl
 								// So we know what type of widget to create and have a unique identifier for that widget.
 								std::string fullName = pair.first.as<std::string>();
 								std::size_t markerPos = fullName.find("_");
-								std::string widgetName = fullName.substr(markerPos + 1);
-								std::string type = fullName.substr(0, markerPos - 1);
+								std::string type = fullName.substr(markerPos + 1);
+								std::string widgetName = fullName.substr(0, markerPos);
 
 								// The table and theme
 								sol::table wfTable = pair.second.as<sol::table>();

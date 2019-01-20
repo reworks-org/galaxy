@@ -122,7 +122,10 @@ namespace sl
 		{
 			if (m_state == Button::State::PRESSED)
 			{
-				m_callback();
+				if (m_callback)
+				{
+					m_callback();
+				}
 			}
 		}
 	}

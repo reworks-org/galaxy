@@ -29,12 +29,15 @@ public:
 	void render() override;
 
 private:
-	sl::UI m_ui;
-	sl::UITheme m_theme;
-	sl::Panel* m_panel;
-	sl::Slider* slider;
-	sl::Label* m_sliderLabel;
-	std::string sliderLabelStr;
+	//sl::UI m_ui;
+	//sl::UITheme m_theme;
+	//sl::Panel* m_panel;
+	//sl::Slider* slider;
+	//sl::Label* m_sliderLabel;
+	//std::string sliderLabelStr;
+	sl::UI m_menu;
+	sl::ThemeStorage m_themeStorage;
+	sl::WidgetStorage m_widgetStorage;
 };
 
 #endif

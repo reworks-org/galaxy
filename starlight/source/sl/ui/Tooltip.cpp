@@ -53,7 +53,7 @@ namespace sl
 			al_draw_bitmap_region(sub, section.m_y + 1, 0, (al_get_bitmap_width(sub) - sectionWidth) - (section.m_x - 1), textureHeight, nextSectionX, 0, 0);
 
 			// Now draw the text to the tooltip graphic.
-			al_draw_text(m_theme->font(), m_theme->colour(), al_get_bitmap_width(m_text) / 2.0f, al_get_bitmap_height(m_text) / 2.0f, ALLEGRO_ALIGN_CENTER, text.c_str());
+			al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_text) / 2.0f) - al_get_text_width(m_theme->font(), text.c_str()) / 2.0f, (al_get_bitmap_height(m_text) / 2.0f) - al_get_font_line_height(m_theme->font()) / 2.0f, ALLEGRO_ALIGN_LEFT, text.c_str());
 			
 			al_flip_display();
 			al_set_target_backbuffer(Locator::window->getDisplay());

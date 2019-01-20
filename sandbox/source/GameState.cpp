@@ -37,7 +37,7 @@
 using namespace sl;
 
 GameState::GameState()
-	:m_theme("GameOver32", al_map_rgba(0, 255, 0, 255), "ui/master.png")
+	//:m_theme("GameOver32", al_map_rgba(0, 255, 0, 255), "ui/master.png")
 {
 	//map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
 	//m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
@@ -57,6 +57,7 @@ GameState::GameState()
 	Locator::world->m_registry.assign<RenderComponent>(scrolledEntity, 1.0f, "bg_forest");
 	Locator::world->m_registry.assign<EnabledComponent>(scrolledEntity);
 
+	/*
 	m_theme.defineWidgetTexture("frame", {9, 0, 256, 128});
 	m_theme.defineWidgetTexture("arrow", {0, 0, 8, 6});
 
@@ -92,6 +93,8 @@ GameState::GameState()
 	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "frame", "arrow", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, 120, 80, &m_theme, "Speaker");
 
 	sl::TextInput* ti = m_panel->add<sl::TextInput>(sl::Rect<int>{5, 500, 200, 64}, al_map_rgba(0, 0, 0, 255), al_map_rgba(255, 255, 255, 255), &m_theme);
+	*/
+	m_menu.createFromScript("menuUI.lua", &m_widgetStorage, &m_themeStorage);
 }
 
 GameState::~GameState()
@@ -138,11 +141,11 @@ void GameState::event(ALLEGRO_EVENT* event)
 			break;
 
 		case ALLEGRO_KEY_V:
-			m_panel->setVisibility(true);
+			//m_panel->setVisibility(true);
 			break;
 
 		case ALLEGRO_KEY_H:
-			m_panel->setVisibility(false);
+			//m_panel->setVisibility(false);
 			break;
 		}
 		break;
@@ -151,17 +154,19 @@ void GameState::event(ALLEGRO_EVENT* event)
 
 void GameState::update(const double dt)
 {
-	std::ostringstream ss2;
-	ss2 << slider->getPercentage();
-	sliderLabelStr = "Value: " + ss2.str() + "%";
-	m_sliderLabel->setText(sliderLabelStr);
+	//std::ostringstream ss2;
+	//ss2 << slider->getPercentage();
+	//sliderLabelStr = "Value: " + ss2.str() + "%";
+	//m_sliderLabel->setText(sliderLabelStr);
 
-	m_ui.update(dt);
+	//m_ui.update(dt);
+	m_menu.update(dt);
 }
 
 void GameState::render()
 {
 	Locator::world->getSystem<RenderSystem>()->render();
 
-	m_ui.render();
+	//m_ui.render();
+	m_menu.render();
 }
