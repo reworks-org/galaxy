@@ -211,7 +211,7 @@ namespace sl
 		m_bounds.m_x += x;
 		m_bounds.m_y += y;
 
-		m_labelPos.m_x = (al_get_bitmap_width(m_textures[0]) / 2.0f) - al_get_text_width(m_theme->font(), m_label.c_str()) / 2.0f;
-		m_labelPos.m_y = (al_get_bitmap_height(m_textures[0]) / 2.0f) - al_get_font_line_height(m_theme->font()) / 2.0f;
+		m_labelPos.m_x = ((al_get_bitmap_width(m_textures[0]) / 2.0f) - al_get_text_width(m_theme->font(), m_label.c_str()) / 2.0f) + m_bounds.m_x;
+		m_labelPos.m_y = ((al_get_bitmap_height(m_textures[0]) / 2.0f) - al_get_font_line_height(m_theme->font()) / 2.0f) + m_bounds.m_y;
 	}
 }
