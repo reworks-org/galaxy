@@ -139,20 +139,17 @@ namespace sl
 			{
 			case Button::State::DEFAULT:
 				al_draw_bitmap(m_textures[0], m_bounds.m_x, m_bounds.m_y, 0);
-				
-				al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_textures[0]) / 2.0f) + m_bounds.m_x, (al_get_bitmap_height(m_textures[0]) / 2.0f) + m_bounds.m_y, ALLEGRO_ALIGN_CENTER, m_label.c_str());
+				al_draw_text(m_theme->font(), m_theme->colour(), m_labelPos.m_x, m_labelPos.m_y, ALLEGRO_ALIGN_LEFT, m_label.c_str());
 				break;
 
 			case Button::State::PRESSED:
 				al_draw_bitmap(m_textures[1], m_bounds.m_x, m_bounds.m_y, 0);
-				
-				al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_textures[1]) / 2.0f) + m_bounds.m_x, (al_get_bitmap_height(m_textures[1]) / 2.0f) + m_bounds.m_y, ALLEGRO_ALIGN_CENTER, m_label.c_str());
+				al_draw_text(m_theme->font(), m_theme->colour(), m_labelPos.m_x, m_labelPos.m_y, ALLEGRO_ALIGN_LEFT, m_label.c_str());
 				break;
 
 			case Button::State::HOVER:
 				al_draw_bitmap(m_textures[2], m_bounds.m_x, m_bounds.m_y, 0);
-
-				al_draw_text(m_theme->font(), m_theme->colour(), (al_get_bitmap_width(m_textures[2]) / 2.0f) + m_bounds.m_x, (al_get_bitmap_height(m_textures[2]) / 2.0f) + m_bounds.m_y, ALLEGRO_ALIGN_CENTER, m_label.c_str());
+				al_draw_text(m_theme->font(), m_theme->colour(), m_labelPos.m_x, m_labelPos.m_y, ALLEGRO_ALIGN_LEFT, m_label.c_str());
 
 				if (m_tooltip)
 				{
@@ -207,5 +204,14 @@ namespace sl
 	void Button::registerCallback(const std::function<void()>& callback)
 	{
 		m_callback = callback;
+	}
+
+	void Button::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+
+		m_labelPos.m_x = (al_get_bitmap_width(m_textures[0]) / 2.0f) - al_get_text_width(m_theme->font(), m_label.c_str()) / 2.0f;
+		m_labelPos.m_y = (al_get_bitmap_height(m_textures[0]) / 2.0f) - al_get_font_line_height(m_theme->font()) / 2.0f;
 	}
 }

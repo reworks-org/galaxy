@@ -51,4 +51,10 @@ namespace sl
 	{
 		m_text = text;
 	}
+
+	void Label::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }

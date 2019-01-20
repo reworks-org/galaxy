@@ -13,6 +13,7 @@
 #include <array>
 
 #include "sl/ui/Widget.hpp"
+#include "sl/math/Vector2.hpp"
 #include "sl/events/MousePressedEvent.hpp"
 #include "sl/events/MouseReleasedEvent.hpp"
 
@@ -128,6 +129,18 @@ namespace sl
 		///
 		void registerCallback(const std::function<void()>& callback);
 
+		///
+		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
+		///
+		/// It should look like this:
+		/// m_bounds.m_x += x;
+		/// m_bounds.m_y += y;
+		///
+		/// \param x x-pos of the panel.
+		/// \param y y-pos of the panel.
+		///
+		void setOffset(const int x, const int y) override;
+
 	private:
 		///
 		/// Default constructor.
@@ -155,6 +168,12 @@ namespace sl
 		/// Label for button.
 		///
 		std::string m_label;
+
+		///
+		/// Button label x, y coords.
+		///
+		sl::Vector2<int> m_labelPos;
+
 	};
 }
 

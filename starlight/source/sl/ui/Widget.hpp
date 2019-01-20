@@ -94,16 +94,17 @@ namespace sl
 		///
 		explicit Widget(const sl::Rect<int>& bounds, UITheme* theme);
 
-	private:
 		///
-		/// \brief Set the offset of the widget from the panel, and then calculates topleft, topright, top and bottom.
+		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
 		///
-		/// Call after you've constructed the widget.
+		/// It should look like this:
+		/// m_bounds.m_x += x;
+		/// m_bounds.m_y += y;
 		///
 		/// \param x x-pos of the panel.
 		/// \param y y-pos of the panel.
 		///
-		virtual void setOffset(const int x, const int y) final;
+		virtual void setOffset(const int x, const int y) = 0;
 
 	protected:
 		///

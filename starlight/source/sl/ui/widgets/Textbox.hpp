@@ -71,6 +71,18 @@ namespace sl
 		///
 		void render() override;
 
+		///
+		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
+		///
+		/// It should look like this:
+		/// m_bounds.m_x += x;
+		/// m_bounds.m_y += y;
+		///
+		/// \param x x-pos of the panel.
+		/// \param y y-pos of the panel.
+		///
+		void setOffset(const int x, const int y) override;
+
 	private:
 		///
 		/// Default constructor.

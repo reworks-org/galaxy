@@ -70,4 +70,10 @@ namespace sl
 			al_draw_bitmap(m_image, m_bounds.m_x, m_bounds.m_y, 0);
 		}
 	}
+
+	void Image::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }

@@ -189,4 +189,10 @@ namespace sl
 			al_draw_bitmap(m_indicator, x, y, 0);
 		}
 	}
+
+	void Textbox::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }

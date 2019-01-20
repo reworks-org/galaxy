@@ -156,4 +156,10 @@ namespace sl
 	{
 		m_callback = callback;
 	}
+
+	void ToggleButton::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }

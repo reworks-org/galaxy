@@ -189,4 +189,10 @@ namespace sl
 	{
 		return m_progress * 100.0f;
 	}
+
+	void ProgressBar::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }

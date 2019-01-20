@@ -311,4 +311,10 @@ namespace sl
 	{
 		return std::string(al_cstr(m_text));
 	}
+
+	void TextInput::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }

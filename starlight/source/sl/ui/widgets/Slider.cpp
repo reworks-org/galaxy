@@ -187,4 +187,10 @@ namespace sl
 	{
 		return m_value * 100.0f;
 	}
+
+	void Slider::setOffset(const int x, const int y)
+	{
+		m_bounds.m_x += x;
+		m_bounds.m_y += y;
+	}
 }
