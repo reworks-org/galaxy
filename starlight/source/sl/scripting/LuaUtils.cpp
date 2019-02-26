@@ -19,6 +19,7 @@
 #include "sl/scripting/Sol2Interface.hpp"
 #include "sl/libs/entt/entity/registry.hpp"
 #include "sl/components/PhysicsComponent.hpp"
+#include "sl/core/Command.hpp"
 
 #include "LuaUtils.hpp"
 
