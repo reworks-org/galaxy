@@ -244,5 +244,10 @@ namespace sl
 			"resume", &MusicPlayer::resume,
 			"changeVolume", &MusicPlayer::changeVolume);
 		Locator::lua->set("musicPlayer", Locator::musicPlayer);
+
+		// Command
+		Locator::lua->new_usertype<Command>("Command",
+			"exec", &Command::exec,
+			"undo", &Command::undo);
 	}
 }
