@@ -72,7 +72,7 @@ namespace qs
 	};
 
 	///
-	/// qs::Colour == Ooperator overload.
+	/// qs::Colour == Operator overload.
 	///
 	inline bool operator==(const qs::Colour& a, const qs::Colour& b) noexcept
 	{
@@ -81,7 +81,7 @@ namespace qs
 	}
 
 	///
-	/// qs::Colour != operator overload.
+	/// qs::Colour != Operator overload.
 	///
 	inline bool operator!=(const qs::Colour& a, const qs::Colour& b) noexcept
 	{
