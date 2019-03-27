@@ -294,7 +294,7 @@ namespace sl
 		// unload the last state
 		m_stateMachine->unload();
 
-		// Clean up the clock. Everything else is cleaned up by RAII usage.
+		// Clean up the gameloop timer clock.
 		al_stop_timer(clock);
 		al_destroy_timer(clock);
 
