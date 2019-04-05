@@ -364,8 +364,8 @@
     <ClInclude Include="source\sl\libs\lua\lvm.h" />
     <ClInclude Include="source\sl\libs\lua\lzio.h" />
     <ClInclude Include="source\sl\libs\MaxRectsBinPack\MaxRectsBinPack.hpp" />
+    <ClInclude Include="source\sl\libs\sol2\forward.hpp" />
     <ClInclude Include="source\sl\libs\sol2\sol.hpp" />
-    <ClInclude Include="source\sl\libs\sol2\sol_forward.hpp" />
     <ClInclude Include="source\sl\libs\tmx\tmx.h" />
     <ClInclude Include="source\sl\libs\tmx\tmx_utils.h" />
     <ClInclude Include="source\sl\mapping\TiledMap.hpp" />

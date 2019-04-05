@@ -11,7 +11,7 @@
 #define STARLIGHT_PHYSICSCOMPONENT_HPP_
 
 #include "sl/libs/cereal/access.hpp"
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 #include "sl/libs/Box2D/Dynamics/b2Body.h"
 #include "sl/libs/entt/entity/registry.hpp"
 

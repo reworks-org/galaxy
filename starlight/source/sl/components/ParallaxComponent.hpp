@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_PARALLAXCOMPONENT_HPP_
 #define STARLIGHT_PARALLAXCOMPONENT_HPP_
 
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 
 namespace sl
 {

@@ -1031,12 +1031,6 @@
     <ClInclude Include="source\sl\libs\MaxRectsBinPack\MaxRectsBinPack.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\sl\libs\sol2\sol.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="source\sl\libs\sol2\sol_forward.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="source\sl\libs\tmx\tmx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1179,6 +1173,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\core\Command.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\sol2\forward.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\libs\sol2\sol.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

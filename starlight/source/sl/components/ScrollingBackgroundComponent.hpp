@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_SCROLLINGBACKGROUNDCOMPONENT_HPP_
 #define STARLIGHT_SCROLLINGBACKGROUNDCOMPONENT_HPP_
 
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 #include "sl/libs/entt/entity/registry.hpp"
 
 namespace sl

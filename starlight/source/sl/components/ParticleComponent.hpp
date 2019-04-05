@@ -11,7 +11,7 @@
 #define STARLIGHT_PARTICLECOMPONENT_HPP_
 
 #include "sl/math/Vector2.hpp"
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 
 namespace sl
 {

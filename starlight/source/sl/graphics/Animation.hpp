@@ -10,7 +10,7 @@
 #ifndef STARLIGHT_ANIMATION_HPP_
 #define STARLIGHT_ANIMATION_HPP_
 
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 #include "sl/graphics/AnimationFrame.hpp"
 #include "sl/libs/cereal/types/vector.hpp"
 

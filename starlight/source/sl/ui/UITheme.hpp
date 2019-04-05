@@ -16,7 +16,7 @@
 #include <allegro5/color.h>
 
 #include "sl/math/Rect.hpp"
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 
 typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 typedef struct ALLEGRO_COLOR ALLEGRO_COLOR;

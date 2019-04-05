@@ -12,7 +12,7 @@
 
 #include "sl/math/Rect.hpp"
 #include "sl/libs/cereal/access.hpp"
-#include "sl/libs/sol2/sol_forward.hpp"
+#include "sl/libs/sol2/forward.hpp"
 
 namespace sl
 {
