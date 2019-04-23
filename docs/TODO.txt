@@ -1,0 +1,11 @@
+solar
+-> ecs, using entts internal data structures
+C++17.
+
+ctrp and sfinae
+
+interface for creating stuff from scripting langs.
+
+submodule into starlight.
+
+factory pattern. check bookmarks.
