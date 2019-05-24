@@ -10,98 +10,162 @@
 
 #include <vector>
 #include <cstddef>
-	
+
 namespace sr
 {
-	template<typename Type = std::size_t>
+	template<typename uint = std::size_t>
 	class SparseSet
 	{
 	public:
-		SparseSet();
-		SparseSet(std::size_t reserve);
+		SparseSet() noexcept;
 
-		void insert(Type x);
+		SparseSet(uint reserve) noexcept;
+
+		void insert(uint element) noexcept;
 		
-		bool has(Type x);
+		bool has(uint element) noexcept;
 
-		void reserve(std::size_t reserve);
+		int find(uint element) noexcept;
+
+		void reserve(uint reserve) noexcept;
+		
+		void remove(uint element) noexcept;
 
 		bool empty() noexcept;
+		
+		void clear() noexcept;
 
-		std::size_t size() const noexcept;
+		uint size() const noexcept;
 
-		std::size_t capacity() const noexcept;
+		uint capacity() const noexcept;
 
 	private:
+		///
+		/// Current number of elements in sparse set.
+		///
 		std::size_t m_size;
+
+		///
+		/// Capacity (max value + 1).
+		///
 		std::size_t m_capacity;
 
-		std::vector<Type> m_denseSet;
-		std::vector<Type> m_sparseSet;
+		///
+		/// The actual elements are stored here.
+		///
+		std::vector<uint> m_dense;
+
+		///
+		/// The elements are used as an index. They are indexes of the dense array.
+		///
+		std::vector<uint> m_sparse;
 	};
 
-	template<typename Type>
-	inline SparseSet<Type>::SparseSet()
+	template<typename uint>
+	inline SparseSet<uint>::SparseSet()
 		:m_size(0), m_capacity(0)
 	{
-		static_assert(std::is_unsigned<T>::value, "SparseSet can only contain unsigned integers");
 	}
 
-	template<typename Type>
-	inline SparseSet<Type>::SparseSet(std::size_t reserve)
-		:m_size(0), m_capacity(0)
+	template<typename uint>
+	inline SparseSet<uint>::SparseSet(uint reserve)
+		: m_size(0), m_capacity(0)
 	{
-		static_assert(std::is_unsigned<T>::value, "SparseSet can only contain unsigned integers");
-
 		reserve(reserve);
 	}
 
-	template<typename Type>
-	inline void SparseSet<Type>::insert(Type x)
+	template<typename uint>
+	inline void SparseSet<uint>::insert(uint element)
 	{
-		m_denseSet.emplace_back(x);
-		auto index = m_denseSet.size();
-		m_sparseSet[x] = index;
+		if (element >= m_capacity)
+		{
+			reserve(m_capacity + 1);
+		}
+
+		m_dense[m_size] = element;
+		m_sparse[element] = m_size;
+		++m_size;
 	}
 
-	template<typename Type>
-	inline bool SparseSet<Type>::has(Type x)
+	template<typename uint>
+	inline bool SparseSet<uint>::has(uint element)
 	{
 		bool success = false;
 
-		if (m_denseSet[m_sparseSet[x]] == x)
+		if (element < m_capacity)
 		{
-			success = true;
+			if (m_sparse[element] < m_size)
+			{
+				if (m_dense[m_sparse[element]] == element)
+				{
+					success = true;
+				}
+			}
 		}
 
 		return success;
 	}
 
-	template<typename Type>
-	inline void SparseSet<Type>::reserve(std::size_t reserve)
+	template<typename uint>
+	inline int SparseSet<uint>::find(uint element)
+	{
+		if (has(element))
+		{
+			return m_dense[m_sparse[element]];
+		}
+		else
+		{
+			return -1;
+		}
+	}
+
+	template<typename uint>
+	inline void SparseSet<uint>::reserve(uint reserve)
 	{
 		if (reserve > m_capacity)
 		{
-			m_denseSet.reserve(reserve);
-			m_sparseSet.reserve(reserve);
+			m_dense.reserve(reserve, 0);
+			m_sparse.reserve(reserve, 0);
+
 			m_capacity = reserve;
 		}
 	}
 
-	template<typename Type>
-	inline bool SparseSet<Type>::empty() noexcept
+	template<typename uint>
+	inline void SparseSet<uint>::remove(uint element)
+	{
+		if (has(element))
+		{
+			m_dense[m_sparse[m_val]] = m_dense[m_size - 1];
+			m_sparse[m_dense[m_size - 1]] = m_sparse[element];
+			--m_size;
+		}
+	}
+
+	template<typename uint>
+	inline bool SparseSet<uint>::empty() noexcept
 	{
 		return m_size == 0;
 	}
 
-	template<typename Type>
-	inline std::size_t SparseSet<Type>::size() const noexcept
+	template<typename uint>
+	inline void SparseSet<uint>::clear() noexcept
+	{
+		m_dense.clear();
+		m_sparse.clear();
+
+		m_capacity = 0;
+		m_size = 0;
+	}
+
+	template<typename uint>
+	inline uint SparseSet<uint>::size() const noexcept
 	{
 		return m_size;
 	}
 
-	template<typename Type>
-	inline std::size_t SparseSet<Type>::capacity() const noexcept
+	template<typename uint>
+	inline uint SparseSet<uint>::capacity() const noexcept
 	{
 		return m_capacity;
 	}
