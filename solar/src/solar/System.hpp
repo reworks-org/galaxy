@@ -14,6 +14,7 @@ namespace sr
 	{
 	public:
 		System();
+
 		virtual ~System();
 	};
 }

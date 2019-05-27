@@ -9,23 +9,34 @@
 #define SOLAR_SPARSESET_HPP_
 
 #include <vector>
-#include <cstddef>
+
+#include "solar/Config.hpp"
+
+/*
+TODO: ITERATORS!!!
+*/
 
 namespace sr
 {
-	template<typename uint = std::size_t>
+	///
+	/// Fast storage of unsigned integers.
+	/// Thanks to: https://www.computist.xyz/2018/06/sparse-sets.html
+	///
+	template<typename uint>
 	class SparseSet
 	{
+		static_assert(std::is_unsigned<uint>::value, "SparseSet must be an unsigned integer!");
+
 	public:
 		SparseSet() noexcept;
 
 		SparseSet(uint reserve) noexcept;
 
-		void insert(uint element) noexcept;
+		uint insert(uint element) noexcept;
 		
 		bool has(uint element) noexcept;
 
-		int find(uint element) noexcept;
+		uint find(uint element) noexcept;
 
 		void reserve(uint reserve) noexcept;
 		
@@ -39,16 +50,20 @@ namespace sr
 
 		uint capacity() const noexcept;
 
+		uint operator[](uint element);
+
+		uint operator[](uint element) const;
+
 	private:
 		///
 		/// Current number of elements in sparse set.
 		///
-		std::size_t m_size;
+		uint m_size;
 
 		///
 		/// Capacity (max value + 1).
 		///
-		std::size_t m_capacity;
+		uint m_capacity;
 
 		///
 		/// The actual elements are stored here.
@@ -62,20 +77,20 @@ namespace sr
 	};
 
 	template<typename uint>
-	inline SparseSet<uint>::SparseSet()
+	inline SparseSet<uint>::SparseSet() noexcept
 		:m_size(0), m_capacity(0)
 	{
 	}
 
 	template<typename uint>
-	inline SparseSet<uint>::SparseSet(uint reserve)
-		: m_size(0), m_capacity(0)
+	inline SparseSet<uint>::SparseSet(uint reserve) noexcept
+		:m_size(0), m_capacity(0)
 	{
 		reserve(reserve);
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::insert(uint element)
+	inline uint SparseSet<uint>::insert(uint element) noexcept
 	{
 		if (element >= m_capacity)
 		{
@@ -85,10 +100,12 @@ namespace sr
 		m_dense[m_size] = element;
 		m_sparse[element] = m_size;
 		++m_size;
+
+		return m_dense[m_sparse[element]];
 	}
 
 	template<typename uint>
-	inline bool SparseSet<uint>::has(uint element)
+	inline bool SparseSet<uint>::has(uint element) noexcept
 	{
 		bool success = false;
 
@@ -107,7 +124,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline int SparseSet<uint>::find(uint element)
+	inline uint SparseSet<uint>::find(uint element) noexcept
 	{
 		if (has(element))
 		{
@@ -120,23 +137,23 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::reserve(uint reserve)
+	inline void SparseSet<uint>::reserve(uint reserve) noexcept
 	{
 		if (reserve > m_capacity)
 		{
-			m_dense.reserve(reserve, 0);
-			m_sparse.reserve(reserve, 0);
+			m_dense.reserve(reserve);
+			m_sparse.reserve(reserve);
 
 			m_capacity = reserve;
 		}
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::remove(uint element)
+	inline void SparseSet<uint>::remove(uint element) noexcept
 	{
 		if (has(element))
 		{
-			m_dense[m_sparse[m_val]] = m_dense[m_size - 1];
+			m_dense[m_sparse[element]] = m_dense[m_size - 1];
 			m_sparse[m_dense[m_size - 1]] = m_sparse[element];
 			--m_size;
 		}
@@ -168,6 +185,18 @@ namespace sr
 	inline uint SparseSet<uint>::capacity() const noexcept
 	{
 		return m_capacity;
+	}
+
+	template<typename uint>
+	inline uint SparseSet<uint>::operator[](uint element)
+	{
+		return find(element);
+	}
+
+	template<typename uint>
+	inline uint SparseSet<uint>::operator[](uint element) const
+	{
+		return find(element);
 	}
 }
 

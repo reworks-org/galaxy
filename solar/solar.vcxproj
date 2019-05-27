@@ -19,13 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\solar\main.cpp" />
+    <ClCompile Include="src\solar\entity\Heliosphere.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\solar\entity.hpp" />
-    <ClInclude Include="src\solar\entity\EntityFactory.hpp" />
+    <ClInclude Include="src\solar\Config.hpp" />
+    <ClInclude Include="src\solar\core\Storage.hpp" />
+    <ClInclude Include="src\solar\core\UID.hpp" />
+    <ClInclude Include="src\solar\entity\Heliosphere.hpp" />
     <ClInclude Include="src\solar\System.hpp" />
-    <ClInclude Include="src\solar\utils\SparseSet.hpp" />
+    <ClInclude Include="src\solar\core\SparseSet.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -109,6 +111,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
+      <AdditionalIncludeDirectories>src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -125,6 +128,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
+      <AdditionalIncludeDirectories>src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -144,6 +148,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
+      <AdditionalIncludeDirectories>src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -165,6 +170,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
+      <AdditionalIncludeDirectories>src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

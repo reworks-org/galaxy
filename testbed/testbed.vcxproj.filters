@@ -10,7 +10,7 @@
     <ClCompile Include="..\libs\gtest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="..\libs\gtest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="src\test\main.cpp" />
-    <ClCompile Include="src\test\utils\SparseSetTest.cpp" />
+    <ClCompile Include="src\test\core\SparseSetTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gtest\googletest\src\gtest-internal-inl.h" />
