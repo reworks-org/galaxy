@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="src\solar\System.hpp" />
     <ClInclude Include="src\solar\core\SparseSet.hpp" />
     <ClInclude Include="src\solar\Config.hpp" />
     <ClInclude Include="src\solar\core\UID.hpp" />
     <ClInclude Include="src\solar\core\Storage.hpp" />
     <ClInclude Include="src\solar\entity\Heliosphere.hpp" />
+    <ClInclude Include="src\solar\core\System.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\solar\entity\Heliosphere.cpp" />

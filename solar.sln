@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "solar", "solar\solar.vcxproj", "{3805D366-53D2-4DA8-B368-A9F888C4296C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcxproj", "{599D84B5-88B8-4E03-8058-EEBFFA2F63E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3805D366-53D2-4DA8-B368-A9F888C4296C} = {3805D366-53D2-4DA8-B368-A9F888C4296C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

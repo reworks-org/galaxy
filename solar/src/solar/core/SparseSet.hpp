@@ -141,8 +141,8 @@ namespace sr
 	{
 		if (reserve > m_capacity)
 		{
-			m_dense.reserve(reserve);
-			m_sparse.reserve(reserve);
+			m_dense.resize(reserve, 0);
+			m_sparse.resize(reserve, 0);
 
 			m_capacity = reserve;
 		}
