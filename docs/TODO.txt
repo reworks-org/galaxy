@@ -29,6 +29,7 @@
 	- Debug Interface should be able to do more stuff.
 	- Implement command in engine where needed.
 	- Should each game state have its own registry and layer?
+	- lang support using sterings
 
 
 - UI:
