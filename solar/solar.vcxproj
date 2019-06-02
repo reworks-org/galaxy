@@ -23,7 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\solar\Config.hpp" />
-    <ClInclude Include="src\solar\core\Storage.hpp" />
+    <ClInclude Include="src\solar\core\ExtendedSet.hpp" />
     <ClInclude Include="src\solar\core\UID.hpp" />
     <ClInclude Include="src\solar\entity\Heliosphere.hpp" />
     <ClInclude Include="src\solar\core\SparseSet.hpp" />

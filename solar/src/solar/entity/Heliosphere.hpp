@@ -32,14 +32,10 @@
 
 #include "solar/core/UID.hpp"
 #include "solar/core/System.hpp"
-#include "solar/core/Storage.hpp"
-#include "solar/core/SparseSet.hpp"
+#include "solar/core/ExtendedSet.hpp"
 
 namespace sr
 {
-	using ComponentVector = std::vector<std::unique_ptr<BaseStorage>>;
-	using SystemVector = std::vector<std::unique_ptr<System>>;
-
 	class Heliosphere
 	{
 	public:
@@ -73,10 +69,17 @@ namespace sr
 		Component* extract(Entity entity, SR_INTEGER type) noexcept;
 
 	private:
+		///
+		/// Counter for free entity ids.
+		///
 		SR_INTEGER m_nextID;
-		SparseSet<Entity> m_entities;
-		ComponentVector m_components;
-		SystemVector m_systems;
+
+		///
+		/// Stores polymorphic ExtendedSets.
+		///
+		std::vector<std::unique_ptr<SparseSet<Entity>>> m_data;
+		
+		std::vector<std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Component, typename... Args>
@@ -84,32 +87,24 @@ namespace sr
 	{
 		auto type = cuid::uid<Component>();
 
-		if (type >= m_components.size())
+		if (type >= m_data.size())
 		{
-			m_components.resize(type + 1);
+			m_data.resize(type + 1);
 		}
 
 		// Ensure leftover references to unique pointer are destroyed.
 		{
 			// If null ptr, then no storage for this component exists.
-			if (!m_components[type])
+			if (!m_data[type])
 			{
 				// Use polymorphism to ensure type erasure.
-				m_components[type] = std::make_unique<ComponentStorage<Component>>();
+				m_data[type] = std::make_unique<ExtendedSet<Component>>();
 			}
 
 			// Now convert the storage to the type we want to access.
-			ComponentStorage<Component>* derived = static_cast<ComponentStorage<Component>*>(m_components[type].get());
+			ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
 
-			// Access to components of that type.
-			// Make sure to access integer.
-			if (entity >= derived->m_components.size())
-			{
-				derived->m_components.resize(entity + 1);
-			}
-
-			// Component is then placed at entitys id. i.e. [entity] = component.
-			derived->m_components[entity] = Component(std::forward<Args>(args)...);
+			derived->add(entity, std::forward<Args>(args)...);
 		}
 	}
 
@@ -117,7 +112,7 @@ namespace sr
 	inline Component* Heliosphere::get(Entity entity) noexcept
 	{
 		auto type = cuid::uid<Component>();
-		static_assert(type > m_components.size(), "Component type does not exist!");
+		static_assert(type > m_data.size(), "Component type does not exist!");
 
 		return extract<Component>(entity, type);
 	}
@@ -130,7 +125,7 @@ namespace sr
 		//(type_id_list.push_back(cuid::uid<Components>()), ...);
 		//(extract<Components>(entity, cuid::uid<Components>()), ...);
 
-		auto tuple = std::make_tuple(extract<Components>(entity, cuid::uid<Components>())...);
+		//auto tuple = std::make_tuple(extract<Components>(entity, cuid::uid<Components>())...);
 
 		//auto tuple = std::tuple_cat(extract<Components>(entity, cuid::uid<Components>())...);
 
@@ -177,8 +172,8 @@ namespace sr
 	template<typename Component>
 	inline Component* Heliosphere::extract(Entity entity, SR_INTEGER type) noexcept
 	{
-		ComponentStorage<Component>* derived = static_cast<ComponentStorage<Component>*>(m_components[type].get());
-		return &(derived->m_components[entity]);
+		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
+		return derived->get(entity);
 	}
 }
 

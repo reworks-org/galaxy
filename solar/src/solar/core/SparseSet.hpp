@@ -32,11 +32,16 @@ namespace sr
 
 		SparseSet(uint reserve) noexcept;
 
+		virtual ~SparseSet() noexcept;
+
 		uint insert(uint element) noexcept;
 		
 		bool has(uint element) noexcept;
 
-		uint find(uint element) noexcept;
+		///
+		/// Find the index in the dense array of the element.
+		///
+		uint findIndex(uint element) noexcept;
 
 		void reserve(uint reserve) noexcept;
 		
@@ -49,10 +54,6 @@ namespace sr
 		uint size() const noexcept;
 
 		uint capacity() const noexcept;
-
-		uint operator[](uint element);
-
-		uint operator[](uint element) const;
 
 	private:
 		///
@@ -90,6 +91,12 @@ namespace sr
 	}
 
 	template<typename uint>
+	inline SparseSet<uint>::~SparseSet() noexcept
+	{
+		clear();
+	}
+
+	template<typename uint>
 	inline uint SparseSet<uint>::insert(uint element) noexcept
 	{
 		if (element >= m_capacity)
@@ -124,11 +131,11 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::find(uint element) noexcept
+	inline uint SparseSet<uint>::findIndex(uint element) noexcept
 	{
 		if (has(element))
 		{
-			return m_dense[m_sparse[element]];
+			return m_sparse[element];
 		}
 		else
 		{
@@ -185,18 +192,6 @@ namespace sr
 	inline uint SparseSet<uint>::capacity() const noexcept
 	{
 		return m_capacity;
-	}
-
-	template<typename uint>
-	inline uint SparseSet<uint>::operator[](uint element)
-	{
-		return find(element);
-	}
-
-	template<typename uint>
-	inline uint SparseSet<uint>::operator[](uint element) const
-	{
-		return find(element);
 	}
 }
 
