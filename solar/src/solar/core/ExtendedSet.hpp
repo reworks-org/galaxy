@@ -30,7 +30,7 @@ namespace sr
 
 		Component* get(Entity entity);
 
-		void destroy(Entity entity);
+		void remove(Entity entity) override;
 
 	private:
 		///
@@ -80,13 +80,19 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline void ExtendedSet<Component>::destroy(Entity entity)
+	inline void ExtendedSet<Component>::remove(Entity entity)
 	{
 		// So if we want to destroy an entity/component, easest method is to move the last entity to the one we are erasing
 		// then destroy the duplicate. Called swap-and-pop.
-		m_components[findIndex(entity)] = std::move(m_components.back());
-		m_components.pop_back();
-		remove(entity);
+		if (has(entity))
+		{
+			m_components[findIndex(entity)] = std::move(m_components.back());
+			m_components.pop_back();
+			
+			m_dense[m_sparse[entity]] = m_dense[m_size - 1];
+			m_sparse[m_dense[m_size - 1]] = m_sparse[entity];
+			--m_size;
+		}
 	}
 }
 

@@ -41,12 +41,16 @@ namespace sr
 		///
 		/// Find the index in the dense array of the element.
 		///
-		uint findIndex(uint element) noexcept;
+		uint findIndex(uint element);
 
 		void reserve(uint reserve) noexcept;
 		
-		void remove(uint element) noexcept;
-
+		///
+		/// Removes an entity. Usually overriden by ExtendedSet to
+		/// destroy components aswell.
+		///
+		virtual void remove(uint element);
+			
 		bool empty() noexcept;
 		
 		void clear() noexcept;
@@ -55,7 +59,7 @@ namespace sr
 
 		uint capacity() const noexcept;
 
-	private:
+	protected:
 		///
 		/// Current number of elements in sparse set.
 		///
@@ -131,16 +135,14 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::findIndex(uint element) noexcept
+	inline uint SparseSet<uint>::findIndex(uint element)
 	{
-		if (has(element))
+		if (!has(element))
 		{
-			return m_sparse[element];
+			throw std::out_of_range("Out of bounds! Does not contain element.");
 		}
-		else
-		{
-			return -1;
-		}
+		
+		return m_sparse[element];
 	}
 
 	template<typename uint>
@@ -156,7 +158,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::remove(uint element) noexcept
+	inline void SparseSet<uint>::remove(uint element)
 	{
 		if (has(element))
 		{

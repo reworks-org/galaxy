@@ -24,7 +24,15 @@
 
 namespace sr
 {
+	///
+	/// Entity type.
+	///
 	using Entity = SR_INTEGER;
+
+	///
+	/// Event type.
+	///
+	using Event = int;
 }
 
 #endif

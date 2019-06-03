@@ -12,6 +12,7 @@
 
 namespace sr
 {
+	template<typename... Components>
 	class System
 	{
 	public:
@@ -23,7 +24,7 @@ namespace sr
 		virtual void render() = 0;
 
 	private:
-
+		
 	};
 }
 

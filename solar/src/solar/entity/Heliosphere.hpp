@@ -117,12 +117,13 @@ namespace sr
 	template<typename... Components>
 	inline decltype(auto) Heliosphere::get(Entity entity) noexcept
 	{
-		std::vector<SR_INTEGER> type_id_list;
+		return std::make_tuple(extract<Components>(entity)...);
+
+		//std::vector<SR_INTEGER> type_id_list;
 		
 		//(type_id_list.push_back(cuid::uid<Components>()), ...);
 		//(extract<Components>(entity, cuid::uid<Components>()), ...);
 
-		return std::tuple<Components*...>(extract<Components>(entity)...);
 		//auto tuple = std::make_tuple(extract<Components>(entity, cuid::uid<Components>())...);
 
 		//auto tuple = std::tuple_cat(extract<Components>(entity, cuid::uid<Components>())...);

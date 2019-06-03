@@ -33,5 +33,9 @@ namespace sr
 
 	void Heliosphere::destroy(Entity entity)
 	{
+		for (auto&& ptr : m_data)
+		{
+			ptr->remove(entity);
+		}
 	}
 }
