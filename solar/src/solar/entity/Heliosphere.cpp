@@ -16,9 +16,8 @@ namespace sr
 
 	Heliosphere::~Heliosphere()
 	{
+		m_data.clear();
 		m_entities.clear();
-		m_components.clear();
-		m_systems.clear();
 
 		m_nextID = 0;
 	}
@@ -26,6 +25,7 @@ namespace sr
 	Entity Heliosphere::create() noexcept
 	{
 		Entity e = m_nextID++;
+
 		m_entities.insert(e);
 
 		return e;
@@ -33,9 +33,5 @@ namespace sr
 
 	void Heliosphere::destroy(Entity entity)
 	{
-		for (auto& ptr : m_data)
-		{
-			ptr->
-		}
 	}
 }

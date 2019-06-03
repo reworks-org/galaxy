@@ -53,12 +53,6 @@ namespace sr
 		template<typename... Components>
 		decltype(auto) get(Entity entity) noexcept;
 
-		template<typename System, typename... Args>
-		void add(Args&&... args) noexcept;
-
-		template<typename System>
-		System* get() noexcept;
-
 		///
 		/// Destroys an entity and all assosiated components.
 		///
@@ -66,7 +60,7 @@ namespace sr
 
 	private:
 		template<typename Component>
-		Component* extract(Entity entity, SR_INTEGER type) noexcept;
+		Component* extract(Entity entity) noexcept;
 
 	private:
 		///
@@ -75,11 +69,14 @@ namespace sr
 		SR_INTEGER m_nextID;
 
 		///
+		/// Stores entitys.
+		///
+		SparseSet<Entity> m_entities;
+
+		///
 		/// Stores polymorphic ExtendedSets.
 		///
 		std::vector<std::unique_ptr<SparseSet<Entity>>> m_data;
-		
-		std::vector<std::unique_ptr<System>> m_systems;
 	};
 
 	template<typename Component, typename... Args>
@@ -125,6 +122,7 @@ namespace sr
 		//(type_id_list.push_back(cuid::uid<Components>()), ...);
 		//(extract<Components>(entity, cuid::uid<Components>()), ...);
 
+		return std::tuple<Components*...>(extract<Components>(entity)...);
 		//auto tuple = std::make_tuple(extract<Components>(entity, cuid::uid<Components>())...);
 
 		//auto tuple = std::tuple_cat(extract<Components>(entity, cuid::uid<Components>())...);
@@ -137,42 +135,12 @@ namespace sr
 			std::cout << "id: " << type_id_list[i] << std::endl;
 		}
 		*/
-		
-		return tuple;
-	}
-
-	template<typename System, typename ...Args>
-	inline void Heliosphere::add(Args&& ...args) noexcept
-	{
-		auto type = suid::uid<System>();
-		
-		if (type > m_systems.size())
-		{
-			m_systems.resize(type + 1, nullptr);
-		}
-
-		m_systems[type] = std::make_unique<System>(std::forward<Args>(args)...);
-	}
-
-	template<typename System>
-	inline System* Heliosphere::get() noexcept
-	{
-		auto type = suid::uid<System>();
-
-		if (type > m_systems.size())
-		{
-			return nullptr;
-		}
-		else
-		{
-			return m_systems[type].get();
-		}
 	}
 
 	template<typename Component>
-	inline Component* Heliosphere::extract(Entity entity, SR_INTEGER type) noexcept
+	inline Component* Heliosphere::extract(Entity entity) noexcept
 	{
-		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
+		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[cuid::uid<Component>()].get());
 		return derived->get(entity);
 	}
 }

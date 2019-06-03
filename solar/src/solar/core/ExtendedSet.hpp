@@ -69,6 +69,8 @@ namespace sr
 		// So by getting dense[0] we get component[0]
 		insert(entity);
 		m_components.emplace_back(std::forward<Args>(args)...);
+
+		return &(m_components.back());
 	}
 
 	template<typename Component>
