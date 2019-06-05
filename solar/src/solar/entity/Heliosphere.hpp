@@ -48,7 +48,7 @@ namespace sr
 		void add(Entity entity, Args&&... args) noexcept;
 
 		template<typename Component>
-		Component* get(Entity entity) noexcept;
+		Component* get(Entity entity);
 
 		template<typename... Components>
 		decltype(auto) get(Entity entity) noexcept;
@@ -60,7 +60,7 @@ namespace sr
 
 	private:
 		template<typename Component>
-		Component* extract(Entity entity) noexcept;
+		Component* extract(Entity entity);
 
 	private:
 		///
@@ -106,10 +106,15 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline Component* Heliosphere::get(Entity entity) noexcept
+	inline Component* Heliosphere::get(Entity entity)
 	{
 		auto type = cuid::uid<Component>();
-		static_assert(type > m_data.size(), "Component type does not exist!");
+		//static_assert(type > m_data.size(), "Component type does not exist!");
+
+		if (type > m_data.size())
+		{
+			throw std::out_of_range("Attempted to access a type that doesnt exist!");
+		}
 
 		return extract<Component>(entity, type);
 	}
@@ -139,7 +144,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline Component* Heliosphere::extract(Entity entity) noexcept
+	inline Component* Heliosphere::extract(Entity entity)
 	{
 		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[cuid::uid<Component>()].get());
 		return derived->get(entity);
