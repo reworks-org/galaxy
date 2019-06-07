@@ -38,4 +38,20 @@ namespace sr
 			ptr->remove(entity);
 		}
 	}
+
+	void Heliosphere::event(const Event& event)
+	{
+		for (auto&& ptr : m_systems)
+		{
+			ptr->event(event);
+		}
+	}
+
+	void Heliosphere::update(const DeltaTime time)
+	{
+		for (auto&& ptr : m_systems)
+		{
+			ptr->update(time, *this);
+		}
+	}
 }

@@ -33,6 +33,11 @@ namespace sr
 	/// Event type.
 	///
 	using Event = int;
+
+	///
+	/// DeltaTime type.
+	///
+	using DeltaTime = double;
 }
 
 #endif

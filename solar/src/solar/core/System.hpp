@@ -8,23 +8,37 @@
 #ifndef SOLAR_SYSTEM_HPP_
 #define SOLAR_SYSTEM_HPP_
 
+#include <functional>
+
 #include "solar/Config.hpp"
 
 namespace sr
 {
-	template<typename... Components>
+	///
+	/// Forward dec.
+	///
+	class Heliosphere;
+
+	///
+	/// Represents a system that operates on sets of components.
+	///
 	class System
 	{
 	public:
-		System();
-		virtual ~System();
+		///
+		/// Virtualized destructor.
+		///
+		virtual inline ~System() {}
 
-		virtual void event() = 0;
-		virtual void update() = 0;
-		virtual void render() = 0;
+		///
+		/// Abstract implementation for processing an event.
+		///
+		virtual void event(const Event& e) = 0;
 
-	private:
-		
+		///
+		/// Abstract implementation for updating the system. Use heliosphere to retreive your components.
+		///
+		virtual void update(const DeltaTime time, Heliosphere& hs) = 0;
 	};
 }
 
