@@ -28,6 +28,7 @@
     <ClInclude Include="src\solar\entity\Heliosphere.hpp" />
     <ClInclude Include="src\solar\core\SparseSet.hpp" />
     <ClInclude Include="src\solar\core\System.hpp" />
+    <ClInclude Include="src\solar\Utils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

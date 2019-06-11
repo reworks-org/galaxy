@@ -7,6 +7,7 @@
     <ClInclude Include="src\solar\entity\Heliosphere.hpp" />
     <ClInclude Include="src\solar\core\System.hpp" />
     <ClInclude Include="src\solar\core\ExtendedSet.hpp" />
+    <ClInclude Include="src\solar\Utils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\solar\entity\Heliosphere.cpp" />

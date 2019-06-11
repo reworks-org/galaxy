@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 
 	//std::cout << "ea: " << ea << "\neb: " << eb << "\nec: " << ec << std::endl;
 	{
-		auto t = hs.get<a, b>(ea);
+		auto t = hs.multi<a, b>(ea);
 
 		//std::cout << sr::cuid::uid<decltype(std::get<0>(t))>() << std::endl;
 		//std::cout << sr::cuid::uid<decltype(std::get<1>(t))>() << std::endl;

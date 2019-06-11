@@ -28,6 +28,9 @@ namespace sr
 		static_assert(std::is_unsigned<uint>::value, "SparseSet must be an unsigned integer!");
 
 	public:
+		using Iterator = typename std::vector<uint>::const_iterator;
+		using ConstIterator = typename std::vector<uint>::const_iterator;
+
 		SparseSet() noexcept;
 
 		SparseSet(uint reserve) noexcept;
@@ -58,6 +61,26 @@ namespace sr
 		uint size() const noexcept;
 
 		uint capacity() const noexcept;
+
+		inline Iterator begin()
+		{
+			return m_dense.begin();
+		}
+
+		inline ConstIterator begin() const
+		{
+			return m_dense.begin();
+		}
+
+		inline Iterator end()
+		{
+			return m_dense.begin() + m_size;
+		}
+
+		inline ConstIterator end() const
+		{
+			return m_dense.begin() + m_size;
+		}
 
 	protected:
 		///

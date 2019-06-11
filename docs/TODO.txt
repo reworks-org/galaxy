@@ -9,3 +9,21 @@ interface for creating stuff from scripting langs.
 submodule into starlight.
 
 factory pattern. check bookmarks.
+
+/*
+ Entitys ID used as insertion for std::vector so [entity] = components (but how to get which one?).
+ components stored in groupings of type, assigned unique id, then paired with their entity.
+ stored in std::vector
+ 
+
+ so:
+ std::vector<PackedComponents> with element being = entity.
+ packed components = std::vector?
+
+
+
+ So the element to be inserted is the type of component, then an array of those components of that type.
+ the key is the type of component, the value is components of the same type, which is in a data structure, paired with an entity.
+
+
+*/

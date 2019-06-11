@@ -5,31 +5,15 @@
 /// See LICENSE.txt.
 ///
 
-/*
- Entitys ID used as insertion for std::vector so [entity] = components (but how to get which one?).
- components stored in groupings of type, assigned unique id, then paired with their entity.
- stored in std::vector
- 
-
- so:
- std::vector<PackedComponents> with element being = entity.
- packed components = std::vector?
-
-
-
- So the element to be inserted is the type of component, then an array of those components of that type.
- the key is the type of component, the value is components of the same type, which is in a data structure, paired with an entity.
-
-
-*/
-
 #ifndef SOLAR_HELIOSPHERE_HPP_
 #define SOLAR_HELIOSPHERE_HPP_
 
 #include <tuple>
 #include <memory>
-#include <iostream>
+#include <optional>
+#include <functional>
 
+#include "solar/Utils.hpp"
 #include "solar/core/UID.hpp"
 #include "solar/core/System.hpp"
 #include "solar/core/ExtendedSet.hpp"
@@ -54,7 +38,10 @@ namespace sr
 		Component* get(Entity entity);
 
 		template<typename... Components>
-		decltype(auto) get(Entity entity) noexcept;
+		decltype(auto) multi(Entity entity) noexcept;
+
+		template<typename... Components>
+		void operate(std::function<void(Entity, Components* ...)> lambda);
 
 		template<typename System, typename... Args>
 		void add(Args&&... args);
@@ -79,7 +66,7 @@ namespace sr
 
 	private:
 		template<typename Component>
-		Component* extract(Entity entity);
+		void operateInteral(std::vector<Entity>* entities);
 
 	private:
 		///
@@ -135,14 +122,18 @@ namespace sr
 		{
 			throw std::out_of_range("Attempted to access a component type that doesnt exist!");
 		}
-
-		return extract<Component>(entity, type);
+		
+		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[cuid::uid<Component>()].get());
+		return derived->get(entity);
 	}
 
 	template<typename... Components>
-	inline decltype(auto) Heliosphere::get(Entity entity) noexcept
+	inline decltype(auto) Heliosphere::multi(Entity entity) noexcept
 	{
-		return std::make_tuple(extract<Components>(entity)...);
+		//auto t = std::make_tuple(get<Components>(entity)...);
+		//return std::make_optional(t);
+
+		return std::make_tuple(get<Components>(entity)...);
 
 		//std::vector<SR_INTEGER> type_id_list;
 		
@@ -161,6 +152,41 @@ namespace sr
 			std::cout << "id: " << type_id_list[i] << std::endl;
 		}
 		*/
+	}
+
+	template<typename ...Components>
+	inline void Heliosphere::operate(std::function<void(Entity, Components* ...)> lambda)
+	{
+		std::vector<Entity> entities;
+		(operateInteral<Components>(&entities), ...);
+
+		for (auto& e : entities)
+		{
+			lambda(e, get<Components>(e)...);
+		}
+
+		//lambda()
+	}
+
+	template<typename Component>
+	inline void Heliosphere::operateInteral(std::vector<Entity>* entities)
+	{
+		auto type = cuid::uid<Component>();
+
+		if (type > m_data.size())
+		{
+			throw std::out_of_range("Attempted to access a component type that doesnt exist!");
+		}
+
+		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
+
+		for (auto i = 0; i < derived->size(); i++)
+		{
+			if (std::find(entities->begin(), entities->end(), derived->m_dense[i]) != entities->end())
+			{
+				entities->push_back(derived->m_dense[i]);
+			}
+		}
 	}
 
 	template<typename System, typename ...Args>
@@ -185,13 +211,6 @@ namespace sr
 		}
 
 		return m_systems[type].get();
-	}
-
-	template<typename Component>
-	inline Component* Heliosphere::extract(Entity entity)
-	{
-		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[cuid::uid<Component>()].get());
-		return derived->get(entity);
 	}
 }
 

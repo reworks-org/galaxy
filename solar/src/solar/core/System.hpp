@@ -8,8 +8,6 @@
 #ifndef SOLAR_SYSTEM_HPP_
 #define SOLAR_SYSTEM_HPP_
 
-#include <functional>
-
 #include "solar/Config.hpp"
 
 namespace sr
