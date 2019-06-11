@@ -34,6 +34,13 @@ int main(int argc, char **argv)
 
 		std::cout << std::get<0>(t)->var << std::endl;
 		std::cout << std::get<1>(t)->var << std::endl;
+
+		hs.operate<a, b>([](sr::Entity entity, a* ca, b* cb)
+		{
+			cb->var = 500;
+		});
+
+		std::cout << std::get<1>(t)->var << std::endl;
 	}
 
 	std::cin.get();

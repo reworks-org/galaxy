@@ -164,8 +164,6 @@ namespace sr
 		{
 			lambda(e, get<Components>(e)...);
 		}
-
-		//lambda()
 	}
 
 	template<typename Component>
@@ -180,11 +178,11 @@ namespace sr
 
 		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
 
-		for (auto i = 0; i < derived->size(); i++)
+		for (auto& e : derived->m_dense)
 		{
-			if (std::find(entities->begin(), entities->end(), derived->m_dense[i]) != entities->end())
+			if (std::find(entities->begin(), entities->end(), e) == entities->end())
 			{
-				entities->push_back(derived->m_dense[i]);
+				entities->push_back(e);
 			}
 		}
 	}
