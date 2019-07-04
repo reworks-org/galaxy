@@ -19,7 +19,7 @@ namespace sr
 	template<typename Component>
 	class ExtendedSet final : public SparseSet<Entity>
 	{
-		friend class Heliosphere;
+		friend class Manager;
 	public:
 		ExtendedSet() noexcept;
 		ExtendedSet(SR_INTEGER reserve) noexcept;

@@ -11,6 +11,8 @@
     <ClCompile Include="..\libs\gtest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="src\test\main.cpp" />
     <ClCompile Include="src\test\core\SparseSetTest.cpp" />
+    <ClCompile Include="src\test\core\ExtendedSetTest.cpp" />
+    <ClCompile Include="src\test\core\UIDTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gtest\googletest\src\gtest-internal-inl.h" />

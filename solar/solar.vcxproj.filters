@@ -4,12 +4,12 @@
     <ClInclude Include="src\solar\core\SparseSet.hpp" />
     <ClInclude Include="src\solar\Config.hpp" />
     <ClInclude Include="src\solar\core\UID.hpp" />
-    <ClInclude Include="src\solar\entity\Heliosphere.hpp" />
     <ClInclude Include="src\solar\core\System.hpp" />
     <ClInclude Include="src\solar\core\ExtendedSet.hpp" />
     <ClInclude Include="src\solar\Utils.hpp" />
+    <ClInclude Include="src\solar\entity\Manager.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\solar\entity\Heliosphere.cpp" />
+    <ClCompile Include="src\solar\entity\Manager.cpp" />
   </ItemGroup>
 </Project>

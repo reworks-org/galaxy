@@ -6,7 +6,7 @@
 ///
 
 #include "gtest/gtest.h"
-#include <solar/entity/Heliosphere.hpp>
+#include <solar/entity/Manager.hpp>
 
 struct a { a(int newvar) { var = newvar; } int var = 100; };
 struct b { int var = 200; };
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 
 	auto result = RUN_ALL_TESTS();
 
-	sr::Heliosphere hs;
+	sr::Manager hs;
 
 	sr::Entity ea = hs.create();
 	//sr::Entity eb = hs.create();

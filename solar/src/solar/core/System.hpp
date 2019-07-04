@@ -15,7 +15,7 @@ namespace sr
 	///
 	/// Forward dec.
 	///
-	class Heliosphere;
+	class Manager;
 
 	///
 	/// Represents a system that operates on sets of components.
@@ -36,7 +36,7 @@ namespace sr
 		///
 		/// Abstract implementation for updating the system. Use heliosphere to retreive your components.
 		///
-		virtual void update(const DeltaTime time, Heliosphere& hs) = 0;
+		virtual void update(const DeltaTime time, Manager& hs) = 0;
 	};
 }
 

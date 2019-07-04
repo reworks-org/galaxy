@@ -1,20 +1,20 @@
 ///
-/// Heliosphere.cpp
+/// Manager.cpp
 ///
 /// solar
 /// See LICENSE.txt.
 ///
 
-#include "Heliosphere.hpp"
+#include "Manager.hpp"
 
 namespace sr
 {
-	Heliosphere::Heliosphere()
+	Manager::Manager()
 		:m_nextID(0)
 	{
 	}
 
-	Heliosphere::~Heliosphere()
+	Manager::~Manager()
 	{
 		m_data.clear();
 		m_entities.clear();
@@ -22,7 +22,7 @@ namespace sr
 		m_nextID = 0;
 	}
 
-	Entity Heliosphere::create() noexcept
+	Entity Manager::create() noexcept
 	{
 		Entity e = m_nextID++;
 
@@ -31,7 +31,7 @@ namespace sr
 		return e;
 	}
 
-	void Heliosphere::destroy(Entity entity)
+	void Manager::destroy(Entity entity)
 	{
 		for (auto&& ptr : m_data)
 		{
@@ -39,7 +39,7 @@ namespace sr
 		}
 	}
 
-	void Heliosphere::event(const Event& event)
+	void Manager::event(const Event& event)
 	{
 		for (auto&& ptr : m_systems)
 		{
@@ -47,7 +47,7 @@ namespace sr
 		}
 	}
 
-	void Heliosphere::update(const DeltaTime time)
+	void Manager::update(const DeltaTime time)
 	{
 		for (auto&& ptr : m_systems)
 		{

@@ -12,10 +12,6 @@
 
 #include "solar/Config.hpp"
 
-/*
-TODO: ITERATORS!!!
-*/
-
 namespace sr
 {
 	///
@@ -25,6 +21,7 @@ namespace sr
 	template<typename uint>
 	class SparseSet
 	{
+		// Make sure its an unsigned integer.
 		static_assert(std::is_unsigned<uint>::value, "SparseSet must be an unsigned integer!");
 
 	public:
@@ -46,7 +43,7 @@ namespace sr
 		///
 		uint findIndex(uint element);
 
-		void reserve(uint reserve) noexcept;
+		void reserve(uint newReserve) noexcept;
 		
 		///
 		/// Removes an entity. Usually overriden by ExtendedSet to
@@ -111,10 +108,10 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline SparseSet<uint>::SparseSet(uint reserve) noexcept
+	inline SparseSet<uint>::SparseSet(uint newReserve) noexcept
 		:m_size(0), m_capacity(0)
 	{
-		reserve(reserve);
+		reserve(newReserve);
 	}
 
 	template<typename uint>
@@ -128,7 +125,7 @@ namespace sr
 	{
 		if (element >= m_capacity)
 		{
-			reserve(m_capacity + 1);
+			reserve(element + 1);
 		}
 
 		m_dense[m_size] = element;

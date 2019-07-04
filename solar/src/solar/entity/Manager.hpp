@@ -1,12 +1,12 @@
 ///
-/// Heliosphere.hpp
+/// Manager.hpp
 ///
 /// solar
 /// See LICENSE.txt.
 ///
 
-#ifndef SOLAR_HELIOSPHERE_HPP_
-#define SOLAR_HELIOSPHERE_HPP_
+#ifndef SOLAR_MANAGER_HPP_
+#define SOLAR_MANAGER_HPP_
 
 #include <tuple>
 #include <memory>
@@ -23,11 +23,11 @@ namespace sr
 	using SystemContainer = std::vector<std::unique_ptr<System>>;
 	using ComponentContainer = std::vector<std::unique_ptr<SparseSet<Entity>>>;
 
-	class Heliosphere
+	class Manager
 	{
 	public:
-		Heliosphere();
-		~Heliosphere();
+		Manager();
+		~Manager();
 
 		Entity create() noexcept;
 
@@ -88,7 +88,7 @@ namespace sr
 	};
 
 	template<typename Component, typename... Args>
-	inline void Heliosphere::add(Entity entity, Args&& ...args) noexcept
+	inline void Manager::add(Entity entity, Args&& ...args) noexcept
 	{
 		auto type = cuid::uid<Component>();
 
@@ -114,7 +114,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline Component* Heliosphere::get(Entity entity)
+	inline Component* Manager::get(Entity entity)
 	{
 		auto type = cuid::uid<Component>();
 
@@ -128,7 +128,7 @@ namespace sr
 	}
 
 	template<typename... Components>
-	inline decltype(auto) Heliosphere::multi(Entity entity) noexcept
+	inline decltype(auto) Manager::multi(Entity entity) noexcept
 	{
 		//auto t = std::make_tuple(get<Components>(entity)...);
 		//return std::make_optional(t);
@@ -155,7 +155,7 @@ namespace sr
 	}
 
 	template<typename ...Components>
-	inline void Heliosphere::operate(std::function<void(Entity, Components* ...)> lambda)
+	inline void Manager::operate(std::function<void(Entity, Components* ...)> lambda)
 	{
 		std::vector<Entity> entities;
 		(operateInteral<Components>(&entities), ...);
@@ -167,7 +167,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline void Heliosphere::operateInteral(std::vector<Entity>* entities)
+	inline void Manager::operateInteral(std::vector<Entity>* entities)
 	{
 		auto type = cuid::uid<Component>();
 
@@ -188,7 +188,7 @@ namespace sr
 	}
 
 	template<typename System, typename ...Args>
-	inline void Heliosphere::add(Args&&... args)
+	inline void Manager::add(Args&&... args)
 	{
 		auto type = suid::uid<System>();
 		if (type > m_systems.size())
@@ -200,7 +200,7 @@ namespace sr
 	}
 
 	template<typename System>
-	inline System* Heliosphere::get()
+	inline System* Manager::get()
 	{
 		auto type = suid::uid<System>();
 		if (type > m_systems.size())
