@@ -27,7 +27,7 @@
     <ClInclude Include="src\solar\core\UID.hpp" />
     <ClInclude Include="src\solar\entity\Manager.hpp" />
     <ClInclude Include="src\solar\core\SparseSet.hpp" />
-    <ClInclude Include="src\solar\core\System.hpp" />
+    <ClInclude Include="src\solar\system\System.hpp" />
     <ClInclude Include="src\solar\Utils.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
