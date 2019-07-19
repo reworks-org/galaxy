@@ -66,21 +66,4 @@ TEST(ExtendedSet, Remove)
 	es.remove(entity);
 
 	ASSERT_FALSE(es.has(entity));
-	
-	// Make sure exception throws when accessing,
-	// and that a value wasn't returned.
-	B* b2 = nullptr;
-	bool caught = false;
-	try
-	{
-		b2 = es.get(entity);
-	}
-	catch (const std::out_of_range& e)
-	{
-		std::cout << "EXCEPTION CAUGHT: " << e.what() << std::endl;
-		caught = true;
-	}
-
-	ASSERT_EQ(caught, true);
-	ASSERT_EQ(b2, nullptr);
 }

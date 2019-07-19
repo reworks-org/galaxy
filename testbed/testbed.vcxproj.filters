@@ -15,7 +15,6 @@
     <ClCompile Include="src\test\core\UIDTest.cpp" />
     <ClCompile Include="src\test\entity\ManagerTest.cpp" />
     <ClCompile Include="src\test\system\SystemTest.cpp" />
-    <ClCompile Include="src\test\ConfigTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\libs\gtest\googletest\src\gtest-internal-inl.h" />

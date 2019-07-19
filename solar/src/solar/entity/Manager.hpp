@@ -15,7 +15,7 @@
 
 #include "solar/Utils.hpp"
 #include "solar/core/UID.hpp"
-#include "solar/core/System.hpp"
+#include "solar/system/System.hpp"
 #include "solar/core/ExtendedSet.hpp"
 
 namespace sr
@@ -31,8 +31,13 @@ namespace sr
 
 		Entity create() noexcept;
 
+		bool has(sr::Entity entity) noexcept;
+
+		// check if an unsigned integer is an entity
+		bool validate(sr::Entity entity);
+
 		template<typename Component, typename... Args>
-		void add(Entity entity, Args&&... args) noexcept;
+		void add(Entity entity, Args&&... args);
 
 		template<typename Component>
 		Component* get(Entity entity);
@@ -66,7 +71,7 @@ namespace sr
 
 	private:
 		template<typename Component>
-		void operateInteral(std::vector<Entity>* entities);
+		void operateInteral(std::vector<Entity>& entities, unsigned int& counter);
 
 	private:
 		///
@@ -88,8 +93,13 @@ namespace sr
 	};
 
 	template<typename Component, typename... Args>
-	inline void Manager::add(Entity entity, Args&& ...args) noexcept
+	inline void Manager::add(Entity entity, Args&& ...args)
 	{
+		if (!validate(entity))
+		{
+			throw std::logic_error("Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+		}
+
 		auto type = cuid::uid<Component>();
 
 		if (type >= m_data.size())
@@ -116,6 +126,11 @@ namespace sr
 	template<typename Component>
 	inline Component* Manager::get(Entity entity)
 	{
+		if (!validate(entity))
+		{
+			throw std::logic_error("Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+		}
+
 		auto type = cuid::uid<Component>();
 
 		if (type > m_data.size())
@@ -130,44 +145,52 @@ namespace sr
 	template<typename... Components>
 	inline decltype(auto) Manager::multi(Entity entity) noexcept
 	{
-		//auto t = std::make_tuple(get<Components>(entity)...);
-		//return std::make_optional(t);
-
+		// get() will validate entity.
 		return std::make_tuple(get<Components>(entity)...);
-
-		//std::vector<SR_INTEGER> type_id_list;
-		
-		//(type_id_list.push_back(cuid::uid<Components>()), ...);
-		//(extract<Components>(entity, cuid::uid<Components>()), ...);
-
-		//auto tuple = std::make_tuple(extract<Components>(entity, cuid::uid<Components>())...);
-
-		//auto tuple = std::tuple_cat(extract<Components>(entity, cuid::uid<Components>())...);
-
-		
-		// FOR DEBUG PURPOSES:
-		/*
-		for (auto i = 0; i < type_id_list.size(); i++)
-		{
-			std::cout << "id: " << type_id_list[i] << std::endl;
-		}
-		*/
 	}
 
 	template<typename ...Components>
 	inline void Manager::operate(std::function<void(Entity, Components* ...)> lambda)
 	{
+		// how many times operate internal is called.
+		unsigned int counter = 0;
+		
 		std::vector<Entity> entities;
-		(operateInteral<Components>(&entities), ...);
+		entities.clear();
+		(operateInteral<Components>(entities, counter), ...);
 
-		for (auto& e : entities)
+		if (counter > 1)
 		{
-			lambda(e, get<Components>(e)...);
+			entities = Utils::findDuplicates(entities, counter);
+		}
+
+		// TODO: FIX ISSUE WHERE WHEN GETTING MULTIPLE COMPONENTS,
+		// COMPONENTS FROM A AND B BUT NOT A AND B ARE being used.
+		// I.e. when a,b is target, getting a but has no b.
+		// also duplicates
+
+		/*
+			
+			get all components belonging to the types and only keep entities that match all components and destroy
+			the others that are not needed
+
+			if entity is in type array a b and c etc]
+
+			use a counter to see how many occurancers of an entity there shouild be
+
+			https://www.google.com/search?client=firefox-b-d&ei=qvUuXYuwK6zZz7sP9tG50AI&q=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&oq=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&gs_l=psy-ab.3..33i10i21.2051.5564..5758...0.0..0.293.4290.2-18......0....1..gws-wiz.......0i71j33i10i160j33i22i29i30j33i10.7KmPP2JGx6Y
+
+			https://www.google.com/search?client=firefox-b-d&q=check+if+an+integer+is+in+a+variable+amount+of+std%3A%3Avectors
+		*/
+			
+		for (auto& entity : entities)
+		{
+			lambda(entity, get<Components>(entity)...);
 		}
 	}
 
 	template<typename Component>
-	inline void Manager::operateInteral(std::vector<Entity>* entities)
+	inline void Manager::operateInteral(std::vector<Entity>& entities, unsigned int& counter)
 	{
 		auto type = cuid::uid<Component>();
 
@@ -180,11 +203,13 @@ namespace sr
 
 		for (auto& e : derived->m_dense)
 		{
-			if (std::find(entities->begin(), entities->end(), e) == entities->end())
+			if (validate(e))
 			{
-				entities->push_back(e);
+				entities.push_back(e);
 			}
 		}
+
+		counter++;
 	}
 
 	template<typename System, typename ...Args>

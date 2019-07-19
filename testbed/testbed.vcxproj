@@ -27,7 +27,6 @@
     <ClCompile Include="..\libs\gtest\googletest\src\gtest-test-part.cc" />
     <ClCompile Include="..\libs\gtest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="..\libs\gtest\googletest\src\gtest.cc" />
-    <ClCompile Include="src\test\ConfigTest.cpp" />
     <ClCompile Include="src\test\core\ExtendedSetTest.cpp" />
     <ClCompile Include="src\test\core\UIDTest.cpp" />
     <ClCompile Include="src\test\entity\ManagerTest.cpp" />

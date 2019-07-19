@@ -89,7 +89,7 @@ namespace sr
 		{
 			m_components[findIndex(entity)] = std::move(m_components.back());
 			m_components.pop_back();
-			
+
 			m_dense[m_sparse[entity]] = m_dense[m_size - 1];
 			m_sparse[m_dense[m_size - 1]] = m_sparse[entity];
 			--m_size;

@@ -8,9 +8,12 @@
 #ifndef SOLAR_SPARSESET_HPP_
 #define SOLAR_SPARSESET_HPP_
 
+#include <string>
 #include <vector>
 
 #include "solar/Config.hpp"
+
+// TODO: redo iterators to filter out invalid entitys?
 
 namespace sr
 {
@@ -34,7 +37,7 @@ namespace sr
 
 		virtual ~SparseSet() noexcept;
 
-		uint insert(uint element) noexcept;
+		void insert(uint element) noexcept;
 		
 		bool has(uint element) noexcept;
 
@@ -121,45 +124,34 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::insert(uint element) noexcept
+	inline void SparseSet<uint>::insert(uint element) noexcept
 	{
-		if (element >= m_capacity)
+		if (!has(element))
 		{
-			reserve(element + 1);
+			if (element >= m_capacity)
+			{
+				reserve(element + 1);
+			}
+
+			m_dense[m_size] = element;
+			m_sparse[element] = m_size;
+			++m_size;
 		}
-
-		m_dense[m_size] = element;
-		m_sparse[element] = m_size;
-		++m_size;
-
-		return m_dense[m_sparse[element]];
 	}
 
 	template<typename uint>
 	inline bool SparseSet<uint>::has(uint element) noexcept
 	{
-		bool success = false;
-
-		if (element < m_capacity)
-		{
-			if (m_sparse[element] < m_size)
-			{
-				if (m_dense[m_sparse[element]] == element)
-				{
-					success = true;
-				}
-			}
-		}
-
-		return success;
+		return element < m_capacity && m_sparse[element] < m_size && m_dense[m_sparse[element]] == element;
 	}
 
 	template<typename uint>
 	inline uint SparseSet<uint>::findIndex(uint element)
 	{
-		if (!has(element))
+		if (element > m_sparse.size())
 		{
-			throw std::out_of_range("Out of bounds! Does not contain element.");
+			std::string msg = "Out of bounds! Sparse Set does not contain element: " + std::to_string(element);
+			throw std::out_of_range(msg);
 		}
 		
 		return m_sparse[element];
@@ -170,8 +162,8 @@ namespace sr
 	{
 		if (reserve > m_capacity)
 		{
-			m_dense.resize(reserve, 0);
-			m_sparse.resize(reserve, 0);
+			m_dense.resize(reserve, 999);
+			m_sparse.resize(reserve, 999);
 
 			m_capacity = reserve;
 		}

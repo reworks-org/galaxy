@@ -10,22 +10,17 @@
 
 #include <cstdint>
 
-#if defined(_WIN64) || defined(__x86_64__)
-	#define SIXTYFOURBIT
-#else
-	#define THIRTYTWOBIT
-#endif
-
-#ifdef SIXTYFOURBIT
-	#define SR_INTEGER std::uint64_t
-#else
-	#define SR_INTEGER std::uint32_t
-#endif
+///
+/// Legacy.
+/// Must be 32bits. Do not change.
+///
+#define SR_INTEGER std::uint32_t
 
 namespace sr
 {
 	///
 	/// Entity type.
+	/// Must be 32bits. Do not change.
 	///
 	using Entity = SR_INTEGER;
 
@@ -38,6 +33,11 @@ namespace sr
 	/// DeltaTime type.
 	///
 	using DeltaTime = double;
+
+	///
+	/// BitMask to see if entity is valid.
+	///
+	static const inline unsigned int VALID_ENTITY = 1;
 }
 
 #endif

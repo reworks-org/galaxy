@@ -28,6 +28,38 @@ namespace sr
 			(vector.push_back(args), ...);
 		}
 
+		///
+		/// Returns all duplicate integers that occur a number of times.
+		///
+		/// Thanks to: https://thispointer.com/c-how-to-find-duplicates-in-a-vector/
+		///
+		template<typename Type>
+		static inline std::vector<Type> findDuplicates(const std::vector<Type>& input, const unsigned int occurances)
+		{
+			// Counted elements.
+			std::unordered_map<Type, unsigned int> counted;
+			std::vector<Type> output;
+
+			for (auto& elem : input)
+			{
+				auto result = counted.insert(std::pair<Type, unsigned int>(elem, 1));
+				if (result.second == false)
+				{
+					result.first->second++;
+				}
+			}
+
+			for (auto& it : counted)
+			{
+				if ((it.second < occurances) == false)
+				{
+					output.push_back(it.first);
+				}
+			}
+
+			return output;
+		}
+
 	};
 }
 

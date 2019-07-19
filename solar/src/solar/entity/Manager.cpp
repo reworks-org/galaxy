@@ -24,15 +24,38 @@ namespace sr
 
 	Entity Manager::create() noexcept
 	{
-		Entity e = m_nextID++;
+		SR_INTEGER free = m_nextID++;
+		sr::Entity entity = free << 16 | sr::VALID_ENTITY;
+		
+		m_entities.insert(entity);
 
-		m_entities.insert(e);
+		return entity;
+	}
 
-		return e;
+	bool Manager::has(sr::Entity entity) noexcept
+	{
+		bool result = true;
+
+		// may need to validate input to see if entity requires testing...
+
+		(m_entities.has(entity)) ? result = true : result = false;
+
+		return result;
+	}
+
+	bool Manager::validate(sr::Entity entity)
+	{
+		bool result = true;
+
+		((entity & 0xFFFF) == sr::VALID_ENTITY) ? result = true : result = false;
+
+		return result;
 	}
 
 	void Manager::destroy(Entity entity)
 	{
+		m_entities.remove(entity);
+
 		for (auto&& ptr : m_data)
 		{
 			ptr->remove(entity);
