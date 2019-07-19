@@ -31,12 +31,12 @@ namespace sr
 		///
 		/// Abstract implementation for processing an event.
 		///
-		virtual void event(const Event& e) = 0;
+		virtual void event(const sr::Event& e) = 0;
 
 		///
 		/// Abstract implementation for updating the system. Use heliosphere to retreive your components.
 		///
-		virtual void update(const DeltaTime time, Manager& hs) = 0;
+		virtual void update(const sr::DeltaTime time, sr::Manager& manager) = 0;
 	};
 }
 

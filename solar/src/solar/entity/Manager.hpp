@@ -216,7 +216,7 @@ namespace sr
 	inline void Manager::add(Args&&... args)
 	{
 		auto type = suid::uid<System>();
-		if (type > m_systems.size())
+		if (type >= m_systems.size())
 		{
 			m_systems.resize(type + 1);
 		}
@@ -233,7 +233,7 @@ namespace sr
 			throw std::out_of_range("Attempted to access a system type that doesnt exist!");
 		}
 
-		return m_systems[type].get();
+		return static_cast<System*>(m_systems[type].get());
 	}
 }
 

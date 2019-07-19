@@ -24,6 +24,19 @@ struct TestB
 	unsigned int val = 200;
 };
 
+class TestSystem : public sr::System
+{
+public:
+	inline ~TestSystem() {}
+
+	inline void event(const sr::Event& e) {}
+
+	inline void update(const sr::DeltaTime time, sr::Manager& manager)
+	{
+		ASSERT_EQ(time, 1);
+	}
+};
+
 TEST(Manager, EntityCreateDestroy)
 {
 	sr::Manager manager;
@@ -140,4 +153,16 @@ TEST(Manager, ComponentOperate)
 	ASSERT_EQ(testae0->val, 50);
 	ASSERT_EQ(testbe1->val, 100);
 	ASSERT_EQ(testbe2->val, 75);
+}
+
+TEST(Manager, Systems)
+{
+	sr::Manager manager;
+
+	manager.add<TestSystem>();
+
+	manager.update(1);
+
+	auto system = manager.get<TestSystem>();
+	ASSERT_NE(system, nullptr);
 }
