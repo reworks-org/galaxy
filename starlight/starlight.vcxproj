@@ -163,6 +163,7 @@
     <ClCompile Include="source\sl\ui\widgets\Textbox.cpp" />
     <ClCompile Include="source\sl\ui\widgets\TextInput.cpp" />
     <ClCompile Include="source\sl\ui\widgets\ToggleButton.cpp" />
+    <ClCompile Include="source\sl\utils\Log.cpp" />
     <ClCompile Include="source\sl\utils\Time.cpp" />
     <ClCompile Include="source\sl\utils\Utils.cpp" />
   </ItemGroup>
@@ -377,6 +378,8 @@
     <ClInclude Include="source\sl\physics\Box2DCallbacks.hpp" />
     <ClInclude Include="source\sl\physics\Box2DHelper.hpp" />
     <ClInclude Include="source\sl\physics\CollisionTypes.hpp" />
+    <ClInclude Include="source\sl\platform\PlatformUnix.hpp" />
+    <ClInclude Include="source\sl\platform\PlatformWindows.hpp" />
     <ClInclude Include="source\sl\resources\FontBook.hpp" />
     <ClInclude Include="source\sl\resources\MusicPlayer.hpp" />
     <ClInclude Include="source\sl\resources\ShaderLibrary.hpp" />
@@ -406,6 +409,7 @@
     <ClInclude Include="source\sl\ui\widgets\Textbox.hpp" />
     <ClInclude Include="source\sl\ui\widgets\TextInput.hpp" />
     <ClInclude Include="source\sl\ui\widgets\ToggleButton.hpp" />
+    <ClInclude Include="source\sl\utils\Log.hpp" />
     <ClInclude Include="source\sl\utils\Random.hpp" />
     <ClInclude Include="source\sl\utils\Time.hpp" />
     <ClInclude Include="source\sl\utils\Utils.hpp" />

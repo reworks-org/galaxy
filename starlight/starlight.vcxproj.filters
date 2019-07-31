@@ -453,6 +453,9 @@
     <ClCompile Include="source\sl\mapping\TiledMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\sl\utils\Log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\sl\audio\Music.hpp">
@@ -1179,6 +1182,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="source\sl\libs\sol2\sol.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\utils\Log.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\platform\PlatformUnix.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sl\platform\PlatformWindows.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
