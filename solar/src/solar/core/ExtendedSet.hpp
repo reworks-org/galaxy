@@ -21,16 +21,48 @@ namespace sr
 	{
 		friend class Manager;
 	public:
+		///
+		/// Constructor.
+		///
 		ExtendedSet() noexcept;
+
+		///
+		/// Value Constructor.
+		///
+		/// \param reserve Default reserved amount of entities.
+		///
 		ExtendedSet(SR_INTEGER reserve) noexcept;
 
+		///
+		/// Destructor
+		///
 		~ExtendedSet() noexcept override;
 
+		///
+		/// Add a component to an entity.
+		///
+		/// \param entity Entity to add component to.
+		/// \param args Arguments of the components constructor.
+		///
+		/// \return Component that was just constructed.
+		///
 		template<typename... Args>
 		Component* add(Entity entity, Args&&... args);
 
+		///
+		/// Get an entitys component.
+		///
+		/// \param entity Entity to retrieve component from.
+		///
+		/// \return Component belonging to the entity.
+		///
 		Component* get(Entity entity);
 
+		///
+		/// Remove the entity and its assossiated component.
+		///
+		/// \param entity Entity to remove.
+		///
 		void remove(Entity entity) override;
 
 	private:
@@ -51,7 +83,15 @@ namespace sr
 	inline ExtendedSet<Component>::ExtendedSet(SR_INTEGER reserve) noexcept
 		:SparseSet(reserve)
 	{
-		m_components.resize(reserve);
+		// Make sure minimum reserve size is 1.
+		if (reserve < 1)
+		{
+			m_components.resize(1);
+		}
+		else
+		{
+			m_components.resize(reserve);
+		}
 	}
 
 	template<typename Component>
