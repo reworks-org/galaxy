@@ -13,8 +13,6 @@
 
 #include "solar/Config.hpp"
 
-// TODO: redo iterators to filter out invalid entitys?
-
 namespace sr
 {
 	///
@@ -28,55 +26,134 @@ namespace sr
 		static_assert(std::is_unsigned<uint>::value, "SparseSet must be an unsigned integer!");
 
 	public:
+		///
+		/// Iterator using std::vector iterator.
+		///
 		using Iterator = typename std::vector<uint>::const_iterator;
+
+		///
+		/// Const Iterator using std::vector iterator.
+		///
 		using ConstIterator = typename std::vector<uint>::const_iterator;
 
+		///
+		/// Constructor.
+		///
 		SparseSet() noexcept;
 
+		///
+		/// Constructor.
+		///
+		/// \param reserve Reserve an amount of entities at construction time.
+		///
 		SparseSet(uint reserve) noexcept;
 
+		///
+		/// Destructor.
+		///
 		virtual ~SparseSet() noexcept;
 
+		///
+		/// Insert an element into the sparse set.
+		///
+		/// \param element Element to insert.
+		///
 		void insert(uint element) noexcept;
 		
+		///
+		/// Does the sparse set contain an element.
+		///
+		/// \param element Element to check if exists.
+		///
+		/// \return boolean value. Returns true if sparse set contains element.
+		///
 		bool has(uint element) noexcept;
 
 		///
 		/// Find the index in the dense array of the element.
 		///
+		/// \param element Entity to find the index of.
+		///
+		/// \return unsigned integer - the index of the element.
+		///
 		uint findIndex(uint element);
 
+		///
+		/// Reserve an amount of space for new entities.
+		///
+		/// \param newReserve Value to reserve in the sparse set.
+		///
 		void reserve(uint newReserve) noexcept;
 		
 		///
 		/// Removes an entity. Usually overriden by ExtendedSet to
 		/// destroy components aswell.
 		///
+		/// \param element Element to remove from the sparse set.
+		///
 		virtual void remove(uint element);
-			
+		
+		///
+		/// Check if sparse set is entity.
+		///
+		/// \return boolean True if empty.
+		///
 		bool empty() noexcept;
 		
+		///
+		/// Destroy all elements and clear the sparse set.
+		///
 		void clear() noexcept;
 
+		///
+		/// Get the size of the sparse set.
+		///
+		/// \return Unsigned Integer.
+		///
 		uint size() const noexcept;
 
+		///
+		/// Get the capacity of the sparse set.
+		///
+		/// \return Unsigned Integer.
+		///
 		uint capacity() const noexcept;
 
+		///
+		/// Iterator start.
+		///
+		/// \return Beginning iterator.
+		///
 		inline Iterator begin()
 		{
 			return m_dense.begin();
 		}
 
+		///
+		/// Const Iterator start.
+		///
+		/// \return Const beginning iterator.
+		///
 		inline ConstIterator begin() const
 		{
 			return m_dense.begin();
 		}
 
+		///
+		/// Iterator end.
+		///
+		/// \return Ending iterator.
+		///
 		inline Iterator end()
 		{
 			return m_dense.begin() + m_size;
 		}
 
+		///
+		/// Const Iterator end.
+		///
+		/// \return Const ending iterator.
+		///
 		inline ConstIterator end() const
 		{
 			return m_dense.begin() + m_size;
@@ -120,6 +197,7 @@ namespace sr
 	template<typename uint>
 	inline SparseSet<uint>::~SparseSet() noexcept
 	{
+		// Clean up.
 		clear();
 	}
 

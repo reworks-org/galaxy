@@ -19,6 +19,9 @@ namespace sr
 	template<typename Component>
 	class ExtendedSet final : public SparseSet<Entity>
 	{
+		///
+		/// Friended to manager to allow direct access to internals that cannot have an interface.
+		///
 		friend class Manager;
 	public:
 		///
@@ -97,6 +100,7 @@ namespace sr
 	template<typename Component>
 	inline ExtendedSet<Component>::~ExtendedSet() noexcept
 	{
+		// Make sure everything is cleaned up.
 		clear();
 		m_components.clear();
 	}
@@ -111,12 +115,14 @@ namespace sr
 		insert(entity);
 		m_components.emplace_back(std::forward<Args>(args)...);
 
+		// Return a reference to the component.
 		return &(m_components.back());
 	}
 
 	template<typename Component>
 	inline Component* ExtendedSet<Component>::get(Entity entity)
 	{
+		// Access the index the entity is assosiated with to get the component paired with the entity.
 		return &(m_components[findIndex(entity)]);
 	}
 
