@@ -31,10 +31,15 @@ namespace sr
 		///
 		/// Abstract implementation for processing an event.
 		///
+		/// \param e Event object to pass to system.
+		///
 		virtual void event(const sr::Event& e) = 0;
 
 		///
-		/// Abstract implementation for updating the system. Use heliosphere to retreive your components.
+		/// Abstract implementation for updating the system. Use the manager to retreive your components.
+		///
+		/// \param time DeltaTime from gameloop.
+		/// \param manager Entity manager.
 		///
 		virtual void update(const sr::DeltaTime time, sr::Manager& manager) = 0;
 	};

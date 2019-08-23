@@ -27,3 +27,22 @@ factory pattern. check bookmarks.
 
 
 */
+
+// TODO: FIX ISSUE WHERE WHEN GETTING MULTIPLE COMPONENTS,
+		// COMPONENTS FROM A AND B BUT NOT A AND B ARE being used.
+		// I.e. when a,b is target, getting a but has no b.
+		// also duplicates
+
+		/*
+			
+			get all components belonging to the types and only keep entities that match all components and destroy
+			the others that are not needed
+
+			if entity is in type array a b and c etc]
+
+			use a counter to see how many occurancers of an entity there shouild be
+
+			https://www.google.com/search?client=firefox-b-d&ei=qvUuXYuwK6zZz7sP9tG50AI&q=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&oq=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&gs_l=psy-ab.3..33i10i21.2051.5564..5758...0.0..0.293.4290.2-18......0....1..gws-wiz.......0i71j33i10i160j33i22i29i30j33i10.7KmPP2JGx6Y
+
+			https://www.google.com/search?client=firefox-b-d&q=check+if+an+integer+is+in+a+variable+amount+of+std%3A%3Avectors
+		*/

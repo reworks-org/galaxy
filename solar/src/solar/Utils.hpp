@@ -12,6 +12,9 @@
 
 namespace sr
 {
+	///
+	/// Container structure for utility functions.
+	///
 	struct Utils
 	{
 		///

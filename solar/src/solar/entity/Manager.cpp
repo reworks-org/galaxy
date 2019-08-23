@@ -24,6 +24,9 @@ namespace sr
 
 	Entity Manager::create() noexcept
 	{
+		// Bit masks the unsigned interger id with the valid_entity flag
+		// to make sure when an unsigned integer is passed it can be
+		// verified as an actual entity.
 		SR_INTEGER free = m_nextID++;
 		sr::Entity entity = free << 16 | sr::VALID_ENTITY;
 		
@@ -36,8 +39,7 @@ namespace sr
 	{
 		bool result = true;
 
-		// may need to validate input to see if entity requires testing...
-
+		// Do not need to verify since parameter wont match unless entity flag is present.
 		(m_entities.has(entity)) ? result = true : result = false;
 
 		return result;
@@ -47,6 +49,7 @@ namespace sr
 	{
 		bool result = true;
 
+		// Checks if flag exists.
 		((entity & 0xFFFF) == sr::VALID_ENTITY) ? result = true : result = false;
 
 		return result;

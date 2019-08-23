@@ -23,53 +23,143 @@ namespace sr
 	using SystemContainer = std::vector<std::unique_ptr<System>>;
 	using ComponentContainer = std::vector<std::unique_ptr<SparseSet<Entity>>>;
 
+	///
+	/// Controls and manages the Entitys, Components and Systems.
+	///
 	class Manager
 	{
 	public:
+		///
+		/// Constructor.
+		///
 		Manager();
+
+		/// Destructor.
+		///
+		///
 		~Manager();
 
+		///
+		/// Create an entity.
+		///
+		/// \return An entity with a creation bit flag.
+		///
 		Entity create() noexcept;
 
+		///
+		/// Check if an entity exists.
+		///
+		/// \param entity Entity to verify.
+		///
+		/// \return True if entity does exist.
+		///
 		bool has(sr::Entity entity) noexcept;
 
-		// check if an unsigned integer is an entity
-		bool validate(sr::Entity entity);
+		///
+		/// Check if an unsigned integer is an entity.
+		/// Specifically checking for an sr::VALID_ENTITY bitflag.
+		///
+		/// \param uint Unsigned integer to verify.
+		///
+		/// \return True if unsigned integer is an entity.
+		///
+		bool validate(sr::Entity uint);
 
+		///
+		/// Add (construct) a component for an entity.
+		/// Use template to specify type of component being created.
+		///
+		/// \param entity Entity to assosiate the component with.
+		/// \param args Constructor arguments for the component.
+		///
 		template<typename Component, typename... Args>
 		void add(Entity entity, Args&&... args);
 
+		///
+		/// Retrieve a component assosiated with an entity.
+		/// Template type is type of component to get.
+		///
+		/// \param entity Entity component is assosiated with.
+		///
+		/// \return Pointer to component of type Component.
+		///
 		template<typename Component>
 		Component* get(Entity entity);
 
+		///
+		/// \brief Retrieve multiple components.
+		///
+		/// Using the template parameter, specify the component(s) you want to retrieve.
+		/// Use structured binding. auto [x, y] = multi<x, y>(entity); 
+		/// The first value in the binding is the first type in the template parameter.
+		///
+		/// \param entity Entity that the components belong to.
+		///
+		/// \return Type is automatically deduced, but is a type of std::tuple. Best method is to use structured bindings to retrieve data.
+		///
 		template<typename... Components>
 		decltype(auto) multi(Entity entity) noexcept;
 
+		///
+		/// \brief Iterate over a set of components of a set of types and manipulate their data.
+		///
+		/// The components to manipulate are specified in the template parameter.
+		///
+		/// \param lambda A lambda function that manipulates the components.
+		///		          For example: 
+							/*
+							manager.operate<a, b>([](sr::Entity entity, a* ca, b* cb)
+							{
+								cb->var = 500;
+							});
+							*/
+		///
 		template<typename... Components>
 		void operate(std::function<void(Entity, Components* ...)> lambda);
 
+		///
+		/// \brief Add a system to the manager.
+		///
+		/// Template parameter to speficy type of system to create.
+		///
+		/// \param args Constructor arguments for the system.
+		///
 		template<typename System, typename... Args>
 		void add(Args&&... args);
 
+		///
+		/// Get a system. Type is template parameter.
+		///
+		/// \return Pointer to the system.
+		///
 		template<typename System>
 		System* get();
 
 		///
 		/// Destroys an entity and all assosiated components.
 		///
+		/// \param entity Entity to destroy.
+		///
 		void destroy(Entity entity);
 
 		///
 		/// Pass on event to all systems.
+		///
+		/// \param event Event data to pass to systems.
 		///
 		void event(const Event& event);
 
 		///
 		/// Update all systems.
 		///
+		/// \param time DeltaTime to pass to systems.
+		///
 		void update(const DeltaTime time);
 
 	private:
+		///
+		/// Internal method used to process components from entities.
+		///
 		template<typename Component>
 		void operateInteral(std::vector<Entity>& entities, unsigned int& counter);
 
@@ -89,6 +179,9 @@ namespace sr
 		///
 		ComponentContainer m_data;
 
+		///
+		/// Stores systems.
+		///
 		SystemContainer m_systems;
 	};
 
@@ -157,31 +250,15 @@ namespace sr
 		
 		std::vector<Entity> entities;
 		entities.clear();
+		// expands to be called on every component, also incrementing counter to know how many times called.
 		(operateInteral<Components>(entities, counter), ...);
 
 		if (counter > 1)
 		{
+			// erase duplicates
+			// TODO: find a more efficient method of matching.
 			entities = Utils::findDuplicates(entities, counter);
 		}
-
-		// TODO: FIX ISSUE WHERE WHEN GETTING MULTIPLE COMPONENTS,
-		// COMPONENTS FROM A AND B BUT NOT A AND B ARE being used.
-		// I.e. when a,b is target, getting a but has no b.
-		// also duplicates
-
-		/*
-			
-			get all components belonging to the types and only keep entities that match all components and destroy
-			the others that are not needed
-
-			if entity is in type array a b and c etc]
-
-			use a counter to see how many occurancers of an entity there shouild be
-
-			https://www.google.com/search?client=firefox-b-d&ei=qvUuXYuwK6zZz7sP9tG50AI&q=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&oq=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&gs_l=psy-ab.3..33i10i21.2051.5564..5758...0.0..0.293.4290.2-18......0....1..gws-wiz.......0i71j33i10i160j33i22i29i30j33i10.7KmPP2JGx6Y
-
-			https://www.google.com/search?client=firefox-b-d&q=check+if+an+integer+is+in+a+variable+amount+of+std%3A%3Avectors
-		*/
 			
 		for (auto& entity : entities)
 		{
@@ -203,6 +280,7 @@ namespace sr
 
 		for (auto& e : derived->m_dense)
 		{
+			// Have to make sure no entitys are blank unsigned integers.
 			if (validate(e))
 			{
 				entities.push_back(e);
