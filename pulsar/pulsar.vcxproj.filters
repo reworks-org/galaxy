@@ -15,18 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Log.hpp">
+    <ClInclude Include="src\pl\platform\Unix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\Unix.hpp">
+    <ClInclude Include="src\pl\platform\Windows.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\platform\Windows.hpp">
+    <ClInclude Include="src\pl\Log.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl\LogStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Log.cpp">
+    <ClCompile Include="src\pl\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

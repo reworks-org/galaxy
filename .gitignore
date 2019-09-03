@@ -1,3 +1,9 @@
 .vs/
 
 *.bat
+
+test/bin
+test/build
+
+pulasr/bin
+pulsar/build
