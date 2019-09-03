@@ -24,7 +24,10 @@
     <ClInclude Include="src\pl\Log.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pl\LogStream.hpp">
+    <ClInclude Include="src\pl\details\LogStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pl\details\LogColours.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

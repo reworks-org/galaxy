@@ -11,14 +11,22 @@
 #if defined(_WIN64) || defined(_WIN32)
 
 #include <string>
+#include <Windows.h>
+
+#include "../details/LogColours.hpp"
+
+#undef ERROR
 
 namespace pl
 {
-	struct Windows
+	struct Platform
 	{
-		static inline std::string colourText(const std::string& text, const std::string& colour)
+		static inline std::string colourText(const LogColours colour)
 		{
+			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+			SetConsoleTextAttribute(hConsole, (int)colour);
 
+			return "";
 		}
 	};
 }

@@ -11,7 +11,7 @@
 void testfunc()
 {
 	pl::Log::init("logs/a.txt");
-	LOG_S("hai") << "hmm";
+	LOG_S(WARNING) << "hmm";
 }
 
 int main(int argc, char** argv)
