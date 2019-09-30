@@ -5,25 +5,17 @@
 /// See LICENSE.txt.
 ///
 
-#include "gtest/gtest.h"
 #include <pl/Log.hpp>
-
-void testfunc()
-{
-	pl::Log::init("logs/a.txt");
-	LOG_S(WARNING) << "hmm";
-}
 
 int main(int argc, char** argv)
 {
-	//testing::InitGoogleTest(&argc, argv);
+	pl::Log::init("logs/a.txt");
+	pl::Log::setMinimumLevel(pl::Log::Level::WARNING);
 
-	//auto result = RUN_ALL_TESTS();
-	
-	testfunc();
+	LOG_S(pl::Log::Level::INFO) << "Should not log.\n";
+	LOG_S(pl::Log::Level::WARNING) << "Shoud Log.";
 
 	std::cin.get();
 	
 	return 0;
-	//return result;
 }

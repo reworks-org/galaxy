@@ -16,18 +16,26 @@ namespace pl
 {
 	class LogStream
 	{
-		friend struct Log;
+		friend class Log;
 	public:
+		LogStream(bool disabled)
+		{
+			m_disabled = disabled;
+		}
+
 		inline ~LogStream()
 		{
-			fileStream.close();
+			m_fileStream.close();
 		}
 
 		template<typename T>
 		inline LogStream& operator<<(const T& input)
 		{
-			std::cout << input;
-			fileStream << input;
+			if (!m_disabled)
+			{
+				std::cout << input;
+				m_fileStream << input;
+			}
 
 			return *this;
 		}
@@ -43,16 +51,17 @@ namespace pl
 				std::filesystem::create_directory(directory);
 			}
 
-			fileStream.open(logTo, std::ofstream::out);
+			m_fileStream.open(logTo, std::ofstream::out);
 
-			if (fileStream.fail())
+			if (m_fileStream.fail())
 			{
 				throw std::runtime_error("Failed to create log: " + logTo);
 			}
 		}
 
 	private:
-		std::ofstream fileStream;
+		bool m_disabled = false;
+		std::ofstream m_fileStream;
 	};
 }
 

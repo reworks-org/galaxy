@@ -15,32 +15,26 @@
 ///
 /// Log to Stream.
 ///
-#define LOG_S(x) pl::Log::s_stream << pl::Log::processColour(pl::Log::Level::x) << "[" << pl::Log::processLevel(pl::Log::Level::x) << "] - " << pl::Log::getDateTime() << " - "
+#define LOG_S(x) pl::Log::filterLevel(x) << /*pl::Log::processColour(x) <<*/ "[" << pl::Log::processLevel(x) << "] - " << pl::Log::getDateTime() << " - "
+
 
 namespace pl
 {
-	struct Log
+	class Log
 	{
-		enum class Level
+	public:
+		enum class Level : int
 		{
-			INFO,
-			DEBUG,
-			WARNING,
-			ERROR,
-			FATAL
+			INFO = 0,
+			DEBUG = 1,
+			WARNING = 2,
+			ERROR = 3,
+			FATAL = 4
 		};
 
 		static inline void init(const std::string& logTo)
 		{
 			pl::Log::s_stream.init(logTo);
-		}
-
-		static inline std::string getDateTime()
-		{
-			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-			std::string out = std::ctime(&time);
-			out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
-			return out;
 		}
 
 		static inline std::string processLevel(pl::Log::Level level)
@@ -49,23 +43,23 @@ namespace pl
 
 			switch (level)
 			{
-			case Level::INFO:
+			case pl::Log::Level::INFO:
 				out = "INFO";
 				break;
 
-			case Level::DEBUG:
+			case pl::Log::Level::DEBUG:
 				out = "DEBUG";
 				break;
 
-			case Level::WARNING:
+			case pl::Log::Level::WARNING:
 				out = "WARNING";
 				break;
 
-			case Level::ERROR:
+			case pl::Log::Level::ERROR:
 				out = "ERROR";
 				break;
 
-			case Level::FATAL:
+			case pl::Log::Level::FATAL:
 				out = "FATAL";
 				break;
 
@@ -83,23 +77,23 @@ namespace pl
 
 			switch (level)
 			{
-			case Level::INFO:
+			case pl::Log::Level::INFO:
 				out = Platform::colourText(LogColours::WHITE);
 				break;
 
-			case Level::DEBUG:
+			case pl::Log::Level::DEBUG:
 				out = Platform::colourText(LogColours::GREEN);
 				break;
 
-			case Level::WARNING:
+			case pl::Log::Level::WARNING:
 				out = Platform::colourText(LogColours::YELLOW);
 				break;
 
-			case Level::ERROR:
+			case pl::Log::Level::ERROR:
 				out = Platform::colourText(LogColours::RED);
 				break;
 
-			case Level::FATAL:
+			case pl::Log::Level::FATAL:
 				out = Platform::colourText(LogColours::FATAL);
 				break;
 
@@ -111,7 +105,40 @@ namespace pl
 			return out;
 		}
 
-		static inline pl::LogStream s_stream = {};
+		static inline pl::LogStream& filterLevel(pl::Log::Level level)
+		{
+			if (static_cast<int>(level) >= static_cast<int>(pl::Log::s_minimumLevel))
+			{
+				return pl::Log::s_stream;
+			}
+			else
+			{
+				return pl::Log::s_emptyStream;
+			}
+		}
+
+		static inline void setMinimumLevel(pl::Log::Level level)
+		{
+			pl::Log::s_minimumLevel = level;
+		}
+
+		static inline pl::Log::Level getMinimumLevel()
+		{
+			return pl::Log::s_minimumLevel;
+		}
+
+		static inline std::string getDateTime()
+		{
+			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+			std::string out = std::ctime(&time);
+			out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
+			return out;
+		}
+
+	private:
+		static inline pl::LogStream s_stream = pl::LogStream(false);
+		static inline pl::LogStream s_emptyStream = pl::LogStream(true);
+		static inline pl::Log::Level s_minimumLevel;
 	};
 }
 
