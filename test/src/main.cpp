@@ -9,11 +9,11 @@
 
 int main(int argc, char** argv)
 {
-	pl::Log::init("logs/a.txt");
-	pl::Log::setMinimumLevel(pl::Log::Level::WARNING);
+	pl::Log::i().init("logs/a.txt");
+	pl::Log::i().setMinimumLevel(pl::Log::Level::WARNING);
 
 	LOG_S(pl::Log::Level::INFO) << "Should not log.\n";
-	LOG_S(pl::Log::Level::WARNING) << "Shoud Log.";
+	LOG_S(pl::Log::Level::WARNING) << "Should Log.";
 
 	std::cin.get();
 	

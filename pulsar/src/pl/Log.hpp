@@ -12,17 +12,36 @@
 #include "platform/Windows.hpp"
 #include "details/LogStream.hpp"
 
-///
-/// Log to Stream.
-///
-#define LOG_S(x) pl::Log::filterLevel(x) << /*pl::Log::processColour(x) <<*/ "[" << pl::Log::processLevel(x) << "] - " << pl::Log::getDateTime() << " - "
+/*
+https://stackoverflow.com/questions/11711920/how-to-implement-multithread-safe-Log-in-c11-without-using-mutex
+https://en.cppreference.com/w/cpp/thread/async
+https://gist.github.com/kevinkreiser/39f2e39273c625d96790
+https://hackernoon.com/learn-c-multi-threading-in-5-minutes-8b881c92941f
+https://github.com/gabime/spdlog
+*/
 
+///
+/// \brief Log to Stream.
+///
+/// Macro shortcut.
+///
+#define LOG_S(x) pl::Log::i().filterLevel(x) << pl::Log::i().processColour(x) << "[" << pl::Log::i().processLevel(x) << "] - " << pl::Log::i().getDateTime() << " - "
 
+///
+/// pl is the namespace for the Pulsar Logging library.
+///
 namespace pl
 {
+	///
+	/// Log logging class.
+	/// Uses multithreading.
+	///
 	class Log
 	{
 	public:
+		///
+		/// Enum defining the different reporting levels of a log message.
+		///
 		enum class Level : int
 		{
 			INFO = 0,
@@ -32,113 +51,113 @@ namespace pl
 			FATAL = 4
 		};
 
-		static inline void init(const std::string& logTo)
-		{
-			pl::Log::s_stream.init(logTo);
-		}
+		///
+		/// Retrieve log instance.
+		///
+		/// \return Returns static reference to Log class.
+		///
+		static Log& i();
 
-		static inline std::string processLevel(pl::Log::Level level)
-		{
-			std::string out = "";
+		///
+		/// Initialize logging and set up destination file.
+		///
+		/// \param logTo File to write all log messages to.
+		///
+		void init(const std::string& logTo);
 
-			switch (level)
-			{
-			case pl::Log::Level::INFO:
-				out = "INFO";
-				break;
+		///
+		/// Convert log message level to a string.
+		///
+		/// \param level Level to convert.
+		///
+		/// \return C-String, in caps.
+		///
+		const char* processLevel(const pl::Log::Level level);
 
-			case pl::Log::Level::DEBUG:
-				out = "DEBUG";
-				break;
+		///
+		/// Colourizes the terminal text based on the log message level.
+		///
+		/// \param level Level to use when selecting colour.
+		///
+		/// \return Colour code in C-String on Unix, blank on Windows (set via console library).
+		///
+		const char* processColour(pl::Log::Level level);
+		
+		///
+		/// Filters a log stream message based on message level to determine if it must be logged.
+		///
+		/// \param level Level of current message to determine if it must be logged.
+		///
+		/// \return Returns a Logging Stream object that can be used in a log to stream senario.
+		///
+		pl::LogStream& filterLevel(pl::Log::Level level);
+		
+		///
+		/// \brief	Set a minimum log level.
+		///
+		/// In order to only print and log levels greater than or equal to the current log message level.
+		///
+		/// \param level Level to set as the minimum level to log at.
+		///
+		void setMinimumLevel(pl::Log::Level level);
+		
+		///
+		/// Returns minimum logging message level that is required to log a message.
+		///
+		/// \return pl::Log::Level enum.
+		///
+		pl::Log::Level getMinimumLevel();
+		
+		///
+		/// Gets current date and time in a string format.
+		///
+		/// \return Returns date/time as a C-String.
+		///
+		const char* getDateTime();
 
-			case pl::Log::Level::WARNING:
-				out = "WARNING";
-				break;
-
-			case pl::Log::Level::ERROR:
-				out = "ERROR";
-				break;
-
-			case pl::Log::Level::FATAL:
-				out = "FATAL";
-				break;
-
-			default:
-				out = "INVALID MESSAGE LEVEL";
-				break;
-			}
-
-			return out;
-		}
-
-		static inline std::string processColour(pl::Log::Level level)
-		{
-			std::string out = "";
-
-			switch (level)
-			{
-			case pl::Log::Level::INFO:
-				out = Platform::colourText(LogColours::WHITE);
-				break;
-
-			case pl::Log::Level::DEBUG:
-				out = Platform::colourText(LogColours::GREEN);
-				break;
-
-			case pl::Log::Level::WARNING:
-				out = Platform::colourText(LogColours::YELLOW);
-				break;
-
-			case pl::Log::Level::ERROR:
-				out = Platform::colourText(LogColours::RED);
-				break;
-
-			case pl::Log::Level::FATAL:
-				out = Platform::colourText(LogColours::FATAL);
-				break;
-
-			default:
-				out = Platform::colourText(LogColours::WHITE);
-				break;
-			}
-
-			return out;
-		}
-
-		static inline pl::LogStream& filterLevel(pl::Log::Level level)
-		{
-			if (static_cast<int>(level) >= static_cast<int>(pl::Log::s_minimumLevel))
-			{
-				return pl::Log::s_stream;
-			}
-			else
-			{
-				return pl::Log::s_emptyStream;
-			}
-		}
-
-		static inline void setMinimumLevel(pl::Log::Level level)
-		{
-			pl::Log::s_minimumLevel = level;
-		}
-
-		static inline pl::Log::Level getMinimumLevel()
-		{
-			return pl::Log::s_minimumLevel;
-		}
-
-		static inline std::string getDateTime()
-		{
-			std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-			std::string out = std::ctime(&time);
-			out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
-			return out;
-		}
+		///
+		/// Retrieves currently used logging stream.
+		///
+		/// \return Reference to LogStream object.
+		///
+		pl::LogStream& stream();
 
 	private:
-		static inline pl::LogStream s_stream = pl::LogStream(false);
-		static inline pl::LogStream s_emptyStream = pl::LogStream(true);
-		static inline pl::Log::Level s_minimumLevel;
+		///
+		/// Constructor.
+		///
+		Log();
+
+		///
+		/// Destructor.
+		///
+		~Log() = default;
+
+		///
+		/// Delete Copy construct in order to preserve singleton.
+		///
+		Log(Log const&) = delete;        
+		
+		///
+		/// Delete Move construct in order to preserve singleton.
+		///
+		Log(Log&&) = delete;
+
+		///
+		/// Delete Copy assign in order to preserve singleton.
+		///
+		Log& operator=(Log const&) = delete;
+
+		///
+		/// Delete Move assign in order to preserve singleton.
+		///
+		Log& operator=(Log&&) = delete;
+
+	private:
+		std::mutex m_lock;
+		pl::LogStream m_stream;
+		pl::LogStream m_emptyStream;
+		pl::Log::Level m_minimumLevel;
 	};
 }
 

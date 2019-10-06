@@ -8,6 +8,7 @@
 #ifndef PULSAR_LOGSTREAM_HPP_
 #define PULSAR_LOGSTREAM_HPP_
 
+#include <mutex>
 #include <fstream>
 #include <iostream>
 #include <filesystem>
@@ -18,51 +19,35 @@ namespace pl
 	{
 		friend class Log;
 	public:
-		LogStream(bool disabled)
-		{
-			m_disabled = disabled;
-		}
+		LogStream(bool disabled);
 
-		inline ~LogStream()
-		{
-			m_fileStream.close();
-		}
+		~LogStream();
 
 		template<typename T>
-		inline LogStream& operator<<(const T& input)
-		{
-			if (!m_disabled)
-			{
-				std::cout << input;
-				m_fileStream << input;
-			}
-
-			return *this;
-		}
+		LogStream& operator<<(const T& input);
 
 	private:
-		inline void init(const std::string& logTo)
-		{
-			std::filesystem::path path(logTo);
-			std::filesystem::path directory = path.remove_filename();
-
-			if (!std::filesystem::exists(directory))
-			{
-				std::filesystem::create_directory(directory);
-			}
-
-			m_fileStream.open(logTo, std::ofstream::out);
-
-			if (m_fileStream.fail())
-			{
-				throw std::runtime_error("Failed to create log: " + logTo);
-			}
-		}
+		void init(const std::string& logTo);
 
 	private:
+		std::mutex m_lock;
 		bool m_disabled = false;
 		std::ofstream m_fileStream;
 	};
+
+	template<typename T>
+	inline LogStream& LogStream::operator<<(const T& input)
+	{
+		std::lock_guard<std::mutex> lock(m_lock);
+
+		if (!m_disabled)
+		{
+			std::cout << input;
+			m_fileStream << input;
+		}
+
+		return *this;
+	}
 }
 
 #endif

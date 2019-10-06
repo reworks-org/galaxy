@@ -175,6 +175,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\pl\details\LogStream.cpp" />
     <ClCompile Include="src\pl\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
