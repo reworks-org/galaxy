@@ -70,18 +70,18 @@ namespace pl
 		///
 		/// \param level Level to convert.
 		///
-		/// \return C-String, in caps.
+		/// \return std::string, in caps.
 		///
-		const char* processLevel(const pl::Log::Level level);
+		std::string processLevel(const pl::Log::Level level);
 
 		///
 		/// Colourizes the terminal text based on the log message level.
 		///
 		/// \param level Level to use when selecting colour.
 		///
-		/// \return Colour code in C-String on Unix, blank on Windows (set via console library).
+		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		const char* processColour(pl::Log::Level level);
+		std::string processColour(pl::Log::Level level);
 		
 		///
 		/// Filters a log stream message based on message level to determine if it must be logged.
@@ -111,9 +111,9 @@ namespace pl
 		///
 		/// Gets current date and time in a string format.
 		///
-		/// \return Returns date/time as a C-String.
+		/// \return Returns date/time as a std::string.
 		///
-		const char* getDateTime();
+		std::string getDateTime();
 
 		///
 		/// Retrieves currently used logging stream.

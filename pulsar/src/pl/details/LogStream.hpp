@@ -9,6 +9,7 @@
 #define PULSAR_LOGSTREAM_HPP_
 
 #include <mutex>
+#include <future>
 #include <fstream>
 #include <iostream>
 #include <filesystem>
@@ -39,12 +40,15 @@ namespace pl
 	inline LogStream& LogStream::operator<<(const T& input)
 	{
 		std::lock_guard<std::mutex> lock(m_lock);
-
-		if (!m_disabled)
+		
+		std::async(std::launch::async, [&]()
 		{
-			std::cout << input;
-			m_fileStream << input;
-		}
+			if (!m_disabled)
+			{
+				std::cout << input;
+				m_fileStream << input;
+			}
+		});
 
 		return *this;
 	}

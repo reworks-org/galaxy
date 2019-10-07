@@ -25,7 +25,7 @@ namespace pl
 		m_stream.init(logTo);
 	}
 
-	const char* Log::processLevel(const pl::Log::Level level)
+	std::string Log::processLevel(const pl::Log::Level level)
 	{
 		std::string out = "";
 
@@ -56,10 +56,10 @@ namespace pl
 			break;
 		}
 
-		return out.c_str();
+		return out;
 	}
 
-	const char* Log::processColour(pl::Log::Level level)
+	std::string Log::processColour(pl::Log::Level level)
 	{
 		std::string out = "";
 
@@ -90,7 +90,7 @@ namespace pl
 			break;
 		}
 
-		return out.c_str();
+		return out;
 	}
 
 	pl::LogStream& Log::filterLevel(pl::Log::Level level)
@@ -117,14 +117,14 @@ namespace pl
 		return m_minimumLevel;
 	}
 
-	const char* Log::getDateTime()
+	std::string Log::getDateTime()
 	{
 		std::lock_guard<std::mutex> lock(m_lock);
 
 		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		std::string out = std::ctime(&time);
 		out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
-		return out.c_str();
+		return out;
 	}
 
 	pl::LogStream& Log::stream()
