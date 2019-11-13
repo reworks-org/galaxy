@@ -1,5 +1,6 @@
 # pulsar
 [![Build status](https://ci.appveyor.com/api/projects/status/swqgmhpnue0jc5je?svg=true)](https://ci.appveyor.com/project/reworks/pulsar)
+
 Minimal multi-threaded C++17 logging library.
 
 # Tutorial
