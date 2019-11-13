@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pulsar", "pulsar\pulsar.vcxproj", "{F300952E-0D01-4A04-887D-BD2C63130384}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj", "{7ABC9D57-ECF0-4530-91E2-406E188F1E8D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F300952E-0D01-4A04-887D-BD2C63130384} = {F300952E-0D01-4A04-887D-BD2C63130384}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
