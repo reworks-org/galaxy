@@ -10,6 +10,9 @@
 
 namespace pl
 {
+	///
+	/// Enum representing different log text colours.
+	///
 	enum class LogColours : int
 	{
 		WHITE = 15,

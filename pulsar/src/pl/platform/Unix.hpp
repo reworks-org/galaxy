@@ -16,8 +16,18 @@
 
 namespace pl
 {
+	///
+	/// Holds methods relating to platform specific code.
+	///
 	struct Platform
 	{
+		///
+		/// Function for defining colour based text on console output.
+		///
+		/// \param colour Enum defining which colour to colour text in.
+		///
+		/// \return Returns string ascii code to colour text.
+		///
 		static inline std::string colourText(const LogColours colour)
 		{
 			std::string out = "";

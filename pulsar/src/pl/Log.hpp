@@ -12,14 +12,6 @@
 #include "platform/Windows.hpp"
 #include "details/LogStream.hpp"
 
-/*
-https://stackoverflow.com/questions/11711920/how-to-implement-multithread-safe-Log-in-c11-without-using-mutex
-https://en.cppreference.com/w/cpp/thread/async
-https://gist.github.com/kevinkreiser/39f2e39273c625d96790
-https://hackernoon.com/learn-c-multi-threading-in-5-minutes-8b881c92941f
-https://github.com/gabime/spdlog
-*/
-
 ///
 /// \brief Log to Stream.
 ///
@@ -154,9 +146,24 @@ namespace pl
 		Log& operator=(Log&&) = delete;
 
 	private:
+		///
+		/// Mutex to prevent resources being simultaneously accessed.
+		///
 		std::mutex m_lock;
+
+		///
+		/// Stream to log to.
+		///
 		pl::LogStream m_stream;
+
+		///
+		/// Empty stream to send filtered out log messages.
+		///
 		pl::LogStream m_emptyStream;
+
+		///
+		/// Minimum level of messages required to be logged.
+		///
 		pl::Log::Level m_minimumLevel;
 	};
 }
