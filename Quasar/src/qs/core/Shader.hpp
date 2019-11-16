@@ -12,6 +12,8 @@
 #include <string>
 #include <filesystem>
 
+#include "qs/utils/Error.hpp"
+
 namespace qs
 {
 	///
@@ -58,17 +60,14 @@ namespace qs
 		///
 		void disable() noexcept;
 
-		template<typename Type>
-		void setUniform1(const std::string& name, Type v1) const noexcept;
+		///
+		/// Set a uniform for integers or bools.
+		///
+		template<typename ...Args>
+		void setUniformIntegral(const std::string& name, const Args& ...args) const;
 
-		template<typename Type>
-		void setUniform2(const std::string& name, Type v1, Type v2) const noexcept;
-
-		template<typename Type>
-		void setUniform3(const std::string& name, Type v1, Type v2, Type v3) const noexcept;
-
-		template<typename Type>
-		void setUniform4(const std::string& name, Type v1, Type v2, Type v3, Type v4) const noexcept;
+		template<typename ...Args>
+		void setUniformFloating(const std::string& name, const Args& ...args) const;
 
 	private:
 		int getUniformLocation(const std::string& name);
@@ -84,6 +83,74 @@ namespace qs
 		///
 		std::unordered_map<std::string, int> m_cache;
 	};
+
+	template<typename ...Args>
+	inline void Shader::setUniformIntegral(const std::string& name, const Args& ...args) const
+	{
+		if (!std::is_integral<typename std::decay<Args>::type>::value)
+		{
+			throw std:::runtime_error("setUniformIB - type not integral.");
+		}
+
+		constexpr std::size_t count = sizeof...(Args);
+
+		switch (count)
+		{
+		case 1:
+			glUniform1i(getUniformLocation(name), static_cast<int>(args));
+			break;
+
+		case 2:
+			glUniform2i(getUniformLocation(name), static_cast<int>(args)...);
+			break;
+
+		case 3:
+			glUniform3i(getUniformLocation(name), static_cast<int>(args)...);
+			break;
+
+		case 4:
+			glUniform4i(getUniformLocation(name), static_cast<int>(args)...);
+			break;
+
+		default:
+			qs::Error::handle.callback("Shader.hpp", 111, "SetUniformInt Invalid size. Must be 1-4.");
+			break;
+		}
+	}
+
+	template<typename ...Args>
+	inline void Shader::setUniformFloating(const std::string& name, const Args& ...args) const
+	{
+		if (!std::is_floating_point<typename std::decay<Args>::type>::value)
+		{
+			throw std:::runtime_error("setUniformFloating - type not decimal.");
+		}
+
+		constexpr std::size_t count = sizeof...(Args);
+
+		switch (count)
+		{
+		case 1:
+			glUniform1f(getUniformLocation(name), static_cast<float>(args));
+			break;
+
+		case 2:
+			glUniform2f(getUniformLocation(name), static_cast<float>(args)...);
+			break;
+
+		case 3:
+			glUniform3f(getUniformLocation(name), static_cast<float>(args)...);
+			break;
+
+		case 4:
+			glUniform4f(getUniformLocation(name), static_cast<float>(args)...);
+			break;
+
+		default:
+			qs::Error::handle.callback("Shader.hpp", 140, "SetUniformFloat Invalid size. Must be 1-4.");
+			break;
+		}
+	}
 }
 
 #endif
