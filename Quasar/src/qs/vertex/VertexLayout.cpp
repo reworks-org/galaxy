@@ -10,8 +10,8 @@
 
 namespace qs
 {
-	VertexLayout::VertexLayout() noexcept
-		:m_stride(0)
+	VertexLayout::VertexLayout(unsigned int stride) noexcept
+		:m_stride(stride), m_totalOffset(0)
 	{
 	}
 

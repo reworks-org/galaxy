@@ -27,7 +27,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		VertexLayout() noexcept;
+		VertexLayout(unsigned int stride) noexcept;
 
 		///
 		/// Destructor.
@@ -58,36 +58,47 @@ namespace qs
 
 	private:
 		///
+		/// Default constructor.
+		///
+		VertexLayout() = delete;
+
+	private:
+		///
 		/// Container for all the attributes of this layout.
 		///
 		std::vector<qs::VertexAttribute> m_attributes;
 
 		///
-		/// Stores the stride for each vertex attribute (to the next 'x').
+		/// Stores the stride for the layout - total vertex mappings per row.
 		///
 		unsigned int m_stride;
+
+		///
+		/// Stores current total offset.
+		///
+		unsigned int m_totalOffset;
 	};
 
 	template<typename Type>
 	inline void VertexLayout::add(int size) noexcept
 	{
-		qs::Error::handle.callback("VertexLayout.hpp", 54, "Unsupported vertex attribute type!");
+		qs::Error::handle.callback("VertexLayout.hpp", 74, "Unsupported vertex attribute type!");
 	}
 
 	template<>
 	inline void VertexLayout::add<float>(int size) noexcept
 	{
-		// First offset is 0. So we pass the stride in here, for the offset, because that is the current offset in the layout.
-		// The previous stide is the current attributes offset.
-		m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, m_stride);
-		m_stride += size * sizeof(GLfloat);
+		// First offset is 0.
+		m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, m_totalOffset * sizeof(GLfloat));
+		m_totalOffset += size;
 	}
 
 	template<>
 	inline void VertexLayout::add<unsigned int>(int size) noexcept
 	{
-		m_attributes.emplace_back(size, GL_UNSIGNED_INT, GL_FALSE, m_stride);
-		m_stride += size * sizeof(GLuint);
+		// First offset is 0.
+		m_attributes.emplace_back(size, GL_UNSIGNED_INT, GL_FALSE, m_totalOffset * sizeof(GLuint));
+		m_totalOffset += size;
 	}
 }
 

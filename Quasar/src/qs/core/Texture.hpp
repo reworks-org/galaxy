@@ -15,9 +15,15 @@ namespace qs
 {
 	class Texture final
 	{
-		Texture(const std::string& file) noexcept;
-
+	public:
+		Texture(const std::string& file, bool repeat = false, const std::array<float, 4>& border = { 1.0f, 1.0f, 1.0f, 0.0f });
 		~Texture() noexcept;
+
+		void bind() noexcept;
+		void unbind() noexcept;
+
+	private:
+		unsigned int m_id;
 	};
 }
 

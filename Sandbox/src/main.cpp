@@ -13,6 +13,7 @@
 #include <qs/utils/Error.hpp>
 #include <qs/core/Shader.hpp>
 #include <qs/vertex/VertexArray.hpp>
+#include <qs/core/Texture.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -46,18 +47,20 @@ int main(int argsc, char* argsv[])
 		// Shaders
 		qs::Shader shader("bin/basic.vert", "bin/basic.frag");
 		
-		// Triangle verticies
-		// x, y, r, g, b
-		std::array<float, 18> vertices =
+		// rect verticies
+		// x, y, z, r, g, b, tex, tex
+		std::array<float, 32> vertices =
 		{
-			0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
-			-0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
-			0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f
+			0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+			0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+			-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+			-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
 		};
 
-		std::array<unsigned int, 3> indices =
+		std::array<unsigned int, 6> indices =
 		{
-			0, 1, 2
+			0, 1, 3,
+			1, 2, 3
 		};
 
 		qs::VertexBuffer vb;
@@ -66,11 +69,14 @@ int main(int argsc, char* argsv[])
 		qs::IndexBuffer ib;
 		ib.create(indices, GL_STATIC_DRAW);
 
-		qs::VertexLayout layout;
+		qs::VertexLayout layout(8);
 		layout.add<float>(3); // pos
 		layout.add<float>(3); // col
+		layout.add<float>(2); // tex
 
 		qs::VertexArray va(vb, ib, layout);
+
+		qs::Texture tex("bin/wall.jpg");
 
 		// Loop
 		while (window.isOpen())
@@ -101,10 +107,11 @@ int main(int argsc, char* argsv[])
 			// Render.
 			window.clear(qs::Colour{ 1.0f, 1.0f, 1.0f, 1.0f });
 
+			tex.bind();
 			shader.use();
 			va.bind();
 
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 			
 			window.swap();
 		}

@@ -13,6 +13,8 @@
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
     <ClCompile Include="src\qs\libs\stb\stb_image.cpp" />
+    <ClCompile Include="src\qs\utils\Utility.cpp" />
+    <ClCompile Include="src\qs\core\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Window.hpp" />
@@ -265,6 +267,8 @@
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
     <ClInclude Include="src\qs\libs\stb\stb_image.h" />
+    <ClInclude Include="src\qs\utils\Utility.hpp" />
+    <ClInclude Include="src\qs\core\Texture.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\qs\libs\glm\detail\func_common.inl" />

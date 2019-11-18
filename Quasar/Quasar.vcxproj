@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\qs\core\Colour.cpp" />
+    <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\libs\stb\stb_image.cpp" />
+    <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
     <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
@@ -34,7 +36,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Colour.hpp" />
+    <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\libs\stb\stb_image.h" />
+    <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
     <ClInclude Include="src\qs\core\Shader.hpp" />
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />

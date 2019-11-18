@@ -34,10 +34,7 @@ namespace qs
 		unsigned int counter = 0;
 		for (const auto& attribute : attributes)
 		{
-			// Ensures a proper conversion to the void* pointer.
-			const void* pointer = static_cast<const char*>(0) + attribute.m_offset;
-			
-			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.stride(), pointer);
+			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.stride() * sizeof(GLfloat), (GLvoid*)attribute.m_offset);
 			glEnableVertexAttribArray(counter);
 			
 			++counter;
