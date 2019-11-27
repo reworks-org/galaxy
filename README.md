@@ -1,4 +1,6 @@
 # solar
+[![Build Status](https://ci.appveyor.com/api/projects/status/1eydmdc2hrp5v2oa?svg=true)](https://ci.appveyor.com/project/reworks/solar)
+
 Entity-Component-System, written in C++17.
 
 ## Tutorial
