@@ -18,8 +18,7 @@ configuration:
   - Release
 
 install:
-  - cd %APPVEYOR_BUILD_FOLDER%
-  - git submodule update --init --recursive
+  - git clone --recursive https://github.com/google/googletest.git libs/gtest
 
 build:
   parallel: true
