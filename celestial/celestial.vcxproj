@@ -19,10 +19,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\celestial\Celestial.hpp" />
+    <ClCompile Include="src\celestial\Celestial.cpp" />
+    <ClCompile Include="src\celestial\compat\Colour.hpp" />
+    <ClCompile Include="src\celestial\ui\Panel.cpp" />
+    <ClCompile Include="src\celestial\ui\Tooltip.cpp" />
+    <ClCompile Include="src\celestial\ui\UI.cpp" />
+    <ClCompile Include="src\celestial\ui\UITheme.cpp" />
+    <ClCompile Include="src\celestial\ui\Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\celestial\Celestial.cpp" />
+    <ClInclude Include="src\celestial\compat\Font.hpp" />
+    <ClInclude Include="src\celestial\compat\Texture.hpp" />
+    <ClInclude Include="src\celestial\compat\ResourceLoader.hpp" />
+    <ClInclude Include="src\celestial\compat\Renderer.hpp" />
+    <ClInclude Include="src\celestial\Config.hpp" />
+    <ClInclude Include="src\celestial\events\KeyCharEvent.hpp" />
+    <ClInclude Include="src\celestial\events\KeyDownEvent.hpp" />
+    <ClInclude Include="src\celestial\events\KeyUpEvent.hpp" />
+    <ClInclude Include="src\celestial\events\MouseMovedEvent.hpp" />
+    <ClInclude Include="src\celestial\events\MousePressedEvent.hpp" />
+    <ClInclude Include="src\celestial\events\MouseReleasedEvent.hpp" />
+    <ClInclude Include="src\celestial\internal\Rect.hpp" />
+    <ClInclude Include="src\celestial\ui\Panel.hpp" />
+    <ClInclude Include="src\celestial\ui\Tooltip.hpp" />
+    <ClInclude Include="src\celestial\ui\UI.hpp" />
+    <ClInclude Include="src\celestial\ui\UITheme.hpp" />
+    <ClInclude Include="src\celestial\ui\Widget.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -111,6 +136,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -130,6 +156,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -150,6 +177,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,6 +200,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
