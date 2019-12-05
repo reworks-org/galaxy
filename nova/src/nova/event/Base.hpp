@@ -8,6 +8,7 @@
 #ifndef EVENTBASE_NOVA_HPP_
 #define EVENTBASE_NOVA_HPP_
 
+#include <any>
 #include <cstddef>
 
 namespace nova
@@ -15,7 +16,8 @@ namespace nova
 	struct EventBase
 	{
 		virtual ~EventBase() = default;
-		virtual void trigger() = 0;
+
+		virtual void trigger(const std::any& event) = 0;
 	};
 }
 

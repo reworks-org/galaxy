@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\nova\nova.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +27,11 @@
     <ClInclude Include="src\nova\Dispatcher.hpp" />
     <ClInclude Include="src\nova\event\Base.hpp" />
     <ClInclude Include="src\nova\event\Wrapper.hpp" />
+    <ClInclude Include="src\nova\event\Queued.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\nova\Dispatcher.cpp" />
+    <ClCompile Include="src\nova\event\Queued.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

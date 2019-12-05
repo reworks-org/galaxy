@@ -12,13 +12,14 @@
 #include <memory>
 #include <functional>
 
+#include "nova/event/Queued.hpp"
 #include "nova/event/Wrapper.hpp"
 #include "nova/detail/UniqueID.hpp"
 
 namespace nova
 {
 	///
-	///
+	/// 
 	///
 	class Dispatcher
 	{
@@ -30,36 +31,35 @@ namespace nova
 
 	public:
 		///
-		/// no guarantee on ordering of calls.
+		/// Adds 
 		/// 
 		template<typename Event>
 		bool add(const callback<Event>& callback);
 
 		///
-		/// add and store
+		/// 
 		///
 		template<typename Event>
 		bool queue(const Event& event);
 
 		///
-		/// call
-		///
-		template<typename Event>
-		void triggerQueue();
-
-		///
-		/// add and call
+		/// Triggers single event.
 		///
 		template<typename Event>
 		void trigger(const Event& event);
 
+		///
+		/// Triggers all in queue.
+		///
+		void trigger();
+
 	private:
-		std::queue<std::unique_ptr<EventBase>> m_queued;
+		std::queue<QueuedEvent> m_queue;
 		std::vector<std::unique_ptr<EventBase>> m_stored;
 	};
 	
 	template<typename Event>
-	inline bool Dispatcher::add(const callback<Event>& callback)
+	inline bool Dispatcher::add(const callback<Event>& func)
 	{
 		auto type = EventUniqueID::uid<Event>();
 		bool result = true;
@@ -75,12 +75,12 @@ namespace nova
 			if (!m_stored[type])
 			{
 				// Use polymorphism to ensure type erasure.
-				m_stored[type] = std::make_unique<EventWrapper<Event, decltype(callback<Event>)>>();
+				m_stored[type] = std::make_unique<EventWrapper<Event, callback<Event>>>();
 			}
 
 			// Now convert the storage to the type we want to access.
-			EventWrapper<Event>* eventWrapper = static_cast<EventWrapper<Event>*>(m_stored[type].get());
-			result = eventWrapper->add<Event, decltype(callback<Event>)>(callback);
+			EventWrapper<Event, callback<Event>>* eventWrapper = static_cast<EventWrapper<Event, callback<Event>>*>(m_stored[type].get());
+			eventWrapper->add(func);
 		}
 
 		return result;
@@ -89,24 +89,35 @@ namespace nova
 	template<typename Event>
 	inline bool Dispatcher::queue(const Event& event)
 	{
-		m_queued.push(std::make_unique<EventWrapper<Event, decltype(callback<Event>)>>(event));
-	}
+		auto type = EventUniqueID::uid<Event>();
+		bool result = true;
 
-	template<typename Event>
-	inline void Dispatcher::triggerQueue()
-	{
-		while (!m_queued.empty())
+		if (type < m_stored.size())
 		{
-			m_queued.front()->trigger();
-			m_queued.pop();
+			// If null ptr, then no storage for this component exists.
+			if (!m_stored[type])
+			{
+				result = false;
+			}
+			else
+			{
+				// Utilizes std::any to erase type.
+				m_queue.push({event, type});
+			}
 		}
+		else
+		{
+			result = false;
+		}
+
+		return result;
 	}
 
 	template<typename Event>
 	inline void Dispatcher::trigger(const Event& event)
 	{
 		auto type = EventUniqueID::uid<Event>();
-		m_stored[type]->trigger();
+		m_stored[type]->trigger(event);
 	}
 }
 

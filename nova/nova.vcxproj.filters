@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\nova\nova.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -38,5 +33,16 @@
     <ClInclude Include="src\nova\detail\UniqueID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\nova\event\Queued.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\nova\event\Queued.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\nova\Dispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
