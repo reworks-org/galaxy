@@ -1,23 +1,21 @@
 ///
 /// Button.hpp
-/// starlight
+/// celestial
 ///
-/// Created by reworks on 19/09/2018.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_BUTTON_HPP_
-#define STARLIGHT_BUTTON_HPP_
+#ifndef CELESTIAL_BUTTON_HPP_
+#define CELESTIAL_BUTTON_HPP_
 
 #include <array>
+#include <functional>
 
-#include "sl/ui/Widget.hpp"
-#include "sl/math/Vector2.hpp"
-#include "sl/events/MousePressedEvent.hpp"
-#include "sl/events/MouseReleasedEvent.hpp"
+#include "celestial/ui/Widget.hpp"
+#include "celestial/events/MousePressedEvent.hpp"
+#include "celestial/events/MouseReleasedEvent.hpp"
 
-namespace sl
+namespace celestial
 {
 	///
 	/// Creates a clickable button.
@@ -53,7 +51,8 @@ namespace sl
 		/// \param y y-pos of button relative to panel.
 		/// \param label Label to place on the button.
 		/// \param textures Array of texture names in theme to use. Need to be all the same dimensions.
-		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.		
+		///			Needs to be the name of texture regions from the UITheme.
+		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.
 		/// \param theme Theme for this widget.
 		///
 		Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme);
@@ -68,15 +67,7 @@ namespace sl
 		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
 		/// \param theme Theme for this widget.
 		///
-		Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colours, UITheme* theme);
-
-		///
-		/// Lua Constructor.
-		///
-		/// \param table sol::table to create widget from.
-		/// \param theme Theme for this widget.
-		///
-		Button(const sol::table& table, UITheme* theme);
+		Button(const int x, const int y, const std::string& text, const std::array<ColourPtr, 3>& colours, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -93,7 +84,7 @@ namespace sl
 		///
 		/// Render the widget.
 		///
-		void render() override;
+		void render(celestial::compat::Renderer* renderer) override;
 
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.
@@ -102,7 +93,7 @@ namespace sl
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const sl::MousePressedEvent& e);
+		void receivePress(const celestial::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
@@ -111,7 +102,7 @@ namespace sl
 		///
 		/// \param e MouseReleasedEvent object.
 		///
-		void receiveRelease(const sl::MouseReleasedEvent& e);
+		void receiveRelease(const celestial::MouseReleasedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -120,7 +111,7 @@ namespace sl
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const sl::MouseMovedEvent& e);
+		void recieveMoved(const celestial::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.
@@ -157,7 +148,7 @@ namespace sl
 		///
 		/// textures for each button state.
 		///
-		std::array<ALLEGRO_BITMAP*, 3> m_textures;
+		std::array<TexturePtr, 3> m_textures;
 
 		///
 		/// Callback function.
@@ -170,10 +161,14 @@ namespace sl
 		std::string m_label;
 
 		///
-		/// Button label x, y coords.
+		/// Button label y coords.
 		///
-		sl::Vector2<int> m_labelPos;
+		float m_xLabelPos;
 
+		///
+		/// Button label x coords.
+		///
+		float m_yLabelPos;
 	};
 }
 

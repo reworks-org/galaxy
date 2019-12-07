@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef RECT_CELESTIAL_HPP_
-#define RECT_CELESTIAL_HPP_
+#ifndef CELESTIAL_RECT_HPP_
+#define CELESTIAL_RECT_HPP_
 
 namespace celestial
 {

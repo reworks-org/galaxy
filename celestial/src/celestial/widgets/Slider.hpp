@@ -1,19 +1,17 @@
 ///
 /// Slider.hpp
-/// starlight
+/// celestial
 ///
-/// Created by reworks on 17/12/2018.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_SLIDER_HPP_
-#define STARLIGHT_SLIDER_HPP_
+#ifndef CELESTIAL_SLIDER_HPP_
+#define CELESTIAL_SLIDER_HPP_
 
-#include "sl/ui/Widget.hpp"
-#include "sl/events/MousePressedEvent.hpp"
+#include "celestial/ui/Widget.hpp"
+#include "celestial/events/MousePressedEvent.hpp"
 
-namespace sl
+namespace celestial
 {
 	///
 	/// UI bar that can be moved to increment and decrement a value.
@@ -29,8 +27,9 @@ namespace sl
 		/// \param mh Height of the marker object.
 		/// \param slider Colour of the slider itself.
 		/// \param marker Colour of the marker used to indicate position.
+		/// \param loader ResourceLoader to use.
 		///
-		Slider(const sl::Rect<int>& bounds, const int mw, const int mh, const ALLEGRO_COLOR slider, const ALLEGRO_COLOR marker);
+		Slider(const celestial::Rect<int>& bounds, const int mw, const int mh, const celestial::compat::Colour* slider, const celestial::compat::Colour* marker, celestial::ResourceLoader* loader);
 
 		///
 		/// Texture constructor.
@@ -44,14 +43,6 @@ namespace sl
 		Slider(const int x, const int y, const std::string& slider, const std::string& marker, UITheme* theme);
 
 		///
-		/// Lua Constructor.
-		///
-		/// \param table sol::table to create widget from.
-		/// \param theme Theme of the widget to use.
-		///
-		Slider(const sol::table& table, UITheme* theme);
-
-		///
 		/// Destructor.
 		///
 		~Slider() noexcept;
@@ -63,7 +54,7 @@ namespace sl
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void receiveMove(const sl::MouseMovedEvent& e);
+		void receiveMove(const celestial::MouseMovedEvent& e);
 
 		///
 		/// \brief Allows for Slider to recieve MousePressedEvents. Automatically registered with entt.
@@ -72,7 +63,7 @@ namespace sl
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const sl::MousePressedEvent& e);
+		void receivePress(const celestial::MousePressedEvent& e);
 
 		///
 		/// Update the widget.
@@ -84,19 +75,19 @@ namespace sl
 		///
 		/// Render the widget.
 		///
-		void render() override;
+		void render(celestial::compat::Renderer* renderer) override;
 
 		///
 		/// Get current value of slider.
 		///
-		/// \return const float of value. 0.0f - 1.0f. I.e. 0.78f is 78%.
+		/// \return const int of value. 0.0f - 1.0f. I.e. 0.78f is 78%.
 		///
 		const float getValue() const;
 
 		///
 		/// Returns current progress of bar in a percentage.
 		///
-		/// \return const float progress as pertentage.
+		/// \return const int progress as pertentage.
 		///
 		const float getPercentage() const;
 
@@ -131,14 +122,24 @@ namespace sl
 		float m_markerX;
 
 		///
+		/// Marker width.
+		///
+		int m_markerW;
+
+		///
+		/// Marker height.
+		///
+		int m_markerH;
+
+		///
 		/// Slider texture.
 		///
-		ALLEGRO_BITMAP* m_slider;
+		TexturePtr m_slider;
 
 		///
 		/// Marker texture.
 		///
-		ALLEGRO_BITMAP* m_marker;
+		TexturePtr m_marker;
 	};
 }
 

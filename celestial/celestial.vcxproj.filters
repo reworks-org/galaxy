@@ -1,96 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\celestial\Celestial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\celestial\ui\Panel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\celestial\ui\Widget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\celestial\ui\Tooltip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\celestial\ui\UITheme.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\celestial\ui\UI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\celestial\compat\Colour.hpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\celestial\ui\Panel.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\ui\Widget.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\ui\Tooltip.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\events\KeyCharEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\events\KeyDownEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\events\KeyUpEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\events\MouseMovedEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\events\MousePressedEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\events\MouseReleasedEvent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\ui\UITheme.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\ui\UI.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\compat\Font.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\compat\Renderer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\compat\Texture.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\Config.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\internal\Rect.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\celestial\compat\ResourceLoader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\celestial\compat\Colour.hpp" />
+    <ClInclude Include="src\celestial\compat\Font.hpp" />
+    <ClInclude Include="src\celestial\compat\Renderer.hpp" />
+    <ClInclude Include="src\celestial\compat\ResourceLoader.hpp" />
+    <ClInclude Include="src\celestial\compat\Texture.hpp" />
+    <ClInclude Include="src\celestial\events\KeyCharEvent.hpp" />
+    <ClInclude Include="src\celestial\events\KeyDownEvent.hpp" />
+    <ClInclude Include="src\celestial\events\KeyUpEvent.hpp" />
+    <ClInclude Include="src\celestial\events\MouseMovedEvent.hpp" />
+    <ClInclude Include="src\celestial\events\MousePressedEvent.hpp" />
+    <ClInclude Include="src\celestial\events\MouseReleasedEvent.hpp" />
+    <ClInclude Include="src\celestial\internal\Rect.hpp" />
+    <ClInclude Include="src\celestial\ui\Panel.hpp" />
+    <ClInclude Include="src\celestial\ui\Tooltip.hpp" />
+    <ClInclude Include="src\celestial\ui\UI.hpp" />
+    <ClInclude Include="src\celestial\ui\UITheme.hpp" />
+    <ClInclude Include="src\celestial\ui\Widget.hpp" />
+    <ClInclude Include="src\celestial\widgets\Button.hpp" />
+    <ClInclude Include="src\celestial\widgets\Image.hpp" />
+    <ClInclude Include="src\celestial\widgets\Label.hpp" />
+    <ClInclude Include="src\celestial\widgets\ProgressBar.hpp" />
+    <ClInclude Include="src\celestial\widgets\Slider.hpp" />
+    <ClInclude Include="src\celestial\widgets\Textbox.hpp" />
+    <ClInclude Include="src\celestial\widgets\ToggleButton.hpp" />
+    <ClInclude Include="src\celestial\Config.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\celestial\ui\Panel.cpp" />
+    <ClCompile Include="src\celestial\ui\Tooltip.cpp" />
+    <ClCompile Include="src\celestial\ui\UI.cpp" />
+    <ClCompile Include="src\celestial\ui\UITheme.cpp" />
+    <ClCompile Include="src\celestial\ui\Widget.cpp" />
+    <ClCompile Include="src\celestial\widgets\Button.cpp" />
+    <ClCompile Include="src\celestial\widgets\Image.cpp" />
+    <ClCompile Include="src\celestial\widgets\Label.cpp" />
+    <ClCompile Include="src\celestial\widgets\ProgressBar.cpp" />
+    <ClCompile Include="src\celestial\widgets\Slider.cpp" />
+    <ClCompile Include="src\celestial\widgets\Textbox.cpp" />
+    <ClCompile Include="src\celestial\widgets\ToggleButton.cpp" />
   </ItemGroup>
 </Project>

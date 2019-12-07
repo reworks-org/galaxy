@@ -1,73 +1,39 @@
 ///
 /// Image.cpp
-/// starlight
+/// celestial
 ///
-/// Created by reworks on 97/12/2018.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "sl/libs/sol2/sol.hpp"
-
 #include "Image.hpp"
 
-namespace sl
+namespace celestial
 {
 	Image::Image(const int x, const int y, const std::string& texture, UITheme* theme)
 		:Widget({ x, y, 0, 0 }, theme)
 	{
 		// Load image.
-		m_image = m_theme->widgetTexture(texture);
-		if (!m_image)
-		{
-			LOG_S(FATAL) << "Failed to create sub bitmap: " << texture << " Errno: " << al_get_errno();
-		}
-		else
-		{
-			// Set dimensions.
-			m_bounds.m_width = al_get_bitmap_width(m_image);
-			m_bounds.m_height = al_get_bitmap_height(m_image);
-		}
-	}
-
-	Image::Image(const sol::table& table, UITheme* theme)
-		:Widget({ 0, 0, 0, 0 }, theme)
-	{
-		// Get position data.
-		m_bounds.m_x = table.get<int>("x");
-		m_bounds.m_y = table.get<int>("y");
-
-		// Load image.
-		m_image = m_theme->widgetTexture(table.get<std::string>("texture"));
-		if (!m_image)
-		{
-			LOG_S(FATAL) << "Failed to create sub bitmap: " << table.get<std::string>("texture") << " Errno: " << al_get_errno();
-		}
-		else
-		{
-			// Set dimensions.
-			m_bounds.m_width = al_get_bitmap_width(m_image);
-			m_bounds.m_height = al_get_bitmap_height(m_image);
-		}
+		m_image = m_theme->extractWidgetTexture(texture);
+		
+		// Set dimensions.
+		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_image.get());
+		m_bounds.m_h = m_theme->loader()->getTextureHeight(m_image.get());
 	}
 
 	Image::~Image()
 	{
-		if (m_image)
-		{
-			al_destroy_bitmap(m_image);
-		}
+		m_image.reset();
 	}
 
 	void Image::update(const double dt)
 	{
 	}
 
-	void Image::render()
+	void Image::render(celestial::compat::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{
-			al_draw_bitmap(m_image, m_bounds.m_x, m_bounds.m_y, 0);
+			renderer->drawTexture(m_image.get(), m_bounds.m_x, m_bounds.m_y);
 		}
 	}
 

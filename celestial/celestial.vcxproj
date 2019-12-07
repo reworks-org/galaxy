@@ -19,19 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\celestial\Celestial.cpp" />
-    <ClCompile Include="src\celestial\compat\Colour.hpp" />
-    <ClCompile Include="src\celestial\ui\Panel.cpp" />
-    <ClCompile Include="src\celestial\ui\Tooltip.cpp" />
-    <ClCompile Include="src\celestial\ui\UI.cpp" />
-    <ClCompile Include="src\celestial\ui\UITheme.cpp" />
-    <ClCompile Include="src\celestial\ui\Widget.cpp" />
+    <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\celestial\compat\Colour.hpp" />
     <ClInclude Include="src\celestial\compat\Font.hpp" />
-    <ClInclude Include="src\celestial\compat\Texture.hpp" />
-    <ClInclude Include="src\celestial\compat\ResourceLoader.hpp" />
     <ClInclude Include="src\celestial\compat\Renderer.hpp" />
+    <ClInclude Include="src\celestial\compat\ResourceLoader.hpp" />
+    <ClInclude Include="src\celestial\compat\Texture.hpp" />
     <ClInclude Include="src\celestial\Config.hpp" />
     <ClInclude Include="src\celestial\events\KeyCharEvent.hpp" />
     <ClInclude Include="src\celestial\events\KeyDownEvent.hpp" />
@@ -45,9 +40,27 @@
     <ClInclude Include="src\celestial\ui\UI.hpp" />
     <ClInclude Include="src\celestial\ui\UITheme.hpp" />
     <ClInclude Include="src\celestial\ui\Widget.hpp" />
+    <ClInclude Include="src\celestial\widgets\Button.hpp" />
+    <ClInclude Include="src\celestial\widgets\Image.hpp" />
+    <ClInclude Include="src\celestial\widgets\Label.hpp" />
+    <ClInclude Include="src\celestial\widgets\ProgressBar.hpp" />
+    <ClInclude Include="src\celestial\widgets\Slider.hpp" />
+    <ClInclude Include="src\celestial\widgets\Textbox.hpp" />
+    <ClInclude Include="src\celestial\widgets\ToggleButton.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.txt" />
+    <ClCompile Include="src\celestial\ui\Panel.cpp" />
+    <ClCompile Include="src\celestial\ui\Tooltip.cpp" />
+    <ClCompile Include="src\celestial\ui\UI.cpp" />
+    <ClCompile Include="src\celestial\ui\UITheme.cpp" />
+    <ClCompile Include="src\celestial\ui\Widget.cpp" />
+    <ClCompile Include="src\celestial\widgets\Button.cpp" />
+    <ClCompile Include="src\celestial\widgets\Image.cpp" />
+    <ClCompile Include="src\celestial\widgets\Label.cpp" />
+    <ClCompile Include="src\celestial\widgets\ProgressBar.cpp" />
+    <ClCompile Include="src\celestial\widgets\Slider.cpp" />
+    <ClCompile Include="src\celestial\widgets\Textbox.cpp" />
+    <ClCompile Include="src\celestial\widgets\ToggleButton.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

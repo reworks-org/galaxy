@@ -60,7 +60,7 @@ namespace celestial
 			// Render all widgets.
 			for (auto& pair : m_widgets)
 			{
-				pair.second->render();
+				pair.second->render(renderer);
 			}
 		}
 	}

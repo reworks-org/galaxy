@@ -1,23 +1,22 @@
 ///
 /// ToggleButton.hpp
-/// starlight
+/// celestial
 ///
-/// Created by reworks on 16/12/2018.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_TOGGLEBUTTON_HPP_
-#define STARLIGHT_TOGGLEBUTTON_HPP_
+#ifndef CELESTIAL_TOGGLEBUTTON_HPP_
+#define CELESTIAL_TOGGLEBUTTON_HPP_
 
 #include <array>
+#include <functional>
 
-#include "sl/ui/Widget.hpp"
-#include "sl/events/MouseMovedEvent.hpp"
-#include "sl/events/MousePressedEvent.hpp"
-#include "sl/events/MouseReleasedEvent.hpp"
+#include "celestial/ui/Widget.hpp"
+#include "celestial/events/MouseMovedEvent.hpp"
+#include "celestial/events/MousePressedEvent.hpp"
+#include "celestial/events/MouseReleasedEvent.hpp"
 
-namespace sl
+namespace celestial
 {
 	///
 	/// Creates a button that toggles from one state to another.
@@ -53,18 +52,11 @@ namespace sl
 		/// \param x x-pos relative to panel.
 		/// \param y y-pos relative to panel.
 		/// \param textures Array of texture names in theme to use. Must be the same width and height.
+		///			From the ui theme.
 		///			textures[0] is OFF state, textures[1] is ON state and textures[2] is mouse over (hover) state.
 		/// \param theme Theme for this widget.
 		///
 		ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme);
-
-		///
-		/// Lua Constructor.
-		///
-		/// \param table sol::table to create widget from.
-		/// \param theme Theme for this widget.
-		///
-		ToggleButton(const sol::table& table, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -81,7 +73,7 @@ namespace sl
 		///
 		/// Render the widget.
 		///
-		void render() override;
+		void render(celestial::compat::Renderer* renderer) override;
 
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.
@@ -90,7 +82,7 @@ namespace sl
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const sl::MousePressedEvent& e);
+		void receivePress(const celestial::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -99,7 +91,7 @@ namespace sl
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const sl::MouseMovedEvent& e);
+		void recieveMoved(const celestial::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.
@@ -136,7 +128,7 @@ namespace sl
 		///
 		/// Images for each button state.
 		///
-		std::array<ALLEGRO_BITMAP*, 3> m_textures;
+		std::array<TexturePtr, 3> m_textures;
 
 		///
 		/// Callback function.

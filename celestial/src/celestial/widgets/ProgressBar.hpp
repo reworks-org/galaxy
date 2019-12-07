@@ -1,20 +1,18 @@
 ///
 /// ProgressBar.hpp
-/// starlight
+/// celestial
 ///
-/// Created by reworks on 16/12/2018.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_PROGRESSBAR_HPP_
-#define STARLIGHT_PROGRESSBAR_HPP_
+#ifndef CELESTIAL_PROGRESSBAR_HPP_
+#define CELESTIAL_PROGRESSBAR_HPP_
 
-#include "sl/math/Vector4.hpp"
+#include "celestial/ui/Widget.hpp"
+#include "celestial/compat/Colour.hpp"
+#include "celestial/internal/Rect.hpp"
 
-#include "sl/ui/Widget.hpp"
-
-namespace sl
+namespace celestial
 {
 	///
 	/// UI bar that is used to track progress of something.
@@ -23,35 +21,28 @@ namespace sl
 	{
 	public:
 		///
+		/// Texture constructor.
+		///
+		/// \param containerBarCoords   x = x-pos of container relative to panel.
+		///								y = y-pos of container relative to panel.
+		///								w = x-pos of progress bar relative to container texture.
+		///								h = y-pos of progress bar relative to container texture.
+		/// \param container Texture of the progress bar container in theme to use.
+		/// \param bar Seperate texture for the progress bar itself, not its outline in theme to use.
+		/// \param theme Theme of the widget to use.
+		///
+		ProgressBar(const celestial::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme);
+
+		///
 		/// Primitives constructor.
 		///
 		/// \param bounds x,y,w,h of progress bar rectangle, specifically the outline.
 		/// \param container Colour of the progress bar background.
 		/// \param bar Colour of the progress bar itself.
+		/// \param loader ResourceLoader to use.
 		///
-		ProgressBar(const sl::Rect<int>& bounds, const ALLEGRO_COLOR container, const ALLEGRO_COLOR bar);
-
-		///
-		/// Texture constructor.
-		///
-		/// \param vec4 w = x-pos relative to panel.
-		///				x = y-pos relative to panel.
-		///				y = x-pos relative to container texture.
-		///				z = y-pos relative to container texture.
-		/// \param container Texture of the progress bar container in theme to use.
-		/// \param bar Seperate texture for the progress bar itself, not its outline in theme to use.
-		/// \param theme Theme of the widget to use.
-		///
-		ProgressBar(const sl::Vector4<int>& vec4, const std::string& container, const std::string& bar, UITheme* theme);
-
-		///
-		/// Lua Constructor.
-		///
-		/// \param table sol::table to create widget from.
-		/// \param theme Theme of the widget to use.
-		///
-		ProgressBar(const sol::table& table, UITheme* theme);
-
+		ProgressBar(const celestial::Rect<int>& bounds, const celestial::compat::Colour* container, const celestial::compat::Colour* bar, celestial::ResourceLoader* loader);
+		
 		///
 		/// Destructor.
 		///
@@ -64,7 +55,7 @@ namespace sl
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieve(const sl::MouseMovedEvent& e);
+		void recieve(const celestial::MouseMovedEvent& e);
 
 		///
 		/// Update the widget.
@@ -76,26 +67,26 @@ namespace sl
 		///
 		/// Render the widget.
 		///
-		void render() override;
+		void render(celestial::compat::Renderer* renderer) override;
 
 		///
 		/// Set progress of bar.
 		///
 		/// \param progress Progress is from 0.0f to 1.0f i.e. 0.54f is 54%.
 		///
-		void setProgress(const float progress);
+		void setProgress(const int progress);
 
 		///
 		/// Get current progress of bar.
 		///
-		/// \return const float of progress.
+		/// \return const int of progress.
 		///
 		const float getProgress() const;
 
 		///
 		/// Returns current progress of bar in a percentage.
 		///
-		/// \return const float progress as pertentage.
+		/// \return const int progress as pertentage.
 		///
 		const float getPercentage() const;
 
@@ -122,7 +113,7 @@ namespace sl
 		///
 		/// Bounds for the bar texture.
 		///
-		sl::Rect<int> m_barBounds;
+		celestial::Rect<int> m_barBounds;
 
 		///
 		/// Current progress percentage of this bar. From 0.0f - 1.0f. I.e. 0.54f is 54%.
@@ -132,12 +123,12 @@ namespace sl
 		///
 		/// Outline/background texture.
 		///
-		ALLEGRO_BITMAP* m_container;
+		TexturePtr m_container;
 
 		///
 		/// Progress bar texture.
 		///
-		ALLEGRO_BITMAP* m_bar;
+		TexturePtr m_bar;
 	};
 }
 

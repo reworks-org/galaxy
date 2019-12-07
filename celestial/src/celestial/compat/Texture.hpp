@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef TEXTURE_CELESTIAL_HPP_
-#define TEXTURE_CELESTIAL_HPP_
+#ifndef CELESTIAL_TEXTURE_HPP_
+#define CELESTIAL_TEXTURE_HPP_
 
 namespace celestial
 {
@@ -23,12 +23,12 @@ namespace celestial
 			///
 			/// Virtual Destructor.
 			///
-			virtual ~Texture() noexcept;
+			virtual ~Texture();
 
 			///
 			/// Casts the class to its child type.
 			///
-			CRTP* getChild() final noexcept;
+			virtual CRTP* getChild() final;
 
 		protected:
 			///
@@ -48,12 +48,12 @@ namespace celestial
 		};
 
 		template<typename CRTP>
-		inline Texture<CRTP>::~Texture() noexcept
+		inline Texture<CRTP>::~Texture()
 		{
 		}
 
 		template<typename CRTP>
-		inline CRTP* Texture<CRTP>::getChild() noexcept
+		inline CRTP* Texture<CRTP>::getChild()
 		{
 			return static_cast<CRTP>(this);
 		}

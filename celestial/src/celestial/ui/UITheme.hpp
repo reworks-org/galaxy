@@ -93,7 +93,7 @@ namespace celestial
 		///
 		/// \return Colour object.
 		///
-		const Colour* colour() const noexcept;
+		const celestial::compat::Colour* colour() const noexcept;
 
 		///
 		/// Gets a reference to the resource loader.

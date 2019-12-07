@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef FONT_CELESTIAL_HPP_
-#define FONT_CELESTIAL_HPP_
+#ifndef CELESTIAL_FONT_HPP_
+#define CELESTIAL_FONT_HPP_
 
 #include "celestial/Config.hpp"
 
@@ -25,12 +25,12 @@ namespace celestial
 			///
 			/// Virtual Destructor.
 			///
-			virtual ~Font() noexcept;
+			virtual ~Font();
 
 			///
 			/// Casts the class to its child type.
 			///
-			CRTP* getChild() final noexcept;
+			virtual CRTP* getChild() final;
 
 			///
 			/// Retrieves size integer.
@@ -57,12 +57,12 @@ namespace celestial
 		};
 
 		template<typename CRTP>
-		inline Font<CRTP>::~Font() noexcept
+		inline Font<CRTP>::~Font()
 		{
 		}
 
 		template<typename CRTP>
-		inline CRTP* Font<CRTP>::getChild() noexcept
+		inline CRTP* Font<CRTP>::getChild()
 		{
 			return static_cast<CRTP>(this);
 		}

@@ -1,19 +1,17 @@
 ///
 /// Textbox.hpp
-/// starlight
+/// celestial
 ///
-/// Created by reworks on 21/12/2018.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_TEXTBOX_HPP_
-#define STARLIGHT_TEXTBOX_HPP_
+#ifndef CELESTIAL_TEXTBOX_HPP_
+#define CELESTIAL_TEXTBOX_HPP_
 
-#include "sl/ui/Widget.hpp"
-#include "sl/events/KeyDownEvent.hpp"
+#include "celestial/ui/Widget.hpp"
+#include "celestial/events/KeyDownEvent.hpp"
 
-namespace sl
+namespace celestial
 {
 	///
 	/// Represents a message box or "textbox" in the style of a JRPG.
@@ -38,14 +36,6 @@ namespace sl
 		Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const unsigned int maxWidth, const unsigned int duration, UITheme* theme, const std::string& speaker = "");
 
 		///
-		/// Lua Constructor.
-		///
-		/// \param table sol::table to create widget from.
-		/// \param theme Theme the widget will use.
-		///
-		Textbox(const sol::table& table, UITheme* theme);
-
-		///
 		/// Destructor.
 		///
 		~Textbox() noexcept;
@@ -57,7 +47,7 @@ namespace sl
 		///
 		/// \param e KeyDownEvent object.
 		///
-		void receive(const sl::KeyDownEvent& e);
+		void receive(const celestial::KeyDownEvent& e);
 
 		///
 		/// Update the widget.
@@ -69,7 +59,7 @@ namespace sl
 		///
 		/// Render the widget.
 		///
-		void render() override;
+		void render(celestial::compat::Renderer* renderer) override;
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
@@ -94,12 +84,12 @@ namespace sl
 		///
 		/// Frame texture.
 		///
-		ALLEGRO_BITMAP* m_frame;
+		TexturePtr m_frame;
 
 		///
 		/// Indicator texture.
 		///
-		ALLEGRO_BITMAP* m_indicator;
+		TexturePtr m_indicator;
 
 		///
 		/// Messages to display with this text box. Each entry in the vector is another "page" for the textbox.
@@ -130,6 +120,16 @@ namespace sl
 		/// Time passed for indicator.
 		///
 		double m_indicatorTimePassed;
+
+		///
+		/// Width of the indicator.
+		///
+		float m_indicatorW;
+
+		///
+		/// Height of the indicator.
+		///
+		float m_indicatorH;
 
 		///
 		/// Current message string index.

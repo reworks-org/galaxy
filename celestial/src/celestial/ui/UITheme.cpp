@@ -34,15 +34,15 @@ namespace celestial
 		m_font = m_resourceLoader->loadFont(font);
 	}
 	
-	void UITheme::defineWidgetTexture(const std::string& id, const celestial::Rect<int>& dim)
+	void UITheme::defineWidgetTexture(const std::string& id, const celestial::Rect<int>& dim) noexcept
 	{
 		m_widgetRegions.emplace(id, dim);
 	}
 
-	TexturePtr UITheme::extractWidgetTexture(const std::string& id)
+	TexturePtr UITheme::extractWidgetTexture(const std::string& id) noexcept
 	{
 		celestial::Rect<int> region = m_widgetRegions[id];
-		return m_resourceLoader->loadSubBitmap(id, region);
+		return m_resourceLoader->createSubTexture(m_master.get(), region);
 	}
 
 	const Font* UITheme::font() const noexcept
@@ -50,7 +50,7 @@ namespace celestial
 		return m_font.get();
 	}
 
-	const celestial::Colour* UITheme::colour() const noexcept
+	const celestial::compat::Colour* UITheme::colour() const noexcept
 	{
 		return m_colour.get();
 	}
