@@ -1,16 +1,16 @@
 ///
 /// UniqueID.hpp
-/// nova
+/// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef NOVA_UNIQUEID_HPP_
-#define NOVA_UNIQUEID_HPP_
+#ifndef starlight_UNIQUEID_HPP_
+#define starlight_UNIQUEID_HPP_
 
 #include <cstddef>
 
-namespace nova
+namespace starlight
 {
 	///
 	/// Generates a unique id for a type for each type of specialization.

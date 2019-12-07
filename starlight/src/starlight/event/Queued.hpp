@@ -1,16 +1,16 @@
 ///
 /// Queued.hpp
-/// nova
+/// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUEUED_NOVA_HPP_
-#define QUEUED_NOVA_HPP_
+#ifndef QUEUED_STARLIGHT_HPP_
+#define QUEUED_STARLIGHT_HPP_
 
 #include <any>
 
-namespace nova
+namespace starlight
 {
 	struct QueuedEvent
 	{

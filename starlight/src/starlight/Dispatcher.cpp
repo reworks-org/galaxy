@@ -1,13 +1,13 @@
 ///
 /// Dispatcher.cpp
-/// nova
+/// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Dispatcher.hpp"
 
-namespace nova
+namespace starlight
 {
 	void Dispatcher::trigger()
 	{

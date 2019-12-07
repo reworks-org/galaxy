@@ -22,24 +22,23 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\nova\Config.hpp" />
-    <ClInclude Include="src\nova\detail\UniqueID.hpp" />
-    <ClInclude Include="src\nova\Dispatcher.hpp" />
-    <ClInclude Include="src\nova\event\Base.hpp" />
-    <ClInclude Include="src\nova\event\Wrapper.hpp" />
-    <ClInclude Include="src\nova\event\Queued.hpp" />
+    <ClInclude Include="src\starlight\detail\UniqueID.hpp" />
+    <ClInclude Include="src\starlight\Dispatcher.hpp" />
+    <ClInclude Include="src\starlight\event\Base.hpp" />
+    <ClInclude Include="src\starlight\event\Wrapper.hpp" />
+    <ClInclude Include="src\starlight\event\Queued.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\nova\Dispatcher.cpp" />
-    <ClCompile Include="src\nova\event\Queued.cpp" />
+    <ClCompile Include="src\starlight\Dispatcher.cpp" />
+    <ClCompile Include="src\starlight\event\Queued.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{D35A973A-11D3-4496-9ACA-0DF906D8A16B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>nova</RootNamespace>
+    <RootNamespace>starlight</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>nova</ProjectName>
+    <ProjectName>starlight</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

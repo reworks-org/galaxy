@@ -18,30 +18,27 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\nova\Config.hpp">
+    <ClInclude Include="src\starlight\Dispatcher.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\nova\Dispatcher.hpp">
+    <ClInclude Include="src\starlight\event\Base.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\nova\event\Base.hpp">
+    <ClInclude Include="src\starlight\event\Wrapper.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\nova\event\Wrapper.hpp">
+    <ClInclude Include="src\starlight\detail\UniqueID.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\nova\detail\UniqueID.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\nova\event\Queued.hpp">
+    <ClInclude Include="src\starlight\event\Queued.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\nova\event\Queued.cpp">
+    <ClCompile Include="src\starlight\event\Queued.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\nova\Dispatcher.cpp">
+    <ClCompile Include="src\starlight\Dispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

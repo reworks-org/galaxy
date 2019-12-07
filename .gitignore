@@ -1,6 +1,6 @@
 .vs/
 libs/
-nova/bin/
-nova/build/
+starlight/bin/
+starlight/build/
 testbed/bin/
 testbed/build/

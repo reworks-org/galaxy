@@ -1,22 +1,22 @@
 ///
 /// Dispatcher.hpp
-/// nova
+/// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef DISPATCHER_NOVA_HPP_
-#define DISPATCHER_NOVA_HPP_
+#ifndef DISPATCHER_STARLIGHT_HPP_
+#define DISPATCHER_STARLIGHT_HPP_
 
 #include <queue>
 #include <memory>
 #include <functional>
 
-#include "nova/event/Queued.hpp"
-#include "nova/event/Wrapper.hpp"
-#include "nova/detail/UniqueID.hpp"
+#include "starlight/event/Queued.hpp"
+#include "starlight/event/Wrapper.hpp"
+#include "starlight/detail/UniqueID.hpp"
 
-namespace nova
+namespace starlight
 {
 	///
 	/// 

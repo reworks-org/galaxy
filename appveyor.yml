@@ -19,4 +19,4 @@ configuration:
 
 build:
   parallel: true
-  project: nova.sln
+  project: starlight.sln

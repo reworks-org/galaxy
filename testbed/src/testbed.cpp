@@ -1,15 +1,15 @@
 ///
 /// testbed.cpp
-/// nova
+/// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <iostream>
 
-#include "nova/event/Base.hpp"
-#include "nova/event/Wrapper.hpp"
-#include "nova/Dispatcher.hpp"
+#include "starlight/event/Base.hpp"
+#include "starlight/event/Wrapper.hpp"
+#include "starlight/Dispatcher.hpp"
 
 struct Test
 {
@@ -19,7 +19,7 @@ struct Test
 int main()
 {
 	Test test;
-	nova::Dispatcher dispatcher;
+	starlight::Dispatcher dispatcher;
 
 	dispatcher.add<Test>([](const Test& test)
 	{

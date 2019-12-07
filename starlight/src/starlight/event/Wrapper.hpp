@@ -1,19 +1,19 @@
 ///
 /// EventWrapper.hpp
-/// nova
+/// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef EVENTWRAPPER_NOVA_HPP_
-#define EVENTWRAPPER_NOVA_HPP_
+#ifndef EVENTWRAPPER_STARLIGHT_HPP_
+#define EVENTWRAPPER_STARLIGHT_HPP_
 
 #include <vector>
 #include <typeindex>
 
-#include "nova/event/Base.hpp"
+#include "starlight/event/Base.hpp"
 
-namespace nova
+namespace starlight
 {
 	template<typename Event, typename Callback>
 	class EventWrapper final : public EventBase
