@@ -1,7 +1,7 @@
-# starlight
+# galaxy
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
-[![Docs Status](https://readthedocs.org/projects/starlight/badge/?version=master)](https://starlight.readthedocs.io/en/master/?badge=master)
+[![Build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
+[![Docs Status](https://readthedocs.org/projects/galaxy/badge/?version=master)](https://galaxy.readthedocs.io/en/master/?badge=master)
 [![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 Game programming library using Allegro 5.2.4, Lua 5.3, and C++17. This was built as a hobby for hobby projects.
@@ -14,7 +14,7 @@ For Windows, you can use premake, but a solution file is provided.
 ### Windows:
 ```
 Download repository using git or the web interface. Enter the directory.
-Open starlight.sln
+Open galaxy.sln
 Select build configuration and architecture.
 Build whole solution.
 ```
@@ -24,7 +24,7 @@ or
 ```
 Download repository using git or the web interface. Enter the directory.
 Run build.bat. This will use premake5 to generate build files for you.
-Open starlight.sln
+Open galaxy.sln
 Select build configuration and architecture.
 Build whole solution.
 ```
@@ -40,7 +40,7 @@ sudo apt-get update
 ```
 
 ```
-git clone --recursive --branch=master https://github.com/reworks/starlight.git build
+git clone --recursive --branch=master https://github.com/reworks/galaxy.git build
 cd build
 chmod +x build.sh
 sudo ./build.sh
@@ -62,7 +62,7 @@ make config=release_linux64 all
 
 
 ## Documentation
-Can be built from [doxygen](https://github.com/reworks/starlight/tree/master/docs) Doxyfile or viewed at [readthedocs](https://starlight.readthedocs.io/en/master/).
+Can be built from [doxygen](https://github.com/reworks/galaxy/tree/master/docs) Doxyfile or viewed at [readthedocs](https://galaxy.readthedocs.io/en/master/).
 
 
 ## Features

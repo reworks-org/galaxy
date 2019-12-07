@@ -29,33 +29,33 @@
     <ProjectGuid>{4257686F-50A9-4BD4-8A42-A97ED03E00C8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Sandbox</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>sandbox</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -164,7 +164,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;_DEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../starlight/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -172,8 +172,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>starlight.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../starlight/bin/Debug/Win32/;../libs/libxml2/x32/;../libs/allegro/x32/;../libs/allegro_deps/x32/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>galaxy.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../galaxy/bin/Debug/Win32/;../libs/libxml2/x32/;../libs/allegro/x32/;../libs/allegro_deps/x32/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -184,7 +184,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_DEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../starlight/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -193,8 +193,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>starlight.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../starlight/bin/Debug/x64/;../libs/libxml2/x64/;../libs/allegro/x64/;../libs/allegro_deps/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>galaxy.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../galaxy/bin/Debug/x64/;../libs/libxml2/x64/;../libs/allegro/x64/;../libs/allegro_deps/x64/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -207,7 +207,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../starlight/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -218,8 +218,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>starlight.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../starlight/bin/Release/Win32/;../libs/libxml2/x32/;../libs/allegro/x32/;../libs/allegro_deps/x32/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>galaxy.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../galaxy/bin/Release/Win32/;../libs/libxml2/x32/;../libs/allegro/x32/;../libs/allegro_deps/x32/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -232,7 +232,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../starlight/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -244,8 +244,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>starlight.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../starlight/bin/Release/x64/;../libs/libxml2/x64/;../libs/allegro/x64/;../libs/allegro_deps/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>galaxy.lib;libxml2.lib;allegro_monolith-static.lib;opengl32.lib;dumb.lib;FLAC.lib;freetype.lib;jpeg.lib;libpng16.lib;ogg.lib;opus.lib;opusfile.lib;physfs.lib;theoradec.lib;vorbis.lib;vorbisfile.lib;zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../galaxy/bin/Release/x64/;../libs/libxml2/x64/;../libs/allegro/x64/;../libs/allegro_deps/x64/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>

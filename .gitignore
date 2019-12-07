@@ -15,10 +15,10 @@ DerivedData/
 docs/build/
 docs/html/
 
-# starlight stuff
-starlight/bin/
-starlight/build/
-starlight/obj/
+# galaxy stuff
+galaxy/bin/
+galaxy/build/
+galaxy/obj/
 
 # Sandbox Stuff
 sandbox/bin/Debug/

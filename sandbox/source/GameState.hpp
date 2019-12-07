@@ -15,7 +15,7 @@
 #include <sl/ui/widgets/Label.hpp>
 #include <sl/ui/widgets/Slider.hpp>
 
-class GameState : public sl::State
+class GameState : public galaxyState
 {
 public:
 	GameState();
@@ -29,15 +29,15 @@ public:
 	void render() override;
 
 private:
-	//sl::UI m_ui;
-	//sl::UITheme m_theme;
-	//sl::Panel* m_panel;
-	//sl::Slider* slider;
-	//sl::Label* m_sliderLabel;
+	//galaxyUI m_ui;
+	//galaxyUITheme m_theme;
+	//galaxyPanel* m_panel;
+	//galaxySlider* slider;
+	//galaxyLabel* m_sliderLabel;
 	//std::string sliderLabelStr;
-	sl::UI m_menu;
-	sl::ThemeStorage m_themeStorage;
-	sl::WidgetStorage m_widgetStorage;
+	galaxyUI m_menu;
+	galaxyThemeStorage m_themeStorage;
+	galaxyWidgetStorage m_widgetStorage;
 };
 
 #endif

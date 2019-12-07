@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\galaxy\audio\Music.cpp" />
+    <ClCompile Include="source\galaxy\audio\Sound.cpp" />
+    <ClCompile Include="source\galaxy\components\AnimationComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\EnabledComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\ParallaxComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\ParticleComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\PhysicsComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\RenderComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\ScrollingBackgroundComponent.cpp" />
+    <ClCompile Include="source\galaxy\components\TransformComponent.cpp" />
+    <ClCompile Include="source\galaxy\core\Application.cpp" />
+    <ClCompile Include="source\galaxy\core\DebugInterface.cpp" />
+    <ClCompile Include="source\galaxy\core\StateMachine.cpp" />
+    <ClCompile Include="source\galaxy\core\World.cpp" />
+    <ClCompile Include="source\galaxy\fs\ConfigReader.cpp" />
+    <ClCompile Include="source\galaxy\fs\VirtualFS.cpp" />
+    <ClCompile Include="source\galaxy\graphics\Animation.cpp" />
+    <ClCompile Include="source\galaxy\graphics\AnimationFrame.cpp" />
+    <ClCompile Include="source\galaxy\graphics\Shader.cpp" />
+    <ClCompile Include="source\galaxy\graphics\TextureAtlas.cpp" />
+    <ClCompile Include="source\galaxy\graphics\Window.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2BroadPhase.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2CollideCircle.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2CollideEdge.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2CollidePolygon.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2Collision.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2Distance.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2DynamicTree.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\b2TimeOfImpact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\Shapes\b2ChainShape.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\Shapes\b2CircleShape.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\Shapes\b2EdgeShape.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Collision\Shapes\b2PolygonShape.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Common\b2BlockAllocator.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Common\b2Draw.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Common\b2Math.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Common\b2Settings.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Common\b2StackAllocator.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Common\b2Timer.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\b2Body.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\b2ContactManager.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\b2Fixture.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\b2Igalaxyand.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\b2World.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\b2WorldCallbacks.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2CircleContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2Contact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2ContactSolver.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2PolygonContact.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2DistanceJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2FrictionJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2GearJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2Joint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2MotorJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2MouseJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2PulleyJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2RopeJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
+    <ClCompile Include="source\galaxy\libs\Box2D\Rope\b2Rope.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui_demo.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui_draw.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui_impl_allegro5.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui_stl.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui_texteditor.cpp" />
+    <ClCompile Include="source\galaxy\libs\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="source\galaxy\libs\loguru\loguru.cpp" />
+    <ClCompile Include="source\galaxy\libs\lua\lapi.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lauxlib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lbaselib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lbitlib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lcode.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lcorolib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lctype.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ldblib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ldebug.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ldo.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ldump.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lfunc.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lgc.c" />
+    <ClCompile Include="source\galaxy\libs\lua\linit.c" />
+    <ClCompile Include="source\galaxy\libs\lua\liolib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\llex.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lmathlib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lmem.c" />
+    <ClCompile Include="source\galaxy\libs\lua\loadlib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lobject.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lopcodes.c" />
+    <ClCompile Include="source\galaxy\libs\lua\logalaxyib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lparser.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lstate.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lstring.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lstrlib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ltable.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ltablib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\ltm.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lundump.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lutf8lib.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lvm.c" />
+    <ClCompile Include="source\galaxy\libs\lua\lzio.c" />
+    <ClCompile Include="source\galaxy\libs\MaxRectsBinPack\MaxRectsBinPack.cpp" />
+    <ClCompile Include="source\galaxy\libs\tmx\tmx.c" />
+    <ClCompile Include="source\galaxy\libs\tmx\tmx_err.c" />
+    <ClCompile Include="source\galaxy\libs\tmx\tmx_hash.c" />
+    <ClCompile Include="source\galaxy\libs\tmx\tmx_mem.c" />
+    <ClCompile Include="source\galaxy\libs\tmx\tmx_utils.c" />
+    <ClCompile Include="source\galaxy\libs\tmx\tmx_xml.c" />
+    <ClCompile Include="source\galaxy\mapping\TiledMap.cpp" />
+    <ClCompile Include="source\galaxy\math\QuadTree.cpp" />
+    <ClCompile Include="source\galaxy\physics\Box2DCallbacks.cpp" />
+    <ClCompile Include="source\galaxy\physics\Box2DHelper.cpp" />
+    <ClCompile Include="source\galaxy\resources\FontBook.cpp" />
+    <ClCompile Include="source\galaxy\resources\MusicPlayer.cpp" />
+    <ClCompile Include="source\galaxy\resources\ShaderLibrary.cpp" />
+    <ClCompile Include="source\galaxy\resources\SoundPlayer.cpp" />
+    <ClCompile Include="source\galaxy\scripting\LuaUtils.cpp" />
+    <ClCompile Include="source\galaxy\systems\AnimationSystem.cpp" />
+    <ClCompile Include="source\galaxy\systems\ParallaxSystem.cpp" />
+    <ClCompile Include="source\galaxy\systems\ParticleSystem.cpp" />
+    <ClCompile Include="source\galaxy\systems\PhysicsSystem.cpp" />
+    <ClCompile Include="source\galaxy\systems\RenderSystem.cpp" />
+    <ClCompile Include="source\galaxy\systems\ScrollingBackgroundSystem.cpp" />
+    <ClCompile Include="source\galaxy\tags\CameraTag.cpp" />
+    <ClCompile Include="source\galaxy\ui\Panel.cpp" />
+    <ClCompile Include="source\galaxy\ui\UITheme.cpp" />
+    <ClCompile Include="source\galaxy\ui\Tooltip.cpp" />
+    <ClCompile Include="source\galaxy\ui\UI.cpp" />
+    <ClCompile Include="source\galaxy\ui\Widget.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\Button.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\Image.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\Label.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\ProgressBar.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\galaxyider.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\Textbox.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\TextInput.cpp" />
+    <ClCompile Include="source\galaxy\ui\widgets\ToggleButton.cpp" />
+    <ClCompile Include="source\galaxy\utils\Log.cpp" />
+    <ClCompile Include="source\galaxy\utils\Time.cpp" />
+    <ClCompile Include="source\galaxy\utils\Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\galaxy\audio\Music.hpp" />
+    <ClInclude Include="source\galaxy\audio\Sound.hpp" />
+    <ClInclude Include="source\galaxy\components\AnimationComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\EnabledComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\ParallaxComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\ParticleComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\PhysicsComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\RenderComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\ScrollingBackgroundComponent.hpp" />
+    <ClInclude Include="source\galaxy\components\TransformComponent.hpp" />
+    <ClInclude Include="source\galaxy\core\Application.hpp" />
+    <ClInclude Include="source\galaxy\core\Command.hpp" />
+    <ClInclude Include="source\galaxy\core\DebugInterface.hpp" />
+    <ClInclude Include="source\galaxy\core\ServiceLocator.hpp" />
+    <ClInclude Include="source\galaxy\core\StateMachine.hpp" />
+    <ClInclude Include="source\galaxy\core\World.hpp" />
+    <ClInclude Include="source\galaxy\events\CollisionEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\EmitParticleEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\KeyCharEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\KeyDownEvent.hpp" />
+    <ClInclude Include="source\galaxy\core\Keys.hpp" />
+    <ClInclude Include="source\galaxy\events\KeyUpEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\MouseMovedEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\MousePressedEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\MouseReleasedEvent.hpp" />
+    <ClInclude Include="source\galaxy\events\PlayerMoveEvent.hpp" />
+    <ClInclude Include="source\galaxy\fs\ConfigReader.hpp" />
+    <ClInclude Include="source\galaxy\fs\Serializer.hpp" />
+    <ClInclude Include="source\galaxy\fs\VirtualFS.hpp" />
+    <ClInclude Include="source\galaxy\graphics\Animation.hpp" />
+    <ClInclude Include="source\galaxy\graphics\AnimationFrame.hpp" />
+    <ClInclude Include="source\galaxy\graphics\Shader.hpp" />
+    <ClInclude Include="source\galaxy\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="source\galaxy\graphics\Window.hpp" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Box2D.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\b2BroadPhase.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\b2Collision.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\b2Distance.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\b2DynamicTree.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\b2TimeOfImpact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\Shapes\b2ChainShape.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\Shapes\b2CircleShape.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\Shapes\b2EdgeShape.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\Shapes\b2PolygonShape.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Collision\Shapes\b2Shape.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2BlockAllocator.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2Draw.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2GrowableStack.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2Math.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2Settings.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2StackAllocator.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Common\b2Timer.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2Body.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2ContactManager.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2Fixture.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2Igalaxyand.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2TimeStep.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2World.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\b2WorldCallbacks.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2CircleContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2Contact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2ContactSolver.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Contacts\b2PolygonContact.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2DistanceJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2FrictionJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2GearJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2Joint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2MotorJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2MouseJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2PrismaticJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2PulleyJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2RevoluteJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2RopeJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2WeldJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Dynamics\Joints\b2WheelJoint.h" />
+    <ClInclude Include="source\galaxy\libs\Box2D\Rope\b2Rope.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\access.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\archives\adapters.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\archives\binary.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\archives\json.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\archives\portable_binary.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\cereal.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\details\helpers.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\details\polymorphic_impl.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\details\polymorphic_impl_fwd.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\details\static_object.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\details\traits.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\details\util.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\base64.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\allocators.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\document.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\encodedstream.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\encodings.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\error\en.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\error\error.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\filereadstream.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\filewritestream.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\fwd.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\biginteger.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\diyfp.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\dtoa.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\ieee754.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\itoa.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\meta.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\pow10.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\regex.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\stack.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\strtod.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\internal\swap.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\memorybuffer.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\memorystream.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\pointer.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\prettywriter.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\rapidjson.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\reader.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\schema.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\stream.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\stringbuffer.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\external\rapidjson\writer.h" />
+    <ClInclude Include="source\galaxy\libs\cereal\macros.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\array.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\atomic.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\base_class.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\bitset.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\chrono.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\common.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\complex.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\concepts\pair_associative_container.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\deque.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\forward_list.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\functional.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\list.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\map.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\memory.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\optional.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\polymorphic.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\queue.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\set.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\stack.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\string.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\tuple.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\unordered_map.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\unordered_set.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\utility.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\valarray.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\variant.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\types\vector.hpp" />
+    <ClInclude Include="source\galaxy\libs\cereal\version.hpp" />
+    <ClInclude Include="source\galaxy\libs\imgui\imconfig.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imconfig_allegro5.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imgui.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imgui_console.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imgui_impl_allegro5.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imgui_internal.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imgui_stl.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imgui_texteditor.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imstb_rectpack.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imstb_textedit.h" />
+    <ClInclude Include="source\galaxy\libs\imgui\imstb_truetype.h" />
+    <ClInclude Include="source\galaxy\libs\loguru\loguru.hpp" />
+    <ClInclude Include="source\galaxy\libs\lua\lapi.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lauxlib.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lcode.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lctype.h" />
+    <ClInclude Include="source\galaxy\libs\lua\ldebug.h" />
+    <ClInclude Include="source\galaxy\libs\lua\ldo.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lfunc.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lgc.h" />
+    <ClInclude Include="source\galaxy\libs\lua\llex.h" />
+    <ClInclude Include="source\galaxy\libs\lua\llimits.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lmem.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lobject.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lopcodes.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lparser.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lprefix.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lstate.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lstring.h" />
+    <ClInclude Include="source\galaxy\libs\lua\ltable.h" />
+    <ClInclude Include="source\galaxy\libs\lua\ltm.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lua.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lua.hpp" />
+    <ClInclude Include="source\galaxy\libs\lua\luaconf.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lualib.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lundump.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lvm.h" />
+    <ClInclude Include="source\galaxy\libs\lua\lzio.h" />
+    <ClInclude Include="source\galaxy\libs\MaxRectsBinPack\MaxRectsBinPack.hpp" />
+    <ClInclude Include="source\galaxy\libs\sol2\forward.hpp" />
+    <ClInclude Include="source\galaxy\libs\sol2\sol.hpp" />
+    <ClInclude Include="source\galaxy\libs\tmx\tmx.h" />
+    <ClInclude Include="source\galaxy\libs\tmx\tmx_utils.h" />
+    <ClInclude Include="source\galaxy\mapping\TiledMap.hpp" />
+    <ClInclude Include="source\galaxy\math\QuadTree.hpp" />
+    <ClInclude Include="source\galaxy\math\Rect.hpp" />
+    <ClInclude Include="source\galaxy\math\Vector2.hpp" />
+    <ClInclude Include="source\galaxy\math\Vector3.hpp" />
+    <ClInclude Include="source\galaxy\math\Vector4.hpp" />
+    <ClInclude Include="source\galaxy\physics\Box2DCallbacks.hpp" />
+    <ClInclude Include="source\galaxy\physics\Box2DHelper.hpp" />
+    <ClInclude Include="source\galaxy\physics\CollisionTypes.hpp" />
+    <ClInclude Include="source\galaxy\platform\PlatformUnix.hpp" />
+    <ClInclude Include="source\galaxy\platform\PlatformWindows.hpp" />
+    <ClInclude Include="source\galaxy\resources\FontBook.hpp" />
+    <ClInclude Include="source\galaxy\resources\MusicPlayer.hpp" />
+    <ClInclude Include="source\galaxy\resources\ShaderLibrary.hpp" />
+    <ClInclude Include="source\galaxy\resources\SoundPlayer.hpp" />
+    <ClInclude Include="source\galaxy\scripting\LuaUtils.hpp" />
+    <ClInclude Include="source\galaxy\scripting\Sol2Interface.hpp" />
+    <ClInclude Include="source\galaxy\systems\AnimationSystem.hpp" />
+    <ClInclude Include="source\galaxy\systems\ParallaxSystem.hpp" />
+    <ClInclude Include="source\galaxy\systems\ParticleSystem.hpp" />
+    <ClInclude Include="source\galaxy\systems\PhysicsSystem.hpp" />
+    <ClInclude Include="source\galaxy\systems\RenderSystem.hpp" />
+    <ClInclude Include="source\galaxy\systems\ScrollingBackgroundSystem.hpp" />
+    <ClInclude Include="source\galaxy\tags\CameraTag.hpp" />
+    <ClInclude Include="source\galaxy\types\ResourceCache.hpp" />
+    <ClInclude Include="source\galaxy\types\State.hpp" />
+    <ClInclude Include="source\galaxy\types\System.hpp" />
+    <ClInclude Include="source\galaxy\ui\Panel.hpp" />
+    <ClInclude Include="source\galaxy\ui\UITheme.hpp" />
+    <ClInclude Include="source\galaxy\ui\Tooltip.hpp" />
+    <ClInclude Include="source\galaxy\ui\UI.hpp" />
+    <ClInclude Include="source\galaxy\ui\Widget.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\Button.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\Image.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\Label.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\ProgressBar.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\galaxyider.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\Textbox.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\TextInput.hpp" />
+    <ClInclude Include="source\galaxy\ui\widgets\ToggleButton.hpp" />
+    <ClInclude Include="source\galaxy\utils\Log.hpp" />
+    <ClInclude Include="source\galaxy\utils\Random.hpp" />
+    <ClInclude Include="source\galaxy\utils\Time.hpp" />
+    <ClInclude Include="source\galaxy\utils\Utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\docs\TODO.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{24A73AC2-A971-47D0-905A-7AFB76684687}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>galaxy</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <Allegro_AddonImage>true</Allegro_AddonImage>
+    <Allegro_AddonTTF>true</Allegro_AddonTTF>
+    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
+    <Allegro_AddonAudio>true</Allegro_AddonAudio>
+    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
+    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
+    <Allegro_AddonDialog>true</Allegro_AddonDialog>
+    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
+    <Allegro_AddonFont>true</Allegro_AddonFont>
+    <Allegro_AddonColor>true</Allegro_AddonColor>
+    <Allegro_AddonVideo>true</Allegro_AddonVideo>
+    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
+    <EnableCppCoreCheck>true</EnableCppCoreCheck>
+    <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
+    <CustomBuildAfterTargets>
+    </CustomBuildAfterTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_DEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib />
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <Lib>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Lib>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>
+      </Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

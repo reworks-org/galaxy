@@ -18,21 +18,21 @@
 
 #include "GameState.hpp"
 
-class Sandbox : public sl::Application
+class Sandbox : public galaxyApplication
 {
 public:
-	Sandbox(const std::string& config, std::function<void(std::ofstream&)> newConfig) : sl::Application(config, newConfig)
+	Sandbox(const std::string& config, std::function<void(std::ofstream&)> newConfig) : galaxyApplication(config, newConfig)
 	{
-		m_world->registerSystem<sl::RenderSystem>(20, 100);
-		m_world->registerSystem<sl::PhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
-		m_world->registerSystem<sl::AnimationSystem>();
-		m_world->registerSystem<sl::ScrollingBackgroundSystem>();
+		m_world->registerSystem<galaxyRenderSystem>(20, 100);
+		m_world->registerSystem<galaxyPhysicsSystem>("", m_configReader->lookup<float>(config, "box2d", "ups"), m_configReader->lookup<int>(config, "box2d", "velocityIterations"), m_configReader->lookup<int>(config, "box2d", "positionIterations"));
+		m_world->registerSystem<galaxyAnimationSystem>();
+		m_world->registerSystem<galaxyScrollingBackgroundSystem>();
 
 		m_stateMachine->createState<GameState>("game");
 		m_stateMachine->push("game");
 
 		entt::DefaultRegistry::entity_type cameraEntity = m_world->m_registry.create();
-		m_world->m_registry.assign<sl::CameraTag>(entt::tag_t{}, cameraEntity, sl::Rect<float, int>{ 0, 0, 1280, 720 }); //896, 576
+		m_world->m_registry.assign<galaxyCameraTag>(entt::tag_t{}, cameraEntity, galaxyRect<float, int>{ 0, 0, 1280, 720 }); //896, 576
 	}
 };
 

@@ -34,12 +34,12 @@
 
 #include "GameState.hpp"
 
-using namespace sl;
+using galaxy;
 
 GameState::GameState()
 	//:m_theme("GameOver32", al_map_rgba(0, 255, 0, 255), "ui/master.png")
 {
-	//map = std::make_unique<sl::TMXMap>("platformer.tmx", 2.5f);
+	//map = std::make_unique<galaxyTMXMap>("platformer.tmx", 2.5f);
 	//m_bounds.m_height = map->m_internalMap->height * map->m_internalMap->tile_height;
 	//m_bounds.m_width = map->m_internalMap->width * map->m_internalMap->tile_width;
 	m_bounds.m_height = 0;
@@ -49,7 +49,7 @@ GameState::GameState()
 
 	//Locator::musicPlayer->get("background").play();
 
-	sl::Keys::UI_CONFIRM = ALLEGRO_KEY_ENTER;
+	galaxyKeys::UI_CONFIRM = ALLEGRO_KEY_ENTER;
 
 	entt::DefaultRegistry::entity_type scrolledEntity = Locator::world->m_registry.create();
 	Locator::world->m_registry.assign<TransformComponent>(scrolledEntity, 1, 0.0f, Rect<float, int>{ 0.0f, 0.0f, 1280, 720 });
@@ -61,38 +61,38 @@ GameState::GameState()
 	m_theme.defineWidgetTexture("frame", {9, 0, 256, 128});
 	m_theme.defineWidgetTexture("arrow", {0, 0, 8, 6});
 
-	m_panel = m_ui.addPanel(sl::Rect<int>{ 0, 0, 360, 720 }, al_map_rgba(169, 169, 169, 255));
+	m_panel = m_ui.addPanel(galaxyRect<int>{ 0, 0, 360, 720 }, al_map_rgba(169, 169, 169, 255));
 	
 	std::array<ALLEGRO_COLOR, 3> cols = 
 	{
 		al_map_rgba(0, 0, 255, 255), al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 255, 0, 255)
 	};
 
-	sl::Button* testbtn = m_panel->add<sl::Button>(20, 20, "Click me!", cols, &m_theme);
+	galaxyButton* testbtn = m_panel->add<galaxyButton>(20, 20, "Click me!", cols, &m_theme);
 	testbtn->registerCallback([&]() -> void
 	{
 		LOG_S(INFO) << "BUTTON CLICKED!";
 	});
 	testbtn->setTooltip("This is a tooltip.", &m_theme);
 
-	sl::ProgressBar* bar = m_panel->add<sl::ProgressBar>(sl::Rect<int>{20, 80, 100, 20}, al_map_rgba(192, 192, 192, 255), al_map_rgba(255, 0, 0, 255));
+	galaxyProgressBar* bar = m_panel->add<galaxyProgressBar>(galaxyRect<int>{20, 80, 100, 20}, al_map_rgba(192, 192, 192, 255), al_map_rgba(255, 0, 0, 255));
 	bar->setProgress(0.67f);
 
 	std::ostringstream ss;
 	ss << bar->getPercentage();
 	std::string s = "Health Bar: " + ss.str() + "%";
-	sl::Label* label = m_panel->add<sl::Label>(25, 80, s, &m_theme);
+	galaxyLabel* label = m_panel->add<galaxyLabel>(25, 80, s, &m_theme);
 
-	slider = m_panel->add<sl::Slider>(sl::Rect<int>{5, 120, 200, 25}, 8, 50, al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 0, 255, 255));
+	slider = m_panel->add<galaxySlider>(galaxyRect<int>{5, 120, 200, 25}, 8, 50, al_map_rgba(255, 0, 0, 255), al_map_rgba(0, 0, 255, 255));
 
 	std::ostringstream ss2;
 	ss2 << slider->getPercentage();
 	sliderLabelStr = "Value: " + ss2.str() + "%";
-	m_sliderLabel = m_panel->add<sl::Label>(5, 120, sliderLabelStr, &m_theme);
+	m_sliderLabel = m_panel->add<galaxyLabel>(5, 120, sliderLabelStr, &m_theme);
 
-	sl::Textbox* textbox = m_panel->add<sl::Textbox>(5, 200, "frame", "arrow", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, 120, 80, &m_theme, "Speaker");
+	galaxyTextbox* textbox = m_panel->add<galaxyTextbox>(5, 200, "frame", "arrow", std::vector<std::string>{"This is a long message...", "This is an even longer message..."}, 120, 80, &m_theme, "Speaker");
 
-	sl::TextInput* ti = m_panel->add<sl::TextInput>(sl::Rect<int>{5, 500, 200, 64}, al_map_rgba(0, 0, 0, 255), al_map_rgba(255, 255, 255, 255), &m_theme);
+	galaxyTextInput* ti = m_panel->add<galaxyTextInput>(galaxyRect<int>{5, 500, 200, 64}, al_map_rgba(0, 0, 0, 255), al_map_rgba(255, 255, 255, 255), &m_theme);
 	*/
 	m_menu.createFromScript("menuUI.lua", &m_widgetStorage, &m_themeStorage);
 }
@@ -104,7 +104,7 @@ GameState::~GameState()
 
 void GameState::load()
 {
-	//sl::Locator::world->createEntity("load.lua");
+	//galaxyLocator::world->createEntity("load.lua");
 	//Locator::textureAtlas->dumpAtlas("atlas.png");
 }
 
@@ -117,23 +117,23 @@ void GameState::event(ALLEGRO_EVENT* event)
 	switch (event->type)
 	{
 	case ALLEGRO_EVENT_MOUSE_AXES:
-		Locator::dispatcher->trigger<sl::MouseMovedEvent>(event->mouse.x, event->mouse.y, event->mouse.dx, event->mouse.dy, event->mouse.pressure);
+		Locator::dispatcher->trigger<galaxyMouseMovedEvent>(event->mouse.x, event->mouse.y, event->mouse.dx, event->mouse.dy, event->mouse.pressure);
 		break;
 
 	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
-		Locator::dispatcher->trigger<sl::MousePressedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
+		Locator::dispatcher->trigger<galaxyMousePressedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
 		break;
 
 	case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
-		Locator::dispatcher->trigger<sl::MouseReleasedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
+		Locator::dispatcher->trigger<galaxyMouseReleasedEvent>(event->mouse.x, event->mouse.y, event->mouse.button);
 		break;
 
 	case ALLEGRO_EVENT_KEY_CHAR:
-		Locator::dispatcher->trigger<sl::KeyCharEvent>(event->keyboard.keycode, event->keyboard.unichar);
+		Locator::dispatcher->trigger<galaxyKeyCharEvent>(event->keyboard.keycode, event->keyboard.unichar);
 		break;
 
 	case ALLEGRO_EVENT_KEY_DOWN:
-		Locator::dispatcher->trigger<sl::KeyDownEvent>(event->keyboard.keycode);
+		Locator::dispatcher->trigger<galaxyKeyDownEvent>(event->keyboard.keycode);
 		switch (event->keyboard.keycode)
 		{
 		case ALLEGRO_KEY_ESCAPE:
