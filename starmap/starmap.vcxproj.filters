@@ -4,9 +4,11 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\starmap\root\Point.cpp" />
     <ClCompile Include="src\starmap\Map.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\starmap\root\Point.hpp" />
     <ClInclude Include="src\starmap\Map.hpp" />
   </ItemGroup>
 </Project>

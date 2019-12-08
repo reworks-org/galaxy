@@ -23,9 +23,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\starmap\Map.cpp" />
+    <ClCompile Include="src\starmap\root\Point.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\starmap\Map.hpp" />
+    <ClInclude Include="src\starmap\root\Point.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
