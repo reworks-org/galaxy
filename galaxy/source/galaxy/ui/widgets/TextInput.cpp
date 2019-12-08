@@ -18,9 +18,9 @@
 
 #include "TextInput.hpp"
 
-galaxy
+namespace galaxy
 {
-	TextInput::TextInput(const galaxyRect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, UITheme* theme)
+	TextInput::TextInput(const galaxy::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, UITheme* theme)
 		:Widget(bounds, theme), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr)
 	{
 		// Create textures
@@ -56,12 +56,12 @@ galaxy
 		m_textY = m_bounds.m_y + (static_cast<float>(m_bounds.m_height) / 2.0f);
 
 		// Set up events.
-		galaxyLocator::dispatcher->sink<galaxyKeyCharEvent>().connect<TextInput, &TextInput::receiveCharPress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<TextInput, &TextInput::receiveMousePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::KeyCharEvent>().connect<TextInput, &TextInput::receiveCharPress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<TextInput, &TextInput::receiveMousePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
 	}
 
-	TextInput::TextInput(const galaxyVector4<int>& vec4, const std::string& field, const std::string& indicator, UITheme* theme)
+	TextInput::TextInput(const galaxy::Vector4<int>& vec4, const std::string& field, const std::string& indicator, UITheme* theme)
 		:Widget({ vec4.m_w, vec4.m_x, 0, 0 }, theme), m_drawIndicator(true), m_timePassed(0.0), m_isSelected(false), m_cursorPos(0), m_startPos(0), m_text(nullptr), m_field(nullptr), m_indicator(nullptr), m_textX(vec4.m_y), m_textY(vec4.m_z)
 	{
 		// Load and validate field texture.
@@ -85,9 +85,9 @@ galaxy
 		}
 
 		// Set up events.
-		galaxyLocator::dispatcher->sink<galaxyKeyCharEvent>().connect<TextInput, &TextInput::receiveCharPress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<TextInput, &TextInput::receiveMousePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::KeyCharEvent>().connect<TextInput, &TextInput::receiveCharPress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<TextInput, &TextInput::receiveMousePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
 	}
 
 	TextInput::TextInput(const sol::table& table, UITheme* theme)
@@ -122,9 +122,9 @@ galaxy
 		}
 
 		// Set up events.
-		galaxyLocator::dispatcher->sink<galaxyKeyCharEvent>().connect<TextInput, &TextInput::receiveCharPress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<TextInput, &TextInput::receiveMousePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::KeyCharEvent>().connect<TextInput, &TextInput::receiveCharPress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<TextInput, &TextInput::receiveMousePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<TextInput, &TextInput::receiveMouseMoved>(this);
 	}
 	
 	TextInput::~TextInput() noexcept
@@ -147,7 +147,7 @@ galaxy
 		}
 	}
 
-	void TextInput::receiveMouseMoved(const galaxyMouseMovedEvent& e)
+	void TextInput::receiveMouseMoved(const galaxy::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -162,7 +162,7 @@ galaxy
 		}
 	}
 
-	void TextInput::receiveMousePress(const galaxyMousePressedEvent& e)
+	void TextInput::receiveMousePress(const galaxy::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -177,11 +177,11 @@ galaxy
 		}
 	}
 
-	void TextInput::receiveCharPress(const galaxyKeyCharEvent& e)
+	void TextInput::receiveCharPress(const galaxy::KeyCharEvent& e)
 	{
 		if (m_isVisible && m_isSelected)
 		{
-			if (e.m_keycode == galaxyKeys::UI_CONFIRM)
+			if (e.m_keycode == galaxy::Keys::UI_CONFIRM)
 			{
 				m_isSelected = false;
 			}

@@ -13,7 +13,7 @@
 #include "galaxy/types/System.hpp"
 #include "galaxy/math/QuadTree.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// System that handles rendering of entities with a RenderComponent.

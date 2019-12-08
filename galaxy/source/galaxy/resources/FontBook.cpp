@@ -15,7 +15,7 @@
 
 #include "FontBook.hpp"
 
-galaxy
+namespace galaxy
 {
 	FontBook::FontBook(const std::string& script)
 	{

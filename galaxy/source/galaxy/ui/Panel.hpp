@@ -14,7 +14,7 @@
 
 #include "galaxy/ui/Widget.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// A UI Panel holds and positions UI widgets on it.
@@ -28,7 +28,7 @@ galaxy
 		/// \param bounds Dimension of the panel.
 		/// \param colour Colour of the panel. Can be transparent or opaque.
 		///
-		Panel(const galaxyRect<int>& bounds, const ALLEGRO_COLOR colour);
+		Panel(const galaxy::Rect<int>& bounds, const ALLEGRO_COLOR colour);
 
 		///
 		/// Image Constructor.
@@ -37,7 +37,7 @@ galaxy
 		/// \param theme Theme to use containing panel texture.
 		/// \param texture Texture from the theme's master texture to use.
 		///
-		Panel(const galaxyRect<int>& bounds, UITheme* theme, const std::string& texture);
+		Panel(const galaxy::Rect<int>& bounds, UITheme* theme, const std::string& texture);
 
 		///
 		/// Destructor.
@@ -105,7 +105,7 @@ galaxy
 		///
 		/// Dimensions of the panel, relative to the screen.
 		///
-		galaxyRect<int> m_bounds;
+		galaxy::Rect<int> m_bounds;
 
 		///
 		/// Background of the panel. Full colour or texture.

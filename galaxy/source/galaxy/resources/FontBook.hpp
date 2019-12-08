@@ -14,7 +14,7 @@
 
 #include "galaxy/types/ResourceCache.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Manages all the fonts the library uses.

@@ -18,7 +18,7 @@
 
 #include "RenderSystem.hpp"
 
-galaxy
+namespace galaxy
 {
 	RenderSystem::RenderSystem(int quadTreeLevels, int quadTreeMaxObjects)
 		:m_quadTreeLevels(quadTreeLevels), m_quadTreeMaxObjects(quadTreeMaxObjects)

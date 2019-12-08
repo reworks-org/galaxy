@@ -14,7 +14,7 @@
 
 #include "Button.hpp"
 
-galaxy
+namespace galaxy
 {
 	Button::Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme)
 		:Widget({x, y, 0, 0}, theme), m_callback(nullptr), m_label(label)
@@ -34,9 +34,9 @@ galaxy
 		m_bounds.m_height = al_get_bitmap_height(m_textures[0]);
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<Button, &Button::receivePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<Button, &Button::receivePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
 	}
 
 	Button::Button(const int x, const int y, const std::string& text, const std::array<ALLEGRO_COLOR, 3>& colours, UITheme* theme)
@@ -62,9 +62,9 @@ galaxy
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<Button, &Button::receivePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<Button, &Button::receivePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
 	}
 
 	Button::Button(const sol::table& table, UITheme* theme)
@@ -100,9 +100,9 @@ galaxy
 		m_bounds.m_height = al_get_bitmap_height(m_textures[0]);
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<Button, &Button::receivePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<Button, &Button::receivePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseReleasedEvent>().connect<Button, &Button::receiveRelease>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<Button, &Button::recieveMoved>(this);
 	}
 
 	Button::~Button()
@@ -160,7 +160,7 @@ galaxy
 		}
 	}
 
-	void Button::receivePress(const galaxyMousePressedEvent& e)
+	void Button::receivePress(const galaxy::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -171,7 +171,7 @@ galaxy
 		}
 	}
 
-	void Button::receiveRelease(const galaxyMouseReleasedEvent& e)
+	void Button::receiveRelease(const galaxy::MouseReleasedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -186,7 +186,7 @@ galaxy
 		}
 	}
 
-	void Button::recieveMoved(const galaxyMouseMovedEvent& e)
+	void Button::recieveMoved(const galaxy::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

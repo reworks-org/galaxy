@@ -22,7 +22,7 @@
 
 #include "UI.hpp"
 
-galaxy
+namespace galaxy
 {
 	UI::UI()
 	{
@@ -50,7 +50,7 @@ galaxy
 		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
 
 		// Panel currently being created.
-		galaxyPanel* panel = nullptr;
+		galaxy::Panel* panel = nullptr;
 
 		// Get master table and check for validity.
 		sol::table ui = Locator::lua->get<sol::table>("ui");
@@ -130,7 +130,7 @@ galaxy
 							}
 							else
 							{
-								panel = addPanel(galaxyRect<int>{x, y, w, h}, al_map_rgba(colour.get<int>("r"), colour.get<int>("g"), colour.get<int>("b"), colour.get<int>("a")));
+								panel = addPanel(galaxy::Rect<int>{x, y, w, h}, al_map_rgba(colour.get<int>("r"), colour.get<int>("g"), colour.get<int>("b"), colour.get<int>("a")));
 							}
 						}
 						else if (themeCheck.valid()) // Else if image is valid.
@@ -139,7 +139,7 @@ galaxy
 							std::string themeTextureID = panelTable.get<std::string>("themeTextureID");
 							if (!themeName.empty())
 							{
-								panel = addPanel(galaxyRect<int>{x, y, w, h}, &(themesMap->at(themeName)), themeTextureID);
+								panel = addPanel(galaxy::Rect<int>{x, y, w, h}, &(themesMap->at(themeName)), themeTextureID);
 							}
 							else
 							{
@@ -185,7 +185,7 @@ galaxy
 								if (ttCheck.valid())
 								{
 									sol::table ttTable = wfTable["tooltip"];
-									createdWidget->setTooltip(ttTable.get<std::string>("text"), ttTable.get<std::string>("texture"), galaxyVector2<int>{ttTable.get<int>("sectionL"), ttTable.get<int>("sectionR")}, &(themesMap->at(ttTable.get<std::string>("theme"))));
+									createdWidget->setTooltip(ttTable.get<std::string>("text"), ttTable.get<std::string>("texture"), galaxy::Vector2<int>{ttTable.get<int>("sectionL"), ttTable.get<int>("sectionR")}, &(themesMap->at(ttTable.get<std::string>("theme"))));
 								}
 
 								widgetsMap->emplace(widgetName, createdWidget);

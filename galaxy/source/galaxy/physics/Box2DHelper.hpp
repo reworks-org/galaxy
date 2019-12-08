@@ -12,7 +12,7 @@
 
 #include "galaxy/libs/Box2D/Box2D.h"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Integrates Box2D with the rest of the library.

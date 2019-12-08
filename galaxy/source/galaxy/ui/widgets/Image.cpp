@@ -11,7 +11,7 @@
 
 #include "Image.hpp"
 
-galaxy
+namespace galaxy
 {
 	Image::Image(const int x, const int y, const std::string& texture, UITheme* theme)
 		:Widget({ x, y, 0, 0 }, theme)

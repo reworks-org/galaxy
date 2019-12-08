@@ -12,7 +12,7 @@
 
 #include "galaxy/libs/Box2D/Dynamics/b2WorldCallbacks.h"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// This is the class that handles Box2D collisions for this library.

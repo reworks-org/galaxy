@@ -12,7 +12,7 @@
 
 #include "galaxy/ui/Widget.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Image for UI objects. Does not support tooltips.

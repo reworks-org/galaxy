@@ -14,9 +14,9 @@
 
 #include "Tooltip.hpp"
 
-galaxy
+namespace galaxy
 {
-	Tooltip::Tooltip(const std::string& text, const std::string& texture, const galaxyVector2<int>& section, UITheme* theme)
+	Tooltip::Tooltip(const std::string& text, const std::string& texture, const galaxy::Vector2<int>& section, UITheme* theme)
 		:m_x(0), m_y(0), m_text(nullptr), m_theme(theme)
 	{
 		// Need to calculate new bitmap dimensions, render and repeat section to get a proper box, then render text ontop.
@@ -63,7 +63,7 @@ galaxy
 		}
 
 		// Register the recieve() method with entt to mouse events.
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect(this);
 	}
 
 	Tooltip::Tooltip(const std::string& text, UITheme* theme)
@@ -81,7 +81,7 @@ galaxy
 		al_set_target_backbuffer(Locator::window->getDisplay());
 
 		// Register the recieve() method with entt to mouse events.
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect(this);
 	}
 
 	Tooltip::~Tooltip() noexcept
@@ -92,7 +92,7 @@ galaxy
 		}
 	}
 
-	void Tooltip::receive(const galaxyMouseMovedEvent& e)
+	void Tooltip::receive(const galaxy::MouseMovedEvent& e)
 	{
 		m_x = e.m_x + 12;
 		m_y = e.m_y + 12;

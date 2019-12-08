@@ -13,7 +13,7 @@
 #include "galaxy/audio/Music.hpp"
 #include "galaxy/types/ResourceCache.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Manages all the music the library uses.

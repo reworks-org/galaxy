@@ -12,7 +12,7 @@
 
 #include <cstdint>
 
-galaxy
+namespace galaxy
 {
 	///
 	/// \brief A data structure of collision types.

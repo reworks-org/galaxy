@@ -15,7 +15,7 @@
 
 #include "CameraTag.hpp"
 
-galaxy
+namespace galaxy
 {
 	CameraTag::CameraTag()
 		:m_bounds(0.0f, 0.0f, Locator::window->getSize().m_x, Locator::window->getSize().m_y)

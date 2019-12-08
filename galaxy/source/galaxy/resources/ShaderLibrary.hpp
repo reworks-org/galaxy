@@ -13,7 +13,7 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/types/ResourceCache.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Manages all the shaders the library uses.

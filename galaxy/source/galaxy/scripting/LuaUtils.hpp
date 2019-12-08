@@ -12,7 +12,7 @@
 
 #include "galaxy/libs/sol2/forward.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Class that contains useful functions for interacting with Lua.

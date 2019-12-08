@@ -13,9 +13,9 @@
 #include <fstream>
 #include <iostream>
 
-#define LOG_S(level, message) galaxyLog::stream(level, message);
+#define LOG_S(level, message) galaxy::Log::stream(level, message);
 
-galaxy
+namespace galaxy
 {
 	enum class LogLevel
 	{

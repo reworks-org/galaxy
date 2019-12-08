@@ -58,15 +58,15 @@
 
 #define IM_VEC2_CLASS_EXTRA                                                 \
         template<typename T>												\
-		ImVec2(const galaxyVector2<T>& v) { x = v.x; y = v.y; }               \
+		ImVec2(const galaxy::Vector2<T>& v) { x = v.x; y = v.y; }               \
 		template<typename T>												\
-        operator galaxyVector2<T>() const { return galaxyVector2<T>(x, y); }    \
+        operator galaxy::Vector2<T>() const { return galaxy::Vector2<T>(x, y); }    \
 
 #define IM_VEC4_CLASS_EXTRA															\
 		template<typename T>														\
-        ImVec4(const galaxyVector4<T>& v) { x = v.x; y = v.y; z = v.z; w = v.w; }     \
+        ImVec4(const galaxy::Vector4<T>& v) { x = v.x; y = v.y; z = v.z; w = v.w; }     \
 		template<typename T>														\
-        operator galaxyVector4<T>() const { return galaxyVector4<T>(x, y); }			\
+        operator galaxy::Vector4<T>() const { return galaxy::Vector4<T>(x, y); }			\
 
 
 //---- Use 32-bit vertex indices (default is 16-bit) to allow meshes with more than 64K vertices. Render function needs to support it.

@@ -200,9 +200,9 @@ namespace ImGui
 			}
 			else if (std::filesystem::path(command_line).extension() == ".lua")
 			{
-				if (galaxyLocator::virtualFS->has(command_line))
+				if (galaxy::Locator::virtualFS->has(command_line))
 				{
-					std::string result = galaxyLocator::lua->do_string(galaxyLocator::virtualFS->openAsString(command_line));
+					std::string result = galaxy::Locator::lua->do_string(galaxy::Locator::virtualFS->openAsString(command_line));
 					AddLog(result.c_str());
 				}
 				else
@@ -213,7 +213,7 @@ namespace ImGui
 			}
 			else
 			{
-				std::string result = galaxyLocator::lua->do_string(command_line);
+				std::string result = galaxy::Locator::lua->do_string(command_line);
 				AddLog(result.c_str());
 			}
 		}

@@ -10,7 +10,7 @@
 #ifndef GALAXY_VECTOR4_HPP_
 #define GALAXY_VECTOR4_HPP_
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a Vector4 object.

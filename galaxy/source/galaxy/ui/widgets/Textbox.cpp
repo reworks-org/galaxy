@@ -15,7 +15,7 @@
 
 #include "Textbox.hpp"
 
-galaxy
+namespace galaxy
 {
 	Textbox::Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const unsigned int maxWidth, const unsigned int duration, UITheme* theme, const std::string& speaker)
 		:Widget({x, y, 0, 0}, theme), m_frame(nullptr), m_indicator(nullptr), m_messages(messages), m_speaker(speaker), m_maxWidth(maxWidth), m_duration(duration), m_timePassed(0.0), m_indicatorTimePassed(0.0), m_characterIndex(0), m_page(0), m_drawLoweredIndicator(false), m_lineHeight(0)
@@ -43,7 +43,7 @@ galaxy
 		m_lineHeight = al_get_font_line_height(m_theme->font());
 
 		// Connects receive() method automatically.
-		Locator::dispatcher->sink<galaxyKeyDownEvent>().connect(this);
+		Locator::dispatcher->sink<galaxy::KeyDownEvent>().connect(this);
 	}
 
 	Textbox::Textbox(const sol::table& table, UITheme* theme)
@@ -96,7 +96,7 @@ galaxy
 		}
 
 		// Connects receive() method automatically.
-		Locator::dispatcher->sink<galaxyKeyDownEvent>().connect(this);
+		Locator::dispatcher->sink<galaxy::KeyDownEvent>().connect(this);
 	}
 
 	Textbox::~Textbox()
@@ -114,11 +114,11 @@ galaxy
 		m_messages.clear();
 	}
 
-	void Textbox::receive(const galaxyKeyDownEvent& e)
+	void Textbox::receive(const galaxy::KeyDownEvent& e)
 	{
 		if (m_isVisible)
 		{
-			if (e.m_keycode == galaxyKeys::UI_CONFIRM)
+			if (e.m_keycode == galaxy::Keys::UI_CONFIRM)
 			{
 				// Make sure when going to the next "page" of text in a textbox that it doesn't trigger an out of bounds exception.
 				++m_page;

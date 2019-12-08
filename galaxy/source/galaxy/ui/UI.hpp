@@ -14,7 +14,7 @@
 
 #include "galaxy/ui/Panel.hpp"
 
-galaxy
+namespace galaxy
 {
 	typedef std::unordered_map<std::string, Widget*> WidgetStorage;
 	typedef std::unordered_map<std::string, UITheme> ThemeStorage;

@@ -14,7 +14,7 @@
 
 union ALLEGRO_EVENT;
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a "state" of the application i.e. gamestate, battlestate, menustate, etc...
@@ -65,7 +65,7 @@ galaxy
 		///
 		/// \param bounds Rendering bounds for this state.
 		///
-		inline State(const galaxyRect<float, int>& bounds) : m_bounds(bounds) {}
+		inline State(const galaxy::Rect<float, int>& bounds) : m_bounds(bounds) {}
 
 	public:
 		///

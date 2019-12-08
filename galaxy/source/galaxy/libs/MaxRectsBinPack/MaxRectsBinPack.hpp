@@ -48,10 +48,10 @@ namespace rbp
 		/// \param rects The list of rectangles to insert. This vector will be destroyed in the process.
 		/// \param dst [out] This list will contain the packed rectangles. The indices will not correspond to that of rects.
 		/// \param method The rectangle placement rule to use when packing.
-		void Insert(std::vector<galaxyVector2<int>> &rects, std::vector<galaxyRect<int>> &dst, FreeRectChoiceHeuristic method);
+		void Insert(std::vector<galaxy::Vector2<int>> &rects, std::vector<galaxy::Rect<int>> &dst, FreeRectChoiceHeuristic method);
 
 		/// Inserts a single rectangle into the bin, possibly rotated.
-		galaxyRect<int> Insert(int width, int height, FreeRectChoiceHeuristic method);
+		galaxy::Rect<int> Insert(int width, int height, FreeRectChoiceHeuristic method);
 
 		/// Computes the ratio of used surface area to the total bin area.
 		float Occupancy() const;
@@ -61,8 +61,8 @@ namespace rbp
 		int binHeight;
 		bool allowRotations;
 
-		std::vector<galaxyRect<int>> usedRectangles;
-		std::vector<galaxyRect<int>> freeRectangles;
+		std::vector<galaxy::Rect<int>> usedRectangles;
+		std::vector<galaxy::Rect<int>> freeRectangles;
 
 	private:
 		/// Disasble copy constructor.
@@ -75,22 +75,22 @@ namespace rbp
 		/// \param score1 [out] The primary placement score will be outputted here.
 		/// \param score2 [out] The secondary placement score will be outputted here. This isu sed to break ties.
 		/// \return This struct identifies where the rectangle would be placed if it were placed.
-		galaxyRect<int> ScoreRect(int width, int height, FreeRectChoiceHeuristic method, int &score1, int &score2) const;
+		galaxy::Rect<int> ScoreRect(int width, int height, FreeRectChoiceHeuristic method, int &score1, int &score2) const;
 
 		/// Places the given rectangle into the bin.
-		void PlaceRect(const galaxyRect<int> &node);
+		void PlaceRect(const galaxy::Rect<int> &node);
 
 		/// Computes the placement score for the -CP variant.
 		int ContactPointScoreNode(int x, int y, int width, int height) const;
 
-		galaxyRect<int> FindPositionForNewNodeBottomLeft(int width, int height, int &bestY, int &bestX) const;
-		galaxyRect<int> FindPositionForNewNodeBestShortSideFit(int width, int height, int &bestShortSideFit, int &bestLongSideFit) const;
-		galaxyRect<int> FindPositionForNewNodeBestLongSideFit(int width, int height, int &bestShortSideFit, int &bestLongSideFit) const;
-		galaxyRect<int> FindPositionForNewNodeBestAreaFit(int width, int height, int &bestAreaFit, int &bestShortSideFit) const;
-		galaxyRect<int> FindPositionForNewNodeContactPoint(int width, int height, int &contactScore) const;
+		galaxy::Rect<int> FindPositionForNewNodeBottomLeft(int width, int height, int &bestY, int &bestX) const;
+		galaxy::Rect<int> FindPositionForNewNodeBestShortSideFit(int width, int height, int &bestShortSideFit, int &bestLongSideFit) const;
+		galaxy::Rect<int> FindPositionForNewNodeBestLongSideFit(int width, int height, int &bestShortSideFit, int &bestLongSideFit) const;
+		galaxy::Rect<int> FindPositionForNewNodeBestAreaFit(int width, int height, int &bestAreaFit, int &bestShortSideFit) const;
+		galaxy::Rect<int> FindPositionForNewNodeContactPoint(int width, int height, int &contactScore) const;
 
 		/// \return True if the free node was split.
-		bool SplitFreeNode(galaxyRect<int> freeNode, const galaxyRect<int> &usedNode);
+		bool SplitFreeNode(galaxy::Rect<int> freeNode, const galaxy::Rect<int> &usedNode);
 
 		/// Goes through the free rectangle list and removes any redundant entries.
 		void PruneFreeList();

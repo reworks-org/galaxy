@@ -14,7 +14,7 @@
 
 #include "galaxy/ui/Widget.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// UI bar that is used to track progress of something.
@@ -29,7 +29,7 @@ galaxy
 		/// \param container Colour of the progress bar background.
 		/// \param bar Colour of the progress bar itself.
 		///
-		ProgressBar(const galaxyRect<int>& bounds, const ALLEGRO_COLOR container, const ALLEGRO_COLOR bar);
+		ProgressBar(const galaxy::Rect<int>& bounds, const ALLEGRO_COLOR container, const ALLEGRO_COLOR bar);
 
 		///
 		/// Texture constructor.
@@ -42,7 +42,7 @@ galaxy
 		/// \param bar Seperate texture for the progress bar itself, not its outline in theme to use.
 		/// \param theme Theme of the widget to use.
 		///
-		ProgressBar(const galaxyVector4<int>& vec4, const std::string& container, const std::string& bar, UITheme* theme);
+		ProgressBar(const galaxy::Vector4<int>& vec4, const std::string& container, const std::string& bar, UITheme* theme);
 
 		///
 		/// Lua Constructor.
@@ -60,11 +60,11 @@ galaxy
 		///
 		/// \brief Allows for ProgressBar to recieve MouseMovedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieve(const galaxyMouseMovedEvent& e);
+		void recieve(const galaxy::MouseMovedEvent& e);
 
 		///
 		/// Update the widget.
@@ -122,7 +122,7 @@ galaxy
 		///
 		/// Bounds for the bar texture.
 		///
-		galaxyRect<int> m_barBounds;
+		galaxy::Rect<int> m_barBounds;
 
 		///
 		/// Current progress percentage of this bar. From 0.0f - 1.0f. I.e. 0.54f is 54%.

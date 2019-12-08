@@ -12,7 +12,7 @@
 
 #include "ToggleButton.hpp"
 
-galaxy
+namespace galaxy
 {
 	ToggleButton::ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme)
 		:Widget({x, y, 0, 0}, theme), m_callback(nullptr)
@@ -32,8 +32,8 @@ galaxy
 		m_bounds.m_height = al_get_bitmap_height(m_textures[0]);
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<ToggleButton, &ToggleButton::recieveMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<ToggleButton, &ToggleButton::recieveMoved>(this);
 	}
 
 	ToggleButton::ToggleButton(const sol::table& table, UITheme* theme)
@@ -66,8 +66,8 @@ galaxy
 		m_bounds.m_height = al_get_bitmap_height(m_textures[0]);
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<ToggleButton, &ToggleButton::recieveMoved>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MousePressedEvent>().connect<ToggleButton, &ToggleButton::receivePress>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<ToggleButton, &ToggleButton::recieveMoved>(this);
 	}
 
 	ToggleButton::~ToggleButton()
@@ -112,7 +112,7 @@ galaxy
 		}
 	}
 
-	void ToggleButton::receivePress(const galaxyMousePressedEvent& e)
+	void ToggleButton::receivePress(const galaxy::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -131,7 +131,7 @@ galaxy
 		}
 	}
 
-	void ToggleButton::recieveMoved(const galaxyMouseMovedEvent& e)
+	void ToggleButton::recieveMoved(const galaxy::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

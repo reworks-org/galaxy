@@ -12,7 +12,7 @@
 
 #include "UITheme.hpp"
 
-galaxy
+namespace galaxy
 {
 	UITheme::UITheme(const std::string& font, const ALLEGRO_COLOR colour, const std::string& masterTexture)
 		:m_font(nullptr), m_colour(colour), m_masterTexture(nullptr)
@@ -89,14 +89,14 @@ galaxy
 		m_widgetRegions.clear();
 	}
 
-	void UITheme::defineWidgetTexture(const std::string& id, const galaxyRect<int>& dim)
+	void UITheme::defineWidgetTexture(const std::string& id, const galaxy::Rect<int>& dim)
 	{
 		m_widgetRegions.emplace(id, dim);
 	}
 
 	ALLEGRO_BITMAP* UITheme::widgetTexture(const std::string& id)
 	{
-		galaxyRect<int> region = m_widgetRegions[id];
+		galaxy::Rect<int> region = m_widgetRegions[id];
 		return al_create_sub_bitmap(m_masterTexture, region.m_x, region.m_y, region.m_width, region.m_height);
 	}
 

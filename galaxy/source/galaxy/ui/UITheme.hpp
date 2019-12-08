@@ -22,7 +22,7 @@ typedef struct ALLEGRO_FONT ALLEGRO_FONT;
 typedef struct ALLEGRO_COLOR ALLEGRO_COLOR;
 typedef struct ALLEGRO_BITMAP ALLEGRO_BITMAP;
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Class that defines how your widgets appear for a UI.
@@ -57,7 +57,7 @@ galaxy
 		/// \param id ID of the texture region for that widget. I.e. "ButtonOn".
 		/// \param dim Dimensions of that texture on the master texture.
 		///
-		void defineWidgetTexture(const std::string& id, const galaxyRect<int>& dim);
+		void defineWidgetTexture(const std::string& id, const galaxy::Rect<int>& dim);
 
 		///
 		/// Gets a sub-bitmap of a widget texture region from the master texture.
@@ -108,7 +108,7 @@ galaxy
 		///
 		/// Regions on the master texture for each widget.
 		///
-		std::unordered_map<std::string, galaxyRect<int>> m_widgetRegions;
+		std::unordered_map<std::string, galaxy::Rect<int>> m_widgetRegions;
 	};
 
 }

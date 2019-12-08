@@ -9,7 +9,7 @@
 
 #include "Utils.hpp"
 
-galaxy
+namespace galaxy
 {
 	const std::string Utils::boolToString(const bool value)
 	{

@@ -17,7 +17,7 @@
 
 #include "ScrollingBackgroundSystem.hpp"
 
-galaxy
+namespace galaxy
 {
 	void ScrollingBackgroundSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{

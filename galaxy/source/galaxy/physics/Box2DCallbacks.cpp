@@ -15,7 +15,7 @@
 
 #include "Box2DCallbacks.hpp"
 
-galaxy
+namespace galaxy
 {
 	void CollisionContact::BeginContact(b2Contact* contact)
 	{

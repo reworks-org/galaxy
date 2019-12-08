@@ -12,7 +12,7 @@
 
 #include "galaxy/types/System.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Process's parallax entities, that have a ParallaxComponent.

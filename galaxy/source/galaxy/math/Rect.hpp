@@ -10,7 +10,7 @@
 #ifndef GALAXY_RECT_HPP_
 #define GALAXY_RECT_HPP_
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a rectangle object.

@@ -17,7 +17,7 @@
 #include "galaxy/events/MousePressedEvent.hpp"
 #include "galaxy/events/MouseReleasedEvent.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Creates a button that toggles from one state to another.
@@ -86,20 +86,20 @@ galaxy
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const galaxyMousePressedEvent& e);
+		void receivePress(const galaxy::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const galaxyMouseMovedEvent& e);
+		void recieveMoved(const galaxy::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.

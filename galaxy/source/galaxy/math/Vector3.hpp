@@ -10,7 +10,7 @@
 #ifndef GALAXY_VECTOR3_HPP_
 #define GALAXY_VECTOR3_HPP_
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a 3 variable vector object.

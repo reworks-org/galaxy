@@ -12,7 +12,7 @@
 
 #include "galaxy/libs/tmx/tmx.h"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Wrapper for Tiled's tmx map format, parsed by libtmx.

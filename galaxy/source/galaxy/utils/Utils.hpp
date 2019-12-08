@@ -16,7 +16,7 @@
 
 #include "galaxy/libs/loguru/loguru.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// \brief Used to determine if type or refernce should be returned based on condition.

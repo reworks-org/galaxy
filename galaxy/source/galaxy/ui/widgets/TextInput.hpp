@@ -15,7 +15,7 @@
 #include "galaxy/events/KeyCharEvent.hpp"
 #include "galaxy/events/MousePressedEvent.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Allows you to input text through a UI widget.
@@ -33,7 +33,7 @@ galaxy
 		/// \param indicator Colour of indicator to draw.
 		/// \param theme Theme the widget will use.
 		///
-		TextInput(const galaxyRect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, UITheme* theme);
+		TextInput(const galaxy::Rect<int>& bounds, const ALLEGRO_COLOR field, const ALLEGRO_COLOR indicator, UITheme* theme);
 
 		///
 		/// Texture constructor.
@@ -46,7 +46,7 @@ galaxy
 		/// \param indicator Texture of text position indicator in theme to use.
 		/// \param theme Theme the widget will use.
 		///
-		TextInput(const galaxyVector4<int>& vec4, const std::string& field, const std::string& indicator, UITheme* theme);
+		TextInput(const galaxy::Vector4<int>& vec4, const std::string& field, const std::string& indicator, UITheme* theme);
 
 		///
 		/// Lua constructor.
@@ -64,29 +64,29 @@ galaxy
 		///
 		/// \brief Allows for input field to recieve MouseMovedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void receiveMouseMoved(const galaxyMouseMovedEvent& e);
+		void receiveMouseMoved(const galaxy::MouseMovedEvent& e);
 
 		///
 		/// \brief Allows for the input field to recieve MousePressedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receiveMousePress(const galaxyMousePressedEvent& e);
+		void receiveMousePress(const galaxy::MousePressedEvent& e);
 		
 		///
 		/// \brief Allows for the input field to recieve unicode keyboard events. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e KeyCharEvent object.
 		///
-		void receiveCharPress(const galaxyKeyCharEvent& e);
+		void receiveCharPress(const galaxy::KeyCharEvent& e);
 
 		///
 		/// Update the widget.

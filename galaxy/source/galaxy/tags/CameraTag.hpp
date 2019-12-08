@@ -14,7 +14,7 @@
 #include "galaxy/libs/cereal/access.hpp"
 #include "galaxy/libs/sol2/forward.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a "camera" object in gamedev, usually player perspective.

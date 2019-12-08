@@ -17,7 +17,7 @@
 #include "galaxy/events/MousePressedEvent.hpp"
 #include "galaxy/events/MouseReleasedEvent.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Creates a clickable button.
@@ -98,29 +98,29 @@ galaxy
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const galaxyMousePressedEvent& e);
+		void receivePress(const galaxy::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MouseReleasedEvent object.
 		///
-		void receiveRelease(const galaxyMouseReleasedEvent& e);
+		void receiveRelease(const galaxy::MouseReleasedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const galaxyMouseMovedEvent& e);
+		void recieveMoved(const galaxy::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.
@@ -172,7 +172,7 @@ galaxy
 		///
 		/// Button label x, y coords.
 		///
-		galaxyVector2<int> m_labelPos;
+		galaxy::Vector2<int> m_labelPos;
 
 	};
 }

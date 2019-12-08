@@ -12,7 +12,7 @@
 
 #include "galaxy/libs/entt/entity/registry.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represets a "system" which is a class that process's specific type(s) of component(s).

@@ -10,7 +10,7 @@
 #ifndef GALAXY_VECTOR2_HPP_
 #define GALAXY_VECTOR2_HPP_
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a 2 variable vector object.

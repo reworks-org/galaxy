@@ -12,7 +12,7 @@
 
 #include "Time.hpp"
 
-galaxy
+namespace galaxy
 {
 	const std::uint32_t Time::secondsToMilliseconds(double seconds)
 	{

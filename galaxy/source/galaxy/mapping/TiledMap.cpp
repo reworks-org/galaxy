@@ -76,17 +76,17 @@ namespace libtmx
 	void image(tmx_layer* layer)
 	{
 		// On an image layer, we want to create an entity that represents the background to render.
-		entt::DefaultRegistry::entity_type entity = galaxyLocator::world->m_registry.create();
+		entt::DefaultRegistry::entity_type entity = galaxy::Locator::world->m_registry.create();
 
 		// Assign Render component.
-		galaxyLocator::world->m_registry.assign<galaxyRenderComponent>(entity, layer->opacity, std::filesystem::path(layer->content.image->source).stem().string());
+		galaxy::Locator::world->m_registry.assign<galaxy::RenderComponent>(entity, layer->opacity, std::filesystem::path(layer->content.image->source).stem().string());
 
 		// Assign Transform component.
-		galaxyLocator::world->m_registry.assign<galaxyTransformComponent>(entity, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
-			galaxyRect<float, int>{static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), static_cast<int>(layer->content.image->width), static_cast<int>(layer->content.image->height)});
+		galaxy::Locator::world->m_registry.assign<galaxy::TransformComponent>(entity, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
+			galaxy::Rect<float, int>{static_cast<float>(layer->offsetx), static_cast<float>(layer->offsety), static_cast<int>(layer->content.image->width), static_cast<int>(layer->content.image->height)});
 
 		// Assign Enabled component.
-		galaxyLocator::world->m_registry.assign<galaxyEnabledComponent>(entity);
+		galaxy::Locator::world->m_registry.assign<galaxy::EnabledComponent>(entity);
 	}
 
 	void object(tmx_map *map, tmx_layer *layer)
@@ -150,23 +150,23 @@ namespace libtmx
 
 		// Finish drawing image and restore display.
 		al_flip_display();
-		al_set_target_backbuffer(galaxyLocator::window->getDisplay());
+		al_set_target_backbuffer(galaxy::Locator::window->getDisplay());
 
 		if (objectIsDrawn)
 		{
 			// Create entity.
-			entt::DefaultRegistry::entity_type entity = galaxyLocator::world->m_registry.create();
+			entt::DefaultRegistry::entity_type entity = galaxy::Locator::world->m_registry.create();
 
 			// Assign enabled component.
-			galaxyLocator::world->m_registry.assign<galaxyEnabledComponent>(entity);
+			galaxy::Locator::world->m_registry.assign<galaxy::EnabledComponent>(entity);
 
 			// Assign transform component.
-			galaxyLocator::world->m_registry.assign<galaxyTransformComponent>(entity, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f, galaxyRect<float, int>{0.0f, 0.0f, static_cast<int>(w), static_cast<int>(h)});
+			galaxy::Locator::world->m_registry.assign<galaxy::TransformComponent>(entity, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f, galaxy::Rect<float, int>{0.0f, 0.0f, static_cast<int>(w), static_cast<int>(h)});
 
 			// Then add it to the texture atlas ensuring a unique id and assign object to render component.
-			std::string id = "TmxObject" + std::to_string(galaxyTime::getTimeSinceEpoch());
-			galaxyLocator::textureAtlas->addTexture(id, objects);
-			galaxyLocator::world->m_registry.assign<galaxyRenderComponent>(entity, 1.0f, id);
+			std::string id = "TmxObject" + std::to_string(galaxy::Time::getTimeSinceEpoch());
+			galaxy::Locator::textureAtlas->addTexture(id, objects);
+			galaxy::Locator::world->m_registry.assign<galaxy::RenderComponent>(entity, 1.0f, id);
 		}
 
 		// Cleanup.
@@ -220,12 +220,12 @@ namespace libtmx
 					if (im)
 					{
 						identifier = std::filesystem::path(im->source).stem().string();
-						tileset = galaxyLocator::textureAtlas->al_create_packed_sub_bitmap(identifier);
+						tileset = galaxy::Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 					}
 					else
 					{
 						identifier = std::filesystem::path(ts->image->source).stem().string();
-						tileset = galaxyLocator::textureAtlas->al_create_packed_sub_bitmap(identifier);
+						tileset = galaxy::Locator::textureAtlas->al_create_packed_sub_bitmap(identifier);
 					}
 
 					// We draw the animated tiles differently.
@@ -239,29 +239,29 @@ namespace libtmx
 					{
 						// We get that extact tile from the atlas by offsetting the postion of the tile texture in the atlas by
 						// the position of the tile texture on the tilesheet.
-						galaxyRect<int> pr = galaxyLocator::textureAtlas->get(identifier.c_str());
+						galaxy::Rect<int> pr = galaxy::Locator::textureAtlas->get(identifier.c_str());
 						x = pr.m_x + gidTile->ul_x;
 						y = pr.m_y + gidTile->ul_y;
 
 						// Create unique atlas rectangle for that tile. No need to duplicate data.
-						std::string id = "AnimatedTile" + std::to_string(galaxyTime::getTimeSinceEpoch());
-						galaxyLocator::textureAtlas->addRectToAtlas(id, galaxyRect<int>{static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h)});
+						std::string id = "AnimatedTile" + std::to_string(galaxy::Time::getTimeSinceEpoch());
+						galaxy::Locator::textureAtlas->addRectToAtlas(id, galaxy::Rect<int>{static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h)});
 
 						// Create entity (ate = animated tile entity).
-						entt::DefaultRegistry::entity_type ate = galaxyLocator::world->m_registry.create();
+						entt::DefaultRegistry::entity_type ate = galaxy::Locator::world->m_registry.create();
 
 						// Assign enabled component.
-						galaxyLocator::world->m_registry.assign<galaxyEnabledComponent>(ate);
+						galaxy::Locator::world->m_registry.assign<galaxy::EnabledComponent>(ate);
 
 						// Assign transform component.
-						galaxyLocator::world->m_registry.assign<galaxyTransformComponent>(ate, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
-							galaxyRect<float, int>{static_cast<float>(j*ts->tile_width), static_cast<float>(i*ts->tile_height), static_cast<int>(w), static_cast<int>(h)});
+						galaxy::Locator::world->m_registry.assign<galaxy::TransformComponent>(ate, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
+							galaxy::Rect<float, int>{static_cast<float>(j*ts->tile_width), static_cast<float>(i*ts->tile_height), static_cast<int>(w), static_cast<int>(h)});
 
 						// Assign render component.
-						galaxyLocator::world->m_registry.assign<galaxyRenderComponent>(ate, op, id);
+						galaxy::Locator::world->m_registry.assign<galaxy::RenderComponent>(ate, op, id);
 
 						// Assign animated component.
-						galaxyLocator::world->m_registry.assign<galaxyAnimationComponent>(ate, map, map->tiles[gid], pr.m_x, pr.m_y, w, h);
+						galaxy::Locator::world->m_registry.assign<galaxy::AnimationComponent>(ate, map, map->tiles[gid], pr.m_x, pr.m_y, w, h);
 					}
 
 					// Then destroy the used up tileset.
@@ -273,25 +273,25 @@ namespace libtmx
 		// Then reset graphics.
 		al_hold_bitmap_drawing(false);
 		al_flip_display();
-		al_set_target_backbuffer(galaxyLocator::window->getDisplay());
+		al_set_target_backbuffer(galaxy::Locator::window->getDisplay());
 
 		// Add new tilemap to atlas.
-		std::string tlID = "TileLayer" + std::to_string(galaxyTime::getTimeSinceEpoch());
-		galaxyLocator::textureAtlas->addTexture(tlID, tileLayer);
+		std::string tlID = "TileLayer" + std::to_string(galaxy::Time::getTimeSinceEpoch());
+		galaxy::Locator::textureAtlas->addTexture(tlID, tileLayer);
 		al_destroy_bitmap(tileLayer);
 
 		// Create entity for layer tilemap (tle = tile layer entity).
-		entt::DefaultRegistry::entity_type tle = galaxyLocator::world->m_registry.create();
+		entt::DefaultRegistry::entity_type tle = galaxy::Locator::world->m_registry.create();
 
 		// Assign enabled component.
-		galaxyLocator::world->m_registry.assign<galaxyEnabledComponent>(tle);
+		galaxy::Locator::world->m_registry.assign<galaxy::EnabledComponent>(tle);
 
 		// Assign transform component.
-		galaxyLocator::world->m_registry.assign<galaxyTransformComponent>(tle, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
-			galaxyRect<float, int>(layer->offsetx, layer->offsety, map->width * map->tile_width, map->height * map->tile_height));
+		galaxy::Locator::world->m_registry.assign<galaxy::TransformComponent>(tle, tmx_get_property(layer->properties, "renderLayer")->value.integer, 0.0f,
+			galaxy::Rect<float, int>(layer->offsetx, layer->offsety, map->width * map->tile_width, map->height * map->tile_height));
 
 		// Assign render component.
-		galaxyLocator::world->m_registry.assign<galaxyRenderComponent>(tle, op, tlID);
+		galaxy::Locator::world->m_registry.assign<galaxy::RenderComponent>(tle, op, tlID);
 	}
 
 	void draw_all_layers(tmx_map *map, tmx_layer *layers) {
@@ -315,7 +315,7 @@ namespace libtmx
 	}
 }
 
-galaxy
+namespace galaxy
 {
 	TiledMap::TiledMap()
 		:m_map(nullptr), m_buffer("")

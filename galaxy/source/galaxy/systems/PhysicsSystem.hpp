@@ -16,7 +16,7 @@
 #include "galaxy/events/CollisionEvent.hpp"
 #include "galaxy/libs/sol2/forward.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Process's entities with a PhysicsComponent.

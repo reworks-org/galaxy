@@ -13,7 +13,7 @@
 #include "galaxy/audio/Sound.hpp"
 #include "galaxy/types/ResourceCache.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Manages all the sound effects the library uses.

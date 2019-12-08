@@ -29,28 +29,28 @@
 namespace sol
 {
 	template <>
-	struct is_automagical<galaxyRect<float, int>> : std::false_type {};
+	struct is_automagical<galaxy::Rect<float, int>> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyAnimationComponent> : std::false_type {};
+	struct is_automagical<galaxy::AnimationComponent> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyParallaxComponent> : std::false_type {};
+	struct is_automagical<galaxy::ParallaxComponent> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyParticleComponent> : std::false_type {};
+	struct is_automagical<galaxy::ParticleComponent> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyRenderComponent> : std::false_type {};
+	struct is_automagical<galaxy::RenderComponent> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyTransformComponent> : std::false_type {};
+	struct is_automagical<galaxy::TransformComponent> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyPhysicsComponent> : std::false_type {};
+	struct is_automagical<galaxy::PhysicsComponent> : std::false_type {};
 
 	template <>
-	struct is_automagical<galaxyScrollingBackgroundComponent> : std::false_type {};
+	struct is_automagical<galaxy::ScrollingBackgroundComponent> : std::false_type {};
 
 	template <>
 	struct is_automagical<entt::DefaultRegistry> : std::false_type {};
@@ -58,7 +58,7 @@ namespace sol
 
 #endif
 
-galaxy
+namespace galaxy
 {
 	void LuaUtils::writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName)
 	{

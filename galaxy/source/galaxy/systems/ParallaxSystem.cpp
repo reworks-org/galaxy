@@ -16,7 +16,7 @@
 
 #include "ParallaxSystem.hpp"
 
-galaxy
+namespace galaxy
 {
 	void ParallaxSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{

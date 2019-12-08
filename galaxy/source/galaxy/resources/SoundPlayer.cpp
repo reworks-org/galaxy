@@ -13,7 +13,7 @@
 
 #include "SoundPlayer.hpp"
 
-galaxy
+namespace galaxy
 {
 	SoundPlayer::SoundPlayer(const std::string& script)
 		:m_nullSound("")

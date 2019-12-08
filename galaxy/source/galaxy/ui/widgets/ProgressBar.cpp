@@ -15,9 +15,9 @@
 
 #include "ProgressBar.hpp"
 
-galaxy
+namespace galaxy
 {
-	ProgressBar::ProgressBar(const galaxyRect<int>& bounds, const ALLEGRO_COLOR container, const ALLEGRO_COLOR bar)
+	ProgressBar::ProgressBar(const galaxy::Rect<int>& bounds, const ALLEGRO_COLOR container, const ALLEGRO_COLOR bar)
 		:Widget(bounds, nullptr), m_barBounds(bounds), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// Create textures
@@ -47,10 +47,10 @@ galaxy
 		al_set_target_backbuffer(Locator::window->getDisplay());
 		
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
 	}
 
-	ProgressBar::ProgressBar(const galaxyVector4<int>& vec4, const std::string& container, const std::string& bar, UITheme* theme)
+	ProgressBar::ProgressBar(const galaxy::Vector4<int>& vec4, const std::string& container, const std::string& bar, UITheme* theme)
 		:Widget({ vec4.m_w, vec4.m_x, 0, 0 }, theme), m_barBounds({ vec4.m_y, vec4.m_z, 0, 0 }), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// The background / outline, etc..
@@ -80,7 +80,7 @@ galaxy
 		}
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
 	}
 
 	ProgressBar::ProgressBar(const sol::table& table, UITheme* theme)
@@ -120,7 +120,7 @@ galaxy
 		}
 
 		// Register events.
-		galaxyLocator::dispatcher->sink<galaxyMouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
+		galaxy::Locator::dispatcher->sink<galaxy::MouseMovedEvent>().connect<ProgressBar, &ProgressBar::recieve>(this);
 	}
 
 	ProgressBar::~ProgressBar() noexcept
@@ -136,7 +136,7 @@ galaxy
 		}
 	}
 
-	void ProgressBar::recieve(const galaxyMouseMovedEvent& e)
+	void ProgressBar::recieve(const galaxy::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

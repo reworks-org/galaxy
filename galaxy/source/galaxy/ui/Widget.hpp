@@ -15,7 +15,7 @@
 #include "galaxy/ui/UITheme.hpp"
 #include "galaxy/ui/Tooltip.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents an interactable UI object i.e. a button.
@@ -92,7 +92,7 @@ galaxy
 		/// \param bounds Dimensions of the widget, relative to the panel.
 		/// \param theme Theme to be used by this widget.
 		///
-		explicit Widget(const galaxyRect<int>& bounds, UITheme* theme);
+		explicit Widget(const galaxy::Rect<int>& bounds, UITheme* theme);
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
@@ -110,7 +110,7 @@ galaxy
 		///
 		/// X, Y, width and height of the widget.
 		///
-		galaxyRect<int> m_bounds;
+		galaxy::Rect<int> m_bounds;
 
 		///
 		/// Pointer to the theme used by the widget.

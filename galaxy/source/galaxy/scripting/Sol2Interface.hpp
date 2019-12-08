@@ -21,7 +21,7 @@
 #include "galaxy/components/TransformComponent.hpp"
 #include "galaxy/components/ScrollingBackgroundComponent.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Helper functions to bridge various code modules and sol2.
@@ -35,7 +35,7 @@ galaxy
 		///
 		inline void enttDestroyWorkaround(const entt::DefaultRegistry::entity_type entity)
 		{
-			galaxyLocator::world->m_registry.destroy(entity);
+			galaxy::Locator::world->m_registry.destroy(entity);
 		}
 
 		///
@@ -43,7 +43,7 @@ galaxy
 		///
 		inline void assignEnabledComponent(const entt::DefaultRegistry::entity_type entity)
 		{
-			galaxyLocator::world->m_registry.assign<EnabledComponent>(entity);
+			galaxy::Locator::world->m_registry.assign<EnabledComponent>(entity);
 		}
 
 		///
@@ -51,7 +51,7 @@ galaxy
 		///
 		inline void assignTransformComponent(const entt::DefaultRegistry::entity_type entity, const int layer, const float angle, const Rect<float, int>& rect)
 		{
-			galaxyLocator::world->m_registry.assign<TransformComponent>(entity, layer, angle, rect);
+			galaxy::Locator::world->m_registry.assign<TransformComponent>(entity, layer, angle, rect);
 		}
 
 		///
@@ -59,7 +59,7 @@ galaxy
 		///
 		inline void assignSBComponent(const entt::DefaultRegistry::entity_type entity, const float speed)
 		{
-			galaxyLocator::world->m_registry.assign<ScrollingBackgroundComponent>(entity, speed);
+			galaxy::Locator::world->m_registry.assign<ScrollingBackgroundComponent>(entity, speed);
 		}
 
 		///
@@ -67,7 +67,7 @@ galaxy
 		///
 		inline void assignRenderComponent(const entt::DefaultRegistry::entity_type entity, const float opacity, const std::string& atlasID)
 		{
-			galaxyLocator::world->m_registry.assign<RenderComponent>(entity, opacity, atlasID);
+			galaxy::Locator::world->m_registry.assign<RenderComponent>(entity, opacity, atlasID);
 		}
 
 		///
@@ -75,7 +75,7 @@ galaxy
 		///
 		inline void assignParticleComponent(const entt::DefaultRegistry::entity_type entity, const float dx, const float dy, const float fade)
 		{
-			galaxyLocator::world->m_registry.assign<ParticleComponent>(entity, dx, dy, fade);
+			galaxy::Locator::world->m_registry.assign<ParticleComponent>(entity, dx, dy, fade);
 		}
 
 		///
@@ -83,7 +83,7 @@ galaxy
 		///
 		inline void assignParallaxComponent(const entt::DefaultRegistry::entity_type entity, const float verticalSpeed, const float horizontalSpeed)
 		{
-			galaxyLocator::world->m_registry.assign<ParallaxComponent>(entity, verticalSpeed, horizontalSpeed);
+			galaxy::Locator::world->m_registry.assign<ParallaxComponent>(entity, verticalSpeed, horizontalSpeed);
 		}
 
 		///
@@ -91,7 +91,7 @@ galaxy
 		///
 		inline void assignAnimationComponent(const entt::DefaultRegistry::entity_type entity, const sol::table& table)
 		{
-			galaxyLocator::world->m_registry.assign<AnimationComponent>(entity, table);
+			galaxy::Locator::world->m_registry.assign<AnimationComponent>(entity, table);
 		}
 	}
 }

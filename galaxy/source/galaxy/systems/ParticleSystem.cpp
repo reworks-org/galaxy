@@ -18,7 +18,7 @@
 
 #include "ParticleSystem.hpp"
 
-galaxy
+namespace galaxy
 {
 	ParticleSystem::ParticleSystem()
 	{

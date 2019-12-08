@@ -12,7 +12,7 @@
 
 #include <random>
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Contains static random number generation functions.

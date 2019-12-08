@@ -12,7 +12,7 @@
 
 #include "QuadTree.hpp"
 
-galaxy
+namespace galaxy
 {
 	QuadTree::QuadTree(const size_t level, Rect<float, int>& bounds, size_t maxLevels, size_t maxObjects)
 	:m_level(level), m_bounds(bounds), m_maxLevels(maxLevels), m_maxObjects(maxObjects), m_nodes()

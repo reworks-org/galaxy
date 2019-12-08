@@ -15,7 +15,7 @@
 
 #include "AnimationSystem.hpp"
 
-galaxy
+namespace galaxy
 {
 	void AnimationSystem::update(const double dt, entt::DefaultRegistry& registry)
 	{

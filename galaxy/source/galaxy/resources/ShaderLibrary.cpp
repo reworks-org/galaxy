@@ -13,7 +13,7 @@
 
 #include "ShaderLibrary.hpp"
 
-galaxy
+namespace galaxy
 {
 	ShaderLibrary::ShaderLibrary(const std::string& script)
 	{

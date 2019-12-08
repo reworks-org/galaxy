@@ -12,7 +12,7 @@
 
 #include "galaxy/types/System.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Process entities with an AnimationComponent.

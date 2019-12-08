@@ -13,7 +13,7 @@
 
 #include "Label.hpp"
 
-galaxy
+namespace galaxy
 {
 	Label::Label(const int x, const int y, const std::string& text, UITheme* theme)
 		:Widget({ x, y, 0, 0 }, theme), m_text(text)

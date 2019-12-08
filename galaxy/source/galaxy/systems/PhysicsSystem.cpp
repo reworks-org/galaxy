@@ -20,7 +20,7 @@
 
 #include "PhysicsSystem.hpp"
 
-galaxy
+namespace galaxy
 {
 	PhysicsSystem::PhysicsSystem(const std::string& functionScript, float ups, int vi, int pi)
 	:m_ups(ups), m_step(0), m_velocityIterations(vi), m_positionIterations(pi)

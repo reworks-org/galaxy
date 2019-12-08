@@ -37,7 +37,7 @@ namespace rbp
 		binHeight = height;
 		allowRotations = rotations;
 
-		galaxyRect<int> n;
+		galaxy::Rect<int> n;
 		n.m_x = 0;
 		n.m_y = 0;
 		n.m_width = width;
@@ -49,9 +49,9 @@ namespace rbp
 		freeRectangles.push_back(n);
 	}
 
-	galaxyRect<int> MaxRectsBinPack::Insert(int width, int height, FreeRectChoiceHeuristic method)
+	galaxy::Rect<int> MaxRectsBinPack::Insert(int width, int height, FreeRectChoiceHeuristic method)
 	{
-		galaxyRect<int> newNode;
+		galaxy::Rect<int> newNode;
 		// Unused in this function. We don't need to know the score after finding the position.
 		int score1 = std::numeric_limits<int>::max();
 		int score2 = std::numeric_limits<int>::max();
@@ -84,7 +84,7 @@ namespace rbp
 		return newNode;
 	}
 
-	void MaxRectsBinPack::Insert(std::vector<galaxyVector2<int>> &rects, std::vector<galaxyRect<int>> &dst, FreeRectChoiceHeuristic method)
+	void MaxRectsBinPack::Insert(std::vector<galaxy::Vector2<int>> &rects, std::vector<galaxy::Rect<int>> &dst, FreeRectChoiceHeuristic method)
 	{
 		dst.clear();
 
@@ -93,13 +93,13 @@ namespace rbp
 			int bestScore1 = std::numeric_limits<int>::max();
 			int bestScore2 = std::numeric_limits<int>::max();
 			int bestRectIndex = -1;
-			galaxyRect<int> bestNode;
+			galaxy::Rect<int> bestNode;
 
 			for (size_t i = 0; i < rects.size(); ++i)
 			{
 				int score1;
 				int score2;
-				galaxyRect<int> newNode = ScoreRect(rects[i].m_x, rects[i].m_y, method, score1, score2);
+				galaxy::Rect<int> newNode = ScoreRect(rects[i].m_x, rects[i].m_y, method, score1, score2);
 
 				if (score1 < bestScore1 || (score1 == bestScore1 && score2 < bestScore2))
 				{
@@ -118,7 +118,7 @@ namespace rbp
 		}
 	}
 
-	void MaxRectsBinPack::PlaceRect(const galaxyRect<int> &node)
+	void MaxRectsBinPack::PlaceRect(const galaxy::Rect<int> &node)
 	{
 		size_t numRectanglesToProcess = freeRectangles.size();
 		for (size_t i = 0; i < numRectanglesToProcess; ++i)
@@ -137,9 +137,9 @@ namespace rbp
 		//		dst.push_back(bestNode); ///\todo Refactor so that this compiles.
 	}
 
-	galaxyRect<int> MaxRectsBinPack::ScoreRect(int width, int height, FreeRectChoiceHeuristic method, int &score1, int &score2) const
+	galaxy::Rect<int> MaxRectsBinPack::ScoreRect(int width, int height, FreeRectChoiceHeuristic method, int &score1, int &score2) const
 	{
-		galaxyRect<int> newNode;
+		galaxy::Rect<int> newNode;
 		score1 = std::numeric_limits<int>::max();
 		score2 = std::numeric_limits<int>::max();
 		switch (method)
@@ -173,10 +173,10 @@ namespace rbp
 		return (float)usedSurfaceArea / (binWidth * binHeight);
 	}
 
-	galaxyRect<int> MaxRectsBinPack::FindPositionForNewNodeBottomLeft(int width, int height, int &bestY, int &bestX) const
+	galaxy::Rect<int> MaxRectsBinPack::FindPositionForNewNodeBottomLeft(int width, int height, int &bestY, int &bestX) const
 	{
-		galaxyRect<int> bestNode;
-		memset(&bestNode, 0, sizeof(galaxyRect<int>));
+		galaxy::Rect<int> bestNode;
+		memset(&bestNode, 0, sizeof(galaxy::Rect<int>));
 
 		bestY = std::numeric_limits<int>::max();
 		bestX = std::numeric_limits<int>::max();
@@ -214,11 +214,11 @@ namespace rbp
 		return bestNode;
 	}
 
-	galaxyRect<int> MaxRectsBinPack::FindPositionForNewNodeBestShortSideFit(int width, int height,
+	galaxy::Rect<int> MaxRectsBinPack::FindPositionForNewNodeBestShortSideFit(int width, int height,
 		int &bestShortSideFit, int &bestLongSideFit) const
 	{
-		galaxyRect<int> bestNode;
-		memset(&bestNode, 0, sizeof(galaxyRect<int>));
+		galaxy::Rect<int> bestNode;
+		memset(&bestNode, 0, sizeof(galaxy::Rect<int>));
 
 		bestShortSideFit = std::numeric_limits<int>::max();
 		bestLongSideFit = std::numeric_limits<int>::max();
@@ -265,11 +265,11 @@ namespace rbp
 		return bestNode;
 	}
 
-	galaxyRect<int> MaxRectsBinPack::FindPositionForNewNodeBestLongSideFit(int width, int height,
+	galaxy::Rect<int> MaxRectsBinPack::FindPositionForNewNodeBestLongSideFit(int width, int height,
 		int &bestShortSideFit, int &bestLongSideFit) const
 	{
-		galaxyRect<int> bestNode;
-		memset(&bestNode, 0, sizeof(galaxyRect<int>));
+		galaxy::Rect<int> bestNode;
+		memset(&bestNode, 0, sizeof(galaxy::Rect<int>));
 
 		bestShortSideFit = std::numeric_limits<int>::max();
 		bestLongSideFit = std::numeric_limits<int>::max();
@@ -316,11 +316,11 @@ namespace rbp
 		return bestNode;
 	}
 
-	galaxyRect<int> MaxRectsBinPack::FindPositionForNewNodeBestAreaFit(int width, int height,
+	galaxy::Rect<int> MaxRectsBinPack::FindPositionForNewNodeBestAreaFit(int width, int height,
 		int &bestAreaFit, int &bestShortSideFit) const
 	{
-		galaxyRect<int> bestNode;
-		memset(&bestNode, 0, sizeof(galaxyRect<int>));
+		galaxy::Rect<int> bestNode;
+		memset(&bestNode, 0, sizeof(galaxy::Rect<int>));
 
 		bestAreaFit = std::numeric_limits<int>::max();
 		bestShortSideFit = std::numeric_limits<int>::max();
@@ -394,10 +394,10 @@ namespace rbp
 		return score;
 	}
 
-	galaxyRect<int> MaxRectsBinPack::FindPositionForNewNodeContactPoint(int width, int height, int &bestContactScore) const
+	galaxy::Rect<int> MaxRectsBinPack::FindPositionForNewNodeContactPoint(int width, int height, int &bestContactScore) const
 	{
-		galaxyRect<int> bestNode;
-		memset(&bestNode, 0, sizeof(galaxyRect<int>));
+		galaxy::Rect<int> bestNode;
+		memset(&bestNode, 0, sizeof(galaxy::Rect<int>));
 
 		bestContactScore = -1;
 
@@ -432,7 +432,7 @@ namespace rbp
 		return bestNode;
 	}
 
-	bool MaxRectsBinPack::SplitFreeNode(galaxyRect<int> freeNode, const galaxyRect<int> &usedNode)
+	bool MaxRectsBinPack::SplitFreeNode(galaxy::Rect<int> freeNode, const galaxy::Rect<int> &usedNode)
 	{
 		// Test with SAT if the rectangles even intersect.
 		if (usedNode.m_x >= freeNode.m_x + freeNode.m_width || usedNode.m_x + usedNode.m_width <= freeNode.m_x ||
@@ -444,7 +444,7 @@ namespace rbp
 			// New node at the top side of the used node.
 			if (usedNode.m_y > freeNode.m_y && usedNode.m_y < freeNode.m_y + freeNode.m_height)
 			{
-				galaxyRect<int> newNode = freeNode;
+				galaxy::Rect<int> newNode = freeNode;
 				newNode.m_height = usedNode.m_y - newNode.m_y;
 				freeRectangles.push_back(newNode);
 			}
@@ -452,7 +452,7 @@ namespace rbp
 			// New node at the bottom side of the used node.
 			if (usedNode.m_y + usedNode.m_height < freeNode.m_y + freeNode.m_height)
 			{
-				galaxyRect<int> newNode = freeNode;
+				galaxy::Rect<int> newNode = freeNode;
 				newNode.m_y = usedNode.m_y + usedNode.m_height;
 				newNode.m_height = freeNode.m_y + freeNode.m_height - (usedNode.m_y + usedNode.m_height);
 				freeRectangles.push_back(newNode);
@@ -464,7 +464,7 @@ namespace rbp
 			// New node at the left side of the used node.
 			if (usedNode.m_x > freeNode.m_x && usedNode.m_x < freeNode.m_x + freeNode.m_width)
 			{
-				galaxyRect<int> newNode = freeNode;
+				galaxy::Rect<int> newNode = freeNode;
 				newNode.m_width = usedNode.m_x - newNode.m_x;
 				freeRectangles.push_back(newNode);
 			}
@@ -472,7 +472,7 @@ namespace rbp
 			// New node at the right side of the used node.
 			if (usedNode.m_x + usedNode.m_width < freeNode.m_x + freeNode.m_width)
 			{
-				galaxyRect<int> newNode = freeNode;
+				galaxy::Rect<int> newNode = freeNode;
 				newNode.m_x = usedNode.m_x + usedNode.m_width;
 				newNode.m_width = freeNode.m_x + freeNode.m_width - (usedNode.m_x + usedNode.m_width);
 				freeRectangles.push_back(newNode);

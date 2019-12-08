@@ -211,7 +211,7 @@ namespace galaxy
 			}
 
 			// Ensure that each physicscomponent now points to its new entity.
-			registry.view<galaxyPhysicsComponent>().each([&](entt::DefaultRegistry::entity_type entity, galaxyPhysicsComponent& pc)
+			registry.view<galaxy::PhysicsComponent>().each([&](entt::DefaultRegistry::entity_type entity, galaxy::PhysicsComponent& pc)
 			{
 				pc.setFixtureEntity(entity);
 			});

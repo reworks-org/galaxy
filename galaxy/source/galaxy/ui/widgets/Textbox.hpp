@@ -13,7 +13,7 @@
 #include "galaxy/ui/Widget.hpp"
 #include "galaxy/events/KeyDownEvent.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Represents a message box or "textbox" in the style of a JRPG.
@@ -53,11 +53,11 @@ galaxy
 		///
 		/// \brief Allows for the textbox to recieve keyboard events. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
 		/// \param e KeyDownEvent object.
 		///
-		void receive(const galaxyKeyDownEvent& e);
+		void receive(const galaxy::KeyDownEvent& e);
 
 		///
 		/// Update the widget.

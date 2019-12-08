@@ -15,7 +15,7 @@
 #include "galaxy/utils/Utils.hpp"
 #include "galaxy/libs/entt/core/hashed_string.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Stores a cache of resources in order to make effective use of memory.
@@ -38,7 +38,7 @@ galaxy
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		inline typename galaxyReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(const std::string& id)
+		inline typename galaxy::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(const std::string& id)
 		{
 			// Create hashed string.
 			entt::HashedString hs(id.c_str());

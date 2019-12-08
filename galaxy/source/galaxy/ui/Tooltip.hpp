@@ -15,7 +15,7 @@
 #include "galaxy/events/MouseMovedEvent.hpp"
 
 
-galaxy
+namespace galaxy
 {
 	class UITheme;
 	
@@ -35,7 +35,7 @@ galaxy
 		/// \param section The part of the texture to repeat to create variable sized textboxes. x is left coord and y is right coord across width not height!
 		/// \param theme Theme the tooltip is using for the master texture. Also font and text colour.
 		///
-		Tooltip(const std::string& text, const std::string& texture, const galaxyVector2<int>& section, UITheme* theme);
+		Tooltip(const std::string& text, const std::string& texture, const galaxy::Vector2<int>& section, UITheme* theme);
 
 		///
 		/// Primitives Constructor.
@@ -55,9 +55,9 @@ galaxy
 		///
 		/// \brief Allows for buttons to recieve mouse events. Automatically registered with entt.
 		///
-		/// This is to be used with entt's dispatcher (galaxyLocator::dispatcher).
+		/// This is to be used with entt's dispatcher (galaxy::Locator::dispatcher).
 		///
-		void receive(const galaxyMouseMovedEvent& e);
+		void receive(const galaxy::MouseMovedEvent& e);
 
 		///
 		/// Draws the tooltip to the screen.

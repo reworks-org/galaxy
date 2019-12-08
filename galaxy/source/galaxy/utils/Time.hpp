@@ -13,7 +13,7 @@
 #include <string>
 #include <chrono>
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Contains Time-related static utility functions.

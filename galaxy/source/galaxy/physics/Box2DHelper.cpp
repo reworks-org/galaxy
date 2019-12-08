@@ -9,7 +9,7 @@
 
 #include "Box2DHelper.hpp"
 
-galaxy
+namespace galaxy
 {
 	Box2DHelper::Box2DHelper()
 		:m_b2world(std::make_unique<b2World>(b2Vec2(0.0f, 9.81f)))

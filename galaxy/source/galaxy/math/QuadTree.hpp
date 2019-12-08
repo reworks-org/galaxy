@@ -14,7 +14,7 @@
 
 #include "galaxy/math/Rect.hpp"
 
-galaxy
+namespace galaxy
 {
 	///
 	/// Implementation of a quadtree to divide up 2D space for efficient physics collision and rendering only stuff on screen.

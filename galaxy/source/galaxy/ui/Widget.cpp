@@ -9,9 +9,9 @@
 
 #include "Widget.hpp"
 
-galaxy
+namespace galaxy
 {
-	Widget::Widget(const galaxyRect<int>& bounds, UITheme* theme)
+	Widget::Widget(const galaxy::Rect<int>& bounds, UITheme* theme)
 		:m_bounds(bounds), m_theme(theme), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
 	{
 	}

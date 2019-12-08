@@ -13,7 +13,7 @@
 #include "galaxy/types/System.hpp"
 #include "galaxy/events/EmitParticleEvent.hpp"
 
-galaxy
+namespace galaxy
 {
 	class World;
 

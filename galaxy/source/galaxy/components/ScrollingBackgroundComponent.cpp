@@ -55,14 +55,14 @@ namespace galaxy
 
 	ScrollingBackgroundComponent::~ScrollingBackgroundComponent()
 	{
-		if (galaxyLocator::world->m_registry.valid(m_secondEntity))
+		if (galaxy::Locator::world->m_registry.valid(m_secondEntity))
 		{
-			galaxyLocator::world->m_registry.destroy(m_secondEntity);
+			galaxy::Locator::world->m_registry.destroy(m_secondEntity);
 		}
 	}
 
 	void ScrollingBackgroundComponent::disableInternalEntity()
 	{
-		galaxyLocator::world->m_registry.remove<EnabledComponent>(m_secondEntity);
+		galaxy::Locator::world->m_registry.remove<EnabledComponent>(m_secondEntity);
 	}
 }

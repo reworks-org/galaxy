@@ -13,9 +13,9 @@
 
 #include "Panel.hpp"
 
-galaxy
+namespace galaxy
 {
-	Panel::Panel(const galaxyRect<int>& bounds, const ALLEGRO_COLOR colour)
+	Panel::Panel(const galaxy::Rect<int>& bounds, const ALLEGRO_COLOR colour)
 		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr)
 	{
 		// What is done here is that the rendertarget is set to the bitmap and we clear and draw that colour to it.
@@ -34,7 +34,7 @@ galaxy
 		al_set_target_backbuffer(Locator::window->getDisplay());
 	}
 
-	Panel::Panel(const galaxyRect<int>& bounds, UITheme* theme, const std::string& texture)
+	Panel::Panel(const galaxy::Rect<int>& bounds, UITheme* theme, const std::string& texture)
 		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr)
 	{
 		// Load image and check for errors.
