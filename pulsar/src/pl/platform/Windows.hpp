@@ -17,6 +17,9 @@
 
 #undef ERROR
 
+///
+/// Core namespace.
+///
 namespace pl
 {
 	///

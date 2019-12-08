@@ -7,6 +7,9 @@
 
 #include "Log.hpp"
 
+///
+/// Core namespace.
+///
 namespace pl
 {
 	Log::Log()
@@ -16,6 +19,7 @@ namespace pl
 
 	Log& Log::i()
 	{
+		// Singleton instance.
 		static Log s_inst;
 		return s_inst;
 	}
@@ -97,6 +101,7 @@ namespace pl
 	{
 		std::lock_guard<std::mutex> lock(m_lock);
 
+		// Checks for proper stream level.
 		if (static_cast<int>(level) >= static_cast<int>(m_minimumLevel))
 		{
 			return m_stream;
@@ -121,6 +126,7 @@ namespace pl
 	{
 		std::lock_guard<std::mutex> lock(m_lock);
 
+		// Time code. Simple.
 		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		std::string out = std::ctime(&time);
 		out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());

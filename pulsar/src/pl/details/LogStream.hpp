@@ -14,6 +14,9 @@
 #include <iostream>
 #include <filesystem>
 
+///
+/// Core namespace.
+///
 namespace pl
 {
 	///
@@ -81,6 +84,7 @@ namespace pl
 		{
 			if (!m_disabled)
 			{
+				// Print to stream and std output.
 				std::cout << input;
 				m_fileStream << input;
 			}

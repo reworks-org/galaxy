@@ -8,6 +8,9 @@
 #ifndef PULSAR_LOGCOLOURS_HPP_
 #define PULSAR_LOGCOLOURS_HPP_
 
+///
+/// Core namespace.
+///
 namespace pl
 {
 	///

@@ -20,7 +20,7 @@
 #define LOG_S(x) pl::Log::i().filterLevel(x) << pl::Log::i().processColour(x) << "[" << pl::Log::i().processLevel(x) << "] - " << pl::Log::i().getDateTime() << " - "
 
 ///
-/// pl is the namespace for the Pulsar Logging library.
+/// Core namespace.
 ///
 namespace pl
 {

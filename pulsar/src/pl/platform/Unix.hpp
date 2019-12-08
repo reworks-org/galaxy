@@ -14,6 +14,9 @@
 
 #include "../details/LogColours.hpp"
 
+///
+/// Core namespace.
+///
 namespace pl
 {
 	///
