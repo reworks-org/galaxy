@@ -10,6 +10,9 @@
 
 #include <cstddef>
 
+///
+/// Core namespace.
+///
 namespace starlight
 {
 	///
@@ -19,7 +22,7 @@ namespace starlight
 	template<typename Specialization>
 	class UniqueID
 	{
-	public: 
+	public:
 		///
 		/// Use this function to retrieve the ID.
 		/// Will generate a new id if it is called for the first time.

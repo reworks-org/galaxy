@@ -5,27 +5,53 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef EVENTWRAPPER_STARLIGHT_HPP_
-#define EVENTWRAPPER_STARLIGHT_HPP_
+#ifndef STARLIGHT_EVENTWRAPPER_HPP_
+#define STARLIGHT_EVENTWRAPPER_HPP_
 
 #include <vector>
-#include <typeindex>
 
 #include "starlight/event/Base.hpp"
 
+///
+/// Core namespace.
+///
 namespace starlight
 {
+	///
+	/// Wraps around an Event and Callback(s) assossiated with the event.
+	///
 	template<typename Event, typename Callback>
 	class EventWrapper final : public EventBase
 	{
 	public:
+		///
+		/// Constructor.
+		///
 		EventWrapper() noexcept = default;
+
+		///
+		/// Destructor.
+		///
 		~EventWrapper() override;
 
+		///
+		/// Adds the callback to the event wrapper.
+		///
+		/// \param callback Callback function of type template Callback.
+		///
 		void add(const Callback& callback);
+
+		///
+		/// Triggers the callback function.
+		///
+		/// \param event Event data to pass to callback. Data must be same type as wrapper.
+		///
 		void trigger(const std::any& event) override;
 
 	protected:
+		///
+		/// Stored callbacks.
+		///
 		std::vector<Callback> m_callbacks;
 	};
 
@@ -46,6 +72,7 @@ namespace starlight
 	{
 		for (auto& callback : m_callbacks)
 		{
+			// This is where any is casted back into appropriate type for the callback.
 			callback(std::any_cast<Event>(event));
 		}
 	}

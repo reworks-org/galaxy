@@ -7,6 +7,9 @@
 
 #include "Queued.hpp"
 
+///
+/// Core namespace.
+///
 namespace starlight
 {
 	QueuedEvent::QueuedEvent(const std::any& event, const std::size_t type)
