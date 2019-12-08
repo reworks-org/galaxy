@@ -10,7 +10,12 @@
 
 namespace starmap
 {
+	class Map
+	{
+	public:
 
+	private:
+	};
 }
 
 #endif
