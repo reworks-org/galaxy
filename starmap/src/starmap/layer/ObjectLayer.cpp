@@ -1,16 +1,13 @@
 ///
-/// Chunk.hpp
+/// ObjectLayer.cpp
 /// starmap
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARMAP_CHUNK_HPP_
-#define STARMAP_CHUNK_HPP_
+#include "ObjectLayer.hpp"
 
 namespace starmap
 {
 
 }
-
-#endif

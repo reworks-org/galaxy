@@ -4,11 +4,23 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\starmap\root\Point.cpp" />
     <ClCompile Include="src\starmap\Map.cpp" />
+    <ClCompile Include="src\starmap\types\Chunk.cpp" />
+    <ClCompile Include="src\starmap\types\Point.cpp" />
+    <ClCompile Include="src\starmap\layer\ObjectLayer.cpp" />
+    <ClCompile Include="src\starmap\layer\TileLayer.cpp" />
+    <ClCompile Include="src\starmap\layer\ImageLayer.cpp" />
+    <ClCompile Include="src\starmap\detail\Decoder.cpp" />
+    <ClCompile Include="src\starmap\layer\Layer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\starmap\root\Point.hpp" />
     <ClInclude Include="src\starmap\Map.hpp" />
+    <ClInclude Include="src\starmap\layer\Layer.hpp" />
+    <ClInclude Include="src\starmap\types\Chunk.hpp" />
+    <ClInclude Include="src\starmap\types\Point.hpp" />
+    <ClInclude Include="src\starmap\layer\TileLayer.hpp" />
+    <ClInclude Include="src\starmap\layer\ObjectLayer.hpp" />
+    <ClInclude Include="src\starmap\layer\ImageLayer.hpp" />
+    <ClInclude Include="src\starmap\detail\Decoder.hpp" />
   </ItemGroup>
 </Project>

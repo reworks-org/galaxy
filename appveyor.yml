@@ -17,6 +17,9 @@ configuration:
   - Debug
   - Release
 
+install:
+  - cmd: update_zlib_project_toolset.bat
+
 build:
   parallel: true
   project: starmap.sln

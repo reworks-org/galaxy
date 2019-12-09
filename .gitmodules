@@ -1,3 +1,6 @@
 [submodule "modules/json"]
 	path = modules/json
 	url = https://github.com/nlohmann/json.git
+[submodule "modules/zlib"]
+	path = modules/zlib
+	url = https://github.com/madler/zlib.git

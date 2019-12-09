@@ -1,11 +1,11 @@
 ///
-/// Chunk.cpp
+/// ImageLayer.cpp
 /// starmap
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Chunk.hpp"
+#include "ImageLayer.hpp"
 
 namespace starmap
 {

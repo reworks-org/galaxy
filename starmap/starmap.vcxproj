@@ -22,12 +22,24 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\starmap\detail\Decoder.cpp" />
+    <ClCompile Include="src\starmap\layer\ImageLayer.cpp" />
+    <ClCompile Include="src\starmap\layer\Layer.cpp" />
+    <ClCompile Include="src\starmap\layer\ObjectLayer.cpp" />
+    <ClCompile Include="src\starmap\layer\TileLayer.cpp" />
+    <ClCompile Include="src\starmap\types\Chunk.cpp" />
     <ClCompile Include="src\starmap\Map.cpp" />
-    <ClCompile Include="src\starmap\root\Point.cpp" />
+    <ClCompile Include="src\starmap\types\Point.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\starmap\detail\Decoder.hpp" />
+    <ClInclude Include="src\starmap\layer\ImageLayer.hpp" />
+    <ClInclude Include="src\starmap\layer\ObjectLayer.hpp" />
+    <ClInclude Include="src\starmap\layer\TileLayer.hpp" />
+    <ClInclude Include="src\starmap\types\Chunk.hpp" />
+    <ClInclude Include="src\starmap\layer\Layer.hpp" />
     <ClInclude Include="src\starmap\Map.hpp" />
-    <ClInclude Include="src\starmap\root\Point.hpp" />
+    <ClInclude Include="src\starmap\types\Point.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -117,7 +129,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -137,7 +149,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,7 +170,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -181,7 +193,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
