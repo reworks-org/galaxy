@@ -3,7 +3,7 @@ branches:
   only: 
     - master
 
-shallow_clone: true
+shallow_clone: false
 skip_tags: true
 
 image:
@@ -17,7 +17,7 @@ configuration:
   - Debug
   - Release
 
-install:
+before_build:
   - cmd: update_submodule.bat
   - cmd: update_zlib_project_toolset.bat
 
