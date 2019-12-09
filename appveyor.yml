@@ -18,6 +18,7 @@ configuration:
   - Release
 
 install:
+  - cmd: update_submodule.bat
   - cmd: update_zlib_project_toolset.bat
 
 build:
