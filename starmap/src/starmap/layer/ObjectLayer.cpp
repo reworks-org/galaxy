@@ -22,11 +22,19 @@ namespace starmap
 			m_drawOrder = json.at("draworder");
 		}
 
-		// load objects...
+		if (json.count("objects") > 0)
+		{
+			auto objectArray = json.at("objects");
+			std::for_each(objectArray.begin(), objectArray.end(), [&](const nlohmann::json& object)
+			{
+				m_objects.emplace_back(object);
+			});
+		}
 	}
 	
 	ObjectLayer::~ObjectLayer() noexcept
 	{
+		m_objects.clear();
 	}
 
 	const std::string& ObjectLayer::getCompression() const noexcept

@@ -16,7 +16,7 @@
 namespace starmap
 {
 	///
-	/// Text-based object.
+	/// Data structure on a Text type object.
 	///
 	class Text
 	{
@@ -45,6 +45,99 @@ namespace starmap
 		/// Default destructor.
 		///
 		~Text() noexcept = default;
+
+		///
+		/// \brief Parse text level json.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param json JSON structure/array containing ObjectLayer->Object->Text.
+		///
+		void parse(const nlohmann::json& json);
+
+		///
+		/// Get bold flag.
+		///
+		/// \return True if text is bolded.
+		///
+		const bool getIsBold() const noexcept;
+
+		///
+		/// Get colour as hex string.
+		///
+		/// \return string in format: #RRGGBB or #AARRGGBB
+		///
+		const std::string& getColour() const noexcept;
+
+		///
+		/// Get font family.
+		///
+		/// \return font type in format: sans-serif (for example).
+		///
+		const std::string& getFontFamily() const noexcept;
+
+		///
+		/// Get horizontal alignment value.
+		///
+		/// \param string in format: center, right, justify or left.
+		///
+		const std::string& getHAlign() const noexcept;
+
+		///
+		/// Get italics flag.
+		///
+		/// \return True if text is italic.
+		///
+		const bool getIsItalic() const noexcept;
+
+		///
+		/// Gets kerning flag.
+		///
+		/// \return True if using kerning to place characters.
+		///
+		const bool getUseKerning() const noexcept;
+
+		///
+		/// Get pixel (font) size of text.
+		///
+		/// \return integer. Pixel size - you will need to convert to font point size.
+		///
+		const int getPixelSize() const noexcept;
+
+		///
+		/// Get strikeout flag.
+		///
+		/// \return True if text has been struck out.
+		///
+		const bool getUseStrikeout() const noexcept;
+
+		///
+		/// Get the text.
+		///
+		/// \return Actual text as a string.
+		///
+		const std::string& getText() const noexcept;
+
+		///
+		/// Get underline flag.
+		///
+		/// \return True if text is underlined.
+		///
+		const bool getHasUnderline() const noexcept;
+
+		///
+		/// Get vertical alignment.
+		///
+		/// \return string in format: center, bottom or top.
+		///
+		const std::string& getVAlign() const noexcept;
+
+		///
+		/// Get wrapped flag.
+		///
+		/// \return True if text is wrapped within object bounds.
+		///
+		const bool getIsWrapped() const noexcept;
 
 	private:
 		///

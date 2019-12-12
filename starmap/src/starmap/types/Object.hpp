@@ -30,6 +30,15 @@ namespace starmap
 		Object() noexcept;
 
 		///
+		/// \brief Parse constructor.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param json JSON structure/array containing object.
+		///
+		explicit Object(const nlohmann::json& json);
+
+		///
 		/// Copy constructor.
 		///
 		Object(const Object&) noexcept = default;
@@ -99,6 +108,62 @@ namespace starmap
 		template<typename T>
 		const T getProperty(const std::string& name) noexcept;
 
+		///
+		/// Get rotation of object.
+		///
+		/// \return double - angle in degrees clockwise.
+		///
+		const double getRotation() const noexcept;
+
+		///
+		/// Get template reference.
+		///
+		/// \return string reference to a template file, in case object is a template instance.
+		///
+		const std::string& getTemplate() const noexcept;
+
+		///
+		/// Get text object (if object is text based).
+		///
+		/// \return const reference to a text object.
+		///
+		const starmap::Text& getText() const noexcept;
+
+		///
+		/// Get type string.
+		///
+		/// \return String assigned to type field in editor.
+		///
+		const std::string& getType() const noexcept;
+
+		///
+		/// Get visibility.
+		///
+		/// \return True if object is visible.
+		///
+		const bool getVisibility() const noexcept;
+
+		///
+		/// Get width of object.
+		///
+		/// \return Width in pixels as double.
+		///
+		const double getWidth() const noexcept;
+
+		///
+		/// Get width of object.
+		///
+		/// \return Width in pixels as double.
+		///
+		const double getX() const noexcept;
+
+		///
+		/// Get width of object.
+		///
+		/// \return Width in pixels as double.
+		///
+		const double getY() const noexcept;
+
 	private:
 		///
 		/// Used to mark an object as an ellipse.
@@ -154,6 +219,31 @@ namespace starmap
 		/// Only used for text objects.
 		///
 		starmap::Text m_text;
+
+		///
+		/// String assigned to type field in editor.
+		///
+		std::string m_type;
+
+		///
+		/// Whether object is shown.
+		///
+		bool m_visible;
+
+		///
+		/// Width in pixels.
+		///
+		double m_width;
+
+		///
+		/// X coordinate in pixels.
+		///
+		double m_x;
+
+		///
+		/// Y coordinate in pixels.
+		///
+		double m_y;
 	};
 
 	template<typename T>

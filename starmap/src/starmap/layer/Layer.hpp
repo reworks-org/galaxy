@@ -9,6 +9,7 @@
 #define STARMAP_LAYER_HPP_
 
 #include "nlohmann/json_fwd.hpp"
+#include "starmap/types/Property.hpp"
 
 ///
 /// Core namespace.
@@ -24,7 +25,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		virtual ~Layer() = default;
+		virtual ~Layer() noexcept;
 
 		///
 		/// Get row count. Same as map height for fixed-size maps.
@@ -46,6 +47,38 @@ namespace starmap
 		/// \return name as string.
 		///
 		virtual const std::string getName() const noexcept final;
+
+		///
+		/// Horizontal layer offset.
+		///
+		/// \return double.
+		///
+		virtual const double getOffsetX() const noexcept final;
+
+		///
+		/// Vertical layer offset.
+		///
+		/// \return double.
+		///
+		virtual const double getOffsetY() const noexcept final;
+
+		///
+		/// Opacity of layer.
+		///
+		/// \return double between 0 and 1.
+		///
+		virtual const double getOpacity() const noexcept final;
+
+		///
+		/// Retrieve property.
+		/// You will need to provide the type when retrieving.
+		///
+		/// \param name Name of the property to retrieve.
+		///
+		/// \return Property cast as type.
+		///
+		template<typename T>
+		const T getProperty(const std::string& name) noexcept;
 
 	protected:
 		///
@@ -87,7 +120,33 @@ namespace starmap
 		/// Name assigned to this layer.
 		///
 		std::string m_name;
+
+		///
+		/// Horizontal layer offset in pixels.
+		///
+		double m_offsetX;
+
+		///
+		/// Vertical layer offset in pixels.
+		///
+		double m_offsetY;
+
+		///
+		/// Value between 0 and 1.
+		///
+		double m_opacity;
+
+		///
+		/// Map of Properties.
+		///
+		std::unordered_map<std::string, starmap::Property> m_properties;
 	};
+
+	template<typename T>
+	inline const T Layer::getProperty(const std::string& name) noexcept
+	{
+		return m_properties[name].getValue<T>();
+	}
 }
 
 #endif

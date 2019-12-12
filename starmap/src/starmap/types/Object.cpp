@@ -15,8 +15,14 @@
 namespace starmap
 {
 	Object::Object() noexcept
-		:m_ellipse(false), m_gid(0), m_height(0.0), m_id(0), m_name(""), m_point(false), m_rotation(0.0), m_template("")
+		:m_ellipse(false), m_gid(0), m_height(0.0), m_id(0), m_name(""), m_point(false), m_rotation(0.0), m_template(""), m_type(""), m_visible(true), m_width(0.0), m_x(0.0), m_y(0.0)
 	{
+	}
+
+	Object::Object(const nlohmann::json& json)
+		:m_ellipse(false), m_gid(0), m_height(0.0), m_id(0), m_name(""), m_point(false), m_rotation(0.0), m_template(""), m_type(""), m_visible(true), m_width(0.0), m_x(0.0), m_y(0.0)
+	{
+		parse(json);
 	}
 
 	Object::~Object() noexcept
@@ -82,8 +88,18 @@ namespace starmap
 
 		if (json.count("text") > 0)
 		{
-
+			m_text.parse(json.at("text"));
 		}
+		
+		if (json.count("type") > 0)
+		{
+			m_type = json.at("type");
+		}
+
+		m_visible = json.at("visible");
+		m_width = json.at("width");
+		m_x = json.at("x");
+		m_y = json.at("y");
 	}
 
 	const bool Object::getEllipse() const noexcept
@@ -109,5 +125,45 @@ namespace starmap
 	const auto& Object::getPoints() const noexcept
 	{
 		return m_points;
+	}
+
+	const double Object::getRotation() const noexcept
+	{
+		return m_rotation;
+	}
+
+	const std::string& Object::getTemplate() const noexcept
+	{
+		return m_template;
+	}
+
+	const starmap::Text& Object::getText() const noexcept
+	{
+		return m_text;
+	}
+
+	const std::string& Object::getType() const noexcept
+	{
+		return m_type;
+	}
+
+	const bool Object::getVisibility() const noexcept
+	{
+		return m_visible;
+	}
+
+	const double Object::getWidth() const noexcept
+	{
+		return m_width;
+	}
+
+	const double Object::getX() const noexcept
+	{
+		return m_x;
+	}
+
+	const double Object::getY() const noexcept
+	{
+		return m_y;
 	}
 }
