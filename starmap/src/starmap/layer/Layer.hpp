@@ -16,9 +16,8 @@
 namespace starmap
 {
 	///
-	/// Represents a tile/object/image layer.
+	/// Represents a tile/object/image/group layer.
 	///
-	template<typename CRTP>
 	class Layer
 	{
 	public:
@@ -27,9 +26,26 @@ namespace starmap
 		///
 		virtual ~Layer() = default;
 
-		virtual CRTP* getDerived() noexcept final;
+		///
+		/// Get row count. Same as map height for fixed-size maps.
+		///
+		/// \return height as a const int.
+		///
 		virtual const int getHeight() const noexcept final;
 
+		///
+		/// Get id - unique across all layers.
+		///
+		/// \return height as a const int.
+		///
+		virtual const int getID() const noexcept final;
+
+		///
+		/// Get layer name.
+		///
+		/// \return name as string.
+		///
+		virtual const std::string getName() const noexcept final;
 
 	protected:
 		///
@@ -66,31 +82,12 @@ namespace starmap
 		/// Incremental id - unique across all layers.
 		///
 		int m_id;
+
+		///
+		/// Name assigned to this layer.
+		///
+		std::string m_name;
 	};
-
-	template<typename CRTP>
-	inline CRTP* Layer<CRTP>::getDerived() noexcept
-	{
-		return static_cast<CRTP*>(this);
-	}
-
-	template<typename CRTP>
-	inline const int Layer<CRTP>::getHeight() const noexcept
-	{
-		return m_height;
-	}
-
-	template<typename CRTP>
-	inline Layer<CRTP>::Layer() noexcept
-		:m_height(0), m_id(0)
-	{
-	}
-
-	template<typename CRTP>
-	inline Layer<CRTP>::Layer(const nlohmann::json& json)
-		:m_height(0), m_id(0)
-	{
-	}
 }
 
 #endif

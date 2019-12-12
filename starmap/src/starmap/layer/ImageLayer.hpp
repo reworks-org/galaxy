@@ -18,11 +18,52 @@ namespace starmap
 	///
 	/// Specialized type of layer.
 	///
-	class ImageLayer : public starmap::Layer<ImageLayer>
+	class ImageLayer final : public starmap::Layer
 	{
-	public:
+		///
+		/// \brief Parse constructor.
+		///
+		/// Does not call ImageLayer::parse() you must call that afterwards.
+		/// Parses Layer common json.
+		/// Can throw exceptions.
+		///
+		/// \param json JSON structure containing chunk array from root map.
+		///
+		explicit ImageLayer(const nlohmann::json& json);
+
+		///
+		/// Copy constructor.
+		///
+		ImageLayer(const ImageLayer&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		ImageLayer(ImageLayer&&) noexcept = default;
+
+		///
+		/// Default destructor.
+		///
+		~ImageLayer() noexcept override;
+
+		///
+		/// Get image.
+		///
+		/// \return image as std::string.
+		///
+		const std::string& getImage() const noexcept;
 
 	private:
+		///
+		/// Default constructor.
+		///
+		ImageLayer() = delete;
+
+	private:
+		///
+		/// Image used by this layer.
+		///
+		std::string m_image;
 	};
 }
 

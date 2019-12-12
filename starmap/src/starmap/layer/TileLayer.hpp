@@ -19,12 +19,14 @@ namespace starmap
 	///
 	/// Specialized type of layer.
 	///
-	class TileLayer : public starmap::Layer<TileLayer>
+	class TileLayer final : public starmap::Layer
 	{
 	public:
 		///
 		/// \brief Parse constructor.
 		///
+		/// Does not call TileLayer::parse() you must call that afterwards.
+		/// Parses Layer common json.
 		/// Can throw exceptions.
 		///
 		/// \param json JSON structure containing chunk array from root map.
@@ -46,7 +48,26 @@ namespace starmap
 		///
 		~TileLayer() noexcept override;
 
-		void parse(const nlohmann::json& json);
+		///
+		/// Get chunks array.
+		///
+		/// \return const std::vector<starmap::Chunk>
+		///
+		const auto& getChunks() const noexcept;
+
+		///
+		/// Get compression.
+		///
+		/// \return compression as std::string. Can be empty.
+		///
+		const std::string& getCompression() const noexcept;
+
+		///
+		/// Retrieve variant data.
+		///
+		/// \return std::variant 0 = string 1 = vector.
+		///
+		const auto& getData() const noexcept;
 
 	private:
 		///

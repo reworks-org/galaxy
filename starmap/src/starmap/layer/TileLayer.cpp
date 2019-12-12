@@ -10,20 +10,13 @@
 
 #include "TileLayer.hpp"
 
+///
+/// Core namespace.
+///
 namespace starmap
 {
 	TileLayer::TileLayer(const nlohmann::json& json)
-		:Layer(json)
-	{
-		parse(json);
-	}
-
-	TileLayer::~TileLayer() noexcept
-	{
-		m_chunks.clear();
-	}
-
-	void TileLayer::parse(const nlohmann::json& json)
+		:Layer(json), m_compression("")
 	{
 		auto chunk = json.at("chunks");
 		std::for_each(chunk.begin(), chunk.end(), [&](const nlohmann::json& item)
@@ -128,5 +121,25 @@ namespace starmap
 				}
 			} // if-else-if
 		} // if std::holds...
+	}
+
+	TileLayer::~TileLayer() noexcept
+	{
+		m_chunks.clear();
+	}
+
+	const auto& TileLayer::getChunks() const noexcept
+	{
+		return m_chunks;
+	}
+
+	const std::string& TileLayer::getCompression() const noexcept
+	{
+		return m_compression;
+	}
+
+	const auto& TileLayer::getData() const noexcept
+	{
+		return m_data;
 	}
 }

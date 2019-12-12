@@ -14,18 +14,31 @@
 ///
 namespace starmap
 {
-	void Layer::parse(const nlohmann::json& json)
+	const int Layer::getHeight() const noexcept
 	{
-		
+		return m_height;
+	}
 
-		if (json.count("draworder") > 0)
-		{
-			m_drawOrder = json.at("draworder");
-		}
+	const int Layer::getID() const noexcept
+	{
+		return m_id;
+	}
 
+	const std::string Layer::getName() const noexcept
+	{
+		return m_name;
+	}
+
+	Layer::Layer() noexcept
+		:m_height(0), m_id(0), m_name("")
+	{
+	}
+
+	Layer::Layer(const nlohmann::json& json)
+		:m_height(0), m_id(0), m_name("")
+	{
 		m_height = json.at("height");
 		m_id = json.at("id");
-
-
-	} //end of parse()
+		m_name = json.at("name");
+	}
 }

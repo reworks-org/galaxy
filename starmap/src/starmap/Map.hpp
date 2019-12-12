@@ -8,7 +8,7 @@
 #ifndef STARMAP_MAP_HPP_
 #define STARMAP_MAP_HPP_
 
-#include "starmap/types/Layer.hpp"
+#include "starmap/layer/Layer.hpp"
 
 ///
 /// Core namespace.

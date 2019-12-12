@@ -24,21 +24,21 @@ namespace starmap
 
 	void Point::setX(const double x) noexcept
 	{
-		m_x = x;
+		m_x = x,
 	}
 
 	void Point::setY(const double y) noexcept
 	{
-		m_y = y;
+		m_y = y,
 	}
 
 	const double Point::getX() const noexcept
 	{
-		return m_x;
+		return m_x,
 	}
 
 	const double Point::getY() const noexcept
 	{
-		return m_y;
+		return m_y,
 	}
 }

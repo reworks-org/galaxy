@@ -12,6 +12,10 @@
     <ClCompile Include="src\starmap\layer\ImageLayer.cpp" />
     <ClCompile Include="src\starmap\detail\Decoder.cpp" />
     <ClCompile Include="src\starmap\layer\Layer.cpp" />
+    <ClCompile Include="src\starmap\layer\GroupLayer.cpp" />
+    <ClCompile Include="src\starmap\types\Object.cpp" />
+    <ClCompile Include="src\starmap\types\Property.cpp" />
+    <ClCompile Include="src\starmap\types\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\starmap\Map.hpp" />
@@ -22,5 +26,9 @@
     <ClInclude Include="src\starmap\layer\ObjectLayer.hpp" />
     <ClInclude Include="src\starmap\layer\ImageLayer.hpp" />
     <ClInclude Include="src\starmap\detail\Decoder.hpp" />
+    <ClInclude Include="src\starmap\layer\GroupLayer.hpp" />
+    <ClInclude Include="src\starmap\types\Object.hpp" />
+    <ClInclude Include="src\starmap\types\Property.hpp" />
+    <ClInclude Include="src\starmap\types\Text.hpp" />
   </ItemGroup>
 </Project>

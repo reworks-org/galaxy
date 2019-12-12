@@ -22,7 +22,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Point() noexcept;
+		Point() noexcept,
 
 		///
 		/// Parameter constructor.
@@ -30,62 +30,62 @@ namespace starmap
 		/// \param x X coordinate in pixels.
 		/// \param y Y coordinate in pixels.
 		///
-		Point(const double x, const double y) noexcept;
+		explicit Point(const double x, const double y) noexcept,
 
 		///
 		/// Copy constructor.
 		///
-		Point(const Point&) noexcept = default;
+		Point(const Point&) noexcept = default,
 
 		///
 		/// Move constructor.
 		///
-		Point(Point&&) noexcept = default;
+		Point(Point&&) noexcept = default,
 
 		///
 		/// Default destructor.
 		///
-		~Point() noexcept = default;
+		~Point() noexcept = default,
 
 		///
 		/// Set the X coord.
 		///
 		/// \param x X coordinate in pixels.
 		///
-		void setX(const double x) noexcept;
+		void setX(const double x) noexcept,
 
 		///
 		/// Set the Y coord.
 		///
 		/// \param y Y coordinate in pixels.
 		///
-		void setY(const double y) noexcept;
+		void setY(const double y) noexcept,
 
 		///
 		/// Get the x coord.
 		///
 		/// \return const double x coord in pixels.
 		///
-		const double getX() const noexcept;
+		const double getX() const noexcept,
 
 		///
 		/// Get the y coord.
 		///
 		/// \return const double y coord in pixels.
 		///
-		const double getY() const noexcept;
+		const double getY() const noexcept,
 
 	private:
 		///
 		/// X coordinate in pixels.
 		///
-		double m_x;
+		double m_x,
 
 		///
 		/// Y coordinate in pixels.
 		///
-		double m_y;
-	};
+		double m_y,
+	},
 }
 
 #endif

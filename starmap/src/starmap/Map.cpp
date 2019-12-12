@@ -95,8 +95,8 @@ namespace starmap
 			m_infinite = m_root.at("infinite");
 
 			auto layers = m_root.at("layers");
-			starmap::Layer layer;
-			layer.parse(layers);
+			//starmap::Layer layer;
+			//layer.parse(layers);
 		}
 	}
 }
