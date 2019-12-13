@@ -49,13 +49,28 @@ namespace starmap
 		return m_opacity;
 	}
 
+	const int Layer::getStartX() const noexcept
+	{
+		return 0;
+	}
+
+	const int Layer::getStartY() const noexcept
+	{
+		return 0;
+	}
+
+	const std::string& Layer::getType() const noexcept
+	{
+		return m_type;
+	}
+
 	Layer::Layer() noexcept
-		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0)
+		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type("")
 	{
 	}
 
 	Layer::Layer(const nlohmann::json& json)
-		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0)
+		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type("")
 	{
 		m_height = json.at("height");
 		m_id = json.at("id");
@@ -72,5 +87,17 @@ namespace starmap
 				m_properties.emplace(property.at("name"), property);
 			});
 		}
+
+		if (json.count("startx") > 0)
+		{
+			m_startx = json.at("startx");
+		}
+
+		if (json.count("starty") > 0)
+		{
+			m_starty = json.at("starty");
+		}
+
+		m_type = json.at("type");
 	}
 }

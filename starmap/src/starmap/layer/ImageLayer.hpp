@@ -64,6 +64,11 @@ namespace starmap
 		/// Image used by this layer.
 		///
 		std::string m_image;
+
+		///
+		/// Hex-formatted color (#RRGGBB).
+		///
+		std::string m_transparentColour;
 	};
 }
 

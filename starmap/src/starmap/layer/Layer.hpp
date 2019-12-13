@@ -78,7 +78,28 @@ namespace starmap
 		/// \return Property cast as type.
 		///
 		template<typename T>
-		const T getProperty(const std::string& name) noexcept;
+		const T getProperty(const std::string& name) noexcept final;
+
+		///
+		/// Get X coordinate where layer content starts.
+		///
+		/// \return integer.
+		///
+		virtual const int getStartX() const noexcept final;
+		
+		///
+		/// Get Y coordinate where layer content starts.
+		///
+		/// \return integer.
+		///
+		virtual const int getStartY() const noexcept final;
+
+		///
+		/// Get type of layer.
+		///
+		/// \return string in format: tilelayer, objectgroup, imagelayer or group.
+		///
+		virtual const std::string& getType() const noexcept final;
 
 	protected:
 		///
@@ -140,6 +161,21 @@ namespace starmap
 		/// Map of Properties.
 		///
 		std::unordered_map<std::string, starmap::Property> m_properties;
+
+		///
+		/// X coordinate where layer content starts (for infinite maps).
+		///
+		int m_startx;
+
+		///
+		/// Y coordinate where layer content starts (for infinite maps).
+		///
+		int m_starty;
+
+		///
+		/// Type of layer in string.
+		///
+		std::string m_type;
 	};
 
 	template<typename T>
