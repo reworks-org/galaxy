@@ -16,6 +16,8 @@
     <ClCompile Include="src\starmap\types\Object.cpp" />
     <ClCompile Include="src\starmap\types\Property.cpp" />
     <ClCompile Include="src\starmap\types\Text.cpp" />
+    <ClCompile Include="src\starmap\types\Tileset.cpp" />
+    <ClCompile Include="src\starmap\types\Grid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\starmap\Map.hpp" />
@@ -30,5 +32,7 @@
     <ClInclude Include="src\starmap\types\Object.hpp" />
     <ClInclude Include="src\starmap\types\Property.hpp" />
     <ClInclude Include="src\starmap\types\Text.hpp" />
+    <ClInclude Include="src\starmap\types\Tileset.hpp" />
+    <ClInclude Include="src\starmap\types\Grid.hpp" />
   </ItemGroup>
 </Project>

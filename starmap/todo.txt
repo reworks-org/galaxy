@@ -2,4 +2,5 @@ https://doc.mapeditor.org/en/stable/reference/json-map-format/
 https://github.com/nlohmann/json#examples
 
 
-rename getVARIABLE -> isVARIABLE for bools
+note: does not support external tilesets or object templates.
+note: throws exceptions.

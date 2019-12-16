@@ -30,10 +30,12 @@
     <ClCompile Include="src\starmap\layer\TileLayer.cpp" />
     <ClCompile Include="src\starmap\types\Chunk.cpp" />
     <ClCompile Include="src\starmap\Map.cpp" />
+    <ClCompile Include="src\starmap\types\Grid.cpp" />
     <ClCompile Include="src\starmap\types\Object.cpp" />
     <ClCompile Include="src\starmap\types\Point.cpp" />
     <ClCompile Include="src\starmap\types\Property.cpp" />
     <ClCompile Include="src\starmap\types\Text.cpp" />
+    <ClCompile Include="src\starmap\types\Tileset.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\starmap\detail\Decoder.hpp" />
@@ -44,10 +46,12 @@
     <ClInclude Include="src\starmap\types\Chunk.hpp" />
     <ClInclude Include="src\starmap\layer\Layer.hpp" />
     <ClInclude Include="src\starmap\Map.hpp" />
+    <ClInclude Include="src\starmap\types\Grid.hpp" />
     <ClInclude Include="src\starmap\types\Object.hpp" />
     <ClInclude Include="src\starmap\types\Point.hpp" />
     <ClInclude Include="src\starmap\types\Property.hpp" />
     <ClInclude Include="src\starmap\types\Text.hpp" />
+    <ClInclude Include="src\starmap\types\Tileset.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
