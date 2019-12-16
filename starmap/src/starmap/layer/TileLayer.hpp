@@ -23,6 +23,13 @@ namespace starmap
 	{
 	public:
 		///
+		/// \brief Default constructor.
+		///
+		/// Throws a runtime exception if called.
+		///
+		TileLayer();
+
+		///
 		/// \brief Parse constructor.
 		///
 		/// Does not call TileLayer::parse() you must call that afterwards.
@@ -36,12 +43,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		TileLayer(const TileLayer&) noexcept = default;
+		TileLayer(const TileLayer&) = default;
 
 		///
 		/// Move constructor.
 		///
-		TileLayer(TileLayer&&) noexcept = default;
+		TileLayer(TileLayer&&) = default;
 
 		///
 		/// Default destructor.
@@ -51,29 +58,23 @@ namespace starmap
 		///
 		/// Get chunks array.
 		///
-		/// \return const std::vector<starmap::Chunk>
+		/// \return Const std::vector<starmap::Chunk>
 		///
 		const auto& getChunks() const noexcept;
 
 		///
 		/// Get compression.
 		///
-		/// \return compression as std::string. Can be empty.
+		/// \return Compression as std::string. Can be empty.
 		///
 		const std::string& getCompression() const noexcept;
 
 		///
 		/// Retrieve variant data.
 		///
-		/// \return std::variant 0 = string 1 = vector.
+		/// \return Std::variant 0 = string 1 = vector.
 		///
 		const auto& getData() const noexcept;
-
-	private:
-		///
-		/// Default constructor.
-		///
-		TileLayer() = delete;
 
 	private:
 		///

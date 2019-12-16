@@ -52,7 +52,7 @@ namespace starmap
 		m_wrap = json.at("wrap");
 	}
 
-	const bool Text::getIsBold() const noexcept
+	const bool Text::isBold() const noexcept
 	{
 		return m_bold;
 	}
@@ -72,12 +72,12 @@ namespace starmap
 		return m_hAlign;
 	}
 
-	const bool Text::getIsItalic() const noexcept
+	const bool Text::isItalic() const noexcept
 	{
 		return m_italic;
 	}
 
-	const bool Text::getUseKerning() const noexcept
+	const bool Text::isUsingKerning() const noexcept
 	{
 		return m_kerning;
 	}
@@ -87,7 +87,7 @@ namespace starmap
 		return m_pixelSize;
 	}
 
-	const bool Text::getUseStrikeout() const noexcept
+	const bool Text::isStrikedOut() const noexcept
 	{
 		return m_strikeOut;
 	}
@@ -97,7 +97,7 @@ namespace starmap
 		return m_text;
 	}
 
-	const bool Text::getHasUnderline() const noexcept
+	const bool Text::isUnderlined() const noexcept
 	{
 		return m_underLine;
 	}
@@ -107,7 +107,7 @@ namespace starmap
 		return m_vAlign;
 	}
 
-	const bool Text::getIsWrapped() const noexcept
+	const bool Text::isWrapped() const noexcept
 	{
 		return m_wrap;
 	}

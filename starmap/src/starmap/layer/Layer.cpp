@@ -29,7 +29,7 @@ namespace starmap
 		return m_id;
 	}
 
-	const std::string Layer::getName() const noexcept
+	const std::string& Layer::getName() const noexcept
 	{
 		return m_name;
 	}
@@ -51,12 +51,12 @@ namespace starmap
 
 	const int Layer::getStartX() const noexcept
 	{
-		return 0;
+		return m_startx;
 	}
 
 	const int Layer::getStartY() const noexcept
 	{
-		return 0;
+		return m_starty;
 	}
 
 	const std::string& Layer::getType() const noexcept
@@ -64,13 +64,33 @@ namespace starmap
 		return m_type;
 	}
 
+	const bool Layer::isVisible() const noexcept
+	{
+		return m_visible;
+	}
+
+	const int Layer::getWidth() const noexcept
+	{
+		return m_width;
+	}
+
+	const int Layer::getX() const noexcept
+	{
+		return m_x;
+	}
+
+	const int Layer::getY() const noexcept
+	{
+		return m_y;
+	}
+
 	Layer::Layer() noexcept
-		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type("")
+		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type(""), m_visible(true), m_width(0), m_x(0), m_y(0)
 	{
 	}
 
 	Layer::Layer(const nlohmann::json& json)
-		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type("")
+		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type(""), m_visible(true), m_width(0), m_x(0), m_y(0)
 	{
 		m_height = json.at("height");
 		m_id = json.at("id");
@@ -99,5 +119,14 @@ namespace starmap
 		}
 
 		m_type = json.at("type");
+		
+		if (json.count("visible") > 0)
+		{
+			m_visible = json.at("visible");
+		}
+
+		m_width = json.at("width");
+		m_x = json.at("x");
+		m_y = json.at("y");
 	}
 }

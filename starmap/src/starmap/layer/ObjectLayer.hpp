@@ -23,6 +23,13 @@ namespace starmap
 	{
 	public:
 		///
+		/// \brief Default constructor.
+		///
+		/// Throws a runtime exception if called.
+		///
+		ObjectLayer();
+
+		///
 		/// \brief Parse constructor.
 		///
 		/// Does not call ObjectLayer::parse() you must call that afterwards.
@@ -36,12 +43,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		ObjectLayer(const ObjectLayer&) noexcept = default;
+		ObjectLayer(const ObjectLayer&) = default;
 
 		///
 		/// Move constructor.
 		///
-		ObjectLayer(ObjectLayer&&) noexcept = default;
+		ObjectLayer(ObjectLayer&&) = default;
 
 		///
 		/// Default destructor.
@@ -51,22 +58,16 @@ namespace starmap
 		///
 		/// Get draw order.
 		///
-		/// \return draw order as std::string.
+		/// \return Draw order as std::string.
 		///
 		const std::string& getCompression() const noexcept;
 
 		///
 		/// Get objects.
 		///
-		/// \return std::vector of objects.
+		/// \return Std::vector of objects.
 		///
 		const auto& getObjects() const noexcept;
-
-	private:
-		///
-		/// Default constructor.
-		///
-		ObjectLayer() = delete;
 
 	private:
 		///

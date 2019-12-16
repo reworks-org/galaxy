@@ -14,6 +14,11 @@
 ///
 namespace starmap
 {
+	ObjectLayer::ObjectLayer()
+	{
+		throw std::runtime_error("Cannot instantiate a default constructed ObjectLayer!");
+	}
+
 	ObjectLayer::ObjectLayer(const nlohmann::json& json)
 		:Layer(json), m_drawOrder("")
 	{

@@ -13,9 +13,15 @@
 
 #include "nlohmann/json_fwd.hpp"
 
+///
+/// Core namespace.
+///
 namespace starmap
 {
-	class Property
+	///
+	/// Represents a generic key-value for a tiled Type.
+	///
+	class Property final
 	{
 	public:
 		///
@@ -35,12 +41,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		Property(const Property&) noexcept = default;
+		Property(const Property&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Property(Property&&) noexcept = default;
+		Property(Property&&) = default;
 
 		///
 		/// Destructor.
@@ -71,7 +77,7 @@ namespace starmap
 		/// \return value cast as T.
 		///
 		template<typename T>
-		const T& getValue() const;
+		const T& get() const;
 
 	private:
 		///
@@ -86,7 +92,7 @@ namespace starmap
 	};
 
 	template<typename T>
-	inline const T& Property::getValue() const
+	inline const T& Property::get() const
 	{
 		return std::any_cast<T>(m_value);
 	}

@@ -15,6 +15,11 @@
 ///
 namespace starmap
 {
+	TileLayer::TileLayer()
+	{
+		throw std::runtime_error("Cannot instantiate a default constructed TileLayer!");
+	}
+
 	TileLayer::TileLayer(const nlohmann::json& json)
 		:Layer(json), m_compression("")
 	{

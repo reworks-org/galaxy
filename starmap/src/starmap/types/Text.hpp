@@ -18,7 +18,7 @@ namespace starmap
 	///
 	/// Data structure on a Text type object.
 	///
-	class Text
+	class Text final
 	{
 	public:
 		///
@@ -34,12 +34,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		Text(const Text&) noexcept = default;
+		Text(const Text&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Text(Text&&) noexcept = default;
+		Text(Text&&) = default;
 
 		///
 		/// Default destructor.
@@ -60,19 +60,19 @@ namespace starmap
 		///
 		/// \return True if text is bolded.
 		///
-		const bool getIsBold() const noexcept;
+		const bool isBold() const noexcept;
 
 		///
 		/// Get colour as hex string.
 		///
-		/// \return string in format: #RRGGBB or #AARRGGBB
+		/// \return String in format: #RRGGBB or #AARRGGBB
 		///
 		const std::string& getColour() const noexcept;
 
 		///
 		/// Get font family.
 		///
-		/// \return font type in format: sans-serif (for example).
+		/// \return Font type in format: sans-serif (for example).
 		///
 		const std::string& getFontFamily() const noexcept;
 
@@ -88,19 +88,19 @@ namespace starmap
 		///
 		/// \return True if text is italic.
 		///
-		const bool getIsItalic() const noexcept;
+		const bool isItalic() const noexcept;
 
 		///
 		/// Gets kerning flag.
 		///
 		/// \return True if using kerning to place characters.
 		///
-		const bool getUseKerning() const noexcept;
+		const bool isUsingKerning() const noexcept;
 
 		///
 		/// Get pixel (font) size of text.
 		///
-		/// \return integer. Pixel size - you will need to convert to font point size.
+		/// \return Const int. Pixel size - you will need to convert to font point size.
 		///
 		const int getPixelSize() const noexcept;
 
@@ -109,7 +109,7 @@ namespace starmap
 		///
 		/// \return True if text has been struck out.
 		///
-		const bool getUseStrikeout() const noexcept;
+		const bool isStrikedOut() const noexcept;
 
 		///
 		/// Get the text.
@@ -123,12 +123,12 @@ namespace starmap
 		///
 		/// \return True if text is underlined.
 		///
-		const bool getHasUnderline() const noexcept;
+		const bool isUnderlined() const noexcept;
 
 		///
 		/// Get vertical alignment.
 		///
-		/// \return string in format: center, bottom or top.
+		/// \return String in format: center, bottom or top.
 		///
 		const std::string& getVAlign() const noexcept;
 
@@ -137,7 +137,7 @@ namespace starmap
 		///
 		/// \return True if text is wrapped within object bounds.
 		///
-		const bool getIsWrapped() const noexcept;
+		const bool isWrapped() const noexcept;
 
 	private:
 		///

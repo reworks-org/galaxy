@@ -16,7 +16,7 @@
 namespace starmap
 {
 	///
-	/// decoder encapsulation namespace.
+	/// Decoder encapsulation namespace.
 	///
 	namespace decoder
 	{
@@ -29,7 +29,7 @@ namespace starmap
 		///
 		/// \return Returns a decoded std::string.
 		///
-		std::string base64(const std::string& base64In) noexcept,
+		std::string base64(const std::string& base64In) noexcept;
 
 		///
 		/// \brief Decompresses from zlib.
@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// \return Decompressed zlib string.
 		///
-		std::string zlib(const std::string& zlibIn),
+		std::string zlib(const std::string& zlibIn);
 
 		///
 		/// \brief Decompresses from gzip.
@@ -55,7 +55,7 @@ namespace starmap
 		///
 		/// \return Decompressed gzip string.
 		///
-		std::string gzip(const std::string& gzipIn),
+		std::string gzip(const std::string& gzipIn);
 	}
 }
 

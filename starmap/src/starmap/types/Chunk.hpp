@@ -13,17 +13,20 @@
 #include "nlohmann/json_fwd.hpp"
 
 ///
-/// Chunks are used to store the tile layer data for infinite maps.
+/// Core namespace.
 ///
 namespace starmap
 {
-	class Chunk
+	///
+	/// Chunks are used to store the tile layer data for infinite maps.
+	///
+	class Chunk final
 	{
 	public:
 		///
 		/// Default constructor.
 		///
-		Chunk() noexcept,
+		Chunk() noexcept;
 
 		///
 		/// Parse constructor.
@@ -32,93 +35,93 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		explicit Chunk(const nlohmann::json& json),
+		explicit Chunk(const nlohmann::json& json);
 
 		///
 		/// Copy constructor.
 		///
-		Chunk(const Chunk&) noexcept = default,
+		Chunk(const Chunk&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Chunk(Chunk&&) noexcept = default,
+		Chunk(Chunk&&) = default;
 
 		///
 		/// Destructor.
 		///
-		~Chunk() noexcept,
+		~Chunk() noexcept;
 
 		///
-		/// \brief Parses json structure to member values, etc.
+		/// \brief Parses json structure to member values; etc.
 		///
 		/// Can throws exceptions.
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		void parse(const nlohmann::json& json),
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Gets data.
 		///
-		/// \return const std::variant reference. Either string or array.
+		/// \return Const std::variant reference. Either string or array.
 		///
-		const auto& getData() const noexcept,
+		const auto& getData() const noexcept;
 
 		///
 		/// Get height.
 		///
 		/// \return In tiles as int.
 		///
-		const int getHeight() const noexcept,
+		const int getHeight() const noexcept;
 
 		///
 		/// Get width.
 		///
 		/// \return In tiles as int.
 		///
-		const int getWidth() const noexcept,
+		const int getWidth() const noexcept;
 
 		///
 		/// Get x coord.
 		///
 		/// \return In tiles as int.
 		///
-		const int getX() const noexcept,
+		const int getX() const noexcept;
 
 		///
 		/// Get y coord.
 		///
 		/// \return In tiles as int.
 		///
-		const int getY() const noexcept,
+		const int getY() const noexcept;
 
 	private:
 		///
 		/// Array of unsigned int (GIDs) or base64-encoded data.
 		///
-		std::variant<std::string, std::vector<unsigned int>> m_data,
+		std::variant<std::string, std::vector<unsigned int>> m_data;
 
 		///
 		/// Height in tiles.
 		///
-		int m_height,
+		int m_height;
 
 		///
 		/// Width in tiles.
 		///
-		int m_width,
+		int m_width;
 
 		///
 		/// X coordinate in tiles.
 		///
-		int m_x,
+		int m_x;
 
 		///
 		/// Y coordinate in tiles.
 		///
-		int m_y,
-	},
+		int m_y;
+	};
 }
 
 #endif

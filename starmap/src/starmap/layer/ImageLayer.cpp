@@ -14,6 +14,11 @@
 ///
 namespace starmap
 {
+	ImageLayer::ImageLayer()
+	{
+		throw std::runtime_error("Cannot instantiate a default constructed ImageLayer!");
+	}
+
 	ImageLayer::ImageLayer(const nlohmann::json& json)
 		:Layer(json), m_image(""), m_transparentColour("000000")
 	{

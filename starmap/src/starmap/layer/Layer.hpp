@@ -30,76 +30,106 @@ namespace starmap
 		///
 		/// Get row count. Same as map height for fixed-size maps.
 		///
-		/// \return height as a const int.
+		/// \return Height as a const int.
 		///
 		virtual const int getHeight() const noexcept final;
 
 		///
 		/// Get id - unique across all layers.
 		///
-		/// \return height as a const int.
+		/// \return Height as a const int.
 		///
 		virtual const int getID() const noexcept final;
 
 		///
 		/// Get layer name.
 		///
-		/// \return name as string.
+		/// \return Name as string.
 		///
-		virtual const std::string getName() const noexcept final;
+		virtual const std::string& getName() const noexcept final;
 
 		///
 		/// Horizontal layer offset.
 		///
-		/// \return double.
+		/// \return Const double.
 		///
 		virtual const double getOffsetX() const noexcept final;
 
 		///
 		/// Vertical layer offset.
 		///
-		/// \return double.
+		/// \return Const double.
 		///
 		virtual const double getOffsetY() const noexcept final;
 
 		///
 		/// Opacity of layer.
 		///
-		/// \return double between 0 and 1.
+		/// \return Double between 0 and 1.
 		///
 		virtual const double getOpacity() const noexcept final;
 
 		///
-		/// Retrieve property.
+		/// \brief Retrieve property.
+		///
 		/// You will need to provide the type when retrieving.
+		/// DO NOT OVERRIDE THIS METHOD.
 		///
 		/// \param name Name of the property to retrieve.
 		///
 		/// \return Property cast as type.
 		///
 		template<typename T>
-		const T getProperty(const std::string& name) noexcept final;
+		const T getProperty(const std::string& name) noexcept;
 
 		///
 		/// Get X coordinate where layer content starts.
 		///
-		/// \return integer.
+		/// \return Const int.
 		///
 		virtual const int getStartX() const noexcept final;
 		
 		///
 		/// Get Y coordinate where layer content starts.
 		///
-		/// \return integer.
+		/// \return Const int.
 		///
 		virtual const int getStartY() const noexcept final;
 
 		///
 		/// Get type of layer.
 		///
-		/// \return string in format: tilelayer, objectgroup, imagelayer or group.
+		/// \return String in format: tilelayer, objectgroup, imagelayer or group.
 		///
 		virtual const std::string& getType() const noexcept final;
+
+		///
+		/// Get visibility of layer.
+		///
+		/// \return True if layer is visible.
+		///
+		virtual const bool isVisible() const noexcept final;
+
+		///
+		/// Get width of layer.
+		///
+		/// \return Const int. Column count. Same as map width for fixed-size maps.
+		///
+		virtual const int getWidth() const noexcept final;
+
+		///
+		/// Get X offset.
+		///
+		/// \return Const int. Horizontal layer offset in tiles.
+		///
+		virtual const int getX() const noexcept final;
+
+		///
+		/// Get Y offset.
+		///
+		/// \return Const int. Vertical layer offset in tiles.
+		///
+		virtual const int getY() const noexcept final;
 
 	protected:
 		///
@@ -119,12 +149,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		Layer(const Layer&) noexcept = default;
+		Layer(const Layer&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Layer(Layer&&) noexcept = default;
+		Layer(Layer&&) = default;
 
 	protected:
 		///
@@ -176,12 +206,32 @@ namespace starmap
 		/// Type of layer in string.
 		///
 		std::string m_type;
+
+		///
+		/// Whether layer is shown or hidden in editor.
+		///
+		bool m_visible;
+
+		///
+		/// Column count. Same as map width for fixed-size maps.
+		///
+		int m_width;
+
+		///
+		/// Horizontal layer offset in tiles.
+		///
+		int m_x;
+
+		///
+		/// Vertical layer offset in tiles.
+		///
+		int m_y;
 	};
 
 	template<typename T>
 	inline const T Layer::getProperty(const std::string& name) noexcept
 	{
-		return m_properties[name].getValue<T>();
+		return m_properties[name].get<T>();
 	}
 }
 

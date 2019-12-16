@@ -102,7 +102,7 @@ namespace starmap
 		m_y = json.at("y");
 	}
 
-	const bool Object::getEllipse() const noexcept
+	const bool Object::isEllipse() const noexcept
 	{
 		return m_ellipse;
 	}
@@ -117,7 +117,7 @@ namespace starmap
 		return m_name;
 	}
 
-	const bool Object::getPoint() const noexcept
+	const bool Object::isPoint() const noexcept
 	{
 		return m_point;
 	}
@@ -147,7 +147,7 @@ namespace starmap
 		return m_type;
 	}
 
-	const bool Object::getVisibility() const noexcept
+	const bool Object::isVisible() const noexcept
 	{
 		return m_visible;
 	}

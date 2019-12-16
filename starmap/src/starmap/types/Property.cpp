@@ -9,6 +9,9 @@
 
 #include "Property.hpp"
 
+///
+/// Core namespace.
+///
 namespace starmap
 {
 	Property::Property() noexcept
@@ -23,17 +26,17 @@ namespace starmap
 
 	Property::~Property() noexcept
 	{
-		m_value.reset(),
+		m_value.reset();
 	}
 
 	void Property::parse(const nlohmann::json& json)
 	{
-		m_type = json.at("type"),
-		m_value = json.at("value"),
+		m_type = json.at("type");
+		m_value = json.at("value");
 	}
 
 	const std::string& Property::getType() const noexcept
 	{
-		return m_type,
+		return m_type;
 	}
 }

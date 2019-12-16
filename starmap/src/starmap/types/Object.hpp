@@ -21,7 +21,7 @@ namespace starmap
 	///
 	/// Object representation in tiled.
 	///
-	class Object
+	class Object final
 	{
 	public:
 		///
@@ -41,12 +41,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		Object(const Object&) noexcept = default;
+		Object(const Object&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Object(Object&&) noexcept = default;
+		Object(Object&&) = default;
 
 		///
 		/// Destructor.
@@ -65,35 +65,35 @@ namespace starmap
 		///
 		/// Get ellipse flag.
 		///
-		/// \return boolean true if ellipse.
+		/// \return True if ellipse shaped.
 		///
-		const bool getEllipse() const noexcept;
+		const bool isEllipse() const noexcept;
 
 		///
 		/// Get gid.
 		///
-		/// \return gid as const int.
+		/// \return Gid as const int.
 		///
 		const int getGID() const noexcept;
 
 		///
 		/// Get name.
 		///
-		/// \return name as std::string.
+		/// \return Name as std::string.
 		///
 		const std::string& getName() const noexcept;
 
 		///
 		/// Get point flag.
 		///
-		/// \return boolean point flag is true.
+		/// \return True if object is point shaped.
 		///
-		const bool getPoint() const noexcept;
+		const bool isPoint() const noexcept;
 
 		///
 		/// Gets points.
 		///
-		/// \return points as std::vector array.
+		/// \return Points as std::vector array.
 		///
 		const auto& getPoints() const noexcept;
 
@@ -111,21 +111,21 @@ namespace starmap
 		///
 		/// Get rotation of object.
 		///
-		/// \return double - angle in degrees clockwise.
+		/// \return Double - angle in degrees clockwise.
 		///
 		const double getRotation() const noexcept;
 
 		///
 		/// Get template reference.
 		///
-		/// \return string reference to a template file, in case object is a template instance.
+		/// \return String reference to a template file, in case object is a template instance.
 		///
 		const std::string& getTemplate() const noexcept;
 
 		///
 		/// Get text object (if object is text based).
 		///
-		/// \return const reference to a text object.
+		/// \return Const reference to a text object.
 		///
 		const starmap::Text& getText() const noexcept;
 
@@ -141,7 +141,7 @@ namespace starmap
 		///
 		/// \return True if object is visible.
 		///
-		const bool getVisibility() const noexcept;
+		const bool isVisible() const noexcept;
 
 		///
 		/// Get width of object.
@@ -249,7 +249,7 @@ namespace starmap
 	template<typename T>
 	inline const T Object::getProperty(const std::string& name) noexcept
 	{
-		return m_properties[name].getValue<T>();
+		return m_properties[name].get<T>();
 	}
 }
 

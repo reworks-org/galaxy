@@ -20,6 +20,14 @@ namespace starmap
 	///
 	class ImageLayer final : public starmap::Layer
 	{
+	public:
+		///
+		/// \brief Default constructor.
+		///
+		/// Throws a runtime exception if called.
+		///
+		ImageLayer();
+
 		///
 		/// \brief Parse constructor.
 		///
@@ -34,12 +42,12 @@ namespace starmap
 		///
 		/// Copy constructor.
 		///
-		ImageLayer(const ImageLayer&) noexcept = default;
+		ImageLayer(const ImageLayer&) = default;
 
 		///
 		/// Move constructor.
 		///
-		ImageLayer(ImageLayer&&) noexcept = default;
+		ImageLayer(ImageLayer&&) = default;
 
 		///
 		/// Default destructor.
@@ -49,15 +57,9 @@ namespace starmap
 		///
 		/// Get image.
 		///
-		/// \return image as std::string.
+		/// \return Image as std::string.
 		///
 		const std::string& getImage() const noexcept;
-
-	private:
-		///
-		/// Default constructor.
-		///
-		ImageLayer() = delete;
 
 	private:
 		///
