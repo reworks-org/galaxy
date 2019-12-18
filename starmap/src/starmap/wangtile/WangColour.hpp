@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARMAP_WangColour_HPP_
-#define STARMAP_WangColour_HPP_
+#ifndef STARMAP_WANGCOLOUR_HPP_
+#define STARMAP_WANGCOLOUR_HPP_
 
 #include "nlohmann/json_fwd.hpp"
 
@@ -59,8 +59,54 @@ namespace starmap
 		///
 		void parse(const nlohmann::json& json);
 
-	private:
+		///
+		/// Get colour.
+		///
+		/// \return Hex formatted std::string.
+		///
+		const std::string& getColour() const noexcept;
 
+		///
+		/// Get the name.
+		///
+		/// \return Const std::string reference.
+		///
+		const std::string& getName() const noexcept;
+
+		///
+		/// Get probability of being picked by editor randomizer.
+		///
+		/// \return Const double.
+		///
+		const double getProbability() const noexcept;
+
+		///
+		/// Get local tile id.
+		///
+		/// \return Const int.
+		///
+		const int getTile() const noexcept;
+
+	private:
+		///
+		/// Hex-formatted color (#RRGGBB or #AARRGGBB).
+		///
+		std::string m_colour;
+
+		///
+		/// Name of the Wang color.
+		///
+		std::string m_name;
+		
+		///
+		/// Probability used when randomizing.
+		///
+		double m_probability;
+		
+		///
+		/// Local ID of tile representing the Wang color.
+		///
+		int m_tile;
 	};
 }
 

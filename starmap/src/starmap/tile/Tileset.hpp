@@ -8,10 +8,11 @@
 #ifndef STARMAP_TILESET_HPP_
 #define STARMAP_TILESET_HPP_
 
-#include "starmap/types/Grid.hpp"
 #include "starmap/tile/Tile.hpp"
+#include "starmap/types/Grid.hpp"
 #include "starmap/types/Terrain.hpp"
 #include "starmap/tile/TileOffset.hpp"
+#include "starmap/wangtile/WangSet.hpp"
 
 ///
 /// Core namespace.
@@ -204,6 +205,13 @@ namespace starmap
 		///
 		const std::string& getType() const noexcept;
 
+		///
+		/// Get wang sets.
+		///
+		/// \return Std::vector array.
+		///
+		const auto& getWangSets() const noexcept;
+
 	private:
 		///
 		/// Hex-formatted color (#RRGGBB or #AARRGGBB) (optional).
@@ -309,6 +317,11 @@ namespace starmap
 		/// Tileset(for tileset files, since 1.0).
 		///
 		std::string m_type;
+
+		///
+		/// Array of Wang sets.
+		///
+		std::vector<starmap::WangSet> m_wangSets;
 	};
 
 	template<typename T>

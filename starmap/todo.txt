@@ -4,3 +4,4 @@ https://github.com/nlohmann/json#examples
 
 note: does not support external tilesets or object templates.
 note: throws exceptions.
+cleanup includes

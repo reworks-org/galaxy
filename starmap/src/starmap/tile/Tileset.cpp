@@ -31,6 +31,7 @@ namespace starmap
 		m_properties.clear();
 		m_terrain.clear();
 		m_tiles.clear();
+		m_wangSets.clear();
 	}
 
 	void Tileset::parse(const nlohmann::json& json)
@@ -109,12 +110,18 @@ namespace starmap
 
 		m_tileWidth = json.at("tilewidth");
 
-		if (json.count("transparentcolor") > 0);
+		if (json.count("transparentcolor") > 0)
 		{
 			m_transparentColour = json.at("transparentcolor");
 		}
 		
 		m_type = json.at("type");
+
+		auto wangSets = json.at("wangsets");
+		std::for_each(wangSets.begin(), wangSets.end(), [&](const nlohmann::json& wangset)
+		{
+			m_wangSets.emplace_back(wangSets);
+		});
 	}
 
 	const std::string& Tileset::getBackgroundColour() const noexcept
@@ -205,5 +212,10 @@ namespace starmap
 	const std::string& Tileset::getType() const noexcept
 	{
 		return m_type;
+	}
+
+	const auto& Tileset::getWangSets() const noexcept
+	{
+		return m_wangSets;
 	}
 }

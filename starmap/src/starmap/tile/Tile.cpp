@@ -6,7 +6,6 @@
 ///
 
 #include "nlohmann/json.hpp"
-#include "starmap/layer/ObjectLayer.hpp"
 
 #include "Tile.hpp"
 

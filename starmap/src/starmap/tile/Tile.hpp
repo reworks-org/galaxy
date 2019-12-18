@@ -11,7 +11,7 @@
 #include <optional>
 
 #include "starmap/types/Frame.hpp"
-#include "starmap/types/Property.hpp"
+#include "starmap/layer/ObjectLayer.hpp"
 
 ///
 /// Core namespace.
