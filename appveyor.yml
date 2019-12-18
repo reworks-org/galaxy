@@ -31,7 +31,4 @@ environment:
   - solution_name: starmap.sln
 
 build_script:
-  - msbuild %solution_name%
-
-build:
-  parallel: true
+  - cmd: msbuild %solution_name%
