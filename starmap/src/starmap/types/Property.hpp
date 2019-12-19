@@ -11,7 +11,7 @@
 #include <any>
 #include <string>
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
 
 ///
 /// Core namespace.

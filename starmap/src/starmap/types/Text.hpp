@@ -8,7 +8,7 @@
 #ifndef STARMAP_TEXT_HPP_
 #define STARMAP_TEXT_HPP_
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
 
 ///
 /// Core namespace.

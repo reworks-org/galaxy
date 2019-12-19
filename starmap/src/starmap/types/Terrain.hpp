@@ -8,7 +8,8 @@
 #ifndef STARMAP_TERRAIN_HPP_
 #define STARMAP_TERRAIN_HPP_
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
+
 #include "starmap/types/Property.hpp"
 
 ///

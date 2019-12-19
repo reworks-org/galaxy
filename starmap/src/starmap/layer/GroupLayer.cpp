@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 #include "starmap/layer/ImageLayer.hpp"
 #include "starmap/layer/ObjectLayer.hpp"
 #include "starmap/layer/TileLayer.hpp"

@@ -8,7 +8,7 @@
 #include <fstream>
 #include <filesystem>
 
-#include "nlohmann/json.hpp"
+#include <nlohmann/json.hpp>
 #include "starmap/layer/TileLayer.hpp"
 #include "starmap/layer/ObjectLayer.hpp"
 #include "starmap/layer/ImageLayer.hpp"

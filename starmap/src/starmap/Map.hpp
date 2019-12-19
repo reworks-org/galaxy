@@ -8,6 +8,8 @@
 #ifndef STARMAP_MAP_HPP_
 #define STARMAP_MAP_HPP_
 
+#include <nlohmann/json.hpp>
+
 #include "starmap/tile/Tileset.hpp"
 
 ///

@@ -8,7 +8,7 @@
 #ifndef STARMAP_WANGCOLOUR_HPP_
 #define STARMAP_WANGCOLOUR_HPP_
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
 
 ///
 /// Core namespace.

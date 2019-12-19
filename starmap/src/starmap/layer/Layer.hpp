@@ -8,7 +8,7 @@
 #ifndef STARMAP_LAYER_HPP_
 #define STARMAP_LAYER_HPP_
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
 #include "starmap/types/Property.hpp"
 
 ///

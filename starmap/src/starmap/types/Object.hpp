@@ -8,7 +8,7 @@
 #ifndef STARMAP_OBJECT_HPP_
 #define STARMAP_OBJECT_HPP_
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
 #include "starmap/types/Text.hpp"
 #include "starmap/types/Point.hpp"
 #include "starmap/types/Property.hpp"
