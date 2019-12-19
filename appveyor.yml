@@ -1,4 +1,4 @@
-version: 0.0.{build}-{branch}
+version: 1.0.{build}-{branch}
 branches: 
   only: 
     - master
@@ -21,10 +21,9 @@ configuration:
 install:
   - cmd: git submodule update --init --recursive
 
-environment:
-  matrix:
-  - solution_name: modules/zlib/build-VS2019-MT/zlib.sln
-  - solution_name: starmap.sln
+matrix:
+  fast_finish: true
 
 build_script:
-  - cmd: msbuild %solution_name%
+  - cmd: msbuild modules/zlib/build-VS2019-MT/zlib.sln
+  - cmd: msbuild starmap.sln
