@@ -1,5 +1,6 @@
 # starmap
 [![Build Status](https://ci.appveyor.com/api/projects/status/yigrhkcvgofvhhwt?svg=true)](https://ci.appveyor.com/project/reworks/starmap)
+[![Documentation Status](https://travis-ci.org/DomRe/starmap.svg?branch=master)](https://domre.github.io/starmap/)
 
 C++17 JSON Tiled Map Parser.
 
@@ -20,8 +21,7 @@ int main()
 }
 ```
 
-## Docs
-
+See [documentation](https://domre.github.io/starmap/) for more.  
 
 ### Credits
 * [JSON for C++](https://github.com/nlohmann/json).
