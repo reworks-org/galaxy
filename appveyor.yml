@@ -23,7 +23,6 @@ install:
 
 environment:
   matrix:
-  - fast_finish: true
   - solution_name: modules/zlib/build-VS2019-MT/zlib.sln
   - solution_name: starmap.sln
 
