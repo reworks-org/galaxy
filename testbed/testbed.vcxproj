@@ -109,7 +109,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libz-static.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>.../modules/zlib/build-VS2019-MT/Debug;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../modules/zlib/build-VS2019-MT/Debug;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,7 +151,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libz-static.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>.../modules/zlib/build-VS2019-MT/Release;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../modules/zlib/build-VS2019-MT/Release;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
