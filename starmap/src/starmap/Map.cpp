@@ -152,7 +152,14 @@ namespace starmap
 			m_tiledVersion = m_root.at("tiledversion");
 			m_tileHeight = m_root.at("tileheight");
 			
-			// ? tilesets
+			if (m_root.count("tilesets") > 0)
+			{
+				auto tsArray = m_root.at("tilesets");
+				std::for_each(tsArray.begin(), tsArray.end(), [&](const nlohmann::json& tileset)
+				{
+					m_tileSets.emplace_back(tileset);
+				});
+			}
 
 			m_tileWidth = m_root.at("tilewidth");
 			
@@ -228,6 +235,11 @@ namespace starmap
 	const int Map::getTileHeight() const noexcept
 	{
 		return m_tileHeight;
+	}
+
+	const auto& Map::getTileSets() const noexcept
+	{
+		return m_tileSets;
 	}
 
 	const int Map::getTileWidth() const noexcept

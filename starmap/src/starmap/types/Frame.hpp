@@ -8,7 +8,7 @@
 #ifndef STARMAP_FRAME_HPP_
 #define STARMAP_FRAME_HPP_
 
-#include "nlohmann/json_fwd.hpp"
+#include <nlohmann/json_fwd.hpp>
 
 ///
 /// Core namespace.

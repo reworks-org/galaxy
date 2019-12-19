@@ -8,8 +8,7 @@
 #ifndef STARMAP_MAP_HPP_
 #define STARMAP_MAP_HPP_
 
-#include "starmap/layer/Layer.hpp"
-#include "starmap/types/Property.hpp"
+#include "starmap/tile/Tileset.hpp"
 
 ///
 /// Core namespace.
@@ -177,9 +176,9 @@ namespace starmap
 		///
 		/// Get the array of tilesets.
 		///
-		/// \return ?
+		/// \return Std::vector of tilesets.
 		///
-		// const ? getTileSets() const noexcept;
+		const auto& getTileSets() const noexcept;
 
 		///
 		/// Get the map grid width.
@@ -287,7 +286,7 @@ namespace starmap
 		///
 		/// Array of Tilesets.
 		///
-		// m_tileSets;
+		std::vector<starmap::Tileset> m_tileSets;
 
 		///
 		/// Map grid width.

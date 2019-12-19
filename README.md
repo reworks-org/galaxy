@@ -3,11 +3,25 @@
 
 C++17 JSON Tiled Map Parser.
 
-## Tutorial
+## Basic Usage
 
 ```cpp
-// todo
+#include <starmap/Map.hpp>
+
+int main()
+{
+	starmap::Map map;
+	map.load(map_path);
+	
+	// Must load map before you can parse.
+	map.parse();
+
+	std::cin.get();
+}
 ```
+
+## Docs
+
 
 ### Credits
 * [JSON for C++](https://github.com/nlohmann/json).
