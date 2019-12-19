@@ -19,11 +19,6 @@
 namespace starmap
 {
 	///
-	/// Forward dec of ObjectLayer.
-	///
-	class ObjectLayer;
-
-	///
 	/// A tile on a tileset.
 	///
 	class Tile final

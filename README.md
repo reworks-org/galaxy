@@ -12,3 +12,4 @@ C++17 JSON Tiled Map Parser.
 ### Credits
 * [JSON for C++](https://github.com/nlohmann/json).
 * [zlib](https://zlib.net/).
+* [zlib-win-build](https://github.com/kiyolee/zlib-win-build).
