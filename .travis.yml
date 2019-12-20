@@ -18,7 +18,7 @@ before_script:
 
 script:
   - cd mcss/documentation
-  - ./doxygen.py Doxyfile-mcss
+  - ./doxygen.py ../../Doxyfile-mcss
 
 deploy:
   provider: pages
