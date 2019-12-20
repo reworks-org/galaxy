@@ -1,5 +1,6 @@
 # This will run on Travis' 'new' container-based infrastructure
 sudo: false 
+dist: bionic
 
 # Blacklist
 branches:
@@ -12,9 +13,20 @@ addons:
     packages:
       - doxygen
 
+before_script:
+  - git clone --recursive https://github.com/mosra/m.css.git mcss
+  - sudo apt-get install python3-pip
+  - pip3 install jinja2 Pygments
+  - sudo apt-get -y install \
+    texlive-base \
+    texlive-latex-extra \
+    texlive-fonts-extra \
+    texlive-fonts-recommended
+
 # Build your code e.g. by calling make
 script:
-  - doxygen Doxyfile
+  - cd mcss/documentation
+  - ./doxygen.py Doxyfile-mcss
 
 # Generate and deploy documentation
 deploy:
