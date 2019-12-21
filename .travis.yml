@@ -17,7 +17,7 @@ before_script:
   - sudo apt-get -y install texlive-base texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended
   - pip3 install jinja2 Pygments
   - git clone --recursive https://github.com/mosra/m.css.git mcss
-  - git clone --recursive https://github.com/doxygen/doxygen.gi tdoxygen
+  - git clone --recursive https://github.com/doxygen/doxygen.git doxygen
   - cd doxygen
   - git checkout cfd73d5c4d1a66c620a3b7c08b72a3f3c3f94255
   - mkdir -v build
