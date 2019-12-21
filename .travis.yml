@@ -12,11 +12,19 @@ addons:
 
 before_script:
   - sudo apt-get update
-  - git clone --recursive https://github.com/mosra/m.css.git mcss
+  - sudo apt-get install cmake
   - sudo apt-get install python3-pip
-  - pip3 install jinja2 Pygments
   - sudo apt-get -y install texlive-base texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended
-  - sudo apt-get install doxygen
+  - pip3 install jinja2 Pygments
+  - git clone --recursive  mcss
+  - git clone --recursive https://github.com/doxygen/doxygen.gi tdoxygen
+  - cd doxygen
+  - git checkout cfd73d5c4d1a66c620a3b7c08b72a3f3c3f94255
+  - mkdir -v build
+  - cd build
+  - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -Wno-dev ..
+  - make
+  - cd ../../
 
 script:
   - mcss/documentation/doxygen.py Doxyfile-mcss
