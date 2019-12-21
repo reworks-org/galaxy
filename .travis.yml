@@ -11,14 +11,15 @@ addons:
       - doxygen
 
 before_script:
+  - sudo apt-get update
   - git clone --recursive https://github.com/mosra/m.css.git mcss
   - sudo apt-get install python3-pip
   - pip3 install jinja2 Pygments
   - sudo apt-get -y install texlive-base texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended
+  - sudo apt-get install doxygen
 
 script:
-  - cd mcss/documentation
-  - ./doxygen.py ../../Doxyfile-mcss
+  - mcss/documentation/doxygen.py Doxyfile-mcss
 
 deploy:
   provider: pages
