@@ -24,7 +24,7 @@ before_script:
   - mkdir -v build
   - cd build
   - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -Wno-dev ..
-  - make
+  - make -n install
   - cd ../../
 
 script:
