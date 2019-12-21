@@ -12,6 +12,7 @@ addons:
 
 before_script:
   - sudo apt-get update
+  - sudo apt-get remove --purge doxygen
   - sudo apt-get install cmake
   - sudo apt-get install python3-pip
   - sudo apt-get -y install texlive-base texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended
