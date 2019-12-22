@@ -27,3 +27,4 @@ See [documentation](https://domre.github.io/starmap/) for more.
 * [JSON for C++](https://github.com/nlohmann/json).
 * [zlib](https://zlib.net/).
 * [zlib-win-build](https://github.com/kiyolee/zlib-win-build).
+* [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).

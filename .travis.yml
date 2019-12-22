@@ -11,24 +11,10 @@ addons:
       - doxygen
 
 before_script:
-  - sudo apt-get update
-  - sudo apt-get remove --purge doxygen
-  - sudo apt-get install cmake
-  - sudo apt-get install python3-pip
-  - sudo apt-get -y install texlive-base texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended
-  - pip3 install jinja2 Pygments
-  - git clone --recursive https://github.com/mosra/m.css.git mcss
-  - git clone --recursive https://github.com/doxygen/doxygen.git doxygen
-  - cd doxygen
-  - git checkout cfd73d5c4d1a66c620a3b7c08b72a3f3c3f94255
-  - mkdir -v build
-  - cd build
-  - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -Wno-dev ..
-  - make -n install
-  - cd ../../
+  - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - mcss/documentation/doxygen.py Doxyfile-mcss
+  - doxygen Doxyfile
 
 deploy:
   provider: pages
