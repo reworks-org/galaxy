@@ -10,10 +10,6 @@ addons:
     packages:
       - doxygen
 
-before_script:
-  - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
-  - rm -rf ddt/*.html
-
 script:
   - doxygen Doxyfile
 
