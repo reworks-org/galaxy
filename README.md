@@ -1,5 +1,6 @@
 # pulsar
 [![Build status](https://ci.appveyor.com/api/projects/status/swqgmhpnue0jc5je?svg=true)](https://ci.appveyor.com/project/reworks/pulsar)
+[![Documentation Status](https://travis-ci.org/DomRe/pulsar.svg?branch=master)](https://domre.github.io/pulsar/)
 
 Minimal multi-threaded C++17 logging library.
 
@@ -65,3 +66,9 @@ int main(int argc, char** argv)
 	return 0;
 }
 ```
+
+### Online Docs
+See [documentation](https://domre.github.io/pulsar/) for more.  
+
+### Credits
+* [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
