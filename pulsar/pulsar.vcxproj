@@ -175,15 +175,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\pl\details\LogStream.cpp" />
     <ClCompile Include="src\pl\Log.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pl\Log.hpp" />
-    <ClInclude Include="src\pl\details\LogColours.hpp" />
-    <ClInclude Include="src\pl\details\LogStream.hpp" />
-    <ClInclude Include="src\pl\platform\Unix.hpp" />
-    <ClInclude Include="src\pl\platform\Windows.hpp" />
+    <ClInclude Include="src\pl\detail\LogColours.hpp" />
+    <ClInclude Include="src\pl\detail\Unix.hpp" />
+    <ClInclude Include="src\pl\detail\Windows.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

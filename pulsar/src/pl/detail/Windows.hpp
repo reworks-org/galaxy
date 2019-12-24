@@ -13,7 +13,7 @@
 #include <string>
 #include <Windows.h>
 
-#include "../details/LogColours.hpp"
+#include "LogColours.hpp"
 
 #undef ERROR
 

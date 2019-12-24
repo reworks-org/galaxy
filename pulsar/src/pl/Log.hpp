@@ -8,16 +8,20 @@
 #ifndef PULSAR_LOG_HPP_
 #define PULSAR_LOG_HPP_
 
-#include "platform/Unix.hpp"
-#include "platform/Windows.hpp"
-#include "details/LogStream.hpp"
+#include <mutex>
+#include <fstream>
+#include <functional>
 
-///
-/// \brief Log to Stream.
+#include "detail/Unix.hpp"
+#include "detail/Windows.hpp"
+
 ///
 /// Macro shortcut.
 ///
-#define LOG_S(x) pl::Log::i().filterLevel(x) << pl::Log::i().processColour(x) << "[" << pl::Log::i().processLevel(x) << "] - " << pl::Log::i().getDateTime() << " - "
+/// \param level Log error level.
+/// \param message Message to log.
+///
+#define PL_LOG(level, message) pl::Log::i().log(level, message)
 
 ///
 /// Core namespace.
@@ -58,6 +62,14 @@ namespace pl
 		void init(const std::string& logTo);
 
 		///
+		/// Log a message.
+		///
+		/// \param level Log error level.
+		/// \param message Message to log.
+		///
+		void log(const pl::Log::Level level, const std::string& message);
+
+		///
 		/// Convert log message level to a string.
 		///
 		/// \param level Level to convert.
@@ -80,9 +92,9 @@ namespace pl
 		///
 		/// \param level Level of current message to determine if it must be logged.
 		///
-		/// \return Returns a Logging Stream object that can be used in a log to stream senario.
+		/// \return True if can log.
 		///
-		pl::LogStream& filterLevel(pl::Log::Level level);
+		bool filterLevel(pl::Log::Level level);
 		
 		///
 		/// \brief	Set a minimum log level.
@@ -106,13 +118,6 @@ namespace pl
 		/// \return Returns date/time as a std::string.
 		///
 		std::string getDateTime();
-
-		///
-		/// Retrieves currently used logging stream.
-		///
-		/// \return Reference to LogStream object.
-		///
-		pl::LogStream& stream();
 
 	private:
 		///
@@ -147,24 +152,24 @@ namespace pl
 
 	private:
 		///
-		/// Mutex to prevent resources being simultaneously accessed.
+		/// Mutex to protect from multiple accesses.
 		///
 		std::mutex m_lock;
 
 		///
-		/// Stream to log to.
+		/// File stream to write to.
 		///
-		pl::LogStream m_stream;
-
-		///
-		/// Empty stream to send filtered out log messages.
-		///
-		pl::LogStream m_emptyStream;
+		std::ofstream m_fileStream;
 
 		///
 		/// Minimum level of messages required to be logged.
 		///
 		pl::Log::Level m_minimumLevel;
+
+		///
+		/// Thread callback function.
+		///
+		std::function<void(const pl::Log::Level, const std::string&)> m_callback;
 	};
 }
 

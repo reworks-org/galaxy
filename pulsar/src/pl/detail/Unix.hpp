@@ -12,7 +12,7 @@
 
 #include <string>
 
-#include "../details/LogColours.hpp"
+#include "LogColours.hpp"
 
 ///
 /// Core namespace.
