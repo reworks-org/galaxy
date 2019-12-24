@@ -1,5 +1,5 @@
 # starlight
-[![Build Status](https://ci.appveyor.com/api/projects/status/f9ym5sddth68wp78?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
+[![Build Status](https://ci.appveyor.com/api/projects/status/h8p07uomvf8bx8pe?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
 [![Documentation Status](https://travis-ci.org/DomRe/starlight.svg?branch=master)](https://domre.github.io/starlight/)
 
 Simple C++ Event register and dispatcher.
