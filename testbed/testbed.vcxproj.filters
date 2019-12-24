@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-death-test.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-filepath.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-matchers.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-port.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-printers.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-test-part.cc" />
-    <ClCompile Include="..\libs\gtest\googletest\src\gtest-typed-test.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-death-test.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-filepath.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-matchers.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-port.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-printers.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-test-part.cc" />
+    <ClCompile Include="..\modules\gtest\googletest\src\gtest-typed-test.cc" />
     <ClCompile Include="src\test\main.cpp" />
     <ClCompile Include="src\test\core\SparseSetTest.cpp" />
     <ClCompile Include="src\test\core\ExtendedSetTest.cpp" />
@@ -17,6 +17,6 @@
     <ClCompile Include="src\test\system\SystemTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\libs\gtest\googletest\src\gtest-internal-inl.h" />
+    <ClInclude Include="..\modules\gtest\googletest\src\gtest-internal-inl.h" />
   </ItemGroup>
 </Project>
