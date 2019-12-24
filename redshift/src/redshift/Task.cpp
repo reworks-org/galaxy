@@ -1,15 +1,13 @@
 ///
-/// testbed.cpp
+/// Task.cpp
 /// redshift
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <iostream>
+#include "Task.hpp"
 
-int main()
+namespace rs
 {
-	// todo
 
-	std::cin.get();
 }

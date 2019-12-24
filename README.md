@@ -1,5 +1,5 @@
 # redshift
-[![Build Status]()
+[![Build Status](https://ci.appveyor.com/api/projects/status/fpie4lywj7hssb9r?svg=true)](https://ci.appveyor.com/project/reworks/redshift)
 [![Documentation Status](https://travis-ci.org/DomRe/redshift.svg?branch=master)](https://domre.github.io/redshift/)
 
 Modern C++ 2D physics engine.

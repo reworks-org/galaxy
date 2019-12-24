@@ -22,15 +22,10 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\redshift\detail\UniqueID.hpp" />
-    <ClInclude Include="src\redshift\Dispatcher.hpp" />
-    <ClInclude Include="src\redshift\event\Base.hpp" />
-    <ClInclude Include="src\redshift\event\Wrapper.hpp" />
-    <ClInclude Include="src\redshift\event\Queued.hpp" />
+    <ClInclude Include="src\redshift\Task.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\redshift\Dispatcher.cpp" />
-    <ClCompile Include="src\redshift\event\Queued.cpp" />
+    <ClCompile Include="src\redshift\Task.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
