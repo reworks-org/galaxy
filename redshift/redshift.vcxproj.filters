@@ -5,8 +5,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\redshift\Task.hpp" />
+    <ClInclude Include="src\redshift\math\Vec2.hpp" />
+    <ClInclude Include="src\redshift\math\AABB.hpp" />
+    <ClInclude Include="src\redshift\World.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\redshift\Task.cpp" />
+    <ClCompile Include="src\redshift\math\AABB.cpp" />
+    <ClCompile Include="src\redshift\math\Vec2.cpp" />
+    <ClCompile Include="src\redshift\World.cpp" />
   </ItemGroup>
 </Project>

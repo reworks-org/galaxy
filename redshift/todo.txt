@@ -1,0 +1,9 @@
+packaged task -> divide out and parallel check multiple "collisions" or entitys (NOT calcs...)
+
+i.e. every collision is checked on a thread, while the main thread waits for results.
+this is faster than doing it all on one thread.
+i.e. should take 1/10 the time instead if u have 10 collisons...
+
+https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-the-basics-and-impulse-resolution--gamedev-6331
+https://stackoverflow.com/questions/42280364/stdfuture-returned-from-stdasync-hangs-while-going-out-of-scope
+https://stackoverflow.com/questions/18143661/what-is-the-difference-between-packaged-task-and-async
