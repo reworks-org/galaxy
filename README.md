@@ -1,5 +1,6 @@
 # starlight
 [![Build Status](https://ci.appveyor.com/api/projects/status/f9ym5sddth68wp78?svg=true)](https://ci.appveyor.com/project/reworks/starlight)
+[![Documentation Status](https://travis-ci.org/DomRe/starlight.svg?branch=master)](https://domre.github.io/starlight/)
 
 Simple C++ Event register and dispatcher.
 
@@ -24,4 +25,10 @@ int main()
 
 	std::cin.get();
 }
-```
+```  
+
+### Documentation:  
+See [documentation](https://domre.github.io/starlight/) for more.  
+
+### Credits
+* [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
