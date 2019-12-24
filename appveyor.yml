@@ -1,10 +1,11 @@
-version: 0.0.{build}-{branch}
+version: 1.0.{build}-{branch}
 branches: 
   only: 
     - master
 
-shallow_clone: true
+shallow_clone: false
 skip_tags: true
+clone_depth: 1
 
 image:
   - Visual Studio 2019
@@ -17,9 +18,11 @@ configuration:
   - Debug
   - Release
 
-before_build:
+install:
   - cmd: git submodule update --init --recursive
 
-build:
-  parallel: true
-  project: solar.sln
+matrix:
+  fast_finish: true
+
+build_script:
+  - cmd: msbuild solar.sln
