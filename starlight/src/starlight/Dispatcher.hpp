@@ -8,10 +8,8 @@
 #ifndef STARLIGHT_DISPATCHER_HPP_
 #define STARLIGHT_DISPATCHER_HPP_
 
-#include <mutex>
-#include <queue>
+#include <deque>
 #include <memory>
-#include <future>
 #include <functional>
 
 #include "starlight/event/Queued.hpp"
@@ -82,7 +80,7 @@ namespace starlight
 		///
 		/// Holds queued events.
 		///
-		std::queue<QueuedEvent> m_queue;
+		std::deque<QueuedEvent> m_queue;
 
 		///
 		/// Stores callbacks and their associated event type. 
@@ -97,7 +95,6 @@ namespace starlight
 		auto type = EventUniqueID::uid<Event>();
 		bool result = true;
 
-		std::lock_guard<std::mutex> lock(m_lock);
 		if (type >= m_stored.size())
 		{
 			m_stored.resize(type + 1);
@@ -129,7 +126,6 @@ namespace starlight
 		auto type = EventUniqueID::uid<Event>();
 		bool result = true;
 
-		std::lock_guard<std::mutex> lock(m_lock);
 		if (type < m_stored.size())
 		{
 			// If null ptr, then no storage for this component exists.
@@ -140,7 +136,7 @@ namespace starlight
 			else
 			{
 				// Utilizes std::any to erase type.
-				m_queue.push({event, type});
+				m_queue.push_front({event, type});
 			}
 		}
 		else
@@ -157,14 +153,8 @@ namespace starlight
 		// Useful to retrieve a compile time unique id.
 		auto type = EventUniqueID::uid<Event>();
 
-		// Launch thread to log to.
-		auto result = std::async(std::launch::async, [&]()
-		{
-			std::lock_guard<std::mutex> lock(m_lock);
-
-			// Matches to vector location and trigger event.
-			m_stored[type]->trigger(event);
-		});
+		// Matches to vector location and trigger event.
+		m_stored[type]->trigger(event);
 	}
 }
 
