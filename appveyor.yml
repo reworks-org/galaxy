@@ -17,7 +17,7 @@ configuration:
   - Debug
   - Release
 
-install:
+before_build:
   - cmd: git submodule update --init --recursive
 
 build:
