@@ -9,6 +9,7 @@
 #define SOLAR_CONFIG_HPP_
 
 #include <cstdint>
+#include <stdexcept>
 
 ///
 /// Legacy.
