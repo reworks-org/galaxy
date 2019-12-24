@@ -18,7 +18,7 @@ configuration:
   - Release
 
 install:
-  - git clone --recursive https://github.com/google/googletest.git libs/gtest
+  - cmd: git submodule update --init --recursive
 
 build:
   parallel: true
