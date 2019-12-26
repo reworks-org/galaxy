@@ -29,17 +29,9 @@ namespace starmap
 		///
 		/// Parse constructor.
 		///
+		/// \param json JSON structure/array containing ObjectLayer->Object->Text.
+		///
 		explicit Text(const nlohmann::json& json) noexcept;
-
-		///
-		/// Copy constructor.
-		///
-		Text(const Text&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Text(Text&&) = default;
 
 		///
 		/// Default destructor.
@@ -79,7 +71,7 @@ namespace starmap
 		///
 		/// Get horizontal alignment value.
 		///
-		/// \param string in format: center, right, justify or left.
+		/// \return String in format: center, right, justify or left.
 		///
 		const std::string& getHAlign() const noexcept;
 

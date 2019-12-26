@@ -9,7 +9,6 @@
 #define STARMAP_PROPERTY_HPP_
 
 #include <any>
-#include <string>
 
 #include <nlohmann/json_fwd.hpp>
 
@@ -39,16 +38,6 @@ namespace starmap
 		explicit Property(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Property(const Property&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Property(Property&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Property() noexcept;
@@ -70,7 +59,7 @@ namespace starmap
 		const std::string& getType() const noexcept;
 
 		///
-		/// Get value.
+		/// \brief Get value. You should already know the type you want to retrieve.
 		///
 		/// Can throw exceptions.
 		///

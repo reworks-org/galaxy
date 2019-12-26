@@ -57,7 +57,7 @@ namespace starmap
 			auto points = json.at("polygon");
 			std::for_each(points.begin(), points.end(), [&](const nlohmann::json& point)
 			{
-				m_points.emplace_back(point.at("x"), point.at("y"));
+				m_points.emplace_back(point);
 			});
 		}
 
@@ -66,7 +66,7 @@ namespace starmap
 			auto points = json.at("polyline");
 			std::for_each(points.begin(), points.end(), [&](const nlohmann::json& point)
 			{
-				m_points.emplace_back(point.at("x"), point.at("y"));
+				m_points.emplace_back(point);
 			});
 		}
 

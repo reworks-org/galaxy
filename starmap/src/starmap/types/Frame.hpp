@@ -36,16 +36,6 @@ namespace starmap
 		explicit Frame(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Frame(const Frame&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Frame(Frame&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Frame() = default;

@@ -36,16 +36,6 @@ namespace starmap
 		explicit WangColour(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		WangColour(const WangColour&) = default;
-
-		///
-		/// Move constructor.
-		///
-		WangColour(WangColour&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~WangColour() = default;

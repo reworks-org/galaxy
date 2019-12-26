@@ -41,17 +41,7 @@ namespace starmap
 		explicit TileLayer(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		TileLayer(const TileLayer&) = default;
-
-		///
-		/// Move constructor.
-		///
-		TileLayer(TileLayer&&) = default;
-
-		///
-		/// Default destructor.
+		/// Destructor.
 		///
 		~TileLayer() noexcept override;
 

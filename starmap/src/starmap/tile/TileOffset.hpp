@@ -36,17 +36,7 @@ namespace starmap
 		explicit TileOffset(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		TileOffset(const TileOffset&) = default;
-
-		///
-		/// Move constructor.
-		///
-		TileOffset(TileOffset&&) = default;
-
-		///
-		/// Destructor.
+		/// Default destructor.
 		///
 		~TileOffset() = default;
 

@@ -44,16 +44,6 @@ namespace starmap
 		explicit Tileset(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Tileset(const Tileset&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Tileset(Tileset&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Tileset() noexcept;

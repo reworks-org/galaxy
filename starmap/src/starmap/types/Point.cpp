@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "Point.hpp"
 
 ///
@@ -22,14 +24,16 @@ namespace starmap
 	{
 	}
 
-	void Point::setX(const double x) noexcept
+	Point::Point(const nlohmann::json& json)
+		:m_x(0.0), m_y(0.0)
 	{
-		m_x = x;
+		parse(json);
 	}
 
-	void Point::setY(const double y) noexcept
+	void Point::parse(const nlohmann::json& json)
 	{
-		m_y = y;
+		m_x = json.at("x");
+		m_y = json.at("y");
 	}
 
 	const double Point::getX() const noexcept

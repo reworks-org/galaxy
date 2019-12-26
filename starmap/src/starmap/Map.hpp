@@ -29,16 +29,6 @@ namespace starmap
 		Map() noexcept;
 
 		///
-		/// Copy constructor.
-		///
-		Map(const Map&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Map(Map&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Map() noexcept;

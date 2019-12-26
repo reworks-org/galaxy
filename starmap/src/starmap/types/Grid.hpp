@@ -36,16 +36,6 @@ namespace starmap
 		explicit Grid(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Grid(const Grid&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Grid(Grid&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Grid() = default;

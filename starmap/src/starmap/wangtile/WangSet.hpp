@@ -38,16 +38,6 @@ namespace starmap
 		explicit WangSet(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		WangSet(const WangSet&) = default;
-
-		///
-		/// Move constructor.
-		///
-		WangSet(WangSet&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~WangSet();

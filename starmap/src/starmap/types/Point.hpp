@@ -8,6 +8,8 @@
 #ifndef STARMAP_POINT_HPP_
 #define STARMAP_POINT_HPP_
 
+#include <nlohmann/json_fwd.hpp>
+
 ///
 /// Core namespace.
 ///
@@ -15,6 +17,7 @@ namespace starmap
 {
 	///
 	/// A point on a polygon or a polyline, relative to the position of the object.
+	/// This Point class is specific to Tiled.
 	///
 	class Point final
 	{
@@ -33,14 +36,13 @@ namespace starmap
 		explicit Point(const double x, const double y) noexcept;
 
 		///
-		/// Copy constructor.
+		/// \brief Parse constructor.
 		///
-		Point(const Point&) = default;
-
+		/// Can throw exceptions.
 		///
-		/// Move constructor.
+		/// \param json JSON structure/array containing object.
 		///
-		Point(Point&&) = default;
+		explicit Point(const nlohmann::json& json);
 
 		///
 		/// Default destructor.
@@ -48,18 +50,13 @@ namespace starmap
 		~Point() noexcept = default;
 
 		///
-		/// Set the X coord.
+		/// \brief Parse object level json.
 		///
-		/// \param x X coordinate in pixels.
+		/// Can throw exceptions.
 		///
-		void setX(const double x) noexcept;
-
+		/// \param json JSON structure/array containing object.
 		///
-		/// Set the Y coord.
-		///
-		/// \param y Y coordinate in pixels.
-		///
-		void setY(const double y) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get the x coord.

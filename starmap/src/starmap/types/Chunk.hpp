@@ -38,16 +38,6 @@ namespace starmap
 		explicit Chunk(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Chunk(const Chunk&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Chunk(Chunk&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Chunk() noexcept;

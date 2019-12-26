@@ -38,16 +38,6 @@ namespace starmap
 		explicit Terrain(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Terrain(const Terrain&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Terrain(Terrain&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Terrain();

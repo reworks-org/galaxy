@@ -40,17 +40,7 @@ namespace starmap
 		explicit ImageLayer(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		ImageLayer(const ImageLayer&) = default;
-
-		///
-		/// Move constructor.
-		///
-		ImageLayer(ImageLayer&&) = default;
-
-		///
-		/// Default destructor.
+		/// Destructor.
 		///
 		~ImageLayer() noexcept override;
 

@@ -40,17 +40,7 @@ namespace starmap
 		explicit GroupLayer(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		GroupLayer(const GroupLayer&) = default;
-
-		///
-		/// Move constructor.
-		///
-		GroupLayer(GroupLayer&&) = default;
-
-		///
-		/// Default destructor.
+		/// Destructor.
 		///
 		~GroupLayer() noexcept override;
 

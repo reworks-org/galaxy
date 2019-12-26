@@ -8,7 +8,6 @@
 #ifndef STARMAP_OBJECT_HPP_
 #define STARMAP_OBJECT_HPP_
 
-#include <nlohmann/json_fwd.hpp>
 #include "starmap/types/Text.hpp"
 #include "starmap/types/Point.hpp"
 #include "starmap/types/Property.hpp"
@@ -39,22 +38,12 @@ namespace starmap
 		explicit Object(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		Object(const Object&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Object(Object&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~Object() noexcept;
 
 		///
-		/// \brief Parse object level jston.
+		/// \brief Parse object level json.
 		///
 		/// Can throw exceptions.
 		///

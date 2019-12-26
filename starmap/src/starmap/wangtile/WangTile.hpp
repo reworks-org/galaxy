@@ -36,16 +36,6 @@ namespace starmap
 		explicit WangTile(const nlohmann::json& json);
 
 		///
-		/// Copy constructor.
-		///
-		WangTile(const WangTile&) = default;
-
-		///
-		/// Move constructor.
-		///
-		WangTile(WangTile&&) = default;
-
-		///
 		/// Destructor.
 		///
 		~WangTile();
