@@ -35,6 +35,11 @@ namespace sc
 		///
 		Vector4(const Type w, const Type x, const Type y, const Type z);
 
+		///
+		/// Default destructor.
+		///
+		~Vector4() noexcept = default;
+
 	public:
 		///
 		/// W value.

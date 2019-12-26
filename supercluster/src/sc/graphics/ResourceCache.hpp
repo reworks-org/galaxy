@@ -26,7 +26,7 @@ namespace sc
 	{
 	public:
 		///
-		/// Virtual Destructor.
+		/// Virtual default destructor.
 		///
 		virtual ~ResourceCache() noexcept = default;
 

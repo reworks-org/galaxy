@@ -41,6 +41,11 @@ namespace sc
 		Vector2(const Type x, const Type y);
 
 		///
+		/// Default destructor.
+		///
+		~Vector2() noexcept = default;
+
+		///
 		/// Swaps x and y.
 		///
 		void transpose();

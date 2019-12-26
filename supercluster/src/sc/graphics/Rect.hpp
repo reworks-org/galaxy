@@ -43,6 +43,11 @@ namespace sc
 		Rect(const Type x, const Type y, const Type width, const Type height);
 
 		///
+		/// Default destructor.
+		///
+		~Rect() noexcept = default;
+
+		///
 		/// Does the rectangle contain the point (x, y).
 		///
 		/// \param x X coordinate.

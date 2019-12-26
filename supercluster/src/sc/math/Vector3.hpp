@@ -39,6 +39,11 @@ namespace sc
 		///
 		Vector3(const Type x, const Type y, const Type z);
 
+		///
+		/// Default destructor.
+		///
+		~Vector3() noexcept = default;
+
 	public:
 		///
 		/// X variable.

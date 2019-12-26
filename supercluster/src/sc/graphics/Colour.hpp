@@ -37,7 +37,7 @@ namespace sc
 		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a);
 
 		///
-		/// Destructor.
+		/// Default destructor.
 		///
 		~Colour() noexcept = default;
 
