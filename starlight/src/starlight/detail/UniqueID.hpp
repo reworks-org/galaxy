@@ -20,7 +20,7 @@ namespace starlight
 	/// And the id is kept as a compile time constant.
 	///
 	template<typename Specialization>
-	class UniqueID
+	class UniqueID final
 	{
 		///
 		/// Specialization should be a struct or class.
