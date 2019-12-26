@@ -8,6 +8,8 @@
 #ifndef SUPERCLUSTER_VECTOR4_HPP_
 #define SUPERCLUSTER_VECTOR4_HPP_
 
+#include <type_traits>
+
 ///
 /// Core namespace.
 ///
@@ -19,6 +21,11 @@ namespace sc
 	template<typename Type>
 	class Vector4 final
 	{
+		///
+		/// Make sure is integral or floating.
+		///
+		static_assert(std::is_arithmetic<Type>::value);
+
 	public:
 		///
 		/// Default constructor.

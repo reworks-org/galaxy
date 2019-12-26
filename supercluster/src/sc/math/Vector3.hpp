@@ -8,6 +8,8 @@
 #ifndef SUPERCLUSTER_VECTOR3_HPP_
 #define SUPERCLUSTER_VECTOR3_HPP_
 
+#include <type_traits>
+
 ///
 /// Core namespace.
 ///
