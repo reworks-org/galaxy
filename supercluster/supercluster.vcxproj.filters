@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\sc\graphics\Colour.cpp" />
+    <ClCompile Include="src\sc\graphics\ResourceCache.cpp" />
+    <ClCompile Include="src\sc\utility\Meta.cpp" />
+    <ClCompile Include="src\sc\math\Vector2.cpp" />
+    <ClCompile Include="src\sc\math\Vector3.cpp" />
+    <ClCompile Include="src\sc\math\Vector4.cpp" />
+    <ClCompile Include="src\sc\string\StringOps.cpp" />
+    <ClCompile Include="src\sc\math\Maths.cpp" />
+    <ClCompile Include="src\sc\graphics\Rect.cpp" />
+    <ClCompile Include="src\sc\math\Random.cpp" />
+    <ClCompile Include="src\sc\utility\Time.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\sc\graphics\Colour.hpp" />
+    <ClInclude Include="src\sc\graphics\ResourceCache.hpp" />
+    <ClInclude Include="src\sc\utility\Meta.hpp" />
+    <ClInclude Include="src\sc\math\Vector2.hpp" />
+    <ClInclude Include="src\sc\math\Vector3.hpp" />
+    <ClInclude Include="src\sc\math\Vector4.hpp" />
+    <ClInclude Include="src\sc\string\StringOps.hpp" />
+    <ClInclude Include="src\sc\math\Maths.hpp" />
+    <ClInclude Include="src\sc\math\Random.hpp" />
+    <ClInclude Include="src\sc\graphics\Rect.hpp" />
+    <ClInclude Include="src\sc\utility\Time.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+  </ItemGroup>
+</Project>
