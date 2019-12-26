@@ -62,7 +62,7 @@ namespace starmap
 		///
 		/// Get background colour of map.
 		///
-		/// \return String, format: #RRGGBB or #AARRGGBB
+		/// \return String in format RRGGBB or AARRGGBB.
 		///
 		const std::string& getBackgroundColour() const noexcept;
 

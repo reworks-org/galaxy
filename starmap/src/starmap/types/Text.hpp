@@ -57,7 +57,7 @@ namespace starmap
 		///
 		/// Get colour as hex string.
 		///
-		/// \return String in format: #RRGGBB or #AARRGGBB
+		/// \return String in format RRGGBB or AARRGGBB.
 		///
 		const std::string& getColour() const noexcept;
 
