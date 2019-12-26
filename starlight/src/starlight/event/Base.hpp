@@ -1,5 +1,5 @@
 ///
-/// EventBase.hpp
+/// Base.hpp
 /// starlight
 ///
 /// Refer to LICENSE.txt for more details.
@@ -18,8 +18,9 @@ namespace starlight
 	///
 	/// Base event type to store, erases type.
 	///
-	struct EventBase
+	class EventBase
 	{
+	public:
 		///
 		/// Virtual destructor.
 		///
@@ -31,6 +32,12 @@ namespace starlight
 		/// \param event std::any to erase event type since we only care about data.
 		///
 		virtual void trigger(const std::any& event) = 0;
+
+	protected:
+		///
+		/// Protected default destructgor.
+		///
+		EventBase() = default;
 	};
 }
 

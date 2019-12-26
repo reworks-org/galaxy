@@ -1,5 +1,5 @@
 ///
-/// EventWrapper.hpp
+/// Wrapper.hpp
 /// starlight
 ///
 /// Refer to LICENSE.txt for more details.
@@ -9,7 +9,6 @@
 #define STARLIGHT_EVENTWRAPPER_HPP_
 
 #include <vector>
-#include <mutex>
 #include <future>
 
 #include "starlight/event/Base.hpp"
@@ -25,12 +24,16 @@ namespace starlight
 	template<typename Event, typename Callback>
 	class EventWrapper final : public EventBase
 	{
-		/* needs to assert they are not arithmatic...*/
+		///
+		/// Make sure event is a struct / class, and Callback is a std::function or variant - std::bind, lambda, etc...
+		///
+		static_assert(std::is_class<Event>::value && std::is_class<Callback>::value);
+
 	public:
 		///
 		/// Constructor.
 		///
-		EventWrapper() noexcept = default;
+		EventWrapper() = default;
 
 		///
 		/// Destructor.

@@ -18,16 +18,28 @@ namespace starlight
 	///
 	/// Stores information about a queued event and erases type.
 	///
-	struct QueuedEvent
+	class QueuedEvent
 	{
+	public:
 		///
-		/// Constructor.
+		/// Default constructor.
+		///
+		QueuedEvent() noexcept;
+
+		///
+		/// Argument constructor.
 		///
 		/// \param event A std::any representing an event to be queued. Allows for the type to be erased.
 		/// \param type This is the id of the type retrieved by starlight::UniqueID.
 		///
 		QueuedEvent(const std::any& event, const std::size_t type);
 
+		///
+		/// Default destructor.
+		///
+		~QueuedEvent() = default;
+
+	public:
 		///
 		/// An event. Its std::any in order to erase type.
 		///

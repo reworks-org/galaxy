@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef starlight_UNIQUEID_HPP_
-#define starlight_UNIQUEID_HPP_
+#ifndef STARLIGHT_UNIQUEID_HPP_
+#define STARLIGHT_UNIQUEID_HPP_
 
 #include <cstddef>
 
@@ -22,7 +22,17 @@ namespace starlight
 	template<typename Specialization>
 	class UniqueID
 	{
+		///
+		/// Specialization should be a struct or class.
+		///
+		static_assert(std::is_class<Specialization>::value);
+
 	public:
+		///
+		/// Default destructor.
+		///
+		~UniqueID() = default;
+
 		///
 		/// Use this function to retrieve the ID.
 		/// Will generate a new id if it is called for the first time.
@@ -30,11 +40,13 @@ namespace starlight
 		/// \return SR_INTEGER id.
 		///
 		template<typename Type>
-		static inline std::size_t uid()
-		{
-			static std::size_t id = s_counter++;
-			return id;
-		}
+		static const std::size_t uid();
+
+	private:
+		///
+		/// Private default constructor.
+		///
+		UniqueID() = default;
 
 	private:
 		///
@@ -47,6 +59,14 @@ namespace starlight
 	/// Predefinition of unique id structure for events.
 	///
 	using EventUniqueID = UniqueID<struct EUID>;
+
+	template<typename Specialization>
+	template<typename Type>
+	inline const std::size_t UniqueID<Specialization>::uid()
+	{
+		static std::size_t id = s_counter++;
+		return id;
+	}
 }
 
 #endif

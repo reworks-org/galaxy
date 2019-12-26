@@ -7,8 +7,6 @@
 
 #include <iostream>
 
-#include "starlight/event/Base.hpp"
-#include "starlight/event/Wrapper.hpp"
 #include "starlight/Dispatcher.hpp"
 
 struct Test

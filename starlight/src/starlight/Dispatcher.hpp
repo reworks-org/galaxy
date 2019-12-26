@@ -39,6 +39,16 @@ namespace starlight
 
 	public:
 		///
+		/// Default constructor.
+		///
+		Dispatcher() = default;
+
+		///
+		/// Default destructor.
+		///
+		~Dispatcher() = default;
+
+		///
 		/// Registers a function to be called on the triggering of an event.
 		///
 		/// \param callback void function that takes a const Event&.
@@ -80,7 +90,7 @@ namespace starlight
 		///
 		/// Holds queued events.
 		///
-		std::deque<QueuedEvent> m_queue;
+		std::deque<starlight::QueuedEvent> m_queue;
 
 		///
 		/// Stores callbacks and their associated event type. 

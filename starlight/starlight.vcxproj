@@ -29,8 +29,11 @@
     <ClInclude Include="src\starlight\event\Queued.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\starlight\detail\UniqueID.cpp" />
     <ClCompile Include="src\starlight\Dispatcher.cpp" />
+    <ClCompile Include="src\starlight\event\Base.cpp" />
     <ClCompile Include="src\starlight\event\Queued.cpp" />
+    <ClCompile Include="src\starlight\event\Wrapper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
