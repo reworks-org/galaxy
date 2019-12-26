@@ -52,7 +52,7 @@ namespace sc
 	/// \brief Do something to each item in tuple.
 	///
 	/// Different overload.
-	/// Credits: https://stackoverflow.com/a/26902803
+	/// Credits: https://stackoverflow.com/a/26902803.
 	/// 
 	template<class F, class...Ts, std::size_t...Is>
 	inline void for_each_in_tuple(std::tuple<Ts...>& tuple, F func, std::index_sequence<Is...>)
@@ -68,7 +68,7 @@ namespace sc
 	/// \brief Do something to each item in tuple.
 	///
 	/// E.g. for_each_in_tuple(some, [](const auto &x) { std::cout << x << std::endl; });
-	/// Credits: https://stackoverflow.com/a/26902803
+	/// Credits: https://stackoverflow.com/a/26902803.
 	/// 
 	template<class F, class...Ts>
 	inline void for_each_in_tuple(std::tuple<Ts...>& tuple, F func)
