@@ -9,12 +9,12 @@
 
 namespace sr
 {
-	Manager::Manager()
+	Manager::Manager() noexcept
 		:m_nextID(0)
 	{
 	}
 
-	Manager::~Manager()
+	Manager::~Manager() noexcept
 	{
 		m_data.clear();
 		m_entities.clear();
@@ -22,7 +22,7 @@ namespace sr
 		m_nextID = 0;
 	}
 
-	Entity Manager::create() noexcept
+	const sr::Entity Manager::create() noexcept
 	{
 		// Bit masks the unsigned interger id with the valid_entity flag
 		// to make sure when an unsigned integer is passed it can be
@@ -35,27 +35,19 @@ namespace sr
 		return entity;
 	}
 
-	bool Manager::has(sr::Entity entity) noexcept
+	const bool Manager::has(const sr::Entity entity) noexcept
 	{
-		bool result = true;
-
 		// Do not need to verify since parameter wont match unless entity flag is present.
-		(m_entities.has(entity)) ? result = true : result = false;
-
-		return result;
+		return m_entities.has(entity);
 	}
 
-	bool Manager::validate(sr::Entity entity)
+	const bool Manager::validate(const sr::Entity entity)
 	{
-		bool result = true;
-
 		// Checks if flag exists.
-		((entity & 0xFFFF) == sr::VALID_ENTITY) ? result = true : result = false;
-
-		return result;
+		return (entity & 0xFFFF) == sr::VALID_ENTITY;
 	}
 
-	void Manager::destroy(Entity entity)
+	void Manager::destroy(const sr::Entity entity)
 	{
 		m_entities.remove(entity);
 
@@ -65,7 +57,7 @@ namespace sr
 		}
 	}
 
-	void Manager::event(const Event& event)
+	void Manager::event(const sr::Event& event)
 	{
 		for (auto&& ptr : m_systems)
 		{
@@ -73,7 +65,7 @@ namespace sr
 		}
 	}
 
-	void Manager::update(const DeltaTime time)
+	void Manager::update(const sr::DeltaTime time)
 	{
 		for (auto&& ptr : m_systems)
 		{

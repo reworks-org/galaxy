@@ -13,38 +13,47 @@
 #include <optional>
 #include <functional>
 
-#include "solar/Utils.hpp"
-#include "solar/core/UID.hpp"
+#include "solar/detail/UniqueID.hpp"
 #include "solar/system/System.hpp"
-#include "solar/core/ExtendedSet.hpp"
+#include "solar/detail/DualSparseSet.hpp"
 
+///
+/// Core namespace.
+///
 namespace sr
 {
-	using SystemContainer = std::vector<std::unique_ptr<System>>;
-	using ComponentContainer = std::vector<std::unique_ptr<SparseSet<Entity>>>;
+	///
+	/// Shorthand system storage type.
+	///
+	using SystemContainer = std::vector<std::unique_ptr<sr::System>>;
+
+	///
+	/// Shorthand component storage type.
+	///
+	using ComponentContainer = std::vector<std::unique_ptr<SparseSet<sr::Entity>>>;
 
 	///
 	/// Controls and manages the Entitys, Components and Systems.
 	///
-	class Manager
+	class Manager final
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		Manager();
+		Manager() noexcept;
 
+		///
 		/// Destructor.
 		///
-		///
-		~Manager();
+		~Manager() noexcept;
 
 		///
 		/// Create an entity.
 		///
 		/// \return An entity with a creation bit flag.
 		///
-		Entity create() noexcept;
+		const sr::Entity create() noexcept;
 
 		///
 		/// Check if an entity exists.
@@ -53,7 +62,7 @@ namespace sr
 		///
 		/// \return True if entity does exist.
 		///
-		bool has(sr::Entity entity) noexcept;
+		const bool has(const sr::Entity entity) noexcept;
 
 		///
 		/// Check if an unsigned integer is an entity.
@@ -63,7 +72,7 @@ namespace sr
 		///
 		/// \return True if unsigned integer is an entity.
 		///
-		bool validate(sr::Entity uint);
+		const bool validate(sr::Entity uint);
 
 		///
 		/// Add (construct) a component for an entity.
@@ -73,7 +82,7 @@ namespace sr
 		/// \param args Constructor arguments for the component.
 		///
 		template<typename Component, typename... Args>
-		void add(Entity entity, Args&&... args);
+		void add(const sr::Entity entity, Args&&... args);
 
 		///
 		/// Retrieve a component assosiated with an entity.
@@ -84,7 +93,7 @@ namespace sr
 		/// \return Pointer to component of type Component.
 		///
 		template<typename Component>
-		Component* get(Entity entity);
+		Component* get(const sr::Entity entity);
 
 		///
 		/// \brief Retrieve multiple components.
@@ -98,7 +107,7 @@ namespace sr
 		/// \return Type is automatically deduced, but is a type of std::tuple. Best method is to use structured bindings to retrieve data.
 		///
 		template<typename... Components>
-		decltype(auto) multi(Entity entity) noexcept;
+		decltype(auto) multi(const sr::Entity entity) noexcept;
 
 		///
 		/// \brief Iterate over a set of components of a set of types and manipulate their data.
@@ -115,7 +124,7 @@ namespace sr
 							*/
 		///
 		template<typename... Components>
-		void operate(std::function<void(Entity, Components* ...)> lambda);
+		void operate(std::function<void(const sr::Entity, Components* ...)> lambda);
 
 		///
 		/// \brief Add a system to the manager.
@@ -140,28 +149,44 @@ namespace sr
 		///
 		/// \param entity Entity to destroy.
 		///
-		void destroy(Entity entity);
+		void destroy(const sr::Entity entity);
 
 		///
 		/// Pass on event to all systems.
 		///
 		/// \param event Event data to pass to systems.
 		///
-		void event(const Event& event);
+		void event(const sr::Event& event);
 
 		///
 		/// Update all systems.
 		///
 		/// \param time DeltaTime to pass to systems.
 		///
-		void update(const DeltaTime time);
+		void update(const sr::DeltaTime time);
 
 	private:
 		///
 		/// Internal method used to process components from entities.
 		///
+		/// \param entities Entitys to operate on.
+		/// \param counter Counts how many times this function is called.
+		///
 		template<typename Component>
-		void operateInteral(std::vector<Entity>& entities, unsigned int& counter);
+		void operateInteral(std::vector<sr::Entity>& entities, unsigned int& counter);
+
+		///
+		/// \brief Returns all duplicate integers that occur a number of times.
+		///
+		/// Credits: https://thispointer.com/c-how-to-find-duplicates-in-a-vector/
+		///
+		/// \param input Input vector to check for duplicates.
+		/// \param occurances Exptected number of duplicates.
+		///
+		/// \return Returns all duplicate integers that occur a number of times.
+		///
+		template<typename Type>
+		std::vector<Type> findDuplicates(const std::vector<Type>& input, const unsigned int occurances);
 
 	private:
 		///
@@ -172,10 +197,10 @@ namespace sr
 		///
 		/// Stores entitys.
 		///
-		SparseSet<Entity> m_entities;
+		SparseSet<sr::Entity> m_entities;
 
 		///
-		/// Stores polymorphic ExtendedSets.
+		/// Stores polymorphic DualSparseSets.
 		///
 		ComponentContainer m_data;
 
@@ -186,14 +211,14 @@ namespace sr
 	};
 
 	template<typename Component, typename... Args>
-	inline void Manager::add(Entity entity, Args&& ...args)
+	inline void Manager::add(const sr::Entity entity, Args&& ...args)
 	{
 		if (!validate(entity))
 		{
 			throw std::logic_error("Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
 		}
 
-		auto type = cuid::uid<Component>();
+		auto type = cUniqueID::get<Component>();
 
 		if (type >= m_data.size())
 		{
@@ -206,49 +231,49 @@ namespace sr
 			if (!m_data[type])
 			{
 				// Use polymorphism to ensure type erasure.
-				m_data[type] = std::make_unique<ExtendedSet<Component>>();
+				m_data[type] = std::make_unique<DualSparseSet<Component>>();
 			}
 
 			// Now convert the storage to the type we want to access.
-			ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
+			DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
 
 			derived->add(entity, std::forward<Args>(args)...);
 		}
 	}
 
 	template<typename Component>
-	inline Component* Manager::get(Entity entity)
+	inline Component* Manager::get(const sr::Entity entity)
 	{
 		if (!validate(entity))
 		{
 			throw std::logic_error("Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
 		}
 
-		auto type = cuid::uid<Component>();
+		auto type = cUniqueID::get<Component>();
 
 		if (type > m_data.size())
 		{
 			throw std::out_of_range("Attempted to access a component type that doesnt exist!");
 		}
 		
-		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[cuid::uid<Component>()].get());
+		DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
 		return derived->get(entity);
 	}
 
 	template<typename... Components>
-	inline decltype(auto) Manager::multi(Entity entity) noexcept
+	inline decltype(auto) Manager::multi(const sr::Entity entity) noexcept
 	{
 		// get() will validate entity.
 		return std::make_tuple(get<Components>(entity)...);
 	}
 
 	template<typename ...Components>
-	inline void Manager::operate(std::function<void(Entity, Components* ...)> lambda)
+	inline void Manager::operate(std::function<void(const sr::Entity, Components* ...)> lambda)
 	{
 		// how many times operate internal is called.
 		unsigned int counter = 0;
 		
-		std::vector<Entity> entities;
+		std::vector<sr::Entity> entities;
 		entities.clear();
 		// expands to be called on every component, also incrementing counter to know how many times called.
 		(operateInteral<Components>(entities, counter), ...);
@@ -257,7 +282,7 @@ namespace sr
 		{
 			// erase duplicates
 			// TODO: find a more efficient method of matching.
-			entities = Utils::findDuplicates(entities, counter);
+			entities = findDuplicates(entities, counter);
 		}
 			
 		for (auto& entity : entities)
@@ -269,14 +294,14 @@ namespace sr
 	template<typename Component>
 	inline void Manager::operateInteral(std::vector<Entity>& entities, unsigned int& counter)
 	{
-		auto type = cuid::uid<Component>();
+		auto type = cUniqueID::get<Component>();
 
 		if (type > m_data.size())
 		{
 			throw std::out_of_range("Attempted to access a component type that doesnt exist!");
 		}
 
-		ExtendedSet<Component>* derived = static_cast<ExtendedSet<Component>*>(m_data[type].get());
+		DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
 
 		for (auto& e : derived->m_dense)
 		{
@@ -290,10 +315,37 @@ namespace sr
 		counter++;
 	}
 
+	template<typename Type>
+	inline std::vector<Type> Manager::findDuplicates(const std::vector<Type>& input, const unsigned int occurances)
+	{
+		// Counted elements.
+		std::unordered_map<Type, unsigned int> counted;
+		std::vector<Type> output;
+
+		for (auto& elem : input)
+		{
+			auto result = counted.insert(std::pair<Type, unsigned int>(elem, 1));
+			if (result.second == false)
+			{
+				result.first->second++;
+			}
+		}
+
+		for (auto& it : counted)
+		{
+			if ((it.second < occurances) == false)
+			{
+				output.push_back(it.first);
+			}
+		}
+
+		return output;
+	}
+
 	template<typename System, typename ...Args>
 	inline void Manager::add(Args&&... args)
 	{
-		auto type = suid::uid<System>();
+		auto type = sUniqueID::get<System>();
 		if (type >= m_systems.size())
 		{
 			m_systems.resize(type + 1);
@@ -305,7 +357,7 @@ namespace sr
 	template<typename System>
 	inline System* Manager::get()
 	{
-		auto type = suid::uid<System>();
+		auto type = sUniqueID::get<System>();
 		if (type > m_systems.size())
 		{
 			throw std::out_of_range("Attempted to access a system type that doesnt exist!");

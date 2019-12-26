@@ -10,6 +10,9 @@
 
 #include "solar/Config.hpp"
 
+///
+/// Core namespace.
+///
 namespace sr
 {
 	///
@@ -24,9 +27,9 @@ namespace sr
 	{
 	public:
 		///
-		/// Virtualized destructor.
+		/// Default virtual destructor.
 		///
-		virtual inline ~System() {}
+		virtual ~System() = default;
 
 		///
 		/// Abstract implementation for processing an event.
@@ -42,6 +45,12 @@ namespace sr
 		/// \param manager Entity manager.
 		///
 		virtual void update(const sr::DeltaTime time, sr::Manager& manager) = 0;
+
+	protected:
+		///
+		/// Protected default constructor.
+		///
+		System() = default;
 	};
 }
 

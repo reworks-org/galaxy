@@ -1,15 +1,18 @@
 ///
-/// UID.hpp
+/// UniqueID.hpp
 ///
 /// solar
 /// See LICENSE.txt.
 ///
 
-#ifndef SOLAR_UID_HPP_
-#define SOLAR_UID_HPP_
+#ifndef SOLAR_UNIQUEID_HPP_
+#define SOLAR_UNIQUEID_HPP_
 
 #include "solar/Config.hpp"
 
+///
+/// Core namespace.
+///
 namespace sr
 {
 	///
@@ -17,8 +20,13 @@ namespace sr
 	/// And the id is kept as a compile time constant.
 	///
 	template<typename Specialization>
-	class UID
+	class UniqueID final
 	{
+		///
+		/// Specialization should be a struct or class.
+		///
+		static_assert(std::is_class<Specialization>::value);
+
 	public:
 		///
 		/// Use this function to retrieve the ID.
@@ -27,11 +35,7 @@ namespace sr
 		/// \return SR_INTEGER id.
 		///
 		template<typename Type>
-		static inline SR_INTEGER uid()
-		{
-			static SR_INTEGER id = s_counter++;
-			return id;
-		}
+		static const SR_INTEGER get();
 
 	private:
 		///
@@ -40,15 +44,23 @@ namespace sr
 		static inline SR_INTEGER s_counter = 0;
 	};
 
+	template<typename Specialization>
+	template<typename Type>
+	const SR_INTEGER sr::UniqueID<Specialization>::get()
+	{
+		static SR_INTEGER id = s_counter++;
+		return id;
+	}
+
 	///
 	/// Predefinition of unique id structure for components.
 	///
-	using cuid = UID<struct ComponentUniqueID>;
+	using cUniqueID = UniqueID<struct ComponentUniqueID>;
 
 	///
 	/// Predefinition of unique id structure for systems.
 	///
-	using suid = UID<struct SystemUniqueID>;
+	using sUniqueID = UniqueID<struct SystemUniqueID>;
 }
 
 #endif

@@ -17,6 +17,9 @@
 ///
 #define SR_INTEGER std::uint32_t
 
+///
+/// Core namespace.
+///
 namespace sr
 {
 	///

@@ -13,11 +13,13 @@
 
 #include "solar/Config.hpp"
 
+///
+/// Core namespace.
+///
 namespace sr
 {
 	///
 	/// Fast storage of unsigned integers.
-	/// Thanks to: https://www.computist.xyz/2018/06/sparse-sets.html
 	///
 	template<typename uint>
 	class SparseSet
@@ -26,16 +28,6 @@ namespace sr
 		static_assert(std::is_unsigned<uint>::value, "SparseSet must be an unsigned integer!");
 
 	public:
-		///
-		/// Iterator using std::vector iterator.
-		///
-		using Iterator = typename std::vector<uint>::const_iterator;
-
-		///
-		/// Const Iterator using std::vector iterator.
-		///
-		using ConstIterator = typename std::vector<uint>::const_iterator;
-
 		///
 		/// Constructor.
 		///
@@ -46,7 +38,7 @@ namespace sr
 		///
 		/// \param reserve Reserve an amount of entities at construction time.
 		///
-		SparseSet(uint reserve) noexcept;
+		SparseSet(const uint reserve) noexcept;
 
 		///
 		/// Destructor.
@@ -58,47 +50,47 @@ namespace sr
 		///
 		/// \param element Element to insert.
 		///
-		void insert(uint element) noexcept;
+		void insert(const uint element) noexcept;
 		
 		///
 		/// Does the sparse set contain an element.
 		///
 		/// \param element Element to check if exists.
 		///
-		/// \return boolean value. Returns true if sparse set contains element.
+		/// \return Boolean value. Returns true if sparse set contains element.
 		///
-		bool has(uint element) noexcept;
+		bool has(const uint element) noexcept;
 
 		///
 		/// Find the index in the dense array of the element.
 		///
 		/// \param element Entity to find the index of.
 		///
-		/// \return unsigned integer - the index of the element.
+		/// \return Unsigned integer - the index of the element.
 		///
-		uint findIndex(uint element);
+		uint findIndex(const uint element);
 
 		///
 		/// Reserve an amount of space for new entities.
 		///
 		/// \param newReserve Value to reserve in the sparse set.
 		///
-		void reserve(uint newReserve) noexcept;
+		void reserve(const uint newReserve) noexcept;
 		
 		///
-		/// Removes an entity. Usually overriden by ExtendedSet to
+		/// Removes an entity. Usually overriden by DualSparseSet to
 		/// destroy components aswell.
 		///
 		/// \param element Element to remove from the sparse set.
 		///
-		virtual void remove(uint element);
+		virtual void remove(const uint element);
 		
 		///
 		/// Check if sparse set is entity.
 		///
-		/// \return boolean True if empty.
+		/// \return Boolean true if empty.
 		///
-		bool empty() noexcept;
+		const bool empty() noexcept;
 		
 		///
 		/// Destroy all elements and clear the sparse set.
@@ -110,54 +102,42 @@ namespace sr
 		///
 		/// \return Unsigned Integer.
 		///
-		uint size() const noexcept;
+		const uint size() const noexcept;
 
 		///
 		/// Get the capacity of the sparse set.
 		///
 		/// \return Unsigned Integer.
 		///
-		uint capacity() const noexcept;
+		const uint capacity() const noexcept;
 
 		///
 		/// Iterator start.
 		///
 		/// \return Beginning iterator.
 		///
-		inline Iterator begin()
-		{
-			return m_dense.begin();
-		}
+		decltype(auto) begin();
 
 		///
 		/// Const Iterator start.
 		///
 		/// \return Const beginning iterator.
 		///
-		inline ConstIterator begin() const
-		{
-			return m_dense.begin();
-		}
+		decltype(auto) begin() const;
 
 		///
 		/// Iterator end.
 		///
 		/// \return Ending iterator.
 		///
-		inline Iterator end()
-		{
-			return m_dense.begin() + m_size;
-		}
+		decltype(auto) end();
 
 		///
 		/// Const Iterator end.
 		///
 		/// \return Const ending iterator.
 		///
-		inline ConstIterator end() const
-		{
-			return m_dense.begin() + m_size;
-		}
+		decltype(auto) end() const;
 
 	protected:
 		///
@@ -188,7 +168,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline SparseSet<uint>::SparseSet(uint newReserve) noexcept
+	inline SparseSet<uint>::SparseSet(const uint newReserve) noexcept
 		:m_size(0), m_capacity(0)
 	{
 		reserve(newReserve);
@@ -202,7 +182,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::insert(uint element) noexcept
+	inline void SparseSet<uint>::insert(const uint element) noexcept
 	{
 		if (!has(element))
 		{
@@ -218,13 +198,13 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline bool SparseSet<uint>::has(uint element) noexcept
+	inline bool SparseSet<uint>::has(const uint element) noexcept
 	{
 		return element < m_capacity && m_sparse[element] < m_size && m_dense[m_sparse[element]] == element;
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::findIndex(uint element)
+	inline uint SparseSet<uint>::findIndex(const uint element)
 	{
 		if (element > m_sparse.size())
 		{
@@ -236,7 +216,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::reserve(uint reserve) noexcept
+	inline void SparseSet<uint>::reserve(const uint reserve) noexcept
 	{
 		if (reserve > m_capacity)
 		{
@@ -248,7 +228,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::remove(uint element)
+	inline void SparseSet<uint>::remove(const uint element)
 	{
 		if (has(element))
 		{
@@ -259,7 +239,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline bool SparseSet<uint>::empty() noexcept
+	inline const bool SparseSet<uint>::empty() noexcept
 	{
 		return m_size == 0;
 	}
@@ -275,15 +255,39 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::size() const noexcept
+	inline const uint SparseSet<uint>::size() const noexcept
 	{
 		return m_size;
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::capacity() const noexcept
+	inline const uint SparseSet<uint>::capacity() const noexcept
 	{
 		return m_capacity;
+	}
+
+	template<typename uint>
+	inline decltype(auto) SparseSet<uint>::begin()
+	{
+		return m_dense.begin();
+	}
+
+	template<typename uint>
+	inline decltype(auto) SparseSet<uint>::begin() const
+	{
+		return m_dense.begin();
+	}
+
+	template<typename uint>
+	inline decltype(auto) SparseSet<uint>::end()
+	{
+		return m_dense.begin() + m_size;
+	}
+
+	template<typename uint>
+	inline decltype(auto) SparseSet<uint>::end() const
+	{
+		return m_dense.begin() + m_size;
 	}
 }
 

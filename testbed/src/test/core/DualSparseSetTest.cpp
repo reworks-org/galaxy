@@ -1,5 +1,5 @@
 ///
-/// ExtendedSetTest.cpp
+/// DualSparseSetTest.cpp
 ///
 /// solar
 /// See LICENSE.txt.
@@ -35,14 +35,14 @@ struct B
 	unsigned int b = 2;
 };
 
-TEST(ExtendedSet, Add)
+TEST(DualSparseSet, Add)
 {
 	// Test used to ensure components are stored and accessed correctly.
 
 	sr::Manager m;
 	sr::Entity entity = m.create();
 
-	sr::ExtendedSet<A> es;
+	sr::DualSparseSet<A> es;
 	A* a = es.add(entity, 10);
 
 	ASSERT_NE(a, nullptr);
@@ -54,13 +54,13 @@ TEST(ExtendedSet, Add)
 	ASSERT_EQ(a2->a, 10);
 }
 
-TEST(ExtendedSet, Remove)
+TEST(DualSparseSet, Remove)
 {
 	// Test to ensure components are deleted correctly.
 	sr::Manager m;
 	sr::Entity entity = m.create();
 
-	sr::ExtendedSet<B> es;
+	sr::DualSparseSet<B> es;
 	B* b = es.add(entity, 20);
 
 	es.remove(entity);

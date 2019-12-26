@@ -5,7 +5,7 @@
 /// See LICENSE.txt.
 ///
 
-#include <solar/core/SparseSet.hpp>
+#include <solar/detail/SparseSet.hpp>
 
 #include "gtest/gtest.h"
 

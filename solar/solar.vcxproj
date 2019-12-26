@@ -19,16 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\solar\Config.cpp" />
+    <ClCompile Include="src\solar\detail\DualSparseSet.cpp" />
+    <ClCompile Include="src\solar\detail\SparseSet.cpp" />
+    <ClCompile Include="src\solar\detail\UniqueID.cpp" />
     <ClCompile Include="src\solar\entity\Manager.cpp" />
+    <ClCompile Include="src\solar\system\System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\solar\Config.hpp" />
-    <ClInclude Include="src\solar\core\ExtendedSet.hpp" />
-    <ClInclude Include="src\solar\core\UID.hpp" />
+    <ClInclude Include="src\solar\detail\DualSparseSet.hpp" />
+    <ClInclude Include="src\solar\detail\UniqueID.hpp" />
     <ClInclude Include="src\solar\entity\Manager.hpp" />
-    <ClInclude Include="src\solar\core\SparseSet.hpp" />
+    <ClInclude Include="src\solar\detail\SparseSet.hpp" />
     <ClInclude Include="src\solar\system\System.hpp" />
-    <ClInclude Include="src\solar\Utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

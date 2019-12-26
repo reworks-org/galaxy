@@ -1,45 +1,53 @@
 ///
-/// ExtendedSet.hpp
+/// DualSparseSet.hpp
 ///
 /// solar
 /// See LICENSE.txt.
 ///
 
-#ifndef SOLAR_EXTENDEDSET_HPP_
-#define SOLAR_EXTENDEDSET_HPP_
+#ifndef SOLAR_DUALSPARSESET_HPP_
+#define SOLAR_DUALSPARSESET_HPP_
 
-#include "solar/core/SparseSet.hpp"
+#include "solar/detail/SparseSet.hpp"
 
+///
+/// Core namespace.
+///
 namespace sr
 {
 	///
-	/// Extension of sparse set to store components and systems.
-	/// Thanks to: https://skypjack.github.io/2019-03-21-ecs-baf-part-2-insights/
+	/// Dual sparse set to store components and systems alongside entitys.
 	///
 	template<typename Component>
-	class ExtendedSet final : public SparseSet<Entity>
+	class DualSparseSet final : public SparseSet<Entity>
 	{
+		///
+		/// Make sure Component is a class or struct.
+		///
+		static_assert(std::is_class<Component>::value);
+
 		///
 		/// Friended to manager to allow direct access to internals that cannot have an interface.
 		///
 		friend class Manager;
+
 	public:
 		///
 		/// Constructor.
 		///
-		ExtendedSet() noexcept;
+		DualSparseSet() noexcept;
 
 		///
-		/// Value Constructor.
+		/// Argument Constructor.
 		///
 		/// \param reserve Default reserved amount of entities.
 		///
-		ExtendedSet(SR_INTEGER reserve) noexcept;
+		DualSparseSet(const SR_INTEGER reserve) noexcept;
 
 		///
 		/// Destructor
 		///
-		~ExtendedSet() noexcept override;
+		~DualSparseSet() noexcept override;
 
 		///
 		/// Add a component to an entity.
@@ -50,7 +58,7 @@ namespace sr
 		/// \return Component that was just constructed.
 		///
 		template<typename... Args>
-		Component* add(Entity entity, Args&&... args);
+		Component* add(const sr::Entity entity, Args&&... args);
 
 		///
 		/// Get an entitys component.
@@ -59,14 +67,14 @@ namespace sr
 		///
 		/// \return Component belonging to the entity.
 		///
-		Component* get(Entity entity);
+		Component* get(const sr::Entity entity);
 
 		///
 		/// Remove the entity and its assossiated component.
 		///
 		/// \param entity Entity to remove.
 		///
-		void remove(Entity entity) override;
+		void remove(const sr::Entity entity) override;
 
 	private:
 		///
@@ -77,13 +85,13 @@ namespace sr
 	};
 
 	template<typename Component>
-	inline ExtendedSet<Component>::ExtendedSet() noexcept
+	inline DualSparseSet<Component>::DualSparseSet() noexcept
 		:SparseSet()
 	{
 	}
 
 	template<typename Component>
-	inline ExtendedSet<Component>::ExtendedSet(SR_INTEGER reserve) noexcept
+	inline DualSparseSet<Component>::DualSparseSet(const SR_INTEGER reserve) noexcept
 		:SparseSet(reserve)
 	{
 		// Make sure minimum reserve size is 1.
@@ -98,7 +106,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline ExtendedSet<Component>::~ExtendedSet() noexcept
+	inline DualSparseSet<Component>::~DualSparseSet() noexcept
 	{
 		// Make sure everything is cleaned up.
 		clear();
@@ -107,7 +115,7 @@ namespace sr
 
 	template<typename Component>
 	template<typename ...Args>
-	inline Component* ExtendedSet<Component>::add(Entity entity, Args&& ...args)
+	inline Component* DualSparseSet<Component>::add(const sr::Entity entity, Args&& ...args)
 	{
 		// This works because we are appending the entity to the dense array and
 		// the component will be in the same position since the two are synced.
@@ -120,14 +128,14 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline Component* ExtendedSet<Component>::get(Entity entity)
+	inline Component* DualSparseSet<Component>::get(const sr::Entity entity)
 	{
 		// Access the index the entity is assosiated with to get the component paired with the entity.
 		return &(m_components[findIndex(entity)]);
 	}
 
 	template<typename Component>
-	inline void ExtendedSet<Component>::remove(Entity entity)
+	inline void DualSparseSet<Component>::remove(const sr::Entity entity)
 	{
 		// So if we want to destroy an entity/component, easest method is to move the last entity to the one we are erasing
 		// then destroy the duplicate. Called swap-and-pop.
