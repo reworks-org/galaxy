@@ -1,6 +1,7 @@
 # protostar
 [![Build Status](https://ci.appveyor.com/api/projects/status/3iqax4v3il9ygeif?svg=true)](https://ci.appveyor.com/project/reworks/protostar)
 [![Documentation Status](https://travis-ci.org/DomRe/protostar.svg?branch=master)](https://domre.github.io/protostar/)
+[![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 Common base library for the galaxy modularized game engine.
 
