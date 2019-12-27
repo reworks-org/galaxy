@@ -1,59 +1,25 @@
-language: cpp
-sudo: required
-dist: xenial
-
-git:
-  depth: false
+sudo: false 
+dist: bionic
 
 branches:
   only:
-  - master
+    - master
 
-notifications:
-  email:
-    on_success: never
-    on_failure: always
-
-matrix:
-  include:
-    os: linux
-    compiler: gcc
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-        packages:
-          - g++-8
-    env: 
-      - CCCOMPILER=gcc-8
-      - CXXCOMPILER=g++-8
-#    os: linux
-#    compiler: clang
-#    addons:
-#      apt:
-#        sources:
-#          - llvm-toolchain-7
-#        packages:
-#          - clang-7
-#    env: COMPILER=clang++-7.0
-
-before_install:
-  - export CC=${CCCOMPILER}
-  - export CXX=${CXXCOMPILER}
-
-install:
-  - sudo apt-get update
-  - sudo apt-get install -y build-essential git libsdl2-2.0-0 libsdl2-dev curl
+addons:
+  apt:
+    packages:
+      - doxygen
 
 before_script:
-  - curl -L -o premake5.tar.gz https://github.com/premake/premake-core/releases/download/v5.0.0-alpha13/premake-5.0.0-alpha13-linux.tar.gz
-  - tar -xvzf premake5.tar.gz
+  - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - ./premake5 --cc=gcc --os=linux --file=./premake5.lua --verbose gmake
-  - make config=debug_linux64 all
-  - make config=release_linux64 all
+  - doxygen Doxyfile
 
-after_success:
-  - cd build/Tests/bin/Linux64/Debug/
-  - ./Tests
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: html
+  github_token: $GH_REPO_TOKEN
+  on:
+    branch: master

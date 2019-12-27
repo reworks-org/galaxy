@@ -1,0 +1,12 @@
+[submodule "modules/SDL2"]
+	path = modules/SDL2
+	url = https://github.com/SDL-mirror/SDL.git
+[submodule "modules/gtest"]
+	path = modules/gtest
+	url = https://github.com/google/googletest.git
+[submodule "modules/glm"]
+	path = modules/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "modules/stb"]
+	path = modules/stb
+	url = https://github.com/nothings/stb.git

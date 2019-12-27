@@ -8,12 +8,12 @@ Thumbs.db
 .vs/
 
 # project build stuff
-Quasar/bin/
-Quasar/build/
+quasar/bin/
+quasar/build/
 
-Sandbox/bin/Debug/
-Sandbox/bin/Release/
-Sandbox/build/
+sandbox/bin/Debug/
+sandbox/bin/Release/
+sandbox/build/
 
-Tests/bin/
-Tests/build/
+testbed/bin/
+testbed/build/

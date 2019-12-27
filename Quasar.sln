@@ -2,14 +2,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sandbox", "Sandbox\Sandbox.vcxproj", "{69BE6962-AA70-41CD-87BC-44A77344330A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{69BE6962-AA70-41CD-87BC-44A77344330A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CE3E74C5-2C0F-4063-8983-7468E868D286} = {CE3E74C5-2C0F-4063-8983-7468E868D286}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Quasar", "Quasar\Quasar.vcxproj", "{CE3E74C5-2C0F-4063-8983-7468E868D286}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quasar", "quasar\quasar.vcxproj", "{CE3E74C5-2C0F-4063-8983-7468E868D286}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{D2078668-2F38-4E5B-8445-34D2D20A5244}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcxproj", "{D2078668-2F38-4E5B-8445-34D2D20A5244}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

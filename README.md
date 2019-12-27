@@ -1,20 +1,32 @@
-# Quasar
-[![Build Status](https://ci.appveyor.com/api/projects/status/aiyp8s2pels9nnr6?svg=true)](https://ci.appveyor.com/project/DomRe/quasar)
-[![Build Status](https://travis-ci.org/DomRe/Quasar.svg?branch=master)](https://travis-ci.org/DomRe/Quasar)
-[![Docs Status](https://readthedocs.org/projects/quasarlib/badge/?version=latest)](https://quasarlib.readthedocs.io/en/latest/?badge=latest)
+# quasar
+[![Build Status](https://ci.appveyor.com/api/projects/status/aiyp8s2pels9nnr6?svg=true)](https://ci.appveyor.com/project/reworks/quasar)
+[![Documentation Status](https://travis-ci.org/DomRe/quasar.svg?branch=master)](https://domre.github.io/quasar/)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 2D OpenGL Renderer in Modern C++.
+
+## Usage:
+```cpp
+// todo
+```  
 
 ## Notes:
 - Requires C++17 compatible compiler and OpenGL 4.3+ capable GPU.
 - This was created as a method to learn OpenGL and professional Software Engineering processes. I.e. Software Testing, Software Documentation and Software Design.
 
 ## Building:
-- premake5 script provided for Windows and Linux.
-- Visual Studio 2017 project files provided for Windows.
+- Visual Studio 2019 project files provided for Windows.
 - Mac OS is not supported due to Apple depreciating OpenGL.
+- Unix support coming soon.
 
 ## Tests:
 - Built as part of the project. Run the compiled binary.
 - Certain tests will fail when ran through continous integration, since, i.e. an sdl window cant be created.
+
+### Documentation:  
+See [documentation](https://domre.github.io/quasar/) for more.  
+
+### Credits
+* [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
+* [SDL-mirror](https://github.com/SDL-mirror).
+* [Learn OpenGL](https://learnopengl.com/).
