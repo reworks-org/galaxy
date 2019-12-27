@@ -7,15 +7,18 @@
 
 #include "Panel.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
-	Panel::Panel(const celestial::Rect<int>& bounds, UITheme* theme)
+	Panel::Panel(const protostar::Rect<int>& bounds, UITheme* theme)
 		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr), m_theme(theme)
 	{
-		m_background = m_theme->loader()->createRectangle(m_bounds.m_w, m_bounds.m_h, m_theme->colour());
+		m_background = m_theme->loader()->createRectangle(m_bounds.m_width, m_bounds.m_height, m_theme->colour());
 	}
 
-	Panel::Panel(const std::string& texture, const celestial::Rect<int>& bounds, UITheme* theme)
+	Panel::Panel(const std::string& texture, const protostar::Rect<int>& bounds, UITheme* theme)
 		:m_counter(0), m_isVisible(true), m_bounds(bounds), m_background(nullptr), m_theme(theme)
 	{
 		m_background = m_theme->extractWidgetTexture(texture);

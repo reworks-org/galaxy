@@ -9,8 +9,8 @@
 #define CELESTIAL_PROGRESSBAR_HPP_
 
 #include "celestial/ui/Widget.hpp"
-#include "celestial/compat/Colour.hpp"
-#include "celestial/internal/Rect.hpp"
+#include "protostar/graphics/Colour.hpp"
+#include "protostar/graphics/Rect.hpp"
 
 namespace celestial
 {
@@ -31,7 +31,7 @@ namespace celestial
 		/// \param bar Seperate texture for the progress bar itself, not its outline in theme to use.
 		/// \param theme Theme of the widget to use.
 		///
-		ProgressBar(const celestial::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme);
+		ProgressBar(const protostar::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme);
 
 		///
 		/// Primitives constructor.
@@ -41,7 +41,7 @@ namespace celestial
 		/// \param bar Colour of the progress bar itself.
 		/// \param loader ResourceLoader to use.
 		///
-		ProgressBar(const celestial::Rect<int>& bounds, const celestial::compat::Colour* container, const celestial::compat::Colour* bar, celestial::ResourceLoader* loader);
+		ProgressBar(const protostar::Rect<int>& bounds, const protostar::colour container, const protostar::colour bar, celestial::ResourceLoader* loader);
 		
 		///
 		/// Destructor.
@@ -113,7 +113,7 @@ namespace celestial
 		///
 		/// Bounds for the bar texture.
 		///
-		celestial::Rect<int> m_barBounds;
+		protostar::Rect<int> m_barBounds;
 
 		///
 		/// Current progress percentage of this bar. From 0.0f - 1.0f. I.e. 0.54f is 54%.

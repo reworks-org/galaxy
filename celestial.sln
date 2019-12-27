@@ -4,11 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "celestial", "celestial\celestial.vcxproj", "{D35A973A-11D3-4496-9ACA-0DF906D8A16B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD} = {2FD7E7CD-31C7-4C72-B6A1-B816720874FD}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcxproj", "{C7727119-B126-4D31-927E-F72927D2EC07}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D35A973A-11D3-4496-9ACA-0DF906D8A16B} = {D35A973A-11D3-4496-9ACA-0DF906D8A16B}
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD} = {2FD7E7CD-31C7-4C72-B6A1-B816720874FD}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protostar", "modules\protostar\protostar\protostar.vcxproj", "{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +40,14 @@ Global
 		{C7727119-B126-4D31-927E-F72927D2EC07}.Release|x64.Build.0 = Debug|x64
 		{C7727119-B126-4D31-927E-F72927D2EC07}.Release|x86.ActiveCfg = Debug|x64
 		{C7727119-B126-4D31-927E-F72927D2EC07}.Release|x86.Build.0 = Debug|x64
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Debug|x64.ActiveCfg = Debug|x64
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Debug|x64.Build.0 = Debug|x64
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Debug|x86.ActiveCfg = Debug|Win32
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Debug|x86.Build.0 = Debug|Win32
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Release|x64.ActiveCfg = Release|x64
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Release|x64.Build.0 = Release|x64
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Release|x86.ActiveCfg = Release|Win32
+		{2FD7E7CD-31C7-4C72-B6A1-B816720874FD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

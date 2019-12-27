@@ -8,6 +8,9 @@
 #ifndef CELESTIAL_KEYUPEVENT_HPP_
 #define CELESTIAL_KEYUPEVENT_HPP_
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -16,19 +19,26 @@ namespace celestial
 	struct KeyUpEvent final
 	{
 		///
+		/// Default constructor.
+		///
+		KeyUpEvent() noexcept;
+
+		///
 		/// Constructor.
 		///
 		/// \param keycode Keycode of key pressed.
 		///
-		inline KeyUpEvent(const int keycode) noexcept
-			:m_keycode(keycode)
-		{
-		}
+		KeyUpEvent(const int keycode) noexcept;
+
+		///
+		/// Default destructor.
+		///
+		~KeyUpEvent() = default;
 
 		///
 		/// Keycode for the key that was pressed.
 		///
-		int m_keycode = 0;
+		int m_keycode;
 	};
 }
 

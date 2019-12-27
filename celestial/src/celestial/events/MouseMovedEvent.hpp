@@ -8,6 +8,9 @@
 #ifndef CELESTIAL_MOUSEMOVEDEVENT_HPP_
 #define CELESTIAL_MOUSEMOVEDEVENT_HPP_
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -15,6 +18,11 @@ namespace celestial
 	///
 	struct MouseMovedEvent final
 	{
+		///
+		/// Default constructor.
+		///
+		MouseMovedEvent() noexcept;
+
 		///
 		/// Constructor.
 		///
@@ -24,35 +32,37 @@ namespace celestial
 		/// \param dy Change in y coord value since previous event.
 		/// \param pressure Any pressure from any button click the mouse might be applying.
 		///
-		inline MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept
-			:m_x(x), m_y(y), m_dx(dx), m_dy(dy), m_pressure(pressure)
-		{
-		}
+		MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept;
+
+		///
+		/// Default destructor.
+		///
+		~MouseMovedEvent() = default;
 
 		///
 		/// Mouse x position.
 		///
-		int m_x = 0;
+		int m_x;
 
 		///
 		/// Mouse y position.
 		///
-		int m_y = 0;
+		int m_y;
 
 		///
 		/// Change in x coord value since previous event.
 		///
-		int m_dx = 0;
+		int m_dx;
 
 		///
 		/// Change in y coord value since previous event.
 		///
-		int m_dy = 0;
+		int m_dy;
 
 		///
 		/// Any pressure from any button click the mouse might be applying.
 		///
-		float m_pressure = 0.0f;
+		float m_pressure;
 	};
 }
 

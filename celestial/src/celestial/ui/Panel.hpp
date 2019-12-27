@@ -10,9 +10,12 @@
 
 #include "celestial/ui/Widget.hpp"
 #include "celestial/ui/UITheme.hpp"
-#include "celestial/internal/Rect.hpp"
-#include "celestial/compat/Renderer.hpp"
+#include "protostar/graphics/Rect.hpp"
+#include "celestial/interface/Renderer.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -27,7 +30,7 @@ namespace celestial
 		/// \param bounds Dimension of the panel.
 		/// \param theme Theme of the panel UI.
 		///
-		Panel(const celestial::Rect<int>& bounds, UITheme* theme);
+		Panel(const protostar::Rect<int>& bounds, UITheme* theme);
 
 		///
 		/// Image Constructor.
@@ -36,7 +39,7 @@ namespace celestial
 		/// \param bounds Dimension of the panel.
 		/// \param theme Theme to use containing panel texture.
 		///
-		Panel(const std::string& texture, const celestial::Rect<int>& bounds, UITheme* theme);
+		Panel(const std::string& texture, const protostar::Rect<int>& bounds, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -106,7 +109,7 @@ namespace celestial
 		///
 		/// Dimensions of the panel, relative to the screen.
 		///
-		celestial::Rect<int> m_bounds;
+		protostar::Rect<int> m_bounds;
 
 		///
 		/// Background of the panel. Full colour or texture.

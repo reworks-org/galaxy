@@ -8,6 +8,9 @@
 #ifndef CELESTIAL_KEYCHAREVENT_HPP_
 #define CELESTIAL_KEYCHAREVENT_HPP_
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -16,25 +19,32 @@ namespace celestial
 	struct KeyCharEvent final
 	{
 		///
-		/// Constructor.
+		/// Default constructor.
+		///
+		KeyCharEvent() noexcept;
+
+		///
+		/// Argument constructor.
 		///
 		/// \param keycode Code of the key pressed.
 		/// \param unichar Unicode character pressed.
 		///
-		inline KeyCharEvent(const int keycode, const int unichar) noexcept
-			:m_keycode(keycode), m_unichar(unichar)
-		{
-		}
+		KeyCharEvent(const int keycode, const int unichar) noexcept;
+
+		///
+		/// Default destructor.
+		///
+		~KeyCharEvent() = default;
 
 		///
 		/// Keycode for the key that was pressed.
 		///
-		int m_keycode = 0;
+		int m_keycode;
 
 		///
 		/// Unicode character for use with unicode strings.
 		///
-		int m_unichar = 0;
+		int m_unichar;
 	};
 }
 

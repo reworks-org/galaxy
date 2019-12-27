@@ -11,7 +11,7 @@
 
 namespace celestial
 {
-	ProgressBar::ProgressBar(const celestial::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme)
+	ProgressBar::ProgressBar(const protostar::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme)
 		:Widget({ containerBarCoords.m_x, containerBarCoords.m_y, 0, 0 }, theme), m_barBounds({ containerBarCoords.m_w, containerBarCoords.m_h, 0, 0 }), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// The background / outline, etc..
@@ -29,7 +29,7 @@ namespace celestial
 		m_barBounds.m_h = m_theme->loader()->getTextureHeight(m_bar.get());
 	}
 
-	ProgressBar::ProgressBar(const celestial::Rect<int>& bounds, const celestial::compat::Colour* container, const celestial::compat::Colour* bar, celestial::ResourceLoader* loader)
+	ProgressBar::ProgressBar(const protostar::Rect<int>& bounds, const protostar::colour container, const protostar::colour bar, celestial::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_barBounds(bounds), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// Create textures

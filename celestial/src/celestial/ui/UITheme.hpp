@@ -11,8 +11,8 @@
 #include <unordered_map>
 
 #include "celestial/compat/Font.hpp"
-#include "celestial/compat/Colour.hpp"
-#include "celestial/internal/Rect.hpp"
+#include "protostar/graphics/Colour.hpp"
+#include "protostar/graphics/Rect.hpp"
 #include "celestial/compat/Texture.hpp"
 
 #include "celestial/compat/ResourceLoader.hpp"
@@ -70,7 +70,7 @@ namespace celestial
 		/// \param id ID of the texture region for that widget. I.e. "ButtonOn".
 		/// \param dim Dimensions of that texture on the master texture.
 		///
-		void defineWidgetTexture(const std::string& id, const celestial::Rect<int>& dim) noexcept;
+		void defineWidgetTexture(const std::string& id, const protostar::Rect<int>& dim) noexcept;
 
 		///
 		/// Gets a sub-bitmap of a widget texture region from the master texture.
@@ -93,7 +93,7 @@ namespace celestial
 		///
 		/// \return Colour object.
 		///
-		const celestial::compat::Colour* colour() const noexcept;
+		const protostar::colour colour() const noexcept;
 
 		///
 		/// Gets a reference to the resource loader.
@@ -130,7 +130,7 @@ namespace celestial
 		///
 		/// Regions on the master texture for each widget.
 		///
-		std::unordered_map<std::string, celestial::Rect<int>> m_widgetRegions;
+		std::unordered_map<std::string, protostar::Rect<int>> m_widgetRegions;
 	};
 
 	template<typename ColourClass>

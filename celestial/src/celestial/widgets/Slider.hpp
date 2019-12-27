@@ -29,7 +29,7 @@ namespace celestial
 		/// \param marker Colour of the marker used to indicate position.
 		/// \param loader ResourceLoader to use.
 		///
-		Slider(const celestial::Rect<int>& bounds, const int mw, const int mh, const celestial::compat::Colour* slider, const celestial::compat::Colour* marker, celestial::ResourceLoader* loader);
+		Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::colour slider, const protostar::colour marker, celestial::ResourceLoader* loader);
 
 		///
 		/// Texture constructor.

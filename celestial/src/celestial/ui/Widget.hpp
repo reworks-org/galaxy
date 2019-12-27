@@ -94,7 +94,7 @@ namespace celestial
 		/// \param bounds Dimensions of the widget, relative to the panel.
 		/// \param theme Theme to be used by this widget.
 		///
-		explicit Widget(const celestial::Rect<int>& bounds, UITheme* theme);
+		explicit Widget(const protostar::Rect<int>& bounds, UITheme* theme);
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
@@ -112,7 +112,7 @@ namespace celestial
 		///
 		/// X, Y, width and height of the widget.
 		///
-		celestial::Rect<int> m_bounds;
+		protostar::Rect<int> m_bounds;
 
 		///
 		/// Pointer to the theme used by the widget.

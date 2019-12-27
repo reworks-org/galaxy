@@ -22,11 +22,10 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\celestial\compat\Colour.hpp" />
-    <ClInclude Include="src\celestial\compat\Font.hpp" />
-    <ClInclude Include="src\celestial\compat\Renderer.hpp" />
-    <ClInclude Include="src\celestial\compat\ResourceLoader.hpp" />
-    <ClInclude Include="src\celestial\compat\Texture.hpp" />
+    <ClInclude Include="src\celestial\interface\Font.hpp" />
+    <ClInclude Include="src\celestial\interface\Renderer.hpp" />
+    <ClInclude Include="src\celestial\interface\ResourceLoader.hpp" />
+    <ClInclude Include="src\celestial\interface\Texture.hpp" />
     <ClInclude Include="src\celestial\Config.hpp" />
     <ClInclude Include="src\celestial\events\KeyCharEvent.hpp" />
     <ClInclude Include="src\celestial\events\KeyDownEvent.hpp" />
@@ -34,7 +33,6 @@
     <ClInclude Include="src\celestial\events\MouseMovedEvent.hpp" />
     <ClInclude Include="src\celestial\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\celestial\events\MouseReleasedEvent.hpp" />
-    <ClInclude Include="src\celestial\internal\Rect.hpp" />
     <ClInclude Include="src\celestial\ui\Panel.hpp" />
     <ClInclude Include="src\celestial\ui\Tooltip.hpp" />
     <ClInclude Include="src\celestial\ui\UI.hpp" />
@@ -49,6 +47,15 @@
     <ClInclude Include="src\celestial\widgets\ToggleButton.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\celestial\events\KeyCharEvent.cpp" />
+    <ClCompile Include="src\celestial\events\KeyDownEvent.cpp" />
+    <ClCompile Include="src\celestial\events\KeyUpEvent.cpp" />
+    <ClCompile Include="src\celestial\events\MouseMovedEvent.cpp" />
+    <ClCompile Include="src\celestial\events\MousePressedEvent.cpp" />
+    <ClCompile Include="src\celestial\events\MouseReleasedEvent.cpp" />
+    <ClCompile Include="src\celestial\interface\Renderer.cpp" />
+    <ClCompile Include="src\celestial\interface\ResourceLoader.cpp" />
+    <ClCompile Include="src\celestial\interface\Texture.cpp" />
     <ClCompile Include="src\celestial\ui\Panel.cpp" />
     <ClCompile Include="src\celestial\ui\Tooltip.cpp" />
     <ClCompile Include="src\celestial\ui\UI.cpp" />
@@ -61,6 +68,9 @@
     <ClCompile Include="src\celestial\widgets\Slider.cpp" />
     <ClCompile Include="src\celestial\widgets\Textbox.cpp" />
     <ClCompile Include="src\celestial\widgets\ToggleButton.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\celestial\interface\Font.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -149,7 +159,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -169,7 +179,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -190,7 +200,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -213,7 +223,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

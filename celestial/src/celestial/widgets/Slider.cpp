@@ -11,7 +11,7 @@
 
 namespace celestial
 {
-	Slider::Slider(const celestial::Rect<int>& bounds, const int mw, const int mh, const celestial::compat::Colour* slider, const celestial::compat::Colour* marker, celestial::ResourceLoader* loader)
+	Slider::Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::colour slider, const protostar::colour marker, celestial::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_value(0.0f), m_markerX(0.0f), m_markerW(mw), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Create textures

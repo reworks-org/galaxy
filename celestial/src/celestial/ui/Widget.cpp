@@ -9,7 +9,7 @@
 
 namespace celestial
 {
-	Widget::Widget(const celestial::Rect<int>& bounds, UITheme* theme)
+	Widget::Widget(const protostar::Rect<int>& bounds, UITheme* theme)
 		:m_bounds(bounds), m_theme(theme), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
 	{
 	}

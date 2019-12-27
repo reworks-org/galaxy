@@ -8,6 +8,16 @@
 #ifndef CELESTIAL_RESOURCELOADER_HPP_
 #define CELESTIAL_RESOURCELOADER_HPP_
 
+#include <string>
+
+#include "protostar/graphics/Rect.hpp"
+#include "celestial/interface/Font.hpp"
+#include "protostar/graphics/Colour.hpp"
+#include "celestial/interface/Texture.hpp"
+
+///
+/// Core namespace.
+///	
 namespace celestial
 {
 	///
@@ -53,7 +63,7 @@ namespace celestial
 		///
 		/// \return New polymorphic texture of a region of the master texture.
 		///
-		virtual TexturePtr createSubTexture(celestial::Texture* id, const celestial::Rect<int>& dim) = 0;
+		virtual TexturePtr createSubTexture(celestial::Texture* id, const protostar::Rect<int>& dim) = 0;
 
 		///
 		/// Creates a geometric coloured rectangle.
@@ -64,7 +74,7 @@ namespace celestial
 		///
 		/// \return New polymorphic texture.
 		///
-		virtual TexturePtr createRectangle(const int width, const int height, const celestial::compat::Colour* colour) = 0;
+		virtual TexturePtr createRectangle(const int width, const int height, const protostar::Colour& colour) = 0;
 
 		///
 		/// Retrieves the height of a texture.
