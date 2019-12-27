@@ -7,3 +7,4 @@ i.e. should take 1/10 the time instead if u have 10 collisons...
 https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-the-basics-and-impulse-resolution--gamedev-6331
 https://stackoverflow.com/questions/42280364/stdfuture-returned-from-stdasync-hangs-while-going-out-of-scope
 https://stackoverflow.com/questions/18143661/what-is-the-difference-between-packaged-task-and-async
+https://www.acodersjourney.com/top-20-cplusplus-multithreading-mistakes/
