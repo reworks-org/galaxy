@@ -1,0 +1,26 @@
+https://github.com/google/googletest
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
+https://shields.io/
+[![Documentation Status](https://readthedocs.org/projects/quasar/badge/?version=latest)](http://quasar.readthedocs.io/en/latest/?badge=latest)
+https://coveralls.io
+https://ci.appveyor.com/
+https://travis-ci.org/
+https://gyp.gsrc.io/docs/UserDocumentation.md
+https://stackoverflow.com/questions/36064976/using-doxygen-in-read-the-docs
+http://lazyfoo.net/tutorials/SDL/51_SDL_and_modern_opengl/index.php
+https://learnopengl.com/Getting-started/Creating-a-window
+
+see about newer opengl stuff in like 4.0 and higher. haha 
+post processing later
+	- AA - SDL_GL_MULTISAMPLE?
+	- AF
+
+- method of options
+	- config structure? to be filled by user and retrieved by window. Might be gud.
+	- for AA and Hardware Acc in window, and vsync. SDL_GL_SetSwapInterval(0);
+	- in window.cpp, set opengl debug mode to options stuff above.
+
+
+- clang-7 builds to travis-ci
+- fix error and window tests. creating window is wrong and make sure error is more generic in case error message is changed during testing.
+- move to build script so can be build without appveyor or manual package installation. (copy dlls on windows too...)
