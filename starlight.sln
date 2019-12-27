@@ -4,10 +4,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "starlight", "starlight\starlight.vcxproj", "{D35A973A-11D3-4496-9ACA-0DF906D8A16B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{08C43081-CEC6-43A1-9DF3-49F59713D893} = {08C43081-CEC6-43A1-9DF3-49F59713D893}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcxproj", "{C7727119-B126-4D31-927E-F72927D2EC07}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D35A973A-11D3-4496-9ACA-0DF906D8A16B} = {D35A973A-11D3-4496-9ACA-0DF906D8A16B}
+		{08C43081-CEC6-43A1-9DF3-49F59713D893} = {08C43081-CEC6-43A1-9DF3-49F59713D893}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protostar", "modules\protostar\protostar\protostar.vcxproj", "{08C43081-CEC6-43A1-9DF3-49F59713D893}"
