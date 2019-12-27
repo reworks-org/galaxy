@@ -1,6 +1,7 @@
 # pulsar
 [![Build status](https://ci.appveyor.com/api/projects/status/swqgmhpnue0jc5je?svg=true)](https://ci.appveyor.com/project/reworks/pulsar)
 [![Documentation Status](https://travis-ci.org/DomRe/pulsar.svg?branch=master)](https://domre.github.io/pulsar/)
+[![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 Minimal multi-threaded C++17 logging library.
 

@@ -175,6 +175,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\pl\detail\LogColours.cpp" />
+    <ClCompile Include="src\pl\detail\Unix.cpp" />
+    <ClCompile Include="src\pl\detail\Windows.cpp" />
     <ClCompile Include="src\pl\Log.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@ namespace pl
 	/// Log logging class.
 	/// Uses multithreading.
 	///
-	class Log
+	class Log final
 	{
 	public:
 		///

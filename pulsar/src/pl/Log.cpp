@@ -116,27 +116,27 @@ namespace pl
 		switch (level)
 		{
 		case pl::Log::Level::INFO:
-			out = Platform::colourText(LogColours::WHITE);
+			out = pl::colourText(LogColours::WHITE);
 			break;
 
 		case pl::Log::Level::DEBUG:
-			out = Platform::colourText(LogColours::GREEN);
+			out = pl::colourText(LogColours::GREEN);
 			break;
 
 		case pl::Log::Level::WARNING:
-			out = Platform::colourText(LogColours::YELLOW);
+			out = pl::colourText(LogColours::YELLOW);
 			break;
 
 		case pl::Log::Level::ERROR:
-			out = Platform::colourText(LogColours::RED);
+			out = pl::colourText(LogColours::RED);
 			break;
 
 		case pl::Log::Level::FATAL:
-			out = Platform::colourText(LogColours::FATAL);
+			out = pl::colourText(LogColours::FATAL);
 			break;
 
 		default:
-			out = Platform::colourText(LogColours::WHITE);
+			out = pl::colourText(LogColours::WHITE);
 			break;
 		}
 
