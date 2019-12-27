@@ -19,4 +19,4 @@ configuration:
 
 build:
   parallel: true
-  project: supercluster.sln
+  project: protostar.sln

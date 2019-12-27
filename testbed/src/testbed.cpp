@@ -1,6 +1,6 @@
 ///
 /// testbed.cpp
-/// supercluster
+/// protostar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
