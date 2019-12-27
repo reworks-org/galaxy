@@ -14,7 +14,7 @@
 
 #include "starlight/event/Queued.hpp"
 #include "starlight/event/Wrapper.hpp"
-#include "starlight/detail/UniqueID.hpp"
+#include "protostar/utility/UniqueID.hpp"
 
 ///
 /// Core namespace.
@@ -25,6 +25,11 @@ namespace starlight
 	/// Shorthand for event type.
 	///
 	using EventPtr = std::unique_ptr<EventBase>;
+
+	///
+	/// Predefinition of unique id structure for events.
+	///
+	using EventUniqueID = protostar::UniqueID<struct EUID>;
 
 	///
 	/// This is the main class to dispatch events from.
@@ -102,7 +107,7 @@ namespace starlight
 	inline bool Dispatcher::add(const callback<Event>& func)
 	{
 		// Useful to retrieve a compile time unique id.
-		auto type = EventUniqueID::uid<Event>();
+		auto type = EventUniqueID::get<Event>();
 		bool result = true;
 
 		if (type >= m_stored.size())
@@ -133,7 +138,7 @@ namespace starlight
 	inline bool Dispatcher::queue(const Event& event)
 	{
 		// Useful to retrieve a compile time unique id.
-		auto type = EventUniqueID::uid<Event>();
+		auto type = EventUniqueID::get<Event>();
 		bool result = true;
 
 		if (type < m_stored.size())
@@ -161,7 +166,7 @@ namespace starlight
 	inline void Dispatcher::trigger(const Event& event)
 	{
 		// Useful to retrieve a compile time unique id.
-		auto type = EventUniqueID::uid<Event>();
+		auto type = EventUniqueID::get<Event>();
 
 		// Matches to vector location and trigger event.
 		m_stored[type]->trigger(event);

@@ -22,14 +22,12 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\starlight\detail\UniqueID.hpp" />
     <ClInclude Include="src\starlight\Dispatcher.hpp" />
     <ClInclude Include="src\starlight\event\Base.hpp" />
     <ClInclude Include="src\starlight\event\Wrapper.hpp" />
     <ClInclude Include="src\starlight\event\Queued.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\starlight\detail\UniqueID.cpp" />
     <ClCompile Include="src\starlight\Dispatcher.cpp" />
     <ClCompile Include="src\starlight\event\Base.cpp" />
     <ClCompile Include="src\starlight\event\Queued.cpp" />
@@ -123,7 +121,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,7 +141,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -164,7 +162,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -187,7 +185,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
