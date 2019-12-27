@@ -4,11 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "solar", "solar\solar.vcxproj", "{3805D366-53D2-4DA8-B368-A9F888C4296C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B} = {D35A973A-11D3-4496-9ACA-0DF906D8A16B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcxproj", "{599D84B5-88B8-4E03-8058-EEBFFA2F63E7}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B} = {D35A973A-11D3-4496-9ACA-0DF906D8A16B}
 		{3805D366-53D2-4DA8-B368-A9F888C4296C} = {3805D366-53D2-4DA8-B368-A9F888C4296C}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protostar", "modules\protostar\protostar\protostar.vcxproj", "{D35A973A-11D3-4496-9ACA-0DF906D8A16B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +40,14 @@ Global
 		{599D84B5-88B8-4E03-8058-EEBFFA2F63E7}.Release|x64.Build.0 = Debug|x64
 		{599D84B5-88B8-4E03-8058-EEBFFA2F63E7}.Release|x86.ActiveCfg = Debug|x64
 		{599D84B5-88B8-4E03-8058-EEBFFA2F63E7}.Release|x86.Build.0 = Debug|x64
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Debug|x64.ActiveCfg = Debug|x64
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Debug|x64.Build.0 = Debug|x64
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Debug|x86.ActiveCfg = Debug|Win32
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Debug|x86.Build.0 = Debug|Win32
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Release|x64.ActiveCfg = Release|x64
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Release|x64.Build.0 = Release|x64
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Release|x86.ActiveCfg = Release|Win32
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

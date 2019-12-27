@@ -5,15 +5,15 @@
 /// See LICENSE.txt.
 ///
 
-#include <solar/detail/UniqueID.hpp>
+#include <protostar/utility/UniqueID.hpp>
 
 #include "gtest/gtest.h"
 
 ///
 /// Define unique types for testing.
 ///
-using testUniqueIDA = sr::UniqueID<struct TestUniqueIDA>;
-using testUniqueIDB = sr::UniqueID<struct TestUniqueIDB>;
+using testUniqueIDA = protostar::UniqueID<struct TestUniqueIDA>;
+using testUniqueIDB = protostar::UniqueID<struct TestUniqueIDB>;
 
 TEST(UniqueID, Functionality)
 {

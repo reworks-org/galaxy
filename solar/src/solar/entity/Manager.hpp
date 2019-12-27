@@ -13,9 +13,9 @@
 #include <optional>
 #include <functional>
 
-#include "solar/detail/UniqueID.hpp"
 #include "solar/system/System.hpp"
 #include "solar/detail/DualSparseSet.hpp"
+#include "protostar/utility/UniqueID.hpp"
 
 ///
 /// Core namespace.
@@ -31,6 +31,16 @@ namespace sr
 	/// Shorthand component storage type.
 	///
 	using ComponentContainer = std::vector<std::unique_ptr<SparseSet<sr::Entity>>>;
+
+	///
+	/// Predefinition of unique id structure for components.
+	///
+	using cUniqueID = protostar::UniqueID<struct ComponentUniqueID>;
+
+	///
+	/// Predefinition of unique id structure for systems.
+	///
+	using sUniqueID = protostar::UniqueID<struct SystemUniqueID>;
 
 	///
 	/// Controls and manages the Entitys, Components and Systems.
