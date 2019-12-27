@@ -1,6 +1,7 @@
 # solar
 [![Build Status](https://ci.appveyor.com/api/projects/status/1eydmdc2hrp5v2oa?svg=true)](https://ci.appveyor.com/project/reworks/solar)
 [![Documentation Status](https://travis-ci.org/DomRe/solar.svg?branch=master)](https://domre.github.io/solar/)
+[![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 Entity-Component-System, written in C++17.
 
