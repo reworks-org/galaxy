@@ -1,6 +1,7 @@
 # starmap
 [![Build Status](https://ci.appveyor.com/api/projects/status/yigrhkcvgofvhhwt?svg=true)](https://ci.appveyor.com/project/reworks/starmap)
 [![Documentation Status](https://travis-ci.org/DomRe/starmap.svg?branch=master)](https://domre.github.io/starmap/)
+[![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 C++17 JSON Tiled Map Parser.
 
