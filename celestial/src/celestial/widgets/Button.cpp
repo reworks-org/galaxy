@@ -7,10 +7,13 @@
 
 #include "Button.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	Button::Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme)
-		:Widget({x, y, 0, 0}, theme), m_callback(nullptr), m_label(label)
+		:Widget({x, y, 0, 0}, theme), m_callback(nullptr), m_label(label), m_xLabelPos(0.0f), m_yLabelPos(0.0f), m_state(Button::State::DEFAULT)
 	{
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)
@@ -19,20 +22,20 @@ namespace celestial
 		}
 
 		// Set dimensions.
-		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_textures[0].get());
-		m_bounds.m_h = m_theme->loader()->getTextureHeight(m_textures[0].get());
+		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_textures[0].get());
+		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_textures[0].get());
 	}
 
-	Button::Button(const int x, const int y, const std::string& text, const std::array<ColourPtr, 3>& colours, UITheme* theme)
-		:Widget({ x, y, 0, 0 }, theme), m_callback(nullptr), m_label("")
+	Button::Button(const int x, const int y, const std::string& text, const std::array<protostar::Colour, 3>& colours, UITheme* theme)
+		:Widget({ x, y, 0, 0 }, theme), m_callback(nullptr), m_label(""), m_xLabelPos(0.0f), m_yLabelPos(0.0f), m_state(Button::State::DEFAULT)
 	{	
 		// Find correct button size.
-		m_bounds.m_w = m_theme->loader()->getTextWidth(m_theme->font(), text.c_str());
-		m_bounds.m_h = m_theme->loader()->getTextHeight(m_theme->font(), text.c_str());
+		m_bounds.m_width = m_theme->loader()->getTextWidth(m_theme->font(), text.c_str());
+		m_bounds.m_height = m_theme->loader()->getTextHeight(m_theme->font(), text.c_str());
 
 		for (auto i = 0; i < 3; ++i)
 		{
-			m_textures[i] = m_theme->loader()->createRectangle(m_bounds.m_w, m_bounds.m_h, colours[i].get());
+			m_textures[i] = m_theme->loader()->createRectangle(m_bounds.m_width, m_bounds.m_height, colours[i]);
 		}
 	}
 
@@ -87,7 +90,7 @@ namespace celestial
 		}
 	}
 
-	void Button::receivePress(const celestial::MousePressedEvent& e)
+	void Button::receivePress(const protostar::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -98,7 +101,7 @@ namespace celestial
 		}
 	}
 
-	void Button::receiveRelease(const celestial::MouseReleasedEvent& e)
+	void Button::receiveRelease(const protostar::MouseReleasedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -113,7 +116,7 @@ namespace celestial
 		}
 	}
 
-	void Button::recieveMoved(const celestial::MouseMovedEvent& e)
+	void Button::recieveMoved(const protostar::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

@@ -9,13 +9,16 @@
 
 #include "Slider.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
-	Slider::Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::colour slider, const protostar::colour marker, celestial::ResourceLoader* loader)
+	Slider::Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, celestial::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_value(0.0f), m_markerX(0.0f), m_markerW(mw), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Create textures
-		m_slider = loader->createRectangle(m_bounds.m_w, m_bounds.m_h, slider);
+		m_slider = loader->createRectangle(m_bounds.m_width, m_bounds.m_height, slider);
 		m_marker = loader->createRectangle(mw, mh, marker);
 	}
 
@@ -26,8 +29,8 @@ namespace celestial
 		m_slider = m_theme->extractWidgetTexture(slider);
 		
 		// Set dimensions.
-		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_slider.get());
-		m_bounds.m_h = m_theme->loader()->getTextureHeight(m_slider.get());
+		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_slider.get());
+		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_slider.get());
 
 		// Load marker texture and check for errors.
 		m_marker = m_theme->extractWidgetTexture(marker);
@@ -41,7 +44,7 @@ namespace celestial
 		m_marker.reset();
 	}
 
-	void Slider::receiveMove(const celestial::MouseMovedEvent& e)
+	void Slider::receiveMove(const protostar::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -53,7 +56,7 @@ namespace celestial
 				{
 					m_drawTooltip = false;
 					int cursorPosOnSlider = e.m_x - m_bounds.m_x;
-					m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_w), 0.0f, 1.0f);
+					m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
 				}
 			}
 			else
@@ -63,7 +66,7 @@ namespace celestial
 		}
 	}
 
-	void Slider::receivePress(const celestial::MousePressedEvent& e)
+	void Slider::receivePress(const protostar::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -73,7 +76,7 @@ namespace celestial
 				// Then make sure the resulting value is within the bar width.
 				m_drawTooltip = false;
 				int cursorPosOnSlider = e.m_x - m_bounds.m_x;
-				m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_w), 0.0f, 1.0f);
+				m_value = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
 			}
 		}
 	}
@@ -83,7 +86,7 @@ namespace celestial
 		if (m_isVisible)
 		{
 			// Draw marker centered on value by taking away half the width of the marker.
-			m_markerX = (m_bounds.m_x + (m_bounds.m_w * m_value)) - (m_markerW / 2.0f);
+			m_markerX = (m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_markerW / 2.0f);
 		}
 	}
 
@@ -95,7 +98,7 @@ namespace celestial
 
 			// we center the marker so it is exactly half way on the texture.
 			renderer->drawTexture(m_marker.get(), m_markerX, // x
-				static_cast<float>(m_bounds.m_y) - (m_markerH / 2.0f) + (static_cast<float>(m_bounds.m_h) / 2.0f) // y
+				static_cast<float>(m_bounds.m_y) - (m_markerH / 2.0f) + (static_cast<float>(m_bounds.m_height) / 2.0f) // y
 			);
 
 			if (m_tooltip && m_drawTooltip)

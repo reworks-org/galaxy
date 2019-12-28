@@ -12,6 +12,9 @@
 
 #include "celestial/ui/Panel.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -22,11 +25,9 @@ namespace celestial
 	{
 	public:
 		///
-		/// \brief Constructor.
+		/// Default constructor.
 		///
-		/// Automatically registers in-engine widgets for you.
-		///
-		UI() noexcept;
+		UI() noexcept = default;
 
 		///
 		/// Destructor.

@@ -8,9 +8,10 @@
 #ifndef CELESTIAL_PANEL_HPP_
 #define CELESTIAL_PANEL_HPP_
 
+#include <protostar/graphics/Rect.hpp>
+
 #include "celestial/ui/Widget.hpp"
 #include "celestial/ui/UITheme.hpp"
-#include "protostar/graphics/Rect.hpp"
 #include "celestial/interface/Renderer.hpp"
 
 ///
@@ -30,7 +31,7 @@ namespace celestial
 		/// \param bounds Dimension of the panel.
 		/// \param theme Theme of the panel UI.
 		///
-		Panel(const protostar::Rect<int>& bounds, UITheme* theme);
+		explicit Panel(const protostar::Rect<int>& bounds, UITheme* theme);
 
 		///
 		/// Image Constructor.
@@ -39,7 +40,7 @@ namespace celestial
 		/// \param bounds Dimension of the panel.
 		/// \param theme Theme to use containing panel texture.
 		///
-		Panel(const std::string& texture, const protostar::Rect<int>& bounds, UITheme* theme);
+		explicit Panel(const std::string& texture, const protostar::Rect<int>& bounds, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -61,7 +62,7 @@ namespace celestial
 		///
 		/// \param id ID of widget to remove. Get by calling widget->id().
 		///
-		void remove(unsigned int id);
+		void remove(const unsigned int id);
 
 		///
 		/// Update the panel and widgets.
@@ -91,7 +92,7 @@ namespace celestial
 
 	private:
 		///
-		/// Primary Constructor.
+		/// Default constructor.
 		///
 		Panel() = delete;
 

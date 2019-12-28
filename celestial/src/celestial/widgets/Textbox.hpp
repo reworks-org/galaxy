@@ -8,15 +8,19 @@
 #ifndef CELESTIAL_TEXTBOX_HPP_
 #define CELESTIAL_TEXTBOX_HPP_
 
-#include "celestial/ui/Widget.hpp"
-#include "celestial/events/KeyDownEvent.hpp"
+#include <protostar/events/KeyDownEvent.hpp>
 
+#include "celestial/ui/Widget.hpp"
+
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
 	/// Represents a message box or "textbox" in the style of a JRPG.
 	///
-	class Textbox : public Widget
+	class Textbox final : public Widget
 	{
 	public:
 		///
@@ -47,12 +51,12 @@ namespace celestial
 		///
 		/// \param e KeyDownEvent object.
 		///
-		void receive(const celestial::KeyDownEvent& e);
+		void receive(const protostar::KeyDownEvent& e);
 
 		///
 		/// Update the widget.
 		///
-		/// \param dt Delta Time.
+		/// \param dt Delta Time. Must be in milliseconds.
 		///
 		void update(const double dt) override;
 

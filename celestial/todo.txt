@@ -1,6 +1,0 @@
-make sure classes are marked as final
-make sure some methods are const noexcept
-comments
-
-fix textinpout 
-textbox to use config.hpp to define keys...woops...

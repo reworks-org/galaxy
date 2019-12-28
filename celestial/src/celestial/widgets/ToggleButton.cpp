@@ -7,10 +7,13 @@
 
 #include "ToggleButton.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	ToggleButton::ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme)
-		:Widget({x, y, 0, 0}, theme), m_callback(nullptr)
+		:Widget({x, y, 0, 0}, theme), m_state(ToggleButton::State::OFF), m_callback(nullptr)
 	{
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)
@@ -19,8 +22,8 @@ namespace celestial
 		}
 
 		// Set dimensions.
-		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_textures[0].get());
-		m_bounds.m_h = m_theme->loader()->getTextureHeight(m_textures[0].get());
+		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_textures[0].get());
+		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_textures[0].get());
 	}
 
 	ToggleButton::~ToggleButton()
@@ -61,7 +64,7 @@ namespace celestial
 		}
 	}
 
-	void ToggleButton::receivePress(const celestial::MousePressedEvent& e)
+	void ToggleButton::receivePress(const protostar::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -80,7 +83,7 @@ namespace celestial
 		}
 	}
 
-	void ToggleButton::recieveMoved(const celestial::MouseMovedEvent& e)
+	void ToggleButton::recieveMoved(const protostar::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

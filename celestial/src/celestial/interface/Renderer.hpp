@@ -10,9 +10,10 @@
 
 #include <string>
 
-#include "protostar/graphics/Rect.hpp"
+#include <protostar/graphics/Rect.hpp>
+#include <protostar/graphics/Colour.hpp>
+
 #include "celestial/interface/Font.hpp"
-#include "protostar/graphics/Colour.hpp"
 #include "celestial/interface/Texture.hpp"
 
 ///

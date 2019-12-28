@@ -10,13 +10,16 @@
 
 #include <unordered_map>
 
-#include "celestial/compat/Font.hpp"
-#include "protostar/graphics/Colour.hpp"
-#include "protostar/graphics/Rect.hpp"
-#include "celestial/compat/Texture.hpp"
+#include <protostar/graphics/Rect.hpp>
+#include <protostar/graphics/Colour.hpp>
 
-#include "celestial/compat/ResourceLoader.hpp"
+#include "celestial/interface/Font.hpp"
+#include "celestial/interface/Texture.hpp"
+#include "celestial/interface/ResourceLoader.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -30,7 +33,7 @@ namespace celestial
 		///
 		/// \param resourceLoader Loads resources for theme.
 		///
-		UITheme(ResourceLoader* resourceLoader);
+		explicit UITheme(ResourceLoader* resourceLoader) noexcept;
 
 		///
 		/// Destructor.
@@ -61,7 +64,6 @@ namespace celestial
 		/// \param b Blue.
 		/// \param a Alpha.
 		///
-		template<typename ColourClass>
 		void setColour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a);
 
 		///
@@ -93,7 +95,7 @@ namespace celestial
 		///
 		/// \return Colour object.
 		///
-		const protostar::colour colour() const noexcept;
+		const protostar::Colour& colour() const noexcept;
 
 		///
 		/// Gets a reference to the resource loader.
@@ -120,7 +122,7 @@ namespace celestial
 		///
 		/// Colour of the text for UI.
 		///
-		ColourPtr m_colour;
+		protostar::Colour m_colour;
 
 		///
 		/// Master texture containing textures for all the widgets.
@@ -132,13 +134,6 @@ namespace celestial
 		///
 		std::unordered_map<std::string, protostar::Rect<int>> m_widgetRegions;
 	};
-
-	template<typename ColourClass>
-	inline void UITheme::setColour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a)
-	{
-		m_colour = std::make_unique<ColourClass>(r, g, b, a);
-	}
-
 }
 
 #endif

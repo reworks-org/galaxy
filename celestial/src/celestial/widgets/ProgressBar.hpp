@@ -8,10 +8,14 @@
 #ifndef CELESTIAL_PROGRESSBAR_HPP_
 #define CELESTIAL_PROGRESSBAR_HPP_
 
-#include "celestial/ui/Widget.hpp"
-#include "protostar/graphics/Colour.hpp"
-#include "protostar/graphics/Rect.hpp"
+#include <protostar/graphics/Colour.hpp>
+#include <protostar/graphics/Rect.hpp>
 
+#include "celestial/ui/Widget.hpp"
+
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -41,7 +45,7 @@ namespace celestial
 		/// \param bar Colour of the progress bar itself.
 		/// \param loader ResourceLoader to use.
 		///
-		ProgressBar(const protostar::Rect<int>& bounds, const protostar::colour container, const protostar::colour bar, celestial::ResourceLoader* loader);
+		ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, celestial::ResourceLoader* loader);
 		
 		///
 		/// Destructor.
@@ -55,7 +59,7 @@ namespace celestial
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieve(const celestial::MouseMovedEvent& e);
+		void recieve(const protostar::MouseMovedEvent& e);
 
 		///
 		/// Update the widget.

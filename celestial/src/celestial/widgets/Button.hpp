@@ -11,10 +11,14 @@
 #include <array>
 #include <functional>
 
-#include "celestial/ui/Widget.hpp"
-#include "celestial/events/MousePressedEvent.hpp"
-#include "celestial/events/MouseReleasedEvent.hpp"
+#include <protostar/events/MousePressedEvent.hpp>
+#include <protostar/events/MouseReleasedEvent.hpp>
 
+#include "celestial/ui/Widget.hpp"
+
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -67,7 +71,7 @@ namespace celestial
 		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
 		/// \param theme Theme for this widget.
 		///
-		Button(const int x, const int y, const std::string& text, const std::array<ColourPtr, 3>& colours, UITheme* theme);
+		Button(const int x, const int y, const std::string& text, const std::array<protostar::Colour, 3>& colours, UITheme* theme);
 
 		///
 		/// Destructor.
@@ -93,7 +97,7 @@ namespace celestial
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const celestial::MousePressedEvent& e);
+		void receivePress(const protostar::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
@@ -102,7 +106,7 @@ namespace celestial
 		///
 		/// \param e MouseReleasedEvent object.
 		///
-		void receiveRelease(const celestial::MouseReleasedEvent& e);
+		void receiveRelease(const protostar::MouseReleasedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -111,7 +115,7 @@ namespace celestial
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const celestial::MouseMovedEvent& e);
+		void recieveMoved(const protostar::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.

@@ -7,6 +7,9 @@
 
 #include "Textbox.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	Textbox::Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const unsigned int maxWidth, const unsigned int duration, UITheme* theme, const std::string& speaker)
@@ -16,8 +19,8 @@ namespace celestial
 		m_frame = m_theme->extractWidgetTexture(frame);
 		
 		// Set dimensions.
-		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_frame.get());
-		m_bounds.m_h = m_theme->loader()->getTextureWidth(m_frame.get());
+		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_frame.get());
+		m_bounds.m_height = m_theme->loader()->getTextureWidth(m_frame.get());
 
 		// Load indicator texture.
 		m_indicator = m_theme->extractWidgetTexture(indicator);
@@ -35,7 +38,7 @@ namespace celestial
 		m_messages.clear();
 	}
 
-	void Textbox::receive(const celestial::KeyDownEvent& e)
+	void Textbox::receive(const protostar::KeyDownEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -61,7 +64,7 @@ namespace celestial
 		{
 			// Check to see if its time to proceed to the next frame of animation for the text box indicator.
 			m_indicatorTimePassed += dt;
-			if (m_indicatorTimePassed > TIME_COMPARE_FUNC(500))
+			if (m_indicatorTimePassed > 500)
 			{
 				(m_drawLoweredIndicator == true) ? m_drawLoweredIndicator = false : m_drawLoweredIndicator = true;
 
@@ -71,7 +74,7 @@ namespace celestial
 			// Update time passed and check if its exceeded the duration allowed for each character.
 			// If so, update the index of the character to draw in the string.
 			m_timePassed += dt;
-			if (m_timePassed > TIME_COMPARE_FUNC(m_duration))
+			if (m_timePassed > m_duration)
 			{
 				if (!((m_characterIndex > (m_messages[m_page].size() - 1))))
 				{
@@ -100,8 +103,8 @@ namespace celestial
 			renderer->drawMultilineText(m_theme->font(), m_theme->colour(), m_messages[m_page].substr(0, m_characterIndex), m_bounds.m_x + 2, m_bounds.m_y + m_lineHeight, m_maxWidth, m_lineHeight);
 
 			// Then draw the indicator finally.
-			float x = m_bounds.m_x + m_bounds.m_w - m_indicatorW - 2;
-			float y = m_bounds.m_y + m_bounds.m_h - m_indicatorH - 2;
+			float x = m_bounds.m_x + m_bounds.m_width - m_indicatorW - 2;
+			float y = m_bounds.m_y + m_bounds.m_height - m_indicatorH - 2;
 			if (m_drawLoweredIndicator)
 			{
 				y += 2;

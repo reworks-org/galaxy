@@ -8,9 +8,13 @@
 #ifndef CELESTIAL_SLIDER_HPP_
 #define CELESTIAL_SLIDER_HPP_
 
-#include "celestial/ui/Widget.hpp"
-#include "celestial/events/MousePressedEvent.hpp"
+#include <protostar/events/MousePressedEvent.hpp>
 
+#include "celestial/ui/Widget.hpp"
+
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -29,7 +33,7 @@ namespace celestial
 		/// \param marker Colour of the marker used to indicate position.
 		/// \param loader ResourceLoader to use.
 		///
-		Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::colour slider, const protostar::colour marker, celestial::ResourceLoader* loader);
+		Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, celestial::ResourceLoader* loader);
 
 		///
 		/// Texture constructor.
@@ -54,7 +58,7 @@ namespace celestial
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void receiveMove(const celestial::MouseMovedEvent& e);
+		void receiveMove(const protostar::MouseMovedEvent& e);
 
 		///
 		/// \brief Allows for Slider to recieve MousePressedEvents. Automatically registered with entt.
@@ -63,7 +67,7 @@ namespace celestial
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const celestial::MousePressedEvent& e);
+		void receivePress(const protostar::MousePressedEvent& e);
 
 		///
 		/// Update the widget.

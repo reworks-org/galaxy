@@ -5,12 +5,15 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_WIDGET_HPP_git
+#ifndef CELESTIAL_WIDGET_HPP_
 #define CELESTIAL_WIDGET_HPP_
 
 #include "celestial/ui/UITheme.hpp"
 #include "celestial/ui/Tooltip.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -88,6 +91,11 @@ namespace celestial
 		Tooltip* setTooltip(Args&&... args);
 
 	protected:
+		///
+		/// Default destructor.
+		///
+		Widget() noexcept = default;
+
 		///
 		/// Protected constructor. Only want derived classes to construct this.
 		///

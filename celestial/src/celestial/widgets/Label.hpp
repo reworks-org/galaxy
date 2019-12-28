@@ -10,6 +10,9 @@
 
 #include "celestial/ui/Widget.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///

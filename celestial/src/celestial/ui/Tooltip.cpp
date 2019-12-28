@@ -39,7 +39,7 @@ namespace celestial
 		m_texture.reset();
 	}
 
-	void Tooltip::receive(const celestial::MouseMovedEvent& e)
+	void Tooltip::receive(const protostar::MouseMovedEvent& e)
 	{
 		m_x = e.m_x + 12;
 		m_y = e.m_y + 12;

@@ -7,12 +7,11 @@
 
 #include "UI.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
-	UI::UI() noexcept
-	{
-	}
-
 	UI::~UI() noexcept
 	{
 		// Ensure unique_ptr's are deconstructed and detroyed.

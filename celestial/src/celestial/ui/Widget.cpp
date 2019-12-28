@@ -7,6 +7,9 @@
 
 #include "Widget.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	Widget::Widget(const protostar::Rect<int>& bounds, UITheme* theme)
@@ -22,9 +25,7 @@ namespace celestial
 	bool Widget::contains(const int x, const int y)
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
-		bool out = ((x > m_bounds.m_x) && (x < (m_bounds.m_x + m_bounds.m_w)) && (y > m_bounds.m_y) && (y < (m_bounds.m_y + m_bounds.m_h))) ? true : false;
-
-		return out;
+		return ((x > m_bounds.m_x) && (x < (m_bounds.m_x + m_bounds.m_width)) && (y > m_bounds.m_y) && (y < (m_bounds.m_y + m_bounds.m_height)));
 	}
 
 	void Widget::setVisibility(const bool isVisible)

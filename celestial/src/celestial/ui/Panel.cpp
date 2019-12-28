@@ -32,7 +32,7 @@ namespace celestial
 		clear();
 	}
 
-	void Panel::remove(unsigned int id)
+	void Panel::remove(const unsigned int id)
 	{
 		// Make sure widget actually exists before trying to remove it.
 		auto found = m_widgets.find(id);

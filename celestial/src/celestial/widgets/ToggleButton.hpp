@@ -11,11 +11,15 @@
 #include <array>
 #include <functional>
 
-#include "celestial/ui/Widget.hpp"
-#include "celestial/events/MouseMovedEvent.hpp"
-#include "celestial/events/MousePressedEvent.hpp"
-#include "celestial/events/MouseReleasedEvent.hpp"
+#include <protostar/events/MouseMovedEvent.hpp>
+#include <protostar/events/MousePressedEvent.hpp>
+#include <protostar/events/MouseReleasedEvent.hpp>
 
+#include "celestial/ui/Widget.hpp"
+
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -82,7 +86,7 @@ namespace celestial
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const celestial::MousePressedEvent& e);
+		void receivePress(const protostar::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -91,7 +95,7 @@ namespace celestial
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const celestial::MouseMovedEvent& e);
+		void recieveMoved(const protostar::MouseMovedEvent& e);
 
 		///
 		/// Register callback function when button is pressed.

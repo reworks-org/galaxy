@@ -8,16 +8,17 @@
 #ifndef CELESTIAL_TOOLTIP_HPP_
 #define CELESTIAL_TOOLTIP_HPP_
 
+#include <protostar/events/MouseMovedEvent.hpp>
+
 #include "celestial/ui/UITheme.hpp"
-#include "celestial/compat/Renderer.hpp"
-#include "celestial/events/MouseMovedEvent.hpp"
+#include "celestial/interface/Renderer.hpp"
 
 namespace celestial
 {
 	///
 	/// Displays text when hovering over a widget.
 	///
-	class Tooltip
+	class Tooltip final
 	{
 		///
 		/// Allows access to internals of Widget class.
@@ -56,12 +57,18 @@ namespace celestial
 		///
 		/// This is to be used with entt's dispatcher (sl::Locator::dispatcher).
 		///
-		void receive(const celestial::MouseMovedEvent& e);
+		void receive(const protostar::MouseMovedEvent& e);
 
 		///
 		/// Draws the tooltip to the screen.
 		///
 		void draw(celestial::Renderer* renderer);
+
+	private:
+		///
+		/// Default constructor.
+		///
+		Tooltip() = delete;
 
 	private:
 		///

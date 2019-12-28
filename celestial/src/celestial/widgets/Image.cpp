@@ -7,6 +7,9 @@
 
 #include "Image.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	Image::Image(const int x, const int y, const std::string& texture, UITheme* theme)
@@ -16,8 +19,8 @@ namespace celestial
 		m_image = m_theme->extractWidgetTexture(texture);
 		
 		// Set dimensions.
-		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_image.get());
-		m_bounds.m_h = m_theme->loader()->getTextureHeight(m_image.get());
+		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_image.get());
+		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_image.get());
 	}
 
 	Image::~Image()

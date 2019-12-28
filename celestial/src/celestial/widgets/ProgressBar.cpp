@@ -9,32 +9,35 @@
 
 #include "ProgressBar.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	ProgressBar::ProgressBar(const protostar::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme)
-		:Widget({ containerBarCoords.m_x, containerBarCoords.m_y, 0, 0 }, theme), m_barBounds({ containerBarCoords.m_w, containerBarCoords.m_h, 0, 0 }), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
+		:Widget({ containerBarCoords.m_x, containerBarCoords.m_y, 0, 0 }, theme), m_barBounds({ containerBarCoords.m_width, containerBarCoords.m_height, 0, 0 }), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// The background / outline, etc..
 		m_container = m_theme->extractWidgetTexture(container);
 		
 		// Set dimensions.
-		m_bounds.m_w = m_theme->loader()->getTextureWidth(m_container.get());
-		m_bounds.m_h = m_theme->loader()->getTextureHeight(m_container.get());
+		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_container.get());
+		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_container.get());
 
 		// Load the bar texture.
 		m_bar = m_theme->extractWidgetTexture(bar);
 		
 		// Set dimensions.
-		m_barBounds.m_w = m_theme->loader()->getTextureWidth(m_bar.get());
-		m_barBounds.m_h = m_theme->loader()->getTextureHeight(m_bar.get());
+		m_barBounds.m_width = m_theme->loader()->getTextureWidth(m_bar.get());
+		m_barBounds.m_height = m_theme->loader()->getTextureHeight(m_bar.get());
 	}
 
-	ProgressBar::ProgressBar(const protostar::Rect<int>& bounds, const protostar::colour container, const protostar::colour bar, celestial::ResourceLoader* loader)
+	ProgressBar::ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, celestial::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_barBounds(bounds), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// Create textures
-		m_container = loader->createRectangle(m_bounds.m_w, m_bounds.m_h, container);
-		m_bar = loader->createRectangle(m_bounds.m_w, m_bounds.m_h, container);
+		m_container = loader->createRectangle(m_bounds.m_width, m_bounds.m_height, container);
+		m_bar = loader->createRectangle(m_bounds.m_width, m_bounds.m_height, container);
 	}
 
 	ProgressBar::~ProgressBar() noexcept
@@ -43,7 +46,7 @@ namespace celestial
 		m_bar.reset();
 	}
 
-	void ProgressBar::recieve(const celestial::MouseMovedEvent& e)
+	void ProgressBar::recieve(const protostar::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -63,7 +66,7 @@ namespace celestial
 		if (m_isVisible)
 		{
 			// Recalculate width of the bar by the current "progress" to indicate how much has been done.
-			m_barBounds.m_w = static_cast<int>(m_progress * m_bounds.m_w);
+			m_barBounds.m_width = static_cast<int>(m_progress * m_bounds.m_width);
 		}
 	}
 
@@ -72,7 +75,7 @@ namespace celestial
 		if (m_isVisible)
 		{
 			renderer->drawTexture(m_container.get(), m_bounds.m_x, m_bounds.m_y);
-			renderer->drawTextureRegion(m_bar.get(), m_barBounds.m_x, m_barBounds.m_y, { 0, 0, m_barBounds.m_w, m_barBounds.m_h });
+			renderer->drawTextureRegion(m_bar.get(), m_barBounds.m_x, m_barBounds.m_y, { 0, 0, m_barBounds.m_width, m_barBounds.m_height });
 
 			if (m_tooltip && m_drawTooltip)
 			{

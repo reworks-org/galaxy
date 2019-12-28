@@ -7,6 +7,9 @@
 
 #include "Label.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	Label::Label(const int x, const int y, const std::string& text, UITheme* theme)

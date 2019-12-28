@@ -7,17 +7,19 @@
 
 #include "UITheme.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
-	UITheme::UITheme(ResourceLoader* resourceLoader)
-		:m_resourceLoader(resourceLoader), m_font(nullptr), m_colour(nullptr), m_master(nullptr)
+	UITheme::UITheme(ResourceLoader* resourceLoader) noexcept
+		:m_resourceLoader(resourceLoader), m_font(nullptr), m_colour(0, 0, 0, protostar::Colour::OPAQUE), m_master(nullptr)
 	{
 	}
 
-	UITheme::~UITheme()
+	UITheme::~UITheme() noexcept
 	{
 		m_font.reset();
-		m_colour.reset();
 		m_master.reset();
 
 		// Cleanup, etc...
@@ -34,6 +36,11 @@ namespace celestial
 		m_font = m_resourceLoader->loadFont(font);
 	}
 	
+	void UITheme::setColour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a)
+	{
+		m_colour = protostar::Colour(r, g, b, a);
+	}
+
 	void UITheme::defineWidgetTexture(const std::string& id, const protostar::Rect<int>& dim) noexcept
 	{
 		m_widgetRegions.emplace(id, dim);
@@ -50,9 +57,9 @@ namespace celestial
 		return m_font.get();
 	}
 
-	const protostar::colour UITheme::colour() const noexcept
+	const protostar::Colour& UITheme::colour() const noexcept
 	{
-		return m_colour.get();
+		return m_colour;
 	}
 
 	ResourceLoader* UITheme::loader() const noexcept
