@@ -13,6 +13,12 @@
     <ClCompile Include="src\protostar\math\Random.cpp" />
     <ClCompile Include="src\protostar\utility\Time.cpp" />
     <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
+    <ClCompile Include="src\protostar\events\KeyCharEvent.cpp" />
+    <ClCompile Include="src\protostar\events\KeyDownEvent.cpp" />
+    <ClCompile Include="src\protostar\events\KeyUpEvent.cpp" />
+    <ClCompile Include="src\protostar\events\MouseMovedEvent.cpp" />
+    <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
+    <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
@@ -27,6 +33,12 @@
     <ClInclude Include="src\protostar\graphics\Rect.hpp" />
     <ClInclude Include="src\protostar\utility\Time.hpp" />
     <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
+    <ClInclude Include="src\protostar\events\KeyCharEvent.hpp" />
+    <ClInclude Include="src\protostar\events\KeyDownEvent.hpp" />
+    <ClInclude Include="src\protostar\events\KeyUpEvent.hpp" />
+    <ClInclude Include="src\protostar\events\MouseMovedEvent.hpp" />
+    <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
+    <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
