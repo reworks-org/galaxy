@@ -57,7 +57,7 @@ namespace celestial
 		}
 	}
 
-	void Button::render(celestial::compat::Renderer* renderer)
+	void Button::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

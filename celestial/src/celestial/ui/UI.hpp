@@ -55,7 +55,7 @@ namespace celestial
 		///
 		/// \param renderer Renderer to use when drawing. Needs to be consistent.
 		///
-		void render(celestial::compat::Renderer* renderer);
+		void render(celestial::Renderer* renderer);
 
 	private:
 		///

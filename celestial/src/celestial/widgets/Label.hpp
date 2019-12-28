@@ -45,7 +45,7 @@ namespace celestial
 		///
 		/// Does not render the tooltip.
 		///
-		void render(celestial::compat::Renderer* renderer) override;
+		void render(celestial::Renderer* renderer) override;
 
 		///
 		/// Changes current text.

@@ -22,7 +22,7 @@ namespace celestial
 	{
 	}
 
-	void Label::render(celestial::compat::Renderer* renderer)
+	void Label::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

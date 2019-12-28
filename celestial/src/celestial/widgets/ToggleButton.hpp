@@ -73,7 +73,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::compat::Renderer* renderer) override;
+		void render(celestial::Renderer* renderer) override;
 
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.

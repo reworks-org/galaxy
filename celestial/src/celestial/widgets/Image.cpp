@@ -29,7 +29,7 @@ namespace celestial
 	{
 	}
 
-	void Image::render(celestial::compat::Renderer* renderer)
+	void Image::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

@@ -54,7 +54,7 @@ namespace celestial
 		}
 	}
 
-	void Panel::render(celestial::compat::Renderer* renderer)
+	void Panel::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

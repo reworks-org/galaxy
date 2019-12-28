@@ -83,7 +83,7 @@ namespace celestial
 		}
 	}
 
-	void Textbox::render(celestial::compat::Renderer* renderer)
+	void Textbox::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

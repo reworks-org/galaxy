@@ -67,7 +67,7 @@ namespace celestial
 		}
 	}
 
-	void ProgressBar::render(celestial::compat::Renderer* renderer)
+	void ProgressBar::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

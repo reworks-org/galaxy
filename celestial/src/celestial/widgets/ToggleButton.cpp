@@ -34,7 +34,7 @@ namespace celestial
 	{
 	}
 
-	void ToggleButton::render(celestial::compat::Renderer* renderer)
+	void ToggleButton::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

@@ -46,7 +46,7 @@ namespace celestial
 		///
 		/// \param renderer Renderer to use when drawing. Needs to be consistent.
 		///
-		virtual void render(celestial::compat::Renderer* renderer) = 0;
+		virtual void render(celestial::Renderer* renderer) = 0;
 
 		///
 		/// Does the widget contain the point x, y.

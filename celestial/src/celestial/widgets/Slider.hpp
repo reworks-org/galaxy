@@ -75,7 +75,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::compat::Renderer* renderer) override;
+		void render(celestial::Renderer* renderer) override;
 
 		///
 		/// Get current value of slider.

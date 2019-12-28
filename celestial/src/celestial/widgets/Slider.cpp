@@ -87,7 +87,7 @@ namespace celestial
 		}
 	}
 
-	void Slider::render(celestial::compat::Renderer* renderer)
+	void Slider::render(celestial::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

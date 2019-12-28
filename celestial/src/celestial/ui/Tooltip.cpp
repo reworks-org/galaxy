@@ -45,7 +45,7 @@ namespace celestial
 		m_y = e.m_y + 12;
 	}
 
-	void Tooltip::draw(celestial::compat::Renderer* renderer)
+	void Tooltip::draw(celestial::Renderer* renderer)
 	{
 		renderer->drawTexture(m_texture.get(), m_x, m_y);
 		renderer->drawText(m_theme->font(), m_theme->colour(), m_text, m_x, m_y);

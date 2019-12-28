@@ -59,7 +59,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::compat::Renderer* renderer) override;
+		void render(celestial::Renderer* renderer) override;
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.

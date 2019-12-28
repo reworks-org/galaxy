@@ -28,7 +28,7 @@ namespace celestial
 		}
 	}
 
-	void UI::render(celestial::compat::Renderer* renderer)
+	void UI::render(celestial::Renderer* renderer)
 	{
 		// Iterate over panels, render, and call each widgets render function.
 		for (auto& panel : m_panels)

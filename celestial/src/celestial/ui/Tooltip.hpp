@@ -61,7 +61,7 @@ namespace celestial
 		///
 		/// Draws the tooltip to the screen.
 		///
-		void draw(celestial::compat::Renderer* renderer);
+		void draw(celestial::Renderer* renderer);
 
 	private:
 		///

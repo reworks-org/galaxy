@@ -27,12 +27,6 @@
     <ClInclude Include="src\celestial\interface\ResourceLoader.hpp" />
     <ClInclude Include="src\celestial\interface\Texture.hpp" />
     <ClInclude Include="src\celestial\Config.hpp" />
-    <ClInclude Include="src\celestial\events\KeyCharEvent.hpp" />
-    <ClInclude Include="src\celestial\events\KeyDownEvent.hpp" />
-    <ClInclude Include="src\celestial\events\KeyUpEvent.hpp" />
-    <ClInclude Include="src\celestial\events\MouseMovedEvent.hpp" />
-    <ClInclude Include="src\celestial\events\MousePressedEvent.hpp" />
-    <ClInclude Include="src\celestial\events\MouseReleasedEvent.hpp" />
     <ClInclude Include="src\celestial\ui\Panel.hpp" />
     <ClInclude Include="src\celestial\ui\Tooltip.hpp" />
     <ClInclude Include="src\celestial\ui\UI.hpp" />
@@ -47,12 +41,6 @@
     <ClInclude Include="src\celestial\widgets\ToggleButton.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\celestial\events\KeyCharEvent.cpp" />
-    <ClCompile Include="src\celestial\events\KeyDownEvent.cpp" />
-    <ClCompile Include="src\celestial\events\KeyUpEvent.cpp" />
-    <ClCompile Include="src\celestial\events\MouseMovedEvent.cpp" />
-    <ClCompile Include="src\celestial\events\MousePressedEvent.cpp" />
-    <ClCompile Include="src\celestial\events\MouseReleasedEvent.cpp" />
     <ClCompile Include="src\celestial\interface\Renderer.cpp" />
     <ClCompile Include="src\celestial\interface\ResourceLoader.cpp" />
     <ClCompile Include="src\celestial\interface\Texture.cpp" />
