@@ -22,7 +22,10 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\frb\main.cpp" />
+    <ClInclude Include="src\frb\Context.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\frb\Context.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -112,12 +115,16 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>cd ../modules/openal/ &amp;&amp; cmake . &amp;&amp; msbuild OpenAL.sln</Command>
+      <Message>Building OpenAL library.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -132,12 +139,16 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>cd ../modules/openal/ &amp;&amp; cmake . &amp;&amp; msbuild OpenAL.sln</Command>
+      <Message>Building OpenAL library.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -153,7 +164,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -161,6 +172,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>cd ../modules/openal/ &amp;&amp; cmake . &amp;&amp; msbuild OpenAL.sln</Command>
+      <Message>Building OpenAL library.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -176,7 +191,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -184,6 +199,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>cd ../modules/openal/ &amp;&amp; cmake . &amp;&amp; msbuild OpenAL.sln</Command>
+      <Message>Building OpenAL library.</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

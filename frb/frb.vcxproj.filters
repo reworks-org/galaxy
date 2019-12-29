@@ -4,6 +4,9 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\frb\main.cpp" />
+    <ClInclude Include="src\frb\Context.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\frb\Context.cpp" />
   </ItemGroup>
 </Project>
