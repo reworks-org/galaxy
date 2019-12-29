@@ -5,9 +5,10 @@
 
 C++17 OpenAL audio library.
 
-## Building:
-You need CMake (latest version you can get) and Visual Studio build tools (2017 minimum).
-Once repo is cloned run `git submodule update --init --remote --recursive`.  
+## Basic Usage
+```cpp
+// todo
+```
 
 ### Documentation:  
 See [documentation](https://domre.github.io/frb/) for more.  

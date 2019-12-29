@@ -5,8 +5,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frb\Context.hpp" />
+    <ClInclude Include="src\frb\detail\Error.hpp" />
+    <ClInclude Include="src\frb\Listener.hpp" />
+    <ClInclude Include="src\frb\AudioSource.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\frb\Context.cpp" />
+    <ClCompile Include="src\frb\detail\Error.cpp" />
+    <ClCompile Include="src\frb\Listener.cpp" />
+    <ClCompile Include="src\frb\AudioSource.cpp" />
   </ItemGroup>
 </Project>

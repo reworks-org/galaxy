@@ -1,2 +1,5 @@
-https://www.gamedev.net/articles/programming/general-and-gameplay-programming/basic-openal-sound-manager-for-your-project-r3791/
 https://github.com/erikd/libsndfile
+https://www.openal.org/documentation/OpenAL_Programmers_Guide.pdf
+https://github.com/scottstensland/openal_synth_play/blob/master/src/openal_play.c
+https://kcat.strangesoft.net/openal-tutorial.html
+https://ffainelli.github.io/openal-example/
