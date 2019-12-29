@@ -112,7 +112,7 @@
       <AdditionalLibraryDirectories>../modules/openal/lib/Win32/;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Debug/Win32/" OpenAL32.dll
+      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Debug/x86/" OpenAL32.dll
 if %errorlevel% LEQ 8 exit 0</Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -168,7 +168,7 @@ if %errorlevel% LEQ 8 exit 0</Command>
       <AdditionalLibraryDirectories>../modules/openal/lib/Win32/;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Release/Win32/" OpenAL32.dll
+      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Release/x86/" OpenAL32.dll
 if %errorlevel% LEQ 8 exit 0</Command>
     </PostBuildEvent>
     <PostBuildEvent>
