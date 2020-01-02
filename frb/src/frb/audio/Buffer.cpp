@@ -26,6 +26,7 @@ namespace frb
 
 	Buffer::~Buffer() noexcept
 	{
+		alDeleteBuffers(1, &m_buffer);
 	}
 
 	void Buffer::load(const std::string& file)

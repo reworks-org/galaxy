@@ -106,6 +106,11 @@ namespace frb
 		void bind(const frb::Buffer& buffer);
 
 		///
+		/// Play a source.
+		///
+		void play() noexcept;
+
+		///
 		/// Get the OpenAL internal int id / handle.
 		///
 		/// \return Const ALuint handle integer.

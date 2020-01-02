@@ -95,6 +95,11 @@ namespace frb
 		}
 	}
 
+	void Source::play() noexcept
+	{
+		alSourcePlay(m_source);
+	}
+
 	const ALuint Source::handle() const noexcept
 	{
 		return m_source;
