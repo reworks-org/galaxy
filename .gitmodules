@@ -28,6 +28,3 @@
 [submodule "modules/redshift"]
 	path = modules/redshift
 	url = https://github.com/DomRe/redshift.git
-[submodule "modules/sfml"]
-	path = modules/sfml
-	url = https://github.com/SFML/SFML.git

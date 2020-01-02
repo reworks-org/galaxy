@@ -11,15 +11,13 @@ Game programming framework built on C++17 using SFML, Lua and JSON. This was bui
 // todo
 ```
 
-
 ### Linux:
 ```cpp
 // todo
 ```
 
-
 ## Documentation
-See [documentation](https://domre.github.io/starmap/).  
+See [documentation](https://domre.github.io/galaxy/).  
 
 ## Features
 - Uses Modern C++, including C++17 features.
@@ -29,7 +27,7 @@ See [documentation](https://domre.github.io/starmap/).
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
-* [sercode.ttf](http://www.dafont.com/secret-code.font)/
+* [sercode.ttf](http://www.dafont.com/secret-code.font).
 
 Any included libraries should have a LICENSE file associated.
 

@@ -1,4 +1,4 @@
-- Code Quality:
+llll- Code Quality:
 	- Code Profiling: https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
 	- Check for memory leaks.
 	- Review compilation warnings.
