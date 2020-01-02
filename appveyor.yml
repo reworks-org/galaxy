@@ -1,14 +1,14 @@
-version: 0.0.{build}-{branch}
+version: 1.0.{build}-{branch}
 branches: 
   only: 
     - master
 
-shallow_clone: true
+shallow_clone: false
 skip_tags: true
-#clone_folder: c:\projects\reworks\starlight
+clone_depth: 1
 
 image:
-  - Visual Studio 2017
+  - Visual Studio 2019
 
 platform:
   - x86
@@ -18,9 +18,11 @@ configuration:
   - Debug
   - Release
 
-#install:
-#- cmd: build.bat
+install:
+  - cmd: git submodule update --init --recursive
 
-build:
-  parallel: true
-  project: starlight.sln
+matrix:
+  fast_finish: true
+
+build_script:
+  - cmd: msbuild galaxy.sln

@@ -1,91 +1,37 @@
 # galaxy
+[![Build Status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
+[![Documentation Status](https://travis-ci.org/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
+[![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
-[![Docs Status](https://readthedocs.org/projects/galaxy/badge/?version=master)](https://galaxy.readthedocs.io/en/master/?badge=master)
-[![MIT Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
-
-Game programming library using Allegro 5.2.4, Lua 5.3, and C++17. This was built as a hobby for hobby projects.
+Game programming framework built on C++17 using SFML, Lua and JSON. This was built as a hobby for hobby projects.
 
 ## Building
-You need git as a prereq to build. Other libraries are downloaded by the build script for you.
-
-For Windows, you can use premake, but a solution file is provided.
-
 ### Windows:
-```
-Download repository using git or the web interface. Enter the directory.
-Open galaxy.sln
-Select build configuration and architecture.
-Build whole solution.
-```
-
-or
-
-```
-Download repository using git or the web interface. Enter the directory.
-Run build.bat. This will use premake5 to generate build files for you.
-Open galaxy.sln
-Select build configuration and architecture.
-Build whole solution.
+```cpp
+// todo
 ```
 
 
 ### Linux:
-Please note that only Ubuntu 18.04 is tested and supported for building. 
-You may need to add allegro 5.2 repositories to previous versions of Ubuntu to have the build script work. I.e.
-
-```
-sudo add-apt-repository ppa:allegro/5.2
-sudo apt-get update
-```
-
-```
-git clone --recursive --branch=master https://github.com/reworks/galaxy.git build
-cd build
-chmod +x build.sh
-sudo ./build.sh
-```
-
-Then you can check the makefile for your platform configs and run make on it. E.g.:
-
-```
-make config=debug_linux32 all
-make config=release_linux32 all
-```
-
-or
-
-```
-make config=debug_linux64 all
-make config=release_linux64 all
+```cpp
+// todo
 ```
 
 
 ## Documentation
-Can be built from [doxygen](https://github.com/reworks/galaxy/tree/master/docs) Doxyfile or viewed at [readthedocs](https://galaxy.readthedocs.io/en/master/).
-
+See [documentation](https://domre.github.io/starmap/).  
 
 ## Features
 - Uses Modern C++, including C++17 features.
-- Uses [entt](https://github.com/skypjack/entt) and built around ECS principles.
-- Build system provided by [premake5](https://premake.github.io/download.html).
-- Logging provided by [loguru](https://github.com/emilk/loguru).
 - [ImGui](https://github.com/ocornut/imgui) for making and using debugging and utility UI.
-- [sol2](https://github.com/ThePhD/sol2) for [Lua](https://www.lua.org/) integration.
-- [libxml2](http://xmlsoft.org/downloads.html) for XML support.
-- Built on top of [Allegro5](https://liballeg.org/).
-- [TMX parser](https://github.com/baylej/tmx) for loading TMX maps.
-- Linux support!
+- [sol3](https://github.com/ThePhD/sol2) for [Lua](https://www.lua.org/) integration.
+- Built on top of --
 
-## Credits
+### Credits
+* [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
+* [sercode.ttf](http://www.dafont.com/secret-code.font)/
 
-All libraries used by the engine have a LICENSE.txt with them. This file includes licenses for libraries not included directly in this repo.
-This also has credits for assets used in logos / sandbox testing.
-
-sercode.ttf:
-	Link: http://www.dafont.com/secret-code.font
-	License: MIT
-
+Any included libraries should have a LICENSE file associated.
 
 Resources used in sandbox demo:
 Various from opengameart.org. No copyright infringement intended.

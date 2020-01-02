@@ -1,0 +1,33 @@
+[submodule "modules/celestial"]
+	path = modules/celestial
+	url = https://github.com/DomRe/celestial.git
+[submodule "modules/protostar"]
+	path = modules/protostar
+	url = https://github.com/DomRe/protostar.git
+[submodule "modules/pulsar"]
+	path = modules/pulsar
+	url = https://github.com/DomRe/pulsar.git
+[submodule "modules/solar"]
+	path = modules/solar
+	url = https://github.com/DomRe/solar.git
+[submodule "modules/starlight"]
+	path = modules/starlight
+	url = https://github.com/DomRe/starlight.git
+[submodule "modules/starmap"]
+	path = modules/starmap
+	url = https://github.com/DomRe/starmap.git
+[submodule "modules/sol2"]
+	path = modules/sol2
+	url = https://github.com/ThePhD/sol2.git
+[submodule "modules/lua"]
+	path = modules/lua
+	url = https://github.com/lua/lua.git
+[submodule "modules/imgui"]
+	path = modules/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "modules/redshift"]
+	path = modules/redshift
+	url = https://github.com/DomRe/redshift.git
+[submodule "modules/sfml"]
+	path = modules/sfml
+	url = https://github.com/SFML/SFML.git

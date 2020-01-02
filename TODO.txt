@@ -1,0 +1,55 @@
+- Code Quality:
+	- Code Profiling: https://docs.microsoft.com/en-us/visualstudio/profiling/beginners-guide-to-cpu-sampling
+	- Check for memory leaks.
+	- Review compilation warnings.
+	- More usage of SFINAE and CRTP?
+	- Better usage of constexpr and const style code in general.
+	- Check code with CPPCheck.
+
+	
+- Lua:
+	- More support for lua usage.
+		- https://sol2.readthedocs.io/en/latest/tutorial/cxx-in-lua.html
+		- Integrate Lua with Command API. Will be very useful to be able to execute commands like that in a generic way.
+		- use lua to manage resource and asset loading.
+
+
+- Documentation:
+	- Write tutorials.
+	- Merge tutorials, notes and style guide with doxygen docs.
+
+
+- Mapping:
+	- Support text objects from Tiled.
+
+
+- Misc: 
+	- Review Box2D integration.
+	- Language support using a string file?
+	- Debug Interface should be able to do more stuff.
+	- Implement command in engine where needed.
+	- Should each game state have its own registry and layer?
+	- lang support using sterings
+
+
+- UI:
+	- Shader support for widgets.
+		- Needs to integrate with shader library.
+	- List Widget.
+	- Rethink how tooltips are handled.
+	- Debug menu for managing and creating ui.
+
+
+- Sandbox:
+	- Sandbox needs to test all modules.
+	- Need to work out multithreading for loading states.
+
+
+- Useful Links:
+	- https://old.reddit.com/r/gamedev/comments/8hmn0y/can_someone_give_me_a_practical_example/
+	- http://gameprogrammingpatterns.com/state.html
+	- https://wiki.allegro.cc/index.php?title=Allegro_5_Tutorial/Threads
+	- https://gamedevelopment.tutsplus.com/articles/how-to-build-a-jrpg-a-primer-for-game-developers--gamedev-6676#architecture
+	- https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
+
+	https://github.com/flingengine/FlingEngine

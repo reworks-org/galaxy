@@ -1,1 +1,0 @@
-From fork: https://github.com/Csabix/imgui. Repo says MIT so that is the assumption of the current license.

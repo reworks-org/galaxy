@@ -1,32 +1,8 @@
-# Mac OS stuff
-.DS_Store
-
-#Windows stuff
-Thumbs.db
-*.lnk
-
-# Visual Studio stuff
 .vs/
-
-# XCode stuff
-DerivedData/
-
-# Docs stuff
-docs/build/
-docs/html/
-
-# galaxy stuff
 galaxy/bin/
 galaxy/build/
-galaxy/obj/
-
-# Sandbox Stuff
 sandbox/bin/Debug/
 sandbox/bin/Release/
 sandbox/build/
-sandbox/obj/
 sandbox/logs/
-sandbox/bin/logs/
-sandbox/bin/savefiles/
 sandbox/*.ini
-sandbox/*.log
