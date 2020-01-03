@@ -45,9 +45,10 @@ namespace galaxy
 		/// Sets up the engine. You need to inherit this and call it from a subclass.
 		/// Also calls std::srand(std::time(nullptr)) for you.
 		/// 
-		/// \param config Path to the config file.
+		/// \param config You need to construct, initialize and open a config file.
+		///               std::move() is called for you.
 		///
-		Application(const std::string& config);
+		Application(std::unique_ptr<galaxy::Config>& config);
 
 	private:
 		///

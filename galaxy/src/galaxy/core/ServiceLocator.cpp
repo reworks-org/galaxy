@@ -7,9 +7,12 @@
 
 #include "ServiceLocator.hpp"
 
+///
+/// Core namespace.
+///
 namespace galaxy
 {
-	const galaxy::ServiceLocator& ServiceLocator::i() noexcept
+	galaxy::ServiceLocator& ServiceLocator::i() noexcept
 	{
 		static galaxy::ServiceLocator s_serviceLocator;
 		return s_serviceLocator;
@@ -31,7 +34,7 @@ namespace galaxy
 	}
 
 	ServiceLocator::ServiceLocator()
-		:m_lua(nullptr), m_window(nullptr)
+		:m_lua(nullptr), m_config(nullptr), m_window(nullptr)
 	{
 	}
 }

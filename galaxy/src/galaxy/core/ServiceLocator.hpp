@@ -44,7 +44,7 @@ namespace galaxy
 		///
 		/// \return Returns a reference to the internal singleton of this class.
 		///
-		static const galaxy::ServiceLocator& i() noexcept;
+		static galaxy::ServiceLocator& i() noexcept;
 
 		///
 		/// Get Lua service.

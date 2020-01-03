@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#define SOL_NO_LUA_HPP
-
 #include <sol/sol.hpp>
 #include <nlohmann/json.hpp>
 
@@ -19,14 +17,14 @@
 ///
 namespace galaxy
 {
-	Application::Application(const std::string& config)
-	:m_restart(false)
+	Application::Application(std::unique_ptr<galaxy::Config>& config)
+	:m_lua(nullptr), m_config(nullptr), m_window(nullptr), m_restart(false)
 	{
 		// Seed pseudo-random algorithms.
-		//std::srand(std::time(nullptr));
+		std::srand(std::time(nullptr));
 
 		// Supposed to improve performance. Need to run tests and ensure we aren't using C stdio.
-		// std::ios::sync_with_stdio(false);
+		std::ios::sync_with_stdio(false);
 
 		// Set up logging and set loguru to throw an exception on fatal errors.
 		//std::string lname = "logs/" + Time::getFormattedTime() + ".log";
@@ -81,13 +79,11 @@ namespace galaxy
 
 		// Create lua instance and open libraries.
 		m_lua = std::make_unique<sol::state>();
-		m_lua->open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8);
-		
+		m_lua->open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8, sol::lib::io);
 
 		// Config reader.
-		//m_configReader = std::make_unique<ConfigReader>(config, newConfig);
-		//ServiceLocator::configReader = m_configReader.get();
-
+		m_config = std::move(config);
+		galaxy::ServiceLocator::i().m_config = m_config.get();
 
 		//m_virtualFS = std::make_unique<VirtualFS>(m_configReader->getSection(config, "archives"));
 		//ServiceLocator::virtualFS = m_virtualFS.get();

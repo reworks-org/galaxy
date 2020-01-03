@@ -117,9 +117,6 @@
     <ClCompile Include="..\modules\lua\ltm.c">
       <Filter>lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\lua\lua.c">
-      <Filter>lua</Filter>
-    </ClCompile>
     <ClCompile Include="..\modules\lua\lundump.c">
       <Filter>lua</Filter>
     </ClCompile>
@@ -132,9 +129,7 @@
     <ClCompile Include="..\modules\lua\lzio.c">
       <Filter>lua</Filter>
     </ClCompile>
-    <ClCompile Include="..\modules\lua\onelua.c">
-      <Filter>lua</Filter>
-    </ClCompile>
+    <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -250,5 +245,6 @@
     <ClInclude Include="..\modules\lua\lzio.h">
       <Filter>lua</Filter>
     </ClInclude>
+    <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
   </ItemGroup>
 </Project>
