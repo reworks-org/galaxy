@@ -13,6 +13,9 @@
     <Filter Include="sol2">
       <UniqueIdentifier>{bce62df5-99b3-4753-bfc2-7fc5ef5a8afd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="galaxy\core">
+      <UniqueIdentifier>{ba86a10c-123a-4dde-9722-848f91b866ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\modules\imgui\imgui.cpp">
@@ -24,9 +27,9 @@
     <ClCompile Include="..\modules\imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
-    <ClCompile Include="source\galaxy\main.cpp">
-      <Filter>galaxy</Filter>
-    </ClCompile>
+    <ClCompile Include="src\galaxy\core\Application.cpp" />
+    <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
+    <ClCompile Include="src\galaxy\fs\Config.cpp" />
     <ClCompile Include="..\modules\lua\lapi.c">
       <Filter>lua</Filter>
     </ClCompile>
@@ -114,6 +117,9 @@
     <ClCompile Include="..\modules\lua\ltm.c">
       <Filter>lua</Filter>
     </ClCompile>
+    <ClCompile Include="..\modules\lua\lua.c">
+      <Filter>lua</Filter>
+    </ClCompile>
     <ClCompile Include="..\modules\lua\lundump.c">
       <Filter>lua</Filter>
     </ClCompile>
@@ -124,6 +130,9 @@
       <Filter>lua</Filter>
     </ClCompile>
     <ClCompile Include="..\modules\lua\lzio.c">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\lua\onelua.c">
       <Filter>lua</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,6 +158,14 @@
     <ClInclude Include="..\modules\imgui\imstb_truetype.h">
       <Filter>imgui</Filter>
     </ClInclude>
+    <ClInclude Include="..\modules\sol2\single\include\sol\forward.hpp">
+      <Filter>sol2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp">
+      <Filter>sol2</Filter>
+    </ClInclude>
+    <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="..\modules\lua\lapi.h">
       <Filter>lua</Filter>
     </ClInclude>
@@ -232,12 +249,6 @@
     </ClInclude>
     <ClInclude Include="..\modules\lua\lzio.h">
       <Filter>lua</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\sol2\single\include\sol\forward.hpp">
-      <Filter>sol2</Filter>
-    </ClInclude>
-    <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp">
-      <Filter>sol2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
