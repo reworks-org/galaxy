@@ -21,6 +21,7 @@ namespace galaxy
 	// Forward decs.
 	// This avoids mass includes.
 	class Config;
+	class FileSystem;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -59,6 +60,13 @@ namespace galaxy
 		/// \return Return const pointer to Config service.
 		///
 		const auto config() const noexcept;
+
+		///
+		/// Get FileSystem service.
+		///
+		/// \return Return const pointer to FileSystem service.
+		///
+		const auto fs() const noexcept;
 
 		///
 		/// Get Window service.
@@ -107,6 +115,11 @@ namespace galaxy
 		/// Config service.
 		///
 		galaxy::Config* m_config;
+
+		///
+		/// FileSystem service.
+		///
+		galaxy::FileSystem* m_fs;
 
 		///
 		/// Window service.

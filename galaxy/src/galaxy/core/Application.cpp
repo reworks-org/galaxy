@@ -8,7 +8,9 @@
 #include <sol/sol.hpp>
 #include <nlohmann/json.hpp>
 
+#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/PhysfsInputStream.hpp"
 
 #include "Application.hpp"
 
@@ -85,15 +87,32 @@ namespace galaxy
 		m_config = std::move(config);
 		galaxy::ServiceLocator::i().m_config = m_config.get();
 
-		//m_virtualFS = std::make_unique<VirtualFS>(m_configReader->getSection(config, "archives"));
-		//ServiceLocator::virtualFS = m_virtualFS.get();
-		//m_virtualFS->setWriteDir(m_configReader->lookup<std::string>(config, "fs", "writeDir"));
+		m_fs = std::make_unique<galaxy::FileSystem>();
+		m_fs->mount(m_config->get<std::string>("archive"));
+		m_fs->setWriteDir(m_config->get<std::string>("write-dir"));
+		galaxy::ServiceLocator::i().m_fs = m_fs.get();
 
 		m_window = std::make_unique<sf::RenderWindow>();
+		m_window->create(sf::VideoMode(m_config->get<unsigned int>("width"),
+			m_config->get<unsigned int>("height")),
+			m_config->get<std::string>("title"),
+			sf::Style::Titlebar | sf::Style::Close,
+			sf::ContextSettings(0, 0, m_config->get<unsigned int>("anti-alias")));
+		
+		m_window->requestFocus();
+		m_window->setActive();
+		m_window->setFramerateLimit(0);
+		m_window->setVerticalSyncEnabled(m_config->get<bool>("vsync"));
 
-		//m_window = std::make_unique<Window>(m_configReader->lookup<std::string>(config, "graphics", "title"), m_configReader->lookup<std::string>(config, "graphics", "icon"), m_configReader->lookup<int>(config, "graphics", "width"), m_configReader->lookup<int>(config, "graphics", "height"),
-		//m_configReader->lookup<bool>(config, "graphics", "fullscreen"), m_configReader->lookup<bool>(config, "graphics", "msaa"), m_configReader->lookup<int>(config, "graphics", "msaaValue"), m_configReader->lookup<bool>(config, "graphics", "grabMouse"));
-		//ServiceLocator::window = m_window.get();
+		sf::Image icon;
+		icon.loadFromStream(galaxy::PhysfsInputStream(m_config->get<std::string>("icon")));
+		m_window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+		
+		m_window->setKeyRepeatEnabled(m_config->get<bool>("key-repeat"));
+		m_window->setMouseCursorGrabbed(true);
+		m_window->setMouseCursorVisible(false);
+		m_window->setVisible(true);
+		galaxy::ServiceLocator::i().m_window = m_window.get();
 
 		//m_world = std::make_unique<World>();
 		//ServiceLocator::world = m_world.get();
@@ -146,49 +165,13 @@ namespace galaxy
 
 	Application::~Application()
 	{
-		/*
-		// Iterate over entities, destroying their Box2D body data.
-		// Yeah, no idea why this has to be done here, entt has some really weird behaviour that's causing a number of unexpected issues.
-		ServiceLocator::world->m_registry.view<PhysicsComponent>().each([this](entt::DefaultRegistry::entity_type entity, PhysicsComponent& pc) {
-			ServiceLocator::box2dHelper->m_b2world->DestroyBody(pc.m_body);
-		});
-
+		
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
-		// It actually only really matters box2d is destroyed after the world because the physics code rely
-		// on the box2d system to be destroyed unfortunately.
 		// And of course the file system being the last to be destroyed.
-		m_dispatcher.reset();
-		m_soundPlayer.reset();
-		m_musicPlayer.reset();
-		m_shaderLibrary.reset();
-		m_fontBook.reset();
-		m_textureAtlas.reset();
-		#ifdef _DEBUG 
-			m_debugInterface.reset(); 
-		#endif
-		m_stateMachine.reset();
-		m_box2dHelper.reset();
-		m_world.reset();
 		m_window.reset();
-		m_configReader.reset();
-		m_virtualFS.reset();
+		m_fs.reset();
+		m_config.reset();
 		m_lua.reset();
-
-		// Clean up the event queue.
-		al_destroy_event_queue(m_queue);
-
-		// Clean up allegro aswell.
-		al_shutdown_native_dialog_addon();
-		al_shutdown_primitives_addon();
-		al_shutdown_video_addon();
-		al_shutdown_image_addon();
-		al_shutdown_ttf_addon();
-		al_shutdown_font_addon();
-
-		al_uninstall_audio();
-		al_uninstall_mouse();
-		al_uninstall_keyboard();
-		al_uninstall_system();
 	}
 
 	bool Application::run()
@@ -201,6 +184,7 @@ namespace galaxy
 		// This is to ensure gameloop is running at 60 UPS, independant of FPS.
 		double timePerFrame = 1.0 / 60.0;
 
+		/*
 		// Set system event sources. User event registration is handled by event manager.
 		al_register_event_source(m_queue, al_get_display_event_source(m_window->getDisplay()));
 		al_register_event_source(m_queue, al_get_mouse_event_source());
@@ -288,5 +272,6 @@ namespace galaxy
 
 		return m_restart;
 		*/
+		return true;
 	}
 }

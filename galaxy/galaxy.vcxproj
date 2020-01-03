@@ -58,6 +58,7 @@
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\fs\Config.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
     <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -98,10 +99,18 @@
     <ClInclude Include="..\modules\lua\lundump.h" />
     <ClInclude Include="..\modules\lua\lvm.h" />
     <ClInclude Include="..\modules\lua\lzio.h" />
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs.h" />
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_casefolding.h" />
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_internal.h" />
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_lzmasdk.h" />
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_miniz.h" />
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_platforms.h" />
     <ClInclude Include="..\modules\sol2\single\include\sol\forward.hpp" />
     <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -196,7 +205,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;.../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ConformanceMode>false</ConformanceMode>
@@ -228,7 +237,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;.../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -263,7 +272,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;WIN32;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;.../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -300,7 +309,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;WIN64;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;.../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>

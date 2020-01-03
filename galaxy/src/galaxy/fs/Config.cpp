@@ -7,7 +7,6 @@
 
 #include <fstream>
 
-#include <pl/Log.hpp>
 #include <nlohmann/json.hpp>
 
 #include "Config.hpp"

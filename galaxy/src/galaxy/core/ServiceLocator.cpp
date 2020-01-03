@@ -28,13 +28,18 @@ namespace galaxy
 		return m_config;
 	}
 
+	const auto ServiceLocator::fs() const noexcept
+	{
+		return m_fs;
+	}
+
 	const auto ServiceLocator::window() const noexcept
 	{
 		return m_window;
 	}
 
 	ServiceLocator::ServiceLocator()
-		:m_lua(nullptr), m_config(nullptr), m_window(nullptr)
+		:m_lua(nullptr), m_config(nullptr), m_fs(nullptr), m_window(nullptr)
 	{
 	}
 }

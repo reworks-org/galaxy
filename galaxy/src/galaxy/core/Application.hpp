@@ -81,9 +81,14 @@ namespace galaxy
 		std::unique_ptr<galaxy::Config> m_config;
 
 		///
+		/// Manages the virtual filesystem, opens the resource archives, etc.
+		///
+		std::unique_ptr<galaxy::FileSystem> m_fs;
+
+		///
 		/// SFML window - main app window.
 		///
-		std::unique_ptr<sf::Window> m_window;
+		std::unique_ptr<sf::RenderWindow> m_window;
 
 		///
 		/// The world class, which manages entitys, components, tags, systems, and other important data.
@@ -137,10 +142,7 @@ namespace galaxy
 		///
 		//std::unique_ptr<TextureAtlas> m_textureAtlas;
 
-		///
-		/// Manages the virtual filesystem, opens the resource archives, etc.
-		///
-		//std::unique_ptr<VirtualFS> m_virtualFS;
+		
 		
 		///
 		/// Controls the debug UI which allows you to have control over the game from ingame. Console, script editing, etc.

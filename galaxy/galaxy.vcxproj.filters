@@ -16,6 +16,9 @@
     <Filter Include="galaxy\core">
       <UniqueIdentifier>{ba86a10c-123a-4dde-9722-848f91b866ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="physfs">
+      <UniqueIdentifier>{ee9b8271-c17f-450c-8cf4-12e57d8e7a6e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\modules\imgui\imgui.cpp">
@@ -27,9 +30,6 @@
     <ClCompile Include="..\modules\imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\galaxy\core\Application.cpp" />
-    <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
-    <ClCompile Include="src\galaxy\fs\Config.cpp" />
     <ClCompile Include="..\modules\lua\lapi.c">
       <Filter>lua</Filter>
     </ClCompile>
@@ -129,7 +129,19 @@
     <ClCompile Include="..\modules\lua\lzio.c">
       <Filter>lua</Filter>
     </ClCompile>
-    <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
+    <ClCompile Include="src\galaxy\core\Application.cpp">
+      <Filter>galaxy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\galaxy\fs\Config.cpp">
+      <Filter>galaxy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp">
+      <Filter>galaxy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\galaxy\core\ServiceLocator.cpp">
+      <Filter>galaxy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -159,8 +171,6 @@
     <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp">
       <Filter>sol2</Filter>
     </ClInclude>
-    <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="..\modules\lua\lapi.h">
       <Filter>lua</Filter>
     </ClInclude>
@@ -245,6 +255,34 @@
     <ClInclude Include="..\modules\lua\lzio.h">
       <Filter>lua</Filter>
     </ClInclude>
-    <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
+    <ClInclude Include="src\galaxy\core\Application.hpp">
+      <Filter>galaxy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\galaxy\fs\Config.hpp">
+      <Filter>galaxy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp">
+      <Filter>galaxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs.h">
+      <Filter>physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_casefolding.h">
+      <Filter>physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_internal.h">
+      <Filter>physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_lzmasdk.h">
+      <Filter>physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_miniz.h">
+      <Filter>physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\physfs\include\physfs\physfs_platforms.h">
+      <Filter>physfs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
+    <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
   </ItemGroup>
 </Project>

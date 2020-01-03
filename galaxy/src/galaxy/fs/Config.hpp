@@ -10,6 +10,7 @@
 
 #include <filesystem>
 
+#include <pl/Log.hpp>
 #include <nlohmann/json_fwd.hpp>
 
 ///
@@ -136,7 +137,7 @@ namespace galaxy
 			throw std::runtime_error("");
 		}
 
-		m_config["config"][key].get<Value>();
+		return m_config["config"][key].get<Value>();
 	}
 }
 
