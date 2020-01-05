@@ -37,7 +37,7 @@ namespace protostar
 		/// Use this function to retrieve the ID.
 		/// Will generate a new id if it is called for the first time.
 		///
-		/// \return SR_INTEGER id.
+		/// \return Std::size_t ID.
 		///
 		template<typename Type>
 		static const std::size_t get();
