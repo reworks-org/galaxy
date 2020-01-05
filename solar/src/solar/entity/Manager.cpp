@@ -16,10 +16,7 @@ namespace sr
 
 	Manager::~Manager() noexcept
 	{
-		m_data.clear();
-		m_entities.clear();
-
-		m_nextID = 0;
+		clear();
 	}
 
 	const sr::Entity Manager::create() noexcept
@@ -71,5 +68,14 @@ namespace sr
 		{
 			ptr->update(time, *this);
 		}
+	}
+
+	void Manager::clear() noexcept
+	{
+		m_nextID = 0;
+
+		m_entities.clear();
+		m_data.clear();
+		m_systems.clear();
 	}
 }

@@ -175,6 +175,11 @@ namespace sr
 		///
 		void update(const sr::DeltaTime time);
 
+		///
+		/// Clear all data from Manager and reset.
+		///
+		void clear() noexcept;
+
 	private:
 		///
 		/// Internal method used to process components from entities.
