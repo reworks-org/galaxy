@@ -12,7 +12,7 @@
 #include <stdexcept>
 
 ///
-/// Legacy.
+/// Library wide default integer.
 /// Must be 32bits. Do not change.
 ///
 #define SR_INTEGER std::uint32_t
