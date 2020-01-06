@@ -36,6 +36,11 @@ namespace pl
 	{
 	public:
 		///
+		/// Destructor.
+		///
+		~Log() noexcept;
+
+		///
 		/// Enum defining the different reporting levels of a log message.
 		///
 		enum class Level : int
@@ -123,12 +128,7 @@ namespace pl
 		///
 		/// Constructor.
 		///
-		Log();
-
-		///
-		/// Destructor.
-		///
-		~Log() = default;
+		Log() noexcept;
 
 		///
 		/// Delete Copy construct in order to preserve singleton.

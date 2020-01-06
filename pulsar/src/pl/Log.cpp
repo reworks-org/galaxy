@@ -19,13 +19,13 @@
 ///
 namespace pl
 {
-	Log::Log()
+	Log::Log() noexcept
 		:m_minimumLevel(pl::Log::Level::INFO)
 	{
 		m_callback = [&](const pl::Log::Level level, const std::string& message)
 		{
-			// Lock guard prevents dangling threads and access to the same memory by two different threads.
-			std::lock_guard<std::mutex> lock(m_lock);
+			// Mutex protection.
+			m_lock.lock();
 
 			// Prefix string
 			std::string output = pl::Log::i().processColour(level) + "[" + pl::Log::i().processLevel(level) + "] - " + pl::Log::i().getDateTime() + " - ";
@@ -34,7 +34,14 @@ namespace pl
 			// Print to stream and std output.
 			std::cout << output;
 			m_fileStream << output;
+
+			m_lock.unlock();
 		};
+	}
+
+	Log::~Log() noexcept
+	{
+		//m_lock.unlock();
 	}
 
 	Log& Log::i()
