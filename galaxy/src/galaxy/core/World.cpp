@@ -2,153 +2,85 @@
 /// World.cpp
 /// galaxy
 ///
-/// Created by reworks on 09/07/2016.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/fs/VirtualFS.hpp"
-#include "galaxy/tags/CameraTag.hpp"
+#include <nlohmann/json.hpp>
+
+#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/components/RenderComponent.hpp"
-#include "galaxy/components/EnabledComponent.hpp"
-#include "galaxy/components/PhysicsComponent.hpp"
-#include "galaxy/components/ParticleComponent.hpp"
-#include "galaxy/components/ParallaxComponent.hpp"
-#include "galaxy/components/AnimationComponent.hpp"
-#include "galaxy/components/TransformComponent.hpp"
-#include "galaxy/components/ScrollingBackgroundComponent.hpp"
 
 #include "World.hpp"
 
+///
+/// Core namespace.
+///
 namespace galaxy
 {
 	World::World()
-	:m_scriptFolderPath(""), m_textureFolderPath(""), m_musicFolderPath(""), m_soundFolderPath(""), m_fontFolderPath("")
 	{
-		// Register the library components and tags.
-		registerComponent<AnimationComponent>("AnimationComponent");
-		registerComponent<EnabledComponent>("EnabledComponent");
-		registerComponent<ParallaxComponent>("ParallaxComponent");
-		registerComponent<ParticleComponent>("ParticleComponent");
-		registerComponent<PhysicsComponent>("PhysicsComponent");
-		registerComponent<RenderComponent>("RenderComponent");
-		registerComponent<ScrollingBackgroundComponent>("ScrollingBackgroundComponent");
-		registerComponent<TransformComponent>("TransformComponent");
-
-		registerTag<CameraTag>("CameraTag");
+		// Register default components.
+		// TODO
 	}
 
 	World::~World()
 	{
-		// Clean up data.
-		m_tagAssign.clear();
-		m_componentAssign.clear();
-		m_systems.clear();
-		m_registry.reset();
+		m_componentFactory.clear();
+		m_manager.clear();
 	}
 
-	entt::DefaultRegistry::entity_type World::createEntity(const std::string& script)
+	sr::Entity World::createEntity(const std::string& def)
 	{
-		std::string fullPath = m_scriptFolderPath + script;
-		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
-		
+		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
+
+		nlohmann::json root;
+		root.parse(fs->read(def));
+
 		// Create entity.
-		entt::DefaultRegistry::entity_type entity = m_registry.create();
-		sol::table components = Locator::lua->get<sol::table>("entity");
+		sr::Entity entity = m_manager.create();
 
 		// Loop over components
-		if (!components.empty())
+		if (!root.empty())
 		{
-			components.for_each([&](std::pair<sol::object, sol::object> pair)
+			for (auto& [key, value] : root.items())
 			{
 				// Use the assign function to create components for entities without having to know the type.
-				m_componentAssign[entt::HashedString(pair.first.as<const char*>())](entity, pair.second.as<sol::table>());
-
-				// Then if its the physics component, we set up the fixture collision callback entity.
-				if (pair.first.as<const char*>() == "PhysicsComponent")
-				{
-					m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
-				}
-			});
-		}
-
-		// Loop over tags and assign.
-		auto tags = components["Tags"];
-		if (tags.valid())
-		{
-			sol::table tags = components.get<sol::table>("tags");
-			tags.for_each([&](std::pair<sol::object, sol::object> pair)
-			{
-				// Use the assign function to create tags for entities without having to know the type.
-				m_tagAssign[entt::HashedString(pair.first.as<const char*>())](entity, pair.second.as<sol::table>());
-			});
+				m_componentFactory[key](entity, value);
+			}
 		}
 
 		return entity;
 	}
 
-	void World::createEntities(const std::string& batchScript)
+	void World::createEntities(const std::string& def)
 	{	
-		std::string fullPath = m_scriptFolderPath + batchScript;
-		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
+		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
 
-		sol::table entityList = Locator::lua->get<sol::table>("entityList");
-		entityList.for_each([&](std::pair<sol::object, sol::object> pair)
+		nlohmann::json root;
+		root.parse(fs->read(def));
+
+		for (auto& location : root)
 		{
-			// For each entity in list, create that entity.
-			createEntity(pair.second.as<std::string>());
-		});
+			createEntity(location);
+		}
 	}
 
-	void World::createDuplicateEntities(const std::string& script)
+	void World::createDuplicateEntities(const unsigned int count, const std::string& def)
 	{
-		std::string fullPath = m_scriptFolderPath + script;
-		Locator::lua->script(Locator::virtualFS->openAsString(fullPath));
-
-		sol::table table = Locator::lua->get<sol::table>("entity");
-		unsigned int count = table.get<unsigned int>("count");
-
-		for (unsigned int i = 0; i < count; ++i)
+		for (auto i = 0; i < count; ++i)
 		{
-			// Create entity.
-			entt::DefaultRegistry::entity_type entity = m_registry.create();
-
-			// Loop over components
-			if (!table.empty())
-			{
-				table.for_each([&](std::pair<sol::object, sol::object> pair)
-				{
-					// Use the assign function to create components for entities without having to know the type.
-					m_componentAssign[entt::HashedString(pair.first.as<const char*>())](entity, pair.second.as<sol::table>());
-
-					// Then if its the physics component, we set up the fixture collision callback entity.
-					if (pair.first.as<const char*>() == "PhysicsComponent")
-					{
-						m_registry.get<PhysicsComponent>(entity).setFixtureEntity(entity);
-					}
-				});
-			}
-
-			// Loop over tags and assign.
-			sol::table tags = table.get<sol::table>("tags");
-			if (!tags.empty())
-			{
-				tags.for_each([&](std::pair<sol::object, sol::object> pair)
-				{
-					// Use the assign function to create tags for entities without having to know the type.
-					m_tagAssign[entt::HashedString(pair.first.as<const char*>())](entity, pair.second.as<sol::table>());
-				});
-			}
+			createEntity(def);
 		}
 	}
 
 	void World::update(const double dt)
 	{
-		// Update systems.
-		for (auto& pair : m_systems)
-		{
-			pair.second->update(dt, m_registry);
-		}
+		// Update ECS.
+		m_manager.update(dt);
+	}
+
+	sr::Manager& World::manager() noexcept
+	{
+		return m_manager;
 	}
 }

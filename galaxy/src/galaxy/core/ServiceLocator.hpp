@@ -22,6 +22,7 @@ namespace galaxy
 	// This avoids mass includes.
 	class Config;
 	class FileSystem;
+	class World;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -75,6 +76,13 @@ namespace galaxy
 		///
 		const auto window() const noexcept;
 
+		///
+		/// Get World service.
+		///
+		/// \return Return const pointer to World service.
+		///
+		const auto world() const noexcept;
+
 	private:
 		///
 		/// Default constructor.
@@ -125,6 +133,11 @@ namespace galaxy
 		/// Window service.
 		///
 		sf::RenderWindow* m_window;
+
+		///
+		/// World service.
+		///
+		galaxy::World* m_world;
 	};
 }
 

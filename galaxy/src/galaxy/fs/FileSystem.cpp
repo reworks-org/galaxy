@@ -47,16 +47,6 @@ namespace galaxy
 		PHYSFS_deinit();
 	}
 
-	void FileSystem::mount(const std::string& archive)
-	{
-		// Try to mount the archive to the VFS, else log error.
-		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
-		{
-			PL_LOG(pl::Log::Level::FATAL, "Cannot load: " + archive + " | " + std::string(PHYSFS_getLastError()));
-			throw std::runtime_error("");
-		}
-	}
-
 	void FileSystem::setWriteDir(const std::string& dir)
 	{
 		// Try to set the write dir for the VFS, else log error.
@@ -67,13 +57,68 @@ namespace galaxy
 		}
 	}
 
+	void FileSystem::mount(const std::string& archive)
+	{
+		// Try to mount the archive to the VFS, else log error.
+		if (!PHYSFS_mount(archive.c_str(), nullptr, 1))
+		{
+			PL_LOG(pl::Log::Level::FATAL, "Cannot load: " + archive + " | " + std::string(PHYSFS_getLastError()));
+			throw std::runtime_error("");
+		}
+	}
+
+	bool FileSystem::has(const std::string& file)
+	{
+		return (PHYSFS_exists(file.c_str()) != 0);
+	}
+
+	const std::string FileSystem::read(const std::string& file)
+	{
+		std::string out = "";
+
+		// Open file for reading, making sure it is successful.
+		PHYSFS_File* fp = PHYSFS_openRead(file.c_str());
+		if (!fp)
+		{
+			PL_LOG(pl::Log::Level::FATAL, "Could not open " + file + " for reading! | " + std::string(PHYSFS_getLastError()));
+			PHYSFS_close(fp);
+
+			throw std::runtime_error("");
+		}
+		else
+		{
+			auto size = PHYSFS_fileLength(fp);
+			char* buff = new char[size + 1];
+			
+			// Read data, checking for success, and making sure size means full file was read.
+			if (PHYSFS_readBytes(fp, buff, size) != size)
+			{
+				PL_LOG(pl::Log::Level::FATAL, "Failed to read data from file " + file + " | " + std::string(PHYSFS_getLastError()));
+				delete[] buff;
+				PHYSFS_close(fp);
+
+				throw std::runtime_error("");
+			}
+			else
+			{
+				buff[size + 1] = '\0';
+				out.assign(buff, size + 1);
+			}
+
+			delete[] buff;
+		}
+
+		PHYSFS_close(fp);
+
+		return out;
+	}
+
 	bool FileSystem::write(const std::string& file, const void* data, const unsigned int size)
 	{
 		bool result = true;
 
 		// Open file for writing, making sure it is successful.
 		PHYSFS_File* fp = PHYSFS_openWrite(file.c_str());
-
 		if (!fp)
 		{
 			PL_LOG(pl::Log::Level::ERROR, "Could not open " + file + " for writing! | " + std::string(PHYSFS_getLastError()));
@@ -81,7 +126,7 @@ namespace galaxy
 		}
 		else
 		{
-			// Write data, checking for success, and making sure length is the correct type.
+			// Write data, checking for success, and making sure size means full data was written.
 			if (PHYSFS_writeBytes(fp, data, size) != size)
 			{
 				PL_LOG(pl::Log::Level::ERROR, "Failed to write data to file " + file + " | " + std::string(PHYSFS_getLastError()));
@@ -93,10 +138,5 @@ namespace galaxy
 		PHYSFS_close(fp);
 
 		return result;
-	}
-
-	bool FileSystem::has(const std::string& file)
-	{
-		return (PHYSFS_exists(file.c_str()) != 0);
 	}
 }

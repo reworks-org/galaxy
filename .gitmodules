@@ -28,3 +28,6 @@
 [submodule "modules/redshift"]
 	path = modules/redshift
 	url = https://github.com/DomRe/redshift.git
+[submodule "modules/imgui-sfml"]
+	path = modules/imgui-sfml
+	url = https://github.com/eliasdaler/imgui-sfml.git

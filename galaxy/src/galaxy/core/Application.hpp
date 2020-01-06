@@ -12,6 +12,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "galaxy/fs/Config.hpp"
+#include "galaxy/core/World.hpp"
 
 ///
 /// Core namespace.
@@ -91,9 +92,9 @@ namespace galaxy
 		std::unique_ptr<sf::RenderWindow> m_window;
 
 		///
-		/// The world class, which manages entitys, components, tags, systems, and other important data.
+		/// The world class, which manages entities, components, systems, and other important data structures.
 		///
-		//std::unique_ptr<World> m_world;
+		std::unique_ptr<galaxy::World> m_world;
 
 		///
 		/// Manages the window, rendering and input.

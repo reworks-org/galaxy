@@ -124,7 +124,7 @@ namespace galaxy
 		}
 		else
 		{
-			m_config["config"][key] = value;
+			m_config[key] = value;
 		}
 	}
 
@@ -137,7 +137,7 @@ namespace galaxy
 			throw std::runtime_error("");
 		}
 
-		return m_config["config"][key].get<Value>();
+		return m_config[key].get<Value>();
 	}
 }
 

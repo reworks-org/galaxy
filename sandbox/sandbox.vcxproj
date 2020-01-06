@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4257686F-50A9-4BD4-8A42-A97ED03E00C8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -157,7 +160,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;_DEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -177,7 +180,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_DEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -200,7 +203,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -225,7 +228,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/source/;../libs/libxml2/include/;../libs/allegro/include/;../libs/allegro_deps/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

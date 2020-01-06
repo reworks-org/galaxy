@@ -6,7 +6,7 @@
 /// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
-
+/*
 #include <memory>
 #include <sl/tags/CameraTag.hpp>
 #include <sl/core/Application.hpp>
@@ -112,4 +112,11 @@ int main(int argc, char **argv)
 	} while (restart);
 		
 	return 0;
+}
+
+*/
+
+int main()
+{
+	return 0;	
 }

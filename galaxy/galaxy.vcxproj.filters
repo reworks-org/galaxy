@@ -142,6 +142,10 @@
       <Filter>galaxy</Filter>
     </ClCompile>
     <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
+    <ClCompile Include="src\galaxy\core\World.cpp" />
+    <ClCompile Include="src\galaxy\ui\Editor.cpp" />
+    <ClCompile Include="..\modules\imgui-sfml\imgui-SFML.cpp" />
+    <ClCompile Include="..\modules\imgui-textedit\TextEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -284,5 +288,11 @@
     </ClInclude>
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
+    <ClInclude Include="src\galaxy\core\World.hpp" />
+    <ClInclude Include="src\galaxy\ui\Editor.hpp" />
+    <ClInclude Include="..\modules\imgui-sfml\imconfig-SFML.h" />
+    <ClInclude Include="..\modules\imgui-sfml\imgui-SFML.h" />
+    <ClInclude Include="..\modules\imgui-sfml\imgui-SFML_export.h" />
+    <ClInclude Include="..\modules\imgui-textedit\TextEditor.h" />
   </ItemGroup>
 </Project>

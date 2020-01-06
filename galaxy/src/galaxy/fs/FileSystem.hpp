@@ -41,6 +41,17 @@ namespace galaxy
 		~FileSystem() noexcept;
 
 		///
+		/// \brief Set the directory to write files to.
+		///
+		/// Depending on the order you mount your files in,
+		/// you can overwrite files in a zip with files in a physical directory,
+		/// essentially allowing for basic "mods".
+		///
+		/// \param dir Directory to write to.
+		///
+		void setWriteDir(const std::string& dir);
+
+		///
 		/// \brief Mount an archive or folder.
 		///
 		/// This is done by physfs so it supports the most common archive types. 
@@ -60,6 +71,17 @@ namespace galaxy
 		bool has(const std::string& file);
 
 		///
+		/// \brief Read a file to a string.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param file File in VFS to read.
+		///
+		/// \return Const std::string containing read info.
+		///
+		const std::string read(const std::string& file);
+
+		///
 		/// \brief Write to a file.
 		///
 		/// This will create the file if it does not exist.
@@ -73,17 +95,6 @@ namespace galaxy
 		/// \return True on success.
 		///
 		bool write(const std::string& file, const void* data, const unsigned int size);	
-		
-		///
-		/// \brief Set the directory to write files to.
-		///
-		/// Depending on the order you mount your files in,
-		/// you can overwrite files in a zip with files in a physical directory,
-		/// essentially allowing for basic "mods".
-		///
-		/// \param dir Directory to write to.
-		///
-		void setWriteDir(const std::string& dir);
 	};
 }
 

@@ -114,18 +114,11 @@ namespace galaxy
 		m_window->setVisible(true);
 		galaxy::ServiceLocator::i().m_window = m_window.get();
 
-		//m_world = std::make_unique<World>();
-		//ServiceLocator::world = m_world.get();
-
-		//m_world->m_scriptFolderPath = m_configReader->lookup<std::string>(config, "fs", "scriptFolderPath");
-		//m_world->m_textureFolderPath = m_configReader->lookup<std::string>(config, "fs", "textureFolderPath");
-		//m_world->m_musicFolderPath = m_configReader->lookup<std::string>(config, "fs", "musicFolderPath");
-		//m_world->m_soundFolderPath = m_configReader->lookup<std::string>(config, "fs", "soundFolderPath");
-		//m_world->m_fontFolderPath = m_configReader->lookup<std::string>(config, "fs", "fontFolderPath");
+		m_world = std::make_unique<World>();
+		galaxy::ServiceLocator::i().m_world = m_world.get();
 
 		//m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay());
 		//ServiceLocator::debugInterface = m_debugInterface.get();
-		
 
 		//m_stateMachine = std::make_unique<StateMachine>();
 		//ServiceLocator::stateMachine = m_stateMachine.get();

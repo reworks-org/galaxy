@@ -1,72 +1,71 @@
 ///
-/// DebugInterface.cpp
+/// Editor.cpp
 /// galaxy
 ///
-/// Created by reworks on 20/04/2017.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifdef _DEBUG
+#include <imgui-SFML.h>
+#include <SFML/Graphics/RenderWindow.hpp>
 
-#include <physfs.h>
+#include "galaxy/core/ServiceLocator.hpp"
 
-#include "galaxy/core/World.hpp"
-#include "galaxy/graphics/Window.hpp"
-#include "galaxy/core/StateMachine.hpp"
-#include "galaxy/libs/imgui/imgui_stl.h"
-#include "galaxy/libs/imgui/imgui_console.h"
-#include "galaxy/libs/imgui/imgui_impl_allegro5.h"
+#include "Editor.hpp"
 
-#include "DebugInterface.hpp"
-
+///
+/// Core namespace.
+///
 namespace galaxy
 {
-	DebugInterface::DebugInterface(const std::string& scriptFolderPath, ALLEGRO_DISPLAY* display)
-	:m_scriptFolderPath(scriptFolderPath)
+	Editor::Editor()
 	{
-		// Set up imgui context from allegro's display.
+		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		ImGui_ImplAllegro5_Init(display);
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+		ImGui::SFML::Init(galaxy::ServiceLocator::i().window(), true);
 
 		// Setup style
 		ImGui::StyleColorsDark();
-
-		// Then set up the text editor for lua script editing.
-		m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
-		m_editor.SetPalette(TextEditor::GetDarkPalette());
+		//ImGui::StyleColorsLight();
+		//ImGui::StyleColorsClassic();
 	}
 
-	DebugInterface::~DebugInterface()
+	Editor::Editor(sf::RenderWindow* window)
+	{
+	}
+
+	Editor::~Editor()
 	{
 		// Clean up all the imgui data.
 		ImGui_ImplAllegro5_Shutdown();
 		ImGui::DestroyContext();
 	}
 
-	void DebugInterface::event(ALLEGRO_EVENT* event)
+	void Editor::event(ALLEGRO_EVENT* event)
 	{
 		// If not disabled, process gui events.
 		ImGui_ImplAllegro5_ProcessEvent(event);
 	}
 
-	void DebugInterface::newFrame()
+	void Editor::newFrame()
 	{
 		// If not disabled, create a new frame for drawing widgets to.
 		ImGui_ImplAllegro5_NewFrame();
 		ImGui::NewFrame();
 	}
 
-	void DebugInterface::render()
+	void Editor::render()
 	{
 		// If not disabled, draw the imgui window.
 		ImGui::Render();
 		ImGui_ImplAllegro5_RenderDrawData(ImGui::GetDrawData());
 	}
 
-	void DebugInterface::displayMenu(bool* restart)
+	void Editor::displayMenu(bool* restart)
 	{
 		// Set up the gui.
 		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);

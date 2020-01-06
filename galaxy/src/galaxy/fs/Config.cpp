@@ -11,9 +11,6 @@
 
 #include "Config.hpp"
 
-// For convenience.
-using json = nlohmann::json;
-
 ///
 /// Core namespace.
 ///
@@ -41,8 +38,6 @@ namespace galaxy
 		{
 			m_exists = true;
 		}
-
-		m_config["config"] = json::array();
 	}
 
 	bool Config::open()
@@ -79,8 +74,7 @@ namespace galaxy
 
 	void Config::create()
 	{
-		auto root = m_config["config"];
-		if (root.empty())
+		if (m_config.empty())
 		{
 			PL_LOG(pl::Log::Level::FATAL, "Attempted to create empty config file!");
 			throw std::runtime_error("");
