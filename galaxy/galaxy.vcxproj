@@ -119,6 +119,7 @@
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
+    <ClInclude Include="src\Lua.hpp" />
     <ClInclude Include="src\galaxy\ui\Editor.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -212,7 +213,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -244,7 +245,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -279,7 +280,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;WIN32;NDEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -316,7 +317,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;WIN64;NDEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

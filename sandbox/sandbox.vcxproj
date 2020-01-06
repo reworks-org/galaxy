@@ -158,9 +158,9 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -169,7 +169,8 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>galaxy.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../galaxy/bin/Debug/Win32/;../libs/libxml2/x32/;../libs/allegro/x32/;../libs/allegro_deps/x32/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -178,9 +179,9 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
@@ -189,8 +190,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>galaxy.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../galaxy/bin/Debug/x64/;../libs/libxml2/x64/;../libs/allegro/x64/;../libs/allegro_deps/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;galaxy.lib;starmap.lib;starlight.lib;solar.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-main.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;redshift.lib;pulsar.lib;protostar.lib;celestial.lib;physfs-static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/celestial/celestial/bin/Debug/x64/;../modules/physfs/lib/Debug/x64/;../modules/protostar/protostar/bin/Debug/x64/;../modules/pulsar/pulsar/bin/Debug/x64/;../modules/redshift/redshift/bin/Debug/x64/;../modules/SFML/lib/x64/;../modules/solar/solar/bin/Debug/x64/;../modules/starlight/starlight/bin/Debug/x64/;../modules/starmap/starmap/bin/Debug/x64/;../galaxy/bin/Debug/x64/;</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -201,9 +202,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;WIN32;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -215,7 +216,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>galaxy.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../galaxy/bin/Release/Win32/;../libs/libxml2/x32/;../libs/allegro/x32/;../libs/allegro_deps/x32/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -226,9 +228,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;LIBXML_STATIC;ALLEGRO_STATICLINK;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;WIN64;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -241,7 +243,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>galaxy.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../galaxy/bin/Release/x64/;../libs/libxml2/x64/;../libs/allegro/x64/;../libs/allegro_deps/x64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>

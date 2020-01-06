@@ -7,8 +7,6 @@
 
 #include <fstream>
 
-#include <nlohmann/json.hpp>
-
 #include "Config.hpp"
 
 ///
@@ -65,8 +63,7 @@ namespace galaxy
 		else
 		{
 			result = false;
-
-			PL_LOG(pl::Log::Level::WARNING, "Config file not created. Must be created first!");
+			PL_LOG(pl::Log::Level::WARNING, "Config file must be defined and then created.");
 		}
 
 		return result;
@@ -88,25 +85,18 @@ namespace galaxy
 
 	void Config::save()
 	{
-		if (!m_opened)
+		std::ofstream ofstream(m_path.string(), std::ofstream::out | std::ofstream::trunc);
+		if (ofstream.fail())
 		{
-			PL_LOG(pl::Log::Level::ERROR, "Attempted to save config file that was not open!");
+			PL_LOG(pl::Log::Level::ERROR, "std::ofstream failed to open config file!");
 		}
 		else
 		{
-			std::ofstream ofstream(m_path.string(), std::ofstream::out | std::ofstream::trunc);
-			if (ofstream.fail())
-			{
-				PL_LOG(pl::Log::Level::ERROR, "std::ofstream failed to open config file!");
-			}
-			else
-			{
-				// Use JSON stream to serialize data and write to file.
-				ofstream << m_config;
-				m_opened = true;
-			}
-
-			ofstream.close();
+			// Use JSON stream to serialize data and write to file.
+			ofstream << m_config;
+			m_opened = true;
 		}
+
+		ofstream.close();
 	}
 }

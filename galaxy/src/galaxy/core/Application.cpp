@@ -7,6 +7,7 @@
 
 #include <sol/sol.hpp>
 #include <nlohmann/json.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -161,6 +162,7 @@ namespace galaxy
 		
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 		// And of course the file system being the last to be destroyed.
+		m_world.reset();
 		m_window.reset();
 		m_fs.reset();
 		m_config.reset();
@@ -173,83 +175,72 @@ namespace galaxy
 		int frames = 0;
 		int updates = 0;
 		std::uint64_t timer = 0;
-		
-		// This is to ensure gameloop is running at 60 UPS, independant of FPS.
-		double timePerFrame = 1.0 / 60.0;
+		sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-		/*
-		// Set system event sources. User event registration is handled by event manager.
-		al_register_event_source(m_queue, al_get_display_event_source(m_window->getDisplay()));
-		al_register_event_source(m_queue, al_get_mouse_event_source());
-		al_register_event_source(m_queue, al_get_keyboard_event_source());
-		
-		// Our clock for ensuring gameloop speed.
-		ALLEGRO_TIMER* clock = al_create_timer(timePerFrame);
-		al_register_event_source(m_queue, al_get_timer_event_source(clock));
-		al_start_timer(clock);
-		
+		// This is to ensure gameloop is running at 60 UPS, independant of FPS.
+		const sf::Time timePerFrame = sf::seconds(1.f / 60.f);
+
 		// The timer in milliseconds for UPS and FPS.
 		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
 		// load the first state
-		m_stateMachine->load();
+		//m_stateMachine->load();
 
-		// Gameloop. Pretty easy to understand.
+		// Fixed timestep gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
+		
+		sf::Clock clock;
 		while (m_window->isOpen())
 		{
-			ALLEGRO_EVENT event;
-			while (al_get_next_event(m_queue, &event))
+			sf::Time dt = clock.restart();
+			timeSinceLastUpdate += dt;
+
+			while (timeSinceLastUpdate > timePerFrame)
 			{
-				// Events
-				m_stateMachine->event(&event);
-				#ifdef _DEBUG 
-					m_debugInterface->event(&event); 
-				#endif
+				timeSinceLastUpdate -= timePerFrame;
 
-				switch (event.type)
+				sf::Event event;
+				while (m_window->pollEvent(event))
 				{
-					case ALLEGRO_EVENT_TIMER:
-						// Updates
-						m_stateMachine->update(timePerFrame);
-						m_world->update(timePerFrame);
-						updates++;
-						break;
+					//m_stateMachine->event(&event);
+					//m_debugInterface->event(&event);
 
-					case ALLEGRO_EVENT_DISPLAY_CLOSE:
+					if (event.type == sf::Event::Closed)
+					{
 						m_window->close();
-						break;
+					}
 
-					case ALLEGRO_EVENT_DISPLAY_RESIZE:
-						#ifdef _DEBUG
-							ImGui_ImplAllegro5_InvalidateDeviceObjects();
-							al_acknowledge_resize(m_window->getDisplay());
-							ImGui_ImplAllegro5_CreateDeviceObjects();
-						#endif
-						break;
+					if (event.type == sf::Event::KeyPressed)
+					{
+						if (event.key.code == sf::Keyboard::Space)
+						{
+							m_window->close();
+						}
+					}
 				}
+
+				//m_stateMachine->update(timePerFrame);
+				//m_world->update(timePerFrame);
+				updates++;
 			}
-			
+
 			// We need to "display" the debug ui before the renderer stuff is called.
 			// Because this sets up all the textures, api calls, etc.
-			#ifdef _DEBUG
-				m_debugInterface->newFrame();
-				m_debugInterface->displayMenu(&m_restart);
-			#endif
-			m_window->clear(0, 0, 0);
+			//m_debugInterface->newFrame();
+			//m_debugInterface->displayMenu(&m_restart);
 			
-			m_stateMachine->render();
-			#ifdef _DEBUG
-				m_debugInterface->render();
-			#endif
-
+			m_window->clear(sf::Color::Green);
+			
+			//m_stateMachine->render();
+			//m_debugInterface->render();
+			
 			m_window->display();
 
 			frames++;
 			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
 			{
 				timer += 1000;
-				LOG_S(INFO) << updates << " ups, " << frames << " fps";
+				PL_LOG(pl::Log::Level::INFO, std::to_string(updates) + " ups, " + std::to_string(frames) + " fps.");
 
 				updates = 0;
 				frames = 0;
@@ -257,14 +248,8 @@ namespace galaxy
 		}
 
 		// unload the last state
-		m_stateMachine->unload();
-
-		// Clean up the gameloop timer clock.
-		al_stop_timer(clock);
-		al_destroy_timer(clock);
+		//m_stateMachine->unload();
 
 		return m_restart;
-		*/
-		return true;
 	}
 }

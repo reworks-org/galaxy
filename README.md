@@ -18,7 +18,6 @@ underneath the std::string include, then underneath that, add:
 ```cpp
 #define KEY_SPACE ImGui::GetKeyIndex(ImGuiKey_Space)
 ```
-.
 
 ### Windows:
 ```cpp

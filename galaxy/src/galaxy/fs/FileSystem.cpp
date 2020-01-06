@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include <pl/Log.hpp>
 #include <physfs/physfs.h>
 
@@ -49,6 +51,11 @@ namespace galaxy
 
 	void FileSystem::setWriteDir(const std::string& dir)
 	{
+		if (!std::filesystem::exists(dir))
+		{
+			std::filesystem::create_directory(dir);
+		}
+
 		// Try to set the write dir for the VFS, else log error.
 		if (!PHYSFS_setWriteDir(dir.c_str()))
 		{

@@ -12,7 +12,9 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "galaxy/fs/Config.hpp"
+#include "galaxy/ui/Editor.hpp"
 #include "galaxy/core/World.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 
 ///
 /// Core namespace.
@@ -97,16 +99,14 @@ namespace galaxy
 		std::unique_ptr<galaxy::World> m_world;
 
 		///
-		/// Manages the window, rendering and input.
 		///
-		//std::unique_ptr<Window> m_window;
+		///
+		std::unique_ptr<galaxy::Editor> m_editor;
 
 		///
 		/// Integrates box2d with the rest of the library.
 		///
 		//std::unique_ptr<Box2DHelper> m_box2dHelper;
-
-		
 
 		///
 		/// Process game events.

@@ -11,7 +11,7 @@
 #include <filesystem>
 
 #include <pl/Log.hpp>
-#include <nlohmann/json_fwd.hpp>
+#include <nlohmann/json.hpp>
 
 ///
 /// Core namespace.
@@ -115,14 +115,10 @@ namespace galaxy
 	inline void Config::define(const std::string& key, const Type value)
 	{
 		// Make sure type is floating, integral, boolean or char.
-		static_assert(std::is_arithmetic<Type>::value);
-
-		// File must be opened to set definitions.
-		if (!m_opened)
-		{
-			throw std::runtime_error("Cannot call define() if config is not open()!");
-		}
-		else
+		static_assert(std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
+		
+		// Only need to set definitions first time around.
+		if (!m_exists)
 		{
 			m_config[key] = value;
 		}
