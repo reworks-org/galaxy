@@ -29,7 +29,7 @@ namespace pl
 
 			// Prefix string
 			std::string output = pl::Log::i().processColour(level) + "[" + pl::Log::i().processLevel(level) + "] - " + pl::Log::i().getDateTime() + " - ";
-			output += message;
+			output += (message + "\n");
 
 			// Print to stream and std output.
 			std::cout << output;
