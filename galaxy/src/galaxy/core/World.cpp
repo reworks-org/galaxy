@@ -33,8 +33,7 @@ namespace galaxy
 	{
 		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
 
-		nlohmann::json root;
-		root.parse(fs->read(def));
+		nlohmann::json root = nlohmann::json::parse(fs->read(def));
 
 		// Create entity.
 		sr::Entity entity = m_manager.create();
@@ -56,8 +55,7 @@ namespace galaxy
 	{	
 		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
 
-		nlohmann::json root;
-		root.parse(fs->read(def));
+		nlohmann::json root = nlohmann::json::parse(fs->read(def));
 
 		for (auto& location : root)
 		{

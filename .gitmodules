@@ -31,3 +31,6 @@
 [submodule "modules/imgui-sfml"]
 	path = modules/imgui-sfml
 	url = https://github.com/eliasdaler/imgui-sfml.git
+[submodule "modules/zep"]
+	path = modules/zep
+	url = https://github.com/cmaughan/zep.git

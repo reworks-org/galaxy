@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\modules\imgui-sfml\imgui-SFML.cpp" />
-    <ClCompile Include="..\modules\imgui-textedit\TextEditor.cpp" />
     <ClCompile Include="..\modules\imgui\imgui.cpp" />
     <ClCompile Include="..\modules\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\modules\imgui\imgui_widgets.cpp" />
@@ -72,7 +71,6 @@
     <ClInclude Include="..\modules\imgui-sfml\imconfig-SFML.h" />
     <ClInclude Include="..\modules\imgui-sfml\imgui-SFML.h" />
     <ClInclude Include="..\modules\imgui-sfml\imgui-SFML_export.h" />
-    <ClInclude Include="..\modules\imgui-textedit\TextEditor.h" />
     <ClInclude Include="..\modules\imgui\imconfig.h" />
     <ClInclude Include="..\modules\imgui\imgui.h" />
     <ClInclude Include="..\modules\imgui\imgui_internal.h" />
@@ -214,7 +212,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -246,7 +244,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -281,7 +279,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;WIN32;NDEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -318,7 +316,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_USING_CXX_LUA;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;WIN64;NDEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/redshift/redshift/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/zep/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

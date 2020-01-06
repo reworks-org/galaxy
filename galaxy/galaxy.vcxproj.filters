@@ -145,7 +145,6 @@
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
     <ClCompile Include="..\modules\imgui-sfml\imgui-SFML.cpp" />
-    <ClCompile Include="..\modules\imgui-textedit\TextEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -293,6 +292,5 @@
     <ClInclude Include="..\modules\imgui-sfml\imconfig-SFML.h" />
     <ClInclude Include="..\modules\imgui-sfml\imgui-SFML.h" />
     <ClInclude Include="..\modules\imgui-sfml\imgui-SFML_export.h" />
-    <ClInclude Include="..\modules\imgui-textedit\TextEditor.h" />
   </ItemGroup>
 </Project>

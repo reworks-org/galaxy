@@ -18,27 +18,27 @@ namespace galaxy
 		return s_serviceLocator;
 	}
 
-	const auto ServiceLocator::lua() const noexcept
+	sol::state* ServiceLocator::lua() const noexcept
 	{
 		return m_lua;
 	}
 
-	const auto ServiceLocator::config() const noexcept
+	galaxy::Config* ServiceLocator::config() const noexcept
 	{
 		return m_config;
 	}
 
-	const auto ServiceLocator::fs() const noexcept
+	galaxy::FileSystem* ServiceLocator::fs() const noexcept
 	{
 		return m_fs;
 	}
 
-	const auto ServiceLocator::window() const noexcept
+	sf::RenderWindow* ServiceLocator::window() const noexcept
 	{
 		return m_window;
 	}
 
-	const auto ServiceLocator::world() const noexcept
+	galaxy::World* ServiceLocator::world() const noexcept
 	{
 		return m_world;
 	}

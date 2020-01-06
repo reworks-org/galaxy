@@ -6,6 +6,20 @@
 Game programming framework built on C++17 using SFML, Lua and JSON. This was built as a hobby for hobby projects.
 
 ## Building
+First thing you have to do is go to: modules/imgui/imconfig.h and add 
+```cpp
+#include <imconfig-SFML.h>
+``` 
+to the bottom of the file. Then go to: modules/zep/include/zep/imgui/display-imgui.h and add 
+```cpp
+#include <imgui.h>
+``` 
+underneath the std::string include, then underneath that, add: 
+```cpp
+#define KEY_SPACE ImGui::GetKeyIndex(ImGuiKey_Space)
+```
+.
+
 ### Windows:
 ```cpp
 // todo

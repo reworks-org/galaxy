@@ -5,6 +5,18 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#define ZEP_SINGLE_HEADER_BUILD
+#define ZEP_FEATURE_THREADS
+#define ZEP_FEATURE_CPP_FILE_SYSTEM
+#include <zep.h>
+#include <zep/theme.h>
+#include <zep/window.h>
+#include <zep/buffer.h>
+#include <zep/tab_window.h>
+#include <zep/mode_standard.h>
+#include <zep/imgui/display_imgui.h>
+
+#include <imgui.h>
 #include <imgui-SFML.h>
 #include <SFML/Graphics/RenderWindow.hpp>
 
@@ -17,58 +29,68 @@
 ///
 namespace galaxy
 {
-	Editor::Editor()
+	Editor::Editor() noexcept
+		:m_window(nullptr), m_zepEditor(Zep::ZepPath())
 	{
-		// Setup Dear ImGui context
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
-		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-
-		ImGui::SFML::Init(galaxy::ServiceLocator::i().window(), true);
-
-		// Setup style
-		ImGui::StyleColorsDark();
-		//ImGui::StyleColorsLight();
-		//ImGui::StyleColorsClassic();
 	}
 
 	Editor::Editor(sf::RenderWindow* window)
+		:m_window(nullptr), m_zepEditor(Zep::ZepPath())
 	{
+		init(window);
 	}
 
 	Editor::~Editor()
 	{
-		// Clean up all the imgui data.
-		ImGui_ImplAllegro5_Shutdown();
-		ImGui::DestroyContext();
+		shutdown();
 	}
 
-	void Editor::event(ALLEGRO_EVENT* event)
+	void Editor::init(sf::RenderWindow* window)
 	{
-		// If not disabled, process gui events.
-		ImGui_ImplAllegro5_ProcessEvent(event);
+		m_window = window;
+
+		// Setup Dear ImGui context and SFML.
+		ImGui::SFML::Init(*m_window, true);
+
+		// Setup style.
+		ImGui::StyleColorsDark();
+		//ImGui::StyleColorsLight();
+		//ImGui::StyleColorsClassic();
+
+		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.13f, 0.1f, 0.12f, 0.95f));
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(2.0f, 2.0f));
+
+		ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver);
+		ImGui::SetNextWindowSize(ImVec2(1024, 768), ImGuiCond_FirstUseEver);
 	}
 
-	void Editor::newFrame()
+	void Editor::event(const sf::Event& event)
 	{
-		// If not disabled, create a new frame for drawing widgets to.
-		ImGui_ImplAllegro5_NewFrame();
-		ImGui::NewFrame();
+		ImGui::SFML::ProcessEvent(event);
+	}
+
+	void Editor::update(sf::Clock& clock)
+	{
+		ImGui::SFML::Update(*m_window, clock.restart());
 	}
 
 	void Editor::render()
 	{
-		// If not disabled, draw the imgui window.
-		ImGui::Render();
-		ImGui_ImplAllegro5_RenderDrawData(ImGui::GetDrawData());
+		ImGui::SFML::Render(*m_window);
 	}
 
-	void Editor::displayMenu(bool* restart)
+	void Editor::shutdown()
 	{
-		// Set up the gui.
-		ImGui::Begin("Debug Menu", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
+		ImGui::SFML::Shutdown();
+	}
+
+	void Editor::display(bool* restart)
+	{
+		// Set up stateless variables.
+		static bool s_showEditor = false;
+
+		ImGui::Begin("Galaxy Editor", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
 
 		// Define the gui layout.
 		if (ImGui::BeginMenuBar())
@@ -76,16 +98,17 @@ namespace galaxy
 			if (ImGui::BeginMenu("File"))
 			{
 				// This is the code used by the app to restart it.
-				if (ImGui::MenuItem("Restart Game"))
+				if (ImGui::MenuItem("Restart"))
 				{
 					*restart = true;
-					Locator::window->close();
+					galaxy::ServiceLocator::i().window()->close();
 				}
 
 				// Option to close game.
-				if (ImGui::MenuItem("Quit Game"))
+				if (ImGui::MenuItem("Quit"))
 				{
-					Locator::window->close();
+					*restart = false;
+					galaxy::ServiceLocator::i().window()->close();
 				}
 
 				ImGui::EndMenu();
@@ -96,136 +119,106 @@ namespace galaxy
 				// Open script editor.
 				if (ImGui::MenuItem("Script Editor"))
 				{
-					m_showScriptEditor = true;
+					s_showEditor = true;
 				}
 
 				// Open Lua console.
-				if (ImGui::MenuItem("Show Console"))
-				{
-					m_showLuaConsole = true;
-				}
+			//	if (ImGui::MenuItem("Show Console"))
+				//{
+				//	m_showLuaConsole = true;
+			//	}
 
 				ImGui::EndMenu();
 			}
-			
+
 			ImGui::EndMenuBar();
 		}
 
 		// Push a state.
-		if (ImGui::InputText("Push State", m_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			if (!m_stateBuff.empty())
-			{
-				Locator::stateMachine->push(m_stateBuff.c_str());
-			}
-		}
+		//if (ImGui::InputText("Push State", m_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		//{
+		//	if (!m_stateBuff.empty())
+		//	{
+	//			Locator::stateMachine->push(m_stateBuff.c_str());
+	//		}
+	//	}
 
 		ImGui::SameLine();
-		
+
 		// Pop state.
-		if (ImGui::Button("Pop State"))
-		{
-			Locator::stateMachine->pop();
-		}
+	//	if (ImGui::Button("Pop State"))
+	//	{
+		//	Locator::stateMachine->pop();
+	//	}
 
 		// Input the name of a script in the VFS to create an entity from.
-		if (ImGui::InputText("Create Entity from Script", m_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			if (!m_buff.empty())
-			{
-				Locator::world->createEntity(m_buff);
-			}
-		}
+	///	if (ImGui::InputText("Create Entity from Script", m_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+	//	{
+		//	if (!m_buff.empty())
+	//		{
+	//			Locator::world->createEntity(m_buff);
+	//		}
+	//	}
 
-		if (m_showScriptEditor)
+		if (s_showEditor)
 		{
 			// Open window, ensuring that there are scrollbars avaliable if text is bigger than window.
-			ImGui::Begin("Script Editor", &m_showScriptEditor, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
+			ImGui::Begin("Script Editor", &s_showEditor, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
 			ImGui::SetWindowSize(ImVec2(640, 480), ImGuiCond_FirstUseEver); // 800, 600
+			m_zepEditor.SetGlobalMode(Zep::ZepMode_Standard::StaticName());
 
-			// Define the gui layout.
-			// This section is pretty self-explainatory.
-			auto cpos = m_editor.GetCursorPosition();
 			if (ImGui::BeginMenuBar())
 			{
-				// All the file management functions.
-				if (ImGui::BeginMenu("File"))
+				if (ImGui::BeginMenu("Settings"))
 				{
-					if (ImGui::MenuItem("Open"))
+					if (ImGui::BeginMenu("Theme"))
 					{
-						m_showFilesToLoad = true;
-					}
+						bool enabledDark = m_zepEditor.GetTheme().GetThemeType() == Zep::ThemeType::Dark ? true : false;
+						bool enabledLight = !enabledDark;
 
-					if (ImGui::MenuItem("Save"))
-					{
-						if (!m_currentScript.empty())
+						if (ImGui::MenuItem("Dark", "", &enabledDark))
 						{
-							Locator::virtualFS->writeToFile(m_currentScript, m_editor.GetText().c_str());
+							m_zepEditor.GetTheme().SetThemeType(Zep::ThemeType::Dark);
 						}
+						else if (ImGui::MenuItem("Light", "", &enabledLight))
+						{
+							m_zepEditor.GetTheme().SetThemeType(Zep::ThemeType::Light);
+						}
+						ImGui::EndMenu();
 					}
-
-					if (ImGui::MenuItem("Close"))
-					{
-						m_showFilesToLoad = false;
-						m_showScriptEditor = false;
-						m_currentScript = "";
-						m_editor.SetText(" ");
-					}
-
 					ImGui::EndMenu();
 				}
 
-				// All the editing functions.
-				if (ImGui::BeginMenu("Edit"))
+				if (ImGui::BeginMenu("Window"))
 				{
-					bool ro = m_editor.IsReadOnly();
-
-					if (ImGui::MenuItem("Undo", nullptr, !ro && m_editor.CanUndo()))
+					auto pTabWindow = m_zepEditor.GetActiveTabWindow();
+					if (ImGui::MenuItem("Horizontal Split"))
 					{
-						m_editor.Undo();
+						pTabWindow->AddWindow(&pTabWindow->GetActiveWindow()->GetBuffer(), pTabWindow->GetActiveWindow(), false);
 					}
-
-					if (ImGui::MenuItem("Redo", nullptr, !ro && m_editor.CanRedo()))
+					else if (ImGui::MenuItem("Vertical Split"))
 					{
-						m_editor.Redo();
+						pTabWindow->AddWindow(&pTabWindow->GetActiveWindow()->GetBuffer(), pTabWindow->GetActiveWindow(), true);
 					}
-
-					ImGui::Separator();
-
-					if (ImGui::MenuItem("Copy", nullptr, m_editor.HasSelection()))
-					{
-						m_editor.Copy();
-					}
-
-					if (ImGui::MenuItem("Cut", nullptr, !ro && m_editor.HasSelection()))
-					{
-						m_editor.Cut();
-					}
-
-					if (ImGui::MenuItem("Delete", nullptr, !ro && m_editor.HasSelection()))
-					{
-						m_editor.Delete();
-					}
-
-					if (ImGui::MenuItem("Paste", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
-					{
-						m_editor.Paste();
-					}
-
-					ImGui::Separator();
-
-					if (ImGui::MenuItem("Select all", nullptr, nullptr))
-					{
-						m_editor.SetSelection(TextEditor::Coordinates(), TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
-					}
-
 					ImGui::EndMenu();
 				}
-
 				ImGui::EndMenuBar();
 			}
 			// End layout definition.
 
+			m_zepEditor.RefreshRequired();        // Currently required once per frame
+			m_zepEditor.Display();
+
+			if (ImGui::IsWindowFocused())
+			{
+				m_zepEditor.HandleInput();
+			}
+		
+			ImGui::End();
+			ImGui::PopStyleVar(2);
+			ImGui::PopStyleColor(1);
+		}
+			/*
 			if (m_showFilesToLoad)
 			{
 				// Make sure variables are empty.
@@ -262,7 +255,7 @@ namespace galaxy
 					// Simply load the contents of the script using the vfs.
 					m_currentScript = m_files[m_index];
 					std::string loadedText = Locator::virtualFS->openAsString(m_currentScript);
-					
+
 					if (loadedText.empty())
 					{
 						LOG_S(WARNING) << "Script file was empty! Or Loading failed. Check for other errors in log. Script: " << m_currentScript;
@@ -291,16 +284,15 @@ namespace galaxy
 
 			ImGui::End();
 		}
+		*/
 
-		if (m_showLuaConsole)
-		{
+		//if (m_showLuaConsole)
+		//{
 			// Create and show console.
-			static ImGui::Console console;
-			console.Draw("Lua Console", &m_showLuaConsole);
-		}
+			//static ImGui::Console console;
+			//console.Draw("Lua Console", &m_showLuaConsole);
+		//}
 
 		ImGui::End();
 	}
 }
-
-#endif

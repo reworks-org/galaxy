@@ -8,6 +8,8 @@
 #ifndef GALAXY_EDITOR_HPP_
 #define GALAXY_EDITOR_HPP_
 
+#include <zep/imgui/editor_imgui.h>
+
 ///
 /// Core namespace.
 ///
@@ -49,12 +51,19 @@ namespace galaxy
 		///
 		/// Process imgui events.
 		///
-		/// \param event ALLEGRO_EVENT object.
+		/// \param event SFML event(s).
 		///
-		void event();
+		void event(const sf::Event& event);
 
 		///
-		/// Draw interface.
+		/// Update Editor.
+		///
+		/// \param clock Main Application loop clock.
+		///
+		void update(sf::Clock& clock);
+
+		///
+		/// Draw editor.
 		///
 		void render();
 
@@ -64,30 +73,24 @@ namespace galaxy
 		void shutdown();
 
 		///
-		/// \brief Display menu on screen.
+		/// \brief Display editor on screen.
 		///
 		/// Call between update and render. Calls the functions that make up the main debug menu. ImGui functions mainly.
 		///
 		/// \param restart Pointer to boolean controlling if program should restart on exit.
 		///
-		void displayMenu(bool* restart);
+		void display(bool* restart);
 
 	private:
 		///
-		/// Text editor instance for the script editor gui.
+		/// Pointer to RenderWindow.
 		///
-		TextEditor m_editor;
+		sf::RenderWindow* m_window;
 
-		// Variables that are used internally and are required to use the gui.
-		bool m_showLuaConsole = false;
-		bool m_showScriptEditor = false;
-		std::string m_buff = "";
-		std::string m_stateBuff = "";
-
-		int m_index = 0;
-		bool m_showFilesToLoad = false;
-		std::string m_currentScript = "";
-		std::vector<std::string> m_files;
+		///
+		/// Source code editor.
+		///
+		Zep::ZepEditor_ImGui m_zepEditor;
     };
 }
 

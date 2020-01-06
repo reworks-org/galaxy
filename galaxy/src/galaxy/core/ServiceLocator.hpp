@@ -53,35 +53,35 @@ namespace galaxy
 		///
 		/// \return Return const pointer to Lua service.
 		///
-		const auto lua() const noexcept;
+		sol::state* lua() const noexcept;
 
 		///
 		/// Get Config service.
 		///
 		/// \return Return const pointer to Config service.
 		///
-		const auto config() const noexcept;
+		galaxy::Config* config() const noexcept;
 
 		///
 		/// Get FileSystem service.
 		///
 		/// \return Return const pointer to FileSystem service.
 		///
-		const auto fs() const noexcept;
+		galaxy::FileSystem* fs() const noexcept;
 
 		///
 		/// Get Window service.
 		///
 		/// \return Return const pointer to Window service.
 		///
-		const auto window() const noexcept;
+		sf::RenderWindow* window() const noexcept;
 
 		///
 		/// Get World service.
 		///
 		/// \return Return const pointer to World service.
 		///
-		const auto world() const noexcept;
+		galaxy::World* world() const noexcept;
 
 	private:
 		///
