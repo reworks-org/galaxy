@@ -22,15 +22,21 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\redshift\math\AABB.hpp" />
-    <ClInclude Include="src\redshift\math\Vec2.hpp" />
+    <ClInclude Include="src\redshift\algorithms\AABB.hpp" />
+    <ClInclude Include="src\redshift\algorithms\CircleCircle.hpp" />
+    <ClInclude Include="src\redshift\algorithms\Result.hpp" />
+    <ClInclude Include="src\redshift\shapes\Circle.hpp" />
     <ClInclude Include="src\redshift\Task.hpp" />
+    <ClInclude Include="src\redshift\Types.hpp" />
     <ClInclude Include="src\redshift\World.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\redshift\math\AABB.cpp" />
-    <ClCompile Include="src\redshift\math\Vec2.cpp" />
+    <ClCompile Include="src\redshift\algorithms\AABB.cpp" />
+    <ClCompile Include="src\redshift\algorithms\CircleCircle.cpp" />
+    <ClCompile Include="src\redshift\algorithms\Result.cpp" />
+    <ClCompile Include="src\redshift\shapes\Circle.cpp" />
     <ClCompile Include="src\redshift\Task.cpp" />
+    <ClCompile Include="src\redshift\Types.cpp" />
     <ClCompile Include="src\redshift\World.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -121,7 +127,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,7 +147,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -162,7 +168,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -185,7 +191,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

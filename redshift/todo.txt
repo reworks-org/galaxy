@@ -8,3 +8,5 @@ https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics
 https://stackoverflow.com/questions/42280364/stdfuture-returned-from-stdasync-hangs-while-going-out-of-scope
 https://stackoverflow.com/questions/18143661/what-is-the-difference-between-packaged-task-and-async
 https://www.acodersjourney.com/top-20-cplusplus-multithreading-mistakes/
+
+rather than run in parallel -> distribute calculations across CPU.
