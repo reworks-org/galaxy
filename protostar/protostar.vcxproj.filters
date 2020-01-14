@@ -9,7 +9,6 @@
     <ClCompile Include="src\protostar\math\Vector4.cpp" />
     <ClCompile Include="src\protostar\string\StringOps.cpp" />
     <ClCompile Include="src\protostar\math\Maths.cpp" />
-    <ClCompile Include="src\protostar\graphics\Rect.cpp" />
     <ClCompile Include="src\protostar\math\Random.cpp" />
     <ClCompile Include="src\protostar\utility\Time.cpp" />
     <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
@@ -19,6 +18,9 @@
     <ClCompile Include="src\protostar\events\MouseMovedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
+    <ClCompile Include="src\protostar\shapes\Circle.cpp" />
+    <ClCompile Include="src\protostar\shapes\Rect.cpp" />
+    <ClCompile Include="src\protostar\math\Point.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
@@ -30,7 +32,6 @@
     <ClInclude Include="src\protostar\string\StringOps.hpp" />
     <ClInclude Include="src\protostar\math\Maths.hpp" />
     <ClInclude Include="src\protostar\math\Random.hpp" />
-    <ClInclude Include="src\protostar\graphics\Rect.hpp" />
     <ClInclude Include="src\protostar\utility\Time.hpp" />
     <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
     <ClInclude Include="src\protostar\events\KeyCharEvent.hpp" />
@@ -39,6 +40,9 @@
     <ClInclude Include="src\protostar\events\MouseMovedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
+    <ClInclude Include="src\protostar\shapes\Circle.hpp" />
+    <ClInclude Include="src\protostar\shapes\Rect.hpp" />
+    <ClInclude Include="src\protostar\math\Point.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
