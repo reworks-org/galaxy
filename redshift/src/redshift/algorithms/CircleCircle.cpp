@@ -12,13 +12,8 @@
 ///
 namespace rs
 {
-	const bool circleCircle(const rs::Circle& a, const rs::Circle& b)
+	const bool circleCircle(const protostar::Circle<int>& a, const protostar::Circle<int>& b)
 	{
-		return circleCircle(a.getCenter(), a.getRadius(), b.getCenter(), b.getRadius());
-	}
-
-	const bool circleCircle(const rs::Point& c1, const std::uint32_t r1, const rs::Point& c2, const std::uint32_t r2)
-	{
-		return ((c2.m_x - c1.m_x) ^ 2 + (c1.m_y - c2.m_y) ^ 2) <= ((r1 + r2) ^ 2);
+		return ((b.getCenter().m_x - a.getCenter().m_x) ^ 2 + (a.getCenter().m_y - b.getCenter().m_y) ^ 2) <= ((a.getRadius() + b.getRadius()) ^ 2);
 	}
 }

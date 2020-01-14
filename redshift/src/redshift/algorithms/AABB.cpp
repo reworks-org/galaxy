@@ -9,4 +9,12 @@
 
 namespace rs
 {
+	const bool AABB(const protostar::Rect<int>& a, const protostar::Rect<int>& b) noexcept
+	{
+		// AABB algorithm
+		return (a.m_x < b.m_x + b.m_width &&
+			a.m_x + a.m_width > b.m_x &&
+			a.m_y < b.m_y + b.m_height &&
+			a.m_y + a.m_height > b.m_y);
+	}
 }
