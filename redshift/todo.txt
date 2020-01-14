@@ -10,3 +10,5 @@ https://stackoverflow.com/questions/18143661/what-is-the-difference-between-pack
 https://www.acodersjourney.com/top-20-cplusplus-multithreading-mistakes/
 
 rather than run in parallel -> distribute calculations across CPU.
+
+collidable terrain

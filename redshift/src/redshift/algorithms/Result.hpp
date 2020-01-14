@@ -8,6 +8,8 @@
 #ifndef REDSHIFT_RESULT_HPP_
 #define REDSHIFT_RESULT_HPP_
 
+#include <cstdint>
+
 ///
 /// Core namespace.
 ///
@@ -18,7 +20,32 @@ namespace rs
 	///
 	struct Result
 	{
-		bool m_success;
+		///
+		/// Default constructor.
+		///
+		Result() noexcept;
+
+		///
+		/// Argument constructor.
+		///
+		/// \param boolean Result for an algorithm.
+		/// \param pointOfCollision For algorithms that also have a point of collision.
+		///
+		explicit Result(bool boolean, std::uint32_t pointOfCollision) noexcept;
+
+		///
+		/// Default destructor.
+		///
+		~Result() = default;
+
+		///
+		/// Result for an algorithm.
+		///
+		bool m_boolean;
+
+		///
+		/// For algorithms that also have a point of collision.
+		///
 		std::uint32_t m_pointOfCollision;
 	};
 }

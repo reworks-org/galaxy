@@ -8,8 +8,8 @@
 #ifndef REDSHIFT_CIRCLECIRCLE_HPP_
 #define REDSHIFT_CIRCLECIRCLE_HPP_ 
 
-#include "redshift/Types.hpp"
 #include "redshift/shapes/Circle.hpp"
+#include "redshift/algorithms/Result.hpp"
 
 ///
 /// Core namespace.
@@ -17,7 +17,9 @@
 namespace rs
 {
 	///
-	/// Collision detection algorithm between two circles.
+	/// \brief Collision detection algorithm between two circles.
+	///
+	/// Thanks to: https://stackoverflow.com/a/1736741.
 	///
 	/// \param a First circle to check.
 	/// \param b Second circle to check.
@@ -27,7 +29,9 @@ namespace rs
 	const bool circleCircle(const rs::Circle& a, const rs::Circle& b);
 
 	///
-	/// Collision detection algorithm between two circles.
+	/// \brief Collision detection algorithm between two circles.
+	///
+	/// Thanks to: https://stackoverflow.com/a/1736741.
 	///
 	/// \param c1 Center of circle A.
 	/// \param r1 Radius of circle A.
