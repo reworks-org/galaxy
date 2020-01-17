@@ -22,7 +22,7 @@ namespace pl
 		GREEN = 10,
 		YELLOW = 14,
 		RED = 12,
-		FATAL = 20
+		FATAL = 5
 	};
 }
 
