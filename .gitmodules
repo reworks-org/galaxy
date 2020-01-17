@@ -28,9 +28,9 @@
 [submodule "modules/imgui-sfml"]
 	path = modules/imgui-sfml
 	url = https://github.com/eliasdaler/imgui-sfml.git
-[submodule "modules/Box2D-MT"]
-	path = modules/Box2D-MT
-	url = https://github.com/jhoffman0x/Box2D-MT.git
 [submodule "modules/tinyfiledialogs"]
 	path = modules/tinyfiledialogs
 	url = https://github.com/native-toolkit/tinyfiledialogs.git
+[submodule "modules/imguicolortextedit"]
+	path = modules/imguicolortextedit
+	url = https://github.com/BalazsJako/ImGuiColorTextEdit.git
