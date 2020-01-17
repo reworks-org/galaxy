@@ -99,7 +99,7 @@ namespace galaxy
 		std::unique_ptr<galaxy::World> m_world;
 
 		///
-		///
+		/// Gamedev editor UI.
 		///
 		std::unique_ptr<galaxy::Editor> m_editor;
 

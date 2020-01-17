@@ -40,6 +40,7 @@ int main(int argc, char **argv)
 					config->define<bool>("vsync", false);
 					config->define<std::string>("icon", "icon.png");
 					config->define<bool>("key-repeat", true);
+					config->define<bool>("mouse-cursor-visible", true);
 
 					config->create();
 					config->open();
@@ -51,13 +52,11 @@ int main(int argc, char **argv)
 			}
 			catch (const std::exception& e)
 			{
-				PL_LOG(pl::Log::Level::WARNING, e.what());
-				//LOG_S(INFO) << "EXCEPTION OUTPUT: " << e.what();
-				//al_show_native_message_box(nullptr, "Runtime Exception", "Error Message:", e.what(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+				PL_LOG(pl::Log::Level::ERROR, e.what());
 			}
 			catch (...)
 			{
-				PL_LOG(pl::Log::Level::FATAL, "Threw an unknown exception. Why are you not inheriting from std::exception?");
+				PL_LOG(pl::Log::Level::ERROR, "Threw an unknown exception. Why are you not inheriting from std::exception?");
 			}
 		}
 

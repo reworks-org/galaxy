@@ -110,16 +110,17 @@ namespace galaxy
 		m_window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 		
 		m_window->setKeyRepeatEnabled(m_config->get<bool>("key-repeat"));
-		m_window->setMouseCursorGrabbed(true);
-		m_window->setMouseCursorVisible(false);
+		m_window->setMouseCursorGrabbed(false);
+		m_window->setMouseCursorVisible(m_config->get<bool>("mouse-cursor-visible"));
 		m_window->setVisible(true);
 		galaxy::ServiceLocator::i().m_window = m_window.get();
 
 		m_world = std::make_unique<World>();
 		galaxy::ServiceLocator::i().m_world = m_world.get();
 
-		//m_debugInterface = std::make_unique<DebugInterface>(m_world->m_scriptFolderPath, m_window->getDisplay());
-		//ServiceLocator::debugInterface = m_debugInterface.get();
+		m_editor = std::make_unique<galaxy::Editor>();
+		m_editor->init(m_window.get());
+		galaxy::ServiceLocator::i().m_editor = m_editor.get();
 
 		//m_stateMachine = std::make_unique<StateMachine>();
 		//ServiceLocator::stateMachine = m_stateMachine.get();
@@ -159,9 +160,9 @@ namespace galaxy
 
 	Application::~Application()
 	{
-		
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 		// And of course the file system being the last to be destroyed.
+		m_editor.reset();
 		m_world.reset();
 		m_window.reset();
 		m_fs.reset();
@@ -204,6 +205,7 @@ namespace galaxy
 				{
 					//m_stateMachine->event(&event);
 					//m_debugInterface->event(&event);
+					m_editor->event(event);
 
 					if (event.type == sf::Event::Closed)
 					{
@@ -219,20 +221,23 @@ namespace galaxy
 					}
 				}
 
-				//m_stateMachine->update(timePerFrame);
-				//m_world->update(timePerFrame);
+				//m_stateMachine->update(timeSinceLastUpdate);
+				//m_world->update(timeSinceLastUpdate);
+				
 				updates++;
 			}
 
+			m_editor->update(timeSinceLastUpdate);
+
 			// We need to "display" the debug ui before the renderer stuff is called.
 			// Because this sets up all the textures, api calls, etc.
-			//m_debugInterface->newFrame();
-			//m_debugInterface->displayMenu(&m_restart);
-			
+			m_editor->display(&m_restart);
+
 			m_window->clear(sf::Color::Green);
 			
 			//m_stateMachine->render();
 			//m_debugInterface->render();
+			m_editor->render(); 
 			
 			m_window->display();
 

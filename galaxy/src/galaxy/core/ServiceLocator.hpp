@@ -23,6 +23,7 @@ namespace galaxy
 	class Config;
 	class FileSystem;
 	class World;
+	class Editor;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -83,6 +84,13 @@ namespace galaxy
 		///
 		galaxy::World* world() const noexcept;
 
+		///
+		/// Get Editor service.
+		///
+		/// \return Return const pointer to Editor service.
+		///
+		galaxy::Editor* editor() const noexcept;
+
 	private:
 		///
 		/// Default constructor.
@@ -138,6 +146,11 @@ namespace galaxy
 		/// World service.
 		///
 		galaxy::World* m_world;
+
+		///
+		/// Editor service.
+		///
+		galaxy::Editor* m_editor;
 	};
 }
 

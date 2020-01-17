@@ -8,7 +8,7 @@
 #ifndef GALAXY_EDITOR_HPP_
 #define GALAXY_EDITOR_HPP_
 
-#include <zep/imgui/editor_imgui.h>
+#include "galaxy/scripting/JSONDefinition.hpp"
 
 ///
 /// Core namespace.
@@ -58,9 +58,9 @@ namespace galaxy
 		///
 		/// Update Editor.
 		///
-		/// \param clock Main Application loop clock.
+		/// \param dt Main Application loop DeltaTime.
 		///
-		void update(sf::Clock& clock);
+		void update(sf::Time& dt);
 
 		///
 		/// Draw editor.
@@ -90,7 +90,12 @@ namespace galaxy
 		///
 		/// Source code editor.
 		///
-		Zep::ZepEditor_ImGui m_zepEditor;
+		TextEditor m_editor;
+
+		///
+		/// Current file being edited.
+		///
+		std::string m_currentFile;
     };
 }
 

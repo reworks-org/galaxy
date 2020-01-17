@@ -43,6 +43,11 @@ namespace galaxy
 		return m_world;
 	}
 
+	galaxy::Editor* ServiceLocator::editor() const noexcept
+	{
+		return m_editor;
+	}
+
 	ServiceLocator::ServiceLocator()
 		:m_lua(nullptr), m_config(nullptr), m_fs(nullptr), m_window(nullptr), m_world(nullptr)
 	{

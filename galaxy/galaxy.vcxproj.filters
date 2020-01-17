@@ -19,6 +19,9 @@
     <Filter Include="lua">
       <UniqueIdentifier>{15df9f36-ebed-4142-a065-38a045b82460}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tfd">
+      <UniqueIdentifier>{b273155d-fa46-4e7d-bdad-01333933d23a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\modules\imgui\imgui.cpp">
@@ -145,6 +148,13 @@
     <ClCompile Include="..\modules\lua\lzio.c">
       <Filter>lua</Filter>
     </ClCompile>
+    <ClCompile Include="..\modules\tinyfiledialogs\tinyfiledialogs.c">
+      <Filter>tfd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\modules\imguicolortextedit\TextEditor.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -293,5 +303,12 @@
       <Filter>lua</Filter>
     </ClInclude>
     <ClInclude Include="src\Lua.hpp" />
+    <ClInclude Include="..\modules\tinyfiledialogs\tinyfiledialogs.h">
+      <Filter>tfd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\modules\imguicolortextedit\TextEditor.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
   </ItemGroup>
 </Project>

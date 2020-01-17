@@ -1,23 +1,18 @@
 ///
-/// Editor.cpp
+/// m_editor.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#define ZEP_SINGLE_HEADER_BUILD
-#define ZEP_FEATURE_THREADS
-#define ZEP_FEATURE_CPP_FILE_SYSTEM
-#include <zep.h>
-#include <zep/theme.h>
-#include <zep/window.h>
-#include <zep/buffer.h>
-#include <zep/tab_window.h>
-#include <zep/mode_standard.h>
-#include <zep/imgui/display_imgui.h>
+#include <fstream>
+#include <filesystem>
 
 #include <imgui.h>
+#include <pl/Log.hpp>
 #include <imgui-SFML.h>
+#include <physfs/physfs.h>
+#include <tinyfiledialogs.h>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -30,12 +25,12 @@
 namespace galaxy
 {
 	Editor::Editor() noexcept
-		:m_window(nullptr), m_zepEditor(Zep::ZepPath())
+		:m_window(nullptr)
 	{
 	}
 
 	Editor::Editor(sf::RenderWindow* window)
-		:m_window(nullptr), m_zepEditor(Zep::ZepPath())
+		:m_window(nullptr)
 	{
 		init(window);
 	}
@@ -56,13 +51,6 @@ namespace galaxy
 		ImGui::StyleColorsDark();
 		//ImGui::StyleColorsLight();
 		//ImGui::StyleColorsClassic();
-
-		ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.13f, 0.1f, 0.12f, 0.95f));
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(2.0f, 2.0f));
-
-		ImGui::SetNextWindowPos(ImVec2(100, 100), ImGuiCond_FirstUseEver);
-		ImGui::SetNextWindowSize(ImVec2(1024, 768), ImGuiCond_FirstUseEver);
 	}
 
 	void Editor::event(const sf::Event& event)
@@ -70,14 +58,14 @@ namespace galaxy
 		ImGui::SFML::ProcessEvent(event);
 	}
 
-	void Editor::update(sf::Clock& clock)
+	void Editor::update(sf::Time& dt)
 	{
-		ImGui::SFML::Update(*m_window, clock.restart());
+		ImGui::SFML::Update(*m_window, dt);
 	}
 
 	void Editor::render()
 	{
-		ImGui::SFML::Render(*m_window);
+		ImGui::SFML::Render();
 	}
 
 	void Editor::shutdown()
@@ -90,7 +78,9 @@ namespace galaxy
 		// Set up stateless variables.
 		static bool s_showEditor = false;
 
-		ImGui::Begin("Galaxy Editor", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
+		// BEGIN UI.
+		ImGui::Begin("Galaxy Editor", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysUseWindowPadding);
+		ImGui::SetWindowSize(ImVec2(640, 480), ImGuiCond_FirstUseEver);
 
 		// Define the gui layout.
 		if (ImGui::BeginMenuBar())
@@ -116,7 +106,7 @@ namespace galaxy
 
 			if (ImGui::BeginMenu("Tools"))
 			{
-				// Open script editor.
+				// Open script m_editor.
 				if (ImGui::MenuItem("Script Editor"))
 				{
 					s_showEditor = true;
@@ -134,157 +124,178 @@ namespace galaxy
 			ImGui::EndMenuBar();
 		}
 
+		ImGui::SameLine();
+
 		// Push a state.
 		//if (ImGui::InputText("Push State", m_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
 		//{
 		//	if (!m_stateBuff.empty())
 		//	{
-	//			Locator::stateMachine->push(m_stateBuff.c_str());
-	//		}
-	//	}
-
-		ImGui::SameLine();
+		//			Locator::stateMachine->push(m_stateBuff.c_str());
+		//		}
+		//	}
 
 		// Pop state.
-	//	if (ImGui::Button("Pop State"))
-	//	{
+		//	if (ImGui::Button("Pop State"))
+		//	{
 		//	Locator::stateMachine->pop();
-	//	}
+		//	}
 
 		// Input the name of a script in the VFS to create an entity from.
-	///	if (ImGui::InputText("Create Entity from Script", m_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-	//	{
-		//	if (!m_buff.empty())
-	//		{
-	//			Locator::world->createEntity(m_buff);
-	//		}
-	//	}
+		///	if (ImGui::InputText("Create Entity from Script", m_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
+		//	{
+			//	if (!m_buff.empty())
+		//		{
+		//			Locator::world->createEntity(m_buff);
+		//		}
+		//	}
 
 		if (s_showEditor)
 		{
-			// Open window, ensuring that there are scrollbars avaliable if text is bigger than window.
-			ImGui::Begin("Script Editor", &s_showEditor, ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar);
-			ImGui::SetWindowSize(ImVec2(640, 480), ImGuiCond_FirstUseEver); // 800, 600
-			m_zepEditor.SetGlobalMode(Zep::ZepMode_Standard::StaticName());
+			static const std::array<const char*, 2> filter = {
+				"*.json", "*.lua"
+			};
 
+			auto cpos = m_editor.GetCursorPosition();
+
+			// BEGIN WINDOW.
+			ImGui::Begin("Script Editor", &s_showEditor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
+			ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
+
+			// BEGIN MENU BAR.
 			if (ImGui::BeginMenuBar())
 			{
-				if (ImGui::BeginMenu("Settings"))
+				if (ImGui::BeginMenu("File"))
 				{
-					if (ImGui::BeginMenu("Theme"))
+					if (ImGui::MenuItem("Open", "Ctrl-O"))
 					{
-						bool enabledDark = m_zepEditor.GetTheme().GetThemeType() == Zep::ThemeType::Dark ? true : false;
-						bool enabledLight = !enabledDark;
+						// https://github.com/BalazsJako/ColorTextEditorDemo/blob/master/main.cpp
+						// make only json or lua.
+						auto openFileName = tinyfd_openFileDialog(
+							"Open",
+							PHYSFS_getBaseDir(),
+							0,
+							filter.data(),
+							"JSON or Lua.",
+							false);
 
-						if (ImGui::MenuItem("Dark", "", &enabledDark))
+						if (openFileName != nullptr)
 						{
-							m_zepEditor.GetTheme().SetThemeType(Zep::ThemeType::Dark);
+							// Convert to C++17 path.
+							std::filesystem::path filePath = std::filesystem::path(openFileName);
+							m_currentFile = openFileName;
+
+							if (filePath.extension() == ".json")
+							{
+								m_editor.SetLanguageDefinition(galaxy::getJsonDefinition());
+							}
+							else if (filePath.extension() == ".lua")
+							{
+								m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
+							}
+							else
+							{
+								PL_LOG(pl::Log::Level::ERROR, "Tried to load unsupported file.");
+							}
+
+							std::ifstream text(filePath.string());
+							if (!text.fail())
+							{
+								std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
+								m_editor.SetText(str);
+							}
+							else
+							{
+								PL_LOG(pl::Log::Level::ERROR, "Failed to read file: " + filePath.string());
+							}
+							
+							text.close();
 						}
-						else if (ImGui::MenuItem("Light", "", &enabledLight))
+						else
 						{
-							m_zepEditor.GetTheme().SetThemeType(Zep::ThemeType::Light);
+							PL_LOG(pl::Log::Level::ERROR, "Failed to open file with tfd.");
 						}
-						ImGui::EndMenu();
 					}
+
+					if (ImGui::MenuItem("Save", "Ctrl-S"))
+					{
+						auto text = m_editor.GetText();
+						std::ofstream out;
+						out.open(m_currentFile, std::ios::out | std::ios::trunc);
+						if (out.fail())
+						{
+							PL_LOG(pl::Log::Level::ERROR, "Failed to save file: " + m_currentFile);
+						}
+						else
+						{
+							out << text;
+						}
+
+						out.close();
+					}
+
+					if (ImGui::MenuItem("Close", "Ctrl-Q"))
+					{
+						s_showEditor = false;
+						m_editor.SetText("");
+					}
+
 					ImGui::EndMenu();
 				}
 
-				if (ImGui::BeginMenu("Window"))
+				if (ImGui::BeginMenu("Edit"))
 				{
-					auto pTabWindow = m_zepEditor.GetActiveTabWindow();
-					if (ImGui::MenuItem("Horizontal Split"))
-					{
-						pTabWindow->AddWindow(&pTabWindow->GetActiveWindow()->GetBuffer(), pTabWindow->GetActiveWindow(), false);
-					}
-					else if (ImGui::MenuItem("Vertical Split"))
-					{
-						pTabWindow->AddWindow(&pTabWindow->GetActiveWindow()->GetBuffer(), pTabWindow->GetActiveWindow(), true);
-					}
+					bool ro = m_editor.IsReadOnly();
+					if (ImGui::MenuItem("Read-only mode", nullptr, &ro))
+						m_editor.SetReadOnly(ro);
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Undo", "ALT-Backspace", nullptr, !ro && m_editor.CanUndo()))
+						m_editor.Undo();
+					if (ImGui::MenuItem("Redo", "Ctrl-Y", nullptr, !ro && m_editor.CanRedo()))
+						m_editor.Redo();
+
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Copy", "Ctrl-C", nullptr, m_editor.HasSelection()))
+						m_editor.Copy();
+					if (ImGui::MenuItem("Cut", "Ctrl-X", nullptr, !ro && m_editor.HasSelection()))
+						m_editor.Cut();
+					if (ImGui::MenuItem("Delete", "Del", nullptr, !ro && m_editor.HasSelection()))
+						m_editor.Delete();
+					if (ImGui::MenuItem("Paste", "Ctrl-V", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
+						m_editor.Paste();
+
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Select all", nullptr, nullptr))
+						m_editor.SetSelection(TextEditor::Coordinates(), TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
+
 					ImGui::EndMenu();
 				}
+
+				if (ImGui::BeginMenu("View"))
+				{
+					if (ImGui::MenuItem("Dark palette"))
+						m_editor.SetPalette(TextEditor::GetDarkPalette());
+					if (ImGui::MenuItem("Light palette"))
+						m_editor.SetPalette(TextEditor::GetLightPalette());
+					if (ImGui::MenuItem("Retro blue palette"))
+						m_editor.SetPalette(TextEditor::GetRetroBluePalette());
+					ImGui::EndMenu();
+				}
+
 				ImGui::EndMenuBar();
+				// END MENU BAR.
 			}
-			// End layout definition.
-
-			m_zepEditor.RefreshRequired();        // Currently required once per frame
-			m_zepEditor.Display();
-
-			if (ImGui::IsWindowFocused())
-			{
-				m_zepEditor.HandleInput();
-			}
-		
-			ImGui::End();
-			ImGui::PopStyleVar(2);
-			ImGui::PopStyleColor(1);
-		}
-			/*
-			if (m_showFilesToLoad)
-			{
-				// Make sure variables are empty.
-				m_index = 0;
-				m_files.clear();
-				m_currentScript = "";
-
-				// Loop over scripts folder getting all script names using physfs.
-				char** efl = PHYSFS_enumerateFiles(m_scriptFolderPath.c_str());
-				if (!efl)
-				{
-					LOG_S(WARNING) << "Could not load scripts (or there are no scripts). Last Physfs error: " << PHYSFS_getLastError();
-				}
-				else
-				{
-					for (char** i = efl; *i != NULL; i++)
-					{
-						// Make sure the path is added so the script can be saved to the overrides folder.
-						m_files.emplace_back(m_scriptFolderPath + std::string(*i));
-					}
-				}
-
-				// Makes sure we are not freeing nothing.
-				if (efl)
-				{
-					PHYSFS_freeList(efl);
-				}
-
-				ImGui::Begin("Select Script", &m_showFilesToLoad, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
-
-				// Then a listbox is used to display all the loaded scripts.
-				if (ImGui::ListBox("", &m_index, m_files))
-				{
-					// Simply load the contents of the script using the vfs.
-					m_currentScript = m_files[m_index];
-					std::string loadedText = Locator::virtualFS->openAsString(m_currentScript);
-
-					if (loadedText.empty())
-					{
-						LOG_S(WARNING) << "Script file was empty! Or Loading failed. Check for other errors in log. Script: " << m_currentScript;
-					}
-					else
-					{
-						// Then add the text to the editor.
-						m_editor.SetText(loadedText);
-					}
-
-					m_showFilesToLoad = false;
-				}
-
-				ImGui::End();
-			}
-
-			// Display info about the script to the script editor window, like linecount and language.
-			ImGui::Text("%6d/%-6d %6d lines  | %s | %s | %s | %s", cpos.mLine + 1, cpos.mColumn + 1, m_editor.GetTotalLines(),
-				m_editor.IsOverwrite() ? "Ovr" : "Ins",
-				m_editor.CanUndo() ? "*" : " ",
-				m_editor.GetLanguageDefinition().mName.c_str(), m_currentScript.c_str());
-
+			
 			ImGui::Spacing();
 
-			m_editor.Render("Code Editor");
+			m_editor.Render("TextEditor");
 
 			ImGui::End();
+			// END WINDOW.
 		}
-		*/
 
 		//if (m_showLuaConsole)
 		//{
@@ -294,5 +305,6 @@ namespace galaxy
 		//}
 
 		ImGui::End();
+		// END UI.
 	}
 }
