@@ -35,8 +35,10 @@
     <ClCompile Include="src\protostar\math\Vector3.cpp" />
     <ClCompile Include="src\protostar\math\Vector4.cpp" />
     <ClCompile Include="src\protostar\shapes\Circle.cpp" />
+    <ClCompile Include="src\protostar\state\State.cpp" />
     <ClCompile Include="src\protostar\string\StringOps.cpp" />
     <ClCompile Include="src\protostar\utility\Meta.cpp" />
+    <ClCompile Include="src\protostar\state\StateMachine.cpp" />
     <ClCompile Include="src\protostar\utility\Time.cpp" />
     <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
   </ItemGroup>
@@ -56,9 +58,11 @@
     <ClInclude Include="src\protostar\math\Vector3.hpp" />
     <ClInclude Include="src\protostar\math\Vector4.hpp" />
     <ClInclude Include="src\protostar\shapes\Circle.hpp" />
+    <ClInclude Include="src\protostar\state\State.hpp" />
     <ClInclude Include="src\protostar\string\StringOps.hpp" />
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
     <ClInclude Include="src\protostar\math\Random.hpp" />
+    <ClInclude Include="src\protostar\state\StateMachine.hpp" />
     <ClInclude Include="src\protostar\utility\Time.hpp" />
     <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
   </ItemGroup>
