@@ -84,10 +84,10 @@ namespace galaxy
 		}
 	}
 
-	void World::update(const double dt)
+	void World::update(const sf::Time& dt)
 	{
 		// Update ECS.
-		m_manager.update(dt);
+		m_manager.update(static_cast<double>(dt.asMilliseconds()));
 
 		for (auto&& layer : m_layers)
 		{

@@ -162,8 +162,7 @@ namespace galaxy
 				sf::Event event;
 				while (m_window->pollEvent(event))
 				{
-					//m_stateMachine->event(&event);
-					//m_debugInterface->event(&event);
+					m_world->event(event);
 					m_editor->event(event);
 
 					switch (event.type)
@@ -194,9 +193,7 @@ namespace galaxy
 					}
 				}
 
-				//m_stateMachine->update(timeSinceLastUpdate);
-				//m_world->update(timeSinceLastUpdate);
-				
+				m_world->update(timeSinceLastUpdate);
 				updates++;
 			}
 			
@@ -208,13 +205,13 @@ namespace galaxy
 
 			m_window->clear(sf::Color::Green);
 			
-			//m_stateMachine->render();
-			//m_debugInterface->render();
 			if (m_showEditor)
 			{
 				m_editor->render();
 			}
 			
+			m_world->render();
+
 			m_window->display();
 
 			frames++;

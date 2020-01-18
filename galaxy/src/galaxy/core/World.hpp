@@ -10,6 +10,7 @@
 
 #include <pl/Log.hpp>
 #include <nlohmann/json_fwd.hpp>
+#include <SFML/System/Clock.hpp>
 #include <solar/entity/Manager.hpp>
 
 #include "galaxy/types/Layer.hpp"
@@ -92,7 +93,7 @@ namespace galaxy
 		///
 		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		void update(const double dt);
+		void update(const sf::Time& dt);
 
 		///
 		/// \brief Render layer.

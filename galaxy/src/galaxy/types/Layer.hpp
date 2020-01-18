@@ -11,7 +11,7 @@
 #include <string>
 
 // Forward decs.
-namespace sf { class Event; }
+namespace sf { class Event; class Time; }
 
 ///
 /// Core namespace.
@@ -45,7 +45,7 @@ namespace galaxy
 		///
 		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(const double dt) = 0;
+		virtual void update(const sf::Time& dt) = 0;
 
 		///
 		/// \brief Render layer.

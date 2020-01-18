@@ -1,6 +1,7 @@
 {
     "anti-alias": 2,
     "archive": "bin/data.zip",
+    "framerate-limit": 0,
     "height": 720,
     "icon": "icon.png",
     "key-repeat": true,
