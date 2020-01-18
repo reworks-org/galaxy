@@ -46,6 +46,8 @@ namespace galaxy
 
 		// Setup Dear ImGui context and SFML.
 		ImGui::SFML::Init(*m_window, true);
+		ImGuiIO& io = ImGui::GetIO();
+		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
 		// Setup style.
 		ImGui::StyleColorsDark();
@@ -141,15 +143,6 @@ namespace galaxy
 		//	Locator::stateMachine->pop();
 		//	}
 
-		// Input the name of a script in the VFS to create an entity from.
-		///	if (ImGui::InputText("Create Entity from Script", m_buff, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-		//	{
-			//	if (!m_buff.empty())
-		//		{
-		//			Locator::world->createEntity(m_buff);
-		//		}
-		//	}
-
 		if (s_showEditor)
 		{
 			static const std::array<const char*, 2> filter = {
@@ -219,18 +212,10 @@ namespace galaxy
 
 					if (ImGui::MenuItem("Save", "Ctrl-S"))
 					{
+						m_editor.GetCursorPosition();
 						auto text = m_editor.GetText();
-						std::ofstream out;
-						out.open(m_currentFile, std::ios::out | std::ios::trunc);
-						if (out.fail())
-						{
-							PL_LOG(pl::Log::Level::ERROR, "Failed to save file: " + m_currentFile);
-						}
-						else
-						{
-							out << text;
-						}
-
+						std::ofstream out(m_currentFile, std::ios::out | std::ios::trunc);
+						out << text;
 						out.close();
 					}
 
@@ -289,8 +274,6 @@ namespace galaxy
 				// END MENU BAR.
 			}
 			
-			ImGui::Spacing();
-
 			m_editor.Render("TextEditor");
 
 			ImGui::End();

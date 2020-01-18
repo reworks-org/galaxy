@@ -9,6 +9,7 @@
 #define GALAXY_APPLICATION_HPP_
 
 #include <sol/forward.hpp>
+#include <starlight/Dispatcher.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "galaxy/fs/Config.hpp"
@@ -74,6 +75,11 @@ namespace galaxy
 
 	protected:
 		///
+		/// Show the Debug Editor.
+		///
+		bool m_showEditor;
+
+		///
 		/// Master Lua state for application.
 		///
 		std::unique_ptr<sol::state> m_lua;
@@ -104,14 +110,16 @@ namespace galaxy
 		std::unique_ptr<galaxy::Editor> m_editor;
 
 		///
+		/// Process game events.
+		/// 
+		std::unique_ptr<starlight::Dispatcher> m_dispatcher;
+
+		///
 		/// Integrates box2d with the rest of the library.
 		///
 		//std::unique_ptr<Box2DHelper> m_box2dHelper;
 
-		///
-		/// Process game events.
-		/// 
-		//std::unique_ptr<entt::Dispatcher> m_dispatcher;
+		
 
 		///
 		/// Manages font resources.

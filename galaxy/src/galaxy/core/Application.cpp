@@ -21,7 +21,7 @@
 namespace galaxy
 {
 	Application::Application(std::unique_ptr<galaxy::Config>& config)
-	:m_lua(nullptr), m_config(nullptr), m_window(nullptr), m_restart(false)
+	:m_showEditor(false), m_lua(nullptr), m_config(nullptr), m_window(nullptr), m_restart(false)
 	{
 		// Seed pseudo-random algorithms.
 		std::srand(std::time(nullptr));
@@ -122,6 +122,9 @@ namespace galaxy
 		m_editor->init(m_window.get());
 		galaxy::ServiceLocator::i().m_editor = m_editor.get();
 
+		m_dispatcher = std::make_unique<starlight::Dispatcher>();
+		galaxy::ServiceLocator::i().m_dispatcher = m_dispatcher.get();
+
 		//m_stateMachine = std::make_unique<StateMachine>();
 		//ServiceLocator::stateMachine = m_stateMachine.get();
 
@@ -149,8 +152,7 @@ namespace galaxy
 		//m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		//ServiceLocator::box2dHelper = m_box2dHelper.get();
 
-		//m_dispatcher = std::make_unique<entt::Dispatcher>();
-		//ServiceLocator::dispatcher = m_dispatcher.get();
+	
 
 		//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 
@@ -162,6 +164,7 @@ namespace galaxy
 	{
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 		// And of course the file system being the last to be destroyed.
+		m_dispatcher.reset();
 		m_editor.reset();
 		m_world.reset();
 		m_window.reset();
@@ -207,17 +210,31 @@ namespace galaxy
 					//m_debugInterface->event(&event);
 					m_editor->event(event);
 
-					if (event.type == sf::Event::Closed)
+					switch (event.type)
 					{
+					case sf::Event::Closed:
 						m_window->close();
-					}
+						break;
 
-					if (event.type == sf::Event::KeyPressed)
-					{
-						if (event.key.code == sf::Keyboard::Space)
+					case sf::Event::KeyPressed:
+						switch (event.key.code)
 						{
+						case sf::Keyboard::Escape:
 							m_window->close();
+							break;
+
+						case sf::Keyboard::Tilde:
+							if (m_showEditor)
+							{
+								m_showEditor = false;
+							}
+							else
+							{
+								m_showEditor = true;
+							}
+							break;
 						}
+						break;
 					}
 				}
 
@@ -226,18 +243,21 @@ namespace galaxy
 				
 				updates++;
 			}
-
-			m_editor->update(timeSinceLastUpdate);
-
-			// We need to "display" the debug ui before the renderer stuff is called.
-			// Because this sets up all the textures, api calls, etc.
-			m_editor->display(&m_restart);
+			
+			if (m_showEditor)
+			{
+				m_editor->update(timeSinceLastUpdate);
+				m_editor->display(&m_restart);
+			}
 
 			m_window->clear(sf::Color::Green);
 			
 			//m_stateMachine->render();
 			//m_debugInterface->render();
-			m_editor->render(); 
+			if (m_showEditor)
+			{
+				m_editor->render();
+			}
 			
 			m_window->display();
 

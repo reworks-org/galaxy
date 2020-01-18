@@ -48,8 +48,13 @@ namespace galaxy
 		return m_editor;
 	}
 
+	starlight::Dispatcher* ServiceLocator::dispatcher() const noexcept
+	{
+		return m_dispatcher;
+	}
+
 	ServiceLocator::ServiceLocator()
-		:m_lua(nullptr), m_config(nullptr), m_fs(nullptr), m_window(nullptr), m_world(nullptr)
+		:m_lua(nullptr), m_config(nullptr), m_fs(nullptr), m_window(nullptr), m_world(nullptr), m_editor(nullptr), m_dispatcher(nullptr)
 	{
 	}
 }

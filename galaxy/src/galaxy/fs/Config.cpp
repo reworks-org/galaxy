@@ -93,7 +93,7 @@ namespace galaxy
 		else
 		{
 			// Use JSON stream to serialize data and write to file.
-			ofstream << m_config;
+			ofstream << m_config.dump(4);
 			m_opened = true;
 		}
 

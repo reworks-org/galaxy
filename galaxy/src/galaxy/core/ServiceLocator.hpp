@@ -12,6 +12,7 @@
 
 // Forward decs.
 namespace sf { class RenderWindow; }
+namespace starlight { class Dispatcher; }
 
 ///
 /// Core namespace.
@@ -91,6 +92,13 @@ namespace galaxy
 		///
 		galaxy::Editor* editor() const noexcept;
 
+		///
+		/// Get Dispatcher service.
+		///
+		/// \return Return const pointer to Dispatcher service.
+		///
+		starlight::Dispatcher* dispatcher() const noexcept;
+
 	private:
 		///
 		/// Default constructor.
@@ -151,6 +159,11 @@ namespace galaxy
 		/// Editor service.
 		///
 		galaxy::Editor* m_editor;
+
+		///
+		/// Dispatcher service.
+		///
+		starlight::Dispatcher* m_dispatcher;
 	};
 }
 
