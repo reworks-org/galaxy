@@ -29,7 +29,7 @@ namespace galaxy
 		m_manager.clear();
 	}
 
-	sr::Entity World::createEntity(const std::string& def)
+	const sr::Entity World::createEntity(const std::string& def)
 	{
 		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
 
@@ -70,15 +70,36 @@ namespace galaxy
 			createEntity(def);
 		}
 	}
+	
+	sr::Manager& World::manager() noexcept
+	{
+		return m_manager;
+	}
+
+	void World::event(const sf::Event& event)
+	{
+		for (auto&& layer : m_layers)
+		{
+			layer->event(event);
+		}
+	}
 
 	void World::update(const double dt)
 	{
 		// Update ECS.
 		m_manager.update(dt);
+
+		for (auto&& layer : m_layers)
+		{
+			layer->update(dt);
+		}
 	}
 
-	sr::Manager& World::manager() noexcept
+	void World::render() noexcept
 	{
-		return m_manager;
+		for (auto&& layer : m_layers)
+		{
+			layer->render();
+		}
 	}
 }

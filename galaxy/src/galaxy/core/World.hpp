@@ -12,6 +12,8 @@
 #include <nlohmann/json_fwd.hpp>
 #include <solar/entity/Manager.hpp>
 
+#include "galaxy/types/Layer.hpp"
+
 ///
 /// Core namespace.
 ///
@@ -45,7 +47,7 @@ namespace galaxy
 		///
 		/// \return Value on entity created.
 		///
-		sr::Entity createEntity(const std::string& def);
+		const sr::Entity createEntity(const std::string& def);
 
 		///
 		/// Create multiple entitys from a single definition file.
@@ -70,17 +72,35 @@ namespace galaxy
 		void registerComponent(const std::string& name);
 
 		///
-		/// Main update method for ECS.
-		///
-		/// \param dt Time difference from update loop.
-		/// 
-		void update(const double dt);
-		
-		///
 		/// Get reference to internal ECS manager.
 		///
 		sr::Manager& manager() noexcept;
 
+		///
+		/// \brief Process layer events.
+		///
+		/// Allows for std::exceptions.
+		///
+		/// \param event SFML structure containing polled events.
+		///
+		void event(const sf::Event& event);
+
+		///
+		/// \brief Process update (fixed timestep) logic.
+		///
+		/// Allows for std::exceptions.
+		///
+		/// \param dt Delta-Time from fixed timestep gameloop.
+		///
+		void update(const double dt);
+
+		///
+		/// \brief Render layer.
+		///
+		/// Does NOT allow std::exceptions!
+		///
+		void render() noexcept;
+		
 	private:
 		///
 		/// ECS manager and main class.
@@ -91,6 +111,11 @@ namespace galaxy
 		/// Used to allow for component creation without having to know the compile time type.
 		///
 		ComponentFactory m_componentFactory;
+
+		///
+		/// Fast container storing game layers.
+		///
+		std::vector<std::unique_ptr<galaxy::Layer>> m_layers;
 	};
 
 	template<typename Component>

@@ -59,12 +59,14 @@
     <ClCompile Include="..\modules\lua\lzio.c" />
     <ClCompile Include="..\modules\tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
+    <ClCompile Include="src\galaxy\core\Command.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\fs\Config.cpp" />
     <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
     <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
+    <ClCompile Include="src\galaxy\types\Layer.cpp" />
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -119,12 +121,14 @@
     <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp" />
     <ClInclude Include="..\modules\tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
+    <ClInclude Include="src\galaxy\core\Command.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
+    <ClInclude Include="src\galaxy\types\Layer.hpp" />
     <ClInclude Include="src\Lua.hpp" />
     <ClInclude Include="src\galaxy\ui\Editor.hpp" />
   </ItemGroup>

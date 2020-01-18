@@ -28,54 +28,10 @@ namespace galaxy
 
 		// Supposed to improve performance. Need to run tests and ensure we aren't using C stdio.
 		std::ios::sync_with_stdio(false);
-
-		// Set up logging and set loguru to throw an exception on fatal errors.
-		//std::string lname = "logs/" + Time::getFormattedTime() + ".log";
-		//loguru::g_flush_interval_ms = 0;
-		//loguru::add_file(lname.c_str(), loguru::Append, loguru::Verbosity_MAX);
-		//loguru::set_fatal_handler([](const loguru::Message& message)
-			//{
-				//std::string msg = std::string(message.preamble) + std::string(message.indentation) + std::string(message.prefix) + std::string(message.message);
-
-			//ALLEGRO_DISPLAY* display = ServiceLocator::window->getDisplay();
-			//if (display)
-				//	{
-				//		al_show_native_message_box(display, "FATAL", "Exception has occured!", msg.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
-				//	}
-
-			//	throw std::runtime_error(msg);
-			//});
-
-		// Set allegro to use loguru.
-		//al_register_trace_handler([](const char* message) -> void
-			//	{
-				//	LOG_S(INFO) << "ALLEGRO TRACE: " << message;
-			//});
-
-		// Set allegro to throw loguru errors when an assert is tirggered.
-		//al_register_assert_handler([](const char* expr, const char* file, int line, const char* func) -> void
-			//{
-				//LOG_S(FATAL) << "ALLEGRO ASSERT: EXPR: " << expr << " FILE: " << file << " LINE: " << line << " FUNC: " << func;
-			//});
-
-		// Initialize all of allegros systems.
-		// We dont use al_init() macro because manual control
-		// over when allegro shuts down is needed.
-		//al_install_system(ALLEGRO_VERSION_INT, nullptr);
-		//al_install_keyboard();
-		//al_install_mouse();
-		//al_install_audio();
-
-		//al_init_font_addon();
-		//al_init_ttf_addon();
-		//al_init_image_addon();
-		//al_init_video_addon();
-		//al_init_acodec_addon();
-		//al_init_primitives_addon();
-		//al_init_native_dialog_addon();
-
-		// Create queue for game to recieve events.
-		//m_queue = al_create_event_queue();
+		
+		// Logging.
+		pl::Log::i().setMinimumLevel(pl::Log::Level::DEBUG);
+		// TODO: something for sfml + better exception handling.
 
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
@@ -88,11 +44,13 @@ namespace galaxy
 		m_config = std::move(config);
 		galaxy::ServiceLocator::i().m_config = m_config.get();
 
+		// File system.
 		m_fs = std::make_unique<galaxy::FileSystem>();
 		m_fs->mount(m_config->get<std::string>("archive"));
 		m_fs->setWriteDir(m_config->get<std::string>("write-dir"));
 		galaxy::ServiceLocator::i().m_fs = m_fs.get();
 
+		// App window.
 		m_window = std::make_unique<sf::RenderWindow>();
 		m_window->create(sf::VideoMode(m_config->get<unsigned int>("width"),
 			m_config->get<unsigned int>("height")),
@@ -102,10 +60,10 @@ namespace galaxy
 		
 		m_window->requestFocus();
 		m_window->setActive();
-		m_window->setFramerateLimit(0);
+		m_window->setFramerateLimit(m_config->get<unsigned int>("framerate-limit"));
 		m_window->setVerticalSyncEnabled(m_config->get<bool>("vsync"));
 
-		sf::Image icon;
+		sf::Image icon; // Does not need to be permanent since window copies the data.
 		icon.loadFromStream(galaxy::PhysfsInputStream(m_config->get<std::string>("icon")));
 		m_window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 		
@@ -115,18 +73,18 @@ namespace galaxy
 		m_window->setVisible(true);
 		galaxy::ServiceLocator::i().m_window = m_window.get();
 
+		// Game "world".
 		m_world = std::make_unique<World>();
 		galaxy::ServiceLocator::i().m_world = m_world.get();
 
+		// Editing tools.
 		m_editor = std::make_unique<galaxy::Editor>();
 		m_editor->init(m_window.get());
 		galaxy::ServiceLocator::i().m_editor = m_editor.get();
 
+		// Event dispatcher.
 		m_dispatcher = std::make_unique<starlight::Dispatcher>();
 		galaxy::ServiceLocator::i().m_dispatcher = m_dispatcher.get();
-
-		//m_stateMachine = std::make_unique<StateMachine>();
-		//ServiceLocator::stateMachine = m_stateMachine.get();
 
 		//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		//ServiceLocator::textureAtlas = m_textureAtlas.get();
@@ -151,8 +109,6 @@ namespace galaxy
 
 		//m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
 		//ServiceLocator::box2dHelper = m_box2dHelper.get();
-
-	
 
 		//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 

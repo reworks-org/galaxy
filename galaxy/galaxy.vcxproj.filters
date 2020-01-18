@@ -155,6 +155,8 @@
       <Filter>imgui</Filter>
     </ClCompile>
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
+    <ClCompile Include="src\galaxy\types\Layer.cpp" />
+    <ClCompile Include="src\galaxy\core\Command.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -310,5 +312,7 @@
       <Filter>imgui</Filter>
     </ClInclude>
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
+    <ClInclude Include="src\galaxy\types\Layer.hpp" />
+    <ClInclude Include="src\galaxy\core\Command.hpp" />
   </ItemGroup>
 </Project>

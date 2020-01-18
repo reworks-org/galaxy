@@ -2,14 +2,15 @@
 /// Command.hpp
 /// galaxy
 ///
-/// Created by reworks on 13/01/2019.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef GALAXY_COMMAND_HPP_
 #define	GALAXY_COMMAND_HPP_
 
+///
+/// Core namespace.
+///
 namespace galaxy
 {
 	///
@@ -22,9 +23,9 @@ namespace galaxy
 	{
 	public:
 		///
-		/// Virtual destructor.
+		/// Default virtual destructor.
 		///
-		virtual inline ~Command() noexcept {};
+		virtual ~Command() = default;
 
 		///
 		/// Execute the command.
@@ -39,6 +40,12 @@ namespace galaxy
 		/// \return bool Return true if successful, false if not.
 		///
 		virtual bool undo() = 0;
+
+	protected:
+		///
+		/// Default constructor.
+		///
+		Command() = default;
 	};
 }
 

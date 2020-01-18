@@ -37,6 +37,7 @@ int main(int argc, char **argv)
 					config->define<unsigned int>("height", 720);
 					config->define<std::string>("title", "sandbox");
 					config->define<unsigned int>("anti-alias", 2);
+					config->define<unsigned int>("framerate-limit", 0);
 					config->define<bool>("vsync", false);
 					config->define<std::string>("icon", "icon.png");
 					config->define<bool>("key-repeat", true);

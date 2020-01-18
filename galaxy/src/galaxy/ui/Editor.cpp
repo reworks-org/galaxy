@@ -51,8 +51,6 @@ namespace galaxy
 
 		// Setup style.
 		ImGui::StyleColorsDark();
-		//ImGui::StyleColorsLight();
-		//ImGui::StyleColorsClassic();
 	}
 
 	void Editor::event(const sf::Event& event)
