@@ -2,5 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\GameLayer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\GameLayer.hpp" />
   </ItemGroup>
 </Project>

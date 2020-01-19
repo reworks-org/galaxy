@@ -73,6 +73,14 @@ namespace galaxy
 		void registerComponent(const std::string& name);
 
 		///
+		/// Add a layer to the world.
+		///
+		/// \param args Constructor arguments for the component.
+		///
+		template<typename Layer, typename... Args>
+		void pushLayer(Args&&... args);
+
+		///
 		/// Get reference to internal ECS manager.
 		///
 		sr::Manager& manager() noexcept;
@@ -134,6 +142,12 @@ namespace galaxy
 				m_manager.add<Component>(e, json);
 			});
 		}
+	}
+
+	template<typename Layer, typename ...Args>
+	inline void World::pushLayer(Args&& ...args)
+	{
+		m_layers.emplace_back(std::make_unique<Layer>(std::forward<Args>(args)...));
 	}
 }
 

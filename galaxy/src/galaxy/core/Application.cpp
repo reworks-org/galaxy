@@ -204,13 +204,12 @@ namespace galaxy
 			}
 
 			m_window->clear(sf::Color::Green);
-			
+			m_world->render();
+
 			if (m_showEditor)
 			{
 				m_editor->render();
 			}
-			
-			m_world->render();
 
 			m_window->display();
 

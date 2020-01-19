@@ -5,7 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <galaxy/core/World.hpp>
 #include <galaxy/core/Application.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
+
+#include "GameLayer.hpp"
 
 class Sandbox : public galaxy::Application
 {
@@ -48,6 +52,9 @@ int main(int argc, char **argv)
 				}
 
 				Sandbox sandbox(config);
+
+				galaxy::World* world = galaxy::ServiceLocator::i().world();
+				world->pushLayer<GameLayer>();
 
 				restart = sandbox.run();
 			}
