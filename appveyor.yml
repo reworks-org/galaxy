@@ -20,6 +20,7 @@ configuration:
 
 install:
   - cmd: git submodule update --init --recursive
+  - cmd: echo "#include <imconfig-SFML.h>" >> modules/imgui/imconfig.h
 
 matrix:
   fast_finish: true

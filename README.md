@@ -6,18 +6,19 @@
 Game programming framework built on C++17 using SFML, Lua and JSON. This was built as a hobby for hobby projects.
 
 ## Building
-First thing you have to do is go to: modules/imgui/imconfig.h and add  
-`#include <imconfig-SFML.h>` to the bottom of the file, regardless of platform.
-
 ### Windows:
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
+echo "#include <imconfig-SFML.h>" >> modules/imgui/imconfig.h
+
 // todo
 ```
 
 ### Linux:
-```cpp
+```
 git clone --recursive https://github.com/DomRe/galaxy.git
+echo "#include <imconfig-SFML.h>" >> modules/imgui/imconfig.h
+
 // todo
 ```
 
