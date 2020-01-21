@@ -6,6 +6,7 @@
     "icon": "icon.png",
     "key-repeat": true,
     "mouse-cursor-visible": true,
+    "saves": "saves/",
     "title": "sandbox",
     "vsync": false,
     "width": 1280,

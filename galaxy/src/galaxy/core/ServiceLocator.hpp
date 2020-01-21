@@ -25,6 +25,7 @@ namespace galaxy
 	class FileSystem;
 	class World;
 	class Editor;
+	class Serializer;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -99,6 +100,13 @@ namespace galaxy
 		///
 		starlight::Dispatcher* dispatcher() const noexcept;
 
+		///
+		/// Get Serializer service.
+		///
+		/// \return Return const pointer to Dispatcher service.
+		///
+		galaxy::Serializer* serializer() const noexcept;
+
 	private:
 		///
 		/// Default constructor.
@@ -164,6 +172,11 @@ namespace galaxy
 		/// Dispatcher service.
 		///
 		starlight::Dispatcher* m_dispatcher;
+
+		///
+		/// Serializer service.
+		///
+		galaxy::Serializer* m_serializer;
 	};
 }
 

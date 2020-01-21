@@ -157,6 +157,8 @@
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\types\Layer.cpp" />
     <ClCompile Include="src\galaxy\core\Command.cpp" />
+    <ClCompile Include="src\galaxy\types\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -314,5 +316,7 @@
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\types\Layer.hpp" />
     <ClInclude Include="src\galaxy\core\Command.hpp" />
+    <ClInclude Include="src\galaxy\types\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
   </ItemGroup>
 </Project>

@@ -46,6 +46,7 @@ int main(int argc, char **argv)
 					config->define<std::string>("icon", "icon.png");
 					config->define<bool>("key-repeat", true);
 					config->define<bool>("mouse-cursor-visible", true);
+					config->define<std::string>("saves", "saves/");
 
 					config->create();
 					config->open();

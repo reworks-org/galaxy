@@ -53,6 +53,11 @@ namespace galaxy
 		return m_dispatcher;
 	}
 
+	galaxy::Serializer* ServiceLocator::serializer() const noexcept
+	{
+		return m_serializer;
+	}
+
 	ServiceLocator::ServiceLocator()
 		:m_lua(nullptr), m_config(nullptr), m_fs(nullptr), m_window(nullptr), m_world(nullptr), m_editor(nullptr), m_dispatcher(nullptr)
 	{

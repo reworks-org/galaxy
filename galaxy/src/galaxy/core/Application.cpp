@@ -8,6 +8,7 @@
 #include <sol/sol.hpp>
 #include <nlohmann/json.hpp>
 #include <SFML/Window/Event.hpp>
+#include <protostar/utility/Time.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -30,7 +31,9 @@ namespace galaxy
 		std::ios::sync_with_stdio(false);
 		
 		// Logging.
-		pl::Log::i().setMinimumLevel(pl::Log::Level::DEBUG);
+		std::string lf = "logs/" + protostar::getFormattedTime() + ".txt";
+		pl::Log::i().init(lf);
+		pl::Log::i().setMinimumLevel(pl::Log::Level::INFO);
 		// TODO: something for sfml + better exception handling.
 
 		// Set up all of the difference services.
@@ -86,6 +89,10 @@ namespace galaxy
 		m_dispatcher = std::make_unique<starlight::Dispatcher>();
 		galaxy::ServiceLocator::i().m_dispatcher = m_dispatcher.get();
 
+		// Serializer.
+		m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
+		galaxy::ServiceLocator::i().m_serializer = m_serializer.get();
+
 		//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		//ServiceLocator::textureAtlas = m_textureAtlas.get();
 
@@ -120,6 +127,7 @@ namespace galaxy
 	{
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 		// And of course the file system being the last to be destroyed.
+		m_serializer.reset();
 		m_dispatcher.reset();
 		m_editor.reset();
 		m_world.reset();
@@ -143,12 +151,8 @@ namespace galaxy
 		// The timer in milliseconds for UPS and FPS.
 		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
-		// load the first state
-		//m_stateMachine->load();
-
 		// Fixed timestep gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
-		
 		sf::Clock clock;
 		while (m_window->isOpen())
 		{
@@ -171,6 +175,7 @@ namespace galaxy
 						m_window->close();
 						break;
 
+					#ifdef _DEBUG
 					case sf::Event::KeyPressed:
 						switch (event.key.code)
 						{
@@ -190,6 +195,7 @@ namespace galaxy
 							break;
 						}
 						break;
+					#endif
 					}
 				}
 
@@ -223,9 +229,6 @@ namespace galaxy
 				frames = 0;
 			}
 		}
-
-		// unload the last state
-		//m_stateMachine->unload();
 
 		return m_restart;
 	}

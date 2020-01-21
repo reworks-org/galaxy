@@ -16,6 +16,7 @@
 #include "galaxy/ui/Editor.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/fs/Serializer.hpp"
 
 ///
 /// Core namespace.
@@ -115,11 +116,14 @@ namespace galaxy
 		std::unique_ptr<starlight::Dispatcher> m_dispatcher;
 
 		///
+		/// Main serializer.
+		///
+		std::unique_ptr<galaxy::Serializer> m_serializer;
+
+		///
 		/// Integrates box2d with the rest of the library.
 		///
 		//std::unique_ptr<Box2DHelper> m_box2dHelper;
-
-		
 
 		///
 		/// Manages font resources.

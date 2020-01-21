@@ -65,8 +65,10 @@
     <ClCompile Include="src\galaxy\fs\Config.cpp" />
     <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
     <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\types\Layer.cpp" />
+    <ClCompile Include="src\galaxy\types\Serializable.cpp" />
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -127,8 +129,10 @@
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\types\Layer.hpp" />
+    <ClInclude Include="src\galaxy\types\Serializable.hpp" />
     <ClInclude Include="src\Lua.hpp" />
     <ClInclude Include="src\galaxy\ui\Editor.hpp" />
   </ItemGroup>
