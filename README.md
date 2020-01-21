@@ -6,27 +6,24 @@
 Game programming framework built on C++17 using SFML, Lua and JSON. This was built as a hobby for hobby projects.
 
 ## Building
-First thing you have to do is go to: modules/imgui/imconfig.h and add 
-```cpp
-#include <imconfig-SFML.h>
-``` 
-to the bottom of the file. Then go to: modules/zep/include/zep/imgui/display-imgui.h and add 
-```cpp
-#include <imgui.h>
-``` 
-underneath the std::string include, then underneath that, add: 
-```cpp
-#define KEY_SPACE ImGui::GetKeyIndex(ImGuiKey_Space)
-```
+First thing you have to do is go to: modules/imgui/imconfig.h and add  
+`#include <imconfig-SFML.h>` to the bottom of the file, regardless of platform.
 
 ### Windows:
-```cpp
+```
+git clone --recursive https://github.com/DomRe/galaxy.git
 // todo
 ```
 
 ### Linux:
 ```cpp
+git clone --recursive https://github.com/DomRe/galaxy.git
 // todo
+```
+
+If your submodules did not clone properly run:
+```
+git submodule update --init --recursive
 ```
 
 ## Documentation
