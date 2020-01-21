@@ -9,16 +9,12 @@ Game programming framework built on C++17 using SFML, Lua and JSON. This was bui
 ### Windows:
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
-echo "#include <imconfig-SFML.h>" >> modules/imgui/imconfig.h
-
-// todo
+type PATCH.txt >> modules/imgui/imconfig.h
+msbuild galaxy.sln
 ```
 
 ### Linux:
 ```
-git clone --recursive https://github.com/DomRe/galaxy.git
-echo "#include <imconfig-SFML.h>" >> modules/imgui/imconfig.h
-
 // todo
 ```
 
