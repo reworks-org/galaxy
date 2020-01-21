@@ -41,7 +41,7 @@ namespace pl
 
 	Log::~Log() noexcept
 	{
-		//m_lock.unlock();
+		m_fileStream.close();
 	}
 
 	Log& Log::i()
