@@ -41,7 +41,7 @@ namespace pl
 
 	Log::~Log() noexcept
 	{
-		m_fileStream.close();
+		deinit();
 	}
 
 	Log& Log::i()
@@ -69,6 +69,11 @@ namespace pl
 		{
 			throw std::runtime_error("Failed to create log: " + logTo);
 		}
+	}
+
+	void Log::deinit() noexcept
+	{
+		m_fileStream.close();
 	}
 
 	void Log::log(const pl::Log::Level level, const std::string& message)

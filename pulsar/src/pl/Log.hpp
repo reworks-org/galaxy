@@ -16,12 +16,17 @@
 #include "detail/Windows.hpp"
 
 ///
+/// Singleton shortcut.
+///
+#define PL_LOG_I pl::Log::i()
+
+///
 /// Macro shortcut.
 ///
 /// \param level Log error level.
 /// \param message Message to log.
 ///
-#define PL_LOG(level, message) pl::Log::i().log(level, message)
+#define PL_LOG(level, message) PL_LOG_I.log(level, message)
 
 ///
 /// Core namespace.
@@ -65,6 +70,11 @@ namespace pl
 		/// \param logTo File to write all log messages to.
 		///
 		void init(const std::string& logTo);
+
+		///
+		/// Manual control over deinitialization.
+		///
+		void deinit() noexcept;
 
 		///
 		/// Log a message.
