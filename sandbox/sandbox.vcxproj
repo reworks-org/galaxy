@@ -173,8 +173,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;galaxy.lib;starmap.lib;starlight.lib;solar.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-main.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;pulsar.lib;protostar.lib;celestial.lib;physfs-static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../modules/celestial/celestial/bin/Debug/Win32/;../modules/physfs/lib/Debug/Win32/;../modules/protostar/protostar/bin/Debug/Win32/;../modules/pulsar/pulsar/bin/Debug/Win32/;../modules/SFML/lib/Win32/;../modules/solar/solar/bin/Debug/Win32/;../modules/starlight/starlight/bin/Debug/Win32/;../modules/starmap/starmap/bin/Debug/Win32/;../galaxy/bin/Debug/Win32/;</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -195,7 +194,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;galaxy.lib;starmap.lib;starlight.lib;solar.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-main.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;pulsar.lib;protostar.lib;celestial.lib;physfs-static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../modules/celestial/celestial/bin/Debug/x64/;../modules/physfs/lib/Debug/x64/;../modules/protostar/protostar/bin/Debug/x64/;../modules/pulsar/pulsar/bin/Debug/x64/;../modules/SFML/lib/x64/;../modules/solar/solar/bin/Debug/x64/;../modules/starlight/starlight/bin/Debug/x64/;../modules/starmap/starmap/bin/Debug/x64/;../galaxy/bin/Debug/x64/</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../modules/celestial/celestial/bin/Debug/x64/;../modules/physfs/lib/Debug/x64/;../modules/protostar/protostar/bin/Debug/x64/;../modules/pulsar/pulsar/bin/Debug/x64/;../modules/SFML/lib/x64/;../modules/solar/solar/bin/Debug/x64/;../modules/starlight/starlight/bin/Debug/x64/;../modules/starmap/starmap/bin/Debug/x64/;../galaxy/bin/Debug/x64/;</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -220,8 +219,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;galaxy.lib;starmap.lib;starlight.lib;solar.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-main.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;pulsar.lib;protostar.lib;celestial.lib;physfs-static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../modules/celestial/celestial/bin/Release/Win32/;../modules/physfs/lib/Release/Win32/;../modules/protostar/protostar/bin/Release/Win32/;../modules/pulsar/pulsar/bin/Release/Win32/;../modules/SFML/lib/Win32/;../modules/solar/solar/bin/Release/Win32/;../modules/starlight/starlight/bin/Release/Win32/;../modules/starmap/starmap/bin/Release/Win32/;../galaxy/bin/Release/Win32/;</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -247,8 +245,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;galaxy.lib;starmap.lib;starlight.lib;solar.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-main.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;pulsar.lib;protostar.lib;celestial.lib;physfs-static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../modules/celestial/celestial/bin/Release/x64/;../modules/physfs/lib/Release/x64/;../modules/protostar/protostar/bin/Release/x64/;../modules/pulsar/pulsar/bin/Release/x64/;../modules/SFML/lib/x64/;../modules/solar/solar/bin/Release/x64/;../modules/starlight/starlight/bin/Release/x64/;../modules/starmap/starmap/bin/Release/x64/;../galaxy/bin/Release/x64/;</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
