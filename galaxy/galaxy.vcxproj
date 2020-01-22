@@ -24,6 +24,7 @@
     <ClCompile Include="..\modules\imgui\imgui.cpp" />
     <ClCompile Include="..\modules\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\modules\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\modules\imgui\misc\cpp\imgui_stdlib.cpp" />
     <ClCompile Include="..\modules\lua\lapi.c" />
     <ClCompile Include="..\modules\lua\lauxlib.c" />
     <ClCompile Include="..\modules\lua\lbaselib.c" />
@@ -70,6 +71,7 @@
     <ClCompile Include="src\galaxy\types\Layer.cpp" />
     <ClCompile Include="src\galaxy\types\Serializable.cpp" />
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
+    <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -133,6 +135,7 @@
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\types\Layer.hpp" />
     <ClInclude Include="src\galaxy\types\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
     <ClInclude Include="src\Lua.hpp" />
     <ClInclude Include="src\galaxy\ui\Editor.hpp" />
   </ItemGroup>

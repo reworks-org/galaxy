@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 					config->define<unsigned int>("framerate-limit", 0);
 					config->define<bool>("vsync", false);
 					config->define<std::string>("icon", "icon.png");
-					config->define<bool>("key-repeat", true);
+					config->define<bool>("key-repeat", false);
 					config->define<bool>("mouse-cursor-visible", true);
 					config->define<std::string>("saves", "saves/");
 

@@ -95,24 +95,16 @@ namespace galaxy
 		else
 		{
 			auto size = PHYSFS_fileLength(fp);
-			char* buff = new char[size + 1];
 			
+			out = std::string(size, 0);
 			// Read data, checking for success, and making sure size means full file was read.
-			if (PHYSFS_readBytes(fp, buff, size) != size)
+			if (PHYSFS_readBytes(fp, static_cast<void*>(&out[0]), size) != size)
 			{
 				PL_LOG(pl::Log::Level::FATAL, "Failed to read data from file " + file + " | " + std::string(PHYSFS_getLastError()));
-				delete[] buff;
 				PHYSFS_close(fp);
 
 				throw std::runtime_error("");
 			}
-			else
-			{
-				buff[size + 1] = '\0';
-				out.assign(buff, size + 1);
-			}
-
-			delete[] buff;
 		}
 
 		PHYSFS_close(fp);

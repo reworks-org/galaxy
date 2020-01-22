@@ -4,7 +4,7 @@
     "framerate-limit": 0,
     "height": 720,
     "icon": "icon.png",
-    "key-repeat": true,
+    "key-repeat": false,
     "mouse-cursor-visible": true,
     "saves": "saves/",
     "title": "sandbox",

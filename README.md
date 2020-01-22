@@ -13,7 +13,7 @@ type PATCH.txt >> modules/imgui/imconfig.h
 msbuild galaxy.sln
 ```
 
-### Linux:
+### Unix:
 ```
 // todo
 ```

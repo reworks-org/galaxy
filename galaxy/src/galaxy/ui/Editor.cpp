@@ -15,6 +15,8 @@
 #include <tinyfiledialogs.h>
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include "galaxy/core/World.hpp"
+#include "galaxy/ui/LuaConsole.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
 #include "Editor.hpp"
@@ -77,6 +79,7 @@ namespace galaxy
 	{
 		// Set up stateless variables.
 		static bool s_showEditor = false;
+		static bool s_showLuaConsole = false;
 
 		// BEGIN UI.
 		ImGui::Begin("Galaxy Editor", (bool*)false, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysUseWindowPadding);
@@ -85,61 +88,37 @@ namespace galaxy
 		// Define the gui layout.
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::BeginMenu("File"))
+			// This is the code used by the app to restart it.
+			if (ImGui::MenuItem("Restart"))
 			{
-				// This is the code used by the app to restart it.
-				if (ImGui::MenuItem("Restart"))
-				{
-					*restart = true;
-					galaxy::ServiceLocator::i().window()->close();
-				}
-
-				// Option to close game.
-				if (ImGui::MenuItem("Quit"))
-				{
-					*restart = false;
-					galaxy::ServiceLocator::i().window()->close();
-				}
-
-				ImGui::EndMenu();
+				*restart = true;
+				galaxy::ServiceLocator::i().window()->close();
 			}
 
-			if (ImGui::BeginMenu("Tools"))
+			// Option to close game.
+			if (ImGui::MenuItem("Quit"))
 			{
-				// Open script m_editor.
-				if (ImGui::MenuItem("Script Editor"))
-				{
-					s_showEditor = true;
-				}
-
-				// Open Lua console.
-			//	if (ImGui::MenuItem("Show Console"))
-				//{
-				//	m_showLuaConsole = true;
-			//	}
-
-				ImGui::EndMenu();
+				*restart = false;
+				galaxy::ServiceLocator::i().window()->close();
 			}
 
 			ImGui::EndMenuBar();
 		}
 
-		ImGui::SameLine();
+		ImGui::Separator();
+		ImGui::Spacing();
 
-		// Push a state.
-		//if (ImGui::InputText("Push State", m_stateBuff, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_EnterReturnsTrue))
-		//{
-		//	if (!m_stateBuff.empty())
-		//	{
-		//			Locator::stateMachine->push(m_stateBuff.c_str());
-		//		}
-		//	}
+		// Open script m_editor.
+		if (ImGui::Button("Script Editor"))
+		{
+			s_showEditor = true;
+		}
 
-		// Pop state.
-		//	if (ImGui::Button("Pop State"))
-		//	{
-		//	Locator::stateMachine->pop();
-		//	}
+		// Open Lua console.
+		if (ImGui::Button("Show Console"))
+		{
+			s_showLuaConsole = true;
+		}
 
 		if (s_showEditor)
 		{
@@ -278,12 +257,12 @@ namespace galaxy
 			// END WINDOW.
 		}
 
-		//if (m_showLuaConsole)
-		//{
+		if (s_showLuaConsole)
+		{
 			// Create and show console.
-			//static ImGui::Console console;
-			//console.Draw("Lua Console", &m_showLuaConsole);
-		//}
+			static galaxy::LuaConsole s_console;
+			s_console.draw(&s_showLuaConsole);
+		}
 
 		ImGui::End();
 		// END UI.

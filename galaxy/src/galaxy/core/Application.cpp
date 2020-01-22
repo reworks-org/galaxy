@@ -32,8 +32,8 @@ namespace galaxy
 		
 		// Logging.
 		std::string lf = "logs/" + protostar::getFormattedTime() + ".txt";
-		pl::Log::i().init(lf);
-		pl::Log::i().setMinimumLevel(pl::Log::Level::INFO);
+		PL_LOG_I.init(lf);
+		PL_LOG_I.setMinimumLevel(pl::Log::Level::INFO);
 		// TODO: something for sfml + better exception handling.
 
 		// Set up all of the difference services.
@@ -41,7 +41,8 @@ namespace galaxy
 
 		// Create lua instance and open libraries.
 		m_lua = std::make_unique<sol::state>();
-		m_lua->open_libraries(sol::lib::base, sol::lib::math, sol::lib::os, sol::lib::package, sol::lib::string, sol::lib::table, sol::lib::utf8, sol::lib::io);
+		m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
+		galaxy::ServiceLocator::i().m_lua = m_lua.get();
 
 		// Config reader.
 		m_config = std::move(config);
@@ -135,6 +136,8 @@ namespace galaxy
 		m_fs.reset();
 		m_config.reset();
 		m_lua.reset();
+
+		PL_LOG_I.deinit();
 	}
 
 	bool Application::run()
