@@ -16,11 +16,6 @@
 #include "detail/Windows.hpp"
 
 ///
-/// Fix this annoying macro.
-///
-#undef ERROR
-
-///
 /// Singleton shortcut.
 ///
 #define PL_LOG_I pl::Log::i()
@@ -58,7 +53,7 @@ namespace pl
 			INFO = 0,
 			DEBUG = 1,
 			WARNING = 2,
-			ERROR = 3,
+			ERROR_ = 3,
 			FATAL = 4
 		};
 

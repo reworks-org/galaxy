@@ -105,7 +105,7 @@ namespace pl
 			out = "WARNING";
 			break;
 
-		case pl::Log::Level::ERROR:
+		case pl::Log::Level::ERROR_:
 			out = "ERROR";
 			break;
 
@@ -139,7 +139,7 @@ namespace pl
 			out = pl::colourText(LogColours::YELLOW);
 			break;
 
-		case pl::Log::Level::ERROR:
+		case pl::Log::Level::ERROR_:
 			out = pl::colourText(LogColours::RED);
 			break;
 
