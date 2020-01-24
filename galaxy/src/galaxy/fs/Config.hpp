@@ -55,7 +55,7 @@ namespace galaxy
 		bool open();
 
 		///
-		/// Adds a key-value pair to the config file.
+		/// Define a default key-value pair for the config file.
 		///
 		/// Can throw exceptions.
 		///
@@ -64,6 +64,15 @@ namespace galaxy
 		///
 		template<typename Type>
 		void define(const std::string& key, const Type value);
+
+		///
+		/// Change the value in an existing config file.
+		///
+		/// \param key Name of the variable.
+		/// \param value The variable value to set.
+		///
+		template<typename Type>
+		void change(const std::string& key, const Type value);
 
 		///
 		/// \brief Creates the actual config file in the FS.
@@ -119,6 +128,18 @@ namespace galaxy
 		
 		// Only need to set definitions first time around.
 		if (!m_exists)
+		{
+			m_config[key] = value;
+		}
+	}
+
+	template<typename Type>
+	inline void Config::change(const std::string& key, const Type value)
+	{
+		// Make sure type is floating, integral, boolean or char.
+		static_assert(std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
+
+		if (m_config.count("key") > 0)
 		{
 			m_config[key] = value;
 		}

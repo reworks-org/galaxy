@@ -61,11 +61,11 @@ int main(int argc, char **argv)
 			}
 			catch (const std::exception& e)
 			{
-				PL_LOG(pl::Log::Level::ERROR, e.what());
+				PL_LOG(pl::Log::Level::ERROR_, e.what());
 			}
 			catch (...)
 			{
-				PL_LOG(pl::Log::Level::ERROR, "Threw an unknown exception. Why are you not inheriting from std::exception?");
+				PL_LOG(pl::Log::Level::ERROR_, "Threw an unknown exception. Why are you not inheriting from std::exception?");
 			}
 		}
 

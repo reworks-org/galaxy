@@ -46,7 +46,7 @@ namespace galaxy
 		}
 		else
 		{
-			PL_LOG(pl::Log::Level::ERROR, "File does not exist in PhysFS. Error: " + std::string(PHYSFS_getLastError()));
+			PL_LOG(pl::Log::Level::ERROR_, "File does not exist in PhysFS. Error: " + std::string(PHYSFS_getLastError()));
 			result = false;
 		}
 

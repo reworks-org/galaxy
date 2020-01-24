@@ -120,7 +120,7 @@ namespace galaxy
 		PHYSFS_File* fp = PHYSFS_openWrite(file.c_str());
 		if (!fp)
 		{
-			PL_LOG(pl::Log::Level::ERROR, "Could not open " + file + " for writing! | " + std::string(PHYSFS_getLastError()));
+			PL_LOG(pl::Log::Level::ERROR_, "Could not open " + file + " for writing! | " + std::string(PHYSFS_getLastError()));
 			result = false;
 		}
 		else
@@ -128,7 +128,7 @@ namespace galaxy
 			// Write data, checking for success, and making sure size means full data was written.
 			if (PHYSFS_writeBytes(fp, data, size) != size)
 			{
-				PL_LOG(pl::Log::Level::ERROR, "Failed to write data to file " + file + " | " + std::string(PHYSFS_getLastError()));
+				PL_LOG(pl::Log::Level::ERROR_, "Failed to write data to file " + file + " | " + std::string(PHYSFS_getLastError()));
 				result = false;
 			}
 		}

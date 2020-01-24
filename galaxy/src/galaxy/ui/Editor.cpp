@@ -165,7 +165,7 @@ namespace galaxy
 							}
 							else
 							{
-								PL_LOG(pl::Log::Level::ERROR, "Tried to load unsupported file.");
+								PL_LOG(pl::Log::Level::ERROR_, "Tried to load unsupported file.");
 							}
 
 							std::ifstream text(filePath.string());
@@ -176,14 +176,14 @@ namespace galaxy
 							}
 							else
 							{
-								PL_LOG(pl::Log::Level::ERROR, "Failed to read file: " + filePath.string());
+								PL_LOG(pl::Log::Level::ERROR_, "Failed to read file: " + filePath.string());
 							}
 							
 							text.close();
 						}
 						else
 						{
-							PL_LOG(pl::Log::Level::ERROR, "Failed to open file with tfd.");
+							PL_LOG(pl::Log::Level::ERROR_, "Failed to open file with tfd.");
 						}
 					}
 

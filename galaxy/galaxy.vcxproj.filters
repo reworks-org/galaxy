@@ -161,6 +161,9 @@
     <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
     <ClCompile Include="..\modules\imgui\misc\cpp\imgui_stdlib.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
+    <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -321,5 +324,8 @@
     <ClInclude Include="src\galaxy\types\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
+    <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
+    <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
+    <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
   </ItemGroup>
 </Project>

@@ -1,70 +1,26 @@
 ///
-/// LuaUtils.hpp
+/// LuaUtils.cpp
 /// galaxy
 ///
-/// Created by reworks on 02/07/2017.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <fstream>
 
-#include "galaxy/core/World.hpp"
-#include "galaxy/math/Vector2.hpp"
-#include "galaxy/math/Vector3.hpp"
-#include "galaxy/math/Vector4.hpp"
-#include "galaxy/core/StateMachine.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/resources/MusicPlayer.hpp"
-#include "galaxy/scripting/Sol2Interface.hpp"
-#include "galaxy/libs/entt/entity/registry.hpp"
-#include "galaxy/components/PhysicsComponent.hpp"
-#include "galaxy/core/Command.hpp"
+#include <sol/sol.hpp>
 
 #include "LuaUtils.hpp"
 
-// GCC 8 Workaround.
-#if defined(__GNUC__) || defined(__GNUG__)
-
-namespace sol
-{
-	template <>
-	struct is_automagical<galaxy::Rect<float, int>> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::AnimationComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::ParallaxComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::ParticleComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::RenderComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::TransformComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::PhysicsComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<galaxy::ScrollingBackgroundComponent> : std::false_type {};
-
-	template <>
-	struct is_automagical<entt::DefaultRegistry> : std::false_type {};
-}
-
-#endif
-
+///
+/// Core namespace.
+///
 namespace galaxy
 {
-	void LuaUtils::writeTableToFile(const sol::table& table, const std::string& file, const std::string& tableName)
+	void LuaUtils::writeTable(const sol::table& table, const std::string& file, const std::string& name)
 	{
 		// Opens a file to write to and prints formatting correctly.
 		std::ofstream out(file);
-		out << tableName << " = " << "\n";
+		out << name << " = " << "\n";
 		out << "{" << "\n";
 
 		// Loops over each pair in table to write out.
@@ -83,8 +39,9 @@ namespace galaxy
 		out.close();
 	}
 
-	void LuaUtils::registergalaxyUsertypes()
+	void LuaUtils::registerUsertypes()
 	{
+		/*
 		// Now all the usertypes we want to access from lua are registered.
 		Locator::lua->new_usertype<std::uint32_t>("uint32_t");
 		Locator::lua->new_usertype<std::uint16_t>("uint16_t");
@@ -249,5 +206,6 @@ namespace galaxy
 		Locator::lua->new_usertype<Command>("Command",
 			"exec", &Command::exec,
 			"undo", &Command::undo);
+			*/
 	}
 }

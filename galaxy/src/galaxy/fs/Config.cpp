@@ -49,7 +49,7 @@ namespace galaxy
 			if (ifstream.fail())
 			{
 				result = false;
-				PL_LOG(pl::Log::Level::ERROR, "std::ifstream failed to open config file!");
+				PL_LOG(pl::Log::Level::ERROR_, "std::ifstream failed to open config file!");
 			}
 			else
 			{
@@ -88,7 +88,7 @@ namespace galaxy
 		std::ofstream ofstream(m_path.string(), std::ofstream::out | std::ofstream::trunc);
 		if (ofstream.fail())
 		{
-			PL_LOG(pl::Log::Level::ERROR, "std::ofstream failed to open config file!");
+			PL_LOG(pl::Log::Level::ERROR_, "std::ofstream failed to open config file!");
 		}
 		else
 		{
