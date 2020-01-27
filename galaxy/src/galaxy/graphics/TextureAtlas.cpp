@@ -76,7 +76,7 @@ namespace galaxy
 		m_packer.init(512, 512);
 	}
 
-	void TextureAtlas::add(const std::string& name)
+	void TextureAtlas::add(const std::string& name) noexcept
 	{
 		auto fs = galaxy::ServiceLocator::i().fs();
 	}
@@ -113,10 +113,17 @@ namespace galaxy
 
 							// Pack into rect then add to hashmap.
 							auto rect = m_packer.pack(tex.getSize().x, tex.getSize().y);
-							m_rects.emplace(name, rect);
-
-							// Draw to master texture.
-							rt.draw(sf::Sprite(tex));
+							if (rect == std::nullopt)
+							{
+								PL_LOG(pl::Log::Level::ERROR_, "Failed to pack texture: " + name);
+							}
+							else
+							{
+								m_rects.emplace(name, rect.value());
+								
+								// Draw to master texture.
+								rt.draw(sf::Sprite(tex));
+							}
 						}
 					});
 
@@ -139,5 +146,22 @@ namespace galaxy
 	void TextureAtlas::dumpAtlas(const std::string& file)
 	{
 		m_atlas.copyToImage().saveToFile(file);
+	}
+
+	protostar::Rect<int> TextureAtlas::getRect(const std::string& texture) noexcept
+	{
+		return m_rects[texture];
+	}
+
+	sf::Sprite TextureAtlas::getTexture(const std::string& texture) noexcept
+	{
+		// Have to convert to SFML rect.
+		sf::IntRect ir;
+		ir.left = m_rects[texture].m_x;
+		ir.top = m_rects[texture].m_y;
+		ir.width = m_rects[texture].m_width;
+		ir.height = m_rects[texture].m_height;
+
+		return sf::Sprite(m_atlas, ir);
 	}
 }

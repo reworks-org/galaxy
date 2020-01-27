@@ -57,21 +57,22 @@ namespace galaxy
 		void dumpAtlas(const std::string& file);
 
 		///
-		/// 
+		/// Return a subtextures rectangle.
 		///
-		protostar::Rect<int> getRect() noexcept;
+		/// \param texture Name of the texture in the atlas.
+		///
+		/// \return Rectangle.
+		///
+		protostar::Rect<int> getRect(const std::string& texture) noexcept;
 
 		///
+		/// Return a subtexture from the atlas.
 		///
+		/// \param texture Name of the texture in the atlas.
 		///
-		sf::Texture getTexture() noexcept;
-
-	private:
+		/// \return Sprite sub-texture.
 		///
-		/// Default Constructor.
-		/// Deleted.
-		///
-		TextureAtlas() = delete;
+		sf::Sprite getTexture(const std::string& texture) noexcept;
 	
 	private:
 		///
