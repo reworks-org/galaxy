@@ -2,30 +2,23 @@
 /// TextureAtlas.cpp
 /// galaxy
 ///
-/// Created by reworks on 29/11/2017.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
+#include <pl/Log.hpp>
+#include <nlohmann/json.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
-#include <physfs.h>
-#include <allegro5/drawing.h>
-#include <allegro5/bitmap_io.h>
-#include <allegro5/bitmap_draw.h>
-
-#include "galaxy/fs/VirtualFS.hpp"
-#include "galaxy/math/Vector2.hpp"
-#include "galaxy/graphics/Window.hpp"
-#include "galaxy/resources/FontBook.hpp"
-#include "galaxy/physics/Box2DHelper.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/PhysfsInputStream.hpp"
+
 
 #include "TextureAtlas.hpp"
 
 namespace galaxy
 {
-	TextureAtlas::TextureAtlas(const std::string& textureFolderPath, int powerOfTwoDimension)
+	/*TextureAtlas::TextureAtlas(const std::string& folder)
 		:m_nullTexture("")
 	{
 		// Create atlas size from power of 2, since the algorithms work best with power of 2's.
@@ -75,173 +68,76 @@ namespace galaxy
 		
 		// Free up the list.
 		PHYSFS_freeList(efl);
+	}*/
+
+	TextureAtlas::TextureAtlas() noexcept
+	{
+		// Start with 512.
+		m_packer.init(512, 512);
 	}
 
-	TextureAtlas::~TextureAtlas()
+	void TextureAtlas::add(const std::string& name)
 	{
-		clean();
+		auto fs = galaxy::ServiceLocator::i().fs();
 	}
 
-	void TextureAtlas::addTexture(const std::string& id, ALLEGRO_BITMAP* textureData)
+	void TextureAtlas::addFromJSON(const std::string& json)
 	{
-		// Set the algorithm to use when packing the bin, in this case bestshortsidefit.
-		rbp::MaxRectsBinPack::FreeRectChoiceHeuristic heuristic = rbp::MaxRectsBinPack::RectBestShortSideFit;
-		int w = al_get_bitmap_width(textureData);
-		int h = al_get_bitmap_height(textureData);
-		Rect<int> packedRect = m_bin.Insert(w, h, heuristic);
-		
-		// Correct width and height.
-		// For some reason the algorithm was reversing this.
-		packedRect.m_width = w;
-		packedRect.m_height = h;
+		auto fs = galaxy::ServiceLocator::i().fs();
 
-		// Making sure it was actually packed.
-		if (packedRect.m_height <= 0)
+		if (fs->has(json))
 		{
-			LOG_S(FATAL) << "Failed to pack a texture! Texture: " << id;
-		}
-
-		// Then draw it to the master bitmap by changing the default rendering target to the atlas.
-		al_set_target_bitmap(m_atlas);
-		al_draw_bitmap(textureData, packedRect.m_x, packedRect.m_y, 0);
-		al_flip_display();
-
-		// Then make sure rendering target is set back to window.
-		al_set_target_backbuffer(Locator::window->getDisplay());
-
-		m_resourceMap.emplace(entt::HashedString(id.c_str()), packedRect);
-	}
-
-	void TextureAtlas::addText(const std::string& id, const std::string& text, ALLEGRO_FONT* font, const ALLEGRO_COLOR col, int flags)
-	{
-		// We set as a pair with a vector2 because it lets us pass 2 arguments through extra, along with font.
-		// Because allegro wont except a lamba with a capture, and I don't want any global functions or variables.
-		// Vector2 default-constructs to 0, which is what is wanted.
-		std::pair<ALLEGRO_FONT*, Vector2<int>> fwh;
-		fwh.first = font;
-
-		// Calculate bitmap width and height.
-		al_do_multiline_text(font, text.length(), text.c_str(), [](int line_num, const char* line, int size, void* extra) -> bool
-		{
-			// Get fwh pointer.
-			auto* fwhPtr = static_cast<std::pair<ALLEGRO_FONT*, Vector2<int>>*>(extra);
-
-			// Retrieve text dimensions.
-			int textWidth = 0;
-			int textHeight = 0;
-			int bbx, bby; // We dont care about this.
-			
-			al_get_text_dimensions(fwhPtr->first, line, &bbx, &bby, &textWidth, &textHeight);
-
-			// Make sure the width is the same as the largest text line's width.
-			if (textWidth >= fwhPtr->second.m_x)
+			std::string code = fs->read(json);
+			if (!code.empty())
 			{
-				fwhPtr->second.m_x = textWidth;
+				sf::RenderTexture rt;
+				if (!rt.create(m_packer.getWidth(), m_packer.getHeight()))
+				{
+					PL_LOG(pl::Log::Level::ERROR_, "Failed to create RenderTexture.");
+				}
+				else
+				{
+					rt.clear(sf::Color::Transparent);
+
+					nlohmann::json parsed = nlohmann::json::parse(code);
+					std::for_each(parsed.begin(), parsed.end(), [&](const nlohmann::json& array)
+					{
+						std::string name = array["name"];
+						std::string file = array["file"];
+						 
+						// Make sure is destroyed upon leaving scope.
+						{
+							// Load texture.
+							sf::Texture tex;
+							tex.loadFromStream(galaxy::PhysfsInputStream(file));
+
+							// Pack into rect then add to hashmap.
+							auto rect = m_packer.pack(tex.getSize().x, tex.getSize().y);
+							m_rects.emplace(name, rect);
+
+							// Draw to master texture.
+							rt.draw(sf::Sprite(tex));
+						}
+					});
+
+					rt.display();
+
+					m_atlas = rt.getTexture();
+				}
 			}
-
-			// And that the height takes into account each line of text and the gap between lines.
-			fwhPtr->second.m_y += (textHeight + al_get_font_line_height(fwhPtr->first));
-
-			return true;
-		}, &fwh);
-
-		ALLEGRO_BITMAP* bitmap = al_create_bitmap(fwh.second.m_x, fwh.second.m_y);
-		if (!bitmap)
-		{
-			// Then draw the text to that bitmap so it can be added to the atlas.
-			al_set_target_bitmap(bitmap);
-			al_clear_to_color(al_map_rgba(255, 255, 255, 0));
-
-			// We pass 0 for line height so allegro defaults to font_line_height like in the calculations above.
-			al_draw_multiline_text(font, col, 0, 0, text.length(), 0, flags, text.c_str());
-
-			al_flip_display();
-
-			// Then add that bitmap to the atlas.
-			addTexture(id, bitmap);
+			else
+			{
+				PL_LOG(pl::Log::Level::ERROR_, "File read was empty: " + json);
+			}
 		}
 		else
 		{
-			LOG_S(ERROR) << "Could not create text drawing target bitmap! Errno: " << al_get_errno();
-		}
-
-		// We only have to destroy bitmap because addTexture() resets rendertarget to display.
-		al_destroy_bitmap(bitmap);
-	}
-
-	void TextureAtlas::batchAddText(const std::string& script)
-	{
-		Locator::lua->script(Locator::virtualFS->openAsString(script));
-
-		// Iterate over script getting each text configuration.
-		sol::table textList = Locator::lua->get<sol::table>("TextList");
-		textList.for_each([&](std::pair<sol::object, sol::object> pair)
-		{
-			sol::table data = pair.second.as<sol::table>();
-			sol::table col = data.get<sol::table>("col");
-
-			// Then add the text to the atlas using the existing addText method, using the data retrieved from the lua file.
-			addText(pair.first.as<std::string>(), data.get<std::string>("text"), Locator::fontBook->get(data.get<const char*>("font")), al_map_rgba(col.get<unsigned char>("r"), col.get<unsigned char>("g"), col.get<unsigned char>("b"), col.get<unsigned char>("a")));
-		});
-	}
-
-	void TextureAtlas::addRectToAtlas(const std::string& id, const Rect<int>& rect)
-	{
-		m_resourceMap.emplace(entt::HashedString(id.c_str()), rect);
-	}
-
-	void TextureAtlas::al_draw_packed_bitmap(const std::string& texture, const float dx, const float dy, const int flags)
-	{
-		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
-
-		// Draw that texture on the atlas.
-		al_draw_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
-	}
-
-	void TextureAtlas::al_draw_tinted_packed_bitmap(const std::string& texture, const ALLEGRO_COLOR tint, const float dx, const float dy, const int flags)
-	{
-		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
-
-		// Draw that texture on the atlas.
-		al_draw_tinted_bitmap_region(m_atlas, tint, pr.m_x, pr.m_y, pr.m_width, pr.m_height, dx, dy, flags);
-	}
-
-	void TextureAtlas::al_draw_tinted_scaled_rotated_packed_bitmap(const std::string& texture, const ALLEGRO_COLOR tint, const float cx, const float cy, const float dx, const float dy, const float xscale, const float yscale, const float angle, const int flags)
-	{
-		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
-
-		// Draw that texture on the atlas.
-		al_draw_tinted_scaled_rotated_bitmap_region(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height, tint, cx, cy, dx, dy, xscale, yscale, Box2DHelper::degToRad<float>(angle), flags);
-	}
-
-	void TextureAtlas::clean()
-	{
-		if (m_atlas)
-		{
-			al_destroy_bitmap(m_atlas);
+			PL_LOG(pl::Log::Level::ERROR_, "Virtual FS does not contain: " + json);
 		}
 	}
 
-	ALLEGRO_BITMAP* TextureAtlas::al_create_packed_sub_bitmap(const std::string& texture)
+	void TextureAtlas::dumpAtlas(const std::string& file)
 	{
-		// Get rectangle coords of texture on atlas.
-		auto pr = m_resourceMap[entt::HashedString(texture.c_str())];
-
-		// Return sub-bitmap of that texture from the atlas.
-		return al_create_sub_bitmap(m_atlas, pr.m_x, pr.m_y, pr.m_width, pr.m_height);
-	}
-
-	void TextureAtlas::dumpAtlas(const std::string& fileName)
-	{
-		al_save_bitmap(fileName.c_str(), m_atlas);
-	}
-
-	void TextureAtlas::drawInternalTexture(float x, float y)
-	{
-		// Draw the entire atlas to the screen. Useful for debugging.
-		al_draw_bitmap(m_atlas, x, y, 0);
+		m_atlas.copyToImage().saveToFile(file);
 	}
 }

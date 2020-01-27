@@ -164,6 +164,9 @@
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
     <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
+    <ClCompile Include="src\galaxy\layer\ImGuiLayer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -327,5 +330,8 @@
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
     <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
+    <ClInclude Include="src\galaxy\layer\ImGuiLayer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
   </ItemGroup>
 </Project>

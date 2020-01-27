@@ -69,6 +69,9 @@
     <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
     <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
+    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
+    <ClCompile Include="src\galaxy\layer\ImGuiLayer.cpp" />
+    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\types\Layer.cpp" />
@@ -137,6 +140,9 @@
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
+    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="src\galaxy\layer\ImGuiLayer.hpp" />
+    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\types\Layer.hpp" />

@@ -8,6 +8,8 @@
 #ifndef GALAXY_EDITOR_HPP_
 #define GALAXY_EDITOR_HPP_
 
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include "galaxy/scripting/JSONDefinition.hpp"
 
 ///

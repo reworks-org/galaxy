@@ -8,6 +8,8 @@
 #ifndef GALAXY_WORLD_HPP_
 #define GALAXY_WORLD_HPP_
 
+#include <deque>
+
 #include <pl/Log.hpp>
 #include <nlohmann/json_fwd.hpp>
 #include <SFML/System/Clock.hpp>
@@ -101,7 +103,7 @@ namespace galaxy
 		///
 		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		void update(const sf::Time& dt);
+		void update(sf::Time& dt);
 
 		///
 		/// \brief Render layer.
@@ -124,7 +126,7 @@ namespace galaxy
 		///
 		/// Fast container storing game layers.
 		///
-		std::vector<std::unique_ptr<galaxy::Layer>> m_layers;
+		std::deque<std::unique_ptr<galaxy::Layer>> m_layers;
 	};
 
 	template<typename Component>
@@ -147,7 +149,7 @@ namespace galaxy
 	template<typename Layer, typename ...Args>
 	inline void World::pushLayer(Args&& ...args)
 	{
-		m_layers.emplace_back(std::make_unique<Layer>(std::forward<Args>(args)...));
+		m_layers.emplace_front(std::make_unique<Layer>(std::forward<Args>(args)...));
 	}
 }
 

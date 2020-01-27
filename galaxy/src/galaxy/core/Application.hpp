@@ -13,7 +13,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "galaxy/fs/Config.hpp"
-#include "galaxy/ui/Editor.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/fs/Serializer.hpp"
@@ -76,11 +75,6 @@ namespace galaxy
 
 	protected:
 		///
-		/// Show the Debug Editor.
-		///
-		bool m_showEditor;
-
-		///
 		/// Master Lua state for application.
 		///
 		std::unique_ptr<sol::state> m_lua;
@@ -104,11 +98,6 @@ namespace galaxy
 		/// The world class, which manages entities, components, systems, and other important data structures.
 		///
 		std::unique_ptr<galaxy::World> m_world;
-
-		///
-		/// Gamedev editor UI.
-		///
-		std::unique_ptr<galaxy::Editor> m_editor;
 
 		///
 		/// Process game events.
@@ -154,8 +143,6 @@ namespace galaxy
 		/// Stores and manages all the games graphics. Text, textures, etc.
 		///
 		//std::unique_ptr<TextureAtlas> m_textureAtlas;
-
-		
 		
 		///
 		/// Controls the debug UI which allows you to have control over the game from ingame. Console, script editing, etc.
@@ -172,11 +159,6 @@ namespace galaxy
 		/// This is returned as true if the debug menu tells the game to restart.
 		///
 		bool m_restart;
-
-		///
-		/// Allegro event queue. Where allegro stores its events.
-		///
-		//ALLEGRO_EVENT_QUEUE* m_queue;
 	};
 }
 

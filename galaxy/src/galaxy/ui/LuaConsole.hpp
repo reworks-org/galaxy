@@ -19,7 +19,7 @@ namespace galaxy
 	///
 	/// Imgui Console for running lua code.
 	///
-	class LuaConsole
+	class LuaConsole final
 	{
 	public:
 		///

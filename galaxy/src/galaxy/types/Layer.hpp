@@ -45,7 +45,7 @@ namespace galaxy
 		///
 		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(const sf::Time& dt) = 0;
+		virtual void update(sf::Time& dt) = 0;
 
 		///
 		/// \brief Render layer.

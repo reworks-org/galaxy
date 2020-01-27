@@ -17,7 +17,7 @@ public:
 	GameLayer();
 
 	void event(const sf::Event& event)override;
-	void update(const sf::Time& dt)override;
+	void update(sf::Time& dt)override;
 	void render() noexcept override;
 
 	sf::CircleShape shape;

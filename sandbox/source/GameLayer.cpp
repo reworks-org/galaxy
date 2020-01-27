@@ -23,7 +23,7 @@ void GameLayer::event(const sf::Event& event)
 {
 }
 
-void GameLayer::update(const sf::Time& dt)
+void GameLayer::update(sf::Time& dt)
 {
 }
 

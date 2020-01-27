@@ -6,11 +6,14 @@
 ///
 
 #include <sol/sol.hpp>
+#include <imgui-SFML.h>
 #include <nlohmann/json.hpp>
 #include <SFML/Window/Event.hpp>
 #include <protostar/utility/Time.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/layer/ImGuiLayer.hpp"
+#include "galaxy/scripting/LuaUtils.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/PhysfsInputStream.hpp"
 
@@ -22,7 +25,7 @@
 namespace galaxy
 {
 	Application::Application(std::unique_ptr<galaxy::Config>& config)
-	:m_showEditor(false), m_lua(nullptr), m_config(nullptr), m_window(nullptr), m_restart(false)
+	:m_restart(false)
 	{
 		// Seed pseudo-random algorithms.
 		std::srand(std::time(nullptr));
@@ -81,11 +84,6 @@ namespace galaxy
 		m_world = std::make_unique<World>();
 		galaxy::ServiceLocator::i().m_world = m_world.get();
 
-		// Editing tools.
-		m_editor = std::make_unique<galaxy::Editor>();
-		m_editor->init(m_window.get());
-		galaxy::ServiceLocator::i().m_editor = m_editor.get();
-
 		// Event dispatcher.
 		m_dispatcher = std::make_unique<starlight::Dispatcher>();
 		galaxy::ServiceLocator::i().m_dispatcher = m_dispatcher.get();
@@ -120,8 +118,11 @@ namespace galaxy
 
 		//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 
-		// Register all usertypes used by this application for Sol2.
-		//LuaUtils::registergalaxyUsertypes();
+		// Register all usertypes used by this application for sol3.
+		LuaUtils::registerUsertypes();
+
+		// Register ImGui layer.
+		m_world->pushLayer<galaxy::ImGuiLayer>(&m_restart);
 	}
 
 	Application::~Application()
@@ -130,7 +131,6 @@ namespace galaxy
 		// And of course the file system being the last to be destroyed.
 		m_serializer.reset();
 		m_dispatcher.reset();
-		m_editor.reset();
 		m_world.reset();
 		m_window.reset();
 		m_fs.reset();
@@ -170,7 +170,6 @@ namespace galaxy
 				while (m_window->pollEvent(event))
 				{
 					m_world->event(event);
-					m_editor->event(event);
 
 					switch (event.type)
 					{
@@ -185,17 +184,6 @@ namespace galaxy
 						case sf::Keyboard::Escape:
 							m_window->close();
 							break;
-
-						case sf::Keyboard::Tilde:
-							if (m_showEditor)
-							{
-								m_showEditor = false;
-							}
-							else
-							{
-								m_showEditor = true;
-							}
-							break;
 						}
 						break;
 					#endif
@@ -206,19 +194,14 @@ namespace galaxy
 				updates++;
 			}
 			
-			if (m_showEditor)
-			{
-				m_editor->update(timeSinceLastUpdate);
-				m_editor->display(&m_restart);
-			}
+			// has to be here rather than in editor...
+			#ifdef _DEBUG
+			ImGui::SFML::Update(*m_window.get(), timeSinceLastUpdate);
+			#endif
 
-			m_window->clear(sf::Color::Green);
+			m_window->clear(sf::Color::White);
+			
 			m_world->render();
-
-			if (m_showEditor)
-			{
-				m_editor->render();
-			}
 
 			m_window->display();
 
