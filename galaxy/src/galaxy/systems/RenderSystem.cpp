@@ -2,8 +2,6 @@
 /// RenderSystem.cpp
 /// galaxy
 ///
-/// Created by reworks on 06/08/2016.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 

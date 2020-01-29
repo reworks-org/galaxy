@@ -1,11 +1,11 @@
 ///
-/// TransformComponent.cpp
+/// SpriteComponent.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "TransformComponent.hpp"
+#include "SpriteComponent.hpp"
 
 ///
 /// Core namespace.

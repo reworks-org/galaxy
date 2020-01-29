@@ -167,6 +167,7 @@
     <ClCompile Include="src\galaxy\layer\ImGuiLayer.cpp" />
     <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
+    <ClCompile Include="src\galaxy\components\TransformComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\TODO.txt" />
@@ -333,5 +334,6 @@
     <ClInclude Include="src\galaxy\layer\ImGuiLayer.hpp" />
     <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
+    <ClInclude Include="src\galaxy\components\TransformComponent.hpp" />
   </ItemGroup>
 </Project>

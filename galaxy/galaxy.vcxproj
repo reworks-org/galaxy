@@ -61,6 +61,7 @@
     <ClCompile Include="..\modules\tinyfiledialogs\tinyfiledialogs.c" />
     <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
     <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
+    <ClCompile Include="src\galaxy\components\TransformComponent.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Command.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="..\modules\tinyfiledialogs\tinyfiledialogs.h" />
     <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
     <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
+    <ClInclude Include="src\galaxy\components\TransformComponent.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Command.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />

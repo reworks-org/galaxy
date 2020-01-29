@@ -2,23 +2,23 @@
 /// RenderSystem.hpp
 /// galaxy
 ///
-/// Created by reworks on 06/08/2016.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef GALAXY_RENDERSYSTEM_HPP_
 #define GALAXY_RENDERSYSTEM_HPP_
 
-#include "galaxy/types/System.hpp"
-#include "galaxy/math/QuadTree.hpp"
+#include <solar/system/System.hpp>
 
+///
+/// Core namespace.
+///
 namespace galaxy
 {
 	///
-	/// System that handles rendering of entities with a RenderComponent.
+	/// System that handles rendering of entities with a SpriteComponent, TransformComponent, etc.
 	///
-	class RenderSystem final : public System
+	class RenderSystem final : public sr::System
 	{
 	public:
 		///
