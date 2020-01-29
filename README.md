@@ -25,8 +25,8 @@ int main()
 See [documentation](https://domre.github.io/starmap/) for more.  
 
 ### Notes  
-Does *not* support external tilesets or objects.  
-This library can throw C++ stanard exceptions.  
+Does *not* support external tilesets or external objects.  
+This library can throw C++ STL exceptions.
 
 ### Credits
 * [JSON for C++](https://github.com/nlohmann/json).
