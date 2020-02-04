@@ -2,6 +2,8 @@ https://github.com/rokups/ImNodes
 
 https://www.sfml-dev.org/tutorials/2.5/audio-spatialization.php
 
+redo quadtree for rendering? - replaced by sf::View?
+
 OLD:
 
 - Code Quality:

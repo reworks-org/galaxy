@@ -143,7 +143,7 @@ namespace galaxy
 		}
 	}
 
-	void TextureAtlas::dumpAtlas(const std::string& file)
+	void TextureAtlas::dump(const std::string& file)
 	{
 		m_atlas.copyToImage().saveToFile(file);
 	}
@@ -153,7 +153,7 @@ namespace galaxy
 		return m_rects[texture];
 	}
 
-	sf::Sprite TextureAtlas::getTexture(const std::string& texture) noexcept
+	sf::Sprite TextureAtlas::getSprite(const std::string& texture) noexcept
 	{
 		// Have to convert to SFML rect.
 		sf::IntRect ir;
@@ -163,5 +163,10 @@ namespace galaxy
 		ir.height = m_rects[texture].m_height;
 
 		return sf::Sprite(m_atlas, ir);
+	}
+	
+	sf::Texture& TextureAtlas::getAtlas() noexcept
+	{
+		return m_atlas;
 	}
 }

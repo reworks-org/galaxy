@@ -5,76 +5,48 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/World.hpp"
-#include "galaxy/tags/CameraTag.hpp"
-#include "galaxy/core/StateMachine.hpp"
+#include <solar/entity/Manager.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/TextureAtlas.hpp"
-#include "galaxy/components/RenderComponent.hpp"
-#include "galaxy/components/EnabledComponent.hpp"
+#include "galaxy/components/StateComponent.hpp"
+#include "galaxy/components/SpriteComponent.hpp"
 #include "galaxy/components/TransformComponent.hpp"
 
 #include "RenderSystem.hpp"
 
+///
+/// Core namespace.
+///
 namespace galaxy
 {
-	RenderSystem::RenderSystem(int quadTreeLevels, int quadTreeMaxObjects)
-		:m_quadTreeLevels(quadTreeLevels), m_quadTreeMaxObjects(quadTreeMaxObjects)
+	RenderSystem::RenderSystem() noexcept
+		:m_verticies(sf::PrimitiveType::Quads, 0)
 	{
-		// Argument constructor.
+		m_window = galaxy::ServiceLocator::i().window();
 	}
 
-	RenderSystem::~RenderSystem()
+	RenderSystem::~RenderSystem() noexcept
 	{
-		// Ensure quadtree is properly destroyed.
-		m_quadtree.reset();
-		m_entitys.clear();
+		m_verticies.clear();
+		m_window = nullptr;
 	}
 
-	void RenderSystem::update(const double dt, entt::DefaultRegistry& registry)
+	void RenderSystem::render(galaxy::TextureAtlas* atlas)
 	{
-		// Retrieve the current entities to render and reset the quadtree.
-		auto view = registry.view<RenderComponent, TransformComponent, EnabledComponent>();
-		m_quadtree = std::make_unique<QuadTree>(0, Locator::stateMachine->top()->m_bounds, m_quadTreeLevels, m_quadTreeMaxObjects);
-		
-		// Prepare entity vector.
-		m_entitys.clear(); 
-		m_entitys.reserve(view.size());
-
-		// Insert entities to process with quadtree.
-		for (entt::DefaultRegistry::entity_type entity : view)
-		{
-			m_quadtree->insert(entity);
-		}
-		
-		// Retrieve entities that are within the camera bounds.
-		m_quadtree->retrieve(m_entitys, registry.get<CameraTag>().m_bounds);
-		
-		// Sort those entities for rendering.
-		std::sort(m_entitys.begin(), m_entitys.end(), [&](entt::DefaultRegistry::entity_type a, entt::DefaultRegistry::entity_type b)
-		{
-			return registry.get<TransformComponent>(a).m_layer < registry.get<TransformComponent>(b).m_layer;
-		});
-
-		// Destroy quadtree to ensure memory quadtree is using is freed.
-		m_quadtree.reset();
+		m_window->draw(m_verticies, &atlas->getAtlas());
 	}
 
-	void RenderSystem::render()
+	void RenderSystem::event(const sr::Event& e)
 	{
-		// This optimises rendering performance when rendering from 1 texture i.e. the texture atlas.
-		al_hold_bitmap_drawing(true);
+	}
 
-		// Render each entity in the vector.
-		for (entt::DefaultRegistry::entity_type entity : m_entitys)
-		{
-			auto& rc = Locator::world->m_registry.get<RenderComponent>(entity);
-			auto& tc = Locator::world->m_registry.get<TransformComponent>(entity);
-
-			// Using the texture atlas, so texture data does not have to be changed.
-			Locator::textureAtlas->al_draw_tinted_scaled_rotated_packed_bitmap(rc.m_textureName, al_map_rgba_f(1.0f, 1.0f, 1.0f, rc.m_opacity), 0.0f, 0.0f, tc.m_rect.m_x, tc.m_rect.m_y, 1.0f, 1.0f, tc.m_angle, 0);
-		}
-
-		al_hold_bitmap_drawing(false);
+	void RenderSystem::update(const sr::DeltaTime time, sr::Manager& manager)
+	{
+		manager.operate<SpriteComponent, TransformComponent, StateComponent>([&](sr::Entity entity, SpriteComponent* sc, TransformComponent* tc, StateComponent* state)
+			{
+			
+			});
 	}
 }

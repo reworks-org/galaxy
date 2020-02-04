@@ -9,6 +9,7 @@
 #define GALAXY_RENDERSYSTEM_HPP_
 
 #include <solar/system/System.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
 
 ///
 /// Core namespace.
@@ -24,10 +25,7 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		/// \param quadTreeLevels Maximum depth of a quadtree.
-		/// \param quadtreeMaxObjects Maximim number of entitys in a node.
-		///
-		RenderSystem(int quadTreeLevels = 5, int quadtreeMaxObjects = 10);
+		RenderSystem() noexcept;
 
 		///
 		/// Destructor.
@@ -35,47 +33,38 @@ namespace galaxy
 		~RenderSystem() noexcept override;
 
 		///
-		/// Render entitys.
+		/// Render sprites / textures to screen.
+		///
+		/// \param atlas Pointer to texture atlas to draw from.
 		/// 
-		void render();
+		void render(galaxy::TextureAtlas* atlas);
 
 	private:
 		///
-		/// Default Constructor.
-		/// Deleted.
+		/// Process events.
 		///
-		RenderSystem() = delete;
+		/// \param e Event object to pass to system.
+		///
+		void event(const sr::Event& e) override;
 
 		///
-		/// \brief Update the system.
+		/// Update System.
 		///
-		/// Dont actually call this, this is called by the world automatically.
+		/// \param time DeltaTime from gameloop.
+		/// \param manager Entity manager.
 		///
-		/// \param dt Delta Time from update loop.
-		/// \param registry Default entity registry.
-		///
-		void update(const double dt, entt::DefaultRegistry& registry) override;
+		void update(const sr::DeltaTime time, sr::Manager& manager) override;
 
 	private:
 		///
-		/// Maximum number of levels the quadtree should have.
+		/// Pointer to main rendering window.
 		///
-		int m_quadTreeLevels;
+		sf::RenderWindow* m_window;
 
 		///
-		/// Maximum number of renderable objects each node in the quadtree can have.
+		/// Avoid recreating each render pass.
 		///
-		int m_quadTreeMaxObjects;
-
-		///
-		/// This is used to sort entities by Z-layer after figuring out which ones to render with the quadtree.
-		///
-		std::vector<entt::DefaultRegistry::entity_type> m_entitys;
-
-		///
-		/// The quadtree to process 2D screenspace with.
-		///
-		std::unique_ptr<QuadTree> m_quadtree;
+		sf::VertexArray m_verticies;
 	};
 }
 

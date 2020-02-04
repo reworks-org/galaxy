@@ -59,8 +59,10 @@
     <ClCompile Include="..\modules\lua\lvm.c" />
     <ClCompile Include="..\modules\lua\lzio.c" />
     <ClCompile Include="..\modules\tinyfiledialogs\tinyfiledialogs.c" />
+    <ClCompile Include="src\galaxy\components\StateComponent.cpp" />
     <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
     <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
+    <ClCompile Include="src\galaxy\components\SpriteComponent.cpp" />
     <ClCompile Include="src\galaxy\components\TransformComponent.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\core\Command.cpp" />
@@ -75,6 +77,7 @@
     <ClCompile Include="src\galaxy\math\RectPack.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\types\Layer.cpp" />
     <ClCompile Include="src\galaxy\types\Serializable.cpp" />
     <ClCompile Include="src\galaxy\ui\Editor.cpp" />
@@ -131,8 +134,10 @@
     <ClInclude Include="..\modules\sol2\single\include\sol\forward.hpp" />
     <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp" />
     <ClInclude Include="..\modules\tinyfiledialogs\tinyfiledialogs.h" />
+    <ClInclude Include="src\galaxy\components\StateComponent.hpp" />
     <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
     <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
+    <ClInclude Include="src\galaxy\components\SpriteComponent.hpp" />
     <ClInclude Include="src\galaxy\components\TransformComponent.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\core\Command.hpp" />
@@ -147,6 +152,7 @@
     <ClInclude Include="src\galaxy\math\RectPack.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
+    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\types\Layer.hpp" />
     <ClInclude Include="src\galaxy\types\Serializable.hpp" />
     <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />

@@ -8,6 +8,8 @@
 #ifndef GALAXY_SPRITECOMPONENT_HPP_
 #define GALAXY_SPRITECOMPONENT_HPP_
 
+#include <string>
+
 ///
 /// Core namespace.
 ///
@@ -22,30 +24,37 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		SpriteComponent();
+		SpriteComponent() noexcept;
 
 		///
-		/// Constructor.
+		/// Argument constructor.
 		///
-		/// \param table sol::table containing data.
-		/// 
-		explicit SpriteComponent(const sol::table& table);
-
+		/// \param name Name of the sprite in the texture atlas.
+		/// \param layer Z-Level of sprite.
+		/// \param opacity Opacity of the sprite. From 0.0f - 1.0f.
 		///
-		/// Alternate Constructor.
-		///
-		/// \param opacity Opacity of Texture / Sprite Texture. From 0.0f - 1.0f.
-		/// \param atlasID Name of the sprite in the texture atlas.
-		///
-		SpriteComponent(const float opacity, const std::string& atlasID);
+		explicit SpriteComponent(const std::string& name, const unsigned int layer, const float opacity = 1.0f) noexcept;
 
 		///
 		/// Destructor.
 		///
 		~SpriteComponent() noexcept = default;
 
-	private:
+	public:
+		///
+		/// Texture Atlas ID.
+		///
+		std::string m_name;
+
+		///
+		/// Z-level.
+		///
 		unsigned int m_layer;
+
+		///
+		/// Opacity. 0.0f - 1.0f.
+		///
+		float m_opacity;
 	};
 }
 

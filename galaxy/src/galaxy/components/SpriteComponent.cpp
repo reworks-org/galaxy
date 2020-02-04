@@ -12,4 +12,10 @@
 ///
 namespace galaxy
 {
+	SpriteComponent::SpriteComponent() noexcept
+	{
+	}
+	SpriteComponent::SpriteComponent(const std::string& name, const unsigned int layer, const float opacity) noexcept
+	{
+	}
 }

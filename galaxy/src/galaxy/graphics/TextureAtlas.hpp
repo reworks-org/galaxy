@@ -54,7 +54,7 @@ namespace galaxy
 		///
 		/// \param file Name to save file with, including extension you want.
 		///
-		void dumpAtlas(const std::string& file);
+		void dump(const std::string& file);
 
 		///
 		/// Return a subtextures rectangle.
@@ -66,13 +66,20 @@ namespace galaxy
 		protostar::Rect<int> getRect(const std::string& texture) noexcept;
 
 		///
-		/// Return a subtexture from the atlas.
+		/// Return a subtexture'd sprite from the atlas.
 		///
 		/// \param texture Name of the texture in the atlas.
 		///
 		/// \return Sprite sub-texture.
 		///
-		sf::Sprite getTexture(const std::string& texture) noexcept;
+		sf::Sprite getSprite(const std::string& texture) noexcept;
+
+		///
+		/// Get full atlas texture.
+		///
+		/// \return Reference to internal sf::Texture.
+		///
+		sf::Texture& getAtlas() noexcept;
 	
 	private:
 		///
