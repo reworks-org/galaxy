@@ -127,14 +127,14 @@ namespace sr
 		/// \param lambda A lambda function that manipulates the components.
 		///		          For example: 
 							/*
-							manager.operate<a, b>([](sr::Entity entity, a* ca, b* cb)
+							manager.operate<a, b>([](const sr::Entity entity, a* ca, b* cb)
 							{
 								cb->var = 500;
 							});
 							*/
 		///
-		template<typename... Components>
-		void operate(std::function<void(const sr::Entity, Components* ...)> lambda);
+		template<typename... Components, typename Lambda>
+		void operate(Lambda&& lambda);
 
 		///
 		/// \brief Add a system to the manager.
@@ -282,8 +282,8 @@ namespace sr
 		return std::make_tuple(get<Components>(entity)...);
 	}
 
-	template<typename ...Components>
-	inline void Manager::operate(std::function<void(const sr::Entity, Components* ...)> lambda)
+	template<typename... Components, typename Lambda>
+	inline void Manager::operate(Lambda&& lambda)
 	{
 		// how many times operate internal is called.
 		unsigned int counter = 0;
@@ -299,7 +299,7 @@ namespace sr
 			// TODO: find a more efficient method of matching.
 			entities = findDuplicates(entities, counter);
 		}
-			
+		
 		for (auto& entity : entities)
 		{
 			lambda(entity, get<Components>(entity)...);

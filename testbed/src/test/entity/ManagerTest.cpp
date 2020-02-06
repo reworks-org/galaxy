@@ -131,8 +131,8 @@ TEST(Manager, ComponentOperate)
 	manager.add<TestB>(e1, 100);
 	manager.add<TestA>(e2);
 	manager.add<TestB>(e2, 200);
-
-	manager.operate<TestA>([](sr::Entity e, TestA* a)
+	
+	manager.operate<TestA>([](const sr::Entity e, TestA* a)
 	{
 		a->val = 50;
 	});
@@ -141,7 +141,7 @@ TEST(Manager, ComponentOperate)
 
 	ASSERT_EQ(testae0->val, 50);
 	
-	manager.operate<TestA, TestB>([](sr::Entity e, TestA* a, TestB* b)
+	manager.operate<TestA, TestB>([](const sr::Entity e, TestA* a, TestB* b)
 	{
 		a->val = 25;
 		b->val = 75;
