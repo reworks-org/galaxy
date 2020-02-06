@@ -11,7 +11,8 @@
 #include <tuple>
 #include <memory>
 #include <optional>
-#include <functional>
+#include <algorithm>
+#include <unordered_set>
 
 #include "solar/system/System.hpp"
 #include "solar/detail/DualSparseSet.hpp"
@@ -185,23 +186,9 @@ namespace sr
 		/// Internal method used to process components from entities.
 		///
 		/// \param entities Entitys to operate on.
-		/// \param counter Counts how many times this function is called.
 		///
 		template<typename Component>
-		void operateInteral(std::vector<sr::Entity>& entities, unsigned int& counter);
-
-		///
-		/// \brief Returns all duplicate integers that occur a number of times.
-		///
-		/// Credits: https://thispointer.com/c-how-to-find-duplicates-in-a-vector/
-		///
-		/// \param input Input vector to check for duplicates.
-		/// \param occurances Exptected number of duplicates.
-		///
-		/// \return Returns all duplicate integers that occur a number of times.
-		///
-		template<typename Type>
-		std::vector<Type> findDuplicates(const std::vector<Type>& input, const unsigned int occurances);
+		void operateInteral(std::vector<sr::Entity>& entities);
 
 	private:
 		///
@@ -285,21 +272,20 @@ namespace sr
 	template<typename... Components, typename Lambda>
 	inline void Manager::operate(Lambda&& lambda)
 	{
-		// how many times operate internal is called.
-		unsigned int counter = 0;
-		
 		std::vector<sr::Entity> entities;
-		entities.clear();
-		// expands to be called on every component, also incrementing counter to know how many times called.
-		(operateInteral<Components>(entities, counter), ...);
-
-		if (counter > 1)
-		{
-			// erase duplicates
-			// TODO: find a more efficient method of matching.
-			entities = findDuplicates(entities, counter);
-		}
 		
+		// expands to be called on every component, also incrementing counter to know how many times called.
+		(operateInteral<Components>(entities), ...);
+
+		// Erase any duplicates. This is faster than sort + unique apparently.
+		std::unordered_set<sr::Entity> set;
+		for (sr::Entity e : entities)
+		{
+			set.insert(e);
+		}
+		entities.assign(set.begin(), set.end());
+		//std::sort(entities.begin(), entities.end());
+
 		for (auto& entity : entities)
 		{
 			lambda(entity, get<Components>(entity)...);
@@ -307,7 +293,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline void Manager::operateInteral(std::vector<Entity>& entities, unsigned int& counter)
+	inline void Manager::operateInteral(std::vector<Entity>& entities)
 	{
 		auto type = cUniqueID::get<Component>();
 
@@ -326,35 +312,6 @@ namespace sr
 				entities.push_back(e);
 			}
 		}
-
-		counter++;
-	}
-
-	template<typename Type>
-	inline std::vector<Type> Manager::findDuplicates(const std::vector<Type>& input, const unsigned int occurances)
-	{
-		// Counted elements.
-		std::unordered_map<Type, unsigned int> counted;
-		std::vector<Type> output;
-
-		for (auto& elem : input)
-		{
-			auto result = counted.insert(std::pair<Type, unsigned int>(elem, 1));
-			if (result.second == false)
-			{
-				result.first->second++;
-			}
-		}
-
-		for (auto& it : counted)
-		{
-			if ((it.second < occurances) == false)
-			{
-				output.push_back(it.first);
-			}
-		}
-
-		return output;
 	}
 
 	template<typename System, typename ...Args>
