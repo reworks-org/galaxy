@@ -8,6 +8,7 @@
 #ifndef GALAXY_TEXTUREATLAS_HPP_
 #define GALAXY_TEXTUREATLAS_HPP_
 
+#include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/RenderTexture.hpp>
 

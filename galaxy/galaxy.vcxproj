@@ -59,7 +59,7 @@
     <ClCompile Include="..\modules\lua\lvm.c" />
     <ClCompile Include="..\modules\lua\lzio.c" />
     <ClCompile Include="..\modules\tinyfiledialogs\tinyfiledialogs.c" />
-    <ClCompile Include="src\galaxy\components\StateComponent.cpp" />
+    <ClCompile Include="src\galaxy\flags\EnabledFlag.cpp" />
     <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
     <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
     <ClCompile Include="src\galaxy\components\SpriteComponent.cpp" />
@@ -134,7 +134,7 @@
     <ClInclude Include="..\modules\sol2\single\include\sol\forward.hpp" />
     <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp" />
     <ClInclude Include="..\modules\tinyfiledialogs\tinyfiledialogs.h" />
-    <ClInclude Include="src\galaxy\components\StateComponent.hpp" />
+    <ClInclude Include="src\galaxy\flags\EnabledFlag.hpp" />
     <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
     <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
     <ClInclude Include="src\galaxy\components\SpriteComponent.hpp" />

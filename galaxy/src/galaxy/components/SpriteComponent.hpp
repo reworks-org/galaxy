@@ -8,7 +8,11 @@
 #ifndef GALAXY_SPRITECOMPONENT_HPP_
 #define GALAXY_SPRITECOMPONENT_HPP_
 
+#include <array>
 #include <string>
+
+#include <SFML/Graphics/Vertex.hpp>
+#include <protostar/shapes/Rect.hpp>
 
 ///
 /// Core namespace.
@@ -31,9 +35,10 @@ namespace galaxy
 		///
 		/// \param name Name of the sprite in the texture atlas.
 		/// \param layer Z-Level of sprite.
-		/// \param opacity Opacity of the sprite. From 0.0f - 1.0f.
+		/// \param col Colour of sprite. Mostly for opacity.
+		/// \param texRect Texture rectangle on atlas.
 		///
-		explicit SpriteComponent(const std::string& name, const unsigned int layer, const float opacity = 1.0f) noexcept;
+		explicit SpriteComponent(const std::string& name, const unsigned int layer, const sf::Color col, const protostar::Rect<float> texRect) noexcept;
 
 		///
 		/// Destructor.
@@ -54,7 +59,12 @@ namespace galaxy
 		///
 		/// Opacity. 0.0f - 1.0f.
 		///
-		float m_opacity;
+		sf::Color m_colour;
+
+		///
+		/// Texture rectangle.
+		///
+		protostar::Rect<float> m_texRect;
 	};
 }
 

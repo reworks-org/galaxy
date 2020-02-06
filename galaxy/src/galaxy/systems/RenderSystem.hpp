@@ -65,6 +65,11 @@ namespace galaxy
 		/// Avoid recreating each render pass.
 		///
 		sf::VertexArray m_verticies;
+
+		///
+		/// Current vertex stride.
+		///
+		unsigned int m_stride;
 	};
 }
 
