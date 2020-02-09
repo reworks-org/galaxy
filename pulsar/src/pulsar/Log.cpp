@@ -17,18 +17,18 @@
 ///
 /// Core namespace.
 ///
-namespace pl
+namespace pulsar
 {
 	Log::Log() noexcept
-		:m_minimumLevel(pl::Log::Level::INFO)
+		:m_minimumLevel(pulsar::Log::Level::INFO)
 	{
-		m_callback = [&](const pl::Log::Level level, const std::string& message)
+		m_callback = [&](const pulsar::Log::Level level, const std::string& message)
 		{
 			// Mutex protection.
 			m_lock.lock();
 
 			// Prefix string
-			std::string output = pl::Log::i().processColour(level) + "[" + pl::Log::i().processLevel(level) + "] - " + pl::Log::i().getDateTime() + " - ";
+			std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
 			output += (message + "\n");
 
 			// Print to stream and std output.
@@ -44,7 +44,7 @@ namespace pl
 		deinit();
 	}
 
-	Log& Log::i()
+	Log& Log::get()
 	{
 		// Singleton instance.
 		static Log s_inst;
@@ -76,10 +76,10 @@ namespace pl
 		m_fileStream.close();
 	}
 
-	void Log::log(const pl::Log::Level level, const std::string& message)
+	void Log::log(const pulsar::Log::Level level, const std::string& message)
 	{
 		// Check to make sure level should be logged.
-		if (pl::Log::i().filterLevel(level))
+		if (pulsar::Log::get().filterLevel(level))
 		{
 			// Launch thread to log to.
 			std::thread thread(m_callback, level, message);
@@ -87,29 +87,29 @@ namespace pl
 		}
 	}
 
-	std::string Log::processLevel(const pl::Log::Level level)
+	std::string Log::processLevel(const pulsar::Log::Level level)
 	{
 		std::string out = "";
 
 		switch (level)
 		{
-		case pl::Log::Level::INFO:
+		case pulsar::Log::Level::INFO:
 			out = "INFO";
 			break;
 
-		case pl::Log::Level::DEBUG:
+		case pulsar::Log::Level::DEBUG:
 			out = "DEBUG";
 			break;
 
-		case pl::Log::Level::WARNING:
+		case pulsar::Log::Level::WARNING:
 			out = "WARNING";
 			break;
 
-		case pl::Log::Level::ERROR_:
+		case pulsar::Log::Level::ERROR_:
 			out = "ERROR";
 			break;
 
-		case pl::Log::Level::FATAL:
+		case pulsar::Log::Level::FATAL:
 			out = "FATAL";
 			break;
 
@@ -121,41 +121,41 @@ namespace pl
 		return out;
 	}
 
-	std::string Log::processColour(pl::Log::Level level)
+	std::string Log::processColour(pulsar::Log::Level level)
 	{
 		std::string out = "";
 
 		switch (level)
 		{
-		case pl::Log::Level::INFO:
-			out = pl::colourText(LogColours::WHITE);
+		case pulsar::Log::Level::INFO:
+			out = pulsar::colourText(LogColours::WHITE);
 			break;
 
-		case pl::Log::Level::DEBUG:
-			out = pl::colourText(LogColours::GREEN);
+		case pulsar::Log::Level::DEBUG:
+			out = pulsar::colourText(LogColours::GREEN);
 			break;
 
-		case pl::Log::Level::WARNING:
-			out = pl::colourText(LogColours::YELLOW);
+		case pulsar::Log::Level::WARNING:
+			out = pulsar::colourText(LogColours::YELLOW);
 			break;
 
-		case pl::Log::Level::ERROR_:
-			out = pl::colourText(LogColours::RED);
+		case pulsar::Log::Level::ERROR_:
+			out = pulsar::colourText(LogColours::RED);
 			break;
 
-		case pl::Log::Level::FATAL:
-			out = pl::colourText(LogColours::FATAL);
+		case pulsar::Log::Level::FATAL:
+			out = pulsar::colourText(LogColours::FATAL);
 			break;
 
 		default:
-			out = pl::colourText(LogColours::WHITE);
+			out = pulsar::colourText(LogColours::WHITE);
 			break;
 		}
 
 		return out;
 	}
 
-	bool Log::filterLevel(pl::Log::Level level)
+	bool Log::filterLevel(pulsar::Log::Level level)
 	{
 		// Checks for proper stream level.
 		if (static_cast<int>(level) >= static_cast<int>(m_minimumLevel))
@@ -168,12 +168,12 @@ namespace pl
 		}
 	}
 
-	void Log::setMinimumLevel(pl::Log::Level level)
+	void Log::setMinimumLevel(pulsar::Log::Level level)
 	{
 		m_minimumLevel = level;
 	}
 
-	pl::Log::Level Log::getMinimumLevel()
+	pulsar::Log::Level Log::getMinimumLevel()
 	{
 		return m_minimumLevel;
 	}

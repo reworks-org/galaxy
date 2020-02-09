@@ -7,15 +7,15 @@
 
 #include <iostream>
 
-#include <pl/Log.hpp>
+#include <pulsar/Log.hpp>
 
 int main(int argc, char** argv)
 {
-	pl::Log::i().init("logs/a.txt");
-	pl::Log::i().setMinimumLevel(pl::Log::Level::INFO);
+	pulsar::Log::get().init("logs/a.txt");
+	pulsar::Log::get().setMinimumLevel(pulsar::Log::Level::INFO);
 
-	PL_LOG(pl::Log::Level::INFO, "Should not log unless INFO is min level.");
-	PL_LOG(pl::Log::Level::WARNING, "Should Log.");
+	PL_LOG(PL_INFO, "Should not log unless INFO is min level.");
+	PL_LOG(PL_WARNING, "Should Log.");
 
 	std::cin.get();
 	

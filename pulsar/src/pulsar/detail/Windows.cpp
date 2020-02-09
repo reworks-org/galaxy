@@ -14,7 +14,7 @@
 ///
 /// Core namespace.
 ///
-namespace pl
+namespace pulsar
 {
 	const std::string colourText(const LogColours colour)
 	{

@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace pl
+namespace pulsar
 {
 	///
 	/// Enum representing different log text colours.

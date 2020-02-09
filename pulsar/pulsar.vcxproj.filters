@@ -15,30 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\pl\Log.hpp">
+    <ClInclude Include="src\pulsar\detail\LogColours.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pl\detail\LogColours.hpp">
+    <ClInclude Include="src\pulsar\detail\Unix.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pl\detail\Unix.hpp">
+    <ClInclude Include="src\pulsar\detail\Windows.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\pl\detail\Windows.hpp">
+    <ClInclude Include="src\pulsar\Log.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\pl\Log.cpp">
+    <ClCompile Include="src\pulsar\detail\LogColours.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\pl\detail\LogColours.cpp">
+    <ClCompile Include="src\pulsar\detail\Unix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\pl\detail\Unix.cpp">
+    <ClCompile Include="src\pulsar\detail\Windows.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\pl\detail\Windows.cpp">
+    <ClCompile Include="src\pulsar\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

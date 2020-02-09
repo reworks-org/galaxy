@@ -16,22 +16,42 @@
 #include "detail/Windows.hpp"
 
 ///
-/// Singleton shortcut.
-///
-#define PL_LOG_I pl::Log::i()
-
-///
 /// Macro shortcut.
 ///
 /// \param level Log error level.
 /// \param message Message to log.
 ///
-#define PL_LOG(level, message) pl::Log::i().log(level, message)
+#define PL_LOG(level, message) pulsar::Log::get().log(level, message)
+
+///
+/// INFO log level macro shortcut.
+///
+#define PL_INFO pulsar::Log::Level::INFO
+
+///
+/// DEBUG log level macro shortcut.
+///
+#define PL_DEBUG pulsar::Log::Level::DEBUG
+
+///
+/// WARNING log level macro shortcut.
+///
+#define PL_WARNING pulsar::Log::Level::WARNING
+
+///
+/// ERROR log level macro shortcut.
+///
+#define PL_ERROR pulsar::Log::Level::ERROR_
+
+///
+/// FATAL log level macro shortcut.
+///
+#define PL_FATAL pulsar::Log::Level::FATAL
 
 ///
 /// Core namespace.
 ///
-namespace pl
+namespace pulsar
 {
 	///
 	/// Log logging class.
@@ -62,7 +82,7 @@ namespace pl
 		///
 		/// \return Returns static reference to Log class.
 		///
-		static Log& i();
+		static Log& get();
 
 		///
 		/// Initialize logging and set up destination file.
@@ -82,7 +102,7 @@ namespace pl
 		/// \param level Log error level.
 		/// \param message Message to log.
 		///
-		void log(const pl::Log::Level level, const std::string& message);
+		void log(const pulsar::Log::Level level, const std::string& message);
 
 		///
 		/// Convert log message level to a string.
@@ -91,7 +111,7 @@ namespace pl
 		///
 		/// \return std::string, in caps.
 		///
-		std::string processLevel(const pl::Log::Level level);
+		std::string processLevel(const pulsar::Log::Level level);
 
 		///
 		/// Colourizes the terminal text based on the log message level.
@@ -100,7 +120,7 @@ namespace pl
 		///
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		std::string processColour(pl::Log::Level level);
+		std::string processColour(pulsar::Log::Level level);
 		
 		///
 		/// Filters a log stream message based on message level to determine if it must be logged.
@@ -109,7 +129,7 @@ namespace pl
 		///
 		/// \return True if can log.
 		///
-		bool filterLevel(pl::Log::Level level);
+		bool filterLevel(pulsar::Log::Level level);
 		
 		///
 		/// \brief	Set a minimum log level.
@@ -118,14 +138,14 @@ namespace pl
 		///
 		/// \param level Level to set as the minimum level to log at.
 		///
-		void setMinimumLevel(pl::Log::Level level);
+		void setMinimumLevel(pulsar::Log::Level level);
 		
 		///
 		/// Returns minimum logging message level that is required to log a message.
 		///
-		/// \return pl::Log::Level enum.
+		/// \return pulsar::Log::Level enum.
 		///
-		pl::Log::Level getMinimumLevel();
+		pulsar::Log::Level getMinimumLevel();
 		
 		///
 		/// Gets current date and time in a string format.
@@ -174,12 +194,12 @@ namespace pl
 		///
 		/// Minimum level of messages required to be logged.
 		///
-		pl::Log::Level m_minimumLevel;
+		pulsar::Log::Level m_minimumLevel;
 
 		///
 		/// Thread callback function.
 		///
-		std::function<void(const pl::Log::Level, const std::string&)> m_callback;
+		std::function<void(const pulsar::Log::Level, const std::string&)> m_callback;
 	};
 }
 

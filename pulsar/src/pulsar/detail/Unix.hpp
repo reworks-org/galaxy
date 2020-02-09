@@ -17,7 +17,7 @@
 ///
 /// Core namespace.
 ///
-namespace pl
+namespace pulsar
 {
 	///
 	/// Function for defining colour based text on console output.
