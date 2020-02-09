@@ -188,7 +188,7 @@ namespace sr
 		/// \param entities Entitys to operate on.
 		///
 		template<typename Component>
-		void operateInteral(std::vector<sr::Entity>& entities);
+		void iOperate(std::vector<sr::Entity>& entities);
 
 	private:
 		///
@@ -275,7 +275,7 @@ namespace sr
 		std::vector<sr::Entity> entities;
 		
 		// expands to be called on every component, also incrementing counter to know how many times called.
-		(operateInteral<Components>(entities), ...);
+		(iOperate<Components>(entities), ...);
 
 		// Erase any duplicates. This is faster than sort + unique apparently.
 		std::unordered_set<sr::Entity> set;
@@ -293,7 +293,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline void Manager::operateInteral(std::vector<Entity>& entities)
+	inline void Manager::iOperate(std::vector<Entity>& entities)
 	{
 		auto type = cUniqueID::get<Component>();
 
