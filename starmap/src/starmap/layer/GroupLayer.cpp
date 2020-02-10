@@ -39,22 +39,25 @@ namespace starmap
 			auto layerArray = json.at("layers");
 			std::for_each(layerArray.begin(), layerArray.end(), [&](const nlohmann::json& layer)
 			{
-				std::string type = layer.at("type");
-				if (type == "tilelayer")
+				if (json.count("type") > 0)
 				{
-					m_layers.push_back(std::make_unique<starmap::TileLayer>());
-				}
-				else if (type == "objectgroup")
-				{
-					m_layers.push_back(std::make_unique<starmap::ObjectLayer>());
-				}
-				else if (type == "imagelayer ")
-				{
-					m_layers.push_back(std::make_unique<starmap::ImageLayer>());
-				}
-				else if (type == "group")
-				{
-					m_layers.push_back(std::make_unique<starmap::GroupLayer>());
+					std::string type = layer.at("type");
+					if (type == "tilelayer")
+					{
+						m_layers.push_back(std::make_unique<starmap::TileLayer>());
+					}
+					else if (type == "objectgroup")
+					{
+						m_layers.push_back(std::make_unique<starmap::ObjectLayer>());
+					}
+					else if (type == "imagelayer ")
+					{
+						m_layers.push_back(std::make_unique<starmap::ImageLayer>());
+					}
+					else if (type == "group")
+					{
+						m_layers.push_back(std::make_unique<starmap::GroupLayer>());
+					}
 				}
 			});
 		}

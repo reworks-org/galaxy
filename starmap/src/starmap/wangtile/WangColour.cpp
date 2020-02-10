@@ -27,10 +27,25 @@ namespace starmap
 
 	void WangColour::parse(const nlohmann::json& json)
 	{
-		m_colour = json.at("color");
-		m_name = json.at("name");
-		m_probability = json.at("probability");
-		m_tile = json.at("tile");
+		if (json.count("color") > 0)
+		{
+			m_colour = json.at("color");
+		}
+
+		if (json.count("name") > 0)
+		{
+			m_name = json.at("name");
+		}
+
+		if (json.count("probability") > 0)
+		{
+			m_probability = json.at("probability");
+		}
+
+		if (json.count("tile") > 0)
+		{
+			m_tile = json.at("tile");
+		}
 	}
 
 	const std::string& WangColour::getColour() const noexcept

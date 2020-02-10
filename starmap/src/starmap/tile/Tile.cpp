@@ -43,7 +43,10 @@ namespace starmap
 			});
 		}
 
-		m_id = json.at("id");
+		if (json.count("id") > 0)
+		{
+			m_id = json.at("id");
+		}
 
 		if (json.count("image") > 0)
 		{

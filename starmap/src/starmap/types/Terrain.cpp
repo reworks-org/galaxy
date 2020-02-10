@@ -32,8 +32,15 @@ namespace starmap
 
 	void Terrain::parse(const nlohmann::json& json)
 	{
-		m_name = json.at("name");
-		m_tile = json.at("tile");
+		if (json.count("name") > 0)
+		{
+			m_name = json.at("name");
+		}
+
+		if (json.count("tile") > 0)
+		{
+			m_tile = json.at("tile");
+		}
 
 		if (json.count("properties") > 0)
 		{

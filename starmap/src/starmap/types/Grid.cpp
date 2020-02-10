@@ -27,9 +27,20 @@ namespace starmap
 
 	void Grid::parse(const nlohmann::json& json)
 	{
-		m_height = json.at("height");
-		m_orientation = json.at("orientation");
-		m_width = json.at("width");
+		if (json.count("height") > 0)
+		{
+			m_height = json.at("height");
+		}
+		
+		if (json.count("orientation") > 0)
+		{
+			m_orientation = json.at("orientation");
+		}
+
+		if (json.count("width") > 0)
+		{
+			m_width = json.at("width");
+		}
 	}
 
 	const int Grid::getHeight() const noexcept

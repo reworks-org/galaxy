@@ -1,0 +1,1 @@
+- Change Map::dump() to dump parsed contents, rather than just making json readable.

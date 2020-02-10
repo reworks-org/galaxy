@@ -27,8 +27,15 @@ namespace starmap
 
 	void Frame::parse(const nlohmann::json& json)
 	{
-		m_duration = json.at("duration");
-		m_tileID = json.at("tileid");
+		if (json.count("duration") > 0)
+		{
+			m_duration = json.at("duration");
+		}
+
+		if (json.count("tileid") > 0)
+		{
+			m_tileID = json.at("tileid");
+		}
 	}
 
 	const int Frame::getDuration() const noexcept

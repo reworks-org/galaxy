@@ -39,96 +39,99 @@ namespace starmap
 			m_compression = json.at("compression");
 		}
 
-		auto data = json.at("data");
-		if (json.is_array())
+		if (json.count("data") > 0)
 		{
-			std::vector<unsigned int> dataAsVector;
-
-			std::for_each(data.begin(), data.end(), [&](const nlohmann::json& item)
-				{
-					dataAsVector.push_back(item.get<unsigned int>());
-				});
-
-			m_data.emplace<std::vector<unsigned int>>(dataAsVector);
-		}
-		else
-		{
-			m_data = data.get<std::string>();
-		}
-
-		if (std::holds_alternative<std::string>(m_data))
-		{
-			if (m_compression == "zlib")
+			auto data = json.at("data");
+			if (json.is_array())
 			{
-				// base64 -> zlib
-				std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+				std::vector<unsigned int> dataAsVector;
 
-				// validate
-				if (!stageOne.empty())
-				{
-					// zlib-> normal
-					std::string stageTwo = starmap::decoder::zlib(stageOne);
+				std::for_each(data.begin(), data.end(), [&](const nlohmann::json& item)
+					{
+						dataAsVector.push_back(item.get<unsigned int>());
+					});
 
-					// validate
-					if (!stageTwo.empty())
-					{
-						// update m_data string
-						m_data = stageTwo;
-					}
-					else
-					{
-						throw std::runtime_error("zlib decoded string empty!");
-					}
-				}
-				else
-				{
-					throw std::runtime_error("base64 decoded string empty!");
-				}
-			}
-			else if (m_compression == "gzip")
-			{
-				// base64 -> gzip
-				std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
-
-				// validate
-				if (!stageOne.empty())
-				{
-					// gzip -> normal
-					std::string stageTwo = starmap::decoder::gzip(stageOne);
-
-					// validate
-					if (!stageTwo.empty())
-					{
-						// update m_data string
-						m_data = stageTwo;
-					}
-					else
-					{
-						throw std::runtime_error("gzip decoded string empty!");
-					}
-				}
-				else
-				{
-					throw std::runtime_error("base64 decoded string empty!");
-				}
+				m_data.emplace<std::vector<unsigned int>>(dataAsVector);
 			}
 			else
 			{
-				// base64 -> normal
-				std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+				m_data = data.get<std::string>();
+			}
 
-				// validate
-				if (!stageOne.empty())
+			if (std::holds_alternative<std::string>(m_data))
+			{
+				if (m_compression == "zlib")
 				{
-					// update m_data string
-					m_data = stageOne;
+					// base64 -> zlib
+					std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+
+					// validate
+					if (!stageOne.empty())
+					{
+						// zlib-> normal
+						std::string stageTwo = starmap::decoder::zlib(stageOne);
+
+						// validate
+						if (!stageTwo.empty())
+						{
+							// update m_data string
+							m_data = stageTwo;
+						}
+						else
+						{
+							throw std::runtime_error("zlib decoded string empty!");
+						}
+					}
+					else
+					{
+						throw std::runtime_error("base64 decoded string empty!");
+					}
+				}
+				else if (m_compression == "gzip")
+				{
+					// base64 -> gzip
+					std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+
+					// validate
+					if (!stageOne.empty())
+					{
+						// gzip -> normal
+						std::string stageTwo = starmap::decoder::gzip(stageOne);
+
+						// validate
+						if (!stageTwo.empty())
+						{
+							// update m_data string
+							m_data = stageTwo;
+						}
+						else
+						{
+							throw std::runtime_error("gzip decoded string empty!");
+						}
+					}
+					else
+					{
+						throw std::runtime_error("base64 decoded string empty!");
+					}
 				}
 				else
 				{
-					throw std::runtime_error("base64 decoded string empty!");
-				}
-			} // if-else-if
-		} // if std::holds...
+					// base64 -> normal
+					std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+
+					// validate
+					if (!stageOne.empty())
+					{
+						// update m_data string
+						m_data = stageOne;
+					}
+					else
+					{
+						throw std::runtime_error("base64 decoded string empty!");
+					}
+				} // if-else-if
+			} // if std::holds...
+		}
 	}
 
 	TileLayer::~TileLayer() noexcept

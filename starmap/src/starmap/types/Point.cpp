@@ -32,8 +32,15 @@ namespace starmap
 
 	void Point::parse(const nlohmann::json& json)
 	{
-		m_x = json.at("x");
-		m_y = json.at("y");
+		if (json.count("x") > 0)
+		{
+			m_x = json.at("x");
+		}
+
+		if (json.count("y") > 0)
+		{
+			m_y = json.at("y");
+		}
 	}
 
 	const double Point::getX() const noexcept

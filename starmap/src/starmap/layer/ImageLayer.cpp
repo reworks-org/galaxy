@@ -22,7 +22,11 @@ namespace starmap
 	ImageLayer::ImageLayer(const nlohmann::json& json)
 		:Layer(json), m_image(""), m_transparentColour("000000")
 	{
-		m_image = json.at("image");
+		if (json.count("image") > 0)
+		{
+			m_image = json.at("image");
+		}
+
 		if (json.count("transparentcolor") > 0)
 		{
 			m_transparentColour = json.at("transparentcolor");

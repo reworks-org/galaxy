@@ -27,29 +27,65 @@ namespace starmap
 
 	void Text::parse(const nlohmann::json& json)
 	{
-		m_bold = json.at("bold");
+		if (json.at("bold") > 0)
+		{
+			m_bold = json.at("bold");
+		}
 
-		m_color = json.at("color");
+		if (json.at("color") > 0)
+		{
+			m_color = json.at("color");
+		}
 
-		m_fontFamily = json.at("fontfamily");
+		if (json.at("fontfamily") > 0)
+		{
+			m_fontFamily = json.at("fontfamily");
+		}
 
-		m_hAlign = json.at("halign");
+		if (json.at("halign") > 0)
+		{
+			m_hAlign = json.at("halign");
+		}
 
-		m_italic = json.at("italic");
+		if (json.at("italic") > 0)
+		{
+			m_italic = json.at("italic");
+		}
 
-		m_kerning = json.at("kerning");
+		if (json.at("kerning") > 0)
+		{
+			m_kerning = json.at("kerning");
+		}
 
-		m_pixelSize = json.at("pixelsize");
+		if (json.at("pixelsize") > 0)
+		{
+			m_pixelSize = json.at("pixelsize");
+		}
 
-		m_strikeOut = json.at("strikeout");
+		if (json.at("strikeout") > 0)
+		{
+			m_strikeOut = json.at("strikeout");
+		}
 
-		m_text = json.at("text");
+		if (json.at("text") > 0)
+		{
+			m_text = json.at("text");
+		}
 
-		m_underLine = json.at("underline");
+		if (json.at("underline") > 0)
+		{
+			m_underLine = json.at("underline");
+		}
 
-		m_vAlign = json.at("valign");
+		if (json.at("valign") > 0)
+		{
+			m_vAlign = json.at("valign");
+		}
 
-		m_wrap = json.at("wrap");
+		if (json.at("wrap") > 0)
+		{
+			m_wrap = json.at("wrap");
+		}
 	}
 
 	const bool Text::isBold() const noexcept

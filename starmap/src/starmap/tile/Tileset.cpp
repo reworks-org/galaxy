@@ -41,8 +41,15 @@ namespace starmap
 			m_backgroundColour = json.at("backgroundcolor");
 		}
 
-		m_columns = json.at("columns");
-		m_firstGID = json.at("firstgid");
+		if (json.count("columns") > 0)
+		{
+			m_columns = json.at("columns");
+		}
+
+		if (json.count("firstgid") > 0)
+		{
+			m_firstGID = json.at("firstgid");
+		}
 
 		if (json.count("grid") > 0)
 		{
@@ -58,11 +65,26 @@ namespace starmap
 		{
 			m_image = json.at("image");
 		}
+		
+		if (json.count("imageheight") > 0)
+		{
+			m_imageHeight = json.at("imageheight");
+		}
+		
+		if (json.count("imagewidth") > 0)
+		{
+			m_imageWidth = json.at("imagewidth");
+		}
+		
+		if (json.count("margin") > 0)
+		{
+			m_margin = json.at("margin");
+		}
 
-		m_imageHeight = json.at("imageheight");
-		m_imageWidth = json.at("imagewidth");
-		m_margin = json.at("margin");
-		m_name = json.at("name");
+		if (json.count("name") > 0)
+		{
+			m_name = json.at("name");
+		}
 
 		if (json.count("properties") > 0)
 		{
@@ -126,20 +148,29 @@ namespace starmap
 			});
 		}
 
-		m_tileWidth = json.at("tilewidth");
+		if (json.count("tilewidth") > 0)
+		{
+			m_tileWidth = json.at("tilewidth");
+		}
 
 		if (json.count("transparentcolor") > 0)
 		{
 			m_transparentColour = json.at("transparentcolor");
 		}
 		
-		m_type = json.at("type");
-
-		auto wangSets = json.at("wangsets");
-		std::for_each(wangSets.begin(), wangSets.end(), [&](const nlohmann::json& wangset)
+		if (json.count("type") > 0)
 		{
-			m_wangSets.emplace_back(wangSets);
-		});
+			m_type = json.at("type");
+		}
+
+		if (json.count("wangsets") > 0)
+		{
+			auto wangSets = json.at("wangsets");
+			std::for_each(wangSets.begin(), wangSets.end(), [&](const nlohmann::json& wangset)
+			{
+				m_wangSets.emplace_back(wangSets);
+			});
+		}
 	}
 
 	const std::string& Tileset::getBackgroundColour() const noexcept

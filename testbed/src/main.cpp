@@ -11,15 +11,12 @@
 
 int main()
 {
-	
-
 	try
 	{
-		
-starmap::Map map;
-	map.load("../demo-maps/demo-zlib.json");
-	map.parse();
-
+		starmap::Map map;
+		map.load("../demo-maps/demo-zlib.json");
+		map.parse();
+		map.dump();
 	}
 	catch (std::exception& e)
 	{

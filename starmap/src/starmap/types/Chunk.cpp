@@ -32,37 +32,55 @@ namespace starmap
 
 	void Chunk::parse(const nlohmann::json& json)
 	{
-		m_height = json.at("height");
-		m_width = json.at("width");
-		m_x = json.at("x");
-		m_y = json.at("y");
-
-		auto data = json.at("data");
-		if (json.is_array())
+		if (json.count("height") > 0)
 		{
-			std::vector<unsigned int> dataAsVector;
-
-			std::for_each(data.begin(), data.end(), [&](const nlohmann::json& item)
-			{
-				dataAsVector.push_back(item.get<unsigned int>());
-			});
-
-			m_data.emplace<std::vector<unsigned int>>(dataAsVector);
+			m_height = json.at("height");
 		}
-		else
-		{
-			// base64 -> normal
-			std::string stageOne = starmap::decoder::base64(data.get<std::string>());
 
-			// validate
-			if (!stageOne.empty())
+		if (json.count("width") > 0)
+		{
+			m_width = json.at("width");
+		}
+
+		if (json.count("x") > 0)
+		{
+			m_x = json.at("x");
+		}
+
+		if (json.count("y") > 0)
+		{
+			m_y = json.at("y");
+		}
+
+		if (json.count("data") > 0)
+		{
+			auto data = json.at("data");
+			if (json.is_array())
 			{
-				// update m_data string
-				m_data = stageOne;
+				std::vector<unsigned int> dataAsVector;
+
+				std::for_each(data.begin(), data.end(), [&](const nlohmann::json& item)
+				{
+					dataAsVector.push_back(item.get<unsigned int>());
+				});
+
+				m_data.emplace<std::vector<unsigned int>>(dataAsVector);
 			}
 			else
 			{
-				throw std::runtime_error("base64 decoded string empty!");
+				// base64 -> normal
+				std::string stageOne = starmap::decoder::base64(data.get<std::string>());
+
+				// validate
+				if (!stageOne.empty())
+				{
+					// update m_data string
+					m_data = stageOne;
+				}
+				else
+				{
+					throw std::runtime_error("base64 decoded string empty!");
+				}
 			}
 		}
 	}

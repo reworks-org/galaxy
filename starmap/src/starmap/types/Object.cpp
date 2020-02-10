@@ -38,9 +38,20 @@ namespace starmap
 			m_ellipse = json.at("ellipse");
 		}
 
-		m_gid = json.at("gid");
-		m_height = json.at("height");
-		m_id = json.at("id");
+		if (json.count("gid") > 0)
+		{
+			m_gid = json.at("gid");
+		}
+
+		if (json.count("height") > 0)
+		{
+			m_height = json.at("height");
+		}
+
+		if (json.count("id") > 0)
+		{
+			m_id = json.at("id");
+		}
 
 		if (json.count("name") > 0)
 		{
@@ -79,7 +90,10 @@ namespace starmap
 			});
 		}
 
-		m_rotation = json.at("rotation");
+		if (json.count("rotation") > 0)
+		{
+			m_rotation = json.at("rotation");
+		}
 		
 		if (json.count("template") > 0)
 		{
@@ -96,10 +110,25 @@ namespace starmap
 			m_type = json.at("type");
 		}
 
-		m_visible = json.at("visible");
-		m_width = json.at("width");
-		m_x = json.at("x");
-		m_y = json.at("y");
+		if (json.count("visible") > 0)
+		{
+			m_visible = json.at("visible");
+		}
+
+		if (json.count("width") > 0)
+		{
+			m_width = json.at("width");
+		}
+
+		if (json.count("x") > 0)
+		{
+			m_x = json.at("x");
+		}
+
+		if (json.count("y") > 0)
+		{
+			m_y = json.at("y");
+		}
 	}
 
 	const bool Object::isEllipse() const noexcept

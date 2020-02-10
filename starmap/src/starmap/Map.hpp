@@ -8,6 +8,8 @@
 #ifndef STARMAP_MAP_HPP_
 #define STARMAP_MAP_HPP_
 
+#include <iostream>
+
 #include <nlohmann/json.hpp>
 
 #include "starmap/tile/Tileset.hpp"
@@ -58,6 +60,13 @@ namespace starmap
 		/// You can surround this with a try-catch block since it does throw exceptions.
 		///
 		void parse();
+		
+		///
+		/// Dump map to the specified output.
+		///
+		/// \param ostream Output stream to dump json to. Defaults to std::cout.
+		///
+		void dump(std::ostream& ostream = std::cout) noexcept;
 
 		///
 		/// Get background colour of map.

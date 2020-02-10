@@ -32,10 +32,25 @@ namespace starmap
 
 	void WangTile::parse(const nlohmann::json& json)
 	{
-		m_dFlip = json.at("dflip");
-		m_hFlip = json.at("hflip");
-		m_tileID = json.at("tileid");
-		m_vFlip = json.at("vflip");
+		if (json.count("dflip") > 0)
+		{
+			m_dFlip = json.at("dflip");
+		}
+
+		if (json.count("hflip") > 0)
+		{
+			m_hFlip = json.at("hflip");
+		}
+		
+		if (json.count("tileid") > 0)
+		{
+			m_tileID = json.at("tileid");
+		}
+
+		if (json.count("vflip") > 0)
+		{
+			m_vFlip = json.at("vflip");
+		}
 		
 		if (json.count("wangid") > 0)
 		{

@@ -31,8 +31,15 @@ namespace starmap
 
 	void Property::parse(const nlohmann::json& json)
 	{
-		m_type = json.at("type");
-		m_value = json.at("value");
+		if (json.count("type") > 0)
+		{
+			m_type = json.at("type");
+		}
+
+		if (json.count("value") > 0)
+		{
+			m_value = json.at("value");
+		}
 	}
 
 	const std::string& Property::getType() const noexcept

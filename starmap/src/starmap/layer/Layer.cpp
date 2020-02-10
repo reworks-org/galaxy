@@ -141,15 +141,29 @@ namespace starmap
 			m_starty = json.at("starty");
 		}
 
-		m_type = json.at("type");
+		if (json.count("type") > 0)
+		{
+			m_type = json.at("type");
+		}
 		
 		if (json.count("visible") > 0)
 		{
 			m_visible = json.at("visible");
 		}
 
-		m_width = json.at("width");
-		m_x = json.at("x");
-		m_y = json.at("y");
+		if (json.count("width") > 0)
+		{
+			m_width = json.at("width");
+		}
+
+		if (json.count("x") > 0)
+		{
+			m_x = json.at("x");
+		}
+
+		if (json.count("y") > 0)
+		{
+			m_y = json.at("y");
+		}
 	}
 }

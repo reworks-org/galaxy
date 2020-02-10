@@ -89,7 +89,10 @@ namespace starmap
 				m_backgroundColour = m_root.at("backgroundcolor");
 			}
 
-			m_height = m_root.at("height");
+			if (m_root.count("height") > 0)
+			{
+				m_height = m_root.at("height");
+			}
 
 			// Only present on hexagonal maps.
 			if (m_root.count("hexsidelength") > 0)
@@ -97,7 +100,10 @@ namespace starmap
 				m_hexSideLength = m_root.at("hexsidelength");
 			}
 			
-			m_infinite = m_root.at("infinite");
+			if (m_root.count("infinite") > 0)
+			{
+				m_infinite = m_root.at("infinite");
+			}
 
 			if (m_root.count("layers") > 0)
 			{
@@ -124,9 +130,20 @@ namespace starmap
 				});
 			}
 			
-			m_nextLayerID = m_root.at("nextlayerid");
-			m_nextObjectID = m_root.at("nextobjectid");
-			m_orientation = m_root.at("orientation");
+			if (m_root.count("nextlayerid") > 0)
+			{
+				m_nextLayerID = m_root.at("nextlayerid");
+			}
+
+			if (m_root.count("nextobjectid") > 0)
+			{
+				m_nextObjectID = m_root.at("nextobjectid");
+			}
+
+			if (m_root.count("orientation") > 0)
+			{
+				m_orientation = m_root.at("orientation");
+			}
 
 			if (m_root.count("properties") > 0)
 			{
@@ -137,7 +154,10 @@ namespace starmap
 				});
 			}
 
-			m_renderOrder = m_root.at("renderorder");
+			if (m_root.count("renderorder") > 0)
+			{
+				m_renderOrder = m_root.at("renderorder");
+			}
 
 			if (m_root.count("staggeraxis") > 0)
 			{
@@ -149,9 +169,16 @@ namespace starmap
 				m_staggerIndex = m_root.at("staggerindex");
 			}
 			
-			m_tiledVersion = m_root.at("tiledversion");
-			m_tileHeight = m_root.at("tileheight");
+			if (m_root.count("tiledversion") > 0)
+			{
+				m_tiledVersion = m_root.at("tiledversion");
+			}
 			
+			if (m_root.count("tileheight") > 0)
+			{
+				m_tileHeight = m_root.at("tileheight");
+			}
+
 			if (m_root.count("tilesets") > 0)
 			{
 				auto tsArray = m_root.at("tilesets");
@@ -161,15 +188,49 @@ namespace starmap
 				});
 			}
 
-			m_tileWidth = m_root.at("tilewidth");
-			
+			if (m_root.count("tilewidth") > 0)
+			{
+				m_tileWidth = m_root.at("tilewidth");
+			}
+
 			if (m_root.count("type") > 0)
 			{
 				m_type = m_root.at("type");
 			}
 			
-			m_width = m_root.at("width");
+			if (m_root.count("width") > 0)
+			{
+				m_width = m_root.at("width");
+			}
 		}
+	}
+
+	void Map::dump(std::ostream& ostream) noexcept
+	{
+		// This would not work for XML, since it would be too hard to clean up. You would have to call each get***() function
+		// instead.
+
+		// Dump json.
+		auto str = m_root.dump(2);
+		
+		// Erase json chars to make output readable.
+		str.erase(std::remove_if(str.begin(), str.end(), [&](char c) {
+				switch (c)
+				{
+				case '"':
+				case '{':
+				case '}':
+				case '[':
+				case ']':
+				case ',':
+					return true;
+				default:
+					return false;
+				}
+			}), str.end());
+
+		// Print readable output.
+		ostream << str << std::endl;
 	}
 
 	const std::string& Map::getBackgroundColour() const noexcept
