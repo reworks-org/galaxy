@@ -30,7 +30,7 @@ namespace starlight
 		/// Argument constructor.
 		///
 		/// \param event A std::any representing an event to be queued. Allows for the type to be erased.
-		/// \param type This is the id of the type retrieved by starlight::UniqueID.
+		/// \param type This is the id of the type retrieved by protostar::UniqueID.
 		///
 		QueuedEvent(const std::any& event, const std::size_t type);
 

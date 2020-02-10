@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClCompile Include="src\testbed.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\tests\QueuedTest.hpp" />
+    <ClInclude Include="src\tests\WrapperTest.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{C7727119-B126-4D31-927E-F72927D2EC07}</ProjectGuid>
