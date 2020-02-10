@@ -92,12 +92,35 @@ namespace starmap
 	Layer::Layer(const nlohmann::json& json)
 		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type(""), m_visible(true), m_width(0), m_x(0), m_y(0)
 	{
-		m_height = json.at("height");
-		m_id = json.at("id");
-		m_name = json.at("name");
-		m_offsetX = json.at("offsetx");
-		m_offsetY = json.at("offsety");
-		m_opacity = json.at("opacity");
+		if (json.count("height") > 0)
+		{
+			m_height = json.at("height");
+		}
+		
+		if (json.count("id") > 0)
+		{
+			m_id = json.at("id");
+		}
+		
+		if (json.count("name") > 0)
+		{
+			m_name = json.at("name");
+		}
+		
+		if (json.count("offsetx") > 0)
+		{
+			m_offsetX = json.at("offsetx");
+		}
+		
+		if (json.count("offsety") > 0)
+		{
+			m_offsetY = json.at("offsety");
+		}
+		
+		if (json.count("opacity") > 0)
+		{
+			m_opacity = json.at("opacity");
+		}
 
 		if (json.count("properties") > 0)
 		{

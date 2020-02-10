@@ -107,19 +107,19 @@ namespace starmap
 					std::string type = layer.at("type");
 					if (type == "tilelayer")
 					{
-						m_layers.push_back(std::make_unique<starmap::TileLayer>());
+						m_layers.push_back(std::make_unique<starmap::TileLayer>(layer));
 					}
 					else if (type == "objectgroup")
 					{
-						m_layers.push_back(std::make_unique<starmap::ObjectLayer>());
+						m_layers.push_back(std::make_unique<starmap::ObjectLayer>(layer));
 					}
 					else if (type == "imagelayer ")
 					{
-						m_layers.push_back(std::make_unique<starmap::ImageLayer>());
+						m_layers.push_back(std::make_unique<starmap::ImageLayer>(layer));
 					}
 					else if (type == "group")
 					{
-						m_layers.push_back(std::make_unique<starmap::GroupLayer>());
+						m_layers.push_back(std::make_unique<starmap::GroupLayer>(layer));
 					}
 				});
 			}

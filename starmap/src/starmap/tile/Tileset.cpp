@@ -73,8 +73,15 @@ namespace starmap
 			});
 		}
 
-		m_source = json.at("source");
-		m_spacing = json.at("spacing");
+		if (json.count("source") > 0)
+		{
+			m_source = json.at("source");
+		}
+		
+		if (json.count("spacing") > 0)
+		{
+			m_spacing = json.at("spacing");
+		}
 
 		if (json.count("terrains") > 0)
 		{
@@ -84,10 +91,21 @@ namespace starmap
 				m_terrain.emplace_back(terrain);
 			});
 		}
+		
+		if (json.count("tilecount") > 0)
+		{
+			m_tileCount = json.at("tilecount");
+		}
 
-		m_tileCount = json.at("tilecount");
-		m_tiledVersion = json.at("tiledversion");
-		m_tileHeight = json.at("tileheight");
+		if (json.count("tiledversion") > 0)
+		{
+			m_tiledVersion = json.at("tiledversion");
+		}
+
+		if (json.count("tileheight") > 0)
+		{
+			m_tileHeight = json.at("tileheight");
+		}
 
 		if (json.count("tileoffset") > 0)
 		{

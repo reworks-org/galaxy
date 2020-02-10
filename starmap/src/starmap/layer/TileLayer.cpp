@@ -23,12 +23,15 @@ namespace starmap
 	TileLayer::TileLayer(const nlohmann::json& json)
 		:Layer(json), m_compression("")
 	{
-		auto chunk = json.at("chunks");
-		std::for_each(chunk.begin(), chunk.end(), [&](const nlohmann::json& item)
-			{
-				// Constructs in place.
-				m_chunks.emplace_back(item);
-			});
+		if (json.count("chunks") > 0)
+		{
+			auto chunk = json.at("chunks");
+			std::for_each(chunk.begin(), chunk.end(), [&](const nlohmann::json& item)
+				{
+					// Constructs in place.
+					m_chunks.emplace_back(item);
+				});
+		}
 
 		// only present on tilelayers.
 		if (json.count("compression") > 0)
@@ -57,14 +60,14 @@ namespace starmap
 		{
 			if (m_compression == "zlib")
 			{
-				// zlib -> base64
-				std::string stageOne = starmap::decoder::zlib(std::get<0>(m_data));
+				// base64 -> zlib
+				std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
 
 				// validate
 				if (!stageOne.empty())
 				{
-					// base64 -> normal
-					std::string stageTwo = starmap::decoder::base64(stageOne);
+					// zlib-> normal
+					std::string stageTwo = starmap::decoder::zlib(stageOne);
 
 					// validate
 					if (!stageTwo.empty())
@@ -74,24 +77,24 @@ namespace starmap
 					}
 					else
 					{
-						throw std::runtime_error("base64 decoded string empty!");
+						throw std::runtime_error("zlib decoded string empty!");
 					}
 				}
 				else
 				{
-					throw std::runtime_error("zlib decoded string empty!");
+					throw std::runtime_error("base64 decoded string empty!");
 				}
 			}
 			else if (m_compression == "gzip")
 			{
-				// gzip -> base64
-				std::string stageOne = starmap::decoder::gzip(std::get<0>(m_data));
+				// base64 -> gzip
+				std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
 
 				// validate
 				if (!stageOne.empty())
 				{
-					// base64 -> normal
-					std::string stageTwo = starmap::decoder::base64(stageOne);
+					// gzip -> normal
+					std::string stageTwo = starmap::decoder::gzip(stageOne);
 
 					// validate
 					if (!stageTwo.empty())
@@ -101,12 +104,12 @@ namespace starmap
 					}
 					else
 					{
-						throw std::runtime_error("base64 decoded string empty!");
+						throw std::runtime_error("gzip decoded string empty!");
 					}
 				}
 				else
 				{
-					throw std::runtime_error("gzip decoded string empty!");
+					throw std::runtime_error("base64 decoded string empty!");
 				}
 			}
 			else
