@@ -24,12 +24,12 @@ namespace pulsar
 	{
 		m_callback = [&](const pulsar::Log::Level level, const std::string& message)
 		{
-			// Mutex protection.
-			m_lock.lock();
-
 			// Prefix string
 			std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
 			output += (message + "\n");
+
+			// Mutex protection.
+			m_lock.lock();
 
 			// Print to stream and std output.
 			std::cout << output;
@@ -73,7 +73,15 @@ namespace pulsar
 
 	void Log::deinit() noexcept
 	{
+		m_lock.lock();
 		m_fileStream.close();
+		m_lock.unlock();
+
+		// Make sure each logging thread has finished before shutting down.
+		for (auto& future : m_futures)
+		{
+			future.get();
+		}
 	}
 
 	void Log::log(const pulsar::Log::Level level, const std::string& message)
@@ -82,8 +90,7 @@ namespace pulsar
 		if (pulsar::Log::get().filterLevel(level))
 		{
 			// Launch thread to log to.
-			std::thread thread(m_callback, level, message);
-			thread.detach();
+			m_futures.emplace_back(std::move(std::async(std::launch::async, m_callback, level, message)));
 		}
 	}
 

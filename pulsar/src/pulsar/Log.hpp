@@ -187,6 +187,11 @@ namespace pulsar
 		std::mutex m_lock;
 
 		///
+		/// Stored futures.
+		///
+		std::vector<std::future<void>> m_futures;
+
+		///
 		/// File stream to write to.
 		///
 		std::ofstream m_fileStream;
