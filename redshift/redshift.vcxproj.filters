@@ -11,6 +11,7 @@
     <ClInclude Include="src\redshift\algorithms\AABB.hpp" />
     <ClInclude Include="src\redshift\body\Rigid.hpp" />
     <ClInclude Include="src\redshift\body\Kinetic.hpp" />
+    <ClInclude Include="src\redshift\body\Body.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\redshift\World.cpp" />
@@ -20,5 +21,6 @@
     <ClCompile Include="src\redshift\algorithms\AABB.cpp" />
     <ClCompile Include="src\redshift\body\Rigid.cpp" />
     <ClCompile Include="src\redshift\body\Kinetic.cpp" />
+    <ClCompile Include="src\redshift\body\Body.cpp" />
   </ItemGroup>
 </Project>

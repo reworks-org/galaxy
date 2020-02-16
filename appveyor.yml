@@ -3,20 +3,26 @@ branches:
   only: 
     - master
 
-shallow_clone: true
+shallow_clone: false
 skip_tags: true
+clone_depth: 1
 
 image:
   - Visual Studio 2019
 
 platform:
-  - x86
+  - Win32
   - x64
 
 configuration:
   - Debug
   - Release
 
-build:
-  parallel: true
-  project: redshift.sln
+install:
+  - cmd: git submodule update --init --recursive
+
+matrix:
+  fast_finish: true
+
+build_script:
+  - cmd: msbuild redshift.sln

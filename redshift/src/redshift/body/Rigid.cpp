@@ -12,4 +12,16 @@
 ///
 namespace rs
 {
+	Rigid::Rigid() noexcept
+	{
+	}
+
+	Rigid::~Rigid() noexcept
+	{
+	}
+
+	const bool Rigid::isFixed() const noexcept
+	{
+		return true;
+	}
 }
