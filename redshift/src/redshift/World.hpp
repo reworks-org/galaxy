@@ -21,10 +21,11 @@ namespace rs
 	class World
 	{
 	public:
-		World();
+		World(const double gravity);
 		~World();
 
-		void changeGravity(const double gravity) noexcept;
+		void setGravity(const double gravity) noexcept;
+		void process(); // step?
 
 	private:
 		///
