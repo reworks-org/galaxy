@@ -10,16 +10,20 @@
 
 #include "Error.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
-	///
-	/// Static declaration.
-	///
-	qs::Error Error::handle;
-
 	Error::~Error() noexcept
 	{
 		clear();
+	}
+
+	qs::Error& Error::handle() noexcept
+	{
+		static qs::Error error;
+		return error;
 	}
 
 	void Error::setGLCallback(void(*callback)(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam)) noexcept

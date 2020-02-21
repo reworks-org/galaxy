@@ -14,6 +14,9 @@
 #include <functional>
 #include <string_view>
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///
@@ -26,6 +29,11 @@ namespace qs
 		/// Resets current error message and clears history. 
 		///
 		~Error() noexcept;
+
+		///
+		/// Static handle to error class.
+		///
+		static qs::Error& handle() noexcept;
 
 		///
 		/// \brief Set the OpenGL debug information callback.
@@ -83,22 +91,16 @@ namespace qs
 		///
 		Error(Error &&) = default;
 
-	public:
-		///
-		/// Static handle to error class.
-		///
-		static qs::Error handle;
-
 	private:
-		///
-		/// Callback method for error handling.
-		///
-		std::function<void(std::string_view, unsigned int, std::string_view)> m_callback;
-
 		///
 		/// Contains a history of all error messages.
 		///
 		std::vector<std::string> m_history;
+
+		///
+		/// Callback method for error handling.
+		///
+		std::function<void(std::string_view, unsigned int, std::string_view)> m_callback;		
 	};
 }
 

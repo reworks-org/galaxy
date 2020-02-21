@@ -10,6 +10,6 @@ Thumbs.db
 quasar/bin/
 quasar/build/
 
-sandbox/bin/Debug/
+sandbox/bin/Debug
 sandbox/bin/Release/
 sandbox/build/
