@@ -14,6 +14,7 @@
 #include <qs/core/Shader.hpp>
 #include <qs/vertex/VertexArray.hpp>
 #include <qs/core/Texture.hpp>
+#include <qs/core/Colours.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -24,7 +25,7 @@ int main(int argsc, char* argsv[])
 	}
 	else
 	{
-		qs::Error::handle.setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
+		qs::Error::handle().setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
 		{
 			std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
 		});
@@ -36,7 +37,7 @@ int main(int argsc, char* argsv[])
 			std::cout << "Window creation failed!" << std::endl;
 		}
 
-		qs::Error::handle.setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
+		qs::Error::handle().setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
 		{
 			std::cout << "[GL_ERROR] Source: " << source << " Type: " << type << " ID: " << id << " Severity: " << severity << " Length: " << length << " Message: " << message << std::endl;
 		});
@@ -105,7 +106,7 @@ int main(int argsc, char* argsv[])
 			}
 
 			// Render.
-			window.clear(qs::Colour{ 1.0f, 1.0f, 1.0f, 1.0f });
+			window.clear(qs::Colours::White);
 
 			tex.bind();
 			shader.use();

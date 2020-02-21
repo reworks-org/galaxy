@@ -1,6 +1,6 @@
 ///
 /// Texture.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -11,6 +11,9 @@
 
 #include <string>
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	class Texture final

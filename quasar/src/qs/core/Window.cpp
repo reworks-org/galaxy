@@ -1,6 +1,6 @@
 ///
 /// Window.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -8,11 +8,16 @@
 
 #include <iostream>
 
-#include "qs/libs/glad/glad.h"
+#include <glad/glad.h>
+
 #include "qs/utils/Error.hpp"
+#include "qs/utils/Utility.hpp"
 
 #include "Window.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	Window::Window() noexcept
@@ -25,7 +30,7 @@ namespace qs
 	{
 		if (!create(title, w, h, windowFlags))
 		{
-			qs::Error::handle.callback("Window.cpp", 28, "Window creation failed!");
+			qs::Error::handle().callback("Window.cpp", 32, "Window creation failed!");
 		}
 	}
 
@@ -70,7 +75,7 @@ namespace qs
 			std::string msg = "Window failed to create! SDL_Error: ";
 			msg += SDL_GetError();
 			
-			qs::Error::handle.callback("Window.cpp", 59, msg);
+			qs::Error::handle().callback("Window.cpp", 59, msg);
 			result = false;
 		}
 		else
@@ -85,7 +90,7 @@ namespace qs
 				std::string msg = "OpenGL context failed to be created! SDL_Error: ";
 				msg += SDL_GetError();
 
-				qs::Error::handle.callback("Window.cpp", 74, msg);
+				qs::Error::handle().callback("Window.cpp", 74, msg);
 				result = false;
 			}
 			else
@@ -95,7 +100,7 @@ namespace qs
 				{
 					std::string msg = "Failed to init glad.";
 
-					qs::Error::handle.callback("Window.cpp", 84, msg);
+					qs::Error::handle().callback("Window.cpp", 84, msg);
 					result = false;
 				}
 				else
@@ -105,7 +110,7 @@ namespace qs
 
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-					qs::Error::handle.callback("Window.cpp", 93, msg);
+					qs::Error::handle().callback("Window.cpp", 93, msg);
 				}
 			}
 		}
@@ -151,9 +156,9 @@ namespace qs
 		glViewport(0, 0, w, h);
 	}
 
-	void Window::clear(const qs::Colour& colour) noexcept
+	void Window::clear(const protostar::Colour& colour) noexcept
 	{
-		glClearColor(colour.m_red, colour.m_green, colour.m_blue, colour.m_alpha);
+		glClearColor(qs::Utils::uint8ToFloat(colour.m_red), qs::Utils::uint8ToFloat(colour.m_green), qs::Utils::uint8ToFloat(colour.m_blue), qs::Utils::uint8ToFloat(colour.m_alpha));
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 

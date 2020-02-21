@@ -1,6 +1,6 @@
 ///
 /// Shader.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -14,6 +14,9 @@
 
 #include "qs/utils/Error.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///
@@ -113,7 +116,7 @@ namespace qs
 			break;
 
 		default:
-			qs::Error::handle.callback("Shader.hpp", 111, "SetUniformInt Invalid size. Must be 1-4.");
+			qs::Error::handle().callback("Shader.hpp", 111, "SetUniformInt Invalid size. Must be 1-4.");
 			break;
 		}
 	}
@@ -147,7 +150,7 @@ namespace qs
 			break;
 
 		default:
-			qs::Error::handle.callback("Shader.hpp", 140, "SetUniformFloat Invalid size. Must be 1-4.");
+			qs::Error::handle().callback("Shader.hpp", 140, "SetUniformFloat Invalid size. Must be 1-4.");
 			break;
 		}
 	}

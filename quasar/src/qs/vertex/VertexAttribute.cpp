@@ -1,6 +1,6 @@
 ///
 /// VertexAttribute.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -8,6 +8,9 @@
 
 #include "VertexAttribute.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	VertexAttribute::VertexAttribute() noexcept

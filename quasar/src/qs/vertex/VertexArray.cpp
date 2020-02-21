@@ -1,6 +1,6 @@
 ///
 /// VertexArrary.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -8,6 +8,9 @@
 
 #include "VertexArray.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	VertexArray::VertexArray() noexcept

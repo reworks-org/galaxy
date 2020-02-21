@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\qs\core\Colour.cpp" />
     <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
@@ -12,10 +11,9 @@
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
-    <ClCompile Include="src\qs\detail\glad\glad.c" />
+    <ClCompile Include="src\qs\core\Colours.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\qs\core\Colour.hpp" />
     <ClInclude Include="src\qs\core\Shader.hpp" />
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
@@ -26,8 +24,7 @@
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
-    <ClInclude Include="src\qs\detail\glad\KHR\khrplatform.h" />
-    <ClInclude Include="src\qs\detail\glad\glad.h" />
+    <ClInclude Include="src\qs\core\Colours.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

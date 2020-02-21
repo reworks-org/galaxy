@@ -1,6 +1,6 @@
 ///
 /// Texture.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -8,12 +8,16 @@
 
 #include <array>
 
+#include <glad/glad.h>
+#include <stb_image.h>
+
 #include "qs/utils/Error.hpp"
-#include "qs/libs/glad/glad.h"
-#include "qs/libs/stb/stb_image.h"
 
 #include "Texture.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	Texture::Texture(const std::string& file, bool repeat, const std::array<float, 4>& border)
@@ -56,7 +60,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
-			qs::Error::handle.callback("Texture.cpp", 73, msg);
+			qs::Error::handle().callback("Texture.cpp", 73, msg);
 		}
 
 		stbi_image_free(data);

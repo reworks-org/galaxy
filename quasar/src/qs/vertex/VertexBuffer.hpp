@@ -1,6 +1,6 @@
 ///
 /// VertexBuffer.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -11,8 +11,11 @@
 
 #include <array>
 
-#include "qs/libs/glad/glad.h"
+#include <glad/glad.h>
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///

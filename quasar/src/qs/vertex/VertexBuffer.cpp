@@ -1,6 +1,6 @@
 ///
 /// VertexBuffer.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -8,6 +8,9 @@
 
 #include "VertexBuffer.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	VertexBuffer::VertexBuffer() noexcept

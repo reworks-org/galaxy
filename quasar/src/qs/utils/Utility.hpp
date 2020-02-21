@@ -1,6 +1,6 @@
 ///
 /// Utility.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -11,16 +11,16 @@
 
 #include <SDL2/SDL_stdinc.h>
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///
-	/// \brief Utility functions used by Quasar.
+	/// Utility functions used by Quasar.
 	///
-	/// Cannot be instantiated.
-	///
-	class Utils final
+	namespace Utils
 	{
-	public:
 		///
 		/// Converts a float to a unsigned 8 bit integer.
 		///
@@ -28,24 +28,17 @@ namespace qs
 		///
 		/// \return Uint8.
 		///
-		static Uint8 fromFloat(float f);
-
-	private:
-		///
-		/// Deleted Constructor.
-		///
-		Utils() = delete;
+		Uint8 floatToUint8(float f) noexcept;
 
 		///
-		/// Deleted copy constructor.
+		/// Converts a from an unsigned 8 bit integer to a float.
 		///
-		Utils(const Utils&) = delete;
-
+		/// \param f Float to convert.
 		///
-		/// Deleted move constructor.
+		/// \return Uint8.
 		///
-		Utils(Utils&&) = delete;
-	};
+		float uint8ToFloat(Uint8 u8) noexcept;
+	}
 }
 
 #endif

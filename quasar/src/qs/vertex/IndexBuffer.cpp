@@ -1,15 +1,16 @@
 ///
 /// IndexBuffer.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "qs/libs/glad/glad.h"
-
 #include "IndexBuffer.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	IndexBuffer::IndexBuffer() noexcept

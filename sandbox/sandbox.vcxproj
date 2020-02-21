@@ -101,7 +101,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>
@@ -145,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -171,7 +171,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>

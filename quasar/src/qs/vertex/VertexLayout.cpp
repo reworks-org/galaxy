@@ -1,6 +1,6 @@
 ///
 /// VertexLayout.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -8,6 +8,9 @@
 
 #include "VertexLayout.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	VertexLayout::VertexLayout(unsigned int stride) noexcept

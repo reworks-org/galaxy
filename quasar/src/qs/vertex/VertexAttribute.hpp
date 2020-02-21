@@ -1,6 +1,6 @@
 ///
 /// VertexAttribute.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -9,6 +9,9 @@
 #ifndef QUASAR_VERTEXATTRIBUTE_HPP_
 #define QUASAR_VERTEXATTRIBUTE_HPP_
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///

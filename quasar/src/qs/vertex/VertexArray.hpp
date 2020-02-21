@@ -1,6 +1,6 @@
 ///
 /// VertexArrary.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -13,6 +13,9 @@
 #include "VertexBuffer.hpp"
 #include "VertexLayout.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///

@@ -1,6 +1,6 @@
 ///
 /// VertexLayout.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -11,11 +11,15 @@
 
 #include <vector>
 
+#include <glad/glad.h>
+
 #include "qs/utils/Error.hpp"
-#include "qs/libs/glad/glad.h"
 
 #include "VertexAttribute.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///
@@ -82,7 +86,7 @@ namespace qs
 	template<typename Type>
 	inline void VertexLayout::add(int size) noexcept
 	{
-		qs::Error::handle.callback("VertexLayout.hpp", 74, "Unsupported vertex attribute type!");
+		qs::Error::handle().callback("VertexLayout.hpp", 74, "Unsupported vertex attribute type!");
 	}
 
 	template<>

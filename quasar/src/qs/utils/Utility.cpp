@@ -1,6 +1,6 @@
 ///
 /// Utility.cpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -10,11 +10,26 @@
 
 #include "Utility.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
-	Uint8 Utils::fromFloat(float f)
+	///
+	/// Utility functions used by Quasar.
+	///
+	namespace Utils
 	{
-		// Makes sure the float is properly converted to a byte in the correct range.
-		return (f >= 1.0 ? 255 : (f <= 0.0 ? 0 : static_cast<Uint8>(std::floor(f * 256.0))));
+		Uint8 floatToUint8(float f) noexcept
+		{
+			// Makes sure the float is properly converted to a byte in the correct range.
+			return (f >= 1.0 ? 255 : (f <= 0.0 ? 0 : static_cast<Uint8>(std::floor(f * 256.0))));
+		}
+
+		float uint8ToFloat(Uint8 u8) noexcept
+		{
+			// Ensure proper conversion and no rounding errors.
+			return (u8 >= 255 ? 1.0f : (u8 <= 0 ? 0.0f : static_cast<Uint8>(std::floor(u8 / 256.0))));
+		}
 	}
 }

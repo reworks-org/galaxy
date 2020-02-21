@@ -1,6 +1,6 @@
 ///
 /// Window.hpp
-/// Quasar
+/// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
@@ -12,9 +12,11 @@
 #include <string>
 
 #include <SDL2/SDL_video.h>
+#include <protostar/graphics/Colour.hpp>
 
-#include "qs/core/Colour.hpp"
-
+///
+/// Core namespace.
+///
 namespace qs
 {
 	///
@@ -111,7 +113,7 @@ namespace qs
 		///
 		/// \param colour Colour to clear to.
 		///
-		void clear(const qs::Colour& colour) noexcept;
+		void clear(const protostar::Colour& colour) noexcept;
 
 		///
 		/// \brief Renders the OpenGL buffer to the screen.
