@@ -1,7 +1,6 @@
 # os stuff
 Thumbs.db
 .DS_Store
-
 *.lnk
 
 # Visual Studio stuff
@@ -14,6 +13,3 @@ quasar/build/
 sandbox/bin/Debug/
 sandbox/bin/Release/
 sandbox/build/
-
-testbed/bin/
-testbed/build/
