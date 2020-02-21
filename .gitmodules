@@ -1,6 +1,3 @@
-[submodule "modules/SDL2"]
-	path = modules/SDL2
-	url = https://github.com/SDL-mirror/SDL.git
 [submodule "modules/glm"]
 	path = modules/glm
 	url = https://github.com/g-truc/glm.git
