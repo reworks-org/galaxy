@@ -12,6 +12,9 @@
 
 #include "Colour.hpp"
 
+///
+/// Core namespace.
+///
 namespace qs
 {
 	Colour::Colour() noexcept

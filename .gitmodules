@@ -4,3 +4,6 @@
 [submodule "modules/stb"]
 	path = modules/stb
 	url = https://github.com/nothings/stb.git
+[submodule "modules/protostar"]
+	path = modules/protostar
+	url = https://github.com/DomRe/protostar.git
