@@ -8,6 +8,8 @@
 #ifndef REDSHIFT_KINETIC_HPP_
 #define REDSHIFT_KINETIC_HPP_
 
+#include <future>
+
 #include "redshift/body/Body.hpp"
 
 ///
@@ -41,8 +43,9 @@ namespace rs
 		///
 		/// \param acc External acting acceleration on the body.
 		/// \param time Application delta time.
+		/// \param cv Condition variable for multithreading.
 		///
-		void move(const protostar::Vector2<double>& acc, const double time) noexcept;
+		void move(const protostar::Vector2<double>& acc, const double time, std::condition_variable& cv) noexcept;
 
 	private:
 		///

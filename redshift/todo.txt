@@ -8,7 +8,14 @@ https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics
 https://stackoverflow.com/questions/42280364/stdfuture-returned-from-stdasync-hangs-while-going-out-of-scope
 https://stackoverflow.com/questions/18143661/what-is-the-difference-between-packaged-task-and-async
 https://www.acodersjourney.com/top-20-cplusplus-multithreading-mistakes/
+https://studywell.com/maths/mechanics/kinematics-objects-motion/suvat-equations/
+https://www.gamedev.net/tutorials/_/technical/game-programming/the-guide-to-implementing-2d-platformers-r2936/
+https://gamedevelopment.tutsplus.com/tutorials/basic-2d-platformer-physics-part-8-slopes--cms-28704
 
 rather than run in parallel -> distribute calculations across CPU.
 
 collidable terrain
+
+https://stackoverflow.com/questions/42041197/c-threads-for-background-loading/42042110#42042110
+https://stackoverflow.com/questions/23455104/why-is-the-destructor-of-a-future-returned-from-stdasync-blocking
+https://stackoverflow.com/questions/22653022/how-to-terminate-a-stdfuture
