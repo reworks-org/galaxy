@@ -14,7 +14,7 @@ namespace protostar
 		m_name = name;
 	}
 
-	const std::string& State::getName() noexcept
+	const std::string& State::getName() const noexcept
 	{
 		return m_name;
 	}

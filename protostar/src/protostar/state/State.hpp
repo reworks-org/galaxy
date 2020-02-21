@@ -78,7 +78,7 @@ namespace protostar
 		///
 		/// \return Const std::string.
 		///
-		virtual const std::string& getName() noexcept final;
+		virtual const std::string& getName() const noexcept final;
 
 	protected:
 		///
