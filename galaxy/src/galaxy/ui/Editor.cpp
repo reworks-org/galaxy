@@ -92,14 +92,14 @@ namespace galaxy
 			if (ImGui::MenuItem("Restart"))
 			{
 				*restart = true;
-				galaxy::ServiceLocator::i().window()->close();
+				galaxy::ServiceLocator::get().window()->close();
 			}
 
 			// Option to close game.
 			if (ImGui::MenuItem("Quit"))
 			{
 				*restart = false;
-				galaxy::ServiceLocator::i().window()->close();
+				galaxy::ServiceLocator::get().window()->close();
 			}
 
 			ImGui::EndMenuBar();

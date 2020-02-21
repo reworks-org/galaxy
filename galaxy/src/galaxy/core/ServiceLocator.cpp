@@ -12,7 +12,7 @@
 ///
 namespace galaxy
 {
-	galaxy::ServiceLocator& ServiceLocator::i() noexcept
+	galaxy::ServiceLocator& ServiceLocator::get() noexcept
 	{
 		static galaxy::ServiceLocator s_serviceLocator;
 		return s_serviceLocator;

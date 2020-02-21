@@ -49,10 +49,10 @@ namespace galaxy
 
 				if (std::filesystem::path(s_buff).extension() == ".lua")
 				{
-					if (galaxy::ServiceLocator::i().fs()->has(s_buff))
+					if (galaxy::ServiceLocator::get().fs()->has(s_buff))
 					{
-						auto code = galaxy::ServiceLocator::i().fs()->read(s_buff);
-						auto res = galaxy::ServiceLocator::i().lua()->safe_script(code);
+						auto code = galaxy::ServiceLocator::get().fs()->read(s_buff);
+						auto res = galaxy::ServiceLocator::get().lua()->safe_script(code);
 						if (res.get_type() == sol::type::boolean)
 						{
 							bool val = res.get<bool>();

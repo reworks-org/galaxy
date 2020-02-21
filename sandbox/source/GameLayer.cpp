@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-
+#include <galaxy/core/World.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 
 #include "GameLayer.hpp"
@@ -16,7 +16,8 @@ GameLayer::GameLayer()
 	// a layer can have multiple states.
 
 	shape.setFillColor(sf::Color(255, 0, 0));
-	window = galaxy::ServiceLocator::i().window();
+	window = galaxy::ServiceLocator::get().window();
+	galaxy::World * world = galaxy::ServiceLocator::get().world();
 }
 
 void GameLayer::event(const sf::Event& event)

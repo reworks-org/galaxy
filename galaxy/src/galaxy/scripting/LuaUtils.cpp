@@ -44,7 +44,7 @@ namespace galaxy
 
 	void LuaUtils::registerUsertypes()
 	{
-		auto lua = galaxy::ServiceLocator::i().lua();
+		auto lua = galaxy::ServiceLocator::get().lua();
 		lua->new_usertype<galaxy::Command>("Command",
 			"exec", &Command::exec,
 			"undo", &Command::undo);

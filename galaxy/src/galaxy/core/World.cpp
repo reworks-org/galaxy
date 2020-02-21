@@ -31,7 +31,7 @@ namespace galaxy
 
 	const sr::Entity World::createEntity(const std::string& def)
 	{
-		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
+		galaxy::FileSystem* fs = galaxy::ServiceLocator::get().fs();
 
 		nlohmann::json root = nlohmann::json::parse(fs->read(def));
 
@@ -53,7 +53,7 @@ namespace galaxy
 
 	void World::createEntities(const std::string& def)
 	{	
-		galaxy::FileSystem* fs = galaxy::ServiceLocator::i().fs();
+		galaxy::FileSystem* fs = galaxy::ServiceLocator::get().fs();
 
 		nlohmann::json root = nlohmann::json::parse(fs->read(def));
 

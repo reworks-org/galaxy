@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 
 				Sandbox sandbox(config);
 
-				galaxy::World* world = galaxy::ServiceLocator::i().world();
+				galaxy::World* world = galaxy::ServiceLocator::get().world();
 				world->pushLayer<GameLayer>();
 
 				restart = sandbox.run();

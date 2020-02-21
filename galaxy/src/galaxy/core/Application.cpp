@@ -45,17 +45,17 @@ namespace galaxy
 		// Create lua instance and open libraries.
 		m_lua = std::make_unique<sol::state>();
 		m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
-		galaxy::ServiceLocator::i().m_lua = m_lua.get();
+		galaxy::ServiceLocator::get().m_lua = m_lua.get();
 
 		// Config reader.
 		m_config = std::move(config);
-		galaxy::ServiceLocator::i().m_config = m_config.get();
+		galaxy::ServiceLocator::get().m_config = m_config.get();
 
 		// File system.
 		m_fs = std::make_unique<galaxy::FileSystem>();
 		m_fs->mount(m_config->get<std::string>("archive"));
 		m_fs->setWriteDir(m_config->get<std::string>("write-dir"));
-		galaxy::ServiceLocator::i().m_fs = m_fs.get();
+		galaxy::ServiceLocator::get().m_fs = m_fs.get();
 
 		// App window.
 		m_window = std::make_unique<sf::RenderWindow>();
@@ -78,19 +78,19 @@ namespace galaxy
 		m_window->setMouseCursorGrabbed(false);
 		m_window->setMouseCursorVisible(m_config->get<bool>("mouse-cursor-visible"));
 		m_window->setVisible(true);
-		galaxy::ServiceLocator::i().m_window = m_window.get();
+		galaxy::ServiceLocator::get().m_window = m_window.get();
 
 		// Game "world".
 		m_world = std::make_unique<World>();
-		galaxy::ServiceLocator::i().m_world = m_world.get();
+		galaxy::ServiceLocator::get().m_world = m_world.get();
 
 		// Event dispatcher.
 		m_dispatcher = std::make_unique<starlight::Dispatcher>();
-		galaxy::ServiceLocator::i().m_dispatcher = m_dispatcher.get();
+		galaxy::ServiceLocator::get().m_dispatcher = m_dispatcher.get();
 
 		// Serializer.
 		m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
-		galaxy::ServiceLocator::i().m_serializer = m_serializer.get();
+		galaxy::ServiceLocator::get().m_serializer = m_serializer.get();
 
 		//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 		//ServiceLocator::textureAtlas = m_textureAtlas.get();
