@@ -61,16 +61,6 @@ namespace protostar
 		/// Alpha
 		///
 		std::uint8_t m_alpha;
-
-		///
-		/// Fully transparent.
-		///
-		static inline const std::uint8_t TRANSPARENT = 0;
-
-		///
-		/// Fully opaque.
-		///
-		static inline const std::uint8_t OPAQUE = 255;
 	};
 }
 

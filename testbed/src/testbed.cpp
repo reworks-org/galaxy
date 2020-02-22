@@ -7,12 +7,9 @@
 
 #include <iostream>
 
-#include "protostar/graphics/Colour.hpp"
-
 int main()
 {
 	// todo
-	protostar::Colour col;
 
 	std::cin.get();
 }
