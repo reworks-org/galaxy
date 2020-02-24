@@ -89,15 +89,11 @@ namespace starlight
 			for (auto& callback : m_callbacks)
 			{
 				// Launch thread(s) to run event callback on.
-				auto result = std::async(std::launch::async, [&]()
-					{
-						std::lock_guard<std::mutex> lock(m_lock);
-
-						// This is where any is casted back into appropriate type for the callback.
-						callback(std::any_cast<Event>(event));
-					});
-
-				futures.emplace_back(std::move(result));
+				futures.push_back(std::move(std::async(std::launch::async, [&]()
+				{
+					// This is where any is casted back into appropriate type for the callback.
+					callback(std::any_cast<Event>(event), m_lock);
+				})));
 			}
 
 			// check to make sure each result has finished. will block main thread but other threads continue running...

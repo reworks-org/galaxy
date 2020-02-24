@@ -40,7 +40,7 @@ namespace starlight
 		/// Type representing a callback.
 		///
 		template<typename Event>
-		using callback = std::function<void(const Event&)>;
+		using callback = std::function<void(const Event&, std::mutex&)>;
 
 	public:
 		///

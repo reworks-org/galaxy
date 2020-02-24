@@ -44,7 +44,7 @@ namespace starlight
 			if (!m_queue.empty())
 			{
 				// throw exception - should be empty.
-				throw std::runtime_error("m_queue should be empty! LN 48, Dispatcher.cpp.");
+				throw std::runtime_error("m_queue should be empty!");
 			}
 		}
 	}
