@@ -8,8 +8,7 @@
 #ifndef CELESTIAL_WIDGET_HPP_
 #define CELESTIAL_WIDGET_HPP_
 
-#include "celestial/ui/UITheme.hpp"
-#include "celestial/ui/Tooltip.hpp"
+#include "celestial/Tooltip.hpp"
 
 ///
 /// Core namespace.
@@ -21,14 +20,9 @@ namespace celestial
 	///
 	class Widget
 	{
-		///
-		/// Allows access to internals of Panel.
-		///
-		friend class Panel;
-
 	public:
 		///
-		/// Destructor.
+		/// Virtual destructor.
 		///
 		virtual ~Widget() noexcept;
 
@@ -60,6 +54,16 @@ namespace celestial
 		virtual bool contains(const int x, const int y) final;
 
 		///
+		/// Sets the tooltip for this widget.
+		///
+		/// \param args Arguments for widget to construct.
+		///
+		/// \return Returns pointer to newly created widget.
+		///
+		template<typename... Args>
+		Tooltip* setTooltip(Args&&... args);
+
+		///
 		/// Set visibility of widget.
 		///
 		/// \param isVisible Set to true if widget is visible.
@@ -80,17 +84,7 @@ namespace celestial
 		///
 		virtual const unsigned int id() const final;
 
-		///
-		/// Sets the tooltip for this widget.
-		///
-		/// \param args Arguments for widget to construct.
-		///
-		/// \return Returns pointer to newly created widget.
-		///
-		template<typename... Args>
-		Tooltip* setTooltip(Args&&... args);
-
-	protected:
+	private:
 		///
 		/// Default destructor.
 		///
@@ -148,6 +142,11 @@ namespace celestial
 		///
 		unsigned int m_id;
 	};
+
+	///
+	/// Shorthand.
+	///
+	using WidgetPtr = std::unique_ptr<celestial::Widget>;
 
 	template<typename... Args>
 	inline Tooltip* Widget::setTooltip(Args&&... args)

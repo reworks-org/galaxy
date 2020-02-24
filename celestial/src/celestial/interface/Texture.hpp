@@ -16,38 +16,54 @@
 namespace celestial
 {
 	///
-	/// Your textures should inherit from this class.
-	/// Represents a Texture.
+	/// Identifies this class as an interface.
 	///
-	class Texture
+	namespace interface
 	{
-	public:
 		///
-		/// Virtual Destructor.
+		/// Your textures should inherit from this class.
+		/// Represents a Texture.
 		///
-		virtual ~Texture() noexcept;
+		class Texture
+		{
+		public:
+			///
+			/// Default virtual destructor.
+			///
+			virtual ~Texture() noexcept = default;
 
-	protected:
-		///
-		/// Default constructor.
-		///
-		Texture() noexcept = default;
+		protected:
+			///
+			/// Constructor.
+			///
+			Texture() noexcept = default;
+
+			///
+			/// Copy constructor.
+			///
+			Texture(const Texture&) noexcept = default;
+
+			///
+			/// Move constructor.
+			///
+			Texture(Texture&&) noexcept = default;
+
+			///
+			/// Copy assignment operator.
+			///
+			Texture& operator= (const Texture&&) noexcept = default;
+
+			///
+			/// Move assignment operator.
+			///
+			Texture& operator= (Texture&&) noexcept = default;
+		};
 
 		///
-		/// Copy constructor.
+		/// Shortcut for defining a unique ptr texture.
 		///
-		Texture(const Texture&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Texture(Texture&&) = default;
-	};
-
-	///
-	/// Shortcut for defining a unique ptr texture.
-	///
-	using TexturePtr = std::unique_ptr<Texture>;
+		using TexturePtr = std::unique_ptr<celestial::interface::Texture>;
+	}
 }
 
 #endif

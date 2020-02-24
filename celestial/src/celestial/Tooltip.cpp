@@ -9,6 +9,9 @@
 
 #include "Tooltip.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	Tooltip::Tooltip(const std::string& text, const std::string& texture, UITheme* theme)

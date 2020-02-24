@@ -10,9 +10,12 @@
 
 #include <protostar/events/MouseMovedEvent.hpp>
 
-#include "celestial/ui/UITheme.hpp"
+#include "celestial/UITheme.hpp"
 #include "celestial/interface/Renderer.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	///
@@ -20,11 +23,6 @@ namespace celestial
 	///
 	class Tooltip final
 	{
-		///
-		/// Allows access to internals of Widget class.
-		///
-		friend class Widget;
-
 	public:
 		///
 		/// Texture Constructor.

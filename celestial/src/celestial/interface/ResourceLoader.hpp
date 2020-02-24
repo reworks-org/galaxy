@@ -10,7 +10,7 @@
 
 #include <string>
 
-#include <protostar/graphics/Rect.hpp>
+#include <protostar/shapes/Rect.hpp>
 #include <protostar/graphics/Colour.hpp>
 
 #include "celestial/interface/Font.hpp"
@@ -22,108 +22,145 @@
 namespace celestial
 {
 	///
-	/// Manipulating resources for use in celestial.
+	/// Identifies this class as an interface.
 	///
-	class ResourceLoader
+	namespace interface
 	{
-	public:
 		///
-		/// Loads a texture.
+		/// Manipulating resources for use in celestial.
 		///
-		/// \param id ID or location or file of texture to load.
-		///
-		/// \return Polymorphic texture pointer to the newly created texture.
-		///
-		virtual TexturePtr loadTexture(const std::string& id) = 0;
+		class ResourceLoader
+		{
+		public:
+			///
+			/// Default virtual destructor.
+			///
+			virtual ~ResourceLoader() noexcept = default;
 
-		///
-		/// Loads a font.
-		///
-		/// \param id ID or location or file of font to load.
-		///
-		/// \return Polymorphic font pointer to the newly created font.
-		///
-		virtual FontPtr loadFont(const std::string& id) = 0;
+			///
+			/// Loads a texture.
+			///
+			/// \param id ID or location or file of texture to load.
+			///
+			/// \return Polymorphic texture pointer to the newly created texture.
+			///
+			virtual TexturePtr loadTexture(const std::string& id) noexcept = 0;
 
-		///
-		/// Creates a brand new sectioned texture.
-		///
-		/// \param texture Texture to take to form a sectioned texture from.
-		/// \param xLeft The leftmost part of the texture to start taking from.
-		/// \param xRight The rightmost part of the texture to start taking from.
-		///
-		/// \return Polymorphic texture pointer to the newly created texture.
-		///
-		virtual TexturePtr createSectionedTexture(celestial::Texture* texture, const int xLeft, const int xRight) = 0;
+			///
+			/// Loads a font.
+			///
+			/// \param id ID or location or file of font to load.
+			///
+			/// \return Polymorphic font pointer to the newly created font.
+			///
+			virtual FontPtr loadFont(const std::string& id) noexcept = 0;
 
-		///
-		/// Creates a new texture from a region of a master texture.
-		///
-		/// \param texture Master texture to extract texture region from.
-		/// \param dim Dimensions of the region of the texture to use.
-		///
-		/// \return New polymorphic texture of a region of the master texture.
-		///
-		virtual TexturePtr createSubTexture(celestial::Texture* id, const protostar::Rect<int>& dim) = 0;
+			///
+			/// Creates a brand new sectioned texture.
+			///
+			/// \param texture Texture to take to form a sectioned texture from.
+			/// \param xLeft The leftmost part of the texture to start taking from.
+			/// \param xRight The rightmost part of the texture to start taking from.
+			///
+			/// \return Polymorphic texture pointer to the newly created texture.
+			///
+			virtual TexturePtr createSectionedTexture(celestial::interface::Texture* texture, const int xLeft, const int xRight) noexcept = 0;
 
-		///
-		/// Creates a geometric coloured rectangle.
-		///
-		/// \param width Width of the rectangle to create.
-		/// \param height Height of the rectangle to create.
-		/// \param colour Colour of the rectangle to use.
-		///
-		/// \return New polymorphic texture.
-		///
-		virtual TexturePtr createRectangle(const int width, const int height, const protostar::Colour& colour) = 0;
+			///
+			/// Creates a new texture from a region of a master texture.
+			///
+			/// \param texture Master texture to extract texture region from.
+			/// \param dim Dimensions of the region of the texture to use.
+			///
+			/// \return New polymorphic texture of a region of the master texture.
+			///
+			virtual TexturePtr createSubTexture(celestial::interface::Texture* id, const protostar::Rect<int>& dim) noexcept = 0;
 
-		///
-		/// Retrieves the height of a texture.
-		///
-		/// \param texture Texture to get the height of.
-		///
-		/// \return height in integer form.
-		///
-		virtual int getTextureHeight(const celestial::Texture* texture) = 0;
+			///
+			/// Creates a geometric coloured rectangle.
+			///
+			/// \param width Width of the rectangle to create.
+			/// \param height Height of the rectangle to create.
+			/// \param colour Colour of the rectangle to use.
+			///
+			/// \return New polymorphic texture.
+			///
+			virtual TexturePtr createRectangle(const int width, const int height, const protostar::Colour& colour) noexcept = 0;
 
-		///
-		/// Retrieves the width of a texture.
-		///
-		/// \param texture Texture to get the width of.
-		///
-		/// \return width in integer form.
-		///
-		virtual int getTextureWidth(const celestial::Texture* texture) = 0;
+			///
+			/// Retrieves the height of a texture.
+			///
+			/// \param texture Texture to get the height of.
+			///
+			/// \return height in integer form.
+			///
+			virtual int getTextureHeight(const celestial::interface::Texture* texture) noexcept = 0;
 
-		///
-		/// Retrieves the height of a string.
-		///
-		/// \param font Font of the text.
-		/// \param text Text to use.
-		///
-		/// \return height in integer form.
-		///
-		virtual int getTextHeight(const celestial::Font* font, const std::string& text) = 0;
+			///
+			/// Retrieves the width of a texture.
+			///
+			/// \param texture Texture to get the width of.
+			///
+			/// \return width in integer form.
+			///
+			virtual int getTextureWidth(const celestial::interface::Texture* texture) noexcept = 0;
 
-		///
-		/// Retrieves the width of a string.
-		///
-		/// \param font Font of the text.
-		/// \param text Text to use.
-		///
-		/// \return width in integer form.
-		///
-		virtual int getTextWidth(const celestial::Font* font, const std::string& text) = 0;
+			///
+			/// Retrieves the height of a string.
+			///
+			/// \param font Font of the text.
+			/// \param text Text to use.
+			///
+			/// \return height in integer form.
+			///
+			virtual int getTextHeight(const celestial::interface::Font* font, const std::string& text) noexcept = 0;
 
-		///
-		/// Retrieves the line height of a font.
-		///
-		/// \param font Font to get line height from.
-		///
-		/// \return line height in integer.
-		///
-		virtual int getLineHeight(const celestial::Font* font) = 0;
-	};
+			///
+			/// Retrieves the width of a string.
+			///
+			/// \param font Font of the text.
+			/// \param text Text to use.
+			///
+			/// \return width in integer form.
+			///
+			virtual int getTextWidth(const celestial::interface::Font* font, const std::string& text) noexcept = 0;
+
+			///
+			/// Retrieves the line height of a font.
+			///
+			/// \param font Font to get line height from.
+			///
+			/// \return line height in integer.
+			///
+			virtual int getLineHeight(const celestial::interface::Font* font) noexcept = 0;
+
+		protected:
+			///
+			/// Constructor.
+			///
+			ResourceLoader() noexcept = default;
+			
+			///
+			/// Copy constructor.
+			///
+			ResourceLoader(const ResourceLoader&) noexcept = default;
+
+			///
+			/// Move constructor.
+			///
+			ResourceLoader(ResourceLoader&&) noexcept = default;
+
+			///
+			/// Copy assignment operator.
+			///
+			ResourceLoader& operator= (const ResourceLoader&&) noexcept = default;
+
+			///
+			/// Move assignment operator.
+			///
+			ResourceLoader& operator= (ResourceLoader&&) noexcept = default;
+		};
+	}
 }
 
 #endif

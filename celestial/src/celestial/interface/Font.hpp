@@ -16,45 +16,61 @@
 namespace celestial
 {
 	///
-	/// Your Fonts should inherit from this class.
-	/// Represents a font.
+	/// Identifies this class as an interface.
 	///
-	class Font
+	namespace interface
 	{
-	public:
 		///
-		/// Virtual Destructor.
+		/// Your Fonts should inherit from this class.
+		/// Represents a font.
 		///
-		virtual ~Font() noexcept;
+		class Font
+		{
+		public:
+			///
+			/// Default virtual destructor.
+			///
+			virtual ~Font() noexcept = default;
+
+			///
+			/// Retrieves size integer.
+			///
+			/// \return size integer.
+			///
+			virtual const int getSize() const noexcept = 0;
+
+		protected:
+			///
+			/// Default constructor.
+			///
+			Font() noexcept = default;
+
+			///
+			/// Copy constructor.
+			///
+			Font(const Font&) noexcept = default;
+
+			///
+			/// Move constructor.
+			///
+			Font(Font&&) noexcept = default;
+
+			///
+			/// Copy assignment operator.
+			///
+			Font& operator= (const Font&&) noexcept = default;
+
+			///
+			/// Move assignment operator.
+			///
+			Font& operator= (Font&&) noexcept = default;
+		};
 
 		///
-		/// Retrieves size integer.
+		/// Shorthand for unique_ptr Font.
 		///
-		/// \return size integer.
-		///
-		virtual const int getSize() const noexcept = 0;
-
-	protected:
-		///
-		/// Default constructor.
-		///
-		Font() = default;
-
-		///
-		/// Copy constructor.
-		///
-		Font(const Font&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Font(Font&&) = default;
-	};
-
-	///
-	/// Shorthand for unique_ptr Font.
-	///
-	using FontPtr = std::unique_ptr<Font>;
+		using FontPtr = std::unique_ptr<celestial::interface::Font>;
+	}
 }
 
 #endif

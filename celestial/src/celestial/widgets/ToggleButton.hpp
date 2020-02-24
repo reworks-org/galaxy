@@ -98,13 +98,6 @@ namespace celestial
 		void recieveMoved(const protostar::MouseMovedEvent& e);
 
 		///
-		/// Register callback function when button is pressed.
-		///
-		/// \param callback Return type void, no arguments. Function pointer.
-		///
-		void registerCallback(const std::function<void()>& callback);
-
-		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
 		///
 		/// It should look like this:
@@ -133,11 +126,6 @@ namespace celestial
 		/// Images for each button state.
 		///
 		std::array<TexturePtr, 3> m_textures;
-
-		///
-		/// Callback function.
-		///
-		std::function<void()> m_callback;
 	};
 }
 

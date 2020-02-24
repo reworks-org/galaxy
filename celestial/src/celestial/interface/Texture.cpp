@@ -6,10 +6,3 @@
 ///
 
 #include "Texture.hpp"
-
-namespace celestial
-{
-	Texture::~Texture() noexcept
-	{
-	}
-}

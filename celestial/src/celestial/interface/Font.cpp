@@ -6,13 +6,3 @@
 ///
 
 #include "Font.hpp"
-
-///
-/// Core namespace.
-///
-namespace celestial
-{
-	Font::~Font() noexcept
-	{
-	}
-}

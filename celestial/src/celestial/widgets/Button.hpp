@@ -97,7 +97,7 @@ namespace celestial
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const protostar::MousePressedEvent& e);
+		void onPress(const protostar::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
@@ -106,7 +106,7 @@ namespace celestial
 		///
 		/// \param e MouseReleasedEvent object.
 		///
-		void receiveRelease(const protostar::MouseReleasedEvent& e);
+		void onRelease(const protostar::MouseReleasedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -115,14 +115,7 @@ namespace celestial
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const protostar::MouseMovedEvent& e);
-
-		///
-		/// Register callback function when button is pressed.
-		///
-		/// \param callback Return type void, no arguments. Function pointer.
-		///
-		void registerCallback(const std::function<void()>& callback);
+		void onMove(const protostar::MouseMovedEvent& e);
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
@@ -135,6 +128,13 @@ namespace celestial
 		/// \param y y-pos of the panel.
 		///
 		void setOffset(const int x, const int y) override;
+
+		///
+		/// Check if the button has been pressed.
+		///
+		/// \return True if button was pressed.
+		///
+		const bool isPressed() const noexcept;
 
 	private:
 		///
@@ -155,11 +155,6 @@ namespace celestial
 		std::array<TexturePtr, 3> m_textures;
 
 		///
-		/// Callback function.
-		///
-		std::function<void()> m_callback;
-
-		///
 		/// Label for button.
 		///
 		std::string m_label;
@@ -173,6 +168,11 @@ namespace celestial
 		/// Button label x coords.
 		///
 		float m_yLabelPos;
+
+		///
+		/// Is button pressed.
+		///
+		bool m_pressed;
 	};
 }
 

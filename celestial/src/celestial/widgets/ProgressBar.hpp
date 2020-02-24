@@ -8,8 +8,8 @@
 #ifndef CELESTIAL_PROGRESSBAR_HPP_
 #define CELESTIAL_PROGRESSBAR_HPP_
 
+#include <protostar/shapes/Rect.hpp>
 #include <protostar/graphics/Colour.hpp>
-#include <protostar/graphics/Rect.hpp>
 
 #include "celestial/ui/Widget.hpp"
 

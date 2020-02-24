@@ -13,7 +13,7 @@
 namespace celestial
 {
 	ToggleButton::ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme)
-		:Widget({x, y, 0, 0}, theme), m_state(ToggleButton::State::OFF), m_callback(nullptr)
+		:Widget({x, y, 0, 0}, theme), m_state(ToggleButton::State::OFF)
 	{
 		// Load each bitmap from the array and check for errors.
 		for (auto i = 0; i < 3; ++i)
@@ -73,7 +73,7 @@ namespace celestial
 				if (m_state == ToggleButton::State::OFF || m_state == ToggleButton::State::HOVER)
 				{
 					m_state = ToggleButton::State::ON;
-					m_callback();
+					//
 				}
 				else
 				{
@@ -102,11 +102,6 @@ namespace celestial
 				}
 			}
 		}
-	}
-
-	void ToggleButton::registerCallback(const std::function<void()>& callback)
-	{
-		m_callback = callback;
 	}
 
 	void ToggleButton::setOffset(const int x, const int y)
