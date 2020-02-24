@@ -89,7 +89,7 @@ namespace starlight
 			for (auto& callback : m_callbacks)
 			{
 				// Launch thread(s) to run event callback on.
-				futures.push_back(std::move(std::async(std::launch::async, [&]()
+				futures.emplace_back(std::move(std::async(std::launch::async, [&]()
 				{
 					// This is where any is casted back into appropriate type for the callback.
 					callback(std::any_cast<Event>(event), m_lock);

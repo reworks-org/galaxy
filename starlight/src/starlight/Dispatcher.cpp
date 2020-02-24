@@ -22,13 +22,10 @@ namespace starlight
 			// Launch thread(s) to run event callback on.
 			std::for_each(m_queue.begin(), m_queue.end(), [&](const starlight::QueuedEvent& event)
 				{
-					auto result = std::async(std::launch::async, [&]()
-						{
-							std::lock_guard<std::mutex> lock(m_lock);
-							m_stored[event.m_type]->trigger(event.m_event);
-						});
-
-					futures.emplace_back(std::move(result));
+					futures.emplace_back(std::move(std::async(std::launch::async, [&]()
+					{
+						m_stored[event.m_type]->trigger(event.m_event);
+					})));
 				});
 
 			// check to make sure each result has finished. will block main thread but other threads continue running...
