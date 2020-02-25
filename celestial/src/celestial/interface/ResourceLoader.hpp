@@ -149,16 +149,6 @@ namespace celestial
 			/// Move constructor.
 			///
 			ResourceLoader(ResourceLoader&&) noexcept = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			ResourceLoader& operator= (const ResourceLoader&&) noexcept = default;
-
-			///
-			/// Move assignment operator.
-			///
-			ResourceLoader& operator= (ResourceLoader&&) noexcept = default;
 		};
 	}
 }

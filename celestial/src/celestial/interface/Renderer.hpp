@@ -44,7 +44,7 @@ namespace celestial
 			/// \param x x-position to draw to.
 			/// \param y y-position to draw to.
 			///
-			virtual void drawTexture(const celestial::interface::Texture* texture, const float x, const float y) noexcept = 0;
+			virtual void drawTexture(const celestial::interface::Texture* texture, const double x, const double y) noexcept = 0;
 
 			///
 			/// Draws a region of a texture to a screen.
@@ -54,7 +54,7 @@ namespace celestial
 			/// \param y y-position to draw to.
 			/// \param region Region on the texture to draw.
 			///
-			virtual void drawTextureRegion(const celestial::interface::Texture* texture, const float x, const float y, const protostar::Rect<int>& region) noexcept = 0;
+			virtual void drawTextureRegion(const celestial::interface::Texture* texture, const double x, const double y, const protostar::Rect<int>& region) noexcept = 0;
 
 			///
 			/// Draws text to the screen.
@@ -65,7 +65,7 @@ namespace celestial
 			/// \param x x-position to draw to.
 			/// \param y y-position to draw to.
 			///
-			virtual void drawText(const celestial::interface::Font* font, const protostar::Colour& col, const std::string& text, const float x, const float y) noexcept = 0;
+			virtual void drawText(const celestial::interface::Font* font, const protostar::Colour& col, const std::string& text, const double x, const double y) noexcept = 0;
 
 			///
 			/// Draws multiline text to the screen.
@@ -78,7 +78,7 @@ namespace celestial
 			/// \param maxWidth Maximum width of each line of text.
 			/// param lineHeight Line height of the font.
 			///
-			virtual void drawMultilineText(const celestial::interface::Font* font, const protostar::Colour& col, const std::string& text, const float x, const float y, const unsigned int maxWidth, const int lineHeight) noexcept = 0;
+			virtual void drawMultilineText(const celestial::interface::Font* font, const protostar::Colour& col, const std::string& text, const double x, const double y, const unsigned int maxWidth, const int lineHeight) noexcept = 0;
 
 		protected:
 			///
@@ -95,16 +95,6 @@ namespace celestial
 			/// Move constructor.
 			///
 			Renderer(Renderer&&) noexcept = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			Renderer& operator= (const Renderer&&) noexcept = default;
-
-			///
-			/// Move assignment operator.
-			///
-			Renderer& operator= (Renderer&&) noexcept = default;
 		};
 	}
 }

@@ -117,16 +117,6 @@ namespace celestial
 		///
 		Widget(Widget&&) noexcept = default;
 
-		///
-		/// Copy assignment operator.
-		///
-		Widget& operator=(const Widget&&) noexcept = default;
-
-		///
-		/// Move assignment operator.
-		///
-		Widget& operator=(Widget&&) noexcept = default;
-
 	protected:
 		///
 		/// X, Y, width and height of the widget.

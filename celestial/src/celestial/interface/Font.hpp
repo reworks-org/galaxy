@@ -54,16 +54,6 @@ namespace celestial
 			/// Move constructor.
 			///
 			Font(Font&&) noexcept = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			Font& operator= (const Font&&) noexcept = default;
-
-			///
-			/// Move assignment operator.
-			///
-			Font& operator= (Font&&) noexcept = default;
 		};
 
 		///

@@ -47,16 +47,6 @@ namespace celestial
 			/// Move constructor.
 			///
 			Texture(Texture&&) noexcept = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			Texture& operator= (const Texture&&) noexcept = default;
-
-			///
-			/// Move assignment operator.
-			///
-			Texture& operator= (Texture&&) noexcept = default;
 		};
 
 		///

@@ -11,6 +11,7 @@
 #include <protostar/events/MouseMovedEvent.hpp>
 
 #include "celestial/UITheme.hpp"
+#include "celestial/interface/Texture.hpp"
 #include "celestial/interface/Renderer.hpp"
 
 ///
@@ -19,69 +20,57 @@
 namespace celestial
 {
 	///
-	/// Tooltip parent class.
+	/// Tooltip for widgets.
 	///
-	class Tooltip
+	class Tooltip final
 	{
 	public:
 		///
-		/// Default virtual destructor.
+		/// Constructor.
 		///
-		virtual ~Tooltip() noexcept = default;
+		Tooltip() noexcept;
+
+		///
+		/// Destructor.
+		///
+		~Tooltip() noexcept;
 
 		///
 		/// Allows for buttons to react to mouse events.
 		///
 		/// \param e A MouseMovedEvent object to check if TextureTooltip is active.
 		///
-		virtual void onMove(const protostar::MouseMovedEvent& e) noexcept = 0;
+		void onMove(const protostar::MouseMovedEvent& e) noexcept;
 
 		///
 		/// Draws the TextureTooltip to the screen.
 		///
 		/// \param renderer Renderer to use when drawing.
 		///
-		virtual void draw(celestial::interface::Renderer* renderer) = 0;
+		void draw(celestial::interface::Renderer* renderer) noexcept;
 
 		///
 		/// Set UITheme.
 		///
 		/// \param theme Pointer to theme to use.
 		///
-		virtual void setTheme(celestial::UITheme* theme) noexcept final;
+		void setTheme(celestial::UITheme* theme) noexcept;
 
 		///
 		/// Set text.
 		///
 		/// \param text Text to display on tooltip.
 		///
-		virtual void setText(const std::string& text) noexcept final;
-
-	protected:
-		///
-		/// Constructor.
-		///
-		Tooltip() noexcept = default;
+		void setText(const std::string& text) noexcept;
 
 		///
-		/// Copy constructor.
+		/// Set texture.
 		///
-		Tooltip(const Tooltip&) noexcept = default;
-
+		/// \param texture Texture of the tooltip. Will repeat to create variable sized textboxes.
+		///                Format should be Open Of Tooltip, Repeat Section For Text, Closing for tooltip, all seemless so it forms a complete graphic.
+		///				   I.e. your string should look like: "tooltip_widget|1|97", with x being x left most and 97 being rightmost x.
 		///
-		/// Move constructor.
-		///
-		Tooltip(Tooltip&&) noexcept = default;
-
-		///
-		/// Copy assignment operator.
-		///
-		Tooltip& operator= (const Tooltip&&) noexcept = default;
-
-		///
-		/// Move assignment operator.
-		///
-		Tooltip& operator= (Tooltip&&) noexcept = default;
+		void setTexture(const std::string& texture) noexcept;
 
 	protected:
 		///
@@ -103,6 +92,11 @@ namespace celestial
 		/// Theme the TextureTooltip is using for font and colour.
 		///
 		UITheme* m_theme;
+
+		///
+		/// Texture extracted from UITheme.
+		///
+		celestial::interface::TexturePtr m_texture;
 	};
 }
 
