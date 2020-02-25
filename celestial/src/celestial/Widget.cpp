@@ -12,33 +12,57 @@
 ///
 namespace celestial
 {
-	Widget::Widget(const protostar::Rect<int>& bounds, UITheme* theme)
-		:m_bounds(bounds), m_theme(theme), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
+	Widget::Widget() noexcept
+		:m_bounds(0, 0, 0, 0), m_theme(nullptr), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
 	{
 	}
 
-	Widget::~Widget()
+	Widget::~Widget() noexcept
 	{
 		m_tooltip.reset();
+
+		m_theme = nullptr;
+		m_drawTooltip = false;
 	}
 
-	bool Widget::contains(const int x, const int y)
+	bool Widget::contains(const int x, const int y) noexcept
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
 		return ((x > m_bounds.m_x) && (x < (m_bounds.m_x + m_bounds.m_width)) && (y > m_bounds.m_y) && (y < (m_bounds.m_y + m_bounds.m_height)));
 	}
 
-	void Widget::setVisibility(const bool isVisible)
+	Tooltip* Widget::createTooltip() noexcept
+	{
+		m_tooltip = std::make_unique<Tooltip>();
+		m_tooltip->setTheme(m_theme);
+
+		return m_tooltip.get();
+	}
+
+	void Widget::isVisible(const bool isVisible) noexcept
 	{
 		m_isVisible = isVisible;
 	}
 
-	const bool Widget::isVisible() const
+	void Widget::setTheme(celestial::UITheme* theme) noexcept
 	{
-		return m_isVisible;
+		m_theme = theme;
 	}
 
-	const unsigned int Widget::id() const
+	void Widget::setBounds(const int x, const int y, const int w, const int h) noexcept
+	{
+		m_bounds.m_x = x;
+		m_bounds.m_y = y;
+		m_bounds.m_width = w;
+		m_bounds.m_height = h;
+	}
+
+	const protostar::Rect<int>& Widget::getBounds() const noexcept
+	{
+		return m_bounds;
+	}
+
+	const unsigned int Widget::id() const noexcept
 	{
 		return m_id;
 	}

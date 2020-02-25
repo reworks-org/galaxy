@@ -33,7 +33,7 @@ namespace celestial
 		///
 		/// \param dt Delta Time.
 		///
-		virtual void update(const double dt) = 0;
+		virtual void update(const double dt) noexcept = 0;
 
 		///
 		/// \brief Render the widget.
@@ -43,7 +43,7 @@ namespace celestial
 		///
 		/// \param renderer Renderer to use when drawing. Needs to be consistent.
 		///
-		virtual void render(celestial::Renderer* renderer) = 0;
+		virtual void render(celestial::interface::Renderer* renderer) noexcept = 0;
 
 		///
 		/// Does the widget contain the point x, y.
@@ -51,64 +51,81 @@ namespace celestial
 		/// \param x x-pos of the point.
 		/// \param y y-pos of the point.
 		///
-		virtual bool contains(const int x, const int y) final;
+		virtual bool contains(const int x, const int y) noexcept final;
 
 		///
-		/// Sets the tooltip for this widget.
+		/// \brief Creates a tooltip for the widget.
 		///
-		/// \param args Arguments for widget to construct.
+		/// Tooltip memory is owned by the widget.
+		/// Tooltip theme is set to Widget's theme.
 		///
-		/// \return Returns pointer to newly created widget.
+		/// \return Pointer to newly created tooltip.
 		///
-		template<typename... Args>
-		Tooltip* setTooltip(Args&&... args);
+		virtual Tooltip* createTooltip() noexcept final;
 
 		///
 		/// Set visibility of widget.
 		///
 		/// \param isVisible Set to true if widget is visible.
 		///
-		virtual void setVisibility(const bool isVisible) final;
+		virtual void isVisible(const bool isVisible) noexcept final;
 
 		///
-		/// Is the widget visible?
+		/// Set UITheme.
 		///
-		/// \return True if visible.
+		/// \param theme Pointer to theme to use.
 		///
-		virtual const bool isVisible() const final;
+		virtual void setTheme(celestial::UITheme* theme) noexcept final;
+
+		///
+		/// Set bounds.
+		///
+		/// \param x X pos of widget.
+		/// \param y Y pos of widget.
+		/// \param w Width of widget.
+		/// \param h Height of widget.
+		///
+		virtual void setBounds(const int x, const int y, const int w, const int h) noexcept final;
+
+		///
+		/// Get bounds.
+		///
+		/// \return Returns a reference to the internal rectangle defining bounds.
+		///
+		virtual const protostar::Rect<int>& getBounds() const noexcept final;
 
 		///
 		/// Get ID of this widget.
 		///
 		/// \return const unsigned int ID value.
 		///
-		virtual const unsigned int id() const final;
+		virtual const unsigned int id() const noexcept final;
 
-	private:
+	protected:
 		///
-		/// Default destructor.
+		/// Default constructor.
 		///
-		Widget() noexcept = default;
-
-		///
-		/// Protected constructor. Only want derived classes to construct this.
-		///
-		/// \param bounds Dimensions of the widget, relative to the panel.
-		/// \param theme Theme to be used by this widget.
-		///
-		explicit Widget(const protostar::Rect<int>& bounds, UITheme* theme);
+		Widget() noexcept;
 
 		///
-		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
+		/// Copy constructor.
 		///
-		/// It should look like this:
-		/// m_bounds.m_x += x;
-		/// m_bounds.m_y += y;
+		Widget(const Widget&) noexcept = default;
+
 		///
-		/// \param x x-pos of the panel.
-		/// \param y y-pos of the panel.
+		/// Move constructor.
 		///
-		virtual void setOffset(const int x, const int y) = 0;
+		Widget(Widget&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Widget& operator=(const Widget&&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Widget& operator=(Widget&&) noexcept = default;
 
 	protected:
 		///
@@ -147,16 +164,6 @@ namespace celestial
 	/// Shorthand.
 	///
 	using WidgetPtr = std::unique_ptr<celestial::Widget>;
-
-	template<typename... Args>
-	inline Tooltip* Widget::setTooltip(Args&&... args)
-	{
-		// Forward arguments make_unique to construct in place.
-		m_tooltip = std::make_unique<Tooltip>(std::forward<Args>(args)...);
-
-		// Then return a pointer to object placed.
-		return m_tooltip.get();
-	}
 }
 
 #endif
