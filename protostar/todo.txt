@@ -1,0 +1,3 @@
+https://www.google.com/search?client=firefox-b-d&ei=ixZWXs_uBOjWz7sPoOiwyAc&q=recycle+threads+in+threadpool
+https://github.com/progschj/ThreadPool/blob/master/ThreadPool.h
+https://thispointer.com/designing-a-thread-pool-framework-part-1-whats-the-need-of-a-thread-pool/

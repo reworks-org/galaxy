@@ -23,6 +23,8 @@
     <ClCompile Include="src\protostar\math\Point.cpp" />
     <ClCompile Include="src\protostar\state\StateMachine.cpp" />
     <ClCompile Include="src\protostar\state\State.cpp" />
+    <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
+    <ClCompile Include="src\protostar\async\Task.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
@@ -47,6 +49,8 @@
     <ClInclude Include="src\protostar\math\Point.hpp" />
     <ClInclude Include="src\protostar\state\StateMachine.hpp" />
     <ClInclude Include="src\protostar\state\State.hpp" />
+    <ClInclude Include="src\protostar\async\ThreadPool.hpp" />
+    <ClInclude Include="src\protostar\async\Task.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
