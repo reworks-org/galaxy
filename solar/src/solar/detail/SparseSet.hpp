@@ -83,7 +83,7 @@ namespace sr
 		///
 		/// \param element Element to remove from the sparse set.
 		///
-		virtual void remove(const uint element);
+		virtual void remove(const uint element) noexcept;
 		
 		///
 		/// Check if sparse set is entity.
@@ -116,28 +116,28 @@ namespace sr
 		///
 		/// \return Beginning iterator.
 		///
-		decltype(auto) begin();
+		decltype(auto) begin() noexcept;
 
 		///
 		/// Const Iterator start.
 		///
 		/// \return Const beginning iterator.
 		///
-		decltype(auto) begin() const;
+		decltype(auto) begin() const noexcept;
 
 		///
 		/// Iterator end.
 		///
 		/// \return Ending iterator.
 		///
-		decltype(auto) end();
+		decltype(auto) end() noexcept;
 
 		///
 		/// Const Iterator end.
 		///
 		/// \return Const ending iterator.
 		///
-		decltype(auto) end() const;
+		decltype(auto) end() const noexcept;
 
 	protected:
 		///
@@ -228,7 +228,7 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline void SparseSet<uint>::remove(const uint element)
+	inline void SparseSet<uint>::remove(const uint element) noexcept
 	{
 		if (has(element))
 		{
@@ -267,25 +267,25 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline decltype(auto) SparseSet<uint>::begin()
+	inline decltype(auto) SparseSet<uint>::begin() noexcept
 	{
 		return m_dense.begin();
 	}
 
 	template<typename uint>
-	inline decltype(auto) SparseSet<uint>::begin() const
+	inline decltype(auto) SparseSet<uint>::begin() const noexcept
 	{
 		return m_dense.begin();
 	}
 
 	template<typename uint>
-	inline decltype(auto) SparseSet<uint>::end()
+	inline decltype(auto) SparseSet<uint>::end() noexcept
 	{
 		return m_dense.begin() + m_size;
 	}
 
 	template<typename uint>
-	inline decltype(auto) SparseSet<uint>::end() const
+	inline decltype(auto) SparseSet<uint>::end() const noexcept
 	{
 		return m_dense.begin() + m_size;
 	}

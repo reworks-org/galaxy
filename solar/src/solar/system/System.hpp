@@ -48,9 +48,19 @@ namespace sr
 
 	protected:
 		///
-		/// Protected default constructor.
+		/// Default constructor.
 		///
-		System() = default;
+		System() noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		System(System&&) noexcept = default;
+
+		///
+		/// Copy constructor.
+		///
+		System(const System&) noexcept = default;
 	};
 }
 

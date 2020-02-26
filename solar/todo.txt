@@ -14,7 +14,7 @@ factory pattern. check bookmarks.
  Entitys ID used as insertion for std::vector so [entity] = components (but how to get which one?).
  components stored in groupings of type, assigned unique id, then paired with their entity.
  stored in std::vector
- 
+
 
  so:
  std::vector<PackedComponents> with element being = entity.

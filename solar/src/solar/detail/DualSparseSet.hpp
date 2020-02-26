@@ -58,7 +58,7 @@ namespace sr
 		/// \return Component that was just constructed.
 		///
 		template<typename... Args>
-		Component* add(const sr::Entity entity, Args&&... args);
+		Component* add(const sr::Entity entity, Args&&... args) noexcept;
 
 		///
 		/// Get an entitys component.
@@ -115,7 +115,7 @@ namespace sr
 
 	template<typename Component>
 	template<typename ...Args>
-	inline Component* DualSparseSet<Component>::add(const sr::Entity entity, Args&& ...args)
+	inline Component* DualSparseSet<Component>::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
 		// This works because we are appending the entity to the dense array and
 		// the component will be in the same position since the two are synced.
