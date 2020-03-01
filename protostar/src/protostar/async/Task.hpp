@@ -10,8 +10,6 @@
 
 #include <functional>
 
-#include "protostar/async/BaseTask.hpp"
-
 ///
 /// Core namespace.
 ///
@@ -69,7 +67,7 @@ namespace protostar
 	inline decltype(auto) Task::makeTask(Func function, Args&& ...args)
 	{
 		Task task;
-		task.set(function, ...args);
+		task.set(function, args...);
 
 		return std::move(task);
 	}

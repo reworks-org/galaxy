@@ -46,20 +46,33 @@ namespace protostar
 
 		for (std::size_t it = 0; it < m_maxThreadCount; it++)
 		{
-			m_workers.emplace_back([](protostar::Task& task)
+			m_workers.emplace_back([&]()
 			{
-				task.exec();
+				while (true)
+				{
+					Task task;
+
+					{
+						std::unique_lock<std::mutex> l_lock(m_mutex);
+						m_cv.wait(l_lock, [&] { return !m_tasks.empty(); });
+
+						task = m_tasks.front();
+						m_tasks.pop();
+					}
+
+					task.exec();
+				}
 			});
 		}
 	}
 
 	void ThreadPool::queue(Task&& task)
 	{
-		m_tasks.emplace(std::move(task));
-	}
+		{
+			std::unique_lock<std::mutex>(m_mutex);
+			m_tasks.emplace(std::move(task));
+		}
 
-	void ThreadPool::exec() noexcept
-	{
-		m_tasks.
+		m_cv.notify_one();
 	}
 }

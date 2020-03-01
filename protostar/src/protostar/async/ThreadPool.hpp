@@ -11,6 +11,7 @@
 #include <queue>
 #include <thread>
 #include <vector>
+#include <condition_variable>
 
 ///
 /// Core namespace.
@@ -54,17 +55,9 @@ namespace protostar
 		///
 		/// Queue a task for the thread pool to execute.
 		///
-		/// \param task r-value task to queue.
+		/// \param task R-value task to queue.
 		///
 		void queue(Task&& task);
-
-		///
-		/// \brief Executes all tasks.
-		///
-		/// Should be called in the update loop.
-		/// Cannot throw exceptions.
-		///
-		void exec() noexcept;
 
 	private:
 		///
@@ -81,6 +74,16 @@ namespace protostar
 		/// Task queue.
 		///
 		std::queue<protostar::Task> m_tasks;
+
+		///
+		/// Condition variable for synchronization.
+		///
+		std::condition_variable m_cv;
+
+		///
+		/// Mutex to protect queue.
+		///
+		std::mutex m_mutex;
 	};
 }
 
