@@ -26,6 +26,8 @@ namespace protostar
 
 	ThreadPool::~ThreadPool() noexcept
 	{
+		m_isActive = false;
+
 		for (auto& thread : m_workers)
 		{
 			thread.join();
@@ -48,7 +50,7 @@ namespace protostar
 		{
 			m_workers.emplace_back([&]()
 			{
-				while (true)
+				while (m_isActive == true)
 				{
 					Task task;
 
@@ -74,5 +76,10 @@ namespace protostar
 		}
 
 		m_cv.notify_one();
+	}
+
+	void ThreadPool::setActive(const bool isActive) noexcept
+	{
+		m_isActive = isActive;
 	}
 }

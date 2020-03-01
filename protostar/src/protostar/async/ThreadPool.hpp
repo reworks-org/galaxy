@@ -11,6 +11,7 @@
 #include <queue>
 #include <thread>
 #include <vector>
+#include <atomic>
 #include <condition_variable>
 
 ///
@@ -59,6 +60,13 @@ namespace protostar
 		///
 		void queue(Task&& task);
 
+		///
+		/// Set if threads are active or not.
+		///
+		/// \param isActive True if threads are active to work on tasks.
+		///
+		void setActive(const bool isActive) noexcept;
+
 	private:
 		///
 		/// Maximum threads avaliable for pool.
@@ -84,6 +92,11 @@ namespace protostar
 		/// Mutex to protect queue.
 		///
 		std::mutex m_mutex;
+
+		///
+		/// Atomic boolean to control thread activity.
+		///
+		std::atomic<bool> m_isActive;
 	};
 }
 
