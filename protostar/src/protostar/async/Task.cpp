@@ -6,3 +6,22 @@
 ///
 
 #include "Task.hpp"
+
+///
+/// Core namespace.
+///
+namespace protostar
+{
+	Task::Task() noexcept
+	{
+	}
+
+	Task::~Task() noexcept
+	{
+	}
+
+	void Task::exec()
+	{
+		m_task();
+	}
+}

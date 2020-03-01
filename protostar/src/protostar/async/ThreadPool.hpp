@@ -8,6 +8,7 @@
 #ifndef PROTOSTAR_THREADPOOL_HPP_
 #define PROTOSTAR_THREADPOOL_HPP_
 
+#include <queue>
 #include <thread>
 #include <vector>
 
@@ -50,6 +51,21 @@ namespace protostar
 		///
 		void create(const size_t count);
 
+		///
+		/// Queue a task for the thread pool to execute.
+		///
+		/// \param task r-value task to queue.
+		///
+		void queue(Task&& task);
+
+		///
+		/// \brief Executes all tasks.
+		///
+		/// Should be called in the update loop.
+		/// Cannot throw exceptions.
+		///
+		void exec() noexcept;
+
 	private:
 		///
 		/// Maximum threads avaliable for pool.
@@ -57,9 +73,14 @@ namespace protostar
 		std::size_t m_maxThreadCount;
 
 		///
-		///
+		/// Worker threads to do a task on.
 		///
 		std::vector<std::thread> m_workers;
+
+		///
+		/// Task queue.
+		///
+		std::queue<protostar::Task> m_tasks;
 	};
 }
 
