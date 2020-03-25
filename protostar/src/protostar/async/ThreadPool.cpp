@@ -19,11 +19,6 @@ namespace protostar
 		m_maxThreadCount = std::thread::hardware_concurrency();
 	}
 
-	ThreadPool::ThreadPool(const std::size_t count)
-	{
-		create(count);
-	}
-
 	ThreadPool::~ThreadPool() noexcept
 	{
 		m_isActive = false;
@@ -34,14 +29,15 @@ namespace protostar
 		}
 	}
 
-	void ThreadPool::create(const size_t count)
+	protostar::ThreadPool& ThreadPool::handle() noexcept
 	{
-		auto max = std::thread::hardware_concurrency();
-		if (count > max)
-		{
-			m_maxThreadCount = max;
-		}
-		else
+		static protostar::ThreadPool s_thread;
+		return s_thread;
+	}
+
+	void ThreadPool::create(const size_t count) noexcept
+	{
+		if (count < m_maxThreadCount)
 		{
 			m_maxThreadCount = count;
 		}
@@ -68,7 +64,7 @@ namespace protostar
 		}
 	}
 
-	void ThreadPool::queue(Task&& task)
+	void ThreadPool::queue(Task&& task) noexcept
 	{
 		{
 			std::unique_lock<std::mutex>(m_mutex);

@@ -20,45 +20,38 @@
 namespace protostar
 {
 	///
-	/// 
+	/// Creates a system defined count of threads to reuse for task based work.
 	///
-	class ThreadPool
+	class ThreadPool final
 	{
 	public:
-		///
-		/// Constructor.
-		///
-		ThreadPool() noexcept;
-
-		///
-		/// \brief Thread count constructor.
-		///
-		/// Can throw exceptions.
-		///
-		/// \param count Amount of threads to create for pool.
-		///
-		explicit ThreadPool(const std::size_t count);
-
 		///
 		/// Destructor.
 		///
 		~ThreadPool() noexcept;
 
 		///
+		/// \brief Singleton handle.
+		///
+		/// You must call create() before using any functions.
+		///
+		static protostar::ThreadPool& handle() noexcept;
+
+		///
 		/// \brief Creates a number of threads.
 		///
-		/// Can throw exceptions.
+		/// You must call create() before using any functions.
 		///
 		/// \param count Amount of threads to create for pool.
 		///
-		void create(const size_t count);
+		void create(const size_t count) noexcept;
 
 		///
 		/// Queue a task for the thread pool to execute.
 		///
 		/// \param task R-value task to queue.
 		///
-		void queue(Task&& task);
+		void queue(Task&& task) noexcept;
 
 		///
 		/// Set if threads are active or not.
@@ -66,6 +59,32 @@ namespace protostar
 		/// \param isActive True if threads are active to work on tasks.
 		///
 		void setActive(const bool isActive) noexcept;
+
+	private:
+		///
+		/// Constructor.
+		///
+		ThreadPool() noexcept;
+
+		///
+		/// Deleted move constructor.
+		///
+		ThreadPool(ThreadPool&&) = delete;
+
+		///
+		/// Deleted copy constructor.
+		///
+		ThreadPool(const ThreadPool&) = delete;
+
+		///
+		/// Deleted move assignment operator.
+		///
+		ThreadPool& operator= (ThreadPool&&) = delete;
+
+		///
+		/// Deleted copy assignment operator.
+		///
+		ThreadPool& operator= (const ThreadPool&) = delete;
 
 	private:
 		///
