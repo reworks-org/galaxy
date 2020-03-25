@@ -14,7 +14,7 @@
 #include <protostar/events/MousePressedEvent.hpp>
 #include <protostar/events/MouseReleasedEvent.hpp>
 
-#include "celestial/ui/Widget.hpp"
+#include "celestial/Widget.hpp"
 
 ///
 /// Core namespace.
@@ -24,7 +24,7 @@ namespace celestial
 	///
 	/// Creates a clickable button.
 	///
-	class Button final : public Widget
+	class Button final : public celestial::Widget
 	{
 		///
 		/// Defines a state for the button.

@@ -31,6 +31,7 @@
     <ClInclude Include="src\celestial\UI.hpp" />
     <ClInclude Include="src\celestial\UITheme.hpp" />
     <ClInclude Include="src\celestial\Widget.hpp" />
+    <ClInclude Include="src\celestial\widgets\Button.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\celestial\interface\Renderer.cpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="src\celestial\UI.cpp" />
     <ClCompile Include="src\celestial\UITheme.cpp" />
     <ClCompile Include="src\celestial\Widget.cpp" />
+    <ClCompile Include="src\celestial\widgets\Button.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\celestial\interface\Font.cpp" />

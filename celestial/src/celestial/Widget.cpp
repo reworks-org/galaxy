@@ -13,16 +13,16 @@
 namespace celestial
 {
 	Widget::Widget() noexcept
-		:m_bounds(0, 0, 0, 0), m_theme(nullptr), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
+		:m_bounds(0, 0, 0, 0), m_theme(nullptr), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
 	{
 	}
 
 	Widget::~Widget() noexcept
 	{
+		m_drawTooltip = false;
 		m_tooltip.reset();
 
 		m_theme = nullptr;
-		m_drawTooltip = false;
 	}
 
 	bool Widget::contains(const int x, const int y) noexcept

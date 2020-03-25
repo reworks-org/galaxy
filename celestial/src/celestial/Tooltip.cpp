@@ -26,8 +26,8 @@ namespace celestial
 
 	void Tooltip::onMove(const protostar::MouseMovedEvent& e) noexcept
 	{
-		m_x = e.m_x + 12;
-		m_y = e.m_y + 12;
+		m_x = static_cast<double>(e.m_x + 12);
+		m_y = static_cast<double>(e.m_y + 12);
 	}
 
 	void Tooltip::draw(celestial::interface::Renderer* renderer) noexcept
