@@ -24,17 +24,17 @@ namespace qs
 		///
 		/// White.
 		///
-		static inline const protostar::Colour White { 255, 255, 255, protostar::Colour::OPAQUE };
+		static inline const protostar::Colour White { 255, 255, 255, 255 };
 
 		///
 		/// Black.
 		///
-		static inline const protostar::Colour Black { 0, 0, 0, protostar::Colour::OPAQUE };
+		static inline const protostar::Colour Black { 0, 0, 0, 255 };
 
 		///
 		/// Transparent.
 		///
-		static inline const protostar::Colour Transparent { 0, 0, 0, protostar::Colour::TRANSPARENT };
+		static inline const protostar::Colour Transparent { 0, 0, 0, 0 };
 	}
 }
 

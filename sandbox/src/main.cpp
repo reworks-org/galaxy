@@ -8,6 +8,7 @@
 
 #include <iostream>
 
+#include <Windows.h>
 #include <SDL2/SDL.h>
 #include <qs/core/Window.hpp>
 #include <qs/utils/Error.hpp>
@@ -18,6 +19,9 @@
 
 int main(int argsc, char* argsv[])
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, 14);
+	
 	// Try to init SDL2 with passed flags, checking to make sure of success.
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{
