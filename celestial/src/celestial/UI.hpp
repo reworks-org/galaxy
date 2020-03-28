@@ -10,6 +10,8 @@
 
 #include <vector>
 
+#include <protostar/async/ThreadPool.hpp>
+
 #include "celestial/Widget.hpp"
 
 ///
@@ -119,6 +121,11 @@ namespace celestial
 		/// List of free'd up IDs.
 		///
 		std::vector<unsigned int> m_free;
+
+		///
+		/// Thead Pool.
+		///
+		protostar::ThreadPool m_pool;
 	};
 
 	template<typename WidgetType, typename... Args>

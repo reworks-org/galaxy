@@ -15,6 +15,7 @@ namespace celestial
 	UI::UI() noexcept
 		:m_theme(nullptr), m_renderer(nullptr), m_isVisible(true), m_counter(0)
 	{
+		m_pool.
 	}
 
 	UI::~UI() noexcept

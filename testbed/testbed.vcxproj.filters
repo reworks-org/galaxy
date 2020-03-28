@@ -3,4 +3,7 @@
   <ItemGroup>
     <ClCompile Include="src\testbed.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\impl\Font.hpp" />
+  </ItemGroup>
 </Project>
