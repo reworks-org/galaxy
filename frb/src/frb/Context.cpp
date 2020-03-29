@@ -55,13 +55,63 @@ namespace frb
 		}
 	}
 
-	void Context::setDopplerFactor(const float factor) noexcept
+	void Context::setDopplerFactor(const float factor)
 	{
 		alDopplerFactor(factor);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set context doppler factor."));
+		}
 	}
 
-	void Context::setSpeedOfSound(const float speed) noexcept
+	void Context::setSpeedOfSound(const float speed)
 	{
 		alSpeedOfSound(speed);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set context sound speed."));
+		}
+	}
+
+	void Context::setListenerGain(const float gain)
+	{
+		if (gain < 0)
+		{
+			return;
+		}
+
+		alListenerf(AL_GAIN, gain);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set listener AL_GAIN."));
+		}
+	}
+
+	void Context::setListenerPosition(const float x, const float y, const float z)
+	{
+		alListener3f(AL_POSITION, x, y, z);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set listener AL_POSITION."));
+		}
+	}
+
+	void Context::setListenerVelocity(const float x, const float y, const float z)
+	{
+		alListener3f(AL_VELOCITY, x, y, z);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set listener AL_VELOCITY."));
+		}
+	}
+
+	void Context::setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ)
+	{
+		float asArray[6] = {atX, atY, atZ, upX, upY, upZ};
+		alListenerfv(AL_ORIENTATION, asArray);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set listener AL_ORIENTATION."));
+		}
 	}
 }

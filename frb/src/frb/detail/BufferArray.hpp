@@ -284,10 +284,10 @@ namespace frb
 	template<size_t index>
 	inline const ALint BufferArray<size>::getSize() noexcept
 	{
-		ALint size = 0;
-		alGetBufferi(m_bufferArray[index], AL_SIZE, &size);
+		ALint l_size = 0;
+		alGetBufferi(m_bufferArray[index], AL_SIZE, &l_size);
 
-		return std::move(size);
+		return std::move(l_size);
 	}
 
 	template<size_t size>

@@ -59,7 +59,36 @@ namespace frb
 		void setGain(const float gain);
 
 		///
-		/// \brief Specifies the current location of the object in the world coordinatesystem.
+		/// \brief Set RollOff factor for source.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param factor Floating point factor value.
+		///
+		void setRolloffFactor(const float factor);
+
+		///
+		/// \brief Set maximum distance from which there is no attenuation afterwards.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param distance Floating point distance value.
+		///
+		void setMaxDistance(const float distance);
+
+		///
+		/// \brief Configure audio cone.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param outerGain The gain when outside the oriented cone.
+		/// \param innerAngle The gain when inside the oriented cone.
+		/// \param outerAngle Outer angle of the sound cone, in degrees. Default is 360.
+		///
+		void configureCone(const float outerGain, const float innerAngle, const float outerAngle = 360.0f);
+
+		///
+		/// \brief Specifies the current location of the object in the world coordinate system.
 		///
 		/// Can throw exceptions.
 		///
@@ -74,9 +103,9 @@ namespace frb
 		///
 		/// Can throw exceptions.
 		///
-		/// \param x position in world.
-		/// \param y position in world.
-		/// \param z position in world.
+		/// \param x X velocity.
+		/// \param y Y velocity.
+		/// \param z Z velocity.
 		///
 		void setVelocity(const float x, const float y, const float z);
 
@@ -101,6 +130,15 @@ namespace frb
 		void setLooping(bool looping);
 
 		///
+		/// \brief Get current state of the source.
+		///
+		/// Can throw exceptions.
+		///
+		/// \return Enum. AL_PLAYING, AL_STOPPED, etc...
+		///
+		ALint getState();
+
+		///
 		/// Bind an audio buffer to an audio source.
 		///
 		/// \param buffer Buffer audio to play / manipulate.
@@ -122,14 +160,24 @@ namespace frb
 		void queue(const std::vector<frb::Buffer*>& buffers);
 
 		///
-		/// Play a source.
+		/// Play source.
 		///
 		void play() noexcept;
 		
 		///
+		/// Pause source.
+		///
+		void pause() noexcept;
+
+		///
 		/// Stop source.
 		///
 		void stop() noexcept;
+
+		///
+		/// Rewind source to beginning.
+		///
+		void rewind() noexcept;
 
 		///
 		/// Get the OpenAL internal int id / handle.

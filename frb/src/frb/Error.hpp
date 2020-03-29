@@ -28,7 +28,7 @@ namespace frb
 	///
 	/// \return Error code enum as a move constructed string.
 	///
-	std::string errorCodeAsString(const ALenum err);
+	std::string errorCodeAsString(const int err) noexcept;
 }
 
 #endif

@@ -51,6 +51,45 @@ namespace frb
 		}
 	}
 
+	void Source::setRolloffFactor(const float factor)
+	{
+		alSourcef(m_source, AL_ROLLOFF_FACTOR, factor);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set source rolloff."));
+		}
+	}
+
+	void Source::setMaxDistance(const float distance)
+	{
+		alSourcef(m_source, AL_MAX_DISTANCE, distance);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set source max distance."));
+		}
+	}
+
+	void Source::configureCone(const float outerGain, const float innerAngle, const float outerAngle)
+	{
+		alSourcef(m_source, AL_CONE_OUTER_GAIN, outerGain);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set AL_CONE_OUTER_GAIN."));
+		}
+
+		alSourcef(m_source, AL_CONE_INNER_ANGLE, innerAngle);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set AL_CONE_INNER_ANGLE."));
+		}
+
+		alSourcef(m_source, AL_CONE_OUTER_ANGLE, outerAngle);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to set AL_CONE_OUTER_ANGLE."));
+		}
+	}
+
 	void Source::setPosition(const float x, const float y, const float z)
 	{
 		alSource3f(m_source, AL_POSITION, x, y, z);
@@ -87,6 +126,18 @@ namespace frb
 		}
 	}
 
+	ALint Source::getState()
+	{
+		ALint val = 0;
+		alGetSourcei(m_source, AL_SOURCE_STATE, &val);
+		if (alGetError() != AL_NO_ERROR)
+		{
+			throw std::runtime_error(frb::parseError("Unable to get AL_SOURCE_STATE."));
+		}
+
+		return std::move(val);
+	}
+
 	void Source::bind(const frb::Buffer& buffer)
 	{
 		alSourcei(m_source, AL_BUFFER, buffer.handle());
@@ -121,9 +172,19 @@ namespace frb
 		alSourcePlay(m_source);
 	}
 
+	void Source::pause() noexcept
+	{
+		alSourcePause(m_source);
+	}
+
 	void Source::stop() noexcept
 	{
 		alSourceStop(m_source);
+	}
+
+	void Source::rewind() noexcept
+	{
+		alSourceRewind(m_source);
 	}
 
 	const ALuint Source::handle() const noexcept

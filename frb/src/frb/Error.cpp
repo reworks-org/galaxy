@@ -14,13 +14,13 @@
 
 namespace frb
 {
-	const std::string parseError(const std::string& message) noexcept
+	std::string parseError(const std::string& message) noexcept
 	{
 		std::string msg = "OpenAL Error: " + message + " | " + alGetString(alGetError());
 		return std::move(msg);
 	}
 
-	std::string errorCodeAsString(const ALenum err)
+	std::string errorCodeAsString(const int err) noexcept
 	{
 		std::string out = "";
 		switch (err)

@@ -43,18 +43,67 @@ namespace frb
 		void initialize();
 
 		///
-		/// Optional. Change doppler factor.
+		/// \brief Change doppler factor. Optional.
+		///
+		/// Can throw exceptions.
 		///
 		/// \param factor New factor for doppler effect.
 		///
-		void setDopplerFactor(const float factor) noexcept;
+		void setDopplerFactor(const float factor);
 
 		///
-		/// Optional. Change the default speed of sound.
+		/// \brief Change the default speed of sound. Optional.
+		///
+		/// Can throw exceptions.
 		///
 		/// \param speed New speed of sound to define.
 		///
-		void setSpeedOfSound(const float speed) noexcept;
+		void setSpeedOfSound(const float speed);
+
+		///
+		/// \brief Set the gain for the listener.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param gain Master gain. Must be positive.
+		///
+		void setListenerGain(const float gain);
+
+		///
+		/// \brief Set the location of the listener in the world coord system.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param x position in world.
+		/// \param y position in world.
+		/// \param z position in world.
+		///
+		void setListenerPosition(const float x, const float y, const float z);
+
+		///
+		/// \brief Set the audio velocity (speed and direction) of the listener.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param x X velocity.
+		/// \param y Y velocity.
+		/// \param z Z velocity.
+		///
+		void setListenerVelocity(const float x, const float y, const float z);
+
+		///
+		/// \brief Set orientation of listener.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param atX "at" vector x.
+		/// \param atY "at" vector y.
+		/// \param atZ "at" vector z.
+		/// \param upX "up" vector x.
+		/// \param upY "up" vector y.
+		/// \param upZ "up" vector z.
+		///
+		void setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
 
 	private:
 		///

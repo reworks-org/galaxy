@@ -5,3 +5,4 @@ https://kcat.strangesoft.net/openal-tutorial.html
 https://ffainelli.github.io/openal-example/
 
 - Stream from disk?
+- Context Capture Functions (record audio).
