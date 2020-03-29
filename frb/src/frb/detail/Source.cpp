@@ -7,7 +7,7 @@
 
 #include <stdexcept>
 
-#include "frb/detail/Error.hpp"
+#include "frb/Error.hpp"
 
 #include "Source.hpp"
 
@@ -29,6 +29,7 @@ namespace frb
 
 	Source::~Source() noexcept
 	{
+		stop();
 		alDeleteSources(1, &m_source);
 	}
 
@@ -95,9 +96,34 @@ namespace frb
 		}
 	}
 
+	void Source::queue(const frb::Buffer& buffer)
+	{
+		auto handle = buffer.handle();
+		alSourceQueueBuffers(m_source, 1, &handle);
+	}
+
+	void Source::queue(const std::vector<frb::Buffer*>& buffers)
+	{
+		std::vector<ALuint> handles;
+		handles.reserve(buffers.size());
+
+		for (frb::Buffer* buff : buffers)
+		{
+			handles.push_back(buff->handle());
+		}
+
+		handles.shrink_to_fit();
+		alSourceQueueBuffers(m_source, handles.size(), handles.data());
+	}
+
 	void Source::play() noexcept
 	{
 		alSourcePlay(m_source);
+	}
+
+	void Source::stop() noexcept
+	{
+		alSourceStop(m_source);
 	}
 
 	const ALuint Source::handle() const noexcept

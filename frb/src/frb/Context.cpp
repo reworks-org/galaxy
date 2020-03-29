@@ -7,7 +7,7 @@
 
 #include <stdexcept>
 
-#include "frb/detail/Error.hpp"
+#include "frb/Error.hpp"
 
 #include "Context.hpp"
 
@@ -21,10 +21,21 @@ namespace frb
 	{
 	}
 
-	bool Context::initialize()
+	Context::~Context() noexcept
+	{
+		// Cleanup.
+		alcMakeContextCurrent(nullptr);
+		alcDestroyContext(m_context);
+		alcCloseDevice(m_device);
+	}
+
+	void Context::initialize()
 	{
 		// This section explains itself kinda. Just init OpenAL and make sure there arent any issues.
 		// Similar to OpenGL if your familiar.
+
+		// Make sure error code is default flagged.
+		alGetError();
 
 		m_device = alcOpenDevice(alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER));
 		if (!m_device)
@@ -44,11 +55,13 @@ namespace frb
 		}
 	}
 
-	Context::~Context() noexcept
+	void Context::setDopplerFactor(const float factor) noexcept
 	{
-		// Cleanup.
-		alcMakeContextCurrent(nullptr);
-		alcDestroyContext(m_context);
-		alcCloseDevice(m_device);
+		alDopplerFactor(factor);
+	}
+
+	void Context::setSpeedOfSound(const float speed) noexcept
+	{
+		alSpeedOfSound(speed);
 	}
 }

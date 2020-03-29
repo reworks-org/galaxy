@@ -5,16 +5,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frb\Context.hpp" />
-    <ClInclude Include="src\frb\detail\Error.hpp" />
-    <ClInclude Include="src\frb\Listener.hpp" />
-    <ClInclude Include="src\frb\audio\Source.hpp" />
-    <ClInclude Include="src\frb\audio\Buffer.hpp" />
+    <ClInclude Include="src\frb\detail\Buffer.hpp" />
+    <ClInclude Include="src\frb\detail\Source.hpp" />
+    <ClInclude Include="src\frb\Error.hpp" />
+    <ClInclude Include="src\frb\audio\Sound.hpp" />
+    <ClInclude Include="src\frb\detail\BufferArray.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\frb\Context.cpp" />
-    <ClCompile Include="src\frb\detail\Error.cpp" />
-    <ClCompile Include="src\frb\Listener.cpp" />
-    <ClCompile Include="src\frb\audio\Source.cpp" />
-    <ClCompile Include="src\frb\audio\Buffer.cpp" />
+    <ClCompile Include="src\frb\detail\Buffer.cpp" />
+    <ClCompile Include="src\frb\detail\Source.cpp" />
+    <ClCompile Include="src\frb\Error.cpp" />
+    <ClCompile Include="src\frb\audio\Sound.cpp" />
+    <ClCompile Include="src\frb\detail\BufferArray.cpp" />
   </ItemGroup>
 </Project>

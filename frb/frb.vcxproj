@@ -22,18 +22,20 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\frb\audio\Buffer.hpp" />
+    <ClInclude Include="src\frb\audio\Sound.hpp" />
+    <ClInclude Include="src\frb\detail\Buffer.hpp" />
     <ClInclude Include="src\frb\Context.hpp" />
-    <ClInclude Include="src\frb\detail\Error.hpp" />
-    <ClInclude Include="src\frb\Listener.hpp" />
-    <ClInclude Include="src\frb\audio\Source.hpp" />
+    <ClInclude Include="src\frb\detail\BufferArray.hpp" />
+    <ClInclude Include="src\frb\Error.hpp" />
+    <ClInclude Include="src\frb\detail\Source.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\frb\audio\Buffer.cpp" />
+    <ClCompile Include="src\frb\audio\Sound.cpp" />
+    <ClCompile Include="src\frb\detail\Buffer.cpp" />
     <ClCompile Include="src\frb\Context.cpp" />
-    <ClCompile Include="src\frb\detail\Error.cpp" />
-    <ClCompile Include="src\frb\Listener.cpp" />
-    <ClCompile Include="src\frb\audio\Source.cpp" />
+    <ClCompile Include="src\frb\detail\BufferArray.cpp" />
+    <ClCompile Include="src\frb\Error.cpp" />
+    <ClCompile Include="src\frb\detail\Source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -123,7 +125,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,7 +151,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,7 +178,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -205,7 +207,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

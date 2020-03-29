@@ -8,7 +8,9 @@
 #ifndef FRB_SOURCE_HPP_
 #define FRB_SOURCE_HPP_
 
-#include "frb/audio/Buffer.hpp"
+#include <vector>
+
+#include "frb/detail/Buffer.hpp"
 
 ///
 /// Core namespace.
@@ -106,9 +108,28 @@ namespace frb
 		void bind(const frb::Buffer& buffer);
 
 		///
+		/// Queue a buffer for the source to play.
+		///
+		/// \param buffer Buffer to queue.
+		///
+		void queue(const frb::Buffer& buffer);
+
+		///
+		/// Queue a set of buffers for the source to play through.
+		///
+		/// \param buffers Array of buffers you want to play in a queue.
+		///
+		void queue(const std::vector<frb::Buffer*>& buffers);
+
+		///
 		/// Play a source.
 		///
 		void play() noexcept;
+		
+		///
+		/// Stop source.
+		///
+		void stop() noexcept;
 
 		///
 		/// Get the OpenAL internal int id / handle.

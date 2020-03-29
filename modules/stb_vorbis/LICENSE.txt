@@ -1,0 +1,12 @@
+I, Sean Barrett, single-handedly wrote the decoder, and as the legal author (it was not a "work for hire") placed it in the public domain in April, 2007. That means I have disclaimed copyright of it. You can take the source code and use it for any purpose, commercial or non-commercial, copyrighted, open-source, Free, free, or public domain, with no legal obligation to acknowledge the borrowing/copying in any way.
+
+Commentary:
+
+The difference between public domain and, say, a Creative Commons commercial / non-share-alike / attribution license is solely the requirement for attribution. (Similarly the BSD license and such.) While I would appreciate acknowledgement and attribution, I believe that it is foolish to place a legal encumberment (i.e. a license) on the software solely to get attribution.
+
+For example, consider that actual person-hours must have been invested in making sure this page properly covered all Valve's legal issues with regards to attribution-required software. (Information needed to propogate from the programmers who incorporated the libraries to whoever maintains that web page.) Those person-hours cost the company actual money, despite the fact that nobody is ever going to look at this or care.
+
+In other words, I'm arguing that PD is superior to the BSD license and the Creative Commons 'Attribution' license. If the license offers anything besides attribution -- as does, e.g., CC NonCommercial-ShareAlike, or the GPL -- that's an entirely different story. 
+
+No Warranty
+This software is in the public domain. You are not entering into a contract with me or anyone else when you use this software. It is a gift. As such, various laws regarding warranties express or implied do not apply in any way. Nevertheless, in case there is any doubt, I do not offer you any warranty, express or implied, for its behavior, nor fitness of purpose towards any application. If it manages to decode some Ogg Vorbis streams for you, count yourself lucky. 

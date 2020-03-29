@@ -17,29 +17,44 @@
 namespace frb
 {
 	///
-	///
+	/// OpenAL context, device and listener.
 	///
 	class Context
 	{
 	public:
 		///
-		/// Default constructor.
+		/// Constructor.
 		///
 		Context() noexcept;
+
+		///
+		/// Destructor.
+		///
+		~Context() noexcept;
 
 		///
 		/// \brief Initialize OpenAL.
 		///
 		/// Can throw exceptions.
+		/// Should be in a try-catch block.
 		///
 		/// \return True if successful.
 		///
-		bool initialize();
+		void initialize();
 
 		///
-		/// Default destructor.
+		/// Optional. Change doppler factor.
 		///
-		~Context() noexcept;
+		/// \param factor New factor for doppler effect.
+		///
+		void setDopplerFactor(const float factor) noexcept;
+
+		///
+		/// Optional. Change the default speed of sound.
+		///
+		/// \param speed New speed of sound to define.
+		///
+		void setSpeedOfSound(const float speed) noexcept;
 
 	private:
 		///
