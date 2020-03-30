@@ -50,7 +50,7 @@ namespace frb
 		///
 		/// \param files Array of files to load from disk. Can only load ogg vorbis.
 		///
-		void loadFromFile(const std::vector<std::string>& files);
+		void load(const std::vector<std::string>& files);
 
 		///
 		/// Load files from memory.
@@ -59,7 +59,7 @@ namespace frb
 		///
 		/// \param data A set of paired mem/size files to load from memory.
 		///
-		void loadFromMemory(const std::vector<std::pair<unsigned char*, const int>>& data);
+		void load(const std::vector<std::pair<unsigned char*, const int>>& data);
 
 		///
 		/// Get frequency of buffer.
@@ -122,7 +122,7 @@ namespace frb
 		/// \param file File to load from disk. Can only load ogg vorbis.
 		/// \param buffer OpenAL buffer index.
 		///
-		void loadFile(const std::string& file, const ALuint buffer);
+		void iloadFile(const std::string& file, const ALuint buffer);
 
 		///
 		/// Load a file from memory.
@@ -133,7 +133,7 @@ namespace frb
 		/// \param size Size of the buffer.
 		/// \param buffer OpenAL buffer index.
 		///
-		void loadMem(const unsigned char* mem, const int size, const ALuint buffer);
+		void iloadMem(const unsigned char* mem, const int size, const ALuint buffer);
 
 	private:
 		///
@@ -166,20 +166,20 @@ namespace frb
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::loadFromFile(const std::vector<std::string>& files)
+	inline void BufferArray<size>::load(const std::vector<std::string>& files)
 	{
 		for (ALuint count = 0; count < size; count++)
 		{
-			loadFile(files[count], count);
+			iloadFile(files[count], count);
 		}
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::loadFromMemory(const std::vector<std::pair<unsigned char*, const int>>& data)
+	inline void BufferArray<size>::load(const std::vector<std::pair<unsigned char*, const int>>& data)
 	{
 		for (ALuint count = 0; count < size; count++)
 		{
-			loadMem(data[count].first, data[count].second, count);
+			iloadMem(data[count].first, data[count].second, count);
 		}
 	}
 
@@ -200,7 +200,7 @@ namespace frb
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::loadFile(const std::string& file, const ALuint buffer)
+	inline void BufferArray<size>::iloadFile(const std::string& file, const ALuint buffer)
 	{
 		// Process filepath properly.
 		auto path = std::filesystem::path(file);
@@ -247,7 +247,7 @@ namespace frb
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::loadMem(const unsigned char* mem, const int size, const ALuint buffer)
+	inline void BufferArray<size>::iloadMem(const unsigned char* mem, const int size, const ALuint buffer)
 	{
 		int channels = 0;
 		int samples = 0;

@@ -23,15 +23,15 @@ namespace frb
 		m_buffer.destroy();
 	}
 
-	void Audible::loadFromFile(const std::string& file)
+	void Audible::load(const std::string& file)
 	{
-		m_buffer.loadFromFile(file);
+		m_buffer.load(file);
 		m_source.bind(m_buffer);
 	}
 
-	void Audible::loadFromMemory(const unsigned char* mem, const int size)
+	void Audible::load(const unsigned char* mem, const int size)
 	{
-		m_buffer.loadFromMemory(mem, size);
+		m_buffer.load(mem, size);
 		m_source.bind(m_buffer);
 	}
 

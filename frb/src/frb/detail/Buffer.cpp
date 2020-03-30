@@ -38,7 +38,7 @@ namespace frb
 		}
 	}
 
-	void Buffer::loadFromFile(const std::string& file)
+	void Buffer::load(const std::string& file)
 	{
 		// Process filepath properly.
 		auto path = std::filesystem::path(file);
@@ -84,7 +84,7 @@ namespace frb
 		}
 	}
 
-	void Buffer::loadFromMemory(const unsigned char* mem, const int size)
+	void Buffer::load(const unsigned char* mem, const int size)
 	{
 		int channels = 0;
 		int samples = 0;

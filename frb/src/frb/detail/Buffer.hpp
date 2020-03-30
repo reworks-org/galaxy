@@ -46,7 +46,7 @@ namespace frb
 		///
 		/// \param file File to load from disk. Can only load ogg vorbis.
 		///
-		void loadFromFile(const std::string& file);
+		void load(const std::string& file);
 
 		///
 		/// Load a file from memory.
@@ -56,7 +56,7 @@ namespace frb
 		/// \param mem Unsigned char buffer containing data.
 		/// \param size Size of the buffer.
 		///
-		void loadFromMemory(const unsigned char* mem, const int size);
+		void load(const unsigned char* mem, const int size);
 
 		///
 		/// Get frequency of buffer.

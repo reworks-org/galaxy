@@ -41,7 +41,7 @@ namespace frb
 		///
 		/// \param files Array of files to load from disk. Can only load ogg vorbis.
 		///
-		void loadFromFile(const std::vector<std::string>& files);
+		void load(const std::vector<std::string>& files);
 
 		///
 		/// Load files from memory.
@@ -50,7 +50,7 @@ namespace frb
 		///
 		/// \param data A set of paired mem/size files to load from memory.
 		///
-		void loadFromMemory(const std::vector<std::pair<unsigned char*, const int>>& data);
+		void load(const std::vector<std::pair<unsigned char*, const int>>& data);
 
 		///
 		/// \brief Should the source repeat upon reaching the end.
@@ -114,14 +114,14 @@ namespace frb
 	}
 
 	template<size_t length>
-	inline void Playlist<length>::loadFromFile(const std::vector<std::string>& files)
+	inline void Playlist<length>::load(const std::vector<std::string>& files)
 	{
 		m_buffers.loadFromFile(files);
 		m_source.queue(m_buffers.raw().data(), m_buffers.raw().size());
 	}
 
 	template<size_t length>
-	inline void Playlist<length>::loadFromMemory(const std::vector<std::pair<unsigned char*, const int>>& data)
+	inline void Playlist<length>::load(const std::vector<std::pair<unsigned char*, const int>>& data)
 	{
 		m_buffers.loadFromMemory(data);
 		m_source.queue(m_buffers.raw().data(), m_buffers.raw().size());
