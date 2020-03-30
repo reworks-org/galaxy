@@ -8,7 +8,7 @@
 #ifndef PROTOSTAR_COLOUR_HPP_
 #define PROTOSTAR_COLOUR_HPP_
 
-#include <cstdint>
+#include <array>
 
 ///
 /// Core namespace.
@@ -40,6 +40,20 @@ namespace protostar
 		/// Default destructor.
 		///
 		~Colour() noexcept = default;
+
+		///
+		/// Converts to fixed size float array.
+		///
+		/// \return Move invoked fixed size std::array of floats.
+		///
+		std::array<float, 4> asFloats() noexcept;
+
+		///
+		/// Converts to fixed size int array.
+		///
+		/// \return Move invoked fixed size std::array of ints.
+		///
+		std::array<int, 4> asIntegers() noexcept;
 
 	public:
 		///

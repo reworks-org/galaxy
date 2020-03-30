@@ -21,4 +21,16 @@ namespace protostar
 		:m_red(r), m_green(g), m_blue(b), m_alpha(a)
 	{
 	}
+
+	std::array<float, 4> Colour::asFloats() noexcept
+	{
+		std::array<float, 4> arr = { m_red, m_green, m_blue, m_alpha };
+		return std::move(arr);
+	}
+
+	std::array<int, 4> Colour::asIntegers() noexcept
+	{
+		std::array<int, 4> arr = { m_red, m_green, m_blue, m_alpha };
+		return std::move(arr);
+	}
 }
