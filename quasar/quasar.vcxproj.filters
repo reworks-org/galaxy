@@ -13,6 +13,7 @@
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
     <ClCompile Include="src\qs\core\Colours.cpp" />
     <ClCompile Include="..\modules\glad\glad\glad.c" />
+    <ClCompile Include="src\qs\transforms\Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -26,6 +27,7 @@
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
     <ClInclude Include="src\qs\core\Colours.hpp" />
+    <ClInclude Include="src\qs\transforms\Transform.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

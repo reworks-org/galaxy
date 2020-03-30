@@ -24,6 +24,7 @@
     <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
+    <ClCompile Include="src\qs\transforms\Transform.cpp" />
     <ClCompile Include="src\qs\utils\Error.cpp" />
     <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="src\qs\core\Shader.hpp" />
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
+    <ClInclude Include="src\qs\transforms\Transform.hpp" />
     <ClInclude Include="src\qs\utils\Error.hpp" />
     <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
@@ -127,7 +129,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -148,7 +150,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -174,7 +176,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -201,7 +203,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>

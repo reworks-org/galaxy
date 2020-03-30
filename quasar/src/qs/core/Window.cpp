@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include <glad/glad.h>
+#include <stb_image.h>
 
 #include "qs/utils/Error.hpp"
 #include "qs/utils/Utility.hpp"
@@ -23,6 +24,7 @@ namespace qs
 	Window::Window() noexcept
 		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
 	{
+		stbi_set_flip_vertically_on_load(true);
 	}
 
 	Window::Window(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
