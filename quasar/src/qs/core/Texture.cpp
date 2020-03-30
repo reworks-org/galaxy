@@ -25,7 +25,7 @@ namespace qs
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);
-		glBindTexture(GL_TEXTURE_2D, m_id);
+		bind();
 
 		// Set texture to clamp to a border, else repeat texture.
 		if (!repeat)
@@ -64,7 +64,11 @@ namespace qs
 		}
 
 		stbi_image_free(data);
-		glBindTexture(GL_TEXTURE_2D, 0);
+
+		setMinifyFilter(qs::Texture::Filter::NEAREST_MIPMAP_LINEAR);
+		setMagnifyFilter(qs::Texture::Filter::NEAREST);
+
+		unbind();
 	}
 
 	Texture::~Texture() noexcept
@@ -81,5 +85,58 @@ namespace qs
 	void Texture::unbind() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	void Texture::setRepeated() noexcept
+	{
+		bind();
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	}
+
+	void Texture::setMirrored() noexcept
+	{
+		bind();
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+	}
+
+	void Texture::clampToEdge() noexcept
+	{
+		bind();
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	}
+
+	void Texture::clampToBorder(protostar::Colour& border) noexcept
+	{
+		bind();
+		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
+	}
+
+	void Texture::setMinifyFilter(const qs::Texture::Filter& filter)
+	{
+		bind();
+		if (filter == qs::Texture::Filter::LINEAR)
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		}
+		else if (filter == qs::Texture::Filter::NEAREST)
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		}
+	}
+
+	void Texture::setMagnifyFilter(const qs::Texture::Filter& filter)
+	{
+		bind();
+		if (filter == qs::Texture::Filter::LINEAR)
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		}
+		else if (filter == qs::Texture::Filter::NEAREST)
+		{
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		}
 	}
 }
