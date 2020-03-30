@@ -1,6 +1,6 @@
 ///
 /// Context.hpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -19,7 +19,7 @@ namespace frb
 	///
 	/// OpenAL context, device and listener.
 	///
-	class Context
+	class Context final
 	{
 	public:
 		///

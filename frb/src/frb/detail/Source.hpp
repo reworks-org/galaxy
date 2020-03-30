@@ -1,6 +1,6 @@
 ///
 /// Source.hpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "frb/detail/Buffer.hpp"
+#include "frb/detail/BufferArray.hpp"
 
 ///
 /// Core namespace.
@@ -20,7 +21,7 @@ namespace frb
 	///
 	/// Origin of the audio sound.
 	///
-	class Source
+	class Source final
 	{
 	public:
 		///
@@ -160,6 +161,14 @@ namespace frb
 		void queue(const std::vector<frb::Buffer*>& buffers);
 
 		///
+		/// Queue a set of buffers for the source to play through.
+		///
+		/// \param bufferArray Array of buffers you want to play in a queue.
+		/// \param size The size of bufferArray.
+		///
+		void queue(const ALuint* bufferArray, const size_t size);
+
+		///
 		/// Play source.
 		///
 		void play() noexcept;
@@ -185,6 +194,11 @@ namespace frb
 		/// \return Const ALuint handle integer.
 		///
 		const ALuint handle() const noexcept;
+
+		///
+		/// Destroy all memory and OpenAL data.
+		///
+		void destroy() noexcept;
 
 	private:
 		///

@@ -8,7 +8,8 @@
     <ClInclude Include="src\frb\detail\Buffer.hpp" />
     <ClInclude Include="src\frb\detail\Source.hpp" />
     <ClInclude Include="src\frb\Error.hpp" />
-    <ClInclude Include="src\frb\audio\Sound.hpp" />
+    <ClInclude Include="src\frb\audio\Audible.hpp" />
+    <ClInclude Include="src\frb\audio\Playlist.hpp" />
     <ClInclude Include="src\frb\detail\BufferArray.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -16,7 +17,8 @@
     <ClCompile Include="src\frb\detail\Buffer.cpp" />
     <ClCompile Include="src\frb\detail\Source.cpp" />
     <ClCompile Include="src\frb\Error.cpp" />
-    <ClCompile Include="src\frb\audio\Sound.cpp" />
+    <ClCompile Include="src\frb\audio\Audible.cpp" />
+    <ClCompile Include="src\frb\audio\Playlist.cpp" />
     <ClCompile Include="src\frb\detail\BufferArray.cpp" />
   </ItemGroup>
 </Project>

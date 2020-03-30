@@ -95,24 +95,27 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>../frb/src/;../modules/protostar/protostar/src/;../modules/openal/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>../frb/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <EnableModules>false</EnableModules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OpenAL32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../modules/openal/lib/Win32/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;frb.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/openal/lib/Win32/;../frb/bin/Debug/Win32/;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Debug/x86/" OpenAL32.dll
+      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Debug/Win32/" OpenAL32.dll
 if %errorlevel% LEQ 8 exit 0</Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -121,21 +124,24 @@ if %errorlevel% LEQ 8 exit 0</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>../frb/src/;../modules/protostar/protostar/src/;../modules/openal/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>../frb/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <EnableModules>false</EnableModules>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OpenAL32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../modules/openal/lib/Win64/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;frb.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/openal/lib/Win64/;../frb/bin/Debug/x64/;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>robocopy "../modules/openal/bin/Win64/" "bin/Debug/x64/" OpenAL32.dll
@@ -147,28 +153,31 @@ if %errorlevel% LEQ 8 exit 0</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>../frb/src/;../modules/protostar/protostar/src/;../modules/openal/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>../frb/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <EnableModules>false</EnableModules>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OpenAL32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../modules/openal/lib/Win32/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;frb.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/openal/lib/Win32/;../frb/bin/Release/Win32/;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Release/x86/" OpenAL32.dll
+      <Command>robocopy "../modules/openal/bin/Win32/" "bin/Release/Win32/" OpenAL32.dll
 if %errorlevel% LEQ 8 exit 0</Command>
     </PostBuildEvent>
     <PostBuildEvent>
@@ -177,25 +186,28 @@ if %errorlevel% LEQ 8 exit 0</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>../frb/src/;../modules/protostar/protostar/src/;../modules/openal/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>../frb/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <EnableModules>false</EnableModules>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>OpenAL32.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../modules/openal/lib/Win64/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;frb.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/openal/lib/Win64/;../frb/bin/Release/x64/;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>robocopy "../modules/openal/bin/Win64/" "bin/Release/x64/" OpenAL32.dll

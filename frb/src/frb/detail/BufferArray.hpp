@@ -101,6 +101,18 @@ namespace frb
 		template<size_t index>
 		const ALuint handle() const noexcept;
 
+		///
+		/// Retrieve internal raw array of handles.
+		///
+		/// \return Raw std::array of handles.
+		///
+		std::array<ALuint, size>& raw() noexcept;
+
+		///
+		/// Destroy all memory and OpenAL data.
+		///
+		void destroy() noexcept;
+
 	private:
 		///
 		/// Load a file from disk.
@@ -144,7 +156,13 @@ namespace frb
 	template<size_t size>
 	inline BufferArray<size>::~BufferArray() noexcept
 	{
-		alDeleteBuffers(size, m_bufferArray.data());
+		for (auto count = 0; count < size; count++)
+		{
+			if (m_bufferArray[count] != static_cast<ALuint>((int)-1))
+			{
+				alDeleteBuffers(1, &m_bufferArray[count]);
+			}
+		}
 	}
 
 	template<size_t size>
@@ -162,6 +180,22 @@ namespace frb
 		for (ALuint count = 0; count < size; count++)
 		{
 			loadMem(data[count].first, data[count].second, count);
+		}
+	}
+
+	template<size_t size>
+	inline std::array<ALuint, size>& BufferArray<size>::raw() noexcept
+	{
+		return m_bufferArray;
+	}
+
+	template<size_t size>
+	inline void BufferArray<size>::destroy() noexcept
+	{
+		alDeleteBuffers(size, m_bufferArray.data());
+		for (auto count = 0; count < size; count++)
+		{
+			m_bufferArray[count] = static_cast<ALuint>((int)-1);
 		}
 	}
 

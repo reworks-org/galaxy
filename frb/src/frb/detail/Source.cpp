@@ -1,6 +1,6 @@
 ///
 /// Source.cpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -29,8 +29,10 @@ namespace frb
 
 	Source::~Source() noexcept
 	{
-		stop();
-		alDeleteSources(1, &m_source);
+		if (m_source != static_cast<ALuint>((int)-1))
+		{
+			destroy();
+		}
 	}
 
 	void Source::setPitch(const float pitch)
@@ -167,6 +169,11 @@ namespace frb
 		alSourceQueueBuffers(m_source, handles.size(), handles.data());
 	}
 
+	void Source::queue(const ALuint* bufferArray, const size_t size)
+	{
+		alSourceQueueBuffers(m_source, size, bufferArray);
+	}
+
 	void Source::play() noexcept
 	{
 		alSourcePlay(m_source);
@@ -190,5 +197,12 @@ namespace frb
 	const ALuint Source::handle() const noexcept
 	{
 		return m_source;
+	}
+
+	void Source::destroy() noexcept
+	{
+		stop();
+		alDeleteSources(1, &m_source);
+		m_source = static_cast<ALuint>((int)-1);
 	}
 }

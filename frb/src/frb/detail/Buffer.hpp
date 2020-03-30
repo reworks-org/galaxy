@@ -1,12 +1,14 @@
 ///
 /// Buffer.hpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef FRB_BUFFER_HPP_
 #define FRB_BUFFER_HPP_
+
+#include <string>
 
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -19,7 +21,7 @@ namespace frb
 	///
 	/// Holds a single piece of audio.
 	///
-	class Buffer
+	class Buffer final
 	{
 	public:
 		///
@@ -90,6 +92,11 @@ namespace frb
 		/// \return Const ALuint handle integer.
 		///
 		const ALuint handle() const noexcept;
+
+		///
+		/// Destroy all memory and OpenAL data.
+		///
+		void destroy() noexcept;
 
 	private:
 		///

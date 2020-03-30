@@ -1,6 +1,6 @@
 ///
 /// Error.cpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -12,6 +12,9 @@
 
 #include "Error.hpp"
 
+///
+/// Core namespace.
+///
 namespace frb
 {
 	std::string parseError(const std::string& message) noexcept

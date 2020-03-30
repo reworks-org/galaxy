@@ -22,20 +22,22 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\frb\audio\Sound.hpp" />
+    <ClInclude Include="src\frb\audio\Audible.hpp" />
     <ClInclude Include="src\frb\detail\Buffer.hpp" />
     <ClInclude Include="src\frb\Context.hpp" />
     <ClInclude Include="src\frb\detail\BufferArray.hpp" />
     <ClInclude Include="src\frb\Error.hpp" />
     <ClInclude Include="src\frb\detail\Source.hpp" />
+    <ClInclude Include="src\frb\audio\Playlist.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\frb\audio\Sound.cpp" />
+    <ClCompile Include="src\frb\audio\Audible.cpp" />
     <ClCompile Include="src\frb\detail\Buffer.cpp" />
     <ClCompile Include="src\frb\Context.cpp" />
     <ClCompile Include="src\frb\detail\BufferArray.cpp" />
     <ClCompile Include="src\frb\Error.cpp" />
     <ClCompile Include="src\frb\detail\Source.cpp" />
+    <ClCompile Include="src\frb\audio\Playlist.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -118,14 +120,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -144,14 +147,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN64;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -172,13 +176,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -201,13 +207,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN64;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

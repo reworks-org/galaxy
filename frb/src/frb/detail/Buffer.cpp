@@ -1,6 +1,6 @@
 ///
 /// Buffer.cpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -14,6 +14,9 @@
 
 #include "Buffer.hpp"
 
+///
+/// Core namespace.
+///
 namespace frb
 {
 	Buffer::Buffer()
@@ -29,7 +32,10 @@ namespace frb
 
 	Buffer::~Buffer() noexcept
 	{
-		alDeleteBuffers(1, &m_buffer);
+		if (m_buffer != static_cast<ALuint>((int)-1))
+		{
+			destroy();
+		}
 	}
 
 	void Buffer::loadFromFile(const std::string& file)
@@ -150,5 +156,11 @@ namespace frb
 	const ALuint Buffer::handle() const noexcept
 	{
 		return m_buffer;
+	}
+
+	void Buffer::destroy() noexcept
+	{
+		alDeleteBuffers(1, &m_buffer);
+		m_buffer = static_cast<ALuint>((int)-1);
 	}
 }

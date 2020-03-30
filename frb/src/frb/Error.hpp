@@ -1,6 +1,6 @@
 ///
 /// Error.hpp
-/// context
+/// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,6 +10,9 @@
 
 #include <string>
 
+///
+/// Core namespace.
+///
 namespace frb
 {
 	///

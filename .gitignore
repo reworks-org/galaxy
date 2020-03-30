@@ -1,5 +1,9 @@
+# Folders.
 .vs/
 frb/bin/
 frb/build/
 testbed/bin/
 testbed/build/
+
+# Files.
+testbed/bin/test.ogg
