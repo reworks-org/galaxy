@@ -21,6 +21,11 @@ namespace protostar
 	struct KeyUpEvent final
 	{
 		///
+		/// Default constructor.
+		///
+		KeyUpEvent() noexcept = default;
+
+		///
 		/// Constructor.
 		///
 		/// \param keycode Keycode of key pressed.

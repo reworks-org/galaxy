@@ -21,6 +21,11 @@ namespace protostar
 	struct KeyDownEvent final
 	{
 		///
+		/// Default constructor.
+		///
+		KeyDownEvent() noexcept = default;
+
+		///
 		/// Constructor.
 		///
 		/// \param keycode Keycode for the key that was pressed.

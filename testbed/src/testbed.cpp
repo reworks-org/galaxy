@@ -6,10 +6,13 @@
 ///
 
 #include <iostream>
+#include <protostar/events/KeyUpEvent.hpp>
 
 int main()
 {
-	// todo
+	protostar::KeyUpEvent e;
+
+	e.m_keycode = protostar::Keys::A;
 
 	std::cin.get();
 }
