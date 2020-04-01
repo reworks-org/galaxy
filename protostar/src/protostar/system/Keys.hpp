@@ -16,7 +16,7 @@ namespace protostar
 	///
 	/// Enum class representing keys.
 	///
-	enum class Keys : unsigned int
+	enum class Keys
 	{
 		A,
 		B,
