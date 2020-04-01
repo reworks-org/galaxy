@@ -4,10 +4,14 @@ VisualStudioVersion = 16.0.29519.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{69BE6962-AA70-41CD-87BC-44A77344330A}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B} = {D35A973A-11D3-4496-9ACA-0DF906D8A16B}
 		{CE3E74C5-2C0F-4063-8983-7468E868D286} = {CE3E74C5-2C0F-4063-8983-7468E868D286}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quasar", "quasar\quasar.vcxproj", "{CE3E74C5-2C0F-4063-8983-7468E868D286}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D35A973A-11D3-4496-9ACA-0DF906D8A16B} = {D35A973A-11D3-4496-9ACA-0DF906D8A16B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protostar", "modules\protostar\protostar\protostar.vcxproj", "{D35A973A-11D3-4496-9ACA-0DF906D8A16B}"
 EndProject

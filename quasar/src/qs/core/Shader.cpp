@@ -9,10 +9,6 @@
 #include <fstream>
 #include <sstream>
 
-#include <glad/glad.h>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
 #include "qs/utils/Error.hpp"
 
 #include "Shader.hpp"
@@ -37,6 +33,7 @@ namespace qs
 
 	Shader::~Shader() noexcept
 	{
+		disable();
 		glDeleteProgram(m_id);
 	}
 
@@ -210,107 +207,5 @@ namespace qs
 
 			return location;
 		}
-	}
-
-	template<>
-	void Shader::setUniform<int>(const std::string& name, const int& a)
-	{
-		glUniform1i(getUniformLocation(name), a);
-	}
-
-	template<>
-	void Shader::setUniform<int, int>(const std::string& name, const int& a, const int& b)
-	{
-		glUniform2i(getUniformLocation(name), a, b);
-	}
-
-	template<>
-	void Shader::setUniform<int, int, int>(const std::string& name, const int& a, const int& b, const int& c)
-	{
-		glUniform3i(getUniformLocation(name), a, b, c);
-	}
-
-	template<>
-	void Shader::setUniform<int, int, int, int>(const std::string& name, const int& a, const int& b, const int& c, const int& d)
-	{
-		glUniform4i(getUniformLocation(name), a, b, c, d);
-	}
-
-	template<>
-	void Shader::setUniform<unsigned int>(const std::string& name, const unsigned int& a)
-	{
-		glUniform1ui(getUniformLocation(name), a);
-	}
-
-	template<>
-	void Shader::setUniform<unsigned int, unsigned int>(const std::string& name, const unsigned int& a, const unsigned int& b)
-	{
-		glUniform2ui(getUniformLocation(name), a, b);
-	}
-
-	template<>
-	void Shader::setUniform<unsigned int, unsigned int, unsigned int>(const std::string& name, const unsigned int& a, const unsigned int& b, const unsigned int& c)
-	{
-		glUniform3ui(getUniformLocation(name), a, b, c);
-	}
-
-	template<>
-	void Shader::setUniform<unsigned int, unsigned int, unsigned int, unsigned int>(const std::string& name, const unsigned int& a, const unsigned int& b, const unsigned int& c, const unsigned int& d)
-	{
-		glUniform4ui(getUniformLocation(name), a, b, c, d);
-	}
-
-	template<>
-	void Shader::setUniform<float>(const std::string& name, const float& a)
-	{
-		glUniform1f(getUniformLocation(name), a);
-	}
-
-	template<>
-	void Shader::setUniform<float, float>(const std::string& name, const float& a, const float& b)
-	{
-		glUniform2f(getUniformLocation(name), a, b);
-	}
-
-	template<>
-	void Shader::setUniform<float, float, float>(const std::string& name, const float& a, const float& b, const float& c)
-	{
-		glUniform3f(getUniformLocation(name), a, b, c);
-	}
-
-	template<>
-	void Shader::setUniform<float, float, float, float>(const std::string& name, const float& a, const float& b, const float& c, const float& d)
-	{
-		glUniform4f(getUniformLocation(name), a, b, c, d);
-	}
-
-	template<>
-	void Shader::setUniform<double>(const std::string& name, const double& a)
-	{
-		glUniform1d(getUniformLocation(name), a);
-	}
-
-	template<>
-	void Shader::setUniform<double, double>(const std::string& name, const double& a, const double& b)
-	{
-		glUniform2d(getUniformLocation(name), a, b);
-	}
-
-	template<>
-	void Shader::setUniform<double, double, double>(const std::string& name, const double& a, const double& b, const double& c)
-	{
-		glUniform3d(getUniformLocation(name), a, b, c);
-	}
-
-	template<>
-	void Shader::setUniform<double, double, double, double>(const std::string& name, const double& a, const double& b, const double& c, const double& d)
-	{
-		glUniform4d(getUniformLocation(name), a, b, c, d);
-	}
-
-	template<>
-	void Shader::setUniform<glm::mat4>(const std::string& name, const glm::mat4& transform)
-	{
-		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, glm::value_ptr(transform));
 	}
 }

@@ -21,10 +21,6 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\basic.frag" />
-    <None Include="bin\basic.vert" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{69BE6962-AA70-41CD-87BC-44A77344330A}</ProjectGuid>
@@ -106,10 +102,13 @@
       <PreprocessorDefinitions>STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,6 +116,10 @@
       <AdditionalLibraryDirectories>../quasar/bin/Debug/x64/;../modules/SDL2/lib/x86/;../modules/protostar/protostar/bin/Debug/Win32/;</AdditionalLibraryDirectories>
       <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy SDL2 DLLs.</Message>
+      <Command>robocopy "../modules/SDL2/bin/Win32/" "bin/Debug/Win32/" SDL2.dll</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -125,12 +128,15 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>false</ConformanceMode>
+      <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +144,10 @@
       <AdditionalLibraryDirectories>../quasar/bin/Debug/x64/;../modules/SDL2/lib/x64/;../modules/protostar/protostar/bin/Debug/x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy SDL2 DLLs.</Message>
+      <Command>robocopy "../modules/SDL2/bin/x64/" "bin/Debug/x64/" SDL2.dll</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -155,6 +165,8 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -164,6 +176,11 @@
       <AdditionalLibraryDirectories>../quasar/bin/Release/x64/;../modules/SDL2/lib/x86/;../modules/protostar/protostar/bin/Release/Win32/;</AdditionalLibraryDirectories>
       <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy SDL2 DLLs.</Message>
+      <Command>robocopy "../modules/SDL2/bin/Win32/" "bin/Release/Win32/" SDL2.dll
+if %errorlevel% LEQ 8 exit 0</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -181,6 +198,8 @@
       <AdditionalOptions>/bigobj</AdditionalOptions>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,6 +209,10 @@
       <AdditionalLibraryDirectories>../quasar/bin/Release/x64/;../modules/SDL2/lib/x64/;../modules/protostar/protostar/bin/Release/x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Message>Copy SDL2 DLLs.</Message>
+      <Command>robocopy "../modules/SDL2/bin/x64/" "bin/Release/x64/" SDL2.dll</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

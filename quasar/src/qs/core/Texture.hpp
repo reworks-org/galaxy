@@ -18,6 +18,9 @@
 ///
 namespace qs
 {
+	///
+	/// Holds an OpenGL texture information and data.
+	///
 	class Texture final
 	{
 	public:
@@ -60,21 +63,96 @@ namespace qs
 			LINEAR_MIPMAP_LINEAR
 		};
 
-		Texture(const std::string& file, bool repeat = false, const std::array<float, 4>& border = { 1.0f, 1.0f, 1.0f, 0.0f });
-		~Texture() noexcept;
+		///
+		/// \brief Default constructor.
+		///
+		/// Remember to call load()!
+		///
+		Texture() noexcept;
 
+		///
+		/// \brief Argument constructor.
+		///
+		/// Calls load().
+		/// Can throw exceptions.
+		///
+		/// \param file File on disk to load from.
+		///
+		Texture(const std::string& file);
+
+		///
+		/// Destructor.
+		///
+		~Texture() noexcept;
+		
+		///
+		/// \brief Loads texture from file.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param file File on disk to load from.
+		///
+		void load(const std::string& file);
+
+		///
+		/// \brief Bind as active OpenGL texture.
+		///
+		/// Binds to GL_TEXTURE2D
+		///
 		void bind() noexcept;
+
+		///
+		/// \brief Unbinds texture from GL_TEXTURE2D context.
+		///
+		/// Note technically unbinds any texture since sets GL_TEXTURE2D to NULL.
+		///
 		void unbind() noexcept;
 
+		///
+		/// Makes the texture repeat over its verticies.
+		///
 		void setRepeated() noexcept;
+
+		///
+		/// Mirrors the texture.
+		///
 		void setMirrored() noexcept;
+
+		///
+		/// \brief Clamps texture to edges.
+		///
+		/// Clamps the coordinates between 0 and 1.
+		/// The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
+		///
 		void clampToEdge() noexcept;
+
+		///
+		/// \brief Clamps to the border.
+		///
+		/// Coordinates outside the range are now given a user-specified border color.
+		///
+		/// \param border Colour of the border.
+		///
 		void clampToBorder(protostar::Colour& border) noexcept;
 
+		///
+		/// Set filter when texture is downscaled in OpenGL.
+		///
+		/// \param filter Enum filter to apply to texture.
+		///
 		void setMinifyFilter(const qs::Texture::Filter& filter);
+
+		///
+		/// Set filter when texture would be scaled up in OpenGL.
+		///
+		/// \param filter Enum filter to apply to texture.
+		///
 		void setMagnifyFilter(const qs::Texture::Filter& filter);
 
 	private:
+		///
+		/// Internal OpenGL ID of texture.
+		///
 		unsigned int m_id;
 	};
 }

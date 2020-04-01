@@ -38,7 +38,7 @@ namespace qs
 		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
 		///
 		template<std::size_t size>
-		void create(const std::array<unsigned int, size>& indices, unsigned int glDrawType) noexcept;
+		void create(const std::array<unsigned int, size>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
 
 		///
 		/// Destroys buffer.

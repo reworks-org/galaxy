@@ -12,7 +12,7 @@
 #include <string>
 
 #include <SDL2/SDL_video.h>
-#include <protostar/graphics/Colour.hpp>
+#include <protostar/system/Colour.hpp>
 
 ///
 /// Core namespace.
@@ -136,6 +136,20 @@ namespace qs
 		///
 		SDL_GLContext& getContext() noexcept;
 
+		///
+		/// Get window width.
+		///
+		/// \return Const integer.
+		///
+		const int getWidth() const noexcept;
+
+		///
+		/// Get window height.
+		///
+		/// \return Const integer.
+		///
+		const int getHeight() const noexcept;
+
 	private:
 		///
 		/// Keeps track of window state.
@@ -151,6 +165,16 @@ namespace qs
 		/// OpenGL Context.
 		///
 		SDL_GLContext m_glContext;
+
+		///
+		/// Window width.
+		///
+		int m_width;
+		
+		///
+		/// Window height.
+		///
+		int m_height;
 	};
 }
 

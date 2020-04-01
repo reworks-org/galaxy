@@ -22,13 +22,12 @@
 namespace qs
 {
 	Window::Window() noexcept
-		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
+		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr), m_width(0), m_height(0)
 	{
-		stbi_set_flip_vertically_on_load(true);
 	}
 
 	Window::Window(const std::string& title, int w, int h, Uint32 windowFlags) noexcept
-		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr)
+		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr), m_width(0), m_height(0)
 	{
 		if (!create(title, w, h, windowFlags))
 		{
@@ -47,6 +46,10 @@ namespace qs
 	{
 		// Function result.
 		bool result = true;
+
+		// Window w/h.
+		m_width = w;
+		m_height = h;
 
 		// Set the version of OpenGL we want to use.
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
@@ -107,12 +110,22 @@ namespace qs
 				}
 				else
 				{
+					// Depth testing.
+					glEnable(GL_DEPTH_TEST);
+
 					// Set up the viewport.
 					glViewport(0, 0, w, h);
 
+					// Set up blending.
+					glEnable(GL_BLEND);
+					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+					// Make sure stbi does not load upside down.
+					stbi_set_flip_vertically_on_load(true);
+
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-					qs::Error::handle().callback("Window.cpp", 93, msg);
+					qs::Error::handle().callback("Window.cpp", 119, msg);
 				}
 			}
 		}
@@ -154,6 +167,9 @@ namespace qs
 
 	void Window::resize(int w, int h) noexcept
 	{
+		m_width = w;
+		m_height = h;
+
 		SDL_SetWindowSize(m_window, w, h);
 		glViewport(0, 0, w, h);
 	}
@@ -177,5 +193,15 @@ namespace qs
 	SDL_GLContext& Window::getContext() noexcept
 	{
 		return m_glContext;
+	}
+
+	const int Window::getWidth() const noexcept
+	{
+		return m_width;
+	}
+
+	const int Window::getHeight() const noexcept
+	{
+		return m_height;
 	}
 }

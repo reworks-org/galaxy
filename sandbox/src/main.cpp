@@ -9,13 +9,16 @@
 #include <iostream>
 
 #include <Windows.h>
+#undef DELETE // fucking windows
+
 #include <SDL2/SDL.h>
-#include <qs/core/Window.hpp>
+
+#include <protostar/system/Keys.hpp>
 #include <qs/utils/Error.hpp>
 #include <qs/core/Shader.hpp>
 #include <qs/vertex/VertexArray.hpp>
 #include <qs/core/Texture.hpp>
-#include <qs/core/Colours.hpp>
+#include <qs/transforms/Camera.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -54,12 +57,20 @@ int main(int argsc, char* argsv[])
 		
 		// rect verticies
 		// x, y, z, r, g, b, tex, tex
-		std::array<float, 32> vertices =
+		std::array<float, 32> old_vertices =
 		{
-			0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+			0.5f, 0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
 			0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
 			-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
 			-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
+		};
+
+		std::array<float, 32> vertices =
+		{
+			-50.0f, -50.0f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+			50.0f, -50.0f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+			50.0f, 50.0f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+			-50.0f,  50.0f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
 		};
 
 		std::array<unsigned int, 6> indices =
@@ -69,10 +80,10 @@ int main(int argsc, char* argsv[])
 		};
 
 		qs::VertexBuffer vb;
-		vb.create(vertices, GL_STATIC_DRAW);
+		vb.create(vertices);
 
 		qs::IndexBuffer ib;
-		ib.create(indices, GL_STATIC_DRAW);
+		ib.create(indices);
 
 		qs::VertexLayout layout(8);
 		layout.add<float>(3); // pos
@@ -83,6 +94,17 @@ int main(int argsc, char* argsv[])
 
 		qs::Texture tex("bin/wall.jpg");
 
+		qs::Transform tf;
+		qs::Camera camera;
+		camera.configure(&window);
+		camera.setSpeed(0.1f);
+		camera.rotate(45.0f);
+
+		tf.rotate(45.0f);
+		tf.scale(1.4f, 1.4f);
+
+		shader.use();
+				
 		// Loop
 		while (window.isOpen())
 		{
@@ -101,6 +123,22 @@ int main(int argsc, char* argsv[])
 				case SDLK_ESCAPE:
 					window.close();
 					break;
+
+				case SDLK_UP:
+					camera.move(0.0f, 5.0f);
+					break;
+
+				case SDLK_DOWN:
+					camera.move(0.0f, -5.0f);
+					break;
+
+				case SDLK_LEFT:
+					camera.rotate(5.0f);
+					break;
+
+				case SDLK_RIGHT:
+					camera.rotate(-5.0f);
+					break;
 				}
 				break;
 
@@ -109,13 +147,14 @@ int main(int argsc, char* argsv[])
 				break;
 			}
 
+			camera.update(1.0);
+			shader.setUniform<glm::mat4>("u_proj", camera.get() * tf.getTransformation());
+
 			// Render.
 			window.clear(qs::Colours::White);
 
 			tex.bind();
-			shader.use();
 			va.bind();
-
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 			
 			window.swap();

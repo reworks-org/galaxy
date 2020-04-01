@@ -24,3 +24,9 @@ post processing later
 - clang-7 builds to travis-ci
 - fix error and window tests. creating window is wrong and make sure error is more generic in case error message is changed during testing.
 - move to build script so can be build without appveyor or manual package installation. (copy dlls on windows too...)
+
+https://github.com/TheCherno/OpenGL/blob/master/OpenGL-Examples/src/ExampleLayer.cpp
+	https://www.youtube.com/watch?v=7D8lLbp9_rQ&list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2&index=23
+	https://github.com/TheCherno/OpenGL/blob/master/OpenGL-Core/src/GLCore/Util/OrthographicCameraController.h
+	https://github.com/TheCherno/OpenGL/blob/master/OpenGL-Core/src/GLCore/Util/OrthographicCamera.cpp
+	https://github.com/TheCherno/OpenGL/blob/master/OpenGL-Core/src/GLCore/Util/OrthographicCameraController.cpp

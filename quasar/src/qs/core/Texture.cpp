@@ -20,34 +20,30 @@
 ///
 namespace qs
 {
-	Texture::Texture(const std::string& file, bool repeat, const std::array<float, 4>& border)
+	Texture::Texture() noexcept
 		:m_id(0)
+	{
+		std::string msg = "You have created a default texture object. Remember to call load()!";
+		qs::Error::handle().callback("Texture.cpp", 27, msg);
+	}
+
+	Texture::Texture(const std::string& file)
+		:m_id(0)
+	{
+		load(file);
+	}
+
+	Texture::~Texture() noexcept
+	{
+		unbind();
+		glDeleteTextures(1, &m_id);
+	}
+
+	void Texture::load(const std::string& file)
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);
 		bind();
-
-		// Set texture to clamp to a border, else repeat texture.
-		if (!repeat)
-		{
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-
-			// Set border colour.
-			glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.data());
-		}
-		else
-		{
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-		}
-
-		// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-
-		// Set interpolation for mipmapping.
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
 		int w = 0, h = 0;
 		unsigned char* data = stbi_load(file.c_str(), &w, &h, nullptr, 0);
@@ -56,6 +52,12 @@ namespace qs
 		{
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
+
+			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
+			setMinifyFilter(qs::Texture::Filter::LINEAR_MIPMAP_LINEAR);
+
+			// Set interpolation for mipmapping.
+			setMagnifyFilter(qs::Texture::Filter::NEAREST);
 		}
 		else
 		{
@@ -65,16 +67,7 @@ namespace qs
 
 		stbi_image_free(data);
 
-		setMinifyFilter(qs::Texture::Filter::NEAREST_MIPMAP_LINEAR);
-		setMagnifyFilter(qs::Texture::Filter::NEAREST);
-
 		unbind();
-	}
-
-	Texture::~Texture() noexcept
-	{
-		unbind();
-		glDeleteTextures(1, &m_id);
 	}
 
 	void Texture::bind() noexcept

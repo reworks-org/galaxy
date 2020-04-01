@@ -9,7 +9,7 @@
 #ifndef QUASAR_COLOURS_HPP_
 #define QUASAR_COLOURS_HPP_
 
-#include <protostar/graphics/Colour.hpp>
+#include <protostar/system/Colour.hpp>
 
 ///
 /// Core namespace.
