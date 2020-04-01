@@ -8,6 +8,8 @@
 #ifndef PROTOSTAR_KEYCHAREVENT_HPP_
 #define PROTOSTAR_KEYCHAREVENT_HPP_
 
+#include <protostar/system/Keys.hpp>
+
 ///
 /// Core namespace.
 ///
@@ -29,7 +31,7 @@ namespace protostar
 		/// \param keycode Code of the key pressed.
 		/// \param unichar Unicode character pressed.
 		///
-		KeyCharEvent(const int keycode, const int unichar) noexcept;
+		KeyCharEvent(const protostar::Keys keycode, const int unichar) noexcept;
 
 		///
 		/// Default destructor.
@@ -39,7 +41,7 @@ namespace protostar
 		///
 		/// Keycode for the key that was pressed.
 		///
-		int m_keycode;
+		protostar::Keys m_keycode;
 
 		///
 		/// Unicode character for use with unicode strings.

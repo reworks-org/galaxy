@@ -8,6 +8,8 @@
 #ifndef PROTOSTAR_KEYUPEVENT_HPP_
 #define PROTOSTAR_KEYUPEVENT_HPP_
 
+#include <protostar/system/Keys.hpp>
+
 ///
 /// Core namespace.
 ///
@@ -19,16 +21,11 @@ namespace protostar
 	struct KeyUpEvent final
 	{
 		///
-		/// Default constructor.
-		///
-		KeyUpEvent() noexcept;
-
-		///
 		/// Constructor.
 		///
 		/// \param keycode Keycode of key pressed.
 		///
-		KeyUpEvent(const int keycode) noexcept;
+		KeyUpEvent(const protostar::Keys keycode) noexcept;
 
 		///
 		/// Default destructor.
@@ -38,7 +35,7 @@ namespace protostar
 		///
 		/// Keycode for the key that was pressed.
 		///
-		int m_keycode;
+		protostar::Keys m_keycode;
 	};
 }
 

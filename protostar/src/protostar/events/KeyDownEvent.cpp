@@ -12,12 +12,7 @@
 ///
 namespace protostar
 {
-	KeyDownEvent::KeyDownEvent() noexcept
-		:m_keycode(0)
-	{
-	}
-
-	KeyDownEvent::KeyDownEvent(const int keycode) noexcept
+	KeyDownEvent::KeyDownEvent(const protostar::Keys keycode) noexcept
 		:m_keycode(keycode)
 	{
 	}
