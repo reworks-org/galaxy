@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\protostar\graphics\Colour.cpp" />
-    <ClCompile Include="src\protostar\graphics\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\utility\Meta.cpp" />
     <ClCompile Include="src\protostar\math\Vector2.cpp" />
     <ClCompile Include="src\protostar\math\Vector3.cpp" />
@@ -25,10 +23,11 @@
     <ClCompile Include="src\protostar\state\State.cpp" />
     <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
     <ClCompile Include="src\protostar\async\Task.cpp" />
+    <ClCompile Include="src\protostar\system\Colour.cpp" />
+    <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
+    <ClCompile Include="src\protostar\system\Keys.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\protostar\graphics\Colour.hpp" />
-    <ClInclude Include="src\protostar\graphics\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
     <ClInclude Include="src\protostar\math\Vector2.hpp" />
     <ClInclude Include="src\protostar\math\Vector3.hpp" />
@@ -51,6 +50,9 @@
     <ClInclude Include="src\protostar\state\State.hpp" />
     <ClInclude Include="src\protostar\async\ThreadPool.hpp" />
     <ClInclude Include="src\protostar\async\Task.hpp" />
+    <ClInclude Include="src\protostar\system\Colour.hpp" />
+    <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
+    <ClInclude Include="src\protostar\system\Keys.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
