@@ -22,16 +22,20 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\starlight\Dispatcher.hpp" />
-    <ClInclude Include="src\starlight\event\Base.hpp" />
-    <ClInclude Include="src\starlight\event\Wrapper.hpp" />
-    <ClInclude Include="src\starlight\event\Queued.hpp" />
+    <ClCompile Include="src\starlight\detail\QueuedEvent.cpp" />
+    <ClCompile Include="src\starlight\detail\SpecificEvent.cpp" />
+    <ClCompile Include="src\starlight\Dispatcher.cpp" />
+    <ClCompile Include="src\starlight\storage\BasicStorage.cpp" />
+    <ClCompile Include="src\starlight\storage\Storage.cpp" />
+    <ClCompile Include="src\starlight\Types.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\starlight\Dispatcher.cpp" />
-    <ClCompile Include="src\starlight\event\Base.cpp" />
-    <ClCompile Include="src\starlight\event\Queued.cpp" />
-    <ClCompile Include="src\starlight\event\Wrapper.cpp" />
+    <ClInclude Include="src\starlight\detail\QueuedEvent.hpp" />
+    <ClInclude Include="src\starlight\detail\SpecificEvent.hpp" />
+    <ClInclude Include="src\starlight\Dispatcher.hpp" />
+    <ClInclude Include="src\starlight\storage\BasicStorage.hpp" />
+    <ClInclude Include="src\starlight\storage\Storage.hpp" />
+    <ClInclude Include="src\starlight\Types.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -8,13 +8,7 @@
 #ifndef STARLIGHT_DISPATCHER_HPP_
 #define STARLIGHT_DISPATCHER_HPP_
 
-#include <deque>
-#include <memory>
-#include <functional>
-
-#include "starlight/event/Queued.hpp"
-#include "starlight/event/Wrapper.hpp"
-#include "protostar/utility/UniqueID.hpp"
+#include "starlight/storage/Storage.hpp"
 
 ///
 /// Core namespace.
@@ -22,36 +16,20 @@
 namespace starlight
 {
 	///
-	/// Shorthand for event type.
-	///
-	using EventPtr = std::unique_ptr<EventBase>;
-
-	///
-	/// Predefinition of unique id structure for events.
-	///
-	using EventUniqueID = protostar::UniqueID<struct EUID>;
-
-	///
 	/// This is the main class to dispatch events from.
 	///
-	class Dispatcher
+	class Dispatcher final
 	{
-		///
-		/// Type representing a callback.
-		///
-		template<typename Event>
-		using callback = std::function<void(const Event&, std::mutex&)>;
-
 	public:
 		///
 		/// Default constructor.
 		///
-		Dispatcher() = default;
+		Dispatcher() noexcept = default;
 
 		///
 		/// Default destructor.
 		///
-		~Dispatcher() = default;
+		~Dispatcher() noexcept;
 
 		///
 		/// Registers a function to be called on the triggering of an event.
@@ -61,17 +39,17 @@ namespace starlight
 		/// \return True on success.
 		/// 
 		template<typename Event>
-		bool add(const callback<Event>& callback);
+		void add(const Callback<Event>& callback);
 
 		///
 		/// Queues an event to be triggered, does not trigger immediately.
 		///
-		/// \param event Event to add to the queue.
+		/// \param args Constructor arguments for event.
 		///
 		/// \return True on success.
 		///
-		template<typename Event>
-		bool queue(const Event& event);
+		template<typename Event, typename ...Args>
+		void queue(Args&&... args);
 
 		///
 		/// Triggers a single event.
@@ -88,88 +66,63 @@ namespace starlight
 
 	private:
 		///
-		/// Mutex to prevent resources being simultaneously accessed.
+		/// Holds events and their callbacks.
 		///
-		std::mutex m_lock;
+		std::vector<StoragePtr> m_callbacks;
 
 		///
 		/// Holds queued events.
 		///
-		std::deque<starlight::QueuedEvent> m_queue;
-
-		///
-		/// Stores callbacks and their associated event type. 
-		///
-		std::vector<EventPtr> m_stored;
+		std::vector<QueuedEventPtr> m_queued;
 	};
 	
 	template<typename Event>
-	inline bool Dispatcher::add(const callback<Event>& func)
+	inline void Dispatcher::add(const Callback<Event>& callback)
 	{
 		// Useful to retrieve a compile time unique id.
-		auto type = EventUniqueID::get<Event>();
-		bool result = true;
-
-		if (type >= m_stored.size())
-		{
-			m_stored.resize(type + 1);
-		}
+		std::size_t typeIndex = UniqueEventID::get<Event>();
 
 		// Ensure leftover references to unique pointer are destroyed.
 		{
+			// Make sure there is room.
+			if (typeIndex >= m_callbacks.size())
+			{
+				m_callbacks.resize(typeIndex + 1);
+			}
+
 			// If null ptr, then no storage for this component exists.
-			if (!m_stored[type])
+			if (!m_callbacks[typeIndex])
 			{
 				// Use polymorphism to ensure type erasure.
 				// Matches to vector location.
 				// This works because the type order is 0..1..2 etc, so there are no blanks in the vector.
-				m_stored[type] = std::make_unique<EventWrapper<Event, callback<Event>>>();
+				
+				m_callbacks[typeIndex] = std::make_unique<starlight::Storage<Event>>();
 			}
 
 			// Now convert the storage to the type we want to access.
-			EventWrapper<Event, callback<Event>>* eventWrapper = static_cast<EventWrapper<Event, callback<Event>>*>(m_stored[type].get());
-			eventWrapper->add(func);
+			auto convertedStorage = static_cast<starlight::Storage<Event>*>(m_callbacks[typeIndex].get());
+			convertedStorage->forward(callback);
 		}
-
-		return result;
 	}
 
-	template<typename Event>
-	inline bool Dispatcher::queue(const Event& event)
+	template<typename Event, typename ...Args>
+	inline void Dispatcher::queue(Args&&... args)
 	{
-		// Useful to retrieve a compile time unique id.
-		auto type = EventUniqueID::get<Event>();
-		bool result = true;
-
-		if (type < m_stored.size())
-		{
-			// If null ptr, then no storage for this component exists.
-			if (!m_stored[type])
-			{
-				result = false;
-			}
-			else
-			{
-				// Utilizes std::any to erase type.
-				m_queue.push_front({event, type});
-			}
-		}
-		else
-		{
-			result = false;
-		}
-
-		return result;
+		m_queued.push_back(std::move(std::make_unique<starlight::SpecificEvent<Event>>(std::forward<Args>(args)...)));
 	}
 
 	template<typename Event>
 	inline void Dispatcher::trigger(const Event& event)
 	{
 		// Useful to retrieve a compile time unique id.
-		auto type = EventUniqueID::get<Event>();
+		std::size_t typeIndex = UniqueEventID::get<Event>();
 
 		// Matches to vector location and trigger event.
-		m_stored[type]->trigger(event);
+		if (!m_callbacks.empty())
+		{
+			static_cast<starlight::Storage<Event>*>(m_callbacks[typeIndex].get())->trigger(event);
+		}
 	}
 }
 

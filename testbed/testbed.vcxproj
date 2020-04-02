@@ -21,10 +21,6 @@
   <ItemGroup>
     <ClCompile Include="src\testbed.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\tests\QueuedTest.hpp" />
-    <ClInclude Include="src\tests\WrapperTest.hpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{C7727119-B126-4D31-927E-F72927D2EC07}</ProjectGuid>
@@ -112,7 +108,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;</AdditionalDependencies>
+      <AdditionalDependencies>starlight.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../starlight/bin/Debug/Win32/;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,7 +127,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;</AdditionalDependencies>
+      <AdditionalDependencies>starlight.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../starlight/bin/Debug/x64/;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,7 +150,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;</AdditionalDependencies>
+      <AdditionalDependencies>starlight.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../starlight/bin/Release/Win32/;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -174,7 +173,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;</AdditionalDependencies>
+      <AdditionalDependencies>starlight.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../starlight/bin/Release/x64/;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

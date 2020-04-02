@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "starlight/Dispatcher.hpp"
+#include <starlight/Dispatcher.hpp>
 
 struct Test
 {
@@ -20,13 +20,13 @@ int main()
 	starlight::Dispatcher dispatcher;
 
 	dispatcher.add<Test>([](const Test& test_int, std::mutex& mutex)
-	{
-		mutex.lock();
+		{
+			mutex.lock();
 
-		std::cout << test_int.a << std::endl;
+			std::cout << test_int.a << std::endl;
 
-		mutex.unlock();
-	});
+			mutex.unlock();
+		});
 
 	dispatcher.trigger<Test>(test);
 
