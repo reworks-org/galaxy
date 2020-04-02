@@ -26,6 +26,32 @@ namespace qs
 	{
 	public:
 		///
+		/// Holds window related settings.
+		///
+		struct WindowSettings final
+		{
+			///
+			/// SDL2 compatible window flags.
+			///
+			Uint32 SDL_windowFlags = 0;
+
+			///
+			/// Should Multisample Anti-Aliasing be enabled?
+			///
+			bool msaa = false;
+			
+			///
+			/// Level of MSAA. I.e. 2, 4, etc.
+			///
+			int msaaLevel = 2;
+
+			///
+			/// Hardware (GPU) or software (CPU) based rendering.
+			///
+			bool hardwareRendering = true;
+		};
+
+		///
 		/// Default constructed window.
 		///
 		Window() noexcept;
@@ -39,9 +65,9 @@ namespace qs
 		/// \param title Title of the window.
 		/// \param w Width of the window.
 		/// \param h Height of the window.
-		/// \param windowFlags SDL2 Window flags.
+		/// \param settings Settings for the window, like flags and MSAA.
 		///
-		explicit Window(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
+		explicit Window(const std::string& title, int w, int h, const WindowSettings& settings) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -58,11 +84,11 @@ namespace qs
 		/// \param title Title of the window.
 		/// \param w Width of the window.
 		/// \param h Height of the window.
-		/// \param windowFlags SDL2 Window flags.
+		/// \param settings Settings for the window, like flags and MSAA.
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(const std::string& title, int w, int h, Uint32 windowFlags = 0) noexcept;
+		bool create(const std::string& title, int w, int h, const WindowSettings& settings) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -86,22 +112,7 @@ namespace qs
 		void close() noexcept;
 		
 		///
-		/// \brief Resizes the OpenGL viewport.
-		///
-		/// You need to call this when the window resize event is triggered.
-		/// Example: 
-		///
-		///	case SDL_WINDOWEVENT_SIZE_CHANGED:
-		///      onResize(event->window.data1, event->window.data2);
-		///      break;
-		///
-		/// \param w New width of the window.
-		/// \param h new height of the window.
-		///
-		void onSizeChanged(int w, int h) noexcept;
-
-		///
-		/// Resizes window and gl viewport.
+		/// Resizes window.
 		///
 		/// \param w New width of the window.
 		/// \param h new height of the window.
@@ -113,14 +124,14 @@ namespace qs
 		///
 		/// \param colour Colour to clear to.
 		///
-		void clear(const protostar::Colour& colour) noexcept;
+		void begin(const protostar::Colour& colour) noexcept;
 
 		///
 		/// \brief Renders the OpenGL buffer to the screen.
 		///
 		/// Basically calls SDL_GL_SwapWindow().
 		///
-		void swap() noexcept;
+		void end() noexcept;
 
 		///
 		/// Retrieve pointer to SDL_Window object.

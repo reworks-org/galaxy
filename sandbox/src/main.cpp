@@ -38,14 +38,20 @@ int main(int argsc, char* argsv[])
 
 		// Create window and check for errors.
 		qs::Window window;
-		if (!window.create("TestBed", 800, 600, SDL_WINDOW_ALLOW_HIGHDPI))
+		qs::Window::WindowSettings settings;
+		settings.hardwareRendering = true;
+		settings.msaa = true;
+		settings.msaaLevel = 2;
+		settings.SDL_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
+
+		if (!window.create("TestBed", 800, 600, settings))
 		{
 			std::cout << "Window creation failed!" << std::endl;
 		}
 
 		qs::Error::handle().setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
 		{
-			std::cout << "[GL_ERROR] Source: " << source << " Type: " << type << " ID: " << id << " Severity: " << severity << " Length: " << length << " Message: " << message << std::endl;
+			std::cout << "[GL_MSG] Source: " << source << " Type: " << type << " ID: " << id << " Severity: " << severity << " Length: " << length << " Message: " << message << std::endl;
 		});
 
 		// Events
@@ -55,21 +61,22 @@ int main(int argsc, char* argsv[])
 		qs::Shader shader("bin/basic.vert", "bin/basic.frag");
 		
 		// rect verticies
-		// x, y, z, r, g, b, tex, tex
-		std::array<float, 32> vertices =
+		// x, y, z, r, g, b, a, tex, tex
+		std::array<float, 36> old_vertices =
 		{
-			0.5f, 0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-			0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-			-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-			-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
+			50.5f, 50.5f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,   // top right
+			50.5f, -50.5f, 0.0f,   0.0f, 1.0f, 0.0f,  1.0f, 1.0f, 0.0f,   // bottom right
+			-50.5f, -50.5f, 0.0f,   0.0f, 0.0f, 1.0f, 1.0f,  0.0f, 0.0f,   // bottom left
+			-50.5f,  50.5f, 0.0f,   1.0f, 1.0f, 0.0f, 1.0f,  0.0f, 1.0f    // top left 
 		};
 
-		std::array<float, 32> new_vertices =
+		// x, y, z, tex, tex
+		std::array<float, 20> vertices =
 		{
-			-50.0f, -50.0f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-			50.0f, -50.0f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-			50.0f, 50.0f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-			-50.0f,  50.0f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
+			50.5f, 50.5f, 0.0f, 1.0f, 1.0f,   // top right
+			50.5f, -50.5f, 0.0f, 1.0f, 0.0f,   // bottom right
+			-50.5f, -50.5f, 0.0f, 0.0f, 0.0f,   // bottom left
+			-50.5f,  50.5f, 0.0f, 0.0f, 1.0f    // top left 
 		};
 
 		std::array<unsigned int, 6> indices =
@@ -84,18 +91,20 @@ int main(int argsc, char* argsv[])
 		qs::IndexBuffer ib;
 		ib.create(indices);
 
-		qs::VertexLayout layout(8);
+		qs::VertexLayout layout(5);
 		layout.add<float>(3); // pos
-		layout.add<float>(3); // col
+		//layout.add<float>(4); // col
 		layout.add<float>(2); // tex
 
 		qs::VertexArray va(vb, ib, layout);
 
-		qs::Texture tex("bin/wall.jpg");
+		qs::Texture tex("bin/wall.png");
 
 		qs::Camera camera;
-		camera.configure(-2.0f, 2.0f, -2.0f, 2.0f);
-		camera.setSpeed(0.2f);
+		//camera.configure(-2.0f, 2.0f, -2.0f, 2.0f);
+		camera.configure(0.0f, window.getWidth(), 0.0f, window.getHeight());
+		camera.setSpeed(10.0f);
+		camera.scale(8.0f, 8.0f);
 
 		// Loop
 		while (window.isOpen())
@@ -141,10 +150,6 @@ int main(int argsc, char* argsv[])
 					break;
 				}
 				break;
-
-			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				window.onSizeChanged(e.window.data1, e.window.data2);
-				break;
 			}
 
 			camera.update(1.0);
@@ -152,13 +157,13 @@ int main(int argsc, char* argsv[])
 			shader.setUniform<glm::mat4>("u_proj", camera.get());
 
 			// Render.
-			window.clear(qs::Colours::White);
+			window.begin(qs::Colours::White);
 
 			tex.bind();
 			va.bind();
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 			
-			window.swap();
+			window.end();
 		}
 
 		// Exit.

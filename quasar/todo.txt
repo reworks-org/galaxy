@@ -20,6 +20,7 @@ post processing later
 	- for AA and Hardware Acc in window, and vsync. SDL_GL_SetSwapInterval(0);
 	- in window.cpp, set opengl debug mode to options stuff above.
 	// TODO: Last two are near/far for culling - important for optimization
+	// TODO: SET CONFIGURABLE MIPMAP IN GLTEXIMAGE2D
 
 - clang-7 builds to travis-ci
 - fix error and window tests. creating window is wrong and make sure error is more generic in case error message is changed during testing.

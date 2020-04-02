@@ -46,11 +46,12 @@ namespace qs
 		bind();
 
 		int w = 0, h = 0;
-		unsigned char* data = stbi_load(file.c_str(), &w, &h, nullptr, 0);
+		unsigned char* data = stbi_load(file.c_str(), &w, &h, nullptr, STBI_rgb_alpha);
 
 		if (data)
 		{
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			// TODO: SET CONFIGURABLE MIPMAP IN GLTEXIMAGE2D
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
@@ -58,11 +59,14 @@ namespace qs
 
 			// Set interpolation for mipmapping.
 			setMagnifyFilter(qs::Texture::Filter::NEAREST);
+
+			// Default clamp to edge.
+			clampToEdge();
 		}
 		else
 		{
 			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 73, msg);
+			qs::Error::handle().callback("Texture.cpp", 66, msg);
 		}
 
 		stbi_image_free(data);
