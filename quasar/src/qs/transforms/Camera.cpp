@@ -11,22 +11,19 @@
 namespace qs
 {
 	Camera::Camera() noexcept
-		:m_speed(1.0f), m_projection(glm::mat4(1.0f)), m_vp(glm::mat4(1.0f))
+		:m_speed(1.0f), m_projection(1.0f), m_vp(1.0f)
 	{
 	}
 
-	Camera::Camera(const qs::Window* window, const float speed) noexcept
-		:m_speed(speed), m_projection(glm::mat4(1.0f)), m_vp(glm::mat4(1.0f))
+	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
+		:m_speed(speed), m_projection(1.0f), m_vp(1.0f)
 	{
-		configure(window);
+		configure(left, right, bottom, top);
 	}
 
-	void Camera::configure(const qs::Window* window) noexcept
+	void Camera::configure(const float left, const float right, const float bottom, const float top) noexcept
 	{
-		// TODO: Last two are near/far for culling - important for optimization.
-		m_projection = glm::ortho(0.0f, static_cast<float>(window->getWidth()), 0.0f, 
-			static_cast<float>(window->getHeight()), -1.0f, 1.0f);
-
+		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		m_vp = m_projection * getTransformation();
 	}
 
@@ -37,14 +34,35 @@ namespace qs
 
 	void Camera::update(const double ts) noexcept
 	{
-		/*
-			move(0.0f, (m_speed * ts) * -1.0f);
-			move(0.0f, (m_speed * ts));
-			move((m_speed * ts) * -1.0f, 0.0f);
-			move((m_speed * ts), 0.0f);
-		*/
+		switch (m_curKeyDownEvent.m_keycode)
+		{
+		case protostar::Keys::UP:
+			move(0.0f, 1.1f * ts * m_speed);
+			break;
+
+		case protostar::Keys::DOWN:
+			move(0.0f, -1.1f * ts * m_speed);
+			break;
+
+		case protostar::Keys::LEFT:
+			move(-1.1f * ts * m_speed, 0.0f);
+			break;
+
+		case protostar::Keys::RIGHT:
+			move(1.1f * ts * m_speed, 0.0f);
+			break;
+
+		case protostar::Keys::Q:
+			rotate(5.0f * ts);
+			break;
+
+		case protostar::Keys::E:
+			rotate(-5.0f * ts);
+			break;
+		}
 
 		m_vp = m_projection * getTransformation();
+		m_curKeyDownEvent.m_keycode = protostar::Keys::F10;
 	}
 
 	void Camera::setSpeed(const float speed) noexcept

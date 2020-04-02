@@ -24,6 +24,7 @@
     <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
+    <ClCompile Include="src\qs\render\Renderer.cpp" />
     <ClCompile Include="src\qs\transforms\Camera.cpp" />
     <ClCompile Include="src\qs\transforms\Transform.cpp" />
     <ClCompile Include="src\qs\utils\Error.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="src\qs\core\Shader.hpp" />
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
+    <ClInclude Include="src\qs\render\Renderer.hpp" />
     <ClInclude Include="src\qs\transforms\Camera.hpp" />
     <ClInclude Include="src\qs\transforms\Transform.hpp" />
     <ClInclude Include="src\qs\utils\Error.hpp" />

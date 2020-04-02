@@ -11,7 +11,6 @@
 
 #include <protostar/events/KeyDownEvent.hpp>
 
-#include "qs/core/Window.hpp"
 #include "qs/transforms/Transform.hpp"
 
 ///
@@ -35,10 +34,13 @@ namespace qs
 		///
 		/// Calls configure() and setSpeed().
 		///
-		/// \param window Pointer to current rendering window.
+		/// \param left Left point of ortho perspective.
+		/// \param right Right point of ortho perspective.
+		/// \param bottom Bottom point of ortho perspective.
+		/// \param top Top point of ortho perspective.
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		Camera(const qs::Window* window, const float speed) noexcept;
+		Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
 
 		///
 		/// Default destructor.
@@ -48,9 +50,12 @@ namespace qs
 		///
 		/// Configures camera for window model view projection.
 		///
-		/// \param window Pointer to current rendering window.
+		/// \param left Left point of ortho perspective.
+		/// \param right Right point of ortho perspective.
+		/// \param bottom Bottom point of ortho perspective.
+		/// \param top Top point of ortho perspective.
 		///
-		void configure(const qs::Window* window) noexcept;
+		void configure(const float left, const float right, const float bottom, const float top) noexcept;
 
 		///
 		///	Event processing method for camera.

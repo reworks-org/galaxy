@@ -45,6 +45,15 @@ namespace qs
 		void move(const float x, const float y, const float z = 0.0f);
 
 		///
+		/// Sets position without moving the object.
+		///
+		/// \param x X position to set object to.
+		/// \param y Y position to set object to.
+		/// \param z Z position to set object to. Defaults to 0.
+		///
+		void setPos(const float x, const float y, const float z = 0.0f);
+
+		///
 		/// Rotate transformation in degrees.
 		///
 		/// \param degrees Max 360, min -360.
@@ -59,6 +68,11 @@ namespace qs
 		/// \param z Optional z axis scaling. Defaults to 1.0f (no scale).
 		///
 		void scale(const float x, const float y, const float z = 1.0f) noexcept;
+
+		///
+		/// Recalculates the view projection matrix.
+		///
+		void recalculate() noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.

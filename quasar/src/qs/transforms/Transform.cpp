@@ -27,6 +27,13 @@ namespace qs
 	void Transform::move(const float x, const float y, const float z)
 	{
 		m_translationMatrix = glm::translate(m_translationMatrix, glm::vec3(x, y, z));
+		recalculate();
+	}
+
+	void Transform::setPos(const float x, const float y, const float z)
+	{
+		m_translationMatrix = glm::translate(m_identityMatrix, glm::vec3(x, y, z));
+		recalculate();
 	}
 
 	void Transform::rotate(const float degrees) noexcept
@@ -42,16 +49,22 @@ namespace qs
 		}
 
 		m_rotateMatrix = glm::rotate(m_rotateMatrix, glm::radians(adjusted), glm::vec3(0.0f, 0.0f, 1.0f));
+		recalculate();
 	}
 
 	void Transform::scale(const float x, const float y, const float z) noexcept
 	{
 		m_scaledMatrix = glm::scale(m_scaledMatrix, glm::vec3(x, y, z));
+		recalculate();
+	}
+
+	void Transform::recalculate() noexcept
+	{
+		m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
 	}
 
 	glm::mat4& Transform::getTransformation() noexcept
 	{
-		m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
 		return m_modelMatrix;
 	}
 

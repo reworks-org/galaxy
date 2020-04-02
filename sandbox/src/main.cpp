@@ -15,10 +15,9 @@
 
 #include <protostar/system/Keys.hpp>
 #include <qs/utils/Error.hpp>
-#include <qs/core/Shader.hpp>
-#include <qs/vertex/VertexArray.hpp>
 #include <qs/core/Texture.hpp>
-#include <qs/transforms/Camera.hpp>
+#include <qs/core/Window.hpp>
+#include <qs/render/Renderer.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -57,7 +56,7 @@ int main(int argsc, char* argsv[])
 		
 		// rect verticies
 		// x, y, z, r, g, b, tex, tex
-		std::array<float, 32> old_vertices =
+		std::array<float, 32> vertices =
 		{
 			0.5f, 0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
 			0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
@@ -65,7 +64,7 @@ int main(int argsc, char* argsv[])
 			-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
 		};
 
-		std::array<float, 32> vertices =
+		std::array<float, 32> new_vertices =
 		{
 			-50.0f, -50.0f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
 			50.0f, -50.0f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
@@ -94,17 +93,10 @@ int main(int argsc, char* argsv[])
 
 		qs::Texture tex("bin/wall.jpg");
 
-		qs::Transform tf;
 		qs::Camera camera;
-		camera.configure(&window);
-		camera.setSpeed(0.1f);
-		camera.rotate(45.0f);
+		camera.configure(-2.0f, 2.0f, -2.0f, 2.0f);
+		camera.setSpeed(0.2f);
 
-		tf.rotate(45.0f);
-		tf.scale(1.4f, 1.4f);
-
-		shader.use();
-				
 		// Loop
 		while (window.isOpen())
 		{
@@ -125,19 +117,27 @@ int main(int argsc, char* argsv[])
 					break;
 
 				case SDLK_UP:
-					camera.move(0.0f, 5.0f);
+					camera.onKeyDown({ protostar::Keys::UP });
 					break;
 
 				case SDLK_DOWN:
-					camera.move(0.0f, -5.0f);
+					camera.onKeyDown({ protostar::Keys::DOWN });
 					break;
 
 				case SDLK_LEFT:
-					camera.rotate(5.0f);
+					camera.onKeyDown({ protostar::Keys::LEFT });
 					break;
 
 				case SDLK_RIGHT:
-					camera.rotate(-5.0f);
+					camera.onKeyDown({ protostar::Keys::RIGHT });
+					break;
+
+				case SDLK_q:
+					camera.onKeyDown({ protostar::Keys::Q });
+					break;
+
+				case SDLK_e:
+					camera.onKeyDown({ protostar::Keys::E });
 					break;
 				}
 				break;
@@ -148,7 +148,8 @@ int main(int argsc, char* argsv[])
 			}
 
 			camera.update(1.0);
-			shader.setUniform<glm::mat4>("u_proj", camera.get() * tf.getTransformation());
+			shader.use();
+			shader.setUniform<glm::mat4>("u_proj", camera.get());
 
 			// Render.
 			window.clear(qs::Colours::White);
