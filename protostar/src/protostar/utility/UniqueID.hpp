@@ -40,7 +40,7 @@ namespace protostar
 		/// \return Std::size_t ID.
 		///
 		template<typename Type>
-		static const std::size_t get();
+		static const std::size_t get() noexcept;
 
 	private:
 		///
@@ -57,7 +57,7 @@ namespace protostar
 
 	template<typename Specialization>
 	template<typename Type>
-	inline const std::size_t UniqueID<Specialization>::get()
+	inline const std::size_t UniqueID<Specialization>::get() noexcept
 	{
 		static std::size_t id = s_counter++;
 		return id;
