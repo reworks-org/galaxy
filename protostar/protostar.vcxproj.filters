@@ -26,6 +26,7 @@
     <ClCompile Include="src\protostar\system\Colour.cpp" />
     <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
+    <ClCompile Include="src\protostar\math\RectPack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
@@ -53,6 +54,7 @@
     <ClInclude Include="src\protostar\system\Colour.hpp" />
     <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
+    <ClInclude Include="src\protostar\math\RectPack.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

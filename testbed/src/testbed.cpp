@@ -7,11 +7,11 @@
 
 #include <iostream>
 #include <protostar/system/Keys.hpp>
-#include <protostar/events/KeyUpEvent.hpp>
+#include <protostar/events/KeyDownEvent.hpp>
 
 int main()
 {
-	protostar::KeyUpEvent e;
+	protostar::KeyDownEvent e;
 	protostar::Keys k;
 	k = protostar::Keys::E;
 

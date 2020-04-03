@@ -27,6 +27,7 @@
     <ClCompile Include="src\protostar\events\MouseMovedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
+    <ClCompile Include="src\protostar\math\RectPack.cpp" />
     <ClCompile Include="src\protostar\system\Colour.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
     <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="src\protostar\events\MouseMovedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
+    <ClInclude Include="src\protostar\math\RectPack.hpp" />
     <ClInclude Include="src\protostar\system\Colour.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
     <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
