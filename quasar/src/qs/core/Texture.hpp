@@ -77,8 +77,21 @@ namespace qs
 		/// Can throw exceptions.
 		///
 		/// \param file File on disk to load from.
+		/// \param mipmapLevel The level of mipmapping to apply to the texture.
 		///
-		Texture(const std::string& file);
+		explicit Texture(const std::string& file, unsigned int mipmapLevel = 0);
+
+		///
+		/// \brief Argument constructor.
+		///
+		/// Calls load().
+		/// Can throw exceptions.
+		///
+		/// \param mem Memory buffer to load from. Not freed, you must free after.
+		/// \param size Size of the buffer.
+		/// \param mipmapLevel The level of mipmapping to apply to the texture.
+		///
+		explicit Texture(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel = 0);
 
 		///
 		/// Destructor.
@@ -91,8 +104,20 @@ namespace qs
 		/// Can throw exceptions.
 		///
 		/// \param file File on disk to load from.
+		/// \param mipmapLevel The level of mipmapping to apply to the texture.
 		///
-		void load(const std::string& file);
+		void load(const std::string& file, unsigned int mipmapLevel = 0);
+
+		///
+		/// \brief Loads texture from memory.
+		///
+		/// Can throw exceptions.
+		///
+		/// \param mem Memory buffer to load from. Not freed, you must free after.
+		/// \param size Size of the buffer.
+		/// \param mipmapLevel The level of mipmapping to apply to the texture.
+		///
+		void load(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel = 0);
 
 		///
 		/// \brief Bind as active OpenGL texture.
@@ -149,11 +174,39 @@ namespace qs
 		///
 		void setMagnifyFilter(const qs::Texture::Filter& filter);
 
+		///
+		/// \brief Get texture width.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Width as int. int over unsigned for compat with float.
+		///
+		const int getWidth() const noexcept;
+
+		///
+		/// \brief Get texture height.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Height as int. int over unsigned for compat with float.
+		///
+		const int getHeight() const noexcept;
+
 	private:
 		///
 		/// Internal OpenGL ID of texture.
 		///
 		unsigned int m_id;
+
+		///
+		/// Cached texture width.
+		///
+		int m_width;
+
+		///
+		/// Cached texture height.
+		///
+		int m_height;
 	};
 }
 

@@ -42,11 +42,6 @@ namespace qs
 			
 			++counter;
 		}
-
-		// Unbind since we are finished.
-		unbind();
-		vb.unbind();
-		ib.unbind();
 	}
 
 	VertexArray::~VertexArray() noexcept

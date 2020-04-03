@@ -21,16 +21,22 @@
 namespace qs
 {
 	Texture::Texture() noexcept
-		:m_id(0)
+		:m_id(0), m_width(0), m_height(0)
 	{
 		std::string msg = "You have created a default texture object. Remember to call load()!";
 		qs::Error::handle().callback("Texture.cpp", 27, msg);
 	}
 
-	Texture::Texture(const std::string& file)
-		:m_id(0)
+	Texture::Texture(const std::string& file, unsigned int mipmapLevel)
+		:m_id(0), m_width(0), m_height(0)
 	{
-		load(file);
+		load(file, mipmapLevel);
+	}
+
+	Texture::Texture(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel)
+		: m_id(0), m_width(0), m_height(0)
+	{
+		load(mem, size, mipmapLevel);
 	}
 
 	Texture::~Texture() noexcept
@@ -39,19 +45,18 @@ namespace qs
 		glDeleteTextures(1, &m_id);
 	}
 
-	void Texture::load(const std::string& file)
+	void Texture::load(const std::string& file, unsigned int mipmapLevel)
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);
 		bind();
 
-		int w = 0, h = 0;
-		unsigned char* data = stbi_load(file.c_str(), &w, &h, nullptr, STBI_rgb_alpha);
+		unsigned char* data = stbi_load(file.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 		if (data)
 		{
-			// TODO: SET CONFIGURABLE MIPMAP IN GLTEXIMAGE2D
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			// Gen texture into OpenGL.
+			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA16, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
@@ -70,8 +75,38 @@ namespace qs
 		}
 
 		stbi_image_free(data);
+	}
 
-		unbind();
+	void Texture::load(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel)
+	{
+		// Generate texture in OpenGL and bind to 2D texture.
+		glGenTextures(1, &m_id);
+		bind();
+
+		unsigned char* data = stbi_load_from_memory(mem, size, &m_width, &m_height, nullptr, STBI_rgb_alpha);
+
+		if (data)
+		{
+			// Gen texture into OpenGL.
+			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA16, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glGenerateMipmap(GL_TEXTURE_2D);
+
+			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
+			setMinifyFilter(qs::Texture::Filter::LINEAR_MIPMAP_LINEAR);
+
+			// Set interpolation for mipmapping.
+			setMagnifyFilter(qs::Texture::Filter::NEAREST);
+
+			// Default clamp to edge.
+			clampToEdge();
+		}
+		else
+		{
+			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
+			qs::Error::handle().callback("Texture.cpp", 66, msg);
+		}
+
+		stbi_image_free(data);
 	}
 
 	void Texture::bind() noexcept
@@ -135,5 +170,15 @@ namespace qs
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		}
+	}
+
+	const int Texture::getWidth() const noexcept
+	{
+		return m_width;
+	}
+
+	const int Texture::getHeight() const noexcept
+	{
+		return m_height;
 	}
 }

@@ -34,7 +34,7 @@ namespace qs
 		/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 		/// \param offset The offset of this attribute in the verticies.
 		///
-		VertexAttribute(int size, unsigned int type, unsigned char normalized, unsigned int offset) noexcept;
+		explicit VertexAttribute(int size, unsigned int type, unsigned char normalized, unsigned int offset) noexcept;
 		
 		///
 		/// Components for each vertex attribute.

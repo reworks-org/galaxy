@@ -11,12 +11,12 @@
 namespace qs
 {
 	Camera::Camera() noexcept
-		:m_speed(1.0f), m_projection(1.0f), m_vp(1.0f)
+		:m_curKeyDownEvent(), m_speed(1.0f), m_projection(1.0f), m_vp(1.0f)
 	{
 	}
 
 	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		:m_speed(speed), m_projection(1.0f), m_vp(1.0f)
+		:m_curKeyDownEvent(), m_speed(speed), m_projection(1.0f), m_vp(1.0f)
 	{
 		configure(left, right, bottom, top);
 	}
@@ -37,27 +37,27 @@ namespace qs
 		switch (m_curKeyDownEvent.m_keycode)
 		{
 		case protostar::Keys::UP:
-			move(0.0f, 1.1f * ts * m_speed);
+			move(0.0f, ts * m_speed);
 			break;
 
 		case protostar::Keys::DOWN:
-			move(0.0f, -1.1f * ts * m_speed);
+			move(0.0f, (ts * m_speed) * -1);
 			break;
 
 		case protostar::Keys::LEFT:
-			move(-1.1f * ts * m_speed, 0.0f);
+			move((ts * m_speed) * -1, 0.0f);
 			break;
 
 		case protostar::Keys::RIGHT:
-			move(1.1f * ts * m_speed, 0.0f);
+			move(ts * m_speed, 0.0f);
 			break;
 
 		case protostar::Keys::Q:
-			rotate(5.0f * ts);
+			rotate(m_speed * ts);
 			break;
 
 		case protostar::Keys::E:
-			rotate(-5.0f * ts);
+			rotate(m_speed * ts);
 			break;
 		}
 

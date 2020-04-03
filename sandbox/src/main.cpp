@@ -8,9 +8,6 @@
 
 #include <iostream>
 
-#include <Windows.h>
-#undef DELETE // fucking windows
-
 #include <SDL2/SDL.h>
 
 #include <protostar/system/Keys.hpp>
@@ -18,12 +15,10 @@
 #include <qs/core/Texture.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/render/Renderer.hpp>
+#include <qs/transforms/Camera.hpp>
 
 int main(int argsc, char* argsv[])
 {
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, 14);
-	
 	// Try to init SDL2 with passed flags, checking to make sure of success.
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{
@@ -51,7 +46,7 @@ int main(int argsc, char* argsv[])
 
 		qs::Error::handle().setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
 		{
-			std::cout << "[GL_MSG] Source: " << source << " Type: " << type << " ID: " << id << " Severity: " << severity << " Length: " << length << " Message: " << message << std::endl;
+			std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
 		});
 
 		// Events
@@ -102,7 +97,7 @@ int main(int argsc, char* argsv[])
 
 		qs::Camera camera;
 		//camera.configure(-2.0f, 2.0f, -2.0f, 2.0f);
-		camera.configure(0.0f, window.getWidth(), 0.0f, window.getHeight());
+		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 		camera.setSpeed(10.0f);
 		camera.scale(8.0f, 8.0f);
 

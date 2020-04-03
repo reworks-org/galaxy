@@ -31,7 +31,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		VertexLayout(unsigned int stride) noexcept;
+		explicit VertexLayout(unsigned int stride) noexcept;
 
 		///
 		/// Destructor.
@@ -86,7 +86,7 @@ namespace qs
 	template<typename Type>
 	inline void VertexLayout::add(int size) noexcept
 	{
-		qs::Error::handle().callback("VertexLayout.hpp", 74, "Unsupported vertex attribute type!");
+		qs::Error::handle().callback("VertexLayout.hpp", 89, "Unsupported vertex attribute type!");
 	}
 
 	template<>

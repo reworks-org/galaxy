@@ -40,7 +40,15 @@ namespace qs
 		/// \param vertexFile Path to vertex shader source code.
 		/// \param fragmentFile Path to fragment shader source code.
 		///
-		Shader(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
+		explicit Shader(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
+
+		///
+		/// Creation Constructor.
+		///
+		/// \param vertexString Raw vertex shader as a std::string.
+		/// \param fragmentString Raw fragment shader as a std::string.
+		///
+		explicit Shader(const std::string& vertexString, const std::string& fragmentString);
 
 		///
 		/// Default destructor.
@@ -56,6 +64,16 @@ namespace qs
 		/// \return boolean True if successful.
 		///
 		bool load(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
+
+		///
+		/// Loads a shader into OpenGL from raw strings and sets up the shader program.
+		///
+		/// \param vertexString Raw vertex shader as a std::string.
+		/// \param fragmentString Raw fragment shader as a std::string.
+		///
+		/// \return boolean True if successful.
+		///
+		bool load(const std::string& vertexString, const std::string& fragmentString);
 
 		///
 		/// Enable this shader for rendering.

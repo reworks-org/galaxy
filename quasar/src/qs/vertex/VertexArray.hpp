@@ -36,7 +36,7 @@ namespace qs
 		/// \param ib IndexBufferObject to bind to VertexArrayObject.
 		/// \param layout VertexLayout to specify for this VertexArrayObject.
 		///
-		VertexArray(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
+		explicit VertexArray(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
 
 		///
 		/// Create vertex array.

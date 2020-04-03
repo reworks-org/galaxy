@@ -132,6 +132,9 @@ namespace qs
 					// Make sure stbi does not load upside down.
 					stbi_set_flip_vertically_on_load(true);
 
+					// Set vsync.
+					SDL_GL_SetSwapInterval(settings.vsync);
+
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
 					qs::Error::handle().callback("Window.cpp", 119, msg);

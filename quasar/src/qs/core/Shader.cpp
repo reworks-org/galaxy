@@ -27,7 +27,15 @@ namespace qs
 	{
 		if (!load(vertexFile, fragmentFile))
 		{
-			qs::Error::handle().callback("Shader.cpp", 28, "Failed to create shader program!");
+			qs::Error::handle().callback("Shader.cpp", 30, "Failed to create shader program!");
+		}
+	}
+
+	Shader::Shader(const std::string& vertexString, const std::string& fragmentString)
+	{
+		if (!load(vertexString, fragmentString))
+		{
+			qs::Error::handle().callback("Shader.cpp", 38, "Failed to create shader program!");
 		}
 	}
 
@@ -170,6 +178,84 @@ namespace qs
 		// Close the input stream since we are done.
 		vertexStream.close();
 		fragmentStream.close();
+
+		return result;
+	}
+
+	bool Shader::load(const std::string& vertexString, const std::string& fragmentString)
+	{
+		// Yes, all this is required to open a file in C++17. Sigh. OK here we go:
+		bool result = true;
+		unsigned int vertexID = 0;
+		unsigned int fragmentID = 0;
+
+		// Error reporting for OpenGL.
+		int success = 0;
+		char infoLog[1024];
+
+		// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string. yeah.
+		const char* vertexSource = vertexString.c_str();
+		const char* fragmentSource = fragmentString.c_str();
+
+		// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
+		vertexID = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(vertexID, 1, &vertexSource, nullptr);
+		glCompileShader(vertexID);
+
+		glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(vertexID, 1024, nullptr, infoLog);
+
+			std::string err = "Failed to vertex compile shader. GL_ERROR: ";
+			err += infoLog;
+			qs::Error::handle().callback("Shader.cpp", 120, err);
+
+			result = false;
+		}
+
+		// Now do the same for the fragment shader.
+		fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(fragmentID, 1, &fragmentSource, nullptr);
+		glCompileShader(fragmentID);
+
+		glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			glGetShaderInfoLog(fragmentID, 1024, nullptr, infoLog);
+
+			std::string err = "Failed to compile fragment shader. GL_ERROR: ";
+			err += infoLog;
+			qs::Error::handle().callback("Shader.cpp", 137, err);
+
+			result = false;
+		}
+
+		// Hopefully by this point nothing has gone wrong...
+		if (result)
+		{
+			// Create and link program.
+			m_id = glCreateProgram();
+			glAttachShader(m_id, vertexID);
+			glAttachShader(m_id, fragmentID);
+			glLinkProgram(m_id);
+
+			glGetProgramiv(m_id, GL_LINK_STATUS, &success);
+			if (!success)
+			{
+				glGetProgramInfoLog(m_id, 1024, nullptr, infoLog);
+
+				std::string err = "Failed to attach shaders. GL_ERROR: ";
+				err += infoLog;
+				qs::Error::handle().callback("Shader.cpp", 158, err);
+
+				result = false;
+			}
+		}
+
+		// Cleanup shaders.
+		glDeleteShader(vertexID);
+		glDeleteShader(fragmentID);
 
 		return result;
 	}

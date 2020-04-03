@@ -49,6 +49,11 @@ namespace qs
 			/// Hardware (GPU) or software (CPU) based rendering.
 			///
 			bool hardwareRendering = true;
+
+			///
+			/// Vertical sync.
+			///
+			bool vsync = false;
 		};
 
 		///

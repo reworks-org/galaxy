@@ -40,7 +40,7 @@ namespace qs
 		/// \param top Top point of ortho perspective.
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
+		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
 
 		///
 		/// Default destructor.

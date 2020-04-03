@@ -9,9 +9,8 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
-#include <qs/core/Shader.hpp>
-#include <qs/transforms/Camera.hpp>	
-#include <qs/vertex/VertexArray.hpp>
+#include "qs/core/Texture.hpp"
+#include "qs/transforms/Transform.hpp"
 
 ///
 /// Core namespace.
@@ -19,35 +18,30 @@
 namespace qs
 {
 	///
+	/// OpenGL 2D batch renderer for drawing VA with transforms, shaders and textures.
 	///
-	///
-	class Renderer
+	class Renderer final
 	{
 	public:
 		///
-		///
+		/// Constructor.
 		///
 		Renderer();
 
 		///
+		/// Destructor.
 		///
-		///
-		Renderer(qs::Camera* camera);
+		~Renderer() noexcept;
 
 		///
+		/// Does not take ownership of the sprite - you MUST keep it alive.
 		///
-		///
-		~Renderer();
+		void submit(const const qs::Texture& texture) noexcept;
 
+	private:
 		///
+		/// The final sprite the batch renderer draws to the screen.
 		///
-		///
-		void setCamera();
-
-		///
-		///
-		///
-		void submit(const qs::VertexArray& va, const qs::Shader& shader);
 	};
 }
 
