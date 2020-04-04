@@ -5,3 +5,7 @@
 	- ssao
 	- Culling (glm::ortho near / far?)
 	- https://www.youtube.com/watch?v=5df3NvQNzUs&list=PLlrATfBNZ98f5vZ8nJ6UengEkZUMC4fy5&index=4
+
+	https://github.com/TheCherno/Hazel/tree/master/Hazel/src/Hazel/Renderer
+	https://github.com/TheCherno/Hazel/blob/master/Hazel/src/Hazel/Renderer/Renderer2D.cpp
+	https://github.com/TheCherno/Hazel/blob/master/Hazel/src/Platform/OpenGL/OpenGLRendererAPI.cpp

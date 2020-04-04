@@ -9,6 +9,8 @@
 #ifndef QUASAR_RENDERTEXTURE_HPP_
 #define QUASAR_RENDERTEXTURE_HPP_
 
+#include <glm/gtc/matrix_transform.hpp>
+
 #include "qs/core/Texture.hpp"
 #include "qs/core/Shader.hpp"
 
@@ -34,76 +36,19 @@ namespace qs
 		///
 		/// Virtual destructor override.
 		///
-		~RenderTexture() override;
+		~RenderTexture() noexcept;
 
 		///
 		/// Activate RenderTexture for drawing.
 		///
-		void activate() noexcept;
+		/// \param shader Shader to supply when drawing.
+		///
+		void activate(qs::Shader& shader) noexcept;
 
 		///
 		/// Deactivate RenderTexture.
 		///
 		void deactivate() noexcept;
-
-		///
-		/// Makes the texture repeat over its verticies.
-		///
-		void setRepeated() noexcept;
-
-		///
-		/// Mirrors the texture.
-		///
-		void setMirrored() noexcept;
-
-		///
-		/// \brief Clamps texture to edges.
-		///
-		/// Clamps the coordinates between 0 and 1.
-		/// The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
-		///
-		void clampToEdge() noexcept;
-
-		///
-		/// \brief Clamps to the border.
-		///
-		/// Coordinates outside the range are now given a user-specified border color.
-		///
-		/// \param border Colour of the border.
-		///
-		void clampToBorder(protostar::Colour& border) noexcept;
-
-		///
-		/// Set filter when texture is downscaled in OpenGL.
-		///
-		/// \param filter Enum filter to apply to texture.
-		///
-		void setMinifyFilter(const qs::Texture::Filter& filter);
-
-		///
-		/// Set filter when texture would be scaled up in OpenGL.
-		///
-		/// \param filter Enum filter to apply to texture.
-		///
-		void setMagnifyFilter(const qs::Texture::Filter& filter);
-
-		///
-		/// \brief Get texture width.
-		///
-		/// Is cached for performance.
-		///
-		/// \return Width as int. int over unsigned for compat with float.
-		///
-		const int getWidth() const noexcept;
-
-		///
-		/// \brief Get texture height.
-		///
-		/// Is cached for performance.
-		///
-		/// \return Height as int. int over unsigned for compat with float.
-		///
-		const int getHeight() const noexcept;
 
 	private:
 		///
@@ -113,14 +58,19 @@ namespace qs
 
 	private:
 		///
+		/// Orthographic perspective of rendertexture.
+		///
+		glm::mat4 m_projection;
+
+		///
+		/// Texture to render to.
+		///
+		qs::Texture m_texture;
+
+		///
 		/// OpenGL framebuffer id.
 		///
 		unsigned int m_framebufferID;
-
-		///
-		/// OpenGL texture id.
-		///
-		unsigned int m_textureID;
 
 		///
 		/// OpenGL depth buffer id.
@@ -136,11 +86,6 @@ namespace qs
 		/// Cached texture height.
 		///
 		int m_height;
-
-		///
-		/// Internal shader for rendertexture.
-		///
-		qs::Shader m_shader;
 	};
 }
 

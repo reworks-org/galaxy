@@ -9,9 +9,9 @@
 #ifndef QUASAR_VERTEXARRAY_HPP_
 #define QUASAR_VERTEXARRAY_HPP_
 
-#include "IndexBuffer.hpp"
-#include "VertexBuffer.hpp"
-#include "VertexLayout.hpp"
+#include "qs/vertex/IndexBuffer.hpp"
+#include "qs/vertex/VertexBuffer.hpp"
+#include "qs/vertex/VertexLayout.hpp"
 
 ///
 /// Core namespace.

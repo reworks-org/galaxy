@@ -16,6 +16,8 @@
 #include <qs/core/Window.hpp>
 #include <qs/render/Renderer.hpp>
 #include <qs/transforms/Camera.hpp>
+#include <qs/render/Sprite2D.hpp>
+#include <qs/core/Shader.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -53,7 +55,7 @@ int main(int argsc, char* argsv[])
 		SDL_Event e;
 
 		// Shaders
-		qs::Shader shader("bin/basic.vert", "bin/basic.frag");
+		qs::Shader shader(std::filesystem::path("bin/basic.vert"), std::filesystem::path("bin/basic.frag"));
 		
 		// rect verticies
 		// x, y, z, r, g, b, a, tex, tex

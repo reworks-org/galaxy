@@ -23,8 +23,6 @@ namespace qs
 	Texture::Texture() noexcept
 		:m_id(0), m_width(0), m_height(0)
 	{
-		std::string msg = "You have created a default texture object. Remember to call load()!";
-		qs::Error::handle().callback("Texture.cpp", 27, msg);
 	}
 
 	Texture::Texture(const std::string& file, unsigned int mipmapLevel)
@@ -102,11 +100,16 @@ namespace qs
 		}
 		else
 		{
-			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
+			std::string msg = "Failed to load texture with size: " + std::to_string(size) + " Reason: " + stbi_failure_reason();
 			qs::Error::handle().callback("Texture.cpp", 66, msg);
 		}
 
 		stbi_image_free(data);
+	}
+
+	void Texture::load(const unsigned int id) noexcept
+	{
+		m_id = id;
 	}
 
 	void Texture::bind() noexcept
@@ -146,7 +149,7 @@ namespace qs
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
 	}
 
-	void Texture::setMinifyFilter(const qs::Texture::Filter& filter)
+	void Texture::setMinifyFilter(const qs::Texture::Filter& filter) noexcept
 	{
 		bind();
 		if (filter == qs::Texture::Filter::LINEAR)
@@ -159,7 +162,7 @@ namespace qs
 		}
 	}
 
-	void Texture::setMagnifyFilter(const qs::Texture::Filter& filter)
+	void Texture::setMagnifyFilter(const qs::Texture::Filter& filter) noexcept
 	{
 		bind();
 		if (filter == qs::Texture::Filter::LINEAR)
@@ -180,5 +183,10 @@ namespace qs
 	const int Texture::getHeight() const noexcept
 	{
 		return m_height;
+	}
+
+	const unsigned int Texture::getGLTexture() const noexcept
+	{
+		return m_id;
 	}
 }

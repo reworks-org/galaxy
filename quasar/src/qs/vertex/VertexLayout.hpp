@@ -29,9 +29,16 @@ namespace qs
 	{
 	public:
 		///
+		/// Default constructor.
+		///
+		VertexLayout() noexcept;
+
+		///
 		/// Constructor.
 		///
-		explicit VertexLayout(unsigned int stride) noexcept;
+		/// \param stride Total stride of vertex layout.
+		///
+		explicit VertexLayout(const unsigned int stride) noexcept;
 
 		///
 		/// Destructor.
@@ -47,6 +54,13 @@ namespace qs
 		void add(int size) noexcept;
 		
 		///
+		/// Set total number of columns in verticies (i.e. the stride).
+		///
+		/// \param stride Total stride of vertex layout.
+		///
+		void setStride(const unsigned int stride) noexcept;
+
+		///
 		/// Retrieve all attributes.
 		///
 		/// \return const reference to std::vector<qs::VertexAttribute>.
@@ -59,12 +73,6 @@ namespace qs
 		/// \return const unsigned int of stride.
 		///
 		const unsigned int stride() const;
-
-	private:
-		///
-		/// Default constructor.
-		///
-		VertexLayout() = delete;
 
 	private:
 		///

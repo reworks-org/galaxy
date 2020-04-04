@@ -122,6 +122,9 @@ namespace qs
 				}
 				else
 				{
+					// Enable MSAA.
+					glEnable(GL_MULTISAMPLE);
+
 					// Depth testing.
 					glEnable(GL_DEPTH_TEST);
 

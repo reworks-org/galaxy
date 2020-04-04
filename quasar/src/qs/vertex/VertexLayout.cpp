@@ -13,7 +13,12 @@
 ///
 namespace qs
 {
-	VertexLayout::VertexLayout(unsigned int stride) noexcept
+	VertexLayout::VertexLayout() noexcept
+		:m_stride(0), m_totalOffset(0)
+	{
+	}
+
+	VertexLayout::VertexLayout(const unsigned int stride) noexcept
 		:m_stride(stride), m_totalOffset(0)
 	{
 	}
@@ -21,6 +26,11 @@ namespace qs
 	VertexLayout::~VertexLayout() noexcept
 	{
 		m_attributes.clear();
+	}
+
+	void VertexLayout::setStride(const unsigned int stride) noexcept
+	{
+		m_stride = stride;
 	}
 
 	const std::vector<qs::VertexAttribute>& VertexLayout::getAttributes() const noexcept

@@ -19,6 +19,7 @@ namespace qs
 	}
 
 	VertexArray::VertexArray(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept
+		:m_id(0)
 	{
 		create(vb, ib, layout);
 	}

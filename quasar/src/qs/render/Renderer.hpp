@@ -34,14 +34,31 @@ namespace qs
 		~Renderer() noexcept;
 
 		///
-		/// Does not take ownership of the sprite - you MUST keep it alive.
 		///
-		void submit(const const qs::Texture& texture) noexcept;
+		///
+		void drawLine() noexcept;
+
+		///
+		///
+		///
+		void drawTriangle() noexcept;
+		
+		///
+		///
+		///
+		void drawQuad() noexcept;
+		
+		///
+		///
+		///
+		void drawCircle() noexcept;
+
+		///
+		///
+		///
+		void drawPolygon() noexcept;
 
 	private:
-		///
-		/// The final sprite the batch renderer draws to the screen.
-		///
 	};
 }
 

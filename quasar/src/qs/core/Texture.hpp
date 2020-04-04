@@ -120,6 +120,13 @@ namespace qs
 		void load(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel = 0);
 
 		///
+		/// Loads texture from OpenGL generated id.
+		///
+		/// \param id ID to use from OpenGL.
+		///
+		void load(const unsigned int id) noexcept;
+
+		///
 		/// \brief Bind as active OpenGL texture.
 		///
 		/// Binds to GL_TEXTURE2D
@@ -165,14 +172,14 @@ namespace qs
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		void setMinifyFilter(const qs::Texture::Filter& filter);
+		void setMinifyFilter(const qs::Texture::Filter& filter) noexcept;
 
 		///
 		/// Set filter when texture would be scaled up in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		void setMagnifyFilter(const qs::Texture::Filter& filter);
+		void setMagnifyFilter(const qs::Texture::Filter& filter) noexcept;
 
 		///
 		/// \brief Get texture width.
@@ -191,6 +198,13 @@ namespace qs
 		/// \return Height as int. int over unsigned for compat with float.
 		///
 		const int getHeight() const noexcept;
+
+		///
+		/// Gets internal OpenGL id.
+		///
+		/// \return Const unsigned int.
+		///
+		const unsigned int getGLTexture() const noexcept;
 
 	private:
 		///
