@@ -37,11 +37,11 @@ namespace qs
 		switch (m_curKeyDownEvent.m_keycode)
 		{
 		case protostar::Keys::UP:
-			move(0.0f, ts * m_speed);
+			move(0.0f, (ts * m_speed) * -1);
 			break;
 
 		case protostar::Keys::DOWN:
-			move(0.0f, (ts * m_speed) * -1);
+			move(0.0f, ts * m_speed);
 			break;
 
 		case protostar::Keys::LEFT:

@@ -21,7 +21,7 @@ namespace qs
 	///
 	/// Holds an OpenGL texture information and data.
 	///
-	class Texture final
+	class Texture
 	{
 	public:
 		///
@@ -63,6 +63,7 @@ namespace qs
 			LINEAR_MIPMAP_LINEAR
 		};
 
+	public:
 		///
 		/// \brief Default constructor.
 		///
@@ -96,7 +97,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~Texture() noexcept;
+		virtual ~Texture() noexcept;
 		
 		///
 		/// \brief Loads texture from file.
@@ -206,7 +207,7 @@ namespace qs
 		///
 		const unsigned int getGLTexture() const noexcept;
 
-	private:
+	protected:
 		///
 		/// Internal OpenGL ID of texture.
 		///

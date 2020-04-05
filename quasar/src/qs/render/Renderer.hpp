@@ -9,8 +9,8 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
-#include "qs/core/Texture.hpp"
-#include "qs/transforms/Transform.hpp"
+#include "qs/core/Shader.hpp"
+#include "qs/render/Sprite2D.hpp"
 
 ///
 /// Core namespace.
@@ -26,7 +26,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		Renderer();
+		Renderer() noexcept;
 
 		///
 		/// Destructor.
@@ -57,6 +57,11 @@ namespace qs
 		///
 		///
 		void drawPolygon() noexcept;
+
+		///
+		/// Draw sprite.
+		///
+		void drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept;
 
 	private:
 	};

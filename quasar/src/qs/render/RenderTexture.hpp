@@ -50,6 +50,16 @@ namespace qs
 		///
 		void deactivate() noexcept;
 
+		///
+		/// Get reference to internal texture.
+		///
+		qs::Texture& getTexture() noexcept;
+
+		///
+		/// Get std::move() compatible reference.
+		///
+		qs::Texture&& moveTexture() noexcept;
+
 	private:
 		///
 		/// Default constructor.

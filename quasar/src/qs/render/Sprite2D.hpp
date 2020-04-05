@@ -22,7 +22,7 @@ namespace qs
 	/// Primitive sprite object.
 	/// Everything you need to draw a texture in OpenGL.
 	///
-	class Sprite2D final : public qs::Transform
+	class Sprite2D final : public qs::Transform, public qs::Texture
 	{
 	public:
 		///
@@ -36,27 +36,28 @@ namespace qs
 		~Sprite2D() noexcept override;
 
 		///
-		/// \brief Add the vertices to the sprite.
+		/// Define vertexes of sprite.
 		///
-		/// MUST BE FLOATS.
+		/// \param vertexes Vertexes to add to VertexArray.
 		///
-		template<typename ...Vertices>
-		void addVertices() noexcept;
+		template<std::size_t size>
+		void addVertexes(const std::array<float, size>& vertexes) noexcept;
 
 		///
-		/// \brief Add the indicies to the sprite.
+		/// Define indexes of sprite.
 		///
-		/// MUST BE FLOATS.
+		/// \param indexes Indexes to add to IndexBuffer.
 		///
-		template<typename ...Indicies>
-		void addIndices() noexcept;
+		template<std::size_t size>
+		void addIndexes(const std::array<unsigned int, size>& indexes) noexcept;
 
 		///
 		/// Define layout of the VertexArray.
 		///
+		/// \param stride Total stride of vertex layout.
 		/// \param strides Size of each layout in the vertices.
 		///
-		void addLayout(const std::initializer_list<int>& strides) noexcept;
+		void addLayout(const unsigned int stride, const std::initializer_list<int>& strides) noexcept;
 
 		///
 		/// \brief Creates the internal vertex array.
@@ -64,6 +65,25 @@ namespace qs
 		/// Call AFTER you have added verticies, indicies and defined the layout.
 		///
 		void create() noexcept;
+
+		///
+		/// Bind VA, texture, and add transform to shader.
+		///
+		void activate() noexcept;
+
+		///
+		/// Get vertex array object.
+		///
+		/// \return Returns reference to internal qs::VertexArray.
+		///
+		qs::VertexArray& getVAO() noexcept;
+
+		///
+		/// Get index buffer.
+		///
+		/// \return Reference to qs::IndexBuffer.
+		///
+		qs::IndexBuffer& getIBO() noexcept;
 
 	private:
 		///
@@ -85,43 +105,18 @@ namespace qs
 		/// OpenGL Vertex Array Object.
 		///
 		qs::VertexArray m_vertexArray;
-
-		///
-		/// Texture.
-		///
-		qs::Texture m_texture;
 	};
 
-	template<typename ...Vertices>
-	inline void Sprite2D::addVertices() noexcept
+	template<std::size_t size>
+	inline void Sprite2D::addVertexes(const std::array<float, size>& vertexes) noexcept
 	{
-		// Some compile time voodoo in this function.
-		static_assert(std::is_same<float, std::decay_t<Vertices>>::value);
-
-		// Check at compile time that the vertices is not empty.
-		constexpr std::size_t size = sizeof...(Vertices);
-		if constexpr (size > 0)
-		{
-			// Create at compile time. Cool.
-			constexpr std::array<float, size> arr = { Vertices... };
-			m_vertexBuffer.create(arr);
-		}
+		m_vertexBuffer.create<float, size>(vertexes);
 	}
 
-	template<typename ...Indicies>
-	inline void Sprite2D::addIndices() noexcept
+	template<std::size_t size>
+	inline void Sprite2D::addIndexes(const std::array<unsigned int, size>& indexes) noexcept
 	{
-		// Some compile time voodoo in this function.
-		static_assert(std::is_same<float, std::decay_t<Indicies>>::value);
-
-		// Check at compile time that the vertices is not empty.
-		constexpr std::size_t size = sizeof...(Indicies);
-		if constexpr (size > 0)
-		{
-			// Create at compile time. Cool.
-			constexpr std::array<float, size> arr = { Indicies... };
-			m_indexBuffer.create(arr);
-		}
+		m_indexBuffer.create<size>(indexes);
 	}
 }
 

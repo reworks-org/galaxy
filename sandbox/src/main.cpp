@@ -68,40 +68,32 @@ int main(int argsc, char* argsv[])
 		};
 
 		// x, y, z, tex, tex
-		std::array<float, 20> vertices =
-		{
+		qs::Sprite2D sprite;
+		sprite.addVertexes<20>({
 			50.5f, 50.5f, 0.0f, 1.0f, 1.0f,   // top right
 			50.5f, -50.5f, 0.0f, 1.0f, 0.0f,   // bottom right
 			-50.5f, -50.5f, 0.0f, 0.0f, 0.0f,   // bottom left
 			-50.5f,  50.5f, 0.0f, 0.0f, 1.0f    // top left 
-		};
+			});
 
-		std::array<unsigned int, 6> indices =
-		{
+		sprite.addIndexes<6>({
 			0, 1, 3,
 			1, 2, 3
-		};
+			});
 
-		qs::VertexBuffer vb;
-		vb.create(vertices);
-
-		qs::IndexBuffer ib;
-		ib.create(indices);
-
-		qs::VertexLayout layout(5);
-		layout.add<float>(3); // pos
-		//layout.add<float>(4); // col
-		layout.add<float>(2); // tex
-
-		qs::VertexArray va(vb, ib, layout);
-
-		qs::Texture tex("bin/wall.png");
-
+		// pos, tex
+		sprite.addLayout(5, { 3, 2 });
+		sprite.create();
+		sprite.load("bin/wall.png");
+		sprite.rotate(45.0f);
+		
 		qs::Camera camera;
 		//camera.configure(-2.0f, 2.0f, -2.0f, 2.0f);
 		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);
-		camera.setSpeed(10.0f);
-		camera.scale(8.0f, 8.0f);
+		camera.setSpeed(0.2f);
+		//camera.scale(8.0f, 8.0f);
+
+		qs::Renderer renderer;
 
 		// Loop
 		while (window.isOpen())
@@ -151,15 +143,13 @@ int main(int argsc, char* argsv[])
 
 			camera.update(1.0);
 			shader.use();
-			shader.setUniform<glm::mat4>("u_proj", camera.get());
+			shader.setUniform<glm::mat4>("u_camera", camera.get());
 
 			// Render.
 			window.begin(qs::Colours::White);
-
-			tex.bind();
-			va.bind();
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 			
+			renderer.drawSprite2D(sprite, shader);
+
 			window.end();
 		}
 

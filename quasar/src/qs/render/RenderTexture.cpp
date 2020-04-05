@@ -81,4 +81,14 @@ namespace qs
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, NULL);
 	}
+
+	qs::Texture& RenderTexture::getTexture() noexcept
+	{
+		return m_texture;
+	}
+
+	qs::Texture&& RenderTexture::moveTexture() noexcept
+	{
+		return std::move(m_texture);
+	}
 }

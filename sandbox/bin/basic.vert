@@ -4,10 +4,11 @@ layout(location = 1) in vec2 aTexCoord;
 
 out vec2 TexCoord;
 
-uniform mat4 u_proj;
+uniform mat4 u_camera;
+uniform mat4 u_transform;
 
 void main()
 {
-	gl_Position = u_proj * vec4(aPos, 1.0);
+	gl_Position = u_camera * u_transform * vec4(aPos, 1.0);
 	TexCoord = aTexCoord;
 }
