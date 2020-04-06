@@ -67,6 +67,9 @@ namespace protostar
 					space.m_y += height;
 					space.m_height -= height;
 				}
+
+				// If it can fit, no longer need to keep iterating through.
+				break;
 			}
 			else
 			{
