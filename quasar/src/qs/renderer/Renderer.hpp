@@ -10,7 +10,7 @@
 #define QUASAR_RENDERER_HPP_
 
 #include "qs/core/Shader.hpp"
-#include "qs/render/Sprite2D.hpp"
+#include "qs/graphics/Sprite2D.hpp"
 
 ///
 /// Core namespace.
@@ -59,7 +59,10 @@ namespace qs
 		void drawPolygon() noexcept;
 
 		///
-		/// Draw sprite.
+		/// Draw a sprite.
+		///
+		/// \param sprite Sprite to draw to screen.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept;
 

@@ -15,10 +15,8 @@
     <ClCompile Include="..\modules\glad\glad\glad.c" />
     <ClCompile Include="src\qs\transforms\Transform.cpp" />
     <ClCompile Include="src\qs\transforms\Camera.cpp" />
-    <ClCompile Include="src\qs\render\Sprite2D.cpp" />
-    <ClCompile Include="src\qs\render\Renderer.cpp" />
-    <ClCompile Include="src\qs\core\TextureAtlas.cpp" />
-    <ClCompile Include="src\qs\render\RenderTexture.cpp" />
+    <ClCompile Include="src\qs\renderer\Renderer.cpp" />
+    <ClCompile Include="src\qs\graphics\Sprite2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -34,10 +32,8 @@
     <ClInclude Include="src\qs\core\Colours.hpp" />
     <ClInclude Include="src\qs\transforms\Transform.hpp" />
     <ClInclude Include="src\qs\transforms\Camera.hpp" />
-    <ClInclude Include="src\qs\render\Sprite2D.hpp" />
-    <ClInclude Include="src\qs\render\Renderer.hpp" />
-    <ClInclude Include="src\qs\core\TextureAtlas.hpp" />
-    <ClInclude Include="src\qs\render\RenderTexture.hpp" />
+    <ClInclude Include="src\qs\renderer\Renderer.hpp" />
+    <ClInclude Include="src\qs\graphics\Sprite2D.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

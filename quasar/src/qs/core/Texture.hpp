@@ -124,9 +124,18 @@ namespace qs
 		/// Loads texture from OpenGL generated id.
 		///
 		/// \param id ID to use from OpenGL.
+		/// \param width Width of texture.
+		/// \param height Height of texture.
 		///
-		void load(const unsigned int id) noexcept;
+		void load(const unsigned int id, const int width, const int height) noexcept;
 
+		///
+		/// Saves texture to file on disk.
+		///
+		/// \param path Path (including filename) to save file to.
+		///
+		void save(const std::string& path) noexcept;
+		
 		///
 		/// \brief Bind as active OpenGL texture.
 		///

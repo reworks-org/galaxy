@@ -125,6 +125,11 @@ namespace qs
 		void resize(int w, int h) noexcept;
 
 		///
+		/// Makes this window the current rendering framebuffer.
+		///
+		void makeCurrent() noexcept;
+
+		///
 		/// Clears the Rendering buffer.
 		///
 		/// \param colour Colour to clear to.

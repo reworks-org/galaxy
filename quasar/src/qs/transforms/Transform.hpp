@@ -54,6 +54,11 @@ namespace qs
 		void setPos(const float x, const float y, const float z = 0.0f);
 
 		///
+		/// Set the rotation point.
+		///
+		void setRotationOrigin(const float x, const float y) noexcept;
+
+		///
 		/// Rotate transformation in degrees.
 		///
 		/// \param degrees Max 360, min -360.
@@ -70,7 +75,7 @@ namespace qs
 		void scale(const float x, const float y, const float z = 1.0f) noexcept;
 
 		///
-		/// Recalculates the view projection matrix.
+		/// Recalculates the model view matrix.
 		///
 		void recalculate() noexcept;
 
@@ -90,9 +95,9 @@ namespace qs
 
 	private:
 		///
-		/// Constant identity matrix.
+		/// Rotation origin point.
 		///
-		const glm::mat4 m_identityMatrix;
+		glm::vec3 m_originPoint;
 
 		///
 		/// Rotational matrix.

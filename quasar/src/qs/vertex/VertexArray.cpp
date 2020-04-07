@@ -18,19 +18,29 @@ namespace qs
 	{
 	}
 
+	VertexArray::VertexArray(const qs::VertexBuffer& vb, const qs::VertexLayout& layout) noexcept
+	{
+		create(vb, layout);
+	}
+
 	VertexArray::VertexArray(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept
 		:m_id(0)
 	{
-		create(vb, ib, layout);
+		create(vb, layout);
+		addIndexBuffer(ib);
 	}
 
-	void VertexArray::create(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept
+	VertexArray::~VertexArray() noexcept
+	{
+		glDeleteVertexArrays(1, &m_id);
+	}
+
+	void VertexArray::create(const qs::VertexBuffer& vb, const qs::VertexLayout& layout) noexcept
 	{
 		glGenVertexArrays(1, &m_id); // create the vertex array
 
 		bind();
 		vb.bind(); // add vertex buffer
-		ib.bind(); // add index buffer
 
 		// Add each attribute in the layout to the vertex array object.
 		// I.e. position attribute, then colour attribute of the verticies.
@@ -40,14 +50,15 @@ namespace qs
 		{
 			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.stride() * sizeof(GLfloat), (GLvoid*)attribute.m_offset);
 			glEnableVertexAttribArray(counter);
-			
+
 			++counter;
 		}
 	}
 
-	VertexArray::~VertexArray() noexcept
+	void VertexArray::addIndexBuffer(const qs::IndexBuffer& ib)
 	{
-		glDeleteVertexArrays(1, &m_id);
+		bind();
+		ib.bind(); // add index buffer
 	}
 
 	void VertexArray::bind() const noexcept

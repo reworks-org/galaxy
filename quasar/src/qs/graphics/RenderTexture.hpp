@@ -41,24 +41,46 @@ namespace qs
 		///
 		/// Activate RenderTexture for drawing.
 		///
-		/// \param shader Shader to supply when drawing.
+		/// \param shader Shader to supply when drawing. Must have a 'u_projection' uniform!
 		///
 		void activate(qs::Shader& shader) noexcept;
 
 		///
-		/// Deactivate RenderTexture.
+		/// Display framebuffer to RenderTexture.
 		///
 		void deactivate() noexcept;
 
 		///
-		/// Get reference to internal texture.
+		/// \brief Will not destroy opengl texture if rendertexture is destroyed.
 		///
-		qs::Texture& getTexture() noexcept;
+		/// Constructor defaults this to true.
+		///
+		/// \param preserveTexture True to prevent opengl texture from being destroyed.
+		///
+		void preserveTexture(const bool preserveTexture) noexcept;
 
 		///
-		/// Get std::move() compatible reference.
+		/// Get reference to internal texture.
 		///
-		qs::Texture&& moveTexture() noexcept;
+		const unsigned int getTexture() const noexcept;
+
+		///
+		/// \brief Get texture width.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Width as int. int over unsigned for compat with float.
+		///
+		const int getWidth() const noexcept;
+
+		///
+		/// \brief Get texture height.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Height as int. int over unsigned for compat with float.
+		///
+		const int getHeight() const noexcept;
 
 	private:
 		///
@@ -74,8 +96,9 @@ namespace qs
 
 		///
 		/// Texture to render to.
+		/// OpenGL handle.
 		///
-		qs::Texture m_texture;
+		unsigned int m_texture;
 
 		///
 		/// OpenGL framebuffer id.
@@ -96,6 +119,11 @@ namespace qs
 		/// Cached texture height.
 		///
 		int m_height;
+
+		///
+		/// Preserve texture flag.
+		///
+		bool m_preserveTexture;
 	};
 }
 

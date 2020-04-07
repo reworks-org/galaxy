@@ -14,9 +14,10 @@
 #include <qs/utils/Error.hpp>
 #include <qs/core/Texture.hpp>
 #include <qs/core/Window.hpp>
-#include <qs/render/Renderer.hpp>
+#include <qs/renderer/Renderer.hpp>
 #include <qs/transforms/Camera.hpp>
-#include <qs/render/Sprite2D.hpp>
+#include <qs/graphics/Sprite2D.hpp>
+#include <qs/core/TextureAtlas.hpp>
 #include <qs/core/Shader.hpp>
 
 int main(int argsc, char* argsv[])
@@ -41,7 +42,8 @@ int main(int argsc, char* argsv[])
 		settings.msaaLevel = 2;
 		settings.SDL_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
 
-		if (!window.create("TestBed", 800, 600, settings))
+		float aspectRatio = 16.0f / 9.0f;
+		if (!window.create("TestBed", 1024, 768, settings))
 		{
 			std::cout << "Window creation failed!" << std::endl;
 		}
@@ -57,41 +59,23 @@ int main(int argsc, char* argsv[])
 		// Shaders
 		qs::Shader shader(std::filesystem::path("bin/basic.vert"), std::filesystem::path("bin/basic.frag"));
 		
-		// rect verticies
-		// x, y, z, r, g, b, a, tex, tex
-		std::array<float, 36> old_vertices =
-		{
-			50.5f, 50.5f, 0.0f,   1.0f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,   // top right
-			50.5f, -50.5f, 0.0f,   0.0f, 1.0f, 0.0f,  1.0f, 1.0f, 0.0f,   // bottom right
-			-50.5f, -50.5f, 0.0f,   0.0f, 0.0f, 1.0f, 1.0f,  0.0f, 0.0f,   // bottom left
-			-50.5f,  50.5f, 0.0f,   1.0f, 1.0f, 0.0f, 1.0f,  0.0f, 1.0f    // top left 
-		};
-
-		// x, y, z, tex, tex
 		qs::Sprite2D sprite;
-		sprite.addVertexes<20>({
-			50.5f, 50.5f, 0.0f, 1.0f, 1.0f,   // top right
-			50.5f, -50.5f, 0.0f, 1.0f, 0.0f,   // bottom right
-			-50.5f, -50.5f, 0.0f, 0.0f, 0.0f,   // bottom left
-			-50.5f,  50.5f, 0.0f, 0.0f, 1.0f    // top left 
-			});
-
-		sprite.addIndexes<6>({
-			0, 1, 3,
-			1, 2, 3
-			});
-
-		// pos, tex
-		sprite.addLayout(5, { 3, 2 });
-		sprite.create();
 		sprite.load("bin/wall.png");
+		sprite.create();
+		sprite.move(50.0f, 50.0f);
 		sprite.rotate(45.0f);
+		//sprite.scale(200, 200);
 		
-		qs::Camera camera;
-		//camera.configure(-2.0f, 2.0f, -2.0f, 2.0f);
-		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);
-		camera.setSpeed(0.2f);
-		//camera.scale(8.0f, 8.0f);
+		//qs::Shader rttshader;
+		//rttshader.load(std::filesystem::path{ "bin/rtt.vert" }, std::filesystem::path{ "bin/rtt.frag" });
+		//qs::TextureAtlas atlas(640);
+		//atlas.add({ "bin/arrow.png" });
+		//atlas.create(rttshader);
+		
+		qs::Camera camera; //left, right, bottom, top
+		camera.configure(0.0f, window.getWidth(),window.getHeight(), 0.0f);
+		//camera.setSpeed(0.2f);
+		//camera.scale(.0f, 8.0f);
 
 		qs::Renderer renderer;
 
@@ -139,6 +123,10 @@ int main(int argsc, char* argsv[])
 					break;
 				}
 				break;
+
+			case SDL_WINDOWEVENT_SIZE_CHANGED:
+				window.resize(e.window.data1, e.window.data2);
+				break;
 			}
 
 			camera.update(1.0);
@@ -149,6 +137,7 @@ int main(int argsc, char* argsv[])
 			window.begin(qs::Colours::White);
 			
 			renderer.drawSprite2D(sprite, shader);
+			//renderer.drawSprite2D(atlas.getAtlas(), shader);
 
 			window.end();
 		}

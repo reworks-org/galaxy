@@ -10,6 +10,7 @@
 
 #include <glad/glad.h>
 #include <stb_image.h>
+#include <stb_image_write.h>
 
 #include "qs/utils/Error.hpp"
 #include "qs/utils/Utility.hpp"
@@ -132,8 +133,15 @@ namespace qs
 					glEnable(GL_BLEND);
 					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+					// Allow for chaning vertex point size.
+					glEnable(GL_PROGRAM_POINT_SIZE);
+
+					// Set up the viewport.
+					glViewport(0, 0, m_width, m_height);
+
 					// Make sure stbi does not load upside down.
 					stbi_set_flip_vertically_on_load(true);
+					stbi_flip_vertically_on_write(true);
 
 					// Set vsync.
 					SDL_GL_SetSwapInterval(settings.vsync);
@@ -180,7 +188,14 @@ namespace qs
 		m_width = w;
 		m_height = h;
 
-		SDL_SetWindowSize(m_window, w, h);
+		SDL_SetWindowSize(m_window, m_width, m_height);
+		glViewport(0, 0, m_width, m_height);
+	}
+
+	void Window::makeCurrent() noexcept
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glViewport(0, 0, m_width, m_height);
 	}
 
 	void Window::begin(const protostar::Colour& colour) noexcept

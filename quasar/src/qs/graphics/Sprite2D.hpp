@@ -36,33 +36,9 @@ namespace qs
 		~Sprite2D() noexcept override;
 
 		///
-		/// Define vertexes of sprite.
-		///
-		/// \param vertexes Vertexes to add to VertexArray.
-		///
-		template<std::size_t size>
-		void addVertexes(const std::array<float, size>& vertexes) noexcept;
-
-		///
-		/// Define indexes of sprite.
-		///
-		/// \param indexes Indexes to add to IndexBuffer.
-		///
-		template<std::size_t size>
-		void addIndexes(const std::array<unsigned int, size>& indexes) noexcept;
-
-		///
-		/// Define layout of the VertexArray.
-		///
-		/// \param stride Total stride of vertex layout.
-		/// \param strides Size of each layout in the vertices.
-		///
-		void addLayout(const unsigned int stride, const std::initializer_list<int>& strides) noexcept;
-
-		///
 		/// \brief Creates the internal vertex array.
 		///
-		/// Call AFTER you have added verticies, indicies and defined the layout.
+		/// Call AFTER you have loaded a texture.
 		///
 		void create() noexcept;
 
@@ -106,18 +82,6 @@ namespace qs
 		///
 		qs::VertexArray m_vertexArray;
 	};
-
-	template<std::size_t size>
-	inline void Sprite2D::addVertexes(const std::array<float, size>& vertexes) noexcept
-	{
-		m_vertexBuffer.create<float, size>(vertexes);
-	}
-
-	template<std::size_t size>
-	inline void Sprite2D::addIndexes(const std::array<unsigned int, size>& indexes) noexcept
-	{
-		m_indexBuffer.create<size>(indexes);
-	}
 }
 
 #endif

@@ -10,6 +10,7 @@
 
 #include <glad/glad.h>
 #include <stb_image.h>
+#include <stb_image_write.h>
 
 #include "qs/utils/Error.hpp"
 
@@ -54,14 +55,12 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA16, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 			setMinifyFilter(qs::Texture::Filter::LINEAR_MIPMAP_LINEAR);
-
-			// Set interpolation for mipmapping.
-			setMagnifyFilter(qs::Texture::Filter::NEAREST);
+			setMagnifyFilter(qs::Texture::Filter::LINEAR);
 
 			// Default clamp to edge.
 			clampToEdge();
@@ -107,9 +106,25 @@ namespace qs
 		stbi_image_free(data);
 	}
 
-	void Texture::load(const unsigned int id) noexcept
+	void Texture::load(const unsigned int id, const int width, const int height) noexcept
 	{
 		m_id = id;
+		m_width = width;
+		m_height = height;
+	}
+
+	void Texture::save(const std::string& path) noexcept
+	{
+		if (!path.empty())
+		{
+			const unsigned int size = static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4;
+			unsigned int* pixels = new unsigned int[size];
+
+			glGetTextureImage(m_id, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_width * m_height * 4, pixels);
+			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels, m_width * 4);
+
+			delete[] pixels;
+		}
 	}
 
 	void Texture::bind() noexcept

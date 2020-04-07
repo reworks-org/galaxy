@@ -16,12 +16,8 @@
 namespace qs
 {
 	Transform::Transform() noexcept
-		:m_identityMatrix(glm::mat4(1.0f))
+		:m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
 	{
-		m_rotateMatrix = m_identityMatrix;
-		m_scaledMatrix = m_identityMatrix;
-		m_translationMatrix = m_identityMatrix;
-		m_modelMatrix = m_identityMatrix;
 	}
 
 	void Transform::move(const float x, const float y, const float z)
@@ -32,8 +28,13 @@ namespace qs
 
 	void Transform::setPos(const float x, const float y, const float z)
 	{
-		m_translationMatrix = glm::translate(m_identityMatrix, glm::vec3(x, y, z));
+		m_translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, z));
 		recalculate();
+	}
+
+	void Transform::setRotationOrigin(const float x, const float y) noexcept
+	{
+		m_originPoint = glm::vec3(x, y, 0.0f);
 	}
 
 	void Transform::rotate(const float degrees) noexcept
@@ -48,7 +49,10 @@ namespace qs
 			adjusted = -360.0f;
 		}
 
+		m_rotateMatrix = glm::translate(glm::mat4(1.0f), m_originPoint);
 		m_rotateMatrix = glm::rotate(m_rotateMatrix, glm::radians(adjusted), glm::vec3(0.0f, 0.0f, 1.0f));
+		m_rotateMatrix = glm::translate(m_rotateMatrix, -m_originPoint);
+		
 		recalculate();
 	}
 
@@ -70,6 +74,6 @@ namespace qs
 
 	decltype(auto) Transform::getMatrixPtr() noexcept
 	{
-		return glm::value_ptr(getTransformation());
+		return glm::value_ptr(m_modelMatrix);
 	}
 }

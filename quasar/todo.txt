@@ -5,3 +5,10 @@
 	- ssao
 	- Culling (glm::ortho near / far?)
 	- https://www.youtube.com/watch?v=5df3NvQNzUs&list=PLlrATfBNZ98f5vZ8nJ6UengEkZUMC4fy5&index=4
+
+- Fix camera movement / input.
+- https://learnopengl.com/Advanced-OpenGL/Instancing
+- https://learnopengl.com/Advanced-Lighting/Advanced-Lighting
+- More error handling.
+- Fix sprite tinting.
+- fix textureatlas and rendertexture

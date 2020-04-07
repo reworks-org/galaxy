@@ -30,7 +30,15 @@ namespace qs
 		VertexArray() noexcept;
 
 		///
-		/// Creation constructor.
+		/// Creation constructor (without indexbuffer).
+		///
+		/// \param vb VertexBufferObject to bind to VertexArrayObject.
+		/// \param layout VertexLayout to specify for this VertexArrayObject.
+		///
+		explicit VertexArray(const qs::VertexBuffer& vb, const qs::VertexLayout& layout) noexcept;
+
+		///
+		/// Creation constructor (with indexbuffer).
 		///
 		/// \param vb VertexBufferObject to bind to VertexArrayObject.
 		/// \param ib IndexBufferObject to bind to VertexArrayObject.
@@ -39,18 +47,24 @@ namespace qs
 		explicit VertexArray(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
 
 		///
-		/// Create vertex array.
-		///
-		/// \param vb VertexBufferObject to bind to VertexArrayObject.
-		/// \param ib IndexBufferObject to bind to VertexArrayObject.
-		/// \param layout VertexLayout to specify for this VertexArrayObject.
-		///
-		void create(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
-
-		///
 		/// Destroys buffer.
 		///
 		~VertexArray() noexcept;
+
+		///
+		/// Create vertex array.
+		///
+		/// \param vb VertexBufferObject to bind to VertexArrayObject.
+		/// \param layout VertexLayout to specify for this VertexArrayObject.
+		///
+		void create(const qs::VertexBuffer& vb, const qs::VertexLayout& layout) noexcept;
+
+		///
+		/// Add an index buffer to the vertex array layout.
+		///
+		/// \param ib IndexBufferObject to bind to VertexArrayObject.
+		///
+		void addIndexBuffer(const qs::IndexBuffer& ib);
 
 		///
 		/// Bind the current vertex array to current GL context.
