@@ -55,6 +55,15 @@ namespace protostar
 		///
 		std::array<int, 4> asIntegers() noexcept;
 
+		///
+		/// \brief Converts to fixed size float array compatible with OpenGL
+		///
+		/// Floats are in range 0.0f - 1.0f.
+		///
+		/// \return Move invoked fixed size std::array of floats.
+		///
+		std::array<float, 4> asGLColour() noexcept;
+
 	public:
 		///
 		/// Red
