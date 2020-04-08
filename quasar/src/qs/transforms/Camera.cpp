@@ -45,11 +45,11 @@ namespace qs
 			break;
 
 		case protostar::Keys::LEFT:
-			move(ts * m_speed, 0.0f);
+			move((ts * m_speed) * -1.0f, 0.0f);
 			break;
 
 		case protostar::Keys::RIGHT:
-			move((ts * m_speed) * -1.0f, 0.0f);
+			move(ts * m_speed, 0.0f);
 			break;
 
 		case protostar::Keys::Q:
