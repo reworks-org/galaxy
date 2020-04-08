@@ -10,6 +10,7 @@
 #define QUASAR_VERTEXBUFFER_HPP_
 
 #include <array>
+#include <vector>
 
 #include <glad/glad.h>
 
@@ -38,8 +39,18 @@ namespace qs
 		/// \param size Size of the verticies data array.
 		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
 		///
-		template<typename type, std::size_t size>
-		void create(const std::array<type, size>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+		template<std::size_t size>
+		void create(const std::array<float, size>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+
+		///
+		/// \brief Create vertex buffer object.
+		///
+		/// You will need to call bind() before using this buffer.
+		///
+		/// \param data Verticies to use.
+		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
+		///
+		void create(const std::vector<float>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
 
 		///
 		/// Destroys buffer.
@@ -63,8 +74,8 @@ namespace qs
 		unsigned int m_id;
 	};
 
-	template<typename type, std::size_t size>
-	inline void VertexBuffer::create(const std::array<type, size>& data, unsigned int glDrawType) noexcept
+	template<std::size_t size>
+	inline void VertexBuffer::create(const std::array<float, size>& data, unsigned int glDrawType) noexcept
 	{
 		// Gen a single buffer for this object.
 		glGenBuffers(1, &m_id);

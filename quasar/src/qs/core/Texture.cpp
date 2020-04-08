@@ -68,7 +68,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 66, msg);
+			qs::Error::handle().callback("Texture.cpp", 71, msg);
 		}
 
 		stbi_image_free(data);
@@ -85,7 +85,7 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA16, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
@@ -100,7 +100,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture with size: " + std::to_string(size) + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 66, msg);
+			qs::Error::handle().callback("Texture.cpp", 103, msg);
 		}
 
 		stbi_image_free(data);
@@ -111,6 +111,23 @@ namespace qs
 		m_id = id;
 		m_width = width;
 		m_height = height;
+	}
+
+	void Texture::load(const int width, const int height) noexcept
+	{
+		m_width = width;
+		m_height = height;
+
+		// Generate texture in OpenGL and bind to 2D texture.
+		glGenTextures(1, &m_id);
+		bind();
+
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+		
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	}
 
 	void Texture::save(const std::string& path) noexcept

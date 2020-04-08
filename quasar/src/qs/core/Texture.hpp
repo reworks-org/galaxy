@@ -130,6 +130,14 @@ namespace qs
 		void load(const unsigned int id, const int width, const int height) noexcept;
 
 		///
+		/// Loads a blank texture.
+		///
+		/// \param width Width of texture.
+		/// \param height Height of texture.
+		///
+		void load(const int width, const int height) noexcept;
+
+		///
 		/// Saves texture to file on disk.
 		///
 		/// \param path Path (including filename) to save file to.

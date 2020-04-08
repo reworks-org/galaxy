@@ -12,7 +12,8 @@
 #include <protostar/shapes/Rect.hpp>
 #include <protostar/math/RectPack.hpp>
 
-#include "qs/graphics/Sprite2D.hpp"
+#include "qs/graphics/RenderTexture.hpp"
+#include "qs/graphics/BatchSprite2D.hpp"
 
 ///
 /// Core namespace.
@@ -59,7 +60,7 @@ namespace qs
 		///
 		/// \param shader Shader to use when rendering to texture. Must have a 'u_projection' uniform!
 		///
-		void create(qs::Shader& shader) noexcept;
+		void create(qs::Shader& shader, qs::Window& window) noexcept;
 
 		///
 		/// Dumps internal atlas. May take a while.
@@ -69,35 +70,39 @@ namespace qs
 		void dump(const std::string& file);
 
 		///
-		/// Return a subtextures rectangle.
+		/// Get pointer to spritebatch. 
 		///
-		/// \param texture Name of the texture in the atlas.
+		/// \return Returns a pointer to internal spritebatch.
 		///
-		/// \return Rectangle.
-		///
-		protostar::Rect<int> getRect(const std::string& texture) noexcept;
-
-		///
-		/// Return a subtexture'd sprite from the atlas.
-		///
-		/// \param texture Name of the texture in the atlas.
-		///
-		/// \return Sprite sub-texture.
-		///
-		qs::Sprite2D getSprite(const std::string& texture) noexcept;
-
-		///
-		/// Get full atlas texture.
-		///
-		/// \return Reference to internal sqs::Sprite2D.
-		///
-		qs::Sprite2D& getAtlas() noexcept;
+		qs::BatchSprite2D* getBatch() noexcept;
 
 	private:
 		///
+		/// \brief Calc normalized texture point.
+		///
+		/// Private internal function.
+		///
+		/// \param p Point to transform.
+		///
+		/// \return Transformed float.
+		///
+		float cntp(const int p) noexcept;
+
+	private:
+		///
+		/// Size of atlas.
+		///
+		int m_size;
+
+		///
 		/// Master texture.
 		///
-		qs::Sprite2D m_atlas;
+		qs::RenderTexture m_atlas;
+
+		///
+		/// Batch sprite.
+		///
+		qs::BatchSprite2D m_batchSprite;
 
 		///
 		/// Contains the rectangles outlining all the textures on the atlas.
@@ -108,11 +113,6 @@ namespace qs
 		/// Stores list of texture files.
 		///
 		std::vector<std::string> m_textureFiles;
-
-		///
-		/// Hashmap to quickly get a texture and its assossiated rectangle.
-		///
-		std::unordered_map<std::string, protostar::Rect<int>> m_rects;
 	};
 }
 

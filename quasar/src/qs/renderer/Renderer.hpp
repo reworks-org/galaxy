@@ -9,14 +9,17 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
-#include "qs/core/Shader.hpp"
-#include "qs/graphics/Sprite2D.hpp"
-
 ///
 /// Core namespace.
 ///
 namespace qs
 {
+	// Forward decs.
+	class Sprite2D;
+	class BatchSprite2D;
+	class Shader;
+	class VertexArray;
+
 	///
 	/// OpenGL 2D batch renderer for drawing VA with transforms, shaders and textures.
 	///
@@ -24,39 +27,44 @@ namespace qs
 	{
 	public:
 		///
-		/// Constructor.
+		/// Default constructor.
 		///
-		Renderer() noexcept;
+		Renderer() noexcept = default;
 
 		///
-		/// Destructor.
+		/// Default destructor.
 		///
-		~Renderer() noexcept;
-
-		///
-		///
-		///
-		void drawLine() noexcept;
+		~Renderer() noexcept = default;
 
 		///
 		///
 		///
-		void drawTriangle() noexcept;
+		void drawPoint(qs::VertexArray& va, qs::Shader& shader) noexcept;
+
+		///
+		///
+		///
+		void drawLine(qs::VertexArray& va, qs::Shader& shader) noexcept;
+
+		///
+		///
+		///
+		void drawTriangle(qs::VertexArray& va, qs::Shader& shader) noexcept;
 		
 		///
 		///
 		///
-		void drawQuad() noexcept;
+		void drawQuad(qs::VertexArray& va, qs::Shader& shader) noexcept;
 		
 		///
 		///
 		///
-		void drawCircle() noexcept;
+		void drawCircle(qs::VertexArray& va, qs::Shader& shader) noexcept;
 
 		///
 		///
 		///
-		void drawPolygon() noexcept;
+		void drawPolygon(qs::VertexArray& va, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw a sprite.
@@ -66,7 +74,13 @@ namespace qs
 		///
 		void drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept;
 
-	private:
+		///
+		/// Draw a batched sprite.
+		///
+		/// \param spritebatch Spritebatch to draw to screen.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader);
 	};
 }
 

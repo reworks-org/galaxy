@@ -6,6 +6,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "qs/core/Shader.hpp"
+#include "qs/graphics/Sprite2D.hpp"
+#include "qs/graphics/BatchSprite2D.hpp"
+
 #include "Renderer.hpp"
 
 ///
@@ -13,31 +17,32 @@
 ///
 namespace qs
 {
-	Renderer::Renderer() noexcept
+	void Renderer::drawPoint(qs::VertexArray& va, qs::Shader& shader) noexcept
+	{
+	}
+	void Renderer::drawLine(qs::VertexArray& va, qs::Shader& shader) noexcept
 	{
 	}
 
-	Renderer::~Renderer() noexcept
+	void Renderer::drawTriangle(qs::VertexArray& va, qs::Shader& shader) noexcept
+	{
+		shader.use();
+		va.bind();
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawQuad(qs::VertexArray& va, qs::Shader& shader) noexcept
+	{
+		shader.use();
+		va.bind();
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawCircle(qs::VertexArray& va, qs::Shader& shader) noexcept
 	{
 	}
 
-	void Renderer::drawLine() noexcept
-	{
-	}
-
-	void Renderer::drawTriangle() noexcept
-	{
-	}
-
-	void Renderer::drawQuad() noexcept
-	{
-	}
-
-	void Renderer::drawCircle() noexcept
-	{
-	}
-
-	void Renderer::drawPolygon() noexcept
+	void Renderer::drawPolygon(qs::VertexArray& va, qs::Shader& shader) noexcept
 	{
 	}
 
@@ -47,5 +52,13 @@ namespace qs
 		sprite.activate();
 
 		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader)
+	{
+		shader.setUniform("u_transform", spritebatch->getTransformArray());
+		spritebatch->activate();
+
+		glDrawElements(GL_TRIANGLES, spritebatch->count(), GL_UNSIGNED_INT, nullptr);
 	}
 }

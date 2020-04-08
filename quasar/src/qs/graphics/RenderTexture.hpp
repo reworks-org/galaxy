@@ -9,16 +9,17 @@
 #ifndef QUASAR_RENDERTEXTURE_HPP_
 #define QUASAR_RENDERTEXTURE_HPP_
 
-#include <glm/gtc/matrix_transform.hpp>
-
-#include "qs/core/Texture.hpp"
-#include "qs/core/Shader.hpp"
+#include "qs/graphics/Sprite2D.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace qs
 {
+	// Forward decs.
+	class Window;
+	class Shader;
+
 	///
 	/// Framebuffer texture. You render to this texture instead of the window.
 	///
@@ -48,21 +49,14 @@ namespace qs
 		///
 		/// Display framebuffer to RenderTexture.
 		///
-		void deactivate() noexcept;
+		void deactivate(qs::Window& window) noexcept;
 
 		///
-		/// \brief Will not destroy opengl texture if rendertexture is destroyed.
+		/// Move internal sprite.
 		///
-		/// Constructor defaults this to true.
+		/// \return Reference to internal Sprite2D.
 		///
-		/// \param preserveTexture True to prevent opengl texture from being destroyed.
-		///
-		void preserveTexture(const bool preserveTexture) noexcept;
-
-		///
-		/// Get reference to internal texture.
-		///
-		const unsigned int getTexture() const noexcept;
+		qs::Sprite2D& getSprite() noexcept;
 
 		///
 		/// \brief Get texture width.
@@ -95,10 +89,9 @@ namespace qs
 		glm::mat4 m_projection;
 
 		///
-		/// Texture to render to.
-		/// OpenGL handle.
+		/// Internal sprite.
 		///
-		unsigned int m_texture;
+		qs::Sprite2D m_sprite;
 
 		///
 		/// OpenGL framebuffer id.
@@ -119,11 +112,6 @@ namespace qs
 		/// Cached texture height.
 		///
 		int m_height;
-
-		///
-		/// Preserve texture flag.
-		///
-		bool m_preserveTexture;
 	};
 }
 

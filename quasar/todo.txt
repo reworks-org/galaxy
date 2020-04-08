@@ -11,4 +11,6 @@
 - https://learnopengl.com/Advanced-Lighting/Advanced-Lighting
 - More error handling.
 - Fix sprite tinting.
-- fix textureatlas and rendertexture
+- Finish renderer.
+- texture transformations (i.e. for animations) -> in glsl?
+- Optimize spritebatch copying transform vectors.

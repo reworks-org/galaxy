@@ -39,7 +39,7 @@ namespace qs
 		});
 		*/
 
-		m_vertexBuffer.create<float, 16>({
+		m_vertexBuffer.create<16>({
 			0.0f, 0.0f, 0.0f, 1.0f,
 			(float)getWidth(), 0.0f, 1.0f, 1.0f,
 			(float)getWidth(), (float)getHeight(), 1.0f, 0.0f,

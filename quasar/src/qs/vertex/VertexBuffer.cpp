@@ -18,6 +18,19 @@ namespace qs
 	{
 	}
 
+	void VertexBuffer::create(const std::vector<float>& data, unsigned int glDrawType) noexcept
+	{
+		// Gen a single buffer for this object.
+		glGenBuffers(1, &m_id);
+		glBindBuffer(GL_ARRAY_BUFFER, m_id);
+
+		// Copy data into buffer object.
+		glBufferData(GL_ARRAY_BUFFER, data.size(), data.data(), glDrawType);
+
+		// Clean up.
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	}
+
 	VertexBuffer::~VertexBuffer() noexcept
 	{
 		glDeleteBuffers(1, &m_id);

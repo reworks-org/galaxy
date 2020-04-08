@@ -10,6 +10,7 @@
 #define QUASAR_INDEXBUFFER_HPP_
 
 #include <array>
+#include <vector>
 
 #include <glad/glad.h>
 
@@ -34,11 +35,21 @@ namespace qs
 		///
 		/// You will need to call bind() before using this buffer, once it is created.
 		///
-		/// \param data Indice array to use.
+		/// \param indices Index array to use.
 		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
 		///
 		template<std::size_t size>
 		void create(const std::array<unsigned int, size>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+
+		///
+		/// Create index buffer object.
+		///
+		/// You will need to call bind() before using this buffer, once it is created.
+		///
+		/// \param indices Index array to use.
+		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
+		///
+		void create(const std::vector<unsigned int>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
 
 		///
 		/// Destroys buffer.
