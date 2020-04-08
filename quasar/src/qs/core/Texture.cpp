@@ -137,7 +137,8 @@ namespace qs
 			const unsigned int size = static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4;
 			unsigned int* pixels = new unsigned int[size];
 
-			glGetTextureImage(m_id, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_width * m_height * 4, pixels);
+			bind();
+			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels, m_width * 4);
 
 			delete[] pixels;
