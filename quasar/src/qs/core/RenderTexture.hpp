@@ -153,6 +153,11 @@ namespace qs
 		unsigned int m_framebuffer;
 
 		///
+		/// OpenGL renderbuffer handle.
+		///
+		unsigned int m_renderbuffer;
+
+		///
 		/// Cached texture width.
 		///
 		int m_width;

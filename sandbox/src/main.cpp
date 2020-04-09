@@ -65,12 +65,11 @@ int main(int argsc, char* argsv[])
 		wall.load("bin/wall.png");
 		wall.create();
 		//wall.move(50.0f, 50.0f);
-		//wall.rotate(45.0f);
+		wall.rotate(45.0f);
 		//wall.scale(0.5f, 0.5f);
 
 		qs::RenderTexture rt;
 		rt.create(768, 768);
-
 		rt.activate(rttshader);
 		
 		renderer.drawSprite2D(wall, rttshader);
@@ -146,9 +145,9 @@ int main(int argsc, char* argsv[])
 			// Render.
 			window.begin(qs::Colours::White);
 			
-			renderer.drawSprite2D(rtspr, shader);
+			//renderer.drawSprite2D(rtspr, shader);
 			//renderer.drawBatchSprite(batch_tex, batch);
-			//renderer.drawSprite2D(sprite, shader);
+			renderer.drawSprite2D(wall, shader);
 
 			window.end();
 		}

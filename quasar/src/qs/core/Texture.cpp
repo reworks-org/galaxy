@@ -59,7 +59,7 @@ namespace qs
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
-			setMinifyFilter(qs::TextureFilter::LINEAR_MIPMAP_LINEAR);
+			setMinifyFilter(qs::TextureFilter::LINEAR);
 			setMagnifyFilter(qs::TextureFilter::LINEAR);
 
 			// Default clamp to edge.
@@ -89,10 +89,10 @@ namespace qs
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
-			setMinifyFilter(qs::TextureFilter::LINEAR_MIPMAP_LINEAR);
+			setMinifyFilter(qs::TextureFilter::LINEAR);
 
 			// Set interpolation for mipmapping.
-			setMagnifyFilter(qs::TextureFilter::NEAREST);
+			setMagnifyFilter(qs::TextureFilter::LINEAR);
 
 			// Default clamp to edge.
 			clampToEdge();
@@ -111,6 +111,15 @@ namespace qs
 		m_id = id;
 		m_width = width;
 		m_height = height;
+
+		// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
+		setMinifyFilter(qs::TextureFilter::LINEAR);
+
+		// Set interpolation for mipmapping.
+		setMagnifyFilter(qs::TextureFilter::LINEAR);
+
+		// Default clamp to edge.
+		clampToEdge();
 	}
 
 	void Texture::save(const std::string& path) noexcept

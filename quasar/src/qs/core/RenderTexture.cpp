@@ -22,26 +22,30 @@
 namespace qs
 {
 	RenderTexture::RenderTexture() noexcept
-		:m_framebuffer(0), m_width(0), m_height(0)
+		:m_texture(0), m_framebuffer(0), m_renderbuffer(0), m_width(0), m_height(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 		glGenTextures(1, &m_texture);
+		glGenRenderbuffers(1, &m_renderbuffer);
 	}
 
 	RenderTexture::RenderTexture(const int w, const int h)
-		:m_framebuffer(0), m_width(0), m_height(0)
+		:m_texture(0), m_framebuffer(0), m_renderbuffer(0), m_width(0), m_height(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 		glGenTextures(1, &m_texture);
+		glGenRenderbuffers(1, &m_renderbuffer);
 
 		create(w, h);
 	}
 
 	RenderTexture::~RenderTexture()
 	{
+		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glBindFramebuffer(GL_TEXTURE_2D, 0);
 
+		glDeleteRenderbuffers(1, &m_renderbuffer);
 		glDeleteFramebuffers(1, &m_framebuffer);
 		glDeleteTextures(1, &m_texture);
 	}
@@ -53,6 +57,7 @@ namespace qs
 
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
+		glBindRenderbuffer(GL_RENDERBUFFER, m_renderbuffer);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
@@ -62,12 +67,15 @@ namespace qs
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture, 0);
+		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_width, m_height);
+		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_renderbuffer);
 
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
 			qs::Error::handle().callback("RenderTexture.cpp", 31, "Failed to create GL_FRAMEBUFFER!");
 		}
 
+		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
@@ -88,17 +96,17 @@ namespace qs
 
 	void RenderTexture::activate(qs::Shader& shader) noexcept
 	{
-		shader.use();
-
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glViewport(0, 0, m_width, m_height);
-		glEnable(GL_DEPTH_TEST);
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		shader.use();
 	}
 
 	void RenderTexture::deactivate(qs::Window& window) noexcept
 	{
+		glFlush();
 		window.makeCurrent();
 	}
 
