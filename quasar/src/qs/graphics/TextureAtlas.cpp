@@ -68,11 +68,11 @@ namespace qs
 						0.0f, (float)rect.m_height, cntp(rect.m_x), cntp(rect.m_y + rect.m_height), counter
 					});
 					 
-					// Draw to master texture.
+					// Draw to master texture
 					tex.setPos(rect.m_x, rect.m_y);
 					shader.setUniform("u_transform", tex.getTransformation());
-					tex.activate();
 
+					tex.activate();
 					glDrawElements(GL_TRIANGLES, tex.getIBO().count(), GL_UNSIGNED_INT, nullptr);
 
 					m_batchSprite.addID(filePath.filename().string(), counter);
@@ -93,6 +93,11 @@ namespace qs
 	void TextureAtlas::dump(const std::string& file)
 	{
 		m_atlas.getSprite().save(file);
+	}
+
+	qs::Sprite2D& TextureAtlas::getAtlas() noexcept
+	{
+		return m_atlas.getSprite();
 	}
 
 	qs::BatchSprite2D* TextureAtlas::getBatch() noexcept

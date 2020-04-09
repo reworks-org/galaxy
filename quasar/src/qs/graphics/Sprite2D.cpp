@@ -30,15 +30,6 @@ namespace qs
 	void Sprite2D::create() noexcept
 	{
 		// Create basic array of verticies.
-		/*
-		m_vertexBuffer.create<float, 16>({
-			-1.0f, 1.0f, 0.0f, 1.0f,
-			1.0f, 1.0f, 1.0f, 1.0f,
-			1.0f, -1.0f, 1.0f, 0.0f,
-			-1.0f, -1.0f, 0.0f, 0.0f
-		});
-		*/
-
 		m_vertexBuffer.create<16>({
 			0.0f, 0.0f, 0.0f, 1.0f,
 			(float)getWidth(), 0.0f, 1.0f, 1.0f,

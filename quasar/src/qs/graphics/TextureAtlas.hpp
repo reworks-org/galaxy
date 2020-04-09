@@ -70,6 +70,13 @@ namespace qs
 		void dump(const std::string& file);
 
 		///
+		/// Get internal atlas.
+		///
+		/// \return Reference to internal atlas sprite.
+		///
+		qs::Sprite2D& getAtlas() noexcept;
+
+		///
 		/// Get pointer to spritebatch. 
 		///
 		/// \return Returns a pointer to internal spritebatch.

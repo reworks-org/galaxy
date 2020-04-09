@@ -16,7 +16,7 @@ namespace qs
 {
 	// Forward decs.
 	class Sprite2D;
-	class BatchSprite2D;
+	//class BatchSprite2D;
 	class Shader;
 	class VertexArray;
 
@@ -49,12 +49,12 @@ namespace qs
 		///
 		///
 		///
-		void drawTriangle(qs::VertexArray& va, qs::Shader& shader) noexcept;
+		void drawTriangle(qs::VertexArray& va) noexcept;
 		
 		///
 		///
 		///
-		void drawQuad(qs::VertexArray& va, qs::Shader& shader) noexcept;
+		void drawQuad(qs::VertexArray& va) noexcept;
 		
 		///
 		///
@@ -80,7 +80,7 @@ namespace qs
 		/// \param spritebatch Spritebatch to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader);
+		//void drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader);
 	};
 }
 

@@ -17,8 +17,8 @@
 #include <qs/renderer/Renderer.hpp>
 #include <qs/transforms/Camera.hpp>
 #include <qs/graphics/Sprite2D.hpp>
-#include <qs/core/TextureAtlas.hpp>
 #include <qs/core/Shader.hpp>
+#include <qs/core/RenderTexture.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -53,32 +53,38 @@ int main(int argsc, char* argsv[])
 			std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
 		});
 
-		// Events
 		SDL_Event e;
+		qs::Renderer renderer;
 
 		// Shaders
 		qs::Shader shader(std::filesystem::path("bin/basic.vert"), std::filesystem::path("bin/basic.frag"));
 		qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
 		qs::Shader batch(std::filesystem::path("bin/batch.vert"), std::filesystem::path("bin/batch.frag"));
 
-		//qs::Sprite2D sprite;
-		//sprite.load("bin/wall.png");
-		//sprite.create();
-		//sprite.move(50.0f, 50.0f);
-		//sprite.rotate(45.0f);
+		qs::Sprite2D wall;
+		wall.load("bin/wall.png");
+		wall.create();
+		//wall.move(50.0f, 50.0f);
+		//wall.rotate(45.0f);
+		//wall.scale(0.5f, 0.5f);
+
+		qs::RenderTexture rt;
+		rt.create(768, 768);
+
+		rt.activate(rttshader);
 		
-		qs::TextureAtlas atlas(640);
-		atlas.add({ "bin/wall.png" });
-		atlas.create(rttshader, window);
-		auto batch_tex = atlas.getBatch();
-		atlas.dump("test.png");
+		renderer.drawSprite2D(wall, rttshader);
+
+		rt.deactivate(window);
+
+		qs::Sprite2D rtspr;
+		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
+		rtspr.create();
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 		//camera.setSpeed(0.2f);
 		//camera.scale(.0f, 8.0f);
-
-		qs::Renderer renderer;
 
 		// Loop
 		while (window.isOpen())
@@ -131,16 +137,17 @@ int main(int argsc, char* argsv[])
 			}
 
 			camera.update(1.0);
-			//shader.use();
-			//shader.setUniform<glm::mat4>("u_camera", camera.get());
+			shader.use();
+			shader.setUniform<glm::mat4>("u_camera", camera.get());
 
-			batch.use();
-			batch.setUniform("u_camera", camera.get());
+			//batch.use();
+			//batch.setUniform("u_camera", camera.get());
 
 			// Render.
 			window.begin(qs::Colours::White);
 			
-			renderer.drawBatchSprite(batch_tex, batch);
+			renderer.drawSprite2D(rtspr, shader);
+			//renderer.drawBatchSprite(batch_tex, batch);
 			//renderer.drawSprite2D(sprite, shader);
 
 			window.end();

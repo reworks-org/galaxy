@@ -8,7 +8,7 @@
 
 #include "qs/core/Shader.hpp"
 #include "qs/graphics/Sprite2D.hpp"
-#include "qs/graphics/BatchSprite2D.hpp"
+//#include "qs/graphics/BatchSprite2D.hpp"
 
 #include "Renderer.hpp"
 
@@ -24,16 +24,14 @@ namespace qs
 	{
 	}
 
-	void Renderer::drawTriangle(qs::VertexArray& va, qs::Shader& shader) noexcept
+	void Renderer::drawTriangle(qs::VertexArray& va) noexcept
 	{
-		shader.use();
 		va.bind();
 		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::drawQuad(qs::VertexArray& va, qs::Shader& shader) noexcept
+	void Renderer::drawQuad(qs::VertexArray& va) noexcept
 	{
-		shader.use();
 		va.bind();
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 	}
@@ -50,10 +48,10 @@ namespace qs
 	{
 		shader.setUniform("u_transform", sprite.getTransformation());
 		sprite.activate();
-
+		
 		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
 	}
-
+	/*
 	void Renderer::drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader)
 	{
 		shader.setUniform("u_transform", spritebatch->getTransformArray());
@@ -61,4 +59,5 @@ namespace qs
 
 		glDrawElements(GL_TRIANGLES, spritebatch->count(), GL_UNSIGNED_INT, nullptr);
 	}
+	*/
 }

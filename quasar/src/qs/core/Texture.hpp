@@ -12,6 +12,7 @@
 #include <string>
 
 #include "qs/core/Colours.hpp"
+#include "qs/utils/TextureFilters.hpp"
 
 ///
 /// Core namespace.
@@ -23,46 +24,6 @@ namespace qs
 	///
 	class Texture
 	{
-	public:
-		///
-		/// Enum contaning GL texture filtering options.
-		///
-		enum class Filter : int
-		{
-			///
-			/// Produces blocky/pixellated texture patterns.
-			/// Think 8-bit.
-			///
-			NEAREST,
-
-			///
-			/// Attempts to smooth texture pattern. Less visible pixels.
-			///
-			LINEAR,
-
-			///
-			/// Takes the nearest mipmap to match the pixel size and uses nearest neighbor interpolation for texture sampling.
-			///
-			NEAREST_MIPMAP_NEAREST,
-
-			///
-			/// Takes the nearest mipmap level and samples that level using linear interpolation.
-			///
-			LINEAR_MIPMAP_NEAREST,
-
-			///
-			/// Linearly interpolates between the two mipmaps that most closely match the size of a pixel 
-			/// and samples the interpolated level via nearest neighbor interpolation.
-			///
-			NEAREST_MIPMAP_LINEAR,
-
-			///
-			/// Linearly interpolates between the two closest mipmaps and samples the interpolated 
-			/// level via linear interpolation.
-			///
-			LINEAR_MIPMAP_LINEAR
-		};
-
 	public:
 		///
 		/// \brief Default constructor.
@@ -130,14 +91,6 @@ namespace qs
 		void load(const unsigned int id, const int width, const int height) noexcept;
 
 		///
-		/// Loads a blank texture.
-		///
-		/// \param width Width of texture.
-		/// \param height Height of texture.
-		///
-		void load(const int width, const int height) noexcept;
-
-		///
 		/// Saves texture to file on disk.
 		///
 		/// \param path Path (including filename) to save file to.
@@ -190,14 +143,14 @@ namespace qs
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		void setMinifyFilter(const qs::Texture::Filter& filter) noexcept;
+		void setMinifyFilter(const qs::TextureFilter& filter) noexcept;
 
 		///
 		/// Set filter when texture would be scaled up in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		void setMagnifyFilter(const qs::Texture::Filter& filter) noexcept;
+		void setMagnifyFilter(const qs::TextureFilter& filter) noexcept;
 
 		///
 		/// \brief Get texture width.

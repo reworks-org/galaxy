@@ -59,8 +59,8 @@ namespace qs
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
-			setMinifyFilter(qs::Texture::Filter::LINEAR_MIPMAP_LINEAR);
-			setMagnifyFilter(qs::Texture::Filter::LINEAR);
+			setMinifyFilter(qs::TextureFilter::LINEAR_MIPMAP_LINEAR);
+			setMagnifyFilter(qs::TextureFilter::LINEAR);
 
 			// Default clamp to edge.
 			clampToEdge();
@@ -89,10 +89,10 @@ namespace qs
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
-			setMinifyFilter(qs::Texture::Filter::LINEAR_MIPMAP_LINEAR);
+			setMinifyFilter(qs::TextureFilter::LINEAR_MIPMAP_LINEAR);
 
 			// Set interpolation for mipmapping.
-			setMagnifyFilter(qs::Texture::Filter::NEAREST);
+			setMagnifyFilter(qs::TextureFilter::NEAREST);
 
 			// Default clamp to edge.
 			clampToEdge();
@@ -113,35 +113,15 @@ namespace qs
 		m_height = height;
 	}
 
-	void Texture::load(const int width, const int height) noexcept
-	{
-		m_width = width;
-		m_height = height;
-
-		// Generate texture in OpenGL and bind to 2D texture.
-		glGenTextures(1, &m_id);
-		bind();
-
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
-		
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	}
-
 	void Texture::save(const std::string& path) noexcept
 	{
 		if (!path.empty())
 		{
-			const unsigned int size = static_cast<unsigned int>(m_width) * static_cast<unsigned int>(m_height) * 4;
-			unsigned int* pixels = new unsigned int[size];
+			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 
 			bind();
-			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels, m_width * 4);
-
-			delete[] pixels;
+			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
+			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 		}
 	}
 
@@ -182,27 +162,27 @@ namespace qs
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
 	}
 
-	void Texture::setMinifyFilter(const qs::Texture::Filter& filter) noexcept
+	void Texture::setMinifyFilter(const qs::TextureFilter& filter) noexcept
 	{
 		bind();
-		if (filter == qs::Texture::Filter::LINEAR)
+		if (filter == qs::TextureFilter::LINEAR)
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		}
-		else if (filter == qs::Texture::Filter::NEAREST)
+		else if (filter == qs::TextureFilter::NEAREST)
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		}
 	}
 
-	void Texture::setMagnifyFilter(const qs::Texture::Filter& filter) noexcept
+	void Texture::setMagnifyFilter(const qs::TextureFilter& filter) noexcept
 	{
 		bind();
-		if (filter == qs::Texture::Filter::LINEAR)
+		if (filter == qs::TextureFilter::LINEAR)
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		}
-		else if (filter == qs::Texture::Filter::NEAREST)
+		else if (filter == qs::TextureFilter::NEAREST)
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		}

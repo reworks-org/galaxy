@@ -43,7 +43,7 @@ namespace qs
 		void create() noexcept;
 
 		///
-		/// Bind VA, texture, and add transform to shader.
+		/// Bind VA, texture.
 		///
 		void activate() noexcept;
 
