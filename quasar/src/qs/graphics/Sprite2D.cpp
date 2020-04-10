@@ -29,12 +29,11 @@ namespace qs
 	
 	void Sprite2D::create() noexcept
 	{
-		// Create basic array of verticies.
 		m_vertexBuffer.create<16>({
 			0.0f, 0.0f, 0.0f, 1.0f,
-			(float)getWidth(), 0.0f, 1.0f, 1.0f,
-			(float)getWidth(), (float)getHeight(), 1.0f, 0.0f,
-			0.0f, (float)getHeight(), 0.0f, 0.0f
+			static_cast<float>(m_width), 0.0f, 1.0f, 1.0f,
+			static_cast<float>(m_width), static_cast<float>(m_height), 1.0f, 0.0f,
+			0.0f, static_cast<float>(m_height), 0.0f, 0.0f
 		});
 
 		m_indexBuffer.create<6>({
@@ -48,7 +47,7 @@ namespace qs
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
-		setRotationOrigin(getWidth() * 0.5f, getHeight() * 0.5f);
+		setRotationOrigin(static_cast<float>(m_width) * 0.5f, static_cast<float>(m_height) * 0.5f);
 	}
 
 	void Sprite2D::bind() noexcept

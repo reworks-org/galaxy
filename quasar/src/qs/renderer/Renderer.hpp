@@ -19,6 +19,7 @@ namespace qs
 	//class BatchSprite2D;
 	class Shader;
 	class VertexArray;
+	class RenderTexture;
 
 	///
 	/// OpenGL 2D batch renderer for drawing VA with transforms, shaders and textures.
@@ -73,6 +74,14 @@ namespace qs
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept;
+
+		///
+		/// Draw to render texture.
+		///
+		/// \param sprite Sprite to draw to screen.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawSpriteToTexture(qs::Sprite2D& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw a batched sprite.

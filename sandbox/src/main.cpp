@@ -64,17 +64,24 @@ int main(int argsc, char* argsv[])
 		qs::Sprite2D wall;
 		wall.load("bin/wall.png");
 		wall.create();
-		wall.move(50.0f, 50.0f);
-		wall.rotate(45.0f);
+		//wall.move(50.0f, 50.0f);
+		//wall.rotate(45.0f);
 		//wall.scale(0.5f, 0.5f);
+
+		qs::Sprite2D arrow;
+		arrow.load("bin/arrow.png");
+		arrow.create();
 
 		qs::RenderTexture rt;
 		rt.create(768, 768);
-		//rt.activate(rttshader);
+		rt.bind();
+		rttshader.bind();
 		
-		//renderer.drawSprite2D(wall, rttshader);
+		renderer.drawSpriteToTexture(wall, rt, rttshader);
 
-		//rt.deactivate(window);
+		rt.unbind(window);
+		rttshader.unbind(); 
+		rt.save("bin/rt.png");
 
 		qs::Sprite2D rtspr;
 		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
@@ -144,9 +151,8 @@ int main(int argsc, char* argsv[])
 			// Render.
 			window.begin(qs::Colours::White);
 			
-			//renderer.drawSprite2D(rtspr, shader);
-			//renderer.drawBatchSprite(batch_tex, batch);
-			renderer.drawSprite2D(wall, shader);
+			renderer.drawSprite2D(rtspr, shader);
+			//renderer.drawSprite2D(wall, shader);
 
 			window.end();
 		}

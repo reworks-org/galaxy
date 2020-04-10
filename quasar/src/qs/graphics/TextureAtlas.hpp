@@ -83,17 +83,6 @@ namespace qs
 		///
 		qs::BatchSprite2D* getBatch() noexcept;
 
-	private:
-		///
-		/// \brief Calc normalized texture point.
-		///
-		/// Private internal function.
-		///
-		/// \param p Point to transform.
-		///
-		/// \return Transformed float.
-		///
-		float cntp(const int p) noexcept;
 
 	private:
 		///

@@ -9,6 +9,8 @@
 #ifndef QUASAR_UTILITY_HPP_
 #define QUASAR_UTILITY_HPP_
 
+#include <type_traits>
+
 #include <SDL2/SDL_stdinc.h>
 
 ///
@@ -38,6 +40,21 @@ namespace qs
 		/// \return Uint8.
 		///
 		float uint8ToFloat(Uint8 u8) noexcept;
+
+		///
+		/// Calc normalized value from range.
+		///
+		/// \param val Value to divide by max.
+		/// \param max Value representing 1.0f.
+		///
+		/// \return Normalized float.
+		///
+		template<typename T>
+		inline float toNorm(const T val, const T max) noexcept
+		{
+			static_assert(std::is_arithmetic<T>::value);
+			return (static_cast<float>(val) / static_cast<float>(max));
+		}
 	}
 }
 

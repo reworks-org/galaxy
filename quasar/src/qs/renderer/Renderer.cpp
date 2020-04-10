@@ -8,6 +8,7 @@
 
 #include "qs/core/Shader.hpp"
 #include "qs/graphics/Sprite2D.hpp"
+#include "qs/core/RenderTexture.hpp"
 //#include "qs/graphics/BatchSprite2D.hpp"
 
 #include "Renderer.hpp"
@@ -51,8 +52,21 @@ namespace qs
 		sprite.bind();
 		
 		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
+
 		sprite.unbind();
 	}
+
+	void Renderer::drawSpriteToTexture(qs::Sprite2D& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	{
+		shader.setUniform("u_transform", sprite.getTransformation());
+		shader.setUniform("u_projection", rt.getProjection());
+		sprite.bind();
+
+		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
+
+		sprite.unbind();
+	}
+
 	/*
 	void Renderer::drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader)
 	{

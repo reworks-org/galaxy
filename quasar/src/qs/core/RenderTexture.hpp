@@ -9,6 +9,8 @@
 #ifndef QUASAR_RENDERTEXTURE_HPP_
 #define QUASAR_RENDERTEXTURE_HPP_
 
+#include <glm/gtc/matrix_transform.hpp>
+
 #include "qs/core/Colours.hpp"
 #include "qs/utils/TextureFilters.hpp"
 
@@ -21,7 +23,6 @@ namespace qs
 	/// Forward dec.
 	///
 	class Window;
-	class Shader;
 
 	///
 	/// Framebuffer texture. You render to this texture instead of the window.
@@ -65,10 +66,7 @@ namespace qs
 		///
 		/// Activate RenderTexture for drawing.
 		///
-		/// \param shader Shader to supply when drawing. Must have a 'u_projection' uniform!
-		///				  Activates that shader program aswell.
-		///
-		void bind(qs::Shader& shader) noexcept;
+		void bind() noexcept;
 
 		///
 		/// Display framebuffer to RenderTexture.
@@ -141,7 +139,17 @@ namespace qs
 		///
 		const unsigned int getGLTexture() const noexcept;
 
+		///
+		/// Get projection.
+		///
+		glm::mat4& getProjection() noexcept;
+
 	private:
+		///
+		/// Projection.
+		///
+		glm::mat4 m_projection;
+
 		///
 		/// OpenGL texture handle.
 		///
@@ -151,11 +159,6 @@ namespace qs
 		/// OpenGL framebuffer handle.
 		///
 		unsigned int m_framebuffer;
-
-		///
-		/// OpenGL renderbuffer handle.
-		///
-		unsigned int m_renderbuffer;
 
 		///
 		/// Cached texture width.

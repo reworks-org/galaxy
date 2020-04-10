@@ -12,7 +12,6 @@
 
 #include "qs/utils/Error.hpp"
 #include "qs/core/Window.hpp"
-#include "qs/core/Shader.hpp"
 
 #include "RenderTexture.hpp"
 
@@ -22,30 +21,26 @@
 namespace qs
 {
 	RenderTexture::RenderTexture() noexcept
-		:m_texture(0), m_framebuffer(0), m_renderbuffer(0), m_width(0), m_height(0)
+		:m_projection(1.0f), m_texture(0), m_framebuffer(0), m_width(0), m_height(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 		glGenTextures(1, &m_texture);
-		glGenRenderbuffers(1, &m_renderbuffer);
 	}
 
 	RenderTexture::RenderTexture(const int w, const int h)
-		:m_texture(0), m_framebuffer(0), m_renderbuffer(0), m_width(0), m_height(0)
+		:m_projection(1.0f), m_texture(0), m_framebuffer(0), m_width(0), m_height(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 		glGenTextures(1, &m_texture);
-		glGenRenderbuffers(1, &m_renderbuffer);
 
 		create(w, h);
 	}
 
 	RenderTexture::~RenderTexture()
 	{
-		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glBindFramebuffer(GL_TEXTURE_2D, 0);
 
-		glDeleteRenderbuffers(1, &m_renderbuffer);
 		glDeleteFramebuffers(1, &m_framebuffer);
 		glDeleteTextures(1, &m_texture);
 	}
@@ -54,10 +49,10 @@ namespace qs
 	{
 		m_width = w;
 		m_height = h;
+		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
-		glBindRenderbuffer(GL_RENDERBUFFER, m_renderbuffer);
 
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
@@ -67,8 +62,6 @@ namespace qs
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture, 0);
-		glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, m_width, m_height);
-		glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, m_renderbuffer);
 
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
@@ -76,7 +69,6 @@ namespace qs
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
@@ -94,14 +86,22 @@ namespace qs
 		}
 	}
 
-	void RenderTexture::bind(qs::Shader& shader) noexcept
+	void RenderTexture::bind() noexcept
 	{
+		// Bind to framebuffer.
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
+		
+		// Enable all this stuff like main window, for this framebuffer.
+		//glEnable(GL_PROGRAM_POINT_SIZE);
+		//glEnable(GL_MULTISAMPLE);
+		//glEnable(GL_DEPTH_TEST);
+		//glEnable(GL_BLEND);
+		//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+
+		// Reset view and colour, in prep for rendering.
 		glViewport(0, 0, m_width, m_height);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		shader.bind();
 	}
 
 	void RenderTexture::unbind(qs::Window& window) noexcept
@@ -182,5 +182,10 @@ namespace qs
 	const unsigned int RenderTexture::getGLTexture() const noexcept
 	{
 		return m_texture;
+	}
+
+	glm::mat4& RenderTexture::getProjection() noexcept
+	{
+		return m_projection;
 	}
 }

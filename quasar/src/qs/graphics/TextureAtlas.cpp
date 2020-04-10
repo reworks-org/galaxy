@@ -105,8 +105,5 @@ namespace qs
 		return &m_batchSprite;
 	}
 
-	float TextureAtlas::cntp(const int p) noexcept
-	{
-		return (static_cast<float>(p) / static_cast<float>(m_size));
-	}
+	
 }
