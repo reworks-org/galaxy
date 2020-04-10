@@ -49,7 +49,7 @@ namespace qs
 		/// \param indices Index array to use.
 		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
 		///
-		void create(const std::vector<unsigned int>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+		void createFromDynamic(const std::vector<unsigned int>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
 
 		///
 		/// Destroys buffer.

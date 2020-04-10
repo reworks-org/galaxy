@@ -60,11 +60,13 @@ namespace qs
 		void create(const qs::VertexBuffer& vb, const qs::VertexLayout& layout) noexcept;
 
 		///
-		/// Add an index buffer to the vertex array layout.
+		/// Create vertex array.
 		///
+		/// \param vb VertexBufferObject to bind to VertexArrayObject.
 		/// \param ib IndexBufferObject to bind to VertexArrayObject.
+		/// \param layout VertexLayout to specify for this VertexArrayObject.
 		///
-		void addIndexBuffer(const qs::IndexBuffer& ib);
+		void create(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
 
 		///
 		/// Bind the current vertex array to current GL context.

@@ -94,7 +94,7 @@ namespace qs
 	template<typename Type>
 	inline void VertexLayout::add(int size) noexcept
 	{
-		qs::Error::handle().callback("VertexLayout.hpp", 89, "Unsupported vertex attribute type!");
+		qs::Error::handle().callback("VertexLayout.hpp", 97, "Unsupported vertex attribute type!");
 	}
 
 	template<>

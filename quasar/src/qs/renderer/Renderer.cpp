@@ -20,6 +20,7 @@ namespace qs
 	void Renderer::drawPoint(qs::VertexArray& va, qs::Shader& shader) noexcept
 	{
 	}
+
 	void Renderer::drawLine(qs::VertexArray& va, qs::Shader& shader) noexcept
 	{
 	}

@@ -46,8 +46,7 @@ namespace qs
 		m_layout.add<float>(2);
 		m_layout.add<float>(2);
 
-		m_vertexArray.create(m_vertexBuffer, m_layout);
-		m_vertexArray.addIndexBuffer(m_indexBuffer);
+		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
 		setRotationOrigin(getWidth() * 0.5f, getHeight() * 0.5f);
 	}

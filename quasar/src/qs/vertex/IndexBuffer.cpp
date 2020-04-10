@@ -18,7 +18,7 @@ namespace qs
 	{
 	}
 
-	void IndexBuffer::create(const std::vector<unsigned int>& indices, unsigned int glDrawType) noexcept
+	void IndexBuffer::createFromDynamic(const std::vector<unsigned int>& indices, unsigned int glDrawType) noexcept
 	{
 		m_count = indices.size();
 

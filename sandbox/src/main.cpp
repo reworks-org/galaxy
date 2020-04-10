@@ -64,26 +64,25 @@ int main(int argsc, char* argsv[])
 		qs::Sprite2D wall;
 		wall.load("bin/wall.png");
 		wall.create();
-		//wall.move(50.0f, 50.0f);
+		wall.move(50.0f, 50.0f);
 		wall.rotate(45.0f);
 		//wall.scale(0.5f, 0.5f);
 
 		qs::RenderTexture rt;
 		rt.create(768, 768);
-		rt.activate(rttshader);
+		//rt.activate(rttshader);
 		
-		renderer.drawSprite2D(wall, rttshader);
+		//renderer.drawSprite2D(wall, rttshader);
 
-		rt.deactivate(window);
+		//rt.deactivate(window);
 
-		qs::Sprite2D rtspr;
-		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
-		rtspr.create();
+		//qs::Sprite2D rtspr;
+		//rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
+		//rtspr.create();
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);
-		//camera.setSpeed(0.2f);
-		//camera.scale(.0f, 8.0f);
+		camera.setSpeed(0.2f);
 
 		// Loop
 		while (window.isOpen())
