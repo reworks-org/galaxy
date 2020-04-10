@@ -81,7 +81,7 @@ int main(int argsc, char* argsv[])
 		rtspr.create();
 
 		qs::Camera camera; //left, right, bottom, top
-		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);
+		camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 		camera.setSpeed(0.2f);
 
 		// Loop
@@ -135,7 +135,7 @@ int main(int argsc, char* argsv[])
 			}
 
 			camera.update(1.0);
-			shader.use();
+			shader.bind();
 			shader.setUniform<glm::mat4>("u_camera", camera.get());
 
 			//batch.use();

@@ -38,7 +38,7 @@ namespace qs
 		return m_attributes;
 	}
 
-	const unsigned int VertexLayout::stride() const
+	const unsigned int VertexLayout::getStride() const
 	{
 		return m_stride;
 	}

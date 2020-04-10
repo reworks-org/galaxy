@@ -68,12 +68,12 @@ namespace qs
 		/// \param shader Shader to supply when drawing. Must have a 'u_projection' uniform!
 		///				  Activates that shader program aswell.
 		///
-		void activate(qs::Shader& shader) noexcept;
+		void bind(qs::Shader& shader) noexcept;
 
 		///
 		/// Display framebuffer to RenderTexture.
 		///
-		void deactivate(qs::Window& window) noexcept;
+		void unbind(qs::Window& window) noexcept;
 
 		///
 		/// Makes the texture repeat over its verticies.

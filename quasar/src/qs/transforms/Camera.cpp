@@ -18,10 +18,10 @@ namespace qs
 	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
 		:m_curKeyDownEvent(), m_speed(speed), m_projection(1.0f), m_vp(1.0f)
 	{
-		configure(left, right, bottom, top);
+		create(left, right, bottom, top);
 	}
 
-	void Camera::configure(const float left, const float right, const float bottom, const float top) noexcept
+	void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
 	{
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		m_vp = m_projection * getTransformation();

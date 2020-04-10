@@ -43,9 +43,14 @@ namespace qs
 		void create() noexcept;
 
 		///
-		/// Bind VA, texture.
+		/// Bind VA and texture.
 		///
-		void activate() noexcept;
+		void bind() noexcept override;
+
+		///
+		/// Unbinds VA and texture.
+		///
+		void unbind() noexcept override;
 
 		///
 		/// Get vertex array object.

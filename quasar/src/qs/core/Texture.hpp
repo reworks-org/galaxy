@@ -102,14 +102,14 @@ namespace qs
 		///
 		/// Binds to GL_TEXTURE2D
 		///
-		void bind() noexcept;
+		virtual void bind() noexcept;
 
 		///
 		/// \brief Unbinds texture from GL_TEXTURE2D context.
 		///
 		/// Note technically unbinds any texture since sets GL_TEXTURE2D to NULL.
 		///
-		void unbind() noexcept;
+		virtual void unbind() noexcept;
 
 		///
 		/// Makes the texture repeat over its verticies.

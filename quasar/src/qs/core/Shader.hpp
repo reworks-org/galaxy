@@ -78,12 +78,12 @@ namespace qs
 		///
 		/// Enable this shader for rendering.
 		///
-		void use() noexcept;
+		void bind() noexcept;
 
 		///
 		/// Disable this currently active shader.
 		///
-		void disable() noexcept;
+		void unbind() noexcept;
 
 		///
 		/// \brief Specialized variadic template for setting shader uniforms.

@@ -75,8 +75,8 @@ namespace qs
 			qs::Error::handle().callback("RenderTexture.cpp", 31, "Failed to create GL_FRAMEBUFFER!");
 		}
 
-		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
@@ -94,17 +94,17 @@ namespace qs
 		}
 	}
 
-	void RenderTexture::activate(qs::Shader& shader) noexcept
+	void RenderTexture::bind(qs::Shader& shader) noexcept
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glViewport(0, 0, m_width, m_height);
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		shader.use();
+		shader.bind();
 	}
 
-	void RenderTexture::deactivate(qs::Window& window) noexcept
+	void RenderTexture::unbind(qs::Window& window) noexcept
 	{
 		glFlush();
 		window.makeCurrent();
@@ -115,6 +115,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	void RenderTexture::setMirrored() noexcept
@@ -122,6 +123,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	void RenderTexture::clampToEdge() noexcept
@@ -129,12 +131,14 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	void RenderTexture::clampToBorder(protostar::Colour& border) noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	void RenderTexture::setMinifyFilter(const qs::TextureFilter& filter) noexcept
@@ -148,6 +152,7 @@ namespace qs
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		}
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	void RenderTexture::setMagnifyFilter(const qs::TextureFilter& filter) noexcept
@@ -161,6 +166,7 @@ namespace qs
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		}
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	const int RenderTexture::getWidth() const noexcept

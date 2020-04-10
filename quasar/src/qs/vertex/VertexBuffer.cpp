@@ -18,7 +18,7 @@ namespace qs
 	{
 	}
 
-	void VertexBuffer::createFromDynamic(const std::vector<float>& data, unsigned int glDrawType) noexcept
+	void VertexBuffer::create(const std::vector<float>& data, unsigned int glDrawType) noexcept
 	{
 		// Gen a single buffer for this object.
 		glGenBuffers(1, &m_id);

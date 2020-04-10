@@ -55,7 +55,7 @@ namespace qs
 		/// \param bottom Bottom point of ortho perspective.
 		/// \param top Top point of ortho perspective.
 		///
-		void configure(const float left, const float right, const float bottom, const float top) noexcept;
+		void create(const float left, const float right, const float bottom, const float top) noexcept;
 
 		///
 		///	Event processing method for camera.

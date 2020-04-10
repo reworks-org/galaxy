@@ -51,10 +51,16 @@ namespace qs
 		setRotationOrigin(getWidth() * 0.5f, getHeight() * 0.5f);
 	}
 
-	void Sprite2D::activate() noexcept
+	void Sprite2D::bind() noexcept
 	{
-		bind(); // texture
+		glBindTexture(GL_TEXTURE_2D, m_id);
 		m_vertexArray.bind();
+	}
+
+	void Sprite2D::unbind() noexcept
+	{
+		m_vertexArray.unbind();
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	qs::VertexArray& Sprite2D::getVAO() noexcept

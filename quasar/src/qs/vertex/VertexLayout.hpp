@@ -72,7 +72,7 @@ namespace qs
 		///
 		/// \return const unsigned int of stride.
 		///
-		const unsigned int stride() const;
+		const unsigned int getStride() const;
 
 	private:
 		///

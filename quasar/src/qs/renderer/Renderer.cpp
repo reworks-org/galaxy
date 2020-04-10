@@ -48,9 +48,10 @@ namespace qs
 	void Renderer::drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept
 	{
 		shader.setUniform("u_transform", sprite.getTransformation());
-		sprite.activate();
+		sprite.bind();
 		
 		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
+		sprite.unbind();
 	}
 	/*
 	void Renderer::drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader)

@@ -47,7 +47,7 @@ namespace qs
 		unsigned int counter = 0;
 		for (const auto& attribute : attributes)
 		{
-			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.stride() * sizeof(GLfloat), (GLvoid*)attribute.m_offset);
+			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.getStride() * sizeof(GLfloat), (GLvoid*)attribute.m_offset);
 			glEnableVertexAttribArray(counter);
 
 			++counter;
@@ -71,7 +71,7 @@ namespace qs
 		unsigned int counter = 0;
 		for (const auto& attribute : attributes)
 		{
-			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.stride() * sizeof(GLfloat), (GLvoid*)attribute.m_offset);
+			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, layout.getStride() * sizeof(GLfloat), (GLvoid*)attribute.m_offset);
 			glEnableVertexAttribArray(counter);
 
 			++counter;

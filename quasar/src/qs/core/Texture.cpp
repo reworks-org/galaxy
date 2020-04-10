@@ -72,6 +72,7 @@ namespace qs
 		}
 
 		stbi_image_free(data);
+		unbind();
 	}
 
 	void Texture::load(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel)
@@ -104,6 +105,7 @@ namespace qs
 		}
 
 		stbi_image_free(data);
+		unbind();
 	}
 
 	void Texture::load(const unsigned int id, const int width, const int height) noexcept
@@ -131,6 +133,7 @@ namespace qs
 			bind();
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
 			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+			unbind();
 		}
 	}
 
@@ -149,6 +152,7 @@ namespace qs
 		bind();
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		unbind();
 	}
 
 	void Texture::setMirrored() noexcept
@@ -156,6 +160,7 @@ namespace qs
 		bind();
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
+		unbind();
 	}
 
 	void Texture::clampToEdge() noexcept
@@ -163,12 +168,14 @@ namespace qs
 		bind();
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		unbind();
 	}
 
 	void Texture::clampToBorder(protostar::Colour& border) noexcept
 	{
 		bind();
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
+		unbind();
 	}
 
 	void Texture::setMinifyFilter(const qs::TextureFilter& filter) noexcept
@@ -182,6 +189,7 @@ namespace qs
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		}
+		unbind();
 	}
 
 	void Texture::setMagnifyFilter(const qs::TextureFilter& filter) noexcept
@@ -195,6 +203,7 @@ namespace qs
 		{
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		}
+		unbind();
 	}
 
 	const int Texture::getWidth() const noexcept

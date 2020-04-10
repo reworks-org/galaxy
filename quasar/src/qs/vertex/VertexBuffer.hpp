@@ -50,7 +50,7 @@ namespace qs
 		/// \param data Verticies to use.
 		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
 		///
-		void createFromDynamic(const std::vector<float>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+		void create(const std::vector<float>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
 
 		///
 		/// Destroys buffer.

@@ -41,7 +41,7 @@ namespace qs
 
 	Shader::~Shader() noexcept
 	{
-		disable();
+		unbind();
 		glDeleteProgram(m_id);
 	}
 
@@ -260,12 +260,12 @@ namespace qs
 		return result;
 	}
 
-	void Shader::use() noexcept
+	void Shader::bind() noexcept
 	{
 		glUseProgram(m_id);
 	}
 
-	void Shader::disable() noexcept
+	void Shader::unbind() noexcept
 	{
 		glUseProgram(0);
 	}
