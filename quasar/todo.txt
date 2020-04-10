@@ -14,3 +14,4 @@
 - Finish renderer.
 - texture transformations (i.e. for animations) -> in glsl?
 - Optimize spritebatch copying transform vectors.
+- make sure stuff is properly unbound.

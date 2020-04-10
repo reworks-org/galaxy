@@ -76,9 +76,9 @@ int main(int argsc, char* argsv[])
 
 		//rt.deactivate(window);
 
-		//qs::Sprite2D rtspr;
-		//rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
-		//rtspr.create();
+		qs::Sprite2D rtspr;
+		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
+		rtspr.create();
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.configure(0.0f, window.getWidth(), window.getHeight(), 0.0f);

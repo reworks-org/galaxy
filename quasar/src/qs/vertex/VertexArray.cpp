@@ -52,6 +52,9 @@ namespace qs
 
 			++counter;
 		}
+
+		unbind();
+		vb.unbind();
 	}
 
 	void VertexArray::create(const qs::VertexBuffer& vb, const qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept
@@ -60,7 +63,7 @@ namespace qs
 
 		bind();
 		vb.bind(); // add vertex buffer
-		ib.bind();
+		ib.bind(); // add index buffer
 
 		// Add each attribute in the layout to the vertex array object.
 		// I.e. position attribute, then colour attribute of the verticies.
@@ -73,6 +76,10 @@ namespace qs
 
 			++counter;
 		}
+
+		unbind();
+		vb.unbind();
+		ib.unbind();
 	}
 
 	void VertexArray::bind() const noexcept
