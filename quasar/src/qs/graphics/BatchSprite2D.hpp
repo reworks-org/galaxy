@@ -48,9 +48,9 @@ namespace qs
 		void create(const int totalSprites) noexcept;
 
 		///
-		/// Bind VA, texture, and add transform to shader.
+		/// Bind VA and texture.
 		///
-		void activate() noexcept;
+		void bind() noexcept override;
 
 		///
 		/// Gets IndexBuffer count.
@@ -81,9 +81,9 @@ namespace qs
 		///
 		/// \param name Name of the texture in the atlas.
 		///
-		/// \return Reference to a qs::Transform.
+		/// \return Pointer to a qs::Transform.
 		///
-		qs::Transform& getTransform(const std::string& name);
+		qs::Transform* getTransform(const std::string& name);
 
 		///
 		/// \brief Retrieve array of transform to pass to shader.

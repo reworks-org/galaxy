@@ -6,7 +6,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
+
 #include "qs/core/Shader.hpp"
+#include "qs/utils/Utility.hpp"
+#include "qs/graphics/Sprite2D.hpp"
+#include "qs/renderer/Renderer.hpp"
 
 #include "TextureAtlas.hpp"
 
@@ -15,7 +21,7 @@ namespace qs
 	TextureAtlas::TextureAtlas() noexcept
 		:m_size(1024), m_atlas(1024, 1024)
 	{
-		// Defaults to 512.
+		// This is the default size.
 		m_packer.init(1024, 1024);
 	}
 
@@ -35,20 +41,17 @@ namespace qs
 		m_textureFiles.push_back(name);
 	}
 
-	void TextureAtlas::create(qs::Shader& shader, qs::Window& window) noexcept
+	void TextureAtlas::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept
 	{
 		if (!m_textureFiles.empty())
 		{
-			shader.use();
-			m_atlas.activate(shader);
-
-			float counter = 0;
+			float counter = 0.0f;
 			for (const auto& file : m_textureFiles)
 			{
+				auto filePath = std::filesystem::path(file);
+
 				// Load texture.
 				qs::Sprite2D tex;
-
-				auto filePath = std::filesystem::path(file);
 				tex.load(filePath.string());
 				tex.create();
 
@@ -56,54 +59,43 @@ namespace qs
 				auto opt = m_packer.pack(tex.getWidth(), tex.getHeight());
 				if (opt == std::nullopt)
 				{
-					qs::Error::handle().callback("TextureAtlas.cpp", 60, "Failed to pack texture: " + file);
+					qs::Error::handle().callback("TextureAtlas.cpp", 62, "Failed to pack texture: " + file);
 				}
 				else
 				{
 					auto rect = opt.value();
 					m_batchSprite.push({
-						0.0f, 0.0f, cntp(rect.m_x), cntp(rect.m_y), counter,
-						(float)rect.m_width, 0.0f, cntp(rect.m_x + rect.m_width), cntp(rect.m_y), counter,
-						(float)rect.m_width, (float)rect.m_height, cntp(rect.m_x + rect.m_width), cntp(rect.m_y + rect.m_height), counter,
-						0.0f, (float)rect.m_height, cntp(rect.m_x), cntp(rect.m_y + rect.m_height), counter
+						0.0f, 1.0f, Utils::toNorm(rect.m_x, m_size), Utils::toNorm(rect.m_y, m_size), counter,
+						static_cast<float>(rect.m_width), 1.0f, Utils::toNorm(rect.m_x + rect.m_width, m_size), Utils::toNorm(rect.m_y, m_size), counter,
+						static_cast<float>(rect.m_width), static_cast<float>(rect.m_height), Utils::toNorm(rect.m_x + rect.m_width, m_size), Utils::toNorm(rect.m_y + rect.m_height, m_size), counter,
+						0.0f, static_cast<float>(rect.m_height), Utils::toNorm(rect.m_x, m_size), Utils::toNorm(rect.m_y + rect.m_height, m_size), counter
 					});
-					 
-					// Draw to master texture
+					
+					m_atlas.bind();
 					tex.setPos(rect.m_x, rect.m_y);
-					shader.setUniform("u_transform", tex.getTransformation());
-
-					tex.activate();
-					glDrawElements(GL_TRIANGLES, tex.getIBO().count(), GL_UNSIGNED_INT, nullptr);
-
-					m_batchSprite.addID(filePath.filename().string(), counter);
-					counter += 1;
+					renderer.drawSpriteToTexture(tex, m_atlas, shader);
+					m_batchSprite.addID(filePath.filename().string(), std::trunc(counter));
+					counter += 1.0f;
 				}
 			}
 
-			m_atlas.deactivate(window);
-			m_batchSprite.load(m_atlas.getSprite().getGLTexture(), m_atlas.getWidth(), m_atlas.getHeight());
+			m_batchSprite.load(m_atlas.getGLTexture(), m_atlas.getWidth(), m_atlas.getHeight());
 			m_batchSprite.create(counter);
+			m_atlas.unbind(window);
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 89, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 91, "Tried to create atlas with no texture files!");
 		}
 	}
 
-	void TextureAtlas::dump(const std::string& file)
+	void TextureAtlas::save(const std::filesystem::path& file)
 	{
-		m_atlas.getSprite().save(file);
+		m_atlas.save(file.string());
 	}
 
-	qs::Sprite2D& TextureAtlas::getAtlas() noexcept
-	{
-		return m_atlas.getSprite();
-	}
-
-	qs::BatchSprite2D* TextureAtlas::getBatch() noexcept
+	qs::BatchSprite2D* TextureAtlas::getSpritebatch() noexcept
 	{
 		return &m_batchSprite;
 	}
-
-	
 }

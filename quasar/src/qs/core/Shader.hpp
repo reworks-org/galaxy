@@ -230,7 +230,7 @@ namespace qs
 	template<>
 	inline void Shader::setUniform<std::vector<glm::mat4>>(const std::string& name, const std::vector<glm::mat4>& transformArray)
 	{
-		glUniformMatrix4fv(getUniformLocation(name), transformArray.size(), GL_FALSE, (float*)&transformArray[0]);
+		glUniformMatrix4fv(getUniformLocation(name), transformArray.size(), GL_FALSE, reinterpret_cast<GLfloat*>(const_cast<glm::mat4*>(transformArray.data())));
 	}
 }
 

@@ -22,8 +22,7 @@ namespace qs
 
 	Sprite2D::~Sprite2D() noexcept
 	{
-		m_vertexArray.unbind();
-		unbind(); // texture
+		unbind();
 		glDeleteTextures(1, &m_id);
 	}
 	

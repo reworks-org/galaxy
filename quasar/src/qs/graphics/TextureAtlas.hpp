@@ -12,7 +12,7 @@
 #include <protostar/shapes/Rect.hpp>
 #include <protostar/math/RectPack.hpp>
 
-#include "qs/graphics/RenderTexture.hpp"
+#include "qs/core/RenderTexture.hpp"
 #include "qs/graphics/BatchSprite2D.hpp"
 
 ///
@@ -20,6 +20,10 @@
 ///
 namespace qs
 {
+	// Forward dec.
+	class Shader;
+	class Renderer;
+
 	///
 	/// A texture atlas containing all the textures and rasterized text in the game.
 	/// This means rendering can be very efficient because only one texture has to be loaded and no switching takes place.
@@ -58,31 +62,25 @@ namespace qs
 		///
 		/// Does nothing if no files were added.
 		///
-		/// \param shader Shader to use when rendering to texture. Must have a 'u_projection' uniform!
+		/// \param window Target to reset framebuffer to.
+		/// \param renderer Renderer to use to draw textures.
+		/// \param shader Shader to use when creating atlas. Does not bind.
 		///
-		void create(qs::Shader& shader, qs::Window& window) noexcept;
+		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
 		///
 		/// Dumps internal atlas. May take a while.
 		///
 		/// \param file Name to save file with, including extension you want.
 		///
-		void dump(const std::string& file);
+		void save(const std::filesystem::path& file);
 
 		///
-		/// Get internal atlas.
+		/// Gets the spritebatch.
 		///
-		/// \return Reference to internal atlas sprite.
+		/// \return Pointer to spritebatch.
 		///
-		qs::Sprite2D& getAtlas() noexcept;
-
-		///
-		/// Get pointer to spritebatch. 
-		///
-		/// \return Returns a pointer to internal spritebatch.
-		///
-		qs::BatchSprite2D* getBatch() noexcept;
-
+		qs::BatchSprite2D* getSpritebatch() noexcept;
 
 	private:
 		///

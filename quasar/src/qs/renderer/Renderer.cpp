@@ -9,7 +9,7 @@
 #include "qs/core/Shader.hpp"
 #include "qs/graphics/Sprite2D.hpp"
 #include "qs/core/RenderTexture.hpp"
-//#include "qs/graphics/BatchSprite2D.hpp"
+#include "qs/graphics/BatchSprite2D.hpp"
 
 #include "Renderer.hpp"
 
@@ -67,13 +67,11 @@ namespace qs
 		sprite.unbind();
 	}
 
-	/*
 	void Renderer::drawBatchSprite(qs::BatchSprite2D* spritebatch, qs::Shader& shader)
 	{
 		shader.setUniform("u_transform", spritebatch->getTransformArray());
-		spritebatch->activate();
+		spritebatch->bind();
 
 		glDrawElements(GL_TRIANGLES, spritebatch->count(), GL_UNSIGNED_INT, nullptr);
 	}
-	*/
 }

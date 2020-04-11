@@ -25,7 +25,7 @@ namespace qs
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 
 		// Copy data into buffer object.
-		glBufferData(GL_ARRAY_BUFFER, data.size(), data.data(), glDrawType);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), data.data(), glDrawType);
 
 		// Clean up.
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

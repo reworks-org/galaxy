@@ -19,6 +19,7 @@
 #include <qs/graphics/Sprite2D.hpp>
 #include <qs/core/Shader.hpp>
 #include <qs/core/RenderTexture.hpp>
+#include <qs/graphics/TextureAtlas.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -72,20 +73,30 @@ int main(int argsc, char* argsv[])
 		arrow.load("bin/arrow.png");
 		arrow.create();
 
-		qs::RenderTexture rt;
-		rt.create(768, 768);
-		rt.bind();
-		rttshader.bind();
+		//qs::RenderTexture rt;
+		//rt.create(768, 768);
+		//rt.bind();
+		//rttshader.bind();
 		
-		renderer.drawSpriteToTexture(wall, rt, rttshader);
+		//renderer.drawSpriteToTexture(wall, rt, rttshader);
+		
+		//rt.unbind(window);
+		//rttshader.unbind(); 
+		//rt.save("bin/rt.png");
 
-		rt.unbind(window);
-		rttshader.unbind(); 
-		rt.save("bin/rt.png");
+		//qs::Sprite2D rtspr;
+		//rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
+		//rtspr.create();
 
-		qs::Sprite2D rtspr;
-		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
-		rtspr.create();
+		rttshader.bind();
+		qs::TextureAtlas atlas;
+		atlas.add("bin/wall.png");
+		atlas.create(window, renderer, rttshader);
+		atlas.save("bin/atlas.png");
+		qs::BatchSprite2D* sb = atlas.getSpritebatch();
+		rttshader.unbind();
+		qs::Transform* transform = sb->getTransform("wall.png");
+		transform->scale(500.0f, 500.0f);
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -142,17 +153,17 @@ int main(int argsc, char* argsv[])
 			}
 
 			camera.update(1.0);
-			shader.bind();
-			shader.setUniform<glm::mat4>("u_camera", camera.get());
-
-			//batch.use();
-			//batch.setUniform("u_camera", camera.get());
+			//shader.bind();
+			//shader.setUniform<glm::mat4>("u_camera", camera.get());
+			batch.bind();
+			batch.setUniform("u_camera", camera.get());
 
 			// Render.
 			window.begin(qs::Colours::White);
 			
-			renderer.drawSprite2D(rtspr, shader);
+			//renderer.drawSprite2D(rtspr, shader);
 			//renderer.drawSprite2D(wall, shader);
+			renderer.drawBatchSprite(sb, batch);
 
 			window.end();
 		}
