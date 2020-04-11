@@ -13,7 +13,6 @@
 #include <protostar/math/RectPack.hpp>
 
 #include "qs/core/RenderTexture.hpp"
-#include "qs/graphics/BatchSprite2D.hpp"
 
 ///
 /// Core namespace.
@@ -75,13 +74,6 @@ namespace qs
 		///
 		void save(const std::filesystem::path& file);
 
-		///
-		/// Gets the spritebatch.
-		///
-		/// \return Pointer to spritebatch.
-		///
-		qs::BatchSprite2D* getSpritebatch() noexcept;
-
 	private:
 		///
 		/// Size of atlas.
@@ -92,11 +84,6 @@ namespace qs
 		/// Master texture.
 		///
 		qs::RenderTexture m_atlas;
-
-		///
-		/// Batch sprite.
-		///
-		qs::BatchSprite2D m_batchSprite;
 
 		///
 		/// Contains the rectangles outlining all the textures on the atlas.

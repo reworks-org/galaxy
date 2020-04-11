@@ -25,7 +25,6 @@
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
     <ClCompile Include="src\qs\core\RenderTexture.cpp" />
-    <ClCompile Include="src\qs\graphics\BatchSprite2D.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite2D.cpp" />
@@ -35,6 +34,7 @@
     <ClCompile Include="src\qs\utils\Error.cpp" />
     <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
+    <ClCompile Include="src\qs\vertex\Vertex.cpp" />
     <ClCompile Include="src\qs\vertex\VertexArray.cpp" />
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
@@ -46,7 +46,6 @@
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
     <ClInclude Include="src\qs\core\RenderTexture.hpp" />
-    <ClInclude Include="src\qs\graphics\BatchSprite2D.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite2D.hpp" />
@@ -56,6 +55,7 @@
     <ClInclude Include="src\qs\utils\Error.hpp" />
     <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
+    <ClInclude Include="src\qs\vertex\Vertex.hpp" />
     <ClInclude Include="src\qs\vertex\VertexArray.hpp" />
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />

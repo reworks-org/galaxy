@@ -93,10 +93,7 @@ int main(int argsc, char* argsv[])
 		atlas.add("bin/wall.png");
 		atlas.create(window, renderer, rttshader);
 		atlas.save("bin/atlas.png");
-		qs::BatchSprite2D* sb = atlas.getSpritebatch();
 		rttshader.unbind();
-		qs::Transform* transform = sb->getTransform("wall.png");
-		transform->scale(500.0f, 500.0f);
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -163,7 +160,6 @@ int main(int argsc, char* argsv[])
 			
 			//renderer.drawSprite2D(rtspr, shader);
 			//renderer.drawSprite2D(wall, shader);
-			renderer.drawBatchSprite(sb, batch);
 
 			window.end();
 		}

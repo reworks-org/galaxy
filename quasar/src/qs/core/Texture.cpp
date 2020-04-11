@@ -26,16 +26,16 @@ namespace qs
 	{
 	}
 
-	Texture::Texture(const std::string& file, unsigned int mipmapLevel)
+	Texture::Texture(const std::string& file)
 		:m_id(0), m_width(0), m_height(0)
 	{
-		load(file, mipmapLevel);
+		load(file);
 	}
 
-	Texture::Texture(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel)
+	Texture::Texture(const unsigned char* mem, const unsigned int size)
 		: m_id(0), m_width(0), m_height(0)
 	{
-		load(mem, size, mipmapLevel);
+		load(mem, size);
 	}
 
 	Texture::~Texture() noexcept
@@ -44,7 +44,7 @@ namespace qs
 		glDeleteTextures(1, &m_id);
 	}
 
-	void Texture::load(const std::string& file, unsigned int mipmapLevel)
+	void Texture::load(const std::string& file)
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);
@@ -55,8 +55,8 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-			glGenerateMipmap(GL_TEXTURE_2D);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			//glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 			setMinifyFilter(qs::TextureFilter::LINEAR);
@@ -75,7 +75,7 @@ namespace qs
 		unbind();
 	}
 
-	void Texture::load(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel)
+	void Texture::load(const unsigned char* mem, const unsigned int size)
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);
@@ -86,8 +86,8 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, mipmapLevel, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-			glGenerateMipmap(GL_TEXTURE_2D);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			//glGenerateMipmap(GL_TEXTURE_2D);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 			setMinifyFilter(qs::TextureFilter::LINEAR);

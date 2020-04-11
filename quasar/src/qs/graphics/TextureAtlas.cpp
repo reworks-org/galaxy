@@ -64,23 +64,22 @@ namespace qs
 				else
 				{
 					auto rect = opt.value();
-					m_batchSprite.push({
+					/*
+						m_batchSprite.push({
 						0.0f, 1.0f, Utils::toNorm(rect.m_x, m_size), Utils::toNorm(rect.m_y, m_size), counter,
 						static_cast<float>(rect.m_width), 1.0f, Utils::toNorm(rect.m_x + rect.m_width, m_size), Utils::toNorm(rect.m_y, m_size), counter,
 						static_cast<float>(rect.m_width), static_cast<float>(rect.m_height), Utils::toNorm(rect.m_x + rect.m_width, m_size), Utils::toNorm(rect.m_y + rect.m_height, m_size), counter,
 						0.0f, static_cast<float>(rect.m_height), Utils::toNorm(rect.m_x, m_size), Utils::toNorm(rect.m_y + rect.m_height, m_size), counter
 					});
+					*/
 					
 					m_atlas.bind();
 					tex.setPos(rect.m_x, rect.m_y);
 					renderer.drawSpriteToTexture(tex, m_atlas, shader);
-					m_batchSprite.addID(filePath.filename().string(), std::trunc(counter));
 					counter += 1.0f;
 				}
 			}
-
-			m_batchSprite.load(m_atlas.getGLTexture(), m_atlas.getWidth(), m_atlas.getHeight());
-			m_batchSprite.create(counter);
+			
 			m_atlas.unbind(window);
 		}
 		else
@@ -92,10 +91,5 @@ namespace qs
 	void TextureAtlas::save(const std::filesystem::path& file)
 	{
 		m_atlas.save(file.string());
-	}
-
-	qs::BatchSprite2D* TextureAtlas::getSpritebatch() noexcept
-	{
-		return &m_batchSprite;
 	}
 }

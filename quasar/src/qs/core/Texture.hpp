@@ -39,9 +39,8 @@ namespace qs
 		/// Can throw exceptions.
 		///
 		/// \param file File on disk to load from.
-		/// \param mipmapLevel The level of mipmapping to apply to the texture.
 		///
-		explicit Texture(const std::string& file, unsigned int mipmapLevel = 0);
+		explicit Texture(const std::string& file);
 
 		///
 		/// \brief Argument constructor.
@@ -51,9 +50,8 @@ namespace qs
 		///
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
 		/// \param size Size of the buffer.
-		/// \param mipmapLevel The level of mipmapping to apply to the texture.
 		///
-		explicit Texture(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel = 0);
+		explicit Texture(const unsigned char* mem, const unsigned int size);
 
 		///
 		/// Destructor.
@@ -66,9 +64,8 @@ namespace qs
 		/// Can throw exceptions.
 		///
 		/// \param file File on disk to load from.
-		/// \param mipmapLevel The level of mipmapping to apply to the texture.
 		///
-		void load(const std::string& file, unsigned int mipmapLevel = 0);
+		void load(const std::string& file);
 
 		///
 		/// \brief Loads texture from memory.
@@ -77,9 +74,8 @@ namespace qs
 		///
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
 		/// \param size Size of the buffer.
-		/// \param mipmapLevel The level of mipmapping to apply to the texture.
 		///
-		void load(const unsigned char* mem, const unsigned int size, unsigned int mipmapLevel = 0);
+		void load(const unsigned char* mem, const unsigned int size);
 
 		///
 		/// Loads texture from OpenGL generated id.

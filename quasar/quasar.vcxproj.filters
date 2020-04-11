@@ -20,7 +20,7 @@
     <ClCompile Include="src\qs\core\RenderTexture.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\qs\graphics\BatchSprite2D.cpp" />
+    <ClCompile Include="src\qs\vertex\Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -41,7 +41,7 @@
     <ClInclude Include="src\qs\core\RenderTexture.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\qs\graphics\BatchSprite2D.hpp" />
+    <ClInclude Include="src\qs\vertex\Vertex.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
