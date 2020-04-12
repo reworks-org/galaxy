@@ -35,7 +35,18 @@ namespace qs
 		/// \param u Texel x pos.
 		/// \param v Texel y pos.
 		///
-		Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v);
+		explicit Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v);
+
+		///
+		/// Argument constructor.
+		///
+		/// \param x X pos.
+		/// \param y Y pos.
+		/// \param col Colour.
+		/// \param u Texel x pos.
+		/// \param v Texel y pos.
+		///
+		explicit Vertex(const float x, const float y, const std::array<float, 4>& col, const float u, const float v);
 
 		///
 		/// Destructor.
@@ -45,17 +56,17 @@ namespace qs
 		///
 		/// Position of vertex.
 		///
-		float m_position[2];
+		std::array<float, 2> m_position;
 
 		///
 		/// Colour of vertex.
 		///
-		float m_colour[4];
+		std::array<float, 4> m_colour;
 
 		///
 		/// Corresponding texture vertex.
 		///
-		float m_texels[2];
+		std::array<float, 2> m_texels;
 	};
 }
 

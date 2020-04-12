@@ -9,6 +9,8 @@
 #ifndef QUASAR_VERTEXATTRIBUTE_HPP_
 #define QUASAR_VERTEXATTRIBUTE_HPP_
 
+#include <cstddef>
+
 ///
 /// Core namespace.
 ///
@@ -19,6 +21,27 @@ namespace qs
 	///
 	struct VertexAttribute final
 	{
+		///
+		/// Enum class for specifying the type of member value in Vertex the VertexAttribute is for.
+		///
+		enum class Type : short
+		{
+			///
+			/// Position vertex members.
+			///
+			POSITION,
+
+			///
+			/// Colour vertex members.
+			///
+			COLOUR,
+
+			///
+			/// Texel (texid) vertex members.
+			///
+			TEXELS
+		};
+		
 		///
 		/// Default constructor.
 		///
@@ -34,7 +57,7 @@ namespace qs
 		/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 		/// \param offset The offset of this attribute in the verticies.
 		///
-		explicit VertexAttribute(int size, unsigned int type, unsigned char normalized, unsigned int offset) noexcept;
+		explicit VertexAttribute(int size, unsigned int type, unsigned char normalized, std::size_t offset) noexcept;
 		
 		///
 		/// Components for each vertex attribute.
@@ -54,7 +77,7 @@ namespace qs
 		///
 		/// The offset of this attribute in the verticies.
 		///
-		int m_offset;
+		std::size_t m_offset;
 	};
 }
 

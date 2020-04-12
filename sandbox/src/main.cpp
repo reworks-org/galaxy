@@ -15,8 +15,8 @@
 #include <qs/core/Texture.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/renderer/Renderer.hpp>
-#include <qs/transforms/Camera.hpp>
-#include <qs/graphics/Sprite2D.hpp>
+#include <qs/graphics/Camera.hpp>
+#include <qs/graphics/Sprite.hpp>
 #include <qs/core/Shader.hpp>
 #include <qs/core/RenderTexture.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
@@ -43,7 +43,6 @@ int main(int argsc, char* argsv[])
 		settings.msaaLevel = 2;
 		settings.SDL_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
 
-		float aspectRatio = 16.0f / 9.0f;
 		if (!window.create("TestBed", 1024, 768, settings))
 		{
 			std::cout << "Window creation failed!" << std::endl;
@@ -58,20 +57,16 @@ int main(int argsc, char* argsv[])
 		qs::Renderer renderer;
 
 		// Shaders
-		qs::Shader shader(std::filesystem::path("bin/basic.vert"), std::filesystem::path("bin/basic.frag"));
-		qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
-		qs::Shader batch(std::filesystem::path("bin/batch.vert"), std::filesystem::path("bin/batch.frag"));
+		qs::Shader shader(std::filesystem::path("bin/sprite.vert"), std::filesystem::path("bin/sprite.frag"));
+		
+		//qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
+		//qs::Shader batch(std::filesystem::path("bin/batch.vert"), std::filesystem::path("bin/batch.frag"));
 
-		qs::Sprite2D wall;
+		qs::Sprite wall;
 		wall.load("bin/wall.png");
-		wall.create();
-		//wall.move(50.0f, 50.0f);
-		//wall.rotate(45.0f);
-		//wall.scale(0.5f, 0.5f);
-
-		qs::Sprite2D arrow;
-		arrow.load("bin/arrow.png");
-		arrow.create();
+		wall.create(qs::BufferType::DYNAMIC);
+		wall.move(50.0f, 50.0f);
+		wall.rotate(45.0f);
 
 		//qs::RenderTexture rt;
 		//rt.create(768, 768);
@@ -88,12 +83,12 @@ int main(int argsc, char* argsv[])
 		//rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
 		//rtspr.create();
 
-		rttshader.bind();
-		qs::TextureAtlas atlas;
-		atlas.add("bin/wall.png");
-		atlas.create(window, renderer, rttshader);
-		atlas.save("bin/atlas.png");
-		rttshader.unbind();
+		//rttshader.bind();
+		//qs::TextureAtlas atlas;
+		//atlas.add("bin/wall.png");
+		//atlas.create(window, renderer, rttshader);
+		//atlas.save("bin/atlas.png");
+		//rttshader.unbind();
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -150,16 +145,14 @@ int main(int argsc, char* argsv[])
 			}
 
 			camera.update(1.0);
-			//shader.bind();
-			//shader.setUniform<glm::mat4>("u_camera", camera.get());
-			batch.bind();
-			batch.setUniform("u_camera", camera.get());
+			shader.bind();
+			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 
 			// Render.
 			window.begin(qs::Colours::White);
 			
-			//renderer.drawSprite2D(rtspr, shader);
-			//renderer.drawSprite2D(wall, shader);
+			renderer.drawSprite(wall, shader);
 
 			window.end();
 		}

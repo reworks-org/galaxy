@@ -77,7 +77,7 @@ namespace qs
 		///
 		/// Recalculates the model view matrix.
 		///
-		void recalculate() noexcept;
+		virtual void recalculate() noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.
@@ -93,7 +93,7 @@ namespace qs
 		///
 		decltype(auto) getMatrixPtr() noexcept;
 
-	private:
+	protected:
 		///
 		/// Rotation origin point.
 		///

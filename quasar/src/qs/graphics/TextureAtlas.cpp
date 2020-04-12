@@ -11,7 +11,7 @@
 
 #include "qs/core/Shader.hpp"
 #include "qs/utils/Utility.hpp"
-#include "qs/graphics/Sprite2D.hpp"
+#include "qs/graphics/Sprite.hpp"
 #include "qs/renderer/Renderer.hpp"
 
 #include "TextureAtlas.hpp"

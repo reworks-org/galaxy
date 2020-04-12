@@ -16,7 +16,7 @@
 namespace qs
 {
 	Vertex::Vertex() noexcept
-		:m_position{0.0f, 0.0f}, m_colour{0.0f, 0.0f, 0.0f, 0.0f}, m_texels{0.0f, 0.0f}
+		:m_position{0.0f, 0.0f}, m_colour{0.0f, 0.0f, 0.0f, 1.0f}, m_texels{0.0f, 0.0f}
 	{
 	}
 	
@@ -27,5 +27,10 @@ namespace qs
 		m_colour[1] = qs::Utils::uint8ToFloat(col.m_green);
 		m_colour[2] = qs::Utils::uint8ToFloat(col.m_blue);
 		m_colour[3] = qs::Utils::uint8ToFloat(col.m_alpha);
+	}
+
+	Vertex::Vertex(const float x, const float y, const std::array<float, 4>& col, const float u, const float v)
+		:m_position{ x, y }, m_colour(col), m_texels{ u, v }
+	{
 	}
 }

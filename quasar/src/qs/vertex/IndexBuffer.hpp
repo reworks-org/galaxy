@@ -12,6 +12,8 @@
 #include <array>
 #include <vector>
 
+#include "qs/utils/BufferType.hpp"
+
 #include <glad/glad.h>
 
 ///
@@ -19,6 +21,12 @@
 ///
 namespace qs
 {
+	///
+	/// Custom index storage type.
+	///
+	template<std::size_t count>
+	using IndexStorage = std::array<unsigned int, count>;
+
 	///
 	/// Abstraction for OpenGL index (element) buffer objects.
 	///
@@ -35,21 +43,19 @@ namespace qs
 		///
 		/// You will need to call bind() before using this buffer, once it is created.
 		///
-		/// \param indices Index array to use.
-		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
+		/// \param indexs Index array to use.
+		/// \param bufferType Fixed or dynamic buffer.
 		///
-		template<std::size_t size>
-		void create(const std::array<unsigned int, size>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+		template<std::size_t count>
+		void create(const qs::IndexStorage<count>& indexs, const qs::BufferType bufferType) noexcept;
 
 		///
-		/// Create index buffer object.
+		/// Create index buffer from dynamic container.
 		///
-		/// You will need to call bind() before using this buffer, once it is created.
+		/// \param indexs Index array to use.
+		/// \param bufferType Fixed or dynamic buffer.
 		///
-		/// \param indices Index array to use.
-		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
-		///
-		void create(const std::vector<unsigned int>& indices, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+		void create(const std::vector<unsigned int>& indexs, const qs::BufferType bufferType) noexcept;
 
 		///
 		/// Destroys buffer.
@@ -59,19 +65,19 @@ namespace qs
 		///
 		/// Bind the current vertex buffer to current GL context.
 		///
-		void bind() const noexcept;
+		void bind() noexcept;
 
 		///
 		/// Unbind the current vertex buffer to current GL context.
 		///
-		void unbind() const noexcept;
+		void unbind() noexcept;
 
 		///
 		/// Get the count of indicies in the index buffer.
 		///
 		/// \return Returns a const unsigned int.
 		///
-		unsigned int count() const;
+		unsigned int getCount() const;
 
 	private:
 		///
@@ -85,19 +91,24 @@ namespace qs
 		unsigned int m_count;
 	};
 
-	template<std::size_t size>
-	inline void IndexBuffer::create(const std::array<unsigned int, size>& indices, unsigned int glDrawType) noexcept
+	template<std::size_t count>
+	inline void IndexBuffer::create(const qs::IndexStorage<count>& indexs, const qs::BufferType bufferType) noexcept
 	{
-		m_count = size;
+		m_count = count;
 
-		// Gen a single buffer for this object.
-		glGenBuffers(1, &m_id);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 
-		// Copy data into buffer object.
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices.data(), glDrawType);
+		switch (bufferType)
+		{
+		case qs::BufferType::STATIC:
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count, indexs.data(), GL_STATIC_DRAW);
+			break;
 
-		// Clean up.
+		case qs::BufferType::DYNAMIC:
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count, indexs.data(), GL_DYNAMIC_DRAW);
+			break;
+		}
+
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 }

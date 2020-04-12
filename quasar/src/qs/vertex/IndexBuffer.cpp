@@ -16,20 +16,26 @@ namespace qs
 	IndexBuffer::IndexBuffer() noexcept
 		:m_id(0), m_count(0)
 	{
+		glGenBuffers(1, &m_id);
 	}
 
-	void IndexBuffer::create(const std::vector<unsigned int>& indices, unsigned int glDrawType) noexcept
+	void IndexBuffer::create(const std::vector<unsigned int>& indexs, const qs::BufferType bufferType) noexcept
 	{
-		m_count = indices.size();
+		m_count = indexs.size();
 
-		// Gen a single buffer for this object.
-		glGenBuffers(1, &m_id);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 
-		// Copy data into buffer object.
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count, indices.data(), glDrawType);
+		switch (bufferType)
+		{
+		case qs::BufferType::STATIC:
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
+			break;
 
-		// Clean up.
+		case qs::BufferType::DYNAMIC:
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_DYNAMIC_DRAW);
+			break;
+		}
+		
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
@@ -38,17 +44,17 @@ namespace qs
 		glDeleteBuffers(1, &m_id);
 	}
 
-	void IndexBuffer::bind() const noexcept
+	void IndexBuffer::bind() noexcept
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 	}
 
-	void IndexBuffer::unbind() const noexcept
+	void IndexBuffer::unbind() noexcept
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
-	unsigned int IndexBuffer::count() const
+	unsigned int IndexBuffer::getCount() const
 	{
 		return m_count;
 	}

@@ -7,20 +7,19 @@
     <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\VertexArray.cpp" />
-    <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
-    <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
     <ClCompile Include="src\qs\core\Colours.cpp" />
     <ClCompile Include="..\modules\glad\glad\glad.c" />
-    <ClCompile Include="src\qs\transforms\Transform.cpp" />
-    <ClCompile Include="src\qs\transforms\Camera.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
-    <ClCompile Include="src\qs\graphics\Sprite2D.cpp" />
     <ClCompile Include="src\qs\core\Texture.cpp" />
-    <ClCompile Include="src\qs\core\RenderTexture.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
-    <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\vertex\Vertex.cpp" />
+    <ClCompile Include="src\qs\utils\BufferType.cpp" />
+    <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
+    <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
+    <ClCompile Include="src\qs\core\Transform.cpp" />
+    <ClCompile Include="src\qs\graphics\Camera.cpp" />
+    <ClCompile Include="src\qs\graphics\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -29,19 +28,18 @@
     <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexArray.hpp" />
-    <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
-    <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
     <ClInclude Include="src\qs\core\Colours.hpp" />
-    <ClInclude Include="src\qs\transforms\Transform.hpp" />
-    <ClInclude Include="src\qs\transforms\Camera.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
-    <ClInclude Include="src\qs\graphics\Sprite2D.hpp" />
     <ClInclude Include="src\qs\core\Texture.hpp" />
-    <ClInclude Include="src\qs\core\RenderTexture.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
-    <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\vertex\Vertex.hpp" />
+    <ClInclude Include="src\qs\utils\BufferType.hpp" />
+    <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
+    <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
+    <ClInclude Include="src\qs\core\Transform.hpp" />
+    <ClInclude Include="src\qs\graphics\Camera.hpp" />
+    <ClInclude Include="src\qs\graphics\Sprite.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

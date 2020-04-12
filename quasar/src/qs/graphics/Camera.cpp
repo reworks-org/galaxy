@@ -11,12 +11,12 @@
 namespace qs
 {
 	Camera::Camera() noexcept
-		:m_curKeyDownEvent(), m_speed(1.0f), m_projection(1.0f), m_vp(1.0f)
+		:m_curKeyDownEvent(), m_speed(1.0f), m_projection(1.0f)
 	{
 	}
 
 	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		:m_curKeyDownEvent(), m_speed(speed), m_projection(1.0f), m_vp(1.0f)
+		:m_curKeyDownEvent(), m_speed(speed), m_projection(1.0f)
 	{
 		create(left, right, bottom, top);
 	}
@@ -24,7 +24,6 @@ namespace qs
 	void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
 	{
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
-		m_vp = m_projection * getTransformation();
 	}
 
 	void Camera::onKeyDown(const protostar::KeyDownEvent& e)
@@ -61,7 +60,6 @@ namespace qs
 			break;
 		}
 
-		m_vp = m_projection * getTransformation();
 		m_curKeyDownEvent.m_keycode = protostar::Keys::F10;
 	}
 
@@ -70,8 +68,8 @@ namespace qs
 		m_speed = speed;
 	}
 
-	const glm::mat4& Camera::get() const noexcept
+	const glm::mat4& Camera::getProj() noexcept
 	{
-		return m_vp;
+		return m_projection;
 	}
 }

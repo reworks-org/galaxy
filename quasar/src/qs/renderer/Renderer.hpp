@@ -15,10 +15,10 @@
 namespace qs
 {
 	// Forward decs.
-	class Sprite2D;
+	class Sprite;
 	class Shader;
 	class VertexArray;
-	class RenderTexture;
+	//class RenderTexture;
 
 	///
 	/// OpenGL 2D batch renderer for drawing VA with transforms, shaders and textures.
@@ -72,7 +72,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept;
+		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw to render texture.
@@ -80,7 +80,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawSpriteToTexture(qs::Sprite2D& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+		//void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
 	};
 }
 

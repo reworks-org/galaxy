@@ -15,3 +15,14 @@
 - texture transformations (i.e. for animations) -> in glsl?
 - Optimize spritebatch copying transform vectors.
 - texture mipmapping?
+- camera matricies should be calculated GPU side.
+	// move camera cals to GPU
+	// model-view CPU, projection GPU.
+
+
+- "universe" -> or "supercluster"
+	- something that contains multiple galaxies
+	- level editor, json editor, create diferent types of json files for use in galaxy
+	- galaxy can then just load the json and go
+	- built on quasar and imgui
+	- part of galaxy repo

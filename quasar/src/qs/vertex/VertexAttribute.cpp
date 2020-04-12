@@ -18,7 +18,7 @@ namespace qs
 	{
 	}
 
-	VertexAttribute::VertexAttribute(int size, unsigned int type, unsigned char normalized, unsigned int offset) noexcept
+	VertexAttribute::VertexAttribute(int size, unsigned int type, unsigned char normalized, std::size_t offset) noexcept
 		:m_size(size), m_type(type), m_normalized(normalized), m_offset(offset)
 	{
 	}

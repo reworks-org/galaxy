@@ -7,8 +7,8 @@
 ///
 
 #include "qs/core/Shader.hpp"
-#include "qs/graphics/Sprite2D.hpp"
-#include "qs/core/RenderTexture.hpp"
+#include "qs/graphics/Sprite.hpp"
+//#include "qs/core/RenderTexture.hpp"
 
 #include "Renderer.hpp"
 
@@ -45,24 +45,23 @@ namespace qs
 	{
 	}
 
-	void Renderer::drawSprite2D(qs::Sprite2D& sprite, qs::Shader& shader) noexcept
+	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
-		shader.setUniform("u_transform", sprite.getTransformation());
 		sprite.bind();
 		
-		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 
 		sprite.unbind();
 	}
 
-	void Renderer::drawSpriteToTexture(qs::Sprite2D& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	/*void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
 		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform("u_projection", rt.getProjection());
 		sprite.bind();
 
-		glDrawElements(GL_TRIANGLES, sprite.getIBO().count(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 
 		sprite.unbind();
-	}
+	}*/
 }

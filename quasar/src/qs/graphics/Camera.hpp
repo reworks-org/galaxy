@@ -11,7 +11,7 @@
 
 #include <protostar/events/KeyDownEvent.hpp>
 
-#include "qs/transforms/Transform.hpp"
+#include "qs/core/Transform.hpp"
 
 ///
 /// Core namespace.
@@ -79,11 +79,11 @@ namespace qs
 		void setSpeed(const float speed) noexcept;
 
 		///
-		/// Get the camera view-projection.
+		/// Get the camera projection.
 		///
 		/// \return Const glm::mat4 reference.
 		///
-		const glm::mat4& get() const noexcept;
+		const glm::mat4& getProj() noexcept;
 
 	private:
 		///
@@ -100,12 +100,6 @@ namespace qs
 		/// Camera projection matrix.
 		///
 		glm::mat4 m_projection;
-
-		///
-		/// Camera view-projection matrix.
-		///
-		glm::mat4 m_vp;
-
 	};
 }
 

@@ -6,13 +6,11 @@
 2D OpenGL Renderer in Modern C++.
 
 ## Usage:
-```cpp
-// todo
-```  
+See [documentation](https://domre.github.io/quasar/).
 
 ## Notes:
-- Requires C++17 compatible compiler and OpenGL 4.3+ capable GPU.
-- This was created as a method to learn OpenGL and professional Software Engineering processes. I.e. Software Testing, Software Documentation and Software Design.
+- Requires C++17 compatible compiler and OpenGL 4.5+ capable GPU.
+- This was created as a method to learn OpenGL and professional Software Engineering processes. Nothing says this code isnt usable but be warned there is no support, and I am not responsible if you blow up your GPU.
 
 ## Building:
 - Visual Studio 2019 project files provided for Windows.
@@ -20,13 +18,10 @@
 - Unix support coming soon.
 
 ## Tests:
-- Built as part of the project. Run the compiled binary.
-- Certain tests will fail when ran through continous integration, since, i.e. an sdl window cant be created.
-
-### Documentation:  
-See [documentation](https://domre.github.io/quasar/) for more.  
+- Coming soon.
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
 * [SDL-mirror](https://github.com/SDL-mirror).
 * [Learn OpenGL](https://learnopengl.com/).
+* [OpenGL Reference](https://www.khronos.org/registry/OpenGL-Refpages/gl4/).

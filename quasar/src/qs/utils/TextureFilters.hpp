@@ -17,7 +17,7 @@ namespace qs
 	///
 	/// Enum contaning GL texture filtering options.
 	///
-	enum class TextureFilter : int
+	enum class TextureFilter : short
 	{
 		///
 		/// Produces blocky/pixellated texture patterns.

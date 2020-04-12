@@ -9,16 +9,22 @@
 #ifndef QUASAR_VERTEXBUFFER_HPP_
 #define QUASAR_VERTEXBUFFER_HPP_
 
-#include <array>
 #include <vector>
 
-#include <glad/glad.h>
+#include "qs/utils/Error.hpp"
+#include "qs/vertex/Vertex.hpp"
+#include "qs/utils/BufferType.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace qs
 {
+	///
+	/// Custom vertex storage type.
+	///
+	using VertexStorage = std::vector<qs::Vertex>;
+
 	///
 	/// Abstraction for OpenGL vertex buffer objects.
 	///
@@ -35,22 +41,11 @@ namespace qs
 		///
 		/// You will need to call bind() before using this buffer.
 		///
-		/// \param data Verticies to use.
-		/// \param size Size of the verticies data array.
-		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
+		/// \param bufferType Fixed or dynamic buffer.
+		/// \param vertexs Vertexs to use.
+		/// \param quadCount Number of quads being created. This is only for DYNAMIC_DRAW.
 		///
-		template<std::size_t size>
-		void create(const std::array<float, size>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
-
-		///
-		/// \brief Create vertex buffer object.
-		///
-		/// You will need to call bind() before using this buffer.
-		///
-		/// \param data Verticies to use.
-		/// \param glDrawType Type of gl drawing. i.e. GL_STATIC_DRAW.
-		///
-		void create(const std::vector<float>& data, unsigned int glDrawType = GL_STATIC_DRAW) noexcept;
+		void create(const VertexStorage& vertexs, const qs::BufferType bufferType, const unsigned int quadCount = 1);
 
 		///
 		/// Destroys buffer.
@@ -60,33 +55,31 @@ namespace qs
 		///
 		/// Bind the current vertex buffer to current GL context.
 		///
-		void bind() const noexcept;
+		void bind() noexcept;
 
 		///
 		/// Unbind the current vertex buffer to current GL context.
 		///
-		void unbind() const noexcept;
+		void unbind() noexcept;
+
+		///
+		/// Get vertex storage.
+		///
+		/// \return Reference to std::vector.
+		///
+		const std::vector<qs::Vertex>& getVertexs() noexcept;
 
 	private:
 		///
 		/// ID returned by OpenGL when generating buffer.
 		///
 		unsigned int m_id;
+
+		///
+		/// Stores vertex buffer cpu side.
+		///
+		VertexStorage m_vertexStorage;
 	};
-
-	template<std::size_t size>
-	inline void VertexBuffer::create(const std::array<float, size>& data, unsigned int glDrawType) noexcept
-	{
-		// Gen a single buffer for this object.
-		glGenBuffers(1, &m_id);
-		glBindBuffer(GL_ARRAY_BUFFER, m_id);
-
-		// Copy data into buffer object.
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), data.data(), glDrawType);
-
-		// Clean up.
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	}
 }
 
 #endif
