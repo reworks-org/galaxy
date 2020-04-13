@@ -6,7 +6,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <array>
+#include <filesystem>
 
 #include <glad/glad.h>
 #include <stb_image.h>
@@ -128,12 +128,14 @@ namespace qs
 	{
 		if (!path.empty())
 		{
+			std::filesystem::path fp(path + ".png");
 			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 
-			bind();
+			glBindTexture(GL_TEXTURE_2D, m_id);
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
-			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
-			unbind();
+			stbi_write_png(fp.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+
+			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 	}
 

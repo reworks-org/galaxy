@@ -90,6 +90,7 @@ namespace qs
 		/// Saves texture to file on disk.
 		///
 		/// \param path Path (including filename) to save file to.
+		///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
 		///
 		void save(const std::string& path) noexcept;
 		

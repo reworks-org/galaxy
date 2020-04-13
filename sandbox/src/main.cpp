@@ -75,7 +75,7 @@ int main(int argsc, char* argsv[])
 		
 		rt.unbind(window);
 		rttshader.unbind(); 
-		rt.save("bin/rt.png");
+		rt.save("bin/rt");
 
 		qs::Sprite rtspr;
 		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
