@@ -54,7 +54,7 @@ namespace qs
 		explicit Texture(const unsigned char* mem, const unsigned int size);
 
 		///
-		/// Destructor.
+		/// Virtual destructor.
 		///
 		virtual ~Texture() noexcept;
 		

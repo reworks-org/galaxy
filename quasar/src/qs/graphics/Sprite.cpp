@@ -28,29 +28,55 @@ namespace qs
 		m_transformedVertexs.clear();
 	}
 	
-	void Sprite::create(const qs::BufferType bufferType, const unsigned int quadCount) noexcept
+	void Sprite::create(const qs::BufferType bufferType) noexcept
 	{
-		qs::Vertex tl;
-		tl.m_position = { 0.0f, 0.0f };
-		tl.m_colour = { 0.0f, 0.0f, 0.0f, 1.0f };
-		tl.m_texels = { 0.0f, 1.0f };
+		auto quad = qs::Vertex::make_quad({ 0.0f, 0.0f, static_cast<float>(m_width), static_cast<float>(m_height) }, { 0.0f, 0.0f, 0.0f, 1.0f }, 0.0f, 0.0f);
+		m_vertexBuffer.create({ quad[0], quad[1], quad[2], quad[3] }, bufferType);
 
-		qs::Vertex tr;
-		tr.m_position = { static_cast<float>(m_width), 0.0f };
-		tr.m_colour = { 0.0f, 0.0f, 0.0f, 1.0f };
-		tr.m_texels = { 1.0f, 1.0f };
+		m_indexBuffer.create({ 0, 1, 3, 1, 2, 3 }, bufferType);
+		
+		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
+		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);
+		m_layout.add(2, qs::VertexAttribute::Type::TEXELS);
 
-		qs::Vertex br;
-		br.m_position = { static_cast<float>(m_width), static_cast<float>(m_height) };
-		br.m_colour = { 0.0f, 0.0f, 0.0f, 1.0f };
-		br.m_texels = { 1.0f, 0.0f };
+		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
-		qs::Vertex bl;
-		bl.m_position = { 0.0f, static_cast<float>(m_height) };
-		bl.m_colour = { 0.0f, 0.0f, 0.0f, 1.0f };
-		bl.m_texels = { 0.0f, 0.0f };
+		setRotationOrigin(static_cast<float>(m_width) * 0.5f, static_cast<float>(m_height) * 0.5f);
+	}
 
-		m_vertexBuffer.create({ tl, tr, br, bl}, bufferType, quadCount);
+	void Sprite::create(const qs::BufferType bufferType, const protostar::Rect<float>& texSrc) noexcept
+	{
+		auto quad = qs::Vertex::make_quad({ 0.0f, 0.0f, texSrc.m_width, texSrc.m_height }, { 0.0f, 0.0f, 0.0f, 1.0f }, texSrc.m_x, texSrc.m_y);
+		m_vertexBuffer.create({ quad[0], quad[1], quad[2], quad[3] }, bufferType);
+		
+		m_indexBuffer.create({ 0, 1, 3, 1, 2, 3 }, bufferType);
+
+		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
+		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);
+		m_layout.add(2, qs::VertexAttribute::Type::TEXELS);
+
+		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
+
+		setRotationOrigin(static_cast<float>(m_width) * 0.5f, static_cast<float>(m_height) * 0.5f);
+	}
+
+	void Sprite::create(const qs::BufferType bufferType, const VertexQuadStorage& vertexs) noexcept
+	{
+		auto quadCount = vertexs.size();
+
+		qs::VertexStorage vs;
+		vs.reserve(quadCount * 4);
+		vs.clear();
+		for (const auto& quad : vertexs)
+		{
+			for (const auto& vertex : quad)
+			{
+				vs.push_back(vertex);
+			}
+		}
+
+		vs.shrink_to_fit();
+		m_vertexBuffer.create(vs, bufferType);
 
 		std::vector<unsigned int> indexs;
 		for (auto counter = 0; counter < quadCount; counter += 4)
@@ -62,9 +88,8 @@ namespace qs
 			indexs.push_back(2 + counter);
 			indexs.push_back(3 + counter);
 		}
-
 		m_indexBuffer.create(indexs, bufferType);
-		
+
 		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
 		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);
 		m_layout.add(2, qs::VertexAttribute::Type::TEXELS);
@@ -120,6 +145,6 @@ namespace qs
 			counter++;
 		}
 
-		glNamedBufferSubData(m_id, 0, m_transformedVertexs.size() * sizeof(qs::Vertex), m_transformedVertexs.data());
+		glNamedBufferSubData(m_vertexBuffer.getID(), 0, m_transformedVertexs.size() * sizeof(qs::Vertex), m_transformedVertexs.data());
 	}
 }

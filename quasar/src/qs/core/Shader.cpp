@@ -63,14 +63,14 @@ namespace qs
 		// Check for errors...
 		if (!vertexStream)
 		{
-			qs::Error::handle().callback("Shader.cpp", 55, "ifstream failed to open file: " + vertexFileStr);
+			qs::Error::handle().callback("Shader.cpp", 66, "ifstream failed to open file: " + vertexFileStr);
 
 			result = false;
 		}
 
 		if (!fragmentStream)
 		{
-			qs::Error::handle().callback("Shader.cpp", 62, "ifstream failed to open file: " + fragmentFileStr);
+			qs::Error::handle().callback("Shader.cpp", 73, "ifstream failed to open file: " + fragmentFileStr);
 
 			result = false;
 		}
@@ -87,14 +87,14 @@ namespace qs
 
 			if (!vertexBuffer)
 			{
-				qs::Error::handle().callback("Shader.cpp", 79, "stringstream failed to read vertexBuffer for: " + vertexFileStr);
+				qs::Error::handle().callback("Shader.cpp", 90, "stringstream failed to read vertexBuffer for: " + vertexFileStr);
 
 				result = false;
 			}
 
 			if (!fragmentBuffer)
 			{
-				qs::Error::handle().callback("Shader.cpp", 86, "stringstream failed to read fragmentBuffer for: " + fragmentFileStr);
+				qs::Error::handle().callback("Shader.cpp", 97, "stringstream failed to read fragmentBuffer for: " + fragmentFileStr);
 
 				result = false;
 			}
@@ -125,7 +125,7 @@ namespace qs
 					
 					std::string err = "Failed to vertex compile shader. GL_ERROR: ";
 					err += infoLog;
-					qs::Error::handle().callback("Shader.cpp", 120, err);
+					qs::Error::handle().callback("Shader.cpp", 128, err);
 
 					result = false;
 				}
@@ -142,7 +142,7 @@ namespace qs
 
 					std::string err = "Failed to compile fragment shader. GL_ERROR: ";
 					err += infoLog;
-					qs::Error::handle().callback("Shader.cpp", 137, err);
+					qs::Error::handle().callback("Shader.cpp", 145, err);
 
 					result = false;
 				}
@@ -163,7 +163,7 @@ namespace qs
 
 						std::string err = "Failed to attach shaders. GL_ERROR: ";
 						err += infoLog;
-						qs::Error::handle().callback("Shader.cpp", 158, err);
+						qs::Error::handle().callback("Shader.cpp", 166, err);
 
 						result = false;
 					}
@@ -209,7 +209,7 @@ namespace qs
 
 			std::string err = "Failed to vertex compile shader. GL_ERROR: ";
 			err += infoLog;
-			qs::Error::handle().callback("Shader.cpp", 120, err);
+			qs::Error::handle().callback("Shader.cpp", 212, err);
 
 			result = false;
 		}
@@ -226,7 +226,7 @@ namespace qs
 
 			std::string err = "Failed to compile fragment shader. GL_ERROR: ";
 			err += infoLog;
-			qs::Error::handle().callback("Shader.cpp", 137, err);
+			qs::Error::handle().callback("Shader.cpp", 229, err);
 
 			result = false;
 		}
@@ -247,7 +247,7 @@ namespace qs
 
 				std::string err = "Failed to attach shaders. GL_ERROR: ";
 				err += infoLog;
-				qs::Error::handle().callback("Shader.cpp", 158, err);
+				qs::Error::handle().callback("Shader.cpp", 250, err);
 
 				result = false;
 			}
@@ -288,7 +288,7 @@ namespace qs
 			}
 			else
 			{
-				qs::Error::handle().callback("Shader.cpp", 199, "Failed to find uniform: " + name);
+				qs::Error::handle().callback("Shader.cpp", 291, "Failed to find uniform: " + name);
 			}
 
 			return location;

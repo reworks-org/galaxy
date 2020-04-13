@@ -24,6 +24,7 @@ namespace qs
 	/// Custom vertex storage type.
 	///
 	using VertexStorage = std::vector<qs::Vertex>;
+	using VertexQuadStorage = std::vector<std::array<qs::Vertex, 4>>;
 
 	///
 	/// Abstraction for OpenGL vertex buffer objects.
@@ -43,9 +44,8 @@ namespace qs
 		///
 		/// \param bufferType Fixed or dynamic buffer.
 		/// \param vertexs Vertexs to use.
-		/// \param quadCount Number of quads being created. This is only for DYNAMIC_DRAW.
 		///
-		void create(const VertexStorage& vertexs, const qs::BufferType bufferType, const unsigned int quadCount = 1);
+		void create(const VertexStorage& vertexs, const qs::BufferType bufferType);
 
 		///
 		/// Destroys buffer.
@@ -68,6 +68,13 @@ namespace qs
 		/// \return Reference to std::vector.
 		///
 		const std::vector<qs::Vertex>& getVertexs() noexcept;
+
+		///
+		/// Get OpenGL handle.
+		///
+		/// \return Const unsigned integer.
+		///
+		const unsigned int getID() const noexcept;
 
 	private:
 		///

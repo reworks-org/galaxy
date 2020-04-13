@@ -25,6 +25,7 @@
     <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
+    <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite.cpp" />
     <ClCompile Include="src\qs\utils\BufferType.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="src\qs\core\Shader.hpp" />
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
+    <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />
     <ClInclude Include="src\qs\utils\BufferType.hpp" />

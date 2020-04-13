@@ -50,6 +50,7 @@ namespace qs
 		glGenTextures(1, &m_id);
 		bind();
 
+		stbi_set_flip_vertically_on_load(true);
 		unsigned char* data = stbi_load(file.c_str(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 		if (data)
@@ -81,6 +82,7 @@ namespace qs
 		glGenTextures(1, &m_id);
 		bind();
 
+		stbi_set_flip_vertically_on_load(true);
 		unsigned char* data = stbi_load_from_memory(mem, size, &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 		if (data)
@@ -133,6 +135,8 @@ namespace qs
 
 			glBindTexture(GL_TEXTURE_2D, m_id);
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
+
+			stbi_flip_vertically_on_write(true);
 			stbi_write_png(fp.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 
 			glBindTexture(GL_TEXTURE_2D, 0);

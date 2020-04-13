@@ -43,6 +43,9 @@ namespace qs
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
+		shader.setUniform<float>("u_width", sprite.getWidth());
+		shader.setUniform<float>("u_height", sprite.getHeight());
+
 		sprite.bind();
 		
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
@@ -53,6 +56,9 @@ namespace qs
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
 		shader.setUniform("u_projection", rt.getProjection());
+		shader.setUniform<float>("u_width", sprite.getWidth());
+		shader.setUniform<float>("u_height", sprite.getHeight());
+
 		sprite.bind();
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);

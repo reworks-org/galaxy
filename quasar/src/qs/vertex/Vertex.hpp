@@ -9,6 +9,7 @@
 #ifndef QUASAR_VERTEX_HPP_
 #define QUASAR_VERTEX_HPP_
 
+#include <protostar/shapes/Rect.hpp>
 #include <protostar/system/Colour.hpp>
 
 ///
@@ -21,6 +22,18 @@ namespace qs
 	///
 	struct Vertex final
 	{
+		///
+		/// Static function to easily create a quad.
+		///
+		/// \param bounds Bounds (x, y, w, h) of quad.
+		/// \param col Colour of quad.
+		/// \param u X pos of texture.
+		/// \param v Y pos of texture.
+		///
+		/// \return Returns std::array<qs::Vertex, 4>.
+		///
+		static std::array<qs::Vertex, 4>&& make_quad(const protostar::Rect<float>& bounds, const std::array<float, 4>& col, const float u, const float v);
+
 		///
 		/// Default constructor.
 		///

@@ -51,7 +51,7 @@ namespace qs
 		explicit Shader(const std::string& vertexString, const std::string& fragmentString);
 
 		///
-		/// Default destructor.
+		/// Destructor.
 		///
 		~Shader() noexcept;
 

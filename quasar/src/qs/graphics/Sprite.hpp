@@ -42,9 +42,30 @@ namespace qs
 		/// Call AFTER you have loaded a texture.
 		///
 		/// \param bufferType Fixed or dynamic buffer.
+		///
+		void create(const qs::BufferType bufferType) noexcept;
+
+		///
+		/// \brief Creates the internal vertex array. With custom texture size.
+		///
+		/// Call AFTER you have loaded a texture.
+		///
+		/// \param bufferType Fixed or dynamic buffer.
+		/// \param texSrc Texture rectangle to use - usually from a spritesheet.
 		/// \param quadCount Number of quads being created. This is only for DYNAMIC_DRAW.
 		///
-		void create(const qs::BufferType bufferType, const unsigned int quadCount = 1) noexcept;
+		void create(const qs::BufferType bufferType, const protostar::Rect<float>& texSrc) noexcept;
+
+		///
+		/// \brief Creates the internal vertex array using an array of vertexs.
+		///
+		/// Call AFTER you have loaded a texture.
+		///
+		/// \param bufferType Fixed or dynamic buffer.
+		/// \param vertexs Array of vertexs to create vbo and vao from. Assumes that vertexs represent quads.
+		///				I.e. 4 vertex = 1 quad.
+		///
+		void create(const qs::BufferType bufferType, const VertexQuadStorage& vertexs) noexcept;
 
 		///
 		/// Bind VA and texture.

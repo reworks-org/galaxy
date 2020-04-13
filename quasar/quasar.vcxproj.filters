@@ -21,6 +21,7 @@
     <ClCompile Include="src\qs\graphics\Camera.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite.cpp" />
     <ClCompile Include="src\qs\core\RenderTexture.cpp" />
+    <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="src\qs\graphics\Camera.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />
     <ClInclude Include="src\qs\core\RenderTexture.hpp" />
+    <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

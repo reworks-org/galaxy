@@ -15,6 +15,17 @@
 ///
 namespace qs
 {
+	std::array<qs::Vertex, 4>&& Vertex::make_quad(const protostar::Rect<float>& bounds, const std::array<float, 4>& col, const float u, const float v)
+	{
+		return std::move(std::array<qs::Vertex, 4>(
+			{ 
+				qs::Vertex{bounds.m_x, bounds.m_y, col, u, v},
+				qs::Vertex{bounds.m_x + bounds.m_width, bounds.m_y, col, u + bounds.m_width, v},
+				qs::Vertex{bounds.m_x + bounds.m_width, bounds.m_y + bounds.m_height, col, u + bounds.m_width, v + bounds.m_height},
+				qs::Vertex{bounds.m_x, bounds.m_y + bounds.m_height, col, u, v + bounds.m_height}
+			}));
+	}
+
 	Vertex::Vertex() noexcept
 		:m_position{0.0f, 0.0f}, m_colour{0.0f, 0.0f, 0.0f, 1.0f}, m_texels{0.0f, 0.0f}
 	{

@@ -26,7 +26,7 @@ namespace qs
 		glDeleteBuffers(1, &m_id);
 	}
 
-	void VertexBuffer::create(const VertexStorage& vertexs, const qs::BufferType bufferType, const unsigned int quadCount)
+	void VertexBuffer::create(const VertexStorage& vertexs, const qs::BufferType bufferType)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 
@@ -38,7 +38,7 @@ namespace qs
 		else if (bufferType == qs::BufferType::DYNAMIC)
 		{
 			m_vertexStorage = vertexs;
-			glBufferData(GL_ARRAY_BUFFER, (quadCount * 4) * sizeof(qs::Vertex), nullptr, GL_DYNAMIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, m_vertexStorage.size() * sizeof(qs::Vertex), nullptr, GL_DYNAMIC_DRAW);
 		}
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -57,5 +57,10 @@ namespace qs
 	const std::vector<qs::Vertex>& VertexBuffer::getVertexs() noexcept
 	{
 		return m_vertexStorage;
+	}
+
+	const unsigned int VertexBuffer::getID() const noexcept
+	{
+		return m_id;
 	}
 }

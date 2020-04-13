@@ -72,6 +72,8 @@ namespace qs
 		///
 		/// Display framebuffer to RenderTexture.
 		///
+		/// \param window Window to restore default rendering to.
+		///
 		void unbind(qs::Window& window) noexcept;
 
 		///
@@ -142,6 +144,8 @@ namespace qs
 
 		///
 		/// Get projection.
+		///
+		/// \return Reference to glm::mat4.
 		///
 		glm::mat4& getProjection() noexcept;
 

@@ -83,6 +83,8 @@ namespace qs
 
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
+
+			stbi_flip_vertically_on_write(true);
 			stbi_write_png(fp.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
@@ -91,6 +93,8 @@ namespace qs
 
 	void RenderTexture::bind() noexcept
 	{
+		glViewport(0, 0, m_width, m_height);
+
 		// Bind to framebuffer.
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		
@@ -101,15 +105,14 @@ namespace qs
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
-		// Reset view and colour, in prep for rendering.
-		glViewport(0, 0, m_width, m_height);
+		// Reset Colour, in prep for rendering.
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void RenderTexture::unbind(qs::Window& window) noexcept
 	{
-		glFlush();
+		//glFlush();
 		window.makeCurrent();
 	}
 

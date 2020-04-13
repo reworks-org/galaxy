@@ -9,7 +9,6 @@
 #ifndef QUASAR_TEXTUREATLAS_HPP_
 #define QUASAR_TEXTUREATLAS_HPP_
 
-#include <protostar/shapes/Rect.hpp>
 #include <protostar/math/RectPack.hpp>
 
 #include "qs/core/RenderTexture.hpp"
@@ -19,7 +18,9 @@
 ///
 namespace qs
 {
-	// Forward dec.
+	///
+	/// Forward dec.
+	///
 	class Shader;
 	class Renderer;
 
@@ -33,7 +34,7 @@ namespace qs
 		///
 		/// \brief Constructor.
 		///
-		/// Size defaults to 512.
+		/// Size defaults to 1024.
 		///
 		TextureAtlas() noexcept;
 
@@ -63,16 +64,38 @@ namespace qs
 		///
 		/// \param window Target to reset framebuffer to.
 		/// \param renderer Renderer to use to draw textures.
-		/// \param shader Shader to use when creating atlas. Does not bind.
+		/// \param shader Shader to use when creating atlas. Allowed to bind/unbind shaders - the only class allowed to.
 		///
 		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
 		///
 		/// Dumps internal atlas. May take a while.
 		///
-		/// \param file Name to save file with, including extension you want.
+		/// \param file Path (including filename) to save file to.
+		///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
 		///
-		void save(const std::filesystem::path& file);
+		void save(const std::string& file);
+
+		///
+		/// Get size of atlas.
+		///
+		/// \return Size as an integer.
+		///
+		const int getSize() const noexcept;
+
+		///
+		/// Get atlas sprite.
+		///
+		/// \return Const reference to sprite.
+		///
+		qs::Sprite& getSprite() noexcept;
+
+		///
+		/// Get atlas texture.
+		///
+		/// \return Const reference to texture.
+		///
+		qs::RenderTexture& getTexture() noexcept;
 
 	private:
 		///
@@ -83,7 +106,12 @@ namespace qs
 		///
 		/// Master texture.
 		///
-		qs::RenderTexture m_atlas;
+		qs::RenderTexture m_texture;
+
+		///
+		/// Master sprite.
+		///
+		qs::Sprite m_sprite;
 
 		///
 		/// Contains the rectangles outlining all the textures on the atlas.

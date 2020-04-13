@@ -59,38 +59,25 @@ int main(int argsc, char* argsv[])
 		// Shaders
 		qs::Shader shader(std::filesystem::path("bin/sprite.vert"), std::filesystem::path("bin/sprite.frag"));
 		qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
-		//qs::Shader batch(std::filesystem::path("bin/batch.vert"), std::filesystem::path("bin/batch.frag"));
+
+		// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
+		qs::TextureAtlas atlas;
+		atlas.add("bin/wall_2.png");
+		atlas.create(window, renderer, rttshader);
+		atlas.save("bin/atlas");
 
 		qs::Sprite wall;
 		wall.load("bin/wall.png");
 		wall.create(qs::BufferType::DYNAMIC);
-		wall.move(50.0f, 50.0f);
+		wall.move(0.0f, 0.0f);
 
-		qs::RenderTexture rt;
-		rt.create(768, 768);
-		rt.bind();
-		rttshader.bind();
-		
-		renderer.drawSpriteToTexture(wall, rt, rttshader);
-		
-		rt.unbind(window);
-		rttshader.unbind(); 
-		rt.save("bin/rt");
-
-		qs::Sprite rtspr;
-		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
-		rtspr.create(qs::BufferType::STATIC);
-
-		//rttshader.bind();
-		//qs::TextureAtlas atlas;
-		//atlas.add("bin/wall.png");
-		//atlas.create(window, renderer, rttshader);
-		//atlas.save("bin/atlas.png");
-		//rttshader.unbind();
+		auto atlasSpr = atlas.getSprite();
 
 		qs::Camera camera; //left, right, bottom, top
 		camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 		camera.setSpeed(0.2f);
+
+		shader.bind();
 
 		// Loop
 		while (window.isOpen())
@@ -143,14 +130,14 @@ int main(int argsc, char* argsv[])
 			}
 
 			camera.update(1.0);
-			shader.bind();
 			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 
 			// Render.
 			window.begin(qs::Colours::White);
 			
-			renderer.drawSprite(wall, shader);
+			renderer.drawSprite(atlasSpr, shader);
+			//renderer.drawSprite(wall, shader);
 
 			window.end();
 		}
