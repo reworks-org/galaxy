@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\modules\glad\glad\glad.c" />
     <ClCompile Include="src\qs\core\Colours.cpp" />
+    <ClCompile Include="src\qs\core\RenderTexture.cpp" />
     <ClCompile Include="src\qs\core\Shader.cpp" />
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Colours.hpp" />
+    <ClInclude Include="src\qs\core\RenderTexture.hpp" />
     <ClInclude Include="src\qs\core\Shader.hpp" />
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />

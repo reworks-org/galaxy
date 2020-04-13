@@ -18,7 +18,7 @@ namespace qs
 	class Sprite;
 	class Shader;
 	class VertexArray;
-	//class RenderTexture;
+	class RenderTexture;
 
 	///
 	/// OpenGL 2D batch renderer for drawing VA with transforms, shaders and textures.
@@ -39,32 +39,32 @@ namespace qs
 		///
 		///
 		///
-		void drawPoint(qs::VertexArray& va, qs::Shader& shader) noexcept;
+		void drawPoint(qs::Shader& shader) noexcept;
 
 		///
 		///
 		///
-		void drawLine(qs::VertexArray& va, qs::Shader& shader) noexcept;
+		void drawLine(qs::Shader& shader) noexcept;
 
 		///
 		///
 		///
-		void drawTriangle(qs::VertexArray& va) noexcept;
+		void drawTriangle(qs::Shader& shader) noexcept;
 		
 		///
 		///
 		///
-		void drawQuad(qs::VertexArray& va) noexcept;
+		void drawQuad(qs::Shader& shader) noexcept;
 		
 		///
 		///
 		///
-		void drawCircle(qs::VertexArray& va, qs::Shader& shader) noexcept;
+		void drawCircle(qs::Shader& shader) noexcept;
 
 		///
 		///
 		///
-		void drawPolygon(qs::VertexArray& va, qs::Shader& shader) noexcept;
+		void drawPolygon(qs::Shader& shader) noexcept;
 
 		///
 		/// Draw a sprite.
@@ -80,7 +80,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		//void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+		void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
 	};
 }
 

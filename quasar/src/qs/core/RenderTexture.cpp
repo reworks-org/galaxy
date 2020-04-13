@@ -65,7 +65,7 @@ namespace qs
 
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
-			qs::Error::handle().callback("RenderTexture.cpp", 31, "Failed to create GL_FRAMEBUFFER!");
+			qs::Error::handle().callback("RenderTexture.cpp", 68, "Failed to create GL_FRAMEBUFFER!");
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -92,11 +92,11 @@ namespace qs
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		
 		// Enable all this stuff like main window, for this framebuffer.
-		//glEnable(GL_PROGRAM_POINT_SIZE);
-		//glEnable(GL_MULTISAMPLE);
-		//glEnable(GL_DEPTH_TEST);
-		//glEnable(GL_BLEND);
-		//glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+		glEnable(GL_PROGRAM_POINT_SIZE);
+		glEnable(GL_MULTISAMPLE);
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
 		// Reset view and colour, in prep for rendering.
 		glViewport(0, 0, m_width, m_height);

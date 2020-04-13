@@ -8,7 +8,7 @@
 
 #include "qs/core/Shader.hpp"
 #include "qs/graphics/Sprite.hpp"
-//#include "qs/core/RenderTexture.hpp"
+#include "qs/core/RenderTexture.hpp"
 
 #include "Renderer.hpp"
 
@@ -17,31 +17,27 @@
 ///
 namespace qs
 {
-	void Renderer::drawPoint(qs::VertexArray& va, qs::Shader& shader) noexcept
+	void Renderer::drawPoint(qs::Shader& shader) noexcept
 	{
 	}
 
-	void Renderer::drawLine(qs::VertexArray& va, qs::Shader& shader) noexcept
+	void Renderer::drawLine(qs::Shader& shader) noexcept
 	{
 	}
 
-	void Renderer::drawTriangle(qs::VertexArray& va) noexcept
-	{
-		va.bind();
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
-	}
-
-	void Renderer::drawQuad(qs::VertexArray& va) noexcept
-	{
-		va.bind();
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
-	}
-
-	void Renderer::drawCircle(qs::VertexArray& va, qs::Shader& shader) noexcept
+	void Renderer::drawTriangle(qs::Shader& shader) noexcept
 	{
 	}
 
-	void Renderer::drawPolygon(qs::VertexArray& va, qs::Shader& shader) noexcept
+	void Renderer::drawQuad(qs::Shader& shader) noexcept
+	{
+	}
+
+	void Renderer::drawCircle(qs::Shader& shader) noexcept
+	{
+	}
+
+	void Renderer::drawPolygon(qs::Shader& shader) noexcept
 	{
 	}
 
@@ -54,14 +50,13 @@ namespace qs
 		sprite.unbind();
 	}
 
-	/*void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
-		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform("u_projection", rt.getProjection());
 		sprite.bind();
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 
 		sprite.unbind();
-	}*/
+	}
 }

@@ -58,30 +58,28 @@ int main(int argsc, char* argsv[])
 
 		// Shaders
 		qs::Shader shader(std::filesystem::path("bin/sprite.vert"), std::filesystem::path("bin/sprite.frag"));
-		
-		//qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
+		qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
 		//qs::Shader batch(std::filesystem::path("bin/batch.vert"), std::filesystem::path("bin/batch.frag"));
 
 		qs::Sprite wall;
 		wall.load("bin/wall.png");
 		wall.create(qs::BufferType::DYNAMIC);
 		wall.move(50.0f, 50.0f);
-		wall.rotate(45.0f);
 
-		//qs::RenderTexture rt;
-		//rt.create(768, 768);
-		//rt.bind();
-		//rttshader.bind();
+		qs::RenderTexture rt;
+		rt.create(768, 768);
+		rt.bind();
+		rttshader.bind();
 		
-		//renderer.drawSpriteToTexture(wall, rt, rttshader);
+		renderer.drawSpriteToTexture(wall, rt, rttshader);
 		
-		//rt.unbind(window);
-		//rttshader.unbind(); 
-		//rt.save("bin/rt.png");
+		rt.unbind(window);
+		rttshader.unbind(); 
+		rt.save("bin/rt.png");
 
-		//qs::Sprite2D rtspr;
-		//rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
-		//rtspr.create();
+		qs::Sprite rtspr;
+		rtspr.load(rt.getGLTexture(), rt.getWidth(), rt.getHeight());
+		rtspr.create(qs::BufferType::STATIC);
 
 		//rttshader.bind();
 		//qs::TextureAtlas atlas;

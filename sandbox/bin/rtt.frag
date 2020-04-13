@@ -1,12 +1,13 @@
-#version 330 core
+#version 450 core
 
-in vec2 tex_coords;
+in vec2 io_texels;
+//in vec4 io_colour;
 
-out vec4 frag_colour;
+out vec4 io_frag_colour;
 
 uniform sampler2D u_texture;
 
 void main()
 {
-	frag_colour = texture(u_texture, tex_coords);
+	io_frag_colour = texture(u_texture, io_texels);
 }
