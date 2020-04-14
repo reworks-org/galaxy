@@ -61,11 +61,10 @@ namespace qs
 		///
 		/// Call AFTER you have loaded a texture.
 		///
-		/// \param bufferType Fixed or dynamic buffer.
 		/// \param vertexs Array of vertexs to create vbo and vao from. Assumes that vertexs represent quads.
 		///				I.e. 4 vertex = 1 quad.
 		///
-		void create(const qs::BufferType bufferType, const VertexQuadStorage& vertexs) noexcept;
+		void create(const VertexQuadStorage& vertexs) noexcept;
 
 		///
 		/// Bind VA and texture.

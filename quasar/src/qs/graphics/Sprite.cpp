@@ -60,7 +60,7 @@ namespace qs
 		setRotationOrigin(static_cast<float>(m_width) * 0.5f, static_cast<float>(m_height) * 0.5f);
 	}
 
-	void Sprite::create(const qs::BufferType bufferType, const VertexQuadStorage& vertexs) noexcept
+	void Sprite::create(const VertexQuadStorage& vertexs) noexcept
 	{
 		auto quadCount = vertexs.size();
 
@@ -76,7 +76,7 @@ namespace qs
 		}
 
 		vs.shrink_to_fit();
-		m_vertexBuffer.create(vs, bufferType);
+		m_vertexBuffer.create<qs::DynamicBufferType>(vs);
 
 		std::vector<unsigned int> indexs;
 		for (auto counter = 0; counter < quadCount; counter += 4)
@@ -88,7 +88,7 @@ namespace qs
 			indexs.push_back(2 + counter);
 			indexs.push_back(3 + counter);
 		}
-		m_indexBuffer.create(indexs, bufferType);
+		m_indexBuffer.create<qs::DynamicBufferType>(indexs);
 
 		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
 		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);

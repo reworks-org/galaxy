@@ -12,6 +12,7 @@
 #include <array>
 #include <vector>
 
+#include "qs/utils/Meta.hpp"
 #include "qs/utils/BufferType.hpp"
 
 #include <glad/glad.h>
@@ -24,8 +25,7 @@ namespace qs
 	///
 	/// Custom index storage type.
 	///
-	template<std::size_t count>
-	using IndexStorage = std::array<unsigned int, count>;
+	using IndexStorage = std::vector<unsigned int>;
 
 	///
 	/// Abstraction for OpenGL index (element) buffer objects.
@@ -39,15 +39,15 @@ namespace qs
 		IndexBuffer() noexcept;
 
 		///
-		/// Create index buffer object.
+		/// \brief Create index buffer object.
 		///
-		/// You will need to call bind() before using this buffer, once it is created.
+		/// Can throw exception(s).
+		/// This function only differs in that the buffer type is evaluated at compile time.
 		///
 		/// \param indexs Index array to use.
-		/// \param bufferType Fixed or dynamic buffer.
 		///
-		template<std::size_t count>
-		void create(const qs::IndexStorage<count>& indexs, const qs::BufferType bufferType) noexcept;
+		template<typename BufferType>
+		void create(const qs::IndexStorage& indexs);
 
 		///
 		/// Create index buffer from dynamic container.
@@ -91,22 +91,29 @@ namespace qs
 		unsigned int m_count;
 	};
 
-	template<std::size_t count>
-	inline void IndexBuffer::create(const qs::IndexStorage<count>& indexs, const qs::BufferType bufferType) noexcept
+	template<typename BufferType>
+	inline void IndexBuffer::create(const qs::IndexStorage& indexs)
 	{
-		m_count = count;
-
+		m_count = indexs.size();
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 
-		switch (bufferType)
-		{
-		case qs::BufferType::STATIC:
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count, indexs.data(), GL_STATIC_DRAW);
-			break;
+		// If not one of the two buffer type structs, throw compile-time assert.
+		static_assert(std::is_same<BufferType, qs::DynamicBufferType>::value || std::is_same<BufferType, qs::StaticBufferType>::value);
 
-		case qs::BufferType::DYNAMIC:
-			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count, indexs.data(), GL_DYNAMIC_DRAW);
-			break;
+		// Now to use constexpr to check on compile time the buffer type.
+		// This is faster since we dont need to bother checking at runtime.
+		// constexpr will discard the branch that is false and it wont be compiled.
+		if constexpr (std::is_same<BufferType, qs::DynamicBufferType>::value)
+		{
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_DYNAMIC_DRAW);
+		}
+		else if constexpr (std::is_same<BufferType, qs::StaticBufferType>::value)
+		{
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
+		}
+		else
+		{
+			throw std::runtime_error("How did you even get here???");
 		}
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

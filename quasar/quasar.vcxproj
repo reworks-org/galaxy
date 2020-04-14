@@ -29,6 +29,7 @@
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite.cpp" />
     <ClCompile Include="src\qs\utils\BufferType.cpp" />
+    <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
     <ClCompile Include="src\qs\graphics\Camera.cpp" />
     <ClCompile Include="src\qs\core\Transform.cpp" />
@@ -51,6 +52,7 @@
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />
     <ClInclude Include="src\qs\utils\BufferType.hpp" />
+    <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
     <ClInclude Include="src\qs\graphics\Camera.hpp" />
     <ClInclude Include="src\qs\core\Transform.hpp" />

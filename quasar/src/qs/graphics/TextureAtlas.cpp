@@ -86,7 +86,7 @@ namespace qs
 			m_texture.unbind(window);
 			shader.unbind();
 			m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
-			m_sprite.create(qs::BufferType::DYNAMIC, vertexs);
+			m_sprite.create(vertexs);
 			m_sprite.move(0.0f, 0.0f);
 		}
 		else
