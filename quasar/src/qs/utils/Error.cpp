@@ -26,7 +26,7 @@ namespace qs
 		return error;
 	}
 
-	void Error::setGLCallback(void(*callback)(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam)) noexcept
+	void Error::setGLCallback(void(*callback)(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)) noexcept
 	{
 		glDebugMessageCallback(callback, nullptr);
 	}

@@ -41,7 +41,7 @@ int main(int argsc, char* argsv[])
 		std::cout << "Window creation failed!" << std::endl;
 	}
 
-	qs::Error::handle().setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
+	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
 		{
 			std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
 		});

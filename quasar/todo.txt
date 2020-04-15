@@ -13,3 +13,5 @@
 - MipMapping for textures.
 - RenderTexture MSAA - https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
 - Particles - https://learnopengl.com/In-Practice/2D-Game/Particles
+- Light sources
+- Clean up includes.
