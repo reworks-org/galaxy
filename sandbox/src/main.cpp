@@ -37,11 +37,13 @@ int main(int argsc, char* argsv[])
 		});
 
 		// Create window and check for errors.
-		qs::Window window;
+		// Have to define window settings before creating window.
 		qs::WindowSettings::s_hardwareRendering = true;
 		qs::WindowSettings::s_msaa = true;
 		qs::WindowSettings::s_msaaLevel = 2;
 		qs::WindowSettings::s_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
+
+		qs::Window window;
 
 		if (!window.create("TestBed", 1024, 768))
 		{

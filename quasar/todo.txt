@@ -1,4 +1,3 @@
-- Newer OpenGL 4.5+ stuff?
 - Post Processing:
 	- Ansiotropic filtering
 	- bloom
@@ -6,21 +5,11 @@
 	- Culling (glm::ortho near / far?)
 	- https://www.youtube.com/watch?v=5df3NvQNzUs&list=PLlrATfBNZ98f5vZ8nJ6UengEkZUMC4fy5&index=4
 
-- Fix camera movement / input.
-- https://learnopengl.com/Advanced-OpenGL/Instancing
-- https://learnopengl.com/Advanced-Lighting/Advanced-Lighting
+- Decouple camera class from input.
+- Instancing - https://learnopengl.com/Advanced-OpenGL/Instancing
 - More error handling.
-- Fix sprite tinting.
+- Sprite blending/tinting/lighting.
 - Finish renderer.
-- texture transformations (i.e. for animations) -> in glsl?
-- Optimize spritebatch copying transform vectors.
-- texture mipmapping?
+- MipMapping for textures.
 - RenderTexture MSAA - https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
-
-
-- "universe" -> or "supercluster"
-	- something that contains multiple galaxies
-	- level editor, json editor, create diferent types of json files for use in galaxy
-	- galaxy can then just load the json and go
-	- built on quasar and imgui
-	- part of galaxy repo
+- Particles - https://learnopengl.com/In-Practice/2D-Game/Particles
