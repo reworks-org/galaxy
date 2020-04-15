@@ -1,5 +1,5 @@
 # quasar
-[![Build Status](https://ci.appveyor.com/api/projects/status/aiyp8s2pels9nnr6?svg=true)](https://ci.appveyor.com/project/reworks/quasar)
+[![Build Status](https://ci.appveyor.com/api/projects/status/p5awyfachlfn70ch?svg=true)](https://ci.appveyor.com/project/reworks/quasar-c7jjt)
 [![Documentation Status](https://travis-ci.org/DomRe/quasar.svg?branch=master)](https://domre.github.io/quasar/)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
@@ -22,6 +22,6 @@ See [documentation](https://domre.github.io/quasar/).
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
-* [SDL-mirror](https://github.com/SDL-mirror).
 * [Learn OpenGL](https://learnopengl.com/).
 * [OpenGL Reference](https://www.khronos.org/registry/OpenGL-Refpages/gl4/).
+* [glfw](https://www.glfw.org/).
