@@ -42,7 +42,7 @@ namespace qs
 		///
 		/// \param callback Function pointer to set. See: http://docs.gl/gl4/glDebugMessageCallback.
 		///
-		void setGLCallback(void(*callback)(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)) noexcept;
+		void setGLCallback(GLDEBUGPROC callback) noexcept;
 
 		///
 		/// \brief Set the callback function for errors in Quasar. Adds error message to history.
