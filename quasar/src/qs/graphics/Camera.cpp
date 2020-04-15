@@ -11,12 +11,12 @@
 namespace qs
 {
 	Camera::Camera() noexcept
-		:m_curKeyDownEvent(), m_speed(1.0f), m_projection(1.0f)
+		:m_moveUp(false), m_moveDown(false), m_moveLeft(false), m_moveRight(false), m_speed(1.0f), m_projection(1.0f)
 	{
 	}
 
 	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		:m_curKeyDownEvent(), m_speed(speed), m_projection(1.0f)
+		:m_moveUp(false), m_moveDown(false), m_moveLeft(false), m_moveRight(false), m_speed(speed), m_projection(1.0f)
 	{
 		create(left, right, bottom, top);
 	}
@@ -28,39 +28,69 @@ namespace qs
 
 	void Camera::onKeyDown(const protostar::KeyDownEvent& e)
 	{
-		m_curKeyDownEvent = e;
+		switch (e.m_keycode)
+		{
+		case protostar::Keys::W:
+			m_moveUp = true;
+			break;
+
+		case protostar::Keys::S:
+			m_moveDown = true;
+			break;
+
+		case protostar::Keys::A:
+			m_moveLeft = true;
+			break;
+
+		case protostar::Keys::D:
+			m_moveRight = true;
+			break;
+		}
+	}
+
+	void Camera::onKeyUp(const protostar::KeyUpEvent& e)
+	{
+		switch (e.m_keycode)
+		{
+		case protostar::Keys::W:
+			m_moveUp = false;
+			break;
+
+		case protostar::Keys::S:
+			m_moveDown = false;
+			break;
+
+		case protostar::Keys::A:
+			m_moveLeft = false;
+			break;
+
+		case protostar::Keys::D:
+			m_moveRight = false;
+			break;
+		}
 	}
 
 	void Camera::update(const double ts) noexcept
 	{
-		switch (m_curKeyDownEvent.m_keycode)
+		if (m_moveUp)
 		{
-		case protostar::Keys::W:
 			move(0.0f, (ts * m_speed) * -1.0f);
-			break;
-
-		case protostar::Keys::S:
-			move(0.0f, ts * m_speed);
-			break;
-
-		case protostar::Keys::A:
-			move((ts * m_speed) * -1.0f, 0.0f);
-			break;
-
-		case protostar::Keys::D:
-			move(ts * m_speed, 0.0f);
-			break;
-
-		case protostar::Keys::Q:
-			rotate(m_speed * ts);
-			break;
-
-		case protostar::Keys::E:
-			rotate(m_speed * ts);
-			break;
 		}
 
-		m_curKeyDownEvent.m_keycode = protostar::Keys::F10;
+		if (m_moveDown)
+		{
+			move(0.0f, ts * m_speed);
+		}
+
+		if (m_moveLeft)
+		{
+			move((ts * m_speed) * -1.0f, 0.0f);
+		}
+
+		if (m_moveRight)
+		{
+			move(ts * m_speed, 0.0f);
+		}
 	}
 
 	void Camera::setSpeed(const float speed) noexcept

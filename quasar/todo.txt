@@ -5,7 +5,6 @@
 	- Culling (glm::ortho near / far?)
 	- https://www.youtube.com/watch?v=5df3NvQNzUs&list=PLlrATfBNZ98f5vZ8nJ6UengEkZUMC4fy5&index=4
 
-- Decouple camera class from input.
 - Instancing - https://learnopengl.com/Advanced-OpenGL/Instancing
 - More error handling.
 - Sprite blending/tinting/lighting.

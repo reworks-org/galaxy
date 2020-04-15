@@ -9,6 +9,7 @@
 #ifndef QUASAR_CAMERA_HPP_
 #define QUASAR_CAMERA_HPP_
 
+#include <protostar/events/KeyUpEvent.hpp>
 #include <protostar/events/KeyDownEvent.hpp>
 
 #include "qs/core/Transform.hpp"
@@ -58,11 +59,18 @@ namespace qs
 		void create(const float left, const float right, const float bottom, const float top) noexcept;
 
 		///
-		///	Event processing method for camera.
+		///	Event processing method for key down for camera.
 		///
 		/// \param e Takes in a shared protostar event defining a key press down.
 		///
 		void onKeyDown(const protostar::KeyDownEvent& e);
+
+		///
+		/// Event processing method for key up for camera.
+		///
+		/// \param e Takes in a shared protostar event defining a key release.
+		///
+		void onKeyUp(const protostar::KeyUpEvent& e);
 
 		///
 		/// Update method for camera.
@@ -87,9 +95,24 @@ namespace qs
 
 	private:
 		///
-		/// Current keydown event.
+		/// Camera move up flag.
 		///
-		protostar::KeyDownEvent m_curKeyDownEvent;
+		bool m_moveUp;
+
+		///
+		/// Camera move down flag.
+		///
+		bool m_moveDown;
+
+		///
+		/// Camera move left flag.
+		///
+		bool m_moveLeft;
+
+		///
+		/// Camera move right flag.
+		///
+		bool m_moveRight;
 
 		///
 		/// Speed of camera.
