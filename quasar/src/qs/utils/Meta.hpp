@@ -33,6 +33,36 @@ namespace qs
 	{
 		StaticBufferType() = delete;
 	};
+
+	///
+	/// \brief Specifies "position" vertex attribute type at compile time.
+	///
+	/// Cannot be instansiated.
+	///
+	struct PositionVAType
+	{
+		PositionVAType() = delete;
+	};
+
+	///
+	/// \brief Specifies "colour" vertex attribute type at compile time.
+	///
+	/// Cannot be instansiated.
+	///
+	struct ColourVAType
+	{
+		ColourVAType() = delete;
+	};
+
+	///
+	/// \brief Specifies "texel" vertex attribute type at compile time.
+	///
+	/// Cannot be instansiated.
+	///
+	struct TexelVAType
+	{
+		TexelVAType() = delete;
+	};
 }
 
 #endif

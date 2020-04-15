@@ -22,27 +22,6 @@ namespace qs
 	struct VertexAttribute final
 	{
 		///
-		/// Enum class for specifying the type of member value in Vertex the VertexAttribute is for.
-		///
-		enum class Type : short
-		{
-			///
-			/// Position vertex members.
-			///
-			POSITION,
-
-			///
-			/// Colour vertex members.
-			///
-			COLOUR,
-
-			///
-			/// Texel (texid) vertex members.
-			///
-			TEXELS
-		};
-		
-		///
 		/// Default constructor.
 		///
 		VertexAttribute() noexcept;

@@ -11,7 +11,11 @@
 
 #include <vector>
 
-#include "VertexAttribute.hpp"
+#include <glad/glad.h>
+
+#include "qs/utils/Meta.hpp"
+#include "qs/vertex/Vertex.hpp"
+#include "qs/vertex/VertexAttribute.hpp"
 
 ///
 /// Core namespace.
@@ -35,12 +39,14 @@ namespace qs
 		~VertexLayout() noexcept;
 
 		///
-		/// Adds a vertex attribute to the layout.
+		/// \brief Adds a vertex attribute to the layout.
+		///
+		/// VertexAttributeType is the type of vertex member the attribute is for.
 		///
 		/// \param size Number of components for each vertex attribute.
-		/// \param type Type of vertex member the attribute is for.
 		///
-		void add(const int size, const qs::VertexAttribute::Type type);
+		template<typename VertexAttributeType>
+		void add(const int size);
 
 		///
 		/// Retrieve all attributes.
@@ -55,6 +61,36 @@ namespace qs
 		///
 		std::vector<qs::VertexAttribute> m_attributes;
 	};
+
+	template<typename VertexAttributeType>
+	inline void VertexLayout::add(const int size)
+	{
+		// If not one of the two buffer type structs, throw compile-time assert.
+		static_assert(std::is_same<VertexAttributeType, qs::PositionVAType>::value || 
+					  std::is_same<VertexAttributeType, qs::ColourVAType>::value || 
+			          std::is_same<VertexAttributeType, qs::TexelVAType>::value
+		);
+
+		// Now to use constexpr to check on compile time the buffer type.
+		// This is faster since we dont need to bother checking at runtime.
+		// constexpr will discard the branch that is false and it wont be compiled.
+		if constexpr (std::is_same<VertexAttributeType, qs::PositionVAType>::value)
+		{
+			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_position));
+		}
+		else if constexpr (std::is_same<VertexAttributeType, qs::ColourVAType>::value)
+		{
+			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_colour));
+		}
+		else if constexpr (std::is_same<VertexAttributeType, qs::TexelVAType>::value)
+		{
+			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_texels));
+		}
+		else
+		{
+			throw std::runtime_error("How did you even get here???");
+		}
+	}
 }
 
 #endif

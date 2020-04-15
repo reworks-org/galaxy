@@ -35,9 +35,9 @@ namespace qs
 
 		m_indexBuffer.create({ 0, 1, 3, 1, 2, 3 }, bufferType);
 		
-		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
-		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);
-		m_layout.add(2, qs::VertexAttribute::Type::TEXELS);
+		m_layout.add<qs::PositionVAType>(2);
+		m_layout.add<qs::ColourVAType>(4);
+		m_layout.add<qs::TexelVAType>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
@@ -51,9 +51,9 @@ namespace qs
 		
 		m_indexBuffer.create({ 0, 1, 3, 1, 2, 3 }, bufferType);
 
-		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
-		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);
-		m_layout.add(2, qs::VertexAttribute::Type::TEXELS);
+		m_layout.add<qs::PositionVAType>(2);
+		m_layout.add<qs::ColourVAType>(4);
+		m_layout.add<qs::TexelVAType>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
@@ -90,9 +90,9 @@ namespace qs
 		}
 		m_indexBuffer.create<qs::DynamicBufferType>(indexs);
 
-		m_layout.add(2, qs::VertexAttribute::Type::POSITION);
-		m_layout.add(4, qs::VertexAttribute::Type::COLOUR);
-		m_layout.add(2, qs::VertexAttribute::Type::TEXELS);
+		m_layout.add<qs::PositionVAType>(2);
+		m_layout.add<qs::ColourVAType>(4);
+		m_layout.add<qs::TexelVAType>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
