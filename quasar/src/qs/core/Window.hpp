@@ -26,37 +26,6 @@ namespace qs
 	{
 	public:
 		///
-		/// Holds window related settings.
-		///
-		struct WindowSettings final
-		{
-			///
-			/// SDL2 compatible window flags.
-			///
-			Uint32 SDL_windowFlags = 0;
-
-			///
-			/// Should Multisample Anti-Aliasing be enabled?
-			///
-			bool msaa = false;
-			
-			///
-			/// Level of MSAA. I.e. 2, 4, etc.
-			///
-			int msaaLevel = 2;
-
-			///
-			/// Hardware (GPU) or software (CPU) based rendering.
-			///
-			bool hardwareRendering = true;
-
-			///
-			/// Vertical sync.
-			///
-			bool vsync = false;
-		};
-
-		///
 		/// Default constructed window.
 		///
 		Window() noexcept;
@@ -70,9 +39,8 @@ namespace qs
 		/// \param title Title of the window.
 		/// \param w Width of the window.
 		/// \param h Height of the window.
-		/// \param settings Settings for the window, like flags and MSAA.
 		///
-		explicit Window(const std::string& title, int w, int h, const WindowSettings& settings) noexcept;
+		explicit Window(const std::string& title, int w, int h) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -93,7 +61,7 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(const std::string& title, int w, int h, const WindowSettings& settings) noexcept;
+		bool create(const std::string& title, int w, int h) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.

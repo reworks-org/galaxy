@@ -15,9 +15,7 @@
 - texture transformations (i.e. for animations) -> in glsl?
 - Optimize spritebatch copying transform vectors.
 - texture mipmapping?
-- camera matricies should be calculated GPU side.
-	// move camera cals to GPU
-	// model-view CPU, projection GPU.
+- RenderTexture MSAA - https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
 
 
 - "universe" -> or "supercluster"

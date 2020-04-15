@@ -93,17 +93,25 @@ namespace qs
 
 	void RenderTexture::bind() noexcept
 	{
+		// Adjust framebuffer.
 		glViewport(0, 0, m_width, m_height);
 
 		// Bind to framebuffer.
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		
 		// Enable all this stuff like main window, for this framebuffer.
-		glEnable(GL_PROGRAM_POINT_SIZE);
+		// Enable MSAA.
 		glEnable(GL_MULTISAMPLE);
+
+		// Depth testing.
 		glEnable(GL_DEPTH_TEST);
+
+		// Set up blending.
 		glEnable(GL_BLEND);
-		glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		// Allow for chaning vertex point size.
+		glEnable(GL_PROGRAM_POINT_SIZE);
 
 		// Reset Colour, in prep for rendering.
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);

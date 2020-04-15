@@ -14,6 +14,7 @@
 
 #include "qs/utils/Error.hpp"
 #include "qs/utils/Utility.hpp"
+#include "qs/core/WindowSettings.hpp"
 
 #include "Window.hpp"
 
@@ -27,10 +28,10 @@ namespace qs
 	{
 	}
 
-	Window::Window(const std::string& title, int w, int h, const WindowSettings& settings) noexcept
+	Window::Window(const std::string& title, int w, int h) noexcept
 		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr), m_width(0), m_height(0)
 	{
-		if (!create(title, w, h, settings))
+		if (!create(title, w, h))
 		{
 			qs::Error::handle().callback("Window.cpp", 35, "Window creation failed!");
 		}
@@ -43,7 +44,7 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(const std::string& title, int w, int h, const WindowSettings& settings) noexcept
+	bool Window::create(const std::string& title, int w, int h) noexcept
 	{
 		// Function result.
 		bool result = true;
@@ -61,13 +62,13 @@ namespace qs
 		SDL_GL_SetAttribute(SDL_GL_FRAMEBUFFER_SRGB_CAPABLE, 1);
 
 		// Hardware acceleration
-		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, settings.hardwareRendering);
+		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, qs::WindowSettings::s_hardwareRendering);
 
 		// MSAA
-		if (settings.msaa)
+		if (qs::WindowSettings::s_msaa)
 		{
 			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, settings.msaaLevel);
+			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, qs::WindowSettings::s_msaaLevel);
 		}
 
 		// GL buffer setups.
@@ -84,7 +85,7 @@ namespace qs
 		#endif
 
 		// Create the window from input, ensuring it is centered in the screen.
-		m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, settings.SDL_windowFlags | SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, qs::WindowSettings::s_windowFlags | SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
 
 		// Then if the window failed to create:
 		if (!m_window)
@@ -93,7 +94,7 @@ namespace qs
 			std::string msg = "Window failed to create! SDL_Error: ";
 			msg += SDL_GetError();
 			
-			qs::Error::handle().callback("Window.cpp", 96, msg);
+			qs::Error::handle().callback("Window.cpp", 97, msg);
 			result = false;
 		}
 		else
@@ -108,7 +109,7 @@ namespace qs
 				std::string msg = "OpenGL context failed to be created! SDL_Error: ";
 				msg += SDL_GetError();
 
-				qs::Error::handle().callback("Window.cpp", 111, msg);
+				qs::Error::handle().callback("Window.cpp", 112, msg);
 				result = false;
 			}
 			else
@@ -118,7 +119,7 @@ namespace qs
 				{
 					std::string msg = "Failed to init glad.";
 
-					qs::Error::handle().callback("Window.cpp", 121, msg);
+					qs::Error::handle().callback("Window.cpp", 122, msg);
 					result = false;
 				}
 				else
@@ -136,15 +137,12 @@ namespace qs
 					// Allow for chaning vertex point size.
 					glEnable(GL_PROGRAM_POINT_SIZE);
 
-					// Set up the viewport.
-					glViewport(0, 0, m_width, m_height);
-
 					// Set vsync.
-					SDL_GL_SetSwapInterval(settings.vsync);
+					SDL_GL_SetSwapInterval(qs::WindowSettings::s_vsync);
 
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-					qs::Error::handle().callback("Window.cpp", 150, msg);
+					qs::Error::handle().callback("Window.cpp", 145, msg);
 				}
 			}
 		}

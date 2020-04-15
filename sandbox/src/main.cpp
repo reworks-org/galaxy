@@ -12,6 +12,7 @@
 
 #include <protostar/system/Keys.hpp>
 #include <qs/utils/Error.hpp>
+#include <qs/core/WindowSettings.hpp>
 #include <qs/core/Texture.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/renderer/Renderer.hpp>
@@ -37,13 +38,12 @@ int main(int argsc, char* argsv[])
 
 		// Create window and check for errors.
 		qs::Window window;
-		qs::Window::WindowSettings settings;
-		settings.hardwareRendering = true;
-		settings.msaa = true;
-		settings.msaaLevel = 2;
-		settings.SDL_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
+		qs::WindowSettings::s_hardwareRendering = true;
+		qs::WindowSettings::s_msaa = true;
+		qs::WindowSettings::s_msaaLevel = 2;
+		qs::WindowSettings::s_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
 
-		if (!window.create("TestBed", 1024, 768, settings))
+		if (!window.create("TestBed", 1024, 768))
 		{
 			std::cout << "Window creation failed!" << std::endl;
 		}
