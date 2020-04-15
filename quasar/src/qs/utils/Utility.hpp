@@ -9,9 +9,8 @@
 #ifndef QUASAR_UTILITY_HPP_
 #define QUASAR_UTILITY_HPP_
 
+#include <cstdint>
 #include <type_traits>
-
-#include <SDL2/SDL_stdinc.h>
 
 ///
 /// Core namespace.
@@ -30,7 +29,7 @@ namespace qs
 		///
 		/// \return Uint8.
 		///
-		Uint8 floatToUint8(float f) noexcept;
+		std::uint8_t floatToUint8(float f) noexcept;
 
 		///
 		/// Converts a from an unsigned 8 bit integer to a float.
@@ -39,7 +38,7 @@ namespace qs
 		///
 		/// \return Uint8.
 		///
-		float uint8ToFloat(Uint8 u8) noexcept;
+		float uint8ToFloat(std::uint8_t u8) noexcept;
 
 		///
 		/// Calc normalized value from range.

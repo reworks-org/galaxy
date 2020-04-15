@@ -20,16 +20,16 @@ namespace qs
 	///
 	namespace Utils
 	{
-		Uint8 floatToUint8(float f) noexcept
+		std::uint8_t floatToUint8(float f) noexcept
 		{
 			// Makes sure the float is properly converted to a byte in the correct range.
-			return (f >= 1.0 ? 255 : (f <= 0.0 ? 0 : static_cast<Uint8>(std::floor(f * 256.0))));
+			return (f >= 1.0 ? 255 : (f <= 0.0 ? 0 : static_cast<std::uint8_t>(std::floor(f * 256.0))));
 		}
 
-		float uint8ToFloat(Uint8 u8) noexcept
+		float uint8ToFloat(std::uint8_t u8) noexcept
 		{
 			// Ensure proper conversion and no rounding errors.
-			return (u8 >= 255 ? 1.0f : (u8 <= 0 ? 0.0f : static_cast<Uint8>(std::floor(u8 / 256.0))));
+			return (u8 >= 255 ? 1.0f : (u8 <= 0 ? 0.0f : static_cast<std::uint8_t>(std::floor(u8 / 256.0))));
 		}
 	}
 }

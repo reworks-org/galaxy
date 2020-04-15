@@ -43,8 +43,8 @@ namespace qs
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
-		shader.setUniform<float>("u_width", sprite.getWidth());
-		shader.setUniform<float>("u_height", sprite.getHeight());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 
 		sprite.bind();
 		
@@ -56,8 +56,8 @@ namespace qs
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
 		shader.setUniform("u_projection", rt.getProjection());
-		shader.setUniform<float>("u_width", sprite.getWidth());
-		shader.setUniform<float>("u_height", sprite.getHeight());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 
 		sprite.bind();
 

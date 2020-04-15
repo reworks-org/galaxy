@@ -7,6 +7,7 @@
 ///
 
 #include <iostream>
+#include <filesystem>
 
 #include <glad/glad.h>
 #include <stb_image.h>
@@ -24,16 +25,16 @@
 namespace qs
 {
 	Window::Window() noexcept
-		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr), m_width(0), m_height(0)
+		:m_window(nullptr), m_cursor(nullptr), m_width(0), m_height(0)
 	{
 	}
 
-	Window::Window(const std::string& title, int w, int h) noexcept
-		:m_isOpen(true), m_window(nullptr), m_glContext(nullptr), m_width(0), m_height(0)
+	Window::Window(const std::string& title, int w, int h)
+		:m_window(nullptr), m_cursor(nullptr), m_width(0), m_height(0)
 	{
 		if (!create(title, w, h))
 		{
-			qs::Error::handle().callback("Window.cpp", 35, "Window creation failed!");
+			qs::Error::handle().callback("Window.cpp", 37, "Window creation failed!");
 		}
 	}
 
@@ -44,7 +45,7 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(const std::string& title, int w, int h) noexcept
+	bool Window::create(const std::string& title, int w, int h)
 	{
 		// Function result.
 		bool result = true;
@@ -53,77 +54,99 @@ namespace qs
 		m_width = w;
 		m_height = h;
 
-		// Set the version of OpenGL we want to use.
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 5);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-
-		// Enable srgb.
-		SDL_GL_SetAttribute(SDL_GL_FRAMEBUFFER_SRGB_CAPABLE, 1);
-
-		// Hardware acceleration
-		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, qs::WindowSettings::s_hardwareRendering);
-
-		// MSAA
-		if (qs::WindowSettings::s_msaa)
+		// Error callbacks.
+		glfwSetErrorCallback([](int error, const char* description)
 		{
-			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-			SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, qs::WindowSettings::s_msaaLevel);
-		}
+			std::string msg = "Error Code: " + std::to_string(error) + ". Desc: " + description + ".";
+			qs::Error::handle().callback("GLFW ERROR CALLBACK", 0, msg);
+		});
 
-		// GL buffer setups.
-		SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32);
-		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-
-		// Make sure forward-compatible context.
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG);
-
-		// Set debug when compiling for debug mode.
-		#ifdef _DEBUG
-			SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
-		#endif
-
-		// Create the window from input, ensuring it is centered in the screen.
-		m_window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, qs::WindowSettings::s_windowFlags | SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-
-		// Then if the window failed to create:
-		if (!m_window)
+		// Init glfw.
+		if (!glfwInit())
 		{
-			// Set error info.
-			std::string msg = "Window failed to create! SDL_Error: ";
-			msg += SDL_GetError();
-			
-			qs::Error::handle().callback("Window.cpp", 97, msg);
-			result = false;
+			qs::Error::handle().callback("Window.cpp", 67, "Failed to initialize glfw!");
 		}
 		else
 		{
-			// Create GL context. This also makes context current. No need to call SDL_GL_MakeCurrent().
-			m_glContext = SDL_GL_CreateContext(m_window);
+			// Set the OpenGL flags.
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+			glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
 
-			// Then if context failed to create:
-			if (!m_glContext)
+			// Set debug when compiling for debug mode.
+			#ifdef _DEBUG
+				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+			#endif
+
+			// Window related hints.
+			glfwWindowHint(GLFW_RESIZABLE, true);
+			glfwWindowHint(GLFW_VISIBLE, true);
+			glfwWindowHint(GLFW_DECORATED, true);
+			glfwWindowHint(GLFW_FOCUSED, true);
+
+			// Framebuffer stuff
+			glfwWindowHint(GLFW_RED_BITS, 8);
+			glfwWindowHint(GLFW_GREEN_BITS, 8);
+			glfwWindowHint(GLFW_BLUE_BITS, 8);
+			glfwWindowHint(GLFW_ALPHA_BITS, 8);
+			glfwWindowHint(GLFW_DEPTH_BITS, 24);
+			glfwWindowHint(GLFW_STENCIL_BITS, 8);
+			glfwWindowHint(GLFW_DOUBLEBUFFER, true);
+
+			// sRGB.
+			glfwWindowHint(GLFW_SRGB_CAPABLE, qs::WindowSettings::s_srgb);
+
+			// MSAA
+			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_msaa);
+
+			// Create the window from input, ensuring it is centered in the screen.
+			m_window = glfwCreateWindow(m_width, m_height, title.c_str(), nullptr, nullptr);
+
+			// Then if the window failed to create:
+			if (!m_window)
 			{
-				// Set error info.
-				std::string msg = "OpenGL context failed to be created! SDL_Error: ";
-				msg += SDL_GetError();
-
-				qs::Error::handle().callback("Window.cpp", 112, msg);
+				qs::Error::handle().callback("Window.cpp", 109, "Failed to create window!");
 				result = false;
 			}
 			else
 			{
+				// Set window context and aspect ratio.
+				glfwMakeContextCurrent(m_window);
+				
+				if (!(qs::WindowSettings::s_aspectRatioX == -1 || qs::WindowSettings::s_aspectRatioY == -1))
+				{
+					glfwSetWindowAspectRatio(m_window, qs::WindowSettings::s_aspectRatioX, qs::WindowSettings::s_aspectRatioY);
+				}
+
 				// Set up glad gl loader with SDL2.
-				if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
+				if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 				{
 					std::string msg = "Failed to init glad.";
 
-					qs::Error::handle().callback("Window.cpp", 122, msg);
+					qs::Error::handle().callback("Window.cpp", 123, msg);
 					result = false;
 				}
 				else
 				{
+					// Set internal pointer references.
+					glfwSetWindowUserPointer(m_window, static_cast<void*>(this));
+
+					// Set resize callback.
+					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int w, int h)
+						{
+							static_cast<qs::Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
+						});
+
+					// Set vsync.
+					glfwSwapInterval(qs::WindowSettings::s_vsync);
+
+					// Raw mouse input.
+					if (glfwRawMouseMotionSupported())
+					{
+						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_rawMouseInput);
+					}
+
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);
 
@@ -137,12 +160,9 @@ namespace qs
 					// Allow for chaning vertex point size.
 					glEnable(GL_PROGRAM_POINT_SIZE);
 
-					// Set vsync.
-					SDL_GL_SetSwapInterval(qs::WindowSettings::s_vsync);
-
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-					qs::Error::handle().callback("Window.cpp", 145, msg);
+					qs::Error::handle().callback("Window.cpp", 155, msg);
 				}
 			}
 		}
@@ -150,31 +170,135 @@ namespace qs
 		return result;
 	}
 
+	void Window::setIcon(const std::string& icon) noexcept
+	{
+		// Always convert to proper path before loading.
+		auto path = std::filesystem::path(icon);
+		int w = 0, h = 0;
+		GLFWimage img;
+
+		stbi_set_flip_vertically_on_load(true);
+		unsigned char* pixels = stbi_load(path.string().c_str(), &w, &h, nullptr, STBI_rgb_alpha);
+
+		// Fill glfw-compatible struct.
+		img.height = h;
+		img.width = w;
+		img.pixels = pixels;
+
+		// Copies data so safe to destroy.
+		glfwSetWindowIcon(m_window, 1, &img);
+
+		// Make sure is all cleaned up.
+		stbi_image_free(pixels);
+	}
+
+	void Window::setIcon(const unsigned char* mem, const int size) noexcept
+	{
+		// Setup variables with default data.
+		int w = 0, h = 0;
+		GLFWimage img;
+
+		stbi_set_flip_vertically_on_load(true);
+		unsigned char* pixels = stbi_load_from_memory(mem, size, &w, &h, nullptr, STBI_rgb_alpha);
+
+		// Fill glfw-compatible struct.
+		img.height = h;
+		img.width = w;
+		img.pixels = pixels;
+
+		// Copies data so safe to destroy.
+		glfwSetWindowIcon(m_window, 1, &img);
+
+		// Make sure is all cleaned up.
+		stbi_image_free(pixels);
+	}
+
+	void Window::setCursorVisibility(const bool visible) noexcept
+	{
+		if (visible)
+		{
+			glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		}
+		else
+		{
+			glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+		}
+	}
+
+	void Window::removeCursor() noexcept
+	{
+		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	}
+
+	void Window::setCursorIcon(const std::string& icon) noexcept
+	{
+		// Always convert to proper path before loading.
+		auto path = std::filesystem::path(icon);
+		int w = 0, h = 0;
+		GLFWimage img;
+
+		stbi_set_flip_vertically_on_load(true);
+		unsigned char* pixels = stbi_load(path.string().c_str(), &w, &h, nullptr, STBI_rgb_alpha);
+
+		// Fill glfw-compatible struct.
+		img.height = h;
+		img.width = w;
+		img.pixels = pixels;
+
+		// Copies data so safe to destroy.
+		m_cursor = glfwCreateCursor(&img, 0, 0);
+
+		stbi_image_free(pixels);
+		glfwSetCursor(m_window, m_cursor);
+	}
+
+	void Window::setCursorIcon(const unsigned char* mem, const int size) noexcept
+	{
+		// Setup variables with default data.
+		int w = 0, h = 0;
+		GLFWimage img;
+
+		stbi_set_flip_vertically_on_load(true);
+		unsigned char* pixels = stbi_load_from_memory(mem, size, &w, &h, nullptr, STBI_rgb_alpha);
+
+		// Fill glfw-compatible struct.
+		img.height = h;
+		img.width = w;
+		img.pixels = pixels;
+
+		// Copies data so safe to destroy.
+		m_cursor = glfwCreateCursor(&img, 0, 0);
+
+		stbi_image_free(pixels);
+		glfwSetCursor(m_window, m_cursor);
+	}
+
 	void Window::destroy() noexcept
 	{
-		// Clean up GL context, checking to make sure its not already been destroyed.
-		if (m_glContext != nullptr)
-		{
-			SDL_GL_DeleteContext(m_glContext);
-			m_glContext = nullptr;
-		}
-
 		// Clean up window data, checking to make sure its not already been destroyed.
 		if (m_window != nullptr)
 		{
-			SDL_DestroyWindow(m_window);
+			glfwDestroyWindow(m_window);
 			m_window = nullptr;
 		}
+
+		// Cursor
+		if (m_cursor != nullptr)
+		{
+			glfwDestroyCursor(m_cursor);
+		}
+
+		glfwTerminate();
 	}
 
 	bool Window::isOpen() const noexcept
 	{
-		return m_isOpen;
+		return (!glfwWindowShouldClose(m_window));
 	}
 
 	void Window::close() noexcept
 	{
-		m_isOpen = false;
+		glfwSetWindowShouldClose(m_window, true);
 	}
 
 	void Window::resize(int w, int h) noexcept
@@ -182,34 +306,35 @@ namespace qs
 		m_width = w;
 		m_height = h;
 
-		SDL_SetWindowSize(m_window, m_width, m_height);
+		glfwSetWindowSize(m_window, w, h);
+		glViewport(0, 0, m_width, m_height);
 	}
 
 	void Window::makeCurrent() noexcept
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glViewport(0, 0, m_width, m_height);
+	}
+
+	void Window::requestAttention() noexcept
+	{
+		glfwRequestWindowAttention(m_window);
 	}
 
 	void Window::begin(const protostar::Colour& colour) noexcept
 	{
-		glViewport(0, 0, m_width, m_height);
 		glClearColor(qs::Utils::uint8ToFloat(colour.m_red), qs::Utils::uint8ToFloat(colour.m_green), qs::Utils::uint8ToFloat(colour.m_blue), qs::Utils::uint8ToFloat(colour.m_alpha));
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void Window::end() noexcept
 	{
-		SDL_GL_SwapWindow(m_window);
+		glfwSwapBuffers(m_window);
 	}
 
-	SDL_Window* Window::getWindow() noexcept
+	GLFWwindow* Window::getWindow() noexcept
 	{
 		return m_window;
-	}
-
-	SDL_GLContext& Window::getContext() noexcept
-	{
-		return m_glContext;
 	}
 
 	const int Window::getWidth() const noexcept

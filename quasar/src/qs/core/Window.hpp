@@ -11,7 +11,7 @@
 
 #include <string>
 
-#include <SDL2/SDL_video.h>
+#include <glfw/glfw3.h>
 #include <protostar/system/Colour.hpp>
 
 ///
@@ -40,7 +40,7 @@ namespace qs
 		/// \param w Width of the window.
 		/// \param h Height of the window.
 		///
-		explicit Window(const std::string& title, int w, int h) noexcept;
+		explicit Window(const std::string& title, int w, int h);
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -61,7 +61,51 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(const std::string& title, int w, int h) noexcept;
+		bool create(const std::string& title, int w, int h);
+
+		///
+		/// Set window icon.
+		///
+		/// \param icon Icon to load.
+		///
+		void setIcon(const std::string& icon) noexcept;
+
+		///
+		/// Set window icon.
+		///
+		/// \param mem Memory buffer containing pixels.
+		/// \param size Size of the buffer.
+		///
+		void setIcon(const unsigned char* mem, const int size) noexcept;
+
+		///
+		/// Set cursor visibility.
+		///
+		/// \param visible True for cursor to be visible, otherwise false.
+		///
+		void setCursorVisibility(const bool visible) noexcept;
+
+		///
+		/// \brief Restricts cursor to window bounds, and makes invisible.
+		///
+		/// setCursorVisibility() overrides this.
+		///
+		void removeCursor() noexcept;
+
+		///
+		/// Set cursor icon.
+		///
+		/// \param icon Icon to load.
+		///
+		void setCursorIcon(const std::string& icon) noexcept;
+
+		///
+		/// Set cursor icon.
+		///
+		/// \param mem Memory buffer containing pixels.
+		/// \param size Size of the buffer.
+		///
+		void setCursorIcon(const unsigned char* mem, const int size) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -89,6 +133,7 @@ namespace qs
 		///
 		/// \param w New width of the window.
 		/// \param h new height of the window.
+		/// \param window Pointer to window to resize. Defaults to *this.
 		///
 		void resize(int w, int h) noexcept;
 
@@ -96,6 +141,13 @@ namespace qs
 		/// Makes this window the current rendering framebuffer.
 		///
 		void makeCurrent() noexcept;
+
+		///
+		/// \brief Notify's user of an event without interrupting.
+		///
+		/// Think like windows flashing tray icon.
+		///
+		void requestAttention() noexcept;
 
 		///
 		/// Clears the Rendering buffer.
@@ -112,18 +164,11 @@ namespace qs
 		void end() noexcept;
 
 		///
-		/// Retrieve pointer to SDL_Window object.
+		/// Retrieve pointer to GLFWwindow object.
 		///
-		/// \return Returns const pointer to SDL_Window.
+		/// \return Returns const pointer to GLFWwindow.
 		///
-		SDL_Window* getWindow() noexcept;
-
-		///
-		/// Retrieve gl context.
-		///
-		/// \return Reference to GL context;
-		///
-		SDL_GLContext& getContext() noexcept;
+		GLFWwindow* getWindow() noexcept;
 
 		///
 		/// Get window width.
@@ -141,19 +186,14 @@ namespace qs
 
 	private:
 		///
-		/// Keeps track of window state.
+		/// GLFW window data.
 		///
-		bool m_isOpen;
+		GLFWwindow* m_window;
 
 		///
-		/// SDL window data.
+		/// GLFW custom cursor icon.
 		///
-		SDL_Window* m_window;
-
-		///
-		/// OpenGL Context.
-		///
-		SDL_GLContext m_glContext;
+		GLFWcursor* m_cursor;
 
 		///
 		/// Window width.

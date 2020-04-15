@@ -77,21 +77,25 @@
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,9 +103,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
@@ -113,12 +117,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../quasar/bin/Debug/x64/;../modules/SDL2/lib/x86/;../modules/protostar/protostar/bin/Debug/Win32/;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x86/;../quasar/bin/Debug/x64/;../modules/protostar/protostar/bin/Debug/Win32/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Message>Copy SDL2 DLLs.</Message>
-      <Command>robocopy "../modules/SDL2/bin/Win32/" "bin/Debug/Win32/" SDL2.dll</Command>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,9 +133,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
       </RuntimeTypeInfo>
@@ -141,12 +147,14 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../quasar/bin/Debug/x64/;../modules/SDL2/lib/x64/;../modules/protostar/protostar/bin/Debug/x64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x64/;../quasar/bin/Debug/x64/;../modules/protostar/protostar/bin/Debug/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Message>Copy SDL2 DLLs.</Message>
-      <Command>robocopy "../modules/SDL2/bin/x64/" "bin/Debug/x64/" SDL2.dll</Command>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,9 +165,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -173,13 +181,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../quasar/bin/Release/x64/;../modules/SDL2/lib/x86/;../modules/protostar/protostar/bin/Release/Win32/;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x86/;../quasar/bin/Release/x64/;../modules/protostar/protostar/bin/Release/Win32/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Message>Copy SDL2 DLLs.</Message>
-      <Command>robocopy "../modules/SDL2/bin/Win32/" "bin/Release/Win32/" SDL2.dll
-if %errorlevel% LEQ 8 exit 0</Command>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -190,9 +199,9 @@ if %errorlevel% LEQ 8 exit 0</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/SDL2/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>
@@ -206,12 +215,14 @@ if %errorlevel% LEQ 8 exit 0</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../quasar/bin/Release/x64/;../modules/SDL2/lib/x64/;../modules/protostar/protostar/bin/Release/x64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>protostar.lib;quasar.lib;SDL2.lib;SDL2main.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x64/;../quasar/bin/Release/x64/;../modules/protostar/protostar/bin/Release/x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Message>Copy SDL2 DLLs.</Message>
-      <Command>robocopy "../modules/SDL2/bin/x64/" "bin/Release/x64/" SDL2.dll</Command>
+      <Message>
+      </Message>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

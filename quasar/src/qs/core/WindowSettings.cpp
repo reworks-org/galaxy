@@ -14,27 +14,32 @@
 namespace qs
 {
 	///
-	/// SDL2 compatible window flags.
+	/// Level of MSAA. 0, 2, 4, etc...
 	///
-	unsigned int WindowSettings::s_windowFlags = 0;
-
-	///
-	/// Should Multisample Anti-Aliasing be enabled?
-	///
-	bool WindowSettings::s_msaa = false;
-
-	///
-	/// Level of MSAA. I.e. 2, 4, etc.
-	///
-	int WindowSettings::s_msaaLevel = 2;
-
-	///
-	/// Hardware (GPU) or software (CPU) based rendering.
-	///
-	bool WindowSettings::s_hardwareRendering = true;
+	int WindowSettings::s_msaa = 0;
 
 	///
 	/// Vertical sync.
 	///
 	bool WindowSettings::s_vsync = false;
+
+	///
+	/// sRGB support.
+	///
+	bool WindowSettings::s_srgb = false;
+
+	///
+	/// Aspect Ratio x.
+	///
+	int WindowSettings::s_aspectRatioX = 16;
+
+	///
+	/// Aspect Ratio y.
+	///
+	int WindowSettings::s_aspectRatioY = 9;
+
+	///
+	/// Raw mouse input.
+	///
+	bool WindowSettings::s_rawMouseInput = true;
 }

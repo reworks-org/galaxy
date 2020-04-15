@@ -94,7 +94,7 @@ namespace qs
 	template<typename BufferType>
 	inline void IndexBuffer::create(const qs::IndexStorage& indexs)
 	{
-		m_count = indexs.size();
+		m_count = static_cast<unsigned int>(indexs.size());
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 
 		// If not one of the two buffer type structs, throw compile-time assert.

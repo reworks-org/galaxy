@@ -21,29 +21,36 @@ namespace qs
 	{
 	public:
 		///
-		/// SDL2 compatible window flags.
-		///
-		static unsigned int s_windowFlags;
-
-		///
-		/// Should Multisample Anti-Aliasing be enabled?
-		///
-		static bool s_msaa;
-
-		///
 		/// Level of MSAA. I.e. 2, 4, etc.
 		///
-		static int s_msaaLevel;
-
-		///
-		/// Hardware (GPU) or software (CPU) based rendering.
-		///
-		static bool s_hardwareRendering;
+		static int s_msaa;
 
 		///
 		/// Vertical sync.
 		///
 		static bool s_vsync;
+
+		///
+		/// sRGB support.
+		///
+		static bool s_srgb;
+
+		///
+		/// Aspect Ratio x.
+		/// Set to -1 to ignore.
+		///
+		static int s_aspectRatioX;
+
+		///
+		/// Aspect Ratio y.
+		/// Set to -1 to ignore.
+		///
+		static int s_aspectRatioY;
+
+		///
+		/// Raw mouse input.
+		///
+		static bool s_rawMouseInput;
 
 	private:
 		///

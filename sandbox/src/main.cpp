@@ -8,8 +8,6 @@
 
 #include <iostream>
 
-#include <SDL2/SDL.h>
-
 #include <protostar/system/Keys.hpp>
 #include <qs/utils/Error.hpp>
 #include <qs/core/WindowSettings.hpp>
@@ -24,130 +22,117 @@
 
 int main(int argsc, char* argsv[])
 {
-	// Try to init SDL2 with passed flags, checking to make sure of success.
-	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
-	{
-		std::cout << "Init failed. SDL_Error: " << SDL_GetError() << std::endl;
-	}
-	else
-	{
-		qs::Error::handle().setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
+	qs::Error::handle().setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
 		{
 			std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
 		});
 
-		// Create window and check for errors.
-		// Have to define window settings before creating window.
-		qs::WindowSettings::s_hardwareRendering = true;
-		qs::WindowSettings::s_msaa = true;
-		qs::WindowSettings::s_msaaLevel = 2;
-		qs::WindowSettings::s_windowFlags = SDL_WINDOW_ALLOW_HIGHDPI;
+	qs::WindowSettings::s_msaa = 4;
+	qs::WindowSettings::s_vsync = false;
+	qs::WindowSettings::s_srgb = false;
+	qs::WindowSettings::s_aspectRatioX = -1;
+	qs::WindowSettings::s_aspectRatioY = -1;
+	qs::WindowSettings::s_rawMouseInput = true;
 
-		qs::Window window;
+	qs::Window window;
 
-		if (!window.create("TestBed", 1024, 768))
-		{
-			std::cout << "Window creation failed!" << std::endl;
-		}
+	if (!window.create("TestBed", 1024, 768))
+	{
+		std::cout << "Window creation failed!" << std::endl;
+	}
 
-		qs::Error::handle().setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
+	qs::Error::handle().setGLCallback([](unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char* message, const void* userParam) -> void
 		{
 			std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
 		});
 
-		SDL_Event e;
-		qs::Renderer renderer;
+	qs::Renderer renderer;
 
-		// Shaders
-		qs::Shader shader(std::filesystem::path("bin/sprite.vert"), std::filesystem::path("bin/sprite.frag"));
-		qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
+	// Shaders
+	qs::Shader shader(std::filesystem::path("bin/sprite.vert"), std::filesystem::path("bin/sprite.frag"));
+	qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
 
-		// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
-		qs::TextureAtlas atlas;
-		atlas.add("bin/wall_2.png");
-		atlas.create(window, renderer, rttshader);
-		atlas.save("bin/atlas");
+	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
+	qs::TextureAtlas atlas;
+	atlas.add("bin/wall_2.png");
+	atlas.create(window, renderer, rttshader);
+	atlas.save("bin/atlas");
 
-		qs::Sprite wall;
-		wall.load("bin/wall.png");
-		wall.create(qs::BufferType::DYNAMIC);
-		wall.move(0.0f, 0.0f);
+	qs::Sprite wall;
+	wall.load("bin/wall.png");
+	wall.create(qs::BufferType::DYNAMIC);
+	wall.move(0.0f, 0.0f);
 
-		auto atlasSpr = atlas.getSprite();
+	auto atlasSpr = atlas.getSprite();
 
-		qs::Camera camera; //left, right, bottom, top
-		camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
-		camera.setSpeed(0.2f);
+	qs::Camera camera; //left, right, bottom, top
+	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
+	camera.setSpeed(0.2f);
 
-		shader.bind();
+	shader.bind();
 
-		// Loop
-		while (window.isOpen())
+	// Loop
+	while (window.isOpen())
+	{
+		glfwPollEvents();
+
+		int esc = glfwGetKey(window.getWindow(), GLFW_KEY_ESCAPE);
+		if (esc == GLFW_PRESS)
 		{
-			SDL_PollEvent(&e);
-
-			// Handle resizing and quitting events.
-			switch (e.type)
-			{
-			case SDL_QUIT:
-				window.close();
-				break;
-
-			case SDL_KEYDOWN:
-				switch (e.key.keysym.sym)
-				{
-				case SDLK_ESCAPE:
-					window.close();
-					break;
-
-				case SDLK_UP:
-					camera.onKeyDown({ protostar::Keys::UP });
-					break;
-
-				case SDLK_DOWN:
-					camera.onKeyDown({ protostar::Keys::DOWN });
-					break;
-
-				case SDLK_LEFT:
-					camera.onKeyDown({ protostar::Keys::LEFT });
-					break;
-
-				case SDLK_RIGHT:
-					camera.onKeyDown({ protostar::Keys::RIGHT });
-					break;
-
-				case SDLK_q:
-					camera.onKeyDown({ protostar::Keys::Q });
-					break;
-
-				case SDLK_e:
-					camera.onKeyDown({ protostar::Keys::E });
-					break;
-				}
-				break;
-
-			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				window.resize(e.window.data1, e.window.data2);
-				break;
-			}
-
-			camera.update(1.0);
-			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-
-			// Render.
-			window.begin(qs::Colours::White);
-			
-			renderer.drawSprite(atlasSpr, shader);
-			//renderer.drawSprite(wall, shader);
-
-			window.end();
+			window.close();
 		}
 
-		// Exit.
-		window.destroy();
-		SDL_Quit();
+		int w = glfwGetKey(window.getWindow(), GLFW_KEY_W);
+		if (w == GLFW_PRESS)
+		{
+			camera.onKeyDown({ protostar::Keys::W });
+		}
+
+		int s = glfwGetKey(window.getWindow(), GLFW_KEY_S);
+		if (s == GLFW_PRESS)
+		{
+			camera.onKeyDown({ protostar::Keys::S });
+		}
+
+		int a = glfwGetKey(window.getWindow(), GLFW_KEY_A);
+		if (a == GLFW_PRESS)
+		{
+			camera.onKeyDown({ protostar::Keys::A });
+		}
+
+		int d = glfwGetKey(window.getWindow(), GLFW_KEY_D);
+		if (d == GLFW_PRESS)
+		{
+			camera.onKeyDown({ protostar::Keys::D });
+		}
+
+		int q = glfwGetKey(window.getWindow(), GLFW_KEY_Q);
+		if (q == GLFW_PRESS)
+		{
+			camera.onKeyDown({ protostar::Keys::Q });
+		}
+
+		int e = glfwGetKey(window.getWindow(), GLFW_KEY_E);
+		if (e == GLFW_PRESS)
+		{
+			camera.onKeyDown({ protostar::Keys::E });
+		}
+
+		camera.update(1.0);
+		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+
+		// Render.
+		window.begin(qs::Colours::White);
+
+		renderer.drawSprite(atlasSpr, shader);
+		//renderer.drawSprite(wall, shader);
+
+		window.end();
 	}
+
+	// Exit.
+	window.destroy();
 
 	return 0;
 }
