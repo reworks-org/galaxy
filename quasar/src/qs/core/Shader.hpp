@@ -35,22 +35,6 @@ namespace qs
 		Shader() noexcept;
 
 		///
-		/// Creation Constructor.
-		///
-		/// \param vertexFile Path to vertex shader source code.
-		/// \param fragmentFile Path to fragment shader source code.
-		///
-		explicit Shader(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
-
-		///
-		/// Creation Constructor.
-		///
-		/// \param vertexString Raw vertex shader as a std::string.
-		/// \param fragmentString Raw fragment shader as a std::string.
-		///
-		explicit Shader(const std::string& vertexString, const std::string& fragmentString);
-
-		///
 		/// Destructor.
 		///
 		~Shader() noexcept;
@@ -58,22 +42,36 @@ namespace qs
 		///
 		/// Loads a shader into OpenGL from source and sets up the shader program.
 		///
-		/// \param vertexFile Path to vertex shader source code.
-		/// \param fragmentFile Path to fragment shader source code.
+		/// \param vertex Path to vertex shader source code.
+		/// \param fragment Path to fragment shader source code.
 		///
 		/// \return boolean True if successful.
 		///
-		bool load(const std::filesystem::path& vertexFile, const std::filesystem::path& fragmentFile);
+		bool loadFromPath(const std::string& vertex, const std::string& fragment);
+
+		///
+		/// Loads a shader from a single file, seperated by #shader <type> preprocessor.
+		///
+		/// \param glsl Path to shader source.
+		///
+		bool loadFromPath(const std::string& glsl);
 
 		///
 		/// Loads a shader into OpenGL from raw strings and sets up the shader program.
 		///
-		/// \param vertexString Raw vertex shader as a std::string.
-		/// \param fragmentString Raw fragment shader as a std::string.
+		/// \param vertex Raw vertex shader code.
+		/// \param fragment Raw fragment shader code.
 		///
 		/// \return boolean True if successful.
 		///
-		bool load(const std::string& vertexString, const std::string& fragmentString);
+		bool loadFromRaw(const std::string& vertex, const std::string& fragment);
+
+		///
+		/// Loads a shader from a single file, seperated by #shader <type> preprocessor.
+		///
+		/// \param glsl Raw glsl shader code.
+		///
+		bool loadFromRaw(const std::string& glsl);
 
 		///
 		/// Enable this shader for rendering.

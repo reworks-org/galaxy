@@ -1,5 +1,4 @@
 - Post Processing:
-	- Ansiotropic filtering
 	- bloom
 	- ssao
 	- Culling (glm::ortho near / far?)

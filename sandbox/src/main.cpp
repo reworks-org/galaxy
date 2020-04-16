@@ -50,8 +50,11 @@ int main(int argsc, char* argsv[])
 	qs::Renderer renderer;
 
 	// Shaders
-	qs::Shader shader(std::filesystem::path("bin/sprite.vert"), std::filesystem::path("bin/sprite.frag"));
-	qs::Shader rttshader(std::filesystem::path("bin/rtt.vert"), std::filesystem::path("bin/rtt.frag"));
+	qs::Shader shader;
+	shader.loadFromPath("bin/sprite.vert", "bin/sprite.frag");
+
+	qs::Shader rttshader;
+	rttshader.loadFromPath("bin/rtt.vert", "bin/rtt.frag");
 
 	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
