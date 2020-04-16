@@ -21,7 +21,7 @@ namespace qs
 	class RenderTexture;
 
 	///
-	/// OpenGL 2D batch renderer for drawing VA with transforms, shaders and textures.
+	/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
 	///
 	class Renderer final
 	{

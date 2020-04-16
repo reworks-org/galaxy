@@ -27,7 +27,8 @@ int main(int argsc, char* argsv[])
 			std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
 		});
 
-	qs::WindowSettings::s_msaa = 4;
+	qs::WindowSettings::s_antiAliasing = 2;
+	qs::WindowSettings::s_ansiotropicFiltering = 2;
 	qs::WindowSettings::s_vsync = false;
 	qs::WindowSettings::s_srgb = false;
 	qs::WindowSettings::s_aspectRatioX = -1;

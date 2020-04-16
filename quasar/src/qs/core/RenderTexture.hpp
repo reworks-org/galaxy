@@ -104,6 +104,13 @@ namespace qs
 		void clampToBorder(protostar::Colour& border) noexcept;
 
 		///
+		/// Set ansiotropic filtering level.
+		///
+		/// \param level 2, 4, 8, etc...
+		///
+		void setAnisotropy(const int level) noexcept;
+
+		///
 		/// Set filter when texture is downscaled in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.

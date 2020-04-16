@@ -16,7 +16,12 @@ namespace qs
 	///
 	/// Level of MSAA. 0, 2, 4, etc...
 	///
-	int WindowSettings::s_msaa = 0;
+	int WindowSettings::s_antiAliasing = 2;
+
+	///
+	/// Level of ansiotropic filtering.
+	///
+	int WindowSettings::s_ansiotropicFiltering = 2;
 
 	///
 	/// Vertical sync.

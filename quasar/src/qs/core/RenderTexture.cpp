@@ -14,6 +14,7 @@
 
 #include "qs/utils/Error.hpp"
 #include "qs/core/Window.hpp"
+#include "qs/core/WindowSettings.hpp"
 
 #include "RenderTexture.hpp"
 
@@ -62,12 +63,13 @@ namespace qs
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, qs::WindowSettings::s_ansiotropicFiltering);
 
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture, 0);
 
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
-			qs::Error::handle().callback("RenderTexture.cpp", 68, "Failed to create GL_FRAMEBUFFER!");
+			qs::Error::handle().callback("RenderTexture.cpp", 72, "Failed to create GL_FRAMEBUFFER!");
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -152,6 +154,13 @@ namespace qs
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	void RenderTexture::setAnisotropy(const int level) noexcept
+	{
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 

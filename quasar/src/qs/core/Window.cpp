@@ -98,7 +98,7 @@ namespace qs
 			glfwWindowHint(GLFW_SRGB_CAPABLE, qs::WindowSettings::s_srgb);
 
 			// MSAA
-			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_msaa);
+			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_antiAliasing);
 
 			// Create the window from input, ensuring it is centered in the screen.
 			m_window = glfwCreateWindow(m_width, m_height, title.c_str(), nullptr, nullptr);
@@ -119,7 +119,7 @@ namespace qs
 					glfwSetWindowAspectRatio(m_window, qs::WindowSettings::s_aspectRatioX, qs::WindowSettings::s_aspectRatioY);
 				}
 
-				// Set up glad gl loader with SDL2.
+				// Set up glad.
 				if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 				{
 					std::string msg = "Failed to init glad.";

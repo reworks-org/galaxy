@@ -13,6 +13,7 @@
 #include <stb_image_write.h>
 
 #include "qs/utils/Error.hpp"
+#include "qs/core/WindowSettings.hpp"
 
 #include "Texture.hpp"
 
@@ -57,9 +58,11 @@ namespace qs
 		{
 			// Gen texture into OpenGL.
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-			//glGenerateMipmap(GL_TEXTURE_2D);
 
-			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
+			// Ansiotropic filtering.
+			setAnisotropy(qs::WindowSettings::s_ansiotropicFiltering);
+
+			// Linear filtering for non-pixel as default.
 			setMinifyFilter(qs::TextureFilter::LINEAR);
 			setMagnifyFilter(qs::TextureFilter::LINEAR);
 
@@ -69,7 +72,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 71, msg);
+			qs::Error::handle().callback("Texture.cpp", 75, msg);
 		}
 
 		stbi_image_free(data);
@@ -89,7 +92,9 @@ namespace qs
 		{
 			// Gen texture into OpenGL.
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-			//glGenerateMipmap(GL_TEXTURE_2D);
+
+			// Ansiotropic filtering.
+			setAnisotropy(qs::WindowSettings::s_ansiotropicFiltering);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 			setMinifyFilter(qs::TextureFilter::LINEAR);
@@ -115,6 +120,9 @@ namespace qs
 		m_id = id;
 		m_width = width;
 		m_height = height;
+
+		// Ansiotropic filtering.
+		setAnisotropy(qs::WindowSettings::s_ansiotropicFiltering);
 
 		// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 		setMinifyFilter(qs::TextureFilter::LINEAR);
@@ -181,6 +189,13 @@ namespace qs
 	{
 		bind();
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());
+		unbind();
+	}
+
+	void Texture::setAnisotropy(const int level) noexcept
+	{
+		bind();
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
 		unbind();
 	}
 

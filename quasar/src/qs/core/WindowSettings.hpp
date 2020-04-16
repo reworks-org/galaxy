@@ -23,7 +23,12 @@ namespace qs
 		///
 		/// Level of MSAA. I.e. 2, 4, etc.
 		///
-		static int s_msaa;
+		static int s_antiAliasing;
+
+		///
+		/// Level of ansiotropic filtering.
+		///
+		static int s_ansiotropicFiltering;
 
 		///
 		/// Vertical sync.
