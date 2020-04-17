@@ -67,6 +67,17 @@ namespace qs
 		void create(const VertexQuadStorage& vertexs) noexcept;
 
 		///
+		/// \brief When applying a change to a quad in the sprite, you can choose a specific quad.
+		///
+		/// Defaults to all quads, which is -1.
+		/// Only need when you have more than 1 quad.
+		///
+		/// \param offset Offset of the quad in the vertexarray. Remember each quad is 4 vertexs.
+		///			      So quad 1 would be 0, and quad 2 would be 4.
+		///
+		void setActiveQuad(const int offset = -1);
+
+		///
 		/// Bind VA and texture.
 		///
 		void bind() noexcept override;
@@ -82,6 +93,13 @@ namespace qs
 		void recalculate() noexcept override;
 
 		///
+		/// \brief Apply transformation to vertexbuffer of currently active transform.
+		///
+		/// Resets current transformation matrix and returns active transform to default.
+		///
+		void applyTransform() noexcept;
+
+		///
 		/// Get vertex array object.
 		///
 		/// \return Returns reference to internal qs::VertexArray.
@@ -94,14 +112,6 @@ namespace qs
 		/// \return Const unsigned integer.
 		///
 		const unsigned int getCount() const noexcept;
-
-	private:
-		///
-		/// \brief Apply transformation to vertexbuffer.
-		///
-		/// Only needed for DYNAMIC vertexs. Should only be done when needing to update transformation.
-		///
-		void applyTransform() noexcept;
 
 	private:
 		///
@@ -125,9 +135,9 @@ namespace qs
 		qs::VertexLayout m_layout;
 
 		///
-		/// Storage of std::vector to prevent recurrent initialization + creation.
+		/// Current active offset.
 		///
-		std::vector<qs::Vertex> m_transformedVertexs;
+		int m_activeOffset;
 	};
 }
 

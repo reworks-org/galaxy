@@ -95,7 +95,7 @@ namespace qs
 
 	void RenderTexture::bind() noexcept
 	{
-		// Adjust framebuffer.
+		// Adjust view for framebuffer.
 		glViewport(0, 0, m_width, m_height);
 
 		// Bind to framebuffer.

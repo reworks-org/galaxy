@@ -77,6 +77,15 @@ namespace qs
 		void save(const std::string& file);
 
 		///
+		/// Gets internal integer ID of a texture on the atlas.
+		///
+		/// \param name String name corresponding to texture (filename without path and extension).
+		///
+		/// \return Const integer.
+		///
+		const int getID(const std::string& name) noexcept;
+
+		///
 		/// Get size of atlas.
 		///
 		/// \return Size as an integer.
@@ -122,6 +131,11 @@ namespace qs
 		/// Stores list of texture files.
 		///
 		std::vector<std::string> m_textureFiles;
+
+		///
+		/// ID Map for textures on the atlas.
+		///
+		std::unordered_map<std::string, unsigned int> m_idMap;
 	};
 }
 

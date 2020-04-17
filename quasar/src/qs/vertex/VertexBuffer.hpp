@@ -79,7 +79,7 @@ namespace qs
 		///
 		/// \return Reference to std::vector.
 		///
-		const VertexStorage& getVertexs() noexcept;
+		VertexStorage& getVertexs() noexcept;
 
 		///
 		/// Get OpenGL handle.

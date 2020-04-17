@@ -32,7 +32,7 @@ namespace qs
 	}
 	
 	Vertex::Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v)
-		:m_position{x, y}, m_texels{u, v}
+		:m_position{ x, y }, m_texels{ u, v }
 	{
 		m_colour[0] = qs::Utils::uint8ToFloat(col.m_red);
 		m_colour[1] = qs::Utils::uint8ToFloat(col.m_green);

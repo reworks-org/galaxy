@@ -74,22 +74,22 @@ namespace qs
 	{
 		if (m_moveUp)
 		{
-			move(0.0f, (ts * m_speed) * -1.0f);
+			move(0.0f, ts * m_speed);
 		}
 
 		if (m_moveDown)
 		{
-			move(0.0f, ts * m_speed);
+			move(0.0f, (ts * m_speed) * -1.0f);
 		}
 
 		if (m_moveLeft)
 		{
-			move((ts * m_speed) * -1.0f, 0.0f);
+			move(ts * m_speed, 0.0f);
 		}
 
 		if (m_moveRight)
 		{
-			move(ts * m_speed, 0.0f);
+			move((ts * m_speed) * -1.0f, 0.0f);
 		}
 	}
 

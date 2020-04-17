@@ -24,6 +24,7 @@
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\core\WindowSettings.cpp" />
+    <ClCompile Include="src\qs\renderer\FramebufferRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
+    <ClInclude Include="src\qs\renderer\FramebufferRenderer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

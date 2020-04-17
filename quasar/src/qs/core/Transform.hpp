@@ -40,23 +40,16 @@ namespace qs
 		///
 		/// \param x How far to translate on x axis.
 		/// \param y How far to translate on x axis.
-		/// \param z How far to translate on x axis. Defaults to 0.
 		///
-		void move(const float x, const float y, const float z = 0.0f);
+		void move(const float x, const float y);
 
 		///
 		/// Sets position without moving the object.
 		///
 		/// \param x X position to set object to.
 		/// \param y Y position to set object to.
-		/// \param z Z position to set object to. Defaults to 0.
 		///
-		void setPos(const float x, const float y, const float z = 0.0f);
-
-		///
-		/// Set the rotation point.
-		///
-		void setRotationOrigin(const float x, const float y) noexcept;
+		void setPos(const float x, const float y);
 
 		///
 		/// Rotate transformation in degrees.
@@ -68,16 +61,19 @@ namespace qs
 		///
 		/// Scale transformation on each axis.
 		///
-		/// \param x X axis scale. Multiplier.
-		/// \param y Y axis scale. Multiplier.
-		/// \param z Optional z axis scaling. Defaults to 1.0f (no scale).
+		/// \param scale Scale multiplier.
 		///
-		void scale(const float x, const float y, const float z = 1.0f) noexcept;
+		void scale(const float scale) noexcept;
 
 		///
 		/// Recalculates the model view matrix.
 		///
 		virtual void recalculate() noexcept;
+
+		///
+		/// Reset transformations.
+		///
+		void reset() noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.

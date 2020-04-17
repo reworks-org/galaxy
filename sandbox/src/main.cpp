@@ -58,6 +58,7 @@ int main(int argsc, char* argsv[])
 
 	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
+	atlas.add("bin/wall.png");
 	atlas.add("bin/wall_2.png");
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
@@ -68,12 +69,23 @@ int main(int argsc, char* argsv[])
 	wall.move(0.0f, 0.0f);
 
 	auto atlasSpr = atlas.getSprite();
+	atlasSpr.setActiveQuad(atlas.getID("wall"));
+	atlasSpr.move(0.0f, 0.0f);
+	//atlasSpr.scale(0.5);
+	atlasSpr.applyTransform();
+
+	atlasSpr.setActiveQuad(atlas.getID("wall_2"));
+	atlasSpr.move(500.0f, 500.0f);
+	//atlasSpr.scale(0.5);
+	atlasSpr.applyTransform();
 
 	qs::Camera camera; //left, right, bottom, top
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 	camera.setSpeed(0.2f);
 
 	shader.bind();
+
+	//atlasSpr.setActiveQuad(atlas.getID("wall"));
 
 	// Loop
 	while (window.isOpen())
@@ -124,6 +136,13 @@ int main(int argsc, char* argsv[])
 		else
 		{
 			camera.onKeyUp({ protostar::Keys::D });
+		}
+
+		int r = glfwGetKey(window.getWindow(), GLFW_KEY_R);
+		if (r == GLFW_PRESS)
+		{
+			//atlasSpr.rotate(0.1f);
+			//atlasSpr.applyTransform();
 		}
 
 		camera.update(1.0);

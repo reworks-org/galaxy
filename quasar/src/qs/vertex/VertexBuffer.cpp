@@ -54,7 +54,7 @@ namespace qs
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	const VertexStorage& VertexBuffer::getVertexs() noexcept
+	VertexStorage& VertexBuffer::getVertexs() noexcept
 	{
 		return m_vertexStorage;
 	}

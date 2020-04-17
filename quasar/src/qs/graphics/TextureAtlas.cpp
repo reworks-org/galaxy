@@ -34,6 +34,7 @@ namespace qs
 	TextureAtlas::~TextureAtlas() noexcept
 	{
 		m_textureFiles.clear();
+		m_idMap.clear();
 	}
 
 	void TextureAtlas::add(const std::string& name) noexcept
@@ -51,6 +52,7 @@ namespace qs
 			m_texture.bind();
 			shader.bind();
 
+			unsigned int counter = 0;
 			for (const auto& file : m_textureFiles)
 			{
 				auto filePath = std::filesystem::path(file);
@@ -64,12 +66,13 @@ namespace qs
 				auto opt = m_packer.pack(loadedTex.getWidth(), loadedTex.getHeight());
 				if (opt == std::nullopt)
 				{
-					qs::Error::handle().callback("TextureAtlas.cpp", 67, "Failed to pack texture: " + file);
+					qs::Error::handle().callback("TextureAtlas.cpp", 69, "Failed to pack texture: " + file);
 				}
 				else
 				{
 					auto rect = opt.value();
 					loadedTex.move(rect.m_x, rect.m_y);
+					loadedTex.applyTransform();
 
 					renderer.drawSpriteToTexture(loadedTex, m_texture, shader);
 
@@ -79,7 +82,9 @@ namespace qs
 						rect.m_x, rect.m_y
 					);
 
+					m_idMap.emplace(filePath.stem().string(), counter * 4);
 					vertexs.push_back(quad);
+					counter++;
 				}
 			}
 			
@@ -87,17 +92,21 @@ namespace qs
 			shader.unbind();
 			m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
 			m_sprite.create(vertexs);
-			m_sprite.move(0.0f, 0.0f);
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 94, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to create atlas with no texture files!");
 		}
 	}
 
 	void TextureAtlas::save(const std::string& file)
 	{
 		m_texture.save(file);
+	}
+
+	const int TextureAtlas::getID(const std::string& name) noexcept
+	{
+		return m_idMap[name];
 	}
 
 	const int TextureAtlas::getSize() const noexcept
