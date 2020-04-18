@@ -15,3 +15,6 @@
 
 https://learnopengl.com/Lighting/Basic-Lighting
 https://learnopengl.com/In-Practice/Text-Rendering
+
+
+- fix up transforms -> move it back into matricies, and then apply to verties when rendering...

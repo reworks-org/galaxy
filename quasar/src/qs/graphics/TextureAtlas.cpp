@@ -72,7 +72,7 @@ namespace qs
 				{
 					auto rect = opt.value();
 					loadedTex.move(rect.m_x, rect.m_y);
-					loadedTex.applyTransform();
+					loadedTex.applyTransforms();
 
 					renderer.drawSpriteToTexture(loadedTex, m_texture, shader);
 
@@ -95,7 +95,7 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 97, "Tried to create atlas with no texture files!");
 		}
 	}
 

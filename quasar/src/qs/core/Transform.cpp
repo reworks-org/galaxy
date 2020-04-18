@@ -32,6 +32,11 @@ namespace qs
 		recalculate();
 	}
 
+	void Transform::setRotationOrigin(const float x, const float y) noexcept
+	{
+		m_originPoint = glm::vec3(x, y, 0.0f);
+	}
+
 	void Transform::rotate(const float degrees) noexcept
 	{
 		float adjusted = degrees;
@@ -44,10 +49,10 @@ namespace qs
 			adjusted = -360.0f;
 		}
 
-		//m_rotateMatrix = glm::translate(glm::mat4(1.0f), m_originPoint);
+		m_rotateMatrix = glm::translate(glm::mat4(1.0f), m_originPoint);
 		m_rotateMatrix = glm::rotate(m_rotateMatrix, glm::radians(adjusted), glm::vec3(0.0f, 0.0f, 1.0f));
-		//m_rotateMatrix = glm::translate(m_rotateMatrix, -m_originPoint);
-		
+		m_rotateMatrix = glm::translate(m_rotateMatrix, -m_originPoint);
+
 		recalculate();
 	}
 
@@ -60,14 +65,6 @@ namespace qs
 	void Transform::recalculate() noexcept
 	{
 		m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
-	}
-
-	void Transform::reset() noexcept
-	{
-		m_translationMatrix = glm::mat4(1.0f);
-		m_rotateMatrix = glm::mat4(1.0f);
-		m_scaledMatrix = glm::mat4(1.0f);
-		m_modelMatrix = glm::mat4(1.0f);
 	}
 
 	glm::mat4& Transform::getTransformation() noexcept

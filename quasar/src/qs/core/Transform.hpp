@@ -26,12 +26,12 @@ namespace qs
 		/// Constructor.
 		///
 		Transform() noexcept;
-		
+
 		///
 		/// Default virtual destructor.
 		///
 		virtual ~Transform() noexcept = default;
-		
+
 		///
 		/// \brief Translate (move) position.
 		///
@@ -52,16 +52,21 @@ namespace qs
 		void setPos(const float x, const float y);
 
 		///
+		/// Set the rotation point.
+		///
+		void setRotationOrigin(const float x, const float y) noexcept;
+
+		///
 		/// Rotate transformation in degrees.
 		///
 		/// \param degrees Max 360, min -360.
 		///
 		void rotate(const float degrees) noexcept;
-		
+
 		///
 		/// Scale transformation on each axis.
 		///
-		/// \param scale Scale multiplier.
+		/// \param scale Scale. Multiplier.
 		///
 		void scale(const float scale) noexcept;
 
@@ -69,11 +74,6 @@ namespace qs
 		/// Recalculates the model view matrix.
 		///
 		virtual void recalculate() noexcept;
-
-		///
-		/// Reset transformations.
-		///
-		void reset() noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.

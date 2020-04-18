@@ -63,21 +63,22 @@ int main(int argsc, char* argsv[])
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
 
-	qs::Sprite wall;
-	wall.load("bin/wall.png");
-	wall.create(qs::BufferType::DYNAMIC);
-	wall.move(0.0f, 0.0f);
+	//qs::Sprite wall;
+	//wall.load("bin/wall.png");
+	//wall.create(qs::BufferType::DYNAMIC);
+	//wall.move(250.0f, 250.0f);
+	//wall.rotate(45.0f);
 
 	auto atlasSpr = atlas.getSprite();
 	atlasSpr.setActiveQuad(atlas.getID("wall"));
 	atlasSpr.move(0.0f, 0.0f);
-	//atlasSpr.scale(0.5);
-	atlasSpr.applyTransform();
+	atlasSpr.scale(0.5);
 
 	atlasSpr.setActiveQuad(atlas.getID("wall_2"));
 	atlasSpr.move(500.0f, 500.0f);
-	//atlasSpr.scale(0.5);
-	atlasSpr.applyTransform();
+	atlasSpr.scale(0.5);
+	
+	atlasSpr.applyTransforms();
 
 	qs::Camera camera; //left, right, bottom, top
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -141,10 +142,10 @@ int main(int argsc, char* argsv[])
 		int r = glfwGetKey(window.getWindow(), GLFW_KEY_R);
 		if (r == GLFW_PRESS)
 		{
-			//atlasSpr.rotate(0.1f);
-			//atlasSpr.applyTransform();
+			atlasSpr.rotate(1.0f);
+			atlasSpr.applyTransforms();
 		}
-
+		
 		camera.update(1.0);
 		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());

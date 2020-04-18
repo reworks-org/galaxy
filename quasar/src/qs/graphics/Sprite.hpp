@@ -23,7 +23,7 @@ namespace qs
 	/// Primitive sprite object.
 	/// Everything you need to draw a texture in OpenGL.
 	///
-	class Sprite final : public qs::Transform, public qs::Texture
+	class Sprite final : public qs::Texture
 	{
 	public:
 		///
@@ -69,16 +69,44 @@ namespace qs
 		///
 		/// \brief When applying a change to a quad in the sprite, you can choose a specific quad.
 		///
-		/// Defaults to all quads, which is -1.
+		/// Defaults to first quad (i.e. offset 0).
 		/// Only need when you have more than 1 quad.
 		///
 		/// \param offset Offset of the quad in the vertexarray. Remember each quad is 4 vertexs.
 		///			      So quad 1 would be 0, and quad 2 would be 4.
 		///
-		void setActiveQuad(const int offset = -1);
+		void setActiveQuad(const int offset = 0);
+
+		///
+		/// \brief Translate (move) position.
+		///
+		/// Does not set the position but moves it.
+		/// By adding the parameters to the existing transformation matrix.
+		///
+		/// \param x How far to translate on x axis.
+		/// \param y How far to translate on x axis.
+		///
+		void move(const float x, const float y);
+
+		///
+		/// Rotate transformation in degrees.
+		///
+		/// \param degrees Max 360, min -360.
+		///
+		void rotate(const float degrees) noexcept;
+
+		///
+		/// Scale transformation on each axis.
+		///
+		/// \param scale Scale multiplier.
+		///
+		void scale(const float scale) noexcept;
+
+		void applyTransforms();
 
 		///
 		/// Bind VA and texture.
+		/// And also updates the transforms.
 		///
 		void bind() noexcept override;
 
@@ -86,18 +114,6 @@ namespace qs
 		/// Unbinds VA and texture.
 		///
 		void unbind() noexcept override;
-
-		///
-		/// Recalculates the model view matrix.
-		///
-		void recalculate() noexcept override;
-
-		///
-		/// \brief Apply transformation to vertexbuffer of currently active transform.
-		///
-		/// Resets current transformation matrix and returns active transform to default.
-		///
-		void applyTransform() noexcept;
 
 		///
 		/// Get vertex array object.
@@ -138,6 +154,21 @@ namespace qs
 		/// Current active offset.
 		///
 		int m_activeOffset;
+
+		///
+		/// Transforms for each quad in vertex array.
+		///
+		std::unordered_map<int, qs::Transform> m_transforms;
+
+		///
+		/// Currently active transform.
+		///
+		qs::Transform* m_activeTransform;
+
+		///
+		/// Copy of vertexbuffer vertexs for transforming.
+		///
+		VertexStorage m_transformVertexs;
 	};
 }
 

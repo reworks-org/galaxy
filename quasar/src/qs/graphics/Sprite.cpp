@@ -16,7 +16,7 @@
 namespace qs
 {
 	Sprite::Sprite() noexcept
-		:Transform(), Texture(), m_activeOffset(-1)
+		:Texture(), m_activeOffset(0), m_activeTransform(nullptr)
 	{
 	}
 
@@ -38,6 +38,11 @@ namespace qs
 		m_layout.add<qs::TexelVAType>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
+
+		m_transforms.emplace(0, std::move(qs::Transform()));
+		m_transforms[0].setRotationOrigin(m_width, m_height);
+
+		setActiveQuad();
 	}
 
 	void Sprite::create(const qs::BufferType bufferType, const protostar::Rect<float>& texSrc) noexcept
@@ -52,6 +57,11 @@ namespace qs
 		m_layout.add<qs::TexelVAType>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
+
+		m_transforms.emplace(0, std::move(qs::Transform()));
+		m_transforms[0].setRotationOrigin(texSrc.m_width, texSrc.m_height);
+
+		setActiveQuad();
 	}
 
 	void Sprite::create(const VertexQuadStorage& vertexs) noexcept
@@ -83,6 +93,11 @@ namespace qs
 			indexs.push_back(2 + increment);
 			indexs.push_back(3 + increment);
 
+			m_transforms.emplace(increment, qs::Transform());
+
+			auto pos = m_vertexBuffer.getVertexs()[increment + 2].m_position;
+			m_transforms[increment].setRotationOrigin(pos[0] * 0.5f, pos[1] * 0.5f);
+
 			increment += 4;
 		}
 		m_indexBuffer.create<qs::DynamicBufferType>(indexs);
@@ -92,11 +107,56 @@ namespace qs
 		m_layout.add<qs::TexelVAType>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
+
+		setActiveQuad();
 	}
 
 	void Sprite::setActiveQuad(const int offset)
 	{
 		m_activeOffset = offset;
+		m_activeTransform = &m_transforms[m_activeOffset];
+	}
+
+	void Sprite::move(const float x, const float y)
+	{
+		m_activeTransform->move(x, y);
+	}
+
+	void Sprite::rotate(const float degrees) noexcept
+	{
+		m_activeTransform->rotate(degrees);
+	}
+
+	void Sprite::scale(const float scale) noexcept
+	{
+		m_activeTransform->scale(scale);
+	}
+
+	void Sprite::applyTransforms()
+	{
+		// Have to update transforms first.
+		m_transformVertexs = m_vertexBuffer.getVertexs();
+
+		for (auto& tf : m_transforms)
+		{
+			qs::Vertex* vertex = &m_transformVertexs[tf.first + 0];
+			auto res = tf.second.getTransformation() * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
+			vertex->m_position = { res.x, res.y };
+
+			vertex = &m_transformVertexs[tf.first + 1];
+			res = tf.second.getTransformation() * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
+			vertex->m_position = { res.x, res.y };
+
+			vertex = &m_transformVertexs[tf.first + 2];
+			res = tf.second.getTransformation() * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
+			vertex->m_position = { res.x, res.y };
+
+			vertex = &m_transformVertexs[tf.first + 3];
+			res = tf.second.getTransformation() * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
+			vertex->m_position = { res.x, res.y };
+		}
+
+		glNamedBufferSubData(m_vertexBuffer.getID(), 0, m_transformVertexs.size() * sizeof(qs::Vertex), m_transformVertexs.data());
 	}
 
 	void Sprite::bind() noexcept
@@ -111,12 +171,6 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Sprite::recalculate() noexcept
-	{
-		// Calculate change.
-		m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
-	}
-
 	qs::VertexArray& Sprite::getVAO() noexcept
 	{
 		return m_vertexArray;
@@ -125,43 +179,5 @@ namespace qs
 	const unsigned int Sprite::getCount() const noexcept
 	{
 		return m_indexBuffer.getCount();
-	}
-
-	void Sprite::applyTransform() noexcept
-	{
-		// Apply change to currently active transform.
-		auto* vertexs = &m_vertexBuffer.getVertexs();
-
-		if (m_activeOffset == -1)
-		{
-			for (auto& vertex : *vertexs)
-			{
-				auto res = m_modelMatrix * glm::vec4(vertex.m_position[0], vertex.m_position[1], 0.0f, 1.0f);
-				vertex.m_position = { res.x, res.y };
-			}
-		}
-		else
-		{
-			qs::Vertex* vertex = &vertexs->at(m_activeOffset + 0);
-			auto res = m_modelMatrix * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
-			vertex->m_position = { res.x, res.y };
-
-			vertex = &vertexs->at(m_activeOffset + 1);
-			res = m_modelMatrix * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
-			vertex->m_position = { res.x, res.y };
-
-			vertex = &vertexs->at(m_activeOffset + 2);
-			res = m_modelMatrix * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
-			vertex->m_position = { res.x, res.y };
-
-			vertex = &vertexs->at(m_activeOffset + 3);
-			res = m_modelMatrix * glm::vec4(vertex->m_position[0], vertex->m_position[1], 0.0f, 1.0f);
-			vertex->m_position = { res.x, res.y };
-		}
-
-		glNamedBufferSubData(m_vertexBuffer.getID(), 0, vertexs->size() * sizeof(qs::Vertex), vertexs->data());
-
-		// Reset.
-		reset();
 	}
 }
