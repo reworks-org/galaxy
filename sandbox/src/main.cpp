@@ -72,11 +72,9 @@ int main(int argsc, char* argsv[])
 	auto atlasSpr = atlas.getSprite();
 	atlasSpr.setActiveQuad(atlas.getID("wall"));
 	atlasSpr.move(0.0f, 0.0f);
-	atlasSpr.scale(0.5);
 
 	atlasSpr.setActiveQuad(atlas.getID("wall_2"));
 	atlasSpr.move(500.0f, 500.0f);
-	atlasSpr.scale(0.5);
 	
 	atlasSpr.applyTransforms();
 
@@ -142,7 +140,7 @@ int main(int argsc, char* argsv[])
 		int r = glfwGetKey(window.getWindow(), GLFW_KEY_R);
 		if (r == GLFW_PRESS)
 		{
-			atlasSpr.rotate(1.0f);
+			atlasSpr.rotate(0.1f);
 			atlasSpr.applyTransforms();
 		}
 		

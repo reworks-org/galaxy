@@ -49,7 +49,7 @@ namespace qs
 			adjusted = -360.0f;
 		}
 
-		m_rotateMatrix = glm::translate(glm::mat4(1.0f), m_originPoint);
+		m_rotateMatrix = glm::translate(m_rotateMatrix, m_originPoint);
 		m_rotateMatrix = glm::rotate(m_rotateMatrix, glm::radians(adjusted), glm::vec3(0.0f, 0.0f, 1.0f));
 		m_rotateMatrix = glm::translate(m_rotateMatrix, -m_originPoint);
 
