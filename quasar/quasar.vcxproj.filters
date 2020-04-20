@@ -25,6 +25,10 @@
     <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\core\WindowSettings.cpp" />
     <ClCompile Include="src\qs\renderer\FramebufferRenderer.cpp" />
+    <ClCompile Include="src\qs\text\Text.cpp" />
+    <ClCompile Include="src\qs\text\FreeType.cpp" />
+    <ClCompile Include="src\qs\text\Font.cpp" />
+    <ClCompile Include="src\qs\text\Character.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -50,6 +54,10 @@
     <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
     <ClInclude Include="src\qs\renderer\FramebufferRenderer.hpp" />
+    <ClInclude Include="src\qs\text\Text.hpp" />
+    <ClInclude Include="src\qs\text\FreeType.hpp" />
+    <ClInclude Include="src\qs\text\Font.hpp" />
+    <ClInclude Include="src\qs\text\Character.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

@@ -30,6 +30,10 @@
     <ClCompile Include="src\qs\renderer\FramebufferRenderer.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite.cpp" />
+    <ClCompile Include="src\qs\text\Character.cpp" />
+    <ClCompile Include="src\qs\text\Font.cpp" />
+    <ClCompile Include="src\qs\text\FreeType.cpp" />
+    <ClCompile Include="src\qs\text\Text.cpp" />
     <ClCompile Include="src\qs\utils\BufferType.cpp" />
     <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
@@ -55,6 +59,10 @@
     <ClInclude Include="src\qs\renderer\FramebufferRenderer.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />
+    <ClInclude Include="src\qs\text\Character.hpp" />
+    <ClInclude Include="src\qs\text\Font.hpp" />
+    <ClInclude Include="src\qs\text\FreeType.hpp" />
+    <ClInclude Include="src\qs\text\Text.hpp" />
     <ClInclude Include="src\qs\utils\BufferType.hpp" />
     <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
@@ -153,7 +161,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
       </RuntimeTypeInfo>
@@ -180,7 +188,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
       </RuntimeTypeInfo>
@@ -209,7 +217,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -242,7 +250,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
       </RuntimeTypeInfo>

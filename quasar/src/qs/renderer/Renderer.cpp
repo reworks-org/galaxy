@@ -6,6 +6,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "qs/text/Text.hpp"
 #include "qs/core/Shader.hpp"
 #include "qs/graphics/Sprite.hpp"
 #include "qs/core/RenderTexture.hpp"
@@ -53,6 +54,17 @@ namespace qs
 		sprite.unbind();
 	}
 
+	void Renderer::drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	{
+		shader.setUniform("u_projection", rt.getProjection());
+
+		va.bind();
+
+		glDrawElements(GL_TRIANGLES, ib.getCount(), GL_UNSIGNED_INT, nullptr);
+
+		va.unbind();
+	}
+
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
 		shader.setUniform("u_projection", rt.getProjection());
@@ -64,5 +76,10 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 
 		sprite.unbind();
+	}
+
+	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
+	{
+		drawSprite(text.asSprite(), shader);
 	}
 }

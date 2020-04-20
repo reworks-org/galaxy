@@ -92,6 +92,8 @@ namespace qs
 			shader.unbind();
 			m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
 			m_sprite.create(vertexs);
+			m_sprite.move(0.0f, 0.0f);
+			m_sprite.applyTransforms();
 		}
 		else
 		{

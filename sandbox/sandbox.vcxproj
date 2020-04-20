@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
@@ -117,8 +117,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../modules/glfw3/lib/x86/;../quasar/bin/Debug/Win32/;../modules/protostar/protostar/bin/Debug/Win32/</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x86/;../quasar/bin/Debug/Win32/;../modules/protostar/protostar/bin/Debug/Win32/;../modules/freetype/lib/Debug/Win32/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Message>
@@ -135,7 +135,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>
       </RuntimeTypeInfo>
@@ -147,8 +147,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../modules/glfw3/lib/x64/;../quasar/bin/Debug/x64/;../modules/protostar/protostar/bin/Debug/x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x64/;../quasar/bin/Debug/x64/;../modules/protostar/protostar/bin/Debug/x64/;../modules/freetype/lib/Debug/x64/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Message>
@@ -167,7 +167,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -181,8 +181,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../modules/glfw3/lib/x86/;../quasar/bin/Release/Win32/;../modules/protostar/protostar/bin/Release/Win32/</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x86/;../quasar/bin/Release/Win32/;../modules/protostar/protostar/bin/Release/Win32/;../modules/freetype/lib/Release/Win32/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Message>
@@ -201,7 +201,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
-      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../quasar/src/;../modules/glm/;../modules/glfw3/include/;../modules/stb/;../modules/glad/;../modules/protostar/protostar/src/;../modules/freetype/include/;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <AdditionalOptions>/bigobj</AdditionalOptions>
@@ -215,8 +215,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>../modules/glfw3/lib/x64/;../quasar/bin/Release/x64/;../modules/protostar/protostar/bin/Release/x64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../modules/glfw3/lib/x64/;../quasar/bin/Release/x64/;../modules/protostar/protostar/bin/Release/x64/;../modules/freetype/lib/Release/x64/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;glfw3.lib;protostar.lib;quasar.lib;opengl32.lib;gdi32.lib;user32.lib;kernel32.lib;Shell32.lib;</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Message>

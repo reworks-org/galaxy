@@ -15,9 +15,11 @@
 namespace qs
 {
 	// Forward decs.
+	class Text;
 	class Sprite;
 	class Shader;
 	class VertexArray;
+	class IndexBuffer;
 	class RenderTexture;
 
 	///
@@ -75,12 +77,31 @@ namespace qs
 		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
 
 		///
+		/// Draw VertexArray to render texture.
+		///
+		/// \param va Vertex Array to use when drawing.
+		/// \param ib IndexBuffer to use when drawing.
+		/// \param rt Target to draw to.
+		/// \param shader Shader to apply to va. You must have called bind() already!
+		///
+		void drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+
+		///
 		/// Draw to render texture.
 		///
 		/// \param sprite Sprite to draw to screen.
+		/// \param rt Target to draw to.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+
+		///
+		/// Draw text to screen.
+		///
+		/// \param text Text to draw.
+		/// \param shader Shader to apply to text. You must have called bind() already!
+		///
+		void drawText(qs::Text& text, qs::Shader& shader) noexcept;
 	};
 }
 

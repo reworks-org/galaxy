@@ -19,6 +19,7 @@
 #include <qs/core/Shader.hpp>
 #include <qs/core/RenderTexture.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
+#include <qs/text/Text.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -56,6 +57,9 @@ int main(int argsc, char* argsv[])
 	qs::Shader rttshader;
 	rttshader.loadFromPath("bin/rtt.vert", "bin/rtt.frag");
 
+	qs::Shader textRTTshader;
+	textRTTshader.loadFromPath("../quasar/res/shaders/renderTextToTexture.glsl");
+
 	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
 	atlas.add("bin/wall.png");
@@ -77,6 +81,15 @@ int main(int argsc, char* argsv[])
 	atlasSpr.move(500.0f, 500.0f);
 	
 	atlasSpr.applyTransforms();
+
+	qs::Text text;
+	qs::Font font;
+	font.create("bin/public.ttf", 36);
+	auto col = qs::Colours::Black;
+	text.load("HELLO, WORLD.", font, col);
+	textRTTshader.bind();
+	text.create(window, renderer, textRTTshader);
+	text.asSprite().save("bin/text");
 
 	qs::Camera camera; //left, right, bottom, top
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -152,6 +165,7 @@ int main(int argsc, char* argsv[])
 		window.begin(qs::Colours::White);
 
 		renderer.drawSprite(atlasSpr, shader);
+		renderer.drawText(text, shader);
 		//renderer.drawSprite(wall, shader);
 
 		window.end();

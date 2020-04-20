@@ -77,6 +77,16 @@ namespace qs
 		void unbind(qs::Window& window) noexcept;
 
 		///
+		/// Modify projection of render texture.
+		///
+		/// \param left Left point of ortho perspective.
+		/// \param right Right point of ortho perspective.
+		/// \param bottom Bottom point of ortho perspective.
+		/// \param top Top point of ortho perspective.
+		///
+		void updateProjection(const float left, const float right, const float bottom, const float top) noexcept;
+
+		///
 		/// Makes the texture repeat over its verticies.
 		///
 		void setRepeated() noexcept;

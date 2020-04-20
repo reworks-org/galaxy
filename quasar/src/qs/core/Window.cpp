@@ -151,7 +151,7 @@ namespace qs
 					glEnable(GL_MULTISAMPLE);
 
 					// Depth testing.
-					glEnable(GL_DEPTH_TEST);
+					//glEnable(GL_DEPTH_TEST);
 
 					// Set up blending.
 					glEnable(GL_BLEND);
