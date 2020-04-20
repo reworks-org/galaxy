@@ -29,10 +29,6 @@ namespace qs
     {
     }
 
-	Text::~Text()
-	{
-	}
-
     void Text::load(const std::string& text, qs::Font& font, protostar::Colour& col)
     {
         m_text = text;
@@ -95,6 +91,11 @@ namespace qs
         m_sprite.create(qs::BufferType::DYNAMIC);
         m_sprite.move(0.0f, 0.0f);
         m_sprite.applyTransforms();
+    }
+
+    void Text::updateText(const std::string& text) noexcept
+    {
+        m_text = text;
     }
 
     qs::Sprite& Text::asSprite() noexcept
