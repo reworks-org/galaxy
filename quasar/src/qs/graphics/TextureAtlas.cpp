@@ -50,7 +50,6 @@ namespace qs
 			vertexs.reserve(m_textureFiles.size() * 4);
 
 			m_texture.bind();
-			shader.bind();
 
 			unsigned int counter = 0;
 			for (const auto& file : m_textureFiles)
@@ -66,7 +65,7 @@ namespace qs
 				auto opt = m_packer.pack(loadedTex.getWidth(), loadedTex.getHeight());
 				if (opt == std::nullopt)
 				{
-					qs::Error::handle().callback("TextureAtlas.cpp", 69, "Failed to pack texture: " + file);
+					qs::Error::handle().callback("TextureAtlas.cpp", 68, "Failed to pack texture: " + file);
 				}
 				else
 				{
@@ -89,7 +88,6 @@ namespace qs
 			}
 			
 			m_texture.unbind(window);
-			shader.unbind();
 			m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
 			m_sprite.create(vertexs);
 			m_sprite.move(0.0f, 0.0f);
@@ -97,7 +95,7 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 100, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to create atlas with no texture files!");
 		}
 	}
 

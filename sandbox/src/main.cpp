@@ -20,13 +20,16 @@
 #include <qs/core/RenderTexture.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 #include <qs/text/Text.hpp>
+#include <qs/graphics/Point.hpp>
+#include <qs/graphics/Line.hpp>
+#include <qs/graphics/Circle.hpp>
 
 int main(int argsc, char* argsv[])
 {
 	qs::Error::handle().setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
-		{
-			std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
-		});
+	{
+		std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
+	});
 
 	qs::WindowSettings::s_antiAliasing = 2;
 	qs::WindowSettings::s_ansiotropicFiltering = 2;
@@ -44,9 +47,9 @@ int main(int argsc, char* argsv[])
 	}
 
 	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-		{
-			std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
-		});
+	{
+		std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
+	});
 
 	qs::Renderer renderer;
 
@@ -60,18 +63,20 @@ int main(int argsc, char* argsv[])
 	qs::Shader textRTTshader;
 	textRTTshader.loadFromPath("../quasar/res/shaders/renderTextToTexture.glsl");
 
+	qs::Shader pointShader;
+	pointShader.loadFromPath("../quasar/res/shaders/point.glsl");
+
+	qs::Shader lineShader;
+	lineShader.loadFromPath("../quasar/res/shaders/line.glsl");
+
 	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
 	atlas.add("bin/wall.png");
 	atlas.add("bin/wall_2.png");
+
+	rttshader.bind();
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
-
-	//qs::Sprite wall;
-	//wall.load("bin/wall.png");
-	//wall.create(qs::BufferType::DYNAMIC);
-	//wall.move(250.0f, 250.0f);
-	//wall.rotate(45.0f);
 
 	auto atlasSpr = atlas.getSprite();
 	atlasSpr.setActiveQuad(atlas.getID("wall"));
@@ -95,7 +100,17 @@ int main(int argsc, char* argsv[])
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 	camera.setSpeed(0.2f);
 
-	shader.bind();
+	qs::Point point;
+	point.create(20, 20, 10);
+
+	qs::Line line;
+	line.create(50, 50, 600, 600, 20);
+
+	qs::Circle circle;
+	circle.create(100, 100, 200, 200);
+	circle.setThickness(50);
+
+	//shader.bind();
 
 	//atlasSpr.setActiveQuad(atlas.getID("wall"));
 
@@ -153,20 +168,34 @@ int main(int argsc, char* argsv[])
 		int r = glfwGetKey(window.getWindow(), GLFW_KEY_R);
 		if (r == GLFW_PRESS)
 		{
-			atlasSpr.rotate(0.1f);
-			atlasSpr.applyTransforms();
+			//atlasSpr.rotate(0.1f);
+			//atlasSpr.applyTransforms();
 		}
 		
 		camera.update(1.0);
-		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-
+		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		
 		// Render.
-		window.begin(qs::Colours::White);
+		window.begin(qs::Colours::Black);
 
-		renderer.drawSprite(atlasSpr, shader);
-		renderer.drawText(text, shader);
-		//renderer.drawSprite(wall, shader);
+		pointShader.bind();
+		pointShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		pointShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		pointShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
+		renderer.drawPoint(point, pointShader);
+
+		lineShader.bind();
+		lineShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		lineShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		lineShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
+		renderer.drawLine(line);
+		
+		// Uses same shader as line shader.
+		renderer.drawCircle(circle);
+
+		//renderer.drawSprite(atlasSpr, shader);
+		//renderer.drawText(text, shader);
 
 		window.end();
 	}

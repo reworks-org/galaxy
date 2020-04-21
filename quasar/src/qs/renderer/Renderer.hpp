@@ -14,16 +14,21 @@
 ///
 namespace qs
 {
-	// Forward decs.
+	///
+	/// Forward decs.
+	///
+	class Line;
 	class Text;
+	class Point;
 	class Sprite;
 	class Shader;
+	class Circle;
 	class VertexArray;
 	class IndexBuffer;
 	class RenderTexture;
 
 	///
-	/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
+	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
 	///
 	class Renderer final
 	{
@@ -39,34 +44,26 @@ namespace qs
 		~Renderer() noexcept = default;
 
 		///
+		/// Draw a point.
 		///
+		/// \param point Point to draw.
+		/// \param shader Shader to apply when drawing.
 		///
-		void drawPoint(qs::Shader& shader) noexcept;
+		void drawPoint(qs::Point& point, qs::Shader& shader) noexcept;
 
 		///
+		/// Draw a line.
 		///
+		/// \param line Line to draw.
 		///
-		void drawLine(qs::Shader& shader) noexcept;
-
-		///
-		///
-		///
-		void drawTriangle(qs::Shader& shader) noexcept;
+		void drawLine(qs::Line& line) noexcept;
 		
 		///
+		/// Draw a circle.
 		///
+		/// \param circle Circle to draw.
 		///
-		void drawQuad(qs::Shader& shader) noexcept;
-		
-		///
-		///
-		///
-		void drawCircle(qs::Shader& shader) noexcept;
-
-		///
-		///
-		///
-		void drawPolygon(qs::Shader& shader) noexcept;
+		void drawCircle(qs::Circle& circle) noexcept;
 
 		///
 		/// Draw a sprite.

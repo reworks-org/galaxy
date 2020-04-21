@@ -26,6 +26,9 @@
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
     <ClCompile Include="src\qs\core\WindowSettings.cpp" />
+    <ClCompile Include="src\qs\graphics\Circle.cpp" />
+    <ClCompile Include="src\qs\graphics\Line.cpp" />
+    <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\renderer\FramebufferRenderer.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
@@ -55,6 +58,9 @@
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
+    <ClInclude Include="src\qs\graphics\Circle.hpp" />
+    <ClInclude Include="src\qs\graphics\Line.hpp" />
+    <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\renderer\FramebufferRenderer.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />

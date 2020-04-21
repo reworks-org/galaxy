@@ -5,16 +5,10 @@
 
 - Instancing - https://learnopengl.com/Advanced-OpenGL/Instancing
 - More error handling.
-- Finish renderer.
 - MipMapping for textures.
-- RenderTexture MSAA - https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
 - Particles - https://learnopengl.com/In-Practice/2D-Game/Particles
 - Light sources
 - Clean up includes.
 - method to set sprite opacity (0.0f - 1.0f). -> / colour(tinting?) - Sprite blending/tinting/lighting.
-
-https://learnopengl.com/Lighting/Basic-Lighting
-https://learnopengl.com/In-Practice/Text-Rendering
-
-
-- fix up transforms -> move it back into matricies, and then apply to verties when rendering...
+- https://learnopengl.com/Lighting/Basic-Lighting
+- Dynamic primitives.

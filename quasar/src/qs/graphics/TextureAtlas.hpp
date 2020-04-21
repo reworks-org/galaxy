@@ -64,7 +64,7 @@ namespace qs
 		///
 		/// \param window Target to reset framebuffer to.
 		/// \param renderer Renderer to use to draw textures.
-		/// \param shader Shader to use when creating atlas. This class (un)binds shaders for you.
+		/// \param shader Shader to use when creating atlas.
 		///
 		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
 

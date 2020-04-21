@@ -8,7 +8,10 @@
 
 #include "qs/text/Text.hpp"
 #include "qs/core/Shader.hpp"
+#include "qs/graphics/Point.hpp"
+#include "qs/graphics/Line.hpp"
 #include "qs/graphics/Sprite.hpp"
+#include "qs/graphics/Circle.hpp"
 #include "qs/core/RenderTexture.hpp"
 
 #include "Renderer.hpp"
@@ -18,28 +21,32 @@
 ///
 namespace qs
 {
-	void Renderer::drawPoint(qs::Shader& shader) noexcept
+	void Renderer::drawPoint(qs::Point& point, qs::Shader& shader) noexcept
 	{
+		point.bind();
+		shader.setUniform("u_point_size", point.getSize());
+
+		glDrawArrays(GL_POINTS, 0, 1);
+
+		point.unbind();
 	}
 
-	void Renderer::drawLine(qs::Shader& shader) noexcept
+	void Renderer::drawLine(qs::Line& line) noexcept
 	{
+		line.bind();
+
+		glDrawArrays(GL_LINES, 0, 2);
+
+		line.unbind();
 	}
 
-	void Renderer::drawTriangle(qs::Shader& shader) noexcept
+	void Renderer::drawCircle(qs::Circle& circle) noexcept
 	{
-	}
+		circle.bind();
 
-	void Renderer::drawQuad(qs::Shader& shader) noexcept
-	{
-	}
+		glDrawArrays(GL_LINE_LOOP, 0, circle.getCount());
 
-	void Renderer::drawCircle(qs::Shader& shader) noexcept
-	{
-	}
-
-	void Renderer::drawPolygon(qs::Shader& shader) noexcept
-	{
+		circle.unbind();
 	}
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
@@ -61,7 +68,7 @@ namespace qs
 		va.bind();
 
 		glDrawElements(GL_TRIANGLES, ib.getCount(), GL_UNSIGNED_INT, nullptr);
-
+		
 		va.unbind();
 	}
 
