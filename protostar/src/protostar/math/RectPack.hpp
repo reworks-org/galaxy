@@ -11,7 +11,7 @@
 #include <vector>
 #include <optional>
 
-#include "protostar/shapes/Rect.hpp"
+#include "protostar/math/Rect.hpp"
 
 ///
 /// Core namespace.

@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\protostar\utility\Meta.cpp" />
-    <ClCompile Include="src\protostar\math\Vector2.cpp" />
-    <ClCompile Include="src\protostar\math\Vector3.cpp" />
-    <ClCompile Include="src\protostar\math\Vector4.cpp" />
     <ClCompile Include="src\protostar\string\StringOps.cpp" />
     <ClCompile Include="src\protostar\math\Maths.cpp" />
     <ClCompile Include="src\protostar\math\Random.cpp" />
@@ -16,9 +13,6 @@
     <ClCompile Include="src\protostar\events\MouseMovedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
-    <ClCompile Include="src\protostar\shapes\Circle.cpp" />
-    <ClCompile Include="src\protostar\shapes\Rect.cpp" />
-    <ClCompile Include="src\protostar\math\Point.cpp" />
     <ClCompile Include="src\protostar\state\StateMachine.cpp" />
     <ClCompile Include="src\protostar\state\State.cpp" />
     <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
@@ -27,12 +21,10 @@
     <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
     <ClCompile Include="src\protostar\math\RectPack.cpp" />
+    <ClCompile Include="src\protostar\math\Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
-    <ClInclude Include="src\protostar\math\Vector2.hpp" />
-    <ClInclude Include="src\protostar\math\Vector3.hpp" />
-    <ClInclude Include="src\protostar\math\Vector4.hpp" />
     <ClInclude Include="src\protostar\string\StringOps.hpp" />
     <ClInclude Include="src\protostar\math\Maths.hpp" />
     <ClInclude Include="src\protostar\math\Random.hpp" />
@@ -44,9 +36,6 @@
     <ClInclude Include="src\protostar\events\MouseMovedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
-    <ClInclude Include="src\protostar\shapes\Circle.hpp" />
-    <ClInclude Include="src\protostar\shapes\Rect.hpp" />
-    <ClInclude Include="src\protostar\math\Point.hpp" />
     <ClInclude Include="src\protostar\state\StateMachine.hpp" />
     <ClInclude Include="src\protostar\state\State.hpp" />
     <ClInclude Include="src\protostar\async\ThreadPool.hpp" />
@@ -55,6 +44,7 @@
     <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
     <ClInclude Include="src\protostar\math\RectPack.hpp" />
+    <ClInclude Include="src\protostar\math\Rect.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
