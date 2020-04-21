@@ -97,7 +97,7 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 97, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 100, "Tried to create atlas with no texture files!");
 		}
 	}
 

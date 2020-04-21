@@ -42,6 +42,31 @@ namespace qs
         m_texture.updateProjection(0.0f, m_texture.getWidth(), 0.0f, m_texture.getHeight());
         m_texture.bind();
 
+        qs::VertexBuffer vb;
+        qs::VertexStorage vs = {
+            qs::Vertex{ 0.0f, 0.0f, m_colour, 0.0f, 0.0f },
+            qs::Vertex{ 0.0f, 0.0f, m_colour, 0.0f, 1.0f },
+            qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 1.0f },
+            qs::Vertex{ 0.0f, 0.0f, m_colour, 0.0f, 0.0f },
+            qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 1.0f },
+            qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 0.f }
+        };
+        vb.create<qs::DynamicBufferType>(vs);
+
+        qs::IndexBuffer ib;
+        ib.create<qs::StaticBufferType>(
+        {
+            0, 1, 2, 3, 4, 5
+        });
+
+        qs::VertexLayout layout;
+        layout.add<qs::PositionVAType>(2);
+        layout.add<qs::ColourVAType>(4);
+        layout.add<qs::TexelVAType>(2);
+
+        qs::VertexArray ar;
+        ar.create(vb, ib, layout);
+
         float advX = 0;
         for (auto& c : m_text)
         {
@@ -52,30 +77,16 @@ namespace qs
             float y = 0 - (chr.m_height - chr.m_bearingY);
             float w = chr.m_width;
             float h = chr.m_height;
+            
+            vs.clear();
+            vs.push_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });
+            vs.push_back(qs::Vertex{ x, y, m_colour, 0.0f, 1.0f });
+            vs.push_back(qs::Vertex{ x + w, y, m_colour, 1.0f, 1.0f });
+            vs.push_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });
+            vs.push_back(qs::Vertex{ x + w, y, m_colour, 1.0f, 1.0f });
+            vs.push_back(qs::Vertex{ x + w, y + h, m_colour, 1.0f, 0.f });
 
-            qs::VertexBuffer vb;
-            vb.create<qs::StaticBufferType>({
-               qs::Vertex{x, y + h, m_colour, 0.0f, 0.0f},
-               qs::Vertex{x, y, m_colour, 0.0f, 1.0f},
-               qs::Vertex{x + w, y, m_colour, 1.0f, 1.0f},
-               qs::Vertex{x, y + h, m_colour, 0.0f, 0.0f},
-               qs::Vertex{x + w, y, m_colour, 1.0f, 1.0f},
-               qs::Vertex{x + w, y + h, m_colour, 1.0f, 0.f}
-            });
-
-            qs::IndexBuffer ib;
-            ib.create<qs::StaticBufferType>(
-            {
-                0, 1, 2, 3, 4, 5
-            });
-
-            qs::VertexLayout layout;
-            layout.add<qs::PositionVAType>(2);
-            layout.add<qs::ColourVAType>(4);
-            layout.add<qs::TexelVAType>(2);
-
-            qs::VertexArray ar;
-            ar.create(vb, ib, layout);
+            glNamedBufferSubData(vb.getID(), 0, vs.size() * sizeof(qs::Vertex), vs.data());
 
             glBindTexture(GL_TEXTURE_2D, chr.m_id);
             renderer.drawVAToTexture(ar, ib, m_texture, shader);
