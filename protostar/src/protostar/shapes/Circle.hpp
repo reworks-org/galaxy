@@ -45,7 +45,7 @@ namespace protostar
 		/// \param radius 32bit unsigned integer defining circle radius.
 		/// \param center Center point of circle from which to extend radius.
 		///
-		explicit Circle(const Type radius, const protostar::Point& center) noexcept;
+		explicit Circle(const Type radius, const protostar::fPoint& center) noexcept;
 
 		///
 		/// X, Y constructor.
@@ -68,7 +68,7 @@ namespace protostar
 		///
 		/// \param center Center point of circle from which to extend radius.
 		///
-		void setCenter(const protostar::Point& center);
+		void setCenter(const protostar::fPoint& center);
 
 		///
 		/// Set center point of circle.
@@ -90,7 +90,7 @@ namespace protostar
 		///
 		/// \return Center point of circle.
 		///
-		const protostar::Point& getCenter() const noexcept;
+		const protostar::fPoint& getCenter() const noexcept;
 		
 	private:
 		///
@@ -101,7 +101,7 @@ namespace protostar
 		///
 		/// Circle center point.
 		///
-		protostar::Point m_center;
+		protostar::fPoint m_center;
 	};
 
 	template<typename Type>
@@ -111,7 +111,7 @@ namespace protostar
 	}
 
 	template<typename Type>
-	inline Circle<Type>::Circle(const Type radius, const protostar::Point& center) noexcept
+	inline Circle<Type>::Circle(const Type radius, const protostar::fPoint& center) noexcept
 		:m_radius(radius), m_center(center)
 	{
 	}
@@ -129,7 +129,7 @@ namespace protostar
 	}
 
 	template<typename Type>
-	inline void Circle<Type>::setCenter(const protostar::Point& center)
+	inline void Circle<Type>::setCenter(const protostar::fPoint& center)
 	{
 		m_center = center;
 	}
@@ -148,7 +148,7 @@ namespace protostar
 	}
 
 	template<typename Type>
-	inline const protostar::Point& Circle<Type>::getCenter() const noexcept
+	inline const protostar::fPoint& Circle<Type>::getCenter() const noexcept
 	{
 		return m_center;
 	}

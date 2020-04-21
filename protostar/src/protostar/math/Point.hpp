@@ -16,9 +16,18 @@
 namespace protostar
 {
 	///
-	/// A point is just a vector2 representing a point on the cartesian plane.
+	/// \brief A point is just a Vector2 representing a point on the cartesian plane.
 	///
-	using Point = protostar::Vector2<int>;
+	/// For integer points.
+	///
+	using iPoint = protostar::Vector2<int>;
+
+	///
+	/// \brief A point is just a Vector2 representing a point on the cartesian plane.
+	///
+	/// For float points.
+	///
+	using fPoint = protostar::Vector2<float>;
 }
 
 #endif
