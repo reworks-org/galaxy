@@ -129,7 +129,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;</AdditionalDependencies>
+      <AdditionalDependencies>protostar.lib;opengl32.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../protostar/bin/Debug/x64/;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
