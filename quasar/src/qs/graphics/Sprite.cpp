@@ -132,6 +132,24 @@ namespace qs
 		m_activeTransform->scale(scale);
 	}
 
+	void Sprite::setOpacity(float opacity) noexcept
+	{
+		if (opacity > 1.0f)
+		{
+			opacity = 1.0f;
+		}
+		else if (opacity < 0.0f)
+		{
+			opacity = 0.0f;
+		}
+
+		auto& vs = m_vertexBuffer.getVertexs();
+		vs[m_activeOffset + 0].m_colour[4] = opacity;
+		vs[m_activeOffset + 1].m_colour[4] = opacity;
+		vs[m_activeOffset + 2].m_colour[4] = opacity;
+		vs[m_activeOffset + 3].m_colour[4] = opacity;
+	}
+
 	void Sprite::applyTransforms()
 	{
 		// Have to update transforms first.

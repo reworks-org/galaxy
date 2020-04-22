@@ -30,7 +30,8 @@
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\qs\renderer\FramebufferRenderer.cpp" />
+    <ClCompile Include="src\qs\renderer\PostRenderer.cpp" />
+    <ClCompile Include="src\qs\renderer\LightSource.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite.cpp" />
     <ClCompile Include="src\qs\text\Character.cpp" />
@@ -62,7 +63,8 @@
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\qs\renderer\FramebufferRenderer.hpp" />
+    <ClInclude Include="src\qs\renderer\PostRenderer.hpp" />
+    <ClInclude Include="src\qs\renderer\LightSource.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />
     <ClInclude Include="src\qs\text\Character.hpp" />

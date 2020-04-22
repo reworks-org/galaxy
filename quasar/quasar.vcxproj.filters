@@ -24,7 +24,6 @@
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\core\WindowSettings.cpp" />
-    <ClCompile Include="src\qs\renderer\FramebufferRenderer.cpp" />
     <ClCompile Include="src\qs\text\Text.cpp" />
     <ClCompile Include="src\qs\text\FreeType.cpp" />
     <ClCompile Include="src\qs\text\Font.cpp" />
@@ -32,6 +31,8 @@
     <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Circle.cpp" />
+    <ClCompile Include="src\qs\renderer\LightSource.cpp" />
+    <ClCompile Include="src\qs\renderer\PostRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -56,7 +57,6 @@
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
-    <ClInclude Include="src\qs\renderer\FramebufferRenderer.hpp" />
     <ClInclude Include="src\qs\text\Text.hpp" />
     <ClInclude Include="src\qs\text\FreeType.hpp" />
     <ClInclude Include="src\qs\text\Font.hpp" />
@@ -64,6 +64,8 @@
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Circle.hpp" />
+    <ClInclude Include="src\qs\renderer\LightSource.hpp" />
+    <ClInclude Include="src\qs\renderer\PostRenderer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

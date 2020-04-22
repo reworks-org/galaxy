@@ -1,13 +1,13 @@
 ///
-/// FramebufferRenderer.hpp
+/// PostRenderer.hpp
 /// quasar
 ///
 /// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_FRAMEBUFFERRENDERER_HPP_
-#define QUASAR_FRAMEBUFFERRENDERER_HPP_
+#ifndef QUASAR_POSTRENDERER_HPP_
+#define QUASAR_POSTRENDERER_HPP_
 
 #include "qs/graphics/Sprite.hpp"
 #include "qs/core/RenderTexture.hpp"
@@ -23,10 +23,10 @@ namespace qs
 	class Shader;
 
 	///
-	/// OpenGL 2D FramebufferRenderer for applying shaders to framebuffers.
+	/// OpenGL 2D PostRenderer for applying shaders to framebuffers.
 	/// I.e. Renders sprites to a framebuffer.
 	///
-	class FramebufferRenderer final
+	class PostRenderer final
 	{
 	public:
 		///
@@ -34,15 +34,15 @@ namespace qs
 		///
 		/// \param window Pointer to window.
 		///
-		FramebufferRenderer(qs::Window* window) noexcept;
+		PostRenderer(qs::Window* window) noexcept;
 
 		///
 		/// Default destructor.
 		///
-		~FramebufferRenderer() noexcept = default;
+		~PostRenderer() noexcept = default;
 
 		///
-		/// \brief Start rendering to FramebufferRenderer.
+		/// \brief Start rendering to PostRenderer.
 		///
 		/// Do not call this inside window::begin() / window::end().
 		///

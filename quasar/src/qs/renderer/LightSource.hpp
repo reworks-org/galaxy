@@ -20,9 +20,10 @@ namespace qs
 	class LightSource final
 	{
 	public:
+		LightSource();
+		~LightSource();
 
 	private:
-
 	};
 }
 

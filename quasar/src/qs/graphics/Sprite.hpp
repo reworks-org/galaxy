@@ -102,6 +102,18 @@ namespace qs
 		///
 		void scale(const float scale) noexcept;
 
+		///
+		/// \brief Set opacity of sprite.
+		///
+		/// Only affects the currently active quad.
+		///
+		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+		///
+		void setOpacity(float opacity) noexcept;
+
+		///
+		/// Apply all transforms to modified quads.
+		///
 		void applyTransforms();
 
 		///

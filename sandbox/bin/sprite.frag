@@ -9,5 +9,7 @@ uniform sampler2D u_texture;
 
 void main()
 {
-	io_frag_colour = texture(u_texture, io_texels);// * io_colour;
+	vec4 tex = texture(u_texture, io_texels);
+	tex.w = tex.w * io_colour.w;
+	io_frag_colour = tex;
 }
