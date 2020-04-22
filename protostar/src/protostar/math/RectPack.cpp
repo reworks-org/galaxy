@@ -39,7 +39,7 @@ namespace protostar
 			if (width <= space.m_width && height <= space.m_height)
 			{
 				// Make the packed area rectangle.
-				result = std::make_optional<protostar::Rect<int>>(space.m_x, space.m_y, space.m_width, space.m_height);
+				result = std::make_optional<protostar::Rect<int>>(space.m_x, space.m_y, width, height);
 
 				// Check to see if shape fills completely.
 				if (width == space.m_width && height == space.m_height)
