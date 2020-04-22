@@ -11,3 +11,6 @@
 - Clean up includes.
 - https://learnopengl.com/Lighting/Basic-Lighting
 - Dynamic primitives.
+- update text.
+- fix colour type
+- sprite tinting

@@ -100,8 +100,12 @@ namespace qs
 
         m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
         m_sprite.create(qs::BufferType::DYNAMIC);
-        m_sprite.move(0.0f, 0.0f);
         m_sprite.applyTransforms();
+
+        m_sprite.unbind();
+        ar.unbind();
+        vb.unbind();
+        ib.unbind();
     }
 
     void Text::updateText(const std::string& text) noexcept

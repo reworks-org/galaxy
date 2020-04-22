@@ -90,12 +90,10 @@ namespace qs
 			m_texture.unbind(window);
 			m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
 			m_sprite.create(vertexs);
-			m_sprite.move(0.0f, 0.0f);
-			m_sprite.applyTransforms();
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 96, "Tried to create atlas with no texture files!");
 		}
 	}
 

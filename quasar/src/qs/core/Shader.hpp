@@ -17,6 +17,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "qs/utils/Error.hpp"
+#include "qs/core/Colours.hpp"
+#include "qs/utils/Utility.hpp"
 
 ///
 /// Core namespace.
@@ -221,8 +223,43 @@ namespace qs
 	template<>
 	inline void Shader::setUniform<glm::mat4>(const std::string& name, const glm::mat4& transform)
 	{
-		//glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &transform[0][0]);
 		glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, glm::value_ptr(transform));
+	}
+
+	template<>
+	inline void Shader::setUniform<glm::vec2>(const std::string& name, const glm::vec2& a)
+	{
+		glUniform2f(getUniformLocation(name), a.x, a.y);
+	}
+
+	template<>
+	inline void Shader::setUniform<glm::vec3>(const std::string& name, const glm::vec3& a)
+	{
+		glUniform3f(getUniformLocation(name), a.x, a.y, a.z);
+	}
+	
+	template<>
+	inline void Shader::setUniform<glm::vec4>(const std::string& name, const glm::vec4& a)
+	{
+		glUniform4f(getUniformLocation(name), a.x, a.y, a.z, a.w);
+	}
+
+	template<>
+	inline void Shader::setUniform<std::array<float, 4>>(const std::string& name, const std::array<float, 4>& a)
+	{
+		glUniform4f(getUniformLocation(name), a[0], a[1], a[2], a[3]);
+	}
+
+
+	template<>
+	inline void Shader::setUniform<protostar::Colour>(const std::string& name, const protostar::Colour& a)
+	{
+		glUniform4f(getUniformLocation(name),
+			Utils::uint8ToFloat(a.m_red),
+			Utils::uint8ToFloat(a.m_green),
+			Utils::uint8ToFloat(a.m_blue),
+			Utils::uint8ToFloat(a.m_alpha)
+		);
 	}
 }
 

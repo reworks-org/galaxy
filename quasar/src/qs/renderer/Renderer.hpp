@@ -23,8 +23,10 @@ namespace qs
 	class Sprite;
 	class Shader;
 	class Circle;
+	class Camera;
 	class VertexArray;
 	class IndexBuffer;
+	struct LightSource;
 	class RenderTexture;
 
 	///
@@ -99,6 +101,11 @@ namespace qs
 		/// \param shader Shader to apply to text. You must have called bind() already!
 		///
 		void drawText(qs::Text& text, qs::Shader& shader) noexcept;
+
+		///
+		///
+		///
+		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept;
 	};
 }
 

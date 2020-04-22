@@ -6,13 +6,16 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glm/mat4x4.hpp>
+
 #include "qs/text/Text.hpp"
-#include "qs/core/Shader.hpp"
-#include "qs/graphics/Point.hpp"
 #include "qs/graphics/Line.hpp"
 #include "qs/graphics/Sprite.hpp"
 #include "qs/graphics/Circle.hpp"
+#include "qs/graphics/Point.hpp"
+#include "qs/graphics/Camera.hpp"
 #include "qs/core/RenderTexture.hpp"
+#include "qs/renderer/LightSource.hpp"
 
 #include "Renderer.hpp"
 
@@ -88,5 +91,28 @@ namespace qs
 	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
 	{
 		drawSprite(text.asSprite(), shader);
+	}
+
+	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept
+	{
+		auto* shader = &ls.m_shader;
+
+		shader->bind();
+		sprite.bind();
+		glm::vec3 normLightPos = {Utils::toNorm(ls.m_pos.x, camera.getWidth()), Utils::toNorm(ls.m_pos.y, camera.getHeight()), ls.m_zLevel};
+		//glm::vec3 normLightPos = { ls.m_pos.x, ls.m_pos.y, ls.m_zLevel };
+		shader->setUniform("u_light_pos", normLightPos);
+		shader->setUniform("u_light_colour", ls.m_lightColour);
+		shader->setUniform("u_ambient_colour", ls.m_ambientColour);
+		shader->setUniform("u_falloff", ls.m_falloff);
+		shader->setUniform("u_width", static_cast<float>(sprite.getWidth()));
+		shader->setUniform("u_height", static_cast<float>(sprite.getHeight()));
+		shader->setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		shader->setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		shader->setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
+
+		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
+
+		sprite.unbind();
 	}
 }

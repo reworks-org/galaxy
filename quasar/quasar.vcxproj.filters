@@ -31,8 +31,8 @@
     <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Circle.cpp" />
-    <ClCompile Include="src\qs\renderer\LightSource.cpp" />
     <ClCompile Include="src\qs\renderer\PostRenderer.cpp" />
+    <ClCompile Include="src\qs\renderer\LightSource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -64,8 +64,8 @@
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Circle.hpp" />
-    <ClInclude Include="src\qs\renderer\LightSource.hpp" />
     <ClInclude Include="src\qs\renderer\PostRenderer.hpp" />
+    <ClInclude Include="src\qs\renderer\LightSource.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

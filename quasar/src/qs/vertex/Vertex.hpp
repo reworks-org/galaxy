@@ -9,7 +9,7 @@
 #ifndef QUASAR_VERTEX_HPP_
 #define QUASAR_VERTEX_HPP_
 
-#include <protostar/shapes/Rect.hpp>
+#include <protostar/math/Rect.hpp>
 #include <protostar/system/Colour.hpp>
 
 ///

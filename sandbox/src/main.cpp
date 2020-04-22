@@ -16,13 +16,12 @@
 #include <qs/renderer/Renderer.hpp>
 #include <qs/graphics/Camera.hpp>
 #include <qs/graphics/Sprite.hpp>
-#include <qs/core/Shader.hpp>
 #include <qs/core/RenderTexture.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 #include <qs/text/Text.hpp>
-#include <qs/graphics/Point.hpp>
 #include <qs/graphics/Line.hpp>
 #include <qs/graphics/Circle.hpp>
+#include <qs/renderer/LightSource.hpp>
 
 int main(int argsc, char* argsv[])
 {
@@ -55,13 +54,13 @@ int main(int argsc, char* argsv[])
 
 	// Shaders
 	qs::Shader shader;
-	shader.loadFromPath("bin/sprite.vert", "bin/sprite.frag");
+	shader.loadFromPath("../quasar/res/shaders/sprite.glsl");
 
 	qs::Shader rttshader;
-	rttshader.loadFromPath("bin/rtt.vert", "bin/rtt.frag");
+	rttshader.loadFromPath("../quasar/res/shaders/render_to_texture.glsl");
 
 	qs::Shader textRTTshader;
-	textRTTshader.loadFromPath("../quasar/res/shaders/renderTextToTexture.glsl");
+	textRTTshader.loadFromPath("../quasar/res/shaders/render_text_to_texture.glsl");
 
 	qs::Shader pointShader;
 	pointShader.loadFromPath("../quasar/res/shaders/point.glsl");
@@ -71,10 +70,11 @@ int main(int argsc, char* argsv[])
 
 	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
+
+	rttshader.bind();
 	atlas.add("bin/wall.png");
 	atlas.add("bin/wall_2.png");
 
-	rttshader.bind();
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
 
@@ -96,23 +96,31 @@ int main(int argsc, char* argsv[])
 	text.create(window, renderer, textRTTshader);
 	text.asSprite().save("bin/text");
 
+	shader.bind();
+
 	qs::Camera camera; //left, right, bottom, top
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
 	camera.setSpeed(0.2f);
 
-	qs::Point point;
-	point.create(20, 20, 10);
+	//qs::Point point;
+	//point.create(20, 20, 10);
 
-	qs::Line line;
-	line.create(50, 50, 600, 600, 20);
+	//qs::Line line;
+	//line.create(50, 50, 600, 600, 20);
 
-	qs::Circle circle;
-	circle.create(100, 100, 200, 200);
-	circle.setThickness(50);
-
-	//shader.bind();
+	//qs::Circle circle;
+	//circle.create(100, 100, 200, 200);
+	//circle.setThickness(50);
 
 	//atlasSpr.setActiveQuad(atlas.getID("wall"));
+
+	qs::LightSource lightSource;
+	lightSource.m_ambientColour = {0.6f, 0.6f, 1.0f, 0.2f};
+	lightSource.m_lightColour = {1.0f, 0.8f, 0.6f, 1.0f};
+	lightSource.m_falloff = { 0.4f, 3.0f, 20.0f };
+	lightSource.m_zLevel = 0.075;
+	lightSource.m_pos = { 0.0f, 0.0f };
+	lightSource.m_shader.loadFromPath("../quasar/res/shaders/light.glsl");
 
 	// Loop
 	while (window.isOpen())
@@ -165,35 +173,84 @@ int main(int argsc, char* argsv[])
 			camera.onKeyUp({ protostar::Keys::D });
 		}
 
-		int r = glfwGetKey(window.getWindow(), GLFW_KEY_R);
-		if (r == GLFW_PRESS)
+		int q = glfwGetKey(window.getWindow(), GLFW_KEY_Q);
+		if (q == GLFW_PRESS)
 		{
-			//atlasSpr.rotate(0.1f);
-			//atlasSpr.applyTransforms();
+			atlasSpr.rotate(-0.1f);
+			atlasSpr.applyTransforms();
+		}
+
+		int e = glfwGetKey(window.getWindow(), GLFW_KEY_E);
+		if (e == GLFW_PRESS)
+		{
+			atlasSpr.rotate(0.1f);
+			atlasSpr.applyTransforms();
 		}
 		
+		int g = glfwGetKey(window.getWindow(), GLFW_KEY_G);
+		if (g == GLFW_PRESS)
+		{
+			lightSource.m_falloff.x += 0.001f;
+		}
+
+		int b = glfwGetKey(window.getWindow(), GLFW_KEY_B);
+		if (b == GLFW_PRESS)
+		{
+			lightSource.m_falloff.x -= 0.001f;
+		}
+
+		int h = glfwGetKey(window.getWindow(), GLFW_KEY_H);
+		if (h == GLFW_PRESS)
+		{
+			lightSource.m_falloff.y += 0.001f;
+		}
+
+		int n = glfwGetKey(window.getWindow(), GLFW_KEY_N);
+		if (n == GLFW_PRESS)
+		{
+			lightSource.m_falloff.y -= 0.001f;
+		}
+
+		int j = glfwGetKey(window.getWindow(), GLFW_KEY_J);
+		if (j == GLFW_PRESS)
+		{
+			lightSource.m_falloff.z += 0.001f;
+		}
+
+		int m = glfwGetKey(window.getWindow(), GLFW_KEY_M);
+		if (m == GLFW_PRESS)
+		{
+			lightSource.m_falloff.z -= 0.001f;
+		}
+
 		camera.update(1.0);
+		
+		double x, y;
+		glfwGetCursorPos(window.getWindow(), &x, &y);
+		lightSource.m_pos.x = x;
+		lightSource.m_pos.y = y;
 		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 		
 		// Render.
 		window.begin(qs::Colours::Black);
 
-		pointShader.bind();
-		pointShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		pointShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		pointShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
-		renderer.drawPoint(point, pointShader);
+		//pointShader.bind();
+		//pointShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		//pointShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		//pointShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
+		//renderer.drawPoint(point, pointShader);
 
-		lineShader.bind();
-		lineShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		lineShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		lineShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
-		renderer.drawLine(line);
+		//lineShader.bind();
+		//lineShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		//lineShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		//lineShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
+		//renderer.drawLine(line);
 		
 		// Uses same shader as line shader.
-		renderer.drawCircle(circle);
+		//renderer.drawCircle(circle);
 
+		renderer.drawScene(atlasSpr, camera, lightSource);
 		//renderer.drawSprite(atlasSpr, shader);
 		//renderer.drawText(text, shader);
 

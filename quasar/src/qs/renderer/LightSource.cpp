@@ -7,10 +7,3 @@
 ///
 
 #include "LightSource.hpp"
-
-///
-/// Core namespace.
-///
-namespace qs
-{
-}

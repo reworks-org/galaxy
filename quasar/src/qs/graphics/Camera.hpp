@@ -93,6 +93,20 @@ namespace qs
 		///
 		const glm::mat4& getProj() noexcept;
 
+		///
+		/// Get camera width.
+		///
+		/// \return Const float.
+		///
+		const float getWidth() const noexcept;
+
+		///
+		/// Get camera height.
+		///
+		/// \return Const float.
+		///
+		const float getHeight() const noexcept;
+
 	private:
 		///
 		/// Camera move up flag.
@@ -118,6 +132,16 @@ namespace qs
 		/// Speed of camera.
 		///
 		float m_speed;
+
+		///
+		/// Width of camera bounds.
+		///
+		float m_width;
+
+		///
+		/// Height of camera bounds.
+		///
+		float m_height;
 
 		///
 		/// Camera projection matrix.

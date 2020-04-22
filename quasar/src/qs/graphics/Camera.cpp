@@ -11,18 +11,36 @@
 namespace qs
 {
 	Camera::Camera() noexcept
-		:m_moveUp(false), m_moveDown(false), m_moveLeft(false), m_moveRight(false), m_speed(1.0f), m_projection(1.0f)
+		:m_moveUp(false), m_moveDown(false), m_moveLeft(false), m_moveRight(false), m_speed(1.0f), m_width(0.0f), m_height(0.0f), m_projection(1.0f)
 	{
 	}
 
 	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		:m_moveUp(false), m_moveDown(false), m_moveLeft(false), m_moveRight(false), m_speed(speed), m_projection(1.0f)
+		:m_moveUp(false), m_moveDown(false), m_moveLeft(false), m_moveRight(false), m_speed(speed), m_width(0.0f), m_height(0.0f), m_projection(1.0f)
 	{
 		create(left, right, bottom, top);
 	}
 
 	void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
 	{
+		if (right > left)
+		{
+			m_width = right;
+		}
+		else
+		{
+			m_width = left;
+		}
+
+		if (bottom > top)
+		{
+			m_height = bottom;
+		}
+		else
+		{
+			m_height = top;
+		}
+
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	}
 
@@ -101,5 +119,15 @@ namespace qs
 	const glm::mat4& Camera::getProj() noexcept
 	{
 		return m_projection;
+	}
+
+	const float Camera::getWidth() const noexcept
+	{
+		return m_width;
+	}
+
+	const float Camera::getHeight() const noexcept
+	{
+		return m_height;
 	}
 }

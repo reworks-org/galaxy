@@ -38,8 +38,8 @@ namespace qs
 
 		glGenBuffers(1, &m_vb);
 		glGenVertexArrays(1, &m_va);
+		
 		glBindVertexArray(m_va);
-
 		glBindBuffer(GL_ARRAY_BUFFER, m_vb);
 
 		float vertex[2] = { x, y };
