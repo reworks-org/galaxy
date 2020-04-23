@@ -2,12 +2,12 @@
 
 in vec2 io_texels;
 in vec4 io_colour;
-in vec4 io_adj_light_pos;
 
 out vec4 io_frag_colour;
 
 uniform vec2 u_window_resolution;
 uniform vec3 u_falloff;
+uniform vec3 u_light_pos;
 uniform vec4 u_light_colour;
 uniform vec4 u_ambient_colour;
 uniform sampler2D u_texture;
@@ -22,7 +22,7 @@ void main()
 
     // Light delta position.
     //vec3 direction = vec3(io_adj_light_pos.xy - (gl_FragCoord.xy / u_window_resolution.xy), io_adj_light_pos.z);
-    vec3 direction = vec3(io_adj_light_pos.xyz - vec3(gl_FragCoord.xy, 0.0)) / vec3(u_window_resolution.xy, 1.0);
+    vec3 direction = vec3(u_light_pos - vec3(gl_FragCoord.xy, 0.0)) / vec3(u_window_resolution.xy, 1.0);
 
     // Aspect ratio correction.
     direction.x *= u_window_resolution.x / u_window_resolution.y;

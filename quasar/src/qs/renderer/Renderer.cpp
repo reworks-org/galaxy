@@ -99,7 +99,7 @@ namespace qs
 
 		sprite.bind();
 		shader->bind();
-		shader->setUniform("u_light_pos", glm::vec3(ls.m_pos.x, ls.m_pos.y, ls.m_zLevel));
+		shader->setUniform("u_light_pos", glm::vec3(ls.m_pos.x, ls.m_pos.y + camera.getHeight(), ls.m_zLevel));
 		shader->setUniform("u_light_colour", ls.m_lightColour);
 		shader->setUniform("u_ambient_colour", ls.m_ambientColour);
 		shader->setUniform("u_falloff", ls.m_falloff);
