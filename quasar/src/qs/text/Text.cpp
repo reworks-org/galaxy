@@ -39,7 +39,7 @@ namespace qs
     void Text::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader)
     {
         m_texture.create(m_font.getTextWidth(m_text), m_font.getTextHeight(m_text));
-        m_texture.updateProjection(0.0f, m_texture.getWidth(), 0.0f, m_texture.getHeight());
+        m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
         m_texture.bind();
 
         qs::VertexBuffer vb;
@@ -74,9 +74,9 @@ namespace qs
             auto chr = map[c];
 
             float x = advX + chr.m_bearingX;
-            float y = 0 - (chr.m_height - chr.m_bearingY);
-            float w = chr.m_width;
-            float h = chr.m_height;
+            float y = static_cast<float>(0 - (chr.m_height - chr.m_bearingY));
+            float w = static_cast<float>(chr.m_width);
+            float h = static_cast<float>(chr.m_height);
             
             vs.clear();
             vs.push_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });

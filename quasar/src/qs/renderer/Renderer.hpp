@@ -30,7 +30,7 @@ namespace qs
 	class RenderTexture;
 
 	///
-	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
+	/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
 	///
 	class Renderer final
 	{
@@ -103,9 +103,18 @@ namespace qs
 		void drawText(qs::Text& text, qs::Shader& shader) noexcept;
 
 		///
+		/// \brief Draw a scene.
 		///
+		/// A scene is where you render all the sprites to a texture then apply a post process shader.
+		/// Usually is a lightsource shader.
+		/// Shader is bound for you.
 		///
-		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept;
+		/// \param sprite Framebuffer sprite.
+		/// \param camera used to render scene.
+		/// \param ls Light source(s) for shader.
+		/// \param shader Shader to apply to text. You must have called bind() already!
+		///
+		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls, qs::Shader& shader) noexcept;
 	};
 }
 

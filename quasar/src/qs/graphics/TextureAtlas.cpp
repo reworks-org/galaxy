@@ -70,7 +70,7 @@ namespace qs
 				else
 				{
 					auto rect = opt.value();
-					loadedTex.move(rect.m_x, rect.m_y);
+					loadedTex.move(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y));
 					loadedTex.applyTransforms();
 
 					renderer.drawSpriteToTexture(loadedTex, m_texture, shader);
@@ -78,7 +78,7 @@ namespace qs
 					auto quad = qs::Vertex::make_quad(
 						{ 0.0f, 0.0f, static_cast<float>(rect.m_width), static_cast<float>(rect.m_height) },
 						{ 0.0f, 0.0f, 0.0f, 1.0f },
-						rect.m_x, rect.m_y
+						static_cast<float>(rect.m_x), static_cast<float>(rect.m_y)
 					);
 
 					m_idMap.emplace(filePath.stem().string(), counter * 4);

@@ -7,7 +7,6 @@
 - More error handling.
 - MipMapping for textures.
 - Particles - https://learnopengl.com/In-Practice/2D-Game/Particles
-- Light sources
 - Clean up includes.
 - https://learnopengl.com/Lighting/Basic-Lighting
 - Dynamic primitives.

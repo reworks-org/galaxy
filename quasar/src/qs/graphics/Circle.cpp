@@ -21,12 +21,12 @@
 namespace qs
 {
 	Circle::Circle() noexcept
-		:m_count(0), m_thickness(1), m_va(0), m_vb(0)
+		:m_count(0), m_thickness(1.0f), m_va(0), m_vb(0)
 	{
 	}
 
 	Circle::Circle(const float x, const float y, const float radius, const int fragments) noexcept
-		:m_count(0), m_thickness(1), m_va(0), m_vb(0)
+		:m_count(0), m_thickness(1.0f), m_va(0), m_vb(0)
 	{
 		create(x, y, radius, fragments);
 	}
@@ -56,7 +56,7 @@ namespace qs
 			vertexs.emplace_back(radius * glm::cos(angle) + x, radius * glm::sin(angle) + y);
 		}
 
-		m_count = vertexs.size();
+		m_count = static_cast<unsigned int>(vertexs.size());
 		glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec2) * m_count, vertexs.data(), GL_STATIC_DRAW);
 
 		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), 0);
@@ -77,7 +77,7 @@ namespace qs
 		glBindVertexArray(0);
 	}
 
-	void Circle::setThickness(const int thickness) noexcept
+	void Circle::setThickness(const float thickness) noexcept
 	{
 		m_thickness = thickness;
 	}

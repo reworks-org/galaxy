@@ -65,7 +65,7 @@ namespace qs
 		///
 		/// \param thickness Thickness.
 		///
-		void setThickness(const int thickness) noexcept;
+		void setThickness(const float thickness) noexcept;
 
 		///
 		/// Get total number of vertexs.
@@ -83,7 +83,7 @@ namespace qs
 		///
 		/// Thickness of circle.
 		///
-		int m_thickness;
+		float m_thickness;
 
 		///
 		/// VertexArray handle.

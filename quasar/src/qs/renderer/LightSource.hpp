@@ -19,14 +19,36 @@
 ///
 namespace qs
 {
+	///
+	/// Holds data relating to a "Light Source" for use in GLSL.
+	///
 	struct LightSource
 	{
+		///
+		/// Colour of the light.
+		///
 		glm::vec4 m_lightColour;
+
+		///
+		/// Colour of the ambient light.
+		///
 		glm::vec4 m_ambientColour;
+
+		///
+		/// Falloff range for the light source.
+		/// Controls intensity.
+		///
 		glm::vec3 m_falloff;
-		float m_zLevel;
+
+		///
+		/// XY location of light source.
+		///
 		glm::vec2 m_pos;
-		qs::Shader m_shader;
+		
+		///
+		/// Z level of light, changes the way the light reflects off the normal map.
+		///
+		float m_zLevel;
 	};
 }
 

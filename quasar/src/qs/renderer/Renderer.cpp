@@ -93,21 +93,21 @@ namespace qs
 		drawSprite(text.asSprite(), shader);
 	}
 
-	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept
+	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls, qs::Shader& shader) noexcept
 	{
-		auto* shader = &ls.m_shader;
+		shader.bind();
+
+		shader.setUniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
+		shader.setUniform("u_light_colour", ls.m_lightColour);
+		shader.setUniform("u_ambient_colour", ls.m_ambientColour);
+		shader.setUniform("u_falloff", ls.m_falloff);
+		shader.setUniform("u_width", static_cast<float>(sprite.getWidth()));
+		shader.setUniform("u_height", static_cast<float>(sprite.getHeight()));
+		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		shader.setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
 
 		sprite.bind();
-		shader->bind();
-		shader->setUniform("u_light_pos", glm::vec3(ls.m_pos.x, ls.m_pos.y + camera.getHeight(), ls.m_zLevel));
-		shader->setUniform("u_light_colour", ls.m_lightColour);
-		shader->setUniform("u_ambient_colour", ls.m_ambientColour);
-		shader->setUniform("u_falloff", ls.m_falloff);
-		shader->setUniform("u_width", static_cast<float>(sprite.getWidth()));
-		shader->setUniform("u_height", static_cast<float>(sprite.getHeight()));
-		shader->setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		shader->setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		shader->setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 

@@ -16,12 +16,12 @@
 namespace qs
 {
 	Line::Line() noexcept
-		:m_thickness(1), m_va(0), m_vb(0)
+		:m_thickness(1.0f), m_va(0), m_vb(0)
 	{
 	}
 
-	Line::Line(const float x1, const float y1, const float x2, const float y2, const int thickness) noexcept
-		:m_thickness(1), m_va(0), m_vb(0)
+	Line::Line(const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
+		:m_thickness(1.0f), m_va(0), m_vb(0)
 	{
 		create(x1, y1, x2, y2, thickness);
 	}
@@ -32,7 +32,7 @@ namespace qs
 		glDeleteBuffers(1, &m_vb);
 	}
 
-	void Line::create(const float x1, const float y1, const float x2, const float y2, const int thickness) noexcept
+	void Line::create(const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
 	{
 		m_thickness = thickness;
 

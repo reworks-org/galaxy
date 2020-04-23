@@ -40,7 +40,7 @@ namespace qs
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
 		m_transforms.emplace(0, std::move(qs::Transform()));
-		m_transforms[0].setRotationOrigin(m_width, m_height);
+		m_transforms[0].setRotationOrigin(static_cast<float>(m_width), static_cast<float>(m_height));
 
 		setActiveQuad();
 	}
@@ -95,7 +95,7 @@ namespace qs
 
 			m_transforms.emplace(increment, qs::Transform());
 
-			auto pos = m_vertexBuffer.getVertexs()[increment + 2].m_position;
+			auto pos = m_vertexBuffer.getVertexs()[2].m_position;
 			m_transforms[increment].setRotationOrigin(pos[0] * 0.5f, pos[1] * 0.5f);
 
 			increment += 4;

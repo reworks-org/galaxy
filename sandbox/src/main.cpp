@@ -68,6 +68,9 @@ int main(int argsc, char* argsv[])
 	qs::Shader lineShader;
 	lineShader.loadFromPath("../quasar/res/shaders/line.glsl");
 
+	qs::Shader lightShader;
+	lightShader.loadFromPath("../quasar/res/shaders/light.vs", "../quasar/res/shaders/light.fs");
+
 	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
 
@@ -118,9 +121,8 @@ int main(int argsc, char* argsv[])
 	lightSource.m_ambientColour = {0.6f, 0.6f, 1.0f, 0.2f};
 	lightSource.m_lightColour = {1.0f, 0.8f, 0.6f, 1.0f};
 	lightSource.m_falloff = { 0.4f, 3.0f, 20.0f };
-	lightSource.m_zLevel = 0.075;
-	lightSource.m_pos = { 0.0f, 0.0f };
-	lightSource.m_shader.loadFromPath("../quasar/res/shaders/light.vs", "../quasar/res/shaders/light.fs");
+	lightSource.m_zLevel = 0.075f;
+	lightSource.m_pos = { 500.0f, 200.0f };
 
 	// Loop
 	while (window.isOpen())
@@ -270,7 +272,7 @@ int main(int argsc, char* argsv[])
 		// Uses same shader as line shader.
 		//renderer.drawCircle(circle);
 
-		renderer.drawScene(atlasSpr, camera, lightSource);
+		renderer.drawScene(atlasSpr, camera, lightSource, lightShader);
 		//renderer.drawSprite(atlasSpr, shader);
 		//renderer.drawText(text, shader);
 
