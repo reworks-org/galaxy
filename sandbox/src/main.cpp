@@ -120,7 +120,7 @@ int main(int argsc, char* argsv[])
 	lightSource.m_falloff = { 0.4f, 3.0f, 20.0f };
 	lightSource.m_zLevel = 0.075;
 	lightSource.m_pos = { 0.0f, 0.0f };
-	lightSource.m_shader.loadFromPath("../quasar/res/shaders/light.glsl");
+	lightSource.m_shader.loadFromPath("../quasar/res/shaders/light.vs", "../quasar/res/shaders/light.fs");
 
 	// Loop
 	while (window.isOpen())
@@ -223,12 +223,32 @@ int main(int argsc, char* argsv[])
 			lightSource.m_falloff.z -= 0.001f;
 		}
 
+		int i = glfwGetKey(window.getWindow(), GLFW_KEY_I);
+		if (i == GLFW_PRESS)
+		{
+			lightSource.m_pos.x += 0.1f;
+		}
+
+		int k = glfwGetKey(window.getWindow(), GLFW_KEY_K);
+		if (k == GLFW_PRESS)
+		{
+			lightSource.m_pos.x -= 0.1f;
+		}
+
+		int o = glfwGetKey(window.getWindow(), GLFW_KEY_O);
+		if (o == GLFW_PRESS)
+		{
+			lightSource.m_pos.y += 0.1f;
+		}
+
+		int l = glfwGetKey(window.getWindow(), GLFW_KEY_L);
+		if (l == GLFW_PRESS)
+		{
+			lightSource.m_pos.y -= 0.1f;
+		}
+
 		camera.update(1.0);
 		
-		double x, y;
-		glfwGetCursorPos(window.getWindow(), &x, &y);
-		lightSource.m_pos.x = x;
-		lightSource.m_pos.y = y;
 		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 		
