@@ -62,6 +62,8 @@
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
+    <ClInclude Include="src\qs\renderer\InstancedSprite.cpp" />
+    <ClInclude Include="src\qs\renderer\InstancedSprite.hpp" />
     <ClInclude Include="src\qs\renderer\LightSource.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />

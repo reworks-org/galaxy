@@ -72,7 +72,6 @@ int main(int argsc, char* argsv[])
 	qs::Shader lightShader;
 	lightShader.loadFromPath("../quasar/res/shaders/light.vs", "../quasar/res/shaders/light.fs");
 
-	// Texture atlas is allowed to bind/unbind shaders - the only one allowed.
 	qs::TextureAtlas atlas;
 
 	rttshader.bind();

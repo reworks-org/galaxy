@@ -64,6 +64,8 @@
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Circle.hpp" />
     <ClInclude Include="src\qs\renderer\LightSource.hpp" />
+    <ClInclude Include="src\qs\renderer\InstancedSprite.hpp" />
+    <ClInclude Include="src\qs\renderer\InstancedSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

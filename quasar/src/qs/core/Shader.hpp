@@ -255,10 +255,10 @@ namespace qs
 	inline void Shader::setUniform<protostar::Colour>(const std::string& name, const protostar::Colour& a)
 	{
 		glUniform4f(getUniformLocation(name),
-			Utils::uint8ToFloat(a.m_red),
-			Utils::uint8ToFloat(a.m_green),
-			Utils::uint8ToFloat(a.m_blue),
-			Utils::uint8ToFloat(a.m_alpha)
+			qs::Utils::uint8ToFloat(a.m_red),
+			qs::Utils::uint8ToFloat(a.m_green),
+			qs::Utils::uint8ToFloat(a.m_blue),
+			qs::Utils::uint8ToFloat(a.m_alpha)
 		);
 	}
 }

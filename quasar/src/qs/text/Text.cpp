@@ -25,8 +25,9 @@ namespace qs
 	}
 
     Text::Text(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept
-        :m_text(text), m_font(font), m_colour(col)
+        :m_text("")
     {
+        load(text, font, col);
     }
 
     void Text::load(const std::string& text, qs::Font& font, protostar::Colour& col)
@@ -34,12 +35,17 @@ namespace qs
         m_text = text;
         m_font = std::move(font);
         m_colour = std::move(col);
+
+        m_texture.create(m_font.getTextWidth(m_text), m_font.getTextHeight(m_text));
+        m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
+
+        m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
+        m_sprite.create(qs::BufferType::DYNAMIC);
+        m_sprite.applyTransforms();
     }
 
     void Text::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader)
     {
-        m_texture.create(m_font.getTextWidth(m_text), m_font.getTextHeight(m_text));
-        m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
         m_texture.bind();
 
         qs::VertexBuffer vb;
@@ -97,10 +103,6 @@ namespace qs
 
         m_texture.unbind(window);
         glBindTexture(GL_TEXTURE_2D, 0);
-
-        m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
-        m_sprite.create(qs::BufferType::DYNAMIC);
-        m_sprite.applyTransforms();
 
         m_sprite.unbind();
         ar.unbind();

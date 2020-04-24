@@ -8,6 +8,8 @@
 
 #include <cstdarg>
 
+#include "qs/utils/Utility.hpp"
+
 #include "Sprite.hpp"
 
 ///
@@ -144,10 +146,10 @@ namespace qs
 		}
 
 		auto& vs = m_vertexBuffer.getVertexs();
-		vs[m_activeOffset + 0].m_colour[4] = opacity;
-		vs[m_activeOffset + 1].m_colour[4] = opacity;
-		vs[m_activeOffset + 2].m_colour[4] = opacity;
-		vs[m_activeOffset + 3].m_colour[4] = opacity;
+		vs[m_activeOffset + 0].m_colour[3] = opacity;
+		vs[m_activeOffset + 1].m_colour[3] = opacity;
+		vs[m_activeOffset + 2].m_colour[3] = opacity;
+		vs[m_activeOffset + 3].m_colour[3] = opacity;
 	}
 
 	void Sprite::applyTransforms()

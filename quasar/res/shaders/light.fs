@@ -48,5 +48,5 @@ void main()
     vec3 final = tex.rgb * intensity;
 
     // add in sprite tinting here?
-	io_frag_colour = /*io_colour * */vec4(final, tex.a);
+	io_frag_colour = io_colour.a * vec4(final, tex.a);
 }
