@@ -16,6 +16,7 @@
 #include "qs/graphics/Camera.hpp"
 #include "qs/core/RenderTexture.hpp"
 #include "qs/renderer/LightSource.hpp"
+#include "qs/renderer/InstancedSprite.hpp"
 
 #include "Renderer.hpp"
 
@@ -30,8 +31,6 @@ namespace qs
 		shader.setUniform("u_point_size", point.getSize());
 
 		glDrawArrays(GL_POINTS, 0, 1);
-
-		point.unbind();
 	}
 
 	void Renderer::drawLine(qs::Line& line) noexcept
@@ -39,8 +38,6 @@ namespace qs
 		line.bind();
 
 		glDrawArrays(GL_LINES, 0, 2);
-
-		line.unbind();
 	}
 
 	void Renderer::drawCircle(qs::Circle& circle) noexcept
@@ -48,8 +45,14 @@ namespace qs
 		circle.bind();
 
 		glDrawArrays(GL_LINE_LOOP, 0, circle.getCount());
+	}
 
-		circle.unbind();
+	void Renderer::drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	{
+		shader.setUniform("u_projection", rt.getProjection());
+		va.bind();
+
+		glDrawElements(GL_TRIANGLES, ib.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
@@ -60,19 +63,17 @@ namespace qs
 		sprite.bind();
 		
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
-
-		sprite.unbind();
 	}
 
-	void Renderer::drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	void Renderer::drawInstancedSprite(qs::InstancedSprite& is, qs::Shader& shader) noexcept
 	{
-		shader.setUniform("u_projection", rt.getProjection());
+		shader.setUniform<float>("u_width", static_cast<float>(is.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(is.getHeight()));
+		shader.setUniform<glm::mat4>("u_transform", is.getTransformation());
 
-		va.bind();
+		is.bind();
 
-		glDrawElements(GL_TRIANGLES, ib.getCount(), GL_UNSIGNED_INT, nullptr);
-		
-		va.unbind();
+		glDrawElements(GL_TRIANGLES, is.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
@@ -84,8 +85,6 @@ namespace qs
 		sprite.bind();
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
-
-		sprite.unbind();
 	}
 
 	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
@@ -93,24 +92,22 @@ namespace qs
 		drawSprite(text.asSprite(), shader);
 	}
 
-	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls, qs::Shader& shader) noexcept
+	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept
 	{
-		shader.bind();
+		ls.m_shader.bind();
 
-		shader.setUniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
-		shader.setUniform("u_light_colour", ls.m_lightColour);
-		shader.setUniform("u_ambient_colour", ls.m_ambientColour);
-		shader.setUniform("u_falloff", ls.m_falloff);
-		shader.setUniform("u_width", static_cast<float>(sprite.getWidth()));
-		shader.setUniform("u_height", static_cast<float>(sprite.getHeight()));
-		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		shader.setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
+		ls.m_shader.setUniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
+		ls.m_shader.setUniform("u_light_colour", ls.m_lightColour);
+		ls.m_shader.setUniform("u_ambient_colour", ls.m_ambientColour);
+		ls.m_shader.setUniform("u_falloff", ls.m_falloff);
+		ls.m_shader.setUniform("u_width", static_cast<float>(sprite.getWidth()));
+		ls.m_shader.setUniform("u_height", static_cast<float>(sprite.getHeight()));
+		ls.m_shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		ls.m_shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		ls.m_shader.setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
 
 		sprite.bind();
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
-
-		sprite.unbind();
 	}
 }

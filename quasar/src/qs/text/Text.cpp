@@ -40,7 +40,7 @@ namespace qs
         m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
 
         m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
-        m_sprite.create(qs::BufferType::DYNAMIC);
+        m_sprite.create<qs::BufferTypeDynamic>();
         m_sprite.applyTransforms();
     }
 
@@ -57,18 +57,18 @@ namespace qs
             qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 1.0f },
             qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 0.f }
         };
-        vb.create<qs::DynamicBufferType>(vs);
+        vb.create<qs::BufferTypeDynamic>(vs);
 
         qs::IndexBuffer ib;
-        ib.create<qs::StaticBufferType>(
+        ib.create<qs::BufferTypeStatic>(
         {
             0, 1, 2, 3, 4, 5
         });
 
         qs::VertexLayout layout;
-        layout.add<qs::PositionVAType>(2);
-        layout.add<qs::ColourVAType>(4);
-        layout.add<qs::TexelVAType>(2);
+        layout.add<qs::VATypePosition>(2);
+        layout.add<qs::VATypeColour>(4);
+        layout.add<qs::VATypeTexel>(2);
 
         qs::VertexArray ar;
         ar.create(vb, ib, layout);

@@ -28,9 +28,12 @@ namespace qs
 	class IndexBuffer;
 	struct LightSource;
 	class RenderTexture;
+	class InstancedSprite;
 
 	///
-	/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
+	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
+	///
+	/// ONLY THE RENDERER IS ALLOWED TO UNBIND/BIND SHADERS.
 	///
 	class Renderer final
 	{
@@ -68,14 +71,6 @@ namespace qs
 		void drawCircle(qs::Circle& circle) noexcept;
 
 		///
-		/// Draw a sprite.
-		///
-		/// \param sprite Sprite to draw to screen.
-		/// \param shader Shader to apply to sprite. You must have called bind() already!
-		///
-		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
-
-		///
 		/// Draw VertexArray to render texture.
 		///
 		/// \param va Vertex Array to use when drawing.
@@ -84,6 +79,22 @@ namespace qs
 		/// \param shader Shader to apply to va. You must have called bind() already!
 		///
 		void drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+
+		///
+		/// Draw a sprite.
+		///
+		/// \param sprite Sprite to draw to screen.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
+
+		///
+		/// \brief Draw an instanced texture.
+		///
+		/// \param is Instanced sprite to draw.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawInstancedSprite(qs::InstancedSprite& is, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw to render texture.
@@ -108,13 +119,13 @@ namespace qs
 		/// A scene is where you render all the sprites to a texture then apply a post process shader.
 		/// Usually is a lightsource shader.
 		/// Shader is bound for you.
+		/// LightSource provides shader.
 		///
 		/// \param sprite Framebuffer sprite.
 		/// \param camera used to render scene.
-		/// \param ls Light source(s) for shader.
-		/// \param shader Shader to apply to text. You must have called bind() already!
+		/// \param ls Light source(s) for lighting.
 		///
-		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls, qs::Shader& shader) noexcept;
+		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept;
 	};
 }
 

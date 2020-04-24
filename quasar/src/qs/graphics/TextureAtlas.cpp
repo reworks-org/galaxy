@@ -59,7 +59,7 @@ namespace qs
 				// Load texture.
 				qs::Sprite loadedTex;
 				loadedTex.load(filePath.string());
-				loadedTex.create(qs::BufferType::DYNAMIC);
+				loadedTex.create<qs::BufferTypeDynamic>();
 
 				// Pack into rect then add to hashmap.
 				auto opt = m_packer.pack(loadedTex.getWidth(), loadedTex.getHeight());

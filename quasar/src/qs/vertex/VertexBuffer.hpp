@@ -14,7 +14,6 @@
 #include "qs/utils/Meta.hpp"
 #include "qs/utils/Error.hpp"
 #include "qs/vertex/Vertex.hpp"
-#include "qs/utils/BufferType.hpp"
 
 ///
 /// Core namespace.
@@ -48,16 +47,6 @@ namespace qs
 		///
 		template<typename BufferType>
 		void create(const VertexStorage& vertexs);
-
-		///
-		/// \brief Create vertex buffer object.
-		///
-		/// You will need to call bind() before using this buffer.
-		///
-		/// \param bufferType Fixed or dynamic buffer.
-		/// \param vertexs Vertexs to use.
-		///
-		void create(const VertexStorage& vertexs, const qs::BufferType bufferType);
 
 		///
 		/// Destroys buffer.
@@ -104,19 +93,19 @@ namespace qs
 	inline void VertexBuffer::create(const VertexStorage& vertexs)
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
-		static_assert(std::is_same<BufferType, qs::DynamicBufferType>::value || std::is_same<BufferType, qs::StaticBufferType>::value);
+		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
 
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<BufferType, qs::DynamicBufferType>::value)
+		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
 		{
 			m_vertexStorage = vertexs;
 			glBufferData(GL_ARRAY_BUFFER, m_vertexStorage.size() * sizeof(qs::Vertex), nullptr, GL_DYNAMIC_DRAW);
 		}
-		else if constexpr (std::is_same<BufferType, qs::StaticBufferType>::value)
+		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
 		{
 			m_vertexStorage = vertexs;
 			glBufferData(GL_ARRAY_BUFFER, m_vertexStorage.size() * sizeof(qs::Vertex), m_vertexStorage.data(), GL_STATIC_DRAW);

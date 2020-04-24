@@ -66,23 +66,23 @@ namespace qs
 	inline void VertexLayout::add(const int size)
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
-		static_assert(std::is_same<VertexAttributeType, qs::PositionVAType>::value || 
-					  std::is_same<VertexAttributeType, qs::ColourVAType>::value || 
-			          std::is_same<VertexAttributeType, qs::TexelVAType>::value
+		static_assert(std::is_same<VertexAttributeType, qs::VATypePosition>::value || 
+					  std::is_same<VertexAttributeType, qs::VATypeColour>::value ||
+			          std::is_same<VertexAttributeType, qs::VATypeTexel>::value
 		);
 
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<VertexAttributeType, qs::PositionVAType>::value)
+		if constexpr (std::is_same<VertexAttributeType, qs::VATypePosition>::value)
 		{
 			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_position));
 		}
-		else if constexpr (std::is_same<VertexAttributeType, qs::ColourVAType>::value)
+		else if constexpr (std::is_same<VertexAttributeType, qs::VATypeColour>::value)
 		{
 			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_colour));
 		}
-		else if constexpr (std::is_same<VertexAttributeType, qs::TexelVAType>::value)
+		else if constexpr (std::is_same<VertexAttributeType, qs::VATypeTexel>::value)
 		{
 			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_texels));
 		}

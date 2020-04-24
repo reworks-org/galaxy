@@ -49,6 +49,11 @@ namespace qs
 		/// Z level of light, changes the way the light reflects off the normal map.
 		///
 		float m_zLevel;
+
+		///
+		/// Shader that this light source uses.
+		///
+		qs::Shader m_shader;
 	};
 }
 

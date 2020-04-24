@@ -27,44 +27,6 @@ namespace qs
 		unbind();
 		glDeleteTextures(1, &m_id);
 	}
-	
-	void Sprite::create(const qs::BufferType bufferType) noexcept
-	{
-		auto quad = qs::Vertex::make_quad({ 0.0f, 0.0f, static_cast<float>(m_width), static_cast<float>(m_height) }, { 0.0f, 0.0f, 0.0f, 1.0f }, 0.0f, 0.0f);
-		m_vertexBuffer.create({ quad[0], quad[1], quad[2], quad[3] }, bufferType);
-
-		m_indexBuffer.create({ 0, 1, 3, 1, 2, 3 }, bufferType);
-		
-		m_layout.add<qs::PositionVAType>(2);
-		m_layout.add<qs::ColourVAType>(4);
-		m_layout.add<qs::TexelVAType>(2);
-
-		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
-
-		m_transforms.emplace(0, std::move(qs::Transform()));
-		m_transforms[0].setRotationOrigin(static_cast<float>(m_width), static_cast<float>(m_height));
-
-		setActiveQuad();
-	}
-
-	void Sprite::create(const qs::BufferType bufferType, const protostar::Rect<float>& texSrc) noexcept
-	{
-		auto quad = qs::Vertex::make_quad({ 0.0f, 0.0f, texSrc.m_width, texSrc.m_height }, { 0.0f, 0.0f, 0.0f, 1.0f }, texSrc.m_x, texSrc.m_y);
-		m_vertexBuffer.create({ quad[0], quad[1], quad[2], quad[3] }, bufferType);
-		
-		m_indexBuffer.create({ 0, 1, 3, 1, 2, 3 }, bufferType);
-
-		m_layout.add<qs::PositionVAType>(2);
-		m_layout.add<qs::ColourVAType>(4);
-		m_layout.add<qs::TexelVAType>(2);
-
-		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
-
-		m_transforms.emplace(0, std::move(qs::Transform()));
-		m_transforms[0].setRotationOrigin(texSrc.m_width, texSrc.m_height);
-
-		setActiveQuad();
-	}
 
 	void Sprite::create(const VertexQuadStorage& vertexs) noexcept
 	{
@@ -82,7 +44,7 @@ namespace qs
 		}
 
 		vs.shrink_to_fit();
-		m_vertexBuffer.create<qs::DynamicBufferType>(vs);
+		m_vertexBuffer.create<qs::BufferTypeDynamic>(vs);
 
 		std::vector<unsigned int> indexs;
 		unsigned int increment = 0;
@@ -102,11 +64,11 @@ namespace qs
 
 			increment += 4;
 		}
-		m_indexBuffer.create<qs::DynamicBufferType>(indexs);
+		m_indexBuffer.create<qs::BufferTypeStatic>(indexs);
 
-		m_layout.add<qs::PositionVAType>(2);
-		m_layout.add<qs::ColourVAType>(4);
-		m_layout.add<qs::TexelVAType>(2);
+		m_layout.add<qs::VATypePosition>(2);
+		m_layout.add<qs::VATypeColour>(4);
+		m_layout.add<qs::VATypeTexel>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
 
@@ -181,19 +143,14 @@ namespace qs
 
 	void Sprite::bind() noexcept
 	{
-		glBindTexture(GL_TEXTURE_2D, m_id);
 		m_vertexArray.bind();
+		glBindTexture(GL_TEXTURE_2D, m_id);
 	}
 
 	void Sprite::unbind() noexcept
 	{
 		m_vertexArray.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
-	}
-
-	qs::VertexArray& Sprite::getVAO() noexcept
-	{
-		return m_vertexArray;
 	}
 
 	const unsigned int Sprite::getCount() const noexcept

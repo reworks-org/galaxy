@@ -13,7 +13,6 @@
 #include <vector>
 
 #include "qs/utils/Meta.hpp"
-#include "qs/utils/BufferType.hpp"
 
 #include <glad/glad.h>
 
@@ -48,14 +47,6 @@ namespace qs
 		///
 		template<typename BufferType>
 		void create(const qs::IndexStorage& indexs);
-
-		///
-		/// Create index buffer from dynamic container.
-		///
-		/// \param indexs Index array to use.
-		/// \param bufferType Fixed or dynamic buffer.
-		///
-		void create(const std::vector<unsigned int>& indexs, const qs::BufferType bufferType) noexcept;
 
 		///
 		/// Destroys buffer.
@@ -98,16 +89,16 @@ namespace qs
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 
 		// If not one of the two buffer type structs, throw compile-time assert.
-		static_assert(std::is_same<BufferType, qs::DynamicBufferType>::value || std::is_same<BufferType, qs::StaticBufferType>::value);
+		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
 
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<BufferType, qs::DynamicBufferType>::value)
+		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_DYNAMIC_DRAW);
 		}
-		else if constexpr (std::is_same<BufferType, qs::StaticBufferType>::value)
+		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
 		}

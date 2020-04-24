@@ -14,7 +14,6 @@
     <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
     <ClCompile Include="src\qs\vertex\Vertex.cpp" />
-    <ClCompile Include="src\qs\utils\BufferType.cpp" />
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\core\Transform.cpp" />
@@ -46,7 +45,6 @@
     <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
     <ClInclude Include="src\qs\vertex\Vertex.hpp" />
-    <ClInclude Include="src\qs\utils\BufferType.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\core\Transform.hpp" />

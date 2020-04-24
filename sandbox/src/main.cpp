@@ -69,9 +69,6 @@ int main(int argsc, char* argsv[])
 	qs::Shader lineShader;
 	lineShader.loadFromPath("../quasar/res/shaders/line.glsl");
 
-	qs::Shader lightShader;
-	lightShader.loadFromPath("../quasar/res/shaders/light.vs", "../quasar/res/shaders/light.fs");
-
 	qs::TextureAtlas atlas;
 
 	rttshader.bind();
@@ -123,6 +120,7 @@ int main(int argsc, char* argsv[])
 	lightSource.m_falloff = { 0.4f, 3.0f, 20.0f };
 	lightSource.m_zLevel = 0.075f;
 	lightSource.m_pos = { 500.0f, 200.0f };
+	lightSource.m_shader.loadFromPath("../quasar/res/shaders/light.vs", "../quasar/res/shaders/light.fs");
 
 	// Loop
 	while (window.isOpen())
@@ -272,7 +270,7 @@ int main(int argsc, char* argsv[])
 		// Uses same shader as line shader.
 		//renderer.drawCircle(circle);
 
-		renderer.drawScene(atlasSpr, camera, lightSource, lightShader);
+		renderer.drawScene(atlasSpr, camera, lightSource);
 		//renderer.drawSprite(atlasSpr, shader);
 		//renderer.drawText(text, shader);
 
