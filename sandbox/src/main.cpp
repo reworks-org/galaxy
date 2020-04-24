@@ -37,6 +37,7 @@ int main(int argsc, char* argsv[])
 	qs::WindowSettings::s_aspectRatioX = -1;
 	qs::WindowSettings::s_aspectRatioY = -1;
 	qs::WindowSettings::s_rawMouseInput = true;
+	qs::WindowSettings::s_textureFormat = GL_RGBA8;
 
 	qs::Window window;
 

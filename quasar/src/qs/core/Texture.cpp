@@ -57,7 +57,7 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_textureFormat, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 			// Ansiotropic filtering.
 			setAnisotropy(qs::WindowSettings::s_ansiotropicFiltering);
@@ -91,7 +91,7 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_textureFormat, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 			// Ansiotropic filtering.
 			setAnisotropy(qs::WindowSettings::s_ansiotropicFiltering);

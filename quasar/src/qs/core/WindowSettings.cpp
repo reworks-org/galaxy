@@ -6,6 +6,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glad/glad.h>
+
 #include "WindowSettings.hpp"
 
 ///
@@ -47,4 +49,9 @@ namespace qs
 	/// Raw mouse input.
 	///
 	bool WindowSettings::s_rawMouseInput = true;
+
+	///
+	/// Texture format.
+	///
+	unsigned int WindowSettings::s_textureFormat = GL_RGBA8;
 }

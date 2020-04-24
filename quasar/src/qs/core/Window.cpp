@@ -93,9 +93,7 @@ namespace qs
 			glfwWindowHint(GLFW_DEPTH_BITS, 24);
 			glfwWindowHint(GLFW_STENCIL_BITS, 8);
 			glfwWindowHint(GLFW_DOUBLEBUFFER, true);
-
-			// sRGB.
-			glfwWindowHint(GLFW_SRGB_CAPABLE, qs::WindowSettings::s_srgb);
+			glfwWindowHint(GLFW_SRGB_CAPABLE, true);
 
 			// MSAA
 			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_antiAliasing);
@@ -159,6 +157,12 @@ namespace qs
 
 					// Allow for changing vertex point size.
 					glEnable(GL_PROGRAM_POINT_SIZE);
+
+					// sRGB colours for rendering.
+					if (qs::WindowSettings::s_srgb)
+					{
+						glEnable(GL_FRAMEBUFFER_SRGB);
+					}
 
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));

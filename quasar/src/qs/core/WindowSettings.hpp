@@ -57,6 +57,11 @@ namespace qs
 		///
 		static bool s_rawMouseInput;
 
+		///
+		/// Texture format.
+		///
+		static unsigned int s_textureFormat;
+
 	private:
 		///
 		/// Constructor.
