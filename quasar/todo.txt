@@ -12,6 +12,3 @@
 - Dynamic primitives.
 
 - move some of common spr/tex codes into common classes
-- same as above for textures
-- figure out better rules for storage shader -> atm only lightsource stores shaders
-- same as above, excpet for binding sdhaders. atm only renderer binds shaders.

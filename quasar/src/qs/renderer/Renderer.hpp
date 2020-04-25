@@ -28,7 +28,6 @@ namespace qs
 	class IndexBuffer;
 	struct LightSource;
 	class RenderTexture;
-	class InstancedSprite;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -76,7 +75,7 @@ namespace qs
 		/// \param va Vertex Array to use when drawing.
 		/// \param ib IndexBuffer to use when drawing.
 		/// \param rt Target to draw to.
-		/// \param shader Shader to apply to va. You must have called bind() already!
+		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
 		///
 		void drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
 
@@ -89,19 +88,11 @@ namespace qs
 		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
 
 		///
-		/// \brief Draw an instanced texture.
-		///
-		/// \param is Instanced sprite to draw.
-		/// \param shader Shader to apply to sprite. You must have called bind() already!
-		///
-		void drawInstancedSprite(qs::InstancedSprite& is, qs::Shader& shader) noexcept;
-
-		///
 		/// Draw to render texture.
 		///
 		/// \param sprite Sprite to draw to screen.
 		/// \param rt Target to draw to.
-		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		/// \param shader Shader to apply to sprite. CALLS bind() FOR YOU!
 		///
 		void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
 
@@ -123,7 +114,7 @@ namespace qs
 		///
 		/// \param sprite Framebuffer sprite.
 		/// \param camera used to render scene.
-		/// \param ls Light source(s) for lighting.
+		/// \param ls Light source(s) for lighting. Provides its own shader.
 		///
 		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept;
 	};

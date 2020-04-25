@@ -71,10 +71,8 @@ int main(int argsc, char* argsv[])
 
 	qs::TextureAtlas atlas;
 
-	rttshader.bind();
 	atlas.add("bin/wall.png");
 	atlas.add("bin/wall_2.png");
-
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
 
@@ -92,7 +90,6 @@ int main(int argsc, char* argsv[])
 	font.create("bin/public.ttf", 36);
 	auto col = qs::Colours::Black;
 	text.load("HELLO, WORLD.", font, col);
-	textRTTshader.bind();
 	text.create(window, renderer, textRTTshader);
 	text.asSprite().save("bin/text");
 

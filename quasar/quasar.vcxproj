@@ -30,7 +30,6 @@
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\qs\renderer\InstancedSprite.cpp" />
     <ClCompile Include="src\qs\renderer\LightSource.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\graphics\Sprite.cpp" />
@@ -62,7 +61,6 @@
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\qs\renderer\InstancedSprite.hpp" />
     <ClInclude Include="src\qs\renderer\LightSource.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\graphics\Sprite.hpp" />
@@ -85,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\instanced_sprite.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

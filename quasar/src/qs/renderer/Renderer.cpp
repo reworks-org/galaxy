@@ -16,7 +16,6 @@
 #include "qs/graphics/Camera.hpp"
 #include "qs/core/RenderTexture.hpp"
 #include "qs/renderer/LightSource.hpp"
-#include "qs/renderer/InstancedSprite.hpp"
 
 #include "Renderer.hpp"
 
@@ -49,6 +48,7 @@ namespace qs
 
 	void Renderer::drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
+		shader.bind();
 		shader.setUniform("u_projection", rt.getProjection());
 		va.bind();
 
@@ -65,19 +65,10 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::drawInstancedSprite(qs::InstancedSprite& is, qs::Shader& shader) noexcept
-	{
-		shader.setUniform<float>("u_width", static_cast<float>(is.getWidth()));
-		shader.setUniform<float>("u_height", static_cast<float>(is.getHeight()));
-		shader.setUniform<glm::mat4>("u_transform", is.getTransformation());
-
-		is.bind();
-
-		glDrawElements(GL_TRIANGLES, is.getCount(), GL_UNSIGNED_INT, nullptr);
-	}
-
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
+		shader.bind();
+
 		shader.setUniform("u_projection", rt.getProjection());
 		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
