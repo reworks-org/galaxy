@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include "UITheme.hpp"
 
 ///
@@ -13,89 +15,39 @@
 namespace celestial
 {
 	UITheme::UITheme() noexcept
-		:m_resourceLoader(nullptr), m_font(nullptr), m_colour(0, 0, 0, 255), m_master(nullptr)
+		:m_atlas()
 	{
+	}
+
+	UITheme::UITheme(const int atlasSize, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts)
+		:m_atlas(atlasSize)
+	{
+		create(textures, fonts);
 	}
 
 	UITheme::~UITheme() noexcept
 	{
-		m_font.reset();
-		m_master.reset();
-
-		// Cleanup, etc...
-		m_widgetRegions.clear();
-
-		m_resourceLoader = nullptr;
+		m_fonts.clear();
 	}
 
-	void UITheme::setResourceLoader(celestial::interface::ResourceLoader* loader) noexcept
+	void UITheme::create(const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts)
 	{
-		m_resourceLoader = loader;
-	}
-
-	bool UITheme::setMasterTexture(const std::string& texture) noexcept
-	{
-		if (!m_resourceLoader)
+		for (auto& texture : textures)
 		{
-			return false;
+			m_atlas.add(texture);
 		}
-		else
+
+		m_atlas.create(window, renderer, shader);
+
+		for (auto& fontData : fonts)
 		{
-			m_master = m_resourceLoader->loadTexture(texture);
-			return true;
+			auto fp = std::filesystem::path(fontData.first);
+			m_fonts.emplace(fp.stem(), fp.string(), fontData.second);
 		}
 	}
 
-	bool UITheme::setFont(const std::string& font) noexcept
+	qs::Font* UITheme::getFont(const std::string& key)
 	{
-		if (!m_resourceLoader)
-		{
-			return false;
-		}
-		else
-		{
-			m_font = m_resourceLoader->loadFont(font);
-			return true;
-		}
-	}
-	
-	void UITheme::setColour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept
-	{
-		m_colour.m_red = r;
-		m_colour.m_green = g;
-		m_colour.m_blue = b;
-		m_colour.m_alpha = a;
-	}
-
-	void UITheme::defineWidgetTexture(const std::string& id, const protostar::Rect<int>& dim) noexcept
-	{
-		m_widgetRegions.emplace(id, dim);
-	}
-
-	celestial::interface::TexturePtr UITheme::extractWidgetTexture(const std::string& id) noexcept
-	{
-		if (!m_resourceLoader)
-		{
-			return nullptr;
-		}
-		else
-		{
-			return m_resourceLoader->createSubTexture(m_master.get(), m_widgetRegions[id]);
-		}
-	}
-
-	celestial::interface::Font* UITheme::getFont() const noexcept
-	{
-		return m_font.get();
-	}
-
-	const protostar::Colour& UITheme::getColour() const noexcept
-	{
-		return m_colour;
-	}
-
-	celestial::interface::ResourceLoader* UITheme::getLoader() const noexcept
-	{
-		return m_resourceLoader;
+		return &(m_fonts[key]);
 	}
 }

@@ -8,14 +8,15 @@
 #ifndef CELESTIAL_UITHEME_HPP_
 #define CELESTIAL_UITHEME_HPP_
 
+#include <vector>
 #include <unordered_map>
 
-#include <protostar/shapes/Rect.hpp>
-#include <protostar/graphics/Colour.hpp>
+#include <qs/text/Font.hpp>
+#include <protostar/math/Rect.hpp>
+#include <protostar/system/Colour.hpp>
+#include <qs/graphics/TextureAtlas.hpp>
 
-#include "celestial/interface/Font.hpp"
-#include "celestial/interface/Texture.hpp"
-#include "celestial/interface/ResourceLoader.hpp"
+#include "celestial/Types.hpp"
 
 ///
 /// Core namespace.
@@ -23,7 +24,7 @@
 namespace celestial
 {
 	///
-	/// Class that defines how your widgets appear for a UI.
+	/// Defines how your widgets appear for a UI.
 	///
 	class UITheme final
 	{
@@ -34,125 +35,45 @@ namespace celestial
 		UITheme() noexcept;
 
 		///
+		/// Argument constructor.
+		///
+		/// \param atlasSize Size of the atlas to use.
+		/// \param textures List of textures to compose texture atlas.
+		/// \param fonts Name of font to load.
+		///
+		UITheme(const int atlasSize, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts);
+
+		///
 		/// Destructor.
 		///
 		~UITheme() noexcept;
 
 		///
-		/// \brief Set the resource loader.
+		/// Create the UITheme.
 		///
-		/// You need to call this function as soon as possible.
+		/// \param textures List of textures to compose texture atlas.
+		/// \param fonts Name of font to load.
 		///
-		/// \param loader Polymorphic pointer to resource loader.
+		void create(const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts);
+		
 		///
-		void setResourceLoader(celestial::interface::ResourceLoader* loader) noexcept;
-
+		/// Get a font using a key.
 		///
-		/// Loads the master texture for the theme.
+		/// \param key The key is the "stem" of the file path. I.e. the filename without the extension or path.
 		///
-		/// \param masterTexture Set the texture containing all the UI widget textures.
-		///
-		/// \return True if successful. False if resource loader not valid.
-		///
-		bool setMasterTexture(const std::string& texture) noexcept;
-
-		///
-		/// Sets the font used by the theme.
-		///
-		/// \param font Name of font to load.
-		///
-		/// \return True if successful. False if resource loader not valid.
-		///
-		bool setFont(const std::string& font) noexcept;
-
-		///
-		/// \brief Sets the colour used by the theme. 
-		///
-		/// Template type is the child type that inherits from celestial's compat colour class. Must be able to take r,g,b,a constructor.
-		///
-		/// \param r Red.
-		/// \param g Green.
-		/// \param b Blue.
-		/// \param a Alpha.
-		///
-		void setColour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept;
-
-		///
-		/// Define a specific texture region inside the master texture for a widget.
-		///
-		/// \param id ID of the texture region for that widget. I.e. "ButtonOn".
-		/// \param dim Dimensions of that texture on the master texture.
-		///
-		void defineWidgetTexture(const std::string& id, const protostar::Rect<int>& dim) noexcept;
-
-		///
-		/// Gets a sub-bitmap of a widget texture region from the master texture.
-		///
-		/// \param id ID of the texture region in the widget regions to use as a texture.
-		///
-		/// \return celestial::Texture of a sub-bitmap. Nullptr if resource loader is invalid.
-		///
-		celestial::interface::TexturePtr extractWidgetTexture(const std::string& id) noexcept;
-
-		///
-		/// Get theme font.
-		///
-		/// \return Font object.
-		///
-		celestial::interface::Font* getFont() const noexcept;
-
-		///
-		/// Get theme font, cast to a specific font type.
-		///
-		/// \return Font cast to FontType.
-		///
-		template<typename FontType>
-		FontType* getFont() noexcept;
-
-		///
-		/// Get theme text colour.
-		///
-		/// \return Colour object.
-		///
-		const protostar::Colour& getColour() const noexcept;
-
-		///
-		/// Gets a reference to the resource loader.
-		///
-		celestial::interface::ResourceLoader* getLoader() const noexcept;
+		qs::Font* getFont(const std::string& key);
 
 	private:
 		///
-		/// Colour of the text for UI.
+		/// Texture atlas containing all widget textures.
 		///
-		protostar::Colour m_colour;
+		qs::TextureAtlas m_atlas;
 
 		///
-		/// Loads resources.
+		/// Map of fonts stored for UI.
 		///
-		celestial::interface::ResourceLoader* m_resourceLoader;
-
-		///
-		/// Font used for text in UI.
-		///
-		celestial::interface::FontPtr m_font;
-
-		///
-		/// Master texture containing textures for all the widgets.
-		///
-		celestial::interface::TexturePtr m_master;
-
-		///
-		/// Regions on the master texture for each widget.
-		///
-		std::unordered_map<std::string, protostar::Rect<int>> m_widgetRegions;
+		std::unordered_map<std::string, qs::Font> m_fonts;
 	};
-
-	template<typename FontType>
-	inline FontType* UITheme::getFont() noexcept
-	{
-		return dynamic_cast<FontType*>(m_font.get());
-	}
 }
 
 #endif

@@ -4,20 +4,10 @@
     <Text Include="todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\celestial\Config.hpp" />
     <ClInclude Include="src\celestial\UITheme.hpp" />
-    <ClInclude Include="src\celestial\interface\Font.hpp" />
-    <ClInclude Include="src\celestial\interface\Renderer.hpp" />
-    <ClInclude Include="src\celestial\interface\ResourceLoader.hpp" />
-    <ClInclude Include="src\celestial\interface\Texture.hpp" />
-    <ClInclude Include="src\celestial\UI.hpp" />
+    <ClInclude Include="src\celestial\Types.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\celestial\UITheme.cpp" />
-    <ClCompile Include="src\celestial\interface\Font.cpp" />
-    <ClCompile Include="src\celestial\interface\Renderer.cpp" />
-    <ClCompile Include="src\celestial\interface\ResourceLoader.cpp" />
-    <ClCompile Include="src\celestial\interface\Texture.cpp" />
-    <ClCompile Include="src\celestial\UI.cpp" />
   </ItemGroup>
 </Project>
