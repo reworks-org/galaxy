@@ -34,6 +34,11 @@ uniform sampler2D u_texture;
 void main()
 {
 	vec4 tex = texture(u_texture, io_texels);
-	tex.a *= io_colour.a;
+    tex.a *= io_colour.a;
 	io_frag_colour = tex;
 }
+
+
+uniform vec2 offsets[100];
+  vec2 offset = offsets[gl_InstanceID];
+    gl_Position = vec4(aPos + offset, 0.0, 1.0);

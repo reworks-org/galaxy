@@ -31,6 +31,7 @@
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Circle.cpp" />
     <ClCompile Include="src\qs\renderer\LightSource.cpp" />
+    <ClCompile Include="src\qs\renderer\InstancedSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -63,7 +64,6 @@
     <ClInclude Include="src\qs\graphics\Circle.hpp" />
     <ClInclude Include="src\qs\renderer\LightSource.hpp" />
     <ClInclude Include="src\qs\renderer\InstancedSprite.hpp" />
-    <ClInclude Include="src\qs\renderer\InstancedSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />
