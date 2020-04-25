@@ -22,7 +22,7 @@ install:
   - cmd: git submodule update --init --recursive
 
 matrix:
-  fast_finish: true
+  fast_finish: false
 
 build_script:
   - cmd: msbuild celestial.sln

@@ -1,0 +1,28 @@
+UI
+-> takes in JSON
+-> call constrct() to finish and create everything
+
+so UI ui;
+ui->parse(json);
+ui->construct();
+ui->execute();
+
+ui->huh
+?
+
+
+ui->sendEvent();
+ui->update();
+
+
+ui->retrieveRender();
+
+on thread:
+loop {
+	processEvents
+	 {
+	 	// etc
+	 }
+
+	 update();
+}
