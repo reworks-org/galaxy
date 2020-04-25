@@ -1,0 +1,3 @@
+[submodule "modules/quasar"]
+	path = modules/quasar
+	url = https://github.com/DomRe/quasar.git
