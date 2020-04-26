@@ -47,7 +47,7 @@ namespace protostar
 		///
 		/// \param threadPoolFinished Pointer to ThreadPool::m_isActive. If this is false your function should exit to prevent deadlocks!
 		///
-		void exec(const protostar::ProtectedBool* threadPoolFinished);
+		void exec(protostar::ProtectedBool* threadPoolFinished);
 
 		///
 		/// Blocks calling thread until this task is finished.
@@ -58,7 +58,7 @@ namespace protostar
 		///
 		/// Stores task to be executed.
 		///
-		std::function<void(const protostar::ProtectedBool*)> m_task;
+		std::function<void(protostar::ProtectedBool*)> m_task;
 
 		///
 		/// Check to make sure task is finished.

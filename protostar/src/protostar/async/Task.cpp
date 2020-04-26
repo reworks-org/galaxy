@@ -25,7 +25,7 @@ namespace protostar
 		m_isFinished.set(true);
 	}
 
-	void Task::exec(const protostar::ProtectedBool* threadPoolFinished)
+	void Task::exec(protostar::ProtectedBool* threadPoolFinished)
 	{
 		m_task(threadPoolFinished);
 		m_isFinished.set(true);
