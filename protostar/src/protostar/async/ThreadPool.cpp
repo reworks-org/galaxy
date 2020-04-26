@@ -37,7 +37,7 @@ namespace protostar
 
 	void ThreadPool::create(const size_t count) noexcept
 	{
-		if (count < m_maxThreadCount)
+		if (count > m_maxThreadCount)
 		{
 			m_maxThreadCount = count;
 		}
@@ -48,27 +48,26 @@ namespace protostar
 			{
 				while (m_isActive == true)
 				{
-					Task task;
+					Task* task = nullptr;
 
 					{
 						std::unique_lock<std::mutex> l_lock(m_mutex);
 						m_cv.wait(l_lock, [&] { return !m_tasks.empty(); });
-
 						task = m_tasks.front();
 						m_tasks.pop();
 					}
-
-					task.exec();
+					
+					task->exec();
 				}
 			});
 		}
 	}
 
-	void ThreadPool::queue(Task&& task) noexcept
+	void ThreadPool::queue(Task* task) noexcept
 	{
 		{
 			std::unique_lock<std::mutex>(m_mutex);
-			m_tasks.emplace(std::move(task));
+			m_tasks.emplace(task);
 		}
 
 		m_cv.notify_one();

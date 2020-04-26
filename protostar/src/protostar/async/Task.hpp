@@ -8,6 +8,7 @@
 #ifndef PROTOSTAR_TASK_HPP_
 #define PROTOSTAR_TASK_HPP_
 
+#include <atomic>
 #include <functional>
 
 ///
@@ -56,11 +57,21 @@ namespace protostar
 		///
 		void exec();
 
+		///
+		/// Blocks calling thread until this task is finished.
+		///
+		void waitUntilFinished() noexcept;
+
 	private:
 		///
 		/// Stores task to be executed.
 		///
 		std::function<void()> m_task;
+
+		///
+		/// Check to make sure task is finished.
+		///
+		std::atomic<bool> m_isFinished;
 	};
 
 	template<typename Func, typename ...Args>

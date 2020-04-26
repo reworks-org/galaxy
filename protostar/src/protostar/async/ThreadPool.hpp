@@ -51,7 +51,7 @@ namespace protostar
 		///
 		/// \param task R-value task to queue.
 		///
-		void queue(Task&& task) noexcept;
+		void queue(Task* task) noexcept;
 
 		///
 		/// Set if threads are active or not.
@@ -100,7 +100,7 @@ namespace protostar
 		///
 		/// Task queue.
 		///
-		std::queue<protostar::Task> m_tasks;
+		std::queue<protostar::Task*> m_tasks;
 
 		///
 		/// Condition variable for synchronization.
