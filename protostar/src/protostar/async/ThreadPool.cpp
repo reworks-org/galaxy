@@ -22,7 +22,7 @@ namespace protostar
 	ThreadPool::~ThreadPool() noexcept
 	{
 		// Turn off threads.
-		m_isActive = false;
+		m_isActive.set(false);
 		
 		// Notify all threads that they do not need to keep waiting.
 		m_cv.notify_all();
@@ -58,7 +58,7 @@ namespace protostar
 			{
 				// This part is on the thread.
 				// This is a lambda.
-				while (m_isActive.load())
+				while (m_isActive.get())
 				{
 					Task* task = nullptr;
 
@@ -97,6 +97,6 @@ namespace protostar
 
 	void ThreadPool::setActive(const bool isActive) noexcept
 	{
-		m_isActive = isActive;
+		m_isActive.set(isActive);
 	}
 }

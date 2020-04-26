@@ -22,6 +22,7 @@
     <ClCompile Include="src\protostar\system\Keys.cpp" />
     <ClCompile Include="src\protostar\math\RectPack.cpp" />
     <ClCompile Include="src\protostar\math\Rect.cpp" />
+    <ClCompile Include="src\protostar\async\ProtectedArithmetic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
@@ -45,6 +46,7 @@
     <ClInclude Include="src\protostar\system\Keys.hpp" />
     <ClInclude Include="src\protostar\math\RectPack.hpp" />
     <ClInclude Include="src\protostar\math\Rect.hpp" />
+    <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="todo.txt" />

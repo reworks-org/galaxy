@@ -11,8 +11,9 @@
 #include <queue>
 #include <future>
 #include <vector>
-#include <atomic>
 #include <condition_variable>
+
+#include "protostar/async/Task.hpp"
 
 ///
 /// Core namespace.
@@ -108,7 +109,7 @@ namespace protostar
 		///
 		/// Atomic boolean to control thread activity.
 		///
-		std::atomic<bool> m_isActive;
+		protostar::ProtectedBool m_isActive;
 	};
 }
 

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\protostar\async\ProtectedArithmetic.cpp" />
     <ClCompile Include="src\protostar\async\Task.cpp" />
     <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
     <ClCompile Include="src\protostar\events\KeyCharEvent.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
     <ClInclude Include="src\protostar\async\Task.hpp" />
     <ClInclude Include="src\protostar\async\ThreadPool.hpp" />
     <ClInclude Include="src\protostar\events\KeyCharEvent.hpp" />

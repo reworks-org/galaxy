@@ -17,22 +17,23 @@ namespace protostar
 {
 	Task::Task() noexcept
 	{
-		m_isFinished = false;
+		m_isFinished.set(false);
 	}
 
 	Task::~Task() noexcept
 	{
+		m_isFinished.set(true);
 	}
 
-	void Task::exec(const std::atomic<bool>* threadPoolFinished)
+	void Task::exec(const protostar::ProtectedBool* threadPoolFinished)
 	{
 		m_task(threadPoolFinished);
-		m_isFinished = true;
+		m_isFinished.set(true);
 	}
 
 	void Task::waitUntilFinished() noexcept
 	{
-		while (!m_isFinished.load())
+		while (!m_isFinished.get())
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(5));
 		}
