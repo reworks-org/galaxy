@@ -55,7 +55,9 @@ namespace protostar
 		///
 		/// Run the task on the thread.
 		///
-		void exec();
+		// \param threadPoolFinished Pointer to ThreadPool::m_isActive. If this is false your function should exit to prevent deadlocks!
+		///
+		void exec(const std::atomic<bool>* threadPoolFinished);
 
 		///
 		/// Blocks calling thread until this task is finished.
@@ -66,7 +68,7 @@ namespace protostar
 		///
 		/// Stores task to be executed.
 		///
-		std::function<void()> m_task;
+		std::function<void(const std::atomic<bool>*)> m_task;
 
 		///
 		/// Check to make sure task is finished.

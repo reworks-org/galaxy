@@ -21,18 +21,27 @@ namespace protostar
 
 	ThreadPool::~ThreadPool() noexcept
 	{
+		// Turn off threads.
 		m_isActive = false;
+		
+		// Notify all threads that they do not need to keep waiting.
+		m_cv.notify_all();
 
-		for (auto& thread : m_workers)
+		// Make sure tasks is not in use, then empty queue.
+		// In case any tasks are left over.
 		{
-			thread.join();
+			std::unique_lock<std::mutex> l_lock(m_mutex);
+			while (!m_tasks.empty())
+			{
+				m_tasks.pop();
+			}
 		}
-	}
 
-	protostar::ThreadPool& ThreadPool::handle() noexcept
-	{
-		static protostar::ThreadPool s_thread;
-		return s_thread;
+		for (auto& future : m_workers)
+		{
+			// Resync threads.
+			future.wait();
+		}
 	}
 
 	void ThreadPool::create(const size_t count) noexcept
@@ -44,22 +53,35 @@ namespace protostar
 
 		for (std::size_t it = 0; it < m_maxThreadCount; it++)
 		{
-			m_workers.emplace_back([&]()
+			// This is just storing the thread.
+			m_workers.emplace_back(std::move(std::async(std::launch::async, [&]()
 			{
-				while (m_isActive == true)
+				// This part is on the thread.
+				// This is a lambda.
+				while (m_isActive.load())
 				{
 					Task* task = nullptr;
 
 					{
+						// Wait until notification.
 						std::unique_lock<std::mutex> l_lock(m_mutex);
-						m_cv.wait(l_lock, [&] { return !m_tasks.empty(); });
-						task = m_tasks.front();
-						m_tasks.pop();
+						m_cv.wait(l_lock);
+
+						// Do task after notification.
+						if (!m_tasks.empty())
+						{
+							task = m_tasks.front();
+							m_tasks.pop();
+						}
 					}
-					
-					task->exec();
+
+					// Make sure a task was assigned.
+					if (task != nullptr)
+					{
+						task->exec(&m_isActive);
+					}
 				}
-			});
+			})));
 		}
 	}
 

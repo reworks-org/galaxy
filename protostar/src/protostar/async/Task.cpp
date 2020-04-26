@@ -24,9 +24,9 @@ namespace protostar
 	{
 	}
 
-	void Task::exec()
+	void Task::exec(const std::atomic<bool>* threadPoolFinished)
 	{
-		m_task();
+		m_task(threadPoolFinished);
 		m_isFinished = true;
 	}
 

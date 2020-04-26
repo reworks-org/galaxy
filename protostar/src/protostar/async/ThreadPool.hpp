@@ -9,7 +9,7 @@
 #define PROTOSTAR_THREADPOOL_HPP_
 
 #include <queue>
-#include <thread>
+#include <future>
 #include <vector>
 #include <atomic>
 #include <condition_variable>
@@ -26,16 +26,14 @@ namespace protostar
 	{
 	public:
 		///
+		/// Constructor.
+		///
+		ThreadPool() noexcept;
+
+		///
 		/// Destructor.
 		///
 		~ThreadPool() noexcept;
-
-		///
-		/// \brief Singleton handle.
-		///
-		/// You must call create() before using any functions.
-		///
-		static protostar::ThreadPool& handle() noexcept;
 
 		///
 		/// \brief Creates a number of threads.
@@ -61,11 +59,6 @@ namespace protostar
 		void setActive(const bool isActive) noexcept;
 
 	private:
-		///
-		/// Constructor.
-		///
-		ThreadPool() noexcept;
-
 		///
 		/// Deleted move constructor.
 		///
@@ -95,7 +88,7 @@ namespace protostar
 		///
 		/// Worker threads to do a task on.
 		///
-		std::vector<std::thread> m_workers;
+		std::vector<std::future<void>> m_workers;
 
 		///
 		/// Task queue.
