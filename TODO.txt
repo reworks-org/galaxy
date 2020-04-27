@@ -5,6 +5,8 @@ https://www.sfml-dev.org/tutorials/2.5/audio-spatialization.php
 redo quadtree for rendering? - replaced by sf::View?
 system
 
+std::string_view and other string optimizations
+
 OLD:
 
 - Code Quality:
