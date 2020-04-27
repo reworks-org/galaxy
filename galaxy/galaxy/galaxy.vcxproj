@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dummy.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{24A73AC2-A971-47D0-905A-7AFB76684687}</ProjectGuid>
@@ -110,7 +113,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ConformanceMode>false</ConformanceMode>
@@ -142,7 +145,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -177,7 +180,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -214,7 +217,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>

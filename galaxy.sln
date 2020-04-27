@@ -41,6 +41,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "galaxy", "galaxy\galaxy\gal
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protostar", "galaxy\protostar\protostar.vcxproj", "{415D373E-CF11-44DD-950D-6F819FDBB823}"
+	ProjectSection(ProjectDependencies) = postProject
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A} = {88A54A44-3166-44C5-8C47-6AB70DA30D7A}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pulsar", "galaxy\pulsar\pulsar.vcxproj", "{F300952E-0D01-4A04-887D-BD2C63130384}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -76,6 +79,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		TODO.txt = TODO.txt
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deps", "galaxy\deps\deps.vcxproj", "{88A54A44-3166-44C5-8C47-6AB70DA30D7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +178,14 @@ Global
 		{CE6BDD18-C26A-4858-BD20-CD1AF12BDFBD}.Release|Win32.Build.0 = Release|Win32
 		{CE6BDD18-C26A-4858-BD20-CD1AF12BDFBD}.Release|x64.ActiveCfg = Release|x64
 		{CE6BDD18-C26A-4858-BD20-CD1AF12BDFBD}.Release|x64.Build.0 = Release|x64
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Debug|Win32.Build.0 = Debug|Win32
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Debug|x64.ActiveCfg = Debug|x64
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Debug|x64.Build.0 = Debug|x64
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Release|Win32.ActiveCfg = Release|Win32
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Release|Win32.Build.0 = Release|Win32
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Release|x64.ActiveCfg = Release|x64
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

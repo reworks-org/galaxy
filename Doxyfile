@@ -796,12 +796,10 @@ INPUT                  = galaxy/celestial/src \
                          galaxy/protostar/src \
                          galaxy/pulsar/src \
                          galaxy/quasar/src \
-                         galaxy/quasar/res/shaders \
                          galaxy/redshift/src \
                          galaxy/solar/src \
                          galaxy/starlight/src \
-                         galaxy/starmap/src \
-                         sandbox/src \
+                         galaxy/starmap/src
                          README.md
 
 

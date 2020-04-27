@@ -3,6 +3,10 @@ galaxy/celestial/bin/Debug/
 galaxy/celestial/bin/Release/
 galaxy/celestial/build/
 
+galaxy/deps/bin/Debug/
+galaxy/deps/bin/Release/
+galaxy/deps/build/
+
 galaxy/frb/bin/Debug/
 galaxy/frb/bin/Release/
 galaxy/frb/build/
@@ -41,7 +45,6 @@ galaxy/starmap/build/
 
 # repo stuff
 .vs/
-legacy/
 
 # sandbox stuff
 sandbox/bin/Debug/

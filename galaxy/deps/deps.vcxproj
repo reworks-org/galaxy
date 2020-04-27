@@ -19,28 +19,54 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\starlight\detail\QueuedEvent.cpp" />
-    <ClCompile Include="src\starlight\detail\SpecificEvent.cpp" />
-    <ClCompile Include="src\starlight\Dispatcher.cpp" />
-    <ClCompile Include="src\starlight\storage\BasicStorage.cpp" />
-    <ClCompile Include="src\starlight\storage\Storage.cpp" />
-    <ClCompile Include="src\starlight\Types.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\starlight\detail\QueuedEvent.hpp" />
-    <ClInclude Include="src\starlight\detail\SpecificEvent.hpp" />
-    <ClInclude Include="src\starlight\Dispatcher.hpp" />
-    <ClInclude Include="src\starlight\storage\BasicStorage.hpp" />
-    <ClInclude Include="src\starlight\storage\Storage.hpp" />
-    <ClInclude Include="src\starlight\Types.hpp" />
+    <ClCompile Include="..\..\dependencies\glad\glad\glad.c" />
+    <ClCompile Include="..\..\dependencies\imgui-texteditor\TextEditor.cpp" />
+    <ClCompile Include="..\..\dependencies\imgui\cpp\imgui_stdlib.cpp" />
+    <ClCompile Include="..\..\dependencies\imgui\imgui.cpp" />
+    <ClCompile Include="..\..\dependencies\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\..\dependencies\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\..\dependencies\imgui\impl\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\..\dependencies\lua\src\lapi.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lauxlib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lbaselib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lbitlib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lcode.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lcorolib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lctype.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ldblib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ldebug.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ldo.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ldump.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lfunc.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lgc.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\linit.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\liolib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\llex.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lmathlib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lmem.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\loadlib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lobject.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lopcodes.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\loslib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lparser.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lstate.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lstring.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lstrlib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ltable.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ltablib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\ltm.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lundump.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lutf8lib.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lvm.c" />
+    <ClCompile Include="..\..\dependencies\lua\src\lzio.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{E7B92568-222A-4121-8EA6-8C9664E38DFE}</ProjectGuid>
+    <ProjectGuid>{88A54A44-3166-44C5-8C47-6AB70DA30D7A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>starlight</RootNamespace>
+    <RootNamespace>protostar</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>starlight</ProjectName>
+    <ProjectName>deps</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -115,14 +141,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -135,14 +161,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -157,13 +183,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -180,13 +206,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

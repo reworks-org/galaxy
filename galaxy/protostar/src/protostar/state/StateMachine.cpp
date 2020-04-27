@@ -52,7 +52,7 @@ namespace protostar
 	void StateMachine::push(const std::string& state)
 	{
 		// Ensure that the state being pushed exists.
-		if (m_states.contains(state))
+		if (m_states.find(state) != m_states.end())
 		{
 			m_stack.push(m_states[state].get());
 			m_stack.top()->onPush();
