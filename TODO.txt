@@ -1,12 +1,15 @@
 https://github.com/rokups/ImNodes
-- redshift
-- move to univeral error handling through logging library, avoid exceptions!
+
+- move to univeral error handling through logging library, enable exceptions
+- sol::error::what() for sol3 exceptions.
 https://www.sfml-dev.org/tutorials/2.5/audio-spatialization.php
 
 redo quadtree for rendering? - replaced by sf::View?
 system
 
 std::string_view and other string optimizations
+
+fix code generation settings.
 
 OLD:
 

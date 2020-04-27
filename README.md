@@ -11,7 +11,6 @@ Game Programming Library using C++17, OpenGL 4.5, Lua and JSON.
 ### Windows:
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
-type PATCH.txt >> modules/imgui/imconfig.h
 msbuild galaxy.sln
 ```
 
@@ -27,11 +26,15 @@ git submodule update --init --recursive
 
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).
+
 Or generate offline with Doxygen.
 
 ## Features
 - Uses Modern C++ design principles, built on C++17.
-- Built on top of --
+
+```cpp
+// todo
+```
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).

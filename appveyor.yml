@@ -11,7 +11,7 @@ image:
   - Visual Studio 2019
 
 platform:
-  - x86
+  - Win32
   - x64
 
 configuration:
@@ -20,7 +20,6 @@ configuration:
 
 install:
   - cmd: git submodule update --init --recursive
-  - cmd: type PATCH.txt >> modules/imgui/imconfig.h
 
 matrix:
   fast_finish: false
