@@ -23,7 +23,7 @@ install:
   - cmd: type PATCH.txt >> modules/imgui/imconfig.h
 
 matrix:
-  fast_finish: true
+  fast_finish: false
 
 build_script:
   - cmd: msbuild galaxy.sln

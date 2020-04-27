@@ -62,3 +62,14 @@ OLD:
 	- https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-within-a-world/
 
 	https://github.com/flingengine/FlingEngine
+
+
+	- "universe" -> or "supercluster"
+	- something that contains multiple galaxies
+	- level editor, json editor, create diferent types of json files for use in galaxy
+	- galaxy can then just load the json and go
+	- built on quasar and imgui
+	- part of galaxy repo
+
+
+	https://www.glfw.org/docs/latest/input_guide.html#input_key
