@@ -18,6 +18,11 @@
 namespace protostar
 {
 	///
+	/// Shorthand for task function type.
+	///
+	using TaskFunction = std::function<void(protostar::ProtectedBool*)>;
+
+	///
 	/// A task to run on a thread.
 	///
 	class Task final
@@ -36,11 +41,9 @@ namespace protostar
 		///
 		/// Set the task to be done.
 		///
-		/// \param function Lambda or function to call when task is executed.
-		/// \param args ParameterPack of variable amount of arguments to call with function.
+		/// \param function Lambda or function to call when task is executed. Is moved.
 		///
-		template<typename Func, typename... Args>
-		void set(Func function, Args&& ...args);
+		void set(const TaskFunction&& function);
 
 		///
 		/// Run the task on the thread.
@@ -58,19 +61,13 @@ namespace protostar
 		///
 		/// Stores task to be executed.
 		///
-		std::function<void(protostar::ProtectedBool*)> m_task;
+		TaskFunction m_task;
 
 		///
 		/// Check to make sure task is finished.
 		///
 		protostar::ProtectedBool m_isFinished;
 	};
-
-	template<typename Func, typename ...Args>
-	inline void Task::set(Func function, Args&& ...args)
-	{
-		m_task = std::bind(function, args...);
-	}
 }
 
 #endif

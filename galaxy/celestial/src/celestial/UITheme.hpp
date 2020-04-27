@@ -64,12 +64,12 @@ namespace celestial
 		qs::Font* getFont(const std::string& key);
 
 		///
-		/// Get pointer to assossiated window.
+		/// Get pointer to associated window.
 		///
 		qs::Window* getWindow() const noexcept;
 
 		///
-		/// Get pointer to assossiated renderer.
+		/// Get pointer to associated renderer.
 		///
 		qs::Renderer* getRenderer() const noexcept;
 

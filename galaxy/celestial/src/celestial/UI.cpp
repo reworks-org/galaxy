@@ -18,8 +18,8 @@ namespace celestial
 		{
 			while (m_running.get() && threadPoolFinished->get())
 			{
-				event();
-				update();
+				//event();
+				//update();
 			}
 		});
 	}

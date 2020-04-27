@@ -77,18 +77,6 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
-    <Allegro_AddonImage>true</Allegro_AddonImage>
-    <Allegro_AddonTTF>true</Allegro_AddonTTF>
-    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
-    <Allegro_AddonAudio>true</Allegro_AddonAudio>
-    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
-    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
-    <Allegro_AddonDialog>true</Allegro_AddonDialog>
-    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
-    <Allegro_AddonFont>true</Allegro_AddonFont>
-    <Allegro_AddonColor>true</Allegro_AddonColor>
-    <Allegro_AddonVideo>true</Allegro_AddonVideo>
-    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -96,20 +84,6 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
-    <Allegro_AddonImage>true</Allegro_AddonImage>
-    <Allegro_AddonTTF>true</Allegro_AddonTTF>
-    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
-    <Allegro_AddonAudio>true</Allegro_AddonAudio>
-    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
-    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
-    <Allegro_AddonDialog>true</Allegro_AddonDialog>
-    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
-    <Allegro_AddonFont>true</Allegro_AddonFont>
-    <Allegro_AddonColor>true</Allegro_AddonColor>
-    <Allegro_AddonVideo>true</Allegro_AddonVideo>
-    <Allegro_LibraryType>DynamicDebug</Allegro_LibraryType>
-    <Linkage-libxml2>static</Linkage-libxml2>
-    <Linkage-libiconv>static</Linkage-libiconv>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -117,18 +91,6 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
-    <Allegro_AddonImage>true</Allegro_AddonImage>
-    <Allegro_AddonTTF>true</Allegro_AddonTTF>
-    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
-    <Allegro_AddonAudio>true</Allegro_AddonAudio>
-    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
-    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
-    <Allegro_AddonDialog>true</Allegro_AddonDialog>
-    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
-    <Allegro_AddonFont>true</Allegro_AddonFont>
-    <Allegro_AddonColor>true</Allegro_AddonColor>
-    <Allegro_AddonVideo>true</Allegro_AddonVideo>
-    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -136,115 +98,149 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(ProjectDir)build\$(Configuration)\$(Platform)\</IntDir>
-    <Allegro_AddonImage>true</Allegro_AddonImage>
-    <Allegro_AddonTTF>true</Allegro_AddonTTF>
-    <Allegro_AddonPrimitives>true</Allegro_AddonPrimitives>
-    <Allegro_AddonAudio>true</Allegro_AddonAudio>
-    <Allegro_AddonAcodec>true</Allegro_AddonAcodec>
-    <Allegro_AddonPhysfs>true</Allegro_AddonPhysfs>
-    <Allegro_AddonDialog>true</Allegro_AddonDialog>
-    <Allegro_AddonMemfile>true</Allegro_AddonMemfile>
-    <Allegro_AddonFont>true</Allegro_AddonFont>
-    <Allegro_AddonColor>true</Allegro_AddonColor>
-    <Allegro_AddonVideo>true</Allegro_AddonVideo>
-    <Allegro_LibraryType>StaticMonolithRelease</Allegro_LibraryType>
-    <Linkage-libxml2>static</Linkage-libxml2>
-    <Linkage-libiconv>static</Linkage-libiconv>
     <EnableCppCoreCheck>true</EnableCppCoreCheck>
     <CodeAnalysisRuleSet>..\CA.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>zlibstat.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Debug/Win32/;../dependencies/glfw3/lib/Win32/;../dependencies/openal/lib/Win32/;../dependencies/zlib/lib/Debug/Win32/;../galaxy/celestial/bin/Debug/Win32/;../galaxy/frb/bin/Debug/Win32/;../galaxy/galaxy/bin/Debug/Win32/;../galaxy/protostar/bin/Debug/Win32/;../galaxy/pulsar/bin/Debug/Win32/;../galaxy/quasar/bin/Debug/Win32/;../galaxy/redshift/bin/Debug/Win32/;../galaxy/solar/bin/Debug/Win32/;../galaxy/starlight/bin/Debug/Win32/;../galaxy/starmap/bin/Debug/Win32/;../galaxy/deps/bin/Debug/Win32/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libz-static.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Debug/Win32/;../dependencies/glfw3/lib/Debug/Win32/;../dependencies/openal/lib/Debug/Win32/;../dependencies/zlib/lib/Debug/Win32/;../galaxy/celestial/bin/Debug/Win32/;../galaxy/frb/bin/Debug/Win32/;../galaxy/galaxy/bin/Debug/Win32/;../galaxy/protostar/bin/Debug/Win32/;../galaxy/pulsar/bin/Debug/Win32/;../galaxy/quasar/bin/Debug/Win32/;../galaxy/redshift/bin/Debug/Win32/;../galaxy/solar/bin/Debug/Win32/;../galaxy/starlight/bin/Debug/Win32/;../galaxy/starmap/bin/Debug/Win32/;../galaxy/deps/bin/Debug/Win32/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>zlibstat.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Debug/x64/;../dependencies/glfw3/lib/x64/;../dependencies/openal/lib/x64/;../dependencies/zlib/lib/Debug/x64/;../galaxy/celestial/bin/Debug/x64/;../galaxy/frb/bin/Debug/x64/;../galaxy/galaxy/bin/Debug/x64/;../galaxy/protostar/bin/Debug/x64/;../galaxy/pulsar/bin/Debug/x64/;../galaxy/quasar/bin/Debug/x64/;../galaxy/redshift/bin/Debug/x64/;../galaxy/solar/bin/Debug/x64/;../galaxy/starlight/bin/Debug/x64/;../galaxy/starmap/bin/Debug/x64/;../galaxy/deps/bin/Debug/x64/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libz-static.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Debug/x64/;../dependencies/glfw3/lib/Debug/x64/;../dependencies/openal/lib/Debug/x64/;../dependencies/zlib/lib/Debug/x64/;../galaxy/celestial/bin/Debug/x64/;../galaxy/frb/bin/Debug/x64/;../galaxy/galaxy/bin/Debug/x64/;../galaxy/protostar/bin/Debug/x64/;../galaxy/pulsar/bin/Debug/x64/;../galaxy/quasar/bin/Debug/x64/;../galaxy/redshift/bin/Debug/x64/;../galaxy/solar/bin/Debug/x64/;../galaxy/starlight/bin/Debug/x64/;../galaxy/starmap/bin/Debug/x64/;../galaxy/deps/bin/Debug/x64/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <DebugInformationFormat>None</DebugInformationFormat>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile />
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>zlibstat.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Release/Win32/;../dependencies/glfw3/lib/Win32/;../dependencies/openal/lib/Win32/;../dependencies/zlib/lib/Release/Win32/;../galaxy/celestial/bin/Release/Win32/;../galaxy/frb/bin/Release/Win32/;../galaxy/galaxy/bin/Release/Win32/;../galaxy/protostar/bin/Release/Win32/;../galaxy/pulsar/bin/Release/Win32/;../galaxy/quasar/bin/Release/Win32/;../galaxy/redshift/bin/Release/Win32/;../galaxy/solar/bin/Release/Win32/;../galaxy/starlight/bin/Release/Win32/;../galaxy/starmap/bin/Release/Win32/;../galaxy/deps/bin/Release/Win32/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libz-static.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Release/Win32/;../dependencies/glfw3/lib/Release/Win32/;../dependencies/openal/lib/Release/Win32/;../dependencies/zlib/lib/Release/Win32/;../galaxy/celestial/bin/Release/Win32/;../galaxy/frb/bin/Release/Win32/;../galaxy/galaxy/bin/Release/Win32/;../galaxy/protostar/bin/Release/Win32/;../galaxy/pulsar/bin/Release/Win32/;../galaxy/quasar/bin/Release/Win32/;../galaxy/redshift/bin/Release/Win32/;../galaxy/solar/bin/Release/Win32/;../galaxy/starlight/bin/Release/Win32/;../galaxy/starmap/bin/Release/Win32/;../galaxy/deps/bin/Release/Win32/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile />
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>zlibstat.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Release/x64/;../dependencies/glfw3/lib/x64/;../dependencies/openal/lib/x64/;../dependencies/zlib/lib/Release/x64/;../galaxy/celestial/bin/Release/x64/;../galaxy/frb/bin/Release/x64/;../galaxy/galaxy/bin/Release/x64/;../galaxy/protostar/bin/Release/x64/;../galaxy/pulsar/bin/Release/x64/;../galaxy/quasar/bin/Release/x64/;../galaxy/redshift/bin/Release/x64/;../galaxy/solar/bin/Release/x64/;../galaxy/starlight/bin/Release/x64/;../galaxy/starmap/bin/Release/x64/;../galaxy/deps/bin/Release/x64/;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libz-static.lib;deps.lib;protostar.lib;celestial.lib;frb.lib;galaxy.lib;pulsar.lib;quasar.lib;redshift.lib;solar.lib;starlight.lib;starmap.lib;OpenAL32.lib;glfw3.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;winmm.lib;Shlwapi.lib;psapi.lib;dsound.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../dependencies/freetype/lib/Release/x64/;../dependencies/glfw3/lib/Release/x64/;../dependencies/openal/lib/Release/x64/;../dependencies/zlib/lib/Release/x64/;../galaxy/celestial/bin/Release/x64/;../galaxy/frb/bin/Release/x64/;../galaxy/galaxy/bin/Release/x64/;../galaxy/protostar/bin/Release/x64/;../galaxy/pulsar/bin/Release/x64/;../galaxy/quasar/bin/Release/x64/;../galaxy/redshift/bin/Release/x64/;../galaxy/solar/bin/Release/x64/;../galaxy/starlight/bin/Release/x64/;../galaxy/starmap/bin/Release/x64/;../galaxy/deps/bin/Release/x64/</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>

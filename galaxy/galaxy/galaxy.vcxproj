@@ -108,18 +108,24 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
+      <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <ConformanceMode>false</ConformanceMode>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -140,17 +146,24 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
+      <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -173,19 +186,34 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <PrecompiledHeaderOutputFile />
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -210,20 +238,34 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <PreprocessorDefinitions>AL_LIBTYPE_STATIC;ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>ZLIB_WINAPI;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-      <ExceptionHandling>Sync</ExceptionHandling>
+      <PrecompiledHeaderOutputFile />
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <IntelJCCErratum>true</IntelJCCErratum>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
