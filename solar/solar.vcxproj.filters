@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="src\solar\Config.hpp" />
+    <ClInclude Include="src\solar\entity\Manager.hpp" />
+    <ClInclude Include="src\solar\system\System.hpp" />
+    <ClInclude Include="src\solar\detail\DualSparseSet.hpp" />
+    <ClInclude Include="src\solar\detail\SparseSet.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\solar\entity\Manager.cpp" />
+    <ClCompile Include="src\solar\detail\DualSparseSet.cpp" />
+    <ClCompile Include="src\solar\detail\SparseSet.cpp" />
+    <ClCompile Include="src\solar\system\System.cpp" />
+    <ClCompile Include="src\solar\Config.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="todo.txt" />
+  </ItemGroup>
+</Project>
