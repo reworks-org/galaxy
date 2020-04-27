@@ -11,9 +11,13 @@
 #include <vector>
 #include <unordered_map>
 
-#include <qs/text/Font.hpp>
 #include <protostar/math/Rect.hpp>
 #include <protostar/system/Colour.hpp>
+
+#include <qs/text/Font.hpp>
+#include <qs/core/Window.hpp>
+#include <qs/graphics/Sprite.hpp>
+#include <qs/renderer/Renderer.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 
 #include "celestial/Types.hpp"
@@ -32,16 +36,11 @@ namespace celestial
 		///
 		/// Constructor.
 		///
-		UITheme() noexcept;
-
-		///
-		/// Argument constructor.
-		///
 		/// \param atlasSize Size of the atlas to use.
-		/// \param textures List of textures to compose texture atlas.
-		/// \param fonts Name of font to load.
+		/// \param window Pointer to window.
+		/// \param renderer Pointer to renderer.
 		///
-		UITheme(const int atlasSize, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts);
+		UITheme(const int atlasSize, qs::Window* window, qs::Renderer* renderer) noexcept;
 
 		///
 		/// Destructor.
@@ -51,10 +50,11 @@ namespace celestial
 		///
 		/// Create the UITheme.
 		///
+		/// \param shader Shader to use when drawing to the texture atlas.
 		/// \param textures List of textures to compose texture atlas.
 		/// \param fonts Name of font to load.
 		///
-		void create(const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts);
+		void create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts);
 		
 		///
 		/// Get a font using a key.
@@ -63,7 +63,33 @@ namespace celestial
 		///
 		qs::Font* getFont(const std::string& key);
 
+		///
+		/// Get pointer to assossiated window.
+		///
+		qs::Window* getWindow() const noexcept;
+
+		///
+		/// Get pointer to assossiated renderer.
+		///
+		qs::Renderer* getRenderer() const noexcept;
+
 	private:
+		///
+		/// Default constructor.
+		///
+		UITheme() = delete;
+
+	private:
+		///
+		/// Pointer to window.
+		///
+		qs::Window* m_window;
+
+		///
+		/// Pointer to renderer.
+		///
+		qs::Renderer* m_renderer;
+
 		///
 		/// Texture atlas containing all widget textures.
 		///

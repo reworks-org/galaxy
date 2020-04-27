@@ -14,40 +14,47 @@
 ///
 namespace celestial
 {
-	UITheme::UITheme() noexcept
-		:m_atlas()
+	UITheme::UITheme(const int atlasSize, qs::Window* window, qs::Renderer* renderer) noexcept
+		:m_atlas(atlasSize), m_window(window), m_renderer(renderer)
 	{
-	}
-
-	UITheme::UITheme(const int atlasSize, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts)
-		:m_atlas(atlasSize)
-	{
-		create(textures, fonts);
 	}
 
 	UITheme::~UITheme() noexcept
 	{
 		m_fonts.clear();
+		m_window = nullptr;
+		m_renderer = nullptr;
 	}
 
-	void UITheme::create(const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts)
+	void UITheme::create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts)
 	{
 		for (auto& texture : textures)
 		{
 			m_atlas.add(texture);
 		}
 
-		m_atlas.create(window, renderer, shader);
+		m_atlas.create(*m_window, *m_renderer, shader);
 
 		for (auto& fontData : fonts)
 		{
 			auto fp = std::filesystem::path(fontData.first);
-			m_fonts.emplace(fp.stem(), fp.string(), fontData.second);
+			m_fonts.emplace(fp.stem().string(), qs::Font { fp.string(), fontData.second });
 		}
 	}
 
 	qs::Font* UITheme::getFont(const std::string& key)
 	{
-		return &(m_fonts[key]);
+		// at() for exception checking.
+		return &(m_fonts.at(key));
+	}
+
+	qs::Window* UITheme::getWindow() const noexcept
+	{
+		return m_window;
+	}
+
+	qs::Renderer* UITheme::getRenderer() const noexcept
+	{
+		return m_renderer;
 	}
 }

@@ -22,6 +22,14 @@ namespace celestial
 	/// First param is the filepath, second is the font size.
 	///
 	using FontData = std::pair<std::string, int>;
+
+	///
+	/// Definition of UI error states.
+	///
+	enum class ErrorState : int
+	{
+		OK = 0
+	};
 }
 
 #endif
