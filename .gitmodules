@@ -1,6 +1,0 @@
-[submodule "modules/glm"]
-	path = modules/glm
-	url = https://github.com/g-truc/glm.git
-[submodule "modules/protostar"]
-	path = modules/protostar
-	url = https://github.com/DomRe/protostar.git
