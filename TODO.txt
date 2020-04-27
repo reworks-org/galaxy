@@ -75,3 +75,139 @@ OLD:
 
 
 	https://www.glfw.org/docs/latest/input_guide.html#input_key
+	
+	- Change Map::dump() to dump parsed contents, rather than just making json readable.
+
+	solar
+-> ecs, using entts internal data structures
+C++17.
+
+ctrp and sfinae
+
+interface for creating stuff from scripting langs.
+
+submodule into starlight.
+
+factory pattern. check bookmarks.
+
+/*
+ Entitys ID used as insertion for std::vector so [entity] = components (but how to get which one?).
+ components stored in groupings of type, assigned unique id, then paired with their entity.
+ stored in std::vector
+
+
+ so:
+ std::vector<PackedComponents> with element being = entity.
+ packed components = std::vector?
+
+
+
+ So the element to be inserted is the type of component, then an array of those components of that type.
+ the key is the type of component, the value is components of the same type, which is in a data structure, paired with an entity.
+
+
+*/
+
+// TODO: FIX ISSUE WHERE WHEN GETTING MULTIPLE COMPONENTS,
+		// COMPONENTS FROM A AND B BUT NOT A AND B ARE being used.
+		// I.e. when a,b is target, getting a but has no b.
+		// also duplicates
+
+		/*
+			
+			get all components belonging to the types and only keep entities that match all components and destroy
+			the others that are not needed
+
+			if entity is in type array a b and c etc]
+
+			use a counter to see how many occurancers of an entity there shouild be
+
+			https://www.google.com/search?client=firefox-b-d&ei=qvUuXYuwK6zZz7sP9tG50AI&q=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&oq=C%2B%2B+checking+for+occurances+of+an+entity+in+a+set+of+arrays&gs_l=psy-ab.3..33i10i21.2051.5564..5758...0.0..0.293.4290.2-18......0....1..gws-wiz.......0i71j33i10i160j33i22i29i30j33i10.7KmPP2JGx6Y
+
+			https://www.google.com/search?client=firefox-b-d&q=check+if+an+integer+is+in+a+variable+amount+of+std%3A%3Avectors
+		*/
+
+
+		packaged task -> divide out and parallel check multiple "collisions" or entitys (NOT calcs...)
+
+i.e. every collision is checked on a thread, while the main thread waits for results.
+this is faster than doing it all on one thread.
+i.e. should take 1/10 the time instead if u have 10 collisons...
+
+https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-the-basics-and-impulse-resolution--gamedev-6331
+https://stackoverflow.com/questions/42280364/stdfuture-returned-from-stdasync-hangs-while-going-out-of-scope
+https://stackoverflow.com/questions/18143661/what-is-the-difference-between-packaged-task-and-async
+https://www.acodersjourney.com/top-20-cplusplus-multithreading-mistakes/
+https://studywell.com/maths/mechanics/kinematics-objects-motion/suvat-equations/
+https://www.gamedev.net/tutorials/_/technical/game-programming/the-guide-to-implementing-2d-platformers-r2936/
+https://gamedevelopment.tutsplus.com/tutorials/basic-2d-platformer-physics-part-8-slopes--cms-28704
+
+rather than run in parallel -> distribute calculations across CPU.
+
+collidable terrain
+
+https://stackoverflow.com/questions/42041197/c-threads-for-background-loading/42042110#42042110
+https://stackoverflow.com/questions/23455104/why-is-the-destructor-of-a-future-returned-from-stdasync-blocking
+https://stackoverflow.com/questions/22653022/how-to-terminate-a-stdfuture
+
+
+
+- Post Processing:
+	- bloom
+	- ssao
+	- Culling (glm::ortho near / far?) / quadtree / spacial partitioning.
+
+- Instancing - https://learnopengl.com/Advanced-OpenGL/Instancing
+- More error handling.
+- MipMapping for textures.
+- Particles - https://learnopengl.com/In-Practice/2D-Game/Particles
+- Clean up includes.
+- https://learnopengl.com/Lighting/Basic-Lighting
+- Dynamic primitives.
+
+- move some of common spr/tex codes into common classes
+
+
+
+https://www.google.com/search?client=firefox-b-d&ei=ixZWXs_uBOjWz7sPoOiwyAc&q=recycle+threads+in+threadpool
+https://github.com/progschj/ThreadPool/blob/master/ThreadPool.h
+https://thispointer.com/designing-a-thread-pool-framework-part-1-whats-the-need-of-a-thread-pool/
+
+
+https://github.com/erikd/libsndfile
+https://www.openal.org/documentation/OpenAL_Programmers_Guide.pdf
+https://github.com/scottstensland/openal_synth_play/blob/master/src/openal_play.c
+https://kcat.strangesoft.net/openal-tutorial.html
+https://ffainelli.github.io/openal-example/
+
+- Stream from disk?
+- Context Capture Functions (record audio).
+
+UI
+-> takes in JSON
+-> call constrct() to finish and create everything
+
+so UI ui;
+ui->parse(json);
+ui->construct();
+ui->execute();
+
+ui->huh
+?
+
+
+ui->sendEvent();
+ui->update();
+
+
+ui->retrieveRender();
+
+on thread:
+loop {
+	processEvents
+	 {
+	 	// etc
+	 }
+
+	 update();
+}

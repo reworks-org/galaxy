@@ -3,7 +3,9 @@
 [![Documentation Status](https://travis-ci.org/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
-Game programming framework built on C++17 using SFML, Lua and JSON. This was built as a hobby for hobby projects.
+Game Programming Library using C++17, OpenGL 4.5, Lua and JSON.
+
+![galaxy](logo.png?raw=true "galaxy")
 
 ## Building
 ### Windows:
@@ -24,19 +26,28 @@ git submodule update --init --recursive
 ```
 
 ## Documentation
-See [documentation](https://domre.github.io/galaxy/).  
+See [online documentation](https://domre.github.io/galaxy/).
+Or generate offline with Doxygen.
 
 ## Features
-- Uses Modern C++, including C++17 features.
-- [ImGui](https://github.com/ocornut/imgui) for making and using debugging and utility UI.
-- [sol3](https://github.com/ThePhD/sol2) for [Lua](https://www.lua.org/) integration.
+- Uses Modern C++ design principles, built on C++17.
 - Built on top of --
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
 * [sercode.ttf](http://www.dafont.com/secret-code.font).
-
-Any included libraries should have a LICENSE file associated.
-
-Resources used in sandbox demo:
-Various from opengameart.org. No copyright infringement intended.
+	* Used in logo.png & logo_docs.png.
+* [galaxy image](https://www.nasa.gov/image-feature/goddard/2020/hubble-probes-colorful-galaxy).
+	* Image Credit: ESA/Hubble & NASA, A. Filippenko.
+	* See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
+	* Used for non-commerical purposes.
+* Any "dependency" i.e. "software library" will have an associated LICENSE.txt/COPYING.txt file included.
+* Resources used in sandbox:
+	* Various from [OpenGameArt](https://opengameart.org/). No copyright infringement intended.
+* [Learn OpenGL](https://learnopengl.com/).
+* [OpenGL Reference](https://www.khronos.org/registry/OpenGL-Refpages/gl4/).
+* https://skypjack.github.io/2019-02-14-ecs-baf-part-1/.
+* https://skypjack.github.io/2019-03-21-ecs-baf-part-2-insights/.
+* https://skypjack.github.io/2019-09-25-ecs-baf-part-5/.
+* https://www.computist.xyz/2018/06/sparse-sets.html.
+* https://www.geeksforgeeks.org/sparse-set/.

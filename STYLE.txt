@@ -8,8 +8,6 @@
 /// <HEADER_NAME>.hpp
 /// <PROJECT>
 ///
-/// Created by <AUTHOR> on <DATE>.
-/// MIT LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -66,5 +64,3 @@ namespace my_project {
 - const std::string& / string_view
 - functions before variables.
 - public before private, protected in middle.
-
-- docs / readthedocs -> repo wiki / repo website / repo settings
