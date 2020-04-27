@@ -47,8 +47,7 @@ Or generate offline with Doxygen.
 * Any "dependency" i.e. "software library" will have an associated LICENSE.txt/COPYING.txt file included.
 * Resources used in sandbox:
 	* Various from [OpenGameArt](https://opengameart.org/). No copyright infringement intended.
-* [Learn OpenGL](https://learnopengl.com/).
-* [OpenGL Reference](https://www.khronos.org/registry/OpenGL-Refpages/gl4/).
+* https://learnopengl.com/
 * https://skypjack.github.io/2019-02-14-ecs-baf-part-1/.
 * https://skypjack.github.io/2019-03-21-ecs-baf-part-2-insights/.
 * https://skypjack.github.io/2019-09-25-ecs-baf-part-5/.
