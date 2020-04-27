@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\starmap\detail\Decoder.cpp" />
     <ClCompile Include="src\starmap\layer\GroupLayer.cpp" />
     <ClCompile Include="src\starmap\layer\ImageLayer.cpp" />
@@ -69,7 +66,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D35A973A-11D3-4496-9ACA-0DF906D8A16B}</ProjectGuid>
+    <ProjectGuid>{CE6BDD18-C26A-4858-BD20-CD1AF12BDFBD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>starmap</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -155,7 +152,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -175,7 +172,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -196,7 +193,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -219,7 +216,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/json/include/;../modules/zlib/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

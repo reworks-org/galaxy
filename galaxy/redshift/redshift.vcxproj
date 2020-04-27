@@ -18,32 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\redshift\algorithms\AABB.hpp" />
-    <ClInclude Include="src\redshift\algorithms\CircleCircle.hpp" />
-    <ClInclude Include="src\redshift\algorithms\Result.hpp" />
-    <ClInclude Include="src\redshift\body\Body.hpp" />
-    <ClInclude Include="src\redshift\body\Kinetic.hpp" />
-    <ClInclude Include="src\redshift\body\Rigid.hpp" />
-    <ClInclude Include="src\redshift\Types.hpp" />
-    <ClInclude Include="src\redshift\World.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\redshift\algorithms\AABB.cpp" />
-    <ClCompile Include="src\redshift\algorithms\CircleCircle.cpp" />
-    <ClCompile Include="src\redshift\algorithms\Result.cpp" />
-    <ClCompile Include="src\redshift\body\Body.cpp" />
-    <ClCompile Include="src\redshift\body\Kinetic.cpp" />
-    <ClCompile Include="src\redshift\body\Rigid.cpp" />
-    <ClCompile Include="src\redshift\Types.cpp" />
-    <ClCompile Include="src\redshift\World.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D35A973A-11D3-4496-9ACA-0DF906D8A16B}</ProjectGuid>
+    <ProjectGuid>{E88349AB-EAC6-4C2B-A778-06181CDE4FCA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>redshift</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>

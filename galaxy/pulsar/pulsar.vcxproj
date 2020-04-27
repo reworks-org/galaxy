@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pulsar\detail\LogColours.cpp" />
+    <ClCompile Include="src\pulsar\detail\Unix.cpp" />
+    <ClCompile Include="src\pulsar\detail\Windows.cpp" />
+    <ClCompile Include="src\pulsar\Log.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pulsar\detail\LogColours.hpp" />
+    <ClInclude Include="src\pulsar\detail\Unix.hpp" />
+    <ClInclude Include="src\pulsar\detail\Windows.hpp" />
+    <ClInclude Include="src\pulsar\Log.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{F300952E-0D01-4A04-887D-BD2C63130384}</ProjectGuid>
@@ -99,8 +111,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <EnableModules>false</EnableModules>
       <PrecompiledHeaderFile />
     </ClCompile>
@@ -118,8 +129,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <EnableModules>false</EnableModules>
       <PrecompiledHeaderFile />
     </ClCompile>
@@ -139,8 +149,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <EnableModules>false</EnableModules>
       <PrecompiledHeaderFile />
     </ClCompile>
@@ -162,8 +171,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <EnableModules>false</EnableModules>
       <PrecompiledHeaderFile />
     </ClCompile>
@@ -174,18 +182,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="src\pulsar\detail\LogColours.cpp" />
-    <ClCompile Include="src\pulsar\detail\Unix.cpp" />
-    <ClCompile Include="src\pulsar\detail\Windows.cpp" />
-    <ClCompile Include="src\pulsar\Log.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\pulsar\Log.hpp" />
-    <ClInclude Include="src\pulsar\detail\LogColours.hpp" />
-    <ClInclude Include="src\pulsar\detail\Unix.hpp" />
-    <ClInclude Include="src\pulsar\detail\Windows.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

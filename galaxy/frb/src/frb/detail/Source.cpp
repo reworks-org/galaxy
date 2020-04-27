@@ -166,12 +166,12 @@ namespace frb
 		}
 
 		handles.shrink_to_fit();
-		alSourceQueueBuffers(m_source, handles.size(), handles.data());
+		alSourceQueueBuffers(m_source, static_cast<ALsizei>(handles.size()), handles.data());
 	}
 
 	void Source::queue(const ALuint* bufferArray, const size_t size)
 	{
-		alSourceQueueBuffers(m_source, size, bufferArray);
+		alSourceQueueBuffers(m_source, static_cast<ALsizei>(size), bufferArray);
 	}
 
 	void Source::play() noexcept

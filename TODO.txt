@@ -1,5 +1,6 @@
 https://github.com/rokups/ImNodes
-
+- redshift
+- move to univeral error handling through logging library, avoid exceptions!
 https://www.sfml-dev.org/tutorials/2.5/audio-spatialization.php
 
 redo quadtree for rendering? - replaced by sf::View?

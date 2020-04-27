@@ -1,26 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\redshift\World.hpp" />
-    <ClInclude Include="src\redshift\algorithms\CircleCircle.hpp" />
-    <ClInclude Include="src\redshift\Types.hpp" />
-    <ClInclude Include="src\redshift\algorithms\Result.hpp" />
-    <ClInclude Include="src\redshift\algorithms\AABB.hpp" />
-    <ClInclude Include="src\redshift\body\Rigid.hpp" />
-    <ClInclude Include="src\redshift\body\Kinetic.hpp" />
-    <ClInclude Include="src\redshift\body\Body.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\redshift\World.cpp" />
-    <ClCompile Include="src\redshift\algorithms\CircleCircle.cpp" />
-    <ClCompile Include="src\redshift\Types.cpp" />
-    <ClCompile Include="src\redshift\algorithms\Result.cpp" />
-    <ClCompile Include="src\redshift\algorithms\AABB.cpp" />
-    <ClCompile Include="src\redshift\body\Rigid.cpp" />
-    <ClCompile Include="src\redshift\body\Kinetic.cpp" />
-    <ClCompile Include="src\redshift\body\Body.cpp" />
-  </ItemGroup>
-</Project>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />

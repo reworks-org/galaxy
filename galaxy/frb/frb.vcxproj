@@ -19,29 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.txt" />
+    <ClCompile Include="src\frb\audio\Audible.cpp" />
+    <ClCompile Include="src\frb\audio\Playlist.cpp" />
+    <ClCompile Include="src\frb\Context.cpp" />
+    <ClCompile Include="src\frb\detail\Buffer.cpp" />
+    <ClCompile Include="src\frb\detail\BufferArray.cpp" />
+    <ClCompile Include="src\frb\detail\Source.cpp" />
+    <ClCompile Include="src\frb\Error.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frb\audio\Audible.hpp" />
-    <ClInclude Include="src\frb\detail\Buffer.hpp" />
-    <ClInclude Include="src\frb\Context.hpp" />
-    <ClInclude Include="src\frb\detail\BufferArray.hpp" />
-    <ClInclude Include="src\frb\Error.hpp" />
-    <ClInclude Include="src\frb\detail\Source.hpp" />
     <ClInclude Include="src\frb\audio\Playlist.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\frb\audio\Audible.cpp" />
-    <ClCompile Include="src\frb\detail\Buffer.cpp" />
-    <ClCompile Include="src\frb\Context.cpp" />
-    <ClCompile Include="src\frb\detail\BufferArray.cpp" />
-    <ClCompile Include="src\frb\Error.cpp" />
-    <ClCompile Include="src\frb\detail\Source.cpp" />
-    <ClCompile Include="src\frb\audio\Playlist.cpp" />
+    <ClInclude Include="src\frb\Context.hpp" />
+    <ClInclude Include="src\frb\detail\Buffer.hpp" />
+    <ClInclude Include="src\frb\detail\BufferArray.hpp" />
+    <ClInclude Include="src\frb\detail\Source.hpp" />
+    <ClInclude Include="src\frb\Error.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D35A973A-11D3-4496-9ACA-0DF906D8A16B}</ProjectGuid>
+    <ProjectGuid>{335DDDB8-29CF-49D5-B6A9-5F2041BFAA5F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>frb</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -127,7 +124,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;</AdditionalIncludeDirectories>
       <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
@@ -154,7 +151,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;</AdditionalIncludeDirectories>
       <EnableModules>false</EnableModules>
     </ClCompile>
     <Link>
@@ -182,7 +179,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
     </ClCompile>
@@ -213,7 +210,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/openal/include/;../modules/stb_vorbis/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
     </ClCompile>

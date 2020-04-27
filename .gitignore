@@ -41,7 +41,7 @@ galaxy/starmap/build/
 
 # repo stuff
 .vs/
-old/
+legacy/
 
 # sandbox stuff
 sandbox/bin/Debug/

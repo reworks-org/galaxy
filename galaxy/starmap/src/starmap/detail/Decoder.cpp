@@ -8,7 +8,7 @@
 #include <vector>
 #include <stdexcept>
 
-#include "zlib.h"
+#include <zlib/zlib.h>
 
 #include "Decoder.hpp"
 
@@ -55,19 +55,21 @@ namespace starmap
                 // Prep stream for decompressing.
                 z_stream decompress;
                
-                char zlibOut[32768];
+                char* zlibOut = new char[32768];
                 memset(&decompress, 0, sizeof(decompress));
-                memset(&zlibOut, 0, sizeof(zlibOut));
+                memset(zlibOut, 0, sizeof(zlibOut));
                 
                 err = inflateInit(&decompress);
                 if (err != Z_OK)
                 {
+                    delete[] zlibOut;
+                    zlibOut = nullptr;
                     throw std::runtime_error("inflateInit failed! errcode: " + err);
                 }
                 else
                 {
                     decompress.next_in = (Bytef*)zlibIn.data();
-                    decompress.avail_in = zlibIn.size();
+                    decompress.avail_in = static_cast<uInt>(zlibIn.size());
 
                     do {
                         decompress.next_out = reinterpret_cast<Bytef*>(zlibOut);
@@ -87,7 +89,19 @@ namespace starmap
 
                 if (err < Z_OK)
                 {
+                    if (zlibOut != nullptr)
+                    {
+                        delete[] zlibOut;
+                        zlibOut = nullptr;
+                    }
+
                     throw std::runtime_error("Failed to inflate zlib data: " + std::string(decompress.msg));
+                }
+
+                if (zlibOut != nullptr)
+                {
+                    delete[] zlibOut;
+                    zlibOut = nullptr;
                 }
             }
             
@@ -102,26 +116,28 @@ namespace starmap
 
             if (gzipIn.size() > 32768)
             {
-                throw std::runtime_error("zlib input string too large! errcode: " + err);
+                throw std::runtime_error("gzip input string too large! errcode: " + err);
             }
             else
             {
                 // Prep stream for decompressing.
                 z_stream decompress;
 
-                char gzipOut[32768];
+                char* gzipOut = new char[32768];
                 memset(&decompress, 0, sizeof(decompress));
-                memset(&gzipOut, 0, sizeof(gzipOut));
+                memset(gzipOut, 0, sizeof(gzipOut));
 
                 err = inflateInit2(&decompress, 16 + MAX_WBITS);
                 if (err != Z_OK)
                 {
+                    delete[] gzipOut;
+                    gzipOut = nullptr;
                     throw std::runtime_error("inflateInit failed! errcode: " + err);
                 }
                 else
                 {
                     decompress.next_in = (Bytef*)gzipIn.data();
-                    decompress.avail_in = gzipIn.size();
+                    decompress.avail_in = static_cast<uInt>(gzipIn.size());
 
                     do {
                         decompress.next_out = reinterpret_cast<Bytef*>(gzipOut);
@@ -139,9 +155,21 @@ namespace starmap
 
                 inflateEnd(&decompress);
 
-                if (err != Z_OK || err != Z_STREAM_END)
+                if ((err != Z_OK) && (err != Z_STREAM_END))
                 {
-                    throw std::runtime_error("Failed to inflate zlib data: " + std::string(decompress.msg));
+                    if (gzipOut != nullptr)
+                    {
+                        delete[] gzipOut;
+                        gzipOut = nullptr;
+                    }
+
+                    throw std::runtime_error("Failed to inflate gzip data: " + std::string(decompress.msg));
+                }
+
+                if (gzipOut != nullptr)
+                {
+                    delete[] gzipOut;
+                    gzipOut = nullptr;
                 }
             }
 

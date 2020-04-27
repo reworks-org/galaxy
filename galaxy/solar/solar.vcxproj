@@ -28,12 +28,9 @@
   <ItemGroup>
     <ClInclude Include="src\solar\Config.hpp" />
     <ClInclude Include="src\solar\detail\DualSparseSet.hpp" />
-    <ClInclude Include="src\solar\entity\Manager.hpp" />
     <ClInclude Include="src\solar\detail\SparseSet.hpp" />
+    <ClInclude Include="src\solar\entity\Manager.hpp" />
     <ClInclude Include="src\solar\system\System.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="todo.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -117,7 +114,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -134,7 +131,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,7 +151,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -176,7 +173,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableModules>false</EnableModules>
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

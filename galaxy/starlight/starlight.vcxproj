@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="src\starlight\detail\QueuedEvent.cpp" />
     <ClCompile Include="src\starlight\detail\SpecificEvent.cpp" />
     <ClCompile Include="src\starlight\Dispatcher.cpp" />
@@ -39,7 +36,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{D35A973A-11D3-4496-9ACA-0DF906D8A16B}</ProjectGuid>
+    <ProjectGuid>{E7B92568-222A-4121-8EA6-8C9664E38DFE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>starlight</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -125,7 +122,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -145,7 +142,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -166,7 +163,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -189,7 +186,7 @@
       </PrecompiledHeaderFile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
-      <AdditionalIncludeDirectories>src/;../modules/protostar/protostar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../protostar/src/;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

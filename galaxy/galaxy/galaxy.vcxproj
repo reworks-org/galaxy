@@ -18,147 +18,6 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\modules\imgui-sfml\imgui-SFML.cpp" />
-    <ClCompile Include="..\modules\imguicolortextedit\TextEditor.cpp" />
-    <ClCompile Include="..\modules\imgui\imgui.cpp" />
-    <ClCompile Include="..\modules\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\modules\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="..\modules\imgui\misc\cpp\imgui_stdlib.cpp" />
-    <ClCompile Include="..\modules\lua\lapi.c" />
-    <ClCompile Include="..\modules\lua\lauxlib.c" />
-    <ClCompile Include="..\modules\lua\lbaselib.c" />
-    <ClCompile Include="..\modules\lua\lcode.c" />
-    <ClCompile Include="..\modules\lua\lcorolib.c" />
-    <ClCompile Include="..\modules\lua\lctype.c" />
-    <ClCompile Include="..\modules\lua\ldblib.c" />
-    <ClCompile Include="..\modules\lua\ldebug.c" />
-    <ClCompile Include="..\modules\lua\ldo.c" />
-    <ClCompile Include="..\modules\lua\ldump.c" />
-    <ClCompile Include="..\modules\lua\lfunc.c" />
-    <ClCompile Include="..\modules\lua\lgc.c" />
-    <ClCompile Include="..\modules\lua\linit.c" />
-    <ClCompile Include="..\modules\lua\liolib.c" />
-    <ClCompile Include="..\modules\lua\llex.c" />
-    <ClCompile Include="..\modules\lua\lmathlib.c" />
-    <ClCompile Include="..\modules\lua\lmem.c" />
-    <ClCompile Include="..\modules\lua\loadlib.c" />
-    <ClCompile Include="..\modules\lua\lobject.c" />
-    <ClCompile Include="..\modules\lua\lopcodes.c" />
-    <ClCompile Include="..\modules\lua\loslib.c" />
-    <ClCompile Include="..\modules\lua\lparser.c" />
-    <ClCompile Include="..\modules\lua\lstate.c" />
-    <ClCompile Include="..\modules\lua\lstring.c" />
-    <ClCompile Include="..\modules\lua\lstrlib.c" />
-    <ClCompile Include="..\modules\lua\ltable.c" />
-    <ClCompile Include="..\modules\lua\ltablib.c" />
-    <ClCompile Include="..\modules\lua\ltests.c" />
-    <ClCompile Include="..\modules\lua\ltm.c" />
-    <ClCompile Include="..\modules\lua\lundump.c" />
-    <ClCompile Include="..\modules\lua\lutf8lib.c" />
-    <ClCompile Include="..\modules\lua\lvm.c" />
-    <ClCompile Include="..\modules\lua\lzio.c" />
-    <ClCompile Include="..\modules\tinyfiledialogs\tinyfiledialogs.c" />
-    <ClCompile Include="src\galaxy\flags\EnabledFlag.cpp" />
-    <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
-    <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
-    <ClCompile Include="src\galaxy\components\SpriteComponent.cpp" />
-    <ClCompile Include="src\galaxy\components\TransformComponent.cpp" />
-    <ClCompile Include="src\galaxy\core\Application.cpp" />
-    <ClCompile Include="src\galaxy\core\Command.cpp" />
-    <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
-    <ClCompile Include="src\galaxy\core\World.cpp" />
-    <ClCompile Include="src\galaxy\fs\Config.cpp" />
-    <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
-    <ClCompile Include="src\galaxy\fs\PhysfsInputStream.cpp" />
-    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
-    <ClCompile Include="src\galaxy\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\galaxy\layer\ImGuiLayer.cpp" />
-    <ClCompile Include="src\galaxy\math\RectPack.cpp" />
-    <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
-    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
-    <ClCompile Include="src\galaxy\types\Layer.cpp" />
-    <ClCompile Include="src\galaxy\types\Serializable.cpp" />
-    <ClCompile Include="src\galaxy\ui\Editor.cpp" />
-    <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\TODO.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\modules\imgui-sfml\imconfig-SFML.h" />
-    <ClInclude Include="..\modules\imgui-sfml\imgui-SFML.h" />
-    <ClInclude Include="..\modules\imgui-sfml\imgui-SFML_export.h" />
-    <ClInclude Include="..\modules\imguicolortextedit\TextEditor.h" />
-    <ClInclude Include="..\modules\imgui\imconfig.h" />
-    <ClInclude Include="..\modules\imgui\imgui.h" />
-    <ClInclude Include="..\modules\imgui\imgui_internal.h" />
-    <ClInclude Include="..\modules\imgui\imstb_rectpack.h" />
-    <ClInclude Include="..\modules\imgui\imstb_textedit.h" />
-    <ClInclude Include="..\modules\imgui\imstb_truetype.h" />
-    <ClInclude Include="..\modules\lua\lapi.h" />
-    <ClInclude Include="..\modules\lua\lauxlib.h" />
-    <ClInclude Include="..\modules\lua\lcode.h" />
-    <ClInclude Include="..\modules\lua\lctype.h" />
-    <ClInclude Include="..\modules\lua\ldebug.h" />
-    <ClInclude Include="..\modules\lua\ldo.h" />
-    <ClInclude Include="..\modules\lua\lfunc.h" />
-    <ClInclude Include="..\modules\lua\lgc.h" />
-    <ClInclude Include="..\modules\lua\ljumptab.h" />
-    <ClInclude Include="..\modules\lua\llex.h" />
-    <ClInclude Include="..\modules\lua\llimits.h" />
-    <ClInclude Include="..\modules\lua\lmem.h" />
-    <ClInclude Include="..\modules\lua\lobject.h" />
-    <ClInclude Include="..\modules\lua\lopcodes.h" />
-    <ClInclude Include="..\modules\lua\lopnames.h" />
-    <ClInclude Include="..\modules\lua\lparser.h" />
-    <ClInclude Include="..\modules\lua\lprefix.h" />
-    <ClInclude Include="..\modules\lua\lstate.h" />
-    <ClInclude Include="..\modules\lua\lstring.h" />
-    <ClInclude Include="..\modules\lua\ltable.h" />
-    <ClInclude Include="..\modules\lua\ltests.h" />
-    <ClInclude Include="..\modules\lua\ltm.h" />
-    <ClInclude Include="..\modules\lua\lua.h" />
-    <ClInclude Include="..\modules\lua\luaconf.h" />
-    <ClInclude Include="..\modules\lua\lualib.h" />
-    <ClInclude Include="..\modules\lua\lundump.h" />
-    <ClInclude Include="..\modules\lua\lvm.h" />
-    <ClInclude Include="..\modules\lua\lzio.h" />
-    <ClInclude Include="..\modules\physfs\include\physfs\physfs.h" />
-    <ClInclude Include="..\modules\physfs\include\physfs\physfs_casefolding.h" />
-    <ClInclude Include="..\modules\physfs\include\physfs\physfs_internal.h" />
-    <ClInclude Include="..\modules\physfs\include\physfs\physfs_lzmasdk.h" />
-    <ClInclude Include="..\modules\physfs\include\physfs\physfs_miniz.h" />
-    <ClInclude Include="..\modules\physfs\include\physfs\physfs_platforms.h" />
-    <ClInclude Include="..\modules\sol2\single\include\sol\forward.hpp" />
-    <ClInclude Include="..\modules\sol2\single\include\sol\sol.hpp" />
-    <ClInclude Include="..\modules\tinyfiledialogs\tinyfiledialogs.h" />
-    <ClInclude Include="src\galaxy\flags\EnabledFlag.hpp" />
-    <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
-    <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
-    <ClInclude Include="src\galaxy\components\SpriteComponent.hpp" />
-    <ClInclude Include="src\galaxy\components\TransformComponent.hpp" />
-    <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\core\Command.hpp" />
-    <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
-    <ClInclude Include="src\galaxy\core\World.hpp" />
-    <ClInclude Include="src\galaxy\fs\Config.hpp" />
-    <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
-    <ClInclude Include="src\galaxy\fs\PhysfsInputStream.hpp" />
-    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
-    <ClInclude Include="src\galaxy\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\galaxy\layer\ImGuiLayer.hpp" />
-    <ClInclude Include="src\galaxy\math\RectPack.hpp" />
-    <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
-    <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
-    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
-    <ClInclude Include="src\galaxy\types\Layer.hpp" />
-    <ClInclude Include="src\galaxy\types\Serializable.hpp" />
-    <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
-    <ClInclude Include="src\Lua.hpp" />
-    <ClInclude Include="src\galaxy\ui\Editor.hpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{24A73AC2-A971-47D0-905A-7AFB76684687}</ProjectGuid>
@@ -251,7 +110,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/Box2D-MT/;../modules/tinyfiledialogs/;../modules/imguicolortextedit/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <ConformanceMode>false</ConformanceMode>
@@ -283,7 +142,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/Box2D-MT/;../modules/tinyfiledialogs/;../modules/imguicolortextedit/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -318,7 +177,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/Box2D-MT/;../modules/tinyfiledialogs/;../modules/imguicolortextedit/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -355,7 +214,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SOL_CXX17_FEATURES;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;SFML_STATIC;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../galaxy/src/;../modules/physfs/include/;../modules/celestial/celestial/src/;../modules/imgui/;../modules/lua/;../modules/protostar/protostar/src/;../modules/pulsar/pulsar/src/;../modules/sfml/include/;../modules/sol2/single/include/;../modules/solar/solar/src/;../modules/starlight/starlight/src/;../modules/starmap/starmap/src/;../modules/starmap/modules/json/include/;../modules/imgui-sfml/;../modules/Box2D-MT/;../modules/tinyfiledialogs/;../modules/imguicolortextedit/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <LanguageStandard>stdcpp17</LanguageStandard>

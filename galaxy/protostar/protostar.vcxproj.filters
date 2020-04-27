@@ -1,54 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\protostar\utility\Meta.cpp" />
-    <ClCompile Include="src\protostar\string\StringOps.cpp" />
-    <ClCompile Include="src\protostar\math\Maths.cpp" />
-    <ClCompile Include="src\protostar\math\Random.cpp" />
-    <ClCompile Include="src\protostar\utility\Time.cpp" />
-    <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
+    <ClCompile Include="src\protostar\async\ProtectedArithmetic.cpp" />
+    <ClCompile Include="src\protostar\async\Task.cpp" />
+    <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
     <ClCompile Include="src\protostar\events\KeyCharEvent.cpp" />
     <ClCompile Include="src\protostar\events\KeyDownEvent.cpp" />
     <ClCompile Include="src\protostar\events\KeyUpEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseMovedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
-    <ClCompile Include="src\protostar\state\StateMachine.cpp" />
-    <ClCompile Include="src\protostar\state\State.cpp" />
-    <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
-    <ClCompile Include="src\protostar\async\Task.cpp" />
-    <ClCompile Include="src\protostar\system\Colour.cpp" />
-    <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
-    <ClCompile Include="src\protostar\system\Keys.cpp" />
-    <ClCompile Include="src\protostar\math\RectPack.cpp" />
+    <ClCompile Include="src\protostar\math\Maths.cpp" />
+    <ClCompile Include="src\protostar\math\Random.cpp" />
     <ClCompile Include="src\protostar\math\Rect.cpp" />
-    <ClCompile Include="src\protostar\async\ProtectedArithmetic.cpp" />
+    <ClCompile Include="src\protostar\math\RectPack.cpp" />
+    <ClCompile Include="src\protostar\state\State.cpp" />
+    <ClCompile Include="src\protostar\state\StateMachine.cpp" />
+    <ClCompile Include="src\protostar\string\StringOps.cpp" />
+    <ClCompile Include="src\protostar\system\Colour.cpp" />
+    <ClCompile Include="src\protostar\system\Keys.cpp" />
+    <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
+    <ClCompile Include="src\protostar\utility\Meta.cpp" />
+    <ClCompile Include="src\protostar\utility\Time.cpp" />
+    <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\protostar\utility\Meta.hpp" />
-    <ClInclude Include="src\protostar\string\StringOps.hpp" />
-    <ClInclude Include="src\protostar\math\Maths.hpp" />
-    <ClInclude Include="src\protostar\math\Random.hpp" />
-    <ClInclude Include="src\protostar\utility\Time.hpp" />
-    <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
+    <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
+    <ClInclude Include="src\protostar\async\Task.hpp" />
+    <ClInclude Include="src\protostar\async\ThreadPool.hpp" />
     <ClInclude Include="src\protostar\events\KeyCharEvent.hpp" />
     <ClInclude Include="src\protostar\events\KeyDownEvent.hpp" />
     <ClInclude Include="src\protostar\events\KeyUpEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseMovedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
-    <ClInclude Include="src\protostar\state\StateMachine.hpp" />
-    <ClInclude Include="src\protostar\state\State.hpp" />
-    <ClInclude Include="src\protostar\async\ThreadPool.hpp" />
-    <ClInclude Include="src\protostar\async\Task.hpp" />
-    <ClInclude Include="src\protostar\system\Colour.hpp" />
-    <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
-    <ClInclude Include="src\protostar\system\Keys.hpp" />
-    <ClInclude Include="src\protostar\math\RectPack.hpp" />
+    <ClInclude Include="src\protostar\math\Maths.hpp" />
+    <ClInclude Include="src\protostar\math\Random.hpp" />
     <ClInclude Include="src\protostar\math\Rect.hpp" />
-    <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="todo.txt" />
+    <ClInclude Include="src\protostar\math\RectPack.hpp" />
+    <ClInclude Include="src\protostar\state\State.hpp" />
+    <ClInclude Include="src\protostar\state\StateMachine.hpp" />
+    <ClInclude Include="src\protostar\string\StringOps.hpp" />
+    <ClInclude Include="src\protostar\system\Colour.hpp" />
+    <ClInclude Include="src\protostar\system\Keys.hpp" />
+    <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
+    <ClInclude Include="src\protostar\utility\Meta.hpp" />
+    <ClInclude Include="src\protostar\utility\Time.hpp" />
+    <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
   </ItemGroup>
 </Project>
