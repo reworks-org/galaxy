@@ -12,17 +12,8 @@
 ///
 namespace celestial
 {
-	Widget::Widget() noexcept
-		:m_bounds(0, 0, 0, 0), m_theme(nullptr), m_isVisible(true), m_drawTooltip(false), m_tooltip(nullptr), m_id(0)
-	{
-	}
-
 	Widget::~Widget() noexcept
 	{
-		m_drawTooltip = false;
-		m_tooltip.reset();
-
-		m_theme = nullptr;
 	}
 
 	bool Widget::contains(const int x, const int y) noexcept
@@ -31,22 +22,9 @@ namespace celestial
 		return ((x > m_bounds.m_x) && (x < (m_bounds.m_x + m_bounds.m_width)) && (y > m_bounds.m_y) && (y < (m_bounds.m_y + m_bounds.m_height)));
 	}
 
-	Tooltip* Widget::createTooltip() noexcept
+	void Widget::setVisibility(const bool isVisible) noexcept
 	{
-		m_tooltip = std::make_unique<Tooltip>();
-		m_tooltip->setTheme(m_theme);
-
-		return m_tooltip.get();
-	}
-
-	void Widget::isVisible(const bool isVisible) noexcept
-	{
-		m_isVisible = isVisible;
-	}
-
-	void Widget::setTheme(celestial::UITheme* theme) noexcept
-	{
-		m_theme = theme;
+		m_visible = isVisible;
 	}
 
 	void Widget::setBounds(const int x, const int y, const int w, const int h) noexcept
@@ -57,6 +35,11 @@ namespace celestial
 		m_bounds.m_height = h;
 	}
 
+	void Widget::setTheme(celestial::UITheme* theme) noexcept
+	{
+		m_theme = theme;
+	}
+
 	const protostar::Rect<int>& Widget::getBounds() const noexcept
 	{
 		return m_bounds;
@@ -65,5 +48,10 @@ namespace celestial
 	const unsigned int Widget::id() const noexcept
 	{
 		return m_id;
+	}
+
+	Widget::Widget() noexcept
+		:m_visible(true), m_theme(nullptr), m_id(0)
+	{
 	}
 }

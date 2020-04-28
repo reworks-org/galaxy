@@ -8,7 +8,9 @@
 #ifndef CELESTIAL_WIDGET_HPP_
 #define CELESTIAL_WIDGET_HPP_
 
-#include "celestial/Tooltip.hpp"
+#include <protostar/async/ProtectedArithmetic.hpp>
+
+#include "celestial/UITheme.hpp"
 
 ///
 /// Core namespace.
@@ -33,17 +35,17 @@ namespace celestial
 		///
 		/// \param dt Delta Time.
 		///
-		virtual void update(const double dt) noexcept = 0;
+		virtual void update(protostar::ProtectedDouble* dt) noexcept = 0;
 
 		///
 		/// \brief Render the widget.
 		///
 		/// This should only contain code on rendering the widget.
-		/// And don't forget to check for visibility and draw the tooltip.
+		/// And don't forget to check for visibility.
 		///
-		/// \param renderer Renderer to use when drawing. Needs to be consistent.
+		/// \param renderer Renderer to use when drawing.
 		///
-		virtual void render(celestial::interface::Renderer* renderer) noexcept = 0;
+		virtual void render(qs::Renderer& renderer) noexcept = 0;
 
 		///
 		/// Does the widget contain the point x, y.
@@ -54,28 +56,11 @@ namespace celestial
 		virtual bool contains(const int x, const int y) noexcept final;
 
 		///
-		/// \brief Creates a tooltip for the widget.
-		///
-		/// Tooltip memory is owned by the widget.
-		/// Tooltip theme is set to Widget's theme.
-		///
-		/// \return Pointer to newly created tooltip.
-		///
-		virtual Tooltip* createTooltip() noexcept final;
-
-		///
 		/// Set visibility of widget.
 		///
 		/// \param isVisible Set to true if widget is visible.
 		///
-		virtual void isVisible(const bool isVisible) noexcept final;
-
-		///
-		/// Set UITheme.
-		///
-		/// \param theme Pointer to theme to use.
-		///
-		virtual void setTheme(celestial::UITheme* theme) noexcept final;
+		virtual void setVisibility(const bool isVisible) noexcept final;
 
 		///
 		/// Set bounds.
@@ -88,11 +73,19 @@ namespace celestial
 		virtual void setBounds(const int x, const int y, const int w, const int h) noexcept final;
 
 		///
+		/// Sets theme for widget to use.
+		///
+		/// \param theme Theme to apply to widget.
+		///
+		virtual void setTheme(celestial::UITheme* theme) noexcept final;
+
+		///
 		/// Get bounds.
 		///
 		/// \return Returns a reference to the internal rectangle defining bounds.
 		///
 		virtual const protostar::Rect<int>& getBounds() const noexcept final;
+
 
 		///
 		/// Get ID of this widget.
@@ -124,24 +117,14 @@ namespace celestial
 		protostar::Rect<int> m_bounds;
 
 		///
-		/// Pointer to the theme used by the widget.
+		/// Is the widget currently visible.
 		///
-		UITheme* m_theme;
+		bool m_visible;
 
 		///
-		/// Is the widget currently visible. I.e. being rendered.
+		/// UITheme pointer.
 		///
-		bool m_isVisible;
-
-		///
-		/// Toggle for drawing tooltip.
-		///
-		bool m_drawTooltip;
-
-		///
-		/// Tooltip for this widget.
-		///
-		std::unique_ptr<Tooltip> m_tooltip;
+		celestial::UITheme* m_theme;
 
 	private:
 		///
