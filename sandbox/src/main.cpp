@@ -87,15 +87,20 @@ struct Test
 
 int main(int argsc, char* argsv[])
 {
+	pulsar::Log::get().init("logs/log.txt");
+	pulsar::Log::get().setMinimumLevel(PL_INFO);
+
 	// TODO: PORT TO PULSAR
-	qs::Error::handle().setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
+	qs::Error::handle().setQSCallback([](const std::string& file, unsigned int line, const std::string& message) -> void
 	{
-		std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
+		std::string msg = "[Quasar] File: " + file + " Line: " + std::to_string(line) + " Message: " + message + "\n";
+		PL_LOG(PL_ERROR, msg);
 	});
 
 	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
 	{
-		std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
+		std::string msg = "[OpenGL]: Severity: " + std::to_string(severity) + " Message: " + message + "\n";
+		PL_LOG(PL_ERROR, msg);
 	});
 
 	qs::WindowSettings::s_antiAliasing = 2;
@@ -339,6 +344,8 @@ int main(int argsc, char* argsv[])
 
 	// Exit.
 	window.destroy();
+
+	pulsar::Log::get().deinit();
 
 	return 0;
 }

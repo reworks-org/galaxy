@@ -13,7 +13,7 @@
 namespace celestial
 {
 	UI::UI(protostar::ProtectedDouble* deltaTime) noexcept
-		:m_dt(deltaTime)
+		:m_dt(deltaTime), m_counter(0), m_errorState(celestial::ErrorState::OK)
 	{
 		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished)
 		{
@@ -88,6 +88,8 @@ namespace celestial
 	{
 		if (m_visible.get())
 		{
+			std::lock_guard<std::mutex> lock(m_eventMutex);
+			m_uiEventManager.trigger();
 		}
 	}
 

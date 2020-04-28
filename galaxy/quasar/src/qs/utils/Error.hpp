@@ -12,7 +12,6 @@
 #include <string>
 #include <vector>
 #include <functional>
-#include <string_view>
 
 #include <glad/glad.h>
 
@@ -47,11 +46,9 @@ namespace qs
 		///
 		/// \brief Set the callback function for errors in Quasar. Adds error message to history.
 		///
-		/// Callback function has params: file (std::string_view), line (unsigned int), message (std::string_view).
-		/// 
 		/// \param callback Function pointer to callback function.
 		///
-		void setQSCallback(std::function<void(std::string_view, unsigned int, std::string_view)> callback) noexcept;
+		void setQSCallback(std::function<void(const std::string&, unsigned int, const std::string&)> callback) noexcept;
 
 		///
 		/// Execute callback function. Adds error message to history. Make sure a callback is set or this does nothing.
@@ -60,7 +57,7 @@ namespace qs
 		/// \param line Line the error is happening on.
 		/// \param message What is the error.
 		///
-		void callback(std::string_view file, unsigned int line, std::string_view message) noexcept;
+		void callback(const std::string& file, unsigned int line, const std::string& message) noexcept;
 
 		///
 		/// Retrieve all error messages.
@@ -102,7 +99,7 @@ namespace qs
 		///
 		/// Callback method for error handling.
 		///
-		std::function<void(std::string_view, unsigned int, std::string_view)> m_callback;		
+		std::function<void(const std::string&, unsigned int, const std::string&)> m_callback;
 	};
 }
 

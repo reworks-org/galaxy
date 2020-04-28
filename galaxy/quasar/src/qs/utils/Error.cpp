@@ -31,12 +31,12 @@ namespace qs
 		glDebugMessageCallback(callback, nullptr);
 	}
 
-	void Error::setQSCallback(std::function<void(std::string_view, unsigned int, std::string_view)> callback) noexcept
+	void Error::setQSCallback(std::function<void(const std::string&, unsigned int, const std::string&)> callback) noexcept
 	{
 		m_callback = callback;
 	}
 
-	void Error::callback(std::string_view file, unsigned int line, std::string_view message) noexcept
+	void Error::callback(const std::string& file, unsigned int line, const std::string& message) noexcept
 	{
 		if (m_callback != nullptr)
 		{

@@ -9,6 +9,7 @@
 #define CELESTIAL_UI_HPP_
 
 #include <protostar/async/Task.hpp>
+#include <starlight/Dispatcher.hpp>
 
 #include "celestial/Widget.hpp"
 
@@ -25,6 +26,22 @@ namespace celestial
 
 		template<typename WidgetType, typename... Args>
 		WidgetType* add(Args&&... args) noexcept;
+
+		///
+		/// Registers a function to be called on the triggering of an event.
+		///
+		/// \param callback void function that takes a const Event&.
+		///
+		template<typename Event, typename WidgetType>
+		void addEventToWidget(starlight::Callback<Event>&& func, WidgetType* widget) noexcept;
+
+		///
+		/// Queues an event to be triggered, does not trigger immediately.
+		///
+		/// \param args Constructor arguments for event.
+		///
+		template<typename Event, typename ...Args>
+		void queue(Args&&... args) noexcept;
 
 		virtual void setVisibility(const bool isVisible) noexcept final;
 
@@ -51,8 +68,11 @@ namespace celestial
 		celestial::ErrorState m_errorState;
 
 		std::mutex m_widgetMutex;
+		std::mutex m_eventMutex;
 
 		protostar::ProtectedDouble* m_dt;
+
+		starlight::Dispatcher m_uiEventManager;
 	};
 
 	template<typename WidgetType, typename ...Args>
@@ -95,6 +115,19 @@ namespace celestial
 
 		// Then return a pointer to object placed.
 		return dynamic_cast<WidgetType*>(ref);
+	}
+
+	template<typename Event, typename WidgetType>
+	inline void UI::addEventToWidget(starlight::Callback<Event>&& func, WidgetType* widget) noexcept
+	{
+		m_uiEventManager.add<Event>(std::bind(func, widget, std::placeholders::_1));
+	}
+
+	template<typename Event, typename ...Args>
+	inline void UI::queue(Args&& ...args) noexcept
+	{
+		std::lock_guard<std::mutex> lock(m_eventMutex);
+		m_uiEventManager.queue<Event>(std::forward<Args>(args)...);
 	}
 }
 

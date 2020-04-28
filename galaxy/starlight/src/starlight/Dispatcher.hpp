@@ -36,17 +36,13 @@ namespace starlight
 		///
 		/// \param callback void function that takes a const Event&.
 		///
-		/// \return True on success.
-		/// 
 		template<typename Event>
-		void add(const Callback<Event>& callback) noexcept;
+		void add(const starlight::Callback<Event>& callback) noexcept;
 
 		///
 		/// Queues an event to be triggered, does not trigger immediately.
 		///
 		/// \param args Constructor arguments for event.
-		///
-		/// \return True on success.
 		///
 		template<typename Event, typename ...Args>
 		void queue(Args&&... args) noexcept;
@@ -77,7 +73,7 @@ namespace starlight
 	};
 	
 	template<typename Event>
-	inline void Dispatcher::add(const Callback<Event>& callback) noexcept
+	inline void Dispatcher::add(const starlight::Callback<Event>& callback) noexcept
 	{
 		// Useful to retrieve a compile time unique id.
 		const std::size_t typeIndex = UniqueEventID::get<Event>();
