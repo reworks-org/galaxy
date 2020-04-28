@@ -27,7 +27,7 @@ namespace protostar
 	/// \return Returns the percentage of the value in that range betwen 0 and 1. E.g. 39% is 0.39.
 	///
 	template<typename T>
-	inline const T percentInRange(T input, T min, T max)
+	inline const T percentInRange(T input, T min, T max) noexcept
 	{
 		// Make sure is arimthmatic.
 		static_assert(std::is_arithmetic<T>::value);

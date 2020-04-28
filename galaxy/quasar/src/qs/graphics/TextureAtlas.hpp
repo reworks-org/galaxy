@@ -74,7 +74,7 @@ namespace qs
 		/// \param file Path (including filename) to save file to.
 		///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
 		///
-		void save(const std::string& file);
+		void save(const std::string& file) noexcept;
 
 		///
 		/// Gets internal integer ID of a texture on the atlas.

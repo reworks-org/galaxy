@@ -35,66 +35,51 @@ namespace frb
 		///
 		/// \brief Initialize OpenAL.
 		///
-		/// Can throw exceptions.
-		/// Should be in a try-catch block.
-		///
 		/// \return True if successful.
 		///
-		void initialize();
+		void initialize() noexcept;
 
 		///
 		/// \brief Change doppler factor. Optional.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param factor New factor for doppler effect.
 		///
-		void setDopplerFactor(const float factor);
+		void setDopplerFactor(const float factor) noexcept;
 
 		///
 		/// \brief Change the default speed of sound. Optional.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param speed New speed of sound to define.
 		///
-		void setSpeedOfSound(const float speed);
+		void setSpeedOfSound(const float speed) noexcept;
 
 		///
 		/// \brief Set the gain for the listener.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param gain Master gain. Must be positive.
 		///
-		void setListenerGain(const float gain);
+		void setListenerGain(const float gain) noexcept;
 
 		///
 		/// \brief Set the location of the listener in the world coord system.
-		///
-		/// Can throw exceptions.
 		///
 		/// \param x position in world.
 		/// \param y position in world.
 		/// \param z position in world.
 		///
-		void setListenerPosition(const float x, const float y, const float z);
+		void setListenerPosition(const float x, const float y, const float z) noexcept;
 
 		///
 		/// \brief Set the audio velocity (speed and direction) of the listener.
-		///
-		/// Can throw exceptions.
 		///
 		/// \param x X velocity.
 		/// \param y Y velocity.
 		/// \param z Z velocity.
 		///
-		void setListenerVelocity(const float x, const float y, const float z);
+		void setListenerVelocity(const float x, const float y, const float z) noexcept;
 
 		///
 		/// \brief Set orientation of listener.
-		///
-		/// Can throw exceptions.
 		///
 		/// \param atX "at" vector x.
 		/// \param atY "at" vector y.
@@ -103,7 +88,7 @@ namespace frb
 		/// \param upY "up" vector y.
 		/// \param upZ "up" vector z.
 		///
-		void setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
+		void setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ) noexcept;
 
 	private:
 		///

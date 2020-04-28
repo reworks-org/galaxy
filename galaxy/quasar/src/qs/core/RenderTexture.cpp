@@ -30,7 +30,7 @@ namespace qs
 		glGenTextures(1, &m_texture);
 	}
 
-	RenderTexture::RenderTexture(const int w, const int h)
+	RenderTexture::RenderTexture(const int w, const int h) noexcept
 		:m_projection(1.0f), m_texture(0), m_framebuffer(0), m_width(0), m_height(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
@@ -39,7 +39,7 @@ namespace qs
 		create(w, h);
 	}
 
-	RenderTexture::~RenderTexture()
+	RenderTexture::~RenderTexture() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glBindFramebuffer(GL_TEXTURE_2D, 0);

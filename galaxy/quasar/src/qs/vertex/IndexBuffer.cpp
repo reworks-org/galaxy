@@ -34,7 +34,7 @@ namespace qs
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
-	unsigned int IndexBuffer::getCount() const
+	unsigned int IndexBuffer::getCount() const noexcept
 	{
 		return m_count;
 	}

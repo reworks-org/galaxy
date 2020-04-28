@@ -25,12 +25,12 @@ namespace protostar
 		m_isFinished.set(true);
 	}
 
-	void Task::set(const TaskFunction&& function)
+	void Task::set(TaskFunction&& function) noexcept
 	{
 		m_task = std::move(function);
 	}
 
-	void Task::exec(protostar::ProtectedBool* threadPoolFinished)
+	void Task::exec(protostar::ProtectedBool* threadPoolFinished) noexcept
 	{
 		m_task(threadPoolFinished);
 		m_isFinished.set(true);

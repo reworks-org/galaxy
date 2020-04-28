@@ -25,7 +25,7 @@ namespace starmap
 	{
 	public:
 		///
-		/// Default constructor.
+		/// Constructor.
 		///
 		Tile() noexcept;
 
@@ -36,12 +36,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing tile json.
 		///
-		explicit Tile(const nlohmann::json& json);
+		explicit Tile(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Tile();
+		~Tile() noexcept;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -50,7 +50,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing tile json.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get animation frames.

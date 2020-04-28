@@ -20,13 +20,13 @@ namespace qs
 	{
 	}
 
-	void Transform::move(const float x, const float y)
+	void Transform::move(const float x, const float y) noexcept
 	{
 		m_translationMatrix = glm::translate(m_translationMatrix, glm::vec3(x, y, 0.0f));
 		recalculate();
 	}
 
-	void Transform::setPos(const float x, const float y)
+	void Transform::setPos(const float x, const float y) noexcept
 	{
 		m_translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, 0.0f));
 		recalculate();

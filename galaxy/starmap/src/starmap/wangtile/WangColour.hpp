@@ -33,12 +33,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing WangColour json.
 		///
-		explicit WangColour(const nlohmann::json& json);
+		explicit WangColour(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~WangColour() = default;
+		~WangColour()  noexcept = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -47,7 +47,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing WangColour json.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get colour.

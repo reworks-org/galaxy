@@ -40,7 +40,7 @@ namespace qs
 		/// \param w Width of the window.
 		/// \param h Height of the window.
 		///
-		explicit Window(const std::string& title, int w, int h);
+		explicit Window(const std::string& title, int w, int h) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -61,7 +61,7 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(const std::string& title, int w, int h);
+		bool create(const std::string& title, int w, int h) noexcept;
 
 		///
 		/// Set window icon.

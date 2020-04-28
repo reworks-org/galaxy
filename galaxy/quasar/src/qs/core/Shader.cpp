@@ -29,7 +29,7 @@ namespace qs
 		glDeleteProgram(m_id);
 	}
 
-	bool Shader::loadFromPath(const std::string& vertex, const std::string& fragment)
+	bool Shader::loadFromPath(const std::string& vertex, const std::string& fragment) noexcept
 	{
 		// Set up vars.
 		bool result = true;
@@ -161,7 +161,7 @@ namespace qs
 		return result;
 	}
 
-	bool Shader::loadFromPath(const std::string& glsl)
+	bool Shader::loadFromPath(const std::string& glsl) noexcept
 	{
 		// Set up vars.
 		bool result = true;
@@ -221,7 +221,7 @@ namespace qs
 		return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
 	}
 
-	bool Shader::loadFromRaw(const std::string& vertex, const std::string& fragment)
+	bool Shader::loadFromRaw(const std::string& vertex, const std::string& fragment) noexcept
 	{
 		// Set up vars.
 		bool result = true;
@@ -314,7 +314,7 @@ namespace qs
 		return result;
 	}
 
-	bool Shader::loadFromRaw(const std::string& glsl)
+	bool Shader::loadFromRaw(const std::string& glsl) noexcept
 	{
 		// Set up vars.
 		bool result = true;
@@ -379,7 +379,7 @@ namespace qs
 		glUseProgram(0);
 	}
 
-	int Shader::getUniformLocation(const std::string& name)
+	int Shader::getUniformLocation(const std::string& name) noexcept
 	{
 		// If uniform already exists return it from cache to avoid querying OpenGL, which is slow.
 		if (m_cache.find(name) != m_cache.end())
@@ -397,7 +397,7 @@ namespace qs
 			}
 			else
 			{
-				qs::Error::handle().callback("Shader.cpp", 291, "Failed to find uniform: " + name);
+				qs::Error::handle().callback("Shader.cpp", 400, "Failed to find uniform: " + name);
 			}
 
 			return location;

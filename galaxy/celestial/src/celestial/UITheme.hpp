@@ -54,14 +54,14 @@ namespace celestial
 		/// \param textures List of textures to compose texture atlas.
 		/// \param fonts Name of font to load.
 		///
-		void create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts);
+		void create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts) noexcept;
 		
 		///
 		/// Get a font using a key.
 		///
 		/// \param key The key is the "stem" of the file path. I.e. the filename without the extension or path.
 		///
-		qs::Font* getFont(const std::string& key);
+		qs::Font* getFont(const std::string& key) noexcept;
 
 		///
 		/// Get pointer to associated window.

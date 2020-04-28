@@ -15,43 +15,43 @@
 ///
 namespace protostar
 {
-	const std::uint32_t secondsToMilliseconds(const double seconds)
+	const std::uint32_t secondsToMilliseconds(const double seconds) noexcept
 	{
 		return static_cast<std::uint32_t>(seconds * 1000.0);
 	}
 
-	const std::uint64_t secondsToMicroseconds(const double seconds)
+	const std::uint64_t secondsToMicroseconds(const double seconds) noexcept
 	{
 		return static_cast<std::uint64_t>(seconds * 1000000.0);
 	}
 
-	const double millisecondsToSeconds(const std::uint32_t milliseconds)
+	const double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept
 	{
 		return static_cast<double>(milliseconds) / 1000.0;
 	}
 
-	const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds)
+	const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept
 	{
 		return static_cast<std::uint64_t>(static_cast<std::uint64_t>(milliseconds) * 1000);
 	}
 
-	const double microsecondsToSeconds(const std::uint64_t microseconds)
+	const double microsecondsToSeconds(const std::uint64_t microseconds) noexcept
 	{
 		return static_cast<double>(microseconds / 1000000.0);
 	}
 
-	const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds)
+	const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept
 	{
 		return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
 	} 
 
-	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp)
+	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp) noexcept
 	{
 		// Return time since epoch using chrono.
 		return std::chrono::duration<double>((tp != nullptr ? *tp : std::chrono::high_resolution_clock::now()).time_since_epoch()).count();
 	}
 
-	const std::string getCurrentDateTime()
+	const std::string getCurrentDateTime() noexcept
 	{
 		// Get current time using chrono.
 		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -63,7 +63,7 @@ namespace protostar
 		return temp;
 	}
 
-	const std::string getShortTime()
+	const std::string getShortTime() noexcept
 	{
 		// Get current time using chrono.
 		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -87,7 +87,7 @@ namespace protostar
 		return temp;
 	}
 
-	const std::string getFormattedTime()
+	const std::string getFormattedTime() noexcept
 	{
 		// Get current time using chrono.
 		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());

@@ -7,6 +7,8 @@
 
 #include <filesystem>
 
+#include <pulsar/Log.hpp>
+
 #include "UITheme.hpp"
 
 ///
@@ -26,7 +28,7 @@ namespace celestial
 		m_renderer = nullptr;
 	}
 
-	void UITheme::create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts)
+	void UITheme::create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts) noexcept
 	{
 		for (auto& texture : textures)
 		{
@@ -37,15 +39,29 @@ namespace celestial
 
 		for (auto& fontData : fonts)
 		{
-			auto fp = std::filesystem::path(fontData.first);
-			m_fonts.emplace(fp.stem().string(), qs::Font { fp.string(), fontData.second });
+			if (!fontData.first.empty())
+			{
+				auto fp = std::filesystem::path(fontData.first);
+				m_fonts.emplace(fp.stem().string(), qs::Font{ fp.string(), fontData.second });
+			}
+			else
+			{
+				PL_LOG(PL_WARNING, "Font data path empty, skipping...");
+			}
 		}
 	}
 
-	qs::Font* UITheme::getFont(const std::string& key)
+	qs::Font* UITheme::getFont(const std::string& key) noexcept
 	{
-		// at() for exception checking.
-		return &(m_fonts.at(key));
+		if (m_fonts.find(key) != m_fonts.end())
+		{
+			return &(m_fonts[key]);
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Tried to access font that does not exist!");
+			return nullptr;
+		}
 	}
 
 	qs::Window* UITheme::getWindow() const noexcept

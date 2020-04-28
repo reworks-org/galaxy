@@ -11,6 +11,8 @@
 #include <ios>
 #include <string>
 
+#include <pulsar/Log.hpp>
+
 ///
 /// Core namespace.
 ///
@@ -21,9 +23,9 @@ namespace protostar
 	///
 	/// \param value Boolean value to convert.
 	///
-	/// \return Returns either "true" or "false".
+	/// \return Returns move constructed "true" or "false".
 	///
-	const std::string boolToString(const bool value);
+	std::string boolToString(const bool value) noexcept;
 
 	///
 	/// Converts a std::string to a boolean.
@@ -32,7 +34,7 @@ namespace protostar
 	///
 	/// \return Returns either true or false.
 	///
-	const bool stringToBool(const std::string& str);
+	const bool stringToBool(const std::string& str) noexcept;
 
 	///
 	/// \brief Ensures any null c-strings are converted to empty ones.
@@ -43,7 +45,7 @@ namespace protostar
 	///
 	/// \return Returns empty string if input is null.
 	///
-	const char* nullToEmpty(const char* s);
+	const char* nullToEmpty(const char* s) noexcept;
 
 	///
 	/// \brief Convert a std::string to any numerical type.
@@ -56,15 +58,14 @@ namespace protostar
 	/// \return Returns data as T type.
 	///
 	template <typename T>
-	inline const T convertString(const std::string& data)
+	inline const T convertString(const std::string& data) noexcept
 	{
 		// Make sure is arimthmatic.
 		static_assert(std::is_arithmetic<T>::value);
 
+		T ret = (T)0;
 		if (!data.empty())
 		{
-			T ret = (T)0;
-
 			// Create stringstream and use it to convert strings to variables.
 			std::istringstream iss(data);
 			if (data.find("0x") != std::string::npos)
@@ -83,8 +84,12 @@ namespace protostar
 
 			return ret;
 		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Attempted to convert empty string.");
+		}
 
-		return T();
+		return ret;
 	}
 }
 

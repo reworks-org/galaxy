@@ -35,12 +35,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing WangSet json.
 		///
-		explicit WangSet(const nlohmann::json& json);
+		explicit WangSet(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~WangSet();
+		~WangSet() noexcept;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -49,7 +49,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing WangSet json.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get corner wang tile colours.

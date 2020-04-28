@@ -29,14 +29,12 @@ namespace sr
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~System() = default;
+		virtual ~System() noexcept = default;
 
 		///
-		/// Abstract implementation for processing an event.
+		/// Abstract implementation for processing events.
 		///
-		/// \param e Event object to pass to system.
-		///
-		virtual void event(const sr::Event& e) = 0;
+		virtual void event() noexcept = 0;
 
 		///
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
@@ -44,7 +42,7 @@ namespace sr
 		/// \param time DeltaTime from gameloop.
 		/// \param manager Entity manager.
 		///
-		virtual void update(const sr::DeltaTime time, sr::Manager& manager) = 0;
+		virtual void update(const sr::DeltaTime time, sr::Manager& manager) noexcept = 0;
 
 	protected:
 		///

@@ -33,12 +33,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing frame json.
 		///
-		explicit Frame(const nlohmann::json& json);
+		explicit Frame(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Frame() = default;
+		~Frame() noexcept = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -47,7 +47,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing frame json.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get frame duration.

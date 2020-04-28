@@ -30,7 +30,7 @@ namespace protostar
 		///
 		/// Default constructor.
 		///
-		Rect();
+		Rect() noexcept;
 
 		///
 		/// Argument constructor.
@@ -40,7 +40,7 @@ namespace protostar
 		/// \param width Width value.
 		/// \param height Height value.
 		///
-		Rect(const Type x, const Type y, const Type width, const Type height);
+		Rect(const Type x, const Type y, const Type width, const Type height) noexcept;
 
 		///
 		/// Default destructor.
@@ -55,7 +55,7 @@ namespace protostar
 		///
 		/// \return True if contains the point.
 		///
-		bool contains(const Type x, const Type y);
+		bool contains(const Type x, const Type y) noexcept;
 
 		///
 		/// Does the rectangle contain another rectangle.
@@ -64,7 +64,7 @@ namespace protostar
 		///
 		/// \return Returns true if the rectangle is completely inside, not on the edge.
 		///
-		bool contains(const Rect<Type>& b);
+		bool contains(const Rect<Type>& b) noexcept;
 
 		///
 		/// \brief Do the rectangles a and b overlap.
@@ -75,7 +75,7 @@ namespace protostar
 		///
 		/// \return Returns true if there is an overlap.
 		///
-		bool overlaps(const Rect<Type>& b);
+		bool overlaps(const Rect<Type>& b) noexcept;
 
 	private:
 		///
@@ -88,7 +88,7 @@ namespace protostar
 		///
 		/// \return True if value is inbetween min and max. Inclusive.
 		///
-		bool valueInRange(const Type value, const Type min, const Type max);
+		bool valueInRange(const Type value, const Type min, const Type max) noexcept;
 
 	public:
 		///
@@ -113,33 +113,33 @@ namespace protostar
 	};
 
 	template<typename Type>
-	inline Rect<Type>::Rect()
+	inline Rect<Type>::Rect() noexcept
 		:m_x(0), m_y(0), m_width(0), m_height(0)
 	{
 	}
 
 	template<typename Type>
-	inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height)
+	inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
 		:m_x(x), m_y(y), m_width(width), m_height(height)
 	{
 	}
 
 	template<typename Type>
-	inline bool Rect<Type>::contains(const Type x, const Type y)
+	inline bool Rect<Type>::contains(const Type x, const Type y) noexcept
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
 		return ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height)));
 	}
 
 	template<typename Type>
-	inline bool Rect<Type>::contains(const Rect<Type>& b)
+	inline bool Rect<Type>::contains(const Rect<Type>& b) noexcept
 	{
 		// Checks if the rectangle contains another rectangle using math.
 		return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) && (b.m_y + b.m_height) < (m_y + m_height));
 	}
 
 	template<typename Type>
-	inline bool Rect<Type>::overlaps(const Rect<Type>& b)
+	inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
 	{
 		// Check for overlaps using math.
 		bool xOverlap = valueInRange(m_x, b.m_x, b.m_x + b.m_width) ||
@@ -152,7 +152,7 @@ namespace protostar
 	}
 
 	template<typename Type>
-	inline bool Rect<Type>::valueInRange(const Type value, const Type min, const Type max)
+	inline bool Rect<Type>::valueInRange(const Type value, const Type min, const Type max) noexcept
 	{
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);
@@ -162,7 +162,7 @@ namespace protostar
 	/// Negative operator overload.
 	///
 	template<typename Type>
-	inline Rect<Type> operator-(const Rect<Type>& a)
+	inline Rect<Type> operator-(const Rect<Type>& a) noexcept
 	{
 		// Negative operator overloading.
 		return Rect<Type>(-a.m_x, -a.m_y, -a.m_width, -a.m_height);
@@ -172,7 +172,7 @@ namespace protostar
 	/// Addition assignment operator overload.
 	///
 	template<typename Type>
-	inline Rect<Type>& operator+=(Rect<Type>& a, const Rect<Type>& b)
+	inline Rect<Type>& operator+=(Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Addition assignment operator overloading.
 		a.m_x += b.m_x;
@@ -187,7 +187,7 @@ namespace protostar
 	/// Subtraction assignment operator overload.
 	///
 	template<typename Type>
-	inline Rect<Type>& operator-=(Rect<Type>& a, const Rect<Type>& b)
+	inline Rect<Type>& operator-=(Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Subtraction assignment operator overloading.
 		a.m_x -= b.m_x;
@@ -202,7 +202,7 @@ namespace protostar
 	/// Addition operator overload.
 	///
 	template<typename Type>
-	inline Rect<Type> operator+(const Rect<Type>& a, const Rect<Type>& b)
+	inline Rect<Type> operator+(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		return Rect<Type>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
 	}
@@ -211,7 +211,7 @@ namespace protostar
 	/// Subtraction operator overload.
 	///
 	template<typename Type>
-	inline Rect<Type> operator-(const Rect<Type>& a, const Rect<Type>& b)
+	inline Rect<Type> operator-(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Subtraction operator overloading.
 		return Rect<Type>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_width - b.m_width, a.m_height - b.m_height);
@@ -221,7 +221,7 @@ namespace protostar
 	/// Equality operator overload.
 	///
 	template<typename Type>
-	inline bool operator==(const Rect<Type>& a, const Rect<Type>& b)
+	inline bool operator==(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Equality operator overloading.
 		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_width == b.m_width) && (a.m_height == b.m_height);
@@ -231,7 +231,7 @@ namespace protostar
 	/// Not operator overload.
 	///
 	template<typename Type>
-	inline bool operator!=(const Rect<Type>& a, const Rect<Type>& b)
+	inline bool operator!=(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Not equal to operator overloading.
 		return (a.m_x != b.m_x) || (a.m_y != b.m_y) || (a.m_width != b.m_width) || (a.m_height != b.m_height);

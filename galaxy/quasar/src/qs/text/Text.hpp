@@ -58,7 +58,7 @@ namespace qs
 		/// \param font Font to apply to text.
 		/// \param col Colour of the text.
 		///
-		void load(const std::string& text, qs::Font& font, protostar::Colour& col);
+		void load(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept;
 
 		///
 		/// \brief Create text from inputs.
@@ -69,7 +69,7 @@ namespace qs
 		/// \param renderer Renderer to use when drawing text.
 		/// \param shader Shader to use when drawing text to texture.
 		///
-		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader);
+		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
 		///
 		/// \brief Update text.

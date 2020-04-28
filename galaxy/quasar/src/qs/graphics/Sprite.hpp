@@ -75,7 +75,7 @@ namespace qs
 		/// \param offset Offset of the quad in the vertexarray. Remember each quad is 4 vertexs.
 		///			      So quad 1 would be 0, and quad 2 would be 4.
 		///
-		void setActiveQuad(const int offset = 0);
+		void setActiveQuad(const int offset = 0) noexcept;
 
 		///
 		/// \brief Translate (move) position.
@@ -86,7 +86,7 @@ namespace qs
 		/// \param x How far to translate on x axis.
 		/// \param y How far to translate on x axis.
 		///
-		void move(const float x, const float y);
+		void move(const float x, const float y) noexcept;
 
 		///
 		/// Rotate transformation in degrees.
@@ -114,7 +114,7 @@ namespace qs
 		///
 		/// Apply all transforms to modified quads.
 		///
-		void applyTransforms();
+		void applyTransforms() noexcept;
 
 		///
 		/// Bind VA and texture.

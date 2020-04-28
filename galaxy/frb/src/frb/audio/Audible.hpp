@@ -26,7 +26,7 @@ namespace frb
 		///
 		/// Constructor.
 		///
-		Audible();
+		Audible() noexcept;
 
 		///
 		/// Destructor.
@@ -36,30 +36,30 @@ namespace frb
 		///
 		/// Load a file from disk.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param file File to load from disk. Can only load ogg vorbis.
 		///
-		void load(const std::string& file);
+		/// \return False if load failed.
+		///
+		bool load(const std::string& file) noexcept;
 
 		///
 		/// Load a file from memory.
 		///
-		/// Can throw exceptions. Memory is NOT freed. You MUST free *mem yourself.
+		/// Memory is NOT freed. You MUST free *mem yourself.
 		///
 		/// \param mem Unsigned char buffer containing data.
 		/// \param size Size of the buffer.
 		///
-		void load(const unsigned char* mem, const int size);
+		/// \return False if load failed.
+		///
+		bool load(const unsigned char* mem, const int size) noexcept;
 
 		///
 		/// \brief Should the source repeat upon reaching the end.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param True to repeat.
 		///
-		void setLooping(bool looping);
+		void setLooping(bool looping) noexcept;
 
 		///
 		/// Play source.

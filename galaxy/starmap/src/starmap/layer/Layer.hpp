@@ -143,17 +143,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit Layer(const nlohmann::json& json);
-
-		///
-		/// Copy constructor.
-		///
-		Layer(const Layer&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Layer(Layer&&) = default;
+		explicit Layer(const nlohmann::json& json) noexcept;
 
 	protected:
 		///

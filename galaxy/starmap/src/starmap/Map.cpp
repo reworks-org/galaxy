@@ -9,6 +9,7 @@
 #include <filesystem>
 
 #include <nlohmann/json.hpp>
+
 #include "starmap/layer/TileLayer.hpp"
 #include "starmap/layer/ObjectLayer.hpp"
 #include "starmap/layer/ImageLayer.hpp"
@@ -32,7 +33,7 @@ namespace starmap
 		m_properties.clear();
 	}
 
-	bool Map::load(const std::string& map)
+	bool Map::load(const std::string& map) noexcept
 	{
 		bool result = true;
 
@@ -55,7 +56,7 @@ namespace starmap
 		return result;
 	}
 
-	bool Map::load(char* buffer, const std::size_t size)
+	bool Map::load(char* buffer, const std::size_t size) noexcept
 	{
 		bool result = true;
 
@@ -78,7 +79,7 @@ namespace starmap
 		return result;
 	}
 
-	void Map::parse()
+	void Map::parse() noexcept
 	{
 		// Make sure json is loaded to avoid error.
 		if (m_isLoaded)

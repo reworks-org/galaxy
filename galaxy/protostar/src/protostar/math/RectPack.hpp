@@ -42,7 +42,7 @@ namespace protostar
 		/// \param width Width of the master rectangle.
 		/// \param height Height of the master rectangle.
 		///
-		void init(const int width, const int height);
+		void init(const int width, const int height) noexcept;
 
 		///
 		/// Pack a rectangle into the master rectangle.

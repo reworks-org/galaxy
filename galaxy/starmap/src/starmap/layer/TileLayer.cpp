@@ -5,7 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
+
 #include "starmap/detail/Decoder.hpp"
 
 #include "TileLayer.hpp"
@@ -15,12 +17,13 @@
 ///
 namespace starmap
 {
-	TileLayer::TileLayer()
+	TileLayer::TileLayer() noexcept
 	{
-		throw std::runtime_error("Cannot instantiate a default constructed TileLayer!");
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed TileLayer! Aborting...");
+		abort();
 	}
 
-	TileLayer::TileLayer(const nlohmann::json& json)
+	TileLayer::TileLayer(const nlohmann::json& json) noexcept
 		:Layer(json), m_compression("")
 	{
 		if (json.count("chunks") > 0)
@@ -79,12 +82,12 @@ namespace starmap
 						}
 						else
 						{
-							throw std::runtime_error("zlib decoded string empty!");
+							PL_LOG(PL_FATAL, "zlib decoded string empty!");
 						}
 					}
 					else
 					{
-						throw std::runtime_error("base64 decoded string empty!");
+						PL_LOG(PL_FATAL, "base64 decoded string empty!");
 					}
 				}
 				else if (m_compression == "gzip")
@@ -106,12 +109,12 @@ namespace starmap
 						}
 						else
 						{
-							throw std::runtime_error("gzip decoded string empty!");
+							PL_LOG(PL_FATAL, "gzip decoded string empty!");
 						}
 					}
 					else
 					{
-						throw std::runtime_error("base64 decoded string empty!");
+						PL_LOG(PL_FATAL, "base64 decoded string empty!");
 					}
 				}
 				else
@@ -127,7 +130,7 @@ namespace starmap
 					}
 					else
 					{
-						throw std::runtime_error("base64 decoded string empty!");
+						PL_LOG(PL_FATAL, "base64 decoded string empty!");
 					}
 				} // if-else-if
 			} // if std::holds...

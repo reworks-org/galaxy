@@ -89,7 +89,7 @@ namespace starmap
 	{
 	}
 
-	Layer::Layer(const nlohmann::json& json)
+	Layer::Layer(const nlohmann::json& json) noexcept
 		:m_height(0), m_id(0), m_name(""), m_offsetX(0.0), m_offsetY(0.0), m_opacity(0.0), m_startx(0), m_starty(0), m_type(""), m_visible(true), m_width(0), m_x(0), m_y(0)
 	{
 		if (json.count("height") > 0)

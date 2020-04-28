@@ -40,7 +40,7 @@ namespace qs
 		///
 		/// \param file File on disk to load from.
 		///
-		explicit Texture(const std::string& file);
+		explicit Texture(const std::string& file) noexcept;
 
 		///
 		/// \brief Argument constructor.
@@ -51,7 +51,7 @@ namespace qs
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
 		/// \param size Size of the buffer.
 		///
-		explicit Texture(const unsigned char* mem, const unsigned int size);
+		explicit Texture(const unsigned char* mem, const unsigned int size) noexcept;
 
 		///
 		/// Virtual destructor.
@@ -65,7 +65,7 @@ namespace qs
 		///
 		/// \param file File on disk to load from.
 		///
-		void load(const std::string& file);
+		void load(const std::string& file) noexcept;
 
 		///
 		/// \brief Loads texture from memory.
@@ -75,7 +75,7 @@ namespace qs
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
 		/// \param size Size of the buffer.
 		///
-		void load(const unsigned char* mem, const unsigned int size);
+		void load(const unsigned char* mem, const unsigned int size) noexcept;
 
 		///
 		/// Loads texture from OpenGL generated id.

@@ -41,7 +41,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Tileset.
 		///
-		explicit Tileset(const nlohmann::json& json);
+		explicit Tileset(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
@@ -55,7 +55,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Tileset.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get background colour of tileset.

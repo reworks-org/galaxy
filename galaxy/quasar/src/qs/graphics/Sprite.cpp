@@ -75,13 +75,13 @@ namespace qs
 		setActiveQuad();
 	}
 
-	void Sprite::setActiveQuad(const int offset)
+	void Sprite::setActiveQuad(const int offset) noexcept
 	{
 		m_activeOffset = offset;
 		m_activeTransform = &m_transforms[m_activeOffset];
 	}
 
-	void Sprite::move(const float x, const float y)
+	void Sprite::move(const float x, const float y) noexcept
 	{
 		m_activeTransform->move(x, y);
 	}
@@ -114,7 +114,7 @@ namespace qs
 		vs[m_activeOffset + 3].m_colour[3] = opacity;
 	}
 
-	void Sprite::applyTransforms()
+	void Sprite::applyTransforms() noexcept
 	{
 		// Have to update transforms first.
 		m_transformVertexs = m_vertexBuffer.getVertexs();

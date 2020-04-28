@@ -15,7 +15,7 @@
 ///
 namespace qs
 {
-	std::array<qs::Vertex, 4>&& Vertex::make_quad(const protostar::Rect<float>& bounds, const std::array<float, 4>& col, const float u, const float v)
+	std::array<qs::Vertex, 4>&& Vertex::make_quad(const protostar::Rect<float>& bounds, const std::array<float, 4>& col, const float u, const float v) noexcept
 	{
 		return std::move(std::array<qs::Vertex, 4>(
 			{ 
@@ -31,7 +31,7 @@ namespace qs
 	{
 	}
 	
-	Vertex::Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v)
+	Vertex::Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v) noexcept
 		:m_position{ x, y }, m_texels{ u, v }
 	{
 		m_colour[0] = qs::Utils::uint8ToFloat(col.m_red);
@@ -40,7 +40,7 @@ namespace qs
 		m_colour[3] = qs::Utils::uint8ToFloat(col.m_alpha);
 	}
 
-	Vertex::Vertex(const float x, const float y, const std::array<float, 4>& col, const float u, const float v)
+	Vertex::Vertex(const float x, const float y, const std::array<float, 4>& col, const float u, const float v) noexcept
 		:m_position{ x, y }, m_colour(col), m_texels{ u, v }
 	{
 	}

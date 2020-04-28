@@ -15,7 +15,7 @@
 ///
 namespace qs
 {
-	FreeTypeLib::FreeTypeLib()
+	FreeTypeLib::FreeTypeLib() noexcept
 	{
 		if (FT_Init_FreeType(&m_ftLibrary))
 		{

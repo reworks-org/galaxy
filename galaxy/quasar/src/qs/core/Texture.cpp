@@ -27,13 +27,13 @@ namespace qs
 	{
 	}
 
-	Texture::Texture(const std::string& file)
+	Texture::Texture(const std::string& file) noexcept
 		:m_id(0), m_width(0), m_height(0)
 	{
 		load(file);
 	}
 
-	Texture::Texture(const unsigned char* mem, const unsigned int size)
+	Texture::Texture(const unsigned char* mem, const unsigned int size) noexcept
 		: m_id(0), m_width(0), m_height(0)
 	{
 		load(mem, size);
@@ -45,7 +45,7 @@ namespace qs
 		glDeleteTextures(1, &m_id);
 	}
 
-	void Texture::load(const std::string& file)
+	void Texture::load(const std::string& file) noexcept
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);
@@ -79,7 +79,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::load(const unsigned char* mem, const unsigned int size)
+	void Texture::load(const unsigned char* mem, const unsigned int size) noexcept
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glGenTextures(1, &m_id);

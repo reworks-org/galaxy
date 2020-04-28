@@ -43,14 +43,14 @@ namespace protostar
 		///
 		/// \param function Lambda or function to call when task is executed. Is moved.
 		///
-		void set(const TaskFunction&& function);
+		void set(TaskFunction&& function) noexcept;
 
 		///
 		/// Run the task on the thread.
 		///
 		/// \param threadPoolFinished Pointer to ThreadPool::m_isActive. If this is false your function should exit to prevent deadlocks!
 		///
-		void exec(protostar::ProtectedBool* threadPoolFinished);
+		void exec(protostar::ProtectedBool* threadPoolFinished) noexcept;
 
 		///
 		/// Blocks calling thread until this task is finished.

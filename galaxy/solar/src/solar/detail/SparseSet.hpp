@@ -10,6 +10,9 @@
 
 #include <string>
 #include <vector>
+#include <optional>
+
+#include <pulsar/Log.hpp>
 
 #include "solar/Config.hpp"
 
@@ -66,9 +69,9 @@ namespace sr
 		///
 		/// \param element Entity to find the index of.
 		///
-		/// \return Unsigned integer - the index of the element.
+		/// \return The index of the element. Check for validity against std::nullopt.
 		///
-		uint findIndex(const uint element);
+		std::optional<uint> findIndex(const uint element) noexcept;
 
 		///
 		/// Reserve an amount of space for new entities.
@@ -204,15 +207,17 @@ namespace sr
 	}
 
 	template<typename uint>
-	inline uint SparseSet<uint>::findIndex(const uint element)
+	inline std::optional<uint> SparseSet<uint>::findIndex(const uint element) noexcept
 	{
 		if (element > m_sparse.size())
 		{
-			std::string msg = "Out of bounds! Sparse Set does not contain element: " + std::to_string(element);
-			throw std::out_of_range(msg);
+			PL_LOG(PL_FATAL, "Out of bounds! Sparse Set does not contain element: " + std::to_string(element));
+			return std::nullopt;
 		}
-		
-		return m_sparse[element];
+		else
+		{
+			return std::make_optional(m_sparse[element]);
+		}
 	}
 
 	template<typename uint>

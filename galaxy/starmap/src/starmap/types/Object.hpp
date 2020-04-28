@@ -35,7 +35,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing object.
 		///
-		explicit Object(const nlohmann::json& json);
+		explicit Object(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
@@ -49,7 +49,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing object.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get ellipse flag.

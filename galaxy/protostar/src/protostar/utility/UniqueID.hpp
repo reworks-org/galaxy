@@ -31,7 +31,7 @@ namespace protostar
 		///
 		/// Default destructor.
 		///
-		~UniqueID() = default;
+		~UniqueID() noexcept = default;
 
 		///
 		/// Use this function to retrieve the ID.
@@ -46,7 +46,7 @@ namespace protostar
 		///
 		/// Private default constructor.
 		///
-		UniqueID() = default;
+		UniqueID() noexcept = default;
 
 	private:
 		///

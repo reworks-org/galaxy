@@ -12,7 +12,7 @@
 ///
 namespace protostar
 {
-	StateMachine::~StateMachine()
+	StateMachine::~StateMachine() noexcept
 	{
 		while (!m_stack.empty())
 		{
@@ -22,21 +22,29 @@ namespace protostar
 		m_states.clear();
 	}
 	
-	void StateMachine::event(const std::any& event)
+	void StateMachine::event(const std::any& event) noexcept
 	{
 		// Check to make sure event is valid to call.
 		if (!m_stack.empty())
 		{
 			m_stack.top()->event(event);
 		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+		}
 	}
 
-	void StateMachine::update(const double dt)
+	void StateMachine::update(const double dt) noexcept
 	{
 		// Check to make sure update is valid to call.
 		if (!m_stack.empty())
 		{
 			m_stack.top()->update(dt);
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
 		}
 	}
 
@@ -47,9 +55,13 @@ namespace protostar
 		{
 			m_stack.top()->render();
 		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+		}
 	}
 
-	void StateMachine::push(const std::string& state)
+	void StateMachine::push(const std::string& state) noexcept
 	{
 		// Ensure that the state being pushed exists.
 		if (m_states.find(state) != m_states.end())
@@ -57,15 +69,23 @@ namespace protostar
 			m_stack.push(m_states[state].get());
 			m_stack.top()->onPush();
 		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to push state that already exists.");
+		}
 	}
 
-	void StateMachine::pop()
+	void StateMachine::pop() noexcept
 	{
 		// Make sure we dont pop an empty stack...
 		if (!m_stack.empty())
 		{
 			m_stack.top()->onPop();
 			m_stack.pop();
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
 		}
 	}
 }

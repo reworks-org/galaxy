@@ -19,13 +19,13 @@ namespace starmap
 	{
 	}
 
-	WangColour::WangColour(const nlohmann::json& json)
+	WangColour::WangColour(const nlohmann::json& json) noexcept
 		:m_colour("00FFFFFF"), m_name(""), m_probability(0.0), m_tile(0)
 	{
 		parse(json);
 	}
 
-	void WangColour::parse(const nlohmann::json& json)
+	void WangColour::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("color") > 0)
 		{

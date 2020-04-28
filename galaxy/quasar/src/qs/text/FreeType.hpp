@@ -39,7 +39,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		FreeTypeLib();
+		FreeTypeLib() noexcept;
 
 	private:
 		///

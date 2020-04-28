@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// \return True if successful.
 		///
-		bool load(const std::string& map);
+		bool load(const std::string& map) noexcept;
 
 		///
 		/// Load a json file from memory.
@@ -52,14 +52,12 @@ namespace starmap
 		///
 		/// \return True if successful.
 		///
-		bool load(char* buffer, const std::size_t size);
+		bool load(char* buffer, const std::size_t size) noexcept;
 
 		///
-		/// \brief Parses json structure to member values, etc.
+		/// Parses json structure to member values, etc.
 		///
-		/// You can surround this with a try-catch block since it does throw exceptions.
-		///
-		void parse();
+		void parse() noexcept;
 		
 		///
 		/// Dump map to the specified output.

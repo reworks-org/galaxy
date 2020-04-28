@@ -30,7 +30,7 @@ namespace protostar
 	/// \return Returns type T.
 	///
 	template<typename T>
-	inline T random(const T min, const T max)
+	inline T random(const T min, const T max) noexcept
 	{
 		// Make sure is arimthmatic.
 		static_assert(std::is_arithmetic<T>::value);

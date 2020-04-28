@@ -29,7 +29,7 @@ namespace qs
 	{
 	}
 
-	Window::Window(const std::string& title, int w, int h)
+	Window::Window(const std::string& title, int w, int h) noexcept
 		:m_window(nullptr), m_cursor(nullptr), m_width(0), m_height(0)
 	{
 		if (!create(title, w, h))
@@ -45,7 +45,7 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(const std::string& title, int w, int h)
+	bool Window::create(const std::string& title, int w, int h) noexcept
 	{
 		// Function result.
 		bool result = true;

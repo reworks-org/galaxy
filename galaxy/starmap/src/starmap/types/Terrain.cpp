@@ -19,18 +19,18 @@ namespace starmap
 	{
 	}
 
-	Terrain::Terrain(const nlohmann::json& json)
+	Terrain::Terrain(const nlohmann::json& json) noexcept
 		:m_name(""), m_tile(0)
 	{
 		parse(json);
 	}
 
-	Terrain::~Terrain()
+	Terrain::~Terrain() noexcept
 	{
 		m_properties.clear();
 	}
 
-	void Terrain::parse(const nlohmann::json& json)
+	void Terrain::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("name") > 0)
 		{

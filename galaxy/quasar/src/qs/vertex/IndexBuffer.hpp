@@ -46,7 +46,7 @@ namespace qs
 		/// \param indexs Index array to use.
 		///
 		template<typename BufferType>
-		void create(const qs::IndexStorage& indexs);
+		void create(const qs::IndexStorage& indexs) noexcept;
 
 		///
 		/// Destroys buffer.
@@ -68,7 +68,7 @@ namespace qs
 		///
 		/// \return Returns a const unsigned int.
 		///
-		unsigned int getCount() const;
+		unsigned int getCount() const noexcept;
 
 	private:
 		///
@@ -83,7 +83,7 @@ namespace qs
 	};
 
 	template<typename BufferType>
-	inline void IndexBuffer::create(const qs::IndexStorage& indexs)
+	inline void IndexBuffer::create(const qs::IndexStorage& indexs) noexcept
 	{
 		m_count = static_cast<unsigned int>(indexs.size());
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);

@@ -8,12 +8,13 @@
 #ifndef FRB_BUFFERARRAY_HPP_
 #define FRB_BUFFERARRAY_HPP_
 
-#include <stdexcept>
 #include <filesystem>
 
 #include <AL/al.h>
 #include <AL/alc.h>
 #include <stb_vorbis.h>
+#include <pulsar/Log.hpp>
+
 
 #include "frb/Error.hpp"
 
@@ -32,9 +33,7 @@ namespace frb
 		///
 		/// \brief Default constructor.
 		///
-		/// Can throw exceptions.
-		///
-		BufferArray();
+		BufferArray() noexcept;
 
 		///
 		/// \brief Default destructor.
@@ -46,20 +45,22 @@ namespace frb
 		///
 		/// Load files from disk.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param files Array of files to load from disk. Can only load ogg vorbis.
 		///
-		void load(const std::vector<std::string>& files);
+		/// \return False if load failed.
+		///
+		bool load(const std::vector<std::string>& files) noexcept;
 
 		///
 		/// Load files from memory.
 		///
-		/// Can throw exceptions. Memory is NOT freed. You MUST free *mem yourself.
+		/// Memory is NOT freed. You MUST free *mem yourself.
 		///
 		/// \param data A set of paired mem/size files to load from memory.
 		///
-		void load(const std::vector<std::pair<unsigned char*, const int>>& data);
+		/// \return False if load failed.
+		///
+		bool load(const std::vector<std::pair<unsigned char*, const int>>& data) noexcept;
 
 		///
 		/// Get frequency of buffer.
@@ -117,23 +118,25 @@ namespace frb
 		///
 		/// Load a file from disk.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param file File to load from disk. Can only load ogg vorbis.
 		/// \param buffer OpenAL buffer index.
 		///
-		void iloadFile(const std::string& file, const ALuint buffer);
+		/// \return False if load failed.
+		///
+		bool iloadFile(const std::string& file, const ALuint buffer) noexcept;
 
 		///
 		/// Load a file from memory.
 		///
-		/// Can throw exceptions. Memory is NOT freed. You MUST free *mem yourself.
+		/// Memory is NOT freed. You MUST free *mem yourself.
 		///
 		/// \param mem Unsigned char buffer containing data.
 		/// \param size Size of the buffer.
 		/// \param buffer OpenAL buffer index.
 		///
-		void iloadMem(const unsigned char* mem, const int size, const ALuint buffer);
+		/// \return False if load failed.
+		///
+		bool iloadMem(const unsigned char* mem, const int size, const ALuint buffer) noexcept;
 
 	private:
 		///
@@ -143,13 +146,13 @@ namespace frb
 	};
 
 	template<size_t size>
-	inline BufferArray<size>::BufferArray()
+	inline BufferArray<size>::BufferArray() noexcept
 	{
 		// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
 		alGenBuffers(size, m_bufferArray.data());
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to gen audio buffer."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to gen audio buffer."));
 		}
 	}
 
@@ -166,21 +169,29 @@ namespace frb
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::load(const std::vector<std::string>& files)
+	inline bool BufferArray<size>::load(const std::vector<std::string>& files) noexcept
 	{
+		bool result = true;
+
 		for (ALuint count = 0; count < size; count++)
 		{
-			iloadFile(files[count], count);
+			result = iloadFile(files[count], count);
 		}
+
+		return result;
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::load(const std::vector<std::pair<unsigned char*, const int>>& data)
+	inline bool BufferArray<size>::load(const std::vector<std::pair<unsigned char*, const int>>& data) noexcept
 	{
+		bool result = true;
+
 		for (ALuint count = 0; count < size; count++)
 		{
-			iloadMem(data[count].first, data[count].second, count);
+			result = iloadMem(data[count].first, data[count].second, count);
 		}
+
+		return result;
 	}
 
 	template<size_t size>
@@ -200,13 +211,16 @@ namespace frb
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::iloadFile(const std::string& file, const ALuint buffer)
+	inline bool BufferArray<size>::iloadFile(const std::string& file, const ALuint buffer) noexcept
 	{
+		bool result = true;
+
 		// Process filepath properly.
 		auto path = std::filesystem::path(file);
 		if (path.extension() != ".ogg")
 		{
-			throw std::runtime_error("File must be ogg vorbis and have extension of .ogg!");
+			PL_LOG(PL_ERROR, "File must be ogg vorbis and have extension of .ogg!");
+			result = false;
 		}
 		else
 		{
@@ -217,6 +231,8 @@ namespace frb
 			auto length = stb_vorbis_decode_filename(path.string().c_str(), &channels, &samples, &data);
 			if (length < 1)
 			{
+				result = false;
+
 				// Make sure data is freed.
 				if (data != nullptr)
 				{
@@ -225,15 +241,15 @@ namespace frb
 
 				if (length == -1)
 				{
-					throw std::runtime_error("Failed to open file with stb_vorbis.");
+					PL_LOG(PL_ERROR, "Failed to open file with stb_vorbis.");
 				}
 				else if (length == -2)
 				{
-					throw std::runtime_error("Failed to parse with stb_vorbis.");
+					PL_LOG(PL_ERROR, "Failed to parse with stb_vorbis.");
 				}
 				else
 				{
-					throw std::runtime_error("Failed due to unknown error. Error code returned: " + std::to_string(length));
+					PL_LOG(PL_ERROR, "Failed due to unknown error. Error code returned: " + std::to_string(length));
 				}
 			}
 			else
@@ -244,18 +260,23 @@ namespace frb
 				free(data);
 			}
 		}
+
+		return result;
 	}
 
 	template<size_t size>
-	inline void BufferArray<size>::iloadMem(const unsigned char* mem, const int size, const ALuint buffer)
+	inline bool BufferArray<size>::iloadMem(const unsigned char* mem, const int size, const ALuint buffer) noexcept
 	{
 		int channels = 0;
 		int samples = 0;
 		short* data = nullptr;
+		bool result = true;
 
 		auto length = stb_vorbis_decode_memory(mem, size, &channels, &samples, &data);
 		if (length < 1)
 		{
+			result = false;
+
 			// Make sure data is freed.
 			if (data != nullptr)
 			{
@@ -264,15 +285,15 @@ namespace frb
 
 			if (length == -1)
 			{
-				throw std::runtime_error("Failed to open file with stb_vorbis.");
+				PL_LOG(PL_ERROR, "Failed to open file with stb_vorbis.");
 			}
 			else if (length == -2)
 			{
-				throw std::runtime_error("Failed to parse with stb_vorbis.");
+				PL_LOG(PL_ERROR, "Failed to parse with stb_vorbis.");
 			}
 			else
 			{
-				throw std::runtime_error("Failed due to unknown error. Error code returned: " + std::to_string(length));
+				PL_LOG(PL_ERROR, "Failed due to unknown error. Error code returned: " + std::to_string(length));
 			}
 		}
 		else
@@ -282,6 +303,8 @@ namespace frb
 
 			free(data);
 		}
+
+		return result;
 	}
 
 	template<size_t size>
@@ -291,7 +314,7 @@ namespace frb
 		ALint freq = 0;
 		alGetBufferi(m_bufferArray[index], AL_FREQUENCY, &freq);
 
-		return std::move(freq);
+		return freq;
 	}
 
 	template<size_t size>
@@ -301,7 +324,7 @@ namespace frb
 		ALint bits = 0;
 		alGetBufferi(m_bufferArray[index], AL_BITS, &bits);
 
-		return std::move(bits);
+		return bits;
 	}
 
 	template<size_t size>
@@ -311,7 +334,7 @@ namespace frb
 		ALint channels = 0;
 		alGetBufferi(m_bufferArray[index], AL_CHANNELS, &channels);
 
-		return std::move(channels);
+		return channels;
 	}
 
 	template<size_t size>
@@ -321,7 +344,7 @@ namespace frb
 		ALint l_size = 0;
 		alGetBufferi(m_bufferArray[index], AL_SIZE, &l_size);
 
-		return std::move(l_size);
+		return l_size;
 	}
 
 	template<size_t size>

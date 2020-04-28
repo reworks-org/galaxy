@@ -39,7 +39,7 @@ namespace starlight
 		/// \return True on success.
 		/// 
 		template<typename Event>
-		void add(const Callback<Event>& callback);
+		void add(const Callback<Event>& callback) noexcept;
 
 		///
 		/// Queues an event to be triggered, does not trigger immediately.
@@ -49,7 +49,7 @@ namespace starlight
 		/// \return True on success.
 		///
 		template<typename Event, typename ...Args>
-		void queue(Args&&... args);
+		void queue(Args&&... args) noexcept;
 
 		///
 		/// Triggers a single event.
@@ -57,12 +57,12 @@ namespace starlight
 		/// \param event The event to trigger. Calls all callbacks associated with the event.
 		///
 		template<typename Event>
-		void trigger(const Event& event);
+		void trigger(const Event& event) noexcept;
 
 		///
 		/// Triggers all the events in the queue, in order.
 		///
-		void trigger();
+		void trigger() noexcept;
 
 	private:
 		///
@@ -77,10 +77,10 @@ namespace starlight
 	};
 	
 	template<typename Event>
-	inline void Dispatcher::add(const Callback<Event>& callback)
+	inline void Dispatcher::add(const Callback<Event>& callback) noexcept
 	{
 		// Useful to retrieve a compile time unique id.
-		std::size_t typeIndex = UniqueEventID::get<Event>();
+		const std::size_t typeIndex = UniqueEventID::get<Event>();
 
 		// Ensure leftover references to unique pointer are destroyed.
 		{
@@ -107,16 +107,16 @@ namespace starlight
 	}
 
 	template<typename Event, typename ...Args>
-	inline void Dispatcher::queue(Args&&... args)
+	inline void Dispatcher::queue(Args&&... args) noexcept
 	{
 		m_queued.push_back(std::move(std::make_unique<starlight::SpecificEvent<Event>>(std::forward<Args>(args)...)));
 	}
 
 	template<typename Event>
-	inline void Dispatcher::trigger(const Event& event)
+	inline void Dispatcher::trigger(const Event& event) noexcept
 	{
 		// Useful to retrieve a compile time unique id.
-		std::size_t typeIndex = UniqueEventID::get<Event>();
+		const std::size_t typeIndex = UniqueEventID::get<Event>();
 
 		// Matches to vector location and trigger event.
 		if (!m_callbacks.empty())

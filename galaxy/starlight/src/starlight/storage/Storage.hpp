@@ -56,19 +56,9 @@ namespace starlight
 
 	private:
 		///
-		/// Inbuilt lock to ensure thread saftey.
-		///
-		std::mutex m_lock;
-
-		///
 		/// Callbacks stored here. index = event unique id.
 		///
 		std::vector<Callback<Event>> m_callbacks;
-
-		///
-		/// Stored futures to prevent reallocation of memory.
-		///
-		std::vector<std::future<void>> m_futures;
 	};
 
 	template<typename Event>
@@ -86,29 +76,12 @@ namespace starlight
 	template<typename Event>
 	inline void Storage<Event>::trigger(const Event& event) noexcept
 	{
-		// Make sure empty.
-		m_futures.clear();
-
 		if (!m_callbacks.empty())
 		{
 			for (auto&& call : m_callbacks)
 			{
 				// Launch thread(s) to run event callback on.
-				m_futures.emplace_back(std::move(std::async(std::launch::async, [&]()
-				{
-					call(event, m_lock);
-				})));
-			}
-		}
-
-		// check to make sure each result has finished. will block main thread but other threads continue running...
-		// so it will come out faster.
-		// i.e. might be waiting oin thread 1 but thread 2 is already done so it will not blopck when checking thread 2.
-		if (!m_futures.empty())
-		{
-			for (auto& f : m_futures)
-			{
-				f.get();
+				call(event);
 			}
 		}
 	}

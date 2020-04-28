@@ -33,12 +33,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing tileoffset json.
 		///
-		explicit TileOffset(const nlohmann::json& json);
+		explicit TileOffset(const nlohmann::json& json) noexcept;
 
 		///
 		/// Default destructor.
 		///
-		~TileOffset() = default;
+		~TileOffset() noexcept = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -47,7 +47,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing tileoffset json.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get horizontal offset.

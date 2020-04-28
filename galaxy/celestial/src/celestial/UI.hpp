@@ -23,9 +23,6 @@ namespace celestial
 		UI() noexcept;
 		~UI() noexcept;
 
-		//void setDTPtr(const double* deltaTime) noexcept;
-		//void sendEvents() noexcept;
-
 		void close() noexcept;
 
 		protostar::Task* getTask() noexcept;
@@ -35,8 +32,8 @@ namespace celestial
 		//void render() noexcept;
 
 	private:
-		//void event() noexcept;
-		//void update() noexcept;
+		void event() noexcept;
+		void update(protostar::ProtectedDouble* deltaTime) noexcept;
 
 	private:
 		protostar::ProtectedBool m_running;

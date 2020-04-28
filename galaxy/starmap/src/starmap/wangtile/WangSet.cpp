@@ -19,13 +19,13 @@ namespace starmap
 	{
 	}
 
-	WangSet::WangSet(const nlohmann::json& json)
+	WangSet::WangSet(const nlohmann::json& json) noexcept
 		:m_name(""), m_tileID(0)
 	{
 		parse(json);
 	}
 
-	WangSet::~WangSet()
+	WangSet::~WangSet() noexcept
 	{
 		m_cornerColours.clear();
 		m_edgeColours.clear();
@@ -33,7 +33,7 @@ namespace starmap
 		m_tiles.clear();
 	}
 
-	void WangSet::parse(const nlohmann::json& json)
+	void WangSet::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("cornercolors") > 0)
 		{

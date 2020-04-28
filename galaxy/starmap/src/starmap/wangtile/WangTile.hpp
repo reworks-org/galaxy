@@ -33,12 +33,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing WangTile json.
 		///
-		explicit WangTile(const nlohmann::json& json);
+		explicit WangTile(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~WangTile();
+		~WangTile() noexcept;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -47,7 +47,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing WangTile json.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Is flipped diagonally.

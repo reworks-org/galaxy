@@ -170,7 +170,8 @@ https://stackoverflow.com/questions/22653022/how-to-terminate-a-stdfuture
 - Dynamic primitives.
 
 - move some of common spr/tex codes into common classes
-
+- properly multithread logging.
+- properly multithread starlight.
 
 
 https://www.google.com/search?client=firefox-b-d&ei=ixZWXs_uBOjWz7sPoOiwyAc&q=recycle+threads+in+threadpool

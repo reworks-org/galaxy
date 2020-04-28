@@ -35,7 +35,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Property.
 		///
-		explicit Property(const nlohmann::json& json);
+		explicit Property(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
@@ -49,7 +49,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Property.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get type typename as a std::string.
@@ -66,7 +66,7 @@ namespace starmap
 		/// \return value cast as T.
 		///
 		template<typename T>
-		const T& get() const;
+		const T& get() const noexcept;
 
 	private:
 		///
@@ -81,7 +81,7 @@ namespace starmap
 	};
 
 	template<typename T>
-	inline const T& Property::get() const
+	inline const T& Property::get() const noexcept
 	{
 		return std::any_cast<T>(m_value);
 	}

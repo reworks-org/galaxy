@@ -27,39 +27,39 @@ namespace frb
 		///
 		/// Constructor.
 		///
-		Playlist();
+		Playlist() noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Playlist();
+		~Playlist() noexcept;
 		
 		///
 		/// Load files from disk.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param files Array of files to load from disk. Can only load ogg vorbis.
 		///
-		void load(const std::vector<std::string>& files);
+		/// \return False if load failed.
+		///
+		bool load(const std::vector<std::string>& files) noexcept;
 
 		///
 		/// Load files from memory.
 		///
-		/// Can throw exceptions. Memory is NOT freed. You MUST free *mem yourself.
+		/// Memory is NOT freed. You MUST free *mem yourself.
 		///
 		/// \param data A set of paired mem/size files to load from memory.
 		///
-		void load(const std::vector<std::pair<unsigned char*, const int>>& data);
+		/// \return False if load failed.
+		///
+		bool load(const std::vector<std::pair<unsigned char*, const int>>& data) noexcept;
 
 		///
 		/// \brief Should the source repeat upon reaching the end.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param True to repeat.
 		///
-		void setLooping(bool looping);
+		void setLooping(bool looping) noexcept;
 
 		///
 		/// Play source.
@@ -101,34 +101,48 @@ namespace frb
 	};
 
 	template<size_t length>
-	inline Playlist<length>::Playlist()
+	inline Playlist<length>::Playlist() noexcept
 		:m_source()
 	{
 	}
 
 	template<size_t length>
-	inline Playlist<length>::~Playlist()
+	inline Playlist<length>::~Playlist() noexcept
 	{
 		m_source.destroy();
 		m_buffers.destroy();
 	}
 
 	template<size_t length>
-	inline void Playlist<length>::load(const std::vector<std::string>& files)
+	inline bool Playlist<length>::load(const std::vector<std::string>& files) noexcept
 	{
-		m_buffers.loadFromFile(files);
-		m_source.queue(m_buffers.raw().data(), m_buffers.raw().size());
+		bool result = true;
+		result = m_buffers.loadFromFile(files);
+		
+		if (result)
+		{
+			m_source.queue(m_buffers.raw().data(), m_buffers.raw().size());
+		}
+
+		return result;
 	}
 
 	template<size_t length>
-	inline void Playlist<length>::load(const std::vector<std::pair<unsigned char*, const int>>& data)
+	inline bool Playlist<length>::load(const std::vector<std::pair<unsigned char*, const int>>& data) noexcept
 	{
-		m_buffers.loadFromMemory(data);
-		m_source.queue(m_buffers.raw().data(), m_buffers.raw().size());
+		bool result = true;
+		result = m_buffers.loadFromMemory(data);
+
+		if (result)
+		{
+			m_source.queue(m_buffers.raw().data(), m_buffers.raw().size());
+		}
+
+		return result;
 	}
 
 	template<size_t length>
-	inline void Playlist<length>::setLooping(bool looping)
+	inline void Playlist<length>::setLooping(bool looping) noexcept
 	{
 		m_source.setLooping(looping);
 	}

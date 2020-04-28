@@ -28,7 +28,7 @@ namespace pulsar
 	///
 	/// \return Returns empty string so function can be used in an output stream mimicing unix style.
 	///
-	const std::string colourText(const LogColours colour);
+	std::string colourText(const LogColours colour) noexcept;
 }
 
 #endif

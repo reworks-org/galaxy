@@ -19,13 +19,13 @@ namespace starmap
 	{
 	}
 
-	Frame::Frame(const nlohmann::json& json)
+	Frame::Frame(const nlohmann::json& json) noexcept
 		:m_duration(0), m_tileID(0)
 	{
 		parse(json);
 	}
 
-	void Frame::parse(const nlohmann::json& json)
+	void Frame::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("duration") > 0)
 		{

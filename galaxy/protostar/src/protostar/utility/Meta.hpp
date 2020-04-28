@@ -55,7 +55,7 @@ namespace protostar
 	/// Credits: https://stackoverflow.com/a/26902803.
 	/// 
 	template<class F, class...Ts, std::size_t...Is>
-	inline void for_each_in_tuple(std::tuple<Ts...>& tuple, F func, std::index_sequence<Is...>)
+	inline void for_each_in_tuple(std::tuple<Ts...>& tuple, F func, std::index_sequence<Is...>) noexcept
 	{
 		// Expands a tuple.
 		using expander = int[];
@@ -71,7 +71,7 @@ namespace protostar
 	/// Credits: https://stackoverflow.com/a/26902803.
 	/// 
 	template<class F, class...Ts>
-	inline void for_each_in_tuple(std::tuple<Ts...>& tuple, F func)
+	inline void for_each_in_tuple(std::tuple<Ts...>& tuple, F func) noexcept
 	{
 		// Iterates over a tuple.
 		for_each_in_tuple(tuple, func, std::make_index_sequence<sizeof...(Ts)>());

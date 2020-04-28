@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	void Text::parse(const nlohmann::json& json)
+	void Text::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.at("bold") > 0)
 		{

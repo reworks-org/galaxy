@@ -22,8 +22,13 @@ namespace qs
 	///
 	/// Holds data relating to a "Light Source" for use in GLSL.
 	///
-	struct LightSource
+	struct LightSource final
 	{
+		///
+		/// Default constructor.
+		///
+		LightSource() noexcept;
+
 		///
 		/// Colour of the light.
 		///

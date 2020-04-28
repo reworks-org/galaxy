@@ -41,7 +41,7 @@ namespace qs
 		/// \param x How far to translate on x axis.
 		/// \param y How far to translate on x axis.
 		///
-		void move(const float x, const float y);
+		void move(const float x, const float y) noexcept;
 
 		///
 		/// Sets position without moving the object.
@@ -49,7 +49,7 @@ namespace qs
 		/// \param x X position to set object to.
 		/// \param y Y position to set object to.
 		///
-		void setPos(const float x, const float y);
+		void setPos(const float x, const float y) noexcept;
 
 		///
 		/// Set the rotation point.

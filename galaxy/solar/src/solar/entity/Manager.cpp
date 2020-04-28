@@ -38,13 +38,13 @@ namespace sr
 		return m_entities.has(entity);
 	}
 
-	const bool Manager::validate(const sr::Entity entity)
+	const bool Manager::validate(const sr::Entity entity) noexcept
 	{
 		// Checks if flag exists.
 		return (entity & 0xFFFF) == sr::VALID_ENTITY;
 	}
 
-	void Manager::destroy(const sr::Entity entity)
+	void Manager::destroy(const sr::Entity entity) noexcept
 	{
 		m_entities.remove(entity);
 
@@ -54,15 +54,15 @@ namespace sr
 		}
 	}
 
-	void Manager::event(const sr::Event& event)
+	void Manager::event() noexcept
 	{
 		for (auto&& ptr : m_systems)
 		{
-			ptr->event(event);
+			ptr->event();
 		}
 	}
 
-	void Manager::update(const sr::DeltaTime time)
+	void Manager::update(const sr::DeltaTime time) noexcept
 	{
 		for (auto&& ptr : m_systems)
 		{

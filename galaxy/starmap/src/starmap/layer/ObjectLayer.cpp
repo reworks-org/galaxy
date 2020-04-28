@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
 
 #include "ObjectLayer.hpp"
@@ -14,12 +15,12 @@
 ///
 namespace starmap
 {
-	ObjectLayer::ObjectLayer()
+	ObjectLayer::ObjectLayer() noexcept
 	{
-		throw std::runtime_error("Cannot instantiate a default constructed ObjectLayer!");
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ObjectLayer! Aborting...");
 	}
 
-	ObjectLayer::ObjectLayer(const nlohmann::json& json)
+	ObjectLayer::ObjectLayer(const nlohmann::json& json) noexcept
 		:Layer(json), m_drawOrder("")
 	{
 		if (json.count("draworder") > 0)

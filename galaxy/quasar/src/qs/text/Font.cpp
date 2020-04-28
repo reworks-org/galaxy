@@ -22,7 +22,7 @@ namespace qs
 		m_characterMap.reserve(128);
 	}
 
-	Font::Font(const std::string& file, const int size)
+	Font::Font(const std::string& file, const int size) noexcept
 	{
 		m_characterMap.reserve(128);
 
@@ -34,7 +34,7 @@ namespace qs
 		m_characterMap.clear(); 
 	}
 
-	void Font::create(const std::string& file, const int size)
+	void Font::create(const std::string& file, const int size) noexcept
 	{
 		FT_Face face;
 		auto path = std::filesystem::path(file);
@@ -80,7 +80,7 @@ namespace qs
 		FT_Done_Face(face);
 	}
 
-	const int Font::getTextWidth(const std::string& text)
+	const int Font::getTextWidth(const std::string& text) noexcept
 	{
 		int width = 0;
 
@@ -92,7 +92,7 @@ namespace qs
 		return width;
 	}
 
-	const int Font::getTextHeight(const std::string& text)
+	const int Font::getTextHeight(const std::string& text) noexcept
 	{
 		return m_characterMap['X'].m_height;
 	}

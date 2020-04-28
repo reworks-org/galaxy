@@ -17,7 +17,7 @@ namespace protostar
 	{
 	}
 
-	void RectPack::init(const int width, const int height)
+	void RectPack::init(const int width, const int height) noexcept
 	{
 		m_width = width;
 		m_height = height;

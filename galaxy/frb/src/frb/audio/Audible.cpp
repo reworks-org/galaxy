@@ -12,7 +12,7 @@
 ///
 namespace frb
 {
-	Audible::Audible()
+	Audible::Audible() noexcept
 		:m_buffer(), m_source()
 	{
 	}
@@ -23,19 +23,33 @@ namespace frb
 		m_buffer.destroy();
 	}
 
-	void Audible::load(const std::string& file)
+	bool Audible::load(const std::string& file) noexcept
 	{
-		m_buffer.load(file);
-		m_source.bind(m_buffer);
+		bool result = true;
+		result = m_buffer.load(file);
+		
+		if (result)
+		{
+			m_source.bind(m_buffer);
+		}
+
+		return result;
 	}
 
-	void Audible::load(const unsigned char* mem, const int size)
+	bool Audible::load(const unsigned char* mem, const int size) noexcept
 	{
-		m_buffer.load(mem, size);
-		m_source.bind(m_buffer);
+		bool result = true;
+		result = m_buffer.load(mem, size);
+
+		if (result)
+		{
+			m_source.bind(m_buffer);
+		}
+
+		return result;
 	}
 
-	void Audible::setLooping(bool looping)
+	void Audible::setLooping(bool looping) noexcept
 	{
 		m_source.setLooping(looping);
 	}

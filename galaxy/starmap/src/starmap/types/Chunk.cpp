@@ -5,7 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
+
 #include "starmap/detail/Decoder.hpp"
 
 #include "Chunk.hpp"
@@ -20,7 +22,7 @@ namespace starmap
 	{
 	}
 
-	Chunk::Chunk(const nlohmann::json& json)
+	Chunk::Chunk(const nlohmann::json& json) noexcept
 		:m_height(0), m_width(0), m_x(0), m_y(0)
 	{
 		parse(json);
@@ -30,7 +32,7 @@ namespace starmap
 	{
 	}
 
-	void Chunk::parse(const nlohmann::json& json)
+	void Chunk::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("height") > 0)
 		{
@@ -79,7 +81,7 @@ namespace starmap
 				}
 				else
 				{
-					throw std::runtime_error("base64 decoded string empty!");
+					PL_LOG(PL_FATAL, "base64 decoded string empty!");
 				}
 			}
 		}

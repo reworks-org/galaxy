@@ -54,13 +54,9 @@ struct Test
 	Test test;
 	starlight::Dispatcher dispatcher;
 
-	dispatcher.add<Test>([](const Test& test_int, std::mutex& mutex)
+	dispatcher.add<Test>([](const Test& test_int)
 		{
-			mutex.lock();
-
 			std::cout << test_int.a << std::endl;
-
-			mutex.unlock();
 		});
 
 	dispatcher.trigger<Test>(test);
@@ -69,7 +65,7 @@ struct Test
 [[maybe_unused]] void pulsar_func()
 {
 	pulsar::Log::get().init("logs/a.txt");
-	pulsar::Log::get().setMinimumLevel(pulsar::Log::Level::INFO);
+	pulsar::Log::get().setMinimumLevel(PL_INFO);
 
 	PL_LOG(PL_INFO, "Should not log unless INFO is min level.");
 	PL_LOG(PL_WARNING, "Should Log.");
@@ -91,9 +87,15 @@ struct Test
 
 int main(int argsc, char* argsv[])
 {
+	// TODO: PORT TO PULSAR
 	qs::Error::handle().setQSCallback([](std::string_view file, unsigned int line, std::string_view message) -> void
 	{
 		std::cout << "[Quasar Error] File: " << file << " Line: " << line << " Message: " << message << std::endl;
+	});
+
+	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
+	{
+		std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
 	});
 
 	qs::WindowSettings::s_antiAliasing = 2;
@@ -111,11 +113,6 @@ int main(int argsc, char* argsv[])
 	{
 		std::cout << "Window creation failed!" << std::endl;
 	}
-
-	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-	{
-		std::cout << "[GL_MSG]: Severity: " << severity << " Message: " << message << std::endl;
-	});
 
 	qs::Renderer renderer;
 

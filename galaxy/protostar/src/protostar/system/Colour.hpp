@@ -24,7 +24,7 @@ namespace protostar
 		///
 		/// Default constructor.
 		///
-		Colour();
+		Colour() noexcept;
 
 		///
 		/// Argument constructor.
@@ -34,7 +34,7 @@ namespace protostar
 		/// \param b Blue.
 		/// \param a Alpha.
 		///
-		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a);
+		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept;
 
 		///
 		/// Default destructor.

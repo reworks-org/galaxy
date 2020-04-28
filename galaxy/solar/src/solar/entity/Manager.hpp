@@ -14,6 +14,8 @@
 #include <algorithm>
 #include <unordered_set>
 
+#include <pulsar/Log.hpp>
+
 #include "solar/system/System.hpp"
 #include "solar/detail/DualSparseSet.hpp"
 #include "protostar/utility/UniqueID.hpp"
@@ -83,7 +85,7 @@ namespace sr
 		///
 		/// \return True if unsigned integer is an entity.
 		///
-		const bool validate(sr::Entity uint);
+		const bool validate(sr::Entity uint) noexcept;
 
 		///
 		/// Add (construct) a component for an entity.
@@ -93,7 +95,7 @@ namespace sr
 		/// \param args Constructor arguments for the component.
 		///
 		template<typename Component, typename... Args>
-		void add(const sr::Entity entity, Args&&... args);
+		void add(const sr::Entity entity, Args&&... args) noexcept;
 
 		///
 		/// Retrieve a component assosiated with an entity.
@@ -104,7 +106,7 @@ namespace sr
 		/// \return Pointer to component of type Component.
 		///
 		template<typename Component>
-		Component* get(const sr::Entity entity);
+		Component* get(const sr::Entity entity) noexcept;
 
 		///
 		/// \brief Retrieve multiple components.
@@ -135,7 +137,7 @@ namespace sr
 							*/
 		///
 		template<typename... Components, typename Lambda>
-		void operate(Lambda&& lambda);
+		void operate(Lambda&& lambda) noexcept;
 
 		///
 		/// \brief Add a system to the manager.
@@ -145,7 +147,7 @@ namespace sr
 		/// \param args Constructor arguments for the system.
 		///
 		template<typename System, typename... Args>
-		void add(Args&&... args);
+		void add(Args&&... args) noexcept;
 
 		///
 		/// Get a system. Type is template parameter.
@@ -153,28 +155,26 @@ namespace sr
 		/// \return Pointer to the system.
 		///
 		template<typename System>
-		System* get();
+		System* get() noexcept;
 
 		///
 		/// Destroys an entity and all assosiated components.
 		///
 		/// \param entity Entity to destroy.
 		///
-		void destroy(const sr::Entity entity);
+		void destroy(const sr::Entity entity) noexcept;
 
 		///
-		/// Pass on event to all systems.
+		/// Process system events.
 		///
-		/// \param event Event data to pass to systems.
-		///
-		void event(const sr::Event& event);
+		void event() noexcept;
 
 		///
 		/// Update all systems.
 		///
 		/// \param time DeltaTime to pass to systems.
 		///
-		void update(const sr::DeltaTime time);
+		void update(const sr::DeltaTime time) noexcept;
 
 		///
 		/// Clear all data from Manager and reset.
@@ -188,7 +188,7 @@ namespace sr
 		/// \param entities Entitys to operate on.
 		///
 		template<typename Component>
-		void iOperate(std::vector<sr::Entity>& entities);
+		void iOperate(std::vector<sr::Entity>& entities) noexcept;
 
 	private:
 		///
@@ -213,53 +213,64 @@ namespace sr
 	};
 
 	template<typename Component, typename... Args>
-	inline void Manager::add(const sr::Entity entity, Args&& ...args)
+	inline void Manager::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
 		if (!validate(entity))
 		{
-			throw std::logic_error("Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+			PL_LOG(PL_FATAL, "Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
 		}
-
-		auto type = cUniqueID::get<Component>();
-
-		if (type >= m_data.size())
+		else
 		{
-			m_data.resize(type + 1);
-		}
+			auto type = cUniqueID::get<Component>();
 
-		// Ensure leftover references to unique pointer are destroyed.
-		{
-			// If null ptr, then no storage for this component exists.
-			if (!m_data[type])
+			if (type >= m_data.size())
 			{
-				// Use polymorphism to ensure type erasure.
-				m_data[type] = std::make_unique<DualSparseSet<Component>>();
+				m_data.resize(type + 1);
 			}
 
-			// Now convert the storage to the type we want to access.
-			DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+			// Ensure leftover references to unique pointer are destroyed.
+			{
+				// If null ptr, then no storage for this component exists.
+				if (!m_data[type])
+				{
+					// Use polymorphism to ensure type erasure.
+					m_data[type] = std::make_unique<DualSparseSet<Component>>();
+				}
 
-			derived->add(entity, std::forward<Args>(args)...);
+				// Now convert the storage to the type we want to access.
+				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+
+				derived->add(entity, std::forward<Args>(args)...);
+			}
 		}
 	}
 
 	template<typename Component>
-	inline Component* Manager::get(const sr::Entity entity)
+	inline Component* Manager::get(const sr::Entity entity) noexcept
 	{
+		Component* res = nullptr;
+
 		if (!validate(entity))
 		{
-			throw std::logic_error("Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+			PL_LOG(PL_FATAL, "Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+			res = nullptr;
 		}
-
-		auto type = cUniqueID::get<Component>();
-
-		if (type > m_data.size())
+		else
 		{
-			throw std::out_of_range("Attempted to access a component type that doesnt exist!");
+			auto type = cUniqueID::get<Component>();
+
+			if (type > m_data.size())
+			{
+				PL_LOG(PL_FATAL, "Attempted to access a component type that doesnt exist!");
+			}
+			else
+			{
+				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+				res = derived->get(entity);
+			}
 		}
-		
-		DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
-		return derived->get(entity);
+
+		return res;
 	}
 
 	template<typename... Components>
@@ -270,7 +281,7 @@ namespace sr
 	}
 
 	template<typename... Components, typename Lambda>
-	inline void Manager::operate(Lambda&& lambda)
+	inline void Manager::operate(Lambda&& lambda) noexcept
 	{
 		std::vector<sr::Entity> entities;
 		
@@ -293,29 +304,31 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline void Manager::iOperate(std::vector<Entity>& entities)
+	inline void Manager::iOperate(std::vector<Entity>& entities) noexcept
 	{
 		auto type = cUniqueID::get<Component>();
 
 		if (type > m_data.size())
 		{
-			throw std::out_of_range("Attempted to access a component type that doesnt exist!");
+			PL_LOG(PL_FATAL, "Attempted to access a component type that doesnt exist!");
 		}
-
-		DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
-
-		for (auto& e : derived->m_dense)
+		else
 		{
-			// Have to make sure no entitys are blank unsigned integers.
-			if (validate(e))
+			DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+
+			for (auto& e : derived->m_dense)
 			{
-				entities.push_back(e);
+				// Have to make sure no entitys are blank unsigned integers.
+				if (validate(e))
+				{
+					entities.push_back(e);
+				}
 			}
 		}
 	}
 
 	template<typename System, typename ...Args>
-	inline void Manager::add(Args&&... args)
+	inline void Manager::add(Args&&... args) noexcept
 	{
 		auto type = sUniqueID::get<System>();
 		if (type >= m_systems.size())
@@ -327,15 +340,18 @@ namespace sr
 	}
 
 	template<typename System>
-	inline System* Manager::get()
+	inline System* Manager::get() noexcept
 	{
 		auto type = sUniqueID::get<System>();
 		if (type > m_systems.size())
 		{
-			throw std::out_of_range("Attempted to access a system type that doesnt exist!");
+			PL_LOG(PL_FATAL, "Attempted to access a system type that doesnt exist!");
+			return nullptr;
 		}
-
-		return static_cast<System*>(m_systems[type].get());
+		else
+		{
+			return static_cast<System*>(m_systems[type].get());
+		}
 	}
 }
 

@@ -19,20 +19,20 @@ namespace starmap
 	{
 	}
 
-	Tile::Tile(const nlohmann::json& json)
+	Tile::Tile(const nlohmann::json& json) noexcept
 		:m_id(0), m_image(""), m_imageHeight(0), m_imageWidth(0), m_objectGroup(std::nullopt), m_probability(-1.0), m_type("")
 	{
 		parse(json);
 	}
 
-	Tile::~Tile()
+	Tile::~Tile() noexcept
 	{
 		m_animation.clear();
 		m_properties.clear();
 		m_terrainIndices.clear();
 	}
 
-	void Tile::parse(const nlohmann::json& json)
+	void Tile::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("animation") > 0)
 		{

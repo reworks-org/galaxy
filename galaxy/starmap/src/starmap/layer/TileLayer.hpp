@@ -27,7 +27,7 @@ namespace starmap
 		///
 		/// Throws a runtime exception if called.
 		///
-		TileLayer();
+		TileLayer() noexcept;
 
 		///
 		/// \brief Parse constructor.
@@ -38,7 +38,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit TileLayer(const nlohmann::json& json);
+		explicit TileLayer(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.

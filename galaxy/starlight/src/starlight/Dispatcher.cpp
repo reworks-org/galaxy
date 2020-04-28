@@ -18,7 +18,7 @@ namespace starlight
 		m_callbacks.clear();
 	}
 
-	void Dispatcher::trigger()
+	void Dispatcher::trigger() noexcept
 	{
 		if (!m_queued.empty())
 		{

@@ -46,7 +46,7 @@ namespace qs
 		/// \param size Number of components for each vertex attribute.
 		///
 		template<typename VertexAttributeType>
-		void add(const int size);
+		void add(const int size) noexcept;
 
 		///
 		/// Retrieve all attributes.
@@ -63,7 +63,7 @@ namespace qs
 	};
 
 	template<typename VertexAttributeType>
-	inline void VertexLayout::add(const int size)
+	inline void VertexLayout::add(const int size) noexcept
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
 		static_assert(std::is_same<VertexAttributeType, qs::VATypePosition>::value || 

@@ -27,10 +27,9 @@ namespace frb
 		///
 		/// \brief Default constructor.
 		///
-		/// Can throw exceptions.
 		/// Generates Buffer buffer(s).
 		///
-		Buffer();
+		Buffer() noexcept;
 
 		///
 		/// \brief Default destructor.
@@ -42,21 +41,23 @@ namespace frb
 		///
 		/// Load a file from disk.
 		///
-		/// Can throw exceptions.
-		///
 		/// \param file File to load from disk. Can only load ogg vorbis.
 		///
-		void load(const std::string& file);
+		/// \return False if load failed.
+		///
+		bool load(const std::string& file) noexcept;
 
 		///
 		/// Load a file from memory.
 		///
-		/// Can throw exceptions. Memory is NOT freed. You MUST free *mem yourself.
+		/// Memory is NOT freed. You MUST free *mem yourself.
 		///
 		/// \param mem Unsigned char buffer containing data.
 		/// \param size Size of the buffer.
 		///
-		void load(const unsigned char* mem, const int size);
+		/// \return False if load failed.
+		///
+		bool load(const unsigned char* mem, const int size) noexcept;
 
 		///
 		/// Get frequency of buffer.

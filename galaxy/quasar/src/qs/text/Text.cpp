@@ -30,7 +30,7 @@ namespace qs
         load(text, font, col);
     }
 
-    void Text::load(const std::string& text, qs::Font& font, protostar::Colour& col)
+    void Text::load(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept
     {
         m_text = text;
         m_font = std::move(font);
@@ -44,7 +44,7 @@ namespace qs
         m_sprite.applyTransforms();
     }
 
-    void Text::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader)
+    void Text::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept
     {
         m_texture.bind();
 

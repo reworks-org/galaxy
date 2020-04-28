@@ -12,17 +12,17 @@
 ///
 namespace protostar
 {
-	const std::string boolToString(const bool value)
+	std::string boolToString(const bool value) noexcept
 	{
-		return (value == true) ? "true" : "false";
+		return std::move((value == true) ? "true" : "false");
 	}
 
-	const bool stringToBool(const std::string& str)
+	const bool stringToBool(const std::string& str) noexcept
 	{
 		return (str == "true") ? true : false;
 	}
 
-	const char* nullToEmpty(const char* s)
+	const char* nullToEmpty(const char* s) noexcept
 	{
 		return (s ? s : "");
 	}

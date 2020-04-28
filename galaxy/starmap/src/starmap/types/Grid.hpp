@@ -33,12 +33,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Grid.
 		///
-		explicit Grid(const nlohmann::json& json);
+		explicit Grid(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Grid() = default;
+		~Grid() noexcept = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -47,7 +47,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get cell height of tile grid.

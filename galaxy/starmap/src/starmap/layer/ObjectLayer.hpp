@@ -25,20 +25,17 @@ namespace starmap
 		///
 		/// \brief Default constructor.
 		///
-		/// Throws a runtime exception if called.
-		///
-		ObjectLayer();
+		ObjectLayer() noexcept;
 
 		///
 		/// \brief Parse constructor.
 		///
 		/// Does not call ObjectLayer::parse() you must call that afterwards.
 		/// Parses Layer common json.
-		/// Can throw exceptions.
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit ObjectLayer(const nlohmann::json& json);
+		explicit ObjectLayer(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.

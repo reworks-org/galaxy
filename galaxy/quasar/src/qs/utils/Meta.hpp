@@ -19,7 +19,7 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct BufferTypeDynamic
+	struct BufferTypeDynamic final
 	{
 		BufferTypeDynamic() = delete;
 	};
@@ -29,7 +29,7 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct BufferTypeStatic
+	struct BufferTypeStatic final
 	{
 		BufferTypeStatic() = delete;
 	};
@@ -39,7 +39,7 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypePosition
+	struct VATypePosition final
 	{
 		VATypePosition() = delete;
 	};
@@ -49,7 +49,7 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypeColour
+	struct VATypeColour final
 	{
 		VATypeColour() = delete;
 	};
@@ -59,7 +59,7 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypeTexel
+	struct VATypeTexel final
 	{
 		VATypeTexel() = delete;
 	};

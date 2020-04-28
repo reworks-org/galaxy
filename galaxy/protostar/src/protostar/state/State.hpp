@@ -25,44 +25,34 @@ namespace protostar
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~State() = default;
+		virtual ~State() noexcept = default;
 
 		///
 		/// \brief Called when state is pushed.
 		///
-		/// Allows for std::exceptions.
-		///
-		virtual void onPush() = 0;
+		virtual void onPush() noexcept = 0;
 
 		///
 		/// \brief Called when state is popped.
 		///
-		/// Allows for std::exceptions.
-		///
-		virtual void onPop() = 0;
+		virtual void onPop() noexcept = 0;
 
 		///
 		/// \brief Allows for the state to process events.
 		///
-		/// Allows for std::exceptions.
-		///
 		/// \param event Is a std::any to allow any type of event object to be passed.
 		///
-		virtual void event(const std::any& event) = 0;
+		virtual void event(const std::any& event) noexcept = 0;
 
 		///
 		/// \brief Allows for the state to utilize fixed timestep updates.
 		///
-		/// Allows for std::exceptions.
-		///
 		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(const double dt) = 0;
+		virtual void update(const double dt) noexcept = 0;
 
 		///
 		/// \brief Allows for the state to call render code.
-		///
-		/// Does NOT allow std::exceptions!
 		///
 		virtual void render() noexcept = 0;
 

@@ -22,22 +22,19 @@ namespace starmap
 	{
 	public:
 		///
-		/// \brief Default constructor.
+		/// Constructor.
 		///
-		/// Throws a runtime exception if called.
-		///
-		ImageLayer();
+		ImageLayer() noexcept;
 
 		///
 		/// \brief Parse constructor.
 		///
 		/// Does not call ImageLayer::parse() you must call that afterwards.
 		/// Parses Layer common json.
-		/// Can throw exceptions.
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit ImageLayer(const nlohmann::json& json);
+		explicit ImageLayer(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.

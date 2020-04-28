@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <stdexcept>
+#include <pulsar/Log.hpp>
 
 #include "frb/Error.hpp"
 
@@ -29,7 +29,7 @@ namespace frb
 		alcCloseDevice(m_device);
 	}
 
-	void Context::initialize()
+	void Context::initialize() noexcept
 	{
 		// This section explains itself kinda. Just init OpenAL and make sure there arent any issues.
 		// Similar to OpenGL if your familiar.
@@ -40,42 +40,42 @@ namespace frb
 		m_device = alcOpenDevice(alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER));
 		if (!m_device)
 		{
-			throw std::runtime_error(frb::parseError("Failed to create OpenAL device."));
+			PL_LOG(PL_FATAL, frb::parseError("Failed to create OpenAL device."));
 		}
 
 		m_context = alcCreateContext(m_device, nullptr);
 		if (!m_context)
 		{
-			throw std::runtime_error(frb::parseError("Failed to create OpenAL context."));
+			PL_LOG(PL_FATAL, frb::parseError("Failed to create OpenAL context."));
 		}
 
 		if (!alcMakeContextCurrent(m_context))
 		{
-			throw std::runtime_error(frb::parseError("Failed to make OpenAL context current."));
+			PL_LOG(PL_FATAL, frb::parseError("Failed to make OpenAL context current."));
 		}
 	}
 
-	void Context::setDopplerFactor(const float factor)
+	void Context::setDopplerFactor(const float factor) noexcept
 	{
 		alDopplerFactor(factor);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set context doppler factor."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set context doppler factor."));
 		}
 	}
 
-	void Context::setSpeedOfSound(const float speed)
+	void Context::setSpeedOfSound(const float speed) noexcept
 	{
 		alSpeedOfSound(speed);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set context sound speed."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set context sound speed."));
 		}
 	}
 
-	void Context::setListenerGain(const float gain)
+	void Context::setListenerGain(const float gain) noexcept
 	{
-		if (gain < 0)
+		if (gain < 0.0f)
 		{
 			return;
 		}
@@ -83,35 +83,35 @@ namespace frb
 		alListenerf(AL_GAIN, gain);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set listener AL_GAIN."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set listener AL_GAIN."));
 		}
 	}
 
-	void Context::setListenerPosition(const float x, const float y, const float z)
+	void Context::setListenerPosition(const float x, const float y, const float z) noexcept
 	{
 		alListener3f(AL_POSITION, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set listener AL_POSITION."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set listener AL_POSITION."));
 		}
 	}
 
-	void Context::setListenerVelocity(const float x, const float y, const float z)
+	void Context::setListenerVelocity(const float x, const float y, const float z) noexcept
 	{
 		alListener3f(AL_VELOCITY, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set listener AL_VELOCITY."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set listener AL_VELOCITY."));
 		}
 	}
 
-	void Context::setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ)
+	void Context::setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ) noexcept
 	{
 		float asArray[6] = {atX, atY, atZ, upX, upY, upZ};
 		alListenerfv(AL_ORIENTATION, asArray);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set listener AL_ORIENTATION."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set listener AL_ORIENTATION."));
 		}
 	}
 }

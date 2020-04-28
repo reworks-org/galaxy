@@ -5,10 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <stdexcept>
 #include <filesystem>
 
 #include <stb_vorbis.h>
+#include <pulsar/Log.hpp>
 
 #include "frb/Error.hpp"
 
@@ -19,32 +19,32 @@
 ///
 namespace frb
 {
-	Buffer::Buffer()
+	Buffer::Buffer() noexcept
 		:m_buffer(0)
 	{
 		// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
 		alGenBuffers(1, &m_buffer);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to gen audio buffer."));
+			PL_LOG(PL_FATAL, frb::parseError("Unable to gen audio buffer."));
 		}
 	}
 
 	Buffer::~Buffer() noexcept
 	{
-		if (m_buffer != static_cast<ALuint>((int)-1))
-		{
-			destroy();
-		}
+		destroy();
 	}
 
-	void Buffer::load(const std::string& file)
+	bool Buffer::load(const std::string& file) noexcept
 	{
+		bool result = true;
+
 		// Process filepath properly.
 		auto path = std::filesystem::path(file);
 		if (path.extension() != ".ogg")
 		{
-			throw std::runtime_error("File must be ogg vorbis and have extension of .ogg!");
+			PL_LOG(PL_ERROR, "File must be ogg vorbis and have extension of .ogg!");
+			result = false;
 		}
 		else
 		{
@@ -55,6 +55,8 @@ namespace frb
 			auto length = stb_vorbis_decode_filename(path.string().c_str(), &channels, &samples, &data);
 			if (length < 1)
 			{
+				result = false;
+
 				// Make sure data is freed.
 				if (data != nullptr)
 				{
@@ -63,15 +65,15 @@ namespace frb
 
 				if (length == -1)
 				{
-					throw std::runtime_error("Failed to open file with stb_vorbis.");
+					PL_LOG(PL_ERROR, "Failed to open file with stb_vorbis.");
 				}
 				else if (length == -2)
 				{
-					throw std::runtime_error("Failed to parse with stb_vorbis.");
+					PL_LOG(PL_ERROR, "Failed to parse with stb_vorbis.");
 				}
 				else
 				{
-					throw std::runtime_error("Failed due to unknown error. Error code returned: " + std::to_string(length));
+					PL_LOG(PL_ERROR, "Failed due to unknown error. Error code returned: " + std::to_string(length));
 				}
 			}
 			else
@@ -82,17 +84,22 @@ namespace frb
 				free(data);
 			}
 		}
+
+		return result;
 	}
 
-	void Buffer::load(const unsigned char* mem, const int size)
+	bool Buffer::load(const unsigned char* mem, const int size) noexcept
 	{
 		int channels = 0;
 		int samples = 0;
 		short* data = nullptr;
+		bool result = true;
 
 		auto length = stb_vorbis_decode_memory(mem, size, &channels, &samples, &data);
 		if (length < 1)
 		{
+			result = false;
+
 			// Make sure data is freed.
 			if (data != nullptr)
 			{
@@ -101,15 +108,15 @@ namespace frb
 
 			if (length == -1)
 			{
-				throw std::runtime_error("Failed to open file with stb_vorbis.");
+				PL_LOG(PL_ERROR, "Failed to open file with stb_vorbis.");
 			}
 			else if (length == -2)
 			{
-				throw std::runtime_error("Failed to parse with stb_vorbis.");
+				PL_LOG(PL_ERROR, "Failed to parse with stb_vorbis.");
 			}
 			else
 			{
-				throw std::runtime_error("Failed due to unknown error. Error code returned: " + std::to_string(length));
+				PL_LOG(PL_ERROR, "Failed due to unknown error. Error code returned: " + std::to_string(length));
 			}
 		}
 		else
@@ -119,6 +126,8 @@ namespace frb
 
 			free(data);
 		}
+
+		return result;
 	}
 
 	const ALint Buffer::getFrequency() noexcept

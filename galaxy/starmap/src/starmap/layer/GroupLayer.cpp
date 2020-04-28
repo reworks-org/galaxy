@@ -5,7 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
+
 #include "starmap/layer/ImageLayer.hpp"
 #include "starmap/layer/ObjectLayer.hpp"
 #include "starmap/layer/TileLayer.hpp"
@@ -17,12 +19,13 @@
 ///
 namespace starmap
 {
-	GroupLayer::GroupLayer()
+	GroupLayer::GroupLayer() noexcept
 	{
-		throw std::runtime_error("Cannot instantiate a default constructed GroupLayer!");
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed GroupLayer!");
+		abort();
 	}
 
-	GroupLayer::GroupLayer(const nlohmann::json& json)
+	GroupLayer::GroupLayer(const nlohmann::json& json) noexcept
 		:Layer(json)
 	{
 	}
@@ -32,7 +35,7 @@ namespace starmap
 		m_layers.clear();
 	}
 
-	void GroupLayer::parse(const nlohmann::json& json)
+	void GroupLayer::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("layers") > 0)
 		{

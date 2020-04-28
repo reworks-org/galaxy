@@ -8,7 +8,6 @@
 #ifndef STARLIGHT_TYPES_HPP_
 #define STARLIGHT_TYPES_HPP_
 
-#include <future>
 #include <memory>
 #include <functional>
 
@@ -44,7 +43,7 @@ namespace starlight
 	/// Type representing a callback.
 	///
 	template<typename Event>
-	using Callback = std::function<void(const Event&, std::mutex&)>;
+	using Callback = std::function<void(const Event&)>;
 }
 
 #endif

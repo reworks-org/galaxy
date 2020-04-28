@@ -97,7 +97,7 @@ namespace qs
 		}
 	}
 
-	void TextureAtlas::save(const std::string& file)
+	void TextureAtlas::save(const std::string& file) noexcept
 	{
 		m_texture.save(file);
 	}

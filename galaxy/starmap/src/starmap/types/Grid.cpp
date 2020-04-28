@@ -19,13 +19,13 @@ namespace starmap
 	{
 	}
 
-	Grid::Grid(const nlohmann::json& json)
+	Grid::Grid(const nlohmann::json& json) noexcept
 		:m_height(0), m_orientation("orthogonal"), m_width(0)
 	{
 		parse(json);
 	}
 
-	void Grid::parse(const nlohmann::json& json)
+	void Grid::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("height") > 0)
 		{

@@ -19,7 +19,7 @@ namespace starmap
 	{
 	}
 
-	Object::Object(const nlohmann::json& json)
+	Object::Object(const nlohmann::json& json) noexcept
 		:m_ellipse(false), m_gid(0), m_height(0.0), m_id(0), m_name(""), m_point(false), m_rotation(0.0), m_template(""), m_type(""), m_visible(true), m_width(0.0), m_x(0.0), m_y(0.0)
 	{
 		parse(json);
@@ -31,7 +31,7 @@ namespace starmap
 		m_properties.clear();
 	}
 
-	void Object::parse(const nlohmann::json& json)
+	void Object::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("ellipse") > 0)
 		{

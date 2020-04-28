@@ -11,8 +11,9 @@
 #include <stack>
 #include <memory>
 #include <utility>
-#include <stdexcept>
 #include <unordered_map>
+
+#include <pulsar/Log.hpp>
 
 #include "protostar/state/State.hpp"
 
@@ -30,33 +31,29 @@ namespace protostar
 		///
 		/// Default constructor.
 		///
-		StateMachine() = default;
+		StateMachine() noexcept = default;
 
 		///
 		/// Destructor.
 		///
-		~StateMachine();
+		~StateMachine() noexcept;
 
 		///
 		/// \brief Pass events onto current state.
 		///
-		/// Allows for std::exceptions.
-		///
 		/// \param event Is a std::any to allow any type of event object to be passed.
 		///
-		void event(const std::any& event);
+		void event(const std::any& event) noexcept;
         
 		///
 		/// Updates the current state.
 		///
 		/// \param dt Delta Time from game loop.
 		///
-		void update(const double dt);
+		void update(const double dt) noexcept;
 
 		///
 		/// \brief Render the current state.
-		///
-		/// Cannot throw std::exceptions.
 		///
 		void render() noexcept;
 
@@ -72,19 +69,19 @@ namespace protostar
 		/// \return Returns pointer to newly created state.
 		///
 		template<typename State, typename ... Args>
-		State* create(const std::string& name, Args&&... args);
+		State* create(const std::string& name, Args&&... args) noexcept;
 
 		///
 		/// Push a new state to the top of the stack.
 		///
 		/// \param state Name of state to push.
 		///
-		void push(const std::string& state);
+		void push(const std::string& state) noexcept;
 
 		///
 		/// Pop top state.
 		///
-		void pop();
+		void pop() noexcept;
 
 		///
 		/// Get the state on top of the stack.
@@ -92,7 +89,7 @@ namespace protostar
 		/// \return Returns pointer to topmost state.
 		///
 		template<typename State>
-		State* top();
+		State* top() noexcept;
 
 	private:
 		///
@@ -107,30 +104,34 @@ namespace protostar
 	};
 
 	template<typename State, typename ...Args>
-	inline State* StateMachine::create(const std::string& name, Args&& ...args)
+	inline State* StateMachine::create(const std::string& name, Args&& ...args) noexcept
 	{
 		// Construct in place by forwarding arguments to the object.
-		m_states.emplace(name, std::make_unique<State>(std::forward<Args>(args)...));
-
+		if (m_states.find(name) != m_states.end())
+		{
+			PL_LOG(PL_ERROR, "Attempted to create state that already exists!");
+		}
+		else
+		{
+			m_states.emplace(name, std::make_unique<State>(std::forward<Args>(args)...));
+		}
+		
 		return dynamic_cast<State*>(m_states[name].get());
 	}
 
 	template<typename State>
-	inline State* StateMachine::top()
+	inline State* StateMachine::top() noexcept
 	{
-		State* output = nullptr;
-
 		// Ensure stack is not empty.
 		if (!m_stack.empty())
 		{
-			output = dynamic_cast<State*>(m_stack.top());
+			return dynamic_cast<State*>(m_stack.top());
 		}
 		else
 		{
-			throw std::runtime_error("No states in stack!");
+			PL_LOG(PL_WARNING, "No states in stack!");
+			return nullptr;
 		}
-
-		return output;
 	}
 }
 

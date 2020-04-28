@@ -35,7 +35,7 @@ namespace protostar
 		///
 		/// Default destructor.
 		///
-		~MouseReleasedEvent() = default;
+		~MouseReleasedEvent() noexcept = default;
 
 		///
 		/// Mouse x position.

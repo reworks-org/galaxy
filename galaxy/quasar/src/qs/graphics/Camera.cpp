@@ -44,7 +44,7 @@ namespace qs
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	}
 
-	void Camera::onKeyDown(const protostar::KeyDownEvent& e)
+	void Camera::onKeyDown(const protostar::KeyDownEvent& e) noexcept
 	{
 		switch (e.m_keycode)
 		{
@@ -66,7 +66,7 @@ namespace qs
 		}
 	}
 
-	void Camera::onKeyUp(const protostar::KeyUpEvent& e)
+	void Camera::onKeyUp(const protostar::KeyUpEvent& e) noexcept
 	{
 		switch (e.m_keycode)
 		{

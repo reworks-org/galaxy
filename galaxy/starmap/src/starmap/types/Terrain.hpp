@@ -35,12 +35,12 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing terrain.
 		///
-		explicit Terrain(const nlohmann::json& json);
+		explicit Terrain(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Terrain();
+		~Terrain() noexcept;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -49,7 +49,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing terrain array from root->tilset->terrain.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get terrain name.

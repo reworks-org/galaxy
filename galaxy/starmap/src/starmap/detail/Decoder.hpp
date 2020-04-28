@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// \return Decompressed zlib string.
 		///
-		std::string zlib(const std::string& zlibIn);
+		std::string zlib(const std::string& zlibIn) noexcept;
 
 		///
 		/// \brief Decompresses from gzip.
@@ -55,7 +55,7 @@ namespace starmap
 		///
 		/// \return Decompressed gzip string.
 		///
-		std::string gzip(const std::string& gzipIn);
+		std::string gzip(const std::string& gzipIn) noexcept;
 	}
 }
 

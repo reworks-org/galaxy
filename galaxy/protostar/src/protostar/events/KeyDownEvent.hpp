@@ -35,7 +35,7 @@ namespace protostar
 		///
 		/// Default destructor.
 		///
-		~KeyDownEvent() = default;	
+		~KeyDownEvent() noexcept = default;
 
 		///
 		/// Keycode for the key that was pressed.

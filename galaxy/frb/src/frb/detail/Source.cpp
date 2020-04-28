@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <stdexcept>
+#include <pulsar/Log.hpp>
 
 #include "frb/Error.hpp"
 
@@ -16,146 +16,143 @@
 ///
 namespace frb
 {
-	Source::Source()
+	Source::Source() noexcept
 		:m_source(0)
 	{
 		// Create source and check for error. Only create 1 source since source is being managed per object.
 		alGenSources(1, &m_source);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to gen source"));
+			PL_LOG(PL_FATAL, frb::parseError("Unable to gen source"));
 		}
 	}
 
 	Source::~Source() noexcept
 	{
-		if (m_source != static_cast<ALuint>((int)-1))
-		{
-			destroy();
-		}
+		destroy();
 	}
 
-	void Source::setPitch(const float pitch)
+	void Source::setPitch(const float pitch) noexcept
 	{
 		alSourcef(m_source, AL_PITCH, std::abs(pitch));
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source pitch."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source pitch."));
 		}
 	}
 
-	void Source::setGain(const float gain)
+	void Source::setGain(const float gain) noexcept
 	{
 		alSourcef(m_source, AL_GAIN, std::abs(gain));
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source gain."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source gain."));
 		}
 	}
 
-	void Source::setRolloffFactor(const float factor)
+	void Source::setRolloffFactor(const float factor) noexcept
 	{
 		alSourcef(m_source, AL_ROLLOFF_FACTOR, factor);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source rolloff."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source rolloff."));
 		}
 	}
 
-	void Source::setMaxDistance(const float distance)
+	void Source::setMaxDistance(const float distance) noexcept
 	{
 		alSourcef(m_source, AL_MAX_DISTANCE, distance);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source max distance."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source max distance."));
 		}
 	}
 
-	void Source::configureCone(const float outerGain, const float innerAngle, const float outerAngle)
+	void Source::configureCone(const float outerGain, const float innerAngle, const float outerAngle) noexcept
 	{
 		alSourcef(m_source, AL_CONE_OUTER_GAIN, outerGain);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set AL_CONE_OUTER_GAIN."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set AL_CONE_OUTER_GAIN."));
 		}
 
 		alSourcef(m_source, AL_CONE_INNER_ANGLE, innerAngle);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set AL_CONE_INNER_ANGLE."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set AL_CONE_INNER_ANGLE."));
 		}
 
 		alSourcef(m_source, AL_CONE_OUTER_ANGLE, outerAngle);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set AL_CONE_OUTER_ANGLE."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set AL_CONE_OUTER_ANGLE."));
 		}
 	}
 
-	void Source::setPosition(const float x, const float y, const float z)
+	void Source::setPosition(const float x, const float y, const float z) noexcept
 	{
 		alSource3f(m_source, AL_POSITION, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source position."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source position."));
 		}
 	}
 
-	void Source::setVelocity(const float x, const float y, const float z)
+	void Source::setVelocity(const float x, const float y, const float z) noexcept
 	{
 		alSource3f(m_source, AL_VELOCITY, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source velocity."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source velocity."));
 		}
 	}
 
-	void Source::setDirection(const float x, const float y, const float z)
+	void Source::setDirection(const float x, const float y, const float z) noexcept
 	{
 		alSource3f(m_source, AL_DIRECTION, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source direction."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source direction."));
 		}
 	}
 
-	void Source::setLooping(bool looping)
+	void Source::setLooping(bool looping) noexcept
 	{
 		alSourcei(m_source, AL_LOOPING, looping);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to set source looping."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to set source looping."));
 		}
 	}
 
-	ALint Source::getState()
+	ALint Source::getState() noexcept
 	{
 		ALint val = 0;
 		alGetSourcei(m_source, AL_SOURCE_STATE, &val);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to get AL_SOURCE_STATE."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to get AL_SOURCE_STATE."));
 		}
 
 		return std::move(val);
 	}
 
-	void Source::bind(const frb::Buffer& buffer)
+	void Source::bind(const frb::Buffer& buffer) noexcept
 	{
 		alSourcei(m_source, AL_BUFFER, buffer.handle());
 		if (alGetError() != AL_NO_ERROR)
 		{
-			throw std::runtime_error(frb::parseError("Unable to bind buffer: " + std::to_string(buffer.handle()) + " to source: " + std::to_string(m_source) + "."));
+			PL_LOG(PL_ERROR, frb::parseError("Unable to bind buffer: " + std::to_string(buffer.handle()) + " to source: " + std::to_string(m_source) + "."));
 		}
 	}
 
-	void Source::queue(const frb::Buffer& buffer)
+	void Source::queue(const frb::Buffer& buffer) noexcept
 	{
 		auto handle = buffer.handle();
 		alSourceQueueBuffers(m_source, 1, &handle);
 	}
 
-	void Source::queue(const std::vector<frb::Buffer*>& buffers)
+	void Source::queue(const std::vector<frb::Buffer*>& buffers) noexcept
 	{
 		std::vector<ALuint> handles;
 		handles.reserve(buffers.size());
@@ -169,7 +166,7 @@ namespace frb
 		alSourceQueueBuffers(m_source, static_cast<ALsizei>(handles.size()), handles.data());
 	}
 
-	void Source::queue(const ALuint* bufferArray, const size_t size)
+	void Source::queue(const ALuint* bufferArray, const size_t size) noexcept
 	{
 		alSourceQueueBuffers(m_source, static_cast<ALsizei>(size), bufferArray);
 	}
@@ -203,6 +200,5 @@ namespace frb
 	{
 		stop();
 		alDeleteSources(1, &m_source);
-		m_source = static_cast<ALuint>((int)-1);
 	}
 }

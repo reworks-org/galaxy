@@ -9,7 +9,6 @@
 #define SOLAR_CONFIG_HPP_
 
 #include <cstdint>
-#include <stdexcept>
 
 ///
 /// Library wide default integer.
@@ -27,11 +26,6 @@ namespace sr
 	/// Must be 32bits. Do not change.
 	///
 	using Entity = SR_INTEGER;
-
-	///
-	/// Event type.
-	///
-	using Event = int;
 
 	///
 	/// DeltaTime type.

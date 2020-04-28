@@ -46,7 +46,7 @@ namespace qs
 		/// \param vertexs Vertexs to use.
 		///
 		template<typename BufferType>
-		void create(const VertexStorage& vertexs);
+		void create(const VertexStorage& vertexs) noexcept;
 
 		///
 		/// Destroys buffer.
@@ -90,7 +90,7 @@ namespace qs
 	};
 
 	template<typename BufferType>
-	inline void VertexBuffer::create(const VertexStorage& vertexs)
+	inline void VertexBuffer::create(const VertexStorage& vertexs) noexcept
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
 		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);

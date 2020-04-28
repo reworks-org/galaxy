@@ -19,7 +19,7 @@ namespace starmap
 	{
 	}
 
-	Property::Property(const nlohmann::json& json)
+	Property::Property(const nlohmann::json& json) noexcept
 		:m_type("")
 	{
 	}
@@ -29,7 +29,7 @@ namespace starmap
 		m_value.reset();
 	}
 
-	void Property::parse(const nlohmann::json& json)
+	void Property::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("type") > 0)
 		{

@@ -20,23 +20,8 @@
 namespace pulsar
 {
 	Log::Log() noexcept
-		:m_minimumLevel(pulsar::Log::Level::INFO)
+		:m_minimumLevel(PL_INFO)
 	{
-		m_callback = [&](const pulsar::Log::Level level, const std::string& message)
-		{
-			// Prefix string
-			std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
-			output += (message + "\n");
-
-			// Mutex protection.
-			m_lock.lock();
-
-			// Print to stream and std output.
-			std::cout << output;
-			m_fileStream << output;
-
-			m_lock.unlock();
-		};
 	}
 
 	Log::~Log() noexcept
@@ -44,14 +29,14 @@ namespace pulsar
 		deinit();
 	}
 
-	Log& Log::get()
+	Log& Log::get() noexcept
 	{
 		// Singleton instance.
 		static Log s_inst;
 		return s_inst;
 	}
 
-	void Log::init(const std::string& logTo)
+	void Log::init(const std::string& logTo) noexcept
 	{
 		// Find path
 		std::filesystem::path path(logTo);
@@ -63,60 +48,72 @@ namespace pulsar
 			std::filesystem::create_directory(directory);
 		}
 
-		// Open and make sure its not errored.
+		// Open stream.
 		m_fileStream.open(logTo, std::ofstream::out);
-		if (m_fileStream.fail())
-		{
-			throw std::runtime_error("Failed to create log: " + logTo);
-		}
 	}
 
 	void Log::deinit() noexcept
 	{
-		m_lock.lock();
 		m_fileStream.close();
-		m_lock.unlock();
-
-		// Make sure each logging thread has finished before shutting down.
-		for (auto& future : m_futures)
-		{
-			future.get();
-		}
 	}
 
-	void Log::log(const pulsar::Log::Level level, const std::string& message)
+	void Log::log(const pulsar::Log::Level level, const std::string& message) noexcept
 	{
 		// Check to make sure level should be logged.
 		if (pulsar::Log::get().filterLevel(level))
 		{
-			// Launch thread to log to.
-			m_futures.emplace_back(std::move(std::async(std::launch::async, m_callback, level, message)));
+			// Prefix string
+			std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
+			output += (message + "\n");
+
+			// Print to stream and std output.
+			std::cout << output;
+			m_fileStream << output;
 		}
 	}
 
-	std::string Log::processLevel(const pulsar::Log::Level level)
+	void Log::setMinimumLevel(pulsar::Log::Level level) noexcept
+	{
+		m_minimumLevel = level;
+	}
+
+	pulsar::Log::Level Log::getMinimumLevel() noexcept
+	{
+		return m_minimumLevel;
+	}
+
+	std::string Log::getDateTime() noexcept
+	{
+		// Time code. Simple.
+		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		std::string out = std::ctime(&time);
+		out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
+		return std::move(out);
+	}
+
+	std::string Log::processLevel(const pulsar::Log::Level level) noexcept
 	{
 		std::string out = "";
 
 		switch (level)
 		{
-		case pulsar::Log::Level::INFO:
+		case PL_INFO:
 			out = "INFO";
 			break;
 
-		case pulsar::Log::Level::DEBUG:
+		case PL_DEBUG:
 			out = "DEBUG";
 			break;
 
-		case pulsar::Log::Level::WARNING:
+		case PL_WARNING:
 			out = "WARNING";
 			break;
 
-		case pulsar::Log::Level::ERROR_:
+		case PL_ERROR:
 			out = "ERROR";
 			break;
 
-		case pulsar::Log::Level::FATAL:
+		case PL_FATAL:
 			out = "FATAL";
 			break;
 
@@ -125,32 +122,32 @@ namespace pulsar
 			break;
 		}
 
-		return out;
+		return std::move(out);
 	}
 
-	std::string Log::processColour(pulsar::Log::Level level)
+	std::string Log::processColour(pulsar::Log::Level level) noexcept
 	{
 		std::string out = "";
 
 		switch (level)
 		{
-		case pulsar::Log::Level::INFO:
+		case PL_INFO:
 			out = pulsar::colourText(LogColours::WHITE);
 			break;
 
-		case pulsar::Log::Level::DEBUG:
+		case PL_DEBUG:
 			out = pulsar::colourText(LogColours::GREEN);
 			break;
 
-		case pulsar::Log::Level::WARNING:
+		case PL_WARNING:
 			out = pulsar::colourText(LogColours::YELLOW);
 			break;
 
-		case pulsar::Log::Level::ERROR_:
+		case PL_ERROR:
 			out = pulsar::colourText(LogColours::RED);
 			break;
 
-		case pulsar::Log::Level::FATAL:
+		case PL_FATAL:
 			out = pulsar::colourText(LogColours::FATAL);
 			break;
 
@@ -159,10 +156,10 @@ namespace pulsar
 			break;
 		}
 
-		return out;
+		return std::move(out);
 	}
 
-	bool Log::filterLevel(pulsar::Log::Level level)
+	bool Log::filterLevel(pulsar::Log::Level level) noexcept
 	{
 		// Checks for proper stream level.
 		if (static_cast<int>(level) >= static_cast<int>(m_minimumLevel))
@@ -173,24 +170,5 @@ namespace pulsar
 		{
 			return false;
 		}
-	}
-
-	void Log::setMinimumLevel(pulsar::Log::Level level)
-	{
-		m_minimumLevel = level;
-	}
-
-	pulsar::Log::Level Log::getMinimumLevel()
-	{
-		return m_minimumLevel;
-	}
-
-	std::string Log::getDateTime()
-	{
-		// Time code. Simple.
-		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-		std::string out = std::ctime(&time);
-		out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
-		return out;
 	}
 }

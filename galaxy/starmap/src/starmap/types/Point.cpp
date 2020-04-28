@@ -24,13 +24,13 @@ namespace starmap
 	{
 	}
 
-	Point::Point(const nlohmann::json& json)
+	Point::Point(const nlohmann::json& json) noexcept
 		:m_x(0.0), m_y(0.0)
 	{
 		parse(json);
 	}
 
-	void Point::parse(const nlohmann::json& json)
+	void Point::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("x") > 0)
 		{

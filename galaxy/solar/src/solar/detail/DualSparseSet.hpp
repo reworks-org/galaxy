@@ -8,6 +8,8 @@
 #ifndef SOLAR_DUALSPARSESET_HPP_
 #define SOLAR_DUALSPARSESET_HPP_
 
+#include <pulsar/Log.hpp>
+
 #include "solar/detail/SparseSet.hpp"
 
 ///
@@ -67,14 +69,14 @@ namespace sr
 		///
 		/// \return Component belonging to the entity.
 		///
-		Component* get(const sr::Entity entity);
+		Component* get(const sr::Entity entity) noexcept;
 
 		///
 		/// Remove the entity and its assossiated component.
 		///
 		/// \param entity Entity to remove.
 		///
-		void remove(const sr::Entity entity) override;
+		void remove(const sr::Entity entity) noexcept override;
 
 	private:
 		///
@@ -128,25 +130,46 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline Component* DualSparseSet<Component>::get(const sr::Entity entity)
+	inline Component* DualSparseSet<Component>::get(const sr::Entity entity) noexcept
 	{
 		// Access the index the entity is assosiated with to get the component paired with the entity.
-		return &(m_components[findIndex(entity)]);
+		auto opt = findIndex(entity);
+		if (opt != std::nullopt)
+		{
+			return &m_components[opt.value()];
+		}
+		else
+		{
+			PL_LOG(PL_FATAL, "DualSparseSet get() component found nullopt index.");
+			return nullptr;
+		}
 	}
 
 	template<typename Component>
-	inline void DualSparseSet<Component>::remove(const sr::Entity entity)
+	inline void DualSparseSet<Component>::remove(const sr::Entity entity) noexcept
 	{
 		// So if we want to destroy an entity/component, easest method is to move the last entity to the one we are erasing
 		// then destroy the duplicate. Called swap-and-pop.
 		if (has(entity))
 		{
-			m_components[findIndex(entity)] = std::move(m_components.back());
-			m_components.pop_back();
+			auto opt = findIndex(entity);
+			if (opt != std::nullopt)
+			{
+				m_components[opt.value()] = std::move(m_components.back());
+				m_components.pop_back();
 
-			m_dense[m_sparse[entity]] = m_dense[m_size - 1];
-			m_sparse[m_dense[m_size - 1]] = m_sparse[entity];
-			--m_size;
+				m_dense[m_sparse[entity]] = m_dense[m_size - 1];
+				m_sparse[m_dense[m_size - 1]] = m_sparse[entity];
+				--m_size;
+			}
+			else
+			{
+				PL_LOG(PL_ERROR, "DualSparseSet remove() component found nullopt index: " + std::to_string(entity));
+			}
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to remove an component that does not exist on entity: " + std::to_string(entity));
 		}
 	}
 }

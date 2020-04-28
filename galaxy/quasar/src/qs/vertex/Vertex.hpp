@@ -32,7 +32,7 @@ namespace qs
 		///
 		/// \return Returns std::array<qs::Vertex, 4>.
 		///
-		static std::array<qs::Vertex, 4>&& make_quad(const protostar::Rect<float>& bounds, const std::array<float, 4>& col, const float u, const float v);
+		static std::array<qs::Vertex, 4>&& make_quad(const protostar::Rect<float>& bounds, const std::array<float, 4>& col, const float u, const float v) noexcept;
 
 		///
 		/// Default constructor.
@@ -48,7 +48,7 @@ namespace qs
 		/// \param u Texel x pos.
 		/// \param v Texel y pos.
 		///
-		explicit Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v);
+		explicit Vertex(const float x, const float y, protostar::Colour& col, const float u, const float v) noexcept;
 
 		///
 		/// Argument constructor.
@@ -59,7 +59,7 @@ namespace qs
 		/// \param u Texel x pos.
 		/// \param v Texel y pos.
 		///
-		explicit Vertex(const float x, const float y, const std::array<float, 4>& col, const float u, const float v);
+		explicit Vertex(const float x, const float y, const std::array<float, 4>& col, const float u, const float v) noexcept;
 
 		///
 		/// Destructor.

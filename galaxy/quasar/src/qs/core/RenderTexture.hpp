@@ -41,12 +41,12 @@ namespace qs
 		/// \param w Width of the RenderTexture.
 		/// \param h Height of the RenderTexture.
 		///
-		explicit RenderTexture(const int w, const int h);
+		explicit RenderTexture(const int w, const int h) noexcept;
 
 		///
 		/// Virtual destructor override.
 		///
-		~RenderTexture();
+		~RenderTexture() noexcept;
 
 		///
 		/// Create the RenderTexture.

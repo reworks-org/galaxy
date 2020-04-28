@@ -35,7 +35,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		explicit Chunk(const nlohmann::json& json);
+		explicit Chunk(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
@@ -49,7 +49,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Gets data.

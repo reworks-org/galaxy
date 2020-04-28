@@ -12,7 +12,7 @@
 ///
 namespace pulsar
 {
-	const std::string colourText(const LogColours colour)
+	std::string colourText(const LogColours colour) noexcept
 	{
 		std::string out = "";
 
@@ -43,7 +43,7 @@ namespace pulsar
 			break;
 		}
 
-		return out;
+		return std::move(out);
 	}
 }
 

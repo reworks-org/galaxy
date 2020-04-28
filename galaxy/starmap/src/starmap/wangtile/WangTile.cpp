@@ -19,18 +19,18 @@ namespace starmap
 	{
 	}
 
-	WangTile::WangTile(const nlohmann::json& json)
+	WangTile::WangTile(const nlohmann::json& json) noexcept
 		:m_dFlip(false), m_hFlip(false), m_tileID(0), m_vFlip(false)
 	{
 		parse(json);
 	}
 
-	WangTile::~WangTile()
+	WangTile::~WangTile() noexcept
 	{
 		m_wangIndexes.clear();
 	}
 
-	void WangTile::parse(const nlohmann::json& json)
+	void WangTile::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("dflip") > 0)
 		{

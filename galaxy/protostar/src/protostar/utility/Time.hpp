@@ -23,7 +23,7 @@ namespace protostar
 	///
 	/// \return Returns const std::uint32_t.
 	///
-	const std::uint32_t secondsToMilliseconds(const double seconds);
+	const std::uint32_t secondsToMilliseconds(const double seconds) noexcept;
 
 	///
 	/// Convert seconds to microseconds.
@@ -32,7 +32,7 @@ namespace protostar
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	const std::uint64_t secondsToMicroseconds(const double seconds);
+	const std::uint64_t secondsToMicroseconds(const double seconds) noexcept;
 
 	///
 	/// Convert milliseconds to seconds.
@@ -41,7 +41,7 @@ namespace protostar
 	///
 	/// \return Returns const double.
 	///
-	const double millisecondsToSeconds(const std::uint32_t milliseconds);
+	const double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept;
 
 	///
 	/// Convert milliseconds to microseconds.
@@ -50,7 +50,7 @@ namespace protostar
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds);
+	const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept;
 
 	///
 	/// Convert microseconds to seconds.
@@ -59,7 +59,7 @@ namespace protostar
 	///
 	/// \return Returns const double.
 	///
-	const double microsecondsToSeconds(const std::uint64_t microseconds);
+	const double microsecondsToSeconds(const std::uint64_t microseconds) noexcept;
 
 	///
 	/// Convert microseconds to milliseconds.
@@ -68,7 +68,7 @@ namespace protostar
 	///
 	/// \return Returns std::uint32_t.
 	///
-	const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds);
+	const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept;
 
 	///
 	/// \brief Returns High-Precision count of time passed since Epoch (Jan 1st, 1970).
@@ -80,7 +80,7 @@ namespace protostar
 	///
 	/// \return const double High Precision time passed since epoch.
 	///
-	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr);
+	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr) noexcept;
 
 	///
 	/// \brief Get the current time and date.
@@ -89,7 +89,7 @@ namespace protostar
 	///
 	/// \return Returns const std::string of the current DateTime.
 	///
-	const std::string getCurrentDateTime();
+	const std::string getCurrentDateTime() noexcept;
 
 	///
 	/// \brief Get the current time.
@@ -98,14 +98,14 @@ namespace protostar
 	///
 	/// \return Returns std::string shortened Time.
 	///
-	const std::string getShortTime();
+	const std::string getShortTime() noexcept;
 
 	///
 	/// Get a formatted time that contains no special characters.
 	///
 	/// \return Returns std::string formatted Time.
 	///
-	const std::string getFormattedTime();
+	const std::string getFormattedTime() noexcept;
 }
 
 #endif

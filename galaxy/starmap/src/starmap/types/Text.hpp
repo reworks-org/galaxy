@@ -45,7 +45,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing ObjectLayer->Object->Text.
 		///
-		void parse(const nlohmann::json& json);
+		void parse(const nlohmann::json& json) noexcept;
 
 		///
 		/// Get bold flag.

@@ -19,7 +19,7 @@ namespace starmap
 	{
 	}
 
-	Tileset::Tileset(const nlohmann::json& json)
+	Tileset::Tileset(const nlohmann::json& json) noexcept
 		:m_backgroundColour("00FFFFFF"), m_columns(0), m_firstGID(0), m_grid(std::nullopt), m_image(""), m_imageHeight(0), m_imageWidth(0), m_margin(0), m_name(""), m_source(""), m_spacing(0), m_tileCount(0), m_tiledVersion(""), m_tileHeight(0), m_tileOffset(std::nullopt), m_tileWidth(0), m_transparentColour("FFFFFF"), m_type("tileset")
 	{
 		parse(json);
@@ -34,7 +34,7 @@ namespace starmap
 		m_wangSets.clear();
 	}
 
-	void Tileset::parse(const nlohmann::json& json)
+	void Tileset::parse(const nlohmann::json& json) noexcept
 	{
 		if (json.count("backgroundcolor") > 0)
 		{
@@ -144,7 +144,7 @@ namespace starmap
 			auto tileArray = json.at("tiles");
 			std::for_each(tileArray.begin(), tileArray.end(), [&](const nlohmann::json& tiles)
 			{
-				m_tiles.emplace_back(tiles);
+					m_tiles.emplace_back(tiles);
 			});
 		}
 

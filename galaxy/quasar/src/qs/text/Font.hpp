@@ -39,7 +39,7 @@ namespace qs
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		explicit Font(const std::string& file, const int size);
+		explicit Font(const std::string& file, const int size) noexcept;
 
 		///
 		/// Destructor.
@@ -52,21 +52,21 @@ namespace qs
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		void create(const std::string& file, const int size);
+		void create(const std::string& file, const int size) noexcept;
 
 		///
 		/// Retrieve width of a string of text.
 		///
 		/// \param text Text to get width of.
 		///
-		const int getTextWidth(const std::string& text);
+		const int getTextWidth(const std::string& text) noexcept;
 		
 		///
 		/// Retrieve height of a string of text.
 		///
 		/// \param text Text to get height of.
 		///
-		const int getTextHeight(const std::string& text);
+		const int getTextHeight(const std::string& text) noexcept;
 		
 		///
 		/// Get characters.
