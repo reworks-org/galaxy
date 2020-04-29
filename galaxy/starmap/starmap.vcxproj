@@ -157,7 +157,7 @@
       <FloatingPointExceptions>false</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;ZLIB_WINAPI;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -184,7 +184,7 @@
       <FloatingPointExceptions>false</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;ZLIB_WINAPI;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -221,7 +221,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;ZLIB_WINAPI;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -260,7 +260,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;ZLIB_WINAPI;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
