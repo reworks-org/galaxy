@@ -18,11 +18,13 @@
 namespace qs
 {
 	Font::Font() noexcept
+		:m_height(0)
 	{
 		m_characterMap.reserve(128);
 	}
 
 	Font::Font(const std::string& file, const int size) noexcept
+		:m_height(0)
 	{
 		m_characterMap.reserve(128);
 
@@ -78,6 +80,7 @@ namespace qs
 		}
 
 		FT_Done_Face(face);
+		m_height = m_characterMap['X'].m_height;
 	}
 
 	const int Font::getTextWidth(const std::string& text) noexcept
@@ -92,9 +95,9 @@ namespace qs
 		return width;
 	}
 
-	const int Font::getTextHeight(const std::string& text) noexcept
+	const int Font::getHeight() noexcept
 	{
-		return m_characterMap['X'].m_height;
+		return m_height;
 	}
 
 	std::unordered_map<char, qs::Character>& Font::getChars() noexcept

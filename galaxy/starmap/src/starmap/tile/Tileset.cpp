@@ -168,7 +168,7 @@ namespace starmap
 			auto wangSets = json.at("wangsets");
 			std::for_each(wangSets.begin(), wangSets.end(), [&](const nlohmann::json& wangset)
 			{
-				m_wangSets.emplace_back(wangSets);
+				m_wangSets.emplace_back(wangset);
 			});
 		}
 	}

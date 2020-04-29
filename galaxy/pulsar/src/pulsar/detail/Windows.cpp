@@ -19,7 +19,7 @@ namespace pulsar
 	std::string colourText(const LogColours colour) noexcept
 	{
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-		SetConsoleTextAttribute(hConsole, (int)colour);
+		SetConsoleTextAttribute(hConsole, static_cast<WORD>(colour));
 
 		return "";
 	}

@@ -36,16 +36,15 @@ struct Test
 
 [[maybe_unused]] void starmap_func()
 {
-	try
+	starmap::Map map;
+	if (!map.load("../demo-maps/demo-zlib.json"))
 	{
-		starmap::Map map;
-		map.load("../demo-maps/demo-zlib.json");
+		PL_LOG(PL_ERROR, "failed to load map");
+	}
+	else
+	{
 		map.parse();
 		map.dump();
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
 	}
 }
 

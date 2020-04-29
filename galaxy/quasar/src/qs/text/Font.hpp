@@ -62,11 +62,9 @@ namespace qs
 		const int getTextWidth(const std::string& text) noexcept;
 		
 		///
-		/// Retrieve height of a string of text.
+		/// Retrieve height of the font.
 		///
-		/// \param text Text to get height of.
-		///
-		const int getTextHeight(const std::string& text) noexcept;
+		const int getHeight() noexcept;
 		
 		///
 		/// Get characters.
@@ -80,6 +78,11 @@ namespace qs
 		/// Stores mapped characters.
 		///
 		std::unordered_map<char, qs::Character> m_characterMap;
+
+		///
+		/// Cached height of font.
+		///
+		int m_height;
 	};
 }
 

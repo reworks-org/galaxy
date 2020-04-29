@@ -36,7 +36,7 @@ namespace qs
         m_font = std::move(font);
         m_colour = std::move(col);
 
-        m_texture.create(m_font.getTextWidth(m_text), m_font.getTextHeight(m_text));
+        m_texture.create(m_font.getTextWidth(m_text), m_font.getHeight());
         m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
 
         m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());

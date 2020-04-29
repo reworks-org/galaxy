@@ -88,7 +88,7 @@ namespace protostar
 	void ThreadPool::queue(Task* task) noexcept
 	{
 		{
-			std::unique_lock<std::mutex>(m_mutex);
+			std::unique_lock<std::mutex> lock(m_mutex);
 			m_tasks.emplace(task);
 		}
 

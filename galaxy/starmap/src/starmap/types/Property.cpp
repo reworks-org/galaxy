@@ -22,6 +22,7 @@ namespace starmap
 	Property::Property(const nlohmann::json& json) noexcept
 		:m_type("")
 	{
+		parse(json);
 	}
 
 	Property::~Property() noexcept
