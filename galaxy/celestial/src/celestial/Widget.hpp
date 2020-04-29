@@ -22,30 +22,16 @@ namespace celestial
 	///
 	class Widget
 	{
+		///
+		/// Allow UI to access protected methods.
+		///
+		friend class UI;
+
 	public:
 		///
 		/// Virtual destructor.
 		///
 		virtual ~Widget() noexcept;
-
-		///
-		/// \brief Update the widget.
-		///
-		/// Don't forget to check for visibility.
-		///
-		/// \param dt Delta Time.
-		///
-		virtual void update(protostar::ProtectedDouble* dt) noexcept = 0;
-
-		///
-		/// \brief Render the widget.
-		///
-		/// This should only contain code on rendering the widget.
-		/// And don't forget to check for visibility.
-		///
-		/// \param renderer Renderer to use when drawing.
-		///
-		virtual void render(qs::Renderer& renderer) noexcept = 0;
 
 		///
 		/// Does the widget contain the point x, y.
@@ -61,31 +47,6 @@ namespace celestial
 		/// \param isVisible Set to true if widget is visible.
 		///
 		virtual void setVisibility(const bool isVisible) noexcept final;
-
-		///
-		/// Set bounds.
-		///
-		/// \param x X pos of widget.
-		/// \param y Y pos of widget.
-		/// \param w Width of widget.
-		/// \param h Height of widget.
-		///
-		virtual void setBounds(const int x, const int y, const int w, const int h) noexcept final;
-
-		///
-		/// Sets theme for widget to use.
-		///
-		/// \param theme Theme to apply to widget.
-		///
-		virtual void setTheme(celestial::UITheme* theme) noexcept final;
-
-		///
-		/// Get bounds.
-		///
-		/// \return Returns a reference to the internal rectangle defining bounds.
-		///
-		virtual const protostar::Rect<int>& getBounds() const noexcept final;
-
 
 		///
 		/// Get ID of this widget.
@@ -110,6 +71,42 @@ namespace celestial
 		///
 		Widget(Widget&&) noexcept = default;
 
+		///
+		/// \brief Update the widget.
+		///
+		/// Don't forget to check for visibility.
+		///
+		/// \param dt Delta Time.
+		///
+		virtual void update(protostar::ProtectedDouble* dt) noexcept = 0;
+
+		///
+		/// \brief Render the widget.
+		///
+		/// This should only contain code on rendering the widget.
+		/// And don't forget to check for visibility.
+		///
+		/// \param renderer Renderer to use when drawing.
+		///
+		virtual void render(qs::Renderer& renderer) noexcept = 0;
+
+		///
+		/// Sets theme for widget to use.
+		///
+		/// \param theme Theme to apply to widget.
+		///
+		virtual void setTheme(celestial::UITheme* theme) noexcept final;
+
+		///
+		/// Set bounds.
+		///
+		/// \param x X pos of widget.
+		/// \param y Y pos of widget.
+		/// \param w Width of widget.
+		/// \param h Height of widget.
+		///
+		virtual void setBounds(const int x, const int y, const int w, const int h) noexcept final;
+
 	protected:
 		///
 		/// X, Y, width and height of the widget.
@@ -119,7 +116,7 @@ namespace celestial
 		///
 		/// Is the widget currently visible.
 		///
-		bool m_visible;
+		protostar::ProtectedBool m_visible;
 
 		///
 		/// UITheme pointer.

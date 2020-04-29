@@ -13,8 +13,9 @@
 namespace celestial
 {
 	UI::UI(protostar::ProtectedDouble* deltaTime) noexcept
-		:m_dt(deltaTime), m_counter(0), m_errorState(celestial::ErrorState::OK)
+		:m_isDestroyed(false), m_dt(deltaTime), m_counter(0), m_errorState(celestial::ErrorState::OK)
 	{
+		m_running.set(true);
 		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished)
 		{
 			while (m_running.get() && threadPoolFinished->get())
@@ -27,9 +28,10 @@ namespace celestial
 
 	UI::~UI() noexcept
 	{
-		close();
-		m_mainLoop.waitUntilFinished();
-		destroy();
+		if (!m_isDestroyed)
+		{
+			destroy();
+		}
 	}
 
 	void UI::render(qs::Renderer& renderer) noexcept
@@ -44,11 +46,6 @@ namespace celestial
 				widget->render(renderer);
 			}
 		}
-	}
-
-	void UI::close() noexcept
-	{
-		m_running.set(false);
 	}
 
 	void UI::setVisibility(const bool isVisible) noexcept
@@ -74,6 +71,9 @@ namespace celestial
 
 	void UI::destroy() noexcept
 	{
+		m_running.set(false);
+		m_mainLoop.waitUntilFinished();
+
 		std::lock_guard<std::mutex> lock(m_widgetMutex);
 
 		for (auto&& widget : m_widgets)
@@ -82,6 +82,7 @@ namespace celestial
 		}
 
 		m_widgets.clear();
+		m_isDestroyed = true;
 	}
 
 	void UI::processEvents() noexcept

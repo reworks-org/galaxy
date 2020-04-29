@@ -24,25 +24,7 @@ namespace celestial
 
 	void Widget::setVisibility(const bool isVisible) noexcept
 	{
-		m_visible = isVisible;
-	}
-
-	void Widget::setBounds(const int x, const int y, const int w, const int h) noexcept
-	{
-		m_bounds.m_x = x;
-		m_bounds.m_y = y;
-		m_bounds.m_width = w;
-		m_bounds.m_height = h;
-	}
-
-	void Widget::setTheme(celestial::UITheme* theme) noexcept
-	{
-		m_theme = theme;
-	}
-
-	const protostar::Rect<int>& Widget::getBounds() const noexcept
-	{
-		return m_bounds;
+		m_visible.set(isVisible);
 	}
 
 	const unsigned int Widget::id() const noexcept
@@ -53,5 +35,18 @@ namespace celestial
 	Widget::Widget() noexcept
 		:m_visible(true), m_theme(nullptr), m_id(0)
 	{
+	}
+
+	void Widget::setTheme(celestial::UITheme* theme) noexcept
+	{
+		m_theme = theme;
+	}
+
+	void Widget::setBounds(const int x, const int y, const int w, const int h) noexcept
+	{
+		m_bounds.m_x = x;
+		m_bounds.m_y = y;
+		m_bounds.m_width = w;
+		m_bounds.m_height = h;
 	}
 }

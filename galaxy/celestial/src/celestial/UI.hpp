@@ -22,7 +22,6 @@ namespace celestial
 		~UI() noexcept;
 
 		void render(qs::Renderer& renderer) noexcept;
-		void close() noexcept;
 
 		template<typename WidgetType, typename... Args>
 		WidgetType* add(Args&&... args) noexcept;
@@ -49,6 +48,7 @@ namespace celestial
 		//const celestial::ErrorState getError() noexcept;
 
 		void remove(const unsigned int id) noexcept;
+
 		void destroy() noexcept;
 
 	private:
@@ -57,6 +57,7 @@ namespace celestial
 		void update(protostar::ProtectedDouble* deltaTime) noexcept;
 
 	private:
+		bool m_isDestroyed;
 		unsigned int m_counter;
 		std::vector<unsigned int> m_free;
 		std::vector<celestial::WidgetPtr> m_widgets;

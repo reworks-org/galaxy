@@ -22,7 +22,8 @@
 #include <qs/graphics/Line.hpp>
 #include <qs/graphics/Circle.hpp>
 #include <qs/renderer/LightSource.hpp>
-
+#include <celestial/UI.hpp>
+#include <protostar/async/ThreadPool.hpp>
 #include <starmap/Map.hpp>
 #include <starlight/Dispatcher.hpp>
 #include <pulsar/Log.hpp>
@@ -96,12 +97,6 @@ int main(int argsc, char* argsv[])
 		PL_LOG(PL_ERROR, msg);
 	});
 
-	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-	{
-		std::string msg = "[OpenGL]: Severity: " + std::to_string(severity) + " Message: " + message + "\n";
-		PL_LOG(PL_ERROR, msg);
-	});
-
 	qs::WindowSettings::s_antiAliasing = 2;
 	qs::WindowSettings::s_ansiotropicFiltering = 2;
 	qs::WindowSettings::s_vsync = false;
@@ -117,6 +112,12 @@ int main(int argsc, char* argsv[])
 	{
 		std::cout << "Window creation failed!" << std::endl;
 	}
+
+	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
+	{
+		std::string msg = "[OpenGL]: Severity: " + std::to_string(severity) + " Message: " + message + "\n";
+		PL_LOG(PL_ERROR, msg);
+	});
 
 	qs::Renderer renderer;
 
@@ -185,6 +186,15 @@ int main(int argsc, char* argsv[])
 	lightSource.m_zLevel = 0.075f;
 	lightSource.m_pos = { 500.0f, 200.0f };
 	lightSource.m_shader.loadFromPath("bin/shaders/light.vs", "bin/shaders/light.fs");
+
+	// UI
+	protostar::ProtectedDouble updte;
+	updte.set(1.0);
+	celestial::UI ui(&updte);
+	protostar::ThreadPool tpool;
+	tpool.create(1);
+	tpool.queue(ui.getTask());
+	tpool.setActive(true);
 
 	// Loop
 	while (window.isOpen())
@@ -311,7 +321,7 @@ int main(int argsc, char* argsv[])
 			lightSource.m_pos.y -= 0.1f;
 		}
 
-		camera.update(1.0);
+		camera.update(updte.get());
 		
 		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
@@ -335,6 +345,7 @@ int main(int argsc, char* argsv[])
 		//renderer.drawCircle(circle);
 
 		renderer.drawScene(atlasSpr, camera, lightSource);
+		ui.render(renderer);
 		//renderer.drawSprite(atlasSpr, shader);
 		//renderer.drawText(text, shader);
 
@@ -342,6 +353,8 @@ int main(int argsc, char* argsv[])
 	}
 
 	// Exit.
+	ui.destroy();
+	tpool.destroy();
 	window.destroy();
 
 	pulsar::Log::get().deinit();

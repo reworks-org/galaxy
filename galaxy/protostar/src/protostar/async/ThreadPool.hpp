@@ -41,9 +41,9 @@ namespace protostar
 		///
 		/// You must call create() before using any functions.
 		///
-		/// \param count Amount of threads to create for pool.
+		/// \param count Amount of threads to create for pool. 0 (the default) means max supported.
 		///
-		void create(const size_t count) noexcept;
+		void create(const size_t count = 0) noexcept;
 
 		///
 		/// Queue a task for the thread pool to execute.
@@ -58,6 +58,11 @@ namespace protostar
 		/// \param isActive True if threads are active to work on tasks.
 		///
 		void setActive(const bool isActive) noexcept;
+
+		///
+		/// Cleanup threads used by threadpool.
+		///
+		void destroy() noexcept;
 
 	private:
 		///
@@ -85,6 +90,11 @@ namespace protostar
 		/// Maximum threads avaliable for pool.
 		///
 		std::size_t m_maxThreadCount;
+
+		///
+		/// Keeps track if threadpool has been destroyed.
+		///
+		bool m_isDestroyed;
 
 		///
 		/// Worker threads to do a task on.
