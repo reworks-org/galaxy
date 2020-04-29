@@ -1,0 +1,43 @@
+path_classifiers:
+  generated:
+    - exclude: dependencies/
+
+  library:
+    - exclude: dependencies/
+
+  template:
+    - exclude: dependencies/
+
+  some_custom_category:
+    - dependencies/
+
+queries:
+  - include: "*"
+
+extraction: 
+  cpp:
+      - export GNU_MAKE=make
+      - export GIT=true
+    index:
+      # Specify that all project or solution files should be used for extraction.
+      # Default: false.
+      all_solutions: true
+      # Specify a list of one or more project or solution files for extraction.
+      # Default: LGTM chooses the file closest to the root of the repository (this may
+      # fail if there are multiple candidates).
+      solution: 
+        - galaxy.sln
+      # Specify MSBuild settings
+      msbuild:
+        # Specify a list of additional arguments to MSBuild. Default: empty.
+        arguments: /p:Platform=x64 /p:Configuration=Debug
+        # Specify the MSBuild configuration to use, for example, debug or release.
+        # Default: read from the solution file or files.
+        configuration:
+        # Specify the platform to target, for example: x86, x64, or Any CPU.
+        # Default: read from the solution file or files.
+        platform:
+        # Specify the MSBuild target. Default: rebuild.
+        target:
+      nuget_restore: false
+      vstools_version: 16

@@ -1,6 +1,8 @@
 # galaxy
 [![Build Status](https://ci.appveyor.com/api/projects/status/ac0ec6gtxl7776y5?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
 [![Documentation Status](https://travis-ci.org/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
+[![Code Quality](https://api.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030)](https://www.codacy.com/manual/DomRe/galaxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3923/badge)](https://bestpractices.coreinfrastructure.org/projects/3923)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 Game Programming Library using C++17, OpenGL 4.5, Lua and JSON.
@@ -35,6 +37,10 @@ Or generate offline with Doxygen.
 ```cpp
 // todo
 ```
+
+## Contributing / Feedback / Issues
+Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
+and pull requests for contributions. (Don't forget to add yourself to the credits section below.)
 
 ### Credits
 * [doxygen-dark-theme](https://github.com/MaJerle/doxygen-dark-theme).
