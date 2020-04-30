@@ -87,8 +87,9 @@ namespace celestial
 		/// And don't forget to check for visibility.
 		///
 		/// \param renderer Renderer to use when drawing.
+		/// \param shader Shader to use when drawing widgets.
 		///
-		virtual void render(qs::Renderer& renderer) noexcept = 0;
+		virtual void render(qs::Renderer& renderer, qs::Shader& shader) noexcept = 0;
 
 		///
 		/// Sets theme for widget to use.

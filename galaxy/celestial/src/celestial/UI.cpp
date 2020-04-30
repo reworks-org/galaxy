@@ -13,7 +13,7 @@
 namespace celestial
 {
 	UI::UI(protostar::ProtectedDouble* deltaTime) noexcept
-		:m_isDestroyed(false), m_dt(deltaTime), m_counter(0), m_errorState(celestial::ErrorState::OK)
+		:m_isDestroyed(false), m_dt(deltaTime), m_counter(0)
 	{
 		m_running.set(true);
 		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished)
@@ -34,16 +34,16 @@ namespace celestial
 		}
 	}
 
-	void UI::render(qs::Renderer& renderer) noexcept
+	void UI::render(qs::Renderer& renderer, qs::Shader& shader) noexcept
 	{
 		// Renderer has no modifiable data, and since we are accessing
 		// sequencitally, no need for mutex or syncing.
 		if (m_visible.get())
 		{
-			std::lock_guard<std::mutex> lock(m_widgetMutex);
+			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{
-				widget->render(renderer);
+				widget->render(renderer, shader);
 			}
 		}
 	}
@@ -60,7 +60,7 @@ namespace celestial
 
 	void UI::remove(const unsigned int id) noexcept
 	{
-		std::lock_guard<std::mutex> lock(m_widgetMutex);
+		std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 
 		// Don't erase because that will mess up ordering.
 		m_widgets[id].reset();
@@ -74,14 +74,17 @@ namespace celestial
 		m_running.set(false);
 		m_mainLoop.waitUntilFinished();
 
-		std::lock_guard<std::mutex> lock(m_widgetMutex);
-
-		for (auto&& widget : m_widgets)
 		{
-			widget.reset();
+			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
+
+			for (auto&& widget : m_widgets)
+			{
+				widget.reset();
+			}
+
+			m_widgets.clear();
 		}
 
-		m_widgets.clear();
 		m_isDestroyed = true;
 	}
 
@@ -89,7 +92,7 @@ namespace celestial
 	{
 		if (m_visible.get())
 		{
-			std::lock_guard<std::mutex> lock(m_eventMutex);
+			std::lock_guard<std::mutex> l_lock(m_eventMutex);
 			m_uiEventManager.trigger();
 		}
 	}
@@ -100,7 +103,7 @@ namespace celestial
 		// be accessed through a mutex protected get().
 		if (m_visible.get())
 		{
-			std::lock_guard<std::mutex> lock(m_widgetMutex);
+			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{
 				widget->update(deltaTime);

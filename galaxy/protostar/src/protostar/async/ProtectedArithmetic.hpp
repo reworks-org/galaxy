@@ -132,14 +132,14 @@ namespace protostar
 	template<typename Arithmetic>
 	inline void ProtectedAirthmetic<Arithmetic>::set(const Arithmetic value) noexcept
 	{
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> l_lock(m_mutex);
 		m_var = value;
 	}
 
 	template<typename Arithmetic>
 	inline const Arithmetic ProtectedAirthmetic<Arithmetic>::get() noexcept
 	{
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> l_lock(m_mutex);
 		return m_var;
 	}
 }

@@ -13,23 +13,49 @@
 
 #include "celestial/Widget.hpp"
 
+///
+/// Core namespace.
+///
 namespace celestial
 {
 	class UI final
 	{
 	public:
+		///
+		/// Constructor.
+		///
+		/// \param deltaTime A pointer to a protected double to update widgets with.
+		///
 		UI(protostar::ProtectedDouble* deltaTime) noexcept;
+
+		///
+		/// Destructor.
+		///
 		~UI() noexcept;
 
-		void render(qs::Renderer& renderer) noexcept;
+		///
+		/// \brief Render UI.
+		///
+		/// \param renderer Renderer to use to draw widgets with.
+		/// \param shader Shader to use when drawing widgets.
+		///
+		void render(qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
+		///
+		/// Add a widget to the UI.
+		///
+		/// \param args Constructor arguments for WidgetType.
+		///
+		/// \return Pointer to newly created widget.
+		///
 		template<typename WidgetType, typename... Args>
 		WidgetType* add(Args&&... args) noexcept;
 
 		///
 		/// Registers a function to be called on the triggering of an event.
 		///
-		/// \param callback void function that takes a const Event&.
+		/// \param func void function that takes a const Event&.
+		/// \param widget Widget to add function to.
 		///
 		template<typename Event, typename WidgetType>
 		void addEventToWidget(starlight::Callback<Event>&& func, WidgetType* widget) noexcept;
@@ -42,37 +68,106 @@ namespace celestial
 		template<typename Event, typename ...Args>
 		void queue(Args&&... args) noexcept;
 
+		///
+		/// \brief Sets visibility of UI.
+		///
+		/// Note: UI will not process events/updates to widgets while not visible.
+		///
+		/// \param isVisible False to make invisible.
+		///
 		virtual void setVisibility(const bool isVisible) noexcept final;
 
+		///
+		/// Get pointer to internal TaskPool task.
+		///
+		/// \return Pointer to a task.
+		///
 		protostar::Task* getTask() noexcept;
-		//const celestial::ErrorState getError() noexcept;
 
+		///
+		/// Remove a widget.
+		///
+		/// \param id Widget id (widget->id()).
+		///
 		void remove(const unsigned int id) noexcept;
 
+		///
+		/// Destroy all widgets and clean up UI.
+		///
 		void destroy() noexcept;
 
 	private:
-		UI() noexcept = default;
+		///
+		/// Default constructor.
+		///
+		UI() noexcept = delete;
+
+		///
+		/// Internal function to process events to widgets across threads.
+		///
 		void processEvents() noexcept;
+
+		///
+		/// Internal update function to update widgets on another thread.
+		///
+		/// \param deltaTime Pointer to protected delta time.
+		///
 		void update(protostar::ProtectedDouble* deltaTime) noexcept;
 
 	private:
+		///
+		/// Flag to mark UI as destroyed.
+		///
 		bool m_isDestroyed;
+
+		///
+		/// Widget ID counter.
+		///
 		unsigned int m_counter;
+
+		///
+		/// Holds list of free widget ids.
+		///
 		std::vector<unsigned int> m_free;
+
+		///
+		/// Holds list of widget pointers.
+		///
 		std::vector<celestial::WidgetPtr> m_widgets;
 
+		///
+		/// Protected visibility bool.
+		///
 		protostar::ProtectedBool m_visible;
+
+		///
+		/// Protected thread loop running bool.
+		///
 		protostar::ProtectedBool m_running;
 
+		///
+		/// Task that runs main UI loop on another thread.
+		///
 		protostar::Task m_mainLoop;
-		celestial::ErrorState m_errorState;
 
+		///
+		/// Mutex protecting widget access.
+		///
 		std::mutex m_widgetMutex;
+		
+		///
+		/// Mutex protecting event access.
+		///
 		std::mutex m_eventMutex;
 
+		///
+		/// Pointer to delta time.
+		///
 		protostar::ProtectedDouble* m_dt;
 
+		///
+		/// Internal event manager to UI.
+		///
 		starlight::Dispatcher m_uiEventManager;
 	};
 
@@ -99,7 +194,7 @@ namespace celestial
 		}
 
 		// Protect m_widgets.
-		std::lock_guard<std::mutex> lock(m_widgetMutex);
+		std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 
 		// Make sure widget is the right size.
 		if (m_widgets.size() >= idToUse)
@@ -127,7 +222,7 @@ namespace celestial
 	template<typename Event, typename ...Args>
 	inline void UI::queue(Args&& ...args) noexcept
 	{
-		std::lock_guard<std::mutex> lock(m_eventMutex);
+		std::lock_guard<std::mutex> l_lock(m_eventMutex);
 		m_uiEventManager.queue<Event>(std::forward<Args>(args)...);
 	}
 }

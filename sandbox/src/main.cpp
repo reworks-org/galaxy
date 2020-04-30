@@ -345,7 +345,7 @@ int main(int argsc, char* argsv[])
 		//renderer.drawCircle(circle);
 
 		renderer.drawScene(atlasSpr, camera, lightSource);
-		ui.render(renderer);
+		//ui.render(renderer, shader);
 		//renderer.drawSprite(atlasSpr, shader);
 		//renderer.drawText(text, shader);
 

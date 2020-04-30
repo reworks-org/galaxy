@@ -41,9 +41,10 @@ namespace protostar
 		///
 		/// You must call create() before using any functions.
 		///
-		/// \param count Amount of threads to create for pool. 0 (the default) means max supported.
+		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
+		///				I.e. too big or less than 0.
 		///
-		void create(const size_t count = 0) noexcept;
+		void create(const size_t count = 4) noexcept;
 
 		///
 		/// Queue a task for the thread pool to execute.

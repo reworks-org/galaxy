@@ -15,7 +15,7 @@
 namespace protostar
 {
 	ThreadPool::ThreadPool() noexcept
-		:m_maxThreadCount(0), m_isDestroyed(false)
+		:m_maxThreadCount(4), m_isDestroyed(false)
 	{
 		m_isActive.set(false);
 	}
@@ -32,7 +32,7 @@ namespace protostar
 	{
 		if ((count <= 0) || (count > std::thread::hardware_concurrency()))
 		{
-			m_maxThreadCount = std::thread::hardware_concurrency();
+			m_maxThreadCount = 4;
 		}
 		else
 		{

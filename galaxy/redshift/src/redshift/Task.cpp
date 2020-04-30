@@ -30,7 +30,7 @@ namespace rs
 	auto Task::run()
 	{
 		// Protect resources.
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> l_lock(m_mutex);
 
 		auto future = std::async(std::launch::async, m_task, &m_isCompleted);
 		return std::move(future);
