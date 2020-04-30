@@ -144,11 +144,36 @@ int main(int argsc, char* argsv[])
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
 
-	auto atlasSpr = atlas.getSprite();
-	atlasSpr.setActiveQuad(atlas.getID("wall"));
+	qs::Sprite atlasSpr;
+	qs::RenderTexture* att = &atlas.getTexture();
+	atlasSpr.load(att->getGLTexture(), att->getWidth(), att->getHeight());
+
+	auto wq = atlas.getTexQuad("wall");
+	auto wq2 = atlas.getTexQuad("wall_2");
+
+	auto quadA = qs::Vertex::make_quad(
+		{ 0.0f, 0.0f, wq.m_width, wq.m_height },
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		wq.m_x, wq.m_y
+	);
+	auto quadB = qs::Vertex::make_quad(
+		{ 0.0f, 0.0f, wq2.m_width, wq2.m_height },
+		{ 0.0f, 0.0f, 0.0f, 1.0f },
+		wq2.m_x, wq2.m_y
+	);
+
+	qs::VertexQuadStorage vqs;
+	vqs.push_back(quadA);
+	vqs.push_back(quadB);
+
+	atlasSpr.create(vqs);
+
+	// quad a vertex is from 0 - 3.
+	atlasSpr.setActiveQuad(0);
 	atlasSpr.move(0.0f, 0.0f);
 
-	atlasSpr.setActiveQuad(atlas.getID("wall_2"));
+	// quad b vertex is from 4 - 7.
+	atlasSpr.setActiveQuad(4);
 	atlasSpr.move(500.0f, 500.0f);
 	
 	atlasSpr.applyTransforms();
@@ -156,8 +181,7 @@ int main(int argsc, char* argsv[])
 	qs::Text text;
 	qs::Font font;
 	font.create("bin/public.ttf", 36);
-	auto col = qs::Colours::Black;
-	text.load("HELLO, WORLD.", font, col);
+	text.load("HELLO, WORLD.", font, { 0, 0, 0, 255 });
 	text.create(window, renderer, textRTTshader);
 	text.asSprite().save("bin/text");
 
@@ -323,8 +347,9 @@ int main(int argsc, char* argsv[])
 
 		camera.update(updte.get());
 		
-		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		shader.bind();
+		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 		
 		// Render.
 		window.begin(qs::Colours::Black);
@@ -347,7 +372,9 @@ int main(int argsc, char* argsv[])
 		renderer.drawScene(atlasSpr, camera, lightSource);
 		//ui.render(renderer, shader);
 		//renderer.drawSprite(atlasSpr, shader);
-		//renderer.drawText(text, shader);
+		
+		shader.bind();
+		renderer.drawText(text, shader);
 
 		window.end();
 	}

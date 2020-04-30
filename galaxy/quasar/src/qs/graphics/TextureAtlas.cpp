@@ -33,8 +33,7 @@ namespace qs
 
 	TextureAtlas::~TextureAtlas() noexcept
 	{
-		m_textureFiles.clear();
-		m_idMap.clear();
+		m_textureRects.clear();
 	}
 
 	void TextureAtlas::add(const std::string& name) noexcept
@@ -46,12 +45,8 @@ namespace qs
 	{
 		if (!m_textureFiles.empty())
 		{
-			qs::VertexQuadStorage vertexs;
-			vertexs.reserve(m_textureFiles.size() * 4);
-
 			m_texture.bind();
 
-			unsigned int counter = 0;
 			for (const auto& file : m_textureFiles)
 			{
 				auto filePath = std::filesystem::path(file);
@@ -65,7 +60,7 @@ namespace qs
 				auto opt = m_packer.pack(loadedTex.getWidth(), loadedTex.getHeight());
 				if (opt == std::nullopt)
 				{
-					qs::Error::handle().callback("TextureAtlas.cpp", 68, "Failed to pack texture: " + file);
+					qs::Error::handle().callback("TextureAtlas.cpp", 63, "Failed to pack texture: " + file);
 				}
 				else
 				{
@@ -75,25 +70,16 @@ namespace qs
 
 					renderer.drawSpriteToTexture(loadedTex, m_texture, shader);
 
-					auto quad = qs::Vertex::make_quad(
-						{ 0.0f, 0.0f, static_cast<float>(rect.m_width), static_cast<float>(rect.m_height) },
-						{ 0.0f, 0.0f, 0.0f, 1.0f },
-						static_cast<float>(rect.m_x), static_cast<float>(rect.m_y)
-					);
-
-					m_idMap.emplace(filePath.stem().string(), counter * 4);
-					vertexs.push_back(quad);
-					counter++;
+					m_textureRects.emplace(filePath.stem().string(), protostar::Rect<float>(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)));
 				}
 			}
 			
 			m_texture.unbind(window);
-			m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
-			m_sprite.create(vertexs);
+			m_textureFiles.clear(); // free up memory.
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 96, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 82, "Tried to create atlas with no texture files!");
 		}
 	}
 
@@ -102,19 +88,22 @@ namespace qs
 		m_texture.save(file);
 	}
 
-	const int TextureAtlas::getID(const std::string& name) noexcept
+	const protostar::Rect<float>& TextureAtlas::getTexQuad(const std::string& name) noexcept
 	{
-		return m_idMap[name];
+		if (m_textureRects.find(name) != m_textureRects.end())
+		{
+			return m_textureRects[name];
+		}
+		else
+		{
+			qs::Error::handle().callback("TextureAtlas.cpp", 99, "Tried to access texture rect that does not exist. Returning blank rect...");
+			return {};
+		}
 	}
 
 	const int TextureAtlas::getSize() const noexcept
 	{
 		return m_size;
-	}
-
-	qs::Sprite& TextureAtlas::getSprite() noexcept
-	{
-		return m_sprite;
 	}
 
 	qs::RenderTexture& TextureAtlas::getTexture() noexcept

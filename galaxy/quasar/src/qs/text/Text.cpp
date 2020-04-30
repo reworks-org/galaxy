@@ -30,11 +30,11 @@ namespace qs
         load(text, font, col);
     }
 
-    void Text::load(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept
+    void Text::load(const std::string& text, qs::Font& font, const protostar::Colour& col) noexcept
     {
         m_text = text;
         m_font = std::move(font);
-        m_colour = std::move(col);
+        m_colour = col;
 
         m_texture.create(m_font.getTextWidth(m_text), m_font.getHeight());
         m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));

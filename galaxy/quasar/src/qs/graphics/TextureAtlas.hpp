@@ -61,6 +61,8 @@ namespace qs
 		/// \brief Creates atlas from added files.
 		///
 		/// Does nothing if no files were added.
+		/// Clears out added textures, so you need to redo add() calls before calling
+		/// This function again.
 		///
 		/// \param window Target to reset framebuffer to.
 		/// \param renderer Renderer to use to draw textures.
@@ -77,13 +79,13 @@ namespace qs
 		void save(const std::string& file) noexcept;
 
 		///
-		/// Gets internal integer ID of a texture on the atlas.
+		/// Retrieve a texture quad defined in the atlas.
 		///
 		/// \param name String name corresponding to texture (filename without path and extension).
 		///
-		/// \return Const integer.
+		/// \return Const ref to the quad.
 		///
-		const int getID(const std::string& name) noexcept;
+		const protostar::Rect<float>& getTexQuad(const std::string& name) noexcept;
 
 		///
 		/// Get size of atlas.
@@ -91,13 +93,6 @@ namespace qs
 		/// \return Size as an integer.
 		///
 		const int getSize() const noexcept;
-
-		///
-		/// Get atlas sprite.
-		///
-		/// \return Const reference to sprite.
-		///
-		qs::Sprite& getSprite() noexcept;
 
 		///
 		/// Get atlas texture.
@@ -118,11 +113,6 @@ namespace qs
 		qs::RenderTexture m_texture;
 
 		///
-		/// Master sprite.
-		///
-		qs::Sprite m_sprite;
-
-		///
 		/// Contains the rectangles outlining all the textures on the atlas.
 		///
 		protostar::RectPack m_packer;
@@ -133,9 +123,9 @@ namespace qs
 		std::vector<std::string> m_textureFiles;
 
 		///
-		/// ID Map for textures on the atlas.
+		/// ID map for textures -> rects.
 		///
-		std::unordered_map<std::string, unsigned int> m_idMap;
+		std::unordered_map<std::string, protostar::Rect<float>> m_textureRects;
 	};
 }
 

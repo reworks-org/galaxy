@@ -42,9 +42,9 @@ namespace qs
 		explicit Font(const std::string& file, const int size) noexcept;
 
 		///
-		/// Destructor.
+		/// Default destructor.
 		///
-		~Font() noexcept;
+		~Font() noexcept = default;
 
 		///
 		/// Create the font.

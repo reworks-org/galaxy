@@ -31,11 +31,6 @@ namespace qs
 		create(file, size);
 	}
 
-	Font::~Font() noexcept
-	{
-		m_characterMap.clear(); 
-	}
-
 	void Font::create(const std::string& file, const int size) noexcept
 	{
 		FT_Face face;

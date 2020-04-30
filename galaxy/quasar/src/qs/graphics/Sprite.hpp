@@ -37,13 +37,22 @@ namespace qs
 		~Sprite() noexcept override;
 
 		///
-		/// \brief Creates the internal vertex array. With custom texture size.
+		/// \brief Creates the internal vertex array.
 		///
 		/// Call AFTER you have loaded a texture.
 		/// BufferType Fixed or dynamic buffer.
 		///
 		template<typename BufferType>
 		void create() noexcept;
+
+		///
+		/// \brief Creates the internal vertex array. Specify position on creation.
+		///
+		/// Call AFTER you have loaded a texture.
+		/// BufferType Fixed or dynamic buffer.
+		///
+		template<typename BufferType>
+		void create(const int x, const int y) noexcept;
 
 		///
 		/// \brief Creates the internal vertex array. With custom texture size.
@@ -180,6 +189,26 @@ namespace qs
 	inline void Sprite::create() noexcept
 	{
 		auto quad = qs::Vertex::make_quad({ 0.0f, 0.0f, static_cast<float>(m_width), static_cast<float>(m_height) }, { 0.0f, 0.0f, 0.0f, 1.0f }, 0.0f, 0.0f);
+
+		m_vertexBuffer.create<BufferType>({ quad[0], quad[1], quad[2], quad[3] });
+		m_indexBuffer.create<qs::BufferTypeStatic>({ 0, 1, 3, 1, 2, 3 });
+
+		m_layout.add<qs::VATypePosition>(2);
+		m_layout.add<qs::VATypeColour>(4);
+		m_layout.add<qs::VATypeTexel>(2);
+
+		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
+
+		m_transforms.emplace(0, std::move(qs::Transform()));
+		m_transforms[0].setRotationOrigin(static_cast<float>(m_width), static_cast<float>(m_height));
+
+		setActiveQuad();
+	}
+
+	template<typename BufferType>
+	inline void Sprite::create(const int x, const int y) noexcept
+	{
+		auto quad = qs::Vertex::make_quad({ x, y, static_cast<float>(m_width), static_cast<float>(m_height) }, { 0.0f, 0.0f, 0.0f, 1.0f }, 0.0f, 0.0f);
 
 		m_vertexBuffer.create<BufferType>({ quad[0], quad[1], quad[2], quad[3] });
 		m_indexBuffer.create<qs::BufferTypeStatic>({ 0, 1, 3, 1, 2, 3 });

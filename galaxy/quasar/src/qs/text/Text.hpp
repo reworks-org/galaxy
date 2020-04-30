@@ -58,7 +58,7 @@ namespace qs
 		/// \param font Font to apply to text.
 		/// \param col Colour of the text.
 		///
-		void load(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept;
+		void load(const std::string& text, qs::Font& font, const protostar::Colour& col) noexcept;
 
 		///
 		/// \brief Create text from inputs.
