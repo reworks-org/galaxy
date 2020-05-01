@@ -19,15 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\celestial\UI.cpp" />
-    <ClCompile Include="src\celestial\UITheme.cpp" />
-    <ClCompile Include="src\celestial\Widget.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="src\celestial\Types.hpp" />
-    <ClInclude Include="src\celestial\UI.hpp" />
-    <ClInclude Include="src\celestial\UITheme.hpp" />
-    <ClInclude Include="src\celestial\Widget.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
