@@ -15,7 +15,6 @@
     <ClCompile Include="src\qs\graphics\Circle.cpp" />
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Point.cpp" />
-    <ClCompile Include="src\qs\graphics\Sprite.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\renderer\LightSource.cpp" />
     <ClCompile Include="src\qs\renderer\Renderer.cpp" />
@@ -33,6 +32,9 @@
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
+    <ClCompile Include="src\qs\renderer\Renderable.cpp" />
+    <ClCompile Include="src\qs\graphics\Sprite.cpp" />
+    <ClCompile Include="src\qs\graphics\SpriteBatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Colours.hpp" />
@@ -46,7 +48,6 @@
     <ClInclude Include="src\qs\graphics\Circle.hpp" />
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Point.hpp" />
-    <ClInclude Include="src\qs\graphics\Sprite.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\renderer\LightSource.hpp" />
     <ClInclude Include="src\qs\renderer\Renderer.hpp" />
@@ -64,5 +65,8 @@
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
+    <ClInclude Include="src\qs\renderer\Renderable.hpp" />
+    <ClInclude Include="src\qs\graphics\Sprite.hpp" />
+    <ClInclude Include="src\qs\graphics\SpriteBatch.hpp" />
   </ItemGroup>
 </Project>

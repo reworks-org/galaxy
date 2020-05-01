@@ -185,7 +185,7 @@ namespace qs
 		///
 		/// Internal OpenGL ID of texture.
 		///
-		unsigned int m_id;
+		unsigned int m_textureHandle;
 
 		///
 		/// Cached texture width.

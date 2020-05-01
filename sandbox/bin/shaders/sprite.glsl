@@ -9,13 +9,14 @@ out vec2 io_texels;
 
 uniform mat4 u_cameraView;
 uniform mat4 u_cameraProj;
+uniform mat4 u_transform;
 uniform float u_width;
 uniform float u_height;
 
 void main()
 {
 	mat4 camera = u_cameraProj * u_cameraView;
-	gl_Position =  camera * vec4(l_pos, 0.0, 1.0);
+	gl_Position =  camera * u_transform * vec4(l_pos, 0.0, 1.0);
 	
 	io_colour = l_colour;
 	io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
@@ -35,5 +36,6 @@ void main()
 {
 	vec4 tex = texture(u_texture, io_texels);
 	tex.a *= io_colour.a;
+
 	io_frag_colour = tex;
 }

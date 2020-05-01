@@ -16,19 +16,21 @@
 #include <qs/renderer/Renderer.hpp>
 #include <qs/graphics/Camera.hpp>
 #include <qs/graphics/Sprite.hpp>
+#include <qs/graphics/SpriteBatch.hpp>
 #include <qs/core/RenderTexture.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 #include <qs/text/Text.hpp>
 #include <qs/graphics/Line.hpp>
 #include <qs/graphics/Circle.hpp>
 #include <qs/renderer/LightSource.hpp>
-#include <celestial/UI.hpp>
+//#include <celestial/UI.hpp>
 #include <protostar/async/ThreadPool.hpp>
 #include <starmap/Map.hpp>
 #include <starlight/Dispatcher.hpp>
 #include <pulsar/Log.hpp>
 #include <frb/Context.hpp>
 #include <frb/audio/Audible.hpp>
+//#include <celestial/widgets/Image.hpp>
 
 struct Test
 {
@@ -144,7 +146,7 @@ int main(int argsc, char* argsv[])
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
 
-	qs::Sprite atlasSpr;
+	qs::SpriteBatch atlasSpr;
 	qs::RenderTexture* att = &atlas.getTexture();
 	atlasSpr.load(att->getGLTexture(), att->getWidth(), att->getHeight());
 
@@ -169,15 +171,13 @@ int main(int argsc, char* argsv[])
 	atlasSpr.create(vqs);
 
 	// quad a vertex is from 0 - 3.
-	atlasSpr.setActiveQuad(0);
-	atlasSpr.move(0.0f, 0.0f);
+	auto* t1 = atlasSpr.getTransform(0);
+	t1->move(0.0f, 0.0f);
 
 	// quad b vertex is from 4 - 7.
-	atlasSpr.setActiveQuad(4);
-	atlasSpr.move(500.0f, 500.0f);
+	auto* t2 = atlasSpr.getTransform(1);
+	t2->move(500.0f, 500.0f);
 	
-	atlasSpr.applyTransforms();
-
 	qs::Text text;
 	qs::Font font;
 	font.create("bin/public.ttf", 36);
@@ -211,14 +211,23 @@ int main(int argsc, char* argsv[])
 	lightSource.m_pos = { 500.0f, 200.0f };
 	lightSource.m_shader.loadFromPath("bin/shaders/light.vs", "bin/shaders/light.fs");
 
-	// UI
 	protostar::ProtectedDouble updte;
 	updte.set(1.0);
-	celestial::UI ui(&updte);
+
+	/*
+	// UI
+	celestial::UITheme theme(1024, &window, &renderer);
+	theme.create(rttshader, { "bin/wall.png" }, {});
+	
+	celestial::UI ui(&updte, &theme);
+
+	ui.add<celestial::Image>(20.0f, 20.0f, "wall");
+
 	protostar::ThreadPool tpool;
 	tpool.create(1);
 	tpool.queue(ui.getTask());
 	tpool.setActive(true);
+	*/
 
 	// Loop
 	while (window.isOpen())
@@ -274,15 +283,13 @@ int main(int argsc, char* argsv[])
 		int q = glfwGetKey(window.getWindow(), GLFW_KEY_Q);
 		if (q == GLFW_PRESS)
 		{
-			atlasSpr.rotate(-0.1f);
-			atlasSpr.applyTransforms();
+			t1->rotate(-0.1f);
 		}
 
 		int e = glfwGetKey(window.getWindow(), GLFW_KEY_E);
 		if (e == GLFW_PRESS)
 		{
-			atlasSpr.rotate(0.1f);
-			atlasSpr.applyTransforms();
+			t1->rotate(0.1f);
 		}
 		
 		int g = glfwGetKey(window.getWindow(), GLFW_KEY_G);
@@ -346,7 +353,7 @@ int main(int argsc, char* argsv[])
 		}
 
 		camera.update(updte.get());
-		
+
 		shader.bind();
 		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
@@ -369,19 +376,20 @@ int main(int argsc, char* argsv[])
 		// Uses same shader as line shader.
 		//renderer.drawCircle(circle);
 
-		renderer.drawScene(atlasSpr, camera, lightSource);
+		//renderer.drawScene(atlasSpr, camera, lightSource);
 		//ui.render(renderer, shader);
-		//renderer.drawSprite(atlasSpr, shader);
+		renderer.drawSpriteBatch(atlasSpr, shader);
 		
-		shader.bind();
-		renderer.drawText(text, shader);
+		//shader.bind();
+		//renderer.drawText(text, shader);
+		//ui.render(shader);
 
 		window.end();
 	}
 
 	// Exit.
-	ui.destroy();
-	tpool.destroy();
+	//ui.destroy();
+	//tpool.destroy();
 	window.destroy();
 
 	pulsar::Log::get().deinit();

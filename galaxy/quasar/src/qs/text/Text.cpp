@@ -41,7 +41,6 @@ namespace qs
 
         m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
         m_sprite.create<qs::BufferTypeDynamic>();
-        m_sprite.applyTransforms();
     }
 
     void Text::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept

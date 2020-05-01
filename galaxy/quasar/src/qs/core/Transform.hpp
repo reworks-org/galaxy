@@ -76,20 +76,71 @@ namespace qs
 		virtual void recalculate() noexcept;
 
 		///
+		/// Set dirty flag.
+		///
+		/// \param dirty When rendering, do transforms need to be updated.
+		///
+		void setDirty(const bool isDirty) noexcept;
+
+		///
+		/// Set opacity.
+		///
+		/// Only affects the currently active quad.
+		///
+		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+		///
+		void setOpacity(float opacity) noexcept;
+
+		///
+		/// \brief Sets the texture coords.
+		///
+		/// This sets, and thus overrides current position.
+		///
+		/// \param x New x position.
+		/// \param y New y position.
+		///
+		void setTexels(const float x, const float y) noexcept;
+
+		///
+		/// \brief Moves the texture coords.
+		///
+		/// This is additive. This does not set.
+		///
+		/// \param x Amount to move on x axis.
+		/// \param y Amount to move on y axis.
+		///
+		void moveTexels(const float x, const float y) noexcept;
+
+		///
 		/// Retrieve internal transformation matrix.
 		///
 		/// \return Reference to internal glm::mat4.
 		///
 		glm::mat4& getTransformation() noexcept;
+		
+		///
+		/// Retrieve texture transform.
+		///
+		/// \return Reference to a glm::vec3. X/Y is U/V and Z is opacity.
+		///
+		glm::vec3& getTexelTransform() noexcept;
 
 		///
-		/// Gets OpenGL compatible pointer to matrix.
+		/// Get flag indicating if transform needs to be applied before rendering.
 		///
-		/// \return OpenGL compatible mat4* pointer.
-		///
-		decltype(auto) getMatrixPtr() noexcept;
+		const bool isDirty() const noexcept;
 
 	protected:
+		///
+		/// When rendering, do transforms need to be updated.
+		///
+		bool m_isDirty;
+
+		///
+		/// Texture transformation.
+		///
+		glm::vec3 m_textureTransform;
+
 		///
 		/// Rotation origin point.
 		///

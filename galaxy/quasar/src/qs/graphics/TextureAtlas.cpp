@@ -66,7 +66,6 @@ namespace qs
 				{
 					auto rect = opt.value();
 					loadedTex.move(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y));
-					loadedTex.applyTransforms();
 
 					renderer.drawSpriteToTexture(loadedTex, m_texture, shader);
 
@@ -79,7 +78,7 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 82, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 81, "Tried to create atlas with no texture files!");
 		}
 	}
 
@@ -96,8 +95,8 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 99, "Tried to access texture rect that does not exist. Returning blank rect...");
-			return {};
+			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to access texture rect that does not exist. Returning blank rect...");
+			return {0.0f, 0.0f, 0.0f, 0.0f};
 		}
 	}
 

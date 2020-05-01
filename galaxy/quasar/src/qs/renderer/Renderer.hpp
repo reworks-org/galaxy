@@ -21,6 +21,7 @@ namespace qs
 	class Text;
 	class Point;
 	class Sprite;
+	class SpriteBatch;
 	class Shader;
 	class Circle;
 	class Camera;
@@ -86,6 +87,14 @@ namespace qs
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
+
+		///
+		/// Draw a spritebatch.
+		///
+		/// \param spritebatch SpriteBatch to draw to screen.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw to render texture.

@@ -16,6 +16,7 @@
 #include "qs/graphics/Camera.hpp"
 #include "qs/core/RenderTexture.hpp"
 #include "qs/renderer/LightSource.hpp"
+#include "qs/graphics/SpriteBatch.hpp"
 
 #include "Renderer.hpp"
 
@@ -57,6 +58,9 @@ namespace qs
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
+		sprite.update();
+
+		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 
@@ -65,11 +69,24 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
+	void Renderer::drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept
+	{
+		spritebatch.applyTransforms();
+
+		shader.setUniform<float>("u_width", static_cast<float>(spritebatch.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(spritebatch.getHeight()));
+
+		spritebatch.bind();
+
+		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
 		shader.bind();
 
 		shader.setUniform("u_projection", rt.getProjection());
+		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 

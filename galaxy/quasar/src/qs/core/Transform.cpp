@@ -16,7 +16,7 @@
 namespace qs
 {
 	Transform::Transform() noexcept
-		:m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
+		:m_isDirty(false), m_textureTransform(0.0f, 0.0f, 1.0f), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
 	{
 	}
 
@@ -65,6 +65,41 @@ namespace qs
 	void Transform::recalculate() noexcept
 	{
 		m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
+		m_isDirty = true;
+	}
+
+	void Transform::setDirty(const bool isDirty) noexcept
+	{
+		m_isDirty = isDirty;
+	}
+
+	void Transform::setOpacity(float opacity) noexcept
+	{
+		if (opacity > 1.0f)
+		{
+			opacity = 1.0f;
+		}
+		else if (opacity < 0.0f)
+		{
+			opacity = 0.0f;
+		}
+
+		m_textureTransform.z = opacity;
+		m_isDirty = true;
+	}
+
+	void Transform::setTexels(const float x, const float y) noexcept
+	{
+		m_textureTransform.x = x;
+		m_textureTransform.y = y;
+		m_isDirty = true;
+	}
+
+	void Transform::moveTexels(const float x, const float y) noexcept
+	{
+		m_textureTransform.x += x;
+		m_textureTransform.y += y;
+		m_isDirty = true;
 	}
 
 	glm::mat4& Transform::getTransformation() noexcept
@@ -72,8 +107,13 @@ namespace qs
 		return m_modelMatrix;
 	}
 
-	decltype(auto) Transform::getMatrixPtr() noexcept
+	glm::vec3& Transform::getTexelTransform() noexcept
 	{
-		return glm::value_ptr(m_modelMatrix);
+		return m_textureTransform;
+	}
+
+	const bool Transform::isDirty() const noexcept
+	{
+		return m_isDirty;
 	}
 }
