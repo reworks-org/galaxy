@@ -86,6 +86,13 @@ namespace qs
 		void unbind() noexcept override;
 
 		///
+		/// Get VBO.
+		///
+		/// \retgurn Reference to VBO.
+		///
+		qs::VertexBuffer& getVBO() noexcept;
+
+		///
 		/// Get index count.
 		///
 		/// \return Const unsigned integer.

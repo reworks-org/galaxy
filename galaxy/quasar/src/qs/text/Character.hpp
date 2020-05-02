@@ -9,6 +9,8 @@
 #ifndef QUASAR_CHARACTER_HPP_
 #define QUASAR_CHARACTER_HPP_
 
+#include "qs/renderer/Renderable.hpp"
+
 ///
 /// Core namespace.
 ///
@@ -17,7 +19,7 @@ namespace qs
 	///
 	/// A character in a font.
 	///
-	class Character final
+	class Character final : public qs::Renderable
 	{
 	public:
 		///
@@ -28,36 +30,18 @@ namespace qs
 		///
 		/// Argument constructor.
 		///
-		/// \param id OpenGL texture handle.
-		/// \param w Width.
-		/// \param h Height.
 		/// \param bx Bearing x offset.
 		/// \param by Bearing y offset.
 		/// \param advance Offset to next character.
 		///
-		explicit Character(const unsigned int id, const int w, const int h, const int bx, const int by, const unsigned int advance) noexcept;
+		explicit Character(const int bx, const int by, const unsigned int advance) noexcept;
 
 		///
-		/// Default destructor.
+		/// Destructor.
 		///
-		~Character() noexcept = default;
+		~Character() noexcept;
 
 	public:
-		///
-		/// OpenGL handle.
-		///
-		unsigned int m_id;
-
-		///
-		/// Width.
-		///
-		int m_width;
-
-		///
-		/// Height.
-		///
-		int m_height;
-
 		///
 		/// Bearing X.
 		///

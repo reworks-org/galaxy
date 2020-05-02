@@ -24,6 +24,11 @@ namespace qs
 		m_vertexArray.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
+
+	qs::VertexBuffer& Renderable::getVBO() noexcept
+	{
+		return m_vertexBuffer;
+	}
 	
 	const unsigned int Renderable::getCount() const noexcept
 	{

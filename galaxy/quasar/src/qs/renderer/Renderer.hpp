@@ -22,6 +22,7 @@ namespace qs
 	class Point;
 	class Sprite;
 	class SpriteBatch;
+	class Character;
 	class Shader;
 	class Circle;
 	class Camera;
@@ -73,12 +74,11 @@ namespace qs
 		///
 		/// Draw VertexArray to render texture.
 		///
-		/// \param va Vertex Array to use when drawing.
-		/// \param ib IndexBuffer to use when drawing.
+		/// \param character (glyph) to draw.
 		/// \param rt Target to draw to.
 		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
 		///
-		void drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+		void drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw a sprite.

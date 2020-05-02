@@ -17,6 +17,7 @@
 #include "qs/core/RenderTexture.hpp"
 #include "qs/renderer/LightSource.hpp"
 #include "qs/graphics/SpriteBatch.hpp"
+#include "qs/text/Character.hpp"
 
 #include "Renderer.hpp"
 
@@ -47,68 +48,59 @@ namespace qs
 		glDrawArrays(GL_LINE_LOOP, 0, circle.getCount());
 	}
 
-	void Renderer::drawVAToTexture(qs::VertexArray& va, qs::IndexBuffer& ib, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	void Renderer::drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
-		shader.bind();
+		character.bind();
 		shader.setUniform("u_projection", rt.getProjection());
-		va.bind();
 
-		glDrawElements(GL_TRIANGLES, ib.getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, character.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
+		sprite.bind();
 		sprite.update();
 
 		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
-
-		sprite.bind();
 		
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept
 	{
+		spritebatch.bind();
 		spritebatch.update();
 
 		shader.setUniform<float>("u_width", static_cast<float>(spritebatch.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(spritebatch.getHeight()));
-
-		spritebatch.bind();
 
 		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
+		sprite.bind();
 		sprite.update();
-
-		shader.bind();
 
 		shader.setUniform("u_projection", rt.getProjection());
 		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 
-		sprite.bind();
-
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
 	{
-		auto* spr = &text.asSprite();
-		spr->update();
-		drawSprite(*spr, shader);
+		drawSprite(text.asSprite(), shader);
 	}
 
 	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept
 	{
+		sprite.bind();
 		sprite.update();
-
-		ls.m_shader.bind();
 
 		ls.m_shader.setUniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
 		ls.m_shader.setUniform("u_light_colour", ls.m_lightColour);
@@ -119,8 +111,6 @@ namespace qs
 		ls.m_shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		ls.m_shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 		ls.m_shader.setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
-
-		sprite.bind();
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}

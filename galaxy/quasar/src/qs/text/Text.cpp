@@ -24,19 +24,19 @@ namespace qs
 	{
 	}
 
-    Text::Text(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept
+    Text::Text(const std::string& text, qs::Font* font, protostar::Colour& col) noexcept
         :m_text("")
     {
         load(text, font, col);
     }
 
-    void Text::load(const std::string& text, qs::Font& font, const protostar::Colour& col) noexcept
+    void Text::load(const std::string& text, qs::Font* font, const protostar::Colour& col) noexcept
     {
         m_text = text;
-        m_font = std::move(font);
+        m_font = font;
         m_colour = col;
 
-        m_texture.create(m_font.getTextWidth(m_text), m_font.getHeight());
+        m_texture.create(m_font->getTextWidth(m_text), m_font->getHeight());
         m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
 
         m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
@@ -47,66 +47,32 @@ namespace qs
     {
         m_texture.bind();
 
-        qs::VertexBuffer vb;
-        qs::VertexStorage vs = {
-            qs::Vertex{ 0.0f, 0.0f, m_colour, 0.0f, 0.0f },
-            qs::Vertex{ 0.0f, 0.0f, m_colour, 0.0f, 1.0f },
-            qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 1.0f },
-            qs::Vertex{ 0.0f, 0.0f, m_colour, 0.0f, 0.0f },
-            qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 1.0f },
-            qs::Vertex{ 0.0f, 0.0f, m_colour, 1.0f, 0.f }
-        };
-        vb.create<qs::BufferTypeDynamic>(vs);
-
-        qs::IndexBuffer ib;
-        ib.create<qs::BufferTypeStatic>(
-        {
-            0, 1, 2, 3, 4, 5
-        });
-
-        qs::VertexLayout layout;
-        layout.add<qs::VATypePosition>(2);
-        layout.add<qs::VATypeColour>(4);
-        layout.add<qs::VATypeTexel>(2);
-
-        qs::VertexArray ar;
-        ar.create(vb, ib, layout);
-
         float advX = 0;
+        qs::VertexStorage vs;
+        vs.reserve(m_text.length() * 4);
         for (auto& c : m_text)
         {
-            auto& map = m_font.getChars();
-            auto chr = map[c];
+            auto* chr = &m_font->getChars()[c];
 
-            float x = advX + chr.m_bearingX;
-            float y = static_cast<float>(0 - (chr.m_height - chr.m_bearingY));
-            float w = static_cast<float>(chr.m_width);
-            float h = static_cast<float>(chr.m_height);
+            float x = advX + chr->m_bearingX;
+            float y = static_cast<float>(0 - (chr->getHeight() - chr->m_bearingY));
+            float w = static_cast<float>(chr->getWidth());
+            float h = static_cast<float>(chr->getHeight());
             
             vs.clear();
-            vs.push_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });
-            vs.push_back(qs::Vertex{ x, y, m_colour, 0.0f, 1.0f });
-            vs.push_back(qs::Vertex{ x + w, y, m_colour, 1.0f, 1.0f });
-            vs.push_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });
-            vs.push_back(qs::Vertex{ x + w, y, m_colour, 1.0f, 1.0f });
-            vs.push_back(qs::Vertex{ x + w, y + h, m_colour, 1.0f, 0.f });
+            vs.emplace_back(qs::Vertex{ x, y, m_colour, 0.0f, 1.0f });
+            vs.emplace_back(qs::Vertex{ x + w, y, m_colour, 1.0f, 1.0f });
+            vs.emplace_back(qs::Vertex{ x + w, y + h, m_colour, 1.0f, 0.0f });
+            vs.emplace_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });
 
-            glNamedBufferSubData(vb.getID(), 0, vs.size() * sizeof(qs::Vertex), vs.data());
-
-            glBindTexture(GL_TEXTURE_2D, chr.m_id);
-            renderer.drawVAToTexture(ar, ib, m_texture, shader);
+            glNamedBufferSubData(chr->getVBO().getID(), 0, vs.size() * sizeof(qs::Vertex), vs.data());
+            renderer.drawCharacter(*chr, m_texture, shader);
 
             // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-            advX += (chr.m_advance >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
+            advX += (chr->m_advance >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
         }
 
         m_texture.unbind(window);
-        glBindTexture(GL_TEXTURE_2D, 0);
-
-        m_sprite.unbind();
-        ar.unbind();
-        vb.unbind();
-        ib.unbind();
     }
 
     void Text::updateText(const std::string& text) noexcept

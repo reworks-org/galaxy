@@ -146,6 +146,7 @@ int main(int argsc, char* argsv[])
 
 	atlas.add("bin/wall.png");
 	atlas.add("bin/wall_2.png");
+	rttshader.bind();
 	atlas.create(window, renderer, rttshader);
 	atlas.save("bin/atlas");
 
@@ -183,12 +184,11 @@ int main(int argsc, char* argsv[])
 	
 	qs::Text text;
 	qs::Font font;
+	textRTTshader.bind();
 	font.create("bin/public.ttf", 36);
-	text.load("HELLO, WORLD.", font, { 0, 0, 0, 255 });
+	text.load("HELLO, WORLD.", &font, { 0, 0, 0, 255 });
 	text.create(window, renderer, textRTTshader);
 	text.asSprite().save("bin/text");
-
-	shader.bind();
 
 	qs::Camera camera; //left, right, bottom, top
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -203,8 +203,6 @@ int main(int argsc, char* argsv[])
 	//qs::Circle circle;
 	//circle.create(100, 100, 200, 200);
 	//circle.setThickness(50);
-
-	//atlasSpr.setActiveQuad(atlas.getID("wall"));
 
 	qs::LightSource lightSource;
 	lightSource.m_ambientColour = {0.6f, 0.6f, 1.0f, 0.2f};
@@ -357,10 +355,6 @@ int main(int argsc, char* argsv[])
 
 		camera.update(updte.get());
 
-		shader.bind();
-		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		
 		// Render.
 		window.begin(qs::Colours::Black);
 
@@ -384,11 +378,13 @@ int main(int argsc, char* argsv[])
 		spiteBatchShader.bind();
 		spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-
 		renderer.drawSpriteBatch(atlasSpr, spiteBatchShader);
 		
-		//shader.bind();
-		//renderer.drawText(text, shader);
+		shader.bind();
+		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		renderer.drawText(text, shader);
+
 		//ui.render(shader);
 
 		window.end();

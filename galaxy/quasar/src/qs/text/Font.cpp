@@ -38,7 +38,7 @@ namespace qs
 
 		if (FT_New_Face(qs::FreeTypeLib::lib(), path.string().c_str(), 0, &face))
 		{
-			qs::Error::handle().callback("Font.cpp", 44, "Failed to create FreeType font face.");
+			qs::Error::handle().callback("Font.cpp", 41, "Failed to create FreeType font face.");
 		}
 		else
 		{
@@ -52,21 +52,18 @@ namespace qs
 			{
 				if (FT_Load_Char(face, chr, FT_LOAD_RENDER))
 				{
-					qs::Error::handle().callback("Font.cpp", 58, "Failed to load character: " + chr);
+					qs::Error::handle().callback("Font.cpp", 55, "Failed to load character: " + chr);
 				}
 				else
 				{
-                    GLuint texture;
-                    glGenTextures(1, &texture);
-                    glBindTexture(GL_TEXTURE_2D, texture);
-					glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
+					m_characterMap.emplace(std::piecewise_construct, std::forward_as_tuple(chr), std::forward_as_tuple());
+					auto* chrptr = &m_characterMap[chr];
+					chrptr->load(0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
+					chrptr->m_bearingX = static_cast<int>(face->glyph->bitmap_left);
+					chrptr->m_bearingY = static_cast<int>(face->glyph->bitmap_top);
+					chrptr->m_advance = static_cast<unsigned int>(face->glyph->advance.x);
 
-                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-                    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-					
-					m_characterMap.emplace(chr, qs::Character{ texture, static_cast<int>(face->glyph->bitmap.width), static_cast<int>(face->glyph->bitmap.rows), static_cast<int>(face->glyph->bitmap_left), static_cast<int>(face->glyph->bitmap_top), static_cast<unsigned int>(face->glyph->advance.x) });
+					chrptr->create<qs::BufferTypeDynamic>();
 				}
 			}
 
@@ -75,7 +72,7 @@ namespace qs
 		}
 
 		FT_Done_Face(face);
-		m_height = m_characterMap['X'].m_height;
+		m_height = m_characterMap['X'].getHeight();
 	}
 
 	const int Font::getTextWidth(const std::string& text) noexcept

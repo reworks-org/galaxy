@@ -41,10 +41,10 @@ namespace qs
 		/// Argument constructor.
 		///
 		/// \param text Text to draw.
-		/// \param font Font to apply to text.
+		/// \param font Font to apply to text. Holds a reference, does not store.
 		/// \param col Colour of the text.
 		///
-		explicit Text(const std::string& text, qs::Font& font, protostar::Colour& col) noexcept;
+		explicit Text(const std::string& text, qs::Font* font, protostar::Colour& col) noexcept;
 
 		///
 		/// Default destructor.
@@ -55,10 +55,10 @@ namespace qs
 		/// Load resources used.
 		///
 		/// \param text Text to draw.
-		/// \param font Font to apply to text.
+		/// \param font Font to apply to text. Holds a reference, does not store.
 		/// \param col Colour of the text.
 		///
-		void load(const std::string& text, qs::Font& font, const protostar::Colour& col) noexcept;
+		void load(const std::string& text, qs::Font* font, const protostar::Colour& col) noexcept;
 
 		///
 		/// \brief Create text from inputs.
@@ -104,7 +104,7 @@ namespace qs
 		///
 		/// Font.
 		///
-		qs::Font m_font;
+		qs::Font* m_font;
 
 		///
 		/// Colour.

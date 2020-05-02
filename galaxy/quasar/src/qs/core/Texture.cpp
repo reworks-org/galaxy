@@ -134,6 +134,29 @@ namespace qs
 		clampToEdge();
 	}
 
+	void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels)
+	{
+		m_width = width;
+		m_height = height;
+
+		// Generate texture in OpenGL and bind to 2D texture.
+		glGenTextures(1, &m_textureHandle);
+		glBindTexture(GL_TEXTURE_2D, m_textureHandle);
+
+		// Gen texture into OpenGL.
+		glTexImage2D(GL_TEXTURE_2D, level, internalformat, width, height, border, format, type, pixels);
+
+		// Ansiotropic filtering.
+		setAnisotropy(qs::WindowSettings::s_ansiotropicFiltering);
+
+		// Linear filtering for non-pixel as default.
+		setMinifyFilter(qs::TextureFilter::LINEAR);
+		setMagnifyFilter(qs::TextureFilter::LINEAR);
+
+		// Default clamp to edge.
+		clampToEdge();
+	}
+
 	void Texture::save(const std::string& path) noexcept
 	{
 		if (!path.empty())
