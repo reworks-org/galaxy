@@ -92,7 +92,7 @@ namespace qs
 		void setOpacity(float opacity) noexcept;
 
 		///
-		/// \brief Sets the texture coords.
+		/// \brief Sets the top left texture coords.
 		///
 		/// This sets, and thus overrides current position.
 		///

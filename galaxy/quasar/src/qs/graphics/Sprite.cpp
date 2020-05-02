@@ -29,33 +29,44 @@ namespace qs
 	{
 		if (isDirty())
 		{
+			// Set initial texture transform.
+			static bool doOnce = true;
+			if (doOnce)
+			{
+				doOnce = false;
+				qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
+				auto* vertex = &buff->at(0);
+				// top left.
+				setTexels(vertex->m_texels[0], vertex->m_texels[1]);
+			}
+
 			// Only update opacity and texels.
 			// Position is done GPU side.
-
 			qs::Vertex* vertex = nullptr;
+			qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
 			glm::vec3* texels = &getTexelTransform();
 			
-			vertex = &m_transformedVertexs[0];
+			vertex = &buff->at(0);
 			vertex->m_texels[0] = texels->x;
 			vertex->m_texels[1] = texels->y;
 			vertex->m_colour[3] = texels->z;
 
-			vertex = &m_transformedVertexs[1];
+			vertex = &buff->at(1);
 			vertex->m_texels[0] = texels->x + m_width;
 			vertex->m_texels[1] = texels->y;
 			vertex->m_colour[3] = texels->z;
 
-			vertex = &m_transformedVertexs[2];
+			vertex = &buff->at(2);
 			vertex->m_texels[0] = texels->x + m_width;
 			vertex->m_texels[1] = texels->y + m_height;
 			vertex->m_colour[3] = texels->z;
 
-			vertex = &m_transformedVertexs[3];
+			vertex = &buff->at(3);
 			vertex->m_texels[0] = texels->x;
 			vertex->m_texels[1] = texels->y + m_height;
 			vertex->m_colour[3] = texels->z;
 
-			glNamedBufferSubData(m_vertexBuffer.getID(), 0, m_transformedVertexs.size() * sizeof(qs::Vertex), m_transformedVertexs.data());
+			glNamedBufferSubData(m_vertexBuffer.getID(), 0, buff->size() * sizeof(qs::Vertex), buff->data());
 			setDirty(false);
 		}
 	}

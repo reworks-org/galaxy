@@ -112,11 +112,6 @@ namespace qs
 		/// Vertex layout.
 		///
 		qs::VertexLayout m_layout;
-
-		///
-		/// Transformed vertexs incase renderable is dynamic.
-		///
-		qs::VertexStorage m_transformedVertexs;
 	};
 
 	template<typename BufferType>
@@ -132,7 +127,6 @@ namespace qs
 		m_layout.add<qs::VATypeTexel>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
-		m_transformedVertexs = m_vertexBuffer.getVertexs();
 	}
 
 	template<typename BufferType>
@@ -148,7 +142,6 @@ namespace qs
 		m_layout.add<qs::VATypeTexel>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
-		m_transformedVertexs = m_vertexBuffer.getVertexs();
 	}
 
 	template<typename BufferType>
@@ -164,7 +157,6 @@ namespace qs
 		m_layout.add<qs::VATypeTexel>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
-		m_transformedVertexs = m_vertexBuffer.getVertexs();
 	}
 
 	template<typename BufferType>
@@ -180,7 +172,6 @@ namespace qs
 		m_layout.add<qs::VATypeTexel>(2);
 
 		m_vertexArray.create(m_vertexBuffer, m_indexBuffer, m_layout);
-		m_transformedVertexs = m_vertexBuffer.getVertexs();
 	}
 }
 

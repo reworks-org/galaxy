@@ -139,6 +139,9 @@ int main(int argsc, char* argsv[])
 	qs::Shader lineShader;
 	lineShader.loadFromPath("bin/shaders/line.glsl");
 
+	qs::Shader spiteBatchShader;
+	spiteBatchShader.loadFromPath("bin/shaders/spritebatch.glsl");
+
 	qs::TextureAtlas atlas;
 
 	atlas.add("bin/wall.png");
@@ -378,7 +381,11 @@ int main(int argsc, char* argsv[])
 
 		//renderer.drawScene(atlasSpr, camera, lightSource);
 		//ui.render(renderer, shader);
-		renderer.drawSpriteBatch(atlasSpr, shader);
+		spiteBatchShader.bind();
+		spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+
+		renderer.drawSpriteBatch(atlasSpr, spiteBatchShader);
 		
 		//shader.bind();
 		//renderer.drawText(text, shader);

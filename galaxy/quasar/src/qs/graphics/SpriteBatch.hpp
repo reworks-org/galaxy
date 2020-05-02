@@ -51,21 +51,27 @@ namespace qs
 		/// Get a transform for a quad.
 		///
 		/// \param offset Offset of the quad. Quad 1 is 0, quad 2 is 1, etc.
+		///				  Is linear based on how quads are added. I.e. in same order.
 		///
 		qs::Transform* getTransform(const int offset) noexcept;
 
 	private:
 		///
-		/// Applys all transforms. Called before rendering.
+		/// Updates spritebatch with changes.
 		///
-		void applyTransforms() noexcept;
+		void update() noexcept;
 
 	private:	
 		///
-		/// Transform for each quad in vertex array. Key is offset.
-		///  Quad 1 is 0, quad 2 is 1, etc.
+		/// Offset of the quad. Quad 1 is 0, quad 2 is 1, etc.
+		///	Is linear based on how quads are added. I.e. in same order.
 		///
-		std::unordered_map<int, qs::Transform> m_transforms;
+		std::vector<qs::Transform> m_transforms;
+
+		///
+		/// Stores transformed vertexs.
+		///
+		qs::VertexStorage m_transfVB;
 	};
 }
 

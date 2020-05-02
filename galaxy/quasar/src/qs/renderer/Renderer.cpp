@@ -71,7 +71,7 @@ namespace qs
 
 	void Renderer::drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept
 	{
-		spritebatch.applyTransforms();
+		spritebatch.update();
 
 		shader.setUniform<float>("u_width", static_cast<float>(spritebatch.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(spritebatch.getHeight()));
@@ -83,6 +83,8 @@ namespace qs
 
 	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
 	{
+		sprite.update();
+
 		shader.bind();
 
 		shader.setUniform("u_projection", rt.getProjection());
@@ -97,11 +99,15 @@ namespace qs
 
 	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
 	{
-		drawSprite(text.asSprite(), shader);
+		auto* spr = &text.asSprite();
+		spr->update();
+		drawSprite(*spr, shader);
 	}
 
 	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept
 	{
+		sprite.update();
+
 		ls.m_shader.bind();
 
 		ls.m_shader.setUniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
