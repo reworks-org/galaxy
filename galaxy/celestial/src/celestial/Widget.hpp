@@ -8,6 +8,7 @@
 #ifndef CELESTIAL_WIDGET_HPP_
 #define CELESTIAL_WIDGET_HPP_
 
+#include <qs/core/Transform.hpp>
 #include <protostar/async/ProtectedArithmetic.hpp>
 
 #include "celestial/UITheme.hpp"
@@ -20,33 +21,20 @@ namespace celestial
 	///
 	/// Represents an interactable UI object i.e. a button.
 	///
-	class Widget
+	/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
+	/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
+	///
+	class Widget : public qs::Renderable, public qs::Transform
 	{
 		///
-		/// Allow UI to access protected methods.
+		/// So UI can directly access stuff that should not be publicly exposed.
 		///
 		friend class UI;
-
 	public:
 		///
 		/// Virtual destructor.
 		///
-		virtual ~Widget() noexcept;
-
-		///
-		/// Does the widget contain the point x, y.
-		///
-		/// \param x x-pos of the point.
-		/// \param y y-pos of the point.
-		///
-		virtual bool contains(const int x, const int y) noexcept final;
-
-		///
-		/// Set visibility of widget.
-		///
-		/// \param isVisible Set to true if widget is visible.
-		///
-		virtual void setVisibility(const bool isVisible) noexcept final;
+		virtual ~Widget() noexcept = default;
 
 		///
 		/// Get ID of this widget.
@@ -74,61 +62,29 @@ namespace celestial
 		///
 		/// \brief Update the widget.
 		///
-		/// Don't forget to check for visibility.
+		/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
 		///
 		/// \param dt Delta Time.
 		///
 		virtual void update(protostar::ProtectedDouble* dt) noexcept = 0;
 
 		///
-		/// \brief Render the widget.
+		/// \brief Perform any GL functions on the main thread in prep for rendering.
 		///
-		/// This should only contain code on rendering the widget.
-		/// And don't forget to check for visibility.
+		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
-		/// \param renderer Renderer to use when drawing.
-		/// \param shader Shader to use when drawing widgets.
-		///
-		virtual void render(qs::Renderer& renderer, qs::Shader& shader) noexcept = 0;
-
-		///
-		/// Sets theme for widget to use.
-		///
-		/// \param theme Theme to apply to widget.
-		///
-		virtual void setTheme(celestial::UITheme* theme) noexcept final;
-
-		///
-		/// Set bounds.
-		///
-		/// \param x X pos of widget.
-		/// \param y Y pos of widget.
-		/// \param w Width of widget.
-		/// \param h Height of widget.
-		///
-		virtual void setBounds(const int x, const int y, const int w, const int h) noexcept final;
+		virtual void render() noexcept = 0;
 
 	protected:
 		///
-		/// X, Y, width and height of the widget.
+		/// Widget ID.
 		///
-		protostar::Rect<int> m_bounds;
-
-		///
-		/// Is the widget currently visible.
-		///
-		protostar::ProtectedBool m_visible;
+		unsigned int m_id;
 
 		///
 		/// UITheme pointer.
 		///
 		celestial::UITheme* m_theme;
-
-	private:
-		///
-		/// Widget ID.
-		///
-		unsigned int m_id;
 	};
 
 	///

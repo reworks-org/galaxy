@@ -30,7 +30,7 @@ namespace protostar
 
 	void ThreadPool::create(const size_t count) noexcept
 	{
-		if ((count <= 0) || (count > std::thread::hardware_concurrency()))
+		if ((count == 0) || (count > std::thread::hardware_concurrency()))
 		{
 			m_maxThreadCount = 4;
 		}

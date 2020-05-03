@@ -23,14 +23,14 @@
 #include <qs/graphics/Line.hpp>
 #include <qs/graphics/Circle.hpp>
 #include <qs/renderer/LightSource.hpp>
-//#include <celestial/UI.hpp>
+#include <celestial/UI.hpp>
 #include <protostar/async/ThreadPool.hpp>
 #include <starmap/Map.hpp>
 #include <starlight/Dispatcher.hpp>
 #include <pulsar/Log.hpp>
 #include <frb/Context.hpp>
 #include <frb/audio/Audible.hpp>
-//#include <celestial/widgets/Image.hpp>
+#include <celestial/widgets/Image.hpp>
 
 struct Test
 {
@@ -142,6 +142,9 @@ int main(int argsc, char* argsv[])
 	qs::Shader spiteBatchShader;
 	spiteBatchShader.loadFromPath("bin/shaders/spritebatch.glsl");
 
+	qs::Shader widgetShader;
+	widgetShader.loadFromPath("bin/shaders/widget.glsl");
+
 	qs::TextureAtlas atlas;
 
 	atlas.add("bin/wall.png");
@@ -215,7 +218,6 @@ int main(int argsc, char* argsv[])
 	protostar::ProtectedDouble updte;
 	updte.set(1.0);
 
-	/*
 	// UI
 	celestial::UITheme theme(1024, &window, &renderer);
 	theme.create(rttshader, { "bin/wall.png" }, {});
@@ -228,7 +230,6 @@ int main(int argsc, char* argsv[])
 	tpool.create(1);
 	tpool.queue(ui.getTask());
 	tpool.setActive(true);
-	*/
 
 	// Loop
 	while (window.isOpen())
@@ -374,18 +375,19 @@ int main(int argsc, char* argsv[])
 		//renderer.drawCircle(circle);
 
 		//renderer.drawScene(atlasSpr, camera, lightSource);
-		//ui.render(renderer, shader);
-		spiteBatchShader.bind();
-		spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		renderer.drawSpriteBatch(atlasSpr, spiteBatchShader);
 		
-		shader.bind();
-		shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		renderer.drawText(text, shader);
+		//spiteBatchShader.bind();
+		//spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		//spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		//renderer.drawSpriteBatch(atlasSpr, spiteBatchShader);
+		
+		//shader.bind();
+		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+		//renderer.drawText(text, shader);
 
-		//ui.render(shader);
+		widgetShader.bind();
+		ui.render(widgetShader, camera);
 
 		window.end();
 	}

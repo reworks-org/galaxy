@@ -2,5 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="src\celestial\Types.hpp" />
+    <ClInclude Include="src\celestial\UITheme.hpp" />
+    <ClInclude Include="src\celestial\UI.hpp" />
+    <ClInclude Include="src\celestial\Widget.hpp" />
+    <ClInclude Include="src\celestial\widgets\Image.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\celestial\UITheme.cpp" />
+    <ClCompile Include="src\celestial\UI.cpp" />
+    <ClCompile Include="src\celestial\Widget.cpp" />
+    <ClCompile Include="src\celestial\widgets\Image.cpp" />
   </ItemGroup>
 </Project>

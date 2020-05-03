@@ -18,6 +18,9 @@
 ///
 namespace celestial
 {
+	///
+	/// Manages the GUI and a group of widgets for that GUI.
+	///
 	class UI final
 	{
 	public:
@@ -25,8 +28,9 @@ namespace celestial
 		/// Constructor.
 		///
 		/// \param deltaTime A pointer to a protected double to update widgets with.
+		/// \param theme Theme to apply to all widgets.
 		///
-		UI(protostar::ProtectedDouble* deltaTime) noexcept;
+		UI(protostar::ProtectedDouble* deltaTime, celestial::UITheme* theme) noexcept;
 
 		///
 		/// Destructor.
@@ -36,10 +40,12 @@ namespace celestial
 		///
 		/// \brief Render UI.
 		///
-		/// \param renderer Renderer to use to draw widgets with.
-		/// \param shader Shader to use when drawing widgets.
+		/// This function should be called on the main thread.
 		///
-		void render(qs::Renderer& renderer, qs::Shader& shader) noexcept;
+		/// \param shader Shader to use when drawing widgets.
+		/// \param camera Camera projection to apply to UI.
+		///
+		void render(qs::Shader& shader, qs::Camera& camera) noexcept;
 
 		///
 		/// Add a widget to the UI.
@@ -78,7 +84,9 @@ namespace celestial
 		virtual void setVisibility(const bool isVisible) noexcept final;
 
 		///
-		/// Get pointer to internal TaskPool task.
+		/// \brief Get pointer to internal TaskPool task.
+		///
+		/// Pass this to taskpool last.
 		///
 		/// \return Pointer to a task.
 		///
@@ -126,14 +134,29 @@ namespace celestial
 		unsigned int m_counter;
 
 		///
-		/// Holds list of free widget ids.
+		/// UI theme.
 		///
-		std::vector<unsigned int> m_free;
+		celestial::UITheme* m_theme;
 
 		///
-		/// Holds list of widget pointers.
+		/// Pointer to delta time.
 		///
-		std::vector<celestial::WidgetPtr> m_widgets;
+		protostar::ProtectedDouble* m_dt;
+
+		///
+		/// Task that runs main UI loop on another thread.
+		///
+		protostar::Task m_mainLoop;
+
+		///
+		/// Mutex protecting widget access.
+		///
+		std::mutex m_widgetMutex;
+
+		///
+		/// Mutex protecting event access.
+		///
+		std::mutex m_eventMutex;
 
 		///
 		/// Protected visibility bool.
@@ -146,29 +169,19 @@ namespace celestial
 		protostar::ProtectedBool m_running;
 
 		///
-		/// Task that runs main UI loop on another thread.
-		///
-		protostar::Task m_mainLoop;
-
-		///
-		/// Mutex protecting widget access.
-		///
-		std::mutex m_widgetMutex;
-		
-		///
-		/// Mutex protecting event access.
-		///
-		std::mutex m_eventMutex;
-
-		///
-		/// Pointer to delta time.
-		///
-		protostar::ProtectedDouble* m_dt;
-
-		///
 		/// Internal event manager to UI.
 		///
 		starlight::Dispatcher m_uiEventManager;
+
+		///
+		/// Holds list of free widget ids.
+		///
+		std::vector<unsigned int> m_free;
+
+		///
+		/// Holds list of widget pointers.
+		///
+		std::vector<celestial::WidgetPtr> m_widgets;
 	};
 
 	template<typename WidgetType, typename ...Args>
@@ -197,20 +210,25 @@ namespace celestial
 		std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 
 		// Make sure widget is the right size.
-		if (m_widgets.size() >= idToUse)
+		if (idToUse >= m_widgets.size())
 		{
-			m_widgets.resize(idToUse);
+			m_widgets.resize(idToUse + 1);
 		}
 
 		// Forward arguments to std::vector's construct in place method.
-		m_widgets.emplace(idToUse, std::make_unique<WidgetType>(std::forward<Args>(args)...));
+		m_widgets[idToUse] = std::make_unique<WidgetType>();
 
 		// Set ID.
-		Widget* ref = m_widgets[idToUse].get();
+		WidgetType* ref = dynamic_cast<WidgetType*>(m_widgets[idToUse].get());
 		ref->m_id = idToUse;
+		ref->m_theme = m_theme;
+
+		ref->make(std::forward<Args>(args)...);
+
+		m_widgets.shrink_to_fit();
 
 		// Then return a pointer to object placed.
-		return dynamic_cast<WidgetType*>(ref);
+		return ref;
 	}
 
 	template<typename Event, typename WidgetType>

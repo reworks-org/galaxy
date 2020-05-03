@@ -8,7 +8,7 @@
 #ifndef CELESTIAL_IMAGE_HPP_
 #define CELESTIAL_IMAGE_HPP_
 
-#include "celestial/ui/Widget.hpp"
+#include "celestial/Widget.hpp"
 
 ///
 /// Core namespace.
@@ -18,62 +18,44 @@ namespace celestial
 	///
 	/// Image for UI objects. Does not support tooltips.
 	///
-	class Image final : public Widget
+	class Image final : public celestial::Widget
 	{
 	public:
 		///
-		/// Texture Constructor.
+		/// Constructor.
 		///
-		/// \param x x pos relative to UI panel.
-		/// \param y y pos relative to UI panel.
-		/// \param texture Name of texture region in theme to use.
-		/// \param theme Theme to use with widget.
-		///
-		Image(const int x, const int y, const std::string& texture, UITheme* theme);
+		Image() noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Image() noexcept;
+		~Image() noexcept override;
 
 		///
-		/// Update the widget.
+		/// Create the widget.
+		///
+		/// \param x x pos.
+		/// \param y y pos.
+		/// \param region Name of texture region in theme to use.
+		///
+		void make(const float x, const float y, const std::string& region) noexcept;
+
+	private:
+		///
+		/// \brief Update the widget.
+		///
+		/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
 		///
 		/// \param dt Delta Time.
 		///
-		void update(const double dt) override;
+		void update(protostar::ProtectedDouble* dt) noexcept override;
 
 		///
-		/// Render the widget.
+		/// \brief Perform any GL functions on the main thread in prep for rendering.
 		///
-		/// Does not render the tooltip.
+		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
-		void render(celestial::Renderer* renderer) override;
-
-		///
-		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
-		///
-		/// It should look like this:
-		/// m_bounds.m_x += x;
-		/// m_bounds.m_y += y;
-		///
-		/// \param x x-pos of the panel.
-		/// \param y y-pos of the panel.
-		///
-		void setOffset(const int x, const int y) override;
-
-	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		Image() = delete;
-
-	private:
-		///
-		/// Texture being displayed.
-		///
-		TexturePtr m_image;
+		void render() noexcept override;
 	};
 }
 

@@ -8,15 +8,10 @@
 #ifndef CELESTIAL_UITHEME_HPP_
 #define CELESTIAL_UITHEME_HPP_
 
-#include <vector>
 #include <unordered_map>
-
-#include <protostar/math/Rect.hpp>
-#include <protostar/system/Colour.hpp>
 
 #include <qs/text/Font.hpp>
 #include <qs/core/Window.hpp>
-#include <qs/graphics/Sprite.hpp>
 #include <qs/renderer/Renderer.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 
@@ -72,6 +67,13 @@ namespace celestial
 		/// Get pointer to associated renderer.
 		///
 		qs::Renderer* getRenderer() const noexcept;
+
+		///
+		/// Get pointer to the TextureAtlas.
+		///
+		/// \return Pointer to the texture atlas.
+		///
+		qs::TextureAtlas* getAtlas() noexcept;
 
 	private:
 		///

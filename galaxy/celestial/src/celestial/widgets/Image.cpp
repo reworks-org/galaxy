@@ -12,37 +12,72 @@
 ///
 namespace celestial
 {
-	Image::Image(const int x, const int y, const std::string& texture, UITheme* theme)
-		:Widget({ x, y, 0, 0 }, theme)
-	{
-		// Load image.
-		m_image = m_theme->extractWidgetTexture(texture);
-		
-		// Set dimensions.
-		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_image.get());
-		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_image.get());
-	}
-
-	Image::~Image()
-	{
-		m_image.reset();
-	}
-
-	void Image::update(const double dt)
+	Image::Image() noexcept
+		:Widget()
 	{
 	}
 
-	void Image::render(celestial::Renderer* renderer)
+	Image::~Image() noexcept
 	{
-		if (m_isVisible)
+	}
+
+	void Image::make(const float x, const float y, const std::string& region) noexcept
+	{
+		auto* atlas = m_theme->getAtlas();
+		auto* src = &atlas->getTexQuad(region);
+
+		load(atlas->getTexture().getGLTexture(), atlas->getTexture().getWidth(), atlas->getTexture().getHeight());
+		create<qs::BufferTypeDynamic>(*src);
+
+		setRotationOrigin(src->m_width / 2.0f, src->m_height / 2.0f);
+		setTexels(src->m_x, src->m_y);
+		setOpacity(1.0f);
+		move(x, y);
+		setDirty(true);
+	}
+
+	void Image::update(protostar::ProtectedDouble* dt) noexcept
+	{
+		if (isDirty())
 		{
-			renderer->drawTexture(m_image.get(), m_bounds.m_x, m_bounds.m_y);
+			// Only update opacity and texels.
+			// Position is done GPU side.
+			qs::Vertex* vertex = nullptr;
+			qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
+			glm::vec3* texels = &getTexelTransform();
+
+			vertex = &buff->at(0);
+			vertex->m_texels[0] = texels->x;
+			vertex->m_texels[1] = texels->y;
+			vertex->m_colour[3] = texels->z;
+
+			vertex = &buff->at(1);
+			vertex->m_texels[0] = texels->x + m_width;
+			vertex->m_texels[1] = texels->y;
+			vertex->m_colour[3] = texels->z;
+
+			vertex = &buff->at(2);
+			vertex->m_texels[0] = texels->x + m_width;
+			vertex->m_texels[1] = texels->y + m_height;
+			vertex->m_colour[3] = texels->z;
+
+			vertex = &buff->at(3);
+			vertex->m_texels[0] = texels->x;
+			vertex->m_texels[1] = texels->y + m_height;
+			vertex->m_colour[3] = texels->z;
+
+			// buffer set in render() on main thread.
 		}
 	}
 
-	void Image::setOffset(const int x, const int y)
+	void Image::render() noexcept
 	{
-		m_bounds.m_x += x;
-		m_bounds.m_y += y;
+		if (isDirty())
+		{
+			qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
+
+			glNamedBufferSubData(m_vertexBuffer.getID(), 0, buff->size() * sizeof(qs::Vertex), buff->data());
+			setDirty(false);
+		}
 	}
 }

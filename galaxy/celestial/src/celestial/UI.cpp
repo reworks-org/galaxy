@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Shader.hpp>
+#include <qs/graphics/Camera.hpp>
+
 #include "UI.hpp"
 
 ///
@@ -12,10 +15,12 @@
 ///
 namespace celestial
 {
-	UI::UI(protostar::ProtectedDouble* deltaTime) noexcept
-		:m_isDestroyed(false), m_dt(deltaTime), m_counter(0)
+	UI::UI(protostar::ProtectedDouble* deltaTime, celestial::UITheme* theme) noexcept
+		:m_isDestroyed(false), m_counter(0), m_theme(theme), m_dt(deltaTime)
 	{
 		m_running.set(true);
+		m_visible.set(true);
+
 		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished)
 		{
 			while (m_running.get() && threadPoolFinished->get())
@@ -34,16 +39,21 @@ namespace celestial
 		}
 	}
 
-	void UI::render(qs::Renderer& renderer, qs::Shader& shader) noexcept
+	void UI::render(qs::Shader& shader, qs::Camera& camera) noexcept
 	{
-		// Renderer has no modifiable data, and since we are accessing
-		// sequencitally, no need for mutex or syncing.
 		if (m_visible.get())
 		{
 			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
+			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+			shader.setUniform<float>("u_width", m_theme->getAtlas()->getTexture().getWidth());
+			shader.setUniform<float>("u_height", m_theme->getAtlas()->getTexture().getHeight());
+
 			for (auto&& widget : m_widgets)
 			{
-				widget->render(renderer, shader);
+				widget->bind();
+				shader.setUniform<glm::mat4>("u_transform", widget->getTransformation());
+				glDrawElements(GL_TRIANGLES, widget->getCount(), GL_UNSIGNED_INT, nullptr);
 			}
 		}
 	}
@@ -86,6 +96,8 @@ namespace celestial
 		}
 
 		m_isDestroyed = true;
+		m_theme = nullptr;
+		m_dt = nullptr;
 	}
 
 	void UI::processEvents() noexcept

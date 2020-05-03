@@ -73,4 +73,9 @@ namespace celestial
 	{
 		return m_renderer;
 	}
+
+	qs::TextureAtlas* UITheme::getAtlas() noexcept
+	{
+		return &m_atlas;
+	}
 }

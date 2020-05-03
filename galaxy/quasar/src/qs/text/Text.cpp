@@ -20,12 +20,12 @@
 namespace qs
 {
 	Text::Text() noexcept
-        :m_text("")
+        :m_text(""), m_font(nullptr)
 	{
 	}
 
     Text::Text(const std::string& text, qs::Font* font, protostar::Colour& col) noexcept
-        :m_text("")
+        :m_text(""), m_font(nullptr)
     {
         load(text, font, col);
     }
