@@ -244,41 +244,41 @@ int main(int argsc, char* argsv[])
 		int w = glfwGetKey(window.getWindow(), GLFW_KEY_W);
 		if (w == GLFW_PRESS)
 		{
-			camera.onKeyDown({ protostar::Keys::W });
+			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::W });
 		}
 		else
 		{
-			camera.onKeyUp({ protostar::Keys::W });
+			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::W });
 		}
 
 		int s = glfwGetKey(window.getWindow(), GLFW_KEY_S);
 		if (s == GLFW_PRESS)
 		{
-			camera.onKeyDown({ protostar::Keys::S });
+			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::S });
 		}
 		else
 		{
-			camera.onKeyUp({ protostar::Keys::S });
+			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::S });
 		}
 
 		int a = glfwGetKey(window.getWindow(), GLFW_KEY_A);
 		if (a == GLFW_PRESS)
 		{
-			camera.onKeyDown({ protostar::Keys::A });
+			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::A });
 		}
 		else
 		{
-			camera.onKeyUp({ protostar::Keys::A });
+			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::A });
 		}
 
 		int d = glfwGetKey(window.getWindow(), GLFW_KEY_D);
 		if (d == GLFW_PRESS)
 		{
-			camera.onKeyDown({ protostar::Keys::D });
+			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::D });
 		}
 		else
 		{
-			camera.onKeyUp({ protostar::Keys::D });
+			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::D });
 		}
 
 		int q = glfwGetKey(window.getWindow(), GLFW_KEY_Q);

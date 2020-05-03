@@ -102,10 +102,6 @@ namespace qs
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
 		}
-		else
-		{
-			throw std::runtime_error("How did you even get here???");
-		}
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}

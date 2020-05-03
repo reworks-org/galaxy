@@ -29,7 +29,7 @@ namespace qs
 		float uint8ToFloat(std::uint8_t u8) noexcept
 		{
 			// Ensure proper conversion and no rounding errors.
-			return (u8 >= 255 ? 1.0f : (u8 <= 0 ? 0.0f : static_cast<std::uint8_t>(std::floor(u8 / 256.0))));
+			return (u8 >= 255 ? 1.0f : (u8 == 0 ? 0.0f : static_cast<std::uint8_t>(std::floor(u8 / 256.0))));
 		}
 	}
 }

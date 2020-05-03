@@ -44,7 +44,7 @@ namespace sr
 		///
 		/// \param reserve Default reserved amount of entities.
 		///
-		DualSparseSet(const SR_INTEGER reserve) noexcept;
+		explicit DualSparseSet(const SR_INTEGER reserve) noexcept;
 
 		///
 		/// Destructor

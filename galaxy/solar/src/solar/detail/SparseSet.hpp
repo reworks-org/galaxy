@@ -41,7 +41,7 @@ namespace sr
 		///
 		/// \param reserve Reserve an amount of entities at construction time.
 		///
-		SparseSet(const uint reserve) noexcept;
+		explicit SparseSet(const uint reserve) noexcept;
 
 		///
 		/// Destructor.

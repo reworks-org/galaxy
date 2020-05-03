@@ -110,10 +110,6 @@ namespace qs
 			m_vertexStorage = vertexs;
 			glBufferData(GL_ARRAY_BUFFER, m_vertexStorage.size() * sizeof(qs::Vertex), m_vertexStorage.data(), GL_STATIC_DRAW);
 		}
-		else
-		{
-			throw std::runtime_error("How did you even get here???");
-		}
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}

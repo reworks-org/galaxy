@@ -165,7 +165,6 @@ namespace qs
 	{
 		// Set up vars.
 		bool result = true;
-		unsigned short type = 2;
 		static const unsigned short VERTEX = 0;
 		static const unsigned short FRAGMENT = 1;
 		std::string line = "";
@@ -179,12 +178,14 @@ namespace qs
 		// Check for errors...
 		if (!shader)
 		{
-			qs::Error::handle().callback("Shader.cpp", 182, "std::ifstream failed to open file: " + glsl);
+			qs::Error::handle().callback("Shader.cpp", 181, "std::ifstream failed to open file: " + glsl);
 			result = false;
 		}
 		else
 		{
 			// Parse the two shaders out of one file.
+
+			unsigned short type = 2;
 			while (std::getline(shader, line))
 			{
 				if (line.find("#shader") != std::string::npos)
@@ -206,19 +207,27 @@ namespace qs
 
 			if (!stringStream[VERTEX])
 			{
-				qs::Error::handle().callback("Shader.cpp", 209, "std::stringstream failed to read vertex shader for: " + glsl);
+				qs::Error::handle().callback("Shader.cpp", 210, "std::stringstream failed to read vertex shader for: " + glsl);
 				result = false;
 			}
 
 			if (!stringStream[FRAGMENT])
 			{
-				qs::Error::handle().callback("Shader.cpp", 215, "std::stringstream failed to read fragment shader for: " + glsl);
+				qs::Error::handle().callback("Shader.cpp", 216, "std::stringstream failed to read fragment shader for: " + glsl);
 				result = false;
 			}
 		}
 
 		shader.close();
-		return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
+
+		if (result)
+		{
+			return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
+		}
+		else
+		{
+			return result;
+		}
 	}
 
 	bool Shader::loadFromRaw(const std::string& vertex, const std::string& fragment) noexcept
@@ -228,13 +237,13 @@ namespace qs
 
 		if (vertex.empty())
 		{
-			qs::Error::handle().callback("Shader.cpp", 231, "Vertex shader string was empty.");
+			qs::Error::handle().callback("Shader.cpp", 240, "Vertex shader string was empty.");
 			result = false;
 		}
 
 		if (fragment.empty())
 		{
-			qs::Error::handle().callback("Shader.cpp", 237, "Fragment shader string was empty.");
+			qs::Error::handle().callback("Shader.cpp", 246, "Fragment shader string was empty.");
 			result = false;
 		}
 
@@ -262,7 +271,7 @@ namespace qs
 
 				std::string err = "Failed to vertex compile shader. GL_ERROR: ";
 				err += infoLog;
-				qs::Error::handle().callback("Shader.cpp", 251, err);
+				qs::Error::handle().callback("Shader.cpp", 274, err);
 
 				result = false;
 			}
@@ -279,7 +288,7 @@ namespace qs
 
 				std::string err = "Failed to compile fragment shader. GL_ERROR: ";
 				err += infoLog;
-				qs::Error::handle().callback("Shader.cpp", 268, err);
+				qs::Error::handle().callback("Shader.cpp", 291, err);
 
 				result = false;
 			}
@@ -300,7 +309,7 @@ namespace qs
 
 					std::string err = "Failed to attach shaders. GL_ERROR: ";
 					err += infoLog;
-					qs::Error::handle().callback("Shader.cpp", 289, err);
+					qs::Error::handle().callback("Shader.cpp", 312, err);
 
 					result = false;
 				}
@@ -318,7 +327,6 @@ namespace qs
 	{
 		// Set up vars.
 		bool result = true;
-		unsigned short type = 2;
 		static const unsigned short VERTEX = 0;
 		static const unsigned short FRAGMENT = 1;
 		std::string line = "";
@@ -327,12 +335,14 @@ namespace qs
 		// Check for errors...
 		if (glsl.empty())
 		{
-			qs::Error::handle().callback("Shader.cpp", 330, "GLSL shader file is empty.");
+			qs::Error::handle().callback("Shader.cpp", 338, "GLSL shader file is empty.");
 			result = false;
 		}
 		else
 		{
 			// Parse the two shaders out of one file.
+			
+			unsigned short type = 2;
 			std::istringstream shader(glsl);
 			while (std::getline(shader, line))
 			{
@@ -355,18 +365,25 @@ namespace qs
 
 			if (!stringStream[VERTEX])
 			{
-				qs::Error::handle().callback("Shader.cpp", 358, "std::istringstream failed to read vertex shader for: " + glsl);
+				qs::Error::handle().callback("Shader.cpp", 368, "std::istringstream failed to read vertex shader for: " + glsl);
 				result = false;
 			}
 
 			if (!stringStream[FRAGMENT])
 			{
-				qs::Error::handle().callback("Shader.cpp", 364, "std::istringstream failed to read fragment shader for: " + glsl);
+				qs::Error::handle().callback("Shader.cpp", 374, "std::istringstream failed to read fragment shader for: " + glsl);
 				result = false;
 			}
 		}
 
-		return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
+		if (result)
+		{
+			return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	void Shader::bind() noexcept
@@ -397,7 +414,7 @@ namespace qs
 			}
 			else
 			{
-				qs::Error::handle().callback("Shader.cpp", 400, "Failed to find uniform: " + name);
+				qs::Error::handle().callback("Shader.cpp", 417, "Failed to find uniform: " + name);
 			}
 
 			return location;

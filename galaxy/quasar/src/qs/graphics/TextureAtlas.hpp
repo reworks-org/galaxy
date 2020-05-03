@@ -43,7 +43,7 @@ namespace qs
 		///
 		/// \param size Power of 2 size of texture atlas. I.e. user 4096 for a 4096x4096 texture.
 		///
-		TextureAtlas(const int size) noexcept;
+		explicit TextureAtlas(const int size) noexcept;
 
 		///
 		/// Destructor.

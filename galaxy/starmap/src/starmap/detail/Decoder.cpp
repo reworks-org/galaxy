@@ -50,24 +50,23 @@ namespace starmap
 
         std::string zlib(const std::string& zlibIn) noexcept
         {
-            // Output and error code.
             std::string out = "";
-            int err = 0;
 
             if (!zlibIn.empty())
             {
                 if (zlibIn.size() > 32768)
                 {
-                    PL_LOG(PL_FATAL, "zlib input string too large! errcode: " + err);
+                    PL_LOG(PL_FATAL, "zlib input string too large.");
                 }
                 else
                 {
                     // Prep stream for decompressing.
                     z_stream decompress;
+                    int err = 0;
 
                     char* zlibOut = new char[32768];
                     memset(&decompress, 0, sizeof(decompress));
-                    memset(zlibOut, 0, sizeof(zlibOut));
+                    memset(zlibOut, 0, 32768 * sizeof(char));
 
                     err = inflateInit(&decompress);
                     if (err != Z_OK)
@@ -125,24 +124,23 @@ namespace starmap
 
         std::string gzip(const std::string& gzipIn) noexcept
         {
-            // Output and error code.
             std::string out = "";
-            int err = 0;
 
             if (!gzipIn.empty())
             {
                 if (gzipIn.size() > 32768)
                 {
-                    PL_LOG(PL_FATAL, "gzip input string too large! errcode: " + err);
+                    PL_LOG(PL_FATAL, "gzip input string too large.");
                 }
                 else
                 {
                     // Prep stream for decompressing.
+                    int err = 0;
                     z_stream decompress;
 
                     char* gzipOut = new char[32768];
                     memset(&decompress, 0, sizeof(decompress));
-                    memset(gzipOut, 0, sizeof(gzipOut));
+                    memset(gzipOut, 0, 32768 * sizeof(char));
 
                     err = inflateInit2(&decompress, 16 + MAX_WBITS);
                     if (err != Z_OK)

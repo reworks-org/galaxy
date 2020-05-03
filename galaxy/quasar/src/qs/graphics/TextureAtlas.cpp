@@ -96,7 +96,8 @@ namespace qs
 		else
 		{
 			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to access texture rect that does not exist. Returning blank rect...");
-			return {0.0f, 0.0f, 0.0f, 0.0f};
+			protostar::Rect<float> temp = { 0.0f, 0.0f, 0.0f, 0.0f };
+			return std::move(temp);
 		}
 	}
 

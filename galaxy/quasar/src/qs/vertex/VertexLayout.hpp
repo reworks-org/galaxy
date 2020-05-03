@@ -86,10 +86,6 @@ namespace qs
 		{
 			m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::Vertex, m_texels));
 		}
-		else
-		{
-			throw std::runtime_error("How did you even get here???");
-		}
 	}
 }
 

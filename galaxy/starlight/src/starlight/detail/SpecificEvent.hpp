@@ -30,7 +30,7 @@ namespace starlight
 		///
 		/// \param args Constructor arguments for event.
 		///
-		SpecificEvent(Args&&... args) noexcept;
+		explicit SpecificEvent(Args&&... args) noexcept;
 
 		///
 		/// Destructor.

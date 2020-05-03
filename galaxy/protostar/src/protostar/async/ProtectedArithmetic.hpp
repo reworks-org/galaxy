@@ -38,7 +38,7 @@ namespace protostar
 		///
 		/// \param value New value for var.
 		///
-		ProtectedAirthmetic(const Arithmetic value) noexcept;
+		explicit ProtectedAirthmetic(const Arithmetic value) noexcept;
 
 		///
 		/// Default destructor.

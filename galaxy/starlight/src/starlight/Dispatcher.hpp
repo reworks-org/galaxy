@@ -105,7 +105,7 @@ namespace starlight
 	template<typename Event, typename ...Args>
 	inline void Dispatcher::queue(Args&&... args) noexcept
 	{
-		m_queued.push_back(std::move(std::make_unique<starlight::SpecificEvent<Event>>(std::forward<Args>(args)...)));
+		m_queued.push_back(std::make_unique<starlight::SpecificEvent<Event>>(std::forward<Args>(args)...));
 	}
 
 	template<typename Event>
