@@ -43,16 +43,18 @@ namespace celestial
 	{
 		if (m_visible.get())
 		{
-			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 			shader.setUniform<float>("u_width", m_theme->getAtlas()->getTexture().getWidth());
 			shader.setUniform<float>("u_height", m_theme->getAtlas()->getTexture().getHeight());
 
+			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{
 				widget->bind();
 				shader.setUniform<glm::mat4>("u_transform", widget->getTransformation());
+
+				widget->render();
 				glDrawElements(GL_TRIANGLES, widget->getCount(), GL_UNSIGNED_INT, nullptr);
 			}
 		}

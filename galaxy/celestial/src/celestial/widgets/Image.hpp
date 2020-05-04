@@ -56,6 +56,17 @@ namespace celestial
 		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
 		void render() noexcept override;
+
+	private:
+		///
+		/// Render data update flag.
+		///
+		protostar::ProtectedBool m_updateRender;
+
+		///
+		/// Mutex to protect accessing vertex data.
+		///
+		std::mutex m_vertexMutex;
 	};
 }
 

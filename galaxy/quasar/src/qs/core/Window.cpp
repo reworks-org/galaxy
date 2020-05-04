@@ -145,6 +145,11 @@ namespace qs
 						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_rawMouseInput);
 					}
 
+					// Error handling.
+					#ifdef _DEBUG
+						glEnable(GL_DEBUG_OUTPUT);
+					#endif
+
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);
 
@@ -163,7 +168,7 @@ namespace qs
 					{
 						glEnable(GL_FRAMEBUFFER_SRGB);
 					}
-
+					
 					// Print OpenGL version.
 					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
 					qs::Error::handle().callback("Window.cpp", 155, msg);

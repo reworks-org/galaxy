@@ -115,11 +115,13 @@ int main(int argsc, char* argsv[])
 		std::cout << "Window creation failed!" << std::endl;
 	}
 
-	qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-	{
-		std::string msg = "[OpenGL]: Severity: " + std::to_string(severity) + " Message: " + message + "\n";
-		PL_LOG(PL_ERROR, msg);
-	});
+	#ifdef _DEBUG
+		qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
+			{
+				std::string msg = "[OpenGL]: Source: " + std::to_string(source) + " Type: " + std::to_string(type) + " ID: " + std::to_string(id) + " Severity: " + std::to_string(severity) + " Message: " + message + "\n";
+				PL_LOG(PL_ERROR, msg);
+			});
+	#endif
 
 	qs::Renderer renderer;
 
@@ -151,7 +153,7 @@ int main(int argsc, char* argsv[])
 	atlas.add("bin/wall_2.png");
 	rttshader.bind();
 	atlas.create(window, renderer, rttshader);
-	atlas.save("bin/atlas");
+	//atlas.save("bin/atlas");
 
 	qs::SpriteBatch atlasSpr;
 	qs::RenderTexture* att = &atlas.getTexture();
@@ -191,7 +193,7 @@ int main(int argsc, char* argsv[])
 	font.create("bin/public.ttf", 36);
 	text.load("HELLO, WORLD.", &font, { 0, 0, 0, 255 });
 	text.create(window, renderer, textRTTshader);
-	text.asSprite().save("bin/text");
+	//text.asSprite().save("bin/text");
 
 	qs::Camera camera; //left, right, bottom, top
 	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
@@ -219,8 +221,10 @@ int main(int argsc, char* argsv[])
 	updte.set(1.0);
 
 	// UI
+	rttshader.bind();
 	celestial::UITheme theme(1024, &window, &renderer);
 	theme.create(rttshader, { "bin/wall.png" }, {});
+	//theme.getAtlas()->save("bin/UI_atlas");
 	
 	celestial::UI ui(&updte, &theme);
 

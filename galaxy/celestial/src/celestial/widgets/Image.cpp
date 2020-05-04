@@ -15,6 +15,7 @@ namespace celestial
 	Image::Image() noexcept
 		:Widget()
 	{
+		m_updateRender.set(false);
 	}
 
 	Image::~Image() noexcept
@@ -42,42 +43,52 @@ namespace celestial
 		{
 			// Only update opacity and texels.
 			// Position is done GPU side.
-			qs::Vertex* vertex = nullptr;
-			qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
-			glm::vec3* texels = &getTexelTransform();
+			{
+				std::lock_guard<std::mutex> l_lock(m_vertexMutex);
 
-			vertex = &buff->at(0);
-			vertex->m_texels[0] = texels->x;
-			vertex->m_texels[1] = texels->y;
-			vertex->m_colour[3] = texels->z;
+				qs::Vertex* vertex = nullptr;
+				qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
+				glm::vec3* texels = &getTexelTransform();
 
-			vertex = &buff->at(1);
-			vertex->m_texels[0] = texels->x + m_width;
-			vertex->m_texels[1] = texels->y;
-			vertex->m_colour[3] = texels->z;
+				vertex = &buff->at(0);
+				vertex->m_texels[0] = texels->x;
+				vertex->m_texels[1] = texels->y;
+				vertex->m_colour[3] = texels->z;
 
-			vertex = &buff->at(2);
-			vertex->m_texels[0] = texels->x + m_width;
-			vertex->m_texels[1] = texels->y + m_height;
-			vertex->m_colour[3] = texels->z;
+				vertex = &buff->at(1);
+				vertex->m_texels[0] = texels->x + m_width;
+				vertex->m_texels[1] = texels->y;
+				vertex->m_colour[3] = texels->z;
 
-			vertex = &buff->at(3);
-			vertex->m_texels[0] = texels->x;
-			vertex->m_texels[1] = texels->y + m_height;
-			vertex->m_colour[3] = texels->z;
+				vertex = &buff->at(2);
+				vertex->m_texels[0] = texels->x + m_width;
+				vertex->m_texels[1] = texels->y + m_height;
+				vertex->m_colour[3] = texels->z;
+
+				vertex = &buff->at(3);
+				vertex->m_texels[0] = texels->x;
+				vertex->m_texels[1] = texels->y + m_height;
+				vertex->m_colour[3] = texels->z;
+			}
 
 			// buffer set in render() on main thread.
+			setDirty(false);
+			m_updateRender.set(true);
 		}
 	}
 
 	void Image::render() noexcept
 	{
-		if (isDirty())
+		if (m_updateRender.get())
 		{
-			qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
+			{
+				std::lock_guard<std::mutex> l_lock(m_vertexMutex);
 
-			glNamedBufferSubData(m_vertexBuffer.getID(), 0, buff->size() * sizeof(qs::Vertex), buff->data());
-			setDirty(false);
+				qs::VertexStorage* buff = &m_vertexBuffer.getVertexs();
+				glNamedBufferSubData(m_vertexBuffer.getID(), 0, buff->size() * sizeof(qs::Vertex), buff->data());
+			}
+
+			m_updateRender.set(false);
 		}
 	}
 }
