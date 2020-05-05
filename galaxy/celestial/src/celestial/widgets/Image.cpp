@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Shader.hpp>
+
 #include "Image.hpp"
 
 ///
@@ -12,18 +14,12 @@
 ///
 namespace celestial
 {
-	Image::Image() noexcept
+	Image::Image(const float x, const float y, const std::string& region, celestial::UITheme* theme) noexcept
 		:Widget()
 	{
+		m_theme = theme;
 		m_updateRender.set(false);
-	}
 
-	Image::~Image() noexcept
-	{
-	}
-
-	void Image::make(const float x, const float y, const std::string& region) noexcept
-	{
 		auto* atlas = m_theme->getAtlas();
 		auto* src = &atlas->getTexQuad(region);
 
@@ -37,6 +33,20 @@ namespace celestial
 		setDirty(true);
 	}
 
+	Image::~Image() noexcept
+	{
+	}
+
+	void Image::activate() noexcept
+	{
+		bind();
+	}
+
+	void Image::deactivate() noexcept
+	{
+		unbind();
+	}
+	
 	void Image::update(protostar::ProtectedDouble* dt) noexcept
 	{
 		if (isDirty())
@@ -77,7 +87,7 @@ namespace celestial
 		}
 	}
 
-	void Image::render() noexcept
+	void Image::render(qs::Shader& shader) noexcept
 	{
 		if (m_updateRender.get())
 		{
@@ -90,5 +100,8 @@ namespace celestial
 
 			m_updateRender.set(false);
 		}
+
+		shader.setUniform<glm::mat4>("u_transform", getTransformation());
+		glDrawElements(GL_TRIANGLES, getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 }

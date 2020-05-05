@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Shader.hpp>
+
 #include "Label.hpp"
 
 ///
@@ -12,35 +14,41 @@
 ///
 namespace celestial
 {
-	Label::Label(const int x, const int y, const std::string& text, UITheme* theme)
-		:Widget({ x, y, 0, 0 }, theme), m_text(text)
+	Label::Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, celestial::UITheme* theme) noexcept
+		:Widget()
 	{
+		m_theme = theme;
+		m_text.load(text, m_theme->getFont(font), col);
+		m_text.create(*m_theme->getWindow(), *m_theme->getRenderer(), *m_theme->getTextShader());
+		m_text.asSprite().move(x, y);
 	}
 
 	Label::~Label()
 	{
 	}
 
-	void Label::update(const double dt)
+	void Label::updateText(const std::string& text)
+	{
+		m_text.updateText(text, *m_theme->getWindow(), *m_theme->getRenderer(), *m_theme->getTextShader());
+	}
+
+	void Label::activate() noexcept
+	{
+		m_text.asSprite().bind();
+	}
+
+	void Label::deactivate() noexcept
+	{
+		m_text.asSprite().unbind();
+	}
+
+	void Label::update(protostar::ProtectedDouble* dt) noexcept
 	{
 	}
 
-	void Label::render(celestial::Renderer* renderer)
+	void Label::render(qs::Shader& shader) noexcept
 	{
-		if (m_isVisible)
-		{
-			renderer->drawText(m_theme->font(), m_theme->colour(), m_text, m_bounds.m_x, m_bounds.m_y);
-		}
-	}
-
-	void Label::setText(const std::string& text)
-	{
-		m_text = text;
-	}
-
-	void Label::setOffset(const int x, const int y)
-	{
-		m_bounds.m_x += x;
-		m_bounds.m_y += y;
+		shader.setUniform<glm::mat4>("u_transform", m_text.asSprite().getTransformation());
+		glDrawElements(GL_TRIANGLES, m_text.asSprite().getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 }

@@ -32,6 +32,15 @@
 #include <frb/audio/Audible.hpp>
 #include <celestial/widgets/Image.hpp>
 
+#include <qs/shaders/Light.hpp>
+#include <qs/shaders/Lines.hpp>
+#include <qs/shaders/Points.hpp>
+#include <qs/shaders/Sprites.hpp>
+#include <qs/shaders/SpriteBatches.hpp>
+#include <qs/shaders/RenderTextToTexture.hpp>
+#include <qs/shaders/RenderToTexture.hpp>
+#include <qs/shaders/Widgets.hpp>
+
 struct Test
 {
 	int a = 10;
@@ -127,25 +136,25 @@ int main(int argsc, char* argsv[])
 
 	// Shaders
 	qs::Shader shader;
-	shader.loadFromPath("bin/shaders/sprite.glsl");
+	shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
 
 	qs::Shader rttshader;
-	rttshader.loadFromPath("bin/shaders/render_to_texture.glsl");
+	rttshader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
 
 	qs::Shader textRTTshader;
-	textRTTshader.loadFromPath("bin/shaders/render_text_to_texture.glsl");
+	textRTTshader.loadFromRaw(qs::s_renderTextToTextureVS, qs::s_renderTextToTextureFS);
 
 	qs::Shader pointShader;
-	pointShader.loadFromPath("bin/shaders/point.glsl");
+	pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
 
 	qs::Shader lineShader;
-	lineShader.loadFromPath("bin/shaders/line.glsl");
+	lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
 
 	qs::Shader spiteBatchShader;
-	spiteBatchShader.loadFromPath("bin/shaders/spritebatch.glsl");
+	spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
 
 	qs::Shader widgetShader;
-	widgetShader.loadFromPath("bin/shaders/widget.glsl");
+	widgetShader.loadFromRaw(qs::s_widgetVS, qs::s_widgetFS);
 
 	qs::TextureAtlas atlas;
 
@@ -222,7 +231,7 @@ int main(int argsc, char* argsv[])
 
 	// UI
 	rttshader.bind();
-	celestial::UITheme theme(1024, &window, &renderer);
+	celestial::UITheme theme(1024, &window, &renderer, &textRTTshader);
 	theme.create(rttshader, { "bin/wall.png" }, {});
 	//theme.getAtlas()->save("bin/UI_atlas");
 	

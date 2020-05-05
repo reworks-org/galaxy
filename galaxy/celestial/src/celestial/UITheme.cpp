@@ -16,8 +16,8 @@
 ///
 namespace celestial
 {
-	UITheme::UITheme(const int atlasSize, qs::Window* window, qs::Renderer* renderer) noexcept
-		:m_atlas(atlasSize), m_window(window), m_renderer(renderer)
+	UITheme::UITheme(const int atlasSize, qs::Window* window, qs::Renderer* renderer, qs::Shader* textShader) noexcept
+		:m_atlas(atlasSize), m_window(window), m_renderer(renderer), m_textShader(textShader)
 	{
 	}
 
@@ -26,6 +26,7 @@ namespace celestial
 		m_fonts.clear();
 		m_window = nullptr;
 		m_renderer = nullptr;
+		m_textShader = nullptr;
 	}
 
 	void UITheme::create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts) noexcept
@@ -49,6 +50,11 @@ namespace celestial
 				PL_LOG(PL_WARNING, "Font data path empty, skipping...");
 			}
 		}
+	}
+
+	qs::Shader* UITheme::getTextShader() noexcept
+	{
+		return m_textShader;
 	}
 
 	qs::Font* UITheme::getFont(const std::string& key) noexcept

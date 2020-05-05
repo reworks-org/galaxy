@@ -74,12 +74,18 @@ namespace qs
 		///
 		/// \brief Update text.
 		///
-		/// Warning: Do not forget to call create() again after. Updating small strings is faster.
-		/// Optionally, you can call load() again aswell.
+		/// Do not call load() or create(). Use this.
+		/// Not thread safe. Calls GL code.
+		/// If you need to have a string you want to update i.e. health: 20.
+		/// Its better to split into 2 strings so health is static and the 20 is dynamic.
+		/// Much faster.
 		///
 		/// \param text The new text.
+		/// \param window The window to restore framebuffer to.
+		/// \param renderer Renderer to use when drawing text.
+		/// \param shader Shader to use when drawing text to texture.
 		///
-		void updateText(const std::string& text) noexcept;
+		void updateText(const std::string& text, qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
 		///
 		/// Get text as a sprite.

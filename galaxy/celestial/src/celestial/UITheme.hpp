@@ -34,8 +34,9 @@ namespace celestial
 		/// \param atlasSize Size of the atlas to use.
 		/// \param window Pointer to window.
 		/// \param renderer Pointer to renderer.
+		/// \param textShader Shader to draw text with.
 		///
-		UITheme(const int atlasSize, qs::Window* window, qs::Renderer* renderer) noexcept;
+		UITheme(const int atlasSize, qs::Window* window, qs::Renderer* renderer, qs::Shader* textShader) noexcept;
 
 		///
 		/// Destructor.
@@ -51,6 +52,13 @@ namespace celestial
 		///
 		void create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts) noexcept;
 		
+		///
+		/// Get the shader when drawing text.
+		///
+		/// \return Pointer to shader.
+		///
+		qs::Shader* getTextShader() noexcept;
+
 		///
 		/// Get a font using a key.
 		///
@@ -101,6 +109,11 @@ namespace celestial
 		/// Map of fonts stored for UI.
 		///
 		std::unordered_map<std::string, qs::Font> m_fonts;
+
+		///
+		/// Text shader.
+		///
+		qs::Shader* m_textShader;
 	};
 }
 

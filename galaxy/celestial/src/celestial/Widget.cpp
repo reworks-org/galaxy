@@ -18,7 +18,7 @@ namespace celestial
 	}
 
 	Widget::Widget() noexcept
-		:Renderable(), Transform(), m_theme(nullptr), m_id(0)
+		:m_theme(nullptr), m_id(0)
 	{
 	}
 }

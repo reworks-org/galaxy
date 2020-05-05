@@ -8,7 +8,9 @@
 #ifndef CELESTIAL_LABEL_HPP_
 #define CELESTIAL_LABEL_HPP_
 
-#include "celestial/ui/Widget.hpp"
+#include <qs/text/Text.hpp>
+
+#include "celestial/Widget.hpp"
 
 ///
 /// Core namespace.
@@ -18,69 +20,69 @@ namespace celestial
 	///
 	/// Label for UI objects. Does not support tooltips.
 	///
-	class Label final : public Widget
+	class Label final : public celestial::Widget
 	{
 	public:
 		///
-		/// Text Constructor.
+		/// Constructor.
 		///
-		/// \param x x pos relative to UI panel.
-		/// \param y y pos relative to UI panel.
+		/// \param x x pos.
+		/// \param y y pos.
 		/// \param text Label text.
-		/// \param theme Theme to use with widget.
+		/// \param font Name of the font in the UITheme to use.
+		/// \param col Colour of the label text.
+		/// \param theme This is set for you by UI::add(). Do not set it.
 		///
-		Label(const int x, const int y, const std::string& text, UITheme* theme);
+		Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, celestial::UITheme* theme) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Label() noexcept;
+		~Label() noexcept override;
 
 		///
-		/// Update the widget.
+		/// \brief Changes current text.
 		///
-		/// \param dt Delta Time.
-		///
-		void update(const double dt) override;
-
-		///
-		/// Render the widget.
-		///
-		/// Does not render the tooltip.
-		///
-		void render(celestial::Renderer* renderer) override;
-
-		///
-		/// Changes current text.
+		/// This is not thread safe. Only call on main thread.
 		///
 		/// \param text New text to set.
 		///
-		void setText(const std::string& text);
-
-		///
-		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
-		///
-		/// It should look like this:
-		/// m_bounds.m_x += x;
-		/// m_bounds.m_y += y;
-		///
-		/// \param x x-pos of the panel.
-		/// \param y y-pos of the panel.
-		///
-		void setOffset(const int x, const int y) override;
+		void updateText(const std::string& text);
 
 	private:
 		///
-		/// Default constructor.
-		/// Deleted.
+		/// Activate widget.
 		///
-		Label() = delete;
+		void activate() noexcept override;
+
+		///
+		/// Deactivate widget.
+		///
+		void deactivate() noexcept override;
+
+		///
+		/// \brief Update the widget.
+		///
+		/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
+		///
+		/// \param dt Delta Time.
+		///
+		void update(protostar::ProtectedDouble* dt) noexcept override;
+
+		///
+		/// \brief Perform any GL functions on the main thread in prep for rendering.
+		///
+		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
+		///
+		/// \param shader Use to set any shader uniforms.
+		///
+		void render(qs::Shader& shader) noexcept override;
 
 	private:
 		///
 		/// Text to display.
 		///
-		std::string m_text;
+		qs::Text m_text;
 	};
 }
 

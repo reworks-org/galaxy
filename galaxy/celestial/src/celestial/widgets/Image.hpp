@@ -8,6 +8,8 @@
 #ifndef CELESTIAL_IMAGE_HPP_
 #define CELESTIAL_IMAGE_HPP_
 
+#include <qs/core/Transform.hpp>
+
 #include "celestial/Widget.hpp"
 
 ///
@@ -18,29 +20,35 @@ namespace celestial
 	///
 	/// Image for UI objects. Does not support tooltips.
 	///
-	class Image final : public celestial::Widget
+	class Image final : public celestial::Widget, public qs::Renderable, public qs::Transform
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		Image() noexcept;
+		/// \param x x pos.
+		/// \param y y pos.
+		/// \param region Name of texture region in theme to use.
+		/// \param theme This is set for you by UI::add(). Do not set it.
+		///
+		Image(const float x, const float y, const std::string& region, celestial::UITheme* theme) noexcept;
 
 		///
 		/// Destructor.
 		///
 		~Image() noexcept override;
 
-		///
-		/// Create the widget.
-		///
-		/// \param x x pos.
-		/// \param y y pos.
-		/// \param region Name of texture region in theme to use.
-		///
-		void make(const float x, const float y, const std::string& region) noexcept;
-
 	private:
+		///
+		/// Activate widget.
+		///
+		void activate() noexcept override;
+
+		///
+		/// Deactivate widget.
+		///
+		void deactivate() noexcept override;
+
 		///
 		/// \brief Update the widget.
 		///
@@ -55,7 +63,9 @@ namespace celestial
 		///
 		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
-		void render() noexcept override;
+		/// \param shader Use to set any shader uniforms.
+		///
+		void render(qs::Shader& shader) noexcept override;
 
 	private:
 		///

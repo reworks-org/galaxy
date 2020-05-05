@@ -75,9 +75,10 @@ namespace qs
         m_texture.unbind(window);
     }
 
-    void Text::updateText(const std::string& text) noexcept
+    void Text::updateText(const std::string& text, qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept
     {
         m_text = text;
+        create(window, renderer, shader);
     }
 
     qs::Sprite& Text::asSprite() noexcept

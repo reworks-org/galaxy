@@ -8,7 +8,6 @@
 #ifndef CELESTIAL_WIDGET_HPP_
 #define CELESTIAL_WIDGET_HPP_
 
-#include <qs/core/Transform.hpp>
 #include <protostar/async/ProtectedArithmetic.hpp>
 
 #include "celestial/UITheme.hpp"
@@ -24,7 +23,7 @@ namespace celestial
 	/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 	/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 	///
-	class Widget : public qs::Renderable, public qs::Transform
+	class Widget
 	{
 		///
 		/// So UI can directly access stuff that should not be publicly exposed.
@@ -60,6 +59,16 @@ namespace celestial
 		Widget(Widget&&) noexcept = default;
 
 		///
+		/// Activate widget.
+		///
+		virtual void activate() noexcept = 0;
+
+		///
+		/// Deactivate widget.
+		///
+		virtual void deactivate() noexcept = 0;
+
+		///
 		/// \brief Update the widget.
 		///
 		/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
@@ -73,7 +82,9 @@ namespace celestial
 		///
 		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
-		virtual void render() noexcept = 0;
+		/// \param shader Use to set any shader uniforms.
+		///
+		virtual void render(qs::Shader& shader) noexcept = 0;
 
 	protected:
 		///

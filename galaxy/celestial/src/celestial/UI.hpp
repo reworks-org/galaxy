@@ -216,14 +216,11 @@ namespace celestial
 		}
 
 		// Forward arguments to std::vector's construct in place method.
-		m_widgets[idToUse] = std::make_unique<WidgetType>();
+		m_widgets[idToUse] = std::make_unique<WidgetType>(std::forward<Args>(args)..., m_theme);
 
 		// Set ID.
 		WidgetType* ref = dynamic_cast<WidgetType*>(m_widgets[idToUse].get());
 		ref->m_id = idToUse;
-		ref->m_theme = m_theme;
-
-		ref->make(std::forward<Args>(args)...);
 
 		m_widgets.shrink_to_fit();
 

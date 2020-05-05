@@ -6,11 +6,13 @@
     <ClInclude Include="src\celestial\UI.hpp" />
     <ClInclude Include="src\celestial\Widget.hpp" />
     <ClInclude Include="src\celestial\widgets\Image.hpp" />
+    <ClInclude Include="src\celestial\widgets\Label.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\celestial\UITheme.cpp" />
     <ClCompile Include="src\celestial\UI.cpp" />
     <ClCompile Include="src\celestial\Widget.cpp" />
     <ClCompile Include="src\celestial\widgets\Image.cpp" />
+    <ClCompile Include="src\celestial\widgets\Label.cpp" />
   </ItemGroup>
 </Project>
