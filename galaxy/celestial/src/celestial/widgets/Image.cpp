@@ -101,6 +101,7 @@ namespace celestial
 			m_updateRender.set(false);
 		}
 
+		std::lock_guard<std::mutex> l_lock(m_vertexMutex);
 		shader.setUniform<glm::mat4>("u_transform", getTransformation());
 		glDrawElements(GL_TRIANGLES, getCount(), GL_UNSIGNED_INT, nullptr);
 	}
