@@ -18,34 +18,34 @@ namespace galaxy
 		return s_serviceLocator;
 	}
 
-	sol::state* ServiceLocator::lua() const noexcept
-	{
-		return m_lua;
-	}
-
 	galaxy::Config* ServiceLocator::config() const noexcept
 	{
 		return m_config;
 	}
 
-	galaxy::FileSystem* ServiceLocator::fs() const noexcept
+	protostar::ThreadPool* ServiceLocator::pool() const noexcept
 	{
-		return m_fs;
+		return m_threadPool;
 	}
 
-	sf::RenderWindow* ServiceLocator::window() const noexcept
+	qs::Window* ServiceLocator::window() const noexcept
 	{
 		return m_window;
 	}
 
-	galaxy::World* ServiceLocator::world() const noexcept
+	qs::Renderer* ServiceLocator::renderer() const noexcept
 	{
-		return m_world;
+		return m_renderer;
 	}
 
-	galaxy::Editor* ServiceLocator::editor() const noexcept
+	sol::state* ServiceLocator::lua() const noexcept
 	{
-		return m_editor;
+		return m_lua;
+	}
+
+	protostar::StateMachine* ServiceLocator::gamestate() const noexcept
+	{
+		return m_state;
 	}
 
 	starlight::Dispatcher* ServiceLocator::dispatcher() const noexcept
@@ -53,13 +53,13 @@ namespace galaxy
 		return m_dispatcher;
 	}
 
-	galaxy::Serializer* ServiceLocator::serializer() const noexcept
+	galaxy::World* ServiceLocator::world() const noexcept
 	{
-		return m_serializer;
+		return m_world;
 	}
 
-	ServiceLocator::ServiceLocator()
-		:m_lua(nullptr), m_config(nullptr), m_fs(nullptr), m_window(nullptr), m_world(nullptr), m_editor(nullptr), m_dispatcher(nullptr)
+	ServiceLocator::ServiceLocator() noexcept
+		:m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr)
 	{
 	}
 }

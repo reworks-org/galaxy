@@ -341,6 +341,11 @@ namespace qs
 		glfwSwapBuffers(m_window);
 	}
 
+	void Window::pollEvents() noexcept
+	{
+		glfwPollEvents();
+	}
+
 	GLFWwindow* Window::getWindow() noexcept
 	{
 		return m_window;

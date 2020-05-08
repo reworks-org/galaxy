@@ -11,7 +11,8 @@
 
 #include <string>
 
-#include "qs/core/Colours.hpp"
+#include <protostar/system/Colour.hpp>
+
 #include "qs/utils/TextureFilters.hpp"
 
 ///

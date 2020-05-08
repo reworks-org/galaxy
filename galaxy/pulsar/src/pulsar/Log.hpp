@@ -15,6 +15,11 @@
 #include "detail/Windows.hpp"
 
 ///
+/// Static interface handle.
+///
+#define PL_LOG_GET pulsar::Log::get()
+
+///
 /// Macro shortcut.
 ///
 /// \param level Log error level.

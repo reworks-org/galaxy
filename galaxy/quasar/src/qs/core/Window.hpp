@@ -164,6 +164,11 @@ namespace qs
 		void end() noexcept;
 
 		///
+		/// Poll for events.
+		///
+		void pollEvents() noexcept;
+
+		///
 		/// Retrieve pointer to GLFWwindow object.
 		///
 		/// \return Returns const pointer to GLFWwindow.

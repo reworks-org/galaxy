@@ -1,416 +1,65 @@
 ///
 /// main.cpp
-/// Sandbox
+/// sandbox
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <iostream>
+#include <galaxy/core/Application.hpp>
 
-#include <protostar/system/Keys.hpp>
-#include <qs/utils/Error.hpp>
-#include <qs/core/WindowSettings.hpp>
-#include <qs/core/Texture.hpp>
-#include <qs/core/Window.hpp>
-#include <qs/renderer/Renderer.hpp>
-#include <qs/graphics/Camera.hpp>
-#include <qs/graphics/Sprite.hpp>
-#include <qs/graphics/SpriteBatch.hpp>
-#include <qs/core/RenderTexture.hpp>
-#include <qs/graphics/TextureAtlas.hpp>
-#include <qs/text/Text.hpp>
-#include <qs/graphics/Line.hpp>
-#include <qs/graphics/Circle.hpp>
-#include <qs/renderer/LightSource.hpp>
-#include <celestial/UI.hpp>
-#include <protostar/async/ThreadPool.hpp>
-#include <starmap/Map.hpp>
-#include <starlight/Dispatcher.hpp>
-#include <pulsar/Log.hpp>
-#include <frb/Context.hpp>
-#include <frb/audio/Audible.hpp>
-#include <celestial/widgets/Image.hpp>
+#include "StateGame.hpp"
 
-#include <qs/shaders/Light.hpp>
-#include <qs/shaders/Lines.hpp>
-#include <qs/shaders/Points.hpp>
-#include <qs/shaders/Sprites.hpp>
-#include <qs/shaders/SpriteBatches.hpp>
-#include <qs/shaders/RenderTextToTexture.hpp>
-#include <qs/shaders/RenderToTexture.hpp>
-#include <qs/shaders/Widgets.hpp>
-
-struct Test
+class Sandbox : public galaxy::Application
 {
-	int a = 10;
+public:
+	Sandbox(std::unique_ptr<galaxy::Config>& config)
+		:galaxy::Application(config)
+	{
+	}
 };
-
-[[maybe_unused]] void starmap_func()
-{
-	starmap::Map map;
-	if (!map.load("../demo-maps/demo-zlib.json"))
-	{
-		PL_LOG(PL_ERROR, "failed to load map");
-	}
-	else
-	{
-		map.parse();
-		map.dump();
-	}
-}
-
-[[maybe_unused]] void starlight_func()
-{
-	Test test;
-	starlight::Dispatcher dispatcher;
-
-	dispatcher.add<Test>([](const Test& test_int)
-		{
-			std::cout << test_int.a << std::endl;
-		});
-
-	dispatcher.trigger<Test>(test);
-}
-
-[[maybe_unused]] void pulsar_func()
-{
-	pulsar::Log::get().init("logs/a.txt");
-	pulsar::Log::get().setMinimumLevel(PL_INFO);
-
-	PL_LOG(PL_INFO, "Should not log unless INFO is min level.");
-	PL_LOG(PL_WARNING, "Should Log.");
-}
-
-[[maybe_unused]] void frb_func()
-{
-	frb::Context context;
-	context.initialize();
-	context.setListenerGain(0.2f);
-
-	frb::Audible music;
-	music.load("bin/test.ogg");
-	music.play();
-	
-	std::cin.get();
-	music.stop();
-}
 
 int main(int argsc, char* argsv[])
 {
-	pulsar::Log::get().init("logs/log.txt");
-	pulsar::Log::get().setMinimumLevel(PL_INFO);
+	bool restart = false;
 
-	// TODO: PORT TO PULSAR
-	qs::Error::handle().setQSCallback([](const std::string& file, unsigned int line, const std::string& message) -> void
+	do
 	{
-		std::string msg = "[Quasar] File: " + file + " Line: " + std::to_string(line) + " Message: " + message + "\n";
-		PL_LOG(PL_ERROR, msg);
-	});
+		restart = false;
 
-	qs::WindowSettings::s_antiAliasing = 2;
-	qs::WindowSettings::s_ansiotropicFiltering = 2;
-	qs::WindowSettings::s_vsync = false;
-	qs::WindowSettings::s_srgb = false;
-	qs::WindowSettings::s_aspectRatioX = -1;
-	qs::WindowSettings::s_aspectRatioY = -1;
-	qs::WindowSettings::s_rawMouseInput = true;
-	qs::WindowSettings::s_textureFormat = GL_RGBA8;
-
-	qs::Window window;
-
-	if (!window.create("TestBed", 1024, 768))
-	{
-		std::cout << "Window creation failed!" << std::endl;
-	}
-
-	#ifdef _DEBUG
-		qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
+		{
+			std::unique_ptr<galaxy::Config> config = std::make_unique<galaxy::Config>();
+			config->init("bin/config.json");
+			if (!config->open())
 			{
-				std::string msg = "[OpenGL]: Source: " + std::to_string(source) + " Type: " + std::to_string(type) + " ID: " + std::to_string(id) + " Severity: " + std::to_string(severity) + " Message: " + message + "\n";
-				PL_LOG(PL_ERROR, msg);
-			});
-	#endif
+				config->define<int>("threadpool-threadcount", 4);
+				config->define<int>("anti-aliasing", 2);
+				config->define<int>("ansio-filter", 2);
+				config->define<bool>("vsync", false);
+				config->define<bool>("srgb", false);
+				config->define<int>("aspect-ratio-x", -1);
+				config->define<int>("aspect-ratio-y", -1);
+				config->define<bool>("raw-mouse-input", true);
+				config->define<std::string>("window-name", "Sandbox");
+				config->define<int>("window-width", 1280);
+				config->define<int>("window-height", 720);
+				config->define<bool>("is-cursor-visible", true);
+				config->define<std::string>("cursor-image", "cursor.png");
+				config->define<std::string>("icon-file", "icon.png");
 
-	qs::Renderer renderer;
+				config->create();
+				config->open();
+			}
 
-	// Shaders
-	qs::Shader shader;
-	shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
+			Sandbox sandbox(config);
 
-	qs::Shader rttshader;
-	rttshader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
+			auto* gs = SL_HANDLE.gamestate();
+			gs->create<StateGame>("StateGame");
+			gs->push("StateGame");
 
-	qs::Shader textRTTshader;
-	textRTTshader.loadFromRaw(qs::s_renderTextToTextureVS, qs::s_renderTextToTextureFS);
-
-	qs::Shader pointShader;
-	pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
-
-	qs::Shader lineShader;
-	lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
-
-	qs::Shader spiteBatchShader;
-	spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
-
-	qs::Shader widgetShader;
-	widgetShader.loadFromRaw(qs::s_widgetVS, qs::s_widgetFS);
-
-	qs::TextureAtlas atlas;
-
-	atlas.add("bin/wall.png");
-	atlas.add("bin/wall_2.png");
-	rttshader.bind();
-	atlas.create(window, renderer, rttshader);
-	//atlas.save("bin/atlas");
-
-	qs::SpriteBatch atlasSpr;
-	qs::RenderTexture* att = &atlas.getTexture();
-	atlasSpr.load(att->getGLTexture(), att->getWidth(), att->getHeight());
-
-	auto wq = atlas.getTexQuad("wall");
-	auto wq2 = atlas.getTexQuad("wall_2");
-
-	auto quadA = qs::Vertex::make_quad(
-		{ 0.0f, 0.0f, wq.m_width, wq.m_height },
-		{ 0.0f, 0.0f, 0.0f, 1.0f },
-		wq.m_x, wq.m_y
-	);
-	auto quadB = qs::Vertex::make_quad(
-		{ 0.0f, 0.0f, wq2.m_width, wq2.m_height },
-		{ 0.0f, 0.0f, 0.0f, 1.0f },
-		wq2.m_x, wq2.m_y
-	);
-
-	qs::VertexQuadStorage vqs;
-	vqs.push_back(quadA);
-	vqs.push_back(quadB);
-
-	atlasSpr.create(vqs);
-
-	// quad a vertex is from 0 - 3.
-	auto* t1 = atlasSpr.getTransform(0);
-	t1->move(0.0f, 0.0f);
-
-	// quad b vertex is from 4 - 7.
-	auto* t2 = atlasSpr.getTransform(1);
-	t2->move(500.0f, 500.0f);
-	
-	qs::Text text;
-	qs::Font font;
-	textRTTshader.bind();
-	font.create("bin/public.ttf", 36);
-	text.load("HELLO, WORLD.", &font, { 0, 0, 0, 255 });
-	text.create(window, renderer, textRTTshader);
-	//text.asSprite().save("bin/text");
-
-	qs::Camera camera; //left, right, bottom, top
-	camera.create(0.0f, window.getWidth(), window.getHeight(), 0.0f);
-	camera.setSpeed(0.2f);
-
-	//qs::Point point;
-	//point.create(20, 20, 10);
-
-	//qs::Line line;
-	//line.create(50, 50, 600, 600, 20);
-
-	//qs::Circle circle;
-	//circle.create(100, 100, 200, 200);
-	//circle.setThickness(50);
-
-	qs::LightSource lightSource;
-	lightSource.m_ambientColour = {0.6f, 0.6f, 1.0f, 0.2f};
-	lightSource.m_lightColour = {1.0f, 0.8f, 0.6f, 1.0f};
-	lightSource.m_falloff = { 0.4f, 3.0f, 20.0f };
-	lightSource.m_zLevel = 0.075f;
-	lightSource.m_pos = { 500.0f, 200.0f };
-	lightSource.m_shader.loadFromPath("bin/shaders/light.vs", "bin/shaders/light.fs");
-
-	protostar::ProtectedDouble updte;
-	updte.set(1.0);
-
-	// UI
-	rttshader.bind();
-	celestial::UITheme theme(1024, &window, &renderer, &textRTTshader);
-	theme.create(rttshader, { "bin/wall.png" }, {});
-	//theme.getAtlas()->save("bin/UI_atlas");
-	
-	celestial::UI ui(&updte, &theme);
-
-	ui.add<celestial::Image>(20.0f, 20.0f, "wall");
-
-	protostar::ThreadPool tpool;
-	tpool.create(1);
-	tpool.queue(ui.getTask());
-	tpool.setActive(true);
-
-	// Loop
-	while (window.isOpen())
-	{
-		glfwPollEvents();
-
-		int esc = glfwGetKey(window.getWindow(), GLFW_KEY_ESCAPE);
-		if (esc == GLFW_PRESS)
-		{
-			window.close();
+			restart = sandbox.run();
 		}
 
-		int w = glfwGetKey(window.getWindow(), GLFW_KEY_W);
-		if (w == GLFW_PRESS)
-		{
-			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::W });
-		}
-		else
-		{
-			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::W });
-		}
-
-		int s = glfwGetKey(window.getWindow(), GLFW_KEY_S);
-		if (s == GLFW_PRESS)
-		{
-			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::S });
-		}
-		else
-		{
-			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::S });
-		}
-
-		int a = glfwGetKey(window.getWindow(), GLFW_KEY_A);
-		if (a == GLFW_PRESS)
-		{
-			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::A });
-		}
-		else
-		{
-			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::A });
-		}
-
-		int d = glfwGetKey(window.getWindow(), GLFW_KEY_D);
-		if (d == GLFW_PRESS)
-		{
-			camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::D });
-		}
-		else
-		{
-			camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::D });
-		}
-
-		int q = glfwGetKey(window.getWindow(), GLFW_KEY_Q);
-		if (q == GLFW_PRESS)
-		{
-			t1->rotate(-0.1f);
-		}
-
-		int e = glfwGetKey(window.getWindow(), GLFW_KEY_E);
-		if (e == GLFW_PRESS)
-		{
-			t1->rotate(0.1f);
-		}
-		
-		int g = glfwGetKey(window.getWindow(), GLFW_KEY_G);
-		if (g == GLFW_PRESS)
-		{
-			lightSource.m_falloff.x += 0.001f;
-		}
-
-		int b = glfwGetKey(window.getWindow(), GLFW_KEY_B);
-		if (b == GLFW_PRESS)
-		{
-			lightSource.m_falloff.x -= 0.001f;
-		}
-
-		int h = glfwGetKey(window.getWindow(), GLFW_KEY_H);
-		if (h == GLFW_PRESS)
-		{
-			lightSource.m_falloff.y += 0.001f;
-		}
-
-		int n = glfwGetKey(window.getWindow(), GLFW_KEY_N);
-		if (n == GLFW_PRESS)
-		{
-			lightSource.m_falloff.y -= 0.001f;
-		}
-
-		int j = glfwGetKey(window.getWindow(), GLFW_KEY_J);
-		if (j == GLFW_PRESS)
-		{
-			lightSource.m_falloff.z += 0.001f;
-		}
-
-		int m = glfwGetKey(window.getWindow(), GLFW_KEY_M);
-		if (m == GLFW_PRESS)
-		{
-			lightSource.m_falloff.z -= 0.001f;
-		}
-
-		int i = glfwGetKey(window.getWindow(), GLFW_KEY_I);
-		if (i == GLFW_PRESS)
-		{
-			lightSource.m_pos.x += 0.1f;
-		}
-
-		int k = glfwGetKey(window.getWindow(), GLFW_KEY_K);
-		if (k == GLFW_PRESS)
-		{
-			lightSource.m_pos.x -= 0.1f;
-		}
-
-		int o = glfwGetKey(window.getWindow(), GLFW_KEY_O);
-		if (o == GLFW_PRESS)
-		{
-			lightSource.m_pos.y += 0.1f;
-		}
-
-		int l = glfwGetKey(window.getWindow(), GLFW_KEY_L);
-		if (l == GLFW_PRESS)
-		{
-			lightSource.m_pos.y -= 0.1f;
-		}
-
-		camera.update(updte.get());
-
-		// Render.
-		window.begin(qs::Colours::Black);
-
-		//pointShader.bind();
-		//pointShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		//pointShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		//pointShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
-		//renderer.drawPoint(point, pointShader);
-
-		//lineShader.bind();
-		//lineShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		//lineShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		//lineShader.setUniform("u_colour", 1.0f, 1.0f, 1.0f, 1.0f);
-		//renderer.drawLine(line);
-		
-		// Uses same shader as line shader.
-		//renderer.drawCircle(circle);
-
-		//renderer.drawScene(atlasSpr, camera, lightSource);
-		
-		//spiteBatchShader.bind();
-		//spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		//spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		//renderer.drawSpriteBatch(atlasSpr, spiteBatchShader);
-		
-		//shader.bind();
-		//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-		//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		//renderer.drawText(text, shader);
-
-		widgetShader.bind();
-		ui.render(widgetShader, camera);
-
-		window.end();
-	}
-
-	// Exit.
-	//ui.destroy();
-	//tpool.destroy();
-	window.destroy();
-
-	pulsar::Log::get().deinit();
+	} while (restart);
 
 	return 0;
 }

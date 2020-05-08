@@ -8,6 +8,7 @@
 #ifndef PROTOSTAR_TIME_HPP_
 #define PROTOSTAR_TIME_HPP_
 
+#include <ctime>
 #include <string>
 #include <chrono>
 

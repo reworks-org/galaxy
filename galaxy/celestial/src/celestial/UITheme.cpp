@@ -43,7 +43,8 @@ namespace celestial
 			if (!fontData.first.empty())
 			{
 				auto fp = std::filesystem::path(fontData.first);
-				m_fonts.emplace(fp.stem().string(), qs::Font{ fp.string(), fontData.second });
+				std::string id = fp.stem().string() + std::to_string(fontData.second);
+				m_fonts.emplace(id, qs::Font{ fp.string(), fontData.second });
 			}
 			else
 			{

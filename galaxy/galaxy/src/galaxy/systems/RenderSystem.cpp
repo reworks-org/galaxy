@@ -24,7 +24,7 @@ namespace galaxy
 	RenderSystem::RenderSystem() noexcept
 		:m_verticies(sf::PrimitiveType::Quads, 0), m_stride(0)
 	{
-		m_window = galaxy::ServiceLocator::get().window();
+		m_window = SL_HANDLE.window();
 	}
 
 	RenderSystem::~RenderSystem() noexcept

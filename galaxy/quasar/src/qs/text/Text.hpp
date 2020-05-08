@@ -9,8 +9,9 @@
 #ifndef QUASAR_TEXT_HPP_
 #define QUASAR_TEXT_HPP_
 
+#include <protostar/system/Colour.hpp>
+
 #include "qs/text/Font.hpp"
-#include "qs/core/Colours.hpp"
 #include "qs/graphics/Sprite.hpp"
 #include "qs/core/RenderTexture.hpp"
 

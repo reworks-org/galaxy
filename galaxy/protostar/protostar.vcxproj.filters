@@ -21,8 +21,8 @@
     <ClCompile Include="src\protostar\system\Keys.cpp" />
     <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\utility\Meta.cpp" />
-    <ClCompile Include="src\protostar\utility\Time.cpp" />
     <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
+    <ClCompile Include="src\protostar\system\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
@@ -45,7 +45,7 @@
     <ClInclude Include="src\protostar\system\Keys.hpp" />
     <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
-    <ClInclude Include="src\protostar\utility\Time.hpp" />
     <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
+    <ClInclude Include="src\protostar\system\Time.hpp" />
   </ItemGroup>
 </Project>

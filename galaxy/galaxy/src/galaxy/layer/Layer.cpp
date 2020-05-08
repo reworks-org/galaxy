@@ -22,7 +22,6 @@ namespace galaxy
 	Layer::Layer() noexcept
 		:m_name("default")
 	{
-		/* https://www.sfml-dev.org/tutorials/2.5/audio-spatialization.php */
 	}
 
 	Layer::Layer(const std::string& name) noexcept

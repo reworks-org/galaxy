@@ -31,7 +31,7 @@ namespace protostar
 		///
 		/// Default constructor.
 		///
-		StateMachine() noexcept = default;
+		StateMachine() noexcept;
 
 		///
 		/// Destructor.
@@ -39,18 +39,16 @@ namespace protostar
 		~StateMachine() noexcept;
 
 		///
-		/// \brief Pass events onto current state.
+		/// Pass events onto current state.
 		///
-		/// \param event Is a std::any to allow any type of event object to be passed.
-		///
-		void event(const std::any& event) noexcept;
+		void events() noexcept;
         
 		///
 		/// Updates the current state.
 		///
-		/// \param dt Delta Time from game loop.
+		/// \param deltaTime Delta Time from game loop.
 		///
-		void update(const double dt) noexcept;
+		void update(protostar::ProtectedDouble* deltaTime) noexcept;
 
 		///
 		/// \brief Render the current state.
@@ -90,6 +88,11 @@ namespace protostar
 		///
 		template<typename State>
 		State* top() noexcept;
+
+		///
+		/// Clear stack.
+		///
+		void clear() noexcept;
 
 	private:
 		///

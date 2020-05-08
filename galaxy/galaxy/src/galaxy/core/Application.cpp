@@ -6,18 +6,34 @@
 ///
 
 #include <sol/sol.hpp>
-#include <imgui-SFML.h>
-#include <nlohmann/json.hpp>
-#include <SFML/Window/Event.hpp>
-#include <protostar/utility/Time.hpp>
+#include <qs/utils/Error.hpp>
+#include <protostar/system/Time.hpp>
+#include <qs/core/WindowSettings.hpp>
+#include <protostar/system/Colour.hpp>
 
-#include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/layer/ImGuiLayer.hpp"
-#include "galaxy/scripting/LuaUtils.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/PhysfsInputStream.hpp"
 
 #include "Application.hpp"
+
+///
+/// Needed for when using std::chrono.
+///
+using namespace std::chrono_literals;
+
+///
+/// Shorthand for high res clock.
+///
+using std_chrono_hrc = std::chrono::high_resolution_clock;
+
+///
+/// Timepoint.
+///
+using std_chrono_tp = std::chrono::steady_clock::time_point;
+
+///
+/// Duration.
+///
+using std_chrono_duration = std::chrono::duration<long long, std::nano>;
 
 ///
 /// Core namespace.
@@ -27,6 +43,8 @@ namespace galaxy
 	Application::Application(std::unique_ptr<galaxy::Config>& config)
 	:m_restart(false)
 	{
+		m_timeCorrection.set(0);
+
 		// Seed pseudo-random algorithms.
 		std::srand(std::time(nullptr));
 
@@ -35,186 +53,193 @@ namespace galaxy
 		
 		// Logging.
 		std::string lf = "logs/" + protostar::getFormattedTime() + ".txt";
-		PL_LOG_I.init(lf);
-		PL_LOG_I.setMinimumLevel(pl::Log::Level::INFO);
-		// TODO: something for sfml + better exception handling.
+		PL_LOG_GET.init(lf);
+		PL_LOG_GET.setMinimumLevel(PL_INFO);
+
+		qs::Error::handle().setQSCallback([](const std::string& file, unsigned int line, const std::string& message) -> void
+		{
+			std::string msg = "[Quasar Error] File: " + file + " Line: " + std::to_string(line) + " Message: " + message + "\n";
+			PL_LOG(PL_ERROR, msg);
+		});
 
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
 
-		// Create lua instance and open libraries.
-		m_lua = std::make_unique<sol::state>();
-		m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
-		galaxy::ServiceLocator::get().m_lua = m_lua.get();
-
 		// Config reader.
 		m_config = std::move(config);
-		galaxy::ServiceLocator::get().m_config = m_config.get();
+		SL_HANDLE.m_config = m_config.get();
 
-		// File system.
-		m_fs = std::make_unique<galaxy::FileSystem>();
-		m_fs->mount(m_config->get<std::string>("archive"));
-		m_fs->setWriteDir(m_config->get<std::string>("write-dir"));
-		galaxy::ServiceLocator::get().m_fs = m_fs.get();
+		// threadpool
+		m_threadPool = std::make_unique<protostar::ThreadPool>();
+		m_threadPool->create(m_config->get<int>("threadpool-threadcount"));
+		m_threadPool->setActive(true);
+		SL_HANDLE.m_threadPool = m_threadPool.get();
 
-		// App window.
-		m_window = std::make_unique<sf::RenderWindow>();
-		m_window->create(sf::VideoMode(m_config->get<unsigned int>("width"),
-			m_config->get<unsigned int>("height")),
-			m_config->get<std::string>("title"),
-			sf::Style::Titlebar | sf::Style::Close,
-			sf::ContextSettings(0, 0, m_config->get<unsigned int>("anti-alias")));
-		
-		m_window->requestFocus();
-		m_window->setActive();
-		m_window->setFramerateLimit(m_config->get<unsigned int>("framerate-limit"));
-		m_window->setVerticalSyncEnabled(m_config->get<bool>("vsync"));
+		// window
+		qs::WindowSettings::s_antiAliasing = m_config->get<int>("anti-aliasing"); // 2
+		qs::WindowSettings::s_ansiotropicFiltering = m_config->get<int>("ansio-filter"); // 2
+		qs::WindowSettings::s_vsync = m_config->get<bool>("vsync"); // false
+		qs::WindowSettings::s_srgb = m_config->get<bool>("srgb"); // false
+		qs::WindowSettings::s_aspectRatioX = m_config->get<int>("aspect-ratio-x"); // -1
+		qs::WindowSettings::s_aspectRatioY = m_config->get<int>("aspect-ratio-y"); // -1
+		qs::WindowSettings::s_rawMouseInput = m_config->get<bool>("raw-mouse-input"); // true
+		qs::WindowSettings::s_textureFormat = GL_RGBA8;
 
-		sf::Image icon; // Does not need to be permanent since window copies the data.
-		icon.loadFromStream(galaxy::PhysfsInputStream(m_config->get<std::string>("icon")));
-		m_window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-		
-		m_window->setKeyRepeatEnabled(m_config->get<bool>("key-repeat"));
-		m_window->setMouseCursorGrabbed(false);
-		m_window->setMouseCursorVisible(m_config->get<bool>("mouse-cursor-visible"));
-		m_window->setVisible(true);
-		galaxy::ServiceLocator::get().m_window = m_window.get();
+		m_window = std::make_unique<qs::Window>();
+		SL_HANDLE.m_window = m_window.get();
 
-		// Game "world".
-		m_world = std::make_unique<World>();
-		galaxy::ServiceLocator::get().m_world = m_world.get();
+		if (!m_window->create(
+			m_config->get<std::string>("window-name"),
+			m_config->get<int>("window-width"),
+			m_config->get<int>("window-height")
+		))
+		{
+			PL_LOG(PL_FATAL, "Failed to create window! Aborting...");
+		}
+		else
+		{
+			// Do rest of setup.
+			#ifdef _DEBUG
+				qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
+				{
+					std::string msg = "[OpenGL Error]: Source: " + std::to_string(source) + " Type: " + std::to_string(type) + " ID: " + std::to_string(id) + " Severity: " + std::to_string(severity) + " Message: " + message + "\n";
+					PL_LOG(PL_ERROR, msg);
+				});
+			#endif
 
-		// Event dispatcher.
-		m_dispatcher = std::make_unique<starlight::Dispatcher>();
-		galaxy::ServiceLocator::get().m_dispatcher = m_dispatcher.get();
+			m_window->requestAttention();
+			
+			bool cursor = m_config->get<bool>("is-cursor-visible");
+			m_window->setCursorVisibility(cursor);
+			if (cursor)
+			{
+				m_window->setCursorIcon(m_config->get<std::string>("cursor-image"));
+			}
 
-		// Serializer.
-		m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
-		galaxy::ServiceLocator::get().m_serializer = m_serializer.get();
+			m_window->setIcon(m_config->get<std::string>("icon-file"));
+			//m_window->setKeyRepeatEnabled(m_config->get<bool>("key-repeat"));
+			//m_window->setMouseCursorGrabbed(false);
 
-		//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
-		//ServiceLocator::textureAtlas = m_textureAtlas.get();
+			// renderer
+			m_renderer = std::make_unique<qs::Renderer>();
+			SL_HANDLE.m_renderer = m_renderer.get();
 
-		//m_textureAtlas->m_nullTexture = m_configReader->lookup<std::string>(config, "graphics", "nullTexture");
+			// Create lua instance and open libraries.
+			m_lua = std::make_unique<sol::state>();
+			m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
+			SL_HANDLE.m_lua = m_lua.get();
 
-		//m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
-		//ServiceLocator::fontBook = m_fontBook.get();
+			m_state = std::make_unique<protostar::StateMachine>();
+			SL_HANDLE.m_state = m_state.get();
 
-		//m_shaderLibrary = std::make_unique<ShaderLibrary>(m_configReader->lookup<std::string>(config, "graphics", "shaderScript"));
-		//ServiceLocator::shaderLibrary = m_shaderLibrary.get();
+			// Event dispatcher.
+			m_dispatcher = std::make_unique<starlight::Dispatcher>();
+			SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
-		//m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
-		//ServiceLocator::musicPlayer = m_musicPlayer.get();
+			// Game "world".
+			m_world = std::make_unique<galaxy::World>();
+			SL_HANDLE.m_world = m_world.get();
 
-		//m_musicPlayer->m_nullMusic = m_configReader->lookup<std::string>(config, "audio", "nullMusic");
+			
 
-		//m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
-		//ServiceLocator::soundPlayer = m_soundPlayer.get();
+			// Serializer.
+		//	m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
+		//	SL_HANDLE.m_serializer = m_serializer.get();
 
-		//m_soundPlayer->m_nullSound = m_configReader->lookup<std::string>(config, "audio", "nullSound");
+			//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
+			//ServiceLocator::textureAtlas = m_textureAtlas.get();
 
-		//m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
-		//ServiceLocator::box2dHelper = m_box2dHelper.get();
+			//m_textureAtlas->m_nullTexture = m_configReader->lookup<std::string>(config, "graphics", "nullTexture");
 
-		//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
+			//m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
+			//ServiceLocator::fontBook = m_fontBook.get();
 
-		// Register all usertypes used by this application for sol3.
-		LuaUtils::registerUsertypes();
+			//m_shaderLibrary = std::make_unique<ShaderLibrary>(m_configReader->lookup<std::string>(config, "graphics", "shaderScript"));
+			//ServiceLocator::shaderLibrary = m_shaderLibrary.get();
 
-		// Register ImGui layer.
-		m_world->pushLayer<galaxy::ImGuiLayer>(&m_restart);
+			//m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
+			//ServiceLocator::musicPlayer = m_musicPlayer.get();
+
+			//m_musicPlayer->m_nullMusic = m_configReader->lookup<std::string>(config, "audio", "nullMusic");
+
+			//m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
+			//ServiceLocator::soundPlayer = m_soundPlayer.get();
+
+			//m_soundPlayer->m_nullSound = m_configReader->lookup<std::string>(config, "audio", "nullSound");
+
+			//m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
+			//ServiceLocator::box2dHelper = m_box2dHelper.get();
+
+			//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
+
+			// Register all usertypes used by this application for sol3.
+			//LuaUtils::registerUsertypes();
+
+			// Register ImGui layer.
+			//	m_world->pushLayer<galaxy::ImGuiLayer>(&m_restart);
+		}
 	}
 
 	Application::~Application()
 	{
 		// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 		// And of course the file system being the last to be destroyed.
-		m_serializer.reset();
-		m_dispatcher.reset();
-		m_world.reset();
-		m_window.reset();
-		m_fs.reset();
-		m_config.reset();
-		m_lua.reset();
 
-		PL_LOG_I.deinit();
+		m_world.reset();
+		m_dispatcher.reset();
+		m_state.reset();
+		m_lua.reset();
+		m_renderer.reset();
+		m_window.reset();
+		m_threadPool.reset();
+		m_config.reset();
+
+		PL_LOG_GET.deinit();
 	}
 
 	bool Application::run()
 	{
-		// This is to measure UPS and FPS.
-		int frames = 0;
-		int updates = 0;
-		std::uint64_t timer = 0;
-		sf::Time timeSinceLastUpdate = sf::Time::Zero;
-
-		// This is to ensure gameloop is running at 60 UPS, independant of FPS.
-		const sf::Time timePerFrame = sf::seconds(1.f / 60.f);
-
-		// The timer in milliseconds for UPS and FPS.
-		timer = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+		// This is to ensure gameloop is running at 60 UPS, independant of FPS. 1.0 / 60.0.
+		std_chrono_tp current;
+		std_chrono_duration elapsed;
+		std::chrono::nanoseconds lag(0ns);
+		constexpr std::chrono::nanoseconds updateRatio(16ms);
 
 		// Fixed timestep gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
-		sf::Clock clock;
+		auto previous = std_chrono_hrc::now();
 		while (m_window->isOpen())
 		{
-			sf::Time dt = clock.restart();
-			timeSinceLastUpdate += dt;
+			current = std_chrono_hrc::now();
+			elapsed = current - previous;
+			previous = current;
+			lag += elapsed;
 
-			while (timeSinceLastUpdate > timePerFrame)
+			m_window->pollEvents();
+			while (lag >= updateRatio)
 			{
-				timeSinceLastUpdate -= timePerFrame;
+				m_timeCorrection.set(static_cast<double>(lag.count()) / static_cast<double>(updateRatio.count()));
 
-				sf::Event event;
-				while (m_window->pollEvent(event))
-				{
-					m_world->event(event);
+				m_state->events();
+				m_state->update(&m_timeCorrection);
 
-					switch (event.type)
-					{
-					case sf::Event::Closed:
-						m_window->close();
-						break;
-
-					#ifdef _DEBUG
-					case sf::Event::KeyPressed:
-						switch (event.key.code)
-						{
-						case sf::Keyboard::Escape:
-							m_window->close();
-							break;
-						}
-						break;
-					#endif
-					}
-				}
-
-				m_world->update(timeSinceLastUpdate);
-				updates++;
+				lag -= updateRatio;
 			}
 			
-			// has to be here rather than in editor...
-			#ifdef _DEBUG
-			ImGui::SFML::Update(*m_window.get(), timeSinceLastUpdate);
-			#endif
-
-			m_window->clear(sf::Color::White);
+			// Begin render.
+			m_window->begin(protostar::White);
 			
-			m_world->render();
+			m_state->render();
 
-			m_window->display();
-
-			frames++;
-			if ((std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() - timer) > 1000)
-			{
-				timer += 1000;
-				PL_LOG(pl::Log::Level::INFO, std::to_string(updates) + " ups, " + std::to_string(frames) + " fps.");
-
-				updates = 0;
-				frames = 0;
-			}
+			m_window->end();
+			// End render.
 		}
+
+		m_state->clear();
+		m_threadPool->destroy();
+		m_window->destroy();
+
+		PL_LOG_GET.deinit();
 
 		return m_restart;
 	}

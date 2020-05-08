@@ -12,22 +12,23 @@
 ///
 namespace protostar
 {
+	StateMachine::StateMachine() noexcept
+	{
+	}
+
 	StateMachine::~StateMachine() noexcept
 	{
-		while (!m_stack.empty())
-		{
-			m_stack.pop();
-		}
+		clear();
 
 		m_states.clear();
 	}
 	
-	void StateMachine::event(const std::any& event) noexcept
+	void StateMachine::events() noexcept
 	{
 		// Check to make sure event is valid to call.
 		if (!m_stack.empty())
 		{
-			m_stack.top()->event(event);
+			m_stack.top()->events();
 		}
 		else
 		{
@@ -35,12 +36,12 @@ namespace protostar
 		}
 	}
 
-	void StateMachine::update(const double dt) noexcept
+	void StateMachine::update(protostar::ProtectedDouble* deltaTime) noexcept
 	{
 		// Check to make sure update is valid to call.
 		if (!m_stack.empty())
 		{
-			m_stack.top()->update(dt);
+			m_stack.top()->update(deltaTime);
 		}
 		else
 		{
@@ -86,6 +87,15 @@ namespace protostar
 		else
 		{
 			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+		}
+	}
+
+	void StateMachine::clear() noexcept
+	{
+		while (!m_stack.empty())
+		{
+			m_stack.top()->onPop();
+			m_stack.pop();
 		}
 	}
 }

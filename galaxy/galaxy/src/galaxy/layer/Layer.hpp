@@ -10,8 +10,7 @@
 
 #include <string>
 
-// Forward decs.
-namespace sf { class Event; class Time; }
+#include <protostar/async/ProtectedArithmetic.hpp>
 
 ///
 /// Core namespace.
@@ -27,25 +26,29 @@ namespace galaxy
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~Layer() = default;
+		virtual ~Layer() noexcept = default;
 
 		///
-		/// \brief Process layer events.
+		/// Code to call when layer is pushed to top.
 		///
-		/// Allows for std::exceptions.
-		///
-		/// \param event SFML structure containing polled events.
-		///
-		virtual void event(const sf::Event& event) = 0;
+		virtual void onPush() noexcept = 0;
 
 		///
-		/// \brief Process update (fixed timestep) logic.
+		/// Copde to call when layer is popped from stack.
 		///
-		/// Allows for std::exceptions.
+		virtual void onPop() noexcept = 0;
+
 		///
-		/// \param dt Delta-Time from fixed timestep gameloop.
+		/// Process layer events.
 		///
-		virtual void update(sf::Time& dt) = 0;
+		virtual void events() noexcept = 0;
+
+		///
+		/// Process update (fixed timestep) logic.
+		///
+		/// \param deltaTime Delta-Time from fixed timestep gameloop.
+		///
+		virtual void update(protostar::ProtectedDouble* deltaTime) noexcept = 0;
 
 		///
 		/// \brief Render layer.

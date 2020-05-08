@@ -10,7 +10,7 @@
 
 #include <filesystem>
 
-#include <pl/Log.hpp>
+#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
 
 ///
@@ -41,29 +41,25 @@ namespace galaxy
 		///
 		/// \param file Path to config to open / use (does not matter if does not exist).
 		///
-		void init(const std::string& file);
+		void init(const std::string& file) noexcept;
 
 		///
 		/// \brief Open a config file for reading and writing.
-		///
-		/// Can throw exceptions.
 		///
 		/// \param file Path to file to open.
 		///
 		/// \return True if successful.
 		///
-		bool open();
+		bool open() noexcept;
 
 		///
 		/// Define a default key-value pair for the config file.
-		///
-		/// Can throw exceptions.
 		///
 		/// \param key Name of the variable.
 		/// \param value The variable value to set.
 		///
 		template<typename Type>
-		void define(const std::string& key, const Type value);
+		void define(const std::string& key, const Type value) noexcept;
 
 		///
 		/// Change the value in an existing config file.
@@ -72,21 +68,21 @@ namespace galaxy
 		/// \param value The variable value to set.
 		///
 		template<typename Type>
-		void change(const std::string& key, const Type value);
+		void change(const std::string& key, const Type value) noexcept;
 
 		///
 		/// \brief Creates the actual config file in the FS.
 		//
 		/// Also checks that there is actually data in the config file.
 		///
-		void create();
+		void create() noexcept;
 
 		///
 		/// Save the config file. Must be opened first.
 		///
 		/// \return True if successful.
 		///
-		void save();
+		void save() noexcept;
 
 		///
 		/// Retrieve a config value.
@@ -96,7 +92,7 @@ namespace galaxy
 		/// \return Returns the value retrieved from the key.
 		///
 		template<typename Value>
-		Value get(const std::string& key);
+		Value get(const std::string& key) noexcept;
 
 	private:
 		///
@@ -121,7 +117,7 @@ namespace galaxy
 	};
 
 	template<typename Type>
-	inline void Config::define(const std::string& key, const Type value)
+	inline void Config::define(const std::string& key, const Type value) noexcept
 	{
 		// Make sure type is floating, integral, boolean or char.
 		static_assert(std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
@@ -134,7 +130,7 @@ namespace galaxy
 	}
 
 	template<typename Type>
-	inline void Config::change(const std::string& key, const Type value)
+	inline void Config::change(const std::string& key, const Type value) noexcept
 	{
 		// Make sure type is floating, integral, boolean or char.
 		static_assert(std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
@@ -146,12 +142,11 @@ namespace galaxy
 	}
 
 	template<typename Value>
-	inline Value Config::get(const std::string& key)
+	inline Value Config::get(const std::string& key) noexcept
 	{
 		if (!m_opened)
 		{
-			PL_LOG(pl::Log::Level::FATAL, "Attempted to retrieve value from config that was not open!");
-			throw std::runtime_error("");
+			PL_LOG(PL_FATAL, "Attempted to retrieve value from config that was not open!");
 		}
 
 		return m_config[key].get<Value>();

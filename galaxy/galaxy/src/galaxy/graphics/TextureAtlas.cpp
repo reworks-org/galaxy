@@ -78,12 +78,12 @@ namespace galaxy
 
 	void TextureAtlas::add(const std::string& name) noexcept
 	{
-		auto fs = galaxy::ServiceLocator::get().fs();
+		auto fs = SL_HANDLE.fs();
 	}
 
 	void TextureAtlas::addFromJSON(const std::string& json)
 	{
-		auto fs = galaxy::ServiceLocator::get().fs();
+		auto fs = SL_HANDLE.fs();
 
 		if (fs->has(json))
 		{

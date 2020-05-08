@@ -17,7 +17,7 @@
 namespace galaxy
 {
 	ImGuiLayer::ImGuiLayer(bool* restart) noexcept
-		:Layer("ImGuiLayer"), m_editor(galaxy::ServiceLocator::get().window()), m_restart(restart)
+		:Layer("ImGuiLayer"), m_editor(SL_HANDLE.window()), m_restart(restart)
 	{
 	}
 

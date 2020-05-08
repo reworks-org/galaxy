@@ -8,14 +8,17 @@
 #ifndef GALAXY_APPLICATION_HPP_
 #define GALAXY_APPLICATION_HPP_
 
+#include <memory>
+
 #include <sol/forward.hpp>
+#include <qs/core/Window.hpp>
+#include <qs/renderer/Renderer.hpp>
 #include <starlight/Dispatcher.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <protostar/async/ThreadPool.hpp>
+#include <protostar/state/StateMachine.hpp>
 
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/core/World.hpp"
-#include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/fs/Serializer.hpp"
 
 ///
 /// Core namespace.
@@ -75,29 +78,34 @@ namespace galaxy
 
 	protected:
 		///
+		/// Instance of a config reader to parse library config.
+		///
+		std::unique_ptr<galaxy::Config> m_config;
+		
+		///
+		/// Threadpool for app.
+		///
+		std::unique_ptr<protostar::ThreadPool> m_threadPool;
+
+		///
+		/// Main app window.
+		///
+		std::unique_ptr<qs::Window> m_window;
+
+		///
+		/// Main app renderer.
+		///
+		std::unique_ptr<qs::Renderer> m_renderer;
+
+		///
 		/// Master Lua state for application.
 		///
 		std::unique_ptr<sol::state> m_lua;
 
 		///
-		/// Instance of a config reader to parse library config.
+		/// Controls game states. 
 		///
-		std::unique_ptr<galaxy::Config> m_config;
-
-		///
-		/// Manages the virtual filesystem, opens the resource archives, etc.
-		///
-		std::unique_ptr<galaxy::FileSystem> m_fs;
-
-		///
-		/// SFML window - main app window.
-		///
-		std::unique_ptr<sf::RenderWindow> m_window;
-
-		///
-		/// The world class, which manages entities, components, systems, and other important data structures.
-		///
-		std::unique_ptr<galaxy::World> m_world;
+		std::unique_ptr<protostar::StateMachine> m_state;
 
 		///
 		/// Process game events.
@@ -105,9 +113,16 @@ namespace galaxy
 		std::unique_ptr<starlight::Dispatcher> m_dispatcher;
 
 		///
+		/// The world class, which manages entities, components, systems, and other important data structures.
+		///
+		std::unique_ptr<galaxy::World> m_world;
+
+		
+
+		///
 		/// Main serializer.
 		///
-		std::unique_ptr<galaxy::Serializer> m_serializer;
+		//std::unique_ptr<galaxy::Serializer> m_serializer;
 
 		///
 		/// Integrates box2d with the rest of the library.
@@ -134,10 +149,7 @@ namespace galaxy
 		///
 		//std::unique_ptr<SoundPlayer> m_soundPlayer;
 
-		///
-		/// Controls game states. 
-		///
-		//std::unique_ptr<StateMachine> m_stateMachine;
+		
 
 		///
 		/// Stores and manages all the games graphics. Text, textures, etc.
@@ -159,6 +171,11 @@ namespace galaxy
 		/// This is returned as true if the debug menu tells the game to restart.
 		///
 		bool m_restart;
+
+		///
+		/// Delta Time.
+		///
+		protostar::ProtectedDouble m_timeCorrection;
 	};
 }
 

@@ -25,27 +25,27 @@ namespace galaxy
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~Command() = default;
+		virtual ~Command() noexcept = default;
 
 		///
 		/// Execute the command.
 		///
 		/// \return bool Return true if successful, false if not.
 		///
-		virtual bool exec() = 0;
+		virtual bool exec() noexcept = 0;
 
 		///
 		/// Reverse the command's actions. Undo them.
 		///
 		/// \return bool Return true if successful, false if not.
 		///
-		virtual bool undo() = 0;
+		virtual bool undo() noexcept = 0;
 
 	protected:
 		///
 		/// Default constructor.
 		///
-		Command() = default;
+		Command() noexcept = default;
 	};
 }
 

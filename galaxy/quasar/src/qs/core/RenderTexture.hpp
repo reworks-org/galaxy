@@ -9,9 +9,9 @@
 #ifndef QUASAR_RENDERTEXTURE_HPP_
 #define QUASAR_RENDERTEXTURE_HPP_
 
+#include <protostar/system/Colour.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "qs/core/Colours.hpp"
 #include "qs/utils/TextureFilters.hpp"
 
 ///

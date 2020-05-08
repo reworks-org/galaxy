@@ -14,10 +14,10 @@
 
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
+#include <protostar/system/Colour.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "qs/utils/Error.hpp"
-#include "qs/core/Colours.hpp"
 #include "qs/utils/Utility.hpp"
 
 ///

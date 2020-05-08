@@ -8,8 +8,9 @@
 #ifndef PROTOSTAR_STATE_HPP_
 #define PROTOSTAR_STATE_HPP_
 
-#include <any>
 #include <string>
+
+#include "protostar/async/ProtectedArithmetic.hpp"
 
 ///
 /// Core namespace.
@@ -38,18 +39,16 @@ namespace protostar
 		virtual void onPop() noexcept = 0;
 
 		///
-		/// \brief Allows for the state to process events.
+		/// Allows for the state to process events.
 		///
-		/// \param event Is a std::any to allow any type of event object to be passed.
-		///
-		virtual void event(const std::any& event) noexcept = 0;
+		virtual void events() noexcept = 0;
 
 		///
 		/// \brief Allows for the state to utilize fixed timestep updates.
 		///
-		/// \param dt Delta-Time from fixed timestep gameloop.
+		/// \param deltaTime Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(const double dt) noexcept = 0;
+		virtual void update(protostar::ProtectedDouble* deltaTime) noexcept = 0;
 
 		///
 		/// \brief Allows for the state to call render code.

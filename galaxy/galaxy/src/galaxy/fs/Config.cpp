@@ -25,7 +25,7 @@ namespace galaxy
 		save();
 	}
 
-	void Config::init(const std::string& file)
+	void Config::init(const std::string& file) noexcept
 	{
 		m_path = std::filesystem::path(file);
 		if (!std::filesystem::exists(m_path))
@@ -38,7 +38,7 @@ namespace galaxy
 		}
 	}
 
-	bool Config::open()
+	bool Config::open() noexcept
 	{
 		bool result = true;
 
@@ -49,7 +49,7 @@ namespace galaxy
 			if (ifstream.fail())
 			{
 				result = false;
-				PL_LOG(pl::Log::Level::ERROR_, "std::ifstream failed to open config file!");
+				PL_LOG(PL_ERROR, "std::ifstream failed to open config file!");
 			}
 			else
 			{
@@ -63,18 +63,17 @@ namespace galaxy
 		else
 		{
 			result = false;
-			PL_LOG(pl::Log::Level::WARNING, "Config file must be defined and then created.");
+			PL_LOG(PL_WARNING, "Config file must be defined and then created.");
 		}
 
 		return result;
 	}
 
-	void Config::create()
+	void Config::create() noexcept
 	{
 		if (m_config.empty())
 		{
-			PL_LOG(pl::Log::Level::FATAL, "Attempted to create empty config file!");
-			throw std::runtime_error("");
+			PL_LOG(PL_FATAL, "Attempted to create empty config file!");
 		}
 		else
 		{
@@ -83,12 +82,12 @@ namespace galaxy
 		}
 	}
 
-	void Config::save()
+	void Config::save() noexcept
 	{
 		std::ofstream ofstream(m_path.string(), std::ofstream::out | std::ofstream::trunc);
 		if (ofstream.fail())
 		{
-			PL_LOG(pl::Log::Level::ERROR_, "std::ofstream failed to open config file!");
+			PL_LOG(PL_ERROR, "std::ofstream failed to open config file!");
 		}
 		else
 		{

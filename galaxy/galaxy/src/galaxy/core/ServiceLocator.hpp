@@ -10,22 +10,48 @@
 
 #include <sol/forward.hpp>
 
-// Forward decs.
-namespace sf { class RenderWindow; }
-namespace starlight { class Dispatcher; }
+///
+/// Shortcut macro.
+///
+#define SL_HANDLE galaxy::ServiceLocator::get()
+
+///
+/// Forward dec.
+///
+namespace qs
+{
+	class Window;
+	class Renderer;
+}
+
+///
+/// Forward dec.
+///
+namespace protostar
+{
+	class ThreadPool;
+	class StateMachine;
+}
+
+///
+/// Forward dec.
+///
+namespace starlight
+{
+	class Dispatcher;
+}
 
 ///
 /// Core namespace.
 ///
 namespace galaxy
 {
-	// Forward decs.
-	// This avoids mass includes.
+	///
+	/// Forward decs.
+	/// This avoids mass includes.
+	///
 	class Config;
-	class FileSystem;
 	class World;
-	class Editor;
-	class Serializer;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -42,7 +68,7 @@ namespace galaxy
 		///
 		/// Default Destructor.
 		///
-		~ServiceLocator() = default;
+		~ServiceLocator() noexcept = default;
 
 		///
 		/// Get singleton instance.
@@ -52,46 +78,44 @@ namespace galaxy
 		static galaxy::ServiceLocator& get() noexcept;
 
 		///
+		/// Get config service.
+		///
+		/// \return Return pointer to config service.
+		///
+		galaxy::Config* config() const noexcept;
+
+		///
+		/// Get threadpool service.
+		///
+		/// \return Return pointer to threadpool.
+		///
+		protostar::ThreadPool* pool() const noexcept;
+
+		///
+		/// Get window service.
+		///
+		/// \return Return pointer to window service.
+		///
+		qs::Window* window() const noexcept;
+
+		///
+		/// Get renderer service.
+		///
+		/// \return Return pointer to renderer service.
+		///
+		qs::Renderer* renderer() const noexcept;
+
+		///
 		/// Get Lua service.
 		///
 		/// \return Return const pointer to Lua service.
 		///
 		sol::state* lua() const noexcept;
-
+		
 		///
-		/// Get Config service.
+		/// Get game state service.
 		///
-		/// \return Return const pointer to Config service.
-		///
-		galaxy::Config* config() const noexcept;
-
-		///
-		/// Get FileSystem service.
-		///
-		/// \return Return const pointer to FileSystem service.
-		///
-		galaxy::FileSystem* fs() const noexcept;
-
-		///
-		/// Get Window service.
-		///
-		/// \return Return const pointer to Window service.
-		///
-		sf::RenderWindow* window() const noexcept;
-
-		///
-		/// Get World service.
-		///
-		/// \return Return const pointer to World service.
-		///
-		galaxy::World* world() const noexcept;
-
-		///
-		/// Get Editor service.
-		///
-		/// \return Return const pointer to Editor service.
-		///
-		galaxy::Editor* editor() const noexcept;
+		protostar::StateMachine* gamestate() const noexcept;
 
 		///
 		/// Get Dispatcher service.
@@ -101,17 +125,37 @@ namespace galaxy
 		starlight::Dispatcher* dispatcher() const noexcept;
 
 		///
+		/// Get World service.
+		///
+		/// \return Return const pointer to World service.
+		///
+		galaxy::World* world() const noexcept;
+
+		
+
+		
+
+		///
+		/// Get Editor service.
+		///
+		/// \return Return const pointer to Editor service.
+		///
+		//galaxy::Editor* editor() const noexcept;
+
+		
+
+		///
 		/// Get Serializer service.
 		///
 		/// \return Return const pointer to Dispatcher service.
 		///
-		galaxy::Serializer* serializer() const noexcept;
+		//galaxy::Serializer* serializer() const noexcept;
 
 	private:
 		///
 		/// Default constructor.
 		///
-		ServiceLocator();
+		ServiceLocator() noexcept;
 
 		///
 		/// Copy Constructor.
@@ -139,24 +183,39 @@ namespace galaxy
 
 	private:
 		///
-		/// Lua service. Main instance of Lua.
-		///
-		sol::state* m_lua;
-
-		///
 		/// Config service.
 		///
 		galaxy::Config* m_config;
 
 		///
-		/// FileSystem service.
+		/// Threadpool service.
 		///
-		galaxy::FileSystem* m_fs;
+		protostar::ThreadPool* m_threadPool;
 
 		///
 		/// Window service.
 		///
-		sf::RenderWindow* m_window;
+		qs::Window* m_window;
+
+		///
+		/// Renderer service.
+		///
+		qs::Renderer* m_renderer;
+
+		///
+		/// Lua service. Main instance of Lua.
+		///
+		sol::state* m_lua;
+
+		///
+		/// Game state service.
+		///
+		protostar::StateMachine* m_state;
+
+		///
+		/// Dispatcher service.
+		///
+		starlight::Dispatcher* m_dispatcher;
 
 		///
 		/// World service.
@@ -166,17 +225,14 @@ namespace galaxy
 		///
 		/// Editor service.
 		///
-		galaxy::Editor* m_editor;
+		//galaxy::Editor* m_editor;
 
-		///
-		/// Dispatcher service.
-		///
-		starlight::Dispatcher* m_dispatcher;
+		
 
 		///
 		/// Serializer service.
 		///
-		galaxy::Serializer* m_serializer;
+		//galaxy::Serializer* m_serializer;
 	};
 }
 

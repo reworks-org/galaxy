@@ -20,6 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\StateGame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\StateGame.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4257686F-50A9-4BD4-8A42-A97ED03E00C8}</ProjectGuid>
@@ -103,7 +107,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;_DEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_NO_EXCEPTIONS;WIN32;_DEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -134,7 +138,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_NO_EXCEPTIONS;WIN64;_DEBUG</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -165,7 +169,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN32;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_NO_EXCEPTIONS;WIN32;NDEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -234,7 +238,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_ALL_SAFETIES_ON;WIN64;NDEBUG;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;JSON_NOEXCEPTION;AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;SOL_CXX17_FEATURES;SOL_NO_EXCEPTIONS;WIN64;NDEBUG;</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../galaxy/galaxy/src/;../galaxy/celestial/src/;../galaxy/deps/src/;../galaxy/frb/src/;../galaxy/protostar/src/;../galaxy/pulsar/src/;../galaxy/quasar/src/;../galaxy/redshift/src/;../galaxy/solar/src/;../galaxy/starlight/src/;../galaxy/starmap/src/;../dependencies/freetype/include/;../dependencies/glad/;../dependencies/glfw3/include/;../dependencies/glm/;../dependencies/imgui/;../dependencies/imgui/cpp/;../dependencies/imgui/impl/;../dependencies/imgui-texteditor/;../dependencies/json/include/;../dependencies/lua/src/;../dependencies/openal/include/;../dependencies/portable-file-dialogs/include/;../dependencies/sol3/;../dependencies/stb/;../dependencies/zlib/include/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
