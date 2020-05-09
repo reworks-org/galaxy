@@ -26,6 +26,9 @@ namespace celestial
 		load(atlas->getTexture().getGLTexture(), atlas->getTexture().getWidth(), atlas->getTexture().getHeight());
 		create<qs::BufferTypeDynamic>(*src);
 
+		m_width = src->m_width;
+		m_height = src->m_height;
+
 		setRotationOrigin(src->m_width / 2.0f, src->m_height / 2.0f);
 		setTexels(src->m_x, src->m_y);
 		setOpacity(1.0f);
@@ -103,6 +106,9 @@ namespace celestial
 
 		std::lock_guard<std::mutex> l_lock(m_vertexMutex);
 		shader.setUniform<glm::mat4>("u_transform", getTransformation());
+		shader.setUniform<float>("u_width", m_width);
+		shader.setUniform<float>("u_height", m_height);
+
 		glDrawElements(GL_TRIANGLES, getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 }

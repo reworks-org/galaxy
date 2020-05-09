@@ -45,9 +45,7 @@ namespace celestial
 		{
 			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-			shader.setUniform<float>("u_width", static_cast<float>(m_theme->getAtlas()->getTexture().getWidth()));
-			shader.setUniform<float>("u_height", static_cast<float>(m_theme->getAtlas()->getTexture().getHeight()));
-
+			
 			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{

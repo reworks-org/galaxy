@@ -49,6 +49,9 @@ namespace celestial
 	void Label::render(qs::Shader& shader) noexcept
 	{
 		shader.setUniform<glm::mat4>("u_transform", m_text.asSprite().getTransformation());
+		shader.setUniform<float>("u_width", m_text.asSprite().getWidth());
+		shader.setUniform<float>("u_height", m_text.asSprite().getHeight());
+
 		glDrawElements(GL_TRIANGLES, m_text.asSprite().getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 }

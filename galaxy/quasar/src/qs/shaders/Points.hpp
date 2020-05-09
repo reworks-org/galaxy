@@ -32,7 +32,7 @@ namespace qs
 
 		void main()
 		{
-			gl_PointsSize = u_point_size;
+			gl_PointSize = u_point_size;
 			gl_Position = u_cameraProj * u_cameraView * vec4(l_pos, 0.0, 1.0);
 			io_colour = u_colour;
 		}

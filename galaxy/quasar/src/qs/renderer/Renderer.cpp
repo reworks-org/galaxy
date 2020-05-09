@@ -97,21 +97,22 @@ namespace qs
 		drawSprite(text.asSprite(), shader);
 	}
 
-	void Renderer::drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept
+	void Renderer::drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls) noexcept
 	{
-		sprite.bind();
-		sprite.update();
+		spritebatch.bind();
+		spritebatch.update();
+		ls.m_shader.bind();
 
 		ls.m_shader.setUniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
 		ls.m_shader.setUniform("u_light_colour", ls.m_lightColour);
 		ls.m_shader.setUniform("u_ambient_colour", ls.m_ambientColour);
 		ls.m_shader.setUniform("u_falloff", ls.m_falloff);
-		ls.m_shader.setUniform("u_width", static_cast<float>(sprite.getWidth()));
-		ls.m_shader.setUniform("u_height", static_cast<float>(sprite.getHeight()));
+		ls.m_shader.setUniform("u_width", static_cast<float>(spritebatch.getWidth()));
+		ls.m_shader.setUniform("u_height", static_cast<float>(spritebatch.getHeight()));
 		ls.m_shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 		ls.m_shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 		ls.m_shader.setUniform("u_window_resolution", camera.getWidth(), camera.getHeight());
 
-		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 }

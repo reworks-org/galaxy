@@ -21,7 +21,7 @@ namespace celestial
 	///
 	/// First param is the filepath, second is the font size.
 	///
-	using FontData = std::pair<std::string, int>;
+	using FontData = std::pair<std::string, qs::Font*>;
 }
 
 #endif

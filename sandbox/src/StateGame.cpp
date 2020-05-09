@@ -131,22 +131,9 @@ StateGame::StateGame() noexcept
 	lightSource.m_falloff = { 0.4f, 3.0f, 20.0f };
 	lightSource.m_zLevel = 0.075f;
 	lightSource.m_pos = { 500.0f, 200.0f };
-	lightSource.m_shader.loadFromPath("bin/shaders/light.vs", "bin/shaders/light.fs");
+	lightSource.m_shader.loadFromRaw(qs::s_lightVS, qs::s_lightFS);
 	
 	updte.set(1.0);
-
-	// UI
-	rttshader.bind();
-	uitheme = std::make_unique<celestial::UITheme>(1024, window, renderer, &textRTTshader);
-	uitheme->create(rttshader, { "bin/wall.png" }, { {"bin/public.ttf", 64} });
-	//uitheme->getAtlas()->save("bin/UI_atlas");
-
-	ui = std::make_unique<celestial::UI>(&updte, uitheme.get());
-
-	ui->add<celestial::Image>(20.0f, 20.0f, "wall");
-
-	auto* tpool = SL_HANDLE.pool();
-	tpool->queue(ui->getTask());
 }
 
 StateGame::~StateGame() noexcept
@@ -159,7 +146,6 @@ void StateGame::onPush() noexcept
 
 void StateGame::onPop() noexcept
 {
-	ui->destroy();
 }
 
 void StateGame::events() noexcept
@@ -293,6 +279,7 @@ void StateGame::update(protostar::ProtectedDouble* deltaTime) noexcept
 void StateGame::render() noexcept
 {
 	auto* window = SL_HANDLE.window();
+	auto* renderer = SL_HANDLE.renderer();
 
 	// Render.
 	window->begin(protostar::White);
@@ -312,20 +299,17 @@ void StateGame::render() noexcept
 	// Uses same shader as line shader.
 	//renderer.drawCircle(circle);
 
-	//renderer.drawScene(atlasSpr, camera, lightSource);
+	renderer->drawScene(atlasSpr, camera, lightSource);
 
 	//spiteBatchShader.bind();
 	//spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 	//spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-	//renderer.drawSpriteBatch(atlasSpr, spiteBatchShader);
+	//renderer->drawSpriteBatch(atlasSpr, spiteBatchShader);
 
 	//shader.bind();
 	//shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 	//shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 	//renderer.drawText(text, shader);
-
-	widgetShader.bind();
-	ui->render(widgetShader, camera);
 
 	window->end();
 }

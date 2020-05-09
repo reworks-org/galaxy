@@ -121,11 +121,11 @@ namespace qs
 		/// Shader is bound for you.
 		/// LightSource provides shader.
 		///
-		/// \param sprite Framebuffer sprite.
+		/// \param spritebatch Framebuffer sprite.
 		/// \param camera used to render scene.
 		/// \param ls Light source(s) for lighting. Provides its own shader.
 		///
-		void drawScene(qs::Sprite& sprite, qs::Camera& camera, qs::LightSource& ls) noexcept;
+		void drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls) noexcept;
 	};
 }
 

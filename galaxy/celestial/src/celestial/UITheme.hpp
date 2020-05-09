@@ -48,7 +48,7 @@ namespace celestial
 		///
 		/// \param shader Shader to use when drawing to the texture atlas.
 		/// \param textures List of textures to compose texture atlas.
-		/// \param fonts Name of font to load.
+		/// \param fonts List of fonts the UI can use.
 		///
 		void create(qs::Shader& shader, const std::vector<std::string>& textures, const std::vector<celestial::FontData>& fonts) noexcept;
 		
@@ -108,7 +108,7 @@ namespace celestial
 		///
 		/// Map of fonts stored for UI.
 		///
-		std::unordered_map<std::string, qs::Font> m_fonts;
+		std::unordered_map<std::string, qs::Font*> m_fonts;
 
 		///
 		/// Text shader.

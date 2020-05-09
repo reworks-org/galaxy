@@ -42,9 +42,7 @@ namespace celestial
 		{
 			if (!fontData.first.empty())
 			{
-				auto fp = std::filesystem::path(fontData.first);
-				std::string id = fp.stem().string() + std::to_string(fontData.second);
-				m_fonts.emplace(id, qs::Font{ fp.string(), fontData.second });
+				m_fonts.emplace(fontData.first, fontData.second);
 			}
 			else
 			{
@@ -62,7 +60,7 @@ namespace celestial
 	{
 		if (m_fonts.find(key) != m_fonts.end())
 		{
-			return &(m_fonts[key]);
+			return m_fonts[key];
 		}
 		else
 		{

@@ -25,15 +25,12 @@
 #include <qs/graphics/Line.hpp>
 #include <qs/graphics/Circle.hpp>
 #include <qs/renderer/LightSource.hpp>
-#include <celestial/UI.hpp>
 #include <protostar/async/ThreadPool.hpp>
 #include <starmap/Map.hpp>
 #include <starlight/Dispatcher.hpp>
 #include <pulsar/Log.hpp>
 #include <frb/Context.hpp>
 #include <frb/audio/Audible.hpp>
-#include <celestial/widgets/Image.hpp>
-#include <celestial/widgets/Label.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <qs/shaders/Light.hpp>
 #include <qs/shaders/Lines.hpp>
@@ -78,8 +75,6 @@ private:
 	//qs::Circle circle;
 	qs::LightSource lightSource;
 	protostar::ProtectedDouble updte;
-	std::unique_ptr<celestial::UITheme> uitheme;
-	std::unique_ptr<celestial::UI> ui;
 	qs::Transform* t1;
 	qs::Transform* t2;
 };

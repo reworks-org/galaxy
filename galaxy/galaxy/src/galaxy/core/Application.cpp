@@ -236,6 +236,7 @@ namespace galaxy
 		}
 
 		m_state->clear();
+		m_threadPool->setActive(false);
 		m_threadPool->destroy();
 		m_window->destroy();
 
