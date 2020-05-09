@@ -30,6 +30,7 @@
     <ClCompile Include="src\galaxy\layer\Layer.cpp" />
     <ClCompile Include="src\galaxy\core\Command.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
+    <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -38,5 +39,6 @@
     <ClInclude Include="src\galaxy\layer\Layer.hpp" />
     <ClInclude Include="src\galaxy\core\Command.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
+    <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
   </ItemGroup>
 </Project>

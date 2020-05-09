@@ -45,6 +45,12 @@ int main(int argsc, char* argsv[])
 				config->define<bool>("is-cursor-visible", true);
 				config->define<std::string>("cursor-image", "cursor.png");
 				config->define<std::string>("icon-file", "icon.png");
+				config->define<std::string>("root-path", "bin/");
+				config->define<std::string>("textures-path", "textures/");
+				config->define<std::string>("shaders-path", "shaders/");
+				config->define<std::string>("scripts-path", "scripts/");
+				config->define<std::string>("music-path", "music/");
+				config->define<std::string>("sfx-path", "sfx/");
 
 				config->create();
 				config->open();

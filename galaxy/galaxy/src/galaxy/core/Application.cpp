@@ -11,6 +11,7 @@
 #include <qs/core/WindowSettings.hpp>
 #include <protostar/system/Colour.hpp>
 
+#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
 #include "Application.hpp"
@@ -68,6 +69,14 @@ namespace galaxy
 		// Config reader.
 		m_config = std::move(config);
 		SL_HANDLE.m_config = m_config.get();
+
+		// FS paths.
+		galaxy::FileSystem::s_root = m_config->get<std::string>("root-path");
+		galaxy::FileSystem::s_textures = m_config->get<std::string>("textures-path");
+		galaxy::FileSystem::s_shaders = m_config->get<std::string>("shaders-path");
+		galaxy::FileSystem::s_scripts = m_config->get<std::string>("scripts-path");
+		galaxy::FileSystem::s_music = m_config->get<std::string>("music-path");
+		galaxy::FileSystem::s_sfx = m_config->get<std::string>("sfx-path");
 
 		// threadpool
 		m_threadPool = std::make_unique<protostar::ThreadPool>();
@@ -143,8 +152,8 @@ namespace galaxy
 			
 
 			// Serializer.
-		//	m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
-		//	SL_HANDLE.m_serializer = m_serializer.get();
+			//	m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
+			//	SL_HANDLE.m_serializer = m_serializer.get();
 
 			//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 			//ServiceLocator::textureAtlas = m_textureAtlas.get();

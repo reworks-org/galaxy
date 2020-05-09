@@ -21,6 +21,12 @@ namespace qs
 	{
 	public:
 		///
+		/// Destructor.
+		///
+		~WindowSettings() noexcept = default;
+
+	public:
+		///
 		/// Level of MSAA. I.e. 2, 4, etc.
 		///
 		static int s_antiAliasing;
