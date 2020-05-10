@@ -7,12 +7,14 @@
 
 #include <ctime>
 #include <chrono>
-#include <future>
+#include <thread>
 #include <iostream>
 #include <algorithm>
 #include <filesystem>
 
 #include "Log.hpp"
+
+using namespace std::chrono_literals;
 
 ///
 /// Core namespace.
@@ -38,6 +40,9 @@ namespace pulsar
 
 	void Log::init(const std::string& logTo) noexcept
 	{
+		// allow for logging to complete.
+		std::this_thread::sleep_for(50ms);
+
 		// Find path
 		std::filesystem::path path(logTo);
 		std::filesystem::path directory = path.remove_filename();
@@ -62,6 +67,8 @@ namespace pulsar
 		// Check to make sure level should be logged.
 		if (pulsar::Log::get().filterLevel(level))
 		{
+			std::lock_guard<std::mutex> l_lock(m_mutex);
+
 			// Prefix string
 			std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
 			output += (message + "\n");

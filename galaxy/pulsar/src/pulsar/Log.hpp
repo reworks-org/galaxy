@@ -8,6 +8,7 @@
 #ifndef PULSAR_LOG_HPP_
 #define PULSAR_LOG_HPP_
 
+#include <mutex>
 #include <fstream>
 #include <functional>
 
@@ -195,6 +196,11 @@ namespace pulsar
 		/// Minimum level of messages required to be logged.
 		///
 		pulsar::Log::Level m_minimumLevel;
+
+		///
+		/// Protection mutex.
+		///
+		std::mutex m_mutex;
 	};
 }
 

@@ -53,3 +53,10 @@ sandbox/build/
 sandbox/logs/
 sandbox/write-dir/
 sandbox/*.ini
+
+# supercluster stuff
+supercluster/bin/Debug/
+supercluster/bin/Release/
+supercluster/build/
+supercluster/logs/
+supercluster/*.ini
