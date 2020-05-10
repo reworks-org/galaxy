@@ -24,7 +24,8 @@ namespace sc
 		void render() noexcept override;
 
 	private:
-
+		std::string m_name;
+		bool m_open;
 	};
 }
 

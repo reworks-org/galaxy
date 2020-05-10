@@ -26,6 +26,7 @@
     <ClCompile Include="..\..\dependencies\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\..\dependencies\imgui\imgui_widgets.cpp" />
     <ClCompile Include="..\..\dependencies\imgui\impl\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\..\dependencies\imgui\impl\imgui_impl_opengl3.cpp" />
     <ClCompile Include="..\..\dependencies\lua\src\lapi.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lauxlib.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lbaselib.c" />
