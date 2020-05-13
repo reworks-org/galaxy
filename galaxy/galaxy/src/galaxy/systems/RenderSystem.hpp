@@ -8,14 +8,16 @@
 #ifndef GALAXY_RENDERSYSTEM_HPP_
 #define GALAXY_RENDERSYSTEM_HPP_
 
+#include <qs/core/Shader.hpp>
 #include <solar/system/System.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
 
 ///
 /// Core namespace.
 ///
 namespace galaxy
 {
+	class World;
+
 	///
 	/// System that handles rendering of entities with a SpriteComponent, TransformComponent, etc.
 	///
@@ -33,43 +35,25 @@ namespace galaxy
 		~RenderSystem() noexcept override;
 
 		///
-		/// Render sprites / textures to screen.
+		/// Abstract implementation for processing events.
 		///
-		/// \param atlas Pointer to texture atlas to draw from.
-		/// 
-		void render(galaxy::TextureAtlas* atlas);
-
-	private:
-		///
-		/// Process events.
-		///
-		/// \param e Event object to pass to system.
-		///
-		void event(const sr::Event& e) override;
+		void events() noexcept override;
 
 		///
-		/// Update System.
+		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
 		/// \param time DeltaTime from gameloop.
 		/// \param manager Entity manager.
 		///
-		void update(const sr::DeltaTime time, sr::Manager& manager) override;
-
-	private:
-		///
-		/// Pointer to main rendering window.
-		///
-		sf::RenderWindow* m_window;
+		void update(protostar::ProtectedDouble* deltaTime, sr::Manager& manager) noexcept override;
 
 		///
-		/// Avoid recreating each render pass.
+		/// Render sprites / textures to screen.
 		///
-		sf::VertexArray m_verticies;
-
-		///
-		/// Current vertex stride.
-		///
-		unsigned int m_stride;
+		/// \param world Galaxy gameworld.
+		/// \param shader Shader to apply when drawing.
+		/// 
+		void render(galaxy::World* world, qs::Shader& shader);
 	};
 }
 

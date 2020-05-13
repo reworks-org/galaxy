@@ -8,7 +8,7 @@
 #ifndef SOLAR_SYSTEM_HPP_
 #define SOLAR_SYSTEM_HPP_
 
-#include "solar/Config.hpp"
+#include <protostar/async/ProtectedArithmetic.hpp>
 
 ///
 /// Core namespace.
@@ -34,15 +34,15 @@ namespace sr
 		///
 		/// Abstract implementation for processing events.
 		///
-		virtual void event() noexcept = 0;
+		virtual void events() noexcept = 0;
 
 		///
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
-		/// \param time DeltaTime from gameloop.
+		/// \param deltaTime "Lag" from gameloop.
 		/// \param manager Entity manager.
 		///
-		virtual void update(const sr::DeltaTime time, sr::Manager& manager) noexcept = 0;
+		virtual void update(protostar::ProtectedDouble* deltaTime, sr::Manager& manager) noexcept = 0;
 
 	protected:
 		///

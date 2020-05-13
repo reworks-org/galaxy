@@ -1,0 +1,12 @@
+{
+  "SpriteComponent": {
+    "texture": "wall.png",
+    "dynamic-buffer": true
+  },
+  "TransformComponent": {
+    "x": 20.0,
+    "y": 20.0,
+    "rotation": 0.0,
+    "scale": 1.0
+  }
+}

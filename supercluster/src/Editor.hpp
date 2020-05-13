@@ -8,7 +8,16 @@
 #ifndef SUPERCLUSTER_EDITOR_HPP_
 #define SUPERCLUSTER_EDITOR_HPP_
 
+#include <memory>
+
+#include <qs/core/Shader.hpp>
+#include <qs/graphics/Camera.hpp>
 #include <protostar/state/State.hpp>
+
+namespace pfd
+{
+	class open_file;
+}
 
 namespace sc
 {
@@ -24,8 +33,23 @@ namespace sc
 		void render() noexcept override;
 
 	private:
+		void entityUI() noexcept;
+		void componentUI() noexcept;
+
+		void start() noexcept;
+		void end() noexcept;
+
+	private:
+		bool m_showEUI;
+		bool m_showCUI;
+		bool m_isFileOpen;
+
+		qs::Window* m_window;
+		galaxy::World* m_world;
 		std::string m_name;
-		bool m_open;
+		std::unique_ptr<pfd::open_file> m_currentOpenFile;
+		qs::Shader m_spriteShader;
+		qs::Camera m_camera;
 	};
 }
 

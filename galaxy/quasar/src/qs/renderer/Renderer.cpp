@@ -56,6 +56,16 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, character.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
+	void Renderer::drawRenderable(qs::Renderable* rb, qs::Transform& transform, qs::Shader& shader) noexcept
+	{
+		rb->bind();
+		shader.setUniform("u_transform", transform.getTransformation());
+		shader.setUniform<float>("u_width", static_cast<float>(rb->getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(rb->getHeight()));
+
+		glDrawElements(GL_TRIANGLES, rb->getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
 		sprite.bind();

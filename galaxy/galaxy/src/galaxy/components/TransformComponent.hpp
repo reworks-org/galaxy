@@ -8,7 +8,8 @@
 #ifndef GALAXY_TRANSFORMCOMPONENT_HPP_
 #define GALAXY_TRANSFORMCOMPONENT_HPP_
 
-#include <SFML/Graphics/Transform.hpp>
+#include <nlohmann/json_fwd.hpp>
+#include <qs/core/Transform.hpp>
 
 ///
 /// Core namespace.
@@ -24,7 +25,14 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		TransformComponent() noexcept = default;
+		TransformComponent() noexcept;
+
+		///
+		/// JSON constructor.
+		///
+		/// \param json JSON defining object.
+		///
+		TransformComponent(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
@@ -35,7 +43,7 @@ namespace galaxy
 		///
 		/// Transformation object.
 		///
-		sf::Transform m_transform;
+		qs::Transform m_transform;
 	};
 }
 

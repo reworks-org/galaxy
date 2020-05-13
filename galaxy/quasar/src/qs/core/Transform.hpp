@@ -102,6 +102,14 @@ namespace qs
 		void setTexels(const float x, const float y) noexcept;
 
 		///
+		/// Sets the starting. top left texture coords.
+		///
+		/// \param x New x position.
+		/// \param y New y position.
+		///
+		void setDefaultTexels(const float x, const float y) noexcept;
+
+		///
 		/// \brief Moves the texture coords.
 		///
 		/// This is additive. This does not set.
@@ -130,11 +138,21 @@ namespace qs
 		///
 		const bool isDirty() const noexcept;
 
+		///
+		/// Check if default texel transform has been set.
+		///
+		const bool isDefaultSet() const noexcept;
+
 	protected:
 		///
 		/// When rendering, do transforms need to be updated.
 		///
 		bool m_isDirty;
+
+		///
+		/// Checks if default texels are set.
+		///
+		bool m_defaultSet;
 
 		///
 		/// Texture transformation.

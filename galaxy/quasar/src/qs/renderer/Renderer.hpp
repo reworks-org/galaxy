@@ -30,6 +30,8 @@ namespace qs
 	class IndexBuffer;
 	struct LightSource;
 	class RenderTexture;
+	class Renderable;
+	class Transform;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -79,6 +81,15 @@ namespace qs
 		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
 		///
 		void drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
+
+		///
+		/// Draw a renderable object.
+		///
+		/// \param rb Renderable object to draw.
+		/// \param transform Transform to apply to renderable.
+		/// \param shader Shader to apply.
+		///
+		void drawRenderable(qs::Renderable* rb, qs::Transform& transform, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw a sprite.

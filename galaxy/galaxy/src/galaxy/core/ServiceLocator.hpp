@@ -77,6 +77,8 @@ namespace galaxy
 		///
 		static galaxy::ServiceLocator& get() noexcept;
 
+
+
 		///
 		/// Get config service.
 		///
@@ -180,6 +182,12 @@ namespace galaxy
 		/// Deleted.
 		///
 		ServiceLocator& operator=(ServiceLocator &&) = delete;
+
+	public:
+		///
+		/// Restart flag.
+		///
+		bool m_restart;
 
 	private:
 		///

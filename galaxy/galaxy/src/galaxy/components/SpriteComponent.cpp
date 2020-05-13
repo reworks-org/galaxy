@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "SpriteComponent.hpp"
 
 ///
@@ -13,12 +15,29 @@
 namespace galaxy
 {
 	SpriteComponent::SpriteComponent() noexcept
-		:m_name(""), m_layer(0), m_colour(0, 0, 0, 255)
+		:Renderable()
 	{
 	}
 
-	SpriteComponent::SpriteComponent(const std::string& name, const unsigned int layer, const sf::Color col, const protostar::Rect<float> texRect) noexcept
-		:m_name(name), m_layer(layer), m_colour(col), m_texRect(texRect)
+	SpriteComponent::SpriteComponent(const nlohmann::json& json) noexcept
+		:Renderable()
 	{
+		load(json.at("texture"));
+		
+		bool dynamic = json.at("dynamic-buffer");
+		if (dynamic)
+		{
+			create<qs::BufferTypeDynamic>();
+		}
+		else
+		{
+			create<qs::BufferTypeStatic>();
+		}
+	}
+
+	SpriteComponent::~SpriteComponent() noexcept
+	{
+		unbind();
+		glDeleteTextures(1, &m_textureHandle);
 	}
 }

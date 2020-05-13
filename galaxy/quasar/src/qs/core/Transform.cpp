@@ -16,7 +16,7 @@
 namespace qs
 {
 	Transform::Transform() noexcept
-		:m_isDirty(false), m_textureTransform(0.0f, 0.0f, 1.0f), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
+		:m_isDirty(false), m_defaultSet(false), m_textureTransform(0.0f, 0.0f, 1.0f), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
 	{
 	}
 
@@ -95,6 +95,15 @@ namespace qs
 		m_isDirty = true;
 	}
 
+	void Transform::setDefaultTexels(const float x, const float y) noexcept
+	{
+		if (!m_defaultSet)
+		{
+			setTexels(x, y);
+			m_defaultSet = true;
+		}
+	}
+
 	void Transform::moveTexels(const float x, const float y) noexcept
 	{
 		m_textureTransform.x += x;
@@ -115,5 +124,10 @@ namespace qs
 	const bool Transform::isDirty() const noexcept
 	{
 		return m_isDirty;
+	}
+
+	const bool Transform::isDefaultSet() const noexcept
+	{
+		return m_defaultSet;
 	}
 }

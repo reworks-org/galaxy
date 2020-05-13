@@ -15,8 +15,8 @@
     "srgb": false,
     "textures-path": "textures/",
     "threadpool-threadcount": 4,
-    "vsync": false,
+    "vsync": true,
     "window-height": 720,
-    "window-name": "Sandbox",
+    "window-name": "Supercluster - Galaxy Editor",
     "window-width": 1280
 }

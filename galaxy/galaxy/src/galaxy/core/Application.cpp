@@ -42,7 +42,6 @@ using std_chrono_duration = std::chrono::duration<long long, std::nano>;
 namespace galaxy
 {
 	Application::Application(std::unique_ptr<galaxy::Config>& config)
-	:m_restart(false)
 	{
 		m_timeCorrection.set(0);
 
@@ -59,8 +58,8 @@ namespace galaxy
 
 		qs::Error::handle().setQSCallback([](const std::string& file, unsigned int line, const std::string& message) -> void
 		{
-			std::string msg = "[Quasar Error] File: " + file + " Line: " + std::to_string(line) + " Message: " + message + "\n";
-			PL_LOG(PL_ERROR, msg);
+			std::string msg = "[Quasar] File: " + file + " Line: " + std::to_string(line) + " Message: " + message + "\n";
+			PL_LOG(PL_WARNING, msg);
 		});
 
 		// Set up all of the difference services.
@@ -111,8 +110,8 @@ namespace galaxy
 			#ifdef _DEBUG
 				qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
 				{
-					std::string msg = "[OpenGL Error]: Source: " + std::to_string(source) + " Type: " + std::to_string(type) + " ID: " + std::to_string(id) + " Severity: " + std::to_string(severity) + " Message: " + message + "\n";
-					PL_LOG(PL_ERROR, msg);
+					std::string msg = "[OpenGL]: Source: " + std::to_string(source) + " Type: " + std::to_string(type) + " ID: " + std::to_string(id) + " Severity: " + std::to_string(severity) + " Message: " + message + "\n";
+					PL_LOG(PL_WARNING, msg);
 				});
 			#endif
 
@@ -251,6 +250,6 @@ namespace galaxy
 
 		PL_LOG_GET.deinit();
 
-		return m_restart;
+		return SL_HANDLE.m_restart;
 	}
 }

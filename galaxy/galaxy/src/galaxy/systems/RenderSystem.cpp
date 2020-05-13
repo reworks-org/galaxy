@@ -5,12 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <solar/entity/Manager.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
+#include <galaxy/core/World.hpp>
+#include <qs/renderer/Renderer.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
 
-#include "galaxy/flags/EnabledFlag.hpp"
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/TextureAtlas.hpp"
 #include "galaxy/components/SpriteComponent.hpp"
 #include "galaxy/components/TransformComponent.hpp"
 
@@ -22,55 +20,70 @@
 namespace galaxy
 {
 	RenderSystem::RenderSystem() noexcept
-		:m_verticies(sf::PrimitiveType::Quads, 0), m_stride(0)
 	{
-		m_window = SL_HANDLE.window();
 	}
 
 	RenderSystem::~RenderSystem() noexcept
 	{
-		m_verticies.clear();
-		m_window = nullptr;
 	}
 
-	void RenderSystem::render(galaxy::TextureAtlas* atlas)
-	{
-		m_window->draw(m_verticies, &atlas->getAtlas());
-	}
-
-	void RenderSystem::event(const sr::Event& e)
+	void RenderSystem::events() noexcept
 	{
 	}
 
-	void RenderSystem::update(const sr::DeltaTime time, sr::Manager& manager)
+	void RenderSystem::update(protostar::ProtectedDouble* deltaTime, sr::Manager& manager) noexcept
 	{
-		m_verticies.clear();
-		m_stride = 0;
-
-		manager.operate<SpriteComponent, TransformComponent, EnabledFlag>([&](const sr::Entity entity, SpriteComponent* sc, TransformComponent* tc, EnabledFlag* enabled)
+		manager.operate<SpriteComponent, TransformComponent>([](sr::Entity, SpriteComponent* sc, TransformComponent* tc)
 		{
-			if (m_stride + 4> m_verticies.getVertexCount())
+			// Set initial texture transform.
+			if (!tc->m_transform.isDefaultSet())
 			{
-				m_verticies.resize(m_stride + 4);
+				qs::VertexStorage* buff = &sc->getVBO().getVertexs();
+				auto* vertex = &buff->at(0);
+
+ 				tc->m_transform.setTexels(vertex->m_texels[0], vertex->m_texels[1]);
 			}
 
-			m_verticies[m_stride].color = sc->m_colour;
-			m_verticies[m_stride].position = tc->m_transform.transformPoint(0.0f, 0.0f);
-			m_verticies[m_stride].texCoords = sf::Vector2f(sc->m_texRect.m_x, sc->m_texRect.m_y);
+			if (tc->m_transform.isDirty())
+			{
+				// Only update opacity and texels.
+				// Position is done GPU side.
+				qs::Vertex* vertex = nullptr;
+				qs::VertexStorage* buff = &sc->getVBO().getVertexs();
+				glm::vec3* texels = &tc->m_transform.getTexelTransform();
 
-			m_verticies[m_stride + 1].color = sc->m_colour;
-			m_verticies[m_stride + 1].position = tc->m_transform.transformPoint(0.0f, sc->m_texRect.m_height);
-			m_verticies[m_stride + 1].texCoords = sf::Vector2f(sc->m_texRect.m_x, sc->m_texRect.m_height + sc->m_texRect.m_y);
+				vertex = &buff->at(0);
+				vertex->m_texels[0] = texels->x;
+				vertex->m_texels[1] = texels->y;
+				vertex->m_colour[3] = texels->z;
 
-			m_verticies[m_stride + 2].color = sc->m_colour;
-			m_verticies[m_stride + 2].position = tc->m_transform.transformPoint(sc->m_texRect.m_width, sc->m_texRect.m_height);
-			m_verticies[m_stride + 2].texCoords = sf::Vector2f(sc->m_texRect.m_x + sc->m_texRect.m_width, sc->m_texRect.m_y + sc->m_texRect.m_height);
+				vertex = &buff->at(1);
+				vertex->m_texels[0] = texels->x + sc->getWidth();
+				vertex->m_texels[1] = texels->y;
+				vertex->m_colour[3] = texels->z;
 
-			m_verticies[m_stride + 3].color = sc->m_colour;
-			m_verticies[m_stride + 3].position = tc->m_transform.transformPoint(sc->m_texRect.m_width, 0.0f);
-			m_verticies[m_stride + 3].texCoords = sf::Vector2f(sc->m_texRect.m_width + sc->m_texRect.m_x, sc->m_texRect.m_y);
+				vertex = &buff->at(2);
+				vertex->m_texels[0] = texels->x + sc->getWidth();
+				vertex->m_texels[1] = texels->y + sc->getHeight();
+				vertex->m_colour[3] = texels->z;
 
-			m_stride += 4;
+				vertex = &buff->at(3);
+				vertex->m_texels[0] = texels->x;
+				vertex->m_texels[1] = texels->y + sc->getHeight();
+				vertex->m_colour[3] = texels->z;
+
+				glNamedBufferSubData(sc->getVBO().getID(), 0, buff->size() * sizeof(qs::Vertex), buff->data());
+				tc->m_transform.setDirty(false);
+			}
+		});
+	}
+
+	void RenderSystem::render(galaxy::World* world, qs::Shader& shader)
+	{
+		auto* renderer = SL_HANDLE.renderer();
+		world->operate<SpriteComponent, TransformComponent>([&](sr::Entity, SpriteComponent* sc, TransformComponent* tc)
+		{
+			renderer->drawRenderable(dynamic_cast<qs::Renderable*>(sc), tc->m_transform, shader);
 		});
 	}
 }

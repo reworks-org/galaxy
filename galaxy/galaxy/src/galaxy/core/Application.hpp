@@ -168,11 +168,6 @@ namespace galaxy
 
 	private:
 		///
-		/// This is returned as true if the debug menu tells the game to restart.
-		///
-		bool m_restart;
-
-		///
 		/// Delta Time.
 		///
 		protostar::ProtectedDouble m_timeCorrection;

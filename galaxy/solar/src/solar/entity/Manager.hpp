@@ -48,7 +48,7 @@ namespace sr
 	///
 	/// Controls and manages the Entitys, Components and Systems.
 	///
-	class Manager final
+	class Manager
 	{
 	public:
 		///
@@ -59,7 +59,7 @@ namespace sr
 		///
 		/// Destructor.
 		///
-		~Manager() noexcept;
+		virtual ~Manager() noexcept;
 
 		///
 		/// Create an entity.
@@ -94,8 +94,10 @@ namespace sr
 		/// \param entity Entity to assosiate the component with.
 		/// \param args Constructor arguments for the component.
 		///
+		/// \return Pointer to newly added component.
+		///
 		template<typename Component, typename... Args>
-		void add(const sr::Entity entity, Args&&... args) noexcept;
+		Component* add(const sr::Entity entity, Args&&... args) noexcept;
 
 		///
 		/// Retrieve a component assosiated with an entity.
@@ -147,7 +149,7 @@ namespace sr
 		/// \param args Constructor arguments for the system.
 		///
 		template<typename System, typename... Args>
-		void add(Args&&... args) noexcept;
+		void addSystem(Args&&... args) noexcept;
 
 		///
 		/// Get a system. Type is template parameter.
@@ -167,21 +169,21 @@ namespace sr
 		///
 		/// Process system events.
 		///
-		void event() noexcept;
+		void events() noexcept;
 
 		///
 		/// Update all systems.
 		///
-		/// \param time DeltaTime to pass to systems.
+		/// \param deltaTime "Lag" time to pass to systems.
 		///
-		void update(const sr::DeltaTime time) noexcept;
+		void update(protostar::ProtectedDouble* deltaTime) noexcept;
 
 		///
 		/// Clear all data from Manager and reset.
 		///
 		void clear() noexcept;
 
-	private:
+	protected:
 		///
 		/// Internal method used to process components from entities.
 		///
@@ -190,7 +192,7 @@ namespace sr
 		template<typename Component>
 		void iOperate(std::vector<sr::Entity>& entities) noexcept;
 
-	private:
+	protected:
 		///
 		/// Counter for free entity ids.
 		///
@@ -213,11 +215,12 @@ namespace sr
 	};
 
 	template<typename Component, typename... Args>
-	inline void Manager::add(const sr::Entity entity, Args&& ...args) noexcept
+	inline Component* Manager::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
 		if (!validate(entity))
 		{
 			PL_LOG(PL_FATAL, "Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+			return nullptr;
 		}
 		else
 		{
@@ -240,7 +243,7 @@ namespace sr
 				// Now convert the storage to the type we want to access.
 				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
 
-				derived->add(entity, std::forward<Args>(args)...);
+				return derived->add(entity, std::forward<Args>(args)...);
 			}
 		}
 	}
@@ -283,23 +286,26 @@ namespace sr
 	template<typename... Components, typename Lambda>
 	inline void Manager::operate(Lambda&& lambda) noexcept
 	{
-		std::vector<sr::Entity> entities;
-		
-		// expands to be called on every component, also incrementing counter to know how many times called.
-		(iOperate<Components>(entities), ...);
-
-		// Erase any duplicates. This is faster than sort + unique apparently.
-		std::unordered_set<sr::Entity> set;
-		for (sr::Entity e : entities)
+		if (!m_data.empty())
 		{
-			set.insert(e);
-		}
-		entities.assign(set.begin(), set.end());
-		//std::sort(entities.begin(), entities.end());
+			std::vector<sr::Entity> entities;
 
-		for (auto& entity : entities)
-		{
-			lambda(entity, get<Components>(entity)...);
+			// expands to be called on every component, also incrementing counter to know how many times called.
+			(iOperate<Components>(entities), ...);
+
+			// Erase any duplicates. This is faster than sort + unique apparently.
+			std::unordered_set<sr::Entity> set;
+			for (sr::Entity e : entities)
+			{
+				set.insert(e);
+			}
+			entities.assign(set.begin(), set.end());
+			//std::sort(entities.begin(), entities.end());
+
+			for (auto& entity : entities)
+			{
+				lambda(entity, get<Components>(entity)...);
+			}
 		}
 	}
 
@@ -328,7 +334,7 @@ namespace sr
 	}
 
 	template<typename System, typename ...Args>
-	inline void Manager::add(Args&&... args) noexcept
+	inline void Manager::addSystem(Args&&... args) noexcept
 	{
 		auto type = sUniqueID::get<System>();
 		if (type >= m_systems.size())

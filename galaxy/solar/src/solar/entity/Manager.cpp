@@ -54,19 +54,19 @@ namespace sr
 		}
 	}
 
-	void Manager::event() noexcept
+	void Manager::events() noexcept
 	{
 		for (auto&& ptr : m_systems)
 		{
-			ptr->event();
+			ptr->events();
 		}
 	}
 
-	void Manager::update(const sr::DeltaTime time) noexcept
+	void Manager::update(protostar::ProtectedDouble* deltaTime) noexcept
 	{
 		for (auto&& ptr : m_systems)
 		{
-			ptr->update(time, *this);
+			ptr->update(deltaTime, *this);
 		}
 	}
 
