@@ -89,15 +89,7 @@ namespace galaxy
 		///
 		sf::RenderWindow* m_window;
 
-		///
-		/// Source code editor.
-		///
-		TextEditor m_editor;
-
-		///
-		/// Current file being edited.
-		///
-		std::string m_currentFile;
+		
     };
 }
 

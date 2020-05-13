@@ -10,6 +10,7 @@
 
 #include <memory>
 
+#include <TextEditor.h>
 #include <qs/core/Shader.hpp>
 #include <qs/graphics/Camera.hpp>
 #include <protostar/state/State.hpp>
@@ -35,6 +36,7 @@ namespace sc
 	private:
 		void entityUI() noexcept;
 		void componentUI() noexcept;
+		void scriptEditorUI() noexcept;
 
 		void start() noexcept;
 		void end() noexcept;
@@ -42,14 +44,19 @@ namespace sc
 	private:
 		bool m_showEUI;
 		bool m_showCUI;
+		bool m_showTEUI;
 		bool m_isFileOpen;
 
-		qs::Window* m_window;
-		galaxy::World* m_world;
 		std::string m_name;
-		std::unique_ptr<pfd::open_file> m_currentOpenFile;
-		qs::Shader m_spriteShader;
+
 		qs::Camera m_camera;
+		qs::Window* m_window;
+		qs::Shader m_spriteShader;
+		
+		galaxy::World* m_world;
+		
+		TextEditor m_editor;
+		std::unique_ptr<pfd::open_file> m_currentOpenFile;
 	};
 }
 
