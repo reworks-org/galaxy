@@ -18,6 +18,7 @@
 namespace pfd
 {
 	class open_file;
+	class save_file;
 }
 
 namespace sc
@@ -56,7 +57,8 @@ namespace sc
 		galaxy::World* m_world;
 		
 		TextEditor m_editor;
-		std::unique_ptr<pfd::open_file> m_currentOpenFile;
+		std::unique_ptr<pfd::open_file> m_fileToOpen;
+		std::unique_ptr<pfd::save_file> m_fileToSave;
 	};
 }
 

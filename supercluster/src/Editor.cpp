@@ -24,7 +24,7 @@
 namespace sc
 {
 	Editor::Editor() noexcept
-		:m_showEUI(false), m_showCUI(false), m_showTEUI(false), m_isFileOpen(false), m_name("Editor"), m_window(nullptr), m_world(nullptr), m_currentOpenFile(nullptr)
+		:m_showEUI(false), m_showCUI(false), m_showTEUI(false), m_isFileOpen(false), m_name("Editor"), m_window(nullptr), m_world(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -152,16 +152,16 @@ namespace sc
 			if (!m_isFileOpen)
 			{
 				m_isFileOpen = true;
-				m_currentOpenFile = std::make_unique<pfd::open_file>("Open entity JSON definition.");
+				m_fileToOpen = std::make_unique<pfd::open_file>("Open entity JSON definition.");
 			}
 		}
 
-		if ((m_isFileOpen && m_currentOpenFile->ready()) && (!m_currentOpenFile->result().empty()))
+		if ((m_isFileOpen && m_fileToOpen->ready()) && (!m_fileToOpen->result().empty()))
 		{
-			path = std::filesystem::path(m_currentOpenFile->result()[0]);
+			path = std::filesystem::path(m_fileToOpen->result()[0]);
 			m_isFileOpen = false;
-			m_currentOpenFile.reset();
-			m_currentOpenFile = nullptr;
+			m_fileToOpen.reset();
+			m_fileToOpen = nullptr;
 		}
 
 		if (!path.empty())
@@ -181,10 +181,7 @@ namespace sc
 
 	void Editor::scriptEditorUI() noexcept
 	{
-		static std::filesystem::path path = "";
-		static const std::array<const char*, 2> filter = {
-				"*.json", "*.lua"
-		};
+		static bool savingFile = false;
 
 		auto cpos = m_editor.GetCursorPosition();
 
@@ -200,23 +197,22 @@ namespace sc
 					if (!m_isFileOpen)
 					{
 						m_isFileOpen = true;
-						m_currentOpenFile = std::make_unique<pfd::open_file>("Open entity JSON definition.");
+						m_fileToOpen = std::make_unique<pfd::open_file>("Open entity JSON definition.");
 					}
 				}
 
 				if (ImGui::MenuItem("Save"))
 				{
-					//m_editor.GetCursorPosition();
-					//auto text = m_editor.GetText();
-					//std::ofstream out(m_currentFile, std::ios::out | std::ios::trunc);
-					//out << text;
-					//out.close();
+					if (!m_isFileOpen)
+					{
+						m_isFileOpen = true;
+						m_fileToSave = std::make_unique<pfd::save_file>("Save script.");
+					}
 				}
 
 				if (ImGui::MenuItem("Close"))
 				{
 					m_showTEUI = false;
-					m_editor.SetText("");
 				}
 
 				ImGui::EndMenu();
@@ -267,38 +263,54 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
-		if ((m_isFileOpen && m_currentOpenFile->ready()) && (!m_currentOpenFile->result().empty()))
+		if (m_fileToSave && m_isFileOpen)
 		{
-			path = std::filesystem::path(m_currentOpenFile->result()[0]);
-			m_isFileOpen = false;
-			m_currentOpenFile.reset();
-			m_currentOpenFile = nullptr;
+			if (m_fileToSave->ready() && !m_fileToSave->result().empty())
+			{
+				auto text = m_editor.GetText();
+				auto wp = std::filesystem::path(m_fileToSave->result());
+
+				std::ofstream out(wp.string(), std::ios::out | std::ios::trunc);
+				out << text;
+				out.close();
+
+				m_fileToSave.reset();
+				m_fileToSave = nullptr;
+				m_isFileOpen = false;
+			}
 		}
 
-		if (!path.empty())
+		if (m_fileToOpen && m_isFileOpen)
 		{
-			if (path.extension() == ".json")
+			if (m_fileToOpen->ready() && !m_fileToOpen->result().empty())
 			{
-				m_editor.SetLanguageDefinition(galaxy::getJsonDefinition());
-			}
-			else if (path.extension() == ".lua")
-			{
-				m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
-			}
+				auto fp = std::filesystem::path(m_fileToOpen->result()[0]);
+				if (fp.extension() == ".json")
+				{
+					m_editor.SetLanguageDefinition(galaxy::getJsonDefinition());
+				}
+				else if (fp.extension() == ".lua")
+				{
+					m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
+				}
 
-			std::ifstream text(path.string(), std::ifstream::in);
-			if (!text.fail())
-			{
-				std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
-				m_editor.SetText(str);
-			}
-			else
-			{
-				PL_LOG(PL_ERROR, "Failed to read file: " + path.string());
-			}
+				std::ifstream text(fp.string(), std::ifstream::in);
+				if (!text.fail())
+				{
+					std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
+					m_editor.SetText(str);
+				}
+				else
+				{
+					PL_LOG(PL_ERROR, "Failed to read file: " + fp.string());
+				}
 
-			text.close();
-			path = "";
+				text.close();
+
+				m_isFileOpen = false;
+				m_fileToOpen.reset();
+				m_fileToOpen = nullptr;
+			}
 		}
 			
 		m_editor.Render("Script Editor");
