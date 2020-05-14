@@ -61,8 +61,6 @@ namespace qs
 		/// \brief Creates atlas from added files.
 		///
 		/// Does nothing if no files were added.
-		/// Clears out added textures, so you need to redo add() calls before calling
-		/// This function again.
 		///
 		/// \param window Target to reset framebuffer to.
 		/// \param renderer Renderer to use to draw textures.

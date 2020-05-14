@@ -8,6 +8,7 @@
 #include <filesystem>
 
 #include <imgui_stdlib.h>
+#include <nlohmann/json.hpp>
 #include <imgui_impl_glfw.h>
 #include <qs/core/Window.hpp>
 #include <imgui_impl_opengl3.h>
@@ -15,6 +16,7 @@
 #include <qs/shaders/Sprites.hpp>
 #include <solar/entity/Manager.hpp>
 #include <pfd/portable-file-dialogs.h>
+#include <qs/shaders/RenderToTexture.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/scripting/JSONDefinition.hpp>
@@ -24,7 +26,7 @@
 namespace sc
 {
 	Editor::Editor() noexcept
-		:m_showEUI(false), m_showCUI(false), m_showTEUI(false), m_isFileOpen(false), m_name("Editor"), m_window(nullptr), m_world(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
+		:m_showEUI(false), m_showCUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -37,7 +39,10 @@ namespace sc
 		ImGui_ImplOpenGL3_Init("#version 450 core");
 
 		m_spriteShader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
+		m_atlasShader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
+
 		m_camera.create(0.0f, m_window->getWidth(), m_window->getHeight(), 0.0f);
+		m_textureAtlas = std::make_unique<qs::TextureAtlas>(4096);
 	}
 
 	Editor::~Editor() noexcept
@@ -101,9 +106,19 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
-			if (ImGui::MenuItem("Script Editor"))
+			if (ImGui::BeginMenu("Editors"))
 			{
-				m_showTEUI = !m_showTEUI;
+				if (ImGui::MenuItem("Script Editor"))
+				{
+					m_showTEUI = !m_showTEUI;
+				}
+
+				if (ImGui::MenuItem("Texture Atlas Editor"))
+				{
+					m_showTAEUI = !m_showTAEUI;
+				}
+
+				ImGui::EndMenu();
 			}
 
 			if (ImGui::BeginMenu("ECS"))
@@ -139,13 +154,18 @@ namespace sc
 			scriptEditorUI();
 		}
 
+		if (m_showTAEUI)
+		{
+			textureAtlasEditor();
+		}
+
 		end();
 	}
 
 	void Editor::entityUI() noexcept
 	{
 		static std::filesystem::path path = "";
-		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysUseWindowPadding | ImGuiWindowFlags_AlwaysAutoResize);
+		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Open Definition"))
 		{
@@ -175,14 +195,12 @@ namespace sc
 	
 	void Editor::componentUI() noexcept
 	{
-		ImGui::Begin("Entities", &m_showCUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysUseWindowPadding | ImGuiWindowFlags_AlwaysAutoResize);
+		ImGui::Begin("Entities", &m_showCUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 		ImGui::End();
 	}
 
 	void Editor::scriptEditorUI() noexcept
 	{
-		static bool savingFile = false;
-
 		auto cpos = m_editor.GetCursorPosition();
 
 		ImGui::Begin("Script Editor", &m_showTEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
@@ -314,6 +332,72 @@ namespace sc
 		}
 			
 		m_editor.Render("Script Editor");
+
+		ImGui::End();
+	}
+
+	void Editor::textureAtlasEditor() noexcept
+	{
+		static bool add = false;
+		static std::unique_ptr<pfd::open_file> path = nullptr;
+		ImGui::Begin("Texture Atlas Editor", &m_showTAEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+
+		if (ImGui::Button("Create from JSON"))
+		{
+			if (!add)
+			{
+				add = true;
+				path = std::make_unique<pfd::open_file>("Select *.json definition.");
+			}
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Add Texture"))
+		{
+			if (!add)
+			{
+				add = true;
+				path = std::make_unique<pfd::open_file>("Select *.png texture.");
+			}
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Create"))
+		{
+			m_textureAtlas->create(*SL_HANDLE.window(), *SL_HANDLE.renderer(), m_atlasShader);
+		}
+
+		if (add == true && path != nullptr)
+		{
+			if (path->ready() && !path->result().empty())
+			{
+				auto fp = std::filesystem::path(path->result()[0]);
+				if (fp.extension() == ".json")
+				{
+					nlohmann::json root;
+					std::ifstream ifs(fp.string(), std::ifstream::in);
+					ifs >> root;
+					ifs.close();
+
+					auto array = root.at("textures");
+
+					std::for_each(array.begin(), array.end(), [&](const nlohmann::json& texture)
+					{
+						m_textureAtlas->add(texture);
+					});
+				}
+				else
+				{
+					m_textureAtlas->add(fp.string());
+				}
+
+				add = false;
+				path.reset();
+				path = nullptr;
+			}
+		}
 
 		ImGui::End();
 	}

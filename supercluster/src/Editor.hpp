@@ -14,6 +14,7 @@
 #include <qs/core/Shader.hpp>
 #include <qs/graphics/Camera.hpp>
 #include <protostar/state/State.hpp>
+#include <qs/graphics/TextureAtlas.hpp>
 
 namespace pfd
 {
@@ -38,6 +39,7 @@ namespace sc
 		void entityUI() noexcept;
 		void componentUI() noexcept;
 		void scriptEditorUI() noexcept;
+		void textureAtlasEditor() noexcept;
 
 		void start() noexcept;
 		void end() noexcept;
@@ -46,16 +48,18 @@ namespace sc
 		bool m_showEUI;
 		bool m_showCUI;
 		bool m_showTEUI;
+		bool m_showTAEUI;
 		bool m_isFileOpen;
 
 		std::string m_name;
+		galaxy::World* m_world;
 
 		qs::Camera m_camera;
 		qs::Window* m_window;
 		qs::Shader m_spriteShader;
-		
-		galaxy::World* m_world;
-		
+		qs::Shader m_atlasShader;
+		std::unique_ptr<qs::TextureAtlas> m_textureAtlas;
+
 		TextEditor m_editor;
 		std::unique_ptr<pfd::open_file> m_fileToOpen;
 		std::unique_ptr<pfd::save_file> m_fileToSave;

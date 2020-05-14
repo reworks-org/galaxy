@@ -74,11 +74,10 @@ namespace qs
 			}
 			
 			m_texture.unbind(window);
-			m_textureFiles.clear(); // free up memory.
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 81, "Tried to create atlas with no texture files!");
+			qs::Error::handle().callback("TextureAtlas.cpp", 80, "Tried to create atlas with no texture files!");
 		}
 	}
 
@@ -95,7 +94,7 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 98, "Tried to access texture rect that does not exist. Returning blank rect...");
+			qs::Error::handle().callback("TextureAtlas.cpp", 97, "Tried to access texture rect that does not exist. Returning blank rect...");
 			protostar::Rect<float> temp = { 0.0f, 0.0f, 0.0f, 0.0f };
 			return std::move(temp);
 		}
