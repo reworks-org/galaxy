@@ -35,13 +35,16 @@ namespace galaxy
 	{
 		manager.operate<SpriteComponent, TransformComponent>([](sr::Entity, SpriteComponent* sc, TransformComponent* tc)
 		{
-			// Set initial texture transform.
+			// Set initial transform.
 			if (!tc->m_transform.isDefaultSet())
 			{
 				qs::VertexStorage* buff = &sc->getVBO().getVertexs();
 				auto* vertex = &buff->at(0);
 
  				tc->m_transform.setTexels(vertex->m_texels[0], vertex->m_texels[1]);
+
+				vertex = &buff->at(2);
+				tc->m_transform.setRotationOrigin(vertex->m_position[0] * 0.5f, vertex->m_position[1] * 0.5f);
 			}
 
 			if (tc->m_transform.isDirty())

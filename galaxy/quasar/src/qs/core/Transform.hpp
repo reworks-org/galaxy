@@ -139,7 +139,7 @@ namespace qs
 		const bool isDirty() const noexcept;
 
 		///
-		/// Check if default texel transform has been set.
+		/// Check if default transform has been set.
 		///
 		const bool isDefaultSet() const noexcept;
 

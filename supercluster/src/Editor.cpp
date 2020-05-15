@@ -271,6 +271,39 @@ namespace sc
 		}
 
 		ImGui::Separator();
+
+		auto tc = std::get<1>(tuple);
+		if (tc != nullptr)
+		{
+			ImGui::Text("Transform Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			static float xy[2] = { 0.0f, 0.0f };
+			if (ImGui::SliderFloat2("Move", &xy[0], 0.0f, 100.0f))
+			{
+				tc->m_transform.setPos(xy[0], xy[1]);
+			}
+
+			static float r = 0.0f;
+			if (ImGui::SliderAngle("Rotate", &r))
+			{
+				tc->m_transform.rotate(r);
+			}
+
+			static float scale = 1.0f;
+			if (ImGui::SliderFloat("Scale", &scale, 0.0f, 2.0f))
+			{
+				tc->m_transform.scale(scale);
+			}
+
+			static float opacity = 1.0f;
+			if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
+			{
+				tc->m_transform.setOpacity(opacity);
+			}
+		}
 	}
 
 	void Editor::scriptEditorUI() noexcept
