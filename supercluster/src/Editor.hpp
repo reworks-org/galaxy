@@ -37,7 +37,7 @@ namespace sc
 
 	private:
 		void entityUI() noexcept;
-		void componentUI() noexcept;
+		void componentUI(sr::Entity active) noexcept;
 		void scriptEditorUI() noexcept;
 		void textureAtlasEditor() noexcept;
 
@@ -46,7 +46,6 @@ namespace sc
 
 	private:
 		bool m_showEUI;
-		bool m_showCUI;
 		bool m_showTEUI;
 		bool m_showTAEUI;
 		bool m_isFileOpen;

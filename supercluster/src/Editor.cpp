@@ -21,12 +21,15 @@
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/scripting/JSONDefinition.hpp>
 
+#include <galaxy/components/SpriteComponent.hpp>
+#include <galaxy/components/TransformComponent.hpp>
+
 #include "Editor.hpp"
 
 namespace sc
 {
 	Editor::Editor() noexcept
-		:m_showEUI(false), m_showCUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
+		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -128,11 +131,6 @@ namespace sc
 					m_showEUI = !m_showEUI;
 				}
 
-				if (ImGui::MenuItem("Component Manager"))
-				{
-					m_showCUI = !m_showCUI;
-				}
-
 				ImGui::EndMenu();
 			}
 
@@ -142,11 +140,6 @@ namespace sc
 		if (m_showEUI)
 		{
 			entityUI();
-		}
-
-		if (m_showCUI)
-		{
-			componentUI();
 		}
 
 		if (m_showTEUI)
@@ -165,9 +158,10 @@ namespace sc
 	void Editor::entityUI() noexcept
 	{
 		static std::filesystem::path path = "";
+		static sr::Entity active = 0;
 		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
-		if (ImGui::Button("Open Definition"))
+		if (ImGui::Button("Create from JSON"))
 		{
 			if (!m_isFileOpen)
 			{
@@ -176,27 +170,107 @@ namespace sc
 			}
 		}
 
+		if (ImGui::Button("Create Entity"))
+		{
+			active = m_world->create();
+		}
+
 		if ((m_isFileOpen && m_fileToOpen->ready()) && (!m_fileToOpen->result().empty()))
 		{
 			path = std::filesystem::path(m_fileToOpen->result()[0]);
+			active = m_world->createFromJSON(path.string());
+			
 			m_isFileOpen = false;
 			m_fileToOpen.reset();
 			m_fileToOpen = nullptr;
-		}
-
-		if (!path.empty())
-		{
-			SL_HANDLE.world()->createFromJSON(path.string());
 			path = "";
 		}
-		
+
+		if (m_world->validate(active))
+		{
+			componentUI(active);
+		}
+
 		ImGui::End();
 	}
 	
-	void Editor::componentUI() noexcept
+	void Editor::componentUI(sr::Entity active) noexcept
 	{
-		ImGui::Begin("Entities", &m_showCUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
-		ImGui::End();
+		ImGui::Separator();
+
+		auto tuple = m_world->multi<galaxy::SpriteComponent, galaxy::TransformComponent>(active);
+
+		auto sc = std::get<0>(tuple);
+		if (sc != nullptr)
+		{
+			ImGui::Text("Sprite Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Load texture"))
+			{
+				//sc->load("");
+				//sc->create<qs::BufferTypeDynamic>();
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Clamp to Border"))
+			{
+				sc->clampToBorder(protostar::Black);
+			}
+
+			if (ImGui::Button("Clamp to Edge"))
+			{
+				sc->clampToEdge();
+			}
+
+			if (ImGui::Button("Set Mirrored"))
+			{
+				sc->setMirrored();
+			}
+
+			if (ImGui::Button("Set Repeated"))
+			{
+				sc->setRepeated();
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			static int ansio = 0;
+			if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 1, 4))
+			{
+				sc->setAnisotropy(ansio * 2);
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Set Minify to Nearest"))
+			{
+				sc->setMinifyFilter(qs::TextureFilter::NEAREST);
+			}
+
+			if (ImGui::Button("Set Minify to Linear"))
+			{
+				sc->setMinifyFilter(qs::TextureFilter::LINEAR);
+			}
+
+			if (ImGui::Button("Set Magnify to Nearest"))
+			{
+				sc->setMagnifyFilter(qs::TextureFilter::NEAREST);
+			}
+
+			if (ImGui::Button("Set Magnify to Linear"))
+			{
+				sc->setMagnifyFilter(qs::TextureFilter::LINEAR);
+			}
+		}
+
+		ImGui::Separator();
 	}
 
 	void Editor::scriptEditorUI() noexcept

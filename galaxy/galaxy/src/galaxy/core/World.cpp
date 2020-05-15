@@ -28,11 +28,11 @@ namespace galaxy
 		clear();
 	}
 
-	void World::createFromJSON(const std::string& file) noexcept
+	sr::Entity World::createFromJSON(const std::string& file) noexcept
 	{
 		// Makes sure the filepath is correct for the current platform.
+		sr::Entity entity = 0;
 		auto path = std::filesystem::path(file);
-		auto root = nlohmann::json();
 		std::ifstream input(path.string(), std::ifstream::in);
 
 		if (input.fail())
@@ -41,9 +41,11 @@ namespace galaxy
 		}
 		else
 		{
+			auto root = nlohmann::json();
+
 			// Use JSON stream to deserialize data and parse.
 			input >> root;
-			auto entity = create();
+			entity = create();
 
 			// Loop over components
 			if (!root.empty())
@@ -59,5 +61,7 @@ namespace galaxy
 				PL_LOG(PL_WARNING, "Created an entity with no components.");
 			}
 		}
+
+		return entity;
 	}
 }

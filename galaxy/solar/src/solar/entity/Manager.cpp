@@ -25,6 +25,11 @@ namespace sr
 		// to make sure when an unsigned integer is passed it can be
 		// verified as an actual entity.
 		SR_INTEGER free = m_nextID++;
+		if (free == 1)
+		{
+			free = m_nextID++;
+		}
+
 		sr::Entity entity = free << 16 | sr::VALID_ENTITY;
 		
 		m_entities.insert(entity);

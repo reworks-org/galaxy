@@ -16,7 +16,7 @@
 namespace qs
 {
 	Transform::Transform() noexcept
-		:m_isDirty(false), m_defaultSet(false), m_textureTransform(0.0f, 0.0f, 1.0f), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
+		:m_isDirty(true), m_defaultSet(false), m_textureTransform(0.0f, 0.0f, 1.0f), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
 	{
 	}
 

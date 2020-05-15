@@ -25,17 +25,20 @@ namespace qs
 	Texture::Texture() noexcept
 		:m_textureHandle(0), m_width(0), m_height(0)
 	{
+		glGenTextures(1, &m_textureHandle);
 	}
 
 	Texture::Texture(const std::string& file) noexcept
 		:m_textureHandle(0), m_width(0), m_height(0)
 	{
+		glGenTextures(1, &m_textureHandle);
 		load(file);
 	}
 
 	Texture::Texture(const unsigned char* mem, const unsigned int size) noexcept
 		: m_textureHandle(0), m_width(0), m_height(0)
 	{
+		glGenTextures(1, &m_textureHandle);
 		load(mem, size);
 	}
 
@@ -48,7 +51,6 @@ namespace qs
 	void Texture::load(const std::string& file) noexcept
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
-		glGenTextures(1, &m_textureHandle);
 		glBindTexture(GL_TEXTURE_2D, m_textureHandle);
 
 		stbi_set_flip_vertically_on_load(true);
@@ -72,7 +74,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 75, msg);
+			qs::Error::handle().callback("Texture.cpp", 77, msg);
 		}
 
 		stbi_image_free(data);
@@ -82,7 +84,6 @@ namespace qs
 	void Texture::load(const unsigned char* mem, const unsigned int size) noexcept
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
-		glGenTextures(1, &m_textureHandle);
 		glBindTexture(GL_TEXTURE_2D, m_textureHandle);
 
 		stbi_set_flip_vertically_on_load(true);
@@ -108,7 +109,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture with size: " + std::to_string(size) + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 103, msg);
+			qs::Error::handle().callback("Texture.cpp", 112, msg);
 		}
 
 		stbi_image_free(data);
@@ -208,7 +209,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::clampToBorder(protostar::Colour& border) noexcept
+	void Texture::clampToBorder(protostar::Colour border) noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_textureHandle);
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border.asFloats().data());

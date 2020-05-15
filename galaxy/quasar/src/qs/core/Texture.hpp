@@ -148,7 +148,7 @@ namespace qs
 		///
 		/// \param border Colour of the border.
 		///
-		void clampToBorder(protostar::Colour& border) noexcept;
+		void clampToBorder(protostar::Colour border) noexcept;
 
 		///
 		/// Set ansiotropic filtering level.

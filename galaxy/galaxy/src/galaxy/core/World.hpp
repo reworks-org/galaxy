@@ -44,7 +44,9 @@ namespace galaxy
 		///
 		/// \param file Filepath to the json.
 		///
-		void createFromJSON(const std::string& file) noexcept;
+		/// \return Created entity.
+		///
+		sr::Entity createFromJSON(const std::string& file) noexcept;
 
 		///
 		/// Registers a component definition.

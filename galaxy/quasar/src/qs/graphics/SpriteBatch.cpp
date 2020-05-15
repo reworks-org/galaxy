@@ -97,8 +97,8 @@ namespace qs
 				auto* origBuf = &m_vertexBuffer.getVertexs();
 				auto* texTransf = &transform.getTexelTransform();
 				auto cur = counter * 4;
-				int curWidth = origBuf->at(cur + 2).m_position[0]; // width of bottom right.
-				int curHeight = origBuf->at(cur + 2).m_position[1]; // height of bottom right.
+				int curWidth = static_cast<int>(origBuf->at(cur + 2).m_position[0]); // width of bottom right.
+				int curHeight = static_cast<int>(origBuf->at(cur + 2).m_position[1]); // height of bottom right.
 
 				auto result = transform.getTransformation() * glm::vec4(origBuf->at(cur + 0).m_position[0], origBuf->at(cur + 0).m_position[1], 0.0f, 1.0f);
 				m_transfVB[cur + 0].m_position[0] = result.x;

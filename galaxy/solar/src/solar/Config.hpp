@@ -35,7 +35,7 @@ namespace sr
 	///
 	/// BitMask to see if entity is valid.
 	///
-	static const inline unsigned int VALID_ENTITY = 1;
+	static constexpr inline unsigned int VALID_ENTITY = 1;
 }
 
 #endif

@@ -262,9 +262,10 @@ namespace sr
 		{
 			auto type = cUniqueID::get<Component>();
 
-			if (type > m_data.size())
+			if (type > m_data.size() || m_data.size() == 0)
 			{
-				PL_LOG(PL_FATAL, "Attempted to access a component type that doesnt exist!");
+				PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist.");
+				PL_LOG(PL_ERROR, "Possible zero size component data detected.");
 			}
 			else
 			{
@@ -279,7 +280,6 @@ namespace sr
 	template<typename... Components>
 	inline decltype(auto) Manager::multi(const sr::Entity entity) noexcept
 	{
-		// get() will validate entity.
 		return std::make_tuple(get<Components>(entity)...);
 	}
 
