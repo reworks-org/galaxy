@@ -58,7 +58,7 @@ namespace qs
 
 	void Transform::scale(const float scale) noexcept
 	{
-		m_scaledMatrix = glm::scale(m_scaledMatrix, glm::vec3(scale, scale, 1.0f));
+		m_scaledMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(scale, scale, 1.0f));
 		recalculate();
 	}
 
