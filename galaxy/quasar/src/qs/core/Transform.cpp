@@ -2,7 +2,6 @@
 /// Transform.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -16,25 +15,14 @@
 namespace qs
 {
 	Transform::Transform() noexcept
-		:m_isDirty(true), m_defaultSet(false), m_textureTransform(0.0f, 0.0f, 1.0f), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
+		:m_isDirty(false), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
 	{
 	}
 
 	void Transform::move(const float x, const float y) noexcept
 	{
 		m_translationMatrix = glm::translate(m_translationMatrix, glm::vec3(x, y, 0.0f));
-		recalculate();
-	}
-
-	void Transform::setPos(const float x, const float y) noexcept
-	{
-		m_translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, 0.0f));
-		recalculate();
-	}
-
-	void Transform::setRotationOrigin(const float x, const float y) noexcept
-	{
-		m_originPoint = glm::vec3(x, y, 0.0f);
+		m_isDirty = true;
 	}
 
 	void Transform::rotate(const float degrees) noexcept
@@ -53,72 +41,33 @@ namespace qs
 		m_rotateMatrix = glm::rotate(m_rotateMatrix, glm::radians(adjusted), glm::vec3(0.0f, 0.0f, 1.0f));
 		m_rotateMatrix = glm::translate(m_rotateMatrix, -m_originPoint);
 
-		recalculate();
+		m_isDirty = true;
 	}
 
 	void Transform::scale(const float scale) noexcept
 	{
 		m_scaledMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(scale, scale, 1.0f));
-		recalculate();
+		m_isDirty = true;
 	}
 
 	void Transform::recalculate() noexcept
 	{
-		m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
-		m_isDirty = true;
-	}
-
-	void Transform::setDirty(const bool isDirty) noexcept
-	{
-		m_isDirty = isDirty;
-	}
-
-	void Transform::setOpacity(float opacity) noexcept
-	{
-		if (opacity > 1.0f)
+		if (m_isDirty)
 		{
-			opacity = 1.0f;
-		}
-		else if (opacity < 0.0f)
-		{
-			opacity = 0.0f;
-		}
-
-		m_textureTransform.z = opacity;
-		m_isDirty = true;
-	}
-
-	void Transform::setTexels(const float x, const float y) noexcept
-	{
-		m_textureTransform.x = x;
-		m_textureTransform.y = y;
-		m_isDirty = true;
-	}
-
-	void Transform::setDefaultTexels(const float x, const float y) noexcept
-	{
-		if (!m_defaultSet)
-		{
-			setTexels(x, y);
-			m_defaultSet = true;
+			m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
+			m_isDirty = false;
 		}
 	}
 
-	void Transform::moveTexels(const float x, const float y) noexcept
+	void Transform::setPos(const float x, const float y) noexcept
 	{
-		m_textureTransform.x += x;
-		m_textureTransform.y += y;
+		m_translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, 0.0f));
 		m_isDirty = true;
 	}
 
-	glm::mat4& Transform::getTransformation() noexcept
+	void Transform::setRotationOrigin(const float x, const float y) noexcept
 	{
-		return m_modelMatrix;
-	}
-
-	glm::vec3& Transform::getTexelTransform() noexcept
-	{
-		return m_textureTransform;
+		m_originPoint = glm::vec3(x, y, 0.0f);
 	}
 
 	const bool Transform::isDirty() const noexcept
@@ -126,8 +75,9 @@ namespace qs
 		return m_isDirty;
 	}
 
-	const bool Transform::isDefaultSet() const noexcept
+	glm::mat4& Transform::getTransformation() noexcept
 	{
-		return m_defaultSet;
+		recalculate();
+		return m_modelMatrix;
 	}
 }

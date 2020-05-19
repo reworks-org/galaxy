@@ -2,7 +2,6 @@
 /// Line.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -16,50 +15,43 @@
 namespace qs
 {
 	Line::Line() noexcept
-		:m_thickness(1.0f), m_va(0), m_vb(0)
+		:m_thickness(1.0f)
 	{
 	}
 
-	Line::Line(const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
-		:m_thickness(1.0f), m_va(0), m_vb(0)
+	Line::Line(protostar::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
+		:m_thickness(1.0f)
 	{
-		create(x1, y1, x2, y2, thickness);
+		create(col, x1, y1, x2, y2, thickness);
 	}
 
-	Line::~Line() noexcept
-	{
-		glDeleteVertexArrays(1, &m_va);
-		glDeleteBuffers(1, &m_vb);
-	}
-
-	void Line::create(const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
+	void Line::create(protostar::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
 	{
 		m_thickness = thickness;
 
-		glGenBuffers(1, &m_vb);
-		glGenVertexArrays(1, &m_va);
-		glBindVertexArray(m_va);
+		std::vector<qs::PrimitiveVertex> vertexs;
+		IndexStorage indices;
 
-		glBindBuffer(GL_ARRAY_BUFFER, m_vb);
+		vertexs.emplace_back(qs::PrimitiveVertex{ x1, y1, col });
+		vertexs.emplace_back(qs::PrimitiveVertex{ x2, y2, col });
 
-		float vertexs[4] = { x1, y1, x2, y2 };
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertexs), vertexs, GL_STATIC_DRAW);
+		m_vertexBuffer.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
+		m_indexBuffer.create<qs::BufferTypeStatic>({0, 1});
 
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float), 0);
-		glEnableVertexAttribArray(0);
+		m_layout.add<qs::PrimitiveVertex, qs::VATypePosition>(2);
+		m_layout.add<qs::PrimitiveVertex, qs::VATypeColour>(4);
 
-		glBindVertexArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		m_vertexArray.create<qs::PrimitiveVertex>(m_vertexBuffer, m_indexBuffer, m_layout);
 	}
 
 	void Line::bind() noexcept
 	{
-		glBindVertexArray(m_va);
+		m_vertexArray.bind();
 		glLineWidth(m_thickness);
 	}
 
 	void Line::unbind() noexcept
 	{
-		glBindVertexArray(0);
+		m_vertexArray.unbind();
 	}
 }

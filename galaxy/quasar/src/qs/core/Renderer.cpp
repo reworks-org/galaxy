@@ -2,22 +2,16 @@
 /// Renderer.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <glm/mat4x4.hpp>
 
-#include "qs/text/Text.hpp"
+#include "qs/core/Shader.hpp"
+
 #include "qs/graphics/Line.hpp"
-#include "qs/graphics/Sprite.hpp"
-#include "qs/graphics/Circle.hpp"
 #include "qs/graphics/Point.hpp"
-#include "qs/graphics/Camera.hpp"
-#include "qs/core/RenderTexture.hpp"
-#include "qs/renderer/LightSource.hpp"
-#include "qs/graphics/SpriteBatch.hpp"
-#include "qs/text/Character.hpp"
+#include "qs/graphics/Circle.hpp" 
 
 #include "Renderer.hpp"
 
@@ -48,14 +42,15 @@ namespace qs
 		glDrawArrays(GL_LINE_LOOP, 0, circle.getCount());
 	}
 
-	void Renderer::drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
-		character.bind();
-		shader.setUniform("u_projection", rt.getProjection());
-
-		glDrawElements(GL_TRIANGLES, character.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
+	void Renderer::drawAnimatedSprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept
+	{
+	}
+
+	/*
 	void Renderer::drawRenderable(qs::Renderable* rb, qs::Transform& transform, qs::Shader& shader) noexcept
 	{
 		rb->bind();
@@ -102,6 +97,14 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
+	void Renderer::drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	{
+		character.bind();
+		shader.setUniform("u_projection", rt.getProjection());
+
+		glDrawElements(GL_TRIANGLES, character.getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
 	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
 	{
 		drawSprite(text.asSprite(), shader);
@@ -125,4 +128,5 @@ namespace qs
 
 		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
+	*/
 }

@@ -2,7 +2,6 @@
 /// Renderer.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -18,20 +17,12 @@ namespace qs
 	/// Forward decs.
 	///
 	class Line;
-	class Text;
 	class Point;
-	class Sprite;
-	class SpriteBatch;
-	class Character;
 	class Shader;
 	class Circle;
-	class Camera;
-	class VertexArray;
-	class IndexBuffer;
-	struct LightSource;
-	class RenderTexture;
-	class Renderable;
-	class Transform;
+	class Sprite;
+	class AnimatedSprite;
+	class SpriteBatch;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -52,7 +43,10 @@ namespace qs
 		~Renderer() noexcept = default;
 
 		///
-		/// Draw a point.
+		/// \brief Draw a point.
+		///
+		/// Must have uniform(s): u_point_size (int).
+		///						  u_colour (protostar::Colour).
 		///
 		/// \param point Point to draw.
 		/// \param shader Shader to apply when drawing.
@@ -74,25 +68,9 @@ namespace qs
 		void drawCircle(qs::Circle& circle) noexcept;
 
 		///
-		/// Draw VertexArray to render texture.
+		/// \brief Draw a sprite.
 		///
-		/// \param character (glyph) to draw.
-		/// \param rt Target to draw to.
-		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
 		///
-		void drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
-
-		///
-		/// Draw a renderable object.
-		///
-		/// \param rb Renderable object to draw.
-		/// \param transform Transform to apply to renderable.
-		/// \param shader Shader to apply.
-		///
-		void drawRenderable(qs::Renderable* rb, qs::Transform& transform, qs::Shader& shader) noexcept;
-
-		///
-		/// Draw a sprite.
 		///
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
@@ -100,13 +78,27 @@ namespace qs
 		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
 
 		///
-		/// Draw a spritebatch.
+		/// \brief Draw an animated sprite.
+		///
+		///
+		///
+		/// \param sprite Sprite to draw to screen.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawAnimatedSprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept;
+
+		///
+		/// \brief Draw a spritebatch.
+		///
+		///
 		///
 		/// \param spritebatch SpriteBatch to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept;
 
+	
+		
 		///
 		/// Draw to render texture.
 		///
@@ -114,16 +106,19 @@ namespace qs
 		/// \param rt Target to draw to.
 		/// \param shader Shader to apply to sprite. CALLS bind() FOR YOU!
 		///
-		void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept;
-
+		///
+		/// Draw VertexArray to render texture.
+		///
+		/// \param character (glyph) to draw.
+		/// \param rt Target to draw to.
+		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
+		///
 		///
 		/// Draw text to screen.
 		///
 		/// \param text Text to draw.
 		/// \param shader Shader to apply to text. You must have called bind() already!
 		///
-		void drawText(qs::Text& text, qs::Shader& shader) noexcept;
-
 		///
 		/// \brief Draw a scene.
 		///
@@ -136,7 +131,6 @@ namespace qs
 		/// \param camera used to render scene.
 		/// \param ls Light source(s) for lighting. Provides its own shader.
 		///
-		void drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls) noexcept;
 	};
 }
 

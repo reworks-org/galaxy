@@ -119,7 +119,6 @@ StateGame::StateGame() noexcept
 	//text.asSprite().save("bin/text");
 
 	camera.create(0.0f, window->getWidth(), window->getHeight(), 0.0f);
-	camera.setSpeed(0.2f);
 
 	//point.create(20, 20, 10);
 	//line.create(50, 50, 600, 600, 20);

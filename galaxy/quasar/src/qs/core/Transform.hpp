@@ -2,7 +2,6 @@
 /// Transform.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -44,19 +43,6 @@ namespace qs
 		void move(const float x, const float y) noexcept;
 
 		///
-		/// Sets position without moving the object.
-		///
-		/// \param x X position to set object to.
-		/// \param y Y position to set object to.
-		///
-		void setPos(const float x, const float y) noexcept;
-
-		///
-		/// Set the rotation point.
-		///
-		void setRotationOrigin(const float x, const float y) noexcept;
-
-		///
 		/// Rotate transformation in degrees.
 		///
 		/// \param degrees Max 360, min -360.
@@ -76,48 +62,27 @@ namespace qs
 		virtual void recalculate() noexcept;
 
 		///
-		/// Set dirty flag.
+		/// Sets position without moving the object.
 		///
-		/// \param dirty When rendering, do transforms need to be updated.
+		/// \param x X position to set object to.
+		/// \param y Y position to set object to.
 		///
-		void setDirty(const bool isDirty) noexcept;
+		void setPos(const float x, const float y) noexcept;
 
 		///
-		/// Set opacity.
+		/// Set the rotation point.
 		///
-		/// Only affects the currently active quad.
+		/// \param x X position to set origin to.
+		/// \param y Y position to set origin to.
 		///
-		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+		void setRotationOrigin(const float x, const float y) noexcept;
+		
 		///
-		void setOpacity(float opacity) noexcept;
-
+		/// Get flag indicating if transform needs to be applied before rendering.
 		///
-		/// \brief Sets the top left texture coords.
+		/// \return Const boolean.
 		///
-		/// This sets, and thus overrides current position.
-		///
-		/// \param x New x position.
-		/// \param y New y position.
-		///
-		void setTexels(const float x, const float y) noexcept;
-
-		///
-		/// Sets the starting. top left texture coords.
-		///
-		/// \param x New x position.
-		/// \param y New y position.
-		///
-		void setDefaultTexels(const float x, const float y) noexcept;
-
-		///
-		/// \brief Moves the texture coords.
-		///
-		/// This is additive. This does not set.
-		///
-		/// \param x Amount to move on x axis.
-		/// \param y Amount to move on y axis.
-		///
-		void moveTexels(const float x, const float y) noexcept;
+		const bool isDirty() const noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.
@@ -125,39 +90,12 @@ namespace qs
 		/// \return Reference to internal glm::mat4.
 		///
 		glm::mat4& getTransformation() noexcept;
-		
-		///
-		/// Retrieve texture transform.
-		///
-		/// \return Reference to a glm::vec3. X/Y is U/V and Z is opacity.
-		///
-		glm::vec3& getTexelTransform() noexcept;
-
-		///
-		/// Get flag indicating if transform needs to be applied before rendering.
-		///
-		const bool isDirty() const noexcept;
-
-		///
-		/// Check if default transform has been set.
-		///
-		const bool isDefaultSet() const noexcept;
 
 	protected:
 		///
-		/// When rendering, do transforms need to be updated.
+		/// Update flag.
 		///
 		bool m_isDirty;
-
-		///
-		/// Checks if default texels are set.
-		///
-		bool m_defaultSet;
-
-		///
-		/// Texture transformation.
-		///
-		glm::vec3 m_textureTransform;
 
 		///
 		/// Rotation origin point.
@@ -179,6 +117,7 @@ namespace qs
 		///
 		glm::mat4 m_translationMatrix;
 
+	private:
 		///
 		/// Combined transformation matrix.
 		///

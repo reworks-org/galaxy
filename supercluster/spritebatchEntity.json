@@ -1,0 +1,14 @@
+{
+  "SpriteBatchComponent": {
+  	"0":{
+  		"x":0,
+  		"y":0,
+  		"atlasID":"wall"
+  	},
+  	"1":{
+		"x":500,
+  		"y":500,
+  		"atlasID":"wall_2"
+  	}
+  }
+}

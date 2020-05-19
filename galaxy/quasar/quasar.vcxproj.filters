@@ -4,9 +4,7 @@
     <None Include="res\shaders\instanced_sprite.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\qs\core\RenderTexture.cpp" />
     <ClCompile Include="src\qs\core\Shader.cpp" />
-    <ClCompile Include="src\qs\core\Texture.cpp" />
     <ClCompile Include="src\qs\core\Transform.cpp" />
     <ClCompile Include="src\qs\core\Window.cpp" />
     <ClCompile Include="src\qs\core\WindowSettings.cpp" />
@@ -15,25 +13,17 @@
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\qs\renderer\LightSource.cpp" />
-    <ClCompile Include="src\qs\renderer\Renderer.cpp" />
     <ClCompile Include="src\qs\text\Character.cpp" />
     <ClCompile Include="src\qs\text\Font.cpp" />
     <ClCompile Include="src\qs\text\FreeType.cpp" />
     <ClCompile Include="src\qs\text\Text.cpp" />
-    <ClCompile Include="src\qs\utils\Error.cpp" />
-    <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
     <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
-    <ClCompile Include="src\qs\vertex\Vertex.cpp" />
     <ClCompile Include="src\qs\vertex\VertexArray.cpp" />
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
-    <ClCompile Include="src\qs\renderer\Renderable.cpp" />
-    <ClCompile Include="src\qs\graphics\Sprite.cpp" />
-    <ClCompile Include="src\qs\graphics\SpriteBatch.cpp" />
     <ClCompile Include="src\qs\shaders\Light.cpp" />
     <ClCompile Include="src\qs\shaders\RenderToTexture.cpp" />
     <ClCompile Include="src\qs\shaders\Sprites.cpp" />
@@ -42,11 +32,23 @@
     <ClCompile Include="src\qs\shaders\RenderTextToTexture.cpp" />
     <ClCompile Include="src\qs\shaders\Lines.cpp" />
     <ClCompile Include="src\qs\shaders\Points.cpp" />
+    <ClCompile Include="src\qs\texture\Texture.cpp" />
+    <ClCompile Include="src\qs\texture\RenderTexture.cpp" />
+    <ClCompile Include="src\qs\texture\BaseTexture.cpp" />
+    <ClCompile Include="src\qs\core\VertexData.cpp" />
+    <ClCompile Include="src\qs\graphics\LightSource.cpp" />
+    <ClCompile Include="src\qs\core\Renderer.cpp" />
+    <ClCompile Include="src\qs\sprite\Sprite.cpp" />
+    <ClCompile Include="src\qs\sprite\SpriteBatch.cpp" />
+    <ClCompile Include="src\qs\core\Animated.cpp" />
+    <ClCompile Include="src\qs\sprite\AnimatedSprite.cpp" />
+    <ClCompile Include="src\qs\sprite\BatchedSprite.cpp" />
+    <ClCompile Include="src\qs\utils\Meta.cpp" />
+    <ClCompile Include="src\qs\vertex\type\PrimitiveVertex.cpp" />
+    <ClCompile Include="src\qs\vertex\type\SpriteVertex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\qs\core\RenderTexture.hpp" />
     <ClInclude Include="src\qs\core\Shader.hpp" />
-    <ClInclude Include="src\qs\core\Texture.hpp" />
     <ClInclude Include="src\qs\core\Transform.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
@@ -55,25 +57,17 @@
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\qs\renderer\LightSource.hpp" />
-    <ClInclude Include="src\qs\renderer\Renderer.hpp" />
     <ClInclude Include="src\qs\text\Character.hpp" />
     <ClInclude Include="src\qs\text\Font.hpp" />
     <ClInclude Include="src\qs\text\FreeType.hpp" />
     <ClInclude Include="src\qs\text\Text.hpp" />
-    <ClInclude Include="src\qs\utils\Error.hpp" />
-    <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
     <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
-    <ClInclude Include="src\qs\vertex\Vertex.hpp" />
     <ClInclude Include="src\qs\vertex\VertexArray.hpp" />
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
-    <ClInclude Include="src\qs\renderer\Renderable.hpp" />
-    <ClInclude Include="src\qs\graphics\Sprite.hpp" />
-    <ClInclude Include="src\qs\graphics\SpriteBatch.hpp" />
     <ClInclude Include="src\qs\shaders\Light.hpp" />
     <ClInclude Include="src\qs\shaders\RenderToTexture.hpp" />
     <ClInclude Include="src\qs\shaders\Sprites.hpp" />
@@ -82,5 +76,19 @@
     <ClInclude Include="src\qs\shaders\RenderTextToTexture.hpp" />
     <ClInclude Include="src\qs\shaders\Lines.hpp" />
     <ClInclude Include="src\qs\shaders\Points.hpp" />
+    <ClInclude Include="src\qs\texture\Texture.hpp" />
+    <ClInclude Include="src\qs\texture\RenderTexture.hpp" />
+    <ClInclude Include="src\qs\texture\BaseTexture.hpp" />
+    <ClInclude Include="src\qs\core\VertexData.hpp" />
+    <ClInclude Include="src\qs\graphics\LightSource.hpp" />
+    <ClInclude Include="src\qs\core\Renderer.hpp" />
+    <ClInclude Include="src\qs\sprite\Sprite.hpp" />
+    <ClInclude Include="src\qs\sprite\SpriteBatch.hpp" />
+    <ClInclude Include="src\qs\core\Animated.hpp" />
+    <ClInclude Include="src\qs\sprite\AnimatedSprite.hpp" />
+    <ClInclude Include="src\qs\sprite\BatchedSprite.hpp" />
+    <ClInclude Include="src\qs\utils\Meta.hpp" />
+    <ClInclude Include="src\qs\vertex\type\SpriteVertex.hpp" />
+    <ClInclude Include="src\qs\vertex\type\PrimitiveVertex.hpp" />
   </ItemGroup>
 </Project>

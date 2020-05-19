@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glad/glad.h>
 #include <sol/sol.hpp>
-#include <qs/utils/Error.hpp>
 #include <protostar/system/Time.hpp>
 #include <qs/core/WindowSettings.hpp>
 #include <protostar/system/Colour.hpp>
@@ -56,12 +56,6 @@ namespace galaxy
 		PL_LOG_GET.init(lf);
 		PL_LOG_GET.setMinimumLevel(PL_INFO);
 
-		qs::Error::handle().setQSCallback([](const std::string& file, unsigned int line, const std::string& message) -> void
-		{
-			std::string msg = "[Quasar] File: " + file + " Line: " + std::to_string(line) + " Message: " + message + "\n";
-			PL_LOG(PL_WARNING, msg);
-		});
-
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
 
@@ -106,15 +100,6 @@ namespace galaxy
 		}
 		else
 		{
-			// Do rest of setup.
-			#ifdef _DEBUG
-				qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-				{
-					std::string msg = "[OpenGL]: Source: " + std::to_string(source) + " Type: " + std::to_string(type) + " ID: " + std::to_string(id) + " Severity: " + std::to_string(severity) + " Message: " + message + "\n";
-					PL_LOG(PL_WARNING, msg);
-				});
-			#endif
-
 			m_window->requestAttention();
 			
 			bool cursor = m_config->get<bool>("is-cursor-visible");

@@ -11,6 +11,7 @@
 
 #include <galaxy/components/SpriteComponent.hpp>
 #include <galaxy/components/TransformComponent.hpp>
+#include <galaxy/components/SpriteBatchComponent.hpp>
 
 #include <galaxy/systems/RenderSystem.hpp>
 
@@ -79,6 +80,7 @@ int main(int argsc, char* argsv[])
 			auto* world = SL_HANDLE.world();
 			world->registerComponent<galaxy::SpriteComponent>("SpriteComponent");
 			world->registerComponent<galaxy::TransformComponent>("TransformComponent");
+			world->registerComponent<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
 
 			world->addSystem<galaxy::RenderSystem>();
 

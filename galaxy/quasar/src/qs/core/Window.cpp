@@ -2,7 +2,6 @@
 /// Window.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -11,9 +10,9 @@
 
 #include <glad/glad.h>
 #include <stb_image.h>
+#include <pulsar/Log.hpp>
 #include <stb_image_write.h>
 
-#include "qs/utils/Error.hpp"
 #include "qs/utils/Utility.hpp"
 #include "qs/core/WindowSettings.hpp"
 
@@ -34,7 +33,7 @@ namespace qs
 	{
 		if (!create(title, w, h))
 		{
-			qs::Error::handle().callback("Window.cpp", 37, "Window creation failed!");
+			PL_LOG(PL_FATAL, "Window creation failed!");
 		}
 	}
 
@@ -57,14 +56,14 @@ namespace qs
 		// Error callbacks.
 		glfwSetErrorCallback([](int error, const char* description)
 		{
-			std::string msg = "Error Code: " + std::to_string(error) + ". Desc: " + description + ".";
-			qs::Error::handle().callback("GLFW ERROR CALLBACK", 0, msg);
+			std::string msg = "[GLFW] Code: " + std::to_string(error) + ". Desc: " + description;
+			PL_LOG(PL_ERROR, msg);
 		});
 
 		// Init glfw.
 		if (!glfwInit())
 		{
-			qs::Error::handle().callback("Window.cpp", 67, "Failed to initialize glfw!");
+			PL_LOG(PL_FATAL, "Failed to initialize glfw!");
 		}
 		else
 		{
@@ -104,7 +103,7 @@ namespace qs
 			// Then if the window failed to create:
 			if (!m_window)
 			{
-				qs::Error::handle().callback("Window.cpp", 109, "Failed to create window!");
+				PL_LOG(PL_FATAL, "Failed to create window!");
 				result = false;
 			}
 			else
@@ -120,9 +119,7 @@ namespace qs
 				// Set up glad.
 				if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 				{
-					std::string msg = "Failed to init glad.";
-
-					qs::Error::handle().callback("Window.cpp", 123, msg);
+					PL_LOG(PL_FATAL, "Failed to init glad.");
 					result = false;
 				}
 				else
@@ -132,9 +129,9 @@ namespace qs
 
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int w, int h)
-						{
-							static_cast<qs::Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
-						});
+					{
+						static_cast<qs::Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
+					});
 
 					// Set vsync.
 					glfwSwapInterval(qs::WindowSettings::s_vsync);
@@ -148,8 +145,15 @@ namespace qs
 					// Error handling.
 					#ifdef _DEBUG
 						glEnable(GL_DEBUG_OUTPUT);
-					#endif
+						// Callback.
 
+						glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
+						{
+							std::string msg = "[OpenGL] " + std::string(message);
+							PL_LOG(PL_WARNING, msg);
+						}, nullptr);
+					#endif
+					
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);
 
@@ -170,8 +174,7 @@ namespace qs
 					}
 					
 					// Print OpenGL version.
-					std::string msg = "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-					qs::Error::handle().callback("Window.cpp", 155, msg);
+					PL_LOG(PL_INFO, "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION))));
 				}
 			}
 		}
@@ -314,15 +317,8 @@ namespace qs
 	{
 		m_width = w;
 		m_height = h;
-
+		
 		glfwSetWindowSize(m_window, w, h);
-		glViewport(0, 0, m_width, m_height);
-	}
-
-	void Window::makeCurrent() noexcept
-	{
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		glViewport(0, 0, m_width, m_height);
 	}
 
 	void Window::requestAttention() noexcept
@@ -332,6 +328,7 @@ namespace qs
 
 	void Window::begin(const protostar::Colour& colour) noexcept
 	{
+		glViewport(0, 0, m_width, m_height);
 		glClearColor(qs::Utils::uint8ToFloat(colour.m_red), qs::Utils::uint8ToFloat(colour.m_green), qs::Utils::uint8ToFloat(colour.m_blue), qs::Utils::uint8ToFloat(colour.m_alpha));
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}

@@ -2,7 +2,6 @@
 /// VertexBuffer.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -16,7 +15,7 @@
 namespace qs
 {
 	VertexBuffer::VertexBuffer() noexcept
-		:m_id(0)
+		:m_id(0), m_size(0)
 	{
 		glGenBuffers(1, &m_id);
 	}
@@ -36,12 +35,7 @@ namespace qs
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	VertexStorage& VertexBuffer::getVertexs() noexcept
-	{
-		return m_vertexStorage;
-	}
-
-	const unsigned int VertexBuffer::getID() const noexcept
+	const unsigned int VertexBuffer::id() const noexcept
 	{
 		return m_id;
 	}

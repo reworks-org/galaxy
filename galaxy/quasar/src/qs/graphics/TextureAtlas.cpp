@@ -2,17 +2,17 @@
 /// TextureAtlas.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <filesystem>
 
+#include <pulsar/Log.hpp>
 
 #include "qs/core/Shader.hpp"
+#include "qs/core/Renderer.hpp"
+#include "qs/sprite/Sprite.hpp"
 #include "qs/utils/Utility.hpp"
-#include "qs/graphics/Sprite.hpp"
-#include "qs/renderer/Renderer.hpp"
 
 #include "TextureAtlas.hpp"
 
@@ -41,7 +41,7 @@ namespace qs
 		m_textureFiles.push_back(name);
 	}
 
-	void TextureAtlas::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept
+	void TextureAtlas::create(qs::Renderer& renderer, qs::Shader& shader) noexcept
 	{
 		if (!m_textureFiles.empty())
 		{
@@ -60,7 +60,7 @@ namespace qs
 				auto opt = m_packer.pack(loadedTex.getWidth(), loadedTex.getHeight());
 				if (opt == std::nullopt)
 				{
-					qs::Error::handle().callback("TextureAtlas.cpp", 63, "Failed to pack texture: " + file);
+					PL_LOG(PL_WARNING, "Failed to pack texture: " + file);
 				}
 				else
 				{
@@ -73,17 +73,22 @@ namespace qs
 				}
 			}
 			
-			m_texture.unbind(window);
+			m_texture.unbind();
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 80, "Tried to create atlas with no texture files!");
+			PL_LOG(PL_WARNING, "Tried to create atlas with no texture files!");
 		}
 	}
 
 	void TextureAtlas::save(const std::string& file) noexcept
 	{
 		m_texture.save(file);
+	}
+
+	const int TextureAtlas::getSize() const noexcept
+	{
+		return m_size;
 	}
 
 	const protostar::Rect<float>& TextureAtlas::getTexQuad(const std::string& name) noexcept
@@ -94,15 +99,9 @@ namespace qs
 		}
 		else
 		{
-			qs::Error::handle().callback("TextureAtlas.cpp", 97, "Tried to access texture rect that does not exist. Returning blank rect...");
-			protostar::Rect<float> temp = { 0.0f, 0.0f, 0.0f, 0.0f };
-			return std::move(temp);
+			PL_LOG(PL_WARNING, "Tried to access texture rect that does not exist. Returning blank rect...");
+			return std::move(protostar::Rect<float>{ 0.0f, 0.0f, 0.0f, 0.0f });
 		}
-	}
-
-	const int TextureAtlas::getSize() const noexcept
-	{
-		return m_size;
 	}
 
 	qs::RenderTexture& TextureAtlas::getTexture() noexcept
