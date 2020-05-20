@@ -35,4 +35,16 @@ namespace qs
 	{
 		return m_opacity;
 	}
+
+	void Sprite::bind() noexcept
+	{
+		m_vertexArray.bind();
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+	}
+
+	void Sprite::unbind() noexcept
+	{
+		m_vertexArray.unbind();
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
 }

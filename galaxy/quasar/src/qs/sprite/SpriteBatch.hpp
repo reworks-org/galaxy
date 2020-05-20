@@ -77,6 +77,20 @@ namespace qs
 		///
 		const unsigned int getCount() const noexcept override;
 
+		///
+		/// Get width.
+		///
+		/// \return Const uint.
+		///
+		const unsigned int getWidth() const noexcept;
+
+		///
+		/// Get height.
+		///
+		/// \return Const uint.
+		///
+		const unsigned int getHeight() const noexcept;
+
 	private:
 		///
 		/// Constructor.

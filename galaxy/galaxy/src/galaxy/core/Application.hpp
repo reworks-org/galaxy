@@ -12,7 +12,7 @@
 
 #include <sol/forward.hpp>
 #include <qs/core/Window.hpp>
-#include <qs/renderer/Renderer.hpp>
+#include <qs/core/Renderer.hpp>
 #include <starlight/Dispatcher.hpp>
 #include <protostar/async/ThreadPool.hpp>
 #include <protostar/state/StateMachine.hpp>

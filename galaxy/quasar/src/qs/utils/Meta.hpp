@@ -86,7 +86,7 @@ namespace qs
 	template<typename VertexType, typename ...Args>
 	static inline VertexType&& make_vertex(Args&& ...args) noexcept
 	{
-		return std::move(VertexType(std::forward<Args>(args)...);
+		return std::move(VertexType(std::forward<Args>(args)...));
 	}
 }
 

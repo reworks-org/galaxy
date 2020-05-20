@@ -9,9 +9,9 @@
 
 #include <glad/glad.h>
 #include <stb_image.h>
+#include <pulsar/Log.hpp>
 #include <stb_image_write.h>
 
-#include "qs/utils/Error.hpp"
 #include "qs/core/Window.hpp"
 #include "qs/core/WindowSettings.hpp"
 
@@ -63,7 +63,7 @@ namespace qs
 
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
-			qs::Error::handle().callback("RenderTexture.cpp", 72, "Failed to create GL_FRAMEBUFFER!");
+			PL_LOG(PL_FATAL, "Failed to create GL_FRAMEBUFFER!");
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);

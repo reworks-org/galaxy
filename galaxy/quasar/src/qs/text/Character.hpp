@@ -8,7 +8,7 @@
 #ifndef QUASAR_CHARACTER_HPP_
 #define QUASAR_CHARACTER_HPP_
 
-#include "qs/renderer/Renderable.hpp"
+#include "qs/core/Renderable.hpp"
 
 ///
 /// Core namespace.

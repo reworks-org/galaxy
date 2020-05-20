@@ -23,6 +23,7 @@ namespace qs
 	class Sprite;
 	class AnimatedSprite;
 	class SpriteBatch;
+	class RenderTexture;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -45,8 +46,8 @@ namespace qs
 		///
 		/// \brief Draw a point.
 		///
-		/// Must have uniform(s): u_point_size (int).
-		///						  u_colour (protostar::Colour).
+		/// Must have uniform(s): 
+		/// u_cameraProj, u_cameraView, u_point_size, u_colour
 		///
 		/// \param point Point to draw.
 		/// \param shader Shader to apply when drawing.
@@ -54,14 +55,20 @@ namespace qs
 		void drawPoint(qs::Point& point, qs::Shader& shader) noexcept;
 
 		///
-		/// Draw a line.
+		/// \brief Draw a line.
+		///
+		/// Must have uniform(s): 
+		/// u_cameraProj, u_cameraView, u_point_size, u_colour
 		///
 		/// \param line Line to draw.
 		///
 		void drawLine(qs::Line& line) noexcept;
 		
 		///
-		/// Draw a circle.
+		/// \brief Draw a circle.
+		///
+		/// Must have uniform(s):
+		/// u_cameraProj, u_cameraView
 		///
 		/// \param circle Circle to draw.
 		///
@@ -70,7 +77,8 @@ namespace qs
 		///
 		/// \brief Draw a sprite.
 		///
-		///
+		/// Must have uniform(s):
+		/// u_transform, u_opacity, u_width, u_height, u_cameraProj, u_cameraView
 		///
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
@@ -80,7 +88,8 @@ namespace qs
 		///
 		/// \brief Draw an animated sprite.
 		///
-		///
+		/// Must have uniform(s):
+		/// u_transform, u_opacity, u_width, u_height, u_cameraProj, u_cameraView
 		///
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
@@ -90,14 +99,16 @@ namespace qs
 		///
 		/// \brief Draw a spritebatch.
 		///
-		///
+		/// Must have uniform(s):
+		/// u_width, u_height, u_cameraProj, u_cameraView
 		///
 		/// \param spritebatch SpriteBatch to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept;
 
-	
+
+		void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
 		
 		///
 		/// Draw to render texture.

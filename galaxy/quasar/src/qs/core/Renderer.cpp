@@ -8,10 +8,13 @@
 #include <glm/mat4x4.hpp>
 
 #include "qs/core/Shader.hpp"
-
+#include "qs/sprite/Sprite.hpp"
 #include "qs/graphics/Line.hpp"
 #include "qs/graphics/Point.hpp"
 #include "qs/graphics/Circle.hpp" 
+#include "qs/sprite/SpriteBatch.hpp"
+#include "qs/sprite/AnimatedSprite.hpp"
+#include "qs/texture/RenderTexture.hpp"
 
 #include "Renderer.hpp"
 
@@ -44,10 +47,42 @@ namespace qs
 
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
 	{
+		sprite.bind();
+
+		shader.setUniform("u_transform", sprite.getTransformation());
+		shader.setUniform("u_opacity", sprite.getOpacity());
+		shader.setUniform<float>("u_width", sprite.getWidth());
+		shader.setUniform<float>("u_height", sprite.getHeight());
+
+		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawAnimatedSprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept
 	{
+		sprite.bind();
+		sprite.update();
+
+		shader.setUniform("u_transform", sprite.getTransformation());
+		shader.setUniform("u_opacity", sprite.getOpacity());
+		shader.setUniform<float>("u_width", sprite.getWidth());
+		shader.setUniform<float>("u_height", sprite.getHeight());
+
+		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept
+	{
+		spritebatch.bind();
+
+		shader.setUniform<float>("u_width", spritebatch.getWidth());
+		shader.setUniform<float>("u_height", spritebatch.getHeight());
+
+		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept
+	{
+
 	}
 
 	/*

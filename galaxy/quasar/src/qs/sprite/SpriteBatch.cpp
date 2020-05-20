@@ -134,13 +134,23 @@ namespace qs
 
 	void SpriteBatch::unbind() noexcept
 	{
-		m_texture->unbind();
 		m_vertexArray.unbind();
+		m_texture->unbind();
 	}
 
 	const unsigned int SpriteBatch::getCount() const noexcept
 	{
 		return m_indexCount;
+	}
+
+	const unsigned int SpriteBatch::getWidth() const noexcept
+	{
+		return m_texture->getWidth();
+	}
+
+	const unsigned int SpriteBatch::getHeight() const noexcept
+	{
+		return m_texture->getHeight();
 	}
 
 	void SpriteBatch::sort() noexcept

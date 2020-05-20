@@ -97,7 +97,7 @@ namespace qs
 		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
 		{
 			m_size = vertices.size();
-			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
 		}
 		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
 		{

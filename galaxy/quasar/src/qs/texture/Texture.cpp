@@ -9,9 +9,9 @@
 
 #include <glad/glad.h>
 #include <stb_image.h>
+#include <pulsar/Log.hpp>
 #include <stb_image_write.h>
 
-#include "qs/utils/Error.hpp"
 #include "qs/core/WindowSettings.hpp"
 
 #include "Texture.hpp"
@@ -56,7 +56,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture: " + file + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 77, msg);
+			PL_LOG(PL_ERROR, msg);
 		}
 
 		stbi_image_free(data);
@@ -91,7 +91,7 @@ namespace qs
 		else
 		{
 			std::string msg = "Failed to load texture with size: " + std::to_string(size) + " Reason: " + stbi_failure_reason();
-			qs::Error::handle().callback("Texture.cpp", 112, msg);
+			PL_LOG(PL_ERROR, msg);
 		}
 
 		stbi_image_free(data);

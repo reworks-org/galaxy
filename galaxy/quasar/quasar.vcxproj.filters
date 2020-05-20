@@ -13,10 +13,6 @@
     <ClCompile Include="src\qs\graphics\Line.cpp" />
     <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
-    <ClCompile Include="src\qs\text\Character.cpp" />
-    <ClCompile Include="src\qs\text\Font.cpp" />
-    <ClCompile Include="src\qs\text\FreeType.cpp" />
-    <ClCompile Include="src\qs\text\Text.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
     <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
@@ -57,10 +53,6 @@
     <ClInclude Include="src\qs\graphics\Line.hpp" />
     <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
-    <ClInclude Include="src\qs\text\Character.hpp" />
-    <ClInclude Include="src\qs\text\Font.hpp" />
-    <ClInclude Include="src\qs\text\FreeType.hpp" />
-    <ClInclude Include="src\qs\text\Text.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
     <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
