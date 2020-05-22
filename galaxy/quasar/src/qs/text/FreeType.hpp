@@ -12,6 +12,11 @@
 #include FT_FREETYPE_H
 
 ///
+/// Shortcut Macro.
+///
+#define FTLIB qs::FreeTypeLib::handle()
+
+///
 /// Core namespace.
 ///
 namespace qs
@@ -28,11 +33,23 @@ namespace qs
 		~FreeTypeLib() noexcept;
 
 		///
+		/// Get handle to library.
+		///
+		/// \return Refernce to this static instance.
+		///
+		static FreeTypeLib& handle() noexcept;
+
+		///
+		/// Close library.
+		///
+		void close() noexcept;
+
+		///
 		/// Handle to FT library.
 		///
 		/// \return Reference to FT_Library.
 		///
-		static FT_Library& lib() noexcept;
+		FT_Library& lib() noexcept;
 
 	private:
 		///

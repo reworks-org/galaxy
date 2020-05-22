@@ -39,7 +39,7 @@
 #include <qs/shaders/Points.hpp>
 #include <qs/shaders/Sprites.hpp>
 #include <qs/shaders/SpriteBatches.hpp>
-#include <qs/shaders/RenderTextToTexture.hpp>
+#include <qs/shaders/Glyphs.hpp>
 #include <qs/shaders/RenderToTexture.hpp>
 #include <protostar/state/State.hpp>
 
@@ -57,7 +57,7 @@ public:
 private:
 	qs::Shader shader;
 	qs::Shader rttshader;
-	qs::Shader textRTTshader;
+	qs::Shader glyphShader;
 	qs::Shader pointShader;
 	qs::Shader lineShader;
 	qs::Shader spiteBatchShader;

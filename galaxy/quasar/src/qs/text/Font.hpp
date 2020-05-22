@@ -13,6 +13,7 @@
 
 #include "qs/text/FreeType.hpp"
 #include "qs/text/Character.hpp"
+#include "qs/texture/RenderTexture.hpp"
 
 ///
 /// Core namespace.
@@ -20,7 +21,13 @@
 namespace qs
 {
 	///
-	/// A font.
+	/// Forward decs.
+	///
+	class Shader;
+	class Renderer;
+
+	///
+	/// A font with a texture map for characters in the font.
 	///
 	class Font final
 	{
@@ -31,27 +38,25 @@ namespace qs
 		Font() noexcept;
 
 		///
-		/// \brief Argument constructor.
-		///
-		/// Calls create().
-		///
-		/// \param file Font file to load.
-		/// \param size Size to set the font at.
-		///
-		explicit Font(const std::string& file, const int size) noexcept;
-
-		///
 		/// Default destructor.
 		///
 		~Font() noexcept = default;
 
 		///
-		/// Create the font.
+		/// Load and prep font and characters.
 		///
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		void create(const std::string& file, const int size) noexcept;
+		void load(const std::string& file, const int size) noexcept;
+
+		///
+		/// Create the font.
+		///
+		/// \param renderer Renderer to draw characters with.
+		/// \paramn shader Shader to use when drawing.
+		///
+		void create(qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
 		///
 		/// Retrieve width of a string of text.
@@ -66,6 +71,13 @@ namespace qs
 		const int getHeight() noexcept;
 		
 		///
+		/// Get texture.
+		///
+		/// \return Pointer to texture atlas.
+		///
+		qs::BaseTexture* getTexture() noexcept;
+
+		///
 		/// Get characters.
 		///
 		/// \return Returns reference to an unordered_map. Char is key, value is qs::Character.
@@ -74,14 +86,19 @@ namespace qs
 
 	private:
 		///
-		/// Stores mapped characters.
-		///
-		std::unordered_map<char, qs::Character> m_characterMap;
-
-		///
 		/// Cached height of font.
 		///
 		int m_height;
+
+		///
+		/// Texture.
+		///
+		qs::RenderTexture m_texture;
+
+		///
+		/// Stores mapped characters.
+		///
+		std::unordered_map<char, qs::Character> m_characterMap;
 	};
 }
 

@@ -11,6 +11,7 @@
 #include "qs/sprite/Sprite.hpp"
 #include "qs/graphics/Line.hpp"
 #include "qs/graphics/Point.hpp"
+#include "qs/text/Character.hpp"
 #include "qs/graphics/Circle.hpp" 
 #include "qs/sprite/SpriteBatch.hpp"
 #include "qs/sprite/AnimatedSprite.hpp"
@@ -92,16 +93,16 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite->getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	/*
-	void Renderer::drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	void Renderer::drawCharacter(qs::Character& chr, qs::RenderTexture& target, qs::Shader& shader) noexcept
 	{
-		character.bind();
-		shader.setUniform("u_projection", rt.getProjection());
+		chr.bind();
+		shader.setUniform("u_projection", target.getProjection());
 
-		glDrawElements(GL_TRIANGLES, character.getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, chr.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
+	/*
+|	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
 	{
 		drawSprite(text.asSprite(), shader);
 	}

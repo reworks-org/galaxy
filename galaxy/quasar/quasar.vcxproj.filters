@@ -24,7 +24,6 @@
     <ClCompile Include="src\qs\shaders\RenderToTexture.cpp" />
     <ClCompile Include="src\qs\shaders\Sprites.cpp" />
     <ClCompile Include="src\qs\shaders\SpriteBatches.cpp" />
-    <ClCompile Include="src\qs\shaders\RenderTextToTexture.cpp" />
     <ClCompile Include="src\qs\shaders\Lines.cpp" />
     <ClCompile Include="src\qs\shaders\Points.cpp" />
     <ClCompile Include="src\qs\texture\Texture.cpp" />
@@ -41,6 +40,10 @@
     <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\vertex\type\PrimitiveVertex.cpp" />
     <ClCompile Include="src\qs\vertex\type\SpriteVertex.cpp" />
+    <ClCompile Include="src\qs\text\Character.cpp" />
+    <ClCompile Include="src\qs\text\FreeType.cpp" />
+    <ClCompile Include="src\qs\text\Font.cpp" />
+    <ClCompile Include="src\qs\shaders\Glyphs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -63,7 +66,6 @@
     <ClInclude Include="src\qs\shaders\RenderToTexture.hpp" />
     <ClInclude Include="src\qs\shaders\Sprites.hpp" />
     <ClInclude Include="src\qs\shaders\SpriteBatches.hpp" />
-    <ClInclude Include="src\qs\shaders\RenderTextToTexture.hpp" />
     <ClInclude Include="src\qs\shaders\Lines.hpp" />
     <ClInclude Include="src\qs\shaders\Points.hpp" />
     <ClInclude Include="src\qs\texture\Texture.hpp" />
@@ -80,5 +82,9 @@
     <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\vertex\type\SpriteVertex.hpp" />
     <ClInclude Include="src\qs\vertex\type\PrimitiveVertex.hpp" />
+    <ClInclude Include="src\qs\text\Character.hpp" />
+    <ClInclude Include="src\qs\text\FreeType.hpp" />
+    <ClInclude Include="src\qs\text\Font.hpp" />
+    <ClInclude Include="src\qs\shaders\Glyphs.hpp" />
   </ItemGroup>
 </Project>

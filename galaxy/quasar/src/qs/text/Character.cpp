@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <glad/glad.h>
-
 #include "Character.hpp"
 
 ///
@@ -21,10 +19,6 @@ namespace qs
 
 	Character::Character(const int bx, const int by, const unsigned int advance) noexcept
 		:m_bearingX(bx), m_bearingY(by), m_advance(advance)
-	{
-	}
-
-	Character::~Character() noexcept
 	{
 	}
 }

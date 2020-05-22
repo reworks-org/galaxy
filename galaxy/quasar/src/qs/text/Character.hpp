@@ -8,7 +8,10 @@
 #ifndef QUASAR_CHARACTER_HPP_
 #define QUASAR_CHARACTER_HPP_
 
-#include "qs/core/Renderable.hpp"
+#include <protostar/math/Rect.hpp>
+
+#include "qs/texture/Texture.hpp"
+#include "qs/core/VertexData.hpp"
 
 ///
 /// Core namespace.
@@ -18,8 +21,12 @@ namespace qs
 	///
 	/// A character in a font.
 	///
-	class Character final : public qs::Renderable
+	class Character final : public qs::VertexData, public qs::Texture
 	{
+		///
+		/// Allows font to access interior.
+		///
+		friend class Font;
 	public:
 		///
 		/// Constructor.
@@ -38,7 +45,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~Character() noexcept;
+		virtual ~Character() noexcept = default;
 
 	public:
 		///
@@ -55,6 +62,12 @@ namespace qs
 		/// Offset to next character.
 		///
 		unsigned int m_advance;
+
+	private:
+		///
+		/// Texture region on a fontmap.
+		///
+		protostar::Rect<float> m_region;
 	};
 }
 

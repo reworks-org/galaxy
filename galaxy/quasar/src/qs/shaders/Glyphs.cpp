@@ -1,8 +1,8 @@
 ///
-/// RenderTextToTexture.cpp
+/// Glyphs.cpp
 /// quasar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "RenderTextToTexture.hpp"
+#include "Glyphs.hpp"

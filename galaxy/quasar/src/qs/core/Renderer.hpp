@@ -24,6 +24,7 @@ namespace qs
 	class AnimatedSprite;
 	class SpriteBatch;
 	class RenderTexture;
+	class Character;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -119,6 +120,18 @@ namespace qs
 		///
 		void drawSpriteToTexture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
 		
+		///
+		/// \brief Draws a character to a font map.
+		///
+		/// Must have uniform(s):
+		/// u_projection
+		///
+		/// \param chr Character to draw.
+		/// \param target Target to draw to.
+		/// \param shader Shader to use.
+		///
+		void drawCharacter(qs::Character& chr, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+
 		///
 		/// Draw to render texture.
 		///

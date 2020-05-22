@@ -68,7 +68,7 @@ StateGame::StateGame() noexcept
 	// Shaders
 	shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
 	rttshader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
-	textRTTshader.loadFromRaw(qs::s_renderTextToTextureVS, qs::s_renderTextToTextureFS);
+	glyphShader.loadFromRaw(qs::s_glyphsVS, qs::s_glyphsFS);
 	pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
 	lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
 	spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);

@@ -67,7 +67,7 @@ namespace qs
 		///
 		void unbind() noexcept override;
 
-	private:
+	protected:
 		///
 		/// Opacity of sprite.
 		///

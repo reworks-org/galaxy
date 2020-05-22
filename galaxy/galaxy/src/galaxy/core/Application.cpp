@@ -7,6 +7,7 @@
 
 #include <glad/glad.h>
 #include <sol/sol.hpp>
+#include <qs/text/FreeType.hpp>
 #include <protostar/system/Time.hpp>
 #include <qs/core/WindowSettings.hpp>
 #include <protostar/system/Colour.hpp>
@@ -231,6 +232,8 @@ namespace galaxy
 		m_state->clear();
 		m_threadPool->setActive(false);
 		m_threadPool->destroy();
+
+		FTLIB.close();
 		m_window->destroy();
 
 		PL_LOG_GET.deinit();
