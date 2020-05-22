@@ -41,7 +41,6 @@
 #include <qs/shaders/SpriteBatches.hpp>
 #include <qs/shaders/RenderTextToTexture.hpp>
 #include <qs/shaders/RenderToTexture.hpp>
-#include <qs/shaders/Widgets.hpp>
 #include <protostar/state/State.hpp>
 
 class StateGame : public protostar::State
@@ -62,10 +61,11 @@ private:
 	qs::Shader pointShader;
 	qs::Shader lineShader;
 	qs::Shader spiteBatchShader;
-	qs::Shader widgetShader;
 	qs::Sprite spriteTest;
-	//qs::TextureAtlas atlas;
-	//qs::SpriteBatch atlasSpr;
+	qs::TextureAtlas atlas;
+	qs::SpriteBatch atlasSpr;
+	qs::BatchedSprite bspr1;
+	qs::BatchedSprite bspr2;
 	//qs::RenderTexture* att;
 	//qs::Text text;
 	//qs::Font font;

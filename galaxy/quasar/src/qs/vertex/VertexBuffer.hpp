@@ -41,9 +41,10 @@ namespace qs
 		/// Create vertex buffer object.
 		///
 		/// \param vertices Vertexs to use.
+		/// \param defaultDynamicVerts Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
 		///
 		template<typename VertexType, typename BufferType>
-		void create(const VertexStorage<VertexType>& vertices) noexcept;
+		void create(const VertexStorage<VertexType>& vertices, bool defaultDynamicVerts = true) noexcept;
 
 		///
 		/// Bind the current vertex buffer to current GL context.
@@ -83,7 +84,7 @@ namespace qs
 	};
 	
 	template<typename VertexType, typename BufferType>
-	inline void VertexBuffer::create(const VertexStorage<VertexType>& vertices) noexcept
+	inline void VertexBuffer::create(const VertexStorage<VertexType>& vertices, bool defaultDynamicVerts) noexcept
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
 		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
@@ -91,17 +92,31 @@ namespace qs
 
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 
+		if (!vertices.empty())
+		{
+			m_size = vertices.size();
+		}
+		else
+		{
+			m_size = vertices.capacity();
+		}
+
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
 		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
 		{
-			m_size = vertices.size();
-			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
+			if (defaultDynamicVerts)
+			{
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
+			}
+			else
+			{
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
+			}
 		}
 		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
 		{
-			m_size = vertices.size();
 			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
 		}
 

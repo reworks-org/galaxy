@@ -13,27 +13,19 @@
 namespace qs
 {
 	BatchedSprite::BatchedSprite() noexcept
-		:Transform(), m_opacity(1.0f), m_zLevel(0)
+		:Transform(), m_isDirty(false), m_opacity(1.0f), m_zLevel(0), m_offset(0)
 	{
 	}
 
-	void BatchedSprite::load(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept
+	void BatchedSprite::create(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept
 	{
 		m_region = region;
 		m_zLevel = zlevel;
-	}
 
-	void BatchedSprite::create() noexcept
-	{
 		setRotationOrigin(m_region.m_width * 0.5f, m_region.m_height * 0.5f);
 		setOpacity(1.0f);
-	}
 
-	void BatchedSprite::create(const float x, const float y) noexcept
-	{
-		setPos(x, y);
-		setRotationOrigin(m_region.m_width * 0.5f, m_region.m_height * 0.5f);
-		setOpacity(1.0f);
+		m_isDirty = true;
 	}
 
 	void BatchedSprite::setOpacity(float opacity) noexcept
@@ -48,19 +40,35 @@ namespace qs
 		}
 
 		m_opacity = opacity;
+		m_isDirty = true;
 	}
 
-	const float BatchedSprite::getOpacity() const noexcept
+	void BatchedSprite::setZLevel(const unsigned int level) noexcept
 	{
-		return m_opacity;
+		m_zLevel = level;
+		m_isDirty = true;
 	}
+	
+	void BatchedSprite::setUpdatedRegion(float x, float y, float w, float h) noexcept
+	{
+		m_region.m_x = x;
+		m_region.m_y = y;
+
+		if (w >= 0.0f)
+		{
+			m_region.m_width = w;
+		}
+
+		if (h >= 0.0f)
+		{
+			m_region.m_height = h;
+		}
+
+		m_isDirty = true;
+	}
+
 	const unsigned int BatchedSprite::getZLevel() const noexcept
 	{
-		return 0;
-	}
-
-	protostar::Rect<float>& BatchedSprite::getRegion() noexcept
-	{
-		return m_region;
+		return m_zLevel;
 	}
 }

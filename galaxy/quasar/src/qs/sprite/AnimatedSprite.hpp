@@ -21,10 +21,6 @@ namespace qs
 	///
 	class AnimatedSprite final : public qs::Sprite, public qs::Animated
 	{
-		///
-		/// So update() does not need to be exposed publicly.
-		///
-		friend class Renderer;
 	public:
 		///
 		/// Constructor.

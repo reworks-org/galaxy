@@ -35,25 +35,23 @@ namespace qs
 		virtual ~SpriteBatch() noexcept;
 
 		///
-		/// \brief Prepare to draw sprites to batch.
-		///
-		/// See sort() for ordering.
+		/// Set the texture to use.
 		///
 		/// \param texture Texture to use when drawing batched sprites.
 		///
-		void begin(qs::BaseTexture* texture) noexcept;
+		void setTexture(qs::BaseTexture* texture) noexcept;
 
 		///
-		/// Draw a batched sprite to the spritebatch.
+		/// Add a batched sprite to the spritebatch.
 		///
 		/// \param sprite Sprite to add.
 		///
-		void draw(qs::BatchedSprite* sprite) noexcept;
+		void add(qs::BatchedSprite* sprite) noexcept;
 
 		///
-		/// Finish and setup vertexdata to send to OpenGL.
+		/// Update spritebatch vertexs.
 		///
-		void end() noexcept;
+		void update() noexcept;
 
 		///
 		/// Clears the spritebatch of data.
@@ -107,9 +105,24 @@ namespace qs
 
 	private:
 		///
-		/// Vertex count.
+		/// Offset tracker.
 		///
-		unsigned int m_count;
+		unsigned int m_offset;
+		
+		///
+		/// Max # of quads.
+		///
+		unsigned int m_maxQuads;
+
+		///
+		/// Max # of vertexs.
+		///
+		unsigned int m_maxVertexs;
+
+		///
+		/// Max # of indexs.
+		///
+		unsigned int m_maxIndexs;
 
 		///
 		/// Index count.
@@ -117,34 +130,19 @@ namespace qs
 		unsigned int m_indexCount;
 
 		///
-		/// Max quads.
-		///
-		unsigned int m_maxQuads;
-
-		///
-		/// Max vertices.
-		///
-		unsigned int m_maxVertices;
-
-		///
-		/// Max indices
-		///
-		unsigned int m_maxIndices;
-		
-		///
 		/// Pointer to texture to use.
 		///
 		qs::BaseTexture* m_texture;
 
 		///
-		/// Array of sprites to create the array.
+		/// Array of batched sprites.
 		///
 		std::vector<qs::BatchedSprite*> m_sprites;
 
 		///
-		/// Vertexs to draw with.
+		/// Vertexs of spritebatch.
 		///
-		qs::VertexStorage<qs::SpriteVertex> m_vertexs;
+		VertexStorage<qs::SpriteVertex> m_vertexs;
 	};
 }
 

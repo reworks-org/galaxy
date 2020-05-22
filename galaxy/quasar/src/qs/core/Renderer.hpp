@@ -107,8 +107,17 @@ namespace qs
 		///
 		void drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept;
 
-
-		void drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+		///
+		/// \brief Draw a sprite to a texture.
+		///
+		/// Must have uniform(s):
+		/// u_transform, u_opacity, u_width, u_height, u_projection
+		///
+		/// \param sprite Sprite to draw. Pointer so you can cast up other sprite type objects.
+		/// \param target Target to draw to.
+		/// \param shader Shader to apply to sprite. You must have called bind() already!
+		///
+		void drawSpriteToTexture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
 		
 		///
 		/// Draw to render texture.

@@ -23,10 +23,7 @@ namespace qs
 	///
 	class BatchedSprite : public qs::Transform
 	{
-		///
-		/// So update() does not need to be exposed publicly.
-		///
-		friend class Renderer;
+		friend class SpriteBatch;
 	public:
 		///
 		/// Constructor.
@@ -44,52 +41,46 @@ namespace qs
 		/// \param region Region defined on the texture.
 		/// \param zlevel zLevel of sprite.
 		///
-		void load(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept;
-
-		///
-		/// Sets up data.
-		///
-		void create() noexcept;
-
-		///
-		/// Sets up data. Specify position on creation.
-		///
-		/// \param x Custom x pos.
-		/// \param y Custom y pos.
-		///
-		void create(const float x, const float y) noexcept;
+		void create(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept;
 
 		///
 		/// Set opacity.
-		///
-		/// Only affects the currently active quad.
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
 		void setOpacity(float opacity) noexcept;
 
 		///
-		/// Get opacity.
+		/// Set z-level.
 		///
-		/// \return Const float.
+		/// \param level New z-level of sprite.
 		///
-		const float getOpacity() const noexcept;
+		void setZLevel(const unsigned int level) noexcept;
 
 		///
-		/// Get z-level of vertexs.
+		/// Update texquad region.
 		///
-		/// \return Const unsigned integer.
+		/// \param x New x position.
+		/// \param y New y position.
+		/// \param w Optional. Width. Will not set unless provided.
+		/// \param h Optional. Height. Will not set unless provided.
+		///
+		void setUpdatedRegion(float x, float y, float w = -1.0f, float h = -1.0f) noexcept;
+
+		///
+		/// Get z-level.
+		///
+		/// \return Const unsigned int.
 		///
 		const unsigned int getZLevel() const noexcept;
 
-		///
-		/// Get texture region.
-		///
-		/// \return Float reference.
-		///
-		protostar::Rect<float>& getRegion() noexcept;
-
 	private:
+		///
+		/// Keeps track if a batched sprite has been modified.
+		/// Defaults to false.
+		///
+		bool m_isDirty;
+
 		///
 		/// Opacity of BatchedSprite.
 		///
@@ -99,6 +90,11 @@ namespace qs
 		/// Z-Level
 		///
 		unsigned int m_zLevel;
+		
+		///
+		/// Offset of vertexs in a spritebatch.
+		///
+		unsigned int m_offset;
 
 		///
 		/// Region of texture used.

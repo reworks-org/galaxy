@@ -67,7 +67,7 @@ namespace qs
 					auto rect = opt.value();
 					loadedTex.move(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y));
 
-					renderer.drawSpriteToTexture(loadedTex, m_texture, shader);
+					renderer.drawSpriteToTexture(&loadedTex, m_texture, shader);
 
 					m_textureRects.emplace(filePath.stem().string(), protostar::Rect<float>(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)));
 				}
@@ -104,8 +104,8 @@ namespace qs
 		}
 	}
 
-	qs::RenderTexture& TextureAtlas::getTexture() noexcept
+	qs::RenderTexture* TextureAtlas::getTexture() noexcept
 	{
-		return m_texture;
+		return &m_texture;
 	}
 }

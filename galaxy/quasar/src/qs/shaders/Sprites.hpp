@@ -24,8 +24,8 @@ namespace qs
 		layout(location = 1) in vec2 l_texels;
 		layout(location = 2) in float l_opacity;
 
-		out vec4 io_colour;
 		out vec2 io_texels;
+		out vec4 io_colour;
 
 		uniform mat4 u_cameraView;
 		uniform mat4 u_cameraProj;

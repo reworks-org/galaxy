@@ -95,9 +95,9 @@ namespace qs
 		///
 		/// Get atlas texture.
 		///
-		/// \return Const reference to texture.
+		/// \return Pointer to texture.
 		///
-		qs::RenderTexture& getTexture() noexcept;
+		qs::RenderTexture* getTexture() noexcept;
 
 	private:
 		///

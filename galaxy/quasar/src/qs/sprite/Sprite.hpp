@@ -22,10 +22,6 @@ namespace qs
 	///
 	class Sprite : public qs::VertexData, public qs::Texture, public qs::Transform
 	{
-		///
-		/// So update() does not need to be exposed publicly.
-		///
-		friend class Renderer;
 	public:
 		///
 		/// Constructor.

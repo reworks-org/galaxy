@@ -63,7 +63,7 @@ struct Test
 }
 
 StateGame::StateGame() noexcept
-	//:atlasSpr(100)
+	:atlasSpr(100)
 {
 	// Shaders
 	shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
@@ -72,51 +72,30 @@ StateGame::StateGame() noexcept
 	pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
 	lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
 	spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
-	widgetShader.loadFromRaw(qs::s_widgetVS, qs::s_widgetFS);
 
 	auto* window = SL_HANDLE.window();
 	auto* renderer = SL_HANDLE.renderer();
 	
 	spriteTest.load("bin/wall.png");
 	spriteTest.create<qs::BufferTypeDynamic>();
-	spriteTest.move(20.0f, 20.0f);
+	spriteTest.move(500.0f, 20.0f);
 	spriteTest.rotate(45.0f);
 
-	//atlas.add("bin/wall.png");
-	//atlas.add("bin/wall_2.png");
-	//rttshader.bind();
-	//atlas.create(*window, *renderer, rttshader);
+	atlas.add("bin/wall_2.png");
+	atlas.add("bin/wall_3.png");
+	rttshader.bind();
+	atlas.create(*renderer, rttshader);
 	//atlas.save("bin/atlas");
 
-	//att = &atlas.getTexture();
-	//atlasSpr.load(att->getGLTexture(), att->getWidth(), att->getHeight());
+	bspr1.create(atlas.getTexQuad("wall_2"), 1);
+	bspr2.create(atlas.getTexQuad("wall_3"), 2);
 
-	//auto wq = atlas.getTexQuad("wall");
-	//auto wq2 = atlas.getTexQuad("wall_2");
+	bspr1.setPos(500, 500);
+	bspr2.setPos(20, 20);
 
-	//quadA = qs::Vertex::make_quad(
-	//	{ 0.0f, 0.0f, wq.m_width, wq.m_height },
-	//	{ 0.0f, 0.0f, 0.0f, 1.0f },
-//		wq.m_x, wq.m_y
-	//);
-	//quadB = qs::Vertex::make_quad(
-	//	{ 0.0f, 0.0f, wq2.m_width, wq2.m_height },
-	////	{ 0.0f, 0.0f, 0.0f, 1.0f },
-	//	wq2.m_x, wq2.m_y
-	//);
-
-	//vqs.push_back(quadA);
-	//vqs.push_back(quadB);
-
-	//atlasSpr.create(vqs);
-
-	// quad a vertex is from 0 - 3.
-	//t1 = atlasSpr.getTransform(0);
-	//t1->move(0.0f, 0.0f);
-
-	// quad b vertex is from 4 - 7.
-//	t2 = atlasSpr.getTransform(1);
-	//t2->move(500.0f, 500.0f);
+	atlasSpr.setTexture(dynamic_cast<qs::BaseTexture*>(atlas.getTexture()));
+	atlasSpr.add(&bspr1);
+	atlasSpr.add(&bspr2);
 
 	//textRTTshader.bind();
 	//font.create("bin/public.ttf", 36);
@@ -208,6 +187,7 @@ void StateGame::events() noexcept
 void StateGame::update(protostar::ProtectedDouble* deltaTime) noexcept
 {
 	camera.update(updte.get());
+	atlasSpr.update();
 }
 
 void StateGame::render() noexcept
@@ -222,6 +202,12 @@ void StateGame::render() noexcept
 	shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 	shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 	renderer->drawSprite(spriteTest, shader);
+	
+	spiteBatchShader.bind();
+	spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+	spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+	atlasSpr.bind();
+	renderer->drawSpriteBatch(atlasSpr, spiteBatchShader);
 
 	//pointShader.bind();
 	//pointShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
