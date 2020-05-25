@@ -21,4 +21,9 @@ namespace qs
 		:m_bearingX(bx), m_bearingY(by), m_advance(advance)
 	{
 	}
+
+	const qs::VertexQuadStorage<qs::SpriteVertex>& Character::getVertexs() const noexcept
+	{
+		return m_vertexs;
+	}
 }

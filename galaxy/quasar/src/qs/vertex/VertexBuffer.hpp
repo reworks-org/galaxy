@@ -22,6 +22,12 @@ namespace qs
 	using VertexStorage = std::vector<VertexType>;
 
 	///
+	/// Shorthand.
+	///
+	template<typename VertexType>
+	using VertexQuadStorage = std::array<VertexType, 4>;
+
+	///
 	/// Abstraction for OpenGL vertex buffer objects.
 	///
 	class VertexBuffer final

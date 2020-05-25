@@ -58,17 +58,17 @@ namespace qs
 					emplaced->m_bearingY = static_cast<int>(face->glyph->bitmap_top);
 					emplaced->m_advance = static_cast<unsigned int>(face->glyph->advance.x);
 					
-					emplaced->m_region.m_x = advX + emplaced->m_bearingX;
-					emplaced->m_region.m_y = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
-					emplaced->m_region.m_width = static_cast<float>(emplaced->getWidth());
-					emplaced->m_region.m_height = static_cast<float>(emplaced->getHeight());
+					float x = advX + emplaced->m_bearingX;
+					float y = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
+					float w = static_cast<float>(emplaced->getWidth());
+					float h = static_cast<float>(emplaced->getHeight());
 
-					auto v1 = qs::make_vertex<qs::SpriteVertex>(emplaced->m_region.m_x, emplaced->m_region.m_y, 0.0f, 1.0f, 1.0f);
-					auto v2 = qs::make_vertex<qs::SpriteVertex>(emplaced->m_region.m_x + emplaced->m_region.m_width, emplaced->m_region.m_y, 1.0f, 1.0f, 1.0f);
-					auto v3 = qs::make_vertex<qs::SpriteVertex>(emplaced->m_region.m_x + emplaced->m_region.m_width, emplaced->m_region.m_y + emplaced->m_region.m_height, 1.0f, 0.0f, 1.0f);
-					auto v4 = qs::make_vertex<qs::SpriteVertex>(emplaced->m_region.m_x, emplaced->m_region.m_y + emplaced->m_region.m_height, 0.0f, 0.0f, 1.0f);
+					emplaced->m_vertexs[0] = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f, 1.0f);
+					emplaced->m_vertexs[1] = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f, 1.0f);
+					emplaced->m_vertexs[2] = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f, 1.0f);
+					emplaced->m_vertexs[3] = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f, 1.0f);
 
-					emplaced->m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeStatic>({ v1, v2, v3, v4 });
+					emplaced->m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeStatic>({ emplaced->m_vertexs[0], emplaced->m_vertexs[1], emplaced->m_vertexs[2], emplaced->m_vertexs[3] });
 					emplaced->m_indexBuffer.create<qs::BufferTypeStatic>({ 0, 1, 3, 1, 2, 3 });
 
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);
@@ -131,8 +131,8 @@ namespace qs
 		return dynamic_cast<qs::BaseTexture*>(&m_texture);
 	}
 
-	std::unordered_map<char, qs::Character>& Font::getChars() noexcept
+	qs::Character* Font::getChar(const char c) noexcept
 	{
-		return m_characterMap;
+		return &m_characterMap[c];
 	}
 }

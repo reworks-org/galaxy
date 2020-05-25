@@ -78,11 +78,11 @@ namespace qs
 		qs::BaseTexture* getTexture() noexcept;
 
 		///
-		/// Get characters.
+		/// Get a character.
 		///
-		/// \return Returns reference to an unordered_map. Char is key, value is qs::Character.
+		/// \return Returns pointer to Character class.
 		///
-		std::unordered_map<char, qs::Character>& getChars() noexcept;
+		qs::Character* getChar(const char c) noexcept;
 
 	private:
 		///

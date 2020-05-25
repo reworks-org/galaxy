@@ -47,6 +47,13 @@ namespace qs
 		///
 		virtual ~Character() noexcept = default;
 
+		///
+		/// Get vertexs
+		///
+		/// \return Const reference to vertexs.
+		///
+		const qs::VertexQuadStorage<qs::SpriteVertex>& getVertexs() const noexcept;
+
 	public:
 		///
 		/// Bearing X.
@@ -65,9 +72,9 @@ namespace qs
 
 	private:
 		///
-		/// Texture region on a fontmap.
+		/// Vertexs.
 		///
-		protostar::Rect<float> m_region;
+		qs::VertexQuadStorage<qs::SpriteVertex> m_vertexs;
 	};
 }
 

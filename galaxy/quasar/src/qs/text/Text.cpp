@@ -7,7 +7,6 @@
 
 #include "qs/core/Window.hpp"
 #include "qs/core/Shader.hpp"
-#include "qs/renderer/Renderer.hpp"
 #include "qs/vertex/VertexArray.hpp"
 #include "qs/vertex/VertexLayout.hpp"
 
@@ -19,74 +18,98 @@
 namespace qs
 {
 	Text::Text() noexcept
-        :m_text(""), m_font(nullptr)
+        :m_text(""), m_font(nullptr), m_opacity(1.0f)
 	{
 	}
-
-    Text::Text(const std::string& text, qs::Font* font, protostar::Colour& col) noexcept
-        :m_text(""), m_font(nullptr)
-    {
-        load(text, font, col);
-    }
 
     void Text::load(const std::string& text, qs::Font* font, const protostar::Colour& col) noexcept
     {
         m_text = text;
         m_font = font;
         m_colour = col;
-
-        m_texture.create(m_font->getTextWidth(m_text), m_font->getHeight());
-        m_texture.updateProjection(0.0f, static_cast<float>(m_texture.getWidth()), 0.0f, static_cast<float>(m_texture.getHeight()));
-
-        m_sprite.load(m_texture.getGLTexture(), m_texture.getWidth(), m_texture.getHeight());
-        m_sprite.create<qs::BufferTypeDynamic>();
     }
 
-    void Text::create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept
+    void Text::create() noexcept
     {
-        m_texture.bind();
+        IndexStorage is;
+        VertexStorage<qs::SpriteVertex> vs;
 
-        float advX = 0;
-        qs::VertexStorage vs;
-        vs.reserve(m_text.length() * 4);
+        unsigned int count = 0;
         for (auto& c : m_text)
         {
-            auto* chr = &m_font->getChars()[c];
+            for (auto& vertex : m_font->getChar(c)->getVertexs())
+            {
+                vs.push_back(vertex);
+            }
 
-            float x = advX + chr->m_bearingX;
-            float y = static_cast<float>(0 - (chr->getHeight() - chr->m_bearingY));
-            float w = static_cast<float>(chr->getWidth());
-            float h = static_cast<float>(chr->getHeight());
-            
-            vs.clear();
-            vs.emplace_back(qs::Vertex{ x, y, m_colour, 0.0f, 1.0f });
-            vs.emplace_back(qs::Vertex{ x + w, y, m_colour, 1.0f, 1.0f });
-            vs.emplace_back(qs::Vertex{ x + w, y + h, m_colour, 1.0f, 0.0f });
-            vs.emplace_back(qs::Vertex{ x, y + h, m_colour, 0.0f, 0.0f });
+            is.push_back(0 + count);
+            is.push_back(1 + count);
+            is.push_back(3 + count);
+            is.push_back(1 + count);
+            is.push_back(2 + count);
+            is.push_back(3 + count);
 
-            glNamedBufferSubData(chr->getVBO().getID(), 0, vs.size() * sizeof(qs::Vertex), vs.data());
-            renderer.drawCharacter(*chr, m_texture, shader);
-
-            // Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-            advX += (chr->m_advance >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
+            count += 4;
         }
 
-        m_texture.unbind(window);
+        m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeDynamic>(vs);
+        m_indexBuffer.create<qs::BufferTypeStatic>(is);
+
+        m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);
+        m_layout.add<qs::SpriteVertex, qs::VATypeTexel>(2);
+        m_layout.add<qs::SpriteVertex, qs::VATypeOpacity>(1);
+
+        m_vertexArray.create<qs::SpriteVertex>(m_vertexBuffer, m_indexBuffer, m_layout);
     }
 
-    void Text::updateText(const std::string& text, qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept
+    void Text::updateText(const std::string& text) noexcept
     {
         m_text = text;
-        create(window, renderer, shader);
+
+        IndexStorage is;
+        VertexStorage<qs::SpriteVertex> vs;
+
+        unsigned int count = 0;
+        for (auto& c : m_text)
+        {
+            for (auto& vertex : m_font->getChar(c)->getVertexs())
+            {
+                vs.push_back(vertex);
+            }
+
+            is.push_back(0 + count);
+            is.push_back(1 + count);
+            is.push_back(3 + count);
+            is.push_back(1 + count);
+            is.push_back(2 + count);
+            is.push_back(3 + count);
+
+            count += 4;
+        }
+
+        m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeDynamic>(vs);
+        m_indexBuffer.create<qs::BufferTypeStatic>(is);
     }
 
-    qs::Sprite& Text::asSprite() noexcept
+    void Text::setOpacity(float opacity) noexcept
     {
-        return m_sprite;
+        m_opacity = opacity;
     }
 
-    qs::RenderTexture& Text::getTexture() noexcept
+    const float Text::getOpacity() const noexcept
     {
-        return m_texture;
+        return m_opacity;
+    }
+
+    void Text::bind() noexcept
+    {
+        m_vertexArray.bind();
+        glBindTexture(GL_TEXTURE_2D, m_font->getTexture()->getGLTexture());
+    }
+
+    void Text::unbind() noexcept
+    {
+        glBindTexture(GL_TEXTURE_2D, 0);
+        m_vertexArray.bind();
     }
 }
