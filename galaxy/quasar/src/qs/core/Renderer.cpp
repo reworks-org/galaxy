@@ -2,22 +2,20 @@
 /// Renderer.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <glm/mat4x4.hpp>
 
-#include "qs/text/Text.hpp"
+#include "qs/core/Shader.hpp"
+#include "qs/sprite/Sprite.hpp"
 #include "qs/graphics/Line.hpp"
-#include "qs/graphics/Sprite.hpp"
-#include "qs/graphics/Circle.hpp"
 #include "qs/graphics/Point.hpp"
-#include "qs/graphics/Camera.hpp"
-#include "qs/core/RenderTexture.hpp"
-#include "qs/renderer/LightSource.hpp"
-#include "qs/graphics/SpriteBatch.hpp"
 #include "qs/text/Character.hpp"
+#include "qs/graphics/Circle.hpp" 
+#include "qs/sprite/SpriteBatch.hpp"
+#include "qs/sprite/AnimatedSprite.hpp"
+#include "qs/texture/RenderTexture.hpp"
 
 #include "Renderer.hpp"
 
@@ -48,40 +46,34 @@ namespace qs
 		glDrawArrays(GL_LINE_LOOP, 0, circle.getCount());
 	}
 
-	void Renderer::drawCharacter(qs::Character& character, qs::RenderTexture& rt, qs::Shader& shader) noexcept
-	{
-		character.bind();
-		shader.setUniform("u_projection", rt.getProjection());
-
-		glDrawElements(GL_TRIANGLES, character.getCount(), GL_UNSIGNED_INT, nullptr);
-	}
-
-	void Renderer::drawRenderable(qs::Renderable* rb, qs::Transform& transform, qs::Shader& shader) noexcept
-	{
-		rb->bind();
-		shader.setUniform("u_transform", transform.getTransformation());
-		shader.setUniform<float>("u_width", static_cast<float>(rb->getWidth()));
-		shader.setUniform<float>("u_height", static_cast<float>(rb->getHeight()));
-
-		glDrawElements(GL_TRIANGLES, rb->getCount(), GL_UNSIGNED_INT, nullptr);
-	}
-
 	void Renderer::drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
+	{
+		sprite.bind();
+
+		shader.setUniform("u_transform", sprite.getTransformation());
+		shader.setUniform("u_opacity", sprite.getOpacity());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
+
+		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawAnimatedSprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept
 	{
 		sprite.bind();
 		sprite.update();
 
 		shader.setUniform("u_transform", sprite.getTransformation());
+		shader.setUniform("u_opacity", sprite.getOpacity());
 		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
-		
+
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept
 	{
 		spritebatch.bind();
-		spritebatch.update();
 
 		shader.setUniform<float>("u_width", static_cast<float>(spritebatch.getWidth()));
 		shader.setUniform<float>("u_height", static_cast<float>(spritebatch.getHeight()));
@@ -89,20 +81,28 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::drawSpriteToTexture(qs::Sprite& sprite, qs::RenderTexture& rt, qs::Shader& shader) noexcept
+	void Renderer::drawSpriteToTexture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept
 	{
-		sprite.bind();
-		sprite.update();
+		shader.setUniform("u_projection", target.getProjection());
 
-		shader.setUniform("u_projection", rt.getProjection());
-		shader.setUniform("u_transform", sprite.getTransformation());
-		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
-		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
+		sprite->bind();
+		shader.setUniform("u_transform", sprite->getTransformation());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite->getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite->getHeight()));
 
-		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, sprite->getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
+	void Renderer::drawCharacter(qs::Character& chr, qs::RenderTexture& target, qs::Shader& shader) noexcept
+	{
+		chr.bind();
+		shader.setUniform("u_projection", target.getProjection());
+
+		glDrawElements(GL_TRIANGLES, chr.getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	/*
+|	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
 	{
 		drawSprite(text.asSprite(), shader);
 	}
@@ -125,4 +125,5 @@ namespace qs
 
 		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
+	*/
 }

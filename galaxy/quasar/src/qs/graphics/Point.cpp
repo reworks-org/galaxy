@@ -2,7 +2,6 @@
 /// Point.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -16,50 +15,42 @@
 namespace qs
 {
 	Point::Point() noexcept
-		:m_size(0), m_va(0), m_vb(0)
+		:m_size(0)
 	{
 	}
 
-	Point::Point(const float x, const float y, const int size) noexcept
-		:m_size(0), m_va(0), m_vb(0)
+	Point::Point(const float x, const float y, const int size, protostar::Colour& colour) noexcept
+		:m_size(0)
 	{
-		create(x, y, size);
+		create(x, y, size, colour);
 	}
 
-	Point::~Point() noexcept
-	{
-		glDeleteVertexArrays(1, &m_va);
-		glDeleteBuffers(1, &m_vb);
-	}
-
-	void Point::create(const float x, const float y, const int size) noexcept
+	void Point::create(const float x, const float y, const int size, protostar::Colour& colour) noexcept
 	{
 		m_size = size;
 
-		glGenBuffers(1, &m_vb);
-		glGenVertexArrays(1, &m_va);
-		
-		glBindVertexArray(m_va);
-		glBindBuffer(GL_ARRAY_BUFFER, m_vb);
+		std::vector<qs::PrimitiveVertex> vertexs;
+		IndexStorage indices;
 
-		float vertex[2] = { x, y };
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertex), vertex, GL_STATIC_DRAW);
+		vertexs.emplace_back(qs::PrimitiveVertex{ x, y, colour });
 
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float), 0);
-		glEnableVertexAttribArray(0);
+		m_vertexBuffer.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
+		m_indexBuffer.create<qs::BufferTypeStatic>({ 0 });
 
-		glBindVertexArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		m_layout.add<qs::PrimitiveVertex, qs::VATypePosition>(2);
+		m_layout.add<qs::PrimitiveVertex, qs::VATypeColour>(4);
+
+		m_vertexArray.create<qs::PrimitiveVertex>(m_vertexBuffer, m_indexBuffer, m_layout);
 	}
 
 	void Point::bind() noexcept
 	{
-		glBindVertexArray(m_va);
+		m_vertexArray.bind();
 	}
 
 	void Point::unbind() noexcept
 	{
-		glBindVertexArray(0);
+		m_vertexArray.unbind();
 	}
 
 	const int Point::getSize() const noexcept

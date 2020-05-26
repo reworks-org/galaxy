@@ -2,11 +2,8 @@
 /// Character.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
-
-#include <glad/glad.h>
 
 #include "Character.hpp"
 
@@ -25,7 +22,8 @@ namespace qs
 	{
 	}
 
-	Character::~Character() noexcept
+	const qs::VertexQuadStorage<qs::SpriteVertex>& Character::getVertexs() const noexcept
 	{
+		return m_vertexs;
 	}
 }

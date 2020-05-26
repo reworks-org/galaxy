@@ -2,7 +2,6 @@
 /// VertexArrary.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -11,18 +10,13 @@
 
 #include "qs/vertex/IndexBuffer.hpp"
 #include "qs/vertex/VertexBuffer.hpp"
+#include "qs/vertex/VertexLayout.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace qs
 {
-	///
-	/// Forward dec.
-	///
-	class VertexLayout;
-	class Transform;
-
 	///
 	/// Abstraction for OpenGL vertex array objects.
 	///
@@ -33,15 +27,6 @@ namespace qs
 		/// Default constructor.
 		///
 		VertexArray() noexcept;
-
-		///
-		/// Creation constructor (with indexbuffer).
-		///
-		/// \param vb VertexBufferObject to specify for VertexArrayObject.
-		/// \param ib IndexBufferObject to specify for VertexArrayObject.
-		/// \param layout VertexLayout to specify for this VertexArrayObject.
-		///
-		explicit VertexArray(qs::VertexBuffer& vb, qs::IndexBuffer& ib, qs::VertexLayout& layout) noexcept;
 
 		///
 		/// Destroys buffer.
@@ -55,6 +40,7 @@ namespace qs
 		/// \param ib IndexBufferObject to specify for VertexArrayObject.
 		/// \param layout VertexLayout to specify for this VertexArrayObject.
 		///
+		template<typename VertexType>
 		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, qs::VertexLayout& layout) noexcept;
 
 		///
@@ -73,6 +59,33 @@ namespace qs
 		///
 		unsigned int m_id;
 	};
+
+	template<typename VertexType>
+	inline void VertexArray::create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, qs::VertexLayout& layout) noexcept
+	{
+		// If not one of the two buffer type structs, throw compile-time assert.
+		static_assert(std::is_same<VertexType, qs::SpriteVertex>::value || std::is_same<VertexType, qs::PrimitiveVertex>::value);
+
+		bind();
+		vb.bind();
+		ib.bind();
+
+		// Add each attribute in the layout to the vertex array object.
+		// I.e. position attribute, then colour attribute of the verticies.
+		const auto& attributes = layout.getAttributes();
+		unsigned int counter = 0;
+		for (const auto& attribute : attributes)
+		{
+			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(VertexType), (GLvoid*)attribute.m_offset);
+			glEnableVertexAttribArray(counter);
+
+			++counter;
+		}
+
+		unbind();
+		vb.unbind();
+		ib.unbind();
+	}
 }
 
 #endif

@@ -2,18 +2,13 @@
 /// VertexBuffer.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef QUASAR_VERTEXBUFFER_HPP_
 #define QUASAR_VERTEXBUFFER_HPP_
 
-#include <vector>
-
-#include "qs/utils/Meta.hpp"
-#include "qs/utils/Error.hpp"
-#include "qs/vertex/Vertex.hpp"
+#include "qs/vertex/VertexLayout.hpp"
 
 ///
 /// Core namespace.
@@ -21,10 +16,16 @@
 namespace qs
 {
 	///
-	/// Custom vertex storage type.
+	/// Shorthand.
 	///
-	using VertexStorage = std::vector<qs::Vertex>;
-	using VertexQuadStorage = std::vector<std::array<qs::Vertex, 4>>;
+	template<typename VertexType>
+	using VertexStorage = std::vector<VertexType>;
+
+	///
+	/// Shorthand.
+	///
+	template<typename VertexType>
+	using VertexQuadStorage = std::array<VertexType, 4>;
 
 	///
 	/// Abstraction for OpenGL vertex buffer objects.
@@ -38,20 +39,18 @@ namespace qs
 		VertexBuffer() noexcept;
 
 		///
-		/// \brief Create vertex buffer object.
-		///
-		/// Can throw exception(s).
-		/// This function only differs in that the buffer type is evaluated at compile time.
-		///
-		/// \param vertexs Vertexs to use.
-		///
-		template<typename BufferType>
-		void create(const VertexStorage& vertexs) noexcept;
-
-		///
 		/// Destroys buffer.
 		///
 		~VertexBuffer() noexcept;
+
+		///
+		/// Create vertex buffer object.
+		///
+		/// \param vertices Vertexs to use.
+		/// \param defaultDynamicVerts Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
+		///
+		template<typename VertexType, typename BufferType>
+		void create(const VertexStorage<VertexType>& vertices, bool defaultDynamicVerts = true) noexcept;
 
 		///
 		/// Bind the current vertex buffer to current GL context.
@@ -66,16 +65,17 @@ namespace qs
 		///
 		/// Get vertex storage.
 		///
-		/// \return Reference to std::vector.
+		/// \return Vertex storage as a float array pointer.
 		///
-		VertexStorage& getVertexs() noexcept;
+		template<typename VertexType>
+		decltype(auto) get() noexcept;
 
 		///
 		/// Get OpenGL handle.
 		///
 		/// \return Const unsigned integer.
 		///
-		const unsigned int getID() const noexcept;
+		const unsigned int id() const noexcept;
 
 	private:
 		///
@@ -84,34 +84,60 @@ namespace qs
 		unsigned int m_id;
 
 		///
-		/// Stores vertex buffer cpu side.
+		/// Size of vertex buffer.
 		///
-		VertexStorage m_vertexStorage;
+		unsigned int m_size;
 	};
-
-	template<typename BufferType>
-	inline void VertexBuffer::create(const VertexStorage& vertexs) noexcept
+	
+	template<typename VertexType, typename BufferType>
+	inline void VertexBuffer::create(const VertexStorage<VertexType>& vertices, bool defaultDynamicVerts) noexcept
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
 		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
+		static_assert(std::is_same<VertexType, qs::SpriteVertex>::value || std::is_same<VertexType, qs::PrimitiveVertex>::value);
 
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
+
+		if (!vertices.empty())
+		{
+			m_size = static_cast<unsigned int>(vertices.size());
+		}
+		else
+		{
+			m_size = static_cast<unsigned int>(vertices.capacity());
+		}
 
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
 		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
 		{
-			m_vertexStorage = vertexs;
-			glBufferData(GL_ARRAY_BUFFER, m_vertexStorage.size() * sizeof(qs::Vertex), nullptr, GL_DYNAMIC_DRAW);
+			if (defaultDynamicVerts)
+			{
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
+			}
+			else
+			{
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
+			}
 		}
 		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
 		{
-			m_vertexStorage = vertexs;
-			glBufferData(GL_ARRAY_BUFFER, m_vertexStorage.size() * sizeof(qs::Vertex), m_vertexStorage.data(), GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
 		}
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
+	}
+
+	template<typename VertexType>
+	inline decltype(auto) VertexBuffer::get() noexcept
+	{
+		VertexStorage<VertexType> vs;
+		vs.reserve(m_size);
+
+		glGetNamedBufferSubData(m_id, 0, m_size * sizeof(VertexType), &vs[0]);
+
+		return std::move(vs);
 	}
 }
 

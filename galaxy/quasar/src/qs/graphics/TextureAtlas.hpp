@@ -2,16 +2,17 @@
 /// TextureAtlas.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef QUASAR_TEXTUREATLAS_HPP_
 #define QUASAR_TEXTUREATLAS_HPP_
 
+#include <unordered_map>
+
 #include <protostar/math/RectPack.hpp>
 
-#include "qs/core/RenderTexture.hpp"
+#include "qs/texture/RenderTexture.hpp"
 
 ///
 /// Core namespace.
@@ -62,11 +63,10 @@ namespace qs
 		///
 		/// Does nothing if no files were added.
 		///
-		/// \param window Target to reset framebuffer to.
 		/// \param renderer Renderer to use to draw textures.
 		/// \param shader Shader to use when creating atlas.
 		///
-		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
+		void create(qs::Renderer& renderer, qs::Shader& shader) noexcept;
 
 		///
 		/// Dumps internal atlas. May take a while.
@@ -75,6 +75,13 @@ namespace qs
 		///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
 		///
 		void save(const std::string& file) noexcept;
+
+		///
+		/// Get size of atlas.
+		///
+		/// \return Size as an integer.
+		///
+		const int getSize() const noexcept;
 
 		///
 		/// Retrieve a texture quad defined in the atlas.
@@ -86,18 +93,11 @@ namespace qs
 		const protostar::Rect<float>& getTexQuad(const std::string& name) noexcept;
 
 		///
-		/// Get size of atlas.
-		///
-		/// \return Size as an integer.
-		///
-		const int getSize() const noexcept;
-
-		///
 		/// Get atlas texture.
 		///
-		/// \return Const reference to texture.
+		/// \return Pointer to texture.
 		///
-		qs::RenderTexture& getTexture() noexcept;
+		qs::RenderTexture* getTexture() noexcept;
 
 	private:
 		///

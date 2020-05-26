@@ -2,7 +2,6 @@
 /// RenderToTexture.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -22,8 +21,8 @@ namespace qs
 	static inline std::string s_renderToTextureVS = R""(
 		#version 450 core
 		layout(location = 0) in vec2 l_pos;
-		layout(location = 1) in vec4 l_colour;
-		layout(location = 2) in vec2 l_texels;
+		layout(location = 1) in vec2 l_texels;
+		layout(location = 2) in float l_opacity;
 
 		out vec2 io_texels;
 

@@ -2,11 +2,10 @@
 /// FreeType.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "qs/utils/Error.hpp"
+#include <pulsar/Log.hpp>
 
 #include "FreeType.hpp"
 
@@ -15,22 +14,27 @@
 ///
 namespace qs
 {
-	FreeTypeLib::FreeTypeLib() noexcept
+	FreeTypeLib& FreeTypeLib::handle() noexcept
 	{
-		if (FT_Init_FreeType(&m_ftLibrary))
-		{
-			qs::Error::handle().callback("FreeType.cpp", 22, "Failed to init FreeType.");
-		}
+		static FreeTypeLib lib;
+		return lib;
 	}
 
-	FreeTypeLib::~FreeTypeLib() noexcept
+	void FreeTypeLib::close() noexcept
 	{
 		FT_Done_FreeType(m_ftLibrary);
 	}
 
 	FT_Library& FreeTypeLib::lib() noexcept
 	{
-		static FreeTypeLib lib;
-		return lib.m_ftLibrary;
+		return m_ftLibrary;
+	}
+
+	FreeTypeLib::FreeTypeLib() noexcept
+	{
+		if (FT_Init_FreeType(&m_ftLibrary))
+		{
+			PL_LOG(PL_FATAL, "Failed to init FreeType.");
+		}
 	}
 }

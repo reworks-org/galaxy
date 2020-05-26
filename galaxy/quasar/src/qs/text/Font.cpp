@@ -2,13 +2,15 @@
 /// Font.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <filesystem>
 
-#include "qs/utils/Error.hpp"
+#include <pulsar/Log.hpp>
+
+#include "qs/core/Shader.hpp"
+#include "qs/core/Renderer.hpp"
 
 #include "Font.hpp"
 
@@ -18,27 +20,18 @@
 namespace qs
 {
 	Font::Font() noexcept
-		:m_height(0)
+		:m_height(0), m_texture()
 	{
-		m_characterMap.reserve(128);
 	}
 
-	Font::Font(const std::string& file, const int size) noexcept
-		:m_height(0)
-	{
-		m_characterMap.reserve(128);
-
-		create(file, size);
-	}
-
-	void Font::create(const std::string& file, const int size) noexcept
+	void Font::load(const std::string& file, const int size) noexcept
 	{
 		FT_Face face;
 		auto path = std::filesystem::path(file);
 
-		if (FT_New_Face(qs::FreeTypeLib::lib(), path.string().c_str(), 0, &face))
+		if (FT_New_Face(FTLIB.lib(), path.string().c_str(), 0, &face))
 		{
-			qs::Error::handle().callback("Font.cpp", 41, "Failed to create FreeType font face.");
+			PL_LOG(PL_ERROR, "Failed to create FreeType font face.");
 		}
 		else
 		{
@@ -46,24 +39,46 @@ namespace qs
 			int original = 0;
 			glGetIntegerv(GL_UNPACK_ALIGNMENT, &original);
 			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-			
+
+			float advX = 0;
 			FT_Set_Pixel_Sizes(face, 0, size);
 			for (GLubyte chr = 0; chr < 128; chr++)
 			{
 				if (FT_Load_Char(face, chr, FT_LOAD_RENDER))
 				{
-					qs::Error::handle().callback("Font.cpp", 55, "Failed to load character: " + chr);
+					PL_LOG(PL_ERROR, "Failed to load character: " + chr);
 				}
 				else
 				{
 					m_characterMap.emplace(std::piecewise_construct, std::forward_as_tuple(chr), std::forward_as_tuple());
-					auto* chrptr = &m_characterMap[chr];
-					chrptr->load(0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
-					chrptr->m_bearingX = static_cast<int>(face->glyph->bitmap_left);
-					chrptr->m_bearingY = static_cast<int>(face->glyph->bitmap_top);
-					chrptr->m_advance = static_cast<unsigned int>(face->glyph->advance.x);
+					qs::Character* emplaced = &m_characterMap[chr];
 
-					chrptr->create<qs::BufferTypeDynamic>();
+					emplaced->load(0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
+					emplaced->m_bearingX = static_cast<int>(face->glyph->bitmap_left);
+					emplaced->m_bearingY = static_cast<int>(face->glyph->bitmap_top);
+					emplaced->m_advance = static_cast<unsigned int>(face->glyph->advance.x);
+					
+					float x = advX + emplaced->m_bearingX;
+					float y = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
+					float w = static_cast<float>(emplaced->getWidth());
+					float h = static_cast<float>(emplaced->getHeight());
+
+					emplaced->m_vertexs[0] = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f, 1.0f);
+					emplaced->m_vertexs[1] = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f, 1.0f);
+					emplaced->m_vertexs[2] = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f, 1.0f);
+					emplaced->m_vertexs[3] = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f, 1.0f);
+
+					emplaced->m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeStatic>({ emplaced->m_vertexs[0], emplaced->m_vertexs[1], emplaced->m_vertexs[2], emplaced->m_vertexs[3] });
+					emplaced->m_indexBuffer.create<qs::BufferTypeStatic>({ 0, 1, 3, 1, 2, 3 });
+
+					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);
+					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypeTexel>(2);
+					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypeOpacity>(1);
+
+					emplaced->m_vertexArray.create<qs::SpriteVertex>(emplaced->m_vertexBuffer, emplaced->m_indexBuffer, emplaced->m_layout);
+
+					// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
+					advX += (emplaced->m_advance >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
 				}
 			}
 
@@ -73,6 +88,25 @@ namespace qs
 
 		FT_Done_Face(face);
 		m_height = m_characterMap['X'].getHeight();
+	}
+
+	void Font::create(qs::Renderer& renderer, qs::Shader& shader) noexcept
+	{
+		int width = 0;
+		for (auto& pair : m_characterMap)
+		{
+			width += (pair.second.m_advance >> 6);
+		}
+
+		m_texture.create(width, m_height);
+		m_texture.bind();
+
+		for (auto& pair : m_characterMap)
+		{
+			renderer.drawCharacter(pair.second, m_texture, shader);
+		}
+
+		m_texture.unbind();
 	}
 
 	const int Font::getTextWidth(const std::string& text) noexcept
@@ -92,8 +126,13 @@ namespace qs
 		return m_height;
 	}
 
-	std::unordered_map<char, qs::Character>& Font::getChars() noexcept
+	qs::BaseTexture* Font::getTexture() noexcept
 	{
-		return m_characterMap;
+		return dynamic_cast<qs::BaseTexture*>(&m_texture);
+	}
+
+	qs::Character* Font::getChar(const char c) noexcept
+	{
+		return &m_characterMap[c];
 	}
 }

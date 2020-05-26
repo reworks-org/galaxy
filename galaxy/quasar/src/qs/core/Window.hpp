@@ -2,7 +2,6 @@
 /// Window.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -136,11 +135,6 @@ namespace qs
 		/// \param window Pointer to window to resize. Defaults to *this.
 		///
 		void resize(int w, int h) noexcept;
-
-		///
-		/// Makes this window the current rendering framebuffer.
-		///
-		void makeCurrent() noexcept;
 
 		///
 		/// \brief Notify's user of an event without interrupting.

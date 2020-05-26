@@ -2,14 +2,11 @@
 /// Shader.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <fstream>
 #include <sstream>
-
-#include "qs/utils/Error.hpp"
 
 #include "Shader.hpp"
 
@@ -44,14 +41,14 @@ namespace qs
 		// Check for errors...
 		if (!vertexStream)
 		{
-			qs::Error::handle().callback("Shader.cpp", 47, "std::ifstream failed to open file: " + vertex);
+			PL_LOG(PL_ERROR, "std::ifstream failed to open file: " + vertex);
 
 			result = false;
 		}
 
 		if (!fragmentStream)
 		{
-			qs::Error::handle().callback("Shader.cpp", 54, "std::ifstream failed to open file: " + fragment);
+			PL_LOG(PL_ERROR, "std::ifstream failed to open file: " + fragment);
 
 			result = false;
 		}
@@ -68,13 +65,13 @@ namespace qs
 
 			if (!vertexBuffer)
 			{
-				qs::Error::handle().callback("Shader.cpp", 71, "std::stringstream failed to read vertexBuffer for: " + vertex);
+				PL_LOG(PL_ERROR, "std::stringstream failed to read vertexBuffer for: " + vertex);
 				result = false;
 			}
 
 			if (!fragmentBuffer)
 			{
-				qs::Error::handle().callback("Shader.cpp", 77, "std::stringstream failed to read fragmentBuffer for: " + fragment);
+				PL_LOG(PL_ERROR, "std::stringstream failed to read fragmentBuffer for: " + fragment);
 				result = false;
 			}
 
@@ -104,7 +101,7 @@ namespace qs
 
 					std::string err = "Failed to vertex compile shader. GL_ERROR: ";
 					err += infoLog;
-					qs::Error::handle().callback("Shader.cpp", 107, err);
+					PL_LOG(PL_ERROR, err);
 
 					result = false;
 				}
@@ -121,7 +118,7 @@ namespace qs
 
 					std::string err = "Failed to compile fragment shader. GL_ERROR: ";
 					err += infoLog;
-					qs::Error::handle().callback("Shader.cpp", 124, err);
+					PL_LOG(PL_ERROR, err);
 
 					result = false;
 				}
@@ -142,7 +139,7 @@ namespace qs
 
 						std::string err = "Failed to attach shaders. GL_ERROR: ";
 						err += infoLog;
-						qs::Error::handle().callback("Shader.cpp", 145, err);
+						PL_LOG(PL_ERROR, err);
 
 						result = false;
 					}
@@ -178,7 +175,7 @@ namespace qs
 		// Check for errors...
 		if (!shader)
 		{
-			qs::Error::handle().callback("Shader.cpp", 181, "std::ifstream failed to open file: " + glsl);
+			PL_LOG(PL_ERROR, "std::ifstream failed to open file: " + glsl);
 			result = false;
 		}
 		else
@@ -207,13 +204,13 @@ namespace qs
 
 			if (!stringStream[VERTEX])
 			{
-				qs::Error::handle().callback("Shader.cpp", 210, "std::stringstream failed to read vertex shader for: " + glsl);
+				PL_LOG(PL_ERROR, "std::stringstream failed to read vertex shader for: " + glsl);
 				result = false;
 			}
 
 			if (!stringStream[FRAGMENT])
 			{
-				qs::Error::handle().callback("Shader.cpp", 216, "std::stringstream failed to read fragment shader for: " + glsl);
+				PL_LOG(PL_ERROR, "std::stringstream failed to read fragment shader for: " + glsl);
 				result = false;
 			}
 		}
@@ -237,13 +234,13 @@ namespace qs
 
 		if (vertex.empty())
 		{
-			qs::Error::handle().callback("Shader.cpp", 240, "Vertex shader string was empty.");
+			PL_LOG(PL_ERROR, "Vertex shader string was empty.");
 			result = false;
 		}
 
 		if (fragment.empty())
 		{
-			qs::Error::handle().callback("Shader.cpp", 246, "Fragment shader string was empty.");
+			PL_LOG(PL_ERROR, "Fragment shader string was empty.");
 			result = false;
 		}
 
@@ -271,7 +268,7 @@ namespace qs
 
 				std::string err = "Failed to vertex compile shader. GL_ERROR: ";
 				err += infoLog;
-				qs::Error::handle().callback("Shader.cpp", 274, err);
+				PL_LOG(PL_ERROR, err);
 
 				result = false;
 			}
@@ -288,7 +285,7 @@ namespace qs
 
 				std::string err = "Failed to compile fragment shader. GL_ERROR: ";
 				err += infoLog;
-				qs::Error::handle().callback("Shader.cpp", 291, err);
+				PL_LOG(PL_ERROR, err);
 
 				result = false;
 			}
@@ -309,7 +306,7 @@ namespace qs
 
 					std::string err = "Failed to attach shaders. GL_ERROR: ";
 					err += infoLog;
-					qs::Error::handle().callback("Shader.cpp", 312, err);
+					PL_LOG(PL_ERROR, err);
 
 					result = false;
 				}
@@ -335,7 +332,7 @@ namespace qs
 		// Check for errors...
 		if (glsl.empty())
 		{
-			qs::Error::handle().callback("Shader.cpp", 338, "GLSL shader file is empty.");
+			PL_LOG(PL_ERROR, "GLSL shader file is empty.");
 			result = false;
 		}
 		else
@@ -365,13 +362,13 @@ namespace qs
 
 			if (!stringStream[VERTEX])
 			{
-				qs::Error::handle().callback("Shader.cpp", 368, "std::istringstream failed to read vertex shader for: " + glsl);
+				PL_LOG(PL_ERROR, "std::istringstream failed to read vertex shader for: " + glsl);
 				result = false;
 			}
 
 			if (!stringStream[FRAGMENT])
 			{
-				qs::Error::handle().callback("Shader.cpp", 374, "std::istringstream failed to read fragment shader for: " + glsl);
+				PL_LOG(PL_ERROR, "std::istringstream failed to read fragment shader for: " + glsl);
 				result = false;
 			}
 		}
@@ -414,7 +411,7 @@ namespace qs
 			}
 			else
 			{
-				qs::Error::handle().callback("Shader.cpp", 417, "Failed to find uniform: " + name);
+				PL_LOG(PL_WARNING, "Failed to find uniform: " + name);
 			}
 
 			return location;

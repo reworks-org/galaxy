@@ -2,14 +2,16 @@
 /// Character.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef QUASAR_CHARACTER_HPP_
 #define QUASAR_CHARACTER_HPP_
 
-#include "qs/renderer/Renderable.hpp"
+#include <protostar/math/Rect.hpp>
+
+#include "qs/texture/Texture.hpp"
+#include "qs/core/VertexData.hpp"
 
 ///
 /// Core namespace.
@@ -19,8 +21,12 @@ namespace qs
 	///
 	/// A character in a font.
 	///
-	class Character final : public qs::Renderable
+	class Character final : public qs::VertexData, public qs::Texture
 	{
+		///
+		/// Allows font to access interior.
+		///
+		friend class Font;
 	public:
 		///
 		/// Constructor.
@@ -39,7 +45,14 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~Character() noexcept;
+		virtual ~Character() noexcept = default;
+
+		///
+		/// Get vertexs
+		///
+		/// \return Const reference to vertexs.
+		///
+		const qs::VertexQuadStorage<qs::SpriteVertex>& getVertexs() const noexcept;
 
 	public:
 		///
@@ -56,6 +69,12 @@ namespace qs
 		/// Offset to next character.
 		///
 		unsigned int m_advance;
+
+	private:
+		///
+		/// Vertexs.
+		///
+		qs::VertexQuadStorage<qs::SpriteVertex> m_vertexs;
 	};
 }
 

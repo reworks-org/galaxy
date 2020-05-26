@@ -2,7 +2,6 @@
 /// Shader.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -11,13 +10,14 @@
 
 #include <string>
 #include <filesystem>
+#include <unordered_map>
 
 #include <glad/glad.h>
+#include <pulsar/Log.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <protostar/system/Colour.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "qs/utils/Error.hpp"
 #include "qs/utils/Utility.hpp"
 
 ///
@@ -121,7 +121,10 @@ namespace qs
 	inline void Shader::setUniform(const std::string& name, const UniformTypes&... args) noexcept
 	{
 		// If type does not have specialization, throw error.
-		qs::Error::handle().callback("Shader.hpp", 102, "Invalid shader uniform type!");
+		PL_LOG(PL_FATAL, "Invalid shader uniform type!");
+		#ifdef _DEBUG
+			assert(true);
+		#endif
 	}
 
 	template<>

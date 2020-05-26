@@ -2,7 +2,6 @@
 /// IndexBuffer.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -38,10 +37,7 @@ namespace qs
 		IndexBuffer() noexcept;
 
 		///
-		/// \brief Create index buffer object.
-		///
-		/// Can throw exception(s).
-		/// This function only differs in that the buffer type is evaluated at compile time.
+		/// Create index buffer object.
 		///
 		/// \param indexs Index array to use.
 		///
@@ -86,7 +82,7 @@ namespace qs
 	inline void IndexBuffer::create(const qs::IndexStorage& indexs) noexcept
 	{
 		m_count = static_cast<unsigned int>(indexs.size());
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
+		bind();
 
 		// If not one of the two buffer type structs, throw compile-time assert.
 		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
@@ -103,7 +99,7 @@ namespace qs
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
 		}
 
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		unbind();
 	}
 }
 

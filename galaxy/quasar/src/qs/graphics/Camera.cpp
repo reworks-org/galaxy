@@ -2,7 +2,6 @@
 /// Camera.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -117,11 +116,6 @@ namespace qs
 		m_speed = speed;
 	}
 
-	const glm::mat4& Camera::getProj() noexcept
-	{
-		return m_projection;
-	}
-
 	const float Camera::getWidth() const noexcept
 	{
 		return m_width;
@@ -130,5 +124,10 @@ namespace qs
 	const float Camera::getHeight() const noexcept
 	{
 		return m_height;
+	}
+
+	const glm::mat4& Camera::getProj() noexcept
+	{
+		return m_projection;
 	}
 }

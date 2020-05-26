@@ -2,7 +2,6 @@
 /// Text.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -12,8 +11,7 @@
 #include <protostar/system/Colour.hpp>
 
 #include "qs/text/Font.hpp"
-#include "qs/graphics/Sprite.hpp"
-#include "qs/core/RenderTexture.hpp"
+#include "qs/core/VertexData.hpp"
 
 ///
 /// Core namespace.
@@ -21,31 +19,15 @@
 namespace qs
 {
 	///
-	/// Forward dec(s).
-	///
-	class Window;
-	class Shader;
-	class Renderer;
-
-	///
 	/// Creates text for use with OpenGL.
 	///
-	class Text final
+	class Text final : public qs::VertexData
 	{
 	public:
 		///
 		/// Constructor.
 		///
 		Text() noexcept;
-
-		///
-		/// Argument constructor.
-		///
-		/// \param text Text to draw.
-		/// \param font Font to apply to text. Holds a reference, does not store.
-		/// \param col Colour of the text.
-		///
-		explicit Text(const std::string& text, qs::Font* font, protostar::Colour& col) noexcept;
 
 		///
 		/// Default destructor.
@@ -62,15 +44,9 @@ namespace qs
 		void load(const std::string& text, qs::Font* font, const protostar::Colour& col) noexcept;
 
 		///
-		/// \brief Create text from inputs.
+		/// Creates text from character verticies.
 		///
-		/// This draws text to a single image for performance, so this function is best done during loading.
-		///
-		/// \param window The window to restore framebuffer to.
-		/// \param renderer Renderer to use when drawing text.
-		/// \param shader Shader to use when drawing text to texture.
-		///
-		void create(qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
+		void create() noexcept;
 
 		///
 		/// \brief Update text.
@@ -82,25 +58,34 @@ namespace qs
 		/// Much faster.
 		///
 		/// \param text The new text.
-		/// \param window The window to restore framebuffer to.
-		/// \param renderer Renderer to use when drawing text.
-		/// \param shader Shader to use when drawing text to texture.
 		///
-		void updateText(const std::string& text, qs::Window& window, qs::Renderer& renderer, qs::Shader& shader) noexcept;
+		void updateText(const std::string& text) noexcept;
 
 		///
-		/// Get text as a sprite.
+		/// Set opacity.
 		///
-		/// \return Reference to a qs::Sprite.
+		/// Only affects the currently active quad.
 		///
-		qs::Sprite& asSprite() noexcept;
+		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+		///
+		void setOpacity(float opacity) noexcept;
 
 		///
-		/// Get internal render texture.
+		/// Get opacity.
 		///
-		/// \param Reference to qs::RenderTexture.
+		/// \return Const float.
 		///
-		qs::RenderTexture& getTexture() noexcept;
+		const float getOpacity() const noexcept;
+
+		///
+		/// Activate sprite context.
+		///
+		void bind() noexcept;
+
+		///
+		/// Deactivate sprite context.
+		///
+		void unbind() noexcept;
 
 	private:
 		///
@@ -119,14 +104,9 @@ namespace qs
 		protostar::Colour m_colour;
 
 		///
-		/// RenderTexture to draw to.
+		/// Opacity of sprite.
 		///
-		qs::RenderTexture m_texture;
-
-		///
-		/// Sprite variant of text.
-		///
-		qs::Sprite m_sprite;
+		float m_opacity;
 	};
 }
 

@@ -2,7 +2,6 @@
 /// FreeType.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -11,6 +10,11 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+
+///
+/// Shortcut Macro.
+///
+#define FTLIB qs::FreeTypeLib::handle()
 
 ///
 /// Core namespace.
@@ -26,14 +30,26 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~FreeTypeLib() noexcept;
+		~FreeTypeLib() noexcept = default;
+
+		///
+		/// Get handle to library.
+		///
+		/// \return Refernce to this static instance.
+		///
+		static FreeTypeLib& handle() noexcept;
+
+		///
+		/// Close library.
+		///
+		void close() noexcept;
 
 		///
 		/// Handle to FT library.
 		///
 		/// \return Reference to FT_Library.
 		///
-		static FT_Library& lib() noexcept;
+		FT_Library& lib() noexcept;
 
 	private:
 		///

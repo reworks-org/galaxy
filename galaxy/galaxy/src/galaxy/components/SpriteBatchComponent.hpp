@@ -1,6 +1,6 @@
 ///
 /// SpriteBatchComponent.hpp
-/// supercluster
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -8,8 +8,9 @@
 #ifndef GALAXY_SPRITEBATCHCOMPONENT_HPP_
 #define GALAXY_SPRITEBATCHCOMPONENT_HPP_
 
-#include <qs/core/Shader.hpp>
+#include <nlohmann/json_fwd.hpp>
 #include <qs/graphics/SpriteBatch.hpp>
+#include <qs/graphics/TextureAtlas.hpp>
 
 ///
 /// Core namespace.
@@ -19,43 +20,51 @@ namespace galaxy
 	///
 	/// Component for a spritebatch.
 	///
-	class SpriteBatch final
+	class SpriteBatchComponent final
 	{
 	public:
 		///
 		/// Default constructor.
 		///
-		SpriteBatch() noexcept;
+		SpriteBatchComponent() noexcept;
 
 		///
-		/// Argument constructor.
+		/// JSON constructor.
 		///
-		/// \param shader Shader pointer to use.
+		/// \param json JSON defining object.
 		///
-		SpriteBatch(qs::Shader* shader) noexcept;
+		SpriteBatchComponent(const nlohmann::json& json) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~SpriteBatch() noexcept;
+		~SpriteBatchComponent() noexcept;
 
 		///
-		/// Stores pointer to a shader.
+		/// Set pointer to texture atlas.
 		///
-		/// \param shader Shader pointer to use.
+		/// \param atlas Pointer to atlas.
 		///
-		void setShader(qs::Shader* shader) noexcept;
+		void setAtlas(qs::TextureAtlas* atlas) noexcept;
+
+		///
+		/// Uses JSON and atlas to create the sprite batch.
+		///
+		/// \param json JSON defining object.
+		///
+		void create(const nlohmann::json& json) noexcept;
 
 	public:
-		///
-		/// Shader object.
-		///
-		qs::Shader* m_shader;
-
 		///
 		/// SpriteBatch object.
 		///
 		qs::SpriteBatch m_spritebatch;
+
+	private:
+		///
+		/// Pointer to texture atlas.
+		///
+		qs::TextureAtlas* m_atlas;
 	};
 }
 

@@ -2,14 +2,11 @@
 /// Circle.cpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include <vector>
 
-#include <glad/glad.h>
-#include <glm/vec2.hpp>
 #include <glm/trigonometric.hpp>
 #include <glm/gtc/constants.hpp>
 
@@ -21,69 +18,56 @@
 namespace qs
 {
 	Circle::Circle() noexcept
-		:m_count(0), m_thickness(1.0f), m_va(0), m_vb(0)
+		:m_thickness(1.0f)
 	{
 	}
 
-	Circle::Circle(const float x, const float y, const float radius, const int fragments) noexcept
-		:m_count(0), m_thickness(1.0f), m_va(0), m_vb(0)
+	Circle::Circle(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept
+		:m_thickness(1.0f)
 	{
-		create(x, y, radius, fragments);
+		create(x, y, radius, fragments, colour);
 	}
 
-	Circle::~Circle() noexcept
-	{
-		glDeleteVertexArrays(1, &m_va);
-		glDeleteBuffers(1, &m_vb);
-	}
-
-	void Circle::create(const float x, const float y, const float radius, const int fragments) noexcept
+	void Circle::create(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept
 	{
 		// Thanks to https://stackoverflow.com/a/33859443.
 		// For help with maths.
 
-		glGenBuffers(1, &m_vb);
-		glGenVertexArrays(1, &m_va);
-		glBindVertexArray(m_va);
+		std::vector<qs::PrimitiveVertex> vertexs;
+		IndexStorage indices;
 
-		glBindBuffer(GL_ARRAY_BUFFER, m_vb);
-
-		std::vector<glm::vec2> vertexs;
+		unsigned int count = 0;
 		float increment = 2.0f * glm::pi<float>() / static_cast<float>(fragments);
-
 		for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 		{
-			vertexs.emplace_back(radius * glm::cos(angle) + x, radius * glm::sin(angle) + y);
+			vertexs.emplace_back(qs::PrimitiveVertex{ radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour });
+			indices.push_back(count);
+
+			count++;
 		}
 
-		m_count = static_cast<unsigned int>(vertexs.size());
-		glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec2) * m_count, vertexs.data(), GL_STATIC_DRAW);
+		m_vertexBuffer.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
+		m_indexBuffer.create<qs::BufferTypeStatic>(indices);
 
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(glm::vec2), 0);
-		glEnableVertexAttribArray(0);
+		m_layout.add<qs::PrimitiveVertex, qs::VATypePosition>(2);
+		m_layout.add<qs::PrimitiveVertex, qs::VATypeColour>(4);
 
-		glBindVertexArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		m_vertexArray.create<qs::PrimitiveVertex>(m_vertexBuffer, m_indexBuffer, m_layout);
 	}
 
 	void Circle::bind() noexcept
 	{
-		glBindVertexArray(m_va);
+		m_vertexArray.bind();
 		glLineWidth(m_thickness);
 	}
 
 	void Circle::unbind() noexcept
 	{
-		glBindVertexArray(0);
+		m_vertexArray.unbind();
 	}
 
 	void Circle::setThickness(const float thickness) noexcept
 	{
 		m_thickness = thickness;
-	}
-
-	const unsigned int Circle::getCount() const noexcept
-	{
-		return m_count;
 	}
 }

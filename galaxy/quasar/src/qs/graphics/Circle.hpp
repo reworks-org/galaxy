@@ -2,12 +2,15 @@
 /// Circle.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef QUASAR_CIRCLE_HPP_
 #define QUASAR_CIRCLE_HPP_
+
+#include <protostar/system/Colour.hpp>
+
+#include "qs/core/VertexData.hpp"
 
 ///
 /// Core namespace.
@@ -17,7 +20,7 @@ namespace qs
 	///
 	/// Circle definition for renderer.
 	///
-	class Circle final
+	class Circle final : public qs::VertexData
 	{
 	public:
 		///
@@ -32,13 +35,14 @@ namespace qs
 		/// \param y Y position.
 		/// \param radius Radius of the circle.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
+		/// \param colour Colour.
 		///
-		Circle(const float x, const float y, const float radius, const int fragments) noexcept;
+		Circle(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Circle() noexcept;
+		virtual ~Circle() noexcept = default;
 
 		///
 		/// Create the Circle.
@@ -47,8 +51,9 @@ namespace qs
 		/// \param y Y position.
 		/// \param radius Radius of the circle.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
+		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const float radius, const int fragments) noexcept;
+		void create(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept;
 
 		///
 		/// Bind as active VA.
@@ -67,33 +72,11 @@ namespace qs
 		///
 		void setThickness(const float thickness) noexcept;
 
-		///
-		/// Get total number of vertexs.
-		///
-		/// \return Const unsigned integer.
-		///
-		const unsigned int getCount() const noexcept;
-
 	private:
-		///
-		/// Total number of vertexs.
-		///
-		unsigned int m_count;
-
 		///
 		/// Thickness of circle.
 		///
 		float m_thickness;
-
-		///
-		/// VertexArray handle.
-		///
-		unsigned int m_va;
-
-		///
-		/// VertexBuffer handle.
-		///
-		unsigned int m_vb;
 	};
 }
 

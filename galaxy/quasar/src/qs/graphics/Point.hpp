@@ -2,12 +2,13 @@
 /// Point.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef QUASAR_POINT_HPP_
 #define QUASAR_POINT_HPP_
+
+#include "qs/core/VertexData.hpp"
 
 ///
 /// Core namespace.
@@ -17,7 +18,7 @@ namespace qs
 	///
 	/// Point graphic definition.
 	///
-	class Point final
+	class Point final : public qs::VertexData
 	{
 	public:
 		///
@@ -31,13 +32,14 @@ namespace qs
 		/// \param x X position.
 		/// \param y Y position.
 		/// \param size Size of the point.
+		/// \param colour Colour.
 		///
-		Point(const float x, const float y, const int size) noexcept;
+		Point(const float x, const float y, const int size, protostar::Colour& colour) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Point() noexcept;
+		virtual ~Point() noexcept = default;
 
 		///
 		/// Create the point.
@@ -45,8 +47,9 @@ namespace qs
 		/// \param x X position.
 		/// \param y Y position.
 		/// \param size Size of the point.
+		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const int size) noexcept;
+		void create(const float x, const float y, const int size, protostar::Colour& colour) noexcept;
 
 		///
 		/// Bind as active VA.
@@ -70,16 +73,6 @@ namespace qs
 		/// Size of point.
 		///
 		int m_size;
-
-		///
-		/// VertexArray handle.
-		///
-		unsigned int m_va;
-
-		///
-		/// VertexBuffer handle.
-		///
-		unsigned int m_vb;
 	};
 }
 

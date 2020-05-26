@@ -23,6 +23,7 @@
 
 #include <galaxy/components/SpriteComponent.hpp>
 #include <galaxy/components/TransformComponent.hpp>
+#include <galaxy/components/SpriteBatchComponent.hpp>
 
 #include "Editor.hpp"
 
@@ -196,9 +197,13 @@ namespace sc
 	
 	void Editor::componentUI(sr::Entity active) noexcept
 	{
+		static bool s_fileOpen = false;
+		static bool s_sbFileOpen = false;
+		static std::unique_ptr<pfd::open_file> s_cof = nullptr;
+
 		ImGui::Separator();
 
-		auto tuple = m_world->multi<galaxy::SpriteComponent, galaxy::TransformComponent>(active);
+		auto tuple = m_world->multi<galaxy::SpriteComponent, galaxy::TransformComponent, galaxy::SpriteBatchComponent>(active);
 
 		auto sc = std::get<0>(tuple);
 		if (sc != nullptr)
@@ -210,8 +215,23 @@ namespace sc
 
 			if (ImGui::Button("Load texture"))
 			{
-				//sc->load("");
-				//sc->create<qs::BufferTypeDynamic>();
+				if (!s_fileOpen)
+				{
+					s_cof = std::make_unique<pfd::open_file>("Load sprite texture.");
+					s_fileOpen = true;
+				}
+			}
+
+			if (s_fileOpen)
+			{
+				if (s_cof->ready() && !s_cof->result().empty())
+				{
+					sc->load(s_cof->result()[0]);
+					sc->create<qs::BufferTypeDynamic>();
+
+					s_fileOpen = false;
+					s_cof = nullptr;
+				}
 			}
 
 			ImGui::Spacing();
@@ -302,6 +322,112 @@ namespace sc
 			if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 			{
 				tc->m_transform.setOpacity(opacity);
+			}
+		}
+
+		ImGui::Separator();
+
+		auto sbc = std::get<2>(tuple);
+		if (sbc != nullptr)
+		{
+			ImGui::Text("SpriteBatch Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Create from TextureAtlas"))
+			{
+				if (!s_sbFileOpen)
+				{
+					s_cof = std::make_unique<pfd::open_file>("Open SpriteBatch JSON.");
+					s_sbFileOpen = true;
+				}
+			}
+
+			if (s_sbFileOpen && s_cof)
+			{
+				if (!m_textureAtlas)
+				{
+					ImGui::Text("Atlas is not created.");
+				}
+				else
+				{
+					if (s_cof->ready() && !s_cof->result().empty())
+					{
+						sbc->m_spritebatch.load(
+							m_textureAtlas->getTexture().getGLTexture(),
+							m_textureAtlas->getTexture().getWidth(),
+							m_textureAtlas->getTexture().getHeight()
+						);
+
+						sbc->setAtlas(m_textureAtlas.get());
+						
+						std::ifstream ifs(s_cof->result()[0], std::ifstream::in);
+						nlohmann::json root;
+						ifs >> root;
+						auto sbcjson = root.at("SpriteBatchComponent");
+						sbc->create(sbcjson);
+
+						ifs.close();
+						s_sbFileOpen = false;
+						s_cof = nullptr;
+					}
+				}
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Clamp to Border"))
+			{
+				sbc->m_spritebatch.clampToBorder(protostar::Black);
+			}
+
+			if (ImGui::Button("Clamp to Edge"))
+			{
+				sbc->m_spritebatch.clampToEdge();
+			}
+
+			if (ImGui::Button("Set Mirrored"))
+			{
+				sbc->m_spritebatch.setMirrored();
+			}
+
+			if (ImGui::Button("Set Repeated"))
+			{
+				sbc->m_spritebatch.setRepeated();
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			static int ansio = 0;
+			if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 1, 4))
+			{
+				sbc->m_spritebatch.setAnisotropy(ansio * 2);
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Set Minify to Nearest"))
+			{
+				sbc->m_spritebatch.setMinifyFilter(qs::TextureFilter::NEAREST);
+			}
+
+			if (ImGui::Button("Set Minify to Linear"))
+			{
+				sbc->m_spritebatch.setMinifyFilter(qs::TextureFilter::LINEAR);
+			}
+
+			if (ImGui::Button("Set Magnify to Nearest"))
+			{
+				sbc->m_spritebatch.setMagnifyFilter(qs::TextureFilter::NEAREST);
+			}
+
+			if (ImGui::Button("Set Magnify to Linear"))
+			{
+				sbc->m_spritebatch.setMagnifyFilter(qs::TextureFilter::LINEAR);
 			}
 		}
 	}
@@ -445,16 +571,19 @@ namespace sc
 
 	void Editor::textureAtlasEditor() noexcept
 	{
-		static bool add = false;
-		static std::unique_ptr<pfd::open_file> path = nullptr;
+		static bool s_add = false;
+		static bool s_created = false;
+		static bool s_loaded = false;
+		static std::unique_ptr<pfd::open_file> s_path = nullptr;
 		ImGui::Begin("Texture Atlas Editor", &m_showTAEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Create from JSON"))
 		{
-			if (!add)
+			if (!s_add)
 			{
-				add = true;
-				path = std::make_unique<pfd::open_file>("Select *.json definition.");
+				s_add = true;
+				s_loaded = true;
+				s_path = std::make_unique<pfd::open_file>("Select *.json definition.");
 			}
 		}
 
@@ -462,10 +591,11 @@ namespace sc
 
 		if (ImGui::Button("Add Texture"))
 		{
-			if (!add)
+			if (!s_add)
 			{
-				add = true;
-				path = std::make_unique<pfd::open_file>("Select *.png texture.");
+				s_add = true;
+				s_loaded = true;
+				s_path = std::make_unique<pfd::open_file>("Select *.png texture.");
 			}
 		}
 
@@ -474,13 +604,24 @@ namespace sc
 		if (ImGui::Button("Create"))
 		{
 			m_textureAtlas->create(*SL_HANDLE.window(), *SL_HANDLE.renderer(), m_atlasShader);
+			s_created = true;
 		}
 
-		if (add == true && path != nullptr)
+		if (s_loaded)
 		{
-			if (path->ready() && !path->result().empty())
+			ImGui::Text("Loaded texture(s).");
+		}
+
+		if (s_created)
+		{
+			ImGui::Text("Texture Atlas created successfully!");
+		}
+
+		if (s_add == true && s_path != nullptr)
+		{
+			if (s_path->ready() && !s_path->result().empty())
 			{
-				auto fp = std::filesystem::path(path->result()[0]);
+				auto fp = std::filesystem::path(s_path->result()[0]);
 				if (fp.extension() == ".json")
 				{
 					nlohmann::json root;
@@ -500,9 +641,9 @@ namespace sc
 					m_textureAtlas->add(fp.string());
 				}
 
-				add = false;
-				path.reset();
-				path = nullptr;
+				s_add = false;
+				s_path.reset();
+				s_path = nullptr;
 			}
 		}
 
