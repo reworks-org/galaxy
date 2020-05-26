@@ -47,7 +47,7 @@ namespace galaxy
 		m_timeCorrection.set(0);
 
 		// Seed pseudo-random algorithms.
-		std::srand(std::time(nullptr));
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
 		// Supposed to improve performance. Need to run tests and ensure we aren't using C stdio.
 		std::ios::sync_with_stdio(false);
@@ -133,8 +133,6 @@ namespace galaxy
 			// Game "world".
 			m_world = std::make_unique<galaxy::World>();
 			SL_HANDLE.m_world = m_world.get();
-
-			
 
 			// Serializer.
 			//	m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));

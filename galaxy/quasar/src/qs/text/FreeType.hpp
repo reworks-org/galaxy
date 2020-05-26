@@ -30,7 +30,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~FreeTypeLib() noexcept;
+		~FreeTypeLib() noexcept = default;
 
 		///
 		/// Get handle to library.

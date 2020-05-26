@@ -52,8 +52,8 @@ namespace qs
 
 		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform("u_opacity", sprite.getOpacity());
-		shader.setUniform<float>("u_width", sprite.getWidth());
-		shader.setUniform<float>("u_height", sprite.getHeight());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
@@ -65,8 +65,8 @@ namespace qs
 
 		shader.setUniform("u_transform", sprite.getTransformation());
 		shader.setUniform("u_opacity", sprite.getOpacity());
-		shader.setUniform<float>("u_width", sprite.getWidth());
-		shader.setUniform<float>("u_height", sprite.getHeight());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite.getHeight()));
 
 		glDrawElements(GL_TRIANGLES, sprite.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
@@ -75,8 +75,8 @@ namespace qs
 	{
 		spritebatch.bind();
 
-		shader.setUniform<float>("u_width", spritebatch.getWidth());
-		shader.setUniform<float>("u_height", spritebatch.getHeight());
+		shader.setUniform<float>("u_width", static_cast<float>(spritebatch.getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(spritebatch.getHeight()));
 
 		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
@@ -87,8 +87,8 @@ namespace qs
 
 		sprite->bind();
 		shader.setUniform("u_transform", sprite->getTransformation());
-		shader.setUniform<float>("u_width", sprite->getWidth());
-		shader.setUniform<float>("u_height", sprite->getHeight());
+		shader.setUniform<float>("u_width", static_cast<float>(sprite->getWidth()));
+		shader.setUniform<float>("u_height", static_cast<float>(sprite->getHeight()));
 
 		glDrawElements(GL_TRIANGLES, sprite->getCount(), GL_UNSIGNED_INT, nullptr);
 	}

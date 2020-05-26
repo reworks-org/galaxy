@@ -100,11 +100,11 @@ namespace qs
 
 		if (!vertices.empty())
 		{
-			m_size = vertices.size();
+			m_size = static_cast<unsigned int>(vertices.size());
 		}
 		else
 		{
-			m_size = vertices.capacity();
+			m_size = static_cast<unsigned int>(vertices.capacity());
 		}
 
 		// Now to use constexpr to check on compile time the buffer type.

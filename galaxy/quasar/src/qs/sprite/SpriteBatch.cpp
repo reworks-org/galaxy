@@ -24,7 +24,7 @@ namespace qs
 		is.reserve(m_maxIndexs);
 
 		unsigned int increment = 0;
-		for (auto counter = 0; counter < m_maxQuads; counter++)
+		for (unsigned int counter = 0; counter < m_maxQuads; counter++)
 		{
 			is.push_back(0 + increment);
 			is.push_back(1 + increment);

@@ -14,11 +14,6 @@
 ///
 namespace qs
 {
-	FreeTypeLib::~FreeTypeLib() noexcept
-	{
-		close();
-	}
-
 	FreeTypeLib& FreeTypeLib::handle() noexcept
 	{
 		static FreeTypeLib lib;

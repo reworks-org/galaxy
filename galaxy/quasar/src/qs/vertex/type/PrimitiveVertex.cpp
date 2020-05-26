@@ -13,7 +13,7 @@
 namespace qs
 {
 	PrimitiveVertex::PrimitiveVertex() noexcept
-		:m_pos(0.0f, 0.0f), m_colour(0.0f, 0.0f, 0.0f, 1.0f)
+		:m_pos(0.0f, 0.0f), m_colour(0, 0, 0, 255)
 	{
 	}
 
