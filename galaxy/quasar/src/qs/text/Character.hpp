@@ -48,6 +48,16 @@ namespace qs
 		virtual ~Character() noexcept = default;
 
 		///
+		/// Activate character context.
+		///
+		void bind() noexcept override;
+
+		///
+		/// Deactivate character context.
+		///
+		void unbind() noexcept override;
+
+		///
 		/// Get vertexs
 		///
 		/// \return Const reference to vertexs.

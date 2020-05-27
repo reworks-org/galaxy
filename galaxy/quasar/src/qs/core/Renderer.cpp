@@ -7,6 +7,7 @@
 
 #include <glm/mat4x4.hpp>
 
+#include "qs/text/Text.hpp"
 #include "qs/core/Shader.hpp"
 #include "qs/sprite/Sprite.hpp"
 #include "qs/graphics/Line.hpp"
@@ -93,12 +94,22 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite->getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::drawCharacter(qs::Character& chr, qs::RenderTexture& target, qs::Shader& shader) noexcept
+	void Renderer::drawCharacter(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader) noexcept
 	{
-		chr.bind();
+		chr->bind();
 		shader.setUniform("u_projection", target.getProjection());
 
-		glDrawElements(GL_TRIANGLES, chr.getCount(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, chr->getCount(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
+	{
+		text.bind();
+
+		shader.setUniform("u_transform", text.getTransformation());
+		shader.setUniform("u_opacity", text.getOpacity());
+		
+		glDrawElements(GL_TRIANGLES, text.getCount(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	/*

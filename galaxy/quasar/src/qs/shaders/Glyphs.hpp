@@ -24,15 +24,16 @@ namespace qs
 		layout(location = 1) in vec2 l_texels;
 		layout(location = 2) in float l_opacity;
 
+		out float io_opacity;
 		out vec2 io_texels;
-		out vec4 io_colour;
 
 		uniform mat4 u_projection;
 
 		void main()
 		{
 			gl_Position = u_projection * vec4(l_pos, 0.0, 1.0);
-			io_colour = vec4(l_colour.rgb, l_opacity);
+	
+			io_opacity = l_opacity;
 			io_texels = l_texels;
 		}
 )"";
@@ -43,8 +44,8 @@ namespace qs
 	static inline std::string s_glyphsFS = R""(
 		#version 450 core
 
+		in float io_opacity;
 		in vec2 io_texels;
-		in vec4 io_colour;
 
 		out vec4 io_frag_colour;
 
@@ -53,7 +54,7 @@ namespace qs
 		void main()
 		{
 			vec4 sampled = vec4(1.0, 1.0, 1.0, texture(glyph, io_texels).r);
-			io_frag_colour = io_colour * sampled;
+			io_frag_colour.a = sampled.a * io_opacity;
 		}
 )"";
 }

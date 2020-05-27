@@ -123,7 +123,6 @@ namespace qs
 		m_height = height;
 
 		// Generate texture in OpenGL and bind to 2D texture.
-		glGenTextures(1, &m_texture);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 
 		// Gen texture into OpenGL.
@@ -138,6 +137,8 @@ namespace qs
 
 		// Default clamp to edge.
 		clampToEdge();
+
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	void Texture::bind() noexcept

@@ -18,7 +18,7 @@
 namespace qs
 {
 	Text::Text() noexcept
-        :m_text(""), m_font(nullptr), m_opacity(1.0f)
+        :VertexData(), Transform(), m_text(""), m_font(nullptr), m_opacity(1.0f)
 	{
 	}
 
@@ -109,7 +109,7 @@ namespace qs
 
     void Text::unbind() noexcept
     {
+        m_vertexArray.unbind();
         glBindTexture(GL_TEXTURE_2D, 0);
-        m_vertexArray.bind();
     }
 }

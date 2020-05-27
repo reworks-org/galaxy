@@ -25,6 +25,7 @@ namespace qs
 	class SpriteBatch;
 	class RenderTexture;
 	class Character;
+	class Text;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -130,7 +131,18 @@ namespace qs
 		/// \param target Target to draw to.
 		/// \param shader Shader to use.
 		///
-		void drawCharacter(qs::Character& chr, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+		void drawCharacter(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+
+		///
+		/// \brief Draw text to screen.
+		///
+		/// Must have uniform(s):
+		/// u_transform, u_opacity, u_cameraView, u_cameraProj
+		///
+		/// \param text Text to draw.
+		/// \param shader Shader to apply to text. You must have called bind() already!
+		///
+		void drawText(qs::Text& text, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw to render texture.
@@ -146,12 +158,7 @@ namespace qs
 		/// \param rt Target to draw to.
 		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
 		///
-		///
-		/// Draw text to screen.
-		///
-		/// \param text Text to draw.
-		/// \param shader Shader to apply to text. You must have called bind() already!
-		///
+		
 		///
 		/// \brief Draw a scene.
 		///

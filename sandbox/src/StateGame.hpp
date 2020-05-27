@@ -23,7 +23,7 @@
 #include <qs/sprite/SpriteBatch.hpp>
 #include <qs/texture/RenderTexture.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
-//#include <qs/text/Text.hpp>
+#include <qs/text/Text.hpp>
 #include <qs/graphics/Line.hpp>
 #include <qs/graphics/Circle.hpp>
 #include <qs/graphics/LightSource.hpp>
@@ -42,6 +42,7 @@
 #include <qs/shaders/Glyphs.hpp>
 #include <qs/shaders/RenderToTexture.hpp>
 #include <protostar/state/State.hpp>
+#include <qs/shaders/Texts.hpp>
 
 class StateGame : public protostar::State
 {
@@ -61,22 +62,20 @@ private:
 	qs::Shader pointShader;
 	qs::Shader lineShader;
 	qs::Shader spiteBatchShader;
+	qs::Shader textShader;
 	qs::Sprite spriteTest;
 	qs::TextureAtlas atlas;
 	qs::SpriteBatch atlasSpr;
 	qs::BatchedSprite bspr1;
 	qs::BatchedSprite bspr2;
-	//qs::RenderTexture* att;
-	//qs::Text text;
-	//qs::Font font;
+	qs::Text text;
+	qs::Font font;
 	qs::Camera camera; //left, right, bottom, top
+	protostar::ProtectedDouble updte;
 	//qs::Point point;
 	//qs::Line line;
 	//qs::Circle circle;
 	//qs::LightSource lightSource;
-	protostar::ProtectedDouble updte;
-	//qs::Transform* t1;
-	//qs::Transform* t2;
 };
 
 #endif

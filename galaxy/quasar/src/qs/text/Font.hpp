@@ -98,7 +98,7 @@ namespace qs
 		///
 		/// Stores mapped characters.
 		///
-		std::unordered_map<char, qs::Character> m_characterMap;
+		std::unordered_map<char, std::unique_ptr<qs::Character>> m_characterMap;
 	};
 }
 

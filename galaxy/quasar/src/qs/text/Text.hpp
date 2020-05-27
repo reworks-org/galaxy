@@ -11,6 +11,7 @@
 #include <protostar/system/Colour.hpp>
 
 #include "qs/text/Font.hpp"
+#include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
 
 ///
@@ -21,7 +22,7 @@ namespace qs
 	///
 	/// Creates text for use with OpenGL.
 	///
-	class Text final : public qs::VertexData
+	class Text final : public qs::VertexData, public qs::Transform
 	{
 	public:
 		///

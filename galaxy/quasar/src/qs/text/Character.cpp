@@ -13,13 +13,25 @@
 namespace qs
 {
 	Character::Character() noexcept
-		:m_bearingX(0), m_bearingY(0), m_advance(0)
+		:VertexData(), Texture(), m_bearingX(0), m_bearingY(0), m_advance(0)
 	{
 	}
 
 	Character::Character(const int bx, const int by, const unsigned int advance) noexcept
-		:m_bearingX(bx), m_bearingY(by), m_advance(advance)
+		:VertexData(), Texture(), m_bearingX(bx), m_bearingY(by), m_advance(advance)
 	{
+	}
+
+	void Character::bind() noexcept
+	{
+		m_vertexArray.bind();
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+	}
+
+	void Character::unbind() noexcept
+	{
+		m_vertexArray.unbind();
+		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
 	const qs::VertexQuadStorage<qs::SpriteVertex>& Character::getVertexs() const noexcept

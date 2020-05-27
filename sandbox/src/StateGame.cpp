@@ -72,6 +72,7 @@ StateGame::StateGame() noexcept
 	pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
 	lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
 	spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
+	textShader.loadFromRaw(qs::s_textVS, qs::s_textFS);
 
 	auto* window = SL_HANDLE.window();
 	auto* renderer = SL_HANDLE.renderer();
@@ -97,11 +98,13 @@ StateGame::StateGame() noexcept
 	atlasSpr.add(&bspr1);
 	atlasSpr.add(&bspr2);
 
-	//textRTTshader.bind();
-	//font.create("bin/public.ttf", 36);
-	//text.load("HELLO, WORLD.", &font, { 0, 0, 0, 255 });
-	//text.create(*window, *renderer, textRTTshader);
-	//text.asSprite().save("bin/text");
+	glyphShader.bind();
+	font.load("bin/public.ttf", 36);
+	font.create(*renderer, glyphShader);
+	font.getTexture()->save("bin/demo");
+
+	text.load("HELLO, WORLD.", &font, { 0, 0, 0, 255 });
+	text.create();
 
 	camera.create(0.0f, window->getWidth(), window->getHeight(), 0.0f);
 	camera.setSpeed(10.0f);
@@ -117,7 +120,7 @@ StateGame::StateGame() noexcept
 	//lightSource.m_zLevel = 0.075f;
 	//lightSource.m_pos = { 500.0f, 200.0f };
 	//lightSource.m_shader.loadFromRaw(qs::s_lightVS, qs::s_lightFS);
-	
+
 	updte.set(1.0);
 }
 
@@ -208,6 +211,11 @@ void StateGame::render() noexcept
 	spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 	atlasSpr.bind();
 	renderer->drawSpriteBatch(atlasSpr, spiteBatchShader);
+
+	textShader.bind();
+	textShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+	textShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+	renderer->drawText(text, textShader);
 
 	//pointShader.bind();
 	//pointShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
