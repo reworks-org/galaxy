@@ -66,12 +66,13 @@ namespace qs
 					// Restore alignment.
 					glPixelStorei(GL_UNPACK_ALIGNMENT, original);
 
-					emplaced->m_vertexs[0] = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f, 1.0f);
-					emplaced->m_vertexs[1] = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f, 1.0f);
-					emplaced->m_vertexs[2] = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f, 1.0f);
-					emplaced->m_vertexs[3] = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f, 1.0f);
+					auto v1 = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f, 1.0f);
+					auto v2 = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f, 1.0f);
+					auto v3 = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f, 1.0f);
+					auto v4 = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f, 1.0f);
 
-					emplaced->m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeStatic>({ emplaced->m_vertexs[0], emplaced->m_vertexs[1], emplaced->m_vertexs[2], emplaced->m_vertexs[3] });
+					emplaced->m_region = { x, y, w, h };
+					emplaced->m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeStatic>({ v1, v2, v3, v4 });
 					emplaced->m_indexBuffer.create<qs::BufferTypeStatic>({ 0, 1, 3, 1, 2, 3 });
 
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);

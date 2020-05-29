@@ -35,13 +35,9 @@ namespace qs
         VertexStorage<qs::SpriteVertex> vs;
 
         unsigned int count = 0;
+        float x = 0;
         for (auto& c : m_text)
-        {
-            for (auto& vertex : m_font->getChar(c)->getVertexs())
-            {
-                vs.push_back(vertex);
-            }
-
+        {   
             is.push_back(0 + count);
             is.push_back(1 + count);
             is.push_back(3 + count);
@@ -49,7 +45,15 @@ namespace qs
             is.push_back(2 + count);
             is.push_back(3 + count);
 
+            auto* chr = m_font->getChar(c);
+            auto* region = &chr->getRegion();
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0, region->m_x, region->m_y, 1.0f));
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0, region->m_x + region->m_width, region->m_y, 1.0f));
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0 + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height, 1.0f));
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0 + region->m_height, region->m_x, region->m_y + region->m_height, 1.0f));
+
             count += 4;
+            x += (chr->getAdvance() >> 6);
         }
 
         m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeDynamic>(vs);
@@ -70,13 +74,9 @@ namespace qs
         VertexStorage<qs::SpriteVertex> vs;
 
         unsigned int count = 0;
+        float x = 0;
         for (auto& c : m_text)
         {
-            for (auto& vertex : m_font->getChar(c)->getVertexs())
-            {
-                vs.push_back(vertex);
-            }
-
             is.push_back(0 + count);
             is.push_back(1 + count);
             is.push_back(3 + count);
@@ -84,7 +84,15 @@ namespace qs
             is.push_back(2 + count);
             is.push_back(3 + count);
 
+            auto* chr = m_font->getChar(c);
+            auto* region = &chr->getRegion();
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0, region->m_x, region->m_y, 1.0f));
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0, region->m_x + region->m_width, region->m_y, 1.0f));
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0 + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height, 1.0f));
+            vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0 + region->m_height, region->m_x, region->m_y + region->m_height, 1.0f));
+
             count += 4;
+            x += (chr->getAdvance() >> 6);
         }
 
         m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeDynamic>(vs);

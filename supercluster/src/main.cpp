@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/utils/Error.hpp>
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 

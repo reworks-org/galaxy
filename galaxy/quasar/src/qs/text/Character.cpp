@@ -34,8 +34,13 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	const qs::VertexQuadStorage<qs::SpriteVertex>& Character::getVertexs() const noexcept
+	const unsigned int Character::getAdvance() const noexcept
 	{
-		return m_vertexs;
+		return m_advance;
+	}
+
+	const protostar::Rect<float>& Character::getRegion() const noexcept
+	{
+		return m_region;
 	}
 }

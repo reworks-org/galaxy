@@ -58,11 +58,18 @@ namespace qs
 		void unbind() noexcept override;
 
 		///
-		/// Get vertexs
+		/// Get the offset to the next character.
 		///
-		/// \return Const reference to vertexs.
+		/// \return Const unsigned int.
 		///
-		const qs::VertexQuadStorage<qs::SpriteVertex>& getVertexs() const noexcept;
+		const unsigned int getAdvance() const noexcept;
+
+		///
+		/// Get texture region.
+		///
+		/// \return Const reference to float rectangle.
+		///
+		const protostar::Rect<float>& getRegion() const noexcept;
 
 	public:
 		///
@@ -82,9 +89,9 @@ namespace qs
 
 	private:
 		///
-		/// Vertexs.
+		/// Texture region.
 		///
-		qs::VertexQuadStorage<qs::SpriteVertex> m_vertexs;
+		protostar::Rect<float> m_region;
 	};
 }
 
