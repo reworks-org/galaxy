@@ -30,7 +30,7 @@ namespace protostar
 		/// \param y y-pos of event.
 		/// \param button Button code pressed.
 		///
-		explicit MousePressedEvent(const int x, const int y, const unsigned int button) noexcept;
+		MousePressedEvent(const int x, const int y, const unsigned int button) noexcept;
 
 		///
 		/// Default destructor.

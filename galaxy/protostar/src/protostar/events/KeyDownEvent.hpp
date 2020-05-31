@@ -30,7 +30,7 @@ namespace protostar
 		///
 		/// \param keycode Keycode for the key that was pressed.
 		///
-		explicit KeyDownEvent(const protostar::Keys keycode) noexcept;
+		KeyDownEvent(const protostar::Keys keycode) noexcept;
 
 		///
 		/// Default destructor.

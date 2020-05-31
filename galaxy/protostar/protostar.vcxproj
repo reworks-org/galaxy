@@ -28,6 +28,7 @@
     <ClCompile Include="src\protostar\events\MouseMovedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
+    <ClCompile Include="src\protostar\events\MouseWheelEvent.cpp" />
     <ClCompile Include="src\protostar\math\Maths.cpp" />
     <ClCompile Include="src\protostar\math\Random.cpp" />
     <ClCompile Include="src\protostar\math\Rect.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="src\protostar\events\MouseMovedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
+    <ClInclude Include="src\protostar\events\MouseWheelEvent.hpp" />
     <ClInclude Include="src\protostar\math\Maths.hpp" />
     <ClInclude Include="src\protostar\math\Random.hpp" />
     <ClInclude Include="src\protostar\math\Rect.hpp" />

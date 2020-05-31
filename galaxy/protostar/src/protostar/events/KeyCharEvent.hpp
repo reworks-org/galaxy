@@ -31,7 +31,7 @@ namespace protostar
 		/// \param keycode Code of the key pressed.
 		/// \param unichar Unicode character pressed.
 		///
-		explicit KeyCharEvent(const protostar::Keys keycode, const int unichar) noexcept;
+		KeyCharEvent(const protostar::Keys keycode, const int unichar) noexcept;
 
 		///
 		/// Default destructor.

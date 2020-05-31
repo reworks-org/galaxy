@@ -32,7 +32,7 @@ namespace protostar
 		/// \param dy Change in y coord value since previous event.
 		/// \param pressure Any pressure from any button click the mouse might be applying.
 		///
-		explicit MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept;
+		MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept;
 
 		///
 		/// Default destructor.
