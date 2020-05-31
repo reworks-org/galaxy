@@ -89,7 +89,7 @@ namespace qs
 
 	void Camera::onMouseScroll(const protostar::MouseWheelEvent& e) noexcept
 	{
-		static double scale = 0.0;
+		static double scale = 1.0;
 		if (e.m_yOffset < 0)
 		{
 			scale -= 0.1;

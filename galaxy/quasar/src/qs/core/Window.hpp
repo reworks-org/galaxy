@@ -107,6 +107,13 @@ namespace qs
 		void setCursorIcon(const unsigned char* mem, const int size) noexcept;
 
 		///
+		/// Set the callback function for scrolling.
+		///
+		/// \param func Function callback.
+		///
+		void setScrollCallback(GLFWscrollfun func) noexcept;
+
+		///
 		/// \brief Destroys SDL Window and OpenGL context.
 		///
 		/// Make sure SDL_Quit has not been called yet.
@@ -167,7 +174,7 @@ namespace qs
 		///
 		/// \return Returns const pointer to GLFWwindow.
 		///
-		GLFWwindow* getWindow() noexcept;
+		GLFWwindow* getGLWindow() noexcept;
 
 		///
 		/// Get window width.

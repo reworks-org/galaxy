@@ -132,7 +132,7 @@ StateGame::StateGame() noexcept
 	dispatch.add<protostar::KeyUpEvent>(std::bind(&qs::Camera::onKeyUp, &camera, std::placeholders::_1));
 	dispatch.add<protostar::MouseWheelEvent>(std::bind(&qs::Camera::onMouseScroll, &camera, std::placeholders::_1));
 
-	glfwSetScrollCallback(window->getWindow(), scrollCallback);
+	window->setScrollCallback(scrollCallback);
 
 	updte.set(1.0);
 }
@@ -153,13 +153,13 @@ void StateGame::events() noexcept
 {
 	auto* window = SL_HANDLE.window();
 
-	int esc = glfwGetKey(window->getWindow(), GLFW_KEY_ESCAPE);
+	int esc = glfwGetKey(window->getGLWindow(), GLFW_KEY_ESCAPE);
 	if (esc == GLFW_PRESS)
 	{
 		window->close();
 	}
 
-	int w = glfwGetKey(window->getWindow(), GLFW_KEY_W);
+	int w = glfwGetKey(window->getGLWindow(), GLFW_KEY_W);
 	if (w == GLFW_PRESS)
 	{
 		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::W });
@@ -169,7 +169,7 @@ void StateGame::events() noexcept
 		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::W });
 	}
 
-	int s = glfwGetKey(window->getWindow(), GLFW_KEY_S);
+	int s = glfwGetKey(window->getGLWindow(), GLFW_KEY_S);
 	if (s == GLFW_PRESS)
 	{
 		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::S });
@@ -179,7 +179,7 @@ void StateGame::events() noexcept
 		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::S });
 	}
 
-	int a = glfwGetKey(window->getWindow(), GLFW_KEY_A);
+	int a = glfwGetKey(window->getGLWindow(), GLFW_KEY_A);
 	if (a == GLFW_PRESS)
 	{
 		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::A });
@@ -189,7 +189,7 @@ void StateGame::events() noexcept
 		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::A });
 	}
 
-	int d = glfwGetKey(window->getWindow(), GLFW_KEY_D);
+	int d = glfwGetKey(window->getGLWindow(), GLFW_KEY_D);
 	if (d == GLFW_PRESS)
 	{
 		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::D });

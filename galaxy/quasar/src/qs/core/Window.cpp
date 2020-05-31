@@ -285,6 +285,11 @@ namespace qs
 		glfwSetCursor(m_window, m_cursor);
 	}
 
+	void Window::setScrollCallback(GLFWscrollfun func) noexcept
+	{
+		glfwSetScrollCallback(m_window, func);
+	}
+
 	void Window::destroy() noexcept
 	{
 		// Clean up window data, checking to make sure its not already been destroyed.
@@ -343,7 +348,7 @@ namespace qs
 		glfwPollEvents();
 	}
 
-	GLFWwindow* Window::getWindow() noexcept
+	GLFWwindow* Window::getGLWindow() noexcept
 	{
 		return m_window;
 	}
