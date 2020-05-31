@@ -43,6 +43,7 @@
 #include <qs/shaders/RenderToTexture.hpp>
 #include <protostar/state/State.hpp>
 #include <qs/shaders/Texts.hpp>
+#include <protostar/events/MouseWheelEvent.hpp>
 
 class StateGame : public protostar::State
 {
@@ -72,6 +73,7 @@ private:
 	qs::Font font;
 	qs::Camera camera; //left, right, bottom, top
 	protostar::ProtectedDouble updte;
+	
 	//qs::Point point;
 	//qs::Line line;
 	//qs::Circle circle;

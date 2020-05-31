@@ -29,7 +29,7 @@ namespace protostar
 		/// \param x x offset.
 		/// \param y y offset.
 		///
-		MouseWheelEvent(const float x, const float y) noexcept;
+		MouseWheelEvent(const double x, const double y) noexcept;
 
 		///
 		/// Default destructor.

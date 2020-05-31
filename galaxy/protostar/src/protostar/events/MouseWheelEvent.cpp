@@ -17,7 +17,7 @@ namespace protostar
 	{
 	}
 
-	MouseWheelEvent::MouseWheelEvent(const float x, const float y) noexcept
+	MouseWheelEvent::MouseWheelEvent(const double x, const double y) noexcept
 		:m_xOffset(x), m_yOffset(y)
 	{
 	}

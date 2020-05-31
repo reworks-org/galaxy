@@ -4,7 +4,7 @@
 ///
 /// Refer to LICENSE.txt for more details.
 ///
-
+#include <iostream>
 #include "Camera.hpp"
 
 namespace qs
@@ -85,6 +85,21 @@ namespace qs
 			m_moveRight = false;
 			break;
 		}
+	}
+
+	void Camera::onMouseScroll(const protostar::MouseWheelEvent& e) noexcept
+	{
+		static double scale = 0.0;
+		if (e.m_yOffset < 0)
+		{
+			scale -= 0.1;
+		}
+		else
+		{
+			scale += 0.1;
+		}
+
+		this->scale(scale);
 	}
 
 	void Camera::update(const double ts) noexcept

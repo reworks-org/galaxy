@@ -7,6 +7,8 @@
 
 #include "StateGame.hpp"
 
+starlight::Dispatcher dispatch;
+
 struct Test
 {
 	int a = 10;
@@ -60,6 +62,11 @@ struct Test
 
 	std::cin.get();
 	music.stop();
+}
+
+void scrollCallback(GLFWwindow* window, double x, double y)
+{
+	dispatch.trigger<protostar::MouseWheelEvent>({ x, y });
 }
 
 StateGame::StateGame() noexcept
@@ -120,6 +127,12 @@ StateGame::StateGame() noexcept
 	//lightSource.m_zLevel = 0.075f;
 	//lightSource.m_pos = { 500.0f, 200.0f };
 	//lightSource.m_shader.loadFromRaw(qs::s_lightVS, qs::s_lightFS);
+
+	dispatch.add<protostar::KeyDownEvent>(std::bind(&qs::Camera::onKeyDown, &camera, std::placeholders::_1));
+	dispatch.add<protostar::KeyUpEvent>(std::bind(&qs::Camera::onKeyUp, &camera, std::placeholders::_1));
+	dispatch.add<protostar::MouseWheelEvent>(std::bind(&qs::Camera::onMouseScroll, &camera, std::placeholders::_1));
+
+	glfwSetScrollCallback(window->getWindow(), scrollCallback);
 
 	updte.set(1.0);
 }

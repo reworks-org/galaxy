@@ -10,6 +10,7 @@
 
 #include <protostar/events/KeyUpEvent.hpp>
 #include <protostar/events/KeyDownEvent.hpp>
+#include <protostar/events/MouseWheelEvent.hpp>
 
 #include "qs/core/Transform.hpp"
 
@@ -70,6 +71,13 @@ namespace qs
 		/// \param e Takes in a shared protostar event defining a key release.
 		///
 		void onKeyUp(const protostar::KeyUpEvent& e) noexcept;
+
+		///
+		/// Event processing method for scroll event for camera.
+		///
+		/// \param e Takes in a mouse wheel scroll event.
+		///
+		void onMouseScroll(const protostar::MouseWheelEvent& e) noexcept;
 
 		///
 		/// Update method for camera.
