@@ -4,7 +4,7 @@
 ///
 /// Refer to LICENSE.txt for more details.
 ///
-#include <iostream>
+
 #include "Camera.hpp"
 
 namespace qs
