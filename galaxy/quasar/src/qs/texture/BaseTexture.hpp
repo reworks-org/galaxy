@@ -8,8 +8,6 @@
 #ifndef QS_BASETEXTURE_HPP_
 #define QS_BASETEXTURE_HPP_
 
-#include <protostar/system/Colour.hpp>
-
 #include "qs/utils/TextureFilters.hpp"
 
 ///
@@ -56,9 +54,7 @@ namespace qs
 		///
 		/// Coordinates outside the range are now given a user-specified border color.
 		///
-		/// \param border Colour of the border.
-		///
-		virtual void clampToBorder(protostar::Colour& border) noexcept final;
+		virtual void clampToBorder() noexcept final;
 
 		///
 		/// Makes the texture repeat over its verticies.
