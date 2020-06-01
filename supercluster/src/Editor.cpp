@@ -68,7 +68,7 @@ namespace sc
 
 	void Editor::events() noexcept
 	{
-		if (glfwGetKey(m_window->getWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		if (glfwGetKey(m_window->getGLWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		{
 			m_window->close();
 		}

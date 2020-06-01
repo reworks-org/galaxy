@@ -99,7 +99,7 @@ namespace qs
 			scale += 0.1;
 		}
 
-		this->scale(scale);
+		this->scale(static_cast<float>(scale));
 	}
 
 	void Camera::update(const double ts) noexcept

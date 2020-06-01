@@ -70,12 +70,6 @@ int main(int argsc, char* argsv[])
 			gs->create<sc::Editor>("Editor");
 			gs->push("Editor");
 
-			// Set blank callback.
-			qs::Error::handle().setGLCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-			{
-			});
-
-
 			auto* world = SL_HANDLE.world();
 			world->registerComponent<galaxy::SpriteComponent>("SpriteComponent");
 			world->registerComponent<galaxy::TransformComponent>("TransformComponent");

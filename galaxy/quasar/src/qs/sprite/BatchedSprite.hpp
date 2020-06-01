@@ -74,7 +74,7 @@ namespace qs
 		///
 		const unsigned int getZLevel() const noexcept;
 
-	private:
+	protected:
 		///
 		/// Keeps track if a batched sprite has been modified.
 		/// Defaults to false.
