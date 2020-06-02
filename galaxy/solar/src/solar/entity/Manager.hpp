@@ -203,12 +203,7 @@ namespace sr
 	template<typename Component, typename... Args>
 	inline Component* Manager::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
-		if (!validate(entity))
-		{
-			PL_LOG(PL_FATAL, "Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
-			return nullptr;
-		}
-		else
+		if (get<Component>(entity) == nullptr)
 		{
 			auto type = cUniqueID::get<Component>();
 
@@ -228,9 +223,13 @@ namespace sr
 
 				// Now convert the storage to the type we want to access.
 				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
-
 				return derived->add(entity, std::forward<Args>(args)...);
 			}
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Attempted to add a duplicate component.");
+			return nullptr;
 		}
 	}
 
@@ -248,7 +247,7 @@ namespace sr
 		{
 			auto type = cUniqueID::get<Component>();
 
-			if (type > m_data.size() || m_data.size() == 0)
+			if (type >= m_data.size() || m_data.size() == 0)
 			{
 				PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist.");
 				PL_LOG(PL_ERROR, "Possible zero size component data detected.");
@@ -294,9 +293,9 @@ namespace sr
 	{
 		auto type = cUniqueID::get<Component>();
 
-		if (type > m_data.size())
+		if (type >= m_data.size())
 		{
-			PL_LOG(PL_FATAL, "Attempted to access a component type that doesnt exist!");
+			PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist!");
 		}
 		else
 		{

@@ -1,7 +1,10 @@
 {
   "SpriteComponent": {
     "texture": "wall.png",
-    "dynamic-buffer": true
+    "ansio-filtering": 2,
+    "dynamic-buffer": true,
+    "opacity": 1.0,
+    "z-level": 0
   },
   "TransformComponent": {
     "x": 20.0,
