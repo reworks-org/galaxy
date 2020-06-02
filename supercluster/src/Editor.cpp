@@ -24,6 +24,8 @@
 #include <galaxy/components/SpriteComponent.hpp>
 #include <galaxy/components/TransformComponent.hpp>
 #include <galaxy/components/SpriteBatchComponent.hpp>
+#include <galaxy/components/PlaylistComponent.hpp>
+#include <galaxy/components/AudioComponent.hpp>
 
 #include "Editor.hpp"
 
@@ -39,7 +41,7 @@ namespace sc
 
 		m_window = SL_HANDLE.window();
 		m_world = SL_HANDLE.world();
-		ImGui_ImplGlfw_InitForOpenGL(m_window->getWindow(), true);
+		ImGui_ImplGlfw_InitForOpenGL(m_window->getGLWindow(), true);
 		ImGui_ImplOpenGL3_Init("#version 450 core");
 
 		m_spriteShader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
@@ -197,239 +199,63 @@ namespace sc
 	
 	void Editor::componentUI(sr::Entity active) noexcept
 	{
-		static bool s_fileOpen = false;
-		static bool s_sbFileOpen = false;
-		static std::unique_ptr<pfd::open_file> s_cof = nullptr;
+		auto sc = m_world->get<galaxy::SpriteComponent>(active);
+		auto tc = m_world->get<galaxy::TransformComponent>(active);
+		auto sbc = m_world->get<galaxy::SpriteBatchComponent>(active);
+		auto pc = m_world->get<galaxy::PlaylistComponent>(active);
+		auto ac = m_world->get<galaxy::AudioComponent>(active);
 
 		ImGui::Separator();
 
-		auto tuple = m_world->multi<galaxy::SpriteComponent, galaxy::TransformComponent, galaxy::SpriteBatchComponent>(active);
-
-		auto sc = std::get<0>(tuple);
 		if (sc != nullptr)
 		{
 			ImGui::Text("Sprite Component");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
-
-			if (ImGui::Button("Load texture"))
-			{
-				if (!s_fileOpen)
-				{
-					s_cof = std::make_unique<pfd::open_file>("Load sprite texture.");
-					s_fileOpen = true;
-				}
-			}
-
-			if (s_fileOpen)
-			{
-				if (s_cof->ready() && !s_cof->result().empty())
-				{
-					sc->load(s_cof->result()[0]);
-					sc->create<qs::BufferTypeDynamic>();
-
-					s_fileOpen = false;
-					s_cof = nullptr;
-				}
-			}
-
-			ImGui::Spacing();
-			ImGui::Spacing();
-
-			if (ImGui::Button("Clamp to Border"))
-			{
-				sc->clampToBorder(protostar::Black);
-			}
-
-			if (ImGui::Button("Clamp to Edge"))
-			{
-				sc->clampToEdge();
-			}
-
-			if (ImGui::Button("Set Mirrored"))
-			{
-				sc->setMirrored();
-			}
-
-			if (ImGui::Button("Set Repeated"))
-			{
-				sc->setRepeated();
-			}
-
-			ImGui::Spacing();
-			ImGui::Spacing();
-
-			static int ansio = 0;
-			if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 1, 4))
-			{
-				sc->setAnisotropy(ansio * 2);
-			}
-
-			ImGui::Spacing();
-			ImGui::Spacing();
-
-			if (ImGui::Button("Set Minify to Nearest"))
-			{
-				sc->setMinifyFilter(qs::TextureFilter::NEAREST);
-			}
-
-			if (ImGui::Button("Set Minify to Linear"))
-			{
-				sc->setMinifyFilter(qs::TextureFilter::LINEAR);
-			}
-
-			if (ImGui::Button("Set Magnify to Nearest"))
-			{
-				sc->setMagnifyFilter(qs::TextureFilter::NEAREST);
-			}
-
-			if (ImGui::Button("Set Magnify to Linear"))
-			{
-				sc->setMagnifyFilter(qs::TextureFilter::LINEAR);
-			}
 		}
 
 		ImGui::Separator();
 
-		auto tc = std::get<1>(tuple);
 		if (tc != nullptr)
 		{
 			ImGui::Text("Transform Component");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
-
-			static float xy[2] = { 0.0f, 0.0f };
-			if (ImGui::SliderFloat2("Move", &xy[0], 0.0f, 100.0f))
-			{
-				tc->m_transform.setPos(xy[0], xy[1]);
-			}
-
-			static float r = 0.0f;
-			if (ImGui::SliderAngle("Rotate", &r))
-			{
-				tc->m_transform.rotate(r);
-			}
-
-			static float scale = 1.0f;
-			if (ImGui::SliderFloat("Scale", &scale, 0.0f, 2.0f))
-			{
-				tc->m_transform.scale(scale);
-			}
-
-			static float opacity = 1.0f;
-			if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
-			{
-				tc->m_transform.setOpacity(opacity);
-			}
 		}
 
 		ImGui::Separator();
 
-		auto sbc = std::get<2>(tuple);
 		if (sbc != nullptr)
 		{
 			ImGui::Text("SpriteBatch Component");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
-
-			if (ImGui::Button("Create from TextureAtlas"))
-			{
-				if (!s_sbFileOpen)
-				{
-					s_cof = std::make_unique<pfd::open_file>("Open SpriteBatch JSON.");
-					s_sbFileOpen = true;
-				}
-			}
-
-			if (s_sbFileOpen && s_cof)
-			{
-				if (!m_textureAtlas)
-				{
-					ImGui::Text("Atlas is not created.");
-				}
-				else
-				{
-					if (s_cof->ready() && !s_cof->result().empty())
-					{
-						sbc->m_spritebatch.load(
-							m_textureAtlas->getTexture().getGLTexture(),
-							m_textureAtlas->getTexture().getWidth(),
-							m_textureAtlas->getTexture().getHeight()
-						);
-
-						sbc->setAtlas(m_textureAtlas.get());
-						
-						std::ifstream ifs(s_cof->result()[0], std::ifstream::in);
-						nlohmann::json root;
-						ifs >> root;
-						auto sbcjson = root.at("SpriteBatchComponent");
-						sbc->create(sbcjson);
-
-						ifs.close();
-						s_sbFileOpen = false;
-						s_cof = nullptr;
-					}
-				}
-			}
-
-			ImGui::Spacing();
-			ImGui::Spacing();
-
-			if (ImGui::Button("Clamp to Border"))
-			{
-				sbc->m_spritebatch.clampToBorder(protostar::Black);
-			}
-
-			if (ImGui::Button("Clamp to Edge"))
-			{
-				sbc->m_spritebatch.clampToEdge();
-			}
-
-			if (ImGui::Button("Set Mirrored"))
-			{
-				sbc->m_spritebatch.setMirrored();
-			}
-
-			if (ImGui::Button("Set Repeated"))
-			{
-				sbc->m_spritebatch.setRepeated();
-			}
-
-			ImGui::Spacing();
-			ImGui::Spacing();
-
-			static int ansio = 0;
-			if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 1, 4))
-			{
-				sbc->m_spritebatch.setAnisotropy(ansio * 2);
-			}
-
-			ImGui::Spacing();
-			ImGui::Spacing();
-
-			if (ImGui::Button("Set Minify to Nearest"))
-			{
-				sbc->m_spritebatch.setMinifyFilter(qs::TextureFilter::NEAREST);
-			}
-
-			if (ImGui::Button("Set Minify to Linear"))
-			{
-				sbc->m_spritebatch.setMinifyFilter(qs::TextureFilter::LINEAR);
-			}
-
-			if (ImGui::Button("Set Magnify to Nearest"))
-			{
-				sbc->m_spritebatch.setMagnifyFilter(qs::TextureFilter::NEAREST);
-			}
-
-			if (ImGui::Button("Set Magnify to Linear"))
-			{
-				sbc->m_spritebatch.setMagnifyFilter(qs::TextureFilter::LINEAR);
-			}
 		}
+
+		ImGui::Separator();
+
+		if (pc != nullptr)
+		{
+			ImGui::Text("Playlist Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+		}
+
+		ImGui::Separator();
+
+		if (ac != nullptr)
+		{
+			ImGui::Text("Audio Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+		}
+
+		ImGui::Separator();
 	}
 
 	void Editor::scriptEditorUI() noexcept
@@ -603,7 +429,7 @@ namespace sc
 
 		if (ImGui::Button("Create"))
 		{
-			m_textureAtlas->create(*SL_HANDLE.window(), *SL_HANDLE.renderer(), m_atlasShader);
+			m_textureAtlas->create(*SL_HANDLE.renderer(), m_atlasShader);
 			s_created = true;
 		}
 

@@ -111,20 +111,6 @@ namespace sr
 		Component* get(const sr::Entity entity) noexcept;
 
 		///
-		/// \brief Retrieve multiple components.
-		///
-		/// Using the template parameter, specify the component(s) you want to retrieve.
-		/// Use structured binding. auto [x, y] = multi<x, y>(entity); 
-		/// The first value in the binding is the first type in the template parameter.
-		///
-		/// \param entity Entity that the components belong to.
-		///
-		/// \return Type is automatically deduced, but is a type of std::tuple. Best method is to use structured bindings to retrieve data.
-		///
-		template<typename... Components>
-		decltype(auto) multi(const sr::Entity entity) noexcept;
-
-		///
 		/// \brief Iterate over a set of components of a set of types and manipulate their data.
 		///
 		/// The components to manipulate are specified in the template parameter.
@@ -275,12 +261,6 @@ namespace sr
 		}
 
 		return res;
-	}
-
-	template<typename... Components>
-	inline decltype(auto) Manager::multi(const sr::Entity entity) noexcept
-	{
-		return std::make_tuple(get<Components>(entity)...);
 	}
 
 	template<typename... Components, typename Lambda>

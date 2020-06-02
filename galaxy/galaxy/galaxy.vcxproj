@@ -31,6 +31,8 @@
     <ClCompile Include="src\galaxy\fs\Config.cpp" />
     <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
     <ClCompile Include="src\galaxy\layer\Layer.cpp" />
+    <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
+    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\components\AudioComponent.hpp" />
@@ -45,6 +47,8 @@
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
     <ClInclude Include="src\galaxy\layer\Layer.hpp" />
+    <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
+    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

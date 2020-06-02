@@ -2,8 +2,6 @@
 /// AnimationComponent.hpp
 /// galaxy
 ///
-/// Created by reworks on 16/08/2016.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
@@ -12,12 +10,6 @@
 
 #include <unordered_map>
 
-#include "galaxy/graphics/Animation.hpp"
-#include "galaxy/libs/cereal/types/unordered_map.hpp"
-
-typedef struct _tmx_map tmx_map;
-typedef struct _tmx_tile tmx_tile;
-
 namespace galaxy
 {
 	///
@@ -25,8 +17,6 @@ namespace galaxy
 	///
 	class AnimationComponent final
 	{
-		friend class cereal::access;
-
 	public:
 		///
 		/// \brief Default Constructor.
@@ -90,16 +80,6 @@ namespace galaxy
 		/// Stop the animation. If you call play() the animation starts from the beginning.
 		///
 		void stop();
-
-	private:
-		///
-		/// Cereal serialize function.
-		///
-		template<class Archive>
-		inline void serialize(Archive& ar)
-		{
-			ar(m_isPaused, m_currentFrameTime, m_activeAnimation, m_animations);
-		}
 
 	public:
 		///

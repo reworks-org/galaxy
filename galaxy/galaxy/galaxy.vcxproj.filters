@@ -36,6 +36,8 @@
     <ClCompile Include="src\galaxy\components\SpriteBatchComponent.cpp" />
     <ClCompile Include="src\galaxy\components\AudioComponent.cpp" />
     <ClCompile Include="src\galaxy\components\PlaylistComponent.cpp" />
+    <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
+    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -50,5 +52,7 @@
     <ClInclude Include="src\galaxy\components\SpriteBatchComponent.hpp" />
     <ClInclude Include="src\galaxy\components\AudioComponent.hpp" />
     <ClInclude Include="src\galaxy\components\PlaylistComponent.hpp" />
+    <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
+    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
   </ItemGroup>
 </Project>

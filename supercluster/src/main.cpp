@@ -11,6 +11,8 @@
 #include <galaxy/components/SpriteComponent.hpp>
 #include <galaxy/components/TransformComponent.hpp>
 #include <galaxy/components/SpriteBatchComponent.hpp>
+#include <galaxy/components/PlaylistComponent.hpp>
+#include <galaxy/components/AudioComponent.hpp>
 
 #include <galaxy/systems/RenderSystem.hpp>
 
@@ -74,6 +76,8 @@ int main(int argsc, char* argsv[])
 			world->registerComponent<galaxy::SpriteComponent>("SpriteComponent");
 			world->registerComponent<galaxy::TransformComponent>("TransformComponent");
 			world->registerComponent<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
+			world->registerComponent<galaxy::PlaylistComponent>("PlaylistComponent");
+			world->registerComponent<galaxy::AudioComponent>("AudioComponent");
 
 			world->addSystem<galaxy::RenderSystem>();
 

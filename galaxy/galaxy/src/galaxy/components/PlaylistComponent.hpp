@@ -17,9 +17,8 @@
 namespace galaxy
 {
 	///
-	/// A playlist of audio files.
+	/// A playlist of audio files. Max of 8.
 	///
-	template<size_t length>
 	class PlaylistComponent final
 	{
 	public:
@@ -44,32 +43,8 @@ namespace galaxy
 		///
 		/// Playlist of audio.
 		///
-		frb::Playlist<length> m_playlist;
+		frb::Playlist m_playlist;
 	};
-	
-	template<size_t length>
-	inline PlaylistComponent<length>::PlaylistComponent() noexcept
-	{
-	}
-
-	template<size_t length>
-	inline PlaylistComponent<length>::PlaylistComponent(const nlohmann::json& json) noexcept
-	{
-		std::vector<std::string> files;
-		nlohmann::json arr = json.at("files");
-		for (auto& elem : arr)
-		{
-			files.push_back(elem);
-		}
-
-		m_playlist.load(files);
-		m_playlist.setLooping(json.at("looping"));
-	}
-
-	template<size_t length>
-	inline PlaylistComponent<length>::~PlaylistComponent() noexcept
-	{
-	}
 }
 
 #endif

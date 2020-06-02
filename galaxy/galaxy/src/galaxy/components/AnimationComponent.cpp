@@ -2,15 +2,10 @@
 /// AnimationComponent.cpp
 /// galaxy
 ///
-/// Created by reworks on 16/08/2016.
-/// MIT License.
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/libs/tmx/tmx.h"
-#include "galaxy/utils/Time.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/graphics/TextureAtlas.hpp"
 
 #include "AnimationComponent.hpp"
 
