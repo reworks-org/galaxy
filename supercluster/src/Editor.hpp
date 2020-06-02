@@ -49,6 +49,7 @@ namespace sc
 		bool m_showTEUI;
 		bool m_showTAEUI;
 		bool m_isFileOpen;
+		bool m_newlyAdded;
 
 		std::string m_name;
 		galaxy::World* m_world;
@@ -62,6 +63,12 @@ namespace sc
 		TextEditor m_editor;
 		std::unique_ptr<pfd::open_file> m_fileToOpen;
 		std::unique_ptr<pfd::save_file> m_fileToSave;
+
+		galaxy::SpriteComponent* sc = nullptr;
+		galaxy::TransformComponent* tc = nullptr;
+		galaxy::SpriteBatchComponent* sbc = nullptr;
+		galaxy::PlaylistComponent* pc = nullptr;
+		galaxy::AudioComponent* ac = nullptr;
 	};
 }
 

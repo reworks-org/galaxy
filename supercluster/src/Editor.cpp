@@ -32,7 +32,7 @@
 namespace sc
 {
 	Editor::Editor() noexcept
-		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
+		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_newlyAdded(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -161,7 +161,7 @@ namespace sc
 	void Editor::entityUI() noexcept
 	{
 		static std::filesystem::path path = "";
-		static sr::Entity active = 0;
+		static sr::Entity active = -1;
 		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Create from JSON"))
@@ -176,6 +176,63 @@ namespace sc
 		if (ImGui::Button("Create Entity"))
 		{
 			active = m_world->create();
+		}
+
+		if (m_world->validate(active))
+		{
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			ImGui::Separator();
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Add SpriteComponent"))
+			{
+				m_world->add<galaxy::SpriteComponent>(active);
+				m_newlyAdded = true;
+			}
+
+			ImGui::Spacing();
+
+			if (ImGui::Button("Add TransformComponent"))
+			{
+				m_world->add<galaxy::TransformComponent>(active);
+				m_newlyAdded = true;
+			}
+
+			ImGui::Spacing();
+
+			if (ImGui::Button("Add SpriteBatchComponent"))
+			{
+				m_world->add<galaxy::SpriteBatchComponent>(active);
+				m_newlyAdded = true;
+			}
+
+			ImGui::Spacing();
+
+			if (ImGui::Button("Add AudioComponent"))
+			{
+				m_world->add<galaxy::AudioComponent>(active);
+				m_newlyAdded = true;
+			}
+
+			ImGui::Spacing();
+
+			if (ImGui::Button("Add PlaylistComponent"))
+			{
+				m_world->add<galaxy::PlaylistComponent>(active);
+				m_newlyAdded = true;
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			ImGui::Separator();
+
+			ImGui::Spacing();
+			ImGui::Spacing();
 		}
 
 		if ((m_isFileOpen && m_fileToOpen->ready()) && (!m_fileToOpen->result().empty()))
@@ -199,11 +256,18 @@ namespace sc
 	
 	void Editor::componentUI(sr::Entity active) noexcept
 	{
-		auto sc = m_world->get<galaxy::SpriteComponent>(active);
-		auto tc = m_world->get<galaxy::TransformComponent>(active);
-		auto sbc = m_world->get<galaxy::SpriteBatchComponent>(active);
-		auto pc = m_world->get<galaxy::PlaylistComponent>(active);
-		auto ac = m_world->get<galaxy::AudioComponent>(active);
+		static sr::Entity curEntity = -1;
+		if (curEntity != active || m_newlyAdded == true)
+		{
+			curEntity = active;
+			m_newlyAdded = false;
+
+			sc = m_world->get<galaxy::SpriteComponent>(active);
+			tc = m_world->get<galaxy::TransformComponent>(active);
+			sbc = m_world->get<galaxy::SpriteBatchComponent>(active);
+			pc = m_world->get<galaxy::PlaylistComponent>(active);
+			ac = m_world->get<galaxy::AudioComponent>(active);
+		}
 
 		ImGui::Separator();
 
