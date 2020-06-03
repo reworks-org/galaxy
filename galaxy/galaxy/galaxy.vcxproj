@@ -33,6 +33,7 @@
     <ClCompile Include="src\galaxy\layer\Layer.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
+    <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\components\AudioComponent.hpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="src\galaxy\layer\Layer.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
+    <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -32,7 +32,7 @@
 namespace sc
 {
 	Editor::Editor() noexcept
-		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_newlyAdded(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
+		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_newlyAdded(false), m_drawConsole(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -137,6 +137,11 @@ namespace sc
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::MenuItem("Lua Console"))
+			{
+				m_drawConsole = !m_drawConsole;
+			}
+
 			ImGui::EndMainMenuBar();
 		}
 
@@ -153,6 +158,11 @@ namespace sc
 		if (m_showTAEUI)
 		{
 			textureAtlasEditor();
+		}
+
+		if (m_drawConsole)
+		{
+			m_console.draw(&m_drawConsole);
 		}
 
 		end();
@@ -177,6 +187,11 @@ namespace sc
 		{
 			active = m_world->create();
 		}
+
+		/*
+			TODO:
+			ENTITY SELECTION.
+		*/
 
 		if (m_world->validate(active))
 		{
@@ -277,6 +292,85 @@ namespace sc
 
 			ImGui::Spacing();
 			ImGui::Spacing();
+
+			if (ImGui::Button("Load texture"))
+			{
+				if (!m_isFileOpen)
+				{
+					m_fileToOpen = std::make_unique<pfd::open_file>("Load sprite texture.");
+					m_isFileOpen = true;
+				}
+			}
+
+			if (m_isFileOpen)
+			{
+				if (m_fileToOpen->ready() && !m_fileToOpen->result().empty())
+				{
+					sc->load(m_fileToOpen->result()[0]);
+					sc->create<qs::BufferTypeDynamic>();
+
+					m_isFileOpen = false;
+					m_fileToOpen = nullptr;
+				}
+			}
+
+			if (ImGui::Button("Clamp to Border"))
+			{
+				sc->clampToBorder();
+			}
+
+			if (ImGui::Button("Clamp to Edge"))
+			{
+				sc->clampToEdge();
+			}
+
+			if (ImGui::Button("Set Mirrored"))
+			{
+				sc->setMirrored();
+			}
+
+			if (ImGui::Button("Set Repeated"))
+			{
+				sc->setRepeated();
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			static int s_ansio = 0;
+			if (ImGui::SliderInt("Set Ansiotrophy", &s_ansio, 1, 4))
+			{
+				sc->setAnisotropy(s_ansio * 2);
+			}
+
+			static float s_scOpacity = 1.0f;
+			if (ImGui::SliderFloat("Opacity", &s_scOpacity, 0.0f, 1.0f))
+			{
+				sc->setOpacity(s_scOpacity);
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (ImGui::Button("Set Minify to Nearest"))
+			{
+				sc->setMinifyFilter(qs::TextureFilter::NEAREST);
+			}
+
+			if (ImGui::Button("Set Minify to Linear"))
+			{
+				sc->setMinifyFilter(qs::TextureFilter::LINEAR);
+			}
+
+			if (ImGui::Button("Set Magnify to Nearest"))
+			{
+				sc->setMagnifyFilter(qs::TextureFilter::NEAREST);
+			}
+
+			if (ImGui::Button("Set Magnify to Linear"))
+			{
+				sc->setMagnifyFilter(qs::TextureFilter::LINEAR);
+			}
 		}
 
 		ImGui::Separator();
@@ -287,6 +381,24 @@ namespace sc
 
 			ImGui::Spacing();
 			ImGui::Spacing();
+
+			static float s_xy[2] = { 0.0f, 0.0f };
+			if (ImGui::SliderFloat2("Move", &s_xy[0], 0.0f, 100.0f))
+			{
+				tc->m_transform.setPos(s_xy[0], s_xy[1]);
+			}
+
+			static float r = 0.0f;
+			if (ImGui::SliderAngle("Rotate", &r))
+			{
+				tc->m_transform.rotate(r);
+			}
+
+			static float scale = 1.0f;
+			if (ImGui::SliderFloat("Scale", &scale, 0.0f, 2.0f))
+			{
+				tc->m_transform.scale(scale);
+			}
 		}
 
 		ImGui::Separator();

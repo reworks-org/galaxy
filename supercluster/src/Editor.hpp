@@ -13,6 +13,7 @@
 #include <TextEditor.h>
 #include <qs/core/Shader.hpp>
 #include <qs/graphics/Camera.hpp>
+#include <galaxy/ui/LuaConsole.hpp>
 #include <protostar/state/State.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 
@@ -50,6 +51,7 @@ namespace sc
 		bool m_showTAEUI;
 		bool m_isFileOpen;
 		bool m_newlyAdded;
+		bool m_drawConsole;
 
 		std::string m_name;
 		galaxy::World* m_world;
@@ -61,6 +63,7 @@ namespace sc
 		std::unique_ptr<qs::TextureAtlas> m_textureAtlas;
 
 		TextEditor m_editor;
+		galaxy::LuaConsole m_console;
 		std::unique_ptr<pfd::open_file> m_fileToOpen;
 		std::unique_ptr<pfd::save_file> m_fileToSave;
 

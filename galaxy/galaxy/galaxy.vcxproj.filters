@@ -38,6 +38,7 @@
     <ClCompile Include="src\galaxy\components\PlaylistComponent.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
+    <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -54,5 +55,6 @@
     <ClInclude Include="src\galaxy\components\PlaylistComponent.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
+    <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
   </ItemGroup>
 </Project>
