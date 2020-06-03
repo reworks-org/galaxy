@@ -61,6 +61,7 @@ int main(int argsc, char* argsv[])
 				config->define<std::string>("scripts-path", "scripts/");
 				config->define<std::string>("music-path", "music/");
 				config->define<std::string>("sfx-path", "sfx/");
+				config->define<std::string>("save-folder", "saves/");
 
 				config->create();
 				config->open();

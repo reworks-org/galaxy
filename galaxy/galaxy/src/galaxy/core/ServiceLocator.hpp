@@ -52,6 +52,7 @@ namespace galaxy
 	///
 	class Config;
 	class World;
+	class Serializer;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -76,8 +77,6 @@ namespace galaxy
 		/// \return Returns a reference to the internal singleton of this class.
 		///
 		static galaxy::ServiceLocator& get() noexcept;
-
-
 
 		///
 		/// Get config service.
@@ -133,25 +132,12 @@ namespace galaxy
 		///
 		galaxy::World* world() const noexcept;
 
-		
-
-		
-
 		///
-		/// Get Editor service.
+		/// Get serializer service.
 		///
-		/// \return Return const pointer to Editor service.
+		/// \return Return const pointer to Serializer service.
 		///
-		//galaxy::Editor* editor() const noexcept;
-
-		
-
-		///
-		/// Get Serializer service.
-		///
-		/// \return Return const pointer to Dispatcher service.
-		///
-		//galaxy::Serializer* serializer() const noexcept;
+		galaxy::Serializer* serializer() const noexcept;
 
 	private:
 		///
@@ -231,16 +217,9 @@ namespace galaxy
 		galaxy::World* m_world;
 
 		///
-		/// Editor service.
-		///
-		//galaxy::Editor* m_editor;
-
-		
-
-		///
 		/// Serializer service.
 		///
-		//galaxy::Serializer* m_serializer;
+		galaxy::Serializer* m_serializer;
 	};
 }
 

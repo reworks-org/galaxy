@@ -8,7 +8,7 @@
 #ifndef GALAXY_SERIALIZER_HPP_
 #define GALAXY_SERIALIZER_HPP_
 
-#include "galaxy/types/Serializable.hpp"
+#include "galaxy/fs/Serializable.hpp"
 
 ///
 /// Core namespace.

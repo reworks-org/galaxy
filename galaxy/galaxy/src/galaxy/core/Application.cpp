@@ -135,8 +135,8 @@ namespace galaxy
 			SL_HANDLE.m_world = m_world.get();
 
 			// Serializer.
-			//	m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("saves"));
-			//	SL_HANDLE.m_serializer = m_serializer.get();
+			m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
+			SL_HANDLE.m_serializer = m_serializer.get();
 
 			//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 			//ServiceLocator::textureAtlas = m_textureAtlas.get();

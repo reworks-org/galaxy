@@ -58,8 +58,13 @@ namespace galaxy
 		return m_world;
 	}
 
+	galaxy::Serializer* ServiceLocator::serializer() const noexcept
+	{
+		return m_serializer;
+	}
+
 	ServiceLocator::ServiceLocator() noexcept
-		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr)
+		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr), m_serializer(nullptr)
 	{
 	}
 }

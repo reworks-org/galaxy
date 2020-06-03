@@ -39,6 +39,8 @@
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -56,5 +58,7 @@
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
   </ItemGroup>
 </Project>

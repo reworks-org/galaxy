@@ -19,6 +19,7 @@
 
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/core/World.hpp"
+#include "galaxy/fs/Serializer.hpp"
 
 ///
 /// Core namespace.
@@ -117,12 +118,10 @@ namespace galaxy
 		///
 		std::unique_ptr<galaxy::World> m_world;
 
-		
-
 		///
 		/// Main serializer.
 		///
-		//std::unique_ptr<galaxy::Serializer> m_serializer;
+		std::unique_ptr<galaxy::Serializer> m_serializer;
 
 		///
 		/// Integrates box2d with the rest of the library.
