@@ -68,6 +68,11 @@ namespace galaxy
 
 	private:
 		///
+		/// Save count.
+		///
+		unsigned int m_count;
+
+		///
 		/// Path where the save files are located.
 		///
 		std::string m_folder;
