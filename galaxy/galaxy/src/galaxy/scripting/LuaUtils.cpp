@@ -19,36 +19,17 @@
 ///
 namespace galaxy
 {
-	void LuaUtils::writeTable(const sol::table& table, const std::string& file, const std::string& name)
+	///
+	/// Namespace that contains useful functions for interacting with Lua.
+	///
+	namespace Lua
 	{
-		// Opens a file to write to and prints formatting correctly.
-		std::ofstream out(file);
-		out << name << " = " << "\n";
-		out << "{" << "\n";
-
-		// Loops over each pair in table to write out.
-		table.for_each([&](std::pair<sol::object, sol::object> pair)
+		void registerTypes()
 		{
-			out << "    " << pair.first.as<std::string>() << " = " << pair.second.as<std::string>() << "," << "\n";
-		});
-
-		// Erase last ',' from table.
-		out << '\b';
-		out << '\b';
-		out << " ";
-
-		// Close up table and flush stream.
-		out << "}" << std::endl;
-		out.close();
-	}
-
-	void LuaUtils::registerUsertypes()
-	{
-		auto lua = SL_HANDLE.lua();
-		lua->new_usertype<galaxy::Command>("Command",
-			"exec", &Command::exec,
-			"undo", &Command::undo);
-
-
+			auto lua = SL_HANDLE.lua();
+			lua->new_usertype<galaxy::Command>("Command",
+				"exec", &Command::exec,
+				"undo", &Command::undo);
+		}
 	}
 }

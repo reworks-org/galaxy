@@ -25,7 +25,7 @@
     <ClCompile Include="src\galaxy\components\SpriteComponent.cpp" />
     <ClCompile Include="src\galaxy\components\TransformComponent.cpp" />
     <ClCompile Include="src\galaxy\core\Application.cpp" />
-    <ClCompile Include="src\galaxy\core\Command.cpp" />
+    <ClCompile Include="src\galaxy\scripting\Command.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\fs\Config.cpp" />
@@ -34,6 +34,7 @@
     <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\layer\Layer.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
     <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
   </ItemGroup>
@@ -44,7 +45,7 @@
     <ClInclude Include="src\galaxy\components\SpriteComponent.hpp" />
     <ClInclude Include="src\galaxy\components\TransformComponent.hpp" />
     <ClInclude Include="src\galaxy\core\Application.hpp" />
-    <ClInclude Include="src\galaxy\core\Command.hpp" />
+    <ClInclude Include="src\galaxy\scripting\Command.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
@@ -53,6 +54,7 @@
     <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\layer\Layer.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
+    <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
     <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
   </ItemGroup>
