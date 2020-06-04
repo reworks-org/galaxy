@@ -223,7 +223,14 @@ namespace sr
 
 				// Now convert the storage to the type we want to access.
 				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
-				return derived->add(entity, std::forward<Args>(args)...);
+				if (derived)
+				{
+					return derived->add(entity, std::forward<Args>(args)...);
+				}
+				else
+				{
+					return nullptr;
+				}
 			}
 		}
 		else
@@ -255,7 +262,10 @@ namespace sr
 			else
 			{
 				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
-				res = derived->get(entity);
+				if (derived)
+				{
+					res = derived->get(entity);
+				}
 			}
 		}
 
@@ -300,13 +310,15 @@ namespace sr
 		else
 		{
 			DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
-
-			for (auto& e : derived->m_dense)
+			if (derived)
 			{
-				// Have to make sure no entitys are blank unsigned integers.
-				if (validate(e))
+				for (auto& e : derived->m_dense)
 				{
-					entities.push_back(e);
+					// Have to make sure no entitys are blank unsigned integers.
+					if (validate(e))
+					{
+						entities.push_back(e);
+					}
 				}
 			}
 		}

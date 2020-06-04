@@ -209,7 +209,7 @@ namespace sr
 	template<typename uint>
 	inline std::optional<uint> SparseSet<uint>::findIndex(const uint element) noexcept
 	{
-		if (element > m_sparse.size())
+		if (element > m_sparse.size() || m_sparse.empty())
 		{
 			PL_LOG(PL_FATAL, "Out of bounds! Sparse Set does not contain element: " + std::to_string(element));
 			return std::nullopt;
