@@ -9,7 +9,7 @@
 
 #include <sol/sol.hpp>
 
-#include "galaxy/core/Command.hpp"
+#include "galaxy/scripting/Command.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 
 #include "LuaUtils.hpp"

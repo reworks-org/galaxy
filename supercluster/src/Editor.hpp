@@ -45,11 +45,13 @@ namespace sc
 		void start() noexcept;
 		void end() noexcept;
 
+		std::filesystem::path openFilePath() noexcept;
+		std::filesystem::path saveFilePath() noexcept;
+
 	private:
 		bool m_showEUI;
 		bool m_showTEUI;
 		bool m_showTAEUI;
-		bool m_isFileOpen;
 		bool m_newlyAdded;
 		bool m_drawConsole;
 

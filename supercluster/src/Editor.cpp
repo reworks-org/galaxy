@@ -32,7 +32,7 @@
 namespace sc
 {
 	Editor::Editor() noexcept
-		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_isFileOpen(false), m_newlyAdded(false), m_drawConsole(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
+		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_newlyAdded(false), m_drawConsole(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -170,17 +170,13 @@ namespace sc
 
 	void Editor::entityUI() noexcept
 	{
-		static std::filesystem::path path = "";
 		static sr::Entity active = -1;
 		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Create from JSON"))
 		{
-			if (!m_isFileOpen)
-			{
-				m_isFileOpen = true;
-				m_fileToOpen = std::make_unique<pfd::open_file>("Open entity JSON definition.");
-			}
+			auto path = this->openFilePath();
+			active = m_world->createFromJSON(path.string());
 		}
 
 		if (ImGui::Button("Create Entity"))
@@ -250,17 +246,6 @@ namespace sc
 			ImGui::Spacing();
 		}
 
-		if ((m_isFileOpen && m_fileToOpen->ready()) && (!m_fileToOpen->result().empty()))
-		{
-			path = std::filesystem::path(m_fileToOpen->result()[0]);
-			active = m_world->createFromJSON(path.string());
-			
-			m_isFileOpen = false;
-			m_fileToOpen.reset();
-			m_fileToOpen = nullptr;
-			path = "";
-		}
-
 		if (m_world->validate(active))
 		{
 			componentUI(active);
@@ -295,23 +280,10 @@ namespace sc
 
 			if (ImGui::Button("Load texture"))
 			{
-				if (!m_isFileOpen)
-				{
-					m_fileToOpen = std::make_unique<pfd::open_file>("Load sprite texture.");
-					m_isFileOpen = true;
-				}
-			}
+				auto path = this->openFilePath();
 
-			if (m_isFileOpen)
-			{
-				if (m_fileToOpen->ready() && !m_fileToOpen->result().empty())
-				{
-					sc->load(m_fileToOpen->result()[0]);
-					sc->create<qs::BufferTypeDynamic>();
-
-					m_isFileOpen = false;
-					m_fileToOpen = nullptr;
-				}
+				sc->load(path.string());
+				sc->create<qs::BufferTypeDynamic>();
 			}
 
 			if (ImGui::Button("Clamp to Border"))
@@ -447,20 +419,39 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Open"))
 				{
-					if (!m_isFileOpen)
+					auto fp = this->openFilePath();
+					if (fp.extension() == ".json")
 					{
-						m_isFileOpen = true;
-						m_fileToOpen = std::make_unique<pfd::open_file>("Open entity JSON definition.");
+						m_editor.SetLanguageDefinition(galaxy::getJsonDefinition());
 					}
+					else if (fp.extension() == ".lua")
+					{
+						m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
+					}
+
+					std::ifstream text(fp.string(), std::ifstream::in);
+
+					if (!text.fail())
+					{
+						std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
+						m_editor.SetText(str);
+					}
+					else
+					{
+						PL_LOG(PL_ERROR, "Failed to read file: " + fp.string());
+					}
+
+					text.close();
 				}
 
 				if (ImGui::MenuItem("Save"))
 				{
-					if (!m_isFileOpen)
-					{
-						m_isFileOpen = true;
-						m_fileToSave = std::make_unique<pfd::save_file>("Save script.");
-					}
+					auto fp = this->saveFilePath();
+					auto text = m_editor.GetText();
+
+					std::ofstream out(fp.string(), std::ios::out | std::ios::trunc);
+					out << text;
+					out.close();
 				}
 
 				if (ImGui::MenuItem("Close"))
@@ -515,56 +506,6 @@ namespace sc
 
 			ImGui::EndMenuBar();
 		}
-
-		if (m_fileToSave && m_isFileOpen)
-		{
-			if (m_fileToSave->ready() && !m_fileToSave->result().empty())
-			{
-				auto text = m_editor.GetText();
-				auto wp = std::filesystem::path(m_fileToSave->result());
-
-				std::ofstream out(wp.string(), std::ios::out | std::ios::trunc);
-				out << text;
-				out.close();
-
-				m_fileToSave.reset();
-				m_fileToSave = nullptr;
-				m_isFileOpen = false;
-			}
-		}
-
-		if (m_fileToOpen && m_isFileOpen)
-		{
-			if (m_fileToOpen->ready() && !m_fileToOpen->result().empty())
-			{
-				auto fp = std::filesystem::path(m_fileToOpen->result()[0]);
-				if (fp.extension() == ".json")
-				{
-					m_editor.SetLanguageDefinition(galaxy::getJsonDefinition());
-				}
-				else if (fp.extension() == ".lua")
-				{
-					m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
-				}
-
-				std::ifstream text(fp.string(), std::ifstream::in);
-				if (!text.fail())
-				{
-					std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
-					m_editor.SetText(str);
-				}
-				else
-				{
-					PL_LOG(PL_ERROR, "Failed to read file: " + fp.string());
-				}
-
-				text.close();
-
-				m_isFileOpen = false;
-				m_fileToOpen.reset();
-				m_fileToOpen = nullptr;
-			}
-		}
 			
 		m_editor.Render("Script Editor");
 
@@ -573,19 +514,26 @@ namespace sc
 
 	void Editor::textureAtlasEditor() noexcept
 	{
-		static bool s_add = false;
 		static bool s_created = false;
 		static bool s_loaded = false;
-		static std::unique_ptr<pfd::open_file> s_path = nullptr;
 		ImGui::Begin("Texture Atlas Editor", &m_showTAEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Create from JSON"))
 		{
-			if (!s_add)
+			auto fp = this->openFilePath();
+			if (fp.extension() == ".json")
 			{
-				s_add = true;
-				s_loaded = true;
-				s_path = std::make_unique<pfd::open_file>("Select *.json definition.");
+				nlohmann::json root;
+				std::ifstream ifs(fp.string(), std::ifstream::in);
+				ifs >> root;
+				ifs.close();
+
+				auto array = root.at("textures");
+
+				std::for_each(array.begin(), array.end(), [&](const nlohmann::json& texture)
+				{
+					m_textureAtlas->add(texture);
+				});
 			}
 		}
 
@@ -593,12 +541,8 @@ namespace sc
 
 		if (ImGui::Button("Add Texture"))
 		{
-			if (!s_add)
-			{
-				s_add = true;
-				s_loaded = true;
-				s_path = std::make_unique<pfd::open_file>("Select *.png texture.");
-			}
+			auto fp = this->openFilePath();
+			m_textureAtlas->add(fp.string());
 		}
 
 		ImGui::SameLine();
@@ -619,36 +563,6 @@ namespace sc
 			ImGui::Text("Texture Atlas created successfully!");
 		}
 
-		if (s_add == true && s_path != nullptr)
-		{
-			if (s_path->ready() && !s_path->result().empty())
-			{
-				auto fp = std::filesystem::path(s_path->result()[0]);
-				if (fp.extension() == ".json")
-				{
-					nlohmann::json root;
-					std::ifstream ifs(fp.string(), std::ifstream::in);
-					ifs >> root;
-					ifs.close();
-
-					auto array = root.at("textures");
-
-					std::for_each(array.begin(), array.end(), [&](const nlohmann::json& texture)
-					{
-						m_textureAtlas->add(texture);
-					});
-				}
-				else
-				{
-					m_textureAtlas->add(fp.string());
-				}
-
-				s_add = false;
-				s_path.reset();
-				s_path = nullptr;
-			}
-		}
-
 		ImGui::End();
 	}
 
@@ -663,5 +577,51 @@ namespace sc
 	{
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	}
+
+	std::filesystem::path Editor::openFilePath() noexcept
+	{
+		m_fileToOpen = std::make_unique<pfd::open_file>("Open file.");
+
+		if (m_fileToOpen->ready())
+		{
+			std::mutex mutex;
+			std::unique_lock<std::mutex> lock(mutex);
+
+			std::condition_variable cv;
+			cv.wait(lock, [&]()
+			{
+				return (!m_fileToOpen->result().empty());
+			});
+		}
+
+		auto path = std::filesystem::path(m_fileToOpen->result()[0]);
+		m_fileToOpen.reset();
+		m_fileToOpen = nullptr;
+
+		return std::move(path);
+	}
+
+	std::filesystem::path Editor::saveFilePath() noexcept
+	{
+		m_fileToSave = std::make_unique<pfd::save_file>("Save file.");
+
+		if (m_fileToSave->ready())
+		{
+			std::mutex mutex;
+			std::unique_lock<std::mutex> lock(mutex);
+
+			std::condition_variable cv;
+			cv.wait(lock, [&]()
+				{
+					return (!m_fileToSave->result().empty());
+				});
+		}
+
+		auto path = std::filesystem::path(m_fileToSave->result());
+		m_fileToSave.reset();
+		m_fileToSave = nullptr;
+
+		return std::move(path);
 	}
 }
