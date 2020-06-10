@@ -74,3 +74,90 @@ bool ImGui::InputTextWithHint(const char* label, const char* hint, std::string* 
     cb_user_data.ChainCallbackUserData = user_data;
     return InputTextWithHint(label, hint, (char*)str->c_str(), str->capacity() + 1, flags, InputTextCallback, &cb_user_data);
 }
+
+inline bool ItemsGetterVectorOfStrings(void* userData, int index, const char** items)
+{
+	const auto& itemNames = *static_cast<std::vector<std::string>*>(userData);
+	*items = itemNames[index].data();
+	return true;
+};
+
+bool ImGui::ListBox(const char* label, int* current_item, const std::vector<std::string>& itemNames, int height_in_items)
+{
+	return ImGui::ListBox(label, current_item, ItemsGetterVectorOfStrings, const_cast<void*>(static_cast<const void*>(&itemNames)), itemNames.size(), height_in_items);
+}
+
+bool ImGui::Combo(const char* label, int* current_item, const std::vector<std::string>& itemNames, int height_in_items)
+{
+	return ImGui::Combo(label, current_item, ItemsGetterVectorOfStrings, const_cast<void*>(static_cast<const void*>(&itemNames)), itemNames.size(), height_in_items);
+}
+
+// Template function for text buffer contorl for imgui text input fields
+template<typename Container,				// Buffer's container type, std::string or std::vector<char> in this case.
+	int sub_buffer_size = 256,			// Buffer resize is triggerd after this many char inputs or removals. Also, system supports this many character inputs or removals at once.
+	int forward_sub_buffer_cnt = 2>	// Buffer is extended forward by this many sub-buffers. Since ImGui input fields locks buffer while editing, this determines how many characters can be inserted in one session, that is, the text field is active.
+	inline void AutosizeTextBuffer(Container& buf)
+{
+	static_assert(sub_buffer_size > 0 && forward_sub_buffer_cnt > 1, "Invalid buffering parameters.");
+	constexpr int offset3 = sub_buffer_size * (forward_sub_buffer_cnt + 1);	// above offset3, we expand
+	constexpr int offset2 = sub_buffer_size * (forward_sub_buffer_cnt + 0);	// between offset2 and offset3, nothing
+	constexpr int offset1 = sub_buffer_size * (forward_sub_buffer_cnt - 1);	// below offset1, shring buffer
+	if (buf.size() < offset2) buf.resize(offset2, '\0');	//minimum size
+	else
+	{
+		int shift = max(buf.size(), offset3) - offset3;
+		int slen = std::char_traits<char>::length(buf.data() + shift) + shift;
+		if (slen > buf.size() - offset1)
+			buf.resize(buf.size() + sub_buffer_size, '\0'); //expand
+		else if (slen < buf.capacity())
+			buf.resize(buf.size() - sub_buffer_size, '\0'); //shrink
+	}
+	if (buf.size() * 2 <= buf.capacity()) buf.shrink_to_fit();	//keep memory in check
+}
+
+struct AutoBufferTextInputCallbackData
+{
+	ImGuiTextEditCallback callback;
+	void* user_data;
+	ImGuiInputTextFlags flags;
+	int text_length = -1;
+};
+
+int autoBufferTextInputCallbackFunction(ImGuiTextEditCallbackData* data)
+{
+	auto* mydata = static_cast<AutoBufferTextInputCallbackData*>(data->UserData);
+	mydata->text_length = data->BufTextLen;		//steal text length
+	if (mydata->callback != nullptr && (data->EventFlag & mydata->flags))
+	{
+		data->UserData = mydata->user_data;		//previous callback needs to use this
+		return mydata->callback(data);			//return what callback does
+	}
+	else return 0;
+}
+
+template<std::size_t padding = 512, typename Container> //can be used for std::vector<char> as well, but it is probably not needed
+void autoBufferResize1(Container& buf)
+{
+	if (buf.size() < padding) //fix initial state
+	{
+		buf.resize(buf.size() + padding);
+		buf.resize(buf.capacity());
+	}
+}
+
+template<std::size_t padding = 512, typename Container> //can be used for std::vector<char> as well, but it is probably not needed
+void autoBufferResize2(Container& buf, int textLength)
+{
+	if (textLength != -1) // if textLength == 0, then either there was no update, or the there is no text
+	{
+		std::size_t padded_size = textLength * 3 / 2 + padding;
+		if (buf.size() != padded_size)
+		{
+			buf.resize(padded_size);
+			if (2 * buf.size() < buf.capacity())
+				buf.shrink_to_fit();
+			else if (buf.size() != buf.capacity())
+				buf.resize(buf.capacity());
+		}
+	}
+}
