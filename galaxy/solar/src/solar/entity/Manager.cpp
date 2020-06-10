@@ -48,8 +48,9 @@ namespace sr
 
 	const bool Manager::validate(const sr::Entity entity) noexcept
 	{
-		return (entity != std::numeric_limits<sr::Entity>::max()) && 
-			   (std::find(m_invalidEntities.begin(), m_invalidEntities.end(), entity) == m_invalidEntities.end());
+		return (entity != std::numeric_limits<sr::Entity>::max()) &&
+			   (std::find(m_invalidEntities.begin(), m_invalidEntities.end(), entity) == m_invalidEntities.end()) &&
+			   (std::find(m_entities.begin(), m_entities.end(), entity) == m_entities.end());
 	}
 
 	void Manager::destroy(const sr::Entity entity) noexcept

@@ -170,7 +170,7 @@ namespace sc
 
 	void Editor::entityUI() noexcept
 	{
-		static sr::Entity active = -1;
+		static sr::Entity active = 0;
 		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Create from JSON"))
@@ -184,10 +184,23 @@ namespace sc
 			active = m_world->create();
 		}
 
-		/*
-			TODO:
-			ENTITY SELECTION.
-		*/
+		static std::string s_aenText = "";
+		if (ImGui::InputText("Active Entity Name", &s_aenText, ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			if (m_listOfEntitys.size() <= active)
+			{
+				m_listOfEntitys.resize(active);
+			}
+
+			m_listOfEntitys[active] = s_aenText;
+		}
+		
+		static int s_index = 0;
+		if (ImGui::Combo("Selected Entity", &s_index, m_listOfEntitys))
+		{
+			//sr::Entity entity = free << 16 | sr::VALID_ENTITY;
+		}
+
 
 		if (m_world->validate(active))
 		{
@@ -256,7 +269,7 @@ namespace sc
 	
 	void Editor::componentUI(sr::Entity active) noexcept
 	{
-		static sr::Entity curEntity = -1;
+		static sr::Entity curEntity = 0;
 		if (curEntity != active || m_newlyAdded == true)
 		{
 			curEntity = active;

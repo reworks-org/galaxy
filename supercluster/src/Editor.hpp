@@ -74,6 +74,8 @@ namespace sc
 		galaxy::SpriteBatchComponent* sbc = nullptr;
 		galaxy::PlaylistComponent* pc = nullptr;
 		galaxy::AudioComponent* ac = nullptr;
+
+		std::vector<std::string> m_listOfEntitys;
 	};
 }
 
