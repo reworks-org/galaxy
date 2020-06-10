@@ -32,7 +32,7 @@ namespace frb
 		bool result = true;
 
 		// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
-		alGenBuffers(files.size(), m_bufferArray.data());
+		alGenBuffers(static_cast<ALsizei>(files.size()), m_bufferArray.data());
 		if (alGetError() != AL_NO_ERROR)
 		{
 			PL_LOG(PL_ERROR, frb::parseError("Unable to gen audio buffer."));
@@ -51,7 +51,7 @@ namespace frb
 		bool result = true;
 
 		// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
-		alGenBuffers(data.size(), m_bufferArray.data());
+		alGenBuffers(static_cast<ALsizei>(data.size()), m_bufferArray.data());
 		if (alGetError() != AL_NO_ERROR)
 		{
 			PL_LOG(PL_ERROR, frb::parseError("Unable to gen audio buffer."));
@@ -72,7 +72,7 @@ namespace frb
 
 	void BufferArray::destroy() noexcept
 	{
-		alDeleteBuffers(m_bufferArray.size(), m_bufferArray.data());
+		alDeleteBuffers(static_cast<ALsizei>(m_bufferArray.size()), m_bufferArray.data());
 		for (auto count = 0; count < m_bufferArray.size(); count++)
 		{
 			m_bufferArray[count] = static_cast<ALuint>((int)-1);
