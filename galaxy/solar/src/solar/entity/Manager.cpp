@@ -24,16 +24,19 @@ namespace sr
 		// Bit masks the unsigned interger id with the valid_entity flag
 		// to make sure when an unsigned integer is passed it can be
 		// verified as an actual entity.
-		SR_INTEGER free = m_nextID++;
-		if (free == 1)
+		SR_INTEGER entity = 0;
+		if (!m_invalidEntities.empty())
 		{
-			free = m_nextID++;
+			auto end = m_invalidEntities.size() - 1;
+			entity = m_invalidEntities[end];
+			m_invalidEntities.pop_back();
+		}
+		else
+		{
+			SR_INTEGER entity = m_nextID++;
 		}
 
-		sr::Entity entity = free << 16 | sr::VALID_ENTITY;
-		
 		m_entities.insert(entity);
-
 		return entity;
 	}
 
@@ -45,8 +48,8 @@ namespace sr
 
 	const bool Manager::validate(const sr::Entity entity) noexcept
 	{
-		// Checks if flag exists.
-		return (entity & 0xFFFF) == sr::VALID_ENTITY;
+		return (entity != std::numeric_limits<sr::Entity>::max()) && 
+			   (std::find(m_invalidEntities.begin(), m_invalidEntities.end(), entity) == m_invalidEntities.end());
 	}
 
 	void Manager::destroy(const sr::Entity entity) noexcept
@@ -57,6 +60,8 @@ namespace sr
 		{
 			ptr->remove(entity);
 		}
+
+		m_invalidEntities.push_back(entity);
 	}
 
 	void Manager::events() noexcept

@@ -1,16 +1,16 @@
 ///
-/// DualSparseSet.hpp
+/// ComponentSet.hpp
 ///
 /// solar
 /// See LICENSE.txt.
 ///
 
-#ifndef SOLAR_DUALSPARSESET_HPP_
-#define SOLAR_DUALSPARSESET_HPP_
+#ifndef SOLAR_COMPONENTSET_HPP_
+#define SOLAR_COMPONENTSET_HPP_
 
 #include <pulsar/Log.hpp>
 
-#include "solar/detail/SparseSet.hpp"
+#include "solar/sets/EntitySet.hpp"
 
 ///
 /// Core namespace.
@@ -21,7 +21,7 @@ namespace sr
 	/// Dual sparse set to store components and systems alongside entitys.
 	///
 	template<typename Component>
-	class DualSparseSet final : public SparseSet<Entity>
+	class ComponentSet final : public EntitySet<Entity>
 	{
 		///
 		/// Make sure Component is a class or struct.
@@ -37,19 +37,12 @@ namespace sr
 		///
 		/// Constructor.
 		///
-		DualSparseSet() noexcept;
-
-		///
-		/// Argument Constructor.
-		///
-		/// \param reserve Default reserved amount of entities.
-		///
-		explicit DualSparseSet(const SR_INTEGER reserve) noexcept;
+		ComponentSet() noexcept;
 
 		///
 		/// Destructor
 		///
-		~DualSparseSet() noexcept override;
+		~ComponentSet() noexcept override;
 
 		///
 		/// Add a component to an entity.
@@ -87,28 +80,13 @@ namespace sr
 	};
 
 	template<typename Component>
-	inline DualSparseSet<Component>::DualSparseSet() noexcept
-		:SparseSet()
+	inline ComponentSet<Component>::ComponentSet() noexcept
+		:EntitySet()
 	{
 	}
 
 	template<typename Component>
-	inline DualSparseSet<Component>::DualSparseSet(const SR_INTEGER reserve) noexcept
-		:SparseSet(reserve)
-	{
-		// Make sure minimum reserve size is 1.
-		if (reserve < 1)
-		{
-			m_components.resize(1);
-		}
-		else
-		{
-			m_components.resize(reserve);
-		}
-	}
-
-	template<typename Component>
-	inline DualSparseSet<Component>::~DualSparseSet() noexcept
+	inline ComponentSet<Component>::~ComponentSet() noexcept
 	{
 		// Make sure everything is cleaned up.
 		clear();
@@ -117,7 +95,7 @@ namespace sr
 
 	template<typename Component>
 	template<typename ...Args>
-	inline Component* DualSparseSet<Component>::add(const sr::Entity entity, Args&& ...args) noexcept
+	inline Component* ComponentSet<Component>::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
 		// This works because we are appending the entity to the dense array and
 		// the component will be in the same position since the two are synced.
@@ -130,7 +108,7 @@ namespace sr
 	}
 
 	template<typename Component>
-	inline Component* DualSparseSet<Component>::get(const sr::Entity entity) noexcept
+	inline Component* ComponentSet<Component>::get(const sr::Entity entity) noexcept
 	{
 		// Access the index the entity is assosiated with to get the component paired with the entity.
 		auto opt = findIndex(entity);
@@ -140,13 +118,13 @@ namespace sr
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "DualSparseSet get() component found nullopt index.");
+			PL_LOG(PL_FATAL, "ComponentSet get() component found nullopt index.");
 			return nullptr;
 		}
 	}
 
 	template<typename Component>
-	inline void DualSparseSet<Component>::remove(const sr::Entity entity) noexcept
+	inline void ComponentSet<Component>::remove(const sr::Entity entity) noexcept
 	{
 		// So if we want to destroy an entity/component, easest method is to move the last entity to the one we are erasing
 		// then destroy the duplicate. Called swap-and-pop.
@@ -164,7 +142,7 @@ namespace sr
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "DualSparseSet remove() component found nullopt index: " + std::to_string(entity));
+				PL_LOG(PL_ERROR, "ComponentSet remove() component found nullopt index: " + std::to_string(entity));
 			}
 		}
 		else

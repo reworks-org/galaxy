@@ -1,8 +1,8 @@
 ///
-/// SparseSet.cpp
+/// EntitySet.cpp
 ///
 /// solar
 /// See LICENSE.txt.
 ///
 
-#include "SparseSet.hpp"
+#include "EntitySet.hpp"

@@ -17,7 +17,7 @@
 #include <pulsar/Log.hpp>
 
 #include "solar/system/System.hpp"
-#include "solar/detail/DualSparseSet.hpp"
+#include "solar/sets/ComponentSet.hpp"
 #include "protostar/utility/UniqueID.hpp"
 
 ///
@@ -33,7 +33,7 @@ namespace sr
 	///
 	/// Shorthand component storage type.
 	///
-	using ComponentContainer = std::vector<std::unique_ptr<SparseSet<sr::Entity>>>;
+	using ComponentContainer = std::vector<std::unique_ptr<EntitySet<sr::Entity>>>;
 
 	///
 	/// Predefinition of unique id structure for components.
@@ -187,10 +187,15 @@ namespace sr
 		///
 		/// Stores entitys.
 		///
-		SparseSet<sr::Entity> m_entities;
+		EntitySet<sr::Entity> m_entities;
 
 		///
-		/// Stores polymorphic DualSparseSets.
+		/// Stores invalid entities.
+		///
+		std::vector<sr::Entity> m_invalidEntities;
+
+		///
+		/// Stores polymorphic ComponentSets.
 		///
 		ComponentContainer m_data;
 
@@ -218,11 +223,11 @@ namespace sr
 				if (!m_data[type])
 				{
 					// Use polymorphism to ensure type erasure.
-					m_data[type] = std::make_unique<DualSparseSet<Component>>();
+					m_data[type] = std::make_unique<ComponentSet<Component>>();
 				}
 
 				// Now convert the storage to the type we want to access.
-				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
 				if (derived)
 				{
 					return derived->add(entity, std::forward<Args>(args)...);
@@ -247,7 +252,7 @@ namespace sr
 
 		if (!validate(entity))
 		{
-			PL_LOG(PL_FATAL, "Entity: " + std::to_string(entity) + " does not have a valid entity flag.");
+			PL_LOG(PL_ERROR, "Attempted to get a component of an invalid entity.");
 			res = nullptr;
 		}
 		else
@@ -261,7 +266,7 @@ namespace sr
 			}
 			else
 			{
-				DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
 				if (derived)
 				{
 					res = derived->get(entity);
@@ -309,7 +314,7 @@ namespace sr
 		}
 		else
 		{
-			DualSparseSet<Component>* derived = static_cast<DualSparseSet<Component>*>(m_data[type].get());
+			ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
 			if (derived)
 			{
 				for (auto& e : derived->m_dense)

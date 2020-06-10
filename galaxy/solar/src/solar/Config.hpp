@@ -28,14 +28,9 @@ namespace sr
 	using Entity = SR_INTEGER;
 
 	///
-	/// DeltaTime type.
-	///
-	using DeltaTime = double;
-
-	///
 	/// BitMask to see if entity is valid.
 	///
-	static constexpr inline unsigned int VALID_ENTITY = 1;
+	static constexpr inline unsigned int VALID_ENTITY = 0x01;
 }
 
 #endif
