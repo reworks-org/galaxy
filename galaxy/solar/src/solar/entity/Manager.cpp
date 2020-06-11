@@ -33,24 +33,67 @@ namespace sr
 		}
 		else
 		{
-			SR_INTEGER entity = m_nextID++;
+			entity = m_nextID++;
 		}
 
 		m_entities.insert(entity);
 		return entity;
 	}
 
+	const sr::Entity Manager::create(const std::string& debugName) noexcept
+	{
+		auto entity = create();
+		assignName(entity, debugName);
+
+		return entity;
+	}
+
+	void Manager::assignName(const sr::Entity entity, const std::string& debugName) noexcept
+	{
+		if (validate(entity))
+		{
+			if (m_debugNames.find(debugName) == m_debugNames.end())
+			{
+				m_debugNames.emplace(debugName, entity);
+			}
+			else
+			{
+				PL_LOG(PL_WARNING, "Attempted to add duplicate name: " + debugName);
+			}
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Attempted to use invalid entity.");
+		}
+	}
+
+	sr::Entity Manager::findFromName(const std::string& debugName) noexcept
+	{
+		if (m_debugNames.find(debugName) != m_debugNames.end())
+		{
+			return m_debugNames[debugName];
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Cannot find entity to get with a name of: " + debugName);
+			return 0;
+		}
+	}
+
+	const std::unordered_map<std::string, sr::Entity>& Manager::getAllNames() noexcept
+	{
+		return m_debugNames;
+	}
+
 	const bool Manager::has(const sr::Entity entity) noexcept
 	{
-		// Do not need to verify since parameter wont match unless entity flag is present.
 		return m_entities.has(entity);
 	}
 
 	const bool Manager::validate(const sr::Entity entity) noexcept
 	{
 		return (entity != std::numeric_limits<sr::Entity>::max()) &&
-			   (std::find(m_invalidEntities.begin(), m_invalidEntities.end(), entity) == m_invalidEntities.end()) &&
-			   (std::find(m_entities.begin(), m_entities.end(), entity) == m_entities.end());
+			   (std::find(m_invalidEntities.begin(), m_invalidEntities.end(), entity) == m_invalidEntities.end());
 	}
 
 	void Manager::destroy(const sr::Entity entity) noexcept
@@ -63,6 +106,16 @@ namespace sr
 		}
 
 		m_invalidEntities.push_back(entity);
+		
+		auto pos = std::find_if(m_debugNames.begin(), m_debugNames.end(), [&](auto& pair)
+		{
+			return pair.second == entity;
+		});
+
+		if (pos != m_debugNames.end())
+		{
+			m_debugNames.erase(pos);
+		}
 	}
 
 	void Manager::events() noexcept
@@ -88,5 +141,6 @@ namespace sr
 		m_entities.clear();
 		m_data.clear();
 		m_systems.clear();
+		m_debugNames.clear();
 	}
 }

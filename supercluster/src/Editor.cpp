@@ -170,39 +170,69 @@ namespace sc
 
 	void Editor::entityUI() noexcept
 	{
-		static sr::Entity active = 0;
-		ImGui::Begin("Entities", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+		static sr::Entity s_activeE = 0;
+		static std::string s_dn = "Enter debug name...";
+		static std::string s_activeDN = "No entity selected...";
 
-		if (ImGui::Button("Create from JSON"))
-		{
-			auto path = this->openFilePath();
-			active = m_world->createFromJSON(path.string());
-		}
+		ImGui::Begin("Entity Manager", &m_showEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
-		if (ImGui::Button("Create Entity"))
+		if (ImGui::InputText("Create.", &s_dn, ImGuiInputTextFlags_EnterReturnsTrue))
 		{
-			active = m_world->create();
-		}
-
-		static std::string s_aenText = "";
-		if (ImGui::InputText("Active Entity Name", &s_aenText, ImGuiInputTextFlags_EnterReturnsTrue))
-		{
-			if (m_listOfEntitys.size() <= active)
+			if (!s_dn.empty())
 			{
-				m_listOfEntitys.resize(active);
+				s_activeE = m_world->create();
+				m_world->assignName(s_activeE, s_dn);
+				s_dn = "";
+			}
+			else
+			{
+				ImGui::SameLine();
+				ImGui::Text("Could not create. Empty debug name.");
+			}
+		}
+
+		if (ImGui::InputText("Create From JSON.", &s_dn, ImGuiInputTextFlags_EnterReturnsTrue))
+		{
+			if (!s_dn.empty())
+			{
+				auto path = this->openFilePath();
+				s_activeE = m_world->createFromJSON(path.string());
+				s_dn = "";
+			}
+			else
+			{
+				ImGui::SameLine();
+				ImGui::Text("Could not create. Empty debug name.");
+			}
+		}
+
+		if (m_world->validate(s_activeE) && m_world->has(s_activeE))
+		{
+			std::string out = "Entity numeric id: " + std::to_string(s_activeE);
+			ImGui::Text(out.c_str());
+		}
+
+		if (ImGui::BeginCombo("Select Entity", s_activeDN.c_str()))
+		{
+			for (auto& name : m_world->getAllNames())
+			{
+				bool selected = (s_activeDN == name.first);
+				if (ImGui::Selectable(name.first.c_str(), selected))
+				{
+					s_activeDN = name.first;
+					s_activeE = m_world->findFromName(s_activeDN);
+				}
+
+				if (selected)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
 			}
 
-			m_listOfEntitys[active] = s_aenText;
-		}
-		
-		static int s_index = 0;
-		if (ImGui::Combo("Selected Entity", &s_index, m_listOfEntitys))
-		{
-			//sr::Entity entity = free << 16 | sr::VALID_ENTITY;
+			ImGui::EndCombo();
 		}
 
-
-		if (m_world->validate(active))
+		if (m_world->validate(s_activeE) && m_world->has(s_activeE))
 		{
 			ImGui::Spacing();
 			ImGui::Spacing();
@@ -214,7 +244,7 @@ namespace sc
 
 			if (ImGui::Button("Add SpriteComponent"))
 			{
-				m_world->add<galaxy::SpriteComponent>(active);
+				m_world->add<galaxy::SpriteComponent>(s_activeE);
 				m_newlyAdded = true;
 			}
 
@@ -222,7 +252,7 @@ namespace sc
 
 			if (ImGui::Button("Add TransformComponent"))
 			{
-				m_world->add<galaxy::TransformComponent>(active);
+				m_world->add<galaxy::TransformComponent>(s_activeE);
 				m_newlyAdded = true;
 			}
 
@@ -230,7 +260,7 @@ namespace sc
 
 			if (ImGui::Button("Add SpriteBatchComponent"))
 			{
-				m_world->add<galaxy::SpriteBatchComponent>(active);
+				m_world->add<galaxy::SpriteBatchComponent>(s_activeE);
 				m_newlyAdded = true;
 			}
 
@@ -238,7 +268,7 @@ namespace sc
 
 			if (ImGui::Button("Add AudioComponent"))
 			{
-				m_world->add<galaxy::AudioComponent>(active);
+				m_world->add<galaxy::AudioComponent>(s_activeE);
 				m_newlyAdded = true;
 			}
 
@@ -246,7 +276,7 @@ namespace sc
 
 			if (ImGui::Button("Add PlaylistComponent"))
 			{
-				m_world->add<galaxy::PlaylistComponent>(active);
+				m_world->add<galaxy::PlaylistComponent>(s_activeE);
 				m_newlyAdded = true;
 			}
 
@@ -259,9 +289,9 @@ namespace sc
 			ImGui::Spacing();
 		}
 
-		if (m_world->validate(active))
+		if (m_world->validate(s_activeE) && m_world->has(s_activeE))
 		{
-			componentUI(active);
+			componentUI(s_activeE);
 		}
 
 		ImGui::End();

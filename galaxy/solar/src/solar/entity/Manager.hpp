@@ -69,6 +69,15 @@ namespace sr
 		const sr::Entity create() noexcept;
 
 		///
+		/// Create an entity with a name.
+		///
+		/// \param debugName Debug name for identification purposes.
+		///
+		/// \return An entity with a creation bit flag.
+		///
+		const sr::Entity create(const std::string& debugName) noexcept;
+
+		///
 		/// Check if an entity exists.
 		///
 		/// \param entity Entity to verify.
@@ -86,6 +95,30 @@ namespace sr
 		/// \return True if unsigned integer is an entity.
 		///
 		const bool validate(sr::Entity uint) noexcept;
+
+		///
+		/// Assign a name to an entity.
+		///
+		/// \param entity Entity to assign name to.
+		/// \param debugName Name to assign to entity.
+		///
+		void assignName(const sr::Entity entity, const std::string& debugName) noexcept;
+
+		///
+		/// Get entity fropm debug name.
+		///
+		/// \param debugName Name of entity to retrieve.
+		///
+		/// \return The entity.
+		///
+		sr::Entity findFromName(const std::string& debugName) noexcept;
+
+		///
+		/// Get all debug names in unordered_map. 
+		///
+		/// \return Const unordered_map reference.
+		///
+		const std::unordered_map<std::string, sr::Entity>& getAllNames() noexcept;
 
 		///
 		/// Add (construct) a component for an entity.
@@ -193,6 +226,11 @@ namespace sr
 		/// Stores invalid entities.
 		///
 		std::vector<sr::Entity> m_invalidEntities;
+
+		///
+		/// Debug entity names.
+		///
+		std::unordered_map<std::string, sr::Entity> m_debugNames;
 
 		///
 		/// Stores polymorphic ComponentSets.
