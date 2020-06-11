@@ -8,13 +8,12 @@
 #ifndef SOLAR_MANAGER_HPP_
 #define SOLAR_MANAGER_HPP_
 
-#include <tuple>
 #include <memory>
 #include <optional>
-#include <algorithm>
 #include <unordered_set>
 
 #include <pulsar/Log.hpp>
+#include <protostar/utility/Meta.hpp>
 
 #include "solar/system/System.hpp"
 #include "solar/sets/ComponentSet.hpp"
@@ -320,21 +319,13 @@ namespace sr
 	{
 		if (!m_data.empty())
 		{
-			std::vector<sr::Entity> entities;
+			std::vector<sr::Entity> all;
 
-			// expands to be called on every component, also incrementing counter to know how many times called.
-			(iOperate<Components>(entities), ...);
+			// Gets expanded to be called for every parameter in component.
+			(iOperate<Components>(all), ...);
+			protostar::only_distinct_duplicates<sr::Entity>(all);
 
-			// Erase any duplicates. This is faster than sort + unique apparently.
-			std::unordered_set<sr::Entity> set;
-			for (sr::Entity e : entities)
-			{
-				set.insert(e);
-			}
-			entities.assign(set.begin(), set.end());
-			//std::sort(entities.begin(), entities.end());
-
-			for (auto& entity : entities)
+			for (auto& entity : all)
 			{
 				lambda(entity, get<Components>(entity)...);
 			}
@@ -355,14 +346,8 @@ namespace sr
 			ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
 			if (derived)
 			{
-				for (auto& e : derived->m_dense)
-				{
-					// Have to make sure no entitys are blank unsigned integers.
-					if (validate(e))
-					{
-						entities.push_back(e);
-					}
-				}
+				entities.reserve(derived->m_dense.size());
+				entities.insert(entities.end(), derived->m_dense.begin(), derived->m_dense.end());
 			}
 		}
 	}

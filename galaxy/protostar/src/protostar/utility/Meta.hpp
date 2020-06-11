@@ -9,7 +9,9 @@
 #define PROTOSTAR_META_HPP_
 
 #include <tuple>
+#include <vector>
 #include <cstdint>
+#include <algorithm>
 
 ///
 /// Core namespace.
@@ -75,6 +77,33 @@ namespace protostar
 	{
 		// Iterates over a tuple.
 		for_each_in_tuple(tuple, func, std::make_index_sequence<sizeof...(Ts)>());
+	}
+
+	///
+	/// \brief Iterates over a std::vector only keeps duplicates.
+	///
+	/// Credits: https://stackoverflow.com/a/58499766
+	///		     https://stackoverflow.com/questions/58498959/keep-the-duplicated-values-only-vectors-c#comment103362833_58499766
+	///
+	template <typename T>
+	void only_distinct_duplicates(std::vector<T>& v)
+	{
+		static_assert(std::is_arithmetic<T>::value);
+
+		std::sort(v.begin(), v.end());
+
+		auto output = v.begin();
+		auto first = v.begin();
+		const auto last = v.end();
+		while (first != last) {
+			const auto next{ std::find_if(first + 1, last, [&](const T& t) { return t != *first; }) };
+			if (next - first > 1) {
+				*output++ = *first;
+			}
+			first = next;
+		}
+
+		v.erase(output, last);
 	}
 }
 
