@@ -29,16 +29,6 @@ namespace galaxy
 		virtual ~Layer() noexcept = default;
 
 		///
-		/// Code to call when layer is pushed to top.
-		///
-		virtual void onPush() noexcept = 0;
-
-		///
-		/// Copde to call when layer is popped from stack.
-		///
-		virtual void onPop() noexcept = 0;
-
-		///
 		/// Process layer events.
 		///
 		virtual void events() noexcept = 0;

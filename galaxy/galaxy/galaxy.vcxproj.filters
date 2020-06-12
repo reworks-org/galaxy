@@ -42,6 +42,7 @@
     <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\scripting\Command.cpp" />
+    <ClCompile Include="src\galaxy\layer\LayerStorage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -62,5 +63,6 @@
     <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\scripting\Command.hpp" />
+    <ClInclude Include="src\galaxy\layer\LayerStorage.hpp" />
   </ItemGroup>
 </Project>
