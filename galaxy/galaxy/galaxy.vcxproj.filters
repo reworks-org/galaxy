@@ -43,6 +43,7 @@
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\scripting\Command.cpp" />
     <ClCompile Include="src\galaxy\layer\LayerStorage.cpp" />
+    <ClCompile Include="src\galaxy\components\ShaderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -64,5 +65,6 @@
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\scripting\Command.hpp" />
     <ClInclude Include="src\galaxy\layer\LayerStorage.hpp" />
+    <ClInclude Include="src\galaxy\components\ShaderComponent.hpp" />
   </ItemGroup>
 </Project>

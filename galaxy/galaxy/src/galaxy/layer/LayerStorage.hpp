@@ -24,55 +24,65 @@ namespace galaxy
 	{
 	public:
 		///
-		///
+		/// Constructor.
 		///
 		LayerStorage() noexcept;
 
 		///
-		///
+		/// Destructor.
 		///
 		~LayerStorage() noexcept;
 
 		///
+		/// Constructs a Layer from provided arguments.
 		///
+		/// \param args Arguments to construct Layer with.
 		///
 		template<typename Layer, typename... Args>
 		void add(Args&& ...args) noexcept;
 
 		///
+		/// Retrieve a layer from the provided name.
 		///
+		/// \param name Name of the layer.
+		///
+		/// \return Pointer to layer.
 		///
 		template<typename Layer>
 		Layer* get(const std::string& name) noexcept;
 
 		///
-		///
+		/// Process all layer events.
 		///
 		void events() noexcept;
 
 		///
+		/// Update all layers.
 		///
+		/// \param deltaTime Pointer to main loop delta time.
 		///
 		void update(protostar::ProtectedDouble* deltaTime) noexcept;
 
 		///
-		///
+		/// Render all layers.
 		///
 		void render() noexcept;
 
 		///
-		///
+		/// Destroy top-most layer.
 		///
 		void pop() noexcept;
 
 		///
+		/// Remove layer based on name.
 		///
+		/// \param name Name of the layer to remove.
 		///
 		void remove(const std::string& name) noexcept;
 
 	private:
 		///
-		///
+		/// Stores layers in contiguous memory.
 		///
 		std::vector<std::unique_ptr<galaxy::Layer>> m_layers;
 	};
