@@ -18,12 +18,7 @@ namespace galaxy
 
 	LayerStorage::~LayerStorage() noexcept
 	{
-		for (auto&& layer : m_layers)
-		{
-			layer.reset();
-		}
-
-		m_layers.clear();
+		clear();
 	}
 
 	void LayerStorage::events() noexcept
@@ -61,5 +56,15 @@ namespace galaxy
 		{
 			return layer->getName() == name;
 		}));
+	}
+
+	void LayerStorage::clear() noexcept
+	{
+		for (auto&& layer : m_layers)
+		{
+			layer.reset();
+		}
+
+		m_layers.clear();
 	}
 }

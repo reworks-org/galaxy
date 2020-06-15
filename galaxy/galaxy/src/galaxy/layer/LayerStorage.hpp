@@ -80,6 +80,11 @@ namespace galaxy
 		///
 		void remove(const std::string& name) noexcept;
 
+		///
+		/// Destroy all layers.
+		///
+		void clear() noexcept;
+
 	private:
 		///
 		/// Stores layers in contiguous memory.
