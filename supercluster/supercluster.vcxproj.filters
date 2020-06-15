@@ -3,8 +3,12 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\states\Editor.cpp" />
+    <ClCompile Include="src\layers\ImGuiLayer.cpp" />
+    <ClCompile Include="src\layers\ECSLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\Editor.hpp" />
+    <ClInclude Include="src\layers\ImGuiLayer.hpp" />
+    <ClInclude Include="src\layers\ECSLayer.hpp" />
   </ItemGroup>
 </Project>
