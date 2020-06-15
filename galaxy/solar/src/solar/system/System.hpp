@@ -40,9 +40,8 @@ namespace sr
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
 		/// \param deltaTime "Lag" from gameloop.
-		/// \param manager Entity manager.
 		///
-		virtual void update(protostar::ProtectedDouble* deltaTime, sr::Manager& manager) noexcept = 0;
+		virtual void update(protostar::ProtectedDouble* deltaTime) noexcept = 0;
 
 	protected:
 		///

@@ -130,7 +130,7 @@ namespace sr
 	{
 		for (auto&& ptr : m_systems)
 		{
-			ptr->update(deltaTime, *this);
+			ptr->update(deltaTime);
 		}
 	}
 

@@ -11,6 +11,7 @@
 
 #include "galaxy/components/SpriteComponent.hpp"
 #include "galaxy/components/TransformComponent.hpp"
+#include "galaxy/components/ShaderComponent.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -31,18 +32,26 @@ namespace galaxy
 	{
 	}
 
-	void RenderSystem::update(protostar::ProtectedDouble* deltaTime, sr::Manager& manager) noexcept
+	void RenderSystem::update(protostar::ProtectedDouble* deltaTime) noexcept
 	{
-		manager.operate<SpriteComponent, TransformComponent>([](sr::Entity, SpriteComponent* sc, TransformComponent* tc)
-		{
-		});
 	}
 
-	void RenderSystem::render(galaxy::World* world, qs::Shader& shader)
+	void RenderSystem::render(qs::Camera* camera)
 	{
 		auto* renderer = SL_HANDLE.renderer();
-		world->operate<SpriteComponent, TransformComponent>([&](sr::Entity, SpriteComponent* sc, TransformComponent* tc)
+		auto* world = SL_HANDLE.world();
+		world->operate<SpriteComponent, TransformComponent, ShaderComponent>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader)
 		{
+				sprite->bind();
+
+				shader->m_shader.setUniform("u_transform", transform->m_transform.getTransformation());
+				shader->m_shader.setUniform("u_opacity", sprite->getOpacity());
+				shader->m_shader.setUniform<float>("u_width", static_cast<float>(sprite->getWidth()));
+				shader->m_shader.setUniform<float>("u_height", static_cast<float>(sprite->getHeight()));
+				shader->m_shader.setUniform<glm::mat4>("u_cameraProj", camera->getProj());
+				shader->m_shader.setUniform<glm::mat4>("u_cameraView", camera->getTransformation());
+
+				glDrawElements(GL_TRIANGLES, sprite->getCount(), GL_UNSIGNED_INT, nullptr);
 		});
 	}
 }

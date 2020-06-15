@@ -9,6 +9,7 @@
 #define GALAXY_RENDERSYSTEM_HPP_
 
 #include <qs/core/Shader.hpp>
+#include <qs/graphics/Camera.hpp>
 #include <solar/system/System.hpp>
 
 ///
@@ -16,8 +17,6 @@
 ///
 namespace galaxy
 {
-	class World;
-
 	///
 	/// System that handles rendering of entities with a SpriteComponent, TransformComponent, etc.
 	///
@@ -43,17 +42,15 @@ namespace galaxy
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
 		/// \param time DeltaTime from gameloop.
-		/// \param manager Entity manager.
 		///
-		void update(protostar::ProtectedDouble* deltaTime, sr::Manager& manager) noexcept override;
+		void update(protostar::ProtectedDouble* deltaTime) noexcept override;
 
 		///
 		/// Render sprites / textures to screen.
 		///
-		/// \param world Galaxy gameworld.
-		/// \param shader Shader to apply when drawing.
-		/// 
-		void render(galaxy::World* world, qs::Shader& shader);
+		/// \param camera Camera used for rendering.
+		///
+		void render(qs::Camera* camera);
 	};
 }
 
