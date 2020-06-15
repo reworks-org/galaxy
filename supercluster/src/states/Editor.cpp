@@ -182,6 +182,7 @@ namespace sc
 			{
 				s_activeE = m_world->create();
 				m_world->assignName(s_activeE, s_dn);
+				s_activeDN = s_dn;
 				s_dn = "";
 			}
 			else
@@ -197,6 +198,8 @@ namespace sc
 			{
 				auto path = this->openFilePath();
 				s_activeE = m_world->createFromJSON(path.string());
+				m_world->assignName(s_activeE, s_dn);
+				s_activeDN = s_dn;
 				s_dn = "";
 			}
 			else
@@ -312,10 +315,9 @@ namespace sc
 			ac = m_world->get<galaxy::AudioComponent>(active);
 		}
 
-		ImGui::Separator();
-
 		if (sc != nullptr)
 		{
+			ImGui::Separator();
 			ImGui::Text("Sprite Component");
 
 			ImGui::Spacing();
@@ -388,10 +390,9 @@ namespace sc
 			}
 		}
 
-		ImGui::Separator();
-
 		if (tc != nullptr)
 		{
+			ImGui::Separator();
 			ImGui::Text("Transform Component");
 
 			ImGui::Spacing();
@@ -416,30 +417,27 @@ namespace sc
 			}
 		}
 
-		ImGui::Separator();
-
 		if (sbc != nullptr)
 		{
+			ImGui::Separator();
 			ImGui::Text("SpriteBatch Component");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
 		}
 
-		ImGui::Separator();
-
 		if (pc != nullptr)
 		{
+			ImGui::Separator();
 			ImGui::Text("Playlist Component");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
 		}
 
-		ImGui::Separator();
-
 		if (ac != nullptr)
 		{
+			ImGui::Separator();
 			ImGui::Text("Audio Component");
 
 			ImGui::Spacing();

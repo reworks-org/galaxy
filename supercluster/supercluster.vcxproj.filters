@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Editor.cpp" />
+    <ClCompile Include="src\states\Editor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Editor.hpp" />
+    <ClInclude Include="src\states\Editor.hpp" />
   </ItemGroup>
 </Project>

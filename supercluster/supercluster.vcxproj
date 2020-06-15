@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Editor.cpp" />
+    <ClCompile Include="src\states\Editor.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Editor.hpp" />
+    <ClInclude Include="src\states\Editor.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3C769066-A841-40DE-BD25-0219CD60DAD3}</ProjectGuid>

@@ -16,7 +16,7 @@
 
 #include <galaxy/systems/RenderSystem.hpp>
 
-#include "Editor.hpp"
+#include "states/Editor.hpp"
 
 class Editor : public galaxy::Application
 {
