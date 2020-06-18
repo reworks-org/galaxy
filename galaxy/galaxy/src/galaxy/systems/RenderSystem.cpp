@@ -12,6 +12,7 @@
 #include "galaxy/components/SpriteComponent.hpp"
 #include "galaxy/components/TransformComponent.hpp"
 #include "galaxy/components/ShaderComponent.hpp"
+#include "galaxy/flags/EnabledFlag.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -40,7 +41,7 @@ namespace galaxy
 	{
 		auto* renderer = SL_HANDLE.renderer();
 		auto* world = SL_HANDLE.world();
-		world->operate<SpriteComponent, TransformComponent, ShaderComponent>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader)
+		world->operate<SpriteComponent, TransformComponent, ShaderComponent, EnabledFlag>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader, EnabledFlag* ef)
 		{
 				sprite->bind();
 

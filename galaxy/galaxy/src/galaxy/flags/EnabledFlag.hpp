@@ -16,9 +16,8 @@ namespace galaxy
 	///
 	/// Flag component used to determine if an entity is "alive" or "dead".
 	///
-	class EnabledFlag final
+	struct EnabledFlag final
 	{
-	public:
 		///
 		/// Default constructor.
 		///
