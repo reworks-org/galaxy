@@ -36,6 +36,8 @@
 #include <galaxy/components/SpriteBatchComponent.hpp>
 #include <galaxy/components/PlaylistComponent.hpp>
 #include <galaxy/components/AudioComponent.hpp>
+#include <galaxy/components/ShaderComponent.hpp>
+#include <galaxy/flags/EnabledFlag.hpp>
 
 namespace pfd
 {
@@ -73,6 +75,7 @@ namespace sc
 		bool m_showTAEUI;
 		bool m_newlyAdded;
 		bool m_drawConsole;
+		bool m_isEntityEnabled;
 
 		std::string m_name;
 		galaxy::World* m_world;
@@ -92,6 +95,9 @@ namespace sc
 		galaxy::SpriteBatchComponent* sbc = nullptr;
 		galaxy::PlaylistComponent* pc = nullptr;
 		galaxy::AudioComponent* ac = nullptr;
+		galaxy::ShaderComponent* shc = nullptr;
+
+		galaxy::EnabledFlag* ef = nullptr;
 
 		std::vector<std::string> m_listOfEntitys;
 	};

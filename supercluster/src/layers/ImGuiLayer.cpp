@@ -13,7 +13,7 @@
 namespace sc
 {
 	ImGuiLayer::ImGuiLayer() noexcept
-		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_newlyAdded(false), m_drawConsole(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
+		:m_showEUI(false), m_showTEUI(false), m_showTAEUI(false), m_newlyAdded(false), m_drawConsole(false), m_isEntityEnabled(false), m_world(nullptr), m_window(nullptr), m_textureAtlas(nullptr), m_fileToOpen(nullptr), m_fileToSave(nullptr)
 	{
 		setName("ImGuiLayer");
 
@@ -38,8 +38,6 @@ namespace sc
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
-
-		m_window = nullptr;
 	}
 
 	void ImGuiLayer::events() noexcept
@@ -198,6 +196,19 @@ namespace sc
 
 		if (m_world->validate(s_activeE) && m_world->has(s_activeE))
 		{
+			if (ImGui::Checkbox("Is enabled", &m_isEntityEnabled))
+			{
+				if (m_isEntityEnabled)
+				{
+					m_world->add<galaxy::EnabledFlag>(s_activeE);
+					m_newlyAdded = true;
+				}
+				else
+				{
+					m_world->remove<galaxy::EnabledFlag>(s_activeE);
+				}
+			}
+
 			ImGui::Spacing();
 			ImGui::Spacing();
 
@@ -217,6 +228,14 @@ namespace sc
 			if (ImGui::Button("Add TransformComponent"))
 			{
 				m_world->add<galaxy::TransformComponent>(s_activeE);
+				m_newlyAdded = true;
+			}
+
+			ImGui::Spacing();
+
+			if (ImGui::Button("Add ShaderComponent"))
+			{
+				m_world->add<galaxy::ShaderComponent>(s_activeE);
 				m_newlyAdded = true;
 			}
 
@@ -274,6 +293,23 @@ namespace sc
 			sbc = m_world->get<galaxy::SpriteBatchComponent>(active);
 			pc = m_world->get<galaxy::PlaylistComponent>(active);
 			ac = m_world->get<galaxy::AudioComponent>(active);
+		}
+		
+		if (m_isEntityEnabled)
+		{
+			ImGui::Separator();
+			ImGui::Text("Entity is currently enabled.");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+		}
+		else
+		{
+			ImGui::Separator();
+			ImGui::Text("Entity is currently disabled.");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
 		}
 
 		if (sc != nullptr)
@@ -376,6 +412,15 @@ namespace sc
 			{
 				tc->m_transform.scale(scale);
 			}
+		}
+
+		if (shc != nullptr)
+		{
+			ImGui::Separator();
+			ImGui::Text("Shader Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
 		}
 
 		if (sbc != nullptr)
