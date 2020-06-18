@@ -143,6 +143,15 @@ namespace sr
 		Component* get(const sr::Entity entity) noexcept;
 
 		///
+		/// Remove a component assosiated with an entity.
+		/// Template type is type of component to remove.
+		///
+		/// \param entity Entity component is assosiated with.
+		///
+		template<typename Component>
+		void remove(const sr::Entity entity) noexcept;
+
+		///
 		/// \brief Iterate over a set of components of a set of types and manipulate their data.
 		///
 		/// The components to manipulate are specified in the template parameter.
@@ -245,40 +254,39 @@ namespace sr
 	template<typename Component, typename... Args>
 	inline Component* Manager::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
-		if (get<Component>(entity) == nullptr)
+		auto type = cUniqueID::get<Component>();
+		if (type >= m_data.size())
 		{
-			auto type = cUniqueID::get<Component>();
+			m_data.resize(type + 1);
+		}
 
-			if (type >= m_data.size())
+		// Ensure leftover references to unique pointer are destroyed.
+		{
+			// If null ptr, then no storage for this component exists.
+			if (!m_data[type])
 			{
-				m_data.resize(type + 1);
+				// Use polymorphism to ensure type erasure.
+				m_data[type] = std::make_unique<ComponentSet<Component>>();
 			}
 
-			// Ensure leftover references to unique pointer are destroyed.
+			// Now convert the storage to the type we want to access.
+			ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+			if (derived)
 			{
-				// If null ptr, then no storage for this component exists.
-				if (!m_data[type])
-				{
-					// Use polymorphism to ensure type erasure.
-					m_data[type] = std::make_unique<ComponentSet<Component>>();
-				}
-
-				// Now convert the storage to the type we want to access.
-				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
-				if (derived)
+				if (!derived->has(entity))
 				{
 					return derived->add(entity, std::forward<Args>(args)...);
 				}
 				else
 				{
+					PL_LOG(PL_WARNING, "Attempted to add a duplicate component.");
 					return nullptr;
 				}
 			}
-		}
-		else
-		{
-			PL_LOG(PL_WARNING, "Attempted to add a duplicate component.");
-			return nullptr;
+			else
+			{
+				return nullptr;
+			}
 		}
 	}
 
@@ -312,6 +320,33 @@ namespace sr
 		}
 
 		return res;
+	}
+
+	template<typename Component>
+	inline void Manager::remove(const sr::Entity entity) noexcept
+	{
+		if (!validate(entity))
+		{
+			PL_LOG(PL_ERROR, "Attempted to get a component of an invalid entity.");
+		}
+		else
+		{
+			auto type = cUniqueID::get<Component>();
+
+			if (type >= m_data.size() || m_data.size() == 0)
+			{
+				PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist.");
+				PL_LOG(PL_ERROR, "Possible zero size component data detected.");
+			}
+			else
+			{
+				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+				if (derived)
+				{
+					derived->remove(entity);
+				}
+			}
+		}
 	}
 
 	template<typename... Components, typename Lambda>
