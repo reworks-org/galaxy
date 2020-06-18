@@ -311,10 +311,13 @@ namespace sr
 			}
 			else
 			{
-				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
-				if (derived)
+				if (m_data[type] != nullptr)
 				{
-					res = derived->get(entity);
+					ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+					if (derived->has(entity))
+					{
+						res = derived->get(entity);
+					}
 				}
 			}
 		}
@@ -340,10 +343,13 @@ namespace sr
 			}
 			else
 			{
-				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
-				if (derived)
+				if (m_data[type] != nullptr)
 				{
-					derived->remove(entity);
+					ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+					if (derived->has(entity))
+					{
+						derived->remove(entity);
+					}
 				}
 			}
 		}
