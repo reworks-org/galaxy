@@ -13,7 +13,7 @@
 #include <unordered_set>
 
 #include <pulsar/Log.hpp>
-#include <protostar/utility/Meta.hpp>
+#include <protostar/math/Maths.hpp>
 
 #include "solar/system/System.hpp"
 #include "solar/sets/ComponentSet.hpp"
@@ -217,7 +217,7 @@ namespace sr
 		/// \param entities Entitys to operate on.
 		///
 		template<typename Component>
-		void iOperate(std::vector<sr::Entity>& entities) noexcept;
+		void iOperate(std::list<std::vector<sr::Entity>*>& entities) noexcept;
 
 	protected:
 		///
@@ -354,21 +354,27 @@ namespace sr
 	{
 		if (!m_data.empty())
 		{
-			std::vector<sr::Entity> all;
-
 			// Gets expanded to be called for every parameter in component.
+			std::list<std::vector<sr::Entity>*> all;
 			(iOperate<Components>(all), ...);
-			protostar::only_distinct_duplicates<sr::Entity>(all);
 
-			for (auto& entity : all)
+			constexpr auto length = sizeof...(Components);
+			if (length == all.size())
 			{
-				lambda(entity, get<Components>(entity)...);
+				auto entities = protostar::intersections<sr::Entity>(all);
+				if (!entities.empty())
+				{
+					for (const auto& entity : entities)
+					{
+						lambda(entity, get<Components>(entity)...);
+					}
+				}
 			}
 		}
 	}
 
 	template<typename Component>
-	inline void Manager::iOperate(std::vector<Entity>& entities) noexcept
+	inline void Manager::iOperate(std::list<std::vector<sr::Entity>*>& entities) noexcept
 	{
 		auto type = cUniqueID::get<Component>();
 
@@ -378,11 +384,10 @@ namespace sr
 		}
 		else
 		{
-			ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
-			if (derived)
+			if (m_data[type] != nullptr)
 			{
-				entities.reserve(derived->m_dense.size());
-				entities.insert(entities.end(), derived->m_dense.begin(), derived->m_dense.end());
+				ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+				entities.push_back(&derived->m_dense);
 			}
 		}
 	}
