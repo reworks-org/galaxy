@@ -28,7 +28,7 @@ namespace galaxy
 		clear();
 	}
 
-	sr::Entity World::createFromJSON(const std::string& file) noexcept
+	const sr::Entity World::createFromJSON(const std::string& file) noexcept
 	{
 		// Makes sure the filepath is correct for the current platform.
 		sr::Entity entity = 0;

@@ -5,7 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
 #include <galaxy/core/World.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 
@@ -39,10 +38,9 @@ namespace galaxy
 
 	void RenderSystem::render(qs::Camera* camera)
 	{
-		auto* renderer = SL_HANDLE.renderer();
-		auto* world = SL_HANDLE.world();
-		world->operate<SpriteComponent, TransformComponent, ShaderComponent, EnabledFlag>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader, EnabledFlag* ef)
+		SL_HANDLE.world()->operate<SpriteComponent, TransformComponent, ShaderComponent, EnabledFlag>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader, EnabledFlag* ef)
 		{
+				shader->m_shader.bind();
 				sprite->bind();
 
 				shader->m_shader.setUniform("u_transform", transform->m_transform.getTransformation());
