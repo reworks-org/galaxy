@@ -11,6 +11,7 @@
 #include <protostar/system/Time.hpp>
 #include <qs/core/WindowSettings.hpp>
 #include <protostar/system/Colour.hpp>
+#include <galaxy/scripting/LuaUtils.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -165,10 +166,7 @@ namespace galaxy
 			//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
 
 			// Register all usertypes used by this application for sol3.
-			//LuaUtils::registerUsertypes();
-
-			// Register ImGui layer.
-			//	m_world->pushLayer<galaxy::ImGuiLayer>(&m_restart);
+			Lua::registerTypes();
 		}
 	}
 
