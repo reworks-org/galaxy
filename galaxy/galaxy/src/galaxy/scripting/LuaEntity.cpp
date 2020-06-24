@@ -71,6 +71,6 @@ namespace galaxy
 	
 	const sr::Entity LuaEntity::retrieve() const noexcept
 	{
-		return sr::Entity();
+		return m_entity;
 	}
 }
