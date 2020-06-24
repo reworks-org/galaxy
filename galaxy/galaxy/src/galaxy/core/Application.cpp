@@ -139,6 +139,11 @@ namespace galaxy
 			m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
 			SL_HANDLE.m_serializer = m_serializer.get();
 
+			// END SERVICES
+
+			// OpenAl.
+			m_alContext.initialize();
+
 			//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 			//ServiceLocator::textureAtlas = m_textureAtlas.get();
 

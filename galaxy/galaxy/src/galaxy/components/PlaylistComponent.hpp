@@ -19,9 +19,8 @@ namespace galaxy
 	///
 	/// A playlist of audio files. Max of 8.
 	///
-	class PlaylistComponent final
+	struct PlaylistComponent final
 	{
-	public:
 		///
 		/// Constructor.
 		///
@@ -39,7 +38,6 @@ namespace galaxy
 		///
 		~PlaylistComponent() noexcept;
 
-	private:
 		///
 		/// Playlist of audio.
 		///

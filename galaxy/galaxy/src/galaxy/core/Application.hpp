@@ -10,6 +10,7 @@
 
 #include <memory>
 
+#include <frb/Context.hpp>
 #include <sol/forward.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/core/Renderer.hpp>
@@ -170,6 +171,11 @@ namespace galaxy
 		/// Delta Time.
 		///
 		protostar::ProtectedDouble m_timeCorrection;
+
+		///
+		/// OpenAL context.
+		///
+		frb::Context m_alContext;
 	};
 }
 

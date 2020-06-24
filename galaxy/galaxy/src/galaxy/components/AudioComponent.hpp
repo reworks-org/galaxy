@@ -19,9 +19,8 @@ namespace galaxy
 	///
 	/// Component representing an audio file.
 	///
-	class AudioComponent final
+	struct AudioComponent final
 	{
-	public:
 		///
 		/// Constructor.
 		///
@@ -39,7 +38,6 @@ namespace galaxy
 		///
 		~AudioComponent() noexcept;
 
-	private:
 		///
 		/// Audio file. 
 		///
