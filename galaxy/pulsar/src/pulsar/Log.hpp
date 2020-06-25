@@ -21,14 +21,6 @@
 #define PL_LOG_GET pulsar::Log::get()
 
 ///
-/// Macro shortcut.
-///
-/// \param level Log error level.
-/// \param message Message to log.
-///
-#define PL_LOG(level, message) pulsar::Log::get().log(level, message)
-
-///
 /// INFO log level macro shortcut.
 ///
 #define PL_INFO pulsar::Log::Level::INFO
@@ -52,6 +44,24 @@
 /// FATAL log level macro shortcut.
 ///
 #define PL_FATAL pulsar::Log::Level::FATAL
+
+///
+/// Macro shortcut.
+///
+/// \param level Log error level.
+/// \param message Message to log.
+///
+#define PL_LOG(level, message) pulsar::Log::get().log(level, message)
+
+///
+/// Enable testing mode.
+///
+#define PL_ENABLE_TESTING_MODE pulsar::Log::get().setTestingMode(true)
+
+///
+/// Disable testing mode.
+///
+#define PL_DISABLE_TESTING_MODE pulsar::Log::get().setTestingMode(false)
 
 ///
 /// Core namespace.
@@ -110,6 +120,13 @@ namespace pulsar
 		///
 		void log(const pulsar::Log::Level level, const std::string& message) noexcept;
 		
+		///
+		/// Set testing mode.
+		///
+		/// \param isTestingMode Will not log if true.
+		///
+		void setTestingMode(const bool isTestingMode) noexcept;
+
 		///
 		/// \brief	Set a minimum log level.
 		///
@@ -201,6 +218,11 @@ namespace pulsar
 		/// Protection mutex.
 		///
 		std::mutex m_mutex;
+
+		///
+		/// Wont log if testing mode is enabled.
+		///
+		bool m_testingMode;
 	};
 }
 

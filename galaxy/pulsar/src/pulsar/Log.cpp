@@ -22,7 +22,7 @@ using namespace std::chrono_literals;
 namespace pulsar
 {
 	Log::Log() noexcept
-		:m_minimumLevel(PL_INFO)
+		:m_minimumLevel(PL_INFO), m_testingMode(false)
 	{
 	}
 
@@ -64,19 +64,27 @@ namespace pulsar
 
 	void Log::log(const pulsar::Log::Level level, const std::string& message) noexcept
 	{
-		// Check to make sure level should be logged.
-		if (pulsar::Log::get().filterLevel(level))
+		if (!m_testingMode)
 		{
-			std::lock_guard<std::mutex> l_lock(m_mutex);
+			// Check to make sure level should be logged.
+			if (pulsar::Log::get().filterLevel(level))
+			{
+				std::lock_guard<std::mutex> l_lock(m_mutex);
 
-			// Prefix string
-			std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
-			output += (message + "\n");
+				// Prefix string
+				std::string output = pulsar::Log::get().processColour(level) + "[" + pulsar::Log::get().processLevel(level) + "] - " + pulsar::Log::get().getDateTime() + " - ";
+				output += (message + "\n");
 
-			// Print to stream and std output.
-			std::cout << output;
-			m_fileStream << output;
+				// Print to stream and std output.
+				std::cout << output;
+				m_fileStream << output;
+			}
 		}
+	}
+
+	void Log::setTestingMode(const bool isTestingMode) noexcept
+	{
+		m_testingMode = isTestingMode;
 	}
 
 	void Log::setMinimumLevel(pulsar::Log::Level level) noexcept
