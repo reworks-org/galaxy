@@ -10,7 +10,6 @@
 
 #include <string>
 #include <vector>
-#include <limits>
 #include <optional>
 
 #include <pulsar/Log.hpp>
@@ -136,7 +135,8 @@ namespace sr
 		uint m_size;
 
 		///
-		/// Capacity (max value + 1).
+		/// Total avaliable space for elements.
+		/// Formula is: total_inserts + 1.
 		///
 		uint m_capacity;
 
@@ -171,14 +171,18 @@ namespace sr
 		{
 			if (element >= m_capacity)
 			{
-				m_dense.resize(m_capacity + 1, std::numeric_limits<uint>::max());
-				m_sparse.resize(m_capacity + 1, std::numeric_limits<uint>::max());
-				m_capacity++;
+				m_dense.resize(element + 1);
+				m_sparse.resize(element + 1);
+				m_capacity = element + 1;
 			}
 
 			m_dense[m_size] = element;
 			m_sparse[element] = m_size;
-			++m_size;
+			m_size++;
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Attempted to insert duplicate element.");
 		}
 	}
 
