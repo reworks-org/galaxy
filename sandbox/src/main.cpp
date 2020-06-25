@@ -25,6 +25,7 @@ int main(int argsc, char* argsv[])
 	do
 	{
 		restart = false;
+		SL_HANDLE.m_restart = false;
 
 		{
 			std::unique_ptr<galaxy::Config> config = std::make_unique<galaxy::Config>();
@@ -39,7 +40,7 @@ int main(int argsc, char* argsv[])
 				config->define<int>("aspect-ratio-x", -1);
 				config->define<int>("aspect-ratio-y", -1);
 				config->define<bool>("raw-mouse-input", true);
-				config->define<std::string>("window-name", "Sandbox");
+				config->define<std::string>("window-name", "sandbox");
 				config->define<int>("window-width", 1280);
 				config->define<int>("window-height", 720);
 				config->define<bool>("is-cursor-visible", true);
@@ -51,6 +52,7 @@ int main(int argsc, char* argsv[])
 				config->define<std::string>("scripts-path", "scripts/");
 				config->define<std::string>("music-path", "music/");
 				config->define<std::string>("sfx-path", "sfx/");
+				config->define<std::string>("save-folder", "saves/");
 
 				config->create();
 				config->open();
