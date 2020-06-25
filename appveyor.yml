@@ -19,6 +19,9 @@ configuration:
   - Release
 
 install:
+  - cmd: choco install opencppcoverage
+  - cmd: choco install codecov
+  - cmd: set path=C:\Program Files\OpenCppCoverage;%path%
   - cmd: git submodule update --init --recursive
 
 matrix:
@@ -26,3 +29,6 @@ matrix:
 
 build_script:
   - cmd: msbuild galaxy.sln
+
+after_build:
+  - cmd: coverage.bat
