@@ -20,6 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\dependencies\glad\glad\glad.c" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-death-test.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-filepath.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-matchers.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-port.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-printers.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-test-part.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-typed-test.cc" />
+    <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest.cc" />
     <ClCompile Include="..\..\dependencies\imgui-texteditor\TextEditor.cpp" />
     <ClCompile Include="..\..\dependencies\imgui\cpp\imgui_stdlib.cpp" />
     <ClCompile Include="..\..\dependencies\imgui\imgui.cpp" />
@@ -60,6 +68,9 @@
     <ClCompile Include="..\..\dependencies\lua\src\lutf8lib.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lvm.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lzio.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\dependencies\googletest\googletest\src\gtest-internal-inl.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -155,7 +166,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -182,7 +193,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -193,7 +204,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -258,7 +269,7 @@
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:anglebrackets /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
