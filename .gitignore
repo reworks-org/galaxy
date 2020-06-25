@@ -60,3 +60,8 @@ supercluster/bin/Release/
 supercluster/build/
 supercluster/logs/
 supercluster/*.ini
+
+# testing stuff
+tests/bin/Debug/
+tests/bin/Release/
+tests/build/

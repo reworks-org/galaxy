@@ -103,6 +103,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "supercluster", "supercluste
 		{CE3E74C5-2C0F-4063-8983-7468E868D286} = {CE3E74C5-2C0F-4063-8983-7468E868D286}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -215,6 +217,14 @@ Global
 		{3C769066-A841-40DE-BD25-0219CD60DAD3}.Release|Win32.Build.0 = Release|Win32
 		{3C769066-A841-40DE-BD25-0219CD60DAD3}.Release|x64.ActiveCfg = Release|x64
 		{3C769066-A841-40DE-BD25-0219CD60DAD3}.Release|x64.Build.0 = Release|x64
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Debug|Win32.Build.0 = Debug|Win32
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Debug|x64.ActiveCfg = Debug|x64
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Debug|x64.Build.0 = Debug|x64
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Release|Win32.ActiveCfg = Release|Win32
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Release|Win32.Build.0 = Release|Win32
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Release|x64.ActiveCfg = Release|x64
+		{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
