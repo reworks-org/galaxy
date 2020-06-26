@@ -14,8 +14,5 @@ int main(int argsc, char* argsv[])
 
 	testing::InitGoogleTest(&argsc, argsv);
 	auto result = RUN_ALL_TESTS();
-
-	std::cin.get();
-
 	return result;
 }
