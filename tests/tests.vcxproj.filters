@@ -4,6 +4,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\solar\Config.cpp" />
     <ClCompile Include="src\solar\sets\EntitySet.cpp" />
+    <ClCompile Include="src\solar\sets\ComponentSet.cpp" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
