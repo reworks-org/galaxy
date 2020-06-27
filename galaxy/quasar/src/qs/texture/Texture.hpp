@@ -33,7 +33,7 @@ namespace qs
 		///
 		/// Virtual destructor.
 		///
-		virtual ~Texture() noexcept;
+		~Texture() noexcept;
 		
 		///
 		/// \brief Loads texture from file.
@@ -75,7 +75,7 @@ namespace qs
 		/// \param type https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 		/// \param pixels https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 		///
-		void load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels);
+		void load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels) noexcept;
 
 		///
 		/// Activate texture context.

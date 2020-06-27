@@ -222,7 +222,7 @@ namespace galaxy
 			}
 			
 			// Begin render.
-			m_window->begin(protostar::White);
+			m_window->begin({ 0, 0, 0, 255 });
 			
 			m_state->render();
 

@@ -32,7 +32,7 @@ namespace frb
 		///
 		/// \brief Default constructor.
 		///
-		BufferArray() noexcept;
+		BufferArray() noexcept = default;
 
 		///
 		/// \brief Default destructor.

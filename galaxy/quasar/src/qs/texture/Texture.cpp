@@ -117,7 +117,7 @@ namespace qs
 		clampToEdge();
 	}
 
-	void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels)
+	void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels) noexcept
 	{
 		m_width = width;
 		m_height = height;

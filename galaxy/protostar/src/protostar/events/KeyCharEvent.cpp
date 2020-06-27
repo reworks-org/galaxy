@@ -13,7 +13,7 @@
 namespace protostar
 {
 	KeyCharEvent::KeyCharEvent() noexcept
-		:m_unichar(0)
+		:m_keycode(protostar::Keys::A), m_unichar(0)
 	{
 	}
 

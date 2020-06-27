@@ -212,7 +212,7 @@ void StateGame::render() noexcept
 	auto* renderer = SL_HANDLE.renderer();
 
 	// Render.
-	window->begin(protostar::White);
+	window->begin({ 0, 0, 0, 255 });
 
 	shader.bind();
 	shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());

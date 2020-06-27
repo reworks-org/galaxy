@@ -20,7 +20,7 @@ namespace galaxy
 	///
 	/// Allows for an entity to be rendered.
 	///
-	class SpriteComponent : public qs::VertexData, public qs::Texture
+	class SpriteComponent final : public qs::VertexData, public qs::Texture
 	{
 	public:
 		///
@@ -38,7 +38,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		virtual ~SpriteComponent() noexcept = default;
+		~SpriteComponent() noexcept = default;
 
 		///
 		/// \brief Creates the internal vertex array.

@@ -37,7 +37,7 @@ namespace qs
 		IndexStorage indices;
 
 		unsigned int count = 0;
-		float increment = 2.0f * glm::pi<float>() / static_cast<float>(fragments);
+		const float increment = 2.0f * glm::pi<float>() / static_cast<float>(fragments);
 		for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 		{
 			vertexs.emplace_back(qs::PrimitiveVertex{ radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour });

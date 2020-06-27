@@ -148,7 +148,7 @@ namespace frb
 
 	void Source::queue(const frb::Buffer& buffer) noexcept
 	{
-		auto handle = buffer.handle();
+		const auto handle = buffer.handle();
 		alSourceQueueBuffers(m_source, 1, &handle);
 	}
 
@@ -157,7 +157,7 @@ namespace frb
 		std::vector<ALuint> handles;
 		handles.reserve(buffers.size());
 
-		for (frb::Buffer* buff : buffers)
+		for (const auto* buff : buffers)
 		{
 			handles.push_back(buff->handle());
 		}

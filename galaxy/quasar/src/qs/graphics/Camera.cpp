@@ -104,7 +104,7 @@ namespace qs
 
 	void Camera::update(const double ts) noexcept
 	{
-		float tsf = static_cast<float>(ts);
+		const float tsf = static_cast<float>(ts);
 		if (m_moveUp)
 		{
 			move(0.0f, tsf * m_speed);

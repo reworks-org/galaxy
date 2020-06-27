@@ -15,32 +15,32 @@
 ///
 namespace protostar
 {
-	const std::uint32_t secondsToMilliseconds(const double seconds) noexcept
+	constexpr std::uint32_t secondsToMilliseconds(const double seconds) noexcept
 	{
 		return static_cast<std::uint32_t>(seconds * 1000.0);
 	}
 
-	const std::uint64_t secondsToMicroseconds(const double seconds) noexcept
+	constexpr std::uint64_t secondsToMicroseconds(const double seconds) noexcept
 	{
 		return static_cast<std::uint64_t>(seconds * 1000000.0);
 	}
 
-	const double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept
+	constexpr double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept
 	{
 		return static_cast<double>(milliseconds) / 1000.0;
 	}
 
-	const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept
+	constexpr std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept
 	{
 		return static_cast<std::uint64_t>(static_cast<std::uint64_t>(milliseconds) * 1000);
 	}
 
-	const double microsecondsToSeconds(const std::uint64_t microseconds) noexcept
+	constexpr double microsecondsToSeconds(const std::uint64_t microseconds) noexcept
 	{
 		return static_cast<double>(microseconds / 1000000.0);
 	}
 
-	const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept
+	constexpr std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept
 	{
 		return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
 	} 
@@ -54,7 +54,7 @@ namespace protostar
 	const std::string getCurrentDateTime() noexcept
 	{
 		// Get current time using chrono.
-		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		std::string temp = std::ctime(&time);
 
 		// Remove pesky newlines.
@@ -66,7 +66,7 @@ namespace protostar
 	const std::string getShortTime() noexcept
 	{
 		// Get current time using chrono.
-		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		std::string temp = std::ctime(&time);
 
 		// Remove pesky newlines.
@@ -90,7 +90,7 @@ namespace protostar
 	const std::string getFormattedTime() noexcept
 	{
 		// Get current time using chrono.
-		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		std::string temp = std::ctime(&time);
 
 		// Remove pesky newlines.

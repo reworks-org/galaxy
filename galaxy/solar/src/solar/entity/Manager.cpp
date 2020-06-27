@@ -27,7 +27,7 @@ namespace sr
 		SR_INTEGER entity = 0;
 		if (!m_invalidEntities.empty())
 		{
-			auto end = m_invalidEntities.size() - 1;
+			const auto end = m_invalidEntities.size() - 1;
 			entity = m_invalidEntities[end];
 			m_invalidEntities.pop_back();
 		}
@@ -42,7 +42,7 @@ namespace sr
 
 	const sr::Entity Manager::create(const std::string& debugName) noexcept
 	{
-		auto entity = create();
+		const auto entity = create();
 		assignName(entity, debugName);
 
 		return entity;

@@ -24,7 +24,7 @@ namespace protostar
 	///
 	/// \return Returns const std::uint32_t.
 	///
-	const std::uint32_t secondsToMilliseconds(const double seconds) noexcept;
+	constexpr std::uint32_t secondsToMilliseconds(const double seconds) noexcept;
 
 	///
 	/// Convert seconds to microseconds.
@@ -33,7 +33,7 @@ namespace protostar
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	const std::uint64_t secondsToMicroseconds(const double seconds) noexcept;
+	constexpr std::uint64_t secondsToMicroseconds(const double seconds) noexcept;
 
 	///
 	/// Convert milliseconds to seconds.
@@ -42,7 +42,7 @@ namespace protostar
 	///
 	/// \return Returns const double.
 	///
-	const double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept;
+	constexpr double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept;
 
 	///
 	/// Convert milliseconds to microseconds.
@@ -51,7 +51,7 @@ namespace protostar
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept;
+	constexpr std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept;
 
 	///
 	/// Convert microseconds to seconds.
@@ -60,7 +60,7 @@ namespace protostar
 	///
 	/// \return Returns const double.
 	///
-	const double microsecondsToSeconds(const std::uint64_t microseconds) noexcept;
+	constexpr double microsecondsToSeconds(const std::uint64_t microseconds) noexcept;
 
 	///
 	/// Convert microseconds to milliseconds.
@@ -69,7 +69,7 @@ namespace protostar
 	///
 	/// \return Returns std::uint32_t.
 	///
-	const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept;
+	constexpr std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept;
 
 	///
 	/// \brief Returns High-Precision count of time passed since Epoch (Jan 1st, 1970).

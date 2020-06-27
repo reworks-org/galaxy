@@ -60,8 +60,8 @@ namespace qs
 					
 					float x = advX + emplaced->m_bearingX;
 					float y = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
-					float w = static_cast<float>(emplaced->getWidth());
-					float h = static_cast<float>(emplaced->getHeight());
+					const float w = static_cast<float>(emplaced->getWidth());
+					const float h = static_cast<float>(emplaced->getHeight());
 
 					// Restore alignment.
 					glPixelStorei(GL_UNPACK_ALIGNMENT, original);

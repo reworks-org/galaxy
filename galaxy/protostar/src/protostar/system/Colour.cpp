@@ -38,7 +38,7 @@ namespace protostar
 
 	std::array<float, 4> Colour::asGLColour() noexcept
 	{
-		float r, g, b, a;
+		float r = 0.0f, g = 0.0f, b = 0.0f, a = 0.0f;
 
 		// Avoids floating precision errors.
 		if (m_red == 0)

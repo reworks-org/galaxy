@@ -12,19 +12,17 @@
 ///
 namespace frb
 {
-	BufferArray::BufferArray() noexcept
-	{
-	}
-
 	BufferArray::~BufferArray() noexcept
 	{
 		for (auto count = 0; count < m_bufferArray.size(); count++)
 		{
-			if (m_bufferArray[count] != static_cast<ALuint>((int)-1))
+			if (m_bufferArray[count] != static_cast<ALuint>(-1))
 			{
 				alDeleteBuffers(1, &m_bufferArray[count]);
 			}
 		}
+
+		m_bufferArray.clear();
 	}
 
 	bool BufferArray::load(const std::vector<std::string>& files) noexcept
@@ -75,7 +73,7 @@ namespace frb
 		alDeleteBuffers(static_cast<ALsizei>(m_bufferArray.size()), m_bufferArray.data());
 		for (auto count = 0; count < m_bufferArray.size(); count++)
 		{
-			m_bufferArray[count] = static_cast<ALuint>((int)-1);
+			m_bufferArray[count] = static_cast<ALuint>(-1);
 		}
 	}
 
@@ -104,7 +102,7 @@ namespace frb
 				// Make sure data is freed.
 				if (data != nullptr)
 				{
-					free(data);
+					std::free(data);
 				}
 
 				if (length == -1)
@@ -122,10 +120,10 @@ namespace frb
 			}
 			else
 			{
-				auto format = (channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
+				const auto format = (channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
 				alBufferData(buffer, format, data, channels * length * sizeof(short), samples);
 
-				free(data);
+				std::free(data);
 			}
 		}
 
@@ -139,7 +137,7 @@ namespace frb
 		short* data = nullptr;
 		bool result = true;
 
-		auto length = stb_vorbis_decode_memory(mem, size, &channels, &samples, &data);
+		const auto length = stb_vorbis_decode_memory(mem, size, &channels, &samples, &data);
 		if (length < 1)
 		{
 			result = false;
@@ -147,7 +145,7 @@ namespace frb
 			// Make sure data is freed.
 			if (data != nullptr)
 			{
-				free(data);
+				std::free(data);
 			}
 
 			if (length == -1)
@@ -165,10 +163,10 @@ namespace frb
 		}
 		else
 		{
-			auto format = (channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
+			const auto format = (channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;
 			alBufferData(buffer, format, data, channels * length * sizeof(short), samples);
 
-			free(data);
+			std::free(data);
 		}
 
 		return result;

@@ -85,21 +85,6 @@ namespace protostar
 		///
 		std::uint8_t m_alpha;
 	};
-
-	///
-	/// White.
-	///
-	static inline const protostar::Colour White{ 255, 255, 255, 255 };
-
-	///
-	/// Black.
-	///
-	static inline const protostar::Colour Black{ 0, 0, 0, 255 };
-
-	///
-	/// Transparent.
-	///
-	static inline const protostar::Colour Transparent{ 0, 0, 0, 0 };
 }
 
 #endif

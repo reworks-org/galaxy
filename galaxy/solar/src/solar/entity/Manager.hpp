@@ -254,7 +254,7 @@ namespace sr
 	template<typename Component, typename... Args>
 	inline Component* Manager::add(const sr::Entity entity, Args&& ...args) noexcept
 	{
-		auto type = cUniqueID::get<Component>();
+		const auto type = cUniqueID::get<Component>();
 		if (type >= m_data.size())
 		{
 			m_data.resize(type + 1);
@@ -270,7 +270,7 @@ namespace sr
 			}
 
 			// Now convert the storage to the type we want to access.
-			ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+			ComponentSet<Component>* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
 			if (derived)
 			{
 				if (!derived->has(entity))

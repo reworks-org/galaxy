@@ -162,8 +162,8 @@ namespace qs
 	{
 		// Set up vars.
 		bool result = true;
-		static const unsigned short VERTEX = 0;
-		static const unsigned short FRAGMENT = 1;
+		constexpr unsigned short VERTEX = 0;
+		constexpr unsigned short FRAGMENT = 1;
 		std::string line = "";
 		std::stringstream stringStream[2];
 
@@ -324,8 +324,8 @@ namespace qs
 	{
 		// Set up vars.
 		bool result = true;
-		static const unsigned short VERTEX = 0;
-		static const unsigned short FRAGMENT = 1;
+		constexpr unsigned short VERTEX = 0;
+		constexpr unsigned short FRAGMENT = 1;
 		std::string line = "";
 		std::stringstream stringStream[2];
 

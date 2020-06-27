@@ -100,7 +100,7 @@ namespace pulsar
 	std::string Log::getDateTime() noexcept
 	{
 		// Time code. Simple.
-		std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 		std::string out = std::ctime(&time);
 		out.erase(std::remove(out.begin(), out.end(), '\n'), out.end());
 		return std::move(out);
