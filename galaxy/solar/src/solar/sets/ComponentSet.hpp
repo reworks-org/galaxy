@@ -71,6 +71,13 @@ namespace sr
 		///
 		void remove(const sr::Entity entity) noexcept override;
 
+		///
+		/// Retrieve internal component array.
+		///
+		/// \return Const reference to a std::vector.
+		///
+		const std::vector<Component>& getComponentArray() noexcept;
+
 	private:
 		///
 		/// Component storage for this type.
@@ -149,6 +156,12 @@ namespace sr
 		{
 			PL_LOG(PL_WARNING, "Tried to remove an component that does not exist on entity: " + std::to_string(entity));
 		}
+	}
+	
+	template<typename Component>
+	inline const std::vector<Component>& ComponentSet<Component>::getComponentArray() noexcept
+	{
+		return m_components;
 	}
 }
 
