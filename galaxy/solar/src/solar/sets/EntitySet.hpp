@@ -171,8 +171,8 @@ namespace sr
 		{
 			if (element >= m_capacity)
 			{
-				m_dense.resize(element + 1);
-				m_sparse.resize(element + 1);
+				m_dense.resize(element + 1, std::numeric_limits<uint>::max);
+				m_sparse.resize(element + 1, std::numeric_limits<uint>::max);
 				m_capacity = element + 1;
 			}
 
