@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\solar\Config.cpp" />
+    <ClCompile Include="src\solar\entity\ManagerTest.cpp" />
     <ClCompile Include="src\solar\sets\ComponentSet.cpp" />
     <ClCompile Include="src\solar\sets\EntitySet.cpp" />
   </ItemGroup>
