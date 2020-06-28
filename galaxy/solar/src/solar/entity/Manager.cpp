@@ -48,22 +48,25 @@ namespace sr
 		return entity;
 	}
 
-	void Manager::assignName(const sr::Entity entity, const std::string& debugName) noexcept
+	bool Manager::assignName(const sr::Entity entity, const std::string& debugName) noexcept
 	{
 		if (validate(entity))
 		{
 			if (m_debugNames.find(debugName) == m_debugNames.end())
 			{
 				m_debugNames.emplace(debugName, entity);
+				return true;
 			}
 			else
 			{
 				PL_LOG(PL_WARNING, "Attempted to add duplicate name: " + debugName);
+				return false;
 			}
 		}
 		else
 		{
 			PL_LOG(PL_ERROR, "Attempted to use invalid entity.");
+			return false;
 		}
 	}
 

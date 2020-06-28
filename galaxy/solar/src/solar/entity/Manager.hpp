@@ -101,7 +101,9 @@ namespace sr
 		/// \param entity Entity to assign name to.
 		/// \param debugName Name to assign to entity.
 		///
-		void assignName(const sr::Entity entity, const std::string& debugName) noexcept;
+		/// \return True if successful.
+		///
+		bool assignName(const sr::Entity entity, const std::string& debugName) noexcept;
 
 		///
 		/// Get entity fropm debug name.
