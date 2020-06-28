@@ -111,7 +111,75 @@ TEST(Manager, AssignNameDuplicate)
 	EXPECT_FALSE(m.assignName(e, "Test"));
 }
 
-TEST(Manager, RemoveEntity)
+TEST(Manager, FindFromName)
+{
+	sr::Manager m;
+	auto e = m.create("Test");
+
+	auto found = m.findFromName("Test");
+	EXPECT_EQ(found, e);
+}
+
+TEST(Manager, FindFromNameNonExistant)
+{
+	sr::Manager m;
+	
+	auto found = m.findFromName("Test");
+	EXPECT_EQ(found, 0);
+}
+
+TEST(Manager, GetAllNames)
+{
+	sr::Manager m;
+	auto a = m.create("A");
+	auto b = m.create("B");
+	auto c = m.create("C");
+
+	auto map = m.getAllNames();
+	EXPECT_EQ(map.size(), 3);
+
+	auto foundA = map.find("A");
+	auto foundB = map.find("B");
+	auto foundC = map.find("C");
+
+	EXPECT_EQ(a, foundA->second);
+	EXPECT_EQ(b, foundB->second);
+	EXPECT_EQ(c, foundC->second);
+}
+
+TEST(Manager, ComponentAdd)
+{
+}
+
+TEST(Manager, ComponentRemove)
+{
+}
+
+TEST(Manager, ComponentAddRemoveAdd)
+{
+}
+
+TEST(Manager, ComponentAddGet)
+{
+}
+
+TEST(Manager, ComponentRemoveGet)
+{
+}
+
+TEST(Manager, RemoveComponent)
+{
+}
+
+TEST(Manager, RemoveComponentInvalidEntity)
+{
+}
+
+TEST(Manager, RemoveNonExistingComponent)
+{
+}
+
+TEST(Manager, RemoveInvalidComponent)
 {
 }
 
@@ -119,4 +187,34 @@ TEST(Manager, CreateFromInvalid)
 {
 	sr::Manager m;
 	m.create();
+}
+
+TEST(Manager, Operate)
+{
+}
+
+TEST(Manager, AddSystem)
+{
+
+}
+
+TEST(Manager, GetInvalidSystem)
+{
+
+}
+
+TEST(Manager, Destroy)
+{
+}
+
+TEST(Manager, EventsWithNoSystems)
+{
+}
+
+TEST(Manager, UpdatesWithNoSystems)
+{
+}
+
+TEST(Manager, Clear)
+{
 }
