@@ -35,75 +35,102 @@ namespace protostar
 		///
 		/// Add a resource.
 		///
+		/// \param args Constructor arguments.
+		///
+		/// \return Handle to created resource.
+		///
 		template<typename ...Args>
-		void add(const std::string& id, Args&& ...args) noexcept;
+		const unsigned int add(Args&& ...args) noexcept;
+
+		///
+		/// Move an existing resource into the cache.
+		///
+		/// \param res Move constructable resource.
+		///
+		/// \return Handle to newly added resource.
+		///
+		virtual const unsigned int move(Resource& resource) noexcept final;
 
 		///
 		/// Retrieve a resource.
 		///
-		/// \param id The ID of the resource to retrieve.
+		/// \param handle The ID of the resource to retrieve.
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		typename protostar::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type get(const std::string& id) noexcept;
+		virtual Resource* get(const unsigned int handle) noexcept final;
 
 		///
-		/// Clean up resources.
+		/// Clean up.
 		///
-		virtual void clean() noexcept = 0;
+		virtual void clear() noexcept = 0;
 
 	protected:
 		///
 		/// Default constructor.
 		///
-		ResourceCache() noexcept = default;
+		ResourceCache() noexcept;
 
-	private:
 		///
 		/// Copy Constructor.
-		/// Deleted.
 		///
-		ResourceCache(const ResourceCache&) = delete;
+		ResourceCache(const ResourceCache&) noexcept = default;
 
 		///
 		/// Move Constructor.
-		/// Deleted.
 		///
-		ResourceCache(ResourceCache&&) = delete;
+		ResourceCache(ResourceCache&&) noexcept = default;
 
 	protected:
 		///
-		/// The hashmap containing the resources.
+		/// ID counter.
 		///
-		std::unordered_map<std::string, Resource> m_resourceMap;
+		unsigned int m_counter;
+
+		///
+		/// Contiguous resource array.
+		///
+		std::vector<Resource> m_resources;
 	};
+	
+	template<typename Resource>
+	inline const unsigned int ResourceCache<Resource>::move(Resource& resource) noexcept
+	{
+		m_resources.emplace(m_resources.begin() + m_counter, std::move(resource));
+		m_counter++;
+
+		return m_counter - 1;
+	}
 
 	template<typename Resource>
-	inline typename protostar::ReturnReferenceIfFalse<std::is_pointer<Resource>::value, Resource>::type ResourceCache<Resource>::get(const std::string& id) noexcept
+	inline Resource* ResourceCache<Resource>::get(const unsigned int handle) noexcept
 	{
-		if (m_resourceMap.find(id) != m_resourceMap.end())
+		if (handle >= m_resources.size())
 		{
-			return m_resourceMap[id.c_str()];
+			PL_LOG(PL_ERROR, "Handle is out of bounds for cache.");
+			return nullptr;
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access resource that does not exist: " + id);
-			return NULL; // nullptr?
+			return &m_resources[handle];
 		}
 	}
 
 	template<typename Resource>
-	template<typename ...Args>
-	inline void ResourceCache<Resource>::add(const std::string& id, Args&& ...args) noexcept
+	inline ResourceCache<Resource>::ResourceCache() noexcept
+		:m_counter(0)
 	{
-		if (m_resourceMap.find(id) != m_resourceMap.end())
-		{
-			m_resourceMap.emplace(id, std::forward<Args>(args)...);
-		}
-		else
-		{
-			PL_LOG(PL_WARNING, "Tried to emplace duplicate resource: " + id);
-		}
+	}
+
+	template<typename Resource>
+	template<typename ...Args>
+	inline const unsigned int ResourceCache<Resource>::add(Args&& ...args) noexcept
+	{
+		m_resources.emplace(m_resources.begin() + m_counter, std::forward<Args>(args)...);
+		m_counter++;
+
+		// Because we increment so to get correct counter we need to decrement.
+		return m_counter - 1;
 	}
 }
 
