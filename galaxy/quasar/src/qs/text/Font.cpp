@@ -24,6 +24,12 @@ namespace qs
 	{
 	}
 
+	Font::Font(const std::string& file, const int size) noexcept
+		:m_height(0), m_texture()
+	{
+		load(file, size);
+	}
+
 	void Font::load(const std::string& file, const int size) noexcept
 	{
 		FT_Face face;

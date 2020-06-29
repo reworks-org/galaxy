@@ -37,6 +37,14 @@ namespace qs
 		Shader() noexcept;
 
 		///
+		/// Path constructor.
+		///
+		/// \param vertex Path to vertex shader source code.
+		/// \param fragment Path to fragment shader source code.
+		///
+		Shader(const std::string& vertexFile, const std::string& fragFile) noexcept;
+
+		///
 		/// Destructor.
 		///
 		~Shader() noexcept;

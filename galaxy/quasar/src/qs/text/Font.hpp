@@ -38,6 +38,14 @@ namespace qs
 		Font() noexcept;
 
 		///
+		/// Load constructor.
+		///
+		/// \param file Font file to load.
+		/// \param size Size to set the font at.
+		///
+		Font(const std::string& file, const int size) noexcept;
+
+		///
 		/// Default destructor.
 		///
 		~Font() noexcept = default;

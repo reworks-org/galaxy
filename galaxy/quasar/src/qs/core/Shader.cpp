@@ -20,6 +20,12 @@ namespace qs
 	{
 	}
 
+	Shader::Shader(const std::string& vertexFile, const std::string& fragFile) noexcept
+		:m_id(0)
+	{
+		loadFromPath(vertexFile, fragFile);
+	}
+
 	Shader::~Shader() noexcept
 	{
 		unbind();
