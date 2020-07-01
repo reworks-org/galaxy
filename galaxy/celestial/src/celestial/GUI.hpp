@@ -91,7 +91,7 @@ namespace celestial
 		///
 		/// \param isVisible False to make invisible.
 		///
-		virtual void setVisibility(const bool isVisible) noexcept final;
+		void setVisibility(const bool isVisible) noexcept;
 
 		///
 		/// \brief Get pointer to internal TaskPool task.

@@ -15,7 +15,7 @@ namespace celestial
 	GUI::GUI(protostar::ProtectedDouble* dt) noexcept
 		:m_isDestroyed(false), m_counter(0), m_dt(dt)
 	{
-		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished)
+		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished) noexcept
 		{
 			while (m_running.get() && threadPoolFinished->get())
 			{
