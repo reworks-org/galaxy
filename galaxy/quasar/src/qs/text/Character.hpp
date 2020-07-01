@@ -42,7 +42,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Character() noexcept = default;
+		~Character() noexcept = default;
 
 		///
 		/// Activate character context.

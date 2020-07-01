@@ -31,7 +31,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Sprite() noexcept = default;
+		~Sprite() noexcept = default;
 
 		///
 		/// \brief Creates the internal vertex array.

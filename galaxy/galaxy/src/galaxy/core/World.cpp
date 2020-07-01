@@ -64,4 +64,12 @@ namespace galaxy
 
 		return entity;
 	}
+
+	void World::serialize() noexcept
+	{
+	}
+
+	void World::serialize(const sr::Entity entity) noexcept
+	{
+	}
 }

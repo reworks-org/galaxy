@@ -56,6 +56,16 @@ namespace galaxy
 		template<typename Component>
 		void registerComponent(const std::string& name) noexcept;
 
+		///
+		///
+		///
+		void serialize() noexcept;
+
+		///
+		///
+		///
+		void serialize(const sr::Entity entity) noexcept;
+
 	private:
 		///
 		/// Used to allow for component creation without having to know the compile time type.
@@ -76,7 +86,7 @@ namespace galaxy
 			m_componentFactory.emplace(name, [this](const sr::Entity e, const nlohmann::json& json)
 			{
 				this->add<Component>(e, json);
-			});
+			}) noexcept;
 		}
 	}
 }

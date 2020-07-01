@@ -42,7 +42,7 @@ namespace sr
 		///
 		/// Destructor
 		///
-		~ComponentSet() noexcept override;
+		~ComponentSet() noexcept;
 
 		///
 		/// Add a component to an entity.

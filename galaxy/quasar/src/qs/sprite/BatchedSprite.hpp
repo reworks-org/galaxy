@@ -33,7 +33,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~BatchedSprite() noexcept = default;
+		~BatchedSprite() noexcept = default;
 
 		///
 		/// Sets the texture region for the batched sprite.

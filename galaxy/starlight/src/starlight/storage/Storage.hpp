@@ -89,7 +89,7 @@ namespace starlight
 	template<typename Event>
 	inline void Storage<Event>::trigger(QueuedEvent* event) noexcept
 	{
-		starlight::SpecificEvent<Event>* specificEvent = static_cast<starlight::SpecificEvent<Event>*>(event);
+		starlight::SpecificEvent<Event>* specificEvent = dynamic_cast<starlight::SpecificEvent<Event>*>(event);
 		trigger(specificEvent->getEvent());
 	}
 }

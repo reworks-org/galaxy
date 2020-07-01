@@ -46,7 +46,7 @@ namespace qs
 		///
 		/// Default destructor.
 		///
-		~Camera() noexcept override = default;
+		~Camera() noexcept = default;
 
 		///
 		/// Configures camera for window model view projection.

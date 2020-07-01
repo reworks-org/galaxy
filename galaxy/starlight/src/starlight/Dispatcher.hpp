@@ -97,7 +97,7 @@ namespace starlight
 			}
 
 			// Now convert the storage to the type we want to access.
-			auto convertedStorage = static_cast<starlight::Storage<Event>*>(m_callbacks[typeIndex].get());
+			auto convertedStorage = dynamic_cast<starlight::Storage<Event>*>(m_callbacks[typeIndex].get());
 			convertedStorage->forward(callback);
 		}
 	}

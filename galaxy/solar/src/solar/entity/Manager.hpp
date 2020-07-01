@@ -304,7 +304,7 @@ namespace sr
 		}
 		else
 		{
-			auto type = cUniqueID::get<Component>();
+			constexpr auto type = cUniqueID::get<Component>();
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
@@ -315,7 +315,7 @@ namespace sr
 			{
 				if (m_data[type] != nullptr)
 				{
-					ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+					ComponentSet<Component>* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
 					if (derived->has(entity))
 					{
 						res = derived->get(entity);
@@ -336,7 +336,7 @@ namespace sr
 		}
 		else
 		{
-			auto type = cUniqueID::get<Component>();
+			constexpr auto type = cUniqueID::get<Component>();
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
@@ -347,7 +347,7 @@ namespace sr
 			{
 				if (m_data[type] != nullptr)
 				{
-					ComponentSet<Component>* derived = static_cast<ComponentSet<Component>*>(m_data[type].get());
+					ComponentSet<Component>* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
 					if (derived->has(entity))
 					{
 						derived->remove(entity);
@@ -403,7 +403,7 @@ namespace sr
 	template<typename System, typename ...Args>
 	inline void Manager::addSystem(Args&&... args) noexcept
 	{
-		auto type = sUniqueID::get<System>();
+		constexpr auto type = sUniqueID::get<System>();
 		if (type >= m_systems.size())
 		{
 			m_systems.resize(type + 1);
@@ -415,7 +415,7 @@ namespace sr
 	template<typename System>
 	inline System* Manager::get() noexcept
 	{
-		auto type = sUniqueID::get<System>();
+		constexpr auto type = sUniqueID::get<System>();
 		if (type > m_systems.size())
 		{
 			PL_LOG(PL_FATAL, "Attempted to access a system type that doesnt exist!");
@@ -423,7 +423,7 @@ namespace sr
 		}
 		else
 		{
-			return static_cast<System*>(m_systems[type].get());
+			return dynamic_cast<System*>(m_systems[type].get());
 		}
 	}
 }

@@ -8,6 +8,7 @@
 #ifndef PROTOSTAR_UNIQUEID_HPP_
 #define PROTOSTAR_UNIQUEID_HPP_
 
+#include <type_traits>
 #include <cstddef>
 
 ///
