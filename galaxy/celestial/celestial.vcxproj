@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\dummy.cpp" />
+    <ClInclude Include="src\celestial\UITheme.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\celestial\UITheme.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

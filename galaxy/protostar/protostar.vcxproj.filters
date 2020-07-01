@@ -24,6 +24,7 @@
     <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
     <ClCompile Include="src\protostar\system\Time.cpp" />
     <ClCompile Include="src\protostar\events\MouseWheelEvent.cpp" />
+    <ClCompile Include="src\protostar\system\ResCacheBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
@@ -49,5 +50,6 @@
     <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
     <ClInclude Include="src\protostar\system\Time.hpp" />
     <ClInclude Include="src\protostar\events\MouseWheelEvent.hpp" />
+    <ClInclude Include="src\protostar\system\ResCacheBase.hpp" />
   </ItemGroup>
 </Project>

@@ -38,6 +38,7 @@
     <ClCompile Include="src\protostar\string\StringOps.cpp" />
     <ClCompile Include="src\protostar\system\Colour.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
+    <ClCompile Include="src\protostar\system\ResCacheBase.cpp" />
     <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\utility\Meta.cpp" />
     <ClCompile Include="src\protostar\system\Time.cpp" />
@@ -63,6 +64,7 @@
     <ClInclude Include="src\protostar\string\StringOps.hpp" />
     <ClInclude Include="src\protostar\system\Colour.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
+    <ClInclude Include="src\protostar\system\ResCacheBase.hpp" />
     <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\utility\Meta.hpp" />
     <ClInclude Include="src\protostar\system\Time.hpp" />
