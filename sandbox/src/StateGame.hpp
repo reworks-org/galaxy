@@ -43,6 +43,7 @@
 #include <qs/shaders/RenderToTexture.hpp>
 #include <protostar/state/State.hpp>
 #include <qs/shaders/Texts.hpp>
+#include <starlight/Dispatcher.hpp>
 #include <protostar/events/MouseWheelEvent.hpp>
 
 class StateGame : public protostar::State
@@ -74,6 +75,8 @@ private:
 	qs::Camera camera; //left, right, bottom, top
 	protostar::ProtectedDouble updte;
 	
+	starlight::Dispatcher dispatch;
+
 	//qs::Point point;
 	//qs::Line line;
 	//qs::Circle circle;

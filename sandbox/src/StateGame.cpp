@@ -7,66 +7,9 @@
 
 #include "StateGame.hpp"
 
-starlight::Dispatcher dispatch;
-
-struct Test
+void scrollCallback(GLFWwindow* window, double x, double y) noexcept
 {
-	int a = 10;
-};
-
-[[maybe_unused]] void starmap_func()
-{
-	starmap::Map map;
-	if (!map.load("../demo-maps/demo-zlib.json"))
-	{
-		PL_LOG(PL_ERROR, "failed to load map");
-	}
-	else
-	{
-		map.parse();
-		map.dump();
-	}
-}
-
-[[maybe_unused]] void starlight_func()
-{
-	Test test;
-	starlight::Dispatcher dispatcher;
-
-	dispatcher.add<Test>([](const Test& test_int)
-		{
-			std::cout << test_int.a << std::endl;
-		});
-
-	dispatcher.trigger<Test>(test);
-}
-
-[[maybe_unused]] void pulsar_func()
-{
-	pulsar::Log::get().init("logs/a.txt");
-	pulsar::Log::get().setMinimumLevel(PL_INFO);
-
-	PL_LOG(PL_INFO, "Should not log unless INFO is min level.");
-	PL_LOG(PL_WARNING, "Should Log.");
-}
-
-[[maybe_unused]] void frb_func()
-{
-	frb::Context context;
-	context.initialize();
-	context.setListenerGain(0.2f);
-
-	frb::Audible music;
-	music.load("bin/test.ogg");
-	music.play();
-
-	std::cin.get();
-	music.stop();
-}
-
-void scrollCallback(GLFWwindow* window, double x, double y)
-{
-	dispatch.trigger<protostar::MouseWheelEvent>({ x, y });
+	//dispatch.trigger<protostar::MouseWheelEvent>({ x, y });
 }
 
 StateGame::StateGame() noexcept
