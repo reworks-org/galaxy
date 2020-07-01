@@ -13,6 +13,7 @@
 #include <pulsar/Log.hpp>
 
 #include "protostar/utility/Meta.hpp"
+#include "protostar/system/ResCacheBase.hpp"
 
 ///
 /// Core namespace.
@@ -24,7 +25,7 @@ namespace protostar
 	/// Resources can be a texture, sound, script, shader, etc...
 	///
 	template<typename Resource>
-	class ResourceCache
+	class ResourceCache : public protostar::ResCacheBase
 	{
 	public:
 		///
