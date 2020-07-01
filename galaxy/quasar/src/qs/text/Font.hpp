@@ -8,8 +8,7 @@
 #ifndef QUASAR_FONT_HPP_
 #define QUASAR_FONT_HPP_
 
-#include <string>
-#include <unordered_map>
+
 
 #include "qs/text/FreeType.hpp"
 #include "qs/text/Character.hpp"
@@ -104,9 +103,9 @@ namespace qs
 		qs::RenderTexture m_texture;
 
 		///
-		/// Stores mapped characters.
+		/// Character map.
 		///
-		std::unordered_map<char, std::unique_ptr<qs::Character>> m_characterMap;
+		std::unordered_map<char, qs::Character> m_characters;
 	};
 }
 

@@ -61,7 +61,11 @@ int main(int argsc, char* argsv[])
 				config->define<std::string>("scripts-path", "scripts/");
 				config->define<std::string>("music-path", "music/");
 				config->define<std::string>("sfx-path", "sfx/");
+				config->define<std::string>("json-path", "json/");
+				config->define<std::string>("font-path", "fonts/");
 				config->define<std::string>("save-folder", "saves/");
+				config->define<std::string>("fontbook-json", "fontbook.json");
+				config->define<std::string>("shaderbook-json", "shaderbook.json");
 
 				config->create();
 				config->open();

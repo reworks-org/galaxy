@@ -67,6 +67,20 @@ namespace galaxy
 		///
 		static std::string s_sfx;
 
+		///
+		/// \brief Root directory of json.
+		///
+		/// Should be a subdirectory of s_root.
+		///
+		static std::string s_json;
+
+		///
+		/// \brief Root directory of fonts.
+		///
+		/// Should be a subdirectory of s_root.
+		///
+		static std::string s_fonts;
+
 	private:
 		///
 		/// Constructor.

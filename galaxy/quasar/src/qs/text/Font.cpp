@@ -51,8 +51,8 @@ namespace qs
 				}
 				else
 				{
-					m_characterMap.emplace(chr, std::move(std::make_unique<qs::Character>()));
-					qs::Character* emplaced = m_characterMap[chr].get();
+					// This will default construct the object.
+					qs::Character* emplaced = &m_characters[chr];
 					
 					// Modify alignment for fonts.
 					int original = 0;
@@ -88,29 +88,29 @@ namespace qs
 					emplaced->m_vertexArray.create<qs::SpriteVertex>(emplaced->m_vertexBuffer, emplaced->m_indexBuffer, emplaced->m_layout);
 
 					// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-					advX += (emplaced->m_advance >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
+					advX += (emplaced->getAdvance() >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
 				}
 			}
 		}
 
 		FT_Done_Face(face);
-		m_height = m_characterMap['X']->getHeight();
+		m_height = m_characters['X'].getHeight();
 	}
 
 	void Font::create(qs::Renderer& renderer, qs::Shader& shader) noexcept
 	{
 		int width = 0;
-		for (auto& pair : m_characterMap)
+		for (auto& pair : m_characters)
 		{
-			width += (pair.second->m_advance >> 6);
+			width += (pair.second.getAdvance() >> 6);
 		}
 
 		m_texture.create(width, m_height);
 		m_texture.bind();
 
-		for (auto& pair : m_characterMap)
+		for (auto& pair : m_characters)
 		{
-			renderer.drawCharacter(pair.second.get(), m_texture, shader);
+			renderer.drawCharacter(&pair.second, m_texture, shader);
 		}
 
 		m_texture.unbind();
@@ -122,7 +122,7 @@ namespace qs
 
 		for (auto& chr : text)
 		{
-			width += (m_characterMap[chr]->m_advance >> 6);
+			width += (m_characters[chr].getAdvance() >> 6);
 		}
 
 		return width;
@@ -140,6 +140,6 @@ namespace qs
 
 	qs::Character* Font::getChar(const char c) noexcept
 	{
-		return m_characterMap[c].get();
+		return &m_characters[c];
 	}
 }

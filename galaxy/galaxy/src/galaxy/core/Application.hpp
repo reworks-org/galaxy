@@ -18,9 +18,13 @@
 #include <protostar/async/ThreadPool.hpp>
 #include <protostar/state/StateMachine.hpp>
 
-#include "galaxy/fs/Config.hpp"
 #include "galaxy/core/World.hpp"
+
+#include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/Serializer.hpp"
+
+#include "galaxy/res/FontBook.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 
 ///
 /// Core namespace.
@@ -125,24 +129,27 @@ namespace galaxy
 		std::unique_ptr<galaxy::Serializer> m_serializer;
 
 		///
+		/// Library of all fonts.
+		///
+		std::unique_ptr<galaxy::FontBook> m_fontbook;
+
+		///
+		/// Library of all shaders.
+		///
+		std::unique_ptr<galaxy::ShaderBook> m_shaderbook;
+
+		///
 		/// Integrates box2d with the rest of the library.
 		///
 		//std::unique_ptr<Box2DHelper> m_box2dHelper;
 
-		///
-		/// Manages font resources.
-		///
-		//std::unique_ptr<FontBook> m_fontBook;
-
+		
 		///
 		/// Controls and manages music resources.
 		///
 		//std::unique_ptr<MusicPlayer> m_musicPlayer;
 		
-		///
-		/// Managers shaders and usage of them.
-		///
-		//std::unique_ptr<ShaderLibrary> m_shaderLibrary;
+	
 
 		///
 		/// Controls and manages sound resources.

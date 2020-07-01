@@ -63,8 +63,18 @@ namespace galaxy
 		return m_serializer;
 	}
 
+	galaxy::FontBook* ServiceLocator::fontbook() const noexcept
+	{
+		return m_fontbook;
+	}
+
+	galaxy::ShaderBook* ServiceLocator::shaderbook() const noexcept
+	{
+		return m_shaderbook;
+	}
+
 	ServiceLocator::ServiceLocator() noexcept
-		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr), m_serializer(nullptr)
+		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr), m_serializer(nullptr), m_fontbook(nullptr), m_shaderbook(nullptr)
 	{
 	}
 }

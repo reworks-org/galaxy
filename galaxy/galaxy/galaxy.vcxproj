@@ -28,6 +28,8 @@
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\flags\EnabledFlag.cpp" />
     <ClCompile Include="src\galaxy\layer\LayerStorage.cpp" />
+    <ClCompile Include="src\galaxy\res\FontBook.cpp" />
+    <ClCompile Include="src\galaxy\res\ShaderBook.cpp" />
     <ClCompile Include="src\galaxy\scripting\Command.cpp" />
     <ClCompile Include="src\galaxy\core\ServiceLocator.cpp" />
     <ClCompile Include="src\galaxy\core\World.cpp" />
@@ -52,6 +54,8 @@
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\flags\EnabledFlag.hpp" />
     <ClInclude Include="src\galaxy\layer\LayerStorage.hpp" />
+    <ClInclude Include="src\galaxy\res\FontBook.hpp" />
+    <ClInclude Include="src\galaxy\res\ShaderBook.hpp" />
     <ClInclude Include="src\galaxy\scripting\Command.hpp" />
     <ClInclude Include="src\galaxy\core\ServiceLocator.hpp" />
     <ClInclude Include="src\galaxy\core\World.hpp" />

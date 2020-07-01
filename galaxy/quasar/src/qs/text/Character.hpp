@@ -23,9 +23,6 @@ namespace qs
 	///
 	class Character final : public qs::VertexData, public qs::Texture
 	{
-		///
-		/// Allows font to access interior.
-		///
 		friend class Font;
 	public:
 		///

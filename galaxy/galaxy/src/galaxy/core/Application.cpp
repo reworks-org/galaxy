@@ -72,6 +72,8 @@ namespace galaxy
 		galaxy::FileSystem::s_scripts = m_config->get<std::string>("scripts-path");
 		galaxy::FileSystem::s_music = m_config->get<std::string>("music-path");
 		galaxy::FileSystem::s_sfx = m_config->get<std::string>("sfx-path");
+		galaxy::FileSystem::s_json = m_config->get<std::string>("json-path");
+		galaxy::FileSystem::s_fonts = m_config->get<std::string>("font-path");
 
 		// threadpool
 		m_threadPool = std::make_unique<protostar::ThreadPool>();
@@ -119,6 +121,9 @@ namespace galaxy
 			m_renderer = std::make_unique<qs::Renderer>();
 			SL_HANDLE.m_renderer = m_renderer.get();
 
+			// OpenAl.
+			m_alContext.initialize();
+
 			// Create lua instance and open libraries.
 			m_lua = std::make_unique<sol::state>();
 			m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
@@ -139,21 +144,22 @@ namespace galaxy
 			m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
 			SL_HANDLE.m_serializer = m_serializer.get();
 
-			// END SERVICES
+			// FontBook
+			std::string fbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("fontbook-json");
+			m_fontbook = std::make_unique<galaxy::FontBook>(fbPath);
+			SL_HANDLE.m_fontbook = m_fontbook.get();
 
-			// OpenAl.
-			m_alContext.initialize();
+			// ShaderBook
+			std::string sbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("shaderbook-json");
+			m_shaderbook = std::make_unique<galaxy::ShaderBook>(sbPath);
+			SL_HANDLE.m_shaderbook = m_shaderbook.get();
+
+			// END SERVICES
 
 			//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
 			//ServiceLocator::textureAtlas = m_textureAtlas.get();
 
 			//m_textureAtlas->m_nullTexture = m_configReader->lookup<std::string>(config, "graphics", "nullTexture");
-
-			//m_fontBook = std::make_unique<FontBook>(m_configReader->lookup<std::string>(config, "font", "fontScript"));
-			//ServiceLocator::fontBook = m_fontBook.get();
-
-			//m_shaderLibrary = std::make_unique<ShaderLibrary>(m_configReader->lookup<std::string>(config, "graphics", "shaderScript"));
-			//ServiceLocator::shaderLibrary = m_shaderLibrary.get();
 
 			//m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
 			//ServiceLocator::musicPlayer = m_musicPlayer.get();

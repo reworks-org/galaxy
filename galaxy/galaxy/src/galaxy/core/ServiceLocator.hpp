@@ -53,6 +53,8 @@ namespace galaxy
 	class Config;
 	class World;
 	class Serializer;
+	class FontBook;
+	class ShaderBook;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -139,6 +141,20 @@ namespace galaxy
 		///
 		galaxy::Serializer* serializer() const noexcept;
 
+		///
+		/// Get FontBook service.
+		///
+		/// \return Return const pointer to FontBook service.
+		///
+		galaxy::FontBook* fontbook() const noexcept;
+
+		///
+		/// Get ShaderBook service.
+		///
+		/// \return Return const pointer to ShaderBook service.
+		///
+		galaxy::ShaderBook* shaderbook() const noexcept;
+
 	private:
 		///
 		/// Default constructor.
@@ -220,6 +236,16 @@ namespace galaxy
 		/// Serializer service.
 		///
 		galaxy::Serializer* m_serializer;
+
+		///
+		/// FontBook service.
+		///
+		galaxy::FontBook* m_fontbook;
+
+		///
+		/// ShaderBook service.
+		///
+		galaxy::ShaderBook* m_shaderbook;
 	};
 }
 
