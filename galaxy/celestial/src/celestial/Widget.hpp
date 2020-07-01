@@ -8,9 +8,10 @@
 #ifndef CELESTIAL_WIDGET_HPP_
 #define CELESTIAL_WIDGET_HPP_
 
+#include <qs/graphics/Camera.hpp>
 #include <protostar/async/ProtectedArithmetic.hpp>
 
-#include "celestial/UITheme.hpp"
+#include "celestial/Theme.hpp"
 
 ///
 /// Core namespace.
@@ -18,17 +19,14 @@
 namespace celestial
 {
 	///
-	/// Represents an interactable UI object i.e. a button.
+	/// \brief Interactable UI object i.e. a button.
 	///
 	/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 	/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 	///
 	class Widget
 	{
-		///
-		/// So UI can directly access stuff that should not be publicly exposed.
-		///
-		friend class UI;
+		friend class GUI;
 	public:
 		///
 		/// Virtual destructor.
@@ -44,9 +42,9 @@ namespace celestial
 
 	protected:
 		///
-		/// Default constructor.
+		/// Argument constructor.
 		///
-		Widget() noexcept;
+		Widget(celestial::Theme* theme) noexcept;
 
 		///
 		/// Copy constructor.
@@ -82,9 +80,15 @@ namespace celestial
 		///
 		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
-		/// \param shader Use to set any shader uniforms.
+		/// \param camera Camera projection to apply to GUI.
 		///
-		virtual void render(qs::Shader& shader) noexcept = 0;
+		virtual void render(qs::Camera& camera) noexcept = 0;
+
+	private:
+		///
+		/// Deleted default constructor.
+		///
+		Widget() noexcept = delete;
 
 	protected:
 		///
@@ -93,9 +97,9 @@ namespace celestial
 		unsigned int m_id;
 
 		///
-		/// UITheme pointer.
+		/// Pointer to theme object.
 		///
-		celestial::UITheme* m_theme;
+		celestial::Theme* m_theme;
 	};
 
 	///

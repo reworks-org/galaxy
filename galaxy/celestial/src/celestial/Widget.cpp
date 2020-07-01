@@ -17,8 +17,8 @@ namespace celestial
 		return m_id;
 	}
 
-	Widget::Widget() noexcept
-		:m_theme(nullptr), m_id(0)
+	Widget::Widget(celestial::Theme* theme) noexcept
+		:m_theme(theme), m_id(0)
 	{
 	}
 }

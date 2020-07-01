@@ -1,26 +1,20 @@
 ///
-/// UI.cpp
+/// GUI.cpp
 /// celestial
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Shader.hpp>
-#include <qs/graphics/Camera.hpp>
-
-#include "UI.hpp"
+#include "GUI.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace celestial
 {
-	UI::UI(protostar::ProtectedDouble* deltaTime, celestial::UITheme* theme) noexcept
-		:m_isDestroyed(false), m_counter(0), m_theme(theme), m_dt(deltaTime)
+	GUI::GUI(protostar::ProtectedDouble* dt) noexcept
+		:m_isDestroyed(false), m_counter(0), m_dt(dt)
 	{
-		m_running.set(true);
-		m_visible.set(true);
-
 		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished)
 		{
 			while (m_running.get() && threadPoolFinished->get())
@@ -29,9 +23,12 @@ namespace celestial
 				update(m_dt);
 			}
 		});
+		
+		m_visible.set(true);
+		m_running.set(true);
 	}
 
-	UI::~UI() noexcept
+	GUI::~GUI() noexcept
 	{
 		if (!m_isDestroyed)
 		{
@@ -39,44 +36,38 @@ namespace celestial
 		}
 	}
 
-	void UI::render(qs::Shader& shader, qs::Camera& camera) noexcept
+	void GUI::render(qs::Camera& camera) noexcept
 	{
 		if (m_visible.get())
 		{
-			shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
-			shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
-			
 			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{
 				widget->activate();
-				widget->render(shader);
+				widget->render(camera);
 			}
 		}
 	}
 
-	void UI::setVisibility(const bool isVisible) noexcept
-	{
-		m_visible.set(isVisible);
-	}
-
-	protostar::Task* UI::getTask() noexcept
-	{
-		return &m_mainLoop;
-	}
-
-	void UI::remove(const unsigned int id) noexcept
+	void GUI::remove(const unsigned int id) noexcept
 	{
 		std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 
-		// Don't erase because that will mess up ordering.
-		m_widgets[id].reset();
-		m_widgets[id] = nullptr;
+		if (id >= m_widgets.size())
+		{
+			PL_LOG(PL_ERROR, "Invalid widget id.");
+		}
+		else
+		{
+			// Don't erase because that will mess up ordering.
+			m_widgets[id].reset();
+			m_widgets[id] = nullptr;
 
-		m_free.push_back(id);
+			m_free.push_back(id);
+		}
 	}
 
-	void UI::destroy() noexcept
+	void GUI::destroy() noexcept
 	{
 		m_running.set(false);
 		m_mainLoop.waitUntilFinished();
@@ -93,20 +84,29 @@ namespace celestial
 		}
 
 		m_isDestroyed = true;
-		m_theme = nullptr;
 		m_dt = nullptr;
 	}
 
-	void UI::processEvents() noexcept
+	void GUI::setVisibility(const bool isVisible) noexcept
+	{
+		m_visible.set(isVisible);
+	}
+
+	protostar::Task* GUI::getTask() noexcept
+	{
+		return &m_mainLoop;
+	}
+
+	void GUI::processEvents() noexcept
 	{
 		if (m_visible.get())
 		{
 			std::lock_guard<std::mutex> l_lock(m_eventMutex);
-			m_uiEventManager.trigger();
+			m_GUIEventManager.trigger();
 		}
 	}
 
-	void UI::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void GUI::update(protostar::ProtectedDouble* dt) noexcept
 	{
 		// Ok to pass pointer here without mutex since deltaTime value can only
 		// be accessed through a mutex protected get().
@@ -115,7 +115,7 @@ namespace celestial
 			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{
-				widget->update(deltaTime);
+				widget->update(dt);
 			}
 		}
 	}
