@@ -39,7 +39,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Point() noexcept = default;
+		~Point() noexcept = default;
 
 		///
 		/// Create the point.

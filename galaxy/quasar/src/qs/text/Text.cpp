@@ -45,7 +45,7 @@ namespace qs
             is.push_back(2 + count);
             is.push_back(3 + count);
 
-            auto* chr = m_font->getChar(c);
+            const auto* chr = m_font->getChar(c);
             auto* region = &chr->getRegion();
             vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0, region->m_x, region->m_y, 1.0f));
             vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0, region->m_x + region->m_width, region->m_y, 1.0f));
@@ -84,7 +84,7 @@ namespace qs
             is.push_back(2 + count);
             is.push_back(3 + count);
 
-            auto* chr = m_font->getChar(c);
+            const auto* chr = m_font->getChar(c);
             auto* region = &chr->getRegion();
             vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0, region->m_x, region->m_y, 1.0f));
             vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0, region->m_x + region->m_width, region->m_y, 1.0f));

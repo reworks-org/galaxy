@@ -193,6 +193,7 @@
     <Rule Id="CA5122" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
+    <Rule Id="C26408" Action="None" />
     <Rule Id="C26426" Action="None" />
     <Rule Id="C26429" Action="None" />
     <Rule Id="C26431" Action="None" />
@@ -205,9 +206,13 @@
     <Rule Id="C26449" Action="None" />
     <Rule Id="C26459" Action="None" />
     <Rule Id="C26472" Action="None" />
+    <Rule Id="C26474" Action="None" />
     <Rule Id="C26485" Action="None" />
     <Rule Id="C26486" Action="None" />
+    <Rule Id="C26487" Action="None" />
     <Rule Id="C26489" Action="None" />
+    <Rule Id="C26490" Action="None" />
+    <Rule Id="C26494" Action="None" />
     <Rule Id="C26800" Action="Warning" />
     <Rule Id="C28101" Action="Warning" />
     <Rule Id="C28103" Action="Warning" />

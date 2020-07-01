@@ -43,7 +43,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~TileLayer() noexcept override;
+		~TileLayer() noexcept;
 
 		///
 		/// Get chunks array.

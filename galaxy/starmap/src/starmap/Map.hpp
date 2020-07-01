@@ -52,7 +52,7 @@ namespace starmap
 		///
 		/// \return True if successful.
 		///
-		bool load(char* buffer, const std::size_t size) noexcept;
+		bool load(const char* buffer, const std::size_t size) noexcept;
 
 		///
 		/// Parses json structure to member values, etc.

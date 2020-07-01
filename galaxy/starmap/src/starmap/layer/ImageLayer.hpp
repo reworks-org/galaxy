@@ -39,7 +39,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~ImageLayer() noexcept override;
+		~ImageLayer() noexcept;
 
 		///
 		/// Get image.

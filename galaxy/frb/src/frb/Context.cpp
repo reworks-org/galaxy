@@ -107,7 +107,7 @@ namespace frb
 
 	void Context::setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ) noexcept
 	{
-		float asArray[6] = {atX, atY, atZ, upX, upY, upZ};
+		const float asArray[6] = {atX, atY, atZ, upX, upY, upZ};
 		alListenerfv(AL_ORIENTATION, asArray);
 		if (alGetError() != AL_NO_ERROR)
 		{

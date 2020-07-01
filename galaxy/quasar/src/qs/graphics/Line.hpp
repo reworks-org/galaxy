@@ -41,7 +41,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Line() noexcept = default;
+		~Line() noexcept = default;
 
 		///
 		/// Create the Line.

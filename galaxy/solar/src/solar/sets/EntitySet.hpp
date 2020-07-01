@@ -171,9 +171,10 @@ namespace sr
 		{
 			if (element >= m_capacity)
 			{
-				m_dense.resize(element + 1);
-				m_sparse.resize(element + 1);
-				m_capacity = element + 1;
+				const uint newSize = element + static_cast<uint>(1);
+				m_dense.resize(newSize);
+				m_sparse.resize(newSize);
+				m_capacity = newSize;
 			}
 
 			m_dense[m_size] = element;

@@ -42,7 +42,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Circle() noexcept = default;
+		~Circle() noexcept = default;
 
 		///
 		/// Create the Circle.

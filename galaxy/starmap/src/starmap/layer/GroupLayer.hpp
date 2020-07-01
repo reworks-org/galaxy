@@ -39,7 +39,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~GroupLayer() noexcept override;
+		~GroupLayer() noexcept;
 
 		///
 		/// Parses tilelayer specific json.

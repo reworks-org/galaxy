@@ -40,7 +40,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~ObjectLayer() noexcept override;
+		~ObjectLayer() noexcept;
 
 		///
 		/// Get draw order.

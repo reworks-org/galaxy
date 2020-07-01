@@ -164,7 +164,7 @@ namespace qs
 
 	void SpriteBatch::sort() noexcept
 	{
-		std::stable_sort(m_sprites.begin(), m_sprites.end(), [](const qs::BatchedSprite* lhs, const qs::BatchedSprite* rhs)
+		std::stable_sort(m_sprites.begin(), m_sprites.end(), [](const qs::BatchedSprite* lhs, const qs::BatchedSprite* rhs) noexcept
 		{
 			return lhs->getZLevel() < rhs->getZLevel();
 		});

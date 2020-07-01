@@ -41,7 +41,7 @@ namespace qs
 		/// \param layout VertexLayout to specify for this VertexArrayObject.
 		///
 		template<typename VertexType>
-		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, qs::VertexLayout& layout) noexcept;
+		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
 
 		///
 		/// Bind the current vertex array to current GL context.
@@ -61,7 +61,7 @@ namespace qs
 	};
 
 	template<typename VertexType>
-	inline void VertexArray::create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, qs::VertexLayout& layout) noexcept
+	inline void VertexArray::create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept
 	{
 		// If not one of the two buffer type structs, throw compile-time assert.
 		static_assert(std::is_same<VertexType, qs::SpriteVertex>::value || std::is_same<VertexType, qs::PrimitiveVertex>::value);

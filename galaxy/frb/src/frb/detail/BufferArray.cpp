@@ -14,14 +14,7 @@ namespace frb
 {
 	BufferArray::~BufferArray() noexcept
 	{
-		for (auto count = 0; count < m_bufferArray.size(); count++)
-		{
-			if (m_bufferArray[count] != static_cast<ALuint>(-1))
-			{
-				alDeleteBuffers(1, &m_bufferArray[count]);
-			}
-		}
-
+		destroy();
 		m_bufferArray.clear();
 	}
 
@@ -73,7 +66,7 @@ namespace frb
 		alDeleteBuffers(static_cast<ALsizei>(m_bufferArray.size()), m_bufferArray.data());
 		for (auto count = 0; count < m_bufferArray.size(); count++)
 		{
-			m_bufferArray[count] = static_cast<ALuint>(-1);
+			m_bufferArray[count] = 0;
 		}
 	}
 

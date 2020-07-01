@@ -47,7 +47,7 @@ namespace qs
 			{
 				if (FT_Load_Char(face, chr, FT_LOAD_RENDER))
 				{
-					PL_LOG(PL_ERROR, "Failed to load character: " + chr);
+					PL_LOG(PL_ERROR, "Failed to load character: " + std::to_string(chr));
 				}
 				else
 				{

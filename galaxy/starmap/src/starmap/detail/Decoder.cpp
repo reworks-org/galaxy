@@ -35,7 +35,7 @@ namespace starmap
                     val = (val << 6) + T[c];
                     valb += 6;
                     if (valb >= 0) {
-                        out.push_back(char((val >> valb) & 0xFF));
+                        out.push_back(static_cast<char>((val >> valb) & 0xFF));
                         valb -= 8;
                     }
                 }
@@ -73,7 +73,7 @@ namespace starmap
                     {
                         delete[] zlibOut;
                         zlibOut = nullptr;
-                        PL_LOG(PL_FATAL, "inflateInit failed! errcode: " + err);
+                        PL_LOG(PL_FATAL, "inflateInit failed! errcode: " + std::to_string(err));
                     }
                     else
                     {
@@ -147,7 +147,7 @@ namespace starmap
                     {
                         delete[] gzipOut;
                         gzipOut = nullptr;
-                        PL_LOG(PL_FATAL, "inflateInit failed! errcode: " + err);
+                        PL_LOG(PL_FATAL, "inflateInit failed! errcode: " + std::to_string(err));
                     }
                     else
                     {

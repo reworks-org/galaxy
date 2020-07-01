@@ -32,7 +32,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~SpriteBatch() noexcept;
+		~SpriteBatch() noexcept;
 
 		///
 		/// Set the texture to use.

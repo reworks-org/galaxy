@@ -30,7 +30,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~AnimatedSprite() noexcept = default;
+		~AnimatedSprite() noexcept = default;
 
 		///
 		/// Updates.

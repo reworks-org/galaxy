@@ -56,7 +56,7 @@ namespace starmap
 		return result;
 	}
 
-	bool Map::load(char* buffer, const std::size_t size) noexcept
+	bool Map::load(const char* buffer, const std::size_t size) noexcept
 	{
 		bool result = true;
 
