@@ -146,13 +146,13 @@ namespace galaxy
 
 			// FontBook
 			std::string fbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("fontbook-json");
-			m_fontbook = std::make_unique<galaxy::FontBook>(fbPath);
-			SL_HANDLE.m_fontbook = m_fontbook.get();
+			//m_fontbook = std::make_unique<galaxy::FontBook>(fbPath);
+			//SL_HANDLE.m_fontbook = m_fontbook.get();
 
 			// ShaderBook
 			std::string sbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("shaderbook-json");
-			m_shaderbook = std::make_unique<galaxy::ShaderBook>(sbPath);
-			SL_HANDLE.m_shaderbook = m_shaderbook.get();
+			//m_shaderbook = std::make_unique<galaxy::ShaderBook>(sbPath);
+			//SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 			// END SERVICES
 
@@ -198,7 +198,7 @@ namespace galaxy
 		PL_LOG_GET.deinit();
 	}
 
-	bool Application::run()
+	bool Application::run() noexcept
 	{
 		// This is to ensure gameloop is running at 60 UPS, independant of FPS. 1.0 / 60.0.
 		std_chrono_tp current;

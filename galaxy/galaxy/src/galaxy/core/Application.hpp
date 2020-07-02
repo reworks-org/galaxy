@@ -49,7 +49,7 @@ namespace galaxy
 		///
 		/// \return Returns true if the program should restart.
 		/// 
-		virtual bool run() final;
+		virtual bool run() noexcept final;
 
 	protected:
 		///

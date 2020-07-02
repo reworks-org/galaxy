@@ -83,10 +83,10 @@ namespace galaxy
 		}
 		else
 		{
-			m_componentFactory.emplace(name, [this](const sr::Entity e, const nlohmann::json& json)
+			m_componentFactory.emplace(name, [this](const sr::Entity e, const nlohmann::json& json) noexcept
 			{
 				this->add<Component>(e, json);
-			}) noexcept;
+			});
 		}
 	}
 }

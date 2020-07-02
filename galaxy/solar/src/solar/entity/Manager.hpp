@@ -304,7 +304,7 @@ namespace sr
 		}
 		else
 		{
-			constexpr auto type = cUniqueID::get<Component>();
+			const auto type = cUniqueID::get<Component>();
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
@@ -336,7 +336,7 @@ namespace sr
 		}
 		else
 		{
-			constexpr auto type = cUniqueID::get<Component>();
+			const auto type = cUniqueID::get<Component>();
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
@@ -403,7 +403,7 @@ namespace sr
 	template<typename System, typename ...Args>
 	inline void Manager::addSystem(Args&&... args) noexcept
 	{
-		constexpr auto type = sUniqueID::get<System>();
+		const auto type = sUniqueID::get<System>();
 		if (type >= m_systems.size())
 		{
 			m_systems.resize(type + 1);
@@ -415,7 +415,7 @@ namespace sr
 	template<typename System>
 	inline System* Manager::get() noexcept
 	{
-		constexpr auto type = sUniqueID::get<System>();
+		const auto type = sUniqueID::get<System>();
 		if (type > m_systems.size())
 		{
 			PL_LOG(PL_FATAL, "Attempted to access a system type that doesnt exist!");
