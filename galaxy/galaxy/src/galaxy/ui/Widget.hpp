@@ -1,22 +1,21 @@
 ///
 /// Widget.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_WIDGET_HPP_
-#define CELESTIAL_WIDGET_HPP_
+#ifndef GALAXY_WIDGET_HPP_
+#define GALAXY_WIDGET_HPP_
 
-#include <qs/graphics/Camera.hpp>
 #include <protostar/async/ProtectedArithmetic.hpp>
 
-#include "celestial/Theme.hpp"
+#include "galaxy/ui/Tooltip.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// \brief Interactable UI object i.e. a button.
@@ -34,6 +33,15 @@ namespace celestial
 		virtual ~Widget() noexcept = default;
 
 		///
+		/// Create the tooltip for the widget.
+		///
+		/// \param theme Pointer to theme object.
+		///
+		/// \return Pointer to the tooltip.
+		///
+		Tooltip* addTooltip(Theme* theme) noexcept;
+
+		///
 		/// Get ID of this widget.
 		///
 		/// \return const unsigned int ID value.
@@ -44,7 +52,7 @@ namespace celestial
 		///
 		/// Argument constructor.
 		///
-		Widget(celestial::Theme* theme) noexcept;
+		Widget(galaxy::Theme* theme) noexcept;
 
 		///
 		/// Copy constructor.
@@ -99,13 +107,18 @@ namespace celestial
 		///
 		/// Pointer to theme object.
 		///
-		celestial::Theme* m_theme;
+		Theme* m_theme;
+
+		///
+		/// Pointer to the tooltip.
+		///
+		std::unique_ptr<Tooltip> m_tooltip;
 	};
 
 	///
 	/// Shorthand.
 	///
-	using WidgetPtr = std::unique_ptr<celestial::Widget>;
+	using WidgetPtr = std::unique_ptr<galaxy::Widget>;
 }
 
 #endif

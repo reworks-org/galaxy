@@ -1,22 +1,22 @@
 ///
 /// GUI.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_GUI_HPP_
-#define CELESTIAL_GUI_HPP_
+#ifndef GALAXY_GUI_HPP_
+#define GALAXY_GUI_HPP_
 
 #include <starlight/Dispatcher.hpp>
 #include <protostar/async/Task.hpp>
 
-#include "celestial/Widget.hpp"
+#include "galaxy/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// Manages the GUI and a group of widgets for that GUI.
@@ -53,7 +53,7 @@ namespace celestial
 		/// \return Pointer to newly created widget.
 		///
 		template<typename WidgetType, typename... Args>
-		WidgetType* add(celestial::Theme* theme, Args&&... args) noexcept;
+		WidgetType* add(galaxy::Theme* theme, Args&&... args) noexcept;
 
 		///
 		/// Registers a function to be called on the triggering of an event.
@@ -174,11 +174,11 @@ namespace celestial
 		///
 		/// Holds list of widget pointers.
 		///
-		std::vector<celestial::WidgetPtr> m_widgets;
+		std::vector<galaxy::WidgetPtr> m_widgets;
 	};
 
 	template<typename WidgetType, typename ...Args>
-	inline WidgetType* GUI::add(celestial::Theme* theme, Args&& ...args) noexcept
+	inline WidgetType* GUI::add(galaxy::Theme* theme, Args&& ...args) noexcept
 	{
 		unsigned int id = 0;
 

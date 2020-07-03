@@ -37,7 +37,6 @@
     <ClCompile Include="src\galaxy\components\PlaylistComponent.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
-    <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
@@ -48,6 +47,11 @@
     <ClCompile Include="src\galaxy\scripting\LuaEntity.cpp" />
     <ClCompile Include="src\galaxy\res\ShaderBook.cpp" />
     <ClCompile Include="src\galaxy\res\FontBook.cpp" />
+    <ClCompile Include="src\galaxy\ui\GUI.cpp" />
+    <ClCompile Include="src\galaxy\ui\Theme.cpp" />
+    <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
+    <ClCompile Include="src\galaxy\ui\Widget.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaConsole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -63,7 +67,6 @@
     <ClInclude Include="src\galaxy\components\PlaylistComponent.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
-    <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
@@ -74,5 +77,10 @@
     <ClInclude Include="src\galaxy\scripting\LuaEntity.hpp" />
     <ClInclude Include="src\galaxy\res\ShaderBook.hpp" />
     <ClInclude Include="src\galaxy\res\FontBook.hpp" />
+    <ClInclude Include="src\galaxy\ui\GUI.hpp" />
+    <ClInclude Include="src\galaxy\ui\Theme.hpp" />
+    <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
+    <ClInclude Include="src\galaxy\ui\Widget.hpp" />
+    <ClInclude Include="src\galaxy\scripting\LuaConsole.hpp" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,59 @@
+///
+/// Theme.cpp
+/// galaxy
+///
+/// Refer to LICENSE.txt for more details.
+///
+
+#include "Theme.hpp"
+
+///
+/// Core namespace.
+///
+namespace galaxy
+{
+	Theme::Theme() noexcept
+		:m_window(nullptr), m_renderer(nullptr)
+	{
+	}
+
+	Theme::~Theme() noexcept
+	{
+		m_caches.clear();
+	}
+
+	void Theme::setWindow(qs::Window* window) noexcept
+	{
+		m_window = window;
+	}
+
+	void Theme::setRenderer(qs::Renderer* renderer) noexcept
+	{
+		m_renderer = renderer;
+	}
+
+	void Theme::addTextureToAtlas(const std::string& texture) noexcept
+	{
+		m_atlas.add(texture);
+	}
+
+	void Theme::createTextureAtlas(qs::Shader& shader) noexcept
+	{
+		m_atlas.create(*m_renderer, shader);
+	}
+
+	qs::TextureAtlas* Theme::getAtlas() noexcept
+	{
+		return &m_atlas;
+	}
+
+	qs::Window* Theme::getWindow() const noexcept
+	{
+		return m_window;
+	}
+
+	qs::Renderer* Theme::getRenderer() const noexcept
+	{
+		return m_renderer;
+	}
+}

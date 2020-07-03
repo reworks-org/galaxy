@@ -42,7 +42,11 @@
     <ClCompile Include="src\galaxy\scripting\LuaEntity.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
     <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
-    <ClCompile Include="src\galaxy\ui\LuaConsole.cpp" />
+    <ClCompile Include="src\galaxy\ui\GUI.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaConsole.cpp" />
+    <ClCompile Include="src\galaxy\ui\Theme.cpp" />
+    <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
+    <ClCompile Include="src\galaxy\ui\Widget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\components\AudioComponent.hpp" />
@@ -68,7 +72,11 @@
     <ClInclude Include="src\galaxy\scripting\LuaEntity.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
     <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
-    <ClInclude Include="src\galaxy\ui\LuaConsole.hpp" />
+    <ClInclude Include="src\galaxy\ui\GUI.hpp" />
+    <ClInclude Include="src\galaxy\scripting\LuaConsole.hpp" />
+    <ClInclude Include="src\galaxy\ui\Theme.hpp" />
+    <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
+    <ClInclude Include="src\galaxy\ui\Widget.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

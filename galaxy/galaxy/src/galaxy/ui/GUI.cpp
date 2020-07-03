@@ -1,6 +1,6 @@
 ///
 /// GUI.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	GUI::GUI(protostar::ProtectedDouble* dt) noexcept
 		:m_isDestroyed(false), m_counter(0), m_dt(dt)
