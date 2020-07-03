@@ -50,8 +50,9 @@ namespace galaxy
 		/// Render the tooltip.
 		///
 		/// \param camera Camera position to utilize when rendering.
+		/// \param textShader ID of shader in ShaderBook.
 		///
-		void render(qs::Camera& camera) noexcept;
+		void render(qs::Camera& camera, const unsigned int textShader) noexcept;
 		
 		///
 		/// Set the text of the tooltip.

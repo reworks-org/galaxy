@@ -5,6 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Renderer.hpp>
+
+#include "galaxy/res/ShaderBook.hpp"
+
 #include "GUI.hpp"
 
 ///
@@ -13,7 +17,7 @@
 namespace galaxy
 {
 	GUI::GUI(protostar::ProtectedDouble* dt) noexcept
-		:m_isDestroyed(false), m_counter(0), m_dt(dt)
+		:m_isDestroyed(false), m_counter(0), m_theme(nullptr), m_dt(dt)
 	{
 		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished) noexcept
 		{
@@ -36,10 +40,23 @@ namespace galaxy
 		}
 	}
 
-	void GUI::render(qs::Camera& camera) noexcept
+	void GUI::render(qs::Camera& camera, const unsigned int shader) noexcept
 	{
 		if (m_visible.get())
 		{
+			auto* renderer = m_theme->getRenderer();
+			auto* shaderPtr = m_theme->get<ShaderBook>(shader);
+			auto* batch = m_theme->getBatch();
+
+			shaderPtr->bind();
+			shaderPtr->setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+			shaderPtr->setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+			
+			batch->update();
+			batch->bind();
+			
+			renderer->drawSpriteBatch(*m_theme->getBatch(), *shaderPtr);
+
 			std::lock_guard<std::mutex> l_lock(m_widgetMutex);
 			for (auto&& widget : m_widgets)
 			{
@@ -47,6 +64,12 @@ namespace galaxy
 				widget->render(camera);
 			}
 		}
+	}
+
+	Theme* GUI::create() noexcept
+	{
+		m_theme = std::make_unique<Theme>();
+		return m_theme.get();
 	}
 
 	void GUI::remove(const unsigned int id) noexcept

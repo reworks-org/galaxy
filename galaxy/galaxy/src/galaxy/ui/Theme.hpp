@@ -8,6 +8,7 @@
 #ifndef GALAXY_THEME_HPP_
 #define GALAXY_THEME_HPP_
 
+#include <qs/sprite/SpriteBatch.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 #include <protostar/utility/UniqueID.hpp>
 #include <protostar/system/ResourceCache.hpp>
@@ -94,6 +95,13 @@ namespace galaxy
 		qs::TextureAtlas* getAtlas() noexcept;
 
 		///
+		/// Get pointer to sprite batch.
+		///
+		/// \return Pointer.
+		///
+		qs::SpriteBatch* getBatch() noexcept;
+
+		///
 		/// Get pointer to window.
 		///
 		/// \return Pointer.
@@ -122,6 +130,11 @@ namespace galaxy
 		/// Texture Atlas.
 		///
 		qs::TextureAtlas m_atlas;
+
+		///
+		/// SpriteBatch.
+		///
+		qs::SpriteBatch m_spriteBatch;
 
 		///
 		/// Pointers to resource caches.

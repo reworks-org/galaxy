@@ -42,8 +42,16 @@ namespace galaxy
 		/// This function should be called on the main thread.
 		///
 		/// \param camera Camera projection to apply to GUI.
+		/// \param shader ID of shader in ShaderBook.
 		///
-		void render(qs::Camera& camera) noexcept;
+		void render(qs::Camera& camera, const unsigned int shader) noexcept;
+
+		///
+		/// Create the theme.
+		///
+		/// \return Pointer to newly created theme.
+		///
+		Theme* create() noexcept;
 
 		///
 		/// Add a widget to the GUI.
@@ -53,7 +61,7 @@ namespace galaxy
 		/// \return Pointer to newly created widget.
 		///
 		template<typename WidgetType, typename... Args>
-		WidgetType* add(galaxy::Theme* theme, Args&&... args) noexcept;
+		WidgetType* add(Args&&... args) noexcept;
 
 		///
 		/// Registers a function to be called on the triggering of an event.
@@ -132,6 +140,11 @@ namespace galaxy
 		unsigned int m_counter;
 
 		///
+		/// Theme object.
+		///
+		std::unique_ptr<Theme> m_theme;
+
+		///
 		/// Pointer to delta time.
 		///
 		protostar::ProtectedDouble* m_dt;
@@ -178,7 +191,7 @@ namespace galaxy
 	};
 
 	template<typename WidgetType, typename ...Args>
-	inline WidgetType* GUI::add(galaxy::Theme* theme, Args&& ...args) noexcept
+	inline WidgetType* GUI::add(Args&& ...args) noexcept
 	{
 		unsigned int id = 0;
 
@@ -205,7 +218,7 @@ namespace galaxy
 		}
 
 		// Forward arguments to std::vector's construct in place method.
-		m_widgets[id] = std::make_unique<WidgetType>(theme, std::forward<Args>(args)...);
+		m_widgets[id] = std::make_unique<WidgetType>(m_theme.get(), std::forward<Args>(args)...);
 
 		// Set ID.
 		WidgetType* ref = dynamic_cast<WidgetType*>(m_widgets[id].get());

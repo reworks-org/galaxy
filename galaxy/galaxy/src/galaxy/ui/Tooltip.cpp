@@ -5,7 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Renderer.hpp>
+
 #include "galaxy/res/FontBook.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 
 #include "Tooltip.hpp"
 
@@ -17,6 +20,7 @@ namespace galaxy
 	Tooltip::Tooltip(Theme* theme) noexcept
 		:m_x(0.0f), m_y(0.0f), m_textStr(""), m_texture(""), m_theme(theme)
 	{
+		m_theme->getBatch()->add(&m_sprite);
 	}
 
 	Tooltip::~Tooltip() noexcept
@@ -30,8 +34,15 @@ namespace galaxy
 		m_y = static_cast<float>(e.m_y + 12);
 	}
 
-	void Tooltip::render(qs::Camera& camera) noexcept
+	void Tooltip::render(qs::Camera& camera, const unsigned int textShader) noexcept
 	{
+		auto* shader = m_theme->get<ShaderBook>(textShader);
+		
+		shader->bind();
+		shader->setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+		shader->setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+
+		m_theme->getRenderer()->drawText(m_text, *shader);
 	}
 
 	void Tooltip::setText(const std::string& text) noexcept
@@ -52,7 +63,7 @@ namespace galaxy
 	void Tooltip::create(const unsigned int font) noexcept
 	{
 		m_sprite.create(m_theme->getAtlas()->getTexQuad(m_texture), 1);
-		m_sprite.move(m_x, m_y);
+		m_sprite.setPos(m_x, m_y);
 
 		m_text.load(m_textStr, m_theme->get<galaxy::FontBook>(font), m_colour);
 		m_text.create();

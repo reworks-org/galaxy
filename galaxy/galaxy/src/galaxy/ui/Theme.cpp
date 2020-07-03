@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Shader.hpp>
+
 #include "Theme.hpp"
 
 ///
@@ -13,8 +15,9 @@
 namespace galaxy
 {
 	Theme::Theme() noexcept
-		:m_window(nullptr), m_renderer(nullptr)
+		:m_window(nullptr), m_renderer(nullptr), m_spriteBatch(1000)
 	{
+		m_spriteBatch.setTexture(m_atlas.getTexture());
 	}
 
 	Theme::~Theme() noexcept
@@ -39,12 +42,18 @@ namespace galaxy
 
 	void Theme::createTextureAtlas(qs::Shader& shader) noexcept
 	{
+		shader.bind();
 		m_atlas.create(*m_renderer, shader);
 	}
 
 	qs::TextureAtlas* Theme::getAtlas() noexcept
 	{
 		return &m_atlas;
+	}
+
+	qs::SpriteBatch* Theme::getBatch() noexcept
+	{
+		return &m_spriteBatch;
 	}
 
 	qs::Window* Theme::getWindow() const noexcept
