@@ -50,7 +50,7 @@ namespace galaxy
 		///
 		/// \param camera Camera used for rendering.
 		///
-		void render(qs::Camera* camera);
+		void render(qs::Camera& camera) noexcept;
 	};
 }
 

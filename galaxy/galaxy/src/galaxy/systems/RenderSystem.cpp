@@ -36,7 +36,7 @@ namespace galaxy
 	{
 	}
 
-	void RenderSystem::render(qs::Camera* camera)
+	void RenderSystem::render(qs::Camera& camera) noexcept
 	{
 		SL_HANDLE.world()->operate<SpriteComponent, TransformComponent, ShaderComponent, EnabledFlag>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader, EnabledFlag* ef)
 		{
@@ -47,8 +47,8 @@ namespace galaxy
 				shader->m_shader.setUniform("u_opacity", sprite->getOpacity());
 				shader->m_shader.setUniform<float>("u_width", static_cast<float>(sprite->getWidth()));
 				shader->m_shader.setUniform<float>("u_height", static_cast<float>(sprite->getHeight()));
-				shader->m_shader.setUniform<glm::mat4>("u_cameraProj", camera->getProj());
-				shader->m_shader.setUniform<glm::mat4>("u_cameraView", camera->getTransformation());
+				shader->m_shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+				shader->m_shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 
 				glDrawElements(GL_TRIANGLES, sprite->getCount(), GL_UNSIGNED_INT, nullptr);
 		});
