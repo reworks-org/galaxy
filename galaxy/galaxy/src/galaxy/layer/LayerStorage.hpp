@@ -66,7 +66,9 @@ namespace galaxy
 		///
 		/// Render all layers.
 		///
-		void render() noexcept;
+		/// \param camera Camera to render layers with.
+		///
+		void render(qs::Camera& camera) noexcept;
 
 		///
 		/// Destroy top-most layer.

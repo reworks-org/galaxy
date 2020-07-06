@@ -37,11 +37,11 @@ namespace galaxy
 		}
 	}
 
-	void LayerStorage::render() noexcept
+	void LayerStorage::render(qs::Camera& camera) noexcept
 	{
 		for (auto&& layer : m_layers)
 		{
-			layer->render();
+			layer->render(camera);
 		}
 	}
 
@@ -52,7 +52,7 @@ namespace galaxy
 
 	void LayerStorage::remove(const std::string& name) noexcept
 	{
-		m_layers.erase(std::find_if(m_layers.begin(), m_layers.end(), [&](std::unique_ptr<Layer> const& layer)
+		m_layers.erase(std::find_if(m_layers.begin(), m_layers.end(), [&](std::unique_ptr<Layer> const& layer) noexcept
 		{
 			return layer->getName() == name;
 		}));

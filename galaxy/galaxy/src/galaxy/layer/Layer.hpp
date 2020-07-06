@@ -10,6 +10,7 @@
 
 #include <string>
 
+#include <qs/graphics/Camera.hpp>
 #include <protostar/async/ProtectedArithmetic.hpp>
 
 ///
@@ -45,7 +46,9 @@ namespace galaxy
 		///
 		/// Does NOT allow std::exceptions!
 		///
-		virtual void render() noexcept = 0;
+		/// \param camera View camera to render with.
+		///
+		virtual void render(qs::Camera& camera) noexcept = 0;
 
 		///
 		/// Set layer name.
