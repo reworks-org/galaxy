@@ -16,20 +16,9 @@
 ///
 namespace galaxy
 {
-	GUI::GUI(protostar::ProtectedDouble* dt) noexcept
-		:m_isDestroyed(false), m_counter(0), m_theme(nullptr), m_dt(dt)
+	GUI::GUI() noexcept
+		:m_isDestroyed(false), m_counter(0), m_theme(nullptr), m_dt(nullptr)
 	{
-		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished) noexcept
-		{
-			while (m_running.get() && threadPoolFinished->get())
-			{
-				processEvents();
-				update(m_dt);
-			}
-		});
-		
-		m_visible.set(true);
-		m_running.set(true);
 	}
 
 	GUI::~GUI() noexcept
@@ -38,6 +27,25 @@ namespace galaxy
 		{
 			destroy();
 		}
+	}
+
+	void GUI::construct(protostar::ProtectedDouble* dt, protostar::ThreadPool* pool) noexcept
+	{
+		m_dt = dt;
+
+		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished) noexcept
+		{
+			while (m_running.get() && threadPoolFinished->get())
+			{
+				processEvents();
+				update(m_dt);
+			}
+		});
+
+		m_visible.set(true);
+		m_running.set(true);
+
+		pool->queue(this->getTask());
 	}
 
 	void GUI::render(qs::Camera& camera, const unsigned int shader) noexcept
@@ -66,7 +74,7 @@ namespace galaxy
 		}
 	}
 
-	Theme* GUI::create() noexcept
+	Theme* GUI::addTheme() noexcept
 	{
 		m_theme = std::make_unique<Theme>();
 		return m_theme.get();

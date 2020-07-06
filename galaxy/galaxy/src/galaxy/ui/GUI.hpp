@@ -9,7 +9,7 @@
 #define GALAXY_GUI_HPP_
 
 #include <starlight/Dispatcher.hpp>
-#include <protostar/async/Task.hpp>
+#include <protostar/async/ThreadPool.hpp>
 
 #include "galaxy/ui/Widget.hpp"
 
@@ -27,14 +27,20 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		/// \param dt A pointer to delta time for update loops.
-		///
-		GUI(protostar::ProtectedDouble* dt) noexcept;
+		GUI() noexcept;
 
 		///
 		/// Destructor.
 		///
 		~GUI() noexcept;
+
+		///
+		/// Sets up GUI thread, etc.
+		///
+		/// \param dt A pointer to delta time for update loops.
+		/// \param pool Pool to assign GUI to.
+		///
+		void construct(protostar::ProtectedDouble* dt, protostar::ThreadPool* pool) noexcept;
 
 		///
 		/// \brief Render GUI.
@@ -51,7 +57,7 @@ namespace galaxy
 		///
 		/// \return Pointer to newly created theme.
 		///
-		Theme* create() noexcept;
+		Theme* addTheme() noexcept;
 
 		///
 		/// Add a widget to the GUI.
@@ -111,11 +117,6 @@ namespace galaxy
 		protostar::Task* getTask() noexcept;
 
 	private:
-		///
-		/// Default constructor.
-		///
-		GUI() noexcept = delete;
-
 		///
 		/// Internal function to process events to widgets across threads.
 		///
