@@ -21,9 +21,6 @@
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
     <ClCompile Include="src\qs\shaders\Light.cpp" />
-    <ClCompile Include="src\qs\shaders\RenderToTexture.cpp" />
-    <ClCompile Include="src\qs\shaders\Sprites.cpp" />
-    <ClCompile Include="src\qs\shaders\SpriteBatches.cpp" />
     <ClCompile Include="src\qs\shaders\Lines.cpp" />
     <ClCompile Include="src\qs\shaders\Points.cpp" />
     <ClCompile Include="src\qs\texture\Texture.cpp" />
@@ -65,9 +62,6 @@
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
     <ClInclude Include="src\qs\shaders\Light.hpp" />
-    <ClInclude Include="src\qs\shaders\RenderToTexture.hpp" />
-    <ClInclude Include="src\qs\shaders\Sprites.hpp" />
-    <ClInclude Include="src\qs\shaders\SpriteBatches.hpp" />
     <ClInclude Include="src\qs\shaders\Lines.hpp" />
     <ClInclude Include="src\qs\shaders\Points.hpp" />
     <ClInclude Include="src\qs\texture\Texture.hpp" />

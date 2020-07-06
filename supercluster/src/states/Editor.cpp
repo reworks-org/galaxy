@@ -5,15 +5,21 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <qs/core/Window.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
+
 #include "../layers/ECSLayer.hpp"
+#include "../layers/GUILayer.hpp"
 #include "../layers/ImGuiLayer.hpp"
 
 #include "Editor.hpp"
 
 namespace sc
 {
-	Editor::Editor() noexcept
+	Editor::Editor(protostar::ProtectedDouble* dt) noexcept
+		:m_dt(dt)
 	{
+		m_camera.create(0.0f, SL_HANDLE.window()->getWidth(), SL_HANDLE.window()->getHeight(), 0.0f);
 	}
 
 	Editor::~Editor() noexcept
@@ -23,6 +29,7 @@ namespace sc
 	void Editor::onPush() noexcept
 	{
 		m_layers.add<ECSLayer>();
+		m_layers.add<GUILayer>(m_dt);
 		m_layers.add<ImGuiLayer>();
 	}
 
@@ -36,13 +43,14 @@ namespace sc
 		m_layers.events();
 	}
 
-	void Editor::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void Editor::update(protostar::ProtectedDouble* dt) noexcept
 	{
-		m_layers.update(deltaTime);
+		m_camera.update(dt->get());
+		m_layers.update(dt);
 	}
 
 	void Editor::render() noexcept
 	{
-		m_layers.render();
+		m_layers.render(m_camera);
 	}
 }

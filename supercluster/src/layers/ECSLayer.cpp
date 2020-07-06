@@ -11,7 +11,6 @@
 #include <galaxy/components/ShaderComponent.hpp>
 #include <galaxy/components/TransformComponent.hpp>
 #include <galaxy/flags/EnabledFlag.hpp>
-#include <qs/shaders/Sprites.hpp>
 
 #include "ECSLayer.hpp"
 
@@ -25,8 +24,6 @@ namespace sc
 		setName("ECSLayer");
 		m_window = SL_HANDLE.window();
 		m_world = SL_HANDLE.world();
-
-		m_camera.create(0.0f, m_window->getWidth(), m_window->getHeight(), 0.0f);
 
 		/*
 		auto entity = m_world->create();
@@ -58,14 +55,13 @@ namespace sc
 		m_world->events();
 	}
 
-	void ECSLayer::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void ECSLayer::update(protostar::ProtectedDouble* dt) noexcept
 	{
-		m_world->update(deltaTime);
-		m_camera.update(deltaTime->get());
+		m_world->update(dt);
 	}
 
-	void ECSLayer::render() noexcept
+	void ECSLayer::render(qs::Camera& camera) noexcept
 	{
-		m_world->get<galaxy::RenderSystem>()->render(&m_camera);
+		m_world->get<galaxy::RenderSystem>()->render(camera);
 	}
 }

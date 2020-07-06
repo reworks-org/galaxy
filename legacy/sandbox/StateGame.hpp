@@ -34,13 +34,6 @@
 #include <frb/Context.hpp>
 #include <frb/audio/Audible.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
-#include <qs/shaders/Light.hpp>
-#include <qs/shaders/Lines.hpp>
-#include <qs/shaders/Points.hpp>
-#include <qs/shaders/Sprites.hpp>
-#include <qs/shaders/SpriteBatches.hpp>
-#include <qs/shaders/Glyphs.hpp>
-#include <qs/shaders/RenderToTexture.hpp>
 #include <protostar/state/State.hpp>
 #include <qs/shaders/Texts.hpp>
 #include <starlight/Dispatcher.hpp>

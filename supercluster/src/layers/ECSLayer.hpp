@@ -10,7 +10,6 @@
 
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
-#include <qs/graphics/Camera.hpp>
 #include <galaxy/layer/Layer.hpp>
 
 namespace sc
@@ -38,19 +37,18 @@ namespace sc
 		///
 		/// \param deltaTime Delta-Time from fixed timestep gameloop.
 		///
-		void update(protostar::ProtectedDouble* deltaTime) noexcept override;
+		void update(protostar::ProtectedDouble* dt) noexcept override;
 
 		///
 		/// \brief Render layer.
 		///
 		/// Does NOT allow std::exceptions!
 		///
-		void render() noexcept override;
+		void render(qs::Camera& camera) noexcept override;
 
 	private:
 		galaxy::World* m_world;
 		qs::Window* m_window;
-		qs::Camera m_camera;
 	};
 }
 

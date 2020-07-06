@@ -18,10 +18,10 @@
 
 #include "states/Editor.hpp"
 
-class Editor : public galaxy::Application
+class EditorApp : public galaxy::Application
 {
 public:
-	Editor(std::unique_ptr<galaxy::Config>& config)
+	EditorApp(std::unique_ptr<galaxy::Config>& config)
 		:galaxy::Application(config)
 	{
 	}
@@ -71,10 +71,10 @@ int main(int argsc, char* argsv[])
 				config->open();
 			}
 
-			Editor editor(config);
+			EditorApp editor(config);
 
 			auto* gs = SL_HANDLE.gamestate();
-			gs->create<sc::Editor>("Editor");
+			gs->create<sc::Editor>("Editor", editor.getDT());
 			gs->push("Editor");
 
 			auto* world = SL_HANDLE.world();

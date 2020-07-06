@@ -1,0 +1,17 @@
+{
+	"shaderbook" :
+	[
+		[
+			"render_to_texture.vs",
+			"render_to_texture.fs"
+		],
+		[
+			"spritebatch.vs",
+			"spritebatch.fs"
+		],
+		[
+			"sprite.vs",
+			"sprite.fs"
+		]
+	]
+}

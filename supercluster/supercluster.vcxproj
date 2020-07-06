@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\layers\ECSLayer.cpp" />
+    <ClCompile Include="src\layers\GUILayer.cpp" />
     <ClCompile Include="src\layers\ImGuiLayer.cpp" />
     <ClCompile Include="src\states\Editor.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\layers\ECSLayer.hpp" />
+    <ClInclude Include="src\layers\GUILayer.hpp" />
     <ClInclude Include="src\layers\ImGuiLayer.hpp" />
     <ClInclude Include="src\states\Editor.hpp" />
   </ItemGroup>

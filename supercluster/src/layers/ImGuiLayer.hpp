@@ -14,8 +14,8 @@
 #include <TextEditor.h>
 #include <qs/core/Shader.hpp>
 #include <galaxy/layer/Layer.hpp>
-#include <galaxy/ui/LuaConsole.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
+#include <galaxy/scripting/LuaConsole.hpp>
 
 #include <imgui_stdlib.h>
 #include <nlohmann/json.hpp>
@@ -23,11 +23,8 @@
 #include <qs/core/Window.hpp>
 #include <imgui_impl_opengl3.h>
 #include <galaxy/core/World.hpp>
-#include <qs/shaders/Sprites.hpp>
 #include <solar/entity/Manager.hpp>
 #include <pfd/portable-file-dialogs.h>
-#include <qs/shaders/RenderToTexture.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/scripting/JSONDefinition.hpp>
 
@@ -54,8 +51,8 @@ namespace sc
 		virtual ~ImGuiLayer() noexcept;
 
 		void events() noexcept override;
-		void update(protostar::ProtectedDouble * deltaTime) noexcept override;
-		void render() noexcept override;
+		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void render(qs::Camera& camera) noexcept override;
 
 	private:
 		void entityUI() noexcept;

@@ -16,13 +16,13 @@ StateGame::StateGame() noexcept
 	:atlasSpr(100)
 {
 	// Shaders
-	shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
-	rttshader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
-	glyphShader.loadFromRaw(qs::s_glyphsVS, qs::s_glyphsFS);
-	pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
-	lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
-	spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
-	textShader.loadFromRaw(qs::s_textVS, qs::s_textFS);
+	//shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
+	//rttshader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
+	//glyphShader.loadFromRaw(qs::s_glyphsVS, qs::s_glyphsFS);
+	//pointShader.loadFromRaw(qs::s_pointsVS, qs::s_pointsFS);
+	//lineShader.loadFromRaw(qs::s_linesVS, qs::s_linesFS);
+	//spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
+	//textShader.loadFromRaw(qs::s_textVS, qs::s_textFS);
 
 	auto* window = SL_HANDLE.window();
 	auto* renderer = SL_HANDLE.renderer();

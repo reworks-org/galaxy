@@ -5,10 +5,12 @@
     <ClCompile Include="src\states\Editor.cpp" />
     <ClCompile Include="src\layers\ImGuiLayer.cpp" />
     <ClCompile Include="src\layers\ECSLayer.cpp" />
+    <ClCompile Include="src\layers\GUILayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\states\Editor.hpp" />
     <ClInclude Include="src\layers\ImGuiLayer.hpp" />
     <ClInclude Include="src\layers\ECSLayer.hpp" />
+    <ClInclude Include="src\layers\GUILayer.hpp" />
   </ItemGroup>
 </Project>

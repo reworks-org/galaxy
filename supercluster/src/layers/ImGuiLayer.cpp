@@ -5,6 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/core/ServiceLocator.hpp>
+
 #include "ImGuiLayer.hpp"
 
 ///
@@ -27,8 +30,15 @@ namespace sc
 		ImGui_ImplGlfw_InitForOpenGL(m_window->getGLWindow(), true);
 		ImGui_ImplOpenGL3_Init("#version 450 core");
 
-		m_spriteShader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
-		m_atlasShader.loadFromRaw(qs::s_renderToTextureVS, qs::s_renderToTextureFS);
+		m_spriteShader.loadFromPath(
+			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "sprite.vs",
+			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "sprite.fs"
+		);
+
+		m_atlasShader.loadFromPath(
+			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "render_to_texture.vs",
+			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "render_to_texture.fs"
+		);
 
 		m_textureAtlas = std::make_unique<qs::TextureAtlas>(4096);
 	}
@@ -44,11 +54,11 @@ namespace sc
 	{
 	}
 
-	void ImGuiLayer::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void ImGuiLayer::update(protostar::ProtectedDouble* dt) noexcept
 	{
 	}
 
-	void ImGuiLayer::render() noexcept
+	void ImGuiLayer::render(qs::Camera& camera) noexcept
 	{
 		start();
 
@@ -178,7 +188,7 @@ namespace sc
 		{
 			for (auto& name : m_world->getAllNames())
 			{
-				bool selected = (s_activeDN == name.first);
+				const bool selected = (s_activeDN == name.first);
 				if (ImGui::Selectable(name.first.c_str(), selected))
 				{
 					s_activeDN = name.first;
@@ -207,6 +217,14 @@ namespace sc
 				{
 					m_world->remove<galaxy::EnabledFlag>(s_activeE);
 				}
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Serialize"))
+			{
+				m_world->serialize(s_activeE);
+				//ImGui::OpenPopup("Entity successfully serialized.");
 			}
 
 			ImGui::Spacing();
@@ -293,6 +311,7 @@ namespace sc
 			sbc = m_world->get<galaxy::SpriteBatchComponent>(active);
 			pc = m_world->get<galaxy::PlaylistComponent>(active);
 			ac = m_world->get<galaxy::AudioComponent>(active);
+			shc = m_world->get<galaxy::ShaderComponent>(active);
 		}
 		
 		if (m_isEntityEnabled)
@@ -421,6 +440,10 @@ namespace sc
 
 			ImGui::Spacing();
 			ImGui::Spacing();
+
+			if (ImGui::Button("Set to Sprite Shader"))
+			{
+			}
 		}
 
 		if (sbc != nullptr)
@@ -437,6 +460,58 @@ namespace sc
 			ImGui::Separator();
 			ImGui::Text("Playlist Component");
 
+			static std::vector<std::string> s_plf;
+			if (ImGui::Button("Load - Can load multiple"))
+			{
+				auto path = this->openFilePath();
+				s_plf.push_back(path.string());
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Create"))
+			{
+				pc->m_playlist.load(s_plf);
+				s_plf.clear();
+			}
+
+			if (ImGui::Button("Play"))
+			{
+				pc->m_playlist.play();
+			}
+
+			if (ImGui::Button("Pause"))
+			{
+				pc->m_playlist.pause();
+			}
+
+			if (ImGui::Button("Stop"))
+			{
+				pc->m_playlist.stop();
+			}
+
+			if (ImGui::Button("Rewind"))
+			{
+				pc->m_playlist.rewind();
+			}
+
+			static bool s_tpl = false;
+			if (ImGui::Button("Toggle Looping"), &s_tpl)
+			{
+				pc->m_playlist.setLooping(s_tpl);
+			}
+
+			ImGui::SameLine();
+
+			if (s_tpl)
+			{
+				ImGui::Text("Playlist is looping.");
+			}
+			else
+			{
+				ImGui::Text("Playlist is not looping.");
+			}
+
 			ImGui::Spacing();
 			ImGui::Spacing();
 		}
@@ -445,6 +520,49 @@ namespace sc
 		{
 			ImGui::Separator();
 			ImGui::Text("Audio Component");
+
+			if (ImGui::Button("Load"))
+			{
+				auto path = this->openFilePath();
+				ac->m_audio.load(path.string());
+			}
+
+			if (ImGui::Button("Play"))
+			{
+				ac->m_audio.play();
+			}
+
+			if (ImGui::Button("Pause"))
+			{
+				ac->m_audio.pause();
+			}
+
+			if (ImGui::Button("Stop"))
+			{
+				ac->m_audio.stop();
+			}
+
+			if (ImGui::Button("Rewind"))
+			{
+				ac->m_audio.rewind();
+			}
+
+			static bool s_tl = false;
+			if (ImGui::Button("Toggle Looping"), &s_tl)
+			{
+				ac->m_audio.setLooping(s_tl);
+			}
+			
+			ImGui::SameLine();
+
+			if (s_tl)
+			{
+				ImGui::Text("Audio is looping.");
+			}
+			else
+			{
+				ImGui::Text("Audio is not looping.");
+			}
 
 			ImGui::Spacing();
 			ImGui::Spacing();
@@ -455,7 +573,7 @@ namespace sc
 
 	void ImGuiLayer::scriptEditorUI() noexcept
 	{
-		auto cpos = m_editor.GetCursorPosition();
+		const auto cpos = m_editor.GetCursorPosition();
 
 		ImGui::Begin("Script Editor", &m_showTEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
 		ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
@@ -608,9 +726,9 @@ namespace sc
 				auto array = root.at("textures");
 
 				std::for_each(array.begin(), array.end(), [&](const nlohmann::json& texture)
-					{
-						m_textureAtlas->add(texture);
-					});
+				{
+					m_textureAtlas->add(texture);
+				});
 			}
 		}
 
@@ -667,14 +785,22 @@ namespace sc
 
 			std::condition_variable cv;
 			cv.wait(lock, [&]()
-				{
-					return (!m_fileToOpen->result().empty());
-				});
+			{
+				return (!m_fileToOpen->result().empty());
+			});
 		}
 
-		auto path = std::filesystem::path(m_fileToOpen->result()[0]);
-		m_fileToOpen.reset();
-		m_fileToOpen = nullptr;
+		std::filesystem::path path;
+		if (!m_fileToOpen->result().empty())
+		{
+			path = std::filesystem::path(m_fileToOpen->result()[0]);
+			m_fileToOpen.reset();
+			m_fileToOpen = nullptr;
+		}
+		else
+		{
+			path = "";
+		}
 
 		return std::move(path);
 	}
@@ -690,14 +816,22 @@ namespace sc
 
 			std::condition_variable cv;
 			cv.wait(lock, [&]()
-				{
-					return (!m_fileToSave->result().empty());
-				});
+			{
+				return (!m_fileToSave->result().empty());
+			});
 		}
 
-		auto path = std::filesystem::path(m_fileToSave->result());
-		m_fileToSave.reset();
-		m_fileToSave = nullptr;
+		std::filesystem::path path;
+		if (!m_fileToSave->result().empty())
+		{
+			path = std::filesystem::path(m_fileToSave->result());
+			m_fileToSave.reset();
+			m_fileToSave = nullptr;
+		}
+		else
+		{
+			path = "";
+		}
 
 		return std::move(path);
 	}

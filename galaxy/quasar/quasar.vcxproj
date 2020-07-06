@@ -46,9 +46,6 @@
     <ClCompile Include="src\qs\shaders\Light.cpp" />
     <ClCompile Include="src\qs\shaders\Lines.cpp" />
     <ClCompile Include="src\qs\shaders\Points.cpp" />
-    <ClCompile Include="src\qs\shaders\RenderToTexture.cpp" />
-    <ClCompile Include="src\qs\shaders\SpriteBatches.cpp" />
-    <ClCompile Include="src\qs\shaders\Sprites.cpp" />
     <ClCompile Include="src\qs\shaders\Glyphs.cpp" />
     <ClCompile Include="src\qs\text\Character.cpp" />
     <ClCompile Include="src\qs\text\Font.cpp" />
@@ -90,9 +87,6 @@
     <ClInclude Include="src\qs\shaders\Light.hpp" />
     <ClInclude Include="src\qs\shaders\Lines.hpp" />
     <ClInclude Include="src\qs\shaders\Points.hpp" />
-    <ClInclude Include="src\qs\shaders\RenderToTexture.hpp" />
-    <ClInclude Include="src\qs\shaders\SpriteBatches.hpp" />
-    <ClInclude Include="src\qs\shaders\Sprites.hpp" />
     <ClInclude Include="src\qs\shaders\Glyphs.hpp" />
     <ClInclude Include="src\qs\text\Character.hpp" />
     <ClInclude Include="src\qs\text\Font.hpp" />

@@ -16,15 +16,17 @@ namespace sc
 	class Editor : public protostar::State
 	{
 	public:
-		Editor() noexcept;
+		Editor(protostar::ProtectedDouble* dt) noexcept;
 		~Editor() noexcept override;
 		void onPush() noexcept override;
 		void onPop() noexcept override;
 		void events() noexcept override;
-		void update(protostar::ProtectedDouble* deltaTime) noexcept override;
+		void update(protostar::ProtectedDouble* dt) noexcept override;
 		void render() noexcept override;
 
 	private:
+		qs::Camera m_camera;
+		protostar::ProtectedDouble* m_dt;
 		galaxy::LayerStorage m_layers;
 	};
 }
