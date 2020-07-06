@@ -146,13 +146,13 @@ namespace galaxy
 
 			// FontBook
 			std::string fbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("fontbook-json");
-			//m_fontbook = std::make_unique<galaxy::FontBook>(fbPath);
-			//SL_HANDLE.m_fontbook = m_fontbook.get();
+			m_fontbook = std::make_unique<galaxy::FontBook>(fbPath);
+			SL_HANDLE.m_fontbook = m_fontbook.get();
 
 			// ShaderBook
 			std::string sbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("shaderbook-json");
-			//m_shaderbook = std::make_unique<galaxy::ShaderBook>(sbPath);
-			//SL_HANDLE.m_shaderbook = m_shaderbook.get();
+			m_shaderbook = std::make_unique<galaxy::ShaderBook>(sbPath);
+			SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 			// END SERVICES
 
@@ -205,6 +205,7 @@ namespace galaxy
 		std_chrono_duration elapsed;
 		std::chrono::nanoseconds lag(0ns);
 		constexpr std::chrono::nanoseconds updateRatio(16ms);
+		const protostar::Colour bg(255, 255, 255, 255);
 
 		// Fixed timestep gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
@@ -220,7 +221,7 @@ namespace galaxy
 			while (lag >= updateRatio)
 			{
 				m_timeCorrection.set(static_cast<double>(lag.count()) / static_cast<double>(updateRatio.count()));
-
+				
 				m_state->events();
 				m_state->update(&m_timeCorrection);
 
@@ -228,7 +229,7 @@ namespace galaxy
 			}
 			
 			// Begin render.
-			m_window->begin({ 0, 0, 0, 255 });
+			m_window->begin(bg);
 			
 			m_state->render();
 
@@ -246,5 +247,10 @@ namespace galaxy
 		PL_LOG_GET.deinit();
 
 		return SL_HANDLE.m_restart;
+	}
+
+	protostar::ProtectedDouble* Application::getDT() noexcept
+	{
+		return &m_timeCorrection;
 	}
 }

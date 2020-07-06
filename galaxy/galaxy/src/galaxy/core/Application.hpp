@@ -51,6 +51,13 @@ namespace galaxy
 		/// 
 		virtual bool run() noexcept final;
 
+		///
+		/// Get delta time.
+		///
+		/// \return Pointer to protected double.
+		///
+		virtual protostar::ProtectedDouble* getDT() noexcept final;
+
 	protected:
 		///
 		/// \brief Default constructor.
@@ -172,7 +179,7 @@ namespace galaxy
 		/// Collision callback functions for Box2D.
 		///
 		//CollisionContact m_engineCallbacks;
-
+		
 	private:
 		///
 		/// Delta Time.
