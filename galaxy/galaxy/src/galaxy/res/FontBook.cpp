@@ -30,18 +30,18 @@ namespace galaxy
 
 	void FontBook::createFromJSON(const std::string& json)
 	{
-		std::ifstream is;
-		is.open(std::filesystem::path(json).string(), std::ifstream::in);
-
+		std::ifstream is(std::filesystem::path(json).string(), std::ifstream::in);
 		nlohmann::json j;
 		is >> j;
-		is.close();
 
-		std::for_each(j.begin(), j.end(), [this](const nlohmann::json& arr)
+		nlohmann::json arr = j.at("fontbook");
+		std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& font)
 		{
-			auto path = FileSystem::s_root + FileSystem::s_fonts + arr[0].get<std::string>();
-			this->add(path, arr[1].get<int>());
+			auto path = FileSystem::s_root + FileSystem::s_fonts + font[0].get<std::string>();
+			this->add(path, font[1].get<int>());
 		});
+
+		is.close();
 	}
 
 	void FontBook::clear() noexcept

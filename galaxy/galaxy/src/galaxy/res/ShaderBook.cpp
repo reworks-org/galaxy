@@ -37,12 +37,13 @@ namespace galaxy
 		is >> j;
 		is.close();
 
-		std::for_each(j.begin(), j.end(), [this](const nlohmann::json& arr)
+		nlohmann::json arr = j.at("shaderbook");
+		std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& shader)
 		{
-			auto pathA = FileSystem::s_root + FileSystem::s_shaders + arr[0].get<std::string>();
-			auto pathB = FileSystem::s_root + FileSystem::s_shaders + arr[1].get<std::string>();
+			auto vs = FileSystem::s_root + FileSystem::s_shaders + shader[0].get<std::string>();
+			auto fs = FileSystem::s_root + FileSystem::s_shaders + shader[1].get<std::string>();
 
-			this->add(pathA, pathB);
+			this->add(vs, fs);
 		});
 	}
 
