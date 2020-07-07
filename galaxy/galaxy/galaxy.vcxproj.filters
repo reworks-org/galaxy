@@ -83,4 +83,7 @@
     <ClInclude Include="src\galaxy\ui\Widget.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaConsole.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\TODO.txt" />
+  </ItemGroup>
 </Project>

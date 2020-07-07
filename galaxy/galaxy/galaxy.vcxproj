@@ -78,6 +78,9 @@
     <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
     <ClInclude Include="src\galaxy\ui\Widget.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\TODO.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{24A73AC2-A971-47D0-905A-7AFB76684687}</ProjectGuid>
