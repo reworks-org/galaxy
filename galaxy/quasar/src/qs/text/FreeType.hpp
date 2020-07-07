@@ -40,6 +40,11 @@ namespace qs
 		static FreeTypeLib& handle() noexcept;
 
 		///
+		/// Open library.
+		///
+		void open() noexcept;
+
+		///
 		/// Close library.
 		///
 		void close() noexcept;

@@ -113,13 +113,16 @@ namespace galaxy
 				m_window->setCursorIcon(m_config->get<std::string>("cursor-image"));
 			}
 
-			m_window->setIcon(m_config->get<std::string>("icon-file"));
-			//m_window->setKeyRepeatEnabled(m_config->get<bool>("key-repeat"));
-			//m_window->setMouseCursorGrabbed(false);
+			auto iconPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures;
+			m_window->setIcon(iconPath + m_config->get<std::string>("icon-file"));
+			m_window->setCursorIcon(iconPath + m_config->get<std::string>("cursor-image"));
 
 			// renderer
 			m_renderer = std::make_unique<qs::Renderer>();
 			SL_HANDLE.m_renderer = m_renderer.get();
+
+			// Freetype.
+			FTLIB.open();
 
 			// OpenAl.
 			m_alContext.initialize();
