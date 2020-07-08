@@ -33,19 +33,23 @@ namespace sc
 		theme->store<galaxy::ShaderBook>(SL_HANDLE.shaderbook());
 
 		auto fp = std::filesystem::path(galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + "atlas.json");
-		nlohmann::json root;
 		std::ifstream ifs(fp.string(), std::ifstream::in);
-		ifs >> root;
-		ifs.close();
-
-		auto arr = root.at("textures");
-		std::for_each(arr.begin(), arr.end(), [&](const nlohmann::json& texture)
+		if (ifs.good())
 		{
-			auto file = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + texture.get<std::string>();
-			theme->addTextureToAtlas(file);
-		});
+			nlohmann::json root;
+			ifs >> root;
 
-		theme->createTextureAtlas(*SL_HANDLE.shaderbook()->get("render_to_texture"));
+			auto arr = root.at("textures");
+			std::for_each(arr.begin(), arr.end(), [&](const nlohmann::json& texture)
+			{
+				auto file = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + texture.get<std::string>();
+				theme->addTextureToAtlas(file);
+			});
+		
+			ifs.close();
+
+			theme->createTextureAtlas(*SL_HANDLE.shaderbook()->get("render_to_texture"));
+		}
 	}
 
 	GUILayer::~GUILayer() noexcept

@@ -40,13 +40,13 @@ namespace galaxy
 
 			nlohmann::json arr = j.at("fontbook");
 			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& font)
-				{
-					auto fontPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_fonts + font[0].get<std::string>());
-					this->add(fontPath.stem().string(), fontPath.string(), font[1].get<int>());
-				});
+			{
+				auto fontPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_fonts + font[0].get<std::string>());
+				this->add(fontPath.stem().string(), fontPath.string(), font[1].get<int>());
+			});
+			
+			is.close();
 		}
-
-		is.close();
 	}
 
 	void FontBook::clear() noexcept

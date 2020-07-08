@@ -78,8 +78,6 @@ namespace sc
 		galaxy::World* m_world;
 
 		qs::Window* m_window;
-		qs::Shader m_spriteShader;
-		qs::Shader m_atlasShader;
 		std::unique_ptr<qs::TextureAtlas> m_textureAtlas;
 
 		TextEditor m_editor;

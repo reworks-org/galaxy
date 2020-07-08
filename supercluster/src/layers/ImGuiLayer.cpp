@@ -6,6 +6,7 @@
 ///
 
 #include <galaxy/fs/FileSystem.hpp>
+#include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 
 #include "ImGuiLayer.hpp"
@@ -29,16 +30,6 @@ namespace sc
 		m_world = SL_HANDLE.world();
 		ImGui_ImplGlfw_InitForOpenGL(m_window->getGLWindow(), true);
 		ImGui_ImplOpenGL3_Init("#version 450 core");
-
-		m_spriteShader.loadFromPath(
-			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "sprite.vs",
-			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "sprite.fs"
-		);
-
-		m_atlasShader.loadFromPath(
-			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "render_to_texture.vs",
-			galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "render_to_texture.fs"
-		);
 
 		m_textureAtlas = std::make_unique<qs::TextureAtlas>(4096);
 	}
@@ -221,9 +212,9 @@ namespace sc
 
 			ImGui::SameLine();
 
-			if (ImGui::Button("Serialize"))
+			if (ImGui::Button("Serialize - WIP"))
 			{
-				m_world->serialize(s_activeE);
+				//m_world->serialize(s_activeE);
 				//ImGui::OpenPopup("Entity successfully serialized.");
 			}
 
@@ -290,9 +281,12 @@ namespace sc
 			ImGui::Spacing();
 		}
 
-		if (m_world->validate(s_activeE) && m_world->has(s_activeE))
+		if (m_showEUI)
 		{
-			componentUI(s_activeE);
+			if (m_world->validate(s_activeE) && m_world->has(s_activeE))
+			{
+				componentUI(s_activeE);
+			}
 		}
 
 		ImGui::End();
@@ -436,20 +430,16 @@ namespace sc
 		if (shc != nullptr)
 		{
 			ImGui::Separator();
-			ImGui::Text("Shader Component");
+			ImGui::Text("Shader Component - WIP");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
-
-			if (ImGui::Button("Set to Sprite Shader"))
-			{
-			}
 		}
 
 		if (sbc != nullptr)
 		{
 			ImGui::Separator();
-			ImGui::Text("SpriteBatch Component");
+			ImGui::Text("SpriteBatch Component - WIP");
 
 			ImGui::Spacing();
 			ImGui::Spacing();
@@ -744,7 +734,7 @@ namespace sc
 
 		if (ImGui::Button("Create"))
 		{
-			m_textureAtlas->create(*SL_HANDLE.renderer(), m_atlasShader);
+			m_textureAtlas->create(*SL_HANDLE.renderer(), *SL_HANDLE.shaderbook()->get("render_to_texture"));
 			s_created = true;
 		}
 

@@ -38,7 +38,7 @@ int main(int argsc, char* argsv[])
 
 		{
 			std::unique_ptr<galaxy::Config> config = std::make_unique<galaxy::Config>();
-			config->init("bin/config.json");
+			config->init("assets/config.json");
 			if (!config->open())
 			{
 				config->define<int>("threadpool-threadcount", 4);
@@ -55,7 +55,7 @@ int main(int argsc, char* argsv[])
 				config->define<bool>("is-cursor-visible", true);
 				config->define<std::string>("cursor-image", "cursor.png");
 				config->define<std::string>("icon-file", "icon.png");
-				config->define<std::string>("root-path", "bin/");
+				config->define<std::string>("root-path", "assets/");
 				config->define<std::string>("textures-path", "textures/");
 				config->define<std::string>("shaders-path", "shaders/");
 				config->define<std::string>("scripts-path", "scripts/");

@@ -40,13 +40,13 @@ namespace galaxy
 
 			nlohmann::json arr = j.at("audiobook");
 			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& audio)
-				{
-					auto audioPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_audio + audio.get<std::string>());
-					this->add(audioPath.stem().string(), audioPath.string());
-				});
+			{
+				auto audioPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_audio + audio.get<std::string>());
+				this->add(audioPath.stem().string(), audioPath.string());
+			});
+			
+			is.close();
 		}
-
-		is.close();
 	}
 
 	void AudioBook::clear() noexcept

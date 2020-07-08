@@ -46,9 +46,9 @@ namespace galaxy
 
 				this->add(vsPath.stem().string(), vsPath.string(), fsPath.string());
 			});
+			
+			is.close();
 		}
-		
-		is.close();
 	}
 
 	void ShaderBook::clear() noexcept
