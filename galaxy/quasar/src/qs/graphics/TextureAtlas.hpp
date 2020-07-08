@@ -84,6 +84,14 @@ namespace qs
 		const int getSize() const noexcept;
 
 		///
+		/// Custom quad definition on texture atlas.
+		///
+		/// \param name String name corresponding to texture (filename without path and extension).
+		/// \param rect Quad definition.
+		///
+		void defineCustomQuad(const std::string& name, const protostar::Rect<float>& rect) noexcept;
+
+		///
 		/// Retrieve a texture quad defined in the atlas.
 		///
 		/// \param name String name corresponding to texture (filename without path and extension).

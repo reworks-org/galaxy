@@ -91,6 +91,14 @@ namespace qs
 		return m_size;
 	}
 
+	void TextureAtlas::defineCustomQuad(const std::string& name, const protostar::Rect<float>& rect) noexcept
+	{
+		if (m_textureRects.find(name) != m_textureRects.end())
+		{
+			m_textureRects.emplace(name, rect);
+		}
+	}
+
 	const protostar::Rect<float>& TextureAtlas::getTexQuad(const std::string& name) noexcept
 	{
 		if (m_textureRects.find(name) != m_textureRects.end())
