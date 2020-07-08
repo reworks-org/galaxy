@@ -31,7 +31,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~RenderSystem() noexcept override;
+		~RenderSystem() noexcept;
 
 		///
 		/// Abstract implementation for processing events.

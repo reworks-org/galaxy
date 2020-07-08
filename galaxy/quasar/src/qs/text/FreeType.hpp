@@ -60,7 +60,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		FreeTypeLib() noexcept;
+		FreeTypeLib() noexcept = default;
 
 	private:
 		///

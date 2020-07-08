@@ -21,7 +21,7 @@ namespace galaxy
 	{
 		std::vector<std::string> files;
 		nlohmann::json arr = json.at("files");
-		for (auto& elem : arr)
+		for (const auto& elem : arr)
 		{
 			files.push_back(elem);
 		}

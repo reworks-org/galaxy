@@ -37,8 +37,4 @@ namespace qs
 	{
 		return m_ftLibrary;
 	}
-
-	FreeTypeLib::FreeTypeLib() noexcept
-	{
-	}
 }

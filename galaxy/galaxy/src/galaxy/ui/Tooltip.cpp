@@ -50,7 +50,7 @@ namespace galaxy
 		m_textStr = text;
 	}
 
-	void Tooltip::setColour(protostar::Colour& colour) noexcept
+	void Tooltip::setColour(const protostar::Colour& colour) noexcept
 	{
 		m_colour = colour;
 	}

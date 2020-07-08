@@ -66,7 +66,7 @@ namespace galaxy
 		///
 		/// \param colour Colour of the text to use.
 		///
-		void setColour(protostar::Colour& colour) noexcept;
+		void setColour(const protostar::Colour& colour) noexcept;
 
 		///
 		/// Set the background texture of the tooltip.

@@ -70,7 +70,7 @@ namespace galaxy
 		read.close();
 
 		unsigned int count = 0;
-		for (auto& element : json)
+		for (const auto& element : json)
 		{
 			m_objects[count]->deserialize(element);
 			count++;
