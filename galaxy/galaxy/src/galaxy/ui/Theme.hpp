@@ -80,12 +80,12 @@ namespace galaxy
 		///
 		/// Get a resource from a cache.
 		///
-		/// \param id ID of resource in cache to get.
+		/// \param name Name of the resource to get. Filename without path or extension.
 		///
 		/// \return Pointer to the resource. Or nullptr.
 		///
 		template<typename Cache>
-		decltype(auto) get(const unsigned int id) noexcept;
+		decltype(auto) get(std::string_view name) noexcept;
 
 		///
 		/// Get pointer to texture atlas.
@@ -162,16 +162,16 @@ namespace galaxy
 	}
 
 	template<typename Cache>
-	inline decltype(auto) Theme::get(const unsigned int id) noexcept
+	inline decltype(auto) Theme::get(std::string_view name) noexcept
 	{
 		const auto type = ThemeCacheUID::get<Cache>();
 		if (type >= m_caches.size())
 		{
-			PL_LOG(PL_ERROR, "Cache type does not exist: " + std::to_string(id));
+			PL_LOG(PL_ERROR, "Cache type does not exist: " + std::string(name));
 		}
 
 		auto* cache = dynamic_cast<Cache*>(m_caches[type]);
-		return cache->get(id);
+		return cache->get(name);
 	}
 }
 

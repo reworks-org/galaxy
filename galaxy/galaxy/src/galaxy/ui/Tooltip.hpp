@@ -52,7 +52,7 @@ namespace galaxy
 		/// \param camera Camera position to utilize when rendering.
 		/// \param textShader ID of shader in ShaderBook.
 		///
-		void render(qs::Camera& camera, const unsigned int textShader) noexcept;
+		void render(qs::Camera& camera, std::string_view textShader) noexcept;
 		
 		///
 		/// Set the text of the tooltip.
@@ -80,7 +80,7 @@ namespace galaxy
 		///
 		/// \param font Font ID in the resource cache.
 		///
-		void create(const unsigned int font) noexcept;
+		void create(std::string_view font) noexcept;
 
 		///
 		/// Update text.

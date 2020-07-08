@@ -52,6 +52,7 @@
     <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
     <ClCompile Include="src\galaxy\ui\Widget.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaConsole.cpp" />
+    <ClCompile Include="src\galaxy\res\AudioBook.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -82,6 +83,7 @@
     <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
     <ClInclude Include="src\galaxy\ui\Widget.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaConsole.hpp" />
+    <ClInclude Include="src\galaxy\res\AudioBook.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\TODO.txt" />

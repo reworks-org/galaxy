@@ -5,9 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#define RTT_SHADER 0
-#define SPRITEBATCH_SHADER 1
-
 #include <nlohmann/json.hpp>
 #include <galaxy/res/FontBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
@@ -44,10 +41,11 @@ namespace sc
 		auto arr = root.at("textures");
 		std::for_each(arr.begin(), arr.end(), [&](const nlohmann::json& texture)
 		{
-			theme->addTextureToAtlas(texture.get<std::string>());
+			auto file = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + texture.get<std::string>();
+			theme->addTextureToAtlas(file);
 		});
 
-		theme->createTextureAtlas(*SL_HANDLE.shaderbook()->get(RTT_SHADER));
+		theme->createTextureAtlas(*SL_HANDLE.shaderbook()->get("render_to_texture"));
 	}
 
 	GUILayer::~GUILayer() noexcept
@@ -64,6 +62,6 @@ namespace sc
 
 	void GUILayer::render(qs::Camera& camera) noexcept
 	{
-		//m_gui.render(camera, SPRITEBATCH_SHADER);
+		m_gui.render(camera, "spritebatch");
 	}
 }

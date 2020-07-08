@@ -30,21 +30,25 @@ namespace galaxy
 
 	void ShaderBook::createFromJSON(const std::string& json)
 	{
-		std::ifstream is;
-		is.open(std::filesystem::path(json).string(), std::ifstream::in);
+		auto path = std::filesystem::path(galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + json);
 
-		nlohmann::json j;
-		is >> j;
-		is.close();
-
-		nlohmann::json arr = j.at("shaderbook");
-		std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& shader)
+		std::ifstream is(path.string(), std::ifstream::in);
+		if (is.good())
 		{
-			auto vs = FileSystem::s_root + FileSystem::s_shaders + shader[0].get<std::string>();
-			auto fs = FileSystem::s_root + FileSystem::s_shaders + shader[1].get<std::string>();
+			nlohmann::json j;
+			is >> j;
 
-			this->add(vs, fs);
-		});
+			nlohmann::json arr = j.at("shaderbook");
+			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& shader)
+			{
+				auto vsPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_shaders + shader[0].get<std::string>());
+				auto fsPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_shaders + shader[1].get<std::string>());
+
+				this->add(vsPath.stem().string(), vsPath.string(), fsPath.string());
+			});
+		}
+		
+		is.close();
 	}
 
 	void ShaderBook::clear() noexcept

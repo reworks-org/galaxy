@@ -48,9 +48,9 @@ namespace galaxy
 		/// This function should be called on the main thread.
 		///
 		/// \param camera Camera projection to apply to GUI.
-		/// \param shader ID of shader in ShaderBook.
+		/// \param shader Name of the resource to get. Filename without path or extension.
 		///
-		void render(qs::Camera& camera, const unsigned int shader) noexcept;
+		void render(qs::Camera& camera, std::string_view shader) noexcept;
 
 		///
 		/// Create the theme.

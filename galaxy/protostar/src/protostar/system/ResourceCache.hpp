@@ -29,37 +29,27 @@ namespace protostar
 	{
 	public:
 		///
-		/// Virtual default destructor.
+		/// Virtual destructor.
 		///
-		virtual ~ResourceCache() noexcept = default;
+		virtual ~ResourceCache() noexcept;
 
 		///
 		/// Add a resource.
 		///
+		/// \param name Should be name of resource without path or extension.
 		/// \param args Constructor arguments.
 		///
-		/// \return Handle to created resource.
-		///
 		template<typename ...Args>
-		const unsigned int add(Args&& ...args) noexcept;
-
-		///
-		/// Move an existing resource into the cache.
-		///
-		/// \param res Move constructable resource.
-		///
-		/// \return Handle to newly added resource.
-		///
-		virtual const unsigned int move(Resource& resource) noexcept final;
+		void add(const std::string& name, Args&& ...args) noexcept;
 
 		///
 		/// Retrieve a resource.
 		///
-		/// \param handle The ID of the resource to retrieve.
+		/// \param handle The name of the file without path or extension.
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		virtual Resource* get(const unsigned int handle) noexcept final;
+		virtual Resource* get(std::string_view handle) noexcept final;
 
 		///
 		/// Clean up.
@@ -84,54 +74,33 @@ namespace protostar
 
 	protected:
 		///
-		/// ID counter.
-		///
-		unsigned int m_counter;
-
-		///
 		/// Contiguous resource array.
 		///
-		std::vector<Resource> m_resources;
+		std::unordered_map<std::string, Resource> m_resources;
 	};
-	
-	template<typename Resource>
-	inline const unsigned int ResourceCache<Resource>::move(Resource& resource) noexcept
-	{
-		m_resources.emplace(m_resources.begin() + m_counter, std::move(resource));
-		m_counter++;
-
-		return m_counter - 1;
-	}
-
-	template<typename Resource>
-	inline Resource* ResourceCache<Resource>::get(const unsigned int handle) noexcept
-	{
-		if (handle >= m_resources.size())
-		{
-			PL_LOG(PL_ERROR, "Handle is out of bounds for cache.");
-			return nullptr;
-		}
-		else
-		{
-			return &m_resources[handle];
-		}
-	}
 
 	template<typename Resource>
 	inline ResourceCache<Resource>::ResourceCache() noexcept
-		:m_counter(0)
 	{
+	}
+
+	template<typename Resource>
+	inline ResourceCache<Resource>::~ResourceCache() noexcept
+	{
+		m_resources.clear();
 	}
 
 	template<typename Resource>
 	template<typename ...Args>
-	inline const unsigned int ResourceCache<Resource>::add(Args&& ...args) noexcept
+	inline void ResourceCache<Resource>::add(const std::string& name, Args&& ...args) noexcept
 	{
-		m_resources.emplace(m_resources.begin() + m_counter, std::forward<Args>(args)...);
-		m_counter++;
+		m_resources.emplace(std::piecewise_construct, std::make_tuple(name), std::make_tuple(std::forward<Args>(args)...));
+	}
 
-		// Because we increment so to get correct counter we need to decrement.
-		return m_counter - 1;
+	template<typename Resource>
+	inline Resource* ResourceCache<Resource>::get(std::string_view handle) noexcept
+	{
+		return &m_resources[std::string(handle)];
 	}
 }
 

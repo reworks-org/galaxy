@@ -55,6 +55,7 @@ namespace galaxy
 	class Serializer;
 	class FontBook;
 	class ShaderBook;
+	class AudioBook;
 
 	///
 	/// Provides pointer access to services in the framework.
@@ -155,6 +156,13 @@ namespace galaxy
 		///
 		galaxy::ShaderBook* shaderbook() const noexcept;
 
+		///
+		/// Get AudioBook service.
+		///
+		/// \return Return const pointer to AudioBook service.
+		///
+		galaxy::AudioBook* audiobook() const noexcept;
+
 	private:
 		///
 		/// Default constructor.
@@ -246,6 +254,11 @@ namespace galaxy
 		/// ShaderBook service.
 		///
 		galaxy::ShaderBook* m_shaderbook;
+
+		///
+		/// AudioBook service.
+		///
+		galaxy::AudioBook* m_audiobook;
 	};
 }
 

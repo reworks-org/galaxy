@@ -24,21 +24,6 @@ namespace sc
 		setName("ECSLayer");
 		m_window = SL_HANDLE.window();
 		m_world = SL_HANDLE.world();
-
-		/*
-		auto entity = m_world->create();
-		m_world->add<galaxy::EnabledFlag>(entity);
-
-		auto spr = m_world->add<galaxy::SpriteComponent>(entity);
-		spr->load("wall.png");
-		spr->create<qs::BufferTypeDynamic>();
-
-		auto tf = m_world->add<galaxy::TransformComponent>(entity);
-		tf->m_transform.move(10.0f, 10.0f);
-
-		auto sh = m_world->add<galaxy::ShaderComponent>(entity);
-		sh->m_shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
-		*/
 	}
 
 	ECSLayer::~ECSLayer() noexcept

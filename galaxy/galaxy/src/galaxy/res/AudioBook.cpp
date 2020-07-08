@@ -1,5 +1,5 @@
 ///
-/// FontBook.cpp
+/// AudioBook.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -11,24 +11,24 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 
-#include "FontBook.hpp"
+#include "AudioBook.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace galaxy
 {
-	FontBook::FontBook(const std::string& json) noexcept
+	AudioBook::AudioBook(const std::string& json) noexcept
 	{
 		createFromJSON(json);
 	}
 
-	FontBook::~FontBook() noexcept
+	AudioBook::~AudioBook() noexcept
 	{
 		clear();
 	}
 
-	void FontBook::createFromJSON(const std::string& json)
+	void AudioBook::createFromJSON(const std::string& json)
 	{
 		auto path = std::filesystem::path(galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + json);
 
@@ -38,18 +38,18 @@ namespace galaxy
 			nlohmann::json j;
 			is >> j;
 
-			nlohmann::json arr = j.at("fontbook");
-			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& font)
+			nlohmann::json arr = j.at("audiobook");
+			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& audio)
 				{
-					auto fontPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_fonts + font[0].get<std::string>());
-					this->add(fontPath.stem().string(), fontPath.string(), font[1].get<int>());
+					auto audioPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_audio + audio.get<std::string>());
+					this->add(audioPath.stem().string(), audioPath.string());
 				});
 		}
 
 		is.close();
 	}
 
-	void FontBook::clear() noexcept
+	void AudioBook::clear() noexcept
 	{
 		m_resources.clear();
 	}

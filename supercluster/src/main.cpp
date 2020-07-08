@@ -38,7 +38,7 @@ int main(int argsc, char* argsv[])
 
 		{
 			std::unique_ptr<galaxy::Config> config = std::make_unique<galaxy::Config>();
-			config->init("config.json");
+			config->init("bin/config.json");
 			if (!config->open())
 			{
 				config->define<int>("threadpool-threadcount", 4);
@@ -59,13 +59,13 @@ int main(int argsc, char* argsv[])
 				config->define<std::string>("textures-path", "textures/");
 				config->define<std::string>("shaders-path", "shaders/");
 				config->define<std::string>("scripts-path", "scripts/");
-				config->define<std::string>("music-path", "music/");
-				config->define<std::string>("sfx-path", "sfx/");
+				config->define<std::string>("audio-path", "audio/");
 				config->define<std::string>("json-path", "json/");
 				config->define<std::string>("font-path", "fonts/");
 				config->define<std::string>("save-folder", "saves/");
 				config->define<std::string>("fontbook-json", "fontbook.json");
 				config->define<std::string>("shaderbook-json", "shaderbook.json");
+				config->define<std::string>("audiobook-json", "audiobook.json");
 
 				config->create();
 				config->open();

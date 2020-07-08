@@ -34,7 +34,7 @@ namespace galaxy
 		m_y = static_cast<float>(e.m_y + 12);
 	}
 
-	void Tooltip::render(qs::Camera& camera, const unsigned int textShader) noexcept
+	void Tooltip::render(qs::Camera& camera, std::string_view textShader) noexcept
 	{
 		auto* shader = m_theme->get<ShaderBook>(textShader);
 		
@@ -60,7 +60,7 @@ namespace galaxy
 		m_texture = texture;
 	}
 
-	void Tooltip::create(const unsigned int font) noexcept
+	void Tooltip::create(std::string_view font) noexcept
 	{
 		m_sprite.create(m_theme->getAtlas()->getTexQuad(m_texture), 1);
 		m_sprite.setPos(m_x, m_y);

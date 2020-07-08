@@ -70,8 +70,7 @@ namespace galaxy
 		galaxy::FileSystem::s_textures = m_config->get<std::string>("textures-path");
 		galaxy::FileSystem::s_shaders = m_config->get<std::string>("shaders-path");
 		galaxy::FileSystem::s_scripts = m_config->get<std::string>("scripts-path");
-		galaxy::FileSystem::s_music = m_config->get<std::string>("music-path");
-		galaxy::FileSystem::s_sfx = m_config->get<std::string>("sfx-path");
+		galaxy::FileSystem::s_audio = m_config->get<std::string>("audio-path");
 		galaxy::FileSystem::s_json = m_config->get<std::string>("json-path");
 		galaxy::FileSystem::s_fonts = m_config->get<std::string>("font-path");
 
@@ -148,36 +147,16 @@ namespace galaxy
 			SL_HANDLE.m_serializer = m_serializer.get();
 
 			// FontBook
-			std::string fbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("fontbook-json");
-			m_fontbook = std::make_unique<galaxy::FontBook>(fbPath);
+			m_fontbook = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
 			SL_HANDLE.m_fontbook = m_fontbook.get();
 
 			// ShaderBook
-			std::string sbPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + m_config->get<std::string>("shaderbook-json");
-			m_shaderbook = std::make_unique<galaxy::ShaderBook>(sbPath);
+			m_shaderbook = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 			SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
-			// END SERVICES
-
-			//m_textureAtlas = std::make_unique<TextureAtlas>(m_world->m_textureFolderPath, m_configReader->lookup<int>(config, "graphics", "atlasPowerOf"));
-			//ServiceLocator::textureAtlas = m_textureAtlas.get();
-
-			//m_textureAtlas->m_nullTexture = m_configReader->lookup<std::string>(config, "graphics", "nullTexture");
-
-			//m_musicPlayer = std::make_unique<MusicPlayer>(m_configReader->lookup<std::string>(config, "audio", "musicScript"));
-			//ServiceLocator::musicPlayer = m_musicPlayer.get();
-
-			//m_musicPlayer->m_nullMusic = m_configReader->lookup<std::string>(config, "audio", "nullMusic");
-
-			//m_soundPlayer = std::make_unique<SoundPlayer>(m_configReader->lookup<std::string>(config, "audio", "soundScript"));
-			//ServiceLocator::soundPlayer = m_soundPlayer.get();
-
-			//m_soundPlayer->m_nullSound = m_configReader->lookup<std::string>(config, "audio", "nullSound");
-
-			//m_box2dHelper = std::make_unique<Box2DHelper>(m_configReader->lookup<float32>(config, "box2d", "gravity"));
-			//ServiceLocator::box2dHelper = m_box2dHelper.get();
-
-			//m_box2dHelper->m_b2world->SetContactListener(&m_engineCallbacks);
+			// AudioBook
+			m_audiobook = std::make_unique<galaxy::AudioBook>(m_config->get<std::string>("audiobook-json"));
+			SL_HANDLE.m_audiobook = m_audiobook.get();
 
 			// Register all usertypes used by this application for sol3.
 			Lua::registerTypes();

@@ -24,6 +24,7 @@
 #include "galaxy/fs/Serializer.hpp"
 
 #include "galaxy/res/FontBook.hpp"
+#include "galaxy/res/AudioBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 ///
@@ -146,39 +147,9 @@ namespace galaxy
 		std::unique_ptr<galaxy::ShaderBook> m_shaderbook;
 
 		///
-		/// Integrates box2d with the rest of the library.
+		/// Library of all audio.
 		///
-		//std::unique_ptr<Box2DHelper> m_box2dHelper;
-
-		
-		///
-		/// Controls and manages music resources.
-		///
-		//std::unique_ptr<MusicPlayer> m_musicPlayer;
-		
-	
-
-		///
-		/// Controls and manages sound resources.
-		///
-		//std::unique_ptr<SoundPlayer> m_soundPlayer;
-
-		
-
-		///
-		/// Stores and manages all the games graphics. Text, textures, etc.
-		///
-		//std::unique_ptr<TextureAtlas> m_textureAtlas;
-		
-		///
-		/// Controls the debug UI which allows you to have control over the game from ingame. Console, script editing, etc.
-		///
-		//std::unique_ptr<DebugInterface> m_debugInterface;
-
-		///
-		/// Collision callback functions for Box2D.
-		///
-		//CollisionContact m_engineCallbacks;
+		std::unique_ptr<galaxy::AudioBook> m_audiobook;
 		
 	private:
 		///

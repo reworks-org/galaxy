@@ -54,18 +54,11 @@ namespace galaxy
 		static std::string s_scripts;
 
 		///
-		/// \brief Root directory of music.
+		/// \brief Root directory of audio.
 		///
 		/// Should be a subdirectory of s_root.
 		///
-		static std::string s_music;
-
-		///
-		/// \brief Root directory of sound effects.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		static std::string s_sfx;
+		static std::string s_audio;
 
 		///
 		/// \brief Root directory of json.

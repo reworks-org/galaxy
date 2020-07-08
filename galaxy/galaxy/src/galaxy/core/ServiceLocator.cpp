@@ -73,8 +73,13 @@ namespace galaxy
 		return m_shaderbook;
 	}
 
+	galaxy::AudioBook* ServiceLocator::audiobook() const noexcept
+	{
+		return m_audiobook;
+	}
+
 	ServiceLocator::ServiceLocator() noexcept
-		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr), m_serializer(nullptr), m_fontbook(nullptr), m_shaderbook(nullptr)
+		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr), m_serializer(nullptr), m_fontbook(nullptr), m_shaderbook(nullptr), m_audiobook(nullptr)
 	{
 	}
 }

@@ -48,7 +48,7 @@ namespace galaxy
 		pool->queue(this->getTask());
 	}
 
-	void GUI::render(qs::Camera& camera, const unsigned int shader) noexcept
+	void GUI::render(qs::Camera& camera, std::string_view shader) noexcept
 	{
 		if (m_visible.get())
 		{
