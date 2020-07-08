@@ -34,6 +34,13 @@ namespace frb
 		~Audible() noexcept;
 
 		///
+		/// Load from disk constructor.
+		///
+		/// \param file File to load from disk. Can only load ogg vorbis.
+		///
+		Audible(const std::string& file) noexcept;
+
+		///
 		/// Load a file from disk.
 		///
 		/// \param file File to load from disk. Can only load ogg vorbis.

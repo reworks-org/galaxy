@@ -23,6 +23,11 @@ namespace frb
 		m_buffer.destroy();
 	}
 
+	Audible::Audible(const std::string& file) noexcept
+	{
+		load(file);
+	}
+
 	bool Audible::load(const std::string& file) noexcept
 	{
 		bool result = true;
