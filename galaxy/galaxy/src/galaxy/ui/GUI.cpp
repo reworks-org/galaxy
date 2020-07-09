@@ -74,7 +74,7 @@ namespace galaxy
 		}
 	}
 
-	Theme* GUI::addTheme() noexcept
+	[[nodiscard]] Theme* GUI::createTheme() noexcept
 	{
 		m_theme = std::make_unique<Theme>();
 		return m_theme.get();

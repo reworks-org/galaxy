@@ -57,7 +57,7 @@ namespace galaxy
 		///
 		/// \return Pointer to newly created theme.
 		///
-		Theme* addTheme() noexcept;
+		[[nodiscard]] Theme* createTheme() noexcept;
 
 		///
 		/// Add a widget to the GUI.
@@ -67,7 +67,7 @@ namespace galaxy
 		/// \return Pointer to newly created widget.
 		///
 		template<typename WidgetType, typename... Args>
-		WidgetType* add(Args&&... args) noexcept;
+		WidgetType* createWidget(Args&&... args) noexcept;
 
 		///
 		/// Registers a function to be called on the triggering of an event.
@@ -192,7 +192,7 @@ namespace galaxy
 	};
 
 	template<typename WidgetType, typename ...Args>
-	inline WidgetType* GUI::add(Args&& ...args) noexcept
+	inline WidgetType* GUI::createWidget(Args&& ...args) noexcept
 	{
 		unsigned int id = 0;
 
