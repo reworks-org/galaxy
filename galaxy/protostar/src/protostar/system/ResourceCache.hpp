@@ -100,7 +100,8 @@ namespace protostar
 	template<typename Resource>
 	inline Resource* ResourceCache<Resource>::get(std::string_view handle) noexcept
 	{
-		return &m_resources[std::string(handle)];
+		const std::string cast = static_cast<std::string>(handle);
+		return &m_resources[cast];
 	}
 }
 
