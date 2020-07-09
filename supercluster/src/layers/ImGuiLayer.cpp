@@ -701,6 +701,7 @@ namespace sc
 	{
 		static bool s_created = false;
 		static bool s_loaded = false;
+		static bool s_custom = false;
 		ImGui::Begin("Texture Atlas Editor", &m_showTAEUI, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 		if (ImGui::Button("Create from JSON"))
@@ -746,6 +747,47 @@ namespace sc
 		if (s_created)
 		{
 			ImGui::Text("Texture Atlas created successfully!");
+		}
+
+		if (s_loaded && s_created)
+		{
+			if (ImGui::Button("Add custom Quad"))
+			{
+				s_custom = !s_custom;
+			}
+		}
+
+		if (s_custom)
+		{
+			static float s_x = 0.0f;
+			static float s_y = 0.0f;
+			static float s_w = 0.0f;
+			static float s_h = 0.0f;
+			static std::string s_id = "";
+			ImGui::Spacing();
+
+			ImGui::InputText("ID", &s_id);
+			ImGui::SameLine();
+			ImGui::InputFloat("X", &s_x);
+			ImGui::SameLine();
+			ImGui::InputFloat("Y", &s_y);
+			ImGui::SameLine();
+			ImGui::InputFloat("Width", &s_w);
+			ImGui::SameLine();
+			ImGui::InputFloat("Height", &s_h);
+
+			ImGui::Spacing();
+			if (ImGui::Button("Add"))
+			{
+				m_textureAtlas->defineCustomQuad(s_id, { s_x, s_y, s_w, s_h });
+
+				ImGui::Text("Added custom Quad.");
+				s_x = 0.0f;
+				s_y = 0.0f;
+				s_w = 0.0f;
+				s_h = 0.0f;
+				s_id = "";
+			}
 		}
 
 		ImGui::End();
