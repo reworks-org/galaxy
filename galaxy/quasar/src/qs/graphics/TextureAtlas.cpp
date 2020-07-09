@@ -91,19 +91,21 @@ namespace qs
 		return m_size;
 	}
 
-	void TextureAtlas::defineCustomQuad(const std::string& name, const protostar::Rect<float>& rect) noexcept
+	void TextureAtlas::defineCustomQuad(std::string_view name, const protostar::Rect<float>& rect) noexcept
 	{
-		if (m_textureRects.find(name) != m_textureRects.end())
+		const std::string cast = static_cast<std::string>(name);
+		if (m_textureRects.find(cast) == m_textureRects.end())
 		{
-			m_textureRects.emplace(name, rect);
+			m_textureRects.emplace(cast, rect);
 		}
 	}
 
-	const protostar::Rect<float>& TextureAtlas::getTexQuad(const std::string& name) noexcept
+	const protostar::Rect<float>& TextureAtlas::getTexQuad(std::string_view name) noexcept
 	{
-		if (m_textureRects.find(name) != m_textureRects.end())
+		const std::string cast = static_cast<std::string>(name);
+		if (m_textureRects.find(cast) != m_textureRects.end())
 		{
-			return m_textureRects[name];
+			return m_textureRects[cast];
 		}
 		else
 		{

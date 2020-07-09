@@ -89,7 +89,7 @@ namespace qs
 		/// \param name String name corresponding to texture (filename without path and extension).
 		/// \param rect Quad definition.
 		///
-		void defineCustomQuad(const std::string& name, const protostar::Rect<float>& rect) noexcept;
+		void defineCustomQuad(std::string_view name, const protostar::Rect<float>& rect) noexcept;
 
 		///
 		/// Retrieve a texture quad defined in the atlas.
@@ -98,7 +98,7 @@ namespace qs
 		///
 		/// \return Const ref to the quad.
 		///
-		const protostar::Rect<float>& getTexQuad(const std::string& name) noexcept;
+		const protostar::Rect<float>& getTexQuad(std::string_view name) noexcept;
 
 		///
 		/// Get atlas texture.
