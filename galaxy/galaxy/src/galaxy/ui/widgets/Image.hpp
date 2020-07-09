@@ -1,42 +1,40 @@
 ///
 /// Image.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_IMAGE_HPP_
-#define CELESTIAL_IMAGE_HPP_
+#ifndef GALAXY_IMAGE_HPP_
+#define GALAXY_IMAGE_HPP_
 
-#include <qs/core/Transform.hpp>
-
-#include "celestial/Widget.hpp"
+#include "galaxy/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// Image for UI objects. Does not support tooltips.
 	///
-	class Image final : public celestial::Widget, public qs::Renderable, public qs::Transform
+	class Image final : public galaxy::Widget
 	{
 	public:
 		///
 		/// Constructor.
 		///
+		/// \param theme Theme from UI to apply to widget.
+		/// \param textureID Name of texture region in theme texture atlas to use.
 		/// \param x x pos.
 		/// \param y y pos.
-		/// \param region Name of texture region in theme to use.
-		/// \param theme This is set for you by UI::add(). Do not set it.
 		///
-		Image(const float x, const float y, const std::string& region, celestial::UITheme* theme) noexcept;
+		Image(galaxy::Theme* theme, std::string_view textureID, const float x, const float y) noexcept;
 
 		///
 		/// Destructor.
 		///
-		~Image() noexcept override;
+		~Image() noexcept;
 
 	private:
 		///
@@ -63,20 +61,15 @@ namespace celestial
 		///
 		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 		///
-		/// \param shader Use to set any shader uniforms.
+		/// \param camera Camera projection to apply to GUI.
 		///
-		void render(qs::Shader& shader) noexcept override;
+		void render(qs::Camera& camera) noexcept override;
 
 	private:
 		///
-		/// Render data update flag.
+		/// Image sprite.
 		///
-		protostar::ProtectedBool m_updateRender;
-
-		///
-		/// Mutex to protect accessing vertex data.
-		///
-		std::mutex m_vertexMutex;
+		qs::BatchedSprite m_sprite;
 	};
 }
 
