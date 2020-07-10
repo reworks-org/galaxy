@@ -1,3 +1,23 @@
+ALL: C++20.
+ALL: EXCEPTIONS.
+ALL: TESTS.
+ALL: MERGE SAME CLASS CATEGORIES I.E. PRIVATE METHODS AND PRIVATE VARS TO JUST PRIVATE ONCE.
+
+FRB: Audio Streams.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://github.com/rokups/ImNodes
 
 - move to univeral error handling through logging library, enable exceptions
