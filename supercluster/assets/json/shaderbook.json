@@ -12,6 +12,10 @@
 		[
 			"sprite.vs",
 			"sprite.fs"
+		],
+		[
+			"text.vs",
+			"text.fs"
 		]
 	]
 }

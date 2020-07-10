@@ -10,6 +10,7 @@
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/ui/widgets/Image.hpp>
+#include <galaxy/ui/widgets/Button.hpp>
 
 #include <galaxy/core/ServiceLocator.hpp>
 
@@ -62,6 +63,10 @@ namespace sc
 		atlas->defineCustomQuad("image", { parent.m_x + 31, parent.m_y + 75, 312, 287 });
 
 		m_gui.createWidget<galaxy::Image>("image", 10.0f, 10.0f);
+		auto* button = m_gui.createWidget<galaxy::Button>(250.0f, 250.0f);
+		button->createLabel("Test", "public16", { 255, 255, 255, 255 });
+
+		m_gui.addEventToWidget<protostar::MouseMovedEvent>(&galaxy::Button::onMove, button);
 	}
 
 	GUILayer::~GUILayer() noexcept
