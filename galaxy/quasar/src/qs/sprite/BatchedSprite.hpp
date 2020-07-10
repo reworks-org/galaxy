@@ -68,6 +68,13 @@ namespace qs
 		void setUpdatedRegion(float x, float y, float w = -1.0f, float h = -1.0f) noexcept;
 
 		///
+		/// Update texquad region.
+		///
+		/// \param quad New quad region.
+		///
+		void setUpdatedRegion(const protostar::Rect<float>& quad) noexcept;
+
+		///
 		/// Get z-level.
 		///
 		/// \return Const unsigned int.

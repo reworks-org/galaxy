@@ -67,6 +67,11 @@ namespace qs
 		m_isDirty = true;
 	}
 
+	void BatchedSprite::setUpdatedRegion(const protostar::Rect<float>& quad) noexcept
+	{
+		setUpdatedRegion(quad.m_x, quad.m_y, quad.m_width, quad.m_height);
+	}
+
 	const unsigned int BatchedSprite::getZLevel() const noexcept
 	{
 		return m_zLevel;
