@@ -1,6 +1,6 @@
 ///
 /// Label.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -12,7 +12,7 @@
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	ProgressBar::ProgressBar(const protostar::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme)
 		:Widget({ containerBarCoords.m_x, containerBarCoords.m_y, 0, 0 }, theme), m_barBounds({ containerBarCoords.m_width, containerBarCoords.m_height, 0, 0 }), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
@@ -32,7 +32,7 @@ namespace celestial
 		m_barBounds.m_height = m_theme->loader()->getTextureHeight(m_bar.get());
 	}
 
-	ProgressBar::ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, celestial::ResourceLoader* loader)
+	ProgressBar::ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, galaxy::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_barBounds(bounds), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// Create textures
@@ -70,7 +70,7 @@ namespace celestial
 		}
 	}
 
-	void ProgressBar::render(celestial::Renderer* renderer)
+	void ProgressBar::render(galaxy::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

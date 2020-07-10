@@ -1,6 +1,6 @@
 ///
 /// ToggleButton.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	ToggleButton::ToggleButton(const int x, const int y, const std::array<std::string, 3>& textures, UITheme* theme)
 		:Widget({x, y, 0, 0}, theme), m_state(ToggleButton::State::OFF)
@@ -37,7 +37,7 @@ namespace celestial
 	{
 	}
 
-	void ToggleButton::render(celestial::Renderer* renderer)
+	void ToggleButton::render(galaxy::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

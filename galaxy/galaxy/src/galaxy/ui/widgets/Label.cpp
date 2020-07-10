@@ -1,6 +1,6 @@
 ///
 /// Label.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -12,9 +12,9 @@
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
-	Label::Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, celestial::UITheme* theme) noexcept
+	Label::Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, galaxy::UITheme* theme) noexcept
 		:Widget()
 	{
 		m_theme = theme;

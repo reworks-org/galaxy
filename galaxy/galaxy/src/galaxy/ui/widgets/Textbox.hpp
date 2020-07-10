@@ -1,21 +1,21 @@
 ///
 /// Textbox.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_TEXTBOX_HPP_
-#define CELESTIAL_TEXTBOX_HPP_
+#ifndef GALAXY_TEXTBOX_HPP_
+#define GALAXY_TEXTBOX_HPP_
 
 #include <protostar/events/KeyDownEvent.hpp>
 
-#include "celestial/ui/Widget.hpp"
+#include "galaxy/ui/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// Represents a message box or "textbox" in the style of a JRPG.
@@ -63,7 +63,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::Renderer* renderer) override;
+		void render(galaxy::Renderer* renderer) override;
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.

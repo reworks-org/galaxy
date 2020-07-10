@@ -1,6 +1,6 @@
 ///
 /// Slider.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -12,9 +12,9 @@
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
-	Slider::Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, celestial::ResourceLoader* loader)
+	Slider::Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, galaxy::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_value(0.0f), m_markerX(0.0f), m_markerW(mw), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Create textures
@@ -90,7 +90,7 @@ namespace celestial
 		}
 	}
 
-	void Slider::render(celestial::Renderer* renderer)
+	void Slider::render(galaxy::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

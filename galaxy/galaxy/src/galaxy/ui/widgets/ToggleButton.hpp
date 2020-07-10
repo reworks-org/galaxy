@@ -1,12 +1,12 @@
 ///
 /// ToggleButton.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_TOGGLEBUTTON_HPP_
-#define CELESTIAL_TOGGLEBUTTON_HPP_
+#ifndef GALAXY_TOGGLEBUTTON_HPP_
+#define GALAXY_TOGGLEBUTTON_HPP_
 
 #include <array>
 #include <functional>
@@ -15,12 +15,12 @@
 #include <protostar/events/MousePressedEvent.hpp>
 #include <protostar/events/MouseReleasedEvent.hpp>
 
-#include "celestial/ui/Widget.hpp"
+#include "galaxy/ui/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// Creates a button that toggles from one state to another.
@@ -77,7 +77,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::Renderer* renderer) override;
+		void render(galaxy::Renderer* renderer) override;
 
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.

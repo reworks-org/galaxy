@@ -1,26 +1,26 @@
 ///
 /// Label.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_LABEL_HPP_
-#define CELESTIAL_LABEL_HPP_
+#ifndef GALAXY_LABEL_HPP_
+#define GALAXY_LABEL_HPP_
 
 #include <qs/text/Text.hpp>
 
-#include "celestial/Widget.hpp"
+#include "galaxy/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// Label for UI objects. Does not support tooltips.
 	///
-	class Label final : public celestial::Widget
+	class Label final : public galaxy::Widget
 	{
 	public:
 		///
@@ -33,7 +33,7 @@ namespace celestial
 		/// \param col Colour of the label text.
 		/// \param theme This is set for you by UI::add(). Do not set it.
 		///
-		Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, celestial::UITheme* theme) noexcept;
+		Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, galaxy::UITheme* theme) noexcept;
 
 		///
 		/// Destructor.

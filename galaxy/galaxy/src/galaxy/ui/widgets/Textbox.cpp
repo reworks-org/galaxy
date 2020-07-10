@@ -1,6 +1,6 @@
 ///
 /// Textbox.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	Textbox::Textbox(const int x, const int y, const std::string& frame, const std::string& indicator, const std::vector<std::string>& messages, const unsigned int maxWidth, const unsigned int duration, UITheme* theme, const std::string& speaker)
 		:Widget({x, y, 0, 0}, theme), m_frame(nullptr), m_indicator(nullptr), m_messages(messages), m_speaker(speaker), m_maxWidth(maxWidth), m_duration(duration), m_timePassed(0.0), m_indicatorTimePassed(0.0), m_characterIndex(0), m_page(0), m_drawLoweredIndicator(false), m_lineHeight(0)
@@ -86,7 +86,7 @@ namespace celestial
 		}
 	}
 
-	void Textbox::render(celestial::Renderer* renderer)
+	void Textbox::render(galaxy::Renderer* renderer)
 	{
 		if (m_isVisible)
 		{

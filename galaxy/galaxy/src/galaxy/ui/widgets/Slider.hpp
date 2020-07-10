@@ -1,21 +1,21 @@
 ///
 /// Slider.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_SLIDER_HPP_
-#define CELESTIAL_SLIDER_HPP_
+#ifndef GALAXY_SLIDER_HPP_
+#define GALAXY_SLIDER_HPP_
 
 #include <protostar/events/MousePressedEvent.hpp>
 
-#include "celestial/ui/Widget.hpp"
+#include "galaxy/ui/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// UI bar that can be moved to increment and decrement a value.
@@ -33,7 +33,7 @@ namespace celestial
 		/// \param marker Colour of the marker used to indicate position.
 		/// \param loader ResourceLoader to use.
 		///
-		Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, celestial::ResourceLoader* loader);
+		Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, galaxy::ResourceLoader* loader);
 
 		///
 		/// Texture constructor.
@@ -79,7 +79,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::Renderer* renderer) override;
+		void render(galaxy::Renderer* renderer) override;
 
 		///
 		/// Get current value of slider.

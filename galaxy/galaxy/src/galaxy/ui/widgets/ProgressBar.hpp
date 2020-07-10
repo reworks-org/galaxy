@@ -1,22 +1,22 @@
 ///
 /// ProgressBar.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_PROGRESSBAR_HPP_
-#define CELESTIAL_PROGRESSBAR_HPP_
+#ifndef GALAXY_PROGRESSBAR_HPP_
+#define GALAXY_PROGRESSBAR_HPP_
 
 #include <protostar/shapes/Rect.hpp>
 #include <protostar/graphics/Colour.hpp>
 
-#include "celestial/ui/Widget.hpp"
+#include "galaxy/ui/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// UI bar that is used to track progress of something.
@@ -45,7 +45,7 @@ namespace celestial
 		/// \param bar Colour of the progress bar itself.
 		/// \param loader ResourceLoader to use.
 		///
-		ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, celestial::ResourceLoader* loader);
+		ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, galaxy::ResourceLoader* loader);
 		
 		///
 		/// Destructor.
@@ -71,7 +71,7 @@ namespace celestial
 		///
 		/// Render the widget.
 		///
-		void render(celestial::Renderer* renderer) override;
+		void render(galaxy::Renderer* renderer) override;
 
 		///
 		/// Set progress of bar.
