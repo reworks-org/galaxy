@@ -1,148 +1,117 @@
 ///
 /// Button.cpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
+
+#include <qs/core/Renderer.hpp>
+#include <galaxy/res/FontBook.hpp>
+#include <galaxy/res/ShaderBook.hpp>
 
 #include "Button.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
-	Button::Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme)
-		:Widget({x, y, 0, 0}, theme), m_label(label), m_xLabelPos(0.0f), m_yLabelPos(0.0f), m_state(Button::State::DEFAULT), m_pressed(false)
+	Button::Button(galaxy::Theme* theme, const int x, const int y) noexcept
+		:Widget(theme)
 	{
-		// Load each bitmap from the array and check for errors.
-		for (auto i = 0; i < 3; ++i)
-		{
-			m_textures[i] = m_theme->extractWidgetTexture(textures[i]);
-		}
+		auto* atlas = m_theme->getAtlas();
+		auto* batch = m_theme->getBatch();
+		auto* quad = &atlas->getTexQuad("button_default");
+		
+		m_sprite.create(*quad, 0);
+		m_sprite.setPos(x, y);
+		
+		m_bounds.m_x = x;
+		m_bounds.m_y = y;
+		m_bounds.m_width = quad->m_width;
+		m_bounds.m_height = quad->m_height;
 
-		// Set dimensions.
-		m_bounds.m_width = m_theme->loader()->getTextureWidth(m_textures[0].get());
-		m_bounds.m_height = m_theme->loader()->getTextureHeight(m_textures[0].get());
+		batch->add(&m_sprite);
 	}
 
-	Button::Button(const int x, const int y, const std::string& text, const std::array<protostar::Colour, 3>& colours, UITheme* theme)
-		:Widget({ x, y, 0, 0 }, theme), m_label(""), m_xLabelPos(0.0f), m_yLabelPos(0.0f), m_state(Button::State::DEFAULT), m_pressed(false)
-	{	
-		// Find correct button size.
-		m_bounds.m_width = m_theme->loader()->getTextWidth(m_theme->font(), text.c_str());
-		m_bounds.m_height = m_theme->loader()->getTextHeight(m_theme->font(), text.c_str());
-
-		for (auto i = 0; i < 3; ++i)
-		{
-			m_textures[i] = m_theme->loader()->createRectangle(m_bounds.m_width, m_bounds.m_height, colours[i]);
-		}
+	Button::~Button() noexcept
+	{
+		m_text.reset();
 	}
 
-	Button::~Button()
+	void Button::onPress(const protostar::MousePressedEvent& e) noexcept
 	{
-		m_textures[0].reset();
-		m_textures[1].reset();
-		m_textures[2].reset();
-	}
-
-	void Button::update(const double dt)
-	{
-		if (m_isVisible)
+		if (m_bounds.contains(e.m_x, e.m_y) && e.m_button == 1)
 		{
-			if (m_state == Button::State::PRESSED)
-			{
-				m_pressed = true;
-			}
-			else
-			{
-				m_pressed = false;
-			}
+			m_state = Button::State::PRESSED;
 		}
 	}
 
-	void Button::render(celestial::Renderer* renderer)
+	void Button::onRelease(const protostar::MouseReleasedEvent& e) noexcept
 	{
-		if (m_isVisible)
+		if (m_bounds.contains(e.m_x, e.m_y))
 		{
-			// Simply render depending on button state.
-			switch (m_state)
-			{
-			case Button::State::DEFAULT:
-				renderer->drawTexture(m_textures[0].get(), m_bounds.m_x, m_bounds.m_y);
-				renderer->drawText(m_theme->font(), m_theme->colour(), m_label, m_xLabelPos, m_yLabelPos);
-				break;
-
-			case Button::State::PRESSED:
-				renderer->drawTexture(m_textures[1].get(), m_bounds.m_x, m_bounds.m_y);
-				renderer->drawText(m_theme->font(), m_theme->colour(), m_label, m_xLabelPos, m_yLabelPos);
-				break;
-
-			case Button::State::HOVER:
-				renderer->drawTexture(m_textures[2].get(), m_bounds.m_x, m_bounds.m_y);
-				renderer->drawText(m_theme->font(), m_theme->colour(), m_label, m_xLabelPos, m_yLabelPos);
-
-				if (m_tooltip)
-				{
-					m_tooltip->draw(renderer);
-				}
-				break;
-			}
+			m_state = Button::State::HOVER;
+		}
+		else
+		{
+			m_state = Button::State::DEFAULT;
 		}
 	}
 
-	void Button::receivePress(const protostar::MousePressedEvent& e)
+	void Button::onMove(const protostar::MouseMovedEvent& e) noexcept
 	{
-		if (m_isVisible)
+		if (m_bounds.contains(e.m_x, e.m_y))
 		{
-			if (contains(e.m_x, e.m_y) && e.m_button == 1)
-			{
-				m_state = Button::State::PRESSED;
-			}
+			m_state = Button::State::HOVER;
+		}
+		else
+		{
+			m_state = Button::State::DEFAULT;
 		}
 	}
 
-	void Button::receiveRelease(const protostar::MouseReleasedEvent& e)
+	void Button::createLabel(const std::string& label, std::string_view font, const protostar::Colour& col) noexcept
 	{
-		if (m_isVisible)
+		m_text = std::make_unique<qs::Text>();
+		m_text->load(label, m_theme->get<FontBook>(font), col);
+		m_text->create();
+	}
+
+	void Button::activate() noexcept
+	{
+	}
+
+	void Button::deactivate() noexcept
+	{
+	}
+
+	void Button::update(protostar::ProtectedDouble* dt) noexcept
+	{
+		if (m_state == Button::State::PRESSED)
 		{
-			if (contains(e.m_x, e.m_y))
-			{
-				m_state = Button::State::HOVER;
-			}
-			else
-			{
-				m_state = Button::State::DEFAULT;
-			}
+			m_pressed = true;
+		}
+		else
+		{
+			m_pressed = false;
 		}
 	}
 
-	void Button::recieveMoved(const protostar::MouseMovedEvent& e)
+	void Button::render(qs::Camera& camera) noexcept
 	{
-		if (m_isVisible)
+		if (m_text != nullptr)
 		{
-			if (contains(e.m_x, e.m_y))
-			{
-				m_state = Button::State::HOVER;
-			}
-			else
-			{
-				m_state = Button::State::DEFAULT;
-			}
+			auto* shader = m_theme->get<ShaderBook>("text");
+			shader->setUniform<glm::mat4>("u_cameraProj", camera.getProj());
+			shader->setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
+
+			m_theme->getRenderer()->drawText(*m_text, *shader);
 		}
-	}
-
-	void Button::setOffset(const int x, const int y)
-	{
-		m_bounds.m_x += x;
-		m_bounds.m_y += y;
-
-		m_xLabelPos = ((m_theme->loader()->getTextureWidth(m_textures[0].get()) / 2.0f) - m_theme->loader()->getTextWidth(m_theme->font(), m_label) / 2.0f) + m_bounds.m_x;
-		m_yLabelPos = ((m_theme->loader()->getTextureHeight(m_textures[0].get()) / 2.0f) - m_theme->loader()->getTextHeight(m_theme->font(), m_label) / 2.0f) + m_bounds.m_y;
 	}
 
 	const bool Button::isPressed() const noexcept
 	{
-		return m_pressed;
+		return false;
 	}
 }

@@ -1,30 +1,27 @@
 ///
 /// Button.hpp
-/// celestial
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef CELESTIAL_BUTTON_HPP_
-#define CELESTIAL_BUTTON_HPP_
-
-#include <array>
-#include <functional>
+#ifndef GALAXY_BUTTON_HPP_
+#define GALAXY_BUTTON_HPP_
 
 #include <protostar/events/MousePressedEvent.hpp>
 #include <protostar/events/MouseReleasedEvent.hpp>
 
-#include "celestial/Widget.hpp"
+#include "galaxy/ui/Widget.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace celestial
+namespace galaxy
 {
 	///
 	/// Creates a clickable button.
 	///
-	class Button final : public celestial::Widget
+	class Button final : public galaxy::Widget
 	{
 		///
 		/// Defines a state for the button.
@@ -51,44 +48,16 @@ namespace celestial
 		///
 		/// Texture Constructor.
 		///
-		/// \param x x-pos of button relative to panel.
-		/// \param y y-pos of button relative to panel.
-		/// \param label Label to place on the button.
-		/// \param textures Array of texture names in theme to use. Need to be all the same dimensions.
-		///			Needs to be the name of texture regions from the UITheme.
-		///			textures[0] is default state, textures[1] is pressed state and textures[2] is mouse over (hover) state.
 		/// \param theme Theme for this widget.
+		/// \param x x-pos of button.
+		/// \param y y-pos of button.
 		///
-		Button(const int x, const int y, const std::string& label, const std::array<std::string, 3>& textures, UITheme* theme);
-
-		///
-		/// Text Constructor.
-		///
-		/// \param x x-pos, relative to the panel.
-		/// \param y y-pos, relative to the panel.
-		/// \param text Text of the button.
-		/// \param colours Array of colours for each state. 
-		///					colors[0] is default state, colors[1] is pressed state and colors[2] is mouse over (hover) state.	
-		/// \param theme Theme for this widget.
-		///
-		Button(const int x, const int y, const std::string& text, const std::array<protostar::Colour, 3>& colours, UITheme* theme);
+		Button(galaxy::Theme* theme, const int x, const int y) noexcept;
 
 		///
 		/// Destructor.
 		///
 		~Button() noexcept;
-
-		///
-		/// Update the widget.
-		///
-		/// \param dt Delta Time.
-		///
-		void update(const double dt) override;
-
-		///
-		/// Render the widget.
-		///
-		void render(celestial::Renderer* renderer) override;
 
 		///
 		/// \brief Allows for button to recieve MousePressedEvents. Automatically registered with entt.
@@ -97,7 +66,7 @@ namespace celestial
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void onPress(const protostar::MousePressedEvent& e);
+		void onPress(const protostar::MousePressedEvent& e) noexcept;
 
 		///
 		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
@@ -106,7 +75,7 @@ namespace celestial
 		///
 		/// \param e MouseReleasedEvent object.
 		///
-		void onRelease(const protostar::MouseReleasedEvent& e);
+		void onRelease(const protostar::MouseReleasedEvent& e) noexcept;
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -115,19 +84,44 @@ namespace celestial
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void onMove(const protostar::MouseMovedEvent& e);
+		void onMove(const protostar::MouseMovedEvent& e) noexcept;
 
 		///
-		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.
+		/// Label for button.
 		///
-		/// It should look like this:
-		/// m_bounds.m_x += x;
-		/// m_bounds.m_y += y;
+		/// \param label Label to go on text.
+		/// \param font Font to draw text with.
+		/// \param col Colour of text.
 		///
-		/// \param x x-pos of the panel.
-		/// \param y y-pos of the panel.
+		void createLabel(const std::string& label, std::string_view font, const protostar::Colour& col) noexcept;
+
 		///
-		void setOffset(const int x, const int y) override;
+		/// Activate widget.
+		///
+		void activate() noexcept override;
+
+		///
+		/// Deactivate widget.
+		///
+		void deactivate() noexcept override;
+
+		///
+		/// \brief Update the widget.
+		///
+		/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
+		///
+		/// \param dt Delta Time.
+		///
+		void update(protostar::ProtectedDouble* dt) noexcept override;
+
+		///
+		/// \brief Perform any GL functions on the main thread in prep for rendering.
+		///
+		/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
+		///
+		/// \param camera Camera projection to apply to GUI.
+		///
+		void render(qs::Camera& camera) noexcept override;
 
 		///
 		/// Check if the button has been pressed.
@@ -138,41 +132,29 @@ namespace celestial
 
 	private:
 		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		Button() = delete;
-
-	private:
-		///
 		/// Current state of the button.
 		///
 		Button::State m_state;
 
 		///
-		/// textures for each button state.
+		/// Is button pressed.
 		///
-		std::array<TexturePtr, 3> m_textures;
+		bool m_pressed;
 
 		///
 		/// Label for button.
 		///
-		std::string m_label;
+		std::unique_ptr<qs::Text> m_text;
 
 		///
-		/// Button label y coords.
+		/// Sprite of button.
 		///
-		float m_xLabelPos;
+		qs::BatchedSprite m_sprite;
 
 		///
-		/// Button label x coords.
+		/// Bounds.
 		///
-		float m_yLabelPos;
-
-		///
-		/// Is button pressed.
-		///
-		bool m_pressed;
+		protostar::Rect<int> m_bounds;
 	};
 }
 

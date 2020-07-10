@@ -48,6 +48,7 @@
     <ClCompile Include="src\galaxy\ui\Theme.cpp" />
     <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
     <ClCompile Include="src\galaxy\ui\Widget.cpp" />
+    <ClCompile Include="src\galaxy\ui\widgets\Button.cpp" />
     <ClCompile Include="src\galaxy\ui\widgets\Image.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
     <ClInclude Include="src\galaxy\ui\Theme.hpp" />
     <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
     <ClInclude Include="src\galaxy\ui\Widget.hpp" />
+    <ClInclude Include="src\galaxy\ui\widgets\Button.hpp" />
     <ClInclude Include="src\galaxy\ui\widgets\Image.hpp" />
   </ItemGroup>
   <ItemGroup>
