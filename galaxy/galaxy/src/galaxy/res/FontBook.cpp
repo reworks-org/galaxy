@@ -42,7 +42,9 @@ namespace galaxy
 			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& font)
 			{
 				auto fontPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_fonts + font[0].get<std::string>());
-				this->add(fontPath.stem().string(), fontPath.string(), font[1].get<int>());
+				const int size = font[1].get<int>();
+
+				this->add(fontPath.stem().string() + std::to_string(size), fontPath.string(), size);
 			});
 			
 			is.close();
