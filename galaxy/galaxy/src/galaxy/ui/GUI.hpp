@@ -75,8 +75,8 @@ namespace galaxy
 		/// \param func void function that takes a const Event&.
 		/// \param widget Widget to add function to.
 		///
-		template<typename Event, typename WidgetType>
-		void addEventToWidget(starlight::Callback<Event>&& func, WidgetType* widget) noexcept;
+		template<typename Event, typename Callback, typename WidgetType>
+		void addEventToWidget(Callback&& func, WidgetType* widget) noexcept;
 
 		///
 		/// Queues an event to be triggered, does not trigger immediately.
@@ -229,10 +229,10 @@ namespace galaxy
 		return ref;
 	}
 
-	template<typename Event, typename WidgetType>
-	inline void GUI::addEventToWidget(starlight::Callback<Event>&& func, WidgetType* widget) noexcept
+	template<typename Event, typename Callback, typename WidgetType>
+	inline void GUI::addEventToWidget(Callback&& func, WidgetType* widget) noexcept
 	{
-		m_GUIEventManager.add<Event>(std::bind(func, widget, std::placeholders::_1));
+		m_GUIEventManager.add<Event>(std::bind(std::forward<Callback>(func), widget, std::placeholders::_1));
 	}
 
 	template<typename Event, typename ...Args>
