@@ -42,6 +42,10 @@ namespace protostar
 		template<typename ...Args>
 		void add(const std::string& name, Args&& ...args) noexcept;
 
+		//
+		// Move
+		//
+
 		///
 		/// Retrieve a resource.
 		///

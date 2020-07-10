@@ -8,8 +8,8 @@
 #ifndef PROTOSTAR_UNIQUEID_HPP_
 #define PROTOSTAR_UNIQUEID_HPP_
 
-#include <type_traits>
 #include <cstddef>
+#include <type_traits>
 
 ///
 /// Core namespace.
@@ -17,17 +17,18 @@
 namespace protostar
 {
 	///
+	/// UniqueID can only be a class.
+	///
+	template<typename Type>
+	concept IsClass = std::is_class<Type>::value;
+
+	///
 	/// Generates a unique id for a type for each type of specialization.
 	/// And the id is kept as a compile time constant.
 	///
-	template<typename Specialization>
+	template<IsClass Specialization>
 	class UniqueID final
 	{
-		///
-		/// Specialization should be a struct or class.
-		///
-		static_assert(std::is_class<Specialization>::value);
-
 	public:
 		///
 		/// Default destructor.
@@ -38,7 +39,7 @@ namespace protostar
 		/// Use this function to retrieve the ID.
 		/// Will generate a new id if it is called for the first time.
 		///
-		/// \return Std::size_t ID.
+		/// \return Unique ID for the specialization of that type.
 		///
 		template<typename Type>
 		static const std::size_t get() noexcept;
@@ -49,14 +50,13 @@ namespace protostar
 		///
 		UniqueID() noexcept = default;
 
-	private:
 		///
 		/// Internal counter to keep track of allocated ids.
 		///
 		static inline std::size_t s_counter = 0;
 	};
 
-	template<typename Specialization>
+	template<IsClass Specialization>
 	template<typename Type>
 	inline const std::size_t UniqueID<Specialization>::get() noexcept
 	{

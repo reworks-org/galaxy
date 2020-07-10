@@ -24,7 +24,10 @@ namespace protostar
 	///
 	/// \return Returns const std::uint32_t.
 	///
-	constexpr std::uint32_t secondsToMilliseconds(const double seconds) noexcept;
+	inline constexpr const std::uint32_t secondsToMilliseconds(const double seconds) noexcept
+	{
+		return static_cast<std::uint32_t>(seconds * 1000.0);
+	}
 
 	///
 	/// Convert seconds to microseconds.
@@ -33,7 +36,10 @@ namespace protostar
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	constexpr std::uint64_t secondsToMicroseconds(const double seconds) noexcept;
+	inline constexpr const std::uint64_t secondsToMicroseconds(const double seconds) noexcept
+	{
+		return static_cast<std::uint64_t>(seconds * 1000000.0);
+	}
 
 	///
 	/// Convert milliseconds to seconds.
@@ -42,7 +48,10 @@ namespace protostar
 	///
 	/// \return Returns const double.
 	///
-	constexpr double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept;
+	inline constexpr const double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept
+	{
+		return static_cast<double>(milliseconds) / 1000.0;
+	}
 
 	///
 	/// Convert milliseconds to microseconds.
@@ -51,7 +60,10 @@ namespace protostar
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	constexpr std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept;
+	inline constexpr const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept
+	{
+		 return static_cast<std::uint64_t>(static_cast<std::uint64_t>(milliseconds) * 1000);
+	}
 
 	///
 	/// Convert microseconds to seconds.
@@ -60,7 +72,10 @@ namespace protostar
 	///
 	/// \return Returns const double.
 	///
-	constexpr double microsecondsToSeconds(const std::uint64_t microseconds) noexcept;
+	inline constexpr const double microsecondsToSeconds(const std::uint64_t microseconds) noexcept
+	{
+		return static_cast<double>(microseconds / 1000000.0);
+	}
 
 	///
 	/// Convert microseconds to milliseconds.
@@ -69,7 +84,10 @@ namespace protostar
 	///
 	/// \return Returns std::uint32_t.
 	///
-	constexpr std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept;
+	inline constexpr const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept
+	{
+		return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
+	}
 
 	///
 	/// \brief Returns High-Precision count of time passed since Epoch (Jan 1st, 1970).
@@ -77,11 +95,11 @@ namespace protostar
 	/// Credits:
 	/// https://stackoverflow.com/a/41580187
 	///
-	/// \param tp Another point in time to use.
+	/// \param tp Optional. Another point in time to use.
 	///
 	/// \return const double High Precision time passed since epoch.
 	///
-	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr) noexcept;
+	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr);
 
 	///
 	/// \brief Get the current time and date.
@@ -90,7 +108,7 @@ namespace protostar
 	///
 	/// \return Returns const std::string of the current DateTime.
 	///
-	const std::string getCurrentDateTime() noexcept;
+	const std::string getCurrentDateTime();
 
 	///
 	/// \brief Get the current time.
@@ -99,14 +117,14 @@ namespace protostar
 	///
 	/// \return Returns std::string shortened Time.
 	///
-	const std::string getShortTime() noexcept;
+	const std::string getShortTime();
 
 	///
 	/// Get a formatted time that contains no special characters.
 	///
 	/// \return Returns std::string formatted Time.
 	///
-	const std::string getFormattedTime() noexcept;
+	const std::string getFormattedTime();
 }
 
 #endif

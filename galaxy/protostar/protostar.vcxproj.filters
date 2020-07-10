@@ -12,19 +12,18 @@
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
     <ClCompile Include="src\protostar\math\Maths.cpp" />
     <ClCompile Include="src\protostar\math\Random.cpp" />
-    <ClCompile Include="src\protostar\math\Rect.cpp" />
     <ClCompile Include="src\protostar\math\RectPack.cpp" />
     <ClCompile Include="src\protostar\state\State.cpp" />
     <ClCompile Include="src\protostar\state\StateMachine.cpp" />
-    <ClCompile Include="src\protostar\string\StringOps.cpp" />
-    <ClCompile Include="src\protostar\system\Colour.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
-    <ClCompile Include="src\protostar\system\ResourceCache.cpp" />
-    <ClCompile Include="src\protostar\utility\Meta.cpp" />
-    <ClCompile Include="src\protostar\utility\UniqueID.cpp" />
     <ClCompile Include="src\protostar\system\Time.cpp" />
     <ClCompile Include="src\protostar\events\MouseWheelEvent.cpp" />
-    <ClCompile Include="src\protostar\system\ResCacheBase.cpp" />
+    <ClCompile Include="src\protostar\res\ResCacheBase.cpp" />
+    <ClCompile Include="src\protostar\res\ResourceCache.cpp" />
+    <ClCompile Include="src\protostar\system\CPP20.cpp" />
+    <ClCompile Include="src\protostar\system\UniqueID.cpp" />
+    <ClCompile Include="src\protostar\graphics\Colour.cpp" />
+    <ClCompile Include="src\protostar\graphics\Rect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
@@ -38,18 +37,17 @@
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
     <ClInclude Include="src\protostar\math\Maths.hpp" />
     <ClInclude Include="src\protostar\math\Random.hpp" />
-    <ClInclude Include="src\protostar\math\Rect.hpp" />
     <ClInclude Include="src\protostar\math\RectPack.hpp" />
     <ClInclude Include="src\protostar\state\State.hpp" />
     <ClInclude Include="src\protostar\state\StateMachine.hpp" />
-    <ClInclude Include="src\protostar\string\StringOps.hpp" />
-    <ClInclude Include="src\protostar\system\Colour.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
-    <ClInclude Include="src\protostar\system\ResourceCache.hpp" />
-    <ClInclude Include="src\protostar\utility\Meta.hpp" />
-    <ClInclude Include="src\protostar\utility\UniqueID.hpp" />
     <ClInclude Include="src\protostar\system\Time.hpp" />
     <ClInclude Include="src\protostar\events\MouseWheelEvent.hpp" />
-    <ClInclude Include="src\protostar\system\ResCacheBase.hpp" />
+    <ClInclude Include="src\protostar\res\ResCacheBase.hpp" />
+    <ClInclude Include="src\protostar\res\ResourceCache.hpp" />
+    <ClInclude Include="src\protostar\system\CPP20.hpp" />
+    <ClInclude Include="src\protostar\system\UniqueID.hpp" />
+    <ClInclude Include="src\protostar\graphics\Colour.hpp" />
+    <ClInclude Include="src\protostar\graphics\Rect.hpp" />
   </ItemGroup>
 </Project>

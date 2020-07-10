@@ -201,7 +201,7 @@
     <Rule Id="C26435" Action="None" />
     <Rule Id="C26445" Action="None" />
     <Rule Id="C26446" Action="None" />
-    <Rule Id="C26447" Action="None" />
+    <Rule Id="C26447" Action="Warning" />
     <Rule Id="C26448" Action="None" />
     <Rule Id="C26449" Action="None" />
     <Rule Id="C26459" Action="None" />
