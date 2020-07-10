@@ -42,7 +42,6 @@
     <ClCompile Include="src\qs\text\Font.cpp" />
     <ClCompile Include="src\qs\shaders\Glyphs.cpp" />
     <ClCompile Include="src\qs\text\Text.cpp" />
-    <ClCompile Include="src\qs\shaders\Texts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -83,6 +82,5 @@
     <ClInclude Include="src\qs\text\Font.hpp" />
     <ClInclude Include="src\qs\shaders\Glyphs.hpp" />
     <ClInclude Include="src\qs\text\Text.hpp" />
-    <ClInclude Include="src\qs\shaders\Texts.hpp" />
   </ItemGroup>
 </Project>
