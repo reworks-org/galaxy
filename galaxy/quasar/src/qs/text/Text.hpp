@@ -42,7 +42,7 @@ namespace qs
 		/// \param font Font to apply to text. Holds a reference, does not store.
 		/// \param col Colour of the text.
 		///
-		void load(const std::string& text, qs::Font* font, const protostar::Colour& col) noexcept;
+		void load(const std::string& text, qs::Font* font, const pr::Colour& col) noexcept;
 
 		///
 		/// Creates text from character verticies.
@@ -102,7 +102,7 @@ namespace qs
 		///
 		/// Colour.
 		///
-		protostar::Colour m_colour;
+		pr::Colour m_colour;
 
 		///
 		/// Opacity of sprite.

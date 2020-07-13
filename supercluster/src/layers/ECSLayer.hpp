@@ -37,7 +37,7 @@ namespace sc
 		///
 		/// \param deltaTime Delta-Time from fixed timestep gameloop.
 		///
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 
 		///
 		/// \brief Render layer.

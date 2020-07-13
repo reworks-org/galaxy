@@ -14,10 +14,12 @@
 #include <type_traits>
 #include <unordered_map>
 
+#include "protostar/system/Concepts.hpp"
+
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// \brief Calculate the percentage in a custom range.
@@ -30,12 +32,9 @@ namespace protostar
 	/// 
 	/// \return Returns the percentage of the value in that range betwen 0 and 1. E.g. 39% is 0.39.
 	///
-	template<typename T>
-	inline const T percentInRange(T input, T min, T max) noexcept
+	template<IsArithmetic Type>
+	inline constexpr Type percentInRange(Type input, Type min, Type max) noexcept
 	{
-		// Make sure is arimthmatic.
-		static_assert(std::is_arithmetic<T>::value);
-
 		return ((input - min) / (max - min));
 	}
 

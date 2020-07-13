@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <protostar/system/UniqueID.hpp>
 
-using TestUID = protostar::UniqueID<struct TestSpec_>;
+using TestUID = pr::UniqueID<struct TestSpec_>;
 
 class TestA {};
 class TestB {};

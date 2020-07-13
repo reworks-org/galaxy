@@ -33,7 +33,7 @@ namespace galaxy
 		/// \param marker Colour of the marker used to indicate position.
 		/// \param loader ResourceLoader to use.
 		///
-		Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, galaxy::ResourceLoader* loader);
+		Slider(const pr::Rect<int>& bounds, const int mw, const int mh, const pr::Colour& slider, const pr::Colour& marker, galaxy::ResourceLoader* loader);
 
 		///
 		/// Texture constructor.
@@ -58,7 +58,7 @@ namespace galaxy
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void receiveMove(const protostar::MouseMovedEvent& e);
+		void receiveMove(const pr::MouseMovedEvent& e);
 
 		///
 		/// \brief Allows for Slider to recieve MousePressedEvents. Automatically registered with entt.
@@ -67,7 +67,7 @@ namespace galaxy
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const protostar::MousePressedEvent& e);
+		void receivePress(const pr::MousePressedEvent& e);
 
 		///
 		/// Update the widget.

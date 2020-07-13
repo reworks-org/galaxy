@@ -16,7 +16,7 @@
 
 namespace sc
 {
-	Editor::Editor(protostar::ProtectedDouble* dt) noexcept
+	Editor::Editor(pr::ProtectedDouble* dt) noexcept
 		:m_dt(dt)
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->getWidth(), SL_HANDLE.window()->getHeight(), 0.0f);
@@ -43,7 +43,7 @@ namespace sc
 		m_layers.events();
 	}
 
-	void Editor::update(protostar::ProtectedDouble* dt) noexcept
+	void Editor::update(pr::ProtectedDouble* dt) noexcept
 	{
 		m_camera.update(dt->get());
 		m_layers.update(dt);

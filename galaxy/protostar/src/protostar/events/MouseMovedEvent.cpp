@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	MouseMovedEvent::MouseMovedEvent() noexcept
 		:m_x(0), m_y(0), m_dx(0), m_dy(0), m_pressure(0.0f)

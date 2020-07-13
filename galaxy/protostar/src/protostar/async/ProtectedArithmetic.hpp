@@ -14,7 +14,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Protected arithmetic type that has its read/write protected by a lock_guard.

@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains data relating to a mouse pressed event.

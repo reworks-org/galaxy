@@ -45,13 +45,13 @@ namespace rs
 		/// \param time Application delta time.
 		/// \param cv Condition variable for multithreading.
 		///
-		void move(const protostar::Vector2<double>& acc, const double time, std::condition_variable& cv) noexcept;
+		void move(const pr::Vector2<double>& acc, const double time, std::condition_variable& cv) noexcept;
 
 	private:
 		///
 		/// Current velocity of body.
 		///
-		protostar::Vector2<double> m_velocity;
+		pr::Vector2<double> m_velocity;
 	};
 }
 

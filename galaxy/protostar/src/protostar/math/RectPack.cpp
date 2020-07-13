@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	RectPack::RectPack() noexcept
 		:m_width(0), m_height(0)
@@ -25,10 +25,10 @@ namespace protostar
 		m_freeRects.emplace_back(0, 0, m_width, m_height);
 	}
 
-	std::optional<protostar::Rect<int>> RectPack::pack(const int width, const int height) noexcept
+	std::optional<pr::Rect<int>> RectPack::pack(const int width, const int height) noexcept
 	{
 		// Result.
-		std::optional<protostar::Rect<int>> result = std::nullopt;
+		std::optional<pr::Rect<int>> result = std::nullopt;
 
 		// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
 		for (auto rit = m_freeRects.rbegin(); rit != m_freeRects.rend();/* ++rit*/)
@@ -39,7 +39,7 @@ namespace protostar
 			if (width <= space.m_width && height <= space.m_height)
 			{
 				// Make the packed area rectangle.
-				result = std::make_optional<protostar::Rect<int>>(space.m_x, space.m_y, width, height);
+				result = std::make_optional<pr::Rect<int>>(space.m_x, space.m_y, width, height);
 
 				// Check to see if shape fills completely.
 				if (width == space.m_width && height == space.m_height)

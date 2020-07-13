@@ -21,12 +21,12 @@ namespace rs
 	{
 	}
 
-	void Body::setPos(const protostar::Vector2<double>& pos) noexcept
+	void Body::setPos(const pr::Vector2<double>& pos) noexcept
 	{
 		m_position = pos;
 	}
 
-	const protostar::Vector2<double>& Body::getPos() const noexcept
+	const pr::Vector2<double>& Body::getPos() const noexcept
 	{
 		return m_position;
 	}

@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	void BatchedSprite::create(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept
+	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int zlevel) noexcept
 	{
 		m_region = region;
 		m_zLevel = zlevel;
@@ -67,7 +67,7 @@ namespace qs
 		m_isDirty = true;
 	}
 
-	void BatchedSprite::setUpdatedRegion(const protostar::Rect<float>& quad) noexcept
+	void BatchedSprite::setUpdatedRegion(const pr::Rect<float>& quad) noexcept
 	{
 		setUpdatedRegion(quad.m_x, quad.m_y, quad.m_width, quad.m_height);
 	}

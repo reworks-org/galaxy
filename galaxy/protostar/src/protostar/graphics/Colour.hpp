@@ -13,7 +13,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Represents an RGBA colour.

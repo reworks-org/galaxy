@@ -19,7 +19,7 @@ namespace galaxy
 	///
 	/// Resource manager for shaders.
 	///
-	class ShaderBook final : public protostar::ResourceCache<qs::Shader>
+	class ShaderBook final : public pr::ResourceCache<qs::Shader>
 	{
 	public:
 		///

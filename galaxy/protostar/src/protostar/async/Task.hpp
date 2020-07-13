@@ -15,12 +15,12 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Shorthand for task function type.
 	///
-	using TaskFunction = std::function<void(protostar::ProtectedBool*)>;
+	using TaskFunction = std::function<void(pr::ProtectedBool*)>;
 
 	///
 	/// A task to run on a thread.
@@ -50,7 +50,7 @@ namespace protostar
 		///
 		/// \param threadPoolFinished Pointer to ThreadPool::m_isActive. If this is false your function should exit to prevent deadlocks!
 		///
-		void exec(protostar::ProtectedBool* threadPoolFinished) noexcept;
+		void exec(pr::ProtectedBool* threadPoolFinished) noexcept;
 
 		///
 		/// Blocks calling thread until this task is finished.
@@ -66,7 +66,7 @@ namespace protostar
 		///
 		/// Check to make sure task is finished.
 		///
-		protostar::ProtectedBool m_isFinished;
+		pr::ProtectedBool m_isFinished;
 	};
 }
 

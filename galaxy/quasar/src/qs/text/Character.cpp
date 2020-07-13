@@ -39,7 +39,7 @@ namespace qs
 		return m_advance;
 	}
 
-	const protostar::Rect<float>& Character::getRegion() const noexcept
+	const pr::Rect<float>& Character::getRegion() const noexcept
 	{
 		return m_region;
 	}

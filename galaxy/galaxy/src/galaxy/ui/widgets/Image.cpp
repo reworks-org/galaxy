@@ -37,7 +37,7 @@ namespace galaxy
 	{
 	}
 
-	void Image::update(protostar::ProtectedDouble* dt) noexcept
+	void Image::update(pr::ProtectedDouble* dt) noexcept
 	{
 	}
 	

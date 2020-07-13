@@ -89,7 +89,7 @@ namespace qs
 		/// \param name String name corresponding to texture (filename without path and extension).
 		/// \param rect Quad definition.
 		///
-		void defineCustomQuad(std::string_view name, const protostar::Rect<float>& rect) noexcept;
+		void defineCustomQuad(std::string_view name, const pr::Rect<float>& rect) noexcept;
 
 		///
 		/// Retrieve a texture quad defined in the atlas.
@@ -98,7 +98,7 @@ namespace qs
 		///
 		/// \return Const ref to the quad.
 		///
-		const protostar::Rect<float>& getTexQuad(std::string_view name) noexcept;
+		const pr::Rect<float>& getTexQuad(std::string_view name) noexcept;
 
 		///
 		/// Get atlas texture.
@@ -121,7 +121,7 @@ namespace qs
 		///
 		/// Contains the rectangles outlining all the textures on the atlas.
 		///
-		protostar::RectPack m_packer;
+		pr::RectPack m_packer;
 
 		///
 		/// Stores list of texture files.
@@ -131,7 +131,7 @@ namespace qs
 		///
 		/// ID map for textures -> rects.
 		///
-		std::unordered_map<std::string, protostar::Rect<float>> m_textureRects;
+		std::unordered_map<std::string, pr::Rect<float>> m_textureRects;
 	};
 }
 

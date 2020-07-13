@@ -16,7 +16,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	///	Rectangle 2D bin packing class.
@@ -53,7 +53,7 @@ namespace protostar
 		/// \return Returns the location of the packed rectangle on the master rectangle.
 		///			Otherwise, returns a std::nullopt.
 		///
-		std::optional<protostar::Rect<int>> pack(const int width, const int height) noexcept;
+		std::optional<pr::Rect<int>> pack(const int width, const int height) noexcept;
 
 		///
 		/// Get total width.
@@ -79,7 +79,7 @@ namespace protostar
 		///
 		/// Free space in master rectangle.
 		///
-		std::vector<protostar::Rect<int>> m_freeRects;
+		std::vector<pr::Rect<int>> m_freeRects;
 	};
 }
 

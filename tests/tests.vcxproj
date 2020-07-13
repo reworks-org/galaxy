@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\protostar\res\ResourceCacheTest.cpp" />
     <ClCompile Include="src\protostar\state\StateMachineTest.cpp" />
     <ClCompile Include="src\protostar\state\StateTest.cpp" />
     <ClCompile Include="src\protostar\system\TimeTest.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="src\solar\sets\EntitySet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\protostar\math\MathsTest.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6B67089A-B2FF-4040-9A6E-9E300CEFECDF}</ProjectGuid>

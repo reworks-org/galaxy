@@ -64,7 +64,7 @@ namespace galaxy
 		}
 	}
 
-	void ToggleButton::receivePress(const protostar::MousePressedEvent& e)
+	void ToggleButton::receivePress(const pr::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -83,7 +83,7 @@ namespace galaxy
 		}
 	}
 
-	void ToggleButton::recieveMoved(const protostar::MouseMovedEvent& e)
+	void ToggleButton::recieveMoved(const pr::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

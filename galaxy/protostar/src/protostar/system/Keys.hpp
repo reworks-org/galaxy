@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Enum class representing keys.

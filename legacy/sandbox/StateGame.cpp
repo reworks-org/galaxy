@@ -9,7 +9,7 @@
 
 void scrollCallback(GLFWwindow* window, double x, double y) noexcept
 {
-	//dispatch.trigger<protostar::MouseWheelEvent>({ x, y });
+	//dispatch.trigger<pr::MouseWheelEvent>({ x, y });
 }
 
 StateGame::StateGame() noexcept
@@ -71,9 +71,9 @@ StateGame::StateGame() noexcept
 	//lightSource.m_pos = { 500.0f, 200.0f };
 	//lightSource.m_shader.loadFromRaw(qs::s_lightVS, qs::s_lightFS);
 
-	dispatch.add<protostar::KeyDownEvent>(std::bind(&qs::Camera::onKeyDown, &camera, std::placeholders::_1));
-	dispatch.add<protostar::KeyUpEvent>(std::bind(&qs::Camera::onKeyUp, &camera, std::placeholders::_1));
-	dispatch.add<protostar::MouseWheelEvent>(std::bind(&qs::Camera::onMouseScroll, &camera, std::placeholders::_1));
+	dispatch.add<pr::KeyDownEvent>(std::bind(&qs::Camera::onKeyDown, &camera, std::placeholders::_1));
+	dispatch.add<pr::KeyUpEvent>(std::bind(&qs::Camera::onKeyUp, &camera, std::placeholders::_1));
+	dispatch.add<pr::MouseWheelEvent>(std::bind(&qs::Camera::onMouseScroll, &camera, std::placeholders::_1));
 
 	window->setScrollCallback(scrollCallback);
 
@@ -105,45 +105,45 @@ void StateGame::events() noexcept
 	int w = glfwGetKey(window->getGLWindow(), GLFW_KEY_W);
 	if (w == GLFW_PRESS)
 	{
-		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::W });
+		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::W });
 	}
 	else
 	{
-		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::W });
+		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::W });
 	}
 
 	int s = glfwGetKey(window->getGLWindow(), GLFW_KEY_S);
 	if (s == GLFW_PRESS)
 	{
-		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::S });
+		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::S });
 	}
 	else
 	{
-		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::S });
+		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::S });
 	}
 
 	int a = glfwGetKey(window->getGLWindow(), GLFW_KEY_A);
 	if (a == GLFW_PRESS)
 	{
-		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::A });
+		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::A });
 	}
 	else
 	{
-		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::A });
+		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::A });
 	}
 
 	int d = glfwGetKey(window->getGLWindow(), GLFW_KEY_D);
 	if (d == GLFW_PRESS)
 	{
-		camera.onKeyDown(protostar::KeyDownEvent{ protostar::Keys::D });
+		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::D });
 	}
 	else
 	{
-		camera.onKeyUp(protostar::KeyUpEvent{ protostar::Keys::D });
+		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::D });
 	}
 }
 
-void StateGame::update(protostar::ProtectedDouble* deltaTime) noexcept
+void StateGame::update(pr::ProtectedDouble* deltaTime) noexcept
 {
 	camera.update(updte.get());
 	atlasSpr.update();

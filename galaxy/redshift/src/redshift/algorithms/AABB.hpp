@@ -23,7 +23,7 @@ namespace rs
 	///
 	/// \return True if there is (was) a collision.
 	///
-	const bool AABB(const protostar::Rect<int>& a, const protostar::Rect<int>& b) noexcept;
+	const bool AABB(const pr::Rect<int>& a, const pr::Rect<int>& b) noexcept;
 }
 
 #endif

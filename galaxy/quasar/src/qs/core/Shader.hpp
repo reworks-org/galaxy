@@ -263,7 +263,7 @@ namespace qs
 
 
 	template<>
-	inline void Shader::setUniform<protostar::Colour>(const std::string& name, const protostar::Colour& a) noexcept
+	inline void Shader::setUniform<pr::Colour>(const std::string& name, const pr::Colour& a) noexcept
 	{
 		glUniform4f(getUniformLocation(name),
 			qs::Utils::uint8ToFloat(a.m_red),

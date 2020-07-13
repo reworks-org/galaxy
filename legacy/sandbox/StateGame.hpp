@@ -39,7 +39,7 @@
 #include <starlight/Dispatcher.hpp>
 #include <protostar/events/MouseWheelEvent.hpp>
 
-class StateGame : public protostar::State
+class StateGame : public pr::State
 {
 public:
 	StateGame() noexcept;
@@ -47,7 +47,7 @@ public:
 	void onPush() noexcept override;
 	void onPop() noexcept override;
 	void events() noexcept override;
-	void update(protostar::ProtectedDouble * deltaTime) noexcept override;
+	void update(pr::ProtectedDouble * deltaTime) noexcept override;
 	void render() noexcept override;
 
 private:
@@ -66,7 +66,7 @@ private:
 	qs::Text text;
 	qs::Font font;
 	qs::Camera camera; //left, right, bottom, top
-	protostar::ProtectedDouble updte;
+	pr::ProtectedDouble updte;
 	
 	starlight::Dispatcher dispatch;
 

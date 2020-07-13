@@ -8,9 +8,11 @@
     <ClCompile Include="src\solar\entity\ManagerTest.cpp" />
     <ClCompile Include="src\protostar\system\UniqueIDTest.cpp" />
     <ClCompile Include="src\protostar\system\TimeTest.cpp" />
-    <ClCompile Include="src\protostar\state\StateTest.cpp" />
     <ClCompile Include="src\protostar\state\StateMachineTest.cpp" />
+    <ClCompile Include="src\protostar\state\StateTest.cpp" />
+    <ClCompile Include="src\protostar\res\ResourceCacheTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\protostar\math\MathsTest.hpp" />
   </ItemGroup>
 </Project>

@@ -63,21 +63,21 @@ namespace qs
 		///
 		/// \param e Takes in a shared protostar event defining a key press down.
 		///
-		void onKeyDown(const protostar::KeyDownEvent& e) noexcept;
+		void onKeyDown(const pr::KeyDownEvent& e) noexcept;
 
 		///
 		/// Event processing method for key up for camera.
 		///
 		/// \param e Takes in a shared protostar event defining a key release.
 		///
-		void onKeyUp(const protostar::KeyUpEvent& e) noexcept;
+		void onKeyUp(const pr::KeyUpEvent& e) noexcept;
 
 		///
 		/// Event processing method for scroll event for camera.
 		///
 		/// \param e Takes in a mouse wheel scroll event.
 		///
-		void onMouseScroll(const protostar::MouseWheelEvent& e) noexcept;
+		void onMouseScroll(const pr::MouseWheelEvent& e) noexcept;
 
 		///
 		/// Update method for camera.

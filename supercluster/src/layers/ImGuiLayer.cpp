@@ -45,7 +45,7 @@ namespace sc
 	{
 	}
 
-	void ImGuiLayer::update(protostar::ProtectedDouble* dt) noexcept
+	void ImGuiLayer::update(pr::ProtectedDouble* dt) noexcept
 	{
 	}
 

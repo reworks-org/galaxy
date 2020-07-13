@@ -27,7 +27,7 @@ namespace rs
 		return false;
 	}
 
-	void Kinetic::move(const protostar::Vector2<double>& acc, const double time, std::condition_variable& cv) noexcept
+	void Kinetic::move(const pr::Vector2<double>& acc, const double time, std::condition_variable& cv) noexcept
 	{
 		// V = U + AT
 		m_velocity.m_x = (m_velocity.m_x + (acc.m_x * time));

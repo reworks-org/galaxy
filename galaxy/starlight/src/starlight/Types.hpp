@@ -37,7 +37,7 @@ namespace starlight
 	///
 	/// Predefinition of unique id structure for events.
 	///
-	using UniqueEventID = protostar::UniqueID<struct EUID>;
+	using UniqueEventID = pr::UniqueID<struct EUID>;
 
 	///
 	/// Type representing a callback.

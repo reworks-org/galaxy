@@ -19,13 +19,13 @@ namespace qs
 	{
 	}
 
-	Point::Point(const float x, const float y, const int size, protostar::Colour& colour) noexcept
+	Point::Point(const float x, const float y, const int size, pr::Colour& colour) noexcept
 		:m_size(0)
 	{
 		create(x, y, size, colour);
 	}
 
-	void Point::create(const float x, const float y, const int size, protostar::Colour& colour) noexcept
+	void Point::create(const float x, const float y, const int size, pr::Colour& colour) noexcept
 	{
 		m_size = size;
 

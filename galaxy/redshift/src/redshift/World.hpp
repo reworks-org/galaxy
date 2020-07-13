@@ -56,7 +56,7 @@ namespace rs
 		///
 		/// Defaults to 9.81.
 		///
-		protostar::Vector2<double> m_gravity;
+		pr::Vector2<double> m_gravity;
 
 		///
 		/// To protect resources from race conditions and access.

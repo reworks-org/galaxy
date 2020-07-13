@@ -46,7 +46,7 @@ namespace galaxy
 		/// \param region Region defined on the texture.
 		/// \param zlevel zLevel of sprite.
 		///
-		void create(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept;
+		void create(const pr::Rect<float>& region, const unsigned int zlevel) noexcept;
 
 		///
 		/// Set opacity.
@@ -104,7 +104,7 @@ namespace galaxy
 		///
 		/// Region of texture used.
 		///
-		protostar::Rect<float> m_region;
+		pr::Rect<float> m_region;
 	};
 }
 

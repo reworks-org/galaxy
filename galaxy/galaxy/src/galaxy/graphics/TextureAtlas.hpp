@@ -64,7 +64,7 @@ namespace galaxy
 		///
 		/// \return Rectangle.
 		///
-		protostar::Rect<int> getRect(const std::string& texture) noexcept;
+		pr::Rect<int> getRect(const std::string& texture) noexcept;
 
 		///
 		/// Return a subtexture'd sprite from the atlas.
@@ -96,7 +96,7 @@ namespace galaxy
 		///
 		/// Hashmap to quickly get a texture and its assossiated rectangle.
 		///
-		std::unordered_map<std::string, protostar::Rect<int>> m_rects;
+		std::unordered_map<std::string, pr::Rect<int>> m_rects;
 	};
 }
 

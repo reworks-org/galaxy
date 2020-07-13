@@ -26,7 +26,7 @@ namespace rs
 	///
 	/// \return Boolean True if there is a collison between a and b.
 	///
-	const bool circleCircle(const protostar::Circle<int>& a, const protostar::Circle<int>& b);
+	const bool circleCircle(const pr::Circle<int>& a, const pr::Circle<int>& b);
 }
 
 #endif

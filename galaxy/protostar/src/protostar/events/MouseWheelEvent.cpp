@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	MouseWheelEvent::MouseWheelEvent() noexcept
 		:m_xOffset(0.0), m_yOffset(0.0)

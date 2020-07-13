@@ -13,7 +13,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	Task::Task() noexcept
 	{
@@ -30,7 +30,7 @@ namespace protostar
 		m_task = std::move(function);
 	}
 
-	void Task::exec(protostar::ProtectedBool* threadPoolFinished) noexcept
+	void Task::exec(pr::ProtectedBool* threadPoolFinished) noexcept
 	{
 		m_task(threadPoolFinished);
 		m_isFinished.set(true);

@@ -10,9 +10,9 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
-	KeyDownEvent::KeyDownEvent(const protostar::Keys keycode) noexcept
+	KeyDownEvent::KeyDownEvent(const pr::Keys keycode) noexcept
 		:m_keycode(keycode)
 	{
 	}

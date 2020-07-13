@@ -12,20 +12,34 @@
 
 #include <pulsar/Log.hpp>
 
-#include "protostar/utility/Meta.hpp"
-#include "protostar/system/ResCacheBase.hpp"
-
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
+	///
+	/// Container structure for storing ResourceCache objects in containers.
+	///
+	class ResCacheBase
+	{
+	public:
+		///
+		/// Default constructor.
+		///
+		ResCacheBase() noexcept = default;
+
+		///
+		/// Virtual default destructor.
+		///
+		virtual ~ResCacheBase() noexcept = default;
+	};
+
 	///
 	/// Stores a cache of resources in order to make effective use of memory.
 	/// Resources can be a texture, sound, script, shader, etc...
 	///
-	template<typename Resource>
-	class ResourceCache : public protostar::ResCacheBase
+	template<NoPointerOrRef Resource>
+	class ResourceCache : public pr::ResCacheBase
 	{
 	public:
 		///
@@ -34,17 +48,25 @@ namespace protostar
 		virtual ~ResourceCache() noexcept;
 
 		///
-		/// Add a resource.
+		/// Create a resource.
 		///
 		/// \param name Should be name of resource without path or extension.
 		/// \param args Constructor arguments.
 		///
+		/// \return Pointer to newly created resource.
+		///
 		template<typename ...Args>
-		void add(const std::string& name, Args&& ...args) noexcept;
+		[[nodiscard]] virtual Resource* create(std::string_view name, Args&& ...args) final;
 
-		//
-		// Move
-		//
+		///
+		/// Move a resource into cache.
+		///
+		/// \param name Should be name of resource without path or extension.
+		/// \param resource Move-compatible reference to resource.
+		///
+		/// \return Pointer to newly created resource.
+		///
+		[[maybe_unused]] virtual Resource* move(std::string_view name, Resource& resource) noexcept final;
 
 		///
 		/// Retrieve a resource.
@@ -53,7 +75,7 @@ namespace protostar
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		virtual Resource* get(std::string_view handle) noexcept final;
+		[[nodiscard]] virtual Resource* get(std::string_view handle) noexcept final;
 
 		///
 		/// Clean up.
@@ -83,29 +105,49 @@ namespace protostar
 		std::unordered_map<std::string, Resource> m_resources;
 	};
 
-	template<typename Resource>
+	template<NoPointerOrRef Resource>
 	inline ResourceCache<Resource>::ResourceCache() noexcept
 	{
 	}
 
-	template<typename Resource>
+	template<NoPointerOrRef Resource>
 	inline ResourceCache<Resource>::~ResourceCache() noexcept
 	{
-		m_resources.clear();
+		clear();
 	}
 
-	template<typename Resource>
+	template<NoPointerOrRef Resource>
 	template<typename ...Args>
-	inline void ResourceCache<Resource>::add(const std::string& name, Args&& ...args) noexcept
+	[[nodiscard]] inline Resource* ResourceCache<Resource>::create(std::string_view name, Args&& ...args)
 	{
-		m_resources.emplace(std::piecewise_construct, std::make_tuple(name), std::make_tuple(std::forward<Args>(args)...));
+		const std::string str = static_cast<std::string>(name);
+		m_resources.emplace(std::piecewise_construct, std::make_tuple(str), std::make_tuple(std::forward<Args>(args)...));
+
+		return &m_resources[str];
 	}
 
-	template<typename Resource>
-	inline Resource* ResourceCache<Resource>::get(std::string_view handle) noexcept
+	template<NoPointerOrRef Resource>
+	[[maybe_unused]] inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource) noexcept
 	{
-		const std::string cast = static_cast<std::string>(handle);
-		return &m_resources[cast];
+		const std::string str = static_cast<std::string>(name);
+		m_resources[str] = std::move(resource);
+		
+		return &m_resources[str];
+	}
+
+	template<NoPointerOrRef Resource>
+	[[nodiscard]] inline Resource* ResourceCache<Resource>::get(std::string_view name) noexcept
+	{
+		const std::string str = static_cast<std::string>(name);
+		if (m_resources.contains(str))
+		{
+			return &m_resources[str];
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Failed to find resource with name: " + name);
+			return nullptr;
+		}
 	}
 }
 

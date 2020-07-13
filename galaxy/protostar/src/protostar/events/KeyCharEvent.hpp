@@ -13,7 +13,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Event for use with unicode characters, not KeyDown, etc...
@@ -31,7 +31,7 @@ namespace protostar
 		/// \param keycode Code of the key pressed.
 		/// \param unichar Unicode character pressed.
 		///
-		KeyCharEvent(const protostar::Keys keycode, const int unichar) noexcept;
+		KeyCharEvent(const pr::Keys keycode, const int unichar) noexcept;
 
 		///
 		/// Default destructor.
@@ -41,7 +41,7 @@ namespace protostar
 		///
 		/// Keycode for the key that was pressed.
 		///
-		protostar::Keys m_keycode;
+		pr::Keys m_keycode;
 
 		///
 		/// Unicode character for use with unicode strings.

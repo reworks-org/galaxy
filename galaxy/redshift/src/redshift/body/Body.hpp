@@ -36,14 +36,14 @@ namespace rs
 		///
 		/// \param pos Position to set. Does not move by velocity.
 		///
-		void setPos(const protostar::Vector2<double>& pos) noexcept;
+		void setPos(const pr::Vector2<double>& pos) noexcept;
 
 		///
 		/// Get position.
 		///
 		/// \return Vec2 of position.
 		///
-		const protostar::Vector2<double>& getPos() const noexcept;
+		const pr::Vector2<double>& getPos() const noexcept;
 
 		///
 		/// Set mass.
@@ -74,7 +74,7 @@ namespace rs
 		///
 		/// Position of Body.
 		///
-		protostar::Vector2<double> m_position;
+		pr::Vector2<double> m_position;
 	};
 }
 

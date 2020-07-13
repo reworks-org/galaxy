@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	Colour::Colour() noexcept
 		:m_red(0), m_green(0), m_blue(0), m_alpha(255)

@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	MousePressedEvent::MousePressedEvent() noexcept
 		:m_x(0), m_y(0), m_button(0)

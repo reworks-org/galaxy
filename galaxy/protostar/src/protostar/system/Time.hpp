@@ -15,7 +15,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Convert seconds to milliseconds.

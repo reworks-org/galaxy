@@ -18,9 +18,9 @@
 namespace rs
 {
 	///
-	/// Shortcut for using protostar::Vector2.
+	/// Shortcut for using pr::Vector2.
 	///
-	using Point = protostar::Vector2<std::uint32_t>;
+	using Point = pr::Vector2<std::uint32_t>;
 }
 
 #endif

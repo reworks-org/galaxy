@@ -12,7 +12,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	ThreadPool::ThreadPool() noexcept
 		:m_maxThreadCount(4), m_isDestroyed(false)

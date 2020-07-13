@@ -9,7 +9,7 @@
 
 namespace rs
 {
-	const bool AABB(const protostar::Rect<int>& a, const protostar::Rect<int>& b) noexcept
+	const bool AABB(const pr::Rect<int>& a, const pr::Rect<int>& b) noexcept
 	{
 		// AABB algorithm
 		return (a.m_x < b.m_x + b.m_width &&

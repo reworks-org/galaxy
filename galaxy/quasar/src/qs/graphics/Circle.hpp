@@ -37,7 +37,7 @@ namespace qs
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 		/// \param colour Colour.
 		///
-		Circle(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept;
+		Circle(const float x, const float y, const float radius, const int fragments, pr::Colour& colour) noexcept;
 
 		///
 		/// Destructor.
@@ -53,7 +53,7 @@ namespace qs
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept;
+		void create(const float x, const float y, const float radius, const int fragments, pr::Colour& colour) noexcept;
 
 		///
 		/// Bind as active VA.

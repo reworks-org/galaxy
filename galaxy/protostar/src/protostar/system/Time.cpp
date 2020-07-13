@@ -14,7 +14,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp)
 	{

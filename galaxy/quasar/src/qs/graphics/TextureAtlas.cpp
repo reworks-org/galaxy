@@ -69,7 +69,7 @@ namespace qs
 
 					renderer.drawSpriteToTexture(&loadedTex, m_texture, shader);
 
-					m_textureRects.emplace(filePath.stem().string(), protostar::Rect<float>(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)));
+					m_textureRects.emplace(filePath.stem().string(), pr::Rect<float>(static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)));
 				}
 			}
 			
@@ -91,7 +91,7 @@ namespace qs
 		return m_size;
 	}
 
-	void TextureAtlas::defineCustomQuad(std::string_view name, const protostar::Rect<float>& rect) noexcept
+	void TextureAtlas::defineCustomQuad(std::string_view name, const pr::Rect<float>& rect) noexcept
 	{
 		const std::string cast = static_cast<std::string>(name);
 		if (m_textureRects.find(cast) == m_textureRects.end())
@@ -100,7 +100,7 @@ namespace qs
 		}
 	}
 
-	const protostar::Rect<float>& TextureAtlas::getTexQuad(std::string_view name) noexcept
+	const pr::Rect<float>& TextureAtlas::getTexQuad(std::string_view name) noexcept
 	{
 		const std::string cast = static_cast<std::string>(name);
 		if (m_textureRects.find(cast) != m_textureRects.end())
@@ -110,7 +110,7 @@ namespace qs
 		else
 		{
 			PL_LOG(PL_WARNING, "Tried to access texture rect that does not exist. Returning blank rect...");
-			return std::move(protostar::Rect<float>{ 0.0f, 0.0f, 0.0f, 0.0f });
+			return std::move(pr::Rect<float>{ 0.0f, 0.0f, 0.0f, 0.0f });
 		}
 	}
 

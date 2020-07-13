@@ -66,7 +66,7 @@ namespace galaxy
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void onPress(const protostar::MousePressedEvent& e) noexcept;
+		void onPress(const pr::MousePressedEvent& e) noexcept;
 
 		///
 		/// \brief Allows for button to recieve MouseReleasedEvents. Automatically registered with entt.
@@ -75,7 +75,7 @@ namespace galaxy
 		///
 		/// \param e MouseReleasedEvent object.
 		///
-		void onRelease(const protostar::MouseReleasedEvent& e) noexcept;
+		void onRelease(const pr::MouseReleasedEvent& e) noexcept;
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -84,7 +84,7 @@ namespace galaxy
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void onMove(const protostar::MouseMovedEvent& e) noexcept;
+		void onMove(const pr::MouseMovedEvent& e) noexcept;
 
 		///
 		/// Label for button.
@@ -93,7 +93,7 @@ namespace galaxy
 		/// \param font Font to draw text with.
 		/// \param col Colour of text.
 		///
-		void createLabel(const std::string& label, std::string_view font, const protostar::Colour& col) noexcept;
+		void createLabel(const std::string& label, std::string_view font, const pr::Colour& col) noexcept;
 
 		///
 		/// Activate widget.
@@ -112,7 +112,7 @@ namespace galaxy
 		///
 		/// \param dt Delta Time.
 		///
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 
 		///
 		/// \brief Perform any GL functions on the main thread in prep for rendering.
@@ -154,7 +154,7 @@ namespace galaxy
 		///
 		/// Bounds.
 		///
-		protostar::Rect<int> m_bounds;
+		pr::Rect<int> m_bounds;
 	};
 }
 

@@ -23,7 +23,7 @@ namespace galaxy
 		return m_config;
 	}
 
-	protostar::ThreadPool* ServiceLocator::pool() const noexcept
+	pr::ThreadPool* ServiceLocator::pool() const noexcept
 	{
 		return m_threadPool;
 	}
@@ -43,7 +43,7 @@ namespace galaxy
 		return m_lua;
 	}
 
-	protostar::StateMachine* ServiceLocator::gamestate() const noexcept
+	pr::StateMachine* ServiceLocator::gamestate() const noexcept
 	{
 		return m_state;
 	}

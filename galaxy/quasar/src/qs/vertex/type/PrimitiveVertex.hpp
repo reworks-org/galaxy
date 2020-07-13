@@ -33,7 +33,7 @@ namespace qs
 		/// \param y Y pos.
 		/// \param col Colour.
 		///
-		explicit PrimitiveVertex(const float x, const float y, protostar::Colour& col) noexcept;
+		explicit PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept;
 
 		///
 		/// Destructor.
@@ -48,7 +48,7 @@ namespace qs
 		///
 		/// Colour of PrimitiveVertex.
 		///
-		protostar::Colour m_colour;
+		pr::Colour m_colour;
 	};
 }
 

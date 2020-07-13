@@ -40,7 +40,7 @@ namespace sc
 		m_world->events();
 	}
 
-	void ECSLayer::update(protostar::ProtectedDouble* dt) noexcept
+	void ECSLayer::update(pr::ProtectedDouble* dt) noexcept
 	{
 		m_world->update(dt);
 	}

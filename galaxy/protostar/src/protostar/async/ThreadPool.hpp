@@ -18,7 +18,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Creates a system defined count of threads to reuse for task based work.
@@ -105,7 +105,7 @@ namespace protostar
 		///
 		/// Task queue.
 		///
-		std::queue<protostar::Task*> m_tasks;
+		std::queue<pr::Task*> m_tasks;
 
 		///
 		/// Condition variable for synchronization.
@@ -120,7 +120,7 @@ namespace protostar
 		///
 		/// Atomic boolean to control thread activity.
 		///
-		protostar::ProtectedBool m_isActive;
+		pr::ProtectedBool m_isActive;
 	};
 }
 

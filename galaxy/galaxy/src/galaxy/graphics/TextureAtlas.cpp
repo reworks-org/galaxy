@@ -148,7 +148,7 @@ namespace galaxy
 		m_atlas.copyToImage().saveToFile(file);
 	}
 
-	protostar::Rect<int> TextureAtlas::getRect(const std::string& texture) noexcept
+	pr::Rect<int> TextureAtlas::getRect(const std::string& texture) noexcept
 	{
 		return m_rects[texture];
 	}

@@ -19,13 +19,13 @@ namespace qs
 	{
 	}
 
-	Line::Line(protostar::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
+	Line::Line(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
 		:m_thickness(1.0f)
 	{
 		create(col, x1, y1, x2, y2, thickness);
 	}
 
-	void Line::create(protostar::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
+	void Line::create(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
 	{
 		m_thickness = thickness;
 

@@ -13,7 +13,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Credits: http://stackoverflow.com/a/32907541.
