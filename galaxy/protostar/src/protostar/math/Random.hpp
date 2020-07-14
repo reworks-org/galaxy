@@ -8,6 +8,8 @@
 #ifndef PROTOSTAR_RANDOM_HPP_
 #define PROTOSTAR_RANDOM_HPP_
 
+#include "protostar/system/Concepts.hpp"
+
 #include <random>
 
 ///
@@ -27,19 +29,19 @@ namespace pr
 	/// \param min Minimum number inclusive.
 	/// \param max Maximum number inclusive.
 	///
-	/// \return Returns type T.
+	/// \return Returns number of the same type as inputs.
 	///
-	template<typename T>
-	inline T random(const T min, const T max) noexcept
+	template<IsArithmetic Type>
+	[[nodiscard]] inline Type random(const Type min, const Type max) noexcept
 	{
-		// Make sure is arimthmatic.
-		static_assert(std::is_arithmetic<T>::value);
+		// Reseed.
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
 		// Restricts to one thread, so each thread gets a random device.
 		thread_local static std::random_device rd;
 		thread_local static std::mt19937 mt(rd());
 
-		conditional_distribution<T> dist(min, max);
+		thread_local conditional_distribution<Type> dist(min, max);
 
 		return dist(mt);
 	}
