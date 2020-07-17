@@ -12,6 +12,8 @@
 
 #include <pulsar/Log.hpp>
 
+#include "protostar/system/Concepts.hpp"
+
 ///
 /// Core namespace.
 ///
