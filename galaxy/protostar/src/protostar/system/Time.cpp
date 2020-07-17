@@ -6,7 +6,6 @@
 ///
 
 #include <ctime>
-#include <cstdint>
 #include <algorithm>
 
 #include "Time.hpp"
@@ -16,13 +15,13 @@
 ///
 namespace pr
 {
-	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp)
+	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp) noexcept
 	{
 		// Return time since epoch using chrono.
 		return std::chrono::duration<double>((tp != nullptr ? *tp : std::chrono::high_resolution_clock::now()).time_since_epoch()).count();
 	}
 
-	const std::string getCurrentDateTime()
+	std::string&& getCurrentDateTime()
 	{
 		// Get current time using chrono.
 		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -34,7 +33,7 @@ namespace pr
 		return std::move(temp);
 	}
 
-	const std::string getShortTime()
+	std::string&& getShortTime()
 	{
 		// Get current time using chrono.
 		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -58,7 +57,7 @@ namespace pr
 		return std::move(temp);
 	}
 
-	const std::string getFormattedTime()
+	std::string&& getFormattedTime()
 	{
 		// Get current time using chrono.
 		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());

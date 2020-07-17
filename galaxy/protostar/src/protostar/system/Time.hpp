@@ -8,7 +8,6 @@
 #ifndef PROTOSTAR_TIME_HPP_
 #define PROTOSTAR_TIME_HPP_
 
-#include <ctime>
 #include <string>
 #include <chrono>
 
@@ -99,7 +98,7 @@ namespace pr
 	///
 	/// \return const double High Precision time passed since epoch.
 	///
-	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr);
+	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr) noexcept;
 
 	///
 	/// \brief Get the current time and date.
@@ -108,7 +107,7 @@ namespace pr
 	///
 	/// \return Returns const std::string of the current DateTime.
 	///
-	const std::string getCurrentDateTime();
+	std::string&& getCurrentDateTime();
 
 	///
 	/// \brief Get the current time.
@@ -117,14 +116,14 @@ namespace pr
 	///
 	/// \return Returns std::string shortened Time.
 	///
-	const std::string getShortTime();
+	std::string&& getShortTime();
 
 	///
 	/// Get a formatted time that contains no special characters.
 	///
 	/// \return Returns std::string formatted Time.
 	///
-	const std::string getFormattedTime();
+	std::string&& getFormattedTime();
 }
 
 #endif
