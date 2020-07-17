@@ -8,9 +8,9 @@
 #ifndef PROTOSTAR_RANDOM_HPP_
 #define PROTOSTAR_RANDOM_HPP_
 
-#include "protostar/system/Concepts.hpp"
-
 #include <random>
+
+#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
@@ -32,7 +32,7 @@ namespace pr
 	/// \return Returns number of the same type as inputs.
 	///
 	template<IsArithmetic Type>
-	[[nodiscard]] inline Type random(const Type min, const Type max) noexcept
+	[[nodiscard]] inline Type random(const Type min, const Type max)
 	{
 		// Reseed.
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
