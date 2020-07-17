@@ -22,6 +22,7 @@
     <ClCompile Include="src\protostar\async\ProtectedArithmetic.cpp" />
     <ClCompile Include="src\protostar\async\Task.cpp" />
     <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
+    <ClCompile Include="src\protostar\system\Concepts.cpp" />
     <ClCompile Include="src\protostar\system\CPP20.cpp" />
     <ClCompile Include="src\protostar\events\KeyCharEvent.cpp" />
     <ClCompile Include="src\protostar\events\KeyDownEvent.cpp" />
@@ -30,7 +31,6 @@
     <ClCompile Include="src\protostar\events\MousePressedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseReleasedEvent.cpp" />
     <ClCompile Include="src\protostar\events\MouseWheelEvent.cpp" />
-    <ClCompile Include="src\protostar\math\Maths.cpp" />
     <ClCompile Include="src\protostar\math\Random.cpp" />
     <ClCompile Include="src\protostar\graphics\Rect.cpp" />
     <ClCompile Include="src\protostar\math\RectPack.cpp" />
@@ -53,7 +53,6 @@
     <ClInclude Include="src\protostar\events\MousePressedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseReleasedEvent.hpp" />
     <ClInclude Include="src\protostar\events\MouseWheelEvent.hpp" />
-    <ClInclude Include="src\protostar\math\Maths.hpp" />
     <ClInclude Include="src\protostar\math\Random.hpp" />
     <ClInclude Include="src\protostar\graphics\Rect.hpp" />
     <ClInclude Include="src\protostar\math\RectPack.hpp" />

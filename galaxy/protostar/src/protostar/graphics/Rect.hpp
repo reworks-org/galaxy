@@ -8,7 +8,7 @@
 #ifndef PROTOSTAR_RECT_HPP_
 #define PROTOSTAR_RECT_HPP_
 
-#include <type_traits>
+#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
@@ -18,14 +18,9 @@ namespace pr
 	///
 	/// Represents a rectangle object.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	class Rect final
 	{
-		///
-		/// Make sure is integral or floating.
-		///
-		static_assert(std::is_arithmetic<Type>::value);
-
 	public:
 		///
 		/// Default constructor.
@@ -55,7 +50,7 @@ namespace pr
 		///
 		/// \return True if contains the point.
 		///
-		bool contains(const Type x, const Type y) noexcept;
+		[[nodiscard]] bool contains(const Type x, const Type y) noexcept;
 
 		///
 		/// Does the rectangle contain another rectangle.
@@ -64,7 +59,7 @@ namespace pr
 		///
 		/// \return Returns true if the rectangle is completely inside, not on the edge.
 		///
-		bool contains(const Rect<Type>& b) noexcept;
+		[[nodiscard]] bool contains(const Rect<Type>& b) noexcept;
 
 		///
 		/// \brief Do the rectangles a and b overlap.
@@ -75,7 +70,7 @@ namespace pr
 		///
 		/// \return Returns true if there is an overlap.
 		///
-		bool overlaps(const Rect<Type>& b) noexcept;
+		[[nodiscard]] bool overlaps(const Rect<Type>& b) noexcept;
 
 	private:
 		///
@@ -88,7 +83,7 @@ namespace pr
 		///
 		/// \return True if value is inbetween min and max. Inclusive.
 		///
-		bool valueInRange(const Type value, const Type min, const Type max) noexcept;
+		[[nodiscard]] bool valueInRange(const Type value, const Type min, const Type max) noexcept;
 
 	public:
 		///
@@ -112,33 +107,33 @@ namespace pr
 		Type m_height;
 	};
 
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type>::Rect() noexcept
 		:m_x(0), m_y(0), m_width(0), m_height(0)
 	{
 	}
 
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
 		:m_x(x), m_y(y), m_width(width), m_height(height)
 	{
 	}
 
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline bool Rect<Type>::contains(const Type x, const Type y) noexcept
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
 		return ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height)));
 	}
 
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline bool Rect<Type>::contains(const Rect<Type>& b) noexcept
 	{
 		// Checks if the rectangle contains another rectangle using math.
 		return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) && (b.m_y + b.m_height) < (m_y + m_height));
 	}
 
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
 	{
 		// Check for overlaps using math.
@@ -151,7 +146,7 @@ namespace pr
 		return xOverlap && yOverlap;
 	}
 
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline bool Rect<Type>::valueInRange(const Type value, const Type min, const Type max) noexcept
 	{
 		// Check if a value is between min and max - i.e. in range.
@@ -161,7 +156,7 @@ namespace pr
 	///
 	/// Negative operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type> operator-(const Rect<Type>& a) noexcept
 	{
 		// Negative operator overloading.
@@ -171,7 +166,7 @@ namespace pr
 	///
 	/// Addition assignment operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type>& operator+=(Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Addition assignment operator overloading.
@@ -186,7 +181,7 @@ namespace pr
 	///
 	/// Subtraction assignment operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type>& operator-=(Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Subtraction assignment operator overloading.
@@ -201,7 +196,7 @@ namespace pr
 	///
 	/// Addition operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type> operator+(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		return Rect<Type>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
@@ -210,7 +205,7 @@ namespace pr
 	///
 	/// Subtraction operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline Rect<Type> operator-(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Subtraction operator overloading.
@@ -220,7 +215,7 @@ namespace pr
 	///
 	/// Equality operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline bool operator==(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Equality operator overloading.
@@ -230,7 +225,7 @@ namespace pr
 	///
 	/// Not operator overload.
 	///
-	template<typename Type>
+	template<IsArithmetic Type>
 	inline bool operator!=(const Rect<Type>& a, const Rect<Type>& b) noexcept
 	{
 		// Not equal to operator overloading.
