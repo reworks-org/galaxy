@@ -10,6 +10,7 @@
 
 #include <array>
 #include <cstdint>
+#include <compare>
 
 #include "protostar/system/Concepts.hpp"
 
@@ -69,6 +70,11 @@ namespace pr
 		/// \return Move invoked fixed size std::array of floats.
 		///
 		[[nodiscard]] std::array<float, 4>&& getNormalized();
+
+		///
+		/// Spaceship operator.
+		///
+		auto operator<=>(const Colour&) const = default;
 
 	public:
 		///

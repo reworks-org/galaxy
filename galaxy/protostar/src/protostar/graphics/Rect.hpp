@@ -8,6 +8,8 @@
 #ifndef PROTOSTAR_RECT_HPP_
 #define PROTOSTAR_RECT_HPP_
 
+#include <compare>
+
 #include "protostar/system/Concepts.hpp"
 
 ///
@@ -71,6 +73,11 @@ namespace pr
 		/// \return Returns true if there is an overlap.
 		///
 		[[nodiscard]] bool overlaps(const Rect<Type>& b) noexcept;
+
+		///
+		/// Spaceship operator.
+		///
+		auto operator<=>(const Colour&) const = default;
 
 	private:
 		///
@@ -151,85 +158,6 @@ namespace pr
 	{
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);
-	}
-
-	///
-	/// Negative operator overload.
-	///
-	template<IsArithmetic Type>
-	inline Rect<Type> operator-(const Rect<Type>& a) noexcept
-	{
-		// Negative operator overloading.
-		return Rect<Type>(-a.m_x, -a.m_y, -a.m_width, -a.m_height);
-	}
-
-	///
-	/// Addition assignment operator overload.
-	///
-	template<IsArithmetic Type>
-	inline Rect<Type>& operator+=(Rect<Type>& a, const Rect<Type>& b) noexcept
-	{
-		// Addition assignment operator overloading.
-		a.m_x += b.m_x;
-		a.m_y += b.m_y;
-		a.m_width += b.m_width;
-		a.m_height += a.m_height;
-
-		return a;
-	}
-
-	///
-	/// Subtraction assignment operator overload.
-	///
-	template<IsArithmetic Type>
-	inline Rect<Type>& operator-=(Rect<Type>& a, const Rect<Type>& b) noexcept
-	{
-		// Subtraction assignment operator overloading.
-		a.m_x -= b.m_x;
-		a.m_y -= b.m_y;
-		a.m_width -= b.m_width;
-		a.m_height -= b.m_height;
-
-		return a;
-	}
-
-	///
-	/// Addition operator overload.
-	///
-	template<IsArithmetic Type>
-	inline Rect<Type> operator+(const Rect<Type>& a, const Rect<Type>& b) noexcept
-	{
-		return Rect<Type>(a.m_x + b.m_x, a.m_y + b.m_y, a.m_z + b.m_z);
-	}
-
-	///
-	/// Subtraction operator overload.
-	///
-	template<IsArithmetic Type>
-	inline Rect<Type> operator-(const Rect<Type>& a, const Rect<Type>& b) noexcept
-	{
-		// Subtraction operator overloading.
-		return Rect<Type>(a.m_x - b.m_x, a.m_y - b.m_y, a.m_width - b.m_width, a.m_height - b.m_height);
-	}
-
-	///
-	/// Equality operator overload.
-	///
-	template<IsArithmetic Type>
-	inline bool operator==(const Rect<Type>& a, const Rect<Type>& b) noexcept
-	{
-		// Equality operator overloading.
-		return (a.m_x == b.m_x) && (a.m_y == b.m_y) && (a.m_width == b.m_width) && (a.m_height == b.m_height);
-	}
-
-	///
-	/// Not operator overload.
-	///
-	template<IsArithmetic Type>
-	inline bool operator!=(const Rect<Type>& a, const Rect<Type>& b) noexcept
-	{
-		// Not equal to operator overloading.
-		return (a.m_x != b.m_x) || (a.m_y != b.m_y) || (a.m_width != b.m_width) || (a.m_height != b.m_height);
 	}
 }
 
