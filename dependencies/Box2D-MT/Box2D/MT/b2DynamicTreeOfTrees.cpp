@@ -20,6 +20,7 @@
 
 #include "Box2D/MT/b2DynamicTreeOfTrees.h"
 #include <string.h>
+#include <cmath>
 
 //#define b2_validateTree
 
