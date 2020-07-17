@@ -44,22 +44,28 @@ static int32 b2_toiContactCapacity = b2_maxTOIContacts;
 class b2SolveTask : public b2Task
 {
 public:
-	b2SolveTask(b2World* world, const b2TimeStep& timestep, b2SolveTask* next)
-	{
-		m_world = world;
-		m_timestep = &timestep;
-		m_next = next;
-		m_islandCount = 0;
-	}
-
-	void AddIsland(int32 bodyCount, int32 contactCount, int32 jointCount,
+	b2SolveTask(b2World* world, const b2TimeStep& timestep,
 		b2Body** bodies, b2Contact** contacts, b2Joint** joints,
-		b2Velocity* velocities, b2Position* positions, uint32 cost)
+		b2Velocity* velocities, b2Position* positions, b2SolveTask* next)
+	: m_bodies(bodies)
+	, m_contacts(contacts)
+	, m_joints(joints)
+	, m_positions(positions)
+	, m_velocities(velocities)
+	, m_world(world)
+	, m_timestep(&timestep)
+	, m_next(next)
+	, m_islandCount(0)
+	{}
+
+	void AddIsland(int32 bodyCount, int32 contactCount, int32 jointCount, uint32 cost)
 	{
-		m_islands[m_islandCount++] = b2Island(
-			bodyCount, contactCount, jointCount,
-			bodies, contacts, joints,
-			velocities, positions);
+		IslandDesc desc;
+		desc.bodyCount = bodyCount;
+		desc.contactCount = contactCount;
+		desc.jointCount = jointCount;
+
+		m_islands[m_islandCount++] = desc;
 
 		SetCost(GetCost() + cost);
 	}
@@ -79,21 +85,54 @@ public:
 		bool allowSleep = m_world->m_allowSleep;
 
 		b2TimeStep timestep = *m_timestep;
+
+		b2Body** bodies = m_bodies;
+		b2Contact** contacts = m_contacts;
+		b2Joint** joints = m_joints;
+		b2Position* positions = m_positions;
+		b2Velocity* velocities = m_velocities;
+
 		for (uint32 islandIndex = 0; islandIndex < m_islandCount; ++islandIndex)
 		{
-			b2Island& island = m_islands[islandIndex];
+			int32 bodyCount = m_islands[islandIndex].bodyCount;
+			int32 contactCount = m_islands[islandIndex].contactCount;
+			int32 jointCount = m_islands[islandIndex].jointCount;
+
+			b2Island island(bodyCount, contactCount, jointCount,
+				bodies, contacts, joints,
+				velocities, positions);
 
 			island.Solve(&td.m_profile, timestep, gravity, threadCtx.stack, contactListener,
 				threadCtx.threadId, allowSleep, td.m_postSolves);
+
+			bodies += bodyCount;
+			contacts += contactCount;
+			joints += jointCount;
+			positions += bodyCount;
+			velocities += bodyCount;
 		}
 	}
 
 private:
 
-	b2Island m_islands[b2_maxIslandsPerSolveTask];
+	struct IslandDesc
+	{
+		int32 bodyCount;
+		int32 jointCount;
+		int32 contactCount;
+	};
+	IslandDesc m_islands[b2_maxIslandsPerSolveTask];
+
+	b2Body** m_bodies;
+	b2Contact** m_contacts;
+	b2Joint** m_joints;
+	b2Position* m_positions;
+	b2Velocity* m_velocities;
+
 	b2World* m_world;
 	const b2TimeStep* m_timestep;
 	b2SolveTask* m_next;
+
 	uint32 m_islandCount;
 };
 
@@ -137,26 +176,6 @@ public:
 private:
 	b2ContactManager* m_contactManager;
 	b2Body** m_bodies;
-};
-
-class b2BroadphaseFindNewContactsTask : public b2RangeTask
-{
-public:
-	b2BroadphaseFindNewContactsTask() {}
-	b2BroadphaseFindNewContactsTask(const b2RangeTaskRange& range, b2ContactManager* manager)
-		: b2RangeTask(range)
-		, m_contactManager(manager)
-	{}
-
-	virtual b2Task::Type GetType() const override { return b2Task::e_broadPhaseFindContacts; }
-
-	virtual void Execute(const b2ThreadContext& threadCtx, const b2RangeTaskRange& range) override
-	{
-		m_contactManager->FindNewContacts(range.begin, range.end, threadCtx.threadId);
-	}
-
-private:
-	b2ContactManager* m_contactManager;
 };
 
 class b2ClearContactSolveFlags : public b2RangeTask
@@ -1017,10 +1036,7 @@ void b2World::StepSolveTOI(const b2TimeStep& step, b2Island& island, b2Contact* 
 
 	// Commit fixture proxy movements to the broad-phase so that new contacts are created.
 	// MT note: this is done on a single thread because few moves occur during SolveTOI.
-	{
-		m_contactManager.FindNewContacts(0, m_contactManager.m_broadPhase.GetMoveCount(), 0);
-		m_contactManager.m_broadPhase.ResetBuffers();
-	}
+	m_contactManager.FindNewContactsSingleThread();
 }
 
 void b2World::SolveTOI(b2TaskExecutor& executor, b2TaskGroup* taskGroup, const b2TimeStep& step)
@@ -1035,7 +1051,6 @@ void b2World::SolveTOI(b2TaskExecutor& executor, b2TaskGroup* taskGroup, const b
 
 	b2Contact* minContact = nullptr;
 	float32 minAlpha = 1.0f;
-
 
 	// Do the initial TOI computation on multiple threads.
 	bool useMultithreadedFind = m_stepComplete;
@@ -1094,27 +1109,11 @@ void b2World::SolveTOI(b2TaskExecutor& executor, b2TaskGroup* taskGroup, const b
 
 void b2World::FindNewContacts(b2TaskExecutor& executor, b2TaskGroup* taskGroup)
 {
-	if (m_contactManager.m_broadPhase.GetMoveCount() == 0)
-	{
-		return;
-	}
-
 	SetMtLock(e_mtLocked | e_mtCollisionLocked);
-
-	b2BroadphaseFindNewContactsTask tasks[b2_maxRangeSubTasks];
-	b2PartitionedRange ranges;
-	executor.PartitionRange(b2Task::e_broadPhaseFindContacts, 0, m_contactManager.m_broadPhase.GetMoveCount(), ranges);
-	for (uint32 i = 0; i < ranges.count; ++i)
-	{
-		tasks[i] = b2BroadphaseFindNewContactsTask(ranges[i], &m_contactManager);
-	}
-	m_contactManager.m_deferCreates = true;
-	b2SubmitTasks(executor, taskGroup, tasks, ranges.count);
-	executor.Wait(taskGroup, b2MainThreadCtx(&m_stackAllocator));
-	m_contactManager.m_deferCreates = false;
-
+	m_contactManager.FindNewContacts(executor, taskGroup, m_stackAllocator);
 	SetMtLock(0);
-	m_contactManager.FinishFindNewContacts(executor, taskGroup, m_stackAllocator);
+
+	m_contactManager.FinishFindNewContacts(executor, m_stackAllocator);
 }
 
 void b2World::Collide(b2TaskExecutor& executor, b2TaskGroup* taskGroup)
@@ -1137,7 +1136,7 @@ void b2World::Collide(b2TaskExecutor& executor, b2TaskGroup* taskGroup)
 	executor.Wait(taskGroup, b2MainThreadCtx(&m_stackAllocator));
 
 	SetMtLock(0);
-	m_contactManager.FinishCollide(executor, taskGroup, m_stackAllocator);
+	m_contactManager.FinishCollide(executor, m_stackAllocator);
 }
 
 void b2World::SynchronizeFixtures(b2TaskExecutor& executor, b2TaskGroup* taskGroup)
@@ -1334,15 +1333,14 @@ void b2World::Solve(b2TaskExecutor& executor, b2TaskGroup* taskGroup, const b2Ti
 			static_assert(sizeof(b2SolveTask) <= b2_maxBlockSize, "Solve task doesn't fit in the allocator");
 
 			currSolveTask = (b2SolveTask*)m_blockAllocator.Allocate(sizeof(b2SolveTask));
-			new(currSolveTask) b2SolveTask(this, step, solveTaskList);
+			new(currSolveTask) b2SolveTask(this, step, bodies, contacts, joints, velocities, positions, solveTaskList);
 
 			solveTaskList = currSolveTask;
 		}
 
 		uint32 cost = m_bodyCost * bodyCount + m_contactCost * contactCount + m_jointCost * jointCount;
 
-		currSolveTask->AddIsland(bodyCount, contactCount, jointCount,
-			bodies, contacts, joints, velocities, positions, cost);
+		currSolveTask->AddIsland(bodyCount, contactCount, jointCount, cost);
 
 		bodies += bodyCount;
 		contacts += contactCount;
@@ -1405,7 +1403,7 @@ void b2World::Solve(b2TaskExecutor& executor, b2TaskGroup* taskGroup, const b2Ti
 	m_stackAllocator.Free(allBodies);
 
 	SetMtLock(0);
-	m_contactManager.FinishSolve(executor, taskGroup, m_stackAllocator);
+	m_contactManager.FinishSolve(executor, m_stackAllocator);
 
 	{
 		b2Timer timer;
@@ -1544,11 +1542,10 @@ void b2World::FindMinToiContact(b2TaskExecutor& executor, b2TaskGroup* taskGroup
 	float32 minAlpha = tasks[0].GetMinAlpha();
 
 	// Contacts between bodies with out of sync sweeps need to be processed on a single thread.
-	auto outOfSyncSweeps = b2MakeStackAllocThreadDataSorter<b2Contact*>(m_perThreadData,
-		&PerThreadData::m_outOfSyncSweeps, b2ContactPointerLessThan, m_stackAllocator);
+	b2_threadDataSorter(outOfSyncSweeps, b2Contact*, 1, executor, m_stackAllocator, m_perThreadData,
+		&PerThreadData::m_outOfSyncSweeps, &b2ContactPointerLessThan);
 
-	b2Sort(outOfSyncSweeps, executor, taskGroup, m_stackAllocator);
-
+	outOfSyncSweeps.wait();
 	for (auto it = outOfSyncSweeps.begin(); it != outOfSyncSweeps.end(); ++it)
 	{
 		b2Contact* c = *it;
@@ -1613,6 +1610,8 @@ void b2World::FindMinToiContact(b2Contact** contactOut, float* alphaOut)
 void b2World::Step(float32 dt, int32 velocityIterations, int32 positionIterations, b2TaskExecutor& executor)
 {
 	uint32 threadCount = executor.GetThreadCount();
+	b2Assert(threadCount > 0);
+	b2Assert(threadCount <= b2_maxThreads);
 
 	b2Timer stepTimer;
 
@@ -1757,6 +1756,55 @@ void b2World::QueryAABB(b2QueryCallback* callback, const b2AABB& aabb)
 	m_contactManager.m_broadPhase.Query(&wrapper, aabb, 0);
 }
 
+class b2QueryAABBTask : public b2RangeTask
+{
+public:
+	b2QueryAABBTask() {}
+	b2QueryAABBTask(const b2RangeTaskRange& range, b2ContactManager* contactManager, b2QueryCallback** callbacks, const b2AABB* aabbs)
+		: b2RangeTask(range)
+		, m_contactManager(contactManager)
+		, m_callbacks(callbacks)
+		, m_aabbs(aabbs)
+	{}
+
+	virtual b2Task::Type GetType() const override { return b2Task::e_queryAABB; }
+
+	virtual void Execute(const b2ThreadContext& threadCtx, const b2RangeTaskRange& range) override
+	{
+		for (uint32 i = range.begin; i < range.end; ++i)
+		{
+			b2WorldQueryWrapper wrapper;
+			wrapper.broadPhase = &m_contactManager->m_broadPhase;
+			wrapper.callback = m_callbacks[i];
+			m_contactManager->m_broadPhase.Query(&wrapper, m_aabbs[i], threadCtx.threadId);
+		}
+	}
+
+private:
+	b2ContactManager* m_contactManager;
+	b2QueryCallback** m_callbacks;
+	const b2AABB* m_aabbs;
+};
+
+void b2World::ExecuteQueryAABBs(b2QueryCallback** callbacks, const b2AABB* aabbs, uint32 count, b2TaskExecutor& executor)
+{
+	SetMtLock(e_mtLocked);
+	b2TaskGroup* taskGroup = executor.AcquireTaskGroup();
+
+	b2QueryAABBTask tasks[b2_maxRangeSubTasks];
+	b2PartitionedRange ranges;
+	executor.PartitionRange(b2Task::e_queryAABB, 0, count, ranges);
+	for (uint32 i = 0; i < ranges.count; ++i)
+	{
+		tasks[i] = b2QueryAABBTask(ranges[i], &m_contactManager, callbacks, aabbs);
+	}
+	b2SubmitTasks(executor, taskGroup, tasks, ranges.count);
+	executor.Wait(taskGroup, b2MainThreadCtx(&m_stackAllocator));
+
+	executor.ReleaseTaskGroup(taskGroup);
+	SetMtLock(0);
+}
+
 struct b2WorldRayCastWrapper
 {
 	float32 RayCastCallback(const b2RayCastInput& input, int32 proxyId)
@@ -1792,6 +1840,63 @@ void b2World::RayCast(b2RayCastCallback* callback, const b2Vec2& point1, const b
 	input.p1 = point1;
 	input.p2 = point2;
 	m_contactManager.m_broadPhase.RayCast(&wrapper, input, 0);
+}
+
+class b2RayCastTask : public b2RangeTask
+{
+public:
+	b2RayCastTask() {}
+	b2RayCastTask(const b2RangeTaskRange& range, b2ContactManager* contactManager, b2RayCastCallback** callbacks,
+		const b2Vec2* points1, const b2Vec2* points2)
+		: b2RangeTask(range)
+		, m_contactManager(contactManager)
+		, m_callbacks(callbacks)
+		, m_points1(points1)
+		, m_points2(points2)
+	{}
+
+	virtual b2Task::Type GetType() const override { return b2Task::e_queryAABB; }
+
+	virtual void Execute(const b2ThreadContext&, const b2RangeTaskRange& range) override
+	{
+		for (uint32 i = range.begin; i < range.end; ++i)
+		{
+			b2WorldRayCastWrapper wrapper;
+			wrapper.broadPhase = &m_contactManager->m_broadPhase;
+			wrapper.callback = m_callbacks[i];
+			b2RayCastInput input;
+			input.maxFraction = 1.0f;
+			input.p1 = m_points1[i];
+			input.p2 = m_points2[i];
+			m_contactManager->m_broadPhase.RayCast(&wrapper, input, 0);
+		}
+	}
+
+private:
+	b2ContactManager* m_contactManager;
+	b2RayCastCallback** m_callbacks;
+	const b2Vec2* m_points1;
+	const b2Vec2* m_points2;
+};
+
+void b2World::ExecuteRayCasts(b2RayCastCallback** callbacks, const b2Vec2* points1, const b2Vec2* points2, uint32 count,
+	b2TaskExecutor& executor)
+{
+	SetMtLock(e_mtLocked);
+	b2TaskGroup* taskGroup = executor.AcquireTaskGroup();
+
+	b2RayCastTask tasks[b2_maxRangeSubTasks];
+	b2PartitionedRange ranges;
+	executor.PartitionRange(b2Task::e_raycast, 0, count, ranges);
+	for (uint32 i = 0; i < ranges.count; ++i)
+	{
+		tasks[i] = b2RayCastTask(ranges[i], &m_contactManager, callbacks, points1, points2);
+	}
+	b2SubmitTasks(executor, taskGroup, tasks, ranges.count);
+	executor.Wait(taskGroup, b2MainThreadCtx(&m_stackAllocator));
+
+	executor.ReleaseTaskGroup(taskGroup);
+	SetMtLock(0);
 }
 
 void b2World::DrawShape(b2Fixture* fixture, const b2Transform& xf, const b2Color& color)

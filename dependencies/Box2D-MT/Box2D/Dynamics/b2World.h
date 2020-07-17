@@ -133,6 +133,30 @@ public:
 	/// @param point2 the ray ending point
 	void RayCast(b2RayCastCallback* callback, const b2Vec2& point1, const b2Vec2& point2);
 
+	/// Execute AABB queries through the provided executor.
+	/// @param callbacks an array of user implemented callbacks.
+	/// @param aabbs an array of query boxes.
+	/// @param count the number of elements in callbacks and aabbs.
+	/// @param executor executes the query tasks.
+	/// @see QueryAABB
+	void ExecuteQueryAABBs(	b2QueryCallback** callbacks,
+							const b2AABB* aabbs,
+							uint32 count,
+							b2TaskExecutor& executor);
+
+	/// Execute ray casts through the provided executor.
+	/// @param callbacks an array of user implemented callbacks.
+	/// @param points1 an array of ray starting points.
+	/// @param points2 an array of ray ending points.
+	/// @param count the number of elements in callbacks, points1, and points2.
+	/// @param executor executes the ray cast tasks.
+	/// @see RayCast
+	void ExecuteRayCasts(	b2RayCastCallback** callbacks,
+							const b2Vec2* points1,
+							const b2Vec2* points2,
+							uint32 count,
+							b2TaskExecutor& executor);
+
 	/// Get the world body list. With the returned body, use b2Body::GetNext to get
 	/// the next body in the world list. A nullptr body indicates the end of the list.
 	/// @return the head of the world body list.

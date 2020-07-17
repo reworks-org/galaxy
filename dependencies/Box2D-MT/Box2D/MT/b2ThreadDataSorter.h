@@ -24,6 +24,8 @@
 #include "Box2D/MT/b2TaskExecutor.h"
 #include "Box2D/MT/b2MtUtil.h"
 #include <algorithm>
+#include <functional>
+#include <atomic>
 
 // Merge two sorted arrays. No std::merge because we're not requiring C++17 support yet.
 template<typename InputIt, typename OutputIt, typename Compare>
@@ -49,392 +51,322 @@ OutputIt b2Merge(InputIt beginA, InputIt endA, InputIt beginB, InputIt endB, Out
     return std::copy(beginB, endB, output);
 }
 
-// A task for sorting.
-template<typename InputIt, typename Compare>
-class b2SortTask : public b2Task
+// A task for sorting and merging per-thread data.
+template<typename T, typename Compare>
+class b2SortThreadDataTask : public b2Task
 {
 public:
-	b2SortTask() {}
-	b2SortTask(InputIt begin, InputIt end, Compare comp)
-		: m_begin(begin)
-		, m_end(end)
-		, m_comp(comp)
+	struct Work
+	{
+		struct alignas(b2_cacheLineSize) PerThreadData
+		{
+			b2GrowableArray<T>* input;
+			std::atomic<uint32> counter;
+			uint32 outputIndex;
+			uint32 outputCount;
+		};
+		PerThreadData perThreadData[b2_maxThreads];
+		T* outputs[2];
+		b2TaskExecutor* executor;
+		b2TaskGroup* taskGroup;
+		uint32 taskCost;
+		std::atomic<uint32> mergeCounter;
+		alignas(b2_cacheLineSize) Compare comp;
+	};
+
+	b2SortThreadDataTask() {}
+	b2SortThreadDataTask(Work& work, uint32 index)
+		: m_work(&work)
+		, m_index(index)
 	{}
 
-	virtual b2Task::Type GetType() const override { return b2Task::e_sort; }
+	virtual b2Task::Type GetType() const override { return b2Task::e_sortThreadDataTask; }
 
-	virtual void Execute(const b2ThreadContext&) override
+	virtual void Execute(const b2ThreadContext& ctx) override
 	{
-		std::sort(m_begin, m_end, m_comp);
+		// Sort the input per-thread data arrays.
+		SortInputs();
+
+		if ((m_index & 1) != 0)
+		{
+			m_index -= 1;
+		}
+
+		if (b2FetchAdd(m_work->perThreadData[m_index].counter, 1) == 0)
+		{
+			// The neighboring thread will run MergeFromInputs.
+			return;
+		}
+
+		// Merge pairs of sorted input arrays into half of the output buffer.
+		MergeFromInputs();
+
+		// The final thread to finish MergeFromInputs submits subsequent merges.
+		if (b2FetchAdd(m_work->mergeCounter, -1) == 1)
+		{
+			// Merge pairs of sorted ranges from one half of the output buffer
+			// to the other half, until all sorted ranges have been merged.
+			MergeOutputs(ctx);
+		}
 	}
 
 private:
-	InputIt m_begin;
-	InputIt m_end;
-	Compare m_comp;
-};
-
-// A task for merging two sorted inputs.
-template<typename InputIt, typename OutputIt, typename Compare>
-class b2MergeTask : public b2Task
-{
-public:
-	b2MergeTask() {}
-	b2MergeTask(InputIt beginA, InputIt endA, InputIt beginB, InputIt endB, OutputIt output, Compare comp)
-		: m_beginA(beginA)
-		, m_endA(endA)
-		, m_beginB(beginB)
-		, m_endB(endB)
-		, m_output(output)
-		, m_comp(comp)
-	{}
-
-	virtual b2Task::Type GetType() const override { return b2Task::e_merge; }
-
-	virtual void Execute(const b2ThreadContext&) override
+	class MergeOutputsTask : public b2Task
 	{
-		b2Merge(m_beginA, m_endA, m_beginB, m_endB, m_output, m_comp);
+	public:
+		MergeOutputsTask() {}
+		MergeOutputsTask(Work& work, uint32 indexA, uint32 indexB)
+			: m_work(&work)
+			, m_indexA(indexA)
+			, m_indexB(indexB)
+		{}
+
+		virtual b2Task::Type GetType() const override { return b2Task::e_sortThreadDataTask; }
+
+		virtual void Execute(const b2ThreadContext&) override
+		{
+			typename Work::PerThreadData& tdA = m_work->perThreadData[m_indexA];
+			typename Work::PerThreadData& tdB = m_work->perThreadData[m_indexB];
+
+			const T* beginA = m_work->outputs[0] + tdA.outputIndex;
+			const T* beginB = m_work->outputs[0] + tdB.outputIndex;
+			const T* endA = beginA + tdA.outputCount;
+			const T* endB = beginB + tdB.outputCount;
+
+			T* output = m_work->outputs[1] + tdA.outputIndex;
+
+			b2Merge(beginA, endA, beginB, endB, output, m_work->comp);
+
+			tdA.outputCount += tdB.outputCount;
+		}
+
+		Work* m_work;
+		uint32 m_indexA;
+		uint32 m_indexB;
+	};
+
+	void SortInputs()
+	{
+		typename Work::PerThreadData& td = m_work->perThreadData[m_index];
+		b2GrowableArray<T>& input = *td.input;
+
+		std::sort(input.begin(), input.end(), m_work->comp);
+
+		td.outputCount = input.size();
 	}
-private:
-	InputIt m_beginA;
-	InputIt m_endA;
-	InputIt m_beginB;
-	InputIt m_endB;
-	OutputIt m_output;
-	Compare m_comp;
+
+	void MergeFromInputs()
+	{
+		typename Work::PerThreadData& tdA = m_work->perThreadData[m_index];
+		typename Work::PerThreadData& tdB = m_work->perThreadData[m_index + 1];
+
+		b2GrowableArray<T>& inputA = *tdA.input;
+		b2GrowableArray<T>& inputB = *tdB.input;
+
+		T* output = m_work->outputs[0] + tdA.outputIndex;
+
+		b2Merge(inputA.begin(), inputA.end(), inputB.begin(), inputB.end(), output, m_work->comp);
+
+		tdA.outputCount += tdB.outputCount;
+
+		inputA.clear();
+		inputB.clear();
+	}
+
+	void MergeOutputs(const b2ThreadContext& ctx)
+	{
+		MergeOutputsTask tasks[b2_maxThreads];
+
+		b2TaskExecutor& executor = *m_work->executor;
+		b2TaskGroup* taskGroup = m_work->taskGroup;
+		uint32 taskCost = m_work->taskCost;
+
+		for (uint32 stride = 2; stride < b2_maxThreads; stride *= 2)
+		{
+			uint32 taskCount = 0;
+			for (uint32 i = 0; i + stride < b2_maxThreads; i += 2 * stride)
+			{
+				tasks[taskCount] = MergeOutputsTask(*m_work, i, i + stride);
+				tasks[taskCount].SetCost(taskCost);
+				++taskCount;
+			}
+
+			if (taskCount > 1)
+			{
+				b2SubmitTasks(executor, taskGroup, tasks, taskCount - 1);
+				tasks[taskCount - 1].Execute(ctx);
+				executor.Wait(taskGroup, ctx);
+			}
+			else
+			{
+				b2Assert(taskCount == 1);
+				tasks[0].Execute(ctx);
+			}
+
+			std::swap(m_work->outputs[0], m_work->outputs[1]);
+		}
+	}
+
+	Work* m_work;
+	uint32 m_index;
 };
 
-// A class for async sorting of per thread data.
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount = b2_maxThreads>
+// This class asynchronously sorts per-thread data and provides access to the output.
+template<typename T, typename ThreadData, typename Member, typename Compare>
 class b2ThreadDataSorter
 {
 public:
-	b2ThreadDataSorter() {}
+	/// Construct the sorter and submit the sorting tasks.
+	/// @param executor runs the sorting tasks
+	/// @param allocator used for allocating output storage
+	/// @param threadDataArray the input thread data array of size b2_maxThreads
+	/// @param member pointer to a member of ThreadData
+	/// @param comp comparison function object equivalent to "bool comp(const T& a, const T& b)"
+	/// @param taskCost the cost given to tasks (tasks from sorters with higher cost may execute first)
+	b2ThreadDataSorter(b2TaskExecutor& executor, b2StackAllocator& allocator,
+		ThreadData threadDataArray, Member member, Compare comp, uint32 taskCost = 0);
 
-	// Construct the sorter.
-	// outputDoubleBuffer must be large enough to hold 2 * outputCount.
-	b2ThreadDataSorter(ThreadData* threadDataArray, Member ThreadData::* members,
-		T* outputDoubleBuffer, uint32 outputCount, Compare comp);
+	/// No copies.
+	b2ThreadDataSorter(b2ThreadDataSorter&) = delete;
+	b2ThreadDataSorter& operator=(b2ThreadDataSorter&) = delete;
 
-	// Submit a sorting task.
-	// Note: this gives better parallelism when called on multiple sorters before waiting.
-	void SubmitSortTask(b2TaskExecutor& executor, b2TaskGroup* taskGroup);
+	/// Free output storage.
+	~b2ThreadDataSorter();
 
-	// Have all required sort tasks been submitted?
-	bool IsSubmitRequired() const
-	{
-		return m_sortedRangeCount > 1;
-	}
+	/// Wait for sorting tasks to finish.
+	void wait();
 
-	// Get the sorted output.
-	T* GetSortedOutput() const
-	{
-		b2Assert(IsSubmitRequired() == false);
-		return m_outputBuffer;
-	}
+	/// Get the sorted output beginning.
+	/// @warning only valid after wait is called.
+	const T* begin() const;
+	T* begin();
 
-	// Get the number of elements in the output.
-	uint32 GetOutputCount() const
-	{
-		return m_outputCount;
-	}
+	/// Get the sorted output end.
+	/// @warning only valid after wait is called.
+	const T* end() const;
+	T* end();
 
-private:
-	using SortTask = b2SortTask<T*, Compare>;
-	using MergeTask = b2MergeTask<T*, T*, Compare>;
-
-	// Track the phase of our work.
-	enum Phase
-	{
-		e_threadDataSort,
-		e_threadDataToBufferMerge,
-		e_clearThreadData,
-		e_bufferToBufferMerge
-	};
-
-	// Sort the per thread data.
-	void SubmitThreadDataSort(b2TaskExecutor& executor, b2TaskGroup* taskGroup);
-
-	// Merge the sorted per thread data into the output buffer.
-	void SubmitThreadDataToBufferMerge(b2TaskExecutor& executor, b2TaskGroup* taskGroup);
-
-	// Merge the sorted ranges within the output buffer.
-	void SubmitBufferToBufferMerge(b2TaskExecutor& executor, b2TaskGroup* taskGroup);
-
-	// Not expected to work under these conditions.
-	// Create an issue or submit a pull request if you want to lift these restrictions.
-	static_assert(ThreadDataCount > 1, "b2ThreadDataSorter expects ThreadDataCount to be greater than 1.");
-	static_assert((ThreadDataCount & 1) == 0, "b2ThreadDataSorter expects ThreadDataCount to be even.");
-
-	SortTask m_sortTasks[ThreadDataCount];
-	MergeTask m_mergeTasks[ThreadDataCount / 2];
-
-	T* m_sortedRanges[ThreadDataCount / 2 + 1];
-
-	uint16 m_sortedRangeCount;
-	uint16 m_nextPhase;
-	uint32 m_outputCount;
-
-	T* m_outputBuffer;
-	T* m_workingBuffer;
-
-	ThreadData* m_td;
-	Member ThreadData::* m_member;
-	Compare m_comp;
-};
-
-// A thread data sorter that uses b2StackAllocator for output storage.
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount = b2_maxThreads>
-class b2StackAllocThreadDataSorter
-{
-public:
-	// Construct the sorter.
-	// Allocate output storage using allocator.
-	b2StackAllocThreadDataSorter(ThreadData* threadDataArray, Member ThreadData::* member,
-		Compare comp, b2StackAllocator& allocator);
-
-	// No copies.
-	b2StackAllocThreadDataSorter(b2StackAllocThreadDataSorter&) = delete;
-	b2StackAllocThreadDataSorter& operator=(b2StackAllocThreadDataSorter&) = delete;
-
-	// Move.
-	b2StackAllocThreadDataSorter(b2StackAllocThreadDataSorter&& rhs);
-
-	// Free output storage.
-	~b2StackAllocThreadDataSorter();
-
-	// Submit a sorting task.
-	// Note: this gives better parallelism when called on multiple sorters before waiting.
-	void SubmitSortTask(b2TaskExecutor& executor, b2TaskGroup* taskGroup)
-	{
-		m_sorter.SubmitSortTask(executor, taskGroup);
-	}
-
-	// Have all required sort tasks been submitted?
-	bool IsSubmitRequired() const
-	{
-		return m_sorter.IsSubmitRequired();
-	}
-
-	// Get the sorted output begin.
-	// @warning must already be sorted.
-	T* begin() const
-	{
-		return m_sorter.GetSortedOutput();
-	}
-
-	// Get the sorted output end.
-	// @warning must already be sorted.
-	T* end() const
-	{
-		return m_sorter.GetSortedOutput() + m_sorter.GetOutputCount();
-	}
-
-	// Get the size of the sorted output.
-	uint32 size() const
-	{
-		return m_sorter.GetOutputCount();
-	}
+	/// Get the size of the sorted output.
+	/// @warning only valid after wait is called.
+	uint32 size() const;
 
 private:
+	bool is_empty() const;
 
-	b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount> m_sorter;
+	typename b2SortThreadDataTask<T, Compare>::Work m_work;
+	b2SortThreadDataTask<T, Compare> m_tasks[b2_maxThreads];
+	b2TaskGroup* m_taskGroup;
 	b2StackAllocator* m_allocator;
 	void* m_mem;
 };
 
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::b2ThreadDataSorter(ThreadData* td,
-		Member ThreadData::* member, T* outputDoubleBuffer, uint32 outputCount, Compare comp)
-	: m_sortedRangeCount(ThreadDataCount)
-	, m_nextPhase(e_threadDataSort)
-	, m_outputCount(outputCount)
-	, m_outputBuffer(outputDoubleBuffer)
-	, m_workingBuffer(outputDoubleBuffer + outputCount)
-	, m_td(td)
-	, m_member(member)
-	, m_comp(comp)
-{
-
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-void b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::SubmitSortTask(
-	b2TaskExecutor& executor, b2TaskGroup* taskGroup)
-{
-	switch(m_nextPhase)
-	{
-	case e_threadDataSort:
-		SubmitThreadDataSort(executor, taskGroup);
-		m_nextPhase = e_threadDataToBufferMerge;
-		break;
-	case e_threadDataToBufferMerge:
-		SubmitThreadDataToBufferMerge(executor, taskGroup);
-		m_nextPhase = e_clearThreadData;
-		break;
-	case e_clearThreadData:
-		for (uint32 i = 0; i < ThreadDataCount; ++i)
-		{
-			(m_td[i].*m_member).clear();
-		}
-		m_nextPhase = e_bufferToBufferMerge;
-		// C++17 TODO: [[fallthrough]];
-		// The following comment prevents a warning in gcc.
-		// fall through
-	case e_bufferToBufferMerge:
-		SubmitBufferToBufferMerge(executor, taskGroup);
-		break;
-	default:
-		b2Assert(false);
-	}
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-void b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::SubmitThreadDataSort(
-	b2TaskExecutor& executor, b2TaskGroup* taskGroup)
-{
-	b2Assert(m_sortedRangeCount == ThreadDataCount);
-
-	if (m_outputCount <= 1)
-	{
-		return;
-	}
-
-	for (uint32 i = 0; i < ThreadDataCount; ++i)
-	{
-		auto& m = m_td[i].*m_member;
-
-		m_sortTasks[i] = SortTask(m.begin(), m.end(), m_comp);
-	}
-
-	b2SubmitTasks(executor, taskGroup, m_sortTasks, ThreadDataCount);
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-void b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::SubmitThreadDataToBufferMerge(
-	b2TaskExecutor& executor, b2TaskGroup* taskGroup)
-{
-	b2Assert(m_sortedRangeCount == ThreadDataCount);
-
-	if (m_outputCount == 0)
-	{
-		return;
-	}
-
-	// Initialize sorted ranges with the first output locations.
-	m_sortedRanges[0] = m_outputBuffer;
-	m_sortedRanges[ThreadDataCount / 2] = m_outputBuffer + m_outputCount;
-	for (uint32 i = 2; i < ThreadDataCount; i += 2)
-	{
-		const auto& mA = m_td[i - 1].*m_member;
-		const auto& mB = m_td[i - 2].*m_member;
-		const uint32 outputIndex = i / 2;
-
-		m_sortedRanges[outputIndex] = m_sortedRanges[outputIndex - 1] + mA.size() + mB.size();
-	}
-
-	for (uint32 i = 0; i < ThreadDataCount; i += 2)
-	{
-		auto& mA = m_td[i].*m_member;
-		auto& mB = m_td[i + 1].*m_member;
-		const uint32 outputIndex = i / 2;
-
-		m_mergeTasks[outputIndex] = MergeTask(mA.begin(), mA.end(), mB.begin(), mB.end(), m_sortedRanges[outputIndex], m_comp);
-	}
-	b2SubmitTasks(executor, taskGroup, m_mergeTasks, ThreadDataCount / 2);
-
-	m_sortedRangeCount /= 2;
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-void b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::SubmitBufferToBufferMerge(
-	b2TaskExecutor& executor, b2TaskGroup* taskGroup)
-{
-	if (m_outputCount <= 1)
-	{
-		m_sortedRangeCount = 1;
-		return;
-	}
-
-	if (m_sortedRangeCount > 1)
-	{
-		std::swap(m_outputBuffer, m_workingBuffer);
-
-		T* outputPtr = m_outputBuffer;
-		for (uint32 i = 0; i < m_sortedRangeCount; i += 2)
-		{
-			const uint32 outputIndex = i / 2;
-
-			m_mergeTasks[outputIndex] = MergeTask(m_sortedRanges[i], m_sortedRanges[i + 1],
-				m_sortedRanges[i + 1], m_sortedRanges[i + 2], outputPtr, m_comp);
-
-			uint32 count = (uint32)(m_sortedRanges[i + 2] - m_sortedRanges[i]);
-			m_sortedRanges[outputIndex] = outputPtr;
-			outputPtr += count;
-		}
-		m_sortedRangeCount /= 2;
-		m_sortedRanges[m_sortedRangeCount] = m_outputBuffer + m_outputCount;
-
-		b2SubmitTasks(executor, taskGroup, m_mergeTasks, m_sortedRangeCount);
-	}
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-b2StackAllocThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::b2StackAllocThreadDataSorter(
-	ThreadData* threadDataArray, Member ThreadData::* member, Compare comp, b2StackAllocator& allocator)
-	: m_allocator(&allocator)
+template<typename T, typename ThreadData, typename Member, typename Compare>
+b2ThreadDataSorter<T, ThreadData, Member, Compare>::b2ThreadDataSorter(
+	b2TaskExecutor& executor, b2StackAllocator& allocator,
+	ThreadData threadDataArray, Member member, Compare comp, uint32 taskCost)
+: m_allocator(&allocator)
+, m_mem(nullptr)
 {
 	uint32 outputCount = 0;
 	for (int32 i = 0; i < b2_maxThreads; ++i)
 	{
-		outputCount += (threadDataArray[i].*member).size();
+		m_work.perThreadData[i].outputIndex = outputCount;
+		m_work.perThreadData[i].outputCount = (threadDataArray[i].*member).size();
+		outputCount += m_work.perThreadData[i].outputCount;
 	}
-	m_mem = allocator.Allocate(2 * outputCount * sizeof(T));
 
-	m_sorter = b2ThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>(
-		threadDataArray, member, (T*)m_mem, outputCount, comp);
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-b2StackAllocThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::b2StackAllocThreadDataSorter(
-		b2StackAllocThreadDataSorter&& rhs)
-	: m_sorter(rhs.m_sorter)
-	, m_allocator(rhs.m_allocator)
-	, m_mem(rhs.m_mem)
-{
-	rhs.m_mem = nullptr;
-}
-
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount>
-b2StackAllocThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>::~b2StackAllocThreadDataSorter()
-{
-	if (m_mem)
+	if (outputCount == 0)
 	{
+		return;
+	}
+
+	m_mem = allocator.Allocate(2 * outputCount * sizeof(T));
+	m_work.outputs[0] = (T*)m_mem;
+	m_work.outputs[1] = (T*)m_mem + outputCount;
+
+	for (uint32 i = 0; i < b2_maxThreads; ++i)
+	{
+		m_work.perThreadData[i].input = &(threadDataArray[i].*member);
+		m_work.perThreadData[i].counter.store(0, std::memory_order_relaxed);
+
+		m_tasks[i] = b2SortThreadDataTask<T, Compare>(m_work, i);
+		m_tasks[i].SetCost(taskCost);
+
+		b2_drdIgnoreVar(m_work.perThreadData[i].counter);
+	}
+	b2_drdIgnoreVar(m_work.mergeCounter);
+
+	m_taskGroup = executor.AcquireTaskGroup();
+
+	m_work.executor = &executor;
+	m_work.taskGroup = executor.AcquireTaskGroup();
+	uint32 mergeCounter = b2_maxThreads / 2;
+	m_work.mergeCounter.store(mergeCounter, std::memory_order_relaxed);
+	m_work.comp = comp;
+	m_work.taskCost = taskCost;
+
+	b2SubmitTasks(executor, m_taskGroup, m_tasks, b2_maxThreads);
+}
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+b2ThreadDataSorter<T, ThreadData, Member, Compare>::~b2ThreadDataSorter()
+{
+	if (is_empty() == false)
+	{
+		m_work.executor->ReleaseTaskGroup(m_work.taskGroup);
+		m_work.executor->ReleaseTaskGroup(m_taskGroup);
 		m_allocator->Free(m_mem);
 	}
 }
 
-// Convenience function to make a sorter with template argument deduction.
-template<typename T, typename ThreadData, typename Member, typename Compare, uint32 ThreadDataCount = b2_maxThreads>
-b2StackAllocThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>
-	b2MakeStackAllocThreadDataSorter(ThreadData* threadDataArray, Member ThreadData::* member, Compare comp,
-		b2StackAllocator& allocator)
+template<typename T, typename ThreadData, typename Member, typename Compare>
+void b2ThreadDataSorter<T, ThreadData, Member, Compare>::wait()
 {
-	return b2StackAllocThreadDataSorter<T, ThreadData, Member, Compare, ThreadDataCount>(threadDataArray, member, comp, allocator);
-}
-
-// Convenience function to run all sorting tasks and wait for them to finish.
-// Note: this will sacrifice parallelism if used on multiple sorters sequentially.
-template<typename Sorter>
-void b2Sort(Sorter& sorter, b2TaskExecutor& executor, b2TaskGroup* taskGroup, b2StackAllocator& allocator)
-{
-	b2Assert(sorter.IsSubmitRequired());
-
-	while (sorter.IsSubmitRequired())
+	if (is_empty() == false)
 	{
-		sorter.SubmitSortTask(executor, taskGroup);
-		executor.Wait(taskGroup, b2MainThreadCtx(&allocator));
+		m_work.executor->Wait(m_taskGroup, b2MainThreadCtx(m_allocator));
 	}
 }
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+const T* b2ThreadDataSorter<T, ThreadData, Member, Compare>::begin() const
+{
+	return m_work.outputs[0];
+}
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+T* b2ThreadDataSorter<T, ThreadData, Member, Compare>::begin()
+{
+	return m_work.outputs[0];
+}
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+const T* b2ThreadDataSorter<T, ThreadData, Member, Compare>::end() const
+{
+	return m_work.outputs[0] + m_work.perThreadData[0].outputCount;
+}
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+T* b2ThreadDataSorter<T, ThreadData, Member, Compare>::end()
+{
+	return m_work.outputs[0] + m_work.perThreadData[0].outputCount;
+}
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+uint32 b2ThreadDataSorter<T, ThreadData, Member, Compare>::size() const
+{
+	return m_work.perThreadData[0].outputCount;
+}
+
+template<typename T, typename ThreadData, typename Member, typename Compare>
+bool b2ThreadDataSorter<T, ThreadData, Member, Compare>::is_empty() const
+{
+	return m_mem == nullptr;
+}
+
+// Convenience macro to avoid verbose template arguments.
+#define b2_threadDataSorter(var, T, cost, executor, allocator, threadDataArray, member, comp)\
+b2ThreadDataSorter<T, decltype(threadDataArray), decltype(member), decltype(comp)> var(\
+	 executor, allocator, threadDataArray, member, comp, cost)
 
 #endif

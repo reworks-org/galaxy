@@ -39,21 +39,32 @@ void b2BroadPhase::Reset(float32 subTreeWidth, float32 subTreeHeight)
 {
 	m_tree.Reset(subTreeWidth, subTreeHeight);
 	m_proxyCount = 0;
-	b2Assert(m_moveBuffer.size() == 0);
 }
+
+void b2BroadPhase::QueueMoveProxy(int32 proxyId, const b2AABB& aabb, const b2Vec2& displacement, uint32 threadId)
+{
+	m_tree.QueueMoveProxy(proxyId, aabb, displacement, threadId);
+	BufferMove(proxyId, threadId);
+}
+
+void b2BroadPhase::FinishMoveProxies(b2TaskExecutor& executor, b2TaskGroup* taskGroup, b2StackAllocator& allocator)
+{
+	m_tree.FinishMoveProxies(executor, taskGroup, allocator);
+}
+
 #endif
 
 int32 b2BroadPhase::CreateProxy(const b2AABB& aabb, void* userData)
 {
 	int32 proxyId = m_tree.CreateProxy(aabb, userData);
 	++m_proxyCount;
-	BufferMove(proxyId);
+	BufferMove(proxyId, 0);
 	return proxyId;
 }
 
 void b2BroadPhase::DestroyProxy(int32 proxyId)
 {
-	UnBufferMove(proxyId);
+	UnBufferMove(proxyId, 0);
 	--m_proxyCount;
 	m_tree.DestroyProxy(proxyId);
 }
@@ -63,27 +74,31 @@ void b2BroadPhase::MoveProxy(int32 proxyId, const b2AABB& aabb, const b2Vec2& di
 	bool buffer = m_tree.MoveProxy(proxyId, aabb, displacement);
 	if (buffer)
 	{
-		BufferMove(proxyId);
+		BufferMove(proxyId, 0);
 	}
 }
 
 void b2BroadPhase::TouchProxy(int32 proxyId)
 {
-	BufferMove(proxyId);
+	BufferMove(proxyId, 0);
 }
 
-void b2BroadPhase::BufferMove(int32 proxyId)
+void b2BroadPhase::BufferMove(int32 proxyId, uint32 threadId)
 {
-	m_moveBuffer.push_back(proxyId);
+	b2BroadPhasePerThreadData& td = m_perThreadData[threadId];
+
+	td.m_moveBuffer.push_back(proxyId);
 }
 
-void b2BroadPhase::UnBufferMove(int32 proxyId)
+void b2BroadPhase::UnBufferMove(int32 proxyId, uint32 threadId)
 {
-	for (uint32 i = 0; i < m_moveBuffer.size(); ++i)
+	b2BroadPhasePerThreadData& td = m_perThreadData[threadId];
+
+	for (uint32 i = 0; i < td.m_moveBuffer.size(); ++i)
 	{
-		if (m_moveBuffer[i] == proxyId)
+		if (td.m_moveBuffer[i] == proxyId)
 		{
-			m_moveBuffer[i] = e_nullProxy;
+			td.m_moveBuffer[i] = e_nullProxy;
 		}
 	}
 }

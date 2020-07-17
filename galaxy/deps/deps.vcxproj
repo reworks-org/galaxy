@@ -64,7 +64,6 @@
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2RopeJoint.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
-    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2DynamicTreeOfTrees.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2MtUtil.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2Task.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2ThreadPool.cpp" />
@@ -224,7 +223,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -256,7 +255,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -272,7 +271,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -342,7 +341,7 @@
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>

@@ -44,6 +44,7 @@ typedef std::uint64_t	uint64;
 typedef float			float32;
 typedef double			float64;
 
+#define	b2_maxInt		std::numeric_limits<int32>::max()
 #define	b2_maxFloat		std::numeric_limits<float32>::max()
 #define	b2_epsilon		std::numeric_limits<float32>::epsilon()
 #define b2_pi			3.14159265359f
@@ -168,13 +169,13 @@ typedef double			float64;
 #define b2_maxRangeSubTasks						b2_maxThreads
 
 /// The maximum number of islands per solve task.
-#define b2_maxIslandsPerSolveTask				16
+#define b2_maxIslandsPerSolveTask				45
 
 /// The number of task groups used by a world's step. Do not change this value.
-#define b2_maxWorldStepTaskGroups				1
+#define b2_maxWorldStepTaskGroups				11
 
 /// Defining this enables a modified broad-phase that tends to perform better with
-/// many fixtures.
+/// many fixtures. This is still experimental.
 //#define b2_dynamicTreeOfTrees
 
 // Memory Allocation

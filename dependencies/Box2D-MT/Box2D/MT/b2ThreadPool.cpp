@@ -29,16 +29,11 @@
 	// These prevent the "Probably a race condition" warnings that occur when
 	// notifying a condition variable without the associated mutex being locked.
 	#define b2_holdLockDuringNotify
-	// This is used on atomic variables to prevent false positive data races that are
-	// detected on conflicting atomic loads and stores (DRD can't recognize atomics).
-	#define b2_drdIgnoreVar(x) DRD_IGNORE_VAR(x)
-#else
-	#define b2_drdIgnoreVar(x) do { } while(0)
 #endif
 
 // This define expands the scope of lock guards to include the condition variable notify.
 // It isn't necessary to hold a lock during notification, and doing so can force the
-// notified thread to wait for the notifier to unlock the mutex, but tools like drd issue
+// notified thread to wait for the notifier to unlock the mutex, but tools like DRD issue
 // a warning when a condition variable is notified without holding a lock.
 #ifdef b2_holdLockDuringNotify
 	#define b2_notifyLockScopeBegin
@@ -76,6 +71,56 @@ b2ThreadPoolTaskGroup::b2ThreadPoolTaskGroup()
 	, m_remainingTasks(0)
 {
 	b2_drdIgnoreVar(m_remainingTasks);
+}
+
+b2LowerLatencyLock::b2LowerLatencyLock()
+: m_lock()
+{
+	b2_drdIgnoreVar(m_lock);
+}
+
+void b2LowerLatencyLock::lock()
+{
+	if (try_lock())
+	{
+		return;
+	}
+
+	// Any number of threads can spin simultaneously for this amount of time.
+	const float32 busyWaitTimeoutMs = 0.005f;
+
+	b2Timer timer;
+	while (try_lock() == false)
+	{
+		if (timer.GetMilliseconds() > busyWaitTimeoutMs)
+		{
+			// Only one thread at a time can spin for an extended period.
+			std::lock_guard<std::mutex> lk(m_mutex);
+
+			while (try_lock() == false)
+			{
+				std::this_thread::yield();
+			}
+			return;
+		}
+		std::this_thread::yield();
+	}
+}
+
+void b2LowerLatencyLock::unlock()
+{
+	b2_drdHappensBefore(&m_lock);
+	m_lock.clear(std::memory_order_release);
+}
+
+bool b2LowerLatencyLock::try_lock()
+{
+	if (m_lock.test_and_set(std::memory_order_acquire) == false)
+	{
+		b2_drdHappensAfter(&m_lock);
+		return true;
+	}
+	return false;
 }
 
 b2ThreadPool::b2ThreadPool(const b2ThreadPoolOptions& options)
@@ -122,7 +167,7 @@ void b2ThreadPool::SubmitTasks(b2ThreadPoolTaskGroup& group, b2Task** tasks, uin
 {
 	b2_notifyLockScopeBegin
 		b2Timer lockTimer;
-		std::lock_guard<std::mutex> lk(m_mutex);
+		std::lock_guard<Mutex> lk(m_mutex);
 		m_lockMilliseconds += lockTimer.GetMilliseconds();
 
 		for (uint32 i = 0; i < count; ++i)
@@ -140,7 +185,7 @@ void b2ThreadPool::SubmitTask(b2ThreadPoolTaskGroup& group, b2Task* task)
 {
 	b2_notifyLockScopeBegin
 		b2Timer lockTimer;
-		std::lock_guard<std::mutex> lk(m_mutex);
+		std::lock_guard<Mutex> lk(m_mutex);
 		m_lockMilliseconds += lockTimer.GetMilliseconds();
 
 		m_taskHeap.push_back(task);
@@ -154,11 +199,8 @@ void b2ThreadPool::SubmitTask(b2ThreadPoolTaskGroup& group, b2Task* task)
 
 void b2ThreadPool::Wait(const b2ThreadPoolTaskGroup& group, const b2ThreadContext& context)
 {
-	// We don't expect worker threads to call wait.
-	b2Assert(context.threadId == 0);
-
 	b2Timer lockTimer;
-	std::unique_lock<std::mutex> lk(m_mutex);
+	std::unique_lock<Mutex> lk(m_mutex);
 	m_lockMilliseconds += lockTimer.GetMilliseconds();
 
 	while (true)
@@ -237,7 +279,7 @@ void b2ThreadPool::WorkerMain(uint32 threadId)
 	context.threadId = threadId;
 
 	b2Timer lockTimer;
-	std::unique_lock<std::mutex> lk(m_mutex);
+	std::unique_lock<Mutex> lk(m_mutex);
 
 	while (true)
 	{
@@ -306,7 +348,7 @@ void b2ThreadPool::Shutdown()
 {
 	{
 		b2_notifyLockScopeBegin
-			std::lock_guard<std::mutex> lk(m_mutex);
+			std::lock_guard<Mutex> lk(m_mutex);
 			m_signalShutdown = true;
 			m_busyWaitTimeout.store(0, std::memory_order_relaxed);
 		b2_notifyLockScopeEnd
@@ -324,39 +366,34 @@ void b2ThreadPool::Shutdown()
 
 b2TaskGroup* b2ThreadPoolTaskExecutor::AcquireTaskGroup()
 {
-	for (uint32 i = 0; i < b2_maxWorldStepTaskGroups; ++i)
-	{
-		if (m_taskGroupInUse[i] == false)
-		{
-			m_taskGroupInUse[i] = true;
-			return m_taskGroups + i;
-		}
-	}
-
 	// No task groups available.
 	// Did you forget to release a task group?
 	// Or are you stepping worlds from multiple threads with the same executor?
 	// You can implement b2TaskExecutor if you need support for that.
-	b2Assert(false);
-	return nullptr;
+	b2Assert(m_taskGroupCount < b2_maxWorldStepTaskGroups);
+
+#ifdef b2DEBUG
+	b2Assert(m_taskGroupInUse[m_taskGroupCount] == false);
+	m_taskGroupInUse[m_taskGroupCount] = true;
+#endif
+
+	b2TaskGroup* taskGroup = m_taskGroups + m_taskGroupCount++;
+
+	return taskGroup;
 }
 
 void b2ThreadPoolTaskExecutor::ReleaseTaskGroup(b2TaskGroup* taskGroup)
 {
-	for (uint32 i = 0; i < b2_maxWorldStepTaskGroups; ++i)
-	{
-		b2ThreadPoolTaskGroup* tpTaskGroup = m_taskGroups + i;
-		if (tpTaskGroup == taskGroup)
-		{
-			b2Assert(tpTaskGroup->m_remainingTasks.load(std::memory_order_relaxed) == 0);
+	B2_NOT_USED(taskGroup);
 
-			m_taskGroupInUse[i] = false;
-			return;
-		}
-	}
+	--m_taskGroupCount;
+	b2Assert(&m_taskGroups[m_taskGroupCount] == taskGroup);
+	b2Assert(m_taskGroups[m_taskGroupCount].m_remainingTasks.load(std::memory_order_relaxed) == 0);
 
-	// Task group not found.
-	b2Assert(false);
+#ifdef b2DEBUG
+	b2Assert(m_taskGroupInUse[m_taskGroupCount] == true);
+	m_taskGroupInUse[m_taskGroupCount] = false;
+#endif
 }
 
 void b2ThreadPoolTaskExecutor::PartitionRange(b2Task::Type type, uint32 begin, uint32 end, b2PartitionedRange& output)

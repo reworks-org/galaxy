@@ -18,11 +18,667 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+#include <cstring>
 #include "Box2D/MT/b2DynamicTreeOfTrees.h"
-#include <string.h>
-#include <cmath>
+#include "Box2D/MT/b2MtUtil.h"
+#include "Box2D/MT/b2ThreadDataSorter.h"
 
-//#define b2_validateTree
+//#define b2_debugEnabled
+
+#ifdef b2_debugEnabled
+
+#define b2_validateTree
+
+#include <bitset>
+#include <mutex>
+
+static const int32 kAllocationBitCount = 131072;
+static std::bitset<kAllocationBitCount> g_debugAllocated;
+static std::bitset<kAllocationBitCount> g_debugInBaseLeafFreeList;
+static std::bitset<kAllocationBitCount> g_debugInserted;
+static std::mutex g_debugMutex;
+static uint32 g_debugCounter;
+static uint32 g_debugFinishMoveProxyCounter;
+
+#define b2_debugPrintCondition() (nodeId == b2_nullNode)
+#define b2_debugPrintExtra()
+
+#endif
+
+void b2DebugReset()
+{
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	g_debugAllocated.reset();
+	g_debugInBaseLeafFreeList.reset();
+	g_debugInserted.reset();
+	g_debugCounter = 0;
+	g_debugFinishMoveProxyCounter = 0;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugNodeAllocate(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	b2Assert(nodeId < kAllocationBitCount);
+	b2Assert(g_debugAllocated[nodeId] == false);
+	b2Assert(g_debugInBaseLeafFreeList[nodeId] == false);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugNodeAllocate(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+	g_debugAllocated[nodeId] = true;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugNodeFree(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	b2Assert(nodeId < kAllocationBitCount);
+	b2Assert(g_debugAllocated[nodeId] == true);
+	b2Assert(g_debugInBaseLeafFreeList[nodeId] == false);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugNodeFree(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+	g_debugAllocated[nodeId] = false;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugNodeSubTreeAllocate(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	b2Assert(nodeId < kAllocationBitCount);
+	b2Assert(g_debugInBaseLeafFreeList[nodeId] == true);
+	b2Assert(g_debugAllocated[nodeId] == true);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugNodeSubTreeAllocate(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+	g_debugInBaseLeafFreeList[nodeId] = false;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugNodeSubTreeFree(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	b2Assert(nodeId < kAllocationBitCount);
+	b2Assert(g_debugInBaseLeafFreeList[nodeId] == false);
+	b2Assert(g_debugAllocated[nodeId] == true);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugNodeSubTreeFree(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+	g_debugInBaseLeafFreeList[nodeId] = true;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugInsert(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	b2Assert(nodeId < kAllocationBitCount);
+	b2Assert(g_debugInserted[nodeId] == false);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugInsert(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+	g_debugInserted[nodeId] = true;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugRemove(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	b2Assert(nodeId < kAllocationBitCount);
+	b2Assert(g_debugInserted[nodeId] == true);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugRemove(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+	g_debugInserted[nodeId] = false;
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugReplace(int32 nodeId) const
+{
+	B2_NOT_USED(nodeId);
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	if (b2_debugPrintCondition())
+	{
+		b2Log("[%d] DebugReplace(%d)\n", g_debugCounter++, nodeId);
+		b2_debugPrintExtra();
+	}
+#endif
+}
+
+inline void b2DynamicTreeOfTrees::DebugFinishMoveProxies() const
+{
+#ifdef b2_debugEnabled
+	std::lock_guard<std::mutex> lk(g_debugMutex);
+	++g_debugFinishMoveProxyCounter;
+#endif
+}
+
+bool b2DeferredInsertNewSubTreeLessThan(const b2DynamicTreeOfTrees::DeferredInsertNewSubTree& a,
+										const b2DynamicTreeOfTrees::DeferredInsertNewSubTree& b)
+{
+	if (a.subTreePosition.y != b.subTreePosition.y)
+	{
+		return a.subTreePosition.y < b.subTreePosition.y;
+	}
+
+	if (a.subTreePosition.x != b.subTreePosition.x)
+	{
+		return a.subTreePosition.x < b.subTreePosition.x;
+	}
+
+	return a.proxy < b.proxy;
+}
+
+bool b2DeferredInsertLessThan(	const b2DynamicTreeOfTrees::DeferredInsert& a,
+								const b2DynamicTreeOfTrees::DeferredInsert& b)
+{
+	if (a.baseLeaf != b.baseLeaf)
+	{
+		return a.baseLeaf < b.baseLeaf;
+	}
+	return a.proxy < b.proxy;
+}
+
+bool b2DeferredMoveLessThan(	const b2DynamicTreeOfTrees::DeferredMove& a,
+								const b2DynamicTreeOfTrees::DeferredMove& b)
+{
+	if (a.baseLeaf != b.baseLeaf)
+	{
+		return a.baseLeaf < b.baseLeaf;
+	}
+	return a.subProxy < b.subProxy;
+}
+
+bool b2DeferredRemoveLessThan(	const b2DynamicTreeOfTrees::DeferredRemove& a,
+								const b2DynamicTreeOfTrees::DeferredRemove& b)
+{
+	if (a.baseLeaf != b.baseLeaf)
+	{
+		return a.baseLeaf < b.baseLeaf;
+	}
+	return a.subProxy < b.subProxy;
+}
+
+bool b2DeferredReplaceLessThan(	const b2DynamicTreeOfTrees::DeferredReplace& a,
+								const b2DynamicTreeOfTrees::DeferredReplace& b)
+{
+	// A source proxy can't have multiple replaces in the same event queue.
+	b2Assert(a.proxy != b.proxy);
+
+	return a.proxy < b.proxy;
+}
+
+struct b2FindFirstLeafQueryCallback
+{
+    b2FindFirstLeafQueryCallback(b2DynamicTreeOfTrees* tree)
+        : m_tree(tree)
+        , m_leaf(-1)
+    { }
+
+    bool QueryCallback(int32 proxyId)
+    {
+        m_leaf = proxyId;
+        return false;
+    }
+
+    b2DynamicTreeOfTrees* m_tree;
+    int32 m_leaf;
+};
+
+class b2UpdateSubTreeTask : public b2Task
+{
+public:
+	b2UpdateSubTreeTask() {}
+	b2UpdateSubTreeTask(b2DynamicTreeOfTrees* tree,
+		b2DynamicTreeOfTrees::DeferredInsert* inserts, uint32 insertCount,
+		b2DynamicTreeOfTrees::DeferredMove* moves, uint32 moveCount,
+		b2DynamicTreeOfTrees::DeferredRemove* removes, uint32 removeCount)
+	: m_tree(tree)
+	, m_inserts(inserts)
+	, m_moves(moves)
+	, m_removes(removes)
+	, m_insertCount(insertCount)
+	, m_moveCount(moveCount)
+	, m_removeCount(removeCount)
+	{}
+
+	virtual b2Task::Type GetType() const override { return b2Task::e_broadPhaseUpdateSubTree; }
+
+	virtual void Execute(const b2ThreadContext&) override
+	{
+		// Remove proxies.
+		for (uint32 i = 0; i < m_removeCount; ++i)
+		{
+			int32 baseLeaf = m_removes[i].baseLeaf;
+			int32 subProxy = m_removes[i].subProxy;
+			bool freeSubProxy = m_removes[i].freeSubProxy != 0;
+
+			m_tree->SubTreeRemoveLeaf<true>(&m_tree->m_nodes[baseLeaf].subTreeRoot, subProxy);
+
+			if (freeSubProxy)
+			{
+				m_tree->SubTreeFreeNode(subProxy, baseLeaf);
+			}
+		}
+
+		// Move proxies.
+		for (uint32 i = 0; i < m_moveCount; ++i)
+		{
+			int32 baseLeaf = m_moves[i].baseLeaf;
+			int32 subProxy = m_moves[i].subProxy;
+
+			m_tree->SubTreeRemoveLeaf<true>(&m_tree->m_nodes[baseLeaf].subTreeRoot, subProxy);
+
+			m_tree->m_nodes[subProxy].aabb = m_moves[i].aabb;
+
+			m_tree->SubTreeInsertLeaf<true>(&m_tree->m_nodes[baseLeaf].subTreeRoot, subProxy);
+		}
+
+		// Insert proxies.
+		for (uint32 i = 0; i < m_insertCount; ++i)
+		{
+			int32 baseLeaf = m_inserts[i].baseLeaf;
+			int32 subProxy = m_inserts[i].proxy;
+
+			m_tree->m_nodes[subProxy].aabb = m_inserts[i].aabb;
+			m_tree->m_nodes[subProxy].baseTreeLeaf = baseLeaf;
+
+			m_tree->SubTreeInsertLeaf<true>(&m_tree->m_nodes[baseLeaf].subTreeRoot, subProxy);
+		}
+	}
+
+private:
+	b2DynamicTreeOfTrees* m_tree;
+	b2DynamicTreeOfTrees::DeferredInsert* m_inserts;
+	b2DynamicTreeOfTrees::DeferredMove* m_moves;
+	b2DynamicTreeOfTrees::DeferredRemove* m_removes;
+	uint32 m_insertCount;
+	uint32 m_moveCount;
+	uint32 m_removeCount;
+};
+
+void b2DynamicTreeOfTrees::QueueMoveProxy(int32 proxyId, const b2AABB& aabb1, const b2Vec2& displacement, uint32 threadId)
+{
+	PerThreadData& td = m_perThreadData[threadId];
+
+	b2AABB aabb = ComputeAABB(aabb1, displacement);
+
+    int32 beginX = int32(std::round(aabb.lowerBound.x * m_subTreeInvWidth));
+    int32 beginY = int32(std::round(aabb.lowerBound.y * m_subTreeInvHeight));
+    int32 endX = int32(std::round(aabb.upperBound.x * m_subTreeInvWidth)) + 1;
+    int32 endY = int32(std::round(aabb.upperBound.y * m_subTreeInvHeight)) + 1;
+
+	int32 subProxyCount = 0;
+	int32 firstProxy = proxyId;
+	int32 prevSubProxy = b2_nullNode;
+	for (int32 subProxy = proxyId; subProxy != b2_nullNode; subProxy = m_nodes[subProxy].nextProxy)
+	{
+		b2Assert(m_nodes[subProxy].IsLeaf());
+
+		int32 baseTreeLeaf = m_nodes[subProxy].baseTreeLeaf;
+		int32 x = m_nodes[baseTreeLeaf].subTreePosition.x;
+		int32 y = m_nodes[baseTreeLeaf].subTreePosition.y;
+
+		// Is the sub-proxy's tree still overlapped by the new aabb?
+		if (beginX <= x && x < endX &&
+			beginY <= y && y < endY)
+		{
+			// Move the sub-proxy.
+			DeferredMove move;
+			move.aabb = aabb;
+			move.baseLeaf = baseTreeLeaf;
+			move.subProxy = subProxy;
+			td.m_moves.push_back(move);
+			++subProxyCount;
+			prevSubProxy = subProxy;
+		}
+		else
+		{
+			b2Assert(m_nodes[baseTreeLeaf].subTreeRoot == subProxy || m_nodes[subProxy].parent != b2_nullNode); // TEMP_MT
+
+			// Remove the sub-proxy.
+			DeferredRemove remove;
+			remove.subProxy = subProxy;
+			remove.baseLeaf = baseTreeLeaf;
+			remove.freeSubProxy = subProxy != proxyId ? 1 : 0;
+			td.m_removes.push_back(remove);
+
+			if (subProxy != firstProxy)
+			{
+				// Remove from the proxy list.
+				if (prevSubProxy != b2_nullNode)
+				{
+					m_nodes[prevSubProxy].nextProxy = m_nodes[subProxy].nextProxy;
+				}
+			}
+			else
+			{
+				// The user-facing proxy must remain as the head of the proxy list.
+				// The first valid proxy can be copied into the user proxy's slot (renamed).
+				firstProxy = m_nodes[subProxy].nextProxy;
+			}
+		}
+	}
+
+	int32 subTreesX = endX - beginX;
+	int32 subTreesY = endY - beginY;
+	int32 subTreeCount = subTreesX * subTreesY;
+
+	// Do we need to add sub-proxies to newly overlapped sub-trees?
+	if (subProxyCount != subTreeCount)
+	{
+		b2Assert(subProxyCount < subTreeCount);
+
+		// Find newly overlapped sub-trees. Create if they don't exist, otherwise insert.
+		for (int32 y = beginY; y < endY; ++y)
+		{
+			for (int32 x = beginX; x < endX; ++x)
+			{
+				// Look for the sub-tree in the proxy list.
+				int32 subProxy = firstProxy;
+				while (subProxy != b2_nullNode)
+				{
+					int32 baseTreeLeaf = m_nodes[subProxy].baseTreeLeaf;
+					int32 subProxyX = m_nodes[baseTreeLeaf].subTreePosition.x;
+					int32 subProxyY = m_nodes[baseTreeLeaf].subTreePosition.y;
+
+					if (x == subProxyX && y == subProxyY)
+					{
+						break;
+					}
+
+					subProxy = m_nodes[subProxy].nextProxy;
+				}
+
+				if (subProxy != b2_nullNode)
+				{
+					// We already have a sub-proxy in this sub-tree.
+					continue;
+				}
+
+				// Look for the sub-tree by its position.
+				b2Vec2 subTreeCenter(x * m_subTreeWidth, y * m_subTreeHeight);
+				b2FindFirstLeafQueryCallback findQuery(this);
+				Query(&findQuery, subTreeCenter);
+
+				// Does the sub-tree need to be created?
+				if (findQuery.m_leaf == b2_nullNode)
+				{
+					// Create the sub-tree and the sub-proxy.
+					DeferredInsertNewSubTree insertNewSubTree;
+					insertNewSubTree.subTreePosition.x = x;
+					insertNewSubTree.subTreePosition.y = y;
+					insertNewSubTree.proxy = proxyId;
+					td.m_insertNewSubTrees.push_back(insertNewSubTree);
+					continue;
+				}
+
+				// Create a sub-proxy and insert it into the sub-tree.
+				DeferredInsert insert;
+				insert.aabb = aabb;
+				insert.baseLeaf = findQuery.m_leaf;
+				insert.proxy = proxyId;
+				td.m_inserts.push_back(insert);
+			}
+		}
+	}
+
+	// This would mean that the proxy isn't in any sub-trees.
+	b2Assert(firstProxy != b2_nullNode);
+
+	// The user proxy was removed from its sub-tree, so the next sub-proxy
+	// needs to become the new user proxy.
+	if (firstProxy != proxyId)
+	{
+		m_nodes[proxyId].nextProxy = firstProxy;
+
+		DeferredReplace replace;
+		replace.proxy = proxyId;
+		td.m_replaces.push_back(replace);
+	}
+}
+
+void b2DynamicTreeOfTrees::FinishMoveProxies(b2TaskExecutor& executor, b2TaskGroup* taskGroup, b2StackAllocator& allocator)
+{
+	uint32 sortCost = 5;
+
+	b2_threadDataSorter(inserts, DeferredInsert, sortCost--, executor, allocator, m_perThreadData,
+		&b2DynamicTreeOfTrees::PerThreadData::m_inserts, &b2DeferredInsertLessThan);
+
+	b2_threadDataSorter(moves, DeferredMove, sortCost--, executor, allocator, m_perThreadData,
+		&b2DynamicTreeOfTrees::PerThreadData::m_moves, &b2DeferredMoveLessThan);
+
+	b2_threadDataSorter(removes, DeferredRemove, sortCost--, executor, allocator, m_perThreadData,
+		&b2DynamicTreeOfTrees::PerThreadData::m_removes, &b2DeferredRemoveLessThan);
+
+	b2_threadDataSorter(insertNewSubTrees, DeferredInsertNewSubTree, sortCost--, executor, allocator, m_perThreadData,
+		&b2DynamicTreeOfTrees::PerThreadData::m_insertNewSubTrees, &b2DeferredInsertNewSubTreeLessThan);
+
+	b2_threadDataSorter(replaces, DeferredReplace, sortCost--, executor, allocator, m_perThreadData,
+		&b2DynamicTreeOfTrees::PerThreadData::m_replaces, &b2DeferredReplaceLessThan);
+
+	b2Assert(sortCost == 0);
+
+	// Allocate nodes for insertions.
+	inserts.wait();
+	for (DeferredInsert* it = inserts.begin(); it != inserts.end(); ++it)
+	{
+		int32 baseLeaf = it->baseLeaf;
+		int32 proxy = it->proxy;
+
+		int32 parent = AllocateNode();
+		SubTreeFreeNode(parent, baseLeaf);
+
+		int32 subProxy = AllocateNode();
+		m_nodes[subProxy].userData = m_nodes[proxy].userData;
+		m_nodes[subProxy].proxy = proxy;
+
+		m_nodes[subProxy].nextProxy = m_nodes[proxy].nextProxy;
+		m_nodes[proxy].nextProxy = subProxy;
+
+		it->proxy = subProxy;
+	}
+
+	b2UpdateSubTreeTask* tasks = (b2UpdateSubTreeTask*)allocator.Allocate(m_subTreeCount * sizeof(b2UpdateSubTreeTask));
+	b2UpdateSubTreeTask* currTask = tasks;
+
+	int32* removalBaseLeaves = (int32*)allocator.Allocate(m_subTreeCount * sizeof(int32));
+	uint32 removalBaseLeavesCount = 0;
+
+	// Run tasks to process sub-tree events.
+	moves.wait();
+	removes.wait();
+	DeferredInsert* insertBegin = inserts.begin();
+	DeferredMove* moveBegin = moves.begin();
+	DeferredRemove* removeBegin = removes.begin();
+	while (true)
+	{
+		int32 minBaseLeaf = b2_maxInt;
+
+		if (insertBegin != inserts.end())
+		{
+			minBaseLeaf = b2Min(insertBegin->baseLeaf, minBaseLeaf);
+		}
+
+		if (moveBegin != moves.end())
+		{
+			minBaseLeaf = b2Min(moveBegin->baseLeaf, minBaseLeaf);
+		}
+
+		if (removeBegin != removes.end())
+		{
+			minBaseLeaf = b2Min(removeBegin->baseLeaf, minBaseLeaf);
+		}
+
+		if (minBaseLeaf == b2_maxInt)
+		{
+			break;
+		}
+
+		uint32 insertCount = 0;
+		if (insertBegin != inserts.end() && insertBegin->baseLeaf == minBaseLeaf)
+		{
+			DeferredInsert val;
+			val.baseLeaf = minBaseLeaf;
+			val.proxy = b2_maxInt;
+			DeferredInsert* insertEnd = inserts.end();
+			insertEnd = std::upper_bound(insertBegin, insertEnd, val, b2DeferredInsertLessThan);
+			insertCount = insertEnd - insertBegin;
+		}
+
+		uint32 moveCount = 0;
+		if (moveBegin != moves.end() && moveBegin->baseLeaf == minBaseLeaf)
+		{
+			DeferredMove val;
+			val.baseLeaf = minBaseLeaf;
+			val.subProxy = b2_maxInt;
+			DeferredMove* moveEnd = moves.end();
+			moveEnd = std::upper_bound(moveBegin, moveEnd, val, b2DeferredMoveLessThan);
+			moveCount = moveEnd - moveBegin;
+		}
+
+		uint32 removeCount = 0;
+		if (removeBegin != removes.end() && removeBegin->baseLeaf == minBaseLeaf)
+		{
+			DeferredRemove val;
+			val.baseLeaf = minBaseLeaf;
+			val.subProxy = b2_maxInt;
+			DeferredRemove* removeEnd = removes.end();
+			removeEnd = std::upper_bound(removeBegin, removeEnd, val, b2DeferredRemoveLessThan);
+			removeCount = removeEnd - removeBegin;
+			removalBaseLeaves[removalBaseLeavesCount++] = minBaseLeaf;
+			b2Assert(removalBaseLeavesCount <= m_subTreeCount);
+		}
+
+		// TODO_MT: Cost threshold.
+		new(currTask) b2UpdateSubTreeTask(this, insertBegin, insertCount,
+			moveBegin, moveCount, removeBegin, removeCount);
+
+		// TODO_MT: Why does this seem to make Solve slower?
+		//uint32 cost = insertCount + 2 * moveCount + removeCount;
+		//currTask->SetCost(cost);
+
+		b2SubmitTask(executor, taskGroup, currTask);
+
+		++currTask;
+		insertBegin += insertCount;
+		moveBegin += moveCount;
+		removeBegin += removeCount;
+	}
+
+	executor.Wait(taskGroup, b2MainThreadCtx(&allocator));
+
+	// Free nodes no longer in use.
+	for (uint32 i = 0; i < removalBaseLeavesCount; ++i)
+	{
+		int32 baseLeaf = removalBaseLeaves[i];
+
+		int32 subTreeFree = m_nodes[baseLeaf].subTreeNextFree;
+		m_nodes[baseLeaf].subTreeNextFree = b2_nullNode;
+		while (subTreeFree != b2_nullNode)
+		{
+			int32 nextFree = m_nodes[subTreeFree].subTreeNextFree;
+			m_nodes[subTreeFree].subTreeNextFree = b2_nullNode;
+			DebugNodeSubTreeAllocate(subTreeFree); // TEMP_MT remove from free list tracker
+			FreeNode(subTreeFree);
+			subTreeFree = nextFree;
+		}
+
+		if (m_nodes[baseLeaf].subTreeRoot == b2_nullNode)
+		{
+            SubTreeRemoveLeaf<false>(&m_root, baseLeaf);
+		}
+	}
+
+	// Create sub-trees and insert proxies.
+	insertNewSubTrees.wait();
+	for (DeferredInsertNewSubTree* it = insertNewSubTrees.begin(); it != insertNewSubTrees.end(); ++it)
+	{
+		int32 subProxy = AllocateNode();
+		m_nodes[subProxy].aabb = m_nodes[it->proxy].aabb;
+		m_nodes[subProxy].userData = m_nodes[it->proxy].userData;
+		m_nodes[subProxy].proxy = it->proxy;
+
+		m_nodes[subProxy].nextProxy = m_nodes[it->proxy].nextProxy;
+		m_nodes[it->proxy].nextProxy = subProxy;
+
+		InsertNewSubTree(it->subTreePosition, subProxy);
+	}
+
+	// Replace removed user proxies with valid sub-proxies.
+	replaces.wait();
+	for (DeferredReplace* it = replaces.begin(); it != replaces.end(); ++it)
+	{
+		int32 dstProxy = it->proxy;
+		int32 srcProxy = m_nodes[dstProxy].nextProxy;
+		b2Assert(srcProxy != b2_nullNode);
+
+		DebugReplace(srcProxy);
+		DebugReplace(dstProxy);
+
+		int32 parent = m_nodes[srcProxy].parent;
+		if (parent != b2_nullNode)
+		{
+			// Update the parent's reference.
+			if (m_nodes[parent].child1 == srcProxy)
+			{
+				m_nodes[parent].child1 = dstProxy;
+			}
+			else
+			{
+				b2Assert(m_nodes[parent].child2 == srcProxy);
+				m_nodes[parent].child2 = dstProxy;
+			}
+		}
+		else
+		{
+			int32 baseLeaf = m_nodes[srcProxy].baseTreeLeaf;
+
+			// The source must be the root since it has no parent.
+			b2Assert(m_nodes[baseLeaf].subTreeRoot == srcProxy);
+
+			m_nodes[baseLeaf].subTreeRoot = dstProxy;
+		}
+
+		m_nodes[dstProxy] = m_nodes[srcProxy];
+		DebugRemove(srcProxy);
+		DebugInsert(dstProxy);
+		FreeNode(srcProxy);
+	}
+
+	allocator.Free(removalBaseLeaves);
+	allocator.Free(tasks);
+
+#ifdef b2_validateTree
+	Validate();
+#endif
+	DebugFinishMoveProxies();
+}
 
 b2DynamicTreeOfTrees::b2DynamicTreeOfTrees(float32 subTreeWidth, float32 subTreeHeight)
 {
@@ -59,15 +715,17 @@ b2DynamicTreeOfTrees::b2DynamicTreeOfTrees(float32 subTreeWidth, float32 subTree
 	m_nodes[m_nodeCapacity-1].height = -1;
 	m_freeList = 0;
 
-	m_path = 0;
+	m_subTreeCount = 0;
 
-	m_insertionCount = 0;
+	m_path = 0;
 }
 
 b2DynamicTreeOfTrees::~b2DynamicTreeOfTrees()
 {
 	// This frees the entire tree in one shot.
 	b2Free(m_nodes);
+
+	b2DebugReset();
 }
 
 // Allocate a node from the pool. Grow the pool if necessary.
@@ -117,6 +775,8 @@ int32 b2DynamicTreeOfTrees::AllocateNode()
 	m_nodes[nodeId].height = 0;
 	m_nodes[nodeId].userData = nullptr;
 	m_nodes[nodeId].proxy = nodeId;
+	m_nodes[nodeId].subTreeNextFree = b2_nullNode;
+	DebugNodeAllocate(nodeId);
 	++m_nodeCount;
 	return nodeId;
 }
@@ -126,11 +786,76 @@ void b2DynamicTreeOfTrees::FreeNode(int32 nodeId)
 {
 	b2Assert(0 <= nodeId && nodeId < m_nodeCapacity);
 	b2Assert(0 < m_nodeCount);
+	DebugNodeFree(nodeId);
 	m_nodes[nodeId].next = m_freeList;
     m_nodes[nodeId].child1 = 0;
 	m_nodes[nodeId].height = -1;
 	m_freeList = nodeId;
 	--m_nodeCount;
+}
+
+int32 b2DynamicTreeOfTrees::SubTreeAllocateNode(int32 proxy, int32 baseLeaf)
+{
+	int32 nodeId = m_nodes[baseLeaf].subTreeNextFree;
+	DebugNodeSubTreeAllocate(nodeId);
+	b2Assert(nodeId != b2_nullNode);
+	m_nodes[baseLeaf].subTreeNextFree = m_nodes[nodeId].subTreeNextFree;
+	m_nodes[nodeId].parent = b2_nullNode;
+	m_nodes[nodeId].child1 = b2_nullNode;
+	m_nodes[nodeId].child2 = b2_nullNode;
+	m_nodes[nodeId].height = 0;
+	m_nodes[nodeId].userData = nullptr;
+	m_nodes[nodeId].proxy = proxy;
+	m_nodes[nodeId].subTreeNextFree = b2_nullNode;
+	return nodeId;
+}
+
+void b2DynamicTreeOfTrees::SubTreeFreeNode(int32 nodeId, int32 baseLeaf)
+{
+	b2Assert(0 <= nodeId && nodeId < m_nodeCapacity);
+	b2Assert(0 < m_nodeCount);
+	b2Assert(m_nodes[baseLeaf].subTreeNextFree != nodeId);
+	DebugNodeSubTreeFree(nodeId);
+	m_nodes[nodeId].subTreeNextFree = m_nodes[baseLeaf].subTreeNextFree;
+	m_nodes[baseLeaf].subTreeNextFree = nodeId;
+}
+
+void b2DynamicTreeOfTrees::InsertNewSubTree(const SubTreePosition& subTreePosition, int32 subProxy)
+{
+	b2Assert(m_nodes[subProxy].IsLeaf());
+
+	b2Vec2 subTreeCenter;
+	subTreeCenter.x = (float32)subTreePosition.x * m_subTreeWidth;
+	subTreeCenter.y = (float32)subTreePosition.y * m_subTreeHeight;
+
+	b2FindFirstLeafQueryCallback findQuery(this);
+	Query(&findQuery, subTreeCenter);
+
+	int32 baseTreeLeaf = findQuery.m_leaf;
+
+	if (baseTreeLeaf == b2_nullNode)
+	{
+		// Allocate and insert the sub-tree's base tree leaf.
+		baseTreeLeaf = AllocateNode();
+		m_nodes[baseTreeLeaf].aabb.lowerBound = subTreeCenter - b2Vec2(m_subTreeWidth * 0.5f, m_subTreeHeight * 0.5f);
+		m_nodes[baseTreeLeaf].aabb.upperBound = subTreeCenter + b2Vec2(m_subTreeWidth * 0.5f, m_subTreeHeight * 0.5f);
+		m_nodes[baseTreeLeaf].subTreePosition = subTreePosition;
+		SubTreeInsertLeaf<false>(&m_root, baseTreeLeaf);
+
+		// Insert the sub-proxy into the new sub-tree.
+		m_nodes[baseTreeLeaf].subTreeRoot = subProxy;
+		m_nodes[subProxy].baseTreeLeaf = baseTreeLeaf;
+		m_nodes[subProxy].parent = b2_nullNode;
+		DebugInsert(subProxy);
+
+		++m_subTreeCount;
+	}
+	else
+	{
+		// Insert the sub-proxy into the existing sub-tree.
+		m_nodes[subProxy].baseTreeLeaf = baseTreeLeaf;
+		SubTreeInsertLeaf<false>(&m_nodes[baseTreeLeaf].subTreeRoot, subProxy);
+	}
 }
 
 void b2DynamicTreeOfTrees::Reset(float32 subTreeWidth, float32 subTreeHeight)
@@ -193,7 +918,6 @@ void b2DynamicTreeOfTrees::DestroyProxy(int32 proxyId)
 bool b2DynamicTreeOfTrees::MoveProxy(int32 proxyId, const b2AABB& aabb, const b2Vec2& displacement)
 {
 	b2Assert(0 <= proxyId && proxyId < m_nodeCapacity);
-
 	b2Assert(m_nodes[proxyId].IsLeaf());
 
 	if (m_nodes[proxyId].aabb.Contains(aabb))
@@ -203,6 +927,15 @@ bool b2DynamicTreeOfTrees::MoveProxy(int32 proxyId, const b2AABB& aabb, const b2
 
 	RemoveLeaf(proxyId);
 
+	m_nodes[proxyId].aabb = ComputeAABB(aabb, displacement);
+
+	InsertLeaf(proxyId);
+
+	return true;
+}
+
+inline b2AABB b2DynamicTreeOfTrees::ComputeAABB(const b2AABB& aabb, const b2Vec2& displacement)
+{
 	// Extend AABB.
 	b2AABB b = aabb;
 	b2Vec2 r(b2_aabbExtension, b2_aabbExtension);
@@ -230,10 +963,7 @@ bool b2DynamicTreeOfTrees::MoveProxy(int32 proxyId, const b2AABB& aabb, const b2
 		b.upperBound.y += d.y;
 	}
 
-	m_nodes[proxyId].aabb = b;
-
-	InsertLeaf(proxyId);
-	return true;
+	return b;
 }
 
 struct b2InsertLeafQueryCallback
@@ -274,12 +1004,8 @@ struct b2InsertLeafQueryCallback
         ++m_insertCount;
 
         int32 subTreeRoot = m_tree->m_nodes[baseTreeLeaf].subTreeRoot;
-        m_tree->InsertLeaf(subTreeRoot, m_currProxy);
+        m_tree->SubTreeInsertLeaf<false>(&subTreeRoot, m_currProxy);
         m_tree->m_nodes[baseTreeLeaf].subTreeRoot = subTreeRoot;
-
-#ifdef b2_validateTree
-        m_tree->Validate();
-#endif
 
         return true;
     }
@@ -291,35 +1017,14 @@ struct b2InsertLeafQueryCallback
     uint32 m_insertCount;
 };
 
-struct b2FindFirstLeafQueryCallback
-{
-    b2FindFirstLeafQueryCallback(b2DynamicTreeOfTrees* tree)
-        : m_tree(tree)
-        , m_leaf(-1)
-    { }
-
-    bool QueryCallback(int32 proxyId)
-    {
-        m_leaf = proxyId;
-        return false;
-    }
-
-    b2DynamicTreeOfTrees* m_tree;
-    int32 m_leaf;
-};
-
 b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32 proxy)
 {
-	++m_insertionCount;
-
     b2AABB proxyAABB = m_nodes[proxy].aabb;
-    void* proxyUserData = m_nodes[proxy].userData;
 
     // Insert the leaf into all existing overlapped sub-trees.
     b2InsertLeafQueryCallback insertQuery(this, proxy);
 
-    uint32 threadId = 0; // TODO_MT parallel SynchronizeFixtures
-    Query<false, false>(m_root, &insertQuery, proxyAABB, threadId);
+    Query<false, false>(m_root, &insertQuery, proxyAABB, 0);
 
     // Is the leaf fully contained by the sub-trees it was inserted into?
     // Note: if the leaf AABB spans more than 2 sub-trees per dimension, then it's
@@ -333,21 +1038,7 @@ b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32 proxy)
             return;
         }
 
-        float32 leafWx = proxyAABB.upperBound.x - proxyAABB.lowerBound.x;
-        float32 leafWy = proxyAABB.upperBound.y - proxyAABB.lowerBound.y;
-
-        // Is the leaf AABB small enough to be contained by a single sub-tree?
-        // This means that it can't span more than 2 sub-trees per dimension,
-        // and must have been inserted into all overlapped sub-trees.
-        if (leafWx < m_subTreeWidth && leafWy < m_subTreeHeight)
-        {
-            b2Assert(insertQuery.m_insertCount <= 4);
-            return;
-        }
-
-        // The leaf AABB is large enough to span more than 2 sub-trees per dimension,
-        // so we need to rule out gaps in the query AABB by checking if it has the
-        // expected number of insertions.
+        // Rule out gaps in the query AABB by checking if it has the expected number of insertions.
 
         float32 queryWx = insertQuery.m_aabb.upperBound.x - insertQuery.m_aabb.lowerBound.x;
         float32 queryWy = insertQuery.m_aabb.upperBound.y - insertQuery.m_aabb.lowerBound.y;
@@ -370,56 +1061,39 @@ b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32 proxy)
     int32 endX = int32(std::round(proxyAABB.upperBound.x * m_subTreeInvWidth)) + 1;
     int32 endY = int32(std::round(proxyAABB.upperBound.y * m_subTreeInvHeight)) + 1;
 
-    int32 insertProxy = b2_nullNode;
-
-    if (insertQuery.m_insertCount > 0)
-    {
-        insertProxy = insertQuery.m_currProxy;
-    }
+	uint32 insertCount = insertQuery.m_insertCount;
 
     for (int32 y = beginY; y < endY; ++y)
     {
         for (int32 x = beginX; x < endX; ++x)
         {
             // Look for the sub-tree.
-            b2Vec2 subTreePos(x * m_subTreeWidth, y * m_subTreeHeight);
+            b2Vec2 subTreeCenter(x * m_subTreeWidth, y * m_subTreeHeight);
             b2FindFirstLeafQueryCallback findQuery(this);
-            Query(&findQuery, subTreePos);
+            Query(&findQuery, subTreeCenter);
+
+			int32 subProxy = proxy;
 
             // Does the sub-tree need to be created?
             if (findQuery.m_leaf == -1)
             {
-                // Create a new proxy node if we already inserted the first one.
-                if (insertProxy != b2_nullNode)
-                {
-                    int32 newLeaf = AllocateNode();
+				if (insertCount++ > 0)
+				{
+					subProxy = AllocateNode();
+					m_nodes[subProxy].aabb = m_nodes[proxy].aabb;
+					m_nodes[subProxy].userData = m_nodes[proxy].userData;
+					m_nodes[subProxy].proxy = proxy;
 
-                    b2Assert(m_nodes[insertProxy].nextProxy == b2_nullNode);
-                    m_nodes[insertProxy].nextProxy = newLeaf;
+					// Insert into the proxy list.
+					m_nodes[subProxy].nextProxy = m_nodes[proxy].nextProxy;
+					m_nodes[proxy].nextProxy = subProxy;
+				}
 
-                    m_nodes[newLeaf].aabb = proxyAABB;
-                    m_nodes[newLeaf].userData = proxyUserData;
-                    m_nodes[newLeaf].proxy = proxy;
+				SubTreePosition subTreePosition;
+				subTreePosition.x = x;
+				subTreePosition.y = y;
 
-                    insertProxy = newLeaf;
-                }
-                else
-                {
-                    insertProxy = proxy;
-                }
-
-                // Create a new sub-tree for the proxy.
-                int32 baseLeaf = AllocateNode();
-                m_nodes[baseLeaf].aabb.lowerBound = subTreePos - b2Vec2(m_subTreeWidth * 0.5f, m_subTreeHeight * 0.5f);
-                m_nodes[baseLeaf].aabb.upperBound = subTreePos + b2Vec2(m_subTreeWidth * 0.5f, m_subTreeHeight * 0.5f);
-                InsertLeaf(m_root, baseLeaf);
-                m_nodes[baseLeaf].subTreeRoot = insertProxy;
-                m_nodes[insertProxy].baseTreeLeaf = baseLeaf;
-                m_nodes[insertProxy].parent = b2_nullNode;
-
-#ifdef b2_validateTree
-                Validate();
-#endif
+				InsertNewSubTree(subTreePosition, subProxy);
             }
         }
     }
@@ -433,29 +1107,35 @@ b2_forceInline void b2DynamicTreeOfTrees::RemoveLeaf(int32 proxy)
     while (currentProxy != b2_nullNode)
     {
         int32 baseTreeLeaf = m_nodes[currentProxy].baseTreeLeaf;
-        RemoveLeaf(m_nodes[baseTreeLeaf].subTreeRoot, currentProxy);
+        SubTreeRemoveLeaf<false>(&m_nodes[baseTreeLeaf].subTreeRoot, currentProxy);
         if (m_nodes[baseTreeLeaf].subTreeRoot == b2_nullNode)
         {
-            RemoveLeaf(m_root, baseTreeLeaf);
+            SubTreeRemoveLeaf<false>(&m_root, baseTreeLeaf);
         }
 
         int32 nextProxy = m_nodes[currentProxy].nextProxy;
         m_nodes[currentProxy].nextProxy = b2_nullNode;
         if (currentProxy != proxy)
         {
-            FreeNode(currentProxy);
+			FreeNode(currentProxy);
         }
         currentProxy = nextProxy;
     }
 }
 
-b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32& root, int32 leaf)
+template<bool useSubTreeFreeList>
+b2_forceInline void b2DynamicTreeOfTrees::SubTreeInsertLeaf(int32* rootInOut, int32 leaf)
 {
+	DebugInsert(leaf);
+	b2Assert(m_nodes[leaf].IsLeaf());
+
 	m_nodes[leaf].parent = b2_nullNode;
+
+	int32 root = *rootInOut;
 
 	if (root == b2_nullNode)
 	{
-		root = leaf;
+		*rootInOut = leaf;
 		return;
 	}
 
@@ -534,7 +1214,15 @@ b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32& root, int32 leaf)
 
 	// Create a new parent.
 	int32 oldParent = m_nodes[sibling].parent;
-	int32 newParent = AllocateNode();
+	int32 newParent;
+	if (useSubTreeFreeList)
+	{
+		newParent = SubTreeAllocateNode(m_nodes[leaf].proxy, m_nodes[leaf].baseTreeLeaf);
+	}
+	else
+	{
+		newParent = AllocateNode();
+	}
 	m_nodes[newParent].parent = oldParent;
 	m_nodes[newParent].userData = nullptr;
 	m_nodes[newParent].aabb.Combine(leafAABB, m_nodes[sibling].aabb);
@@ -571,7 +1259,7 @@ b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32& root, int32 leaf)
 	index = m_nodes[leaf].parent;
 	while (index != b2_nullNode)
 	{
-		index = Balance(root, index);
+		index = Balance(&root, index);
 
 		int32 child1 = m_nodes[index].child1;
 		int32 child2 = m_nodes[index].child2;
@@ -584,13 +1272,25 @@ b2_forceInline void b2DynamicTreeOfTrees::InsertLeaf(int32& root, int32 leaf)
 
 		index = m_nodes[index].parent;
 	}
+
+	*rootInOut = root;
+
+#ifdef b2_validateTree
+	ValidateStructure<true>(root);
+	ValidateMetrics<true>(root);
+#endif
 }
 
-void b2DynamicTreeOfTrees::RemoveLeaf(int32& root, int32 leaf)
+template<bool useSubTreeFreeList>
+void b2DynamicTreeOfTrees::SubTreeRemoveLeaf(int32* rootInOut, int32 leaf)
 {
+	DebugRemove(leaf);
+
+	int32 root = *rootInOut;
+
 	if (leaf == root)
 	{
-		root = b2_nullNode;
+		*rootInOut = b2_nullNode;
 		return;
 	}
 
@@ -622,14 +1322,21 @@ void b2DynamicTreeOfTrees::RemoveLeaf(int32& root, int32 leaf)
 			m_nodes[grandParent].child2 = sibling;
 		}
 		m_nodes[sibling].parent = grandParent;
-		FreeNode(parent);
+		if (useSubTreeFreeList)
+		{
+			SubTreeFreeNode(parent, m_nodes[leaf].baseTreeLeaf);
+		}
+		else
+		{
+			FreeNode(parent);
+		}
 
 		// Adjust ancestor bounds.
 		int32 index = grandParent;
 		while (index != b2_nullNode)
 		{
             b2Assert(m_nodes[index].IsLeaf() == false);
-			index = Balance(root, index);
+			index = Balance(&root, index);
             b2Assert(m_nodes[index].IsLeaf() == false);
 
 			int32 child1 = m_nodes[index].child1;
@@ -645,17 +1352,27 @@ void b2DynamicTreeOfTrees::RemoveLeaf(int32& root, int32 leaf)
 	{
 		root = sibling;
 		m_nodes[sibling].parent = b2_nullNode;
-		FreeNode(parent);
+		if (useSubTreeFreeList)
+		{
+			SubTreeFreeNode(parent, m_nodes[leaf].baseTreeLeaf);
+		}
+		else
+		{
+			FreeNode(parent);
+		}
 	}
 
+	*rootInOut = root;
+
 #ifdef b2_validateTree
-	Validate();
+	ValidateStructure<true>(root);
+	ValidateMetrics<true>(root);
 #endif
 }
 
 // Perform a left or right rotation if node A is imbalanced.
 // Returns the new root index.
-int32 b2DynamicTreeOfTrees::Balance(int32& root, int32 iA)
+int32 b2DynamicTreeOfTrees::Balance(int32* rootInOut, int32 iA)
 {
 	b2Assert(iA != b2_nullNode);
 
@@ -705,7 +1422,7 @@ int32 b2DynamicTreeOfTrees::Balance(int32& root, int32 iA)
 		}
 		else
 		{
-			root = iC;
+			*rootInOut = iC;
 		}
 
 		// Rotate
@@ -765,7 +1482,7 @@ int32 b2DynamicTreeOfTrees::Balance(int32& root, int32 iA)
 		}
 		else
 		{
-			root = iB;
+			*rootInOut = iB;
 		}
 
 		// Rotate

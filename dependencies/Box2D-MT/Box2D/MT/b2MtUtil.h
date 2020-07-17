@@ -22,6 +22,32 @@
 #include "Box2D/Common/b2StackAllocator.h"
 #include "Box2D/MT/b2Task.h"
 #include "Box2D/MT/b2TaskExecutor.h"
+#include <atomic>
+
+// Prevent false positives when testing with DRD.
+#ifdef b2_drd
+	#include "valgrind/drd.h"
+	// This is used on atomic variables to prevent false positive data races that are
+	// detected on conflicting atomic loads and stores (DRD can't recognize atomics).
+	#define b2_drdIgnoreVar(x) DRD_IGNORE_VAR(x)
+	// These tell DRD how memory accesses are ordered around atomic operations.
+	#define b2_drdHappensBefore(x) ANNOTATE_HAPPENS_BEFORE(x)
+	#define b2_drdHappensAfter(x) ANNOTATE_HAPPENS_AFTER(x)
+#else
+	#define b2_drdIgnoreVar(x) do { } while(0)
+	#define b2_drdHappensBefore(x) do { } while(0)
+	#define b2_drdHappensAfter(x) do { } while(0)
+#endif
+
+// This wraps atomic fetch_add to use DRD annotations.
+template<typename T, typename U>
+T b2FetchAdd(std::atomic<T>& a, U arg)
+{
+	b2_drdHappensBefore(&a);
+	T oldValue = a.fetch_add(arg, std::memory_order_acq_rel);
+	b2_drdHappensAfter(&a);
+	return oldValue;
+}
 
 // Submit a task to an executor.
 inline void b2SubmitTask(b2TaskExecutor& executor, b2TaskGroup* taskGroup, b2Task* task)

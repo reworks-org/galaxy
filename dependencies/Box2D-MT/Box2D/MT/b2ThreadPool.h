@@ -66,6 +66,23 @@ private:
 	std::atomic<uint32> m_remainingTasks;
 };
 
+/// This provides lower latency locking than libstdc++'s std::mutex (need to test others)
+/// when there is contention on a lock that is not typically held for a long time.
+class b2LowerLatencyLock
+{
+public:
+	b2LowerLatencyLock();
+	void lock();
+	void unlock();
+	bool try_lock();
+private:
+	// This is used to prevent more than one thread from spinning for an extended time.
+	std::mutex m_mutex;
+
+	// This is used as a spin lock.
+	std::atomic_flag m_lock;
+};
+
 /// Executes tasks on worker threads.
 class b2ThreadPool
 {
@@ -109,6 +126,8 @@ public:
 	void Restart(uint32 threadCount);
 
 private:
+	using Mutex = b2LowerLatencyLock;
+
 	b2Task* PopTask();
 	void WorkerMain(uint32 threadId);
 	void Shutdown();
@@ -117,9 +136,9 @@ private:
 	uint32 m_threadCount;
 
 	std::atomic<float32> m_busyWaitTimeout;
-	std::condition_variable m_waitingForTasks;
+	std::condition_variable_any m_waitingForTasks;
 
-	mutable std::mutex m_mutex;
+	mutable Mutex m_mutex;
 	std::atomic<int32> m_pendingTaskCount;
 	float32 m_lockMilliseconds;
 
@@ -165,7 +184,10 @@ public:
 private:
 	b2ThreadPool m_threadPool;
 	b2ThreadPoolTaskGroup m_taskGroups[b2_maxWorldStepTaskGroups];
+	uint32 m_taskGroupCount;
+#ifdef b2DEBUG
 	bool m_taskGroupInUse[b2_maxWorldStepTaskGroups];
+#endif
 };
 
 inline b2ThreadPoolTaskGroup::~b2ThreadPoolTaskGroup()
@@ -181,23 +203,26 @@ inline int32 b2ThreadPool::GetThreadCount() const
 
 inline float32 b2ThreadPool::GetLockMilliseconds() const
 {
-	std::lock_guard<std::mutex> lk(m_mutex);
+	std::lock_guard<Mutex> lk(m_mutex);
 	return m_lockMilliseconds;
 }
 
 inline void b2ThreadPool::ResetTimers()
 {
-	std::lock_guard<std::mutex> lk(m_mutex);
+	std::lock_guard<Mutex> lk(m_mutex);
 	m_lockMilliseconds = 0;
 }
 
 inline b2ThreadPoolTaskExecutor::b2ThreadPoolTaskExecutor(const b2ThreadPoolOptions& options)
 	: m_threadPool(options)
+	, m_taskGroupCount(0)
 {
 	for (uint32 i = 0; i < b2_maxWorldStepTaskGroups; ++i)
 	{
 		m_taskGroups[i].m_threadPool = &m_threadPool;
+#ifdef b2DEBUG
 		m_taskGroupInUse[i] = false;
+#endif
 	}
 }
 

@@ -23,15 +23,19 @@
 
 #include "Box2D/Collision/b2Collision.h"
 #include "Box2D/Common/b2GrowableStack.h"
+#include "Box2D/Common/b2GrowableArray.h"
 #include <algorithm>
+
+class b2TaskExecutor;
+class b2TaskGroup;
+class b2StackAllocator;
 
 #define b2_nullNode (-1)
 
 /// A dynamic AABB tree-of-trees broad-phase, based on Erin Cato's b2DynamicTree.
 /// The base tree's leaves form a sparse grid, with each containing the root node
 /// of a sub-tree. This can improve tree quality in the case of thousands of proxies,
-/// and allows parallel sub-tree proxy insertion/removal (in theory; TODO_MT:
-/// implement parallel SynchronizeFixtures).
+/// and allows parallel sub-tree proxy insertion/removal.
 ///
 /// A dynamic tree arranges data in a binary tree to accelerate
 /// queries such as volume queries and ray casts. Leafs are proxies
@@ -56,11 +60,18 @@ public:
 	/// Destroy a proxy. This asserts if the id is invalid.
 	void DestroyProxy(int32 proxyId);
 
-	/// Move a proxy with a swepted AABB. If the proxy has moved outside of its fattened AABB,
+	/// Move a proxy with a swept AABB. If the proxy has moved outside of its fattened AABB,
 	/// then the proxy is removed from the tree and re-inserted. Otherwise
 	/// the function returns immediately.
 	/// @return true if the proxy was re-inserted.
 	bool MoveProxy(int32 proxyId, const b2AABB& aabb1, const b2Vec2& displacement);
+
+	/// Queue a proxy move, which will be processed when FinishMoveProxies is called.
+	/// @see MoveProxy
+	void QueueMoveProxy(int32 proxyId, const b2AABB& aabb1, const b2Vec2& displacement, uint32 threadId);
+
+	/// Consume queued proxy moves.
+	void FinishMoveProxies(b2TaskExecutor& executor, b2TaskGroup* taskGroup, b2StackAllocator& allocator);
 
 	/// Get proxy user data.
 	/// @return the proxy user data or 0 if the id is invalid.
@@ -114,6 +125,13 @@ public:
 	int32 GetSubTreeHeight() const;
 
 private:
+	// The position of a sub-tree
+	struct SubTreePosition
+	{
+		int32 x;
+		int32 y;
+	};
+
 	struct Node
 	{
 		bool IsLeaf() const;
@@ -122,7 +140,14 @@ private:
 		// Enlarged AABB
 		b2AABB aabb;
 
-		void* userData;
+		union
+		{
+			// The user-data for a sub-tree leaf.
+			void* userData;
+
+			// The sub-tree position for a base tree leaf.
+			SubTreePosition subTreePosition;
+		};
 
 		union
 		{
@@ -152,7 +177,43 @@ private:
 			int32 subTreeRoot;
 		};
 
-		// The user-facing proxy id. This is the head of the nextProxy list.
+		// The head of the next proxy list. For a sub-tree leaf this is the user-facing proxy.
+		// For other nodes this is a self reference.
+		int32 proxy;
+
+		// This is used for thread-safe node allocations through a base tree leaf.
+		int32 subTreeNextFree;
+	};
+
+	struct DeferredInsertNewSubTree
+	{
+		SubTreePosition subTreePosition;
+		int32 proxy;
+	};
+
+	struct DeferredInsert
+	{
+		b2AABB aabb;
+		int32 baseLeaf;
+		int32 proxy;
+	};
+
+	struct DeferredMove
+	{
+		b2AABB aabb;
+		int32 baseLeaf;
+		int32 subProxy;
+	};
+
+	struct DeferredRemove
+	{
+		int32 baseLeaf;
+		uint32 subProxy : 31;
+		uint32 freeSubProxy : 1;
+	};
+
+	struct DeferredReplace
+	{
 		int32 proxy;
 	};
 
@@ -160,22 +221,41 @@ private:
 	{
 		uint32* m_proxyQueryCounters;
 		uint32 m_queryCounter;
+		b2GrowableArray<DeferredInsertNewSubTree> m_insertNewSubTrees;
+		b2GrowableArray<DeferredInsert> m_inserts;
+		b2GrowableArray<DeferredMove> m_moves;
+		b2GrowableArray<DeferredRemove> m_removes;
+		b2GrowableArray<DeferredReplace> m_replaces;
 
 		uint8 _padding[b2_cacheLineSize];
 	};
 
 	friend struct b2InsertLeafQueryCallback;
+	friend class b2UpdateSubTreeTask;
+	friend bool b2DeferredInsertNewSubTreeLessThan(const DeferredInsertNewSubTree&, const DeferredInsertNewSubTree&);
+	friend bool b2DeferredInsertLessThan(const DeferredInsert&, const DeferredInsert&);
+	friend bool b2DeferredMoveLessThan(const DeferredMove&, const DeferredMove&);
+	friend bool b2DeferredRemoveLessThan(const DeferredRemove&, const DeferredRemove&);
+	friend bool b2DeferredReplaceLessThan(const DeferredReplace&, const DeferredReplace&);
+
+	b2AABB ComputeAABB(const b2AABB& aabb, const b2Vec2& displacement);
 
 	int32 AllocateNode();
 	void FreeNode(int32 node);
+	int32 SubTreeAllocateNode(int32 proxy, int32 baseLeaf);
+	void SubTreeFreeNode(int32 node, int32 baseLeaf);
+
+	void InsertNewSubTree(const SubTreePosition& subTreePosition, int32 subProxy);
 
 	void InsertLeaf(int32 node);
-	void InsertLeaf(int32& root, int32 node);
+	template<bool useSubTreeFreeList>
+	void SubTreeInsertLeaf(int32* rootInOut, int32 node);
 
 	void RemoveLeaf(int32 node);
-	void RemoveLeaf(int32& root, int32 node);
+	template<bool useSubTreeFreeList>
+	void SubTreeRemoveLeaf(int32* rootInOut, int32 node);
 
-	int32 Balance(int32& root, int32 index);
+	int32 Balance(int32* rootInOut, int32 index);
 
 	int32 GetHeight(int32 nodeId) const;
 
@@ -197,9 +277,18 @@ private:
 	template <bool querySubTrees, typename T>
 	bool RayCast(int32 root, T* callback, const b2RayCastInput& input, uint32 threadId);
 
+	void DebugNodeAllocate(int32 nodeId) const;
+	void DebugNodeFree(int32 nodeId) const;
+	void DebugNodeSubTreeAllocate(int32 nodeId) const;
+	void DebugNodeSubTreeFree(int32 nodeId) const;
+	void DebugInsert(int32 nodeId) const;
+	void DebugRemove(int32 nodeId) const;
+	void DebugReplace(int32 nodeId) const;
+	void DebugFinishMoveProxies() const;
+
 	PerThreadData m_perThreadData[b2_maxThreads];
 
-	// The root tree. Its leaves hold sub-trees.
+	/// The root tree. Its leaves hold sub-trees.
 	int32 m_root;
 
 	float32 m_subTreeWidth;
@@ -213,10 +302,10 @@ private:
 
 	int32 m_freeList;
 
+	uint32 m_subTreeCount;
+
 	/// This is used to incrementally traverse the tree for re-balancing.
 	uint32 m_path;
-
-	int32 m_insertionCount;
 };
 
 inline bool b2DynamicTreeOfTrees::Node::IsLeaf() const

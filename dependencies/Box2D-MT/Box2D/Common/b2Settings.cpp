@@ -17,6 +17,7 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+#include <pulsar/Log.hpp>
 #include "Box2D/Common/b2Settings.h"
 #include <stdio.h>
 #include <stdarg.h>
@@ -40,8 +41,5 @@ void b2Free(void* mem)
 // You can modify this to use your logging facility.
 void b2Log(const char* string, ...)
 {
-	va_list args;
-	va_start(args, string);
-	vprintf(string, args);
-	va_end(args);
+	PL_LOG(PL_INFO, string);
 }
