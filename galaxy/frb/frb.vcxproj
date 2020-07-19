@@ -126,7 +126,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -164,7 +164,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN64;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -202,7 +202,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -252,7 +252,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;STB_VORBIS_STATIC;STB_VORBIS_IMPLEMENTATION;_CRT_SECURE_NO_WARNINGS;WIN64;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/openal/include/;../../dependencies/stb/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>

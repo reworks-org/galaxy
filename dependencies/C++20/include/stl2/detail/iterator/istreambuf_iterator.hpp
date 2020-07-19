@@ -1,0 +1,197 @@
+// cmcstl2 - A concept-enabled C++ standard library
+//
+//  Copyright Casey Carter 2015
+//
+//  Use, modification and distribution is subject to the
+//  Boost Software License, Version 1.0. (See accompanying
+//  file LICENSE_1_0.txt or copy at
+//  http://www.boost.org/LICENSE_1_0.txt)
+//
+// Project home: https://github.com/caseycarter/cmcstl2
+//
+#ifndef STL2_DETAIL_ITERATOR_ISTREAMBUF_ITERATOR_HPP
+#define STL2_DETAIL_ITERATOR_ISTREAMBUF_ITERATOR_HPP
+
+#include <iosfwd>
+#include <string>
+#include <stl2/detail/fwd.hpp>
+#include <stl2/detail/raw_ptr.hpp>
+#include <stl2/detail/concepts/fundamental.hpp>
+#include <stl2/detail/concepts/object.hpp>
+#include <stl2/detail/iterator/basic_iterator.hpp>
+#include <stl2/detail/iterator/concepts.hpp>
+#include <stl2/detail/iterator/default_sentinel.hpp>
+
+STL2_OPEN_NAMESPACE {
+	namespace __istreambuf_iterator {
+		template<class charT, class traits = std::char_traits<charT>>
+		requires
+			signed_integral<typename traits::off_type>
+		class cursor;
+	}
+
+	// Not to spec:
+	// * requirements are implicit.
+	//   See https://github.com/ericniebler/stl2/issues/246)
+	//
+	template<class charT, class traits = std::char_traits<charT>>
+	requires
+		move_constructible<charT> &&
+		default_initializable<charT> &&
+		signed_integral<typename traits::off_type>
+	using istreambuf_iterator =
+		basic_iterator<__istreambuf_iterator::cursor<charT, traits>>;
+
+	namespace __istreambuf_iterator {
+		template<class charT, class traits>
+		requires
+			signed_integral<typename traits::off_type>
+		class cursor {
+		public:
+			using value_type = charT;
+			using difference_type = typename traits::off_type;
+			using streambuf_type = std::basic_streambuf<charT, traits>;
+			using istream_type = std::basic_istream<charT, traits>;
+			using int_type = typename traits::int_type;
+			using single_pass = std::true_type;
+
+			class pointer {
+			public:
+				constexpr charT* operator->() noexcept {
+					return &keep_;
+				}
+
+			private:
+				friend cursor;
+
+				explicit constexpr pointer(const cursor& i)
+				noexcept(std::is_nothrow_move_constructible<charT>::value)
+				: keep_{i.current()}
+				{}
+
+				charT keep_;
+			};
+
+			class __proxy {
+			public:
+				using value_type = charT;
+
+				constexpr charT operator*() const
+				noexcept(std::is_nothrow_copy_constructible<charT>::value)
+				{
+					return keep_;
+				}
+
+			private:
+				friend cursor;
+
+				constexpr __proxy() noexcept = default;
+				constexpr __proxy(charT c, streambuf_type* sbuf)
+				noexcept(std::is_nothrow_move_constructible<charT>::value)
+				: keep_{std::move(c)}, sbuf_{sbuf}
+				{}
+
+				charT keep_;
+				detail::raw_ptr<streambuf_type> sbuf_;
+			};
+
+			class mixin : protected basic_mixin<cursor> {
+				using base_t = basic_mixin<cursor>;
+			public:
+				using iterator_category = input_iterator_tag;
+				using value_type = cursor::value_type;
+				using difference_type = cursor::difference_type;
+				using reference = charT;
+				using pointer = cursor::pointer;
+				using char_type = charT;
+				using traits_type = traits;
+				using int_type = cursor::int_type;
+				using streambuf_type = cursor::streambuf_type;
+				using istream_type = cursor::istream_type;
+
+				mixin() = default;
+				constexpr mixin(default_sentinel_t) noexcept
+				: base_t{}
+				{}
+				mixin(streambuf_type* s) noexcept
+				: base_t{cursor{s}}
+				{}
+				mixin(const __proxy& p) noexcept
+				: base_t{cursor{p}}
+				{}
+				mixin(istream_type& s) noexcept
+				: base_t{cursor{s}}
+				{}
+				using base_t::base_t;
+
+				// Yuck. This can't be simply "basic_iterator<cursor>".
+				// Since basic_iterator<cursor> derives from mixin, mixin must be
+				// instantiable before basic_iterator<cursor> is complete.
+				template<same_as<cursor> C>
+				bool equal(const basic_iterator<C>& that) const noexcept {
+					return base_t::get().equal(get_cursor(that));
+				}
+			};
+
+			constexpr cursor() noexcept = default;
+			constexpr cursor(default_sentinel_t) noexcept
+			: cursor{}
+			{}
+			cursor(streambuf_type* s) noexcept
+			: sbuf_{s}
+			{}
+			cursor(const __proxy& p) noexcept
+			: cursor{p.sbuf_}
+			{}
+			cursor(istream_type& s) noexcept
+			: cursor{s.rdbuf()}
+			{}
+
+			charT read() const {
+				return current();
+			}
+			pointer arrow() const {
+				return pointer{*this};
+			}
+
+			void next() {
+				advance();
+			}
+			__proxy post_increment() {
+				return {traits::to_char_type(advance()), sbuf_};
+			}
+
+			bool equal(const cursor& that) const noexcept {
+				return at_end() == that.at_end();
+			}
+			bool equal(default_sentinel_t) const noexcept {
+				return at_end();
+			}
+
+		private:
+			detail::raw_ptr<streambuf_type> sbuf_ = nullptr;
+
+			bool at_end() const {
+				if (!sbuf_) return true;
+				return traits::eq_int_type(sbuf_->sgetc(), traits::eof());
+			}
+
+			charT current() const {
+				auto c = sbuf_->sgetc();
+				STL2_ASSERT(!traits::eq_int_type(c, traits::eof()));
+				return traits::to_char_type(std::move(c));
+			}
+
+			int_type advance() {
+				auto old_c = sbuf_->sbumpc();
+				STL2_ASSERT(!traits::eq_int_type(old_c, traits::eof()));
+				if (traits::eq_int_type(sbuf_->sgetc(), traits::eof())) {
+					sbuf_ = nullptr;
+				}
+				return old_c;
+			}
+		};
+	}
+} STL2_CLOSE_NAMESPACE
+
+#endif

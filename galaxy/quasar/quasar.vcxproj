@@ -189,7 +189,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -225,7 +225,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -261,7 +261,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -309,7 +309,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN64;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/glm/;../../dependencies/glfw3/include/;../../dependencies/stb/;../../dependencies/glad/;../../dependencies/freetype/include/;../protostar/src/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>

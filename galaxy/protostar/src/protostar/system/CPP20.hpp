@@ -8,16 +8,16 @@
 #ifndef PROTOSTAR_CPP20_HPP_
 #define PROTOSTAR_CPP20_HPP_
 
-///
-/// For when CPP20 is fully supported by compilers.
-///
-#if !defined(__cpp_constinit)
-#	define PROTOSTAR_constinit constexpr
+#if !defined(__cpp_lib_jthread)
+#	define STL_THREAD <expr/thread>
 #else
-#	define PROTOSTAR_constinit constinit
+#	define STL_THREAD <thread>
 #endif
 
-#if !defined(cpp_)
+#if !defined(__cpp_lib_ranges)
+#	define STL_RANGES <expr/ranges>
+#else
+#	define STL_RANGES <ranges>
 #endif
 
 #endif
