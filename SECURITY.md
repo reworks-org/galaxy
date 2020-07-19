@@ -4,10 +4,10 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-|   ANY   | :white_check_mark: |
+| Latest  | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-Open an Issue in the issue tracker.
+Open an issue in the issue tracker.
 
 Thanks for your contribution.
