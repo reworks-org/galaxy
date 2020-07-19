@@ -27,7 +27,7 @@ namespace galaxy
 		create({ json.at("x") , json.at("y") , json.at("width") , json.at("height") }, m_zLevel);
 	}
 
-	void SpriteBatchComponent::create(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept
+	void SpriteBatchComponent::create(const pr::Rect<float>& region, const unsigned int zlevel) noexcept
 	{
 		m_region = region;
 		m_zLevel = zlevel;

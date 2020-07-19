@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	PrimitiveVertex::PrimitiveVertex(const float x, const float y, protostar::Colour& col) noexcept
+	PrimitiveVertex::PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept
 		:m_pos(x, y), m_colour(col)
 	{
 	}

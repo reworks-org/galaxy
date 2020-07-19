@@ -21,10 +21,10 @@ namespace galaxy
 	///
 	/// Unique ID generator for UI Theme.
 	///
-	using ThemeCacheUID = protostar::UniqueID<struct _ThemeCacheUID>;
+	using ThemeCacheUID = pr::UniqueID<struct _ThemeCacheUID>;
 
 	///
-	/// Interface that stores protostar::ResourceCache's for widgets to access.
+	/// Interface that stores pr::ResourceCache's for widgets to access.
 	///
 	class Theme final
 	{
@@ -139,7 +139,7 @@ namespace galaxy
 		///
 		/// Pointers to resource caches.
 		///
-		std::vector<protostar::ResCacheBase*> m_caches;
+		std::vector<pr::ResCacheBase*> m_caches;
 	};
 
 	template<typename Cache>
@@ -153,7 +153,7 @@ namespace galaxy
 
 		if (m_caches[type] == nullptr)
 		{
-			m_caches[type] = dynamic_cast<protostar::ResCacheBase*>(cache);
+			m_caches[type] = dynamic_cast<pr::ResCacheBase*>(cache);
 		}
 		else
 		{

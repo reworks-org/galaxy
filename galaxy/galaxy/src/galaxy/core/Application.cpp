@@ -54,7 +54,7 @@ namespace galaxy
 		std::ios::sync_with_stdio(false);
 		
 		// Logging.
-		std::string lf = "logs/" + protostar::getFormattedTime() + ".txt";
+		std::string lf = "logs/" + pr::getFormattedTime() + ".txt";
 		PL_LOG_GET.init(lf);
 		PL_LOG_GET.setMinimumLevel(PL_INFO);
 
@@ -75,7 +75,7 @@ namespace galaxy
 		galaxy::FileSystem::s_fonts = m_config->get<std::string>("font-path");
 
 		// threadpool
-		m_threadPool = std::make_unique<protostar::ThreadPool>();
+		m_threadPool = std::make_unique<pr::ThreadPool>();
 		m_threadPool->create(m_config->get<int>("threadpool-threadcount"));
 		m_threadPool->setActive(true);
 		SL_HANDLE.m_threadPool = m_threadPool.get();
@@ -131,7 +131,7 @@ namespace galaxy
 			m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
 			SL_HANDLE.m_lua = m_lua.get();
 
-			m_state = std::make_unique<protostar::StateMachine>();
+			m_state = std::make_unique<pr::StateMachine>();
 			SL_HANDLE.m_state = m_state.get();
 
 			// Event dispatcher.
@@ -187,7 +187,7 @@ namespace galaxy
 		std_chrono_duration elapsed;
 		std::chrono::nanoseconds lag(0ns);
 		constexpr std::chrono::nanoseconds updateRatio(16ms);
-		const protostar::Colour bg(255, 255, 255, 255);
+		const pr::Colour bg(255, 255, 255, 255);
 
 		// Fixed timestep gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
@@ -231,7 +231,7 @@ namespace galaxy
 		return SL_HANDLE.m_restart;
 	}
 
-	protostar::ProtectedDouble* Application::getDT() noexcept
+	pr::ProtectedDouble* Application::getDT() noexcept
 	{
 		return &m_timeCorrection;
 	}

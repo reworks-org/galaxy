@@ -15,7 +15,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Represents one of many possible object states.
@@ -31,36 +31,36 @@ namespace protostar
 		///
 		/// \brief Called when state is pushed.
 		///
-		virtual void onPush() noexcept = 0;
+		virtual void onPush() = 0;
 
 		///
 		/// \brief Called when state is popped.
 		///
-		virtual void onPop() noexcept = 0;
+		virtual void onPop() = 0;
 
 		///
 		/// Allows for the state to process events.
 		///
-		virtual void events() noexcept = 0;
+		virtual void events() = 0;
 
 		///
 		/// \brief Allows for the state to utilize fixed timestep updates.
 		///
-		/// \param deltaTime Delta-Time from fixed timestep gameloop.
+		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(protostar::ProtectedDouble* deltaTime) noexcept = 0;
+		virtual void update(pr::ProtectedDouble* dt) = 0;
 
 		///
 		/// \brief Allows for the state to call render code.
 		///
-		virtual void render() noexcept = 0;
+		virtual void render() = 0;
 
 		///
 		/// Set state name.
 		///
 		/// \param name Name in std::string format.
 		///
-		virtual void setName(const std::string& name) noexcept final;
+		virtual void setName(std::string_view name) noexcept final;
 
 		///
 		/// Get state name.
@@ -80,14 +80,13 @@ namespace protostar
 		///
 		/// \param name Give a name to the state.
 		///
-		explicit State(const std::string& name) noexcept;
+		explicit State(std::string_view name) noexcept;
 
-	protected:
 		///
 		/// State name. Useful to have.
 		///
 		std::string m_name;
 	};
-}
+} // namespace pr
 
 #endif

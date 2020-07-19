@@ -66,7 +66,7 @@ namespace qs
 		///
 		/// \return Const reference to float rectangle.
 		///
-		const protostar::Rect<float>& getRegion() const noexcept;
+		const pr::Rect<float>& getRegion() const noexcept;
 
 	public:
 		///
@@ -88,7 +88,7 @@ namespace qs
 		///
 		/// Texture region.
 		///
-		protostar::Rect<float> m_region;
+		pr::Rect<float> m_region;
 	};
 }
 

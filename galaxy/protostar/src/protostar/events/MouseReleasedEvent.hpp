@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains data relating to a mouse released event.
@@ -52,6 +52,6 @@ namespace protostar
 		///
 		unsigned int m_button;
 	};
-}
+} // namespace pr
 
 #endif

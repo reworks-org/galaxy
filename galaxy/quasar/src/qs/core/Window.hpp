@@ -155,7 +155,7 @@ namespace qs
 		///
 		/// \param colour Colour to clear to.
 		///
-		void begin(const protostar::Colour& colour) noexcept;
+		void begin(const pr::Colour& colour) noexcept;
 
 		///
 		/// \brief Renders the OpenGL buffer to the screen.

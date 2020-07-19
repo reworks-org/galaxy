@@ -28,7 +28,7 @@ namespace galaxy
 		m_theme = nullptr;
 	}
 
-	void Tooltip::onMove(const protostar::MouseMovedEvent& e) noexcept
+	void Tooltip::onMove(const pr::MouseMovedEvent& e) noexcept
 	{
 		m_x = static_cast<float>(e.m_x + 12);
 		m_y = static_cast<float>(e.m_y + 12);
@@ -50,7 +50,7 @@ namespace galaxy
 		m_textStr = text;
 	}
 
-	void Tooltip::setColour(const protostar::Colour& colour) noexcept
+	void Tooltip::setColour(const pr::Colour& colour) noexcept
 	{
 		m_colour = colour;
 	}

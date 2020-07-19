@@ -35,7 +35,7 @@ namespace galaxy
 		/// \param bar Seperate texture for the progress bar itself, not its outline in theme to use.
 		/// \param theme Theme of the widget to use.
 		///
-		ProgressBar(const protostar::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme);
+		ProgressBar(const pr::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme);
 
 		///
 		/// Primitives constructor.
@@ -45,7 +45,7 @@ namespace galaxy
 		/// \param bar Colour of the progress bar itself.
 		/// \param loader ResourceLoader to use.
 		///
-		ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, galaxy::ResourceLoader* loader);
+		ProgressBar(const pr::Rect<int>& bounds, const pr::Colour& container, const pr::Colour& bar, galaxy::ResourceLoader* loader);
 		
 		///
 		/// Destructor.
@@ -59,7 +59,7 @@ namespace galaxy
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieve(const protostar::MouseMovedEvent& e);
+		void recieve(const pr::MouseMovedEvent& e);
 
 		///
 		/// Update the widget.
@@ -117,7 +117,7 @@ namespace galaxy
 		///
 		/// Bounds for the bar texture.
 		///
-		protostar::Rect<int> m_barBounds;
+		pr::Rect<int> m_barBounds;
 
 		///
 		/// Current progress percentage of this bar. From 0.0f - 1.0f. I.e. 0.54f is 54%.

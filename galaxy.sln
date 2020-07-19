@@ -37,7 +37,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quasar", "galaxy\quasar\qua
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "redshift", "galaxy\redshift\redshift.vcxproj", "{E88349AB-EAC6-4C2B-A778-06181CDE4FCA}"
 	ProjectSection(ProjectDependencies) = postProject
+		{F300952E-0D01-4A04-887D-BD2C63130384} = {F300952E-0D01-4A04-887D-BD2C63130384}
 		{415D373E-CF11-44DD-950D-6F819FDBB823} = {415D373E-CF11-44DD-950D-6F819FDBB823}
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A} = {88A54A44-3166-44C5-8C47-6AB70DA30D7A}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "solar", "galaxy\solar\solar.vcxproj", "{3805D366-53D2-4DA8-B368-A9F888C4296C}"
@@ -61,6 +63,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{123B8232-E
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deps", "galaxy\deps\deps.vcxproj", "{88A54A44-3166-44C5-8C47-6AB70DA30D7A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F300952E-0D01-4A04-887D-BD2C63130384} = {F300952E-0D01-4A04-887D-BD2C63130384}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{99DBD486-71AE-456E-A1EF-2E4B5093BB10}"
 EndProject

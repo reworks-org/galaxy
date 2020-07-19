@@ -39,7 +39,7 @@ namespace galaxy
 		///
 		/// \param deltaTime Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(protostar::ProtectedDouble* deltaTime) noexcept = 0;
+		virtual void update(pr::ProtectedDouble* deltaTime) noexcept = 0;
 
 		///
 		/// \brief Render layer.

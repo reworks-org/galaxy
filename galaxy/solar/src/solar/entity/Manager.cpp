@@ -129,7 +129,7 @@ namespace sr
 		}
 	}
 
-	void Manager::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void Manager::update(pr::ProtectedDouble* deltaTime) noexcept
 	{
 		for (auto&& ptr : m_systems)
 		{

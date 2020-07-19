@@ -13,7 +13,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains the key that was released.
@@ -30,7 +30,7 @@ namespace protostar
 		///
 		/// \param keycode Keycode of key pressed.
 		///
-		KeyUpEvent(const protostar::Keys keycode) noexcept;
+		KeyUpEvent(const pr::Keys keycode) noexcept;
 
 		///
 		/// Default destructor.
@@ -40,8 +40,8 @@ namespace protostar
 		///
 		/// Keycode for the key that was pressed.
 		///
-		protostar::Keys m_keycode;
+		pr::Keys m_keycode;
 	};
-}
+} // namespace pr
 
 #endif

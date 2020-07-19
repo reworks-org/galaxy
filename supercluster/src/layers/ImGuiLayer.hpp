@@ -51,7 +51,7 @@ namespace sc
 		virtual ~ImGuiLayer() noexcept;
 
 		void events() noexcept override;
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 		void render(qs::Camera& camera) noexcept override;
 
 	private:

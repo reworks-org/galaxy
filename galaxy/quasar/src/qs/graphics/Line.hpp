@@ -36,7 +36,7 @@ namespace qs
 		/// \param y2 Y2 position.
 		/// \param thickness Sets the line thickness, defaulting to 1.
 		///
-		Line(protostar::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f) noexcept;
+		Line(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f) noexcept;
 
 		///
 		/// Destructor.
@@ -53,7 +53,7 @@ namespace qs
 		/// \param y2 Y2 position.
 		/// \param thickness Sets the line thickness, defaulting to 1.
 		///
-		void create(protostar::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f) noexcept;
+		void create(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f) noexcept;
 
 		///
 		/// Bind as active VA.

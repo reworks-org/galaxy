@@ -61,7 +61,7 @@ namespace galaxy
 		///
 		/// \param deltaTime Pointer to main loop delta time.
 		///
-		void update(protostar::ProtectedDouble* deltaTime) noexcept;
+		void update(pr::ProtectedDouble* deltaTime) noexcept;
 
 		///
 		/// Render all layers.

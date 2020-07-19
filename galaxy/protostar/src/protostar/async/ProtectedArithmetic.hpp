@@ -9,24 +9,20 @@
 #define PROTOSTAR_PROTECTEDARITHMETIC_HPP_
 
 #include <mutex>
-#include <type_traits>
+
+#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Protected arithmetic type that has its read/write protected by a lock_guard.
 	///
-	template<typename Arithmetic>
+	template<IsArithmetic Type>
 	class ProtectedAirthmetic final
 	{
-		///
-		/// Makes sure type is actually arithmetic.
-		///
-		static_assert(std::is_arithmetic<Arithmetic>::value);
-
 	public:
 		///
 		/// Default constructor.
@@ -38,7 +34,7 @@ namespace protostar
 		///
 		/// \param value New value for var.
 		///
-		explicit ProtectedAirthmetic(const Arithmetic value) noexcept;
+		ProtectedAirthmetic(const Type value) noexcept;
 
 		///
 		/// Default destructor.
@@ -50,14 +46,19 @@ namespace protostar
 		///
 		/// \param value New value for var.
 		///
-		void set(const Arithmetic value) noexcept;
+		void set(const Type value) noexcept;
 
 		///
 		/// Get value stored.
 		///
 		/// \return Mutex protected value.
 		///
-		const Arithmetic get() noexcept;
+		[[nodiscard]] const Type get() noexcept;
+
+		///
+		/// Spaceship operator.
+		///
+		[[maybe_unused]] auto operator<=>(const ProtectedAirthmetic&) const = default;
 
 	private:
 		///
@@ -73,12 +74,12 @@ namespace protostar
 		///
 		/// Deleted move assignment operator.
 		///
-		ProtectedAirthmetic& operator= (ProtectedAirthmetic&&) = delete;
+		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) = delete;
 
 		///
 		/// Deleted copy assignment operator.
 		///
-		ProtectedAirthmetic& operator= (const ProtectedAirthmetic&) = delete;
+		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
 
 	private:
 		///
@@ -89,8 +90,37 @@ namespace protostar
 		///
 		/// The variable.
 		///
-		Arithmetic m_var;
+		Type m_var;
 	};
+
+	template<IsArithmetic Type>
+	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic() noexcept
+	    : m_var(0)
+	{
+	}
+
+	template<IsArithmetic Type>
+	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic(const Type value) noexcept
+	{
+		set(value);
+	}
+
+	template<IsArithmetic Type>
+	inline void ProtectedAirthmetic<Type>::set(const Type value) noexcept
+	{
+		m_mutex.lock();
+
+		m_var = value;
+
+		m_mutex.unlock();
+	}
+
+	template<IsArithmetic Type>
+	inline const Type ProtectedAirthmetic<Type>::get() noexcept
+	{
+		std::lock_guard<std::mutex> l_lock(m_mutex);
+		return m_var;
+	}
 
 	///
 	/// Predefined type for float.
@@ -116,32 +146,6 @@ namespace protostar
 	/// Predefined type for bool.
 	///
 	using ProtectedBool = ProtectedAirthmetic<bool>;
-
-	template<typename Arithmetic>
-	inline ProtectedAirthmetic<Arithmetic>::ProtectedAirthmetic() noexcept
-		:m_var(0)
-	{
-	}
-
-	template<typename Arithmetic>
-	inline ProtectedAirthmetic<Arithmetic>::ProtectedAirthmetic(const Arithmetic value) noexcept
-	{
-		set(value);
-	}
-
-	template<typename Arithmetic>
-	inline void ProtectedAirthmetic<Arithmetic>::set(const Arithmetic value) noexcept
-	{
-		std::lock_guard<std::mutex> l_lock(m_mutex);
-		m_var = value;
-	}
-
-	template<typename Arithmetic>
-	inline const Arithmetic ProtectedAirthmetic<Arithmetic>::get() noexcept
-	{
-		std::lock_guard<std::mutex> l_lock(m_mutex);
-		return m_var;
-	}
-}
+} // namespace pr
 
 #endif

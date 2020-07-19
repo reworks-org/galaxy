@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains mouse wheel movement data.
@@ -46,6 +46,6 @@ namespace protostar
 		///
 		double m_yOffset;
 	};
-}
+} // namespace pr
 
 #endif

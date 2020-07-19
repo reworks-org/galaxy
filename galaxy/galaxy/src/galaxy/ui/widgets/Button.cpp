@@ -39,7 +39,7 @@ namespace galaxy
 		m_text.reset();
 	}
 
-	void Button::onPress(const protostar::MousePressedEvent& e) noexcept
+	void Button::onPress(const pr::MousePressedEvent& e) noexcept
 	{
 		if (m_bounds.contains(e.m_x, e.m_y) && e.m_button == 1)
 		{
@@ -47,7 +47,7 @@ namespace galaxy
 		}
 	}
 
-	void Button::onRelease(const protostar::MouseReleasedEvent& e) noexcept
+	void Button::onRelease(const pr::MouseReleasedEvent& e) noexcept
 	{
 		if (m_bounds.contains(e.m_x, e.m_y))
 		{
@@ -59,7 +59,7 @@ namespace galaxy
 		}
 	}
 
-	void Button::onMove(const protostar::MouseMovedEvent& e) noexcept
+	void Button::onMove(const pr::MouseMovedEvent& e) noexcept
 	{
 		if (m_bounds.contains(e.m_x, e.m_y))
 		{
@@ -71,7 +71,7 @@ namespace galaxy
 		}
 	}
 
-	void Button::createLabel(const std::string& label, std::string_view font, const protostar::Colour& col) noexcept
+	void Button::createLabel(const std::string& label, std::string_view font, const pr::Colour& col) noexcept
 	{
 		m_text = std::make_unique<qs::Text>();
 		m_text->load(label, m_theme->get<FontBook>(font), col);
@@ -86,7 +86,7 @@ namespace galaxy
 	{
 	}
 
-	void Button::update(protostar::ProtectedDouble* dt) noexcept
+	void Button::update(pr::ProtectedDouble* dt) noexcept
 	{
 		if (m_state == Button::State::PRESSED)
 		{

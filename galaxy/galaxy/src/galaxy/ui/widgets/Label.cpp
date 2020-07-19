@@ -14,7 +14,7 @@
 ///
 namespace galaxy
 {
-	Label::Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, galaxy::UITheme* theme) noexcept
+	Label::Label(const float x, const float y, const std::string& text, const std::string& font, const pr::Colour& col, galaxy::UITheme* theme) noexcept
 		:Widget()
 	{
 		m_theme = theme;
@@ -42,7 +42,7 @@ namespace galaxy
 		m_text.asSprite().unbind();
 	}
 
-	void Label::update(protostar::ProtectedDouble* dt) noexcept
+	void Label::update(pr::ProtectedDouble* dt) noexcept
 	{
 	}
 

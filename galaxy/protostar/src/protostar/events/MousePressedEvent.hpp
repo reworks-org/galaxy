@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains data relating to a mouse pressed event.
@@ -46,12 +46,12 @@ namespace protostar
 		/// Mouse y position.
 		///
 		int m_y;
-		
+
 		///
 		/// Mouse button pressed.
 		///
 		unsigned int m_button;
 	};
-}
+} // namespace pr
 
 #endif

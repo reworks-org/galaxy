@@ -13,7 +13,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains the key that was pressed down.
@@ -30,7 +30,7 @@ namespace protostar
 		///
 		/// \param keycode Keycode for the key that was pressed.
 		///
-		KeyDownEvent(const protostar::Keys keycode) noexcept;
+		KeyDownEvent(const pr::Keys keycode) noexcept;
 
 		///
 		/// Default destructor.
@@ -40,8 +40,8 @@ namespace protostar
 		///
 		/// Keycode for the key that was pressed.
 		///
-		protostar::Keys m_keycode;
+		pr::Keys m_keycode;
 	};
-}
+} // namespace pr
 
 #endif

@@ -14,7 +14,7 @@
 ///
 namespace galaxy
 {
-	ProgressBar::ProgressBar(const protostar::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme)
+	ProgressBar::ProgressBar(const pr::Rect<int>& containerBarCoords, const std::string& container, const std::string& bar, UITheme* theme)
 		:Widget({ containerBarCoords.m_x, containerBarCoords.m_y, 0, 0 }, theme), m_barBounds({ containerBarCoords.m_width, containerBarCoords.m_height, 0, 0 }), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// The background / outline, etc..
@@ -32,7 +32,7 @@ namespace galaxy
 		m_barBounds.m_height = m_theme->loader()->getTextureHeight(m_bar.get());
 	}
 
-	ProgressBar::ProgressBar(const protostar::Rect<int>& bounds, const protostar::Colour& container, const protostar::Colour& bar, galaxy::ResourceLoader* loader)
+	ProgressBar::ProgressBar(const pr::Rect<int>& bounds, const pr::Colour& container, const pr::Colour& bar, galaxy::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_barBounds(bounds), m_progress(0.0f), m_container(nullptr), m_bar(nullptr)
 	{
 		// Create textures
@@ -46,7 +46,7 @@ namespace galaxy
 		m_bar.reset();
 	}
 
-	void ProgressBar::recieve(const protostar::MouseMovedEvent& e)
+	void ProgressBar::recieve(const pr::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{

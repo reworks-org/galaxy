@@ -86,7 +86,7 @@ namespace galaxy
 		///
 		/// \param e MousePressedEvent object.
 		///
-		void receivePress(const protostar::MousePressedEvent& e);
+		void receivePress(const pr::MousePressedEvent& e);
 
 		///
 		/// \brief Allows for button to recieve MouseMovedEvents. Automatically registered with entt.
@@ -95,7 +95,7 @@ namespace galaxy
 		///
 		/// \param e MouseMovedEvent object.
 		///
-		void recieveMoved(const protostar::MouseMovedEvent& e);
+		void recieveMoved(const pr::MouseMovedEvent& e);
 
 		///
 		/// \brief Set the offset of the widget from the panel. Called for you in the Panel::add widget function.

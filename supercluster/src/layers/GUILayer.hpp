@@ -16,11 +16,11 @@ namespace sc
 	class GUILayer final : public galaxy::Layer
 	{
 	public:
-		GUILayer(protostar::ProtectedDouble* dt) noexcept;
+		GUILayer(pr::ProtectedDouble* dt) noexcept;
 		virtual ~GUILayer() noexcept;
 
 		void events() noexcept override;
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 		void render(qs::Camera& camera) noexcept override;
 
 	private:

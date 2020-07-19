@@ -51,7 +51,7 @@ namespace galaxy
 		///
 		/// \param e KeyDownEvent object.
 		///
-		void receive(const protostar::KeyDownEvent& e);
+		void receive(const pr::KeyDownEvent& e);
 
 		///
 		/// Update the widget.

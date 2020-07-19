@@ -43,7 +43,7 @@ namespace galaxy
 		///
 		/// \param time DeltaTime from gameloop.
 		///
-		void update(protostar::ProtectedDouble* deltaTime) noexcept override;
+		void update(pr::ProtectedDouble* deltaTime) noexcept override;
 
 		///
 		/// Render sprites / textures to screen.

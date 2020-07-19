@@ -40,7 +40,7 @@ namespace galaxy
 		/// \param dt A pointer to delta time for update loops.
 		/// \param pool Pool to assign GUI to.
 		///
-		void construct(protostar::ProtectedDouble* dt, protostar::ThreadPool* pool) noexcept;
+		void construct(pr::ProtectedDouble* dt, pr::ThreadPool* pool) noexcept;
 
 		///
 		/// \brief Render GUI.
@@ -114,7 +114,7 @@ namespace galaxy
 		///
 		/// \return Pointer to a task.
 		///
-		protostar::Task* getTask() noexcept;
+		pr::Task* getTask() noexcept;
 
 	private:
 		///
@@ -127,7 +127,7 @@ namespace galaxy
 		///
 		/// \param dt Pointer to protected delta time.
 		///
-		void update(protostar::ProtectedDouble* dt) noexcept;
+		void update(pr::ProtectedDouble* dt) noexcept;
 
 	private:
 		///
@@ -148,12 +148,12 @@ namespace galaxy
 		///
 		/// Pointer to delta time.
 		///
-		protostar::ProtectedDouble* m_dt;
+		pr::ProtectedDouble* m_dt;
 
 		///
 		/// Task that runs main GUI loop on another thread.
 		///
-		protostar::Task m_mainLoop;
+		pr::Task m_mainLoop;
 
 		///
 		/// Mutex protecting widget access.
@@ -168,12 +168,12 @@ namespace galaxy
 		///
 		/// Protected visibility bool.
 		///
-		protostar::ProtectedBool m_visible;
+		pr::ProtectedBool m_visible;
 
 		///
 		/// Protected thread loop running bool.
 		///
-		protostar::ProtectedBool m_running;
+		pr::ProtectedBool m_running;
 
 		///
 		/// Internal event manager to GUI.

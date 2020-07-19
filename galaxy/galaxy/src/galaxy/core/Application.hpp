@@ -57,7 +57,7 @@ namespace galaxy
 		///
 		/// \return Pointer to protected double.
 		///
-		virtual protostar::ProtectedDouble* getDT() noexcept final;
+		virtual pr::ProtectedDouble* getDT() noexcept final;
 
 	protected:
 		///
@@ -99,7 +99,7 @@ namespace galaxy
 		///
 		/// Threadpool for app.
 		///
-		std::unique_ptr<protostar::ThreadPool> m_threadPool;
+		std::unique_ptr<pr::ThreadPool> m_threadPool;
 
 		///
 		/// Main app window.
@@ -119,7 +119,7 @@ namespace galaxy
 		///
 		/// Controls game states. 
 		///
-		std::unique_ptr<protostar::StateMachine> m_state;
+		std::unique_ptr<pr::StateMachine> m_state;
 
 		///
 		/// Process game events.
@@ -155,7 +155,7 @@ namespace galaxy
 		///
 		/// Delta Time.
 		///
-		protostar::ProtectedDouble m_timeCorrection;
+		pr::ProtectedDouble m_timeCorrection;
 
 		///
 		/// OpenAL context.

@@ -21,7 +21,7 @@
 ///
 namespace sc
 {
-	GUILayer::GUILayer(protostar::ProtectedDouble* dt) noexcept
+	GUILayer::GUILayer(pr::ProtectedDouble* dt) noexcept
 	{
 		setName("GUILayer");
 
@@ -66,7 +66,7 @@ namespace sc
 		auto* button = m_gui.createWidget<galaxy::Button>(250.0f, 250.0f);
 		button->createLabel("Test", "public16", { 255, 255, 255, 255 });
 
-		m_gui.addEventToWidget<protostar::MouseMovedEvent>(&galaxy::Button::onMove, button);
+		m_gui.addEventToWidget<pr::MouseMovedEvent>(&galaxy::Button::onMove, button);
 	}
 
 	GUILayer::~GUILayer() noexcept
@@ -77,7 +77,7 @@ namespace sc
 	{
 	}
 
-	void GUILayer::update(protostar::ProtectedDouble* dt) noexcept
+	void GUILayer::update(pr::ProtectedDouble* dt) noexcept
 	{
 	}
 

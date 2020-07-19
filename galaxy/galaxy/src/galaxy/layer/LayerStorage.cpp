@@ -29,7 +29,7 @@ namespace galaxy
 		}
 	}
 
-	void LayerStorage::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void LayerStorage::update(pr::ProtectedDouble* deltaTime) noexcept
 	{
 		for (auto&& layer : m_layers)
 		{

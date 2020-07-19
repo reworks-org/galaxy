@@ -27,7 +27,7 @@ namespace qs
 ///
 /// Forward dec.
 ///
-namespace protostar
+namespace pr
 {
 	class ThreadPool;
 	class StateMachine;
@@ -93,7 +93,7 @@ namespace galaxy
 		///
 		/// \return Return pointer to threadpool.
 		///
-		protostar::ThreadPool* pool() const noexcept;
+		pr::ThreadPool* pool() const noexcept;
 
 		///
 		/// Get window service.
@@ -119,7 +119,7 @@ namespace galaxy
 		///
 		/// Get game state service.
 		///
-		protostar::StateMachine* gamestate() const noexcept;
+		pr::StateMachine* gamestate() const noexcept;
 
 		///
 		/// Get Dispatcher service.
@@ -208,7 +208,7 @@ namespace galaxy
 		///
 		/// Threadpool service.
 		///
-		protostar::ThreadPool* m_threadPool;
+		pr::ThreadPool* m_threadPool;
 
 		///
 		/// Window service.
@@ -228,7 +228,7 @@ namespace galaxy
 		///
 		/// Game state service.
 		///
-		protostar::StateMachine* m_state;
+		pr::StateMachine* m_state;
 
 		///
 		/// Dispatcher service.

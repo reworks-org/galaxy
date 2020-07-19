@@ -11,7 +11,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Contains data relating to a mouse moved event.
@@ -64,6 +64,6 @@ namespace protostar
 		///
 		float m_pressure;
 	};
-}
+} // namespace pr
 
 #endif

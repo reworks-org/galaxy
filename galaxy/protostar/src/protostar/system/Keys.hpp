@@ -8,12 +8,10 @@
 #ifndef PROTOSTAR_KEYS_HPP_
 #define PROTOSTAR_KEYS_HPP_
 
-#undef DELETE
-
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	///
 	/// Enum class representing keys.
@@ -136,6 +134,6 @@ namespace protostar
 		NUMPAD_8,
 		NUMPAD_9
 	};
-}
+} // namespace pr
 
 #endif

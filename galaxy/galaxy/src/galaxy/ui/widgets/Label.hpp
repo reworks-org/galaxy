@@ -33,7 +33,7 @@ namespace galaxy
 		/// \param col Colour of the label text.
 		/// \param theme This is set for you by UI::add(). Do not set it.
 		///
-		Label(const float x, const float y, const std::string& text, const std::string& font, const protostar::Colour& col, galaxy::UITheme* theme) noexcept;
+		Label(const float x, const float y, const std::string& text, const std::string& font, const pr::Colour& col, galaxy::UITheme* theme) noexcept;
 
 		///
 		/// Destructor.
@@ -67,7 +67,7 @@ namespace galaxy
 		///
 		/// \param dt Delta Time.
 		///
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 
 		///
 		/// \brief Perform any GL functions on the main thread in prep for rendering.

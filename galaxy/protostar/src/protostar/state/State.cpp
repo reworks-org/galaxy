@@ -7,11 +7,11 @@
 
 #include "State.hpp"
 
-namespace protostar
+namespace pr
 {
-	void State::setName(const std::string& name) noexcept
+	void State::setName(std::string_view name) noexcept
 	{
-		m_name = name;
+		m_name = static_cast<std::string>(name);
 	}
 
 	const std::string& State::getName() const noexcept
@@ -20,13 +20,13 @@ namespace protostar
 	}
 
 	State::State() noexcept
-		:m_name("Null")
+	    : m_name("null")
 	{
 	}
 
-	State::State(const std::string& name) noexcept
-		:m_name(name)
+	State::State(std::string_view name) noexcept
+	    : m_name(static_cast<std::string>(name))
 	{
 	}
 
-}
+} // namespace pr

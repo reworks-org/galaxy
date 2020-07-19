@@ -13,20 +13,20 @@
 
 namespace sc
 {
-	class Editor : public protostar::State
+	class Editor : public pr::State
 	{
 	public:
-		Editor(protostar::ProtectedDouble* dt) noexcept;
+		Editor(pr::ProtectedDouble* dt) noexcept;
 		~Editor() noexcept override;
 		void onPush() noexcept override;
 		void onPop() noexcept override;
 		void events() noexcept override;
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 		void render() noexcept override;
 
 	private:
 		qs::Camera m_camera;
-		protostar::ProtectedDouble* m_dt;
+		pr::ProtectedDouble* m_dt;
 		galaxy::LayerStorage m_layers;
 	};
 }

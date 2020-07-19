@@ -38,7 +38,7 @@ namespace galaxy
 		m_messages.clear();
 	}
 
-	void Textbox::receive(const protostar::KeyDownEvent& e)
+	void Textbox::receive(const pr::KeyDownEvent& e)
 	{
 		if (m_isVisible)
 		{

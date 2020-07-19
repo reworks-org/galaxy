@@ -19,7 +19,7 @@ namespace galaxy
 	///
 	/// Resource manager for fonts.
 	///
-	class AudioBook final : public protostar::ResourceCache<frb::Audible>
+	class AudioBook final : public pr::ResourceCache<frb::Audible>
 	{
 	public:
 		///

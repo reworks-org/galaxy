@@ -8,26 +8,32 @@
 #ifndef PROTOSTAR_STATEMACHINE_HPP_
 #define PROTOSTAR_STATEMACHINE_HPP_
 
-#include <stack>
-#include <memory>
-#include <utility>
-#include <unordered_map>
-
 #include <pulsar/Log.hpp>
+
+#include <memory>
+#include <stack>
+#include <unordered_map>
+#include <utility>
 
 #include "protostar/state/State.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
+	///
+	/// Concept to ensure type is derived from state.
+	///
+	template<typename Derived>
+	concept IsState = std::is_base_of<pr::State, Derived>::value;
+
 	///
 	/// A state machine to be used with game states or animations, etc.
 	///
 	class StateMachine final
 	{
-	public: 
+	public:
 		///
 		/// Default constructor.
 		///
@@ -41,24 +47,24 @@ namespace protostar
 		///
 		/// Pass events onto current state.
 		///
-		void events() noexcept;
-        
+		void events();
+
 		///
 		/// Updates the current state.
 		///
-		/// \param deltaTime Delta Time from game loop.
+		/// \param dt Delta Time from game loop.
 		///
-		void update(protostar::ProtectedDouble* deltaTime) noexcept;
+		void update(pr::ProtectedDouble* dt);
 
 		///
 		/// \brief Render the current state.
 		///
-		void render() noexcept;
+		void render();
 
 		///
 		/// \brief Create a new state to store.
 		///
-		/// Template Typename State is the type of the state to add and 
+		/// Template Typename State is the type of the state to add and
 		/// the args are the arguments to construct that state.
 		///
 		/// \param name Name of the state to identify it by.
@@ -66,20 +72,20 @@ namespace protostar
 		///
 		/// \return Returns pointer to newly created state.
 		///
-		template<typename State, typename ... Args>
-		State* create(const std::string& name, Args&&... args) noexcept;
+		template<IsState State, typename... Args>
+		[[maybe_unused]] State* create(std::string_view name, Args&&... args);
 
 		///
 		/// Push a new state to the top of the stack.
 		///
 		/// \param state Name of state to push.
 		///
-		void push(const std::string& state) noexcept;
+		void push(std::string_view state);
 
 		///
 		/// Pop top state.
 		///
-		void pop() noexcept;
+		void pop();
 
 		///
 		/// Get the state on top of the stack.
@@ -87,39 +93,41 @@ namespace protostar
 		/// \return Returns pointer to topmost state.
 		///
 		template<typename State>
-		State* top() noexcept;
+		[[nodiscard]] State* top() noexcept;
 
 		///
 		/// Clear stack.
 		///
-		void clear() noexcept;
+		void clear();
 
 	private:
 		///
 		/// The stack for manipulation.
 		///
-		std::stack<protostar::State*> m_stack;
+		std::stack<pr::State*> m_stack;
 
 		///
 		/// Holds the states.
 		///
-		std::unordered_map<std::string, std::unique_ptr<protostar::State>> m_states;
+		std::unordered_map<std::string, std::unique_ptr<pr::State>> m_states;
 	};
 
-	template<typename State, typename ...Args>
-	inline State* StateMachine::create(const std::string& name, Args&& ...args) noexcept
+	template<IsState State, typename... Args>
+	inline State* StateMachine::create(std::string_view name, Args&&... args)
 	{
+		auto str = static_cast<std::string>(name);
+
 		// Construct in place by forwarding arguments to the object.
-		if (m_states.find(name) != m_states.end())
+		if (m_states.contains(str))
 		{
-			PL_LOG(PL_ERROR, "Attempted to create state that already exists!");
+			PL_LOG(PL_WARNING, "Attempted to create state that already exists!");
 		}
 		else
 		{
-			m_states.emplace(name, std::make_unique<State>(std::forward<Args>(args)...));
+			m_states[str] = std::make_unique<State>(std::forward<Args>(args)...);
 		}
-		
-		return dynamic_cast<State*>(m_states[name].get());
+
+		return dynamic_cast<State*>(m_states[str].get());
 	}
 
 	template<typename State>
@@ -132,10 +140,10 @@ namespace protostar
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "No states in stack!");
+			PL_LOG(PL_ERROR, "No states in stack!");
 			return nullptr;
 		}
 	}
-}
+} // namespace pr
 
 #endif

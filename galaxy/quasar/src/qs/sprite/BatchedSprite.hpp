@@ -41,7 +41,7 @@ namespace qs
 		/// \param region Region defined on the texture.
 		/// \param zlevel zLevel of sprite.
 		///
-		void create(const protostar::Rect<float>& region, const unsigned int zlevel) noexcept;
+		void create(const pr::Rect<float>& region, const unsigned int zlevel) noexcept;
 
 		///
 		/// Set opacity.
@@ -72,7 +72,7 @@ namespace qs
 		///
 		/// \param quad New quad region.
 		///
-		void setUpdatedRegion(const protostar::Rect<float>& quad) noexcept;
+		void setUpdatedRegion(const pr::Rect<float>& quad) noexcept;
 
 		///
 		/// Get z-level.
@@ -106,7 +106,7 @@ namespace qs
 		///
 		/// Region of texture used.
 		///
-		protostar::Rect<float> m_region;
+		pr::Rect<float> m_region;
 	};
 }
 

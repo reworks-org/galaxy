@@ -41,7 +41,7 @@ namespace sr
 		///
 		/// \param deltaTime "Lag" from gameloop.
 		///
-		virtual void update(protostar::ProtectedDouble* deltaTime) noexcept = 0;
+		virtual void update(pr::ProtectedDouble* deltaTime) noexcept = 0;
 
 	protected:
 		///

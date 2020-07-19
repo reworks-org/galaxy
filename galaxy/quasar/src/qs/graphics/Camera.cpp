@@ -43,51 +43,51 @@ namespace qs
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	}
 
-	void Camera::onKeyDown(const protostar::KeyDownEvent& e) noexcept
+	void Camera::onKeyDown(const pr::KeyDownEvent& e) noexcept
 	{
 		switch (e.m_keycode)
 		{
-		case protostar::Keys::W:
+		case pr::Keys::W:
 			m_moveUp = true;
 			break;
 
-		case protostar::Keys::S:
+		case pr::Keys::S:
 			m_moveDown = true;
 			break;
 
-		case protostar::Keys::A:
+		case pr::Keys::A:
 			m_moveLeft = true;
 			break;
 
-		case protostar::Keys::D:
+		case pr::Keys::D:
 			m_moveRight = true;
 			break;
 		}
 	}
 
-	void Camera::onKeyUp(const protostar::KeyUpEvent& e) noexcept
+	void Camera::onKeyUp(const pr::KeyUpEvent& e) noexcept
 	{
 		switch (e.m_keycode)
 		{
-		case protostar::Keys::W:
+		case pr::Keys::W:
 			m_moveUp = false;
 			break;
 
-		case protostar::Keys::S:
+		case pr::Keys::S:
 			m_moveDown = false;
 			break;
 
-		case protostar::Keys::A:
+		case pr::Keys::A:
 			m_moveLeft = false;
 			break;
 
-		case protostar::Keys::D:
+		case pr::Keys::D:
 			m_moveRight = false;
 			break;
 		}
 	}
 
-	void Camera::onMouseScroll(const protostar::MouseWheelEvent& e) noexcept
+	void Camera::onMouseScroll(const pr::MouseWheelEvent& e) noexcept
 	{
 		static double scale = 1.0;
 		if (e.m_yOffset < 0)

@@ -14,7 +14,7 @@
 ///
 namespace galaxy
 {
-	Slider::Slider(const protostar::Rect<int>& bounds, const int mw, const int mh, const protostar::Colour& slider, const protostar::Colour& marker, galaxy::ResourceLoader* loader)
+	Slider::Slider(const pr::Rect<int>& bounds, const int mw, const int mh, const pr::Colour& slider, const pr::Colour& marker, galaxy::ResourceLoader* loader)
 		:Widget(bounds, nullptr), m_value(0.0f), m_markerX(0.0f), m_markerW(mw), m_slider(nullptr), m_marker(nullptr)
 	{
 		// Create textures
@@ -44,7 +44,7 @@ namespace galaxy
 		m_marker.reset();
 	}
 
-	void Slider::receiveMove(const protostar::MouseMovedEvent& e)
+	void Slider::receiveMove(const pr::MouseMovedEvent& e)
 	{
 		if (m_isVisible)
 		{
@@ -66,7 +66,7 @@ namespace galaxy
 		}
 	}
 
-	void Slider::receivePress(const protostar::MousePressedEvent& e)
+	void Slider::receivePress(const pr::MousePressedEvent& e)
 	{
 		if (m_isVisible)
 		{

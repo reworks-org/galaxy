@@ -19,7 +19,7 @@ namespace galaxy
 	///
 	/// Resource manager for fonts.
 	///
-	class FontBook final : public protostar::ResourceCache<qs::Font>
+	class FontBook final : public pr::ResourceCache<qs::Font>
 	{
 	public:
 		///

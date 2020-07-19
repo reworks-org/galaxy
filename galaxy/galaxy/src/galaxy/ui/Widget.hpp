@@ -81,7 +81,7 @@ namespace galaxy
 		///
 		/// \param dt Delta Time.
 		///
-		virtual void update(protostar::ProtectedDouble* dt) noexcept = 0;
+		virtual void update(pr::ProtectedDouble* dt) noexcept = 0;
 
 		///
 		/// \brief Perform any GL functions on the main thread in prep for rendering.

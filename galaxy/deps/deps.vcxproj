@@ -19,6 +19,55 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2BroadPhase.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2CollideCircle.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2CollideEdge.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2CollidePolygon.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2Collision.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2Distance.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2DynamicTree.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\b2TimeOfImpact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\Shapes\b2ChainShape.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\Shapes\b2CircleShape.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\Shapes\b2EdgeShape.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Collision\Shapes\b2PolygonShape.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Common\b2BlockAllocator.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Common\b2Draw.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Common\b2Math.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Common\b2Settings.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Common\b2StackAllocator.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Common\b2Timer.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\b2Body.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\b2ContactManager.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\b2Fixture.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\b2Island.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\b2World.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\b2WorldCallbacks.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2ChainAndCircleContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2ChainAndPolygonContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2CircleContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2Contact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2ContactSolver.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2EdgeAndCircleContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2EdgeAndPolygonContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2PolygonAndCircleContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Contacts\b2PolygonContact.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2DistanceJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2FrictionJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2GearJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2Joint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2MotorJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2MouseJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2PrismaticJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2PulleyJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2RevoluteJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2RopeJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2WeldJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Dynamics\Joints\b2WheelJoint.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2MtUtil.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2Task.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2ThreadPool.cpp" />
+    <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="..\..\dependencies\glad\glad\glad.c" />
     <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-death-test.cc" />
     <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-filepath.cc" />
@@ -164,18 +213,19 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ExceptionHandling>false</ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -195,18 +245,19 @@
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeaderOutputFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <ExceptionHandling>false</ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -219,8 +270,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -235,19 +286,20 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <ExceptionHandling>false</ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -276,21 +328,22 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeaderOutputFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat>None</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <ExceptionHandling>false</ExceptionHandling>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <PreprocessorDefinitions>_HAS_EXCEPTIONS=0;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl;../../dependencies/imgui-texteditor/;../../dependencies/lua/src/;../../dependencies/googletest/googletest/include/;../../dependencies/googletest/googletest/;../../dependencies/Box2D-MT/;../pulsar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

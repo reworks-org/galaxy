@@ -22,13 +22,13 @@ namespace qs
 	{
 	}
 
-	Circle::Circle(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept
+	Circle::Circle(const float x, const float y, const float radius, const int fragments, pr::Colour& colour) noexcept
 		:m_thickness(1.0f)
 	{
 		create(x, y, radius, fragments, colour);
 	}
 
-	void Circle::create(const float x, const float y, const float radius, const int fragments, protostar::Colour& colour) noexcept
+	void Circle::create(const float x, const float y, const float radius, const int fragments, pr::Colour& colour) noexcept
 	{
 		// Thanks to https://stackoverflow.com/a/33859443.
 		// For help with maths.

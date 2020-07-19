@@ -44,7 +44,7 @@ namespace galaxy
 		///
 		/// \param e A MouseMovedEvent object to check if tooltip is active.
 		///
-		void onMove(const protostar::MouseMovedEvent& e) noexcept;
+		void onMove(const pr::MouseMovedEvent& e) noexcept;
 
 		///
 		/// Render the tooltip.
@@ -66,7 +66,7 @@ namespace galaxy
 		///
 		/// \param colour Colour of the text to use.
 		///
-		void setColour(const protostar::Colour& colour) noexcept;
+		void setColour(const pr::Colour& colour) noexcept;
 
 		///
 		/// Set the background texture of the tooltip.
@@ -112,7 +112,7 @@ namespace galaxy
 		///
 		/// Colour of text.
 		///
-		protostar::Colour m_colour;
+		pr::Colour m_colour;
 
 		///
 		/// Texture string.

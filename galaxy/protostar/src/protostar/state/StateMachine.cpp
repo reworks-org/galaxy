@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace protostar
+namespace pr
 {
 	StateMachine::StateMachine() noexcept
 	{
@@ -19,11 +19,10 @@ namespace protostar
 	StateMachine::~StateMachine() noexcept
 	{
 		clear();
-
 		m_states.clear();
 	}
-	
-	void StateMachine::events() noexcept
+
+	void StateMachine::events()
 	{
 		// Check to make sure event is valid to call.
 		if (!m_stack.empty())
@@ -32,24 +31,24 @@ namespace protostar
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
-	void StateMachine::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void StateMachine::update(pr::ProtectedDouble* dt)
 	{
 		// Check to make sure update is valid to call.
 		if (!m_stack.empty())
 		{
-			m_stack.top()->update(deltaTime);
+			m_stack.top()->update(dt);
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
-	void StateMachine::render() noexcept
+	void StateMachine::render()
 	{
 		// Check to make sure render is valid to call.
 		if (!m_stack.empty())
@@ -58,16 +57,18 @@ namespace protostar
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
-	void StateMachine::push(const std::string& state) noexcept
+	void StateMachine::push(std::string_view state)
 	{
+		auto str = static_cast<std::string>(state);
+
 		// Ensure that the state being pushed exists.
-		if (m_states.find(state) != m_states.end())
+		if (m_states.contains(str))
 		{
-			m_stack.push(m_states[state].get());
+			m_stack.push(m_states[str].get());
 			m_stack.top()->onPush();
 		}
 		else
@@ -76,7 +77,7 @@ namespace protostar
 		}
 	}
 
-	void StateMachine::pop() noexcept
+	void StateMachine::pop()
 	{
 		// Make sure we dont pop an empty stack...
 		if (!m_stack.empty())
@@ -86,11 +87,11 @@ namespace protostar
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty statemachine stack.");
+			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
-	void StateMachine::clear() noexcept
+	void StateMachine::clear()
 	{
 		while (!m_stack.empty())
 		{
@@ -98,4 +99,4 @@ namespace protostar
 			m_stack.pop();
 		}
 	}
-}
+} // namespace pr

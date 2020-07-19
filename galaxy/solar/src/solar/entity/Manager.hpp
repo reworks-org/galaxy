@@ -37,12 +37,12 @@ namespace sr
 	///
 	/// Predefinition of unique id structure for components.
 	///
-	using cUniqueID = protostar::UniqueID<struct ComponentUniqueID>;
+	using cUniqueID = pr::UniqueID<struct ComponentUniqueID>;
 
 	///
 	/// Predefinition of unique id structure for systems.
 	///
-	using sUniqueID = protostar::UniqueID<struct SystemUniqueID>;
+	using sUniqueID = pr::UniqueID<struct SystemUniqueID>;
 
 	///
 	/// Controls and manages the Entitys, Components and Systems.
@@ -205,7 +205,7 @@ namespace sr
 		///
 		/// \param deltaTime "Lag" time to pass to systems.
 		///
-		void update(protostar::ProtectedDouble* deltaTime) noexcept;
+		void update(pr::ProtectedDouble* deltaTime) noexcept;
 
 		///
 		/// Clear all data from Manager and reset.
@@ -369,7 +369,7 @@ namespace sr
 			constexpr auto length = sizeof...(Components);
 			if (length == all.size())
 			{
-				auto entities = protostar::intersections<sr::Entity>(all);
+				auto entities = pr::intersections<sr::Entity>(all);
 				if (!entities.empty())
 				{
 					for (const auto& entity : entities)

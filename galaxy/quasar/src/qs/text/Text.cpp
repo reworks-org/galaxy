@@ -22,7 +22,7 @@ namespace qs
 	{
 	}
 
-    void Text::load(const std::string& text, qs::Font* font, const protostar::Colour& col) noexcept
+    void Text::load(const std::string& text, qs::Font* font, const pr::Colour& col) noexcept
     {
         m_text = text;
         m_font = font;

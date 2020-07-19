@@ -34,7 +34,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		Point(const float x, const float y, const int size, protostar::Colour& colour) noexcept;
+		Point(const float x, const float y, const int size, pr::Colour& colour) noexcept;
 
 		///
 		/// Destructor.
@@ -49,7 +49,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const int size, protostar::Colour& colour) noexcept;
+		void create(const float x, const float y, const int size, pr::Colour& colour) noexcept;
 
 		///
 		/// Bind as active VA.

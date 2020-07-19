@@ -54,7 +54,7 @@ namespace galaxy
 		///
 		/// \param dt Delta Time.
 		///
-		void update(protostar::ProtectedDouble* dt) noexcept override;
+		void update(pr::ProtectedDouble* dt) noexcept override;
 
 		///
 		/// \brief Perform any GL functions on the main thread in prep for rendering.

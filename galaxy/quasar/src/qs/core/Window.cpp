@@ -331,7 +331,7 @@ namespace qs
 		glfwRequestWindowAttention(m_window);
 	}
 
-	void Window::begin(const protostar::Colour& colour) noexcept
+	void Window::begin(const pr::Colour& colour) noexcept
 	{
 		glViewport(0, 0, m_width, m_height);
 		glClearColor(qs::Utils::uint8ToFloat(colour.m_red), qs::Utils::uint8ToFloat(colour.m_green), qs::Utils::uint8ToFloat(colour.m_blue), qs::Utils::uint8ToFloat(colour.m_alpha));

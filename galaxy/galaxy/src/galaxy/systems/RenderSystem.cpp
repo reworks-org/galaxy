@@ -32,7 +32,7 @@ namespace galaxy
 	{
 	}
 
-	void RenderSystem::update(protostar::ProtectedDouble* deltaTime) noexcept
+	void RenderSystem::update(pr::ProtectedDouble* deltaTime) noexcept
 	{
 	}
 

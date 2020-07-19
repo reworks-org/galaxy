@@ -29,11 +29,11 @@ namespace galaxy
 		}
 	}
 
-	void GUI::construct(protostar::ProtectedDouble* dt, protostar::ThreadPool* pool) noexcept
+	void GUI::construct(pr::ProtectedDouble* dt, pr::ThreadPool* pool) noexcept
 	{
 		m_dt = dt;
 
-		m_mainLoop.set([&](protostar::ProtectedBool* threadPoolFinished) noexcept
+		m_mainLoop.set([&](pr::ProtectedBool* threadPoolFinished) noexcept
 		{
 			while (m_running.get() && threadPoolFinished->get())
 			{
@@ -123,7 +123,7 @@ namespace galaxy
 		m_visible.set(isVisible);
 	}
 
-	protostar::Task* GUI::getTask() noexcept
+	pr::Task* GUI::getTask() noexcept
 	{
 		return &m_mainLoop;
 	}
@@ -137,7 +137,7 @@ namespace galaxy
 		}
 	}
 
-	void GUI::update(protostar::ProtectedDouble* dt) noexcept
+	void GUI::update(pr::ProtectedDouble* dt) noexcept
 	{
 		// Ok to pass pointer here without mutex since deltaTime value can only
 		// be accessed through a mutex protected get().
