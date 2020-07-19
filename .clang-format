@@ -35,12 +35,14 @@ Cpp11BracedListStyle: true
 FixNamespaceComments: true
 IncludeBlocks: Regroup
 IncludeCategories:
+  - Regex: '"*\/CPP20.hpp"'
+    Priority: 0
   - Regex: '<([A-Za-z0-9\Q/-_\E])+>'
-    Priority: 4
+    Priority: 1
   - Regex: '<([A-Za-z0-9.\Q/-_\E])+>'
     Priority: 2
   - Regex: '"([A-Za-z0-9.\Q/-_\E])+"'
-    Priority: 5
+    Priority: 3
 IndentCaseLabels: true
 IndentGotoLabels: true
 IndentPPDirectives: AfterHash
@@ -73,4 +75,4 @@ SpacesInContainerLiterals: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
 Standard: c++20
-UseTab: Always
+UseTab: ForContinuationAndIndentation
