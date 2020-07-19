@@ -48,6 +48,6 @@ namespace pr
 		///
 		int m_unichar;
 	};
-}
+} // namespace pr
 
 #endif

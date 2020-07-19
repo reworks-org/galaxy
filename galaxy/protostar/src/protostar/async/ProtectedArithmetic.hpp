@@ -58,7 +58,7 @@ namespace pr
 		///
 		/// Spaceship operator.
 		///
-		[[maybe_unused]] auto operator<=>(const Colour&) const = default;
+		[[maybe_unused]] auto operator<=>(const ProtectedAirthmetic&) const = default;
 
 	private:
 		///
@@ -74,12 +74,12 @@ namespace pr
 		///
 		/// Deleted move assignment operator.
 		///
-		ProtectedAirthmetic& operator= (ProtectedAirthmetic&&) = delete;
+		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) = delete;
 
 		///
 		/// Deleted copy assignment operator.
 		///
-		ProtectedAirthmetic& operator= (const ProtectedAirthmetic&) = delete;
+		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
 
 	private:
 		///
@@ -95,7 +95,7 @@ namespace pr
 
 	template<IsArithmetic Type>
 	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic() noexcept
-		:m_var(0)
+	    : m_var(0)
 	{
 	}
 
@@ -146,6 +146,6 @@ namespace pr
 	/// Predefined type for bool.
 	///
 	using ProtectedBool = ProtectedAirthmetic<bool>;
-}
+} // namespace pr
 
 #endif

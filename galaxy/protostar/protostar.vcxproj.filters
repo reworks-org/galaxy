@@ -18,11 +18,11 @@
     <ClCompile Include="src\protostar\system\Time.cpp" />
     <ClCompile Include="src\protostar\events\MouseWheelEvent.cpp" />
     <ClCompile Include="src\protostar\res\ResourceCache.cpp" />
-    <ClCompile Include="src\protostar\system\CPP20.cpp" />
     <ClCompile Include="src\protostar\system\UniqueID.cpp" />
     <ClCompile Include="src\protostar\graphics\Colour.cpp" />
     <ClCompile Include="src\protostar\graphics\Rect.cpp" />
     <ClCompile Include="src\protostar\system\Concepts.cpp" />
+    <ClCompile Include="src\protostar\system\CPP20.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
@@ -42,10 +42,10 @@
     <ClInclude Include="src\protostar\system\Time.hpp" />
     <ClInclude Include="src\protostar\events\MouseWheelEvent.hpp" />
     <ClInclude Include="src\protostar\res\ResourceCache.hpp" />
-    <ClInclude Include="src\protostar\system\CPP20.hpp" />
     <ClInclude Include="src\protostar\system\UniqueID.hpp" />
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
     <ClInclude Include="src\protostar\graphics\Rect.hpp" />
     <ClInclude Include="src\protostar\system\Concepts.hpp" />
+    <ClInclude Include="src\protostar\system\CPP20.hpp" />
   </ItemGroup>
 </Project>

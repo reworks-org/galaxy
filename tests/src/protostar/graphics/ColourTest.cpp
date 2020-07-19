@@ -32,7 +32,7 @@ TEST(Colour, Normalize)
 {
 	pr::Colour colour(139, 226, 232, 178);
 	auto norm = colour.getNormalized();
-	
+
 	EXPECT_EQ(norm[0], static_cast<float>(colour.m_red) / static_cast<float>(0xFF));
 	EXPECT_EQ(norm[1], static_cast<float>(colour.m_green) / static_cast<float>(0xFF));
 	EXPECT_EQ(norm[2], static_cast<float>(colour.m_blue) / static_cast<float>(0xFF));
@@ -57,7 +57,7 @@ TEST(Colour, GetAs)
 
 	auto val = std::is_same<decltype(res[0]), float>::value;
 	EXPECT_TRUE(val);
-	
+
 	val = std::is_same<decltype(res[1]), float>::value;
 	EXPECT_TRUE(val);
 

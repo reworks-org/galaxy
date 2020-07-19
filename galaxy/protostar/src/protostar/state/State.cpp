@@ -20,13 +20,13 @@ namespace pr
 	}
 
 	State::State() noexcept
-		:m_name("null")
+	    : m_name("null")
 	{
 	}
 
 	State::State(std::string_view name) noexcept
-		:m_name(static_cast<std::string>(name))
+	    : m_name(static_cast<std::string>(name))
 	{
 	}
 
-}
+} // namespace pr

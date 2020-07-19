@@ -11,8 +11,12 @@
     <ClCompile Include="src\protostar\state\StateMachineTest.cpp" />
     <ClCompile Include="src\protostar\state\StateTest.cpp" />
     <ClCompile Include="src\protostar\res\ResourceCacheTest.cpp" />
+    <ClCompile Include="src\protostar\math\RectPackTest.cpp" />
+    <ClCompile Include="src\protostar\graphics\ColourTest.cpp" />
+    <ClCompile Include="src\protostar\graphics\RectTest.cpp" />
+    <ClCompile Include="src\protostar\async\ProtectedArithmeticTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\protostar\math\MathsTest.hpp" />
+    <ClInclude Include="src\protostar\math\RandomTest.cpp" />
   </ItemGroup>
 </Project>

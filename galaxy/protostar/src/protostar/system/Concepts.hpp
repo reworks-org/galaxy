@@ -8,6 +8,7 @@
 #ifndef PROTOSTAR_CONCEPTS_HPP_
 #define PROTOSTAR_CONCEPTS_HPP_
 
+#include <concepts>
 #include <type_traits>
 
 ///
@@ -32,6 +33,16 @@ namespace pr
 	///
 	template<typename Type>
 	concept IsArithmetic = std::is_arithmetic<Type>::value;
-}
+
+	///
+	/// Ensures concept is not negative.
+	///
+	template<typename Type>
+	concept NotNegative = requires(Type a)
+	{
+		{a > 0};
+	};
+
+} // namespace pr
 
 #endif

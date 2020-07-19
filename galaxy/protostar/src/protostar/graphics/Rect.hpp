@@ -77,7 +77,7 @@ namespace pr
 		///
 		/// Spaceship operator.
 		///
-		auto operator<=>(const Colour&) const = default;
+		[[maybe_unused]] auto operator<=>(const Colour&) const = default;
 
 	private:
 		///
@@ -116,13 +116,13 @@ namespace pr
 
 	template<IsArithmetic Type>
 	inline Rect<Type>::Rect() noexcept
-		:m_x(0), m_y(0), m_width(0), m_height(0)
+	    : m_x(0), m_y(0), m_width(0), m_height(0)
 	{
 	}
 
 	template<IsArithmetic Type>
 	inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
-		:m_x(x), m_y(y), m_width(width), m_height(height)
+	    : m_x(x), m_y(y), m_width(width), m_height(height)
 	{
 	}
 
@@ -137,18 +137,18 @@ namespace pr
 	inline bool Rect<Type>::contains(const Rect<Type>& b) noexcept
 	{
 		// Checks if the rectangle contains another rectangle using math.
-		return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) && (b.m_y + b.m_height) < (m_y + m_height));
+		return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) &&
+			(b.m_y + b.m_height) < (m_y + m_height));
 	}
 
 	template<IsArithmetic Type>
 	inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
 	{
 		// Check for overlaps using math.
-		bool xOverlap = valueInRange(m_x, b.m_x, b.m_x + b.m_width) ||
-			valueInRange(b.m_x, m_x, m_x + m_width);
+		bool xOverlap = valueInRange(m_x, b.m_x, b.m_x + b.m_width) || valueInRange(b.m_x, m_x, m_x + m_width);
 
-		bool yOverlap = valueInRange(m_y, b.m_y, b.m_y + b.m_height) ||
-			valueInRange(b.m_y, m_y, m_y + m_height);
+		bool yOverlap =
+		    valueInRange(m_y, b.m_y, b.m_y + b.m_height) || valueInRange(b.m_y, m_y, m_y + m_height);
 
 		return xOverlap && yOverlap;
 	}
@@ -159,6 +159,6 @@ namespace pr
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);
 	}
-}
+} // namespace pr
 
 #endif

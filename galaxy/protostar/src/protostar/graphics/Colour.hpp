@@ -9,8 +9,8 @@
 #define PROTOSTAR_COLOUR_HPP_
 
 #include <array>
-#include <cstdint>
 #include <compare>
+#include <cstdint>
 
 #include "protostar/system/Concepts.hpp"
 
@@ -74,7 +74,7 @@ namespace pr
 		///
 		/// Spaceship operator.
 		///
-		auto operator<=>(const Colour&) const = default;
+		[[maybe_unused]] auto operator<=>(const Colour&) const = default;
 
 	public:
 		///
@@ -101,16 +101,13 @@ namespace pr
 	template<IsArithmetic Type>
 	inline std::array<Type, 4>&& Colour::getAs()
 	{
-		std::array<Type, 4> arr =
-		{ 
-			static_cast<Type>(m_red),
-			static_cast<Type>(m_green),
-			static_cast<Type>(m_blue),
-			static_cast<Type>(m_alpha)
-		};
+		std::array<Type, 4> arr = {static_cast<Type>(m_red),
+					   static_cast<Type>(m_green),
+					   static_cast<Type>(m_blue),
+					   static_cast<Type>(m_alpha)};
 
 		return std::move(arr);
 	}
-}
+} // namespace pr
 
 #endif

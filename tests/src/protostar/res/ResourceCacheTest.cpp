@@ -21,9 +21,8 @@ struct DemoRes
 struct Cache : public pr::ResourceCache<DemoRes>
 {
 	Cache() noexcept
-		:ResourceCache()
+	    : ResourceCache()
 	{
-
 	}
 
 	~Cache()
@@ -45,7 +44,7 @@ TEST(ResourceCache, Create)
 	EXPECT_EQ(res->m_val, 1);
 
 	res = c.create("demoB", 2);
-	
+
 	ASSERT_TRUE(res != nullptr);
 	EXPECT_EQ(res->m_val, 2);
 }
@@ -56,7 +55,7 @@ TEST(ResourceCache, Move)
 	DemoRes dr(5);
 
 	auto* res = c.move("test", dr);
-	
+
 	ASSERT_TRUE(res != nullptr);
 	EXPECT_EQ(res->m_val, 5);
 }
@@ -66,7 +65,7 @@ TEST(ResourceCache, GetCreate)
 	Cache c;
 
 	auto* discard = c.create("test");
-	auto* res = c.get("test");
+	auto* res     = c.get("test");
 
 	ASSERT_TRUE(res != nullptr);
 	EXPECT_EQ(res->m_val, 10);

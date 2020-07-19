@@ -87,6 +87,6 @@ namespace pr
 		///
 		std::string m_name;
 	};
-}
+} // namespace pr
 
 #endif

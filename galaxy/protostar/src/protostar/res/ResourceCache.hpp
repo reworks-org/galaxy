@@ -8,9 +8,9 @@
 #ifndef PROTOSTAR_RESOURCECACHE_HPP_
 #define PROTOSTAR_RESOURCECACHE_HPP_
 
-#include <unordered_map>
-
 #include <pulsar/Log.hpp>
+
+#include <unordered_map>
 
 #include "protostar/system/Concepts.hpp"
 
@@ -57,8 +57,8 @@ namespace pr
 		///
 		/// \return Pointer to newly created resource.
 		///
-		template<typename ...Args>
-		[[nodiscard]] virtual Resource* create(std::string_view name, Args&& ...args) final;
+		template<typename... Args>
+		[[nodiscard]] virtual Resource* create(std::string_view name, Args&&... args) final;
 
 		///
 		/// Move a resource into cache.
@@ -119,26 +119,27 @@ namespace pr
 	}
 
 	template<NoPointerOrRef Resource>
-	template<typename ...Args>
-	[[nodiscard]] inline Resource* ResourceCache<Resource>::create(std::string_view name, Args&& ...args)
+	template<typename... Args>
+	inline Resource* ResourceCache<Resource>::create(std::string_view name, Args&&... args)
 	{
 		const std::string str = static_cast<std::string>(name);
-		m_resources.emplace(std::piecewise_construct, std::make_tuple(str), std::make_tuple(std::forward<Args>(args)...));
+		m_resources.emplace(
+		    std::piecewise_construct, std::make_tuple(str), std::make_tuple(std::forward<Args>(args)...));
 
 		return &m_resources[str];
 	}
 
 	template<NoPointerOrRef Resource>
-	[[maybe_unused]] inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource) noexcept
+	inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource) noexcept
 	{
 		const std::string str = static_cast<std::string>(name);
-		m_resources[str] = std::move(resource);
-		
+		m_resources[str]      = std::move(resource);
+
 		return &m_resources[str];
 	}
 
 	template<NoPointerOrRef Resource>
-	[[nodiscard]] inline Resource* ResourceCache<Resource>::get(std::string_view name) noexcept
+	inline Resource* ResourceCache<Resource>::get(std::string_view name) noexcept
 	{
 		const std::string str = static_cast<std::string>(name);
 		if (m_resources.contains(str))
@@ -151,6 +152,6 @@ namespace pr
 			return nullptr;
 		}
 	}
-}
+} // namespace pr
 
 #endif

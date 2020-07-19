@@ -21,7 +21,10 @@ namespace pr
 	/// Credits: http://stackoverflow.com/a/32907541.
 	///
 	template<typename T>
-	using conditional_distribution = std::conditional_t<std::is_integral<T>::value, std::uniform_int_distribution<T>, std::conditional_t<std::is_floating_point<T>::value, std::uniform_real_distribution<T>, void>>;
+	using conditional_distribution = std::conditional_t<
+	    std::is_integral<T>::value,
+	    std::uniform_int_distribution<T>,
+	    std::conditional_t<std::is_floating_point<T>::value, std::uniform_real_distribution<T>, void>>;
 
 	///
 	/// Generate a random number of type T.
@@ -45,6 +48,6 @@ namespace pr
 
 		return dist(mt);
 	}
-}
+} // namespace pr
 
 #endif

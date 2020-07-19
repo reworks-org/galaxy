@@ -20,7 +20,7 @@ namespace pr
 	///
 	/// Shorthand for task function type.
 	///
-	using TaskFunction = std::function<void(pr::ProtectedBool*)>;
+	using FunctionCallback = std::function<void(pr::ProtectedBool*)>;
 
 	///
 	/// A task to run on a thread.
@@ -43,31 +43,39 @@ namespace pr
 		///
 		/// \param function Lambda or function to call when task is executed. Is moved.
 		///
-		void set(TaskFunction&& function) noexcept;
+		void set(FunctionCallback&& function) noexcept;
 
 		///
 		/// Run the task on the thread.
 		///
-		/// \param threadPoolFinished Pointer to ThreadPool::m_isActive. If this is false your function should exit to prevent deadlocks!
+		/// \param isPoolDone Pointer to ThreadPool::m_isActive. If this is false your function should exit to
+		/// prevent deadlocks!
 		///
-		void exec(pr::ProtectedBool* threadPoolFinished) noexcept;
+		void exec(pr::ProtectedBool* isPoolDone) noexcept;
 
 		///
 		/// Blocks calling thread until this task is finished.
 		///
-		void waitUntilFinished() noexcept;
+		void wait() noexcept;
+
+		///
+		/// Check if the task is finished.
+		///
+		/// \return Const bool. True if finished.
+		///
+		const bool isFinished() noexcept;
 
 	private:
 		///
 		/// Stores task to be executed.
 		///
-		TaskFunction m_task;
+		FunctionCallback m_task;
 
 		///
 		/// Check to make sure task is finished.
 		///
 		pr::ProtectedBool m_isFinished;
 	};
-}
+} // namespace pr
 
 #endif

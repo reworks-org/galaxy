@@ -23,7 +23,6 @@
     <ClCompile Include="src\protostar\async\Task.cpp" />
     <ClCompile Include="src\protostar\async\ThreadPool.cpp" />
     <ClCompile Include="src\protostar\system\Concepts.cpp" />
-    <ClCompile Include="src\protostar\system\CPP20.cpp" />
     <ClCompile Include="src\protostar\events\KeyCharEvent.cpp" />
     <ClCompile Include="src\protostar\events\KeyDownEvent.cpp" />
     <ClCompile Include="src\protostar\events\KeyUpEvent.cpp" />
@@ -37,6 +36,7 @@
     <ClCompile Include="src\protostar\state\State.cpp" />
     <ClCompile Include="src\protostar\state\StateMachine.cpp" />
     <ClCompile Include="src\protostar\graphics\Colour.cpp" />
+    <ClCompile Include="src\protostar\system\CPP20.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
     <ClCompile Include="src\protostar\res\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\system\Time.cpp" />
@@ -57,10 +57,10 @@
     <ClInclude Include="src\protostar\graphics\Rect.hpp" />
     <ClInclude Include="src\protostar\math\RectPack.hpp" />
     <ClInclude Include="src\protostar\system\Concepts.hpp" />
-    <ClInclude Include="src\protostar\system\CPP20.hpp" />
     <ClInclude Include="src\protostar\state\State.hpp" />
     <ClInclude Include="src\protostar\state\StateMachine.hpp" />
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
+    <ClInclude Include="src\protostar\system\CPP20.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
     <ClInclude Include="src\protostar\res\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\system\Time.hpp" />

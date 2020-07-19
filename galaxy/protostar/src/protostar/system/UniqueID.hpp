@@ -58,6 +58,6 @@ namespace pr
 		static std::size_t id = s_counter++;
 		return id;
 	}
-}
+} // namespace pr
 
 #endif

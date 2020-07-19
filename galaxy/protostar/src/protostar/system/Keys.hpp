@@ -134,6 +134,6 @@ namespace pr
 		NUMPAD_8,
 		NUMPAD_9
 	};
-}
+} // namespace pr
 
 #endif

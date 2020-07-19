@@ -8,10 +8,10 @@
 #ifndef PROTOSTAR_THREADPOOL_HPP_
 #define PROTOSTAR_THREADPOOL_HPP_
 
-#include <queue>
-#include <future>
-#include <vector>
 #include <condition_variable>
+#include <queue>
+#include <thread>
+#include <vector>
 
 #include "protostar/async/Task.hpp"
 
@@ -44,12 +44,12 @@ namespace pr
 		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
 		///				I.e. too big or less than 0.
 		///
-		void create(const size_t count = 4) noexcept;
+		void create(const size_t count = 8) noexcept;
 
 		///
 		/// Queue a task for the thread pool to execute.
 		///
-		/// \param task R-value task to queue.
+		/// \param task Pointer to task to queue.
 		///
 		void queue(Task* task) noexcept;
 
@@ -79,12 +79,12 @@ namespace pr
 		///
 		/// Deleted move assignment operator.
 		///
-		ThreadPool& operator= (ThreadPool&&) = delete;
+		ThreadPool& operator=(ThreadPool&&) = delete;
 
 		///
 		/// Deleted copy assignment operator.
 		///
-		ThreadPool& operator= (const ThreadPool&) = delete;
+		ThreadPool& operator=(const ThreadPool&) = delete;
 
 	private:
 		///
@@ -100,7 +100,7 @@ namespace pr
 		///
 		/// Worker threads to do a task on.
 		///
-		std::vector<std::future<void>> m_workers;
+		std::vector<std::jthread> m_workers;
 
 		///
 		/// Task queue.
@@ -118,10 +118,10 @@ namespace pr
 		std::mutex m_mutex;
 
 		///
-		/// Atomic boolean to control thread activity.
+		/// Control thread activity.
 		///
 		pr::ProtectedBool m_isActive;
 	};
-}
+} // namespace pr
 
 #endif

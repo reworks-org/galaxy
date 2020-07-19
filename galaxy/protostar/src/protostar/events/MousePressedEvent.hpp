@@ -46,12 +46,12 @@ namespace pr
 		/// Mouse y position.
 		///
 		int m_y;
-		
+
 		///
 		/// Mouse button pressed.
 		///
 		unsigned int m_button;
 	};
-}
+} // namespace pr
 
 #endif

@@ -12,9 +12,12 @@
 /// For when CPP20 is fully supported by compilers.
 ///
 #if !defined(__cpp_constinit)
-#define PROTOSTAR_constinit constexpr
+#	define PROTOSTAR_constinit constexpr
 #else
-#define PROTOSTAR_constinit constinit
+#	define PROTOSTAR_constinit constinit
+#endif
+
+#if !defined(cpp_)
 #endif
 
 #endif

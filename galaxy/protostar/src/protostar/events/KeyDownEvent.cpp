@@ -13,7 +13,7 @@
 namespace pr
 {
 	KeyDownEvent::KeyDownEvent(const pr::Keys keycode) noexcept
-		:m_keycode(keycode)
+	    : m_keycode(keycode)
 	{
 	}
-}
+} // namespace pr

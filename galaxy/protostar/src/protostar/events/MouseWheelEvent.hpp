@@ -46,6 +46,6 @@ namespace pr
 		///
 		double m_yOffset;
 	};
-}
+} // namespace pr
 
 #endif

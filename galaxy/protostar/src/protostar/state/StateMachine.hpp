@@ -8,12 +8,12 @@
 #ifndef PROTOSTAR_STATEMACHINE_HPP_
 #define PROTOSTAR_STATEMACHINE_HPP_
 
-#include <stack>
-#include <memory>
-#include <utility>
-#include <unordered_map>
-
 #include <pulsar/Log.hpp>
+
+#include <memory>
+#include <stack>
+#include <unordered_map>
+#include <utility>
 
 #include "protostar/state/State.hpp"
 
@@ -33,7 +33,7 @@ namespace pr
 	///
 	class StateMachine final
 	{
-	public: 
+	public:
 		///
 		/// Default constructor.
 		///
@@ -48,7 +48,7 @@ namespace pr
 		/// Pass events onto current state.
 		///
 		void events();
-        
+
 		///
 		/// Updates the current state.
 		///
@@ -64,7 +64,7 @@ namespace pr
 		///
 		/// \brief Create a new state to store.
 		///
-		/// Template Typename State is the type of the state to add and 
+		/// Template Typename State is the type of the state to add and
 		/// the args are the arguments to construct that state.
 		///
 		/// \param name Name of the state to identify it by.
@@ -72,7 +72,7 @@ namespace pr
 		///
 		/// \return Returns pointer to newly created state.
 		///
-		template<IsState State, typename ... Args>
+		template<IsState State, typename... Args>
 		[[maybe_unused]] State* create(std::string_view name, Args&&... args);
 
 		///
@@ -112,8 +112,8 @@ namespace pr
 		std::unordered_map<std::string, std::unique_ptr<pr::State>> m_states;
 	};
 
-	template<IsState State, typename ...Args>
-	[[maybe_unused]] inline State* StateMachine::create(std::string_view name, Args&& ...args)
+	template<IsState State, typename... Args>
+	inline State* StateMachine::create(std::string_view name, Args&&... args)
 	{
 		auto str = static_cast<std::string>(name);
 
@@ -126,12 +126,12 @@ namespace pr
 		{
 			m_states[str] = std::make_unique<State>(std::forward<Args>(args)...);
 		}
-		
+
 		return dynamic_cast<State*>(m_states[str].get());
 	}
 
 	template<typename State>
-	[[nodiscard]] inline State* StateMachine::top() noexcept
+	inline State* StateMachine::top() noexcept
 	{
 		// Ensure stack is not empty.
 		if (!m_stack.empty())
@@ -144,6 +144,6 @@ namespace pr
 			return nullptr;
 		}
 	}
-}
+} // namespace pr
 
 #endif

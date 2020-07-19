@@ -12,13 +12,19 @@ class Demo : public pr::State
 {
 public:
 	inline Demo(const int val) noexcept
-		:State("Demo"), m_val(val)
+	    : State("Demo"), m_val(val)
 	{
 	}
 
-	inline ~Demo() noexcept override {}
-	inline void onPush() override {}
-	inline void onPop() override {}
+	inline ~Demo() noexcept override
+	{
+	}
+	inline void onPush() override
+	{
+	}
+	inline void onPop() override
+	{
+	}
 	inline void events() override
 	{
 		m_val++;
@@ -47,13 +53,19 @@ class Demo2 : public pr::State
 {
 public:
 	inline Demo2(const int val) noexcept
-		:State("Demo2"), m_val(val)
+	    : State("Demo2"), m_val(val)
 	{
 	}
 
-	inline ~Demo2() noexcept override {}
-	inline void onPush() override {}
-	inline void onPop() override {}
+	inline ~Demo2() noexcept override
+	{
+	}
+	inline void onPush() override
+	{
+	}
+	inline void onPop() override
+	{
+	}
 	inline void events() override
 	{
 	}
@@ -185,7 +197,7 @@ TEST(StateMachine, Clear)
 	sm.push("Demo2");
 
 	sm.clear();
-	
+
 	auto* top = sm.top<Demo>();
 	EXPECT_EQ(top, nullptr);
 }

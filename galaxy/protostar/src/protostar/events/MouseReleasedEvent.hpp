@@ -52,6 +52,6 @@ namespace pr
 		///
 		unsigned int m_button;
 	};
-}
+} // namespace pr
 
 #endif

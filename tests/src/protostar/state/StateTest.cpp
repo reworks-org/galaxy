@@ -12,16 +12,28 @@ class Demo : public pr::State
 {
 public:
 	inline Demo() noexcept
-		:State("Demo")
+	    : State("Demo")
 	{
 	}
 
-	inline ~Demo() noexcept override {}
-	inline void onPush() override {}
-	inline void onPop() override {}
-	inline void events() override {}
-	inline void update(pr::ProtectedDouble* dt) override {}
-	inline void render() override {}
+	inline ~Demo() noexcept override
+	{
+	}
+	inline void onPush() override
+	{
+	}
+	inline void onPop() override
+	{
+	}
+	inline void events() override
+	{
+	}
+	inline void update(pr::ProtectedDouble* dt) override
+	{
+	}
+	inline void render() override
+	{
+	}
 };
 
 TEST(State, Name)

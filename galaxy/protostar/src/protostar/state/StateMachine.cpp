@@ -21,7 +21,7 @@ namespace pr
 		clear();
 		m_states.clear();
 	}
-	
+
 	void StateMachine::events()
 	{
 		// Check to make sure event is valid to call.
@@ -99,4 +99,4 @@ namespace pr
 			m_stack.pop();
 		}
 	}
-}
+} // namespace pr

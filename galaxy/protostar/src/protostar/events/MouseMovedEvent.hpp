@@ -64,6 +64,6 @@ namespace pr
 		///
 		float m_pressure;
 	};
-}
+} // namespace pr
 
 #endif

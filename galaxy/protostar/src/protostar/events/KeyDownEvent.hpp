@@ -42,6 +42,6 @@ namespace pr
 		///
 		pr::Keys m_keycode;
 	};
-}
+} // namespace pr
 
 #endif

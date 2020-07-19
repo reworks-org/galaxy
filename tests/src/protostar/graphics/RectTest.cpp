@@ -31,7 +31,7 @@ TEST(Rect, ArgConstruct)
 TEST(Rect, ContainsPoint)
 {
 	pr::Rect<int> r(0, 0, 100, 100);
-	
+
 	EXPECT_TRUE(r.contains(10, 10));
 }
 
@@ -53,7 +53,7 @@ TEST(Rect, NotContainsRect)
 {
 	pr::Rect<int> r(0, 0, 100, 100);
 
-	EXPECT_FALSE(r.contains({ 250, 250, 250, 250 }));
+	EXPECT_FALSE(r.contains({250, 250, 250, 250}));
 }
 
 TEST(Rect, Overlap)
@@ -68,7 +68,7 @@ TEST(Rect, OverlapSame)
 {
 	pr::Rect<int> a(10, 10, 100, 100);
 	pr::Rect<int> b(10, 10, 100, 100);
-	
+
 	EXPECT_TRUE(a.overlaps(b));
 }
 

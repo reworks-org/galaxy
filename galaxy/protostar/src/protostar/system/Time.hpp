@@ -8,8 +8,10 @@
 #ifndef PROTOSTAR_TIME_HPP_
 #define PROTOSTAR_TIME_HPP_
 
-#include <string>
 #include <chrono>
+#include <string>
+
+#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
@@ -23,7 +25,7 @@ namespace pr
 	///
 	/// \return Returns const std::uint32_t.
 	///
-	inline constexpr const std::uint32_t secondsToMilliseconds(const double seconds) noexcept
+	[[nodiscard]] inline constexpr const std::uint32_t secondsToMilliseconds(NotNegative auto seconds) noexcept
 	{
 		return static_cast<std::uint32_t>(seconds * 1000.0);
 	}
@@ -35,7 +37,7 @@ namespace pr
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	inline constexpr const std::uint64_t secondsToMicroseconds(const double seconds) noexcept
+	[[nodiscard]] inline constexpr const std::uint64_t secondsToMicroseconds(NotNegative auto seconds) noexcept
 	{
 		return static_cast<std::uint64_t>(seconds * 1000000.0);
 	}
@@ -47,7 +49,7 @@ namespace pr
 	///
 	/// \return Returns const double.
 	///
-	inline constexpr const double millisecondsToSeconds(const std::uint32_t milliseconds) noexcept
+	[[nodiscard]] inline constexpr const double millisecondsToSeconds(NotNegative auto milliseconds) noexcept
 	{
 		return static_cast<double>(milliseconds) / 1000.0;
 	}
@@ -59,9 +61,10 @@ namespace pr
 	///
 	/// \return Returns const std::uint64_t.
 	///
-	inline constexpr const std::uint64_t millisecondsToMicroseconds(const std::uint32_t milliseconds) noexcept
+	[[nodiscard]] inline constexpr const std::uint64_t
+	millisecondsToMicroseconds(NotNegative auto milliseconds) noexcept
 	{
-		 return static_cast<std::uint64_t>(static_cast<std::uint64_t>(milliseconds) * 1000);
+		return static_cast<std::uint64_t>(static_cast<std::uint64_t>(milliseconds) * 1000);
 	}
 
 	///
@@ -71,7 +74,7 @@ namespace pr
 	///
 	/// \return Returns const double.
 	///
-	inline constexpr const double microsecondsToSeconds(const std::uint64_t microseconds) noexcept
+	[[nodiscard]] inline constexpr const double microsecondsToSeconds(NotNegative auto microseconds) noexcept
 	{
 		return static_cast<double>(microseconds / 1000000.0);
 	}
@@ -83,7 +86,8 @@ namespace pr
 	///
 	/// \return Returns std::uint32_t.
 	///
-	inline constexpr const std::uint32_t microsecondsToMilliseconds(const std::uint64_t microseconds) noexcept
+	[[nodiscard]] inline constexpr const std::uint32_t
+	microsecondsToMilliseconds(NotNegative auto microseconds) noexcept
 	{
 		return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
 	}
@@ -98,7 +102,8 @@ namespace pr
 	///
 	/// \return const double High Precision time passed since epoch.
 	///
-	const double getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr) noexcept;
+	[[nodiscard]] const double
+	getTimeSinceEpoch(const std::chrono::high_resolution_clock::time_point* tp = nullptr) noexcept;
 
 	///
 	/// \brief Get the current time and date.
@@ -107,7 +112,7 @@ namespace pr
 	///
 	/// \return Returns const std::string of the current DateTime.
 	///
-	std::string&& getCurrentDateTime();
+	[[nodiscard]] std::string&& getCurrentDateTime();
 
 	///
 	/// \brief Get the current time.
@@ -116,14 +121,14 @@ namespace pr
 	///
 	/// \return Returns std::string shortened Time.
 	///
-	std::string&& getShortTime();
+	[[nodiscard]] std::string&& getShortTime();
 
 	///
 	/// Get a formatted time that contains no special characters.
 	///
 	/// \return Returns std::string formatted Time.
 	///
-	std::string&& getFormattedTime();
-}
+	[[nodiscard]] std::string&& getFormattedTime();
+} // namespace pr
 
 #endif

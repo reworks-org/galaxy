@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "protostar/async/Task.hpp"
-
 #include "ThreadPool.hpp"
+
+#include "protostar/async/Task.hpp"
 
 ///
 /// Core namespace.
@@ -15,7 +15,7 @@
 namespace pr
 {
 	ThreadPool::ThreadPool() noexcept
-		:m_maxThreadCount(4), m_isDestroyed(false)
+	    : m_maxThreadCount(4), m_isDestroyed(false)
 	{
 		m_isActive.set(false);
 	}
@@ -42,8 +42,7 @@ namespace pr
 		for (std::size_t it = 0; it < m_maxThreadCount; it++)
 		{
 			// This is just storing the thread.
-			m_workers.emplace_back(std::move(std::async(std::launch::async, [&]()
-			{
+			m_workers.emplace_back(std::move(std::async(std::launch::async, [&]() {
 				// This part is on the thread.
 				// This is a lambda.
 				Task* task = nullptr;
@@ -54,9 +53,9 @@ namespace pr
 					{
 						// Wait until notification.
 						std::unique_lock<std::mutex> l_lock(m_mutex);
-						m_cv.wait(l_lock, [&]
-						{
-							return !m_tasks.empty() || (m_tasks.empty() && !m_isActive.get());
+						m_cv.wait(l_lock, [&] {
+							return !m_tasks.empty() ||
+							    (m_tasks.empty() && !m_isActive.get());
 						});
 
 						// Do task after notification.
@@ -83,7 +82,7 @@ namespace pr
 			std::unique_lock<std::mutex> lock(m_mutex);
 			m_tasks.emplace(task);
 		}
-		
+
 		m_cv.notify_one();
 	}
 
@@ -118,4 +117,4 @@ namespace pr
 
 		m_isDestroyed = true;
 	}
-}
+} // namespace pr

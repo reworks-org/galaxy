@@ -10,8 +10,12 @@
 
 using TestUID = pr::UniqueID<struct TestSpec_>;
 
-class TestA {};
-class TestB {};
+class TestA
+{
+};
+class TestB
+{
+};
 
 TEST(UniqueID, Get)
 {
