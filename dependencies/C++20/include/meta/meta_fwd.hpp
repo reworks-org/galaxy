@@ -39,19 +39,18 @@
 
 #elif defined(_MSC_VER)
 #define META_HAS_MAKE_INTEGER_SEQ 1
-#if _MSC_VER < 1921
-#define META_WORKAROUND_MSVC_756112 // fold expression + alias templates in template argument (Fixed in next VS2019 toolset update)
 #if _MSC_VER < 1920
-#define META_WORKAROUND_MSVC_702792 // Fixed in VS2019 Preview 2
-#define META_WORKAROUND_MSVC_703656 // Fixed in VS2019 Preview 2
-#endif // _MSC_VER < 1920
-#endif // _MSC_VER < 1921
+#define META_WORKAROUND_MSVC_702792 // Bogus C4018 comparing constant expressions with dependent type
+#define META_WORKAROUND_MSVC_703656 // ICE with pack expansion inside decltype in alias template
+#endif
+
+#if _MSC_VER < 1921
+#define META_WORKAROUND_MSVC_756112 // fold expression + alias templates in template argument
+#endif
 
 #elif defined(__GNUC__)
 #define META_WORKAROUND_GCC_86356 // https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86356
-#if __GNUC__ >= 8
-#define META_HAS_INTEGER_PACK 1
-#else
+#if __GNUC__ < 8
 #define META_WORKAROUND_GCC_UNKNOWN1 // Older GCCs don't like fold + debug + -march=native
 #endif
 #if __GNUC__ == 5 && __GNUC_MINOR__ == 1
@@ -105,10 +104,6 @@
 #define META_HAS_MAKE_INTEGER_SEQ 0
 #endif
 
-#ifndef META_HAS_INTEGER_PACK
-#define META_HAS_INTEGER_PACK 0
-#endif
-
 #ifndef META_HAS_TYPE_PACK_ELEMENT
 #ifdef __has_builtin
 #if __has_builtin(__type_pack_element)
@@ -131,11 +126,6 @@
 #define META_DEPRECATED(...)
 #endif
 
-// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64970
-#if(defined(__GNUC__) && __GNUC__ >= 5) || defined(__clang__)
-#define META_WORKAROUND_GCC_64970
-#endif
-
 #ifndef META_CXX_FOLD_EXPRESSIONS
 #ifdef __cpp_fold_expressions
 #define META_CXX_FOLD_EXPRESSIONS __cpp_fold_expressions
@@ -150,25 +140,90 @@
 #endif
 #endif
 
-#if defined(__cpp_concepts) && __cpp_concepts > 0
+#if (defined(__cpp_concepts) && __cpp_concepts > 0) || defined(META_DOXYGEN_INVOKED)
 #if !META_CXX_VARIABLE_TEMPLATES
 #error Concepts, but no variable templates?
 #endif
-#if __cpp_concepts <= 201507L
+#if __cpp_concepts <= 201507L && !defined(META_DOXYGEN_INVOKED)
 #define META_CONCEPT concept bool
 // TS concepts subsumption barrier for atomic expressions
 #define META_CONCEPT_BARRIER(...) ::meta::detail::barrier<__VA_ARGS__>
 #else
 #define META_CONCEPT concept
 #define META_CONCEPT_BARRIER(...) __VA_ARGS__
-#if __cpp_concepts >= 201811L
-#define META_HAS_P1084
-#endif
 #endif
 #define META_TYPE_CONSTRAINT(...) __VA_ARGS__
 #else
 #define META_TYPE_CONSTRAINT(...) typename
 #endif
+
+#if (defined(__cpp_lib_type_trait_variable_templates) && \
+    __cpp_lib_type_trait_variable_templates > 0)
+#define META_CXX_TRAIT_VARIABLE_TEMPLATES 1
+#else
+#define META_CXX_TRAIT_VARIABLE_TEMPLATES 0
+#endif
+
+#if defined(__clang__)
+#define META_IS_SAME(...) __is_same(__VA_ARGS__)
+#elif defined(__GNUC__) && __GNUC__ >= 6
+#define META_IS_SAME(...) __is_same_as(__VA_ARGS__)
+#elif META_CXX_TRAIT_VARIABLE_TEMPLATES
+#define META_IS_SAME(...) std::is_same_v<__VA_ARGS__>
+#else
+#define META_IS_SAME(...) std::is_same<__VA_ARGS__>::value
+#endif
+
+#if defined(__GNUC__) || defined(_MSC_VER)
+#define META_IS_BASE_OF(...) __is_base_of(__VA_ARGS__)
+#elif META_CXX_TRAIT_VARIABLE_TEMPLATES
+#define META_IS_BASE_OF(...) std::is_base_of_v<__VA_ARGS__>
+#else
+#define META_IS_BASE_OF(...) std::is_base_of<__VA_ARGS__>::value
+#endif
+
+#if defined(__clang__) || defined(_MSC_VER) || \
+    (defined(__GNUC__) && __GNUC__ >= 8)
+#define META_IS_CONSTRUCTIBLE(...) __is_constructible(__VA_ARGS__)
+#elif META_CXX_TRAIT_VARIABLE_TEMPLATES
+#define META_IS_CONSTRUCTIBLE(...) std::is_constructible_v<__VA_ARGS__>
+#else
+#define META_IS_CONSTRUCTIBLE(...) std::is_constructible<__VA_ARGS__>::value
+#endif
+
+/// \cond
+// Non-portable forward declarations of standard containers
+#ifdef _LIBCPP_VERSION
+#define META_BEGIN_NAMESPACE_STD _LIBCPP_BEGIN_NAMESPACE_STD
+#define META_END_NAMESPACE_STD _LIBCPP_END_NAMESPACE_STD
+#elif defined(_MSVC_STL_VERSION)
+#define META_BEGIN_NAMESPACE_STD _STD_BEGIN
+#define META_END_NAMESPACE_STD _STD_END
+#else
+#define META_BEGIN_NAMESPACE_STD namespace std {
+#define META_END_NAMESPACE_STD }
+#endif
+
+#if defined(__GLIBCXX__)
+#define META_BEGIN_NAMESPACE_VERSION _GLIBCXX_BEGIN_NAMESPACE_VERSION
+#define META_END_NAMESPACE_VERSION _GLIBCXX_END_NAMESPACE_VERSION
+#define META_BEGIN_NAMESPACE_CONTAINER _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
+#define META_END_NAMESPACE_CONTAINER _GLIBCXX_END_NAMESPACE_CONTAINER
+#else
+#define META_BEGIN_NAMESPACE_VERSION
+#define META_END_NAMESPACE_VERSION
+#define META_BEGIN_NAMESPACE_CONTAINER
+#define META_END_NAMESPACE_CONTAINER
+#endif
+
+#if defined(_LIBCPP_VERSION) && _LIBCPP_VERSION >= 4000
+#define META_TEMPLATE_VIS _LIBCPP_TEMPLATE_VIS
+#elif defined(_LIBCPP_VERSION)
+#define META_TEMPLATE_VIS _LIBCPP_TYPE_VIS_ONLY
+#else
+#define META_TEMPLATE_VIS
+#endif
+/// \endcond
 
 namespace meta
 {
@@ -214,95 +269,85 @@ namespace meta
         template <bool B>
         META_INLINE_VAR constexpr bool barrier = B;
 
-        template <auto> struct require_constant; // not defined
+        template <class T, T> struct require_constant; // not defined
     }
 
     template <typename...>
-    META_CONCEPT True = META_CONCEPT_BARRIER(true);
+    META_CONCEPT is_true = META_CONCEPT_BARRIER(true);
 
     template <typename T, typename U>
-    META_CONCEPT Same =
-#if defined(__clang__)
-        META_CONCEPT_BARRIER(__is_same(T, U));
-#elif defined(__GNUC__) && __GNUC__ >= 6
-        META_CONCEPT_BARRIER(__is_same_as(T, U));
-#else
-        META_CONCEPT_BARRIER(std::is_same_v<T, U>);
-#endif
+    META_CONCEPT same_as =
+        META_CONCEPT_BARRIER(META_IS_SAME(T, U));
 
     template <template <typename...> class C, typename... Ts>
-    META_CONCEPT Valid = requires
+    META_CONCEPT valid = requires
     {
         typename C<Ts...>;
     };
 
     template <typename T, template <T...> class C, T... Is>
-    META_CONCEPT Valid_I = requires
+    META_CONCEPT valid_i = requires
     {
         typename C<Is...>;
     };
 
     template <typename T>
-    META_CONCEPT Trait = requires
+    META_CONCEPT trait = requires
     {
         typename T::type;
     };
 
     template <typename T>
-    META_CONCEPT Invocable = requires
+    META_CONCEPT invocable = requires
     {
         typename quote<T::template invoke>;
     };
 
     template <typename T>
-    META_CONCEPT List = is_v<T, list>;
+    META_CONCEPT list_like = is_v<T, list>;
 
     // clang-format off
     template <typename T>
-    META_CONCEPT Integral = requires
+    META_CONCEPT integral = requires
     {
         typename T::type;
         typename T::value_type;
         typename T::type::value_type;
     }
-    && Same<typename T::value_type, typename T::type::value_type>
+    && same_as<typename T::value_type, typename T::type::value_type>
+#if META_CXX_TRAIT_VARIABLE_TEMPLATES
     && std::is_integral_v<typename T::value_type>
+#else
+    && std::is_integral<typename T::value_type>::value
+#endif
+
     && requires
     {
-#ifdef META_HAS_P1084
-        { T::value } -> Same<const typename T::value_type&>;
-#else
+        // { T::value } -> same_as<const typename T::value_type&>;
         T::value;
-        requires Same<decltype(T::value), const typename T::value_type>;
-#endif
-        typename detail::require_constant<T::value>;
+        requires same_as<decltype(T::value), const typename T::value_type>;
+        typename detail::require_constant<decltype(T::value), T::value>;
 
-#ifdef META_HAS_P1084
-        { T::type::value } -> Same<const typename T::value_type&>;
-#else
+        // { T::type::value } -> same_as<const typename T::value_type&>;
         T::type::value;
-        requires Same<decltype(T::type::value), const typename T::value_type>;
-#endif
-        typename detail::require_constant<T::type::value>;
+        requires same_as<decltype(T::type::value), const typename T::value_type>;
+        typename detail::require_constant<decltype(T::type::value), T::type::value>;
         requires T::value == T::type::value;
 
-#ifdef META_HAS_P1084
-        { T{}() } -> Same<typename T::value_type>;
-#else
+        // { T{}() } -> same_as<typename T::value_type>;
         T{}();
-        requires Same<decltype(T{}()), typename T::value_type>;
-#endif
-        typename detail::require_constant<T{}()>;
+        requires same_as<decltype(T{}()), typename T::value_type>;
+        typename detail::require_constant<decltype(T{}()), T{}()>;
         requires T{}() == T::value;
 
-        requires std::is_convertible_v<T, typename T::value_type>;
+        // { T{} } -> typename T::value_type;
     };
     // clang-format on
 #endif // META_CONCEPT
 
     namespace extension
     {
-        template <META_TYPE_CONSTRAINT(Invocable) F, typename L>
+        template <META_TYPE_CONSTRAINT(invocable) F, typename L>
         struct apply;
     }
 } // namespace meta
