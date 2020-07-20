@@ -799,7 +799,6 @@ INPUT                  = galaxy/frb/src \
                          galaxy/solar/src \
                          galaxy/starlight/src \
                          galaxy/starmap/src \
-                         tests/src \
                          README.md
 
 
