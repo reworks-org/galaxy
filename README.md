@@ -6,7 +6,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3923/badge)](https://bestpractices.coreinfrastructure.org/projects/3923)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
-Game Programming Library using C++17, OpenGL 4.5, Lua and JSON.
+Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 
 ![galaxy](logo.png?raw=true "galaxy")
 
@@ -33,7 +33,7 @@ See [online documentation](https://domre.github.io/galaxy/).
 Or generate offline with Doxygen.
 
 ## Features
-- Uses Modern C++ design principles, built on C++17.
+- Uses Modern C++ design principles, built on C++20.
 
 ```cpp
 // todo
