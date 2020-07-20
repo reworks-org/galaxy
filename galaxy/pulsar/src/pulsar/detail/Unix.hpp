@@ -17,7 +17,7 @@
 ///
 /// Core namespace.
 ///
-namespace pulsar
+namespace pl
 {
 	///
 	/// Function for defining colour based text on console output.
@@ -26,8 +26,8 @@ namespace pulsar
 	///
 	/// \return Returns string ascii code to colour text.
 	///
-	std::string colourText(const LogColours colour) noexcept;
-}
+	[[nodiscard]] std::string colourText(const LogColours colour) noexcept;
+} // namespace pulsar
 
 #endif
 

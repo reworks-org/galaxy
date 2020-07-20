@@ -11,19 +11,19 @@
 ///
 /// Core namespace.
 ///
-namespace pulsar
+namespace pl
 {
 	///
 	/// Enum representing different log text colours.
 	///
 	enum class LogColours : int
 	{
-		WHITE = 15,
-		GREEN = 10,
+		WHITE  = 15,
+		GREEN  = 10,
 		YELLOW = 14,
-		RED = 12,
-		FATAL = 5
+		RED    = 12,
+		FATAL  = 5
 	};
-}
+} // namespace pulsar
 
 #endif

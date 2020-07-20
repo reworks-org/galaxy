@@ -14,12 +14,10 @@
 
 #include "LogColours.hpp"
 
-#undef ERROR
-
 ///
 /// Core namespace.
 ///
-namespace pulsar
+namespace pl
 {
 	///
 	/// Function for defining colour based text on console output.
@@ -28,8 +26,8 @@ namespace pulsar
 	///
 	/// \return Returns empty string so function can be used in an output stream mimicing unix style.
 	///
-	std::string colourText(const LogColours colour) noexcept;
-}
+	[[nodiscard]] std::string colourText(const LogColours colour) noexcept;
+} // namespace pulsar
 
 #endif
 

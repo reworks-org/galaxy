@@ -8,42 +8,55 @@
 #ifndef PULSAR_LOG_HPP_
 #define PULSAR_LOG_HPP_
 
-#include <mutex>
 #include <fstream>
 #include <functional>
+#include <future>
+#include <mutex>
 
 #include "detail/Unix.hpp"
 #include "detail/Windows.hpp"
 
 ///
+/// Log macro for start().
+///
+/// \param log_file Log file path.
+///
+#define PL_LOG_START(log_file) pl::Log::get().start(log_file)
+
+///
+/// Log macro for start().
+///
+#define PL_LOG_FINISH pl::Log::get().finish()
+
+///
 /// Static interface handle.
 ///
-#define PL_LOG_GET pulsar::Log::get()
+#define PL_LOG_GET pl::Log::get()
 
 ///
 /// INFO log level macro shortcut.
 ///
-#define PL_INFO pulsar::Log::Level::INFO
+#define PL_INFO pl::Log::Level::INFO
 
 ///
 /// DEBUG log level macro shortcut.
 ///
-#define PL_DEBUG pulsar::Log::Level::DEBUG
+#define PL_DEBUG pl::Log::Level::DEBUG
 
 ///
 /// WARNING log level macro shortcut.
 ///
-#define PL_WARNING pulsar::Log::Level::WARNING
+#define PL_WARNING pl::Log::Level::WARNING
 
 ///
 /// ERROR log level macro shortcut.
 ///
-#define PL_ERROR pulsar::Log::Level::ERROR_
+#define PL_ERROR pl::Log::Level::ERROR
 
 ///
 /// FATAL log level macro shortcut.
 ///
-#define PL_FATAL pulsar::Log::Level::FATAL
+#define PL_FATAL pl::Log::Level::FATAL
 
 ///
 /// Macro shortcut.
@@ -51,22 +64,22 @@
 /// \param level Log error level.
 /// \param message Message to log.
 ///
-#define PL_LOG(level, message) pulsar::Log::get().log(level, message)
+#define PL_LOG(level, message) pl::Log::get().log(level, message)
 
 ///
 /// Enable testing mode.
 ///
-#define PL_ENABLE_TESTING_MODE pulsar::Log::get().setTestingMode(true)
+#define PL_ENABLE_TESTING_MODE pl::Log::get().setTestingMode(true)
 
 ///
 /// Disable testing mode.
 ///
-#define PL_DISABLE_TESTING_MODE pulsar::Log::get().setTestingMode(false)
+#define PL_DISABLE_TESTING_MODE pl::Log::get().setTestingMode(false)
 
 ///
 /// Core namespace.
 ///
-namespace pulsar
+namespace pl
 {
 	///
 	/// Log logging class.
@@ -80,19 +93,18 @@ namespace pulsar
 		///
 		enum class Level : int
 		{
-			INFO = 0,
-			DEBUG = 1,
+			INFO    = 0,
+			DEBUG   = 1,
 			WARNING = 2,
-			ERROR_ = 3,
-			FATAL = 4
+			ERROR   = 3,
+			FATAL   = 4
 		};
 
-	public:
 		///
 		/// Destructor.
 		///
-		~Log() noexcept;
-		
+		~Log();
+
 		///
 		/// Retrieve log instance.
 		///
@@ -103,14 +115,14 @@ namespace pulsar
 		///
 		/// Initialize logging and set up destination file.
 		///
-		/// \param logTo File to write all log messages to.
+		/// \param _log File to write all log messages to.
 		///
-		void init(const std::string& logTo) noexcept;
+		void start(std::string_view _log);
 
 		///
-		/// Manual control over deinitialization.
+		/// Manual control over closing streams.
 		///
-		void deinit() noexcept;
+		void finish();
 
 		///
 		/// Log a message.
@@ -118,8 +130,8 @@ namespace pulsar
 		/// \param level Log error level.
 		/// \param message Message to log.
 		///
-		void log(const pulsar::Log::Level level, const std::string& message) noexcept;
-		
+		void log(const Log::Level level, const std::string& message);
+
 		///
 		/// Set testing mode.
 		///
@@ -134,21 +146,14 @@ namespace pulsar
 		///
 		/// \param level Level to set as the minimum level to log at.
 		///
-		void setMinimumLevel(pulsar::Log::Level level) noexcept;
-		
+		void setMinimumLevel(Log::Level level) noexcept;
+
 		///
 		/// Returns minimum logging message level that is required to log a message.
 		///
-		/// \return pulsar::Log::Level enum.
+		/// \return Log::Level enum.
 		///
-		pulsar::Log::Level getMinimumLevel() noexcept;
-		
-		///
-		/// Gets current date and time in a string format.
-		///
-		/// \return Returns date/time as a std::string.
-		///
-		std::string getDateTime() noexcept;
+		[[nodiscard]] Log::Level getMinimumLevel() noexcept;
 
 	private:
 		///
@@ -159,8 +164,8 @@ namespace pulsar
 		///
 		/// Delete Copy construct in order to preserve singleton.
 		///
-		Log(Log const&) = delete;        
-		
+		Log(Log const&) = delete;
+
 		///
 		/// Delete Move construct in order to preserve singleton.
 		///
@@ -183,7 +188,7 @@ namespace pulsar
 		///
 		/// \return std::string, in caps.
 		///
-		std::string processLevel(const pulsar::Log::Level level) noexcept;
+		[[nodiscard]] std::string processLevel(const Log::Level level) noexcept;
 
 		///
 		/// Colourizes the terminal text based on the log message level.
@@ -192,7 +197,7 @@ namespace pulsar
 		///
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		std::string processColour(pulsar::Log::Level level) noexcept;
+		[[nodiscard]] std::string processColour(Log::Level level) noexcept;
 
 		///
 		/// Filters a log stream message based on message level to determine if it must be logged.
@@ -201,9 +206,8 @@ namespace pulsar
 		///
 		/// \return True if can log.
 		///
-		bool filterLevel(pulsar::Log::Level level) noexcept;
+		[[nodiscard]] bool filterLevel(Log::Level level) noexcept;
 
-	private:
 		///
 		/// File stream to write to.
 		///
@@ -212,7 +216,7 @@ namespace pulsar
 		///
 		/// Minimum level of messages required to be logged.
 		///
-		pulsar::Log::Level m_minimumLevel;
+		Log::Level m_minimumLevel;
 
 		///
 		/// Protection mutex.
@@ -220,10 +224,25 @@ namespace pulsar
 		std::mutex m_mutex;
 
 		///
+		/// Current thread message.
+		///
+		std::string m_curMessage;
+
+		///
+		/// Thread all logging takes place on.
+		///
+		std::future<void> m_thread;
+
+		///
+		/// Controls thread loop.
+		///
+		std::atomic_bool m_running;
+
+		///
 		/// Wont log if testing mode is enabled.
 		///
 		bool m_testingMode;
 	};
-}
+} // namespace pl
 
 #endif

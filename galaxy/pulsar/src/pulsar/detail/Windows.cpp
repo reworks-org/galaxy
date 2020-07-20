@@ -8,13 +8,14 @@
 #if defined(_WIN64) || defined(_WIN32)
 
 #include <Windows.h>
+#undef ERROR
 
 #include "Windows.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pulsar
+namespace pl
 {
 	std::string colourText(const LogColours colour) noexcept
 	{
@@ -23,6 +24,6 @@ namespace pulsar
 
 		return "";
 	}
-}
+} // namespace pulsar
 
 #endif
