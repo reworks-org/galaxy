@@ -8,12 +8,15 @@
 #ifndef PROTOSTAR_THREADPOOL_HPP_
 #define PROTOSTAR_THREADPOOL_HPP_
 
-#include <condition_variable>
 #include <queue>
-#include <thread>
+#include <semaphore>
 #include <vector>
 
+#include <jthread/jthread.hpp>
+
+#include "protostar/async/ProtectedArithmetic.hpp"
 #include "protostar/async/Task.hpp"
+#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
@@ -44,26 +47,24 @@ namespace pr
 		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
 		///				I.e. too big or less than 0.
 		///
-		void create(const size_t count = 8) noexcept;
+		void create(NotNegative auto count = 8);
 
 		///
 		/// Queue a task for the thread pool to execute.
 		///
 		/// \param task Pointer to task to queue.
 		///
-		void queue(Task* task) noexcept;
+		void queue(Task* task);
 
 		///
-		/// Set if threads are active or not.
+		/// Start all threads.
 		///
-		/// \param isActive True if threads are active to work on tasks.
-		///
-		void setActive(const bool isActive) noexcept;
+		void start() noexcept;
 
 		///
-		/// Cleanup threads used by threadpool.
+		/// Finish all threads.
 		///
-		void destroy() noexcept;
+		void end();
 
 	private:
 		///
@@ -90,7 +91,7 @@ namespace pr
 		///
 		/// Maximum threads avaliable for pool.
 		///
-		std::size_t m_maxThreadCount;
+		std::size_t m_maxThreads;
 
 		///
 		/// Keeps track if threadpool has been destroyed.
@@ -108,9 +109,9 @@ namespace pr
 		std::queue<pr::Task*> m_tasks;
 
 		///
-		/// Condition variable for synchronization.
+		/// Controls thread synchronization.
 		///
-		std::condition_variable m_cv;
+		std::binary_semaphore m_sync;
 
 		///
 		/// Mutex to protect queue.
@@ -120,7 +121,7 @@ namespace pr
 		///
 		/// Control thread activity.
 		///
-		pr::ProtectedBool m_isActive;
+		pr::ProtectedBool m_running;
 	};
 } // namespace pr
 

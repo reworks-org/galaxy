@@ -7,6 +7,7 @@
 
 #include "Task.hpp"
 
+#include <atomic_wait>
 #include <chrono>
 #include <thread>
 
@@ -16,36 +17,33 @@
 namespace pr
 {
 	Task::Task() noexcept
+	    : m_done(false)
 	{
-		m_isFinished.set(false);
 	}
 
 	Task::~Task() noexcept
 	{
-		m_isFinished.set(true);
+		m_done = true;
 	}
 
-	void Task::set(FunctionCallback&& function) noexcept
+	void Task::set(FunctionCallback&& func) noexcept
 	{
-		m_task = std::move(function);
+		m_task = std::move(func);
 	}
 
-	void Task::exec(pr::ProtectedBool* isPoolDone) noexcept
+	void Task::exec() noexcept
 	{
-		m_task(isPoolDone);
-		m_isFinished.set(true);
+		m_task();
+		m_done = true;
 	}
 
-	void Task::wait() noexcept
+	void Task::waitUntilDone()
 	{
-		while (!m_isFinished.get())
-		{
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-		}
+		std::atomic_wait(&m_done, false);
 	}
 
-	const bool Task::isFinished() noexcept
+	const bool Task::done() noexcept
 	{
-		return m_isFinished.get();
+		return m_done;
 	}
 } // namespace pr

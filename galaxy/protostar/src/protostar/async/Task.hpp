@@ -10,8 +10,6 @@
 
 #include <functional>
 
-#include "protostar/async/ProtectedArithmetic.hpp"
-
 ///
 /// Core namespace.
 ///
@@ -20,7 +18,7 @@ namespace pr
 	///
 	/// Shorthand for task function type.
 	///
-	using FunctionCallback = std::function<void(pr::ProtectedBool*)>;
+	using FunctionCallback = std::function<void(void)>;
 
 	///
 	/// A task to run on a thread.
@@ -41,40 +39,37 @@ namespace pr
 		///
 		/// Set the task to be done.
 		///
-		/// \param function Lambda or function to call when task is executed. Is moved.
+		/// \param func Lambda or function to call when task is executed. Is moved.
 		///
-		void set(FunctionCallback&& function) noexcept;
+		void set(FunctionCallback&& func) noexcept;
 
 		///
 		/// Run the task on the thread.
 		///
-		/// \param isPoolDone Pointer to ThreadPool::m_isActive. If this is false your function should exit to
-		/// prevent deadlocks!
-		///
-		void exec(pr::ProtectedBool* isPoolDone) noexcept;
+		void exec() noexcept;
 
 		///
 		/// Blocks calling thread until this task is finished.
 		///
-		void wait() noexcept;
+		void waitUntilDone();
 
 		///
 		/// Check if the task is finished.
 		///
 		/// \return Const bool. True if finished.
 		///
-		const bool isFinished() noexcept;
+		const bool done() noexcept;
 
 	private:
+		///
+		/// Is function done?
+		///
+		std::atomic_bool m_done;
+
 		///
 		/// Stores task to be executed.
 		///
 		FunctionCallback m_task;
-
-		///
-		/// Check to make sure task is finished.
-		///
-		pr::ProtectedBool m_isFinished;
 	};
 } // namespace pr
 

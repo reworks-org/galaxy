@@ -15,106 +15,95 @@
 namespace pr
 {
 	ThreadPool::ThreadPool() noexcept
-	    : m_maxThreadCount(4), m_isDestroyed(false)
+	    : m_maxThreads(8), m_isDestroyed(true)
 	{
-		m_isActive.set(false);
+		m_running.set(false);
 	}
 
 	ThreadPool::~ThreadPool() noexcept
 	{
 		if (!m_isDestroyed)
 		{
-			destroy();
+			end();
 		}
 	}
 
-	void ThreadPool::create(const size_t count) noexcept
+	void ThreadPool::create(NotNegative auto count)
 	{
-		if ((count == 0) || (count > std::thread::hardware_concurrency()))
+		if (!(count == 0 || count > std::thread::hardware_concurrency()))
 		{
-			m_maxThreadCount = 4;
-		}
-		else
-		{
-			m_maxThreadCount = count;
+			m_maxThreads = count;
 		}
 
-		for (std::size_t it = 0; it < m_maxThreadCount; it++)
+		for (auto i = 0; i < m_maxThreads; i++)
 		{
 			// This is just storing the thread.
-			m_workers.emplace_back(std::move(std::async(std::launch::async, [&]() {
-				// This part is on the thread.
-				// This is a lambda.
+			m_workers.emplace_back([&]() {
 				Task* task = nullptr;
-				while (m_isActive.get())
+
+				while (m_running.get())
 				{
 					task = nullptr;
 
-					{
-						// Wait until notification.
-						std::unique_lock<std::mutex> l_lock(m_mutex);
-						m_cv.wait(l_lock, [&] {
-							return !m_tasks.empty() ||
-							    (m_tasks.empty() && !m_isActive.get());
-						});
+					// Wait until notification.
+					m_sync.acquire();
 
-						// Do task after notification.
-						if (!m_tasks.empty())
-						{
-							task = m_tasks.front();
-							m_tasks.pop();
-						}
+					m_mutex.lock();
+					if (!m_tasks.empty())
+					{
+						task = m_tasks.front();
+						m_tasks.pop();
 					}
+					m_mutex.unlock();
 
 					// Make sure a task was assigned.
 					if (task != nullptr)
 					{
-						task->exec(&m_isActive);
+						task->exec();
 					}
 				}
-			})));
+			});
 		}
 	}
 
-	void ThreadPool::queue(Task* task) noexcept
+	void ThreadPool::queue(Task* task)
 	{
-		{
-			std::unique_lock<std::mutex> lock(m_mutex);
-			m_tasks.emplace(task);
-		}
+		m_mutex.lock();
+		m_tasks.emplace(task);
+		m_mutex.unlock();
 
-		m_cv.notify_one();
+		m_sync.release();
 	}
 
-	void ThreadPool::setActive(const bool isActive) noexcept
+	void ThreadPool::start() noexcept
 	{
-		m_isActive.set(isActive);
+		m_running.set(true);
 	}
 
-	void ThreadPool::destroy() noexcept
+	void ThreadPool::end()
 	{
-		// Turn off threads.
-		m_isActive.set(false);
+		m_running.set(false);
 
 		// Make sure tasks is not in use, then empty queue.
 		// In case any tasks are left over.
+		m_mutex.lock();
+		while (!m_tasks.empty())
 		{
-			std::unique_lock<std::mutex> l_lock(m_mutex);
-			while (!m_tasks.empty())
-			{
-				m_tasks.pop();
-			}
+			m_tasks.pop();
 		}
+		m_mutex.unlock();
 
 		// Notify all threads that they do not need to keep waiting.
-		m_cv.notify_all();
+		m_sync.release(m_maxThreads);
 
-		for (auto& future : m_workers)
+		// Destroy all threads.
+		for (auto& worker : m_workers)
 		{
-			// Resync threads.
-			future.wait();
+			worker.request_stop();
+			worker.join();
 		}
 
+		m_workers.clear();
 		m_isDestroyed = true;
 	}
 } // namespace pr

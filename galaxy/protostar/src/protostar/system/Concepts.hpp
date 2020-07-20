@@ -43,6 +43,12 @@ namespace pr
 		{a > 0};
 	};
 
+	///
+	/// NotNegative + IsArithmetic
+	///
+	template<typename Type>
+	concept PositiveArithmetic = IsArithmetic<Type> && NotNegative<Type>;
+
 } // namespace pr
 
 #endif
