@@ -134,7 +134,7 @@
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
@@ -166,7 +166,7 @@
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
@@ -208,7 +208,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>
@@ -252,7 +252,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <StringPooling>true</StringPooling>
     </ClCompile>
     <Link>

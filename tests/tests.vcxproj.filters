@@ -15,6 +15,8 @@
     <ClCompile Include="src\protostar\graphics\ColourTest.cpp" />
     <ClCompile Include="src\protostar\graphics\RectTest.cpp" />
     <ClCompile Include="src\protostar\async\ProtectedArithmeticTest.cpp" />
+    <ClCompile Include="src\protostar\async\TaskTest.cpp" />
+    <ClCompile Include="src\protostar\async\ThreadPoolTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\math\RandomTest.cpp" />

@@ -36,7 +36,6 @@
     <ClCompile Include="src\protostar\state\State.cpp" />
     <ClCompile Include="src\protostar\state\StateMachine.cpp" />
     <ClCompile Include="src\protostar\graphics\Colour.cpp" />
-    <ClCompile Include="src\protostar\system\CPP20.cpp" />
     <ClCompile Include="src\protostar\system\Keys.cpp" />
     <ClCompile Include="src\protostar\res\ResourceCache.cpp" />
     <ClCompile Include="src\protostar\system\Time.cpp" />
@@ -60,7 +59,6 @@
     <ClInclude Include="src\protostar\state\State.hpp" />
     <ClInclude Include="src\protostar\state\StateMachine.hpp" />
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
-    <ClInclude Include="src\protostar\system\CPP20.hpp" />
     <ClInclude Include="src\protostar\system\Keys.hpp" />
     <ClInclude Include="src\protostar\res\ResourceCache.hpp" />
     <ClInclude Include="src\protostar\system\Time.hpp" />
@@ -173,7 +171,7 @@
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -206,7 +204,7 @@
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -249,7 +247,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -294,7 +292,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>

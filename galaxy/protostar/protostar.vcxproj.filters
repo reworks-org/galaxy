@@ -22,7 +22,6 @@
     <ClCompile Include="src\protostar\graphics\Colour.cpp" />
     <ClCompile Include="src\protostar\graphics\Rect.cpp" />
     <ClCompile Include="src\protostar\system\Concepts.cpp" />
-    <ClCompile Include="src\protostar\system\CPP20.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\async\ProtectedArithmetic.hpp" />
@@ -46,6 +45,5 @@
     <ClInclude Include="src\protostar\graphics\Colour.hpp" />
     <ClInclude Include="src\protostar\graphics\Rect.hpp" />
     <ClInclude Include="src\protostar\system\Concepts.hpp" />
-    <ClInclude Include="src\protostar\system\CPP20.hpp" />
   </ItemGroup>
 </Project>

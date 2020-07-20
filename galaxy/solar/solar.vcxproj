@@ -136,7 +136,7 @@
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -169,7 +169,7 @@
       <FloatingPointExceptions>true</FloatingPointExceptions>
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -212,7 +212,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -257,7 +257,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>

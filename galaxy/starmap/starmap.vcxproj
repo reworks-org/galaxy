@@ -171,7 +171,7 @@
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -204,7 +204,7 @@
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -247,7 +247,7 @@
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
@@ -292,7 +292,7 @@
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
-      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
     </ClCompile>
