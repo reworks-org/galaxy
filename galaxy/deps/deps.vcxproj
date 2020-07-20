@@ -69,6 +69,7 @@
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2ThreadPool.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Rope\b2Rope.cpp" />
     <ClCompile Include="..\..\dependencies\C++20\include\source.cpp" />
+    <ClCompile Include="..\..\dependencies\C++20\include\tz.cpp" />
     <ClCompile Include="..\..\dependencies\glad\glad\glad.c" />
     <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-death-test.cc" />
     <ClCompile Include="..\..\dependencies\googletest\googletest\src\gtest-filepath.cc" />

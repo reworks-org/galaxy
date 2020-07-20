@@ -5,13 +5,15 @@ ALL: MERGE SAME CLASS CATEGORIES I.E. PRIVATE METHODS AND PRIVATE VARS TO JUST P
 ALL: CODE FORMATTING
 
 PROTOSTAR:
-- RECTPACK ALGORITHM
-- THREADPOOL COROUTINES
+- Rectpack algorithm using ranges
+- ThreadPool using coroutines
 
 FRB:
-- Audio Streams.
+- Stream audio from disk
 
-
+PULSAR:
+- std::source_location
+- More C++17/20 features?
 
 
 
