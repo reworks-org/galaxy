@@ -76,7 +76,6 @@ namespace pr
 		///
 		[[maybe_unused]] auto operator<=>(const Colour&) const = default;
 
-	public:
 		///
 		/// Red
 		///

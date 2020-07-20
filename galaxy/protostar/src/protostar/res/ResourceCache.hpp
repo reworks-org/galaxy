@@ -8,9 +8,9 @@
 #ifndef PROTOSTAR_RESOURCECACHE_HPP_
 #define PROTOSTAR_RESOURCECACHE_HPP_
 
-#include <pulsar/Log.hpp>
-
 #include <unordered_map>
+
+#include <pulsar/Log.hpp>
 
 #include "protostar/system/Concepts.hpp"
 
@@ -100,7 +100,6 @@ namespace pr
 		///
 		ResourceCache(ResourceCache&&) noexcept = default;
 
-	protected:
 		///
 		/// Contiguous resource array.
 		///

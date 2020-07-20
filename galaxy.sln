@@ -27,6 +27,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protostar", "galaxy\protost
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pulsar", "galaxy\pulsar\pulsar.vcxproj", "{F300952E-0D01-4A04-887D-BD2C63130384}"
+	ProjectSection(ProjectDependencies) = postProject
+		{88A54A44-3166-44C5-8C47-6AB70DA30D7A} = {88A54A44-3166-44C5-8C47-6AB70DA30D7A}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quasar", "galaxy\quasar\quasar.vcxproj", "{CE3E74C5-2C0F-4063-8983-7468E868D286}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -63,9 +66,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{123B8232-E
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deps", "galaxy\deps\deps.vcxproj", "{88A54A44-3166-44C5-8C47-6AB70DA30D7A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F300952E-0D01-4A04-887D-BD2C63130384} = {F300952E-0D01-4A04-887D-BD2C63130384}
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{99DBD486-71AE-456E-A1EF-2E4B5093BB10}"
 EndProject

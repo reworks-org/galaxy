@@ -16,7 +16,6 @@
 
 #include "protostar/async/ProtectedArithmetic.hpp"
 #include "protostar/async/Task.hpp"
-#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
@@ -47,7 +46,7 @@ namespace pr
 		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
 		///				I.e. too big or less than 0.
 		///
-		void create(NotNegative auto count = 8);
+		void create(NotNegative auto count);
 
 		///
 		/// Queue a task for the thread pool to execute.
@@ -87,7 +86,6 @@ namespace pr
 		///
 		ThreadPool& operator=(const ThreadPool&) = delete;
 
-	private:
 		///
 		/// Maximum threads avaliable for pool.
 		///

@@ -81,7 +81,6 @@ namespace pr
 		///
 		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
 
-	private:
 		///
 		/// Mutex protecting the variable.
 		///

@@ -79,20 +79,6 @@ namespace pr
 		///
 		auto operator<=>(const Rect&) const = default;
 
-	private:
-		///
-		/// Private function to determine if value is in range. Inclusive.
-		/// Credits: https://stackoverflow.com/a/306379
-		///
-		/// \param value Value to check if in the min-max range.
-		/// \param min Lower range.
-		/// \param max Upper range.
-		///
-		/// \return True if value is inbetween min and max. Inclusive.
-		///
-		[[nodiscard]] bool valueInRange(const Type value, const Type min, const Type max) noexcept;
-
-	public:
 		///
 		/// X position.
 		///
@@ -112,6 +98,19 @@ namespace pr
 		/// Height of rectangle.
 		///
 		Type m_height;
+
+	private:
+		///
+		/// Private function to determine if value is in range. Inclusive.
+		/// Credits: https://stackoverflow.com/a/306379
+		///
+		/// \param value Value to check if in the min-max range.
+		/// \param min Lower range.
+		/// \param max Upper range.
+		///
+		/// \return True if value is inbetween min and max. Inclusive.
+		///
+		[[nodiscard]] bool valueInRange(const Type value, const Type min, const Type max) noexcept;
 	};
 
 	template<IsArithmetic Type>
