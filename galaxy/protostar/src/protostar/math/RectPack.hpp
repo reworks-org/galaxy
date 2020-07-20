@@ -166,7 +166,7 @@ namespace pr
 			}
 		}
 
-		return result;
+		return std::move(result);
 	}
 
 	template<PositiveArithmetic Type>
