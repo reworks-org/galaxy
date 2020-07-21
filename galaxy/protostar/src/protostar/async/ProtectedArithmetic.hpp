@@ -55,11 +55,6 @@ namespace pr
 		///
 		[[nodiscard]] const Type get() noexcept;
 
-		///
-		/// Spaceship operator.
-		///
-		[[maybe_unused]] auto operator<=>(const ProtectedAirthmetic&) const = default;
-
 	private:
 		///
 		/// Deleted move constructor.
@@ -82,14 +77,14 @@ namespace pr
 		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
 
 		///
-		/// Mutex protecting the variable.
-		///
-		std::mutex m_mutex;
-
-		///
 		/// The variable.
 		///
 		Type m_var;
+
+		///
+		/// Mutex protecting the variable.
+		///
+		std::mutex m_mutex;
 	};
 
 	template<IsArithmetic Type>

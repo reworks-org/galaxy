@@ -74,7 +74,7 @@ namespace pr
 		///
 		/// Spaceship operator.
 		///
-		[[maybe_unused]] auto operator<=>(const Colour&) const = default;
+		auto operator<=>(const Colour&) const = default;
 
 		///
 		/// Red
