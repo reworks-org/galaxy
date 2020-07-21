@@ -103,6 +103,11 @@ namespace pl
 				{
 					// Create log message string.
 					m_curMessage = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().processColour(level), Log::get().processLevel(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), message);
+
+					if (level == PL_FATAL)
+					{
+						throw std::runtime_error(m_curMessage);
+					}
 				}
 			}
 		}
