@@ -9,6 +9,7 @@
 
 #include <algorithm>
 #include <ctime>
+#include <string>
 
 ///
 /// Core namespace.
@@ -23,7 +24,7 @@ namespace pr
 		    .count();
 	}
 
-	std::string&& getCurrentDateTime()
+	decltype(auto) getCurrentDateTime()
 	{
 		// Get current time using chrono.
 		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -35,7 +36,7 @@ namespace pr
 		return std::move(temp);
 	}
 
-	std::string&& getShortTime()
+	decltype(auto) getShortTime()
 	{
 		// Get current time using chrono.
 		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
@@ -61,7 +62,7 @@ namespace pr
 		return std::move(temp);
 	}
 
-	std::string&& getFormattedTime()
+	decltype(auto) getFormattedTime()
 	{
 		// Get current time using chrono.
 		const std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());

@@ -68,6 +68,8 @@
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2Task.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\MT\b2ThreadPool.cpp" />
     <ClCompile Include="..\..\dependencies\Box2D-MT\Box2D\Rope\b2Rope.cpp" />
+    <ClCompile Include="..\..\dependencies\C++20\include\format.cc" />
+    <ClCompile Include="..\..\dependencies\C++20\include\os.cc" />
     <ClCompile Include="..\..\dependencies\C++20\include\source.cpp" />
     <ClCompile Include="..\..\dependencies\C++20\include\tz.cpp" />
     <ClCompile Include="..\..\dependencies\glad\glad\glad.c" />

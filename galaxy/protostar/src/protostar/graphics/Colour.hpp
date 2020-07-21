@@ -60,7 +60,7 @@ namespace pr
 		/// \return Moveable fixed size std::array of Type.
 		///
 		template<IsArithmetic Type>
-		[[nodiscard]] std::array<Type, 4>&& getAs();
+		[[nodiscard]] decltype(auto) getAs();
 
 		///
 		/// \brief Normalizes values and returns as floats.
@@ -69,7 +69,7 @@ namespace pr
 		///
 		/// \return Move invoked fixed size std::array of floats.
 		///
-		[[nodiscard]] std::array<float, 4>&& getNormalized();
+		[[nodiscard]] decltype(auto) getNormalized() noexcept;
 
 		///
 		/// Spaceship operator.
@@ -98,7 +98,7 @@ namespace pr
 	};
 
 	template<IsArithmetic Type>
-	inline std::array<Type, 4>&& Colour::getAs()
+	inline decltype(auto) Colour::getAs()
 	{
 		std::array<Type, 4> arr = {static_cast<Type>(m_red),
 					   static_cast<Type>(m_green),

@@ -27,7 +27,7 @@ namespace pr
 	{
 	}
 
-	std::array<float, 4>&& Colour::getNormalized()
+	decltype(auto) Colour::getNormalized() noexcept
 	{
 		std::array<float, 4> arr = {0.0f, 0.0f, 0.0f, 0.0f};
 

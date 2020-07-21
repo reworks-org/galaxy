@@ -15,6 +15,7 @@
 #include <thread>
 
 #include <date/tz.h>
+#include <fmt/format.h>
 
 using namespace std::chrono_literals;
 
@@ -101,7 +102,7 @@ namespace pl
 				if (m_curMessage == "")
 				{
 					// Create log message string.
-					m_curMessage = Log::get().processColour(level) + "[" + Log::get().processLevel(level) + "] - " + date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())) + " - " + message + "\n";
+					m_curMessage = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().processColour(level), Log::get().processLevel(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), message);
 				}
 			}
 		}

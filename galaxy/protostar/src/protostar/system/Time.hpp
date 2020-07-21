@@ -9,7 +9,6 @@
 #define PROTOSTAR_TIME_HPP_
 
 #include <chrono>
-#include <string>
 
 #include "protostar/system/Concepts.hpp"
 
@@ -112,7 +111,7 @@ namespace pr
 	///
 	/// \return Returns const std::string of the current DateTime.
 	///
-	[[nodiscard]] std::string&& getCurrentDateTime();
+	[[nodiscard]] decltype(auto) getCurrentDateTime();
 
 	///
 	/// \brief Get the current time.
@@ -121,14 +120,14 @@ namespace pr
 	///
 	/// \return Returns std::string shortened Time.
 	///
-	[[nodiscard]] std::string&& getShortTime();
+	[[nodiscard]] decltype(auto) getShortTime();
 
 	///
 	/// Get a formatted time that contains no special characters.
 	///
 	/// \return Returns std::string formatted Time.
 	///
-	[[nodiscard]] std::string&& getFormattedTime();
+	[[nodiscard]] decltype(auto) getFormattedTime();
 } // namespace pr
 
 #endif
