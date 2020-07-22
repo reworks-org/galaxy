@@ -56,3 +56,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://skypjack.github.io/2019-09-25-ecs-baf-part-5/.
 * https://www.computist.xyz/2018/06/sparse-sets.html.
 * https://www.geeksforgeeks.org/sparse-set/.
+* https://indiegamedev.net/2020/02/25/the-complete-guide-to-openal-with-c-part-2-streaming-audio/

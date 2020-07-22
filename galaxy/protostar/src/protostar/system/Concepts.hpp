@@ -38,9 +38,9 @@ namespace pr
 	/// Ensures concept is not negative.
 	///
 	template<typename type>
-	concept not_negative = requires(type a)
+	concept not_negative = requires(type val)
 	{
-		{a > 0};
+		{val > 0};
 	};
 
 	///
@@ -48,6 +48,15 @@ namespace pr
 	///
 	template<typename type>
 	concept not_negative_arithmetic = is_arithmetic<type>&& not_negative<type>;
+
+	///
+	/// Ensures that a pointer is not null.
+	///
+	template<typename type>
+	concept not_nullptr = requires(type val)
+	{
+		{val != nullptr};
+	};
 
 } // namespace pr
 
