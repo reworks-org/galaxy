@@ -57,3 +57,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://www.computist.xyz/2018/06/sparse-sets.html.
 * https://www.geeksforgeeks.org/sparse-set/.
 * https://indiegamedev.net/2020/02/25/the-complete-guide-to-openal-with-c-part-2-streaming-audio/
+* https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
