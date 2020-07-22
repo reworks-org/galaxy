@@ -36,11 +36,13 @@ FixNamespaceComments: true
 IncludeBlocks: Regroup
 IncludeCategories:
   - Regex: '<([A-Za-z0-9\Q/-_\E])+>'
-    Priority: 1
-  - Regex: '<([A-Za-z0-9.\Q/-_\E])+>'
     Priority: 2
-  - Regex: '"([A-Za-z0-9.\Q/-_\E])+"'
+  - Regex: '<([A-Za-z0-9.\Q/-_\E])+>'
     Priority: 3
+  - Regex: '"([A-Za-z0-9.\Q/-_\E])+"'
+    Priority: 4
+  - Regex: '".*[.hpp]"'
+    Priority: 5
 IndentCaseLabels: true
 IndentGotoLabels: true
 IndentPPDirectives: AfterHash
@@ -52,7 +54,7 @@ MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
 PointerAlignment: Left
 ReflowComments: true
-SortIncludes: true
+SortIncludes: false
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
