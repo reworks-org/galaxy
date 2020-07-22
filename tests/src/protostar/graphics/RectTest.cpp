@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <protostar/graphics/Rect.hpp>
 
-TEST(Rect, Construct)
+TEST(Rect, default_construct)
 {
 	pr::Rect<int> r;
 
@@ -18,7 +18,7 @@ TEST(Rect, Construct)
 	EXPECT_EQ(r.m_height, 0);
 }
 
-TEST(Rect, ArgConstruct)
+TEST(Rect, arg_construct)
 {
 	pr::Rect<int> r(1, 2, 3, 4);
 
@@ -28,35 +28,35 @@ TEST(Rect, ArgConstruct)
 	EXPECT_EQ(r.m_height, 4);
 }
 
-TEST(Rect, ContainsPoint)
+TEST(Rect, contains_point)
 {
 	pr::Rect<int> r(0, 0, 100, 100);
 
 	EXPECT_TRUE(r.contains(10, 10));
 }
 
-TEST(Rect, NotContainsPoint)
+TEST(Rect, not_contains_point)
 {
 	pr::Rect<int> r(0, 0, 100, 100);
 
 	EXPECT_FALSE(r.contains(250, 250));
 }
 
-TEST(Rect, ContainsRect)
+TEST(Rect, contains_rect)
 {
 	pr::Rect<int> r(0, 0, 100, 100);
 
 	EXPECT_TRUE(r.contains({10, 10, 10, 10}));
 }
 
-TEST(Rect, NotContainsRect)
+TEST(Rect, not_contains_rect)
 {
 	pr::Rect<int> r(0, 0, 100, 100);
 
 	EXPECT_FALSE(r.contains({250, 250, 250, 250}));
 }
 
-TEST(Rect, Overlap)
+TEST(Rect, overlaps)
 {
 	pr::Rect<int> a(10, 10, 100, 100);
 	pr::Rect<int> b(0, 0, 200, 200);
@@ -64,7 +64,7 @@ TEST(Rect, Overlap)
 	EXPECT_TRUE(a.overlaps(b));
 }
 
-TEST(Rect, OverlapSame)
+TEST(Rect, overlap_same_sized_spaces)
 {
 	pr::Rect<int> a(10, 10, 100, 100);
 	pr::Rect<int> b(10, 10, 100, 100);
@@ -72,7 +72,7 @@ TEST(Rect, OverlapSame)
 	EXPECT_TRUE(a.overlaps(b));
 }
 
-TEST(Rect, NotOverlap)
+TEST(Rect, no_overlap)
 {
 	pr::Rect<int> a(10, 10, 100, 100);
 	pr::Rect<int> b(2, 2, 1, 1);

@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <protostar/graphics/Colour.hpp>
 
-TEST(Colour, ConstructRGB)
+TEST(Colour, construct_rgb)
 {
 	pr::Colour colour(255, 126, 132);
 
@@ -18,7 +18,7 @@ TEST(Colour, ConstructRGB)
 	EXPECT_EQ(colour.m_alpha, 255);
 }
 
-TEST(Colour, ConstructRGBA)
+TEST(Colour, construct_rgba)
 {
 	pr::Colour colour(139, 226, 232, 178);
 
@@ -28,10 +28,10 @@ TEST(Colour, ConstructRGBA)
 	EXPECT_EQ(colour.m_alpha, 178);
 }
 
-TEST(Colour, Normalize)
+TEST(Colour, get_as_normalized)
 {
 	pr::Colour colour(139, 226, 232, 178);
-	auto norm = colour.getNormalized();
+	auto norm = colour.get_normalized();
 
 	EXPECT_EQ(norm[0], static_cast<float>(colour.m_red) / static_cast<float>(0xFF));
 	EXPECT_EQ(norm[1], static_cast<float>(colour.m_green) / static_cast<float>(0xFF));
@@ -39,10 +39,10 @@ TEST(Colour, Normalize)
 	EXPECT_EQ(norm[3], static_cast<float>(colour.m_alpha) / static_cast<float>(0xFF));
 }
 
-TEST(Colour, NormalizeEdge)
+TEST(Colour, normalize_bva)
 {
 	pr::Colour colour(255, 0, 255, 0);
-	auto norm = colour.getNormalized();
+	auto norm = colour.get_normalized();
 
 	EXPECT_EQ(norm[0], 1.0f);
 	EXPECT_EQ(norm[1], 0.0f);
@@ -50,10 +50,10 @@ TEST(Colour, NormalizeEdge)
 	EXPECT_EQ(norm[3], 0.0f);
 }
 
-TEST(Colour, GetAs)
+TEST(Colour, get_as)
 {
 	pr::Colour colour(255, 0, 255, 0);
-	auto res = colour.getAs<float>();
+	auto res = colour.get_as<float>();
 
 	auto val = std::is_same<decltype(res[0]), float>::value;
 	EXPECT_TRUE(val);

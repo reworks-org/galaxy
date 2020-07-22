@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <protostar/async/Task.hpp>
 
-TEST(Task, SetAndExec)
+TEST(Task, set_and_exec)
 {
 	pr::Task task;
 	int counter = 0;
@@ -19,11 +19,11 @@ TEST(Task, SetAndExec)
 
 	task.exec();
 
-	ASSERT_TRUE(task.done());
+	ASSERT_TRUE(task.is_done());
 	EXPECT_EQ(counter, 1);
 }
 
-TEST(Task, SetAndExecWait)
+TEST(Task, set_exec_and_wait)
 {
 	pr::Task task;
 	int counter = 0;
@@ -33,8 +33,8 @@ TEST(Task, SetAndExecWait)
 	});
 
 	task.exec();
-	task.waitUntilDone();
+	task.wait_until_done();
 
-	ASSERT_TRUE(task.done());
+	ASSERT_TRUE(task.is_done());
 	EXPECT_EQ(counter, 1);
 }

@@ -8,32 +8,32 @@
 #include <gtest/gtest.h>
 #include <protostar/system/Time.hpp>
 
-TEST(Time, secondsToMilliseconds)
+TEST(Time, seconds_to_milliseconds)
 {
-	constexpr auto ms = pr::secondsToMilliseconds(10);
+	constexpr auto ms = pr::seconds_to_milliseconds(10);
 	EXPECT_EQ(ms, 10000);
 }
 
-TEST(Time, secondsToMicroseconds)
+TEST(Time, seconds_to_microseconds)
 {
-	constexpr auto ns = pr::secondsToMicroseconds(1);
+	constexpr auto ns = pr::seconds_to_microseconds(1);
 	EXPECT_EQ(ns, 1000000);
 }
 
-TEST(Time, millisecondsToSeconds)
+TEST(Time, milliseconds_to_seconds)
 {
-	constexpr auto s = pr::millisecondsToSeconds(1000);
+	constexpr auto s = pr::milliseconds_to_seconds(1000);
 	EXPECT_EQ(s, 1);
 }
 
-TEST(Time, microsecondsToSeconds)
+TEST(Time, microseconds_to_seconds)
 {
-	constexpr auto s = pr::microsecondsToSeconds(1000000);
+	constexpr auto s = pr::microseconds_to_seconds(1000000);
 	EXPECT_EQ(s, 1);
 }
 
-TEST(Time, microsecondsToMilliseconds)
+TEST(Time, microseconds_to_milliseconds)
 {
-	constexpr auto ms = pr::microsecondsToMilliseconds(1000000);
+	constexpr auto ms = pr::microseconds_to_milliseconds(1000000);
 	EXPECT_EQ(ms, 1000);
 }

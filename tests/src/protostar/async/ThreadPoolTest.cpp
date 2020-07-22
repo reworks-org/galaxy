@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <protostar/async/ThreadPool.hpp>
 
-TEST(ThreadPool, Complete)
+TEST(ThreadPool, full_test)
 {
 	std::atomic<int> count = 0;
 	pr::ThreadPool pool;
@@ -21,7 +21,7 @@ TEST(ThreadPool, Complete)
 	pool.queue(&task);
 	pool.start();
 
-	task.waitUntilDone();
+	task.wait_until_done();
 
 	pool.end();
 

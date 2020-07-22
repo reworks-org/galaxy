@@ -8,16 +8,16 @@
 #include <gtest/gtest.h>
 #include <protostar/math/RectPack.hpp>
 
-TEST(RectPack, Init)
+TEST(RectPack, init)
 {
 	pr::RectPack<int> p;
 	p.init(100, 100);
 
-	EXPECT_EQ(p.getWidth(), 100);
-	EXPECT_EQ(p.getHeight(), 100);
+	EXPECT_EQ(p.get_width(), 100);
+	EXPECT_EQ(p.get_height(), 100);
 }
 
-TEST(RectPack, CantFit)
+TEST(RectPack, cant_fit)
 {
 	pr::RectPack<int> p;
 	p.init(100, 100);
@@ -27,7 +27,7 @@ TEST(RectPack, CantFit)
 	EXPECT_EQ(res, std::nullopt);
 }
 
-TEST(RectPack, FillsWidthHeight)
+TEST(RectPack, fills_width_height)
 {
 	pr::RectPack<int> p;
 	p.init(100, 100);
@@ -37,57 +37,57 @@ TEST(RectPack, FillsWidthHeight)
 
 	EXPECT_EQ(res->m_width, 100);
 	EXPECT_EQ(res->m_height, 100);
-	EXPECT_EQ(p.getRects().size(), 0);
+	EXPECT_EQ(p.get_free_space().size(), 0);
 }
 
-TEST(RectPack, FillsWidth)
+TEST(RectPack, fills_width)
 {
 	pr::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(100, 10);
 
 	ASSERT_TRUE(res != std::nullopt);
-	ASSERT_EQ(p.getRects().size(), 1);
+	ASSERT_EQ(p.get_free_space().size(), 1);
 
 	EXPECT_EQ(res->m_width, 100);
 	EXPECT_EQ(res->m_height, 10);
 
-	auto space = p.getRects()[0];
+	auto space = p.get_free_space()[0];
 	EXPECT_EQ(space.m_y, 100 + res->m_height);
 	EXPECT_EQ(space.m_height, 100 - res->m_height);
 }
 
-TEST(RectPack, FillsHeight)
+TEST(RectPack, fills_height)
 {
 	pr::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(10, 100);
 
 	ASSERT_TRUE(res != std::nullopt);
-	ASSERT_EQ(p.getRects().size(), 1);
+	ASSERT_EQ(p.get_free_space().size(), 1);
 
 	EXPECT_EQ(res->m_width, 10);
 	EXPECT_EQ(res->m_height, 100);
 
-	auto space = p.getRects()[0];
+	auto space = p.get_free_space()[0];
 	EXPECT_EQ(space.m_x, 100 + res->m_width);
 	EXPECT_EQ(space.m_width, 100 - res->m_width);
 }
 
-TEST(RectPack, Fits)
+TEST(RectPack, fits)
 {
 	pr::RectPack<int> p;
 	p.init(100, 100);
 	auto res = p.pack(10, 10);
 
 	ASSERT_TRUE(res != std::nullopt);
-	ASSERT_EQ(p.getRects().size(), 2);
+	ASSERT_EQ(p.get_free_space().size(), 2);
 
 	EXPECT_EQ(res->m_width, 10);
 	EXPECT_EQ(res->m_height, 10);
 
-	auto spaceA = p.getRects()[0];
-	auto spaceB = p.getRects()[1];
+	auto spaceA = p.get_free_space()[0];
+	auto spaceB = p.get_free_space()[1];
 
 	EXPECT_EQ(spaceA.m_y, 100 + res->m_height);
 	EXPECT_EQ(spaceA.m_height, 100 - res->m_height);

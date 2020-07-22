@@ -2,10 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\solar\Config.cpp" />
-    <ClCompile Include="src\solar\sets\EntitySet.cpp" />
-    <ClCompile Include="src\solar\sets\ComponentSet.cpp" />
-    <ClCompile Include="src\solar\entity\ManagerTest.cpp" />
     <ClCompile Include="src\protostar\system\UniqueIDTest.cpp" />
     <ClCompile Include="src\protostar\system\TimeTest.cpp" />
     <ClCompile Include="src\protostar\state\StateMachineTest.cpp" />

@@ -19,33 +19,38 @@ public:
 	inline ~Demo() noexcept override
 	{
 	}
-	inline void onPush() override
+
+	inline void on_push() override
 	{
 	}
-	inline void onPop() override
+
+	inline void on_pop() override
 	{
 	}
+
 	inline void events() override
 	{
 	}
+
 	inline void update(pr::ProtectedDouble* dt) override
 	{
 	}
+
 	inline void render() override
 	{
 	}
 };
 
-TEST(State, Name)
+TEST(State, get_name)
 {
 	Demo demo;
-	EXPECT_EQ(demo.getName(), "Demo");
+	EXPECT_EQ(demo.get_name(), "Demo");
 }
 
-TEST(State, SetName)
+TEST(State, set_name)
 {
 	Demo demo;
 	demo.set_name("testing 1 2 3");
 
-	EXPECT_EQ(demo.getName(), "testing 1 2 3");
+	EXPECT_EQ(demo.get_name(), "testing 1 2 3");
 }

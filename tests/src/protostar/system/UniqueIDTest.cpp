@@ -13,11 +13,12 @@ using TestUID = pr::UniqueID<struct TestSpec_>;
 class TestA
 {
 };
+
 class TestB
 {
 };
 
-TEST(UniqueID, Get)
+TEST(UniqueID, get)
 {
 	const auto a = TestUID::get<TestA>();
 	const auto b = TestUID::get<TestB>();

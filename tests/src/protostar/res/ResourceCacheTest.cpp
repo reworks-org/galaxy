@@ -36,7 +36,7 @@ struct Cache : public pr::ResourceCache<DemoRes>
 	}
 };
 
-TEST(ResourceCache, Create)
+TEST(ResourceCache, create)
 {
 	Cache c;
 
@@ -49,7 +49,7 @@ TEST(ResourceCache, Create)
 	EXPECT_EQ(res->m_val, 2);
 }
 
-TEST(ResourceCache, Move)
+TEST(ResourceCache, move)
 {
 	Cache c;
 	DemoRes dr(5);
@@ -60,7 +60,7 @@ TEST(ResourceCache, Move)
 	EXPECT_EQ(res->m_val, 5);
 }
 
-TEST(ResourceCache, GetCreate)
+TEST(ResourceCache, create_get)
 {
 	Cache c;
 
@@ -71,7 +71,7 @@ TEST(ResourceCache, GetCreate)
 	EXPECT_EQ(res->m_val, 10);
 }
 
-TEST(ResourceCache, GetMove)
+TEST(ResourceCache, move_get)
 {
 	Cache c;
 	DemoRes dr(7);
@@ -83,7 +83,7 @@ TEST(ResourceCache, GetMove)
 	EXPECT_EQ(res->m_val, 7);
 }
 
-TEST(ResourceCache, EmptyGet)
+TEST(ResourceCache, empty_get)
 {
 	Cache c;
 

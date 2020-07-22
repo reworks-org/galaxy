@@ -19,12 +19,14 @@ public:
 	inline ~Demo() noexcept override
 	{
 	}
-	inline void onPush() override
+	inline void on_push() override
 	{
 	}
-	inline void onPop() override
+
+	inline void on_pop() override
 	{
 	}
+
 	inline void events() override
 	{
 		m_val++;
@@ -60,12 +62,15 @@ public:
 	inline ~Demo2() noexcept override
 	{
 	}
-	inline void onPush() override
+
+	inline void on_push() override
 	{
 	}
-	inline void onPop() override
+
+	inline void on_pop() override
 	{
 	}
+
 	inline void events() override
 	{
 	}
@@ -87,16 +92,16 @@ private:
 	int m_val;
 };
 
-TEST(StateMachine, Create)
+TEST(StateMachine, create)
 {
 	pr::StateMachine sm;
 	auto* state = sm.create<Demo>("Demo", 1);
 
 	EXPECT_EQ(state->get(), 1);
-	EXPECT_EQ(state->getName(), "Demo");
+	EXPECT_EQ(state->get_name(), "Demo");
 }
 
-TEST(StateMachine, PushAndTop)
+TEST(StateMachine, push_and_top)
 {
 	pr::StateMachine sm;
 	sm.create<Demo>("Demo", 1);
@@ -106,10 +111,10 @@ TEST(StateMachine, PushAndTop)
 
 	ASSERT_TRUE(top != nullptr);
 	EXPECT_EQ(top->get(), 1);
-	EXPECT_EQ(top->getName(), "Demo");
+	EXPECT_EQ(top->get_name(), "Demo");
 }
 
-TEST(StateMachine, EmptyTop)
+TEST(StateMachine, empty_top)
 {
 	pr::StateMachine sm;
 
@@ -117,7 +122,7 @@ TEST(StateMachine, EmptyTop)
 	EXPECT_EQ(top, nullptr);
 }
 
-TEST(StateMachine, Events)
+TEST(StateMachine, events)
 {
 	pr::StateMachine sm;
 	sm.create<Demo>("Demo", 1);
@@ -130,7 +135,7 @@ TEST(StateMachine, Events)
 	EXPECT_EQ(top->get(), 2);
 }
 
-TEST(StateMachine, Updates)
+TEST(StateMachine, updates)
 {
 	pr::StateMachine sm;
 	sm.create<Demo>("Demo", 1);
@@ -146,7 +151,7 @@ TEST(StateMachine, Updates)
 	EXPECT_EQ(top->get(), 3);
 }
 
-TEST(StateMachine, Render)
+TEST(StateMachine, render)
 {
 	pr::StateMachine sm;
 	sm.create<Demo>("Demo", 1);
@@ -165,7 +170,7 @@ TEST(StateMachine, Render)
 	EXPECT_EQ(top->get(), 4);
 }
 
-TEST(StateMachine, Pop)
+TEST(StateMachine, pop)
 {
 	pr::StateMachine sm;
 	sm.create<Demo>("Demo", 1);
@@ -187,7 +192,7 @@ TEST(StateMachine, Pop)
 	EXPECT_EQ(top->get(), 1);
 }
 
-TEST(StateMachine, Clear)
+TEST(StateMachine, clear)
 {
 	pr::StateMachine sm;
 	sm.create<Demo>("Demo", 1);

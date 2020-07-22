@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 #include <protostar/math/Random.hpp>
 
-TEST(Random, Gen)
+TEST(Random, generate)
 {
 	constexpr int a = 0;
 	constexpr int b = 10;
