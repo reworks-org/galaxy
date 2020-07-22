@@ -9,23 +9,23 @@
 
 namespace pr
 {
-	void State::setName(std::string_view name) noexcept
+	void State::set_name(std::string_view name) noexcept
 	{
 		m_name = static_cast<std::string>(name);
 	}
 
-	const std::string& State::getName() const noexcept
+	const std::string& State::get_name() const noexcept
 	{
 		return m_name;
 	}
 
 	State::State() noexcept
-	    : m_name("null")
+	    : m_name {"default"}
 	{
 	}
 
 	State::State(std::string_view name) noexcept
-	    : m_name(static_cast<std::string>(name))
+	    : m_name {static_cast<std::string>(name)}
 	{
 	}
 

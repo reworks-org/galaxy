@@ -19,26 +19,26 @@ namespace pr
 	///
 	/// Only class concept.
 	///
-	template<typename Type>
-	concept IsClass = std::is_class<Type>::value;
+	template<typename type>
+	concept is_class = std::is_class<type>::value;
 
 	///
 	/// Concept to restrict templates to non pointers.
 	///
-	template<typename Type>
-	concept NoPointerOrRef = (!std::is_pointer<Type>::value) && (!std::is_reference<Type>::value);
+	template<typename type>
+	concept no_pointer_or_ref = (!std::is_pointer<type>::value) && (!std::is_reference<type>::value);
 
 	///
 	/// Arithmetic concept.
 	///
-	template<typename Type>
-	concept IsArithmetic = std::is_arithmetic<Type>::value;
+	template<typename type>
+	concept is_arithmetic = std::is_arithmetic<type>::value;
 
 	///
 	/// Ensures concept is not negative.
 	///
-	template<typename Type>
-	concept NotNegative = requires(Type a)
+	template<typename type>
+	concept not_negative = requires(type a)
 	{
 		{a > 0};
 	};
@@ -46,8 +46,8 @@ namespace pr
 	///
 	/// NotNegative + IsArithmetic
 	///
-	template<typename Type>
-	concept PositiveArithmetic = IsArithmetic<Type> && NotNegative<Type>;
+	template<typename type>
+	concept not_negative_arithmetic = is_arithmetic<type>&& not_negative<type>;
 
 } // namespace pr
 

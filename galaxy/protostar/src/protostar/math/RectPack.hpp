@@ -22,7 +22,7 @@ namespace pr
 	///
 	///	Rectangle 2D bin packing class.
 	///
-	template<PositiveArithmetic Type>
+	template<not_negative_arithmetic type>
 	class RectPack final
 	{
 	public:
@@ -55,24 +55,24 @@ namespace pr
 		/// \return Returns the location of the packed rectangle on the master rectangle.
 		///			Otherwise, returns a std::nullopt.
 		///
-		[[nodiscard]] std::optional<pr::Rect<Type>> pack(const int width, const int height);
+		[[nodiscard]] std::optional<pr::Rect<type>> pack(const int width, const int height);
 
 		///
 		/// Get total width.
 		///
-		[[nodiscard]] const int getWidth() const noexcept;
+		[[nodiscard]] const int get_width() const noexcept;
 
 		///
 		/// Get total height.
 		///
-		[[nodiscard]] const int getHeight() const noexcept;
+		[[nodiscard]] const int get_height() const noexcept;
 
 		///
 		/// Get free rectangles.
 		///
 		/// \return Const std::vector.
 		///
-		[[nodiscard]] const std::vector<pr::Rect<Type>>& getRects() const noexcept;
+		[[nodiscard]] const std::vector<pr::Rect<type>>& get_free_space() const noexcept;
 
 	private:
 		///
@@ -88,38 +88,38 @@ namespace pr
 		///
 		/// Free space in master rectangle.
 		///
-		std::vector<pr::Rect<Type>> m_freeRects;
+		std::vector<pr::Rect<type>> m_free_rects;
 	};
 
-	template<PositiveArithmetic Type>
-	RectPack<Type>::RectPack() noexcept
-	    : m_width(0), m_height(0)
+	template<not_negative_arithmetic type>
+	inline RectPack<type>::RectPack() noexcept
+	    : m_width {0}, m_height {0}
 	{
 	}
 
-	template<PositiveArithmetic Type>
-	RectPack<Type>::~RectPack() noexcept
+	template<not_negative_arithmetic type>
+	inline RectPack<type>::~RectPack() noexcept
 	{
-		m_freeRects.clear();
+		m_free_rects.clear();
 	}
 
-	template<PositiveArithmetic Type>
-	inline void RectPack<Type>::init(const int width, const int height) noexcept
+	template<not_negative_arithmetic type>
+	inline void RectPack<type>::init(const int width, const int height) noexcept
 	{
 		m_width  = width;
 		m_height = height;
 
-		m_freeRects.emplace_back(0, 0, m_width, m_height);
+		m_free_rects.emplace_back(0, 0, m_width, m_height);
 	}
 
-	template<PositiveArithmetic Type>
-	inline std::optional<pr::Rect<Type>> RectPack<Type>::pack(const int width, const int height)
+	template<not_negative_arithmetic type>
+	inline std::optional<pr::Rect<type>> RectPack<type>::pack(const int width, const int height)
 	{
 		// Result.
-		std::optional<pr::Rect<Type>> result = std::nullopt;
+		std::optional<pr::Rect<type>> result = std::nullopt;
 
 		// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
-		for (auto rit = m_freeRects.rbegin(); rit != m_freeRects.rend(); /* ++rit*/)
+		for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend(); /* ++rit*/)
 		{
 			auto& space = *rit;
 
@@ -127,14 +127,14 @@ namespace pr
 			if (width <= space.m_width && height <= space.m_height)
 			{
 				// Make the packed area rectangle.
-				result = std::make_optional<pr::Rect<Type>>(space.m_x, space.m_y, width, height);
+				result = std::make_optional<pr::Rect<type>>(space.m_x, space.m_y, width, height);
 
 				// Check to see if shape fills completely.
 				if (width == space.m_width && height == space.m_height)
 				{
 					// Destroy since not free space anymore.
 					std::advance(rit, 1);
-					m_freeRects.erase(rit.base());
+					m_free_rects.erase(rit.base());
 				}
 				else if (width == space.m_width)
 				{
@@ -151,7 +151,7 @@ namespace pr
 				else
 				{
 					// Otherwise, split up existing space.
-					m_freeRects.emplace_back(space.m_x + width, space.m_y, space.m_width - width, height);
+					m_free_rects.emplace_back(space.m_x + width, space.m_y, space.m_width - width, height);
 					space.m_y += height;
 					space.m_height -= height;
 				}
@@ -166,26 +166,27 @@ namespace pr
 			}
 		}
 
-		return std::move(result);
+		return result;
 	}
 
-	template<PositiveArithmetic Type>
-	inline const int RectPack<Type>::getWidth() const noexcept
+	template<not_negative_arithmetic type>
+	inline const int RectPack<type>::get_width() const noexcept
 	{
 		return m_width;
 	}
 
-	template<PositiveArithmetic Type>
-	inline const int RectPack<Type>::getHeight() const noexcept
+	template<not_negative_arithmetic type>
+	inline const int RectPack<type>::get_height() const noexcept
 	{
 		return m_height;
 	}
 
-	template<PositiveArithmetic Type>
-	inline const std::vector<pr::Rect<Type>>& RectPack<Type>::getRects() const noexcept
+	template<not_negative_arithmetic type>
+	inline const std::vector<pr::Rect<type>>& RectPack<type>::get_free_space() const noexcept
 	{
-		return m_freeRects;
+		return m_free_rects;
 	}
+
 } // namespace pr
 
 #endif

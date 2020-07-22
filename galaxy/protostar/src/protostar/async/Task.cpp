@@ -5,11 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Task.hpp"
-
 #include <atomic_wait>
-#include <chrono>
-#include <thread>
+
+#include "Task.hpp"
 
 ///
 /// Core namespace.
@@ -17,7 +15,7 @@
 namespace pr
 {
 	Task::Task() noexcept
-	    : m_done(false)
+	    : m_done {false}
 	{
 	}
 
@@ -26,7 +24,7 @@ namespace pr
 		m_done = true;
 	}
 
-	void Task::set(FunctionCallback&& func) noexcept
+	void Task::set(function_callback&& func) noexcept
 	{
 		m_task = std::move(func);
 	}
@@ -37,12 +35,12 @@ namespace pr
 		m_done = true;
 	}
 
-	void Task::waitUntilDone()
+	void Task::wait_until_done()
 	{
 		std::atomic_wait(&m_done, false);
 	}
 
-	const bool Task::done() noexcept
+	const bool Task::is_done() noexcept
 	{
 		return m_done;
 	}

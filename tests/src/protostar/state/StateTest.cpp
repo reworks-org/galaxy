@@ -45,7 +45,7 @@ TEST(State, Name)
 TEST(State, SetName)
 {
 	Demo demo;
-	demo.setName("testing 1 2 3");
+	demo.set_name("testing 1 2 3");
 
 	EXPECT_EQ(demo.getName(), "testing 1 2 3");
 }

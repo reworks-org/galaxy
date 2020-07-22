@@ -46,7 +46,7 @@ namespace pr
 		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
 		///				I.e. too big or less than 0.
 		///
-		void create(NotNegative auto count);
+		void create(not_negative auto count);
 
 		///
 		/// Queue a task for the thread pool to execute.
@@ -89,12 +89,12 @@ namespace pr
 		///
 		/// Maximum threads avaliable for pool.
 		///
-		std::size_t m_maxThreads;
+		std::size_t m_max_threads;
 
 		///
 		/// Keeps track if threadpool has been destroyed.
 		///
-		bool m_isDestroyed;
+		bool m_is_destroyed;
 
 		///
 		/// Worker threads to do a task on.

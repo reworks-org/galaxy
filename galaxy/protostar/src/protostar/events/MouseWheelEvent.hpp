@@ -39,12 +39,12 @@ namespace pr
 		///
 		/// X offset of scroll.
 		///
-		double m_xOffset;
+		double m_x_offset;
 
 		///
 		/// Y offset of scroll.
 		///
-		double m_yOffset;
+		double m_y_offset;
 	};
 } // namespace pr
 

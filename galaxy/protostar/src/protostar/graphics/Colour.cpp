@@ -13,21 +13,21 @@
 namespace pr
 {
 	Colour::Colour() noexcept
-	    : m_red(255), m_green(255), m_blue(255), m_alpha(255)
+	    : m_red {255}, m_green {255}, m_blue {255}, m_alpha {255}
 	{
 	}
 
 	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b) noexcept
-	    : m_red(r), m_green(g), m_blue(b), m_alpha(255)
+	    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {255}
 	{
 	}
 
 	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept
-	    : m_red(r), m_green(g), m_blue(b), m_alpha(a)
+	    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {a}
 	{
 	}
 
-	decltype(auto) Colour::getNormalized() noexcept
+	std::array<float, 4> Colour::get_normalized() noexcept
 	{
 		std::array<float, 4> arr = {0.0f, 0.0f, 0.0f, 0.0f};
 
@@ -84,6 +84,6 @@ namespace pr
 			arr[3] = static_cast<float>(m_alpha) / static_cast<float>(0xFF);
 		}
 
-		return std::move(arr);
+		return arr;
 	}
 } // namespace pr

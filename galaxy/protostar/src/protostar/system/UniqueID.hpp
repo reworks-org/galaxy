@@ -21,7 +21,7 @@ namespace pr
 	/// Generates a unique id for a type for each type of specialization.
 	/// And the id is kept as a compile time constant.
 	///
-	template<IsClass Specialization>
+	template<is_class specialization>
 	class UniqueID final
 	{
 	public:
@@ -36,7 +36,7 @@ namespace pr
 		///
 		/// \return Unique ID for the specialization of that type.
 		///
-		template<typename Type>
+		template<typename type>
 		[[nodiscard]] static const std::size_t get() noexcept;
 
 	private:
@@ -51,9 +51,9 @@ namespace pr
 		static inline std::size_t s_counter = 0;
 	};
 
-	template<IsClass Specialization>
-	template<typename Type>
-	[[nodiscard]] inline const std::size_t UniqueID<Specialization>::get() noexcept
+	template<is_class specialization>
+	template<typename type>
+	[[nodiscard]] inline const std::size_t UniqueID<specialization>::get() noexcept
 	{
 		static std::size_t id = s_counter++;
 		return id;

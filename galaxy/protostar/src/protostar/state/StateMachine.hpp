@@ -8,12 +8,12 @@
 #ifndef PROTOSTAR_STATEMACHINE_HPP_
 #define PROTOSTAR_STATEMACHINE_HPP_
 
-#include <pulsar/Log.hpp>
-
 #include <memory>
 #include <stack>
 #include <unordered_map>
 #include <utility>
+
+#include <pulsar/Log.hpp>
 
 #include "protostar/state/State.hpp"
 
@@ -25,8 +25,8 @@ namespace pr
 	///
 	/// Concept to ensure type is derived from state.
 	///
-	template<typename Derived>
-	concept IsState = std::is_base_of<pr::State, Derived>::value;
+	template<typename derived>
+	concept is_state = std::is_base_of<pr::State, derived>::value;
 
 	///
 	/// A state machine to be used with game states or animations, etc.
@@ -72,8 +72,8 @@ namespace pr
 		///
 		/// \return Returns pointer to newly created state.
 		///
-		template<IsState State, typename... Args>
-		[[maybe_unused]] State* create(std::string_view name, Args&&... args);
+		template<is_state state, typename... _args>
+		[[maybe_unused]] state* create(std::string_view name, _args&&... args);
 
 		///
 		/// Push a new state to the top of the stack.
@@ -92,8 +92,8 @@ namespace pr
 		///
 		/// \return Returns pointer to topmost state.
 		///
-		template<typename State>
-		[[nodiscard]] State* top() noexcept;
+		template<typename state>
+		[[nodiscard]] state* top() noexcept;
 
 		///
 		/// Clear stack.
@@ -112,10 +112,10 @@ namespace pr
 		std::unordered_map<std::string, std::unique_ptr<pr::State>> m_states;
 	};
 
-	template<IsState State, typename... Args>
-	inline State* StateMachine::create(std::string_view name, Args&&... args)
+	template<is_state state, typename... _args>
+	inline state* StateMachine::create(std::string_view name, _args&&... args)
 	{
-		auto str = static_cast<std::string>(name);
+		const auto str = static_cast<std::string>(name);
 
 		// Construct in place by forwarding arguments to the object.
 		if (m_states.contains(str))
@@ -124,14 +124,14 @@ namespace pr
 		}
 		else
 		{
-			m_states[str] = std::make_unique<State>(std::forward<Args>(args)...);
+			m_states[str] = std::make_unique<state>(std::forward<_args>(args)...);
 		}
 
-		return dynamic_cast<State*>(m_states[str].get());
+		return dynamic_cast<state*>(m_states[str].get());
 	}
 
-	template<typename State>
-	inline State* StateMachine::top() noexcept
+	template<typename state>
+	inline state* StateMachine::top() noexcept
 	{
 		// Ensure stack is not empty.
 		if (!m_stack.empty())

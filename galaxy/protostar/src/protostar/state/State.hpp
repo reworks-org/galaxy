@@ -31,12 +31,12 @@ namespace pr
 		///
 		/// \brief Called when state is pushed.
 		///
-		virtual void onPush() = 0;
+		virtual void on_push() = 0;
 
 		///
 		/// \brief Called when state is popped.
 		///
-		virtual void onPop() = 0;
+		virtual void on_pop() = 0;
 
 		///
 		/// Allows for the state to process events.
@@ -60,14 +60,14 @@ namespace pr
 		///
 		/// \param name Name in std::string format.
 		///
-		virtual void setName(std::string_view name) noexcept final;
+		virtual void set_name(std::string_view name) noexcept final;
 
 		///
 		/// Get state name.
 		///
 		/// \return Const std::string.
 		///
-		virtual const std::string& getName() const noexcept final;
+		virtual const std::string& get_name() const noexcept final;
 
 	protected:
 		///

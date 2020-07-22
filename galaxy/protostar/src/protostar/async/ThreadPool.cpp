@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "ThreadPool.hpp"
-
 #include "protostar/async/Task.hpp"
+
+#include "ThreadPool.hpp"
 
 ///
 /// Core namespace.
@@ -15,27 +15,27 @@
 namespace pr
 {
 	ThreadPool::ThreadPool() noexcept
-	    : m_maxThreads(8), m_isDestroyed(true)
+	    : m_max_threads {8}, m_is_destroyed {true}
 	{
 		m_running.set(false);
 	}
 
 	ThreadPool::~ThreadPool() noexcept
 	{
-		if (!m_isDestroyed)
+		if (!m_is_destroyed)
 		{
 			end();
 		}
 	}
 
-	void ThreadPool::create(NotNegative auto count)
+	void ThreadPool::create(not_negative auto count)
 	{
 		if (!(count == 0 || count > std::thread::hardware_concurrency()))
 		{
-			m_maxThreads = count;
+			m_max_threads = count;
 		}
 
-		for (auto i = 0; i < m_maxThreads; i++)
+		for (auto i = 0; i < m_max_threads; i++)
 		{
 			// This is just storing the thread.
 			m_workers.emplace_back([&]() {
@@ -94,7 +94,7 @@ namespace pr
 		m_mutex.unlock();
 
 		// Notify all threads that they do not need to keep waiting.
-		m_sync.release(m_maxThreads);
+		m_sync.release(m_max_threads);
 
 		// Destroy all threads.
 		for (auto& worker : m_workers)
@@ -104,6 +104,6 @@ namespace pr
 		}
 
 		m_workers.clear();
-		m_isDestroyed = true;
+		m_is_destroyed = true;
 	}
 } // namespace pr

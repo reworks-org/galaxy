@@ -18,7 +18,7 @@ namespace pr
 	///
 	/// Shorthand for task function type.
 	///
-	using FunctionCallback = std::function<void(void)>;
+	using function_callback = std::function<void(void)>;
 
 	///
 	/// A task to run on a thread.
@@ -41,7 +41,7 @@ namespace pr
 		///
 		/// \param func Lambda or function to call when task is executed. Is moved.
 		///
-		void set(FunctionCallback&& func) noexcept;
+		void set(function_callback&& func) noexcept;
 
 		///
 		/// Run the task on the thread.
@@ -51,14 +51,14 @@ namespace pr
 		///
 		/// Blocks calling thread until this task is finished.
 		///
-		void waitUntilDone();
+		void wait_until_done();
 
 		///
 		/// Check if the task is finished.
 		///
 		/// \return Const bool. True if finished.
 		///
-		const bool done() noexcept;
+		const bool is_done() noexcept;
 
 	private:
 		///
@@ -69,7 +69,7 @@ namespace pr
 		///
 		/// Stores task to be executed.
 		///
-		FunctionCallback m_task;
+		function_callback m_task;
 	};
 } // namespace pr
 

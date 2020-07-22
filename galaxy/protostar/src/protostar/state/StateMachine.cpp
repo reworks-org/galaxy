@@ -63,13 +63,13 @@ namespace pr
 
 	void StateMachine::push(std::string_view state)
 	{
-		auto str = static_cast<std::string>(state);
+		const auto str = static_cast<std::string>(state);
 
 		// Ensure that the state being pushed exists.
 		if (m_states.contains(str))
 		{
 			m_stack.push(m_states[str].get());
-			m_stack.top()->onPush();
+			m_stack.top()->on_push();
 		}
 		else
 		{
@@ -82,7 +82,7 @@ namespace pr
 		// Make sure we dont pop an empty stack...
 		if (!m_stack.empty())
 		{
-			m_stack.top()->onPop();
+			m_stack.top()->on_pop();
 			m_stack.pop();
 		}
 		else
@@ -95,7 +95,7 @@ namespace pr
 	{
 		while (!m_stack.empty())
 		{
-			m_stack.top()->onPop();
+			m_stack.top()->on_pop();
 			m_stack.pop();
 		}
 	}
