@@ -1,19 +1,16 @@
 ///
-/// Source.hpp
+/// Music.hpp
 /// frb
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef FRB_SOURCE_HPP_
-#define FRB_SOURCE_HPP_
+#ifndef FRB_MUSIC_HPP_
+#define FRB_MUSIC_HPP_
 
-#include <vector>
+#include <jthread/jthread.hpp>
 
-#include "frb/buffer/Buffer.hpp"
-#include "frb/buffer/BufferStream.hpp"
-
-#include "protostar/system/Concepts.hpp"
+#include "frb/detail/Source.hpp"
 
 ///
 /// Core namespace.
@@ -21,53 +18,29 @@
 namespace frb
 {
 	///
-	/// Origin of the audio sound.
+	/// \brief Streamed audio source.
 	///
-	class Source final
+	class Music final : public BufferStream
 	{
 	public:
 		///
-		/// \brief Default constructor.
+		/// Constructor.
 		///
-		/// Generates source buffer(s).
-		///
-		Source();
+		Music();
 
 		///
-		/// \brief Default destructor.
+		/// Destructor.
 		///
-		/// Destroys source buffer(s).
-		///
-		~Source() noexcept;
+		~Music() noexcept;
 
 		///
-		/// Queue a buffer for the source to play.
+		/// Load a file to stream from disk.
 		///
-		/// \param buffer Buffer to queue.
+		/// \param file File to load from disk. Can only load ogg vorbis.
 		///
-		void queue(frb::Buffer* buffer) noexcept;
-
+		/// \return False if load failed.
 		///
-		/// Queue a streamed buffer for the source to play through.
-		///
-		/// \param stream_buffer Buffer containing streamed from disk buffers to play.
-		///
-		void queue(BufferStream* stream_buffer);
-
-		///
-		/// Queue a set of buffers for the source to play through.
-		///
-		/// \param buffers Array of buffers you want to play in a queue.
-		///
-		void queue(const std::vector<frb::Buffer>& buffers);
-
-		///
-		/// Raw queue of buffer(s) to play.
-		///
-		/// \param buffer_array Array of buffers you want to play in a queue.
-		/// \param size The size/length of buffer_array.
-		///
-		void queue(const ALuint* buffer_array, const size_t size) noexcept;
+		bool load(std::string_view file);
 
 		///
 		/// \brief Play source.
@@ -169,31 +142,35 @@ namespace frb
 		void set_looping(bool looping) noexcept;
 
 		///
-		/// \brief Get current state of the source.
-		///
-		/// \return Enum. AL_PLAYING, AL_STOPPED, etc...
-		///
-		ALint get_state() noexcept;
-
-		///
-		/// Get the OpenAL internal int id / handle.
-		///
-		/// \return Const ALuint handle integer.
-		///
-		const ALuint handle() const noexcept;
-
-		///
-		/// \brief Destroy all memory and OpenAL data.
-		///
-		/// Calls stop().
+		/// Destroy source.
 		///
 		void destroy() noexcept;
 
 	private:
 		///
-		/// Handle to source.
+		/// Update stream buffers as it plays.
 		///
-		ALuint m_source;
+		void update() noexcept;
+
+		///
+		/// OpenAL audio source object.
+		///
+		Source m_source;
+
+		///
+		/// Thread to process music updates on.
+		///
+		std::jthread m_thread;
+
+		///
+		/// Mutex to help with synchronization.
+		///
+		std::mutex m_mutex;
+
+		///
+		/// Makes sure thread exits cleanly.
+		///
+		std::atomic_bool m_run_loop;
 	};
 } // namespace frb
 

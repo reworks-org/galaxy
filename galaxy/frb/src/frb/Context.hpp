@@ -11,6 +11,8 @@
 #include <AL/al.h>
 #include <AL/alc.h>
 
+#include "protostar/system/Concepts.hpp"
+
 ///
 /// Core namespace.
 ///
@@ -33,53 +35,51 @@ namespace frb
 		~Context() noexcept;
 
 		///
-		/// \brief Initialize OpenAL.
+		/// Initialize OpenAL.
 		///
-		/// \return True if successful.
-		///
-		void initialize() noexcept;
+		void init();
 
 		///
-		/// \brief Change doppler factor. Optional.
+		/// Change doppler factor.
 		///
-		/// \param factor New factor for doppler effect.
+		/// \param factor New factor for doppler effect. Multiplicative.
 		///
-		void setDopplerFactor(const float factor) noexcept;
+		void set_doppler_factor(pr::not_negative auto factor);
 
 		///
-		/// \brief Change the default speed of sound. Optional.
+		/// Change the default speed of sound. Optional.
 		///
-		/// \param speed New speed of sound to define.
+		/// \param speed New speed of sound to define. Multiplicative.
 		///
-		void setSpeedOfSound(const float speed) noexcept;
+		void set_speed_of_sound(pr::not_negative auto speed);
 
 		///
-		/// \brief Set the gain for the listener.
+		/// Set the gain for the listener.
 		///
-		/// \param gain Master gain. Must be positive.
+		/// \param gain Master gain. Must be positive. Multiplicative.
 		///
-		void setListenerGain(const float gain) noexcept;
+		void set_listener_gain(pr::not_negative auto gain);
 
 		///
-		/// \brief Set the location of the listener in the world coord system.
+		/// Set the location of the listener in the world coord system.
 		///
 		/// \param x position in world.
 		/// \param y position in world.
 		/// \param z position in world.
 		///
-		void setListenerPosition(const float x, const float y, const float z) noexcept;
+		void set_listener_position(const float x, const float y, const float z);
 
 		///
-		/// \brief Set the audio velocity (speed and direction) of the listener.
+		/// Set the audio velocity (speed and direction) of the listener.
 		///
 		/// \param x X velocity.
 		/// \param y Y velocity.
 		/// \param z Z velocity.
 		///
-		void setListenerVelocity(const float x, const float y, const float z) noexcept;
+		void set_listener_velocity(const float x, const float y, const float z);
 
 		///
-		/// \brief Set orientation of listener.
+		/// Set orientation of listener.
 		///
 		/// \param atX "at" vector x.
 		/// \param atY "at" vector y.
@@ -88,7 +88,7 @@ namespace frb
 		/// \param upY "up" vector y.
 		/// \param upZ "up" vector z.
 		///
-		void setListenerOrientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ) noexcept;
+		void set_listener_orientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
 
 	private:
 		///
@@ -101,6 +101,6 @@ namespace frb
 		///
 		ALCcontext* m_context;
 	};
-}
+} // namespace frb
 
 #endif

@@ -8,7 +8,7 @@
 #ifndef FRB_ERROR_HPP_
 #define FRB_ERROR_HPP_
 
-#include <string>
+#include <string_view>
 
 ///
 /// Core namespace.
@@ -20,18 +20,18 @@ namespace frb
 	///
 	/// \param message Message to print alongside OpenAL error.
 	///
-	/// \return Move constructed string containing full error message.
+	/// \return String containing full error message.
 	///
-	std::string parseError(const std::string& message) noexcept;
+	[[maybe_unused]] std::string parse_error(std::string_view message);
 
 	///
 	/// Retrieve error code value as string.
 	///
 	/// \param err Error code from alGetError().
 	///
-	/// \return Error code enum as a move constructed string.
+	/// \return Error code enum as a string.
 	///
-	std::string errorCodeAsString(const int err) noexcept;
-}
+	[[nodiscard]] std::string errcode_as_string(const int err);
+} // namespace frb
 
 #endif
