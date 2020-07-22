@@ -24,17 +24,13 @@ using namespace std::chrono_literals;
 ///
 namespace pl
 {
-	Log::Log()
-	    : m_min_level(PL_INFO), m_message(""), m_running(false), m_testing_mode(false)
+	Log::Log() noexcept
+	    : m_min_level {PL_INFO}, m_message {""}, m_running {false}, m_testing_mode {false}
 	{
 	}
 
-	Log::~Log()
+	Log::~Log() noexcept
 	{
-		if (m_running)
-		{
-			throw std::runtime_error("Failed to call Log::finish()!");
-		}
 	}
 
 	Log& Log::get() noexcept
@@ -49,7 +45,7 @@ namespace pl
 		m_running = true;
 
 		// Find path
-		auto path = std::filesystem::path(static_cast<std::string>(log_file));
+		auto path = std::filesystem::path {static_cast<std::string>(log_file)};
 		auto dir  = path.parent_path();
 
 		// Make sure it exists.
@@ -84,7 +80,7 @@ namespace pl
 	{
 		m_running = false;
 
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> lock {m_mutex};
 		m_file_stream.close();
 
 		m_thread.get();
@@ -97,7 +93,7 @@ namespace pl
 			// Check to make sure level should be logged.
 			if (Log::get().filter_level(level))
 			{
-				std::lock_guard<std::mutex> lock(m_mutex);
+				std::lock_guard<std::mutex> lock {m_mutex};
 
 				if (m_message.empty())
 				{
@@ -106,7 +102,7 @@ namespace pl
 
 					if (level == PL_FATAL)
 					{
-						throw std::runtime_error(m_message);
+						throw std::runtime_error {m_message};
 					}
 				}
 			}
