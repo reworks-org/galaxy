@@ -69,12 +69,12 @@
 ///
 /// Enable testing mode.
 ///
-#define PL_ENABLE_TESTING_MODE pl::Log::get().setTestingMode(true)
+#define PL_ENABLE_TESTING_MODE pl::Log::get().set_testing(true)
 
 ///
 /// Disable testing mode.
 ///
-#define PL_DISABLE_TESTING_MODE pl::Log::get().setTestingMode(false)
+#define PL_DISABLE_TESTING_MODE pl::Log::get().set_testing(false)
 
 ///
 /// Core namespace.
@@ -115,9 +115,9 @@ namespace pl
 		///
 		/// Initialize logging and set up destination file.
 		///
-		/// \param _log File to write all log messages to.
+		/// \param log_file File to write all log messages to.
 		///
-		void start(std::string_view _log);
+		void start(std::string_view log_file);
 
 		///
 		/// Manual control over closing streams.
@@ -135,9 +135,9 @@ namespace pl
 		///
 		/// Set testing mode.
 		///
-		/// \param isTestingMode Will not log if true.
+		/// \param is_testing Will not log if true.
 		///
-		void setTestingMode(const bool isTestingMode) noexcept;
+		void set_testing(const bool is_testing) noexcept;
 
 		///
 		/// \brief	Set a minimum log level.
@@ -146,20 +146,20 @@ namespace pl
 		///
 		/// \param level Level to set as the minimum level to log at.
 		///
-		void setMinimumLevel(Log::Level level) noexcept;
+		void set_min_level(Log::Level level) noexcept;
 
 		///
 		/// Returns minimum logging message level that is required to log a message.
 		///
 		/// \return Log::Level enum.
 		///
-		[[nodiscard]] Log::Level getMinimumLevel() noexcept;
+		[[nodiscard]] Log::Level get_min_level() noexcept;
 
 	private:
 		///
 		/// Constructor.
 		///
-		Log() noexcept;
+		Log();
 
 		///
 		/// Delete Copy construct in order to preserve singleton.
@@ -188,7 +188,7 @@ namespace pl
 		///
 		/// \return std::string, in caps.
 		///
-		[[nodiscard]] std::string processLevel(const Log::Level level) noexcept;
+		[[nodiscard]] std::string process_level(const Log::Level level);
 
 		///
 		/// Colourizes the terminal text based on the log message level.
@@ -197,7 +197,7 @@ namespace pl
 		///
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		[[nodiscard]] std::string processColour(Log::Level level) noexcept;
+		[[nodiscard]] std::string process_colour(Log::Level level);
 
 		///
 		/// Filters a log stream message based on message level to determine if it must be logged.
@@ -206,17 +206,17 @@ namespace pl
 		///
 		/// \return True if can log.
 		///
-		[[nodiscard]] bool filterLevel(Log::Level level) noexcept;
+		[[nodiscard]] bool filter_level(Log::Level level) noexcept;
 
 		///
 		/// File stream to write to.
 		///
-		std::ofstream m_fileStream;
+		std::ofstream m_file_stream;
 
 		///
 		/// Minimum level of messages required to be logged.
 		///
-		Log::Level m_minimumLevel;
+		Log::Level m_min_level;
 
 		///
 		/// Protection mutex.
@@ -226,7 +226,7 @@ namespace pl
 		///
 		/// Current thread message.
 		///
-		std::string m_curMessage;
+		std::string m_message;
 
 		///
 		/// Thread all logging takes place on.
@@ -241,7 +241,7 @@ namespace pl
 		///
 		/// Wont log if testing mode is enabled.
 		///
-		bool m_testingMode;
+		bool m_testing_mode;
 	};
 } // namespace pl
 

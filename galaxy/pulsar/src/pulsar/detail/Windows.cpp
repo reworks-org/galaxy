@@ -17,13 +17,13 @@
 ///
 namespace pl
 {
-	std::string colourText(const LogColours colour) noexcept
+	std::string colour_text(const LogColours colour) noexcept
 	{
-		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-		SetConsoleTextAttribute(hConsole, static_cast<WORD>(colour));
+		HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(h, static_cast<WORD>(colour));
 
-		return "";
+		return {};
 	}
-} // namespace pulsar
+} // namespace pl
 
 #endif

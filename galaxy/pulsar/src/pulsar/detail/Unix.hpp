@@ -26,7 +26,7 @@ namespace pl
 	///
 	/// \return Returns string ascii code to colour text.
 	///
-	[[nodiscard]] std::string colourText(const LogColours colour) noexcept;
+	[[nodiscard]] std::string colour_text(const LogColours colour) noexcept;
 } // namespace pulsar
 
 #endif

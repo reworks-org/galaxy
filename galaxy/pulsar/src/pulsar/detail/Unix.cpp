@@ -7,14 +7,16 @@
 
 #if defined(__APPLE__) || defined(__linux__) || defined(__unix__)
 
+#include "Unix.hpp"
+
 ///
 /// Core namespace.
 ///
 namespace pl
 {
-	std::string colourText(const LogColours colour) noexcept
+	std::string colour_text(const LogColours colour) noexcept
 	{
-		std::string out = "";
+		std::string out {""};
 
 		switch (colour)
 		{
@@ -43,8 +45,8 @@ namespace pl
 				break;
 		}
 
-		return std::move(out);
+		return out;
 	}
-} // namespace pulsar
+} // namespace pl
 
 #endif

@@ -5,8 +5,6 @@
 /// See LICENSE.txt.
 ///
 
-#include "Log.hpp"
-
 #include <algorithm>
 #include <chrono>
 #include <ctime>
@@ -17,6 +15,8 @@
 #include <date/tz.h>
 #include <fmt/format.h>
 
+#include "Log.hpp"
+
 using namespace std::chrono_literals;
 
 ///
@@ -24,8 +24,8 @@ using namespace std::chrono_literals;
 ///
 namespace pl
 {
-	Log::Log() noexcept
-	    : m_minimumLevel(PL_INFO), m_curMessage(""), m_running(false), m_testingMode(false)
+	Log::Log()
+	    : m_min_level(PL_INFO), m_message(""), m_running(false), m_testing_mode(false)
 	{
 	}
 
@@ -44,35 +44,35 @@ namespace pl
 		return s_inst;
 	}
 
-	void Log::start(std::string_view _log)
+	void Log::start(std::string_view log_file)
 	{
 		m_running = true;
 
 		// Find path
-		auto path      = std::filesystem::path(static_cast<std::string>(_log));
-		auto directory = path.parent_path();
+		auto path = std::filesystem::path(static_cast<std::string>(log_file));
+		auto dir  = path.parent_path();
 
 		// Make sure it exists.
-		if (!std::filesystem::exists(directory))
+		if (!std::filesystem::exists(dir))
 		{
-			std::filesystem::create_directory(directory);
+			std::filesystem::create_directory(dir);
 		}
 
 		m_thread = std::async(std::launch::async, [&]() {
 			// Open stream.
-			m_fileStream.open(path.string(), std::ofstream::out);
+			m_file_stream.open(path.string(), std::ofstream::out);
 
 			while (m_running.load())
 			{
 				m_mutex.lock();
 
-				if (m_curMessage != "")
+				if (!m_message.empty())
 				{
 					// Print to stream and std output.
-					std::cout << m_curMessage;
-					m_fileStream << m_curMessage;
+					std::cout << m_message;
+					m_file_stream << m_message;
 
-					m_curMessage = "";
+					m_message = "";
 				}
 
 				m_mutex.unlock();
@@ -84,53 +84,53 @@ namespace pl
 	{
 		m_running = false;
 
-		std::lock_guard<std::mutex> l_lock(m_mutex);
-		m_fileStream.close();
+		std::lock_guard<std::mutex> lock(m_mutex);
+		m_file_stream.close();
 
 		m_thread.get();
 	}
 
 	void Log::log(const Log::Level level, const std::string& message)
 	{
-		if (!m_testingMode)
+		if (!m_testing_mode)
 		{
 			// Check to make sure level should be logged.
-			if (Log::get().filterLevel(level))
+			if (Log::get().filter_level(level))
 			{
-				std::lock_guard<std::mutex> l_lock(m_mutex);
+				std::lock_guard<std::mutex> lock(m_mutex);
 
-				if (m_curMessage == "")
+				if (m_message.empty())
 				{
 					// Create log message string.
-					m_curMessage = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().processColour(level), Log::get().processLevel(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), message);
+					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour(level), Log::get().process_level(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), message);
 
 					if (level == PL_FATAL)
 					{
-						throw std::runtime_error(m_curMessage);
+						throw std::runtime_error(m_message);
 					}
 				}
 			}
 		}
 	}
 
-	void Log::setTestingMode(const bool isTestingMode) noexcept
+	void Log::set_testing(const bool is_testing) noexcept
 	{
-		m_testingMode = isTestingMode;
+		m_testing_mode = is_testing;
 	}
 
-	void Log::setMinimumLevel(Log::Level level) noexcept
+	void Log::set_min_level(Log::Level level) noexcept
 	{
-		m_minimumLevel = level;
+		m_min_level = level;
 	}
 
-	Log::Level Log::getMinimumLevel() noexcept
+	Log::Level Log::get_min_level() noexcept
 	{
-		return m_minimumLevel;
+		return m_min_level;
 	}
 
-	std::string Log::processLevel(const Log::Level level) noexcept
+	std::string Log::process_level(const Log::Level level)
 	{
-		std::string out = "";
+		std::string out {""};
 
 		switch (level)
 		{
@@ -159,47 +159,47 @@ namespace pl
 				break;
 		}
 
-		return std::move(out);
+		return out;
 	}
 
-	std::string Log::processColour(Log::Level level) noexcept
+	std::string Log::process_colour(Log::Level level)
 	{
-		std::string out = "";
+		std::string out {""};
 
 		switch (level)
 		{
 			case PL_INFO:
-				out = colourText(LogColours::WHITE);
+				out = colour_text(LogColours::WHITE);
 				break;
 
 			case PL_DEBUG:
-				out = colourText(LogColours::GREEN);
+				out = colour_text(LogColours::GREEN);
 				break;
 
 			case PL_WARNING:
-				out = colourText(LogColours::YELLOW);
+				out = colour_text(LogColours::YELLOW);
 				break;
 
 			case PL_ERROR:
-				out = colourText(LogColours::RED);
+				out = colour_text(LogColours::RED);
 				break;
 
 			case PL_FATAL:
-				out = colourText(LogColours::FATAL);
+				out = colour_text(LogColours::FATAL);
 				break;
 
 			default:
-				out = colourText(LogColours::WHITE);
+				out = colour_text(LogColours::WHITE);
 				break;
 		}
 
-		return std::move(out);
+		return out;
 	}
 
-	bool Log::filterLevel(Log::Level level) noexcept
+	bool Log::filter_level(Log::Level level) noexcept
 	{
 		// Checks for proper stream level.
-		if (static_cast<int>(level) >= static_cast<int>(m_minimumLevel))
+		if (static_cast<int>(level) >= static_cast<int>(m_min_level))
 		{
 			return true;
 		}
