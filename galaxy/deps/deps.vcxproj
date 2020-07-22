@@ -91,7 +91,6 @@
     <ClCompile Include="..\..\dependencies\lua\src\lapi.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lauxlib.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lbaselib.c" />
-    <ClCompile Include="..\..\dependencies\lua\src\lbitlib.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lcode.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lcorolib.c" />
     <ClCompile Include="..\..\dependencies\lua\src\lctype.c" />

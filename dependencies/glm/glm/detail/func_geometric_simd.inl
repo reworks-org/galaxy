@@ -105,7 +105,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static float call(vec<4, float, Q> const& v)
 		{
-			return sqrt(compute_dot<vec<4, float, Q>, float, true>::call(v, v));
+			return compute_dot<vec<4, float, Q>, float, true>::call(v, v);
 		}
 	};
 
@@ -126,7 +126,9 @@ namespace detail
 		{
 #if GLM_ARCH & GLM_ARCH_ARMV8_BIT
 			float32x4_t v = vmulq_f32(x.data, y.data);
-			return vaddvq_f32(v);
+			v = vpaddq_f32(v, v);
+			v = vpaddq_f32(v, v);
+			return vgetq_lane_f32(v, 0);
 #else  // Armv7a with Neon
 			float32x4_t p = vmulq_f32(x.data, y.data);
 			float32x2_t v = vpadd_f32(vget_low_f32(p), vget_high_f32(p));

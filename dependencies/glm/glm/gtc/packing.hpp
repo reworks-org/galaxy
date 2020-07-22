@@ -15,7 +15,6 @@
 
 // Dependency:
 #include "type_precision.hpp"
-#include "../ext/vector_packing.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_packing extension included")
@@ -721,6 +720,7 @@ namespace glm
 	/// @see gtc_packing
 	/// @see int packUint2x16(u32vec2 const& v)
 	GLM_FUNC_DECL u32vec2 unpackUint2x32(uint64 p);
+
 
 	/// @}
 }// namespace glm
