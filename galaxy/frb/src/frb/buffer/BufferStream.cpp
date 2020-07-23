@@ -39,12 +39,11 @@ std::size_t read_ogg_callback(void* dest, std::size_t size_a, std::size_t size_b
 		if (!data->m_file_handle.is_open())
 		{
 			PL_LOG(PL_ERROR, "Could not re-open streaming file: " + data->m_file_path.string());
-
 			return 0;
 		}
 	}
 
-	char* buff = new char[length];
+	std::string buff(length, '\0'); // Doesnt like {} initialization.
 
 	data->m_file_handle.clear();
 	data->m_file_handle.seekg(data->m_consumed);
@@ -73,7 +72,6 @@ std::size_t read_ogg_callback(void* dest, std::size_t size_a, std::size_t size_b
 	data->m_consumed += length;
 
 	std::memcpy(dest, &buff[0], length);
-	delete[] buff;
 
 	data->m_file_handle.clear();
 
@@ -239,7 +237,7 @@ namespace frb
 					}
 					else
 					{
-						char* buff = new char[buffer_size];
+						std::string buff(buffer_size, '\0'); // Doesnt like {} initialization.
 						for (std::uint8_t i = 0; i < buffer_count; ++i)
 						{
 							std::int32_t processed = 0;
@@ -306,15 +304,13 @@ namespace frb
 									m_data.m_format = AL_FORMAT_MONO16;
 								}
 
-								alBufferData(m_data.m_buffers[i], m_data.m_format, buff, processed, m_data.m_frequency);
+								alBufferData(m_data.m_buffers[i], m_data.m_format, buff.data(), processed, m_data.m_frequency);
 							}
 							else
 							{
 								break;
 							}
 						}
-
-						delete[] buff;
 					}
 				}
 			}
@@ -325,11 +321,11 @@ namespace frb
 
 	void BufferStream::destroy_stream() noexcept
 	{
+		m_data.m_file_handle.clear();
 		m_data.m_file_handle.close();
 		ov_clear(&m_data.m_ogg_handle);
 
 		alDeleteBuffers(buffer_count, &m_data.m_buffers[0]);
-
 		m_data.m_buffers[0] = 0;
 		m_data.m_buffers[1] = 0;
 		m_data.m_buffers[2] = 0;

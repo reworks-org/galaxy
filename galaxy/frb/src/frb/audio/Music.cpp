@@ -15,18 +15,22 @@
 namespace frb
 {
 	Music::Music()
-	    : BufferStream {}, m_source {}
+	    : BufferStream {}, SourceManipulator {}, m_source {}
 	{
 		m_run_loop = false;
-		m_thread   = std::jthread {[](Music* music) {
-                                                 if (music->m_run_loop)
-                                                 {
-                                                         music->m_mutex.lock();
-                                                         music->update();
-                                                         music->m_mutex.unlock();
-                                                 }
-                                         },
-                                         this};
+
+		// Gotta love clang-format.
+		m_thread = std::jthread {[](Music* music) {
+						 if (music->m_run_loop)
+						 {
+							 music->m_mutex.lock();
+							 music->update();
+							 music->m_mutex.unlock();
+						 }
+					 },
+					 this};
+
+		set_source_to_manipulate(m_source.handle());
 	}
 
 	Music::~Music() noexcept
@@ -36,6 +40,8 @@ namespace frb
 
 	bool Music::load(std::string_view file)
 	{
+		std::lock_guard<std::mutex> lock {m_mutex};
+
 		auto res = internal_load(file);
 		if (res)
 		{
@@ -44,84 +50,6 @@ namespace frb
 		}
 
 		return res;
-	}
-
-	void Music::play() noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.play();
-	}
-
-	void Music::pause() noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.pause();
-	}
-
-	void Music::stop() noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.stop();
-	}
-
-	void Music::rewind() noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.rewind();
-	}
-
-	void Music::set_pitch(pr::not_negative auto pitch) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_pitch(pitch);
-	}
-
-	void Music::set_gain(pr::not_negative auto gain) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_gain(gain);
-	}
-
-	void Music::set_rolloff_factor(pr::not_negative auto factor) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_rolloff_factor(factor);
-	}
-
-	void Music::set_max_distance(const float distance) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_max_distance(distance);
-	}
-
-	void Music::set_cone(const float outer_gain, const float inner_angle, const float outer_angle) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_cone(outer_gain, inner_angle, outer_angle);
-	}
-
-	void Music::set_position(const float x, const float y, const float z) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_position(x, y, z);
-	}
-
-	void Music::set_velocity(const float x, const float y, const float z) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_velocity(x, y, z);
-	}
-
-	void Music::set_direction(const float x, const float y, const float z) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_direction(x, y, z);
-	}
-
-	void Music::set_looping(bool looping) noexcept
-	{
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_source.set_looping(looping);
 	}
 
 	void Music::destroy() noexcept
@@ -134,7 +62,7 @@ namespace frb
 		m_thread.request_stop();
 		m_thread.join();
 
-		m_source.destroy();
+		m_source.destroy_source();
 		destroy_stream();
 	}
 
@@ -230,10 +158,10 @@ namespace frb
 
 				if (m_source.get_state() != AL_PLAYING)
 				{
-					m_source.stop();
-					m_source.play();
+					stop();
+					play();
 				}
 			}
 		}
-	} // namespace frb
+	}
 } // namespace frb

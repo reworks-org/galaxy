@@ -6,6 +6,10 @@
     <ClCompile Include="src\frb\buffer\BufferStream.cpp" />
     <ClCompile Include="src\frb\detail\Error.cpp" />
     <ClCompile Include="src\frb\detail\Source.cpp" />
+    <ClCompile Include="src\frb\buffer\Buffer.cpp" />
+    <ClCompile Include="src\frb\audio\Sound.cpp" />
+    <ClCompile Include="src\frb\audio\Playlist.cpp" />
+    <ClCompile Include="src\frb\detail\SourceManipulator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frb\Context.hpp" />
@@ -13,5 +17,9 @@
     <ClInclude Include="src\frb\buffer\BufferStream.hpp" />
     <ClInclude Include="src\frb\detail\Error.hpp" />
     <ClInclude Include="src\frb\detail\Source.hpp" />
+    <ClInclude Include="src\frb\buffer\Buffer.hpp" />
+    <ClInclude Include="src\frb\audio\Sound.hpp" />
+    <ClInclude Include="src\frb\audio\Playlist.hpp" />
+    <ClInclude Include="src\frb\detail\SourceManipulator.hpp" />
   </ItemGroup>
 </Project>

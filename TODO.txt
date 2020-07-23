@@ -7,11 +7,11 @@ ALL: INITIALIZATION UNIFICATION
 ALL: snake_case, except classes/namespaces/enums.
 
 PROTOSTAR:
-- Rectpack algorithm using ranges
-- ThreadPool using coroutines
+- Use <range> with RectPack
+- Use <coroutines> for ThreadPool
 
 FRB:
-- Finish rewrite
+- Upgrade loading algorithms with C++20. I.e. std::span.
 
 PULSAR:
 - std::source_location
