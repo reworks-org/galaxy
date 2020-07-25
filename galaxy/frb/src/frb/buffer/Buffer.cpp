@@ -60,7 +60,7 @@ namespace frb
 		auto path = std::filesystem::path {file};
 		if (path.extension() != ".ogg")
 		{
-			PL_LOG(PL_ERROR, "File must be ogg vorbis and have extension of .ogg!");
+			PL_LOG(PL_ERROR, "File must be ogg vorbis and have extension of .ogg. {0} not valid.", path.string());
 			result = false;
 		}
 		else
@@ -69,7 +69,7 @@ namespace frb
 			ifs.open(path.string(), std::ios::binary | std::ios::ate);
 			if (!ifs.is_open())
 			{
-				PL_LOG(PL_ERROR, "Could not re-open streaming file: " + path.string());
+				PL_LOG(PL_ERROR, "Could not re-open streaming file: {0}.", path.string());
 				result = false;
 			}
 			else
@@ -81,7 +81,7 @@ namespace frb
 				ifs.read(&buff[0], length);
 				if (ifs.bad())
 				{
-					PL_LOG(PL_ERROR, "OGG stream has bad bit set: " + path.string());
+					PL_LOG(PL_ERROR, "OGG stream has bad bit set: {0}.", path.string());
 
 					ifs.clear();
 					ifs.close();
@@ -93,7 +93,7 @@ namespace frb
 					OggVorbis_File ogg_handle;
 					if (ov_open_callbacks(buff.data(), &ogg_handle, nullptr, 0, OV_CALLBACKS_NOCLOSE) < 0)
 					{
-						PL_LOG(PL_ERROR, "Stream is not a valid OggVorbis stream: " + path.string());
+						PL_LOG(PL_ERROR, "Stream is not a valid OggVorbis stream: {0}.", path.string());
 
 						ov_clear(&ogg_handle);
 
@@ -142,7 +142,7 @@ namespace frb
 						{
 							if (_size < 0)
 							{
-								PL_LOG(PL_ERROR, "Invalid ogg file: " + path.string());
+								PL_LOG(PL_ERROR, "Invalid ogg file: {0}.", path.string());
 								result = false;
 							}
 						}
@@ -152,7 +152,8 @@ namespace frb
 							alBufferData(m_buffer, format, read_buff.data(), read_length, m_frequency);
 							if (alGetError() != AL_NO_ERROR)
 							{
-								PL_LOG(PL_ERROR, frb::parse_error("Failed to buffer data for: " + path.string()));
+								auto msg = frb::parse_error("Failed to buffer data for: " + path.string());
+								PL_LOG(PL_ERROR, "{0}.", msg);
 							}
 						}
 

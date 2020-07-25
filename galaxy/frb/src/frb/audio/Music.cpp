@@ -89,17 +89,17 @@ namespace frb
 					std::int32_t result = ov_read(&m_data.m_ogg_handle, &buff[read], BufferStream::buffer_size - read, 0, 2, 1, &m_data.m_ogg_pos);
 					if (result == OV_HOLE)
 					{
-						PL_LOG(PL_ERROR, "OV_HOLE found when trying to loop: " + std::to_string(m_source.handle()));
+						PL_LOG(PL_ERROR, "OV_HOLE found when trying to loop: {0}.", m_source.handle());
 						break;
 					}
 					else if (result == OV_EBADLINK)
 					{
-						PL_LOG(PL_ERROR, "OV_EBADLINK found when trying to loop: " + std::to_string(m_source.handle()));
+						PL_LOG(PL_ERROR, "OV_EBADLINK found when trying to loop: {0}.", m_source.handle());
 						break;
 					}
 					else if (result == OV_EINVAL)
 					{
-						PL_LOG(PL_ERROR, "OV_EINVAL found when trying to loop: " + std::to_string(m_source.handle()));
+						PL_LOG(PL_ERROR, "OV_EINVAL found when trying to loop: {0}.", m_source.handle());
 						break;
 					}
 					else if (result == 0)
@@ -108,32 +108,32 @@ namespace frb
 
 						if (seek_result == OV_ENOSEEK)
 						{
-							PL_LOG(PL_ERROR, "OV_ENOSEEK found when trying to loop");
+							PL_LOG(PL_ERROR, "OV_ENOSEEK found when trying to loop.");
 						}
 						else if (seek_result == OV_EINVAL)
 						{
-							PL_LOG(PL_ERROR, "OV_EINVAL found when trying to loop");
+							PL_LOG(PL_ERROR, "OV_EINVAL found when trying to loop.");
 						}
 						else if (seek_result == OV_EREAD)
 						{
-							PL_LOG(PL_ERROR, "OV_EREAD found when trying to loop");
+							PL_LOG(PL_ERROR, "OV_EREAD found when trying to loop.");
 						}
 						else if (seek_result == OV_EFAULT)
 						{
-							PL_LOG(PL_ERROR, "OV_EFAULT found when trying to loop");
+							PL_LOG(PL_ERROR, "OV_EFAULT found when trying to loop.");
 						}
 						else if (seek_result == OV_EOF)
 						{
-							PL_LOG(PL_ERROR, "OV_EOF found when trying to loop");
+							PL_LOG(PL_ERROR, "OV_EOF found when trying to loop.");
 						}
 						else if (seek_result == OV_EBADLINK)
 						{
-							PL_LOG(PL_ERROR, "OV_EBADLINK found when trying to loop");
+							PL_LOG(PL_ERROR, "OV_EBADLINK found when trying to loop.");
 						}
 
 						if (seek_result != 0)
 						{
-							PL_LOG(PL_ERROR, "Unknown error in ov_raw_seek");
+							PL_LOG(PL_ERROR, "Unknown error in ov_raw_seek.");
 							return;
 						}
 					}
@@ -153,7 +153,7 @@ namespace frb
 
 				if (size < BufferStream::buffer_size)
 				{
-					PL_LOG(PL_ERROR, "Missing data in source: " + std::to_string(m_source.handle()));
+					PL_LOG(PL_ERROR, "Missing data in source: {0}.", m_source.handle());
 				}
 
 				if (m_source.get_state() != AL_PLAYING)

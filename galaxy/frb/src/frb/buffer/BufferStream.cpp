@@ -38,7 +38,7 @@ std::size_t read_ogg_callback(void* dest, std::size_t size_a, std::size_t size_b
 		data->m_file_handle.open(data->m_file_path.string(), std::ios::binary);
 		if (!data->m_file_handle.is_open())
 		{
-			PL_LOG(PL_ERROR, "Could not re-open streaming file: " + data->m_file_path.string());
+			PL_LOG(PL_ERROR, "Could not re-open streaming file: {0}.", data->m_file_path.string());
 			return 0;
 		}
 	}
@@ -55,14 +55,14 @@ std::size_t read_ogg_callback(void* dest, std::size_t size_a, std::size_t size_b
 		}
 		else if (data->m_file_handle.fail())
 		{
-			PL_LOG(PL_ERROR, "OGG stream has fail bit set: " + data->m_file_path.string());
+			PL_LOG(PL_ERROR, "OGG stream has fail bit set: {0}.", data->m_file_path.string());
 			data->m_file_handle.clear();
 
 			return 0;
 		}
 		else if (data->m_file_handle.bad())
 		{
-			PL_LOG(PL_ERROR, "OGG stream has bad bit set: " + data->m_file_path.string());
+			PL_LOG(PL_ERROR, "OGG stream has bad bit set: {0}.", data->m_file_path.string());
 			data->m_file_handle.clear();
 
 			return 0;
@@ -179,7 +179,7 @@ namespace frb
 		m_data.m_file_path = std::filesystem::path {file};
 		if (m_data.m_file_path.extension() != ".ogg")
 		{
-			PL_LOG(PL_ERROR, "File must be ogg vorbis and have extension of .ogg");
+			PL_LOG(PL_ERROR, "File must be ogg vorbis and have extension of .ogg: {0}.", m_data.m_file_path.string());
 			result = false;
 		}
 		else
@@ -187,7 +187,7 @@ namespace frb
 			m_data.m_file_handle.open(m_data.m_file_path.string(), std::ios::binary);
 			if (!m_data.m_file_handle.is_open())
 			{
-				PL_LOG(PL_ERROR, "Failed to open file: " + m_data.m_file_path.string());
+				PL_LOG(PL_ERROR, "Failed to open file: {0}.", m_data.m_file_path.string());
 				result = false;
 			}
 			else
@@ -208,7 +208,7 @@ namespace frb
 
 				if (ov_open_callbacks(reinterpret_cast<void*>(this), &m_data.m_ogg_handle, nullptr, -1, ogg_callbacks) < 0)
 				{
-					PL_LOG(PL_ERROR, "ov_open_callbacks failed");
+					PL_LOG(PL_ERROR, "ov_open_callbacks failed for: {0}.", m_data.m_file_path.string());
 					result = false;
 				}
 				else
@@ -222,17 +222,17 @@ namespace frb
 
 					if (m_data.m_file_handle.eof())
 					{
-						PL_LOG(PL_ERROR, "Already reached EOF without loading data: " + m_data.m_file_path.string());
+						PL_LOG(PL_ERROR, "Already reached EOF without loading data: {0}.", m_data.m_file_path.string());
 						result = false;
 					}
 					else if (m_data.m_file_handle.fail())
 					{
-						PL_LOG(PL_ERROR, "fail bit set: " + m_data.m_file_path.string());
+						PL_LOG(PL_ERROR, "fail bit set: {0}.", m_data.m_file_path.string());
 						result = false;
 					}
 					else if (!m_data.m_file_handle)
 					{
-						PL_LOG(PL_ERROR, "file is false: " + m_data.m_file_path.string());
+						PL_LOG(PL_ERROR, "file is false: {0}.", m_data.m_file_path.string());
 						result = false;
 					}
 					else
@@ -247,28 +247,28 @@ namespace frb
 
 								if (read_result == OV_HOLE)
 								{
-									PL_LOG(PL_ERROR, "OV_HOLE found in initial read of buffer: " + std::to_string(i));
+									PL_LOG(PL_ERROR, "OV_HOLE found in initial read of buffer: {0}.", m_data.m_file_path.string());
 									result = false;
 
 									break;
 								}
 								else if (read_result == OV_EBADLINK)
 								{
-									PL_LOG(PL_ERROR, "OV_EBADLINK found in initial read of buffer: " + std::to_string(i));
+									PL_LOG(PL_ERROR, "OV_EBADLINK found in initial read of buffer: {0}.", m_data.m_file_path.string());
 									result = false;
 
 									break;
 								}
 								else if (read_result == OV_EINVAL)
 								{
-									PL_LOG(PL_ERROR, "OV_EINVAL found in initial read of buffer: " + std::to_string(i));
+									PL_LOG(PL_ERROR, "OV_EINVAL found in initial read of buffer: {0}.", m_data.m_file_path.string());
 									result = false;
 
 									break;
 								}
 								else if (read_result == 0)
 								{
-									PL_LOG(PL_ERROR, "EOF found in initial read of buffer: " + std::to_string(i));
+									PL_LOG(PL_ERROR, "EOF found in initial read of buffer: {0}.", m_data.m_file_path.string());
 									result = false;
 
 									break;

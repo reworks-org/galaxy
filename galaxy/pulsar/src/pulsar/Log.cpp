@@ -5,15 +5,8 @@
 /// See LICENSE.txt.
 ///
 
-#include <algorithm>
-#include <chrono>
-#include <ctime>
 #include <filesystem>
 #include <iostream>
-#include <thread>
-
-#include <date/tz.h>
-#include <fmt/format.h>
 
 #include "Log.hpp"
 
@@ -24,7 +17,7 @@ using namespace std::chrono_literals;
 ///
 namespace pl
 {
-	Log::Log() noexcept
+	Log::Log()
 	    : m_min_level {PL_INFO}, m_message {""}, m_running {false}, m_testing_mode {false}
 	{
 	}
@@ -84,29 +77,6 @@ namespace pl
 		m_file_stream.close();
 
 		m_thread.get();
-	}
-
-	void Log::log(const Log::Level level, const std::string& message)
-	{
-		if (!m_testing_mode)
-		{
-			// Check to make sure level should be logged.
-			if (Log::get().filter_level(level))
-			{
-				std::lock_guard<std::mutex> lock {m_mutex};
-
-				if (m_message.empty())
-				{
-					// Create log message string.
-					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour(level), Log::get().process_level(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), message);
-
-					if (level == PL_FATAL)
-					{
-						throw std::runtime_error {m_message};
-					}
-				}
-			}
-		}
 	}
 
 	void Log::set_testing(const bool is_testing) noexcept

@@ -37,7 +37,7 @@ namespace frb
 		alSourcei(m_source, AL_BUFFER, buffer->handle());
 		if (alGetError() != AL_NO_ERROR)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to bind buffer: " + std::to_string(buffer->handle()) + " to source: " + std::to_string(m_source)));
+			PL_LOG(PL_ERROR, frb::parse_error("Unable to bind buffer."));
 		}
 	}
 
@@ -46,7 +46,8 @@ namespace frb
 		alSourceQueueBuffers(m_source, BufferStream::buffer_count, &stream_buffer->get_data()->m_buffers[0]);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to queue stream buffer: " + stream_buffer->get_data()->m_file_path.filename().string()));
+			auto msg = frb::parse_error("Unable to queue stream buffer: " + stream_buffer->get_data()->m_file_path.filename().string());
+			PL_LOG(PL_ERROR, "{0}.", msg);
 		}
 	}
 
@@ -62,7 +63,7 @@ namespace frb
 		alSourceQueueBuffers(m_source, static_cast<ALsizei>(handles.size()), handles.data());
 		if (alGetError() != AL_NO_ERROR)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)"));
+			PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)."));
 		}
 	}
 
@@ -71,7 +72,7 @@ namespace frb
 		alSourceQueueBuffers(m_source, static_cast<ALsizei>(size), buffer_array);
 		if (alGetError() != AL_NO_ERROR)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)"));
+			PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)."));
 		}
 	}
 

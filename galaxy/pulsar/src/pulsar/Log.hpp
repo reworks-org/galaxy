@@ -13,6 +13,9 @@
 #include <future>
 #include <mutex>
 
+#include <date/tz.h>
+#include <fmt/format.h>
+
 #include "detail/Unix.hpp"
 #include "detail/Windows.hpp"
 
@@ -59,12 +62,12 @@
 #define PL_FATAL pl::Log::Level::FATAL
 
 ///
-/// Macro shortcut.
+/// Macro shortcut with variadic arguments.
 ///
 /// \param level Log error level.
 /// \param message Message to log.
 ///
-#define PL_LOG(level, message) pl::Log::get().log(level, message)
+#define PL_LOG(...) pl::Log::get().log(__VA_ARGS__)
 
 ///
 /// Enable testing mode.
@@ -130,7 +133,8 @@ namespace pl
 		/// \param level Log error level.
 		/// \param message Message to log.
 		///
-		void log(const Log::Level level, const std::string& message);
+		template<typename... msg_values>
+		void log(const Log::Level level, const std::string& message, const msg_values&... args /*std::source_location goes here*/);
 
 		///
 		/// Set testing mode.
@@ -159,7 +163,7 @@ namespace pl
 		///
 		/// Constructor.
 		///
-		Log() noexcept;
+		Log();
 
 		///
 		/// Delete Copy construct in order to preserve singleton.
@@ -243,6 +247,32 @@ namespace pl
 		///
 		bool m_testing_mode;
 	};
+
+	template<typename... msg_values>
+	inline void Log::log(const Log::Level level, const std::string& message, const msg_values&... args)
+	{
+		if (!m_testing_mode)
+		{
+			// Check to make sure level should be logged.
+			if (Log::get().filter_level(level))
+			{
+				std::lock_guard<std::mutex> lock {m_mutex};
+
+				if (m_message.empty())
+				{
+					auto formatted_msg = fmt::format(message, args...);
+
+					// Create log message string.
+					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour(level), Log::get().process_level(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), formatted_msg);
+
+					if (level == PL_FATAL)
+					{
+						throw std::runtime_error {m_message};
+					}
+				}
+			}
+		}
+	}
 } // namespace pl
 
 #endif

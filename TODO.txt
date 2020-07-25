@@ -17,7 +17,6 @@ PULSAR:
 - std::source_location
 - Replate date_tz with <chrono>
 - Replace fmt with <format>
-- log() should take in std::format args.
 
 
 
