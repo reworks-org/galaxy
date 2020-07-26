@@ -12,39 +12,31 @@
 ///
 namespace qs
 {
-	Sprite::Sprite() noexcept
-		:VertexData(), Texture(), Transform(), m_opacity(1.0f)
+	Sprite::Sprite()
+	    : VertexData {}, Texture {}, Transform {}, m_opacity {1.0f}
 	{
 	}
 
-	void Sprite::setOpacity(float opacity) noexcept
+	void Sprite::set_opacity(pr::between_1_and_0 auto opacity) noexcept
 	{
-		if (opacity > 1.0f)
-		{
-			opacity = 1.0f;
-		}
-		else if (opacity < 0.0f)
-		{
-			opacity = 0.0f;
-		}
-
 		m_opacity = opacity;
+		m_dirty   = true;
 	}
 
-	const float Sprite::getOpacity() const noexcept
+	const float Sprite::opacity() const noexcept
 	{
 		return m_opacity;
 	}
 
 	void Sprite::bind() noexcept
 	{
-		m_vertexArray.bind();
+		m_va.bind();
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 	}
 
 	void Sprite::unbind() noexcept
 	{
-		m_vertexArray.unbind();
+		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
-}
+} // namespace qs

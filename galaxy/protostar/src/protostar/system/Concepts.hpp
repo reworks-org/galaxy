@@ -58,6 +58,15 @@ namespace pr
 		{val != nullptr};
 	};
 
+	///
+	/// Ensure a parameter is between 0.0f and 1.0f.
+	///
+	template<typename type>
+	concept between_1_and_0 = requires(type val)
+	{
+		{val <= 1.0f && val >= 0.0f};
+	};
+
 } // namespace pr
 
 #endif

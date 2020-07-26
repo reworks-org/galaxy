@@ -12,44 +12,35 @@
 ///
 namespace qs
 {
-	BatchedSprite::BatchedSprite() noexcept
-		:Transform(), m_isDirty(false), m_opacity(1.0f), m_zLevel(0), m_offset(0)
+	BatchedSprite::BatchedSprite()
+	    : Transform {}, m_dirty {false}, m_opacity {1.0f}, m_z_level {0}, m_offset {0}
 	{
 	}
 
-	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int zlevel) noexcept
+	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int z_level) noexcept
 	{
-		m_region = region;
-		m_zLevel = zlevel;
+		m_region  = region;
+		m_z_level = z_level;
 
-		setRotationOrigin(m_region.m_width * 0.5f, m_region.m_height * 0.5f);
-		setOpacity(1.0f);
+		set_rotation_origin(m_region.m_width * 0.5f, m_region.m_height * 0.5f);
 
-		m_isDirty = true;
+		m_opacity = 1.0f;
+		m_dirty   = true;
 	}
 
-	void BatchedSprite::setOpacity(float opacity) noexcept
+	void BatchedSprite::set_opacity(pr::between_1_and_0 auto opacity) noexcept
 	{
-		if (opacity > 1.0f)
-		{
-			opacity = 1.0f;
-		}
-		else if (opacity < 0.0f)
-		{
-			opacity = 0.0f;
-		}
-
 		m_opacity = opacity;
-		m_isDirty = true;
+		m_dirty   = true;
 	}
 
-	void BatchedSprite::setZLevel(const unsigned int level) noexcept
+	void BatchedSprite::set_z_level(const unsigned int level) noexcept
 	{
-		m_zLevel = level;
-		m_isDirty = true;
+		m_z_level = level;
+		m_dirty   = true;
 	}
-	
-	void BatchedSprite::setUpdatedRegion(float x, float y, float w, float h) noexcept
+
+	void BatchedSprite::update_region(float x, float y, float w, float h) noexcept
 	{
 		m_region.m_x = x;
 		m_region.m_y = y;
@@ -64,16 +55,16 @@ namespace qs
 			m_region.m_height = h;
 		}
 
-		m_isDirty = true;
+		m_dirty = true;
 	}
 
-	void BatchedSprite::setUpdatedRegion(const pr::Rect<float>& quad) noexcept
+	void BatchedSprite::update_region(const pr::Rect<float>& quad) noexcept
 	{
-		setUpdatedRegion(quad.m_x, quad.m_y, quad.m_width, quad.m_height);
+		update_region(quad.m_x, quad.m_y, quad.m_width, quad.m_height);
 	}
 
-	const unsigned int BatchedSprite::getZLevel() const noexcept
+	const unsigned int BatchedSprite::z_level() const noexcept
 	{
-		return m_zLevel;
+		return m_z_level;
 	}
-}
+} // namespace qs

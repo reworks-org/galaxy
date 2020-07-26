@@ -25,7 +25,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		AnimatedSprite() noexcept;
+		AnimatedSprite();
 
 		///
 		/// Destructor.
@@ -35,8 +35,8 @@ namespace qs
 		///
 		/// Updates.
 		///
-		void update() noexcept override;
+		void update() override;
 	};
-}
+} // namespace qs
 
 #endif

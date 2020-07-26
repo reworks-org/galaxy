@@ -8,8 +8,8 @@
 #ifndef QUASAR_SPRITEBATCH_HPP_
 #define QUASAR_SPRITEBATCH_HPP_
 
-#include "qs/texture/BaseTexture.hpp"
 #include "qs/sprite/BatchedSprite.hpp"
+#include "qs/texture/BaseTexture.hpp"
 
 ///
 /// Core namespace.
@@ -25,9 +25,9 @@ namespace qs
 		///
 		/// Argument constructor.
 		///
-		/// \param maxQuads Maximum number of quads allowed for this spritebatch.
+		/// \param max_quads Maximum number of quads allowed for this spritebatch.
 		///
-		SpriteBatch(const unsigned int maxQuads) noexcept;
+		SpriteBatch(const unsigned int max_quads);
 
 		///
 		/// Destructor.
@@ -39,19 +39,19 @@ namespace qs
 		///
 		/// \param texture Texture to use when drawing batched sprites.
 		///
-		void setTexture(qs::BaseTexture* texture) noexcept;
+		void set_texture(qs::BaseTexture* texture) noexcept;
 
 		///
 		/// Add a batched sprite to the spritebatch.
 		///
 		/// \param sprite Sprite to add.
 		///
-		void add(qs::BatchedSprite* sprite) noexcept;
+		void add(qs::BatchedSprite* sprite);
 
 		///
 		/// Update spritebatch vertexs.
 		///
-		void update() noexcept;
+		void update();
 
 		///
 		/// Clears the spritebatch of data.
@@ -69,25 +69,25 @@ namespace qs
 		void unbind() noexcept;
 
 		///
-		/// Get index count.
+		/// Gets the number of actual used indicies in a spritebatch.
 		///
-		/// \return Const unsigned integer.
+		/// \return Const uint.
 		///
-		const unsigned int getCount() const noexcept override;
+		const unsigned int get_used_index_count() const noexcept;
 
 		///
 		/// Get width.
 		///
 		/// \return Const uint.
 		///
-		const unsigned int getWidth() const noexcept;
+		const unsigned int get_width() const noexcept;
 
 		///
 		/// Get height.
 		///
 		/// \return Const uint.
 		///
-		const unsigned int getHeight() const noexcept;
+		const unsigned int get_height() const noexcept;
 
 	private:
 		///
@@ -103,31 +103,30 @@ namespace qs
 		///
 		void sort() noexcept;
 
-	private:
 		///
 		/// Offset tracker.
 		///
 		unsigned int m_offset;
-		
+
 		///
 		/// Max # of quads.
 		///
-		unsigned int m_maxQuads;
+		unsigned int m_max_quads;
 
 		///
 		/// Max # of vertexs.
 		///
-		unsigned int m_maxVertexs;
+		unsigned int m_max_vertexs;
 
 		///
 		/// Max # of indexs.
 		///
-		unsigned int m_maxIndexs;
+		unsigned int m_max_indexs;
 
 		///
 		/// Index count.
 		///
-		unsigned int m_indexCount;
+		unsigned int m_used_indexs;
 
 		///
 		/// Pointer to texture to use.
@@ -144,6 +143,6 @@ namespace qs
 		///
 		VertexStorage<qs::SpriteVertex> m_vertexs;
 	};
-}
+} // namespace qs
 
 #endif
