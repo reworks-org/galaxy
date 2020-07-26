@@ -8,9 +8,9 @@
 #ifndef QUASAR_LIGHTSOURCE_HPP_
 #define QUASAR_LIGHTSOURCE_HPP_
 
-#include <glm/vec4.hpp>
-#include <glm/vec3.hpp>
 #include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 
 ///
 /// Core namespace.
@@ -26,11 +26,11 @@ namespace qs
 		/// Default constructor.
 		///
 		LightSource() noexcept;
-		
+
 		///
 		/// Z level of light, changes the way the light reflects off the normal map.
 		///
-		float m_zLevel;
+		float m_z_level;
 
 		///
 		/// XY location of light source.
@@ -46,13 +46,13 @@ namespace qs
 		///
 		/// Colour of the light.
 		///
-		glm::vec4 m_lightColour;
+		glm::vec4 m_light_colour;
 
 		///
 		/// Colour of the ambient light.
 		///
-		glm::vec4 m_ambientColour;
+		glm::vec4 m_ambient_colour;
 	};
-}
+} // namespace qs
 
 #endif

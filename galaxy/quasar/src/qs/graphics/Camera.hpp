@@ -63,21 +63,21 @@ namespace qs
 		///
 		/// \param e Takes in a shared protostar event defining a key press down.
 		///
-		void onKeyDown(const pr::KeyDownEvent& e) noexcept;
+		void on_key_down(const pr::KeyDownEvent& e) noexcept;
 
 		///
 		/// Event processing method for key up for camera.
 		///
 		/// \param e Takes in a shared protostar event defining a key release.
 		///
-		void onKeyUp(const pr::KeyUpEvent& e) noexcept;
+		void on_key_up(const pr::KeyUpEvent& e) noexcept;
 
 		///
 		/// Event processing method for scroll event for camera.
 		///
 		/// \param e Takes in a mouse wheel scroll event.
 		///
-		void onMouseScroll(const pr::MouseWheelEvent& e) noexcept;
+		void on_mouse_scroll(const pr::MouseWheelEvent& e) noexcept;
 
 		///
 		/// Update method for camera.
@@ -91,49 +91,49 @@ namespace qs
 		///
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		void setSpeed(const float speed) noexcept;
+		void set_speed(const float speed) noexcept;
 
 		///
 		/// Get camera width.
 		///
 		/// \return Const float.
 		///
-		const float getWidth() const noexcept;
+		const float get_width() const noexcept;
 
 		///
 		/// Get camera height.
 		///
 		/// \return Const float.
 		///
-		const float getHeight() const noexcept;
+		const float get_height() const noexcept;
 
 		///
 		/// Get the camera projection.
 		///
 		/// \return Const glm::mat4 reference.
 		///
-		const glm::mat4& getProj() noexcept;
+		const glm::mat4& get_proj() noexcept;
 
 	private:
 		///
 		/// Camera move up flag.
 		///
-		bool m_moveUp;
+		bool m_move_up;
 
 		///
 		/// Camera move down flag.
 		///
-		bool m_moveDown;
+		bool m_move_down;
 
 		///
 		/// Camera move left flag.
 		///
-		bool m_moveLeft;
+		bool m_move_left;
 
 		///
 		/// Camera move right flag.
 		///
-		bool m_moveRight;
+		bool m_move_right;
 
 		///
 		/// Speed of camera.
@@ -155,6 +155,6 @@ namespace qs
 		///
 		glm::mat4 m_projection;
 	};
-}
+} // namespace qs
 
 #endif

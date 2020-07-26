@@ -8,6 +8,8 @@
 #ifndef QUASAR_POINT_HPP_
 #define QUASAR_POINT_HPP_
 
+#include <protostar/graphics/Colour.hpp>
+
 #include "qs/core/VertexData.hpp"
 
 ///
@@ -34,7 +36,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		Point(const float x, const float y, const int size, pr::Colour& colour) noexcept;
+		Point(const float x, const float y, const int size, const pr::Colour& colour);
 
 		///
 		/// Destructor.
@@ -49,7 +51,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const int size, pr::Colour& colour) noexcept;
+		void create(const float x, const float y, const int size, const pr::Colour& colour);
 
 		///
 		/// Bind as active VA.
@@ -66,7 +68,7 @@ namespace qs
 		///
 		/// \return Const integer.
 		///
-		const int getSize() const noexcept;
+		const int get_size() const noexcept;
 
 	private:
 		///
@@ -74,6 +76,6 @@ namespace qs
 		///
 		int m_size;
 	};
-}
+} // namespace qs
 
 #endif

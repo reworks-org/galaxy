@@ -15,43 +15,43 @@
 namespace qs
 {
 	Line::Line() noexcept
-		:m_thickness(1.0f)
+	    : m_thickness {1.0f}
 	{
 	}
 
-	Line::Line(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
-		:m_thickness(1.0f)
+	Line::Line(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness)
+	    : m_thickness {thickness}
 	{
 		create(col, x1, y1, x2, y2, thickness);
 	}
 
-	void Line::create(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness) noexcept
+	void Line::create(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness)
 	{
 		m_thickness = thickness;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
 		IndexStorage indices;
 
-		vertexs.emplace_back(qs::PrimitiveVertex{ x1, y1, col });
-		vertexs.emplace_back(qs::PrimitiveVertex{ x2, y2, col });
+		vertexs.emplace_back({x1, y1, col});
+		vertexs.emplace_back({x2, y2, col});
 
-		m_vertexBuffer.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
-		m_indexBuffer.create<qs::BufferTypeStatic>({0, 1});
+		m_vb.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
+		m_ib.create<qs::BufferTypeStatic>({0, 1});
 
 		m_layout.add<qs::PrimitiveVertex, qs::VATypePosition>(2);
 		m_layout.add<qs::PrimitiveVertex, qs::VATypeColour>(4);
 
-		m_vertexArray.create<qs::PrimitiveVertex>(m_vertexBuffer, m_indexBuffer, m_layout);
+		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
 	}
 
 	void Line::bind() noexcept
 	{
-		m_vertexArray.bind();
+		m_va.bind();
 		glLineWidth(m_thickness);
 	}
 
 	void Line::unbind() noexcept
 	{
-		m_vertexArray.unbind();
+		m_va.unbind();
 	}
-}
+} // namespace qs

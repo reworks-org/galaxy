@@ -8,6 +8,8 @@
 #ifndef QUASAR_LINE_HPP_
 #define QUASAR_LINE_HPP_
 
+#include <protostar/graphics/Colour.hpp>
+
 #include "qs/core/VertexData.hpp"
 
 ///
@@ -36,7 +38,7 @@ namespace qs
 		/// \param y2 Y2 position.
 		/// \param thickness Sets the line thickness, defaulting to 1.
 		///
-		Line(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f) noexcept;
+		Line(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f);
 
 		///
 		/// Destructor.
@@ -53,7 +55,7 @@ namespace qs
 		/// \param y2 Y2 position.
 		/// \param thickness Sets the line thickness, defaulting to 1.
 		///
-		void create(pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f) noexcept;
+		void create(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f);
 
 		///
 		/// Bind as active VA.
@@ -71,6 +73,6 @@ namespace qs
 		///
 		float m_thickness;
 	};
-}
+} // namespace qs
 
 #endif

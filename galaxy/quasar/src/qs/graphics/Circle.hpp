@@ -8,7 +8,7 @@
 #ifndef QUASAR_CIRCLE_HPP_
 #define QUASAR_CIRCLE_HPP_
 
-#include <protostar/system/Colour.hpp>
+#include <protostar/graphics/Colour.hpp>
 
 #include "qs/core/VertexData.hpp"
 
@@ -36,8 +36,9 @@ namespace qs
 		/// \param radius Radius of the circle.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 		/// \param colour Colour.
+		/// \param thickness Thickness of circle.
 		///
-		Circle(const float x, const float y, const float radius, const int fragments, pr::Colour& colour) noexcept;
+		Circle(const float x, const float y, const float radius, const int fragments, const pr::Colour& colour, const float thickness = 1.0f);
 
 		///
 		/// Destructor.
@@ -52,8 +53,9 @@ namespace qs
 		/// \param radius Radius of the circle.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 		/// \param colour Colour.
+		/// \param thickness Thickness of circle.
 		///
-		void create(const float x, const float y, const float radius, const int fragments, pr::Colour& colour) noexcept;
+		void create(const float x, const float y, const float radius, const int fragments, const pr::Colour& colour, const float thickness = 1.0f);
 
 		///
 		/// Bind as active VA.
@@ -65,19 +67,12 @@ namespace qs
 		///
 		void unbind() noexcept;
 
-		///
-		/// Set thickness of circle line.
-		///
-		/// \param thickness Thickness.
-		///
-		void setThickness(const float thickness) noexcept;
-
 	private:
 		///
 		/// Thickness of circle.
 		///
 		float m_thickness;
 	};
-}
+} // namespace qs
 
 #endif
