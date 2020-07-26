@@ -8,10 +8,10 @@
 #ifndef QUASAR_WINDOW_HPP_
 #define QUASAR_WINDOW_HPP_
 
-#include <string>
+#include <string_view>
 
 #include <glfw/glfw3.h>
-#include <protostar/system/Colour.hpp>
+#include <protostar/graphics/Colour.hpp>
 
 ///
 /// Core namespace.
@@ -39,7 +39,7 @@ namespace qs
 		/// \param w Width of the window.
 		/// \param h Height of the window.
 		///
-		explicit Window(const std::string& title, int w, int h) noexcept;
+		explicit Window(std::string_view title, const int w, const int h);
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -60,14 +60,21 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(const std::string& title, int w, int h) noexcept;
+		bool create(std::string_view title, const int w, const int h);
+
+		///
+		/// Sets the background colour of the window.
+		///
+		/// \param col Colour to use.
+		///
+		void set_window_background(pr::Colour& col);
 
 		///
 		/// Set window icon.
 		///
 		/// \param icon Icon to load.
 		///
-		void setIcon(const std::string& icon) noexcept;
+		void set_icon(std::string_view icon);
 
 		///
 		/// Set window icon.
@@ -75,28 +82,28 @@ namespace qs
 		/// \param mem Memory buffer containing pixels.
 		/// \param size Size of the buffer.
 		///
-		void setIcon(const unsigned char* mem, const int size) noexcept;
+		void set_icon(pr::not_nullptr auto mem, const int size);
 
 		///
 		/// Set cursor visibility.
 		///
 		/// \param visible True for cursor to be visible, otherwise false.
 		///
-		void setCursorVisibility(const bool visible) noexcept;
+		void set_cursor_visibility(const bool visible) noexcept;
 
 		///
 		/// \brief Restricts cursor to window bounds, and makes invisible.
 		///
 		/// setCursorVisibility() overrides this.
 		///
-		void removeCursor() noexcept;
+		void remove_cursor() noexcept;
 
 		///
 		/// Set cursor icon.
 		///
 		/// \param icon Icon to load.
 		///
-		void setCursorIcon(const std::string& icon) noexcept;
+		void set_cursor_icon(std::string_view icon);
 
 		///
 		/// Set cursor icon.
@@ -104,14 +111,14 @@ namespace qs
 		/// \param mem Memory buffer containing pixels.
 		/// \param size Size of the buffer.
 		///
-		void setCursorIcon(const unsigned char* mem, const int size) noexcept;
+		void set_cursor_icon(pr::not_nullptr auto mem, const int size);
 
 		///
 		/// Set the callback function for scrolling.
 		///
 		/// \param func Function callback.
 		///
-		void setScrollCallback(GLFWscrollfun func) noexcept;
+		void set_scrolling_callback(GLFWscrollfun func) noexcept;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -125,7 +132,7 @@ namespace qs
 		///
 		/// \return Returns true if window is currently open, false if not.
 		///
-		bool isOpen() const noexcept;
+		bool is_open() const noexcept;
 
 		///
 		/// \brief Closes the current window.
@@ -133,7 +140,7 @@ namespace qs
 		/// Internally, sets isOpen to false.
 		///
 		void close() noexcept;
-		
+
 		///
 		/// Resizes window.
 		///
@@ -148,14 +155,12 @@ namespace qs
 		///
 		/// Think like windows flashing tray icon.
 		///
-		void requestAttention() noexcept;
+		void request_attention() noexcept;
 
 		///
 		/// Clears the Rendering buffer.
 		///
-		/// \param colour Colour to clear to.
-		///
-		void begin(const pr::Colour& colour) noexcept;
+		void begin() noexcept;
 
 		///
 		/// \brief Renders the OpenGL buffer to the screen.
@@ -167,28 +172,28 @@ namespace qs
 		///
 		/// Poll for events.
 		///
-		void pollEvents() noexcept;
+		void poll_events() noexcept;
 
 		///
 		/// Retrieve pointer to GLFWwindow object.
 		///
 		/// \return Returns const pointer to GLFWwindow.
 		///
-		GLFWwindow* getGLWindow() noexcept;
+		GLFWwindow* gl_window() noexcept;
 
 		///
 		/// Get window width.
 		///
 		/// \return Const integer.
 		///
-		const int getWidth() const noexcept;
+		const int get_width() const noexcept;
 
 		///
 		/// Get window height.
 		///
 		/// \return Const integer.
 		///
-		const int getHeight() const noexcept;
+		const int get_height() const noexcept;
 
 	private:
 		///
@@ -205,12 +210,17 @@ namespace qs
 		/// Window width.
 		///
 		int m_width;
-		
+
 		///
 		/// Window height.
 		///
 		int m_height;
+
+		///
+		/// Window background colour.
+		///
+		std::array<float, 4> m_colour;
 	};
-}
+} // namespace qs
 
 #endif

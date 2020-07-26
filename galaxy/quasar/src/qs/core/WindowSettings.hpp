@@ -24,16 +24,15 @@ namespace qs
 		///
 		~WindowSettings() noexcept = default;
 
-	public:
 		///
 		/// Level of MSAA. I.e. 2, 4, etc.
 		///
-		static int s_antiAliasing;
+		static int s_anti_aliasing;
 
 		///
 		/// Level of ansiotropic filtering.
 		///
-		static int s_ansiotropicFiltering;
+		static int s_ansio_filtering;
 
 		///
 		/// Vertical sync.
@@ -49,30 +48,40 @@ namespace qs
 		/// Aspect Ratio x.
 		/// Set to -1 to ignore.
 		///
-		static int s_aspectRatioX;
+		static int s_aspect_ratio_x;
 
 		///
 		/// Aspect Ratio y.
 		/// Set to -1 to ignore.
 		///
-		static int s_aspectRatioY;
+		static int s_aspect_ratio_y;
 
 		///
 		/// Raw mouse input.
 		///
-		static bool s_rawMouseInput;
+		static bool s_raw_mouse_input;
 
 		///
 		/// Texture format.
 		///
-		static unsigned int s_textureFormat;
+		static unsigned int s_texture_format;
 
 	private:
 		///
-		/// Constructor.
+		/// Default constructor.
 		///
 		WindowSettings() = delete;
+
+		///
+		/// Copy constructor.
+		///
+		WindowSettings(const WindowSettings&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		WindowSettings(WindowSettings&&) = delete;
 	};
-}
+} // namespace qs
 
 #endif

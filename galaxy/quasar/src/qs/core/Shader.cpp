@@ -5,8 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <fstream>
-#include <sstream>
+#include <filesystem>
 
 #include "Shader.hpp"
 
@@ -16,14 +15,17 @@
 namespace qs
 {
 	Shader::Shader() noexcept
-		:m_id(0)
+	    : m_id {0}
 	{
 	}
 
-	Shader::Shader(const std::string& vertexFile, const std::string& fragFile) noexcept
-		:m_id(0)
+	Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
+	    : m_id {0}
 	{
-		loadFromPath(vertexFile, fragFile);
+		if (!load_path(vertex_file, frag_file))
+		{
+			PL_LOG(PL_ERROR, "Failed to construct shader with files: {0} | {1}.", vertex_file, frag_file);
+		}
 	}
 
 	Shader::~Shader() noexcept
@@ -32,30 +34,25 @@ namespace qs
 		glDeleteProgram(m_id);
 	}
 
-	bool Shader::loadFromPath(const std::string& vertex, const std::string& fragment) noexcept
+	bool Shader::load_path(std::string_view vertex_file, std::string_view frag_file) noexcept
 	{
-		// Set up vars.
 		bool result = true;
-		unsigned int vertexID = 0;
-		unsigned int fragmentID = 0;
 
 		// Convert to proper paths and:
 		// Create an input stream of the file from disk in read only mode.
-		std::ifstream vertexStream(std::filesystem::path(vertex).string(), std::ios::in);
-		std::ifstream fragmentStream(std::filesystem::path(fragment).string(), std::ios::in);
+		std::ifstream v_stream(std::filesystem::path(vertex_file).string(), std::ios::in);
+		std::ifstream f_stream(std::filesystem::path(frag_file).string(), std::ios::in);
 
 		// Check for errors...
-		if (!vertexStream)
+		if (!v_stream)
 		{
-			PL_LOG(PL_ERROR, "std::ifstream failed to open file: " + vertex);
-
+			PL_LOG(PL_ERROR, "std::ifstream failed to open file: {0}.", vertex_file);
 			result = false;
 		}
 
-		if (!fragmentStream)
+		if (!f_stream)
 		{
-			PL_LOG(PL_ERROR, "std::ifstream failed to open file: " + fragment);
-
+			PL_LOG(PL_ERROR, "std::ifstream failed to open file: {0}.", frag_file);
 			result = false;
 		}
 
@@ -64,20 +61,20 @@ namespace qs
 		{
 			// Then read entire input buffer in to a string stream object.
 			//  You can't read it directly into a std::string in a method that is resonably performant.
-			std::stringstream vertexBuffer;
-			std::stringstream fragmentBuffer;
-			vertexBuffer << vertexStream.rdbuf();
-			fragmentBuffer << fragmentStream.rdbuf();
+			std::stringstream v_buffer;
+			std::stringstream f_buffer;
+			v_buffer << v_stream.rdbuf();
+			f_buffer << f_buffer.rdbuf();
 
-			if (!vertexBuffer)
+			if (!v_buffer)
 			{
-				PL_LOG(PL_ERROR, "std::stringstream failed to read vertexBuffer for: " + vertex);
+				PL_LOG(PL_ERROR, "std::stringstream failed to read vertexBuffer for: {0}.", vertex_file);
 				result = false;
 			}
 
-			if (!fragmentBuffer)
+			if (!f_buffer)
 			{
-				PL_LOG(PL_ERROR, "std::stringstream failed to read fragmentBuffer for: " + fragment);
+				PL_LOG(PL_ERROR, "std::stringstream failed to read fragmentBuffer for: {0}.", frag_file);
 				result = false;
 			}
 
@@ -85,47 +82,40 @@ namespace qs
 			if (result)
 			{
 				// Error reporting for OpenGL.
-				int success = 0;
-				char infoLog[1024];
+				char info[1024];
+				int success       = 0;
+				unsigned int v_id = 0;
+				unsigned int f_id = 0;
 
 				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string. yeah.
-				std::string vertexSourceStr = vertexBuffer.str();
-				const char* vertexSource = vertexSourceStr.c_str();
-
-				std::string fragmentSourceStr = fragmentBuffer.str();
-				const char* fragmentSource = fragmentSourceStr.c_str();
+				const char* v_src = v_buffer.str().c_str();
+				const char* f_src = f_buffer.str().c_str();
 
 				// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
-				vertexID = glCreateShader(GL_VERTEX_SHADER);
-				glShaderSource(vertexID, 1, &vertexSource, nullptr);
-				glCompileShader(vertexID);
+				v_id = glCreateShader(GL_VERTEX_SHADER);
+				glShaderSource(v_id, 1, &v_src, nullptr);
+				glCompileShader(v_id);
 
-				glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
+				glGetShaderiv(v_id, GL_COMPILE_STATUS, &success);
 				if (!success)
 				{
-					glGetShaderInfoLog(vertexID, 1024, nullptr, infoLog);
+					glGetShaderInfoLog(v_id, 1024, nullptr, info);
 
-					std::string err = "Failed to vertex compile shader. GL_ERROR: ";
-					err += infoLog;
-					PL_LOG(PL_ERROR, err);
-
+					PL_LOG(PL_ERROR, "Failed to vertex compile shader. {0}.", info);
 					result = false;
 				}
 
 				// Now do the same for the fragment shader.
-				fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
-				glShaderSource(fragmentID, 1, &fragmentSource, nullptr);
-				glCompileShader(fragmentID);
+				f_id = glCreateShader(GL_FRAGMENT_SHADER);
+				glShaderSource(f_id, 1, &f_src, nullptr);
+				glCompileShader(f_id);
 
-				glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
+				glGetShaderiv(f_id, GL_COMPILE_STATUS, &success);
 				if (!success)
 				{
-					glGetShaderInfoLog(fragmentID, 1024, nullptr, infoLog);
+					glGetShaderInfoLog(f_id, 1024, nullptr, info);
 
-					std::string err = "Failed to compile fragment shader. GL_ERROR: ";
-					err += infoLog;
-					PL_LOG(PL_ERROR, err);
-
+					PL_LOG(PL_ERROR, "Failed to compile fragment shader. {0}.", info);
 					result = false;
 				}
 
@@ -134,119 +124,47 @@ namespace qs
 				{
 					// Create and link program.
 					m_id = glCreateProgram();
-					glAttachShader(m_id, vertexID);
-					glAttachShader(m_id, fragmentID);
+					glAttachShader(m_id, v_id);
+					glAttachShader(m_id, f_id);
 					glLinkProgram(m_id);
 
 					glGetProgramiv(m_id, GL_LINK_STATUS, &success);
 					if (!success)
 					{
-						glGetProgramInfoLog(m_id, 1024, nullptr, infoLog);
+						glGetProgramInfoLog(m_id, 1024, nullptr, info);
 
-						std::string err = "Failed to attach shaders. GL_ERROR: ";
-						err += infoLog;
-						PL_LOG(PL_ERROR, err);
-
+						PL_LOG(PL_ERROR, "Failed to attach shaders. {0}.", info);
 						result = false;
 					}
 				}
+
+				// Cleanup shaders.
+				glDeleteShader(v_id);
+				glDeleteShader(f_id);
 			}
 		}
 
-		// Cleanup shaders.
-		glDeleteShader(vertexID);
-		glDeleteShader(fragmentID);
-
 		// Close the input stream since we are done.
-		vertexStream.close();
-		fragmentStream.close();
+		v_stream.close();
+		f_stream.close();
 
 		return result;
 	}
 
-	bool Shader::loadFromPath(const std::string& glsl) noexcept
-	{
-		// Set up vars.
-		bool result = true;
-		constexpr unsigned short VERTEX = 0;
-		constexpr unsigned short FRAGMENT = 1;
-		std::string line = "";
-		std::stringstream stringStream[2];
-
-		// Convert to proper paths and:
-		// Create an input stream of the file from disk in read only mode.
-		std::ifstream shader;
-		shader.open(std::filesystem::path(glsl).string(), std::ios::in);
-
-		// Check for errors...
-		if (!shader)
-		{
-			PL_LOG(PL_ERROR, "std::ifstream failed to open file: " + glsl);
-			result = false;
-		}
-		else
-		{
-			// Parse the two shaders out of one file.
-
-			unsigned short type = 2;
-			while (std::getline(shader, line))
-			{
-				if (line.find("#shader") != std::string::npos)
-				{
-					if (line.find("vertex") != std::string::npos)
-					{
-						type = VERTEX;
-					}
-					else if (line.find("fragment") != std::string::npos)
-					{
-						type = FRAGMENT;
-					}
-				}
-				else
-				{
-					stringStream[type] << line << "\n";
-				}
-			}
-
-			if (!stringStream[VERTEX])
-			{
-				PL_LOG(PL_ERROR, "std::stringstream failed to read vertex shader for: " + glsl);
-				result = false;
-			}
-
-			if (!stringStream[FRAGMENT])
-			{
-				PL_LOG(PL_ERROR, "std::stringstream failed to read fragment shader for: " + glsl);
-				result = false;
-			}
-		}
-
-		shader.close();
-
-		if (result)
-		{
-			return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
-		}
-		else
-		{
-			return result;
-		}
-	}
-
-	bool Shader::loadFromRaw(const std::string& vertex, const std::string& fragment) noexcept
+	bool Shader::load_raw(const std::string& vertex_str, const std::string& fragment_str)
 	{
 		// Set up vars.
 		bool result = true;
 
-		if (vertex.empty())
+		if (vertex_str.empty())
 		{
-			PL_LOG(PL_ERROR, "Vertex shader string was empty.");
+			PL_LOG(PL_ERROR, "Vertex shader source was empty.");
 			result = false;
 		}
 
-		if (fragment.empty())
+		if (fragment_str.empty())
 		{
-			PL_LOG(PL_ERROR, "Fragment shader string was empty.");
+			PL_LOG(PL_ERROR, "Fragment shader source was empty.");
 			result = false;
 		}
 
@@ -254,45 +172,39 @@ namespace qs
 		{
 			// OpenGL vars.
 			int success = 0;
-			char infoLog[1024];
-			unsigned int vertexID = 0;
-			unsigned int fragmentID = 0;
+			char info[1024];
+			unsigned int v_id = 0;
+			unsigned int f_id = 0;
 
 			// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string. yeah.
-			const char* vertexSource = vertex.c_str();
-			const char* fragmentSource = fragment.c_str();
+			const char* v_src = vertex_str.c_str();
+			const char* f_src = fragment_str.c_str();
 
 			// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
-			vertexID = glCreateShader(GL_VERTEX_SHADER);
-			glShaderSource(vertexID, 1, &vertexSource, nullptr);
-			glCompileShader(vertexID);
+			v_id = glCreateShader(GL_VERTEX_SHADER);
+			glShaderSource(v_id, 1, &v_src, nullptr);
+			glCompileShader(v_id);
 
-			glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
+			glGetShaderiv(v_id, GL_COMPILE_STATUS, &success);
 			if (!success)
 			{
-				glGetShaderInfoLog(vertexID, 1024, nullptr, infoLog);
+				glGetShaderInfoLog(v_id, 1024, nullptr, info);
 
-				std::string err = "Failed to vertex compile shader. GL_ERROR: ";
-				err += infoLog;
-				PL_LOG(PL_ERROR, err);
-
+				PL_LOG(PL_ERROR, "Failed to vertex compile shader. {0}.", info);
 				result = false;
 			}
 
 			// Now do the same for the fragment shader.
-			fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
-			glShaderSource(fragmentID, 1, &fragmentSource, nullptr);
-			glCompileShader(fragmentID);
+			f_id = glCreateShader(GL_FRAGMENT_SHADER);
+			glShaderSource(f_id, 1, &f_src, nullptr);
+			glCompileShader(f_id);
 
-			glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
+			glGetShaderiv(f_id, GL_COMPILE_STATUS, &success);
 			if (!success)
 			{
-				glGetShaderInfoLog(fragmentID, 1024, nullptr, infoLog);
+				glGetShaderInfoLog(f_id, 1024, nullptr, info);
 
-				std::string err = "Failed to compile fragment shader. GL_ERROR: ";
-				err += infoLog;
-				PL_LOG(PL_ERROR, err);
-
+				PL_LOG(PL_ERROR, "Failed to compile fragment shader. {0}.", info);
 				result = false;
 			}
 
@@ -301,92 +213,26 @@ namespace qs
 			{
 				// Create and link program.
 				m_id = glCreateProgram();
-				glAttachShader(m_id, vertexID);
-				glAttachShader(m_id, fragmentID);
+				glAttachShader(m_id, v_id);
+				glAttachShader(m_id, f_id);
 				glLinkProgram(m_id);
 
 				glGetProgramiv(m_id, GL_LINK_STATUS, &success);
 				if (!success)
 				{
-					glGetProgramInfoLog(m_id, 1024, nullptr, infoLog);
+					glGetProgramInfoLog(m_id, 1024, nullptr, info);
 
-					std::string err = "Failed to attach shaders. GL_ERROR: ";
-					err += infoLog;
-					PL_LOG(PL_ERROR, err);
-
+					PL_LOG(PL_ERROR, "Failed to attach shaders. {0}.", info);
 					result = false;
 				}
 			}
 
 			// Cleanup shaders.
-			glDeleteShader(vertexID);
-			glDeleteShader(fragmentID);
+			glDeleteShader(v_id);
+			glDeleteShader(f_id);
 		}
 
 		return result;
-	}
-
-	bool Shader::loadFromRaw(const std::string& glsl) noexcept
-	{
-		// Set up vars.
-		bool result = true;
-		constexpr unsigned short VERTEX = 0;
-		constexpr unsigned short FRAGMENT = 1;
-		std::string line = "";
-		std::stringstream stringStream[2];
-
-		// Check for errors...
-		if (glsl.empty())
-		{
-			PL_LOG(PL_ERROR, "GLSL shader file is empty.");
-			result = false;
-		}
-		else
-		{
-			// Parse the two shaders out of one file.
-			
-			unsigned short type = 2;
-			std::istringstream shader(glsl);
-			while (std::getline(shader, line))
-			{
-				if (line.find("#shader") != std::string::npos)
-				{
-					if (line.find("vertex") != std::string::npos)
-					{
-						type = VERTEX;
-					}
-					else if (line.find("fragment") != std::string::npos)
-					{
-						type = FRAGMENT;
-					}
-				}
-				else
-				{
-					stringStream[type] << line << "\n";
-				}
-			}
-
-			if (!stringStream[VERTEX])
-			{
-				PL_LOG(PL_ERROR, "std::istringstream failed to read vertex shader for: " + glsl);
-				result = false;
-			}
-
-			if (!stringStream[FRAGMENT])
-			{
-				PL_LOG(PL_ERROR, "std::istringstream failed to read fragment shader for: " + glsl);
-				result = false;
-			}
-		}
-
-		if (result)
-		{
-			return loadFromRaw(stringStream[VERTEX].str(), stringStream[FRAGMENT].str());
-		}
-		else
-		{
-			return false;
-		}
 	}
 
 	void Shader::bind() noexcept
@@ -399,17 +245,19 @@ namespace qs
 		glUseProgram(0);
 	}
 
-	int Shader::getUniformLocation(const std::string& name) noexcept
+	int Shader::get_uniform_location(std::string_view name) noexcept
 	{
+		auto str = static_cast<std::string>(name);
+
 		// If uniform already exists return it from cache to avoid querying OpenGL, which is slow.
-		if (m_cache.find(name) != m_cache.end())
+		if (m_cache.contains(str))
 		{
-			return m_cache[name];
+			return m_cache[str];
 		}
 		else
 		{
 			// Otherwise, for the first time, retrieve location.
-			unsigned int location = glGetUniformLocation(m_id, name.c_str());
+			auto location = glGetUniformLocation(m_id, str.c_str());
 			if (location != -1)
 			{
 				// Then if not error, add to hash map.
@@ -417,10 +265,10 @@ namespace qs
 			}
 			else
 			{
-				PL_LOG(PL_WARNING, "Failed to find uniform: " + name);
+				PL_LOG(PL_WARNING, "Failed to find uniform: {0}.", name);
 			}
 
 			return location;
 		}
 	}
-}
+} // namespace qs

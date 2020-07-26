@@ -9,8 +9,8 @@
 #include <filesystem>
 
 #include <glad/glad.h>
-#include <stb_image.h>
 #include <pulsar/Log.hpp>
+#include <stb_image.h>
 #include <stb_image_write.h>
 
 #include "qs/utils/Utility.hpp"
@@ -24,16 +24,16 @@
 namespace qs
 {
 	Window::Window() noexcept
-		:m_window(nullptr), m_cursor(nullptr), m_width(0), m_height(0)
+	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
 	}
 
-	Window::Window(const std::string& title, int w, int h) noexcept
-		:m_window(nullptr), m_cursor(nullptr), m_width(0), m_height(0)
+	Window::Window(std::string_view title, const int w, const int h)
+	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
 		if (!create(title, w, h))
 		{
-			PL_LOG(PL_FATAL, "Window creation failed!");
+			PL_LOG(PL_FATAL, "GLFW window creation failed.");
 		}
 	}
 
@@ -44,20 +44,18 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(const std::string& title, int w, int h) noexcept
+	bool Window::create(std::string_view title, const int w, const int h)
 	{
 		// Function result.
 		bool result = true;
 
 		// Window w/h.
-		m_width = w;
+		m_width  = w;
 		m_height = h;
 
 		// Error callbacks.
-		glfwSetErrorCallback([](int error, const char* description)
-		{
-			std::string msg = "[GLFW] Code: " + std::to_string(error) + ". Desc: " + description;
-			PL_LOG(PL_ERROR, msg);
+		glfwSetErrorCallback([](int error, const char* description) {
+			PL_LOG(PL_ERROR, "[GLFW] Code: {0}. Desc: {1}.", error, description);
 		});
 
 		// Init glfw.
@@ -73,10 +71,10 @@ namespace qs
 			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 			glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
 
-			// Set debug when compiling for debug mode.
-			#ifdef _DEBUG
-				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
-			#endif
+// Set debug when compiling for debug mode.
+#ifdef _DEBUG
+			glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, true);
+#endif
 
 			// Window related hints.
 			glfwWindowHint(GLFW_RESIZABLE, true);
@@ -95,25 +93,25 @@ namespace qs
 			glfwWindowHint(GLFW_SRGB_CAPABLE, true);
 
 			// MSAA
-			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_antiAliasing);
+			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_anti_aliasing);
 
 			// Create the window from input, ensuring it is centered in the screen.
-			m_window = glfwCreateWindow(m_width, m_height, title.c_str(), nullptr, nullptr);
+			m_window = glfwCreateWindow(m_width, m_height, static_cast<std::string>(title).c_str(), nullptr, nullptr);
 
 			// Then if the window failed to create:
 			if (!m_window)
 			{
-				PL_LOG(PL_FATAL, "Failed to create window!");
+				PL_LOG(PL_FATAL, "Failed to create window.");
 				result = false;
 			}
 			else
 			{
 				// Set window context and aspect ratio.
 				glfwMakeContextCurrent(m_window);
-				
-				if (!(qs::WindowSettings::s_aspectRatioX == -1 || qs::WindowSettings::s_aspectRatioY == -1))
+
+				if (!(qs::WindowSettings::s_aspect_ratio_x == -1 || qs::WindowSettings::s_aspect_ratio_y == -1))
 				{
-					glfwSetWindowAspectRatio(m_window, qs::WindowSettings::s_aspectRatioX, qs::WindowSettings::s_aspectRatioY);
+					glfwSetWindowAspectRatio(m_window, qs::WindowSettings::s_aspect_ratio_x, qs::WindowSettings::s_aspect_ratio_y);
 				}
 
 				// Set up glad.
@@ -125,11 +123,10 @@ namespace qs
 				else
 				{
 					// Set internal pointer references.
-					glfwSetWindowUserPointer(m_window, static_cast<void*>(this));
+					glfwSetWindowUserPointer(m_window, reinterpret_cast<void*>(this));
 
 					// Set resize callback.
-					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int w, int h)
-					{
+					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int w, int h) {
 						static_cast<qs::Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
 					});
 
@@ -139,21 +136,20 @@ namespace qs
 					// Raw mouse input.
 					if (glfwRawMouseMotionSupported())
 					{
-						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_rawMouseInput);
+						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_raw_mouse_input);
 					}
 
-					// Error handling.
-					#ifdef _DEBUG
-						glEnable(GL_DEBUG_OUTPUT);
-						// Callback.
+// Error handling.
+#ifdef _DEBUG
+					glEnable(GL_DEBUG_OUTPUT);
+					// Callback.
 
-						glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void
-						{
-							std::string msg = "[OpenGL] " + std::string(message);
-							PL_LOG(PL_WARNING, msg);
-						}, nullptr);
-					#endif
-					
+					glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void {
+						PL_LOG(PL_WARNING, "[OpenGL] {0}.", message);
+					},
+							       nullptr);
+#endif
+
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);
 
@@ -172,9 +168,9 @@ namespace qs
 					{
 						glEnable(GL_FRAMEBUFFER_SRGB);
 					}
-					
+
 					// Print OpenGL version.
-					PL_LOG(PL_INFO, "OpenGL v" + std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION))));
+					PL_LOG(PL_INFO, "OpenGL v{0}.", reinterpret_cast<const char*>(glGetString(GL_VERSION)));
 				}
 			}
 		}
@@ -182,110 +178,114 @@ namespace qs
 		return result;
 	}
 
-	void Window::setIcon(const std::string& icon) noexcept
+	void Window::set_window_background(pr::Colour& col)
 	{
+		m_colour = col.get_normalized();
+	}
+
+	void Window::set_icon(std::string_view icon)
+	{
+		stbi_set_flip_vertically_on_load(true);
+
 		// Always convert to proper path before loading.
-		auto path = std::filesystem::path(icon);
-		int w = 0, h = 0;
-		GLFWimage img;
-
-		stbi_set_flip_vertically_on_load(true);
-		unsigned char* pixels = stbi_load(path.string().c_str(), &w, &h, nullptr, STBI_rgb_alpha);
+		auto path = std::filesystem::path {icon};
 
 		// Fill glfw-compatible struct.
-		img.height = h;
-		img.width = w;
-		img.pixels = pixels;
-
-		// Copies data so safe to destroy.
-		glfwSetWindowIcon(m_window, 1, &img);
-
-		// Make sure is all cleaned up.
-		stbi_image_free(pixels);
-	}
-
-	void Window::setIcon(const unsigned char* mem, const int size) noexcept
-	{
-		// Setup variables with default data.
-		int w = 0, h = 0;
 		GLFWimage img;
-
-		stbi_set_flip_vertically_on_load(true);
-		unsigned char* pixels = stbi_load_from_memory(mem, size, &w, &h, nullptr, STBI_rgb_alpha);
-
-		// Fill glfw-compatible struct.
-		img.height = h;
-		img.width = w;
-		img.pixels = pixels;
-
-		// Copies data so safe to destroy.
-		glfwSetWindowIcon(m_window, 1, &img);
-
-		// Make sure is all cleaned up.
-		stbi_image_free(pixels);
-	}
-
-	void Window::setCursorVisibility(const bool visible) noexcept
-	{
-		if (visible)
+		img.pixels = stbi_load(path.string().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+		if (!img.pixels)
 		{
-			glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			PL_LOG(PL_ERROR, "Failed to load image: {0}.", path.string());
 		}
 		else
 		{
-			glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+			// Copies data so safe to destroy.
+			glfwSetWindowIcon(m_window, 1, &img);
 		}
+
+		stbi_image_free(img.pixels);
 	}
 
-	void Window::removeCursor() noexcept
+	void Window::set_icon(pr::not_nullptr auto mem, const int size)
+	{
+		stbi_set_flip_vertically_on_load(true);
+
+		// Fill glfw-compatible struct.
+		GLFWimage img;
+		img.pixels = stbi_load_from_memory(mem, size, &img.width, &img.height, nullptr, STBI_rgb_alpha);
+
+		if (!img.pixels)
+		{
+			PL_LOG(PL_ERROR, "Failed to load image for window icon from memory.");
+		}
+		else
+		{
+			// Copies data so safe to destroy.
+			glfwSetWindowIcon(m_window, 1, &img);
+		}
+
+		stbi_image_free(img.pixels);
+	}
+
+	void Window::set_cursor_visibility(const bool visible) noexcept
+	{
+		visible == true ? glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL)
+				: glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	}
+
+	void Window::remove_cursor() noexcept
 	{
 		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	}
 
-	void Window::setCursorIcon(const std::string& icon) noexcept
+	void Window::set_cursor_icon(std::string_view icon)
 	{
+		stbi_set_flip_vertically_on_load(true);
+
 		// Always convert to proper path before loading.
-		auto path = std::filesystem::path(icon);
-		int w = 0, h = 0;
-		GLFWimage img;
-
-		stbi_set_flip_vertically_on_load(true);
-		unsigned char* pixels = stbi_load(path.string().c_str(), &w, &h, nullptr, STBI_rgb_alpha);
+		auto path = std::filesystem::path {icon};
 
 		// Fill glfw-compatible struct.
-		img.height = h;
-		img.width = w;
-		img.pixels = pixels;
+		GLFWimage img;
+		img.pixels = stbi_load(path.string().c_str(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
-		// Copies data so safe to destroy.
-		m_cursor = glfwCreateCursor(&img, 0, 0);
+		if (!img.pixels)
+		{
+			PL_LOG(PL_ERROR, "Failed to load image: {0}.", path.string());
+		}
+		else
+		{
+			// Copies data so safe to destroy.
+			m_cursor = glfwCreateCursor(&img, 0, 0);
+			glfwSetCursor(m_window, m_cursor);
+		}
 
-		stbi_image_free(pixels);
-		glfwSetCursor(m_window, m_cursor);
+		stbi_image_free(img.pixels);
 	}
 
-	void Window::setCursorIcon(const unsigned char* mem, const int size) noexcept
+	void Window::set_cursor_icon(pr::not_nullptr auto mem, const int size)
 	{
-		// Setup variables with default data.
-		int w = 0, h = 0;
-		GLFWimage img;
-
 		stbi_set_flip_vertically_on_load(true);
-		unsigned char* pixels = stbi_load_from_memory(mem, size, &w, &h, nullptr, STBI_rgb_alpha);
 
 		// Fill glfw-compatible struct.
-		img.height = h;
-		img.width = w;
-		img.pixels = pixels;
+		GLFWimage img;
+		img.pixels = stbi_load_from_memory(mem, size, &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
-		// Copies data so safe to destroy.
-		m_cursor = glfwCreateCursor(&img, 0, 0);
+		if (!img.pixels)
+		{
+			PL_LOG(PL_ERROR, "Failed to load image for cursor icon from memory.");
+		}
+		else
+		{
+			// Copies data so safe to destroy.
+			m_cursor = glfwCreateCursor(&img, 0, 0);
+			glfwSetCursor(m_window, m_cursor);
+		}
 
-		stbi_image_free(pixels);
-		glfwSetCursor(m_window, m_cursor);
+		stbi_image_free(img.pixels);
 	}
 
-	void Window::setScrollCallback(GLFWscrollfun func) noexcept
+	void Window::set_scrolling_callback(GLFWscrollfun func) noexcept
 	{
 		glfwSetScrollCallback(m_window, func);
 	}
@@ -308,7 +308,7 @@ namespace qs
 		glfwTerminate();
 	}
 
-	bool Window::isOpen() const noexcept
+	bool Window::is_open() const noexcept
 	{
 		return (!glfwWindowShouldClose(m_window));
 	}
@@ -320,21 +320,21 @@ namespace qs
 
 	void Window::resize(int w, int h) noexcept
 	{
-		m_width = w;
+		m_width  = w;
 		m_height = h;
-		
+
 		glfwSetWindowSize(m_window, w, h);
 	}
 
-	void Window::requestAttention() noexcept
+	void Window::request_attention() noexcept
 	{
 		glfwRequestWindowAttention(m_window);
 	}
 
-	void Window::begin(const pr::Colour& colour) noexcept
+	void Window::begin() noexcept
 	{
 		glViewport(0, 0, m_width, m_height);
-		glClearColor(qs::Utils::uint8ToFloat(colour.m_red), qs::Utils::uint8ToFloat(colour.m_green), qs::Utils::uint8ToFloat(colour.m_blue), qs::Utils::uint8ToFloat(colour.m_alpha));
+		glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
@@ -343,23 +343,23 @@ namespace qs
 		glfwSwapBuffers(m_window);
 	}
 
-	void Window::pollEvents() noexcept
+	void Window::poll_events() noexcept
 	{
 		glfwPollEvents();
 	}
 
-	GLFWwindow* Window::getGLWindow() noexcept
+	GLFWwindow* Window::gl_window() noexcept
 	{
 		return m_window;
 	}
 
-	const int Window::getWidth() const noexcept
+	const int Window::get_width() const noexcept
 	{
 		return m_width;
 	}
 
-	const int Window::getHeight() const noexcept
+	const int Window::get_height() const noexcept
 	{
 		return m_height;
 	}
-}
+} // namespace qs
