@@ -20,9 +20,6 @@
     <ClCompile Include="src\qs\vertex\VertexAttribute.cpp" />
     <ClCompile Include="src\qs\vertex\VertexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
-    <ClCompile Include="src\qs\shaders\Light.cpp" />
-    <ClCompile Include="src\qs\shaders\Lines.cpp" />
-    <ClCompile Include="src\qs\shaders\Points.cpp" />
     <ClCompile Include="src\qs\texture\Texture.cpp" />
     <ClCompile Include="src\qs\texture\RenderTexture.cpp" />
     <ClCompile Include="src\qs\texture\BaseTexture.cpp" />
@@ -40,7 +37,6 @@
     <ClCompile Include="src\qs\text\Character.cpp" />
     <ClCompile Include="src\qs\text\FreeType.cpp" />
     <ClCompile Include="src\qs\text\Font.cpp" />
-    <ClCompile Include="src\qs\shaders\Glyphs.cpp" />
     <ClCompile Include="src\qs\text\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +56,6 @@
     <ClInclude Include="src\qs\vertex\VertexAttribute.hpp" />
     <ClInclude Include="src\qs\vertex\VertexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\VertexLayout.hpp" />
-    <ClInclude Include="src\qs\shaders\Light.hpp" />
-    <ClInclude Include="src\qs\shaders\Lines.hpp" />
-    <ClInclude Include="src\qs\shaders\Points.hpp" />
     <ClInclude Include="src\qs\texture\Texture.hpp" />
     <ClInclude Include="src\qs\texture\RenderTexture.hpp" />
     <ClInclude Include="src\qs\texture\BaseTexture.hpp" />
@@ -80,7 +73,6 @@
     <ClInclude Include="src\qs\text\Character.hpp" />
     <ClInclude Include="src\qs\text\FreeType.hpp" />
     <ClInclude Include="src\qs\text\Font.hpp" />
-    <ClInclude Include="src\qs\shaders\Glyphs.hpp" />
     <ClInclude Include="src\qs\text\Text.hpp" />
   </ItemGroup>
 </Project>

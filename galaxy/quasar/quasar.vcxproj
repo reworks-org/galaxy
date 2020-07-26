@@ -42,10 +42,6 @@
     <ClCompile Include="src\qs\core\VertexData.cpp" />
     <ClCompile Include="src\qs\graphics\LightSource.cpp" />
     <ClCompile Include="src\qs\core\Renderer.cpp" />
-    <ClCompile Include="src\qs\shaders\Light.cpp" />
-    <ClCompile Include="src\qs\shaders\Lines.cpp" />
-    <ClCompile Include="src\qs\shaders\Points.cpp" />
-    <ClCompile Include="src\qs\shaders\Glyphs.cpp" />
     <ClCompile Include="src\qs\text\Character.cpp" />
     <ClCompile Include="src\qs\text\Font.cpp" />
     <ClCompile Include="src\qs\text\FreeType.cpp" />
@@ -82,10 +78,6 @@
     <ClInclude Include="src\qs\core\VertexData.hpp" />
     <ClInclude Include="src\qs\graphics\LightSource.hpp" />
     <ClInclude Include="src\qs\core\Renderer.hpp" />
-    <ClInclude Include="src\qs\shaders\Light.hpp" />
-    <ClInclude Include="src\qs\shaders\Lines.hpp" />
-    <ClInclude Include="src\qs\shaders\Points.hpp" />
-    <ClInclude Include="src\qs\shaders\Glyphs.hpp" />
     <ClInclude Include="src\qs\text\Character.hpp" />
     <ClInclude Include="src\qs\text\Font.hpp" />
     <ClInclude Include="src\qs\text\FreeType.hpp" />
