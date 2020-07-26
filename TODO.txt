@@ -5,6 +5,7 @@ ALL: MERGE SAME CLASS CATEGORIES I.E. PRIVATE METHODS AND PRIVATE VARS TO JUST P
 ALL: CLANG-FORMAT
 ALL: INITIALIZATION UNIFICATION
 ALL: snake_case, except classes/namespaces/enums.
+ALL: designated initializers???
 
 PROTOSTAR:
 - Use <range> with RectPack
@@ -18,7 +19,8 @@ PULSAR:
 - Replate date_tz with <chrono>
 - Replace fmt with <format>
 
-
+Quasar:
+- C++20?
 
 
 

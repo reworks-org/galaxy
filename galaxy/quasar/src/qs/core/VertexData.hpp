@@ -36,55 +36,55 @@ namespace qs
 		///
 		/// \return Const unsigned integer.
 		///
-		virtual const unsigned int getZLevel() const noexcept final;
+		const unsigned int z_level() const noexcept;
 
 		///
 		/// Get VBO.
 		///
 		/// \return Reference to VBO.
 		///
-		virtual qs::VertexBuffer& getVBO() noexcept final;
+		qs::VertexBuffer& get_vbo() noexcept;
 
 		///
 		/// Get VAO.
 		///
 		/// \return Reference to VAO.
 		///
-		virtual qs::VertexArray& getVAO() noexcept final;
+		qs::VertexArray& get_vao() noexcept;
 
 		///
 		/// Get index count.
 		///
 		/// \return Const unsigned integer.
 		///
-		virtual const unsigned int getCount() const noexcept;
+		const unsigned int index_count() const noexcept;
 
 	protected:
 		///
 		/// Z-Level
 		///
-		unsigned int m_zLevel;
+		unsigned int m_z_level;
 
 		///
 		/// OpenGL Vertex Array Object.
 		///
-		qs::VertexArray m_vertexArray;
+		qs::VertexArray m_va;
 
 		///
 		/// Vertex buffer.
 		///
-		qs::VertexBuffer m_vertexBuffer;
+		qs::VertexBuffer m_vb;
 
 		///
 		/// Index (Element) buffer.
 		///
-		qs::IndexBuffer m_indexBuffer;
+		qs::IndexBuffer m_ib;
 
 		///
 		/// Vertex layout.
 		///
 		qs::VertexLayout m_layout;
 	};
-}
+} // namespace qs
 
 #endif

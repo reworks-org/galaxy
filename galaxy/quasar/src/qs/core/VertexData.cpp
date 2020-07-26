@@ -13,27 +13,27 @@
 namespace qs
 {
 	VertexData::VertexData() noexcept
-		:m_zLevel(0)
+	    : m_z_level {0}
 	{
 	}
 
-	const unsigned int VertexData::getZLevel() const noexcept
+	const unsigned int VertexData::z_level() const noexcept
 	{
-		return m_zLevel;
+		return m_z_level;
 	}
 
-	qs::VertexBuffer& VertexData::getVBO() noexcept
+	qs::VertexBuffer& VertexData::get_vbo() noexcept
 	{
-		return m_vertexBuffer;
+		return m_vb;
 	}
 
-	qs::VertexArray& VertexData::getVAO() noexcept
+	qs::VertexArray& VertexData::get_vao() noexcept
 	{
-		return m_vertexArray;
+		return m_va;
 	}
-	
-	const unsigned int VertexData::getCount() const noexcept
+
+	const unsigned int VertexData::index_count() const noexcept
 	{
-		return m_indexBuffer.getCount();
+		return m_ib.count();
 	}
-}
+} // namespace qs
