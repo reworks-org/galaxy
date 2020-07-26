@@ -48,24 +48,24 @@ namespace qs
 		///
 		/// \brief Draw a point.
 		///
-		/// Must have uniform(s): 
+		/// Must have uniform(s):
 		/// u_cameraProj, u_cameraView, u_point_size, u_colour
 		///
 		/// \param point Point to draw.
 		/// \param shader Shader to apply when drawing.
 		///
-		void drawPoint(qs::Point& point, qs::Shader& shader) noexcept;
+		void draw_point(qs::Point& point, qs::Shader& shader) noexcept;
 
 		///
 		/// \brief Draw a line.
 		///
-		/// Must have uniform(s): 
+		/// Must have uniform(s):
 		/// u_cameraProj, u_cameraView, u_point_size, u_colour
 		///
 		/// \param line Line to draw.
 		///
-		void drawLine(qs::Line& line) noexcept;
-		
+		void draw_line(qs::Line& line) noexcept;
+
 		///
 		/// \brief Draw a circle.
 		///
@@ -74,7 +74,7 @@ namespace qs
 		///
 		/// \param circle Circle to draw.
 		///
-		void drawCircle(qs::Circle& circle) noexcept;
+		void draw_circle(qs::Circle& circle) noexcept;
 
 		///
 		/// \brief Draw a sprite.
@@ -85,7 +85,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawSprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
+		void draw_sprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
 
 		///
 		/// \brief Draw an animated sprite.
@@ -96,7 +96,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawAnimatedSprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept;
+		void draw_animated_sprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept;
 
 		///
 		/// \brief Draw a spritebatch.
@@ -107,7 +107,7 @@ namespace qs
 		/// \param spritebatch SpriteBatch to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawSpriteBatch(qs::SpriteBatch& spritebatch, qs::Shader& shader) noexcept;
+		void draw_sprite_batch(qs::SpriteBatch& sprite_batch, qs::Shader& shader) noexcept;
 
 		///
 		/// \brief Draw a sprite to a texture.
@@ -119,8 +119,8 @@ namespace qs
 		/// \param target Target to draw to.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void drawSpriteToTexture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
-		
+		void draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+
 		///
 		/// \brief Draws a character to a font map.
 		///
@@ -131,7 +131,7 @@ namespace qs
 		/// \param target Target to draw to.
 		/// \param shader Shader to use.
 		///
-		void drawCharacter(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+		void draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader) noexcept;
 
 		///
 		/// \brief Draw text to screen.
@@ -142,7 +142,7 @@ namespace qs
 		/// \param text Text to draw.
 		/// \param shader Shader to apply to text. You must have called bind() already!
 		///
-		void drawText(qs::Text& text, qs::Shader& shader) noexcept;
+		void draw_text(qs::Text& text, qs::Shader& shader) noexcept;
 
 		///
 		/// Draw to render texture.
@@ -158,7 +158,7 @@ namespace qs
 		/// \param rt Target to draw to.
 		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
 		///
-		
+
 		///
 		/// \brief Draw a scene.
 		///
@@ -172,6 +172,6 @@ namespace qs
 		/// \param ls Light source(s) for lighting. Provides its own shader.
 		///
 	};
-}
+} // namespace qs
 
 #endif

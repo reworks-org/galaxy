@@ -15,69 +15,69 @@
 namespace qs
 {
 	Transform::Transform() noexcept
-		:m_isDirty(false), m_originPoint(0.0f, 0.0f, 0.0f), m_rotateMatrix(1.0f), m_scaledMatrix(1.0f), m_translationMatrix(1.0f), m_modelMatrix(1.0f)
+	    : m_dirty {false}, m_origin {0.0f, 0.0f, 0.0f}, m_rotation {1.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}
 	{
 	}
 
 	void Transform::move(const float x, const float y) noexcept
 	{
-		m_translationMatrix = glm::translate(m_translationMatrix, glm::vec3(x, y, 0.0f));
-		m_isDirty = true;
+		m_translation = glm::translate(m_translation, {x, y, 0.0f});
+		m_dirty       = true;
 	}
 
-	void Transform::rotate(const float degrees) noexcept
+	void Transform::rotate(float degrees) noexcept
 	{
-		float adjusted = degrees;
-		if (adjusted > 360.0f)
+		if (degrees > 360.0f)
 		{
-			adjusted = 360.0f;
-		}
-		else if (adjusted < -360.0f)
-		{
-			adjusted = -360.0f;
+			degrees = 360.0f;
 		}
 
-		m_rotateMatrix = glm::translate(m_rotateMatrix, m_originPoint);
-		m_rotateMatrix = glm::rotate(m_rotateMatrix, glm::radians(adjusted), glm::vec3(0.0f, 0.0f, 1.0f));
-		m_rotateMatrix = glm::translate(m_rotateMatrix, -m_originPoint);
+		if (degrees < -360.0f)
+		{
+			degrees = -360.0f;
+		}
 
-		m_isDirty = true;
+		m_rotation = glm::translate(m_rotation, m_origin);
+		m_rotation = glm::rotate(m_rotation, glm::radians(degrees), {0.0f, 0.0f, 1.0f});
+		m_rotation = glm::translate(m_rotation, -m_origin);
+
+		m_dirty = true;
 	}
 
-	void Transform::scale(const float scale) noexcept
+	void Transform::scale(pr::not_negative_arithmetic auto scale) noexcept
 	{
-		m_scaledMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(scale, scale, 1.0f));
-		m_isDirty = true;
+		m_scaling = glm::scale(glm::mat4 {1.0f}, {scale, scale, 1.0f}); // wants mat4 here for some reason?
+		m_dirty   = true;
 	}
 
 	void Transform::recalculate() noexcept
 	{
-		if (m_isDirty)
+		if (m_dirty)
 		{
-			m_modelMatrix = m_translationMatrix * m_rotateMatrix * m_scaledMatrix;
-			m_isDirty = false;
+			m_model = m_translation * m_rotation * m_scaling;
+			m_dirty = false;
 		}
 	}
 
-	void Transform::setPos(const float x, const float y) noexcept
+	void Transform::set_pos(const float x, const float y) noexcept
 	{
-		m_translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(x, y, 0.0f));
-		m_isDirty = true;
+		m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f}); // wants mat4 here for some reason?
+		m_dirty       = true;
 	}
 
-	void Transform::setRotationOrigin(const float x, const float y) noexcept
+	void Transform::set_rotation_origin(const float x, const float y) noexcept
 	{
-		m_originPoint = glm::vec3(x, y, 0.0f);
+		m_origin = {x, y, 0.0f};
 	}
 
-	const bool Transform::isDirty() const noexcept
+	const bool Transform::is_dirty() const noexcept
 	{
-		return m_isDirty;
+		return m_dirty;
 	}
 
-	glm::mat4& Transform::getTransformation() noexcept
+	glm::mat4& Transform::get_transform() noexcept
 	{
 		recalculate();
-		return m_modelMatrix;
+		return m_model;
 	}
-}
+} // namespace qs

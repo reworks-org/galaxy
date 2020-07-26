@@ -9,6 +9,7 @@
 #define QUASAR_TRANSFORM_HPP_
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <protostar/system/Concepts.hpp>
 
 ///
 /// Core namespace.
@@ -47,14 +48,14 @@ namespace qs
 		///
 		/// \param degrees Max 360, min -360.
 		///
-		void rotate(const float degrees) noexcept;
+		void rotate(float degrees) noexcept;
 
 		///
 		/// Scale transformation on each axis.
 		///
 		/// \param scale Scale. Multiplier.
 		///
-		void scale(const float scale) noexcept;
+		void scale(pr::not_negative_arithmetic auto scale) noexcept;
 
 		///
 		/// Recalculates the model view matrix.
@@ -67,7 +68,7 @@ namespace qs
 		/// \param x X position to set object to.
 		/// \param y Y position to set object to.
 		///
-		void setPos(const float x, const float y) noexcept;
+		void set_pos(const float x, const float y) noexcept;
 
 		///
 		/// Set the rotation point.
@@ -75,54 +76,54 @@ namespace qs
 		/// \param x X position to set origin to.
 		/// \param y Y position to set origin to.
 		///
-		void setRotationOrigin(const float x, const float y) noexcept;
-		
+		void set_rotation_origin(const float x, const float y) noexcept;
+
 		///
 		/// Get flag indicating if transform needs to be applied before rendering.
 		///
 		/// \return Const boolean.
 		///
-		const bool isDirty() const noexcept;
+		const bool is_dirty() const noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.
 		///
 		/// \return Reference to internal glm::mat4.
 		///
-		glm::mat4& getTransformation() noexcept;
+		glm::mat4& get_transform() noexcept;
 
 	protected:
 		///
 		/// Update flag.
 		///
-		bool m_isDirty;
+		bool m_dirty;
 
 		///
 		/// Rotation origin point.
 		///
-		glm::vec3 m_originPoint;
+		glm::vec3 m_origin;
 
 		///
 		/// Rotational matrix.
 		///
-		glm::mat4 m_rotateMatrix;
+		glm::mat4 m_rotation;
 
 		///
 		/// Scaled matrix.
 		///
-		glm::mat4 m_scaledMatrix;
+		glm::mat4 m_scaling;
 
 		///
 		/// Translation matrix.
 		///
-		glm::mat4 m_translationMatrix;
+		glm::mat4 m_translation;
 
 	private:
 		///
 		/// Combined transformation matrix.
 		///
-		glm::mat4 m_modelMatrix;
+		glm::mat4 m_model;
 	};
-}
+} // namespace qs
 
 #endif
