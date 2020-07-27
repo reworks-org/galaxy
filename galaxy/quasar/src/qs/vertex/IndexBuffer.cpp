@@ -13,7 +13,7 @@
 namespace qs
 {
 	IndexBuffer::IndexBuffer() noexcept
-		:m_id(0), m_count(0)
+	    : m_id {0}, m_count {0}
 	{
 		glGenBuffers(1, &m_id);
 	}
@@ -33,8 +33,8 @@ namespace qs
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
-	unsigned int IndexBuffer::getCount() const noexcept
+	unsigned int IndexBuffer::count() const noexcept
 	{
 		return m_count;
 	}
-}
+} // namespace qs

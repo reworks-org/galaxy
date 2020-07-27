@@ -15,7 +15,7 @@
 namespace qs
 {
 	VertexBuffer::VertexBuffer() noexcept
-		:m_id(0), m_size(0)
+	    : m_id {0}, m_size {0}
 	{
 		glGenBuffers(1, &m_id);
 	}
@@ -39,4 +39,4 @@ namespace qs
 	{
 		return m_id;
 	}
-}
+} // namespace qs

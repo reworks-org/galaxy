@@ -14,7 +14,7 @@ namespace qs
 	{
 	}
 
-	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
+	Camera::Camera(const float left, const float right, const float bottom, const float top, const pr::positive_float auto speed) noexcept
 	    : m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed(speed), m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
 	{
 		create(left, right, bottom, top);
@@ -126,7 +126,7 @@ namespace qs
 		}
 	}
 
-	void Camera::set_speed(const float speed) noexcept
+	void Camera::set_speed(const pr::positive_float auto speed) noexcept
 	{
 		m_speed = speed;
 	}

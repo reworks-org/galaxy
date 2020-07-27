@@ -42,7 +42,7 @@ namespace qs
 		///
 		/// Open library.
 		///
-		void open() noexcept;
+		void open();
 
 		///
 		/// Close library.
@@ -54,7 +54,7 @@ namespace qs
 		///
 		/// \return Reference to FT_Library.
 		///
-		FT_Library& lib() noexcept;
+		[[nodiscard]] FT_Library& lib() noexcept;
 
 	private:
 		///
@@ -66,8 +66,8 @@ namespace qs
 		///
 		/// FreeType library structure.
 		///
-		FT_Library m_ftLibrary;
+		FT_Library m_freetype_lib;
 	};
-}
+} // namespace qs
 
 #endif

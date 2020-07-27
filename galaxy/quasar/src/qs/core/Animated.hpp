@@ -61,7 +61,7 @@ namespace qs
 		///
 		/// \return Reference to a glm::vec2. X/Y is U/V.
 		///
-		glm::vec2& get_texels() noexcept;
+		[[nodiscard]] glm::vec2& get_texels() noexcept;
 
 	protected:
 		///

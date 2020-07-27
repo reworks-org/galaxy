@@ -36,28 +36,28 @@ namespace qs
 		///
 		/// \return Const unsigned integer.
 		///
-		const unsigned int z_level() const noexcept;
+		[[nodiscard]] const unsigned int z_level() const noexcept;
 
 		///
 		/// Get VBO.
 		///
 		/// \return Reference to VBO.
 		///
-		qs::VertexBuffer& get_vbo() noexcept;
+		[[nodiscard]] qs::VertexBuffer& get_vbo() noexcept;
 
 		///
 		/// Get VAO.
 		///
 		/// \return Reference to VAO.
 		///
-		qs::VertexArray& get_vao() noexcept;
+		[[nodiscard]] qs::VertexArray& get_vao() noexcept;
 
 		///
 		/// Get index count.
 		///
 		/// \return Const unsigned integer.
 		///
-		const unsigned int index_count() const noexcept;
+		[[nodiscard]] const unsigned int index_count() const noexcept;
 
 	protected:
 		///

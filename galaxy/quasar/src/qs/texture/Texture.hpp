@@ -28,13 +28,13 @@ namespace qs
 		///
 		/// Remember to call load()!
 		///
-		Texture() noexcept;
+		Texture();
 
 		///
 		/// Virtual destructor.
 		///
-		~Texture() noexcept;
-		
+		virtual ~Texture() noexcept;
+
 		///
 		/// \brief Loads texture from file.
 		///
@@ -42,7 +42,7 @@ namespace qs
 		///
 		/// \param file File on disk to load from.
 		///
-		void load(const std::string& file) noexcept;
+		void load(std::string_view file);
 
 		///
 		/// \brief Loads texture from memory.
@@ -52,7 +52,7 @@ namespace qs
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
 		/// \param size Size of the buffer.
 		///
-		void load(const unsigned char* mem, const unsigned int size) noexcept;
+		void load(const pr::not_nullptr auto mem, const pr::positive_uint auto size);
 
 		///
 		/// Loads texture from OpenGL generated id.
@@ -61,7 +61,7 @@ namespace qs
 		/// \param width Width of texture.
 		/// \param height Height of texture.
 		///
-		void load(const unsigned int id, const int width, const int height) noexcept;
+		void load(const pr::positive_uint auto id, const pr::positive_int auto width, const pr::positive_int auto height);
 
 		///
 		/// Load based off params from glTexImage2D.
@@ -75,7 +75,7 @@ namespace qs
 		/// \param type https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 		/// \param pixels https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 		///
-		void load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels) noexcept;
+		void load(pr::positive_int auto level, pr::positive_int auto internalformat, pr::positive_int auto width, pr::positive_int auto height, pr::positive_int auto border, pr::positive_uint auto format, pr::positive_uint auto type, const pr::not_nullptr_void auto pixels);
 
 		///
 		/// Activate texture context.
@@ -87,6 +87,6 @@ namespace qs
 		///
 		void unbind() noexcept override;
 	};
-}
+} // namespace qs
 
 #endif

@@ -20,9 +20,9 @@ namespace qs
 		return lib;
 	}
 
-	void FreeTypeLib::open() noexcept
+	void FreeTypeLib::open()
 	{
-		if (FT_Init_FreeType(&m_ftLibrary))
+		if (FT_Init_FreeType(&m_freetype_lib))
 		{
 			PL_LOG(PL_FATAL, "Failed to init FreeType.");
 		}
@@ -30,11 +30,11 @@ namespace qs
 
 	void FreeTypeLib::close() noexcept
 	{
-		FT_Done_FreeType(m_ftLibrary);
+		FT_Done_FreeType(m_freetype_lib);
 	}
 
 	FT_Library& FreeTypeLib::lib() noexcept
 	{
-		return m_ftLibrary;
+		return m_freetype_lib;
 	}
-}
+} // namespace qs

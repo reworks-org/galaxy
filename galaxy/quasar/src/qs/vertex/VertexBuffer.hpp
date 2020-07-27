@@ -18,14 +18,14 @@ namespace qs
 	///
 	/// Shorthand.
 	///
-	template<typename VertexType>
-	using VertexStorage = std::vector<VertexType>;
+	template<is_vertex vertex_type>
+	using VertexStorage = std::vector<vertex_type>;
 
 	///
 	/// Shorthand.
 	///
-	template<typename VertexType>
-	using VertexQuadStorage = std::array<VertexType, 4>;
+	template<is_vertex vertex_type>
+	using VertexQuadStorage = std::array<vertex_type, 4>;
 
 	///
 	/// Abstraction for OpenGL vertex buffer objects.
@@ -47,10 +47,10 @@ namespace qs
 		/// Create vertex buffer object.
 		///
 		/// \param vertices Vertexs to use.
-		/// \param defaultDynamicVerts Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
+		/// \param dynamic_verticies Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
 		///
-		template<typename VertexType, typename BufferType>
-		void create(const VertexStorage<VertexType>& vertices, bool defaultDynamicVerts = true) noexcept;
+		template<is_vertex vertex_type, is_buffer buffer_type>
+		void create(const VertexStorage<vertex_type>& vertices, bool dynamic_verticies = true);
 
 		///
 		/// Bind the current vertex buffer to current GL context.
@@ -67,7 +67,7 @@ namespace qs
 		///
 		/// \return Vertex storage as a float array pointer.
 		///
-		template<typename VertexType>
+		template<typename vertex_type>
 		decltype(auto) get() noexcept;
 
 		///
@@ -88,14 +88,10 @@ namespace qs
 		///
 		unsigned int m_size;
 	};
-	
-	template<typename VertexType, typename BufferType>
-	inline void VertexBuffer::create(const VertexStorage<VertexType>& vertices, bool defaultDynamicVerts) noexcept
-	{
-		// If not one of the two buffer type structs, throw compile-time assert.
-		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
-		static_assert(std::is_same<VertexType, qs::SpriteVertex>::value || std::is_same<VertexType, qs::PrimitiveVertex>::value);
 
+	template<is_vertex vertex_type, is_buffer buffer_type>
+	inline void VertexBuffer::create(const VertexStorage<vertex_type>& vertices, bool dynamic_verticies)
+	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 
 		if (!vertices.empty())
@@ -110,35 +106,35 @@ namespace qs
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
+		if constexpr (std::is_same<buffer_type, qs::BufferDynamic>::value)
 		{
-			if (defaultDynamicVerts)
+			if (dynamic_verticies)
 			{
-				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(vertex_type), vertices.data(), GL_DYNAMIC_DRAW);
 			}
 			else
 			{
-				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(vertex_type), nullptr, GL_DYNAMIC_DRAW);
 			}
 		}
-		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
+		else if constexpr (std::is_same<buffer_type, qs::BufferStatic>::value)
 		{
-			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(vertex_type), vertices.data(), GL_STATIC_DRAW);
 		}
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	template<typename VertexType>
+	template<typename vertex_type>
 	inline decltype(auto) VertexBuffer::get() noexcept
 	{
-		VertexStorage<VertexType> vs;
+		VertexStorage<vertex_type> vs;
 		vs.reserve(m_size);
 
-		glGetNamedBufferSubData(m_id, 0, m_size * sizeof(VertexType), &vs[0]);
+		glGetNamedBufferSubData(m_id, 0, m_size * sizeof(vertex_type), &vs[0]);
 
-		return std::move(vs);
+		return vs;
 	}
-}
+} // namespace qs
 
 #endif

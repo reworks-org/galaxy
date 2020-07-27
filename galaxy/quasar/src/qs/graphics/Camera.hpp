@@ -41,7 +41,7 @@ namespace qs
 		/// \param top Top point of ortho perspective.
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
+		explicit Camera(const float left, const float right, const float bottom, const float top, const pr::positive_float auto speed) noexcept;
 
 		///
 		/// Default destructor.
@@ -91,28 +91,28 @@ namespace qs
 		///
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		void set_speed(const float speed) noexcept;
+		void set_speed(const pr::positive_float auto speed) noexcept;
 
 		///
 		/// Get camera width.
 		///
 		/// \return Const float.
 		///
-		const float get_width() const noexcept;
+		[[nodiscard]] const float get_width() const noexcept;
 
 		///
 		/// Get camera height.
 		///
 		/// \return Const float.
 		///
-		const float get_height() const noexcept;
+		[[nodiscard]] const float get_height() const noexcept;
 
 		///
 		/// Get the camera projection.
 		///
 		/// \return Const glm::mat4 reference.
 		///
-		const glm::mat4& get_proj() noexcept;
+		[[nodiscard]] const glm::mat4& get_proj() noexcept;
 
 	private:
 		///

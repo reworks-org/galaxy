@@ -20,40 +20,40 @@
 namespace qs
 {
 	Font::Font() noexcept
-		:m_height(0), m_texture()
+	    : m_height {0}, m_texture {}
 	{
 	}
 
-	Font::Font(const std::string& file, const int size) noexcept
-		:m_height(0), m_texture()
+	Font::Font(std::string_view file, const pr::positive_int auto size)
+	    : m_height {0}, m_texture {}
 	{
 		load(file, size);
 	}
 
-	void Font::load(const std::string& file, const int size) noexcept
+	void Font::load(std::string_view file, const pr::positive_int auto size)
 	{
 		FT_Face face;
-		auto path = std::filesystem::path(file);
+		auto path = std::filesystem::path {file};
 
 		if (FT_New_Face(FTLIB.lib(), path.string().c_str(), 0, &face))
 		{
-			PL_LOG(PL_ERROR, "Failed to create FreeType font face.");
+			PL_LOG(PL_ERROR, "Failed to create FreeType font face for file: {0}.", path.string());
 		}
 		else
 		{
-			float advX = 0;
+			float adv_x = 0;
 			FT_Set_Pixel_Sizes(face, 0, size);
 			for (GLubyte chr = 0; chr < 128; chr++)
 			{
 				if (FT_Load_Char(face, chr, FT_LOAD_RENDER))
 				{
-					PL_LOG(PL_ERROR, "Failed to load character: " + std::to_string(chr));
+					PL_LOG(PL_ERROR, "Failed to load character: {0}.", chr);
 				}
 				else
 				{
 					// This will default construct the object.
 					qs::Character* emplaced = &m_characters[chr];
-					
+
 					// Modify alignment for fonts.
 					int original = 0;
 					glGetIntegerv(GL_UNPACK_ALIGNMENT, &original);
@@ -62,10 +62,10 @@ namespace qs
 					emplaced->load(0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
 					emplaced->m_bearingX = static_cast<int>(face->glyph->bitmap_left);
 					emplaced->m_bearingY = static_cast<int>(face->glyph->bitmap_top);
-					emplaced->m_advance = static_cast<unsigned int>(face->glyph->advance.x);
-					
-					float x = advX + emplaced->m_bearingX;
-					float y = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
+					emplaced->m_advance  = static_cast<unsigned int>(face->glyph->advance.x);
+
+					float x       = adv_x + emplaced->m_bearingX;
+					float y       = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
 					const float w = static_cast<float>(emplaced->getWidth());
 					const float h = static_cast<float>(emplaced->getHeight());
 
@@ -77,32 +77,32 @@ namespace qs
 					auto v3 = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f, 1.0f);
 					auto v4 = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f, 1.0f);
 
-					emplaced->m_region = { x, y, w, h };
-					emplaced->m_vertexBuffer.create<qs::SpriteVertex, qs::BufferTypeStatic>({ v1, v2, v3, v4 });
-					emplaced->m_indexBuffer.create<qs::BufferTypeStatic>({ 0, 1, 3, 1, 2, 3 });
+					emplaced->m_region = {x, y, w, h};
+					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>({v1, v2, v3, v4});
+					emplaced->m_ib.create<qs::BufferStatic>({0, 1, 3, 1, 2, 3});
 
-					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);
-					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypeTexel>(2);
-					emplaced->m_layout.add<qs::SpriteVertex, qs::VATypeOpacity>(1);
+					emplaced->m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
+					emplaced->m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
+					emplaced->m_layout.add<qs::SpriteVertex, qs::VAOpacity>(1);
 
-					emplaced->m_vertexArray.create<qs::SpriteVertex>(emplaced->m_vertexBuffer, emplaced->m_indexBuffer, emplaced->m_layout);
+					emplaced->m_va.create<qs::SpriteVertex>(emplaced->m_vb, emplaced->m_ib, emplaced->m_layout);
 
 					// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-					advX += (emplaced->getAdvance() >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
+					adv_x += (emplaced->get_advance() >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
 				}
 			}
 		}
 
 		FT_Done_Face(face);
-		m_height = m_characters['X'].getHeight();
+		m_height = m_characters['X'].get_height();
 	}
 
-	void Font::create(qs::Renderer& renderer, qs::Shader& shader) noexcept
+	void Font::create(qs::Renderer& renderer, qs::Shader& shader)
 	{
 		int width = 0;
 		for (auto& pair : m_characters)
 		{
-			width += (pair.second.getAdvance() >> 6);
+			width += (pair.second.get_advance() >> 6);
 		}
 
 		m_texture.create(width, m_height);
@@ -110,36 +110,36 @@ namespace qs
 
 		for (auto& pair : m_characters)
 		{
-			renderer.drawCharacter(&pair.second, m_texture, shader);
+			renderer.draw_character(&pair.second, m_texture, shader);
 		}
 
 		m_texture.unbind();
 	}
 
-	const int Font::getTextWidth(const std::string& text) noexcept
+	const int Font::get_text_width(const std::string& text) noexcept
 	{
 		int width = 0;
 
 		for (auto& chr : text)
 		{
-			width += (m_characters[chr].getAdvance() >> 6);
+			width += (m_characters[chr].get_advance() >> 6);
 		}
 
 		return width;
 	}
 
-	const int Font::getHeight() noexcept
+	const int Font::get_height() noexcept
 	{
 		return m_height;
 	}
 
-	qs::BaseTexture* Font::getTexture() noexcept
+	qs::BaseTexture* Font::get_texture() noexcept
 	{
 		return dynamic_cast<qs::BaseTexture*>(&m_texture);
 	}
 
-	qs::Character* Font::getChar(const char c) noexcept
+	qs::Character* Font::get_char(const char c) noexcept
 	{
 		return &m_characters[c];
 	}
-}
+} // namespace qs

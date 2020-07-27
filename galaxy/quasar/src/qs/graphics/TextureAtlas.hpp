@@ -27,6 +27,15 @@ namespace qs
 	class Renderer;
 
 	///
+	/// Concept to ensure a number is a power of two.
+	///
+	template<typename type>
+	concept is_pow_2 = pr::positive_int&& requries(type val)
+	{
+		{((val != 0) && ((val & (val - 1)) == 0))};
+	};
+
+	///
 	/// A texture atlas containing all the textures and rasterized text in the game.
 	/// This means rendering can be very efficient because only one texture has to be loaded and no switching takes place.
 	///
@@ -45,7 +54,7 @@ namespace qs
 		///
 		/// \param size Power of 2 size of texture atlas. I.e. user 4096 for a 4096x4096 texture.
 		///
-		explicit TextureAtlas(const int size) noexcept;
+		explicit TextureAtlas(const is_pow_2 auto size) noexcept;
 
 		///
 		/// Destructor.
@@ -92,21 +101,21 @@ namespace qs
 		///
 		/// \return Const ref to the quad.
 		///
-		std::optional<pr::Rect<float>> get_region(std::string_view name) noexcept;
+		[[nodiscard]] std::optional<pr::Rect<float>> get_region(std::string_view name) noexcept;
 
 		///
 		/// Get atlas texture.
 		///
 		/// \return Pointer to texture.
 		///
-		qs::RenderTexture* get_atlas() noexcept;
+		[[nodiscard]] qs::RenderTexture* get_atlas() noexcept;
 
 		///
 		/// Get size of atlas.
 		///
 		/// \return Size as an integer.
 		///
-		const int get_size() const noexcept;
+		[[nodiscard]] const int get_size() const noexcept;
 
 	private:
 		///

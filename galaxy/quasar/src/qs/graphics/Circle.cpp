@@ -23,13 +23,13 @@ namespace qs
 	{
 	}
 
-	Circle::Circle(const float x, const float y, const float radius, const int fragments, const pr::Colour& colour, const float thickness)
+	Circle::Circle(const float x, const float y, const pr::positive_float auto radius, const pr::positive_int auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness)
 	    : m_thickness {thickness}
 	{
 		create(x, y, radius, fragments, colour, thickness);
 	}
 
-	void Circle::create(const float x, const float y, const float radius, const int fragments, const pr::Colour& colour, const float thickness)
+	void Circle::create(const float x, const float y, const pr::positive_float auto radius, const pr::positive_int auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness)
 	{
 		// Thanks to https://stackoverflow.com/a/33859443.
 		// For help with maths.
@@ -49,11 +49,11 @@ namespace qs
 			count++;
 		}
 
-		m_vb.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
+		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
 		m_ib.create<qs::BufferTypeStatic>(indices);
 
-		m_layout.add<qs::PrimitiveVertex, qs::VATypePosition>(2);
-		m_layout.add<qs::PrimitiveVertex, qs::VATypeColour>(4);
+		m_layout.add<qs::PrimitiveVertex, qs::VAPosition>(2);
+		m_layout.add<qs::PrimitiveVertex, qs::VAColour>(4);
 
 		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
 	}

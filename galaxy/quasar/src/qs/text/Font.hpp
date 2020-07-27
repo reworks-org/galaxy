@@ -8,8 +8,6 @@
 #ifndef QUASAR_FONT_HPP_
 #define QUASAR_FONT_HPP_
 
-
-
 #include "qs/text/FreeType.hpp"
 #include "qs/text/Character.hpp"
 #include "qs/texture/RenderTexture.hpp"
@@ -42,7 +40,7 @@ namespace qs
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		Font(const std::string& file, const int size) noexcept;
+		Font(std::string_view file, const pr::positive_int auto size);
 
 		///
 		/// Default destructor.
@@ -55,7 +53,7 @@ namespace qs
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		void load(const std::string& file, const int size) noexcept;
+		void load(std::string_view file, const pr::positive_int auto size);
 
 		///
 		/// Create the font.
@@ -63,33 +61,33 @@ namespace qs
 		/// \param renderer Renderer to draw characters with.
 		/// \paramn shader Shader to use when drawing.
 		///
-		void create(qs::Renderer& renderer, qs::Shader& shader) noexcept;
+		void create(qs::Renderer& renderer, qs::Shader& shader);
 
 		///
 		/// Retrieve width of a string of text.
 		///
 		/// \param text Text to get width of.
 		///
-		const int getTextWidth(const std::string& text) noexcept;
-		
+		[[nodiscard]] const int get_text_width(const std::string& text) noexcept;
+
 		///
 		/// Retrieve height of the font.
 		///
-		const int getHeight() noexcept;
-		
+		[[nodiscard]] const int get_height() noexcept;
+
 		///
 		/// Get texture.
 		///
 		/// \return Pointer to texture atlas.
 		///
-		qs::BaseTexture* getTexture() noexcept;
+		[[nodiscard]] qs::BaseTexture* get_texture() noexcept;
 
 		///
 		/// Get a character.
 		///
 		/// \return Returns pointer to Character class.
 		///
-		qs::Character* getChar(const char c) noexcept;
+		[[nodiscard]] qs::Character* get_char(const char c) noexcept;
 
 	private:
 		///
@@ -107,6 +105,6 @@ namespace qs
 		///
 		std::unordered_map<char, qs::Character> m_characters;
 	};
-}
+} // namespace qs
 
 #endif

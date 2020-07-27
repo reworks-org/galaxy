@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	void Sprite::set_opacity(pr::between_1_and_0 auto opacity) noexcept
+	void Sprite::set_opacity(const pr::from_0_to_1 auto opacity) noexcept
 	{
 		m_opacity = opacity;
 		m_dirty   = true;

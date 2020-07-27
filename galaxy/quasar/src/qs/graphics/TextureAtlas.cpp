@@ -24,7 +24,7 @@ namespace qs
 		m_packer.init(1024, 1024);
 	}
 
-	TextureAtlas::TextureAtlas(const int size) noexcept
+	TextureAtlas::TextureAtlas(const is_pow_2 size) noexcept
 	    : m_size {size}, m_texture {size, size}
 	{
 		m_packer.init(size, size);

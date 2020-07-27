@@ -27,7 +27,7 @@ namespace qs
 		///
 		/// \param max_quads Maximum number of quads allowed for this spritebatch.
 		///
-		SpriteBatch(const unsigned int max_quads);
+		SpriteBatch(const pr::positive_uint auto max_quads);
 
 		///
 		/// Destructor.
@@ -37,14 +37,14 @@ namespace qs
 		///
 		/// Set the texture to use.
 		///
-		/// \param texture Texture to use when drawing batched sprites.
+		/// \param texture Texture to use when drawing batched sprites. Must not be nullptr.
 		///
 		void set_texture(qs::BaseTexture* texture) noexcept;
 
 		///
 		/// Add a batched sprite to the spritebatch.
 		///
-		/// \param sprite Sprite to add.
+		/// \param sprite Sprite to add. Must not be nullptr.
 		///
 		void add(qs::BatchedSprite* sprite);
 
@@ -73,21 +73,21 @@ namespace qs
 		///
 		/// \return Const uint.
 		///
-		const unsigned int get_used_index_count() const noexcept;
+		[[nodiscard]] const unsigned int get_used_index_count() const noexcept;
 
 		///
 		/// Get width.
 		///
 		/// \return Const uint.
 		///
-		const unsigned int get_width() const noexcept;
+		[[nodiscard]] const unsigned int get_width() const noexcept;
 
 		///
 		/// Get height.
 		///
 		/// \return Const uint.
 		///
-		const unsigned int get_height() const noexcept;
+		[[nodiscard]] const unsigned int get_height() const noexcept;
 
 	private:
 		///

@@ -23,13 +23,13 @@
 namespace qs
 {
 	RenderTexture::RenderTexture() noexcept
-		:m_projection(1.0f), m_framebuffer(0)
+	    : m_projection(1.0f), m_framebuffer(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 	}
 
-	RenderTexture::RenderTexture(const int w, const int h) noexcept
-		:m_projection(1.0f), m_framebuffer(0)
+	RenderTexture::RenderTexture(const pr::positive_int auto w, const pr::positive_int auto h)
+	    : m_projection(1.0f), m_framebuffer(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 
@@ -42,22 +42,22 @@ namespace qs
 		glDeleteFramebuffers(1, &m_framebuffer);
 	}
 
-	void RenderTexture::create(const int w, const int h) noexcept
+	void RenderTexture::create(const pr::positive_int auto w, const pr::positive_int auto h)
 	{
-		m_width = w;
-		m_height = h;
+		m_width      = w;
+		m_height     = h;
 		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_textureFormat, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+		glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_texture_format, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, qs::WindowSettings::s_ansiotropicFiltering);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, qs::WindowSettings::s_ansio_filtering);
 
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture, 0);
 
@@ -88,13 +88,13 @@ namespace qs
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
-	void RenderTexture::setProjection(const float left, const float right, const float bottom, const float top) noexcept
+	void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top) noexcept
 	{
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	}
 
-	glm::mat4& RenderTexture::getProjection() noexcept
+	glm::mat4& RenderTexture::get_proj() noexcept
 	{
 		return m_projection;
 	}
-}
+} // namespace qs

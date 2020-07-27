@@ -48,14 +48,14 @@ namespace qs
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
-		void set_opacity(pr::between_1_and_0 auto opacity) noexcept;
+		void set_opacity(const pr::from_0_to_1 auto opacity) noexcept;
 
 		///
 		/// Get opacity.
 		///
 		/// \return Const float.
 		///
-		const float opacity() const noexcept;
+		[[nodiscard]] const float opacity() const noexcept;
 
 		///
 		/// Activate sprite context.
@@ -83,11 +83,11 @@ namespace qs
 		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height, m_opacity);
 
 		m_vb.create<qs::SpriteVertex, buffer_type>({v1, v2, v3, v4});
-		m_ib.create<qs::BufferTypeStatic>({0, 1, 3, 1, 2, 3});
+		m_ib.create<qs::BufferStatic>({0, 1, 3, 1, 2, 3});
 
-		m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);
-		m_layout.add<qs::SpriteVertex, qs::VATypeTexel>(2);
-		m_layout.add<qs::SpriteVertex, qs::VATypeOpacity>(1);
+		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
+		m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
+		m_layout.add<qs::SpriteVertex, qs::VAOpacity>(1);
 
 		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
 

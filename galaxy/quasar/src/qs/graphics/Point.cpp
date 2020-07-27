@@ -17,13 +17,13 @@ namespace qs
 	{
 	}
 
-	Point::Point(const float x, const float y, const int size, const pr::Colour& colour)
+	Point::Point(const float x, const float y, const pr::positive_int auto size, const pr::Colour& colour)
 	    : m_size {0}
 	{
 		create(x, y, size, colour);
 	}
 
-	void Point::create(const float x, const float y, const int size, const pr::Colour& colour)
+	void Point::create(const float x, const float y, const pr::positive_int auto size, const pr::Colour& colour)
 	{
 		m_size = size;
 
@@ -32,11 +32,11 @@ namespace qs
 
 		vertexs.emplace_back({x, y, colour});
 
-		m_vb.create<qs::PrimitiveVertex, qs::BufferTypeStatic>(vertexs);
-		m_ib.create<qs::BufferTypeStatic>({0});
+		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
+		m_ib.create<qs::BufferStatic>({0});
 
-		m_layout.add<qs::PrimitiveVertex, qs::VATypePosition>(2);
-		m_layout.add<qs::PrimitiveVertex, qs::VATypeColour>(4);
+		m_layout.add<qs::PrimitiveVertex, qs::VAPosition>(2);
+		m_layout.add<qs::PrimitiveVertex, qs::VAColour>(4);
 
 		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
 	}

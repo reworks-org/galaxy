@@ -8,6 +8,8 @@
 #ifndef QS_BASETEXTURE_HPP_
 #define QS_BASETEXTURE_HPP_
 
+#include <protostar/system/Concepts.hpp>
+
 #include "qs/utils/TextureFilters.hpp"
 
 ///
@@ -29,7 +31,7 @@ namespace qs
 		/// \param path Path (including filename) to save file to.
 		///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
 		///
-		void save(const std::string& path) noexcept;
+		void save(std::string_view path);
 
 		///
 		/// Activate texture context.
@@ -47,45 +49,45 @@ namespace qs
 		/// Clamps the coordinates between 0 and 1.
 		/// The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
 		///
-		virtual void clampToEdge() noexcept final;
+		void clamp_to_edge() noexcept;
 
 		///
 		/// \brief Clamps to the border.
 		///
 		/// Coordinates outside the range are now given a user-specified border color.
 		///
-		virtual void clampToBorder() noexcept final;
+		void clamp_to_border() noexcept;
 
 		///
 		/// Makes the texture repeat over its verticies.
 		///
-		virtual void setRepeated() noexcept final;
+		void set_repeated() noexcept;
 
 		///
 		/// Mirrors the texture.
 		///
-		virtual void setMirrored() noexcept final;
+		void set_mirrored() noexcept;
 
 		///
 		/// Set ansiotropic filtering level.
 		///
 		/// \param level 2, 4, 8, etc...
 		///
-		virtual void setAnisotropy(const int level) noexcept final;
+		void set_anisotropy(const pr::positive_uint auto level) noexcept;
 
 		///
 		/// Set filter when texture is downscaled in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		virtual void setMinifyFilter(const qs::TextureFilter& filter) noexcept final;
+		void set_minify_filter(const qs::TextureFilter& filter) noexcept;
 
 		///
 		/// Set filter when texture would be scaled up in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		virtual void setMagnifyFilter(const qs::TextureFilter& filter) noexcept final;
+		void set_magnify_filter(const qs::TextureFilter& filter) noexcept;
 
 		///
 		/// \brief Get texture width.
@@ -94,7 +96,7 @@ namespace qs
 		///
 		/// \return Width as int. int over unsigned for compat with float.
 		///
-		virtual const int getWidth() const noexcept final;
+		[[nodiscard]] const int get_width() const noexcept;
 
 		///
 		/// \brief Get texture height.
@@ -103,14 +105,14 @@ namespace qs
 		///
 		/// \return Height as int. int over unsigned for compat with float.
 		///
-		virtual const int getHeight() const noexcept final;
+		[[nodiscard]] const int get_height() const noexcept;
 
 		///
 		/// Gets internal OpenGL id.
 		///
 		/// \return Const unsigned int.
 		///
-		virtual const unsigned int getGLTexture() const noexcept final;
+		[[nodiscard]] const unsigned int gl_texture() const noexcept;
 
 	protected:
 		///
@@ -118,7 +120,6 @@ namespace qs
 		///
 		BaseTexture() noexcept;
 
-	protected:
 		///
 		/// OpenGL texture handle.
 		///
@@ -134,6 +135,6 @@ namespace qs
 		///
 		int m_height;
 	};
-}
+} // namespace qs
 
 #endif

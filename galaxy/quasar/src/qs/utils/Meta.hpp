@@ -2,14 +2,16 @@
 /// Meta.hpp
 /// quasar
 ///
-/// Apache 2.0 LICENSE.
 /// Refer to LICENSE.txt for more details.
 ///
 
 #ifndef QUASAR_META_HPP_
 #define QUASAR_META_HPP_
 
-#include <array>
+#include <type_traits>
+
+#include "qs/vertex/type/PrimitiveVertex.hpp"
+#include "qs/vertex/type/SpriteVertex.hpp"
 
 ///
 /// Core namespace.
@@ -21,9 +23,9 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct BufferTypeDynamic final
+	struct BufferDynamic final
 	{
-		BufferTypeDynamic() = delete;
+		BufferDynamic() = delete;
 	};
 
 	///
@@ -31,9 +33,9 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct BufferTypeStatic final
+	struct BufferStatic final
 	{
-		BufferTypeStatic() = delete;
+		BufferStatic() = delete;
 	};
 
 	///
@@ -41,9 +43,9 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypePosition final
+	struct VAPosition final
 	{
-		VATypePosition() = delete;
+		VAPosition() = delete;
 	};
 
 	///
@@ -51,9 +53,9 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypeColour final
+	struct VAColour final
 	{
-		VATypeColour() = delete;
+		VAColour() = delete;
 	};
 
 	///
@@ -61,9 +63,9 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypeOpacity final
+	struct VAOpacity final
 	{
-		VATypeOpacity() = delete;
+		VAOpacity() = delete;
 	};
 
 	///
@@ -71,9 +73,9 @@ namespace qs
 	///
 	/// Cannot be instansiated.
 	///
-	struct VATypeTexel final
+	struct VATexel final
 	{
-		VATypeTexel() = delete;
+		VATexel() = delete;
 	};
 
 	///
@@ -83,11 +85,34 @@ namespace qs
 	///
 	/// \return Vertex.
 	///
-	template<typename VertexType, typename ...Args>
-	static inline VertexType&& make_vertex(Args&& ...args) noexcept
+	template<typename vertex_type, typename... _args>
+	[[nodiscard]] inline vertex_type make_vertex(_args&&... args) noexcept
 	{
-		return std::move(VertexType(std::forward<Args>(args)...));
+		return {std::forward<_args>(args)...};
 	}
-}
+
+	///
+	/// Concept to ensure template parameter is a vertex attribute.
+	///
+	template<typename type>
+	concept is_vertex_attribute = (std::is_same<type, VAPosition>::value ||
+				       std::is_same<type, VAColour>::value ||
+				       std::is_same<type, VATexel>::value ||
+				       std::is_same<type, VAOpacity>::value);
+
+	///
+	/// Concept to ensure template parameter is a vertex.
+	///
+	template<typename type>
+	concept is_vertex = (std::is_same<type, SpriteVertex>::value ||
+			     std::is_same<type, PrimitiveVertex>::value);
+
+	///
+	/// Conceptto ensure template parameter is a opengl buffer type.
+	///
+	template<typename type>
+	concept is_buffer = (std::is_same<type, BufferDynamic>::value || std::is_same<type, BufferStatic>::value);
+
+} // namespace qs
 
 #endif

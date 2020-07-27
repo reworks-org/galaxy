@@ -9,6 +9,7 @@
 #define QUASAR_SPRITEVERTEX_HPP_
 
 #include <glm/vec2.hpp>
+#include <protostar/system/Concepts.hpp>
 
 ///
 /// Core namespace.
@@ -34,7 +35,7 @@ namespace qs
 		/// \param v Texel y pos.
 		/// \param opacity Opacity of sprite.
 		///
-		explicit SpriteVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
+		SpriteVertex(const float x, const float y, const float u, const float v, const pr::from_0_to_1 auto opacity) noexcept;
 
 		///
 		/// Destructor.
@@ -56,6 +57,6 @@ namespace qs
 		///
 		float m_opacity;
 	};
-}
+} // namespace qs
 
 #endif

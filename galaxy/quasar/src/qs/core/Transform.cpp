@@ -44,7 +44,7 @@ namespace qs
 		m_dirty = true;
 	}
 
-	void Transform::scale(pr::not_negative_arithmetic auto scale) noexcept
+	void Transform::scale(const pr::positive_float auto scale) noexcept
 	{
 		m_scaling = glm::scale(glm::mat4 {1.0f}, {scale, scale, 1.0f}); // wants mat4 here for some reason?
 		m_dirty   = true;

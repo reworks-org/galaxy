@@ -13,7 +13,7 @@
 namespace qs
 {
 	VertexArray::VertexArray() noexcept
-		:m_id(0)
+	    : m_id {0}
 	{
 		glGenVertexArrays(1, &m_id);
 	}
@@ -32,4 +32,4 @@ namespace qs
 	{
 		glBindVertexArray(0);
 	}
-}
+} // namespace qs

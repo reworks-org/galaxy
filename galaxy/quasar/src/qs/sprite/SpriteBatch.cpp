@@ -14,8 +14,8 @@
 ///
 namespace qs
 {
-	SpriteBatch::SpriteBatch(const unsigned int max_quads)
-	    : VertexData(), m_offset(0), m_max_quads(max_quads), m_max_vertexs(0), m_max_indexs(0), m_used_indexs(0), m_texture(nullptr)
+	SpriteBatch::SpriteBatch(const pr::positive_uint auto max_quads)
+	    : VertexData {}, m_offset {0}, m_max_quads {max_quads}, m_max_vertexs {0}, m_max_indexs {0}, m_used_indexs {0}, m_texture {nullptr}
 	{
 		m_max_vertexs = m_max_quads * 4;
 		m_max_indexs  = m_max_quads * 6;
@@ -38,12 +38,12 @@ namespace qs
 
 		m_sprites.reserve(m_max_quads);
 		m_vertexs.reserve(m_max_vertexs);
-		m_vb.create<qs::SpriteVertex, qs::BufferTypeDynamic>(m_vertexs, false);
-		m_ib.create<qs::BufferTypeStatic>(is);
+		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(m_vertexs, false);
+		m_ib.create<qs::BufferStatic>(is);
 
-		m_layout.add<qs::SpriteVertex, qs::VATypePosition>(2);
-		m_layout.add<qs::SpriteVertex, qs::VATypeTexel>(2);
-		m_layout.add<qs::SpriteVertex, qs::VATypeOpacity>(1);
+		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
+		m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
+		m_layout.add<qs::SpriteVertex, qs::VAOpacity>(1);
 
 		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
 	}
@@ -55,28 +55,42 @@ namespace qs
 
 	void SpriteBatch::set_texture(qs::BaseTexture* texture) noexcept
 	{
-		m_texture = texture;
+		if (m_texture == nullptr)
+		{
+			PL_LOG(PL_WARNING, "Attempted to set a nullptr BaseTexture to spritebatch.");
+		}
+		else
+		{
+			m_texture = texture;
+		}
 	}
 
 	void SpriteBatch::add(qs::BatchedSprite* sprite)
 	{
-		if (((m_sprites.size() + 1) * 4) > m_max_vertexs)
+		if (sprite == nullptr)
 		{
-			PL_LOG(PL_ERROR, "Too many quads in batch. Sprite not added.");
+			PL_LOG(PL_WARNING, "Attempted to add nullptr to spritebatch.");
 		}
 		else
 		{
-			if ((m_offset + 4) > m_vertexs.size())
+			if (((m_sprites.size() + 1) * 4) > m_max_vertexs)
 			{
-				m_vertexs.resize(m_offset + 4);
+				PL_LOG(PL_ERROR, "Too many quads in batch. Sprite not added.");
 			}
+			else
+			{
+				if ((m_offset + 4) > m_vertexs.size())
+				{
+					m_vertexs.resize(m_offset + 4);
+				}
 
-			sprite->m_offset = m_offset;
-			m_offset += 4;
-			m_used_indexs += 6;
+				sprite->m_offset = m_offset;
+				m_offset += 4;
+				m_used_indexs += 6;
 
-			m_sprites.push_back(sprite);
-			sort();
+				m_sprites.push_back(sprite);
+				sort();
+			}
 		}
 	}
 

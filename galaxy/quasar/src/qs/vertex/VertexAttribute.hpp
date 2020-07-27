@@ -10,6 +10,8 @@
 
 #include <cstddef>
 
+#include <protostar/system/Concepts.hpp>
+
 ///
 /// Core namespace.
 ///
@@ -35,8 +37,8 @@ namespace qs
 		/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 		/// \param offset The offset of this attribute in the verticies.
 		///
-		explicit VertexAttribute(int size, unsigned int type, unsigned char normalized, std::size_t offset) noexcept;
-		
+		VertexAttribute(const pr::positive_int auto size, const pr::positive_uint auto type, unsigned char normalized, const pr::positive_size_t auto offset) noexcept;
+
 		///
 		/// Components for each vertex attribute.
 		///
@@ -57,6 +59,6 @@ namespace qs
 		///
 		std::size_t m_offset;
 	};
-}
+} // namespace qs
 
 #endif

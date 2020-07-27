@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// \param scale Scale. Multiplier.
 		///
-		void scale(pr::not_negative_arithmetic auto scale) noexcept;
+		void scale(const pr::positive_float auto scale) noexcept;
 
 		///
 		/// Recalculates the model view matrix.
@@ -83,14 +83,14 @@ namespace qs
 		///
 		/// \return Const boolean.
 		///
-		const bool is_dirty() const noexcept;
+		[[nodiscard]] const bool is_dirty() const noexcept;
 
 		///
 		/// Retrieve internal transformation matrix.
 		///
 		/// \return Reference to internal glm::mat4.
 		///
-		glm::mat4& get_transform() noexcept;
+		[[nodiscard]] glm::mat4& get_transform() noexcept;
 
 	protected:
 		///

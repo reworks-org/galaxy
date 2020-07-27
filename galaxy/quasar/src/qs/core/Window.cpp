@@ -13,7 +13,6 @@
 #include <stb_image.h>
 #include <stb_image_write.h>
 
-#include "qs/utils/Utility.hpp"
 #include "qs/core/WindowSettings.hpp"
 
 #include "Window.hpp"
@@ -28,7 +27,7 @@ namespace qs
 	{
 	}
 
-	Window::Window(std::string_view title, const int w, const int h)
+	Window::Window(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h)
 	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
 		if (!create(title, w, h))
@@ -44,7 +43,7 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(std::string_view title, const int w, const int h)
+	bool Window::create(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h)
 	{
 		// Function result.
 		bool result = true;
@@ -206,7 +205,7 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_icon(pr::not_nullptr auto mem, const int size)
+	void Window::set_icon(pr::not_nullptr auto mem, const pr::positive_int auto size)
 	{
 		stbi_set_flip_vertically_on_load(true);
 
@@ -263,7 +262,7 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_cursor_icon(pr::not_nullptr auto mem, const int size)
+	void Window::set_cursor_icon(pr::not_nullptr auto mem, const pr::positive_int auto size)
 	{
 		stbi_set_flip_vertically_on_load(true);
 
@@ -318,7 +317,7 @@ namespace qs
 		glfwSetWindowShouldClose(m_window, true);
 	}
 
-	void Window::resize(int w, int h) noexcept
+	void Window::resize(const pr::positive_int auto w, const pr::positive_int auto h) noexcept
 	{
 		m_width  = w;
 		m_height = h;

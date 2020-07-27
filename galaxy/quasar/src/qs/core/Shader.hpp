@@ -8,6 +8,7 @@
 #ifndef QUASAR_SHADER_HPP_
 #define QUASAR_SHADER_HPP_
 
+#include <array>
 #include <string>
 #include <unordered_map>
 
@@ -52,7 +53,7 @@ namespace qs
 		///
 		/// \return boolean True if successful.
 		///
-		bool load_path(std::string_view vertex_file, std::string_view fragment_file);
+		[[maybe_unused]] bool load_path(std::string_view vertex_file, std::string_view fragment_file);
 
 		///
 		/// Loads a shader into OpenGL from raw strings and sets up the shader program.
@@ -62,7 +63,7 @@ namespace qs
 		///
 		/// \return boolean True if successful.
 		///
-		bool load_raw(const std::string& vertex_str, const std::string& fragment_str);
+		[[maybe_unused]] bool load_raw(const std::string& vertex_str, const std::string& fragment_str);
 
 		///
 		/// Enable this shader for rendering.

@@ -8,10 +8,10 @@
 #ifndef QUASAR_CHARACTER_HPP_
 #define QUASAR_CHARACTER_HPP_
 
-#include <protostar/math/Rect.hpp>
+#include <protostar/graphics/Rect.hpp>
 
-#include "qs/texture/Texture.hpp"
 #include "qs/core/VertexData.hpp"
+#include "qs/texture/Texture.hpp"
 
 ///
 /// Core namespace.
@@ -23,13 +23,17 @@ namespace qs
 	///
 	class Character final : public qs::VertexData, public qs::Texture
 	{
+		///
+		/// Allows font to access internals.
+		///
 		friend class Font;
+
 	public:
 		///
 		/// Constructor.
 		///
-		Character() noexcept;
-		
+		Character();
+
 		///
 		/// Argument constructor.
 		///
@@ -37,7 +41,7 @@ namespace qs
 		/// \param by Bearing y offset.
 		/// \param advance Offset to next character.
 		///
-		explicit Character(const int bx, const int by, const unsigned int advance) noexcept;
+		explicit Character(const int bx, const int by, const pr::positive_uint auto advance);
 
 		///
 		/// Destructor.
@@ -59,16 +63,16 @@ namespace qs
 		///
 		/// \return Const unsigned int.
 		///
-		const unsigned int getAdvance() const noexcept;
+		[[nodiscard]] const unsigned int get_advance() const noexcept;
 
 		///
 		/// Get texture region.
 		///
 		/// \return Const reference to float rectangle.
 		///
-		const pr::Rect<float>& getRegion() const noexcept;
+		[[nodiscard]] const pr::Rect<float>& get_region() const noexcept;
 
-	public:
+	private:
 		///
 		/// Bearing X.
 		///
@@ -84,12 +88,11 @@ namespace qs
 		///
 		unsigned int m_advance;
 
-	private:
 		///
 		/// Texture region.
 		///
 		pr::Rect<float> m_region;
 	};
-}
+} // namespace qs
 
 #endif

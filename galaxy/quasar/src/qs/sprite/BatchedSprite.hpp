@@ -45,21 +45,21 @@ namespace qs
 		/// \param region Region defined on the texture.
 		/// \param z_level Z-Level of sprite.
 		///
-		void create(const pr::Rect<float>& region, const unsigned int z_level) noexcept;
+		void create(const pr::Rect<float>& region, const pr::positive_uint auto z_level) noexcept;
 
 		///
 		/// Set opacity.
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
-		void set_opacity(pr::between_1_and_0 auto opacity) noexcept;
+		void set_opacity(const pr::from_0_to_1 auto opacity) noexcept;
 
 		///
 		/// Set z-level.
 		///
 		/// \param z_level New z-level of sprite.
 		///
-		void set_z_level(const unsigned int z_level) noexcept;
+		void set_z_level(const pr::positive_uint auto z_level) noexcept;
 
 		///
 		/// Update texquad region.
@@ -69,7 +69,7 @@ namespace qs
 		/// \param w Optional. Width. Will not set unless provided.
 		/// \param h Optional. Height. Will not set unless provided.
 		///
-		void update_region(float x, float y, float w = 0.0f, float h = 0.0f) noexcept;
+		void update_region(float x, float y, pr::positive_float auto w = 0.0f, pr::positive_float auto h = 0.0f) noexcept;
 
 		///
 		/// Update texquad region.
@@ -83,7 +83,7 @@ namespace qs
 		///
 		/// \return Const unsigned int.
 		///
-		const unsigned int z_level() const noexcept;
+		[[nodiscard]] const unsigned int z_level() const noexcept;
 
 	private:
 		///

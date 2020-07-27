@@ -34,7 +34,7 @@ namespace qs
 		glDeleteProgram(m_id);
 	}
 
-	bool Shader::load_path(std::string_view vertex_file, std::string_view frag_file) noexcept
+	bool Shader::load_path(std::string_view vertex_file, std::string_view frag_file)
 	{
 		bool result = true;
 

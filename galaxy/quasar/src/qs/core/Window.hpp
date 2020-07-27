@@ -39,7 +39,7 @@ namespace qs
 		/// \param w Width of the window.
 		/// \param h Height of the window.
 		///
-		explicit Window(std::string_view title, const int w, const int h);
+		explicit Window(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h);
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -60,7 +60,7 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(std::string_view title, const int w, const int h);
+		bool create(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h);
 
 		///
 		/// Sets the background colour of the window.
@@ -82,7 +82,7 @@ namespace qs
 		/// \param mem Memory buffer containing pixels.
 		/// \param size Size of the buffer.
 		///
-		void set_icon(pr::not_nullptr auto mem, const int size);
+		void set_icon(pr::not_nullptr auto mem, const pr::positive_int auto size);
 
 		///
 		/// Set cursor visibility.
@@ -111,7 +111,7 @@ namespace qs
 		/// \param mem Memory buffer containing pixels.
 		/// \param size Size of the buffer.
 		///
-		void set_cursor_icon(pr::not_nullptr auto mem, const int size);
+		void set_cursor_icon(pr::not_nullptr auto mem, const pr::positive_int auto size);
 
 		///
 		/// Set the callback function for scrolling.
@@ -132,7 +132,7 @@ namespace qs
 		///
 		/// \return Returns true if window is currently open, false if not.
 		///
-		bool is_open() const noexcept;
+		[[nodiscard]] bool is_open() const noexcept;
 
 		///
 		/// \brief Closes the current window.
@@ -148,7 +148,7 @@ namespace qs
 		/// \param h new height of the window.
 		/// \param window Pointer to window to resize. Defaults to *this.
 		///
-		void resize(int w, int h) noexcept;
+		void resize(const pr::positive_int auto w, const pr::positive_int auto h) noexcept;
 
 		///
 		/// \brief Notify's user of an event without interrupting.
@@ -179,21 +179,21 @@ namespace qs
 		///
 		/// \return Returns const pointer to GLFWwindow.
 		///
-		GLFWwindow* gl_window() noexcept;
+		[[nodiscard]] GLFWwindow* gl_window() noexcept;
 
 		///
 		/// Get window width.
 		///
 		/// \return Const integer.
 		///
-		const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const noexcept;
 
 		///
 		/// Get window height.
 		///
 		/// \return Const integer.
 		///
-		const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const noexcept;
 
 	private:
 		///

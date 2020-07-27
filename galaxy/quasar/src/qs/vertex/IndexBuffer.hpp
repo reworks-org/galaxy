@@ -11,9 +11,9 @@
 #include <array>
 #include <vector>
 
-#include "qs/utils/Meta.hpp"
-
 #include <glad/glad.h>
+
+#include "qs/utils/Meta.hpp"
 
 ///
 /// Core namespace.
@@ -41,8 +41,8 @@ namespace qs
 		///
 		/// \param indexs Index array to use.
 		///
-		template<typename BufferType>
-		void create(const qs::IndexStorage& indexs) noexcept;
+		template<is_buffer buffer_type>
+		void create(const qs::IndexStorage& indexs);
 
 		///
 		/// Destroys buffer.
@@ -64,7 +64,7 @@ namespace qs
 		///
 		/// \return Returns a const unsigned int.
 		///
-		unsigned int getCount() const noexcept;
+		unsigned int count() const noexcept;
 
 	private:
 		///
@@ -78,29 +78,26 @@ namespace qs
 		unsigned int m_count;
 	};
 
-	template<typename BufferType>
-	inline void IndexBuffer::create(const qs::IndexStorage& indexs) noexcept
+	template<is_buffer buffer_type>
+	inline void IndexBuffer::create(const qs::IndexStorage& indexs)
 	{
 		m_count = static_cast<unsigned int>(indexs.size());
 		bind();
 
-		// If not one of the two buffer type structs, throw compile-time assert.
-		static_assert(std::is_same<BufferType, qs::BufferTypeDynamic>::value || std::is_same<BufferType, qs::BufferTypeStatic>::value);
-
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<BufferType, qs::BufferTypeDynamic>::value)
+		if constexpr (std::is_same<buffer_type, qs::BufferDynamic>::value)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_DYNAMIC_DRAW);
 		}
-		else if constexpr (std::is_same<BufferType, qs::BufferTypeStatic>::value)
+		else if constexpr (std::is_same<buffer_type, qs::BufferStatic>::value)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
 		}
 
 		unbind();
 	}
-}
+} // namespace qs
 
 #endif

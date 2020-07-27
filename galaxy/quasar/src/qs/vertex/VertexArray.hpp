@@ -40,8 +40,8 @@ namespace qs
 		/// \param ib IndexBufferObject to specify for VertexArrayObject.
 		/// \param layout VertexLayout to specify for this VertexArrayObject.
 		///
-		template<typename VertexType>
-		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept;
+		template<is_vertex vertex_type>
+		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout);
 
 		///
 		/// Bind the current vertex array to current GL context.
@@ -60,23 +60,20 @@ namespace qs
 		unsigned int m_id;
 	};
 
-	template<typename VertexType>
-	inline void VertexArray::create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout) noexcept
+	template<is_vertex vertex_type>
+	inline void VertexArray::create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout)
 	{
-		// If not one of the two buffer type structs, throw compile-time assert.
-		static_assert(std::is_same<VertexType, qs::SpriteVertex>::value || std::is_same<VertexType, qs::PrimitiveVertex>::value);
-
 		bind();
 		vb.bind();
 		ib.bind();
 
 		// Add each attribute in the layout to the vertex array object.
 		// I.e. position attribute, then colour attribute of the verticies.
-		const auto& attributes = layout.getAttributes();
-		unsigned int counter = 0;
+		const auto& attributes = layout.get_attributes();
+		unsigned int counter   = 0;
 		for (const auto& attribute : attributes)
 		{
-			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(VertexType), (GLvoid*)attribute.m_offset);
+			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(vertex_type), (GLvoid*)attribute.m_offset);
 			glEnableVertexAttribArray(counter);
 
 			++counter;
@@ -86,6 +83,6 @@ namespace qs
 		vb.unbind();
 		ib.unbind();
 	}
-}
+} // namespace qs
 
 #endif

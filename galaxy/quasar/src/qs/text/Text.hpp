@@ -8,8 +8,6 @@
 #ifndef QUASAR_TEXT_HPP_
 #define QUASAR_TEXT_HPP_
 
-#include <protostar/system/Colour.hpp>
-
 #include "qs/text/Font.hpp"
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
@@ -39,7 +37,7 @@ namespace qs
 		/// Load resources used.
 		///
 		/// \param text Text to draw.
-		/// \param font Font to apply to text. Holds a reference, does not store.
+		/// \param font Font to apply to text. Cannot be nullptr.
 		/// \param col Colour of the text.
 		///
 		void load(const std::string& text, qs::Font* font, const pr::Colour& col) noexcept;
@@ -47,7 +45,7 @@ namespace qs
 		///
 		/// Creates text from character verticies.
 		///
-		void create() noexcept;
+		void create();
 
 		///
 		/// \brief Update text.
@@ -60,7 +58,7 @@ namespace qs
 		///
 		/// \param text The new text.
 		///
-		void updateText(const std::string& text) noexcept;
+		void update_text(const std::string& text);
 
 		///
 		/// Set opacity.
@@ -69,14 +67,14 @@ namespace qs
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
-		void setOpacity(float opacity) noexcept;
+		void set_opacity(const pr::from_0_to_1 auto opacity) noexcept;
 
 		///
 		/// Get opacity.
 		///
 		/// \return Const float.
 		///
-		const float getOpacity() const noexcept;
+		[[nodiscard]] const float opacity() const noexcept;
 
 		///
 		/// Activate sprite context.
@@ -109,6 +107,6 @@ namespace qs
 		///
 		float m_opacity;
 	};
-}
+} // namespace qs
 
 #endif

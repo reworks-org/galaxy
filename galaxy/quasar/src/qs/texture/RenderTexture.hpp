@@ -8,7 +8,6 @@
 #ifndef QUASAR_RENDERTEXTURE_HPP_
 #define QUASAR_RENDERTEXTURE_HPP_
 
-#include <protostar/system/Colour.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "qs/texture/BaseTexture.hpp"
@@ -41,7 +40,7 @@ namespace qs
 		/// \param w Width of the RenderTexture.
 		/// \param h Height of the RenderTexture.
 		///
-		explicit RenderTexture(const int w, const int h) noexcept;
+		explicit RenderTexture(const pr::positive_int auto w, const pr::positive_int auto h);
 
 		///
 		/// Virtual destructor override.
@@ -54,7 +53,7 @@ namespace qs
 		/// \param w Width of the RenderTexture.
 		/// \param h Height of the RenderTexture.
 		///
-		void create(const int w, const int h) noexcept;
+		void create(const pr::positive_int auto w, const pr::positive_int auto h);
 
 		///
 		/// Activate texture context.
@@ -74,26 +73,26 @@ namespace qs
 		/// \param bottom Bottom point of ortho perspective.
 		/// \param top Top point of ortho perspective.
 		///
-		void setProjection(const float left, const float right, const float bottom, const float top) noexcept;
-		
+		void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
+
 		///
 		/// Get projection.
 		///
 		/// \return Reference to glm::mat4.
 		///
-		glm::mat4& getProjection() noexcept;
+		[[nodiscard]] glm::mat4& get_proj() noexcept;
 
 	private:
 		///
 		/// Projection.
 		///
 		glm::mat4 m_projection;
-		
+
 		///
 		/// OpenGL framebuffer handle.
 		///
 		unsigned int m_framebuffer;
 	};
-}
+} // namespace qs
 
 #endif

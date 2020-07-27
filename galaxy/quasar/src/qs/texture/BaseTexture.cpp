@@ -23,24 +23,25 @@ namespace qs
 		glDeleteTextures(1, &m_texture);
 	}
 
-	void BaseTexture::save(const std::string& path) noexcept
+	void BaseTexture::save(std::string_view path)
 	{
 		if (!path.empty())
 		{
-			std::filesystem::path fp(path + ".png");
+			auto dest = std::filesystem::path {path};
+			dest.append(".png");
 			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(fp.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+			stbi_write_png(dest.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 	}
 
-	void BaseTexture::clampToEdge() noexcept
+	void BaseTexture::clamp_to_edge() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -48,7 +49,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::clampToBorder() noexcept
+	void BaseTexture::clamp_to_border() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
@@ -56,7 +57,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::setRepeated() noexcept
+	void BaseTexture::set_repeated() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -64,7 +65,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::setMirrored() noexcept
+	void BaseTexture::set_mirrored() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -72,14 +73,14 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::setAnisotropy(const int level) noexcept
+	void BaseTexture::set_anisotropy(const pr::positive_uint auto level) noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::setMinifyFilter(const qs::TextureFilter& filter) noexcept
+	void BaseTexture::set_minify_filter(const qs::TextureFilter& filter) noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		if (filter == qs::TextureFilter::LINEAR)
@@ -93,7 +94,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::setMagnifyFilter(const qs::TextureFilter& filter) noexcept
+	void BaseTexture::set_magnify_filter(const qs::TextureFilter& filter) noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		if (filter == qs::TextureFilter::LINEAR)
@@ -107,24 +108,24 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	const int BaseTexture::getWidth() const noexcept
+	const int BaseTexture::get_width() const noexcept
 	{
 		return m_width;
 	}
 
-	const int BaseTexture::getHeight() const noexcept
+	const int BaseTexture::get_height() const noexcept
 	{
 		return m_height;
 	}
 
-	const unsigned int BaseTexture::getGLTexture() const noexcept
+	const unsigned int BaseTexture::gl_texture() const noexcept
 	{
 		return m_texture;
 	}
 
 	BaseTexture::BaseTexture() noexcept
-		:m_texture(0), m_width(0), m_height(0)
+	    : m_texture {0}, m_width {0}, m_height {0}
 	{
 		glGenTextures(1, &m_texture);
 	}
-}
+} // namespace qs

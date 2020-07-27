@@ -9,7 +9,7 @@
 #define QUASAR_PRIMITIVEVERTEX_HPP_
 
 #include <glm/vec2.hpp>
-#include <protostar/system/Colour.hpp>
+#include <protostar/graphics/Colour.hpp>
 
 ///
 /// Core namespace.
@@ -33,7 +33,7 @@ namespace qs
 		/// \param y Y pos.
 		/// \param col Colour.
 		///
-		explicit PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept;
+		PrimitiveVertex(const float x, const float y, const pr::Colour& col) noexcept;
 
 		///
 		/// Destructor.
@@ -50,6 +50,6 @@ namespace qs
 		///
 		pr::Colour m_colour;
 	};
-}
+} // namespace qs
 
 #endif

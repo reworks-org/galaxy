@@ -48,7 +48,6 @@
     <ClCompile Include="src\qs\text\Text.cpp" />
     <ClCompile Include="src\qs\utils\Meta.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
-    <ClCompile Include="src\qs\utils\Utility.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
     <ClCompile Include="src\qs\vertex\type\PrimitiveVertex.cpp" />
     <ClCompile Include="src\qs\vertex\type\SpriteVertex.cpp" />
@@ -64,7 +63,6 @@
     <ClInclude Include="src\qs\texture\BaseTexture.hpp" />
     <ClInclude Include="src\qs\texture\RenderTexture.hpp" />
     <ClInclude Include="src\qs\core\Shader.hpp" />
-    <ClInclude Include="src\qs\texture\Texture.hpp" />
     <ClInclude Include="src\qs\core\Transform.hpp" />
     <ClInclude Include="src\qs\core\Window.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
@@ -78,13 +76,13 @@
     <ClInclude Include="src\qs\core\VertexData.hpp" />
     <ClInclude Include="src\qs\graphics\LightSource.hpp" />
     <ClInclude Include="src\qs\core\Renderer.hpp" />
+    <ClInclude Include="src\qs\texture\Texture.hpp" />
     <ClInclude Include="src\qs\text\Character.hpp" />
     <ClInclude Include="src\qs\text\Font.hpp" />
     <ClInclude Include="src\qs\text\FreeType.hpp" />
     <ClInclude Include="src\qs\text\Text.hpp" />
     <ClInclude Include="src\qs\utils\Meta.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
-    <ClInclude Include="src\qs\utils\Utility.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
     <ClInclude Include="src\qs\vertex\type\PrimitiveVertex.hpp" />
     <ClInclude Include="src\qs\vertex\type\SpriteVertex.hpp" />
