@@ -44,21 +44,21 @@ namespace frb
 		///
 		/// \param factor New factor for doppler effect. Multiplicative.
 		///
-		void set_doppler_factor(pr::not_negative auto factor);
+		void set_doppler_factor(pr::positive_float auto factor);
 
 		///
 		/// Change the default speed of sound. Optional.
 		///
 		/// \param speed New speed of sound to define. Multiplicative.
 		///
-		void set_speed_of_sound(pr::not_negative auto speed);
+		void set_speed_of_sound(pr::positive_float auto speed);
 
 		///
 		/// Set the gain for the listener.
 		///
 		/// \param gain Master gain. Must be positive. Multiplicative.
 		///
-		void set_listener_gain(pr::not_negative auto gain);
+		void set_listener_gain(pr::positive_float auto gain);
 
 		///
 		/// Set the location of the listener in the world coord system.

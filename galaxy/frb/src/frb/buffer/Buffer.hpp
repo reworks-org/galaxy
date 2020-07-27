@@ -43,21 +43,21 @@ namespace frb
 		///
 		/// \return Frequency as integer.
 		///
-		const ALint get_frequency() const noexcept;
+		[[nodiscard]] const ALint get_frequency() const noexcept;
 
 		///
 		/// Get channels of buffer.
 		///
 		/// \return Channels as integer.
 		///
-		const ALint get_channels() const noexcept;
+		[[nodiscard]] const ALint get_channels() const noexcept;
 
 		///
 		/// Get the OpenAL internal int id / handle.
 		///
 		/// \return Const ALuint handle integer.
 		///
-		const ALuint handle() const noexcept;
+		[[nodiscard]] const ALuint handle() const noexcept;
 
 	protected:
 		///

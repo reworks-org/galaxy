@@ -120,7 +120,7 @@ namespace frb
 		///
 		/// \return Data (i.e. all protected members).
 		///
-		Data* get_data() noexcept;
+		[[nodiscard]] Data* get_data() noexcept;
 
 	protected:
 		///

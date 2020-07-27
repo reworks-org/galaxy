@@ -32,7 +32,7 @@ namespace frb
 		destroy_source();
 	}
 
-	void Source::queue(frb::Buffer* buffer)
+	void Source::queue(pr::not_nullptr auto buffer)
 	{
 		alSourcei(m_source, AL_BUFFER, buffer->handle());
 		if (alGetError() != AL_NO_ERROR)
@@ -41,7 +41,7 @@ namespace frb
 		}
 	}
 
-	void Source::queue(BufferStream* stream_buffer)
+	void Source::queue(pr::not_nullptr auto stream_buffer)
 	{
 		alSourceQueueBuffers(m_source, BufferStream::buffer_count, &stream_buffer->get_data()->m_buffers[0]);
 		if (alGetError() != AL_NO_ERROR)
@@ -67,12 +67,19 @@ namespace frb
 		}
 	}
 
-	void Source::queue(const ALuint* buffer_array, const size_t size)
+	void Source::queue(const ALuint* buffer_array, const pr::positive_size_t auto size)
 	{
-		alSourceQueueBuffers(m_source, static_cast<ALsizei>(size), buffer_array);
-		if (alGetError() != AL_NO_ERROR)
+		if (buffer_array == nullptr)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)."));
+			PL_LOG(PL_WARNING, "Source recieved a nullptr buffer_array to queue.");
+		}
+		else
+		{
+			alSourceQueueBuffers(m_source, static_cast<ALsizei>(size), buffer_array);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)."));
+			}
 		}
 	}
 

@@ -163,7 +163,7 @@ namespace pl
 		///
 		/// Constructor.
 		///
-		Log();
+		Log() noexcept;
 
 		///
 		/// Delete Copy construct in order to preserve singleton.

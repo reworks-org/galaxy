@@ -38,7 +38,7 @@ namespace frb
 		alSourceRewind(m_source);
 	}
 
-	void SourceManipulator::set_pitch(pr::not_negative auto pitch) noexcept
+	void SourceManipulator::set_pitch(pr::positive_float auto pitch) noexcept
 	{
 		alSourcef(m_source, AL_PITCH, std::abs(pitch));
 		if (alGetError() != AL_NO_ERROR)
@@ -47,7 +47,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_gain(pr::not_negative auto gain) noexcept
+	void SourceManipulator::set_gain(pr::positive_float auto gain) noexcept
 	{
 		alSourcef(m_source, AL_GAIN, std::abs(gain));
 		if (alGetError() != AL_NO_ERROR)
@@ -56,7 +56,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_rolloff_factor(pr::not_negative auto factor) noexcept
+	void SourceManipulator::set_rolloff_factor(pr::positive_float auto factor) noexcept
 	{
 		alSourcef(m_source, AL_ROLLOFF_FACTOR, factor);
 		if (alGetError() != AL_NO_ERROR)
@@ -136,7 +136,7 @@ namespace frb
 	{
 	}
 
-	void SourceManipulator::set_source_to_manipulate(unsigned int source) noexcept
+	void SourceManipulator::set_source_to_manipulate(const pr::positive_uint auto) noexcept
 	{
 		m_source = source;
 	}

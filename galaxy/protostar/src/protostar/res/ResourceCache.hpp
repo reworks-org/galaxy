@@ -40,7 +40,7 @@ namespace pr
 	/// Stores a cache of resources in order to make effective use of memory.
 	/// resources can be a texture, sound, script, shader, etc...
 	///
-	template<no_pointer_or_ref resource>
+	template<not_pointer_or_ref resource>
 	class ResourceCache : public pr::ResCacheBase
 	{
 	public:
@@ -106,13 +106,13 @@ namespace pr
 		std::unordered_map<std::string, resource> m_resources;
 	};
 
-	template<no_pointer_or_ref resource>
+	template<not_pointer_or_ref resource>
 	inline ResourceCache<resource>::~ResourceCache() noexcept
 	{
 		clear();
 	}
 
-	template<no_pointer_or_ref resource>
+	template<not_pointer_or_ref resource>
 	template<typename... _args>
 	inline resource* ResourceCache<resource>::create(std::string_view name, _args&&... args)
 	{
@@ -123,7 +123,7 @@ namespace pr
 		return &m_resources[str];
 	}
 
-	template<no_pointer_or_ref resource>
+	template<not_pointer_or_ref resource>
 	inline resource* ResourceCache<resource>::move(std::string_view name, resource& resource) noexcept
 	{
 		const auto str   = static_cast<std::string>(name);
@@ -132,7 +132,7 @@ namespace pr
 		return &m_resources[str];
 	}
 
-	template<no_pointer_or_ref resource>
+	template<not_pointer_or_ref resource>
 	inline resource* ResourceCache<resource>::get(std::string_view name) noexcept
 	{
 		const auto str = static_cast<std::string>(name);
@@ -147,7 +147,7 @@ namespace pr
 		}
 	}
 
-	template<no_pointer_or_ref resource>
+	template<not_pointer_or_ref resource>
 	inline ResourceCache<resource>::ResourceCache() noexcept
 	{
 	}

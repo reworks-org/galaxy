@@ -13,6 +13,7 @@ PROTOSTAR:
 
 FRB:
 - Upgrade loading algorithms with C++20. I.e. std::span.
+- Playlists
 
 PULSAR:
 - std::source_location

@@ -52,7 +52,7 @@ namespace frb
 		}
 	}
 
-	void Context::set_doppler_factor(pr::not_negative auto factor)
+	void Context::set_doppler_factor(pr::positive_float auto factor)
 	{
 		alDopplerFactor(factor);
 		if (alGetError() != AL_NO_ERROR)
@@ -61,7 +61,7 @@ namespace frb
 		}
 	}
 
-	void Context::set_speed_of_sound(pr::not_negative auto speed)
+	void Context::set_speed_of_sound(pr::positive_float auto speed)
 	{
 		alSpeedOfSound(speed);
 		if (alGetError() != AL_NO_ERROR)
@@ -70,7 +70,7 @@ namespace frb
 		}
 	}
 
-	void Context::set_listener_gain(pr::not_negative auto gain)
+	void Context::set_listener_gain(pr::positive_float auto gain)
 	{
 		alListenerf(AL_GAIN, gain);
 		if (alGetError() != AL_NO_ERROR)

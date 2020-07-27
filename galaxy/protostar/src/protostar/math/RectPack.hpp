@@ -22,7 +22,7 @@ namespace pr
 	///
 	///	Rectangle 2D bin packing class.
 	///
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	class RectPack final
 	{
 	public:
@@ -91,19 +91,19 @@ namespace pr
 		std::vector<pr::Rect<type>> m_free_rects;
 	};
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline RectPack<type>::RectPack() noexcept
 	    : m_width {0}, m_height {0}
 	{
 	}
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline RectPack<type>::~RectPack() noexcept
 	{
 		m_free_rects.clear();
 	}
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline void RectPack<type>::init(const int width, const int height) noexcept
 	{
 		m_width  = width;
@@ -112,7 +112,7 @@ namespace pr
 		m_free_rects.emplace_back(0, 0, m_width, m_height);
 	}
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline std::optional<pr::Rect<type>> RectPack<type>::pack(const int width, const int height)
 	{
 		// Result.
@@ -169,19 +169,19 @@ namespace pr
 		return result;
 	}
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline const int RectPack<type>::get_width() const noexcept
 	{
 		return m_width;
 	}
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline const int RectPack<type>::get_height() const noexcept
 	{
 		return m_height;
 	}
 
-	template<not_negative_arithmetic type>
+	template<is_arithmetic type>
 	inline const std::vector<pr::Rect<type>>& RectPack<type>::get_free_space() const noexcept
 	{
 		return m_free_rects;

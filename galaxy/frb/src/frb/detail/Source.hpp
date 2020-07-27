@@ -10,6 +10,8 @@
 
 #include <vector>
 
+#include <protostar/system/Concepts.hpp>
+
 #include "frb/buffer/Buffer.hpp"
 #include "frb/buffer/BufferStream.hpp"
 
@@ -41,16 +43,16 @@ namespace frb
 		///
 		/// Queue a buffer for the source to play.
 		///
-		/// \param buffer Buffer to queue.
+		/// \param buffer Pointer to an frb::Buffer* object.
 		///
-		void queue(frb::Buffer* buffer);
+		void queue(pr::not_nullptr auto buffer);
 
 		///
 		/// Queue a streamed buffer for the source to play through.
 		///
-		/// \param stream_buffer Buffer containing streamed from disk buffers to play.
+		/// \param stream_buffer Pointer to a BufferStream* object.
 		///
-		void queue(BufferStream* stream_buffer);
+		void queue(pr::not_nullptr auto stream_buffer);
 
 		///
 		/// Queue a set of buffers for the source to play through.
@@ -62,24 +64,24 @@ namespace frb
 		///
 		/// Raw queue of buffer(s) to play.
 		///
-		/// \param buffer_array Array of buffers you want to play in a queue.
+		/// \param buffer_array Array of buffers you want to play in a queue. Cannot be nullptr.
 		/// \param size The size/length of buffer_array.
 		///
-		void queue(const ALuint* buffer_array, const size_t size);
+		void queue(const ALuint* buffer_array, const pr::positive_size_t auto size);
 
 		///
 		/// \brief Get current state of the source.
 		///
 		/// \return Enum. AL_PLAYING, AL_STOPPED, etc...
 		///
-		ALint get_state() noexcept;
+		[[nodisard]] ALint get_state() noexcept;
 
 		///
 		/// Get the OpenAL internal int id / handle.
 		///
 		/// \return ALuint handle integer.
 		///
-		const ALuint handle() const noexcept;
+		[[nodisard]] const ALuint handle() const noexcept;
 
 		///
 		/// \brief Destroy all memory and OpenAL data.

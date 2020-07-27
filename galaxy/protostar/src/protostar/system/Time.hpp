@@ -22,11 +22,11 @@ namespace pr
 	///
 	/// \param seconds Seconds to convert.
 	///
-	/// \return Returns const std::uint32_t.
+	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline constexpr const std::uint32_t seconds_to_milliseconds(not_negative auto seconds) noexcept
+	[[nodiscard]] inline constexpr const std::size_t seconds_to_milliseconds(positive_int auto seconds) noexcept
 	{
-		return static_cast<std::uint32_t>(seconds * 1000.0);
+		return static_cast<std::size_t>(seconds * 1000);
 	}
 
 	///
@@ -34,11 +34,11 @@ namespace pr
 	///
 	/// \param seconds Seconds to convert.
 	///
-	/// \return Returns const std::uint64_t.
+	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline constexpr const std::uint64_t seconds_to_microseconds(not_negative auto seconds) noexcept
+	[[nodiscard]] inline constexpr const std::size_t seconds_to_microseconds(positive_int auto seconds) noexcept
 	{
-		return static_cast<std::uint64_t>(seconds * 1000000.0);
+		return static_cast<std::size_t>(seconds * 1000000);
 	}
 
 	///
@@ -48,9 +48,9 @@ namespace pr
 	///
 	/// \return Returns const double.
 	///
-	[[nodiscard]] inline constexpr const double milliseconds_to_seconds(not_negative auto milliseconds) noexcept
+	[[nodiscard]] inline constexpr const double milliseconds_to_seconds(positive_float auto milliseconds) noexcept
 	{
-		return static_cast<double>(milliseconds) / 1000.0;
+		return milliseconds / 1000.0f;
 	}
 
 	///
@@ -58,12 +58,12 @@ namespace pr
 	///
 	/// \param milliseconds Milliseconds to convert.
 	///
-	/// \return Returns const std::uint64_t.
+	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline constexpr const std::uint64_t
-	milliseconds_to_microseconds(not_negative auto milliseconds) noexcept
+	[[nodiscard]] inline constexpr const std::size_t
+	milliseconds_to_microseconds(positive_size_t auto milliseconds) noexcept
 	{
-		return static_cast<std::uint64_t>(static_cast<std::uint64_t>(milliseconds) * 1000);
+		return static_cast<std::size_t>(milliseconds * 1000);
 	}
 
 	///
@@ -73,7 +73,7 @@ namespace pr
 	///
 	/// \return Returns const double.
 	///
-	[[nodiscard]] inline constexpr const double microseconds_to_seconds(not_negative auto microseconds) noexcept
+	[[nodiscard]] inline constexpr const double microseconds_to_seconds(positive_double auto microseconds) noexcept
 	{
 		return static_cast<double>(microseconds / 1000000.0);
 	}
@@ -83,12 +83,12 @@ namespace pr
 	///
 	/// \param microseconds Microseconds to convert.
 	///
-	/// \return Returns std::uint32_t.
+	/// \return Returns std::size_t.
 	///
-	[[nodiscard]] inline constexpr const std::uint32_t
-	microseconds_to_milliseconds(not_negative auto microseconds) noexcept
+	[[nodiscard]] inline constexpr const std::size_t
+	microseconds_to_milliseconds(positive_double auto microseconds) noexcept
 	{
-		return static_cast<std::uint32_t>(static_cast<double>(microseconds) / 1000.0);
+		return static_cast<std::size_t>(microseconds / 1000.0);
 	}
 
 	///

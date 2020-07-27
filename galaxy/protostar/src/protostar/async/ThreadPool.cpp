@@ -28,7 +28,7 @@ namespace pr
 		}
 	}
 
-	void ThreadPool::create(not_negative auto count)
+	void ThreadPool::create(const pr::positive_size_t auto count)
 	{
 		if (!(count == 0 || count > std::thread::hardware_concurrency()))
 		{

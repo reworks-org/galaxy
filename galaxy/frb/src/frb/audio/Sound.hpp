@@ -41,7 +41,7 @@ namespace frb
 		///
 		/// \return False if load failed.
 		///
-		bool load(std::string_view file);
+		[[maybe_unused]] bool load(std::string_view file);
 
 		///
 		/// Destroy sound.
