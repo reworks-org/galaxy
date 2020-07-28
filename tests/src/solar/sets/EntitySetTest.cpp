@@ -1,5 +1,5 @@
 ///
-/// EntitySet.cpp
+/// EntitySetTest.cpp
 /// tests
 ///
 /// Refer to LICENSE.txt for more details.
@@ -16,7 +16,7 @@ TEST(EntitySet, EmptySetHas)
 	// In empty set.
 	sr::EntitySet<sr::Entity> set;
 	constexpr int a = 1;
-	
+
 	ASSERT_FALSE(set.has(a));
 }
 
@@ -39,6 +39,8 @@ TEST(EntitySet, InsertHas)
 	EXPECT_EQ(set.has(a), true);
 	EXPECT_EQ(set.has(b), true);
 	EXPECT_EQ(set.has(c), true);
+
+	EXPECT_EQ(set.has(10), false);
 }
 
 ///
@@ -234,7 +236,7 @@ TEST(EntitySet, EmptySetFindIndex)
 	sr::EntitySet<sr::Entity> set;
 	constexpr int a = 1;
 
-	auto opt = set.findIndex(a);
+	auto opt = set.find_index(a);
 	ASSERT_EQ(opt, std::nullopt);
 }
 
@@ -252,13 +254,13 @@ TEST(EntitySet, FindIndex)
 	set.insert(b);
 	set.insert(c);
 
-	auto optA = set.findIndex(a);
+	auto optA = set.find_index(a);
 	EXPECT_EQ(optA.value(), 0);
 
-	auto optB = set.findIndex(b);
+	auto optB = set.find_index(b);
 	EXPECT_EQ(optB.value(), 1);
 
-	auto optC = set.findIndex(c);
+	auto optC = set.find_index(c);
 	EXPECT_EQ(optC.value(), 2);
 }
 
@@ -277,9 +279,9 @@ TEST(EntitySet, FindIndexAfterRemove)
 	set.insert(c);
 	set.remove(b);
 
-	auto optA = set.findIndex(a);
+	auto optA = set.find_index(a);
 	EXPECT_EQ(optA.value(), 0);
 
-	auto optB = set.findIndex(c);
+	auto optB = set.find_index(c);
 	EXPECT_EQ(optB.value(), 1);
 }

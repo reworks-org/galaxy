@@ -15,9 +15,6 @@
 ///
 namespace sr
 {
-	///
-	/// Forward dec.
-	///
 	class Manager;
 
 	///
@@ -34,20 +31,20 @@ namespace sr
 		///
 		/// Abstract implementation for processing events.
 		///
-		virtual void events() noexcept = 0;
+		virtual void events() = 0;
 
 		///
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
-		/// \param deltaTime "Lag" from gameloop.
+		/// \param dt "Lag" from gameloop.
 		///
-		virtual void update(pr::ProtectedDouble* deltaTime) noexcept = 0;
+		virtual void update(pr::ProtectedDouble* dt) = 0;
 
 	protected:
 		///
 		/// Default constructor.
 		///
-		System() noexcept = default;
+		System() = default;
 
 		///
 		/// Move constructor.
@@ -59,6 +56,6 @@ namespace sr
 		///
 		System(const System&) noexcept = default;
 	};
-}
+} // namespace sr
 
 #endif

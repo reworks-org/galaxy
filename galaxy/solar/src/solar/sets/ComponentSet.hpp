@@ -8,6 +8,7 @@
 #ifndef SOLAR_COMPONENTSET_HPP_
 #define SOLAR_COMPONENTSET_HPP_
 
+#include <protostar/system/Concepts.hpp>
 #include <pulsar/Log.hpp>
 
 #include "solar/sets/EntitySet.hpp"
@@ -20,14 +21,9 @@ namespace sr
 	///
 	/// Dual sparse set to store components and systems alongside entitys.
 	///
-	template<typename Component>
+	template<pr::is_class component>
 	class ComponentSet final : public EntitySet<Entity>
 	{
-		///
-		/// Make sure Component is a class or struct.
-		///
-		static_assert(std::is_class<Component>::value);
-
 		///
 		/// Friended to manager to allow direct access to internals that cannot have an interface.
 		///
@@ -52,8 +48,8 @@ namespace sr
 		///
 		/// \return Component that was just constructed.
 		///
-		template<typename... Args>
-		Component* add(const sr::Entity entity, Args&&... args) noexcept;
+		template<typename... _args>
+		[[maybe_unused]] component* create(const sr::Entity entity, _args&&... args);
 
 		///
 		/// Get an entitys component.
@@ -62,47 +58,47 @@ namespace sr
 		///
 		/// \return Component belonging to the entity.
 		///
-		Component* get(const sr::Entity entity) noexcept;
+		[[nodiscard]] component* get(const sr::Entity entity);
 
 		///
 		/// Remove the entity and its assossiated component.
 		///
 		/// \param entity Entity to remove.
 		///
-		void remove(const sr::Entity entity) noexcept override;
+		void remove(const sr::Entity entity) override;
 
 		///
 		/// Retrieve internal component array.
 		///
 		/// \return Const reference to a std::vector.
 		///
-		const std::vector<Component>& getComponentArray() noexcept;
+		[[nodiscard]] const std::vector<component>& get_components() noexcept;
 
 	private:
 		///
 		/// Component storage for this type.
 		/// Kept in sync with dense set of entitys.
 		///
-		std::vector<Component> m_components;
+		std::vector<component> m_components;
 	};
 
-	template<typename Component>
-	inline ComponentSet<Component>::ComponentSet() noexcept
-		:EntitySet()
+	template<pr::is_class component>
+	inline ComponentSet<component>::ComponentSet() noexcept
+	    : EntitySet {}
 	{
 	}
 
-	template<typename Component>
-	inline ComponentSet<Component>::~ComponentSet() noexcept
+	template<pr::is_class component>
+	inline ComponentSet<component>::~ComponentSet() noexcept
 	{
 		// Make sure everything is cleaned up.
 		clear();
 		m_components.clear();
 	}
 
-	template<typename Component>
-	template<typename ...Args>
-	inline Component* ComponentSet<Component>::add(const sr::Entity entity, Args&& ...args) noexcept
+	template<pr::is_class component>
+	template<typename... Args>
+	inline component* ComponentSet<component>::create(const sr::Entity entity, Args&&... args)
 	{
 		// This works because we are appending the entity to the dense array and
 		// the component will be in the same position since the two are synced.
@@ -114,11 +110,11 @@ namespace sr
 		return &(m_components.back());
 	}
 
-	template<typename Component>
-	inline Component* ComponentSet<Component>::get(const sr::Entity entity) noexcept
+	template<pr::is_class component>
+	inline component* ComponentSet<component>::get(const sr::Entity entity)
 	{
 		// Access the index the entity is assosiated with to get the component paired with the entity.
-		auto opt = findIndex(entity);
+		auto opt = find_index(entity);
 		if (opt != std::nullopt)
 		{
 			return &m_components[opt.value()];
@@ -130,39 +126,39 @@ namespace sr
 		}
 	}
 
-	template<typename Component>
-	inline void ComponentSet<Component>::remove(const sr::Entity entity) noexcept
+	template<pr::is_class component>
+	inline void ComponentSet<component>::remove(const sr::Entity entity)
 	{
 		// So if we want to destroy an entity/component, easest method is to move the last entity to the one we are erasing
 		// then destroy the duplicate. Called swap-and-pop.
 		if (has(entity))
 		{
-			auto opt = findIndex(entity);
+			auto opt = find_index(entity);
 			if (opt != std::nullopt)
 			{
 				m_components[opt.value()] = std::move(m_components.back());
 				m_components.pop_back();
 
-				m_dense[m_sparse[entity]] = m_dense[m_size - 1];
+				m_dense[m_sparse[entity]]     = m_dense[m_size - 1];
 				m_sparse[m_dense[m_size - 1]] = m_sparse[entity];
 				--m_size;
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "ComponentSet remove() component found nullopt index: " + std::to_string(entity));
+				PL_LOG(PL_ERROR, "ComponentSet remove() component found nullopt index: {0}.", entity);
 			}
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to remove an component that does not exist on entity: " + std::to_string(entity));
+			PL_LOG(PL_WARNING, "Tried to remove an component that does not exist on entity: {0}.", entity);
 		}
 	}
-	
-	template<typename Component>
-	inline const std::vector<Component>& ComponentSet<Component>::getComponentArray() noexcept
+
+	template<pr::is_class component>
+	inline const std::vector<component>& ComponentSet<component>::get_components() noexcept
 	{
 		return m_components;
 	}
-}
+} // namespace sr
 
 #endif

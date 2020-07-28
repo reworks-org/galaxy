@@ -13,6 +13,10 @@
     <ClCompile Include="src\protostar\async\ProtectedArithmeticTest.cpp" />
     <ClCompile Include="src\protostar\async\TaskTest.cpp" />
     <ClCompile Include="src\protostar\async\ThreadPoolTest.cpp" />
+    <ClCompile Include="src\solar\ConfigTest.cpp" />
+    <ClCompile Include="src\solar\sets\EntitySetTest.cpp" />
+    <ClCompile Include="src\solar\sets\ComponentSetTest.cpp" />
+    <ClCompile Include="src\solar\entity\ManagerTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\math\RandomTest.cpp" />

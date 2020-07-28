@@ -8,7 +8,7 @@ ALL: snake_case, except classes/namespaces/enums.
 ALL: designated initializers???
 
 PROTOSTAR:
-- Use <range> with RectPack
+- Use <range> with RectPack -> or std::erase/erase_if
 - Use <coroutines> for ThreadPool
 
 FRB:
@@ -23,6 +23,8 @@ PULSAR:
 Quasar:
 - C++20 review when eventual performance improvements are required.
 
+Solar:
+- Replace rangev3 in manager with <ranges> when avaliable.
 
 
 

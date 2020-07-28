@@ -1,5 +1,5 @@
 ///
-/// Config.cpp
+/// ConfigTest.cpp
 /// tests
 ///
 /// Refer to LICENSE.txt for more details.
@@ -13,16 +13,16 @@
 TEST(Config, DefaultSRInteger)
 {
 	constexpr bool result = std::is_same<SR_INTEGER, std::uint32_t>::value;
-	ASSERT_TRUE(result);
+	EXPECT_TRUE(result);
 }
 
 TEST(Config, DefaultEntityType)
 {
 	constexpr bool result = std::is_same<sr::Entity, SR_INTEGER>::value;
-	ASSERT_TRUE(result);
+	EXPECT_TRUE(result);
 }
 
 TEST(Config, ValidEntityIdentifier)
 {
-	ASSERT_EQ(sr::VALID_ENTITY, 0x01);
+	EXPECT_EQ(sr::VALID_ENTITY, 0x01);
 }

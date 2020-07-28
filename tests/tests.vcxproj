@@ -31,6 +31,10 @@
     <ClCompile Include="src\protostar\state\StateTest.cpp" />
     <ClCompile Include="src\protostar\system\TimeTest.cpp" />
     <ClCompile Include="src\protostar\system\UniqueIDTest.cpp" />
+    <ClCompile Include="src\solar\ConfigTest.cpp" />
+    <ClCompile Include="src\solar\entity\ManagerTest.cpp" />
+    <ClCompile Include="src\solar\sets\ComponentSetTest.cpp" />
+    <ClCompile Include="src\solar\sets\EntitySetTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\math\RandomTest.cpp" />

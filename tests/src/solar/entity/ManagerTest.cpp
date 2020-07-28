@@ -48,7 +48,6 @@ TEST(Manager, ValidateInvalidEntity)
 	EXPECT_FALSE(m.validate(1));
 }
 
-
 TEST(Manager, ValidateInvalidEntityEmptyManager)
 {
 	sr::Manager m;
@@ -71,11 +70,9 @@ TEST(Manager, CreateWithName)
 	auto e = m.create("Test");
 
 	EXPECT_TRUE(m.validate(e));
-	
-	auto names = m.getAllNames();
-	auto found = names.find("Test");
-	ASSERT_TRUE(found != names.end());
-	EXPECT_EQ(found->first, "Test");
+
+	auto names = m.get_debug_name_map();
+	EXPECT_TRUE(names.contains("Test"));
 }
 
 TEST(Manager, AssignNameExistingEntity)
@@ -83,23 +80,20 @@ TEST(Manager, AssignNameExistingEntity)
 	sr::Manager m;
 	auto e = m.create();
 
-	bool res = m.assignName(e, "Test");
-	auto names = m.getAllNames();
-	auto found = names.find("Test");
+	bool res   = m.assign_name(e, "Test");
+	auto names = m.get_debug_name_map();
 	ASSERT_EQ(res, true);
-	ASSERT_TRUE(found != names.end());
-	EXPECT_EQ(found->first, "Test");
+	EXPECT_TRUE(names.contains("Test"));
 }
 
 TEST(Manager, AssignNameNonExistantEntity)
 {
 	sr::Manager m;
-	bool res = m.assignName(1, "Test");
+	bool res = m.assign_name(1, "Test");
 
-	auto names = m.getAllNames();
-	auto found = names.find("Test");
-	EXPECT_EQ(res, false);
-	EXPECT_TRUE(found == names.end());
+	auto names = m.get_debug_name_map();
+	ASSERT_EQ(res, false);
+	EXPECT_FALSE(names.contains("Test"));
 }
 
 TEST(Manager, AssignNameDuplicate)
@@ -107,8 +101,8 @@ TEST(Manager, AssignNameDuplicate)
 	sr::Manager m;
 	auto e = m.create();
 
-	EXPECT_TRUE(m.assignName(e, "Test"));
-	EXPECT_FALSE(m.assignName(e, "Test"));
+	EXPECT_TRUE(m.assign_name(e, "Test"));
+	EXPECT_FALSE(m.assign_name(e, "Test"));
 }
 
 TEST(Manager, FindFromName)
@@ -116,15 +110,15 @@ TEST(Manager, FindFromName)
 	sr::Manager m;
 	auto e = m.create("Test");
 
-	auto found = m.findFromName("Test");
+	auto found = m.find_from_name("Test");
 	EXPECT_EQ(found, e);
 }
 
 TEST(Manager, FindFromNameNonExistant)
 {
 	sr::Manager m;
-	
-	auto found = m.findFromName("Test");
+
+	auto found = m.find_from_name("Test");
 	EXPECT_EQ(found, 0);
 }
 
@@ -135,12 +129,16 @@ TEST(Manager, GetAllNames)
 	auto b = m.create("B");
 	auto c = m.create("C");
 
-	auto map = m.getAllNames();
+	auto map = m.get_debug_name_map();
 	EXPECT_EQ(map.size(), 3);
 
 	auto foundA = map.find("A");
 	auto foundB = map.find("B");
 	auto foundC = map.find("C");
+
+	ASSERT_TRUE(foundA != map.end());
+	ASSERT_TRUE(foundB != map.end());
+	ASSERT_TRUE(foundC != map.end());
 
 	EXPECT_EQ(a, foundA->second);
 	EXPECT_EQ(b, foundB->second);
@@ -185,8 +183,8 @@ TEST(Manager, RemoveInvalidComponent)
 
 TEST(Manager, CreateFromInvalid)
 {
-	sr::Manager m;
-	m.create();
+	//sr::Manager m;
+	//m.create();
 }
 
 TEST(Manager, Operate)
@@ -195,12 +193,10 @@ TEST(Manager, Operate)
 
 TEST(Manager, AddSystem)
 {
-
 }
 
 TEST(Manager, GetInvalidSystem)
 {
-
 }
 
 TEST(Manager, Destroy)
