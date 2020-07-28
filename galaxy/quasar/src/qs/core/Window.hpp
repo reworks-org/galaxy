@@ -8,6 +8,7 @@
 #ifndef QUASAR_WINDOW_HPP_
 #define QUASAR_WINDOW_HPP_
 
+#include <span>
 #include <string_view>
 
 #include <glfw/glfw3.h>
@@ -79,10 +80,9 @@ namespace qs
 		///
 		/// Set window icon.
 		///
-		/// \param mem Memory buffer containing pixels.
-		/// \param size Size of the buffer.
+		/// \param buffer Memory buffer containing pixels.
 		///
-		void set_icon(pr::not_nullptr auto mem, const pr::positive_int auto size);
+		void set_icon(const std::span<unsigned char> buffer);
 
 		///
 		/// Set cursor visibility.
@@ -108,10 +108,9 @@ namespace qs
 		///
 		/// Set cursor icon.
 		///
-		/// \param mem Memory buffer containing pixels.
-		/// \param size Size of the buffer.
+		/// \param buffer Memory buffer containing pixels.
 		///
-		void set_cursor_icon(pr::not_nullptr auto mem, const pr::positive_int auto size);
+		void set_cursor_icon(const std::span<unsigned char> buffer);
 
 		///
 		/// Set the callback function for scrolling.

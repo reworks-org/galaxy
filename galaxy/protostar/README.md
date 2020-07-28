@@ -1,3 +1,3 @@
 # protostar
 
-Common base library for galaxy.
+Common base library for galaxy. C++20.

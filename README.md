@@ -19,7 +19,7 @@ msbuild galaxy.sln
 ```
 
 ### Unix:
-```
+```cpp
 // todo
 ```
 

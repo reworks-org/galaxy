@@ -8,9 +8,8 @@
 #ifndef FRB_SOURCE_HPP_
 #define FRB_SOURCE_HPP_
 
+#include <span>
 #include <vector>
-
-#include <protostar/system/Concepts.hpp>
 
 #include "frb/buffer/Buffer.hpp"
 #include "frb/buffer/BufferStream.hpp"
@@ -43,31 +42,30 @@ namespace frb
 		///
 		/// Queue a buffer for the source to play.
 		///
-		/// \param buffer Pointer to an frb::Buffer* object.
+		/// \param buffer Pointer to an frb::Buffer* object. Cannot be nullptr.
 		///
-		void queue(pr::not_nullptr auto buffer);
+		void queue(Buffer* buffer);
 
 		///
 		/// Queue a streamed buffer for the source to play through.
 		///
-		/// \param stream_buffer Pointer to a BufferStream* object.
+		/// \param stream_buffer Pointer to a BufferStream* object. Cannot be nullptr.
 		///
-		void queue(pr::not_nullptr auto stream_buffer);
+		void queue(BufferStream* stream_buffer);
 
 		///
 		/// Queue a set of buffers for the source to play through.
 		///
 		/// \param buffers Array of buffers you want to play in a queue.
 		///
-		void queue(const std::vector<frb::Buffer>& buffers);
+		void queue(const std::span<Buffer> buffers);
 
 		///
 		/// Raw queue of buffer(s) to play.
 		///
-		/// \param buffer_array Array of buffers you want to play in a queue. Cannot be nullptr.
-		/// \param size The size/length of buffer_array.
+		/// \param buffer_array Array of buffers you want to play in a queue.
 		///
-		void queue(const ALuint* buffer_array, const pr::positive_size_t auto size);
+		void queue(const std::span<ALuint> buffer_array);
 
 		///
 		/// \brief Get current state of the source.

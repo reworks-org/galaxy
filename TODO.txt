@@ -21,7 +21,7 @@ PULSAR:
 - Replace fmt with <format>
 
 Quasar:
-- C++20?
+- C++20 review when eventual performance improvements are required.
 
 
 

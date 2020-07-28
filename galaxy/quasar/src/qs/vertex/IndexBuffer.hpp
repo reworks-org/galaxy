@@ -9,6 +9,7 @@
 #define QUASAR_INDEXBUFFER_HPP_
 
 #include <array>
+#include <span>
 #include <vector>
 
 #include <glad/glad.h>
@@ -20,11 +21,6 @@
 ///
 namespace qs
 {
-	///
-	/// Custom index storage type.
-	///
-	using IndexStorage = std::vector<unsigned int>;
-
 	///
 	/// Abstraction for OpenGL index (element) buffer objects.
 	///
@@ -42,7 +38,7 @@ namespace qs
 		/// \param indexs Index array to use.
 		///
 		template<is_buffer buffer_type>
-		void create(const qs::IndexStorage& indexs);
+		void create(const std::span<unsigned int> indexs);
 
 		///
 		/// Destroys buffer.
@@ -79,7 +75,7 @@ namespace qs
 	};
 
 	template<is_buffer buffer_type>
-	inline void IndexBuffer::create(const qs::IndexStorage& indexs)
+	inline void IndexBuffer::create(const std::span<unsigned int> indexs)
 	{
 		m_count = static_cast<unsigned int>(indexs.size());
 		bind();

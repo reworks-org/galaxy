@@ -205,13 +205,13 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_icon(pr::not_nullptr auto mem, const pr::positive_int auto size)
+	void Window::set_icon(const std::span<unsigned char> buffer)
 	{
 		stbi_set_flip_vertically_on_load(true);
 
 		// Fill glfw-compatible struct.
 		GLFWimage img;
-		img.pixels = stbi_load_from_memory(mem, size, &img.width, &img.height, nullptr, STBI_rgb_alpha);
+		img.pixels = stbi_load_from_memory(buffer.data(), buffer.size_bytes(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 		if (!img.pixels)
 		{
@@ -262,13 +262,13 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_cursor_icon(pr::not_nullptr auto mem, const pr::positive_int auto size)
+	void Window::set_cursor_icon(const std::span<unsigned char> buffer)
 	{
 		stbi_set_flip_vertically_on_load(true);
 
 		// Fill glfw-compatible struct.
 		GLFWimage img;
-		img.pixels = stbi_load_from_memory(mem, size, &img.width, &img.height, nullptr, STBI_rgb_alpha);
+		img.pixels = stbi_load_from_memory(buffer.data(), buffer.size_bytes(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 		if (!img.pixels)
 		{

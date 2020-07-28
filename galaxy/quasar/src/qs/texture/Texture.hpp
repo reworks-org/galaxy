@@ -8,6 +8,7 @@
 #ifndef QUASAR_TEXTURE_HPP_
 #define QUASAR_TEXTURE_HPP_
 
+#include <span>
 #include <string>
 
 #include "qs/texture/BaseTexture.hpp"
@@ -50,9 +51,8 @@ namespace qs
 		/// Can throw exceptions.
 		///
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
-		/// \param size Size of the buffer.
 		///
-		void load(const pr::not_nullptr auto mem, const pr::positive_uint auto size);
+		void load(const std::span<unsigned char> buffer);
 
 		///
 		/// Loads texture from OpenGL generated id.

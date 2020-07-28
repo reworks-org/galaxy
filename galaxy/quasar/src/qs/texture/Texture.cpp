@@ -64,13 +64,13 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::load(const pr::not_nullptr auto mem, const pr::positive_uint auto size)
+	void Texture::load(const std::span<unsigned char> buffer)
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 
 		stbi_set_flip_vertically_on_load(true);
-		unsigned char* data = stbi_load_from_memory(mem, size, &m_width, &m_height, nullptr, STBI_rgb_alpha);
+		unsigned char* data = stbi_load_from_memory(buffer.data(), buffer.size_bytes(), &m_width, &m_height, nullptr, STBI_rgb_alpha);
 
 		if (data)
 		{

@@ -32,33 +32,48 @@ namespace frb
 		destroy_source();
 	}
 
-	void Source::queue(pr::not_nullptr auto buffer)
+	void Source::queue(Buffer* buffer)
 	{
-		alSourcei(m_source, AL_BUFFER, buffer->handle());
-		if (alGetError() != AL_NO_ERROR)
+		if (buffer == nullptr)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to bind buffer."));
+			PL_LOG(PL_WARNING, "Attempted to pass nullptr to source to be queued.");
+		}
+		else
+		{
+			alSourcei(m_source, AL_BUFFER, buffer->handle());
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to bind buffer."));
+			}
 		}
 	}
 
-	void Source::queue(pr::not_nullptr auto stream_buffer)
+	void Source::queue(BufferStream* stream_buffer)
 	{
-		alSourceQueueBuffers(m_source, BufferStream::buffer_count, &stream_buffer->get_data()->m_buffers[0]);
-		if (alGetError() != AL_NO_ERROR)
+		if (stream_buffer == nullptr)
 		{
-			auto msg = frb::parse_error("Unable to queue stream buffer: " + stream_buffer->get_data()->m_file_path.filename().string());
-			PL_LOG(PL_ERROR, "{0}.", msg);
+			PL_LOG(PL_WARNING, "Attemped to pass nullptr stream_buffer to source to be queued.");
+		}
+		else
+		{
+			alSourceQueueBuffers(m_source, BufferStream::buffer_count, &stream_buffer->get_data()->m_buffers[0]);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				auto msg = frb::parse_error("Unable to queue stream buffer: " + stream_buffer->get_data()->m_file_path.filename().string());
+				PL_LOG(PL_ERROR, "{0}.", msg);
+			}
 		}
 	}
 
-	void Source::queue(const std::vector<frb::Buffer>& buffers)
+	void Source::queue(const std::span<frb::Buffer> buffers)
 	{
 		std::vector<ALuint> handles;
 		handles.reserve(buffers.size());
 
-		std::transform(buffers.begin(), buffers.end(), std::back_inserter(handles), [](const frb::Buffer& buffer) {
-			return buffer.handle();
-		});
+		for (const auto& buff : buffers)
+		{
+			handles.emplace_back(buff.handle());
+		}
 
 		alSourceQueueBuffers(m_source, static_cast<ALsizei>(handles.size()), handles.data());
 		if (alGetError() != AL_NO_ERROR)
@@ -67,15 +82,15 @@ namespace frb
 		}
 	}
 
-	void Source::queue(const ALuint* buffer_array, const pr::positive_size_t auto size)
+	void Source::queue(const std::span<ALuint> buffer_array)
 	{
-		if (buffer_array == nullptr)
+		if (buffer_array.empty())
 		{
-			PL_LOG(PL_WARNING, "Source recieved a nullptr buffer_array to queue.");
+			PL_LOG(PL_WARNING, "Source recieved an empty buffer_array to queue.");
 		}
 		else
 		{
-			alSourceQueueBuffers(m_source, static_cast<ALsizei>(size), buffer_array);
+			alSourceQueueBuffers(m_source, buffer_array.size(), buffer_array.data());
 			if (alGetError() != AL_NO_ERROR)
 			{
 				PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)."));
