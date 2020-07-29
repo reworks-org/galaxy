@@ -58,28 +58,28 @@ namespace frb
 		///
 		/// \param buffers Array of buffers you want to play in a queue.
 		///
-		void queue(const std::span<Buffer> buffers);
+		void queue(std::span<Buffer> buffers);
 
 		///
 		/// Raw queue of buffer(s) to play.
 		///
 		/// \param buffer_array Array of buffers you want to play in a queue.
 		///
-		void queue(const std::span<ALuint> buffer_array);
+		void queue(std::span<ALuint> buffer_array);
 
 		///
 		/// \brief Get current state of the source.
 		///
 		/// \return Enum. AL_PLAYING, AL_STOPPED, etc...
 		///
-		[[nodisard]] ALint get_state() noexcept;
+		[[nodiscard]] ALint get_state() noexcept;
 
 		///
 		/// Get the OpenAL internal int id / handle.
 		///
 		/// \return ALuint handle integer.
 		///
-		[[nodisard]] const ALuint handle() const noexcept;
+		[[nodiscard]] const ALuint handle() const noexcept;
 
 		///
 		/// \brief Destroy all memory and OpenAL data.

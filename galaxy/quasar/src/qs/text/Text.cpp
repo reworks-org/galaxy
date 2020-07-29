@@ -38,8 +38,8 @@ namespace qs
 
 	void Text::create()
 	{
-		IndexStorage is;
-		VertexStorage<qs::SpriteVertex> vs;
+		std::vector<unsigned int> is;
+		std::vector<qs::SpriteVertex> vs;
 
 		unsigned int count = 0;
 		float x            = 0;
@@ -77,8 +77,8 @@ namespace qs
 	{
 		m_text = text;
 
-		IndexStorage is;
-		VertexStorage<qs::SpriteVertex> vs;
+		std::vector<unsigned int> is;
+		std::vector<qs::SpriteVertex> vs;
 
 		unsigned int count = 0;
 		float x            = 0;

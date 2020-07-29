@@ -13,12 +13,12 @@
 namespace qs
 {
 	Character::Character()
-	    : VertexData {}, Texture {}, m_bearingX {0}, m_bearingY {0}, m_advance {0}
+	    : VertexData {}, Texture {}, m_bearing_x {0}, m_bearing_y {0}, m_advance {0}
 	{
 	}
 
 	Character::Character(const int bx, const int by, const pr::positive_uint auto advance)
-	    : VertexData {}, Texture {}, m_bearingX {bx}, m_bearingY {by}, m_advance {advance}
+	    : VertexData {}, Texture {}, m_bearing_x {bx}, m_bearing_y {by}, m_advance {advance}
 	{
 	}
 

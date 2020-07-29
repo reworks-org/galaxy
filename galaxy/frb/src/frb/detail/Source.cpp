@@ -65,7 +65,7 @@ namespace frb
 		}
 	}
 
-	void Source::queue(const std::span<frb::Buffer> buffers)
+	void Source::queue(std::span<frb::Buffer> buffers)
 	{
 		std::vector<ALuint> handles;
 		handles.reserve(buffers.size());
@@ -82,7 +82,7 @@ namespace frb
 		}
 	}
 
-	void Source::queue(const std::span<ALuint> buffer_array)
+	void Source::queue(std::span<ALuint> buffer_array)
 	{
 		if (buffer_array.empty())
 		{

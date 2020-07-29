@@ -36,9 +36,9 @@ namespace qs
 		///
 		/// \brief Creates the internal vertex array.
 		///
-		/// buffer_type Fixed or dynamic buffer.
+		/// BufferType Fixed or dynamic buffer.
 		///
-		template<typename buffer_type>
+		template<is_buffer BufferType>
 		void create();
 
 		///
@@ -74,7 +74,7 @@ namespace qs
 		float m_opacity;
 	};
 
-	template<typename buffer_type>
+	template<is_buffer BufferType>
 	inline void Sprite::create()
 	{
 		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f, m_opacity);
@@ -82,7 +82,7 @@ namespace qs
 		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height, m_opacity);
 		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height, m_opacity);
 
-		m_vb.create<qs::SpriteVertex, buffer_type>({v1, v2, v3, v4});
+		m_vb.create<qs::SpriteVertex, BufferType>({v1, v2, v3, v4});
 		m_ib.create<qs::BufferStatic>({0, 1, 3, 1, 2, 3});
 
 		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);

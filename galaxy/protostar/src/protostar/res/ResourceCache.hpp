@@ -40,7 +40,7 @@ namespace pr
 	/// Stores a cache of resources in order to make effective use of memory.
 	/// resources can be a texture, sound, script, shader, etc...
 	///
-	template<not_pointer_or_ref resource>
+	template<not_pointer_or_ref Resource>
 	class ResourceCache : public pr::ResCacheBase
 	{
 	public:
@@ -57,8 +57,8 @@ namespace pr
 		///
 		/// \return Pointer to newly created resource.
 		///
-		template<typename... _args>
-		[[nodiscard]] resource* create(std::string_view name, _args&&... args);
+		template<typename... Args>
+		[[nodiscard]] Resource* create(std::string_view name, Args&&... args);
 
 		///
 		/// Move a resource into cache.
@@ -68,7 +68,7 @@ namespace pr
 		///
 		/// \return Pointer to newly created resource.
 		///
-		[[maybe_unused]] virtual resource* move(std::string_view name, resource& resource) noexcept final;
+		[[maybe_unused]] virtual Resource* move(std::string_view name, Resource& resource) noexcept final;
 
 		///
 		/// Retrieve a resource.
@@ -77,7 +77,7 @@ namespace pr
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		[[nodiscard]] virtual resource* get(std::string_view handle) noexcept final;
+		[[nodiscard]] virtual Resource* get(std::string_view handle) noexcept final;
 
 		///
 		/// Clean up.
@@ -103,28 +103,28 @@ namespace pr
 		///
 		/// Contiguous resource array.
 		///
-		std::unordered_map<std::string, resource> m_resources;
+		std::unordered_map<std::string, Resource> m_resources;
 	};
 
-	template<not_pointer_or_ref resource>
-	inline ResourceCache<resource>::~ResourceCache() noexcept
+	template<not_pointer_or_ref Resource>
+	inline ResourceCache<Resource>::~ResourceCache() noexcept
 	{
 		clear();
 	}
 
-	template<not_pointer_or_ref resource>
-	template<typename... _args>
-	inline resource* ResourceCache<resource>::create(std::string_view name, _args&&... args)
+	template<not_pointer_or_ref Resource>
+	template<typename... Args>
+	inline Resource* ResourceCache<Resource>::create(std::string_view name, Args&&... args)
 	{
 		const auto str = static_cast<std::string>(name);
 		m_resources.emplace(
-		    std::piecewise_construct, std::make_tuple(str), std::make_tuple(std::forward<_args>(args)...));
+		    std::piecewise_construct, std::make_tuple(str), std::make_tuple(std::forward<Args>(args)...));
 
 		return &m_resources[str];
 	}
 
-	template<not_pointer_or_ref resource>
-	inline resource* ResourceCache<resource>::move(std::string_view name, resource& resource) noexcept
+	template<not_pointer_or_ref Resource>
+	inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource) noexcept
 	{
 		const auto str   = static_cast<std::string>(name);
 		m_resources[str] = std::move(resource);
@@ -132,8 +132,8 @@ namespace pr
 		return &m_resources[str];
 	}
 
-	template<not_pointer_or_ref resource>
-	inline resource* ResourceCache<resource>::get(std::string_view name) noexcept
+	template<not_pointer_or_ref Resource>
+	inline Resource* ResourceCache<Resource>::get(std::string_view name) noexcept
 	{
 		const auto str = static_cast<std::string>(name);
 		if (m_resources.contains(str))
@@ -147,8 +147,8 @@ namespace pr
 		}
 	}
 
-	template<not_pointer_or_ref resource>
-	inline ResourceCache<resource>::ResourceCache() noexcept
+	template<not_pointer_or_ref Resource>
+	inline ResourceCache<Resource>::ResourceCache() noexcept
 	{
 	}
 } // namespace pr

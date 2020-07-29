@@ -37,8 +37,8 @@ namespace qs
 		///
 		/// \param indexs Index array to use.
 		///
-		template<is_buffer buffer_type>
-		void create(const std::span<unsigned int> indexs);
+		template<is_buffer BufferType>
+		void create(std::span<unsigned int> indexs);
 
 		///
 		/// Destroys buffer.
@@ -74,8 +74,8 @@ namespace qs
 		unsigned int m_count;
 	};
 
-	template<is_buffer buffer_type>
-	inline void IndexBuffer::create(const std::span<unsigned int> indexs)
+	template<is_buffer BufferType>
+	inline void IndexBuffer::create(std::span<unsigned int> indexs)
 	{
 		m_count = static_cast<unsigned int>(indexs.size());
 		bind();
@@ -83,11 +83,11 @@ namespace qs
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<buffer_type, qs::BufferDynamic>::value)
+		if constexpr (std::is_same<BufferType, qs::BufferDynamic>::value)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_DYNAMIC_DRAW);
 		}
-		else if constexpr (std::is_same<buffer_type, qs::BufferStatic>::value)
+		else if constexpr (std::is_same<BufferType, qs::BufferStatic>::value)
 		{
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_count * sizeof(unsigned int), indexs.data(), GL_STATIC_DRAW);
 		}

@@ -141,7 +141,7 @@ namespace qs
 		///
 		/// Vertexs of spritebatch.
 		///
-		VertexStorage<qs::SpriteVertex> m_vertexs;
+		std::vector<qs::SpriteVertex> m_vertexs;
 	};
 } // namespace qs
 

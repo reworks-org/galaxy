@@ -45,7 +45,7 @@ namespace qs
 		///
 		/// \param size Number of components for each vertex attribute.
 		///
-		template<is_vertex vertex_type, is_vertex_attribute vertex_attribute>
+		template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
 		void add(const pr::positive_int auto size);
 
 		///
@@ -62,23 +62,23 @@ namespace qs
 		std::vector<qs::VertexAttribute> m_attributes;
 	};
 
-	template<is_vertex vertex_type, is_vertex_attribute vertex_attribute>
+	template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
 	inline void VertexLayout::add(const pr::positive_int auto size)
 	{
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<vertex_type, qs::SpriteVertex>::value)
+		if constexpr (std::is_same<VertexType, qs::SpriteVertex>::value)
 		{
-			if constexpr (std::is_same<vertex_attribute, qs::VAPosition>::value)
+			if constexpr (std::is_same<VertexAttribute, qs::VAPosition>::value)
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::SpriteVertex, m_pos));
 			}
-			else if constexpr (std::is_same<vertex_attribute, qs::VATexel>::value)
+			else if constexpr (std::is_same<VertexAttribute, qs::VATexel>::value)
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::SpriteVertex, m_texels));
 			}
-			else if constexpr (std::is_same<vertex_attribute, qs::VAOpacity>::value)
+			else if constexpr (std::is_same<VertexAttribute, qs::VAOpacity>::value)
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::SpriteVertex, m_opacity));
 			}
@@ -87,13 +87,13 @@ namespace qs
 				PL_LOG(PL_ERROR, "Failed to add vertex layout type for sprite vertex.");
 			}
 		}
-		else if constexpr (std::is_same<vertex_type, qs::PrimitiveVertex>::value)
+		else if constexpr (std::is_same<VertexType, qs::PrimitiveVertex>::value)
 		{
-			if constexpr (std::is_same<vertex_attribute, qs::VAPosition>::value)
+			if constexpr (std::is_same<VertexAttribute, qs::VAPosition>::value)
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::PrimitiveVertex, m_pos));
 			}
-			else if constexpr (std::is_same<vertex_attribute, qs::VAColour>::value)
+			else if constexpr (std::is_same<VertexAttribute, qs::VAColour>::value)
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::PrimitiveVertex, m_colour));
 			}

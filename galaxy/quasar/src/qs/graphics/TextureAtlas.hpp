@@ -29,8 +29,8 @@ namespace qs
 	///
 	/// Concept to ensure a number is a power of two.
 	///
-	template<typename type>
-	concept is_pow_2 = pr::positive_int&& requries(type val)
+	template<typename Type>
+	concept is_pow_2 = pr::positive_int<Type>&& requires(Type val)
 	{
 		{((val != 0) && ((val & (val - 1)) == 0))};
 	};

@@ -37,10 +37,11 @@ namespace qs
 		m_thickness = thickness;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
-		IndexStorage indices;
+		std::vector<unsigned int> indices;
 
-		unsigned int count    = 0;
-		const float increment = 2.0f * glm::pi<float>() / static_cast<float>(fragments);
+		unsigned int count        = 0;
+		constexpr float incr_stat = 2.0f * glm::pi<float>();
+		const float increment     = incr_stat / static_cast<float>(fragments);
 		for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 		{
 			vertexs.emplace_back({radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour});
@@ -50,7 +51,7 @@ namespace qs
 		}
 
 		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
-		m_ib.create<qs::BufferTypeStatic>(indices);
+		m_ib.create<qs::BufferStatic>(indices);
 
 		m_layout.add<qs::PrimitiveVertex, qs::VAPosition>(2);
 		m_layout.add<qs::PrimitiveVertex, qs::VAColour>(4);

@@ -133,8 +133,8 @@ namespace pl
 		/// \param level Log error level.
 		/// \param message Message to log.
 		///
-		template<typename... msg_values>
-		void log(const Log::Level level, const std::string& message, const msg_values&... args /*std::source_location goes here*/);
+		template<typename... MsgInputs>
+		void log(const Log::Level level, const std::string& message, const MsgInputs&... args /*std::source_location goes here*/);
 
 		///
 		/// Set testing mode.
@@ -163,7 +163,7 @@ namespace pl
 		///
 		/// Constructor.
 		///
-		Log() noexcept;
+		Log();
 
 		///
 		/// Delete Copy construct in order to preserve singleton.
@@ -248,8 +248,8 @@ namespace pl
 		bool m_testing_mode;
 	};
 
-	template<typename... msg_values>
-	inline void Log::log(const Log::Level level, const std::string& message, const msg_values&... args)
+	template<typename... MsgInputs>
+	inline void Log::log(const Log::Level level, const std::string& message, const MsgInputs&... args)
 	{
 		if (!m_testing_mode)
 		{

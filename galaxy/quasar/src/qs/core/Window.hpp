@@ -82,7 +82,7 @@ namespace qs
 		///
 		/// \param buffer Memory buffer containing pixels.
 		///
-		void set_icon(const std::span<unsigned char> buffer);
+		void set_icon(std::span<unsigned char> buffer);
 
 		///
 		/// Set cursor visibility.
@@ -110,7 +110,7 @@ namespace qs
 		///
 		/// \param buffer Memory buffer containing pixels.
 		///
-		void set_cursor_icon(const std::span<unsigned char> buffer);
+		void set_cursor_icon(std::span<unsigned char> buffer);
 
 		///
 		/// Set the callback function for scrolling.

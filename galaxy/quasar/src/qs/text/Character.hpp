@@ -76,12 +76,12 @@ namespace qs
 		///
 		/// Bearing X.
 		///
-		int m_bearingX;
+		int m_bearing_x;
 
 		///
 		/// Bearing Y.
 		///
-		int m_bearingY;
+		int m_bearing_y;
 
 		///
 		/// Offset to next character.

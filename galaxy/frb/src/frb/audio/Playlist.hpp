@@ -21,15 +21,15 @@ namespace frb
 	///
 	/// Concept to ensure template is using an frb audio object.
 	///
-	template<typename type>
-	concept frb_audio = ((std::is_same<frb::Sound, type>::value) || (std::is_same<frb::Music, type>::value));
+	template<typename Type>
+	concept frb_audio = ((std::is_same<frb::Sound, Type>::value) || (std::is_same<frb::Music, Type>::value));
 
 	///
 	/// \brief Queued sound effects / music.
 	///
 	/// A source with queued buffers.
 	///
-	template<frb_audio audio>
+	template<frb_audio Audio>
 	class Playlist final
 	{
 	public:
@@ -46,13 +46,13 @@ namespace frb
 	private:
 	};
 
-	template<frb_audio audio>
-	inline Playlist<audio>::Playlist() noexcept
+	template<frb_audio Audio>
+	inline Playlist<Audio>::Playlist() noexcept
 	{
 	}
 
-	template<frb_audio audio>
-	inline Playlist<audio>::~Playlist() noexcept
+	template<frb_audio Audio>
+	inline Playlist<Audio>::~Playlist() noexcept
 	{
 	}
 

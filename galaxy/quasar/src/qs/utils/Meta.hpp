@@ -85,33 +85,33 @@ namespace qs
 	///
 	/// \return Vertex.
 	///
-	template<typename vertex_type, typename... _args>
-	[[nodiscard]] inline vertex_type make_vertex(_args&&... args) noexcept
+	template<typename VertexType, typename... Args>
+	[[nodiscard]] inline VertexType make_vertex(Args&&... args) noexcept
 	{
-		return {std::forward<_args>(args)...};
+		return {std::forward<Args>(args)...};
 	}
 
 	///
 	/// Concept to ensure template parameter is a vertex attribute.
 	///
-	template<typename type>
-	concept is_vertex_attribute = (std::is_same<type, VAPosition>::value ||
-				       std::is_same<type, VAColour>::value ||
-				       std::is_same<type, VATexel>::value ||
-				       std::is_same<type, VAOpacity>::value);
+	template<typename Type>
+	concept is_vertex_attribute = (std::is_same<Type, VAPosition>::value ||
+				       std::is_same<Type, VAColour>::value ||
+				       std::is_same<Type, VATexel>::value ||
+				       std::is_same<Type, VAOpacity>::value);
 
 	///
 	/// Concept to ensure template parameter is a vertex.
 	///
-	template<typename type>
-	concept is_vertex = (std::is_same<type, SpriteVertex>::value ||
-			     std::is_same<type, PrimitiveVertex>::value);
+	template<typename Type>
+	concept is_vertex = (std::is_same<Type, SpriteVertex>::value ||
+			     std::is_same<Type, PrimitiveVertex>::value);
 
 	///
 	/// Conceptto ensure template parameter is a opengl buffer type.
 	///
-	template<typename type>
-	concept is_buffer = (std::is_same<type, BufferDynamic>::value || std::is_same<type, BufferStatic>::value);
+	template<typename Type>
+	concept is_buffer = (std::is_same<Type, BufferDynamic>::value || std::is_same<Type, BufferStatic>::value);
 
 } // namespace qs
 

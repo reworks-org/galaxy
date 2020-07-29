@@ -22,10 +22,12 @@ PULSAR:
 
 Quasar:
 - C++20 review when eventual performance improvements are required.
+- Circle.cpp, 43 -> constinit
 
 Solar:
 - Replace rangev3 in manager with <ranges> when avaliable.
-
+- Replace constexpr with constinit in Manager::operate()
+- Replace is_system with is_derived.
 
 
 

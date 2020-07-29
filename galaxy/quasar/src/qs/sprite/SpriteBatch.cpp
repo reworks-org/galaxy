@@ -20,7 +20,7 @@ namespace qs
 		m_max_vertexs = m_max_quads * 4;
 		m_max_indexs  = m_max_quads * 6;
 
-		qs::IndexStorage is;
+		std::vector<unsigned int> is;
 		is.reserve(m_max_indexs);
 
 		unsigned int increment = 0;

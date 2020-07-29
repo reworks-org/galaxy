@@ -136,7 +136,7 @@ namespace frb
 	{
 	}
 
-	void SourceManipulator::set_source_to_manipulate(const pr::positive_uint auto) noexcept
+	void SourceManipulator::set_source_to_manipulate(const pr::positive_uint auto source) noexcept
 	{
 		m_source = source;
 	}

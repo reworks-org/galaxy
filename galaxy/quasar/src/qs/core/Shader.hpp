@@ -107,8 +107,8 @@ namespace qs
 		std::unordered_map<std::string, int> m_cache;
 	};
 
-	template<typename... uniforms>
-	inline void Shader::set_uniform(std::string_view name, const uniforms&... args)
+	template<typename... Uniforms>
+	inline void Shader::set_uniform(std::string_view name, const Uniforms&... args)
 	{
 		// If type does not have specialization, throw error.
 		PL_LOG(PL_ERROR, "Invalid shader uniform type!");

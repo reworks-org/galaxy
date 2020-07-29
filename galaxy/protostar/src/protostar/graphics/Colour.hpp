@@ -59,8 +59,8 @@ namespace pr
 		///
 		/// \return Moveable fixed size std::array of Type.
 		///
-		template<is_arithmetic type>
-		[[nodiscard]] std::array<type, 4> get_as();
+		template<is_arithmetic Type>
+		[[nodiscard]] std::array<Type, 4> get_as();
 
 		///
 		/// \brief Normalizes values and returns as floats.
@@ -97,11 +97,11 @@ namespace pr
 		std::uint8_t m_alpha;
 	};
 
-	template<is_arithmetic type>
-	inline std::array<type, 4> Colour::get_as()
+	template<is_arithmetic Type>
+	inline std::array<Type, 4> Colour::get_as()
 	{
-		std::array<type, 4> arr =
-		    {static_cast<type>(m_red), static_cast<type>(m_green), static_cast<type>(m_blue), static_cast<type>(m_alpha)};
+		std::array<Type, 4> arr =
+		    {static_cast<Type>(m_red), static_cast<Type>(m_green), static_cast<Type>(m_blue), static_cast<Type>(m_alpha)};
 
 		return arr;
 	}

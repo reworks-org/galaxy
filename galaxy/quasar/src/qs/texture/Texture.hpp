@@ -52,7 +52,7 @@ namespace qs
 		///
 		/// \param mem Memory buffer to load from. Not freed, you must free after.
 		///
-		void load(const std::span<unsigned char> buffer);
+		void load(std::span<unsigned char> buffer);
 
 		///
 		/// Loads texture from OpenGL generated id.

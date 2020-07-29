@@ -64,7 +64,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::load(const std::span<unsigned char> buffer)
+	void Texture::load(std::span<unsigned char> buffer)
 	{
 		// Generate texture in OpenGL and bind to 2D texture.
 		glBindTexture(GL_TEXTURE_2D, m_texture);

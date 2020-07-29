@@ -17,7 +17,7 @@ using namespace std::chrono_literals;
 ///
 namespace pl
 {
-	Log::Log() noexcept
+	Log::Log()
 	    : m_min_level {PL_INFO}, m_message {""}, m_running {false}, m_testing_mode {false}
 	{
 	}

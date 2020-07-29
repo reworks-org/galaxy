@@ -30,13 +30,15 @@ namespace qs
 		m_thickness = thickness;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
-		IndexStorage indices;
+		std::vector<unsigned int> indices;
 
 		vertexs.emplace_back({x1, y1, col});
 		vertexs.emplace_back({x2, y2, col});
 
 		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
-		m_ib.create<qs::BufferStatic>({0, 1});
+
+		std::array<unsigned int, 2> arr = {0, 1};
+		m_ib.create<qs::BufferStatic>(arr);
 
 		m_layout.add<qs::PrimitiveVertex, qs::VAPosition>(2);
 		m_layout.add<qs::PrimitiveVertex, qs::VAColour>(4);

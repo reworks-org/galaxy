@@ -20,7 +20,7 @@ namespace pr
 	///
 	/// Represents a rectangle object.
 	///
-	template<is_arithmetic type>
+	template<is_arithmetic Type>
 	class Rect final
 	{
 	public:
@@ -37,7 +37,7 @@ namespace pr
 		/// \param width Width value.
 		/// \param height Height value.
 		///
-		Rect(const type x, const type y, const type width, const type height) noexcept;
+		Rect(const Type x, const Type y, const Type width, const Type height) noexcept;
 
 		///
 		/// Default destructor.
@@ -52,7 +52,7 @@ namespace pr
 		///
 		/// \return True if contains the point.
 		///
-		[[nodiscard]] bool contains(const type x, const type y) noexcept;
+		[[nodiscard]] bool contains(const Type x, const Type y) noexcept;
 
 		///
 		/// Does the rectangle contain another rectangle.
@@ -61,7 +61,7 @@ namespace pr
 		///
 		/// \return Returns true if the rectangle is completely inside, not on the edge.
 		///
-		[[nodiscard]] bool contains(const Rect<type>& b) noexcept;
+		[[nodiscard]] bool contains(const Rect<Type>& b) noexcept;
 
 		///
 		/// \brief Do the rectangles a and b overlap.
@@ -72,7 +72,7 @@ namespace pr
 		///
 		/// \return Returns true if there is an overlap.
 		///
-		[[nodiscard]] bool overlaps(const Rect<type>& b) noexcept;
+		[[nodiscard]] bool overlaps(const Rect<Type>& b) noexcept;
 
 		///
 		/// Spaceship operator.
@@ -82,22 +82,22 @@ namespace pr
 		///
 		/// X position.
 		///
-		type m_x;
+		Type m_x;
 
 		///
 		/// Y position.
 		///
-		type m_y;
+		Type m_y;
 
 		///
 		/// Width of rectangle.
 		///
-		type m_width;
+		Type m_width;
 
 		///
 		/// Height of rectangle.
 		///
-		type m_height;
+		Type m_height;
 
 	private:
 		///
@@ -110,38 +110,38 @@ namespace pr
 		///
 		/// \return True if value is inbetween min and max. Inclusive.
 		///
-		[[nodiscard]] bool value_in_range(const type value, const type min, const type max) noexcept;
+		[[nodiscard]] bool value_in_range(const Type value, const Type min, const Type max) noexcept;
 	};
 
-	template<is_arithmetic type>
-	inline Rect<type>::Rect() noexcept
+	template<is_arithmetic Type>
+	inline Rect<Type>::Rect() noexcept
 	    : m_x {0}, m_y {0}, m_width {0}, m_height {0}
 	{
 	}
 
-	template<is_arithmetic type>
-	inline Rect<type>::Rect(const type x, const type y, const type width, const type height) noexcept
+	template<is_arithmetic Type>
+	inline Rect<Type>::Rect(const Type x, const Type y, const Type width, const Type height) noexcept
 	    : m_x {x}, m_y {y}, m_width {width}, m_height {height}
 	{
 	}
 
-	template<is_arithmetic type>
-	inline bool Rect<type>::contains(const type x, const type y) noexcept
+	template<is_arithmetic Type>
+	inline bool Rect<Type>::contains(const Type x, const Type y) noexcept
 	{
 		// Checks if the rectangle contains the point (x, y) using some basic math.
 		return ((x > m_x) && (x < (m_x + m_width)) && (y > m_y) && (y < (m_y + m_height)));
 	}
 
-	template<is_arithmetic type>
-	inline bool Rect<type>::contains(const Rect<type>& b) noexcept
+	template<is_arithmetic Type>
+	inline bool Rect<Type>::contains(const Rect<Type>& b) noexcept
 	{
 		// Checks if the rectangle contains another rectangle using math.
 		return ((b.m_x + b.m_width) < (m_x + m_width) && (b.m_x) > (m_x) && (b.m_y) > (m_y) &&
 			(b.m_y + b.m_height) < (m_y + m_height));
 	}
 
-	template<is_arithmetic type>
-	inline bool Rect<type>::overlaps(const Rect<type>& b) noexcept
+	template<is_arithmetic Type>
+	inline bool Rect<Type>::overlaps(const Rect<Type>& b) noexcept
 	{
 		// Check for overlaps using math.
 		bool x = value_in_range(m_x, b.m_x, b.m_x + b.m_width) || value_in_range(b.m_x, m_x, m_x + m_width);
@@ -152,8 +152,8 @@ namespace pr
 		return x && y;
 	}
 
-	template<is_arithmetic type>
-	inline bool Rect<type>::value_in_range(const type value, const type min, const type max) noexcept
+	template<is_arithmetic Type>
+	inline bool Rect<Type>::value_in_range(const Type value, const Type min, const Type max) noexcept
 	{
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);

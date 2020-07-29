@@ -205,7 +205,7 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_icon(const std::span<unsigned char> buffer)
+	void Window::set_icon(std::span<unsigned char> buffer)
 	{
 		stbi_set_flip_vertically_on_load(true);
 
@@ -262,7 +262,7 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_cursor_icon(const std::span<unsigned char> buffer)
+	void Window::set_cursor_icon(std::span<unsigned char> buffer)
 	{
 		stbi_set_flip_vertically_on_load(true);
 

@@ -22,7 +22,7 @@ namespace pr
 	///
 	///	Rectangle 2D bin packing class.
 	///
-	template<is_arithmetic type>
+	template<is_arithmetic Type>
 	class RectPack final
 	{
 	public:
@@ -55,7 +55,7 @@ namespace pr
 		/// \return Returns the location of the packed rectangle on the master rectangle.
 		///			Otherwise, returns a std::nullopt.
 		///
-		[[nodiscard]] std::optional<pr::Rect<type>> pack(const int width, const int height);
+		[[nodiscard]] std::optional<pr::Rect<Type>> pack(const int width, const int height);
 
 		///
 		/// Get total width.
@@ -72,7 +72,7 @@ namespace pr
 		///
 		/// \return Const std::vector.
 		///
-		[[nodiscard]] const std::vector<pr::Rect<type>>& get_free_space() const noexcept;
+		[[nodiscard]] const std::vector<pr::Rect<Type>>& get_free_space() const noexcept;
 
 	private:
 		///
@@ -88,23 +88,23 @@ namespace pr
 		///
 		/// Free space in master rectangle.
 		///
-		std::vector<pr::Rect<type>> m_free_rects;
+		std::vector<pr::Rect<Type>> m_free_rects;
 	};
 
-	template<is_arithmetic type>
-	inline RectPack<type>::RectPack() noexcept
+	template<is_arithmetic Type>
+	inline RectPack<Type>::RectPack() noexcept
 	    : m_width {0}, m_height {0}
 	{
 	}
 
-	template<is_arithmetic type>
-	inline RectPack<type>::~RectPack() noexcept
+	template<is_arithmetic Type>
+	inline RectPack<Type>::~RectPack() noexcept
 	{
 		m_free_rects.clear();
 	}
 
-	template<is_arithmetic type>
-	inline void RectPack<type>::init(const int width, const int height) noexcept
+	template<is_arithmetic Type>
+	inline void RectPack<Type>::init(const int width, const int height) noexcept
 	{
 		m_width  = width;
 		m_height = height;
@@ -112,11 +112,11 @@ namespace pr
 		m_free_rects.emplace_back(0, 0, m_width, m_height);
 	}
 
-	template<is_arithmetic type>
-	inline std::optional<pr::Rect<type>> RectPack<type>::pack(const int width, const int height)
+	template<is_arithmetic Type>
+	inline std::optional<pr::Rect<Type>> RectPack<Type>::pack(const int width, const int height)
 	{
 		// Result.
-		std::optional<pr::Rect<type>> result = std::nullopt;
+		std::optional<pr::Rect<Type>> result = std::nullopt;
 
 		// Go over each space in the rectangle, in reverse order (i.e. smallest -> largest).
 		for (auto rit = m_free_rects.rbegin(); rit != m_free_rects.rend(); /* ++rit*/)
@@ -127,7 +127,7 @@ namespace pr
 			if (width <= space.m_width && height <= space.m_height)
 			{
 				// Make the packed area rectangle.
-				result = std::make_optional<pr::Rect<type>>(space.m_x, space.m_y, width, height);
+				result = std::make_optional<pr::Rect<Type>>(space.m_x, space.m_y, width, height);
 
 				// Check to see if shape fills completely.
 				if (width == space.m_width && height == space.m_height)
@@ -169,20 +169,20 @@ namespace pr
 		return result;
 	}
 
-	template<is_arithmetic type>
-	inline const int RectPack<type>::get_width() const noexcept
+	template<is_arithmetic Type>
+	inline const int RectPack<Type>::get_width() const noexcept
 	{
 		return m_width;
 	}
 
-	template<is_arithmetic type>
-	inline const int RectPack<type>::get_height() const noexcept
+	template<is_arithmetic Type>
+	inline const int RectPack<Type>::get_height() const noexcept
 	{
 		return m_height;
 	}
 
-	template<is_arithmetic type>
-	inline const std::vector<pr::Rect<type>>& RectPack<type>::get_free_space() const noexcept
+	template<is_arithmetic Type>
+	inline const std::vector<pr::Rect<Type>>& RectPack<Type>::get_free_space() const noexcept
 	{
 		return m_free_rects;
 	}

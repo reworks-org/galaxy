@@ -60,14 +60,14 @@ namespace qs
 					glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 					emplaced->load(0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
-					emplaced->m_bearingX = static_cast<int>(face->glyph->bitmap_left);
-					emplaced->m_bearingY = static_cast<int>(face->glyph->bitmap_top);
-					emplaced->m_advance  = static_cast<unsigned int>(face->glyph->advance.x);
+					emplaced->m_bearing_x = static_cast<int>(face->glyph->bitmap_left);
+					emplaced->m_bearing_y = static_cast<int>(face->glyph->bitmap_top);
+					emplaced->m_advance   = static_cast<unsigned int>(face->glyph->advance.x);
 
-					float x       = adv_x + emplaced->m_bearingX;
-					float y       = static_cast<float>(0 - (emplaced->getHeight() - emplaced->m_bearingY));
-					const float w = static_cast<float>(emplaced->getWidth());
-					const float h = static_cast<float>(emplaced->getHeight());
+					float x       = adv_x + emplaced->m_bearing_x;
+					float y       = static_cast<float>(0 - (emplaced->get_height() - emplaced->m_bearing_y));
+					const float w = static_cast<float>(emplaced->get_width());
+					const float h = static_cast<float>(emplaced->get_height());
 
 					// Restore alignment.
 					glPixelStorei(GL_UNPACK_ALIGNMENT, original);
@@ -78,8 +78,12 @@ namespace qs
 					auto v4 = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f, 1.0f);
 
 					emplaced->m_region = {x, y, w, h};
-					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>({v1, v2, v3, v4});
-					emplaced->m_ib.create<qs::BufferStatic>({0, 1, 3, 1, 2, 3});
+
+					std::array<qs::SpriteVertex, 4> arr = {v1, v2, v3, v4};
+					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>(arr);
+
+					std::array<unsigned int, 6> arr = {0, 1, 3, 1, 2, 3};
+					emplaced->m_ib.create<qs::BufferStatic>(arr);
 
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VATexel>(2);

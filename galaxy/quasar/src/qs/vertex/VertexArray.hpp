@@ -40,7 +40,7 @@ namespace qs
 		/// \param ib IndexBufferObject to specify for VertexArrayObject.
 		/// \param layout VertexLayout to specify for this VertexArrayObject.
 		///
-		template<is_vertex vertex_type>
+		template<is_vertex VertexType>
 		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout);
 
 		///
@@ -60,7 +60,7 @@ namespace qs
 		unsigned int m_id;
 	};
 
-	template<is_vertex vertex_type>
+	template<is_vertex VertexType>
 	inline void VertexArray::create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout)
 	{
 		bind();
@@ -73,7 +73,7 @@ namespace qs
 		unsigned int counter   = 0;
 		for (const auto& attribute : attributes)
 		{
-			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(vertex_type), (GLvoid*)attribute.m_offset);
+			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(VertexType), (GLvoid*)attribute.m_offset);
 			glEnableVertexAttribArray(counter);
 
 			++counter;

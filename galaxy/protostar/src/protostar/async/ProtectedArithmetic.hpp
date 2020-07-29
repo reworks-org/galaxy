@@ -20,7 +20,7 @@ namespace pr
 	///
 	/// Protected arithmetic type that has its read/write protected by a lock_guard.
 	///
-	template<is_arithmetic type>
+	template<is_arithmetic Type>
 	class ProtectedAirthmetic final
 	{
 	public:
@@ -34,7 +34,7 @@ namespace pr
 		///
 		/// \param value New value for var.
 		///
-		ProtectedAirthmetic(const type value) noexcept;
+		ProtectedAirthmetic(const Type value) noexcept;
 
 		///
 		/// Default destructor.
@@ -46,14 +46,14 @@ namespace pr
 		///
 		/// \param value New value for var.
 		///
-		void set(const type value) noexcept;
+		void set(const Type value) noexcept;
 
 		///
 		/// Get value stored.
 		///
 		/// \return Mutex protected value.
 		///
-		[[nodiscard]] const type get() noexcept;
+		[[nodiscard]] const Type get() noexcept;
 
 	private:
 		///
@@ -79,7 +79,7 @@ namespace pr
 		///
 		/// The variable.
 		///
-		type m_var;
+		Type m_var;
 
 		///
 		/// Mutex protecting the variable.
@@ -87,20 +87,20 @@ namespace pr
 		std::mutex m_mutex;
 	};
 
-	template<is_arithmetic type>
-	inline ProtectedAirthmetic<type>::ProtectedAirthmetic() noexcept
+	template<is_arithmetic Type>
+	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic() noexcept
 	    : m_var {0}
 	{
 	}
 
-	template<is_arithmetic type>
-	inline ProtectedAirthmetic<type>::ProtectedAirthmetic(const type value) noexcept
+	template<is_arithmetic Type>
+	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic(const Type value) noexcept
 	{
 		set(value);
 	}
 
-	template<is_arithmetic type>
-	inline void ProtectedAirthmetic<type>::set(const type value) noexcept
+	template<is_arithmetic Type>
+	inline void ProtectedAirthmetic<Type>::set(const Type value) noexcept
 	{
 		m_mutex.lock();
 
@@ -109,8 +109,8 @@ namespace pr
 		m_mutex.unlock();
 	}
 
-	template<is_arithmetic type>
-	inline const type ProtectedAirthmetic<type>::get() noexcept
+	template<is_arithmetic Type>
+	inline const Type ProtectedAirthmetic<Type>::get() noexcept
 	{
 		std::lock_guard<std::mutex> lock {m_mutex};
 		return m_var;

@@ -21,11 +21,11 @@ namespace pr
 	///
 	/// Credits: http://stackoverflow.com/a/32907541.
 	///
-	template<typename type>
+	template<typename Type>
 	using conditional_distribution = std::conditional_t<
-	    std::is_integral<type>::value,
-	    std::uniform_int_distribution<type>,
-	    std::conditional_t<std::is_floating_point<type>::value, std::uniform_real_distribution<type>, void>>;
+	    std::is_integral<Type>::value,
+	    std::uniform_int_distribution<Type>,
+	    std::conditional_t<std::is_floating_point<Type>::value, std::uniform_real_distribution<Type>, void>>;
 
 	///
 	/// Generate a random number of type T.
@@ -35,8 +35,8 @@ namespace pr
 	///
 	/// \return Returns number of the same type as inputs.
 	///
-	template<is_arithmetic type>
-	[[nodiscard]] inline type random(const type min, const type max)
+	template<is_arithmetic Type>
+	[[nodiscard]] inline Type random(const Type min, const Type max)
 	{
 		// Reseed.
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -45,7 +45,7 @@ namespace pr
 		thread_local std::random_device rd;
 		thread_local std::mt19937 mt {rd()};
 
-		thread_local conditional_distribution<type> dist {min, max};
+		thread_local conditional_distribution<Type> dist {min, max};
 
 		return dist(mt);
 	}

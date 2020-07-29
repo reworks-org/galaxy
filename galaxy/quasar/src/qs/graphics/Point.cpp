@@ -28,12 +28,14 @@ namespace qs
 		m_size = size;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
-		IndexStorage indices;
+		std::vector<unsigned int> indices;
 
 		vertexs.emplace_back({x, y, colour});
 
 		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
-		m_ib.create<qs::BufferStatic>({0});
+
+		std::array<unsigned int, 1> arr = {0};
+		m_ib.create<qs::BufferStatic>(arr);
 
 		m_layout.add<qs::PrimitiveVertex, qs::VAPosition>(2);
 		m_layout.add<qs::PrimitiveVertex, qs::VAColour>(4);
