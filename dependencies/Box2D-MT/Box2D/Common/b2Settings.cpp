@@ -41,10 +41,15 @@ void b2Free(void* mem)
 // You can modify this to use your logging facility.
 void b2Log(const char* string, ...)
 {
-	va_list list;
-	va_start(list, string);
+	va_list args;
+	va_start(args, string);
 
-	PL_LOG(PL_INFO, "{0} | {1}.", string, list);
+	const auto size = std::snprintf(nullptr, 0, string, args);
+	std::vector<char> buff(size + 1);
+	std::snprintf(&buff[0], buff.size(), string, args);
+	std::string str(buff.begin(), buff.end());
 
-	va_end(list);
+	va_end(args);
+
+	PL_LOG(PL_INFO, "{0}.", str);
 }
