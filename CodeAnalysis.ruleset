@@ -204,6 +204,7 @@
     <Rule Id="C26447" Action="Warning" />
     <Rule Id="C26448" Action="None" />
     <Rule Id="C26449" Action="None" />
+    <Rule Id="C26455" Action="None" />
     <Rule Id="C26459" Action="None" />
     <Rule Id="C26472" Action="None" />
     <Rule Id="C26474" Action="None" />
