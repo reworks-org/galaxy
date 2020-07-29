@@ -26,7 +26,7 @@
 class CountEntitiesPredicate
 {
 public:
-	CountEntitiesPredicate(const int count, const std::span<sr::Entity> entities)
+	CountEntitiesPredicate(const int count, std::span<sr::Entity> entities)
 	    : m_count(count), m_span {entities}
 	{
 	}
@@ -38,7 +38,7 @@ public:
 
 private:
 	const int m_count;
-	const std::span<sr::Entity> m_span;
+	std::span<sr::Entity> m_span;
 };
 
 ///
@@ -69,8 +69,8 @@ namespace sr
 	///
 	/// Concept to ensure a system is actually derived from sr::System.
 	///
-	template<typename type>
-	concept is_system = (std::is_base_of_v<sr::System, type> && std::is_convertible_v<const volatile type*, const volatile sr::System*>);
+	template<typename Type>
+	concept is_system = (std::is_base_of_v<sr::System, Type> && std::is_convertible_v<const volatile Type*, const volatile sr::System*>);
 
 	///
 	/// Controls and manages the Entitys, Components and Systems.
@@ -121,7 +121,7 @@ namespace sr
 		///
 		/// \return True if unsigned integer is an entity.
 		///
-		[[nodiscard]] const bool validate(sr::Entity uint) noexcept;
+		[[nodiscard]] const bool validate(sr::Entity uint);
 
 		///
 		/// Assign a name to an entity.
@@ -158,8 +158,8 @@ namespace sr
 		///
 		/// \return Pointer to newly added component.
 		///
-		template<pr::is_class component, typename... _args>
-		component* create_component(const sr::Entity entity, _args&&... args);
+		template<pr::is_class Component, typename... Args>
+		Component* create_component(const sr::Entity entity, Args&&... args);
 
 		///
 		/// Retrieve a component assosiated with an entity.
@@ -169,8 +169,8 @@ namespace sr
 		///
 		/// \return Pointer to component of type Component.
 		///
-		template<pr::is_class component>
-		component* get(const sr::Entity entity);
+		template<pr::is_class Component>
+		Component* get(const sr::Entity entity);
 
 		///
 		/// Remove a component assosiated with an entity.
@@ -178,7 +178,7 @@ namespace sr
 		///
 		/// \param entity Entity component is assosiated with.
 		///
-		template<pr::is_class component>
+		template<pr::is_class Component>
 		void remove(const sr::Entity entity);
 
 		///
@@ -195,8 +195,8 @@ namespace sr
 							});
 							*/
 		///
-		template<pr::is_class... components, typename lambda>
-		void operate(lambda&& func);
+		template<pr::is_class... Components, typename Lambda>
+		void operate(Lambda&& func);
 
 		///
 		/// \brief Add a system to the manager.
@@ -205,16 +205,16 @@ namespace sr
 		///
 		/// \param args Constructor arguments for the system.
 		///
-		template<is_system system, typename... _args>
-		void create_system(_args&&... args);
+		template<is_system System, typename... Args>
+		void create_system(Args&&... args);
 
 		///
 		/// Get a system. Type is template parameter.
 		///
 		/// \return Pointer to the system.
 		///
-		template<is_system system>
-		system* get();
+		template<is_system System>
+		System* get();
 
 		///
 		/// Destroys an entity and all associated components.
@@ -242,9 +242,9 @@ namespace sr
 
 	protected:
 		///
+		/// Called by operate().
 		///
-		///
-		template<pr::is_class component>
+		template<pr::is_class Component>
 		void internal_operate(std::vector<sr::Entity>& entities);
 
 		///
@@ -278,10 +278,10 @@ namespace sr
 		SystemContainer m_systems;
 	};
 
-	template<pr::is_class component, typename... _args>
-	inline component* Manager::create_component(const sr::Entity entity, _args&&... args)
+	template<pr::is_class Component, typename... Args>
+	inline Component* Manager::create_component(const sr::Entity entity, Args&&... args)
 	{
-		const auto type = CUniqueID::get<component>();
+		const auto type = CUniqueID::get<Component>();
 		if (type >= m_data.size())
 		{
 			m_data.resize(type + 1);
@@ -293,16 +293,16 @@ namespace sr
 			if (!m_data[type])
 			{
 				// Use polymorphism to ensure type erasure.
-				m_data[type] = std::make_unique<ComponentSet<component>>();
+				m_data[type] = std::make_unique<ComponentSet<Component>>();
 			}
 
 			// Now convert the storage to the type we want to access.
-			auto* derived = dynamic_cast<ComponentSet<component>*>(m_data[type].get());
+			auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
 			if (derived)
 			{
 				if (!derived->has(entity))
 				{
-					return derived->add(entity, std::forward<_args>(args)...);
+					return derived->add(entity, std::forward<Args>(args)...);
 				}
 				else
 				{
@@ -317,10 +317,10 @@ namespace sr
 		}
 	}
 
-	template<pr::is_class component>
-	inline component* Manager::get(const sr::Entity entity)
+	template<pr::is_class Component>
+	inline Component* Manager::get(const sr::Entity entity)
 	{
-		component* res = nullptr;
+		Component* res = nullptr;
 
 		if (!validate(entity))
 		{
@@ -329,7 +329,7 @@ namespace sr
 		}
 		else
 		{
-			const auto type = CUniqueID::get<component>();
+			const auto type = CUniqueID::get<Component>();
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
@@ -340,7 +340,7 @@ namespace sr
 			{
 				if (m_data[type] != nullptr)
 				{
-					auto* derived = dynamic_cast<ComponentSet<component>*>(m_data[type].get());
+					auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
 					if (derived->has(entity))
 					{
 						res = derived->get(entity);
@@ -352,7 +352,7 @@ namespace sr
 		return res;
 	}
 
-	template<pr::is_class component>
+	template<pr::is_class Component>
 	inline void Manager::remove(const sr::Entity entity)
 	{
 		if (!validate(entity))
@@ -361,7 +361,7 @@ namespace sr
 		}
 		else
 		{
-			const auto type = CUniqueID::get<component>();
+			const auto type = CUniqueID::get<Component>();
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
@@ -372,7 +372,7 @@ namespace sr
 			{
 				if (m_data[type] != nullptr)
 				{
-					auto* derived = dynamic_cast<ComponentSet<component>*>(m_data[type].get());
+					auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
 					if (derived->has(entity))
 					{
 						derived->remove(entity);
@@ -382,30 +382,30 @@ namespace sr
 		}
 	}
 
-	template<pr::is_class... components, typename lambda>
-	inline void Manager::operate(lambda&& func)
+	template<pr::is_class... Components, typename Lambda>
+	inline void Manager::operate(Lambda&& func)
 	{
 		// Ensure data is not empty.
 		if (!m_data.empty())
 		{
-			constinit auto length = sizeof...(components);
+			constexpr auto length = sizeof...(Components);
 			std::vector<sr::Entity> entities;
 
 			// using ComponentContainer = std::vector<std::unique_ptr<EntitySet<sr::Entity>>>;
-			(this->internal_operate<components>(entities), ...);
+			(this->internal_operate<Components>(entities), ...);
 
 			// So for all elements in the vector, filter by count entites predicate.
 			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
 			{
-				func(e, this->get<components>(e)...);
+				func(e, this->get<Components>(e)...);
 			}
 		}
 	}
 
-	template<pr::is_class component>
+	template<pr::is_class Component>
 	inline void Manager::internal_operate(std::vector<sr::Entity>& entities)
 	{
-		const auto type = CUniqueID::get<component>();
+		const auto type = CUniqueID::get<Component>();
 
 		if (type >= m_data.size())
 		{
@@ -421,22 +421,22 @@ namespace sr
 		}
 	}
 
-	template<is_system system, typename... _args>
-	inline void Manager::create_system(_args&&... args)
+	template<is_system System, typename... Args>
+	inline void Manager::create_system(Args&&... args)
 	{
-		const auto type = SUniqueID::get<system>();
+		const auto type = SUniqueID::get<System>();
 		if (type >= m_systems.size())
 		{
 			m_systems.resize(type + 1);
 		}
 
-		m_systems[type] = std::make_unique<system>(std::forward<_args>(args)...);
+		m_systems[type] = std::make_unique<System>(std::forward<Args>(args)...);
 	}
 
-	template<is_system system>
-	inline system* Manager::get()
+	template<is_system System>
+	inline System* Manager::get()
 	{
-		const auto type = SUniqueID::get<system>();
+		const auto type = SUniqueID::get<System>();
 		if (type > m_systems.size())
 		{
 			PL_LOG(PL_FATAL, "Attempted to access a system type that doesnt exist!");
@@ -444,7 +444,7 @@ namespace sr
 		}
 		else
 		{
-			return dynamic_cast<system*>(m_systems[type].get());
+			return dynamic_cast<System*>(m_systems[type].get());
 		}
 	}
 } // namespace sr

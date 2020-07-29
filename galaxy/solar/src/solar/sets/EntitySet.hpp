@@ -25,7 +25,7 @@ namespace sr
 	///
 	/// Fast storage of unsigned integers.
 	///
-	template<pr::positive_uint uint>
+	template<pr::positive_uint UInt>
 	class EntitySet
 	{
 		///
@@ -49,7 +49,7 @@ namespace sr
 		///
 		/// \param element Element to insert.
 		///
-		void insert(const uint element);
+		void insert(const UInt element);
 
 		///
 		/// Does the Entity Set contain an element.
@@ -58,7 +58,7 @@ namespace sr
 		///
 		/// \return Boolean value. Returns true if Entity Set contains element.
 		///
-		[[nodiscard]] bool has(const uint element);
+		[[nodiscard]] bool has(const UInt element);
 
 		///
 		/// Find the index in the dense array of the element.
@@ -67,7 +67,7 @@ namespace sr
 		///
 		/// \return The index of the element. Check for validity against std::nullopt.
 		///
-		[[nodiscard]] std::optional<uint> find_index(const uint element);
+		[[nodiscard]] std::optional<UInt> find_index(const UInt element);
 
 		///
 		/// Removes an entity. Usually overriden by DualEntitySet to
@@ -75,7 +75,7 @@ namespace sr
 		///
 		/// \param element Element to remove from the Entity Set.
 		///
-		virtual void remove(const uint element);
+		virtual void remove(const UInt element);
 
 		///
 		/// Destroy all elements and clear the Entity Set.
@@ -94,14 +94,14 @@ namespace sr
 		///
 		/// \return Unsigned Integer.
 		///
-		[[nodiscard]] const uint size() const noexcept;
+		[[nodiscard]] const UInt size() const noexcept;
 
 		///
 		/// Get the capacity of the Entity Set.
 		///
 		/// \return Unsigned Integer.
 		///
-		[[nodiscard]] const uint capacity() const noexcept;
+		[[nodiscard]] const UInt capacity() const noexcept;
 
 		///
 		/// Iterator start.
@@ -135,45 +135,45 @@ namespace sr
 		///
 		/// Current number of elements in Entity Set.
 		///
-		uint m_size;
+		UInt m_size;
 
 		///
 		/// Total avaliable space for elements.
 		/// Formula is: total_inserts + 1.
 		///
-		uint m_capacity;
+		UInt m_capacity;
 
 		///
 		/// The actual elements are stored here.
 		///
-		std::vector<uint> m_dense;
+		std::vector<UInt> m_dense;
 
 		///
 		/// The elements are used as an index. They are indexes of the dense array.
 		///
-		std::vector<uint> m_sparse;
+		std::vector<UInt> m_sparse;
 	};
 
-	template<pr::positive_uint uint>
-	inline EntitySet<uint>::EntitySet()
+	template<pr::positive_uint UInt>
+	inline EntitySet<UInt>::EntitySet() noexcept
 	    : m_size {0}, m_capacity {0}
 	{
 	}
 
-	template<pr::positive_uint uint>
-	inline EntitySet<uint>::~EntitySet() noexcept
+	template<pr::positive_uint UInt>
+	inline EntitySet<UInt>::~EntitySet() noexcept
 	{
 		clear();
 	}
 
-	template<pr::positive_uint uint>
-	inline void EntitySet<uint>::insert(const uint element)
+	template<pr::positive_uint UInt>
+	inline void EntitySet<UInt>::insert(const UInt element)
 	{
 		if (!has(element))
 		{
 			if (element >= m_capacity)
 			{
-				const uint new_size = element + static_cast<uint>(1);
+				const UInt new_size = element + static_cast<UInt>(1);
 				m_dense.resize(new_size);
 				m_sparse.resize(new_size);
 				m_capacity = new_size;
@@ -189,14 +189,14 @@ namespace sr
 		}
 	}
 
-	template<pr::positive_uint uint>
-	inline bool EntitySet<uint>::has(const uint element)
+	template<pr::positive_uint UInt>
+	inline bool EntitySet<UInt>::has(const UInt element)
 	{
 		return element < m_capacity && m_sparse[element] < m_size && m_dense[m_sparse[element]] == element;
 	}
 
-	template<pr::positive_uint uint>
-	inline std::optional<uint> EntitySet<uint>::find_index(const uint element) noexcept
+	template<pr::positive_uint UInt>
+	inline std::optional<UInt> EntitySet<UInt>::find_index(const UInt element)
 	{
 		if (element >= m_sparse.size() || m_sparse.empty())
 		{
@@ -209,8 +209,8 @@ namespace sr
 		}
 	}
 
-	template<pr::positive_uint uint>
-	inline void EntitySet<uint>::remove(const uint element)
+	template<pr::positive_uint UInt>
+	inline void EntitySet<UInt>::remove(const UInt element)
 	{
 		if (has(element))
 		{
@@ -220,8 +220,8 @@ namespace sr
 		}
 	}
 
-	template<pr::positive_uint uint>
-	inline void EntitySet<uint>::clear()
+	template<pr::positive_uint UInt>
+	inline void EntitySet<UInt>::clear() noexcept
 	{
 		m_dense.clear();
 		m_sparse.clear();
@@ -230,44 +230,44 @@ namespace sr
 		m_size     = 0;
 	}
 
-	template<pr::positive_uint uint>
-	inline const bool EntitySet<uint>::empty() noexcept
+	template<pr::positive_uint UInt>
+	inline const bool EntitySet<UInt>::empty() noexcept
 	{
 		return m_size == 0;
 	}
 
-	template<pr::positive_uint uint>
-	inline const uint EntitySet<uint>::size() const noexcept
+	template<pr::positive_uint UInt>
+	inline const UInt EntitySet<UInt>::size() const noexcept
 	{
 		return m_size;
 	}
 
-	template<pr::positive_uint uint>
-	inline const uint EntitySet<uint>::capacity() const noexcept
+	template<pr::positive_uint UInt>
+	inline const UInt EntitySet<UInt>::capacity() const noexcept
 	{
 		return m_capacity;
 	}
 
-	template<pr::positive_uint uint>
-	inline decltype(auto) EntitySet<uint>::begin() noexcept
+	template<pr::positive_uint UInt>
+	inline decltype(auto) EntitySet<UInt>::begin() noexcept
 	{
 		return m_dense.begin();
 	}
 
-	template<pr::positive_uint uint>
-	inline decltype(auto) EntitySet<uint>::begin() const noexcept
+	template<pr::positive_uint UInt>
+	inline decltype(auto) EntitySet<UInt>::begin() const noexcept
 	{
 		return m_dense.begin();
 	}
 
-	template<pr::positive_uint uint>
-	inline decltype(auto) EntitySet<uint>::end() noexcept
+	template<pr::positive_uint UInt>
+	inline decltype(auto) EntitySet<UInt>::end() noexcept
 	{
 		return m_dense.begin() + m_size;
 	}
 
-	template<pr::positive_uint uint>
-	inline decltype(auto) EntitySet<uint>::end() const noexcept
+	template<pr::positive_uint UInt>
+	inline decltype(auto) EntitySet<UInt>::end() const noexcept
 	{
 		return m_dense.begin() + m_size;
 	}

@@ -112,7 +112,7 @@ namespace sr
 
 		m_invalid_entities.push_back(entity);
 
-		std::erase_if(m_debug_names, [](const auto& pair) {
+		std::erase_if(m_debug_names, [&](const auto& pair) {
 			return pair.second == entity;
 		});
 	}

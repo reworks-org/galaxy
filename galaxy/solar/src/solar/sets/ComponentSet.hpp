@@ -21,7 +21,7 @@ namespace sr
 	///
 	/// Dual sparse set to store components and systems alongside entitys.
 	///
-	template<pr::is_class component>
+	template<pr::is_class Component>
 	class ComponentSet final : public EntitySet<Entity>
 	{
 		///
@@ -48,8 +48,8 @@ namespace sr
 		///
 		/// \return Component that was just constructed.
 		///
-		template<typename... _args>
-		[[maybe_unused]] component* create(const sr::Entity entity, _args&&... args);
+		template<typename... Args>
+		[[maybe_unused]] Component* create(const sr::Entity entity, Args&&... args);
 
 		///
 		/// Get an entitys component.
@@ -58,7 +58,7 @@ namespace sr
 		///
 		/// \return Component belonging to the entity.
 		///
-		[[nodiscard]] component* get(const sr::Entity entity);
+		[[nodiscard]] Component* get(const sr::Entity entity);
 
 		///
 		/// Remove the entity and its assossiated component.
@@ -72,33 +72,33 @@ namespace sr
 		///
 		/// \return Const reference to a std::vector.
 		///
-		[[nodiscard]] const std::vector<component>& get_components() noexcept;
+		[[nodiscard]] const std::vector<Component>& get_components() noexcept;
 
 	private:
 		///
 		/// Component storage for this type.
 		/// Kept in sync with dense set of entitys.
 		///
-		std::vector<component> m_components;
+		std::vector<Component> m_components;
 	};
 
-	template<pr::is_class component>
-	inline ComponentSet<component>::ComponentSet() noexcept
+	template<pr::is_class Component>
+	inline ComponentSet<Component>::ComponentSet() noexcept
 	    : EntitySet {}
 	{
 	}
 
-	template<pr::is_class component>
-	inline ComponentSet<component>::~ComponentSet() noexcept
+	template<pr::is_class Component>
+	inline ComponentSet<Component>::~ComponentSet() noexcept
 	{
 		// Make sure everything is cleaned up.
 		clear();
 		m_components.clear();
 	}
 
-	template<pr::is_class component>
+	template<pr::is_class Component>
 	template<typename... Args>
-	inline component* ComponentSet<component>::create(const sr::Entity entity, Args&&... args)
+	inline Component* ComponentSet<Component>::create(const sr::Entity entity, Args&&... args)
 	{
 		// This works because we are appending the entity to the dense array and
 		// the component will be in the same position since the two are synced.
@@ -110,8 +110,8 @@ namespace sr
 		return &(m_components.back());
 	}
 
-	template<pr::is_class component>
-	inline component* ComponentSet<component>::get(const sr::Entity entity)
+	template<pr::is_class Component>
+	inline Component* ComponentSet<Component>::get(const sr::Entity entity)
 	{
 		// Access the index the entity is assosiated with to get the component paired with the entity.
 		auto opt = find_index(entity);
@@ -126,8 +126,8 @@ namespace sr
 		}
 	}
 
-	template<pr::is_class component>
-	inline void ComponentSet<component>::remove(const sr::Entity entity)
+	template<pr::is_class Component>
+	inline void ComponentSet<Component>::remove(const sr::Entity entity)
 	{
 		// So if we want to destroy an entity/component, easest method is to move the last entity to the one we are erasing
 		// then destroy the duplicate. Called swap-and-pop.
@@ -154,8 +154,8 @@ namespace sr
 		}
 	}
 
-	template<pr::is_class component>
-	inline const std::vector<component>& ComponentSet<component>::get_components() noexcept
+	template<pr::is_class Component>
+	inline const std::vector<Component>& ComponentSet<Component>::get_components() noexcept
 	{
 		return m_components;
 	}

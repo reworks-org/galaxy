@@ -8,6 +8,41 @@
 #include <gtest/gtest.h>
 #include <solar/entity/Manager.hpp>
 
+struct Component
+{
+	Component(const int value)
+	    : val {value}
+	{
+	}
+
+	int val;
+};
+
+struct BlankSystem : public DemoSystem
+{
+};
+
+struct DemoSystem : public sr::System
+{
+	DemoSystem(const int val) : sr::System{}
+	{
+		this->val = val;
+	}
+
+	~DemoSystem() override {};
+	void events() override
+	{
+		val = 10;
+	}
+
+	void update(pr::ProtectedDouble* dt) override
+	{
+		val = 20;
+	}
+
+	int val = 0;
+};
+
 TEST(Manager, HasEntity)
 {
 	sr::Manager m;
@@ -145,72 +180,212 @@ TEST(Manager, GetAllNames)
 	EXPECT_EQ(c, foundC->second);
 }
 
-TEST(Manager, ComponentAdd)
+TEST(Manager, ComponentAddGet)
 {
+	sr::Manager m;
+	auto e = m.create();
+
+	auto* comp = m.create_component<Component>(e, 2);
+
+	ASSERT_TRUE(comp != nullptr);
+	EXPECT_EQ(comp->val, 2);
+
+	comp->val   = 10;
+	auto* comp2 = m.get<Component>(e);
+
+	ASSERT_TRUE(comp2 != nullptr);
+	EXPECT_EQ(comp2->val, 10);
 }
 
 TEST(Manager, ComponentRemove)
 {
+	sr::Manager m;
+	auto e     = m.create();
+	auto* comp = m.create_component<Component>(e, 1);
+
+	m.remove<Component>(e);
+}
+
+TEST(Manager, ComponentRemoveEmpty)
+{
+	sr::Manager m;
+	auto e = m.create();
+
+	// empty because we did not call create_component().
+	m.remove<Component>(e);
+}
+
+TEST(Manager, ComponentRemoveInvalid)
+{
+	sr::Manager m;
+	m.remove<Component>(0);
 }
 
 TEST(Manager, ComponentAddRemoveAdd)
 {
-}
+	// Remove component then readd it.
 
-TEST(Manager, ComponentAddGet)
-{
+	sr::Manager m;
+	auto e = m.create();
+
+	auto* comp = m.create_component<Component>(e, 10);
+	ASSERT_TRUE(comp != nullptr);
+	EXPECT_EQ(comp->val, 10);
+
+	m.remove<Component>(e);
+	comp = m.create_component<Component>(e, 20);
+
+	ASSERT_TRUE(comp != nullptr);
+	EXPECT_EQ(comp->val, 20);
 }
 
 TEST(Manager, ComponentRemoveGet)
 {
-}
+	sr::Manager m;
+	auto e = m.create();
 
-TEST(Manager, RemoveComponent)
-{
-}
+	m.create_component<Component>(e, 1);
+	m.remove<Component>(e);
 
-TEST(Manager, RemoveComponentInvalidEntity)
-{
+	auto* comp = m.get<Component>(e);
+	EXPECT_EQ(comp, nullptr);
 }
 
 TEST(Manager, RemoveNonExistingComponent)
 {
+	sr::Manager m;
+	auto e = m.create();
+
+	m.remove<Component>(e);
 }
 
-TEST(Manager, RemoveInvalidComponent)
+TEST(Manager, RemoveNonExistingComponentWithInvalidEntity)
 {
+	sr::Manager m;
+	m.remove<Component>(0);
+}
+
+TEST(Manager, GetNonExistingComponent)
+{
+	sr::Manager m;
+	auto e = m.create();
+
+	auto* comp = m.get<Component>(e);
+	EXPECT_EQ(comp, nullptr);
+}
+
+TEST(Manager, GetNonExistingComponentWithInvalidEntity)
+{
+	sr::Manager m;
+
+	auto* comp = m.get<Component>(0);
+	EXPECT_EQ(comp, nullptr);
 }
 
 TEST(Manager, CreateFromInvalid)
 {
-	//sr::Manager m;
-	//m.create();
+	sr::Manager m;
+	auto* comp = m.create_component<Component>(0, 1);
+
+	EXPECT_EQ(comp, nullptr);
 }
 
 TEST(Manager, Operate)
 {
-}
 
-TEST(Manager, AddSystem)
-{
-}
-
-TEST(Manager, GetInvalidSystem)
-{
 }
 
 TEST(Manager, Destroy)
 {
+	sr::Manager m;
+	auto e1 = m.create();
+	auto e2 = m.create();
+
+	m.create_component<Component>(e1, 10);
+	m.create_component<Component>(e2, 20);
+
+	m.destroy(e1);
+}
+
+TEST(Manager, DestroyInvalid)
+{
+	sr::Manager m;
+
+	m.destroy(0);
+}
+
+TEST(Manager, DestroyEmpty)
+{
+	sr::Manager m;
+	auto e = m.create();
+
+	m.destroy(e);
+}
+
+TEST(Manager, CreateGetSystem)
+{
+	sr::Manager m;
+	m.create_system<DemoSystem>(5);
+	auto* sys = m.get<DemoSystem>();
+
+	ASSERT_TRUE(sys != nullptr);
+	EXPECT_EQ(sys->val, 5);
+}
+
+TEST(Manager, GetInvalidSystem)
+{
+	sr::Manager m;
+	auto* sys = m.get<BlankSystem>();
+
+	EXPECT_EQ(sys, nullptr);
+}
+
+TEST(Manager, Events)
+{
+	sr::Manager m;
+	m.create_system<DemoSystem>(5);
+
+	m.events();
+
+	auto* sys = m.get<DemoSystem>();
+
+	ASSERT_TRUE(sys != nullptr);
+	EXPECT_EQ(sys->val, 10);
+}
+
+TEST(Manager, Updates)
+{
+	sr::Manager m;
+	m.create_system<DemoSystem>(5);
+
+	m.update(nullptr);
+
+	auto* sys = m.get<DemoSystem>();
+
+	ASSERT_TRUE(sys != nullptr);
+	EXPECT_EQ(sys->val, 20);
 }
 
 TEST(Manager, EventsWithNoSystems)
 {
+	sr::Manager m;
+	m.events();
 }
 
 TEST(Manager, UpdatesWithNoSystems)
 {
+	sr::Manager m;
+	m.update(nullptr);
 }
 
 TEST(Manager, Clear)
 {
+	sr::Manager m;
+	auto e1 = m.create();
+	auto e2 = m.create();
+
+	m.create_component<Component>(e1, 10);
+	m.create_component<Component>(e2, 20);
+
+	m.clear();
 }
