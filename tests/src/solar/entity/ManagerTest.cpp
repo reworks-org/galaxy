@@ -18,13 +18,24 @@ struct Component
 	int val;
 };
 
+struct AA
+{
+	int val = 0;
+};
+
+struct BB
+{
+	int val = 0;
+};
+
 struct BlankSystem : public DemoSystem
 {
 };
 
 struct DemoSystem : public sr::System
 {
-	DemoSystem(const int val) : sr::System{}
+	DemoSystem(const int val)
+	    : sr::System {}
 	{
 		this->val = val;
 	}
@@ -292,7 +303,24 @@ TEST(Manager, CreateFromInvalid)
 
 TEST(Manager, Operate)
 {
+	sr::Manager m;
+	auto e = m.create();
+	m.create_component<AA>(e);
+	m.create_component<BB>(e);
 
+	m.operate([](const sr::Entity entity, AA* a, BB* b) {
+		a->val = 1;
+		b->val = 2;
+	});
+
+	auto* a = m.get<AA>(e);
+	auto* b = m.get<BB>(e);
+
+	ASSERT_TRUE(a != nullptr);
+	ASSERT_TRUE(b != nullptr);
+
+	EXPECT_EQ(a->val, 1);
+	EXPECT_EQ(a->val, 2);
 }
 
 TEST(Manager, Destroy)
