@@ -15,6 +15,7 @@ namespace sl
 	Storage::Storage() noexcept
 	{
 	}
+
 	Storage::~Storage() noexcept
 	{
 	}

@@ -11,6 +11,8 @@
 #include <functional>
 #include <vector>
 
+#include <pulsar/Log.hpp>
+
 #include "starlight/detail/Storage.hpp"
 
 ///
@@ -18,6 +20,9 @@
 ///
 namespace sl
 {
+	///
+	/// Concept to constrain that the receiver must have the on_event() function.
+	///
 	template<typename R, typename E>
 	concept has_on_event_for = requires(R r, E e)
 	{
@@ -41,35 +46,28 @@ namespace sl
 		~Dispatcher();
 
 		///
-		/// Registers a function to be called on the triggering of an event.
+		/// \brief Registers a function to be called on the triggering of an event.
 		///
-		/// \param reciever Object that has a method you pass to func.
+		/// Event is the event to register.
+		/// Receiver is the type of object.
+		///
+		/// \param reciever Object that has an on_event() function that takes a const Event&.
 		///
 		template<pr::is_class Event, pr::is_class Receiver>
 		void subscribe(Receiver& receiver) requires has_on_event_for<Receiver, Event>;
 
 		///
-		/// Queues an event to be triggered, does not trigger immediately.
-		///
-		/// \param args Constructor arguments for event.
-		///
-		template<typename Event, typename... Args>
-		void queue(Args&&... args);
-
-		///
 		/// Triggers a single event.
 		///
-		/// \param event The event to trigger. Calls all callbacks associated with the event.
+		/// \param args Arguments to construct event to trigger.
 		///
-		template<typename Event>
-		void trigger(Event& event);
-
-		///
-		/// Triggers all the events in the queue, in order.
-		///
-		void trigger();
+		template<pr::is_class Event, typename... Args>
+		void trigger(Args&&... args);
 
 	private:
+		///
+		/// Stores the event functions.
+		///
 		std::vector<Storage> m_event_funcs;
 	};
 
@@ -84,6 +82,21 @@ namespace sl
 		}
 
 		m_event_funcs[type].apply_action_to_subscribers<Event, sl::AddAction, Receiver>(receiver);
+	}
+
+	template<pr::is_class Event, typename... Args>
+	inline void Dispatcher::trigger(Args&&... args)
+	{
+		const auto type = DispatcherUID::get<Event>();
+		if (type >= m_event_funcs.size())
+		{
+			PL_LOG(PL_WARNING, "Attempted to trigger event with no subscribers.");
+		}
+		else
+		{
+			Event e {std::forward<Args>(args)...};
+			m_event_funcs[type].apply_action_to_subscribers<Event, sl::TriggerAction>(e);
+		}
 	}
 } // namespace sl
 

@@ -1,12 +1,12 @@
 ///
-/// Types.hpp
+/// Meta.hpp
 /// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARLIGHT_TYPES_HPP_
-#define STARLIGHT_TYPES_HPP_
+#ifndef STARLIGHT_META_HPP_
+#define STARLIGHT_META_HPP_
 
 #include <memory>
 #include <functional>
@@ -45,21 +45,33 @@ namespace sl
 	template<typename Event>
 	using Callback = std::function<void(const Event&)>;
 
+	///
+	/// Type to specify the triggering of events.
+	///
 	struct TriggerAction
 	{
 		TriggerAction() = delete;
 	};
 
+	///
+	/// Type to specify the adding of an event function.
+	///
 	struct AddAction
 	{
 		AddAction() = delete;
 	};
 
+	///
+	/// Type to specify the destruction of the event function storage.
+	///
 	struct DestroyAction
 	{
 		DestroyAction() = delete;
 	};
 
+	///
+	/// Concept to ensure a type is restricted to an action.
+	///
 	template<typename Type>
 	concept is_action =
 	    (std::is_same<Type, TriggerAction>::value ||

@@ -34,6 +34,14 @@ namespace sl
 		///
 		~Storage() noexcept;
 
+		///
+		/// \brief Specify an action to perform on the event function storage.
+		///
+		///	Event parameter is the event to store a callback or to access callbacks.
+		/// Action is the action to perform on the event function storage.
+		///
+		/// \param args Can be either the reciever or the event constructor arguments.
+		///
 		template<pr::is_class Event, is_action Action, typename... Args>
 		void apply_action_to_subscribers(Args&... args);
 	};

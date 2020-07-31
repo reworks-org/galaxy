@@ -10,7 +10,12 @@
 
 struct TestEvent
 {
-	const int val = 100;
+	TestEvent(const int val)
+	{
+		this->val = val;
+	}
+
+	int val = 0;
 };
 
 struct Demo
@@ -23,10 +28,13 @@ struct Demo
 	int val = 0;
 };
 
-TEST(Dispatcher, x)
+TEST(Dispatcher, FullTest)
 {
 	sl::Dispatcher dispatch;
 	Demo demo;
 
 	dispatch.subscribe<TestEvent>(demo);
+	dispatch.trigger<TestEvent>(100);
+
+	EXPECT_EQ(demo.val, 100);
 }
