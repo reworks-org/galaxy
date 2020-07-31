@@ -91,7 +91,12 @@ namespace qs
 			// Now to use constexpr to check on compile time the buffer type.
 			// This is faster since we dont need to bother checking at runtime.
 			// constexpr will discard the branch that is false and it wont be compiled.
-			if constexpr (std::is_same<BufferType, qs::BufferDynamic>::value)
+			constexpr bool is_dynamic = requires(BufferType val)
+			{
+				{std::is_same<decltype(val), qs::BufferDynamic>::value};
+			};
+
+			if constexpr (is_dynamic)
 			{
 				if (dynamic_verticies)
 				{
@@ -102,7 +107,7 @@ namespace qs
 					glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
 				}
 			}
-			else if constexpr (std::is_same<BufferType, qs::BufferStatic>::value)
+			else
 			{
 				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
 			}

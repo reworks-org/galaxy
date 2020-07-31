@@ -68,7 +68,12 @@ namespace qs
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		if constexpr (std::is_same<VertexType, qs::SpriteVertex>::value)
+		constexpr bool is_sprite_vertex = requires(VertexType val)
+		{
+			{std::is_same<decltype(val), qs::SpriteVertex>::value};
+		};
+
+		if constexpr (is_sprite_vertex)
 		{
 			if constexpr (std::is_same<VertexAttribute, qs::VAPosition>::value)
 			{
@@ -87,7 +92,7 @@ namespace qs
 				PL_LOG(PL_ERROR, "Failed to add vertex layout type for sprite vertex.");
 			}
 		}
-		else if constexpr (std::is_same<VertexType, qs::PrimitiveVertex>::value)
+		else
 		{
 			if constexpr (std::is_same<VertexAttribute, qs::VAPosition>::value)
 			{
