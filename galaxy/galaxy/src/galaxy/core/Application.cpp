@@ -135,7 +135,7 @@ namespace galaxy
 			SL_HANDLE.m_state = m_state.get();
 
 			// Event dispatcher.
-			m_dispatcher = std::make_unique<starlight::Dispatcher>();
+			m_dispatcher = std::make_unique<sl::Dispatcher>();
 			SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
 			// Game "world".

@@ -36,7 +36,7 @@ namespace pr
 ///
 /// Forward dec.
 ///
-namespace starlight
+namespace sl
 {
 	class Dispatcher;
 }
@@ -126,7 +126,7 @@ namespace galaxy
 		///
 		/// \return Return const pointer to Dispatcher service.
 		///
-		starlight::Dispatcher* dispatcher() const noexcept;
+		sl::Dispatcher* dispatcher() const noexcept;
 
 		///
 		/// Get World service.
@@ -233,7 +233,7 @@ namespace galaxy
 		///
 		/// Dispatcher service.
 		///
-		starlight::Dispatcher* m_dispatcher;
+		sl::Dispatcher* m_dispatcher;
 
 		///
 		/// World service.

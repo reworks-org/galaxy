@@ -1,23 +1,21 @@
 ///
-/// Dispatcher.cpp
+/// Storage.cpp
 /// starlight
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Dispatcher.hpp"
+#include "Storage.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace sl
 {
-	Dispatcher::~Dispatcher()
+	Storage::Storage() noexcept
 	{
-		m_event_funcs.clear();
 	}
-
-	void Dispatcher::trigger()
+	Storage::~Storage() noexcept
 	{
 	}
 } // namespace sl

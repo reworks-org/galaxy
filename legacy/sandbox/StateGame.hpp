@@ -68,7 +68,7 @@ private:
 	qs::Camera camera; //left, right, bottom, top
 	pr::ProtectedDouble updte;
 	
-	starlight::Dispatcher dispatch;
+	sl::Dispatcher dispatch;
 
 	//qs::Point point;
 	//qs::Line line;

@@ -48,7 +48,7 @@ namespace galaxy
 		return m_state;
 	}
 
-	starlight::Dispatcher* ServiceLocator::dispatcher() const noexcept
+	sl::Dispatcher* ServiceLocator::dispatcher() const noexcept
 	{
 		return m_dispatcher;
 	}

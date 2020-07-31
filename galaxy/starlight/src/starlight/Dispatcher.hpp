@@ -8,13 +8,22 @@
 #ifndef STARLIGHT_DISPATCHER_HPP_
 #define STARLIGHT_DISPATCHER_HPP_
 
-#include "starlight/storage/Storage.hpp"
+#include <functional>
+#include <vector>
+
+#include "starlight/detail/Storage.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace starlight
+namespace sl
 {
+	template<typename R, typename E>
+	concept has_on_event_for = requires(R r, E e)
+	{
+		{r.on_event(e)};
+	};
+
 	///
 	/// This is the main class to dispatch events from.
 	///
@@ -24,28 +33,28 @@ namespace starlight
 		///
 		/// Default constructor.
 		///
-		Dispatcher() noexcept = default;
+		Dispatcher();
 
 		///
 		/// Default destructor.
 		///
-		~Dispatcher() noexcept;
+		~Dispatcher();
 
 		///
 		/// Registers a function to be called on the triggering of an event.
 		///
-		/// \param callback void function that takes a const Event&.
+		/// \param reciever Object that has a method you pass to func.
 		///
-		template<typename Event>
-		void add(const starlight::Callback<Event>& callback) noexcept;
+		template<pr::is_class Event, pr::is_class Receiver>
+		void subscribe(Receiver& receiver) requires has_on_event_for<Receiver, Event>;
 
 		///
 		/// Queues an event to be triggered, does not trigger immediately.
 		///
 		/// \param args Constructor arguments for event.
 		///
-		template<typename Event, typename ...Args>
-		void queue(Args&&... args) noexcept;
+		template<typename Event, typename... Args>
+		void queue(Args&&... args);
 
 		///
 		/// Triggers a single event.
@@ -53,73 +62,29 @@ namespace starlight
 		/// \param event The event to trigger. Calls all callbacks associated with the event.
 		///
 		template<typename Event>
-		void trigger(const Event& event) noexcept;
+		void trigger(Event& event);
 
 		///
 		/// Triggers all the events in the queue, in order.
 		///
-		void trigger() noexcept;
+		void trigger();
 
 	private:
-		///
-		/// Holds events and their callbacks.
-		///
-		std::vector<StoragePtr> m_callbacks;
-
-		///
-		/// Holds queued events.
-		///
-		std::vector<QueuedEventPtr> m_queued;
+		std::vector<Storage> m_event_funcs;
 	};
-	
-	template<typename Event>
-	inline void Dispatcher::add(const starlight::Callback<Event>& callback) noexcept
-	{
-		// Useful to retrieve a compile time unique id.
-		const std::size_t typeIndex = UniqueEventID::get<Event>();
 
-		// Ensure leftover references to unique pointer are destroyed.
+	template<pr::is_class Event, pr::is_class Receiver>
+	inline void Dispatcher::subscribe(Receiver& receiver) requires has_on_event_for<Receiver, Event>
+	{
+		const auto type = DispatcherUID::get<Event>();
+
+		if (type >= m_event_funcs.size())
 		{
-			// Make sure there is room.
-			if (typeIndex >= m_callbacks.size())
-			{
-				m_callbacks.resize(typeIndex + 1);
-			}
-
-			// If null ptr, then no storage for this component exists.
-			if (!m_callbacks[typeIndex])
-			{
-				// Use polymorphism to ensure type erasure.
-				// Matches to vector location.
-				// This works because the type order is 0..1..2 etc, so there are no blanks in the vector.
-				
-				m_callbacks[typeIndex] = std::make_unique<starlight::Storage<Event>>();
-			}
-
-			// Now convert the storage to the type we want to access.
-			auto convertedStorage = dynamic_cast<starlight::Storage<Event>*>(m_callbacks[typeIndex].get());
-			convertedStorage->forward(callback);
+			m_event_funcs.resize(type + 1);
 		}
-	}
 
-	template<typename Event, typename ...Args>
-	inline void Dispatcher::queue(Args&&... args) noexcept
-	{
-		m_queued.push_back(std::make_unique<starlight::SpecificEvent<Event>>(std::forward<Args>(args)...));
+		m_event_funcs[type].apply_action_to_subscribers<Event, sl::AddAction, Receiver>(receiver);
 	}
-
-	template<typename Event>
-	inline void Dispatcher::trigger(const Event& event) noexcept
-	{
-		// Useful to retrieve a compile time unique id.
-		const std::size_t typeIndex = UniqueEventID::get<Event>();
-
-		// Matches to vector location and trigger event.
-		if (!m_callbacks.empty())
-		{
-			static_cast<starlight::Storage<Event>*>(m_callbacks[typeIndex].get())->trigger(event);
-		}
-	}
-}
+} // namespace sl
 
 #endif

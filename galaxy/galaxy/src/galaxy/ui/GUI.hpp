@@ -178,7 +178,7 @@ namespace galaxy
 		///
 		/// Internal event manager to GUI.
 		///
-		starlight::Dispatcher m_GUIEventManager;
+		sl::Dispatcher m_GUIEventManager;
 
 		///
 		/// Holds list of free widget ids.

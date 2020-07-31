@@ -124,7 +124,7 @@ namespace galaxy
 		///
 		/// Process game events.
 		/// 
-		std::unique_ptr<starlight::Dispatcher> m_dispatcher;
+		std::unique_ptr<sl::Dispatcher> m_dispatcher;
 
 		///
 		/// The world class, which manages entities, components, systems, and other important data structures.
