@@ -10,7 +10,7 @@
 
 #include <cstdint>
 #include <concepts>
-#include <Type_traits>
+#include <type_traits>
 
 ///
 /// Core namespace.
