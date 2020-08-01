@@ -29,8 +29,12 @@ Solar:
 - Replace constexpr with constinit in Manager::operate()
 - Replace is_system concept with is_derived.
 
+starlight:
+- Ability to queue events.
 
+starmap:
 
+https://doc.mapeditor.org/en/stable/reference/json-map-format/#property
 
 
 
