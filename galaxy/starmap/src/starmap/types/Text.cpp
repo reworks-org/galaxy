@@ -15,17 +15,17 @@
 namespace starmap
 {
 	Text::Text() noexcept
-		:m_bold(false), m_color("00FFFFFF"), m_fontFamily(""), m_hAlign(""), m_italic(false), m_kerning(false), m_pixelSize(0), m_strikeOut(false), m_text(""), m_underLine(false), m_vAlign(""), m_wrap(false)
+	    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
 	{
 	}
 
-	Text::Text(const nlohmann::json& json) noexcept
-		:m_bold(false), m_color("00FFFFFF"), m_fontFamily(""), m_hAlign(""), m_italic(false), m_kerning(false), m_pixelSize(0), m_strikeOut(false), m_text(""), m_underLine(false), m_vAlign(""), m_wrap(false)
+	Text::Text(const nlohmann::json& json)
+	    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
 	{
 		parse(json);
 	}
 
-	void Text::parse(const nlohmann::json& json) noexcept
+	void Text::parse(const nlohmann::json& json)
 	{
 		if (json.at("bold") > 0)
 		{
@@ -39,12 +39,12 @@ namespace starmap
 
 		if (json.at("fontfamily") > 0)
 		{
-			m_fontFamily = json.at("fontfamily");
+			m_font_family = json.at("fontfamily");
 		}
 
 		if (json.at("halign") > 0)
 		{
-			m_hAlign = json.at("halign");
+			m_halign = json.at("halign");
 		}
 
 		if (json.at("italic") > 0)
@@ -59,12 +59,12 @@ namespace starmap
 
 		if (json.at("pixelsize") > 0)
 		{
-			m_pixelSize = json.at("pixelsize");
+			m_pixel_size = json.at("pixelsize");
 		}
 
 		if (json.at("strikeout") > 0)
 		{
-			m_strikeOut = json.at("strikeout");
+			m_strike_out = json.at("strikeout");
 		}
 
 		if (json.at("text") > 0)
@@ -74,12 +74,12 @@ namespace starmap
 
 		if (json.at("underline") > 0)
 		{
-			m_underLine = json.at("underline");
+			m_underline = json.at("underline");
 		}
 
 		if (json.at("valign") > 0)
 		{
-			m_vAlign = json.at("valign");
+			m_valign = json.at("valign");
 		}
 
 		if (json.at("wrap") > 0)
@@ -88,63 +88,63 @@ namespace starmap
 		}
 	}
 
-	const bool Text::isBold() const noexcept
+	const bool Text::is_bold() const noexcept
 	{
 		return m_bold;
 	}
 
-	const std::string& Text::getColour() const noexcept
+	std::string Text::get_colour() const noexcept
 	{
 		return m_color;
 	}
 
-	const std::string& Text::getFontFamily() const noexcept
+	std::string Text::get_font_family() const noexcept
 	{
-		return m_fontFamily;
+		return m_font_family;
 	}
 
-	const std::string& Text::getHAlign() const noexcept
+	std::string Text::get_h_align() const noexcept
 	{
-		return m_hAlign;
+		return m_halign;
 	}
 
-	const bool Text::isItalic() const noexcept
+	const bool Text::is_italic() const noexcept
 	{
 		return m_italic;
 	}
 
-	const bool Text::isUsingKerning() const noexcept
+	const bool Text::is_using_kerning() const noexcept
 	{
 		return m_kerning;
 	}
 
-	const int Text::getPixelSize() const noexcept
+	const int Text::get_pixel_size() const noexcept
 	{
-		return m_pixelSize;
+		return m_pixel_size;
 	}
 
-	const bool Text::isStrikedOut() const noexcept
+	const bool Text::is_striked_out() const noexcept
 	{
-		return m_strikeOut;
+		return m_strike_out;
 	}
 
-	const std::string& Text::getText() const noexcept
+	std::string Text::get_text() const noexcept
 	{
 		return m_text;
 	}
 
-	const bool Text::isUnderlined() const noexcept
+	const bool Text::is_underlined() const noexcept
 	{
-		return m_underLine;
+		return m_underline;
 	}
 
-	const std::string& Text::getVAlign() const noexcept
+	std::string Text::get_v_align() const noexcept
 	{
-		return m_vAlign;
+		return m_valign;
 	}
 
-	const bool Text::isWrapped() const noexcept
+	const bool Text::is_wrapped() const noexcept
 	{
 		return m_wrap;
 	}
-}
+} // namespace starmap

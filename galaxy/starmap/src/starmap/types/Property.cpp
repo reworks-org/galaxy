@@ -15,12 +15,12 @@
 namespace starmap
 {
 	Property::Property() noexcept
-		:m_type("")
+	    : m_type {""}
 	{
 	}
 
-	Property::Property(const nlohmann::json& json) noexcept
-		:m_type("")
+	Property::Property(const nlohmann::json& json)
+	    : m_type {""}
 	{
 		parse(json);
 	}
@@ -30,7 +30,7 @@ namespace starmap
 		m_value.reset();
 	}
 
-	void Property::parse(const nlohmann::json& json) noexcept
+	void Property::parse(const nlohmann::json& json)
 	{
 		if (json.count("type") > 0)
 		{
@@ -43,8 +43,8 @@ namespace starmap
 		}
 	}
 
-	const std::string& Property::getType() const noexcept
+	std::string Property::get_type() const noexcept
 	{
 		return m_type;
 	}
-}
+} // namespace starmap

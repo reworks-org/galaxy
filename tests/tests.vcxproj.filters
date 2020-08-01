@@ -18,6 +18,7 @@
     <ClCompile Include="src\solar\sets\ComponentSetTest.cpp" />
     <ClCompile Include="src\solar\entity\ManagerTest.cpp" />
     <ClCompile Include="src\starlight\DispatcherTest.cpp" />
+    <ClCompile Include="src\starmap\MapTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\protostar\math\RandomTest.cpp" />

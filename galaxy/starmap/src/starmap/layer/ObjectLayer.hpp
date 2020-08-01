@@ -25,7 +25,7 @@ namespace starmap
 		///
 		/// \brief Default constructor.
 		///
-		ObjectLayer() noexcept;
+		ObjectLayer();
 
 		///
 		/// \brief Parse constructor.
@@ -35,7 +35,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit ObjectLayer(const nlohmann::json& json) noexcept;
+		explicit ObjectLayer(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -47,26 +47,26 @@ namespace starmap
 		///
 		/// \return Draw order as std::string.
 		///
-		const std::string& getCompression() const noexcept;
+		[[nodiscard]] std::string get_compression() const noexcept;
 
 		///
 		/// Get objects.
 		///
 		/// \return Std::vector of objects.
 		///
-		const auto& getObjects() const noexcept;
+		[[nodiscard]] const auto& get_objects() const noexcept;
 
 	private:
 		///
 		/// topdown (default) or index.
 		///
-		std::string m_drawOrder;
+		std::string m_draw_order;
 
 		///
 		/// Array of objects.
 		///
 		std::vector<starmap::Object> m_objects;
 	};
-}
+} // namespace starmap
 
 #endif

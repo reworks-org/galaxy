@@ -15,42 +15,42 @@
 namespace starmap
 {
 	WangSet::WangSet() noexcept
-		:m_name(""), m_tileID(0)
+	    : m_name {""}, m_tile_id {0}
 	{
 	}
 
-	WangSet::WangSet(const nlohmann::json& json) noexcept
-		:m_name(""), m_tileID(0)
+	WangSet::WangSet(const nlohmann::json& json)
+	    : m_name {""}, m_tile_id {0}
 	{
 		parse(json);
 	}
 
 	WangSet::~WangSet() noexcept
 	{
-		m_cornerColours.clear();
-		m_edgeColours.clear();
+		m_corner_colours.clear();
+		m_edge_colours.clear();
 		m_properties.clear();
 		m_tiles.clear();
 	}
 
-	void WangSet::parse(const nlohmann::json& json) noexcept
+	void WangSet::parse(const nlohmann::json& json)
 	{
 		if (json.count("cornercolors") > 0)
 		{
-			auto cornerArray = json.at("cornercolors");
-			std::for_each(cornerArray.begin(), cornerArray.end(), [&](const nlohmann::json& corner)
+			auto corner_array = json.at("cornercolors");
+			for (const auto& corner : corner_array)
 			{
-				m_cornerColours.emplace_back(corner);
-			});
+				m_corner_colours.emplace_back(corner);
+			}
 		}
 
 		if (json.count("edgecolors") > 0)
 		{
-			auto edgeArray = json.at("edgecolors");
-			std::for_each(edgeArray.begin(), edgeArray.end(), [&](const nlohmann::json& edge)
+			auto edge_array = json.at("edgecolors");
+			for (const auto& edge : edge_array)
 			{
-				m_edgeColours.emplace_back(edge);
-			});
+				m_edge_colours.emplace_back(edge);
+			}
 		}
 
 		if (json.count("name") > 0)
@@ -60,50 +60,50 @@ namespace starmap
 
 		if (json.count("properties") > 0)
 		{
-			auto propArray = json.at("properties");
-			std::for_each(propArray.begin(), propArray.end(), [&](const nlohmann::json& property)
+			auto prop_array = json.at("properties");
+			for (const auto& prop : prop_array)
 			{
-				m_properties.emplace(property.at("name"), property);
-			});
+				m_properties.emplace(prop.at("name"), prop);
+			}
 		}
-		
+
 		if (json.count("tile") > 0)
 		{
-			m_tileID = json.at("tile");
+			m_tile_id = json.at("tile");
 		}
 
 		if (json.count("wangtiles") > 0)
 		{
-			auto tileArray = json.at("wangtiles");
-			std::for_each(tileArray.begin(), tileArray.end(), [&](const nlohmann::json& tile)
+			auto tile_array = json.at("wangtiles");
+			for (const auto& tile : tile_array)
 			{
 				m_tiles.emplace_back(tile);
-			});
+			}
 		}
 	}
 
-	const auto& WangSet::getCornerColours() const noexcept
+	const auto& WangSet::get_corner_colours() const noexcept
 	{
-		return m_cornerColours;
+		return m_corner_colours;
 	}
 
-	const auto& WangSet::getEdgeColours() const noexcept
+	const auto& WangSet::get_edge_colours() const noexcept
 	{
-		return m_edgeColours;
+		return m_edge_colours;
 	}
-	
-	const std::string& WangSet::getName() const noexcept
+
+	std::string WangSet::get_name() const noexcept
 	{
 		return m_name;
 	}
 
-	const int WangSet::getTileID() const noexcept
+	const int WangSet::get_tile_id() const noexcept
 	{
-		return m_tileID;
+		return m_tile_id;
 	}
 
-	const auto& WangSet::getTiles() const noexcept
+	const auto& WangSet::get_tiles() const noexcept
 	{
 		return m_tiles;
 	}
-}
+} // namespace starmap

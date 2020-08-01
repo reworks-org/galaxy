@@ -33,7 +33,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing frame json.
 		///
-		explicit Frame(const nlohmann::json& json) noexcept;
+		explicit Frame(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -47,21 +47,21 @@ namespace starmap
 		///
 		/// \param json JSON structure containing frame json.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get frame duration.
 		///
 		/// \return Const int. In milliseconds.
 		///
-		const int getDuration() const noexcept;
+		[[nodiscard]] const int get_duration() const noexcept;
 
 		///
 		/// Get tile id of this frame.
 		///
 		/// \return Const int. Local id scope.
 		///
-		const int getTileID() const noexcept;
+		[[nodiscard]] const int get_tile_id() const noexcept;
 
 	private:
 		///
@@ -72,8 +72,8 @@ namespace starmap
 		///
 		/// Local tile ID representing this frame.
 		///
-		int m_tileID;
+		int m_tile_id;
 	};
-}
+} // namespace starmap
 
 #endif

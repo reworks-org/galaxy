@@ -36,7 +36,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing tile json.
 		///
-		explicit Tile(const nlohmann::json& json) noexcept;
+		explicit Tile(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -50,56 +50,56 @@ namespace starmap
 		///
 		/// \param json JSON structure containing tile json.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get animation frames.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getAnimations() const noexcept;
+		[[nodiscard]] const auto& get_animations() const noexcept;
 
 		///
 		/// Get local tile id.
 		///
 		/// \return Const int.
 		///
-		const int getID() const noexcept;
+		[[nodiscard]] const int get_id() const noexcept;
 
 		///
 		/// Get image representing the tile.
 		///
 		/// \return Const std::string reference.
 		///
-		const std::string& getImage() const noexcept;
+		[[nodiscard]] std::string get_image() const noexcept;
 
 		///
 		/// Height of the tile.
 		///
 		/// \return Const int. In pixels.
 		///
-		const int getImageHeight() const noexcept;
-		
+		[[nodiscard]] const int get_image_height() const noexcept;
+
 		///
 		/// Width of the tile.
 		///
 		/// \return Const int. In pixels.
 		///
-		const int getImageWidth() const noexcept;
+		[[nodiscard]] const int get_image_width() const noexcept;
 
 		///
 		/// Get the object group of the Tile.
 		///
 		/// \return Returns a std::optional. Make sure you check for std::nullopt if tile offset is not used!
 		///
-		const auto& getObjectGroup() const noexcept;
+		[[nodiscard]] const auto& get_object_group() const noexcept;
 
 		///
 		/// Chance this tile is chosen when competing with others in the editor.
 		///
 		/// \return Const double. This is a percentage. Will return -1.0 if not used.
 		///
-		const double getProbability() const noexcept;
+		[[nodiscard]] const double get_probability() const noexcept;
 
 		///
 		/// \brief Retrieve property.
@@ -110,22 +110,22 @@ namespace starmap
 		///
 		/// \return Property cast as type.
 		///
-		template<typename T>
-		const T getProperty(const std::string& name) noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
 
 		///
 		/// Get index of terrain for each corner of tile.
 		///
 		/// \return std::vector int array.
 		///
-		const auto& getTerrainIndices() const noexcept;
+		[[nodiscard]] const auto& get_terrain_indices() const noexcept;
 
 		///
 		/// Get the type of tile.
 		///
 		/// \return Const std::string reference.
 		///
-		const std::string& getType() const noexcept;
+		[[nodiscard]] std::string get_type() const noexcept;
 
 	private:
 		///
@@ -137,26 +137,26 @@ namespace starmap
 		/// Local ID of the tile.
 		///
 		int m_id;
-		
+
 		///
 		/// Image representing this tile (optional).
 		///
 		std::string m_image;
-		
+
 		///
 		/// Height of the tile image in pixels.
 		///
-		int m_imageHeight;
+		int m_image_height;
 
 		///
 		/// Width of the tile image in pixels.
 		///
-		int m_imageWidth;
+		int m_image_width;
 
 		///
 		/// Layer with type objectgroup, when collision shapes are specified (optional).
 		///
-		std::optional<starmap::ObjectLayer> m_objectGroup;
+		std::optional<starmap::ObjectLayer> m_object_group;
 
 		///
 		/// Percentage chance this tile is chosen when competing with others in the editor (optional).
@@ -171,7 +171,7 @@ namespace starmap
 		///
 		/// Index of terrain for each corner of tile (optional).
 		///
-		std::vector<int> m_terrainIndices;
+		std::vector<int> m_terrain_indices;
 
 		///
 		/// The type of the tile (optional).
@@ -179,11 +179,12 @@ namespace starmap
 		std::string m_type;
 	};
 
-	template<typename T>
-	inline const T Tile::getProperty(const std::string& name) noexcept
+	template<tiled_property Type>
+	inline const Type Tile::get_property(std::string_view name) noexcept
 	{
-		return m_properties[name].get<T>();
+		const auto str = static_cast<std::string>(name);
+		return m_properties[str].get<Type>();
 	}
-}
+} // namespace starmap
 
 #endif

@@ -8,6 +8,7 @@
 #ifndef STARMAP_WANGSET_HPP_
 #define STARMAP_WANGSET_HPP_
 
+#include "starmap/Meta.hpp"
 #include "starmap/types/Property.hpp"
 #include "starmap/wangtile/WangTile.hpp"
 #include "starmap/wangtile/WangColour.hpp"
@@ -29,13 +30,11 @@ namespace starmap
 		WangSet() noexcept;
 
 		///
-		/// \brief Parse constructor.
-		///
-		/// Can throw exceptions.
+		/// Parse constructor.
 		///
 		/// \param json JSON structure/array containing WangSet json.
 		///
-		explicit WangSet(const nlohmann::json& json) noexcept;
+		explicit WangSet(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -43,34 +42,32 @@ namespace starmap
 		~WangSet() noexcept;
 
 		///
-		/// \brief Parses json structure to member values; etc.
-		///
-		/// Can throws exceptions.
+		/// Parses json structure to member values; etc.
 		///
 		/// \param json JSON structure containing WangSet json.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get corner wang tile colours.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getCornerColours() const noexcept;
+		[[nodiscard]] const auto& get_corner_colours() const noexcept;
 
 		///
 		/// Get edge wang tile colours.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getEdgeColours() const noexcept;
+		[[nodiscard]] const auto& get_edge_colours() const noexcept;
 
 		///
 		/// Get the name.
 		///
 		/// \return Const std::string reference.
 		///
-		const std::string& getName() const noexcept;
+		[[nodiscard]] std::string get_name() const noexcept;
 
 		///
 		/// \brief Retrieve property.
@@ -81,34 +78,34 @@ namespace starmap
 		///
 		/// \return Property cast as type.
 		///
-		template<typename T>
-		const T getProperty(const std::string& name) noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
 
 		///
 		/// Get local tile id.
 		///
 		/// \return Const int.
 		///
-		const int getTileID() const noexcept;
+		[[nodiscard]] const int get_tile_id() const noexcept;
 
 		///
 		/// Get all wang tiles.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getTiles() const noexcept;
+		[[nodiscard]] const auto& get_tiles() const noexcept;
 
 	private:
 		///
 		/// Array of Wang corner colors.
 		///
-		std::vector<starmap::WangColour> m_cornerColours;
+		std::vector<starmap::WangColour> m_corner_colours;
 
 		///
 		/// Array of Wang edge colors.
 		///
-		std::vector<starmap::WangTile> m_edgeColours;
-			
+		std::vector<starmap::WangTile> m_edge_colours;
+
 		///
 		/// Name of the Wang set.
 		///
@@ -122,7 +119,7 @@ namespace starmap
 		///
 		/// Local ID of tile representing the Wang set.
 		///
-		int m_tileID;
+		int m_tile_id;
 
 		///
 		/// Array of Wang tiles.
@@ -130,11 +127,12 @@ namespace starmap
 		std::vector<starmap::WangTile> m_tiles;
 	};
 
-	template<typename T>
-	inline const T WangSet::getProperty(const std::string& name) noexcept
+	template<tiled_property Type>
+	inline const Type WangSet::get_property(std::string_view name) noexcept
 	{
-		return m_properties[name].get<T>();
+		const auto str = static_cast<std::string>(name);
+		return m_properties[str].get<Type>();
 	}
-}
+} // namespace starmap
 
 #endif

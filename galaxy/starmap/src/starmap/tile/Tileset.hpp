@@ -41,7 +41,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Tileset.
 		///
-		explicit Tileset(const nlohmann::json& json) noexcept;
+		explicit Tileset(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -55,70 +55,77 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Tileset.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get background colour of tileset.
 		///
 		/// \return String in format RRGGBB or AARRGGBB.
 		///
-		const std::string& getBackgroundColour() const noexcept;
+		[[nodiscard]] std::string get_bg_colour() const noexcept;
 
 		///
 		/// Get total tile columns in tileset.
 		///
 		/// \return Const int.
 		///
-		const int getColumns() const noexcept;
+		[[nodiscard]] const int get_columns() const noexcept;
 
 		///
 		/// Get grid id of first tile in set.
 		///
 		/// \return Const int.
 		///
-		const int getFirstGID() const noexcept;
+		[[nodiscard]] const int get_first_gid() const noexcept;
 
 		///
 		/// Get the grid used by the tileset.
 		///
 		/// \return Returns a std::optional. Make sure you check for std::nullopt if grid is not used!
 		///
-		const auto& getGrid() const noexcept;
+		[[nodiscard]] const auto& get_grid() const noexcept;
 
 		///
 		/// Get image.
 		///
 		/// \return String in format RRGGBB or AARRGGBB.
 		///
-		const std::string& getImage() const noexcept;
+		[[nodiscard]] std::string get_image() const noexcept;
 
 		///
 		/// Get image height in pixels.
 		///
 		/// \return Const int.
 		///
-		const int getImageHeight() const noexcept;
+		[[nodiscard]] const int get_image_height() const noexcept;
 
 		///
 		/// Get image width in pixels.
 		///
 		/// \return Const int.
 		///
-		const int getImageWidth() const noexcept;
+		[[nodiscard]] const int get_image_width() const noexcept;
 
 		///
 		/// Get buffer between image edge and first tile.
 		///
 		/// \return Const int.
 		///
-		const int getMargin() const noexcept;
+		[[nodiscard]] const int get_margin() const noexcept;
 
 		///
 		/// Get tileset name.
 		///
 		/// \return Name as string.
 		///
-		const std::string& getName() const noexcept;
+		[[nodiscard]] std::string get_name() const noexcept;
+
+		///
+		/// Alignment to use for tile objects.
+		///
+		/// \return unspecified (default), topleft, top, topright, left, center, right, bottomleft, bottom or bottomright.
+		///
+		[[nodiscard]] std::string get_object_alignment() const noexcept;
 
 		///
 		/// \brief Retrieve property.
@@ -129,84 +136,84 @@ namespace starmap
 		///
 		/// \return Property cast as type.
 		///
-		template<typename T>
-		const T getProperty(const std::string & name) noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
 
 		///
 		/// Get array of terrains.
 		///
 		/// \return Std::vector containing starmap::Terrain.
 		///
-		const auto& getTerrain() const noexcept;
+		[[nodiscard]] const auto& get_terrain() const noexcept;
 
 		///
 		/// Get the number of tiles.
 		///
 		/// \return Const int.
 		///
-		const int getTileCount() const noexcept;
+		[[nodiscard]] const int get_tile_count() const noexcept;
 
 		///
 		/// Get version of Tiled used to save tileset.
 		///
 		/// \return Const std::string.
 		///
-		const std::string& getTiledVersion() const noexcept;
+		[[nodiscard]] std::string get_tiled_version() const noexcept;
 
 		///
 		/// Get the maximum height of tiles.
 		///
 		/// \return Const int.
 		///
-		const int getTileHeight() const noexcept;
+		[[nodiscard]] const int get_tile_height() const noexcept;
 
 		///
 		/// Get the tile offset used by the tileset.
 		///
 		/// \return Returns a std::optional. Make sure you check for std::nullopt if tile offset is not used!
 		///
-		const auto& getTileOffset() const noexcept;
+		[[nodiscard]] const auto& get_tile_offset() const noexcept;
 
 		///
 		/// Get the tiles in the tileset.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getTiles() const noexcept;
+		[[nodiscard]] const auto& get_tiles() const noexcept;
 
 		///
 		/// Get the maximum width of tiles.
 		///
 		/// \return Const int.
 		///
-		const int getTileWidth() const noexcept;
+		[[nodiscard]] const int get_tile_width() const noexcept;
 
 		///
 		/// Get colour used to mark an area transparent.
 		///
 		/// \return Const std::string reference. Hex-formatted. Defaults to White (FFFFFF).
 		///
-		const std::string& getTransparentColour() const noexcept;
+		[[nodiscard]] std::string get_transparent_colour() const noexcept;
 
 		///
 		/// Get type of tileset.
 		///
 		/// \return Const std::string reference. Defaults to "tileset".
 		///
-		const std::string& getType() const noexcept;
+		[[nodiscard]] std::string get_type() const noexcept;
 
 		///
 		/// Get wang sets.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getWangSets() const noexcept;
+		[[nodiscard]] const auto& get_wang_sets() const noexcept;
 
 	private:
 		///
 		/// Hex-formatted color (#RRGGBB or #AARRGGBB) (optional).
 		///
-		std::string m_backgroundColour;
+		std::string m_bg_colour;
 
 		///
 		/// The number of tile columns in the tileset.
@@ -216,7 +223,7 @@ namespace starmap
 		///
 		/// GID corresponding to the first tile in the set.
 		///
-		int m_firstGID;
+		int m_first_gid;
 
 		///
 		/// Determines how tile overlays for terrain and collision information are rendered.
@@ -231,12 +238,12 @@ namespace starmap
 		///
 		/// Height of source image in pixels.
 		///
-		int m_imageHeight;
+		int m_image_height;
 
 		///
 		/// Width of source image in pixels
 		///
-		int m_imageWidth;
+		int m_image_width;
 
 		///
 		/// Buffer between image edgeand first tile (pixels).
@@ -249,6 +256,11 @@ namespace starmap
 		std::string m_name;
 
 		///
+		/// Alignment to use for tile objects.
+		///
+		std::string m_object_alignment;
+
+		///
 		/// Map of Properties.
 		///
 		std::unordered_map<std::string, starmap::Property> m_properties;
@@ -257,7 +269,7 @@ namespace starmap
 		/// The external file that contains this tilesets data.
 		///
 		std::string m_source;
-		
+
 		///
 		/// Spacing between adjacent tiles in image (pixels).
 		///
@@ -271,22 +283,22 @@ namespace starmap
 		///
 		/// The number of tiles in this tileset.
 		///
-		int m_tileCount;
+		int m_tile_count;
 
 		///
 		/// The Tiled version used to save the file.
 		///
-		std::string m_tiledVersion;
-		
+		std::string m_tiled_version;
+
 		///
 		/// Maximum height of tiles in this set.
 		///
-		int m_tileHeight;
-		
+		int m_tile_height;
+
 		///
 		/// Offset in pixels, to be applied when drawing a tile from the related tileset
 		///
-		std::optional<starmap::TileOffset> m_tileOffset;
+		std::optional<starmap::TileOffset> m_tile_offset;
 
 		///
 		/// Array of tiles.
@@ -296,12 +308,12 @@ namespace starmap
 		///
 		/// Maximum width of tiles in this set.
 		///
-		int m_tileWidth;
+		int m_tile_width;
 
 		///
 		/// Hex - formatted color(#RRGGBB) (optional)
 		///
-		std::string m_transparentColour;
+		std::string m_transparent_colour;
 
 		///
 		/// Tileset(for tileset files, since 1.0).
@@ -311,14 +323,15 @@ namespace starmap
 		///
 		/// Array of Wang sets.
 		///
-		std::vector<starmap::WangSet> m_wangSets;
+		std::vector<starmap::WangSet> m_wang_sets;
 	};
 
-	template<typename T>
-	inline const T Tileset::getProperty(const std::string& name) noexcept
+	template<tiled_property Type>
+	inline const Type Tileset::get_property(std::string_view name) noexcept
 	{
-		return m_properties[name].get<T>();
+		const auto str = static_cast<std::string>(name);
+		return m_properties[str].get<Type>();
 	}
-}
+} // namespace starmap
 
 #endif

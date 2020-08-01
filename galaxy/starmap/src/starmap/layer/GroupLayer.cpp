@@ -19,32 +19,31 @@
 ///
 namespace starmap
 {
-	GroupLayer::GroupLayer() noexcept
+	GroupLayer::GroupLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed GroupLayer!");
-		abort();
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed GroupLayer.");
 	}
 
-	GroupLayer::GroupLayer(const nlohmann::json& json) noexcept
-		:Layer(json)
+	GroupLayer::GroupLayer(const nlohmann::json& json)
+	    : Layer {json}
 	{
 	}
-	
+
 	GroupLayer::~GroupLayer() noexcept
 	{
 		m_layers.clear();
 	}
 
-	void GroupLayer::parse(const nlohmann::json& json) noexcept
+	void GroupLayer::parse(const nlohmann::json& json)
 	{
 		if (json.count("layers") > 0)
 		{
-			auto layerArray = json.at("layers");
-			std::for_each(layerArray.begin(), layerArray.end(), [&](const nlohmann::json& layer)
+			auto layer_array = json.at("layers");
+			for (const auto& layer : layer_array)
 			{
 				if (json.count("type") > 0)
 				{
-					std::string type = layer.at("type");
+					const std::string type = layer.at("type");
 					if (type == "tilelayer")
 					{
 						m_layers.push_back(std::make_unique<starmap::TileLayer>());
@@ -62,12 +61,12 @@ namespace starmap
 						m_layers.push_back(std::make_unique<starmap::GroupLayer>());
 					}
 				}
-			});
+			}
 		}
 	}
-	
-	const auto& GroupLayer::getLayers() const noexcept
+
+	const auto& GroupLayer::get_layers() const noexcept
 	{
 		return m_layers;
 	}
-}
+} // namespace starmap

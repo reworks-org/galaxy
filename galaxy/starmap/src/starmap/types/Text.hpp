@@ -31,7 +31,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing ObjectLayer->Object->Text.
 		///
-		explicit Text(const nlohmann::json& json) noexcept;
+		explicit Text(const nlohmann::json& json);
 
 		///
 		/// Default destructor.
@@ -39,97 +39,95 @@ namespace starmap
 		~Text() noexcept = default;
 
 		///
-		/// \brief Parse text level json.
-		///
-		/// Can throw exceptions.
+		/// Parse text level json.
 		///
 		/// \param json JSON structure/array containing ObjectLayer->Object->Text.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get bold flag.
 		///
 		/// \return True if text is bolded.
 		///
-		const bool isBold() const noexcept;
+		[[nodiscard]] const bool is_bold() const noexcept;
 
 		///
 		/// Get colour as hex string.
 		///
 		/// \return String in format RRGGBB or AARRGGBB.
 		///
-		const std::string& getColour() const noexcept;
+		[[nodiscard]] std::string get_colour() const noexcept;
 
 		///
 		/// Get font family.
 		///
 		/// \return Font type in format: sans-serif (for example).
 		///
-		const std::string& getFontFamily() const noexcept;
+		[[nodiscard]] std::string get_font_family() const noexcept;
 
 		///
 		/// Get horizontal alignment value.
 		///
 		/// \return String in format: center, right, justify or left.
 		///
-		const std::string& getHAlign() const noexcept;
+		[[nodiscard]] std::string get_h_align() const noexcept;
 
 		///
 		/// Get italics flag.
 		///
 		/// \return True if text is italic.
 		///
-		const bool isItalic() const noexcept;
+		[[nodiscard]] const bool is_italic() const noexcept;
 
 		///
 		/// Gets kerning flag.
 		///
 		/// \return True if using kerning to place characters.
 		///
-		const bool isUsingKerning() const noexcept;
+		[[nodiscard]] const bool is_using_kerning() const noexcept;
 
 		///
 		/// Get pixel (font) size of text.
 		///
 		/// \return Const int. Pixel size - you will need to convert to font point size.
 		///
-		const int getPixelSize() const noexcept;
+		[[nodiscard]] const int get_pixel_size() const noexcept;
 
 		///
 		/// Get strikeout flag.
 		///
 		/// \return True if text has been struck out.
 		///
-		const bool isStrikedOut() const noexcept;
+		[[nodiscard]] const bool is_striked_out() const noexcept;
 
 		///
 		/// Get the text.
 		///
 		/// \return Actual text as a string.
 		///
-		const std::string& getText() const noexcept;
+		[[nodiscard]] std::string get_text() const noexcept;
 
 		///
 		/// Get underline flag.
 		///
 		/// \return True if text is underlined.
 		///
-		const bool isUnderlined() const noexcept;
+		[[nodiscard]] const bool is_underlined() const noexcept;
 
 		///
 		/// Get vertical alignment.
 		///
 		/// \return String in format: center, bottom or top.
 		///
-		const std::string& getVAlign() const noexcept;
+		[[nodiscard]] std::string get_v_align() const noexcept;
 
 		///
 		/// Get wrapped flag.
 		///
 		/// \return True if text is wrapped within object bounds.
 		///
-		const bool isWrapped() const noexcept;
+		[[nodiscard]] const bool is_wrapped() const noexcept;
 
 	private:
 		///
@@ -145,12 +143,12 @@ namespace starmap
 		///
 		/// Font family.
 		///
-		std::string m_fontFamily;
-		
+		std::string m_font_family;
+
 		///
 		/// Horizontal alignment.
 		///
-		std::string m_hAlign;
+		std::string m_halign;
 
 		///
 		/// Whether to use an italic font.
@@ -165,12 +163,12 @@ namespace starmap
 		///
 		/// Pixel size of font.
 		///
-		int m_pixelSize;
+		int m_pixel_size;
 
 		///
 		/// Whether to strike out the text.
 		///
-		bool m_strikeOut;
+		bool m_strike_out;
 
 		///
 		/// Text.
@@ -180,18 +178,18 @@ namespace starmap
 		///
 		/// Whether to underline the text.
 		///
-		bool m_underLine;
+		bool m_underline;
 
 		///
 		/// Vertical alignment.
 		///
-		std::string m_vAlign;
+		std::string m_valign;
 
 		///
 		/// Whether the text is wrapped within the object bounds.
 		///
 		bool m_wrap;
 	};
-}
+} // namespace starmap
 
 #endif

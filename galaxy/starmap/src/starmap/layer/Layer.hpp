@@ -31,42 +31,42 @@ namespace starmap
 		///
 		/// \return Height as a const int.
 		///
-		virtual const int getHeight() const noexcept final;
+		[[nodiscard]] const int get_height() const noexcept;
 
 		///
 		/// Get id - unique across all layers.
 		///
 		/// \return Height as a const int.
 		///
-		virtual const int getID() const noexcept final;
+		[[nodiscard]] const int get_id() const noexcept;
 
 		///
 		/// Get layer name.
 		///
 		/// \return Name as string.
 		///
-		virtual const std::string& getName() const noexcept final;
+		[[nodiscard]] std::string get_name() const noexcept;
 
 		///
 		/// Horizontal layer offset.
 		///
 		/// \return Const double.
 		///
-		virtual const double getOffsetX() const noexcept final;
+		[[nodiscard]] const double get_offset_x() const noexcept;
 
 		///
 		/// Vertical layer offset.
 		///
 		/// \return Const double.
 		///
-		virtual const double getOffsetY() const noexcept final;
+		[[nodiscard]] const double get_offset_y() const noexcept;
 
 		///
 		/// Opacity of layer.
 		///
 		/// \return Double between 0 and 1.
 		///
-		virtual const double getOpacity() const noexcept final;
+		[[nodiscard]] const double get_opacity() const noexcept;
 
 		///
 		/// \brief Retrieve property.
@@ -78,57 +78,64 @@ namespace starmap
 		///
 		/// \return Property cast as type.
 		///
-		template<typename T>
-		const T getProperty(const std::string& name) noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
 
 		///
 		/// Get X coordinate where layer content starts.
 		///
 		/// \return Const int.
 		///
-		virtual const int getStartX() const noexcept final;
-		
+		[[nodiscard]] const int get_start_x() const noexcept;
+
 		///
 		/// Get Y coordinate where layer content starts.
 		///
 		/// \return Const int.
 		///
-		virtual const int getStartY() const noexcept final;
+		[[nodiscard]] const int get_start_y() const noexcept;
+
+		///
+		/// Hex-formatted color (#RRGGBB or #AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
+		///
+		/// \return String.
+		///
+		[[nodiscard]] std::string get_tint_colour() const noexcept;
 
 		///
 		/// Get type of layer.
 		///
 		/// \return String in format: tilelayer, objectgroup, imagelayer or group.
 		///
-		virtual const std::string& getType() const noexcept final;
+		[[nodiscard]] std::string get_type() const noexcept;
 
 		///
 		/// Get visibility of layer.
 		///
 		/// \return True if layer is visible.
 		///
-		virtual const bool isVisible() const noexcept final;
+		[[nodiscard]] const bool is_visible() const noexcept;
 
 		///
 		/// Get width of layer.
 		///
 		/// \return Const int. Column count. Same as map width for fixed-size maps.
 		///
-		virtual const int getWidth() const noexcept final;
+		[[nodiscard]] const int get_width() const noexcept;
 
 		///
 		/// Get X offset.
 		///
 		/// \return Const int. Horizontal layer offset in tiles.
 		///
-		virtual const int getX() const noexcept final;
+		[[nodiscard]] const int get_x() const noexcept;
 
 		///
 		/// Get Y offset.
 		///
 		/// \return Const int. Vertical layer offset in tiles.
 		///
-		virtual const int getY() const noexcept final;
+		[[nodiscard]] const int get_y() const noexcept;
 
 	protected:
 		///
@@ -143,7 +150,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit Layer(const nlohmann::json& json) noexcept;
+		explicit Layer(const nlohmann::json& json);
 
 	protected:
 		///
@@ -164,12 +171,12 @@ namespace starmap
 		///
 		/// Horizontal layer offset in pixels.
 		///
-		double m_offsetX;
+		double m_offset_x;
 
 		///
 		/// Vertical layer offset in pixels.
 		///
-		double m_offsetY;
+		double m_offset_y;
 
 		///
 		/// Value between 0 and 1.
@@ -184,12 +191,17 @@ namespace starmap
 		///
 		/// X coordinate where layer content starts (for infinite maps).
 		///
-		int m_startx;
+		int m_start_x;
 
 		///
 		/// Y coordinate where layer content starts (for infinite maps).
 		///
-		int m_starty;
+		int m_start_y;
+
+		///
+		/// Hex-formatted color (#RRGGBB or #AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
+		///
+		std::string m_tint_colour;
 
 		///
 		/// Type of layer in string.
@@ -217,11 +229,12 @@ namespace starmap
 		int m_y;
 	};
 
-	template<typename T>
-	inline const T Layer::getProperty(const std::string& name) noexcept
+	template<tiled_property Type>
+	inline const Type Layer::get_property(std::string_view name) noexcept
 	{
-		return m_properties[name].get<T>();
+		const auto str = static_cast<std::string>(name);
+		return m_properties[str].get<Type>();
 	}
-}
+} // namespace starmap
 
 #endif

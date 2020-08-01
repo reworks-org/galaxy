@@ -27,13 +27,11 @@ namespace starmap
 		WangTile() noexcept;
 
 		///
-		/// \brief Parse constructor.
-		///
-		/// Can throw exceptions.
+		/// Parse constructor.
 		///
 		/// \param json JSON structure/array containing WangTile json.
 		///
-		explicit WangTile(const nlohmann::json& json) noexcept;
+		explicit WangTile(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -41,75 +39,73 @@ namespace starmap
 		~WangTile() noexcept;
 
 		///
-		/// \brief Parses json structure to member values; etc.
-		///
-		/// Can throws exceptions.
+		/// Parses json structure to member values; etc.
 		///
 		/// \param json JSON structure containing WangTile json.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Is flipped diagonally.
 		///
 		/// \return True if flipped.
 		///
-		const bool flippedDiagonally() const noexcept;
+		[[nodiscard]] const bool flipped_diagonally() const noexcept;
 
 		///
 		/// Is flipped horizontally.
 		///
 		/// \return True if flipped.
 		///
-		const bool flippedHorizontally() const noexcept;
+		[[nodiscard]] const bool flipped_horizontally() const noexcept;
 
 		///
 		/// Get local tile id.
 		///
 		/// \return Const int.
 		///
-		const int getTileID() const noexcept;
+		[[nodiscard]] const int get_tile_id() const noexcept;
 
 		///
 		/// Is flipped vertically.
 		///
 		/// \return True if flipped.
 		///
-		const bool flippedVertically() const noexcept;
+		[[nodiscard]] const bool flipped_vertically() const noexcept;
 
 		///
 		/// Get wang colour indexes.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getIndexes() const noexcept;
+		[[nodiscard]] const auto& get_indexes() const noexcept;
 
 	private:
 		///
 		/// Tile is flipped diagonally.
 		///
-		bool m_dFlip;
+		bool m_diagonal_flip;
 
 		///
 		/// Tile is flipped horizontally.
 		///
-		bool m_hFlip;
+		bool m_horizontal_flip;
 
 		///
 		/// Local ID of tile.
 		///
-		int m_tileID;
+		int m_tile_id;
 
 		///
 		/// Tile is flipped vertically.
 		///
-		bool m_vFlip;
+		bool m_vertical_flip;
 
 		///
 		/// Array of Wang colour indexes.
 		///
-		std::vector<int> m_wangIndexes;
+		std::vector<int> m_wang_indexes;
 	};
-}
+} // namespace starmap
 
 #endif

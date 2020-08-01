@@ -15,75 +15,75 @@
 namespace starmap
 {
 	WangTile::WangTile() noexcept
-		:m_dFlip(false), m_hFlip(false), m_tileID(0), m_vFlip(false)
+	    : m_diagonal_flip {false}, m_horizontal_flip {false}, m_tile_id {0}, m_vertical_flip {false}
 	{
 	}
 
-	WangTile::WangTile(const nlohmann::json& json) noexcept
-		:m_dFlip(false), m_hFlip(false), m_tileID(0), m_vFlip(false)
+	WangTile::WangTile(const nlohmann::json& json)
+	    : m_diagonal_flip {false}, m_horizontal_flip {false}, m_tile_id {0}, m_vertical_flip {false}
 	{
 		parse(json);
 	}
 
 	WangTile::~WangTile() noexcept
 	{
-		m_wangIndexes.clear();
+		m_wang_indexes.clear();
 	}
 
-	void WangTile::parse(const nlohmann::json& json) noexcept
+	void WangTile::parse(const nlohmann::json& json)
 	{
 		if (json.count("dflip") > 0)
 		{
-			m_dFlip = json.at("dflip");
+			m_diagonal_flip = json.at("dflip");
 		}
 
 		if (json.count("hflip") > 0)
 		{
-			m_hFlip = json.at("hflip");
+			m_horizontal_flip = json.at("hflip");
 		}
-		
+
 		if (json.count("tileid") > 0)
 		{
-			m_tileID = json.at("tileid");
+			m_tile_id = json.at("tileid");
 		}
 
 		if (json.count("vflip") > 0)
 		{
-			m_vFlip = json.at("vflip");
+			m_vertical_flip = json.at("vflip");
 		}
-		
+
 		if (json.count("wangid") > 0)
 		{
-			auto ids = json.at("wangid");
-			std::for_each(ids.begin(), ids.end(), [&](const int wangid)
+			auto id_array = json.at("wangid");
+			for (const auto& wang_id : id_array)
 			{
-				m_wangIndexes.emplace_back(wangid);
-			});
+				m_wang_indexes.emplace_back(wang_id);
+			}
 		}
 	}
 
-	const bool WangTile::flippedDiagonally() const noexcept
+	const bool WangTile::flipped_diagonally() const noexcept
 	{
-		return m_dFlip;
+		return m_diagonal_flip;
 	}
 
-	const bool WangTile::flippedHorizontally() const noexcept
+	const bool WangTile::flipped_horizontally() const noexcept
 	{
-		return m_hFlip;
+		return m_horizontal_flip;
 	}
 
-	const int WangTile::getTileID() const noexcept
+	const int WangTile::get_tile_id() const noexcept
 	{
-		return m_tileID;
+		return m_tile_id;
 	}
 
-	const bool WangTile::flippedVertically() const noexcept
+	const bool WangTile::flipped_vertically() const noexcept
 	{
-		return m_vFlip;
+		return m_vertical_flip;
 	}
 
-	const auto& WangTile::getIndexes() const noexcept
+	const auto& WangTile::get_indexes() const noexcept
 	{
-		return m_wangIndexes;
+		return m_wang_indexes;
 	}
-}
+} // namespace starmap

@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Constructor.
 		///
-		GroupLayer() noexcept;
+		GroupLayer();
 
 		///
 		/// \brief Parse constructor.
@@ -34,7 +34,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit GroupLayer(const nlohmann::json& json) noexcept;
+		explicit GroupLayer(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -46,14 +46,14 @@ namespace starmap
 		///
 		/// \param json JSON from root->layer.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get layers array.
 		///
 		/// \return Std::vector array.
 		///
-		const auto& getLayers() const noexcept;
+		[[nodiscard]] const auto& get_layers() const noexcept;
 
 	private:
 		///
@@ -61,6 +61,6 @@ namespace starmap
 		///
 		std::vector<std::unique_ptr<starmap::Layer>> m_layers;
 	};
-}
+} // namespace starmap
 
 #endif

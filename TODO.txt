@@ -34,8 +34,6 @@ starlight:
 
 starmap:
 
-https://doc.mapeditor.org/en/stable/reference/json-map-format/#property
-
 
 
 

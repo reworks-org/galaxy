@@ -18,21 +18,17 @@
 namespace starmap
 {
 	Chunk::Chunk() noexcept
-		:m_height(0), m_width(0), m_x(0), m_y(0)
+	    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
 	{
 	}
 
-	Chunk::Chunk(const nlohmann::json& json) noexcept
-		:m_height(0), m_width(0), m_x(0), m_y(0)
+	Chunk::Chunk(const nlohmann::json& json)
+	    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
 	{
 		parse(json);
 	}
 
-	Chunk::~Chunk() noexcept
-	{
-	}
-
-	void Chunk::parse(const nlohmann::json& json) noexcept
+	void Chunk::parse(const nlohmann::json& json)
 	{
 		if (json.count("height") > 0)
 		{
@@ -56,59 +52,58 @@ namespace starmap
 
 		if (json.count("data") > 0)
 		{
-			auto data = json.at("data");
+			auto data_array = json.at("data");
 			if (json.is_array())
 			{
-				std::vector<unsigned int> dataAsVector;
-
-				std::for_each(data.begin(), data.end(), [&](const nlohmann::json& item)
+				std::vector<unsigned int> data_vector;
+				for (const auto& data : data_array)
 				{
-					dataAsVector.push_back(item.get<unsigned int>());
-				});
+					data_vector.push_back(data.get<unsigned int>());
+				}
 
-				m_data.emplace<std::vector<unsigned int>>(dataAsVector);
+				m_data.emplace<std::vector<unsigned int>>(data_vector);
 			}
 			else
 			{
 				// base64 -> normal
-				std::string stageOne = starmap::decoder::base64(data.get<std::string>());
+				std::string stage_one = starmap::decoder::base64(data_array.get<std::string>());
 
 				// validate
-				if (!stageOne.empty())
+				if (!stage_one.empty())
 				{
 					// update m_data string
-					m_data = stageOne;
+					m_data = stage_one;
 				}
 				else
 				{
-					PL_LOG(PL_FATAL, "base64 decoded string empty!");
+					PL_LOG(PL_FATAL, "base64 decoded string empty.");
 				}
 			}
 		}
 	}
 
-	const auto& Chunk::getData() const noexcept
+	const auto& Chunk::get_data() const noexcept
 	{
 		return m_data;
 	}
 
-	const int Chunk::getHeight() const noexcept
+	const int Chunk::get_height() const noexcept
 	{
 		return m_height;
 	}
 
-	const int Chunk::getWidth() const noexcept
+	const int Chunk::get_width() const noexcept
 	{
 		return m_width;
 	}
 
-	const int Chunk::getX() const noexcept
+	const int Chunk::get_x() const noexcept
 	{
 		return m_x;
 	}
 
-	const int Chunk::getY() const noexcept
+	const int Chunk::get_y() const noexcept
 	{
 		return m_y;
 	}
-}
+} // namespace starmap

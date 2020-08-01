@@ -15,41 +15,41 @@
 ///
 namespace starmap
 {
-	ObjectLayer::ObjectLayer() noexcept
+	ObjectLayer::ObjectLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ObjectLayer! Aborting...");
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ObjectLayer.");
 	}
 
-	ObjectLayer::ObjectLayer(const nlohmann::json& json) noexcept
-		:Layer(json), m_drawOrder("")
+	ObjectLayer::ObjectLayer(const nlohmann::json& json)
+	    : Layer {json}, m_draw_order {""}
 	{
 		if (json.count("draworder") > 0)
 		{
-			m_drawOrder = json.at("draworder");
+			m_draw_order = json.at("draworder");
 		}
 
 		if (json.count("objects") > 0)
 		{
-			auto objectArray = json.at("objects");
-			std::for_each(objectArray.begin(), objectArray.end(), [&](const nlohmann::json& object)
+			auto object_array = json.at("objects");
+			for (const auto& object : object_array)
 			{
 				m_objects.emplace_back(object);
-			});
+			}
 		}
 	}
-	
+
 	ObjectLayer::~ObjectLayer() noexcept
 	{
 		m_objects.clear();
 	}
 
-	const std::string& ObjectLayer::getCompression() const noexcept
+	std::string ObjectLayer::get_compression() const noexcept
 	{
-		return m_drawOrder;
+		return m_draw_order;
 	}
 
-	const auto& ObjectLayer::getObjects() const noexcept
+	const auto& ObjectLayer::get_objects() const noexcept
 	{
 		return m_objects;
 	}
-}
+} // namespace starmap

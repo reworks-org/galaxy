@@ -35,12 +35,12 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		explicit Chunk(const nlohmann::json& json) noexcept;
+		explicit Chunk(const nlohmann::json& json);
 
 		///
 		/// Destructor.
 		///
-		~Chunk() noexcept;
+		~Chunk() noexcept = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -49,42 +49,42 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Gets data.
 		///
 		/// \return Const std::variant reference. Either string or array.
 		///
-		const auto& getData() const noexcept;
+		[[nodiscard]] const auto& get_data() const noexcept;
 
 		///
 		/// Get height.
 		///
 		/// \return In tiles as int.
 		///
-		const int getHeight() const noexcept;
+		[[nodiscard]] const int get_height() const noexcept;
 
 		///
 		/// Get width.
 		///
 		/// \return In tiles as int.
 		///
-		const int getWidth() const noexcept;
+		[[nodiscard]] const int get_width() const noexcept;
 
 		///
 		/// Get x coord.
 		///
 		/// \return In tiles as int.
 		///
-		const int getX() const noexcept;
+		[[nodiscard]] const int get_x() const noexcept;
 
 		///
 		/// Get y coord.
 		///
 		/// \return In tiles as int.
 		///
-		const int getY() const noexcept;
+		[[nodiscard]] const int get_y() const noexcept;
 
 	private:
 		///
@@ -112,6 +112,6 @@ namespace starmap
 		///
 		int m_y;
 	};
-}
+} // namespace starmap
 
 #endif

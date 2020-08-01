@@ -22,6 +22,7 @@
     <ClCompile Include="src\starmap\wangtile\WangSet.cpp" />
     <ClCompile Include="src\starmap\wangtile\WangTile.cpp" />
     <ClCompile Include="src\starmap\Map.cpp" />
+    <ClCompile Include="src\starmap\Meta.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\starmap\detail\Decoder.hpp" />
@@ -45,5 +46,6 @@
     <ClInclude Include="src\starmap\wangtile\WangSet.hpp" />
     <ClInclude Include="src\starmap\wangtile\WangTile.hpp" />
     <ClInclude Include="src\starmap\Map.hpp" />
+    <ClInclude Include="src\starmap\Meta.hpp" />
   </ItemGroup>
 </Project>

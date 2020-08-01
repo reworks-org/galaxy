@@ -15,17 +15,17 @@
 namespace starmap
 {
 	WangColour::WangColour() noexcept
-		:m_colour("00FFFFFF"), m_name(""), m_probability(0.0), m_tile(0)
+	    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
 	{
 	}
 
-	WangColour::WangColour(const nlohmann::json& json) noexcept
-		:m_colour("00FFFFFF"), m_name(""), m_probability(0.0), m_tile(0)
+	WangColour::WangColour(const nlohmann::json& json)
+	    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
 	{
 		parse(json);
 	}
 
-	void WangColour::parse(const nlohmann::json& json) noexcept
+	void WangColour::parse(const nlohmann::json& json)
 	{
 		if (json.count("color") > 0)
 		{
@@ -48,23 +48,23 @@ namespace starmap
 		}
 	}
 
-	const std::string& WangColour::getColour() const noexcept
+	std::string WangColour::get_colour() const noexcept
 	{
 		return m_colour;
 	}
 
-	const std::string& WangColour::getName() const noexcept
+	std::string WangColour::get_name() const noexcept
 	{
 		return m_name;
 	}
 
-	const double WangColour::getProbability() const noexcept
+	const double WangColour::get_probability() const noexcept
 	{
 		return m_probability;
 	}
 
-	const int WangColour::getTile() const noexcept
+	const int WangColour::get_tile() const noexcept
 	{
 		return m_tile;
 	}
-}
+} // namespace starmap

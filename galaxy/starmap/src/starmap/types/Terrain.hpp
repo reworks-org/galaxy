@@ -35,7 +35,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing terrain.
 		///
-		explicit Terrain(const nlohmann::json& json) noexcept;
+		explicit Terrain(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -49,14 +49,14 @@ namespace starmap
 		///
 		/// \param json JSON structure containing terrain array from root->tilset->terrain.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get terrain name.
 		///
 		/// \return Name as string.
 		///
-		const std::string& getName() const noexcept;
+		[[nodiscard]] std::string get_name() const noexcept;
 
 		///
 		/// \brief Retrieve property.
@@ -67,15 +67,15 @@ namespace starmap
 		///
 		/// \return Property cast as type.
 		///
-		template<typename T>
-		const T getProperty(const std::string& name) noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
 
 		///
 		/// Get id of the tile representing the terrain.
 		///
 		/// \return Const int.
 		///
-		const int getTile() const noexcept;
+		[[nodiscard]] const int get_tile() const noexcept;
 
 	private:
 		///
@@ -94,11 +94,12 @@ namespace starmap
 		int m_tile;
 	};
 
-	template<typename T>
-	inline const T Terrain::getProperty(const std::string& name) noexcept
+	template<tiled_property Type>
+	inline const Type Terrain::get_property(std::string_view name) noexcept
 	{
-		return m_properties[name].get<T>();
+		const auto str = static_cast<std::string>(name);
+		return m_properties[str].get<Type>();
 	}
-}
+} // namespace starmap
 
 #endif

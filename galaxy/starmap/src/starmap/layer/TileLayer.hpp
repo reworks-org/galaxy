@@ -27,7 +27,7 @@ namespace starmap
 		///
 		/// Throws a runtime exception if called.
 		///
-		TileLayer() noexcept;
+		TileLayer();
 
 		///
 		/// \brief Parse constructor.
@@ -38,7 +38,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit TileLayer(const nlohmann::json& json) noexcept;
+		explicit TileLayer(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -50,21 +50,21 @@ namespace starmap
 		///
 		/// \return Const std::vector<starmap::Chunk>
 		///
-		const auto& getChunks() const noexcept;
+		[[nodiscard]] const auto& get_chunks() const noexcept;
 
 		///
 		/// Get compression.
 		///
 		/// \return Compression as std::string. Can be empty.
 		///
-		const std::string& getCompression() const noexcept;
+		[[nodiscard]] std::string get_compression() const noexcept;
 
 		///
 		/// Retrieve variant data.
 		///
 		/// \return Std::variant 0 = string 1 = vector.
 		///
-		const auto& getData() const noexcept;
+		[[nodiscard]] const auto& get_data() const noexcept;
 
 	private:
 		///
@@ -82,6 +82,6 @@ namespace starmap
 		///
 		std::variant<std::string, std::vector<unsigned int>> m_data;
 	};
-}
+} // namespace starmap
 
 #endif

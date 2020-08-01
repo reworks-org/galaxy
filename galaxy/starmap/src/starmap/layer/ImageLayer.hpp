@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Constructor.
 		///
-		ImageLayer() noexcept;
+		ImageLayer();
 
 		///
 		/// \brief Parse constructor.
@@ -34,7 +34,7 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root map.
 		///
-		explicit ImageLayer(const nlohmann::json& json) noexcept;
+		explicit ImageLayer(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -46,7 +46,7 @@ namespace starmap
 		///
 		/// \return Image as std::string.
 		///
-		const std::string& getImage() const noexcept;
+		[[nodiscard]] std::string get_image() const noexcept;
 
 	private:
 		///
@@ -57,8 +57,8 @@ namespace starmap
 		///
 		/// Hex-formatted color (#RRGGBB).
 		///
-		std::string m_transparentColour;
+		std::string m_transparent_colour;
 	};
-}
+} // namespace starmap
 
 #endif

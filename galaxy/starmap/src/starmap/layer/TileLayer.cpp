@@ -17,23 +17,21 @@
 ///
 namespace starmap
 {
-	TileLayer::TileLayer() noexcept
+	TileLayer::TileLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed TileLayer! Aborting...");
-		abort();
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed TileLayer.");
 	}
 
-	TileLayer::TileLayer(const nlohmann::json& json) noexcept
-		:Layer(json), m_compression("")
+	TileLayer::TileLayer(const nlohmann::json& json)
+	    : Layer {json}, m_compression {""}
 	{
 		if (json.count("chunks") > 0)
 		{
-			auto chunk = json.at("chunks");
-			std::for_each(chunk.begin(), chunk.end(), [&](const nlohmann::json& item)
-				{
-					// Constructs in place.
-					m_chunks.emplace_back(item);
-				});
+			auto chunk_array = json.at("chunks");
+			for (const auto& chunk : chunk_array)
+			{
+				m_chunks.emplace_back(chunk);
+			}
 		}
 
 		// only present on tilelayers.
@@ -44,21 +42,20 @@ namespace starmap
 
 		if (json.count("data") > 0)
 		{
-			auto data = json.at("data");
+			auto data_array = json.at("data");
 			if (json.is_array())
 			{
-				std::vector<unsigned int> dataAsVector;
+				std::vector<unsigned int> data_vector;
+				for (const auto& data : data_array)
+				{
+					data_vector.push_back(data.get<unsigned int>());
+				}
 
-				std::for_each(data.begin(), data.end(), [&](const nlohmann::json& item)
-					{
-						dataAsVector.push_back(item.get<unsigned int>());
-					});
-
-				m_data.emplace<std::vector<unsigned int>>(dataAsVector);
+				m_data.emplace<std::vector<unsigned int>>(data_vector);
 			}
 			else
 			{
-				m_data = data.get<std::string>();
+				m_data = data_array.get<std::string>();
 			}
 
 			if (std::holds_alternative<std::string>(m_data))
@@ -66,74 +63,74 @@ namespace starmap
 				if (m_compression == "zlib")
 				{
 					// base64 -> zlib
-					std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+					std::string stage_one = starmap::decoder::base64(std::get<0>(m_data));
 
 					// validate
-					if (!stageOne.empty())
+					if (!stage_one.empty())
 					{
 						// zlib-> normal
-						std::string stageTwo = starmap::decoder::zlib(stageOne);
+						std::string stage_two = starmap::decoder::zlib(stage_one);
 
 						// validate
-						if (!stageTwo.empty())
+						if (!stage_two.empty())
 						{
 							// update m_data string
-							m_data = stageTwo;
+							m_data = stage_two;
 						}
 						else
 						{
-							PL_LOG(PL_FATAL, "zlib decoded string empty!");
+							PL_LOG(PL_FATAL, "zlib decoded string empty.");
 						}
 					}
 					else
 					{
-						PL_LOG(PL_FATAL, "base64 decoded string empty!");
+						PL_LOG(PL_FATAL, "base64 decoded string empty.");
 					}
 				}
 				else if (m_compression == "gzip")
 				{
 					// base64 -> gzip
-					std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+					std::string stage_one = starmap::decoder::base64(std::get<0>(m_data));
 
 					// validate
-					if (!stageOne.empty())
+					if (!stage_one.empty())
 					{
 						// gzip -> normal
-						std::string stageTwo = starmap::decoder::gzip(stageOne);
+						std::string stage_two = starmap::decoder::gzip(stage_one);
 
 						// validate
-						if (!stageTwo.empty())
+						if (!stage_two.empty())
 						{
 							// update m_data string
-							m_data = stageTwo;
+							m_data = stage_two;
 						}
 						else
 						{
-							PL_LOG(PL_FATAL, "gzip decoded string empty!");
+							PL_LOG(PL_FATAL, "gzip decoded string empty.");
 						}
 					}
 					else
 					{
-						PL_LOG(PL_FATAL, "base64 decoded string empty!");
+						PL_LOG(PL_FATAL, "base64 decoded string empty.");
 					}
 				}
 				else
 				{
 					// base64 -> normal
-					std::string stageOne = starmap::decoder::base64(std::get<0>(m_data));
+					std::string stage_one = starmap::decoder::base64(std::get<0>(m_data));
 
 					// validate
-					if (!stageOne.empty())
+					if (!stage_one.empty())
 					{
 						// update m_data string
-						m_data = stageOne;
+						m_data = stage_one;
 					}
 					else
 					{
-						PL_LOG(PL_FATAL, "base64 decoded string empty!");
+						PL_LOG(PL_FATAL, "base64 decoded string empty.");
 					}
-				} // if-else-if
-			} // if std::holds...
+				}
+			}
 		}
 	}
 
@@ -142,18 +139,18 @@ namespace starmap
 		m_chunks.clear();
 	}
 
-	const auto& TileLayer::getChunks() const noexcept
+	const auto& TileLayer::get_chunks() const noexcept
 	{
 		return m_chunks;
 	}
 
-	const std::string& TileLayer::getCompression() const noexcept
+	std::string TileLayer::get_compression() const noexcept
 	{
 		return m_compression;
 	}
 
-	const auto& TileLayer::getData() const noexcept
+	const auto& TileLayer::get_data() const noexcept
 	{
 		return m_data;
 	}
-}
+} // namespace starmap

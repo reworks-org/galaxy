@@ -33,7 +33,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing tileoffset json.
 		///
-		explicit TileOffset(const nlohmann::json& json) noexcept;
+		explicit TileOffset(const nlohmann::json& json);
 
 		///
 		/// Default destructor.
@@ -47,21 +47,21 @@ namespace starmap
 		///
 		/// \param json JSON structure containing tileoffset json.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get horizontal offset.
 		///
 		/// \return Const int. In pixels.
 		///
-		const int getX() const noexcept;
+		[[nodiscard]] const int get_x() const noexcept;
 
 		///
 		/// Get vertical offset.
 		///
 		/// \return Const int. In pixels, positive is down.
 		///
-		const int getY() const noexcept;
+		[[nodiscard]] const int get_y() const noexcept;
 
 	private:
 		///
@@ -74,6 +74,6 @@ namespace starmap
 		///
 		int m_y;
 	};
-}
+} // namespace starmap
 
 #endif

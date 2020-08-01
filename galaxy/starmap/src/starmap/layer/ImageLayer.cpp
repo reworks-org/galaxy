@@ -15,14 +15,13 @@
 ///
 namespace starmap
 {
-	ImageLayer::ImageLayer() noexcept
+	ImageLayer::ImageLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ImageLayer!");
-		abort();
+		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ImageLayer.");
 	}
 
-	ImageLayer::ImageLayer(const nlohmann::json& json) noexcept
-		:Layer(json), m_image(""), m_transparentColour("000000")
+	ImageLayer::ImageLayer(const nlohmann::json& json)
+	    : Layer {json}, m_image {""}, m_transparent_colour {"000000"}
 	{
 		if (json.count("image") > 0)
 		{
@@ -31,7 +30,7 @@ namespace starmap
 
 		if (json.count("transparentcolor") > 0)
 		{
-			m_transparentColour = json.at("transparentcolor");
+			m_transparent_colour = json.at("transparentcolor");
 		}
 	}
 
@@ -39,8 +38,8 @@ namespace starmap
 	{
 	}
 
-	const std::string& ImageLayer::getImage() const noexcept
+	std::string ImageLayer::get_image() const noexcept
 	{
 		return m_image;
 	}
-}
+} // namespace starmap

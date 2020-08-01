@@ -8,7 +8,7 @@
 #include <fstream>
 #include <filesystem>
 
-#include <nlohmann/json.hpp>
+#include <pulsar/Log.hpp>
 
 #include "starmap/layer/TileLayer.hpp"
 #include "starmap/layer/ObjectLayer.hpp"
@@ -22,72 +22,74 @@
 ///
 namespace starmap
 {
-	Map::Map() noexcept
-		:m_isLoaded(false), m_backgroundColour("00FFFFFF"), m_height(0), m_hexSideLength(0), m_infinite(false), m_nextLayerID(0), m_nextObjectID(0), m_orientation("orthogonal"), m_renderOrder("right-down"), m_staggerAxis(""), m_staggerIndex(""), m_tiledVersion(""), m_tileHeight(0), m_tileWidth(0), m_type("map"), m_width(0)
+	Map::Map()
+	    : m_loaded {false}, m_bg_colour {"00FFFFFF"}, m_height {0}, m_hex_side_length {0}, m_infinite {false}, m_next_layer_id {0}, m_next_object_id {0}, m_orientation {"orthogonal"}, m_render_order {"right-down"}, m_stagger_axis {""}, m_stagger_index {""}, m_tiled_version {""}, m_tile_height {0}, m_tile_width {0}, m_type {"map"}, m_width {0}, m_compression_level {0}
 	{
 	}
 
-	Map::~Map() noexcept
+	Map::~Map()
 	{
 		m_root.clear();
 		m_properties.clear();
+		m_layers.clear();
+		m_tile_sets.clear();
 	}
 
-	bool Map::load(const std::string& map) noexcept
+	bool Map::load(std::string_view map)
 	{
 		bool result = true;
 
 		// Makes sure the filepath is correct for the current platform.
-		std::filesystem::path path = map;
-		std::ifstream input(path.string(), std::ifstream::in);
-		
-		if (input.fail())
+		auto path = std::filesystem::path {map};
+		std::ifstream input;
+		input.open(path.string(), std::ifstream::in);
+
+		if (!input.good())
 		{
+			PL_LOG(PL_ERROR, "Failed to open: {0}.", path.string());
 			result = false;
 		}
 		else
 		{
 			// Use JSON stream to deserialize data and parse.
 			input >> m_root;
-
-			m_isLoaded = true;
+			m_loaded = true;
 		}
 
+		input.close();
 		return result;
 	}
 
-	bool Map::load(const char* buffer, const std::size_t size) noexcept
+	bool Map::load(std::span<char> buffer)
 	{
 		bool result = true;
 
-		// copy into string
-		std::string strBuff(buffer, size);
-
-		// Validate...
-		if (!strBuff.data() || strBuff.empty())
+		if (buffer.empty())
 		{
+			PL_LOG(PL_ERROR, "Passed empty buffer to Map::load()");
 			result = false;
 		}
 		else
 		{
 			// This is the string parser.
-			m_root = nlohmann::json::parse(strBuff);
-
-			m_isLoaded = true;
+			m_root   = nlohmann::json::parse(buffer);
+			m_loaded = true;
 		}
 
 		return result;
 	}
 
-	void Map::parse() noexcept
+	bool Map::parse()
 	{
+		bool result = true;
+
 		// Make sure json is loaded to avoid error.
-		if (m_isLoaded)
+		if (m_loaded)
 		{
 			// Optional attribute.
 			if (m_root.count("backgroundcolor") > 0)
 			{
-				m_backgroundColour = m_root.at("backgroundcolor");
+				m_bg_colour = m_root.at("backgroundcolor");
 			}
 
 			if (m_root.count("height") > 0)
@@ -98,18 +100,23 @@ namespace starmap
 			// Only present on hexagonal maps.
 			if (m_root.count("hexsidelength") > 0)
 			{
-				m_hexSideLength = m_root.at("hexsidelength");
+				m_hex_side_length = m_root.at("hexsidelength");
 			}
-			
+
 			if (m_root.count("infinite") > 0)
 			{
 				m_infinite = m_root.at("infinite");
 			}
 
+			if (m_root.count("compressionlevel") > 0)
+			{
+				m_compression_level = m_root.at("compressionlevel");
+			}
+
 			if (m_root.count("layers") > 0)
 			{
-				auto layerArray = m_root.at("layers");
-				std::for_each(layerArray.begin(), layerArray.end(), [&](const nlohmann::json& layer)
+				auto layer_array = m_root.at("layers");
+				for (const auto& layer : layer_array)
 				{
 					std::string type = layer.at("type");
 					if (type == "tilelayer")
@@ -128,17 +135,17 @@ namespace starmap
 					{
 						m_layers.push_back(std::make_unique<starmap::GroupLayer>(layer));
 					}
-				});
+				}
 			}
-			
+
 			if (m_root.count("nextlayerid") > 0)
 			{
-				m_nextLayerID = m_root.at("nextlayerid");
+				m_next_layer_id = m_root.at("nextlayerid");
 			}
 
 			if (m_root.count("nextobjectid") > 0)
 			{
-				m_nextObjectID = m_root.at("nextobjectid");
+				m_next_object_id = m_root.at("nextobjectid");
 			}
 
 			if (m_root.count("orientation") > 0)
@@ -148,174 +155,158 @@ namespace starmap
 
 			if (m_root.count("properties") > 0)
 			{
-				auto propArray = m_root.at("properties");
-				std::for_each(propArray.begin(), propArray.end(), [&](const nlohmann::json& property)
+				auto property_array = m_root.at("properties");
+				for (const auto& prop : property_array)
 				{
-					m_properties.emplace(property.at("name"), property);
-				});
+					m_properties.emplace(prop.at("name"), prop);
+				}
 			}
 
 			if (m_root.count("renderorder") > 0)
 			{
-				m_renderOrder = m_root.at("renderorder");
+				m_render_order = m_root.at("renderorder");
 			}
 
 			if (m_root.count("staggeraxis") > 0)
 			{
-				m_staggerAxis = m_root.at("staggeraxis");
+				m_stagger_axis = m_root.at("staggeraxis");
 			}
 
 			if (m_root.count("staggerindex") > 0)
 			{
-				m_staggerIndex = m_root.at("staggerindex");
+				m_stagger_index = m_root.at("staggerindex");
 			}
-			
+
 			if (m_root.count("tiledversion") > 0)
 			{
-				m_tiledVersion = m_root.at("tiledversion");
+				m_tiled_version = m_root.at("tiledversion");
 			}
-			
+
 			if (m_root.count("tileheight") > 0)
 			{
-				m_tileHeight = m_root.at("tileheight");
+				m_tile_height = m_root.at("tileheight");
 			}
 
 			if (m_root.count("tilesets") > 0)
 			{
-				auto tsArray = m_root.at("tilesets");
-				std::for_each(tsArray.begin(), tsArray.end(), [&](const nlohmann::json& tileset)
+				auto tileset_array = m_root.at("tilesets");
+				for (const auto& tileset : tileset_array)
 				{
-					m_tileSets.emplace_back(tileset);
-				});
+					m_tile_sets.emplace_back(tileset);
+				}
 			}
 
 			if (m_root.count("tilewidth") > 0)
 			{
-				m_tileWidth = m_root.at("tilewidth");
+				m_tile_width = m_root.at("tilewidth");
 			}
 
 			if (m_root.count("type") > 0)
 			{
 				m_type = m_root.at("type");
 			}
-			
+
 			if (m_root.count("width") > 0)
 			{
 				m_width = m_root.at("width");
 			}
 		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to parse map that was not loaded.");
+			result = false;
+		}
+
+		return result;
 	}
 
-	void Map::dump(std::ostream& ostream) noexcept
+	std::string Map::get_bg_colour() const noexcept
 	{
-		// This would not work for XML, since it would be too hard to clean up. You would have to call each get***() function
-		// instead.
-
-		// Dump json.
-		auto str = m_root.dump(2);
-		
-		// Erase json chars to make output readable.
-		str.erase(std::remove_if(str.begin(), str.end(), [&](char c) {
-				switch (c)
-				{
-				case '"':
-				case '{':
-				case '}':
-				case '[':
-				case ']':
-				case ',':
-					return true;
-				default:
-					return false;
-				}
-			}), str.end());
-
-		// Print readable output.
-		ostream << str << std::endl;
+		return m_bg_colour;
 	}
 
-	const std::string& Map::getBackgroundColour() const noexcept
-	{
-		return m_backgroundColour;
-	}
-
-	const int Map::getHeight() const noexcept
+	const int Map::get_height() const noexcept
 	{
 		return m_height;
 	}
 
-	const int Map::getHexSideLength() const noexcept
+	const int Map::get_hex_side_length() const noexcept
 	{
-		return m_hexSideLength;
+		return m_hex_side_length;
 	}
 
-	const bool Map::isInfinite() const noexcept
+	const bool Map::is_infinite() const noexcept
 	{
 		return m_infinite;
 	}
 
-	const auto& Map::getLayers() const noexcept
+	const auto& Map::get_layers() const noexcept
 	{
 		return m_layers;
 	}
 
-	const int Map::getNextLayerID() const noexcept
+	const int Map::get_next_layer_id() const noexcept
 	{
-		return m_nextLayerID;
+		return m_next_layer_id;
 	}
 
-	const int Map::getNextObjectID() const noexcept
+	const int Map::get_next_object_id() const noexcept
 	{
-		return m_nextObjectID;
+		return m_next_object_id;
 	}
 
-	const std::string& Map::getOrientation() const noexcept
+	std::string Map::get_orientation() const noexcept
 	{
 		return m_orientation;
 	}
 
-	const std::string& Map::getRenderOrder() const noexcept
+	std::string Map::get_render_order() const noexcept
 	{
-		return m_renderOrder;
+		return m_render_order;
 	}
 
-	const std::string& Map::getStaggerAxis() const noexcept
+	std::string Map::get_stagger_axis() const noexcept
 	{
-		return m_staggerAxis;
+		return m_stagger_axis;
 	}
 
-	const std::string& Map::getStaggerIndex() const noexcept
+	std::string Map::get_stagger_index() const noexcept
 	{
-		return m_staggerIndex;
+		return m_stagger_index;
 	}
 
-	const std::string& Map::getTiledVersion() const noexcept
+	std::string Map::get_tiled_version() const noexcept
 	{
-		return m_tiledVersion;
+		return m_tiled_version;
 	}
 
-	const int Map::getTileHeight() const noexcept
+	const int Map::get_tile_height() const noexcept
 	{
-		return m_tileHeight;
+		return m_tile_height;
 	}
 
-	const auto& Map::getTileSets() const noexcept
+	const auto& Map::get_tile_sets() const noexcept
 	{
-		return m_tileSets;
+		return m_tile_sets;
 	}
 
-	const int Map::getTileWidth() const noexcept
+	const int Map::get_tile_width() const noexcept
 	{
-		return m_tileWidth;
+		return m_tile_width;
 	}
 
-	const std::string& Map::getType() const noexcept
+	std::string Map::get_type() const noexcept
 	{
 		return m_type;
 	}
 
-	const int Map::getWidth() const noexcept
+	const int Map::get_width() const noexcept
 	{
 		return m_width;
 	}
-}
+
+	const int Map::get_compression_level() const noexcept
+	{
+		return m_compression_level;
+	}
+} // namespace starmap

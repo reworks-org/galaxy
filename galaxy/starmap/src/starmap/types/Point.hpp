@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing object.
 		///
-		explicit Point(const nlohmann::json& json) noexcept;
+		explicit Point(const nlohmann::json& json);
 
 		///
 		/// Default destructor.
@@ -56,21 +56,21 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing object.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get the x coord.
 		///
 		/// \return const double x coord in pixels.
 		///
-		const double getX() const noexcept;
+		[[nodiscard]] const double get_x() const noexcept;
 
 		///
 		/// Get the y coord.
 		///
 		/// \return const double y coord in pixels.
 		///
-		const double getY() const noexcept;
+		[[nodiscard]] const double get_y() const noexcept;
 
 	private:
 		///
@@ -83,6 +83,6 @@ namespace starmap
 		///
 		double m_y;
 	};
-}
+} // namespace starmap
 
 #endif

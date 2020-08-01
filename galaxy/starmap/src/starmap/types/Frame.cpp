@@ -15,17 +15,17 @@
 namespace starmap
 {
 	Frame::Frame() noexcept
-		:m_duration(0), m_tileID(0)
+	    : m_duration {0}, m_tile_id {0}
 	{
 	}
 
-	Frame::Frame(const nlohmann::json& json) noexcept
-		:m_duration(0), m_tileID(0)
+	Frame::Frame(const nlohmann::json& json)
+	    : m_duration {0}, m_tile_id {0}
 	{
 		parse(json);
 	}
 
-	void Frame::parse(const nlohmann::json& json) noexcept
+	void Frame::parse(const nlohmann::json& json)
 	{
 		if (json.count("duration") > 0)
 		{
@@ -34,17 +34,17 @@ namespace starmap
 
 		if (json.count("tileid") > 0)
 		{
-			m_tileID = json.at("tileid");
+			m_tile_id = json.at("tileid");
 		}
 	}
 
-	const int Frame::getDuration() const noexcept
+	const int Frame::get_duration() const noexcept
 	{
 		return m_duration;
 	}
 
-	const int Frame::getTileID() const noexcept
+	const int Frame::get_tile_id() const noexcept
 	{
-		return m_tileID;
+		return m_tile_id;
 	}
-}
+} // namespace starmap

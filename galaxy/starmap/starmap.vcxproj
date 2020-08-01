@@ -26,6 +26,7 @@
     <ClCompile Include="src\starmap\layer\ObjectLayer.cpp" />
     <ClCompile Include="src\starmap\layer\TileLayer.cpp" />
     <ClCompile Include="src\starmap\Map.cpp" />
+    <ClCompile Include="src\starmap\Meta.cpp" />
     <ClCompile Include="src\starmap\tile\Tile.cpp" />
     <ClCompile Include="src\starmap\tile\TileOffset.cpp" />
     <ClCompile Include="src\starmap\tile\Tileset.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="src\starmap\layer\ObjectLayer.hpp" />
     <ClInclude Include="src\starmap\layer\TileLayer.hpp" />
     <ClInclude Include="src\starmap\Map.hpp" />
+    <ClInclude Include="src\starmap\Meta.hpp" />
     <ClInclude Include="src\starmap\tile\Tile.hpp" />
     <ClInclude Include="src\starmap\tile\TileOffset.hpp" />
     <ClInclude Include="src\starmap\tile\Tileset.hpp" />
@@ -170,7 +172,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;../protostar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
@@ -203,7 +205,7 @@
       <IntelJCCErratum>true</IntelJCCErratum>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;../protostar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
@@ -246,7 +248,7 @@
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;../protostar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>
@@ -291,7 +293,7 @@
       <RuntimeTypeInfo>false</RuntimeTypeInfo>
       <EnableModules>false</EnableModules>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../../dependencies/json/include/;../../dependencies/zlib/include/;../pulsar/src/;../../dependencies/C++20/include/;../protostar/src/;</AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:external /external:I ../../dependencies/ /external:W0 /bigobj /Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
       <EnablePREfast>true</EnablePREfast>
       <StringPooling>true</StringPooling>

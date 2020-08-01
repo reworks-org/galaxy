@@ -12,6 +12,8 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include <starmap/Meta.hpp>
+
 ///
 /// Core namespace.
 ///
@@ -35,7 +37,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Property.
 		///
-		explicit Property(const nlohmann::json& json) noexcept;
+		explicit Property(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -49,24 +51,22 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Property.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get type typename as a std::string.
 		///
 		/// \return boolean true if ellipse.
 		///
-		const std::string& getType() const noexcept;
+		[[nodiscard]] std::string get_type() const noexcept;
 
 		///
-		/// \brief Get value. You should already know the type you want to retrieve.
+		/// Get value. You should already know the type you want to retrieve.
 		///
-		/// Can throw exceptions.
+		/// \return value cast as Type.
 		///
-		/// \return value cast as T.
-		///
-		template<typename T>
-		const T& get() const noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type& get() const;
 
 	private:
 		///
@@ -80,11 +80,11 @@ namespace starmap
 		std::any m_value;
 	};
 
-	template<typename T>
-	inline const T& Property::get() const noexcept
+	template<tiled_property Type>
+	inline const Type& Property::get() const
 	{
-		return std::any_cast<T>(m_value);
+		return std::any_cast<Type>(m_value);
 	}
-}
+} // namespace starmap
 
 #endif

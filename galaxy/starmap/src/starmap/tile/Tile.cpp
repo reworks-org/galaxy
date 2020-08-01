@@ -15,12 +15,12 @@
 namespace starmap
 {
 	Tile::Tile() noexcept
-		:m_id(0), m_image(""), m_imageHeight(0), m_imageWidth(0), m_objectGroup(std::nullopt), m_probability(-1.0), m_type("")
+	    : m_id {0}, m_image {""}, m_image_height {0}, m_image_width {0}, m_object_group {std::nullopt}, m_probability {-1.0}, m_type {""}
 	{
 	}
 
-	Tile::Tile(const nlohmann::json& json) noexcept
-		:m_id(0), m_image(""), m_imageHeight(0), m_imageWidth(0), m_objectGroup(std::nullopt), m_probability(-1.0), m_type("")
+	Tile::Tile(const nlohmann::json& json)
+	    : m_id {0}, m_image {""}, m_image_height {0}, m_image_width {0}, m_object_group {std::nullopt}, m_probability {-1.0}, m_type {""}
 	{
 		parse(json);
 	}
@@ -29,18 +29,18 @@ namespace starmap
 	{
 		m_animation.clear();
 		m_properties.clear();
-		m_terrainIndices.clear();
+		m_terrain_indices.clear();
 	}
 
-	void Tile::parse(const nlohmann::json& json) noexcept
+	void Tile::parse(const nlohmann::json& json)
 	{
 		if (json.count("animation") > 0)
 		{
-			auto animations = json.at("animation");
-			std::for_each(animations.begin(), animations.end(), [&](const nlohmann::json& animation)
+			auto anim_array = json.at("animation");
+			for (const auto& anim : anim_array)
 			{
-				m_animation.emplace_back(animation);
-			});
+				m_animation.emplace_back(anim);
+			}
 		}
 
 		if (json.count("id") > 0)
@@ -52,25 +52,25 @@ namespace starmap
 		{
 			m_image = json.at("image");
 		}
-		
+
 		if (json.count("imageheight") > 0)
 		{
-			m_imageHeight = json.at("imageheight");
+			m_image_height = json.at("imageheight");
 		}
 
 		if (json.count("imagewidth") > 0)
 		{
-			m_imageWidth = json.at("imagewidth");
+			m_image_width = json.at("imagewidth");
 		}
 
 		if (json.count("objectgroup") > 0)
 		{
-			auto objectGroup = json.at("objectgroup");
-			m_objectGroup.emplace(objectGroup);
+			auto object_group = json.at("objectgroup");
+			m_object_group.emplace(object_group);
 		}
 		else
 		{
-			m_objectGroup = std::nullopt;
+			m_object_group = std::nullopt;
 		}
 
 		if (json.count("probability") > 0)
@@ -80,20 +80,20 @@ namespace starmap
 
 		if (json.count("properties") > 0)
 		{
-			auto propArray = json.at("properties");
-			std::for_each(propArray.begin(), propArray.end(), [&](const nlohmann::json& property)
+			auto prop_array = json.at("properties");
+			for (const auto& prop : prop_array)
 			{
-				m_properties.emplace(property.at("name"), property);
-			});
+				m_properties.emplace(prop.at("name"), prop);
+			}
 		}
 
 		if (json.count("terrain") > 0)
 		{
-			auto terrainArray = json.at("terrain");
-			std::for_each(terrainArray.begin(), terrainArray.end(), [&](const int terrain)
+			auto terrain_array = json.at("terrain");
+			for (const auto& terrain : terrain_array)
 			{
-				m_terrainIndices.emplace_back(terrain);
-			});
+				m_terrain_indices.emplace_back(terrain);
+			}
 		}
 
 		if (json.count("type") > 0)
@@ -102,48 +102,48 @@ namespace starmap
 		}
 	}
 
-	const auto& Tile::getAnimations() const noexcept
+	const auto& Tile::get_animations() const noexcept
 	{
 		return m_animation;
 	}
 
-	const int Tile::getID() const noexcept
+	const int Tile::get_id() const noexcept
 	{
 		return m_id;
 	}
 
-	const std::string& Tile::getImage() const noexcept
+	std::string Tile::get_image() const noexcept
 	{
 		return m_image;
 	}
 
-	const int Tile::getImageHeight() const noexcept
+	const int Tile::get_image_height() const noexcept
 	{
-		return m_imageHeight;
+		return m_image_height;
 	}
 
-	const int Tile::getImageWidth() const noexcept
+	const int Tile::get_image_width() const noexcept
 	{
-		return m_imageWidth;
+		return m_image_width;
 	}
 
-	const auto& Tile::getObjectGroup() const noexcept
+	const auto& Tile::get_object_group() const noexcept
 	{
-		return m_objectGroup;
+		return m_object_group;
 	}
 
-	const double Tile::getProbability() const noexcept
+	const double Tile::get_probability() const noexcept
 	{
 		return m_probability;
 	}
 
-	const auto& Tile::getTerrainIndices() const noexcept
+	const auto& Tile::get_terrain_indices() const noexcept
 	{
-		return m_terrainIndices;
+		return m_terrain_indices;
 	}
 
-	const std::string& Tile::getType() const noexcept
+	std::string Tile::get_type() const noexcept
 	{
 		return m_type;
 	}
-}
+} // namespace starmap

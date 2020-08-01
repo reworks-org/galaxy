@@ -33,7 +33,7 @@ namespace starmap
 		///
 		/// \param json JSON structure/array containing Grid.
 		///
-		explicit Grid(const nlohmann::json& json) noexcept;
+		explicit Grid(const nlohmann::json& json);
 
 		///
 		/// Destructor.
@@ -47,28 +47,28 @@ namespace starmap
 		///
 		/// \param json JSON structure containing chunk array from root->layer.
 		///
-		void parse(const nlohmann::json& json) noexcept;
+		void parse(const nlohmann::json& json);
 
 		///
 		/// Get cell height of tile grid.
 		///
 		/// \return Const int.
 		///
-		const int getHeight() const noexcept;
+		[[nodiscard]] const int get_height() const noexcept;
 
 		///
 		/// Get the orientation of the grid.
 		///
 		/// \return String, format: orthogonal (default) or isometric.
 		///
-		const std::string& getOrientation() const noexcept;
+		[[nodiscard]] std::string get_orientation() const noexcept;
 
 		///
 		/// Get cell width of tile grid.
 		///
 		/// \return Const int.
 		///
-		const int getWidth() const noexcept;
+		[[nodiscard]] const int get_width() const noexcept;
 
 	private:
 		///
@@ -86,6 +86,6 @@ namespace starmap
 		///
 		int m_width;
 	};
-}
+} // namespace starmap
 
 #endif

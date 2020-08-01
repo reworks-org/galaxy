@@ -8,7 +8,7 @@
 #ifndef STARMAP_MAP_HPP_
 #define STARMAP_MAP_HPP_
 
-#include <iostream>
+#include <span>
 
 #include <nlohmann/json.hpp>
 
@@ -28,12 +28,12 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Map() noexcept;
+		Map();
 
 		///
 		/// Destructor.
 		///
-		~Map() noexcept;
+		~Map();
 
 		///
 		/// Load a json formatted Tiled map.
@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// \return True if successful.
 		///
-		bool load(const std::string& map) noexcept;
+		[[maybe_unused]] bool load(std::string_view map);
 
 		///
 		/// Load a json file from memory.
@@ -52,33 +52,28 @@ namespace starmap
 		///
 		/// \return True if successful.
 		///
-		bool load(const char* buffer, const std::size_t size) noexcept;
+		[[maybe_unused]] bool load(std::span<char> buffer);
 
 		///
 		/// Parses json structure to member values, etc.
 		///
-		void parse() noexcept;
-		
+		/// \return True if successful.
 		///
-		/// Dump map to the specified output.
-		///
-		/// \param ostream Output stream to dump json to. Defaults to std::cout.
-		///
-		void dump(std::ostream& ostream = std::cout) noexcept;
+		[[maybe_unused]] bool parse();
 
 		///
 		/// Get background colour of map.
 		///
 		/// \return String in format RRGGBB or AARRGGBB.
 		///
-		const std::string& getBackgroundColour() const noexcept;
+		[[nodiscard]] std::string get_bg_colour() const noexcept;
 
 		///
 		/// Get number of tile rows.
 		///
 		/// \return Const int.
 		///
-		const int getHeight() const noexcept;
+		[[nodiscard]] const int get_height() const noexcept;
 
 		///
 		/// \brief Get length of the side of a hex tile.
@@ -87,42 +82,42 @@ namespace starmap
 		///
 		/// \return Const int. In pixels.
 		///
-		const int getHexSideLength() const noexcept;
+		[[nodiscard]] const int get_hex_side_length() const noexcept;
 
 		///
 		/// Does the map have infinite dimensions.
 		///
 		/// \return True if is infinite.
 		///
-		const bool isInfinite() const noexcept;
+		[[nodiscard]] const bool is_infinite() const noexcept;
 
 		///
 		/// Get map layers.
 		///
 		/// \return Std::vector of unique_ptrs containing polymorphic layers.
 		///
-		const auto& getLayers() const noexcept;
+		[[nodiscard]] const auto& get_layers() const noexcept;
 
 		///
 		/// Returns the next free ID for the creation of a layer.
 		///
 		/// \return Const int.
 		///
-		const int getNextLayerID() const noexcept;
+		[[nodiscard]] const int get_next_layer_id() const noexcept;
 
 		///
 		/// Returns the next free ID for the creation of an object.
 		///
 		/// \return Const int.
 		///
-		const int getNextObjectID() const noexcept;
+		[[nodiscard]] const int get_next_object_id() const noexcept;
 
 		///
 		/// Map viewpoint orientation.
 		///
 		/// \return String, format: orthogonal, isometric, staggered or hexagonal.
 		///
-		const std::string& getOrientation() const noexcept;
+		[[nodiscard]] std::string get_orientation() const noexcept;
 
 		///
 		/// Retrieve property.
@@ -132,8 +127,8 @@ namespace starmap
 		///
 		/// \return Property cast as type. const.
 		///
-		template<typename T>
-		const T getProperty(const std::string& name) noexcept;
+		template<tiled_property Type>
+		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
 
 		///
 		/// \brief Defines order to render tiles in.
@@ -142,69 +137,76 @@ namespace starmap
 		///
 		/// \return String, format: right-down, right-up, left-down or left-up.
 		///
-		const std::string& getRenderOrder() const noexcept;
+		[[nodiscard]] std::string get_render_order() const noexcept;
 
 		///
 		/// Get stagger axis.
 		///
 		/// \return String, format: x or y.
 		///
-		const std::string& getStaggerAxis() const noexcept;
+		[[nodiscard]] std::string get_stagger_axis() const noexcept;
 
 		///
 		/// Get stagger index.
 		///
 		/// \return String, format: odd or even.
 		///
-		const std::string& getStaggerIndex() const noexcept;
+		[[nodiscard]] std::string get_stagger_index() const noexcept;
 
 		///
 		/// Get tiled version used to save the file.
 		///
 		/// \return Formatted const string.
 		///
-		const std::string& getTiledVersion() const noexcept;
+		[[nodiscard]] std::string get_tiled_version() const noexcept;
 
 		///
 		/// Get the map grid height.
 		///
 		/// \return Const int.
 		///
-		const int getTileHeight() const noexcept;
+		[[nodiscard]] const int get_tile_height() const noexcept;
 
 		///
 		/// Get the array of tilesets.
 		///
 		/// \return Std::vector of tilesets.
 		///
-		const auto& getTileSets() const noexcept;
+		[[nodiscard]] const auto& get_tile_sets() const noexcept;
 
 		///
 		/// Get the map grid width.
 		///
 		/// \return Const int.
 		///
-		const int getTileWidth() const noexcept;
+		[[nodiscard]] const int get_tile_width() const noexcept;
 
 		///
 		/// Get type of tiled file.
 		///
 		/// \return String, format: map.
 		///
-		const std::string& getType() const noexcept;
+		[[nodiscard]] std::string get_type() const noexcept;
 
 		///
 		/// Gets the number of tile columns.
 		///
 		/// \return Const int.
 		///
-		const int getWidth() const noexcept;
+		[[nodiscard]] const int get_width() const noexcept;
+
+		///
+		/// Get layer compression level.
+		///
+		/// \return Const int.
+		///
+		[[nodiscard]] const int get_compression_level() const noexcept;
 
 	private:
 		///
 		/// Flag for seeing if json is loaded.
 		///
-		bool m_isLoaded;
+		bool m_loaded;
 
 		///
 		/// Maser root node of map file.
@@ -214,7 +216,7 @@ namespace starmap
 		///
 		/// Hex-formatted colour (#RRGGBB or #AARRGGBB) (optional).
 		///
-		std::string m_backgroundColour;
+		std::string m_bg_colour;
 
 		///
 		/// Number of tile rows.
@@ -224,7 +226,7 @@ namespace starmap
 		///
 		/// Length of the side of a hex tile in pixels (hexagonal maps only).
 		///
-		int m_hexSideLength;
+		int m_hex_side_length;
 
 		///
 		/// Whether the map has infinite dimensions.
@@ -239,12 +241,12 @@ namespace starmap
 		///
 		/// Auto-increments for each layer.
 		///
-		int m_nextLayerID;
+		int m_next_layer_id;
 
 		///
 		/// Auto-increments for each placed object.
 		///
-		int m_nextObjectID;
+		int m_next_object_id;
 
 		///
 		/// Map viewpoint orientation.
@@ -260,37 +262,37 @@ namespace starmap
 		///
 		/// Right-down (the default), right-up, left-down or left-up (orthogonal maps only).
 		///
-		std::string m_renderOrder;
+		std::string m_render_order;
 
 		///
 		/// X or y (staggered / hexagonal maps only).
 		///
-		std::string m_staggerAxis;
+		std::string m_stagger_axis;
 
 		///
 		/// Odd or even (staggered / hexagonal maps only);
 		///
-		std::string m_staggerIndex;
+		std::string m_stagger_index;
 
 		///
 		/// The Tiled version used to save the file.
 		///
-		std::string m_tiledVersion;
-	
+		std::string m_tiled_version;
+
 		///
 		/// Map grid height.
 		///
-		int m_tileHeight;
+		int m_tile_height;
 
 		///
 		/// Array of Tilesets.
 		///
-		std::vector<starmap::Tileset> m_tileSets;
+		std::vector<starmap::Tileset> m_tile_sets;
 
 		///
 		/// Map grid width.
 		///
-		int m_tileWidth;
+		int m_tile_width;
 
 		///
 		/// Type of tiled file.
@@ -301,13 +303,19 @@ namespace starmap
 		/// Number of tile columns.
 		///
 		int m_width;
+
+		///
+		/// The compression level to use for tile layer data.
+		///
+		int m_compression_level;
 	};
 
-	template<typename T>
-	inline const T Map::getProperty(const std::string& name) noexcept
+	template<tiled_property Type>
+	inline const Type Map::get_property(std::string_view name) noexcept
 	{
-		return m_properties[name].get<T>();
+		const auto str = static_cast<std::string>(name);
+		return m_properties[str].get<Type>();
 	}
-}
+} // namespace starmap
 
 #endif
