@@ -5,7 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+#include <fstream>
+
 #include <nlohmann/json.hpp>
+#include <pulsar/Log.hpp>
 
 #include "Tileset.hpp"
 
@@ -36,68 +40,9 @@ namespace starmap
 
 	void Tileset::parse(const nlohmann::json& json)
 	{
-		if (json.count("backgroundcolor") > 0)
-		{
-			m_bg_colour = json.at("backgroundcolor");
-		}
-
-		if (json.count("columns") > 0)
-		{
-			m_columns = json.at("columns");
-		}
-
 		if (json.count("firstgid") > 0)
 		{
 			m_first_gid = json.at("firstgid");
-		}
-
-		if (json.count("grid") > 0)
-		{
-			auto grid_array = json.at("grid");
-			m_grid.emplace(grid_array);
-		}
-		else
-		{
-			m_grid = std::nullopt;
-		}
-
-		if (json.count("image") > 0)
-		{
-			m_image = json.at("image");
-		}
-
-		if (json.count("imageheight") > 0)
-		{
-			m_image_height = json.at("imageheight");
-		}
-
-		if (json.count("imagewidth") > 0)
-		{
-			m_image_width = json.at("imagewidth");
-		}
-
-		if (json.count("margin") > 0)
-		{
-			m_margin = json.at("margin");
-		}
-
-		if (json.count("name") > 0)
-		{
-			m_name = json.at("name");
-		}
-
-		if (json.count("objectalignment") > 0)
-		{
-			m_object_alignment = json.at("objectalignment");
-		}
-
-		if (json.count("properties") > 0)
-		{
-			auto prop_array = json.at("properties");
-			for (const auto& prop : prop_array)
-			{
-				m_properties.emplace(prop.at("name"), prop);
-			}
 		}
 
 		if (json.count("source") > 0)
@@ -105,38 +50,122 @@ namespace starmap
 			m_source = json.at("source");
 		}
 
-		if (json.count("spacing") > 0)
+		nlohmann::json src_json;
+		if (!m_source.empty())
 		{
-			m_spacing = json.at("spacing");
+			// Makes sure the filepath is correct for the current platform.
+			auto path = std::filesystem::path {m_source};
+			std::ifstream input;
+			input.open(path.string(), std::ifstream::in);
+
+			if (!input.good())
+			{
+				input.close();
+				PL_LOG(PL_FATAL, "Failed to open: {0}.", path.string());
+			}
+			else
+			{
+				// Use JSON stream to deserialize data and parse.
+				input >> src_json;
+				input.close();
+			}
+		}
+		else
+		{
+			src_json = json;
 		}
 
-		if (json.count("terrains") > 0)
+		if (src_json.count("backgroundcolor") > 0)
 		{
-			auto terrain_array = json.at("terrains");
+			m_bg_colour = src_json.at("backgroundcolor");
+		}
+
+		if (src_json.count("columns") > 0)
+		{
+			m_columns = src_json.at("columns");
+		}
+
+		if (src_json.count("grid") > 0)
+		{
+			auto grid_array = src_json.at("grid");
+			m_grid.emplace(grid_array);
+		}
+		else
+		{
+			m_grid = std::nullopt;
+		}
+
+		if (src_json.count("image") > 0)
+		{
+			m_image = src_json.at("image");
+		}
+
+		if (src_json.count("imageheight") > 0)
+		{
+			m_image_height = src_json.at("imageheight");
+		}
+
+		if (src_json.count("imagewidth") > 0)
+		{
+			m_image_width = src_json.at("imagewidth");
+		}
+
+		if (src_json.count("margin") > 0)
+		{
+			m_margin = src_json.at("margin");
+		}
+
+		if (src_json.count("name") > 0)
+		{
+			m_name = src_json.at("name");
+		}
+
+		if (src_json.count("objectalignment") > 0)
+		{
+			m_object_alignment = src_json.at("objectalignment");
+		}
+
+		if (src_json.count("properties") > 0)
+		{
+			auto prop_array = src_json.at("properties");
+			for (const auto& prop : prop_array)
+			{
+				m_properties.emplace(prop.at("name"), prop);
+			}
+		}
+
+		if (src_json.count("spacing") > 0)
+		{
+			m_spacing = src_json.at("spacing");
+		}
+
+		if (src_json.count("terrains") > 0)
+		{
+			auto terrain_array = src_json.at("terrains");
 			for (const auto& terrain : terrain_array)
 			{
 				m_terrain.emplace_back(terrain);
 			}
 		}
 
-		if (json.count("tilecount") > 0)
+		if (src_json.count("tilecount") > 0)
 		{
-			m_tile_count = json.at("tilecount");
+			m_tile_count = src_json.at("tilecount");
 		}
 
-		if (json.count("tiledversion") > 0)
+		if (src_json.count("tiledversion") > 0)
 		{
-			m_tiled_version = json.at("tiledversion");
+			m_tiled_version = src_json.at("tiledversion");
 		}
 
-		if (json.count("tileheight") > 0)
+		if (src_json.count("tileheight") > 0)
 		{
-			m_tile_height = json.at("tileheight");
+			m_tile_height = src_json.at("tileheight");
 		}
 
-		if (json.count("tileoffset") > 0)
+		if (src_json.count("tileoffset") > 0)
 		{
-			auto tile_offset = json.at("tileoffset");
+			auto tile_offset = src_json.at("tileoffset");
 			m_tile_offset.emplace(tile_offset);
 		}
 		else
@@ -144,33 +173,33 @@ namespace starmap
 			m_grid = std::nullopt;
 		}
 
-		if (json.count("tiles") > 0)
+		if (src_json.count("tiles") > 0)
 		{
-			auto tile_array = json.at("tiles");
+			auto tile_array = src_json.at("tiles");
 			for (const auto& tile : tile_array)
 			{
 				m_tiles.emplace_back(tile);
 			}
 		}
 
-		if (json.count("tilewidth") > 0)
+		if (src_json.count("tilewidth") > 0)
 		{
-			m_tile_width = json.at("tilewidth");
+			m_tile_width = src_json.at("tilewidth");
 		}
 
-		if (json.count("transparentcolor") > 0)
+		if (src_json.count("transparentcolor") > 0)
 		{
-			m_transparent_colour = json.at("transparentcolor");
+			m_transparent_colour = src_json.at("transparentcolor");
 		}
 
-		if (json.count("type") > 0)
+		if (src_json.count("type") > 0)
 		{
-			m_type = json.at("type");
+			m_type = src_json.at("type");
 		}
 
-		if (json.count("wangsets") > 0)
+		if (src_json.count("wangsets") > 0)
 		{
-			auto wang_sets = json.at("wangsets");
+			auto wang_sets = src_json.at("wangsets");
 			for (const auto& set : wang_sets)
 			{
 				m_wang_sets.emplace_back(set);

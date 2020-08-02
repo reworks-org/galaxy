@@ -4,15 +4,21 @@ C++20 JSON Tiled Map Parser.
 
 ## Supported
 - Tiled 1.4.1.
-- zLib compression.
+- zlib compression.
+- gzip compression.
 - base64 compression.
+- External tilesets in JSON format.
 
 ## Unsupported
 - Zstandard compression.
-- External tilesets.
-- External objects.
+- Object templates.
 
 ## Basic Usage
 ```cpp
-// todo
+starmap::Map map;
+auto res = map.load("tiled/desert.tmx");
+if (res)
+{
+	map.parse();
+}
 ```
