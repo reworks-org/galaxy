@@ -2,3 +2,18 @@
 	path = dependencies/googletest
 	url = https://github.com/google/googletest.git
 	branch = master
+[submodule "dependencies/glm"]
+	path = dependencies/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "dependencies/json"]
+	path = dependencies/json
+	url = https://github.com/nlohmann/json.git
+[submodule "dependencies/portable-file-dialogs/include"]
+	path = dependencies/portable-file-dialogs/include
+	url = https://github.com/samhocevar/portable-file-dialogs.git
+[submodule "dependencies/stb"]
+	path = dependencies/stb
+	url = https://github.com/nothings/stb.git
+[submodule "dependencies/sol3"]
+	path = dependencies/sol3
+	url = https://github.com/ThePhD/sol2.git
