@@ -21,7 +21,7 @@ namespace qs
 	///
 	/// A sprite that does not contain a texture. Useful for when working with batches and texture atlas'.
 	///
-	class BatchedSprite final : public qs::Transform
+	class BatchedSprite : public qs::Transform
 	{
 		///
 		/// Allows access to internals that should not be publicly exposed.
@@ -37,7 +37,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~BatchedSprite() noexcept = default;
+		virtual ~BatchedSprite() noexcept = default;
 
 		///
 		/// Sets the texture region for the batched sprite.
@@ -85,13 +85,7 @@ namespace qs
 		///
 		[[nodiscard]] const unsigned int z_level() const noexcept;
 
-	private:
-		///
-		/// Keeps track if a batched sprite has been modified.
-		/// Defaults to false.
-		///
-		bool m_dirty;
-
+	protected:
 		///
 		/// Opacity of BatchedSprite.
 		///

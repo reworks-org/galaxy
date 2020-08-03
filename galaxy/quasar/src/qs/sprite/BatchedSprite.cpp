@@ -13,7 +13,7 @@
 namespace qs
 {
 	BatchedSprite::BatchedSprite()
-	    : Transform {}, m_dirty {false}, m_opacity {1.0f}, m_z_level {0}, m_offset {0}
+	    : Transform {}, m_opacity {1.0f}, m_z_level {0}, m_offset {0}
 	{
 	}
 
