@@ -27,7 +27,6 @@
     <ClCompile Include="src\qs\core\Renderer.cpp" />
     <ClCompile Include="src\qs\sprite\Sprite.cpp" />
     <ClCompile Include="src\qs\sprite\SpriteBatch.cpp" />
-    <ClCompile Include="src\qs\core\Animated.cpp" />
     <ClCompile Include="src\qs\sprite\AnimatedSprite.cpp" />
     <ClCompile Include="src\qs\sprite\BatchedSprite.cpp" />
     <ClCompile Include="src\qs\utils\Meta.cpp" />
@@ -37,6 +36,9 @@
     <ClCompile Include="src\qs\text\FreeType.cpp" />
     <ClCompile Include="src\qs\text\Font.cpp" />
     <ClCompile Include="src\qs\text\Text.cpp" />
+    <ClCompile Include="src\qs\anim\Animated.cpp" />
+    <ClCompile Include="src\qs\anim\Animation.cpp" />
+    <ClCompile Include="src\qs\anim\Frame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -61,7 +63,6 @@
     <ClInclude Include="src\qs\core\Renderer.hpp" />
     <ClInclude Include="src\qs\sprite\Sprite.hpp" />
     <ClInclude Include="src\qs\sprite\SpriteBatch.hpp" />
-    <ClInclude Include="src\qs\core\Animated.hpp" />
     <ClInclude Include="src\qs\sprite\AnimatedSprite.hpp" />
     <ClInclude Include="src\qs\sprite\BatchedSprite.hpp" />
     <ClInclude Include="src\qs\utils\Meta.hpp" />
@@ -72,5 +73,8 @@
     <ClInclude Include="src\qs\text\Font.hpp" />
     <ClInclude Include="src\qs\text\Text.hpp" />
     <ClInclude Include="src\qs\texture\Texture.hpp" />
+    <ClInclude Include="src\qs\anim\Animated.hpp" />
+    <ClInclude Include="src\qs\anim\Animation.hpp" />
+    <ClInclude Include="src\qs\anim\Frame.hpp" />
   </ItemGroup>
 </Project>
