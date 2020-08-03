@@ -15,15 +15,16 @@
 namespace galaxy
 {
 	AnimationComponent::AnimationComponent()
-	    : m_paused {true}, m_time_spent_on_frame {0}, m_active_animation {"null"}
+	    : m_abs {}
 	{
 	}
 
 	AnimationComponent::AnimationComponent(const nlohmann::json& json)
-	    : m_paused {true}, m_time_spent_on_frame {0}
+	    : m_abs {}
 	{
-		m_active_animation = json.at("default-anim");
-		auto anim_array    = json.at("animations");
+		m_abs.set_opacity(json.at("opacity"));
+
+		auto anim_array = json.at("animations");
 		for (const auto& anim : anim_array)
 		{
 			std::string name = anim.at("name");
@@ -33,49 +34,18 @@ namespace galaxy
 			frames.reserve(frame_array.size());
 			for (const auto& frame : frame_array)
 			{
-				frames.emplace_back(frame.at("x"), frame.at("y"), frame.at("time-per-frame"));
+				frames.emplace_back(frame.at("texture-x"), frame.at("texture-y"), frame.at("time-per-frame"));
 			}
 
-			m_animations.emplace(name, name, anim.at("looping"), anim.at("speed"), frames);
-		}
-	}
-
-	AnimationComponent::~AnimationComponent()
-	{
-		m_animations.clear();
-	}
-
-	void AnimationComponent::set_animation(std::string_view animation)
-	{
-		if (m_active_animation != "null")
-		{
-			m_animations[m_active_animation].restart();
+			m_abs.add_animation(name, name, anim.at("looping"), anim.at("speed"), frames);
 		}
 
-		m_active_animation = static_cast<std::string>(animation);
-		m_animations[m_active_animation].restart();
-	}
+		m_abs.set_animation(json.at("default-anim"));
+		auto* frame = m_abs.get_cur_animation()->get_current_frame();
 
-	void AnimationComponent::play()
-	{
-		m_paused = false;
-	}
+		m_abs.create({frame->get_x(), frame->get_y(), json.at("w"), json.at("h")}, 1);
+		m_abs.set_pos(json.at("x"), json.at("y"));
 
-	void AnimationComponent::play(std::string_view animation)
-	{
-		m_paused = false;
-		set_animation(animation);
-	}
-
-	void AnimationComponent::pause()
-	{
-		m_paused = true;
-	}
-
-	void AnimationComponent::stop()
-	{
-		m_time_spent_on_frame = 0;
-		m_paused              = true;
-		m_animations[m_active_animation].restart();
+		m_abs.play();
 	}
 } // namespace galaxy

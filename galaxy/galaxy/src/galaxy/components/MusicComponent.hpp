@@ -1,15 +1,15 @@
 ///
-/// AudioComponent.hpp
+/// MusicComponent.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIOCOMPONENT_HPP_
-#define GALAXY_AUDIOCOMPONENT_HPP_
+#ifndef GALAXY_MUSICCOMPONENT_HPP_
+#define GALAXY_MUSICCOMPONENT_HPP_
 
+#include <frb/audio/Music.hpp>
 #include <nlohmann/json_fwd.hpp>
-#include <frb/audio/Audible.hpp>
 
 ///
 /// Core namespace.
@@ -19,30 +19,31 @@ namespace galaxy
 	///
 	/// Component representing an audio file.
 	///
-	struct AudioComponent final
+	class MusicComponent final
 	{
+	public:
 		///
 		/// Constructor.
 		///
-		AudioComponent() noexcept;
+		MusicComponent() noexcept = default;
 
 		///
 		/// JSON constructor.
 		///
 		/// \param json JSON defining object.
 		///
-		AudioComponent(const nlohmann::json& json) noexcept;
+		MusicComponent(const nlohmann::json& json);
 
 		///
 		/// Destructor.
 		///
-		~AudioComponent() noexcept;
+		~MusicComponent();
 
 		///
-		/// Audio file. 
+		/// Music file.
 		///
-		frb::Audible m_audio;
+		frb::Music m_music;
 	};
-}
+} // namespace galaxy
 
 #endif

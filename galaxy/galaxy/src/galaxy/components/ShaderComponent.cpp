@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "ShaderComponent.hpp"
 
 ///
@@ -12,20 +14,19 @@
 ///
 namespace galaxy
 {
-	ShaderComponent::ShaderComponent() noexcept
-	{
-	}
-
-	ShaderComponent::ShaderComponent(const nlohmann::json& json) noexcept
+	ShaderComponent::ShaderComponent(const nlohmann::json& json)
 	{
 		if ((json.count("vertex-file") > 0) && (json.count("frag-file") > 0))
 		{
-			m_shader.loadFromPath(json.at("vertex-file"), json.at("frag-file"));
+			m_shader.load_path(json.at("vertex-file"), json.at("frag-file"));
 		}
-
-		if ((json.count("vertex-string") > 0) && (json.count("frag-string") > 0))
+		else if ((json.count("vertex-string") > 0) && (json.count("frag-string") > 0))
 		{
-			m_shader.loadFromRaw(json.at("vertex-string"), json.at("frag-string"));
+			m_shader.load_raw(json.at("vertex-string"), json.at("frag-string"));
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "No valid shader loading config found.");
 		}
 	}
-}
+} // namespace galaxy

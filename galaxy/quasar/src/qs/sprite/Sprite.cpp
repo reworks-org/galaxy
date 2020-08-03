@@ -23,6 +23,11 @@ namespace qs
 		m_dirty   = true;
 	}
 
+	void Sprite::set_z_level(const pr::positive_uint auto z_level) noexcept
+	{
+		m_z_level = z_level;
+	}
+
 	const float Sprite::opacity() const noexcept
 	{
 		return m_opacity;

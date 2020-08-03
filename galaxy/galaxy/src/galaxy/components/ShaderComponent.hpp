@@ -8,7 +8,7 @@
 #ifndef GALAXY_SHADERCOMPONENT_HPP_
 #define GALAXY_SHADERCOMPONENT_HPP_
 
-#include <nlohmann/json.hpp>
+#include <nlohmann/json_fwd.hpp>
 #include <qs/core/Shader.hpp>
 
 ///
@@ -19,30 +19,31 @@ namespace galaxy
 	///
 	/// Adds a shader to an entity.
 	///
-	struct ShaderComponent final
+	class ShaderComponent final
 	{
+	public:
 		///
 		/// Constructor.
 		///
-		ShaderComponent() noexcept;
+		ShaderComponent() noexcept = default;
 
 		///
 		/// JSON constructor.
 		///
 		/// \param json JSON defining object.
 		///
-		ShaderComponent(const nlohmann::json& json) noexcept;
+		ShaderComponent(const nlohmann::json& json);
 
 		///
 		/// Destructor.
 		///
-		virtual ~ShaderComponent() noexcept = default;
+		~ShaderComponent() noexcept = default;
 
 		///
 		/// Shader.
 		///
 		qs::Shader m_shader;
 	};
-}
+} // namespace galaxy
 
 #endif

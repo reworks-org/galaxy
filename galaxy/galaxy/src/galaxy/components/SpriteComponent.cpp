@@ -14,59 +14,30 @@
 ///
 namespace galaxy
 {
-	SpriteComponent::SpriteComponent() noexcept
-		:VertexData(), Texture(), m_opacity(1.0f)
+	SpriteComponent::SpriteComponent()
+	    : m_sprite {}
 	{
 	}
 
-	void SpriteComponent::setOpacity(float opacity) noexcept
+	SpriteComponent::SpriteComponent(const nlohmann::json& json)
+	    : m_sprite {}
 	{
-		if (opacity > 1.0f)
-		{
-			opacity = 1.0f;
-		}
-		else if (opacity < 0.0f)
-		{
-			opacity = 0.0f;
-		}
+		std::string path = json.at("texture");
+		m_sprite.load(path);
 
-		m_opacity = opacity;
-	}
-
-	const float SpriteComponent::getOpacity() const noexcept
-	{
-		return m_opacity;
-	}
-
-	void SpriteComponent::bind() noexcept
-	{
-		m_vertexArray.bind();
-		glBindTexture(GL_TEXTURE_2D, m_texture);
-	}
-
-	void SpriteComponent::unbind() noexcept
-	{
-		m_vertexArray.unbind();
-		glBindTexture(GL_TEXTURE_2D, 0);
-	}
-
-	SpriteComponent::SpriteComponent(const nlohmann::json& json) noexcept
-		:VertexData(), Texture(), m_opacity(1.0f)
-	{
-		load(json.at("texture"));
-		setAnisotropy(json.at("ansio-filtering"));
-
-		bool dynamic = json.at("dynamic-buffer");
+		const bool dynamic = json.at("is-dynamic-buffer");
 		if (dynamic)
 		{
-			create<qs::BufferTypeDynamic>();
+			m_sprite.create<qs::BufferDynamic>();
 		}
 		else
 		{
-			create<qs::BufferTypeStatic>();
+			m_sprite.create<qs::BufferStatic>();
 		}
 
-		m_opacity = json.at("opacity");
-		m_zLevel = json.at("z-level");
+		m_sprite.set_anisotropy(json.at("ansio-filtering"));
+		m_sprite.set_opacity(json.at("opacity"));
+		m_sprite.set_pos(json.at("x"), json.at("y"));
+		m_sprite.set_z_level(json.at("z-level"));
 	}
-}
+} // namespace galaxy

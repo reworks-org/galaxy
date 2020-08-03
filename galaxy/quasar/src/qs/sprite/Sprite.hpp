@@ -51,6 +51,13 @@ namespace qs
 		void set_opacity(const pr::from_0_to_1 auto opacity) noexcept;
 
 		///
+		/// Set z-level of sprite.
+		///
+		/// \param z_level z-ordering level to render sprite at.
+		///
+		void set_z_level(const pr::positive_uint auto z_level) noexcept;
+
+		///
 		/// Get opacity.
 		///
 		/// \return Const float.

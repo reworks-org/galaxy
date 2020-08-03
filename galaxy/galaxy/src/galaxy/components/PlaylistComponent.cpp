@@ -12,25 +12,11 @@
 ///
 namespace galaxy
 {
-	PlaylistComponent::PlaylistComponent() noexcept
-		:m_playlist()
+	PlaylistComponent::PlaylistComponent(const nlohmann::json& json)
 	{
 	}
 
-	PlaylistComponent::PlaylistComponent(const nlohmann::json& json) noexcept
-	{
-		std::vector<std::string> files;
-		nlohmann::json arr = json.at("files");
-		for (const auto& elem : arr)
-		{
-			files.push_back(elem);
-		}
-
-		m_playlist.load(files);
-		m_playlist.setLooping(json.at("looping"));
-	}
-
-	PlaylistComponent::~PlaylistComponent() noexcept
+	PlaylistComponent::~PlaylistComponent()
 	{
 	}
-}
+} // namespace galaxy

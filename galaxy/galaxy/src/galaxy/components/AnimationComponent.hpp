@@ -11,7 +11,7 @@
 #include <unordered_map>
 
 #include <nlohmann/json_fwd.hpp>
-#include <qs/anim/Animation.hpp>
+#include <qs/sprite/AnimatedBatchSprite.hpp>
 
 namespace galaxy
 {
@@ -36,56 +36,12 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~AnimationComponent();
+		~AnimationComponent() noexcept = default;
 
 		///
-		/// Change the current animation.
+		/// Animation object.
 		///
-		/// \param animation The name of the animation type to change to as defined in lua file. E.g. "walking" -> "running"
-		///
-		void set_animation(std::string_view animation);
-
-		///
-		/// Play the animation.
-		///
-		void play();
-
-		///
-		/// Play a specific animation.
-		///
-		/// \param animation Animation to change to to play.
-		///
-		void play(std::string_view animation);
-
-		///
-		/// Pause animation.
-		///
-		void pause();
-
-		///
-		/// Stop the animation. If you call play() the animation starts from the beginning.
-		///
-		void stop();
-
-		///
-		/// Controls if the animation is paused or not.
-		///
-		bool m_paused;
-
-		///
-		/// Current amount of time spent on the frame.
-		///
-		std::size_t m_time_spent_on_frame;
-
-		///
-		/// Currently playing animation.
-		///
-		std::string m_active_animation;
-
-		///
-		/// Stored animations.
-		///
-		std::unordered_map<std::string, qs::Animation> m_animations;
+		qs::AnimatedBatchSprite m_abs;
 	};
 } // namespace galaxy
 

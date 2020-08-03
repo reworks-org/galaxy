@@ -37,6 +37,11 @@ namespace qs
 		m_active_anim->restart();
 	}
 
+	qs::Animation* Animated::get_cur_animation() noexcept
+	{
+		return m_active_anim;
+	}
+
 	void Animated::play()
 	{
 		if (m_active_anim != nullptr)

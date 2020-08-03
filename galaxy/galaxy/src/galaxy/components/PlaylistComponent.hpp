@@ -8,8 +8,8 @@
 #ifndef GALAXY_PLAYLISTCOMPONENT_HPP_
 #define GALAXY_PLAYLISTCOMPONENT_HPP_
 
-#include <nlohmann/json.hpp>
 #include <frb/audio/Playlist.hpp>
+#include <nlohmann/json_fwd.hpp>
 
 ///
 /// Core namespace.
@@ -19,30 +19,26 @@ namespace galaxy
 	///
 	/// A playlist of audio files. Max of 8.
 	///
-	struct PlaylistComponent final
+	class PlaylistComponent final
 	{
+	public:
 		///
 		/// Constructor.
 		///
-		PlaylistComponent() noexcept;
+		PlaylistComponent() noexcept = default;
 
 		///
 		/// JSON constructor.
 		///
 		/// \param json JSON defining object.
 		///
-		PlaylistComponent(const nlohmann::json& json) noexcept;
+		PlaylistComponent(const nlohmann::json& json);
 
 		///
 		/// Destructor.
 		///
-		~PlaylistComponent() noexcept;
-
-		///
-		/// Playlist of audio.
-		///
-		frb::Playlist m_playlist;
+		~PlaylistComponent();
 	};
-}
+} // namespace galaxy
 
 #endif
