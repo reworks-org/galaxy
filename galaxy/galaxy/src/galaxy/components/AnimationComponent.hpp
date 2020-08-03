@@ -10,6 +10,9 @@
 
 #include <unordered_map>
 
+#include <nlohmann/json_fwd.hpp>
+#include <qs/anim/Animation.hpp>
+
 namespace galaxy
 {
 	///
@@ -19,45 +22,28 @@ namespace galaxy
 	{
 	public:
 		///
-		/// \brief Default Constructor.
-		///
-		/// Contains empty data values.
+		/// Default constructor.
 		///
 		AnimationComponent();
 
 		///
-		/// Animated Component Constructor.
+		/// JSON constructor.
 		///
-		/// \param table sol::table containing data.
+		/// \param json JSON defining object.
 		///
-		explicit AnimationComponent(const sol::table& table);
-
-		///
-		/// \brief Animated Tile Constructor.
-		///
-		/// Please note that because this is used to construct an animated tile,
-		/// it only supports constructing ONE animation.
-		///
-		/// \param map Map data - needed to look up tiles.
-		/// \param tile A tmx_tile containing animation data required to construct component.
-		/// \param x xpos of original tilemap on atlas.
-		/// \param y ypos of original tilemap on atlas.
-		/// \param tileWidth Width of current tile.
-		/// \param tileHeight Height of current tile.
-		///
-		AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight);
+		AnimationComponent(const nlohmann::json& json);
 
 		///
 		/// Destructor.
 		///
-		~AnimationComponent() noexcept;
+		~AnimationComponent();
 
 		///
 		/// Change the current animation.
 		///
 		/// \param animation The name of the animation type to change to as defined in lua file. E.g. "walking" -> "running"
 		///
-		void changeAnimation(const std::string& animation);
+		void set_animation(std::string_view animation);
 
 		///
 		/// Play the animation.
@@ -69,8 +55,8 @@ namespace galaxy
 		///
 		/// \param animation Animation to change to to play.
 		///
-		void play(const std::string& animation);
-	
+		void play(std::string_view animation);
+
 		///
 		/// Pause animation.
 		///
@@ -81,27 +67,26 @@ namespace galaxy
 		///
 		void stop();
 
-	public:
 		///
 		/// Controls if the animation is paused or not.
 		///
-		bool m_isPaused;
-		
+		bool m_paused;
+
 		///
 		/// Current amount of time spent on the frame.
 		///
-		double m_currentFrameTime;
-		
+		std::size_t m_time_spent_on_frame;
+
 		///
-		/// Active animation being... animated.
+		/// Currently playing animation.
 		///
-		std::string m_activeAnimation;
-		
+		std::string m_active_animation;
+
 		///
-		/// Storage of the animations.
+		/// Stored animations.
 		///
-		std::unordered_map<std::string, Animation> m_animations;
+		std::unordered_map<std::string, qs::Animation> m_animations;
 	};
-}
+} // namespace galaxy
 
 #endif

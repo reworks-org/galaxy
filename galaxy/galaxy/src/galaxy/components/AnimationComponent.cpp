@@ -5,58 +5,28 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
+#include <nlohmann/json.hpp>
 
 #include "AnimationComponent.hpp"
 
+///
+/// Core namespace.
+///
 namespace galaxy
 {
 	AnimationComponent::AnimationComponent()
-		:m_currentFrameTime(0.0), m_isPaused(true), m_activeAnimation("")
+	    : m_paused {true}, m_time_spent_on_frame {0}, m_active_animation {"null"}
 	{
 	}
 
-	AnimationComponent::AnimationComponent(const sol::table& table)
-		:m_currentFrameTime(0.0), m_isPaused(table.get<bool>("paused")), m_activeAnimation(table.get<std::string>("defaultAnim"))
+	AnimationComponent::AnimationComponent(const nlohmann::json& json)
+	    : m_paused {true}, m_time_spent_on_frame {0}
 	{
-		// Set up component based on lua table data.
-		sol::table animTable = table.get<sol::table>("Animations");
-		if (!animTable.empty())
+		m_active_animation = json.at("default-anim");
+		auto anim_array    = json.at("animations");
+		for (const auto& anim : anim_array)
 		{
-			// Then create the animations.
-			animTable.for_each([&](std::pair<sol::object, sol::object> pair)
-			{
-				sol::table input = pair.second.as<sol::table>();
-				m_animations.emplace(pair.first.as<std::string>(), Animation{ input });
-			});
 		}
-		else
-		{
-			// Does not need to be a fatal error. Game will still work with no animations.
-			LOG_S(ERROR) << "Could not create animations for defaultAnim: " << m_activeAnimation << ". Animation table empty.";
-		}
-	}
-
-	AnimationComponent::AnimationComponent(tmx_map* map, tmx_tile* tile, int x, int y, int tileWidth, int tileHeight)
-		:m_currentFrameTime(0.0), m_isPaused(false)
-	{
-		// Construct animation from raw data from a tmx tile map.
-		std::string aID = "AnimatedTile" + std::to_string(Time::getTimeSinceEpoch());
-		m_animations.emplace(aID, Animation { true, 1.0f, tile->animation_len, static_cast<unsigned int>(0), std::vector<AnimationFrame>() });
-		m_animations[aID].m_frames.clear(); // ensure empty with default values
-
-		// Construct animations for the tiles.
-		for (unsigned int i = 0; i < tile->animation_len; ++i)
-		{
-			int subX = x + map->tiles[tile->animation[i].tile_id + 1]->ul_x;
-			int subY = y + map->tiles[tile->animation[i].tile_id + 1]->ul_y;
-
-			std::string iaID = "AnimatedTileInternal" + std::to_string(Time::getTimeSinceEpoch());
-			Locator::textureAtlas->addRectToAtlas(iaID, { subX, subY, tileWidth, tileHeight });
-			m_animations[aID].m_frames.emplace_back(AnimationFrame { static_cast<std::uint32_t>(tile->animation[i].duration), iaID });
-		}
-		
-		m_activeAnimation = aID;
 	}
 
 	AnimationComponent::~AnimationComponent()
@@ -64,39 +34,37 @@ namespace galaxy
 		m_animations.clear();
 	}
 
-	void AnimationComponent::changeAnimation(const std::string& animation)
+	void AnimationComponent::set_animation(std::string_view animation)
 	{
-		// Simply reset the time and change the active animation.
-		m_animations[m_activeAnimation].m_currentFrame = 0;
-		m_currentFrameTime = 0.0;
-		m_activeAnimation = animation;
+		if (m_active_animation != "null")
+		{
+			m_animations[m_active_animation].restart();
+		}
+
+		m_active_animation = static_cast<std::string>(animation);
+		m_animations[m_active_animation].restart();
 	}
 
 	void AnimationComponent::play()
 	{
-		m_isPaused = false;
+		m_paused = false;
 	}
 
-	void AnimationComponent::play(const std::string& animation)
+	void AnimationComponent::play(std::string_view animation)
 	{
-		if (m_activeAnimation != animation)
-		{
-			changeAnimation(animation);
-		}
-			
-		play();
+		m_paused = false;
+		set_animation(animation);
 	}
 
 	void AnimationComponent::pause()
 	{
-		m_isPaused = true;
+		m_paused = true;
 	}
 
 	void AnimationComponent::stop()
 	{
-		// Resets the animation to the beginning.
-		m_isPaused = true;
-		m_animations[m_activeAnimation].m_currentFrame = 0;
-		m_currentFrameTime = 0.0;
+		m_time_spent_on_frame = 0;
+		m_paused              = true;
+		m_animations[m_active_animation].restart();
 	}
-}
+} // namespace galaxy
