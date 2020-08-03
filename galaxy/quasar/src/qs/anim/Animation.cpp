@@ -27,6 +27,11 @@ namespace qs
 		m_frames.clear();
 	}
 
+	void Animation::restart() noexcept
+	{
+		m_current_frame = 0;
+	}
+
 	const std::string& Animation::get_name() noexcept
 	{
 		return m_name;

@@ -46,6 +46,11 @@ namespace qs
 		~Animation() noexcept;
 
 		///
+		/// Restart animation from beginning.
+		///
+		void restart() noexcept;
+
+		///
 		/// Get animation identifier.
 		///
 		/// \return Const std::string.
