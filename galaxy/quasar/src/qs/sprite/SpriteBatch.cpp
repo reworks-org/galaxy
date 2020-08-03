@@ -97,7 +97,7 @@ namespace qs
 	void SpriteBatch::update()
 	{
 		// Only needed for this function scope.
-		static bool s_update_renderdata = false;
+		static thread_local bool s_update_renderdata = false;
 
 		for (auto* sprite : m_sprites)
 		{
