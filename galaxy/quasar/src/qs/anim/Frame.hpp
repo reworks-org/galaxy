@@ -45,21 +45,21 @@ namespace qs
 		///
 		/// \return Const float.
 		///
-		const float get_x() const noexcept;
+		[[nodiscard]] const float get_x() const noexcept;
 
 		///
 		/// Get t pos.
 		///
 		/// \return Const float.
 		///
-		const float get_y() const noexcept;
+		[[nodiscard]] const float get_y() const noexcept;
 
 		///
 		/// Get time per frame.
 		///
 		/// \return Const std::size_t.
 		///
-		const std::size_t get_time_per_frame() const noexcept;
+		[[nodiscard]] const std::size_t get_time_per_frame() const noexcept;
 
 	private:
 		///

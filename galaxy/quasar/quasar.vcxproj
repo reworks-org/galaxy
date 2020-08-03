@@ -22,7 +22,6 @@
     <None Include="res\shaders\instanced_sprite.glsl" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\qs\anim\Animated.cpp" />
     <ClCompile Include="src\qs\anim\Animation.cpp" />
     <ClCompile Include="src\qs\anim\Frame.cpp" />
     <ClCompile Include="src\qs\sprite\AnimatedSprite.cpp" />
@@ -59,7 +58,6 @@
     <ClCompile Include="src\qs\vertex\VertexLayout.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\qs\anim\Animated.hpp" />
     <ClInclude Include="src\qs\anim\Animation.hpp" />
     <ClInclude Include="src\qs\anim\Frame.hpp" />
     <ClInclude Include="src\qs\sprite\AnimatedSprite.hpp" />

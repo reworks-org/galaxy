@@ -45,6 +45,48 @@ namespace qs
 		///
 		~Animation() noexcept;
 
+		///
+		/// Get animation identifier.
+		///
+		/// \return Const std::string.
+		///
+		[[nodiscard]] const std::string& get_name() noexcept;
+
+		///
+		/// Is animation looping.
+		///
+		/// \return Const bool.
+		///
+		[[nodiscard]] const bool is_looping() const noexcept;
+
+		///
+		/// Get animation speed.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float get_speed() const noexcept;
+
+		///
+		/// Get total frames in animation.
+		///
+		/// \return Const std::size_t.
+		///
+		[[nodiscard]] const std::size_t get_total_frames() const noexcept;
+
+		///
+		/// Get current active animation frame.
+		///
+		/// \return Const std::size_t.
+		///
+		[[nodiscard]] const std::size_t get_current_frame() const noexcept;
+
+		///
+		/// Get current frame.
+		///
+		/// \return Const std::vector of qs::Frames.
+		///
+		[[nodiscard]] const auto& get_frames() noexcept;
+
 	private:
 		///
 		/// Name of the animation.
