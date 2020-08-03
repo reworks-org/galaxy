@@ -1,15 +1,15 @@
 ///
-/// AnimatedSprite.hpp
+/// AnimatedBatchSprite.hpp
 /// quasar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_ANIMATEDSPRITE_HPP_
-#define QUASAR_ANIMATEDSPRITE_HPP_
+#ifndef QUASAR_ANIMATEDBATCHSPRITE_HPP_
+#define QUASAR_ANIMATEDBATCHSPRITE_HPP_
 
 #include "qs/anim/Animated.hpp"
-#include "qs/sprite/Sprite.hpp"
+#include "qs/sprite/BatchedSprite.hpp"
 
 ///
 /// Core namespace.
@@ -19,18 +19,18 @@ namespace qs
 	///
 	/// Everything you need to draw an animated sprite.
 	///
-	class AnimatedSprite final : public qs::Sprite, public qs::Animated
+	class AnimatedBatchSprite final : public qs::BatchedSprite, public qs::Animated
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		AnimatedSprite();
+		AnimatedBatchSprite();
 
 		///
 		/// Destructor.
 		///
-		~AnimatedSprite() noexcept = default;
+		~AnimatedBatchSprite() noexcept = default;
 
 		///
 		/// Update GL data.

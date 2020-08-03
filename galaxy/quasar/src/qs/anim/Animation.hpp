@@ -51,6 +51,13 @@ namespace qs
 		void restart() noexcept;
 
 		///
+		/// Advance to the next frame.
+		///
+		/// \return Also returns a pointer to the next frame, saving you an extra call to get_current_frame().
+		///
+		[[maybe_unused]] qs::Frame* next_frame();
+
+		///
 		/// Get animation identifier.
 		///
 		/// \return Const std::string.
@@ -81,9 +88,9 @@ namespace qs
 		///
 		/// Get current active animation frame.
 		///
-		/// \return Const std::size_t.
+		/// \return Pointer to current active frame.
 		///
-		[[nodiscard]] const std::size_t get_current_frame() const noexcept;
+		[[nodiscard]] const qs::Frame* get_current_frame() const noexcept;
 
 		///
 		/// Get current frame.
@@ -93,6 +100,11 @@ namespace qs
 		[[nodiscard]] const auto& get_frames() noexcept;
 
 	private:
+		///
+		/// The current frame the animation is on.
+		///
+		qs::Frame* m_active_frame;
+
 		///
 		/// Name of the animation.
 		///
@@ -115,9 +127,9 @@ namespace qs
 		std::size_t m_total_frames;
 
 		///
-		/// The current frame the animation is on.
+		/// Index of the current active frame.
 		///
-		std::size_t m_current_frame;
+		std::size_t m_current_frame_index;
 
 		///
 		/// The frames that make up the animation.

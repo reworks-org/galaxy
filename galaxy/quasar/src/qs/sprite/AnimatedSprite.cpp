@@ -17,29 +17,35 @@ namespace qs
 	{
 	}
 
-	void AnimatedSprite::update()
+	void AnimatedSprite::update(pr::ProtectedDouble* dt)
 	{
-		if (m_dirty_texels)
+		if (!m_paused)
 		{
-			auto vb             = m_vb.get<qs::SpriteVertex>();
-			auto* vertex        = &vb[0];
-			vertex->m_texels[0] = m_texels.x;
-			vertex->m_texels[1] = m_texels.y;
+			m_time_spent_on_frame += (dt->get() * m_active_anim->get_speed());
+			if (m_active_anim->get_current_frame()->get_time_per_frame() >= m_time_spent_on_frame)
+			{
+				m_time_spent_on_frame = 0;
+				auto* new_frame       = m_active_anim->next_frame();
 
-			vertex              = &vb[1];
-			vertex->m_texels[0] = m_texels.x + m_width;
-			vertex->m_texels[1] = m_texels.y;
+				auto& vb            = m_vb.get<qs::SpriteVertex>();
+				auto* vertex        = &vb[0];
+				vertex->m_texels[0] = new_frame->get_x();
+				vertex->m_texels[1] = new_frame->get_y();
 
-			vertex              = &vb[2];
-			vertex->m_texels[0] = m_texels.x + m_width;
-			vertex->m_texels[1] = m_texels.y + m_height;
+				vertex              = &vb[1];
+				vertex->m_texels[0] = new_frame->get_x() + m_width;
+				vertex->m_texels[1] = new_frame->get_y();
 
-			vertex              = &vb[3];
-			vertex->m_texels[0] = m_texels.x;
-			vertex->m_texels[1] = m_texels.y + m_height;
+				vertex              = &vb[2];
+				vertex->m_texels[0] = new_frame->get_x() + m_width;
+				vertex->m_texels[1] = new_frame->get_y() + m_height;
 
-			glNamedBufferSubData(m_vb.id(), 0, vb.size() * sizeof(qs::SpriteVertex), vb.data());
-			m_dirty_texels = false;
+				vertex              = &vb[3];
+				vertex->m_texels[0] = new_frame->get_x();
+				vertex->m_texels[1] = new_frame->get_y() + m_height;
+
+				glNamedBufferSubData(m_vb.id(), 0, vb.size() * sizeof(qs::SpriteVertex), vb.data());
+			}
 		}
 	}
 } // namespace qs

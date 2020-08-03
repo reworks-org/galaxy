@@ -392,12 +392,12 @@ namespace sr
 			std::vector<sr::Entity> entities;
 
 			// using ComponentContainer = std::vector<std::unique_ptr<EntitySet<sr::Entity>>>;
-			(this->internal_operate<Components>(entities), ...);
+			(internal_operate<Components>(entities), ...);
 
 			// So for all elements in the vector, filter by count entites predicate.
 			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
 			{
-				func(e, this->get<Components>(e)...);
+				func(e, get<Components>(e)...);
 			}
 		}
 	}

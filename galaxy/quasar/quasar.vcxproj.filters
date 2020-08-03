@@ -38,6 +38,8 @@
     <ClCompile Include="src\qs\text\Text.cpp" />
     <ClCompile Include="src\qs\anim\Animation.cpp" />
     <ClCompile Include="src\qs\anim\Frame.cpp" />
+    <ClCompile Include="src\qs\sprite\AnimatedBatchSprite.cpp" />
+    <ClCompile Include="src\qs\anim\Animated.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -74,5 +76,7 @@
     <ClInclude Include="src\qs\texture\Texture.hpp" />
     <ClInclude Include="src\qs\anim\Animation.hpp" />
     <ClInclude Include="src\qs\anim\Frame.hpp" />
+    <ClInclude Include="src\qs\sprite\AnimatedBatchSprite.hpp" />
+    <ClInclude Include="src\qs\anim\Animated.hpp" />
   </ItemGroup>
 </Project>

@@ -66,10 +66,10 @@ namespace qs
 		///
 		/// \param x New x position.
 		/// \param y New y position.
-		/// \param w Optional. Width. Will not set unless provided.
-		/// \param h Optional. Height. Will not set unless provided.
+		/// \param w Width. Will not set unless > 0.
+		/// \param h Height. Will not set unless > 0.
 		///
-		void update_region(float x, float y, pr::positive_float auto w = 0.0f, pr::positive_float auto h = 0.0f) noexcept;
+		void update_region(float x, float y, pr::positive_float auto w, pr::positive_float auto h) noexcept;
 
 		///
 		/// Update texquad region.
