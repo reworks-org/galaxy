@@ -26,6 +26,17 @@ namespace galaxy
 		auto anim_array    = json.at("animations");
 		for (const auto& anim : anim_array)
 		{
+			std::string name = anim.at("name");
+			auto frame_array = json.at("frames");
+
+			std::vector<qs::Frame> frames;
+			frames.reserve(frame_array.size());
+			for (const auto& frame : frame_array)
+			{
+				frames.emplace_back(frame.at("x"), frame.at("y"), frame.at("time-per-frame"));
+			}
+
+			m_animations.emplace(name, name, anim.at("looping"), anim.at("speed"), frames);
 		}
 	}
 
