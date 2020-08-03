@@ -20,20 +20,20 @@ PULSAR:
 - Replate date_tz with <chrono>
 - Replace fmt with <format>
 
-Quasar:
+QUASAR:
 - C++20 review when eventual performance improvements are required.
 - Circle.cpp, 43 -> constinit
 
-Solar:
+SOLAR:
 - Replace rangev3 in manager with <ranges> when avaliable.
 - Replace constexpr with constinit in Manager::operate()
 - Replace is_system concept with is_derived.
 
-starlight:
+STARLIGHT:
 - Ability to queue events.
 
-starmap:
-- 
+STARMAP:
+- Write tests.
 
 
 
