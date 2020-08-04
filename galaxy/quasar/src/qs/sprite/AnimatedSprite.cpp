@@ -17,11 +17,11 @@ namespace qs
 	{
 	}
 
-	void AnimatedSprite::update(pr::ProtectedDouble* dt)
+	void AnimatedSprite::update(const double dt)
 	{
 		if (!m_paused)
 		{
-			m_time_spent_on_frame += (dt->get() * m_active_anim->get_speed());
+			m_time_spent_on_frame += (dt * m_active_anim->get_speed());
 			if (m_active_anim->get_current_frame()->get_time_per_frame() >= m_time_spent_on_frame)
 			{
 				m_time_spent_on_frame = 0;

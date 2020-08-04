@@ -10,8 +10,6 @@
 
 #include <string>
 
-#include "protostar/async/ProtectedArithmetic.hpp"
-
 ///
 /// Core namespace.
 ///
@@ -48,7 +46,7 @@ namespace pr
 		///
 		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(pr::ProtectedDouble* dt) = 0;
+		virtual void update(const double dt) = 0;
 
 		///
 		/// \brief Allows for the state to call render code.

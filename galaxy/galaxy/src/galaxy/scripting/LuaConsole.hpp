@@ -37,7 +37,7 @@ namespace galaxy
 		///
 		/// \param show Toggle to show the console.
 		///
-		void draw(bool* show) noexcept;
+		void draw(bool* show);
 
 	private:
 		///
@@ -45,6 +45,6 @@ namespace galaxy
 		///
 		std::vector<std::string> m_history;
 	};
-}
+} // namespace galaxy
 
 #endif

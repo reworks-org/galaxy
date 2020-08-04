@@ -20,7 +20,7 @@ namespace galaxy
 	///
 	/// \return LanguageDefinition object for the text editor.
 	///
-	const TextEditor::LanguageDefinition& getJsonDefinition() noexcept;
-}
+	TextEditor::LanguageDefinition get_json_definition();
+} // namespace galaxy
 
 #endif

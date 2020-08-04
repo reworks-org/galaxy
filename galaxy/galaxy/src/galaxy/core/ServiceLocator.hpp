@@ -22,7 +22,7 @@ namespace qs
 {
 	class Window;
 	class Renderer;
-}
+} // namespace qs
 
 ///
 /// Forward dec.
@@ -31,7 +31,7 @@ namespace pr
 {
 	class ThreadPool;
 	class StateMachine;
-}
+} // namespace pr
 
 ///
 /// Forward dec.
@@ -63,9 +63,6 @@ namespace galaxy
 	///
 	class ServiceLocator final
 	{
-		///
-		/// Allows application, and only application, to set a service's pointer.
-		///
 		friend class Application;
 
 	public:
@@ -79,89 +76,94 @@ namespace galaxy
 		///
 		/// \return Returns a reference to the internal singleton of this class.
 		///
-		static galaxy::ServiceLocator& get() noexcept;
+		[[nodiscard]] static galaxy::ServiceLocator& get() noexcept;
 
 		///
 		/// Get config service.
 		///
 		/// \return Return pointer to config service.
 		///
-		galaxy::Config* config() const noexcept;
+		[[maybe_unused]] galaxy::Config* config() const noexcept;
 
 		///
 		/// Get threadpool service.
 		///
 		/// \return Return pointer to threadpool.
 		///
-		pr::ThreadPool* pool() const noexcept;
+		[[maybe_unused]] pr::ThreadPool* pool() const noexcept;
 
 		///
 		/// Get window service.
 		///
 		/// \return Return pointer to window service.
 		///
-		qs::Window* window() const noexcept;
+		[[maybe_unused]] qs::Window* window() const noexcept;
 
 		///
 		/// Get renderer service.
 		///
 		/// \return Return pointer to renderer service.
 		///
-		qs::Renderer* renderer() const noexcept;
+		[[maybe_unused]] qs::Renderer* renderer() const noexcept;
 
 		///
 		/// Get Lua service.
 		///
 		/// \return Return const pointer to Lua service.
 		///
-		sol::state* lua() const noexcept;
-		
+		[[maybe_unused]] sol::state* lua() const noexcept;
+
 		///
 		/// Get game state service.
 		///
-		pr::StateMachine* gamestate() const noexcept;
+		[[maybe_unused]] pr::StateMachine* gamestate() const noexcept;
 
 		///
 		/// Get Dispatcher service.
 		///
 		/// \return Return const pointer to Dispatcher service.
 		///
-		sl::Dispatcher* dispatcher() const noexcept;
+		[[maybe_unused]] sl::Dispatcher* dispatcher() const noexcept;
 
 		///
 		/// Get World service.
 		///
 		/// \return Return const pointer to World service.
 		///
-		galaxy::World* world() const noexcept;
+		[[maybe_unused]] galaxy::World* world() const noexcept;
 
 		///
 		/// Get serializer service.
 		///
 		/// \return Return const pointer to Serializer service.
 		///
-		galaxy::Serializer* serializer() const noexcept;
+		[[maybe_unused]] galaxy::Serializer* serializer() const noexcept;
 
 		///
 		/// Get FontBook service.
 		///
 		/// \return Return const pointer to FontBook service.
 		///
-		galaxy::FontBook* fontbook() const noexcept;
+		[[maybe_unused]] galaxy::FontBook* fontbook() const noexcept;
 
 		///
 		/// Get ShaderBook service.
 		///
 		/// \return Return const pointer to ShaderBook service.
 		///
-		galaxy::ShaderBook* shaderbook() const noexcept;
+		[[maybe_unused]] galaxy::ShaderBook* shaderbook() const noexcept;
 
 		///
 		/// Get AudioBook service.
 		///
 		/// \return Return const pointer to AudioBook service.
 		///
-		galaxy::AudioBook* audiobook() const noexcept;
+		[[maybe_unused]] galaxy::AudioBook* audiobook() const noexcept;
+
+		///
+		/// Restart flag.
+		///
+		bool m_restart;
 
 	private:
 		///
@@ -185,21 +187,14 @@ namespace galaxy
 		/// Copy assignment operator.
 		/// Deleted.
 		///
-		ServiceLocator& operator=(const ServiceLocator &) = delete;
+		ServiceLocator& operator=(const ServiceLocator&) = delete;
 
 		///
 		/// Move assignment operator.
 		/// Deleted.
 		///
-		ServiceLocator& operator=(ServiceLocator &&) = delete;
+		ServiceLocator& operator=(ServiceLocator&&) = delete;
 
-	public:
-		///
-		/// Restart flag.
-		///
-		bool m_restart;
-
-	private:
 		///
 		/// Config service.
 		///
@@ -208,7 +203,7 @@ namespace galaxy
 		///
 		/// Threadpool service.
 		///
-		pr::ThreadPool* m_threadPool;
+		pr::ThreadPool* m_threadpool;
 
 		///
 		/// Window service.
@@ -260,6 +255,6 @@ namespace galaxy
 		///
 		galaxy::AudioBook* m_audiobook;
 	};
-}
+} // namespace galaxy
 
 #endif

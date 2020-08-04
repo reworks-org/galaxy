@@ -8,10 +8,9 @@
 #ifndef GALAXY_LAYER_HPP_
 #define GALAXY_LAYER_HPP_
 
-#include <string>
+#include <string_view>
 
 #include <qs/graphics/Camera.hpp>
-#include <protostar/async/ProtectedArithmetic.hpp>
 
 ///
 /// Core namespace.
@@ -32,37 +31,35 @@ namespace galaxy
 		///
 		/// Process layer events.
 		///
-		virtual void events() noexcept = 0;
+		virtual void events() = 0;
 
 		///
 		/// Process update (fixed timestep) logic.
 		///
-		/// \param deltaTime Delta-Time from fixed timestep gameloop.
+		/// \param dt Delta-Time from fixed timestep gameloop.
 		///
-		virtual void update(pr::ProtectedDouble* deltaTime) noexcept = 0;
+		virtual void update(const double dt) = 0;
 
 		///
-		/// \brief Render layer.
-		///
-		/// Does NOT allow std::exceptions!
+		/// Render layer.
 		///
 		/// \param camera View camera to render with.
 		///
-		virtual void render(qs::Camera& camera) noexcept = 0;
+		virtual void render(qs::Camera& camera) = 0;
 
 		///
 		/// Set layer name.
 		///
 		/// \param name Name in std::string format.
 		///
-		virtual void setName(const std::string& name) noexcept final;
+		void set_name(std::string_view name) noexcept;
 
 		///
 		/// Get layer name.
 		///
 		/// \return Const std::string.
 		///
-		virtual const std::string& getName() noexcept final;
+		const std::string& get_name() noexcept;
 
 	protected:
 		///
@@ -75,7 +72,7 @@ namespace galaxy
 		///
 		/// \param name Gives the layer a name.
 		///
-		explicit Layer(const std::string& name) noexcept;
+		explicit Layer(std::string_view name) noexcept;
 
 	protected:
 		///
@@ -83,6 +80,6 @@ namespace galaxy
 		///
 		std::string m_name;
 	};
-}
+} // namespace galaxy
 
 #endif

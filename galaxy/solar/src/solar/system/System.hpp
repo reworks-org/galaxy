@@ -8,8 +8,6 @@
 #ifndef SOLAR_SYSTEM_HPP_
 #define SOLAR_SYSTEM_HPP_
 
-#include <protostar/async/ProtectedArithmetic.hpp>
-
 ///
 /// Core namespace.
 ///
@@ -38,7 +36,7 @@ namespace sr
 		///
 		/// \param dt "Lag" from gameloop.
 		///
-		virtual void update(pr::ProtectedDouble* dt) = 0;
+		virtual void update(const double dt) = 0;
 
 	protected:
 		///

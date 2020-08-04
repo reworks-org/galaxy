@@ -8,8 +8,8 @@
 #ifndef GALAXY_AUDIOBOOK_HPP_
 #define GALAXY_AUDIOBOOK_HPP_
 
-#include <frb/audio/Audible.hpp>
-#include <protostar/system/ResourceCache.hpp>
+#include <frb/audio/Sound.hpp>
+#include <frb/audio/Music.hpp>
 
 ///
 /// Core namespace.
@@ -51,6 +51,6 @@ namespace galaxy
 		///
 		void clear() noexcept override;
 	};
-}
+} // namespace galaxy
 
 #endif

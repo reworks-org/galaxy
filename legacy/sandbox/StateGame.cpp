@@ -13,7 +13,7 @@ void scrollCallback(GLFWwindow* window, double x, double y) noexcept
 }
 
 StateGame::StateGame() noexcept
-	:atlasSpr(100)
+    : atlasSpr(100)
 {
 	// Shaders
 	//shader.loadFromRaw(qs::s_spriteVS, qs::s_spriteFS);
@@ -24,9 +24,9 @@ StateGame::StateGame() noexcept
 	//spiteBatchShader.loadFromRaw(qs::s_spriteBatchesVS, qs::s_spriteBatchesFS);
 	//textShader.loadFromRaw(qs::s_textVS, qs::s_textFS);
 
-	auto* window = SL_HANDLE.window();
+	auto* window   = SL_HANDLE.window();
 	auto* renderer = SL_HANDLE.renderer();
-	
+
 	spriteTest.load("bin/wall.png");
 	spriteTest.create<qs::BufferTypeDynamic>();
 	spriteTest.move(500.0f, 20.0f);
@@ -53,7 +53,7 @@ StateGame::StateGame() noexcept
 	font.create(*renderer, glyphShader);
 	font.getTexture()->save("bin/demo");
 
-	text.load("HELLO, WORLD.", &font, { 0, 0, 0, 255 });
+	text.load("HELLO, WORLD.", &font, {0, 0, 0, 255});
 	text.create();
 
 	camera.create(0.0f, window->getWidth(), window->getHeight(), 0.0f);
@@ -105,45 +105,45 @@ void StateGame::events() noexcept
 	int w = glfwGetKey(window->getGLWindow(), GLFW_KEY_W);
 	if (w == GLFW_PRESS)
 	{
-		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::W });
+		camera.onKeyDown(pr::KeyDownEvent {pr::Keys::W});
 	}
 	else
 	{
-		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::W });
+		camera.onKeyUp(pr::KeyUpEvent {pr::Keys::W});
 	}
 
 	int s = glfwGetKey(window->getGLWindow(), GLFW_KEY_S);
 	if (s == GLFW_PRESS)
 	{
-		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::S });
+		camera.onKeyDown(pr::KeyDownEvent {pr::Keys::S});
 	}
 	else
 	{
-		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::S });
+		camera.onKeyUp(pr::KeyUpEvent {pr::Keys::S});
 	}
 
 	int a = glfwGetKey(window->getGLWindow(), GLFW_KEY_A);
 	if (a == GLFW_PRESS)
 	{
-		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::A });
+		camera.onKeyDown(pr::KeyDownEvent {pr::Keys::A});
 	}
 	else
 	{
-		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::A });
+		camera.onKeyUp(pr::KeyUpEvent {pr::Keys::A});
 	}
 
 	int d = glfwGetKey(window->getGLWindow(), GLFW_KEY_D);
 	if (d == GLFW_PRESS)
 	{
-		camera.onKeyDown(pr::KeyDownEvent{ pr::Keys::D });
+		camera.onKeyDown(pr::KeyDownEvent {pr::Keys::D});
 	}
 	else
 	{
-		camera.onKeyUp(pr::KeyUpEvent{ pr::Keys::D });
+		camera.onKeyUp(pr::KeyUpEvent {pr::Keys::D});
 	}
 }
 
-void StateGame::update(pr::ProtectedDouble* deltaTime) noexcept
+void StateGame::update(const double dt) noexcept
 {
 	camera.update(updte.get());
 	atlasSpr.update();
@@ -151,17 +151,17 @@ void StateGame::update(pr::ProtectedDouble* deltaTime) noexcept
 
 void StateGame::render() noexcept
 {
-	auto* window = SL_HANDLE.window();
+	auto* window   = SL_HANDLE.window();
 	auto* renderer = SL_HANDLE.renderer();
 
 	// Render.
-	window->begin({ 0, 0, 0, 255 });
+	window->begin({0, 0, 0, 255});
 
 	shader.bind();
 	shader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 	shader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());
 	renderer->drawSprite(spriteTest, shader);
-	
+
 	spiteBatchShader.bind();
 	spiteBatchShader.setUniform<glm::mat4>("u_cameraProj", camera.getProj());
 	spiteBatchShader.setUniform<glm::mat4>("u_cameraView", camera.getTransformation());

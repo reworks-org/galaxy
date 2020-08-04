@@ -125,7 +125,7 @@ namespace sr
 		}
 	}
 
-	void Manager::update(pr::ProtectedDouble* dt)
+	void Manager::update(const double dt)
 	{
 		for (auto&& ptr : m_systems)
 		{

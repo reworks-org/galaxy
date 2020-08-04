@@ -35,7 +35,7 @@ namespace pr
 		}
 	}
 
-	void StateMachine::update(pr::ProtectedDouble* dt)
+	void StateMachine::update(const double dt)
 	{
 		// Check to make sure update is valid to call.
 		if (!m_stack.empty())

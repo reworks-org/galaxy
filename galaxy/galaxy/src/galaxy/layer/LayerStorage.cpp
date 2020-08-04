@@ -8,20 +8,16 @@
 #include "LayerStorage.hpp"
 
 ///
-/// Core namespace. 
+/// Core namespace.
 ///
 namespace galaxy
 {
-	LayerStorage::LayerStorage() noexcept
-	{
-	}
-
-	LayerStorage::~LayerStorage() noexcept
+	LayerStorage::~LayerStorage()
 	{
 		clear();
 	}
 
-	void LayerStorage::events() noexcept
+	void LayerStorage::events()
 	{
 		for (auto&& layer : m_layers)
 		{
@@ -29,15 +25,15 @@ namespace galaxy
 		}
 	}
 
-	void LayerStorage::update(pr::ProtectedDouble* deltaTime) noexcept
+	void LayerStorage::update(const double dt)
 	{
 		for (auto&& layer : m_layers)
 		{
-			layer->update(deltaTime);
+			layer->update(dt);
 		}
 	}
 
-	void LayerStorage::render(qs::Camera& camera) noexcept
+	void LayerStorage::render(qs::Camera& camera)
 	{
 		for (auto&& layer : m_layers)
 		{
@@ -45,20 +41,19 @@ namespace galaxy
 		}
 	}
 
-	void LayerStorage::pop() noexcept
+	void LayerStorage::pop()
 	{
 		m_layers.pop_back();
 	}
 
-	void LayerStorage::remove(const std::string& name) noexcept
+	void LayerStorage::remove(std::string_view name)
 	{
-		m_layers.erase(std::find_if(m_layers.begin(), m_layers.end(), [&](std::unique_ptr<Layer> const& layer) noexcept
-		{
-			return layer->getName() == name;
-		}));
+		std::erase_if(m_layers, [&](const auto&& layer) {
+			return layer->get_name() == static_cast<std::string>(name);
+		});
 	}
 
-	void LayerStorage::clear() noexcept
+	void LayerStorage::clear()
 	{
 		for (auto&& layer : m_layers)
 		{
@@ -67,4 +62,4 @@ namespace galaxy
 
 		m_layers.clear();
 	}
-}
+} // namespace galaxy

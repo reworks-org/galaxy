@@ -9,23 +9,23 @@
 
 namespace galaxy
 {
-	void Layer::setName(const std::string& name) noexcept
+	void Layer::set_name(std::string_view name) noexcept
 	{
-		m_name = name;
+		m_name = static_cast<std::string>(name);
 	}
 
-	const std::string& Layer::getName() noexcept
+	const std::string& Layer::get_name() noexcept
 	{
 		return m_name;
 	}
 
 	Layer::Layer() noexcept
-		:m_name("default")
+	    : m_name {"default"}
 	{
 	}
 
-	Layer::Layer(const std::string& name) noexcept
-		:m_name(name)
+	Layer::Layer(std::string_view name) noexcept
 	{
+		set_name(name);
 	}
-}
+} // namespace galaxy

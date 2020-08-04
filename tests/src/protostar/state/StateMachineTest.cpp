@@ -32,7 +32,7 @@ public:
 		m_val++;
 	}
 
-	inline void update(pr::ProtectedDouble* dt) override
+	inline void update(const double dt) override
 	{
 		m_val++;
 	}
@@ -75,7 +75,7 @@ public:
 	{
 	}
 
-	inline void update(pr::ProtectedDouble* dt) override
+	inline void update(const double dt) override
 	{
 	}
 

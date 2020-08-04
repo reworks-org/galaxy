@@ -8,15 +8,25 @@
 #ifndef GALAXY_LAYERSTORAGE_HPP_
 #define GALAXY_LAYERSTORAGE_HPP_
 
+#include <memory>
 #include <vector>
+
+#include <protostar/system/Concepts.hpp>
+#include <pulsar/Log.hpp>
 
 #include "galaxy/layer/Layer.hpp"
 
 ///
-/// Core namespace. 
+/// Core namespace.
 ///
 namespace galaxy
 {
+	///
+	/// Is a layer class.
+	///
+	template<typename Type>
+	concept is_layer = std::is_base_of<Layer, Type>::value;
+
 	///
 	/// Storage for layers in a state.
 	///
@@ -26,20 +36,20 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		LayerStorage() noexcept;
+		LayerStorage() noexcept = default;
 
 		///
 		/// Destructor.
 		///
-		~LayerStorage() noexcept;
+		~LayerStorage();
 
 		///
 		/// Constructs a Layer from provided arguments.
 		///
 		/// \param args Arguments to construct Layer with.
 		///
-		template<typename Layer, typename... Args>
-		void add(Args&& ...args) noexcept;
+		template<is_layer Layer, typename... Args>
+		void add(Args&&... args);
 
 		///
 		/// Retrieve a layer from the provided name.
@@ -48,44 +58,44 @@ namespace galaxy
 		///
 		/// \return Pointer to layer.
 		///
-		template<typename Layer>
-		Layer* get(const std::string& name) noexcept;
+		template<is_layer Layer>
+		[[nodiscard]] Layer* get(std::string_view name);
 
 		///
 		/// Process all layer events.
 		///
-		void events() noexcept;
+		void events();
 
 		///
 		/// Update all layers.
 		///
-		/// \param deltaTime Pointer to main loop delta time.
+		/// \param dt Delta time from gameloop.
 		///
-		void update(pr::ProtectedDouble* deltaTime) noexcept;
+		void update(const double dt);
 
 		///
 		/// Render all layers.
 		///
 		/// \param camera Camera to render layers with.
 		///
-		void render(qs::Camera& camera) noexcept;
+		void render(qs::Camera& camera);
 
 		///
 		/// Destroy top-most layer.
 		///
-		void pop() noexcept;
+		void pop();
 
 		///
 		/// Remove layer based on name.
 		///
 		/// \param name Name of the layer to remove.
 		///
-		void remove(const std::string& name) noexcept;
+		void remove(std::string_view name);
 
 		///
 		/// Destroy all layers.
 		///
-		void clear() noexcept;
+		void clear();
 
 	private:
 		///
@@ -94,29 +104,29 @@ namespace galaxy
 		std::vector<std::unique_ptr<galaxy::Layer>> m_layers;
 	};
 
-	template<typename Layer, typename ...Args>
-	inline void LayerStorage::add(Args&& ...args) noexcept
+	template<is_layer Layer, typename... Args>
+	inline void LayerStorage::add(Args&&... args)
 	{
 		m_layers.emplace_back(std::make_unique<Layer>(std::forward<Args>(args)...));
 	}
 
-	template<typename Layer>
-	inline Layer* LayerStorage::get(const std::string& name) noexcept
+	template<is_layer Layer>
+	inline Layer* LayerStorage::get(std::string_view name)
 	{
-		auto pos = std::find_if(m_layers.begin(), m_layers.end(), [&](std::unique_ptr<Layer> const& layer)
-		{
-			return layer->getName() == name;
+		auto res = std::find_if(m_layers.begin(), m_layers.end(), [&](const auto&& layer) {
+			return layer->get_name() == static_cast<std::string>(name);
 		});
 
-		if (pos != m_layers.end())
+		if (res != m_layers.end())
 		{
-			return dynamic_cast<Layer*>(*pos);
+			return dynamic_cast<Layer*>(*res.get());
 		}
 		else
 		{
+			PL_LOG(PL_ERROR, "Tried to get non existant layer: {0}.", name);
 			return nullptr;
 		}
 	}
-}
+} // namespace galaxy
 
 #endif

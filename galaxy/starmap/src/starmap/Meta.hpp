@@ -8,8 +8,6 @@
 #ifndef STARMAP_META_HPP_
 #define STARMAP_META_HPP_
 
-#include <string>
-
 #include <protostar/system/Concepts.hpp>
 
 ///

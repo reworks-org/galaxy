@@ -54,7 +54,7 @@ namespace pr
 		///
 		/// \param dt Delta Time from game loop.
 		///
-		void update(pr::ProtectedDouble* dt);
+		void update(const double dt);
 
 		///
 		/// \brief Render the current state.

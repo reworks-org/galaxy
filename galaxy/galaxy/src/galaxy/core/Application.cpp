@@ -5,16 +5,17 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <fmt/format.h>
+#include <galaxy/scripting/LuaUtils.hpp>
 #include <glad/glad.h>
-#include <sol/sol.hpp>
-#include <qs/text/FreeType.hpp>
+#include <protostar/graphics/Colour.hpp>
 #include <protostar/system/Time.hpp>
 #include <qs/core/WindowSettings.hpp>
-#include <protostar/system/Colour.hpp>
-#include <galaxy/scripting/LuaUtils.hpp>
+#include <qs/text/FreeType.hpp>
+#include <sol/sol.hpp>
 
-#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 
 #include "Application.hpp"
 
@@ -43,123 +44,128 @@ using std_chrono_duration = std::chrono::duration<long long, std::nano>;
 ///
 namespace galaxy
 {
-	Application::Application(std::unique_ptr<galaxy::Config>& config)
+	Application::Application()
 	{
-		m_timeCorrection.set(0);
+		m_delta_time.set(0.0);
 
 		// Seed pseudo-random algorithms.
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-		// Supposed to improve performance. Need to run tests and ensure we aren't using C stdio.
+		// Supposed to improve performance.
 		std::ios::sync_with_stdio(false);
-		
+
 		// Logging.
-		std::string lf = "logs/" + pr::getFormattedTime() + ".txt";
-		PL_LOG_GET.init(lf);
-		PL_LOG_GET.setMinimumLevel(PL_INFO);
+		std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
+		PL_LOG_START(log_path);
+		PL_LOG_GET.set_min_level(PL_INFO);
 
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
 
 		// Config reader.
-		m_config = std::move(config);
+		if (!m_config)
+		{
+			PL_LOG(PL_FATAL, "Failed to initialize config.");
+		}
+
 		SL_HANDLE.m_config = m_config.get();
 
 		// FS paths.
-		galaxy::FileSystem::s_root = m_config->get<std::string>("root-path");
+		galaxy::FileSystem::s_root     = m_config->get<std::string>("root-path");
 		galaxy::FileSystem::s_textures = m_config->get<std::string>("textures-path");
-		galaxy::FileSystem::s_shaders = m_config->get<std::string>("shaders-path");
-		galaxy::FileSystem::s_scripts = m_config->get<std::string>("scripts-path");
-		galaxy::FileSystem::s_audio = m_config->get<std::string>("audio-path");
-		galaxy::FileSystem::s_json = m_config->get<std::string>("json-path");
-		galaxy::FileSystem::s_fonts = m_config->get<std::string>("font-path");
+		galaxy::FileSystem::s_shaders  = m_config->get<std::string>("shaders-path");
+		galaxy::FileSystem::s_scripts  = m_config->get<std::string>("scripts-path");
+		galaxy::FileSystem::s_audio    = m_config->get<std::string>("audio-path");
+		galaxy::FileSystem::s_json     = m_config->get<std::string>("json-path");
+		galaxy::FileSystem::s_fonts    = m_config->get<std::string>("font-path");
+		galaxy::FileSystem::s_saves    = m_config->get<std::string>("save-folder");
 
 		// threadpool
-		m_threadPool = std::make_unique<pr::ThreadPool>();
-		m_threadPool->create(m_config->get<int>("threadpool-threadcount"));
-		m_threadPool->setActive(true);
-		SL_HANDLE.m_threadPool = m_threadPool.get();
+		m_threadpool = std::make_unique<pr::ThreadPool>();
+		m_threadpool->create(m_config->get<int>("threadpool-threadcount"));
+		m_threadpool->start();
+		SL_HANDLE.m_threadpool = m_threadpool.get();
 
 		// window
-		qs::WindowSettings::s_antiAliasing = m_config->get<int>("anti-aliasing"); // 2
-		qs::WindowSettings::s_ansiotropicFiltering = m_config->get<int>("ansio-filter"); // 2
-		qs::WindowSettings::s_vsync = m_config->get<bool>("vsync"); // false
-		qs::WindowSettings::s_srgb = m_config->get<bool>("srgb"); // false
-		qs::WindowSettings::s_aspectRatioX = m_config->get<int>("aspect-ratio-x"); // -1
-		qs::WindowSettings::s_aspectRatioY = m_config->get<int>("aspect-ratio-y"); // -1
-		qs::WindowSettings::s_rawMouseInput = m_config->get<bool>("raw-mouse-input"); // true
-		qs::WindowSettings::s_textureFormat = GL_RGBA8;
+		qs::WindowSettings::s_anti_aliasing   = m_config->get<int>("anti-aliasing");    // 2
+		qs::WindowSettings::s_ansio_filtering = m_config->get<int>("ansio-filter");     // 2
+		qs::WindowSettings::s_vsync           = m_config->get<bool>("vsync");           // false
+		qs::WindowSettings::s_srgb            = m_config->get<bool>("srgb");            // false
+		qs::WindowSettings::s_aspect_ratio_x  = m_config->get<int>("aspect-ratio-x");   // -1
+		qs::WindowSettings::s_aspect_ratio_y  = m_config->get<int>("aspect-ratio-y");   // -1
+		qs::WindowSettings::s_raw_mouse_input = m_config->get<bool>("raw-mouse-input"); // true
+		qs::WindowSettings::s_texture_format  = GL_RGBA8;
 
-		m_window = std::make_unique<qs::Window>();
+		m_window           = std::make_unique<qs::Window>();
 		SL_HANDLE.m_window = m_window.get();
 
 		if (!m_window->create(
 			m_config->get<std::string>("window-name"),
 			m_config->get<int>("window-width"),
-			m_config->get<int>("window-height")
-		))
+			m_config->get<int>("window-height")))
 		{
 			PL_LOG(PL_FATAL, "Failed to create window! Aborting...");
 		}
 		else
 		{
-			m_window->requestAttention();
-			
+			m_window->request_attention();
+
 			bool cursor = m_config->get<bool>("is-cursor-visible");
-			m_window->setCursorVisibility(cursor);
+			m_window->set_cursor_visibility(cursor);
 			if (cursor)
 			{
-				m_window->setCursorIcon(m_config->get<std::string>("cursor-image"));
+				m_window->set_cursor_icon(m_config->get<std::string>("cursor-image"));
 			}
 
-			auto iconPath = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures;
-			m_window->setIcon(iconPath + m_config->get<std::string>("icon-file"));
-			m_window->setCursorIcon(iconPath + m_config->get<std::string>("cursor-image"));
+			auto icon_path   = fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_textures, m_config->get<std::string>("icon-file"));
+			auto cursor_icon = fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_textures, m_config->get<std::string>("cursor-image"));
+			m_window->set_icon(icon_path);
+			m_window->set_cursor_icon(cursor_icon);
 
 			// renderer
-			m_renderer = std::make_unique<qs::Renderer>();
+			m_renderer           = std::make_unique<qs::Renderer>();
 			SL_HANDLE.m_renderer = m_renderer.get();
 
 			// Freetype.
 			FTLIB.open();
 
 			// OpenAl.
-			m_alContext.initialize();
+			m_openal.init();
 
 			// Create lua instance and open libraries.
 			m_lua = std::make_unique<sol::state>();
 			m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
 			SL_HANDLE.m_lua = m_lua.get();
 
-			m_state = std::make_unique<pr::StateMachine>();
+			m_state           = std::make_unique<pr::StateMachine>();
 			SL_HANDLE.m_state = m_state.get();
 
 			// Event dispatcher.
-			m_dispatcher = std::make_unique<sl::Dispatcher>();
+			m_dispatcher           = std::make_unique<sl::Dispatcher>();
 			SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
 			// Game "world".
-			m_world = std::make_unique<galaxy::World>();
+			m_world           = std::make_unique<galaxy::World>();
 			SL_HANDLE.m_world = m_world.get();
 
 			// Serializer.
-			m_serializer = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
+			m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
 			SL_HANDLE.m_serializer = m_serializer.get();
 
 			// FontBook
-			m_fontbook = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
+			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
 			SL_HANDLE.m_fontbook = m_fontbook.get();
 
 			// ShaderBook
-			m_shaderbook = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
+			m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 			SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 			// AudioBook
-			m_audiobook = std::make_unique<galaxy::AudioBook>(m_config->get<std::string>("audiobook-json"));
+			m_audiobook           = std::make_unique<galaxy::AudioBook>(m_config->get<std::string>("audiobook-json"));
 			SL_HANDLE.m_audiobook = m_audiobook.get();
 
 			// Register all usertypes used by this application for sol3.
-			Lua::registerTypes();
+			Lua::register_types();
 		}
 	}
 
@@ -174,10 +180,8 @@ namespace galaxy
 		m_lua.reset();
 		m_renderer.reset();
 		m_window.reset();
-		m_threadPool.reset();
+		m_threadpool.reset();
 		m_config.reset();
-
-		PL_LOG_GET.deinit();
 	}
 
 	bool Application::run() noexcept
@@ -186,33 +190,32 @@ namespace galaxy
 		std_chrono_tp current;
 		std_chrono_duration elapsed;
 		std::chrono::nanoseconds lag(0ns);
-		constexpr std::chrono::nanoseconds updateRatio(16ms);
-		const pr::Colour bg(255, 255, 255, 255);
+		constexpr std::chrono::nanoseconds update_ratio(16ms);
 
 		// Fixed timestep gameloop. Pretty easy to understand.
 		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
 		auto previous = std_chrono_hrc::now();
-		while (m_window->isOpen())
+		while (m_window->is_open())
 		{
-			current = std_chrono_hrc::now();
-			elapsed = current - previous;
+			current  = std_chrono_hrc::now();
+			elapsed  = current - previous;
 			previous = current;
 			lag += elapsed;
 
-			m_window->pollEvents();
-			while (lag >= updateRatio)
+			m_window->poll_events();
+			while (lag >= update_ratio)
 			{
-				m_timeCorrection.set(static_cast<double>(lag.count()) / static_cast<double>(updateRatio.count()));
-				
-				m_state->events();
-				m_state->update(&m_timeCorrection);
+				m_delta_time.set(static_cast<double>(lag.count()) / static_cast<double>(update_ratio.count()));
 
-				lag -= updateRatio;
+				m_state->events();
+				m_state->update(m_delta_time.get());
+
+				lag -= update_ratio;
 			}
-			
+
 			// Begin render.
-			m_window->begin(bg);
-			
+			m_window->begin();
+
 			m_state->render();
 
 			m_window->end();
@@ -220,19 +223,18 @@ namespace galaxy
 		}
 
 		m_state->clear();
-		m_threadPool->setActive(false);
-		m_threadPool->destroy();
+		m_threadpool->end();
 
 		FTLIB.close();
 		m_window->destroy();
 
-		PL_LOG_GET.deinit();
+		PL_LOG_FINISH;
 
 		return SL_HANDLE.m_restart;
 	}
 
-	pr::ProtectedDouble* Application::getDT() noexcept
+	pr::ProtectedDouble* Application::get_dt() noexcept
 	{
-		return &m_timeCorrection;
+		return &m_delta_time;
 	}
-}
+} // namespace galaxy

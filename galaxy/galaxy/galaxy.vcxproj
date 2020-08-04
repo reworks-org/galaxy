@@ -28,7 +28,6 @@
     <ClCompile Include="src\galaxy\core\Application.cpp" />
     <ClCompile Include="src\galaxy\flags\EnabledFlag.cpp" />
     <ClCompile Include="src\galaxy\layer\LayerStorage.cpp" />
-    <ClCompile Include="src\galaxy\res\AudioBook.cpp" />
     <ClCompile Include="src\galaxy\res\FontBook.cpp" />
     <ClCompile Include="src\galaxy\res\ShaderBook.cpp" />
     <ClCompile Include="src\galaxy\scripting\Command.cpp" />
@@ -36,20 +35,9 @@
     <ClCompile Include="src\galaxy\core\World.cpp" />
     <ClCompile Include="src\galaxy\fs\Config.cpp" />
     <ClCompile Include="src\galaxy\fs\FileSystem.cpp" />
-    <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
-    <ClCompile Include="src\galaxy\fs\Serializer.cpp" />
     <ClCompile Include="src\galaxy\layer\Layer.cpp" />
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaEntity.cpp" />
-    <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
-    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
-    <ClCompile Include="src\galaxy\ui\GUI.cpp" />
     <ClCompile Include="src\galaxy\scripting\LuaConsole.cpp" />
-    <ClCompile Include="src\galaxy\ui\Theme.cpp" />
-    <ClCompile Include="src\galaxy\ui\Tooltip.cpp" />
-    <ClCompile Include="src\galaxy\ui\Widget.cpp" />
-    <ClCompile Include="src\galaxy\ui\widgets\Button.cpp" />
-    <ClCompile Include="src\galaxy\ui\widgets\Image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\components\AnimationComponent.hpp" />
@@ -61,7 +49,6 @@
     <ClInclude Include="src\galaxy\core\Application.hpp" />
     <ClInclude Include="src\galaxy\flags\EnabledFlag.hpp" />
     <ClInclude Include="src\galaxy\layer\LayerStorage.hpp" />
-    <ClInclude Include="src\galaxy\res\AudioBook.hpp" />
     <ClInclude Include="src\galaxy\res\FontBook.hpp" />
     <ClInclude Include="src\galaxy\res\ShaderBook.hpp" />
     <ClInclude Include="src\galaxy\scripting\Command.hpp" />
@@ -69,20 +56,9 @@
     <ClInclude Include="src\galaxy\core\World.hpp" />
     <ClInclude Include="src\galaxy\fs\Config.hpp" />
     <ClInclude Include="src\galaxy\fs\FileSystem.hpp" />
-    <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
-    <ClInclude Include="src\galaxy\fs\Serializer.hpp" />
     <ClInclude Include="src\galaxy\layer\Layer.hpp" />
     <ClInclude Include="src\galaxy\scripting\JSONDefinition.hpp" />
-    <ClInclude Include="src\galaxy\scripting\LuaEntity.hpp" />
-    <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
-    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
-    <ClInclude Include="src\galaxy\ui\GUI.hpp" />
     <ClInclude Include="src\galaxy\scripting\LuaConsole.hpp" />
-    <ClInclude Include="src\galaxy\ui\Theme.hpp" />
-    <ClInclude Include="src\galaxy\ui\Tooltip.hpp" />
-    <ClInclude Include="src\galaxy\ui\Widget.hpp" />
-    <ClInclude Include="src\galaxy\ui\widgets\Button.hpp" />
-    <ClInclude Include="src\galaxy\ui\widgets\Image.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\TODO.txt" />
@@ -187,7 +163,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_CXX17_FEATURES;WIN64;_DEBUG</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../dependencies/C++20/include/;../../dependencies/oggvorbis/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/single/include/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../../dependencies/C++20/include/;../../dependencies/oggvorbis/include/</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -232,7 +208,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_CXX17_FEATURES;WIN32;_DEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../dependencies/C++20/include/;../../dependencies/oggvorbis/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/single/include/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../../dependencies/C++20/include/;../../dependencies/oggvorbis/include/</AdditionalIncludeDirectories>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
@@ -276,7 +252,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_CXX17_FEATURES;WIN32;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../dependencies/C++20/include/;../../dependencies/oggvorbis/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/single/include/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../../dependencies/C++20/include/;../../dependencies/oggvorbis/include/</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
@@ -332,7 +308,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>AL_LIBTYPE_STATIC;GLM_FORCE_XYZW_ONLY;GLFW_INCLUDE_NONE;STB_IMAGE_WRITE_STATIC;STB_IMAGE_WRITE_IMPLEMENTATION;STBI_ONLY_PNG;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;SOL_CXX17_FEATURES;WIN64;NDEBUG;</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../dependencies/C++20/include/;../../dependencies/oggvorbis/include/;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src/;../celestial/src/;../deps/src/;../frb/src/;../protostar/src/;../pulsar/src/;../quasar/src/;../redshift/src/;../solar/src/;../starlight/src/;../starmap/src/;../../dependencies/freetype/include/;../../dependencies/glad/;../../dependencies/glfw3/include/;../../dependencies/glm/;../../dependencies/imgui/;../../dependencies/imgui/cpp/;../../dependencies/imgui/impl/;../../dependencies/imgui-texteditor/;../../dependencies/json/include/;../../dependencies/lua/src/;../../dependencies/openal/include/;../../dependencies/portable-file-dialogs/include/;../../dependencies/sol3/single/include/;../../dependencies/stb/;../../dependencies/zlib/include/;../../dependencies/Box2D-MT/;../../dependencies/C++20/include/;../../dependencies/oggvorbis/include/</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>MaxSpeed</Optimization>

@@ -28,6 +28,6 @@ namespace galaxy
 		///
 		~EnabledFlag() noexcept = default;
 	};
-}
+} // namespace galaxy
 
 #endif

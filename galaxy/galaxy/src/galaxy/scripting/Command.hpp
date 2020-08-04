@@ -6,7 +6,7 @@
 ///
 
 #ifndef GALAXY_COMMAND_HPP_
-#define	GALAXY_COMMAND_HPP_
+#define GALAXY_COMMAND_HPP_
 
 ///
 /// Core namespace.
@@ -32,14 +32,14 @@ namespace galaxy
 		///
 		/// \return bool Return true if successful, false if not.
 		///
-		virtual bool exec() noexcept = 0;
+		virtual bool exec() = 0;
 
 		///
 		/// Reverse the command's actions. Undo them.
 		///
 		/// \return bool Return true if successful, false if not.
 		///
-		virtual bool undo() noexcept = 0;
+		virtual bool undo() = 0;
 
 	protected:
 		///
@@ -47,6 +47,6 @@ namespace galaxy
 		///
 		Command() noexcept = default;
 	};
-}
+} // namespace galaxy
 
 #endif

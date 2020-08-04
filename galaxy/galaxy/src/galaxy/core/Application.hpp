@@ -9,20 +9,19 @@
 #define GALAXY_APPLICATION_HPP_
 
 #include <memory>
+#include <span>
 
 #include <frb/Context.hpp>
-#include <sol/forward.hpp>
+#include <protostar/async/ThreadPool.hpp>
+#include <protostar/state/StateMachine.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/core/Renderer.hpp>
 #include <starlight/Dispatcher.hpp>
-#include <protostar/async/ThreadPool.hpp>
-#include <protostar/state/StateMachine.hpp>
+#include <sol/forward.hpp>
 
 #include "galaxy/core/World.hpp"
-
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/Serializer.hpp"
-
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/AudioBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
@@ -42,22 +41,28 @@ namespace galaxy
 		/// \brief Virtual destructor.
 		///
 		/// Cleans up engine related memory usage.
-		/// 
+		///
 		virtual ~Application();
 
 		///
 		/// Runs the application.
 		///
 		/// \return Returns true if the program should restart.
-		/// 
-		virtual bool run() noexcept final;
+		///
+		[[maybe_unused]] bool run();
+
+		///
+		/// Create the config file.
+		///
+		template<typename... Args>
+		[[nodiscard]] Config* make_config(Args&&... args);
 
 		///
 		/// Get delta time.
 		///
 		/// \return Pointer to protected double.
 		///
-		virtual pr::ProtectedDouble* getDT() noexcept final;
+		[[nodiscard]] pr::ProtectedDouble* get_dt() noexcept;
 
 	protected:
 		///
@@ -65,41 +70,18 @@ namespace galaxy
 		///
 		/// Sets up the engine. You need to inherit this and call it from a subclass.
 		/// Also calls std::srand(std::time(nullptr)) for you.
-		/// 
-		/// \param config You need to construct, initialize and open a config file.
-		///               std::move() is called for you.
 		///
-		Application(std::unique_ptr<galaxy::Config>& config);
+		Application();
 
-	private:
-		///
-		/// Default constructor.
-		/// Deleted.
-		///
-		Application() = delete;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		Application(const Application&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		Application(Application&&) = delete;
-
-	protected:
 		///
 		/// Instance of a config reader to parse library config.
 		///
 		std::unique_ptr<galaxy::Config> m_config;
-		
+
 		///
 		/// Threadpool for app.
 		///
-		std::unique_ptr<pr::ThreadPool> m_threadPool;
+		std::unique_ptr<pr::ThreadPool> m_threadpool;
 
 		///
 		/// Main app window.
@@ -117,13 +99,13 @@ namespace galaxy
 		std::unique_ptr<sol::state> m_lua;
 
 		///
-		/// Controls game states. 
+		/// Controls game states.
 		///
 		std::unique_ptr<pr::StateMachine> m_state;
 
 		///
 		/// Process game events.
-		/// 
+		///
 		std::unique_ptr<sl::Dispatcher> m_dispatcher;
 
 		///
@@ -150,18 +132,36 @@ namespace galaxy
 		/// Library of all audio.
 		///
 		std::unique_ptr<galaxy::AudioBook> m_audiobook;
-		
+
 	private:
+		///
+		/// Copy Constructor.
+		/// Deleted.
+		///
+		Application(const Application&) = delete;
+
+		///
+		/// Move Constructor.
+		/// Deleted.
+		///
+		Application(Application&&) = delete;
+
 		///
 		/// Delta Time.
 		///
-		pr::ProtectedDouble m_timeCorrection;
+		pr::ProtectedDouble m_delta_time;
 
 		///
 		/// OpenAL context.
 		///
-		frb::Context m_alContext;
+		frb::Context m_openal;
 	};
-}
+
+	template<typename... Args>
+	inline Config* Application::make_config(Args&&... args)
+	{
+		m_config = std::make_unique<Config>(std::forward<Args>(args)...);
+	}
+} // namespace galaxy
 
 #endif

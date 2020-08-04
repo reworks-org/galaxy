@@ -26,7 +26,6 @@ namespace galaxy
 		///
 		~FileSystem() noexcept = default;
 
-	public:
 		///
 		/// Root directory of all files.
 		///
@@ -74,12 +73,19 @@ namespace galaxy
 		///
 		static std::string s_fonts;
 
-	private:
+		///
+		/// \brief Root directory of save files.
+		///
+		/// Should be a subdirectory of s_root.
+		///
+		static std::string s_saves;
+
+	protected:
 		///
 		/// Constructor.
 		///
-		FileSystem() = delete;
+		FileSystem() noexcept = default;
 	};
-}
+} // namespace galaxy
 
 #endif

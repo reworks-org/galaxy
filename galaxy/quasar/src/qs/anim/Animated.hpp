@@ -10,8 +10,6 @@
 
 #include <unordered_map>
 
-#include <protostar/async/ProtectedArithmetic.hpp>
-
 #include "qs/anim/Animation.hpp"
 
 ///
@@ -49,7 +47,7 @@ namespace qs
 		///
 		/// \param dt DeltaTime.
 		///
-		virtual void update(pr::ProtectedDouble* dt) = 0;
+		virtual void update(const double dt) = 0;
 
 		///
 		/// Change the current animation.

@@ -15,19 +15,19 @@
 namespace galaxy
 {
 	Config::Config() noexcept
-		:m_opened(false), m_exists(false)
+	    : m_opened {false}, m_exists {false}
 	{
 	}
 
-	Config::~Config() noexcept
+	Config::~Config()
 	{
 		// Save on exit.
 		save();
 	}
 
-	void Config::init(const std::string& file) noexcept
+	void Config::init(std::string_view file)
 	{
-		m_path = std::filesystem::path(file);
+		m_path = {file};
 		if (!std::filesystem::exists(m_path))
 		{
 			m_exists = false;
@@ -38,15 +38,16 @@ namespace galaxy
 		}
 	}
 
-	bool Config::open() noexcept
+	bool Config::open()
 	{
 		bool result = true;
 
 		if (m_exists)
 		{
 			// Makes sure the filepath is correct for the current platform.
-			std::fstream ifstream(m_path.string(), std::fstream::in);
-			if (ifstream.fail())
+			std::fstream ifs;
+			ifs.open(m_path.string(), std::fstream::in);
+			if (!ifs.good())
 			{
 				result = false;
 				PL_LOG(PL_ERROR, "std::ifstream failed to open config file!");
@@ -54,22 +55,22 @@ namespace galaxy
 			else
 			{
 				// Use JSON stream to deserialize data and parse.
-				ifstream >> m_config;
+				ifs >> m_config;
 				m_opened = true;
 			}
 
-			ifstream.close();
+			ifs.close();
 		}
 		else
 		{
 			result = false;
-			PL_LOG(PL_WARNING, "Config file must be defined and then created.");
+			PL_LOG(PL_WARNING, "Config file must be init() and define(), then created.");
 		}
 
 		return result;
 	}
 
-	void Config::create() noexcept
+	void Config::create()
 	{
 		if (m_config.empty())
 		{
@@ -82,20 +83,19 @@ namespace galaxy
 		}
 	}
 
-	void Config::save() noexcept
+	void Config::save()
 	{
-		std::ofstream ofstream(m_path.string(), std::ofstream::out | std::ofstream::trunc);
-		if (ofstream.fail())
+		std::ofstream ofs;
+		ofs.open(m_path.string(), std::ofstream::out | std::ofstream::trunc);
+		if (!ofs.good())
 		{
-			PL_LOG(PL_ERROR, "std::ofstream failed to open config file!");
-		}
-		else
-		{
-			// Use JSON stream to serialize data and write to file.
-			ofstream << m_config.dump(4);
-			m_opened = true;
+			PL_LOG(PL_FATAL, "std::ofstream failed to open config file!");
 		}
 
-		ofstream.close();
+		// Use JSON stream to serialize data and write to file.
+		ofs << m_config.dump(4);
+		m_opened = true;
+
+		ofs.close();
 	}
-}
+} // namespace galaxy

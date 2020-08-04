@@ -8,8 +8,8 @@
 #ifndef GALAXY_SHADERBOOK_HPP_
 #define GALAXY_SHADERBOOK_HPP_
 
+#include <protostar/res/ResourceCache.hpp>
 #include <qs/core/Shader.hpp>
-#include <protostar/system/ResourceCache.hpp>
 
 ///
 /// Core namespace.
@@ -32,25 +32,25 @@ namespace galaxy
 		///
 		/// \param json JSON file to load.
 		///
-		explicit ShaderBook(const std::string& json) noexcept;
+		explicit ShaderBook(std::string_view json);
 
 		///
 		/// Destructor.
 		///
-		~ShaderBook() noexcept;
+		~ShaderBook();
 
 		///
 		/// Create ShaderBook from JSON.
 		///
 		/// \param json JSON file to load.
 		///
-		void createFromJSON(const std::string& json);
+		void create_from_json(std::string_view json);
 
 		///
 		/// Clean up.
 		///
-		void clear() noexcept override;
+		void clear() override;
 	};
-}
+} // namespace galaxy
 
 #endif

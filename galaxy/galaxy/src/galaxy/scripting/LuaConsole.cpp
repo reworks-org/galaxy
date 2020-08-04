@@ -9,11 +9,11 @@
 #include <filesystem>
 
 #include <imgui.h>
-#include <sol/sol.hpp>
 #include <imgui_stdlib.h>
+#include <sol/sol.hpp>
 
-#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 
 #include "LuaConsole.hpp"
 
@@ -22,7 +22,7 @@
 ///
 namespace galaxy
 {
-	void LuaConsole::draw(bool* show) noexcept
+	void LuaConsole::draw(bool* show)
 	{
 		ImGui::Begin("Lua Console", show, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
 		ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
@@ -44,17 +44,18 @@ namespace galaxy
 			ImGui::PushStyleColor(ImGuiCol_FrameBg, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
 			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 0.0f, 0.0f, 1.0f));
 
-			static std::string s_buff = "";
+			static std::string s_buff = {""};
 			if (ImGui::InputText("", &s_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 			{
 				m_history.push_back("INPUT: " + s_buff);
-				std::string code = "";
+				std::string code = {""};
 
 				if (std::filesystem::path(s_buff).extension() == ".lua")
 				{
-					std::ifstream ifs(std::filesystem::path(s_buff).string());
+					std::ifstream ifs;
+					ifs.open(std::filesystem::path(s_buff).string(), std::ifstream::in);
 					code = std::string((std::istreambuf_iterator<char>(ifs)),
-						std::istreambuf_iterator<char>());
+							   std::istreambuf_iterator<char>());
 				}
 				else
 				{
@@ -75,11 +76,11 @@ namespace galaxy
 		ImGui::Separator();
 		ImGui::Spacing();
 
-		for (auto& str : m_history)
+		for (const auto& str : m_history)
 		{
 			ImGui::TextWrapped(str.c_str());
 		}
 
 		ImGui::End();
 	}
-}
+} // namespace galaxy

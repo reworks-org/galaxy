@@ -18,7 +18,7 @@
 namespace galaxy
 {
 	World::World() noexcept
-		:Manager()
+	    : Manager()
 	{
 		// TODO: Register defaults.
 	}
@@ -32,7 +32,7 @@ namespace galaxy
 	{
 		// Makes sure the filepath is correct for the current platform.
 		sr::Entity entity = 0;
-		auto path = std::filesystem::path(file);
+		auto path         = std::filesystem::path(file);
 		std::ifstream input(path.string(), std::ifstream::in);
 
 		if (input.fail())
@@ -72,4 +72,4 @@ namespace galaxy
 	void World::serialize(const sr::Entity entity) noexcept
 	{
 	}
-}
+} // namespace galaxy

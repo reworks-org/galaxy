@@ -12,32 +12,29 @@
 ///
 namespace galaxy
 {
-	const TextEditor::LanguageDefinition& getJsonDefinition() noexcept
+	TextEditor::LanguageDefinition get_json_definition()
 	{
-		static bool inited = false;
-		static TextEditor::LanguageDefinition langDef;
+		static bool init = false;
+		static TextEditor::LanguageDefinition lang_def;
 
-		if (!inited)
+		if (!init)
 		{
-			static const char* const keywords[] = {
-				"{", "}", "[", "]", ":", ",", "true", "false", "null", "'", "\"", "\\", "//"
-			};
+			for (const auto& k : {
+				 "{", "}", "[", "]", ":", ",", "true", "false", "null", "'", "\"", "\\", "//"})
+				lang_def.mKeywords.insert(k);
 
-			for (auto& k : keywords)
-				langDef.mKeywords.insert(k);
+			lang_def.mCommentStart      = {"/*"};
+			lang_def.mCommentEnd        = {"*/"};
+			lang_def.mSingleLineComment = {"///"};
 
-			langDef.mCommentStart = "";
-			langDef.mCommentEnd = "";
-			langDef.mSingleLineComment = "";
+			lang_def.mCaseSensitive   = true;
+			lang_def.mAutoIndentation = true;
 
-			langDef.mCaseSensitive = true;
-			langDef.mAutoIndentation = true;
+			lang_def.mName = "JSON";
 
-			langDef.mName = "JSON";
-
-			inited = true;
+			init = true;
 		}
 
-		return langDef;
+		return lang_def;
 	}
-}
+} // namespace galaxy

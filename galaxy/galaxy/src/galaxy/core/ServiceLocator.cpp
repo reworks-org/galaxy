@@ -14,8 +14,8 @@ namespace galaxy
 {
 	galaxy::ServiceLocator& ServiceLocator::get() noexcept
 	{
-		static galaxy::ServiceLocator s_serviceLocator;
-		return s_serviceLocator;
+		static galaxy::ServiceLocator s_service_locator;
+		return s_service_locator;
 	}
 
 	galaxy::Config* ServiceLocator::config() const noexcept
@@ -25,7 +25,7 @@ namespace galaxy
 
 	pr::ThreadPool* ServiceLocator::pool() const noexcept
 	{
-		return m_threadPool;
+		return m_threadpool;
 	}
 
 	qs::Window* ServiceLocator::window() const noexcept
@@ -79,7 +79,7 @@ namespace galaxy
 	}
 
 	ServiceLocator::ServiceLocator() noexcept
-		:m_restart(false), m_config(nullptr), m_threadPool(nullptr), m_window(nullptr), m_renderer(nullptr), m_lua(nullptr), m_state(nullptr), m_dispatcher(nullptr), m_world(nullptr), m_serializer(nullptr), m_fontbook(nullptr), m_shaderbook(nullptr), m_audiobook(nullptr)
+	    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_renderer {nullptr}, m_lua {nullptr}, m_state {nullptr}, m_dispatcher {nullptr}, m_world {nullptr}, m_serializer {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_audiobook {nullptr}
 	{
 	}
-}
+} // namespace galaxy

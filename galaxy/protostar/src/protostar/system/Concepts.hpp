@@ -8,8 +8,9 @@
 #ifndef PROTOSTAR_CONCEPTS_HPP_
 #define PROTOSTAR_CONCEPTS_HPP_
 
-#include <cstdint>
 #include <concepts>
+#include <cstdint>
+#include <string>
 #include <type_traits>
 
 ///
@@ -106,6 +107,12 @@ namespace pr
 	///
 	template<typename Type>
 	concept is_arithmetic = std::is_arithmetic<Type>::value;
+
+	///
+	/// Ensures a type is arithmetic or a std::string.
+	///
+	template<typename Type>
+	concept standard_types = (std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
 
 	///
 	/// Ensures that a pointer is not null.

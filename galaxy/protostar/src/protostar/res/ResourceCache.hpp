@@ -47,7 +47,7 @@ namespace pr
 		///
 		/// Virtual destructor.
 		///
-		virtual ~ResourceCache() noexcept;
+		virtual ~ResourceCache();
 
 		///
 		/// Create a resource.
@@ -68,7 +68,7 @@ namespace pr
 		///
 		/// \return Pointer to newly created resource.
 		///
-		[[maybe_unused]] virtual Resource* move(std::string_view name, Resource& resource) noexcept final;
+		[[maybe_unused]] Resource* move(std::string_view name, Resource& resource);
 
 		///
 		/// Retrieve a resource.
@@ -77,12 +77,12 @@ namespace pr
 		///
 		/// \return Returns a pointer to the resource.
 		///
-		[[nodiscard]] virtual Resource* get(std::string_view handle) noexcept final;
+		[[nodiscard]] Resource* get(std::string_view handle);
 
 		///
 		/// Clean up.
 		///
-		virtual void clear() noexcept = 0;
+		virtual void clear() = 0;
 
 	protected:
 		///
@@ -107,7 +107,7 @@ namespace pr
 	};
 
 	template<not_pointer_or_ref Resource>
-	inline ResourceCache<Resource>::~ResourceCache() noexcept
+	inline ResourceCache<Resource>::~ResourceCache()
 	{
 		clear();
 	}
@@ -124,7 +124,7 @@ namespace pr
 	}
 
 	template<not_pointer_or_ref Resource>
-	inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource) noexcept
+	inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource)
 	{
 		const auto str   = static_cast<std::string>(name);
 		m_resources[str] = std::move(resource);
@@ -133,7 +133,7 @@ namespace pr
 	}
 
 	template<not_pointer_or_ref Resource>
-	inline Resource* ResourceCache<Resource>::get(std::string_view name) noexcept
+	inline Resource* ResourceCache<Resource>::get(std::string_view name)
 	{
 		const auto str = static_cast<std::string>(name);
 		if (m_resources.contains(str))

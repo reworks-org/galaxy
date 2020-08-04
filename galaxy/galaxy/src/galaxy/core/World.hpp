@@ -26,7 +26,7 @@ namespace galaxy
 		///
 		using ComponentFactory = std::unordered_map<std::string, std::function<void(const sr::Entity, const nlohmann::json&)>>;
 
-	public: 
+	public:
 		///
 		/// Constructor.
 		///
@@ -83,12 +83,11 @@ namespace galaxy
 		}
 		else
 		{
-			m_componentFactory.emplace(name, [this](const sr::Entity e, const nlohmann::json& json) noexcept
-			{
+			m_componentFactory.emplace(name, [this](const sr::Entity e, const nlohmann::json& json) noexcept {
 				this->add<Component>(e, json);
 			});
 		}
 	}
-}
+} // namespace galaxy
 
 #endif

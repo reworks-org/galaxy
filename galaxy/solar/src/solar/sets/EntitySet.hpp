@@ -9,7 +9,6 @@
 #define SOLAR_ENTITYSET_HPP_
 
 #include <optional>
-#include <string>
 #include <vector>
 
 #include <pulsar/Log.hpp>

@@ -46,7 +46,7 @@ struct DemoSystem : public sr::System
 		val = 10;
 	}
 
-	void update(pr::ProtectedDouble* dt) override
+	void update(const double dt) override
 	{
 		val = 20;
 	}

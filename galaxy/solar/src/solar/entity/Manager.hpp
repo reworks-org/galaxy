@@ -233,7 +233,7 @@ namespace sr
 		///
 		/// \param dt "Lag" time to pass to systems.
 		///
-		void update(pr::ProtectedDouble* dt);
+		void update(const double dt);
 
 		///
 		/// Clear all data from Manager and reset.

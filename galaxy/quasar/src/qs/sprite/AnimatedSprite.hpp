@@ -37,7 +37,7 @@ namespace qs
 		///
 		/// \param dt DeltaTime.
 		///
-		void update(pr::ProtectedDouble* dt) override;
+		void update(const double dt) override;
 	};
 } // namespace qs
 

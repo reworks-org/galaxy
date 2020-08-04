@@ -21,8 +21,8 @@ namespace galaxy
 		///
 		/// Registers custom library usertypes with sol. Called for you by Application class.
 		///
-		void registerTypes() noexcept;
-	}
-}
+		void register_types();
+	} // namespace Lua
+} // namespace galaxy
 
 #endif

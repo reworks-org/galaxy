@@ -18,41 +18,40 @@
 ///
 namespace galaxy
 {
-	FontBook::FontBook(const std::string& json) noexcept
+	FontBook::FontBook(std::string_view json)
 	{
-		createFromJSON(json);
+		create_from_json(json);
 	}
 
-	FontBook::~FontBook() noexcept
+	FontBook::~FontBook()
 	{
 		clear();
 	}
 
-	void FontBook::createFromJSON(const std::string& json)
+	void FontBook::create_from_json(std::string_view json)
 	{
-		auto path = std::filesystem::path(galaxy::FileSystem::s_root + galaxy::FileSystem::s_json + json);
+		auto path = std::filesystem::path {fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_json, json)};
 
-		std::ifstream is(path.string(), std::ifstream::in);
-		if (is.good())
+		std::ifstream ifs(path.string(), std::ifstream::in);
+		if (ifs.good())
 		{
 			nlohmann::json j;
-			is >> j;
+			ifs >> j;
 
 			nlohmann::json arr = j.at("fontbook");
-			std::for_each(arr.begin(), arr.end(), [this](const nlohmann::json& font)
-			{
-				auto fontPath = std::filesystem::path(FileSystem::s_root + FileSystem::s_fonts + font[0].get<std::string>());
+			std::for_each(arr.begin(), arr.end(), [&](const nlohmann::json& font) {
+				auto fp        = std::filesystem::path {fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_fonts, font[0].get<std::string>())};
 				const int size = font[1].get<int>();
 
-				this->add(fontPath.stem().string() + std::to_string(size), fontPath.string(), size);
+				create(fp.stem().string() + std::to_string(size), fp.string(), size);
 			});
-			
-			is.close();
+
+			ifs.close();
 		}
 	}
 
-	void FontBook::clear() noexcept
+	void FontBook::clear()
 	{
 		m_resources.clear();
 	}
-}
+} // namespace galaxy
