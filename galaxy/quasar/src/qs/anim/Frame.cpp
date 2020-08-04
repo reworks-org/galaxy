@@ -13,7 +13,7 @@
 namespace qs
 {
 	Frame::Frame() noexcept
-	    : m_x {0.0f}, m_y {0.0f}, m_time_per_frame {0.0f}
+	    : m_x {0.0f}, m_y {0.0f}, m_time_per_frame {0}
 	{
 	}
 

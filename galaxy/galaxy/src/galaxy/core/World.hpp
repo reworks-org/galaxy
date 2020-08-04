@@ -17,25 +17,25 @@
 namespace galaxy
 {
 	///
+	/// Shorthand for component factory map.
+	///
+	using ComponentFactory = std::unordered_map<std::string, std::function<void(const sr::Entity, const nlohmann::json&)>>;
+
+	///
 	/// The World class. Contains the entities and systems and other library stuff, like the main lua state.
 	///
 	class World final : public sr::Manager
 	{
-		///
-		/// Shorthand for component factory map.
-		///
-		using ComponentFactory = std::unordered_map<std::string, std::function<void(const sr::Entity, const nlohmann::json&)>>;
-
 	public:
 		///
 		/// Constructor.
 		///
-		World() noexcept;
+		World();
 
 		///
 		/// Destructor.
 		///
-		~World() noexcept;
+		~World();
 
 		///
 		/// \brief Create an entity from a JSON file.
@@ -46,45 +46,36 @@ namespace galaxy
 		///
 		/// \return Created entity.
 		///
-		const sr::Entity createFromJSON(const std::string& file) noexcept;
+		const sr::Entity create_from_json(std::string_view file);
 
 		///
 		/// Registers a component definition.
 		///
 		/// \param name Name of component class in string format i.e. "AnimationComponent".
 		///
-		template<typename Component>
-		void registerComponent(const std::string& name) noexcept;
-
-		///
-		///
-		///
-		void serialize() noexcept;
-
-		///
-		///
-		///
-		void serialize(const sr::Entity entity) noexcept;
+		template<pr::is_class Component>
+		void register_component(std::string_view name);
 
 	private:
 		///
 		/// Used to allow for component creation without having to know the compile time type.
 		///
-		ComponentFactory m_componentFactory;
+		ComponentFactory m_component_factory;
 	};
 
-	template<typename Component>
-	inline void World::registerComponent(const std::string& name) noexcept
+	template<pr::is_class Component>
+	inline void World::register_component(std::string_view name)
 	{
 		// Make sure there are no duplicate components for the hashmap before registering.
-		if (m_componentFactory.find(name) != m_componentFactory.end())
+		const auto str = static_cast<std::string>(name);
+		if (m_component_factory.contains(str))
 		{
-			PL_LOG(PL_WARNING, "Attempted to register duplicate component: " + name);
+			PL_LOG(PL_WARNING, "Attempted to register duplicate component: {0}.", str);
 		}
 		else
 		{
-			m_componentFactory.emplace(name, [this](const sr::Entity e, const nlohmann::json& json) noexcept {
-				this->add<Component>(e, json);
+			m_component_factory.emplace(name, [&](const sr::Entity e, const nlohmann::json& json) {
+				create_component<Component>(e, json);
 			});
 		}
 	}

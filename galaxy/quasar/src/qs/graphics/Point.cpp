@@ -30,7 +30,7 @@ namespace qs
 		std::vector<qs::PrimitiveVertex> vertexs;
 		std::vector<unsigned int> indices;
 
-		vertexs.emplace_back({x, y, colour});
+		vertexs.emplace_back(x, y, colour);
 
 		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
 

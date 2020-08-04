@@ -17,34 +17,34 @@
 ///
 namespace galaxy
 {
-	World::World() noexcept
-	    : Manager()
+	World::World()
+	    : Manager {}
 	{
-		// TODO: Register defaults.
 	}
 
-	World::~World() noexcept
+	World::~World()
 	{
 		clear();
 	}
 
-	const sr::Entity World::createFromJSON(const std::string& file) noexcept
+	const sr::Entity World::create_from_json(std::string_view file)
 	{
 		// Makes sure the filepath is correct for the current platform.
 		sr::Entity entity = 0;
-		auto path         = std::filesystem::path(file);
-		std::ifstream input(path.string(), std::ifstream::in);
+		auto path         = std::filesystem::path {file};
+		std::ifstream ifs;
+		ifs.open(path.string(), std::ifstream::in);
 
-		if (input.fail())
+		if (!ifs.good())
 		{
-			PL_LOG(PL_ERROR, "Failed to open file: " + file);
+			PL_LOG(PL_ERROR, "Failed to open file: {0}.", path.string());
 		}
 		else
 		{
-			auto root = nlohmann::json();
+			nlohmann::json root;
 
 			// Use JSON stream to deserialize data and parse.
-			input >> root;
+			ifs >> root;
 			entity = create();
 
 			// Loop over components
@@ -53,7 +53,7 @@ namespace galaxy
 				for (auto& [key, value] : root.items())
 				{
 					// Use the assign function to create components for entities without having to know the type.
-					m_componentFactory[key](entity, value);
+					m_component_factory[key](entity, value);
 				}
 			}
 			else
@@ -63,13 +63,5 @@ namespace galaxy
 		}
 
 		return entity;
-	}
-
-	void World::serialize() noexcept
-	{
-	}
-
-	void World::serialize(const sr::Entity entity) noexcept
-	{
 	}
 } // namespace galaxy

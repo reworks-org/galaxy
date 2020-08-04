@@ -25,7 +25,7 @@ namespace galaxy
 	///
 	namespace Lua
 	{
-		void registerTypes()
+		void register_types()
 		{
 			// Service pointer.
 			auto lua = SL_HANDLE.lua();
@@ -38,7 +38,7 @@ namespace galaxy
 							   &Command::undo);
 
 			// galaxy::LuaEntity
-			lua->new_usertype<galaxy::LuaEntity>("LuaEntity", sol::constructors<LuaEntity(), LuaEntity(const std::string&), LuaEntity(sr::Entity)>(), "addSpriteComponent", &LuaEntity::addSpriteComponent, "addTransformComponent", &LuaEntity::addTransformComponent, "addShaderComponent", &LuaEntity::addShaderComponent, "enable", &LuaEntity::enable, "disable", &LuaEntity::disable);
+			lua->new_usertype<galaxy::LuaEntity>("LuaEntity", sol::constructors<LuaEntity(), LuaEntity(std::string_view), LuaEntity(sr::Entity)>(), "add_animation", &LuaEntity::add_animation, "add_music", &LuaEntity::add_music, "add_shader", &LuaEntity::add_shader, "add_sound", &LuaEntity::add_sound, "add_sprite", &LuaEntity::add_sprite, "add_spritebatch", &LuaEntity::add_spritebatch, "enable", &LuaEntity::enable, "disable", &LuaEntity::disable);
 		}
 	} // namespace Lua
 } // namespace galaxy

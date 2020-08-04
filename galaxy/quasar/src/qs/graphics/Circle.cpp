@@ -41,10 +41,10 @@ namespace qs
 
 		unsigned int count        = 0;
 		constexpr float incr_stat = 2.0f * glm::pi<float>();
-		const float increment     = incr_stat / static_cast<float>(fragments);
+		float increment           = incr_stat / static_cast<float>(fragments);
 		for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 		{
-			vertexs.emplace_back({radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour});
+			vertexs.emplace_back(radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour);
 			indices.push_back(count);
 
 			count++;

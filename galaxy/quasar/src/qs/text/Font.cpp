@@ -79,11 +79,11 @@ namespace qs
 
 					emplaced->m_region = {x, y, w, h};
 
-					std::array<qs::SpriteVertex, 4> arr = {v1, v2, v3, v4};
-					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>(arr);
+					std::array<qs::SpriteVertex, 4> arr_vb = {v1, v2, v3, v4};
+					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>(arr_vb);
 
-					std::array<unsigned int, 6> arr = {0, 1, 3, 1, 2, 3};
-					emplaced->m_ib.create<qs::BufferStatic>(arr);
+					std::array<unsigned int, 6> arr_ib = {0, 1, 3, 1, 2, 3};
+					emplaced->m_ib.create<qs::BufferStatic>(arr_ib);
 
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VATexel>(2);

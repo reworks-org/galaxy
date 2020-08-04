@@ -35,8 +35,13 @@ STARLIGHT:
 STARMAP:
 - Write tests.
 
+GALAXY:
+- World::World() -> register default components.
+- Write tests.
 
 
+NOTE:
+- Components get registered in register_types for lua, all.hpp in components, world.cpp registrer
 
 https://github.com/rokups/ImNodes
 

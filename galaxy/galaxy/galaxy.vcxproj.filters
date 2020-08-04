@@ -35,7 +35,6 @@
     <ClCompile Include="src\galaxy\scripting\JSONDefinition.cpp" />
     <ClCompile Include="src\galaxy\scripting\Command.cpp" />
     <ClCompile Include="src\galaxy\layer\LayerStorage.cpp" />
-    <ClCompile Include="src\galaxy\components\ShaderComponent.cpp" />
     <ClCompile Include="src\galaxy\flags\EnabledFlag.cpp" />
     <ClCompile Include="src\galaxy\res\ShaderBook.cpp" />
     <ClCompile Include="src\galaxy\res\FontBook.cpp" />
@@ -43,6 +42,10 @@
     <ClCompile Include="src\galaxy\components\AnimationComponent.cpp" />
     <ClCompile Include="src\galaxy\components\MusicComponent.cpp" />
     <ClCompile Include="src\galaxy\components\SoundComponent.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaUtils.cpp" />
+    <ClCompile Include="src\galaxy\scripting\LuaEntity.cpp" />
+    <ClCompile Include="src\galaxy\components\All.cpp" />
+    <ClCompile Include="src\galaxy\components\ShaderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -64,6 +67,9 @@
     <ClInclude Include="src\galaxy\components\AnimationComponent.hpp" />
     <ClInclude Include="src\galaxy\components\MusicComponent.hpp" />
     <ClInclude Include="src\galaxy\components\SoundComponent.hpp" />
+    <ClInclude Include="src\galaxy\scripting\LuaUtils.hpp" />
+    <ClInclude Include="src\galaxy\scripting\LuaEntity.hpp" />
+    <ClInclude Include="src\galaxy\components\All.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\TODO.txt" />

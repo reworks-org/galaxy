@@ -32,8 +32,8 @@ namespace qs
 		std::vector<qs::PrimitiveVertex> vertexs;
 		std::vector<unsigned int> indices;
 
-		vertexs.emplace_back({x1, y1, col});
-		vertexs.emplace_back({x2, y2, col});
+		vertexs.emplace_back(x1, y1, col);
+		vertexs.emplace_back(x2, y2, col);
 
 		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
 

@@ -79,6 +79,10 @@
 ///
 #define PL_DISABLE_TESTING_MODE pl::Log::get().set_testing(false)
 
+// Need to be undefined on some systems.
+#undef ERROR
+#undef DELETE
+
 ///
 /// Core namespace.
 ///

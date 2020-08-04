@@ -7,7 +7,6 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-
 #include "galaxy/flags/EnabledFlag.hpp"
 
 #include "LuaEntity.hpp"
@@ -17,60 +16,63 @@
 ///
 namespace galaxy
 {
-	LuaEntity::LuaEntity() noexcept
+	LuaEntity::LuaEntity()
 	{
-		auto* world = SL_HANDLE.world();
-		m_entity = world->create();
+		m_entity = SL_HANDLE.world()->create();
 	}
 
-	LuaEntity::LuaEntity(const std::string& debugName) noexcept
+	LuaEntity::LuaEntity(std::string_view debug_name)
 	{
-		auto* world = SL_HANDLE.world();
-		m_entity = world->create(debugName);
+		m_entity = SL_HANDLE.world()->create(debug_name);
 	}
 
-	LuaEntity::LuaEntity(sr::Entity entity) noexcept
+	LuaEntity::LuaEntity(sr::Entity entity)
 	{
 		m_entity = entity;
 	}
 
-	LuaEntity::~LuaEntity() noexcept
+	void LuaEntity::enable()
 	{
-		m_entity = NULL;
+		SL_HANDLE.world()->create_component<galaxy::EnabledFlag>(m_entity);
 	}
 
-	void LuaEntity::enable() noexcept
+	void LuaEntity::disable()
 	{
-		auto* world = SL_HANDLE.world();
-		world->add<galaxy::EnabledFlag>(m_entity);
+		SL_HANDLE.world()->remove<galaxy::EnabledFlag>(m_entity);
 	}
 
-	void LuaEntity::disable() noexcept
+	AnimationComponent* LuaEntity::add_animation()
 	{
-		auto* world = SL_HANDLE.world();
-		world->remove<galaxy::EnabledFlag>(m_entity);
+		return SL_HANDLE.world()->create_component<galaxy::AnimationComponent>(m_entity);
 	}
 
-	SpriteComponent* LuaEntity::addSpriteComponent() noexcept
+	MusicComponent* LuaEntity::add_music()
 	{
-		auto* world = SL_HANDLE.world();
-		return world->add<galaxy::SpriteComponent>(m_entity);
+		return SL_HANDLE.world()->create_component<galaxy::MusicComponent>(m_entity);
 	}
 
-	TransformComponent* LuaEntity::addTransformComponent() noexcept
+	ShaderComponent* LuaEntity::add_shader()
 	{
-		auto* world = SL_HANDLE.world();
-		return world->add<galaxy::TransformComponent>(m_entity);
+		return SL_HANDLE.world()->create_component<galaxy::ShaderComponent>(m_entity);
 	}
 
-	ShaderComponent* LuaEntity::addShaderComponent() noexcept
+	SoundComponent* LuaEntity::add_sound()
 	{
-		auto* world = SL_HANDLE.world();
-		return world->add<galaxy::ShaderComponent>(m_entity);
+		return SL_HANDLE.world()->create_component<galaxy::SoundComponent>(m_entity);
 	}
-	
+
+	SpriteBatchComponent* LuaEntity::add_spritebatch()
+	{
+		return SL_HANDLE.world()->create_component<galaxy::SpriteBatchComponent>(m_entity);
+	}
+
+	SpriteComponent* LuaEntity::add_sprite()
+	{
+		return SL_HANDLE.world()->create_component<galaxy::SpriteComponent>(m_entity);
+	}
+
 	const sr::Entity LuaEntity::retrieve() const noexcept
 	{
 		return m_entity;
 	}
-}
+} // namespace galaxy

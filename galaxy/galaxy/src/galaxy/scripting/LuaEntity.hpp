@@ -10,9 +10,7 @@
 
 #include <solar/Config.hpp>
 
-#include "galaxy/components/SpriteComponent.hpp"
-#include "galaxy/components/ShaderComponent.hpp"
-#include "galaxy/components/TransformComponent.hpp"
+#include "galaxy/components/All.hpp"
 
 ///
 /// Core namespace.
@@ -25,19 +23,72 @@ namespace galaxy
 	class LuaEntity final
 	{
 	public:
-		LuaEntity() noexcept;
-		LuaEntity(const std::string& debugName) noexcept;
-		LuaEntity(sr::Entity entity) noexcept;
-		~LuaEntity() noexcept;
+		///
+		/// Create a brand new entity.
+		///
+		LuaEntity();
 
-		void enable() noexcept;
-		void disable() noexcept;
+		///
+		/// Create entity with a debug name.
+		///
+		LuaEntity(std::string_view debug_name);
 
-		SpriteComponent* addSpriteComponent() noexcept;
-		TransformComponent* addTransformComponent() noexcept;
-		ShaderComponent* addShaderComponent() noexcept;
+		///
+		/// Create from existing entity.
+		///
+		LuaEntity(sr::Entity entity);
 
-		const sr::Entity retrieve() const noexcept;
+		///
+		/// Destructor.
+		///
+		~LuaEntity() noexcept = default;
+
+		///
+		/// Enable the entity.
+		///
+		void enable();
+
+		///
+		/// Disable the entity.
+		///
+		void disable();
+
+		///
+		/// Add AnimationComponent to lua.
+		///
+		[[nodiscard]] AnimationComponent* add_animation();
+
+		///
+		/// Add MusicComponent to lua.
+		///
+		[[nodiscard]] MusicComponent* add_music();
+
+		///
+		/// Add ShaderComponent to lua.
+		///
+		[[nodiscard]] ShaderComponent* add_shader();
+
+		///
+		/// Add SoundComponent to lua.
+		///
+		[[nodiscard]] SoundComponent* add_sound();
+
+		///
+		/// Add SpriteBatchComponent to lua.
+		///
+		[[nodiscard]] SpriteBatchComponent* add_spritebatch();
+
+		///
+		/// Add SpriteComponent to lua.
+		///
+		[[nodiscard]] SpriteComponent* add_sprite();
+
+		///
+		/// Retrieve entity currrently stored.
+		///
+		/// \return Const sr::Entity.
+		///
+		[[nodiscard]] const sr::Entity retrieve() const noexcept;
 
 	private:
 		///
@@ -45,6 +96,6 @@ namespace galaxy
 		///
 		sr::Entity m_entity;
 	};
-}
+} // namespace galaxy
 
 #endif

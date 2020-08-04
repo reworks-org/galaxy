@@ -32,7 +32,7 @@ namespace galaxy
 		///
 		/// \param json JSON defining object.
 		///
-		SpriteComponent(const nlohmann::json& json) noexcept;
+		SpriteComponent(const nlohmann::json& json);
 
 		///
 		/// Destructor.

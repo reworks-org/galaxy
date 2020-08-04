@@ -62,7 +62,6 @@ namespace qs
 	void Renderer::draw_animated_sprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept
 	{
 		sprite.bind();
-		sprite.update();
 
 		shader.set_uniform("u_transform", sprite.get_transform());
 		shader.set_uniform("u_opacity", sprite.opacity());
