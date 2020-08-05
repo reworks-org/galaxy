@@ -10,6 +10,7 @@
 
 #include <type_traits>
 
+#include "qs/vertex/type/InstanceVertex.hpp"
 #include "qs/vertex/type/PrimitiveVertex.hpp"
 #include "qs/vertex/type/SpriteVertex.hpp"
 
@@ -79,6 +80,16 @@ namespace qs
 	};
 
 	///
+	/// \brief Specifies "instance offfset" vertex attribute type at compile time.
+	///
+	/// Cannot be instansiated.
+	///
+	struct VAInstanceOffset final
+	{
+		VAInstanceOffset() = delete;
+	};
+
+	///
 	/// Static function to easily create a vertex.
 	///
 	/// \param args Arguments for vertex type constructor.
@@ -98,14 +109,14 @@ namespace qs
 	concept is_vertex_attribute = (std::is_same<Type, VAPosition>::value ||
 				       std::is_same<Type, VAColour>::value ||
 				       std::is_same<Type, VATexel>::value ||
-				       std::is_same<Type, VAOpacity>::value);
+				       std::is_same<Type, VAOpacity>::value || std::is_same<Type, VAInstanceOffset>::value);
 
 	///
 	/// Concept to ensure template parameter is a vertex.
 	///
 	template<typename Type>
 	concept is_vertex = (std::is_same<Type, SpriteVertex>::value ||
-			     std::is_same<Type, PrimitiveVertex>::value);
+			     std::is_same<Type, PrimitiveVertex>::value || std::is_same<Type, InstanceVertex>::value);
 
 	///
 	/// Conceptto ensure template parameter is a opengl buffer type.

@@ -7,15 +7,16 @@
 
 #include <glm/mat4x4.hpp>
 
-#include "qs/text/Text.hpp"
 #include "qs/core/Shader.hpp"
-#include "qs/sprite/Sprite.hpp"
-#include "qs/graphics/Line.hpp"
-#include "qs/graphics/Point.hpp"
-#include "qs/text/Character.hpp"
-#include "qs/graphics/Circle.hpp"
-#include "qs/sprite/SpriteBatch.hpp"
+#include "qs/graphics/Particle.hpp"
+#include "qs/shapes/Circle.hpp"
+#include "qs/shapes/Line.hpp"
+#include "qs/shapes/Point.hpp"
 #include "qs/sprite/AnimatedSprite.hpp"
+#include "qs/sprite/Sprite.hpp"
+#include "qs/sprite/SpriteBatch.hpp"
+#include "qs/text/Character.hpp"
+#include "qs/text/Text.hpp"
 #include "qs/texture/RenderTexture.hpp"
 
 #include "Renderer.hpp"
@@ -25,7 +26,7 @@
 ///
 namespace qs
 {
-	void Renderer::draw_point(qs::Point& point, qs::Shader& shader) noexcept
+	void Renderer::draw_point(qs::Point& point, qs::Shader& shader)
 	{
 		point.bind();
 		shader.set_uniform("u_point_size", point.get_size());
@@ -33,21 +34,21 @@ namespace qs
 		glDrawArrays(GL_POINTS, 0, 1);
 	}
 
-	void Renderer::draw_line(qs::Line& line) noexcept
+	void Renderer::draw_line(qs::Line& line)
 	{
 		line.bind();
 
 		glDrawArrays(GL_LINES, 0, 2);
 	}
 
-	void Renderer::draw_circle(qs::Circle& circle) noexcept
+	void Renderer::draw_circle(qs::Circle& circle)
 	{
 		circle.bind();
 
 		glDrawArrays(GL_LINE_LOOP, 0, circle.index_count());
 	}
 
-	void Renderer::draw_sprite(qs::Sprite& sprite, qs::Shader& shader) noexcept
+	void Renderer::draw_sprite(qs::Sprite& sprite, qs::Shader& shader)
 	{
 		sprite.bind();
 
@@ -59,7 +60,7 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_animated_sprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept
+	void Renderer::draw_animated_sprite(qs::AnimatedSprite& sprite, qs::Shader& shader)
 	{
 		sprite.bind();
 
@@ -71,7 +72,7 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_sprite_batch(qs::SpriteBatch& sprite_batch, qs::Shader& shader) noexcept
+	void Renderer::draw_sprite_batch(qs::SpriteBatch& sprite_batch, qs::Shader& shader)
 	{
 		sprite_batch.bind();
 
@@ -81,7 +82,7 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite_batch.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept
+	void Renderer::draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader)
 	{
 		shader.set_uniform("u_projection", target.get_proj());
 
@@ -93,7 +94,7 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader) noexcept
+	void Renderer::draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader)
 	{
 		chr->bind();
 		shader.set_uniform("u_projection", target.get_proj());
@@ -101,7 +102,7 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, chr->index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_text(qs::Text& text, qs::Shader& shader) noexcept
+	void Renderer::draw_text(qs::Text& text, qs::Shader& shader)
 	{
 		text.bind();
 
@@ -111,13 +112,16 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, text.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	/*
-|	void Renderer::drawText(qs::Text& text, qs::Shader& shader) noexcept
+	void Renderer::draw_particles(qs::Particle& particles, qs::Shader& shader)
 	{
-		drawSprite(text.asSprite(), shader);
+		particles.bind();
+
+		glDrawElementsInstanced(GL_TRIANGLES, particles.index_count(), GL_UNSIGNED_INT, nullptr, particles.amount());
 	}
 
-	void Renderer::drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls) noexcept
+	/*
+|
+	void Renderer::drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls)
 	{
 		spritebatch.bind();
 		spritebatch.update();

@@ -74,17 +74,11 @@ int main(int argsc, char* argsv[])
 			EditorApp editor(config);
 
 			auto* gs = SL_HANDLE.gamestate();
-			gs->create<sc::Editor>("Editor", editor.getDT());
+			gs->create<sc::Editor>("Editor");
 			gs->push("Editor");
 
 			auto* world = SL_HANDLE.world();
-			world->registerComponent<galaxy::SpriteComponent>("SpriteComponent");
-			world->registerComponent<galaxy::TransformComponent>("TransformComponent");
-			world->registerComponent<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
-			world->registerComponent<galaxy::PlaylistComponent>("PlaylistComponent");
-			world->registerComponent<galaxy::AudioComponent>("AudioComponent");
-
-			world->addSystem<galaxy::RenderSystem>();
+			world->add_system<galaxy::RenderSystem>();
 
 			restart = editor.run();
 		}

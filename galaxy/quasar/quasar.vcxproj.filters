@@ -9,9 +9,6 @@
     <ClCompile Include="src\qs\core\Window.cpp" />
     <ClCompile Include="src\qs\core\WindowSettings.cpp" />
     <ClCompile Include="src\qs\graphics\Camera.cpp" />
-    <ClCompile Include="src\qs\graphics\Circle.cpp" />
-    <ClCompile Include="src\qs\graphics\Line.cpp" />
-    <ClCompile Include="src\qs\graphics\Point.cpp" />
     <ClCompile Include="src\qs\graphics\TextureAtlas.cpp" />
     <ClCompile Include="src\qs\utils\TextureFilters.cpp" />
     <ClCompile Include="src\qs\vertex\IndexBuffer.cpp" />
@@ -40,6 +37,12 @@
     <ClCompile Include="src\qs\anim\Frame.cpp" />
     <ClCompile Include="src\qs\sprite\AnimatedBatchSprite.cpp" />
     <ClCompile Include="src\qs\anim\Animated.cpp" />
+    <ClCompile Include="src\qs\shapes\Point.cpp" />
+    <ClCompile Include="src\qs\shapes\Line.cpp" />
+    <ClCompile Include="src\qs\shapes\Circle.cpp" />
+    <ClCompile Include="src\qs\graphics\Particle.cpp" />
+    <ClCompile Include="src\qs\vertex\type\InstanceVertex.cpp" />
+    <ClCompile Include="src\qs\graphics\ParticleGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\qs\core\Shader.hpp" />
@@ -47,9 +50,6 @@
     <ClInclude Include="src\qs\core\Window.hpp" />
     <ClInclude Include="src\qs\core\WindowSettings.hpp" />
     <ClInclude Include="src\qs\graphics\Camera.hpp" />
-    <ClInclude Include="src\qs\graphics\Circle.hpp" />
-    <ClInclude Include="src\qs\graphics\Line.hpp" />
-    <ClInclude Include="src\qs\graphics\Point.hpp" />
     <ClInclude Include="src\qs\graphics\TextureAtlas.hpp" />
     <ClInclude Include="src\qs\utils\TextureFilters.hpp" />
     <ClInclude Include="src\qs\vertex\IndexBuffer.hpp" />
@@ -78,5 +78,11 @@
     <ClInclude Include="src\qs\anim\Frame.hpp" />
     <ClInclude Include="src\qs\sprite\AnimatedBatchSprite.hpp" />
     <ClInclude Include="src\qs\anim\Animated.hpp" />
+    <ClInclude Include="src\qs\shapes\Point.hpp" />
+    <ClInclude Include="src\qs\shapes\Line.hpp" />
+    <ClInclude Include="src\qs\shapes\Circle.hpp" />
+    <ClInclude Include="src\qs\graphics\Particle.hpp" />
+    <ClInclude Include="src\qs\vertex\type\InstanceVertex.hpp" />
+    <ClInclude Include="src\qs\graphics\ParticleGenerator.hpp" />
   </ItemGroup>
 </Project>

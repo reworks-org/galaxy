@@ -8,7 +8,9 @@
 #include <filesystem>
 
 #include <nlohmann/json.hpp>
-#include <galaxy/fs/FileSystem.hpp>
+
+#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/components/All.hpp"
 
 #include "World.hpp"
 
@@ -20,6 +22,12 @@ namespace galaxy
 	World::World()
 	    : Manager {}
 	{
+		register_component<galaxy::AnimationComponent>("AnimationComponent");
+		register_component<galaxy::MusicComponent>("MusicComponent");
+		register_component<galaxy::ShaderComponent>("ShaderComponent");
+		register_component<galaxy::SoundComponent>("SoundComponent");
+		register_component<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
+		register_component<galaxy::SpriteComponent>("SpriteComponent");
 	}
 
 	World::~World()

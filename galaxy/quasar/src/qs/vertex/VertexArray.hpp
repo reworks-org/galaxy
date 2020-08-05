@@ -53,6 +53,11 @@ namespace qs
 		///
 		void unbind() noexcept;
 
+		///
+		/// Change the way instancing works with the vertex array.
+		///
+		void change_divisor(pr::positive_uint auto index, pr::positive_uint auto div) noexcept;
+
 	private:
 		///
 		/// ID returned by OpenGL when generating vertex array.

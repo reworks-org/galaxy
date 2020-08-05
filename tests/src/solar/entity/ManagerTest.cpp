@@ -28,8 +28,10 @@ struct BB
 	int val = 0;
 };
 
-struct BlankSystem : public DemoSystem
+struct BlankSystem : public sr::System
 {
+	void events() override {}
+	void update(const double dt) override {}
 };
 
 struct DemoSystem : public sr::System
@@ -117,7 +119,7 @@ TEST(Manager, CreateWithName)
 
 	EXPECT_TRUE(m.validate(e));
 
-	auto names = m.get_debug_name_map();
+	decltype(auto) names = m.get_debug_name_map();
 	EXPECT_TRUE(names.contains("Test"));
 }
 
@@ -386,7 +388,7 @@ TEST(Manager, Updates)
 	sr::Manager m;
 	m.create_system<DemoSystem>(5);
 
-	m.update(nullptr);
+	m.update(0.0);
 
 	auto* sys = m.get<DemoSystem>();
 
@@ -403,7 +405,7 @@ TEST(Manager, EventsWithNoSystems)
 TEST(Manager, UpdatesWithNoSystems)
 {
 	sr::Manager m;
-	m.update(nullptr);
+	m.update(0.0);
 }
 
 TEST(Manager, Clear)

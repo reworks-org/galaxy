@@ -23,6 +23,7 @@ PULSAR:
 QUASAR:
 - C++20 review when eventual performance improvements are required.
 - Circle.cpp, 43 -> constinit
+- Draw Scene/LightSource
 
 SOLAR:
 - Replace rangev3 in manager with <ranges> when avaliable.

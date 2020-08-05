@@ -32,4 +32,11 @@ namespace qs
 	{
 		glBindVertexArray(0);
 	}
+	
+	void VertexArray::change_divisor(pr::positive_uint auto index, pr::positive_uint auto div) noexcept
+	{
+		glBindVertexArray(m_id);
+		glVertexAttribDivisor(index, div);
+		glBindVertexArray(0):
+	}
 } // namespace qs

@@ -26,6 +26,7 @@ namespace qs
 	class RenderTexture;
 	class Character;
 	class Text;
+	class Particle;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -38,12 +39,12 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		Renderer() noexcept = default;
+		Renderer() = default;
 
 		///
 		/// Default destructor.
 		///
-		~Renderer() noexcept = default;
+		~Renderer() = default;
 
 		///
 		/// \brief Draw a point.
@@ -54,7 +55,7 @@ namespace qs
 		/// \param point Point to draw.
 		/// \param shader Shader to apply when drawing.
 		///
-		void draw_point(qs::Point& point, qs::Shader& shader) noexcept;
+		void draw_point(qs::Point& point, qs::Shader& shader);
 
 		///
 		/// \brief Draw a line.
@@ -64,7 +65,7 @@ namespace qs
 		///
 		/// \param line Line to draw.
 		///
-		void draw_line(qs::Line& line) noexcept;
+		void draw_line(qs::Line& line);
 
 		///
 		/// \brief Draw a circle.
@@ -74,7 +75,7 @@ namespace qs
 		///
 		/// \param circle Circle to draw.
 		///
-		void draw_circle(qs::Circle& circle) noexcept;
+		void draw_circle(qs::Circle& circle);
 
 		///
 		/// \brief Draw a sprite.
@@ -85,7 +86,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void draw_sprite(qs::Sprite& sprite, qs::Shader& shader) noexcept;
+		void draw_sprite(qs::Sprite& sprite, qs::Shader& shader);
 
 		///
 		/// \brief Draw an animated sprite.
@@ -96,7 +97,7 @@ namespace qs
 		/// \param sprite Sprite to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void draw_animated_sprite(qs::AnimatedSprite& sprite, qs::Shader& shader) noexcept;
+		void draw_animated_sprite(qs::AnimatedSprite& sprite, qs::Shader& shader);
 
 		///
 		/// \brief Draw a spritebatch.
@@ -107,7 +108,7 @@ namespace qs
 		/// \param spritebatch SpriteBatch to draw to screen.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void draw_sprite_batch(qs::SpriteBatch& sprite_batch, qs::Shader& shader) noexcept;
+		void draw_sprite_batch(qs::SpriteBatch& sprite_batch, qs::Shader& shader);
 
 		///
 		/// \brief Draw a sprite to a texture.
@@ -119,7 +120,7 @@ namespace qs
 		/// \param target Target to draw to.
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
-		void draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+		void draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader);
 
 		///
 		/// \brief Draws a character to a font map.
@@ -131,7 +132,7 @@ namespace qs
 		/// \param target Target to draw to.
 		/// \param shader Shader to use.
 		///
-		void draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader) noexcept;
+		void draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader);
 
 		///
 		/// \brief Draw text to screen.
@@ -142,7 +143,18 @@ namespace qs
 		/// \param text Text to draw.
 		/// \param shader Shader to apply to text. You must have called bind() already!
 		///
-		void draw_text(qs::Text& text, qs::Shader& shader) noexcept;
+		void draw_text(qs::Text& text, qs::Shader& shader);
+
+		///
+		/// \brief Draw particles to screen.
+		///
+		/// Must have uniform(s):
+		/// u_cameraView, u_cameraProj
+		///
+		/// \param particles Particles to draw to screen.
+		/// \param shader Shader to apply to particles. You must have called bind() already!
+		///
+		void draw_particles(qs::Particle& particles, qs::Shader& shader);
 
 		///
 		/// Draw to render texture.

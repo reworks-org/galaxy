@@ -51,60 +51,78 @@ namespace qs
 		///
 		/// Retrieve all attributes.
 		///
-		/// \return const reference to std::vector<qs::VertexAttribute>.
+		/// \return const reference to std::vector<VertexAttribute>.
 		///
-		[[nodiscard]] const std::vector<qs::VertexAttribute>& get_attributes() const noexcept;
+		[[nodiscard]] const auto& get_attributes() const noexcept;
 
 	private:
 		///
 		/// Container for all the attributes of this layout.
 		///
-		std::vector<qs::VertexAttribute> m_attributes;
+		std::vector<VertexAttribute> m_attributes;
 	};
-
+	
 	template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
 	inline void VertexLayout::add(const pr::positive_int auto size)
 	{
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		constexpr bool is_sprite_vertex = requires(VertexType val)
-		{
-			{std::is_same<decltype(val), qs::SpriteVertex>::value};
-		};
+		constexpr bool is_instanced_vertex = std::is_same<VertexType, InstanceVertex>::value;
+		constexpr bool is_prim_vertex = std::is_same<VertexType, PrimitiveVertex>::value;
+		constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
 
 		if constexpr (is_sprite_vertex)
 		{
-			if constexpr (std::is_same<VertexAttribute, qs::VAPosition>::value)
+			if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::SpriteVertex, m_pos));
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_pos));
 			}
-			else if constexpr (std::is_same<VertexAttribute, qs::VATexel>::value)
+			else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::SpriteVertex, m_texels));
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_texels));
 			}
-			else if constexpr (std::is_same<VertexAttribute, qs::VAOpacity>::value)
+			else if constexpr (std::is_same<VertexAttribute, VAOpacity>::value)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::SpriteVertex, m_opacity));
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_opacity));
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Failed to add vertex layout type for sprite vertex.");
+				PL_LOG(PL_FATAL, "Failed to add vertex attribute for sprite vertex.");
 			}
 		}
-		else
+		else if constexpr (is_prim_vertex)
 		{
-			if constexpr (std::is_same<VertexAttribute, qs::VAPosition>::value)
+			if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::PrimitiveVertex, m_pos));
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(PrimitiveVertex, m_pos));
 			}
-			else if constexpr (std::is_same<VertexAttribute, qs::VAColour>::value)
+			else if constexpr (std::is_same<VertexAttribute, VAColour>::value)
 			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(qs::PrimitiveVertex, m_colour));
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(PrimitiveVertex, m_colour));
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Failed to add vertex layout type for primitive vertex.");
+				PL_LOG(PL_FATAL, "Failed to add vertex attribute for primitive vertex.");
+			}
+		}
+		else if constexpr (is_instanced_vertex)
+		{
+			if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
+			{
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(InstanceVertex, m_pos));
+			}
+			else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
+			{
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(InstanceVertex, m_texels));
+			}
+			else if constexpr (std::is_same<VertexAttribute, VAInstanceOffset>::value)
+			{
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(InstanceVertex, m_offset));
+			}
+			else
+			{
+				PL_LOG(PL_FATAL, "Failed to add vertex attribute for instanced vertex.");
 			}
 		}
 	}

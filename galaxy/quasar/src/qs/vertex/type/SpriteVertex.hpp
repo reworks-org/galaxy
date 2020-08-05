@@ -19,8 +19,9 @@ namespace qs
 	///
 	/// Represents a single SpriteVertex of a primitive.
 	///
-	struct SpriteVertex final
+	class SpriteVertex final
 	{
+	public:
 		///
 		/// Default constructor.
 		///

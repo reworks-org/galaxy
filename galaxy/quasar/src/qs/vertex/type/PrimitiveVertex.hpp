@@ -19,8 +19,9 @@ namespace qs
 	///
 	/// Represents a single PrimitiveVertex of a primitive.
 	///
-	struct PrimitiveVertex final
+	class PrimitiveVertex final
 	{
+	public:
 		///
 		/// Default constructor.
 		///
