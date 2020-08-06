@@ -15,11 +15,13 @@ Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
-msbuild galaxy.sln
+// todo
 ```
 
 ### Unix:
 ```cpp
+git clone --recursive https://github.com/DomRe/galaxy.git
+git submodule update --init --recursive
 // todo
 ```
 
