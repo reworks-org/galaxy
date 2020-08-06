@@ -9,7 +9,6 @@
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/components/SpriteComponent.hpp>
 #include <galaxy/components/ShaderComponent.hpp>
-#include <galaxy/components/TransformComponent.hpp>
 #include <galaxy/flags/EnabledFlag.hpp>
 
 #include "ECSLayer.hpp"
@@ -23,7 +22,7 @@ namespace sc
 	{
 		setName("ECSLayer");
 		m_window = SL_HANDLE.window();
-		m_world = SL_HANDLE.world();
+		m_world  = SL_HANDLE.world();
 	}
 
 	ECSLayer::~ECSLayer() noexcept
@@ -49,4 +48,4 @@ namespace sc
 	{
 		m_world->get<galaxy::RenderSystem>()->render(camera);
 	}
-}
+} // namespace sc

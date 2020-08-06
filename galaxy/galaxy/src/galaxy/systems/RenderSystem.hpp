@@ -26,32 +26,32 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		RenderSystem() noexcept;
+		RenderSystem();
 
 		///
 		/// Destructor.
 		///
-		~RenderSystem() noexcept;
+		~RenderSystem();
 
 		///
 		/// Abstract implementation for processing events.
 		///
-		void events() noexcept override;
+		void events() override;
 
 		///
 		/// Abstract implementation for updating the system. Use the manager to retreive your components.
 		///
-		/// \param time DeltaTime from gameloop.
+		/// \param dt DeltaTime from gameloop.
 		///
-		void update(pr::ProtectedDouble* deltaTime) noexcept override;
+		void update(const double dt) override;
 
 		///
 		/// Render sprites / textures to screen.
 		///
 		/// \param camera Camera used for rendering.
 		///
-		void render(qs::Camera& camera) noexcept;
+		void render(qs::Camera& camera);
 	};
-}
+} // namespace galaxy
 
 #endif

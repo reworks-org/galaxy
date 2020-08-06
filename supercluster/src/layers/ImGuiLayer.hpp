@@ -24,7 +24,6 @@
 #include <imgui_impl_opengl3.h>
 #include <galaxy/core/World.hpp>
 #include <solar/entity/Manager.hpp>
-#include <pfd/portable-file-dialogs.h>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/scripting/JSONDefinition.hpp>
 
@@ -40,7 +39,7 @@ namespace pfd
 {
 	class open_file;
 	class save_file;
-}
+} // namespace pfd
 
 namespace sc
 {
@@ -85,17 +84,17 @@ namespace sc
 		std::unique_ptr<pfd::open_file> m_fileToOpen;
 		std::unique_ptr<pfd::save_file> m_fileToSave;
 
-		galaxy::SpriteComponent* sc = nullptr;
-		galaxy::TransformComponent* tc = nullptr;
+		galaxy::SpriteComponent* sc       = nullptr;
+		galaxy::TransformComponent* tc    = nullptr;
 		galaxy::SpriteBatchComponent* sbc = nullptr;
-		galaxy::PlaylistComponent* pc = nullptr;
-		galaxy::AudioComponent* ac = nullptr;
-		galaxy::ShaderComponent* shc = nullptr;
+		galaxy::PlaylistComponent* pc     = nullptr;
+		galaxy::AudioComponent* ac        = nullptr;
+		galaxy::ShaderComponent* shc      = nullptr;
 
 		galaxy::EnabledFlag* ef = nullptr;
 
 		std::vector<std::string> m_listOfEntitys;
 	};
-}
+} // namespace sc
 
 #endif

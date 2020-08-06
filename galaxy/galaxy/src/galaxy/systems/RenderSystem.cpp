@@ -5,12 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/core/World.hpp>
-#include <galaxy/core/ServiceLocator.hpp>
-
-#include "galaxy/components/SpriteComponent.hpp"
-#include "galaxy/components/TransformComponent.hpp"
-#include "galaxy/components/ShaderComponent.hpp"
+#include "galaxy/components/All.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/World.hpp"
 #include "galaxy/flags/EnabledFlag.hpp"
 
 #include "RenderSystem.hpp"
@@ -20,23 +17,23 @@
 ///
 namespace galaxy
 {
-	RenderSystem::RenderSystem() noexcept
+	RenderSystem::RenderSystem()
 	{
 	}
 
-	RenderSystem::~RenderSystem() noexcept
+	RenderSystem::~RenderSystem()
 	{
 	}
 
-	void RenderSystem::events() noexcept
+	void RenderSystem::events()
 	{
 	}
 
-	void RenderSystem::update(pr::ProtectedDouble* deltaTime) noexcept
+	void RenderSystem::update(pr::ProtectedDouble* deltaTime)
 	{
 	}
 
-	void RenderSystem::render(qs::Camera& camera) noexcept
+	void RenderSystem::render(qs::Camera& camera)
 	{
 		SL_HANDLE.world()->operate<SpriteComponent, TransformComponent, ShaderComponent, EnabledFlag>([&](sr::Entity, SpriteComponent* sprite, TransformComponent* transform, ShaderComponent* shader, EnabledFlag* ef) {
 			shader->m_shader.bind();

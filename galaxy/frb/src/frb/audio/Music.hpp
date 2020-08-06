@@ -30,6 +30,13 @@ namespace frb
 		Music();
 
 		///
+		/// Argument constructor.
+		///
+		/// \param file File to load from disk. Can only load ogg vorbis.
+		///
+		Music(std::string_view file);
+
+		///
 		/// Destructor.
 		///
 		~Music() noexcept;

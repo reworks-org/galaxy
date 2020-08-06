@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\frb\audio\Music.cpp" />
-    <ClCompile Include="src\frb\audio\Playlist.cpp" />
     <ClCompile Include="src\frb\audio\Sound.cpp" />
     <ClCompile Include="src\frb\buffer\Buffer.cpp" />
     <ClCompile Include="src\frb\Context.cpp" />
@@ -31,7 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\frb\audio\Music.hpp" />
-    <ClInclude Include="src\frb\audio\Playlist.hpp" />
     <ClInclude Include="src\frb\audio\Sound.hpp" />
     <ClInclude Include="src\frb\buffer\Buffer.hpp" />
     <ClInclude Include="src\frb\Context.hpp" />

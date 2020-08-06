@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <pulsar/Log.hpp>
+
 #include "Sound.hpp"
 
 ///
@@ -16,6 +18,14 @@ namespace frb
 	    : Buffer {}, SourceManipulator {}, m_source {}
 	{
 		set_source_to_manipulate(m_source.handle());
+	}
+
+	Sound::Sound(std::string_view file)
+	{
+		if (!load(file))
+		{
+			PL_LOG(PL_FATAL, "Failed to load sound file: {0}.", file);
+		}
 	}
 
 	Sound::~Sound() noexcept

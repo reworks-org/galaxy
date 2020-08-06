@@ -11,7 +11,6 @@
 #include <qs/text/Text.hpp>
 #include <qs/sprite/BatchedSprite.hpp>
 #include <qs/graphics/Camera.hpp>
-#include <protostar/system/Colour.hpp>
 #include <protostar/events/MouseMovedEvent.hpp>
 
 #include "galaxy/ui/Theme.hpp"
@@ -53,7 +52,7 @@ namespace galaxy
 		/// \param textShader ID of shader in ShaderBook.
 		///
 		void render(qs::Camera& camera, std::string_view textShader) noexcept;
-		
+
 		///
 		/// Set the text of the tooltip.
 		///
@@ -134,6 +133,6 @@ namespace galaxy
 		///
 		qs::BatchedSprite m_sprite;
 	};
-}
+} // namespace galaxy
 
 #endif

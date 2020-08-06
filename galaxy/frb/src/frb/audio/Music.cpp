@@ -33,6 +33,14 @@ namespace frb
 		set_source_to_manipulate(m_source.handle());
 	}
 
+	Music::Music(std::string_view file)
+	{
+		if (!load(file))
+		{
+			PL_LOG(PL_FATAL, "Failed to load file: {0}.", file);
+		}
+	}
+
 	Music::~Music() noexcept
 	{
 		destroy();

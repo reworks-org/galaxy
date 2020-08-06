@@ -47,6 +47,7 @@
     <ClCompile Include="src\galaxy\components\All.cpp" />
     <ClCompile Include="src\galaxy\components\ShaderComponent.cpp" />
     <ClCompile Include="src\galaxy\fs\Serializable.cpp" />
+    <ClCompile Include="src\galaxy\systems\RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\galaxy\core\Application.hpp" />
@@ -72,6 +73,7 @@
     <ClInclude Include="src\galaxy\scripting\LuaEntity.hpp" />
     <ClInclude Include="src\galaxy\components\All.hpp" />
     <ClInclude Include="src\galaxy\fs\Serializable.hpp" />
+    <ClInclude Include="src\galaxy\systems\RenderSystem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\..\TODO.txt" />
