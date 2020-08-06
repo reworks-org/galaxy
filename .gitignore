@@ -1,8 +1,4 @@
 # Galaxy build stuff
-galaxy/celestial/bin/Debug/
-galaxy/celestial/bin/Release/
-galaxy/celestial/build/
-
 galaxy/deps/bin/Debug/
 galaxy/deps/bin/Release/
 galaxy/deps/build/
