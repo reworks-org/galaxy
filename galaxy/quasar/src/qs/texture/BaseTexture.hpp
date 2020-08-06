@@ -73,7 +73,7 @@ namespace qs
 		///
 		/// \param level 2, 4, 8, etc...
 		///
-		void set_anisotropy(const pr::positive_uint auto level) noexcept;
+		void set_anisotropy(const pr::positive_integer auto level) noexcept;
 
 		///
 		/// Set filter when texture is downscaled in OpenGL.

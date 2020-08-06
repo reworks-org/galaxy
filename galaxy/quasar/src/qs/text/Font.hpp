@@ -40,7 +40,7 @@ namespace qs
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		Font(std::string_view file, const pr::positive_int auto size);
+		Font(std::string_view file, const pr::positive_integer auto size);
 
 		///
 		/// Default destructor.
@@ -53,7 +53,7 @@ namespace qs
 		/// \param file Font file to load.
 		/// \param size Size to set the font at.
 		///
-		void load(std::string_view file, const pr::positive_int auto size);
+		void load(std::string_view file, const pr::positive_integer auto size);
 
 		///
 		/// Create the font.

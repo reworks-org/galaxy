@@ -45,7 +45,7 @@ namespace qs
 		/// \param region Region defined on the texture.
 		/// \param z_level Z-Level of sprite.
 		///
-		void create(const pr::Rect<float>& region, const pr::positive_uint auto z_level) noexcept;
+		void create(const pr::Rect<float>& region, const pr::positive_integer auto z_level) noexcept;
 
 		///
 		/// Set opacity.
@@ -59,7 +59,7 @@ namespace qs
 		///
 		/// \param z_level New z-level of sprite.
 		///
-		void set_z_level(const pr::positive_uint auto z_level) noexcept;
+		void set_z_level(const pr::positive_integer auto z_level) noexcept;
 
 		///
 		/// Update texquad region.

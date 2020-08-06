@@ -28,14 +28,14 @@ namespace pr
 		}
 	}
 
-	void ThreadPool::create(const pr::positive_size_t auto count)
+	void ThreadPool::create(const positive_integer auto& count)
 	{
 		if (!(count == 0 || count > std::thread::hardware_concurrency()))
 		{
 			m_max_threads = count;
 		}
 
-		for (auto i = 0; i < m_max_threads; i++)
+		for (std::size_t i = 0; i < m_max_threads; i++)
 		{
 			// This is just storing the thread.
 			m_workers.emplace_back([&]() {

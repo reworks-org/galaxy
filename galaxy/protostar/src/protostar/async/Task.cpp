@@ -40,7 +40,7 @@ namespace pr
 		std::atomic_wait(&m_done, false);
 	}
 
-	const bool Task::is_done() noexcept
+	bool Task::is_done() noexcept
 	{
 		return m_done;
 	}

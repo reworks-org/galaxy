@@ -40,7 +40,7 @@ namespace qs
 		/// \param w Width of the RenderTexture.
 		/// \param h Height of the RenderTexture.
 		///
-		explicit RenderTexture(const pr::positive_int auto w, const pr::positive_int auto h);
+		explicit RenderTexture(const pr::positive_integer auto w, const pr::positive_integer auto h);
 
 		///
 		/// Virtual destructor override.
@@ -53,7 +53,7 @@ namespace qs
 		/// \param w Width of the RenderTexture.
 		/// \param h Height of the RenderTexture.
 		///
-		void create(const pr::positive_int auto w, const pr::positive_int auto h);
+		void create(const pr::positive_integer auto w, const pr::positive_integer auto h);
 
 		///
 		/// Activate texture context.

@@ -27,7 +27,7 @@ namespace qs
 	{
 	}
 
-	Window::Window(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h)
+	Window::Window(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h)
 	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
 		if (!create(title, w, h))
@@ -43,7 +43,7 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h)
+	bool Window::create(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h)
 	{
 		// Function result.
 		bool result = true;
@@ -317,7 +317,7 @@ namespace qs
 		glfwSetWindowShouldClose(m_window, true);
 	}
 
-	void Window::resize(const pr::positive_int auto w, const pr::positive_int auto h) noexcept
+	void Window::resize(const pr::positive_integer auto w, const pr::positive_integer auto h) noexcept
 	{
 		m_width  = w;
 		m_height = h;

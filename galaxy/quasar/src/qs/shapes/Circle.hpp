@@ -38,7 +38,7 @@ namespace qs
 		/// \param colour Colour.
 		/// \param thickness Thickness of circle.
 		///
-		Circle(const float x, const float y, const pr::positive_float auto radius, const pr::positive_int auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness = 1.0f);
+		Circle(const float x, const float y, const pr::positive_float auto radius, const pr::positive_integer auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness = 1.0f);
 
 		///
 		/// Destructor.
@@ -55,7 +55,7 @@ namespace qs
 		/// \param colour Colour.
 		/// \param thickness Thickness of circle.
 		///
-		void create(const float x, const float y, const pr::positive_float auto radius, const pr::positive_int auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness = 1.0f);
+		void create(const float x, const float y, const pr::positive_float auto radius, const pr::positive_integer auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness = 1.0f);
 
 		///
 		/// Bind as active VA.

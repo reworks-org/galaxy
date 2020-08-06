@@ -24,13 +24,13 @@ namespace qs
 	{
 	}
 
-	Font::Font(std::string_view file, const pr::positive_int auto size)
+	Font::Font(std::string_view file, const pr::positive_integer auto size)
 	    : m_height {0}, m_texture {}
 	{
 		load(file, size);
 	}
 
-	void Font::load(std::string_view file, const pr::positive_int auto size)
+	void Font::load(std::string_view file, const pr::positive_integer auto size)
 	{
 		FT_Face face;
 		auto path = std::filesystem::path {file};

@@ -53,7 +53,7 @@ namespace pr
 		///
 		/// \return Const bool. True if finished.
 		///
-		const bool is_done() noexcept;
+		bool is_done() noexcept;
 
 	private:
 		///

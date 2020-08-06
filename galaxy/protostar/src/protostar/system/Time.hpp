@@ -24,7 +24,7 @@ namespace pr
 	///
 	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline const std::size_t seconds_to_milliseconds(positive_int auto seconds) noexcept
+	[[nodiscard]] inline const std::size_t seconds_to_milliseconds(positive_integer auto seconds) noexcept
 	{
 		return static_cast<std::size_t>(seconds * 1000);
 	}
@@ -36,7 +36,7 @@ namespace pr
 	///
 	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline const std::size_t seconds_to_microseconds(positive_int auto seconds) noexcept
+	[[nodiscard]] inline const std::size_t seconds_to_microseconds(positive_integer auto seconds) noexcept
 	{
 		return static_cast<std::size_t>(seconds * 1000000);
 	}
@@ -61,7 +61,7 @@ namespace pr
 	/// \return Returns const std::size_t.
 	///
 	[[nodiscard]] inline const std::size_t
-	milliseconds_to_microseconds(positive_size_t auto milliseconds) noexcept
+	milliseconds_to_microseconds(positive_integer auto milliseconds) noexcept
 	{
 		return static_cast<std::size_t>(milliseconds * 1000);
 	}

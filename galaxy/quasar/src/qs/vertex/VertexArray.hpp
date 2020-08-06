@@ -56,7 +56,7 @@ namespace qs
 		///
 		/// Change the way instancing works with the vertex array.
 		///
-		void change_divisor(pr::positive_uint auto index, pr::positive_uint auto div) noexcept;
+		void change_divisor(pr::positive_integer auto index, pr::positive_integer auto div) noexcept;
 
 	private:
 		///

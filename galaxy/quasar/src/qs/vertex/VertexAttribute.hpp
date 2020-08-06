@@ -37,7 +37,7 @@ namespace qs
 		/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 		/// \param offset The offset of this attribute in the verticies.
 		///
-		VertexAttribute(const pr::positive_int auto size, const pr::positive_uint auto type, unsigned char normalized, const pr::positive_size_t auto offset) noexcept;
+		VertexAttribute(const pr::positive_integer auto size, const pr::positive_integer auto type, unsigned char normalized, const pr::positive_integer auto offset) noexcept;
 
 		///
 		/// Components for each vertex attribute.

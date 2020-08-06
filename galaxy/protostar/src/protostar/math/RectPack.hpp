@@ -60,12 +60,12 @@ namespace pr
 		///
 		/// Get total width.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] int get_width() const noexcept;
 
 		///
 		/// Get total height.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] int get_height() const noexcept;
 
 		///
 		/// Get free rectangles.
@@ -170,13 +170,13 @@ namespace pr
 	}
 
 	template<is_arithmetic Type>
-	inline const int RectPack<Type>::get_width() const noexcept
+	inline int RectPack<Type>::get_width() const noexcept
 	{
 		return m_width;
 	}
 
 	template<is_arithmetic Type>
-	inline const int RectPack<Type>::get_height() const noexcept
+	inline int RectPack<Type>::get_height() const noexcept
 	{
 		return m_height;
 	}

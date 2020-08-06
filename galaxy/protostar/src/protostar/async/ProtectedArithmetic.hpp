@@ -34,7 +34,27 @@ namespace pr
 		///
 		/// \param value New value for var.
 		///
-		ProtectedAirthmetic(const Type value) noexcept;
+		explicit ProtectedAirthmetic(const Type value) noexcept;
+
+		///
+		/// Deleted move constructor.
+		///
+		ProtectedAirthmetic(ProtectedAirthmetic&&) = delete;
+
+		///
+		/// Deleted copy constructor.
+		///
+		ProtectedAirthmetic(const ProtectedAirthmetic&) = delete;
+
+		///
+		/// Deleted move assignment operator.
+		///
+		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) = delete;
+
+		///
+		/// Deleted copy assignment operator.
+		///
+		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
 
 		///
 		/// Default destructor.
@@ -56,26 +76,6 @@ namespace pr
 		[[nodiscard]] const Type get() noexcept;
 
 	private:
-		///
-		/// Deleted move constructor.
-		///
-		ProtectedAirthmetic(ProtectedAirthmetic&&) = delete;
-
-		///
-		/// Deleted copy constructor.
-		///
-		ProtectedAirthmetic(const ProtectedAirthmetic&) = delete;
-
-		///
-		/// Deleted move assignment operator.
-		///
-		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) = delete;
-
-		///
-		/// Deleted copy assignment operator.
-		///
-		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
-
 		///
 		/// The variable.
 		///

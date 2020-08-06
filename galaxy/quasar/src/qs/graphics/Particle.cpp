@@ -17,12 +17,12 @@ namespace qs
 	{
 	}
 
-	Particle::Particle(pr::positive_uint auto amount)
+	Particle::Particle(pr::positive_integer auto amount)
 		: VertexData{}, Texture{}, m_amount{amount}
 	{
 	}
 
-	void Particle::set_z_level(const pr::positive_uint auto z_level) noexcept
+	void Particle::set_z_level(const pr::positive_integer auto z_level) noexcept
 	{
 		m_z_level = z_level;
 	}

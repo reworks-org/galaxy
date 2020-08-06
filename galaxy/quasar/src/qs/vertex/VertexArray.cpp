@@ -33,7 +33,7 @@ namespace qs
 		glBindVertexArray(0);
 	}
 	
-	void VertexArray::change_divisor(pr::positive_uint auto index, pr::positive_uint auto div) noexcept
+	void VertexArray::change_divisor(pr::positive_integer auto index, pr::positive_integer auto div) noexcept
 	{
 		glBindVertexArray(m_id);
 		glVertexAttribDivisor(index, div);

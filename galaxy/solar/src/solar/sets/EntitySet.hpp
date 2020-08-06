@@ -24,7 +24,7 @@ namespace sr
 	///
 	/// Fast storage of unsigned integers.
 	///
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	class EntitySet
 	{
 		///
@@ -153,19 +153,19 @@ namespace sr
 		std::vector<UInt> m_sparse;
 	};
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline EntitySet<UInt>::EntitySet() noexcept
 	    : m_size {0}, m_capacity {0}
 	{
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline EntitySet<UInt>::~EntitySet() noexcept
 	{
 		clear();
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline void EntitySet<UInt>::insert(const UInt element)
 	{
 		if (!has(element))
@@ -188,13 +188,13 @@ namespace sr
 		}
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline bool EntitySet<UInt>::has(const UInt element)
 	{
 		return element < m_capacity && m_sparse[element] < m_size && m_dense[m_sparse[element]] == element;
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline std::optional<UInt> EntitySet<UInt>::find_index(const UInt element)
 	{
 		if (element >= m_sparse.size() || m_sparse.empty())
@@ -208,7 +208,7 @@ namespace sr
 		}
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline void EntitySet<UInt>::remove(const UInt element)
 	{
 		if (has(element))
@@ -219,7 +219,7 @@ namespace sr
 		}
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline void EntitySet<UInt>::clear() noexcept
 	{
 		m_dense.clear();
@@ -229,43 +229,43 @@ namespace sr
 		m_size     = 0;
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline const bool EntitySet<UInt>::empty() noexcept
 	{
 		return m_size == 0;
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline const UInt EntitySet<UInt>::size() const noexcept
 	{
 		return m_size;
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline const UInt EntitySet<UInt>::capacity() const noexcept
 	{
 		return m_capacity;
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline decltype(auto) EntitySet<UInt>::begin() noexcept
 	{
 		return m_dense.begin();
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline decltype(auto) EntitySet<UInt>::begin() const noexcept
 	{
 		return m_dense.begin();
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline decltype(auto) EntitySet<UInt>::end() noexcept
 	{
 		return m_dense.begin() + m_size;
 	}
 
-	template<pr::positive_uint UInt>
+	template<pr::positive_integer UInt>
 	inline decltype(auto) EntitySet<UInt>::end() const noexcept
 	{
 		return m_dense.begin() + m_size;

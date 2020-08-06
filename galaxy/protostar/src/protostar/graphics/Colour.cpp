@@ -17,12 +17,12 @@ namespace pr
 	{
 	}
 
-	Colour::Colour(const pr::positive_uint8_t auto r, const pr::positive_uint8_t auto g, const pr::positive_uint8_t auto b) noexcept
+	Colour::Colour(const pr::positive_integer auto r, const pr::positive_integer auto g, const pr::positive_integer auto b) noexcept
 	    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {255}
 	{
 	}
 
-	Colour::Colour(const pr::positive_uint8_t auto r, const pr::positive_uint8_t auto g, const pr::positive_uint8_t auto b, const pr::positive_uint8_t auto a) noexcept
+	Colour::Colour(const pr::positive_integer auto r, const pr::positive_integer auto g, const pr::positive_integer auto b, const pr::positive_integer auto a) noexcept
 	    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {a}
 	{
 	}

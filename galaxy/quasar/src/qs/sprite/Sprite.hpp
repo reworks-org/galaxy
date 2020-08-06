@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// \param z_level z-ordering level to render sprite at.
 		///
-		void set_z_level(const pr::positive_uint auto z_level) noexcept;
+		void set_z_level(const pr::positive_integer auto z_level) noexcept;
 
 		///
 		/// Get opacity.

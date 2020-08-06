@@ -30,7 +30,7 @@ namespace qs
 	/// Concept to ensure a number is a power of two.
 	///
 	template<typename Type>
-	concept is_pow_2 = pr::positive_int<Type>&& requires(Type val)
+	concept is_pow_2 = pr::positive_integer<Type>&& requires(Type val)
 	{
 		{((val != 0) && ((val & (val - 1)) == 0))};
 	};

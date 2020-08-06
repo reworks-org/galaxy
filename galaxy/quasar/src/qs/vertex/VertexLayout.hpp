@@ -46,7 +46,7 @@ namespace qs
 		/// \param size Number of components for each vertex attribute.
 		///
 		template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
-		void add(const pr::positive_int auto size);
+		void add(const pr::positive_integer auto size);
 
 		///
 		/// Retrieve all attributes.
@@ -63,7 +63,7 @@ namespace qs
 	};
 	
 	template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
-	inline void VertexLayout::add(const pr::positive_int auto size)
+	inline void VertexLayout::add(const pr::positive_integer auto size)
 	{
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.

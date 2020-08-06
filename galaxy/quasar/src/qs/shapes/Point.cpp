@@ -17,13 +17,13 @@ namespace qs
 	{
 	}
 
-	Point::Point(const float x, const float y, const pr::positive_int auto size, const pr::Colour& colour)
+	Point::Point(const float x, const float y, const pr::positive_integer auto size, const pr::Colour& colour)
 	    : m_size {0}
 	{
 		create(x, y, size, colour);
 	}
 
-	void Point::create(const float x, const float y, const pr::positive_int auto size, const pr::Colour& colour)
+	void Point::create(const float x, const float y, const pr::positive_integer auto size, const pr::Colour& colour)
 	{
 		m_size = size;
 

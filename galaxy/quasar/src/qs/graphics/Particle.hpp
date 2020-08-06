@@ -33,7 +33,7 @@ namespace qs
 		///
 		/// \param amount Amount of particles to draw.
 		///
-		Particle(pr::positive_uint auto amount);
+		Particle(pr::positive_integer auto amount);
 
 		///
 		/// Destructor.
@@ -53,7 +53,7 @@ namespace qs
 		///
 		/// \param z_level z-ordering level to render sprite at.
 		///
-		void set_z_level(const pr::positive_uint auto z_level) noexcept;
+		void set_z_level(const pr::positive_integer auto z_level) noexcept;
 
 		///
 		/// Activate sprite context.

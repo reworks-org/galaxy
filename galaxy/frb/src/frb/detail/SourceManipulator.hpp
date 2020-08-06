@@ -132,7 +132,7 @@ namespace frb
 		///
 		/// \param source Pointer to source handle in OpenAL.
 		///
-		void set_source_to_manipulate(const pr::positive_uint auto source) noexcept;
+		void set_source_to_manipulate(const pr::positive_integer auto source) noexcept;
 
 		///
 		/// Pointer to source being used internally.

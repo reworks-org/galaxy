@@ -108,9 +108,29 @@ namespace pl
 		};
 
 		///
+		/// Delete Copy construct in order to preserve singleton.
+		///
+		Log(Log const&) = delete;
+
+		///
+		/// Delete Move construct in order to preserve singleton.
+		///
+		Log(Log&&) = delete;
+
+		///
+		/// Delete Copy assign in order to preserve singleton.
+		///
+		Log& operator=(Log const&) = delete;
+
+		///
+		/// Delete Move assign in order to preserve singleton.
+		///
+		Log& operator=(Log&&) = delete;
+
+		///
 		/// Destructor.
 		///
-		~Log() noexcept;
+		~Log() noexcept = default;
 
 		///
 		/// Retrieve log instance.
@@ -170,26 +190,6 @@ namespace pl
 		Log();
 
 		///
-		/// Delete Copy construct in order to preserve singleton.
-		///
-		Log(Log const&) = delete;
-
-		///
-		/// Delete Move construct in order to preserve singleton.
-		///
-		Log(Log&&) = delete;
-
-		///
-		/// Delete Copy assign in order to preserve singleton.
-		///
-		Log& operator=(Log const&) = delete;
-
-		///
-		/// Delete Move assign in order to preserve singleton.
-		///
-		Log& operator=(Log&&) = delete;
-
-		///
 		/// Convert log message level to a string.
 		///
 		/// \param level Level to convert.
@@ -205,7 +205,7 @@ namespace pl
 		///
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		[[nodiscard]] std::string process_colour(Log::Level level);
+		[[nodiscard]] std::string process_colour(Log::Level level) noexcept;
 
 		///
 		/// Filters a log stream message based on message level to determine if it must be logged.

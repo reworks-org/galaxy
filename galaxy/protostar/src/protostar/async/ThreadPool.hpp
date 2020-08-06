@@ -34,39 +34,6 @@ namespace pr
 		ThreadPool() noexcept;
 
 		///
-		/// Destructor.
-		///
-		~ThreadPool() noexcept;
-
-		///
-		/// \brief Creates a number of threads.
-		///
-		/// You must call create() before using any functions.
-		///
-		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
-		///				I.e. too big or less than 0.
-		///
-		void create(const pr::positive_size_t auto count);
-
-		///
-		/// Queue a task for the thread pool to execute.
-		///
-		/// \param task Pointer to task to queue.
-		///
-		void queue(Task* task);
-
-		///
-		/// Start all threads.
-		///
-		void start() noexcept;
-
-		///
-		/// Finish all threads.
-		///
-		void end();
-
-	private:
-		///
 		/// Deleted move constructor.
 		///
 		ThreadPool(ThreadPool&&) = delete;
@@ -86,6 +53,39 @@ namespace pr
 		///
 		ThreadPool& operator=(const ThreadPool&) = delete;
 
+		///
+		/// Destructor.
+		///
+		~ThreadPool() noexcept;
+
+		///
+		/// \brief Creates a number of threads.
+		///
+		/// You must call create() before using any functions.
+		///
+		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
+		///				I.e. too big or less than 0.
+		///
+		void create(const positive_integer auto& count);
+
+		///
+		/// Queue a task for the thread pool to execute.
+		///
+		/// \param task Pointer to task to queue.
+		///
+		void queue(Task* task);
+
+		///
+		/// Start all threads.
+		///
+		void start() noexcept;
+
+		///
+		/// Finish all threads.
+		///
+		void end();
+
+	private:
 		///
 		/// Maximum threads avaliable for pool.
 		///

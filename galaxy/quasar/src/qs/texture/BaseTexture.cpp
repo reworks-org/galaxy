@@ -73,7 +73,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::set_anisotropy(const pr::positive_uint auto level) noexcept
+	void BaseTexture::set_anisotropy(const pr::positive_integer auto level) noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);

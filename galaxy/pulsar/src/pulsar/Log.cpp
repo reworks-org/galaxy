@@ -22,10 +22,6 @@ namespace pl
 	{
 	}
 
-	Log::~Log() noexcept
-	{
-	}
-
 	Log& Log::get() noexcept
 	{
 		// Singleton instance.
@@ -96,7 +92,7 @@ namespace pl
 
 	std::string Log::process_level(const Log::Level level)
 	{
-		std::string out {""};
+		std::string out;
 
 		switch (level)
 		{
@@ -128,9 +124,9 @@ namespace pl
 		return out;
 	}
 
-	std::string Log::process_colour(Log::Level level)
+	std::string Log::process_colour(Log::Level level) noexcept
 	{
-		std::string out {""};
+		std::string out;
 
 		switch (level)
 		{
@@ -164,14 +160,14 @@ namespace pl
 
 	bool Log::filter_level(Log::Level level) noexcept
 	{
+		bool res = false;
+
 		// Checks for proper stream level.
 		if (static_cast<int>(level) >= static_cast<int>(m_min_level))
 		{
-			return true;
+			res = true;
 		}
-		else
-		{
-			return false;
-		}
+
+		return res;
 	}
 } // namespace pl

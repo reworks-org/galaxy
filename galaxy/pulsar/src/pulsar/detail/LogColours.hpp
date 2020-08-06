@@ -24,6 +24,6 @@ namespace pl
 		RED    = 12,
 		FATAL  = 5
 	};
-} // namespace pulsar
+} // namespace pl
 
 #endif

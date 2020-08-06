@@ -24,7 +24,7 @@ namespace pr
 	template<typename Type>
 	concept positive_float = requires(Type val)
 	{
-		{std::is_same<Type, float>::value && (val > 0)};
+		{std::is_same<Type, float>::value && (val > 0.0f)};
 	};
 
 	///
@@ -33,61 +33,16 @@ namespace pr
 	template<typename Type>
 	concept positive_double = requires(Type val)
 	{
-		{std::is_same<Type, double>::value && (val > 0)};
+		{std::is_same<Type, double>::value && (val >= 0.0)};
 	};
 
 	///
 	/// Ensures input is a positive short.
 	///
 	template<typename Type>
-	concept positive_short = requires(Type val)
+	concept positive_integer = requires(Type val)
 	{
-		{std::is_same<Type, short>::value && (val > 0)};
-	};
-
-	///
-	/// Ensures input is a positive integer.
-	///
-	template<typename Type>
-	concept positive_int = requires(Type val)
-	{
-		{std::is_same<Type, int>::value && (val > 0)};
-	};
-
-	///
-	/// Ensures input is a positive unsigned integer.
-	///
-	template<typename Type>
-	concept positive_uint = requires(Type val)
-	{
-		{std::is_same<Type, unsigned int>::value && (val > 0)};
-	};
-
-	///
-	/// Ensures input is a positive long.
-	///
-	template<typename Type>
-	concept positive_long = requires(Type val)
-	{
-		{std::is_same<Type, long>::value && (val > 0)};
-	};
-
-	///
-	/// Ensures input is a positive std::size_t.
-	///
-	template<typename Type>
-	concept positive_size_t = requires(Type val)
-	{
-		{std::is_same<Type, std::size_t>::value && (val > 0)};
-	};
-
-	///
-	/// Ensures input is a positive std::uint8_t.
-	///
-	template<typename Type>
-	concept positive_uint8_t = requires(Type val)
-	{
-		{std::is_same<Type, std::uint8_t>::value && (val > 0)};
+		{val >= 0};
 	};
 
 	///
@@ -112,7 +67,7 @@ namespace pr
 	/// Ensures a type is arithmetic or a std::string.
 	///
 	template<typename Type>
-	concept standard_types = (std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
+	concept standard_type = (std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
 
 	///
 	/// Ensures that a pointer is not null.
@@ -127,7 +82,7 @@ namespace pr
 	/// Ensures that a pointer is a valid void pointer.
 	///
 	template<typename Type>
-	concept not_nullptr_void = requires(Type val)
+	concept valid_void_ptr = requires(Type val)
 	{
 		{std::is_same<Type, void*>::value::value && (val != nullptr)};
 	};
@@ -138,7 +93,7 @@ namespace pr
 	template<typename Type>
 	concept from_0_to_1 = requires(Type val)
 	{
-		{val <= 1 && val >= 0};
+		{val >= 0 && val <= 1};
 	};
 } // namespace pr
 

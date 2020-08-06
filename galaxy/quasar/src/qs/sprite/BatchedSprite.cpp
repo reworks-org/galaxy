@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	void BatchedSprite::create(const pr::Rect<float>& region, const pr::positive_uint auto z_level) noexcept
+	void BatchedSprite::create(const pr::Rect<float>& region, const pr::positive_integer auto z_level) noexcept
 	{
 		m_region  = region;
 		m_z_level = z_level;
@@ -34,7 +34,7 @@ namespace qs
 		m_dirty   = true;
 	}
 
-	void BatchedSprite::set_z_level(const pr::positive_uint auto level) noexcept
+	void BatchedSprite::set_z_level(const pr::positive_integer auto level) noexcept
 	{
 		m_z_level = level;
 		m_dirty   = true;

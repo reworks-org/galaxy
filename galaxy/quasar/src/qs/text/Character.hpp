@@ -41,7 +41,7 @@ namespace qs
 		/// \param by Bearing y offset.
 		/// \param advance Offset to next character.
 		///
-		explicit Character(const int bx, const int by, const pr::positive_uint auto advance);
+		explicit Character(const int bx, const int by, const pr::positive_integer auto advance);
 
 		///
 		/// Destructor.

@@ -40,7 +40,7 @@ namespace qs
 		/// \param w Width of the window.
 		/// \param h Height of the window.
 		///
-		explicit Window(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h);
+		explicit Window(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h);
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -61,7 +61,7 @@ namespace qs
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(std::string_view title, const pr::positive_int auto w, const pr::positive_int auto h);
+		bool create(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h);
 
 		///
 		/// Sets the background colour of the window.
@@ -147,7 +147,7 @@ namespace qs
 		/// \param h new height of the window.
 		/// \param window Pointer to window to resize. Defaults to *this.
 		///
-		void resize(const pr::positive_int auto w, const pr::positive_int auto h) noexcept;
+		void resize(const pr::positive_integer auto w, const pr::positive_integer auto h) noexcept;
 
 		///
 		/// \brief Notify's user of an event without interrupting.
