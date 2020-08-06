@@ -24,7 +24,7 @@ namespace pr
 		m_done = true;
 	}
 
-	void Task::set(function_callback&& func) noexcept
+	void Task::set(std::function<void(void)>&& func) noexcept
 	{
 		m_task = std::move(func);
 	}
