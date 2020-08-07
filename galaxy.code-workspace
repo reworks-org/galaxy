@@ -117,7 +117,9 @@
             "zainchen.json",
             "openningia.vscode-google-test-adapter",
             "j0hnm4r5.glsl-snippets",
-            "cadenas.vscode-glsllint"
+            "cadenas.vscode-glsllint",
+            "ms-vscode.cmake-tools",
+            "twxs.cmake"
         ]
     }
 }

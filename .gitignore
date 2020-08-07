@@ -1,3 +1,10 @@
+# Stuff
+.vs/
+.DS_Store
+Thumbs.db
+*.ini
+build/
+
 # Galaxy build stuff
 galaxy/deps/bin/Debug/
 galaxy/deps/bin/Release/
@@ -38,17 +45,6 @@ galaxy/starlight/build/
 galaxy/starmap/bin/Debug/
 galaxy/starmap/bin/Release/
 galaxy/starmap/build/
-
-# repo stuff
-.vs/
-
-# sandbox stuff
-sandbox/bin/Debug/
-sandbox/bin/Release/
-sandbox/build/
-sandbox/logs/
-sandbox/write-dir/
-sandbox/*.ini
 
 # supercluster stuff
 supercluster/bin/Debug/

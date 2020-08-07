@@ -25,7 +25,8 @@
                     "${workspaceFolder}/**"
                 ],
                 "limitSymbolsToIncludedHeaders": true
-            }
+            },
+            "compileCommands": "${workspaceFolder}/galaxy/pulsar/build/Debug/x64/pulsar.ClangTidy/compile_commands.json"
         },
         {
             "name": "x64",
