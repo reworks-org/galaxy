@@ -4,5 +4,4 @@ configure wsl to build and run on linux from vscode
 
 
 
-https://code.visualstudio.com/docs/cpp/config-mingw
 -> continue from explore intellisense
