@@ -94,7 +94,18 @@
         "gtestExplorer.cwd": "tests/src/",
         "clang-tidy.executable": "tools/clang/clang-tidy.exe",
         "clang-format.executable": "tools/clang/clang-format.exe",
-        "C_Cpp.clang_format_path": "tools/clang/clang-format.exe"
+        "C_Cpp.clang_format_path": "tools/clang/clang-format.exe",
+        "cmake.configureOnOpen": true,
+        "cmake.enabledOutputParsers": [
+            "cmake",
+            "gcc",
+            "gnuld",
+            "msvc"
+        ],
+        "cmake.generator": "Visual Studio 16 2019 x64",
+        "cmake.mingwSearchDirs": [
+            "D:/mingw64"
+        ]
     },
     "extensions": {
         "recommendations": [

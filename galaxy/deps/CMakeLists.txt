@@ -1,7 +1,6 @@
 project(deps C CXX)
 
-set(
-dependencies_src
+set(dependencies_src
 "../../dependencies/Box2D-MT/Box2D/Collision/b2BroadPhase.cpp"
 "../../dependencies/Box2D-MT/Box2D/Collision/b2CollideCircle.cpp"
 "../../dependencies/Box2D-MT/Box2D/Collision/b2CollideEdge.cpp"
@@ -102,5 +101,113 @@ dependencies_src
 "../../dependencies/googletest/googletest/src/gtest-internal-inl.h"
 )
 
-source_group(TREE "" FILES ${dependencies_src})
-add_library("deps" STATIC ${dependencies_src})
+source_group(${PROJECT_NAME} ${dependencies_src})
+add_library(${PROJECT_NAME} STATIC ${dependencies_src})
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+"../../dependencies/glad/"
+"../../dependencies/glfw3/include/"
+"../../dependencies/imgui/"
+"../../dependencies/imgui/cpp/"
+"../../dependencies/imgui/impl/"
+"../../dependencies/imgui-texteditor/"
+"../../dependencies/lua/src/"
+"../../dependencies/googletest/googletest/include/"
+"../../dependencies/googletest/googletest/"
+"../../dependencies/Box2D-MT/"
+"../pulsar/src/"
+)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+"$<$<CONFIG:Debug>:"
+"_DEBUG"
+">"
+"$<$<CONFIG:Release>:"
+"NDEBUG"
+">"
+"UNICODE"
+"_UNICODE"
+)
+
+if (MSVC)
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+"_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS"
+"_CRT_SECURE_NO_WARNINGS"
+"_CRT_SECURE_NO_DEPRECATE"
+"_CRT_NONSTDC_NO_DEPRECATE"
+)
+endif()
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+)
+
+include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
+set_project_warnings(${PROJECT_NAME})
+
+if(MSVC)
+target_compile_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+    /JMC
+    /ZI
+    /Od
+    /RTC1
+    /MTd
+    /GS
+    /GR
+>
+$<$<CONFIG:Release>:
+    /O2
+    /Oi
+    /Ot
+    /GL
+    /MT
+    /GS-
+    /Gy
+    /GR-
+>
+/std:c++latest
+/sdl
+/WX-
+/MP
+/GF
+/EHsc
+/fp:except
+/fp:precise
+/QIntel-jcc-erratum
+/bigobj
+/Zc:preprocessor
+/Y-
+)
+
+target_link_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+/INCREMENTAL
+/DEBUG
+/SUBSYSTEM:CONSOLE
+>
+$<$<CONFIG:Release>:
+/INCREMENTAL:NO
+/SUBSYSTEM:WINDOWS
+/OPT:REF
+/OPT:ICF
+/LTCG:incremental
+>
+/SAFESEH
+/ignore:4099
+/MACHINE:X64
+)
+
+else()
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+
+)
+
+target_link_options(${PROJECT_NAME} PRIVATE
+)
+
+endif()

@@ -1,7 +1,6 @@
 project(quasar CXX)
 
-set(
-quasar_src
+set(quasar_src
 "src/qs/anim/Animated.cpp"
 "src/qs/anim/Animated.hpp"
 "src/qs/anim/Animation.cpp"
@@ -82,5 +81,115 @@ quasar_src
 "src/qs/vertex/VertexLayout.hpp"
 )
 
-source_group(TREE "" FILES ${quasar_src})
-add_library("quasar" STATIC ${quasar_src})
+source_group(${PROJECT_NAME} ${quasar_src})
+add_library(${PROJECT_NAME} STATIC ${quasar_src})
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+"src/"
+"../../dependencies/glm/"
+"../../dependencies/glfw3/include/"
+"../../dependencies/stb/"
+"../../dependencies/glad/"
+"../../dependencies/freetype/include/"
+"../protostar/src/"
+"../pulsar/src/"
+)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+"$<$<CONFIG:Debug>:"
+"_DEBUG"
+">"
+"$<$<CONFIG:Release>:"
+"NDEBUG"
+">"
+"GLM_FORCE_XYZW_ONLY"
+"GLFW_INCLUDE_NONE"
+"STB_IMAGE_WRITE_STATIC"
+"STB_IMAGE_WRITE_IMPLEMENTATION"
+"STBI_ONLY_PNG"
+"STB_IMAGE_STATIC"
+"STB_IMAGE_IMPLEMENTATION"
+)
+
+if (MSVC)
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+"_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS"
+"_CRT_SECURE_NO_WARNINGS"
+"_CRT_SECURE_NO_DEPRECATE"
+"_CRT_NONSTDC_NO_DEPRECATE"
+)
+endif()
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
+)
+
+include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
+set_project_warnings(${PROJECT_NAME})
+
+if(MSVC)
+target_compile_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+    /JMC
+    /ZI
+    /Od
+    /RTC1
+    /MTd
+    /GS
+    /GR
+>
+$<$<CONFIG:Release>:
+    /O2
+    /Oi
+    /Ot
+    /GL
+    /MT
+    /GS-
+    /Gy
+    /GR-
+>
+/std:c++latest
+/sdl
+/WX-
+/MP
+/GF
+/EHsc
+/fp:except
+/fp:precise
+/QIntel-jcc-erratum
+/bigobj
+/Zc:preprocessor
+/Y-
+)
+
+target_link_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+/INCREMENTAL
+/DEBUG
+/SUBSYSTEM:CONSOLE
+>
+$<$<CONFIG:Release>:
+/INCREMENTAL:NO
+/SUBSYSTEM:WINDOWS
+/OPT:REF
+/OPT:ICF
+/LTCG:incremental
+>
+/SAFESEH
+/ignore:4099
+/MACHINE:X64
+)
+
+else()
+
+target_compile_options(${PROJECT_NAME} PRIVATE
+
+)
+
+target_link_options(${PROJECT_NAME} PRIVATE
+)
+
+endif()
