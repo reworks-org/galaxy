@@ -3,6 +3,8 @@
 .DS_Store
 Thumbs.db
 *.ini
+build/
+output/
 
 # Galaxy build stuff
 galaxy/deps/bin/Debug/
