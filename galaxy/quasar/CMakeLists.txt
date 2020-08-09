@@ -91,6 +91,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "../../dependencies/stb/"
 "../../dependencies/glad/"
 "../../dependencies/freetype/include/"
+"../../dependencies/c++20/"
 "../protostar/src/"
 "../pulsar/src/"
 )

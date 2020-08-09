@@ -81,6 +81,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "../../dependencies/zlib/include/"
 "../../dependencies/Box2D-MT/"
 "../../dependencies/oggvorbis/include"
+"../../dependencies/c++20/"
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE

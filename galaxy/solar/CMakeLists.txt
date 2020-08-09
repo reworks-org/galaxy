@@ -20,6 +20,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "src/"
 "../protostar/src/"
 "../pulsar/src/"
+"../../dependencies/c++20/"
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE

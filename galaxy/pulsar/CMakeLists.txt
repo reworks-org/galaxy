@@ -16,6 +16,7 @@ add_library(${PROJECT_NAME} STATIC ${pulsar_src})
 
 target_include_directories(${PROJECT_NAME} PUBLIC
 "src/"
+"../../dependencies/c++20/"
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE

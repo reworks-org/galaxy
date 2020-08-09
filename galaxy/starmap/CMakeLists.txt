@@ -54,6 +54,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "src/"
 "../../dependencies/json/include/"
 "../../dependencies/zlib/include/"
+"../../dependencies/c++20/"
 "../pulsar/src/"
 "../protostar/src"
 )

@@ -54,6 +54,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "../dependencies/googletest/googletest/include/"
 "../dependencies/googletest/googletest/"
 "../../dependencies/Box2D-MT/"
+"../../dependencies/c++20/"
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE

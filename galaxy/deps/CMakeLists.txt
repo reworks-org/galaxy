@@ -98,6 +98,10 @@ set(dependencies_src
 "../../dependencies/lua/src/lutf8lib.c"
 "../../dependencies/lua/src/lvm.c"
 "../../dependencies/lua/src/lzio.c"
+"../../dependencies/c++20/format.cc"
+"../../dependencies/c++20/os.cc"
+"../../dependencies/c++20/tz.cpp"
+"../../dependencies/c++20/source.cpp"
 "../../dependencies/googletest/googletest/src/gtest-internal-inl.h"
 )
 
@@ -115,6 +119,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "../../dependencies/googletest/googletest/include/"
 "../../dependencies/googletest/googletest/"
 "../../dependencies/Box2D-MT/"
+"../../dependencies/c++20/"
 "../pulsar/src/"
 )
 

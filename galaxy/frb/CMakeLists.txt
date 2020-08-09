@@ -27,6 +27,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 "../../dependencies/oggvorbis/include/"
 "../../dependencies/openal/include/"
 "../../dependencies/stb/"
+"../../dependencies/c++20/"
 "../pulsar/src/"
 "../protostar/src/"
 )
