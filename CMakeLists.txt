@@ -2,19 +2,29 @@
 cmake_minimum_required(VERSION 3.17)
 project(galaxy_engine LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
 # Warning
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there.\n")
 endif()
 
-# doxygen
-include(cmake/Doxygen.cmake)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Set vars
-set(CMAKE_CXX_CLANG_TIDY "clang-tidy;--config=")
+if(WIN32)
+    set(CMAKE_SYSTEM_NAME WINDOWS)
+else()
+    set(CMAKE_SYSTEM_NAME LINUX)
+endif()
+
+if(MSVC)
+    set(CMAKE_GNUtoMS ON)
+endif()
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CONFIGURATION_TYPES
 "Debug"
 "Release"
@@ -24,26 +34,27 @@ CACHE STRING "" FORCE
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_source_files_properties(*.c LANGUAGE C)
 set_source_files_properties(*.cpp LANGUAGE CXX)
+#set(CMAKE_CXX_CLANG_TIDY "clang-tidy;--header-filter=.* -p=${CMAKE_FILES_DIRECTORY}/ --config=")
 
 # Reset all arguments.
-set(CMAKE_C_FLAGS_DEBUG "")
-set(CMAKE_C_FLAGS_RELEASE "")
-set(CMAKE_CXX_FLAGS "")
-set(CMAKE_CXX_FLAGS_DEBUG "")
-set(CMAKE_CXX_FLAGS_RELEASE "")
+#set(CMAKE_C_FLAGS_DEBUG "")
+#set(CMAKE_C_FLAGS_RELEASE "")
+#set(CMAKE_CXX_FLAGS "")
+#set(CMAKE_CXX_FLAGS_DEBUG "")
+#set(CMAKE_CXX_FLAGS_RELEASE "")
 
-set(CMAKE_EXE_LINKER_FLAGS "")
-set(CMAKE_MODULE_LINKER_FLAGS "")
-set(CMAKE_SHARED_LINKER_FLAGS "")
-set(CMAKE_STATIC_LINKER_FLAGS "")
-set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS}")
-set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS}")
-set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS}")
-set(CMAKE_STATIC_LINKER_FLAGS_DEBUG "${CMAKE_STATIC_LINKER_FLAGS}")
-set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS}")
-set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
-set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
-set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
+#set(CMAKE_EXE_LINKER_FLAGS "")
+#set(CMAKE_MODULE_LINKER_FLAGS "")
+#set(CMAKE_SHARED_LINKER_FLAGS "")
+#set(CMAKE_STATIC_LINKER_FLAGS "")
+#set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS}")
+#set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS}")
+#set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS}")
+#set(CMAKE_STATIC_LINKER_FLAGS_DEBUG "${CMAKE_STATIC_LINKER_FLAGS}")
+#set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS}")
+#set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
+#set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
+#set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
 
 set(DEPS_LIBS
 "vorbisfile"
@@ -56,7 +67,7 @@ set(DEPS_LIBS
 "freetype"
 )
 
-if(MSVC)
+if(WIN32)
     set(WIN_LIBS
         "opengl32"
         "kernel32"
@@ -164,3 +175,10 @@ if(MSVC)
     target_link_libraries(supercluster PUBLIC "${WIN_LIBS}")
     target_link_libraries(tests PUBLIC "${WIN_LIBS}")
 endif()
+
+# doxygen
+include(cmake/Doxygen.cmake)
+
+# only build libs
+add_custom_target(BUILD_LIBS_ONLY)
+add_dependencies(BUILD_LIBS_ONLY pulsar deps protostar frb quasar redshift solar starlight starmap galaxy)

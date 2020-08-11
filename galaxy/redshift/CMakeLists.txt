@@ -19,6 +19,8 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 "$<$<CONFIG:Release>:"
 "NDEBUG"
 ">"
+"UNICODE"
+"_UNICODE"
 )
 
 if (MSVC)
@@ -96,10 +98,45 @@ $<$<CONFIG:Release>:
 else()
 
 target_compile_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+-fcheck-new
+-fanalyzer
+>
+$<$<CONFIG:Release>:
+>
+-std=c++20
+-funsigned-char
+-fchar8_t
+-fconcepts
+-fcoroutines
+-fno-pretty-templates
+-fstrict-enums
+-pthread
+-fexceptions
+)
 
+target_compile_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+-fanalyzer
+>
+$<$<CONFIG:Release>:
+>
+-std=c++20
+-pthread
+-fexceptions
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+-Og
+>
+$<$<CONFIG:Release>:
+-O3
+>
+-pthread
+-static-libstdc++
+-static-libgcc
+-static
 )
 
 endif()

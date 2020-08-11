@@ -73,6 +73,8 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 "STB_IMAGE_STATIC"
 "STB_IMAGE_IMPLEMENTATION"
 "SOL_CXX17_FEATURES"
+"UNICODE"
+"_UNICODE"
 )
 
 if (MSVC)
@@ -150,10 +152,27 @@ $<$<CONFIG:Release>:
 else()
 
 target_compile_options(${PROJECT_NAME} PRIVATE
-
+$<$<CONFIG:Debug>:
+-fanalyzer
+>
+$<$<CONFIG:Release>:
+>
+-std=c++20
+-pthread
+-fexceptions
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+-Og
+>
+$<$<CONFIG:Release>:
+-O3
+>
+-pthread
+-static-libstdc++
+-static-libgcc
+-static
 )
 
 endif()

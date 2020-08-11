@@ -101,7 +101,7 @@ set(dependencies_src
 "../../dependencies/c++20/format.cc"
 "../../dependencies/c++20/os.cc"
 "../../dependencies/c++20/tz.cpp"
-"../../dependencies/c++20/source.cpp"
+#"../../dependencies/c++20/source.cpp"
 "../../dependencies/googletest/googletest/src/gtest-internal-inl.h"
 )
 
@@ -150,9 +150,6 @@ PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
 RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
 )
 
-include(${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake)
-set_project_warnings(${PROJECT_NAME})
-
 if(MSVC)
 target_compile_options(${PROJECT_NAME} PRIVATE
 $<$<CONFIG:Debug>:
@@ -176,6 +173,7 @@ $<$<CONFIG:Release>:
 >
 /std:c++latest
 /sdl
+/w
 /WX-
 /MP
 /GF
@@ -209,10 +207,27 @@ $<$<CONFIG:Release>:
 else()
 
 target_compile_options(${PROJECT_NAME} PRIVATE
-
+$<$<CONFIG:Debug>:
+>
+$<$<CONFIG:Release>:
+>
+-w
+-std=c++20
+-pthread
+-fexceptions
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE
+$<$<CONFIG:Debug>:
+-Og
+>
+$<$<CONFIG:Release>:
+-O3
+>
+-pthread
+-static-libstdc++
+-static-libgcc
+-static
 )
 
 endif()
