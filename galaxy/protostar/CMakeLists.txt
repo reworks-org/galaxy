@@ -45,6 +45,8 @@ set(protostar_src
 "src/protostar/system/Time.hpp"
 "src/protostar/system/UniqueID.cpp"
 "src/protostar/system/UniqueID.hpp"
+"src/protostar/system/cpp20.hpp"
+"src/protostar/system/cpp20.cpp"
 )
 
 source_group(${PROJECT_NAME} ${protostar_src})

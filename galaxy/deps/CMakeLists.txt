@@ -204,30 +204,4 @@ $<$<CONFIG:Release>:
 /MACHINE:X64
 )
 
-else()
-
-target_compile_options(${PROJECT_NAME} PRIVATE
-$<$<CONFIG:Debug>:
->
-$<$<CONFIG:Release>:
->
--w
--std=c++20
--pthread
--fexceptions
-)
-
-target_link_options(${PROJECT_NAME} PRIVATE
-$<$<CONFIG:Debug>:
--Og
->
-$<$<CONFIG:Release>:
--O3
->
--pthread
--static-libstdc++
--static-libgcc
--static
-)
-
 endif()
