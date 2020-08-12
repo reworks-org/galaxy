@@ -1,12 +1,10 @@
 .vs/
-.vscode/
 .DS_Store
 Thumbs.db
 *.ini
 build/
 output/
 out/
-galaxy_engine.code-workspace
 
 galaxy/deps/bin/Debug/
 galaxy/deps/bin/Release/
