@@ -1,6 +1,6 @@
+c++ profiling tools
 clang-tidy
-clang-format
-...
+
 
 building instructions
 configure wsl to build and run on linux from vscode

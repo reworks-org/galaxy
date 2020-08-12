@@ -7,35 +7,6 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   message(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there.\n")
 endif()
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-# Set vars
-if(WIN32)
-    set(CMAKE_SYSTEM_NAME WINDOWS)
-else()
-    set(CMAKE_SYSTEM_NAME LINUX)
-endif()
-
-if(MSVC)
-    set(CMAKE_GNUtoMS ON)
-endif()
-
-set(THREADS_PREFER_PTHREAD_FLAG ON)
-find_package(Threads)
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CONFIGURATION_TYPES
-"Debug"
-"Release"
-CACHE STRING "" FORCE
-)
-
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-set_source_files_properties(*.c LANGUAGE C)
-set_source_files_properties(*.cpp LANGUAGE CXX)
-#set(CMAKE_CXX_CLANG_TIDY "clang-tidy;--header-filter=.* -p=${CMAKE_FILES_DIRECTORY}/ --config=")
-
 # Reset all arguments.
 #set(CMAKE_C_FLAGS_DEBUG "")
 #set(CMAKE_C_FLAGS_RELEASE "")
@@ -55,6 +26,28 @@ set_source_files_properties(*.cpp LANGUAGE CXX)
 #set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
 #set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
 #set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CONFIGURATION_TYPES
+"Debug"
+"Release"
+CACHE STRING "" FORCE
+)
+
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_source_files_properties(*.c LANGUAGE C)
+set_source_files_properties(*.cc LANGUAGE CXX)
+set_source_files_properties(*.cpp LANGUAGE CXX)
+#set(CMAKE_CXX_CLANG_TIDY "clang-tidy;--header-filter=.* -p=${CMAKE_FILES_DIRECTORY}/ --config=")
+
+if(NOT MSVC)
+    set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+    set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+    find_package(Threads REQUIRED)
+endif()
 
 set(DEPS_LIBS
 "vorbisfile"
@@ -171,7 +164,7 @@ target_link_libraries(tests PUBLIC starlight)
 target_link_libraries(tests PUBLIC starmap)
 target_link_libraries(tests PUBLIC "${DEPS_LIBS}")
 
-if(MSVC)
+if(WIN32)
     target_link_libraries(supercluster PUBLIC "${WIN_LIBS}")
     target_link_libraries(tests PUBLIC "${WIN_LIBS}")
 endif()
