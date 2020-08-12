@@ -22,9 +22,9 @@ THE SOFTWARE.
 
 */
 
-#include <atomic_wait>
-#include <barrier>
-#include <thread>
+#include <sync/atomic_wait>
+#include <sync/barrier>
+#include <sync/thread>
 
 #ifdef __TABLE
 
