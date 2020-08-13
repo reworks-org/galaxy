@@ -5,6 +5,7 @@ Thumbs.db
 build/
 out/
 output/
+tools/
 
 galaxy/deps/bin/Debug/
 galaxy/deps/bin/Release/
