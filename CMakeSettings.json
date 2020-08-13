@@ -15,7 +15,11 @@
       "addressSanitizerRuntimeFlags": "detect_leaks=0",
       "variables": [],
       "intelliSenseMode": "linux-gcc-x64",
-      "addressSanitizerEnabled": true
+      "addressSanitizerEnabled": true,
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset":"CodeAnalysis.ruleset",
+  	  "enableClangTidyCodeAnalysis": true,
+  	  "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
     },
     {
       "name": "WSL-GCC-Release",
@@ -32,7 +36,11 @@
       "addressSanitizerRuntimeFlags": "",
       "variables": [],
       "intelliSenseMode": "linux-gcc-x64",
-      "addressSanitizerEnabled": false
+      "addressSanitizerEnabled": false,
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset":"CodeAnalysis.ruleset",
+  	  "enableClangTidyCodeAnalysis": true,
+  	  "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
     },
     {
       "name": "MSVC-Debug",
@@ -46,7 +54,11 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
       "cmakeExecutable": "cmake",
-      "intelliSenseMode": "windows-msvc-x64"
+      "intelliSenseMode": "windows-msvc-x64",
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset":"CodeAnalysis.ruleset",
+  	  "enableClangTidyCodeAnalysis": true,
+  	  "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
     },
     {
       "name": "MSVC-Release",
@@ -60,7 +72,11 @@
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "variables": [],
       "cmakeExecutable": "cmake",
-      "intelliSenseMode": "windows-msvc-x64"
+      "intelliSenseMode": "windows-msvc-x64",
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset":"CodeAnalysis.ruleset",
+  	  "enableClangTidyCodeAnalysis": true,
+  	  "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
     },
     {
       "name": "Mingw64-Debug",
@@ -96,7 +112,11 @@
         }
       ],
       "intelliSenseMode": "linux-gcc-x64",
-      "cmakeExecutable": "cmake"
+      "cmakeExecutable": "cmake",
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset":"CodeAnalysis.ruleset",
+  	  "enableClangTidyCodeAnalysis": true,
+  	  "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
     },
     {
       "name": "Mingw64-Release",
@@ -132,7 +152,11 @@
         }
       ],
       "intelliSenseMode": "linux-gcc-x64",
-      "cmakeExecutable": "cmake"
+      "cmakeExecutable": "cmake",
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset":"CodeAnalysis.ruleset",
+  	  "enableClangTidyCodeAnalysis": true,
+  	  "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
     }
   ]
 }
