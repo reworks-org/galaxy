@@ -1,2 +1,0 @@
-Uses the LLVM 'Apache 2' License.
-See: https://clang.llvm.org/features.html#license
