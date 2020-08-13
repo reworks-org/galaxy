@@ -11,15 +11,19 @@ Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 ![galaxy](logo.png?raw=true "galaxy")
 
 ## Building
+Only supports 64bit systems.
+
 ### Windows:
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
-msbuild galaxy.sln
+// todo
 ```
 
 ### Unix:
 ```cpp
+git clone --recursive https://github.com/DomRe/galaxy.git
+git submodule update --init --recursive
 // todo
 ```
 
@@ -59,3 +63,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://indiegamedev.net/2020/02/25/the-complete-guide-to-openal-with-c-part-2-streaming-audio/
 * https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
+* https://github.com/filipdutescu/modern-cpp-template

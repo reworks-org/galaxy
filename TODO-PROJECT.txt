@@ -1,0 +1,8 @@
+Profiling?
+Debugging?
+
+
+building instructions
+configure wsl to build and run on linux from visual studio
+
+open in editor for every other file for vscode integration
