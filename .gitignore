@@ -3,8 +3,8 @@
 Thumbs.db
 *.ini
 build/
-output/
 out/
+output/
 
 galaxy/deps/bin/Debug/
 galaxy/deps/bin/Release/
@@ -46,14 +46,12 @@ galaxy/starmap/bin/Debug/
 galaxy/starmap/bin/Release/
 galaxy/starmap/build/
 
-# supercluster stuff
 supercluster/bin/Debug/
 supercluster/bin/Release/
 supercluster/build/
 supercluster/logs/
 supercluster/*.ini
 
-# testing stuff
 tests/bin/Debug/
 tests/bin/Release/
 tests/build/
