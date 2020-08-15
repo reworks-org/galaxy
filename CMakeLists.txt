@@ -83,6 +83,9 @@ if(WIN32)
     )
 endif()
 
+# doxygen
+include(cmake/Doxygen.cmake)
+
 add_subdirectory(galaxy/deps)
 add_subdirectory(galaxy/frb)
 add_subdirectory(galaxy/galaxy)
@@ -171,9 +174,6 @@ if(WIN32)
     target_link_libraries(supercluster PUBLIC "${WIN_LIBS}")
     target_link_libraries(tests PUBLIC "${WIN_LIBS}")
 endif()
-
-# doxygen
-include(cmake/Doxygen.cmake)
 
 # target to only build libs
 add_custom_target(BUILD_LIBS_ONLY)

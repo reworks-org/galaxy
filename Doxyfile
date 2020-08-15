@@ -58,7 +58,7 @@ PROJECT_LOGO           = logo_docs.png
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = 
+OUTPUT_DIRECTORY       = @DOXYGEN_OUT@
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create 4096 sub-
 # directories (in 2 levels) under the output directory of each output format and
@@ -790,16 +790,17 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = galaxy/frb/src \
-                         galaxy/galaxy/src \
-                         galaxy/protostar/src \
-                         galaxy/pulsar/src \
-                         galaxy/quasar/src \
-                         galaxy/redshift/src \
-                         galaxy/solar/src \
-                         galaxy/starlight/src \
-                         galaxy/starmap/src \
-                         README.md
+INPUT                  = @CMAKE_SOURCE_DIR@/galaxy/frb/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/galaxy/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/protostar/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/pulsar/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/quasar/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/redshift/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/solar/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/starlight/src \
+                         @CMAKE_SOURCE_DIR@/galaxy/starmap/src \
+                         @CMAKE_SOURCE_DIR@/supercluster/src \
+                         @CMAKE_SOURCE_DIR@/README.md
 
 
 # This tag can be used to specify the character encoding of the source files

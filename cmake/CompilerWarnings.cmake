@@ -4,6 +4,9 @@
 # lable.md
 # Courtesy of Jason Turner
 
+# and:
+# https://github.com/filipdutescu/modern-cpp-template
+
 function(set_project_warnings project_name)
   set(MSVC_WARNINGS
       /W4     # Baseline reasonable warnings
