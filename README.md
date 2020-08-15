@@ -17,27 +17,37 @@ Only supports 64bit systems.
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
-// todo
+cmake .
+msbuild build/galaxy_engine.sln
 ```
 
 ### Unix:
-```cpp
+```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
-// todo
+cmake .
+cd build
+make
 ```
 
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).
 
-Or generate offline with Doxygen.
+Or generate offline with Doxygen, with ```ENABLE_DOXYGEN``` set to ```ON```:
+```
+cmake .
+cd build
+make doxygen
+```
+
 
 ## Features
 - Uses Modern C++ design principles, built on C++20.
+- Tiled map editor parsing.
+- Modern 4.5+ OpenGL renderer.
+- GLFW backend.
+- Audio streaming from disk with oggvorbis and OpenAL.
 
-```cpp
-// todo
-```
 
 ## Contributing / Feedback / Issues
 Feel free to open an issue for feedback, bug reports, ehancements, issues, etc,
