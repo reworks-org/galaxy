@@ -8,7 +8,7 @@ branches:
 # Thanks to: https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 install:
   - sudo apt update
-  - sudo apt install cmake
+  - sudo apt install cmake cmake-data cmake-doc cmake-extras
   - sudo apt install doxygen doxygen-doc doxygen-latex mscgen dia
   - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
   - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
