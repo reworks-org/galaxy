@@ -1,6 +1,6 @@
-version: 0.9.{build}-{branch}
-branches: 
-  only: 
+version: 1.0.{build}-{branch}
+branches:
+  only:
     - master
 
 shallow_clone: false
@@ -11,7 +11,6 @@ image:
   - Visual Studio 2019 Preview
 
 platform:
-  - Win32
   - x64
 
 configuration:
