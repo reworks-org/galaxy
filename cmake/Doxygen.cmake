@@ -6,9 +6,9 @@ if (${ENABLE_DOXYGEN})
         set(DOXYGEN_IN ${CMAKE_SOURCE_DIR}/Doxyfile)
         set(DOXYGEN_OUT ${CMAKE_SOURCE_DIR}/output/docs)
 
-        configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT}/cmake_configured @ONLY)
-        add_custom_target(doxygen ALL
-            COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+        configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT}/Doxyfile @ONLY)
+        add_custom_target(doxygen
+            COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}/Doxyfile
             WORKING_DIRECTORY ${DOXYGEN_OUT}
             VERBATIM
         )
