@@ -5,21 +5,25 @@ branches:
   only:
     - master
 
+# Thanks to: https://riptutorial.com/cmake/example/4723/configure-travis-ci-with-newest-cmake
 install:
-  - wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
-  - sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
-  - sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
+  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+  - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
+  - travis_retry wget --no-check-certificate https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-Linux-x86_64.tar.gz
+  - tar -xvf cmake-3.18.1-Linux-x86_64.tar.gz > /dev/null
+  - mv cmake-3.18.1-Linux-x86_64 cmake-install
+  - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
+  - cd ${TRAVIS_BUILD_DIR}
   - sudo apt update
-  - sudo apt install cmake
+  - sudo apt remove doxygen
   - sudo apt install doxygen
 
 before_script:
   - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - dpkg -L cmake
-  - cmake --version
-  - cmake -B./build/ -H./
+  - mkdir build
+  - cmake -Bbuild -H.
   - cd build
   - make doxygen
 

@@ -27,7 +27,7 @@ matrix:
   fast_finish: false
 
 build_script:
-  - cmd: cmake -G "Visual Studio 16 2019" -B./build/ -H./
+  - cmd: cmake -G "Visual Studio 16 2019" -Bbuild -H.
   - cmd: cd build
   - cmd: msbuild galaxy_engine.sln
 
