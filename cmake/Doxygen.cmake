@@ -1,7 +1,7 @@
 option(ENABLE_DOXYGEN "Enable a target for building doxygen." OFF)
 
 if (${ENABLE_DOXYGEN})
-    find_package(doxygen)
+    find_package(Doxygen)
     if(DOXYGEN_FOUND)
         set(DOXYGEN_IN ${CMAKE_SOURCE_DIR}/Doxyfile)
         set(DOXYGEN_OUT ${CMAKE_SOURCE_DIR}/output/docs)
