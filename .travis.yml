@@ -11,13 +11,17 @@ addons:
       - doxygen
       - cmake
 
+install:
+  - wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | sudo apt-key add -
+  - sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal main'
+  - sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ focal-rc main'
+  - sudo apt update
+  - sudo apt install cmake
+
 before_script:
   - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - sudo apt-get purge cmake
-  - sudo apt-get update
-  - sudo apt-get install cmake
   - cmake .
   - cd build
   - make doxygen
