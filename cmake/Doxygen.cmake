@@ -1,4 +1,4 @@
-option(ENABLE_DOXYGEN "Enable a target for building doxygen.", OFF)
+option(ENABLE_DOXYGEN "Enable a target for building doxygen." OFF)
 
 if (${ENABLE_DOXYGEN})
     find_package(doxygen)
