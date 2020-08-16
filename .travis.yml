@@ -15,8 +15,8 @@ before_script:
   - git clone --recursive https://github.com/MaJerle/doxygen-dark-theme.git ddt
 
 script:
-  - apt update
-  - apt install cmake
+  - sudo apt-get update
+  - sudo apt-get install cmake
   - cmake .
   - cd build
   - make doxygen
