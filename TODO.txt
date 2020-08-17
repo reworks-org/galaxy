@@ -19,6 +19,7 @@ PULSAR:
 - std::source_location
 - Replate date_tz with <chrono>
 - Replace fmt with <format>
+- These are in Log.hpp
 
 QUASAR:
 - C++20 review when eventual performance improvements are required.
