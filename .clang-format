@@ -53,6 +53,7 @@ Language: Cpp
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
 PointerAlignment: Left
+IndentPPDirectives: None
 ReflowComments: true
 SortIncludes: false
 SortUsingDeclarations: true
