@@ -139,7 +139,7 @@ The strategy is chosen this way, by platform:
 
     #include <intrin.h>
     template <class _Tp>
-    auto __atomic_load_n(_Tp const* a, int) -> typename std::remove_reference<decltype(*a)>::type {
+    auto __atomic_custom_load_n(_Tp const* a, int) -> typename std::remove_reference<decltype(*a)>::type {
         auto const t = *a;
         _ReadWriteBarrier();
         return t;
@@ -202,7 +202,7 @@ The strategy is chosen this way, by platform:
             history += history >> 2;
             if (history > (1 << 10))
                 history = 1 << 10;
-        } while (__atomic_load_n(ptr, order) == val);
+        } while (__atomic_custom_load_n(ptr, order) == val);
     #else
         __YIELD();
     #endif
@@ -215,7 +215,7 @@ The strategy is chosen this way, by platform:
     void __cxx_atomic_notify_all(volatile _Tp const* ptr) {
         auto * const c = __contention(ptr);
         __atomic_thread_fence(__ATOMIC_SEQ_CST);
-        if(__builtin_expect(0 == __atomic_load_n(&c->credit, __ATOMIC_RELAXED), 1))
+        if(__builtin_expect(0 == __atomic_custom_load_n(&c->credit, __ATOMIC_RELAXED), 1))
             return;
         if(0 != __atomic_exchange_n(&c->credit, 0, __ATOMIC_RELAXED)) {
             pthread_mutex_lock(&c->mutex);
@@ -233,7 +233,7 @@ The strategy is chosen this way, by platform:
         pthread_mutex_lock(&c->mutex);
         __atomic_store_n(&c->credit, 1, __ATOMIC_RELAXED);
         __atomic_thread_fence(__ATOMIC_SEQ_CST);
-        if (val == __atomic_load_n(ptr, order))
+        if (val == __atomic_custom_load_n(ptr, order))
             pthread_cond_wait(&c->condvar, &c->mutex);
         pthread_mutex_unlock(&c->mutex);
     }
@@ -260,8 +260,8 @@ The strategy is chosen this way, by platform:
             auto * const c = __contention(ptr);
             __atomic_store_n(&c->waiters, 1, __ATOMIC_RELAXED);
             __atomic_thread_fence(__ATOMIC_SEQ_CST);
-            auto const version = __atomic_load_n(&c->version, __ATOMIC_RELAXED);
-            if (__builtin_expect(val != __atomic_load_n(ptr, order), 1))
+            auto const version = __atomic_custom_load_n(&c->version, __ATOMIC_RELAXED);
+            if (__builtin_expect(val != __atomic_custom_load_n(ptr, order), 1))
                 return;
         #ifdef __FUTEX_TIMED
             constexpr timespec timeout = { 2, 0 }; // Hedge on rare 'int version' aliasing.
@@ -291,7 +291,7 @@ The strategy is chosen this way, by platform:
     #ifdef __TABLE
         auto * const c = __contention(ptr);
         __atomic_thread_fence(__ATOMIC_SEQ_CST);
-        if (0 != __atomic_load_n(&c->waiters, __ATOMIC_RELAXED))
+        if (0 != __atomic_custom_load_n(&c->waiters, __ATOMIC_RELAXED))
     #endif
             __do_direct_wake(ptr, true);
     }
@@ -300,7 +300,7 @@ The strategy is chosen this way, by platform:
     #ifdef __TABLE
         auto * const c = __contention(ptr);
         __atomic_thread_fence(__ATOMIC_SEQ_CST);
-        if (0 != __atomic_load_n(&c->waiters, __ATOMIC_RELAXED))
+        if (0 != __atomic_custom_load_n(&c->waiters, __ATOMIC_RELAXED))
     #endif
             __do_direct_wake(ptr, false);
     }
@@ -321,10 +321,10 @@ The strategy is chosen this way, by platform:
 template <class _Tp>
 __ABI void __cxx_atomic_wait(_Tp const* ptr, _Tp const val, int order) {
 #ifndef __NO_SPIN
-    if(__builtin_expect(__atomic_load_n(ptr, order) != val,1))
+    if(__builtin_expect(__atomic_custom_load_n(ptr, order) != val,1))
         return;
     for(int i = 0; i < 16; ++i) {
-        if(__atomic_load_n(ptr, order) != val)
+        if(__atomic_custom_load_n(ptr, order) != val)
             return;
         if(i < 12)
             __YIELD_PROCESSOR();
@@ -332,7 +332,7 @@ __ABI void __cxx_atomic_wait(_Tp const* ptr, _Tp const val, int order) {
             __YIELD();
     }
 #endif
-    while(val == __atomic_load_n(ptr, order))
+    while(val == __atomic_custom_load_n(ptr, order))
 #ifndef __NO_WAIT
         __cxx_atomic_try_wait_slow(ptr, val, order)
 #endif

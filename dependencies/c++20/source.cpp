@@ -24,14 +24,15 @@ THE SOFTWARE.
 
 #include <sync/atomic_wait>
 #include <sync/barrier>
-#include <sync/thread>
+#include <thread>
 
 #ifdef __TABLE
 
 contended_t contention[256];
 
-contended_t * __contention(volatile void const * p) {
-    return contention + ((uintptr_t)p & 255);
+contended_t* __contention(volatile void const* p)
+{
+	return contention + ((uintptr_t)p & 255);
 }
 
 #endif //__TABLE
