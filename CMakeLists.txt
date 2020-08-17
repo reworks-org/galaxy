@@ -4,7 +4,7 @@ project(galaxy_engine LANGUAGES C CXX)
 
 # Warning
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
-  message(FATAL_ERROR "In-source builds not allowed. Please make a new build directory and run CMake from there.\n")
+    message(FATAL_ERROR "In-source builds not allowed. Please make a new build directory and run CMake from there.\n")
 endif()
 
 # Reset.
@@ -33,9 +33,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CONFIGURATION_TYPES
-"Debug"
-"Release"
-CACHE STRING "" FORCE
+	"Debug"
+	"Release"
+	CACHE STRING "" FORCE
 )
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -53,14 +53,14 @@ else()
 endif()
 
 set(DEPS_LIBS
-"vorbisfile"
-"vorbisenc"
-"vorbis"
-"ogg"
-"libz-static"
-"OpenAL32"
-"glfw3"
-"freetype"
+    "vorbisfile"
+    "vorbisenc"
+    "vorbis"
+    "ogg"
+    "libz-static"
+    "OpenAL32"
+    "glfw3"
+    "freetype"
 )
 
 if(WIN32)
@@ -100,52 +100,52 @@ add_subdirectory(supercluster)
 add_subdirectory(tests)
 
 add_dependencies(deps
-pulsar
+    pulsar
 )
 
 add_dependencies(protostar
-deps
+    deps
 )
 
 add_dependencies(frb
-protostar
+    protostar
 )
 
 add_dependencies(quasar
-protostar
+    protostar
 )
 
 add_dependencies(redshift
-protostar
+    protostar
 )
 
 add_dependencies(solar
-protostar
+    protostar
 )
 
 add_dependencies(starlight
-protostar
+    protostar
 )
 
 add_dependencies(starmap
-protostar
+    protostar
 )
 
 add_dependencies(galaxy
-frb
-quasar
-redshift
-solar
-starlight
-starmap
+    frb
+    quasar
+    redshift
+    solar
+    starlight
+    starmap
 )
 
 add_dependencies(supercluster
-galaxy
+    galaxy
 )
 
 add_dependencies(tests
-galaxy
+    galaxy
 )
 
 target_link_libraries(supercluster PUBLIC deps)
