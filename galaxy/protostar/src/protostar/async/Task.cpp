@@ -5,7 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <atomic_wait>
+#include "protostar/system/cpp20.hpp"
+#include STL_ATOMIC
 
 #include "Task.hpp"
 

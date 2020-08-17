@@ -8,7 +8,7 @@
 #ifndef PROTOSTAR_KEYCHAREVENT_HPP_
 #define PROTOSTAR_KEYCHAREVENT_HPP_
 
-#include <protostar/system/Keys.hpp>
+#include "protostar/system/Keys.hpp"
 
 ///
 /// Core namespace.

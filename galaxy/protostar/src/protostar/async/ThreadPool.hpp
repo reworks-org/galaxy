@@ -8,12 +8,12 @@
 #ifndef PROTOSTAR_THREADPOOL_HPP_
 #define PROTOSTAR_THREADPOOL_HPP_
 
+#include <queue>
+#include <vector>
+
 #include "protostar/system/cpp20.hpp"
 #include STL_JTHREAD
 #include STL_SEMAPHORE
-
-#include <queue>
-#include <vector>
 
 #include "protostar/async/ProtectedArithmetic.hpp"
 #include "protostar/async/Task.hpp"
