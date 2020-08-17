@@ -6,6 +6,7 @@ build/
 out/
 output/
 tools/
+CMakeSettings.json
 
 galaxy/deps/bin/Debug/
 galaxy/deps/bin/Release/
