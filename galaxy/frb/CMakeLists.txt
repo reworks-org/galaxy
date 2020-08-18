@@ -1,36 +1,17 @@
 project(frb CXX)
 
-set(frb_src
-    "src/frb/audio/Music.cpp"
-    "src/frb/audio/Sound.cpp"
-    "src/frb/buffer/Buffer.cpp"
-    "src/frb/buffer/BufferStream.cpp"
-    "src/frb/Context.cpp"
-    "src/frb/detail/Error.cpp"
-    "src/frb/detail/Source.cpp"
-    "src/frb/detail/SourceManipulator.cpp"
-    "src/frb/audio/Music.hpp"
-    "src/frb/audio/Sound.hpp"
-    "src/frb/buffer/Buffer.hpp"
-    "src/frb/buffer/BufferStream.hpp"
-    "src/frb/Context.hpp"
-    "src/frb/detail/Error.hpp"
-    "src/frb/detail/Source.hpp"
-    "src/frb/detail/SourceManipulator.hpp"
+file(GLOB_RECURSE frb_src
+    "src/*.c"
+    "src/*.cpp"
+    "src/*.h"
+    "src/*.hpp"
+    "src/*.cc"
+    "src/*.hh"
+    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${frb_src})
 add_library(${PROJECT_NAME} STATIC ${frb_src})
-
-target_include_directories(${PROJECT_NAME} PUBLIC
-    "src/"
-    "../../dependencies/oggvorbis/include/"
-    "../../dependencies/openal/include/"
-    "../../dependencies/stb/"
-    "../../dependencies/c++20/"
-    "../pulsar/src/"
-    "../protostar/src/"
-)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Debug>:"
@@ -119,5 +100,29 @@ if (MSVC)
         /SAFESEH
         /ignore:4099
         /MACHINE:X64
+    )
+elseif (GNU)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -fanalyzer
+        >
+        $<$<CONFIG:Release>:
+        >
+        -std=c++20
+        -pthread
+        -fexceptions
+    )
+
+    target_link_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -Og
+        >
+        $<$<CONFIG:Release>:
+        -O3
+        >
+        -pthread
+        -static-libstdc++
+        -static-libgcc
+        -static
     )
 endif()

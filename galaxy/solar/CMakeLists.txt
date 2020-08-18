@@ -1,27 +1,17 @@
 project(solar CXX)
 
-set(solar_src
-    "src/solar/Config.cpp"
-    "src/solar/Config.hpp"
-    "src/solar/entity/Manager.cpp"
-    "src/solar/entity/Manager.hpp"
-    "src/solar/sets/ComponentSet.cpp"
-    "src/solar/sets/ComponentSet.hpp"
-    "src/solar/sets/EntitySet.cpp"
-    "src/solar/sets/EntitySet.hpp"
-    "src/solar/system/System.cpp"
-    "src/solar/system/System.hpp"
+file(GLOB_RECURSE solar_src
+    "src/*.c"
+    "src/*.cpp"
+    "src/*.h"
+    "src/*.hpp"
+    "src/*.cc"
+    "src/*.hh"
+    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${solar_src})
 add_library(${PROJECT_NAME} STATIC ${solar_src})
-
-target_include_directories(${PROJECT_NAME} PUBLIC
-    "src/"
-    "../protostar/src/"
-    "../pulsar/src/"
-    "../../dependencies/c++20/"
-)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Debug>:"
@@ -109,5 +99,29 @@ if (MSVC)
         /SAFESEH
         /ignore:4099
         /MACHINE:X64
+    )
+elseif (GNU)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -fanalyzer
+        >
+        $<$<CONFIG:Release>:
+        >
+        -std=c++20
+        -pthread
+        -fexceptions
+    )
+
+    target_link_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -Og
+        >
+        $<$<CONFIG:Release>:
+        -O3
+        >
+        -pthread
+        -static-libstdc++
+        -static-libgcc
+        -static
     )
 endif()

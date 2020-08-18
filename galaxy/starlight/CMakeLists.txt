@@ -1,23 +1,17 @@
 project(starlight CXX)
 
-set(starlight_src
-    "src/starlight/detail/Meta.cpp"
-    "src/starlight/detail/Storage.cpp"
-    "src/starlight/Dispatcher.cpp"
-    "src/starlight/detail/Meta.hpp"
-    "src/starlight/detail/Storage.hpp"
-    "src/starlight/Dispatcher.hpp"
+file(GLOB_RECURSE starlight_src
+    "src/*.c"
+    "src/*.cpp"
+    "src/*.h"
+    "src/*.hpp"
+    "src/*.cc"
+    "src/*.hh"
+    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${starlight_src})
 add_library(${PROJECT_NAME} STATIC ${starlight_src})
-
-target_include_directories(${PROJECT_NAME} PUBLIC
-    "src/"
-    "../protostar/src/"
-    "../pulsar/src"
-    "../../dependencies/c++20/"
-)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Debug>:"
@@ -105,5 +99,29 @@ if (MSVC)
         /SAFESEH
         /ignore:4099
         /MACHINE:X64
+    )
+elseif (GNU)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -fanalyzer
+        >
+        $<$<CONFIG:Release>:
+        >
+        -std=c++20
+        -pthread
+        -fexceptions
+    )
+
+    target_link_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -Og
+        >
+        $<$<CONFIG:Release>:
+        -O3
+        >
+        -pthread
+        -static-libstdc++
+        -static-libgcc
+        -static
     )
 endif()

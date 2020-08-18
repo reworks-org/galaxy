@@ -1,23 +1,17 @@
 project(pulsar CXX)
 
-set(pulsar_src
-    "src/pulsar/detail/LogColours.cpp"
-    "src/pulsar/detail/Unix.cpp"
-    "src/pulsar/detail/Windows.cpp"
-    "src/pulsar/Log.cpp"
-    "src/pulsar/detail/LogColours.hpp"
-    "src/pulsar/detail/Unix.hpp"
-    "src/pulsar/detail/Windows.hpp"
-    "src/pulsar/Log.hpp"
+file(GLOB_RECURSE pulsar_src
+    "src/*.c"
+    "src/*.cpp"
+    "src/*.h"
+    "src/*.hpp"
+    "src/*.cc"
+    "src/*.hh"
+    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${pulsar_src})
 add_library(${PROJECT_NAME} STATIC ${pulsar_src})
-
-target_include_directories(${PROJECT_NAME} PUBLIC
-    "src/"
-    "../../dependencies/c++20/"
-)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Debug>:"
@@ -105,5 +99,29 @@ if (MSVC)
         /SAFESEH
         /ignore:4099
         /MACHINE:X64
+    )
+elseif (GNU)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -fanalyzer
+        >
+        $<$<CONFIG:Release>:
+        >
+        -std=c++20
+        -pthread
+        -fexceptions
+    )
+
+    target_link_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -Og
+        >
+        $<$<CONFIG:Release>:
+        -O3
+        >
+        -pthread
+        -static-libstdc++
+        -static-libgcc
+        -static
     )
 endif()

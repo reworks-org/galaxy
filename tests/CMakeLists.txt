@@ -1,61 +1,17 @@
 project(tests CXX)
 
-set(tests_src
-    "src/main.cpp"
-    "src/protostar/async/ProtectedArithmeticTest.cpp"
-    "src/protostar/async/TaskTest.cpp"
-    "src/protostar/async/ThreadPoolTest.cpp"
-    "src/protostar/graphics/ColourTest.cpp"
-    "src/protostar/graphics/RectTest.cpp"
-    "src/protostar/math/RandomTest.cpp"
-    "src/protostar/math/RectPackTest.cpp"
-    "src/protostar/res/ResourceCacheTest.cpp"
-    "src/protostar/state/StateMachineTest.cpp"
-    "src/protostar/state/StateTest.cpp"
-    "src/protostar/system/TimeTest.cpp"
-    "src/protostar/system/UniqueIDTest.cpp"
-    "src/solar/ConfigTest.cpp"
-    "src/solar/entity/ManagerTest.cpp"
-    "src/solar/sets/ComponentSetTest.cpp"
-    "src/solar/sets/EntitySetTest.cpp"
-    "src/starlight/DispatcherTest.cpp"
-    "src/starmap/MapTest.cpp"
+file(GLOB_RECURSE tests_src
+    "src/*.c"
+    "src/*.cpp"
+    "src/*.h"
+    "src/*.hpp"
+    "src/*.cc"
+    "src/*.hh"
+    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${tests_src})
 add_executable(${PROJECT_NAME} ${tests_src})
-
-target_include_directories(${PROJECT_NAME} PUBLIC
-    "../galaxy/galaxy/src/"
-    "../galaxy/deps/src/"
-    "../galaxy/frb/src/"
-    "../galaxy/protostar/src/"
-    "../galaxy/pulsar/src/"
-    "../galaxy/quasar/src/"
-    "../galaxy/redshift/src/"
-    "../galaxy/solar/src/"
-    "../galaxy/starlight/src/"
-    "../galaxy/starmap/src/"
-    "../dependencies/freetype/include/"
-    "../dependencies/glad/"
-    "../dependencies/glfw3/include/"
-    "../dependencies/glm/"
-    "../dependencies/imgui/"
-    "../dependencies/imgui/cpp/"
-    "../dependencies/imgui/impl/"
-    "../dependencies/imgui-texteditor/"
-    "../dependencies/json/include/"
-    "../dependencies/lua/src/"
-    "../dependencies/openal/include/"
-    "../dependencies/portable-file-dialogs/include/"
-    "../dependencies/sol3/single/include/"
-    "../dependencies/stb/"
-    "../dependencies/zlib/include/"
-    "../dependencies/googletest/googletest/include/"
-    "../dependencies/googletest/googletest/"
-    "../../dependencies/Box2D-MT/"
-    "../../dependencies/c++20/"
-)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Debug>:"
@@ -152,5 +108,29 @@ if (MSVC)
         /SAFESEH
         /ignore:4099
         /MACHINE:X64
+    )
+elseif (GNU)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -fanalyzer
+        >
+        $<$<CONFIG:Release>:
+        >
+        -std=c++20
+        -pthread
+        -fexceptions
+    )
+
+    target_link_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:
+        -Og
+        >
+        $<$<CONFIG:Release>:
+        -O3
+        >
+        -pthread
+        -static-libstdc++
+        -static-libgcc
+        -static
     )
 endif()
