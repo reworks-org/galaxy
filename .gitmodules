@@ -17,3 +17,6 @@
 [submodule "dependencies/sol3"]
 	path = dependencies/sol3
 	url = https://github.com/ThePhD/sol2.git
+[submodule "dependencies/glfw3"]
+	path = dependencies/glfw3
+	url = https://github.com/glfw/glfw.git
