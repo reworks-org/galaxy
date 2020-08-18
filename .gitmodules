@@ -23,3 +23,6 @@
 [submodule "dependencies/pfd"]
 	path = dependencies/pfd
 	url = https://github.com/samhocevar/portable-file-dialogs.git
+[submodule "dependencies/zlib"]
+	path = dependencies/zlib
+	url = https://github.com/madler/zlib.git
