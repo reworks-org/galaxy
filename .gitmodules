@@ -26,3 +26,12 @@
 [submodule "dependencies/zlib"]
 	path = dependencies/zlib
 	url = https://github.com/madler/zlib.git
+[submodule "dependencies/ogg"]
+	path = dependencies/ogg
+	url = https://github.com/xiph/ogg.git
+[submodule "dependencies/vorbis"]
+	path = dependencies/vorbis
+	url = https://github.com/xiph/vorbis.git
+[submodule "dependencies/openal"]
+	path = dependencies/openal
+	url = https://github.com/kcat/openal-soft.git
