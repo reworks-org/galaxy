@@ -16,7 +16,7 @@ namespace pl
 {
 	std::string colour_text(const LogColours colour) noexcept
 	{
-		std::string out {""};
+		std::string out;
 
 		switch (colour)
 		{

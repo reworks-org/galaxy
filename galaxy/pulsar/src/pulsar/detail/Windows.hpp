@@ -8,7 +8,7 @@
 #ifndef PULSAR_WINDOWS_HPP_
 #define PULSAR_WINDOWS_HPP_
 
-#if defined(_WIN64) || defined(_WIN32)
+#if defined(_WIN64)
 
 #include <string>
 
@@ -26,7 +26,7 @@ namespace pl
 	///
 	/// \return Returns empty string so function can be used in an output stream mimicing unix style.
 	///
-	[[nodiscard]] std::string colour_text(const LogColours colour) noexcept;
+	[[maybe_unused]] std::string colour_text(const LogColours colour) noexcept;
 } // namespace pl
 
 #endif

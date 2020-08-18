@@ -5,7 +5,7 @@
 /// See LICENSE.txt.
 ///
 
-#if defined(_WIN64) || defined(_WIN32)
+#if defined(_WIN64)
 
 #include <Windows.h>
 #undef ERROR
