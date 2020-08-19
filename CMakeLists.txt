@@ -178,7 +178,7 @@ set_target_properties(OpenAL PROPERTIES
 )
 
 add_subdirectory(dependencies/zlib)
-set_target_properties(zlib PROPERTIES
+set_target_properties(zlibstatic PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
@@ -187,7 +187,7 @@ set_target_properties(zlib PROPERTIES
 
 # Target to build external libs.
 add_custom_target(BUILD_EXTERNAL_LIBS)
-add_dependencies(BUILD_EXTERNAL_LIBS freetype glfw ogg vorbis OpenAL zlib)
+add_dependencies(BUILD_EXTERNAL_LIBS freetype glfw ogg vorbis OpenAL zlibstatic)
 
 # Target to build internal libs.
 add_custom_target(BUILD_INTERNAL_LIBS)
@@ -323,7 +323,7 @@ target_link_libraries(supercluster PUBLIC glfw)
 target_link_libraries(supercluster PUBLIC ogg)
 target_link_libraries(supercluster PUBLIC vorbis)
 target_link_libraries(supercluster PUBLIC OpenAL)
-target_link_libraries(supercluster PUBLIC zlib)
+target_link_libraries(supercluster PUBLIC zlibstatic)
 target_link_libraries(supercluster PUBLIC "${SYSTEM_LIBS}")
 
 target_link_libraries(tests PUBLIC freetype)
@@ -331,7 +331,7 @@ target_link_libraries(tests PUBLIC glfw)
 target_link_libraries(tests PUBLIC ogg)
 target_link_libraries(tests PUBLIC vorbis)
 target_link_libraries(tests PUBLIC OpenAL)
-target_link_libraries(tests PUBLIC zlib)
+target_link_libraries(tests PUBLIC zlibstatic)
 target_link_libraries(tests PUBLIC "${SYSTEM_LIBS}")
 
 # Link internal libs.
