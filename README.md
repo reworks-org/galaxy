@@ -14,7 +14,8 @@ Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 Only supports 64bit systems.
 
 ### Windows:
-Ensure ```dsound``` is installed.
+You will need to install VS2019 Preview 16.8+, but you do not need to use the IDE.
+Also ensure DSound is installed.
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
@@ -23,7 +24,7 @@ msbuild build/galaxy_engine.sln
 ```
 
 ### Unix:
-Ensure at least ```build-essentials cmake ninja-build alsa alsa-firmware-loaders alsa-oss apulse libasound2 libasound2-data libasound2-plugins libclalsadrv2  libpulse0 libpulsedsp pulseaudio pulseeffects``` is installed.
+You need ALSA, PulseAudio, X11, opengl, cmake, GCC 10.2, make or ninja.
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
