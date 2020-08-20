@@ -22,6 +22,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
     "$<$<CONFIG:Release>:"
     "NDEBUG"
     ">"
+    "IMGUI_IMPL_OPENGL_LOADER_GLAD"
     "UNICODE"
     "_UNICODE"
 )
