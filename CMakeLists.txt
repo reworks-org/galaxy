@@ -191,7 +191,7 @@ add_dependencies(BUILD_EXTERNAL_LIBS freetype glfw ogg vorbis OpenAL zlibstatic)
 
 # Target to build internal libs.
 add_custom_target(BUILD_INTERNAL_LIBS)
-add_dependencies(BUILD_INTERNAL_LIBS pulsar deps protostar frb quasar redshift solar starlight starmap galaxy)
+add_dependencies(BUILD_INTERNAL_LIBS pulsar deps protostar frb quasar redshift solar starlight starmap)
 
 # Import applications
 add_subdirectory(supercluster)
@@ -216,6 +216,7 @@ set(all_header_dirs
 	"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/glm"
 	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
+	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/"
 	"${CMAKE_SOURCE_DIR}/dependencies/imgui"
 	"${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor"
 	"${CMAKE_SOURCE_DIR}/dependencies/json/include"
@@ -239,10 +240,20 @@ set(all_header_dirs
 	"${CMAKE_SOURCE_DIR}/supercluster/src"
 )
 
+# generate ogg config header.
+set(SIZE16 int16_t)
+set(USIZE16 uint16_t)
+set(SIZE32 int32_t)
+set(USIZE32 uint32_t)
+set(SIZE64 int64_t)
+set(USIZE64 uint64_t)
+configure_file(${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h @ONLY)
+
 target_include_directories(deps PUBLIC ${all_header_dirs})
 target_include_directories(frb PUBLIC ${all_header_dirs})
 target_include_directories(galaxy PUBLIC ${all_header_dirs})
 target_include_directories(protostar PUBLIC ${all_header_dirs})
+target_include_directories(pulsar PUBLIC ${all_header_dirs})
 target_include_directories(quasar PUBLIC ${all_header_dirs})
 target_include_directories(redshift PUBLIC ${all_header_dirs})
 target_include_directories(solar PUBLIC ${all_header_dirs})
