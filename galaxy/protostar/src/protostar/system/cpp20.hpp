@@ -34,7 +34,7 @@
 #define STL_FORMAT <format>
 #endif
 
-#if __cpp_lib_chrono ! != 201907L
+#if __cpp_lib_chrono != 201907L
 #define STL_CHRONO #include <date/tz.h> \
                    #include <chrono>
 #else

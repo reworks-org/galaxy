@@ -8,6 +8,7 @@
 #ifndef PROTOSTAR_TASK_HPP_
 #define PROTOSTAR_TASK_HPP_
 
+#include <atomic>
 #include <functional>
 
 ///

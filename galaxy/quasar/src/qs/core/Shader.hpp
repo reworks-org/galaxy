@@ -30,7 +30,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		Shader() noexcept;
+		Shader();
 
 		///
 		/// Path constructor.
@@ -43,7 +43,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~Shader() noexcept;
+		~Shader();
 
 		///
 		/// Loads a shader into OpenGL from source and sets up the shader program.
@@ -68,12 +68,12 @@ namespace qs
 		///
 		/// Enable this shader for rendering.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Disable this currently active shader.
 		///
-		void unbind() noexcept;
+		void unbind();
 
 		///
 		/// \brief Specialized variadic template for setting shader uniforms.
@@ -93,7 +93,7 @@ namespace qs
 		///
 		/// In a seperate function because it checks interal cache first.
 		///
-		int get_uniform_location(std::string_view name) noexcept;
+		int get_uniform_location(std::string_view name);
 
 	private:
 		///
@@ -115,127 +115,127 @@ namespace qs
 	}
 
 	template<>
-	inline void Shader::set_uniform<int>(std::string_view name, const int& a) noexcept
+	inline void Shader::set_uniform<int>(std::string_view name, const int& a)
 	{
 		glUniform1i(get_uniform_location(name), a);
 	}
 
 	template<>
-	inline void Shader::set_uniform<int, int>(std::string_view name, const int& a, const int& b) noexcept
+	inline void Shader::set_uniform<int, int>(std::string_view name, const int& a, const int& b)
 	{
 		glUniform2i(get_uniform_location(name), a, b);
 	}
 
 	template<>
-	inline void Shader::set_uniform<int, int, int>(std::string_view name, const int& a, const int& b, const int& c) noexcept
+	inline void Shader::set_uniform<int, int, int>(std::string_view name, const int& a, const int& b, const int& c)
 	{
 		glUniform3i(get_uniform_location(name), a, b, c);
 	}
 
 	template<>
-	inline void Shader::set_uniform<int, int, int, int>(std::string_view name, const int& a, const int& b, const int& c, const int& d) noexcept
+	inline void Shader::set_uniform<int, int, int, int>(std::string_view name, const int& a, const int& b, const int& c, const int& d)
 	{
 		glUniform4i(get_uniform_location(name), a, b, c, d);
 	}
 
 	template<>
-	inline void Shader::set_uniform<unsigned int>(std::string_view name, const unsigned int& a) noexcept
+	inline void Shader::set_uniform<unsigned int>(std::string_view name, const unsigned int& a)
 	{
 		glUniform1ui(get_uniform_location(name), a);
 	}
 
 	template<>
-	inline void Shader::set_uniform<unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b) noexcept
+	inline void Shader::set_uniform<unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b)
 	{
 		glUniform2ui(get_uniform_location(name), a, b);
 	}
 
 	template<>
-	inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c) noexcept
+	inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c)
 	{
 		glUniform3ui(get_uniform_location(name), a, b, c);
 	}
 
 	template<>
-	inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c, const unsigned int& d) noexcept
+	inline void Shader::set_uniform<unsigned int, unsigned int, unsigned int, unsigned int>(std::string_view name, const unsigned int& a, const unsigned int& b, const unsigned int& c, const unsigned int& d)
 	{
 		glUniform4ui(get_uniform_location(name), a, b, c, d);
 	}
 
 	template<>
-	inline void Shader::set_uniform<float>(std::string_view name, const float& a) noexcept
+	inline void Shader::set_uniform<float>(std::string_view name, const float& a)
 	{
 		glUniform1f(get_uniform_location(name), a);
 	}
 
 	template<>
-	inline void Shader::set_uniform<float, float>(std::string_view name, const float& a, const float& b) noexcept
+	inline void Shader::set_uniform<float, float>(std::string_view name, const float& a, const float& b)
 	{
 		glUniform2f(get_uniform_location(name), a, b);
 	}
 
 	template<>
-	inline void Shader::set_uniform<float, float, float>(std::string_view name, const float& a, const float& b, const float& c) noexcept
+	inline void Shader::set_uniform<float, float, float>(std::string_view name, const float& a, const float& b, const float& c)
 	{
 		glUniform3f(get_uniform_location(name), a, b, c);
 	}
 
 	template<>
-	inline void Shader::set_uniform<float, float, float, float>(std::string_view name, const float& a, const float& b, const float& c, const float& d) noexcept
+	inline void Shader::set_uniform<float, float, float, float>(std::string_view name, const float& a, const float& b, const float& c, const float& d)
 	{
 		glUniform4f(get_uniform_location(name), a, b, c, d);
 	}
 
 	template<>
-	inline void Shader::set_uniform<double>(std::string_view name, const double& a) noexcept
+	inline void Shader::set_uniform<double>(std::string_view name, const double& a)
 	{
 		glUniform1d(get_uniform_location(name), a);
 	}
 
 	template<>
-	inline void Shader::set_uniform<double, double>(std::string_view name, const double& a, const double& b) noexcept
+	inline void Shader::set_uniform<double, double>(std::string_view name, const double& a, const double& b)
 	{
 		glUniform2d(get_uniform_location(name), a, b);
 	}
 
 	template<>
-	inline void Shader::set_uniform<double, double, double>(std::string_view name, const double& a, const double& b, const double& c) noexcept
+	inline void Shader::set_uniform<double, double, double>(std::string_view name, const double& a, const double& b, const double& c)
 	{
 		glUniform3d(get_uniform_location(name), a, b, c);
 	}
 
 	template<>
-	inline void Shader::set_uniform<double, double, double, double>(std::string_view name, const double& a, const double& b, const double& c, const double& d) noexcept
+	inline void Shader::set_uniform<double, double, double, double>(std::string_view name, const double& a, const double& b, const double& c, const double& d)
 	{
 		glUniform4d(get_uniform_location(name), a, b, c, d);
 	}
 
 	template<>
-	inline void Shader::set_uniform<glm::mat4>(std::string_view name, const glm::mat4& transform) noexcept
+	inline void Shader::set_uniform<glm::mat4>(std::string_view name, const glm::mat4& transform)
 	{
 		glUniformMatrix4fv(get_uniform_location(name), 1, GL_FALSE, glm::value_ptr(transform));
 	}
 
 	template<>
-	inline void Shader::set_uniform<glm::vec2>(std::string_view name, const glm::vec2& a) noexcept
+	inline void Shader::set_uniform<glm::vec2>(std::string_view name, const glm::vec2& a)
 	{
 		glUniform2f(get_uniform_location(name), a.x, a.y);
 	}
 
 	template<>
-	inline void Shader::set_uniform<glm::vec3>(std::string_view name, const glm::vec3& a) noexcept
+	inline void Shader::set_uniform<glm::vec3>(std::string_view name, const glm::vec3& a)
 	{
 		glUniform3f(get_uniform_location(name), a.x, a.y, a.z);
 	}
 
 	template<>
-	inline void Shader::set_uniform<glm::vec4>(std::string_view name, const glm::vec4& a) noexcept
+	inline void Shader::set_uniform<glm::vec4>(std::string_view name, const glm::vec4& a)
 	{
 		glUniform4f(get_uniform_location(name), a.x, a.y, a.z, a.w);
 	}
 
 	template<>
-	inline void Shader::set_uniform<std::array<float, 4>>(std::string_view name, const std::array<float, 4>& a) noexcept
+	inline void Shader::set_uniform<std::array<float, 4>>(std::string_view name, const std::array<float, 4>& a)
 	{
 		glUniform4f(get_uniform_location(name), a[0], a[1], a[2], a[3]);
 	}

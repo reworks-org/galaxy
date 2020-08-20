@@ -117,7 +117,7 @@ namespace qs
 		clamp_to_edge();
 	}
 
-	void Texture::load(pr::positive_integer auto level, pr::positive_integer auto internalformat, pr::positive_integer auto width, pr::positive_integer auto height, pr::positive_integer auto border, pr::positive_integer auto format, pr::positive_integer auto type, const pr::not_nullptr_void auto pixels)
+	void Texture::load(pr::positive_integer auto level, pr::positive_integer auto internalformat, pr::positive_integer auto width, pr::positive_integer auto height, pr::positive_integer auto border, pr::positive_integer auto format, pr::positive_integer auto type, const pr::valid_void_ptr auto pixels)
 	{
 		m_width  = width;
 		m_height = height;

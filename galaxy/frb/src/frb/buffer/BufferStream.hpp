@@ -95,7 +95,7 @@ namespace frb
 			///
 			/// Position in ogg file.
 			///
-			std::int_fast32_t m_ogg_pos = {0};
+			std::int32_t m_ogg_pos = {0};
 
 			///
 			/// Total duration of audio.

@@ -14,7 +14,7 @@
 ///
 namespace qs
 {
-	Shader::Shader() noexcept
+	Shader::Shader()
 	    : m_id {0}
 	{
 	}
@@ -28,7 +28,7 @@ namespace qs
 		}
 	}
 
-	Shader::~Shader() noexcept
+	Shader::~Shader()
 	{
 		unbind();
 		glDeleteProgram(m_id);
@@ -235,17 +235,17 @@ namespace qs
 		return result;
 	}
 
-	void Shader::bind() noexcept
+	void Shader::bind()
 	{
 		glUseProgram(m_id);
 	}
 
-	void Shader::unbind() noexcept
+	void Shader::unbind()
 	{
 		glUseProgram(0);
 	}
 
-	int Shader::get_uniform_location(std::string_view name) noexcept
+	int Shader::get_uniform_location(std::string_view name)
 	{
 		auto str = static_cast<std::string>(name);
 
