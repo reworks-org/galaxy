@@ -1,5 +1,11 @@
 # Setup
 cmake_minimum_required(VERSION 3.17)
+
+if (WIN32)
+	set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
+endif()
+
+# project
 project(galaxy_engine LANGUAGES C CXX)
 
 # Warning
@@ -151,15 +157,10 @@ set_target_properties(vorbis PROPERTIES
 )
 
 set(ALSOFT_UTILS OFF CACHE BOOL "" FORCE)
+set(ALSOFT_NO_CONFIG_UTIL ON CACHE BOOL "" FORCE)
 set(ALSOFT_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(ALSOFT_TESTS OFF CACHE BOOL "" FORCE)
-set(ALSOFT_CONFIG OFF CACHE BOOL "" FORCE)
-set(ALSOFT_HRTF_DEFS OFF CACHE BOOL "" FORCE)
-set(ALSOFT_AMBDEC_PRESETS OFF CACHE BOOL "" FORCE)
-set(ALSOFT_INSTALL OFF CACHE BOOL "" FORCE)
-set(ALSOFT_BUILD_IMPORT_LIB OFF CACHE BOOL "" FORCE)
-
-if (WIN32)
+if (MSVC)
 	set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
 	set(ALSOFT_REQUIRE_DSOUND ON CACHE BOOL "" FORCE)
 else()
@@ -248,6 +249,9 @@ set(USIZE32 uint32_t)
 set(SIZE64 int64_t)
 set(USIZE64 uint64_t)
 configure_file(${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h @ONLY)
+
+# fix zlib in source build.
+configure_file(${CMAKE_SOURCE_DIR}/dependencies/zlib-conf/zconf.h ${CMAKE_SOURCE_DIR}/dependencies/zlib/zconf.h @ONLY)
 
 target_include_directories(deps PUBLIC ${all_header_dirs})
 target_include_directories(frb PUBLIC ${all_header_dirs})
