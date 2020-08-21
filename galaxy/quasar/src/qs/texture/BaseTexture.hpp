@@ -8,8 +8,6 @@
 #ifndef QS_BASETEXTURE_HPP_
 #define QS_BASETEXTURE_HPP_
 
-#include <protostar/system/Concepts.hpp>
-
 #include "qs/utils/TextureFilters.hpp"
 
 ///
@@ -73,7 +71,7 @@ namespace qs
 		///
 		/// \param level 2, 4, 8, etc...
 		///
-		void set_anisotropy(const pr::positive_integer auto level) noexcept;
+		void set_anisotropy(const unsigned int level) noexcept;
 
 		///
 		/// Set filter when texture is downscaled in OpenGL.

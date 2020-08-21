@@ -24,9 +24,14 @@ namespace qs
 		m_packer.init(1024, 1024);
 	}
 
-	TextureAtlas::TextureAtlas(const is_pow_2 auto size) noexcept
+	TextureAtlas::TextureAtlas(const unsigned int size)
 	    : m_size {size}, m_texture {size, size}
 	{
+		if (size == 0 || !((size & (size - 1)) == 0))
+		{
+			throw std::runtime_error("TextureAtlas size is not power of 2.");
+		}
+
 		m_packer.init(size, size);
 	}
 

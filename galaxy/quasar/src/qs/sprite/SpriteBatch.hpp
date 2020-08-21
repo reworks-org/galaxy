@@ -27,7 +27,7 @@ namespace qs
 		///
 		/// \param max_quads Maximum number of quads allowed for this spritebatch.
 		///
-		SpriteBatch(const pr::positive_integer auto max_quads);
+		SpriteBatch(const unsigned int max_quads);
 
 		///
 		/// Destructor.

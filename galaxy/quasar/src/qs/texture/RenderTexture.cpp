@@ -28,12 +28,12 @@ namespace qs
 		glGenFramebuffers(1, &m_framebuffer);
 	}
 
-	RenderTexture::RenderTexture(const pr::positive_integer auto w, const pr::positive_integer auto h)
+	RenderTexture::RenderTexture(const int width, const int height)
 	    : m_projection(1.0f), m_framebuffer(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
 
-		create(w, h);
+		create(width, height);
 	}
 
 	RenderTexture::~RenderTexture() noexcept
@@ -42,10 +42,10 @@ namespace qs
 		glDeleteFramebuffers(1, &m_framebuffer);
 	}
 
-	void RenderTexture::create(const pr::positive_integer auto w, const pr::positive_integer auto h)
+	void RenderTexture::create(const int width, const int height)
 	{
-		m_width      = w;
-		m_height     = h;
+		m_width      = width;
+		m_height     = height;
 		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);

@@ -23,7 +23,8 @@ namespace pr
 	///
 	/// \return Normalized float.
 	///
-	inline float normalize(pr::is_arithmetic auto val, pr::is_arithmetic auto max) noexcept
+	template<pr::is_arithmetic Type>
+	inline float normalize(const Type val, const Type max) noexcept
 	{
 		return (static_cast<float>(val) / static_cast<float>(max));
 	}

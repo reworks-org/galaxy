@@ -33,7 +33,7 @@ namespace qs
 		///
 		/// \param amount Amount of particles to draw.
 		///
-		Particle(pr::positive_integer auto amount);
+		Particle(unsigned int amount);
 
 		///
 		/// Destructor.
@@ -53,7 +53,7 @@ namespace qs
 		///
 		/// \param z_level z-ordering level to render sprite at.
 		///
-		void set_z_level(const pr::positive_integer auto z_level) noexcept;
+		void set_z_level(const unsigned int z_level) noexcept;
 
 		///
 		/// Activate sprite context.
@@ -85,8 +85,8 @@ namespace qs
 		auto v3 = make_vertex<InstanceVertex>(0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height);
 		auto v4 = make_vertex<InstanceVertex>(0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height);
 
-		m_vb.create<InstanceVertex, BufferType>({ v1, v2, v3, v4 });
-		m_ib.create<BufferStatic>({ 0, 1, 3, 1, 2, 3 });
+		m_vb.create<InstanceVertex, BufferType>({v1, v2, v3, v4});
+		m_ib.create<BufferStatic>({0, 1, 3, 1, 2, 3});
 
 		m_layout.add<InstanceVertex, VAPosition>(2);
 		m_layout.add<InstanceVertex, VATexel>(2);

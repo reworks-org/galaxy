@@ -7,7 +7,7 @@
 
 #include <vector>
 
-#include <zlib/zlib.h>
+#include <zlib.h>
 #include <pulsar/Log.hpp>
 
 #include "Decoder.hpp"

@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	Character::Character(const int bx, const int by, const pr::positive_integer auto advance)
+	Character::Character(const int bx, const int by, const unsigned int advance)
 	    : VertexData {}, Texture {}, m_bearing_x {bx}, m_bearing_y {by}, m_advance {advance}
 	{
 	}

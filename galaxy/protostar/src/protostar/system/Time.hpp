@@ -9,8 +9,7 @@
 #define PROTOSTAR_TIME_HPP_
 
 #include <cstdint>
-
-#include "protostar/system/Concepts.hpp"
+#include <stdexcept>
 
 ///
 /// Core namespace.
@@ -24,7 +23,7 @@ namespace pr
 	///
 	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline const std::size_t seconds_to_milliseconds(positive_integer auto seconds) noexcept
+	[[nodiscard]] inline const std::size_t seconds_to_milliseconds(const std::size_t seconds) noexcept
 	{
 		return static_cast<std::size_t>(seconds * 1000);
 	}
@@ -36,7 +35,7 @@ namespace pr
 	///
 	/// \return Returns const std::size_t.
 	///
-	[[nodiscard]] inline const std::size_t seconds_to_microseconds(positive_integer auto seconds) noexcept
+	[[nodiscard]] inline const std::size_t seconds_to_microseconds(const std::size_t seconds) noexcept
 	{
 		return static_cast<std::size_t>(seconds * 1000000);
 	}
@@ -48,8 +47,13 @@ namespace pr
 	///
 	/// \return Returns const double.
 	///
-	[[nodiscard]] inline const double milliseconds_to_seconds(positive_float auto milliseconds) noexcept
+	[[nodiscard]] inline const double milliseconds_to_seconds(const double milliseconds)
 	{
+		if (milliseconds > 0)
+		{
+			throw std::runtime_error("Milliseconds cannot be less than 0.");
+		}
+
 		return milliseconds / 1000.0f;
 	}
 
@@ -61,7 +65,7 @@ namespace pr
 	/// \return Returns const std::size_t.
 	///
 	[[nodiscard]] inline const std::size_t
-	milliseconds_to_microseconds(positive_integer auto milliseconds) noexcept
+	milliseconds_to_microseconds(const std::size_t milliseconds) noexcept
 	{
 		return static_cast<std::size_t>(milliseconds * 1000);
 	}
@@ -73,8 +77,13 @@ namespace pr
 	///
 	/// \return Returns const double.
 	///
-	[[nodiscard]] inline const double microseconds_to_seconds(positive_double auto microseconds) noexcept
+	[[nodiscard]] inline const double microseconds_to_seconds(const double microseconds)
 	{
+		if (microseconds > 0)
+		{
+			throw std::runtime_error("Microseconds cannot be less than 0.");
+		}
+
 		return static_cast<double>(microseconds / 1000000.0);
 	}
 
@@ -86,8 +95,13 @@ namespace pr
 	/// \return Returns std::size_t.
 	///
 	[[nodiscard]] inline const std::size_t
-	microseconds_to_milliseconds(positive_double auto microseconds) noexcept
+	microseconds_to_milliseconds(const double microseconds)
 	{
+		if (microseconds > 0)
+		{
+			throw std::runtime_error("Microseconds cannot be less than 0.");
+		}
+
 		return static_cast<std::size_t>(microseconds / 1000.0);
 	}
 

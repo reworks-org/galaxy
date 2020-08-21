@@ -19,13 +19,13 @@ namespace qs
 	{
 	}
 
-	Line::Line(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const pr::positive_float auto thickness)
+	Line::Line(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness)
 	    : m_thickness {thickness}
 	{
 		create(col, x1, y1, x2, y2, thickness);
 	}
 
-	void Line::create(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const pr::positive_float auto thickness)
+	void Line::create(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness)
 	{
 		m_thickness = thickness;
 

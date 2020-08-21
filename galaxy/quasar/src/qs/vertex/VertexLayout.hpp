@@ -46,14 +46,14 @@ namespace qs
 		/// \param size Number of components for each vertex attribute.
 		///
 		template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
-		void add(const pr::positive_integer auto size);
+		void add(const unsigned int size);
 
 		///
 		/// Retrieve all attributes.
 		///
 		/// \return const reference to std::vector<VertexAttribute>.
 		///
-		[[nodiscard]] const auto& get_attributes() const noexcept;
+		[[nodiscard]] const std::vector<VertexAttribute>& get_attributes() const noexcept;
 
 	private:
 		///
@@ -61,16 +61,16 @@ namespace qs
 		///
 		std::vector<VertexAttribute> m_attributes;
 	};
-	
+
 	template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
-	inline void VertexLayout::add(const pr::positive_integer auto size)
+	inline void VertexLayout::add(const unsigned int size)
 	{
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
 		constexpr bool is_instanced_vertex = std::is_same<VertexType, InstanceVertex>::value;
-		constexpr bool is_prim_vertex = std::is_same<VertexType, PrimitiveVertex>::value;
-		constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
+		constexpr bool is_prim_vertex      = std::is_same<VertexType, PrimitiveVertex>::value;
+		constexpr bool is_sprite_vertex    = std::is_same<VertexType, SpriteVertex>::value;
 
 		if constexpr (is_sprite_vertex)
 		{

@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// \param scale Scale. Multiplier.
 		///
-		void scale(const pr::positive_float auto scale) noexcept;
+		void scale(const float scale) noexcept;
 
 		///
 		/// Recalculates the model view matrix.

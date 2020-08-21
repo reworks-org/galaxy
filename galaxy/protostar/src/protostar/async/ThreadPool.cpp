@@ -28,9 +28,9 @@ namespace pr
 		}
 	}
 
-	void ThreadPool::create(const positive_integer auto& count)
+	void ThreadPool::create(const int count)
 	{
-		if (!(count == 0 || count > std::thread::hardware_concurrency()))
+		if (!(count <= 0 || count > std::thread::hardware_concurrency()))
 		{
 			m_max_threads = count;
 		}

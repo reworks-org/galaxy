@@ -37,10 +37,10 @@ namespace qs
 		/// Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
 		///
 		/// \param title Title of the window.
-		/// \param w Width of the window.
-		/// \param h Height of the window.
+		/// \param width Width of the window.
+		/// \param height Height of the window.
 		///
-		explicit Window(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h);
+		explicit Window(std::string_view title, const int width, const int height);
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
@@ -55,13 +55,13 @@ namespace qs
 		/// Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
 		///
 		/// \param title Title of the window.
-		/// \param w Width of the window.
-		/// \param h Height of the window.
+		/// \param width Width of the window.
+		/// \param height Height of the window.
 		/// \param settings Settings for the window, like flags and MSAA.
 		///
 		/// \return Returns true on success, false on failure.
 		///
-		bool create(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h);
+		bool create(std::string_view title, const int width, const int height);
 
 		///
 		/// Sets the background colour of the window.
@@ -143,11 +143,11 @@ namespace qs
 		///
 		/// Resizes window.
 		///
-		/// \param w New width of the window.
-		/// \param h new height of the window.
+		/// \param width Width of the window.
+		/// \param height Height of the window.
 		/// \param window Pointer to window to resize. Defaults to *this.
 		///
-		void resize(const pr::positive_integer auto w, const pr::positive_integer auto h) noexcept;
+		void resize(const int width, const int height) noexcept;
 
 		///
 		/// \brief Notify's user of an event without interrupting.

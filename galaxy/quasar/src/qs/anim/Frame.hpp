@@ -33,7 +33,7 @@ namespace qs
 		/// \param y Y position on the anim texture.
 		/// \param time_per_frame Total time to display this frame for.
 		///
-		Frame(pr::positive_float auto x, pr::positive_float auto y, pr::positive_integer auto time_per_frame) noexcept;
+		Frame(const float x, const float y, const std::size_t time_per_frame) noexcept;
 
 		///
 		/// Default destructor.

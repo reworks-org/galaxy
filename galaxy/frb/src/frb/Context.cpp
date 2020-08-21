@@ -52,30 +52,51 @@ namespace frb
 		}
 	}
 
-	void Context::set_doppler_factor(pr::positive_float auto factor)
+	void Context::set_doppler_factor(const float factor)
 	{
-		alDopplerFactor(factor);
-		if (alGetError() != AL_NO_ERROR)
+		if (factor < 0)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to set context doppler factor."));
+			throw std::runtime_error("Cannot have a negative doppler factor.");
+		}
+		else
+		{
+			alDopplerFactor(factor);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to set context doppler factor."));
+			}
 		}
 	}
 
-	void Context::set_speed_of_sound(pr::positive_float auto speed)
+	void Context::set_speed_of_sound(const float speed)
 	{
-		alSpeedOfSound(speed);
-		if (alGetError() != AL_NO_ERROR)
+		if (speed < 0)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to set context sound speed."));
+			throw std::runtime_error("Cannot have a negative speed of sound.");
+		}
+		else
+		{
+			alSpeedOfSound(speed);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to set context sound speed."));
+			}
 		}
 	}
 
-	void Context::set_listener_gain(pr::positive_float auto gain)
+	void Context::set_listener_gain(const float gain)
 	{
-		alListenerf(AL_GAIN, gain);
-		if (alGetError() != AL_NO_ERROR)
+		if (gain < 0)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to set listener AL_GAIN."));
+			throw std::runtime_error("Cannot have a negative audio gain multiplier.");
+		}
+		else
+		{
+			alListenerf(AL_GAIN, gain);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to set listener AL_GAIN."));
+			}
 		}
 	}
 

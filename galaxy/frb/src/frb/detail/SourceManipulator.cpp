@@ -38,30 +38,51 @@ namespace frb
 		alSourceRewind(m_source);
 	}
 
-	void SourceManipulator::set_pitch(pr::positive_float auto pitch) noexcept
+	void SourceManipulator::set_pitch(const float pitch)
 	{
-		alSourcef(m_source, AL_PITCH, std::abs(pitch));
-		if (alGetError() != AL_NO_ERROR)
+		if (pitch < 0)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to set source pitch."));
+			throw std::runtime_error("Pitch cannot be a negative.");
+		}
+		else
+		{
+			alSourcef(m_source, AL_PITCH, std::abs(pitch));
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to set source pitch."));
+			}
 		}
 	}
 
-	void SourceManipulator::set_gain(pr::positive_float auto gain) noexcept
+	void SourceManipulator::set_gain(const float gain)
 	{
-		alSourcef(m_source, AL_GAIN, std::abs(gain));
-		if (alGetError() != AL_NO_ERROR)
+		if (gain < 0)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to set source gain."));
+			throw std::runtime_error("Pitch cannot be a negative.");
+		}
+		else
+		{
+			alSourcef(m_source, AL_GAIN, std::abs(gain));
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to set source gain."));
+			}
 		}
 	}
 
-	void SourceManipulator::set_rolloff_factor(pr::positive_float auto factor) noexcept
+	void SourceManipulator::set_rolloff_factor(const float factor)
 	{
-		alSourcef(m_source, AL_ROLLOFF_FACTOR, factor);
-		if (alGetError() != AL_NO_ERROR)
+		if (factor < 0)
 		{
-			PL_LOG(PL_ERROR, frb::parse_error("Unable to set source rolloff."));
+			throw std::runtime_error("Pitch cannot be a negative.");
+		}
+		else
+		{
+			alSourcef(m_source, AL_ROLLOFF_FACTOR, factor);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				PL_LOG(PL_ERROR, frb::parse_error("Unable to set source rolloff."));
+			}
 		}
 	}
 
@@ -136,7 +157,7 @@ namespace frb
 	{
 	}
 
-	void SourceManipulator::set_source_to_manipulate(const pr::positive_integer auto source) noexcept
+	void SourceManipulator::set_source_to_manipulate(const ALuint source) noexcept
 	{
 		m_source = source;
 	}

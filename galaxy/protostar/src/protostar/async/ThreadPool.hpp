@@ -67,7 +67,7 @@ namespace pr
 		/// \param count Amount of threads to create for pool. If invalid, sets to the default of 4.
 		///				I.e. too big or less than 0.
 		///
-		void create(const positive_integer auto& count);
+		void create(const int count);
 
 		///
 		/// Queue a task for the thread pool to execute.

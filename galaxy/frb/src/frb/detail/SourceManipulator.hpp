@@ -55,21 +55,21 @@ namespace frb
 		///
 		/// \param pitch Multiplier value. I.e. 0.5f is a *0.5 multiplier.
 		///
-		void set_pitch(pr::positive_float auto pitch) noexcept;
+		void set_pitch(const float pitch);
 
 		///
 		/// Audio gain.
 		///
 		/// \param gain Multiplier value. I.e. 0.5f is a *0.5 multiplier.
 		///
-		void set_gain(pr::positive_float auto gain) noexcept;
+		void set_gain(const float gain);
 
 		///
 		/// \brief Set RollOff factor for source.
 		///
 		/// \param factor Floating point factor value.
 		///
-		void set_rolloff_factor(pr::positive_float auto factor) noexcept;
+		void set_rolloff_factor(const float factor);
 
 		///
 		/// \brief Set maximum distance from which there is no attenuation afterwards.
@@ -132,12 +132,12 @@ namespace frb
 		///
 		/// \param source Pointer to source handle in OpenAL.
 		///
-		void set_source_to_manipulate(const pr::positive_integer auto source) noexcept;
+		void set_source_to_manipulate(const ALuint source) noexcept;
 
 		///
 		/// Pointer to source being used internally.
 		///
-		unsigned int m_source;
+		ALuint m_source;
 	};
 } // namespace frb
 

@@ -36,7 +36,7 @@ namespace qs
 		/// \param v Texel y pos.
 		/// \param opacity Opacity of sprite.
 		///
-		SpriteVertex(const float x, const float y, const float u, const float v, const pr::from_0_to_1 auto opacity) noexcept;
+		SpriteVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
 
 		///
 		/// Destructor.

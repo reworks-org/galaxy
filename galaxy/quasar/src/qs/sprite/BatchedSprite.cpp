@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	void BatchedSprite::create(const pr::Rect<float>& region, const pr::positive_integer auto z_level) noexcept
+	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int z_level) noexcept
 	{
 		m_region  = region;
 		m_z_level = z_level;
@@ -28,19 +28,31 @@ namespace qs
 		m_dirty   = true;
 	}
 
-	void BatchedSprite::set_opacity(const pr::from_0_to_1 auto opacity) noexcept
+	void BatchedSprite::set_opacity(const float opacity) noexcept
 	{
-		m_opacity = opacity;
-		m_dirty   = true;
+		if (m_opacity > 1.0f)
+		{
+			m_opacity = 1.0f;
+		}
+		else if (m_opacity < 0.0f)
+		{
+			m_opacity = 0.0f;
+		}
+		else
+		{
+			m_opacity = opacity;
+		}
+
+		m_dirty = true;
 	}
 
-	void BatchedSprite::set_z_level(const pr::positive_integer auto level) noexcept
+	void BatchedSprite::set_z_level(const unsigned int level) noexcept
 	{
 		m_z_level = level;
 		m_dirty   = true;
 	}
 
-	void BatchedSprite::update_region(float x, float y, const pr::positive_float auto w, const pr::positive_float auto h) noexcept
+	void BatchedSprite::update_region(float x, float y, const float w, const float h) noexcept
 	{
 		m_region.m_x = x;
 		m_region.m_y = y;

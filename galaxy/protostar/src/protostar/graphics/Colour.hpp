@@ -37,7 +37,7 @@ namespace pr
 		/// \param g Green.
 		/// \param b Blue.
 		///
-		Colour(const pr::positive_integer auto r, const pr::positive_integer auto g, const pr::positive_integer auto b) noexcept;
+		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b) noexcept;
 
 		///
 		/// Argument constructor.
@@ -47,7 +47,7 @@ namespace pr
 		/// \param b Blue.
 		/// \param a Alpha.
 		///
-		Colour(const pr::positive_integer auto r, const pr::positive_integer auto g, const pr::positive_integer auto b, const pr::positive_integer auto a) noexcept;
+		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept;
 
 		///
 		/// Default destructor.

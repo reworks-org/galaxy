@@ -27,15 +27,6 @@ namespace qs
 	class Renderer;
 
 	///
-	/// Concept to ensure a number is a power of two.
-	///
-	template<typename Type>
-	concept is_pow_2 = pr::positive_integer<Type>&& requires(Type val)
-	{
-		{((val != 0) && ((val & (val - 1)) == 0))};
-	};
-
-	///
 	/// A texture atlas containing all the textures and rasterized text in the game.
 	/// This means rendering can be very efficient because only one texture has to be loaded and no switching takes place.
 	///
@@ -54,7 +45,7 @@ namespace qs
 		///
 		/// \param size Power of 2 size of texture atlas. I.e. user 4096 for a 4096x4096 texture.
 		///
-		explicit TextureAtlas(const is_pow_2 auto size) noexcept;
+		explicit TextureAtlas(const unsigned int size);
 
 		///
 		/// Destructor.
@@ -121,7 +112,7 @@ namespace qs
 		///
 		/// Size of atlas.
 		///
-		int m_size;
+		unsigned int m_size;
 
 		///
 		/// Master texture.

@@ -67,7 +67,7 @@ namespace qs
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
-		void set_opacity(const pr::from_0_to_1 auto opacity) noexcept;
+		void set_opacity(const float opacity) noexcept;
 
 		///
 		/// Get opacity.

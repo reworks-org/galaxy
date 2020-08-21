@@ -98,7 +98,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::load(const pr::positive_integer auto id, const pr::positive_integer auto width, const pr::positive_integer auto height)
+	void Texture::load(const unsigned int id, const int width, const int height)
 	{
 		m_texture = id;
 		m_width   = width;
@@ -117,7 +117,7 @@ namespace qs
 		clamp_to_edge();
 	}
 
-	void Texture::load(pr::positive_integer auto level, pr::positive_integer auto internalformat, pr::positive_integer auto width, pr::positive_integer auto height, pr::positive_integer auto border, pr::positive_integer auto format, pr::positive_integer auto type, const pr::valid_void_ptr auto pixels)
+	void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels)
 	{
 		m_width  = width;
 		m_height = height;

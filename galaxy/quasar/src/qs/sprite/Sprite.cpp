@@ -17,13 +17,25 @@ namespace qs
 	{
 	}
 
-	void Sprite::set_opacity(const pr::from_0_to_1 auto opacity) noexcept
+	void Sprite::set_opacity(const float opacity) noexcept
 	{
-		m_opacity = opacity;
-		m_dirty   = true;
+		if (m_opacity > 1.0f)
+		{
+			m_opacity = 1.0f;
+		}
+		else if (m_opacity < 0.0f)
+		{
+			m_opacity = 0.0f;
+		}
+		else
+		{
+			m_opacity = opacity;
+		}
+
+		m_dirty = true;
 	}
 
-	void Sprite::set_z_level(const pr::positive_integer auto z_level) noexcept
+	void Sprite::set_z_level(const unsigned int z_level) noexcept
 	{
 		m_z_level = z_level;
 	}

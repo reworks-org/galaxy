@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	Frame::Frame(pr::positive_float auto x, pr::positive_float auto y, pr::positive_integer auto time_per_frame) noexcept
+	Frame::Frame(const float x, const float y, const std::size_t time_per_frame) noexcept
 	    : m_x {x}, m_y {y}, m_time_per_frame {time_per_frame}
 	{
 	}

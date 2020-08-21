@@ -17,7 +17,7 @@ namespace qs
 	{
 	}
 
-	Animation::Animation(std::string_view name, bool looping, pr::positive_float auto speed, std::span<qs::Frame> frames)
+	Animation::Animation(std::string_view name, bool looping, const float speed, std::span<qs::Frame> frames)
 	    : m_active_frame {nullptr}, m_name {name}, m_looping {looping}, m_speed {speed}, m_total_frames {frames.size()}, m_current_frame_index {0}, m_frames {frames.begin(), frames.end()}
 	{
 	}

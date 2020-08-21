@@ -21,7 +21,7 @@ namespace qs
 		m_attributes.clear();
 	}
 
-	const auto& VertexLayout::get_attributes() const noexcept
+	const std::vector<VertexAttribute>& VertexLayout::get_attributes() const noexcept
 	{
 		return m_attributes;
 	}

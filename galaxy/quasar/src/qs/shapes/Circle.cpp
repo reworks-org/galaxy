@@ -23,13 +23,13 @@ namespace qs
 	{
 	}
 
-	Circle::Circle(const float x, const float y, const pr::positive_float auto radius, const pr::positive_integer auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness)
+	Circle::Circle(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness)
 	    : m_thickness {thickness}
 	{
 		create(x, y, radius, fragments, colour, thickness);
 	}
 
-	void Circle::create(const float x, const float y, const pr::positive_float auto radius, const pr::positive_integer auto fragments, const pr::Colour& colour, const pr::positive_float auto thickness)
+	void Circle::create(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness)
 	{
 		// Thanks to https://stackoverflow.com/a/33859443.
 		// For help with maths.

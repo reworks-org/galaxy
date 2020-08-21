@@ -91,12 +91,7 @@ namespace qs
 			// Now to use constexpr to check on compile time the buffer type.
 			// This is faster since we dont need to bother checking at runtime.
 			// constexpr will discard the branch that is false and it wont be compiled.
-			constexpr bool is_dynamic = requires(BufferType val)
-			{
-				{std::is_same<decltype(val), qs::BufferDynamic>::value};
-			};
-
-			if constexpr (is_dynamic)
+			if constexpr (std::is_same<BufferType, qs::BufferDynamic>::value)
 			{
 				if (dynamic_verticies)
 				{

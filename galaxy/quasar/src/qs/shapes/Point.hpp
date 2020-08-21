@@ -36,7 +36,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		Point(const float x, const float y, const pr::positive_integer auto size, const pr::Colour& colour);
+		Point(const float x, const float y, const unsigned int size, const pr::Colour& colour);
 
 		///
 		/// Destructor.
@@ -51,7 +51,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const pr::positive_integer auto size, const pr::Colour& colour);
+		void create(const float x, const float y, const unsigned int size, const pr::Colour& colour);
 
 		///
 		/// Bind as active VA.

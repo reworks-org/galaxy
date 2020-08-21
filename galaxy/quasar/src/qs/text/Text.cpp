@@ -54,10 +54,10 @@ namespace qs
 
 			const auto* chr = m_font->get_char(c);
 			auto* region    = &chr->get_region();
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0, region->m_x, region->m_y, 1.0f));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0, region->m_x + region->m_width, region->m_y, 1.0f));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0 + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height, 1.0f));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0 + region->m_height, region->m_x, region->m_y + region->m_height, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f, region->m_x, region->m_y, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f, region->m_x + region->m_width, region->m_y, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f + region->m_height, region->m_x, region->m_y + region->m_height, 1.0f));
 
 			count += 4;
 			x += (chr->get_advance() >> 6);
@@ -93,10 +93,10 @@ namespace qs
 
 			const auto* chr = m_font->get_char(c);
 			auto* region    = &chr->get_region();
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0, region->m_x, region->m_y, 1.0f));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0, region->m_x + region->m_width, region->m_y, 1.0f));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0 + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height, 1.0f));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0 + region->m_height, region->m_x, region->m_y + region->m_height, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f, region->m_x, region->m_y, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f, region->m_x + region->m_width, region->m_y, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height, 1.0f));
+			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f + region->m_height, region->m_x, region->m_y + region->m_height, 1.0f));
 
 			count += 4;
 			x += (chr->get_advance() >> 6);
@@ -106,9 +106,20 @@ namespace qs
 		m_ib.create<qs::BufferStatic>(is);
 	}
 
-	void Text::set_opacity(const pr::from_0_to_1 auto opacity) noexcept
+	void Text::set_opacity(const float opacity) noexcept
 	{
-		m_opacity = opacity;
+		if (m_opacity > 1.0f)
+		{
+			m_opacity = 1.0f;
+		}
+		else if (m_opacity < 0.0f)
+		{
+			m_opacity = 0.0f;
+		}
+		else
+		{
+			m_opacity = opacity;
+		}
 	}
 
 	const float Text::opacity() const noexcept

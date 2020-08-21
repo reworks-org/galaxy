@@ -27,10 +27,10 @@ namespace qs
 	{
 	}
 
-	Window::Window(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h)
+	Window::Window(std::string_view title, const int width, const int height)
 	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
-		if (!create(title, w, h))
+		if (!create(title, width, height))
 		{
 			PL_LOG(PL_FATAL, "GLFW window creation failed.");
 		}
@@ -43,14 +43,14 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(std::string_view title, const pr::positive_integer auto w, const pr::positive_integer auto h)
+	bool Window::create(std::string_view title, const int width, const int height)
 	{
 		// Function result.
 		bool result = true;
 
 		// Window w/h.
-		m_width  = w;
-		m_height = h;
+		m_width  = width;
+		m_height = height;
 
 		// Error callbacks.
 		glfwSetErrorCallback([](int error, const char* description) {
@@ -317,12 +317,12 @@ namespace qs
 		glfwSetWindowShouldClose(m_window, true);
 	}
 
-	void Window::resize(const pr::positive_integer auto w, const pr::positive_integer auto h) noexcept
+	void Window::resize(const int width, const int height) noexcept
 	{
-		m_width  = w;
-		m_height = h;
+		m_width  = width;
+		m_height = height;
 
-		glfwSetWindowSize(m_window, w, h);
+		glfwSetWindowSize(m_window, width, height);
 	}
 
 	void Window::request_attention() noexcept

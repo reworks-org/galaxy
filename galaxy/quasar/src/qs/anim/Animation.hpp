@@ -38,7 +38,7 @@ namespace qs
 		/// \param speed Multiplier. Speed of animation.
 		/// \param frames Frames in the animation.
 		///
-		Animation(std::string_view name, bool looping, pr::positive_float auto speed, std::span<qs::Frame> frames);
+		Animation(std::string_view name, bool looping, const float speed, std::span<qs::Frame> frames);
 
 		///
 		/// Destructor.

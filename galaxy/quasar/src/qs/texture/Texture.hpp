@@ -61,7 +61,7 @@ namespace qs
 		/// \param width Width of texture.
 		/// \param height Height of texture.
 		///
-		void load(const pr::positive_integer auto id, const pr::positive_integer auto width, const pr::positive_integer auto height);
+		void load(const unsigned int id, const int width, const int height);
 
 		///
 		/// Load based off params from glTexImage2D.
@@ -75,7 +75,7 @@ namespace qs
 		/// \param type https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 		/// \param pixels https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 		///
-		void load(pr::positive_integer auto level, pr::positive_integer auto internalformat, pr::positive_integer auto width, pr::positive_integer auto height, pr::positive_integer auto border, pr::positive_integer auto format, pr::positive_integer auto type, const pr::valid_void_ptr auto pixels);
+		void load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels);
 
 		///
 		/// Activate texture context.

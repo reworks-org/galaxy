@@ -41,7 +41,7 @@ namespace qs
 		/// \param top Top point of ortho perspective.
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		explicit Camera(const float left, const float right, const float bottom, const float top, const pr::positive_float auto speed) noexcept;
+		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
 
 		///
 		/// Default destructor.
@@ -91,7 +91,7 @@ namespace qs
 		///
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		void set_speed(const pr::positive_float auto speed) noexcept;
+		void set_speed(const float speed) noexcept;
 
 		///
 		/// Get camera width.

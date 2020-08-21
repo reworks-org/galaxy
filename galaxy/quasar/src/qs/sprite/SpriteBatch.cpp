@@ -14,7 +14,7 @@
 ///
 namespace qs
 {
-	SpriteBatch::SpriteBatch(const pr::positive_integer auto max_quads)
+	SpriteBatch::SpriteBatch(const unsigned int max_quads)
 	    : VertexData {}, m_offset {0}, m_max_quads {max_quads}, m_max_vertexs {0}, m_max_indexs {0}, m_used_indexs {0}, m_texture {nullptr}
 	{
 		m_max_vertexs = m_max_quads * 4;
