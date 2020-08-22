@@ -302,7 +302,7 @@ namespace sr
 			{
 				if (!derived->has(entity))
 				{
-					return derived->add(entity, std::forward<Args>(args)...);
+					return derived->create(entity, std::forward<Args>(args)...);
 				}
 				else
 				{
