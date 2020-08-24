@@ -186,13 +186,17 @@ set_target_properties(zlibstatic PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 )
 
-# Target to build external libs.
+# Meta trget to build external libs.
 add_custom_target(BUILD_EXTERNAL_LIBS)
 add_dependencies(BUILD_EXTERNAL_LIBS freetype glfw ogg vorbis OpenAL zlibstatic)
 
-# Target to build internal libs.
+# Meta target to build internal libs.
 add_custom_target(BUILD_INTERNAL_LIBS)
-add_dependencies(BUILD_INTERNAL_LIBS pulsar deps protostar frb quasar redshift solar starlight starmap)
+add_dependencies(BUILD_INTERNAL_LIBS BUILD_EXTERNAL_LIBS pulsar deps protostar frb quasar redshift solar starlight starmap)
+
+# Meta target to build galaxy engine.
+add_custom_target(BUILD_GALAXY_ENGINE)
+add_dependencies(BUILD_GALAXY_ENGINE BUILD_INTERNAL_LIBS galaxy)
 
 # Import applications
 add_subdirectory(supercluster)
