@@ -32,6 +32,26 @@ namespace galaxy
 		Config() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Config(const Config&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Config(Config&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Config& operator=(const Config&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Config& operator=(Config&&) noexcept = delete;
+
+		///
 		/// Clean up the config reader.
 		///
 		~Config();
@@ -60,7 +80,7 @@ namespace galaxy
 		/// \param key Name of the variable.
 		/// \param value The variable value to set.
 		///
-		template<pr::standard_types Value>
+		template<pr::standard_type Value>
 		void define(std::string_view key, const Value value);
 
 		///
@@ -69,7 +89,7 @@ namespace galaxy
 		/// \param key Name of the variable.
 		/// \param value The variable value to set.
 		///
-		template<pr::standard_types Value>
+		template<pr::standard_type Value>
 		void change(std::string_view key, const Value value);
 
 		///
@@ -93,7 +113,7 @@ namespace galaxy
 		///
 		/// \return Returns the value retrieved from the key.
 		///
-		template<pr::standard_types Value>
+		template<pr::standard_type Value>
 		[[nodiscard]] Value get(std::string_view key);
 
 	private:
@@ -118,7 +138,7 @@ namespace galaxy
 		std::filesystem::path m_path;
 	};
 
-	template<pr::standard_types Value>
+	template<pr::standard_type Value>
 	inline void Config::define(std::string_view key, const Value value)
 	{
 		// Only need to set definitions first time around.
@@ -132,7 +152,7 @@ namespace galaxy
 		}
 	}
 
-	template<pr::standard_types Value>
+	template<pr::standard_type Value>
 	inline void Config::change(std::string_view key, const Value value)
 	{
 		if (m_config.count("key") > 0)
@@ -145,15 +165,17 @@ namespace galaxy
 		}
 	}
 
-	template<pr::standard_types Value>
+	template<pr::standard_type Value>
 	inline Value Config::get(std::string_view key)
 	{
+		auto str = static_cast<std::string>(key);
+
 		if (!m_opened)
 		{
 			PL_LOG(PL_FATAL, "Attempted to retrieve value from config that was not open!");
 		}
 
-		return m_config[key].get<Value>();
+		return m_config[str].get<Value>();
 	}
 } // namespace galaxy
 

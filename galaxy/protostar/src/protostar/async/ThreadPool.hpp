@@ -35,24 +35,24 @@ namespace pr
 		ThreadPool() noexcept;
 
 		///
-		/// Deleted move constructor.
+		/// Copy constructor.
 		///
-		ThreadPool(ThreadPool&&) = delete;
+		ThreadPool(const ThreadPool&) noexcept = delete;
 
 		///
-		/// Deleted copy constructor.
+		/// Move constructor.
 		///
-		ThreadPool(const ThreadPool&) = delete;
+		ThreadPool(ThreadPool&&) noexcept = delete;
 
 		///
-		/// Deleted move assignment operator.
+		/// Copy assignment operator.
 		///
-		ThreadPool& operator=(ThreadPool&&) = delete;
+		ThreadPool& operator=(const ThreadPool&) noexcept = delete;
 
 		///
-		/// Deleted copy assignment operator.
+		/// Move assignment operator.
 		///
-		ThreadPool& operator=(const ThreadPool&) = delete;
+		ThreadPool& operator=(ThreadPool&&) noexcept = delete;
 
 		///
 		/// Destructor.

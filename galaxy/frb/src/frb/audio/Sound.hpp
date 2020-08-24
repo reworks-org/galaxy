@@ -27,7 +27,7 @@ namespace frb
 		///
 		/// Constructor.
 		///
-		Sound() noexcept;
+		Sound();
 
 		///
 		/// Argument constructor.
@@ -37,9 +37,29 @@ namespace frb
 		Sound(std::string_view file);
 
 		///
+		/// Copy constructor.
+		///
+		Sound(const Sound&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Sound(Sound&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Sound& operator=(const Sound&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Sound& operator=(Sound&&);
+
+		///
 		/// Destructor.
 		///
-		~Sound() noexcept;
+		virtual ~Sound() = default;
 
 		///
 		/// Load a file from disk.

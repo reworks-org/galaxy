@@ -33,6 +33,26 @@ namespace pr
 		KeyUpEvent(const pr::Keys keycode) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		KeyUpEvent(const KeyUpEvent&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		KeyUpEvent(KeyUpEvent&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		KeyUpEvent& operator=(const KeyUpEvent&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		KeyUpEvent& operator=(KeyUpEvent&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~KeyUpEvent() noexcept = default;

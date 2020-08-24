@@ -34,6 +34,26 @@ namespace galaxy
 		AnimationComponent(const nlohmann::json& json);
 
 		///
+		/// Copy constructor.
+		///
+		AnimationComponent(const AnimationComponent&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		AnimationComponent(AnimationComponent&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		AnimationComponent& operator=(const AnimationComponent&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		AnimationComponent& operator=(AnimationComponent&&);
+
+		///
 		/// Destructor.
 		///
 		~AnimationComponent() noexcept = default;

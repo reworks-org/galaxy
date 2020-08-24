@@ -35,6 +35,26 @@ namespace galaxy
 		SpriteBatchComponent(const nlohmann::json& json);
 
 		///
+		/// Copy constructor.
+		///
+		SpriteBatchComponent(const SpriteBatchComponent&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		SpriteBatchComponent(SpriteBatchComponent&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		SpriteBatchComponent& operator=(const SpriteBatchComponent&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		SpriteBatchComponent& operator=(SpriteBatchComponent&&);
+
+		///
 		/// Destructor.
 		///
 		~SpriteBatchComponent() noexcept = default;

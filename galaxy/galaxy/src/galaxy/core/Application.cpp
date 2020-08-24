@@ -45,6 +45,7 @@ using std_chrono_duration = std::chrono::duration<long long, std::nano>;
 namespace galaxy
 {
 	Application::Application()
+	    : m_openal {}
 	{
 		m_delta_time.set(0.0);
 
@@ -129,9 +130,6 @@ namespace galaxy
 			// Freetype.
 			FTLIB.open();
 
-			// OpenAl.
-			m_openal.init();
-
 			// Create lua instance and open libraries.
 			m_lua = std::make_unique<sol::state>();
 			m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
@@ -149,8 +147,8 @@ namespace galaxy
 			SL_HANDLE.m_world = m_world.get();
 
 			// Serializer.
-			m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
-			SL_HANDLE.m_serializer = m_serializer.get();
+			//m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
+			//SL_HANDLE.m_serializer = m_serializer.get();
 
 			// FontBook
 			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
@@ -159,10 +157,6 @@ namespace galaxy
 			// ShaderBook
 			m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 			SL_HANDLE.m_shaderbook = m_shaderbook.get();
-
-			// AudioBook
-			m_audiobook           = std::make_unique<galaxy::AudioBook>(m_config->get<std::string>("audiobook-json"));
-			SL_HANDLE.m_audiobook = m_audiobook.get();
 
 			// Register all usertypes used by this application for sol3.
 			Lua::register_types();
@@ -184,7 +178,7 @@ namespace galaxy
 		m_config.reset();
 	}
 
-	bool Application::run() noexcept
+	bool Application::run()
 	{
 		// This is to ensure gameloop is running at 60 UPS, independant of FPS. 1.0 / 60.0.
 		std_chrono_tp current;

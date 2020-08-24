@@ -32,6 +32,26 @@ namespace pr
 		RectPack() noexcept;
 
 		///
+		/// Move constructor.
+		///
+		RectPack(RectPack&&) noexcept = default;
+
+		///
+		/// Copy constructor.
+		///
+		RectPack(const RectPack&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		RectPack& operator=(RectPack&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		RectPack& operator=(const RectPack&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
 		~RectPack() noexcept;

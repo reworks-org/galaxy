@@ -33,6 +33,26 @@ namespace pr
 		KeyDownEvent(const pr::Keys keycode) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		KeyDownEvent(const KeyDownEvent&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		KeyDownEvent(KeyDownEvent&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		KeyDownEvent& operator=(const KeyDownEvent&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		KeyDownEvent& operator=(KeyDownEvent&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~KeyDownEvent() noexcept = default;

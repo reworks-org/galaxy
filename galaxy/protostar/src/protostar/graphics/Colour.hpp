@@ -50,6 +50,26 @@ namespace pr
 		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Colour(const Colour&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		Colour(Colour&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Colour& operator=(const Colour&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Colour& operator=(Colour&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~Colour() noexcept = default;

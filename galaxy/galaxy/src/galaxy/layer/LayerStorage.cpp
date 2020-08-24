@@ -48,7 +48,7 @@ namespace galaxy
 
 	void LayerStorage::remove(std::string_view name)
 	{
-		std::erase_if(m_layers, [&](const auto&& layer) {
+		std::erase_if(m_layers, [&](const auto& layer) {
 			return layer->get_name() == static_cast<std::string>(name);
 		});
 	}

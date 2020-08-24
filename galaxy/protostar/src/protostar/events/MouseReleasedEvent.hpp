@@ -33,6 +33,26 @@ namespace pr
 		MouseReleasedEvent(const int x, const int y, const unsigned int button) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		MouseReleasedEvent(const MouseReleasedEvent&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		MouseReleasedEvent(MouseReleasedEvent&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		MouseReleasedEvent& operator=(const MouseReleasedEvent&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		MouseReleasedEvent& operator=(MouseReleasedEvent&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~MouseReleasedEvent() noexcept = default;

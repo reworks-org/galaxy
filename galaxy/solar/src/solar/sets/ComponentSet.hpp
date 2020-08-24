@@ -36,6 +36,26 @@ namespace sr
 		ComponentSet() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		ComponentSet(const ComponentSet&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		ComponentSet(ComponentSet&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		ComponentSet& operator=(const ComponentSet&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		ComponentSet& operator=(ComponentSet&&) = delete;
+
+		///
 		/// Destructor
 		///
 		~ComponentSet() noexcept;

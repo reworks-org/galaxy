@@ -40,6 +40,26 @@ namespace pr
 		Rect(const Type x, const Type y, const Type width, const Type height) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+
+		Rect(const Rect&) noexcept = default;
+		///
+		/// Move constructor.
+		///
+		Rect(Rect&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Rect& operator=(const Rect&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Rect& operator=(Rect&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~Rect() noexcept = default;

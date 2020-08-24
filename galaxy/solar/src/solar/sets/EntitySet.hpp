@@ -45,6 +45,26 @@ namespace sr
 		EntitySet() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		EntitySet(const EntitySet&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		EntitySet(EntitySet&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		EntitySet& operator=(const EntitySet&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		EntitySet& operator=(EntitySet&&) = delete;
+
+		///
 		/// Destructor.
 		///
 		virtual ~EntitySet() noexcept;

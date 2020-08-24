@@ -8,6 +8,10 @@
 #ifndef PROTOSTAR_KEYS_HPP_
 #define PROTOSTAR_KEYS_HPP_
 
+#undef DELETE
+#undef ESC
+#undef ENTER
+
 ///
 /// Core namespace.
 ///

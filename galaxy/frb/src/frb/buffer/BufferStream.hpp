@@ -31,21 +31,51 @@ namespace frb
 		///
 		/// Number of buffers being used by the stream.
 		///
-		constexpr static inline ALsizei buffer_count = 4;
+		constexpr static inline ALsizei BUFFER_COUNT = 4;
 
 		///
 		/// Size of each buffer used by the stream.
 		///
-		constexpr static inline std::size_t buffer_size = 65536;
+		constexpr static inline std::size_t BUFFER_SIZE = 65536;
 
 		///
 		/// Holds various member variables for BufferStream.
-		struct Data
+		///
+		class Data final
 		{
+		public:
+			friend class BufferStream;
+			friend class Music;
+
+			///
+			/// Copy constructor.
+			///
+			Data(const Data&) noexcept = delete;
+
+			///
+			/// Move constructor.
+			///
+			Data(Data&&);
+
+			///
+			/// Copy assignment operator.
+			///
+			Data& operator=(const Data&) noexcept = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Data& operator=(Data&&);
+
+			///
+			/// Destructor.
+			///
+			~Data() = default;
+
 			///
 			/// OpenAL buffers.
 			///
-			std::array<ALuint, frb::BufferStream::buffer_count> m_buffers;
+			std::array<ALuint, frb::BufferStream::BUFFER_COUNT> m_buffers;
 
 			///
 			/// Path to the file.
@@ -101,12 +131,38 @@ namespace frb
 			/// Total duration of audio.
 			///
 			std::size_t m_duration = {0};
+
+		private:
+			///
+			/// Constructor.
+			///
+			Data() = default;
 		};
 
 		///
 		/// Constructor.
 		///
 		BufferStream();
+
+		///
+		/// Copy constructor.
+		///
+		BufferStream(const BufferStream&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		BufferStream(BufferStream&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		BufferStream& operator=(const BufferStream&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		BufferStream& operator=(BufferStream&&);
 
 		///
 		/// \brief Destructor.
@@ -120,7 +176,7 @@ namespace frb
 		///
 		/// \return Data (i.e. all protected members).
 		///
-		[[nodiscard]] Data* get_data() noexcept;
+		[[nodiscard]] frb::BufferStream::Data* get_data() noexcept;
 
 	protected:
 		///
@@ -131,11 +187,6 @@ namespace frb
 		/// \return False if load failed.
 		///
 		bool internal_load(std::string_view file);
-
-		///
-		/// Destroy all memory and OpenAL data.
-		///
-		void destroy_stream() noexcept;
 
 		///
 		/// All member vars of Buffer Stream.

@@ -32,6 +32,26 @@ namespace pr
 		MouseWheelEvent(const double x, const double y) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		MouseWheelEvent(const MouseWheelEvent&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		MouseWheelEvent(MouseWheelEvent&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		MouseWheelEvent& operator=(const MouseWheelEvent&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		MouseWheelEvent& operator=(MouseWheelEvent&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~MouseWheelEvent() noexcept = default;

@@ -32,9 +32,40 @@ namespace frb
 		}
 	}
 
-	Buffer::~Buffer() noexcept
+	Buffer::Buffer(Buffer&& b)
 	{
-		destroy_buffer();
+		this->m_buffer    = b.m_buffer;
+		this->m_channels  = b.m_channels;
+		this->m_frequency = b.m_frequency;
+
+		b.m_buffer    = 0;
+		b.m_channels  = 0;
+		b.m_frequency = 0;
+	}
+
+	Buffer& Buffer::operator=(Buffer&& b)
+	{
+		if (this != &b)
+		{
+			this->m_buffer    = b.m_buffer;
+			this->m_channels  = b.m_channels;
+			this->m_frequency = b.m_frequency;
+
+			b.m_buffer    = 0;
+			b.m_channels  = 0;
+			b.m_frequency = 0;
+		}
+
+		return *this;
+	}
+
+	Buffer::~Buffer()
+	{
+		alDeleteBuffers(1, &m_buffer);
+
+		m_buffer    = 0;
+		m_channels  = 0;
+		m_frequency = 0;
 	}
 
 	const ALint Buffer::get_frequency() const noexcept
@@ -167,11 +198,5 @@ namespace frb
 		}
 
 		return result;
-	}
-
-	void Buffer::destroy_buffer() noexcept
-	{
-		alDeleteBuffers(1, &m_buffer);
-		m_buffer = 0;
 	}
 } // namespace frb

@@ -35,6 +35,26 @@ namespace pr
 		MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		MouseMovedEvent(const MouseMovedEvent&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		MouseMovedEvent(MouseMovedEvent&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		MouseMovedEvent& operator=(const MouseMovedEvent&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		MouseMovedEvent& operator=(MouseMovedEvent&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~MouseMovedEvent() noexcept = default;

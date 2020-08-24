@@ -34,6 +34,26 @@ namespace pr
 		KeyCharEvent(const pr::Keys keycode, const int unichar) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		KeyCharEvent(const KeyCharEvent&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		KeyCharEvent(KeyCharEvent&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		KeyCharEvent& operator=(const KeyCharEvent&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		KeyCharEvent& operator=(KeyCharEvent&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~KeyCharEvent() noexcept = default;

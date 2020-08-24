@@ -108,22 +108,22 @@ namespace pl
 		};
 
 		///
-		/// Delete Copy construct in order to preserve singleton.
+		/// Copy constructor.
 		///
-		Log(Log const&) = delete;
+		Log(const Log&) = delete;
 
 		///
-		/// Delete Move construct in order to preserve singleton.
+		/// Move constructor.
 		///
 		Log(Log&&) = delete;
 
 		///
-		/// Delete Copy assign in order to preserve singleton.
+		/// Copy assignment operator.
 		///
-		Log& operator=(Log const&) = delete;
+		Log& operator=(const Log&) = delete;
 
 		///
-		/// Delete Move assign in order to preserve singleton.
+		/// Move assignment operator.
 		///
 		Log& operator=(Log&&) = delete;
 

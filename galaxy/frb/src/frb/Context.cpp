@@ -16,20 +16,8 @@
 ///
 namespace frb
 {
-	Context::Context() noexcept
+	Context::Context()
 	    : m_device {nullptr}, m_context {nullptr}
-	{
-	}
-
-	Context::~Context() noexcept
-	{
-		// Cleanup.
-		alcMakeContextCurrent(nullptr);
-		alcDestroyContext(m_context);
-		alcCloseDevice(m_device);
-	}
-
-	void Context::init()
 	{
 		// Make sure error code is default flagged.
 		alGetError();
@@ -50,6 +38,17 @@ namespace frb
 		{
 			PL_LOG(PL_FATAL, frb::parse_error("Failed to make OpenAL context current."));
 		}
+	}
+
+	Context::~Context()
+	{
+		// Cleanup.
+		alcMakeContextCurrent(nullptr);
+		alcDestroyContext(m_context);
+		alcCloseDevice(m_device);
+
+		m_context = nullptr;
+		m_device  = nullptr;
 	}
 
 	void Context::set_doppler_factor(const float factor)

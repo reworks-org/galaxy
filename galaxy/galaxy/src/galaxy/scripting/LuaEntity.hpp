@@ -39,6 +39,26 @@ namespace galaxy
 		LuaEntity(sr::Entity entity);
 
 		///
+		/// Copy constructor.
+		///
+		LuaEntity(const LuaEntity&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		LuaEntity(LuaEntity&&) noexcept;
+
+		///
+		/// Copy assignment operator.
+		///
+		LuaEntity& operator=(const LuaEntity&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		LuaEntity& operator=(LuaEntity&&) noexcept;
+
+		///
 		/// Destructor.
 		///
 		~LuaEntity() noexcept = default;

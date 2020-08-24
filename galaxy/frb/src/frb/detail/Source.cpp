@@ -27,9 +27,27 @@ namespace frb
 		}
 	}
 
-	Source::~Source() noexcept
+	Source::Source(Source&& s)
 	{
-		destroy_source();
+		this->m_source = s.m_source;
+		s.m_source     = 0;
+	}
+
+	Source& Source::operator=(Source&& s)
+	{
+		if (this != &s)
+		{
+			this->m_source = s.m_source;
+			s.m_source     = 0;
+		}
+
+		return *this;
+	}
+
+	Source::~Source()
+	{
+		alDeleteSources(1, &m_source);
+		m_source = 0;
 	}
 
 	void Source::queue(Buffer* buffer)
@@ -56,7 +74,7 @@ namespace frb
 		}
 		else
 		{
-			alSourceQueueBuffers(m_source, BufferStream::buffer_count, &stream_buffer->get_data()->m_buffers[0]);
+			alSourceQueueBuffers(m_source, BufferStream::BUFFER_COUNT, &stream_buffer->get_data()->m_buffers[0]);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				auto msg = frb::parse_error("Unable to queue stream buffer: " + stream_buffer->get_data()->m_file_path.filename().string());
@@ -113,10 +131,5 @@ namespace frb
 	const ALuint Source::handle() const noexcept
 	{
 		return m_source;
-	}
-
-	void Source::destroy_source() noexcept
-	{
-		alDeleteSources(1, &m_source);
 	}
 } // namespace frb

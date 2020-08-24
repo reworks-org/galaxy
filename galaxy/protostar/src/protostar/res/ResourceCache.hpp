@@ -31,6 +31,26 @@ namespace pr
 		ResCacheBase() noexcept = default;
 
 		///
+		/// Copy constructor.
+		///
+		ResCacheBase(const ResCacheBase&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		ResCacheBase(ResCacheBase&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		ResCacheBase& operator=(const ResCacheBase&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		ResCacheBase& operator=(ResCacheBase&&) noexcept = default;
+
+		///
 		/// Virtual default destructor.
 		///
 		virtual ~ResCacheBase() noexcept = default;
@@ -44,6 +64,26 @@ namespace pr
 	class ResourceCache : public pr::ResCacheBase
 	{
 	public:
+		///
+		/// Copy constructor.
+		///
+		ResourceCache(const ResourceCache&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		ResourceCache(ResourceCache&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		ResourceCache& operator=(const ResourceCache&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		ResourceCache& operator=(ResourceCache&&) noexcept = delete;
+
 		///
 		/// Virtual destructor.
 		///
@@ -89,16 +129,6 @@ namespace pr
 		/// Default constructor.
 		///
 		ResourceCache() noexcept;
-
-		///
-		/// Copy Constructor.
-		///
-		ResourceCache(const ResourceCache&) noexcept = default;
-
-		///
-		/// Move Constructor.
-		///
-		ResourceCache(ResourceCache&&) noexcept = default;
 
 		///
 		/// Contiguous resource array.

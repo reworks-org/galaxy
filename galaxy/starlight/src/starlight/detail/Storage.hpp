@@ -30,6 +30,26 @@ namespace sl
 		Storage() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Storage(const Storage&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		Storage(Storage&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Storage& operator=(const Storage&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Storage& operator=(Storage&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
 		~Storage() noexcept;

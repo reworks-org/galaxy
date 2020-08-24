@@ -29,4 +29,19 @@ namespace galaxy
 			PL_LOG(PL_ERROR, "No valid shader loading config found.");
 		}
 	}
+
+	ShaderComponent::ShaderComponent(ShaderComponent&& sc)
+	{
+		this->m_shader = std::move(sc.m_shader);
+	}
+
+	ShaderComponent& ShaderComponent::operator=(ShaderComponent&& sc)
+	{
+		if (this != &sc)
+		{
+			this->m_shader = std::move(sc.m_shader);	
+		}
+
+		return *this;
+	}
 } // namespace galaxy

@@ -74,6 +74,26 @@ namespace galaxy
 		///
 		explicit Layer(std::string_view name) noexcept;
 
+		///
+		/// Copy constructor.
+		///
+		Layer(const Layer&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		Layer(Layer&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Layer& operator=(const Layer&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Layer& operator=(Layer&&) noexcept = default;
+
 	protected:
 		///
 		/// Layer name. Useful to have.

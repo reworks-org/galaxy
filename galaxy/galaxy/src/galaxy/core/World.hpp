@@ -33,6 +33,26 @@ namespace galaxy
 		World();
 
 		///
+		/// Copy constructor.
+		///
+		World(const World&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		World(World&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		World& operator=(const World&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		World& operator=(World&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
 		~World();

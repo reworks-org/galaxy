@@ -46,6 +46,26 @@ namespace galaxy
 		/// Default constructor.
 		///
 		Command() noexcept = default;
+
+		///
+		/// Copy constructor.
+		///
+		Command(const Command&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		Command(Command&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Command& operator=(const Command&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Command& operator=(Command&&) noexcept = default;
 	};
 } // namespace galaxy
 

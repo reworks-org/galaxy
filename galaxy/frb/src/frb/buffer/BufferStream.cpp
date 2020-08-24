@@ -147,26 +147,43 @@ namespace frb
 	BufferStream::BufferStream()
 	    : m_data {}
 	{
-		alGenBuffers(buffer_count, &m_data.m_buffers[0]);
+		alGenBuffers(BUFFER_COUNT, &m_data.m_buffers[0]);
 		if (alGetError() != AL_NO_ERROR)
 		{
 			PL_LOG(PL_FATAL, frb::parse_error("Unable to gen audio buffer(s)."));
 		}
 	}
 
+	BufferStream::BufferStream(BufferStream&& bs)
+	{
+		this->m_data = std::move(bs.m_data);
+	}
+
+	BufferStream& BufferStream::operator=(BufferStream&& bs)
+	{
+		if (this != &bs)
+		{
+			this->m_data = std::move(bs.m_data);
+		}
+
+		return *this;
+	}
+
 	BufferStream::~BufferStream()
 	{
-		if (!(
-			m_data.m_buffers[0] == 0 &&
-			m_data.m_buffers[1] == 0 &&
-			m_data.m_buffers[2] == 0 &&
-			m_data.m_buffers[3] == 0))
+		m_data.m_file_handle.clear();
+		m_data.m_file_handle.close();
+
+		ov_clear(&m_data.m_ogg_handle);
+
+		alDeleteBuffers(BUFFER_COUNT, &m_data.m_buffers[0]);
+		for (auto& buffer : m_data.m_buffers)
 		{
-			destroy_stream();
+			buffer = 0;
 		}
 	}
 
-	BufferStream::Data* BufferStream::get_data() noexcept
+	frb::BufferStream::Data* BufferStream::get_data() noexcept
 	{
 		return &m_data;
 	}
@@ -237,13 +254,13 @@ namespace frb
 					}
 					else
 					{
-						std::string buff(buffer_size, '\0'); // Doesnt like {} initialization.
-						for (std::uint8_t i = 0; i < buffer_count; ++i)
+						std::string buff(BUFFER_SIZE, '\0'); // Doesnt like {} initialization.
+						for (std::uint8_t i = 0; i < BUFFER_COUNT; ++i)
 						{
 							std::int32_t processed = 0;
-							while (processed < buffer_size)
+							while (processed < BUFFER_SIZE)
 							{
-								std::int32_t read_result = ov_read(&m_data.m_ogg_handle, &buff[processed], buffer_size - processed, 0, 2, 1, &m_data.m_ogg_pos);
+								std::int32_t read_result = ov_read(&m_data.m_ogg_handle, &buff[processed], BUFFER_SIZE - processed, 0, 2, 1, &m_data.m_ogg_pos);
 
 								if (read_result == OV_HOLE)
 								{
@@ -319,16 +336,73 @@ namespace frb
 		return result;
 	}
 
-	void BufferStream::destroy_stream() noexcept
+	BufferStream::Data::Data(Data&& d)
 	{
-		m_data.m_file_handle.clear();
-		m_data.m_file_handle.close();
-		ov_clear(&m_data.m_ogg_handle);
+		this->m_bits        = d.m_bits;
+		this->m_buffers     = std::move(d.m_buffers);
+		this->m_channels    = d.m_channels;
+		this->m_consumed    = d.m_consumed;
+		this->m_duration    = d.m_duration;
+		this->m_file_handle = std::move(d.m_file_handle);
+		this->m_file_path   = std::move(d.m_file_path);
+		this->m_format      = d.m_format;
+		this->m_frequency   = d.m_frequency;
+		this->m_ogg_handle  = std::move(d.m_ogg_handle);
+		this->m_ogg_pos     = d.m_ogg_pos;
+		this->m_size        = d.m_size;
 
-		alDeleteBuffers(buffer_count, &m_data.m_buffers[0]);
-		m_data.m_buffers[0] = 0;
-		m_data.m_buffers[1] = 0;
-		m_data.m_buffers[2] = 0;
-		m_data.m_buffers[3] = 0;
+		d.m_bits       = 0;
+		d.m_buffers[0] = 0;
+		d.m_buffers[1] = 0;
+		d.m_buffers[2] = 0;
+		d.m_buffers[3] = 0;
+		d.m_channels   = 0;
+		d.m_consumed   = 0;
+		d.m_duration   = 0;
+		// d.m_file_handle.close(); Shouldnt be needed.
+		d.m_file_path  = "";
+		d.m_format     = 0;
+		d.m_frequency  = 0;
+		d.m_ogg_handle = OggVorbis_File();
+		d.m_ogg_pos    = 0;
+		d.m_size       = 0;
 	}
+
+	BufferStream::Data& BufferStream::Data::operator=(Data&& d)
+	{
+		if (this != &d)
+		{
+			this->m_bits        = d.m_bits;
+			this->m_buffers     = std::move(d.m_buffers);
+			this->m_channels    = d.m_channels;
+			this->m_consumed    = d.m_consumed;
+			this->m_duration    = d.m_duration;
+			this->m_file_handle = std::move(d.m_file_handle);
+			this->m_file_path   = std::move(d.m_file_path);
+			this->m_format      = d.m_format;
+			this->m_frequency   = d.m_frequency;
+			this->m_ogg_handle  = std::move(d.m_ogg_handle);
+			this->m_ogg_pos     = d.m_ogg_pos;
+			this->m_size        = d.m_size;
+
+			d.m_bits       = 0;
+			d.m_buffers[0] = 0;
+			d.m_buffers[1] = 0;
+			d.m_buffers[2] = 0;
+			d.m_buffers[3] = 0;
+			d.m_channels   = 0;
+			d.m_consumed   = 0;
+			d.m_duration   = 0;
+			// d.m_file_handle.close(); Shouldnt be needed.
+			d.m_file_path  = "";
+			d.m_format     = 0;
+			d.m_frequency  = 0;
+			d.m_ogg_handle = OggVorbis_File();
+			d.m_ogg_pos    = 0;
+			d.m_size       = 0;
+		}
+
+		return *this;
+	}
+
 } // namespace frb

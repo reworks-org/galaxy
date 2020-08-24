@@ -48,4 +48,19 @@ namespace galaxy
 
 		m_abs.play();
 	}
+
+	AnimationComponent::AnimationComponent(AnimationComponent&& ac)
+	{
+		this->m_abs = std::move(ac.m_abs);
+	}
+
+	AnimationComponent& AnimationComponent::operator=(AnimationComponent&& ac)
+	{
+		if (this != &ac)
+		{
+			this->m_abs = std::move(ac.m_abs);
+		}
+		
+		return *this;
+	}
 } // namespace galaxy

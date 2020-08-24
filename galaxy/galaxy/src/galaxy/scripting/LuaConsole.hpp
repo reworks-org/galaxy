@@ -28,6 +28,26 @@ namespace galaxy
 		LuaConsole() noexcept = default;
 
 		///
+		/// Copy constructor.
+		///
+		LuaConsole(const LuaConsole&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		LuaConsole(LuaConsole&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		LuaConsole& operator=(const LuaConsole&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		LuaConsole& operator=(LuaConsole&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~LuaConsole() noexcept = default;

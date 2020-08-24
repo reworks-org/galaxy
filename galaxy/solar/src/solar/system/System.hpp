@@ -45,14 +45,24 @@ namespace sr
 		System() = default;
 
 		///
-		/// Move constructor.
-		///
-		System(System&&) noexcept = default;
-
-		///
 		/// Copy constructor.
 		///
-		System(const System&) noexcept = default;
+		System(const System&) = default;
+
+		///
+		/// Move constructor.
+		///
+		System(System&&) = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		System& operator=(const System&) = default;
+
+		///
+		/// Move assignment operator.
+		///
+		System& operator=(System&&) = default;
 	};
 } // namespace sr
 

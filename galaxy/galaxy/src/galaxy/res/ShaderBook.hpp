@@ -35,9 +35,29 @@ namespace galaxy
 		explicit ShaderBook(std::string_view json);
 
 		///
+		/// Copy constructor.
+		///
+		ShaderBook(const ShaderBook&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		ShaderBook(ShaderBook&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		ShaderBook& operator=(const ShaderBook&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		ShaderBook& operator=(ShaderBook&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
-		~ShaderBook();
+		virtual ~ShaderBook();
 
 		///
 		/// Create ShaderBook from JSON.

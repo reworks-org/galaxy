@@ -22,9 +22,9 @@ namespace frb
 	{
 	public:
 		///
-		/// Virtual default destructor.
+		/// Virtual destructor.
 		///
-		virtual ~SourceManipulator() noexcept = default;
+		virtual ~SourceManipulator();
 
 		///
 		/// \brief Play source.
@@ -123,9 +123,29 @@ namespace frb
 
 	protected:
 		///
-		/// Deleted default constructor.
+		/// Default constructor.
 		///
-		SourceManipulator() noexcept;
+		SourceManipulator();
+
+		///
+		/// Copy constructor.
+		///
+		SourceManipulator(const SourceManipulator&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		SourceManipulator(SourceManipulator&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		SourceManipulator& operator=(const SourceManipulator&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		SourceManipulator& operator=(SourceManipulator&&);
 
 		///
 		/// Set source to manipulate.

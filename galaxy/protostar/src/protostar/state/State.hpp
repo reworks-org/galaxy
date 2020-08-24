@@ -22,9 +22,29 @@ namespace pr
 	{
 	public:
 		///
-		/// Default virtual destructor.
+		/// Copy constructor.
 		///
-		virtual ~State() noexcept = default;
+		State(const State&);
+
+		///
+		/// Move constructor.
+		///
+		State(State&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		State& operator=(const State&);
+
+		///
+		/// Move assignment operator.
+		///
+		State& operator=(State&&);
+
+		///
+		/// Destructor.
+		///
+		virtual ~State() = default;
 
 		///
 		/// \brief Called when state is pushed.
@@ -58,27 +78,27 @@ namespace pr
 		///
 		/// \param name Name in std::string format.
 		///
-		virtual void set_name(std::string_view name) noexcept final;
+		void set_name(std::string_view name);
 
 		///
 		/// Get state name.
 		///
 		/// \return Const std::string.
 		///
-		virtual const std::string& get_name() const noexcept final;
+		const std::string& get_name() const noexcept;
 
 	protected:
 		///
 		/// Default constructor.
 		///
-		State() noexcept;
+		State();
 
 		///
 		/// Argument constructor.
 		///
 		/// \param name Give a name to the state.
 		///
-		explicit State(std::string_view name) noexcept;
+		explicit State(std::string_view name);
 
 		///
 		/// State name. Useful to have.

@@ -8,7 +8,8 @@
 #ifndef FRB_MUSIC_HPP_
 #define FRB_MUSIC_HPP_
 
-#include <jthread/jthread.hpp>
+#include <protostar/system/cpp20.hpp>
+#include STL_JTHREAD
 
 #include "frb/detail/Source.hpp"
 #include "frb/detail/SourceManipulator.hpp"
@@ -37,9 +38,29 @@ namespace frb
 		Music(std::string_view file);
 
 		///
+		/// Copy constructor.
+		///
+		Music(const Music&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		Music(Music&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Music& operator=(const Music&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Music& operator=(Music&&);
+
+		///
 		/// Destructor.
 		///
-		~Music() noexcept;
+		virtual ~Music();
 
 		///
 		/// Load a file to stream from disk.
@@ -49,11 +70,6 @@ namespace frb
 		/// \return False if load failed.
 		///
 		[[maybe_unused]] bool load(std::string_view file);
-
-		///
-		/// Destroy music.
-		///
-		void destroy() noexcept;
 
 	private:
 		///

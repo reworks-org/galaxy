@@ -24,6 +24,26 @@ namespace galaxy
 		EnabledFlag() noexcept = default;
 
 		///
+		/// Copy constructor.
+		///
+		EnabledFlag(const EnabledFlag&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		EnabledFlag(EnabledFlag&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		EnabledFlag& operator=(const EnabledFlag&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		EnabledFlag& operator=(EnabledFlag&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
 		~EnabledFlag() noexcept = default;

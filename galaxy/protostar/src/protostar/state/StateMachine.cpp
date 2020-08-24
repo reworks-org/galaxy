@@ -12,11 +12,7 @@
 ///
 namespace pr
 {
-	StateMachine::StateMachine() noexcept
-	{
-	}
-
-	StateMachine::~StateMachine() noexcept
+	StateMachine::~StateMachine()
 	{
 		clear();
 		m_states.clear();

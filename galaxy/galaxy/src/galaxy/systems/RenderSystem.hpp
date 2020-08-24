@@ -29,9 +29,29 @@ namespace galaxy
 		RenderSystem();
 
 		///
+		/// Copy constructor.
+		///
+		RenderSystem(const RenderSystem&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		RenderSystem(RenderSystem&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		RenderSystem& operator=(const RenderSystem&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		RenderSystem& operator=(RenderSystem&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
-		~RenderSystem();
+		virtual ~RenderSystem();
 
 		///
 		/// Abstract implementation for processing events.

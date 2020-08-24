@@ -18,6 +18,11 @@
 ///
 namespace frb
 {
+	SourceManipulator::~SourceManipulator()
+	{
+		m_source = 0;
+	}
+
 	void SourceManipulator::play() noexcept
 	{
 		alSourcePlay(m_source);
@@ -152,9 +157,26 @@ namespace frb
 		}
 	}
 
-	SourceManipulator::SourceManipulator() noexcept
+	SourceManipulator::SourceManipulator()
 	    : m_source {0}
 	{
+	}
+
+	SourceManipulator::SourceManipulator(SourceManipulator&& sm)
+	{
+		this->m_source = sm.m_source;
+		sm.m_source    = 0;
+	}
+
+	SourceManipulator& SourceManipulator::operator=(SourceManipulator&& sm)
+	{
+		if (this != &sm)
+		{
+			this->m_source = sm.m_source;
+			sm.m_source    = 0;
+		}
+
+		return *this;
 	}
 
 	void SourceManipulator::set_source_to_manipulate(const ALuint source) noexcept

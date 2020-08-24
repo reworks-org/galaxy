@@ -33,11 +33,31 @@ namespace frb
 		Source();
 
 		///
+		/// Copy constructor.
+		///
+		Source(const Source&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Source(Source&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Source& operator=(const Source&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Source& operator=(Source&&);
+
+		///
 		/// \brief Default destructor.
 		///
 		/// Destroys source buffer(s).
 		///
-		~Source() noexcept;
+		~Source();
 
 		///
 		/// Queue a buffer for the source to play.
@@ -80,13 +100,6 @@ namespace frb
 		/// \return ALuint handle integer.
 		///
 		[[nodiscard]] const ALuint handle() const noexcept;
-
-		///
-		/// \brief Destroy all memory and OpenAL data.
-		///
-		/// Calls stop().
-		///
-		void destroy_source() noexcept;
 
 	private:
 		///

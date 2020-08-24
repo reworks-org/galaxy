@@ -26,7 +26,27 @@ namespace pr
 	{
 	public:
 		///
-		/// Default destructor.
+		/// Copy constructor.
+		///
+		UniqueID(const UniqueID&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		UniqueID(UniqueID&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		UniqueID& operator=(const UniqueID&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		UniqueID& operator=(UniqueID&&) = delete;
+
+		///
+		/// Destructor.
 		///
 		~UniqueID() noexcept = default;
 
@@ -41,7 +61,7 @@ namespace pr
 
 	private:
 		///
-		/// Private default constructor.
+		/// Constructor.
 		///
 		UniqueID() noexcept = default;
 

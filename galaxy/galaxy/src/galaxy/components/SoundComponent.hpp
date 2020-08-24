@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		SoundComponent() noexcept = default;
+		SoundComponent() noexcept;
 
 		///
 		/// JSON constructor.
@@ -32,6 +32,26 @@ namespace galaxy
 		/// \param json JSON defining object.
 		///
 		SoundComponent(const nlohmann::json& json);
+
+		///
+		/// Copy constructor.
+		///
+		SoundComponent(const SoundComponent&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		SoundComponent(SoundComponent&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		SoundComponent& operator=(const SoundComponent&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		SoundComponent& operator=(SoundComponent&&);
 
 		///
 		/// Destructor.

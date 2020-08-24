@@ -32,11 +32,31 @@ namespace frb
 		Buffer();
 
 		///
+		/// Copy constructor.
+		///
+		Buffer(const Buffer&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Buffer(Buffer&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Buffer& operator=(const Buffer&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Buffer& operator=(Buffer&&);
+
+		///
 		/// \brief Default destructor.
 		///
 		/// Destroys Buffer buffer(s).
 		///
-		virtual ~Buffer() noexcept;
+		virtual ~Buffer();
 
 		///
 		/// Get frequency of buffer.
@@ -68,11 +88,6 @@ namespace frb
 		/// \return False if load failed.
 		///
 		bool internal_load(std::string_view file);
-
-		///
-		/// Destroy all memory and OpenAL data.
-		///
-		void destroy_buffer() noexcept;
 
 		///
 		/// Handle to Buffer.

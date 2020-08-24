@@ -84,6 +84,26 @@ namespace sr
 		Manager() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Manager(const Manager&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Manager(Manager&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Manager& operator=(const Manager&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Manager& operator=(Manager&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
 		virtual ~Manager();

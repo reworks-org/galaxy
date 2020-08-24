@@ -22,9 +22,29 @@ namespace galaxy
 	{
 	public:
 		///
+		/// Copy constructor.
+		///
+		FileSystem(const FileSystem&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		FileSystem(FileSystem&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		FileSystem& operator=(const FileSystem&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		FileSystem& operator=(FileSystem&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
-		~FileSystem() noexcept = default;
+		virtual ~FileSystem() noexcept = default;
 
 		///
 		/// Root directory of all files.

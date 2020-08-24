@@ -15,7 +15,13 @@
 ///
 namespace galaxy
 {
+	SoundComponent::SoundComponent() noexcept
+	    : m_sound {}
+	{
+	}
+
 	SoundComponent::SoundComponent(const nlohmann::json& json)
+	    : m_sound {}
 	{
 		if (m_sound.load(json.at("file")))
 		{
@@ -26,6 +32,21 @@ namespace galaxy
 		{
 			PL_LOG(PL_ERROR, "Failed to load sound effect: {0}.", std::string {json.at("file")});
 		}
+	}
+
+	SoundComponent::SoundComponent(SoundComponent&& sc)
+	{
+		this->m_sound = std::move(sc.m_sound);
+	}
+
+	SoundComponent& SoundComponent::operator=(SoundComponent&& sc)
+	{
+		if (this != &sc)
+		{
+			this->m_sound = std::move(sc.m_sound);
+		}
+
+		return *this;
 	}
 
 	SoundComponent::~SoundComponent()

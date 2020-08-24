@@ -14,8 +14,7 @@
 ///
 namespace frb
 {
-	Sound::Sound() noexcept
-	    : Buffer {}, SourceManipulator {}, m_source {}
+	Sound::Sound()
 	{
 		set_source_to_manipulate(m_source.handle());
 	}
@@ -28,9 +27,19 @@ namespace frb
 		}
 	}
 
-	Sound::~Sound() noexcept
+	Sound::Sound(Sound&& s)
 	{
-		destroy();
+		this->m_source = std::move(s.m_source);
+	}
+
+	Sound& Sound::operator=(Sound&& s)
+	{
+		if (this != &s)
+		{
+			this->m_source = std::move(s.m_source);
+		}
+
+		return *this;
 	}
 
 	bool Sound::load(std::string_view file)
@@ -43,11 +52,5 @@ namespace frb
 		}
 
 		return res;
-	}
-
-	void Sound::destroy() noexcept
-	{
-		m_source.destroy_source();
-		destroy_buffer();
 	}
 } // namespace frb

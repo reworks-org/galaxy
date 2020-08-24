@@ -27,17 +27,32 @@ namespace frb
 		///
 		/// Constructor.
 		///
-		Context() noexcept;
+		Context();
+
+		///
+		/// Copy constructor.
+		///
+		Context(const Context&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		Context(Context&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Context& operator=(const Context&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Context& operator=(Context&&) = delete;
 
 		///
 		/// Destructor.
 		///
-		~Context() noexcept;
-
-		///
-		/// Initialize OpenAL.
-		///
-		void init();
+		~Context();
 
 		///
 		/// Change doppler factor.

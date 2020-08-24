@@ -15,7 +15,6 @@
 namespace frb
 {
 	Music::Music()
-	    : BufferStream {}, SourceManipulator {}, m_source {}
 	{
 		m_run_loop = false;
 
@@ -41,9 +40,69 @@ namespace frb
 		}
 	}
 
-	Music::~Music() noexcept
+	Music::Music(Music&& m)
 	{
-		destroy();
+		m.m_run_loop = false;
+		m.m_mutex.lock();
+
+		m.stop();
+		m.m_thread.request_stop();
+		m.m_thread.join();
+
+		m.m_mutex.unlock();
+
+		this->m_source = std::move(m.m_source);
+		this->m_thread = std::jthread {[](Music* music) {
+						       if (music->m_run_loop)
+						       {
+							       music->m_mutex.lock();
+							       music->update();
+							       music->m_mutex.unlock();
+						       }
+					       },
+					       this};
+
+		this->m_run_loop = true;
+	}
+
+	Music& Music::operator=(Music&& m)
+	{
+		if (this != &m)
+		{
+			m.m_run_loop = false;
+			m.m_mutex.lock();
+
+			m.stop();
+			m.m_thread.request_stop();
+			m.m_thread.join();
+
+			m.m_mutex.unlock();
+
+			this->m_source = std::move(m.m_source);
+			this->m_thread = std::jthread {[](Music* music) {
+							       if (music->m_run_loop)
+							       {
+								       music->m_mutex.lock();
+								       music->update();
+								       music->m_mutex.unlock();
+							       }
+						       },
+						       this};
+
+			this->m_run_loop = true;
+		}
+
+		return *this;
+	}
+
+	Music::~Music()
+	{
+		m_run_loop = false;
+		std::lock_guard<std::mutex> lock {m_mutex};
+
+		stop();
+		m_thread.request_stop();
+		m_thread.join();
 	}
 
 	bool Music::load(std::string_view file)
@@ -60,20 +119,6 @@ namespace frb
 		return res;
 	}
 
-	void Music::destroy() noexcept
-	{
-		m_run_loop = false;
-
-		std::lock_guard<std::mutex> lock {m_mutex};
-
-		stop();
-		m_thread.request_stop();
-		m_thread.join();
-
-		m_source.destroy_source();
-		destroy_stream();
-	}
-
 	void Music::update() noexcept
 	{
 		ALint processed = 0;
@@ -81,20 +126,20 @@ namespace frb
 
 		if (!(processed <= 0))
 		{
-			while (processed--)
+			while ((processed--))
 			{
 				ALuint buffer_handle;
 				alSourceUnqueueBuffers(m_source.handle(), 1, &buffer_handle);
 
-				char* buff = new char[BufferStream::buffer_size];
-				std::memset(buff, 0, BufferStream::buffer_size);
+				char* buff = new char[BufferStream::BUFFER_SIZE];
+				std::memset(buff, 0, BufferStream::BUFFER_SIZE);
 
 				ALsizei size      = 0;
 				std::int32_t read = 0;
 
-				while (read < BufferStream::buffer_size)
+				while (read < BufferStream::BUFFER_SIZE)
 				{
-					std::int32_t result = ov_read(&m_data.m_ogg_handle, &buff[read], BufferStream::buffer_size - read, 0, 2, 1, &m_data.m_ogg_pos);
+					std::int32_t result = ov_read(&m_data.m_ogg_handle, &buff[read], BufferStream::BUFFER_SIZE - read, 0, 2, 1, &m_data.m_ogg_pos);
 					if (result == OV_HOLE)
 					{
 						PL_LOG(PL_ERROR, "OV_HOLE found when trying to loop: {0}.", m_source.handle());
@@ -159,7 +204,7 @@ namespace frb
 
 				delete[] buff;
 
-				if (size < BufferStream::buffer_size)
+				if (size < BufferStream::BUFFER_SIZE)
 				{
 					PL_LOG(PL_ERROR, "Missing data in source: {0}.", m_source.handle());
 				}

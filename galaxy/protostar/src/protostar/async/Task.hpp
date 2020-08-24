@@ -28,6 +28,26 @@ namespace pr
 		Task() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Task(const Task&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Task(Task&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Task& operator=(const Task&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Task& operator=(Task&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
 		~Task() noexcept;

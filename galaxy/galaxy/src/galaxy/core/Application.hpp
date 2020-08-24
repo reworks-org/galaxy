@@ -21,7 +21,6 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/fs/Config.hpp"
-#include "galaxy/fs/Serializer.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
@@ -36,6 +35,26 @@ namespace galaxy
 	class Application
 	{
 	public:
+		///
+		/// Copy constructor.
+		///
+		Application(const Application&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Application(Application&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Application& operator=(const Application&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Application& operator=(Application&&) noexcept = delete;
+
 		///
 		/// \brief Virtual destructor.
 		///
@@ -115,7 +134,7 @@ namespace galaxy
 		///
 		/// Main serializer.
 		///
-		std::unique_ptr<galaxy::Serializer> m_serializer;
+		//std::unique_ptr<galaxy::Serializer> m_serializer;
 
 		///
 		/// Library of all fonts.
@@ -127,24 +146,7 @@ namespace galaxy
 		///
 		std::unique_ptr<galaxy::ShaderBook> m_shaderbook;
 
-		///
-		/// Library of all audio.
-		///
-		std::unique_ptr<galaxy::AudioBook> m_audiobook;
-
 	private:
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		Application(const Application&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		Application(Application&&) = delete;
-
 		///
 		/// Delta Time.
 		///

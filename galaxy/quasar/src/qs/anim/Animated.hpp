@@ -110,7 +110,7 @@ namespace qs
 	template<typename... Args>
 	inline void Animated::add_animation(std::string_view name, Args&&... args)
 	{
-		m_animations.emplace(name, std::forward<Args>(args)...);
+		m_animations.emplace(name, Animation {std::forward<Args>(args)...});
 	}
 } // namespace qs
 

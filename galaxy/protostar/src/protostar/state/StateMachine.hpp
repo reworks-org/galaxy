@@ -35,14 +35,34 @@ namespace pr
 	{
 	public:
 		///
-		/// Default constructor.
+		/// Constructor.
 		///
-		StateMachine() noexcept;
+		StateMachine() = default;
+
+		///
+		/// Copy constructor.
+		///
+		StateMachine(const StateMachine&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		StateMachine(StateMachine&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		StateMachine& operator=(const StateMachine&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		StateMachine& operator=(StateMachine&&) noexcept = delete;
 
 		///
 		/// Destructor.
 		///
-		~StateMachine() noexcept;
+		~StateMachine();
 
 		///
 		/// Pass events onto current state.

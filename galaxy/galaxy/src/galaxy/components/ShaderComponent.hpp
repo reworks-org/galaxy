@@ -35,6 +35,26 @@ namespace galaxy
 		ShaderComponent(const nlohmann::json& json);
 
 		///
+		/// Copy constructor.
+		///
+		ShaderComponent(const ShaderComponent&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		ShaderComponent(ShaderComponent&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		ShaderComponent& operator=(const ShaderComponent&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		ShaderComponent& operator=(ShaderComponent&&);
+
+		///
 		/// Destructor.
 		///
 		~ShaderComponent() noexcept = default;

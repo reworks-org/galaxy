@@ -35,9 +35,29 @@ namespace galaxy
 		explicit FontBook(std::string_view json);
 
 		///
+		/// Copy constructor.
+		///
+		FontBook(const FontBook&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		FontBook(FontBook&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		FontBook& operator=(const FontBook&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		FontBook& operator=(FontBook&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
-		~FontBook();
+		virtual ~FontBook();
 
 		///
 		/// Create FontBook from JSON.

@@ -67,6 +67,26 @@ namespace galaxy
 
 	public:
 		///
+		/// Copy constructor.
+		///
+		ServiceLocator(const ServiceLocator&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		ServiceLocator(ServiceLocator&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		ServiceLocator& operator=(const ServiceLocator&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		ServiceLocator& operator=(ServiceLocator&&) noexcept = delete;
+
+		///
 		/// Default Destructor.
 		///
 		~ServiceLocator() noexcept = default;
@@ -170,30 +190,6 @@ namespace galaxy
 		/// Default constructor.
 		///
 		ServiceLocator() noexcept;
-
-		///
-		/// Copy Constructor.
-		/// Deleted.
-		///
-		ServiceLocator(const ServiceLocator&) = delete;
-
-		///
-		/// Move Constructor.
-		/// Deleted.
-		///
-		ServiceLocator(ServiceLocator&&) = delete;
-
-		///
-		/// Copy assignment operator.
-		/// Deleted.
-		///
-		ServiceLocator& operator=(const ServiceLocator&) = delete;
-
-		///
-		/// Move assignment operator.
-		/// Deleted.
-		///
-		ServiceLocator& operator=(ServiceLocator&&) = delete;
 
 		///
 		/// Config service.

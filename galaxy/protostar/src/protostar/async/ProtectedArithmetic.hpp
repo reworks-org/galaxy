@@ -25,7 +25,7 @@ namespace pr
 	{
 	public:
 		///
-		/// Default constructor.
+		/// Constructor.
 		///
 		ProtectedAirthmetic() noexcept;
 
@@ -37,27 +37,27 @@ namespace pr
 		explicit ProtectedAirthmetic(const Type value) noexcept;
 
 		///
-		/// Deleted move constructor.
+		/// Copy constructor.
 		///
-		ProtectedAirthmetic(ProtectedAirthmetic&&) = delete;
+		ProtectedAirthmetic(const ProtectedAirthmetic&) noexcept = delete;
 
 		///
-		/// Deleted copy constructor.
+		/// Move constructor.
 		///
-		ProtectedAirthmetic(const ProtectedAirthmetic&) = delete;
+		ProtectedAirthmetic(ProtectedAirthmetic&&) noexcept = delete;
 
 		///
-		/// Deleted move assignment operator.
+		/// Copy assignment operator.
 		///
-		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) = delete;
+		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) noexcept = delete;
 
 		///
-		/// Deleted copy assignment operator.
+		/// Move assignment operator.
 		///
-		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
+		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) noexcept = delete;
 
 		///
-		/// Default destructor.
+		/// Destructor.
 		///
 		~ProtectedAirthmetic() noexcept = default;
 

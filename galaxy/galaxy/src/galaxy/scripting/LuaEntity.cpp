@@ -31,6 +31,23 @@ namespace galaxy
 		m_entity = entity;
 	}
 
+	LuaEntity::LuaEntity(LuaEntity&& le) noexcept
+	{
+		this->m_entity = le.m_entity;
+		le.m_entity    = 0;
+	}
+
+	LuaEntity& LuaEntity::operator=(LuaEntity&& le) noexcept
+	{
+		if (this != &le)
+		{
+			this->m_entity = le.m_entity;
+			le.m_entity    = 0;
+		}
+
+		return *this;
+	}
+
 	void LuaEntity::enable()
 	{
 		SL_HANDLE.world()->create_component<galaxy::EnabledFlag>(m_entity);
