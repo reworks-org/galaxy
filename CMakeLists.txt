@@ -219,6 +219,8 @@ set(all_header_dirs
 	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/"
 	"${CMAKE_SOURCE_DIR}/dependencies/imgui"
+	"${CMAKE_SOURCE_DIR}/dependencies/imgui/cpp"
+	"${CMAKE_SOURCE_DIR}/dependencies/imgui/impl"
 	"${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor"
 	"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
