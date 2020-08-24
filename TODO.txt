@@ -1,11 +1,4 @@
-ALL: C++20.
-ALL: EXCEPTIONS.
-ALL: TESTS.
-ALL: MERGE SAME CLASS CATEGORIES I.E. PRIVATE METHODS AND PRIVATE VARS TO JUST PRIVATE ONCE.
-ALL: CLANG-FORMAT
-ALL: INITIALIZATION UNIFICATION
-ALL: snake_case, except classes/namespaces/enums.
-ALL: designated initializers???
+ALL: NOEXCEPT
 
 PROTOSTAR:
 - Use <range> with RectPack -> or std::erase/erase_if
@@ -26,6 +19,7 @@ QUASAR:
 - Circle.cpp, 43 -> constinit
 - Draw Scene/LightSource
 - Particles
+- copy/move constructors & operator=.
 
 SOLAR:
 - Replace rangev3 in manager with <ranges> when avaliable.
@@ -37,6 +31,7 @@ STARLIGHT:
 
 STARMAP:
 - Write tests.
+- copy/move constructors & operator=.
 
 GALAXY:
 - World::World() -> register default components.

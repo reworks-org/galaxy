@@ -9,4 +9,3 @@ all in main cmakelists file
 update building instructions as needed
 update codecov
 fix ci
-configure wsl to build and run on linux from visual studio
