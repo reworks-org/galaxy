@@ -10,8 +10,8 @@
 
 #include <qs/sprite/SpriteBatch.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
-#include <protostar/utility/UniqueID.hpp>
-#include <protostar/system/ResourceCache.hpp>
+#include <protostar/res/ResourceCache.hpp>
+#include <protostar/system/UniqueID.hpp>
 
 ///
 /// Core namespace.
@@ -33,7 +33,7 @@ namespace galaxy
 		/// Constructor.
 		///
 		Theme() noexcept;
-		
+
 		///
 		/// Destructor.
 		///
@@ -173,6 +173,6 @@ namespace galaxy
 		auto* cache = dynamic_cast<Cache*>(m_caches[type]);
 		return cache->get(name);
 	}
-}
+} // namespace galaxy
 
 #endif
