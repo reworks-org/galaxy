@@ -162,6 +162,7 @@ namespace galaxy
 	inline Config* Application::make_config(Args&&... args)
 	{
 		m_config = std::make_unique<Config>(std::forward<Args>(args)...);
+		return m_config.get();
 	}
 } // namespace galaxy
 

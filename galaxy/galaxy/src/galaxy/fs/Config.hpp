@@ -144,7 +144,8 @@ namespace galaxy
 		// Only need to set definitions first time around.
 		if (!m_exists)
 		{
-			m_config[key] = value;
+			const auto str = static_cast<std::string>(key);
+			m_config[str]  = value;
 		}
 		else
 		{
