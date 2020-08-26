@@ -25,6 +25,7 @@ SOLAR:
 - Replace rangev3 in manager with <ranges> when avaliable.
 - Replace constexpr with constinit in Manager::operate()
 - Replace is_system concept with is_derived.
+- Replace operate() with ranges and views.
 
 STARLIGHT:
 - Ability to queue events.

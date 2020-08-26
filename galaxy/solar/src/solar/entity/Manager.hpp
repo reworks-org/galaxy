@@ -21,27 +21,6 @@
 #include "solar/sets/ComponentSet.hpp"
 
 ///
-/// Predicate used to filter entities by count.
-///
-class CountEntitiesPredicate
-{
-public:
-	CountEntitiesPredicate(const int count, std::span<sr::Entity> entities)
-	    : m_count(count), m_span {entities}
-	{
-	}
-
-	bool operator()(const sr::Entity e) const
-	{
-		return (std::count(m_span.begin(), m_span.end(), e) != m_count) ? false : true;
-	}
-
-private:
-	const int m_count;
-	std::span<sr::Entity> m_span;
-};
-
-///
 /// Core namespace.
 ///
 namespace sr
@@ -418,12 +397,28 @@ namespace sr
 			auto filtered = entities | ranges::views::filter([&](sr::Entity e) {
 						return true;
 					});
-
-			/*
-			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
+      
+      for (const sr::Entity e : filtered)
 			{
 				func(e, get<Components>(e)...);
 			}
+      
+			/*
+			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
+			std::vector<sr::Entity> filtered;
+			for (const sr::Entity e : entities)
+			{
+				const auto count = std::count(entities.begin(), entities.end(), e);
+				if (count == length)
+				{
+					if (std::find(filtered.begin(), filtered.end(), e) != filtered.end())
+					{
+						filtered.push_back(e);
+					}
+				}
+			}
+
+			
 
 			;
 			std::vector<sr::Entity> selected;
