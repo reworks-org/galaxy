@@ -147,7 +147,7 @@ TEST(StateMachine, updates)
 	sm.events();
 	EXPECT_EQ(top->get(), 2);
 
-	sm.update(nullptr);
+	sm.update(1.0);
 	EXPECT_EQ(top->get(), 3);
 }
 
@@ -163,7 +163,7 @@ TEST(StateMachine, render)
 	sm.events();
 	EXPECT_EQ(top->get(), 2);
 
-	sm.update(nullptr);
+	sm.update(1.0);
 	EXPECT_EQ(top->get(), 3);
 
 	sm.render();

@@ -30,8 +30,12 @@ struct BB
 
 struct BlankSystem : public sr::System
 {
-	void events() override {}
-	void update(const double dt) override {}
+	void events() override
+	{
+	}
+	void update(const double dt) override
+	{
+	}
 };
 
 struct DemoSystem : public sr::System
@@ -119,7 +123,7 @@ TEST(Manager, CreateWithName)
 
 	EXPECT_TRUE(m.validate(e));
 
-	decltype(auto) names = m.get_debug_name_map();
+	auto names = m.get_debug_name_map();
 	EXPECT_TRUE(names.contains("Test"));
 }
 

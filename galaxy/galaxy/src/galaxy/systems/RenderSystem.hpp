@@ -8,7 +8,6 @@
 #ifndef GALAXY_RENDERSYSTEM_HPP_
 #define GALAXY_RENDERSYSTEM_HPP_
 
-#include <qs/core/Shader.hpp>
 #include <qs/graphics/Camera.hpp>
 #include <solar/system/System.hpp>
 
@@ -31,22 +30,22 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		RenderSystem(const RenderSystem&) noexcept = default;
+		RenderSystem(const RenderSystem&);
 
 		///
 		/// Move constructor.
 		///
-		RenderSystem(RenderSystem&&) noexcept = default;
+		RenderSystem(RenderSystem&&);
 
 		///
 		/// Copy assignment operator.
 		///
-		RenderSystem& operator=(const RenderSystem&) noexcept = default;
+		RenderSystem& operator=(const RenderSystem&);
 
 		///
 		/// Move assignment operator.
 		///
-		RenderSystem& operator=(RenderSystem&&) noexcept = default;
+		RenderSystem& operator=(RenderSystem&&);
 
 		///
 		/// Destructor.
@@ -71,6 +70,12 @@ namespace galaxy
 		/// \param camera Camera used for rendering.
 		///
 		void render(qs::Camera& camera);
+
+	private:
+		///
+		/// Pointer to entities.
+		///
+		World* m_world;
 	};
 } // namespace galaxy
 

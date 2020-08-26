@@ -17,39 +17,17 @@ namespace sc
 	class ECSLayer final : public galaxy::Layer
 	{
 	public:
-		///
-		/// Constructor.
-		///
-		ECSLayer() noexcept;
+		ECSLayer();
+		virtual ~ECSLayer();
 
-		///
-		/// Virtual destructor.
-		///
-		virtual ~ECSLayer() noexcept;
-
-		///
-		/// Process layer events.
-		///
-		void events() noexcept override;
-
-		///
-		/// Process update (fixed timestep) logic.
-		///
-		/// \param deltaTime Delta-Time from fixed timestep gameloop.
-		///
-		void update(pr::ProtectedDouble* dt) noexcept override;
-
-		///
-		/// \brief Render layer.
-		///
-		/// Does NOT allow std::exceptions!
-		///
-		void render(qs::Camera& camera) noexcept override;
+		void events() override;
+		void update(const double dt) override;
+		void render(qs::Camera& camera) override;
 
 	private:
 		galaxy::World* m_world;
 		qs::Window* m_window;
 	};
-}
+} // namespace sc
 
 #endif

@@ -167,7 +167,7 @@ namespace sr
 		///
 		/// \return Const unordered_map reference.
 		///
-		const auto& get_debug_name_map() noexcept;
+		auto get_debug_name_map() noexcept -> const std::unordered_map<std::string, sr::Entity>&;
 
 		///
 		/// Add (construct) a component for an entity.
@@ -415,10 +415,20 @@ namespace sr
 			(internal_operate<Components>(entities), ...);
 
 			// So for all elements in the vector, filter by count entites predicate.
+			auto filtered = entities | ranges::views::filter([&](sr::Entity e) {
+						return true;
+					});
+
+			/*
 			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
 			{
 				func(e, get<Components>(e)...);
 			}
+
+			;
+			std::vector<sr::Entity> selected;
+			std::for_each(entities.begin(), entities.end(), p());
+			*/
 		}
 	}
 
