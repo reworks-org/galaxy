@@ -400,7 +400,10 @@ namespace sr
 				const auto count = std::count(entities.begin(), entities.end(), e);
 				if (count == length)
 				{
-					filtered.push_back(e);
+					if (std::find(filtered.begin(), filtered.end(), e) != filtered.end())
+					{
+						filtered.push_back(e);
+					}
 				}
 			}
 
