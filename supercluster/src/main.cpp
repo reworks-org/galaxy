@@ -8,12 +8,6 @@
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 
-#include <galaxy/components/SpriteComponent.hpp>
-#include <galaxy/components/TransformComponent.hpp>
-#include <galaxy/components/SpriteBatchComponent.hpp>
-#include <galaxy/components/PlaylistComponent.hpp>
-#include <galaxy/components/AudioComponent.hpp>
-
 #include <galaxy/systems/RenderSystem.hpp>
 
 #include "states/Editor.hpp"
@@ -21,8 +15,8 @@
 class EditorApp : public galaxy::Application
 {
 public:
-	EditorApp(std::unique_ptr<galaxy::Config>& config)
-		:galaxy::Application(config)
+	EditorApp()
+	    : galaxy::Application()
 	{
 	}
 };
@@ -33,11 +27,12 @@ int main(int argsc, char* argsv[])
 
 	do
 	{
-		restart = false;
+		restart             = false;
 		SL_HANDLE.m_restart = false;
 
 		{
-			std::unique_ptr<galaxy::Config> config = std::make_unique<galaxy::Config>();
+			EditorApp editor;
+			auto* config = editor.make_config();
 			config->init("assets/config.json");
 			if (!config->open())
 			{
@@ -71,14 +66,12 @@ int main(int argsc, char* argsv[])
 				config->open();
 			}
 
-			EditorApp editor(config);
-
 			auto* gs = SL_HANDLE.gamestate();
 			gs->create<sc::Editor>("Editor");
 			gs->push("Editor");
 
 			auto* world = SL_HANDLE.world();
-			world->add_system<galaxy::RenderSystem>();
+			world->create_system<galaxy::RenderSystem>();
 
 			restart = editor.run();
 		}

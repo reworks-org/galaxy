@@ -272,7 +272,7 @@ target_include_directories(starmap PUBLIC ${all_header_dirs})
 target_include_directories(supercluster PUBLIC ${all_header_dirs})
 target_include_directories(tests PUBLIC ${all_header_dirs})
 
-# Set libs.
+# Set external libs.
 if(WIN32)
     set(SYSTEM_LIBS
         "opengl32"
@@ -299,79 +299,110 @@ elseif (GNU)
 	)
 endif()
 
-# Set lib directories.
-target_link_directories(supercluster PUBLIC
-	"${CMAKE_SOURCE_DIR}/output/bin/deps"
-	"${CMAKE_SOURCE_DIR}/output/bin/frb"
-	"${CMAKE_SOURCE_DIR}/output/bin/freetype"
-	"${CMAKE_SOURCE_DIR}/output/bin/galaxy"
-	"${CMAKE_SOURCE_DIR}/output/bin/glfw"
-	"${CMAKE_SOURCE_DIR}/output/bin/ogg"
-	"${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
-	"${CMAKE_SOURCE_DIR}/output/bin/protostar"
-	"${CMAKE_SOURCE_DIR}/output/bin/pulsar"
-	"${CMAKE_SOURCE_DIR}/output/bin/quasar"
-	"${CMAKE_SOURCE_DIR}/output/bin/redshift"
-	"${CMAKE_SOURCE_DIR}/output/bin/solar"
-	"${CMAKE_SOURCE_DIR}/output/bin/starlight"
-	"${CMAKE_SOURCE_DIR}/output/bin/starmap"
-	"${CMAKE_SOURCE_DIR}/output/bin/vorbis"
-	"${CMAKE_SOURCE_DIR}/output/bin/zlib"
+# Set internal libs.
+set(GALAXY_LIBS
+	"deps"
+	"frb"
+	"freetyped"
+	"galaxy"
+	"glfw3"
+	"ogg"
+	"OpenAL32"
+	"protostar"
+	"pulsar"
+	"quasar"
+	"redshift"
+	"solar"
+	"starlight"
+	"starmap"
+	"vorbis"
+	"zlibstaticd"
 )
 
-target_link_directories(tests PUBLIC
-	"${CMAKE_SOURCE_DIR}/output/bin/deps"
-	"${CMAKE_SOURCE_DIR}/output/bin/frb"
-	"${CMAKE_SOURCE_DIR}/output/bin/freetype"
-	"${CMAKE_SOURCE_DIR}/output/bin/galaxy"
-	"${CMAKE_SOURCE_DIR}/output/bin/glfw"
-	"${CMAKE_SOURCE_DIR}/output/bin/ogg"
-	"${CMAKE_SOURCE_DIR}/output/bin/OpenAL"
-	"${CMAKE_SOURCE_DIR}/output/bin/protostar"
-	"${CMAKE_SOURCE_DIR}/output/bin/pulsar"
-	"${CMAKE_SOURCE_DIR}/output/bin/quasar"
-	"${CMAKE_SOURCE_DIR}/output/bin/redshift"
-	"${CMAKE_SOURCE_DIR}/output/bin/solar"
-	"${CMAKE_SOURCE_DIR}/output/bin/starlight"
-	"${CMAKE_SOURCE_DIR}/output/bin/starmap"
-	"${CMAKE_SOURCE_DIR}/output/bin/vorbis"
-	"${CMAKE_SOURCE_DIR}/output/bin/zlib"
-)
+if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+	# Set lib directories.
+	target_link_directories(supercluster PUBLIC
+		"${CMAKE_SOURCE_DIR}/output/bin/deps/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/frb/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/solar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug"
+	)
+
+	target_link_directories(tests PUBLIC
+		"${CMAKE_SOURCE_DIR}/output/bin/deps/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/frb/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/solar/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug"
+		"${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug"
+	)
+else()
+	# Set lib directories.
+	target_link_directories(supercluster PUBLIC
+		"${CMAKE_SOURCE_DIR}/output/bin/deps/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/frb/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/freetype/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/glfw/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/ogg/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/protostar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/quasar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/redshift/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/solar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/starlight/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/starmap/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/zlib/Release"
+	)
+
+	target_link_directories(tests PUBLIC
+		"${CMAKE_SOURCE_DIR}/output/bin/deps/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/frb/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/freetype/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/glfw/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/ogg/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/protostar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/quasar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/redshift/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/solar/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/starlight/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/starmap/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release"
+		"${CMAKE_SOURCE_DIR}/output/bin/zlib/Release"
+	)
+endif()
 
 # Link external libs.
-target_link_libraries(supercluster PUBLIC freetype)
-target_link_libraries(supercluster PUBLIC glfw)
-target_link_libraries(supercluster PUBLIC ogg)
-target_link_libraries(supercluster PUBLIC vorbis)
-target_link_libraries(supercluster PUBLIC OpenAL)
-target_link_libraries(supercluster PUBLIC zlibstatic)
 target_link_libraries(supercluster PUBLIC "${SYSTEM_LIBS}")
-
-target_link_libraries(tests PUBLIC freetype)
-target_link_libraries(tests PUBLIC glfw)
-target_link_libraries(tests PUBLIC ogg)
-target_link_libraries(tests PUBLIC vorbis)
-target_link_libraries(tests PUBLIC OpenAL)
-target_link_libraries(tests PUBLIC zlibstatic)
 target_link_libraries(tests PUBLIC "${SYSTEM_LIBS}")
 
 # Link internal libs.
-target_link_libraries(supercluster PUBLIC deps)
-target_link_libraries(supercluster PUBLIC frb)
-target_link_libraries(supercluster PUBLIC galaxy)
-target_link_libraries(supercluster PUBLIC protostar)
-target_link_libraries(supercluster PUBLIC quasar)
-target_link_libraries(supercluster PUBLIC redshift)
-target_link_libraries(supercluster PUBLIC solar)
-target_link_libraries(supercluster PUBLIC starlight)
-target_link_libraries(supercluster PUBLIC starmap)
-
-target_link_libraries(tests PUBLIC deps)
-target_link_libraries(tests PUBLIC frb)
-target_link_libraries(tests PUBLIC galaxy)
-target_link_libraries(tests PUBLIC protostar)
-target_link_libraries(tests PUBLIC quasar)
-target_link_libraries(tests PUBLIC redshift)
-target_link_libraries(tests PUBLIC solar)
-target_link_libraries(tests PUBLIC starlight)
-target_link_libraries(tests PUBLIC starmap)
+target_link_libraries(supercluster PUBLIC "${GALAXY_LIBS}")
+target_link_libraries(tests PUBLIC "${GALAXY_LIBS}")

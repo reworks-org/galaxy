@@ -16,19 +16,18 @@ namespace sc
 	class Editor : public pr::State
 	{
 	public:
-		Editor(pr::ProtectedDouble* dt) noexcept;
-		~Editor() noexcept override;
-		void onPush() noexcept override;
-		void onPop() noexcept override;
-		void events() noexcept override;
-		void update(pr::ProtectedDouble* dt) noexcept override;
-		void render() noexcept override;
+		Editor();
+		virtual ~Editor() = default;
+		void on_push() override;
+		void on_pop() override;
+		void events() override;
+		void update(const double dt) override;
+		void render() override;
 
 	private:
 		qs::Camera m_camera;
-		pr::ProtectedDouble* m_dt;
 		galaxy::LayerStorage m_layers;
 	};
-}
+} // namespace sc
 
 #endif

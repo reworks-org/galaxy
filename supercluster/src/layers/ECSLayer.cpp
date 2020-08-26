@@ -18,20 +18,20 @@
 ///
 namespace sc
 {
-	ECSLayer::ECSLayer() noexcept
+	ECSLayer::ECSLayer()
 	{
-		setName("ECSLayer");
+		set_name("ECSLayer");
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
 	}
 
-	ECSLayer::~ECSLayer() noexcept
+	ECSLayer::~ECSLayer()
 	{
 	}
 
-	void ECSLayer::events() noexcept
+	void ECSLayer::events()
 	{
-		if (glfwGetKey(m_window->getGLWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		if (glfwGetKey(m_window->gl_window(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		{
 			m_window->close();
 		}
@@ -39,12 +39,12 @@ namespace sc
 		m_world->events();
 	}
 
-	void ECSLayer::update(pr::ProtectedDouble* dt) noexcept
+	void ECSLayer::update(const double dt)
 	{
 		m_world->update(dt);
 	}
 
-	void ECSLayer::render(qs::Camera& camera) noexcept
+	void ECSLayer::render(qs::Camera& camera)
 	{
 		m_world->get<galaxy::RenderSystem>()->render(camera);
 	}

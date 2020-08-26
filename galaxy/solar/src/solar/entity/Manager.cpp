@@ -96,7 +96,7 @@ namespace sr
 		}
 	}
 
-	const auto& Manager::get_debug_name_map() noexcept
+	auto Manager::get_debug_name_map() noexcept -> const std::unordered_map<std::string, sr::Entity>&
 	{
 		return m_debug_names;
 	}
