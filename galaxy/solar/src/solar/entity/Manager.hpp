@@ -397,12 +397,12 @@ namespace sr
 			auto filtered = entities | ranges::views::filter([&](sr::Entity e) {
 						return true;
 					});
-      
-      for (const sr::Entity e : filtered)
+
+			for (const sr::Entity e : filtered)
 			{
-				func(e, get<Components>(e)...);
+				//func(e, (get<Components>(e), ...));
 			}
-      
+
 			/*
 			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
 			std::vector<sr::Entity> filtered;
@@ -418,9 +418,8 @@ namespace sr
 				}
 			}
 
-			
 
-			;
+
 			std::vector<sr::Entity> selected;
 			std::for_each(entities.begin(), entities.end(), p());
 			*/

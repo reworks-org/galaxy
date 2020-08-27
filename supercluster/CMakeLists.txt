@@ -97,6 +97,7 @@ if (MSVC)
         /INCREMENTAL
         /DEBUG
         /SUBSYSTEM:CONSOLE
+        /WX:NO
         >
         $<$<CONFIG:Release>:
         /INCREMENTAL:NO
@@ -104,8 +105,8 @@ if (MSVC)
         /OPT:REF
         /OPT:ICF
         /LTCG:incremental
+        /RELEASE
         >
-        /SAFESEH
         /ignore:4099
         /MACHINE:X64
     )

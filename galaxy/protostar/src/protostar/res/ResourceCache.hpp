@@ -87,7 +87,7 @@ namespace pr
 		///
 		/// Virtual destructor.
 		///
-		virtual ~ResourceCache();
+		virtual ~ResourceCache() = default;
 
 		///
 		/// Create a resource.
@@ -135,12 +135,6 @@ namespace pr
 		///
 		std::unordered_map<std::string, Resource> m_resources;
 	};
-
-	template<not_pointer_or_ref Resource>
-	inline ResourceCache<Resource>::~ResourceCache()
-	{
-		clear();
-	}
 
 	template<not_pointer_or_ref Resource>
 	template<typename... Args>
