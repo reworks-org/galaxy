@@ -46,6 +46,6 @@ namespace sc
 
 	void ECSLayer::render(qs::Camera& camera)
 	{
-		m_world->get<galaxy::RenderSystem>()->render(camera);
+		m_world->get_system<galaxy::RenderSystem>()->render(camera);
 	}
 } // namespace sc
