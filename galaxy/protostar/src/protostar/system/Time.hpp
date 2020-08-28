@@ -49,7 +49,7 @@ namespace pr
 	///
 	[[nodiscard]] inline const double milliseconds_to_seconds(const double milliseconds)
 	{
-		if (milliseconds > 0)
+		if (milliseconds < 0)
 		{
 			throw std::runtime_error("Milliseconds cannot be less than 0.");
 		}
@@ -79,7 +79,7 @@ namespace pr
 	///
 	[[nodiscard]] inline const double microseconds_to_seconds(const double microseconds)
 	{
-		if (microseconds > 0)
+		if (microseconds < 0)
 		{
 			throw std::runtime_error("Microseconds cannot be less than 0.");
 		}
@@ -97,7 +97,7 @@ namespace pr
 	[[nodiscard]] inline const std::size_t
 	microseconds_to_milliseconds(const double microseconds)
 	{
-		if (microseconds > 0)
+		if (microseconds < 0)
 		{
 			throw std::runtime_error("Microseconds cannot be less than 0.");
 		}
