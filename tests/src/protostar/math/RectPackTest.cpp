@@ -53,7 +53,7 @@ TEST(RectPack, fills_width)
 	EXPECT_EQ(res->m_height, 10);
 
 	auto space = p.get_free_space()[0];
-	EXPECT_EQ(space.m_y, 100 + res->m_height);
+	EXPECT_EQ(space.m_y, 0 + res->m_height);
 	EXPECT_EQ(space.m_height, 100 - res->m_height);
 }
 
@@ -70,7 +70,7 @@ TEST(RectPack, fills_height)
 	EXPECT_EQ(res->m_height, 100);
 
 	auto space = p.get_free_space()[0];
-	EXPECT_EQ(space.m_x, 100 + res->m_width);
+	EXPECT_EQ(space.m_x, 0 + res->m_width);
 	EXPECT_EQ(space.m_width, 100 - res->m_width);
 }
 
@@ -89,9 +89,9 @@ TEST(RectPack, fits)
 	auto spaceA = p.get_free_space()[0];
 	auto spaceB = p.get_free_space()[1];
 
-	EXPECT_EQ(spaceA.m_y, 100 + res->m_height);
-	EXPECT_EQ(spaceA.m_height, 100 - res->m_height);
+	EXPECT_EQ(spaceA.m_y, 10);
+	EXPECT_EQ(spaceA.m_height, 90);
 
-	EXPECT_EQ(spaceB.m_width, 100 - res->m_width);
+	EXPECT_EQ(spaceB.m_width, 90);
 	EXPECT_EQ(spaceB.m_height, res->m_height);
 }

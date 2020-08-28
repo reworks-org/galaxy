@@ -73,7 +73,7 @@ TEST(Manager, DoesNotHaveEntity)
 	sr::Manager m;
 	auto e = m.create();
 
-	EXPECT_FALSE(m.has(0));
+	EXPECT_FALSE(m.has(59));
 }
 
 TEST(Manager, HasWithEmptyManager)
@@ -95,17 +95,9 @@ TEST(Manager, ValidateInvalidEntity)
 {
 	sr::Manager m;
 	auto e = m.create();
+	m.destroy(e);
 
-	EXPECT_FALSE(m.validate(0));
-	EXPECT_FALSE(m.validate(1));
-}
-
-TEST(Manager, ValidateInvalidEntityEmptyManager)
-{
-	sr::Manager m;
-
-	EXPECT_FALSE(m.validate(0));
-	EXPECT_FALSE(m.validate(1));
+	EXPECT_FALSE(m.validate(e));
 }
 
 TEST(Manager, Create)
@@ -141,9 +133,12 @@ TEST(Manager, AssignNameExistingEntity)
 TEST(Manager, AssignNameNonExistantEntity)
 {
 	sr::Manager m;
-	bool res = m.assign_name(1, "Test");
+	auto e = m.create();
+	m.destroy(e);
 
+	bool res   = m.assign_name(e, "Test");
 	auto names = m.get_debug_name_map();
+
 	ASSERT_EQ(res, false);
 	EXPECT_FALSE(names.contains("Test"));
 }
@@ -302,7 +297,10 @@ TEST(Manager, GetNonExistingComponentWithInvalidEntity)
 TEST(Manager, CreateFromInvalid)
 {
 	sr::Manager m;
-	auto* comp = m.create_component<Component>(0, 1);
+	auto entity = m.create();
+	m.destroy(entity);
+
+	auto* comp = m.create_component<Component>(entity, 1);
 
 	EXPECT_EQ(comp, nullptr);
 }
@@ -314,7 +312,7 @@ TEST(Manager, Operate)
 	m.create_component<AA>(e);
 	m.create_component<BB>(e);
 
-	m.operate([](const sr::Entity entity, AA* a, BB* b) {
+	m.operate<AA, BB>([](const sr::Entity entity, AA* a, BB* b) {
 		a->val = 1;
 		b->val = 2;
 	});
@@ -326,7 +324,7 @@ TEST(Manager, Operate)
 	ASSERT_TRUE(b != nullptr);
 
 	EXPECT_EQ(a->val, 1);
-	EXPECT_EQ(a->val, 2);
+	EXPECT_EQ(b->val, 2);
 }
 
 TEST(Manager, Destroy)
@@ -360,7 +358,7 @@ TEST(Manager, CreateGetSystem)
 {
 	sr::Manager m;
 	m.create_system<DemoSystem>(5);
-	auto* sys = m.get<DemoSystem>();
+	auto* sys = m.get_system<DemoSystem>();
 
 	ASSERT_TRUE(sys != nullptr);
 	EXPECT_EQ(sys->val, 5);
@@ -369,7 +367,7 @@ TEST(Manager, CreateGetSystem)
 TEST(Manager, GetInvalidSystem)
 {
 	sr::Manager m;
-	auto* sys = m.get<BlankSystem>();
+	auto* sys = m.get_system<BlankSystem>();
 
 	EXPECT_EQ(sys, nullptr);
 }
@@ -381,7 +379,7 @@ TEST(Manager, Events)
 
 	m.events();
 
-	auto* sys = m.get<DemoSystem>();
+	auto* sys = m.get_system<DemoSystem>();
 
 	ASSERT_TRUE(sys != nullptr);
 	EXPECT_EQ(sys->val, 10);
@@ -394,7 +392,7 @@ TEST(Manager, Updates)
 
 	m.update(0.0);
 
-	auto* sys = m.get<DemoSystem>();
+	auto* sys = m.get_system<DemoSystem>();
 
 	ASSERT_TRUE(sys != nullptr);
 	EXPECT_EQ(sys->val, 20);

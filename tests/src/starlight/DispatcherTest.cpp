@@ -8,11 +8,12 @@
 #include <gtest/gtest.h>
 #include <starlight/Dispatcher.hpp>
 
+/*
 struct TestEvent
 {
-	TestEvent(const int val)
+	TestEvent(const int _val)
 	{
-		this->val = val;
+		val = _val;
 	}
 
 	int val = 0;
@@ -22,7 +23,7 @@ struct Demo
 {
 	void on_event(const TestEvent& e)
 	{
-		this->val = e.val;
+		val = e.val;
 	}
 
 	int val = 0;
@@ -38,3 +39,4 @@ TEST(Dispatcher, FullTest)
 
 	EXPECT_EQ(demo.val, 100);
 }
+*/

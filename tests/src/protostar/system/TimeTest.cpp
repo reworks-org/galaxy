@@ -22,18 +22,18 @@ TEST(Time, seconds_to_microseconds)
 
 TEST(Time, milliseconds_to_seconds)
 {
-	auto s = pr::milliseconds_to_seconds(1000);
-	EXPECT_EQ(s, 1);
+	auto s = pr::milliseconds_to_seconds(1000.0);
+	EXPECT_EQ(s, 1.0);
 }
 
 TEST(Time, microseconds_to_seconds)
 {
-	auto s = pr::microseconds_to_seconds(1000000);
-	EXPECT_EQ(s, 1);
+	auto s = pr::microseconds_to_seconds(1000000.0);
+	EXPECT_EQ(s, 1.0);
 }
 
 TEST(Time, microseconds_to_milliseconds)
 {
-	auto ms = pr::microseconds_to_milliseconds(1000000);
-	EXPECT_EQ(ms, 1000);
+	auto ms = pr::microseconds_to_milliseconds(1000000.0);
+	EXPECT_EQ(ms, 1000.0);
 }

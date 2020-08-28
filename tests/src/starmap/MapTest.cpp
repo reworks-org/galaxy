@@ -11,7 +11,7 @@
 TEST(Starmap, DesertExampleMap)
 {
 	starmap::Map map;
-	auto res = map.load("tiled/desert.tmx");
+	auto res = map.load("../../../../tests/tiled/desert.json");
 	ASSERT_TRUE(res);
 
 	res = map.parse();

@@ -55,15 +55,11 @@ TEST(Colour, get_as)
 	pr::Colour colour(255, 0, 255, 0);
 	auto res = colour.get_as<float>();
 
-	auto val = std::is_same<decltype(res[0]), float>::value;
-	EXPECT_TRUE(val);
+	const bool val = std::is_same<std::array<float, 4>, decltype(res)>::value;
+	ASSERT_TRUE(val);
 
-	val = std::is_same<decltype(res[1]), float>::value;
-	EXPECT_TRUE(val);
-
-	val = std::is_same<decltype(res[2]), float>::value;
-	EXPECT_TRUE(val);
-
-	val = std::is_same<decltype(res[3]), float>::value;
-	EXPECT_TRUE(val);
+	EXPECT_EQ(res[0], 255.0f);
+	EXPECT_EQ(res[1], 0.0f);
+	EXPECT_EQ(res[2], 255.0f);
+	EXPECT_EQ(res[3], 0.0f);
 }

@@ -64,7 +64,7 @@ TEST(ResourceCache, create_get)
 {
 	Cache c;
 
-	auto* discard = c.create("test");
+	auto* discard = c.create("test", 10);
 	auto* res     = c.get("test");
 
 	ASSERT_TRUE(res != nullptr);
