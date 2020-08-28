@@ -23,7 +23,7 @@
 namespace starmap
 {
 	Map::Map()
-	    : m_loaded {false}, m_bg_colour {"00FFFFFF"}, m_height {0}, m_hex_side_length {0}, m_infinite {false}, m_next_layer_id {0}, m_next_object_id {0}, m_orientation {"orthogonal"}, m_render_order {"right-down"}, m_stagger_axis {""}, m_stagger_index {""}, m_tiled_version {""}, m_tile_height {0}, m_tile_width {0}, m_type {"map"}, m_width {0}, m_compression_level {0}
+	    : m_loaded {false}, m_root {}, m_bg_colour {"00FFFFFF"}, m_height {0}, m_hex_side_length {0}, m_infinite {false}, m_next_layer_id {0}, m_next_object_id {0}, m_orientation {"orthogonal"}, m_render_order {"right-down"}, m_stagger_axis {""}, m_stagger_index {""}, m_tiled_version {""}, m_tile_height {0}, m_tile_width {0}, m_type {"map"}, m_width {0}, m_compression_level {0}
 	{
 	}
 
