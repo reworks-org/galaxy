@@ -171,9 +171,11 @@ namespace pr
 				else
 				{
 					// Otherwise, split up existing space.
-					m_free_rects.emplace_back(space.m_x + width, space.m_y, space.m_width - width, height);
+					pr::Rect<Type> temp = {space.m_x + width, space.m_y, space.m_width - width, height};
+
 					space.m_y += height;
 					space.m_height -= height;
+					m_free_rects.emplace_back(temp);
 				}
 
 				// If it can fit, no longer need to keep iterating through.
