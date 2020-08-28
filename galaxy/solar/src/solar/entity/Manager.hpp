@@ -213,7 +213,7 @@ namespace sr
 		/// \return Pointer to the system.
 		///
 		template<is_system System>
-		System* get();
+		System* get_system();
 
 		///
 		/// Destroys an entity and all associated components.
@@ -280,39 +280,47 @@ namespace sr
 	template<pr::is_class Component, typename... Args>
 	inline Component* Manager::create_component(const sr::Entity entity, Args&&... args)
 	{
-		const auto type = CUniqueID::get<Component>();
-		if (type >= m_data.size())
+		if (validate(entity))
 		{
-			m_data.resize(type + 1);
-		}
-
-		// Ensure leftover references to unique pointer are destroyed.
-		{
-			// If null ptr, then no storage for this component exists.
-			if (!m_data[type])
+			const auto type = CUniqueID::get<Component>();
+			if (type >= m_data.size())
 			{
-				// Use polymorphism to ensure type erasure.
-				m_data[type] = std::make_unique<ComponentSet<Component>>();
+				m_data.resize(type + 1);
 			}
 
-			// Now convert the storage to the type we want to access.
-			auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
-			if (derived)
+			// Ensure leftover references to unique pointer are destroyed.
 			{
-				if (!derived->has(entity))
+				// If null ptr, then no storage for this component exists.
+				if (!m_data[type])
 				{
-					return derived->create(entity, std::forward<Args>(args)...);
+					// Use polymorphism to ensure type erasure.
+					m_data[type] = std::make_unique<ComponentSet<Component>>();
+				}
+
+				// Now convert the storage to the type we want to access.
+				auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
+				if (derived)
+				{
+					if (!derived->has(entity))
+					{
+						return derived->create(entity, std::forward<Args>(args)...);
+					}
+					else
+					{
+						PL_LOG(PL_WARNING, "Attempted to add a duplicate component.");
+						return nullptr;
+					}
 				}
 				else
 				{
-					PL_LOG(PL_WARNING, "Attempted to add a duplicate component.");
 					return nullptr;
 				}
 			}
-			else
-			{
-				return nullptr;
-			}
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Attempted to create a component with an invalid entity.");
+			return nullptr;
 		}
 	}
 
@@ -393,36 +401,14 @@ namespace sr
 			// using ComponentContainer = std::vector<std::unique_ptr<EntitySet<sr::Entity>>>;
 			(internal_operate<Components>(entities), ...);
 
-			// So for all elements in the vector, filter by count entites predicate.
-			auto filtered = entities | ranges::views::filter([&](sr::Entity e) {
-						return true;
-					});
+			std::sort(entities.begin(), entities.end());
+			auto last = std::unique(entities.begin(), entities.end());
+			entities.erase(last, entities.end());
 
-			for (const sr::Entity e : filtered)
+			for (const auto entity : entities)
 			{
-				//func(e, (get<Components>(e), ...));
+				func(entity, get<Components>(entity)...);
 			}
-
-			/*
-			for (const sr::Entity e : ranges::views::all(entities) | ranges::views::filter(CountEntitiesPredicate {length, entities}()))
-			std::vector<sr::Entity> filtered;
-			for (const sr::Entity e : entities)
-			{
-				const auto count = std::count(entities.begin(), entities.end(), e);
-				if (count == length)
-				{
-					if (std::find(filtered.begin(), filtered.end(), e) != filtered.end())
-					{
-						filtered.push_back(e);
-					}
-				}
-			}
-
-
-
-			std::vector<sr::Entity> selected;
-			std::for_each(entities.begin(), entities.end(), p());
-			*/
 		}
 	}
 
@@ -458,7 +444,7 @@ namespace sr
 	}
 
 	template<is_system System>
-	inline System* Manager::get()
+	inline System* Manager::get_system()
 	{
 		const auto type = SUniqueID::get<System>();
 		if (type > m_systems.size())

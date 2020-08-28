@@ -55,8 +55,7 @@ namespace sr
 
 	const bool Manager::validate(const sr::Entity entity)
 	{
-		return (entity != std::numeric_limits<sr::Entity>::max()) &&
-		    (std::find(m_invalid_entities.begin(), m_invalid_entities.end(), entity) == m_invalid_entities.end());
+		return (std::find(m_invalid_entities.begin(), m_invalid_entities.end(), entity) == m_invalid_entities.end());
 	}
 
 	bool Manager::assign_name(const sr::Entity entity, std::string_view debug_name)
