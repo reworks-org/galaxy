@@ -14,6 +14,10 @@
 ///
 namespace galaxy
 {
+	ShaderComponent::ShaderComponent()
+	{
+	}
+	
 	ShaderComponent::ShaderComponent(const nlohmann::json& json)
 	{
 		if ((json.count("vertex-file") > 0) && (json.count("frag-file") > 0))

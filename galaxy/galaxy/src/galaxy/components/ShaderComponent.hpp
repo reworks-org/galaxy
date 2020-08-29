@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		ShaderComponent() noexcept = default;
+		ShaderComponent();
 
 		///
 		/// JSON constructor.
