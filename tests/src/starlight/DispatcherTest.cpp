@@ -8,35 +8,38 @@
 #include <gtest/gtest.h>
 #include <starlight/Dispatcher.hpp>
 
-/*
-struct TestEvent
+struct DemoEvent
 {
-	TestEvent(const int _val)
+	DemoEvent(const int val)
 	{
-		val = _val;
+		m_val = val;
 	}
 
-	int val = 0;
+	int m_val = 0;
 };
 
-struct Demo
+struct DemoObject
 {
-	void on_event(const TestEvent& e)
+	DemoObject()
 	{
-		val = e.val;
+		m_val = 0;
 	}
 
-	int val = 0;
+	void on_event(const DemoEvent& e)
+	{
+		m_val = e.m_val;
+	}
+
+	int m_val;
 };
 
 TEST(Dispatcher, FullTest)
 {
 	sl::Dispatcher dispatch;
-	Demo demo;
+	DemoObject obj;
 
-	dispatch.subscribe<TestEvent>(demo);
-	dispatch.trigger<TestEvent>(100);
+	dispatch.subscribe<DemoEvent>(obj);
+	dispatch.trigger<DemoEvent>(100);
 
-	EXPECT_EQ(demo.val, 100);
+	EXPECT_EQ(obj.m_val, 100);
 }
-*/
