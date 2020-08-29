@@ -38,7 +38,7 @@ namespace sl
 		///
 		/// Default constructor.
 		///
-		Dispatcher();
+		Dispatcher() noexcept = default;
 
 		///
 		/// Copy constructor.
@@ -99,6 +99,7 @@ namespace sl
 		if (type >= m_event_funcs.size())
 		{
 			m_event_funcs.resize(type + 1);
+			m_event_funcs[type].create_storage<Event>();
 		}
 
 		m_event_funcs[type].apply_action_to_subscribers<Event, sl::AddAction, Receiver>(receiver);

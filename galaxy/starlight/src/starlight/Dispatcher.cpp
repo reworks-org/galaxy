@@ -12,11 +12,6 @@
 ///
 namespace sl
 {
-	Dispatcher::Dispatcher()
-	    : m_event_funcs {}
-	{
-	}
-
 	Dispatcher::~Dispatcher()
 	{
 		m_event_funcs.clear();
