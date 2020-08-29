@@ -13,8 +13,10 @@ platform:
   - x64
 
 configuration:
-  - Debug
   - Release
+
+init:
+  - set build_type=Release
 
 install:
   - cmd: choco install opencppcoverage
@@ -26,7 +28,7 @@ matrix:
   fast_finish: false
 
 build_script:
-  - cmd: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE={CONFIGURATION} -DFORCE_STATIC_VCRT=ON -DUSE_MSVC_RUNTIME_LIBRARY_DLL=ON -Bbuild -H.
+  - cmd: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=%build_type% -DFORCE_STATIC_VCRT=ON -DUSE_MSVC_RUNTIME_LIBRARY_DLL=ON -Bbuild -H.
   - cmd: cd build
   - cmd: msbuild galaxy_engine.sln
 
