@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.17)
 
 if (WIN32)
 	set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
+    set(CMAKE_SYSTEM_VERSION 10.0.19041.0)
 endif()
 
 # project
