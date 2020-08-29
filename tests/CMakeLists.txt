@@ -96,12 +96,10 @@ if (MSVC)
         $<$<CONFIG:Debug>:
         /INCREMENTAL
         /DEBUG
-        /SUBSYSTEM:CONSOLE
         /WX:NO
         >
         $<$<CONFIG:Release>:
         /INCREMENTAL:NO
-        /SUBSYSTEM:WINDOWS
         /OPT:REF
         /OPT:ICF
         /LTCG:incremental
@@ -109,6 +107,7 @@ if (MSVC)
         >
         /ignore:4099
         /MACHINE:X64
+        /SUBSYSTEM:CONSOLE
     )
 elseif (GNU)
     target_compile_options(${PROJECT_NAME} PRIVATE
