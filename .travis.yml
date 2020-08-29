@@ -23,7 +23,7 @@ before_script:
 script:
   - mkdir build
   - mkdir -p output/docs
-  - cmake -DENABLE_DOXYGEN=ON -Bbuild -H.
+  - cmake -G "Unix Makefiles" -DENABLE_DOXYGEN=ON -Bbuild -H.
   - make -C build doxygen
 
 deploy:
