@@ -8,9 +8,11 @@
 #ifndef STARLIGHT_STORAGE_HPP_
 #define STARLIGHT_STORAGE_HPP_
 
+#include <any>
 #include <vector>
 
 #include <protostar/system/Concepts.hpp>
+#include <pulsar/Log.hpp>
 
 #include "starlight/detail/Meta.hpp"
 
@@ -22,8 +24,9 @@ namespace sl
 	///
 	/// Stores callbacks associated with a particular type.
 	///
-	struct Storage final
+	class Storage final
 	{
+	public:
 		///
 		/// Constructor.
 		///
@@ -52,7 +55,13 @@ namespace sl
 		///
 		/// Destructor.
 		///
-		~Storage() noexcept;
+		virtual ~Storage() noexcept;
+
+		///
+		/// Create storage.
+		///
+		template<pr::is_class Event>
+		void create_storage();
 
 		///
 		/// \brief Specify an action to perform on the event function storage.
@@ -64,14 +73,26 @@ namespace sl
 		///
 		template<pr::is_class Event, is_action Action, typename... Args>
 		void apply_action_to_subscribers(Args&... args);
+
+	private:
+		///
+		/// Stores event functions utilizing type erasure.
+		///
+		std::any m_event_functions;
 	};
+
+	template<pr::is_class Event>
+	inline void Storage::create_storage()
+	{
+		m_event_functions = std::make_any<std::vector<std::function<void(const Event&)>>>();
+	}
 
 	template<pr::is_class Event, is_action Action, typename... Args>
 	inline void Storage::apply_action_to_subscribers(Args&... args)
 	{
 		// Array is only initialized once.
 		// So data is preserved as if this was a class member.
-		static std::vector<std::function<void(const Event&)>> s_event_functions;
+		auto* funcs = std::any_cast<std::vector<std::function<void(const Event&)>>>(&m_event_functions);
 
 		// Figure out at compile time which action to execute for this function instance.
 		constexpr bool is_trigger = std::is_same<Action, sl::TriggerAction>::value;
@@ -81,26 +102,27 @@ namespace sl
 		// Discard unused branches and only compile used option.
 		if constexpr (is_trigger)
 		{
-			for (auto&& func : s_event_functions)
+			for (auto&& func : *funcs)
 			{
-				func(std::forward<Args>(args)...);
+				func(args...);
 			}
 		}
 		else if constexpr (is_add)
 		{
-			s_event_functions.emplace_back([&](const Event& external_event) {
-				// This check ensure that this is only compiled if a single receiver is passed...
-				constexpr auto length = sizeof...(args);
-				if constexpr (length == 1)
-				{
-					// ...so that this will always expands to just one call.
+			if constexpr (sizeof...(Args) == 1)
+			{
+				funcs->emplace_back([&args...](const Event& external_event) {
 					(args.on_event(external_event), ...);
-				}
-			});
+				});
+			}
+			else
+			{
+				PL_LOG(PL_FATAL, "Too many arguments being passed when adding function.");
+			}
 		}
 		else if constexpr (is_destroy)
 		{
-			s_event_functions.clear();
+			funcs->clear();
 		}
 	}
 } // namespace sl
