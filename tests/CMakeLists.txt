@@ -108,6 +108,7 @@ if (MSVC)
         /ignore:4099
         /MACHINE:X64
         /SUBSYSTEM:CONSOLE
+        /verbose:lib
     )
 elseif (GNU)
     target_compile_options(${PROJECT_NAME} PRIVATE
