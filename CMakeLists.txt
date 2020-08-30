@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.17)
 if (WIN32)
 	set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
     set(CMAKE_SYSTEM_VERSION 10.0.19041.0)
+    #set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
+    #set(FORCE_STATIC_VCRT OFF CACHE BOOL "" FORCE)
 endif()
 
 # project
@@ -13,6 +15,9 @@ project(galaxy_engine LANGUAGES C CXX)
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     message(FATAL_ERROR "In-source builds not allowed. Please make a new build directory and run CMake from there.\n")
 endif()
+
+# Notifications
+message("Starting galaxy_engine configuration. Building for: ${CMAKE_BUILD_TYPE}")
 
 # Reset.
 set(CMAKE_C_FLAGS_DEBUG "")
@@ -54,7 +59,7 @@ set_source_files_properties(*.hh LANGUAGE CXX)
 set_source_files_properties(*.hpp LANGUAGE CXX)
 
 if (MSVC)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "")
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 elseif (GNU)
     set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
     set(THREADS_PREFER_PTHREAD_FLAG TRUE)
@@ -150,10 +155,24 @@ set_target_properties(ogg PROPERTIES
 )
 
 set(OGG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/dependencies/ogg/include" CACHE STRING "" FORCE)
-set(OGG_LIBRARY "${CMAKE_SOURCE_DIR}/output/bin/ogg/" CACHE STRING "" FORCE)
+set(OGG_LIBRARY "${CMAKE_SOURCE_DIR}/output/bin/ogg/${CMAKE_BUILD_TYPE}/ogg.lib" CACHE STRING "" FORCE)
 add_subdirectory(dependencies/vorbis)
 add_dependencies(vorbis ogg)
 set_target_properties(vorbis PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+)
+
+set_target_properties(vorbisenc PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
+)
+
+set_target_properties(vorbisfile PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
@@ -164,8 +183,11 @@ set(ALSOFT_UTILS OFF CACHE BOOL "" FORCE)
 set(ALSOFT_NO_CONFIG_UTIL ON CACHE BOOL "" FORCE)
 set(ALSOFT_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(ALSOFT_TESTS OFF CACHE BOOL "" FORCE)
+set(ALSOFT_INSTALL_AMBDEC_PRESETS OFF CACHE BOOL "" FORCE)
+set(ALSOFT_INSTALL_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(ALSOFT_INSTALL_UTILS OFF CACHE BOOL "" FORCE)
+set(ALSOFT_UPDATE_BUILD_VERSION OFF CACHE BOOL "" FORCE)
 if (MSVC)
-	set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
 	set(ALSOFT_REQUIRE_DSOUND ON CACHE BOOL "" FORCE)
 else()
 	set(ALSOFT_STATIC_LIBGCC ON CACHE BOOL "" FORCE)
@@ -182,6 +204,13 @@ set_target_properties(OpenAL PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
 )
 
+set_target_properties(common PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
+    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
+)
+
 add_subdirectory(dependencies/zlib)
 set_target_properties(zlibstatic PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
@@ -192,7 +221,7 @@ set_target_properties(zlibstatic PROPERTIES
 
 # Meta trget to build external libs.
 add_custom_target(BUILD_EXTERNAL_LIBS)
-add_dependencies(BUILD_EXTERNAL_LIBS freetype glfw ogg vorbis OpenAL zlibstatic)
+add_dependencies(BUILD_EXTERNAL_LIBS common freetype glfw ogg vorbis vorbisenc vorbisfile OpenAL zlibstatic)
 
 # Meta target to build internal libs.
 add_custom_target(BUILD_INTERNAL_LIBS)
@@ -208,12 +237,12 @@ add_subdirectory(tests)
 
 add_dependencies(supercluster
     BUILD_EXTERNAL_LIBS
-    BUILD_INTERNAL_LIBS
+    BUILD_GALAXY_ENGINE
 )
 
 add_dependencies(tests
     BUILD_EXTERNAL_LIBS
-    BUILD_INTERNAL_LIBS
+    BUILD_GALAXY_ENGINE
 )
 
 # Set header directories.
@@ -304,30 +333,15 @@ elseif (GNU)
 	)
 endif()
 
-target_link_libraries(supercluster PUBLIC freetype)
-target_link_libraries(supercluster PUBLIC glfw)
-target_link_libraries(supercluster PUBLIC ogg)
-target_link_libraries(supercluster PUBLIC vorbis)
-target_link_libraries(supercluster PUBLIC OpenAL)
-target_link_libraries(supercluster PUBLIC zlibstatic)
-
-target_link_libraries(supercluster PUBLIC deps)
-target_link_libraries(supercluster PUBLIC frb)
-target_link_libraries(supercluster PUBLIC galaxy)
-target_link_libraries(supercluster PUBLIC protostar)
-target_link_libraries(supercluster PUBLIC pulsar)
-target_link_libraries(supercluster PUBLIC quasar)
-target_link_libraries(supercluster PUBLIC redshift)
-target_link_libraries(supercluster PUBLIC solar)
-target_link_libraries(supercluster PUBLIC starlight)
-target_link_libraries(supercluster PUBLIC starmap)
-
 # Link library libs.
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug/freetyped.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.lib")
 
@@ -346,6 +360,9 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.lib")
 
@@ -364,6 +381,9 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.lib")
 
@@ -382,6 +402,9 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.lib")
 
