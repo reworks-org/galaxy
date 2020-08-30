@@ -30,4 +30,5 @@ build_script:
   - cmd: msbuild galaxy_engine.sln
 
 after_build:
+  - cmd: cd ../
   - cmd: coverage.bat
