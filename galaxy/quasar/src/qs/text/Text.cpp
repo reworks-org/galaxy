@@ -22,6 +22,33 @@ namespace qs
 	{
 	}
 
+	Text::Text(Text&& t)
+	{
+		this->m_text    = std::move(t.m_text);
+		this->m_font    = t.m_font;
+		this->m_colour  = std::move(t.m_colour);
+		this->m_opacity = t.m_opacity;
+
+		t.m_text = "";
+		t.m_font = nullptr;
+	}
+
+	Text& Text::operator=(Text&& t)
+	{
+		if (this != &t)
+		{
+			this->m_text    = std::move(t.m_text);
+			this->m_font    = t.m_font;
+			this->m_colour  = std::move(t.m_colour);
+			this->m_opacity = t.m_opacity;
+
+			t.m_text = "";
+			t.m_font = nullptr;
+		}
+
+		return *this;
+	}
+
 	void Text::load(const std::string& text, qs::Font* font, const pr::Colour& col) noexcept
 	{
 		if (font == nullptr)

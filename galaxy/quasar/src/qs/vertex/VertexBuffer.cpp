@@ -20,6 +20,29 @@ namespace qs
 		glGenBuffers(1, &m_id);
 	}
 
+	VertexBuffer::VertexBuffer(VertexBuffer&& vb)
+	{
+		this->m_id   = vb.m_id;
+		this->m_size = vb.m_size;
+
+		vb.m_id   = 0;
+		vb.m_size = 0;
+	}
+
+	VertexBuffer& VertexBuffer::operator=(VertexBuffer&& vb)
+	{
+		if (this != &vb)
+		{
+			this->m_id   = vb.m_id;
+			this->m_size = vb.m_size;
+
+			vb.m_id   = 0;
+			vb.m_size = 0;
+		}
+
+		return *this;
+	}
+
 	VertexBuffer::~VertexBuffer() noexcept
 	{
 		glDeleteBuffers(1, &m_id);

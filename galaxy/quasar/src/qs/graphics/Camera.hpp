@@ -44,9 +44,29 @@ namespace qs
 		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Camera(const Camera&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		Camera(Camera&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Camera& operator=(const Camera&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Camera& operator=(Camera&&) noexcept = default;
+
+		///
 		/// Default destructor.
 		///
-		~Camera() noexcept = default;
+		virtual ~Camera() noexcept = default;
 
 		///
 		/// Configures camera for window model view projection.

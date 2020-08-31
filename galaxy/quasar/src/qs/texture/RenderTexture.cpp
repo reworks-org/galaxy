@@ -36,6 +36,27 @@ namespace qs
 		create(width, height);
 	}
 
+	RenderTexture::RenderTexture(RenderTexture&& rt)
+	{
+		this->m_projection  = std::move(rt.m_projection);
+		this->m_framebuffer = rt.m_framebuffer;
+
+		rt.m_framebuffer = 0;
+	}
+
+	RenderTexture& RenderTexture::operator=(RenderTexture&& rt)
+	{
+		if (this != &rt)
+		{
+			this->m_projection  = std::move(rt.m_projection);
+			this->m_framebuffer = rt.m_framebuffer;
+
+			rt.m_framebuffer = 0;
+		}
+
+		return *this;
+	}
+
 	RenderTexture::~RenderTexture() noexcept
 	{
 		glBindFramebuffer(GL_TEXTURE_2D, 0);

@@ -18,6 +18,29 @@ namespace qs
 		glGenBuffers(1, &m_id);
 	}
 
+	IndexBuffer::IndexBuffer(IndexBuffer&& ib)
+	{
+		this->m_id    = ib.m_id;
+		this->m_count = ib.m_count;
+
+		ib.m_id    = 0;
+		ib.m_count = 0;
+	}
+
+	IndexBuffer& IndexBuffer::operator=(IndexBuffer&& ib)
+	{
+		if (this != &ib)
+		{
+			this->m_id    = ib.m_id;
+			this->m_count = ib.m_count;
+
+			ib.m_id    = 0;
+			ib.m_count = 0;
+		}
+
+		return *this;
+	}
+
 	IndexBuffer::~IndexBuffer() noexcept
 	{
 		glDeleteBuffers(1, &m_id);

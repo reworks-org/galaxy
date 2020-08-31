@@ -40,6 +40,31 @@ namespace qs
 		VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		VertexAttribute(const VertexAttribute&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		VertexAttribute(VertexAttribute&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		VertexAttribute& operator=(const VertexAttribute&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		VertexAttribute& operator=(VertexAttribute&&) noexcept = default;
+
+		///
+		/// Destructor.
+		///
+		~VertexAttribute() noexcept = default;
+
+		///
 		/// Components for each vertex attribute.
 		///
 		unsigned int m_size;

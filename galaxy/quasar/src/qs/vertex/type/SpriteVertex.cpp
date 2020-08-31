@@ -33,4 +33,39 @@ namespace qs
 			m_opacity = opacity;
 		}
 	}
+
+	SpriteVertex::SpriteVertex(const SpriteVertex& sv)
+	{
+		this->m_pos     = sv.m_pos;
+		this->m_texels  = sv.m_texels;
+		this->m_opacity = sv.m_opacity;
+	}
+
+	SpriteVertex::SpriteVertex(SpriteVertex&& sv)
+	{
+		this->m_pos     = std::move(sv.m_pos);
+		this->m_texels  = std::move(sv.m_texels);
+		this->m_opacity = sv.m_opacity;
+	}
+
+	SpriteVertex& SpriteVertex::operator=(const SpriteVertex& sv)
+	{
+		this->m_pos     = sv.m_pos;
+		this->m_texels  = sv.m_texels;
+		this->m_opacity = sv.m_opacity;
+
+		return *this;
+	}
+
+	SpriteVertex& SpriteVertex::operator=(SpriteVertex&& sv)
+	{
+		if (this != &sv)
+		{
+			this->m_pos     = std::move(sv.m_pos);
+			this->m_texels  = std::move(sv.m_texels);
+			this->m_opacity = sv.m_opacity;
+		}
+
+		return *this;
+	}
 } // namespace qs

@@ -29,9 +29,24 @@ namespace qs
 		VertexBuffer() noexcept;
 
 		///
-		/// Destroys buffer.
+		/// Copy constructor.
 		///
-		~VertexBuffer() noexcept;
+		VertexBuffer(const VertexBuffer&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		VertexBuffer(VertexBuffer&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		VertexBuffer& operator=(const VertexBuffer&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		VertexBuffer& operator=(VertexBuffer&&);
 
 		///
 		/// Create vertex buffer object.
@@ -41,6 +56,11 @@ namespace qs
 		///
 		template<is_vertex VertexType, is_buffer BufferType>
 		void create(std::span<VertexType> vertices, bool dynamic_verticies = true);
+
+		///
+		/// Destroys buffer.
+		///
+		~VertexBuffer() noexcept;
 
 		///
 		/// Bind the current vertex buffer to current GL context.

@@ -27,6 +27,26 @@ namespace qs
 		VertexData() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		VertexData(const VertexData&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		VertexData(VertexData&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		VertexData& operator=(const VertexData&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		VertexData& operator=(VertexData&&);
+
+		///
 		/// Virtual destructor.
 		///
 		virtual ~VertexData() noexcept = default;

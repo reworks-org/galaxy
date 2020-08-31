@@ -29,9 +29,29 @@ namespace qs
 		Text() noexcept;
 
 		///
-		/// Default destructor.
+		/// Copy constructor.
 		///
-		~Text() noexcept = default;
+		Text(const Text&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Text(Text&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Text& operator=(const Text&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Text& operator=(Text&&);
+
+		///
+		/// Destructor.
+		///
+		virtual ~Text() noexcept = default;
 
 		///
 		/// Load resources used.

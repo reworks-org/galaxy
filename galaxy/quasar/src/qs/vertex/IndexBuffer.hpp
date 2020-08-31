@@ -33,17 +33,37 @@ namespace qs
 		IndexBuffer() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		IndexBuffer(const IndexBuffer&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		IndexBuffer(IndexBuffer&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		IndexBuffer& operator=(const IndexBuffer&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		IndexBuffer& operator=(IndexBuffer&&);
+
+		///
+		/// Destroys buffer.
+		///
+		~IndexBuffer() noexcept;
+
+		///
 		/// Create index buffer object.
 		///
 		/// \param indexs Index array to use.
 		///
 		template<is_buffer BufferType>
 		void create(std::span<unsigned int> indexs);
-
-		///
-		/// Destroys buffer.
-		///
-		~IndexBuffer() noexcept;
 
 		///
 		/// Bind the current vertex buffer to current GL context.

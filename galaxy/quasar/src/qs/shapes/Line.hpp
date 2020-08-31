@@ -41,9 +41,29 @@ namespace qs
 		Line(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness = 1.0f);
 
 		///
+		/// Copy constructor.
+		///
+		Line(const Line&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Line(Line&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Line& operator=(const Line&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Line& operator=(Line&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
-		~Line() noexcept = default;
+		virtual ~Line() noexcept = default;
 
 		///
 		/// Create the Line.

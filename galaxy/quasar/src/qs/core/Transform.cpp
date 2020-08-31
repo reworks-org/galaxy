@@ -19,6 +19,53 @@ namespace qs
 	{
 	}
 
+	Transform::Transform(const Transform& t)
+	{
+		this->m_dirty       = t.m_dirty;
+		this->m_model       = t.m_model;
+		this->m_origin      = t.m_origin;
+		this->m_rotation    = t.m_rotation;
+		this->m_scaling     = t.m_scaling;
+		this->m_translation = t.m_translation;
+	}
+
+	Transform::Transform(Transform&& t)
+	{
+		this->m_dirty       = t.m_dirty;
+		this->m_model       = std::move(t.m_model);
+		this->m_origin      = std::move(t.m_origin);
+		this->m_rotation    = std::move(t.m_rotation);
+		this->m_scaling     = std::move(t.m_scaling);
+		this->m_translation = std::move(t.m_translation);
+	}
+
+	Transform& Transform::operator=(const Transform& t)
+	{
+		this->m_dirty       = t.m_dirty;
+		this->m_model       = t.m_model;
+		this->m_origin      = t.m_origin;
+		this->m_rotation    = t.m_rotation;
+		this->m_scaling     = t.m_scaling;
+		this->m_translation = t.m_translation;
+
+		return *this;
+	}
+
+	Transform& Transform::operator=(Transform&& t)
+	{
+		if (this != &t)
+		{
+			this->m_dirty       = t.m_dirty;
+			this->m_model       = std::move(t.m_model);
+			this->m_origin      = std::move(t.m_origin);
+			this->m_rotation    = std::move(t.m_rotation);
+			this->m_scaling     = std::move(t.m_scaling);
+			this->m_translation = std::move(t.m_translation);
+		}
+
+		return *this;
+	}
+
 	void Transform::move(const float x, const float y) noexcept
 	{
 		m_translation = glm::translate(m_translation, {x, y, 0.0f});

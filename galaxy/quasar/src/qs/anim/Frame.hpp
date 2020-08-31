@@ -36,6 +36,26 @@ namespace qs
 		Frame(const float x, const float y, const std::size_t time_per_frame) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Frame(const Frame&);
+
+		///
+		/// Move constructor.
+		///
+		Frame(Frame&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Frame& operator=(const Frame&);
+
+		///
+		/// Move assignment operator.
+		///
+		Frame& operator=(Frame&&);
+
+		///
 		/// Default destructor.
 		///
 		~Frame() noexcept = default;

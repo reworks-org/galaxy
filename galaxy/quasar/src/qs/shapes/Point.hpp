@@ -39,9 +39,29 @@ namespace qs
 		Point(const float x, const float y, const unsigned int size, const pr::Colour& colour);
 
 		///
+		/// Copy constructor.
+		///
+		Point(const Point&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Point(Point&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Point& operator=(const Point&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Point& operator=(Point&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
-		~Point() noexcept = default;
+		virtual ~Point() noexcept = default;
 
 		///
 		/// Create the point.

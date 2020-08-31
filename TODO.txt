@@ -19,7 +19,6 @@ QUASAR:
 - Circle.cpp, 43 -> constinit
 - Draw Scene/LightSource
 - Particles
-- copy/move constructors & operator=.
 
 SOLAR:
 - Replace rangev3 in manager with <ranges> when avaliable.

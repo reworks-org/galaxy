@@ -39,6 +39,26 @@ namespace qs
 		InstanceVertex(const float x, const float y, const float u, const float v, const float off_x, const float off_y) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		InstanceVertex(const InstanceVertex&);
+
+		///
+		/// Move constructor.
+		///
+		InstanceVertex(InstanceVertex&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		InstanceVertex& operator=(const InstanceVertex&);
+
+		///
+		/// Move assignment operator.
+		///
+		InstanceVertex& operator=(InstanceVertex&&);
+
+		///
 		/// Destructor.
 		///
 		~InstanceVertex() noexcept = default;

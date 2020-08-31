@@ -37,6 +37,26 @@ namespace qs
 		PrimitiveVertex(const float x, const float y, const pr::Colour& col) noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		PrimitiveVertex(const PrimitiveVertex&);
+
+		///
+		/// Move constructor.
+		///
+		PrimitiveVertex(PrimitiveVertex&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		PrimitiveVertex& operator=(const PrimitiveVertex&);
+
+		///
+		/// Move assignment operator.
+		///
+		PrimitiveVertex& operator=(PrimitiveVertex&&);
+
+		///
 		/// Destructor.
 		///
 		~PrimitiveVertex() noexcept = default;

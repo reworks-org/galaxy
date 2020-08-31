@@ -48,9 +48,29 @@ namespace qs
 		explicit TextureAtlas(const unsigned int size);
 
 		///
+		/// Copy constructor.
+		///
+		TextureAtlas(const TextureAtlas&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		TextureAtlas(TextureAtlas&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		TextureAtlas& operator=(const TextureAtlas&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		TextureAtlas& operator=(TextureAtlas&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
-		~TextureAtlas() noexcept;
+		virtual ~TextureAtlas() noexcept;
 
 		///
 		/// Add a texture to the atlas to be processed.

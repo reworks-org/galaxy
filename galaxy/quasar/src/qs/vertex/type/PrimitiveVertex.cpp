@@ -21,4 +21,35 @@ namespace qs
 	    : m_pos {x, y}, m_colour {col}
 	{
 	}
+
+	PrimitiveVertex::PrimitiveVertex(const PrimitiveVertex& pv)
+	{
+		this->m_pos    = pv.m_pos;
+		this->m_colour = pv.m_colour;
+	}
+
+	PrimitiveVertex::PrimitiveVertex(PrimitiveVertex&& pv)
+	{
+		this->m_pos    = pv.m_pos;
+		this->m_colour = std::move(pv.m_colour);
+	}
+
+	PrimitiveVertex& PrimitiveVertex::operator=(const PrimitiveVertex& pv)
+	{
+		this->m_pos    = pv.m_pos;
+		this->m_colour = pv.m_colour;
+
+		return *this;
+	}
+
+	PrimitiveVertex& PrimitiveVertex::operator=(PrimitiveVertex&& pv)
+	{
+		if (this != &pv)
+		{
+			this->m_pos    = pv.m_pos;
+			this->m_colour = std::move(pv.m_colour);
+		}
+
+		return *this;
+	}
 } // namespace qs

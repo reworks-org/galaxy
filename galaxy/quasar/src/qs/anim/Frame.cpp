@@ -22,6 +22,41 @@ namespace qs
 	{
 	}
 
+	Frame::Frame(const Frame& f)
+	{
+		this->m_x              = f.m_x;
+		this->m_y              = f.m_y;
+		this->m_time_per_frame = f.m_time_per_frame;
+	}
+
+	Frame::Frame(Frame&& f)
+	{
+		this->m_x              = f.m_x;
+		this->m_y              = f.m_y;
+		this->m_time_per_frame = f.m_time_per_frame;
+	}
+
+	Frame& Frame::operator=(const Frame& f)
+	{
+		this->m_x              = f.m_x;
+		this->m_y              = f.m_y;
+		this->m_time_per_frame = f.m_time_per_frame;
+
+		return *this;
+	}
+
+	Frame& Frame::operator=(Frame&& f)
+	{
+		if (this != &f)
+		{
+			this->m_x              = f.m_x;
+			this->m_y              = f.m_y;
+			this->m_time_per_frame = f.m_time_per_frame;
+		}
+
+		return *this;
+	}
+
 	const float Frame::get_x() const noexcept
 	{
 		return m_x;

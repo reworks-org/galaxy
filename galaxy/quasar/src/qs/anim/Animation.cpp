@@ -22,6 +22,63 @@ namespace qs
 	{
 	}
 
+	Animation::Animation(const Animation& a)
+	{
+		this->m_active_frame        = a.m_active_frame;
+		this->m_current_frame_index = a.m_current_frame_index;
+		this->m_frames              = a.m_frames;
+		this->m_looping             = a.m_looping;
+		this->m_name                = a.m_name;
+		this->m_speed               = a.m_speed;
+		this->m_total_frames        = a.m_total_frames;
+	}
+
+	Animation::Animation(Animation&& a)
+	{
+		this->m_active_frame        = a.m_active_frame;
+		this->m_current_frame_index = a.m_current_frame_index;
+		this->m_frames              = std::move(a.m_frames);
+		this->m_looping             = a.m_looping;
+		this->m_name                = std::move(a.m_name);
+		this->m_speed               = a.m_speed;
+		this->m_total_frames        = a.m_total_frames;
+
+		a.m_active_frame        = nullptr;
+		a.m_current_frame_index = 0;
+	}
+
+	Animation& Animation::operator=(const Animation& a)
+	{
+		this->m_active_frame        = a.m_active_frame;
+		this->m_current_frame_index = a.m_current_frame_index;
+		this->m_frames              = a.m_frames;
+		this->m_looping             = a.m_looping;
+		this->m_name                = a.m_name;
+		this->m_speed               = a.m_speed;
+		this->m_total_frames        = a.m_total_frames;
+
+		return *this;
+	}
+
+	Animation& Animation::operator=(Animation&& a)
+	{
+		if (this != &a)
+		{
+			this->m_active_frame        = a.m_active_frame;
+			this->m_current_frame_index = a.m_current_frame_index;
+			this->m_frames              = std::move(a.m_frames);
+			this->m_looping             = a.m_looping;
+			this->m_name                = std::move(a.m_name);
+			this->m_speed               = a.m_speed;
+			this->m_total_frames        = a.m_total_frames;
+
+			a.m_active_frame        = nullptr;
+			a.m_current_frame_index = 0;
+		}
+
+		return *this;
+	}
+
 	Animation::~Animation() noexcept
 	{
 		m_frames.clear();

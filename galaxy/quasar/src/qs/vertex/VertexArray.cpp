@@ -18,6 +18,23 @@ namespace qs
 		glGenVertexArrays(1, &m_id);
 	}
 
+	VertexArray::VertexArray(VertexArray&& va)
+	{
+		this->m_id = va.m_id;
+		va.m_id    = 0;
+	}
+
+	VertexArray& VertexArray::operator=(VertexArray&& va)
+	{
+		if (this != &va)
+		{
+			this->m_id = va.m_id;
+			va.m_id    = 0;
+		}
+
+		return *this;
+	}
+
 	VertexArray::~VertexArray() noexcept
 	{
 		glDeleteVertexArrays(1, &m_id);

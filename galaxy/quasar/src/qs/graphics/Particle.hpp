@@ -36,6 +36,26 @@ namespace qs
 		Particle(unsigned int amount);
 
 		///
+		/// Copy constructor.
+		///
+		Particle(const Particle&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Particle(Particle&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Particle& operator=(const Particle&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Particle& operator=(Particle&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
 		virtual ~Particle() noexcept = default;

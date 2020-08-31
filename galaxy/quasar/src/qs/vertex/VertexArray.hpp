@@ -29,6 +29,26 @@ namespace qs
 		VertexArray() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		VertexArray(const VertexArray&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		VertexArray(VertexArray&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		VertexArray& operator=(const VertexArray&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		VertexArray& operator=(VertexArray&&);
+
+		///
 		/// Destroys buffer.
 		///
 		~VertexArray() noexcept;

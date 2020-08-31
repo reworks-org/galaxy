@@ -28,9 +28,29 @@ namespace qs
 		AnimatedSprite();
 
 		///
+		/// Copy constructor.
+		///
+		AnimatedSprite(const AnimatedSprite&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		AnimatedSprite(AnimatedSprite&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		AnimatedSprite& operator=(const AnimatedSprite&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		AnimatedSprite& operator=(AnimatedSprite&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
-		~AnimatedSprite() noexcept = default;
+		virtual ~AnimatedSprite() noexcept = default;
 
 		///
 		/// Update GL data.

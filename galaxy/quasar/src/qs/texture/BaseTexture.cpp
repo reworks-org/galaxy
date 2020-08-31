@@ -17,6 +17,33 @@
 ///
 namespace qs
 {
+	BaseTexture::BaseTexture(BaseTexture&& ba)
+	{
+		this->m_texture = ba.m_texture;
+		this->m_width   = ba.m_width;
+		this->m_height  = ba.m_height;
+
+		ba.m_texture = 0;
+		ba.m_width   = 0;
+		ba.m_height  = 0;
+	}
+
+	BaseTexture& BaseTexture::operator=(BaseTexture&& ba)
+	{
+		if (this != &ba)
+		{
+			this->m_texture = ba.m_texture;
+			this->m_width   = ba.m_width;
+			this->m_height  = ba.m_height;
+
+			ba.m_texture = 0;
+			ba.m_width   = 0;
+			ba.m_height  = 0;
+		}
+
+		return *this;
+	}
+
 	BaseTexture::~BaseTexture() noexcept
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);

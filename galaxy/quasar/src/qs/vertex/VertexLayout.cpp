@@ -16,6 +16,23 @@ namespace qs
 	{
 	}
 
+	VertexLayout::VertexLayout(VertexLayout&& vl)
+	{
+		this->m_attributes = std::move(vl.m_attributes);
+		vl.m_attributes.clear();
+	}
+
+	VertexLayout& VertexLayout::operator=(VertexLayout&& vl)
+	{
+		if (this != &vl)
+		{
+			this->m_attributes = std::move(vl.m_attributes);
+			vl.m_attributes.clear();
+		}
+
+		return *this;
+	}
+
 	VertexLayout::~VertexLayout() noexcept
 	{
 		m_attributes.clear();

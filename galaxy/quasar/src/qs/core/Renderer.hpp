@@ -39,12 +39,32 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		Renderer() = default;
+		Renderer() noexcept = default;
+
+		///
+		/// Copy constructor.
+		///
+		Renderer(const Renderer&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		Renderer(Renderer&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Renderer& operator=(const Renderer&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Renderer& operator=(Renderer&&) noexcept = default;
 
 		///
 		/// Default destructor.
 		///
-		~Renderer() = default;
+		~Renderer() noexcept = default;
 
 		///
 		/// \brief Draw a point.

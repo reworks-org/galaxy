@@ -43,6 +43,26 @@ namespace qs
 		Font(std::string_view file, const unsigned int size);
 
 		///
+		/// Copy constructor.
+		///
+		Font(const Font&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Font(Font&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Font& operator=(const Font&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Font& operator=(Font&&);
+
+		///
 		/// Default destructor.
 		///
 		~Font() noexcept = default;

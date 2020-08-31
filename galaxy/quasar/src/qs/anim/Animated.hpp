@@ -29,6 +29,26 @@ namespace qs
 		Animated();
 
 		///
+		/// Copy constructor.
+		///
+		Animated(const Animated&);
+
+		///
+		/// Move constructor.
+		///
+		Animated(Animated&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Animated& operator=(const Animated&);
+
+		///
+		/// Move assignment operator.
+		///
+		Animated& operator=(Animated&&);
+
+		///
 		/// Virtual destructor.
 		///
 		virtual ~Animated();

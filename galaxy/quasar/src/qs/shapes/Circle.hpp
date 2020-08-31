@@ -41,9 +41,29 @@ namespace qs
 		Circle(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness = 1.0f);
 
 		///
+		/// Copy constructor.
+		///
+		Circle(const Circle&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Circle(Circle&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Circle& operator=(const Circle&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Circle& operator=(Circle&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
-		~Circle() noexcept = default;
+		virtual ~Circle() noexcept = default;
 
 		///
 		/// Create the Circle.

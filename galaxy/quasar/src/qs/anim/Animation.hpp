@@ -22,7 +22,7 @@ namespace qs
 	///
 	/// Animation.
 	///
-	class Animation
+	class Animation final
 	{
 	public:
 		///
@@ -39,6 +39,26 @@ namespace qs
 		/// \param frames Frames in the animation.
 		///
 		Animation(std::string_view name, bool looping, const float speed, std::span<qs::Frame> frames);
+
+		///
+		/// Copy constructor.
+		///
+		Animation(const Animation&);
+
+		///
+		/// Move constructor.
+		///
+		Animation(Animation&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Animation& operator=(const Animation&);
+
+		///
+		/// Move assignment operator.
+		///
+		Animation& operator=(Animation&&);
 
 		///
 		/// Destructor.

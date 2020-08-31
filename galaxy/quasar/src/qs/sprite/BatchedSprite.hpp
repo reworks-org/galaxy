@@ -35,6 +35,26 @@ namespace qs
 		BatchedSprite();
 
 		///
+		/// Copy constructor.
+		///
+		BatchedSprite(const BatchedSprite&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		BatchedSprite(BatchedSprite&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		BatchedSprite& operator=(const BatchedSprite&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		BatchedSprite& operator=(BatchedSprite&&);
+
+		///
 		/// Destructor.
 		///
 		virtual ~BatchedSprite() noexcept = default;

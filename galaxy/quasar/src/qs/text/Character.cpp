@@ -22,6 +22,35 @@ namespace qs
 	{
 	}
 
+	Character::Character(Character&& c)
+	{
+		this->m_bearing_x = c.m_bearing_x;
+		this->m_bearing_y = c.m_bearing_y;
+		this->m_advance   = c.m_advance;
+		this->m_region    = std::move(c.m_region);
+
+		m_bearing_x = 0;
+		m_bearing_y = 0;
+		c.m_advance = 0;
+	}
+
+	Character& Character::operator=(Character&& c)
+	{
+		if (this != &c)
+		{
+			this->m_bearing_x = c.m_bearing_x;
+			this->m_bearing_y = c.m_bearing_y;
+			this->m_advance   = c.m_advance;
+			this->m_region    = std::move(c.m_region);
+
+			m_bearing_x = 0;
+			m_bearing_y = 0;
+			c.m_advance = 0;
+		}
+
+		return *this;
+	}
+
 	void Character::bind() noexcept
 	{
 		m_va.bind();

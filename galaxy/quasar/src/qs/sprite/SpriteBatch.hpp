@@ -30,9 +30,29 @@ namespace qs
 		SpriteBatch(const unsigned int max_quads);
 
 		///
+		/// Copy constructor.
+		///
+		SpriteBatch(const SpriteBatch&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		SpriteBatch(SpriteBatch&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		SpriteBatch& operator=(const SpriteBatch&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		SpriteBatch& operator=(SpriteBatch&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
-		~SpriteBatch() noexcept;
+		virtual ~SpriteBatch() noexcept;
 
 		///
 		/// Set the texture to use.

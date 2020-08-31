@@ -33,6 +33,26 @@ namespace qs
 		VertexLayout() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		VertexLayout(const VertexLayout&) noexcept = default;
+
+		///
+		/// Move constructor.
+		///
+		VertexLayout(VertexLayout&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		VertexLayout& operator=(const VertexLayout&) noexcept = default;
+
+		///
+		/// Move assignment operator.
+		///
+		VertexLayout& operator=(VertexLayout&&);
+
+		///
 		/// Destructor.
 		///
 		~VertexLayout() noexcept;

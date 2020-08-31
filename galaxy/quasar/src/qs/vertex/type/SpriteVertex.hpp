@@ -19,9 +19,8 @@ namespace qs
 	///
 	/// Represents a single SpriteVertex of a primitive.
 	///
-	class SpriteVertex final
+	struct SpriteVertex final
 	{
-	public:
 		///
 		/// Default constructor.
 		///
@@ -37,6 +36,26 @@ namespace qs
 		/// \param opacity Opacity of sprite.
 		///
 		SpriteVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
+
+		///
+		/// Copy constructor.
+		///
+		SpriteVertex(const SpriteVertex&);
+
+		///
+		/// Move constructor.
+		///
+		SpriteVertex(SpriteVertex&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		SpriteVertex& operator=(const SpriteVertex&);
+
+		///
+		/// Move assignment operator.
+		///
+		SpriteVertex& operator=(SpriteVertex&&);
 
 		///
 		/// Destructor.

@@ -28,6 +28,41 @@ namespace qs
 		}
 	}
 
+	Shader::Shader(const Shader& s)
+	{
+		this->m_id    = s.m_id;
+		this->m_cache = s.m_cache;
+	}
+
+	Shader::Shader(Shader&& s)
+	{
+		this->m_id    = s.m_id;
+		this->m_cache = std::move(s.m_cache);
+
+		s.m_id = 0;
+	}
+
+	Shader& Shader::operator=(const Shader& s)
+	{
+		this->m_id    = s.m_id;
+		this->m_cache = s.m_cache;
+
+		return *this;
+	}
+
+	Shader& Shader::operator=(Shader&& s)
+	{
+		if (this != &s)
+		{
+			this->m_id    = s.m_id;
+			this->m_cache = std::move(s.m_cache);
+
+			s.m_id = 0;
+		}
+
+		return *this;
+	}
+
 	Shader::~Shader()
 	{
 		unbind();

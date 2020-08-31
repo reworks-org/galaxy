@@ -28,6 +28,26 @@ namespace qs
 	{
 	public:
 		///
+		/// Copy constructor.
+		///
+		FreeTypeLib(const FreeTypeLib&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		FreeTypeLib(FreeTypeLib&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		FreeTypeLib& operator=(const FreeTypeLib&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		FreeTypeLib& operator=(FreeTypeLib&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
 		~FreeTypeLib() noexcept = default;

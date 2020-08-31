@@ -19,6 +19,53 @@ namespace qs
 	{
 	}
 
+	Animated::Animated(const Animated& a)
+	{
+		this->m_active_anim         = a.m_active_anim;
+		this->m_animations          = a.m_animations;
+		this->m_paused              = a.m_paused;
+		this->m_time_spent_on_frame = a.m_time_spent_on_frame;
+	}
+
+	Animated::Animated(Animated&& a)
+	{
+		this->m_active_anim         = a.m_active_anim;
+		this->m_animations          = std::move(a.m_animations);
+		this->m_paused              = a.m_paused;
+		this->m_time_spent_on_frame = a.m_time_spent_on_frame;
+
+		a.m_active_anim         = nullptr;
+		a.m_paused              = true;
+		a.m_time_spent_on_frame = 0;
+	}
+
+	Animated& Animated::operator=(const Animated& a)
+	{
+		this->m_active_anim         = a.m_active_anim;
+		this->m_animations          = a.m_animations;
+		this->m_paused              = a.m_paused;
+		this->m_time_spent_on_frame = a.m_time_spent_on_frame;
+
+		return *this;
+	}
+
+	Animated& Animated::operator=(Animated&& a)
+	{
+		if (this != &a)
+		{
+			this->m_active_anim         = a.m_active_anim;
+			this->m_animations          = std::move(a.m_animations);
+			this->m_paused              = a.m_paused;
+			this->m_time_spent_on_frame = a.m_time_spent_on_frame;
+
+			a.m_active_anim         = nullptr;
+			a.m_paused              = true;
+			a.m_time_spent_on_frame = 0;
+		}
+
+		return *this;
+	}
+
 	Animated::~Animated()
 	{
 		m_animations.clear();

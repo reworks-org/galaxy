@@ -19,7 +19,13 @@ namespace qs
 	class ParticleGenerator final
 	{
 	public:
+		ParticleGenerator()                         = default;
+		ParticleGenerator(const ParticleGenerator&) = default;
+		ParticleGenerator(ParticleGenerator&&)      = default;
+		ParticleGenerator& operator=(const ParticleGenerator&) = default;
+		ParticleGenerator& operator=(ParticleGenerator&&) = default;
+		~ParticleGenerator()                              = default;
 	};
-}
+} // namespace qs
 
 #endif

@@ -17,6 +17,29 @@ namespace qs
 	{
 	}
 
+	VertexData::VertexData(VertexData&& vd)
+	{
+		this->m_ib      = std::move(vd.m_ib);
+		this->m_layout  = std::move(vd.m_layout);
+		this->m_va      = std::move(vd.m_va);
+		this->m_vb      = std::move(vd.m_vb);
+		this->m_z_level = vd.m_z_level;
+	}
+
+	VertexData& VertexData::operator=(VertexData&& vd)
+	{
+		if (this != &vd)
+		{
+			this->m_ib      = std::move(vd.m_ib);
+			this->m_layout  = std::move(vd.m_layout);
+			this->m_va      = std::move(vd.m_va);
+			this->m_vb      = std::move(vd.m_vb);
+			this->m_z_level = vd.m_z_level;
+		}
+
+		return *this;
+	}
+
 	const unsigned int VertexData::z_level() const noexcept
 	{
 		return m_z_level;

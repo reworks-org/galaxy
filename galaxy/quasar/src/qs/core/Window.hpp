@@ -43,6 +43,26 @@ namespace qs
 		explicit Window(std::string_view title, const int width, const int height);
 
 		///
+		/// Copy constructor.
+		///
+		Window(const Window&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Window(Window&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		Window& operator=(const Window&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Window& operator=(Window&&) noexcept = delete;
+
+		///
 		/// \brief Destroys SDL Window and OpenGL context.
 		///
 		/// Shortcut of calling destroy(). Make sure SDL_Quit has not been called yet.

@@ -29,6 +29,26 @@ namespace qs
 		Sprite();
 
 		///
+		/// Copy constructor.
+		///
+		Sprite(const Sprite&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Sprite(Sprite&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Sprite& operator=(const Sprite&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Sprite& operator=(Sprite&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
 		virtual ~Sprite() noexcept = default;

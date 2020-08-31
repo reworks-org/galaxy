@@ -44,9 +44,29 @@ namespace qs
 		explicit Character(const int bx, const int by, const unsigned int advance);
 
 		///
+		/// Copy constructor.
+		///
+		Character(const Character&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		Character(Character&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Character& operator=(const Character&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Character& operator=(Character&&);
+
+		///
 		/// Destructor.
 		///
-		~Character() noexcept = default;
+		virtual ~Character() noexcept = default;
 
 		///
 		/// Activate character context.

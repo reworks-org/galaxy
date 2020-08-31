@@ -43,9 +43,29 @@ namespace qs
 		explicit RenderTexture(const int width, const int height);
 
 		///
-		/// Virtual destructor override.
+		/// Copy constructor.
 		///
-		~RenderTexture() noexcept;
+		RenderTexture(const RenderTexture&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		RenderTexture(RenderTexture&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		RenderTexture& operator=(const RenderTexture&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		RenderTexture& operator=(RenderTexture&&);
+
+		///
+		/// Destructor.
+		///
+		virtual ~RenderTexture() noexcept;
 
 		///
 		/// Create the RenderTexture.

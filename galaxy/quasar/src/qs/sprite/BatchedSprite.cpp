@@ -17,6 +17,27 @@ namespace qs
 	{
 	}
 
+	BatchedSprite::BatchedSprite(BatchedSprite&& bs)
+	{
+		this->m_opacity = bs.m_opacity;
+		this->m_z_level = bs.m_z_level;
+		this->m_offset  = bs.m_offset;
+		this->m_region  = std::move(bs.m_region);
+	}
+
+	BatchedSprite& BatchedSprite::operator=(BatchedSprite&& bs)
+	{
+		if (this != &bs)
+		{
+			this->m_opacity = bs.m_opacity;
+			this->m_z_level = bs.m_z_level;
+			this->m_offset  = bs.m_offset;
+			this->m_region  = std::move(bs.m_region);
+		}
+
+		return *this;
+	}
+
 	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int z_level) noexcept
 	{
 		m_region  = region;

@@ -28,6 +28,26 @@ namespace qs
 		Transform() noexcept;
 
 		///
+		/// Copy constructor.
+		///
+		Transform(const Transform&);
+
+		///
+		/// Move constructor.
+		///
+		Transform(Transform&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Transform& operator=(const Transform&);
+
+		///
+		/// Move assignment operator.
+		///
+		Transform& operator=(Transform&&);
+
+		///
 		/// Default virtual destructor.
 		///
 		virtual ~Transform() noexcept = default;

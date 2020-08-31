@@ -20,6 +20,26 @@ namespace qs
 	{
 	public:
 		///
+		/// Copy constructor.
+		///
+		WindowSettings(const WindowSettings&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		WindowSettings(WindowSettings&&) noexcept = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		WindowSettings& operator=(const WindowSettings&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		WindowSettings& operator=(WindowSettings&&) noexcept = delete;
+
+		///
 		/// Destructor.
 		///
 		~WindowSettings() noexcept = default;
@@ -71,16 +91,6 @@ namespace qs
 		/// Default constructor.
 		///
 		WindowSettings() = delete;
-
-		///
-		/// Copy constructor.
-		///
-		WindowSettings(const WindowSettings&) = delete;
-
-		///
-		/// Move constructor.
-		///
-		WindowSettings(WindowSettings&&) = delete;
 	};
 } // namespace qs
 

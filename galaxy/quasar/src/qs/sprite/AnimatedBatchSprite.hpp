@@ -28,9 +28,29 @@ namespace qs
 		AnimatedBatchSprite();
 
 		///
+		/// Copy constructor.
+		///
+		AnimatedBatchSprite(const AnimatedBatchSprite&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		AnimatedBatchSprite(AnimatedBatchSprite&&) noexcept = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		AnimatedBatchSprite& operator=(const AnimatedBatchSprite&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		AnimatedBatchSprite& operator=(AnimatedBatchSprite&&) noexcept = default;
+
+		///
 		/// Destructor.
 		///
-		~AnimatedBatchSprite() noexcept = default;
+		virtual ~AnimatedBatchSprite() noexcept = default;
 
 		///
 		/// Update GL data.

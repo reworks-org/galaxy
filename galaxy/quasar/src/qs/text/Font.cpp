@@ -30,6 +30,25 @@ namespace qs
 		load(file, size);
 	}
 
+	Font::Font(Font&& f)
+	{
+		this->m_height     = f.m_height;
+		this->m_characters = std::move(f.m_characters);
+		this->m_texture    = std::move(f.m_texture);
+	}
+
+	Font& Font::operator=(Font&& f)
+	{
+		if (this != &f)
+		{
+			this->m_height     = f.m_height;
+			this->m_characters = std::move(f.m_characters);
+			this->m_texture    = std::move(f.m_texture);
+		}
+
+		return *this;
+	}
+
 	void Font::load(std::string_view file, const unsigned int size)
 	{
 		FT_Face face;

@@ -41,6 +41,26 @@ namespace qs
 		Shader(std::string_view vertex_file, std::string_view frag_file);
 
 		///
+		/// Copy constructor.
+		///
+		Shader(const Shader&);
+
+		///
+		/// Move constructor.
+		///
+		Shader(Shader&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		Shader& operator=(const Shader&);
+
+		///
+		/// Move assignment operator.
+		///
+		Shader& operator=(Shader&&);
+
+		///
 		/// Destructor.
 		///
 		~Shader();

@@ -19,6 +19,26 @@ namespace qs
 	{
 	public:
 		///
+		/// Copy constructor.
+		///
+		BaseTexture(const BaseTexture&) noexcept = delete;
+
+		///
+		/// Move constructor.
+		///
+		BaseTexture(BaseTexture&&);
+
+		///
+		/// Copy assignment operator.
+		///
+		BaseTexture& operator=(const BaseTexture&) noexcept = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		BaseTexture& operator=(BaseTexture&&);
+
+		///
 		/// Virtual destructor.
 		///
 		virtual ~BaseTexture() noexcept;
