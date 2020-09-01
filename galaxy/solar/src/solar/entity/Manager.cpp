@@ -9,7 +9,7 @@
 
 namespace sr
 {
-	Manager::Manager() noexcept
+	Manager::Manager()
 	    : m_next_id {0}
 	{
 	}

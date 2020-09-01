@@ -70,12 +70,6 @@ namespace galaxy
 		[[maybe_unused]] bool run();
 
 		///
-		/// Create the config file.
-		///
-		template<typename... Args>
-		[[nodiscard]] Config* make_config(Args&&... args);
-
-		///
 		/// Get delta time.
 		///
 		/// \return Pointer to protected double.
@@ -89,7 +83,9 @@ namespace galaxy
 		/// Sets up the engine. You need to inherit this and call it from a subclass.
 		/// Also calls std::srand(std::time(nullptr)) for you.
 		///
-		Application();
+		/// \param config Configuration file to construct application from.
+		///
+		Application(std::unique_ptr<galaxy::Config>& config);
 
 		///
 		/// Instance of a config reader to parse library config.
@@ -157,13 +153,6 @@ namespace galaxy
 		///
 		frb::Context m_openal;
 	};
-
-	template<typename... Args>
-	inline Config* Application::make_config(Args&&... args)
-	{
-		m_config = std::make_unique<Config>(std::forward<Args>(args)...);
-		return m_config.get();
-	}
 } // namespace galaxy
 
 #endif

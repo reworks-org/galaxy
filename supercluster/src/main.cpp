@@ -15,8 +15,8 @@
 class EditorApp : public galaxy::Application
 {
 public:
-	EditorApp()
-	    : galaxy::Application()
+	EditorApp(std::unique_ptr<galaxy::Config>& config)
+	    : galaxy::Application(config)
 	{
 	}
 };
@@ -30,9 +30,20 @@ int main(int argsc, char* argsv[])
 		restart             = false;
 		SL_HANDLE.m_restart = false;
 
+#ifndef _DEBUG
+		try
+#endif
 		{
-			EditorApp editor;
-			auto* config = editor.make_config();
+			// Load DateTime db.
+			date::set_install("assets/tz/tzdata");
+			date::reload_tzdb();
+
+			// Logging.
+			std::string log_path = fmt::format("{0}{1}", date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
+			PL_LOG_START(log_path);
+			PL_LOG_GET.set_min_level(PL_INFO);
+
+			auto config = std::make_unique<galaxy::Config>();
 			config->init("assets/config.json");
 			if (!config->open())
 			{
@@ -63,8 +74,13 @@ int main(int argsc, char* argsv[])
 				config->define<std::string>("audiobook-json", "audiobook.json");
 
 				config->create();
-				config->open();
+				if (!config->open())
+				{
+					throw std::runtime_error("Failed to create config file a second time.");
+				}
 			}
+
+			EditorApp editor(config);
 
 			auto* gs = SL_HANDLE.gamestate();
 			gs->create<sc::Editor>("Editor");
@@ -75,6 +91,18 @@ int main(int argsc, char* argsv[])
 
 			restart = editor.run();
 		}
+#ifndef _DEBUG
+		catch (std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+			std::cin.get();
+		}
+		catch (...)
+		{
+			std::cout << "Did not utilize std::exception, invalid exception thrown!" << std::endl;
+			std::cin.get();
+		}
+#endif
 
 	} while (restart);
 

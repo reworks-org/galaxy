@@ -39,7 +39,7 @@ namespace galaxy
 		///
 		/// Move constructor.
 		///
-		Config(Config&&) noexcept = delete;
+		Config(Config&&);
 
 		///
 		/// Copy assignment operator.
@@ -49,12 +49,12 @@ namespace galaxy
 		///
 		/// Move assignment operator.
 		///
-		Config& operator=(Config&&) noexcept = delete;
+		Config& operator=(Config&&);
 
 		///
 		/// Clean up the config reader.
 		///
-		~Config();
+		~Config() = default;
 
 		///
 		/// \brief Checks if config exists and flags if a config needs to be created.

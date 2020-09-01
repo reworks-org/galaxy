@@ -31,11 +31,13 @@ namespace pl
 
 	void Log::start(std::string_view log_file)
 	{
+		std::ios::sync_with_stdio(false);
+
 		m_running = true;
 
 		// Find path
-		auto path = std::filesystem::path {static_cast<std::string>(log_file)};
-		auto dir  = path.parent_path();
+		auto path          = std::filesystem::path {log_file};
+		constexpr auto dir = "logs/";
 
 		// Make sure it exists.
 		if (!std::filesystem::exists(dir))
@@ -62,17 +64,14 @@ namespace pl
 
 				m_mutex.unlock();
 			}
+
+			m_file_stream.close();
 		});
 	}
 
 	void Log::finish()
 	{
 		m_running = false;
-
-		std::lock_guard<std::mutex> lock {m_mutex};
-		m_file_stream.close();
-
-		m_thread.get();
 	}
 
 	void Log::set_testing(const bool is_testing) noexcept

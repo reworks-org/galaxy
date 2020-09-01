@@ -44,7 +44,7 @@ using std_chrono_duration = std::chrono::duration<long long, std::nano>;
 ///
 namespace galaxy
 {
-	Application::Application()
+	Application::Application(std::unique_ptr<galaxy::Config>& config)
 	    : m_openal {}
 	{
 		m_delta_time.set(0.0);
@@ -52,24 +52,19 @@ namespace galaxy
 		// Seed pseudo-random algorithms.
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-		// Supposed to improve performance.
-		std::ios::sync_with_stdio(false);
-
-		// Logging.
-		std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
-		PL_LOG_START(log_path);
-		PL_LOG_GET.set_min_level(PL_INFO);
-
 		// Set up all of the difference services.
 		// The services are configured based off of the config file.
 
 		// Config reader.
-		if (!m_config)
+		if (!config)
 		{
 			PL_LOG(PL_FATAL, "Failed to initialize config.");
 		}
-
-		SL_HANDLE.m_config = m_config.get();
+		else
+		{
+			m_config           = std::move(config);
+			SL_HANDLE.m_config = m_config.get();
+		}
 
 		// FS paths.
 		galaxy::FileSystem::s_root     = m_config->get<std::string>("root-path");

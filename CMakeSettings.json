@@ -1,0 +1,95 @@
+﻿{
+  "configurations": [
+    {
+      "name": "MSVC-Debug",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}\\build\\${name}",
+      "installRoot": "${projectDir}\\output\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": [
+        {
+          "name": "BUILD_TESTING",
+          "value": "False",
+          "type": "BOOL"
+        },
+        {
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Debug",
+          "type": "STRING"
+        },
+        {
+          "name": "ALSOFT_INSTALL",
+          "value": "False",
+          "type": "BOOL"
+        }
+      ],
+      "cmakeExecutable": "cmake",
+      "intelliSenseMode": "windows-msvc-x64",
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset": "CodeAnalysis.ruleset",
+      "enableClangTidyCodeAnalysis": true,
+      "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
+    },
+    {
+      "name": "MSVC-Release",
+      "generator": "Visual Studio 16 2019 Win64",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\build\\${name}",
+      "installRoot": "${projectDir}\\output\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": [
+        {
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Release",
+          "type": "STRING"
+        }
+      ],
+      "cmakeExecutable": "cmake",
+      "intelliSenseMode": "windows-msvc-x64",
+      "enableMicrosoftCodeAnalysis": true,
+      "codeAnalysisRuleset": "CodeAnalysis.ruleset",
+      "enableClangTidyCodeAnalysis": true,
+      "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
+    },
+    {
+      "name": "WSL-GCC-Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${projectDir}/build/${name}",
+      "installRoot": "${projectDir}/output/${name}",
+      "cmakeExecutable": "cmake",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "intelliSenseMode": "linux-gcc-x64",
+      "wslPath": "C:\\Users\\Dom\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
+      "addressSanitizerEnabled": true,
+      "addressSanitizerRuntimeFlags": "detect_leaks=0",
+      "variables": []
+    },
+    {
+      "name": "WSL-GCC-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}/build/${name}",
+      "installRoot": "${projectDir}/output/${name}",
+      "cmakeExecutable": "cmake",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "wslPath": "C:\\Users\\Dom\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
+      "addressSanitizerRuntimeFlags": "",
+      "variables": [],
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ]
+}

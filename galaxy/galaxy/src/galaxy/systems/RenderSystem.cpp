@@ -22,6 +22,7 @@ namespace galaxy
 	RenderSystem::RenderSystem()
 	    : m_world {nullptr}
 	{
+		m_world = SL_HANDLE.world();
 	}
 
 	RenderSystem::RenderSystem(const RenderSystem& rs)

@@ -19,10 +19,31 @@ namespace galaxy
 	{
 	}
 
-	Config::~Config()
+	Config::Config(Config&& c)
 	{
-		// Save on exit.
-		save();
+		this->m_opened = c.m_opened;
+		this->m_exists = c.m_exists;
+		this->m_config = std::move(c.m_config);
+		this->m_path   = std::move(c.m_path);
+
+		c.m_opened = false;
+		c.m_exists = false;
+	}
+
+	Config& Config::operator=(Config&& c)
+	{
+		if (this != &c)
+		{
+			this->m_opened = c.m_opened;
+			this->m_exists = c.m_exists;
+			this->m_config = std::move(c.m_config);
+			this->m_path   = std::move(c.m_path);
+
+			c.m_opened = false;
+			c.m_exists = false;
+		}
+
+		return *this;
 	}
 
 	void Config::init(std::string_view file)

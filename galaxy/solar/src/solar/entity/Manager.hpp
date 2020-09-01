@@ -60,7 +60,7 @@ namespace sr
 		///
 		/// Constructor.
 		///
-		Manager() noexcept;
+		Manager();
 
 		///
 		/// Copy constructor.
