@@ -23,6 +23,8 @@ namespace sc
 		set_name("ECSLayer");
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
+
+		auto e = m_world->create_from_json("assets/json/entities/demo_entity.json");
 	}
 
 	ECSLayer::~ECSLayer()

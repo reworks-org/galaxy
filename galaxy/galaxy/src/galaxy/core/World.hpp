@@ -60,7 +60,7 @@ namespace galaxy
 		///
 		/// \brief Create an entity from a JSON file.
 		///
-		/// If your using this make sure you have called registerComponent() and defineJSONConstruction().
+		/// If your using this make sure you have called register_component().
 		///
 		/// \param file Filepath to the json.
 		///

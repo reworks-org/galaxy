@@ -19,6 +19,8 @@ QUASAR:
 - Circle.cpp, 43 -> constinit
 - Draw Scene/LightSource
 - Particles
+- Vulkan/DirectX/gl3D
+- https://github.com/iryoku/smaa
 
 SOLAR:
 - Replace rangev3 in manager with <ranges> when avaliable.
