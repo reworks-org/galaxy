@@ -79,13 +79,13 @@ namespace qs
 		std::ifstream f_stream(std::filesystem::path(frag_file).string(), std::ios::in);
 
 		// Check for errors...
-		if (!v_stream)
+		if (!v_stream.good())
 		{
 			PL_LOG(PL_ERROR, "std::ifstream failed to open file: {0}.", vertex_file);
 			result = false;
 		}
 
-		if (!f_stream)
+		if (!f_stream.good())
 		{
 			PL_LOG(PL_ERROR, "std::ifstream failed to open file: {0}.", frag_file);
 			result = false;
@@ -96,18 +96,30 @@ namespace qs
 		{
 			// Then read entire input buffer in to a string stream object.
 			//  You can't read it directly into a std::string in a method that is resonably performant.
-			std::stringstream v_buffer;
-			std::stringstream f_buffer;
-			v_buffer << v_stream.rdbuf();
-			f_buffer << f_buffer.rdbuf();
+			std::string v_buffer;
+			std::string f_buffer;
 
-			if (!v_buffer)
+			v_stream.seekg(0, std::ios::end);
+			f_stream.seekg(0, std::ios::end);
+
+			v_buffer.reserve(v_stream.tellg());
+			f_buffer.reserve(f_stream.tellg());
+
+			v_stream.seekg(0, std::ios::beg);
+			f_stream.seekg(0, std::ios::beg);
+
+			v_buffer.assign((std::istreambuf_iterator<char>(v_stream)),
+					std::istreambuf_iterator<char>());
+			f_buffer.assign((std::istreambuf_iterator<char>(f_stream)),
+					std::istreambuf_iterator<char>());
+
+			if (v_buffer.empty())
 			{
 				PL_LOG(PL_ERROR, "std::stringstream failed to read vertexBuffer for: {0}.", vertex_file);
 				result = false;
 			}
 
-			if (!f_buffer)
+			if (f_buffer.empty())
 			{
 				PL_LOG(PL_ERROR, "std::stringstream failed to read fragmentBuffer for: {0}.", frag_file);
 				result = false;
@@ -123,8 +135,8 @@ namespace qs
 				unsigned int f_id = 0;
 
 				// Then we need to convert the stream to a c string because OpenGL requires a refernece to a c string. yeah.
-				const char* v_src = v_buffer.str().c_str();
-				const char* f_src = f_buffer.str().c_str();
+				const char* v_src = v_buffer.c_str();
+				const char* f_src = f_buffer.c_str();
 
 				// Retrieve the ids from opengl when creating the shader, then compile shaders, while checking for errors.
 				v_id = glCreateShader(GL_VERTEX_SHADER);

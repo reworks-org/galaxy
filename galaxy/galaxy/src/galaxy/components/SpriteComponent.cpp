@@ -7,6 +7,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/fs/FileSystem.hpp"
+
 #include "SpriteComponent.hpp"
 
 ///
@@ -22,7 +24,8 @@ namespace galaxy
 	SpriteComponent::SpriteComponent(const nlohmann::json& json)
 	    : m_sprite {}
 	{
-		std::string path = json.at("texture");
+		std::string tex = json.at("texture");
+		auto path       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + tex;
 		m_sprite.load(path);
 
 		const bool dynamic = json.at("is-dynamic-buffer");

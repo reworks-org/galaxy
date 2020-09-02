@@ -7,6 +7,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/fs/FileSystem.hpp"
+
 #include "ShaderComponent.hpp"
 
 ///
@@ -17,16 +19,21 @@ namespace galaxy
 	ShaderComponent::ShaderComponent()
 	{
 	}
-	
+
 	ShaderComponent::ShaderComponent(const nlohmann::json& json)
 	{
+		auto path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders;
 		if ((json.count("vertex-file") > 0) && (json.count("frag-file") > 0))
 		{
-			m_shader.load_path(json.at("vertex-file"), json.at("frag-file"));
+			std::string vert = json.at("vertex-file");
+			std::string frag = json.at("frag-file");
+			m_shader.load_path(path + vert, path + frag);
 		}
 		else if ((json.count("vertex-string") > 0) && (json.count("frag-string") > 0))
 		{
-			m_shader.load_raw(json.at("vertex-string"), json.at("frag-string"));
+			std::string vert = json.at("vertex-string");
+			std::string frag = json.at("frag-string");
+			m_shader.load_raw(vert, frag);
 		}
 		else
 		{
@@ -43,7 +50,7 @@ namespace galaxy
 	{
 		if (this != &sc)
 		{
-			this->m_shader = std::move(sc.m_shader);	
+			this->m_shader = std::move(sc.m_shader);
 		}
 
 		return *this;
