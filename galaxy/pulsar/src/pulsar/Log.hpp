@@ -10,11 +10,11 @@
 
 #include <fstream>
 #include <functional>
-#include <future>
 #include <mutex>
 
 #include <date/tz.h>
 #include <fmt/format.h>
+#include <jthread/jthread.hpp>
 
 #include "detail/Unix.hpp"
 #include "detail/Windows.hpp"
@@ -239,7 +239,7 @@ namespace pl
 		///
 		/// Thread all logging takes place on.
 		///
-		std::future<void> m_thread;
+		std::jthread m_thread;
 
 		///
 		/// Controls thread loop.

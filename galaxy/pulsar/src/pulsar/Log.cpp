@@ -45,10 +45,9 @@ namespace pl
 			std::filesystem::create_directory(dir);
 		}
 
-		m_thread = std::async(std::launch::async, [&]() {
+		m_file_stream.open(path.string(), std::ofstream::out);
+		m_thread = std::jthread([&]() {
 			// Open stream.
-			m_file_stream.open(path.string(), std::ofstream::out);
-
 			while (m_running.load())
 			{
 				m_mutex.lock();
@@ -64,14 +63,16 @@ namespace pl
 
 				m_mutex.unlock();
 			}
-
-			m_file_stream.close();
 		});
 	}
 
 	void Log::finish()
 	{
 		m_running = false;
+		m_thread.request_stop();
+		m_thread.join();
+
+		m_file_stream.close();
 	}
 
 	void Log::set_testing(const bool is_testing) noexcept
