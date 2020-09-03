@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <portable-file-dialogs.h>
+
 #include <galaxy/core/Application.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 
@@ -30,9 +32,7 @@ int main(int argsc, char* argsv[])
 		restart             = false;
 		SL_HANDLE.m_restart = false;
 
-#ifndef _DEBUG
 		try
-#endif
 		{
 			// Load DateTime db.
 			date::set_install("assets/tz/tzdata");
@@ -91,18 +91,14 @@ int main(int argsc, char* argsv[])
 
 			restart = editor.run();
 		}
-#ifndef _DEBUG
 		catch (std::exception& e)
 		{
-			std::cout << e.what() << std::endl;
-			std::cin.get();
+			pfd::message("FATAL EXCEPTION", e.what(), pfd::choice::ok, pfd::icon::error);
 		}
 		catch (...)
 		{
-			std::cout << "Did not utilize std::exception, invalid exception thrown!" << std::endl;
-			std::cin.get();
+			pfd::message("UNKNOWN EXCEPTION", "Did not utilize std::exception, invalid exception thrown.", pfd::choice::ok, pfd::icon::error);
 		}
-#endif
 
 	} while (restart);
 
