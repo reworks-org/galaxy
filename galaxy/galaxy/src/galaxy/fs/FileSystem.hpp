@@ -8,7 +8,7 @@
 #ifndef GALAXY_FILESYSTEM_HPP_
 #define GALAXY_FILESYSTEM_HPP_
 
-#include <string>
+#include <filesystem>
 
 ///
 /// Core namespace.
@@ -18,33 +18,36 @@ namespace galaxy
 	///
 	/// Filesystem paths for various things needing to be loaded.
 	///
-	class FileSystem
+	class FileSystem final
 	{
 	public:
 		///
-		/// Copy constructor.
-		///
-		FileSystem(const FileSystem&) noexcept = delete;
-
-		///
-		/// Move constructor.
-		///
-		FileSystem(FileSystem&&) noexcept = delete;
-
-		///
-		/// Copy assignment operator.
-		///
-		FileSystem& operator=(const FileSystem&) noexcept = delete;
-
-		///
-		/// Move assignment operator.
-		///
-		FileSystem& operator=(FileSystem&&) noexcept = delete;
-
-		///
 		/// Destructor.
 		///
-		virtual ~FileSystem() noexcept = default;
+		~FileSystem() = default;
+
+		///
+		/// Open an open file dialog using pfd.
+		///
+		/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
+		///					Defaults to all files.
+		/// \param def_path Default starting path to open dialog at.
+		///
+		static std::filesystem::path open_file_dialog(const std::string& filter = "*", const std::string& def_path = ".");
+
+		///
+		/// Open a save file dialog using pfd.
+		///
+		/// \param def_path Default starting path to open dialog at.
+		///
+		static std::filesystem::path save_file_dialog(const std::string& def_path = ".");
+
+		///
+		/// Open a folder using a file dialog.
+		///
+		/// \param def_path Default starting path to open dialog at.
+		///
+		static std::filesystem::path folder_select_dialog(const std::string& def_path = ".");
 
 		///
 		/// Root directory of all files.
@@ -104,7 +107,27 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		FileSystem() noexcept = default;
+		FileSystem() = default;
+
+		///
+		/// Copy constructor.
+		///
+		FileSystem(const FileSystem&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		FileSystem(FileSystem&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		FileSystem& operator=(const FileSystem&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		FileSystem& operator=(FileSystem&&) = delete;
 	};
 } // namespace galaxy
 
