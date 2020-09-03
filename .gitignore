@@ -8,10 +8,12 @@ output/
 supercluster/bin/Debug/*.exe
 supercluster/bin/Debug/*.ilk
 supercluster/bin/Debug/*.pdb
+supercluster/bin/Debug/*.ini
 supercluster/bin/Debug/logs/
 supercluster/bin/Release/*.exe
 supercluster/bin/Release/*.ilk
 supercluster/bin/Release/*.pdb
+supercluster/bin/Release/*.ini
 supercluster/bin/Release/logs/
 
 tests/bin/

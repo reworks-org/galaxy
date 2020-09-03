@@ -20,15 +20,17 @@ namespace sc
 {
 	ECSLayer::ECSLayer()
 	{
-		set_name("ECSLayer");
+		set_name("ecs_layer");
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
 
-		auto e = m_world->create_from_json("assets/json/entities/demo_entity.json");
+		//auto e = m_world->create_from_json("assets/json/entities/demo_entity.json");
 	}
 
 	ECSLayer::~ECSLayer()
 	{
+		m_world  = nullptr;
+		m_window = nullptr;
 	}
 
 	void ECSLayer::events()

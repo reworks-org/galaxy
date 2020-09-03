@@ -10,7 +10,7 @@
 
 #include "../layers/ECSLayer.hpp"
 //#include "../layers/GUILayer.hpp"
-//#include "../layers/ImGuiLayer.hpp"
+#include "../layers/ImGuiLayer.hpp"
 
 #include "Editor.hpp"
 
@@ -25,7 +25,7 @@ namespace sc
 	{
 		m_layers.add<ECSLayer>();
 		//m_layers.add<GUILayer>();
-		//m_layers.add<ImGuiLayer>();
+		m_layers.add<ImGuiLayer>();
 	}
 
 	void Editor::on_pop()
