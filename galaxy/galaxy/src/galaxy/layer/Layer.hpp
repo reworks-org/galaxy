@@ -10,6 +10,7 @@
 
 #include <string_view>
 
+#include <pulsar/Log.hpp>
 #include <qs/graphics/Camera.hpp>
 
 ///

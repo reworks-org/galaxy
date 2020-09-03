@@ -12,7 +12,6 @@
 #include <vector>
 
 #include <protostar/system/Concepts.hpp>
-#include <pulsar/Log.hpp>
 
 #include "galaxy/layer/Layer.hpp"
 
@@ -143,7 +142,6 @@ namespace galaxy
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Tried to get non existant layer: {0}.", name);
 			return nullptr;
 		}
 	}
