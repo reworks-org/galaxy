@@ -18,7 +18,7 @@
 namespace sc
 {
 	ImGuiLayer::ImGuiLayer()
-	    : m_world {nullptr}, m_window {nullptr}, m_show_script_editor {false}
+	    : m_world {nullptr}, m_window {nullptr}, m_show_script_editor {false}, m_show_entity_editor {false}, m_draw_console {false}
 	{
 		// clang-format off
 		set_name("imgui_layer");
@@ -84,7 +84,6 @@ namespace sc
 
 				if (ImGui::MenuItem("Texture Atlas Editor"))
 				{
-					//m_showTAEUI = !m_showTAEUI;
 				}
 
 				ImGui::EndMenu();
@@ -94,7 +93,7 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Entity Manager"))
 				{
-					//m_showEUI = !m_showEUI;
+					m_show_entity_editor = !m_show_entity_editor;
 				}
 
 				ImGui::EndMenu();
@@ -102,15 +101,25 @@ namespace sc
 
 			if (ImGui::MenuItem("Lua Console"))
 			{
-				//m_drawConsole = !m_drawConsole;
+				m_draw_console = !m_draw_console;
 			}
 
 			ImGui::EndMainMenuBar();
 		}
 
+		if (m_show_entity_editor)
+		{
+			entity_ui();
+		}
+
 		if (m_show_script_editor)
 		{
 			script_editor_ui();
+		}
+
+		if (m_draw_console)
+		{
+			m_console.draw(&m_draw_console);
 		}
 
 		/*
@@ -128,11 +137,6 @@ namespace sc
 		{
 			textureAtlasEditor();
 		}
-
-		if (m_drawConsole)
-		{
-			m_console.draw(&m_drawConsole);
-		}
 */
 		end();
 	}
@@ -148,6 +152,10 @@ namespace sc
 	{
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	}
+
+	void ImGuiLayer::entity_ui()
+	{
 	}
 
 	void ImGuiLayer::script_editor_ui()

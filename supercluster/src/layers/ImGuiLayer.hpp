@@ -11,6 +11,7 @@
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
 #include <galaxy/layer/Layer.hpp>
+#include <galaxy/scripting/LuaConsole.hpp>
 
 #include <TextEditor.h>
 
@@ -29,6 +30,7 @@ namespace sc
 		void start();
 		void end();
 
+		void entity_ui();
 		void script_editor_ui();
 
 	private:
@@ -36,8 +38,11 @@ namespace sc
 		qs::Window* m_window;
 
 		bool m_show_script_editor;
+		bool m_show_entity_editor;
+		bool m_draw_console;
 
 		TextEditor m_editor;
+		galaxy::LuaConsole m_console;
 	};
 } // namespace sc
 
