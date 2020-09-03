@@ -10,6 +10,7 @@
 #include <imgui_impl_opengl3.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/scripting/JSONDefinition.hpp>
 
 #include "ImGuiLayer.hpp"
@@ -162,8 +163,7 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Open"))
 				{
-					/*
-					auto fp = this->openFilePath();
+					auto fp = galaxy::FileSystem::open_file_dialog("*.json *.lua");
 					if (fp.extension() == ".json")
 					{
 						m_editor.SetLanguageDefinition(galaxy::get_json_definition());
@@ -175,30 +175,27 @@ namespace sc
 
 					std::ifstream text(fp.string(), std::ifstream::in);
 
-					if (!text.fail())
+					if (text.good())
 					{
 						std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
 						m_editor.SetText(str);
 					}
 					else
 					{
-						PL_LOG(PL_ERROR, "Failed to read file: " + fp.string());
+						PL_LOG(PL_ERROR, "Failed to read file: {0}.", fp.string());
 					}
 
 					text.close();
-					*/
 				}
 
 				if (ImGui::MenuItem("Save"))
 				{
-					/*
-					auto fp   = this->saveFilePath();
+					auto fp   = galaxy::FileSystem::save_file_dialog();
 					auto text = m_editor.GetText();
 
 					std::ofstream out(fp.string(), std::ios::out | std::ios::trunc);
 					out << text;
 					out.close();
-					*/
 				}
 
 				if (ImGui::MenuItem("Close"))
