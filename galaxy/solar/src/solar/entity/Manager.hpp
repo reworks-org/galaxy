@@ -15,7 +15,6 @@
 
 #include <protostar/system/UniqueID.hpp>
 #include <pulsar/Log.hpp>
-#include <range/v3/all.hpp>
 
 #include "solar/system/System.hpp"
 #include "solar/sets/ComponentSet.hpp"
