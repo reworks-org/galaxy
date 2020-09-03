@@ -11,9 +11,8 @@
 #include <queue>
 #include <vector>
 
-#include "protostar/system/cpp20.hpp"
-#include STL_JTHREAD
-#include STL_SEMAPHORE
+#include <jthread/jthread.hpp>
+#include <sync/semaphore>
 
 #include "protostar/async/ProtectedArithmetic.hpp"
 #include "protostar/async/Task.hpp"

@@ -8,8 +8,7 @@
 #ifndef FRB_MUSIC_HPP_
 #define FRB_MUSIC_HPP_
 
-#include <protostar/system/cpp20.hpp>
-#include STL_JTHREAD
+#include <jthread/jthread.hpp>
 
 #include "frb/detail/Source.hpp"
 #include "frb/detail/SourceManipulator.hpp"
