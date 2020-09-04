@@ -33,7 +33,7 @@ namespace qs
 	///
 	/// ONLY THE RENDERER IS ALLOWED TO UNBIND/BIND SHADERS.
 	///
-	class Renderer final
+	class Renderer
 	{
 	public:
 		///
@@ -64,7 +64,7 @@ namespace qs
 		///
 		/// Default destructor.
 		///
-		~Renderer() noexcept = default;
+		virtual ~Renderer() noexcept = default;
 
 		///
 		/// \brief Draw a point.

@@ -62,7 +62,7 @@ namespace pr
 		///
 		/// Run the task on the thread.
 		///
-		void exec() noexcept;
+		void exec();
 
 		///
 		/// Blocks calling thread until this task is finished.

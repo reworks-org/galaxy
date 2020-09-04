@@ -19,7 +19,7 @@ namespace starmap
 		std::string base64(const std::string& base64)
 		{
 			// Setup output.
-			std::string out = {""};
+			std::string out;
 
 			if (!base64.empty())
 			{
@@ -29,7 +29,8 @@ namespace starmap
 				for (int i = 0; i < 64; i++)
 					T["ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[i]] = i;
 
-				int val = 0, valb = -8;
+				int val  = 0;
+				int valb = -8;
 				for (auto c : base64)
 				{
 					if (T[c] == -1)
@@ -53,7 +54,7 @@ namespace starmap
 
 		std::string zlib(const std::string& zlib)
 		{
-			std::string out = {""};
+			std::string out;
 
 			if (!zlib.empty())
 			{
@@ -83,7 +84,7 @@ namespace starmap
 						do
 						{
 							decompress.next_out  = reinterpret_cast<Bytef*>(zlib_out.data());
-							decompress.avail_out = zlib_out.size();
+							decompress.avail_out = static_cast<uInt>(zlib_out.size());
 
 							err = inflate(&decompress, 0);
 
@@ -114,7 +115,7 @@ namespace starmap
 
 		std::string gzip(const std::string& gzip)
 		{
-			std::string out = {""};
+			std::string out;
 
 			if (!gzip.empty())
 			{

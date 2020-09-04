@@ -5,8 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "protostar/system/cpp20.hpp"
-#include STL_ATOMIC
+#include <sync/atomic_wait>
 
 #include "Task.hpp"
 
@@ -30,7 +29,7 @@ namespace pr
 		m_task = std::move(func);
 	}
 
-	void Task::exec() noexcept
+	void Task::exec()
 	{
 		m_task();
 		m_done = true;
