@@ -183,4 +183,12 @@ namespace frb
 	{
 		m_source = source;
 	}
+
+	ALint SourceManipulator::get_state()
+	{
+		int val = 0;
+		alGetSourcei(m_source, AL_SOURCE_STATE, &val);
+
+		return val;
+	}
 } // namespace frb

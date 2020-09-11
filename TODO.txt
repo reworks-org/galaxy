@@ -1,17 +1,20 @@
 ALL: NOEXCEPT
 
+
 PROTOSTAR:
 - Use <range> with RectPack -> or std::erase/erase_if
 - Use <coroutines> for ThreadPool
 
+
 FRB:
-- Playlists
+- ???
+
 
 PULSAR:
 - std::source_location
 - Replate date_tz with <chrono>
 - Replace fmt with <format>
-- These are in Log.hpp
+
 
 QUASAR:
 - C++20 review when eventual performance improvements are required.
@@ -21,20 +24,22 @@ QUASAR:
 - Vulkan/DirectX/gl3D
 - https://github.com/iryoku/smaa
 
+
 SOLAR:
-- Replace rangev3 in manager with <ranges> when avaliable.
 - Replace is_system concept with is_derived.
-- Replace operate() with ranges and views.
+- Replace operate() with <ranges>
+
 
 STARLIGHT:
 - Ability to queue events.
 
+
 STARMAP:
-- Write tests.
+- Write better tests.
 - copy/move constructors & operator=.
 
+
 GALAXY:
-- World::World() -> register default components.
 - Write tests.
 
 

@@ -155,6 +155,13 @@ namespace frb
 		void set_source_to_manipulate(const ALuint source) noexcept;
 
 		///
+		/// Retrieve OpenAL source state.
+		///
+		/// \return Integer of enum AL_SOURCE_STATE.
+		///
+		ALint get_state();
+
+		///
 		/// Pointer to source being used internally.
 		///
 		ALuint m_source;
