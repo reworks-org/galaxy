@@ -64,6 +64,15 @@ namespace qs
 		void create(qs::VertexBuffer& vb, qs::IndexBuffer& ib, const qs::VertexLayout& layout);
 
 		///
+		/// \brief Set as an instanced vertex array.
+		///
+		/// You should call this after create().
+		///
+		/// \param ib InstanceBuffer object. You need to store this elsewhere.
+		///
+		void set_instanced(qs::InstanceBuffer& ib);
+
+		///
 		/// Bind the current vertex array to current GL context.
 		///
 		void bind() noexcept;
@@ -73,16 +82,16 @@ namespace qs
 		///
 		void unbind() noexcept;
 
-		///
-		/// Change the way instancing works with the vertex array.
-		///
-		void change_divisor(unsigned int index, unsigned int div) noexcept;
-
 	private:
 		///
 		/// ID returned by OpenGL when generating vertex array.
 		///
 		unsigned int m_id;
+
+		///
+		/// Keeps track of next free attribute id.
+		///
+		unsigned int m_counter;
 	};
 
 	template<is_vertex VertexType>
@@ -95,13 +104,12 @@ namespace qs
 		// Add each attribute in the layout to the vertex array object.
 		// I.e. position attribute, then colour attribute of the verticies.
 		const auto& attributes = layout.get_attributes();
-		unsigned int counter   = 0;
 		for (const auto& attribute : attributes)
 		{
-			glVertexAttribPointer(counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(VertexType), (GLvoid*)attribute.m_offset);
-			glEnableVertexAttribArray(counter);
+			glVertexAttribPointer(m_counter, attribute.m_size, attribute.m_type, attribute.m_normalized, sizeof(VertexType), (GLvoid*)attribute.m_offset);
+			glEnableVertexAttribArray(m_counter);
 
-			++counter;
+			++m_counter;
 		}
 
 		unbind();

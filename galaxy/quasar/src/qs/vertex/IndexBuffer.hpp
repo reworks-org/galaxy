@@ -80,7 +80,7 @@ namespace qs
 		///
 		/// \return Returns a const unsigned int.
 		///
-		unsigned int count() const noexcept;
+		[[nodiscard]] unsigned int count() const noexcept;
 
 	private:
 		///

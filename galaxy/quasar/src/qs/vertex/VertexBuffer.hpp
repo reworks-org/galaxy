@@ -78,14 +78,14 @@ namespace qs
 		/// \return Vertex storage.
 		///
 		template<typename VertexType>
-		std::vector<VertexType> get() noexcept;
+		[[nodiscard]] std::vector<VertexType> get() noexcept;
 
 		///
 		/// Get OpenGL handle.
 		///
 		/// \return Const unsigned integer.
 		///
-		const unsigned int id() const noexcept;
+		[[nodiscard]] const unsigned int id() const noexcept;
 
 	private:
 		///

@@ -10,7 +10,7 @@
 
 #include <type_traits>
 
-#include "qs/vertex/type/InstanceVertex.hpp"
+#include "qs/vertex/InstanceBuffer.hpp"
 #include "qs/vertex/type/PrimitiveVertex.hpp"
 #include "qs/vertex/type/SpriteVertex.hpp"
 
@@ -116,7 +116,13 @@ namespace qs
 	///
 	template<typename Type>
 	concept is_vertex = (std::is_same<Type, SpriteVertex>::value ||
-			     std::is_same<Type, PrimitiveVertex>::value || std::is_same<Type, InstanceVertex>::value);
+			     std::is_same<Type, PrimitiveVertex>::value);
+
+	///
+	/// Allows instance buffer to be used as a vertex attribute array.
+	///
+	template<typename Type>
+	concept is_vertex_or_instance = (is_vertex<Type> || std::is_same<Type, InstanceBuffer>::value);
 
 	///
 	/// Conceptto ensure template parameter is a opengl buffer type.

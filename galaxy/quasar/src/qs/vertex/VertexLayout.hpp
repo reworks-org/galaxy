@@ -88,9 +88,8 @@ namespace qs
 		// Now to use constexpr to check on compile time the buffer type.
 		// This is faster since we dont need to bother checking at runtime.
 		// constexpr will discard the branch that is false and it wont be compiled.
-		constexpr bool is_instanced_vertex = std::is_same<VertexType, InstanceVertex>::value;
-		constexpr bool is_prim_vertex      = std::is_same<VertexType, PrimitiveVertex>::value;
-		constexpr bool is_sprite_vertex    = std::is_same<VertexType, SpriteVertex>::value;
+		constexpr bool is_prim_vertex   = std::is_same<VertexType, PrimitiveVertex>::value;
+		constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
 
 		if constexpr (is_sprite_vertex)
 		{
@@ -124,25 +123,6 @@ namespace qs
 			else
 			{
 				PL_LOG(PL_FATAL, "Failed to add vertex attribute for primitive vertex.");
-			}
-		}
-		else if constexpr (is_instanced_vertex)
-		{
-			if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
-			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(InstanceVertex, m_pos));
-			}
-			else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
-			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(InstanceVertex, m_texels));
-			}
-			else if constexpr (std::is_same<VertexAttribute, VAInstanceOffset>::value)
-			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(InstanceVertex, m_offset));
-			}
-			else
-			{
-				PL_LOG(PL_FATAL, "Failed to add vertex attribute for instanced vertex.");
 			}
 		}
 	}
