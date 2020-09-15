@@ -1,12 +1,13 @@
 #version 450 core
-layout (location = 0) in vec2 l_pos;
-layout (location = 1) in vec2 l_texels;
-layout (location = 2) in vec2 l_offset;
 
-out vec4 io_colour;
+in vec2 io_texels;
+
+out vec4 io_frag_colour;
+
+uniform sampler2D u_texture;
 
 void main()
 {
-    gl_Position = vec4(l_pos + l_offset, 0.0, 1.0);
-    io_colour = vec2(l_texels, 0.0, 1.0);
-}  
+	vec4 tex = texture(u_texture, io_texels);
+	io_frag_colour = tex;
+}

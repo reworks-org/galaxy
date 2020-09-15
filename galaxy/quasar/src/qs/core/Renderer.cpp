@@ -8,7 +8,7 @@
 #include <glm/mat4x4.hpp>
 
 #include "qs/core/Shader.hpp"
-#include "qs/graphics/Particle.hpp"
+#include "qs/graphics/ParticleGenerator.hpp"
 #include "qs/shapes/Circle.hpp"
 #include "qs/shapes/Line.hpp"
 #include "qs/shapes/Point.hpp"
@@ -112,11 +112,26 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, text.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_particles(qs::Particle& particles, qs::Shader& shader)
+	void Renderer::draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader)
 	{
-		particles.bind();
+		//glDrawElementsInstanced(GL_TRIANGLES, particles.index_count(), GL_UNSIGNED_INT, nullptr, particles.amount());
+		/*
+		// render
+        // ------
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		glDrawElementsInstanced(GL_TRIANGLES, particles.index_count(), GL_UNSIGNED_INT, nullptr, particles.amount());
+        // draw 100 instanced quads
+        shader.use();
+        glBindVertexArray(quadVAO);
+        glDrawArraysInstanced(GL_TRIANGLES, 0, 6, 100); // 100 triangles of 6 vertices each
+        glBindVertexArray(0);
+
+        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+        // -------------------------------------------------------------------------------
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+		*/
 	}
 
 	/*

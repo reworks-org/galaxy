@@ -26,7 +26,7 @@ namespace qs
 	class RenderTexture;
 	class Character;
 	class Text;
-	class Particle;
+	class ParticleGenerator;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -174,7 +174,7 @@ namespace qs
 		/// \param particles Particles to draw to screen.
 		/// \param shader Shader to apply to particles. You must have called bind() already!
 		///
-		void draw_particles(qs::Particle& particles, qs::Shader& shader);
+		void draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader);
 
 		///
 		/// Draw to render texture.

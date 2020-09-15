@@ -66,7 +66,7 @@ namespace qs
 		/// BufferType Fixed or dynamic buffer.
 		///
 		template<is_buffer BufferType>
-		void create();
+		void create(std::span<glm::vec2> instances);
 
 		///
 		/// Set z-level of sprite.
@@ -95,25 +95,33 @@ namespace qs
 		/// Amount of particles to draw.
 		///
 		unsigned int m_amount;
+
+		///
+		/// InstanceBuffer object.
+		///
+		qs::InstanceBuffer m_instance_buffer;
 	};
 
 	template<is_buffer BufferType>
-	inline void Particle::create()
+	inline void Particle::create(std::span<glm::vec2> instances)
 	{
-		auto v1 = make_vertex<InstanceVertex>(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-		auto v2 = make_vertex<InstanceVertex>(0.0f + m_width, 0.0f, 0.0f + m_width, 0.0f, 0.0f + m_width, 0.0f);
-		auto v3 = make_vertex<InstanceVertex>(0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height);
-		auto v4 = make_vertex<InstanceVertex>(0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height);
+		static_assert(std::is_same<BufferType, SpriteVertex>::value, "Particles must be a SpriteVertex BufferType.");
 
-		m_vb.create<InstanceVertex, BufferType>({v1, v2, v3, v4});
+		auto v1 = make_vertex<SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f, 10.0f);
+		auto v2 = make_vertex<SpriteVertex>(0.0f + m_width, 0.0f, 0.0f + m_width, 0.0f, 1.0f);
+		auto v3 = make_vertex<SpriteVertex>(0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height, 1.0f);
+		auto v4 = make_vertex<SpriteVertex>(0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height, 1.0f);
+
+		m_vb.create<SpriteVertex, BufferType>({v1, v2, v3, v4});
 		m_ib.create<BufferStatic>({0, 1, 3, 1, 2, 3});
 
-		m_layout.add<InstanceVertex, VAPosition>(2);
-		m_layout.add<InstanceVertex, VATexel>(2);
-		m_layout.add<InstanceVertex, VAInstanceOffset>(2);
+		m_layout.add<SpriteVertex, VAPosition>(2);
+		m_layout.add<SpriteVertex, VATexel>(2);
 
-		m_va.create<InstanceVertex>(m_vb, m_ib, m_layout);
-		m_va.change_divisor(2, 1);
+		m_va.create<SpriteVertex>(m_vb, m_ib, m_layout);
+
+		m_instance_buffer.create(instances, 1);
+		m_va.set_instanced(m_instance_buffer);
 	}
 } // namespace qs
 
