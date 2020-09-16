@@ -11,17 +11,21 @@
 #include <protostar/graphics/Rect.hpp>
 #include <protostar/math/Random.hpp>
 
-#include "qs/core/Shader.hpp"
-#include "qs/texture/Texture.hpp"
+#include "qs/graphics/Particle.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace qs
 {
-	struct DirectionalGen
+	struct HorizontalGen
 	{
-		DirectionalGen() = delete;
+		HorizontalGen() = delete;
+	};
+
+	struct VerticalGen
+	{
+		VerticalGen() = delete;
 	};
 
 	struct CircularGen
@@ -29,21 +33,10 @@ namespace qs
 		CircularGen() = delete;
 	};
 
-	struct RandomDirectionalGen
-	{
-		RandomDirectionalGen() = delete;
-	};
-
-	struct RandomCircularGen
-	{
-		RandomCircularGen() = delete;
-	};
-
 	template<typename Type>
-	concept particle_type = (std::is_same<Type, DirectionalGen>::value ||
-				 std::is_same<Type, CircularGen>::value ||
-				 std::is_same<Type, RandomDirectionalGen>::value ||
-				 std::is_same<Type, RandomCircularGen>::value);
+	concept particle_type = (std::is_same<Type, HorizontalGen>::value ||
+				 std::is_same<Type, VerticalGen>::value ||
+				 std::is_same<Type, CircularGen>::value);
 
 	///
 	///
@@ -53,28 +46,29 @@ namespace qs
 	{
 	public:
 		ParticleGenerator(std::string_view particle_sheet, qs::Shader* shader);
-
-		ParticleGenerator(const ParticleGenerator&) = delete;
-
-		ParticleGenerator(ParticleGenerator&&);
-
-		ParticleGenerator& operator=(const ParticleGenerator&) = delete;
-
-		ParticleGenerator& operator=(ParticleGenerator&&);
-
 		~ParticleGenerator();
 
-		void configure(std::string_view particle_type, const unsigned int amount);
+		ParticleGenerator(const ParticleGenerator&) = delete;
+		ParticleGenerator(ParticleGenerator&&);
+		ParticleGenerator& operator=(const ParticleGenerator&) = delete;
+		ParticleGenerator& operator                            =(ParticleGenerator&&);
+
+		void configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset);
 		void define(std::string_view particle_type, pr::Rect<int>& region);
 
 	private:
 		ParticleGenerator() = default;
+
 		void bind();
 		void unbind();
 
 		qs::Texture m_texture;
+
 		qs::Shader* m_shader;
 
+		std::vector<glm::vec2> m_offsets;
+
+		std::unordered_map<std::string, Particle> m_particles;
 		std::unordered_map<std::string, pr::Rect<int>> m_texture_regions;
 	};
 
@@ -118,25 +112,30 @@ namespace qs
 	}
 
 	template<particle_type ParticleGenType>
-	void ParticleGenerator<ParticleGenType>::configure(std::string_view particle_type, const unsigned int amount)
+	void ParticleGenerator<ParticleGenType>::configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset)
 	{
-		if constexpr (std::is_same<ParticleGenType, DirectionalGen>::value)
+		for (unsigned int count = 0; count < amount; count++)
 		{
-			for (unsigned int count = 0; count < amount; count++)
+			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
 			{
-				auto val = protostar::random<unsigned int>(0, 25);
-				?
+				auto x = protostar::random<unsigned int>(min_offset, max_offset);
+				m_offsets.push_back(x, 0);
+			}
+			else if constexpr (std::is_same<ParticleGenType, VerticalGen>::value)
+			{
+				auto y = protostar::random<unsigned int>(min_offset, max_offset);
+				m_offsets.push_back(0, y);
+			}
+			else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
+			{
+				auto x = protostar::random<unsigned int>(min_offset, max_offset);
+				auto y = protostar::random<unsigned int>(min_offset, max_offset);
+				m_offsets.push_back(x, y);
 			}
 		}
-		else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
-		{
-		}
-		else if constexpr (std::is_same<ParticleGenType, RandomDirectionalGen>::value)
-		{
-		}
-		else if constexpr (std::is_same<ParticleGenType, RandomCircularGen>::value)
-		{
-		}
+
+		m_particles.emplace(particle_type);
+		m_particles[particle_type].create<SpriteVertex>();
 	}
 
 	template<particle_type ParticleGenType>

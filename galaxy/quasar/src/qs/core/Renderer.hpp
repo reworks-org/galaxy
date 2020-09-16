@@ -8,6 +8,8 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
+#include "qs/graphics/ParticleGenerator.hpp"
+
 ///
 /// Core namespace.
 ///
@@ -26,7 +28,6 @@ namespace qs
 	class RenderTexture;
 	class Character;
 	class Text;
-	class ParticleGenerator;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -174,7 +175,8 @@ namespace qs
 		/// \param particles Particles to draw to screen.
 		/// \param shader Shader to apply to particles. You must have called bind() already!
 		///
-		void draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader);
+		template<particle_type ParticleGenType>
+		void draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader);
 
 		///
 		/// Draw to render texture.
@@ -204,6 +206,29 @@ namespace qs
 		/// \param ls Light source(s) for lighting. Provides its own shader.
 		///
 	};
+
+	template<particle_type ParticleGenType>
+	inline void Renderer::draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader)
+	{
+		//glDrawElementsInstanced(GL_TRIANGLES, particles.index_count(), GL_UNSIGNED_INT, nullptr, particles.amount());
+		/*
+			// render
+			// ------
+			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+			// draw 100 instanced quads
+			shader.use();
+			glBindVertexArray(quadVAO);
+			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, 100); // 100 triangles of 6 vertices each
+			glBindVertexArray(0);
+
+			// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+			// -------------------------------------------------------------------------------
+			glfwSwapBuffers(window);
+			glfwPollEvents();
+			*/
+	}
 } // namespace qs
 
 #endif

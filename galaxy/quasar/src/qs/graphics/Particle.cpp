@@ -13,34 +13,46 @@
 namespace qs
 {
 	Particle::Particle()
-	    : VertexData {}, Texture {}, m_amount {1}
+	    : m_velocity {1.0f, 1.0f}
 	{
 	}
 
-	Particle::Particle(unsigned int amount)
-	    : VertexData {}, Texture {}, m_amount {amount}
+	Particle::Particle(const float x_vel, const float y_vel)
+	    : m_velocity {x_vel, y_vel}
 	{
 	}
 
-	void Particle::set_z_level(const unsigned int z_level) noexcept
+	Particle::Particle(Particle&& p)
 	{
-		m_z_level = z_level;
+		this->m_velocity        = std::move(p.m_velocity);
+		this->m_instance_buffer = std::move(p.m_instance_buffer);
 	}
 
-	void Particle::bind() noexcept
+	Particle& Particle::operator=(Particle&& p)
 	{
-		m_va.bind();
-		glBindTexture(GL_TEXTURE_2D, m_texture);
+		if (this != &p)
+		{
+			this->m_velocity        = std::move(p.m_velocity);
+			this->m_instance_buffer = std::move(p.m_instance_buffer);
+		}
+
+		return *this;
 	}
 
-	void Particle::unbind() noexcept
+	void Particle::set_velocity(const float x_vel, const float y_vel)
 	{
-		m_va.unbind();
-		glBindTexture(GL_TEXTURE_2D, 0);
+		m_velocity.x = x_vel;
+		m_velocity.y = y_vel;
 	}
 
-	const unsigned int Particle::amount() const noexcept
+	void Particle::set_instance(std::span<glm::vec2> instances)
 	{
-		return m_amount;
+		m_instance_buffer.create(instances, 1);
+		m_va.set_instanced(m_instance_buffer);
+	}
+
+	const glm::vec2& Particle::velocity() const noexcept
+	{
+		return m_velocity;
 	}
 } // namespace qs
