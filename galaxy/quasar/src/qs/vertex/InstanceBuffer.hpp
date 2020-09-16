@@ -10,6 +10,8 @@
 
 #include <span>
 
+#include <glm/vec2.hpp>
+
 ///
 /// Core namespace.
 ///

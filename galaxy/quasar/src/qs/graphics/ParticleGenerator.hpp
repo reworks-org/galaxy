@@ -11,6 +11,7 @@
 #include <protostar/graphics/Rect.hpp>
 #include <protostar/math/Random.hpp>
 
+#include "qs/core/Shader.hpp"
 #include "qs/graphics/Particle.hpp"
 
 ///
@@ -107,7 +108,7 @@ namespace qs
 	template<particle_type ParticleGenType>
 	inline ParticleGenerator<ParticleGenType>::~ParticleGenerator()
 	{
-		pg.m_shader = nullptr;
+		m_shader = nullptr;
 		m_texture_regions.clear();
 	}
 
