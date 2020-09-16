@@ -11,9 +11,6 @@
 [submodule "dependencies/stb"]
 	path = dependencies/stb
 	url = https://github.com/nothings/stb.git
-[submodule "dependencies/sol3"]
-	path = dependencies/sol3
-	url = https://github.com/cradleapps/sol2.git
 [submodule "dependencies/glfw3"]
 	path = dependencies/glfw3
 	url = https://github.com/glfw/glfw.git
