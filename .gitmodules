@@ -32,3 +32,6 @@
 [submodule "dependencies/openal"]
 	path = dependencies/openal
 	url = https://github.com/kcat/openal-soft.git
+[submodule "dependencies/sol3"]
+	path = dependencies/sol3
+	url = https://github.com/ThePhD/sol2.git
