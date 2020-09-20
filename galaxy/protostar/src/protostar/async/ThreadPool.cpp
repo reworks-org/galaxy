@@ -15,7 +15,7 @@
 namespace pr
 {
 	ThreadPool::ThreadPool() noexcept
-	    : m_max_threads {8}, m_is_destroyed {true}
+	    : m_max_threads {4}, m_is_destroyed {true}, m_sync {1}
 	{
 		m_running.set(false);
 	}
@@ -30,7 +30,7 @@ namespace pr
 
 	void ThreadPool::create(const int count)
 	{
-		if (!(count <= 0 || count > std::thread::hardware_concurrency()))
+		if (!(count <= 0 || static_cast<unsigned int>(count) > std::thread::hardware_concurrency()))
 		{
 			m_max_threads = count;
 		}

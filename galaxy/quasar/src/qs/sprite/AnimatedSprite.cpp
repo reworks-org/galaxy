@@ -27,24 +27,24 @@ namespace qs
 				m_time_spent_on_frame = 0;
 				auto* new_frame       = m_active_anim->next_frame();
 
-				auto* vb            = &m_vb.get<qs::SpriteVertex>();
-				auto* vertex        = &vb->at(0);
+				auto vb             = m_vb.get<qs::SpriteVertex>();
+				auto* vertex        = &vb[0];
 				vertex->m_texels[0] = new_frame->get_x();
 				vertex->m_texels[1] = new_frame->get_y();
 
-				vertex              = &vb->at(1);
+				vertex              = &vb[1];
 				vertex->m_texels[0] = new_frame->get_x() + m_width;
 				vertex->m_texels[1] = new_frame->get_y();
 
-				vertex              = &vb->at(2);
+				vertex              = &vb[2];
 				vertex->m_texels[0] = new_frame->get_x() + m_width;
 				vertex->m_texels[1] = new_frame->get_y() + m_height;
 
-				vertex              = &vb->at(3);
+				vertex              = &vb[3];
 				vertex->m_texels[0] = new_frame->get_x();
 				vertex->m_texels[1] = new_frame->get_y() + m_height;
 
-				glNamedBufferSubData(m_vb.id(), 0, vb->size() * sizeof(qs::SpriteVertex), vb->data());
+				glNamedBufferSubData(m_vb.id(), 0, vb.size() * sizeof(qs::SpriteVertex), vb.data());
 			}
 		}
 	}
