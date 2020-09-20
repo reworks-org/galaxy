@@ -119,24 +119,26 @@ namespace qs
 		{
 			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
 			{
-				auto x = protostar::random<unsigned int>(min_offset, max_offset);
+				auto x = pr::random<unsigned int>(min_offset, max_offset);
 				m_offsets.push_back(x, 0);
 			}
 			else if constexpr (std::is_same<ParticleGenType, VerticalGen>::value)
 			{
-				auto y = protostar::random<unsigned int>(min_offset, max_offset);
+				auto y = pr::random<unsigned int>(min_offset, max_offset);
 				m_offsets.push_back(0, y);
 			}
 			else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
 			{
-				auto x = protostar::random<unsigned int>(min_offset, max_offset);
-				auto y = protostar::random<unsigned int>(min_offset, max_offset);
-				m_offsets.push_back(x, y);
+				auto x = pr::random<unsigned int>(min_offset, max_offset);
+				auto y = pr::random<unsigned int>(min_offset, max_offset);
+				m_offsets.push_back({x, y});
 			}
 		}
 
-		m_particles.emplace(particle_type);
-		m_particles[particle_type].create<SpriteVertex>();
+		auto str = static_cast<std::string>(particle_type);
+		m_particles.emplace(str);
+		m_particles[str].load(m_texture.gl_texture(), m_texture.get_width(), m_texture.get_height());
+		m_particles[str].create<qs::SpriteVertex>();
 	}
 
 	template<particle_type ParticleGenType>
@@ -148,11 +150,15 @@ namespace qs
 	template<particle_type ParticleGenType>
 	void ParticleGenerator<ParticleGenType>::bind()
 	{
+		m_texture.bind();
+		m_shader->bind();
 	}
 
 	template<particle_type ParticleGenType>
 	void ParticleGenerator<ParticleGenType>::unbind()
 	{
+		m_texture.unbind();
+		m_shader->unbind();
 	}
 } // namespace qs
 
