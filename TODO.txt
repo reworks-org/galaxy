@@ -23,6 +23,7 @@ QUASAR:
 - Particles
 - Vulkan/DirectX/gl3D
 - https://github.com/iryoku/smaa
+- Vertex retrieval
 
 
 SOLAR:
