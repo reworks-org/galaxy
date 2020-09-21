@@ -16,4 +16,15 @@ supercluster/bin/Release/*.pdb
 supercluster/bin/Release/*.ini
 supercluster/bin/Release/logs/
 
+sandbox_tests/bin/Debug/*.exe
+sandbox_tests/bin/Debug/*.ilk
+sandbox_tests/bin/Debug/*.pdb
+sandbox_tests/bin/Debug/*.ini
+sandbox_tests/bin/Debug/logs/
+sandbox_tests/bin/Release/*.exe
+sandbox_tests/bin/Release/*.ilk
+sandbox_tests/bin/Release/*.pdb
+sandbox_tests/bin/Release/*.ini
+sandbox_tests/bin/Release/logs/
+
 tests/bin/
