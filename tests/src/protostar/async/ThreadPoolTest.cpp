@@ -11,13 +11,12 @@
 TEST(ThreadPool, full_test)
 {
 	std::atomic<int> count = 0;
-	pr::ThreadPool pool;
+	pr::ThreadPool<1> pool;
 	pr::Task task;
 	task.set([&]() {
 		count = 2;
 	});
 
-	pool.create(1);
 	pool.queue(&task);
 	pool.start();
 

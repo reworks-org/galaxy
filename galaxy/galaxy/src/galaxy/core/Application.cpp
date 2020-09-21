@@ -77,8 +77,7 @@ namespace galaxy
 		galaxy::FileSystem::s_saves    = m_config->get<std::string>("save-folder");
 
 		// threadpool
-		m_threadpool = std::make_unique<pr::ThreadPool>();
-		m_threadpool->create(m_config->get<int>("threadpool-threadcount"));
+		m_threadpool = std::make_unique<pr::ThreadPool<4>>();
 		m_threadpool->start();
 		SL_HANDLE.m_threadpool = m_threadpool.get();
 
@@ -212,12 +211,12 @@ namespace galaxy
 		}
 
 		m_state->clear();
-		m_threadpool->end();
+		PL_LOG_FINISH;
 
 		FTLIB.close();
-		m_window->destroy();
 
-		PL_LOG_FINISH;
+		m_threadpool->end();
+		m_window->destroy();
 
 		return SL_HANDLE.m_restart;
 	}

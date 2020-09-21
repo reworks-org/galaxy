@@ -29,6 +29,7 @@ namespace qs
 ///
 namespace pr
 {
+	template<std::size_t max_threads>
 	class ThreadPool;
 	class StateMachine;
 } // namespace pr
@@ -110,7 +111,7 @@ namespace galaxy
 		///
 		/// \return Return pointer to threadpool.
 		///
-		[[maybe_unused]] pr::ThreadPool* pool() const noexcept;
+		[[maybe_unused]] pr::ThreadPool<4>* pool() const noexcept;
 
 		///
 		/// Get window service.
@@ -199,7 +200,7 @@ namespace galaxy
 		///
 		/// Threadpool service.
 		///
-		pr::ThreadPool* m_threadpool;
+		pr::ThreadPool<4>* m_threadpool;
 
 		///
 		/// Window service.
