@@ -46,7 +46,7 @@ namespace qs
 	class ParticleGenerator final
 	{
 	public:
-		ParticleGenerator(std::string_view particle_sheet, qs::Shader* shader);
+		ParticleGenerator() = default;
 		~ParticleGenerator();
 
 		ParticleGenerator(const ParticleGenerator&) = delete;
@@ -54,14 +54,19 @@ namespace qs
 		ParticleGenerator& operator=(const ParticleGenerator&) = delete;
 		ParticleGenerator& operator                            =(ParticleGenerator&&);
 
+		void create(std::string_view particle_sheet, qs::Shader* shader);
 		void configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset);
-		void define(std::string_view particle_type, pr::Rect<int>& region);
+		void define(std::string_view particle_type, pr::Rect<int> region);
 
-	private:
-		ParticleGenerator() = default;
+		const unsigned int amount() const noexcept;
+		const unsigned int gl_index_count();
 
 		void bind();
 		void unbind();
+
+	private:
+		unsigned int m_amount;
+		std::string m_current;
 
 		qs::Texture m_texture;
 
@@ -74,9 +79,9 @@ namespace qs
 	};
 
 	template<particle_type ParticleGenType>
-	ParticleGenerator<ParticleGenType>::ParticleGenerator(std::string_view particle_sheet, qs::Shader* shader)
-	    : m_shader {shader}
+	inline void ParticleGenerator<ParticleGenType>::create(std::string_view particle_sheet, qs::Shader* shader)
 	{
+		m_shader = shader;
 		m_texture.load(particle_sheet);
 	}
 
@@ -115,6 +120,8 @@ namespace qs
 	template<particle_type ParticleGenType>
 	void ParticleGenerator<ParticleGenType>::configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset)
 	{
+		m_amount = amount;
+
 		for (unsigned int count = 0; count < amount; count++)
 		{
 			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
@@ -135,16 +142,28 @@ namespace qs
 			}
 		}
 
-		auto str = static_cast<std::string>(particle_type);
-		m_particles.emplace(str);
-		m_particles[str].load(m_texture.gl_texture(), m_texture.get_width(), m_texture.get_height());
-		m_particles[str].create<qs::SpriteVertex>();
+		m_current = static_cast<std::string>(particle_type);
+		m_particles.emplace(m_current, qs::Particle());
+		m_particles[m_current].load(m_texture.gl_texture(), m_texture.get_width(), m_texture.get_height());
+		m_particles[m_current].create<qs::BufferStatic>();
 	}
 
 	template<particle_type ParticleGenType>
-	void ParticleGenerator<ParticleGenType>::define(std::string_view particle_type, pr::Rect<int>& region)
+	void ParticleGenerator<ParticleGenType>::define(std::string_view particle_type, pr::Rect<int> region)
 	{
 		m_texture_regions.emplace(static_cast<std::string>(particle_type), std::move(region));
+	}
+
+	template<particle_type ParticleGenType>
+	inline const unsigned int ParticleGenerator<ParticleGenType>::amount() const noexcept
+	{
+		return m_amount;
+	}
+
+	template<particle_type ParticleGenType>
+	inline const unsigned int ParticleGenerator<ParticleGenType>::gl_index_count()
+	{
+		return m_particles[m_current].index_count();
 	}
 
 	template<particle_type ParticleGenType>
@@ -152,6 +171,7 @@ namespace qs
 	{
 		m_texture.bind();
 		m_shader->bind();
+		m_particles[m_current].bind();
 	}
 
 	template<particle_type ParticleGenType>
