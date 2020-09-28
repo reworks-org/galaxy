@@ -58,8 +58,11 @@ namespace qs
 		///
 		/// BufferType Fixed or dynamic buffer.
 		///
+		/// \param tex_x Optional texture x pos.
+		/// \param tex_y Optional texture y pos.
+		///
 		template<is_buffer BufferType>
-		void create();
+		void create(const float tex_x = 0.0f, const float tex_y = 0.0f);
 
 		///
 		/// Set opacity.
@@ -102,12 +105,12 @@ namespace qs
 	};
 
 	template<is_buffer BufferType>
-	inline void Sprite::create()
+	inline void Sprite::create(const float tex_x, const float tex_y)
 	{
-		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f, m_opacity);
-		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f, 0.0f + m_width, 0.0f, m_opacity);
-		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f + m_height, 0.0f + m_width, 0.0f + m_height, m_opacity);
-		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_height, 0.0f, 0.0f + m_height, m_opacity);
+		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, tex_x, tex_y, m_opacity);
+		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f, tex_x + m_width, tex_y, m_opacity);
+		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f + m_height, tex_x + m_width, tex_y + m_height, m_opacity);
+		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_height, tex_x, tex_y + m_height, m_opacity);
 
 		std::array<qs::SpriteVertex, 4> vb_arr = {v1, v2, v3, v4};
 		std::array<unsigned int, 6> ib_arr     = {0, 1, 3, 1, 2, 3};

@@ -95,7 +95,7 @@ namespace galaxy
 		///
 		/// Threadpool for app.
 		///
-		std::unique_ptr<pr::ThreadPool> m_threadpool;
+		std::unique_ptr<pr::ThreadPool<4>> m_threadpool;
 
 		///
 		/// Main app window.

@@ -124,6 +124,11 @@ add_dependencies(galaxy
 
 # Add external dependencies.
 add_subdirectory(dependencies/freetype2)
+set(FT_WITH_ZLIB OFF CACHE BOOL "" FORCE)
+set(FT_WITH_BZIP2 OFF CACHE BOOL "" FORCE)
+set(FT_WITH_PNG OFF CACHE BOOL "" FORCE)
+set(FT_WITH_HARFBUZZ OFF CACHE BOOL "" FORCE)
+set(FT_WITH_BROTLI OFF CACHE BOOL "" FORCE)
 set_target_properties(freetype PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
@@ -233,9 +238,15 @@ add_dependencies(BUILD_GALAXY_ENGINE BUILD_INTERNAL_LIBS galaxy)
 
 # Import applications
 add_subdirectory(supercluster)
+add_subdirectory(sandbox_tests)
 add_subdirectory(tests)
 
 add_dependencies(supercluster
+    BUILD_EXTERNAL_LIBS
+    BUILD_GALAXY_ENGINE
+)
+
+add_dependencies(sandbox_test
     BUILD_EXTERNAL_LIBS
     BUILD_GALAXY_ENGINE
 )
@@ -277,6 +288,7 @@ set(all_header_dirs
 	"${CMAKE_SOURCE_DIR}/galaxy/solar/src"
 	"${CMAKE_SOURCE_DIR}/galaxy/starlight/src"
 	"${CMAKE_SOURCE_DIR}/galaxy/starmap/src"
+    "${CMAKE_SOURCE_DIR}/sandbox_tests/src"
 	"${CMAKE_SOURCE_DIR}/supercluster/src"
 )
 
@@ -303,6 +315,7 @@ target_include_directories(solar PUBLIC ${all_header_dirs})
 target_include_directories(starlight PUBLIC ${all_header_dirs})
 target_include_directories(starmap PUBLIC ${all_header_dirs})
 target_include_directories(supercluster PUBLIC ${all_header_dirs})
+target_include_directories(sandbox_test PUBLIC ${all_header_dirs})
 target_include_directories(tests PUBLIC ${all_header_dirs})
 
 # System specific libraries.
@@ -356,6 +369,27 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
 
+	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug/freetyped.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.lib")
+
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
+
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug/freetyped.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
@@ -398,6 +432,27 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
 
+	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Release/freetype.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.lib")
+
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
+
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Release/freetype.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
@@ -424,4 +479,5 @@ endif()
 
 # Link system libs.
 target_link_libraries(supercluster PUBLIC ${SYSTEM_LIBS})
+target_link_libraries(sandbox_test PUBLIC ${SYSTEM_LIBS})
 target_link_libraries(tests PUBLIC ${SYSTEM_LIBS})

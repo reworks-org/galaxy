@@ -176,7 +176,7 @@ namespace qs
 		/// \param shader Shader to apply to particles. You must have called bind() already!
 		///
 		template<particle_type ParticleGenType>
-		void draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader);
+		void draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen);
 
 		///
 		/// Draw to render texture.
@@ -208,26 +208,11 @@ namespace qs
 	};
 
 	template<particle_type ParticleGenType>
-	inline void Renderer::draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader)
+	inline void Renderer::draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen)
 	{
-		//glDrawElementsInstanced(GL_TRIANGLES, particles.index_count(), GL_UNSIGNED_INT, nullptr, particles.amount());
-		/*
-			// render
-			// ------
-			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		particle_gen.bind();
 
-			// draw 100 instanced quads
-			shader.use();
-			glBindVertexArray(quadVAO);
-			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, 100); // 100 triangles of 6 vertices each
-			glBindVertexArray(0);
-
-			// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-			// -------------------------------------------------------------------------------
-			glfwSwapBuffers(window);
-			glfwPollEvents();
-			*/
+		glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
 	}
 } // namespace qs
 

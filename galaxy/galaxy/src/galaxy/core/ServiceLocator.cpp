@@ -23,7 +23,7 @@ namespace galaxy
 		return m_config;
 	}
 
-	pr::ThreadPool* ServiceLocator::pool() const noexcept
+	pr::ThreadPool<4>* ServiceLocator::pool() const noexcept
 	{
 		return m_threadpool;
 	}
