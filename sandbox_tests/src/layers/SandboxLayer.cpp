@@ -32,9 +32,9 @@ namespace sb
 
 		// create and set texture
 		auto tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "particle_demo.png";
-		m_particle_gen.create(tex, &m_shader);
+		m_particle_gen.create(tex);
 		m_particle_gen.define("default", {0, 0, 16, 16});
-		m_particle_gen.configure("default", 100, 0, 50);
+		m_particle_gen.configure("default", 100, 0, 100);
 	}
 
 	SandboxLayer::~SandboxLayer()
