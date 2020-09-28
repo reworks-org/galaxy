@@ -61,6 +61,7 @@ namespace sb
 	void SandboxLayer::render(qs::Camera& camera)
 	{
 		// set shader
+		m_shader.bind();
 		m_shader.set_uniform("u_opacity", 1.0f);
 		m_shader.set_uniform<float>("u_width", 16.0f);
 		m_shader.set_uniform<float>("u_height", 16.0f);

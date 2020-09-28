@@ -213,19 +213,6 @@ namespace qs
 		particle_gen.bind();
 
 		glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
-
-		/*
-			glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			shader.use();
-			glBindVertexArray(quadVAO);
-			glDrawArraysInstanced(GL_TRIANGLES, 0, 6, 100); // 100 triangles of 6 vertices each
-			glBindVertexArray(0);
-
-			glfwSwapBuffers(window);
-			glfwPollEvents();
-		*/
 	}
 } // namespace qs
 
