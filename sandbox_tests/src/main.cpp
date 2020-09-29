@@ -47,7 +47,6 @@ int main(int argsc, char* argsv[])
 			config->init("assets/config.json");
 			if (!config->open())
 			{
-				config->define<int>("threadpool-threadcount", 4);
 				config->define<int>("anti-aliasing", 2);
 				config->define<int>("ansio-filter", 2);
 				config->define<bool>("vsync", true);
