@@ -61,12 +61,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		ParticleGenerator() = default;
-
-		///
-		/// Destructor.
-		///
-		~ParticleGenerator();
+		ParticleGenerator();
 
 		///
 		/// Copy constructor.
@@ -87,6 +82,11 @@ namespace qs
 		/// Move assignment operator.
 		///
 		ParticleGenerator& operator=(ParticleGenerator&&);
+
+		///
+		/// Destructor.
+		///
+		~ParticleGenerator();
 
 		///
 		/// Create particle generator.
@@ -114,6 +114,24 @@ namespace qs
 		void configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset);
 
 		///
+		/// Update to process the "life" (opacity) of the particles.
+		///
+		/// \param dt DeltaTime from gameloop.
+		/// \param life Speed at which the particle decays.
+		///
+		void update(const double dt, const double life);
+
+		///
+		/// Bind particle generator to active opengl instance.
+		///
+		void bind();
+
+		///
+		/// Unbind particle generator from active opengl instance.
+		///
+		void unbind();
+
+		///
 		/// Get the current amount of particles being drawn.
 		///
 		/// \return Const unsigned integer.
@@ -128,16 +146,18 @@ namespace qs
 		const unsigned int gl_index_count();
 
 		///
-		/// Bind particle generator to active opengl instance.
+		/// Get current state of particles.
 		///
-		void bind();
-
+		/// \return Const boolean.
 		///
-		/// Unbind particle generator from active opengl instance.
-		///
-		void unbind();
+		const bool is_finished() const noexcept;
 
 	private:
+		///
+		/// Are all particles finished rendering.
+		///
+		bool m_finished;
+
 		///
 		/// Amount of particles being generated per instance.
 		///
@@ -170,9 +190,9 @@ namespace qs
 	};
 
 	template<particle_type ParticleGenType>
-	inline void ParticleGenerator<ParticleGenType>::create(std::string_view particle_sheet)
+	inline ParticleGenerator<ParticleGenType>::ParticleGenerator()
+	    : m_finished {false}, m_amount {0}, m_current {""}
 	{
-		m_texture.load(particle_sheet);
 	}
 
 	template<particle_type ParticleGenType>
@@ -198,6 +218,12 @@ namespace qs
 	inline ParticleGenerator<ParticleGenType>::~ParticleGenerator()
 	{
 		m_texture_regions.clear();
+	}
+
+	template<particle_type ParticleGenType>
+	inline void ParticleGenerator<ParticleGenType>::create(std::string_view particle_sheet)
+	{
+		m_texture.load(particle_sheet);
 	}
 
 	template<particle_type ParticleGenType>
@@ -244,15 +270,17 @@ namespace qs
 	}
 
 	template<particle_type ParticleGenType>
-	inline const unsigned int ParticleGenerator<ParticleGenType>::amount() const noexcept
+	inline void ParticleGenerator<ParticleGenType>::update(const double dt, const double life)
 	{
-		return m_amount;
-	}
-
-	template<particle_type ParticleGenType>
-	inline const unsigned int ParticleGenerator<ParticleGenType>::gl_index_count()
-	{
-		return m_particles[m_current].index_count();
+		if (m_particles[m_current].m_opacity > 0.0f)
+		{
+			m_finished = false;
+			m_particles[m_current].m_opacity -= static_cast<float>(life * dt);
+		}
+		else
+		{
+			m_finished = true;
+		}
 	}
 
 	template<particle_type ParticleGenType>
@@ -266,6 +294,24 @@ namespace qs
 	void ParticleGenerator<ParticleGenType>::unbind()
 	{
 		m_texture.unbind();
+	}
+
+	template<particle_type ParticleGenType>
+	inline const unsigned int ParticleGenerator<ParticleGenType>::amount() const noexcept
+	{
+		return m_amount;
+	}
+
+	template<particle_type ParticleGenType>
+	inline const unsigned int ParticleGenerator<ParticleGenType>::gl_index_count()
+	{
+		return m_particles[m_current].index_count();
+	}
+
+	template<particle_type ParticleGenType>
+	inline const bool ParticleGenerator<ParticleGenType>::is_finished() const noexcept
+	{
+		return m_finished;
 	}
 } // namespace qs
 
