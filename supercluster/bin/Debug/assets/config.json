@@ -19,7 +19,6 @@
     "shaders-path": "shaders/",
     "srgb": false,
     "textures-path": "textures/",
-    "threadpool-threadcount": 4,
     "vsync": true,
     "window-height": 720,
     "window-name": "Supercluster - Galaxy Editor",

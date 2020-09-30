@@ -27,8 +27,8 @@ namespace galaxy
 	}
 
 	LuaEntity::LuaEntity(sr::Entity entity)
+	    : m_entity {entity}
 	{
-		m_entity = entity;
 	}
 
 	LuaEntity::LuaEntity(LuaEntity&& le) noexcept

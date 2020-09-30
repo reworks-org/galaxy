@@ -394,7 +394,7 @@ namespace sr
 		// Ensure data is not empty.
 		if (!m_data.empty())
 		{
-			constexpr auto length = sizeof...(Components);
+			// constexpr auto length = sizeof...(Components);
 			std::vector<sr::Entity> entities;
 
 			// using ComponentContainer = std::vector<std::unique_ptr<EntitySet<sr::Entity>>>;

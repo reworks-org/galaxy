@@ -165,9 +165,9 @@ namespace frb
 							format = AL_FORMAT_MONO16;
 						}
 
-						auto read_length = ov_pcm_total(&ogg_handle, -1) * m_channels * 2;
+						const auto read_length = static_cast<ALsizei>(ov_pcm_total(&ogg_handle, -1) * m_channels * 2);
 						std::string read_buff(read_length, '\0'); // Doesnt like {} initialization.
-						for (std::size_t _size = 0, _offset = 0, _sel = 0;
+						for (long _size = 0, _offset = 0, _sel = 0;
 						     (_size = ov_read(&ogg_handle, &read_buff[0] + _offset, 4096, 0, 2, 1, (int*)&_sel)) != 0;
 						     _offset += _size)
 						{

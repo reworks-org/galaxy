@@ -81,13 +81,6 @@ namespace qs
 		void set_z_level(const unsigned int z_level) noexcept;
 
 		///
-		/// Get opacity.
-		///
-		/// \return Const float.
-		///
-		[[nodiscard]] const float opacity() const noexcept;
-
-		///
 		/// Activate sprite context.
 		///
 		void bind() noexcept override;
@@ -97,6 +90,13 @@ namespace qs
 		///
 		void unbind() noexcept override;
 
+		///
+		/// Get opacity.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float opacity() const noexcept;
+		
 	protected:
 		///
 		/// Opacity of sprite.

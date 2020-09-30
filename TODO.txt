@@ -42,6 +42,7 @@ STARMAP:
 
 GALAXY:
 - Write tests.
+- Update scripting interface.
 
 
 NOTE:

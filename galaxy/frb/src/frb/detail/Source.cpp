@@ -108,7 +108,7 @@ namespace frb
 		}
 		else
 		{
-			alSourceQueueBuffers(m_source, buffer_array.size(), buffer_array.data());
+			alSourceQueueBuffers(m_source, static_cast<ALsizei>(buffer_array.size()), buffer_array.data());
 			if (alGetError() != AL_NO_ERROR)
 			{
 				PL_LOG(PL_ERROR, frb::parse_error("Unable to queue buffer(s)."));

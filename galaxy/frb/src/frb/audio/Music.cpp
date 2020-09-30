@@ -15,9 +15,8 @@
 namespace frb
 {
 	Music::Music()
+	    : m_run_loop {false}
 	{
-		m_run_loop = false;
-
 		// Gotta love clang-format.
 		m_thread = std::jthread {[](Music* music) {
 						 if (music->m_run_loop)

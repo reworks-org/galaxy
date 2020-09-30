@@ -85,7 +85,7 @@ namespace galaxy
 		///
 		/// \param config Configuration file to construct application from.
 		///
-		Application(std::unique_ptr<galaxy::Config>& config);
+		explicit Application(std::unique_ptr<galaxy::Config>& config);
 
 		///
 		/// Instance of a config reader to parse library config.

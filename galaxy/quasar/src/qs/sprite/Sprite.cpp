@@ -40,11 +40,6 @@ namespace qs
 		m_z_level = z_level;
 	}
 
-	const float Sprite::opacity() const noexcept
-	{
-		return m_opacity;
-	}
-
 	void Sprite::bind() noexcept
 	{
 		m_va.bind();
@@ -55,5 +50,10 @@ namespace qs
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	const float Sprite::opacity() const noexcept
+	{
+		return m_opacity;
 	}
 } // namespace qs
