@@ -57,6 +57,13 @@ namespace qs
 		void create(std::span<glm::vec2> offsets, unsigned int divisor);
 
 		///
+		/// Update internal instance buffer.
+		///
+		/// \param offsets Offset for each instance. Size should be total number of instances.
+		///
+		void update(std::span<glm::vec2> offsets);
+
+		///
 		/// Destroys buffer.
 		///
 		~InstanceBuffer();

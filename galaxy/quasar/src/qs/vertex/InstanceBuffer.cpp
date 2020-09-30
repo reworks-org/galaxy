@@ -60,6 +60,16 @@ namespace qs
 		}
 	}
 
+	void InstanceBuffer::update(std::span<glm::vec2> offsets)
+	{
+		bind();
+
+		glInvalidateBufferData(m_id);
+		glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_STATIC_DRAW);
+
+		unbind();
+	}
+
 	InstanceBuffer::~InstanceBuffer()
 	{
 		glDeleteBuffers(1, &m_id);
