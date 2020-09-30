@@ -58,6 +58,6 @@ namespace galaxy
 			path = folder;
 		}
 
-		return folder;
+		return path;
 	}
 } // namespace galaxy

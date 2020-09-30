@@ -24,7 +24,7 @@
 ///
 std::size_t read_ogg_callback(void* dest, std::size_t size_a, std::size_t size_b, void* handle)
 {
-	ALsizei length = size_a * size_b;
+	ALsizei length = static_cast<ALsizei>(size_a * size_b);
 	auto* stream   = reinterpret_cast<frb::BufferStream*>(handle);
 	auto* data     = stream->get_data();
 
@@ -94,15 +94,15 @@ std::int32_t seek_ogg_callback(void* handle, ogg_int64_t to, std::int32_t type)
 
 	if (type == SEEK_CUR)
 	{
-		data->m_consumed += to;
+		data->m_consumed += static_cast<ALsizei>(to);
 	}
 	else if (type == SEEK_END)
 	{
-		data->m_consumed = data->m_size - to;
+		data->m_consumed = data->m_size - static_cast<ALsizei>(to);
 	}
 	else if (type == SEEK_SET)
 	{
-		data->m_consumed = to;
+		data->m_consumed = static_cast<ALsizei>(to);
 	}
 	else
 	{
@@ -212,7 +212,7 @@ namespace frb
 				m_data.m_file_handle.seekg(0, std::ios_base::beg);
 				m_data.m_file_handle.seekg(0, std::ios_base::beg);
 				m_data.m_file_handle.ignore(std::numeric_limits<std::streamsize>::max());
-				m_data.m_size = m_data.m_file_handle.gcount();
+				m_data.m_size = static_cast<ALsizei>(m_data.m_file_handle.gcount());
 				m_data.m_file_handle.clear();
 				m_data.m_file_handle.seekg(0, std::ios_base::beg);
 				m_data.m_consumed = 0;
@@ -232,10 +232,10 @@ namespace frb
 				{
 					vorbis_info* info = ov_info(&m_data.m_ogg_handle, -1);
 
-					m_data.m_channels  = info->channels;
+					m_data.m_channels  = static_cast<uint8_t>(info->channels);
 					m_data.m_bits      = 16;
 					m_data.m_frequency = info->rate;
-					m_data.m_duration  = ov_time_total(&m_data.m_ogg_handle, -1);
+					m_data.m_duration  = static_cast<size_t>(ov_time_total(&m_data.m_ogg_handle, -1));
 
 					if (m_data.m_file_handle.eof())
 					{

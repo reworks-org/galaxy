@@ -144,7 +144,7 @@ namespace qs
 					// Callback.
 
 					glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void {
-						PL_LOG(PL_WARNING, "[OpenGL] {0}.", message);
+						PL_LOG(PL_WARNING, "[OpenGL] - [ {0} {1} {2} {3} {4} {5} ]", source, type, id, severity, length, message);
 					},
 							       nullptr);
 #endif
@@ -211,7 +211,7 @@ namespace qs
 
 		// Fill glfw-compatible struct.
 		GLFWimage img;
-		img.pixels = stbi_load_from_memory(buffer.data(), buffer.size_bytes(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+		img.pixels = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 		if (!img.pixels)
 		{
@@ -268,7 +268,7 @@ namespace qs
 
 		// Fill glfw-compatible struct.
 		GLFWimage img;
-		img.pixels = stbi_load_from_memory(buffer.data(), buffer.size_bytes(), &img.width, &img.height, nullptr, STBI_rgb_alpha);
+		img.pixels = stbi_load_from_memory(buffer.data(), static_cast<int>(buffer.size_bytes()), &img.width, &img.height, nullptr, STBI_rgb_alpha);
 
 		if (!img.pixels)
 		{
