@@ -176,7 +176,7 @@ namespace qs
 		/// \param shader Shader to apply to particles. You must have called bind() already!
 		///
 		template<particle_type ParticleGenType>
-		void draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen);
+		void draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader);
 
 		///
 		/// Draw to render texture.
@@ -208,9 +208,16 @@ namespace qs
 	};
 
 	template<particle_type ParticleGenType>
-	inline void Renderer::draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen)
+	inline void Renderer::draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader)
 	{
+		//shader.bind();
 		particle_gen.bind();
+
+		auto* current = particle_gen.get_current();
+
+		shader.set_uniform("u_opacity", current->opacity());
+		shader.set_uniform<float>("u_width", current->get_width());
+		shader.set_uniform<float>("u_height", current->get_height());
 
 		glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
 	}

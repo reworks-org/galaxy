@@ -65,18 +65,25 @@ namespace qs
 		void set_velocity(const float x_vel, const float y_vel);
 
 		///
-		/// Creates the internal vertex array.
+		/// Creates the internal instancing vertex array.
 		///
 		/// \param instances Set of instance coords to spawn each particle at.
 		///
 		void set_instance(std::span<glm::vec2> instances);
 
 		///
+		/// Update instance vertex array.
+		///
+		/// \param instances Set of instance coords to spawn each particle at.
+		///
+		void update_instances(std::span<glm::vec2> instances);
+
+		///
 		/// Get amount of particles to draw.
 		///
 		/// \return Const reference to a glm::vec2.
 		///
-		const glm::vec2& velocity() const noexcept;
+		[[nodiscard]] const glm::vec2& velocity() const noexcept;
 
 	private:
 		///

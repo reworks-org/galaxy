@@ -104,7 +104,9 @@ namespace qs
 		void define(std::string_view particle_type, pr::Rect<int> region);
 
 		///
-		/// Configure the generator with what type of particle to emit, amount, and the min/max offset of the instancing random pos generator.
+		/// \brief Configure the generator with what type of particle to emit, amount, and the min/max offset of the instancing random pos generator.
+		///
+		/// Sets current particle to particle_type.
 		///
 		/// \param particle_type
 		/// \param amount
@@ -122,6 +124,23 @@ namespace qs
 		void update(const double dt, const double life);
 
 		///
+		/// \brief Update offsets for a specific particle type.
+		///
+		/// Sets current particle to particle_type.
+		///
+		/// \param particle_type
+		/// \param amount
+		/// \param min_offset
+		/// \param max_offset
+		///
+		void regen_offsets(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset);
+
+		///
+		/// Resets all existing configured particles lifetime.
+		///
+		void reset();
+
+		///
 		/// Bind particle generator to active opengl instance.
 		///
 		void bind();
@@ -132,31 +151,35 @@ namespace qs
 		void unbind();
 
 		///
+		/// Get the currently rendering particle.
+		///
+		/// \return Pointer to active particle type.
+		///
+		[[nodiscard]] qs::Particle* get_current();
+
+		///
 		/// Get the current amount of particles being drawn.
 		///
 		/// \return Const unsigned integer.
 		///
-		const unsigned int amount() const noexcept;
+		[[nodiscard]] const unsigned int amount() const noexcept;
 
 		///
 		/// Get the current OpenGL index element buffer count.
 		///
 		/// \return Const unsigned integer.
 		///
-		const unsigned int gl_index_count();
-
-		///
-		/// Get current state of particles.
-		///
-		/// \return Const boolean.
-		///
-		const bool is_finished() const noexcept;
+		[[nodiscard]] const unsigned int gl_index_count();
 
 	private:
 		///
-		/// Are all particles finished rendering.
+		/// Generate offset data.
 		///
-		bool m_finished;
+		/// \param amount
+		/// \param min_offset
+		/// \param max_offset
+		///
+		void gen_offsets(const float amount, const float min, const float max);
 
 		///
 		/// Amount of particles being generated per instance.
@@ -191,14 +214,18 @@ namespace qs
 
 	template<particle_type ParticleGenType>
 	inline ParticleGenerator<ParticleGenType>::ParticleGenerator()
-	    : m_finished {false}, m_amount {0}, m_current {""}
+	    : m_amount {0}, m_current {""}
 	{
 	}
 
 	template<particle_type ParticleGenType>
 	inline ParticleGenerator<ParticleGenType>::ParticleGenerator(ParticleGenerator&& pg)
 	{
+		this->m_amount          = pg.m_amount;
+		this->m_current         = pg.m_current;
 		this->m_texture         = std::move(pg.m_texture);
+		this->m_offsets         = std::move(pg.m_offsets);
+		this->m_particles       = std::move(pg.m_particles);
 		this->m_texture_regions = std::move(pg.m_texture_regions);
 	}
 
@@ -207,7 +234,11 @@ namespace qs
 	{
 		if (this != &pg)
 		{
+			this->m_amount          = pg.m_amount;
+			this->m_current         = pg.m_current;
 			this->m_texture         = std::move(pg.m_texture);
+			this->m_offsets         = std::move(pg.m_offsets);
+			this->m_particles       = std::move(pg.m_particles);
 			this->m_texture_regions = std::move(pg.m_texture_regions);
 		}
 
@@ -235,51 +266,50 @@ namespace qs
 	template<particle_type ParticleGenType>
 	void ParticleGenerator<ParticleGenType>::configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset)
 	{
-		m_amount = amount;
-		m_offsets.clear();
-
-		for (unsigned int count = 0; count < amount; count++)
-		{
-			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
-			{
-				auto x = pr::random<unsigned int>(min_offset, max_offset);
-				m_offsets.push_back(x, 0);
-			}
-			else if constexpr (std::is_same<ParticleGenType, VerticalGen>::value)
-			{
-				auto y = pr::random<unsigned int>(min_offset, max_offset);
-				m_offsets.push_back(0, y);
-			}
-			else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
-			{
-				auto x = pr::random<unsigned int>(min_offset, max_offset);
-				auto y = pr::random<unsigned int>(min_offset, max_offset);
-				m_offsets.push_back({x, y});
-			}
-		}
-
-		m_current = static_cast<std::string>(particle_type);
 		if (!m_particles.contains(m_current))
 		{
-			m_particles.emplace(m_current, qs::Particle());
-		}
+			m_amount  = amount;
+			m_current = static_cast<std::string>(particle_type);
 
-		m_particles[m_current].load(m_texture.gl_texture(), m_texture_regions[m_current].m_width, m_texture_regions[m_current].m_height);
-		m_particles[m_current].create<qs::BufferStatic>(m_texture_regions[m_current].m_x, m_texture_regions[m_current].m_y);
-		m_particles[m_current].set_instance(m_offsets);
+			gen_offsets(amount, min_offset, max_offset);
+
+			m_particles.emplace(m_current, qs::Particle());
+			m_particles[m_current].load(m_texture.gl_texture(), m_texture_regions[m_current].m_width, m_texture_regions[m_current].m_height);
+			m_particles[m_current].create<qs::BufferStatic>(m_texture_regions[m_current].m_x, m_texture_regions[m_current].m_y);
+			m_particles[m_current].set_instance(m_offsets);
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Already configured particle of type: {0}.", m_current);
+		}
 	}
 
 	template<particle_type ParticleGenType>
 	inline void ParticleGenerator<ParticleGenType>::update(const double dt, const double life)
 	{
-		if (m_particles[m_current].m_opacity > 0.0f)
+		const auto op = m_particles[m_current].opacity();
+		if (op > 0.0f)
 		{
-			m_finished = false;
-			m_particles[m_current].m_opacity -= static_cast<float>(life * dt);
+			m_particles[m_current].set_opacity(op - static_cast<float>(life * dt));
 		}
-		else
+	}
+
+	template<particle_type ParticleGenType>
+	inline void ParticleGenerator<ParticleGenType>::regen_offsets(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset)
+	{
+		m_amount  = amount;
+		m_current = static_cast<std::string>(particle_type);
+
+		gen_offsets(amount, min_offset, max_offset);
+		m_particles[m_current].update_instances(m_offsets);
+	}
+
+	template<particle_type ParticleGenType>
+	inline void ParticleGenerator<ParticleGenType>::reset()
+	{
+		for (auto&& [key, value] : m_particles)
 		{
-			m_finished = true;
+			value.set_opacity(1.0f);
 		}
 	}
 
@@ -297,6 +327,12 @@ namespace qs
 	}
 
 	template<particle_type ParticleGenType>
+	inline qs::Particle* ParticleGenerator<ParticleGenType>::get_current()
+	{
+		return &m_particles[m_current];
+	}
+
+	template<particle_type ParticleGenType>
 	inline const unsigned int ParticleGenerator<ParticleGenType>::amount() const noexcept
 	{
 		return m_amount;
@@ -309,9 +345,29 @@ namespace qs
 	}
 
 	template<particle_type ParticleGenType>
-	inline const bool ParticleGenerator<ParticleGenType>::is_finished() const noexcept
+	inline void ParticleGenerator<ParticleGenType>::gen_offsets(const float amount, const float min, const float max)
 	{
-		return m_finished;
+		m_offsets.clear();
+
+		for (unsigned int count = 0; count < amount; count++)
+		{
+			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
+			{
+				auto x = pr::random<unsigned int>(min, max);
+				m_offsets.push_back(x, 0);
+			}
+			else if constexpr (std::is_same<ParticleGenType, VerticalGen>::value)
+			{
+				auto y = pr::random<unsigned int>(min, max);
+				m_offsets.push_back(0, y);
+			}
+			else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
+			{
+				auto x = pr::random<unsigned int>(min, max);
+				auto y = pr::random<unsigned int>(min, max);
+				m_offsets.push_back({x, y});
+			}
+		}
 	}
 } // namespace qs
 

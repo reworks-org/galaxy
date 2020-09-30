@@ -50,25 +50,30 @@ namespace sb
 			m_window->close();
 		}
 
+		if (glfwGetMouseButton(m_window->gl_window(), GLFW_MOUSE_BUTTON_1) == GLFW_PRESS)
+		{
+			m_particle_gen.reset();
+			m_particle_gen.regen_offsets("default", 100, 0, 100);
+		}
+
 		m_world->events();
 	}
 
 	void SandboxLayer::update(const double dt)
 	{
 		m_world->update(dt);
+		m_particle_gen.update(dt, 0.01);
 	}
 
 	void SandboxLayer::render(qs::Camera& camera)
 	{
 		// set shader
 		m_shader.bind();
-		m_shader.set_uniform("u_opacity", 1.0f);
-		m_shader.set_uniform<float>("u_width", 16.0f);
-		m_shader.set_uniform<float>("u_height", 16.0f);
 		m_shader.set_uniform("u_cameraProj", camera.get_proj());
 		m_shader.set_uniform("u_cameraView", camera.get_transform());
 
-		SL_HANDLE.renderer()->draw_particles(m_particle_gen);
+		SL_HANDLE.renderer()->draw_particles(m_particle_gen, m_shader);
+
 		//m_world->get_system<galaxy::RenderSystem>()->render(camera);
 	}
 } // namespace sb

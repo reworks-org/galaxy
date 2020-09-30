@@ -51,6 +51,11 @@ namespace qs
 		m_va.set_instanced(m_instance_buffer);
 	}
 
+	void Particle::update_instances(std::span<glm::vec2> instances)
+	{
+		m_instance_buffer.update(instances);
+	}
+
 	const glm::vec2& Particle::velocity() const noexcept
 	{
 		return m_velocity;
