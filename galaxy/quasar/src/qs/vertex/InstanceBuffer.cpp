@@ -50,7 +50,7 @@ namespace qs
 
 			bind();
 
-			glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_STATIC_DRAW);
+			glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_DYNAMIC_DRAW);
 
 			unbind();
 		}
@@ -65,7 +65,7 @@ namespace qs
 		bind();
 
 		glInvalidateBufferData(m_id);
-		glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_DYNAMIC_DRAW);
 
 		unbind();
 	}
