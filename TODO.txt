@@ -24,6 +24,7 @@ QUASAR:
 - Vulkan/DirectX/gl3D
 - https://github.com/iryoku/smaa
 - Vertex retrieval
+- QSAPI -> const constinit
 
 
 SOLAR:
