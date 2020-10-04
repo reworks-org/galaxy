@@ -11,7 +11,6 @@
 #include <protostar/graphics/Rect.hpp>
 #include <protostar/math/Random.hpp>
 
-#include "qs/core/Shader.hpp"
 #include "qs/graphics/Particle.hpp"
 
 ///
@@ -92,8 +91,10 @@ namespace qs
 		/// Create particle generator.
 		///
 		/// \param particle_sheet Texture spritesheet containing particles for generator to use.
+		/// \param emitter_x Set the x position of where to draw particles from.
+		/// \param emitter_y Set the y position of where to draw particles from.
 		///
-		void create(std::string_view particle_sheet);
+		void create(std::string_view particle_sheet, float emitter_x, float emitter_y);
 
 		///
 		/// Define a particle type on the texture spritesheet.
@@ -108,12 +109,23 @@ namespace qs
 		///
 		/// Sets current particle to particle_type.
 		///
-		/// \param particle_type
-		/// \param amount
-		/// \param min_offset
-		/// \param max_offset
+		/// \param particle_type Identifier for this texture region.
 		///
-		void configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset);
+		void configure(std::string_view particle_type);
+
+		///
+		/// \brief Generate particles and offsets.
+		///
+		/// Sets current particle to particle_type.
+		///
+		/// \param particle_type Identifier for this texture region.
+		/// \param amount Amount of particles to render.
+		/// \param min_offset Minimium distance from center.
+		/// \param max_offset Maximum distance from center.
+		/// \param vel_x X axis velocity of particle.
+		/// \param vel_y Y axis velocity of particle.
+		///
+		void generate(std::string_view particle_type, const unsigned int amount, const float min_offset, const float max_offset, const float vel_x, const float vel_y);
 
 		///
 		/// Update to process the "life" (opacity) of the particles.
@@ -122,23 +134,6 @@ namespace qs
 		/// \param life Speed at which the particle decays.
 		///
 		void update(const double dt, const double life);
-
-		///
-		/// \brief Update offsets for a specific particle type.
-		///
-		/// Sets current particle to particle_type.
-		///
-		/// \param particle_type
-		/// \param amount
-		/// \param min_offset
-		/// \param max_offset
-		///
-		void regen_offsets(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset);
-
-		///
-		/// Resets all existing configured particles lifetime.
-		///
-		void reset();
 
 		///
 		/// Bind particle generator to active opengl instance.
@@ -155,7 +150,7 @@ namespace qs
 		///
 		/// \return Pointer to active particle type.
 		///
-		[[nodiscard]] qs::Particle* get_current();
+		[[nodiscard]] qs::ParticleInstance* get_instance();
 
 		///
 		/// Get the current amount of particles being drawn.
@@ -173,13 +168,14 @@ namespace qs
 
 	private:
 		///
-		/// Generate offset data.
+		/// Set x position of emitter.
 		///
-		/// \param amount
-		/// \param min_offset
-		/// \param max_offset
+		float m_emitter_x;
+
 		///
-		void gen_offsets(const float amount, const float min, const float max);
+		/// Set y position of emitter.
+		///
+		float m_emitter_y;
 
 		///
 		/// Amount of particles being generated per instance.
@@ -189,7 +185,7 @@ namespace qs
 		///
 		/// Currently active particle.
 		///
-		std::string m_current;
+		std::string m_current_instance;
 
 		///
 		/// Particle generator sprite sheet.
@@ -197,14 +193,24 @@ namespace qs
 		qs::Texture m_texture;
 
 		///
+		/// Last particle accessed.
+		///
+		std::size_t m_current_particle;
+
+		///
 		/// Offsets of currently configured particles.
 		///
 		std::vector<glm::vec2> m_offsets;
 
 		///
+		/// Array of particles being rendererd.
+		///
+		std::vector<Particle> m_particles;
+
+		///
 		/// Array of different particles this generator can produce.
 		///
-		std::unordered_map<std::string, Particle> m_particles;
+		std::unordered_map<std::string, ParticleInstance> m_particles_instances;
 
 		///
 		/// Region of each particle type.
@@ -214,32 +220,40 @@ namespace qs
 
 	template<particle_type ParticleGenType>
 	inline ParticleGenerator<ParticleGenType>::ParticleGenerator()
-	    : m_amount {0}, m_current {""}
+	    : m_emitter_x {0.0f}, m_emitter_y {0.0f}, m_amount {0}, m_current_instance {""}, m_current_particle {0}
 	{
 	}
 
 	template<particle_type ParticleGenType>
-	inline ParticleGenerator<ParticleGenType>::ParticleGenerator(ParticleGenerator&& pg)
+	inline ParticleGenerator<ParticleGenType>::ParticleGenerator(ParticleGenerator<ParticleGenType>&& pg)
 	{
-		this->m_amount          = pg.m_amount;
-		this->m_current         = pg.m_current;
-		this->m_texture         = std::move(pg.m_texture);
-		this->m_offsets         = std::move(pg.m_offsets);
-		this->m_particles       = std::move(pg.m_particles);
-		this->m_texture_regions = std::move(pg.m_texture_regions);
+		this->m_emitter_x           = pg.m_emitter_x;
+		this->m_emitter_y           = pg.m_emitter_y;
+		this->m_amount              = pg.m_amount;
+		this->m_current_instance    = pg.m_current_instance;
+		this->m_texture             = std::move(pg.m_texture);
+		this->m_current_particle    = pg.m_current_particle;
+		this->m_offsets             = std::move(pg.m_offsets);
+		this->m_particles           = std::move(pg.m_particles);
+		this->m_particles_instances = std::move(pg.m_particles_instances);
+		this->m_texture_regions     = std::move(pg.m_texture_regions);
 	}
 
 	template<particle_type ParticleGenType>
-	inline ParticleGenerator<ParticleGenType>& ParticleGenerator<ParticleGenType>::operator=(ParticleGenerator&& pg)
+	inline ParticleGenerator<ParticleGenType>& ParticleGenerator<ParticleGenType>::operator=(ParticleGenerator<ParticleGenType>&& pg)
 	{
 		if (this != &pg)
 		{
-			this->m_amount          = pg.m_amount;
-			this->m_current         = pg.m_current;
-			this->m_texture         = std::move(pg.m_texture);
-			this->m_offsets         = std::move(pg.m_offsets);
-			this->m_particles       = std::move(pg.m_particles);
-			this->m_texture_regions = std::move(pg.m_texture_regions);
+			this->m_emitter_x           = pg.m_emitter_x;
+			this->m_emitter_y           = pg.m_emitter_y;
+			this->m_amount              = pg.m_amount;
+			this->m_current_instance    = pg.m_current_instance;
+			this->m_texture             = std::move(pg.m_texture);
+			this->m_current_particle    = pg.m_current_particle;
+			this->m_offsets             = std::move(pg.m_offsets);
+			this->m_particles           = std::move(pg.m_particles);
+			this->m_particles_instances = std::move(pg.m_particles_instances);
+			this->m_texture_regions     = std::move(pg.m_texture_regions);
 		}
 
 		return *this;
@@ -248,88 +262,113 @@ namespace qs
 	template<particle_type ParticleGenType>
 	inline ParticleGenerator<ParticleGenType>::~ParticleGenerator()
 	{
+		m_offsets.clear();
+		m_particles.clear();
+		m_particles_instances.clear();
 		m_texture_regions.clear();
 	}
 
 	template<particle_type ParticleGenType>
-	inline void ParticleGenerator<ParticleGenType>::create(std::string_view particle_sheet)
+	inline void ParticleGenerator<ParticleGenType>::create(std::string_view particle_sheet, float emitter_x, float emitter_y)
 	{
+		m_emitter_x = emitter_x;
+		m_emitter_y = emitter_y;
 		m_texture.load(particle_sheet);
 	}
 
 	template<particle_type ParticleGenType>
-	void ParticleGenerator<ParticleGenType>::define(std::string_view particle_type, pr::Rect<int> region)
+	inline void ParticleGenerator<ParticleGenType>::define(std::string_view particle_type, pr::Rect<int> region)
 	{
 		m_texture_regions.emplace(static_cast<std::string>(particle_type), std::move(region));
 	}
 
 	template<particle_type ParticleGenType>
-	void ParticleGenerator<ParticleGenType>::configure(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset)
+	inline void ParticleGenerator<ParticleGenType>::configure(std::string_view particle_type)
 	{
-		if (!m_particles.contains(m_current))
+		auto str = static_cast<std::string>(particle_type);
+		if (!m_particles_instances.contains(str))
 		{
-			m_amount  = amount;
-			m_current = static_cast<std::string>(particle_type);
+			m_particles_instances.emplace(str, qs::ParticleInstance());
+			m_particles_instances[str].load(m_texture.gl_texture(), m_texture_regions[str].m_width, m_texture_regions[str].m_height);
+			m_particles_instances[str].create<qs::BufferDynamic>(m_texture_regions[str].m_x, m_texture_regions[str].m_y);
 
-			gen_offsets(amount, min_offset, max_offset);
-
-			m_particles.emplace(m_current, qs::Particle());
-			m_particles[m_current].load(m_texture.gl_texture(), m_texture_regions[m_current].m_width, m_texture_regions[m_current].m_height);
-			m_particles[m_current].create<qs::BufferStatic>(m_texture_regions[m_current].m_x, m_texture_regions[m_current].m_y);
-			m_particles[m_current].set_instance(m_offsets);
+			std::vector<glm::vec2> temp(2);
+			m_particles_instances[str].set_instance(temp);
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Already configured particle of type: {0}.", m_current);
+			PL_LOG(PL_WARNING, "Already configured particle of type: {0}.", str);
+		}
+	}
+
+	template<particle_type ParticleGenType>
+	inline void ParticleGenerator<ParticleGenType>::generate(std::string_view particle_type, const unsigned int amount, const float min_offset, const float max_offset, const float vel_x, const float vel_y)
+	{
+		m_amount           = amount;
+		m_current_instance = static_cast<std::string>(particle_type);
+
+		m_particles.clear();
+		m_particles.reserve(m_amount);
+
+		for (unsigned int count = 0; count < amount; count++)
+		{
+			m_particles.emplace_back();
+			auto* particle = &m_particles.back();
+
+			float x = 0.0f, y = 0.0f;
+
+			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
+			{
+				x = pr::random<float>(min_offset, max_offset);
+			}
+			else if constexpr (std::is_same<ParticleGenType, VerticalGen>::value)
+			{
+				y = pr::random<float>(min_offset, max_offset);
+			}
+			else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
+			{
+				x = pr::random<float>(min_offset, max_offset);
+				y = pr::random<float>(min_offset, max_offset);
+			}
+
+			particle->set_position(m_emitter_x + x, m_emitter_y + y);
+			particle->set_velocity(vel_x, vel_y);
 		}
 	}
 
 	template<particle_type ParticleGenType>
 	inline void ParticleGenerator<ParticleGenType>::update(const double dt, const double life)
 	{
-		const auto op = m_particles[m_current].opacity();
-		if (op > 0.0f)
+		m_offsets.clear();
+		m_offsets.reserve(m_amount);
+
+		for (auto& particle : m_particles)
 		{
-			m_particles[m_current].set_opacity(op - static_cast<float>(life * dt));
+			//particle.m_life -= life * dt;
+			particle.move(dt);
+
+			m_offsets.emplace_back(particle.pos());
 		}
+
+		m_particles_instances[m_current_instance].update_instances(m_offsets);
 	}
 
 	template<particle_type ParticleGenType>
-	inline void ParticleGenerator<ParticleGenType>::regen_offsets(std::string_view particle_type, const unsigned int amount, const unsigned int min_offset, const unsigned int max_offset)
+	inline void ParticleGenerator<ParticleGenType>::bind()
 	{
-		m_amount  = amount;
-		m_current = static_cast<std::string>(particle_type);
-
-		gen_offsets(amount, min_offset, max_offset);
-		m_particles[m_current].update_instances(m_offsets);
+		m_particles_instances[m_current_instance].bind();
 	}
 
 	template<particle_type ParticleGenType>
-	inline void ParticleGenerator<ParticleGenType>::reset()
+	inline void ParticleGenerator<ParticleGenType>::unbind()
 	{
-		for (auto&& [key, value] : m_particles)
-		{
-			value.set_opacity(1.0f);
-		}
+		m_particles_instances[m_current_instance].unbind();
 	}
 
 	template<particle_type ParticleGenType>
-	void ParticleGenerator<ParticleGenType>::bind()
+	inline qs::ParticleInstance* ParticleGenerator<ParticleGenType>::get_instance()
 	{
-		m_texture.bind();
-		m_particles[m_current].bind();
-	}
-
-	template<particle_type ParticleGenType>
-	void ParticleGenerator<ParticleGenType>::unbind()
-	{
-		m_texture.unbind();
-	}
-
-	template<particle_type ParticleGenType>
-	inline qs::Particle* ParticleGenerator<ParticleGenType>::get_current()
-	{
-		return &m_particles[m_current];
+		return &m_particles_instances[m_current_instance];
 	}
 
 	template<particle_type ParticleGenType>
@@ -341,33 +380,7 @@ namespace qs
 	template<particle_type ParticleGenType>
 	inline const unsigned int ParticleGenerator<ParticleGenType>::gl_index_count()
 	{
-		return m_particles[m_current].index_count();
-	}
-
-	template<particle_type ParticleGenType>
-	inline void ParticleGenerator<ParticleGenType>::gen_offsets(const float amount, const float min, const float max)
-	{
-		m_offsets.clear();
-
-		for (unsigned int count = 0; count < amount; count++)
-		{
-			if constexpr (std::is_same<ParticleGenType, HorizontalGen>::value)
-			{
-				auto x = pr::random<unsigned int>(min, max);
-				m_offsets.push_back(x, 0);
-			}
-			else if constexpr (std::is_same<ParticleGenType, VerticalGen>::value)
-			{
-				auto y = pr::random<unsigned int>(min, max);
-				m_offsets.push_back(0, y);
-			}
-			else if constexpr (std::is_same<ParticleGenType, CircularGen>::value)
-			{
-				auto x = pr::random<unsigned int>(min, max);
-				auto y = pr::random<unsigned int>(min, max);
-				m_offsets.push_back({x, y});
-			}
-		}
+		return m_particles_instances[m_current_instance].index_count();
 	}
 } // namespace qs
 

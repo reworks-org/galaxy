@@ -7,7 +7,6 @@
 
 #include <glm/mat4x4.hpp>
 
-#include "qs/core/Shader.hpp"
 #include "qs/graphics/ParticleGenerator.hpp"
 #include "qs/shapes/Circle.hpp"
 #include "qs/shapes/Line.hpp"

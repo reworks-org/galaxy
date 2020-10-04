@@ -8,6 +8,7 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
+#include "qs/core/Shader.hpp"
 #include "qs/graphics/ParticleGenerator.hpp"
 
 ///
@@ -213,7 +214,7 @@ namespace qs
 		//shader.bind();
 		particle_gen.bind();
 
-		auto* current = particle_gen.get_current();
+		auto* current = particle_gen.get_instance();
 
 		shader.set_uniform("u_opacity", current->opacity());
 		shader.set_uniform<float>("u_width", current->get_width());
