@@ -347,6 +347,14 @@ namespace qs
 		glfwPollEvents();
 	}
 
+	glm::vec2 Window::get_cursor_pos()
+	{
+		double x = 0.0, y = 0.0;
+		glfwGetCursorPos(m_window, &x, &y);
+
+		return {x, y};
+	}
+
 	GLFWwindow* Window::gl_window() noexcept
 	{
 		return m_window;
