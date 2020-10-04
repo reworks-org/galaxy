@@ -7,6 +7,7 @@
 
 #include <glm/mat4x4.hpp>
 
+#include "qs/core/Shader.hpp"
 #include "qs/graphics/ParticleGenerator.hpp"
 #include "qs/shapes/Circle.hpp"
 #include "qs/shapes/Line.hpp"
@@ -109,6 +110,19 @@ namespace qs
 		shader.set_uniform("u_opacity", text.opacity());
 
 		glDrawElements(GL_TRIANGLES, text.index_count(), GL_UNSIGNED_INT, nullptr);
+	}
+
+	void Renderer::draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader)
+	{
+		particle_gen.bind();
+
+		auto* current = particle_gen.get_instance();
+
+		shader.set_uniform("u_opacity", current->opacity());
+		shader.set_uniform<float>("u_width", current->get_width());
+		shader.set_uniform<float>("u_height", current->get_height());
+
+		glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
 	}
 
 	/*

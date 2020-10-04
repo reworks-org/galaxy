@@ -8,9 +8,6 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
-#include "qs/core/Shader.hpp"
-#include "qs/graphics/ParticleGenerator.hpp"
-
 ///
 /// Core namespace.
 ///
@@ -29,6 +26,7 @@ namespace qs
 	class RenderTexture;
 	class Character;
 	class Text;
+	class ParticleGenerator;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -171,13 +169,12 @@ namespace qs
 		/// \brief Draw particles to screen.
 		///
 		/// Must have uniform(s):
-		/// u_cameraView, u_cameraProj
+		/// u_cameraView, u_cameraProj, u_opacity, u_width, u_height
 		///
 		/// \param particles Particles to draw to screen.
 		/// \param shader Shader to apply to particles. You must have called bind() already!
 		///
-		template<particle_type ParticleGenType>
-		void draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader);
+		void draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader);
 
 		///
 		/// Draw to render texture.
@@ -207,21 +204,6 @@ namespace qs
 		/// \param ls Light source(s) for lighting. Provides its own shader.
 		///
 	};
-
-	template<particle_type ParticleGenType>
-	inline void Renderer::draw_particles(qs::ParticleGenerator<ParticleGenType>& particle_gen, qs::Shader& shader)
-	{
-		//shader.bind();
-		particle_gen.bind();
-
-		auto* current = particle_gen.get_instance();
-
-		shader.set_uniform("u_opacity", current->opacity());
-		shader.set_uniform<float>("u_width", current->get_width());
-		shader.set_uniform<float>("u_height", current->get_height());
-
-		glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
-	}
 } // namespace qs
 
 #endif

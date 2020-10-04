@@ -35,7 +35,7 @@ namespace sb
 		m_particle_gen.create(tex, 50.0f, 50.0f);
 		m_particle_gen.define("default", {0, 0, 16, 16});
 		m_particle_gen.configure("default");
-		m_particle_gen.generate("default", 100, 0.0f, 100.0f, 1.0f, 1.0f);
+		m_particle_gen.gen_circular("default", 200, 10.0f, 0.1f, 0.1f);
 	}
 
 	SandboxLayer::~SandboxLayer()

@@ -7,7 +7,7 @@ PROTOSTAR:
 
 
 FRB:
-- ???
+-
 
 
 PULSAR:
