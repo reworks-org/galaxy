@@ -52,6 +52,13 @@ namespace qs
 		virtual ~VertexData() noexcept = default;
 
 		///
+		/// Set z-level of sprite.
+		///
+		/// \param z_level z-ordering level to render sprite at.
+		///
+		void set_z_level(const unsigned int z_level) noexcept;
+
+		///
 		/// Get z-level of vertexs.
 		///
 		/// \return Const unsigned integer.

@@ -40,6 +40,11 @@ namespace qs
 		return *this;
 	}
 
+	void VertexData::set_z_level(const unsigned int z_level) noexcept
+	{
+		m_z_level = z_level;
+	}
+
 	const unsigned int VertexData::z_level() const noexcept
 	{
 		return m_z_level;

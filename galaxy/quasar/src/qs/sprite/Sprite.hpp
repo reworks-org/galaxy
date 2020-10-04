@@ -8,9 +8,9 @@
 #ifndef QUASAR_SPRITE_HPP_
 #define QUASAR_SPRITE_HPP_
 
-#include "qs/texture/Texture.hpp"
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
+#include "qs/texture/Texture.hpp"
 
 ///
 /// Core namespace.
@@ -74,13 +74,6 @@ namespace qs
 		void set_opacity(const float opacity) noexcept;
 
 		///
-		/// Set z-level of sprite.
-		///
-		/// \param z_level z-ordering level to render sprite at.
-		///
-		void set_z_level(const unsigned int z_level) noexcept;
-
-		///
 		/// Activate sprite context.
 		///
 		void bind() noexcept override;
@@ -96,7 +89,7 @@ namespace qs
 		/// \return Const float.
 		///
 		[[nodiscard]] const float opacity() const noexcept;
-		
+
 	protected:
 		///
 		/// Opacity of sprite.
