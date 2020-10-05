@@ -36,16 +36,14 @@ namespace pl
 		m_running = true;
 
 		// Find path
-		auto path          = std::filesystem::path {log_file};
-		constexpr auto dir = "logs/";
-
-		// Make sure it exists.
-		if (!std::filesystem::exists(dir))
-		{
-			std::filesystem::create_directory(dir);
-		}
+		auto path = std::filesystem::path {log_file};
 
 		m_file_stream.open(path.string(), std::ofstream::out);
+		if (!m_file_stream.good())
+		{
+			PL_LOG(PL_FATAL, "Failed to open file for logging: {0}.", path.string());
+		}
+
 		m_thread = std::jthread([&]() {
 			// Open stream.
 			while (m_running.load())
