@@ -38,12 +38,10 @@ namespace pr
 	template<is_arithmetic Type>
 	[[nodiscard]] inline Type random(const Type min, const Type max)
 	{
-		// Restricts to one thread, so each thread gets a random device.
-		thread_local static std::random_device rd;
-		thread_local static std::mt19937_64 mt {rd()};
+		std::random_device rd;
+		std::mt19937_64 mt {rd()};
 
-		mt.seed(static_cast<unsigned int>(std::time(nullptr)));
-		thread_local conditional_distribution<Type> dist {min, max};
+		conditional_distribution<Type> dist {min, max};
 
 		return dist(mt);
 	}
