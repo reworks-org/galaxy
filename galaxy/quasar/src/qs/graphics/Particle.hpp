@@ -214,6 +214,8 @@ namespace qs
 	template<is_buffer BufferType>
 	inline void ParticleInstance::create(const float tex_x, const float tex_y)
 	{
+		m_opacity = 1.0f;
+
 		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, tex_x, tex_y, m_opacity);
 		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f, tex_x + m_width, tex_y, m_opacity);
 		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f + m_height, tex_x + m_width, tex_y + m_height, m_opacity);
@@ -229,8 +231,6 @@ namespace qs
 		m_layout.add<qs::SpriteVertex, qs::VAOpacity>(1);
 
 		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
-
-		m_opacity = 1.0f;
 	}
 } // namespace qs
 

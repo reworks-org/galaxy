@@ -13,29 +13,32 @@
 namespace qs
 {
 	Particle::Particle()
-	    : m_position {0.0f, 0.0f}, m_velocity {1.0f, 1.0f}
+	    : m_life {100.0f}, m_position {0.0f, 0.0f}, m_velocity {1.0f, 1.0f}
 	{
 	}
 
 	Particle::Particle(const float x_vel, const float y_vel)
-	    : m_position {0.0f, 0.0f}, m_velocity {x_vel, y_vel}
+	    : m_life {100.0f}, m_position {0.0f, 0.0f}, m_velocity {x_vel, y_vel}
 	{
 	}
 
 	Particle::Particle(const Particle& p)
 	{
+		this->m_life     = p.m_life;
 		this->m_position = p.m_position;
 		this->m_velocity = p.m_velocity;
 	}
 
 	Particle::Particle(Particle&& p)
 	{
+		this->m_life     = p.m_life;
 		this->m_position = std::move(p.m_position);
 		this->m_velocity = std::move(p.m_velocity);
 	}
 
 	Particle& Particle::operator=(const Particle& p)
 	{
+		this->m_life     = p.m_life;
 		this->m_position = p.m_position;
 		this->m_velocity = p.m_velocity;
 
@@ -46,6 +49,7 @@ namespace qs
 	{
 		if (this != &p)
 		{
+			this->m_life     = p.m_life;
 			this->m_position = std::move(p.m_position);
 			this->m_velocity = std::move(p.m_velocity);
 		}
