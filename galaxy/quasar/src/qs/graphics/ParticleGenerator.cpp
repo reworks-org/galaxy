@@ -81,9 +81,7 @@ namespace qs
 			m_particles_instances.emplace(str, qs::ParticleInstance());
 			m_particles_instances[str].load(m_texture.gl_texture(), m_texture_regions[str].m_width, m_texture_regions[str].m_height);
 			m_particles_instances[str].create<qs::BufferDynamic>(m_texture_regions[str].m_x, m_texture_regions[str].m_y);
-
-			std::vector<glm::vec2> temp(2);
-			m_particles_instances[str].set_instance(temp);
+			m_particles_instances[str].set_instance({});
 		}
 		else
 		{
@@ -136,23 +134,26 @@ namespace qs
 		m_particles.clear();
 		m_particles.reserve(m_amount);
 
-		for (unsigned int count = 0; count < amount; count++)
+		for (unsigned int count = 0; count < m_amount; count++)
 		{
-			m_particles.emplace_back();
-			auto* particle = &m_particles.back();
+			Particle particle;
 
 			const float random_radius = radius * std::sqrt(pr::random<float>(0.0f, 1.0f));
 			const float angle         = pr::random<float>(0.0f, 1.0f) * 2.0f * glm::pi<float>();
 			const float x             = m_emitter_x + random_radius * glm::cos(angle);
 			const float y             = m_emitter_y + random_radius * glm::sin(angle);
 
-			particle->set_position(x, y);
+			particle.set_position(x, y);
 
 			// 50% chance, bigger range than 0, 1.
 			float vx = 0.0f;
 			if (pr::random<int>(0, 9) > 4)
 			{
 				vx = -vel_x;
+			}
+			else
+			{
+				vx = vel_x;
 			}
 
 			// 50% chance, bigger range than 0, 1.
@@ -161,8 +162,14 @@ namespace qs
 			{
 				vy = -vel_y;
 			}
+			else
+			{
+				vy = vel_y;
+			}
 
-			particle->set_velocity(vx, vy);
+			particle.set_velocity(vx, vy);
+
+			m_particles.push_back(particle);
 		}
 	}
 
@@ -171,15 +178,26 @@ namespace qs
 		m_offsets.clear();
 		m_offsets.reserve(m_amount);
 
-		for (auto& particle : m_particles)
+		for (auto particle = m_particles.begin(); particle != m_particles.end();)
 		{
-			//particle.m_life -= life * dt;
-			particle.move(static_cast<float>(dt));
+			particle->m_life -= life * dt;
+			if (particle->m_life < 0.0f)
+			{
+				particle = m_particles.erase(particle);
+			}
+			else
+			{
+				particle->move(static_cast<float>(dt));
+				m_offsets.push_back(particle->pos());
 
-			m_offsets.emplace_back(particle.pos());
+				++particle;
+			}
 		}
 
-		m_particles_instances[m_current_instance].update_instances(m_offsets);
+		if (!m_particles.empty())
+		{
+			m_particles_instances[m_current_instance].update_instances(m_offsets);
+		}
 	}
 
 	void ParticleGenerator::bind()

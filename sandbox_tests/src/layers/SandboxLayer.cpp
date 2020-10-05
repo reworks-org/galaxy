@@ -32,10 +32,10 @@ namespace sb
 
 		// create and set texture
 		auto tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "particle_demo.png";
-		m_particle_gen.create(tex, 50.0f, 50.0f);
+		m_particle_gen.create(tex, 100.0f, 100.0f);
 		m_particle_gen.define("default", {0, 0, 16, 16});
 		m_particle_gen.configure("default");
-		m_particle_gen.gen_circular("default", 200, 10.0f, 0.1f, 0.1f);
+		m_particle_gen.gen_circular("default", 100, 20.0f, 0.5f, 0.5f);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -59,7 +59,7 @@ namespace sb
 	void SandboxLayer::update(const double dt)
 	{
 		m_world->update(dt);
-		m_particle_gen.update(dt, 0.1);
+		m_particle_gen.update(dt, 0.1f);
 	}
 
 	void SandboxLayer::render(qs::Camera& camera)
