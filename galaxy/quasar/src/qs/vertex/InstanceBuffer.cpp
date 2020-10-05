@@ -44,20 +44,19 @@ namespace qs
 
 	void InstanceBuffer::create(std::span<glm::vec2> offsets, unsigned int divisor)
 	{
+		m_divisor = divisor;
+		bind();
+
 		if (!offsets.empty())
 		{
-			m_divisor = divisor;
-
-			bind();
-
 			glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_DYNAMIC_DRAW);
-
-			unbind();
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Passed empty offset array to instance buffer.");
+			glBufferData(GL_ARRAY_BUFFER, 4, nullptr, GL_DYNAMIC_DRAW);
 		}
+
+		unbind();
 	}
 
 	void InstanceBuffer::update(std::span<glm::vec2> offsets)
