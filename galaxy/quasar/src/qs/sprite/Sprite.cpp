@@ -13,26 +13,8 @@
 namespace qs
 {
 	Sprite::Sprite()
-	    : VertexData {}, Texture {}, Transform {}, m_opacity {1.0f}
+	    : VertexData {}, Texture {}, Transform {}
 	{
-	}
-
-	void Sprite::set_opacity(const float opacity) noexcept
-	{
-		if (m_opacity > 1.0f)
-		{
-			m_opacity = 1.0f;
-		}
-		else if (m_opacity < 0.0f)
-		{
-			m_opacity = 0.0f;
-		}
-		else
-		{
-			m_opacity = opacity;
-		}
-
-		m_dirty = true;
 	}
 
 	void Sprite::bind() noexcept
@@ -45,10 +27,5 @@ namespace qs
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
-	}
-
-	const float Sprite::opacity() const noexcept
-	{
-		return m_opacity;
 	}
 } // namespace qs

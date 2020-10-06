@@ -38,12 +38,11 @@ namespace qs
 
 		m_sprites.reserve(m_max_quads);
 		m_vertexs.reserve(m_max_vertexs);
-		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(m_vertexs, false);
+		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(m_vertexs);
 		m_ib.create<qs::BufferStatic>(is);
 
 		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
 		m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
-		m_layout.add<qs::SpriteVertex, qs::VAOpacity>(1);
 
 		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
 	}
@@ -111,25 +110,21 @@ namespace qs
 				m_vertexs[sprite->m_offset + 0].m_pos[1]    = result.y;
 				m_vertexs[sprite->m_offset + 0].m_texels[0] = sprite->m_region.m_x;
 				m_vertexs[sprite->m_offset + 0].m_texels[1] = sprite->m_region.m_y;
-				m_vertexs[sprite->m_offset + 0].m_opacity   = sprite->m_opacity;
 
 				m_vertexs[sprite->m_offset + 1].m_pos[0]    = result.x + sprite->m_region.m_width;
 				m_vertexs[sprite->m_offset + 1].m_pos[1]    = result.y;
 				m_vertexs[sprite->m_offset + 1].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
 				m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
-				m_vertexs[sprite->m_offset + 1].m_opacity   = sprite->m_opacity;
 
 				m_vertexs[sprite->m_offset + 2].m_pos[0]    = result.x + sprite->m_region.m_width;
 				m_vertexs[sprite->m_offset + 2].m_pos[1]    = result.y + sprite->m_region.m_height;
 				m_vertexs[sprite->m_offset + 2].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
 				m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
-				m_vertexs[sprite->m_offset + 2].m_opacity   = sprite->m_opacity;
 
 				m_vertexs[sprite->m_offset + 3].m_pos[0]    = result.x;
 				m_vertexs[sprite->m_offset + 3].m_pos[1]    = result.y + sprite->m_region.m_height;
 				m_vertexs[sprite->m_offset + 3].m_texels[0] = sprite->m_region.m_x;
 				m_vertexs[sprite->m_offset + 3].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
-				m_vertexs[sprite->m_offset + 3].m_opacity   = sprite->m_opacity;
 			}
 		}
 

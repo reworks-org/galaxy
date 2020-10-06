@@ -13,7 +13,7 @@
 namespace qs
 {
 	VertexData::VertexData() noexcept
-	    : m_z_level {0}
+	    : m_z_level {0}, m_opacity {1.0f}
 	{
 	}
 
@@ -24,6 +24,7 @@ namespace qs
 		this->m_va      = std::move(vd.m_va);
 		this->m_vb      = std::move(vd.m_vb);
 		this->m_z_level = vd.m_z_level;
+		this->m_opacity = vd.m_opacity;
 	}
 
 	VertexData& VertexData::operator=(VertexData&& vd)
@@ -35,6 +36,7 @@ namespace qs
 			this->m_va      = std::move(vd.m_va);
 			this->m_vb      = std::move(vd.m_vb);
 			this->m_z_level = vd.m_z_level;
+			this->m_opacity = vd.m_opacity;
 		}
 
 		return *this;
@@ -45,9 +47,30 @@ namespace qs
 		m_z_level = z_level;
 	}
 
+	void VertexData::set_opacity(const float opacity) noexcept
+	{
+		if (m_opacity > 1.0f)
+		{
+			m_opacity = 1.0f;
+		}
+		else if (m_opacity < 0.0f)
+		{
+			m_opacity = 0.0f;
+		}
+		else
+		{
+			m_opacity = opacity;
+		}
+	}
+
 	const unsigned int VertexData::z_level() const noexcept
 	{
 		return m_z_level;
+	}
+
+	const float VertexData::opacity() const noexcept
+	{
+		return m_opacity;
 	}
 
 	qs::VertexBuffer& VertexData::get_vbo() noexcept

@@ -1,7 +1,6 @@
 #version 450 core
 layout(location = 0) in vec2 l_pos;
 layout(location = 1) in vec2 l_texels;
-layout(location = 2) in float l_opacity;
 
 out vec2 io_texels;
 

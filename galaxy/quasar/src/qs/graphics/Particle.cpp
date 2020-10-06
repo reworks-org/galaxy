@@ -100,22 +100,6 @@ namespace qs
 		return *this;
 	}
 
-	void ParticleInstance::set_opacity(const float opacity) noexcept
-	{
-		if (m_opacity > 1.0f)
-		{
-			m_opacity = 1.0f;
-		}
-		else if (m_opacity < 0.0f)
-		{
-			m_opacity = 0.0f;
-		}
-		else
-		{
-			m_opacity = opacity;
-		}
-	}
-
 	void ParticleInstance::set_instance(std::span<glm::vec2> instances)
 	{
 		m_instance_buffer.create(instances, 1);
@@ -137,10 +121,5 @@ namespace qs
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
-	}
-
-	const float ParticleInstance::opacity() const noexcept
-	{
-		return m_opacity;
 	}
 } // namespace qs
