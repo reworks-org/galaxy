@@ -89,7 +89,7 @@ namespace qs
 		}
 	}
 
-	void ParticleGenerator::gen_linear(std::string_view particle_type, const unsigned int amount, const float max_offset_x, const float max_offset_y, const float vel_x, const float vel_y)
+	void ParticleGenerator::gen_linear(std::string_view particle_type, const unsigned int amount, const float max_offset_x, const float max_offset_y, float vel_x, float vel_y)
 	{
 		m_amount           = amount;
 		m_current_instance = static_cast<std::string>(particle_type);
@@ -99,34 +99,18 @@ namespace qs
 
 		for (unsigned int count = 0; count < amount; count++)
 		{
-			m_particles.emplace_back();
-			auto* particle = &m_particles.back();
+			Particle particle;
 
 			auto x = pr::random<float>(0.0f, max_offset_x);
 			auto y = pr::random<float>(0.0f, max_offset_y);
 
-			particle->set_position(m_emitter_x + x, m_emitter_y + y);
-
-			// 50% chance, bigger range than 0, 1.
-			float vx = 0.0f;
-			if (pr::random<int>(0, 9) > 4)
-			{
-				vx = -vel_x;
-			}
-
-			// 50% chance, bigger range than 0, 1.
-			float vy = 0.0f;
-			if (pr::random<int>(0, 9) > 4)
-			{
-				vy = -vel_y;
-			}
-
-			particle->set_velocity(vx, vy);
-			particle->set_velocity(vx, vy);
+			particle.set_position(m_emitter_x + x, m_emitter_y + y);
+			particle.set_velocity(vel_x, vel_y);
+			m_particles.push_back(particle);
 		}
 	}
 
-	void ParticleGenerator::gen_circular(std::string_view particle_type, const unsigned int amount, const float radius, const float vel_x, const float vel_y)
+	void ParticleGenerator::gen_circular(std::string_view particle_type, const unsigned int amount, const float radius, float vel_x, float vel_y)
 	{
 		m_amount           = amount;
 		m_current_instance = static_cast<std::string>(particle_type);
@@ -145,29 +129,20 @@ namespace qs
 
 			particle.set_position(x, y);
 
-			// 50% chance, bigger range than 0, 1.
-			float vx = 0.0f;
-			if (pr::random<int>(0, 9) > 4)
+			// Randomize direction.
+			const int res = pr::random<int>(0, 3);
+			if (res == 0)
 			{
-				vx = -vel_x;
+				vel_x = -vel_x;
 			}
-			else
+			else if (res == 3)
 			{
-				vx = vel_x;
-			}
-
-			// 50% chance, bigger range than 0, 1.
-			float vy = 0.0f;
-			if (pr::random<int>(0, 9) > 4)
-			{
-				vy = -vel_y;
-			}
-			else
-			{
-				vy = vel_y;
+				vel_y = -vel_y;
 			}
 
-			particle.set_velocity(vx, vy);
+			particle.set_velocity(
+			    glm::cos(vel_x * glm::pi<float>() / 180.0f) + pr::random<float>(0.0f, 0.5f),
+			    glm::sin(vel_y * glm::pi<float>() / 180.0f) + pr::random<float>(0.0f, 0.5f));
 
 			m_particles.push_back(particle);
 		}
@@ -180,7 +155,7 @@ namespace qs
 
 		for (auto particle = m_particles.begin(); particle != m_particles.end();)
 		{
-			particle->m_life -= life * dt;
+			particle->m_life -= life;
 			if (particle->m_life < 0.0f)
 			{
 				particle = m_particles.erase(particle);

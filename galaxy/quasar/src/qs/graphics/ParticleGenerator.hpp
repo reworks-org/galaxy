@@ -91,7 +91,7 @@ namespace qs
 		/// \param vel_x X axis velocity of particle.
 		/// \param vel_y Y axis velocity of particle.
 		///
-		void gen_linear(std::string_view particle_type, const unsigned int amount, const float max_offset_x, const float max_offset_y, const float vel_x, const float vel_y);
+		void gen_linear(std::string_view particle_type, const unsigned int amount, const float max_offset_x, const float max_offset_y, float vel_x, float vel_y);
 
 		///
 		/// \brief Generate particles and offsets in a circular pattern.
@@ -104,7 +104,7 @@ namespace qs
 		/// \param vel_x X axis velocity of particle.
 		/// \param vel_y Y axis velocity of particle.
 		///
-		void gen_circular(std::string_view particle_type, const unsigned int amount, const float radius, const float vel_x, const float vel_y);
+		void gen_circular(std::string_view particle_type, const unsigned int amount, const float radius, float vel_x, float vel_y);
 
 		///
 		/// Update to process the "life" (opacity) of the particles.
