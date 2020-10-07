@@ -8,9 +8,9 @@
 #ifndef SOLAR_MANAGER_HPP_
 #define SOLAR_MANAGER_HPP_
 
-#include <span>
 #include <memory>
 #include <optional>
+#include <span>
 #include <unordered_set>
 
 #include <protostar/system/UniqueID.hpp>
@@ -425,7 +425,8 @@ namespace sr
 			auto ptr = m_data[type].get();
 			if (ptr != nullptr)
 			{
-				entities.insert(entities.end(), ptr->m_dense.begin(), ptr->m_dense.end());
+				entities.reserve(ptr->m_dense.size());
+				std::move(ptr->m_dense.begin(), ptr->m_dense.end(), std::back_inserter(entities));
 			}
 		}
 	}
