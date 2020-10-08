@@ -60,16 +60,6 @@ namespace qs
 	};
 
 	///
-	/// \brief Specifies "opacity" vertex attribute type at compile time.
-	///
-	/// Cannot be instansiated.
-	///
-	struct VAOpacity final
-	{
-		VAOpacity() = delete;
-	};
-
-	///
 	/// \brief Specifies "texel" vertex attribute type at compile time.
 	///
 	/// Cannot be instansiated.
@@ -109,7 +99,7 @@ namespace qs
 	concept is_vertex_attribute = (std::is_same<Type, VAPosition>::value ||
 				       std::is_same<Type, VAColour>::value ||
 				       std::is_same<Type, VATexel>::value ||
-				       std::is_same<Type, VAOpacity>::value || std::is_same<Type, VAInstanceOffset>::value);
+				       std::is_same<Type, VAInstanceOffset>::value);
 
 	///
 	/// Concept to ensure template parameter is a vertex.

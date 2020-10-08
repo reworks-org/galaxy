@@ -32,9 +32,10 @@ namespace sb
 
 		// create and set texture
 		auto tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "particle_demo.png";
-		m_particle_gen.create(tex);
+		m_particle_gen.create(tex, 100.0f, 100.0f);
 		m_particle_gen.define("default", {0, 0, 16, 16});
-		m_particle_gen.configure("default", 100, 0, 100);
+		m_particle_gen.configure("default");
+		m_particle_gen.gen_circular("default", 100, 20.0f, 0.5f, 0.5f);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -50,25 +51,26 @@ namespace sb
 			m_window->close();
 		}
 
+		auto pos = m_window->get_cursor_pos();
+
 		m_world->events();
 	}
 
 	void SandboxLayer::update(const double dt)
 	{
 		m_world->update(dt);
+		m_particle_gen.update(dt, 0.01f);
 	}
 
 	void SandboxLayer::render(qs::Camera& camera)
 	{
 		// set shader
 		m_shader.bind();
-		m_shader.set_uniform("u_opacity", 1.0f);
-		m_shader.set_uniform<float>("u_width", 16.0f);
-		m_shader.set_uniform<float>("u_height", 16.0f);
 		m_shader.set_uniform("u_cameraProj", camera.get_proj());
 		m_shader.set_uniform("u_cameraView", camera.get_transform());
 
-		SL_HANDLE.renderer()->draw_particles(m_particle_gen);
+		SL_HANDLE.renderer()->draw_particles(m_particle_gen, m_shader);
+
 		//m_world->get_system<galaxy::RenderSystem>()->render(camera);
 	}
 } // namespace sb

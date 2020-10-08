@@ -33,9 +33,8 @@ namespace qs
 		/// \param y Y pos.
 		/// \param u Texel x pos.
 		/// \param v Texel y pos.
-		/// \param opacity Opacity of sprite.
 		///
-		SpriteVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
+		SpriteVertex(const float x, const float y, const float u, const float v) noexcept;
 
 		///
 		/// Copy constructor.
@@ -71,11 +70,6 @@ namespace qs
 		/// SpriteVertex texels.
 		///
 		glm::vec2 m_texels;
-
-		///
-		/// Opacity.
-		///
-		float m_opacity;
 	};
 } // namespace qs
 

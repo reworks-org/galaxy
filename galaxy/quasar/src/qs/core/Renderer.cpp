@@ -112,6 +112,21 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, text.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
+	void Renderer::draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader)
+	{
+		if (!particle_gen.finished())
+		{
+			particle_gen.bind();
+
+			auto* current = particle_gen.get_instance();
+
+			shader.set_uniform<float>("u_width", current->get_width());
+			shader.set_uniform<float>("u_height", current->get_height());
+
+			glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
+		}
+	}
+
 	/*
 |
 	void Renderer::drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls)

@@ -42,22 +42,31 @@ namespace qs
 		return *this;
 	}
 
-	void InstanceBuffer::create(std::span<glm::vec2> offsets, unsigned int divisor)
+	void InstanceBuffer::create(std::span<glm::vec3> offsets, unsigned int divisor)
 	{
+		m_divisor = divisor;
+		bind();
+
 		if (!offsets.empty())
 		{
-			m_divisor = divisor;
-
-			bind();
-
-			glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_STATIC_DRAW);
-
-			unbind();
+			glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_DYNAMIC_DRAW);
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Passed empty offset array to instance buffer.");
+			glBufferData(GL_ARRAY_BUFFER, 4, nullptr, GL_DYNAMIC_DRAW);
 		}
+
+		unbind();
+	}
+
+	void InstanceBuffer::update(std::span<glm::vec3> offsets)
+	{
+		bind();
+
+		glInvalidateBufferData(m_id);
+		glBufferData(GL_ARRAY_BUFFER, offsets.size_bytes(), &offsets[0], GL_DYNAMIC_DRAW);
+
+		unbind();
 	}
 
 	InstanceBuffer::~InstanceBuffer()

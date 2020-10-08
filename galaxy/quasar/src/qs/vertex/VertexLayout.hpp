@@ -101,10 +101,6 @@ namespace qs
 			{
 				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_texels));
 			}
-			else if constexpr (std::is_same<VertexAttribute, VAOpacity>::value)
-			{
-				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_opacity));
-			}
 			else
 			{
 				PL_LOG(PL_FATAL, "Failed to add vertex attribute for sprite vertex.");

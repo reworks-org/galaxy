@@ -8,7 +8,7 @@
 #ifndef QUASAR_PARTICLE_HPP_
 #define QUASAR_PARTICLE_HPP_
 
-#include "qs/sprite/Sprite.hpp"
+#include <glm/vec2.hpp>
 
 ///
 /// Core namespace.
@@ -16,9 +16,9 @@
 namespace qs
 {
 	///
-	/// Draws an instanced vertex array with a texture.
+	/// Manages particle effect instance data.
 	///
-	class Particle final : public Sprite
+	class Particle final
 	{
 	public:
 		///
@@ -27,14 +27,14 @@ namespace qs
 		Particle();
 
 		///
-		/// Constructor.
+		/// Argument Constructor.
 		///
 		Particle(const float x_vel, const float y_vel);
 
 		///
 		/// Copy constructor.
 		///
-		Particle(const Particle&) noexcept = delete;
+		Particle(const Particle&);
 
 		///
 		/// Move constructor.
@@ -44,7 +44,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		Particle& operator=(const Particle&) noexcept = delete;
+		Particle& operator=(const Particle&);
 
 		///
 		/// Move assignment operator.
@@ -54,10 +54,18 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Particle() noexcept = default;
+		~Particle() = default;
 
 		///
-		/// Set velocity of particle(s).
+		/// Set position of particle.
+		///
+		/// \param x x-axis.
+		/// \param y y-axis.
+		///
+		void set_position(const float x, const float y);
+
+		///
+		/// Set velocity of particle.
 		///
 		/// \param x_vel x-axis velocity.
 		/// \param y_vel y-axis velocity.
@@ -65,29 +73,41 @@ namespace qs
 		void set_velocity(const float x_vel, const float y_vel);
 
 		///
-		/// Creates the internal vertex array.
+		/// Move particle across screen.
 		///
-		/// \param instances Set of instance coords to spawn each particle at.
+		/// \param dt Gameloop delta time.
 		///
-		void set_instance(std::span<glm::vec2> instances);
+		void move(const float dt);
 
 		///
-		/// Get amount of particles to draw.
+		/// Get position of particle.
 		///
 		/// \return Const reference to a glm::vec2.
 		///
-		const glm::vec2& velocity() const noexcept;
+		[[nodiscard]] const glm::vec2& pos() const noexcept;
+
+		///
+		/// Get velocity of particle.
+		///
+		/// \return Const reference to a glm::vec2.
+		///
+		[[nodiscard]] const glm::vec2& velocity() const noexcept;
+
+		///
+		/// Lifespan of particle. (i.e. opacity). 0.0f - 1.0f.
+		///
+		float m_life;
 
 	private:
+		///
+		/// Position of particle.
+		///
+		glm::vec2 m_position;
+
 		///
 		/// Velocity of the particle.
 		///
 		glm::vec2 m_velocity;
-
-		///
-		/// InstanceBuffer object.
-		///
-		qs::InstanceBuffer m_instance_buffer;
 	};
 } // namespace qs
 

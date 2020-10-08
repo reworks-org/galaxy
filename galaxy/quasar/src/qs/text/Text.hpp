@@ -81,22 +81,6 @@ namespace qs
 		void update_text(const std::string& text);
 
 		///
-		/// Set opacity.
-		///
-		/// Only affects the currently active quad.
-		///
-		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
-		///
-		void set_opacity(const float opacity) noexcept;
-
-		///
-		/// Get opacity.
-		///
-		/// \return Const float.
-		///
-		[[nodiscard]] const float opacity() const noexcept;
-
-		///
 		/// Activate sprite context.
 		///
 		void bind() noexcept;
@@ -121,11 +105,6 @@ namespace qs
 		/// Colour.
 		///
 		pr::Colour m_colour;
-
-		///
-		/// Opacity of sprite.
-		///
-		float m_opacity;
 	};
 } // namespace qs
 

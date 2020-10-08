@@ -32,7 +32,7 @@ namespace sb
 		qs::Window* m_window;
 
 		qs::Shader m_shader;
-		qs::ParticleGenerator<qs::CircularGen> m_particle_gen;
+		qs::ParticleGenerator m_particle_gen;
 	};
 } // namespace sb
 

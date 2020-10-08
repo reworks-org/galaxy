@@ -12,6 +12,7 @@
 #include <string_view>
 
 #include <glfw/glfw3.h>
+#include <glm/vec2.hpp>
 #include <protostar/graphics/Colour.hpp>
 
 ///
@@ -192,6 +193,13 @@ namespace qs
 		/// Poll for events.
 		///
 		void poll_events() noexcept;
+
+		///
+		/// Get current cursor position.
+		///
+		/// \return glm::vec2.
+		///
+		glm::vec2 get_cursor_pos();
 
 		///
 		/// Retrieve pointer to GLFWwindow object.

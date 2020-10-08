@@ -8,12 +8,26 @@
 #ifndef QUASAR_QSAPI_HPP_
 #define QUASAR_QSAPI_HPP_
 
-#define QSAPI_GL 0
-#define QSAPI_VULKAN 1
-#define QSAPI_DIRECTX 2
+///
+/// Core namespace.
+///
+namespace qs
+{
+	///
+	/// Use OpenGL API when compiling quasar.
+	///
+	static inline constexpr int API_GL = 0;
 
-#ifndef QSAPI
-#define QSAPI QSAPI_GL
-#endif
+	///
+	/// Use Vulkan API when compiling quasar.
+	///
+	static inline constexpr int API_VULKAN = 1;
+
+	///
+	/// Use DirectX API when compiling quasar.
+	///
+	static inline constexpr int API_DIRECTX = 2;
+
+} // namespace qs
 
 #endif

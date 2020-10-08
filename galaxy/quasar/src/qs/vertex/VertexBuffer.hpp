@@ -8,8 +8,6 @@
 #ifndef QUASAR_VERTEXBUFFER_HPP_
 #define QUASAR_VERTEXBUFFER_HPP_
 
-#include <span>
-
 #include "qs/vertex/VertexLayout.hpp"
 
 ///
@@ -55,7 +53,7 @@ namespace qs
 		/// \param dynamic_verticies Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
 		///
 		template<is_vertex VertexType, is_buffer BufferType>
-		void create(std::span<VertexType> vertices, bool dynamic_verticies = true);
+		void create(std::vector<VertexType> vertices);
 
 		///
 		/// Destroys buffer.
@@ -100,39 +98,33 @@ namespace qs
 	};
 
 	template<is_vertex VertexType, is_buffer BufferType>
-	inline void VertexBuffer::create(std::span<VertexType> vertices, bool dynamic_verticies)
+	inline void VertexBuffer::create(std::vector<VertexType> vertices)
 	{
-		if (!vertices.empty())
+		glBindBuffer(GL_ARRAY_BUFFER, m_id);
+
+		// Now to use constexpr to check on compile time the buffer type.
+		// This is faster since we dont need to bother checking at runtime.
+		// constexpr will discard the branch that is false and it wont be compiled.
+		if constexpr (std::is_same<BufferType, qs::BufferDynamic>::value)
 		{
-			glBindBuffer(GL_ARRAY_BUFFER, m_id);
-
-			m_size = static_cast<unsigned int>(vertices.size());
-
-			// Now to use constexpr to check on compile time the buffer type.
-			// This is faster since we dont need to bother checking at runtime.
-			// constexpr will discard the branch that is false and it wont be compiled.
-			if constexpr (std::is_same<BufferType, qs::BufferDynamic>::value)
+			if (!vertices.empty())
 			{
-				if (dynamic_verticies)
-				{
-					glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
-				}
-				else
-				{
-					glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
-				}
+				m_size = static_cast<unsigned int>(vertices.size());
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
 			}
 			else
 			{
-				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
+				m_size = static_cast<unsigned int>(vertices.capacity());
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
 			}
-
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Passed empty verticies to vertex buffer.");
+			m_size = static_cast<unsigned int>(vertices.size());
+			glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
 		}
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
 	template<typename VertexType>

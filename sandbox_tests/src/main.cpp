@@ -39,7 +39,7 @@ int main(int argsc, char* argsv[])
 			date::reload_tzdb();
 
 			// Logging.
-			std::string log_path = fmt::format("{0}{1}", date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
+			std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%d-%m-%Y-[%H.%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
 			PL_LOG_START(log_path);
 			PL_LOG_GET.set_min_level(PL_INFO);
 

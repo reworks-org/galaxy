@@ -52,7 +52,7 @@ namespace qs
 		ib.bind();
 
 		glEnableVertexAttribArray(m_counter);
-		glVertexAttribPointer(m_counter, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
+		glVertexAttribPointer(m_counter, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 		glVertexAttribDivisor(m_counter, ib.divisor());
 
 		unbind();

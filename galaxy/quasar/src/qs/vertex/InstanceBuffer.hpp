@@ -10,7 +10,7 @@
 
 #include <span>
 
-#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 
 ///
 /// Core namespace.
@@ -51,10 +51,17 @@ namespace qs
 		///
 		/// Create instance buffer object.
 		///
-		/// \param offsets Offset for each instance. Size should be total number of instances.
+		/// \param offsets Offset for each instance. Size should be total number of instances. Z is opacity.
 		/// \param divisor set to 1 for once per instance.
 		///
-		void create(std::span<glm::vec2> offsets, unsigned int divisor);
+		void create(std::span<glm::vec3> offsets, unsigned int divisor);
+
+		///
+		/// Update internal instance buffer.
+		///
+		/// \param offsets Offset for each instance. Size should be total number of instances. Z is opacity.
+		///
+		void update(std::span<glm::vec3> offsets);
 
 		///
 		/// Destroys buffer.

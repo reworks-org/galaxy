@@ -1,14 +1,13 @@
 ///
-/// Sprite.hpp
+/// ParticleInstance.hpp
 /// quasar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_SPRITE_HPP_
-#define QUASAR_SPRITE_HPP_
+#ifndef QUASAR_PARTICLEINSTANCE_HPP_
+#define QUASAR_PARTICLEINSTANCE_HPP_
 
-#include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
 #include "qs/texture/Texture.hpp"
 
@@ -18,40 +17,40 @@
 namespace qs
 {
 	///
-	/// Everything you need to draw a sprite.
+	/// Just an instanced vertex array with a texture.
 	///
-	class Sprite : public qs::VertexData, public qs::Texture, public qs::Transform
+	class ParticleInstance final : public VertexData, public Texture
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		Sprite();
+		ParticleInstance() = default;
 
 		///
 		/// Copy constructor.
 		///
-		Sprite(const Sprite&) noexcept = delete;
+		ParticleInstance(const ParticleInstance&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Sprite(Sprite&&) noexcept = default;
+		ParticleInstance(ParticleInstance&&);
 
 		///
 		/// Copy assignment operator.
 		///
-		Sprite& operator=(const Sprite&) noexcept = delete;
+		ParticleInstance& operator=(const ParticleInstance&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Sprite& operator=(Sprite&&) noexcept = default;
+		ParticleInstance& operator=(ParticleInstance&&);
 
 		///
 		/// Destructor.
 		///
-		virtual ~Sprite() noexcept = default;
+		virtual ~ParticleInstance() = default;
 
 		///
 		/// \brief Creates the internal vertex array.
@@ -65,6 +64,20 @@ namespace qs
 		void create(const float tex_x = 0.0f, const float tex_y = 0.0f);
 
 		///
+		/// Creates the internal instancing vertex array.
+		///
+		/// \param instances Set of instance coords to spawn each particle at. Z is opacity.
+		///
+		void set_instance(std::span<glm::vec3> instances);
+
+		///
+		/// Update instance vertex array.
+		///
+		/// \param instances Set of instance coords to spawn each particle at. Z is opacity.
+		///
+		void update_instances(std::span<glm::vec3> instances);
+
+		///
 		/// Activate sprite context.
 		///
 		void bind() noexcept override;
@@ -74,11 +87,15 @@ namespace qs
 		///
 		void unbind() noexcept override;
 
-	protected:
+	private:
+		///
+		/// InstanceBuffer object.
+		///
+		qs::InstanceBuffer m_instance_buffer;
 	};
 
 	template<is_buffer BufferType>
-	inline void Sprite::create(const float tex_x, const float tex_y)
+	inline void ParticleInstance::create(const float tex_x, const float tex_y)
 	{
 		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, tex_x, tex_y);
 		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f, tex_x + m_width, tex_y);
@@ -93,9 +110,6 @@ namespace qs
 		m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
 
 		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
-
-		set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
-		m_dirty = true;
 	}
 } // namespace qs
 

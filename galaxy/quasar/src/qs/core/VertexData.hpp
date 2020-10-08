@@ -52,11 +52,34 @@ namespace qs
 		virtual ~VertexData() noexcept = default;
 
 		///
+		/// Set z-level of sprite.
+		///
+		/// \param z_level z-ordering level to render sprite at.
+		///
+		void set_z_level(const unsigned int z_level) noexcept;
+
+		///
+		/// Set opacity.
+		///
+		/// Only affects the currently active quad.
+		///
+		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
+		///
+		void set_opacity(const float opacity) noexcept;
+
+		///
 		/// Get z-level of vertexs.
 		///
 		/// \return Const unsigned integer.
 		///
 		[[nodiscard]] const unsigned int z_level() const noexcept;
+
+		///
+		/// Get opacity.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float opacity() const noexcept;
 
 		///
 		/// Get VBO.
@@ -80,6 +103,11 @@ namespace qs
 		[[nodiscard]] const unsigned int index_count() const noexcept;
 
 	protected:
+		///
+		/// Opacity of sprite.
+		///
+		float m_opacity;
+
 		///
 		/// Z-Level
 		///
