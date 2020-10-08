@@ -25,7 +25,6 @@ QUASAR:
 - https://github.com/iryoku/smaa
 - Vertex retrieval
 - QSAPI -> const constinit
-- Remove opacity from vertex or uniform.
 
 
 SOLAR:

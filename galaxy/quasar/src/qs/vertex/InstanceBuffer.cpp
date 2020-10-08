@@ -42,7 +42,7 @@ namespace qs
 		return *this;
 	}
 
-	void InstanceBuffer::create(std::span<glm::vec2> offsets, unsigned int divisor)
+	void InstanceBuffer::create(std::span<glm::vec3> offsets, unsigned int divisor)
 	{
 		m_divisor = divisor;
 		bind();
@@ -59,7 +59,7 @@ namespace qs
 		unbind();
 	}
 
-	void InstanceBuffer::update(std::span<glm::vec2> offsets)
+	void InstanceBuffer::update(std::span<glm::vec3> offsets)
 	{
 		bind();
 

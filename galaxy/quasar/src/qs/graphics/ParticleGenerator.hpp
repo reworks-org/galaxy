@@ -11,6 +11,7 @@
 #include <protostar/graphics/Rect.hpp>
 
 #include "qs/graphics/Particle.hpp"
+#include "qs/graphics/ParticleInstance.hpp"
 
 ///
 /// Core namespace.
@@ -132,6 +133,13 @@ namespace qs
 		[[nodiscard]] qs::ParticleInstance* get_instance();
 
 		///
+		/// Is the current particle lifecycle finished?
+		///
+		/// \return Const boolean.
+		///
+		[[nodiscard]] const bool finished() const noexcept;
+
+		///
 		/// Get the current amount of particles being drawn.
 		///
 		/// \return Const unsigned integer.
@@ -162,6 +170,11 @@ namespace qs
 		unsigned int m_amount;
 
 		///
+		/// Is the current particle lifecycle finished.
+		///
+		bool m_finished;
+
+		///
 		/// Currently active particle.
 		///
 		std::string m_current_instance;
@@ -179,7 +192,7 @@ namespace qs
 		///
 		/// Offsets of currently configured particles.
 		///
-		std::vector<glm::vec2> m_offsets;
+		std::vector<glm::vec3> m_offsets;
 
 		///
 		/// Array of particles being rendererd.

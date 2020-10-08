@@ -81,38 +81,14 @@ add_subdirectory(galaxy/solar)
 add_subdirectory(galaxy/starlight)
 add_subdirectory(galaxy/starmap)
 
-add_dependencies(deps
-    pulsar
-)
-
-add_dependencies(protostar
-    deps
-)
-
-add_dependencies(frb
-    protostar
-)
-
-add_dependencies(quasar
-    protostar
-)
-
-add_dependencies(redshift
-    protostar
-)
-
-add_dependencies(solar
-    protostar
-)
-
-add_dependencies(starlight
-    protostar
-)
-
-add_dependencies(starmap
-    protostar
-)
-
+add_dependencies(deps pulsar)
+add_dependencies(protostar deps)
+add_dependencies(frb protostar)
+add_dependencies(quasar protostar)
+add_dependencies(redshift protostar)
+add_dependencies(solar protostar)
+add_dependencies(starlight protostar)
+add_dependencies(starmap protostar)
 add_dependencies(galaxy
     frb
     quasar

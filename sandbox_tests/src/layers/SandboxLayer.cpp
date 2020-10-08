@@ -59,7 +59,7 @@ namespace sb
 	void SandboxLayer::update(const double dt)
 	{
 		m_world->update(dt);
-		m_particle_gen.update(dt, 0.5f);
+		m_particle_gen.update(dt, 0.01f);
 	}
 
 	void SandboxLayer::render(qs::Camera& camera)

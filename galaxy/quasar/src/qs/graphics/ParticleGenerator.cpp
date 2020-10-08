@@ -5,6 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <glm/gtc/constants.hpp>
 #include <glm/trigonometric.hpp>
 #include <protostar/math/Random.hpp>
 
@@ -16,7 +17,7 @@
 namespace qs
 {
 	ParticleGenerator::ParticleGenerator()
-	    : m_emitter_x {0.0f}, m_emitter_y {0.0f}, m_amount {0}, m_current_instance {""}, m_current_particle {0}
+	    : m_emitter_x {0.0f}, m_emitter_y {0.0f}, m_amount {0}, m_finished {true}, m_current_instance {""}, m_current_particle {0}
 	{
 	}
 
@@ -25,6 +26,7 @@ namespace qs
 		this->m_emitter_x           = pg.m_emitter_x;
 		this->m_emitter_y           = pg.m_emitter_y;
 		this->m_amount              = pg.m_amount;
+		this->m_finished            = pg.m_finished;
 		this->m_current_instance    = pg.m_current_instance;
 		this->m_texture             = std::move(pg.m_texture);
 		this->m_current_particle    = pg.m_current_particle;
@@ -41,6 +43,7 @@ namespace qs
 			this->m_emitter_x           = pg.m_emitter_x;
 			this->m_emitter_y           = pg.m_emitter_y;
 			this->m_amount              = pg.m_amount;
+			this->m_finished            = pg.m_finished;
 			this->m_current_instance    = pg.m_current_instance;
 			this->m_texture             = std::move(pg.m_texture);
 			this->m_current_particle    = pg.m_current_particle;
@@ -108,6 +111,8 @@ namespace qs
 			particle.set_velocity(vel_x, vel_y);
 			m_particles.push_back(particle);
 		}
+
+		m_finished = false;
 	}
 
 	void ParticleGenerator::gen_circular(std::string_view particle_type, const unsigned int amount, const float radius, float vel_x, float vel_y)
@@ -146,6 +151,8 @@ namespace qs
 
 			m_particles.push_back(particle);
 		}
+
+		m_finished = false;
 	}
 
 	void ParticleGenerator::update(const double dt, const double life)
@@ -153,25 +160,32 @@ namespace qs
 		m_offsets.clear();
 		m_offsets.reserve(m_amount);
 
-		for (auto particle = m_particles.begin(); particle != m_particles.end();)
+		if (!m_finished)
 		{
-			particle->m_life -= life;
-			if (particle->m_life < 0.0f)
+			for (auto particle = m_particles.begin(); particle != m_particles.end();)
 			{
-				particle = m_particles.erase(particle);
+				particle->m_life -= life;
+				if (particle->m_life < 0.0f)
+				{
+					particle = m_particles.erase(particle);
+				}
+				else
+				{
+					particle->move(static_cast<float>(dt));
+					m_offsets.emplace_back(particle->pos().x, particle->pos().y, particle->m_life);
+
+					++particle;
+				}
+			}
+
+			if (!m_particles.empty())
+			{
+				m_particles_instances[m_current_instance].update_instances(m_offsets);
 			}
 			else
 			{
-				particle->move(static_cast<float>(dt));
-				m_offsets.push_back(particle->pos());
-
-				++particle;
+				m_finished = true;
 			}
-		}
-
-		if (!m_particles.empty())
-		{
-			m_particles_instances[m_current_instance].update_instances(m_offsets);
 		}
 	}
 
@@ -188,6 +202,11 @@ namespace qs
 	qs::ParticleInstance* ParticleGenerator::get_instance()
 	{
 		return &m_particles_instances[m_current_instance];
+	}
+
+	const bool ParticleGenerator::finished() const noexcept
+	{
+		return m_finished;
 	}
 
 	const unsigned int ParticleGenerator::amount() const noexcept

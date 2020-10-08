@@ -114,15 +114,17 @@ namespace qs
 
 	void Renderer::draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader)
 	{
-		particle_gen.bind();
+		if (!particle_gen.finished())
+		{
+			particle_gen.bind();
 
-		auto* current = particle_gen.get_instance();
+			auto* current = particle_gen.get_instance();
 
-		shader.set_uniform("u_opacity", current->opacity());
-		shader.set_uniform<float>("u_width", current->get_width());
-		shader.set_uniform<float>("u_height", current->get_height());
+			shader.set_uniform<float>("u_width", current->get_width());
+			shader.set_uniform<float>("u_height", current->get_height());
 
-		glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
+			glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
+		}
 	}
 
 	/*
