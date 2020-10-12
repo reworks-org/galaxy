@@ -58,6 +58,14 @@ set_source_files_properties(*.h LANGUAGE C)
 set_source_files_properties(*.hh LANGUAGE CXX)
 set_source_files_properties(*.hpp LANGUAGE CXX)
 
+# clang-tidy
+if (WIN32)
+	set(CMAKE_CXX_CLANG_TIDY "tools/clang/clang-tidy.exe")
+else()
+	set(CMAKE_CXX_CLANG_TIDY clang-tidy)
+endif()
+
+# MSVC runtime.
 if (MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 elseif (GNU)
