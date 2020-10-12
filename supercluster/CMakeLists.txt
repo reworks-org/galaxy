@@ -90,6 +90,9 @@ if (MSVC)
         /bigobj
         /Zc:preprocessor
         /Y-
+        /experimental:external
+        /external:anglebrackets
+        /external:W0
     )
 
     target_link_options(${PROJECT_NAME} PRIVATE

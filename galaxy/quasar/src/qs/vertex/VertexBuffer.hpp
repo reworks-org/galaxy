@@ -76,7 +76,7 @@ namespace qs
 		/// \return Vertex storage.
 		///
 		template<typename VertexType>
-		[[nodiscard]] std::vector<VertexType> get() noexcept;
+		[[nodiscard]] std::vector<VertexType> get();
 
 		///
 		/// Get OpenGL handle.
@@ -128,7 +128,7 @@ namespace qs
 	}
 
 	template<typename VertexType>
-	inline std::vector<VertexType> VertexBuffer::get() noexcept
+	inline std::vector<VertexType> VertexBuffer::get()
 	{
 		std::vector<VertexType> vs;
 		vs.reserve(m_size);

@@ -58,6 +58,7 @@ set_source_files_properties(*.h LANGUAGE C)
 set_source_files_properties(*.hh LANGUAGE CXX)
 set_source_files_properties(*.hpp LANGUAGE CXX)
 
+# MSVC runtime.
 if (MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 elseif (GNU)
@@ -65,9 +66,6 @@ elseif (GNU)
     set(THREADS_PREFER_PTHREAD_FLAG TRUE)
     find_package(Threads REQUIRED)
 endif()
-
-# doxygen
-include(cmake/Doxygen.cmake)
 
 # Add internal projects.
 add_subdirectory(galaxy/deps)
@@ -99,12 +97,20 @@ add_dependencies(galaxy
 )
 
 # Add external dependencies.
-add_subdirectory(dependencies/freetype2)
+set(CMAKE_DISABLE_FIND_PACKAGE_ZLIB ON CACHE BOOL "" FORCE)
+set(CMAKE_DISABLE_FIND_PACKAGE_BZip2 ON CACHE BOOL "" FORCE)
+set(CMAKE_DISABLE_FIND_PACKAGE_PNG ON CACHE BOOL "" FORCE)
+set(CMAKE_DISABLE_FIND_PACKAGE_HarfBuzz ON CACHE BOOL "" FORCE)
+set(CMAKE_DISABLE_FIND_PACKAGE_BrotliDec ON CACHE BOOL "" FORCE)
 set(FT_WITH_ZLIB OFF CACHE BOOL "" FORCE)
 set(FT_WITH_BZIP2 OFF CACHE BOOL "" FORCE)
 set(FT_WITH_PNG OFF CACHE BOOL "" FORCE)
 set(FT_WITH_HARFBUZZ OFF CACHE BOOL "" FORCE)
 set(FT_WITH_BROTLI OFF CACHE BOOL "" FORCE)
+set(SKIP_INSTALL_HEADERS ON CACHE BOOL "" FORCE)
+set(SKIP_INSTALL_LIBRARIES ON CACHE BOOL "" FORCE)
+set(SKIP_INSTALL_ALL ON CACHE BOOL "" FORCE)
+add_subdirectory(dependencies/freetype2)
 set_target_properties(freetype PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
@@ -199,6 +205,21 @@ set_target_properties(zlibstatic PROPERTIES
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 )
+
+# Set dependencies to not show compiler errors.
+if (MSVC)
+	target_compile_options(freetype PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(ogg PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(vorbis PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(vorbisenc PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(vorbisfile PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(zlibstatic PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+else()
+	# unix
+endif()
 
 # Meta trget to build external libs.
 add_custom_target(BUILD_EXTERNAL_LIBS)
@@ -457,3 +478,26 @@ endif()
 target_link_libraries(supercluster PUBLIC ${SYSTEM_LIBS})
 target_link_libraries(sandbox_test PUBLIC ${SYSTEM_LIBS})
 target_link_libraries(tests PUBLIC ${SYSTEM_LIBS})
+
+# clang-format
+set(CLANGFORMAT_EXECUTABLE "${CMAKE_SOURCE_DIR}/tools/clang/clang-format")
+include(cmake/ClangFormat.cmake)
+#target_clangformat_setup(deps)
+#target_clangformat_setup(frb)
+#target_clangformat_setup(galaxy)
+#target_clangformat_setup(protostar)
+#target_clangformat_setup(pulsar)
+#target_clangformat_setup(quasar)
+#target_clangformat_setup(redshift)
+#target_clangformat_setup(solar)
+#target_clangformat_setup(starlight)
+#target_clangformat_setup(starmap)
+#target_clangformat_setup(supercluster)
+#target_clangformat_setup(sandbox_test)
+#target_clangformat_setup(tests)
+
+# clang-tidy
+set(CMAKE_CXX_CLANG_TIDY clang-tidy;-header-filter=.;-checks=*;)
+
+# doxygen
+include(cmake/Doxygen.cmake)

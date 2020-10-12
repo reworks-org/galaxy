@@ -102,11 +102,8 @@ namespace pr
 	template<is_arithmetic Type>
 	inline void ProtectedAirthmetic<Type>::set(const Type value) noexcept
 	{
-		m_mutex.lock();
-
+		std::lock_guard<std::mutex> lock {m_mutex};
 		m_var = value;
-
-		m_mutex.unlock();
 	}
 
 	template<is_arithmetic Type>
@@ -119,27 +116,27 @@ namespace pr
 	///
 	/// Predefined type for float.
 	///
-	using ProtectedFloat = ProtectedAirthmetic<float>;
+	using LockedFloat = ProtectedAirthmetic<float>;
 
 	///
 	/// Predefined type for double.
 	///
-	using ProtectedDouble = ProtectedAirthmetic<double>;
+	using LockedDouble = ProtectedAirthmetic<double>;
 
 	///
 	/// Predefined type for int.
 	///
-	using ProtectedInt = ProtectedAirthmetic<int>;
+	using LockedInt = ProtectedAirthmetic<int>;
 
 	///
 	/// Predefined type for unsigned int.
 	///
-	using ProtectedUInt = ProtectedAirthmetic<unsigned int>;
+	using LockedUInt = ProtectedAirthmetic<unsigned int>;
 
 	///
 	/// Predefined type for bool.
 	///
-	using ProtectedBool = ProtectedAirthmetic<bool>;
+	using LockedBool = ProtectedAirthmetic<bool>;
 } // namespace pr
 
 #endif

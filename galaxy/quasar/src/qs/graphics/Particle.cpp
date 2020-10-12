@@ -71,8 +71,10 @@ namespace qs
 
 	void Particle::move(const float dt)
 	{
-		m_position.x += (m_velocity.x * dt);
-		m_position.y += (m_velocity.y * dt);
+		//m_position.x += (m_velocity.x * dt);
+		//m_position.y += (m_velocity.y * dt);
+
+		m_position += m_velocity;
 	}
 
 	const glm::vec2& Particle::pos() const noexcept

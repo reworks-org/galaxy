@@ -38,7 +38,7 @@ namespace qs
 		/// \param speed Multiplier. Speed of animation.
 		/// \param frames Frames in the animation.
 		///
-		Animation(std::string_view name, bool looping, const float speed, std::span<qs::Frame> frames);
+		Animation(std::string_view name, bool looping, const double speed, std::span<qs::Frame> frames);
 
 		///
 		/// Copy constructor.
@@ -96,7 +96,7 @@ namespace qs
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_speed() const noexcept;
+		[[nodiscard]] const double get_speed() const noexcept;
 
 		///
 		/// Get total frames in animation.
@@ -139,7 +139,7 @@ namespace qs
 		/// Speed of the animation.
 		/// Multiplier, so 1.0f is regular speed.
 		///
-		float m_speed;
+		double m_speed;
 
 		///
 		/// Total number of frames in animation.

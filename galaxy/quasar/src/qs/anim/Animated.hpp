@@ -119,7 +119,7 @@ namespace qs
 		///
 		/// Current amount of time spent on the frame.
 		///
-		std::size_t m_time_spent_on_frame;
+		double m_time_spent_on_frame;
 
 		///
 		/// Stored animations.

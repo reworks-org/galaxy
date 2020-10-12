@@ -33,7 +33,7 @@ namespace qs
 		/// \param y Y position on the anim texture.
 		/// \param time_per_frame Total time to display this frame for.
 		///
-		Frame(const float x, const float y, const std::size_t time_per_frame) noexcept;
+		Frame(const float x, const float y, const double time_per_frame) noexcept;
 
 		///
 		/// Copy constructor.
@@ -79,7 +79,7 @@ namespace qs
 		///
 		/// \return Const std::size_t.
 		///
-		[[nodiscard]] const std::size_t get_time_per_frame() const noexcept;
+		[[nodiscard]] const double get_time_per_frame() const noexcept;
 
 	private:
 		///
@@ -95,7 +95,7 @@ namespace qs
 		///
 		/// Time to spend on this frame in milliseconds.
 		///
-		std::size_t m_time_per_frame;
+		double m_time_per_frame;
 	};
 } // namespace qs
 

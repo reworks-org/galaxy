@@ -128,7 +128,6 @@ namespace qs
 	}
 
 	/*
-|
 	void Renderer::drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls)
 	{
 		spritebatch.bind();

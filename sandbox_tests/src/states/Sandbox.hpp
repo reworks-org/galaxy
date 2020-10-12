@@ -1,12 +1,12 @@
 ///
 /// Sandbox.hpp
-/// supercluster
+/// sandbox_tests
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_SANDBOX_HPP_
-#define SUPERCLUSTER_SANDBOX_HPP_
+#ifndef SANDBOXTESTS_SANDBOX_HPP_
+#define SANDBOXTESTS_SANDBOX_HPP_
 
 #include <protostar/state/State.hpp>
 #include <galaxy/layer/LayerStorage.hpp>

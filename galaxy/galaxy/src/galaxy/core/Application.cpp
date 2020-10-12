@@ -221,7 +221,7 @@ namespace galaxy
 		return SL_HANDLE.m_restart;
 	}
 
-	pr::ProtectedDouble* Application::get_dt() noexcept
+	pr::LockedDouble* Application::get_dt() noexcept
 	{
 		return &m_delta_time;
 	}

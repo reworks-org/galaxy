@@ -155,7 +155,7 @@ namespace qs
 		m_finished = false;
 	}
 
-	void ParticleGenerator::update(const double dt, const double life)
+	void ParticleGenerator::update(const double dt, const float life)
 	{
 		m_offsets.clear();
 		m_offsets.reserve(m_amount);
@@ -187,6 +187,12 @@ namespace qs
 				m_finished = true;
 			}
 		}
+	}
+
+	void ParticleGenerator::update_emitter(const float emitter_x, const float emitter_y)
+	{
+		m_emitter_x = emitter_x;
+		m_emitter_y = emitter_y;
 	}
 
 	void ParticleGenerator::bind()

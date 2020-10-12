@@ -1,4 +1,5 @@
-clang-tidy
+clang-tidy cmake
+clang-format cmake
 
 Profiling?
 Debugging?

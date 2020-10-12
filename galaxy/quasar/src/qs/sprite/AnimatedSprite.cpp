@@ -25,7 +25,7 @@ namespace qs
 			if (m_active_anim->get_current_frame()->get_time_per_frame() >= m_time_spent_on_frame)
 			{
 				m_time_spent_on_frame = 0;
-				auto* new_frame       = m_active_anim->next_frame();
+				const auto* new_frame = m_active_anim->next_frame();
 
 				auto vb             = m_vb.get<qs::SpriteVertex>();
 				auto* vertex        = &vb[0];

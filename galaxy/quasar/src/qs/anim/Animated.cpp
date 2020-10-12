@@ -15,7 +15,7 @@
 namespace qs
 {
 	Animated::Animated()
-	    : m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0}
+	    : m_active_anim {nullptr}, m_paused {true}, m_time_spent_on_frame {0.0}
 	{
 	}
 
@@ -60,7 +60,7 @@ namespace qs
 
 			a.m_active_anim         = nullptr;
 			a.m_paused              = true;
-			a.m_time_spent_on_frame = 0;
+			a.m_time_spent_on_frame = 0.0;
 		}
 
 		return *this;
@@ -116,7 +116,7 @@ namespace qs
 	{
 		if (m_active_anim != nullptr)
 		{
-			m_time_spent_on_frame = 0;
+			m_time_spent_on_frame = 0.0;
 			m_paused              = true;
 
 			m_active_anim->restart();
