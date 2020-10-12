@@ -74,7 +74,7 @@ namespace galaxy
 		///
 		/// \return Pointer to protected double.
 		///
-		[[nodiscard]] pr::ProtectedDouble* get_dt() noexcept;
+		[[nodiscard]] pr::LockedDouble* get_dt() noexcept;
 
 	protected:
 		///
@@ -146,7 +146,7 @@ namespace galaxy
 		///
 		/// Delta Time.
 		///
-		pr::ProtectedDouble m_delta_time;
+		pr::LockedDouble m_delta_time;
 
 		///
 		/// OpenAL context.

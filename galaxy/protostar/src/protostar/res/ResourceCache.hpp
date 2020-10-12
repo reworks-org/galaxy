@@ -98,7 +98,7 @@ namespace pr
 		/// \return Pointer to newly created resource.
 		///
 		template<typename... Args>
-		[[nodiscard]] Resource* create(std::string_view name, Args&&... args);
+		[[maybe_unused]] Resource* create(std::string_view name, Args&&... args);
 
 		///
 		/// Move a resource into cache.

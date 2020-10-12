@@ -155,7 +155,7 @@ namespace qs
 		m_finished = false;
 	}
 
-	void ParticleGenerator::update(const double dt, const double life)
+	void ParticleGenerator::update(const double dt, const float life)
 	{
 		m_offsets.clear();
 		m_offsets.reserve(m_amount);

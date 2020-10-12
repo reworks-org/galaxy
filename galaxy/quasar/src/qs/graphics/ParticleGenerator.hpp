@@ -113,7 +113,7 @@ namespace qs
 		/// \param dt DeltaTime from gameloop.
 		/// \param life Speed at which the particle decays.
 		///
-		void update(const double dt, const double life);
+		void update(const double dt, const float life);
 
 		///
 		/// Update emitter position.

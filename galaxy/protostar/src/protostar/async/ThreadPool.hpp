@@ -106,7 +106,7 @@ namespace pr
 		///
 		/// Control thread activity.
 		///
-		pr::ProtectedBool m_running;
+		pr::LockedBool m_running;
 	};
 
 	template<std::size_t max_threads>

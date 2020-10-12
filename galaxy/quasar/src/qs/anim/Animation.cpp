@@ -13,11 +13,11 @@
 namespace qs
 {
 	Animation::Animation()
-	    : m_active_frame {nullptr}, m_name {"null"}, m_looping {false}, m_speed {0.0f}, m_total_frames {0}, m_current_frame_index {0}
+	    : m_active_frame {nullptr}, m_name {"null"}, m_looping {false}, m_speed {0.0}, m_total_frames {0}, m_current_frame_index {0}
 	{
 	}
 
-	Animation::Animation(std::string_view name, bool looping, const float speed, std::span<qs::Frame> frames)
+	Animation::Animation(std::string_view name, bool looping, const double speed, std::span<qs::Frame> frames)
 	    : m_active_frame {nullptr}, m_name {name}, m_looping {looping}, m_speed {speed}, m_total_frames {frames.size()}, m_current_frame_index {0}, m_frames {frames.begin(), frames.end()}
 	{
 	}
@@ -123,7 +123,7 @@ namespace qs
 		return m_looping;
 	}
 
-	const float Animation::get_speed() const noexcept
+	const double Animation::get_speed() const noexcept
 	{
 		return m_speed;
 	}
