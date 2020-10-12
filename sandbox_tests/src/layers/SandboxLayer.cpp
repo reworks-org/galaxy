@@ -1,6 +1,6 @@
 ///
 /// SandboxLayer.cpp
-/// supercluster
+/// sandbox_tests
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -35,7 +35,7 @@ namespace sb
 		m_particle_gen.create(tex, 100.0f, 100.0f);
 		m_particle_gen.define("default", {0, 0, 16, 16});
 		m_particle_gen.configure("default");
-		m_particle_gen.gen_circular("default", 100, 20.0f, 0.5f, 0.5f);
+		m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -51,7 +51,14 @@ namespace sb
 			m_window->close();
 		}
 
+		/*
 		auto pos = m_window->get_cursor_pos();
+		if (glfwGetMouseButton(m_window->gl_window(), GLFW_MOUSE_BUTTON_1) == GLFW_PRESS)
+		{
+			m_particle_gen.update_emitter(pos.x, pos.y);
+			m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
+		}
+		*/
 
 		m_world->events();
 	}

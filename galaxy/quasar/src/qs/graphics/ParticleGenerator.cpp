@@ -189,6 +189,12 @@ namespace qs
 		}
 	}
 
+	void ParticleGenerator::update_emitter(const float emitter_x, const float emitter_y)
+	{
+		m_emitter_x = emitter_x;
+		m_emitter_y = emitter_y;
+	}
+
 	void ParticleGenerator::bind()
 	{
 		m_particles_instances[m_current_instance].bind();

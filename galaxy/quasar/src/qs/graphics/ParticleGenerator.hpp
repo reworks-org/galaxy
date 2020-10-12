@@ -116,6 +116,14 @@ namespace qs
 		void update(const double dt, const double life);
 
 		///
+		/// Update emitter position.
+		///
+		/// \param emitter_x Set the x position of where to draw particles from.
+		/// \param emitter_y Set the y position of where to draw particles from.
+		///
+		void update_emitter(const float emitter_x, const float emitter_y);
+
+		///
 		/// Bind particle generator to active opengl instance.
 		///
 		void bind();

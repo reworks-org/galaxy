@@ -1,12 +1,12 @@
 ///
 /// SandboxLayer.hpp
-/// supercluster
+/// sandbox_tests
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_SANDBOXLAYER_HPP_
-#define SUPERCLUSTER_SANDBOXLAYER_HPP_
+#ifndef SANDBOXTESTS_SANDBOXLAYER_HPP_
+#define SANDBOXTESTS_SANDBOXLAYER_HPP_
 
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
