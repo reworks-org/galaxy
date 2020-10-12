@@ -91,19 +91,6 @@ namespace qs
 		m_texture.save(file);
 	}
 
-	void TextureAtlas::add_custom_quad(std::string_view name, const pr::Rect<float>& rect) noexcept
-	{
-		const auto str = static_cast<std::string>(name);
-		if (!m_regions.contains(str))
-		{
-			m_regions[str] = rect;
-		}
-		else
-		{
-			PL_LOG(PL_WARNING, "Could not add duplicate texture region: {0}.", str);
-		}
-	}
-
 	std::optional<pr::Rect<float>> TextureAtlas::get_region(std::string_view name) noexcept
 	{
 		const auto str = static_cast<std::string>(name);

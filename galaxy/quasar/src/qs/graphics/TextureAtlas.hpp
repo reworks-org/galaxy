@@ -98,14 +98,6 @@ namespace qs
 		void save(std::string_view file);
 
 		///
-		/// Custom quad definition on texture atlas.
-		///
-		/// \param name String name corresponding to texture (filename without path and extension).
-		/// \param rect Quad definition.
-		///
-		void add_custom_quad(std::string_view name, const pr::Rect<float>& rect) noexcept;
-
-		///
 		/// Retrieve a texture quad defined in the atlas.
 		///
 		/// \param name String name corresponding to texture (filename without path and extension).
