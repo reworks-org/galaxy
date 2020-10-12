@@ -30,9 +30,7 @@
       "cmakeExecutable": "cmake",
       "intelliSenseMode": "windows-msvc-x64",
       "enableMicrosoftCodeAnalysis": true,
-      "codeAnalysisRuleset": "CodeAnalysis.ruleset",
-      "enableClangTidyCodeAnalysis": true,
-      "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
+      "codeAnalysisRuleset": "CodeAnalysis.ruleset"
     },
     {
       "name": "MSVC-Release",
@@ -54,9 +52,7 @@
       "cmakeExecutable": "cmake",
       "intelliSenseMode": "windows-msvc-x64",
       "enableMicrosoftCodeAnalysis": true,
-      "codeAnalysisRuleset": "CodeAnalysis.ruleset",
-      "enableClangTidyCodeAnalysis": true,
-      "clangTidyChecks": "bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-modernize-use-trailing-return-type,-readability-convert-member-functions-to-static,-cppcoreguidelines-macro-usage,-readability-avoid-const-params-in-decls,-cppcoreguidelines-special-member-functions,-hicpp-special-member-functions"
+      "codeAnalysisRuleset": "CodeAnalysis.ruleset"
     },
     {
       "name": "WSL-GCC-Debug",
