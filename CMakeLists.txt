@@ -206,6 +206,21 @@ set_target_properties(zlibstatic PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 )
 
+# Set dependencies to not show compiler errors.
+if (MSVC)
+	target_compile_options(freetype PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(ogg PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(vorbis PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(vorbisenc PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(vorbisfile PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(zlibstatic PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+else()
+	# unix
+endif()
+
 # Meta trget to build external libs.
 add_custom_target(BUILD_EXTERNAL_LIBS)
 add_dependencies(BUILD_EXTERNAL_LIBS common freetype glfw ogg vorbis vorbisenc vorbisfile OpenAL zlibstatic)
