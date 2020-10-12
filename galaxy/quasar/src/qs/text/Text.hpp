@@ -105,6 +105,16 @@ namespace qs
 		/// Colour.
 		///
 		pr::Colour m_colour;
+
+		///
+		/// Stores indexs.
+		///
+		std::vector<unsigned int> m_is;
+
+		///
+		/// Stores vertexs.
+		///
+		std::vector<qs::SpriteVertex> m_vs;
 	};
 } // namespace qs
 
