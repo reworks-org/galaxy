@@ -20,6 +20,8 @@ namespace qs
 	Text::Text() noexcept
 	    : VertexData {}, Transform {}, m_text {""}, m_font {nullptr}
 	{
+		m_is.clear();
+		m_vs.clear();
 	}
 
 	Text::Text(Text&& t)
@@ -63,71 +65,77 @@ namespace qs
 
 	void Text::create()
 	{
-		std::vector<unsigned int> is;
-		std::vector<qs::SpriteVertex> vs;
+		m_is.reserve(m_text.length() * 6);
+		m_vs.reserve(m_text.length() * 4);
 
 		unsigned int count = 0;
 		float x            = 0;
 		for (auto& c : m_text)
 		{
-			is.push_back(0 + count);
-			is.push_back(1 + count);
-			is.push_back(3 + count);
-			is.push_back(1 + count);
-			is.push_back(2 + count);
-			is.push_back(3 + count);
+			m_is.push_back(0 + count);
+			m_is.push_back(1 + count);
+			m_is.push_back(3 + count);
+			m_is.push_back(1 + count);
+			m_is.push_back(2 + count);
+			m_is.push_back(3 + count);
 
 			const auto* chr = m_font->get_char(c);
 			auto* region    = &chr->get_region();
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f, region->m_x, region->m_y));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f, region->m_x + region->m_width, region->m_y));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f + region->m_height, region->m_x, region->m_y + region->m_height));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f, region->m_x, region->m_y));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f, region->m_x + region->m_width, region->m_y));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f + region->m_height, region->m_x, region->m_y + region->m_height));
 
 			count += 4;
 			x += (chr->get_advance() >> 6);
 		}
 
-		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(vs);
-		m_ib.create<qs::BufferStatic>(is);
+		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(m_vs);
+		m_ib.create<qs::BufferStatic>(m_is);
 
 		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
 		m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
 
 		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
+
+		m_is.clear();
+		m_vs.clear();
 	}
 
 	void Text::update_text(const std::string& text)
 	{
 		m_text = text;
 
-		std::vector<unsigned int> is;
-		std::vector<qs::SpriteVertex> vs;
+		m_is.reserve(m_text.length() * 6);
+		m_vs.reserve(m_text.length() * 4);
 
 		unsigned int count = 0;
 		float x            = 0;
 		for (auto& c : m_text)
 		{
-			is.push_back(0 + count);
-			is.push_back(1 + count);
-			is.push_back(3 + count);
-			is.push_back(1 + count);
-			is.push_back(2 + count);
-			is.push_back(3 + count);
+			m_is.push_back(0 + count);
+			m_is.push_back(1 + count);
+			m_is.push_back(3 + count);
+			m_is.push_back(1 + count);
+			m_is.push_back(2 + count);
+			m_is.push_back(3 + count);
 
 			const auto* chr = m_font->get_char(c);
 			auto* region    = &chr->get_region();
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f, region->m_x, region->m_y));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f, region->m_x + region->m_width, region->m_y));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height));
-			vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f + region->m_height, region->m_x, region->m_y + region->m_height));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f, region->m_x, region->m_y));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f, region->m_x + region->m_width, region->m_y));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x + region->m_width, 0.0f + region->m_height, region->m_x + region->m_width, region->m_y + region->m_height));
+			m_vs.push_back(qs::make_vertex<qs::SpriteVertex>(x, 0.0f + region->m_height, region->m_x, region->m_y + region->m_height));
 
 			count += 4;
 			x += (chr->get_advance() >> 6);
 		}
 
-		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(vs);
-		m_ib.create<qs::BufferStatic>(is);
+		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(m_vs);
+		m_ib.create<qs::BufferStatic>(m_is);
+
+		m_is.clear();
+		m_vs.clear();
 	}
 
 	void Text::bind() noexcept

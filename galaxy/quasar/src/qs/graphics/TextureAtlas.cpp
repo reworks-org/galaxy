@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-
 #include <pulsar/Log.hpp>
 
 #include "qs/core/Shader.hpp"
@@ -17,7 +15,7 @@
 
 namespace qs
 {
-	TextureAtlas::TextureAtlas() noexcept
+	TextureAtlas::TextureAtlas()
 	    : m_size {1024}, m_texture {1024, 1024}
 	{
 		// This is the default size.
@@ -27,7 +25,12 @@ namespace qs
 	TextureAtlas::TextureAtlas(const unsigned int size)
 	    : m_size {size}, m_texture {size, size}
 	{
-		if (size == 0 || !((size & (size - 1)) == 0))
+		if (size == 0)
+		{
+			throw std::runtime_error("TextureAtlas size cannot be 0.");
+		}
+
+		if (!((size & (size - 1)) == 0))
 		{
 			throw std::runtime_error("TextureAtlas size is not power of 2.");
 		}
@@ -35,15 +38,22 @@ namespace qs
 		m_packer.init(size, size);
 	}
 
-	TextureAtlas::~TextureAtlas() noexcept
+	TextureAtlas::~TextureAtlas()
 	{
 		m_textures.clear();
-		m_regions.clear();
 	}
 
-	void TextureAtlas::add(std::string_view name) noexcept
+	void TextureAtlas::add(std::string_view file)
 	{
-		m_textures.emplace_back(name);
+		const auto path = std::filesystem::path {file};
+		if (!m_textures.contains(path.stem().string()))
+		{
+			m_textures[path.stem().string()] = {.m_path = std::move(path)};
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Attempted to add pre-existing texture.");
+		}
 	}
 
 	void TextureAtlas::create(qs::Renderer& renderer, qs::Shader& shader)
@@ -52,20 +62,18 @@ namespace qs
 		{
 			m_texture.bind();
 
-			for (const auto& file : m_textures)
+			for (auto& [name, info] : m_textures)
 			{
-				auto path = std::filesystem::path {file};
-
 				// Load texture.
 				qs::Sprite to_draw;
-				to_draw.load(path.string());
+				to_draw.load(info.m_path.string());
 				to_draw.create<qs::BufferDynamic>();
 
 				// Pack into rect then add to hashmap.
 				auto opt = m_packer.pack(to_draw.get_width(), to_draw.get_height());
 				if (opt == std::nullopt)
 				{
-					PL_LOG(PL_ERROR, "Failed to pack texture: {0}.", file);
+					PL_LOG(PL_ERROR, "Failed to pack texture: {0}.", name);
 				}
 				else
 				{
@@ -74,7 +82,7 @@ namespace qs
 
 					renderer.draw_sprite_to_texture(&to_draw, m_texture, shader);
 
-					m_regions[path.stem().string()] = {static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)};
+					info.m_region = {static_cast<float>(rect.m_x), static_cast<float>(rect.m_y), static_cast<float>(rect.m_width), static_cast<float>(rect.m_height)};
 				}
 			}
 
@@ -86,44 +94,44 @@ namespace qs
 		}
 	}
 
+	void TextureAtlas::add_nine_slice(std::string_view name, NineSlice& slice)
+	{
+		const auto str = static_cast<std::string>(name);
+		if (!m_textures.contains(str))
+		{
+			PL_LOG(PL_WARNING, "Attempted to add a nine-slice to a non-existant texture: {0}.", str);
+		}
+		else
+		{
+			m_textures[str].m_nineslice = std::move(slice);
+		}
+	}
+
 	void TextureAtlas::save(std::string_view file)
 	{
 		m_texture.save(file);
 	}
 
-	void TextureAtlas::add_custom_quad(std::string_view name, const pr::Rect<float>& rect) noexcept
+	std::optional<pr::Rect<float>> TextureAtlas::get_region(std::string_view name)
 	{
 		const auto str = static_cast<std::string>(name);
-		if (!m_regions.contains(str))
-		{
-			m_regions[str] = rect;
-		}
-		else
-		{
-			PL_LOG(PL_WARNING, "Could not add duplicate texture region: {0}.", str);
-		}
-	}
-
-	std::optional<pr::Rect<float>> TextureAtlas::get_region(std::string_view name) noexcept
-	{
-		const auto str = static_cast<std::string>(name);
-		if (m_regions.contains(str))
-		{
-			return std::make_optional(m_regions[str]);
-		}
-		else
+		if (!m_textures.contains(str))
 		{
 			PL_LOG(PL_WARNING, "Tried to access texture rect that does not exist.");
 			return std::nullopt;
 		}
+		else
+		{
+			return std::make_optional(m_textures[str].m_region);
+		}
 	}
 
-	qs::RenderTexture* TextureAtlas::get_atlas() noexcept
+	qs::RenderTexture* TextureAtlas::get_atlas()
 	{
 		return &m_texture;
 	}
 
-	const int TextureAtlas::get_size() const noexcept
+	const int TextureAtlas::get_size() const
 	{
 		return m_size;
 	}
