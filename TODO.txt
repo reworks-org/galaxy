@@ -20,11 +20,12 @@ QUASAR:
 - C++20 review when eventual performance improvements are required.
 - Circle.cpp, 43 -> constinit
 - Draw Scene/LightSource
-- Particles
 - Vulkan/DirectX/gl3D
 - https://github.com/iryoku/smaa
 - Vertex retrieval
 - QSAPI -> const constinit
+- Fix particle drift.
+- Cache camera between all shaders.
 
 
 SOLAR:
@@ -44,7 +45,8 @@ STARMAP:
 GALAXY:
 - Write tests.
 - Update scripting interface.
-
+- GUI:
+	- Replace is_widget concept with is_derived.
 
 NOTE:
 - Components get registered in register_types for lua, all.hpp in components, world.cpp registrer
