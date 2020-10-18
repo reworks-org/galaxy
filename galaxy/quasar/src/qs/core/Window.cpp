@@ -239,7 +239,7 @@ namespace qs
 
 	void Window::set_cursor_icon(std::string_view icon)
 	{
-		stbi_set_flip_vertically_on_load(true);
+		stbi_set_flip_vertically_on_load(false);
 
 		// Always convert to proper path before loading.
 		auto path = std::filesystem::path {icon};
@@ -264,7 +264,7 @@ namespace qs
 
 	void Window::set_cursor_icon(std::span<unsigned char> buffer)
 	{
-		stbi_set_flip_vertically_on_load(true);
+		stbi_set_flip_vertically_on_load(false);
 
 		// Fill glfw-compatible struct.
 		GLFWimage img;
