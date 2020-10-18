@@ -38,6 +38,27 @@ namespace qs
 		m_packer.init(size, size);
 	}
 
+	TextureAtlas::TextureAtlas(TextureAtlas&& ta)
+	{
+		this->m_size     = ta.m_size;
+		this->m_texture  = std::move(ta.m_texture);
+		this->m_packer   = std::move(ta.m_packer);
+		this->m_textures = std::move(m_textures);
+	}
+
+	TextureAtlas& TextureAtlas::operator=(TextureAtlas&& ta)
+	{
+		if (this != &ta)
+		{
+			this->m_size     = ta.m_size;
+			this->m_texture  = std::move(ta.m_texture);
+			this->m_packer   = std::move(ta.m_packer);
+			this->m_textures = std::move(m_textures);
+		}
+
+		return *this;
+	}
+
 	TextureAtlas::~TextureAtlas()
 	{
 		m_textures.clear();
@@ -46,9 +67,10 @@ namespace qs
 	void TextureAtlas::add(std::string_view file)
 	{
 		const auto path = std::filesystem::path {file};
-		if (!m_textures.contains(path.stem().string()))
+		const auto name = path.stem().string();
+		if (!m_textures.contains(name))
 		{
-			m_textures[path.stem().string()] = {.m_path = std::move(path)};
+			m_textures[name] = {.m_path = path};
 		}
 		else
 		{
@@ -126,6 +148,19 @@ namespace qs
 		}
 	}
 
+	qs::NineSlice* TextureAtlas::get_nine_slice(std::string_view name)
+	{
+		const auto str = static_cast<std::string>(name);
+		if (!m_textures.contains(str))
+		{
+			return nullptr;
+		}
+		else
+		{
+			return &m_textures[str].m_nineslice;
+		}
+	}
+
 	qs::RenderTexture* TextureAtlas::get_atlas()
 	{
 		return &m_texture;
@@ -134,5 +169,10 @@ namespace qs
 	const int TextureAtlas::get_size() const
 	{
 		return m_size;
+	}
+
+	const unsigned int TextureAtlas::gl_texture() const
+	{
+		return m_texture.gl_texture();
 	}
 } // namespace qs

@@ -15,7 +15,7 @@
 namespace qs
 {
 	SpriteBatch::SpriteBatch(const unsigned int max_quads)
-	    : VertexData {}, m_offset {0}, m_max_quads {max_quads}, m_max_vertexs {0}, m_max_indexs {0}, m_used_indexs {0}, m_texture {nullptr}
+	    : VertexData {}, m_update_renderdata {false}, m_offset {0}, m_max_quads {max_quads}, m_max_vertexs {0}, m_max_indexs {0}, m_used_indexs {0}, m_texture {nullptr}
 	{
 		m_max_vertexs = m_max_quads * 4;
 		m_max_indexs  = m_max_quads * 6;
@@ -38,6 +38,7 @@ namespace qs
 
 		m_sprites.reserve(m_max_quads);
 		m_vertexs.reserve(m_max_vertexs);
+
 		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(m_vertexs);
 		m_ib.create<qs::BufferStatic>(is);
 
@@ -54,7 +55,7 @@ namespace qs
 
 	void SpriteBatch::set_texture(qs::BaseTexture* texture) noexcept
 	{
-		if (m_texture == nullptr)
+		if (texture == nullptr)
 		{
 			PL_LOG(PL_WARNING, "Attempted to set a nullptr BaseTexture to spritebatch.");
 		}
@@ -95,16 +96,11 @@ namespace qs
 
 	void SpriteBatch::update()
 	{
-		// Only needed for this function scope.
-		static thread_local bool s_update_renderdata = false;
-
 		for (auto* sprite : m_sprites)
 		{
 			if (sprite->m_dirty)
 			{
-				s_update_renderdata = true;
-				sprite->m_dirty     = false;
-				glm::vec4 result    = sprite->get_transform() * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+				glm::vec4 result = sprite->get_transform() * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 
 				m_vertexs[sprite->m_offset + 0].m_pos[0]    = result.x;
 				m_vertexs[sprite->m_offset + 0].m_pos[1]    = result.y;
@@ -125,13 +121,16 @@ namespace qs
 				m_vertexs[sprite->m_offset + 3].m_pos[1]    = result.y + sprite->m_region.m_height;
 				m_vertexs[sprite->m_offset + 3].m_texels[0] = sprite->m_region.m_x;
 				m_vertexs[sprite->m_offset + 3].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
+
+				m_update_renderdata = true;
+				sprite->m_dirty     = false;
 			}
 		}
 
-		if (s_update_renderdata)
+		if (m_update_renderdata)
 		{
 			glNamedBufferSubData(m_vb.id(), 0, sizeof(qs::SpriteVertex) * m_vertexs.size(), m_vertexs.data());
-			s_update_renderdata = false;
+			m_update_renderdata = false;
 		}
 	}
 

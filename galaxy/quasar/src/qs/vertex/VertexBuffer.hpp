@@ -53,7 +53,7 @@ namespace qs
 		/// \param dynamic_verticies Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
 		///
 		template<is_vertex VertexType, is_buffer BufferType>
-		void create(std::vector<VertexType> vertices);
+		void create(std::vector<VertexType>& vertices);
 
 		///
 		/// Destroys buffer.
@@ -98,7 +98,7 @@ namespace qs
 	};
 
 	template<is_vertex VertexType, is_buffer BufferType>
-	inline void VertexBuffer::create(std::vector<VertexType> vertices)
+	inline void VertexBuffer::create(std::vector<VertexType>& vertices)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 

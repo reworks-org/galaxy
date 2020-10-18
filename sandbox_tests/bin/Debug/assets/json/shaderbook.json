@@ -16,6 +16,10 @@
 		[
 			"text.vs",
 			"text.fs"
+		],
+		[
+			"9slice.vs",
+			"9slice.fs"
 		]
 	]
 }

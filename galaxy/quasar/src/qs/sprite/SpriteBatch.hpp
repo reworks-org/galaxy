@@ -124,6 +124,11 @@ namespace qs
 		void sort() noexcept;
 
 		///
+		/// Flag to update renderdata if there are changes.
+		///
+		bool m_update_renderdata;
+
+		///
 		/// Offset tracker.
 		///
 		unsigned int m_offset;

@@ -18,7 +18,7 @@
 namespace qs
 {
 	Text::Text() noexcept
-	    : VertexData {}, Transform {}, m_text {""}, m_font {nullptr}
+	    : VertexData {}, Transform {}, m_width {0.0f}, m_height {0.0f}, m_text {""}, m_font {nullptr}
 	{
 		m_is.clear();
 		m_vs.clear();
@@ -26,6 +26,8 @@ namespace qs
 
 	Text::Text(Text&& t)
 	{
+		this->m_width  = t.m_width;
+		this->m_height = t.m_height;
 		this->m_text   = std::move(t.m_text);
 		this->m_font   = t.m_font;
 		this->m_colour = std::move(t.m_colour);
@@ -38,6 +40,8 @@ namespace qs
 	{
 		if (this != &t)
 		{
+			this->m_width  = t.m_width;
+			this->m_height = t.m_height;
 			this->m_text   = std::move(t.m_text);
 			this->m_font   = t.m_font;
 			this->m_colour = std::move(t.m_colour);
@@ -60,6 +64,9 @@ namespace qs
 			m_text   = text;
 			m_font   = font;
 			m_colour = col;
+
+			m_width  = m_font->get_text_width(m_text);
+			m_height = m_font->get_height();
 		}
 	}
 
@@ -136,6 +143,8 @@ namespace qs
 
 		m_is.clear();
 		m_vs.clear();
+
+		m_width = m_font->get_text_width(m_text);
 	}
 
 	void Text::bind() noexcept
@@ -148,5 +157,15 @@ namespace qs
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
+	const float Text::get_width() const noexcept
+	{
+		return m_width;
+	}
+
+	const float Text::get_height() const noexcept
+	{
+		return m_height;
 	}
 } // namespace qs

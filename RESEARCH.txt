@@ -28,3 +28,6 @@ https://www.gamedev.net/forums/topic/681473-handling-multiple-levels-or-scenes-w
 
 https://github.com/iryoku/smaa
 https://github.com/rokups/ImNodes
+
+https://gamedev.stackexchange.com/questions/153848/how-do-i-set-up-9-slicing-in-opengl
+https://www.gamedev.net/forums/topic/696879-glsl-9-slicing/

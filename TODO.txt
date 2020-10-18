@@ -1,24 +1,16 @@
 QUASAR:
 - C++20 review when eventual performance improvements are required.
 - Circle.cpp, 43 -> constinit
-- Draw Scene/LightSource
 - Vulkan/DirectX/gl3D
 - Vertex retrieval
 - QSAPI -> const constinit
-- Fix particle drift.
-- Cache camera between all shaders.
 - better spritebatch transforms
 - split transform into pos transform, colour transform, texel transform?
 
 GALAXY:
-- Write tests.
-- Update scripting interface.
 - GUI:
 	- Replace is_widget concept with is_derived.
 - Review Box2D integration.
-- Language support using a string file?
-- Implement command in engine where needed.
-- Should each game state have its own registry and layer?
 - better shader data storage
 
 ALL:
