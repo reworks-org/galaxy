@@ -246,7 +246,7 @@ namespace frb
 	inline Playlist<Audio>::~Playlist()
 	{
 		{
-			std::lock_guard<std::mutex> lock(m_mutex);
+			std::lock_guard<std::mutex> lock {m_mutex};
 			if (m_playing)
 			{
 				stop();
@@ -263,23 +263,22 @@ namespace frb
 	template<is_audio Audio>
 	inline void Playlist<Audio>::add(std::string_view file)
 	{
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> lock {m_mutex};
 		m_playlist.emplace_back(file);
 	}
 
 	template<is_audio Audio>
 	inline void Playlist<Audio>::shuffle()
 	{
+		std::random_device rd;
+		std::mt19937_64 mt {rd()};
+
 		if (m_playing)
 		{
 			stop();
 
 			{
-				std::lock_guard<std::mutex> lock(m_mutex);
-
-				thread_local std::random_device rd;
-				thread_local std::mt19937 mt {rd()};
-
+				std::lock_guard<std::mutex> lock {m_mutex};
 				std::shuffle(m_playlist.begin(), m_playlist.end(), mt);
 			}
 
@@ -287,11 +286,7 @@ namespace frb
 		}
 		else
 		{
-			std::lock_guard<std::mutex> lock(m_mutex);
-
-			thread_local std::random_device rd;
-			thread_local std::mt19937 mt {rd()};
-
+			std::lock_guard<std::mutex> lock {m_mutex};
 			std::shuffle(m_playlist.begin(), m_playlist.end(), mt);
 		}
 	}
@@ -305,7 +300,7 @@ namespace frb
 	template<is_audio Audio>
 	inline void Playlist<Audio>::play()
 	{
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> lock {m_mutex};
 
 		if (!m_playlist.empty())
 		{
@@ -317,7 +312,7 @@ namespace frb
 	template<is_audio Audio>
 	inline void Playlist<Audio>::pause()
 	{
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> lock {m_mutex};
 
 		if (!m_playlist.empty())
 		{
@@ -329,7 +324,7 @@ namespace frb
 	template<is_audio Audio>
 	inline void Playlist<Audio>::stop()
 	{
-		std::lock_guard<std::mutex> lock(m_mutex);
+		std::lock_guard<std::mutex> lock {m_mutex};
 
 		if (!m_playlist.empty())
 		{
