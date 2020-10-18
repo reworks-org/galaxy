@@ -8,6 +8,8 @@
 #ifndef QUASAR_NINESLICE_HPP_
 #define QUASAR_NINESLICE_HPP_
 
+#include <glm/vec2.hpp>
+
 #include <protostar/graphics/Rect.hpp>
 
 ///
@@ -51,67 +53,9 @@ namespace qs
 		~NineSlice() = default;
 
 		///
-		/// [x][ ][ ]
-		/// [ ][ ][ ]
-		/// [ ][ ][ ]
+		/// The width/height of each cell. They should be a 3x3 grid of the same size.
 		///
-		pr::Rect<float> m_top_left;
-
-		///
-		/// [ ][ ][x]
-		/// [ ][ ][ ]
-		/// [ ][ ][ ]
-		///
-		pr::Rect<float> m_top_right;
-
-		///
-		/// [ ][ ][ ]
-		/// [ ][ ][ ]
-		/// [x][ ][ ]
-		///
-		pr::Rect<float> m_bottom_left;
-
-		///
-		/// [ ][ ][ ]
-		/// [ ][ ][ ]
-		/// [ ][ ][x]
-		///
-		pr::Rect<float> m_bottom_right;
-
-		///
-		/// [ ][x][ ]
-		/// [ ][ ][ ]
-		/// [ ][ ][ ]
-		///
-		pr::Rect<float> m_top;
-
-		///
-		/// [ ][ ][ ]
-		/// [x][ ][ ]
-		/// [ ][ ][ ]
-		///
-		pr::Rect<float> m_left;
-
-		///
-		/// [ ][ ][ ]
-		/// [ ][ ][x]
-		/// [ ][ ][ ]
-		///
-		pr::Rect<float> m_right;
-
-		///
-		/// [ ][ ][ ]
-		/// [ ][ ][ ]
-		/// [ ][x][ ]
-		///
-		pr::Rect<float> m_bottom;
-
-		///
-		/// [ ][ ][ ]
-		/// [ ][x][ ]
-		/// [ ][ ][ ]
-		///
-		pr::Rect<float> m_middle;
+		glm::vec2 m_cell_size;
 	};
 } // namespace qs
 
