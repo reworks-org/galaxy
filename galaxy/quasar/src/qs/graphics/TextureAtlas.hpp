@@ -78,7 +78,7 @@ namespace qs
 		///
 		/// Move constructor.
 		///
-		TextureAtlas(TextureAtlas&&) = delete;
+		TextureAtlas(TextureAtlas&&);
 
 		///
 		/// Copy assignment operator.
@@ -88,7 +88,7 @@ namespace qs
 		///
 		/// Move assignment operator.
 		///
-		TextureAtlas& operator=(TextureAtlas&&) = delete;
+		TextureAtlas& operator=(TextureAtlas&&);
 
 		///
 		/// Destructor.
@@ -138,6 +138,15 @@ namespace qs
 		[[nodiscard]] std::optional<pr::Rect<float>> get_region(std::string_view name);
 
 		///
+		/// Retrieve NineSlice grid info.
+		///
+		/// \param name String name corresponding to texture (filename without path and extension).
+		///
+		/// \return Pointer to the slice, otherwise nullptr.
+		///
+		[[nodiscard]] qs::NineSlice* get_nine_slice(std::string_view name);
+
+		///
 		/// Get atlas texture.
 		///
 		/// \return Pointer to texture.
@@ -150,6 +159,11 @@ namespace qs
 		/// \return Size as an integer.
 		///
 		[[nodiscard]] const int get_size() const;
+
+		///
+		/// Get atlas OpenGL texture.
+		///
+		[[nodiscard]] const unsigned int gl_texture() const;
 
 	private:
 		///

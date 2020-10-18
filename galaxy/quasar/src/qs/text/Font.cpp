@@ -91,14 +91,16 @@ namespace qs
 					// Restore alignment.
 					glPixelStorei(GL_UNPACK_ALIGNMENT, original);
 
-					auto v1 = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f);
-					auto v2 = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f);
-					auto v3 = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f);
-					auto v4 = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f);
+					auto v1                            = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f);
+					auto v2                            = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f);
+					auto v3                            = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f);
+					auto v4                            = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f);
 					std::array<unsigned int, 6> arr_ib = {0, 1, 3, 1, 2, 3};
-					
-					emplaced->m_region = {x, y, w, h};
-					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>({v1, v2, v3, v4});
+
+					emplaced->m_region                   = {x, y, w, h};
+					std::vector<qs::SpriteVertex> vb_arr = {v1, v2, v3, v4};
+
+					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>(vb_arr);
 					emplaced->m_ib.create<qs::BufferStatic>(arr_ib);
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
 					emplaced->m_layout.add<qs::SpriteVertex, qs::VATexel>(2);

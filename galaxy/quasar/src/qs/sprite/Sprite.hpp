@@ -85,8 +85,10 @@ namespace qs
 		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_width, 0.0f + m_height, tex_x + m_width, tex_y + m_height);
 		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_height, tex_x, tex_y + m_height);
 
-		std::array<unsigned int, 6> ib_arr = {0, 1, 3, 1, 2, 3};
-		m_vb.create<qs::SpriteVertex, BufferType>({v1, v2, v3, v4});
+		std::array<unsigned int, 6> ib_arr   = {0, 1, 3, 1, 2, 3};
+		std::vector<qs::SpriteVertex> vb_arr = {v1, v2, v3, v4};
+
+		m_vb.create<qs::SpriteVertex, BufferType>(vb_arr);
 		m_ib.create<qs::BufferStatic>(ib_arr);
 
 		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);

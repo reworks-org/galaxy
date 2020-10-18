@@ -90,7 +90,27 @@ namespace qs
 		///
 		void unbind() noexcept;
 
+		///
+		/// Get current text width.
+		///
+		const float get_width() const noexcept;
+
+		///
+		/// Get current text height.
+		///
+		const float get_height() const noexcept;
+
 	private:
+		///
+		/// Current width.
+		///
+		float m_width;
+
+		///
+		/// Current height.
+		///
+		float m_height;
+
 		///
 		/// Text.
 		///
