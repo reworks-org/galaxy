@@ -30,8 +30,6 @@ namespace qs
 		m_thickness = thickness;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
-		std::vector<unsigned int> indices;
-
 		vertexs.emplace_back(x1, y1, col);
 		vertexs.emplace_back(x2, y2, col);
 

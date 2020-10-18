@@ -6,6 +6,7 @@
 ///
 
 #include <filesystem>
+#include <numeric>
 
 #include <pulsar/Log.hpp>
 
@@ -118,18 +119,16 @@ namespace qs
 
 	void Font::create(qs::Renderer& renderer, qs::Shader& shader)
 	{
-		int width = 0;
-		for (auto& pair : m_characters)
-		{
-			width += (pair.second.get_advance() >> 6);
-		}
+		const int width = std::accumulate(m_characters.begin(), m_characters.end(), 0, [](int width, const qs::Character& chr) {
+			return (width += (chr.get_advance() >> 6));
+		});
 
 		m_texture.create(width, m_height);
 		m_texture.bind();
 
-		for (auto& pair : m_characters)
+		for (auto& [chr, obj] : m_characters)
 		{
-			renderer.draw_character(&pair.second, m_texture, shader);
+			renderer.draw_character(&obj, m_texture, shader);
 		}
 
 		m_texture.unbind();

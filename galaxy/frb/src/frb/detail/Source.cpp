@@ -88,10 +88,9 @@ namespace frb
 		std::vector<ALuint> handles;
 		handles.reserve(buffers.size());
 
-		for (const auto& buff : buffers)
-		{
-			handles.emplace_back(buff.handle());
-		}
+		std::transform(buffers.begin(), buffers.end(), std::back_inserter(handles), [](frb::Buffer& buffer) {
+			return buffer.handle();
+		});
 
 		alSourceQueueBuffers(m_source, static_cast<ALsizei>(handles.size()), handles.data());
 		if (alGetError() != AL_NO_ERROR)

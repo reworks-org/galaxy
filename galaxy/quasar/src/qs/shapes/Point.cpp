@@ -28,7 +28,6 @@ namespace qs
 		m_size = size;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
-		std::vector<unsigned int> indices;
 
 		vertexs.emplace_back(x, y, colour);
 
