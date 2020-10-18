@@ -1,6 +1,6 @@
 ///
 /// Sandbox.cpp
-/// supercluster
+/// sandbox_tests
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -9,6 +9,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 
 #include "../layers/SandboxLayer.hpp"
+#include "../layers/GUILayer.hpp"
 
 #include "Sandbox.hpp"
 
@@ -22,6 +23,7 @@ namespace sb
 	void Sandbox::on_push()
 	{
 		m_layers.add<SandboxLayer>();
+		m_layers.add<GUILayer>();
 	}
 
 	void Sandbox::on_pop()
