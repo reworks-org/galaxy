@@ -3,7 +3,7 @@
 [![Documentation Status](https://travis-ci.org/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
 [![Test Coverage](https://codecov.io/gh/DomRe/galaxy/branch/master/graph/badge.svg)](https://codecov.io/gh/DomRe/galaxy)
 [![Code Quality](https://api.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030)](https://www.codacy.com/manual/DomRe/galaxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3923/badge)](https://bestpractices.coreinfrastructure.org/projects/3923)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4377/badge)](https://bestpractices.coreinfrastructure.org/projects/4377)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
 Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.

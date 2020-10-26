@@ -119,8 +119,8 @@ namespace qs
 
 	void Font::create(qs::Renderer& renderer, qs::Shader& shader)
 	{
-		const int width = std::accumulate(m_characters.begin(), m_characters.end(), 0, [](int width, const qs::Character& chr) {
-			return (width += (chr.get_advance() >> 6));
+		const int width = std::accumulate(m_characters.begin(), m_characters.end(), 0, [](int width, auto& pair) {
+			return (width += (pair.second.get_advance() >> 6));
 		});
 
 		m_texture.create(width, m_height);
