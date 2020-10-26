@@ -1,1 +1,0 @@
-OpenCppCoverage --sources c:\projects\galaxy --modules c:\projects\galaxy --export_type=cobertura:cobertura.xml -- C:\projects\galaxy\supercluster\bin\tests.exe & codecov --root .. -f cobertura.xml -t %CODECOV_TOKEN%
