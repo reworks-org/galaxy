@@ -31,4 +31,5 @@ build_script:
 
 after_build:
   - cmd: cd ../
-  - cmd: coverage.bat
+  - cmd: OpenCppCoverage --sources ./galaxy/ --export_type cobertura:coverage.xml -- ./tests/bin/Release/tests.exe 
+  - cmd: codecov --root .. -f coverage.xml -t %CODECOV_TOKEN%

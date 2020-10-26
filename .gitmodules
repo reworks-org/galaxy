@@ -35,3 +35,6 @@
 [submodule "dependencies/sol3"]
 	path = dependencies/sol3
 	url = https://github.com/ThePhD/sol2.git
+[submodule "dependencies/rh-hash"]
+	path = dependencies/rh-hash
+	url = https://github.com/martinus/robin-hood-hashing.git

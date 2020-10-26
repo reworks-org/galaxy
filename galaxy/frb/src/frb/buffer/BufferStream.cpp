@@ -175,12 +175,9 @@ namespace frb
 		m_data.m_file_handle.close();
 
 		ov_clear(&m_data.m_ogg_handle);
-
 		alDeleteBuffers(BUFFER_COUNT, &m_data.m_buffers[0]);
-		for (auto& buffer : m_data.m_buffers)
-		{
-			buffer = 0;
-		}
+
+		std::fill(m_data.m_buffers.begin(), m_data.m_buffers.end(), 0);
 	}
 
 	frb::BufferStream::Data* BufferStream::get_data() noexcept

@@ -34,7 +34,7 @@ namespace frb
 		///
 		/// \param file File to load from disk. Can only load ogg vorbis.
 		///
-		Sound(std::string_view file);
+		explicit Sound(std::string_view file);
 
 		///
 		/// Copy constructor.
