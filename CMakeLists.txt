@@ -276,6 +276,7 @@ set(all_header_dirs
 	"${CMAKE_SOURCE_DIR}/dependencies/stb"
 	"${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/zlib"
+	"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
 	"${CMAKE_SOURCE_DIR}/galaxy/frb/src"
 	"${CMAKE_SOURCE_DIR}/galaxy/galaxy/src"
 	"${CMAKE_SOURCE_DIR}/galaxy/protostar/src"

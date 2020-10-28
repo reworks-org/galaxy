@@ -30,3 +30,4 @@ all in main cmakelists file
 update building instructions as needed
 update codecov
 fix ci
+https://lgtm.com/
