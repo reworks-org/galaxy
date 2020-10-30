@@ -9,6 +9,7 @@
 #define QUASAR_PARTICLEGENERATOR_HPP_
 
 #include <protostar/graphics/Rect.hpp>
+#include <robin_hood.h>
 
 #include "qs/graphics/Particle.hpp"
 #include "qs/graphics/ParticleInstance.hpp"
@@ -210,12 +211,12 @@ namespace qs
 		///
 		/// Array of different particles this generator can produce.
 		///
-		std::unordered_map<std::string, ParticleInstance> m_particles_instances;
+		robin_hood::unordered_map<std::string, ParticleInstance> m_particles_instances;
 
 		///
 		/// Region of each particle type.
 		///
-		std::unordered_map<std::string, pr::Rect<int>> m_texture_regions;
+		robin_hood::unordered_map<std::string, pr::Rect<int>> m_texture_regions;
 	};
 } // namespace qs
 

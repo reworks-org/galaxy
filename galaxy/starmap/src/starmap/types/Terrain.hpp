@@ -9,6 +9,7 @@
 #define STARMAP_TERRAIN_HPP_
 
 #include <nlohmann/json_fwd.hpp>
+#include <robin_hood.h>
 
 #include "starmap/types/Property.hpp"
 
@@ -86,7 +87,7 @@ namespace starmap
 		///
 		/// Map of Properties.
 		///
-		std::unordered_map<std::string, starmap::Property> m_properties;
+		robin_hood::unordered_map<std::string, starmap::Property> m_properties;
 
 		///
 		/// Local ID of tile representing terrain.

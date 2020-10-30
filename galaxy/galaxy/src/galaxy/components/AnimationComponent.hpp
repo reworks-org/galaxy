@@ -8,7 +8,7 @@
 #ifndef GALAXY_ANIMATIONCOMPONENT_HPP_
 #define GALAXY_ANIMATIONCOMPONENT_HPP_
 
-#include <unordered_map>
+#include <robin_hood.h>
 
 #include <nlohmann/json_fwd.hpp>
 #include <qs/sprite/AnimatedBatchSprite.hpp>

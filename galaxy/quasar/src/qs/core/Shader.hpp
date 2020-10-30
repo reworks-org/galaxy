@@ -10,7 +10,7 @@
 
 #include <array>
 #include <string>
-#include <unordered_map>
+#include <robin_hood.h>
 
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
@@ -124,7 +124,7 @@ namespace qs
 		///
 		/// Cache of uniforms for better performance.
 		///
-		std::unordered_map<std::string, int> m_cache;
+		robin_hood::unordered_map<std::string, int> m_cache;
 	};
 
 	template<typename... Uniforms>

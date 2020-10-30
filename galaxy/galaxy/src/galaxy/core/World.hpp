@@ -19,7 +19,7 @@ namespace galaxy
 	///
 	/// Shorthand for component factory map.
 	///
-	using ComponentFactory = std::unordered_map<std::string, std::function<void(const sr::Entity, const nlohmann::json&)>>;
+	using ComponentFactory = robin_hood::unordered_map<std::string, std::function<void(const sr::Entity, const nlohmann::json&)>>;
 
 	///
 	/// The World class. Contains the entities and systems and other library stuff, like the main lua state.

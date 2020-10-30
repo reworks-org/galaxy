@@ -15,6 +15,7 @@
 
 #include <protostar/system/UniqueID.hpp>
 #include <pulsar/Log.hpp>
+#include <robin_hood.h>
 
 #include "solar/system/System.hpp"
 #include "solar/sets/ComponentSet.hpp"
@@ -145,7 +146,7 @@ namespace sr
 		///
 		/// \return Const unordered_map reference.
 		///
-		auto get_debug_name_map() noexcept -> const std::unordered_map<std::string, sr::Entity>&;
+		auto get_debug_name_map() noexcept -> const robin_hood::unordered_map<std::string, sr::Entity>&;
 
 		///
 		/// Add (construct) a component for an entity.
@@ -263,7 +264,7 @@ namespace sr
 		///
 		/// Debug entity names.
 		///
-		std::unordered_map<std::string, sr::Entity> m_debug_names;
+		robin_hood::unordered_map<std::string, sr::Entity> m_debug_names;
 
 		///
 		/// Stores polymorphic ComponentSets.

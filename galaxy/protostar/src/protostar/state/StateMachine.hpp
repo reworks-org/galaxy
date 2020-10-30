@@ -10,7 +10,7 @@
 
 #include <memory>
 #include <stack>
-#include <unordered_map>
+#include <robin_hood.h>
 #include <utility>
 
 #include <pulsar/Log.hpp>
@@ -129,7 +129,7 @@ namespace pr
 		///
 		/// Holds the states.
 		///
-		std::unordered_map<std::string, std::unique_ptr<pr::State>> m_states;
+		robin_hood::unordered_map<std::string, std::unique_ptr<pr::State>> m_states;
 	};
 
 	template<is_state State, typename... Args>

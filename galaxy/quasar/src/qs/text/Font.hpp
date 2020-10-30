@@ -8,6 +8,8 @@
 #ifndef QUASAR_FONT_HPP_
 #define QUASAR_FONT_HPP_
 
+#include <robin_hood.h>
+
 #include "qs/text/FreeType.hpp"
 #include "qs/text/Character.hpp"
 #include "qs/texture/RenderTexture.hpp"
@@ -123,7 +125,7 @@ namespace qs
 		///
 		/// Character map.
 		///
-		std::unordered_map<char, qs::Character> m_characters;
+		robin_hood::unordered_map<char, qs::Character> m_characters;
 	};
 } // namespace qs
 
