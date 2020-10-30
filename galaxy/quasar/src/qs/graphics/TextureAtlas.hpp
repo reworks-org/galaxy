@@ -10,7 +10,7 @@
 
 #include <filesystem>
 #include <optional>
-#include <unordered_map>
+#include <robin_hood.h>
 
 #include <protostar/math/RectPack.hpp>
 
@@ -184,7 +184,7 @@ namespace qs
 		///
 		/// Texture name (id) and assossiated info.
 		///
-		std::unordered_map<std::string, TextureInfo> m_textures;
+		robin_hood::unordered_map<std::string, TextureInfo> m_textures;
 	};
 } // namespace qs
 

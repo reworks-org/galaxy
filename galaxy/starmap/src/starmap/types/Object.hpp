@@ -8,6 +8,8 @@
 #ifndef STARMAP_OBJECT_HPP_
 #define STARMAP_OBJECT_HPP_
 
+#include <robin_hood.h>
+
 #include "starmap/types/Text.hpp"
 #include "starmap/types/Point.hpp"
 #include "starmap/types/Property.hpp"
@@ -192,7 +194,7 @@ namespace starmap
 		///
 		/// Map of Properties.
 		///
-		std::unordered_map<std::string, starmap::Property> m_properties;
+		robin_hood::unordered_map<std::string, starmap::Property> m_properties;
 
 		///
 		/// Angle in degrees clockwise.

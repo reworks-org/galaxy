@@ -8,7 +8,7 @@
 #ifndef PROTOSTAR_RESOURCECACHE_HPP_
 #define PROTOSTAR_RESOURCECACHE_HPP_
 
-#include <unordered_map>
+#include <robin_hood.h>
 
 #include <pulsar/Log.hpp>
 
@@ -133,7 +133,7 @@ namespace pr
 		///
 		/// Contiguous resource array.
 		///
-		std::unordered_map<std::string, Resource> m_resources;
+		robin_hood::unordered_map<std::string, Resource> m_resources;
 	};
 
 	template<not_pointer_or_ref Resource>

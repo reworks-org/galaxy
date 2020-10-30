@@ -8,6 +8,8 @@
 #ifndef STARMAP_LAYER_HPP_
 #define STARMAP_LAYER_HPP_
 
+#include <robin_hood.h>
+
 #include "starmap/types/Property.hpp"
 
 ///
@@ -186,7 +188,7 @@ namespace starmap
 		///
 		/// Map of Properties.
 		///
-		std::unordered_map<std::string, starmap::Property> m_properties;
+		robin_hood::unordered_map<std::string, starmap::Property> m_properties;
 
 		///
 		/// X coordinate where layer content starts (for infinite maps).

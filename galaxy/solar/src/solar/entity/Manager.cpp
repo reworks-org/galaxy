@@ -95,7 +95,7 @@ namespace sr
 		}
 	}
 
-	auto Manager::get_debug_name_map() noexcept -> const std::unordered_map<std::string, sr::Entity>&
+	auto Manager::get_debug_name_map() noexcept -> const robin_hood::unordered_map<std::string, sr::Entity>&
 	{
 		return m_debug_names;
 	}
@@ -111,9 +111,17 @@ namespace sr
 
 		m_invalid_entities.push_back(entity);
 
-		std::erase_if(m_debug_names, [&](const auto& pair) {
-			return pair.second == entity;
-		});
+		for (auto it = m_debug_names.begin(); it != m_debug_names.end();)
+		{
+			if (it->second == entity)
+			{
+				m_debug_names.erase(it++);
+			}
+			else
+			{
+				it++;
+			}
+		}
 	}
 
 	void Manager::events()

@@ -166,7 +166,7 @@ namespace starmap
 		///
 		/// Map of Properties.
 		///
-		std::unordered_map<std::string, starmap::Property> m_properties;
+		robin_hood::unordered_map<std::string, starmap::Property> m_properties;
 
 		///
 		/// Index of terrain for each corner of tile (optional).

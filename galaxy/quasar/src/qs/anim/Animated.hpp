@@ -8,7 +8,7 @@
 #ifndef QUASAR_ANIMATED_HPP_
 #define QUASAR_ANIMATED_HPP_
 
-#include <unordered_map>
+#include <robin_hood.h>
 
 #include "qs/anim/Animation.hpp"
 
@@ -124,7 +124,7 @@ namespace qs
 		///
 		/// Stored animations.
 		///
-		std::unordered_map<std::string, qs::Animation> m_animations;
+		robin_hood::unordered_map<std::string, qs::Animation> m_animations;
 	};
 
 	template<typename... Args>

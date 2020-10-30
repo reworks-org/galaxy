@@ -8,6 +8,8 @@
 #ifndef STARMAP_WANGSET_HPP_
 #define STARMAP_WANGSET_HPP_
 
+#include <robin_hood.h>
+
 #include "starmap/Meta.hpp"
 #include "starmap/types/Property.hpp"
 #include "starmap/wangtile/WangTile.hpp"
@@ -114,7 +116,7 @@ namespace starmap
 		///
 		/// Map of Properties.
 		///
-		std::unordered_map<std::string, starmap::Property> m_properties;
+		robin_hood::unordered_map<std::string, starmap::Property> m_properties;
 
 		///
 		/// Local ID of tile representing the Wang set.
