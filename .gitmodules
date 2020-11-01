@@ -35,3 +35,6 @@
 [submodule "dependencies/rh-hash"]
 	path = dependencies/rh-hash
 	url = https://github.com/martinus/robin-hood-hashing.git
+[submodule "dependencies/freetype2-win"]
+	path = dependencies/freetype2-win
+	url = https://github.com/ubawurinna/freetype-windows-binaries.git
