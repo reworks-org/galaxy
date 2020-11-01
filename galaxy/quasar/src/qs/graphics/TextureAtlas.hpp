@@ -14,7 +14,6 @@
 
 #include <protostar/math/RectPack.hpp>
 
-#include "qs/texture/NineSlice.hpp"
 #include "qs/texture/RenderTexture.hpp"
 
 ///
@@ -49,11 +48,6 @@ namespace qs
 			/// Original path of the texture.
 			///
 			std::filesystem::path m_path;
-
-			///
-			/// Nine-slice if the texture has been assigned one.
-			///
-			NineSlice m_nineslice;
 		};
 
 		///
@@ -113,14 +107,6 @@ namespace qs
 		void create(qs::Renderer& renderer, qs::Shader& shader);
 
 		///
-		/// Sets a TextureAtlas texture as a 9 slice scaled texture.
-		///
-		/// \param name Name of texture to add nineslice to.
-		/// \param slice Object containing grid information. Is std::move() stored so you can destroy original.
-		///
-		void add_nine_slice(std::string_view name, NineSlice& slice);
-
-		///
 		/// Dumps internal atlas. May take a while.
 		///
 		/// \param file Path (including filename) to save file to.
@@ -136,15 +122,6 @@ namespace qs
 		/// \return Const ref to the quad.
 		///
 		[[nodiscard]] std::optional<pr::Rect<float>> get_region(std::string_view name);
-
-		///
-		/// Retrieve NineSlice grid info.
-		///
-		/// \param name String name corresponding to texture (filename without path and extension).
-		///
-		/// \return Pointer to the slice, otherwise nullptr.
-		///
-		[[nodiscard]] qs::NineSlice* get_nine_slice(std::string_view name);
 
 		///
 		/// Get atlas texture.

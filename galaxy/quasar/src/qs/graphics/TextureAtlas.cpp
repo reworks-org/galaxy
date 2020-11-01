@@ -116,19 +116,6 @@ namespace qs
 		}
 	}
 
-	void TextureAtlas::add_nine_slice(std::string_view name, NineSlice& slice)
-	{
-		const auto str = static_cast<std::string>(name);
-		if (!m_textures.contains(str))
-		{
-			PL_LOG(PL_WARNING, "Attempted to add a nine-slice to a non-existant texture: {0}.", str);
-		}
-		else
-		{
-			m_textures[str].m_nineslice = std::move(slice);
-		}
-	}
-
 	void TextureAtlas::save(std::string_view file)
 	{
 		m_texture.save(file);
@@ -145,19 +132,6 @@ namespace qs
 		else
 		{
 			return std::make_optional(m_textures[str].m_region);
-		}
-	}
-
-	qs::NineSlice* TextureAtlas::get_nine_slice(std::string_view name)
-	{
-		const auto str = static_cast<std::string>(name);
-		if (!m_textures.contains(str))
-		{
-			return nullptr;
-		}
-		else
-		{
-			return &m_textures[str].m_nineslice;
 		}
 	}
 
