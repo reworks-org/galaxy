@@ -8,6 +8,8 @@
 #ifndef QS_BASETEXTURE_HPP_
 #define QS_BASETEXTURE_HPP_
 
+#include <string_view>
+
 #include "qs/utils/TextureFilters.hpp"
 
 ///
