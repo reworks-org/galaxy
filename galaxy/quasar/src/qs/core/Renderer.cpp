@@ -15,7 +15,6 @@
 #include "qs/sprite/AnimatedSprite.hpp"
 #include "qs/sprite/Sprite.hpp"
 #include "qs/sprite/SpriteBatch.hpp"
-#include "qs/text/Character.hpp"
 #include "qs/text/Text.hpp"
 #include "qs/texture/RenderTexture.hpp"
 
@@ -94,20 +93,14 @@ namespace qs
 		glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader)
-	{
-		chr->bind();
-		shader.set_uniform("u_projection", target.get_proj());
-
-		glDrawElements(GL_TRIANGLES, chr->index_count(), GL_UNSIGNED_INT, nullptr);
-	}
-
 	void Renderer::draw_text(qs::Text& text, qs::Shader& shader)
 	{
 		text.bind();
 
 		shader.set_uniform("u_transform", text.get_transform());
 		shader.set_uniform("u_opacity", text.opacity());
+		shader.set_uniform<float>("u_width", static_cast<float>(text.get_width()));
+		shader.set_uniform<float>("u_height", static_cast<float>(text.get_height()));
 
 		glDrawElements(GL_TRIANGLES, text.index_count(), GL_UNSIGNED_INT, nullptr);
 	}

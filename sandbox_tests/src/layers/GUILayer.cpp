@@ -33,8 +33,9 @@ namespace sb
 		m_theme.m_shaders  = SL_HANDLE.shaderbook();
 		m_theme.m_renderer = SL_HANDLE.renderer();
 		m_theme.m_window   = SL_HANDLE.window();
-		m_theme.m_font_col = {255, 255, 255, 255};
+		m_theme.m_font_col = {0, 0, 0, 255};
 
+		m_theme.m_fonts->create("public16", demo_font, 16);
 		m_theme.m_atlas.add(demo_tex);
 
 		rtt_shader->bind();
@@ -45,6 +46,9 @@ namespace sb
 
 		auto* image = m_gui.create_widget<galaxy::widget::Image>();
 		image->create_from_atlas("demo_nineslice");
+
+		auto* tooltip = m_gui.create_tooltip_for_widget(image);
+		tooltip->create("demo_nineslice", "DemoTest", "public16");
 	}
 
 	GUILayer::~GUILayer()

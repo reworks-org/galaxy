@@ -8,10 +8,7 @@
 #ifndef QUASAR_CHARACTER_HPP_
 #define QUASAR_CHARACTER_HPP_
 
-#include <protostar/graphics/Rect.hpp>
-
-#include "qs/core/VertexData.hpp"
-#include "qs/texture/Texture.hpp"
+#include <glm/vec2.hpp>
 
 ///
 /// Core namespace.
@@ -21,12 +18,10 @@ namespace qs
 	///
 	/// A character in a font.
 	///
-	class Character final : public qs::VertexData, public qs::Texture
+	class Character final
 	{
-		///
-		/// Allows font to access internals.
-		///
 		friend class Font;
+		friend class Text;
 
 	public:
 		///
@@ -35,18 +30,9 @@ namespace qs
 		Character();
 
 		///
-		/// Argument constructor.
-		///
-		/// \param bx Bearing x offset.
-		/// \param by Bearing y offset.
-		/// \param advance Offset to next character.
-		///
-		explicit Character(const int bx, const int by, const unsigned int advance);
-
-		///
 		/// Copy constructor.
 		///
-		Character(const Character&) noexcept = delete;
+		Character(const Character&) = delete;
 
 		///
 		/// Move constructor.
@@ -56,7 +42,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		Character& operator=(const Character&) noexcept = delete;
+		Character& operator=(const Character&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -66,52 +52,28 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Character() noexcept = default;
-
-		///
-		/// Activate character context.
-		///
-		void bind() noexcept override;
-
-		///
-		/// Deactivate character context.
-		///
-		void unbind() noexcept override;
-
-		///
-		/// Get the offset to the next character.
-		///
-		/// \return Const unsigned int.
-		///
-		[[nodiscard]] const unsigned int get_advance() const noexcept;
-
-		///
-		/// Get texture region.
-		///
-		/// \return Const reference to float rectangle.
-		///
-		[[nodiscard]] const pr::Rect<float>& get_region() const noexcept;
+		~Character();
 
 	private:
 		///
-		/// Bearing X.
+		/// OpenGL texture.
 		///
-		int m_bearing_x;
+		unsigned int m_gl_texture;
 
 		///
-		/// Bearing Y.
+		/// Character size.
 		///
-		int m_bearing_y;
+		glm::ivec2 m_size;
 
 		///
-		/// Offset to next character.
+		/// Character bearing.
+		///
+		glm::ivec2 m_bearing;
+
+		///
+		/// Character advance.
 		///
 		unsigned int m_advance;
-
-		///
-		/// Texture region.
-		///
-		pr::Rect<float> m_region;
 	};
 } // namespace qs
 

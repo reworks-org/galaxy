@@ -6,12 +6,11 @@
 ///
 
 #include <filesystem>
-#include <numeric>
 
+#include <glad/glad.h>
 #include <pulsar/Log.hpp>
 
-#include "qs/core/Shader.hpp"
-#include "qs/core/Renderer.hpp"
+#include "qs/text/FreeType.hpp"
 
 #include "Font.hpp"
 
@@ -20,22 +19,25 @@
 ///
 namespace qs
 {
-	Font::Font() noexcept
-	    : m_height {0}, m_texture {}
+	Font::Font()
+	    : m_height {0}
 	{
 	}
 
-	Font::Font(std::string_view file, const unsigned int size)
-	    : m_height {0}, m_texture {}
+	Font::Font(std::string_view filepath, const unsigned int size)
+	    : m_height {0}
 	{
-		load(file, size);
+		if (!load(filepath, size))
+		{
+			PL_LOG(PL_ERROR, "Failed to load font: {0}.", filepath);
+		}
 	}
 
 	Font::Font(Font&& f)
 	{
 		this->m_height     = f.m_height;
 		this->m_characters = std::move(f.m_characters);
-		this->m_texture    = std::move(f.m_texture);
+		f.m_characters.clear();
 	}
 
 	Font& Font::operator=(Font&& f)
@@ -44,120 +46,107 @@ namespace qs
 		{
 			this->m_height     = f.m_height;
 			this->m_characters = std::move(f.m_characters);
-			this->m_texture    = std::move(f.m_texture);
+			f.m_characters.clear();
 		}
 
 		return *this;
 	}
 
-	void Font::load(std::string_view file, const unsigned int size)
+	Font::~Font()
 	{
-		FT_Face face;
-		auto path = std::filesystem::path {file};
+		m_characters.clear();
+	}
 
-		if (FT_New_Face(FTLIB.lib(), path.string().c_str(), 0, &face))
+	bool Font::load(std::string_view filepath, const unsigned int size)
+	{
+		auto path    = std::filesystem::path {filepath};
+		bool success = true;
+
+		FT_Face face;
+		if (FT_New_Face(FTLIB.lib(), path.string().c_str(), 0, &face) != 0)
 		{
-			PL_LOG(PL_ERROR, "Failed to create FreeType font face for file: {0}.", path.string());
+			PL_LOG(PL_ERROR, "Failed to load {0}.", filepath);
+			success = false;
 		}
 		else
 		{
-			float adv_x = 0;
 			FT_Set_Pixel_Sizes(face, 0, size);
-			for (GLubyte chr = 0; chr < 128; chr++)
+
+			int alignment = 0;
+			glGetIntegerv(GL_UNPACK_ALIGNMENT, &alignment);
+			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+			FT_UInt index = 0;
+			char c        = FT_Get_First_Char(face, &index);
+			while (index)
 			{
-				if (FT_Load_Char(face, chr, FT_LOAD_RENDER))
-				{
-					PL_LOG(PL_ERROR, "Failed to load character: {0}.", chr);
-				}
-				else
-				{
-					// This will default construct the object.
-					qs::Character* emplaced = &m_characters[chr];
+				FT_Load_Char(face, c, FT_LOAD_RENDER);
 
-					// Modify alignment for fonts.
-					int original = 0;
-					glGetIntegerv(GL_UNPACK_ALIGNMENT, &original);
-					glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+				Character c_obj;
+				glBindTexture(GL_TEXTURE_2D, c_obj.m_gl_texture);
+				glTexImage2D(
+				    GL_TEXTURE_2D,
+				    0,
+				    GL_RED,
+				    face->glyph->bitmap.width,
+				    face->glyph->bitmap.rows,
+				    0,
+				    GL_RED,
+				    GL_UNSIGNED_BYTE,
+				    face->glyph->bitmap.buffer);
 
-					emplaced->load(0, GL_RED, face->glyph->bitmap.width, face->glyph->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, face->glyph->bitmap.buffer);
-					emplaced->m_bearing_x = static_cast<int>(face->glyph->bitmap_left);
-					emplaced->m_bearing_y = static_cast<int>(face->glyph->bitmap_top);
-					emplaced->m_advance   = static_cast<unsigned int>(face->glyph->advance.x);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-					float x       = adv_x + emplaced->m_bearing_x;
-					float y       = static_cast<float>(0 - (emplaced->get_height() - emplaced->m_bearing_y));
-					const float w = static_cast<float>(emplaced->get_width());
-					const float h = static_cast<float>(emplaced->get_height());
+				c_obj.m_size.x    = face->glyph->bitmap.width;
+				c_obj.m_size.y    = face->glyph->bitmap.rows;
+				c_obj.m_bearing.x = face->glyph->bitmap_left;
+				c_obj.m_bearing.y = face->glyph->bitmap_top;
+				c_obj.m_advance   = face->glyph->advance.x;
 
-					// Restore alignment.
-					glPixelStorei(GL_UNPACK_ALIGNMENT, original);
+				m_characters.emplace(c, std::move(c_obj));
 
-					auto v1                            = qs::make_vertex<qs::SpriteVertex>(x, y, 0.0f, 1.0f);
-					auto v2                            = qs::make_vertex<qs::SpriteVertex>(x + w, y, 1.0f, 1.0f);
-					auto v3                            = qs::make_vertex<qs::SpriteVertex>(x + w, y + h, 1.0f, 0.0f);
-					auto v4                            = qs::make_vertex<qs::SpriteVertex>(x, y + h, 0.0f, 0.0f);
-					std::array<unsigned int, 6> arr_ib = {0, 1, 3, 1, 2, 3};
-
-					emplaced->m_region                   = {x, y, w, h};
-					std::vector<qs::SpriteVertex> vb_arr = {v1, v2, v3, v4};
-
-					emplaced->m_vb.create<qs::SpriteVertex, qs::BufferStatic>(vb_arr);
-					emplaced->m_ib.create<qs::BufferStatic>(arr_ib);
-					emplaced->m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
-					emplaced->m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
-					emplaced->m_va.create<qs::SpriteVertex>(emplaced->m_vb, emplaced->m_ib, emplaced->m_layout);
-
-					// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-					adv_x += (emplaced->get_advance() >> 6); // Bitshift by 6 to get value in pixels (2^6 = 64)
-				}
+				c = FT_Get_Next_Char(face, c, &index);
 			}
+
+			glBindTexture(GL_TEXTURE_2D, 0);
+			m_height = m_characters['X'].m_bearing.y;
+			glPixelStorei(GL_UNPACK_ALIGNMENT, alignment);
 		}
 
 		FT_Done_Face(face);
-		m_height = m_characters['X'].get_height();
+		return success;
 	}
 
-	void Font::create(qs::Renderer& renderer, qs::Shader& shader)
+	Character* Font::get_char(char c)
 	{
-		const int width = std::accumulate(m_characters.begin(), m_characters.end(), 0, [](int width, auto& pair) {
-			return (width += (pair.second.get_advance() >> 6));
-		});
-
-		m_texture.create(width, m_height);
-		m_texture.bind();
-
-		for (auto& [chr, obj] : m_characters)
+		if (!m_characters.contains(c))
 		{
-			renderer.draw_character(&obj, m_texture, shader);
+			PL_LOG(PL_WARNING, "FontMap does not contain character: '{0}'.", c);
+			return nullptr;
 		}
-
-		m_texture.unbind();
+		else
+		{
+			return &m_characters[c];
+		}
 	}
 
-	const int Font::get_text_width(const std::string& text) noexcept
+	const int Font::get_width(std::string_view text)
 	{
 		int width = 0;
 
-		for (auto& chr : text)
+		for (const char c : text)
 		{
-			width += (m_characters[chr].get_advance() >> 6);
+			width += (m_characters[c].m_advance >> 6);
 		}
 
 		return width;
 	}
 
-	const int Font::get_height() noexcept
+	const int Font::get_height() const
 	{
 		return m_height;
-	}
-
-	qs::BaseTexture* Font::get_texture() noexcept
-	{
-		return dynamic_cast<qs::BaseTexture*>(&m_texture);
-	}
-
-	qs::Character* Font::get_char(const char c) noexcept
-	{
-		return &m_characters[c];
 	}
 } // namespace qs
