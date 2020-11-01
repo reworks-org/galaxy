@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
+#include <vector>
 
 #include <glad/glad.h>
 #include <stb_image_write.h>
@@ -54,15 +54,16 @@ namespace qs
 	{
 		if (!path.empty())
 		{
-			auto dest = std::filesystem::path {path};
-			dest.append(".png");
+			auto str = static_cast<std::string>(path);
+			str.append(".png");
+
 			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
 
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
 
 			stbi_flip_vertically_on_write(true);
-			stbi_write_png(dest.string().c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+			stbi_write_png(str.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}

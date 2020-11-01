@@ -10,21 +10,13 @@
 
 #include <robin_hood.h>
 
-#include "qs/text/FreeType.hpp"
 #include "qs/text/Character.hpp"
-#include "qs/texture/RenderTexture.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace qs
 {
-	///
-	/// Forward decs.
-	///
-	class Shader;
-	class Renderer;
-
 	///
 	/// A font with a texture map for characters in the font.
 	///
@@ -34,20 +26,22 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		Font() noexcept;
+		Font();
 
 		///
-		/// Load constructor.
+		/// Argument constructor.
 		///
-		/// \param file Font file to load.
-		/// \param size Size to set the font at.
+		/// \param filepath Path to the font file.
+		/// \param size Font size.
 		///
-		Font(std::string_view file, const unsigned int size);
+		/// \return True if successful.
+		///
+		Font(std::string_view filepath, const unsigned int size);
 
 		///
 		/// Copy constructor.
 		///
-		Font(const Font&) noexcept = delete;
+		Font(const Font&) = delete;
 
 		///
 		/// Move constructor.
@@ -57,7 +51,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		Font& operator=(const Font&) noexcept = delete;
+		Font& operator=(const Font&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -65,67 +59,53 @@ namespace qs
 		Font& operator=(Font&&);
 
 		///
-		/// Default destructor.
+		/// Destructor.
 		///
-		~Font() noexcept = default;
+		~Font();
 
 		///
-		/// Load and prep font and characters.
+		/// Loads the font and sets up characters.
 		///
-		/// \param file Font file to load.
-		/// \param size Size to set the font at.
+		/// \param filepath Path to the font file.
+		/// \param size Font size.
 		///
-		void load(std::string_view file, const unsigned int size);
+		/// \return True if successful.
+		///
+		bool load(std::string_view filepath, const unsigned int size);
 
 		///
-		/// Create the font.
+		/// Get a character.
 		///
-		/// \param renderer Renderer to draw characters with.
-		/// \paramn shader Shader to use when drawing.
+		/// \param c Retrieve a character from the map.
 		///
-		void create(qs::Renderer& renderer, qs::Shader& shader);
+		/// \return Pointer to character object.
+		///
+		[[nodiscard]] Character* get_char(char c);
 
 		///
 		/// Retrieve width of a string of text.
 		///
 		/// \param text Text to get width of.
 		///
-		[[nodiscard]] const int get_text_width(const std::string& text) noexcept;
+		[[nodiscard]] const int get_width(std::string_view text);
 
 		///
-		/// Retrieve height of the font.
+		/// Retrieve font height.
 		///
-		[[nodiscard]] const int get_height() noexcept;
-
+		/// \return Const integer.
 		///
-		/// Get texture.
-		///
-		/// \return Pointer to texture atlas.
-		///
-		[[nodiscard]] qs::BaseTexture* get_texture() noexcept;
-
-		///
-		/// Get a character.
-		///
-		/// \return Returns pointer to Character class.
-		///
-		[[nodiscard]] qs::Character* get_char(const char c) noexcept;
+		[[nodiscard]] const int get_height() const;
 
 	private:
 		///
-		/// Cached height of font.
+		/// Get the height of the font.
 		///
 		int m_height;
 
 		///
-		/// Texture.
+		/// Character map to lookup characters.
 		///
-		qs::RenderTexture m_texture;
-
-		///
-		/// Character map.
-		///
-		robin_hood::unordered_map<char, qs::Character> m_characters;
+		robin_hood::unordered_map<char, Character> m_characters;
 	};
 } // namespace qs
 

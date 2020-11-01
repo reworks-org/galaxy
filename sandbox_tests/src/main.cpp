@@ -40,6 +40,12 @@ int main(int argsc, char* argsv[])
 
 			// Logging.
 			std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%d-%m-%Y-[%H.%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
+
+			if (!std::filesystem::exists("logs/"))
+			{
+				std::filesystem::create_directory("logs/");
+			}
+
 			PL_LOG_START(log_path);
 			PL_LOG_GET.set_min_level(PL_INFO);
 

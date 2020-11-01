@@ -73,8 +73,6 @@ namespace qs
 		/// Deactivate sprite context.
 		///
 		void unbind() noexcept override;
-
-	protected:
 	};
 
 	template<is_buffer BufferType>

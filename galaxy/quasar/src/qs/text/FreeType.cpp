@@ -22,7 +22,7 @@ namespace qs
 
 	void FreeTypeLib::open()
 	{
-		if (FT_Init_FreeType(&m_freetype_lib))
+		if (FT_Init_FreeType(&m_freetype_lib) != 0)
 		{
 			PL_LOG(PL_FATAL, "Failed to init FreeType.");
 		}

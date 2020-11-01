@@ -24,7 +24,6 @@ namespace qs
 	class AnimatedSprite;
 	class SpriteBatch;
 	class RenderTexture;
-	class Character;
 	class Text;
 	class ParticleGenerator;
 
@@ -141,18 +140,6 @@ namespace qs
 		/// \param shader Shader to apply to sprite. You must have called bind() already!
 		///
 		void draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader);
-
-		///
-		/// \brief Draws a character to a font map.
-		///
-		/// Must have uniform(s):
-		/// u_projection
-		///
-		/// \param chr Character to draw.
-		/// \param target Target to draw to.
-		/// \param shader Shader to use.
-		///
-		void draw_character(qs::Character* chr, qs::RenderTexture& target, qs::Shader& shader);
 
 		///
 		/// \brief Draw text to screen.

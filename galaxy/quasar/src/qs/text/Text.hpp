@@ -8,9 +8,13 @@
 #ifndef QUASAR_TEXT_HPP_
 #define QUASAR_TEXT_HPP_
 
-#include "qs/text/Font.hpp"
+#include <protostar/graphics/Colour.hpp>
+
+#include "qs/core/Shader.hpp"
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
+#include "qs/text/Font.hpp"
+#include "qs/texture/RenderTexture.hpp"
 
 ///
 /// Core namespace.
@@ -26,12 +30,12 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		Text() noexcept;
+		Text();
 
 		///
 		/// Copy constructor.
 		///
-		Text(const Text&) noexcept = delete;
+		Text(const Text&) = delete;
 
 		///
 		/// Move constructor.
@@ -41,7 +45,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		Text& operator=(const Text&) noexcept = delete;
+		Text& operator=(const Text&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -51,90 +55,60 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~Text() noexcept = default;
+		~Text() = default;
+
+		void load(Font& font, Shader& shader, const pr::Colour& col);
+		void create(std::string_view text);
+		void update_text(std::string_view text);
 
 		///
-		/// Load resources used.
+		/// Activate context.
 		///
-		/// \param text Text to draw.
-		/// \param font Font to apply to text. Cannot be nullptr.
-		/// \param col Colour of the text.
-		///
-		void load(const std::string& text, qs::Font* font, const pr::Colour& col) noexcept;
+		void bind();
 
 		///
-		/// Creates text from character verticies.
+		/// Deactivate context.
 		///
-		void create();
+		void unbind();
 
 		///
-		/// \brief Update text.
+		/// \brief Get texture width.
 		///
-		/// Do not call load() or create(). Use this.
-		/// Not thread safe. Calls GL code.
-		/// If you need to have a string you want to update i.e. health: 20.
-		/// Its better to split into 2 strings so health is static and the 20 is dynamic.
-		/// Much faster.
+		/// Is cached for performance.
 		///
-		/// \param text The new text.
+		/// \return Width as int. int over unsigned for compat with float.
 		///
-		void update_text(const std::string& text);
+		[[nodiscard]] const int get_width() const;
 
 		///
-		/// Activate sprite context.
+		/// \brief Get texture height.
 		///
-		void bind() noexcept;
-
+		/// Is cached for performance.
 		///
-		/// Deactivate sprite context.
+		/// \return Height as int. int over unsigned for compat with float.
 		///
-		void unbind() noexcept;
-
-		///
-		/// Get current text width.
-		///
-		const float get_width() const noexcept;
-
-		///
-		/// Get current text height.
-		///
-		const float get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 	private:
 		///
-		/// Current width.
-		///
-		float m_width;
-
-		///
-		/// Current height.
-		///
-		float m_height;
-
-		///
-		/// Text.
-		///
-		std::string m_text;
-
-		///
-		/// Font.
-		///
-		qs::Font* m_font;
-
-		///
-		/// Colour.
+		/// Colour of the text.
 		///
 		pr::Colour m_colour;
 
 		///
-		/// Stores indexs.
+		/// Pointer to font used for this text.
 		///
-		std::vector<unsigned int> m_is;
+		Font* m_font;
 
 		///
-		/// Stores vertexs.
+		/// Pointer to shader used for rendering text characters.
 		///
-		std::vector<qs::SpriteVertex> m_vs;
+		Shader* m_shader;
+
+		///
+		/// Pre-rendered texture of text.
+		///
+		RenderTexture m_text;
 	};
 } // namespace qs
 

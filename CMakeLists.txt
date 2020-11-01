@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.17)
 if (WIN32)
 	set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
     set(CMAKE_SYSTEM_VERSION 10.0.19041.0)
-    #set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
-    #set(FORCE_STATIC_VCRT OFF CACHE BOOL "" FORCE)
+    set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
+    set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
 endif()
 
 # project
@@ -97,26 +97,15 @@ add_dependencies(galaxy
 )
 
 # Add external dependencies.
-set(CMAKE_DISABLE_FIND_PACKAGE_ZLIB ON CACHE BOOL "" FORCE)
-set(CMAKE_DISABLE_FIND_PACKAGE_BZip2 ON CACHE BOOL "" FORCE)
-set(CMAKE_DISABLE_FIND_PACKAGE_PNG ON CACHE BOOL "" FORCE)
-set(CMAKE_DISABLE_FIND_PACKAGE_HarfBuzz ON CACHE BOOL "" FORCE)
-set(CMAKE_DISABLE_FIND_PACKAGE_BrotliDec ON CACHE BOOL "" FORCE)
-set(FT_WITH_ZLIB OFF CACHE BOOL "" FORCE)
-set(FT_WITH_BZIP2 OFF CACHE BOOL "" FORCE)
-set(FT_WITH_PNG OFF CACHE BOOL "" FORCE)
-set(FT_WITH_HARFBUZZ OFF CACHE BOOL "" FORCE)
-set(FT_WITH_BROTLI OFF CACHE BOOL "" FORCE)
-set(SKIP_INSTALL_HEADERS ON CACHE BOOL "" FORCE)
-set(SKIP_INSTALL_LIBRARIES ON CACHE BOOL "" FORCE)
-set(SKIP_INSTALL_ALL ON CACHE BOOL "" FORCE)
-add_subdirectory(dependencies/freetype2)
-set_target_properties(freetype PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
-    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
-    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/freetype/"
-)
+if (WIN32)
+	set(GALAXY_FREETYPE_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
+	set(GALAXY_FREETYPE_LIB "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.lib")
+else()
+	find_package(Freetype REQUIRED)
+	add_definitions(-DCMAKE_EXPECTED_FREETYPE_VERSION="${FREETYPE_VERSION_STRING}")
+	set(GALAXY_FREETYPE_HEADERS "${FREETYPE_INCLUDE_DIRS}")
+	set(GALAXY_FREETYPE_LIB "${FREETYPE_LIBRARIES}")
+endif()
 
 set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -208,7 +197,6 @@ set_target_properties(zlibstatic PROPERTIES
 
 # Set dependencies to not show compiler errors.
 if (MSVC)
-	target_compile_options(freetype PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(ogg PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(vorbis PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
@@ -223,7 +211,7 @@ endif()
 
 # Meta trget to build external libs.
 add_custom_target(BUILD_EXTERNAL_LIBS)
-add_dependencies(BUILD_EXTERNAL_LIBS common freetype glfw ogg vorbis vorbisenc vorbisfile OpenAL zlibstatic)
+add_dependencies(BUILD_EXTERNAL_LIBS common glfw ogg vorbis vorbisenc vorbisfile OpenAL zlibstatic)
 
 # Meta target to build internal libs.
 add_custom_target(BUILD_INTERNAL_LIBS)
@@ -255,9 +243,9 @@ add_dependencies(tests
 
 # Set header directories.
 set(all_header_dirs
+	"${GALAXY_FREETYPE_HEADERS}"
 	"${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT"
 	"${CMAKE_SOURCE_DIR}/dependencies/c++20"
-	"${CMAKE_SOURCE_DIR}/dependencies/freetype2/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/glad"
 	"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/glm"
@@ -345,8 +333,11 @@ elseif (GNU)
 endif()
 
 # Link library libs.
+target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB}")
+target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
+target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
+
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug/freetyped.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
@@ -367,7 +358,6 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
 
-	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug/freetyped.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
@@ -388,7 +378,6 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Debug/freetyped.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
@@ -409,7 +398,6 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Release/freetype.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
@@ -430,7 +418,6 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
     target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
 
-	target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Release/freetype.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
@@ -451,7 +438,6 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/freetype/Release/freetype.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
