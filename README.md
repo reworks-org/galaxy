@@ -14,7 +14,7 @@ Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 Only supports 64bit systems.
 
 ### Windows:
-You will need to install Visual Studio 2019 16.8 Preview 1, and set the Win-SDK version to 10.0.19041.0.
+You will need to install Visual Studio 2019 16.8 Preview 5, and set the Win-SDK version to 10.0.19041.0.
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
@@ -23,7 +23,7 @@ git submodule update --init --recursive
 ```
 
 ### Unix:
-You need ALSA, PulseAudio, X11, opengl, cmake, GCC 10.2, make or ninja.
+You need ALSA, PulseAudio, X11, opengl, cmake, GCC 10.2+, make, ninja and freetype2.
 ```
 git clone --recursive https://github.com/DomRe/galaxy.git
 git submodule update --init --recursive
