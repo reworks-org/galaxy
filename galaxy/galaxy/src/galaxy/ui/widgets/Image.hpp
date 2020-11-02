@@ -8,6 +8,8 @@
 #ifndef GALAXY_IMAGE_HPP_
 #define GALAXY_IMAGE_HPP_
 
+#include <protostar/events/MouseMovedEvent.hpp>
+
 #include "galaxy/ui/Widget.hpp"
 
 ///
@@ -65,6 +67,13 @@ namespace galaxy
 			/// \param name Name of the texture to use.
 			///
 			void create_from_atlas(std::string_view name);
+
+			///
+			/// Triggered when mouse moves.
+			///
+			/// \param mme Mouse Moved Event.
+			///
+			void on_event(const pr::MouseMovedEvent& mme);
 
 			///
 			/// \brief Update widget logic.

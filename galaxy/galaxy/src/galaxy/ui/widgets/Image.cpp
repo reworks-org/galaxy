@@ -34,12 +34,29 @@ namespace galaxy
 			}
 		}
 
+		void Image::on_event(const pr::MouseMovedEvent& mme)
+		{
+			if (m_region.contains(mme.m_x, mme.m_y))
+			{
+				m_tooltip->toggle_tooltip(true);
+				m_tooltip->update_pos(mme.m_x, mme.m_y);
+			}
+			else
+			{
+				m_tooltip->toggle_tooltip(false);
+			}
+		}
+
 		void Image::update()
 		{
 		}
 
 		void Image::render(qs::Camera& camera)
 		{
+			if (m_tooltip->can_draw())
+			{
+				m_tooltip->render(camera);
+			}
 		}
 	} // namespace widget
 } // namespace galaxy

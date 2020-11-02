@@ -11,10 +11,18 @@
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/res/FontBook.hpp>
 #include <galaxy/res/ShaderBook.hpp>
+#include <qs/core/Window.hpp>
 
 #include <galaxy/ui/widgets/Image.hpp>
 
+#include <protostar/events/MouseMovedEvent.hpp>
+
 #include "GUILayer.hpp"
+
+// clang-format off
+#define WHITE {255, 255, 255, 255}
+#define BLACK {0, 0, 0, 255}
+// clang-format on
 
 ///
 /// Core namespace.
@@ -33,7 +41,7 @@ namespace sb
 		m_theme.m_shaders  = SL_HANDLE.shaderbook();
 		m_theme.m_renderer = SL_HANDLE.renderer();
 		m_theme.m_window   = SL_HANDLE.window();
-		m_theme.m_font_col = {0, 0, 0, 255};
+		m_theme.m_font_col = WHITE;
 
 		m_theme.m_fonts->create("public16", demo_font, 16);
 		m_theme.m_atlas.add(demo_tex);
@@ -48,7 +56,9 @@ namespace sb
 		image->create_from_atlas("demo_nineslice");
 
 		auto* tooltip = m_gui.create_tooltip_for_widget(image);
-		tooltip->create("demo_nineslice", "DemoTest", "public16");
+		tooltip->create(demo_tex, "Demo Test", "public16");
+
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(image);
 	}
 
 	GUILayer::~GUILayer()
@@ -57,6 +67,8 @@ namespace sb
 
 	void GUILayer::events()
 	{
+		auto pos = SL_HANDLE.window()->get_cursor_pos();
+		m_gui.trigger<pr::MouseMovedEvent>(pos.x, pos.y);
 	}
 
 	void GUILayer::update(const double dt)
