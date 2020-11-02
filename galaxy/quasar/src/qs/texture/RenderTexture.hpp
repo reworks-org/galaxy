@@ -76,6 +76,14 @@ namespace qs
 		void create(const int width, const int height);
 
 		///
+		/// Change RenderTexture size.
+		///
+		/// \param width Width of the RenderTexture.
+		/// \param height Height of the RenderTexture.
+		///
+		void change_size(const int width, const int height);
+
+		///
 		/// Activate texture context.
 		///
 		void bind() noexcept override;

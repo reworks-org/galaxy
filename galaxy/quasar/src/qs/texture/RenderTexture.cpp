@@ -91,6 +91,19 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
+	void RenderTexture::change_size(const int width, const int height)
+	{
+		m_width      = width;
+		m_height     = height;
+		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
+
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+
+		glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_texture_format, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
+
 	void RenderTexture::bind() noexcept
 	{
 		// Adjust view for framebuffer.
