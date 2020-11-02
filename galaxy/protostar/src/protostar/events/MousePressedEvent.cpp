@@ -17,7 +17,7 @@ namespace pr
 	{
 	}
 
-	MousePressedEvent::MousePressedEvent(const int x, const int y, const unsigned int button) noexcept
+	MousePressedEvent::MousePressedEvent(const float x, const float y, const int button) noexcept
 	    : m_x {x}, m_y {y}, m_button {button}
 	{
 	}
