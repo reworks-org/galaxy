@@ -103,18 +103,6 @@ namespace qs
 		m_texture = id;
 		m_width   = width;
 		m_height  = height;
-
-		// Ansiotropic filtering.
-		set_anisotropy(qs::WindowSettings::s_ansio_filtering);
-
-		// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
-		set_minify_filter(qs::TextureFilter::LINEAR);
-
-		// Set interpolation for mipmapping.
-		set_magnify_filter(qs::TextureFilter::LINEAR);
-
-		// Default clamp to edge.
-		clamp_to_edge();
 	}
 
 	void Texture::load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels)
