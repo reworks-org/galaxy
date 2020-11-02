@@ -57,8 +57,27 @@ namespace qs
 		///
 		~Text() = default;
 
+		///
+		/// Load all data into text to prep for creation.
+		///
+		/// \param font Font to render text with.
+		/// \param shader Shader to use when creating rendertexture.
+		/// \param col Colour of the text.
+		///
 		void load(Font& font, Shader& shader, const pr::Colour& col);
+
+		///
+		/// Create the text object.
+		///
+		/// \param text Text to display.
+		///
 		void create(std::string_view text);
+
+		///
+		/// Update the text.
+		///
+		/// \param text New text to display.
+		///
 		void update_text(std::string_view text);
 
 		///
