@@ -88,7 +88,7 @@ namespace qs
 		/// \param x X position to set object to.
 		/// \param y Y position to set object to.
 		///
-		void set_pos(const float x, const float y) noexcept;
+		virtual void set_pos(const float x, const float y) noexcept;
 
 		///
 		/// Set the rotation point.

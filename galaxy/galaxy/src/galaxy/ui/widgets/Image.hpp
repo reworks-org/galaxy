@@ -29,7 +29,7 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Image : public galaxy::Widget, public qs::BatchedSprite
+		class Image final : public galaxy::Widget, public qs::BatchedSprite
 		{
 		public:
 			///
@@ -68,6 +68,14 @@ namespace galaxy
 			/// \param name Name of the texture to use.
 			///
 			void create_from_atlas(std::string_view name);
+
+			///
+			/// Sets position without moving the object.
+			///
+			/// \param x X position to set object to.
+			/// \param y Y position to set object to.
+			///
+			void set_pos(const float x, const float y) noexcept override;
 
 			///
 			/// Triggered when mouse moves.

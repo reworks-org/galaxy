@@ -19,11 +19,6 @@ namespace galaxy
 	///
 	namespace widget
 	{
-		Label::Label()
-		    : m_bounds {0.0f, 0.0f, 0.0f, 0.0f}
-		{
-		}
-
 		void Label::create(std::string_view text, std::string_view font)
 		{
 			auto fontptr   = m_theme->m_fonts->get(font);

@@ -95,6 +95,11 @@ namespace galaxy
 		///
 		TooltipPtr m_tooltip;
 
+		///
+		/// Bounds of label.
+		///
+		pr::Rect<float> m_bounds;
+
 	private:
 		///
 		/// Widget ID.

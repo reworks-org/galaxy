@@ -26,13 +26,25 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create image from {0}.", name);
+				PL_LOG(PL_ERROR, "Unable to create image widget from {0}.", name);
 			}
+
+			m_bounds.m_width  = opt.value().m_width;
+			m_bounds.m_height = opt.value().m_height;
+		}
+
+		void Image::set_pos(const float x, const float y) noexcept
+		{
+			m_bounds.m_x = x;
+			m_bounds.m_y = y;
+
+			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f}); // wants mat4 here for some reason?
+			m_dirty       = true;
 		}
 
 		void Image::on_event(const pr::MouseMovedEvent& mme)
 		{
-			if (m_region.contains(mme.m_x, mme.m_y))
+			if (m_bounds.contains(mme.m_x, mme.m_y))
 			{
 				m_tooltip->toggle_tooltip(true);
 				m_tooltip->update_pos(mme.m_x, mme.m_y);

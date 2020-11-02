@@ -9,7 +9,6 @@
 #define GALAXY_LABEL_HPP_
 
 #include <protostar/events/MouseMovedEvent.hpp>
-#include <qs/text/Text.hpp>
 
 #include "galaxy/ui/Widget.hpp"
 
@@ -29,13 +28,13 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Label : public galaxy::Widget
+		class Label final : public galaxy::Widget
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Label();
+			Label() = default;
 
 			///
 			/// Copy constructor.
@@ -111,11 +110,6 @@ namespace galaxy
 			void set_pos(const float x, const float y);
 
 		private:
-			///
-			/// Bounds of label.
-			///
-			pr::Rect<float> m_bounds;
-
 			///
 			/// Text to render.
 			///
