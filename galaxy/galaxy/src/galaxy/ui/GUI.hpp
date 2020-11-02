@@ -10,6 +10,7 @@
 
 #include <protostar/async/ThreadPool.hpp>
 #include <pulsar/Log.hpp>
+#include <qs/sprite/SpriteBatch.hpp>
 #include <starlight/Dispatcher.hpp>
 
 #include "galaxy/ui/Widget.hpp"
@@ -277,7 +278,10 @@ namespace galaxy
 			ptr->m_id    = id;
 			ptr->m_theme = m_theme;
 
-			m_sb.add(ptr);
+			if constexpr (std::is_base_of<qs::BatchedSprite, Widget>::value)
+			{
+				m_sb.add(ptr);
+			}
 		}
 		else
 		{

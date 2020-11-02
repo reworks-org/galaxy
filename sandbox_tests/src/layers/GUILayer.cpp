@@ -14,6 +14,7 @@
 #include <qs/core/Window.hpp>
 
 #include <galaxy/ui/widgets/Image.hpp>
+#include <galaxy/ui/widgets/Label.hpp>
 
 #include <protostar/events/MouseMovedEvent.hpp>
 
@@ -22,6 +23,7 @@
 // clang-format off
 #define WHITE {255, 255, 255, 255}
 #define BLACK {0, 0, 0, 255}
+#define RED {255, 0, 0, 255}
 // clang-format on
 
 ///
@@ -41,7 +43,7 @@ namespace sb
 		m_theme.m_shaders  = SL_HANDLE.shaderbook();
 		m_theme.m_renderer = SL_HANDLE.renderer();
 		m_theme.m_window   = SL_HANDLE.window();
-		m_theme.m_font_col = WHITE;
+		m_theme.m_font_col = RED;
 
 		m_theme.m_fonts->create("public16", demo_font, 16);
 		m_theme.m_atlas.add(demo_tex);
@@ -59,6 +61,10 @@ namespace sb
 		tooltip->create(demo_tex, "Demo Test", "public16");
 
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(image);
+
+		auto* label = m_gui.create_widget<galaxy::widget::Label>();
+		label->create("Label Demo", "public16");
+		label->set_pos(300, 300);
 	}
 
 	GUILayer::~GUILayer()

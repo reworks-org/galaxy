@@ -1,15 +1,15 @@
 ///
-/// Image.hpp
+/// Label.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_IMAGE_HPP_
-#define GALAXY_IMAGE_HPP_
+#ifndef GALAXY_LABEL_HPP_
+#define GALAXY_LABEL_HPP_
 
 #include <protostar/events/MouseMovedEvent.hpp>
-#include <qs/sprite/SpriteBatch.hpp>
+#include <qs/text/Text.hpp>
 
 #include "galaxy/ui/Widget.hpp"
 
@@ -24,50 +24,60 @@ namespace galaxy
 	namespace widget
 	{
 		///
-		/// \brief Simple image widget.
+		/// \brief Simple Label widget.
 		///
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Image : public galaxy::Widget, public qs::BatchedSprite
+		class Label : public galaxy::Widget
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Image() = default;
+			Label();
 
 			///
 			/// Copy constructor.
 			///
-			Image(const Image&) = delete;
+			Label(const Label&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			Image(Image&&) = default;
+			Label(Label&&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
-			Image& operator=(const Image&) = delete;
+			Label& operator=(const Label&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			Image& operator=(Image&&) = default;
+			Label& operator=(Label&&) = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Image() = default;
+			virtual ~Label() = default;
 
 			///
-			/// Use theme texture from atlas.
+			/// \brief Create the label widget.
 			///
-			/// \param name Name of the texture to use.
+			/// Needs a shader called "text" to draw glyphs to a rendertexture in theme shaderbook.
 			///
-			void create_from_atlas(std::string_view name);
+			/// \param text Text to display.
+			/// \param font Font to use.
+			///
+			void create(std::string_view text, std::string_view font);
+
+			///
+			/// Update the text.
+			///
+			/// \param text New text to display on label.
+			///
+			void update_text(std::string_view text);
 
 			///
 			/// Triggered when mouse moves.
@@ -91,6 +101,25 @@ namespace galaxy
 			/// \param camera View camera to use when rendering.
 			///
 			void render(qs::Camera& camera) override;
+
+			///
+			/// Sets position without moving the object.
+			///
+			/// \param x X position to set object to.
+			/// \param y Y position to set object to.
+			///
+			void set_pos(const float x, const float y);
+
+		private:
+			///
+			/// Bounds of label.
+			///
+			pr::Rect<float> m_bounds;
+
+			///
+			/// Text to render.
+			///
+			qs::Text m_text;
 		};
 	} // namespace widget
 } // namespace galaxy

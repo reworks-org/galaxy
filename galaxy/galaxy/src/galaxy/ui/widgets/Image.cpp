@@ -17,10 +17,6 @@ namespace galaxy
 	///
 	namespace widget
 	{
-		Image::Image()
-		{
-		}
-
 		void Image::create_from_atlas(std::string_view name)
 		{
 			auto opt = m_theme->m_atlas.get_region(name);

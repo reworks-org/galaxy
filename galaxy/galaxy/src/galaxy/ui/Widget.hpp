@@ -8,9 +8,6 @@
 #ifndef GALAXY_WIDGET_HPP_
 #define GALAXY_WIDGET_HPP_
 
-#include <protostar/async/ProtectedArithmetic.hpp>
-#include <qs/sprite/SpriteBatch.hpp>
-
 #include "galaxy/ui/Tooltip.hpp"
 
 ///
@@ -24,7 +21,7 @@ namespace galaxy
 	/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 	/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 	///
-	class Widget : public qs::BatchedSprite
+	class Widget
 	{
 		///
 		/// Allows for the GUI to modify internals of Widget we don't want publicly exposed.
