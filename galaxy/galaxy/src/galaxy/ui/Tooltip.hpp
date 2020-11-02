@@ -11,7 +11,6 @@
 #include <qs/graphics/Camera.hpp>
 #include <qs/sprite/Sprite.hpp>
 #include <qs/text/Text.hpp>
-#include <qs/texture/NineSlice.hpp>
 
 #include "galaxy/ui/Theme.hpp"
 
@@ -64,22 +63,49 @@ namespace galaxy
 		///
 		/// Create the tooltip.
 		///
-		/// \param ns_tex Must be a nine-slice texture on the UITheme texture atlas.
+		/// \param sprite Sprite background of the tooltip.
 		/// \param text Text to draw on the tooltip.
 		/// \param font Font to use.
 		///
-		void create(std::string_view ns_tex, const std::string& text, std::string_view font);
+		void create(std::string_view sprite, const std::string& text, std::string_view font);
 
 		///
 		/// \brief Render the tooltip.
 		///
-		/// Required shaders: "text", "9slice".
+		/// Required shaders: "text", "sprite".
 		///
 		/// \param camera View camera to use when rendering.
 		///
 		void render(qs::Camera& camera);
 
+		///
+		/// Draw tooltip toggle.
+		///
+		/// \param can_draw True if he can draw.
+		///
+		void toggle_tooltip(const bool can_draw);
+
+		///
+		/// Update tooltip position.
+		///
+		/// \param x Update tooltip x pos.
+		/// \param y Update tooltip y pos.
+		///
+		void update_pos(const double x, const double y);
+
+		///
+		/// Can draw the tooltip.
+		///
+		/// \return Const boolean. True if tooltip is visible.
+		///
+		[[nodiscard]] const bool can_draw() const;
+
 	private:
+		///
+		/// Draw tooltip toggle.
+		///
+		bool m_draw;
+
 		///
 		/// Text to display.
 		///
@@ -94,11 +120,6 @@ namespace galaxy
 		/// UI theme for tooltip.
 		///
 		UITheme* m_theme;
-
-		///
-		/// Nine slice info.
-		///
-		qs::NineSlice* m_ns;
 	};
 
 	///

@@ -15,38 +15,47 @@
 namespace galaxy
 {
 	Tooltip::Tooltip()
-	    : m_theme {nullptr}, m_ns {nullptr}
+	    : m_draw {false}, m_theme {nullptr}
 	{
 	}
 
-	void Tooltip::create(std::string_view ns_tex, const std::string& text, std::string_view font)
+	void Tooltip::create(std::string_view sprite, const std::string& text, std::string_view font)
 	{
-		auto region = m_theme->m_atlas.get_region(ns_tex).value();
-		m_sprite.load(m_theme->m_atlas.gl_texture(), region.m_width, region.m_height);
-		m_sprite.create<qs::BufferDynamic>(region.m_x, region.m_y);
+		m_sprite.load(sprite);
+		m_sprite.create<qs::BufferStatic>();
 
-		auto* fontptr = m_theme->m_fonts->get(font);
-		m_text.load(text, fontptr, m_theme->m_font_col);
-		m_text.create();
-
-		m_ns = m_theme->m_atlas.get_nine_slice(ns_tex);
+		m_text.load(*m_theme->m_fonts->get(font), *m_theme->m_shaders->get("text"), m_theme->m_font_col);
+		m_text.create(text);
 	}
 
 	void Tooltip::render(qs::Camera& camera)
 	{
-		auto nss = m_theme->m_shaders->get("9slice");
-		auto ts  = m_theme->m_shaders->get("text");
+		auto ss = m_theme->m_shaders->get("sprite");
 
-		nss->bind();
-		nss->set_uniform("u_cameraProj", camera.get_proj());
-		nss->set_uniform("u_cameraView", camera.get_transform());
-		nss->set_uniform<glm::vec2>("u_9grid_size", m_ns->m_cell_size);
-		nss->set_uniform<glm::vec2>("u_total_area", {m_text.get_width(), m_text.get_height()});
-		m_theme->m_renderer->draw_sprite(m_sprite, *nss);
+		ss->bind();
+		ss->set_uniform("u_cameraProj", camera.get_proj());
+		ss->set_uniform("u_cameraView", camera.get_transform());
+		m_theme->m_renderer->draw_sprite(m_sprite, *ss);
+		m_theme->m_renderer->draw_text(m_text, *ss);
+	}
 
-		ts->bind();
-		ts->set_uniform("u_cameraProj", camera.get_proj());
-		ts->set_uniform("u_cameraView", camera.get_transform());
-		m_theme->m_renderer->draw_text(m_text, *ts);
+	void Tooltip::toggle_tooltip(const bool can_draw)
+	{
+		m_draw = can_draw;
+	}
+
+	void Tooltip::update_pos(const double x, const double y)
+	{
+		m_sprite.set_pos(x, y);
+
+		float text_x = 0.0f, text_y = 0.0f;
+		text_x = x + ((m_sprite.get_width() * 0.5f) - (m_text.get_width() * 0.5f));
+		text_y = y + ((m_sprite.get_height() * 0.5f) - (m_text.get_height() * 0.5f));
+		m_text.set_pos(text_x, text_y);
+	}
+
+	const bool Tooltip::can_draw() const
+	{
+		return m_draw;
 	}
 } // namespace galaxy

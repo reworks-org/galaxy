@@ -28,11 +28,8 @@ namespace pr
 		///
 		/// \param x x-pos of event.
 		/// \param y y-pos of event.
-		/// \param dx Change in y coord value since previous event.
-		/// \param dy Change in y coord value since previous event.
-		/// \param pressure Any pressure from any button click the mouse might be applying.
 		///
-		MouseMovedEvent(const int x, const int y, const int dx, const int dy, const float pressure) noexcept;
+		MouseMovedEvent(const double x, const double y) noexcept;
 
 		///
 		/// Copy constructor.
@@ -62,27 +59,12 @@ namespace pr
 		///
 		/// Mouse x position.
 		///
-		int m_x;
+		double m_x;
 
 		///
 		/// Mouse y position.
 		///
-		int m_y;
-
-		///
-		/// Change in x coord value since previous event.
-		///
-		int m_dx;
-
-		///
-		/// Change in y coord value since previous event.
-		///
-		int m_dy;
-
-		///
-		/// Any pressure from any button click the mouse might be applying.
-		///
-		float m_pressure;
+		double m_y;
 	};
 } // namespace pr
 
