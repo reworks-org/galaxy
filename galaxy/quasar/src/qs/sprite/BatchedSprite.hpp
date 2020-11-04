@@ -105,6 +105,24 @@ namespace qs
 		///
 		[[nodiscard]] const unsigned int z_level() const noexcept;
 
+		///
+		/// \brief Get texture width.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Width as int. int over unsigned for compat with float.
+		///
+		[[nodiscard]] const int get_width() const noexcept;
+
+		///
+		/// \brief Get texture height.
+		///
+		/// Is cached for performance.
+		///
+		/// \return Height as int. int over unsigned for compat with float.
+		///
+		[[nodiscard]] const int get_height() const noexcept;
+
 	protected:
 		///
 		/// Opacity of BatchedSprite.

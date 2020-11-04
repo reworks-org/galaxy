@@ -100,4 +100,14 @@ namespace qs
 	{
 		return m_z_level;
 	}
+
+	const int BatchedSprite::get_width() const noexcept
+	{
+		return m_region.m_width;
+	}
+
+	const int BatchedSprite::get_height() const noexcept
+	{
+		return m_region.m_height;
+	}
 } // namespace qs
