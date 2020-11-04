@@ -39,11 +39,6 @@ namespace galaxy
 		m_theme->m_renderer->draw_text(m_text, *ss);
 	}
 
-	void Tooltip::toggle_tooltip(const bool can_draw)
-	{
-		m_draw = can_draw;
-	}
-
 	void Tooltip::update_pos(const double x, const double y)
 	{
 		m_sprite.set_pos(x, y);
@@ -52,6 +47,11 @@ namespace galaxy
 		text_x = x + ((m_sprite.get_width() * 0.5f) - (m_text.get_width() * 0.5f));
 		text_y = y + ((m_sprite.get_height() * 0.5f) - (m_text.get_height() * 0.5f));
 		m_text.set_pos(text_x, text_y);
+	}
+
+	void Tooltip::can_draw(const bool can_draw)
+	{
+		m_draw = can_draw;
 	}
 
 	const bool Tooltip::can_draw() const
