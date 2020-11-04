@@ -76,21 +76,25 @@ namespace qs
 	void BatchedSprite::update_x_region(const float x) noexcept
 	{
 		m_region.m_x = x;
+		m_dirty      = true;
 	}
 
 	void BatchedSprite::update_y_region(const float y) noexcept
 	{
 		m_region.m_y = y;
+		m_dirty      = true;
 	}
 
 	void BatchedSprite::update_w_region(const float w) noexcept
 	{
 		m_region.m_width = w;
+		m_dirty          = true;
 	}
 
 	void BatchedSprite::update_h_region(const float h) noexcept
 	{
 		m_region.m_height = h;
+		m_dirty           = true;
 	}
 
 	void BatchedSprite::update_region(float x, float y, const float w, const float h) noexcept
