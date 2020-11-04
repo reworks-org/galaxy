@@ -38,6 +38,9 @@ namespace galaxy
 				PL_LOG(PL_ERROR, "Unable to create slider widget from {0}.", slider);
 			}
 
+			m_bounds.m_width  = m_slider.get_width();
+			m_bounds.m_height = m_slider.get_height();
+
 			if (marker_opt != std::nullopt)
 			{
 				m_marker.create(marker_opt.value(), 1);
@@ -46,9 +49,6 @@ namespace galaxy
 			{
 				PL_LOG(PL_ERROR, "Unable to create slider marker from {0}.", marker);
 			}
-
-			m_bounds.m_width  = slider_opt.value().m_width;
-			m_bounds.m_height = slider_opt.value().m_height;
 		}
 
 		void Slider::on_event(const pr::MouseMovedEvent& mme)

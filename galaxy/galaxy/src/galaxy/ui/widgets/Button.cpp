@@ -57,8 +57,8 @@ namespace galaxy
 				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", sprites[2]);
 			}
 
-			m_bounds.m_width  = opt.value().m_width;
-			m_bounds.m_height = opt.value().m_height;
+			m_bounds.m_width  = m_regions.at(0).m_width;
+			m_bounds.m_height = m_regions.at(0).m_height;
 		}
 
 		void Button::set_pos(const float x, const float y) noexcept

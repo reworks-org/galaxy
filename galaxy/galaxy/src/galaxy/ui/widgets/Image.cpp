@@ -29,8 +29,8 @@ namespace galaxy
 				PL_LOG(PL_ERROR, "Unable to create image widget from {0}.", name);
 			}
 
-			m_bounds.m_width  = opt.value().m_width;
-			m_bounds.m_height = opt.value().m_height;
+			m_bounds.m_width  = get_width();
+			m_bounds.m_height = get_height();
 		}
 
 		void Image::set_pos(const float x, const float y) noexcept
