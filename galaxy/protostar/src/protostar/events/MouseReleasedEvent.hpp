@@ -30,7 +30,7 @@ namespace pr
 		/// \param y y-pos of event.
 		/// \param button Button code pressed.
 		///
-		MouseReleasedEvent(const int x, const int y, const unsigned int button) noexcept;
+		MouseReleasedEvent(const float x, const float y, const int button) noexcept;
 
 		///
 		/// Copy constructor.
@@ -60,17 +60,17 @@ namespace pr
 		///
 		/// Mouse x position.
 		///
-		int m_x;
+		float m_x;
 
 		///
 		/// Mouse y position.
 		///
-		int m_y;
+		float m_y;
 
 		///
 		/// Mouse button released.
 		///
-		unsigned int m_button;
+		int m_button;
 	};
 } // namespace pr
 

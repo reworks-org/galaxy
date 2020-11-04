@@ -12,8 +12,13 @@
 ///
 namespace galaxy
 {
+	const unsigned int Widget::id() const
+	{
+		return m_id;
+	}
+
 	Widget::Widget()
-	    : m_id {0}, m_theme {nullptr}, m_tooltip {nullptr}
+	    : m_id {0}, m_theme {nullptr}, m_tooltip {nullptr}, m_bounds {0.0f, 0.0f, 0.0f, 0.0f}
 	{
 	}
 

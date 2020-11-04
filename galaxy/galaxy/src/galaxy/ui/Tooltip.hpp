@@ -79,19 +79,19 @@ namespace galaxy
 		void render(qs::Camera& camera);
 
 		///
-		/// Draw tooltip toggle.
-		///
-		/// \param can_draw True if he can draw.
-		///
-		void toggle_tooltip(const bool can_draw);
-
-		///
 		/// Update tooltip position.
 		///
 		/// \param x Update tooltip x pos.
 		/// \param y Update tooltip y pos.
 		///
 		void update_pos(const double x, const double y);
+
+		///
+		/// Draw tooltip toggle.
+		///
+		/// \param can_draw True if he can draw.
+		///
+		void can_draw(const bool can_draw);
 
 		///
 		/// Can draw the tooltip.

@@ -17,7 +17,7 @@ namespace pr
 	{
 	}
 
-	MouseReleasedEvent::MouseReleasedEvent(const int x, const int y, const unsigned int button) noexcept
+	MouseReleasedEvent::MouseReleasedEvent(const float x, const float y, const int button) noexcept
 	    : m_x {x}, m_y {y}, m_button {button}
 	{
 	}

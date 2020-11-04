@@ -73,20 +73,36 @@ namespace qs
 		m_dirty   = true;
 	}
 
-	void BatchedSprite::update_region(float x, float y, const float w, const float h) noexcept
+	void BatchedSprite::update_x_region(const float x) noexcept
 	{
 		m_region.m_x = x;
+		m_dirty      = true;
+	}
+
+	void BatchedSprite::update_y_region(const float y) noexcept
+	{
 		m_region.m_y = y;
+		m_dirty      = true;
+	}
 
-		if (w >= 0.0f)
-		{
-			m_region.m_width = w;
-		}
+	void BatchedSprite::update_w_region(const float w) noexcept
+	{
+		m_region.m_width = w;
+		m_dirty          = true;
+	}
 
-		if (h >= 0.0f)
-		{
-			m_region.m_height = h;
-		}
+	void BatchedSprite::update_h_region(const float h) noexcept
+	{
+		m_region.m_height = h;
+		m_dirty           = true;
+	}
+
+	void BatchedSprite::update_region(float x, float y, const float w, const float h) noexcept
+	{
+		m_region.m_x      = x;
+		m_region.m_y      = y;
+		m_region.m_width  = w;
+		m_region.m_height = h;
 
 		m_dirty = true;
 	}
@@ -99,5 +115,15 @@ namespace qs
 	const unsigned int BatchedSprite::z_level() const noexcept
 	{
 		return m_z_level;
+	}
+
+	const int BatchedSprite::get_width() const noexcept
+	{
+		return m_region.m_width;
+	}
+
+	const int BatchedSprite::get_height() const noexcept
+	{
+		return m_region.m_height;
 	}
 } // namespace qs

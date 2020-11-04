@@ -23,13 +23,16 @@
 namespace qs
 {
 	Window::Window() noexcept
-	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
+	    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
+		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 	}
 
 	Window::Window(std::string_view title, const int width, const int height)
 	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
 	{
+		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
+
 		if (!create(title, width, height))
 		{
 			PL_LOG(PL_FATAL, "GLFW window creation failed.");
@@ -137,6 +140,9 @@ namespace qs
 					{
 						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_raw_mouse_input);
 					}
+
+					// Sticky Mouse.
+					//glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);
 
 // Error handling.
 #ifdef _DEBUG
@@ -255,8 +261,8 @@ namespace qs
 		else
 		{
 			// Copies data so safe to destroy.
-			m_cursor = glfwCreateCursor(&img, 0, 0);
-			glfwSetCursor(m_window, m_cursor);
+			m_cursor.m_glfw = glfwCreateCursor(&img, 0, 0);
+			glfwSetCursor(m_window, m_cursor.m_glfw);
 		}
 
 		stbi_image_free(img.pixels);
@@ -277,8 +283,8 @@ namespace qs
 		else
 		{
 			// Copies data so safe to destroy.
-			m_cursor = glfwCreateCursor(&img, 0, 0);
-			glfwSetCursor(m_window, m_cursor);
+			m_cursor.m_glfw = glfwCreateCursor(&img, 0, 0);
+			glfwSetCursor(m_window, m_cursor.m_glfw);
 		}
 
 		stbi_image_free(img.pixels);
@@ -299,9 +305,9 @@ namespace qs
 		}
 
 		// Cursor
-		if (m_cursor != nullptr)
+		if (m_cursor.m_glfw != nullptr)
 		{
-			glfwDestroyCursor(m_cursor);
+			glfwDestroyCursor(m_cursor.m_glfw);
 		}
 
 		glfwTerminate();
@@ -347,12 +353,59 @@ namespace qs
 		glfwPollEvents();
 	}
 
-	glm::vec2 Window::get_cursor_pos()
+	bool Window::mouse_button_pressed(int mouse_button)
 	{
-		double x = 0.0, y = 0.0;
-		glfwGetCursorPos(m_window, &x, &y);
+		if (mouse_button < 0 || mouse_button > 7)
+		{
+			return false;
+		}
+		else
+		{
+			int state = glfwGetMouseButton(m_window, mouse_button);
+			if (state == GLFW_PRESS && m_prev_mouse_btn_states[mouse_button] == GLFW_RELEASE)
+			{
+				m_prev_mouse_btn_states[mouse_button] = state;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
 
-		return {x, y};
+	bool Window::mouse_button_released(int mouse_button)
+	{
+		if (mouse_button < 0 || mouse_button > 7)
+		{
+			return false;
+		}
+		else
+		{
+			int state = glfwGetMouseButton(m_window, mouse_button);
+			if (state == GLFW_RELEASE && m_prev_mouse_btn_states[mouse_button] == GLFW_PRESS)
+			{
+				m_prev_mouse_btn_states[mouse_button] = state;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+
+	std::tuple<bool, glm::vec2> Window::get_cursor_pos()
+	{
+		glfwGetCursorPos(m_window, &m_cursor.m_pos.x, &m_cursor.m_pos.y);
+
+		if (m_cursor.m_pos != m_cursor.m_prev_pos)
+		{
+			m_cursor.m_prev_pos = m_cursor.m_pos;
+			return std::make_tuple(true, m_cursor.m_pos);
+		}
+
+		return std::make_tuple(false, m_cursor.m_pos);
 	}
 
 	GLFWwindow* Window::gl_window() noexcept
