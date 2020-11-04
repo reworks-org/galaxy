@@ -66,7 +66,7 @@ namespace galaxy
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
 
-			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f}); // wants mat4 here for some reason?
+			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f});
 			m_dirty       = true;
 		}
 
@@ -98,7 +98,10 @@ namespace galaxy
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
 				m_state = Button::State::PRESSED;
-				m_callback();
+				if (m_callback != nullptr)
+				{
+					m_callback();
+				}
 
 				if (m_tooltip)
 				{
