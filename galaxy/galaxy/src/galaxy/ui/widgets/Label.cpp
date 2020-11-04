@@ -44,12 +44,12 @@ namespace galaxy
 			{
 				if (m_bounds.contains(mme.m_x, mme.m_y))
 				{
-					m_tooltip->toggle_tooltip(true);
+					m_tooltip->can_draw(true);
 					m_tooltip->update_pos(mme.m_x, mme.m_y);
 				}
 				else
 				{
-					m_tooltip->toggle_tooltip(false);
+					m_tooltip->can_draw(false);
 				}
 			}
 		}

@@ -14,6 +14,7 @@
 #include <starlight/Dispatcher.hpp>
 
 #include "galaxy/ui/Widget.hpp"
+#include "galaxy/ui/widgets/Slider.hpp"
 
 ///
 /// Core namespace.
@@ -281,6 +282,11 @@ namespace galaxy
 			if constexpr (std::is_base_of<qs::BatchedSprite, Widget>::value)
 			{
 				m_sb.add(ptr);
+			}
+			else if constexpr (std::is_same<Widget, galaxy::widget::Slider>::value)
+			{
+				m_sb.add(&ptr->m_slider);
+				m_sb.add(&ptr->m_marker);
 			}
 		}
 		else

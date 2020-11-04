@@ -98,6 +98,13 @@ namespace galaxy
 			void set_pos(const float x, const float y) noexcept override;
 
 			///
+			/// Triggered upon mouse movement.
+			///
+			/// \param mme Mouse Moved Event.
+			///
+			void on_event(const pr::MouseMovedEvent& mme);
+
+			///
 			/// Triggered upon mouse click.
 			///
 			/// \param mpe Mouse Pressed Event.

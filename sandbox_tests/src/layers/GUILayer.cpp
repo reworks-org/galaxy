@@ -42,6 +42,9 @@ namespace sb
 		auto button_pressed = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "button_pressed.png";
 		auto button_hover   = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "button_hover.png";
 
+		auto slider        = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "slider.png";
+		auto slider_marker = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "slider_marker.png";
+
 		auto demo_font  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
@@ -56,6 +59,8 @@ namespace sb
 		m_theme.m_atlas.add(button_default);
 		m_theme.m_atlas.add(button_pressed);
 		m_theme.m_atlas.add(button_hover);
+		m_theme.m_atlas.add(slider);
+		m_theme.m_atlas.add(slider_marker);
 
 		rtt_shader->bind();
 		m_theme.m_atlas.create(*SL_HANDLE.renderer(), *rtt_shader);
@@ -82,8 +87,17 @@ namespace sb
 			PL_LOG(PL_INFO, "Button Pressed.");
 		});
 
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(button);
 		m_gui.add_event_to_widget<pr::MousePressedEvent>(button);
 		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(button);
+
+		auto* slider_ptr = m_gui.create_widget<galaxy::widget::Slider>();
+		slider_ptr->create("slider", "slider_marker");
+		slider_ptr->set_pos(500, 500);
+
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(slider_ptr);
+		m_gui.add_event_to_widget<pr::MousePressedEvent>(slider_ptr);
+		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(slider_ptr);
 	}
 
 	GUILayer::~GUILayer()
@@ -92,15 +106,20 @@ namespace sb
 
 	void GUILayer::events()
 	{
-		auto pos = SL_HANDLE.window()->get_cursor_pos();
-		m_gui.trigger<pr::MouseMovedEvent>(pos.x, pos.y);
+		auto* window        = SL_HANDLE.window();
+		auto [changed, pos] = window->get_cursor_pos();
 
-		if (glfwGetMouseButton(SL_HANDLE.window()->gl_window(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+		if (changed)
+		{
+			m_gui.trigger<pr::MouseMovedEvent>(pos.x, pos.y);
+		}
+
+		if (window->mouse_button_pressed(GLFW_MOUSE_BUTTON_LEFT))
 		{
 			m_gui.trigger<pr::MousePressedEvent>(pos.x, pos.y, GLFW_MOUSE_BUTTON_LEFT);
 		}
 
-		if (glfwGetMouseButton(SL_HANDLE.window()->gl_window(), GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)
+		if (window->mouse_button_released(GLFW_MOUSE_BUTTON_LEFT))
 		{
 			m_gui.trigger<pr::MouseReleasedEvent>(pos.x, pos.y, GLFW_MOUSE_BUTTON_LEFT);
 		}

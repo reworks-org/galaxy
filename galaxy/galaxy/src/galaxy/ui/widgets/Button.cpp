@@ -70,6 +70,29 @@ namespace galaxy
 			m_dirty       = true;
 		}
 
+		void Button::on_event(const pr::MouseMovedEvent& mme)
+		{
+			if (m_bounds.contains(mme.m_x, mme.m_y))
+			{
+				m_state = Button::State::HOVER;
+
+				if (m_tooltip)
+				{
+					m_tooltip->can_draw(true);
+					m_tooltip->update_pos(mme.m_x, mme.m_y);
+				}
+			}
+			else
+			{
+				m_state = Button::State::DEFAULT;
+
+				if (m_tooltip)
+				{
+					m_tooltip->can_draw(false);
+				}
+			}
+		}
+
 		void Button::on_event(const pr::MousePressedEvent& mpe)
 		{
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
@@ -79,7 +102,7 @@ namespace galaxy
 
 				if (m_tooltip)
 				{
-					m_tooltip->toggle_tooltip(false);
+					m_tooltip->can_draw(false);
 				}
 			}
 		}
@@ -89,22 +112,20 @@ namespace galaxy
 			if (m_bounds.contains(mre.m_x, mre.m_y))
 			{
 				m_state = Button::State::HOVER;
+
+				if (m_tooltip)
+				{
+					m_tooltip->can_draw(true);
+					m_tooltip->update_pos(mre.m_x, mre.m_y);
+				}
 			}
 			else
 			{
 				m_state = Button::State::DEFAULT;
-			}
 
-			if (m_tooltip)
-			{
-				if (m_bounds.contains(mre.m_x, mre.m_y))
+				if (m_tooltip)
 				{
-					m_tooltip->toggle_tooltip(true);
-					m_tooltip->update_pos(mre.m_x, mre.m_y);
-				}
-				else
-				{
-					m_tooltip->toggle_tooltip(false);
+					m_tooltip->can_draw(false);
 				}
 			}
 		}
