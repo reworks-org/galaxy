@@ -16,6 +16,7 @@
 #include <galaxy/ui/widgets/Image.hpp>
 #include <galaxy/ui/widgets/Label.hpp>
 #include <galaxy/ui/widgets/Button.hpp>
+#include <galaxy/ui/widgets/ToggleButton.hpp>
 
 #include <protostar/events/MouseMovedEvent.hpp>
 
@@ -50,6 +51,11 @@ namespace sb
 		auto container = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "container.png";
 		auto bar       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "bar.png";
 
+		auto tb_on        = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_on.png";
+		auto tb_off       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_off.png";
+		auto tb_on_hover  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_on_hover.png";
+		auto tb_off_hover = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_off_hover.png";
+
 		auto demo_font  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
@@ -68,6 +74,10 @@ namespace sb
 		m_theme.m_atlas.add(slider_marker);
 		m_theme.m_atlas.add(container);
 		m_theme.m_atlas.add(bar);
+		m_theme.m_atlas.add(tb_on);
+		m_theme.m_atlas.add(tb_off);
+		m_theme.m_atlas.add(tb_on_hover);
+		m_theme.m_atlas.add(tb_off_hover);
 
 		rtt_shader->bind();
 		m_theme.m_atlas.create(*SL_HANDLE.renderer(), *rtt_shader);
@@ -111,10 +121,19 @@ namespace sb
 		progressbar->set_pos(500, 600);
 
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(progressbar);
+
+		auto* togglebutton = m_gui.create_widget<galaxy::widget::ToggleButton>();
+		togglebutton->create_from_atlas({"tb_on", "tb_off", "tb_on_hover", "tb_off_hover"});
+		togglebutton->set_pos(150, 150);
+
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(togglebutton);
+		m_gui.add_event_to_widget<pr::MousePressedEvent>(togglebutton);
+		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(togglebutton);
 	}
 
 	GUILayer::~GUILayer()
 	{
+		progressbar = nullptr;
 	}
 
 	void GUILayer::events()
