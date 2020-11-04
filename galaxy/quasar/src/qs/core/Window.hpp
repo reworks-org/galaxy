@@ -27,6 +27,27 @@ namespace qs
 	{
 	public:
 		///
+		/// Represents a window cursor.
+		///
+		struct Cursor
+		{
+			///
+			/// Allows for custom cursor properties.
+			///
+			GLFWcursor* m_glfw = nullptr;
+
+			///
+			/// Stores current position.
+			///
+			glm::dvec2 m_pos = {0.0f, 0.0f};
+
+			///
+			/// Stores previous position.
+			///
+			glm::dvec2 m_prev_pos = {0.0f, 0.0f};
+		};
+
+		///
 		/// Default constructed window.
 		///
 		Window() noexcept;
@@ -195,11 +216,29 @@ namespace qs
 		void poll_events() noexcept;
 
 		///
+		/// Check if a mouse button was pressed.
+		///
+		/// \param mouse_button GLFW mouse button keycode.
+		///
+		/// \return True if a press occured.
+		///
+		bool mouse_button_pressed(int mouse_button);
+
+		///
+		/// Check if a mouse button was released.
+		///
+		/// \param mouse_button GLFW mouse button keycode.
+		///
+		/// \return True if a release occured.
+		///
+		bool mouse_button_released(int mouse_button);
+
+		///
 		/// Get current cursor position.
 		///
-		/// \return glm::vec2.
+		/// \return Returns true or false if cursor has moved, and the current position.
 		///
-		glm::vec2 get_cursor_pos();
+		std::tuple<bool, glm::vec2> get_cursor_pos();
 
 		///
 		/// Retrieve pointer to GLFWwindow object.
@@ -229,9 +268,9 @@ namespace qs
 		GLFWwindow* m_window;
 
 		///
-		/// GLFW custom cursor icon.
+		/// Custom cursor.
 		///
-		GLFWcursor* m_cursor;
+		Cursor m_cursor;
 
 		///
 		/// Window width.
@@ -247,6 +286,11 @@ namespace qs
 		/// Window background colour.
 		///
 		std::array<float, 4> m_colour;
+
+		///
+		/// Array storing each of the 8 mouse buttons supported by GLFW.
+		///
+		std::array<int, 8> m_prev_mouse_btn_states;
 	};
 } // namespace qs
 
