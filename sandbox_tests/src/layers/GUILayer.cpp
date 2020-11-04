@@ -27,6 +27,8 @@
 #define RED {255, 0, 0, 255}
 // clang-format on
 
+galaxy::widget::Progressbar* progressbar;
+
 ///
 /// Core namespace.
 ///
@@ -45,6 +47,9 @@ namespace sb
 		auto slider        = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "slider.png";
 		auto slider_marker = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "slider_marker.png";
 
+		auto container = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "container.png";
+		auto bar       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "bar.png";
+
 		auto demo_font  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
@@ -61,6 +66,8 @@ namespace sb
 		m_theme.m_atlas.add(button_hover);
 		m_theme.m_atlas.add(slider);
 		m_theme.m_atlas.add(slider_marker);
+		m_theme.m_atlas.add(container);
+		m_theme.m_atlas.add(bar);
 
 		rtt_shader->bind();
 		m_theme.m_atlas.create(*SL_HANDLE.renderer(), *rtt_shader);
@@ -98,6 +105,12 @@ namespace sb
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(slider_ptr);
 		m_gui.add_event_to_widget<pr::MousePressedEvent>(slider_ptr);
 		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(slider_ptr);
+
+		progressbar = m_gui.create_widget<galaxy::widget::Progressbar>();
+		progressbar->create("container", "bar");
+		progressbar->set_pos(500, 600);
+
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(progressbar);
 	}
 
 	GUILayer::~GUILayer()
@@ -127,6 +140,14 @@ namespace sb
 
 	void GUILayer::update(const double dt)
 	{
+		static float progress = 0.0f;
+		progress += (0.01 * dt);
+		if (progress > 1.0f)
+		{
+			progress = 0.0f;
+		}
+
+		progressbar->set_progress(progress);
 		m_gui.update();
 	}
 

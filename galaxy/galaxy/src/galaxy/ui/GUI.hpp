@@ -15,6 +15,7 @@
 
 #include "galaxy/ui/Widget.hpp"
 #include "galaxy/ui/widgets/Slider.hpp"
+#include "galaxy/ui/widgets/ProgressBar.hpp"
 
 ///
 /// Core namespace.
@@ -287,6 +288,11 @@ namespace galaxy
 			{
 				m_sb.add(&ptr->m_slider);
 				m_sb.add(&ptr->m_marker);
+			}
+			else if constexpr (std::is_same<Widget, galaxy::widget::Progressbar>::value)
+			{
+				m_sb.add(&ptr->m_container);
+				m_sb.add(&ptr->m_bar);
 			}
 		}
 		else
