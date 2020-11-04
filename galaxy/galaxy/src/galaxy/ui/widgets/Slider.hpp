@@ -10,6 +10,7 @@
 
 #include <protostar/events/MouseMovedEvent.hpp>
 #include <protostar/events/MousePressedEvent.hpp>
+#include <protostar/events/MouseReleasedEvent.hpp>
 #include <qs/sprite/BatchedSprite.hpp>
 
 #include "galaxy/ui/Widget.hpp"
@@ -29,7 +30,12 @@ namespace galaxy
 		///
 		class Slider final : public galaxy::Widget
 		{
+			friend class GUI;
+
 		public:
+			///
+			/// Constructor.
+			///
 			Slider();
 
 			///
@@ -60,27 +66,32 @@ namespace galaxy
 			///
 			/// Create slider.
 			///
-			/// \param x x-pos of widget.
-			/// \param y y-pos of widget.
 			/// \param slider Texture of the slider in theme to use.
 			/// \param marker Texture of the marker in theme to use.
 			/// \param theme Theme of the widget to use.
 			///
-			void create(const int x, const int y, std::string_view slider, std::string_view marker);
+			void create(std::string_view slider, std::string_view marker);
 
 			///
-			/// Allows for Slider to recieve MouseMovedEvents. Automatically registered with entt.
+			/// Triggered upon mouse movement.
 			///
-			/// \param e MouseMovedEvent object.
+			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mee);
+			void on_event(const pr::MouseMovedEvent& mme);
 
 			///
-			/// Allows for Slider to recieve MousePressedEvents. Automatically registered with entt.
+			/// Triggered upon mouse click.
 			///
-			/// \param e MousePressedEvent object.
+			/// \param mpe Mouse Pressed Event.
 			///
 			void on_event(const pr::MousePressedEvent& mpe);
+
+			///
+			/// Triggered upon mouse release.
+			///
+			/// \param mre Mouse Released Event.
+			///
+			void on_event(const pr::MouseReleasedEvent& mre);
 
 			///
 			/// \brief Update widget logic.
@@ -97,6 +108,14 @@ namespace galaxy
 			/// \param camera View camera to use when rendering.
 			///
 			void render(qs::Camera& camera) override;
+
+			///
+			/// Sets position without moving the object.
+			///
+			/// \param x X position to set object to.
+			/// \param y Y position to set object to.
+			///
+			void set_pos(const float x, const float y);
 
 			///
 			/// Get current value of slider.
@@ -117,6 +136,11 @@ namespace galaxy
 			/// Current value of this bar. 0.0f - 1.0f. I.e. 0.78f is 78%.
 			///
 			float m_value;
+
+			///
+			/// Mouse button is pressed.
+			///
+			bool m_pressed;
 
 			///
 			/// Bounds of marker on bar.

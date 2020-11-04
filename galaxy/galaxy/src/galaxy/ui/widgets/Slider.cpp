@@ -20,86 +20,107 @@ namespace galaxy
 	namespace widget
 	{
 		Slider::Slider()
+		    : m_value {1.0f}, m_pressed {false}, m_marker_pos {0.0f, 0.0f, 0.0f, 0.0f}
 		{
 		}
 
-		void Slider::create(const int x, const int y, std::string_view slider, std::string_view marker)
+		void Slider::create(std::string_view slider, std::string_view marker)
 		{
-			// Load slider texture and check for errors.
-			m_slider = m_theme->extractWidgetTexture(slider);
+			auto slider_opt = m_theme->m_atlas.get_region(slider);
+			auto marker_opt = m_theme->m_atlas.get_region(marker);
 
-			// Set dimensions.
-			m_bounds.m_width  = m_theme->loader()->getTextureWidth(m_slider.get());
-			m_bounds.m_height = m_theme->loader()->getTextureHeight(m_slider.get());
-
-			// Load marker texture and check for errors.
-			m_marker  = m_theme->extractWidgetTexture(marker);
-			m_markerW = m_theme->loader()->getTextureWidth(m_marker.get());
-			m_markerH = m_theme->loader()->getTextureHeight(m_marker.get());
-		}
-
-		void Slider::on_event(const pr::MouseMovedEvent& mee)
-		{
-			if (m_isVisible)
+			if (slider_opt != std::nullopt)
 			{
-				if (contains(e.m_x, e.m_y))
-				{
-					m_drawTooltip = true;
+				m_slider.create(slider_opt.value(), 0);
+			}
+			else
+			{
+				PL_LOG(PL_ERROR, "Unable to create slider widget from {0}.", slider);
+			}
 
-					if (e.m_pressure == 1.0f)
-					{
-						m_drawTooltip         = false;
-						int cursorPosOnSlider = e.m_x - m_bounds.m_x;
-						m_value               = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
-					}
-				}
-				else
+			if (marker_opt != std::nullopt)
+			{
+				m_marker.create(marker_opt.value(), 1);
+			}
+			else
+			{
+				PL_LOG(PL_ERROR, "Unable to create slider marker from {0}.", marker);
+			}
+
+			m_bounds.m_width  = slider_opt.value().m_width;
+			m_bounds.m_height = slider_opt.value().m_height;
+		}
+
+		void Slider::on_event(const pr::MouseMovedEvent& mme)
+		{
+			if (m_bounds.contains(mme.m_x, mme.m_y))
+			{
+				if (m_pressed)
 				{
-					m_drawTooltip = false;
+					m_value = std::clamp((static_cast<float>(mme.m_x) - m_bounds.m_x) / m_bounds.m_width, 0.0f, 1.0f);
+				}
+
+				if (m_tooltip)
+				{
+					if (m_pressed)
+					{
+						m_tooltip->can_draw(false);
+					}
+					else
+					{
+						m_tooltip->can_draw(true);
+						m_tooltip->update_pos(mme.m_x, mme.m_y);
+					}
 				}
 			}
 		}
 
 		void Slider::on_event(const pr::MousePressedEvent& mpe)
 		{
-			if (m_isVisible)
+			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
-				if (contains(e.m_x, e.m_y) && (e.m_button == 1))
+				m_pressed = true;
+				m_value   = std::clamp((mpe.m_x - m_bounds.m_x) / m_bounds.m_width, 0.0f, 1.0f);
+			}
+		}
+
+		void Slider::on_event(const pr::MouseReleasedEvent& mre)
+		{
+			m_pressed = false;
+
+			if (m_tooltip)
+			{
+				if (m_bounds.contains(mre.m_x, mre.m_y))
 				{
-					// We take away the button top left pos, because then we are left over with the position of the cursor on the widget.
-					// Then make sure the resulting value is within the bar width.
-					m_drawTooltip         = false;
-					int cursorPosOnSlider = e.m_x - m_bounds.m_x;
-					m_value               = std::clamp(static_cast<float>(cursorPosOnSlider) / static_cast<float>(m_bounds.m_width), 0.0f, 1.0f);
+					m_tooltip->can_draw(true);
+					m_tooltip->update_pos(mre.m_x, mre.m_y);
 				}
 			}
 		}
 
 		void Slider::update()
 		{
-			if (m_isVisible)
-			{
-				// Draw marker centered on value by taking away half the width of the marker.
-				m_markerX = (m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_markerW / 2.0f);
-			}
+			// Draw marker centered on value by taking away half the width of the marker.
+			m_marker.set_pos((m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_marker.get_width() / 2.0f), m_bounds.m_y - (m_marker.get_height() / 2.0f) + (m_bounds.m_height / 2.0f));
 		}
 
 		void Slider::render(qs::Camera& camera)
 		{
-			if (m_isVisible)
+			if (m_tooltip)
 			{
-				renderer->drawTexture(m_slider.get(), m_bounds.m_x, m_bounds.m_y);
-
-				// we center the marker so it is exactly half way on the texture.
-				renderer->drawTexture(m_marker.get(), m_markerX,                                                                             // x
-						      static_cast<float>(m_bounds.m_y) - (m_markerH / 2.0f) + (static_cast<float>(m_bounds.m_height) / 2.0f) // y
-				);
-
-				if (m_tooltip && m_drawTooltip)
+				if (m_tooltip->can_draw())
 				{
-					m_tooltip->draw(renderer);
+					m_tooltip->render(camera);
 				}
 			}
+		}
+
+		void Slider::set_pos(const float x, const float y)
+		{
+			m_bounds.m_x = x;
+			m_bounds.m_y = y;
+
+			m_slider.set_pos(x, y);
 		}
 
 		const float Slider::value() const
