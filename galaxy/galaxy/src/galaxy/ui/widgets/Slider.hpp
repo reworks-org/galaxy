@@ -68,7 +68,6 @@ namespace galaxy
 			///
 			/// \param slider Texture of the slider in theme to use.
 			/// \param marker Texture of the marker in theme to use.
-			/// \param theme Theme of the widget to use.
 			///
 			void create(std::string_view slider, std::string_view marker);
 
@@ -120,14 +119,14 @@ namespace galaxy
 			///
 			/// Get current value of slider.
 			///
-			/// \return const int of value. 0.0f - 1.0f. I.e. 0.78f is 78%.
+			/// \return const float of value. 0.0f - 1.0f. I.e. 0.78f is 78%.
 			///
 			const float value() const;
 
 			///
 			/// Returns current progress of bar in a percentage.
 			///
-			/// \return const int progress as pertentage.
+			/// \return const float progress as pertentage.
 			///
 			const float percentage() const;
 

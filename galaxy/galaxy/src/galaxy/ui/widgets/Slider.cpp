@@ -100,7 +100,6 @@ namespace galaxy
 
 		void Slider::update()
 		{
-			// Draw marker centered on value by taking away half the width of the marker.
 			m_marker.set_pos((m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_marker.get_width() / 2.0f), m_bounds.m_y - (m_marker.get_height() / 2.0f) + (m_bounds.m_height / 2.0f));
 		}
 
