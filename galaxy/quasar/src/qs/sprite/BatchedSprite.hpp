@@ -85,11 +85,39 @@ namespace qs
 		/// Update texquad region.
 		///
 		/// \param x New x position.
-		/// \param y New y position.
-		/// \param w Width. Will not set unless > 0.
-		/// \param h Height. Will not set unless > 0.
 		///
-		void update_region(float x, float y, float w, float h) noexcept;
+		void update_x_region(const float x) noexcept;
+
+		///
+		/// Update texquad region.
+		///
+		/// \param y New y position.
+		///
+		void update_y_region(const float y) noexcept;
+
+		///
+		/// Update texquad region.
+		///
+		/// \param w Width.
+		///
+		void update_w_region(const float w) noexcept;
+
+		///
+		/// Update texquad region.
+		///
+		/// \param h Height.
+		///
+		void update_h_region(const float h) noexcept;
+
+		///
+		/// Update texquad region.
+		///
+		/// \param x New x position.
+		/// \param y New y position.
+		/// \param w Width.
+		/// \param h Height.
+		///
+		void update_region(const float x, const float y, const float w, const float h) noexcept;
 
 		///
 		/// Update texquad region.
