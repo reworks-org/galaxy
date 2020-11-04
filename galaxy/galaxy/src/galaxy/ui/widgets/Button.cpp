@@ -24,37 +24,37 @@ namespace galaxy
 		{
 		}
 
-		void Button::create_from_atlas(const std::array<std::string, 3>& sprites)
+		void Button::create_from_atlas(std::string_view def, std::string_view pressed, std::string_view hover)
 		{
-			auto opt = m_theme->m_atlas.get_region(sprites[0]);
-			if (opt != std::nullopt)
+			auto opt0 = m_theme->m_atlas.get_region(def);
+			if (opt0 != std::nullopt)
 			{
-				create(opt.value(), 0);
-				m_regions[0] = opt.value();
+				create(opt0.value(), 0);
+				m_regions[0] = opt0.value();
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", sprites[0]);
+				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", def);
 			}
 
-			auto opt2 = m_theme->m_atlas.get_region(sprites[1]);
+			auto opt1 = m_theme->m_atlas.get_region(pressed);
+			if (opt1 != std::nullopt)
+			{
+				m_regions[1] = opt1.value();
+			}
+			else
+			{
+				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", pressed);
+			}
+
+			auto opt2 = m_theme->m_atlas.get_region(hover);
 			if (opt2 != std::nullopt)
 			{
-				m_regions[1] = opt2.value();
+				m_regions[2] = opt2.value();
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", sprites[1]);
-			}
-
-			auto opt3 = m_theme->m_atlas.get_region(sprites[2]);
-			if (opt3 != std::nullopt)
-			{
-				m_regions[2] = opt3.value();
-			}
-			else
-			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", sprites[2]);
+				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", hover);
 			}
 
 			m_bounds.m_width  = m_regions.at(0).m_width;

@@ -78,9 +78,12 @@ namespace galaxy
 			///
 			/// Create the button widget.
 			///
-			/// \param sprites [0] is on, [1] is off, [2] is on when hovering, [3] is off when hovering.
+			/// \param on Texture when button is on.
+			/// \param off Texture when button is off.
+			/// \param on_hover Texture when button is on and mouse is hovering.
+			/// \param off_hover Texture when button is off and mouse is hovering.
 			///
-			void create_from_atlas(const std::array<std::string, 4>& sprites);
+			void create_from_atlas(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover);
 
 			///
 			/// Set the callback function.

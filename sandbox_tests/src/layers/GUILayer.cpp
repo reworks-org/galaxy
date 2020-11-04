@@ -98,7 +98,7 @@ namespace sb
 		label->set_pos(300, 300);
 
 		auto* button = m_gui.create_widget<galaxy::widget::Button>();
-		button->create_from_atlas({"button_default", "button_pressed", "button_hover"});
+		button->create_from_atlas("button_default", "button_pressed", "button_hover");
 		button->set_pos(250, 250);
 		button->set_callback([&]() {
 			PL_LOG(PL_INFO, "Button Pressed.");
@@ -123,7 +123,7 @@ namespace sb
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(progressbar);
 
 		auto* togglebutton = m_gui.create_widget<galaxy::widget::ToggleButton>();
-		togglebutton->create_from_atlas({"tb_on", "tb_off", "tb_on_hover", "tb_off_hover"});
+		togglebutton->create_from_atlas("tb_on", "tb_off", "tb_on_hover", "tb_off_hover");
 		togglebutton->set_pos(150, 150);
 
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(togglebutton);
