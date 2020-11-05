@@ -8,10 +8,11 @@
 #ifndef QUASAR_WINDOW_HPP_
 #define QUASAR_WINDOW_HPP_
 
+#include <functional>
 #include <span>
 #include <string_view>
 
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <protostar/graphics/Colour.hpp>
 
@@ -234,6 +235,20 @@ namespace qs
 		bool mouse_button_released(int mouse_button);
 
 		///
+		/// Starts filling the returned pointer to string with characters as they are typed.
+		///
+		/// \param cursor_pos Pointer to the cursor pos to set where characters are inserted. Optional.
+		///
+		/// \return Pointer to std::string that is updated with characters.
+		///
+		std::string* begin_text_input(std::size_t* cursor_pos = nullptr);
+
+		///
+		/// Stop updating strings with text input.
+		///
+		void end_text_input();
+
+		///
 		/// Get current cursor position.
 		///
 		/// \return Returns true or false if cursor has moved, and the current position.
@@ -291,6 +306,26 @@ namespace qs
 		/// Array storing each of the 8 mouse buttons supported by GLFW.
 		///
 		std::array<int, 8> m_prev_mouse_btn_states;
+
+		///
+		/// Function for char callbacks.
+		///
+		std::function<void(GLFWwindow*, unsigned int)> m_char_callback;
+
+		///
+		/// String for text input.
+		///
+		std::string m_text_input;
+
+		///
+		/// Flag to signal to glfw that text is being input.
+		///
+		bool m_inputting_text;
+
+		///
+		/// Cursor pos in input text string.
+		///
+		std::size_t* m_cursor_pos;
 	};
 } // namespace qs
 

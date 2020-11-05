@@ -23,13 +23,13 @@
 namespace qs
 {
 	Window::Window() noexcept
-	    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
+	    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_cursor_pos {nullptr}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 	}
 
 	Window::Window(std::string_view title, const int width, const int height)
-	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}
+	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_cursor_pos {nullptr}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 
@@ -141,8 +141,20 @@ namespace qs
 						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_raw_mouse_input);
 					}
 
-					// Sticky Mouse.
-					//glfwSetInputMode(m_window, GLFW_STICKY_MOUSE_BUTTONS, GLFW_TRUE);
+					m_char_callback = [this](GLFWwindow* window, unsigned int codepoint) {
+						if (this->m_inputting_text)
+						{
+							if (this->m_cursor_pos != nullptr)
+							{
+								this->m_text_input.insert(this->m_text_input.begin() + *this->m_cursor_pos, static_cast<char>(codepoint));
+							}
+							else
+							{
+								this->m_text_input += static_cast<char>(codepoint);
+							}
+						}
+					};
+					glfwSetCharCallback(m_window, m_char_callback.target<void(GLFWwindow*, unsigned int)>());
 
 // Error handling.
 #ifdef _DEBUG
@@ -297,6 +309,8 @@ namespace qs
 
 	void Window::destroy() noexcept
 	{
+		end_text_input();
+
 		// Clean up window data, checking to make sure its not already been destroyed.
 		if (m_window != nullptr)
 		{
@@ -393,6 +407,21 @@ namespace qs
 				return false;
 			}
 		}
+	}
+
+	std::string* Window::begin_text_input(std::size_t* cursor_pos)
+	{
+		m_text_input     = "";
+		m_inputting_text = true;
+		m_cursor_pos     = cursor_pos;
+
+		return &m_text_input;
+	}
+
+	void Window::end_text_input()
+	{
+		m_inputting_text = false;
+		m_cursor_pos     = nullptr;
 	}
 
 	std::tuple<bool, glm::vec2> Window::get_cursor_pos()
