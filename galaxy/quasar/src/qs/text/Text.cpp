@@ -15,8 +15,10 @@
 namespace qs
 {
 	Text::Text()
-	    : m_font {nullptr}, m_shader {nullptr}
+	    : m_font {nullptr}, m_shader {nullptr}, m_vbo {0}, m_vao {0}
 	{
+		glGenVertexArrays(1, &m_vao);
+		glGenBuffers(1, &m_vbo);
 	}
 
 	Text::Text(Text&& t)
@@ -46,6 +48,12 @@ namespace qs
 		return *this;
 	}
 
+	Text::~Text()
+	{
+		glDeleteBuffers(1, &m_vbo);
+		glDeleteVertexArrays(1, &m_vao);
+	}
+
 	void Text::load(Font& font, Shader& shader, const pr::Colour& col)
 	{
 		m_font   = &font;
@@ -56,14 +64,9 @@ namespace qs
 	void Text::create(std::string_view text)
 	{
 		int glyph_x = 0;
-		GLuint vao  = 0;
-		GLuint vbo  = 0;
 
-		glGenVertexArrays(1, &vao);
-		glGenBuffers(1, &vbo);
-
-		glBindVertexArray(vao);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		glBindVertexArray(m_vao);
+		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
 		glEnableVertexAttribArray(0);
@@ -108,9 +111,6 @@ namespace qs
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 
-		glDeleteBuffers(1, &vbo);
-		glDeleteVertexArrays(1, &vao);
-
 		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f);
 		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f, 0.0f + m_text.get_width(), 0.0f);
 		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f + m_text.get_height(), 0.0f + m_text.get_width(), 0.0f + m_text.get_height());
@@ -134,14 +134,9 @@ namespace qs
 	void Text::update_text(std::string_view text)
 	{
 		int glyph_x = 0;
-		GLuint vao  = 0;
-		GLuint vbo  = 0;
 
-		glGenVertexArrays(1, &vao);
-		glGenBuffers(1, &vbo);
-
-		glBindVertexArray(vao);
-		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		glBindVertexArray(m_vao);
+		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
 		glEnableVertexAttribArray(0);
@@ -185,9 +180,6 @@ namespace qs
 		glBindVertexArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
-
-		glDeleteBuffers(1, &vbo);
-		glDeleteVertexArrays(1, &vao);
 
 		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f);
 		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f, 0.0f + m_text.get_width(), 0.0f);
