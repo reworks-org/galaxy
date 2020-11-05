@@ -54,7 +54,7 @@ namespace galaxy
 			}
 		}
 
-		void Label::update()
+		void Label::update(const double dt)
 		{
 		}
 

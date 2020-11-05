@@ -67,7 +67,7 @@ namespace galaxy
 			}
 		}
 
-		void Progressbar::update()
+		void Progressbar::update(const double dt)
 		{
 			if (m_progress != m_prev_progress)
 			{

@@ -133,7 +133,7 @@ namespace galaxy
 			}
 		}
 
-		void Button::update()
+		void Button::update(const double dt)
 		{
 			switch (m_state)
 			{

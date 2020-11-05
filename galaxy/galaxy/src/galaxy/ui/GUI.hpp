@@ -8,7 +8,6 @@
 #ifndef GALAXY_GUI_HPP_
 #define GALAXY_GUI_HPP_
 
-#include <protostar/async/ThreadPool.hpp>
 #include <pulsar/Log.hpp>
 #include <qs/sprite/SpriteBatch.hpp>
 #include <starlight/Dispatcher.hpp>
@@ -41,7 +40,7 @@ namespace galaxy
 		///
 		/// Keeps track of the construction state of the UI.
 		///
-		enum class ConstructionState : unsigned short
+		enum class ConstructionState : short
 		{
 			///
 			/// No construction other than creation has taken place.
@@ -51,12 +50,7 @@ namespace galaxy
 			///
 			/// A theme has been set.
 			///
-			THEME_SET = 1,
-
-			///
-			/// Construct thread.
-			///
-			THREAD_CONSTRUCTED = 2
+			THEME_SET = 1
 		};
 
 		///
@@ -97,14 +91,6 @@ namespace galaxy
 		void set_theme(UITheme* theme);
 
 		///
-		/// Sets up GUI thread, etc.
-		///
-		/// \param pool Pool to assign GUI to.
-		///
-		template<size_t thread_count>
-		void construct(pr::ThreadPool<thread_count>& pool);
-
-		///
 		/// Create a widget and return a pointer to it.
 		///
 		template<is_widget Widget, typename... Args>
@@ -119,7 +105,9 @@ namespace galaxy
 		///
 		/// Update widgets.
 		///
-		void update();
+		/// \param dt Delta Time from gameloop.
+		///
+		void update(const double dt);
 
 		///
 		/// Render widgets.
@@ -157,15 +145,6 @@ namespace galaxy
 		///
 		void destroy();
 
-		///
-		/// \brief Get pointer to internal TaskPool task.
-		///
-		/// Pass this to taskpool last.
-		///
-		/// \return Pointer to a task.
-		///
-		[[nodiscard]] pr::Task* pool_task();
-
 	private:
 		///
 		/// State of the UI.
@@ -193,26 +172,6 @@ namespace galaxy
 		std::vector<WidgetPtr> m_widgets;
 
 		///
-		/// Task that runs main GUI loop on another thread.
-		///
-		pr::Task m_main_loop;
-
-		///
-		/// Mutex protecting widget access.
-		///
-		std::mutex m_widget_mutex;
-
-		///
-		/// Mutex protecting event access.
-		///
-		std::mutex m_event_mutex;
-
-		///
-		/// Protected thread loop running bool.
-		///
-		bool m_running;
-
-		///
 		/// Internal event manager to GUI.
 		///
 		sl::Dispatcher m_event_manager;
@@ -223,34 +182,12 @@ namespace galaxy
 		qs::SpriteBatch m_sb;
 	};
 
-	template<size_t thread_count>
-	inline void GUI::construct(pr::ThreadPool<thread_count>& pool)
-	{
-		if (m_state >= ConstructionState::THEME_SET)
-		{
-			m_main_loop.set([&]() {
-				while (m_running)
-				{
-					update();
-				}
-			});
-
-			pool.queue(this->pool_task());
-			m_running = true;
-			m_state   = ConstructionState::THREAD_CONSTRUCTED;
-		}
-		else
-		{
-			PL_LOG(PL_ERROR, "Cannot construct GUI. Set theme first.");
-		}
-	}
-
 	template<is_widget Widget, typename... Args>
 	inline Widget* GUI::create_widget(Args&&... args)
 	{
 		Widget* ptr = nullptr;
 
-		if (m_state >= ConstructionState::THREAD_CONSTRUCTED)
+		if (m_state >= ConstructionState::THEME_SET)
 		{
 			unsigned int id = 0;
 
@@ -268,7 +205,6 @@ namespace galaxy
 				m_id_counter++;
 			}
 
-			std::lock_guard<std::mutex> lock {m_widget_mutex};
 			if (id >= m_widgets.size())
 			{
 				m_widgets.resize(id + 1);
@@ -308,7 +244,7 @@ namespace galaxy
 	{
 		Tooltip* ptr = nullptr;
 
-		if (m_state >= ConstructionState::THREAD_CONSTRUCTED)
+		if (m_state >= ConstructionState::THEME_SET)
 		{
 			if (widget != nullptr)
 			{
@@ -339,14 +275,12 @@ namespace galaxy
 	template<pr::is_class Event, is_widget Widget>
 	inline void GUI::add_event_to_widget(Widget* widget)
 	{
-		std::lock_guard<std::mutex> lock {m_event_mutex};
 		m_event_manager.subscribe<Event, Widget>(*widget);
 	}
 
 	template<pr::is_class Event, typename... Args>
 	inline void GUI::trigger(Args&&... args)
 	{
-		std::lock_guard<std::mutex> lock {m_event_mutex};
 		m_event_manager.trigger<Event>(std::forward<Args>(args)...);
 	}
 } // namespace galaxy
