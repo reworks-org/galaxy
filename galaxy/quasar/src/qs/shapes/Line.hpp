@@ -10,6 +10,7 @@
 
 #include <protostar/graphics/Colour.hpp>
 
+#include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
 
 ///
@@ -20,7 +21,7 @@ namespace qs
 	///
 	/// Line definition for renderer.
 	///
-	class Line final : public qs::VertexData
+	class Line final : public qs::VertexData, public qs::Transform
 	{
 	public:
 		///
