@@ -121,8 +121,16 @@ namespace galaxy
 		{
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
-				m_state = ToggleButton::State::ON;
-				m_on    = !m_on;
+				m_on = !m_on;
+				if (m_on)
+				{
+					m_state = ToggleButton::State::ON_HOVER;
+				}
+				else
+				{
+					m_state = ToggleButton::State::OFF_HOVER;
+				}
+
 				if (m_callback != nullptr)
 				{
 					m_callback(m_on);
@@ -135,44 +143,7 @@ namespace galaxy
 			}
 		}
 
-		void ToggleButton::on_event(const pr::MouseReleasedEvent& mre)
-		{
-			if (m_bounds.contains(mre.m_x, mre.m_y))
-			{
-				if (m_on)
-				{
-					m_state = ToggleButton::State::ON_HOVER;
-				}
-				else
-				{
-					m_state = ToggleButton::State::OFF_HOVER;
-				}
-
-				if (m_tooltip)
-				{
-					m_tooltip->can_draw(true);
-					m_tooltip->update_pos(mre.m_x, mre.m_y);
-				}
-			}
-			else
-			{
-				if (m_on)
-				{
-					m_state = ToggleButton::State::ON;
-				}
-				else
-				{
-					m_state = ToggleButton::State::OFF;
-				}
-
-				if (m_tooltip)
-				{
-					m_tooltip->can_draw(false);
-				}
-			}
-		}
-
-		void ToggleButton::update()
+		void ToggleButton::update(const double dt)
 		{
 			switch (m_state)
 			{
