@@ -129,7 +129,7 @@ namespace qs
 
 					// Set resize callback.
 					glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int w, int h) {
-						static_cast<qs::Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
+						reinterpret_cast<qs::Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
 					});
 
 					// Set vsync.
@@ -141,31 +141,30 @@ namespace qs
 						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_raw_mouse_input);
 					}
 
-					m_char_callback = [this](GLFWwindow* window, unsigned int codepoint) {
-						if (this->m_inputting_text)
+					glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int codepoint) {
+						qs::Window* qs_win = reinterpret_cast<qs::Window*>(glfwGetWindowUserPointer(window));
+						if (qs_win->m_inputting_text)
 						{
-							if (this->m_cursor_pos != nullptr)
+							if (qs_win->m_cursor_pos != nullptr)
 							{
-								this->m_text_input.insert(this->m_text_input.begin() + *this->m_cursor_pos, static_cast<char>(codepoint));
+								qs_win->m_text_input.insert(qs_win->m_text_input.begin() + *qs_win->m_cursor_pos, static_cast<char>(codepoint));
 							}
 							else
 							{
-								this->m_text_input += static_cast<char>(codepoint);
+								qs_win->m_text_input += static_cast<char>(codepoint);
 							}
 						}
-					};
-					glfwSetCharCallback(m_window, m_char_callback.target<void(GLFWwindow*, unsigned int)>());
+					});
 
-// Error handling.
-#ifdef _DEBUG
-					glEnable(GL_DEBUG_OUTPUT);
-					// Callback.
-
-					glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void {
-						PL_LOG(PL_WARNING, "[OpenGL] - [ {0} {1} {2} {3} {4} {5} ]", source, type, id, severity, length, message);
-					},
-							       nullptr);
-#endif
+					// Error handling.
+					// clang-format off
+                    #ifdef _DEBUG
+						glEnable(GL_DEBUG_OUTPUT);
+						glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void {
+							PL_LOG(PL_WARNING, "[OpenGL] - [ {0} {1} {2} {3} {4} {5} ]", source, type, id, severity, length, message);
+						}, nullptr);
+                    #endif
+					// clang-format on
 
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);

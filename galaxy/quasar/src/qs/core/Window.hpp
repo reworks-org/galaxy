@@ -8,7 +8,6 @@
 #ifndef QUASAR_WINDOW_HPP_
 #define QUASAR_WINDOW_HPP_
 
-#include <functional>
 #include <span>
 #include <string_view>
 
@@ -306,11 +305,6 @@ namespace qs
 		/// Array storing each of the 8 mouse buttons supported by GLFW.
 		///
 		std::array<int, 8> m_prev_mouse_btn_states;
-
-		///
-		/// Function for char callbacks.
-		///
-		std::function<void(GLFWwindow*, unsigned int)> m_char_callback;
 
 		///
 		/// String for text input.
