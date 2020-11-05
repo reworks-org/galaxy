@@ -33,14 +33,15 @@ namespace qs
 		glDrawArrays(GL_POINTS, 0, 1);
 	}
 
-	void Renderer::draw_line(qs::Line& line)
+	void Renderer::draw_line(qs::Line& line, qs::Shader& shader)
 	{
 		line.bind();
+		shader.set_uniform("u_transform", line.get_transform());
 
 		glDrawArrays(GL_LINES, 0, 2);
 	}
 
-	void Renderer::draw_circle(qs::Circle& circle)
+	void Renderer::draw_circle(qs::Circle& circle, qs::Shader& shader)
 	{
 		circle.bind();
 

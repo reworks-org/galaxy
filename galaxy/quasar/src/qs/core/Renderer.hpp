@@ -84,7 +84,7 @@ namespace qs
 		///
 		/// \param line Line to draw.
 		///
-		void draw_line(qs::Line& line);
+		void draw_line(qs::Line& line, qs::Shader& shader);
 
 		///
 		/// \brief Draw a circle.
@@ -94,7 +94,7 @@ namespace qs
 		///
 		/// \param circle Circle to draw.
 		///
-		void draw_circle(qs::Circle& circle);
+		void draw_circle(qs::Circle& circle, qs::Shader& shader);
 
 		///
 		/// \brief Draw a sprite.
