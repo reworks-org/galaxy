@@ -16,6 +16,10 @@
 		[
 			"text.vs",
 			"text.fs"
+		],
+		[
+			"line.vs",
+			"line.fs"
 		]
 	]
 }
