@@ -23,13 +23,13 @@
 namespace qs
 {
 	Window::Window() noexcept
-	    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_cursor_pos {nullptr}
+	    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 	}
 
 	Window::Window(std::string_view title, const int width, const int height)
-	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_cursor_pos {nullptr}
+	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 
@@ -145,14 +145,7 @@ namespace qs
 						qs::Window* qs_win = reinterpret_cast<qs::Window*>(glfwGetWindowUserPointer(window));
 						if (qs_win->m_inputting_text)
 						{
-							if (qs_win->m_cursor_pos != nullptr)
-							{
-								qs_win->m_text_input.insert(qs_win->m_text_input.begin() + *qs_win->m_cursor_pos, static_cast<char>(codepoint));
-							}
-							else
-							{
-								qs_win->m_text_input += static_cast<char>(codepoint);
-							}
+							qs_win->m_text_input += static_cast<char>(codepoint);
 						}
 					});
 
@@ -169,9 +162,6 @@ namespace qs
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);
 
-					// Depth testing.
-					//glEnable(GL_DEPTH_TEST);
-
 					// Set up blending.
 					glEnable(GL_BLEND);
 					glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -185,8 +175,221 @@ namespace qs
 						glEnable(GL_FRAMEBUFFER_SRGB);
 					}
 
+					// Set custom line width.
+					glLineWidth(qs::WindowSettings::s_line_thickness);
+
 					// Print OpenGL version.
 					PL_LOG(PL_INFO, "OpenGL v{0}.", reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+
+					m_keymap.reserve(102);
+					m_keymap.emplace(pr::Keys::A, GLFW_KEY_A);
+					m_keymap.emplace(pr::Keys::B, GLFW_KEY_B);
+					m_keymap.emplace(pr::Keys::C, GLFW_KEY_C);
+					m_keymap.emplace(pr::Keys::D, GLFW_KEY_D);
+					m_keymap.emplace(pr::Keys::E, GLFW_KEY_E);
+					m_keymap.emplace(pr::Keys::F, GLFW_KEY_F);
+					m_keymap.emplace(pr::Keys::G, GLFW_KEY_G);
+					m_keymap.emplace(pr::Keys::H, GLFW_KEY_H);
+					m_keymap.emplace(pr::Keys::I, GLFW_KEY_I);
+					m_keymap.emplace(pr::Keys::J, GLFW_KEY_J);
+					m_keymap.emplace(pr::Keys::K, GLFW_KEY_K);
+					m_keymap.emplace(pr::Keys::L, GLFW_KEY_L);
+					m_keymap.emplace(pr::Keys::M, GLFW_KEY_M);
+					m_keymap.emplace(pr::Keys::N, GLFW_KEY_N);
+					m_keymap.emplace(pr::Keys::O, GLFW_KEY_O);
+					m_keymap.emplace(pr::Keys::P, GLFW_KEY_P);
+					m_keymap.emplace(pr::Keys::Q, GLFW_KEY_Q);
+					m_keymap.emplace(pr::Keys::R, GLFW_KEY_R);
+					m_keymap.emplace(pr::Keys::S, GLFW_KEY_S);
+					m_keymap.emplace(pr::Keys::T, GLFW_KEY_T);
+					m_keymap.emplace(pr::Keys::U, GLFW_KEY_U);
+					m_keymap.emplace(pr::Keys::V, GLFW_KEY_V);
+					m_keymap.emplace(pr::Keys::W, GLFW_KEY_W);
+					m_keymap.emplace(pr::Keys::X, GLFW_KEY_X);
+					m_keymap.emplace(pr::Keys::Y, GLFW_KEY_Y);
+					m_keymap.emplace(pr::Keys::Z, GLFW_KEY_Z);
+					m_keymap.emplace(pr::Keys::NUM_1, GLFW_KEY_1);
+					m_keymap.emplace(pr::Keys::NUM_2, GLFW_KEY_2);
+					m_keymap.emplace(pr::Keys::NUM_3, GLFW_KEY_3);
+					m_keymap.emplace(pr::Keys::NUM_4, GLFW_KEY_4);
+					m_keymap.emplace(pr::Keys::NUM_5, GLFW_KEY_5);
+					m_keymap.emplace(pr::Keys::NUM_6, GLFW_KEY_6);
+					m_keymap.emplace(pr::Keys::NUM_7, GLFW_KEY_7);
+					m_keymap.emplace(pr::Keys::NUM_8, GLFW_KEY_8);
+					m_keymap.emplace(pr::Keys::NUM_9, GLFW_KEY_9);
+					m_keymap.emplace(pr::Keys::NUM_0, GLFW_KEY_0);
+					m_keymap.emplace(pr::Keys::MINUS, GLFW_KEY_MINUS);
+					m_keymap.emplace(pr::Keys::EQUALS, GLFW_KEY_EQUAL);
+					m_keymap.emplace(pr::Keys::BACKSPACE, GLFW_KEY_BACKSPACE);
+					m_keymap.emplace(pr::Keys::GRAVE, GLFW_KEY_GRAVE_ACCENT);
+					m_keymap.emplace(pr::Keys::TAB, GLFW_KEY_TAB);
+					m_keymap.emplace(pr::Keys::CAPS, GLFW_KEY_CAPS_LOCK);
+					m_keymap.emplace(pr::Keys::LSHIFT, GLFW_KEY_LEFT_SHIFT);
+					m_keymap.emplace(pr::Keys::LCNTRL, GLFW_KEY_LEFT_CONTROL);
+					m_keymap.emplace(pr::Keys::LSTART, GLFW_KEY_LEFT_SUPER);
+					m_keymap.emplace(pr::Keys::LALT, GLFW_KEY_LEFT_ALT);
+					m_keymap.emplace(pr::Keys::SPACE, GLFW_KEY_SPACE);
+					m_keymap.emplace(pr::Keys::RALT, GLFW_KEY_RIGHT_ALT);
+					m_keymap.emplace(pr::Keys::RSTART, GLFW_KEY_RIGHT_SUPER);
+					m_keymap.emplace(pr::Keys::MENU, GLFW_KEY_MENU);
+					m_keymap.emplace(pr::Keys::RCNTRL, GLFW_KEY_RIGHT_CONTROL);
+					m_keymap.emplace(pr::Keys::RSHIFT, GLFW_KEY_RIGHT_SHIFT);
+					m_keymap.emplace(pr::Keys::ENTER, GLFW_KEY_ENTER);
+					m_keymap.emplace(pr::Keys::SEMICOLON, GLFW_KEY_SEMICOLON);
+					m_keymap.emplace(pr::Keys::APOSTROPHE, GLFW_KEY_APOSTROPHE);
+					m_keymap.emplace(pr::Keys::SLASH, GLFW_KEY_SLASH);
+					m_keymap.emplace(pr::Keys::PERIOD, GLFW_KEY_PERIOD);
+					m_keymap.emplace(pr::Keys::COMMA, GLFW_KEY_COMMA);
+					m_keymap.emplace(pr::Keys::LBRACKET, GLFW_KEY_LEFT_BRACKET);
+					m_keymap.emplace(pr::Keys::RBRACKET, GLFW_KEY_RIGHT_BRACKET);
+					m_keymap.emplace(pr::Keys::BACKSLASH, GLFW_KEY_BACKSLASH);
+					m_keymap.emplace(pr::Keys::ESC, GLFW_KEY_ESCAPE);
+					m_keymap.emplace(pr::Keys::F1, GLFW_KEY_F1);
+					m_keymap.emplace(pr::Keys::F2, GLFW_KEY_F2);
+					m_keymap.emplace(pr::Keys::F3, GLFW_KEY_F3);
+					m_keymap.emplace(pr::Keys::F4, GLFW_KEY_F4);
+					m_keymap.emplace(pr::Keys::F5, GLFW_KEY_F5);
+					m_keymap.emplace(pr::Keys::F6, GLFW_KEY_F6);
+					m_keymap.emplace(pr::Keys::F7, GLFW_KEY_F7);
+					m_keymap.emplace(pr::Keys::F8, GLFW_KEY_F8);
+					m_keymap.emplace(pr::Keys::F9, GLFW_KEY_F9);
+					m_keymap.emplace(pr::Keys::F10, GLFW_KEY_F10);
+					m_keymap.emplace(pr::Keys::F11, GLFW_KEY_F11);
+					m_keymap.emplace(pr::Keys::F12, GLFW_KEY_F12);
+					m_keymap.emplace(pr::Keys::PRINTSCREEN, GLFW_KEY_PRINT_SCREEN);
+					m_keymap.emplace(pr::Keys::SCROLL_LOCK, GLFW_KEY_SCROLL_LOCK);
+					m_keymap.emplace(pr::Keys::PAUSE, GLFW_KEY_PAUSE);
+					m_keymap.emplace(pr::Keys::INSERT, GLFW_KEY_INSERT);
+					m_keymap.emplace(pr::Keys::HOME, GLFW_KEY_HOME);
+					m_keymap.emplace(pr::Keys::PAGEUP, GLFW_KEY_PAGE_UP);
+					m_keymap.emplace(pr::Keys::PAGEDOWN, GLFW_KEY_PAGE_DOWN);
+					m_keymap.emplace(pr::Keys::END, GLFW_KEY_END);
+					m_keymap.emplace(pr::Keys::DELETE, GLFW_KEY_DELETE);
+					m_keymap.emplace(pr::Keys::UP, GLFW_KEY_UP);
+					m_keymap.emplace(pr::Keys::DOWN, GLFW_KEY_DOWN);
+					m_keymap.emplace(pr::Keys::LEFT, GLFW_KEY_LEFT);
+					m_keymap.emplace(pr::Keys::RIGHT, GLFW_KEY_RIGHT);
+					m_keymap.emplace(pr::Keys::NUMLOCK, GLFW_KEY_NUM_LOCK);
+					m_keymap.emplace(pr::Keys::NUMPAD_DIVIDE, GLFW_KEY_KP_DIVIDE);
+					m_keymap.emplace(pr::Keys::NUMPAD_MULTIPLY, GLFW_KEY_KP_MULTIPLY);
+					m_keymap.emplace(pr::Keys::NUMPAD_ADD, GLFW_KEY_KP_ADD);
+					m_keymap.emplace(pr::Keys::NUMPAD_ENTER, GLFW_KEY_KP_ENTER);
+					m_keymap.emplace(pr::Keys::NUMPAD_PERIOD, GLFW_KEY_KP_DECIMAL);
+					m_keymap.emplace(pr::Keys::NUMPAD_0, GLFW_KEY_KP_0);
+					m_keymap.emplace(pr::Keys::NUMPAD_1, GLFW_KEY_KP_1);
+					m_keymap.emplace(pr::Keys::NUMPAD_2, GLFW_KEY_KP_2);
+					m_keymap.emplace(pr::Keys::NUMPAD_3, GLFW_KEY_KP_3);
+					m_keymap.emplace(pr::Keys::NUMPAD_4, GLFW_KEY_KP_4);
+					m_keymap.emplace(pr::Keys::NUMPAD_5, GLFW_KEY_KP_5);
+					m_keymap.emplace(pr::Keys::NUMPAD_6, GLFW_KEY_KP_6);
+					m_keymap.emplace(pr::Keys::NUMPAD_7, GLFW_KEY_KP_7);
+					m_keymap.emplace(pr::Keys::NUMPAD_8, GLFW_KEY_KP_8);
+					m_keymap.emplace(pr::Keys::NUMPAD_9, GLFW_KEY_KP_9);
+
+					m_prev_key_states.reserve(102);
+					m_prev_key_states.emplace(pr::Keys::A, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::B, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::C, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::D, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::E, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::G, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::H, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::I, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::J, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::K, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::L, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::M, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::N, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::O, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::P, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::Q, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::R, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::S, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::T, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::U, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::V, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::W, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::X, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::Y, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::Z, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_1, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_2, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_3, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_4, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_5, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_6, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_7, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_8, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_9, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUM_0, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::MINUS, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::EQUALS, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::BACKSPACE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::GRAVE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::TAB, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::CAPS, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::LSHIFT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::LCNTRL, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::LSTART, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::LALT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::SPACE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::RALT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::RSTART, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::MENU, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::RCNTRL, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::RSHIFT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::ENTER, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::SEMICOLON, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::APOSTROPHE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::SLASH, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::PERIOD, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::COMMA, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::LBRACKET, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::RBRACKET, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::BACKSLASH, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::ESC, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F1, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F2, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F3, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F4, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F5, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F6, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F7, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F8, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F9, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F10, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F11, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::F12, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::PRINTSCREEN, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::SCROLL_LOCK, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::PAUSE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::INSERT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::HOME, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::PAGEUP, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::PAGEDOWN, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::END, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::DELETE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::UP, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::DOWN, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::LEFT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::RIGHT, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMLOCK, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_MULTIPLY, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_DIVIDE, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_ADD, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_ENTER, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_PERIOD, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_0, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_1, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_2, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_3, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_4, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_5, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_6, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_7, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_8, GLFW_RELEASE);
+					m_prev_key_states.emplace(pr::Keys::NUMPAD_9, GLFW_RELEASE);
 				}
 			}
 		}
@@ -368,51 +571,63 @@ namespace qs
 
 	bool Window::mouse_button_pressed(int mouse_button)
 	{
-		if (mouse_button < 0 || mouse_button > 7)
-		{
-			return false;
-		}
-		else
+		bool res = false;
+
+		if (!(mouse_button < 0 || mouse_button > 7))
 		{
 			int state = glfwGetMouseButton(m_window, mouse_button);
 			if (state == GLFW_PRESS && m_prev_mouse_btn_states[mouse_button] == GLFW_RELEASE)
 			{
-				m_prev_mouse_btn_states[mouse_button] = state;
-				return true;
+				res = true;
 			}
-			else
-			{
-				return false;
-			}
+
+			m_prev_mouse_btn_states[mouse_button] = state;
 		}
+
+		return res;
 	}
 
 	bool Window::mouse_button_released(int mouse_button)
 	{
-		if (mouse_button < 0 || mouse_button > 7)
-		{
-			return false;
-		}
-		else
+		bool res = false;
+
+		if (!(mouse_button < 0 || mouse_button > 7))
 		{
 			int state = glfwGetMouseButton(m_window, mouse_button);
 			if (state == GLFW_RELEASE && m_prev_mouse_btn_states[mouse_button] == GLFW_PRESS)
 			{
-				m_prev_mouse_btn_states[mouse_button] = state;
-				return true;
+				res = true;
 			}
-			else
-			{
-				return false;
-			}
+
+			m_prev_mouse_btn_states[mouse_button] = state;
 		}
+
+		return res;
 	}
 
-	std::string* Window::begin_text_input(std::size_t* cursor_pos)
+	bool Window::key_down(pr::Keys key)
+	{
+		return glfwGetKey(m_window, m_keymap[key]) == GLFW_PRESS;
+	}
+
+	bool Window::key_pressed(pr::Keys key)
+	{
+		bool res = false;
+
+		int state = glfwGetKey(m_window, m_keymap[key]);
+		if (m_prev_key_states[key] == GLFW_RELEASE && state == GLFW_PRESS)
+		{
+			res = true;
+		}
+
+		m_prev_key_states[key] = state;
+		return res;
+	}
+
+	std::string* Window::begin_text_input()
 	{
 		m_text_input     = "";
 		m_inputting_text = true;
-		m_cursor_pos     = cursor_pos;
 
 		return &m_text_input;
 	}
@@ -420,7 +635,6 @@ namespace qs
 	void Window::end_text_input()
 	{
 		m_inputting_text = false;
-		m_cursor_pos     = nullptr;
 	}
 
 	std::tuple<bool, glm::vec2> Window::get_cursor_pos()
