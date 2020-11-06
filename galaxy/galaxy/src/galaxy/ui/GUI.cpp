@@ -15,7 +15,7 @@
 namespace galaxy
 {
 	GUI::GUI()
-	    : m_state {ConstructionState::DEFAULT}, m_id_counter {0}, m_theme {nullptr}, m_running {false}, m_sb {50}
+	    : m_state {ConstructionState::DEFAULT}, m_id_counter {0}, m_theme {nullptr}, m_sb {50}
 	{
 	}
 
@@ -45,8 +45,6 @@ namespace galaxy
 		}
 		else
 		{
-			std::lock_guard<std::mutex> lock {m_widget_mutex};
-
 			// Don't erase because that will mess up ordering.
 			m_widgets[id].reset();
 			m_widgets[id] = nullptr;
@@ -57,41 +55,26 @@ namespace galaxy
 
 	void GUI::destroy()
 	{
-		m_running = false;
-		m_main_loop.wait_until_done();
-
+		for (auto&& widget : m_widgets)
 		{
-			std::lock_guard<std::mutex> lock {m_widget_mutex};
-
-			for (auto&& widget : m_widgets)
-			{
-				widget.reset();
-			}
-
-			m_widgets.clear();
+			widget.reset();
 		}
+
+		m_widgets.clear();
 
 		m_state = ConstructionState::DEFAULT;
 	}
 
-	pr::Task* GUI::pool_task()
+	void GUI::update(const double dt)
 	{
-		return &m_main_loop;
-	}
-
-	void GUI::update()
-	{
-		std::lock_guard<std::mutex> lock {m_widget_mutex};
 		for (auto&& widget : m_widgets)
 		{
-			widget->update();
+			widget->update(dt);
 		}
 	}
 
 	void GUI::render(qs::Camera& camera)
 	{
-		std::lock_guard<std::mutex> lock {m_widget_mutex};
-
 		m_sb.update();
 
 		auto shader = m_theme->m_shaders->get("spritebatch");

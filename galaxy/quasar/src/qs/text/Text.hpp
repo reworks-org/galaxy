@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~Text() = default;
+		~Text();
 
 		///
 		/// Load all data into text to prep for creation.
@@ -128,6 +128,16 @@ namespace qs
 		/// Pre-rendered texture of text.
 		///
 		RenderTexture m_text;
+
+		///
+		/// Glyph vertex buffer.
+		///
+		unsigned int m_vbo;
+
+		///
+		/// Glyph vertex array buffer.
+		///
+		unsigned int m_vao;
 	};
 } // namespace qs
 

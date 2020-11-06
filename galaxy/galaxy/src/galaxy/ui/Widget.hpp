@@ -59,7 +59,9 @@ namespace galaxy
 		///
 		/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
 		///
-		virtual void update() = 0;
+		/// \param dt Delta Time from gameloop.
+		///
+		virtual void update(const double dt) = 0;
 
 		///
 		/// \brief Render the widget.

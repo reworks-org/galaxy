@@ -14,21 +14,13 @@
 ///
 namespace qs
 {
-	Line::Line() noexcept
-	    : m_thickness {1.0f}
+	Line::Line(pr::Colour& col, const float x1, const float y1, const float x2, const float y2)
 	{
+		create(col, x1, y1, x2, y2);
 	}
 
-	Line::Line(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness)
-	    : m_thickness {thickness}
+	void Line::create(pr::Colour& col, const float x1, const float y1, const float x2, const float y2)
 	{
-		create(col, x1, y1, x2, y2, thickness);
-	}
-
-	void Line::create(const pr::Colour& col, const float x1, const float y1, const float x2, const float y2, const float thickness)
-	{
-		m_thickness = thickness;
-
 		std::vector<qs::PrimitiveVertex> vertexs;
 		vertexs.emplace_back(x1, y1, col);
 		vertexs.emplace_back(x2, y2, col);
@@ -47,7 +39,6 @@ namespace qs
 	void Line::bind() noexcept
 	{
 		m_va.bind();
-		glLineWidth(m_thickness);
 	}
 
 	void Line::unbind() noexcept

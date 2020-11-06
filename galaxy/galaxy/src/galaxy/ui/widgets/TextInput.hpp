@@ -1,17 +1,20 @@
 ///
-/// Slider.hpp
+/// TextInput.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SLIDER_HPP_
-#define GALAXY_SLIDER_HPP_
+#ifndef GALAXY_TEXTINPUT_HPP_
+#define GALAXY_TEXTINPUT_HPP_
 
+#include <protostar/events/KeyDownEvent.hpp>
 #include <protostar/events/MouseMovedEvent.hpp>
 #include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/events/MouseReleasedEvent.hpp>
+#include <protostar/system/Time.hpp>
+#include <qs/shapes/Line.hpp>
 #include <qs/sprite/BatchedSprite.hpp>
+#include <qs/text/Text.hpp>
 
 #include "galaxy/ui/Widget.hpp"
 
@@ -28,7 +31,7 @@ namespace galaxy
 		///
 		/// UI bar that can be moved to increment and decrement a value.
 		///
-		class Slider final : public galaxy::Widget
+		class TextInput final : public galaxy::Widget, public qs::BatchedSprite
 		{
 			friend class GUI;
 
@@ -36,40 +39,43 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Slider();
+			TextInput();
 
 			///
 			/// Copy constructor.
 			///
-			Slider(const Slider&) = delete;
+			TextInput(const TextInput&) = delete;
 
 			///
 			/// Move constructor.
 			///
-			Slider(Slider&&) = default;
+			TextInput(TextInput&&) = default;
 
 			///
 			/// Copy assignment operator.
 			///
-			Slider& operator=(const Slider&) = delete;
+			TextInput& operator=(const TextInput&) = delete;
 
 			///
 			/// Move assignment operator.
 			///
-			Slider& operator=(Slider&&) = default;
+			TextInput& operator=(TextInput&&) = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Slider() = default;
+			virtual ~TextInput();
 
 			///
-			/// Create slider.
+			/// \brief Create textinput.
 			///
-			/// \param slider Texture of the slider in theme to use.
-			/// \param marker Texture of the marker in theme to use.
+			/// Needs "text" shader and "line" shader.
 			///
-			void create(std::string_view slider, std::string_view marker);
+			/// \param textinput Texture of the input field.
+			/// \param font Font for the inputted text.
+			/// \param border_width Border on texture around input field.
+			///
+			void create_from_atlas(std::string_view textinput, std::string_view font, float border_width);
 
 			///
 			/// Triggered upon mouse movement.
@@ -86,11 +92,11 @@ namespace galaxy
 			void on_event(const pr::MousePressedEvent& mpe);
 
 			///
-			/// Triggered upon mouse release.
+			/// Triggered upon key down.
 			///
-			/// \param mre Mouse Released Event.
+			/// \param kde Key Down Event.
 			///
-			void on_event(const pr::MouseReleasedEvent& mre);
+			void on_event(const pr::KeyDownEvent& kde);
 
 			///
 			/// \brief Update widget logic.
@@ -116,47 +122,48 @@ namespace galaxy
 			/// \param x X position to set object to.
 			/// \param y Y position to set object to.
 			///
-			void set_pos(const float x, const float y);
+			void set_pos(const float x, const float y) noexcept override;
 
 			///
-			/// Get current value of slider.
+			/// Stops all input. Equivalent to pressing the ENTER key.
 			///
-			/// \return const float of value. 0.0f - 1.0f. I.e. 0.78f is 78%.
-			///
-			const float value() const;
-
-			///
-			/// Returns current progress of bar in a percentage.
-			///
-			/// \return const float progress as pertentage.
-			///
-			const float percentage() const;
+			void stop();
 
 		private:
 			///
-			/// Current value of this bar. 0.0f - 1.0f. I.e. 0.78f is 78%.
+			/// Bool to draw text input cursor or not.
 			///
-			float m_value;
+			bool m_draw_cursor;
 
 			///
-			/// Mouse button is pressed.
+			/// Border width of input field.
 			///
-			bool m_pressed;
+			float m_border_width;
 
 			///
-			/// Bounds of marker on bar.
+			/// Indicator line in input field.
 			///
-			pr::Rect<float> m_marker_pos;
+			qs::Line m_cursor;
 
 			///
-			/// Slider texture.
+			/// Text drawn as typed.
 			///
-			qs::BatchedSprite m_slider;
+			qs::Text m_text;
 
 			///
-			/// Marker texture.
+			/// String containing text input.
 			///
-			qs::BatchedSprite m_marker;
+			std::string* m_text_input;
+
+			///
+			/// Is widget focus.
+			///
+			bool m_is_focus;
+
+			///
+			/// Timer for cursor blinking.
+			///
+			pr::Timer m_timer;
 		};
 	} // namespace widget
 } // namespace galaxy

@@ -53,4 +53,9 @@ namespace qs
 	/// Texture format.
 	///
 	unsigned int WindowSettings::s_texture_format = GL_RGBA8;
+
+	///
+	/// Line thickness.
+	///
+	float WindowSettings::s_line_thickness = 1.0f;
 } // namespace qs

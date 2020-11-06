@@ -11,6 +11,7 @@
 #include <qs/core/Renderer.hpp>
 #include <galaxy/components/ShaderComponent.hpp>
 #include <galaxy/flags/EnabledFlag.hpp>
+#include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 
 #include "SandboxLayer.hpp"
@@ -36,6 +37,13 @@ namespace sb
 		m_particle_gen.define("default", {0, 0, 16, 16});
 		m_particle_gen.configure("default");
 		m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
+
+		pr::Colour c = {0, 0, 0, 255};
+		m_point.create(0, 0, 10, c);
+		m_point.set_pos(200, 150);
+
+		m_circle.create(0, 0, 20, 50, c);
+		m_circle.set_pos(150, 150);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -75,8 +83,15 @@ namespace sb
 		m_shader.bind();
 		m_shader.set_uniform("u_cameraProj", camera.get_proj());
 		m_shader.set_uniform("u_cameraView", camera.get_transform());
-
 		SL_HANDLE.renderer()->draw_particles(m_particle_gen, m_shader);
+
+		auto* ps = SL_HANDLE.shaderbook()->get("point");
+		ps->bind();
+		ps->set_uniform("u_cameraProj", camera.get_proj());
+		ps->set_uniform("u_cameraView", camera.get_transform());
+		SL_HANDLE.renderer()->draw_point(m_point, *ps);
+
+		SL_HANDLE.renderer()->draw_circle(m_circle, *ps);
 
 		//m_world->get_system<galaxy::RenderSystem>()->render(camera);
 	}

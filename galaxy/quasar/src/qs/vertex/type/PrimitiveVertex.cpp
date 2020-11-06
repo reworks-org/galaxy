@@ -17,9 +17,14 @@ namespace qs
 	{
 	}
 
-	PrimitiveVertex::PrimitiveVertex(const float x, const float y, const pr::Colour& col) noexcept
-	    : m_pos {x, y}, m_colour {col}
+	PrimitiveVertex::PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept
+	    : m_pos {x, y}
 	{
+		auto arr   = col.get_normalized();
+		m_colour.x = arr[0];
+		m_colour.y = arr[1];
+		m_colour.z = arr[2];
+		m_colour.w = arr[3];
 	}
 
 	PrimitiveVertex::PrimitiveVertex(const PrimitiveVertex& pv)
@@ -30,7 +35,7 @@ namespace qs
 
 	PrimitiveVertex::PrimitiveVertex(PrimitiveVertex&& pv)
 	{
-		this->m_pos    = pv.m_pos;
+		this->m_pos    = std::move(pv.m_pos);
 		this->m_colour = std::move(pv.m_colour);
 	}
 
@@ -46,7 +51,7 @@ namespace qs
 	{
 		if (this != &pv)
 		{
-			this->m_pos    = pv.m_pos;
+			this->m_pos    = std::move(pv.m_pos);
 			this->m_colour = std::move(pv.m_colour);
 		}
 

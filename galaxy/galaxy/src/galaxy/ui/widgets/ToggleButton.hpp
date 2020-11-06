@@ -78,9 +78,12 @@ namespace galaxy
 			///
 			/// Create the button widget.
 			///
-			/// \param sprites [0] is on, [1] is off, [2] is on when hovering, [3] is off when hovering.
+			/// \param on Texture when button is on.
+			/// \param off Texture when button is off.
+			/// \param on_hover Texture when button is on and mouse is hovering.
+			/// \param off_hover Texture when button is off and mouse is hovering.
 			///
-			void create_from_atlas(const std::array<std::string, 4>& sprites);
+			void create_from_atlas(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover);
 
 			///
 			/// Set the callback function.
@@ -113,18 +116,13 @@ namespace galaxy
 			void on_event(const pr::MousePressedEvent& mpe);
 
 			///
-			/// Triggered upon mouse release.
-			///
-			/// \param mre Mouse Released Event.
-			///
-			void on_event(const pr::MouseReleasedEvent& mre);
-
-			///
 			/// \brief Update widget logic.
 			///
 			/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
 			///
-			void update() override;
+			/// \param dt Delta Time from gameloop.
+			///
+			void update(const double dt) override;
 
 			///
 			/// \brief Render the widget.

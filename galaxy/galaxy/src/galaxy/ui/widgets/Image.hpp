@@ -89,7 +89,9 @@ namespace galaxy
 			///
 			/// YOU MUST NOT CALL ANY GL CODE FROM THIS FUNCTION. THIS FUNCTION IS CALLED FROM A SEPERATE THREAD.
 			///
-			void update() override;
+			/// \param dt Delta Time from gameloop.
+			///
+			void update(const double dt) override;
 
 			///
 			/// \brief Render the widget.

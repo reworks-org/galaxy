@@ -29,22 +29,25 @@ namespace qs
 	{
 		point.bind();
 		shader.set_uniform("u_point_size", point.get_size());
+		shader.set_uniform("u_transform", point.get_transform());
 
-		glDrawArrays(GL_POINTS, 0, 1);
+		glDrawElements(GL_POINTS, point.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_line(qs::Line& line)
+	void Renderer::draw_line(qs::Line& line, qs::Shader& shader)
 	{
 		line.bind();
+		shader.set_uniform("u_transform", line.get_transform());
 
-		glDrawArrays(GL_LINES, 0, 2);
+		glDrawElements(GL_LINES, line.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
-	void Renderer::draw_circle(qs::Circle& circle)
+	void Renderer::draw_circle(qs::Circle& circle, qs::Shader& shader)
 	{
 		circle.bind();
+		shader.set_uniform("u_transform", circle.get_transform());
 
-		glDrawArrays(GL_LINE_LOOP, 0, circle.index_count());
+		glDrawElements(GL_LINE_LOOP, circle.index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::draw_sprite(qs::Sprite& sprite, qs::Shader& shader)

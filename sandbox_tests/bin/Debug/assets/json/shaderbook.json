@@ -16,6 +16,14 @@
 		[
 			"text.vs",
 			"text.fs"
+		],
+		[
+			"line.vs",
+			"line.fs"
+		],
+		[
+			"point.vs",
+			"point.fs"
 		]
 	]
 }

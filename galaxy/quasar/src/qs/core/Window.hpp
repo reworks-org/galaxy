@@ -11,9 +11,11 @@
 #include <span>
 #include <string_view>
 
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
 #include <protostar/graphics/Colour.hpp>
+#include <protostar/system/Keys.hpp>
+#include <robin_hood.h>
 
 ///
 /// Core namespace.
@@ -234,6 +236,38 @@ namespace qs
 		bool mouse_button_released(int mouse_button);
 
 		///
+		/// \brief See if a key is being held down.
+		///
+		/// This will pick up repeated events.
+		///
+		/// \param key Key to check.
+		///
+		/// \return True if key is currently down.
+		///
+		bool key_down(pr::Keys key);
+
+		///
+		/// Check if a key was pressed once.
+		///
+		/// \param key Key to check.
+		///
+		/// \return True if key was pressed once.
+		///
+		bool key_pressed(pr::Keys key);
+
+		///
+		/// Starts filling the returned pointer to string with characters as they are typed.
+		///
+		/// \return Pointer to std::string that is updated with characters.
+		///
+		std::string* begin_text_input();
+
+		///
+		/// Stop updating strings with text input.
+		///
+		void end_text_input();
+
+		///
 		/// Get current cursor position.
 		///
 		/// \return Returns true or false if cursor has moved, and the current position.
@@ -291,6 +325,26 @@ namespace qs
 		/// Array storing each of the 8 mouse buttons supported by GLFW.
 		///
 		std::array<int, 8> m_prev_mouse_btn_states;
+
+		///
+		/// Map of GLFW scancodes to protostar keys.
+		///
+		robin_hood::unordered_map<pr::Keys, int> m_keymap;
+
+		///
+		/// Previous key states.
+		///
+		robin_hood::unordered_map<pr::Keys, int> m_prev_key_states;
+
+		///
+		/// String for text input.
+		///
+		std::string m_text_input;
+
+		///
+		/// Flag to signal to glfw that text is being input.
+		///
+		bool m_inputting_text;
 	};
 } // namespace qs
 

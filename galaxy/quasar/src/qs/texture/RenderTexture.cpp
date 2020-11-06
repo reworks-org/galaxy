@@ -65,8 +65,19 @@ namespace qs
 
 	void RenderTexture::create(const int width, const int height)
 	{
-		m_width      = width;
-		m_height     = height;
+		m_width  = width;
+		m_height = height;
+
+		if (m_width < 1)
+		{
+			m_width = 1;
+		}
+
+		if (m_height < 1)
+		{
+			m_height = 1;
+		}
+
 		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
@@ -93,8 +104,19 @@ namespace qs
 
 	void RenderTexture::change_size(const int width, const int height)
 	{
-		m_width      = width;
-		m_height     = height;
+		m_width  = width;
+		m_height = height;
+
+		if (m_width < 1)
+		{
+			m_width = 1;
+		}
+
+		if (m_height < 1)
+		{
+			m_height = 1;
+		}
+
 		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
 
 		glBindTexture(GL_TEXTURE_2D, m_texture);

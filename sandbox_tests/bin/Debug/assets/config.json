@@ -22,5 +22,6 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox",
-    "window-width": 1280
+    "window-width": 1280,
+    "line-thickness" : 5.0
 }

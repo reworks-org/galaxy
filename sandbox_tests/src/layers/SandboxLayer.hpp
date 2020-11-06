@@ -11,6 +11,8 @@
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
 #include <galaxy/layer/Layer.hpp>
+#include <qs/shapes/Point.hpp>
+#include <qs/shapes/Circle.hpp>
 
 #include <qs/core/Shader.hpp>
 #include <qs/graphics/ParticleGenerator.hpp>
@@ -33,6 +35,8 @@ namespace sb
 
 		qs::Shader m_shader;
 		qs::ParticleGenerator m_particle_gen;
+		qs::Point m_point;
+		qs::Circle m_circle;
 	};
 } // namespace sb
 

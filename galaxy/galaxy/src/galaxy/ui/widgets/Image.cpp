@@ -55,7 +55,7 @@ namespace galaxy
 			}
 		}
 
-		void Image::update()
+		void Image::update(const double dt)
 		{
 		}
 

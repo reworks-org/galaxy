@@ -98,7 +98,7 @@ namespace galaxy
 			}
 		}
 
-		void Slider::update()
+		void Slider::update(const double dt)
 		{
 			m_marker.set_pos((m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_marker.get_width() / 2.0f), m_bounds.m_y - (m_marker.get_height() / 2.0f) + (m_bounds.m_height / 2.0f));
 		}

@@ -10,6 +10,7 @@
 
 #include <protostar/graphics/Colour.hpp>
 
+#include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
 
 ///
@@ -20,13 +21,13 @@ namespace qs
 	///
 	/// Circle definition for renderer.
 	///
-	class Circle final : public qs::VertexData
+	class Circle final : public qs::VertexData, public qs::Transform
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		Circle() noexcept;
+		Circle() = default;
 
 		///
 		/// Constructor.
@@ -36,9 +37,8 @@ namespace qs
 		/// \param radius Radius of the circle.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 		/// \param colour Colour.
-		/// \param thickness Thickness of circle.
 		///
-		Circle(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness = 1.0f);
+		Circle(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
 
 		///
 		/// Copy constructor.
@@ -73,9 +73,8 @@ namespace qs
 		/// \param radius Radius of the circle.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 		/// \param colour Colour.
-		/// \param thickness Thickness of circle.
 		///
-		void create(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness = 1.0f);
+		void create(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
 
 		///
 		/// Bind as active VA.
@@ -86,12 +85,6 @@ namespace qs
 		/// Unbind as active VA.
 		///
 		void unbind() noexcept;
-
-	private:
-		///
-		/// Thickness of circle.
-		///
-		float m_thickness;
 	};
 } // namespace qs
 

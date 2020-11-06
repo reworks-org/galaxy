@@ -86,6 +86,11 @@ namespace qs
 		///
 		static unsigned int s_texture_format;
 
+		///
+		/// Line thickness.
+		///
+		static float s_line_thickness;
+
 	private:
 		///
 		/// Default constructor.
