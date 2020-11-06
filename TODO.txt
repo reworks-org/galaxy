@@ -7,6 +7,9 @@ QUASAR:
 - better spritebatch transforms
 - split transform into pos transform, colour transform, texel transform?
 
+Solar:
+replace is_system with is_derived
+
 GALAXY:
 - GUI:
 	- Replace is_widget concept with is_derived.
