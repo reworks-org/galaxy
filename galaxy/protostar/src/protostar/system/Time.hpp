@@ -8,8 +8,9 @@
 #ifndef PROTOSTAR_TIME_HPP_
 #define PROTOSTAR_TIME_HPP_
 
-#include <cstdint>
-#include <stdexcept>
+#include <chrono>
+
+#include <jthread/jthread.hpp>
 
 ///
 /// Core namespace.
@@ -17,92 +18,106 @@
 namespace pr
 {
 	///
-	/// Convert seconds to milliseconds.
+	/// Simple timer class.
 	///
-	/// \param seconds Seconds to convert.
-	///
-	/// \return Returns const std::size_t.
-	///
-	[[nodiscard]] inline const std::size_t seconds_to_milliseconds(const std::size_t seconds) noexcept
+	class Timer final
 	{
-		return static_cast<std::size_t>(seconds * 1000);
-	}
+	public:
+		///
+		/// Constructor.
+		///
+		Timer();
 
-	///
-	/// Convert seconds to microseconds.
-	///
-	/// \param seconds Seconds to convert.
-	///
-	/// \return Returns const std::size_t.
-	///
-	[[nodiscard]] inline const std::size_t seconds_to_microseconds(const std::size_t seconds) noexcept
+		///
+		/// Copy constructor.
+		///
+		Timer(const Timer&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		Timer(Timer&&) = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Timer& operator=(const Timer&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		Timer& operator=(Timer&&) = default;
+
+		///
+		/// Destructor.
+		///
+		~Timer();
+
+		///
+		/// Make function repeat itself instead of running once.
+		///
+		/// \param repeat True to repeat.
+		///
+		void set_repeating(bool repeat);
+
+		///
+		/// \brief Run a function on a precision timer.
+		///
+		/// The function runs on a thread so do not run any thread dependent code.
+		///
+		/// \param func Function to call on thread.
+		/// \param delay Delay until function is called. In milliseconds.
+		///
+		template<typename Lambda>
+		void launch(Lambda&& func, int delay);
+
+		///
+		/// \brief Stop timer.
+		///
+		/// Will not preserve data, launch must be called again.
+		///
+		void stop();
+
+	private:
+		///
+		/// Is function repeating on thread.
+		///
+		bool m_repeat;
+
+		///
+		/// Current delay on timer.
+		///
+		int m_delay;
+
+		///
+		/// Thread to run task on.
+		///
+		std::jthread m_thread;
+
+		///
+		/// Mutex to help prevent race conditions.
+		///
+		std::mutex m_mutex;
+
+		///
+		/// Callback function.
+		///
+		std::function<void(void)> m_callback;
+	};
+
+	template<typename Lambda>
+	inline void Timer::launch(Lambda&& func, int delay)
 	{
-		return static_cast<std::size_t>(seconds * 1000000);
-	}
-
-	///
-	/// Convert milliseconds to seconds.
-	///
-	/// \param milliseconds Milliseconds to convert.
-	///
-	/// \return Returns const double.
-	///
-	[[nodiscard]] inline const double milliseconds_to_seconds(const double milliseconds)
-	{
-		if (milliseconds < 0)
-		{
-			throw std::runtime_error("Milliseconds cannot be less than 0.");
-		}
-
-		return milliseconds / 1000.0f;
-	}
-
-	///
-	/// Convert milliseconds to microseconds.
-	///
-	/// \param milliseconds Milliseconds to convert.
-	///
-	/// \return Returns const std::size_t.
-	///
-	[[nodiscard]] inline const std::size_t
-	milliseconds_to_microseconds(const std::size_t milliseconds) noexcept
-	{
-		return static_cast<std::size_t>(milliseconds * 1000);
-	}
-
-	///
-	/// Convert microseconds to seconds.
-	///
-	/// \param microseconds Microseconds to convert.
-	///
-	/// \return Returns const double.
-	///
-	[[nodiscard]] inline const double microseconds_to_seconds(const double microseconds)
-	{
-		if (microseconds < 0)
-		{
-			throw std::runtime_error("Microseconds cannot be less than 0.");
-		}
-
-		return static_cast<double>(microseconds / 1000000.0);
-	}
-
-	///
-	/// Convert microseconds to milliseconds.
-	///
-	/// \param microseconds Microseconds to convert.
-	///
-	/// \return Returns std::size_t.
-	///
-	[[nodiscard]] inline const std::size_t
-	microseconds_to_milliseconds(const double microseconds)
-	{
-		if (microseconds < 0)
-		{
-			throw std::runtime_error("Microseconds cannot be less than 0.");
-		}
-
-		return static_cast<std::size_t>(microseconds / 1000.0);
+		m_callback = func;
+		m_delay    = delay;
+		m_thread   = std::jthread([&]() {
+                        do
+                        {
+                                std::lock_guard<std::mutex> lock {m_mutex};
+                                std::this_thread::sleep_for(std::chrono::milliseconds(m_delay));
+                                m_callback();
+                        } while (m_repeat);
+                });
 	}
 
 	///
@@ -113,8 +128,7 @@ namespace pr
 	///
 	/// \return const double High Precision time passed since epoch.
 	///
-	[[nodiscard]] const double
-	time_since_epoch() noexcept;
+	[[nodiscard]] const double time_since_epoch();
 } // namespace pr
 
 #endif
