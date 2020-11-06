@@ -17,6 +17,7 @@
 #include <galaxy/ui/widgets/Label.hpp>
 #include <galaxy/ui/widgets/Button.hpp>
 #include <galaxy/ui/widgets/ToggleButton.hpp>
+#include <galaxy/ui/widgets/TextInput.hpp>
 
 #include <protostar/events/MouseMovedEvent.hpp>
 
@@ -56,6 +57,8 @@ namespace sb
 		auto tb_on_hover  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_on_hover.png";
 		auto tb_off_hover = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_off_hover.png";
 
+		auto input_field = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "input_field.png";
+
 		auto demo_font  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
@@ -78,12 +81,12 @@ namespace sb
 		m_theme.m_atlas.add(tb_off);
 		m_theme.m_atlas.add(tb_on_hover);
 		m_theme.m_atlas.add(tb_off_hover);
+		m_theme.m_atlas.add(input_field);
 
 		rtt_shader->bind();
 		m_theme.m_atlas.create(*SL_HANDLE.renderer(), *rtt_shader);
 
 		m_gui.set_theme(&m_theme);
-		m_gui.construct(*SL_HANDLE.pool());
 
 		auto* image = m_gui.create_widget<galaxy::widget::Image>();
 		image->create_from_atlas("demo_nineslice");
@@ -128,7 +131,14 @@ namespace sb
 
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(togglebutton);
 		m_gui.add_event_to_widget<pr::MousePressedEvent>(togglebutton);
-		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(togglebutton);
+
+		auto* textinput = m_gui.create_widget<galaxy::widget::TextInput>();
+		textinput->create_from_atlas("input_field", "public16", 5.0f);
+		textinput->set_pos(650, 650);
+
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(textinput);
+		m_gui.add_event_to_widget<pr::MousePressedEvent>(textinput);
+		m_gui.add_event_to_widget<pr::KeyDownEvent>(textinput);
 	}
 
 	GUILayer::~GUILayer()
@@ -155,6 +165,16 @@ namespace sb
 		{
 			m_gui.trigger<pr::MouseReleasedEvent>(pos.x, pos.y, GLFW_MOUSE_BUTTON_LEFT);
 		}
+
+		if (window->key_pressed(pr::Keys::ENTER))
+		{
+			m_gui.trigger<pr::KeyDownEvent>(pr::Keys::ENTER);
+		}
+
+		if (window->key_pressed(pr::Keys::BACKSPACE))
+		{
+			m_gui.trigger<pr::KeyDownEvent>(pr::Keys::BACKSPACE);
+		}
 	}
 
 	void GUILayer::update(const double dt)
@@ -167,7 +187,7 @@ namespace sb
 		}
 
 		progressbar->set_progress(progress);
-		m_gui.update();
+		m_gui.update(dt);
 	}
 
 	void GUILayer::render(qs::Camera& camera)
