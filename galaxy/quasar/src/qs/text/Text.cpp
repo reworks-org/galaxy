@@ -68,45 +68,55 @@ namespace qs
 		glBindVertexArray(m_vao);
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, nullptr, GL_DYNAMIC_DRAW);
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
 
-		m_text.create(m_font->get_width(text), m_font->get_height());
-		m_text.bind();
-		m_shader->bind();
+		if (text.empty())
+		{
+			m_text.create(0, 0);
+			m_text.bind();
+			m_text.unbind();
+		}
+		else
+		{
+			m_text.create(m_font->get_width(text), m_font->get_height());
+			m_text.bind();
+			m_shader->bind();
 
-		auto col = m_colour.get_normalized();
-		m_shader->set_uniform("u_colour", col[0], col[1], col[2]);
-		m_shader->set_uniform("u_proj", m_text.get_proj());
+			auto col = m_colour.get_normalized();
+			m_shader->set_uniform("u_colour", col[0], col[1], col[2]);
+			m_shader->set_uniform("u_proj", m_text.get_proj());
 
-		std::for_each(text.begin(), text.end(), [&](const char c) {
-			Character* c_obj = m_font->get_char(c);
+			std::for_each(text.begin(), text.end(), [&](const char c) {
+				Character* c_obj = m_font->get_char(c);
 
-			float x = glyph_x + c_obj->m_bearing.x;
-			float y = (m_font->get_height() - c_obj->m_bearing.y);
-			float w = c_obj->m_size.x;
-			float h = c_obj->m_size.y;
+				float x = glyph_x + c_obj->m_bearing.x;
+				float y = (m_font->get_height() - c_obj->m_bearing.y);
+				float w = c_obj->m_size.x;
+				float h = c_obj->m_size.y;
 
-			float vertices[6][4] = {
-			    {x, y + h, 0.0f, 1.0f},
-			    {x + w, y, 1.0f, 0.0f},
-			    {x, y, 0.0f, 0.0f},
+				float vertices[6][4] = {
+				    {x, y + h, 0.0f, 1.0f},
+				    {x + w, y, 1.0f, 0.0f},
+				    {x, y, 0.0f, 0.0f},
 
-			    {x, y + h, 0.0f, 1.0f},
-			    {x + w, y + h, 1.0f, 1.0f},
-			    {x + w, y, 1.0f, 0.0f}};
+				    {x, y + h, 0.0f, 1.0f},
+				    {x + w, y + h, 1.0f, 1.0f},
+				    {x + w, y, 1.0f, 0.0f}};
 
-			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
 
-			glBindTexture(GL_TEXTURE_2D, c_obj->m_gl_texture);
-			glDrawArrays(GL_TRIANGLES, 0, 6);
+				glBindTexture(GL_TEXTURE_2D, c_obj->m_gl_texture);
+				glDrawArrays(GL_TRIANGLES, 0, 6);
 
-			glyph_x += (c_obj->m_advance >> 6);
-		});
+				glyph_x += (c_obj->m_advance >> 6);
+			});
 
-		m_text.unbind();
-		m_shader->unbind();
+			m_text.unbind();
+			m_shader->unbind();
+		}
+
 		glBindVertexArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
@@ -135,48 +145,57 @@ namespace qs
 	{
 		int glyph_x = 0;
 
+		glInvalidateBufferData(m_vbo);
 		glBindVertexArray(m_vao);
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, nullptr, GL_DYNAMIC_DRAW);
 
-		m_text.change_size(m_font->get_width(text), m_font->get_height());
-		m_text.bind();
-		m_shader->bind();
+		if (text.empty())
+		{
+			m_text.change_size(0, 0);
+			m_text.bind();
+			m_text.unbind();
+		}
+		else
+		{
+			m_text.change_size(m_font->get_width(text), m_font->get_height());
+			m_text.bind();
+			m_shader->bind();
 
-		auto col = m_colour.get_normalized();
-		m_shader->set_uniform("u_colour", col[0], col[1], col[2]);
-		m_shader->set_uniform("u_proj", m_text.get_proj());
+			auto col = m_colour.get_normalized();
+			m_shader->set_uniform("u_colour", col[0], col[1], col[2]);
+			m_shader->set_uniform("u_proj", m_text.get_proj());
 
-		std::for_each(text.begin(), text.end(), [&](const char c) {
-			Character* c_obj = m_font->get_char(c);
+			std::for_each(text.begin(), text.end(), [&](const char c) {
+				Character* c_obj = m_font->get_char(c);
 
-			float x = glyph_x + c_obj->m_bearing.x;
-			float y = (m_font->get_height() - c_obj->m_bearing.y);
-			float w = c_obj->m_size.x;
-			float h = c_obj->m_size.y;
+				float x = glyph_x + c_obj->m_bearing.x;
+				float y = (m_font->get_height() - c_obj->m_bearing.y);
+				float w = c_obj->m_size.x;
+				float h = c_obj->m_size.y;
 
-			float vertices[6][4] = {
-			    {x, y + h, 0.0f, 1.0f},
-			    {x + w, y, 1.0f, 0.0f},
-			    {x, y, 0.0f, 0.0f},
+				float vertices[6][4] = {
+				    {x, y + h, 0.0f, 1.0f},
+				    {x + w, y, 1.0f, 0.0f},
+				    {x, y, 0.0f, 0.0f},
 
-			    {x, y + h, 0.0f, 1.0f},
-			    {x + w, y + h, 1.0f, 1.0f},
-			    {x + w, y, 1.0f, 0.0f}};
+				    {x, y + h, 0.0f, 1.0f},
+				    {x + w, y + h, 1.0f, 1.0f},
+				    {x + w, y, 1.0f, 0.0f}};
 
-			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
 
-			glBindTexture(GL_TEXTURE_2D, c_obj->m_gl_texture);
-			glDrawArrays(GL_TRIANGLES, 0, 6);
+				glBindTexture(GL_TEXTURE_2D, c_obj->m_gl_texture);
+				glDrawArrays(GL_TRIANGLES, 0, 6);
 
-			glyph_x += (c_obj->m_advance >> 6);
-		});
+				glyph_x += (c_obj->m_advance >> 6);
+			});
 
-		m_text.unbind();
-		m_shader->unbind();
+			m_text.unbind();
+			m_shader->unbind();
+		}
+
 		glBindVertexArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindTexture(GL_TEXTURE_2D, 0);
@@ -212,6 +231,6 @@ namespace qs
 
 	const int Text::get_height() const
 	{
-		return m_text.get_height();
+		return m_font->get_height();
 	}
 } // namespace qs
