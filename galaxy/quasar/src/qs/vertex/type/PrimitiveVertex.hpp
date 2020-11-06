@@ -9,6 +9,7 @@
 #define QUASAR_PRIMITIVEVERTEX_HPP_
 
 #include <glm/vec2.hpp>
+#include <glm/vec4.hpp>
 #include <protostar/graphics/Colour.hpp>
 
 ///
@@ -34,7 +35,7 @@ namespace qs
 		/// \param y Y pos.
 		/// \param col Colour.
 		///
-		PrimitiveVertex(const float x, const float y, const pr::Colour& col) noexcept;
+		PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept;
 
 		///
 		/// Copy constructor.
@@ -69,7 +70,7 @@ namespace qs
 		///
 		/// Colour of PrimitiveVertex.
 		///
-		pr::Colour m_colour;
+		glm::vec4 m_colour;
 	};
 } // namespace qs
 

@@ -90,6 +90,7 @@ namespace galaxy
 		qs::WindowSettings::s_aspect_ratio_y  = m_config->get<int>("aspect-ratio-y");   // -1
 		qs::WindowSettings::s_raw_mouse_input = m_config->get<bool>("raw-mouse-input"); // true
 		qs::WindowSettings::s_texture_format  = GL_RGBA8;
+		qs::WindowSettings::s_line_thickness  = m_config->get<float>("line-thickness"); // 1.0
 
 		m_window           = std::make_unique<qs::Window>();
 		SL_HANDLE.m_window = m_window.get();

@@ -18,23 +18,15 @@
 ///
 namespace qs
 {
-	Circle::Circle() noexcept
-	    : m_thickness {1.0f}
+	Circle::Circle(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour)
 	{
+		create(x, y, radius, fragments, colour);
 	}
 
-	Circle::Circle(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness)
-	    : m_thickness {thickness}
-	{
-		create(x, y, radius, fragments, colour, thickness);
-	}
-
-	void Circle::create(const float x, const float y, const float radius, const unsigned int fragments, const pr::Colour& colour, const float thickness)
+	void Circle::create(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour)
 	{
 		// Thanks to https://stackoverflow.com/a/33859443.
 		// For help with maths.
-
-		m_thickness = thickness;
 
 		std::vector<qs::PrimitiveVertex> vertexs;
 		std::vector<unsigned int> indices;
@@ -62,7 +54,6 @@ namespace qs
 	void Circle::bind() noexcept
 	{
 		m_va.bind();
-		glLineWidth(m_thickness);
 	}
 
 	void Circle::unbind() noexcept

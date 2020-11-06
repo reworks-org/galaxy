@@ -10,6 +10,7 @@
 
 #include <protostar/graphics/Colour.hpp>
 
+#include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
 
 ///
@@ -20,7 +21,7 @@ namespace qs
 	///
 	/// Point graphic definition.
 	///
-	class Point final : public qs::VertexData
+	class Point final : public qs::VertexData, public qs::Transform
 	{
 	public:
 		///
@@ -36,7 +37,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		Point(const float x, const float y, const unsigned int size, const pr::Colour& colour);
+		Point(const float x, const float y, const unsigned int size, pr::Colour& colour);
 
 		///
 		/// Copy constructor.
@@ -71,7 +72,7 @@ namespace qs
 		/// \param size Size of the point.
 		/// \param colour Colour.
 		///
-		void create(const float x, const float y, const unsigned int size, const pr::Colour& colour);
+		void create(const float x, const float y, const unsigned int size, pr::Colour& colour);
 
 		///
 		/// Bind as active VA.
