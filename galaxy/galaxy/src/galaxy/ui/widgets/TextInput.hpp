@@ -131,6 +131,11 @@ namespace galaxy
 
 		private:
 			///
+			/// Total characters allowed in input field.
+			///
+			int m_total_chars;
+
+			///
 			/// Bool to draw text input cursor or not.
 			///
 			bool m_draw_cursor;

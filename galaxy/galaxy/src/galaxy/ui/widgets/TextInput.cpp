@@ -21,7 +21,7 @@ namespace galaxy
 	namespace widget
 	{
 		TextInput::TextInput()
-		    : m_draw_cursor {false}, m_border_width {0.0f}, m_text_input {nullptr}, m_is_focus {false}
+		    : m_total_chars {0}, m_draw_cursor {false}, m_border_width {0.0f}, m_text_input {nullptr}, m_is_focus {false}
 		{
 			m_timer.set_repeating(true);
 		}
@@ -48,8 +48,11 @@ namespace galaxy
 			m_bounds.m_width  = get_width();
 			m_bounds.m_height = get_height();
 
-			m_text.load(*m_theme->m_fonts->get(font), *m_theme->m_shaders->get("text"), m_theme->m_font_col);
+			auto* fontptr = m_theme->m_fonts->get(font);
+			m_text.load(*fontptr, *m_theme->m_shaders->get("text"), m_theme->m_font_col);
 			m_text.create("");
+			m_total_chars = std::floor((m_bounds.m_width - (m_border_width * 2.0f)) / static_cast<float>(fontptr->get_width("X")));
+			m_total_chars--;
 
 			m_cursor.create(m_theme->m_font_col, 0.0f, 0.0f, 0.0f, m_bounds.m_height - (m_border_width * 4.0f));
 			m_timer.launch([&]() {
@@ -133,6 +136,11 @@ namespace galaxy
 			{
 				if (m_text_input != nullptr)
 				{
+					while (m_text_input->length() > m_total_chars)
+					{
+						m_text_input->pop_back();
+					}
+
 					m_text.update_text(*m_text_input);
 
 					if (m_draw_cursor)
