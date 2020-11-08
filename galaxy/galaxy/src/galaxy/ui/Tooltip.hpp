@@ -121,11 +121,6 @@ namespace galaxy
 		///
 		UITheme* m_theme;
 	};
-
-	///
-	/// Shorthand.
-	///
-	using TooltipPtr = std::unique_ptr<galaxy::Tooltip>;
 } // namespace galaxy
 
 #endif

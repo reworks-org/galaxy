@@ -136,6 +136,11 @@ namespace galaxy
 					m_callback(m_on);
 				}
 
+				if (m_sound != nullptr)
+				{
+					m_sound->play();
+				}
+
 				if (m_tooltip)
 				{
 					m_tooltip->can_draw(false);

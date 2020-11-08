@@ -81,6 +81,11 @@ namespace galaxy
 			{
 				m_pressed = true;
 				m_value   = std::clamp((mpe.m_x - m_bounds.m_x) / m_bounds.m_width, 0.0f, 1.0f);
+
+				if (m_sound != nullptr)
+				{
+					m_sound->play();
+				}
 			}
 		}
 

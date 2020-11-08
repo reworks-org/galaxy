@@ -8,6 +8,8 @@
 #ifndef GALAXY_WIDGET_HPP_
 #define GALAXY_WIDGET_HPP_
 
+#include <frb/audio/Sound.hpp>
+
 #include "galaxy/ui/Tooltip.hpp"
 
 ///
@@ -73,6 +75,20 @@ namespace galaxy
 		virtual void render(qs::Camera& camera) = 0;
 
 		///
+		/// Add a sound effect to this widget when clicked.
+		///
+		/// \param sound Sound to load from disk.
+		///
+		void add_sfx(std::string_view sound);
+
+		///
+		/// Move an existing sound into this widget.
+		///
+		/// \param sound Sound pointer to move ownership into this widget.
+		///
+		void add_sfx(std::unique_ptr<frb::Sound>&& sound);
+
+		///
 		/// \brief Get ID of this widget.
 		///
 		/// 0 is reserved for NULL.
@@ -95,12 +111,17 @@ namespace galaxy
 		///
 		/// Tooltip.
 		///
-		TooltipPtr m_tooltip;
+		std::unique_ptr<galaxy::Tooltip> m_tooltip;
 
 		///
 		/// Bounds of label.
 		///
 		pr::Rect<float> m_bounds;
+
+		///
+		/// Sound effect to play on clicking of UI.
+		///
+		std::unique_ptr<frb::Sound> m_sound;
 
 	private:
 		///
