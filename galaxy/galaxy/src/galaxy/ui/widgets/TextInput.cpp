@@ -92,11 +92,16 @@ namespace galaxy
 					*m_text_input = "";
 					m_draw_cursor = true;
 					m_is_focus    = true;
+				}
 
-					if (m_tooltip)
-					{
-						m_tooltip->can_draw(false);
-					}
+				if (m_sound != nullptr)
+				{
+					m_sound->play();
+				}
+
+				if (m_tooltip)
+				{
+					m_tooltip->can_draw(false);
 				}
 			}
 			else
