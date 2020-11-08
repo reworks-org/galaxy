@@ -51,8 +51,7 @@ namespace galaxy
 			auto* fontptr = m_theme->m_fonts->get(font);
 			m_text.load(*fontptr, *m_theme->m_shaders->get("text"), m_theme->m_font_col);
 			m_text.create("");
-			m_total_chars = std::floor((m_bounds.m_width - (m_border_width * 2.0f)) / static_cast<float>(fontptr->get_width("X")));
-			m_total_chars--;
+			m_total_chars = (std::floor((m_bounds.m_width - (m_border_width * 2.0f)) / static_cast<float>(fontptr->get_width("X")))) - 1;
 
 			m_cursor.create(m_theme->m_font_col, 0.0f, 0.0f, 0.0f, m_bounds.m_height - (m_border_width * 4.0f));
 			m_timer.launch([&]() {
@@ -194,10 +193,7 @@ namespace galaxy
 			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f});
 			m_dirty       = true;
 
-			float y_pos = m_bounds.m_y + (m_bounds.m_height / 2.0f);
-			y_pos -= m_text.get_height() / 2.0f;
-
-			m_text.set_pos(m_bounds.m_x + (m_border_width * 2.0f), y_pos);
+			m_text.set_pos(m_bounds.m_x + (m_border_width * 2.0f), (m_bounds.m_y + (m_bounds.m_height / 2.0f)) - (m_text.get_height() / 2.0f));
 		}
 
 		void TextInput::stop()
