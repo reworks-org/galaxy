@@ -83,7 +83,8 @@ namespace galaxy
 			/// \param on_hover Texture when button is on and mouse is hovering.
 			/// \param off_hover Texture when button is off and mouse is hovering.
 			///
-			void create_from_atlas(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover);
+			using qs::BatchedSprite::create;
+			void create(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover);
 
 			///
 			/// Set the callback function.

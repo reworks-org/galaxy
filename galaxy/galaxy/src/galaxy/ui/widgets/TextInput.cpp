@@ -31,7 +31,7 @@ namespace galaxy
 			m_text_input = nullptr;
 		}
 
-		void TextInput::create_from_atlas(std::string_view textinput, std::string_view font, float border_width)
+		void TextInput::create(std::string_view textinput, std::string_view font, float border_width)
 		{
 			m_border_width = border_width;
 
@@ -65,17 +65,14 @@ namespace galaxy
 
 		void TextInput::on_event(const pr::MouseMovedEvent& mme)
 		{
-			if (m_bounds.contains(mme.m_x, mme.m_y))
+			if (m_tooltip)
 			{
-				if (m_tooltip)
+				if (m_bounds.contains(mme.m_x, mme.m_y))
 				{
 					m_tooltip->can_draw(true);
 					m_tooltip->update_pos(mme.m_x, mme.m_y);
 				}
-			}
-			else
-			{
-				if (m_tooltip)
+				else
 				{
 					m_tooltip->can_draw(false);
 				}

@@ -65,7 +65,7 @@ namespace qs
 		/// \param region Region defined on the texture.
 		/// \param z_level Z-Level of sprite.
 		///
-		void create(const pr::Rect<float>& region, const unsigned int z_level) noexcept;
+		void create(const pr::Rect<float>& region, const unsigned int z_level);
 
 		///
 		/// Set opacity.

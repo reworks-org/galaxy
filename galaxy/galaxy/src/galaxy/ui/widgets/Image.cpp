@@ -17,7 +17,7 @@ namespace galaxy
 	///
 	namespace widget
 	{
-		void Image::create_from_atlas(std::string_view name)
+		void Image::create(std::string_view name)
 		{
 			auto opt = m_theme->m_atlas.get_region(name);
 			if (opt != std::nullopt)
@@ -38,20 +38,23 @@ namespace galaxy
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
 
-			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f}); // wants mat4 here for some reason?
+			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f});
 			m_dirty       = true;
 		}
 
 		void Image::on_event(const pr::MouseMovedEvent& mme)
 		{
-			if (m_bounds.contains(mme.m_x, mme.m_y))
+			if (m_tooltip)
 			{
-				m_tooltip->can_draw(true);
-				m_tooltip->update_pos(mme.m_x, mme.m_y);
-			}
-			else
-			{
-				m_tooltip->can_draw(false);
+				if (m_bounds.contains(mme.m_x, mme.m_y))
+				{
+					m_tooltip->can_draw(true);
+					m_tooltip->update_pos(mme.m_x, mme.m_y);
+				}
+				else
+				{
+					m_tooltip->can_draw(false);
+				}
 			}
 		}
 

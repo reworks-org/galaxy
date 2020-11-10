@@ -38,7 +38,7 @@ namespace qs
 		return *this;
 	}
 
-	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int z_level) noexcept
+	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int z_level)
 	{
 		m_region  = region;
 		m_z_level = z_level;
