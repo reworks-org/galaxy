@@ -144,13 +144,13 @@ namespace galaxy
 			//m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
 			//SL_HANDLE.m_serializer = m_serializer.get();
 
-			// FontBook
-			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
-			SL_HANDLE.m_fontbook = m_fontbook.get();
-
 			// ShaderBook
 			m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 			SL_HANDLE.m_shaderbook = m_shaderbook.get();
+
+			// FontBook
+			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
+			SL_HANDLE.m_fontbook = m_fontbook.get();
 
 			// Register all usertypes used by this application for sol3.
 			Lua::register_types();
