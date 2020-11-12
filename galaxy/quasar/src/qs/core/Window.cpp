@@ -178,9 +178,6 @@ namespace qs
 					// Set custom line width.
 					glLineWidth(qs::WindowSettings::s_line_thickness);
 
-					// Print OpenGL version.
-					PL_LOG(PL_INFO, "OpenGL v{0}.", reinterpret_cast<const char*>(glGetString(GL_VERSION)));
-
 					m_keymap.reserve(102);
 					m_keymap.emplace(pr::Keys::A, GLFW_KEY_A);
 					m_keymap.emplace(pr::Keys::B, GLFW_KEY_B);
