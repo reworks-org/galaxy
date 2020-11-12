@@ -70,11 +70,6 @@ namespace frb
 		///
 		[[maybe_unused]] bool load(std::string_view file);
 
-		///
-		/// Destroy sound.
-		///
-		void destroy() noexcept;
-
 	private:
 		///
 		/// OpenAL audio source.
