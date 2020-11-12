@@ -142,7 +142,7 @@ namespace pr
 	{
 		const auto str = static_cast<std::string>(name);
 		m_resources.emplace(
-		    std::piecewise_construct, std::make_tuple(str), std::make_tuple(std::forward<Args>(args)...));
+		    std::piecewise_construct, std::make_tuple(str), std::make_tuple(Resource {std::forward<Args>(args)...}));
 
 		return &m_resources[str];
 	}
