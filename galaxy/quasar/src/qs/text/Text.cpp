@@ -91,10 +91,10 @@ namespace qs
 			std::for_each(text.begin(), text.end(), [&](const char c) {
 				Character* c_obj = m_font->get_char(c);
 
-				float x = glyph_x + c_obj->m_bearing.x;
-				float y = (m_font->get_height() - c_obj->m_bearing.y);
-				float w = c_obj->m_size.x;
-				float h = c_obj->m_size.y;
+				float x = static_cast<float>(glyph_x + c_obj->m_bearing.x);
+				float y = static_cast<float>(m_font->get_height() - c_obj->m_bearing.y);
+				float w = static_cast<float>(c_obj->m_size.x);
+				float h = static_cast<float>(c_obj->m_size.y);
 
 				float vertices[6][4] = {
 				    {x, y + h, 0.0f, 1.0f},
@@ -170,10 +170,10 @@ namespace qs
 			std::for_each(text.begin(), text.end(), [&](const char c) {
 				Character* c_obj = m_font->get_char(c);
 
-				float x = glyph_x + c_obj->m_bearing.x;
-				float y = (m_font->get_height() - c_obj->m_bearing.y);
-				float w = c_obj->m_size.x;
-				float h = c_obj->m_size.y;
+				float x = static_cast<float>(glyph_x + c_obj->m_bearing.x);
+				float y = static_cast<float>(m_font->get_height() - c_obj->m_bearing.y);
+				float w = static_cast<float>(c_obj->m_size.x);
+				float h = static_cast<float>(c_obj->m_size.y);
 
 				float vertices[6][4] = {
 				    {x, y + h, 0.0f, 1.0f},
