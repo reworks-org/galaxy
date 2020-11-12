@@ -73,6 +73,11 @@ namespace qs
 		return m_opacity;
 	}
 
+	qs::IndexBuffer& VertexData::get_ibo() noexcept
+	{
+		return m_ib;
+	}
+
 	qs::VertexBuffer& VertexData::get_vbo() noexcept
 	{
 		return m_vb;

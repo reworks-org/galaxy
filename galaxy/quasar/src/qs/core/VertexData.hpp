@@ -82,6 +82,13 @@ namespace qs
 		[[nodiscard]] const float opacity() const noexcept;
 
 		///
+		/// Get IBO.
+		///
+		/// \return Reference to IBO.
+		///
+		[[nodiscard]] qs::IndexBuffer& get_ibo() noexcept;
+
+		///
 		/// Get VBO.
 		///
 		/// \return Reference to VBO.
