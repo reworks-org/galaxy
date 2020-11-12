@@ -17,7 +17,7 @@ namespace galaxy
 		m_sound = std::make_unique<frb::Sound>();
 		m_sound->load(sound);
 	}
-	
+
 	void Widget::add_sfx(std::unique_ptr<frb::Sound>&& sound)
 	{
 		m_sound = std::move(sound);
@@ -60,7 +60,6 @@ namespace galaxy
 
 	Widget::~Widget()
 	{
-		m_sound->destroy();
 		m_sound.reset();
 		m_sound = nullptr;
 
