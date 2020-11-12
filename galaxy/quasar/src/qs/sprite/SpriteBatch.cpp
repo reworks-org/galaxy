@@ -134,6 +134,52 @@ namespace qs
 		}
 	}
 
+	void SpriteBatch::update(qs::Transform* transform)
+	{
+		if (!transform)
+		{
+			PL_LOG(PL_FATAL, "Transform was nullptr.");
+		} // Throws exception.
+
+		const bool is_dirty = transform->is_dirty(); // Have to cache here because get_transform() sets is_dirty to false.
+		for (auto* sprite : m_sprites)
+		{
+			if (sprite->m_dirty || is_dirty)
+			{
+				glm::vec4 result = transform->get_transform() * sprite->get_transform() * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+
+				m_vertexs[sprite->m_offset + 0].m_pos[0]    = result.x;
+				m_vertexs[sprite->m_offset + 0].m_pos[1]    = result.y;
+				m_vertexs[sprite->m_offset + 0].m_texels[0] = sprite->m_region.m_x;
+				m_vertexs[sprite->m_offset + 0].m_texels[1] = sprite->m_region.m_y;
+
+				m_vertexs[sprite->m_offset + 1].m_pos[0]    = result.x + sprite->m_region.m_width;
+				m_vertexs[sprite->m_offset + 1].m_pos[1]    = result.y;
+				m_vertexs[sprite->m_offset + 1].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
+				m_vertexs[sprite->m_offset + 1].m_texels[1] = sprite->m_region.m_y;
+
+				m_vertexs[sprite->m_offset + 2].m_pos[0]    = result.x + sprite->m_region.m_width;
+				m_vertexs[sprite->m_offset + 2].m_pos[1]    = result.y + sprite->m_region.m_height;
+				m_vertexs[sprite->m_offset + 2].m_texels[0] = sprite->m_region.m_x + sprite->m_region.m_width;
+				m_vertexs[sprite->m_offset + 2].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
+
+				m_vertexs[sprite->m_offset + 3].m_pos[0]    = result.x;
+				m_vertexs[sprite->m_offset + 3].m_pos[1]    = result.y + sprite->m_region.m_height;
+				m_vertexs[sprite->m_offset + 3].m_texels[0] = sprite->m_region.m_x;
+				m_vertexs[sprite->m_offset + 3].m_texels[1] = sprite->m_region.m_y + sprite->m_region.m_height;
+
+				m_update_renderdata = true;
+				sprite->m_dirty     = false;
+			}
+		}
+
+		if (m_update_renderdata)
+		{
+			glNamedBufferSubData(m_vb.id(), 0, sizeof(qs::SpriteVertex) * m_vertexs.size(), m_vertexs.data());
+			m_update_renderdata = false;
+		}
+	}
+
 	void SpriteBatch::clear() noexcept
 	{
 		m_texture = nullptr;

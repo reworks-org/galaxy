@@ -74,6 +74,15 @@ namespace qs
 		void update();
 
 		///
+		/// \brief Update spritebatch vertexs.
+		///
+		/// Apply a transform to all batched sprites. Checks if transform is dirty first.
+		///
+		/// \param transform Provide a global transform to apply to all batched sprites ontop of their transforms.
+		///
+		void update(qs::Transform* transform);
+
+		///
 		/// Clears the spritebatch of data.
 		///
 		void clear() noexcept;
