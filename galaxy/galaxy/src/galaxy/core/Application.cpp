@@ -110,11 +110,11 @@ namespace galaxy
 			m_window->set_cursor_visibility(cursor);
 			if (cursor)
 			{
-				auto cursor_path = fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_textures, m_config->get<std::string>("cursor-image"));
+				auto cursor_path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + m_config->get<std::string>("cursor-image");
 				m_window->set_cursor_icon(cursor_path);
 			}
 
-			auto icon_path = fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_textures, m_config->get<std::string>("icon-file"));
+			auto icon_path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + m_config->get<std::string>("icon-file");
 			m_window->set_icon(icon_path);
 
 			// renderer
