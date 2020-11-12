@@ -151,6 +151,13 @@ namespace qs
 		///
 		[[nodiscard]] const int get_height() const noexcept;
 
+		///
+		/// Get region.
+		///
+		/// \return Reference to a rectangle of floats.
+		///
+		[[nodiscard]] const pr::Rect<float>& get_region() const noexcept;
+
 	protected:
 		///
 		/// Opacity of BatchedSprite.

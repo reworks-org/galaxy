@@ -126,4 +126,9 @@ namespace qs
 	{
 		return m_region.m_height;
 	}
+
+	const pr::Rect<float>& BatchedSprite::get_region() const noexcept
+	{
+		return m_region;
+	}
 } // namespace qs
