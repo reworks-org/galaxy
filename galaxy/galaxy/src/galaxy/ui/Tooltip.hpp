@@ -72,7 +72,7 @@ namespace galaxy
 		///
 		/// \brief Render the tooltip.
 		///
-		/// Required shaders: "text", "sprite".
+		/// Required shaders: "glyph", "sprite".
 		///
 		/// \param camera View camera to use when rendering.
 		///

@@ -81,7 +81,8 @@ namespace galaxy
 			/// \param pressed Texture when button is being pressed.
 			/// \param hover Texture when mouse is hovering over widget.
 			///
-			void create_from_atlas(std::string_view def, std::string_view pressed, std::string_view hover);
+			using qs::BatchedSprite::create;
+			void create(std::string_view def, std::string_view pressed, std::string_view hover);
 
 			///
 			/// Set the callback function.

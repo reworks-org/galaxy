@@ -34,3 +34,6 @@ update building instructions as needed
 update codecov
 fix ci
 https://lgtm.com/
+
+QUASAR:
+need to fix shader handling.

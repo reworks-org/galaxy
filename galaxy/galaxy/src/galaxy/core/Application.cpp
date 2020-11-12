@@ -110,13 +110,12 @@ namespace galaxy
 			m_window->set_cursor_visibility(cursor);
 			if (cursor)
 			{
-				m_window->set_cursor_icon(m_config->get<std::string>("cursor-image"));
+				auto cursor_path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + m_config->get<std::string>("cursor-image");
+				m_window->set_cursor_icon(cursor_path);
 			}
 
-			auto icon_path   = fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_textures, m_config->get<std::string>("icon-file"));
-			auto cursor_icon = fmt::format("{0}{1}{2}", galaxy::FileSystem::s_root, galaxy::FileSystem::s_textures, m_config->get<std::string>("cursor-image"));
+			auto icon_path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + m_config->get<std::string>("icon-file");
 			m_window->set_icon(icon_path);
-			m_window->set_cursor_icon(cursor_icon);
 
 			// renderer
 			m_renderer           = std::make_unique<qs::Renderer>();
@@ -145,13 +144,13 @@ namespace galaxy
 			//m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
 			//SL_HANDLE.m_serializer = m_serializer.get();
 
-			// FontBook
-			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
-			SL_HANDLE.m_fontbook = m_fontbook.get();
-
 			// ShaderBook
 			m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 			SL_HANDLE.m_shaderbook = m_shaderbook.get();
+
+			// FontBook
+			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
+			SL_HANDLE.m_fontbook = m_fontbook.get();
 
 			// Register all usertypes used by this application for sol3.
 			Lua::register_types();

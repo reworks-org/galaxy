@@ -36,7 +36,7 @@ namespace qs
 		///
 		/// \return True if successful.
 		///
-		Font(std::string_view filepath, const unsigned int size);
+		Font(std::string_view filepath, const int size);
 
 		///
 		/// Copy constructor.
@@ -71,7 +71,7 @@ namespace qs
 		///
 		/// \return True if successful.
 		///
-		bool load(std::string_view filepath, const unsigned int size);
+		bool load(std::string_view filepath, const int size);
 
 		///
 		/// Get a character.

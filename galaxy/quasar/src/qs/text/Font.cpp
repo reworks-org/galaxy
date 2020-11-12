@@ -24,7 +24,7 @@ namespace qs
 	{
 	}
 
-	Font::Font(std::string_view filepath, const unsigned int size)
+	Font::Font(std::string_view filepath, const int size)
 	    : m_height {0}
 	{
 		if (!load(filepath, size))
@@ -57,7 +57,7 @@ namespace qs
 		m_characters.clear();
 	}
 
-	bool Font::load(std::string_view filepath, const unsigned int size)
+	bool Font::load(std::string_view filepath, const int size)
 	{
 		auto path    = std::filesystem::path {filepath};
 		bool success = true;
@@ -77,7 +77,7 @@ namespace qs
 			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 			FT_UInt index = 0;
-			char c        = FT_Get_First_Char(face, &index);
+			auto c        = FT_Get_First_Char(face, &index);
 			while (index)
 			{
 				FT_Load_Char(face, c, FT_LOAD_RENDER);

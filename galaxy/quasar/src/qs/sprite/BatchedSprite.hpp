@@ -65,7 +65,7 @@ namespace qs
 		/// \param region Region defined on the texture.
 		/// \param z_level Z-Level of sprite.
 		///
-		void create(const pr::Rect<float>& region, const unsigned int z_level) noexcept;
+		void create(const pr::Rect<float>& region, const unsigned int z_level);
 
 		///
 		/// Set opacity.
@@ -150,6 +150,13 @@ namespace qs
 		/// \return Height as int. int over unsigned for compat with float.
 		///
 		[[nodiscard]] const int get_height() const noexcept;
+
+		///
+		/// Get region.
+		///
+		/// \return Reference to a rectangle of floats.
+		///
+		[[nodiscard]] const pr::Rect<float>& get_region() const noexcept;
 
 	protected:
 		///

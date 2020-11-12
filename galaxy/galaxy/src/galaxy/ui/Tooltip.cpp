@@ -24,7 +24,7 @@ namespace galaxy
 		m_sprite.load(sprite);
 		m_sprite.create<qs::BufferStatic>();
 
-		m_text.load(*m_theme->m_fonts->get(font), *m_theme->m_shaders->get("text"), m_theme->m_font_col);
+		m_text.load(*m_theme->m_fonts->get(font), *m_theme->m_shaders->get("glyph"), m_theme->m_font_col);
 		m_text.create(text);
 	}
 

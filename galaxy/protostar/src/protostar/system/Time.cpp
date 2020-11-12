@@ -13,13 +13,16 @@
 namespace pr
 {
 	Timer::Timer()
-	    : m_repeat {false}, m_delay {0}
+	    : m_is_stopped {false}, m_repeat {false}, m_delay {0}
 	{
 	}
 
 	Timer::~Timer()
 	{
-		stop();
+		if (!m_is_stopped)
+		{
+			stop();
+		}
 	}
 
 	void Timer::set_repeating(bool repeat)
@@ -33,6 +36,8 @@ namespace pr
 		m_repeat = false;
 		m_thread.request_stop();
 		m_thread.join();
+
+		m_is_stopped = true;
 	}
 
 	const double time_since_epoch()

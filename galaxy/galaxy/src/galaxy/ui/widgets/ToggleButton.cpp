@@ -24,7 +24,7 @@ namespace galaxy
 		{
 		}
 
-		void ToggleButton::create_from_atlas(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover)
+		void ToggleButton::create(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover)
 		{
 			auto opt0 = m_theme->m_atlas.get_region(on);
 			if (opt0 != std::nullopt)

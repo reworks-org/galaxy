@@ -32,7 +32,6 @@ namespace qs
 	    : m_projection(1.0f), m_framebuffer(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
-
 		create(width, height);
 	}
 
@@ -104,26 +103,10 @@ namespace qs
 
 	void RenderTexture::change_size(const int width, const int height)
 	{
-		m_width  = width;
-		m_height = height;
+		glDeleteFramebuffers(1, &m_framebuffer);
+		glGenFramebuffers(1, &m_framebuffer);
 
-		if (m_width < 1)
-		{
-			m_width = 1;
-		}
-
-		if (m_height < 1)
-		{
-			m_height = 1;
-		}
-
-		m_projection = glm::ortho(0.0f, static_cast<float>(m_width), static_cast<float>(m_height), 0.0f, -1.0f, 1.0f);
-
-		glBindTexture(GL_TEXTURE_2D, m_texture);
-
-		glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_texture_format, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
-
-		glBindTexture(GL_TEXTURE_2D, 0);
+		create(width, height);
 	}
 
 	void RenderTexture::bind() noexcept

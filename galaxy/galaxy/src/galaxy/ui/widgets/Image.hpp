@@ -67,7 +67,8 @@ namespace galaxy
 			///
 			/// \param name Name of the texture to use.
 			///
-			void create_from_atlas(std::string_view name);
+			using qs::BatchedSprite::create;
+			void create(std::string_view name);
 
 			///
 			/// Sets position without moving the object.

@@ -69,13 +69,14 @@ namespace galaxy
 			///
 			/// \brief Create textinput.
 			///
-			/// Needs "text" shader and "line" shader.
+			/// Needs "glyph" shader and "line" shader.
 			///
 			/// \param textinput Texture of the input field.
 			/// \param font Font for the inputted text.
 			/// \param border_width Border on texture around input field.
 			///
-			void create_from_atlas(std::string_view textinput, std::string_view font, float border_width);
+			using qs::BatchedSprite::create;
+			void create(std::string_view textinput, std::string_view font, float border_width);
 
 			///
 			/// Triggered upon mouse movement.

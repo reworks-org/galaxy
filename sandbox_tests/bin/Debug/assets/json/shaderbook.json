@@ -14,16 +14,16 @@
 			"sprite.fs"
 		],
 		[
-			"text.vs",
-			"text.fs"
-		],
-		[
 			"line.vs",
 			"line.fs"
 		],
 		[
 			"point.vs",
 			"point.fs"
+		],
+		[
+			"glyph.vs",
+			"glyph.fs"
 		]
 	]
 }
