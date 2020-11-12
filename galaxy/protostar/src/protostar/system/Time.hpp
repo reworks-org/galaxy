@@ -80,6 +80,11 @@ namespace pr
 
 	private:
 		///
+		/// Checks if thread has already been destroyed.
+		///
+		bool m_is_stopped;
+
+		///
 		/// Is function repeating on thread.
 		///
 		bool m_repeat;
