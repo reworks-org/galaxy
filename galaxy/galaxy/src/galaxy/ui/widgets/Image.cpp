@@ -64,9 +64,12 @@ namespace galaxy
 
 		void Image::render(qs::Camera& camera)
 		{
-			if (m_tooltip->can_draw())
+			if (m_tooltip)
 			{
-				m_tooltip->render(camera);
+				if (m_tooltip->can_draw())
+				{
+					m_tooltip->render(camera);
+				}
 			}
 		}
 	} // namespace widget
