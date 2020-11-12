@@ -81,7 +81,7 @@ namespace qs
 		shader.set_uniform<float>("u_width", static_cast<float>(sprite_batch.get_width()));
 		shader.set_uniform<float>("u_height", static_cast<float>(sprite_batch.get_height()));
 
-		glDrawElements(GL_TRIANGLES, sprite_batch.index_count(), GL_UNSIGNED_INT, nullptr);
+		glDrawElements(GL_TRIANGLES, sprite_batch.get_used_index_count(), GL_UNSIGNED_INT, nullptr);
 	}
 
 	void Renderer::draw_sprite_to_texture(qs::Sprite* sprite, qs::RenderTexture& target, qs::Shader& shader)
