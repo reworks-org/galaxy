@@ -22,7 +22,7 @@ namespace galaxy
 		void Label::create(std::string_view text, std::string_view font)
 		{
 			auto fontptr   = m_theme->m_fonts->get(font);
-			auto shaderptr = m_theme->m_shaders->get("text");
+			auto shaderptr = m_theme->m_shaders->get("glyph");
 			m_text.load(*fontptr, *shaderptr, m_theme->m_font_col);
 			m_text.create(text);
 

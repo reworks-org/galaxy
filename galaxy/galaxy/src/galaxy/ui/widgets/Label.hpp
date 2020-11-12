@@ -64,7 +64,7 @@ namespace galaxy
 			///
 			/// \brief Create the label widget.
 			///
-			/// Needs a shader called "text" to draw glyphs to a rendertexture in theme shaderbook.
+			/// Need a 'glyph' shader in shaderbook.
 			///
 			/// \param text Text to display.
 			/// \param font Font to use.

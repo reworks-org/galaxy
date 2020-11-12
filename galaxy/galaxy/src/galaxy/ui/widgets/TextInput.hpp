@@ -69,7 +69,7 @@ namespace galaxy
 			///
 			/// \brief Create textinput.
 			///
-			/// Needs "text" shader and "line" shader.
+			/// Needs "glyph" shader and "line" shader.
 			///
 			/// \param textinput Texture of the input field.
 			/// \param font Font for the inputted text.
