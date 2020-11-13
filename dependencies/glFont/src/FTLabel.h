@@ -7,6 +7,7 @@
 
 #include "GLFont.h"
 
+#include <string>
 #include <memory> // for use of shared_ptr
 #include <map>
 #include <vector>
@@ -22,8 +23,6 @@
 #ifndef DEG_TO_RAD
 #define DEG_TO_RAD PI / 180.0
 #endif
-
-using namespace std;
 
 class FontAtlas;
 
@@ -44,10 +43,10 @@ public:
 	};
 
 	// Ctor takes a pointer to a font face
-	FTLabel(shared_ptr<GLFont> ftFace, int windowWidth, int windowHeight);
+	FTLabel(std::shared_ptr<GLFont> ftFace, int windowWidth, int windowHeight);
 	FTLabel(GLFont* ftFace, int windowWidth, int windowHeight);
-	FTLabel(shared_ptr<GLFont> ftFace, const char* text, float x, float y, int width, int height, int windowWidth, int windowHeight);
-	FTLabel(shared_ptr<GLFont> ftFace, const char* text, float x, float y, int windowWidth, int windowHeight);
+	FTLabel(std::shared_ptr<GLFont> ftFace, const char* text, float x, float y, int width, int height, int windowWidth, int windowHeight);
+	FTLabel(std::shared_ptr<GLFont> ftFace, const char* text, float x, float y, int windowWidth, int windowHeight);
 	~FTLabel();
 
 	void setWindowSize(int width, int height);
@@ -59,10 +58,10 @@ public:
 
 	// Setters
 	void setText(char* text);
-	void setText(string text);
+	void setText(std::string text);
 	void setPosition(float x, float y);
 	void setSize(int width, int height);
-	void setFont(shared_ptr<GLFont> ftFace);
+	void setFont(std::shared_ptr<GLFont> ftFace);
 	void setColor(float r, float b, float g, float a); // RGBA values are 0 - 1.0
 	void setAlignment(FontFlags alignment);
 	void setPixelSize(int size);
@@ -71,7 +70,7 @@ public:
 	void appendFontFlags(int flags);
 
 	// Getters
-	string getText();
+	std::string getText();
 	float getX();
 	float getY();
 	int getWidth();
@@ -110,7 +109,7 @@ private:
 		}
 	};
 
-	shared_ptr<GLFont> _ftFace;
+	std::shared_ptr<GLFont> _ftFace;
 	FT_Face _face;
 	FT_Error _error;
 	FT_GlyphSlot _g;
@@ -123,9 +122,9 @@ private:
 	GLint _uniformTextColorHandle;
 	GLint _uniformMVPHandle;
 
-	char* _text;
+	std::string _text;
 
-	vector<Point> _coords;
+	std::vector<Point> _coords;
 
 	// Holds texture atlases for different character pixel sizes
 	std::map<int, std::shared_ptr<FontAtlas>> _fontAtlas;
@@ -177,7 +176,7 @@ private:
 	// Calculate offset needed for center- or left-aligned text
 	void calculateAlignment(const char* text, float& x);
 	// Split text into words separated by spaces
-	vector<string> splitText(const char* text);
+	std::vector<std::string> splitText(const char* text);
 	// Returns the width (in pixels) of the string, given the current pixel size
 	int calcWidth(const char* text);
 
