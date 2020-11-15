@@ -244,7 +244,6 @@ add_dependencies(tests
 # Set header directories.
 set(all_header_dirs
 	"${GALAXY_FREETYPE_HEADERS}"
-	"${CMAKE_SOURCE_DIR}/dependencies/glFont/src"
 	"${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT"
 	"${CMAKE_SOURCE_DIR}/dependencies/c++20"
 	"${CMAKE_SOURCE_DIR}/dependencies/glad"
