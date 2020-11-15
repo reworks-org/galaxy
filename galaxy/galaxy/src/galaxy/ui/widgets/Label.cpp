@@ -21,9 +21,7 @@ namespace galaxy
 	{
 		void Label::create(std::string_view text, std::string_view font)
 		{
-			auto fontptr   = m_theme->m_fonts->get(font);
-			auto shaderptr = m_theme->m_shaders->get("glyph");
-			m_text.load(*fontptr, *shaderptr, m_theme->m_font_col);
+			m_text.load(m_theme->m_fonts->get(font), m_theme->m_font_col);
 			m_text.create(text);
 
 			m_bounds.m_width  = m_text.get_width();
@@ -60,7 +58,7 @@ namespace galaxy
 
 		void Label::render(qs::Camera& camera)
 		{
-			auto ss = m_theme->m_shaders->get("sprite");
+			auto ss = m_theme->m_shaders->get("text");
 
 			ss->bind();
 			ss->set_uniform("u_cameraProj", camera.get_proj());

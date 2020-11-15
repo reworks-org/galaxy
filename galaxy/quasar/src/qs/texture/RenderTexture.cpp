@@ -36,6 +36,7 @@ namespace qs
 	}
 
 	RenderTexture::RenderTexture(RenderTexture&& rt)
+	    : BaseTexture {std::move(rt)}
 	{
 		this->m_projection  = std::move(rt.m_projection);
 		this->m_framebuffer = rt.m_framebuffer;
@@ -47,8 +48,9 @@ namespace qs
 	{
 		if (this != &rt)
 		{
-			this->m_projection  = std::move(rt.m_projection);
-			this->m_framebuffer = rt.m_framebuffer;
+			BaseTexture::operator=(std::move(rt));
+			this->m_projection   = std::move(rt.m_projection);
+			this->m_framebuffer  = rt.m_framebuffer;
 
 			rt.m_framebuffer = 0;
 		}

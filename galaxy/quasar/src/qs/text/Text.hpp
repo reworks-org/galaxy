@@ -8,13 +8,8 @@
 #ifndef QUASAR_TEXT_HPP_
 #define QUASAR_TEXT_HPP_
 
-#include <protostar/graphics/Colour.hpp>
-
-#include "qs/core/Shader.hpp"
-#include "qs/core/Transform.hpp"
-#include "qs/core/VertexData.hpp"
+#include "qs/sprite/SpriteBatch.hpp"
 #include "qs/text/Font.hpp"
-#include "qs/texture/RenderTexture.hpp"
 
 ///
 /// Core namespace.
@@ -24,7 +19,7 @@ namespace qs
 	///
 	/// Creates text for use with OpenGL.
 	///
-	class Text final : public qs::VertexData, public qs::Transform
+	class Text final : public qs::Transform
 	{
 	public:
 		///
@@ -40,7 +35,7 @@ namespace qs
 		///
 		/// Move constructor.
 		///
-		Text(Text&&);
+		Text(Text&&) = default;
 
 		///
 		/// Copy assignment operator.
@@ -50,7 +45,7 @@ namespace qs
 		///
 		/// Move assignment operator.
 		///
-		Text& operator=(Text&&);
+		Text& operator=(Text&&) = default;
 
 		///
 		/// Destructor.
@@ -61,10 +56,9 @@ namespace qs
 		/// Load all data into text to prep for creation.
 		///
 		/// \param font Font to render text with.
-		/// \param shader Shader to use when creating rendertexture.
 		/// \param col Colour of the text.
 		///
-		void load(Font& font, Shader& shader, const pr::Colour& col);
+		void load(qs::Font* font, const pr::Colour& col);
 
 		///
 		/// Create the text object.
@@ -91,6 +85,13 @@ namespace qs
 		void unbind();
 
 		///
+		/// Get colour of text.
+		///
+		/// \return Size 4 array of floats.
+		///
+		[[nodiscard]] std::array<float, 4> get_colour();
+
+		///
 		/// \brief Get texture width.
 		///
 		/// Is cached for performance.
@@ -108,7 +109,38 @@ namespace qs
 		///
 		[[nodiscard]] const int get_height() const;
 
+		///
+		/// Get batch width.
+		///
+		/// \return Width as int.
+		///
+		[[nodiscard]] const int get_batch_width() const;
+
+		///
+		/// Get batch height.
+		///
+		/// \return Height as int.
+		///
+		[[nodiscard]] const int get_batch_height() const;
+
+		///
+		/// Gets the index count.
+		///
+		/// \return Const uint.
+		///
+		[[nodiscard]] const unsigned int index_count() const;
+
 	private:
+		///
+		/// Width cache.
+		///
+		int m_width;
+
+		///
+		/// Height cache.
+		///
+		int m_height;
+
 		///
 		/// Colour of the text.
 		///
@@ -120,24 +152,14 @@ namespace qs
 		Font* m_font;
 
 		///
-		/// Pointer to shader used for rendering text characters.
+		/// Spritebatch.
 		///
-		Shader* m_shader;
+		qs::SpriteBatch m_batch;
 
 		///
-		/// Pre-rendered texture of text.
+		/// Character <-> batched sprite hashmap.
 		///
-		RenderTexture m_text;
-
-		///
-		/// Glyph vertex buffer.
-		///
-		unsigned int m_vbo;
-
-		///
-		/// Glyph vertex array buffer.
-		///
-		unsigned int m_vao;
+		robin_hood::unordered_map<char, qs::BatchedSprite> m_char_sprites;
 	};
 } // namespace qs
 

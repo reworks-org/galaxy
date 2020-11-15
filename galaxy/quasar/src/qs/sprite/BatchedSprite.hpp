@@ -23,10 +23,8 @@ namespace qs
 	///
 	class BatchedSprite : public qs::Transform
 	{
-		///
-		/// Allows access to internals that should not be publicly exposed.
-		///
 		friend class SpriteBatch;
+		friend class Text;
 
 	public:
 		///
@@ -57,7 +55,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~BatchedSprite() noexcept = default;
+		virtual ~BatchedSprite();
 
 		///
 		/// Sets the texture region for the batched sprite.

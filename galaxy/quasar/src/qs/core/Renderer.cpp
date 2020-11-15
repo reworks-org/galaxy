@@ -100,10 +100,9 @@ namespace qs
 	{
 		text.bind();
 
-		shader.set_uniform("u_transform", text.get_transform());
-		shader.set_uniform("u_opacity", text.opacity());
-		shader.set_uniform<float>("u_width", static_cast<float>(text.get_width()));
-		shader.set_uniform<float>("u_height", static_cast<float>(text.get_height()));
+		shader.set_uniform("u_colour", text.get_colour());
+		shader.set_uniform<float>("u_width", static_cast<float>(text.get_batch_width()));
+		shader.set_uniform<float>("u_height", static_cast<float>(text.get_batch_height()));
 
 		glDrawElements(GL_TRIANGLES, text.index_count(), GL_UNSIGNED_INT, nullptr);
 	}

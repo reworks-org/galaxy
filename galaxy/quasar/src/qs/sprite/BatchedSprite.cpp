@@ -38,6 +38,11 @@ namespace qs
 		return *this;
 	}
 
+	BatchedSprite::~BatchedSprite()
+	{
+		m_offset = 0;
+	}
+
 	void BatchedSprite::create(const pr::Rect<float>& region, const unsigned int z_level)
 	{
 		m_region  = region;

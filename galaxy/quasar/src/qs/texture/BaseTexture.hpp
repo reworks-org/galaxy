@@ -23,7 +23,7 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		BaseTexture(const BaseTexture&) noexcept = delete;
+		BaseTexture(const BaseTexture&) = delete;
 
 		///
 		/// Move constructor.
@@ -33,7 +33,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		BaseTexture& operator=(const BaseTexture&) noexcept = delete;
+		BaseTexture& operator=(const BaseTexture&) = delete;
 
 		///
 		/// Move assignment operator.

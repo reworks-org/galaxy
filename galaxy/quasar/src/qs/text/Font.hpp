@@ -10,7 +10,9 @@
 
 #include <robin_hood.h>
 
+#include "qs/core/Shader.hpp"
 #include "qs/text/Character.hpp"
+#include "qs/texture/RenderTexture.hpp"
 
 ///
 /// Core namespace.
@@ -46,7 +48,7 @@ namespace qs
 		///
 		/// Move constructor.
 		///
-		Font(Font&&);
+		Font(Font&&) = default;
 
 		///
 		/// Copy assignment operator.
@@ -56,7 +58,7 @@ namespace qs
 		///
 		/// Move assignment operator.
 		///
-		Font& operator=(Font&&);
+		Font& operator=(Font&&) = default;
 
 		///
 		/// Destructor.
@@ -64,14 +66,14 @@ namespace qs
 		~Font();
 
 		///
-		/// Loads the font and sets up characters.
+		/// Creates the font and sets up characters.
 		///
 		/// \param filepath Path to the font file.
 		/// \param size Font size.
 		///
 		/// \return True if successful.
 		///
-		bool load(std::string_view filepath, const int size);
+		bool create(std::string_view filepath, const int size);
 
 		///
 		/// Get a character.
@@ -80,7 +82,14 @@ namespace qs
 		///
 		/// \return Pointer to character object.
 		///
-		[[nodiscard]] Character* get_char(char c);
+		[[nodiscard]] qs::Character* get_char(char c);
+
+		///
+		/// Get fontmap.
+		///
+		/// \return Pointer to fontmap.
+		///
+		[[nodiscard]] qs::RenderTexture* get_fontmap();
 
 		///
 		/// Retrieve width of a string of text.
@@ -105,7 +114,17 @@ namespace qs
 		///
 		/// Character map to lookup characters.
 		///
-		robin_hood::unordered_map<char, Character> m_characters;
+		robin_hood::unordered_map<char, qs::Character> m_characters;
+
+		///
+		/// Render Texture.
+		///
+		qs::RenderTexture m_fontmap;
+
+		///
+		/// Shader to draw font with.
+		///
+		qs::Shader m_shader;
 	};
 } // namespace qs
 

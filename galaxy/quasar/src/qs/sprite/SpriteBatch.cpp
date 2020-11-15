@@ -79,15 +79,11 @@ namespace qs
 			}
 			else
 			{
-				if ((m_offset + 4) > m_vertexs.size())
-				{
-					m_vertexs.resize(m_offset + 4);
-				}
-
 				sprite->m_offset = m_offset;
 				m_offset += 4;
 				m_used_indexs += 6;
 
+				m_vertexs.resize(m_offset);
 				m_sprites.push_back(sprite);
 				sort();
 			}
@@ -185,8 +181,9 @@ namespace qs
 		m_texture = nullptr;
 		m_sprites.clear();
 		m_vertexs.clear();
-		m_offset      = 0;
-		m_used_indexs = 0;
+		m_offset            = 0;
+		m_used_indexs       = 0;
+		m_update_renderdata = false;
 	}
 
 	void SpriteBatch::bind() noexcept
