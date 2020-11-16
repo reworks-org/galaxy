@@ -59,6 +59,9 @@ namespace sb
 
 		auto input_field = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "input_field.png";
 
+		auto textbox_box = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "textbox.png";
+		auto arrow       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "arrow.png";
+
 		auto demo_font  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
@@ -68,7 +71,6 @@ namespace sb
 		m_theme.m_window   = SL_HANDLE.window();
 		m_theme.m_font_col = RED;
 
-		m_theme.m_fonts->create("public16", demo_font, 16);
 		m_theme.m_atlas.add(demo_tex);
 		m_theme.m_atlas.add(button_default);
 		m_theme.m_atlas.add(button_pressed);
@@ -82,6 +84,8 @@ namespace sb
 		m_theme.m_atlas.add(tb_on_hover);
 		m_theme.m_atlas.add(tb_off_hover);
 		m_theme.m_atlas.add(input_field);
+		m_theme.m_atlas.add(textbox_box);
+		m_theme.m_atlas.add(arrow);
 
 		rtt_shader->bind();
 		m_theme.m_atlas.create(*SL_HANDLE.renderer(), *rtt_shader);
@@ -89,7 +93,7 @@ namespace sb
 		m_gui.set_theme(&m_theme);
 
 		auto* image = m_gui.create_widget<galaxy::widget::Image>();
-		image->create_from_atlas("demo_nineslice");
+		image->create("demo_nineslice");
 
 		auto* tooltip = m_gui.create_tooltip_for_widget(image);
 		tooltip->create(demo_tex, "Demo Test", "public16");
@@ -101,7 +105,7 @@ namespace sb
 		label->set_pos(300, 300);
 
 		auto* button = m_gui.create_widget<galaxy::widget::Button>();
-		button->create_from_atlas("button_default", "button_pressed", "button_hover");
+		button->create("button_default", "button_pressed", "button_hover");
 		button->set_pos(250, 250);
 		button->set_callback([&]() {
 			PL_LOG(PL_INFO, "Button Pressed.");
@@ -126,19 +130,29 @@ namespace sb
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(progressbar);
 
 		auto* togglebutton = m_gui.create_widget<galaxy::widget::ToggleButton>();
-		togglebutton->create_from_atlas("tb_on", "tb_off", "tb_on_hover", "tb_off_hover");
+		togglebutton->create("tb_on", "tb_off", "tb_on_hover", "tb_off_hover");
 		togglebutton->set_pos(150, 150);
 
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(togglebutton);
 		m_gui.add_event_to_widget<pr::MousePressedEvent>(togglebutton);
 
 		auto* textinput = m_gui.create_widget<galaxy::widget::TextInput>();
-		textinput->create_from_atlas("input_field", "public16", 5.0f);
+		textinput->create("input_field", "public16", 5.0f);
 		textinput->set_pos(650, 650);
 
 		m_gui.add_event_to_widget<pr::MouseMovedEvent>(textinput);
 		m_gui.add_event_to_widget<pr::MousePressedEvent>(textinput);
 		m_gui.add_event_to_widget<pr::KeyDownEvent>(textinput);
+
+		auto* textbox = m_gui.create_widget<galaxy::widget::Textbox>();
+		textbox->create("textbox", "arrow", "public16", 5.0f);
+		textbox->set_pos(600, 0);
+
+		std::vector<std::string> messages = {"Hello there!", "How are you today?", "I am good,\nthanks!"};
+		textbox->set_text(messages);
+
+		m_gui.add_event_to_widget<pr::MouseMovedEvent>(textbox);
+		m_gui.add_event_to_widget<pr::KeyDownEvent>(textbox);
 	}
 
 	GUILayer::~GUILayer()
