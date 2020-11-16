@@ -34,22 +34,22 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		Texture(const Texture&) noexcept = delete;
+		Texture(const Texture&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Texture(Texture&&) noexcept = default;
+		Texture(Texture&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Texture& operator=(const Texture&) noexcept = delete;
+		Texture& operator=(const Texture&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Texture& operator=(Texture&&) noexcept = default;
+		Texture& operator=(Texture&&) = default;
 
 		///
 		/// Virtual destructor.

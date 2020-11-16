@@ -9,6 +9,7 @@
 #define QUASAR_CHARACTER_HPP_
 
 #include <glm/vec2.hpp>
+#include <protostar/graphics/Rect.hpp>
 
 ///
 /// Core namespace.
@@ -74,6 +75,11 @@ namespace qs
 		/// Character advance.
 		///
 		unsigned int m_advance;
+
+		///
+		/// Texture region.
+		///
+		pr::Rect<float> m_region;
 	};
 } // namespace qs
 

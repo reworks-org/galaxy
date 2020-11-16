@@ -17,6 +17,11 @@
 #define FTLIB qs::FreeTypeLib::handle()
 
 ///
+/// OK return value macro.
+///
+#define FT_OK 0
+
+///
 /// Core namespace.
 ///
 namespace qs

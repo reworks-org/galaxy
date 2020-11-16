@@ -13,6 +13,7 @@
 #include "qs/vertex/InstanceBuffer.hpp"
 #include "qs/vertex/type/PrimitiveVertex.hpp"
 #include "qs/vertex/type/SpriteVertex.hpp"
+#include "qs/vertex/type/BatchedVertex.hpp"
 
 ///
 /// Core namespace.
@@ -70,13 +71,23 @@ namespace qs
 	};
 
 	///
-	/// \brief Specifies "instance offfset" vertex attribute type at compile time.
+	/// \brief Specifies "instance offset" vertex attribute type at compile time.
 	///
 	/// Cannot be instansiated.
 	///
 	struct VAInstanceOffset final
 	{
 		VAInstanceOffset() = delete;
+	};
+
+	///
+	/// \brief Specifies "opacity" vertex attribute type at compile time.
+	///
+	/// Cannot be instansiated.
+	///
+	struct VAOpacity final
+	{
+		VAOpacity() = delete;
 	};
 
 	///
@@ -99,14 +110,16 @@ namespace qs
 	concept is_vertex_attribute = (std::is_same<Type, VAPosition>::value ||
 				       std::is_same<Type, VAColour>::value ||
 				       std::is_same<Type, VATexel>::value ||
-				       std::is_same<Type, VAInstanceOffset>::value);
+				       std::is_same<Type, VAInstanceOffset>::value ||
+				       std::is_same<Type, VAOpacity>::value);
 
 	///
 	/// Concept to ensure template parameter is a vertex.
 	///
 	template<typename Type>
 	concept is_vertex = (std::is_same<Type, SpriteVertex>::value ||
-			     std::is_same<Type, PrimitiveVertex>::value);
+			     std::is_same<Type, PrimitiveVertex>::value ||
+			     std::is_same<Type, BatchedVertex>::value);
 
 	///
 	/// Allows instance buffer to be used as a vertex attribute array.

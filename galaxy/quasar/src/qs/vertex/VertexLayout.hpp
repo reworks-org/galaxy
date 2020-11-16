@@ -90,6 +90,7 @@ namespace qs
 		// constexpr will discard the branch that is false and it wont be compiled.
 		constexpr bool is_prim_vertex   = std::is_same<VertexType, PrimitiveVertex>::value;
 		constexpr bool is_sprite_vertex = std::is_same<VertexType, SpriteVertex>::value;
+		constexpr bool is_batch_vertex  = std::is_same<VertexType, BatchedVertex>::value;
 
 		if constexpr (is_sprite_vertex)
 		{
@@ -119,6 +120,25 @@ namespace qs
 			else
 			{
 				PL_LOG(PL_FATAL, "Failed to add vertex attribute for primitive vertex.");
+			}
+		}
+		else if constexpr (is_batch_vertex)
+		{
+			if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
+			{
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(BatchedVertex, m_pos));
+			}
+			else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
+			{
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(BatchedVertex, m_texels));
+			}
+			else if constexpr (std::is_same<VertexAttribute, VAOpacity>::value)
+			{
+				m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(BatchedVertex, m_opacity));
+			}
+			else
+			{
+				PL_LOG(PL_FATAL, "Failed to add vertex attribute for batched vertex.");
 			}
 		}
 	}

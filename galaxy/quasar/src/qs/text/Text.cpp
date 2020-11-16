@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <glad/glad.h>
-
 #include "Text.hpp"
 
 ///
@@ -15,222 +13,115 @@
 namespace qs
 {
 	Text::Text()
-	    : m_font {nullptr}, m_shader {nullptr}, m_vbo {0}, m_vao {0}
+	    : m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch(1000)
 	{
-		glGenVertexArrays(1, &m_vao);
-		glGenBuffers(1, &m_vbo);
-	}
-
-	Text::Text(Text&& t)
-	{
-		this->m_colour = std::move(t.m_colour);
-		this->m_font   = t.m_font;
-		this->m_shader = t.m_shader;
-		this->m_text   = std::move(t.m_text);
-
-		t.m_font   = nullptr;
-		t.m_shader = nullptr;
-	}
-
-	Text& Text::operator=(Text&& t)
-	{
-		if (this != &t)
-		{
-			this->m_colour = std::move(t.m_colour);
-			this->m_font   = t.m_font;
-			this->m_shader = t.m_shader;
-			this->m_text   = std::move(t.m_text);
-
-			t.m_font   = nullptr;
-			t.m_shader = nullptr;
-		}
-
-		return *this;
 	}
 
 	Text::~Text()
 	{
-		glDeleteBuffers(1, &m_vbo);
-		glDeleteVertexArrays(1, &m_vao);
+		m_batch.clear();
+		m_batch_data.clear();
 	}
 
-	void Text::load(Font& font, Shader& shader, const pr::Colour& col)
+	void Text::load(qs::Font* font, const pr::Colour& col)
 	{
-		m_font   = &font;
-		m_shader = &shader;
+		m_font   = font;
 		m_colour = col;
 	}
 
 	void Text::create(std::string_view text)
 	{
-		int glyph_x = 0;
-
-		glBindVertexArray(m_vao);
-		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, nullptr, GL_DYNAMIC_DRAW);
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
-
-		if (text.empty())
+		m_batch.set_texture(m_font->get_fontmap());
+		if (!text.empty())
 		{
-			m_text.create(0, 0);
-			m_text.bind();
-			m_text.unbind();
+			float x_offset       = 0.0f;
+			float y_offset       = 0.0f;
+			unsigned int counter = 0;
+			for (const char c : text)
+			{
+				if (c == '\n')
+				{
+					x_offset = 0.0f;
+					y_offset += m_font->get_height();
+				}
+				else
+				{
+					auto* c_obj = m_font->get_char(c);
+
+					if (c_obj != nullptr)
+					{
+						m_batch_data.emplace(counter, qs::BatchedSprite {});
+
+						auto* spr = &m_batch_data[counter];
+						spr->create(c_obj->m_region, 1);
+						spr->set_pos(x_offset + c_obj->m_bearing.x, y_offset);
+						x_offset += (c_obj->m_advance >> 6);
+
+						m_batch.add(spr);
+					}
+				}
+
+				counter++;
+			}
+
+			m_width  = m_font->get_width(text);
+			m_height = m_font->get_height();
 		}
 		else
 		{
-			m_text.create(m_font->get_width(text), m_font->get_height());
-			m_text.bind();
-			m_shader->bind();
-
-			auto col = m_colour.get_normalized();
-			m_shader->set_uniform("u_colour", col[0], col[1], col[2]);
-			m_shader->set_uniform("u_proj", m_text.get_proj());
-
-			std::for_each(text.begin(), text.end(), [&](const char c) {
-				Character* c_obj = m_font->get_char(c);
-
-				float x = static_cast<float>(glyph_x + c_obj->m_bearing.x);
-				float y = static_cast<float>(m_font->get_height() - c_obj->m_bearing.y);
-				float w = static_cast<float>(c_obj->m_size.x);
-				float h = static_cast<float>(c_obj->m_size.y);
-
-				float vertices[6][4] = {
-				    {x, y + h, 0.0f, 1.0f},
-				    {x + w, y, 1.0f, 0.0f},
-				    {x, y, 0.0f, 0.0f},
-
-				    {x, y + h, 0.0f, 1.0f},
-				    {x + w, y + h, 1.0f, 1.0f},
-				    {x + w, y, 1.0f, 0.0f}};
-
-				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-
-				glBindTexture(GL_TEXTURE_2D, c_obj->m_gl_texture);
-				glDrawArrays(GL_TRIANGLES, 0, 6);
-
-				glyph_x += (c_obj->m_advance >> 6);
-			});
-
-			m_text.unbind();
-			m_shader->unbind();
+			m_width  = 1;
+			m_height = 1;
 		}
 
-		glBindVertexArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glBindTexture(GL_TEXTURE_2D, 0);
-
-		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f);
-		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f, 0.0f + m_text.get_width(), 0.0f);
-		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f + m_text.get_height(), 0.0f + m_text.get_width(), 0.0f + m_text.get_height());
-		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_text.get_height(), 0.0f, 0.0f + m_text.get_height());
-
-		std::array<unsigned int, 6> ib_arr   = {0, 1, 3, 1, 2, 3};
-		std::vector<qs::SpriteVertex> vb_arr = {v1, v2, v3, v4};
-
-		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(vb_arr);
-		m_ib.create<qs::BufferStatic>(ib_arr);
-
-		m_layout.add<qs::SpriteVertex, qs::VAPosition>(2);
-		m_layout.add<qs::SpriteVertex, qs::VATexel>(2);
-
-		m_va.create<qs::SpriteVertex>(m_vb, m_ib, m_layout);
-
-		set_rotation_origin(m_text.get_width() * 0.5f, m_text.get_height() * 0.5f);
+		set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
 		m_dirty = true;
 	}
 
 	void Text::update_text(std::string_view text)
 	{
-		int glyph_x = 0;
-
-		glInvalidateBufferData(m_vbo);
-		glBindVertexArray(m_vao);
-		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, nullptr, GL_DYNAMIC_DRAW);
-
-		if (text.empty())
-		{
-			m_text.change_size(0, 0);
-			m_text.bind();
-			m_text.unbind();
-		}
-		else
-		{
-			m_text.change_size(m_font->get_width(text), m_font->get_height());
-			m_text.bind();
-			m_shader->bind();
-
-			auto col = m_colour.get_normalized();
-			m_shader->set_uniform("u_colour", col[0], col[1], col[2]);
-			m_shader->set_uniform("u_proj", m_text.get_proj());
-
-			std::for_each(text.begin(), text.end(), [&](const char c) {
-				Character* c_obj = m_font->get_char(c);
-
-				float x = static_cast<float>(glyph_x + c_obj->m_bearing.x);
-				float y = static_cast<float>(m_font->get_height() - c_obj->m_bearing.y);
-				float w = static_cast<float>(c_obj->m_size.x);
-				float h = static_cast<float>(c_obj->m_size.y);
-
-				float vertices[6][4] = {
-				    {x, y + h, 0.0f, 1.0f},
-				    {x + w, y, 1.0f, 0.0f},
-				    {x, y, 0.0f, 0.0f},
-
-				    {x, y + h, 0.0f, 1.0f},
-				    {x + w, y + h, 1.0f, 1.0f},
-				    {x + w, y, 1.0f, 0.0f}};
-
-				glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-
-				glBindTexture(GL_TEXTURE_2D, c_obj->m_gl_texture);
-				glDrawArrays(GL_TRIANGLES, 0, 6);
-
-				glyph_x += (c_obj->m_advance >> 6);
-			});
-
-			m_text.unbind();
-			m_shader->unbind();
-		}
-
-		glBindVertexArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		glBindTexture(GL_TEXTURE_2D, 0);
-
-		auto v1 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f, 0.0f, 0.0f);
-		auto v2 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f, 0.0f + m_text.get_width(), 0.0f);
-		auto v3 = qs::make_vertex<qs::SpriteVertex>(0.0f + m_text.get_width(), 0.0f + m_text.get_height(), 0.0f + m_text.get_width(), 0.0f + m_text.get_height());
-		auto v4 = qs::make_vertex<qs::SpriteVertex>(0.0f, 0.0f + m_text.get_height(), 0.0f, 0.0f + m_text.get_height());
-
-		std::vector<qs::SpriteVertex> vb_arr = {v1, v2, v3, v4};
-		m_vb.create<qs::SpriteVertex, qs::BufferDynamic>(vb_arr);
-
-		set_rotation_origin(m_text.get_width() * 0.5f, m_text.get_height() * 0.5f);
-		m_dirty = true;
+		m_batch.clear();
+		m_batch_data.clear();
+		create(text);
 	}
 
 	void Text::bind()
 	{
-		m_va.bind();
-		glBindTexture(GL_TEXTURE_2D, m_text.gl_texture());
+		m_batch.update(this);
+		m_batch.bind();
 	}
 
 	void Text::unbind()
 	{
-		m_va.unbind();
-		glBindTexture(GL_TEXTURE_2D, 0);
+		m_batch.unbind();
+	}
+
+	std::array<float, 4> Text::get_colour()
+	{
+		return m_colour.get_normalized();
 	}
 
 	const int Text::get_width() const
 	{
-		return m_text.get_width();
+		return m_width;
 	}
 
 	const int Text::get_height() const
 	{
-		return m_font->get_height();
+		return m_height;
+	}
+
+	const int Text::get_batch_width() const
+	{
+		return m_batch.get_width();
+	}
+
+	const int Text::get_batch_height() const
+	{
+		return m_batch.get_height();
+	}
+
+	const unsigned int Text::index_count() const
+	{
+		return m_batch.get_used_index_count();
 	}
 } // namespace qs

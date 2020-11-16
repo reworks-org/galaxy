@@ -45,7 +45,7 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		RenderTexture(const RenderTexture&) noexcept = delete;
+		RenderTexture(const RenderTexture&) = delete;
 
 		///
 		/// Move constructor.
@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		RenderTexture& operator=(const RenderTexture&) noexcept = delete;
+		RenderTexture& operator=(const RenderTexture&) = delete;
 
 		///
 		/// Move assignment operator.

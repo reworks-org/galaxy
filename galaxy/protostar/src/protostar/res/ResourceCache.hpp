@@ -144,16 +144,16 @@ namespace pr
 		m_resources.emplace(
 		    std::piecewise_construct, std::make_tuple(str), std::make_tuple(Resource {std::forward<Args>(args)...}));
 
-		return &m_resources[str];
+		return &m_resources.at(str);
 	}
 
 	template<not_pointer_or_ref Resource>
 	inline Resource* ResourceCache<Resource>::move(std::string_view name, Resource& resource)
 	{
-		const auto str   = static_cast<std::string>(name);
-		m_resources[str] = std::move(resource);
+		const auto str = static_cast<std::string>(name);
+		m_resources.emplace(str, std::move(resource));
 
-		return &m_resources[str];
+		return &m_resources.at(str);
 	}
 
 	template<not_pointer_or_ref Resource>
@@ -162,7 +162,7 @@ namespace pr
 		const auto str = static_cast<std::string>(name);
 		if (m_resources.contains(str))
 		{
-			return &m_resources[str];
+			return &m_resources.at(str);
 		}
 		else
 		{

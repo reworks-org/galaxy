@@ -22,8 +22,8 @@
 			"point.fs"
 		],
 		[
-			"glyph.vs",
-			"glyph.fs"
+			"text.vs",
+			"text.fs"
 		]
 	]
 }
