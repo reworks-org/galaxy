@@ -15,6 +15,7 @@
 #include "galaxy/ui/Widget.hpp"
 #include "galaxy/ui/widgets/Slider.hpp"
 #include "galaxy/ui/widgets/ProgressBar.hpp"
+#include "galaxy/ui/widgets/Textbox.hpp"
 
 ///
 /// Core namespace.
@@ -216,11 +217,7 @@ namespace galaxy
 			ptr->m_id    = id;
 			ptr->m_theme = m_theme;
 
-			if constexpr (std::is_base_of<qs::BatchedSprite, Widget>::value)
-			{
-				m_sb.add(ptr);
-			}
-			else if constexpr (std::is_same<Widget, galaxy::widget::Slider>::value)
+			if constexpr (std::is_same<Widget, galaxy::widget::Slider>::value)
 			{
 				m_sb.add(&ptr->m_slider);
 				m_sb.add(&ptr->m_marker);
@@ -229,6 +226,15 @@ namespace galaxy
 			{
 				m_sb.add(&ptr->m_container);
 				m_sb.add(&ptr->m_bar);
+			}
+			else if constexpr (std::is_same<Widget, galaxy::widget::Textbox>::value)
+			{
+				m_sb.add(ptr);
+				m_sb.add(&ptr->m_indicator);
+			}
+			else if constexpr (std::is_base_of<qs::BatchedSprite, Widget>::value)
+			{
+				m_sb.add(ptr);
 			}
 		}
 		else

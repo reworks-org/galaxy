@@ -25,9 +25,6 @@ namespace galaxy
 	///
 	class Widget
 	{
-		///
-		/// Allows for the GUI to modify internals of Widget we don't want publicly exposed.
-		///
 		friend class GUI;
 
 	public:
