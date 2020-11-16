@@ -20,7 +20,7 @@ namespace qs
 	Text::~Text()
 	{
 		m_batch.clear();
-		m_char_sprites.clear();
+		m_batch_data.clear();
 	}
 
 	void Text::load(qs::Font* font, const pr::Colour& col)
@@ -34,8 +34,9 @@ namespace qs
 		m_batch.set_texture(m_font->get_fontmap());
 		if (!text.empty())
 		{
-			float x_offset = 0.0f;
-			float y_offset = 0.0f;
+			float x_offset       = 0.0f;
+			float y_offset       = 0.0f;
+			unsigned int counter = 0;
 			for (const char c : text)
 			{
 				if (c == '\n')
@@ -49,8 +50,9 @@ namespace qs
 
 					if (c_obj != nullptr)
 					{
-						m_char_sprites.emplace(c, qs::BatchedSprite {});
-						auto* spr = &m_char_sprites[c];
+						m_batch_data.emplace(counter, qs::BatchedSprite {});
+
+						auto* spr = &m_batch_data[counter];
 						spr->create(c_obj->m_region, 1);
 						spr->set_pos(x_offset + c_obj->m_bearing.x, y_offset);
 						x_offset += (c_obj->m_advance >> 6);
@@ -58,6 +60,8 @@ namespace qs
 						m_batch.add(spr);
 					}
 				}
+
+				counter++;
 			}
 
 			m_width  = m_font->get_width(text);
@@ -76,7 +80,7 @@ namespace qs
 	void Text::update_text(std::string_view text)
 	{
 		m_batch.clear();
-		m_char_sprites.clear();
+		m_batch_data.clear();
 		create(text);
 	}
 
@@ -108,8 +112,7 @@ namespace qs
 
 	const int Text::get_batch_width() const
 	{
-		auto w = m_batch.get_width();
-		return w;
+		return m_batch.get_width();
 	}
 
 	const int Text::get_batch_height() const

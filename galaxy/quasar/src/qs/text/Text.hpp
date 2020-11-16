@@ -159,7 +159,7 @@ namespace qs
 		///
 		/// Character <-> batched sprite hashmap.
 		///
-		robin_hood::unordered_map<char, qs::BatchedSprite> m_char_sprites;
+		robin_hood::unordered_map<unsigned int, qs::BatchedSprite> m_batch_data;
 	};
 } // namespace qs
 

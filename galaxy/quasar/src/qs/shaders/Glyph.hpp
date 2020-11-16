@@ -51,8 +51,7 @@ namespace qs
 
 			void main()
 			{    
-				vec4 sampled = vec4(1.0, 1.0, 1.0, texture(u_text, io_texels).r);
-				io_frag_colour = vec4(1.0, 1.0f, 1.0, 1.0) * sampled;
+				io_frag_colour = vec4(1.0, 1.0, 1.0, texture(u_text, io_texels).r);
 			} 
 		)";
 	} // namespace shaders

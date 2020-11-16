@@ -59,6 +59,10 @@ namespace qs
 			{
 				m_shader.load_raw(qs::shaders::glyph_vs, qs::shaders::glyph_fs);
 
+				int orig_alignment = 0;
+				glGetIntegerv(GL_UNPACK_ALIGNMENT, &orig_alignment);
+				glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
 				GLuint char_vbo = 0;
 				GLuint char_vao = 0;
 				glGenVertexArrays(1, &char_vao);
@@ -72,9 +76,10 @@ namespace qs
 				glBindVertexArray(0);
 
 				FT_Set_Pixel_Sizes(face, 0, size);
-				int orig_alignment = 0;
-				glGetIntegerv(GL_UNPACK_ALIGNMENT, &orig_alignment);
-				glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+				int max_ascent  = 0;
+				int max_descent = 0;
+				int total_width = 0;
 
 				FT_UInt index = 0;
 				auto c        = FT_Get_First_Char(face, &index);
@@ -106,40 +111,50 @@ namespace qs
 					c_obj.m_bearing.y = face->glyph->bitmap_top;
 					c_obj.m_advance   = face->glyph->advance.x;
 
+					if (face->glyph->bitmap_top > max_ascent)
+					{
+						max_ascent = face->glyph->bitmap_top;
+					}
+
+					if (((face->glyph->metrics.height >> 6) - face->glyph->bitmap_top) > max_descent)
+					{
+						max_descent = (face->glyph->metrics.height >> 6) - face->glyph->bitmap_top;
+					}
+
+					total_width += (c_obj.m_advance >> 6);
+
 					m_characters.emplace(c, std::move(c_obj));
 					c = FT_Get_Next_Char(face, c, &index);
 					glBindTexture(GL_TEXTURE_2D, 0);
 				}
 
-				m_height = m_characters['X'].m_bearing.y;
+				m_height = max_ascent + max_descent;
 				glPixelStorei(GL_UNPACK_ALIGNMENT, orig_alignment);
 
-				m_fontmap.create(get_width("X") * m_characters.size(), m_height);
+				m_fontmap.create(total_width, m_height);
 				m_fontmap.bind();
 				m_shader.bind();
 				m_shader.set_uniform("u_proj", m_fontmap.get_proj());
-				m_shader.set_uniform("u_text", 0);
-
-				glActiveTexture(GL_TEXTURE0);
 				glBindVertexArray(char_vao);
 
 				float offset_x = 0.0f;
-				float offset_y = 0.0f;
 				for (auto& [c, c_obj] : m_characters)
 				{
 					float x = offset_x + c_obj.m_bearing.x;
-					float y = offset_y + (m_height - c_obj.m_bearing.y);
+					float y = m_characters['X'].m_bearing.y - c_obj.m_bearing.y;
+					float w = c_obj.m_size.x;
+					float h = c_obj.m_size.y;
 
 					float vertices[6][4] = {
-					    {x, y + c_obj.m_size.y, 0.0f, 1.0f},
-					    {x + c_obj.m_size.x, c_obj.m_size.y, 1.0f, 0.0f},
+					    {x, y + h, 0.0f, 1.0f},
+					    {x + w, y, 1.0f, 0.0f},
 					    {x, y, 0.0f, 0.0f},
 
-					    {x, y + c_obj.m_size.y, 0.0f, 1.0f},
-					    {x + c_obj.m_size.x, y + c_obj.m_size.y, 1.0f, 1.0f},
-					    {x + c_obj.m_size.x, y, 1.0f, 0.0f}};
+					    {x, y + h, 0.0f, 1.0f},
+					    {x + w, y + h, 1.0f, 1.0f},
+					    {x + w, y, 1.0f, 0.0f}};
 
-					c_obj.m_region = {x, y, static_cast<float>(c_obj.m_size.x), static_cast<float>(c_obj.m_size.y)};
+					c_obj.m_region = {x, 0.0f, w, static_cast<float>(m_height)};
 					glBindTexture(GL_TEXTURE_2D, c_obj.m_gl_texture);
 
 					glBindBuffer(GL_ARRAY_BUFFER, char_vbo);
@@ -189,7 +204,7 @@ namespace qs
 
 		for (const char c : text)
 		{
-			width += (m_characters[c].m_advance >> 6);
+			width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
 		}
 
 		return width;

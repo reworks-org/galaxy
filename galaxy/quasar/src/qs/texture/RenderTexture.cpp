@@ -113,11 +113,11 @@ namespace qs
 
 	void RenderTexture::bind() noexcept
 	{
-		// Adjust view for framebuffer.
-		glViewport(0, 0, m_width, m_height);
-
 		// Bind to framebuffer.
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
+		glViewport(0, 0, m_width, m_height);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		// Reset Colour, in prep for rendering.
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
