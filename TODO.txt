@@ -6,6 +6,7 @@ QUASAR:
 - QSAPI -> const constinit
 - better spritebatch transforms
 - split transform into pos transform, colour transform, texel transform?
+- need to fix shader handling.
 
 Solar:
 replace is_system with is_derived
@@ -34,6 +35,3 @@ update building instructions as needed
 update codecov
 fix ci
 https://lgtm.com/
-
-QUASAR:
-need to fix shader handling.
