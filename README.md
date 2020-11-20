@@ -33,11 +33,15 @@ Tested on Ubuntu 20.10.
 You need ALSA, PulseAudio, X11, opengl
 ```
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt purge --auto-remove cmake
 sudo apt update
-sudo apt install git g++ make cmake libfreetype-dev ninja-build
-sudo apt upgrade
-git clone --recursive https://github.com/DomRe/galaxy.git
+sudo apt install git g++ make pip libfreetype-dev ninja-build libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev
+pip install cmake
+export PATH="~/.local/bin:$PATH"
+git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
 git submodule update --init --recursive
+cd galaxy_engine
+cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
 ```
 
 ### Mac OS:
