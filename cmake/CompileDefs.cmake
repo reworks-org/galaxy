@@ -1,0 +1,70 @@
+if (MSVC)
+    set(GALAXY_COMPILE_FLAGS
+        /QIntel-jcc-erratum
+        /std:c++latest
+        /sdl
+        /W0
+        /WX-
+        /MP
+        /GF
+        /EHsc
+        /fp:except
+        /fp:precise
+        /bigobj
+        /Zc:preprocessor
+        /Y-
+        /experimental:external
+        /external:anglebrackets
+        /external:W0
+    )
+
+    set(GALAXY_COMPILE_FLAGS_DEBUG
+        ${GALAXY_COMPILE_FLAGS}
+        /JMC
+        /ZI
+        /Od
+        /RTC1
+        /MTd
+        /GS
+        /GR
+    )
+
+    set(GALAXY_COMPILE_FLAGS_RELEASE
+        ${GALAXY_COMPILE_FLAGS}
+        /O2
+        /Oi
+        /Ot
+        /GL
+        /MT
+        /GS-
+        /Gy
+        /GR-
+    )
+else()
+    set(GALAXY_COMPILE_FLAGS
+        -std=c++2a
+        -fexceptions
+        -frtti
+        -pthread
+        -latomic
+        -lstdc++fs
+        -fopenmp
+        -ltbb
+        -faligned-new
+        -fchar8_t
+        -fcoroutines
+    )
+
+    set(GALAXY_COMPILE_FLAGS_DEBUG
+        ${GALAXY_COMPILE_FLAGS}
+        -fanalyzer
+        -Wall
+        -Og
+    )
+
+    set(GALAXY_COMPILE_FLAGS_RELEASE
+        ${GALAXY_COMPILE_FLAGS}
+        -O3
+        -w
+    )
+endif()
