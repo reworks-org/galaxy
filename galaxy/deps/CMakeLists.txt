@@ -1,16 +1,34 @@
 project(deps C CXX)
 
-file(GLOB_RECURSE dependencies_src
-    "${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT/Box2D/*.cpp"
-    "${CMAKE_SOURCE_DIR}/dependencies/c++20/*.cc"
-    "${CMAKE_SOURCE_DIR}/dependencies/c++20/*.cpp"
-    "${CMAKE_SOURCE_DIR}/dependencies/glad/*.c"
-    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-all.cc"
-    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-internal-inl.h"
-    "${CMAKE_SOURCE_DIR}/dependencies/imgui/*.cpp"
-    "${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor/*.cpp"
-    "${CMAKE_SOURCE_DIR}/dependencies/lua/src/*.c"
-)
+if (MSVC)
+	file(GLOB_RECURSE dependencies_src
+	    "${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT/Box2D/*.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/glad/*.c"
+	    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-all.cc"
+	    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-internal-inl.h"
+	    "${CMAKE_SOURCE_DIR}/dependencies/imgui/*.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor/*.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/lua/src/*.c"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/format.cc"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/os.cc"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/tz.cpp"
+	)
+else()
+	file(GLOB_RECURSE dependencies_src
+	    "${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT/Box2D/*.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/glad/*.c"
+	    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-all.cc"
+	    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-internal-inl.h"
+	    "${CMAKE_SOURCE_DIR}/dependencies/imgui/*.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor/*.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/lua/src/*.c"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/format.cc"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/os.cc"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/tz.cpp"
+	    "${CMAKE_SOURCE_DIR}/dependencies/c++20/atomic/source.cpp"
+	)
+endif()
+
 
 source_group(${PROJECT_NAME} ${dependencies_src})
 add_library(${PROJECT_NAME} STATIC ${dependencies_src})
@@ -33,6 +51,10 @@ if (MSVC)
         "_CRT_SECURE_NO_WARNINGS"
         "_CRT_SECURE_NO_DEPRECATE"
         "_CRT_NONSTDC_NO_DEPRECATE"
+    )
+else()
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "_GLIBCXX_USE_NANOSLEEP"
     )
 endif()
 
@@ -104,14 +126,14 @@ if (MSVC)
         /ignore:4099
         /MACHINE:X64
     )
-elseif (GNU)
+else()
     target_compile_options(${PROJECT_NAME} PRIVATE
         $<$<CONFIG:Debug>:
         -fanalyzer
         >
         $<$<CONFIG:Release>:
         >
-        -std=c++20
+        -std=c++2a
         -pthread
         -fexceptions
     )
@@ -124,8 +146,5 @@ elseif (GNU)
         -O3
         >
         -pthread
-        -static-libstdc++
-        -static-libgcc
-        -static
     )
 endif()

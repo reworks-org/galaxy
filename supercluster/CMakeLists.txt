@@ -40,6 +40,10 @@ if (MSVC)
         "_CRT_SECURE_NO_DEPRECATE"
         "_CRT_NONSTDC_NO_DEPRECATE"
     )
+else()
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "_GLIBCXX_USE_NANOSLEEP"
+    )
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -113,14 +117,14 @@ if (MSVC)
         /SUBSYSTEM:CONSOLE
         /verbose:lib
     )
-elseif (GNU)
+else()
     target_compile_options(${PROJECT_NAME} PRIVATE
         $<$<CONFIG:Debug>:
         -fanalyzer
         >
         $<$<CONFIG:Release>:
         >
-        -std=c++20
+        -std=c++2a
         -pthread
         -fexceptions
     )
@@ -133,9 +137,6 @@ elseif (GNU)
         -O3
         >
         -pthread
-        -static-libstdc++
-        -static-libgcc
-        -static
     )
 endif()
 

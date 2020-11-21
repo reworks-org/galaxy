@@ -61,10 +61,10 @@ set_source_files_properties(*.hpp LANGUAGE CXX)
 # MSVC runtime.
 if (MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-elseif (GNU)
-    set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
-    set(THREADS_PREFER_PTHREAD_FLAG TRUE)
-    find_package(Threads REQUIRED)
+else()
+    #set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+    #set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+    #find_package(Threads REQUIRED)
 endif()
 
 # Add internal projects.
@@ -131,7 +131,8 @@ set_target_properties(ogg PROPERTIES
 )
 
 set(OGG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/dependencies/ogg/include" CACHE STRING "" FORCE)
-set(OGG_LIBRARY "${CMAKE_SOURCE_DIR}/output/bin/ogg/${CMAKE_BUILD_TYPE}/ogg.lib" CACHE STRING "" FORCE)
+set(OGG_LIBRARY "${CMAKE_SOURCE_DIR}/output/bin/ogg/${CMAKE_BUILD_TYPE}/ogg" CACHE STRING "" FORCE)
+
 add_subdirectory(dependencies/vorbis)
 add_dependencies(vorbis ogg)
 set_target_properties(vorbis PROPERTIES
@@ -205,8 +206,6 @@ if (MSVC)
 	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(zlibstatic PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-else()
-	# unix
 endif()
 
 # Meta trget to build external libs.
@@ -242,42 +241,80 @@ add_dependencies(tests
 )
 
 # Set header directories.
-set(all_header_dirs
-	"${GALAXY_FREETYPE_HEADERS}"
-	"${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT"
-	"${CMAKE_SOURCE_DIR}/dependencies/c++20"
-	"${CMAKE_SOURCE_DIR}/dependencies/glad"
-	"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/glm"
-	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/"
-	"${CMAKE_SOURCE_DIR}/dependencies/imgui"
-	"${CMAKE_SOURCE_DIR}/dependencies/imgui/cpp"
-	"${CMAKE_SOURCE_DIR}/dependencies/imgui/impl"
-	"${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor"
-	"${CMAKE_SOURCE_DIR}/dependencies/json/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
-	"${CMAKE_SOURCE_DIR}/dependencies/ogg/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/pfd"
-	"${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/stb"
-	"${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/zlib"
-	"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
-	"${CMAKE_SOURCE_DIR}/galaxy/frb/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/galaxy/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/protostar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/pulsar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/quasar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/redshift/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/solar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/starlight/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/starmap/src"
-    "${CMAKE_SOURCE_DIR}/sandbox_tests/src"
-	"${CMAKE_SOURCE_DIR}/supercluster/src"
-)
-
+if (MSVC)
+    set(all_header_dirs
+        "${GALAXY_FREETYPE_HEADERS}"
+        "${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT"
+        "${CMAKE_SOURCE_DIR}/dependencies/c++20"
+        "${CMAKE_SOURCE_DIR}/dependencies/glad"
+        "${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/glm"
+        "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui/cpp"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui/impl"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor"
+        "${CMAKE_SOURCE_DIR}/dependencies/json/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/lua/src"
+        "${CMAKE_SOURCE_DIR}/dependencies/ogg/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/openal/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/pfd"
+        "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/stb"
+        "${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/zlib"
+        "${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
+        "${CMAKE_SOURCE_DIR}/galaxy/frb/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/galaxy/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/protostar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/pulsar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/quasar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/redshift/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/solar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/starlight/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/starmap/src"
+        "${CMAKE_SOURCE_DIR}/sandbox_tests/src"
+        "${CMAKE_SOURCE_DIR}/supercluster/src"
+    )
+else()
+    set(all_header_dirs
+        "${GALAXY_FREETYPE_HEADERS}"
+        "${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT"
+        "${CMAKE_SOURCE_DIR}/dependencies/c++20"
+        "${CMAKE_SOURCE_DIR}/dependencies/glad"
+        "${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/glm"
+        "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui/cpp"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui/impl"
+        "${CMAKE_SOURCE_DIR}/dependencies/imgui-texteditor"
+        "${CMAKE_SOURCE_DIR}/dependencies/json/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/lua/src"
+        "${CMAKE_SOURCE_DIR}/dependencies/ogg/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/openal/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/pfd"
+        "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/stb"
+        "${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
+        "${CMAKE_SOURCE_DIR}/dependencies/zlib"
+        "${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
+        "${CMAKE_SOURCE_DIR}/galaxy/frb/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/galaxy/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/protostar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/pulsar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/quasar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/redshift/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/solar/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/starlight/src"
+        "${CMAKE_SOURCE_DIR}/galaxy/starmap/src"
+        "${CMAKE_SOURCE_DIR}/sandbox_tests/src"
+        "${CMAKE_SOURCE_DIR}/supercluster/src"
+        "${CMAKE_SOURCE_DIR}/dependencies/c++20/atomic"
+    )
+endif()
 # generate ogg config header.
 set(SIZE16 int16_t)
 set(USIZE16 uint16_t)
@@ -324,12 +361,14 @@ if (WIN32)
         "dsound"
         "synchronization"
     )
-elseif (GNU)
+else()
     set(SYSTEM_LIBS
-        "pthread"
-		"dl"
-		"GL"
-	)
+    "pthread"
+	"dl"
+	"GL"
+    "atomic"
+    "stdc++fs"
+    )
 endif()
 
 # Link library libs.
@@ -338,125 +377,125 @@ target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
 target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd")
 
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap")
 
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd")
 
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap")
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic")
 
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight")
+    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap")
 
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic")
 
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.lib")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.lib")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap")
 else()
 	message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 endif()

@@ -43,6 +43,8 @@
 // required. On Windows, the names are never "Standard" so mapping is always required.
 // Technically any OS may use the mapping process but currently only Windows does use it.
 
+#define USE_OS_TZDB 1
+
 #ifndef USE_OS_TZDB
 #  define USE_OS_TZDB 0
 #endif
