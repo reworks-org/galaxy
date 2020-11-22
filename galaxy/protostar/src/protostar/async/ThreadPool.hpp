@@ -9,10 +9,9 @@
 #define PROTOSTAR_THREADPOOL_HPP_
 
 #include <queue>
-#include <semaphore>
+#include <thread>
 #include <vector>
 
-#include <jthread/jthread.hpp>
 #include <pulsar/Log.hpp>
 
 #include "protostar/async/ProtectedArithmetic.hpp"

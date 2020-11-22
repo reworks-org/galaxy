@@ -11,6 +11,10 @@
 #include <atomic>
 #include <functional>
 
+#ifdef __linux__
+	#include <atomic_wait>
+#endif
+
 ///
 /// Core namespace.
 ///

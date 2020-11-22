@@ -57,6 +57,7 @@ The strategy is chosen this way, by platform:
 #ifndef __ATOMIC_WAIT_INCLUDED
 #define __ATOMIC_WAIT_INCLUDED
 
+#include <thread>
 #include <cstdint>
 #include <climits>
 #include <cassert>
@@ -64,7 +65,6 @@ The strategy is chosen this way, by platform:
 
 #if defined(__NO_IDENT)
 
-    #include <thread>
     #include <chrono>
 
     #define __ABI
