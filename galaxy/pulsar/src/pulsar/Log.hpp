@@ -11,10 +11,10 @@
 #include <fstream>
 #include <functional>
 #include <mutex>
-#include <thread>
 
 #include <date/tz.h>
 #include <fmt/format.h>
+#include <jthread/jthread.hpp>
 
 #include "detail/Unix.hpp"
 #include "detail/Windows.hpp"
