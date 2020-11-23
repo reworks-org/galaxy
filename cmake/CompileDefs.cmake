@@ -42,7 +42,6 @@ if (MSVC)
     )
 else()
     set(GALAXY_COMPILE_FLAGS
-        -std=c++20
         -stdlib=libc++
         -flto
         -fcxx-exceptions
