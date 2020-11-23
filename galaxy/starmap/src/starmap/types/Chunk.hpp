@@ -26,7 +26,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Chunk() noexcept;
+		Chunk();
 
 		///
 		/// Parse constructor.
@@ -40,7 +40,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~Chunk() noexcept = default;
+		~Chunk() = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -56,35 +56,35 @@ namespace starmap
 		///
 		/// \return Const std::variant reference. Either string or array.
 		///
-		[[nodiscard]] const auto& get_data() const noexcept;
+		[[nodiscard]] const auto& get_data() const;
 
 		///
 		/// Get height.
 		///
 		/// \return In tiles as int.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 		///
 		/// Get width.
 		///
 		/// \return In tiles as int.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 		///
 		/// Get x coord.
 		///
 		/// \return In tiles as int.
 		///
-		[[nodiscard]] const int get_x() const noexcept;
+		[[nodiscard]] const int get_x() const;
 
 		///
 		/// Get y coord.
 		///
 		/// \return In tiles as int.
 		///
-		[[nodiscard]] const int get_y() const noexcept;
+		[[nodiscard]] const int get_y() const;
 
 	private:
 		///

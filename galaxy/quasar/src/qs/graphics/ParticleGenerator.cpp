@@ -210,12 +210,12 @@ namespace qs
 		return &m_particles_instances[m_current_instance];
 	}
 
-	const bool ParticleGenerator::finished() const noexcept
+	const bool ParticleGenerator::finished() const
 	{
 		return m_finished;
 	}
 
-	const unsigned int ParticleGenerator::amount() const noexcept
+	const unsigned int ParticleGenerator::amount() const
 	{
 		return m_amount;
 	}

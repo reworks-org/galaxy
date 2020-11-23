@@ -17,13 +17,13 @@ namespace qs
 	{
 	}
 
-	void Sprite::bind() noexcept
+	void Sprite::bind()
 	{
 		m_va.bind();
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 	}
 
-	void Sprite::unbind() noexcept
+	void Sprite::unbind()
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);

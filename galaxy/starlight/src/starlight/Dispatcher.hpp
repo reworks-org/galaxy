@@ -38,27 +38,27 @@ namespace sl
 		///
 		/// Default constructor.
 		///
-		Dispatcher() noexcept = default;
+		Dispatcher() = default;
 
 		///
 		/// Copy constructor.
 		///
-		Dispatcher(const Dispatcher&) noexcept = default;
+		Dispatcher(const Dispatcher&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Dispatcher(Dispatcher&&) noexcept = default;
+		Dispatcher(Dispatcher&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Dispatcher& operator=(const Dispatcher&) noexcept = default;
+		Dispatcher& operator=(const Dispatcher&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		Dispatcher& operator=(Dispatcher&&) noexcept = default;
+		Dispatcher& operator=(Dispatcher&&) = default;
 
 		///
 		/// Default destructor.

@@ -24,7 +24,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		SpriteVertex() noexcept;
+		SpriteVertex();
 
 		///
 		/// Argument constructor.
@@ -34,7 +34,7 @@ namespace qs
 		/// \param u Texel x pos.
 		/// \param v Texel y pos.
 		///
-		SpriteVertex(const float x, const float y, const float u, const float v) noexcept;
+		SpriteVertex(const float x, const float y, const float u, const float v);
 
 		///
 		/// Copy constructor.
@@ -59,7 +59,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~SpriteVertex() noexcept = default;
+		~SpriteVertex() = default;
 
 		///
 		/// Position of SpriteVertex.

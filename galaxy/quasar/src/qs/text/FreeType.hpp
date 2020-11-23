@@ -35,34 +35,34 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		FreeTypeLib(const FreeTypeLib&) noexcept = delete;
+		FreeTypeLib(const FreeTypeLib&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		FreeTypeLib(FreeTypeLib&&) noexcept = delete;
+		FreeTypeLib(FreeTypeLib&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		FreeTypeLib& operator=(const FreeTypeLib&) noexcept = delete;
+		FreeTypeLib& operator=(const FreeTypeLib&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		FreeTypeLib& operator=(FreeTypeLib&&) noexcept = delete;
+		FreeTypeLib& operator=(FreeTypeLib&&) = delete;
 
 		///
 		/// Destructor.
 		///
-		~FreeTypeLib() noexcept = default;
+		~FreeTypeLib() = default;
 
 		///
 		/// Get handle to library.
 		///
 		/// \return Refernce to this static instance.
 		///
-		static FreeTypeLib& handle() noexcept;
+		static FreeTypeLib& handle();
 
 		///
 		/// Open library.
@@ -72,20 +72,20 @@ namespace qs
 		///
 		/// Close library.
 		///
-		void close() noexcept;
+		void close();
 
 		///
 		/// Handle to FT library.
 		///
 		/// \return Reference to FT_Library.
 		///
-		[[nodiscard]] FT_Library& lib() noexcept;
+		[[nodiscard]] FT_Library& lib();
 
 	private:
 		///
 		/// Constructor.
 		///
-		FreeTypeLib() noexcept = default;
+		FreeTypeLib() = default;
 
 	private:
 		///

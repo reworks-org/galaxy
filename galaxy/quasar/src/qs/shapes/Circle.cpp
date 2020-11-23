@@ -51,12 +51,12 @@ namespace qs
 		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
 	}
 
-	void Circle::bind() noexcept
+	void Circle::bind()
 	{
 		m_va.bind();
 	}
 
-	void Circle::unbind() noexcept
+	void Circle::unbind()
 	{
 		m_va.unbind();
 	}

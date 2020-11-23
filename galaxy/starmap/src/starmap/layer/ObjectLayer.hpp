@@ -40,21 +40,21 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~ObjectLayer() noexcept;
+		~ObjectLayer();
 
 		///
 		/// Get draw order.
 		///
 		/// \return Draw order as std::string.
 		///
-		[[nodiscard]] std::string get_compression() const noexcept;
+		[[nodiscard]] std::string get_compression() const;
 
 		///
 		/// Get objects.
 		///
 		/// \return Std::vector of objects.
 		///
-		[[nodiscard]] const auto& get_objects() const noexcept;
+		[[nodiscard]] const auto& get_objects() const;
 
 	private:
 		///

@@ -35,7 +35,7 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		BatchedSprite(const BatchedSprite&) noexcept = delete;
+		BatchedSprite(const BatchedSprite&) = delete;
 
 		///
 		/// Move constructor.
@@ -45,7 +45,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		BatchedSprite& operator=(const BatchedSprite&) noexcept = delete;
+		BatchedSprite& operator=(const BatchedSprite&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -70,42 +70,42 @@ namespace qs
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
-		void set_opacity(const float opacity) noexcept;
+		void set_opacity(const float opacity);
 
 		///
 		/// Set z-level.
 		///
 		/// \param z_level New z-level of sprite.
 		///
-		void set_z_level(const unsigned int z_level) noexcept;
+		void set_z_level(const unsigned int z_level);
 
 		///
 		/// Update texquad region.
 		///
 		/// \param x New x position.
 		///
-		void update_x_region(const float x) noexcept;
+		void update_x_region(const float x);
 
 		///
 		/// Update texquad region.
 		///
 		/// \param y New y position.
 		///
-		void update_y_region(const float y) noexcept;
+		void update_y_region(const float y);
 
 		///
 		/// Update texquad region.
 		///
 		/// \param w Width.
 		///
-		void update_w_region(const float w) noexcept;
+		void update_w_region(const float w);
 
 		///
 		/// Update texquad region.
 		///
 		/// \param h Height.
 		///
-		void update_h_region(const float h) noexcept;
+		void update_h_region(const float h);
 
 		///
 		/// Update texquad region.
@@ -115,21 +115,21 @@ namespace qs
 		/// \param w Width.
 		/// \param h Height.
 		///
-		void update_region(const float x, const float y, const float w, const float h) noexcept;
+		void update_region(const float x, const float y, const float w, const float h);
 
 		///
 		/// Update texquad region.
 		///
 		/// \param quad New quad region.
 		///
-		void update_region(const pr::Rect<float>& quad) noexcept;
+		void update_region(const pr::Rect<float>& quad);
 
 		///
 		/// Get z-level.
 		///
 		/// \return Const unsigned int.
 		///
-		[[nodiscard]] const unsigned int z_level() const noexcept;
+		[[nodiscard]] const unsigned int z_level() const;
 
 		///
 		/// \brief Get texture width.
@@ -138,7 +138,7 @@ namespace qs
 		///
 		/// \return Width as int. int over unsigned for compat with float.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 		///
 		/// \brief Get texture height.
@@ -147,14 +147,14 @@ namespace qs
 		///
 		/// \return Height as int. int over unsigned for compat with float.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 		///
 		/// Get region.
 		///
 		/// \return Reference to a rectangle of floats.
 		///
-		[[nodiscard]] const pr::Rect<float>& get_region() const noexcept;
+		[[nodiscard]] const pr::Rect<float>& get_region() const;
 
 	protected:
 		///

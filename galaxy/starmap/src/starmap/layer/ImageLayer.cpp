@@ -34,11 +34,11 @@ namespace starmap
 		}
 	}
 
-	ImageLayer::~ImageLayer() noexcept
+	ImageLayer::~ImageLayer()
 	{
 	}
 
-	std::string ImageLayer::get_image() const noexcept
+	std::string ImageLayer::get_image() const
 	{
 		return m_image;
 	}

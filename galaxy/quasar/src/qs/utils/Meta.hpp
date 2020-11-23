@@ -98,7 +98,7 @@ namespace qs
 	/// \return Vertex.
 	///
 	template<typename VertexType, typename... Args>
-	[[nodiscard]] inline VertexType make_vertex(Args&&... args) noexcept
+	[[nodiscard]] inline VertexType make_vertex(Args&&... args)
 	{
 		return {std::forward<Args>(args)...};
 	}

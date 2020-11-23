@@ -26,7 +26,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		PrimitiveVertex() noexcept;
+		PrimitiveVertex();
 
 		///
 		/// Argument constructor.
@@ -35,7 +35,7 @@ namespace qs
 		/// \param y Y pos.
 		/// \param col Colour.
 		///
-		PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept;
+		PrimitiveVertex(const float x, const float y, pr::Colour& col);
 
 		///
 		/// Copy constructor.
@@ -60,7 +60,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~PrimitiveVertex() noexcept = default;
+		~PrimitiveVertex() = default;
 
 		///
 		/// Position of PrimitiveVertex.

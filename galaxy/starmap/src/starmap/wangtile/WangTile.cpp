@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	WangTile::WangTile() noexcept
+	WangTile::WangTile()
 	    : m_diagonal_flip {false}, m_horizontal_flip {false}, m_tile_id {0}, m_vertical_flip {false}
 	{
 	}
@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	WangTile::~WangTile() noexcept
+	WangTile::~WangTile()
 	{
 		m_wang_indexes.clear();
 	}
@@ -62,27 +62,27 @@ namespace starmap
 		}
 	}
 
-	const bool WangTile::flipped_diagonally() const noexcept
+	const bool WangTile::flipped_diagonally() const
 	{
 		return m_diagonal_flip;
 	}
 
-	const bool WangTile::flipped_horizontally() const noexcept
+	const bool WangTile::flipped_horizontally() const
 	{
 		return m_horizontal_flip;
 	}
 
-	const int WangTile::get_tile_id() const noexcept
+	const int WangTile::get_tile_id() const
 	{
 		return m_tile_id;
 	}
 
-	const bool WangTile::flipped_vertically() const noexcept
+	const bool WangTile::flipped_vertically() const
 	{
 		return m_vertical_flip;
 	}
 
-	const auto& WangTile::get_indexes() const noexcept
+	const auto& WangTile::get_indexes() const
 	{
 		return m_wang_indexes;
 	}

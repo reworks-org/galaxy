@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	WangSet::WangSet() noexcept
+	WangSet::WangSet()
 	    : m_name {""}, m_tile_id {0}
 	{
 	}
@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	WangSet::~WangSet() noexcept
+	WangSet::~WangSet()
 	{
 		m_corner_colours.clear();
 		m_edge_colours.clear();
@@ -82,27 +82,27 @@ namespace starmap
 		}
 	}
 
-	const auto& WangSet::get_corner_colours() const noexcept
+	const auto& WangSet::get_corner_colours() const
 	{
 		return m_corner_colours;
 	}
 
-	const auto& WangSet::get_edge_colours() const noexcept
+	const auto& WangSet::get_edge_colours() const
 	{
 		return m_edge_colours;
 	}
 
-	std::string WangSet::get_name() const noexcept
+	std::string WangSet::get_name() const
 	{
 		return m_name;
 	}
 
-	const int WangSet::get_tile_id() const noexcept
+	const int WangSet::get_tile_id() const
 	{
 		return m_tile_id;
 	}
 
-	const auto& WangSet::get_tiles() const noexcept
+	const auto& WangSet::get_tiles() const
 	{
 		return m_tiles;
 	}

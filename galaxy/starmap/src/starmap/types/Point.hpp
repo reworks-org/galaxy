@@ -25,7 +25,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Point() noexcept;
+		Point();
 
 		///
 		/// Parameter constructor.
@@ -33,7 +33,7 @@ namespace starmap
 		/// \param x X coordinate in pixels.
 		/// \param y Y coordinate in pixels.
 		///
-		explicit Point(const double x, const double y) noexcept;
+		explicit Point(const double x, const double y);
 
 		///
 		/// \brief Parse constructor.
@@ -47,7 +47,7 @@ namespace starmap
 		///
 		/// Default destructor.
 		///
-		~Point() noexcept = default;
+		~Point() = default;
 
 		///
 		/// \brief Parse object level json.
@@ -63,14 +63,14 @@ namespace starmap
 		///
 		/// \return const double x coord in pixels.
 		///
-		[[nodiscard]] const double get_x() const noexcept;
+		[[nodiscard]] const double get_x() const;
 
 		///
 		/// Get the y coord.
 		///
 		/// \return const double y coord in pixels.
 		///
-		[[nodiscard]] const double get_y() const noexcept;
+		[[nodiscard]] const double get_y() const;
 
 	private:
 		///

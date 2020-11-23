@@ -12,12 +12,12 @@
 ///
 namespace qs
 {
-	PrimitiveVertex::PrimitiveVertex() noexcept
+	PrimitiveVertex::PrimitiveVertex()
 	    : m_pos {0.0f, 0.0f}, m_colour {0, 0, 0, 255}
 	{
 	}
 
-	PrimitiveVertex::PrimitiveVertex(const float x, const float y, pr::Colour& col) noexcept
+	PrimitiveVertex::PrimitiveVertex(const float x, const float y, pr::Colour& col)
 	    : m_pos {x, y}
 	{
 		auto arr   = col.get_normalized();

@@ -29,7 +29,7 @@ namespace starmap
 	{
 	}
 
-	GroupLayer::~GroupLayer() noexcept
+	GroupLayer::~GroupLayer()
 	{
 		m_layers.clear();
 	}
@@ -65,7 +65,7 @@ namespace starmap
 		}
 	}
 
-	const auto& GroupLayer::get_layers() const noexcept
+	const auto& GroupLayer::get_layers() const
 	{
 		return m_layers;
 	}

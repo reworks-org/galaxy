@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Text() noexcept;
+		Text();
 
 		///
 		/// Parse constructor.
@@ -36,7 +36,7 @@ namespace starmap
 		///
 		/// Default destructor.
 		///
-		~Text() noexcept = default;
+		~Text() = default;
 
 		///
 		/// Parse text level json.
@@ -50,84 +50,84 @@ namespace starmap
 		///
 		/// \return True if text is bolded.
 		///
-		[[nodiscard]] const bool is_bold() const noexcept;
+		[[nodiscard]] const bool is_bold() const;
 
 		///
 		/// Get colour as hex string.
 		///
 		/// \return String in format RRGGBB or AARRGGBB.
 		///
-		[[nodiscard]] std::string get_colour() const noexcept;
+		[[nodiscard]] std::string get_colour() const;
 
 		///
 		/// Get font family.
 		///
 		/// \return Font type in format: sans-serif (for example).
 		///
-		[[nodiscard]] std::string get_font_family() const noexcept;
+		[[nodiscard]] std::string get_font_family() const;
 
 		///
 		/// Get horizontal alignment value.
 		///
 		/// \return String in format: center, right, justify or left.
 		///
-		[[nodiscard]] std::string get_h_align() const noexcept;
+		[[nodiscard]] std::string get_h_align() const;
 
 		///
 		/// Get italics flag.
 		///
 		/// \return True if text is italic.
 		///
-		[[nodiscard]] const bool is_italic() const noexcept;
+		[[nodiscard]] const bool is_italic() const;
 
 		///
 		/// Gets kerning flag.
 		///
 		/// \return True if using kerning to place characters.
 		///
-		[[nodiscard]] const bool is_using_kerning() const noexcept;
+		[[nodiscard]] const bool is_using_kerning() const;
 
 		///
 		/// Get pixel (font) size of text.
 		///
 		/// \return Const int. Pixel size - you will need to convert to font point size.
 		///
-		[[nodiscard]] const int get_pixel_size() const noexcept;
+		[[nodiscard]] const int get_pixel_size() const;
 
 		///
 		/// Get strikeout flag.
 		///
 		/// \return True if text has been struck out.
 		///
-		[[nodiscard]] const bool is_striked_out() const noexcept;
+		[[nodiscard]] const bool is_striked_out() const;
 
 		///
 		/// Get the text.
 		///
 		/// \return Actual text as a string.
 		///
-		[[nodiscard]] std::string get_text() const noexcept;
+		[[nodiscard]] std::string get_text() const;
 
 		///
 		/// Get underline flag.
 		///
 		/// \return True if text is underlined.
 		///
-		[[nodiscard]] const bool is_underlined() const noexcept;
+		[[nodiscard]] const bool is_underlined() const;
 
 		///
 		/// Get vertical alignment.
 		///
 		/// \return String in format: center, bottom or top.
 		///
-		[[nodiscard]] std::string get_v_align() const noexcept;
+		[[nodiscard]] std::string get_v_align() const;
 
 		///
 		/// Get wrapped flag.
 		///
 		/// \return True if text is wrapped within object bounds.
 		///
-		[[nodiscard]] const bool is_wrapped() const noexcept;
+		[[nodiscard]] const bool is_wrapped() const;
 
 	private:
 		///

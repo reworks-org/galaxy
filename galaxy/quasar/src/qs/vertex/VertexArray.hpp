@@ -26,12 +26,12 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		VertexArray() noexcept;
+		VertexArray();
 
 		///
 		/// Copy constructor.
 		///
-		VertexArray(const VertexArray&) noexcept = delete;
+		VertexArray(const VertexArray&) = delete;
 
 		///
 		/// Move constructor.
@@ -41,7 +41,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		VertexArray& operator=(const VertexArray&) noexcept = delete;
+		VertexArray& operator=(const VertexArray&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -51,7 +51,7 @@ namespace qs
 		///
 		/// Destroys buffer.
 		///
-		~VertexArray() noexcept;
+		~VertexArray();
 
 		///
 		/// Create vertex array.
@@ -75,12 +75,12 @@ namespace qs
 		///
 		/// Bind the current vertex array to current GL context.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind the current vertex array to current GL context.
 		///
-		void unbind() noexcept;
+		void unbind();
 
 	private:
 		///

@@ -77,12 +77,12 @@ namespace qs
 		m_position += m_velocity;
 	}
 
-	const glm::vec2& Particle::pos() const noexcept
+	const glm::vec2& Particle::pos() const
 	{
 		return m_position;
 	}
 
-	const glm::vec2& Particle::velocity() const noexcept
+	const glm::vec2& Particle::velocity() const
 	{
 		return m_velocity;
 	}

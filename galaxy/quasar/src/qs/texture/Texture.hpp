@@ -54,7 +54,7 @@ namespace qs
 		///
 		/// Virtual destructor.
 		///
-		virtual ~Texture() noexcept;
+		virtual ~Texture();
 
 		///
 		/// \brief Loads texture from file.
@@ -100,12 +100,12 @@ namespace qs
 		///
 		/// Activate texture context.
 		///
-		void bind() noexcept override;
+		void bind() override;
 
 		///
 		/// Deactivate texture context.
 		///
-		void unbind() noexcept override;
+		void unbind() override;
 	};
 } // namespace qs
 

@@ -39,7 +39,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~GroupLayer() noexcept;
+		~GroupLayer();
 
 		///
 		/// Parses tilelayer specific json.
@@ -53,7 +53,7 @@ namespace starmap
 		///
 		/// \return Std::vector array.
 		///
-		[[nodiscard]] const auto& get_layers() const noexcept;
+		[[nodiscard]] const auto& get_layers() const;
 
 	private:
 		///

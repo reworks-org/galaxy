@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Grid() noexcept;
+		Grid();
 
 		///
 		/// \brief Parse constructor.
@@ -38,7 +38,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~Grid() noexcept = default;
+		~Grid() = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -54,21 +54,21 @@ namespace starmap
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 		///
 		/// Get the orientation of the grid.
 		///
 		/// \return String, format: orthogonal (default) or isometric.
 		///
-		[[nodiscard]] std::string get_orientation() const noexcept;
+		[[nodiscard]] std::string get_orientation() const;
 
 		///
 		/// Get cell width of tile grid.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 	private:
 		///

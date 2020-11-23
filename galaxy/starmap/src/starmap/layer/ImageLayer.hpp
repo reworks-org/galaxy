@@ -39,14 +39,14 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~ImageLayer() noexcept;
+		~ImageLayer();
 
 		///
 		/// Get image.
 		///
 		/// \return Image as std::string.
 		///
-		[[nodiscard]] std::string get_image() const noexcept;
+		[[nodiscard]] std::string get_image() const;
 
 	private:
 		///

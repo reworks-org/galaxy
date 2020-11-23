@@ -26,49 +26,49 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		virtual ~Layer() noexcept;
+		virtual ~Layer();
 
 		///
 		/// Get row count. Same as map height for fixed-size maps.
 		///
 		/// \return Height as a const int.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 		///
 		/// Get id - unique across all layers.
 		///
 		/// \return Height as a const int.
 		///
-		[[nodiscard]] const int get_id() const noexcept;
+		[[nodiscard]] const int get_id() const;
 
 		///
 		/// Get layer name.
 		///
 		/// \return Name as string.
 		///
-		[[nodiscard]] std::string get_name() const noexcept;
+		[[nodiscard]] std::string get_name() const;
 
 		///
 		/// Horizontal layer offset.
 		///
 		/// \return Const double.
 		///
-		[[nodiscard]] const double get_offset_x() const noexcept;
+		[[nodiscard]] const double get_offset_x() const;
 
 		///
 		/// Vertical layer offset.
 		///
 		/// \return Const double.
 		///
-		[[nodiscard]] const double get_offset_y() const noexcept;
+		[[nodiscard]] const double get_offset_y() const;
 
 		///
 		/// Opacity of layer.
 		///
 		/// \return Double between 0 and 1.
 		///
-		[[nodiscard]] const double get_opacity() const noexcept;
+		[[nodiscard]] const double get_opacity() const;
 
 		///
 		/// \brief Retrieve property.
@@ -81,69 +81,69 @@ namespace starmap
 		/// \return Property cast as type.
 		///
 		template<tiled_property Type>
-		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
+		[[nodiscard]] const Type get_property(std::string_view name);
 
 		///
 		/// Get X coordinate where layer content starts.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_start_x() const noexcept;
+		[[nodiscard]] const int get_start_x() const;
 
 		///
 		/// Get Y coordinate where layer content starts.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_start_y() const noexcept;
+		[[nodiscard]] const int get_start_y() const;
 
 		///
 		/// Hex-formatted color (#RRGGBB or #AARRGGBB) that is multiplied with any graphics drawn by this layer or any child layers (optional).
 		///
 		/// \return String.
 		///
-		[[nodiscard]] std::string get_tint_colour() const noexcept;
+		[[nodiscard]] std::string get_tint_colour() const;
 
 		///
 		/// Get type of layer.
 		///
 		/// \return String in format: tilelayer, objectgroup, imagelayer or group.
 		///
-		[[nodiscard]] std::string get_type() const noexcept;
+		[[nodiscard]] std::string get_type() const;
 
 		///
 		/// Get visibility of layer.
 		///
 		/// \return True if layer is visible.
 		///
-		[[nodiscard]] const bool is_visible() const noexcept;
+		[[nodiscard]] const bool is_visible() const;
 
 		///
 		/// Get width of layer.
 		///
 		/// \return Const int. Column count. Same as map width for fixed-size maps.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 		///
 		/// Get X offset.
 		///
 		/// \return Const int. Horizontal layer offset in tiles.
 		///
-		[[nodiscard]] const int get_x() const noexcept;
+		[[nodiscard]] const int get_x() const;
 
 		///
 		/// Get Y offset.
 		///
 		/// \return Const int. Vertical layer offset in tiles.
 		///
-		[[nodiscard]] const int get_y() const noexcept;
+		[[nodiscard]] const int get_y() const;
 
 	protected:
 		///
 		/// Default constructor.
 		///
-		Layer() noexcept;
+		Layer();
 
 		///
 		/// \brief Parse constructor.
@@ -232,7 +232,7 @@ namespace starmap
 	};
 
 	template<tiled_property Type>
-	inline const Type Layer::get_property(std::string_view name) noexcept
+	inline const Type Layer::get_property(std::string_view name)
 	{
 		const auto str = static_cast<std::string>(name);
 		return m_properties[str].get<Type>();

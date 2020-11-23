@@ -49,12 +49,12 @@ namespace qs
 		m_va.create<qs::BatchedVertex>(m_vb, m_ib, m_layout);
 	}
 
-	SpriteBatch::~SpriteBatch() noexcept
+	SpriteBatch::~SpriteBatch()
 	{
 		clear();
 	}
 
-	void SpriteBatch::set_texture(qs::BaseTexture* texture) noexcept
+	void SpriteBatch::set_texture(qs::BaseTexture* texture)
 	{
 		if (texture == nullptr)
 		{
@@ -181,7 +181,7 @@ namespace qs
 		}
 	}
 
-	void SpriteBatch::clear() noexcept
+	void SpriteBatch::clear()
 	{
 		m_texture = nullptr;
 		m_sprites.clear();
@@ -191,36 +191,36 @@ namespace qs
 		m_update_renderdata = false;
 	}
 
-	void SpriteBatch::bind() noexcept
+	void SpriteBatch::bind()
 	{
 		m_va.bind();
 		glBindTexture(GL_TEXTURE_2D, m_texture->gl_texture());
 	}
 
-	void SpriteBatch::unbind() noexcept
+	void SpriteBatch::unbind()
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	const unsigned int SpriteBatch::get_used_index_count() const noexcept
+	const unsigned int SpriteBatch::get_used_index_count() const
 	{
 		return m_used_indexs;
 	}
 
-	const unsigned int SpriteBatch::get_width() const noexcept
+	const unsigned int SpriteBatch::get_width() const
 	{
 		return m_texture->get_width();
 	}
 
-	const unsigned int SpriteBatch::get_height() const noexcept
+	const unsigned int SpriteBatch::get_height() const
 	{
 		return m_texture->get_height();
 	}
 
-	void SpriteBatch::sort() noexcept
+	void SpriteBatch::sort()
 	{
-		std::stable_sort(m_sprites.begin(), m_sprites.end(), [](const qs::BatchedSprite* lhs, const qs::BatchedSprite* rhs) noexcept {
+		std::stable_sort(m_sprites.begin(), m_sprites.end(), [](const qs::BatchedSprite* lhs, const qs::BatchedSprite* rhs) {
 			return lhs->z_level() < rhs->z_level();
 		});
 	}

@@ -38,17 +38,17 @@ namespace starmap
 		}
 	}
 
-	ObjectLayer::~ObjectLayer() noexcept
+	ObjectLayer::~ObjectLayer()
 	{
 		m_objects.clear();
 	}
 
-	std::string ObjectLayer::get_compression() const noexcept
+	std::string ObjectLayer::get_compression() const
 	{
 		return m_draw_order;
 	}
 
-	const auto& ObjectLayer::get_objects() const noexcept
+	const auto& ObjectLayer::get_objects() const
 	{
 		return m_objects;
 	}

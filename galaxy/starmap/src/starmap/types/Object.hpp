@@ -28,7 +28,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Object() noexcept;
+		Object();
 
 		///
 		/// \brief Parse constructor.
@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~Object() noexcept;
+		~Object();
 
 		///
 		/// \brief Parse object level json.
@@ -58,35 +58,35 @@ namespace starmap
 		///
 		/// \return True if ellipse shaped.
 		///
-		[[nodiscard]] const bool is_ellipse() const noexcept;
+		[[nodiscard]] const bool is_ellipse() const;
 
 		///
 		/// Get gid.
 		///
 		/// \return Gid as const int.
 		///
-		[[nodiscard]] const int get_gid() const noexcept;
+		[[nodiscard]] const int get_gid() const;
 
 		///
 		/// Get name.
 		///
 		/// \return Name as std::string.
 		///
-		[[nodiscard]] std::string get_name() const noexcept;
+		[[nodiscard]] std::string get_name() const;
 
 		///
 		/// Get point flag.
 		///
 		/// \return True if object is point shaped.
 		///
-		[[nodiscard]] const bool is_point() const noexcept;
+		[[nodiscard]] const bool is_point() const;
 
 		///
 		/// Gets points.
 		///
 		/// \return Points as std::vector array.
 		///
-		[[nodiscard]] const auto& get_points() const noexcept;
+		[[nodiscard]] const auto& get_points() const;
 
 		///
 		/// Retrieve property.
@@ -97,63 +97,63 @@ namespace starmap
 		/// \return Property cast as type.
 		///
 		template<tiled_property Type>
-		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
+		[[nodiscard]] const Type get_property(std::string_view name);
 
 		///
 		/// Get rotation of object.
 		///
 		/// \return Double - angle in degrees clockwise.
 		///
-		[[nodiscard]] const double get_rotation() const noexcept;
+		[[nodiscard]] const double get_rotation() const;
 
 		///
 		/// Get template reference.
 		///
 		/// \return String reference to a template file, in case object is a template instance.
 		///
-		[[nodiscard]] std::string get_template() const noexcept;
+		[[nodiscard]] std::string get_template() const;
 
 		///
 		/// Get text object (if object is text based).
 		///
 		/// \return Const reference to a text object.
 		///
-		[[nodiscard]] const starmap::Text& get_text() const noexcept;
+		[[nodiscard]] const starmap::Text& get_text() const;
 
 		///
 		/// Get type string.
 		///
 		/// \return String assigned to type field in editor.
 		///
-		[[nodiscard]] std::string get_type() const noexcept;
+		[[nodiscard]] std::string get_type() const;
 
 		///
 		/// Get visibility.
 		///
 		/// \return True if object is visible.
 		///
-		[[nodiscard]] const bool is_visible() const noexcept;
+		[[nodiscard]] const bool is_visible() const;
 
 		///
 		/// Get width of object.
 		///
 		/// \return Width in pixels as double.
 		///
-		[[nodiscard]] const double get_width() const noexcept;
+		[[nodiscard]] const double get_width() const;
 
 		///
 		/// Get width of object.
 		///
 		/// \return Width in pixels as double.
 		///
-		[[nodiscard]] const double get_x() const noexcept;
+		[[nodiscard]] const double get_x() const;
 
 		///
 		/// Get width of object.
 		///
 		/// \return Width in pixels as double.
 		///
-		[[nodiscard]] const double get_y() const noexcept;
+		[[nodiscard]] const double get_y() const;
 
 	private:
 		///
@@ -238,7 +238,7 @@ namespace starmap
 	};
 
 	template<tiled_property Type>
-	inline const Type Object::get_property(std::string_view name) noexcept
+	inline const Type Object::get_property(std::string_view name)
 	{
 		const auto str = static_cast<std::string>(name);
 		return m_properties[str].get<Type>();

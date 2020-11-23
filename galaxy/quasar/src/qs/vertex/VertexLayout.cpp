@@ -12,7 +12,7 @@
 ///
 namespace qs
 {
-	VertexLayout::VertexLayout() noexcept
+	VertexLayout::VertexLayout()
 	{
 	}
 
@@ -33,12 +33,12 @@ namespace qs
 		return *this;
 	}
 
-	VertexLayout::~VertexLayout() noexcept
+	VertexLayout::~VertexLayout()
 	{
 		m_attributes.clear();
 	}
 
-	const std::vector<VertexAttribute>& VertexLayout::get_attributes() const noexcept
+	const std::vector<VertexAttribute>& VertexLayout::get_attributes() const
 	{
 		return m_attributes;
 	}

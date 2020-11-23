@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Frame::Frame() noexcept
+	Frame::Frame()
 	    : m_duration {0}, m_tile_id {0}
 	{
 	}
@@ -38,12 +38,12 @@ namespace starmap
 		}
 	}
 
-	const int Frame::get_duration() const noexcept
+	const int Frame::get_duration() const
 	{
 		return m_duration;
 	}
 
-	const int Frame::get_tile_id() const noexcept
+	const int Frame::get_tile_id() const
 	{
 		return m_tile_id;
 	}

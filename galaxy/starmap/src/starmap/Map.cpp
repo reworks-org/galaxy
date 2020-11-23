@@ -220,92 +220,92 @@ namespace starmap
 		return result;
 	}
 
-	std::string Map::get_bg_colour() const noexcept
+	std::string Map::get_bg_colour() const
 	{
 		return m_bg_colour;
 	}
 
-	const int Map::get_height() const noexcept
+	const int Map::get_height() const
 	{
 		return m_height;
 	}
 
-	const int Map::get_hex_side_length() const noexcept
+	const int Map::get_hex_side_length() const
 	{
 		return m_hex_side_length;
 	}
 
-	const bool Map::is_infinite() const noexcept
+	const bool Map::is_infinite() const
 	{
 		return m_infinite;
 	}
 
-	const auto& Map::get_layers() const noexcept
+	const auto& Map::get_layers() const
 	{
 		return m_layers;
 	}
 
-	const int Map::get_next_layer_id() const noexcept
+	const int Map::get_next_layer_id() const
 	{
 		return m_next_layer_id;
 	}
 
-	const int Map::get_next_object_id() const noexcept
+	const int Map::get_next_object_id() const
 	{
 		return m_next_object_id;
 	}
 
-	std::string Map::get_orientation() const noexcept
+	std::string Map::get_orientation() const
 	{
 		return m_orientation;
 	}
 
-	std::string Map::get_render_order() const noexcept
+	std::string Map::get_render_order() const
 	{
 		return m_render_order;
 	}
 
-	std::string Map::get_stagger_axis() const noexcept
+	std::string Map::get_stagger_axis() const
 	{
 		return m_stagger_axis;
 	}
 
-	std::string Map::get_stagger_index() const noexcept
+	std::string Map::get_stagger_index() const
 	{
 		return m_stagger_index;
 	}
 
-	std::string Map::get_tiled_version() const noexcept
+	std::string Map::get_tiled_version() const
 	{
 		return m_tiled_version;
 	}
 
-	const int Map::get_tile_height() const noexcept
+	const int Map::get_tile_height() const
 	{
 		return m_tile_height;
 	}
 
-	const auto& Map::get_tile_sets() const noexcept
+	const auto& Map::get_tile_sets() const
 	{
 		return m_tile_sets;
 	}
 
-	const int Map::get_tile_width() const noexcept
+	const int Map::get_tile_width() const
 	{
 		return m_tile_width;
 	}
 
-	std::string Map::get_type() const noexcept
+	std::string Map::get_type() const
 	{
 		return m_type;
 	}
 
-	const int Map::get_width() const noexcept
+	const int Map::get_width() const
 	{
 		return m_width;
 	}
 
-	const int Map::get_compression_level() const noexcept
+	const int Map::get_compression_level() const
 	{
 		return m_compression_level;
 	}

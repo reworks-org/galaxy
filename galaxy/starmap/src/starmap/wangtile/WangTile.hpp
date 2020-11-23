@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		WangTile() noexcept;
+		WangTile();
 
 		///
 		/// Parse constructor.
@@ -36,7 +36,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~WangTile() noexcept;
+		~WangTile();
 
 		///
 		/// Parses json structure to member values; etc.
@@ -50,35 +50,35 @@ namespace starmap
 		///
 		/// \return True if flipped.
 		///
-		[[nodiscard]] const bool flipped_diagonally() const noexcept;
+		[[nodiscard]] const bool flipped_diagonally() const;
 
 		///
 		/// Is flipped horizontally.
 		///
 		/// \return True if flipped.
 		///
-		[[nodiscard]] const bool flipped_horizontally() const noexcept;
+		[[nodiscard]] const bool flipped_horizontally() const;
 
 		///
 		/// Get local tile id.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_tile_id() const noexcept;
+		[[nodiscard]] const int get_tile_id() const;
 
 		///
 		/// Is flipped vertically.
 		///
 		/// \return True if flipped.
 		///
-		[[nodiscard]] const bool flipped_vertically() const noexcept;
+		[[nodiscard]] const bool flipped_vertically() const;
 
 		///
 		/// Get wang colour indexes.
 		///
 		/// \return Std::vector array.
 		///
-		[[nodiscard]] const auto& get_indexes() const noexcept;
+		[[nodiscard]] const auto& get_indexes() const;
 
 	private:
 		///

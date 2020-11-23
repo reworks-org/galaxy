@@ -30,12 +30,12 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		IndexBuffer() noexcept;
+		IndexBuffer();
 
 		///
 		/// Copy constructor.
 		///
-		IndexBuffer(const IndexBuffer&) noexcept = delete;
+		IndexBuffer(const IndexBuffer&) = delete;
 
 		///
 		/// Move constructor.
@@ -45,7 +45,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		IndexBuffer& operator=(const IndexBuffer&) noexcept = delete;
+		IndexBuffer& operator=(const IndexBuffer&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// Destroys buffer.
 		///
-		~IndexBuffer() noexcept;
+		~IndexBuffer();
 
 		///
 		/// Create index buffer object.
@@ -68,19 +68,19 @@ namespace qs
 		///
 		/// Bind the current vertex buffer to current GL context.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind the current vertex buffer to current GL context.
 		///
-		void unbind() noexcept;
+		void unbind();
 
 		///
 		/// Get the count of indicies in the index buffer.
 		///
 		/// \return Returns a const unsigned int.
 		///
-		[[nodiscard]] unsigned int count() const noexcept;
+		[[nodiscard]] unsigned int count() const;
 
 	private:
 		///

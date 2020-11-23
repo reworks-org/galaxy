@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Frame() noexcept;
+		Frame();
 
 		///
 		/// \brief Parse constructor.
@@ -38,7 +38,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~Frame() noexcept = default;
+		~Frame() = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -54,14 +54,14 @@ namespace starmap
 		///
 		/// \return Const int. In milliseconds.
 		///
-		[[nodiscard]] const int get_duration() const noexcept;
+		[[nodiscard]] const int get_duration() const;
 
 		///
 		/// Get tile id of this frame.
 		///
 		/// \return Const int. Local id scope.
 		///
-		[[nodiscard]] const int get_tile_id() const noexcept;
+		[[nodiscard]] const int get_tile_id() const;
 
 	private:
 		///

@@ -44,7 +44,7 @@ namespace qs
 		return *this;
 	}
 
-	BaseTexture::~BaseTexture() noexcept
+	BaseTexture::~BaseTexture()
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glDeleteTextures(1, &m_texture);
@@ -69,7 +69,7 @@ namespace qs
 		}
 	}
 
-	void BaseTexture::clamp_to_edge() noexcept
+	void BaseTexture::clamp_to_edge()
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -77,7 +77,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::clamp_to_border() noexcept
+	void BaseTexture::clamp_to_border()
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
@@ -85,7 +85,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::set_repeated() noexcept
+	void BaseTexture::set_repeated()
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -93,7 +93,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::set_mirrored() noexcept
+	void BaseTexture::set_mirrored()
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -101,14 +101,14 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::set_anisotropy(const unsigned int level) noexcept
+	void BaseTexture::set_anisotropy(const unsigned int level)
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::set_minify_filter(const qs::TextureFilter& filter) noexcept
+	void BaseTexture::set_minify_filter(const qs::TextureFilter& filter)
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		if (filter == qs::TextureFilter::LINEAR)
@@ -122,7 +122,7 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void BaseTexture::set_magnify_filter(const qs::TextureFilter& filter) noexcept
+	void BaseTexture::set_magnify_filter(const qs::TextureFilter& filter)
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		if (filter == qs::TextureFilter::LINEAR)
@@ -136,22 +136,22 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	const int BaseTexture::get_width() const noexcept
+	const int BaseTexture::get_width() const
 	{
 		return m_width;
 	}
 
-	const int BaseTexture::get_height() const noexcept
+	const int BaseTexture::get_height() const
 	{
 		return m_height;
 	}
 
-	const unsigned int BaseTexture::gl_texture() const noexcept
+	const unsigned int BaseTexture::gl_texture() const
 	{
 		return m_texture;
 	}
 
-	BaseTexture::BaseTexture() noexcept
+	BaseTexture::BaseTexture()
 	    : m_texture {0}, m_width {0}, m_height {0}
 	{
 		glGenTextures(1, &m_texture);

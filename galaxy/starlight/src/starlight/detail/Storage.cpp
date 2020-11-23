@@ -12,11 +12,11 @@
 ///
 namespace sl
 {
-	Storage::Storage() noexcept
+	Storage::Storage()
 	{
 	}
 
-	Storage::~Storage() noexcept
+	Storage::~Storage()
 	{
 	}
 } // namespace sl

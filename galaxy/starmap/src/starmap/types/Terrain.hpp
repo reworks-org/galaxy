@@ -27,7 +27,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Terrain() noexcept;
+		Terrain();
 
 		///
 		/// \brief Parse constructor.
@@ -41,7 +41,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~Terrain() noexcept;
+		~Terrain();
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -57,7 +57,7 @@ namespace starmap
 		///
 		/// \return Name as string.
 		///
-		[[nodiscard]] std::string get_name() const noexcept;
+		[[nodiscard]] std::string get_name() const;
 
 		///
 		/// \brief Retrieve property.
@@ -69,14 +69,14 @@ namespace starmap
 		/// \return Property cast as type.
 		///
 		template<tiled_property Type>
-		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
+		[[nodiscard]] const Type get_property(std::string_view name);
 
 		///
 		/// Get id of the tile representing the terrain.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_tile() const noexcept;
+		[[nodiscard]] const int get_tile() const;
 
 	private:
 		///
@@ -96,7 +96,7 @@ namespace starmap
 	};
 
 	template<tiled_property Type>
-	inline const Type Terrain::get_property(std::string_view name) noexcept
+	inline const Type Terrain::get_property(std::string_view name)
 	{
 		const auto str = static_cast<std::string>(name);
 		return m_properties[str].get<Type>();

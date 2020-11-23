@@ -14,12 +14,12 @@
 ///
 namespace starmap
 {
-	Point::Point() noexcept
+	Point::Point()
 	    : m_x {0.0}, m_y {0.0}
 	{
 	}
 
-	Point::Point(const double x, const double y) noexcept
+	Point::Point(const double x, const double y)
 	    : m_x {x}, m_y {y}
 	{
 	}
@@ -43,12 +43,12 @@ namespace starmap
 		}
 	}
 
-	const double Point::get_x() const noexcept
+	const double Point::get_x() const
 	{
 		return m_x;
 	}
 
-	const double Point::get_y() const noexcept
+	const double Point::get_y() const
 	{
 		return m_y;
 	}

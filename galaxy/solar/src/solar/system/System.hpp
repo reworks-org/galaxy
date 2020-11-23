@@ -24,7 +24,7 @@ namespace sr
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~System() noexcept = default;
+		virtual ~System() = default;
 
 		///
 		/// Abstract implementation for processing events.

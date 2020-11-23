@@ -12,7 +12,7 @@
 ///
 namespace qs
 {
-	VertexArray::VertexArray() noexcept
+	VertexArray::VertexArray()
 	    : m_id {0}, m_counter {0}
 	{
 		glGenVertexArrays(1, &m_id);
@@ -41,7 +41,7 @@ namespace qs
 		return *this;
 	}
 
-	VertexArray::~VertexArray() noexcept
+	VertexArray::~VertexArray()
 	{
 		glDeleteVertexArrays(1, &m_id);
 	}
@@ -61,12 +61,12 @@ namespace qs
 		++m_counter;
 	}
 
-	void VertexArray::bind() noexcept
+	void VertexArray::bind()
 	{
 		glBindVertexArray(m_id);
 	}
 
-	void VertexArray::unbind() noexcept
+	void VertexArray::unbind()
 	{
 		glBindVertexArray(0);
 	}

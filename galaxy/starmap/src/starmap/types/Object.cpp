@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Object::Object() noexcept
+	Object::Object()
 	    : m_ellipse {false}, m_gid {0}, m_height {0.0}, m_id {0}, m_name {""}, m_point {false}, m_rotation {0.0}, m_template {""}, m_type {""}, m_visible {true}, m_width {0.0}, m_x {0.0}, m_y {0.0}
 	{
 	}
@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	Object::~Object() noexcept
+	Object::~Object()
 	{
 		m_points.clear();
 		m_properties.clear();
@@ -131,67 +131,67 @@ namespace starmap
 		}
 	}
 
-	const bool Object::is_ellipse() const noexcept
+	const bool Object::is_ellipse() const
 	{
 		return m_ellipse;
 	}
 
-	const int Object::get_gid() const noexcept
+	const int Object::get_gid() const
 	{
 		return m_gid;
 	}
 
-	std::string Object::get_name() const noexcept
+	std::string Object::get_name() const
 	{
 		return m_name;
 	}
 
-	const bool Object::is_point() const noexcept
+	const bool Object::is_point() const
 	{
 		return m_point;
 	}
 
-	const auto& Object::get_points() const noexcept
+	const auto& Object::get_points() const
 	{
 		return m_points;
 	}
 
-	const double Object::get_rotation() const noexcept
+	const double Object::get_rotation() const
 	{
 		return m_rotation;
 	}
 
-	std::string Object::get_template() const noexcept
+	std::string Object::get_template() const
 	{
 		return m_template;
 	}
 
-	const starmap::Text& Object::get_text() const noexcept
+	const starmap::Text& Object::get_text() const
 	{
 		return m_text;
 	}
 
-	std::string Object::get_type() const noexcept
+	std::string Object::get_type() const
 	{
 		return m_type;
 	}
 
-	const bool Object::is_visible() const noexcept
+	const bool Object::is_visible() const
 	{
 		return m_visible;
 	}
 
-	const double Object::get_width() const noexcept
+	const double Object::get_width() const
 	{
 		return m_width;
 	}
 
-	const double Object::get_x() const noexcept
+	const double Object::get_x() const
 	{
 		return m_x;
 	}
 
-	const double Object::get_y() const noexcept
+	const double Object::get_y() const
 	{
 		return m_y;
 	}

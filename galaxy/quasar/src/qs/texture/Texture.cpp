@@ -26,7 +26,7 @@ namespace qs
 	{
 	}
 
-	Texture::~Texture() noexcept
+	Texture::~Texture()
 	{
 	}
 
@@ -131,12 +131,12 @@ namespace qs
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void Texture::bind() noexcept
+	void Texture::bind()
 	{
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 	}
 
-	void Texture::unbind() noexcept
+	void Texture::unbind()
 	{
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}

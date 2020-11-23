@@ -25,7 +25,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		VertexAttribute() noexcept;
+		VertexAttribute();
 
 		///
 		/// \brief Creation constructor.
@@ -37,32 +37,32 @@ namespace qs
 		/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 		/// \param offset The offset of this attribute in the verticies.
 		///
-		VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset) noexcept;
+		VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset);
 
 		///
 		/// Copy constructor.
 		///
-		VertexAttribute(const VertexAttribute&) noexcept = default;
+		VertexAttribute(const VertexAttribute&) = default;
 
 		///
 		/// Move constructor.
 		///
-		VertexAttribute(VertexAttribute&&) noexcept = default;
+		VertexAttribute(VertexAttribute&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		VertexAttribute& operator=(const VertexAttribute&) noexcept = default;
+		VertexAttribute& operator=(const VertexAttribute&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		VertexAttribute& operator=(VertexAttribute&&) noexcept = default;
+		VertexAttribute& operator=(VertexAttribute&&) = default;
 
 		///
 		/// Destructor.
 		///
-		~VertexAttribute() noexcept = default;
+		~VertexAttribute() = default;
 
 		///
 		/// Components for each vertex attribute.

@@ -38,13 +38,13 @@ namespace qs
 		m_instance_buffer.update(instances);
 	}
 
-	void ParticleInstance::bind() noexcept
+	void ParticleInstance::bind()
 	{
 		m_va.bind();
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 	}
 
-	void ParticleInstance::unbind() noexcept
+	void ParticleInstance::unbind()
 	{
 		m_va.unbind();
 		glBindTexture(GL_TEXTURE_2D, 0);

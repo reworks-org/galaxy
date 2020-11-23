@@ -43,28 +43,28 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~TileLayer() noexcept;
+		~TileLayer();
 
 		///
 		/// Get chunks array.
 		///
 		/// \return Const std::vector<starmap::Chunk>
 		///
-		[[nodiscard]] const auto& get_chunks() const noexcept;
+		[[nodiscard]] const auto& get_chunks() const;
 
 		///
 		/// Get compression.
 		///
 		/// \return Compression as std::string. Can be empty.
 		///
-		[[nodiscard]] std::string get_compression() const noexcept;
+		[[nodiscard]] std::string get_compression() const;
 
 		///
 		/// Retrieve variant data.
 		///
 		/// \return Std::variant 0 = string 1 = vector.
 		///
-		[[nodiscard]] const auto& get_data() const noexcept;
+		[[nodiscard]] const auto& get_data() const;
 
 	private:
 		///

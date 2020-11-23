@@ -36,12 +36,12 @@ namespace qs
 		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
 	}
 
-	void Line::bind() noexcept
+	void Line::bind()
 	{
 		m_va.bind();
 	}
 
-	void Line::unbind() noexcept
+	void Line::unbind()
 	{
 		m_va.unbind();
 	}
