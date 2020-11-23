@@ -28,9 +28,8 @@ msbuild galaxy_engine.sln
 OR open ```galaxy_engine.sln``` and press F5 to build.
 
 ### Linux:
-Tested on Ubuntu 20.10.
+Tested on Ubuntu 20.10 (groovy).
 
-You need ALSA, PulseAudio, X11, opengl
 ```
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt purge --auto-remove cmake
@@ -45,7 +44,7 @@ git submodule update --init --recursive
 cd galaxy_engine
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
 cd build
-make
+make all
 ```
 
 ### Mac OS:
@@ -66,8 +65,9 @@ make doxygen
 - Uses Modern C++ design principles, built on C++20.
 - Tiled map editor parsing.
 - Modern 4.5+ OpenGL renderer.
-- GLFW backend.
+- GLFW platform abstraction.
 - Audio streaming from disk with oggvorbis and OpenAL.
+- Data driven design.
 
 
 ## Contributing / Feedback / Issues
