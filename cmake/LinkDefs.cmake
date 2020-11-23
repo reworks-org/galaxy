@@ -1,6 +1,5 @@
 if (MSVC)
 	set(GALAXY_LINK_FLAGS
-		/SAFESEH
         /ignore:4099
         /MACHINE:X64
 	)
