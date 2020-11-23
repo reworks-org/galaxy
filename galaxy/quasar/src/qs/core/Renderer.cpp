@@ -9,6 +9,7 @@
 
 #include "qs/core/Shader.hpp"
 #include "qs/graphics/ParticleGenerator.hpp"
+#include "qs/post/PostEffect.hpp"
 #include "qs/shapes/Circle.hpp"
 #include "qs/shapes/Line.hpp"
 #include "qs/shapes/Point.hpp"
@@ -122,24 +123,18 @@ namespace qs
 		}
 	}
 
-	/*
-	void Renderer::drawScene(qs::SpriteBatch& spritebatch, qs::Camera& camera, qs::LightSource& ls)
+	void Renderer::add_post_effect(qs::PostEffect* effect)
 	{
-		spritebatch.bind();
-		spritebatch.update();
-		ls.m_shader.bind();
-
-		ls.m_shader.set_uniform("u_light_pos", glm::vec3(ls.m_pos.x, camera.getHeight() - ls.m_pos.y, ls.m_zLevel));
-		ls.m_shader.set_uniform("u_light_colour", ls.m_lightColour);
-		ls.m_shader.set_uniform("u_ambient_colour", ls.m_ambientColour);
-		ls.m_shader.set_uniform("u_falloff", ls.m_falloff);
-		ls.m_shader.set_uniform("u_width", static_cast<float>(spritebatch.getWidth()));
-		ls.m_shader.set_uniform("u_height", static_cast<float>(spritebatch.getHeight()));
-		ls.m_shader.set_uniform<glm::mat4>("u_cameraProj", camera.getProj());
-		ls.m_shader.set_uniform<glm::mat4>("u_cameraView", camera.getTransformation());
-		ls.m_shader.set_uniform("u_window_resolution", camera.getWidth(), camera.getHeight());
-
-		glDrawElements(GL_TRIANGLES, spritebatch.getCount(), GL_UNSIGNED_INT, nullptr);
+		m_effects.push_back(effect);
 	}
-	*/
+
+	std::span<qs::PostEffect*> Renderer::get_post_effects()
+	{
+		return m_effects;
+	}
+
+	void Renderer::clear_post_effects()
+	{
+		m_effects.clear();
+	}
 } // namespace qs

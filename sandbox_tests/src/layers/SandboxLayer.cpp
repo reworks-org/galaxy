@@ -13,6 +13,7 @@
 #include <galaxy/flags/EnabledFlag.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
+#include <qs/core/Shader.hpp>
 
 #include "SandboxLayer.hpp"
 
@@ -27,10 +28,6 @@ namespace sb
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
 
-		auto vs = galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "particle.vs";
-		auto fs = galaxy::FileSystem::s_root + galaxy::FileSystem::s_shaders + "particle.fs";
-		m_shader.load_path(vs, fs);
-
 		// create and set texture
 		auto tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "particle_demo.png";
 		m_particle_gen.create(tex, 100.0f, 100.0f);
@@ -44,6 +41,18 @@ namespace sb
 
 		m_circle.create(0, 0, 20, 50, c);
 		m_circle.set_pos(150, 150);
+
+		m_pl.m_ambient_colour = {0.6f, 0.6f, 1.0f, 0.2f};
+		m_pl.m_light_colour   = {1.0f, 0.8f, 0.6f, 1.0f};
+		m_pl.m_falloff        = {0.4f, 3.0f, 20.0f};
+		m_pl.m_z_level        = 0.075f;
+		m_pl.m_pos            = {500.0f, 200.0f};
+		m_pl.m_shader.load_path("assets/shaders/point_light.vs", "assets/shaders/point_light.fs");
+
+		m_simple.m_shader.load_path("assets/shaders/render_to_texture.vs", "assets/shaders/render_to_texture.fs");
+
+		//SL_HANDLE.renderer()->add_post_effect(&m_pl);
+		SL_HANDLE.renderer()->add_post_effect(&m_simple);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -79,11 +88,11 @@ namespace sb
 
 	void SandboxLayer::render(qs::Camera& camera)
 	{
-		// set shader
-		m_shader.bind();
-		m_shader.set_uniform("u_cameraProj", camera.get_proj());
-		m_shader.set_uniform("u_cameraView", camera.get_transform());
-		SL_HANDLE.renderer()->draw_particles(m_particle_gen, m_shader);
+		auto* pts = SL_HANDLE.shaderbook()->get("particle");
+		pts->bind();
+		pts->set_uniform("u_cameraProj", camera.get_proj());
+		pts->set_uniform("u_cameraView", camera.get_transform());
+		SL_HANDLE.renderer()->draw_particles(m_particle_gen, *pts);
 
 		auto* ps = SL_HANDLE.shaderbook()->get("point");
 		ps->bind();

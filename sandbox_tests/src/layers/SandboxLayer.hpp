@@ -13,8 +13,9 @@
 #include <galaxy/layer/Layer.hpp>
 #include <qs/shapes/Point.hpp>
 #include <qs/shapes/Circle.hpp>
+#include <qs/post/PointLight.hpp>
+#include <qs/post/Simple.hpp>
 
-#include <qs/core/Shader.hpp>
 #include <qs/graphics/ParticleGenerator.hpp>
 
 namespace sb
@@ -33,10 +34,11 @@ namespace sb
 		galaxy::World* m_world;
 		qs::Window* m_window;
 
-		qs::Shader m_shader;
 		qs::ParticleGenerator m_particle_gen;
 		qs::Point m_point;
 		qs::Circle m_circle;
+		qs::effect::PointLight m_pl;
+		qs::effect::Simple m_simple;
 	};
 } // namespace sb
 
