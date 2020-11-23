@@ -17,9 +17,5 @@ GALAXY:
 - Review Box2D integration.
 - better shader data storage
 
-ALL:
-- More error handling.
-- Clean up includes.
-
 Debugging
 Profiling
