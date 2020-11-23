@@ -22,7 +22,7 @@
 ///
 namespace qs
 {
-	RenderTexture::RenderTexture() noexcept
+	RenderTexture::RenderTexture()
 	    : m_projection(1.0f), m_framebuffer(0)
 	{
 		glGenFramebuffers(1, &m_framebuffer);
@@ -58,7 +58,7 @@ namespace qs
 		return *this;
 	}
 
-	RenderTexture::~RenderTexture() noexcept
+	RenderTexture::~RenderTexture()
 	{
 		glBindFramebuffer(GL_TEXTURE_2D, 0);
 		glDeleteFramebuffers(1, &m_framebuffer);
@@ -111,30 +111,28 @@ namespace qs
 		create(width, height);
 	}
 
-	void RenderTexture::bind() noexcept
+	void RenderTexture::bind()
 	{
 		// Bind to framebuffer.
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glViewport(0, 0, m_width, m_height);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		// Reset Colour, in prep for rendering.
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
-	void RenderTexture::unbind() noexcept
+	void RenderTexture::unbind()
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	}
 
-	void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top) noexcept
+	void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top)
 	{
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	}
 
-	glm::mat4& RenderTexture::get_proj() noexcept
+	glm::mat4& RenderTexture::get_proj()
 	{
 		return m_projection;
 	}
