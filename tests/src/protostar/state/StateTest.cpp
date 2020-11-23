@@ -11,12 +11,12 @@
 class Demo : public pr::State
 {
 public:
-	inline Demo() noexcept
+	inline Demo()
 	    : State("Demo")
 	{
 	}
 
-	inline ~Demo() noexcept override
+	inline ~Demo() override
 	{
 	}
 

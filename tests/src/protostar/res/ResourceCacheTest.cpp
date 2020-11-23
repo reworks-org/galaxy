@@ -20,7 +20,7 @@ struct DemoRes
 
 struct Cache : public pr::ResourceCache<DemoRes>
 {
-	Cache() noexcept
+	Cache()
 	    : ResourceCache()
 	{
 	}

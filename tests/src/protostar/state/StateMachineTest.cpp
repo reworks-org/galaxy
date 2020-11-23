@@ -11,12 +11,12 @@
 class Demo : public pr::State
 {
 public:
-	inline Demo(const int val) noexcept
+	inline Demo(const int val)
 	    : State("Demo"), m_val(val)
 	{
 	}
 
-	inline ~Demo() noexcept override
+	inline ~Demo() override
 	{
 	}
 	inline void on_push() override
@@ -42,7 +42,7 @@ public:
 		m_val++;
 	}
 
-	inline int get() noexcept
+	inline int get()
 	{
 		return m_val;
 	}
@@ -54,12 +54,12 @@ private:
 class Demo2 : public pr::State
 {
 public:
-	inline Demo2(const int val) noexcept
+	inline Demo2(const int val)
 	    : State("Demo2"), m_val(val)
 	{
 	}
 
-	inline ~Demo2() noexcept override
+	inline ~Demo2() override
 	{
 	}
 
@@ -83,7 +83,7 @@ public:
 	{
 	}
 
-	inline int get() noexcept
+	inline int get()
 	{
 		return m_val;
 	}
