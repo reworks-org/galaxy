@@ -115,7 +115,7 @@ namespace frb
 		}
 	}
 
-	ALint Source::get_state() noexcept
+	ALint Source::get_state()
 	{
 		ALint val = 0;
 		alGetSourcei(m_source, AL_SOURCE_STATE, &val);
@@ -127,7 +127,7 @@ namespace frb
 		return std::move(val);
 	}
 
-	const ALuint Source::handle() const noexcept
+	const ALuint Source::handle() const
 	{
 		return m_source;
 	}

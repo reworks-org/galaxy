@@ -37,7 +37,7 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		SpriteBatchComponent(const SpriteBatchComponent&) noexcept = delete;
+		SpriteBatchComponent(const SpriteBatchComponent&) = delete;
 
 		///
 		/// Move constructor.
@@ -47,7 +47,7 @@ namespace galaxy
 		///
 		/// Copy assignment operator.
 		///
-		SpriteBatchComponent& operator=(const SpriteBatchComponent&) noexcept = delete;
+		SpriteBatchComponent& operator=(const SpriteBatchComponent&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -57,7 +57,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~SpriteBatchComponent() noexcept = default;
+		~SpriteBatchComponent() = default;
 
 		///
 		/// Batched sprite object.

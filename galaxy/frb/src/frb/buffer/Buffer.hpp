@@ -34,7 +34,7 @@ namespace frb
 		///
 		/// Copy constructor.
 		///
-		Buffer(const Buffer&) noexcept = delete;
+		Buffer(const Buffer&) = delete;
 
 		///
 		/// Move constructor.
@@ -44,7 +44,7 @@ namespace frb
 		///
 		/// Copy assignment operator.
 		///
-		Buffer& operator=(const Buffer&) noexcept = delete;
+		Buffer& operator=(const Buffer&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -63,21 +63,21 @@ namespace frb
 		///
 		/// \return Frequency as integer.
 		///
-		[[nodiscard]] const ALint get_frequency() const noexcept;
+		[[nodiscard]] const ALint get_frequency() const;
 
 		///
 		/// Get channels of buffer.
 		///
 		/// \return Channels as integer.
 		///
-		[[nodiscard]] const ALint get_channels() const noexcept;
+		[[nodiscard]] const ALint get_channels() const;
 
 		///
 		/// Get the OpenAL internal int id / handle.
 		///
 		/// \return Const ALuint handle integer.
 		///
-		[[nodiscard]] const ALuint handle() const noexcept;
+		[[nodiscard]] const ALuint handle() const;
 
 	protected:
 		///

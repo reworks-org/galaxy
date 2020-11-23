@@ -31,24 +31,24 @@ namespace frb
 		///
 		/// Plays source from beginning or pause point.
 		///
-		void play() noexcept;
+		void play();
 
 		///
 		/// Pause source.
 		///
-		void pause() noexcept;
+		void pause();
 
 		///
 		/// \brief Stop source.
 		///
 		/// Starts again from beginning when play() or resume() are called.
 		///
-		void stop() noexcept;
+		void stop();
 
 		///
 		/// Rewind source to beginning.
 		///
-		void rewind() noexcept;
+		void rewind();
 
 		///
 		/// Audio pitch.
@@ -76,7 +76,7 @@ namespace frb
 		///
 		/// \param distance Floating point distance value.
 		///
-		void set_max_distance(const float distance) noexcept;
+		void set_max_distance(const float distance);
 
 		///
 		/// \brief Configure audio cone.
@@ -85,7 +85,7 @@ namespace frb
 		/// \param innerAngle The gain when inside the oriented cone.
 		/// \param outerAngle Outer angle of the sound cone, in degrees. Default is 360.
 		///
-		void set_cone(const float outer_gain, const float inner_angle, const float outer_angle = 360.0f) noexcept;
+		void set_cone(const float outer_gain, const float inner_angle, const float outer_angle = 360.0f);
 
 		///
 		/// \brief Specifies the current location of the object in the world coordinate system.
@@ -94,7 +94,7 @@ namespace frb
 		/// \param y position in world.
 		/// \param z position in world.
 		///
-		void set_position(const float x, const float y, const float z) noexcept;
+		void set_position(const float x, const float y, const float z);
 
 		///
 		/// \brief Specifies the current velocity (speed and direction) of the object, in theworld coordinate system
@@ -103,7 +103,7 @@ namespace frb
 		/// \param y Y velocity.
 		/// \param z Z velocity.
 		///
-		void set_velocity(const float x, const float y, const float z) noexcept;
+		void set_velocity(const float x, const float y, const float z);
 
 		///
 		/// \brief Source is directional. The sound emission is presumed to be symmetric around the direction vector.
@@ -112,14 +112,14 @@ namespace frb
 		/// \param y position in world.
 		/// \param z position in world.
 		///
-		void set_direction(const float x, const float y, const float z) noexcept;
+		void set_direction(const float x, const float y, const float z);
 
 		///
 		/// \brief Should the source repeat upon reaching the end.
 		///
 		/// \param True to repeat.
 		///
-		void set_looping(bool looping) noexcept;
+		void set_looping(bool looping);
 
 	protected:
 		///
@@ -130,7 +130,7 @@ namespace frb
 		///
 		/// Copy constructor.
 		///
-		SourceManipulator(const SourceManipulator&) noexcept = delete;
+		SourceManipulator(const SourceManipulator&) = delete;
 
 		///
 		/// Move constructor.
@@ -140,7 +140,7 @@ namespace frb
 		///
 		/// Copy assignment operator.
 		///
-		SourceManipulator& operator=(const SourceManipulator&) noexcept = delete;
+		SourceManipulator& operator=(const SourceManipulator&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -152,7 +152,7 @@ namespace frb
 		///
 		/// \param source Pointer to source handle in OpenAL.
 		///
-		void set_source_to_manipulate(const ALuint source) noexcept;
+		void set_source_to_manipulate(const ALuint source);
 
 		///
 		/// Retrieve OpenAL source state.

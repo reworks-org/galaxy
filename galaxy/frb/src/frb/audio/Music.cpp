@@ -118,7 +118,7 @@ namespace frb
 		return res;
 	}
 
-	void Music::update() noexcept
+	void Music::update()
 	{
 		ALint processed = 0;
 		alGetSourcei(m_source.handle(), AL_BUFFERS_PROCESSED, &processed);

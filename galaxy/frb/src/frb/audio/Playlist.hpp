@@ -82,7 +82,7 @@ namespace frb
 		///
 		/// Defaults to false.
 		///
-		void toggle_loop() noexcept;
+		void toggle_loop();
 
 		///
 		/// \brief Play playlist.
@@ -292,7 +292,7 @@ namespace frb
 	}
 
 	template<is_audio Audio>
-	inline void Playlist<Audio>::toggle_loop() noexcept
+	inline void Playlist<Audio>::toggle_loop()
 	{
 		m_loop = !m_loop;
 	}

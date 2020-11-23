@@ -37,7 +37,7 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		SpriteComponent(const SpriteComponent&) noexcept = delete;
+		SpriteComponent(const SpriteComponent&) = delete;
 
 		///
 		/// Move constructor.
@@ -47,7 +47,7 @@ namespace galaxy
 		///
 		/// Copy assignment operator.
 		///
-		SpriteComponent& operator=(const SpriteComponent&) noexcept = delete;
+		SpriteComponent& operator=(const SpriteComponent&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -57,7 +57,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~SpriteComponent() noexcept = default;
+		~SpriteComponent() = default;
 
 		///
 		/// Sprite object.

@@ -39,7 +39,7 @@ namespace frb
 		///
 		/// Copy constructor.
 		///
-		Sound(const Sound&) noexcept = delete;
+		Sound(const Sound&) = delete;
 
 		///
 		/// Move constructor.
@@ -49,7 +49,7 @@ namespace frb
 		///
 		/// Copy assignment operator.
 		///
-		Sound& operator=(const Sound&) noexcept = delete;
+		Sound& operator=(const Sound&) = delete;
 
 		///
 		/// Move assignment operator.

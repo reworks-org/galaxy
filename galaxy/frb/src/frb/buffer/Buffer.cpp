@@ -68,17 +68,17 @@ namespace frb
 		m_frequency = 0;
 	}
 
-	const ALint Buffer::get_frequency() const noexcept
+	const ALint Buffer::get_frequency() const
 	{
 		return m_frequency;
 	}
 
-	const ALint Buffer::get_channels() const noexcept
+	const ALint Buffer::get_channels() const
 	{
 		return m_channels;
 	}
 
-	const ALuint Buffer::handle() const noexcept
+	const ALuint Buffer::handle() const
 	{
 		return m_buffer;
 	}

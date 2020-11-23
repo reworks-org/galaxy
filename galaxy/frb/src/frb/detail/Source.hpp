@@ -35,7 +35,7 @@ namespace frb
 		///
 		/// Copy constructor.
 		///
-		Source(const Source&) noexcept = delete;
+		Source(const Source&) = delete;
 
 		///
 		/// Move constructor.
@@ -45,7 +45,7 @@ namespace frb
 		///
 		/// Copy assignment operator.
 		///
-		Source& operator=(const Source&) noexcept = delete;
+		Source& operator=(const Source&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -92,14 +92,14 @@ namespace frb
 		///
 		/// \return Enum. AL_PLAYING, AL_STOPPED, etc...
 		///
-		[[nodiscard]] ALint get_state() noexcept;
+		[[nodiscard]] ALint get_state();
 
 		///
 		/// Get the OpenAL internal int id / handle.
 		///
 		/// \return ALuint handle integer.
 		///
-		[[nodiscard]] const ALuint handle() const noexcept;
+		[[nodiscard]] const ALuint handle() const;
 
 	private:
 		///
