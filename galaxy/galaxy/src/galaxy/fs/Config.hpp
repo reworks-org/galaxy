@@ -29,12 +29,12 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		Config() noexcept;
+		Config();
 
 		///
 		/// Copy constructor.
 		///
-		Config(const Config&) noexcept = delete;
+		Config(const Config&) = delete;
 
 		///
 		/// Move constructor.
@@ -44,7 +44,7 @@ namespace galaxy
 		///
 		/// Copy assignment operator.
 		///
-		Config& operator=(const Config&) noexcept = delete;
+		Config& operator=(const Config&) = delete;
 
 		///
 		/// Move assignment operator.

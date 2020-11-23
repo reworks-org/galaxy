@@ -121,7 +121,7 @@ namespace galaxy
 			/// \param x X position to set object to.
 			/// \param y Y position to set object to.
 			///
-			void set_pos(const float x, const float y) noexcept override;
+			void set_pos(const float x, const float y) override;
 
 		private:
 			///

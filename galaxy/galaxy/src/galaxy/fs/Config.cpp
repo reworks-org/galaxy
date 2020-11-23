@@ -14,7 +14,7 @@
 ///
 namespace galaxy
 {
-	Config::Config() noexcept
+	Config::Config()
 	    : m_opened {false}, m_exists {false}
 	{
 	}

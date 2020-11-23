@@ -21,7 +21,7 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		MouseMovedEvent() noexcept;
+		MouseMovedEvent();
 
 		///
 		/// Constructor.
@@ -29,32 +29,32 @@ namespace pr
 		/// \param x x-pos of event.
 		/// \param y y-pos of event.
 		///
-		MouseMovedEvent(const double x, const double y) noexcept;
+		MouseMovedEvent(const double x, const double y);
 
 		///
 		/// Copy constructor.
 		///
-		MouseMovedEvent(const MouseMovedEvent&) noexcept = default;
+		MouseMovedEvent(const MouseMovedEvent&) = default;
 
 		///
 		/// Move constructor.
 		///
-		MouseMovedEvent(MouseMovedEvent&&) noexcept = default;
+		MouseMovedEvent(MouseMovedEvent&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		MouseMovedEvent& operator=(const MouseMovedEvent&) noexcept = default;
+		MouseMovedEvent& operator=(const MouseMovedEvent&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		MouseMovedEvent& operator=(MouseMovedEvent&&) noexcept = default;
+		MouseMovedEvent& operator=(MouseMovedEvent&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~MouseMovedEvent() noexcept = default;
+		~MouseMovedEvent() = default;
 
 		///
 		/// Mouse x position.

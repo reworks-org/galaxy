@@ -41,27 +41,27 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		LuaEntity(const LuaEntity&) noexcept = delete;
+		LuaEntity(const LuaEntity&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		LuaEntity(LuaEntity&&) noexcept;
+		LuaEntity(LuaEntity&&);
 
 		///
 		/// Copy assignment operator.
 		///
-		LuaEntity& operator=(const LuaEntity&) noexcept = delete;
+		LuaEntity& operator=(const LuaEntity&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		LuaEntity& operator=(LuaEntity&&) noexcept;
+		LuaEntity& operator=(LuaEntity&&);
 
 		///
 		/// Destructor.
 		///
-		~LuaEntity() noexcept = default;
+		~LuaEntity() = default;
 
 		///
 		/// Enable the entity.
@@ -108,7 +108,7 @@ namespace galaxy
 		///
 		/// \return Const sr::Entity.
 		///
-		[[nodiscard]] const sr::Entity retrieve() const noexcept;
+		[[nodiscard]] const sr::Entity retrieve() const;
 
 	private:
 		///

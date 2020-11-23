@@ -12,7 +12,7 @@
 ///
 namespace pr
 {
-	KeyUpEvent::KeyUpEvent(const pr::Keys keycode) noexcept
+	KeyUpEvent::KeyUpEvent(const pr::Keys keycode)
 	    : m_keycode {keycode}
 	{
 	}

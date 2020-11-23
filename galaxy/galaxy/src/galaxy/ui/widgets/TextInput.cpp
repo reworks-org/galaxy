@@ -187,7 +187,7 @@ namespace galaxy
 			}
 		}
 
-		void TextInput::set_pos(const float x, const float y) noexcept
+		void TextInput::set_pos(const float x, const float y)
 		{
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;

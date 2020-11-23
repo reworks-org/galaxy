@@ -17,7 +17,7 @@
 ///
 namespace pl
 {
-	std::string colour_text(const LogColours colour) noexcept
+	std::string colour_text(const LogColours colour)
 	{
 		HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 		SetConsoleTextAttribute(h, static_cast<WORD>(colour));

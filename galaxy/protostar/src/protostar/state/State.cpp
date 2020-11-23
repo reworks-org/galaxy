@@ -14,7 +14,7 @@ namespace pr
 		m_name = static_cast<std::string>(name);
 	}
 
-	const std::string& State::get_name() const noexcept
+	const std::string& State::get_name() const
 	{
 		return m_name;
 	}

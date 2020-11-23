@@ -71,7 +71,7 @@ namespace galaxy
 			m_bounds.m_height = m_regions.at(0).m_height;
 		}
 
-		void ToggleButton::set_pos(const float x, const float y) noexcept
+		void ToggleButton::set_pos(const float x, const float y)
 		{
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
@@ -181,7 +181,7 @@ namespace galaxy
 			}
 		}
 
-		const bool ToggleButton::is_on() const noexcept
+		const bool ToggleButton::is_on() const
 		{
 			return m_on;
 		}

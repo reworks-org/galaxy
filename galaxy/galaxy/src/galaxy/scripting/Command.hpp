@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~Command() noexcept = default;
+		virtual ~Command() = default;
 
 		///
 		/// Execute the command.
@@ -45,27 +45,27 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		Command() noexcept = default;
+		Command() = default;
 
 		///
 		/// Copy constructor.
 		///
-		Command(const Command&) noexcept = default;
+		Command(const Command&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Command(Command&&) noexcept = default;
+		Command(Command&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Command& operator=(const Command&) noexcept = default;
+		Command& operator=(const Command&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		Command& operator=(Command&&) noexcept = default;
+		Command& operator=(Command&&) = default;
 	};
 } // namespace galaxy
 

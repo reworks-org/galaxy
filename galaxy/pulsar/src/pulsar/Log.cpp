@@ -22,7 +22,7 @@ namespace pl
 	{
 	}
 
-	Log& Log::get() noexcept
+	Log& Log::get()
 	{
 		// Singleton instance.
 		static Log s_inst;
@@ -73,17 +73,17 @@ namespace pl
 		m_file_stream.close();
 	}
 
-	void Log::set_testing(const bool is_testing) noexcept
+	void Log::set_testing(const bool is_testing)
 	{
 		m_testing_mode = is_testing;
 	}
 
-	void Log::set_min_level(Log::Level level) noexcept
+	void Log::set_min_level(Log::Level level)
 	{
 		m_min_level = level;
 	}
 
-	Log::Level Log::get_min_level() noexcept
+	Log::Level Log::get_min_level()
 	{
 		return m_min_level;
 	}
@@ -122,7 +122,7 @@ namespace pl
 		return out;
 	}
 
-	std::string Log::process_colour(Log::Level level) noexcept
+	std::string Log::process_colour(Log::Level level)
 	{
 		std::string out;
 
@@ -156,7 +156,7 @@ namespace pl
 		return out;
 	}
 
-	bool Log::filter_level(Log::Level level) noexcept
+	bool Log::filter_level(Log::Level level)
 	{
 		bool res = false;
 

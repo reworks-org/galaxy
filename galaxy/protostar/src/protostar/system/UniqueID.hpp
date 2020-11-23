@@ -48,7 +48,7 @@ namespace pr
 		///
 		/// Destructor.
 		///
-		~UniqueID() noexcept = default;
+		~UniqueID() = default;
 
 		///
 		/// Use this function to retrieve the ID.
@@ -57,13 +57,13 @@ namespace pr
 		/// \return Unique ID for the specialization of that type.
 		///
 		template<typename Type>
-		[[nodiscard]] static const std::size_t get() noexcept;
+		[[nodiscard]] static const std::size_t get();
 
 	private:
 		///
 		/// Constructor.
 		///
-		UniqueID() noexcept = default;
+		UniqueID() = default;
 
 		///
 		/// Internal counter to keep track of allocated ids.
@@ -73,7 +73,7 @@ namespace pr
 
 	template<is_class Specialization>
 	template<typename Type>
-	[[nodiscard]] inline const std::size_t UniqueID<Specialization>::get() noexcept
+	[[nodiscard]] inline const std::size_t UniqueID<Specialization>::get()
 	{
 		static std::size_t id = s_counter++;
 		return id;

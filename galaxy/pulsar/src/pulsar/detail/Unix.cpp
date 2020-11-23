@@ -14,7 +14,7 @@
 ///
 namespace pl
 {
-	std::string colour_text(const LogColours colour) noexcept
+	std::string colour_text(const LogColours colour)
 	{
 		std::string out;
 

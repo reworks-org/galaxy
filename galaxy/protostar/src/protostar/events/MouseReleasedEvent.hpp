@@ -21,7 +21,7 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		MouseReleasedEvent() noexcept;
+		MouseReleasedEvent();
 
 		///
 		/// Constructor.
@@ -30,32 +30,32 @@ namespace pr
 		/// \param y y-pos of event.
 		/// \param button Button code pressed.
 		///
-		MouseReleasedEvent(const float x, const float y, const int button) noexcept;
+		MouseReleasedEvent(const float x, const float y, const int button);
 
 		///
 		/// Copy constructor.
 		///
-		MouseReleasedEvent(const MouseReleasedEvent&) noexcept = default;
+		MouseReleasedEvent(const MouseReleasedEvent&) = default;
 
 		///
 		/// Move constructor.
 		///
-		MouseReleasedEvent(MouseReleasedEvent&&) noexcept = default;
+		MouseReleasedEvent(MouseReleasedEvent&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		MouseReleasedEvent& operator=(const MouseReleasedEvent&) noexcept = default;
+		MouseReleasedEvent& operator=(const MouseReleasedEvent&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		MouseReleasedEvent& operator=(MouseReleasedEvent&&) noexcept = default;
+		MouseReleasedEvent& operator=(MouseReleasedEvent&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~MouseReleasedEvent() noexcept = default;
+		~MouseReleasedEvent() = default;
 
 		///
 		/// Mouse x position.

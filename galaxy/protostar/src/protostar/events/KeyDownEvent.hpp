@@ -23,39 +23,39 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		KeyDownEvent() noexcept = default;
+		KeyDownEvent() = default;
 
 		///
 		/// Constructor.
 		///
 		/// \param keycode Keycode for the key that was pressed.
 		///
-		KeyDownEvent(const pr::Keys keycode) noexcept;
+		KeyDownEvent(const pr::Keys keycode);
 
 		///
 		/// Copy constructor.
 		///
-		KeyDownEvent(const KeyDownEvent&) noexcept = default;
+		KeyDownEvent(const KeyDownEvent&) = default;
 
 		///
 		/// Move constructor.
 		///
-		KeyDownEvent(KeyDownEvent&&) noexcept = default;
+		KeyDownEvent(KeyDownEvent&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		KeyDownEvent& operator=(const KeyDownEvent&) noexcept = default;
+		KeyDownEvent& operator=(const KeyDownEvent&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		KeyDownEvent& operator=(KeyDownEvent&&) noexcept = default;
+		KeyDownEvent& operator=(KeyDownEvent&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~KeyDownEvent() noexcept = default;
+		~KeyDownEvent() = default;
 
 		///
 		/// Keycode for the key that was pressed.

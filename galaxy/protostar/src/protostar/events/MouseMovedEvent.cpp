@@ -12,12 +12,12 @@
 ///
 namespace pr
 {
-	MouseMovedEvent::MouseMovedEvent() noexcept
+	MouseMovedEvent::MouseMovedEvent()
 	    : m_x {0.0}, m_y {0.0}
 	{
 	}
 
-	MouseMovedEvent::MouseMovedEvent(const double x, const double y) noexcept
+	MouseMovedEvent::MouseMovedEvent(const double x, const double y)
 	    : m_x {x}, m_y {y}
 	{
 	}

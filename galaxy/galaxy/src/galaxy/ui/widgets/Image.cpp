@@ -33,7 +33,7 @@ namespace galaxy
 			m_bounds.m_height = get_height();
 		}
 
-		void Image::set_pos(const float x, const float y) noexcept
+		void Image::set_pos(const float x, const float y)
 		{
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;

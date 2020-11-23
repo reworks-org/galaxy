@@ -100,7 +100,7 @@ namespace galaxy
 			/// \param x X position to set object to.
 			/// \param y Y position to set object to.
 			///
-			void set_pos(const float x, const float y) noexcept override;
+			void set_pos(const float x, const float y) override;
 
 			///
 			/// Triggered upon mouse movement.
@@ -139,7 +139,7 @@ namespace galaxy
 			///
 			/// \return Const boolean - true if toggled on.
 			///
-			[[nodiscard]] const bool is_on() const noexcept;
+			[[nodiscard]] const bool is_on() const;
 
 		private:
 			///

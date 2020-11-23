@@ -27,53 +27,53 @@ namespace pr
 		///
 		/// Constructor.
 		///
-		ProtectedAirthmetic() noexcept;
+		ProtectedAirthmetic();
 
 		///
 		/// Argument constructor.
 		///
 		/// \param value New value for var.
 		///
-		explicit ProtectedAirthmetic(const Type value) noexcept;
+		explicit ProtectedAirthmetic(const Type value);
 
 		///
 		/// Copy constructor.
 		///
-		ProtectedAirthmetic(const ProtectedAirthmetic&) noexcept = delete;
+		ProtectedAirthmetic(const ProtectedAirthmetic&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		ProtectedAirthmetic(ProtectedAirthmetic&&) noexcept = delete;
+		ProtectedAirthmetic(ProtectedAirthmetic&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) noexcept = delete;
+		ProtectedAirthmetic& operator=(const ProtectedAirthmetic&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) noexcept = delete;
+		ProtectedAirthmetic& operator=(ProtectedAirthmetic&&) = delete;
 
 		///
 		/// Destructor.
 		///
-		~ProtectedAirthmetic() noexcept = default;
+		~ProtectedAirthmetic() = default;
 
 		///
 		/// Set/update the value.
 		///
 		/// \param value New value for var.
 		///
-		void set(const Type value) noexcept;
+		void set(const Type value);
 
 		///
 		/// Get value stored.
 		///
 		/// \return Mutex protected value.
 		///
-		[[nodiscard]] const Type get() noexcept;
+		[[nodiscard]] const Type get();
 
 	private:
 		///
@@ -88,26 +88,26 @@ namespace pr
 	};
 
 	template<is_arithmetic Type>
-	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic() noexcept
+	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic()
 	    : m_var {0}
 	{
 	}
 
 	template<is_arithmetic Type>
-	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic(const Type value) noexcept
+	inline ProtectedAirthmetic<Type>::ProtectedAirthmetic(const Type value)
 	{
 		set(value);
 	}
 
 	template<is_arithmetic Type>
-	inline void ProtectedAirthmetic<Type>::set(const Type value) noexcept
+	inline void ProtectedAirthmetic<Type>::set(const Type value)
 	{
 		std::lock_guard<std::mutex> lock {m_mutex};
 		m_var = value;
 	}
 
 	template<is_arithmetic Type>
-	inline const Type ProtectedAirthmetic<Type>::get() noexcept
+	inline const Type ProtectedAirthmetic<Type>::get()
 	{
 		std::lock_guard<std::mutex> lock {m_mutex};
 		return m_var;

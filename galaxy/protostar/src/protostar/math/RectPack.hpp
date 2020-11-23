@@ -29,32 +29,32 @@ namespace pr
 		///
 		/// Constructor.
 		///
-		RectPack() noexcept;
+		RectPack();
 
 		///
 		/// Move constructor.
 		///
-		RectPack(RectPack&&) noexcept = default;
+		RectPack(RectPack&&) = default;
 
 		///
 		/// Copy constructor.
 		///
-		RectPack(const RectPack&) noexcept = default;
+		RectPack(const RectPack&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		RectPack& operator=(RectPack&&) noexcept = default;
+		RectPack& operator=(RectPack&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		RectPack& operator=(const RectPack&) noexcept = default;
+		RectPack& operator=(const RectPack&) = default;
 
 		///
 		/// Destructor.
 		///
-		~RectPack() noexcept;
+		~RectPack();
 
 		///
 		/// Set starting width and height of rectangle.
@@ -64,7 +64,7 @@ namespace pr
 		/// \param width Width of the master rectangle.
 		/// \param height Height of the master rectangle.
 		///
-		void init(const int width, const int height) noexcept;
+		void init(const int width, const int height);
 
 		///
 		/// Pack a rectangle into the master rectangle.
@@ -80,19 +80,19 @@ namespace pr
 		///
 		/// Get total width.
 		///
-		[[nodiscard]] int get_width() const noexcept;
+		[[nodiscard]] int get_width() const;
 
 		///
 		/// Get total height.
 		///
-		[[nodiscard]] int get_height() const noexcept;
+		[[nodiscard]] int get_height() const;
 
 		///
 		/// Get free rectangles.
 		///
 		/// \return Const std::vector.
 		///
-		[[nodiscard]] const std::vector<pr::Rect<Type>>& get_free_space() const noexcept;
+		[[nodiscard]] const std::vector<pr::Rect<Type>>& get_free_space() const;
 
 	private:
 		///
@@ -112,19 +112,19 @@ namespace pr
 	};
 
 	template<is_arithmetic Type>
-	inline RectPack<Type>::RectPack() noexcept
+	inline RectPack<Type>::RectPack()
 	    : m_width {0}, m_height {0}
 	{
 	}
 
 	template<is_arithmetic Type>
-	inline RectPack<Type>::~RectPack() noexcept
+	inline RectPack<Type>::~RectPack()
 	{
 		m_free_rects.clear();
 	}
 
 	template<is_arithmetic Type>
-	inline void RectPack<Type>::init(const int width, const int height) noexcept
+	inline void RectPack<Type>::init(const int width, const int height)
 	{
 		m_width  = width;
 		m_height = height;
@@ -192,19 +192,19 @@ namespace pr
 	}
 
 	template<is_arithmetic Type>
-	inline int RectPack<Type>::get_width() const noexcept
+	inline int RectPack<Type>::get_width() const
 	{
 		return m_width;
 	}
 
 	template<is_arithmetic Type>
-	inline int RectPack<Type>::get_height() const noexcept
+	inline int RectPack<Type>::get_height() const
 	{
 		return m_height;
 	}
 
 	template<is_arithmetic Type>
-	inline const std::vector<pr::Rect<Type>>& RectPack<Type>::get_free_space() const noexcept
+	inline const std::vector<pr::Rect<Type>>& RectPack<Type>::get_free_space() const
 	{
 		return m_free_rects;
 	}

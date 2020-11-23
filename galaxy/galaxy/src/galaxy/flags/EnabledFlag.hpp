@@ -21,32 +21,32 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		EnabledFlag() noexcept = default;
+		EnabledFlag() = default;
 
 		///
 		/// Copy constructor.
 		///
-		EnabledFlag(const EnabledFlag&) noexcept = default;
+		EnabledFlag(const EnabledFlag&) = default;
 
 		///
 		/// Move constructor.
 		///
-		EnabledFlag(EnabledFlag&&) noexcept = default;
+		EnabledFlag(EnabledFlag&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		EnabledFlag& operator=(const EnabledFlag&) noexcept = default;
+		EnabledFlag& operator=(const EnabledFlag&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		EnabledFlag& operator=(EnabledFlag&&) noexcept = default;
+		EnabledFlag& operator=(EnabledFlag&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~EnabledFlag() noexcept = default;
+		~EnabledFlag() = default;
 	};
 } // namespace galaxy
 

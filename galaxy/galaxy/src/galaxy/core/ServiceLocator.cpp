@@ -12,73 +12,73 @@
 ///
 namespace galaxy
 {
-	galaxy::ServiceLocator& ServiceLocator::get() noexcept
+	galaxy::ServiceLocator& ServiceLocator::get()
 	{
 		static galaxy::ServiceLocator s_service_locator;
 		return s_service_locator;
 	}
 
-	galaxy::Config* ServiceLocator::config() const noexcept
+	galaxy::Config* ServiceLocator::config() const
 	{
 		return m_config;
 	}
 
-	pr::ThreadPool<4>* ServiceLocator::pool() const noexcept
+	pr::ThreadPool<4>* ServiceLocator::pool() const
 	{
 		return m_threadpool;
 	}
 
-	qs::Window* ServiceLocator::window() const noexcept
+	qs::Window* ServiceLocator::window() const
 	{
 		return m_window;
 	}
 
-	qs::Renderer* ServiceLocator::renderer() const noexcept
+	qs::Renderer* ServiceLocator::renderer() const
 	{
 		return m_renderer;
 	}
 
-	sol::state* ServiceLocator::lua() const noexcept
+	sol::state* ServiceLocator::lua() const
 	{
 		return m_lua;
 	}
 
-	pr::StateMachine* ServiceLocator::gamestate() const noexcept
+	pr::StateMachine* ServiceLocator::gamestate() const
 	{
 		return m_state;
 	}
 
-	sl::Dispatcher* ServiceLocator::dispatcher() const noexcept
+	sl::Dispatcher* ServiceLocator::dispatcher() const
 	{
 		return m_dispatcher;
 	}
 
-	galaxy::World* ServiceLocator::world() const noexcept
+	galaxy::World* ServiceLocator::world() const
 	{
 		return m_world;
 	}
 
-	galaxy::Serializer* ServiceLocator::serializer() const noexcept
+	galaxy::Serializer* ServiceLocator::serializer() const
 	{
 		return m_serializer;
 	}
 
-	galaxy::FontBook* ServiceLocator::fontbook() const noexcept
+	galaxy::FontBook* ServiceLocator::fontbook() const
 	{
 		return m_fontbook;
 	}
 
-	galaxy::ShaderBook* ServiceLocator::shaderbook() const noexcept
+	galaxy::ShaderBook* ServiceLocator::shaderbook() const
 	{
 		return m_shaderbook;
 	}
 
-	galaxy::AudioBook* ServiceLocator::audiobook() const noexcept
+	galaxy::AudioBook* ServiceLocator::audiobook() const
 	{
 		return m_audiobook;
 	}
 
-	ServiceLocator::ServiceLocator() noexcept
+	ServiceLocator::ServiceLocator()
 	    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_renderer {nullptr}, m_lua {nullptr}, m_state {nullptr}, m_dispatcher {nullptr}, m_world {nullptr}, m_serializer {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_audiobook {nullptr}
 	{
 	}
