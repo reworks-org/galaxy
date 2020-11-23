@@ -82,6 +82,7 @@ namespace qs
 	{
 		if (!m_textures.empty())
 		{
+			m_texture.create(m_size, m_size);
 			m_texture.bind();
 
 			for (auto& [name, info] : m_textures)
