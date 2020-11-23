@@ -9,18 +9,18 @@
 
 namespace qs
 {
-	Camera::Camera() noexcept
+	Camera::Camera()
 	    : m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
 	{
 	}
 
-	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
+	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed)
 	    : m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed(speed), m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
 	{
 		create(left, right, bottom, top);
 	}
 
-	void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
+	void Camera::create(const float left, const float right, const float bottom, const float top)
 	{
 		if (right > left)
 		{
@@ -43,7 +43,7 @@ namespace qs
 		m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 	}
 
-	void Camera::on_key_down(const pr::KeyDownEvent& e) noexcept
+	void Camera::on_key_down(const pr::KeyDownEvent& e)
 	{
 		switch (e.m_keycode)
 		{
@@ -65,7 +65,7 @@ namespace qs
 		}
 	}
 
-	void Camera::on_key_up(const pr::KeyUpEvent& e) noexcept
+	void Camera::on_key_up(const pr::KeyUpEvent& e)
 	{
 		switch (e.m_keycode)
 		{
@@ -87,7 +87,7 @@ namespace qs
 		}
 	}
 
-	void Camera::on_mouse_scroll(const pr::MouseWheelEvent& e) noexcept
+	void Camera::on_mouse_scroll(const pr::MouseWheelEvent& e)
 	{
 		static double scale = 1.0;
 		if (e.m_y_offset < 0)
@@ -102,7 +102,7 @@ namespace qs
 		this->scale(static_cast<float>(scale));
 	}
 
-	void Camera::update(const double ts) noexcept
+	void Camera::update(const double ts)
 	{
 		const float tsf = static_cast<float>(ts);
 		if (m_move_up)
@@ -126,22 +126,22 @@ namespace qs
 		}
 	}
 
-	void Camera::set_speed(const float speed) noexcept
+	void Camera::set_speed(const float speed)
 	{
 		m_speed = speed;
 	}
 
-	const float Camera::get_width() const noexcept
+	const float Camera::get_width() const
 	{
 		return m_width;
 	}
 
-	const float Camera::get_height() const noexcept
+	const float Camera::get_height() const
 	{
 		return m_height;
 	}
 
-	const glm::mat4& Camera::get_proj() noexcept
+	const glm::mat4& Camera::get_proj()
 	{
 		return m_projection;
 	}

@@ -81,7 +81,7 @@ namespace qs
 		///
 		/// \return Pointer to currently playing animation.
 		///
-		[[nodiscard]] qs::Animation* get_cur_animation() noexcept;
+		[[nodiscard]] qs::Animation* get_cur_animation();
 
 		///
 		/// Play the animation.
@@ -98,12 +98,12 @@ namespace qs
 		///
 		/// Pause animation.
 		///
-		void pause() noexcept;
+		void pause();
 
 		///
 		/// Stop the animation. If you call play() the animation starts from the beginning.
 		///
-		void stop() noexcept;
+		void stop();
 
 	protected:
 		///

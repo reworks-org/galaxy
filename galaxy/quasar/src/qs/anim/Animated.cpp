@@ -84,7 +84,7 @@ namespace qs
 		m_active_anim->restart();
 	}
 
-	qs::Animation* Animated::get_cur_animation() noexcept
+	qs::Animation* Animated::get_cur_animation()
 	{
 		return m_active_anim;
 	}
@@ -107,12 +107,12 @@ namespace qs
 		set_animation(animation);
 	}
 
-	void Animated::pause() noexcept
+	void Animated::pause()
 	{
 		m_paused = true;
 	}
 
-	void Animated::stop() noexcept
+	void Animated::stop()
 	{
 		if (m_active_anim != nullptr)
 		{

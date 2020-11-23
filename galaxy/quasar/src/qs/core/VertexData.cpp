@@ -12,7 +12,7 @@
 ///
 namespace qs
 {
-	VertexData::VertexData() noexcept
+	VertexData::VertexData()
 	    : m_z_level {0}, m_opacity {1.0f}
 	{
 	}
@@ -42,12 +42,12 @@ namespace qs
 		return *this;
 	}
 
-	void VertexData::set_z_level(const unsigned int z_level) noexcept
+	void VertexData::set_z_level(const unsigned int z_level)
 	{
 		m_z_level = z_level;
 	}
 
-	void VertexData::set_opacity(const float opacity) noexcept
+	void VertexData::set_opacity(const float opacity)
 	{
 		if (m_opacity > 1.0f)
 		{
@@ -63,32 +63,32 @@ namespace qs
 		}
 	}
 
-	const unsigned int VertexData::z_level() const noexcept
+	const unsigned int VertexData::z_level() const
 	{
 		return m_z_level;
 	}
 
-	const float VertexData::opacity() const noexcept
+	const float VertexData::opacity() const
 	{
 		return m_opacity;
 	}
 
-	qs::IndexBuffer& VertexData::get_ibo() noexcept
+	qs::IndexBuffer& VertexData::get_ibo()
 	{
 		return m_ib;
 	}
 
-	qs::VertexBuffer& VertexData::get_vbo() noexcept
+	qs::VertexBuffer& VertexData::get_vbo()
 	{
 		return m_vb;
 	}
 
-	qs::VertexArray& VertexData::get_vao() noexcept
+	qs::VertexArray& VertexData::get_vao()
 	{
 		return m_va;
 	}
 
-	const unsigned int VertexData::index_count() const noexcept
+	const unsigned int VertexData::index_count() const
 	{
 		return m_ib.count();
 	}

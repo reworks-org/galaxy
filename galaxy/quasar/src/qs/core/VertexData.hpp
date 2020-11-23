@@ -24,12 +24,12 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		VertexData() noexcept;
+		VertexData();
 
 		///
 		/// Copy constructor.
 		///
-		VertexData(const VertexData&) noexcept = delete;
+		VertexData(const VertexData&) = delete;
 
 		///
 		/// Move constructor.
@@ -39,7 +39,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		VertexData& operator=(const VertexData&) noexcept = delete;
+		VertexData& operator=(const VertexData&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -49,14 +49,14 @@ namespace qs
 		///
 		/// Virtual destructor.
 		///
-		virtual ~VertexData() noexcept = default;
+		virtual ~VertexData() = default;
 
 		///
 		/// Set z-level of sprite.
 		///
 		/// \param z_level z-ordering level to render sprite at.
 		///
-		void set_z_level(const unsigned int z_level) noexcept;
+		void set_z_level(const unsigned int z_level);
 
 		///
 		/// Set opacity.
@@ -65,49 +65,49 @@ namespace qs
 		///
 		/// \param opacity Opacity range is from 0.0f (transparent) to 1.0f (opaque).
 		///
-		void set_opacity(const float opacity) noexcept;
+		void set_opacity(const float opacity);
 
 		///
 		/// Get z-level of vertexs.
 		///
 		/// \return Const unsigned integer.
 		///
-		[[nodiscard]] const unsigned int z_level() const noexcept;
+		[[nodiscard]] const unsigned int z_level() const;
 
 		///
 		/// Get opacity.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float opacity() const noexcept;
+		[[nodiscard]] const float opacity() const;
 
 		///
 		/// Get IBO.
 		///
 		/// \return Reference to IBO.
 		///
-		[[nodiscard]] qs::IndexBuffer& get_ibo() noexcept;
+		[[nodiscard]] qs::IndexBuffer& get_ibo();
 
 		///
 		/// Get VBO.
 		///
 		/// \return Reference to VBO.
 		///
-		[[nodiscard]] qs::VertexBuffer& get_vbo() noexcept;
+		[[nodiscard]] qs::VertexBuffer& get_vbo();
 
 		///
 		/// Get VAO.
 		///
 		/// \return Reference to VAO.
 		///
-		[[nodiscard]] qs::VertexArray& get_vao() noexcept;
+		[[nodiscard]] qs::VertexArray& get_vao();
 
 		///
 		/// Get index count.
 		///
 		/// \return Const unsigned integer.
 		///
-		[[nodiscard]] const unsigned int index_count() const noexcept;
+		[[nodiscard]] const unsigned int index_count() const;
 
 	protected:
 		///

@@ -22,27 +22,27 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		WindowSettings(const WindowSettings&) noexcept = delete;
+		WindowSettings(const WindowSettings&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		WindowSettings(WindowSettings&&) noexcept = delete;
+		WindowSettings(WindowSettings&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		WindowSettings& operator=(const WindowSettings&) noexcept = delete;
+		WindowSettings& operator=(const WindowSettings&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		WindowSettings& operator=(WindowSettings&&) noexcept = delete;
+		WindowSettings& operator=(WindowSettings&&) = delete;
 
 		///
 		/// Destructor.
 		///
-		~WindowSettings() noexcept = default;
+		~WindowSettings() = default;
 
 		///
 		/// Level of MSAA. I.e. 2, 4, etc.

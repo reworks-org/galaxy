@@ -28,7 +28,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		Camera() noexcept;
+		Camera();
 
 		///
 		/// \brief Argument constructor.
@@ -41,32 +41,32 @@ namespace qs
 		/// \param top Top point of ortho perspective.
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept;
+		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed);
 
 		///
 		/// Copy constructor.
 		///
-		Camera(const Camera&) noexcept = default;
+		Camera(const Camera&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Camera(Camera&&) noexcept = default;
+		Camera(Camera&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Camera& operator=(const Camera&) noexcept = default;
+		Camera& operator=(const Camera&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		Camera& operator=(Camera&&) noexcept = default;
+		Camera& operator=(Camera&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		virtual ~Camera() noexcept = default;
+		virtual ~Camera() = default;
 
 		///
 		/// Configures camera for window model view projection.
@@ -76,63 +76,63 @@ namespace qs
 		/// \param bottom Bottom point of ortho perspective.
 		/// \param top Top point of ortho perspective.
 		///
-		void create(const float left, const float right, const float bottom, const float top) noexcept;
+		void create(const float left, const float right, const float bottom, const float top);
 
 		///
 		///	Event processing method for key down for camera.
 		///
 		/// \param e Takes in a shared protostar event defining a key press down.
 		///
-		void on_key_down(const pr::KeyDownEvent& e) noexcept;
+		void on_key_down(const pr::KeyDownEvent& e);
 
 		///
 		/// Event processing method for key up for camera.
 		///
 		/// \param e Takes in a shared protostar event defining a key release.
 		///
-		void on_key_up(const pr::KeyUpEvent& e) noexcept;
+		void on_key_up(const pr::KeyUpEvent& e);
 
 		///
 		/// Event processing method for scroll event for camera.
 		///
 		/// \param e Takes in a mouse wheel scroll event.
 		///
-		void on_mouse_scroll(const pr::MouseWheelEvent& e) noexcept;
+		void on_mouse_scroll(const pr::MouseWheelEvent& e);
 
 		///
 		/// Update method for camera.
 		///
 		/// \param ts Time-step from update() loop.
 		///
-		void update(const double ts) noexcept;
+		void update(const double ts);
 
 		///
 		/// Set the speed of the camera.
 		///
 		/// \param speed Speed of the camera. Multiplicative float.
 		///
-		void set_speed(const float speed) noexcept;
+		void set_speed(const float speed);
 
 		///
 		/// Get camera width.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_width() const noexcept;
+		[[nodiscard]] const float get_width() const;
 
 		///
 		/// Get camera height.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_height() const noexcept;
+		[[nodiscard]] const float get_height() const;
 
 		///
 		/// Get the camera projection.
 		///
 		/// \return Const glm::mat4 reference.
 		///
-		[[nodiscard]] const glm::mat4& get_proj() noexcept;
+		[[nodiscard]] const glm::mat4& get_proj();
 
 	private:
 		///
