@@ -35,9 +35,11 @@ You need ALSA, PulseAudio, X11, opengl
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt purge --auto-remove cmake
 sudo apt update
-sudo apt install git g++ make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
+sudo apt install git g++ clang llvm libc++-dev make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
 pip install cmake
 export PATH="~/.local/bin:$PATH"
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
 git submodule update --init --recursive
 cd galaxy_engine

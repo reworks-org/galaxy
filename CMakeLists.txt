@@ -329,6 +329,11 @@ else()
 		"dl"
 		"GL"
         "m"
+        "c++"
+        "c++abi"
+        "c"
+        "gcc_s"
+        "gcc"
     )
 endif()
 

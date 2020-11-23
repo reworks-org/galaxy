@@ -42,24 +42,25 @@ if (MSVC)
     )
 else()
     set(GALAXY_COMPILE_FLAGS
-        -std=c++2a
+        -std=c++20
+        -stdlib=libc++
+        -flto
+        -fcxx-exceptions
         -fexceptions
-        -frtti
+        -fseh-exceptions
         -pthread
-        -latomic
-        -lstdc++fs
-        -fopenmp
-        -ltbb
-        -faligned-new
         -fchar8_t
-        -fcoroutines
+        -fcoroutines-ts
+        -frtti
+        -fvirtual-function-elimination
     )
 
     set(GALAXY_COMPILE_FLAGS_DEBUG
         ${GALAXY_COMPILE_FLAGS}
-        -fanalyzer
+        --analyze
         -Wall
         -Og
+        -g3
     )
 
     set(GALAXY_COMPILE_FLAGS_RELEASE
