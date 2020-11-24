@@ -593,8 +593,8 @@ namespace qs
 			effect->m_shader.bind();
 			effect->m_shader.set_uniform("u_projection", m_framebuffer->get_proj());
 			effect->m_shader.set_uniform("u_transform", m_fb_sprite->get_transform());
-			effect->m_shader.set_uniform<float>("u_width", static_cast<float>(m_fb_sprite->get_width()));
-			effect->m_shader.set_uniform<float>("u_height", static_cast<float>(m_fb_sprite->get_height()));
+			effect->m_shader.set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
+			effect->m_shader.set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
 			effect->apply_uniforms();
 
 			glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);

@@ -46,13 +46,13 @@ namespace sb
 		m_pl.m_light_colour   = {1.0f, 0.8f, 0.6f, 1.0f};
 		m_pl.m_falloff        = {0.4f, 3.0f, 20.0f};
 		m_pl.m_z_level        = 0.075f;
-		m_pl.m_pos            = {500.0f, 200.0f};
+		m_pl.m_pos            = {0.0f, 0.0f};
 		m_pl.m_shader.load_path("assets/shaders/point_light.vs", "assets/shaders/point_light.fs");
 
 		m_simple.m_shader.load_path("assets/shaders/render_to_texture.vs", "assets/shaders/render_to_texture.fs");
 
-		//SL_HANDLE.renderer()->add_post_effect(&m_pl);
 		SL_HANDLE.renderer()->add_post_effect(&m_simple);
+		//SL_HANDLE.renderer()->add_post_effect(&m_pl);
 	}
 
 	SandboxLayer::~SandboxLayer()

@@ -1,21 +1,19 @@
 #version 450 core
 layout(location = 0) in vec2 l_pos;
-layout(location = 1) in vec4 l_colour;
-layout(location = 2) in vec2 l_texels;
+layout(location = 1) in vec2 l_texels;
 
 out vec2 io_texels;
-out vec4 io_colour;
+out vec2 io_window_res;
 
-uniform mat4 u_cameraView;
-uniform mat4 u_cameraProj;
-uniform float u_width;
-uniform float u_height;
+uniform mat4 u_projection;
+uniform mat4 u_transform;
+uniform float u_window_width;
+uniform float u_window_height;
 
 void main()
 {
-	mat4 camera = u_cameraProj * u_cameraView;
-	gl_Position = camera * vec4(l_pos, 0.0, 1.0);
+	gl_Position = u_projection * u_transform * vec4(l_pos, 0.0, 1.0);
+	io_texels = vec2(l_texels.x / u_window_width, 1.0 - (l_texels.y / u_window_height));
 
-	io_colour = l_colour;
-	io_texels = vec2(l_texels.x / u_width, 1.0 - (l_texels.y / u_height));
+	io_window_res = vec2(u_window_width, u_window_height);
 }
