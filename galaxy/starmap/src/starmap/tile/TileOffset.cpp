@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	TileOffset::TileOffset() noexcept
+	TileOffset::TileOffset()
 	    : m_x {0}, m_y {0}
 	{
 	}
@@ -38,12 +38,12 @@ namespace starmap
 		}
 	}
 
-	const int TileOffset::get_x() const noexcept
+	const int TileOffset::get_x() const
 	{
 		return m_x;
 	}
 
-	const int TileOffset::get_y() const noexcept
+	const int TileOffset::get_y() const
 	{
 		return m_y;
 	}

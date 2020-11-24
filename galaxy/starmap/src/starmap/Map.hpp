@@ -66,14 +66,14 @@ namespace starmap
 		///
 		/// \return String in format RRGGBB or AARRGGBB.
 		///
-		[[nodiscard]] std::string get_bg_colour() const noexcept;
+		[[nodiscard]] std::string get_bg_colour() const;
 
 		///
 		/// Get number of tile rows.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 		///
 		/// \brief Get length of the side of a hex tile.
@@ -82,42 +82,42 @@ namespace starmap
 		///
 		/// \return Const int. In pixels.
 		///
-		[[nodiscard]] const int get_hex_side_length() const noexcept;
+		[[nodiscard]] const int get_hex_side_length() const;
 
 		///
 		/// Does the map have infinite dimensions.
 		///
 		/// \return True if is infinite.
 		///
-		[[nodiscard]] const bool is_infinite() const noexcept;
+		[[nodiscard]] const bool is_infinite() const;
 
 		///
 		/// Get map layers.
 		///
 		/// \return Std::vector of unique_ptrs containing polymorphic layers.
 		///
-		[[nodiscard]] const auto& get_layers() const noexcept;
+		[[nodiscard]] const auto& get_layers() const;
 
 		///
 		/// Returns the next free ID for the creation of a layer.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_next_layer_id() const noexcept;
+		[[nodiscard]] const int get_next_layer_id() const;
 
 		///
 		/// Returns the next free ID for the creation of an object.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_next_object_id() const noexcept;
+		[[nodiscard]] const int get_next_object_id() const;
 
 		///
 		/// Map viewpoint orientation.
 		///
 		/// \return String, format: orthogonal, isometric, staggered or hexagonal.
 		///
-		[[nodiscard]] std::string get_orientation() const noexcept;
+		[[nodiscard]] std::string get_orientation() const;
 
 		///
 		/// Retrieve property.
@@ -128,7 +128,7 @@ namespace starmap
 		/// \return Property cast as type. const.
 		///
 		template<tiled_property Type>
-		[[nodiscard]] const Type get_property(std::string_view name) noexcept;
+		[[nodiscard]] const Type get_property(std::string_view name);
 
 		///
 		/// \brief Defines order to render tiles in.
@@ -137,70 +137,70 @@ namespace starmap
 		///
 		/// \return String, format: right-down, right-up, left-down or left-up.
 		///
-		[[nodiscard]] std::string get_render_order() const noexcept;
+		[[nodiscard]] std::string get_render_order() const;
 
 		///
 		/// Get stagger axis.
 		///
 		/// \return String, format: x or y.
 		///
-		[[nodiscard]] std::string get_stagger_axis() const noexcept;
+		[[nodiscard]] std::string get_stagger_axis() const;
 
 		///
 		/// Get stagger index.
 		///
 		/// \return String, format: odd or even.
 		///
-		[[nodiscard]] std::string get_stagger_index() const noexcept;
+		[[nodiscard]] std::string get_stagger_index() const;
 
 		///
 		/// Get tiled version used to save the file.
 		///
 		/// \return Formatted const string.
 		///
-		[[nodiscard]] std::string get_tiled_version() const noexcept;
+		[[nodiscard]] std::string get_tiled_version() const;
 
 		///
 		/// Get the map grid height.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_tile_height() const noexcept;
+		[[nodiscard]] const int get_tile_height() const;
 
 		///
 		/// Get the array of tilesets.
 		///
 		/// \return Std::vector of tilesets.
 		///
-		[[nodiscard]] const auto& get_tile_sets() const noexcept;
+		[[nodiscard]] const auto& get_tile_sets() const;
 
 		///
 		/// Get the map grid width.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_tile_width() const noexcept;
+		[[nodiscard]] const int get_tile_width() const;
 
 		///
 		/// Get type of tiled file.
 		///
 		/// \return String, format: map.
 		///
-		[[nodiscard]] std::string get_type() const noexcept;
+		[[nodiscard]] std::string get_type() const;
 
 		///
 		/// Gets the number of tile columns.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 		///
 		/// Get layer compression level.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_compression_level() const noexcept;
+		[[nodiscard]] const int get_compression_level() const;
 
 	private:
 		///
@@ -311,7 +311,7 @@ namespace starmap
 	};
 
 	template<tiled_property Type>
-	inline const Type Map::get_property(std::string_view name) noexcept
+	inline const Type Map::get_property(std::string_view name)
 	{
 		const auto str = static_cast<std::string>(name);
 		return m_properties[str].get<Type>();

@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		ShaderBook() noexcept = default;
+		ShaderBook() = default;
 
 		///
 		/// JSON constructor.
@@ -37,22 +37,22 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		ShaderBook(const ShaderBook&) noexcept = delete;
+		ShaderBook(const ShaderBook&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		ShaderBook(ShaderBook&&) noexcept = delete;
+		ShaderBook(ShaderBook&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		ShaderBook& operator=(const ShaderBook&) noexcept = delete;
+		ShaderBook& operator=(const ShaderBook&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		ShaderBook& operator=(ShaderBook&&) noexcept = delete;
+		ShaderBook& operator=(ShaderBook&&) = delete;
 
 		///
 		/// Destructor.

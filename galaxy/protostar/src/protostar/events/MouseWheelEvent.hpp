@@ -21,7 +21,7 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		MouseWheelEvent() noexcept;
+		MouseWheelEvent();
 
 		///
 		/// Constructor.
@@ -29,32 +29,32 @@ namespace pr
 		/// \param x x offset.
 		/// \param y y offset.
 		///
-		MouseWheelEvent(const double x, const double y) noexcept;
+		MouseWheelEvent(const double x, const double y);
 
 		///
 		/// Copy constructor.
 		///
-		MouseWheelEvent(const MouseWheelEvent&) noexcept = default;
+		MouseWheelEvent(const MouseWheelEvent&) = default;
 
 		///
 		/// Move constructor.
 		///
-		MouseWheelEvent(MouseWheelEvent&&) noexcept = default;
+		MouseWheelEvent(MouseWheelEvent&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		MouseWheelEvent& operator=(const MouseWheelEvent&) noexcept = default;
+		MouseWheelEvent& operator=(const MouseWheelEvent&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		MouseWheelEvent& operator=(MouseWheelEvent&&) noexcept = default;
+		MouseWheelEvent& operator=(MouseWheelEvent&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~MouseWheelEvent() noexcept = default;
+		~MouseWheelEvent() = default;
 
 		///
 		/// X offset of scroll.

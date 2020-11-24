@@ -48,7 +48,7 @@ namespace sr
 		return entity;
 	}
 
-	const bool Manager::has(const sr::Entity entity) noexcept
+	const bool Manager::has(const sr::Entity entity)
 	{
 		return m_entities.has(entity);
 	}
@@ -95,7 +95,7 @@ namespace sr
 		}
 	}
 
-	auto Manager::get_debug_name_map() noexcept -> const robin_hood::unordered_map<std::string, sr::Entity>&
+	auto Manager::get_debug_name_map() -> const robin_hood::unordered_map<std::string, sr::Entity>&
 	{
 		return m_debug_names;
 	}

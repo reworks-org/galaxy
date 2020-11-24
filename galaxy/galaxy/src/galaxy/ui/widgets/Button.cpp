@@ -61,7 +61,7 @@ namespace galaxy
 			m_bounds.m_height = m_regions.at(0).m_height;
 		}
 
-		void Button::set_pos(const float x, const float y) noexcept
+		void Button::set_pos(const float x, const float y)
 		{
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;

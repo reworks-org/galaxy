@@ -12,12 +12,12 @@
 ///
 namespace qs
 {
-	BatchedVertex::BatchedVertex() noexcept
+	BatchedVertex::BatchedVertex()
 	    : m_pos {0.0f, 0.0f}, m_texels {0.0f, 0.0f}, m_opacity {1.0f}
 	{
 	}
 
-	BatchedVertex::BatchedVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept
+	BatchedVertex::BatchedVertex(const float x, const float y, const float u, const float v, const float opacity)
 	    : m_pos {x, y}, m_texels {u, v}, m_opacity {opacity}
 
 	{

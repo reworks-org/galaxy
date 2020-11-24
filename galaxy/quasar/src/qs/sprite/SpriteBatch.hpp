@@ -32,34 +32,34 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		SpriteBatch(const SpriteBatch&) noexcept = delete;
+		SpriteBatch(const SpriteBatch&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		SpriteBatch(SpriteBatch&&) noexcept = delete;
+		SpriteBatch(SpriteBatch&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		SpriteBatch& operator=(const SpriteBatch&) noexcept = delete;
+		SpriteBatch& operator=(const SpriteBatch&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		SpriteBatch& operator=(SpriteBatch&&) noexcept = delete;
+		SpriteBatch& operator=(SpriteBatch&&) = delete;
 
 		///
 		/// Destructor.
 		///
-		virtual ~SpriteBatch() noexcept;
+		virtual ~SpriteBatch();
 
 		///
 		/// Set the texture to use.
 		///
 		/// \param texture Texture to use when drawing batched sprites. Must not be nullptr.
 		///
-		void set_texture(qs::BaseTexture* texture) noexcept;
+		void set_texture(qs::BaseTexture* texture);
 
 		///
 		/// Add a batched sprite to the spritebatch.
@@ -85,44 +85,44 @@ namespace qs
 		///
 		/// Clears the spritebatch of data.
 		///
-		void clear() noexcept;
+		void clear();
 
 		///
 		/// Bind to OpenGL.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind from OpenGL.
 		///
-		void unbind() noexcept;
+		void unbind();
 
 		///
 		/// Gets the number of actual used indicies in a spritebatch.
 		///
 		/// \return Const uint.
 		///
-		[[nodiscard]] const unsigned int get_used_index_count() const noexcept;
+		[[nodiscard]] const unsigned int get_used_index_count() const;
 
 		///
 		/// Get width.
 		///
 		/// \return Const uint.
 		///
-		[[nodiscard]] const unsigned int get_width() const noexcept;
+		[[nodiscard]] const unsigned int get_width() const;
 
 		///
 		/// Get height.
 		///
 		/// \return Const uint.
 		///
-		[[nodiscard]] const unsigned int get_height() const noexcept;
+		[[nodiscard]] const unsigned int get_height() const;
 
 	private:
 		///
 		/// Constructor.
 		///
-		SpriteBatch() noexcept = delete;
+		SpriteBatch() = delete;
 
 		///
 		/// \brief Sort sprites by z level.
@@ -130,7 +130,7 @@ namespace qs
 		/// Sprites are sorted according to z level.
 		/// Those with same level are left in the order that they are in when they are added with begin().
 		///
-		void sort() noexcept;
+		void sort();
 
 		///
 		/// Flag to update renderdata if there are changes.

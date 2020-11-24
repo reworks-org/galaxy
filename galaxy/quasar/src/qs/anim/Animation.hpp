@@ -63,12 +63,12 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~Animation() noexcept;
+		~Animation();
 
 		///
 		/// Restart animation from beginning.
 		///
-		void restart() noexcept;
+		void restart();
 
 		///
 		/// Advance to the next frame.
@@ -82,42 +82,42 @@ namespace qs
 		///
 		/// \return Const std::string.
 		///
-		[[nodiscard]] const std::string& get_name() noexcept;
+		[[nodiscard]] const std::string& get_name();
 
 		///
 		/// Is animation looping.
 		///
 		/// \return Const bool.
 		///
-		[[nodiscard]] const bool is_looping() const noexcept;
+		[[nodiscard]] const bool is_looping() const;
 
 		///
 		/// Get animation speed.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const double get_speed() const noexcept;
+		[[nodiscard]] const double get_speed() const;
 
 		///
 		/// Get total frames in animation.
 		///
 		/// \return Const std::size_t.
 		///
-		[[nodiscard]] const std::size_t get_total_frames() const noexcept;
+		[[nodiscard]] const std::size_t get_total_frames() const;
 
 		///
 		/// Get current active animation frame.
 		///
 		/// \return Pointer to current active frame.
 		///
-		[[nodiscard]] const qs::Frame* get_current_frame() const noexcept;
+		[[nodiscard]] const qs::Frame* get_current_frame() const;
 
 		///
 		/// Get current frame.
 		///
 		/// \return Const std::vector of qs::Frames.
 		///
-		[[nodiscard]] const auto& get_frames() noexcept;
+		[[nodiscard]] const auto& get_frames();
 
 	private:
 		///

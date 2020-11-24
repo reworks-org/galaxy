@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		TileOffset() noexcept;
+		TileOffset();
 
 		///
 		/// \brief Parse constructor.
@@ -38,7 +38,7 @@ namespace starmap
 		///
 		/// Default destructor.
 		///
-		~TileOffset() noexcept = default;
+		~TileOffset() = default;
 
 		///
 		/// \brief Parses json structure to member values; etc.
@@ -54,14 +54,14 @@ namespace starmap
 		///
 		/// \return Const int. In pixels.
 		///
-		[[nodiscard]] const int get_x() const noexcept;
+		[[nodiscard]] const int get_x() const;
 
 		///
 		/// Get vertical offset.
 		///
 		/// \return Const int. In pixels, positive is down.
 		///
-		[[nodiscard]] const int get_y() const noexcept;
+		[[nodiscard]] const int get_y() const;
 
 	private:
 		///

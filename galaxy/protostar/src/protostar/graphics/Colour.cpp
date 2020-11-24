@@ -12,22 +12,22 @@
 ///
 namespace pr
 {
-	Colour::Colour() noexcept
+	Colour::Colour()
 	    : m_red {255}, m_green {255}, m_blue {255}, m_alpha {255}
 	{
 	}
 
-	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b) noexcept
+	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b)
 	    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {255}
 	{
 	}
 
-	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept
+	Colour::Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a)
 	    : m_red {r}, m_green {g}, m_blue {b}, m_alpha {a}
 	{
 	}
 
-	std::array<float, 4> Colour::get_normalized() noexcept
+	std::array<float, 4> Colour::get_normalized()
 	{
 		std::array<float, 4> arr = {0.0f, 0.0f, 0.0f, 0.0f};
 

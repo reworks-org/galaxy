@@ -15,7 +15,7 @@
 ///
 namespace galaxy
 {
-	MusicComponent::MusicComponent() noexcept
+	MusicComponent::MusicComponent()
 	    : m_music {}
 	{
 	}

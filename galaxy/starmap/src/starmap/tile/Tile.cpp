@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Tile::Tile() noexcept
+	Tile::Tile()
 	    : m_id {0}, m_image {""}, m_image_height {0}, m_image_width {0}, m_object_group {std::nullopt}, m_probability {-1.0}, m_type {""}
 	{
 	}
@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	Tile::~Tile() noexcept
+	Tile::~Tile()
 	{
 		m_animation.clear();
 		m_properties.clear();
@@ -102,47 +102,47 @@ namespace starmap
 		}
 	}
 
-	const auto& Tile::get_animations() const noexcept
+	const auto& Tile::get_animations() const
 	{
 		return m_animation;
 	}
 
-	const int Tile::get_id() const noexcept
+	const int Tile::get_id() const
 	{
 		return m_id;
 	}
 
-	std::string Tile::get_image() const noexcept
+	std::string Tile::get_image() const
 	{
 		return m_image;
 	}
 
-	const int Tile::get_image_height() const noexcept
+	const int Tile::get_image_height() const
 	{
 		return m_image_height;
 	}
 
-	const int Tile::get_image_width() const noexcept
+	const int Tile::get_image_width() const
 	{
 		return m_image_width;
 	}
 
-	const auto& Tile::get_object_group() const noexcept
+	const auto& Tile::get_object_group() const
 	{
 		return m_object_group;
 	}
 
-	const double Tile::get_probability() const noexcept
+	const double Tile::get_probability() const
 	{
 		return m_probability;
 	}
 
-	const auto& Tile::get_terrain_indices() const noexcept
+	const auto& Tile::get_terrain_indices() const
 	{
 		return m_terrain_indices;
 	}
 
-	std::string Tile::get_type() const noexcept
+	std::string Tile::get_type() const
 	{
 		return m_type;
 	}

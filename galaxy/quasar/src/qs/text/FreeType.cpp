@@ -14,7 +14,7 @@
 ///
 namespace qs
 {
-	FreeTypeLib& FreeTypeLib::handle() noexcept
+	FreeTypeLib& FreeTypeLib::handle()
 	{
 		static FreeTypeLib lib;
 		return lib;
@@ -28,12 +28,12 @@ namespace qs
 		}
 	}
 
-	void FreeTypeLib::close() noexcept
+	void FreeTypeLib::close()
 	{
 		FT_Done_FreeType(m_freetype_lib);
 	}
 
-	FT_Library& FreeTypeLib::lib() noexcept
+	FT_Library& FreeTypeLib::lib()
 	{
 		return m_freetype_lib;
 	}

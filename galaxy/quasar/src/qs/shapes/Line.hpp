@@ -43,27 +43,27 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		Line(const Line&) noexcept = delete;
+		Line(const Line&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Line(Line&&) noexcept = default;
+		Line(Line&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Line& operator=(const Line&) noexcept = delete;
+		Line& operator=(const Line&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Line& operator=(Line&&) noexcept = default;
+		Line& operator=(Line&&) = default;
 
 		///
 		/// Destructor.
 		///
-		virtual ~Line() noexcept = default;
+		virtual ~Line() = default;
 
 		///
 		/// Create the Line.
@@ -80,12 +80,12 @@ namespace qs
 		///
 		/// Bind as active VA.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind as active VA.
 		///
-		void unbind() noexcept;
+		void unbind();
 	};
 } // namespace qs
 

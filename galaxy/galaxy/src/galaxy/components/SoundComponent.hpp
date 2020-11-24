@@ -24,7 +24,7 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		SoundComponent() noexcept;
+		SoundComponent();
 
 		///
 		/// JSON constructor.
@@ -36,7 +36,7 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		SoundComponent(const SoundComponent&) noexcept = delete;
+		SoundComponent(const SoundComponent&) = delete;
 
 		///
 		/// Move constructor.
@@ -46,7 +46,7 @@ namespace galaxy
 		///
 		/// Copy assignment operator.
 		///
-		SoundComponent& operator=(const SoundComponent&) noexcept = delete;
+		SoundComponent& operator=(const SoundComponent&) = delete;
 
 		///
 		/// Move assignment operator.

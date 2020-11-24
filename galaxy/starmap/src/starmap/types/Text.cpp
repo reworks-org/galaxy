@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Text::Text() noexcept
+	Text::Text()
 	    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
 	{
 	}
@@ -88,62 +88,62 @@ namespace starmap
 		}
 	}
 
-	const bool Text::is_bold() const noexcept
+	const bool Text::is_bold() const
 	{
 		return m_bold;
 	}
 
-	std::string Text::get_colour() const noexcept
+	std::string Text::get_colour() const
 	{
 		return m_color;
 	}
 
-	std::string Text::get_font_family() const noexcept
+	std::string Text::get_font_family() const
 	{
 		return m_font_family;
 	}
 
-	std::string Text::get_h_align() const noexcept
+	std::string Text::get_h_align() const
 	{
 		return m_halign;
 	}
 
-	const bool Text::is_italic() const noexcept
+	const bool Text::is_italic() const
 	{
 		return m_italic;
 	}
 
-	const bool Text::is_using_kerning() const noexcept
+	const bool Text::is_using_kerning() const
 	{
 		return m_kerning;
 	}
 
-	const int Text::get_pixel_size() const noexcept
+	const int Text::get_pixel_size() const
 	{
 		return m_pixel_size;
 	}
 
-	const bool Text::is_striked_out() const noexcept
+	const bool Text::is_striked_out() const
 	{
 		return m_strike_out;
 	}
 
-	std::string Text::get_text() const noexcept
+	std::string Text::get_text() const
 	{
 		return m_text;
 	}
 
-	const bool Text::is_underlined() const noexcept
+	const bool Text::is_underlined() const
 	{
 		return m_underline;
 	}
 
-	std::string Text::get_v_align() const noexcept
+	std::string Text::get_v_align() const
 	{
 		return m_valign;
 	}
 
-	const bool Text::is_wrapped() const noexcept
+	const bool Text::is_wrapped() const
 	{
 		return m_wrap;
 	}

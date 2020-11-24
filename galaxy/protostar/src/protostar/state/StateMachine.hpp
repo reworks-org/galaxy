@@ -42,22 +42,22 @@ namespace pr
 		///
 		/// Copy constructor.
 		///
-		StateMachine(const StateMachine&) noexcept = delete;
+		StateMachine(const StateMachine&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		StateMachine(StateMachine&&) noexcept = delete;
+		StateMachine(StateMachine&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		StateMachine& operator=(const StateMachine&) noexcept = delete;
+		StateMachine& operator=(const StateMachine&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		StateMachine& operator=(StateMachine&&) noexcept = delete;
+		StateMachine& operator=(StateMachine&&) = delete;
 
 		///
 		/// Destructor.
@@ -113,7 +113,7 @@ namespace pr
 		/// \return Returns pointer to topmost state.
 		///
 		template<typename State>
-		[[nodiscard]] State* top() noexcept;
+		[[nodiscard]] State* top();
 
 		///
 		/// Clear stack.
@@ -151,7 +151,7 @@ namespace pr
 	}
 
 	template<typename State>
-	inline State* StateMachine::top() noexcept
+	inline State* StateMachine::top()
 	{
 		// Ensure stack is not empty.
 		if (!m_stack.empty())

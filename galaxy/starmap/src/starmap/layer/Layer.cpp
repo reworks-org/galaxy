@@ -14,82 +14,82 @@
 ///
 namespace starmap
 {
-	Layer::~Layer() noexcept
+	Layer::~Layer()
 	{
 		m_properties.clear();
 	}
 
-	const int Layer::get_height() const noexcept
+	const int Layer::get_height() const
 	{
 		return m_height;
 	}
 
-	const int Layer::get_id() const noexcept
+	const int Layer::get_id() const
 	{
 		return m_id;
 	}
 
-	std::string Layer::get_name() const noexcept
+	std::string Layer::get_name() const
 	{
 		return m_name;
 	}
 
-	const double Layer::get_offset_x() const noexcept
+	const double Layer::get_offset_x() const
 	{
 		return m_offset_x;
 	}
 
-	const double Layer::get_offset_y() const noexcept
+	const double Layer::get_offset_y() const
 	{
 		return m_offset_y;
 	}
 
-	const double Layer::get_opacity() const noexcept
+	const double Layer::get_opacity() const
 	{
 		return m_opacity;
 	}
 
-	const int Layer::get_start_x() const noexcept
+	const int Layer::get_start_x() const
 	{
 		return m_start_x;
 	}
 
-	const int Layer::get_start_y() const noexcept
+	const int Layer::get_start_y() const
 	{
 		return m_start_y;
 	}
 
-	std::string Layer::get_tint_colour() const noexcept
+	std::string Layer::get_tint_colour() const
 	{
 		return m_tint_colour;
 	}
 
-	std::string Layer::get_type() const noexcept
+	std::string Layer::get_type() const
 	{
 		return m_type;
 	}
 
-	const bool Layer::is_visible() const noexcept
+	const bool Layer::is_visible() const
 	{
 		return m_visible;
 	}
 
-	const int Layer::get_width() const noexcept
+	const int Layer::get_width() const
 	{
 		return m_width;
 	}
 
-	const int Layer::get_x() const noexcept
+	const int Layer::get_x() const
 	{
 		return m_x;
 	}
 
-	const int Layer::get_y() const noexcept
+	const int Layer::get_y() const
 	{
 		return m_y;
 	}
 
-	Layer::Layer() noexcept
+	Layer::Layer()
 	    : m_height {0}, m_id {0}, m_name {""}, m_offset_x {0.0}, m_offset_y {0.0}, m_opacity {0.0}, m_start_x {0}, m_start_y {0}, m_tint_colour {""}, m_type {""}, m_visible {true}, m_width {0}, m_x {0}, m_y {0}
 	{
 	}

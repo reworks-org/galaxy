@@ -35,27 +35,27 @@ namespace galaxy
 		///
 		/// Constructor.
 		///
-		LayerStorage() noexcept = default;
+		LayerStorage() = default;
 
 		///
 		/// Copy constructor.
 		///
-		LayerStorage(const LayerStorage&) noexcept = delete;
+		LayerStorage(const LayerStorage&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		LayerStorage(LayerStorage&&) noexcept = delete;
+		LayerStorage(LayerStorage&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		LayerStorage& operator=(const LayerStorage&) noexcept = delete;
+		LayerStorage& operator=(const LayerStorage&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		LayerStorage& operator=(LayerStorage&&) noexcept = delete;
+		LayerStorage& operator=(LayerStorage&&) = delete;
 
 		///
 		/// Destructor.

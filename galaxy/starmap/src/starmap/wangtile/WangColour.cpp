@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	WangColour::WangColour() noexcept
+	WangColour::WangColour()
 	    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
 	{
 	}
@@ -48,22 +48,22 @@ namespace starmap
 		}
 	}
 
-	std::string WangColour::get_colour() const noexcept
+	std::string WangColour::get_colour() const
 	{
 		return m_colour;
 	}
 
-	std::string WangColour::get_name() const noexcept
+	std::string WangColour::get_name() const
 	{
 		return m_name;
 	}
 
-	const double WangColour::get_probability() const noexcept
+	const double WangColour::get_probability() const
 	{
 		return m_probability;
 	}
 
-	const int WangColour::get_tile() const noexcept
+	const int WangColour::get_tile() const
 	{
 		return m_tile;
 	}

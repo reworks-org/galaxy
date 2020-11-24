@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Property::Property() noexcept
+	Property::Property()
 	    : m_type {""}
 	{
 	}
@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	Property::~Property() noexcept
+	Property::~Property()
 	{
 		m_value.reset();
 	}
@@ -43,7 +43,7 @@ namespace starmap
 		}
 	}
 
-	std::string Property::get_type() const noexcept
+	std::string Property::get_type() const
 	{
 		return m_type;
 	}

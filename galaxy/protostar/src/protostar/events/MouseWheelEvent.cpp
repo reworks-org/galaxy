@@ -12,12 +12,12 @@
 ///
 namespace pr
 {
-	MouseWheelEvent::MouseWheelEvent() noexcept
+	MouseWheelEvent::MouseWheelEvent()
 	    : m_x_offset {0.0}, m_y_offset {0.0}
 	{
 	}
 
-	MouseWheelEvent::MouseWheelEvent(const double x, const double y) noexcept
+	MouseWheelEvent::MouseWheelEvent(const double x, const double y)
 	    : m_x_offset {x}, m_y_offset {y}
 	{
 	}

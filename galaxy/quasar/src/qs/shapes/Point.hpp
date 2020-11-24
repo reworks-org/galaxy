@@ -27,7 +27,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		Point() noexcept;
+		Point();
 
 		///
 		/// Constructor.
@@ -42,27 +42,27 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		Point(const Point&) noexcept = delete;
+		Point(const Point&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Point(Point&&) noexcept = default;
+		Point(Point&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Point& operator=(const Point&) noexcept = delete;
+		Point& operator=(const Point&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Point& operator=(Point&&) noexcept = default;
+		Point& operator=(Point&&) = default;
 
 		///
 		/// Destructor.
 		///
-		virtual ~Point() noexcept = default;
+		virtual ~Point() = default;
 
 		///
 		/// Create the point.
@@ -77,19 +77,19 @@ namespace qs
 		///
 		/// Bind as active VA.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind as active VA.
 		///
-		void unbind() noexcept;
+		void unbind();
 
 		///
 		/// Get size of point.
 		///
 		/// \return Const integer.
 		///
-		[[nodiscard]] const int get_size() const noexcept;
+		[[nodiscard]] const int get_size() const;
 
 	private:
 		///

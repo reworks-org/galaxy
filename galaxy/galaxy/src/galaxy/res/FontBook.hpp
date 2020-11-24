@@ -25,7 +25,7 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		FontBook() noexcept = default;
+		FontBook() = default;
 
 		///
 		/// JSON constructor.
@@ -37,22 +37,22 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		FontBook(const FontBook&) noexcept = delete;
+		FontBook(const FontBook&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		FontBook(FontBook&&) noexcept = delete;
+		FontBook(FontBook&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		FontBook& operator=(const FontBook&) noexcept = delete;
+		FontBook& operator=(const FontBook&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		FontBook& operator=(FontBook&&) noexcept = delete;
+		FontBook& operator=(FontBook&&) = delete;
 
 		///
 		/// Destructor.

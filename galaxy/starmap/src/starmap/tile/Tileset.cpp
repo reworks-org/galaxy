@@ -18,7 +18,7 @@
 ///
 namespace starmap
 {
-	Tileset::Tileset() noexcept
+	Tileset::Tileset()
 	    : m_bg_colour {"00FFFFFF"}, m_columns {0}, m_first_gid {0}, m_grid {std::nullopt}, m_image {""}, m_image_height {0}, m_image_width {0}, m_margin {0}, m_name {""}, m_object_alignment {""}, m_source {""}, m_spacing {0}, m_tile_count {0}, m_tiled_version {""}, m_tile_height {0}, m_tile_offset {std::nullopt}, m_tile_width {0}, m_transparent_colour {"FFFFFF"}, m_type {"tileset"}
 	{
 	}
@@ -29,7 +29,7 @@ namespace starmap
 		parse(json);
 	}
 
-	Tileset::~Tileset() noexcept
+	Tileset::~Tileset()
 	{
 		m_grid.reset();
 		m_properties.clear();
@@ -207,102 +207,102 @@ namespace starmap
 		}
 	}
 
-	std::string Tileset::get_bg_colour() const noexcept
+	std::string Tileset::get_bg_colour() const
 	{
 		return m_bg_colour;
 	}
 
-	const int Tileset::get_columns() const noexcept
+	const int Tileset::get_columns() const
 	{
 		return m_columns;
 	}
 
-	const int Tileset::get_first_gid() const noexcept
+	const int Tileset::get_first_gid() const
 	{
 		return m_first_gid;
 	}
 
-	const auto& Tileset::get_grid() const noexcept
+	const auto& Tileset::get_grid() const
 	{
 		return m_grid;
 	}
 
-	std::string Tileset::get_image() const noexcept
+	std::string Tileset::get_image() const
 	{
 		return m_image;
 	}
 
-	const int Tileset::get_image_height() const noexcept
+	const int Tileset::get_image_height() const
 	{
 		return m_image_height;
 	}
 
-	const int Tileset::get_image_width() const noexcept
+	const int Tileset::get_image_width() const
 	{
 		return m_image_width;
 	}
 
-	const int Tileset::get_margin() const noexcept
+	const int Tileset::get_margin() const
 	{
 		return m_margin;
 	}
 
-	std::string Tileset::get_name() const noexcept
+	std::string Tileset::get_name() const
 	{
 		return m_name;
 	}
 
-	std::string Tileset::get_object_alignment() const noexcept
+	std::string Tileset::get_object_alignment() const
 	{
 		return m_object_alignment;
 	}
 
-	const auto& Tileset::get_terrain() const noexcept
+	const auto& Tileset::get_terrain() const
 	{
 		return m_terrain;
 	}
 
-	const int Tileset::get_tile_count() const noexcept
+	const int Tileset::get_tile_count() const
 	{
 		return m_tile_count;
 	}
 
-	std::string Tileset::get_tiled_version() const noexcept
+	std::string Tileset::get_tiled_version() const
 	{
 		return m_tiled_version;
 	}
 
-	const int Tileset::get_tile_height() const noexcept
+	const int Tileset::get_tile_height() const
 	{
 		return m_tile_height;
 	}
 
-	const auto& Tileset::get_tile_offset() const noexcept
+	const auto& Tileset::get_tile_offset() const
 	{
 		return m_tile_offset;
 	}
 
-	const auto& Tileset::get_tiles() const noexcept
+	const auto& Tileset::get_tiles() const
 	{
 		return m_tiles;
 	}
 
-	const int Tileset::get_tile_width() const noexcept
+	const int Tileset::get_tile_width() const
 	{
 		return m_tile_width;
 	}
 
-	std::string Tileset::get_transparent_colour() const noexcept
+	std::string Tileset::get_transparent_colour() const
 	{
 		return m_transparent_colour;
 	}
 
-	std::string Tileset::get_type() const noexcept
+	std::string Tileset::get_type() const
 	{
 		return m_type;
 	}
 
-	const auto& Tileset::get_wang_sets() const noexcept
+	const auto& Tileset::get_wang_sets() const
 	{
 		return m_wang_sets;
 	}

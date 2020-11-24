@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Terrain::Terrain() noexcept
+	Terrain::Terrain()
 	    : m_name {""}, m_tile {0}
 	{
 	}
@@ -25,7 +25,7 @@ namespace starmap
 		parse(json);
 	}
 
-	Terrain::~Terrain() noexcept
+	Terrain::~Terrain()
 	{
 		m_properties.clear();
 	}
@@ -52,12 +52,12 @@ namespace starmap
 		}
 	}
 
-	std::string Terrain::get_name() const noexcept
+	std::string Terrain::get_name() const
 	{
 		return m_name;
 	}
 
-	const int Terrain::get_tile() const noexcept
+	const int Terrain::get_tile() const
 	{
 		return m_tile;
 	}

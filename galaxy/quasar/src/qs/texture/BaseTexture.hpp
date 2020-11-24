@@ -43,7 +43,7 @@ namespace qs
 		///
 		/// Virtual destructor.
 		///
-		virtual ~BaseTexture() noexcept;
+		virtual ~BaseTexture();
 
 		///
 		/// Saves texture to file on disk.
@@ -56,12 +56,12 @@ namespace qs
 		///
 		/// Activate texture context.
 		///
-		virtual void bind() noexcept = 0;
+		virtual void bind() = 0;
 
 		///
 		/// Deactivate texture context.
 		///
-		virtual void unbind() noexcept = 0;
+		virtual void unbind() = 0;
 
 		///
 		/// \brief Clamps texture to edges.
@@ -69,45 +69,45 @@ namespace qs
 		/// Clamps the coordinates between 0 and 1.
 		/// The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
 		///
-		void clamp_to_edge() noexcept;
+		void clamp_to_edge();
 
 		///
 		/// \brief Clamps to the border.
 		///
 		/// Coordinates outside the range are now given a user-specified border color.
 		///
-		void clamp_to_border() noexcept;
+		void clamp_to_border();
 
 		///
 		/// Makes the texture repeat over its verticies.
 		///
-		void set_repeated() noexcept;
+		void set_repeated();
 
 		///
 		/// Mirrors the texture.
 		///
-		void set_mirrored() noexcept;
+		void set_mirrored();
 
 		///
 		/// Set ansiotropic filtering level.
 		///
 		/// \param level 2, 4, 8, etc...
 		///
-		void set_anisotropy(const unsigned int level) noexcept;
+		void set_anisotropy(const unsigned int level);
 
 		///
 		/// Set filter when texture is downscaled in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		void set_minify_filter(const qs::TextureFilter& filter) noexcept;
+		void set_minify_filter(const qs::TextureFilter& filter);
 
 		///
 		/// Set filter when texture would be scaled up in OpenGL.
 		///
 		/// \param filter Enum filter to apply to texture.
 		///
-		void set_magnify_filter(const qs::TextureFilter& filter) noexcept;
+		void set_magnify_filter(const qs::TextureFilter& filter);
 
 		///
 		/// \brief Get texture width.
@@ -116,7 +116,7 @@ namespace qs
 		///
 		/// \return Width as int. int over unsigned for compat with float.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 		///
 		/// \brief Get texture height.
@@ -125,20 +125,20 @@ namespace qs
 		///
 		/// \return Height as int. int over unsigned for compat with float.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 		///
 		/// Gets internal OpenGL id.
 		///
 		/// \return Const unsigned int.
 		///
-		[[nodiscard]] const unsigned int gl_texture() const noexcept;
+		[[nodiscard]] const unsigned int gl_texture() const;
 
 	protected:
 		///
 		/// Constructor.
 		///
-		BaseTexture() noexcept;
+		BaseTexture();
 
 		///
 		/// OpenGL texture handle.

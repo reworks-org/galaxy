@@ -23,7 +23,7 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		KeyCharEvent() noexcept;
+		KeyCharEvent();
 
 		///
 		/// Argument constructor.
@@ -31,32 +31,32 @@ namespace pr
 		/// \param keycode Code of the key pressed.
 		/// \param unichar Unicode character pressed.
 		///
-		KeyCharEvent(const pr::Keys keycode, const int unichar) noexcept;
+		KeyCharEvent(const pr::Keys keycode, const int unichar);
 
 		///
 		/// Copy constructor.
 		///
-		KeyCharEvent(const KeyCharEvent&) noexcept = default;
+		KeyCharEvent(const KeyCharEvent&) = default;
 
 		///
 		/// Move constructor.
 		///
-		KeyCharEvent(KeyCharEvent&&) noexcept = default;
+		KeyCharEvent(KeyCharEvent&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		KeyCharEvent& operator=(const KeyCharEvent&) noexcept = default;
+		KeyCharEvent& operator=(const KeyCharEvent&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		KeyCharEvent& operator=(KeyCharEvent&&) noexcept = default;
+		KeyCharEvent& operator=(KeyCharEvent&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~KeyCharEvent() noexcept = default;
+		~KeyCharEvent() = default;
 
 		///
 		/// Keycode for the key that was pressed.

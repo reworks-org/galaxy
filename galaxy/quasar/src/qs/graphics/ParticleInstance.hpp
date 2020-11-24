@@ -80,12 +80,12 @@ namespace qs
 		///
 		/// Activate sprite context.
 		///
-		void bind() noexcept override;
+		void bind() override;
 
 		///
 		/// Deactivate sprite context.
 		///
-		void unbind() noexcept override;
+		void unbind() override;
 
 	private:
 		///

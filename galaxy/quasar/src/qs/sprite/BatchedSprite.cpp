@@ -54,7 +54,7 @@ namespace qs
 		m_dirty   = true;
 	}
 
-	void BatchedSprite::set_opacity(const float opacity) noexcept
+	void BatchedSprite::set_opacity(const float opacity)
 	{
 		if (m_opacity > 1.0f)
 		{
@@ -72,37 +72,37 @@ namespace qs
 		m_dirty = true;
 	}
 
-	void BatchedSprite::set_z_level(const unsigned int level) noexcept
+	void BatchedSprite::set_z_level(const unsigned int level)
 	{
 		m_z_level = level;
 		m_dirty   = true;
 	}
 
-	void BatchedSprite::update_x_region(const float x) noexcept
+	void BatchedSprite::update_x_region(const float x)
 	{
 		m_region.m_x = x;
 		m_dirty      = true;
 	}
 
-	void BatchedSprite::update_y_region(const float y) noexcept
+	void BatchedSprite::update_y_region(const float y)
 	{
 		m_region.m_y = y;
 		m_dirty      = true;
 	}
 
-	void BatchedSprite::update_w_region(const float w) noexcept
+	void BatchedSprite::update_w_region(const float w)
 	{
 		m_region.m_width = w;
 		m_dirty          = true;
 	}
 
-	void BatchedSprite::update_h_region(const float h) noexcept
+	void BatchedSprite::update_h_region(const float h)
 	{
 		m_region.m_height = h;
 		m_dirty           = true;
 	}
 
-	void BatchedSprite::update_region(float x, float y, const float w, const float h) noexcept
+	void BatchedSprite::update_region(float x, float y, const float w, const float h)
 	{
 		m_region.m_x      = x;
 		m_region.m_y      = y;
@@ -112,27 +112,27 @@ namespace qs
 		m_dirty = true;
 	}
 
-	void BatchedSprite::update_region(const pr::Rect<float>& quad) noexcept
+	void BatchedSprite::update_region(const pr::Rect<float>& quad)
 	{
 		update_region(quad.m_x, quad.m_y, quad.m_width, quad.m_height);
 	}
 
-	const unsigned int BatchedSprite::z_level() const noexcept
+	const unsigned int BatchedSprite::z_level() const
 	{
 		return m_z_level;
 	}
 
-	const int BatchedSprite::get_width() const noexcept
+	const int BatchedSprite::get_width() const
 	{
 		return m_region.m_width;
 	}
 
-	const int BatchedSprite::get_height() const noexcept
+	const int BatchedSprite::get_height() const
 	{
 		return m_region.m_height;
 	}
 
-	const pr::Rect<float>& BatchedSprite::get_region() const noexcept
+	const pr::Rect<float>& BatchedSprite::get_region() const
 	{
 		return m_region;
 	}

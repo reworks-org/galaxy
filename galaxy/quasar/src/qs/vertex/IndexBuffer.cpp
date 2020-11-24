@@ -12,7 +12,7 @@
 ///
 namespace qs
 {
-	IndexBuffer::IndexBuffer() noexcept
+	IndexBuffer::IndexBuffer()
 	    : m_id {0}, m_count {0}
 	{
 		glGenBuffers(1, &m_id);
@@ -41,22 +41,22 @@ namespace qs
 		return *this;
 	}
 
-	IndexBuffer::~IndexBuffer() noexcept
+	IndexBuffer::~IndexBuffer()
 	{
 		glDeleteBuffers(1, &m_id);
 	}
 
-	void IndexBuffer::bind() noexcept
+	void IndexBuffer::bind()
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id);
 	}
 
-	void IndexBuffer::unbind() noexcept
+	void IndexBuffer::unbind()
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 
-	unsigned int IndexBuffer::count() const noexcept
+	unsigned int IndexBuffer::count() const
 	{
 		return m_count;
 	}

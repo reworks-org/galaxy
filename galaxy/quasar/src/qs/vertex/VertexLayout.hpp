@@ -30,12 +30,12 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		VertexLayout() noexcept;
+		VertexLayout();
 
 		///
 		/// Copy constructor.
 		///
-		VertexLayout(const VertexLayout&) noexcept = default;
+		VertexLayout(const VertexLayout&) = default;
 
 		///
 		/// Move constructor.
@@ -45,7 +45,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		VertexLayout& operator=(const VertexLayout&) noexcept = default;
+		VertexLayout& operator=(const VertexLayout&) = default;
 
 		///
 		/// Move assignment operator.
@@ -55,7 +55,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~VertexLayout() noexcept;
+		~VertexLayout();
 
 		///
 		/// \brief Adds a vertex attribute to the layout.
@@ -73,7 +73,7 @@ namespace qs
 		///
 		/// \return const reference to std::vector<VertexAttribute>.
 		///
-		[[nodiscard]] const std::vector<VertexAttribute>& get_attributes() const noexcept;
+		[[nodiscard]] const std::vector<VertexAttribute>& get_attributes() const;
 
 	private:
 		///

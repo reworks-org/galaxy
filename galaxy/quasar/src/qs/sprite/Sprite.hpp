@@ -31,27 +31,27 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		Sprite(const Sprite&) noexcept = delete;
+		Sprite(const Sprite&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Sprite(Sprite&&) noexcept = default;
+		Sprite(Sprite&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Sprite& operator=(const Sprite&) noexcept = delete;
+		Sprite& operator=(const Sprite&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Sprite& operator=(Sprite&&) noexcept = default;
+		Sprite& operator=(Sprite&&) = default;
 
 		///
 		/// Destructor.
 		///
-		virtual ~Sprite() noexcept = default;
+		virtual ~Sprite() = default;
 
 		///
 		/// \brief Creates the internal vertex array.
@@ -67,12 +67,12 @@ namespace qs
 		///
 		/// Activate sprite context.
 		///
-		void bind() noexcept override;
+		void bind() override;
 
 		///
 		/// Deactivate sprite context.
 		///
-		void unbind() noexcept override;
+		void unbind() override;
 	};
 
 	template<is_buffer BufferType>

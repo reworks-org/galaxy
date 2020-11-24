@@ -1,1 +1,0 @@
-entity = LuaEntity.new("test")

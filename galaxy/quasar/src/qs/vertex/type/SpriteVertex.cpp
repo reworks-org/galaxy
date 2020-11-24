@@ -12,12 +12,12 @@
 ///
 namespace qs
 {
-	SpriteVertex::SpriteVertex() noexcept
+	SpriteVertex::SpriteVertex()
 	    : m_pos {0.0f, 0.0f}, m_texels {0.0f, 0.0f}
 	{
 	}
 
-	SpriteVertex::SpriteVertex(const float x, const float y, const float u, const float v) noexcept
+	SpriteVertex::SpriteVertex(const float x, const float y, const float u, const float v)
 	    : m_pos {x, y}, m_texels {u, v}
 
 	{

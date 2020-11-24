@@ -33,7 +33,7 @@ namespace sr
 		///
 		/// Constructor.
 		///
-		ComponentSet() noexcept;
+		ComponentSet();
 
 		///
 		/// Copy constructor.
@@ -58,7 +58,7 @@ namespace sr
 		///
 		/// Destructor
 		///
-		~ComponentSet() noexcept;
+		~ComponentSet();
 
 		///
 		/// Add a component to an entity.
@@ -92,7 +92,7 @@ namespace sr
 		///
 		/// \return Const reference to a std::vector.
 		///
-		[[nodiscard]] const std::vector<Component>& get_components() noexcept;
+		[[nodiscard]] const std::vector<Component>& get_components();
 
 	private:
 		///
@@ -103,13 +103,13 @@ namespace sr
 	};
 
 	template<pr::is_class Component>
-	inline ComponentSet<Component>::ComponentSet() noexcept
+	inline ComponentSet<Component>::ComponentSet()
 	    : EntitySet {}
 	{
 	}
 
 	template<pr::is_class Component>
-	inline ComponentSet<Component>::~ComponentSet() noexcept
+	inline ComponentSet<Component>::~ComponentSet()
 	{
 		// Make sure everything is cleaned up.
 		clear();
@@ -175,7 +175,7 @@ namespace sr
 	}
 
 	template<pr::is_class Component>
-	inline const std::vector<Component>& ComponentSet<Component>::get_components() noexcept
+	inline const std::vector<Component>& ComponentSet<Component>::get_components()
 	{
 		return m_components;
 	}

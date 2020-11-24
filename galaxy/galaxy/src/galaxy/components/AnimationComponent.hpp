@@ -36,7 +36,7 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		AnimationComponent(const AnimationComponent&) noexcept = delete;
+		AnimationComponent(const AnimationComponent&) = delete;
 
 		///
 		/// Move constructor.
@@ -46,7 +46,7 @@ namespace galaxy
 		///
 		/// Copy assignment operator.
 		///
-		AnimationComponent& operator=(const AnimationComponent&) noexcept = delete;
+		AnimationComponent& operator=(const AnimationComponent&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -56,7 +56,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~AnimationComponent() noexcept = default;
+		~AnimationComponent() = default;
 
 		///
 		/// Animation object.

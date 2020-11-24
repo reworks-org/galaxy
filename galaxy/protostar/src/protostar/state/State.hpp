@@ -85,7 +85,7 @@ namespace pr
 		///
 		/// \return Const std::string.
 		///
-		const std::string& get_name() const noexcept;
+		const std::string& get_name() const;
 
 	protected:
 		///

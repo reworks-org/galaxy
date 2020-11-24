@@ -17,7 +17,7 @@
 ///
 namespace starmap
 {
-	Chunk::Chunk() noexcept
+	Chunk::Chunk()
 	    : m_height {0}, m_width {0}, m_x {0}, m_y {0}
 	{
 	}
@@ -82,27 +82,27 @@ namespace starmap
 		}
 	}
 
-	const auto& Chunk::get_data() const noexcept
+	const auto& Chunk::get_data() const
 	{
 		return m_data;
 	}
 
-	const int Chunk::get_height() const noexcept
+	const int Chunk::get_height() const
 	{
 		return m_height;
 	}
 
-	const int Chunk::get_width() const noexcept
+	const int Chunk::get_width() const
 	{
 		return m_width;
 	}
 
-	const int Chunk::get_x() const noexcept
+	const int Chunk::get_x() const
 	{
 		return m_x;
 	}
 
-	const int Chunk::get_y() const noexcept
+	const int Chunk::get_y() const
 	{
 		return m_y;
 	}

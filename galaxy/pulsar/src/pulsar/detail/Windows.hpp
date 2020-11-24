@@ -26,7 +26,7 @@ namespace pl
 	///
 	/// \return Returns empty string so function can be used in an output stream mimicing unix style.
 	///
-	[[maybe_unused]] std::string colour_text(const LogColours colour) noexcept;
+	[[maybe_unused]] std::string colour_text(const LogColours colour);
 } // namespace pl
 
 #endif

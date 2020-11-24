@@ -12,17 +12,17 @@
 ///
 namespace pr
 {
-	Task::Task() noexcept
+	Task::Task()
 	    : m_done {false}
 	{
 	}
 
-	Task::~Task() noexcept
+	Task::~Task()
 	{
 		m_done = true;
 	}
 
-	void Task::set(std::function<void(void)>&& func) noexcept
+	void Task::set(std::function<void(void)>&& func)
 	{
 		m_task = std::move(func);
 	}
@@ -42,7 +42,7 @@ namespace pr
 		}
 	}
 
-	bool Task::is_done() noexcept
+	bool Task::is_done()
 	{
 		return m_done;
 	}

@@ -65,22 +65,22 @@ namespace sr
 		///
 		/// Copy constructor.
 		///
-		Manager(const Manager&) noexcept = delete;
+		Manager(const Manager&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Manager(Manager&&) noexcept = delete;
+		Manager(Manager&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		Manager& operator=(const Manager&) noexcept = delete;
+		Manager& operator=(const Manager&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Manager& operator=(Manager&&) noexcept = delete;
+		Manager& operator=(Manager&&) = delete;
 
 		///
 		/// Destructor.
@@ -110,7 +110,7 @@ namespace sr
 		///
 		/// \return True if entity does exist.
 		///
-		[[nodiscard]] const bool has(const sr::Entity entity) noexcept;
+		[[nodiscard]] const bool has(const sr::Entity entity);
 
 		///
 		/// Check if an unsigned integer is an entity.
@@ -146,7 +146,7 @@ namespace sr
 		///
 		/// \return Const unordered_map reference.
 		///
-		auto get_debug_name_map() noexcept -> const robin_hood::unordered_map<std::string, sr::Entity>&;
+		auto get_debug_name_map() -> const robin_hood::unordered_map<std::string, sr::Entity>&;
 
 		///
 		/// Add (construct) a component for an entity.

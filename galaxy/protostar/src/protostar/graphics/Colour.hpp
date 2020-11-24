@@ -28,7 +28,7 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		Colour() noexcept;
+		Colour();
 
 		///
 		/// RGB constructor.
@@ -37,7 +37,7 @@ namespace pr
 		/// \param g Green.
 		/// \param b Blue.
 		///
-		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b) noexcept;
+		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b);
 
 		///
 		/// Argument constructor.
@@ -47,32 +47,32 @@ namespace pr
 		/// \param b Blue.
 		/// \param a Alpha.
 		///
-		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a) noexcept;
+		Colour(const std::uint8_t r, const std::uint8_t g, const std::uint8_t b, const std::uint8_t a);
 
 		///
 		/// Copy constructor.
 		///
-		Colour(const Colour&) noexcept = default;
+		Colour(const Colour&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Colour(Colour&&) noexcept = default;
+		Colour(Colour&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Colour& operator=(const Colour&) noexcept = default;
+		Colour& operator=(const Colour&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		Colour& operator=(Colour&&) noexcept = default;
+		Colour& operator=(Colour&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~Colour() noexcept = default;
+		~Colour() = default;
 
 		///
 		/// Converts to fixed size array of type Type.
@@ -89,7 +89,7 @@ namespace pr
 		///
 		/// \return Move invoked fixed size std::array of floats.
 		///
-		[[nodiscard]] std::array<float, 4> get_normalized() noexcept;
+		[[nodiscard]] std::array<float, 4> get_normalized();
 
 		///
 		/// Spaceship operator.

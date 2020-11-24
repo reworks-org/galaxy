@@ -28,32 +28,32 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		ResCacheBase() noexcept = default;
+		ResCacheBase() = default;
 
 		///
 		/// Copy constructor.
 		///
-		ResCacheBase(const ResCacheBase&) noexcept = default;
+		ResCacheBase(const ResCacheBase&) = default;
 
 		///
 		/// Move constructor.
 		///
-		ResCacheBase(ResCacheBase&&) noexcept = default;
+		ResCacheBase(ResCacheBase&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		ResCacheBase& operator=(const ResCacheBase&) noexcept = default;
+		ResCacheBase& operator=(const ResCacheBase&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		ResCacheBase& operator=(ResCacheBase&&) noexcept = default;
+		ResCacheBase& operator=(ResCacheBase&&) = default;
 
 		///
 		/// Virtual default destructor.
 		///
-		virtual ~ResCacheBase() noexcept = default;
+		virtual ~ResCacheBase() = default;
 	};
 
 	///
@@ -67,22 +67,22 @@ namespace pr
 		///
 		/// Copy constructor.
 		///
-		ResourceCache(const ResourceCache&) noexcept = delete;
+		ResourceCache(const ResourceCache&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		ResourceCache(ResourceCache&&) noexcept = delete;
+		ResourceCache(ResourceCache&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		ResourceCache& operator=(const ResourceCache&) noexcept = delete;
+		ResourceCache& operator=(const ResourceCache&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		ResourceCache& operator=(ResourceCache&&) noexcept = delete;
+		ResourceCache& operator=(ResourceCache&&) = delete;
 
 		///
 		/// Virtual destructor.
@@ -128,7 +128,7 @@ namespace pr
 		///
 		/// Default constructor.
 		///
-		ResourceCache() noexcept;
+		ResourceCache();
 
 		///
 		/// Contiguous resource array.
@@ -172,7 +172,7 @@ namespace pr
 	}
 
 	template<not_pointer_or_ref Resource>
-	inline ResourceCache<Resource>::ResourceCache() noexcept
+	inline ResourceCache<Resource>::ResourceCache()
 	{
 	}
 } // namespace pr

@@ -17,11 +17,16 @@
 #include <protostar/system/Keys.hpp>
 #include <robin_hood.h>
 
+#include "qs/sprite/Sprite.hpp"
+#include "qs/texture/RenderTexture.hpp"
+
 ///
 /// Core namespace.
 ///
 namespace qs
 {
+	class Renderer;
+
 	///
 	/// Represents a window to open, process and draw to.
 	///
@@ -52,7 +57,7 @@ namespace qs
 		///
 		/// Default constructed window.
 		///
-		Window() noexcept;
+		Window();
 
 		///
 		/// \brief Window creation constructor.
@@ -69,29 +74,29 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		Window(const Window&) noexcept = delete;
+		Window(const Window&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Window(Window&&) noexcept = delete;
+		Window(Window&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		Window& operator=(const Window&) noexcept = delete;
+		Window& operator=(const Window&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Window& operator=(Window&&) noexcept = delete;
+		Window& operator=(Window&&) = delete;
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
 		///
 		/// Shortcut of calling destroy(). Make sure SDL_Quit has not been called yet.
 		///
-		~Window() noexcept;
+		~Window();
 
 		///
 		/// \brief Construct a Window.
@@ -133,14 +138,14 @@ namespace qs
 		///
 		/// \param visible True for cursor to be visible, otherwise false.
 		///
-		void set_cursor_visibility(const bool visible) noexcept;
+		void set_cursor_visibility(const bool visible);
 
 		///
 		/// \brief Restricts cursor to window bounds, and makes invisible.
 		///
 		/// setCursorVisibility() overrides this.
 		///
-		void remove_cursor() noexcept;
+		void remove_cursor();
 
 		///
 		/// Set cursor icon.
@@ -161,28 +166,28 @@ namespace qs
 		///
 		/// \param func Function callback.
 		///
-		void set_scrolling_callback(GLFWscrollfun func) noexcept;
+		void set_scrolling_callback(GLFWscrollfun func);
 
 		///
 		/// \brief Destroys SDL Window and OpenGL context.
 		///
 		/// Make sure SDL_Quit has not been called yet.
 		///
-		void destroy() noexcept;
+		void destroy();
 
 		///
 		/// Checks if window is currently open or not.
 		///
 		/// \return Returns true if window is currently open, false if not.
 		///
-		[[nodiscard]] bool is_open() const noexcept;
+		[[nodiscard]] bool is_open() const;
 
 		///
 		/// \brief Closes the current window.
 		///
 		/// Internally, sets isOpen to false.
 		///
-		void close() noexcept;
+		void close();
 
 		///
 		/// Resizes window.
@@ -191,31 +196,31 @@ namespace qs
 		/// \param height Height of the window.
 		/// \param window Pointer to window to resize. Defaults to *this.
 		///
-		void resize(const int width, const int height) noexcept;
+		void resize(const int width, const int height);
 
 		///
 		/// \brief Notify's user of an event without interrupting.
 		///
 		/// Think like windows flashing tray icon.
 		///
-		void request_attention() noexcept;
+		void request_attention();
 
 		///
 		/// Clears the Rendering buffer.
 		///
-		void begin() noexcept;
+		void begin();
 
 		///
-		/// \brief Renders the OpenGL buffer to the screen.
+		/// Renders the OpenGL buffer to the screen.
 		///
-		/// Basically calls SDL_GL_SwapWindow().
+		/// \param renderer Renderer used to output to screen.
 		///
-		void end() noexcept;
+		void end(qs::Renderer* renderer);
 
 		///
 		/// Poll for events.
 		///
-		void poll_events() noexcept;
+		void poll_events();
 
 		///
 		/// Check if a mouse button was pressed.
@@ -279,21 +284,21 @@ namespace qs
 		///
 		/// \return Returns const pointer to GLFWwindow.
 		///
-		[[nodiscard]] GLFWwindow* gl_window() noexcept;
+		[[nodiscard]] GLFWwindow* gl_window();
 
 		///
 		/// Get window width.
 		///
 		/// \return Const integer.
 		///
-		[[nodiscard]] const int get_width() const noexcept;
+		[[nodiscard]] const int get_width() const;
 
 		///
 		/// Get window height.
 		///
 		/// \return Const integer.
 		///
-		[[nodiscard]] const int get_height() const noexcept;
+		[[nodiscard]] const int get_height() const;
 
 	private:
 		///
@@ -345,6 +350,16 @@ namespace qs
 		/// Flag to signal to glfw that text is being input.
 		///
 		bool m_inputting_text;
+
+		///
+		/// Internal framebuffer.
+		///
+		std::unique_ptr<qs::RenderTexture> m_framebuffer;
+
+		///
+		/// Internal framebuffer sprite.
+		///
+		std::unique_ptr<qs::Sprite> m_fb_sprite;
 	};
 } // namespace qs
 

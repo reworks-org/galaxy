@@ -24,12 +24,12 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		VertexBuffer() noexcept;
+		VertexBuffer();
 
 		///
 		/// Copy constructor.
 		///
-		VertexBuffer(const VertexBuffer&) noexcept = delete;
+		VertexBuffer(const VertexBuffer&) = delete;
 
 		///
 		/// Move constructor.
@@ -39,7 +39,7 @@ namespace qs
 		///
 		/// Copy assignment operator.
 		///
-		VertexBuffer& operator=(const VertexBuffer&) noexcept = delete;
+		VertexBuffer& operator=(const VertexBuffer&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -58,17 +58,17 @@ namespace qs
 		///
 		/// Destroys buffer.
 		///
-		~VertexBuffer() noexcept;
+		~VertexBuffer();
 
 		///
 		/// Bind the current vertex buffer to current GL context.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind the current vertex buffer to current GL context.
 		///
-		void unbind() noexcept;
+		void unbind();
 
 		///
 		/// Get vertex storage.
@@ -83,7 +83,7 @@ namespace qs
 		///
 		/// \return Const unsigned integer.
 		///
-		[[nodiscard]] const unsigned int id() const noexcept;
+		[[nodiscard]] const unsigned int id() const;
 
 	private:
 		///

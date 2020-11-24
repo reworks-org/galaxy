@@ -28,7 +28,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		Property() noexcept;
+		Property();
 
 		///
 		/// \brief Parse constructor.
@@ -42,7 +42,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~Property() noexcept;
+		~Property();
 
 		///
 		/// \brief Parse Property level jston.
@@ -58,7 +58,7 @@ namespace starmap
 		///
 		/// \return boolean true if ellipse.
 		///
-		[[nodiscard]] std::string get_type() const noexcept;
+		[[nodiscard]] std::string get_type() const;
 
 		///
 		/// Get value. You should already know the type you want to retrieve.

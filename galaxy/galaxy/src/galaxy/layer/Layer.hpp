@@ -27,7 +27,7 @@ namespace galaxy
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~Layer() noexcept = default;
+		virtual ~Layer() = default;
 
 		///
 		/// Process layer events.
@@ -53,47 +53,47 @@ namespace galaxy
 		///
 		/// \param name Name in std::string format.
 		///
-		void set_name(std::string_view name) noexcept;
+		void set_name(std::string_view name);
 
 		///
 		/// Get layer name.
 		///
 		/// \return Const std::string.
 		///
-		const std::string& get_name() noexcept;
+		const std::string& get_name();
 
 	protected:
 		///
 		/// Default constructor.
 		///
-		Layer() noexcept;
+		Layer();
 
 		///
 		/// Argument constructor.
 		///
 		/// \param name Gives the layer a name.
 		///
-		explicit Layer(std::string_view name) noexcept;
+		explicit Layer(std::string_view name);
 
 		///
 		/// Copy constructor.
 		///
-		Layer(const Layer&) noexcept = default;
+		Layer(const Layer&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Layer(Layer&&) noexcept = default;
+		Layer(Layer&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Layer& operator=(const Layer&) noexcept = default;
+		Layer& operator=(const Layer&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		Layer& operator=(Layer&&) noexcept = default;
+		Layer& operator=(Layer&&) = default;
 
 	protected:
 		///

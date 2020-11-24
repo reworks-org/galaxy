@@ -24,7 +24,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		BatchedVertex() noexcept;
+		BatchedVertex();
 
 		///
 		/// Argument constructor.
@@ -35,7 +35,7 @@ namespace qs
 		/// \param v Texel y pos.
 		/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 		///
-		BatchedVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
+		BatchedVertex(const float x, const float y, const float u, const float v, const float opacity);
 
 		///
 		/// Copy constructor.
@@ -60,7 +60,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		~BatchedVertex() noexcept = default;
+		~BatchedVertex() = default;
 
 		///
 		/// Position of BatchedVertex.

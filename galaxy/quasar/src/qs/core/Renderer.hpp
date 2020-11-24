@@ -8,6 +8,9 @@
 #ifndef QUASAR_RENDERER_HPP_
 #define QUASAR_RENDERER_HPP_
 
+#include <span>
+#include <vector>
+
 ///
 /// Core namespace.
 ///
@@ -26,6 +29,7 @@ namespace qs
 	class RenderTexture;
 	class Text;
 	class ParticleGenerator;
+	class PostEffect;
 
 	///
 	/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
@@ -38,32 +42,32 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		Renderer() noexcept = default;
+		Renderer() = default;
 
 		///
 		/// Copy constructor.
 		///
-		Renderer(const Renderer&) noexcept = default;
+		Renderer(const Renderer&) = default;
 
 		///
 		/// Move constructor.
 		///
-		Renderer(Renderer&&) noexcept = default;
+		Renderer(Renderer&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Renderer& operator=(const Renderer&) noexcept = default;
+		Renderer& operator=(const Renderer&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		Renderer& operator=(Renderer&&) noexcept = default;
+		Renderer& operator=(Renderer&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		virtual ~Renderer() noexcept = default;
+		virtual ~Renderer() = default;
 
 		///
 		/// \brief Draw a point.
@@ -164,32 +168,29 @@ namespace qs
 		void draw_particles(qs::ParticleGenerator& particle_gen, qs::Shader& shader);
 
 		///
-		/// Draw to render texture.
+		/// Add a post effect to the final output of the renderer.
 		///
-		/// \param sprite Sprite to draw to screen.
-		/// \param rt Target to draw to.
-		/// \param shader Shader to apply to sprite. CALLS bind() FOR YOU!
+		/// \param effect Effect to add.
 		///
-		///
-		/// Draw VertexArray to render texture.
-		///
-		/// \param character (glyph) to draw.
-		/// \param rt Target to draw to.
-		/// \param shader Shader to apply to va.  CALLS bind() FOR YOU!
-		///
+		void add_post_effect(qs::PostEffect* effect);
 
 		///
-		/// \brief Draw a scene.
+		/// Get post effects to apply.
 		///
-		/// A scene is where you render all the sprites to a texture then apply a post process shader.
-		/// Usually is a lightsource shader.
-		/// Shader is bound for you.
-		/// LightSource provides shader.
+		/// \return Span of post-effect pointers.
 		///
-		/// \param spritebatch Framebuffer sprite.
-		/// \param camera used to render scene.
-		/// \param ls Light source(s) for lighting. Provides its own shader.
+		[[nodiscard]] std::span<qs::PostEffect*> get_post_effects();
+
 		///
+		/// Clear all post effects.
+		///
+		void clear_post_effects();
+
+	private:
+		///
+		/// List of effects to apply.
+		///
+		std::vector<qs::PostEffect*> m_effects;
 	};
 } // namespace qs
 

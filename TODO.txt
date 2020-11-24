@@ -6,6 +6,7 @@ QUASAR:
 - QSAPI -> const constinit
 - better spritebatch transforms
 - split transform into pos transform, colour transform, texel transform?
+- need to fix shader handling.
 
 Solar:
 replace is_system with is_derived
@@ -16,24 +17,5 @@ GALAXY:
 - Review Box2D integration.
 - better shader data storage
 
-ALL:
-- More error handling.
-- Clean up includes.
-
-PROJECT:
-clang-tidy cmake
-clang-format cmake
-
-Profiling?
-Debugging?
-
-update cmakelists header locations
-all in main cmakelists file
-
-update building instructions as needed
-update codecov
-fix ci
-https://lgtm.com/
-
-QUASAR:
-need to fix shader handling.
+Debugging
+Profiling

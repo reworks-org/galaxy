@@ -180,7 +180,7 @@ namespace frb
 		std::fill(m_data.m_buffers.begin(), m_data.m_buffers.end(), 0);
 	}
 
-	frb::BufferStream::Data* BufferStream::get_data() noexcept
+	frb::BufferStream::Data* BufferStream::get_data()
 	{
 		return &m_data;
 	}

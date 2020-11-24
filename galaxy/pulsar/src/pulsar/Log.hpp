@@ -130,14 +130,14 @@ namespace pl
 		///
 		/// Destructor.
 		///
-		~Log() noexcept = default;
+		~Log() = default;
 
 		///
 		/// Retrieve log instance.
 		///
 		/// \return Returns static reference to Log class.
 		///
-		static Log& get() noexcept;
+		static Log& get();
 
 		///
 		/// Initialize logging and set up destination file.
@@ -165,7 +165,7 @@ namespace pl
 		///
 		/// \param is_testing Will not log if true.
 		///
-		void set_testing(const bool is_testing) noexcept;
+		void set_testing(const bool is_testing);
 
 		///
 		/// \brief	Set a minimum log level.
@@ -174,14 +174,14 @@ namespace pl
 		///
 		/// \param level Level to set as the minimum level to log at.
 		///
-		void set_min_level(Log::Level level) noexcept;
+		void set_min_level(Log::Level level);
 
 		///
 		/// Returns minimum logging message level that is required to log a message.
 		///
 		/// \return Log::Level enum.
 		///
-		[[nodiscard]] Log::Level get_min_level() noexcept;
+		[[nodiscard]] Log::Level get_min_level();
 
 	private:
 		///
@@ -205,7 +205,7 @@ namespace pl
 		///
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		[[nodiscard]] std::string process_colour(Log::Level level) noexcept;
+		[[nodiscard]] std::string process_colour(Log::Level level);
 
 		///
 		/// Filters a log stream message based on message level to determine if it must be logged.
@@ -214,7 +214,7 @@ namespace pl
 		///
 		/// \return True if can log.
 		///
-		[[nodiscard]] bool filter_level(Log::Level level) noexcept;
+		[[nodiscard]] bool filter_level(Log::Level level);
 
 		///
 		/// File stream to write to.

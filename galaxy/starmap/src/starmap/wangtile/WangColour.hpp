@@ -24,7 +24,7 @@ namespace starmap
 		///
 		/// Default constructor.
 		///
-		WangColour() noexcept;
+		WangColour();
 
 		///
 		/// Parse constructor.
@@ -36,7 +36,7 @@ namespace starmap
 		///
 		/// Destructor.
 		///
-		~WangColour() noexcept = default;
+		~WangColour() = default;
 
 		///
 		/// Parses json structure to member values; etc.
@@ -50,28 +50,28 @@ namespace starmap
 		///
 		/// \return Hex formatted std::string.
 		///
-		[[nodiscard]] std::string get_colour() const noexcept;
+		[[nodiscard]] std::string get_colour() const;
 
 		///
 		/// Get the name.
 		///
 		/// \return Const std::string reference.
 		///
-		[[nodiscard]] std::string get_name() const noexcept;
+		[[nodiscard]] std::string get_name() const;
 
 		///
 		/// Get probability of being picked by editor randomizer.
 		///
 		/// \return Const double.
 		///
-		[[nodiscard]] const double get_probability() const noexcept;
+		[[nodiscard]] const double get_probability() const;
 
 		///
 		/// Get local tile id.
 		///
 		/// \return Const int.
 		///
-		[[nodiscard]] const int get_tile() const noexcept;
+		[[nodiscard]] const int get_tile() const;
 
 	private:
 		///

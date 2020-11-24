@@ -32,7 +32,7 @@ namespace qs
 		///
 		/// Default constructor.
 		///
-		RenderTexture() noexcept;
+		RenderTexture();
 
 		///
 		/// Argument constructor.
@@ -65,7 +65,7 @@ namespace qs
 		///
 		/// Destructor.
 		///
-		virtual ~RenderTexture() noexcept;
+		virtual ~RenderTexture();
 
 		///
 		/// Create the RenderTexture.
@@ -86,12 +86,12 @@ namespace qs
 		///
 		/// Activate texture context.
 		///
-		void bind() noexcept override;
+		void bind() override;
 
 		///
 		/// Deactivate texture context.
 		///
-		void unbind() noexcept override;
+		void unbind() override;
 
 		///
 		/// Modify projection of render texture.
@@ -101,14 +101,14 @@ namespace qs
 		/// \param bottom Bottom point of ortho perspective.
 		/// \param top Top point of ortho perspective.
 		///
-		void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
+		void set_projection(const float left, const float right, const float bottom, const float top);
 
 		///
 		/// Get projection.
 		///
 		/// \return Reference to glm::mat4.
 		///
-		[[nodiscard]] glm::mat4& get_proj() noexcept;
+		[[nodiscard]] glm::mat4& get_proj();
 
 	private:
 		///

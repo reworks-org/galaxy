@@ -25,7 +25,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		Transform() noexcept;
+		Transform();
 
 		///
 		/// Copy constructor.
@@ -50,7 +50,7 @@ namespace qs
 		///
 		/// Default virtual destructor.
 		///
-		virtual ~Transform() noexcept = default;
+		virtual ~Transform() = default;
 
 		///
 		/// \brief Translate (move) position.
@@ -61,26 +61,26 @@ namespace qs
 		/// \param x How far to translate on x axis.
 		/// \param y How far to translate on x axis.
 		///
-		void move(const float x, const float y) noexcept;
+		void move(const float x, const float y);
 
 		///
 		/// Rotate transformation in degrees.
 		///
 		/// \param degrees Max 360, min -360.
 		///
-		void rotate(float degrees) noexcept;
+		void rotate(float degrees);
 
 		///
 		/// Scale transformation on each axis.
 		///
 		/// \param scale Scale. Multiplier.
 		///
-		void scale(const float scale) noexcept;
+		void scale(const float scale);
 
 		///
 		/// Recalculates the model view matrix.
 		///
-		virtual void recalculate() noexcept;
+		virtual void recalculate();
 
 		///
 		/// Sets position without moving the object.
@@ -88,7 +88,7 @@ namespace qs
 		/// \param x X position to set object to.
 		/// \param y Y position to set object to.
 		///
-		virtual void set_pos(const float x, const float y) noexcept;
+		virtual void set_pos(const float x, const float y);
 
 		///
 		/// Set the rotation point.
@@ -96,21 +96,21 @@ namespace qs
 		/// \param x X position to set origin to.
 		/// \param y Y position to set origin to.
 		///
-		void set_rotation_origin(const float x, const float y) noexcept;
+		void set_rotation_origin(const float x, const float y);
 
 		///
 		/// Get flag indicating if transform needs to be applied before rendering.
 		///
 		/// \return Const boolean.
 		///
-		[[nodiscard]] const bool is_dirty() const noexcept;
+		[[nodiscard]] const bool is_dirty() const;
 
 		///
 		/// Retrieve internal transformation matrix.
 		///
 		/// \return Reference to internal glm::mat4.
 		///
-		[[nodiscard]] glm::mat4& get_transform() noexcept;
+		[[nodiscard]] glm::mat4& get_transform();
 
 	protected:
 		///

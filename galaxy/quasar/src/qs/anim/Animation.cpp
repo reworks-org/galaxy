@@ -79,12 +79,12 @@ namespace qs
 		return *this;
 	}
 
-	Animation::~Animation() noexcept
+	Animation::~Animation()
 	{
 		m_frames.clear();
 	}
 
-	void Animation::restart() noexcept
+	void Animation::restart()
 	{
 		m_current_frame_index = 0;
 		m_active_frame        = &m_frames[0];
@@ -113,32 +113,32 @@ namespace qs
 		return m_active_frame;
 	}
 
-	const std::string& Animation::get_name() noexcept
+	const std::string& Animation::get_name()
 	{
 		return m_name;
 	}
 
-	const bool Animation::is_looping() const noexcept
+	const bool Animation::is_looping() const
 	{
 		return m_looping;
 	}
 
-	const double Animation::get_speed() const noexcept
+	const double Animation::get_speed() const
 	{
 		return m_speed;
 	}
 
-	const std::size_t Animation::get_total_frames() const noexcept
+	const std::size_t Animation::get_total_frames() const
 	{
 		return m_total_frames;
 	}
 
-	const qs::Frame* Animation::get_current_frame() const noexcept
+	const qs::Frame* Animation::get_current_frame() const
 	{
 		return m_active_frame;
 	}
 
-	const auto& Animation::get_frames() noexcept
+	const auto& Animation::get_frames()
 	{
 		return m_frames;
 	}

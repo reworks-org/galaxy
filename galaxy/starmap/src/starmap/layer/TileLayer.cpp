@@ -134,22 +134,22 @@ namespace starmap
 		}
 	}
 
-	TileLayer::~TileLayer() noexcept
+	TileLayer::~TileLayer()
 	{
 		m_chunks.clear();
 	}
 
-	const auto& TileLayer::get_chunks() const noexcept
+	const auto& TileLayer::get_chunks() const
 	{
 		return m_chunks;
 	}
 
-	std::string TileLayer::get_compression() const noexcept
+	std::string TileLayer::get_compression() const
 	{
 		return m_compression;
 	}
 
-	const auto& TileLayer::get_data() const noexcept
+	const auto& TileLayer::get_data() const
 	{
 		return m_data;
 	}

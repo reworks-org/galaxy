@@ -43,27 +43,27 @@ namespace qs
 		///
 		/// Copy constructor.
 		///
-		Circle(const Circle&) noexcept = delete;
+		Circle(const Circle&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Circle(Circle&&) noexcept = default;
+		Circle(Circle&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		Circle& operator=(const Circle&) noexcept = delete;
+		Circle& operator=(const Circle&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Circle& operator=(Circle&&) noexcept = default;
+		Circle& operator=(Circle&&) = default;
 
 		///
 		/// Destructor.
 		///
-		virtual ~Circle() noexcept = default;
+		virtual ~Circle() = default;
 
 		///
 		/// Create the Circle.
@@ -79,12 +79,12 @@ namespace qs
 		///
 		/// Bind as active VA.
 		///
-		void bind() noexcept;
+		void bind();
 
 		///
 		/// Unbind as active VA.
 		///
-		void unbind() noexcept;
+		void unbind();
 	};
 } // namespace qs
 

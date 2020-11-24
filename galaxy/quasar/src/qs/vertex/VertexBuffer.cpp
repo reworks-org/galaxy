@@ -14,7 +14,7 @@
 ///
 namespace qs
 {
-	VertexBuffer::VertexBuffer() noexcept
+	VertexBuffer::VertexBuffer()
 	    : m_id {0}, m_size {0}
 	{
 		glGenBuffers(1, &m_id);
@@ -43,22 +43,22 @@ namespace qs
 		return *this;
 	}
 
-	VertexBuffer::~VertexBuffer() noexcept
+	VertexBuffer::~VertexBuffer()
 	{
 		glDeleteBuffers(1, &m_id);
 	}
 
-	void VertexBuffer::bind() noexcept
+	void VertexBuffer::bind()
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_id);
 	}
 
-	void VertexBuffer::unbind() noexcept
+	void VertexBuffer::unbind()
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
-	const unsigned int VertexBuffer::id() const noexcept
+	const unsigned int VertexBuffer::id() const
 	{
 		return m_id;
 	}

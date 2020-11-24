@@ -24,7 +24,7 @@ namespace qs
 		///
 		/// Constructor.
 		///
-		Frame() noexcept;
+		Frame();
 
 		///
 		/// Argument constructor.
@@ -33,7 +33,7 @@ namespace qs
 		/// \param y Y position on the anim texture.
 		/// \param time_per_frame Total time to display this frame for.
 		///
-		Frame(const float x, const float y, const double time_per_frame) noexcept;
+		Frame(const float x, const float y, const double time_per_frame);
 
 		///
 		/// Copy constructor.
@@ -58,28 +58,28 @@ namespace qs
 		///
 		/// Default destructor.
 		///
-		~Frame() noexcept = default;
+		~Frame() = default;
 
 		///
 		/// Get x pos.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_x() const noexcept;
+		[[nodiscard]] const float get_x() const;
 
 		///
 		/// Get t pos.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_y() const noexcept;
+		[[nodiscard]] const float get_y() const;
 
 		///
 		/// Get time per frame.
 		///
 		/// \return Const std::size_t.
 		///
-		[[nodiscard]] const double get_time_per_frame() const noexcept;
+		[[nodiscard]] const double get_time_per_frame() const;
 
 	private:
 		///

@@ -74,7 +74,7 @@ namespace frb
 		///
 		/// Update stream buffers as it plays.
 		///
-		void update() noexcept;
+		void update();
 
 		///
 		/// OpenAL audio source object.

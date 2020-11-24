@@ -25,39 +25,39 @@ namespace pr
 		///
 		/// Constructor.
 		///
-		Task() noexcept;
+		Task();
 
 		///
 		/// Copy constructor.
 		///
-		Task(const Task&) noexcept = delete;
+		Task(const Task&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Task(Task&&) noexcept = delete;
+		Task(Task&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		Task& operator=(const Task&) noexcept = delete;
+		Task& operator=(const Task&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Task& operator=(Task&&) noexcept = delete;
+		Task& operator=(Task&&) = delete;
 
 		///
 		/// Destructor.
 		///
-		~Task() noexcept;
+		~Task();
 
 		///
 		/// Set the task to be done.
 		///
 		/// \param func Lambda or function to call when task is executed. Is moved.
 		///
-		void set(std::function<void(void)>&& func) noexcept;
+		void set(std::function<void(void)>&& func);
 
 		///
 		/// Run the task on the thread.
@@ -74,7 +74,7 @@ namespace pr
 		///
 		/// \return Const bool. True if finished.
 		///
-		bool is_done() noexcept;
+		bool is_done();
 
 	private:
 		///

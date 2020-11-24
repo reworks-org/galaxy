@@ -31,13 +31,13 @@ namespace galaxy
 	{
 	}
 
-	LuaEntity::LuaEntity(LuaEntity&& le) noexcept
+	LuaEntity::LuaEntity(LuaEntity&& le)
 	{
 		this->m_entity = le.m_entity;
 		le.m_entity    = 0;
 	}
 
-	LuaEntity& LuaEntity::operator=(LuaEntity&& le) noexcept
+	LuaEntity& LuaEntity::operator=(LuaEntity&& le)
 	{
 		if (this != &le)
 		{
@@ -88,7 +88,7 @@ namespace galaxy
 		return SL_HANDLE.world()->create_component<galaxy::SpriteComponent>(m_entity);
 	}
 
-	const sr::Entity LuaEntity::retrieve() const noexcept
+	const sr::Entity LuaEntity::retrieve() const
 	{
 		return m_entity;
 	}

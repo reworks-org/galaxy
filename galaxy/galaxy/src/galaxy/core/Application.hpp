@@ -38,22 +38,22 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		Application(const Application&) noexcept = delete;
+		Application(const Application&) = delete;
 
 		///
 		/// Move constructor.
 		///
-		Application(Application&&) noexcept = delete;
+		Application(Application&&) = delete;
 
 		///
 		/// Copy assignment operator.
 		///
-		Application& operator=(const Application&) noexcept = delete;
+		Application& operator=(const Application&) = delete;
 
 		///
 		/// Move assignment operator.
 		///
-		Application& operator=(Application&&) noexcept = delete;
+		Application& operator=(Application&&) = delete;
 
 		///
 		/// \brief Virtual destructor.
@@ -74,7 +74,7 @@ namespace galaxy
 		///
 		/// \return Pointer to protected double.
 		///
-		[[nodiscard]] pr::LockedDouble* get_dt() noexcept;
+		[[nodiscard]] pr::LockedDouble* get_dt();
 
 	protected:
 		///

@@ -14,21 +14,41 @@ Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 Only supports 64bit systems.
 
 ### Windows:
-You will need to install Visual Studio 2019 16.8 Preview 5, and set the Win-SDK version to 10.0.19041.0.
+You will need to install ```Visual Studio 2019 16.9 Preview 1```, and set the ```Win-SDK``` version to ```10.0.19041.0``` (minimum).
+
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```
-git clone --recursive https://github.com/DomRe/galaxy.git
+git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
 git submodule update --init --recursive
--- TODO --
+cd galaxy_engine
+cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
+cd build
+msbuild galaxy_engine.sln
+```
+OR open ```galaxy_engine.sln``` and press F5 to build.
+
+### Linux:
+Tested on Ubuntu 20.10 (groovy).
+
+```
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt purge --auto-remove cmake
+sudo apt update
+sudo apt install git g++ clang llvm libc++-dev make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
+pip install cmake
+export PATH="~/.local/bin:$PATH"
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
+git submodule update --init --recursive
+cd galaxy_engine
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
+cd build
+make all
 ```
 
-### Unix:
-You need ALSA, PulseAudio, X11, opengl, cmake, GCC 10.2+, make, ninja and freetype2.
-```
-git clone --recursive https://github.com/DomRe/galaxy.git
-git submodule update --init --recursive
--- TODO --
-```
+### Mac OS:
+```Unsupported.```
 
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).
@@ -45,8 +65,9 @@ make doxygen
 - Uses Modern C++ design principles, built on C++20.
 - Tiled map editor parsing.
 - Modern 4.5+ OpenGL renderer.
-- GLFW backend.
+- GLFW platform abstraction.
 - Audio streaming from disk with oggvorbis and OpenAL.
+- Data driven design.
 
 
 ## Contributing / Feedback / Issues
@@ -73,5 +94,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://indiegamedev.net/2020/02/25/the-complete-guide-to-openal-with-c-part-2-streaming-audio/
 * https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
-* https://github.com/filipdutescu/modern-cpp-template
 * https://github.com/zemasoft/clangformat-cmake

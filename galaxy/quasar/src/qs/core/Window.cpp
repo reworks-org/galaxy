@@ -13,7 +13,9 @@
 #include <stb_image.h>
 #include <stb_image_write.h>
 
+#include "qs/core/Renderer.hpp"
 #include "qs/core/WindowSettings.hpp"
+#include "qs/post/PostEffect.hpp"
 
 #include "Window.hpp"
 
@@ -22,14 +24,14 @@
 ///
 namespace qs
 {
-	Window::Window() noexcept
-	    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}
+	Window::Window()
+	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 	}
 
 	Window::Window(std::string_view title, const int width, const int height)
-	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}
+	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 
@@ -39,7 +41,7 @@ namespace qs
 		}
 	}
 
-	Window::~Window() noexcept
+	Window::~Window()
 	{
 		// Call again to ensure everything is cleaned up.
 		// Has checks to ensure no null data is destroyed.
@@ -387,6 +389,14 @@ namespace qs
 					m_prev_key_states.emplace(pr::Keys::NUMPAD_7, GLFW_RELEASE);
 					m_prev_key_states.emplace(pr::Keys::NUMPAD_8, GLFW_RELEASE);
 					m_prev_key_states.emplace(pr::Keys::NUMPAD_9, GLFW_RELEASE);
+
+					// Setup framebuffer.
+					m_framebuffer = std::make_unique<qs::RenderTexture>();
+					m_framebuffer->create(m_width, m_height);
+
+					m_fb_sprite = std::make_unique<qs::Sprite>();
+					m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
+					m_fb_sprite->create<qs::BufferStatic>();
 				}
 			}
 		}
@@ -443,13 +453,13 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_cursor_visibility(const bool visible) noexcept
+	void Window::set_cursor_visibility(const bool visible)
 	{
 		visible == true ? glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL)
 				: glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 	}
 
-	void Window::remove_cursor() noexcept
+	void Window::remove_cursor()
 	{
 		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	}
@@ -501,18 +511,20 @@ namespace qs
 		stbi_image_free(img.pixels);
 	}
 
-	void Window::set_scrolling_callback(GLFWscrollfun func) noexcept
+	void Window::set_scrolling_callback(GLFWscrollfun func)
 	{
 		glfwSetScrollCallback(m_window, func);
 	}
 
-	void Window::destroy() noexcept
+	void Window::destroy()
 	{
 		end_text_input();
 
 		// Clean up window data, checking to make sure its not already been destroyed.
 		if (m_window != nullptr)
 		{
+			m_fb_sprite.reset();
+			m_framebuffer.reset();
 			glfwDestroyWindow(m_window);
 			m_window = nullptr;
 		}
@@ -526,42 +538,72 @@ namespace qs
 		glfwTerminate();
 	}
 
-	bool Window::is_open() const noexcept
+	bool Window::is_open() const
 	{
 		return (!glfwWindowShouldClose(m_window));
 	}
 
-	void Window::close() noexcept
+	void Window::close()
 	{
 		glfwSetWindowShouldClose(m_window, true);
 	}
 
-	void Window::resize(const int width, const int height) noexcept
+	void Window::resize(const int width, const int height)
 	{
 		m_width  = width;
 		m_height = height;
 
+		m_framebuffer->change_size(width, height);
+		m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
+		m_fb_sprite->create<qs::BufferStatic>();
+
 		glfwSetWindowSize(m_window, width, height);
 	}
 
-	void Window::request_attention() noexcept
+	void Window::request_attention()
 	{
 		glfwRequestWindowAttention(m_window);
 	}
 
-	void Window::begin() noexcept
+	void Window::begin()
 	{
+		m_framebuffer->bind();
+	}
+
+	void Window::end(qs::Renderer* renderer)
+	{
+		// clang-format off
+		m_framebuffer->unbind();
+
 		glViewport(0, 0, m_width, m_height);
 		glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	}
 
-	void Window::end() noexcept
-	{
+		#ifdef _DEBUG
+			if (renderer->get_post_effects().empty())
+			{
+				PL_LOG(PL_FATAL, "Failed to set a post effect. At least 1 required.");
+			}
+		#endif
+		// clang-format on
+
+		m_fb_sprite->bind();
+		for (qs::PostEffect* effect : renderer->get_post_effects())
+		{
+			effect->m_shader.bind();
+			effect->m_shader.set_uniform("u_projection", m_framebuffer->get_proj());
+			effect->m_shader.set_uniform("u_transform", m_fb_sprite->get_transform());
+			effect->m_shader.set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
+			effect->m_shader.set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
+			effect->apply_uniforms();
+
+			glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
 		glfwSwapBuffers(m_window);
 	}
 
-	void Window::poll_events() noexcept
+	void Window::poll_events()
 	{
 		glfwPollEvents();
 	}
@@ -647,17 +689,17 @@ namespace qs
 		return std::make_tuple(false, m_cursor.m_pos);
 	}
 
-	GLFWwindow* Window::gl_window() noexcept
+	GLFWwindow* Window::gl_window()
 	{
 		return m_window;
 	}
 
-	const int Window::get_width() const noexcept
+	const int Window::get_width() const
 	{
 		return m_width;
 	}
 
-	const int Window::get_height() const noexcept
+	const int Window::get_height() const
 	{
 		return m_height;
 	}

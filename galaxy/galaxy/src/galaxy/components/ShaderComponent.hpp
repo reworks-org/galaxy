@@ -37,7 +37,7 @@ namespace galaxy
 		///
 		/// Copy constructor.
 		///
-		ShaderComponent(const ShaderComponent&) noexcept = delete;
+		ShaderComponent(const ShaderComponent&) = delete;
 
 		///
 		/// Move constructor.
@@ -47,7 +47,7 @@ namespace galaxy
 		///
 		/// Copy assignment operator.
 		///
-		ShaderComponent& operator=(const ShaderComponent&) noexcept = delete;
+		ShaderComponent& operator=(const ShaderComponent&) = delete;
 
 		///
 		/// Move assignment operator.
@@ -57,7 +57,7 @@ namespace galaxy
 		///
 		/// Destructor.
 		///
-		~ShaderComponent() noexcept = default;
+		~ShaderComponent() = default;
 
 		///
 		/// Shader.

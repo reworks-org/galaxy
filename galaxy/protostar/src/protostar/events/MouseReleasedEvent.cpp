@@ -12,12 +12,12 @@
 ///
 namespace pr
 {
-	MouseReleasedEvent::MouseReleasedEvent() noexcept
+	MouseReleasedEvent::MouseReleasedEvent()
 	    : m_x {0}, m_y {0}, m_button {0}
 	{
 	}
 
-	MouseReleasedEvent::MouseReleasedEvent(const float x, const float y, const int button) noexcept
+	MouseReleasedEvent::MouseReleasedEvent(const float x, const float y, const int button)
 	    : m_x {x}, m_y {y}, m_button {button}
 	{
 	}

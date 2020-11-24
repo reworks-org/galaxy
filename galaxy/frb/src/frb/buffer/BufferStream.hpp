@@ -50,7 +50,7 @@ namespace frb
 			///
 			/// Copy constructor.
 			///
-			Data(const Data&) noexcept = delete;
+			Data(const Data&) = delete;
 
 			///
 			/// Move constructor.
@@ -60,7 +60,7 @@ namespace frb
 			///
 			/// Copy assignment operator.
 			///
-			Data& operator=(const Data&) noexcept = delete;
+			Data& operator=(const Data&) = delete;
 
 			///
 			/// Move assignment operator.
@@ -176,7 +176,7 @@ namespace frb
 		///
 		/// \return Data (i.e. all protected members).
 		///
-		[[nodiscard]] frb::BufferStream::Data* get_data() noexcept;
+		[[nodiscard]] frb::BufferStream::Data* get_data();
 
 	protected:
 		///

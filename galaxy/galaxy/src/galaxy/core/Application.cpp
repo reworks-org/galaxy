@@ -206,7 +206,7 @@ namespace galaxy
 
 			m_state->render();
 
-			m_window->end();
+			m_window->end(m_renderer.get());
 			// End render.
 		}
 
@@ -221,7 +221,7 @@ namespace galaxy
 		return SL_HANDLE.m_restart;
 	}
 
-	pr::LockedDouble* Application::get_dt() noexcept
+	pr::LockedDouble* Application::get_dt()
 	{
 		return &m_delta_time;
 	}

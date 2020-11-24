@@ -14,7 +14,7 @@
 ///
 namespace starmap
 {
-	Grid::Grid() noexcept
+	Grid::Grid()
 	    : m_height {0}, m_orientation {"orthogonal"}, m_width {0}
 	{
 	}
@@ -43,17 +43,17 @@ namespace starmap
 		}
 	}
 
-	const int Grid::get_height() const noexcept
+	const int Grid::get_height() const
 	{
 		return m_height;
 	}
 
-	std::string Grid::get_orientation() const noexcept
+	std::string Grid::get_orientation() const
 	{
 		return m_orientation;
 	}
 
-	const int Grid::get_width() const noexcept
+	const int Grid::get_width() const
 	{
 		return m_width;
 	}

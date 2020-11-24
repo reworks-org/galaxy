@@ -25,32 +25,32 @@ namespace galaxy
 		///
 		/// Default constructor.
 		///
-		LuaConsole() noexcept = default;
+		LuaConsole() = default;
 
 		///
 		/// Copy constructor.
 		///
-		LuaConsole(const LuaConsole&) noexcept = default;
+		LuaConsole(const LuaConsole&) = default;
 
 		///
 		/// Move constructor.
 		///
-		LuaConsole(LuaConsole&&) noexcept = default;
+		LuaConsole(LuaConsole&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		LuaConsole& operator=(const LuaConsole&) noexcept = default;
+		LuaConsole& operator=(const LuaConsole&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		LuaConsole& operator=(LuaConsole&&) noexcept = default;
+		LuaConsole& operator=(LuaConsole&&) = default;
 
 		///
 		/// Default destructor.
 		///
-		~LuaConsole() noexcept = default;
+		~LuaConsole() = default;
 
 		///
 		/// Draw imgui widgets.

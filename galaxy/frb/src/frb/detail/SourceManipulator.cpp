@@ -23,22 +23,22 @@ namespace frb
 		m_source = 0;
 	}
 
-	void SourceManipulator::play() noexcept
+	void SourceManipulator::play()
 	{
 		alSourcePlay(m_source);
 	}
 
-	void SourceManipulator::pause() noexcept
+	void SourceManipulator::pause()
 	{
 		alSourcePause(m_source);
 	}
 
-	void SourceManipulator::stop() noexcept
+	void SourceManipulator::stop()
 	{
 		alSourceStop(m_source);
 	}
 
-	void SourceManipulator::rewind() noexcept
+	void SourceManipulator::rewind()
 	{
 		alSourceRewind(m_source);
 	}
@@ -91,7 +91,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_max_distance(const float distance) noexcept
+	void SourceManipulator::set_max_distance(const float distance)
 	{
 		alSourcef(m_source, AL_MAX_DISTANCE, distance);
 		if (alGetError() != AL_NO_ERROR)
@@ -100,7 +100,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_cone(const float outer_gain, const float inner_angle, const float outer_angle) noexcept
+	void SourceManipulator::set_cone(const float outer_gain, const float inner_angle, const float outer_angle)
 	{
 		alSourcef(m_source, AL_CONE_OUTER_GAIN, outer_gain);
 		if (alGetError() != AL_NO_ERROR)
@@ -121,7 +121,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_position(const float x, const float y, const float z) noexcept
+	void SourceManipulator::set_position(const float x, const float y, const float z)
 	{
 		alSource3f(m_source, AL_POSITION, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
@@ -130,7 +130,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_velocity(const float x, const float y, const float z) noexcept
+	void SourceManipulator::set_velocity(const float x, const float y, const float z)
 	{
 		alSource3f(m_source, AL_VELOCITY, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
@@ -139,7 +139,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_direction(const float x, const float y, const float z) noexcept
+	void SourceManipulator::set_direction(const float x, const float y, const float z)
 	{
 		alSource3f(m_source, AL_DIRECTION, x, y, z);
 		if (alGetError() != AL_NO_ERROR)
@@ -148,7 +148,7 @@ namespace frb
 		}
 	}
 
-	void SourceManipulator::set_looping(bool looping) noexcept
+	void SourceManipulator::set_looping(bool looping)
 	{
 		alSourcei(m_source, AL_LOOPING, looping);
 		if (alGetError() != AL_NO_ERROR)
@@ -179,7 +179,7 @@ namespace frb
 		return *this;
 	}
 
-	void SourceManipulator::set_source_to_manipulate(const ALuint source) noexcept
+	void SourceManipulator::set_source_to_manipulate(const ALuint source)
 	{
 		m_source = source;
 	}

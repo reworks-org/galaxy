@@ -176,7 +176,7 @@ namespace galaxy
 			m_messages.assign(messages.begin(), messages.end());
 		}
 
-		void Textbox::set_pos(const float x, const float y) noexcept
+		void Textbox::set_pos(const float x, const float y)
 		{
 			std::lock_guard<std::mutex> lock {m_mutex};
 

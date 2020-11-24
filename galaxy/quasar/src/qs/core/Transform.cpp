@@ -14,7 +14,7 @@
 ///
 namespace qs
 {
-	Transform::Transform() noexcept
+	Transform::Transform()
 	    : m_dirty {false}, m_origin {0.0f, 0.0f, 0.0f}, m_rotation {1.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}
 	{
 	}
@@ -66,13 +66,13 @@ namespace qs
 		return *this;
 	}
 
-	void Transform::move(const float x, const float y) noexcept
+	void Transform::move(const float x, const float y)
 	{
 		m_translation = glm::translate(m_translation, {x, y, 0.0f});
 		m_dirty       = true;
 	}
 
-	void Transform::rotate(float degrees) noexcept
+	void Transform::rotate(float degrees)
 	{
 		if (degrees > 360.0f)
 		{
@@ -91,13 +91,13 @@ namespace qs
 		m_dirty = true;
 	}
 
-	void Transform::scale(const float scale) noexcept
+	void Transform::scale(const float scale)
 	{
 		m_scaling = glm::scale(glm::mat4 {1.0f}, {scale, scale, 1.0f}); // wants mat4 here for some reason?
 		m_dirty   = true;
 	}
 
-	void Transform::recalculate() noexcept
+	void Transform::recalculate()
 	{
 		if (m_dirty)
 		{
@@ -106,23 +106,23 @@ namespace qs
 		}
 	}
 
-	void Transform::set_pos(const float x, const float y) noexcept
+	void Transform::set_pos(const float x, const float y)
 	{
 		m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f}); // wants mat4 here for some reason?
 		m_dirty       = true;
 	}
 
-	void Transform::set_rotation_origin(const float x, const float y) noexcept
+	void Transform::set_rotation_origin(const float x, const float y)
 	{
 		m_origin = {x, y, 0.0f};
 	}
 
-	const bool Transform::is_dirty() const noexcept
+	const bool Transform::is_dirty() const
 	{
 		return m_dirty;
 	}
 
-	glm::mat4& Transform::get_transform() noexcept
+	glm::mat4& Transform::get_transform()
 	{
 		recalculate();
 		return m_model;

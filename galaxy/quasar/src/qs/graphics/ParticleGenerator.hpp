@@ -146,14 +146,14 @@ namespace qs
 		///
 		/// \return Const boolean.
 		///
-		[[nodiscard]] const bool finished() const noexcept;
+		[[nodiscard]] const bool finished() const;
 
 		///
 		/// Get the current amount of particles being drawn.
 		///
 		/// \return Const unsigned integer.
 		///
-		[[nodiscard]] const unsigned int amount() const noexcept;
+		[[nodiscard]] const unsigned int amount() const;
 
 		///
 		/// Get the current OpenGL index element buffer count.

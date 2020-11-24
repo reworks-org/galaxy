@@ -1,11 +1,10 @@
 #version 450 core
 
 in vec2 io_texels;
-in vec4 io_colour;
+in vec2 io_window_res;
 
 out vec4 io_frag_colour;
 
-uniform vec2 u_window_resolution;
 uniform vec3 u_falloff;
 uniform vec3 u_light_pos;
 uniform vec4 u_light_colour;
@@ -21,11 +20,11 @@ void main()
 	vec3 normals = vec3(0.0, 0.0, 1.0);
 
 	// Light delta position.
-	//vec3 direction = vec3(io_adj_light_pos.xy - (gl_FragCoord.xy / u_window_resolution.xy), io_adj_light_pos.z);
-	vec3 direction = vec3(u_light_pos - vec3(gl_FragCoord.xy, 0.0)) / vec3(u_window_resolution.xy, 1.0);
+	//vec3 direction = vec3(io_adj_light_pos.xy - (gl_FragCoord.xy / io_window_res.xy), io_adj_light_pos.z);
+	vec3 direction = vec3(u_light_pos - vec3(gl_FragCoord.xy, 0.0)) / vec3(io_window_res.xy, 1.0);
 
 	// Aspect ratio correction.
-	direction.x *= u_window_resolution.x / u_window_resolution.y;
+	direction.x *= io_window_res.x / io_window_res.y;
 
 	// Distance - for attenuation.
 	float D = length(direction);
@@ -48,5 +47,5 @@ void main()
 	vec3 final     = tex.rgb * intensity;
 
 	// add in sprite tinting here?
-	io_frag_colour = io_colour.a * vec4(final, tex.a);
+	io_frag_colour = vec4(final, tex.a);
 }

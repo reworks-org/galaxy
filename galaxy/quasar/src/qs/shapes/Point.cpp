@@ -12,7 +12,7 @@
 ///
 namespace qs
 {
-	Point::Point() noexcept
+	Point::Point()
 	    : m_size {0}
 	{
 	}
@@ -42,17 +42,17 @@ namespace qs
 		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
 	}
 
-	void Point::bind() noexcept
+	void Point::bind()
 	{
 		m_va.bind();
 	}
 
-	void Point::unbind() noexcept
+	void Point::unbind()
 	{
 		m_va.unbind();
 	}
 
-	const int Point::get_size() const noexcept
+	const int Point::get_size() const
 	{
 		return m_size;
 	}

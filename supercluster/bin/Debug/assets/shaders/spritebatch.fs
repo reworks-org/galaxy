@@ -8,6 +8,6 @@ uniform sampler2D u_texture;
 
 void main()
 {
-	io_frag_colour = texture(u_texture, io_texels);
-	io_frag_colour.a = io_opacity;
+	vec4 corrected = vec4(vec3(1.0), io_opacity);
+	io_frag_colour = texture(u_texture, io_texels) * corrected;
 }

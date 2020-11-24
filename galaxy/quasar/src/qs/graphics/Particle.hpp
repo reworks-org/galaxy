@@ -84,14 +84,14 @@ namespace qs
 		///
 		/// \return Const reference to a glm::vec2.
 		///
-		[[nodiscard]] const glm::vec2& pos() const noexcept;
+		[[nodiscard]] const glm::vec2& pos() const;
 
 		///
 		/// Get velocity of particle.
 		///
 		/// \return Const reference to a glm::vec2.
 		///
-		[[nodiscard]] const glm::vec2& velocity() const noexcept;
+		[[nodiscard]] const glm::vec2& velocity() const;
 
 		///
 		/// Lifespan of particle. (i.e. opacity). 0.0f - 1.0f.
