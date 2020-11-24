@@ -20,6 +20,8 @@ namespace sc
 	ImGuiLayer::ImGuiLayer()
 	    : m_world {nullptr}, m_window {nullptr}, m_show_script_editor {false}, m_show_entity_editor {false}, m_draw_console {false}
 	{
+		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
+
 		// clang-format off
 		set_name("imgui_layer");
 		m_window = SL_HANDLE.window();
@@ -51,9 +53,10 @@ namespace sc
 
 	void ImGuiLayer::update(const double dt)
 	{
+		m_camera.update(dt);
 	}
 
-	void ImGuiLayer::render(qs::Camera& camera)
+	void ImGuiLayer::render()
 	{
 		start();
 

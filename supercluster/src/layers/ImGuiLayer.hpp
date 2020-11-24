@@ -12,6 +12,7 @@
 #include <galaxy/core/World.hpp>
 #include <galaxy/layer/Layer.hpp>
 #include <galaxy/scripting/LuaConsole.hpp>
+#include <qs/graphics/Camera.hpp>
 
 #include <TextEditor.h>
 
@@ -25,7 +26,7 @@ namespace sc
 
 		void events() override;
 		void update(const double dt) override;
-		void render(qs::Camera& camera) override;
+		void render() override;
 
 		void start();
 		void end();
@@ -34,6 +35,7 @@ namespace sc
 		void script_editor_ui();
 
 	private:
+		qs::Camera m_camera;
 		galaxy::World* m_world;
 		qs::Window* m_window;
 

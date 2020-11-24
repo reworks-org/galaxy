@@ -20,6 +20,8 @@ namespace sc
 {
 	ECSLayer::ECSLayer()
 	{
+		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
+
 		set_name("ecs_layer");
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
@@ -45,11 +47,12 @@ namespace sc
 
 	void ECSLayer::update(const double dt)
 	{
+		m_camera.update(dt);
 		m_world->update(dt);
 	}
 
-	void ECSLayer::render(qs::Camera& camera)
+	void ECSLayer::render()
 	{
-		m_world->get_system<galaxy::RenderSystem>()->render(camera);
+		m_world->get_system<galaxy::RenderSystem>()->render(m_camera);
 	}
 } // namespace sc

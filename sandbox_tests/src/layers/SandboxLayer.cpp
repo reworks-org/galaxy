@@ -28,6 +28,9 @@ namespace sb
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
 
+		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
+		m_camera.set_speed(5.0f);
+
 		// create and set texture
 		auto tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "particle_demo.png";
 		m_particle_gen.create(tex, 100.0f, 100.0f);
@@ -63,14 +66,50 @@ namespace sb
 
 	void SandboxLayer::events()
 	{
-		if (glfwGetKey(m_window->gl_window(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		if (m_window->key_down(pr::Keys::W))
+		{
+			m_camera.on_key_down({pr::Keys::W});
+		}
+		else
+		{
+			m_camera.on_key_up({pr::Keys::W});
+		}
+
+		if (m_window->key_down(pr::Keys::S))
+		{
+			m_camera.on_key_down({pr::Keys::S});
+		}
+		else
+		{
+			m_camera.on_key_up({pr::Keys::S});
+		}
+
+		if (m_window->key_down(pr::Keys::A))
+		{
+			m_camera.on_key_down({pr::Keys::A});
+		}
+		else
+		{
+			m_camera.on_key_up({pr::Keys::A});
+		}
+
+		if (m_window->key_down(pr::Keys::D))
+		{
+			m_camera.on_key_down({pr::Keys::D});
+		}
+		else
+		{
+			m_camera.on_key_up({pr::Keys::D});
+		}
+
+		if (m_window->key_pressed(pr::Keys::ESC))
 		{
 			m_window->close();
 		}
 
 		/*
 		auto pos = m_window->get_cursor_pos();
-		if (glfwGetMouseButton(m_window->gl_window(), GLFW_MOUSE_BUTTON_1) == GLFW_PRESS)
+		if (glfwGetMouseButton(m_window->gl_m_window(), GLFW_MOUSE_BUTTON_1))
 		{
 			m_particle_gen.update_emitter(pos.x, pos.y);
 			m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
@@ -82,22 +121,23 @@ namespace sb
 
 	void SandboxLayer::update(const double dt)
 	{
+		m_camera.update(dt);
 		m_world->update(dt);
 		m_particle_gen.update(dt, 0.01f);
 	}
 
-	void SandboxLayer::render(qs::Camera& camera)
+	void SandboxLayer::render()
 	{
 		auto* pts = SL_HANDLE.shaderbook()->get("particle");
 		pts->bind();
-		pts->set_uniform("u_cameraProj", camera.get_proj());
-		pts->set_uniform("u_cameraView", camera.get_transform());
+		pts->set_uniform("u_cameraProj", m_camera.get_proj());
+		pts->set_uniform("u_cameraView", m_camera.get_transform());
 		SL_HANDLE.renderer()->draw_particles(m_particle_gen, *pts);
 
 		auto* ps = SL_HANDLE.shaderbook()->get("point");
 		ps->bind();
-		ps->set_uniform("u_cameraProj", camera.get_proj());
-		ps->set_uniform("u_cameraView", camera.get_transform());
+		ps->set_uniform("u_cameraProj", m_camera.get_proj());
+		ps->set_uniform("u_cameraView", m_camera.get_transform());
 		SL_HANDLE.renderer()->draw_point(m_point, *ps);
 
 		SL_HANDLE.renderer()->draw_circle(m_circle, *ps);

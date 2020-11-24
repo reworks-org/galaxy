@@ -25,7 +25,6 @@ namespace sc
 		void render() override;
 
 	private:
-		qs::Camera m_camera;
 		galaxy::LayerStorage m_layers;
 	};
 } // namespace sc

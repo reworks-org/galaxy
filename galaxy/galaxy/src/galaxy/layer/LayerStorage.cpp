@@ -33,11 +33,11 @@ namespace galaxy
 		}
 	}
 
-	void LayerStorage::render(qs::Camera& camera)
+	void LayerStorage::render()
 	{
 		for (auto&& layer : m_layers)
 		{
-			layer->render(camera);
+			layer->render();
 		}
 	}
 

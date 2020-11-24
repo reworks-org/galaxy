@@ -39,6 +39,7 @@ namespace sb
 	GUILayer::GUILayer()
 	{
 		set_name("gui_layer");
+		m_gui_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 
 		auto demo_tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "demo_nineslice.png";
 
@@ -204,8 +205,8 @@ namespace sb
 		m_gui.update(dt);
 	}
 
-	void GUILayer::render(qs::Camera& camera)
+	void GUILayer::render()
 	{
-		m_gui.render(camera);
+		m_gui.render(m_gui_camera);
 	}
 } // namespace sb

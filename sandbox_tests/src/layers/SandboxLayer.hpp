@@ -15,6 +15,7 @@
 #include <qs/shapes/Circle.hpp>
 #include <qs/post/PointLight.hpp>
 #include <qs/post/Simple.hpp>
+#include <qs/graphics/Camera.hpp>
 
 #include <qs/graphics/ParticleGenerator.hpp>
 
@@ -28,7 +29,7 @@ namespace sb
 
 		void events() override;
 		void update(const double dt) override;
-		void render(qs::Camera& camera) override;
+		void render() override;
 
 	private:
 		galaxy::World* m_world;
@@ -39,6 +40,7 @@ namespace sb
 		qs::Circle m_circle;
 		qs::effect::PointLight m_pl;
 		qs::effect::Simple m_simple;
+		qs::Camera m_camera;
 	};
 } // namespace sb
 

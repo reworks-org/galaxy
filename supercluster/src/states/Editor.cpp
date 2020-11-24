@@ -18,7 +18,6 @@ namespace sc
 {
 	Editor::Editor()
 	{
-		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 	}
 
 	void Editor::on_push()
@@ -40,12 +39,11 @@ namespace sc
 
 	void Editor::update(const double dt)
 	{
-		m_camera.update(dt);
 		m_layers.update(dt);
 	}
 
 	void Editor::render()
 	{
-		m_layers.render(m_camera);
+		m_layers.render();
 	}
 } // namespace sc
