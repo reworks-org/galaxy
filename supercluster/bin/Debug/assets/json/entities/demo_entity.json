@@ -1,0 +1,17 @@
+{
+    "SpriteComponent":
+    {
+        "texture": "wall.png",
+        "is-dynamic-buffer": true,
+        "ansio-filtering": 2,
+        "opacity": 1,
+        "x": 0,
+        "y": 0,
+        "z-level": 0
+    },
+    "ShaderComponent":
+    {
+        "vertex-file": "sprite.vs",
+        "frag-file": "sprite.fs"
+    }
+}

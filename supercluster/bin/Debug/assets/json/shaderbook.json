@@ -1,0 +1,37 @@
+{
+	"shaderbook" :
+	[
+		[
+			"render_to_texture.vs",
+			"render_to_texture.fs"
+		],
+		[
+			"spritebatch.vs",
+			"spritebatch.fs"
+		],
+		[
+			"sprite.vs",
+			"sprite.fs"
+		],
+		[
+			"line.vs",
+			"line.fs"
+		],
+		[
+			"point.vs",
+			"point.fs"
+		],
+		[
+			"text.vs",
+			"text.fs"
+		],
+		[
+			"particle.vs",
+			"particle.fs"
+		],
+		[
+			"point_light.vs",
+			"point_light.fs"
+		]
+	]
+}
