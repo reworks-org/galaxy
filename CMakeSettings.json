@@ -53,39 +53,6 @@
       "intelliSenseMode": "windows-msvc-x64",
       "enableMicrosoftCodeAnalysis": true,
       "codeAnalysisRuleset": "CodeAnalysis.ruleset"
-    },
-    {
-      "name": "WSL-GCC-Debug",
-      "generator": "Ninja",
-      "configurationType": "Debug",
-      "buildRoot": "${projectDir}/build/${name}",
-      "installRoot": "${projectDir}/output/${name}",
-      "cmakeExecutable": "cmake",
-      "cmakeCommandArgs": "",
-      "buildCommandArgs": "-v",
-      "ctestCommandArgs": "",
-      "inheritEnvironments": [ "linux_x64" ],
-      "intelliSenseMode": "linux-gcc-x64",
-      "wslPath": "C:\\Users\\Dom\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
-      "addressSanitizerEnabled": true,
-      "addressSanitizerRuntimeFlags": "detect_leaks=0",
-      "variables": []
-    },
-    {
-      "name": "WSL-GCC-Release",
-      "generator": "Ninja",
-      "configurationType": "Release",
-      "buildRoot": "${projectDir}/build/${name}",
-      "installRoot": "${projectDir}/output/${name}",
-      "cmakeExecutable": "cmake",
-      "cmakeCommandArgs": "",
-      "buildCommandArgs": "-v",
-      "ctestCommandArgs": "",
-      "inheritEnvironments": [ "linux_x64" ],
-      "wslPath": "C:\\Users\\Dom\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
-      "addressSanitizerRuntimeFlags": "",
-      "variables": [],
-      "intelliSenseMode": "linux-gcc-x64"
     }
   ]
 }

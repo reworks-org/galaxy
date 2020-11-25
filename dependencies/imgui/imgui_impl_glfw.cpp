@@ -37,8 +37,8 @@
 //  2017-08-25: Inputs: MousePos set to -FLT_MAX,-FLT_MAX when mouse is unavailable/missing (instead of -1,-1).
 //  2016-10-15: Misc: Added a void* user_data parameter to Clipboard function handlers.
 
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
+#include "imgui/imgui.h"
+#include "imgui/impl/imgui_impl_glfw.h"
 
 // GLFW
 #include <GLFW/glfw3.h>
@@ -358,7 +358,7 @@ void ImGui_ImplGlfw_NewFrame()
 
     // Setup time step
     double current_time = glfwGetTime();
-    io.DeltaTime = g_Time > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f/60.0f);
+    io.DeltaTime = g_Time > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f / 60.0f);
     g_Time = current_time;
 
     ImGui_ImplGlfw_UpdateMousePosAndButtons();
