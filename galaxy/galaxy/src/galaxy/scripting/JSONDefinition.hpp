@@ -8,7 +8,7 @@
 #ifndef GALAXY_JSONDEFINITION_HPP_
 #define GALAXY_JSONDEFINITION_HPP_
 
-#include <TextEditor.h>
+#include <imgui/addons/TextEditor.h>
 
 ///
 /// Core namespace.
@@ -20,7 +20,7 @@ namespace galaxy
 	///
 	/// \return LanguageDefinition object for the text editor.
 	///
-	TextEditor::LanguageDefinition get_json_definition();
+	ImGui::TextEditor::LanguageDefinition get_json_definition();
 } // namespace galaxy
 
 #endif

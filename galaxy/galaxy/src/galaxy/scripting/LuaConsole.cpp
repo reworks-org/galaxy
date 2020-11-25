@@ -8,8 +8,7 @@
 #include <fstream>
 #include <filesystem>
 
-#include <imgui.h>
-#include <imgui_stdlib.h>
+#include <imgui/imgui_stdlib.h>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"

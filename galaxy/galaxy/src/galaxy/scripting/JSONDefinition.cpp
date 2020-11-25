@@ -12,10 +12,10 @@
 ///
 namespace galaxy
 {
-	TextEditor::LanguageDefinition get_json_definition()
+	ImGui::TextEditor::LanguageDefinition get_json_definition()
 	{
 		static bool init = false;
-		static TextEditor::LanguageDefinition lang_def;
+		static ImGui::TextEditor::LanguageDefinition lang_def;
 
 		if (!init)
 		{
