@@ -11,6 +11,7 @@
     "icon-file": "icon.png",
     "is-cursor-visible": true,
     "json-path": "json/",
+    "line-thickness": 1.0,
     "raw-mouse-input": true,
     "root-path": "assets/",
     "save-folder": "saves/",
@@ -21,7 +22,6 @@
     "textures-path": "textures/",
     "vsync": true,
     "window-height": 720,
-    "window-name": "Sandbox",
-    "window-width": 1280,
-    "line-thickness" : 5.0
+    "window-name": "Supercluster - Galaxy Editor",
+    "window-width": 1280
 }

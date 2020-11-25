@@ -20,13 +20,12 @@ namespace sc
 {
 	ECSLayer::ECSLayer()
 	{
-		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
-
 		set_name("ecs_layer");
+
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
 
-		//auto e = m_world->create_from_json("assets/json/entities/demo_entity.json");
+		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 	}
 
 	ECSLayer::~ECSLayer()
@@ -37,7 +36,7 @@ namespace sc
 
 	void ECSLayer::events()
 	{
-		if (glfwGetKey(m_window->gl_window(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		if (m_window->key_pressed(pr::Keys::ESC))
 		{
 			m_window->close();
 		}
@@ -53,6 +52,5 @@ namespace sc
 
 	void ECSLayer::render()
 	{
-		m_world->get_system<galaxy::RenderSystem>()->render(m_camera);
 	}
 } // namespace sc
