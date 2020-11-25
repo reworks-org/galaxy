@@ -82,6 +82,10 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 	* Image Credit: ESA/Hubble & NASA, A. Filippenko.
 	* See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
 	* Used for non-commerical purposes.
+* [supercluster icon.png](https://images.nasa.gov/details-PIA17241).
+    * Image Credit: NASA/JPL-Caltech/University of Wisconsin
+    * See [NASA media guidelines](https://www.nasa.gov/multimedia/guidelines/index.html).
+	* Used for non-commerical purposes.
 * Any "dependency" i.e. "software library" will have an associated LICENSE.txt/COPYING.txt file included.
 * Resources used in sandbox:
 	* Various from [OpenGameArt](https://opengameart.org/). No copyright infringement intended.
