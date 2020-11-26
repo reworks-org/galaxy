@@ -136,6 +136,11 @@ namespace qs
 
 	private:
 		///
+		/// Mouse scale.
+		///
+		double m_scale;
+
+		///
 		/// Camera move up flag.
 		///
 		bool m_move_up;

@@ -3,7 +3,7 @@
 C++20 JSON Tiled Map Parser.
 
 ## Supported
-- Tiled 1.4.1.
+- Tiled 1.4.3.
 - zlib compression.
 - gzip compression.
 - base64 compression.

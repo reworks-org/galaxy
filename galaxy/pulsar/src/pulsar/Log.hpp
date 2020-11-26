@@ -9,15 +9,15 @@
 #define PULSAR_LOG_HPP_
 
 #include <fstream>
-#include <functional>
 #include <mutex>
 
 #include <date/tz.h>
 #include <fmt/format.h>
 #include <jthread/jthread.hpp>
 
-#include "detail/Unix.hpp"
-#include "detail/Windows.hpp"
+#include "detail/LogLevel.hpp"
+
+// clang-format off
 
 ///
 /// Log macro for start().
@@ -39,27 +39,27 @@
 ///
 /// INFO log level macro shortcut.
 ///
-#define PL_INFO pl::Log::Level::INFO
+#define PL_INFO pl::log_level::Info{}
 
 ///
 /// DEBUG log level macro shortcut.
 ///
-#define PL_DEBUG pl::Log::Level::DEBUG
+#define PL_DEBUG pl::log_level::Debug{}
 
 ///
 /// WARNING log level macro shortcut.
 ///
-#define PL_WARNING pl::Log::Level::WARNING
+#define PL_WARNING pl::log_level::Warning{}
 
 ///
 /// ERROR log level macro shortcut.
 ///
-#define PL_ERROR pl::Log::Level::ERROR
+#define PL_ERROR pl::log_level::Error{}
 
 ///
 /// FATAL log level macro shortcut.
 ///
-#define PL_FATAL pl::Log::Level::FATAL
+#define PL_FATAL pl::log_level::Fatal{}
 
 ///
 /// Macro shortcut with variadic arguments.
@@ -79,9 +79,7 @@
 ///
 #define PL_DISABLE_TESTING_MODE pl::Log::get().set_testing(false)
 
-// Need to be undefined on some systems.
-#undef ERROR
-#undef DELETE
+// clang-format on
 
 ///
 /// Core namespace.
@@ -95,18 +93,6 @@ namespace pl
 	class Log final
 	{
 	public:
-		///
-		/// Enum defining the different reporting levels of a log message.
-		///
-		enum class Level : int
-		{
-			INFO    = 0,
-			DEBUG   = 1,
-			WARNING = 2,
-			ERROR   = 3,
-			FATAL   = 4
-		};
-
 		///
 		/// Copy constructor.
 		///
@@ -157,8 +143,8 @@ namespace pl
 		/// \param level Log error level.
 		/// \param message Message to log.
 		///
-		template<typename... MsgInputs>
-		void log(const Log::Level level, const std::string& message, const MsgInputs&... args /*std::source_location goes here*/);
+		template<pl::log_level::type LogLevel, typename... MsgInputs>
+		void log(const LogLevel, std::string_view message, const MsgInputs&... args /*std::source_location goes here*/);
 
 		///
 		/// Set testing mode.
@@ -174,14 +160,8 @@ namespace pl
 		///
 		/// \param level Level to set as the minimum level to log at.
 		///
-		void set_min_level(Log::Level level);
-
-		///
-		/// Returns minimum logging message level that is required to log a message.
-		///
-		/// \return Log::Level enum.
-		///
-		[[nodiscard]] Log::Level get_min_level();
+		template<pl::log_level::type LogLevel>
+		void set_min_level(const LogLevel);
 
 	private:
 		///
@@ -196,7 +176,8 @@ namespace pl
 		///
 		/// \return std::string, in caps.
 		///
-		[[nodiscard]] std::string process_level(const Log::Level level);
+		template<pl::log_level::type LogLevel>
+		[[nodiscard]] std::string process_level();
 
 		///
 		/// Colourizes the terminal text based on the log message level.
@@ -205,16 +186,8 @@ namespace pl
 		///
 		/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 		///
-		[[nodiscard]] std::string process_colour(Log::Level level);
-
-		///
-		/// Filters a log stream message based on message level to determine if it must be logged.
-		///
-		/// \param level Level of current message to determine if it must be logged.
-		///
-		/// \return True if can log.
-		///
-		[[nodiscard]] bool filter_level(Log::Level level);
+		template<pl::log_level::type LogLevel>
+		[[nodiscard]] std::string process_colour();
 
 		///
 		/// File stream to write to.
@@ -224,7 +197,7 @@ namespace pl
 		///
 		/// Minimum level of messages required to be logged.
 		///
-		Log::Level m_min_level;
+		log_level::Level m_min_level;
 
 		///
 		/// Protection mutex.
@@ -252,13 +225,13 @@ namespace pl
 		bool m_testing_mode;
 	};
 
-	template<typename... MsgInputs>
-	inline void Log::log(const Log::Level level, const std::string& message, const MsgInputs&... args)
+	template<pl::log_level::type LogLevel, typename... MsgInputs>
+	inline void Log::log(const LogLevel, std::string_view message, const MsgInputs&... args)
 	{
 		if (!m_testing_mode)
 		{
 			// Check to make sure level should be logged.
-			if (Log::get().filter_level(level))
+			if (LogLevel::value() > m_min_level)
 			{
 				std::lock_guard<std::mutex> lock {m_mutex};
 
@@ -267,14 +240,70 @@ namespace pl
 					auto formatted_msg = fmt::format(message, args...);
 
 					// Create log message string.
-					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour(level), Log::get().process_level(level), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), formatted_msg);
+					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), formatted_msg);
 
-					if (level == PL_FATAL)
+					if constexpr (LogLevel::value() == log_level::Level::FATAL)
 					{
 						throw std::runtime_error {m_message};
 					}
 				}
 			}
+		}
+	}
+
+	template<pl::log_level::type LogLevel>
+	inline void Log::set_min_level(const LogLevel)
+	{
+		m_min_level = LogLevel::value();
+	}
+
+	template<pl::log_level::type LogLevel>
+	inline std::string Log::process_level()
+	{
+		if constexpr (LogLevel::value() == log_level::Level::INFO)
+		{
+			return "INFO";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::DEBUG)
+		{
+			return "DEBUG";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::WARNING)
+		{
+			return "WARNING";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::ERROR)
+		{
+			return "ERROR";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::FATAL)
+		{
+			return "FATAL";
+		}
+	}
+
+	template<pl::log_level::type LogLevel>
+	inline std::string Log::process_colour()
+	{
+		if constexpr (LogLevel::value() == log_level::Level::INFO)
+		{
+			return "\x1B[100m";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::DEBUG)
+		{
+			return "\x1B[42m";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::WARNING)
+		{
+			return "\x1B[43m";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::ERROR)
+		{
+			return "\x1B[41m";
+		}
+		else if constexpr (LogLevel::value() == log_level::Level::FATAL)
+		{
+			return "\x1B[41m";
 		}
 	}
 } // namespace pl

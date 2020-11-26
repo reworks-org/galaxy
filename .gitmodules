@@ -8,9 +8,6 @@
 [submodule "dependencies/json"]
 	path = dependencies/json
 	url = https://github.com/nlohmann/json.git
-[submodule "dependencies/stb"]
-	path = dependencies/stb
-	url = https://github.com/nothings/stb.git
 [submodule "dependencies/glfw3"]
 	path = dependencies/glfw3
 	url = https://github.com/glfw/glfw.git

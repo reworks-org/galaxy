@@ -9,10 +9,8 @@
 
 #include <glad/glad.h>
 #include <pulsar/Log.hpp>
-#include <stb_image.h>
-#include <stb_image_write.h>
-
-#include "qs/core/WindowSettings.hpp"
+#include <stb/stb_image.h>
+#include <stb/stb_image_write.h>
 
 #include "Texture.hpp"
 
@@ -43,10 +41,10 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_texture_format, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 			// Ansiotropic filtering.
-			set_anisotropy(qs::WindowSettings::s_ansio_filtering);
+			set_anisotropy(0);
 
 			// Linear filtering for non-pixel as default.
 			set_minify_filter(qs::TextureFilter::LINEAR);
@@ -75,10 +73,10 @@ namespace qs
 		if (data)
 		{
 			// Gen texture into OpenGL.
-			glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_texture_format, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 
 			// Ansiotropic filtering.
-			set_anisotropy(qs::WindowSettings::s_ansio_filtering);
+			set_anisotropy(0);
 
 			// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 			set_minify_filter(qs::TextureFilter::LINEAR);
@@ -117,7 +115,7 @@ namespace qs
 		glTexImage2D(GL_TEXTURE_2D, level, internalformat, width, height, border, format, type, pixels);
 
 		// Ansiotropic filtering.
-		set_anisotropy(qs::WindowSettings::s_ansio_filtering);
+		set_anisotropy(0);
 
 		// Set filtering. When minimizing texture, linear interpolate, else nearest for nice pixel 2d art look.
 		set_minify_filter(qs::TextureFilter::LINEAR);

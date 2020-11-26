@@ -22,6 +22,7 @@ namespace qs
 {
 	class Window;
 	class Renderer;
+	class TextureAtlas;
 } // namespace qs
 
 ///
@@ -130,7 +131,7 @@ namespace galaxy
 		///
 		/// Get Lua service.
 		///
-		/// \return Return const pointer to Lua service.
+		/// \return Return pointer to Lua service.
 		///
 		[[maybe_unused]] sol::state* lua() const;
 
@@ -142,44 +143,51 @@ namespace galaxy
 		///
 		/// Get Dispatcher service.
 		///
-		/// \return Return const pointer to Dispatcher service.
+		/// \return Return pointer to Dispatcher service.
 		///
 		[[maybe_unused]] sl::Dispatcher* dispatcher() const;
 
 		///
 		/// Get World service.
 		///
-		/// \return Return const pointer to World service.
+		/// \return Return pointer to World service.
 		///
 		[[maybe_unused]] galaxy::World* world() const;
 
 		///
 		/// Get serializer service.
 		///
-		/// \return Return const pointer to Serializer service.
+		/// \return Return pointer to Serializer service.
 		///
 		[[maybe_unused]] galaxy::Serializer* serializer() const;
 
 		///
 		/// Get FontBook service.
 		///
-		/// \return Return const pointer to FontBook service.
+		/// \return Return pointer to FontBook service.
 		///
 		[[maybe_unused]] galaxy::FontBook* fontbook() const;
 
 		///
 		/// Get ShaderBook service.
 		///
-		/// \return Return const pointer to ShaderBook service.
+		/// \return Return pointer to ShaderBook service.
 		///
 		[[maybe_unused]] galaxy::ShaderBook* shaderbook() const;
 
 		///
 		/// Get AudioBook service.
 		///
-		/// \return Return const pointer to AudioBook service.
+		/// \return Return pointer to AudioBook service.
 		///
 		[[maybe_unused]] galaxy::AudioBook* audiobook() const;
+
+		///
+		/// Get TextureAtlas service.
+		///
+		/// \return Return pointer to TextureAtlas service.
+		///
+		[[maybe_unused]] qs::TextureAtlas* atlas() const;
 
 		///
 		/// Restart flag.
@@ -251,6 +259,11 @@ namespace galaxy
 		/// AudioBook service.
 		///
 		galaxy::AudioBook* m_audiobook;
+
+		///
+		/// AudioBook service.
+		///
+		qs::TextureAtlas* m_texture_atlas;
 	};
 } // namespace galaxy
 

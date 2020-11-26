@@ -30,7 +30,7 @@ namespace sr
 	///
 	/// BitMask to see if entity is valid.
 	///
-	static constexpr inline unsigned int VALID_ENTITY = 0x01;
+	const constexpr static inline unsigned int VALID_ENTITY = 0x01;
 } // namespace sr
 
 #endif

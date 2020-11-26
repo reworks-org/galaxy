@@ -16,6 +16,7 @@
 #include <protostar/state/StateMachine.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/core/Renderer.hpp>
+#include <qs/graphics/TextureAtlas.hpp>
 #include <starlight/Dispatcher.hpp>
 #include <sol/forward.hpp>
 
@@ -141,6 +142,11 @@ namespace galaxy
 		/// Library of all shaders.
 		///
 		std::unique_ptr<galaxy::ShaderBook> m_shaderbook;
+
+		///
+		/// Texture atlas for all textures.
+		///
+		std::unique_ptr<qs::TextureAtlas> m_texture_atlas;
 
 	private:
 		///

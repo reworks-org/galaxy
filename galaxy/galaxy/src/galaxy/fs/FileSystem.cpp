@@ -23,39 +23,39 @@ namespace galaxy
 	std::string FileSystem::s_fonts;
 	std::string FileSystem::s_saves;
 
-	std::filesystem::path FileSystem::open_file_dialog(const std::string& filter, const std::string& def_path)
+	std::string FileSystem::open_file_dialog(const std::string& filter, const std::string& def_path)
 	{
-		std::filesystem::path path {""};
-		auto selection = pfd::open_file("Open a file.", def_path, {"Files", filter}).result();
+		std::string path = "";
+		auto selection   = pfd::open_file("Open a file.", def_path, {"Files", filter}).result();
 
 		if (!selection.empty())
 		{
-			path = selection[0];
+			path = std::move(selection[0]);
 		}
 
 		return path;
 	}
 
-	std::filesystem::path FileSystem::save_file_dialog(const std::string& def_path)
+	std::string FileSystem::save_file_dialog(const std::string& def_path)
 	{
-		std::filesystem::path path {""};
+		std::string path = "";
 		auto destination = pfd::save_file("Save a file.", def_path).result();
 
 		if (!destination.empty())
 		{
-			path = destination;
+			path = std::move(destination);
 		}
 
 		return path;
 	}
 
-	std::filesystem::path FileSystem::folder_select_dialog(const std::string& def_path)
+	std::string FileSystem::folder_select_dialog(const std::string& def_path)
 	{
-		std::filesystem::path path {""};
-		auto folder = pfd::select_folder("Select a folder.", def_path, pfd::opt::force_path).result();
+		std::string path = "";
+		auto folder      = pfd::select_folder("Select a folder.", def_path, pfd::opt::force_path).result();
 		if (!folder.empty())
 		{
-			path = folder;
+			path = std::move(folder);
 		}
 
 		return path;

@@ -97,7 +97,7 @@ namespace galaxy
 		///
 		/// \param camera Camera to render layers with.
 		///
-		void render(qs::Camera& camera);
+		void render();
 
 		///
 		/// Destroy top-most layer.

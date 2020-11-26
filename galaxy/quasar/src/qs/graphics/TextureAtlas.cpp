@@ -16,10 +16,10 @@
 namespace qs
 {
 	TextureAtlas::TextureAtlas()
-	    : m_size {1024}, m_texture {1024, 1024}
+	    : m_size {4096}, m_texture {4096, 4096}
 	{
-		// This is the default size.
-		m_packer.init(1024, 1024);
+		m_packer.init(m_size, m_size);
+		m_texture.create(m_size, m_size);
 	}
 
 	TextureAtlas::TextureAtlas(const unsigned int size)
@@ -36,6 +36,7 @@ namespace qs
 		}
 
 		m_packer.init(size, size);
+		m_texture.create(m_size, m_size);
 	}
 
 	TextureAtlas::TextureAtlas(TextureAtlas&& ta)
@@ -82,7 +83,6 @@ namespace qs
 	{
 		if (!m_textures.empty())
 		{
-			m_texture.create(m_size, m_size);
 			m_texture.bind();
 
 			for (auto& [name, info] : m_textures)
@@ -117,6 +117,19 @@ namespace qs
 		}
 	}
 
+	void TextureAtlas::update(qs::Renderer& renderer, qs::Shader& shader)
+	{
+		if (!m_textures.empty())
+		{
+			m_texture.change_size(m_size, m_size);
+			create(renderer, shader);
+		}
+		else
+		{
+			PL_LOG(PL_ERROR, "Tried to create atlas with no texture files!");
+		}
+	}
+
 	void TextureAtlas::save(std::string_view file)
 	{
 		m_texture.save(file);
@@ -139,6 +152,11 @@ namespace qs
 	qs::RenderTexture* TextureAtlas::get_atlas()
 	{
 		return &m_texture;
+	}
+
+	TextureAtlas::AtlasTextureData& TextureAtlas::get_tex_data()
+	{
+		return m_textures;
 	}
 
 	const int TextureAtlas::get_size() const

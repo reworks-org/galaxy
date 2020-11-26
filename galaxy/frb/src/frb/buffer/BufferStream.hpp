@@ -31,12 +31,12 @@ namespace frb
 		///
 		/// Number of buffers being used by the stream.
 		///
-		constexpr static inline ALsizei BUFFER_COUNT = 4;
+		const constexpr static inline ALsizei BUFFER_COUNT = 4;
 
 		///
 		/// Size of each buffer used by the stream.
 		///
-		constexpr static inline std::size_t BUFFER_SIZE = 65536;
+		const constexpr static inline std::size_t BUFFER_SIZE = 65536;
 
 		///
 		/// Holds various member variables for BufferStream.

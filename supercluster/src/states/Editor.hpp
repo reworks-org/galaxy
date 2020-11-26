@@ -8,6 +8,7 @@
 #ifndef SUPERCLUSTER_EDITOR_HPP_
 #define SUPERCLUSTER_EDITOR_HPP_
 
+#include <qs/post/Simple.hpp>
 #include <protostar/state/State.hpp>
 #include <galaxy/layer/LayerStorage.hpp>
 
@@ -25,7 +26,7 @@ namespace sc
 		void render() override;
 
 	private:
-		qs::Camera m_camera;
+		qs::effect::Simple m_simple_postrenderer;
 		galaxy::LayerStorage m_layers;
 	};
 } // namespace sc

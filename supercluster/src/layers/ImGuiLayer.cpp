@@ -5,9 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <imgui_stdlib.h>
-#include <imgui_impl_glfw.h>
-#include <imgui_impl_opengl3.h>
+#include <imgui/imgui_stdlib.h>
+#include <imgui/impl/imgui_impl_glfw.h>
+#include <imgui/impl/imgui_impl_opengl3.h>
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/fs/FileSystem.hpp>
@@ -18,12 +18,14 @@
 namespace sc
 {
 	ImGuiLayer::ImGuiLayer()
-	    : m_world {nullptr}, m_window {nullptr}, m_show_script_editor {false}, m_show_entity_editor {false}, m_draw_console {false}
+	    : m_world {nullptr}, m_window {nullptr}, m_show_script_editor {false}, m_show_entity_editor {false}, m_draw_console {false}, m_draw_json_editor {false}
 	{
 		// clang-format off
 		set_name("imgui_layer");
 		m_window = SL_HANDLE.window();
 		m_world  = SL_HANDLE.world();
+
+		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -51,9 +53,10 @@ namespace sc
 
 	void ImGuiLayer::update(const double dt)
 	{
+		m_camera.update(dt);
 	}
 
-	void ImGuiLayer::render(qs::Camera& camera)
+	void ImGuiLayer::render()
 	{
 		start();
 
@@ -77,6 +80,11 @@ namespace sc
 
 			if (ImGui::BeginMenu("Editors"))
 			{
+				if (ImGui::MenuItem("JSON Editor"))
+				{
+					m_draw_json_editor = !m_draw_json_editor;
+				}
+
 				if (ImGui::MenuItem("Script Editor"))
 				{
 					m_show_script_editor = !m_show_script_editor;
@@ -120,6 +128,11 @@ namespace sc
 		if (m_draw_console)
 		{
 			m_console.draw(&m_draw_console);
+		}
+
+		if (m_draw_json_editor)
+		{
+			json_ui();
 		}
 
 		/*
@@ -178,7 +191,7 @@ namespace sc
 					}
 					else if (fp.extension() == ".lua")
 					{
-						m_editor.SetLanguageDefinition(TextEditor::LanguageDefinition::Lua());
+						m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 					}
 
 					std::ifstream text(fp.string(), std::ifstream::in);
@@ -260,7 +273,7 @@ namespace sc
 
 				if (ImGui::MenuItem("Select all", nullptr, nullptr))
 				{
-					m_editor.SetSelection(TextEditor::Coordinates(), TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
+					m_editor.SetSelection(ImGui::TextEditor::Coordinates(), ImGui::TextEditor::Coordinates(m_editor.GetTotalLines(), 0));
 				}
 
 				ImGui::EndMenu();
@@ -270,17 +283,17 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Dark palette"))
 				{
-					m_editor.SetPalette(TextEditor::GetDarkPalette());
+					m_editor.SetPalette(ImGui::TextEditor::GetDarkPalette());
 				}
 
 				if (ImGui::MenuItem("Light palette"))
 				{
-					m_editor.SetPalette(TextEditor::GetLightPalette());
+					m_editor.SetPalette(ImGui::TextEditor::GetLightPalette());
 				}
 
 				if (ImGui::MenuItem("Retro blue palette"))
 				{
-					m_editor.SetPalette(TextEditor::GetRetroBluePalette());
+					m_editor.SetPalette(ImGui::TextEditor::GetRetroBluePalette());
 				}
 
 				ImGui::EndMenu();
@@ -290,6 +303,38 @@ namespace sc
 		}
 
 		m_editor.Render("Script Editor");
+
+		ImGui::End();
+	}
+
+	void ImGuiLayer::json_ui()
+	{
+		ImGui::Begin("JSON Editor", &m_draw_json_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysAutoResize);
+
+		if (ImGui::BeginMenuBar())
+		{
+			if (ImGui::MenuItem("Open"))
+			{
+				auto fp = galaxy::FileSystem::open_file_dialog("*.json");
+				if (fp.extension() == ".json")
+				{
+					m_json_editor.load(fp.string());
+				}
+			}
+
+			if (ImGui::MenuItem("Save"))
+			{
+				if (m_json_editor.is_loaded())
+				{
+					auto fp = galaxy::FileSystem::save_file_dialog();
+					m_json_editor.save(fp.string());
+				}
+			}
+
+			ImGui::EndMenuBar();
+		}
+
+		m_json_editor.parse_and_display();
 
 		ImGui::End();
 	}

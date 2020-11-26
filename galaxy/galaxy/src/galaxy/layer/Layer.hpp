@@ -11,7 +11,6 @@
 #include <string_view>
 
 #include <pulsar/Log.hpp>
-#include <qs/graphics/Camera.hpp>
 
 ///
 /// Core namespace.
@@ -44,9 +43,7 @@ namespace galaxy
 		///
 		/// Render layer.
 		///
-		/// \param camera View camera to render with.
-		///
-		virtual void render(qs::Camera& camera) = 0;
+		virtual void render() = 0;
 
 		///
 		/// Set layer name.

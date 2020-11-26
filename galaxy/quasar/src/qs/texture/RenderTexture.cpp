@@ -8,12 +8,11 @@
 #include <filesystem>
 
 #include <glad/glad.h>
-#include <stb_image.h>
+#include <stb/stb_image.h>
 #include <pulsar/Log.hpp>
-#include <stb_image_write.h>
+#include <stb/stb_image_write.h>
 
 #include "qs/core/Window.hpp"
-#include "qs/core/WindowSettings.hpp"
 
 #include "RenderTexture.hpp"
 
@@ -84,13 +83,13 @@ namespace qs
 		glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 
-		glTexImage2D(GL_TEXTURE_2D, 0, qs::WindowSettings::s_texture_format, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_width, m_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, qs::WindowSettings::s_ansio_filtering);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, 0);
 
 		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_texture, 0);
 

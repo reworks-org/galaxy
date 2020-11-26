@@ -8,7 +8,7 @@
 #ifndef GALAXY_FILESYSTEM_HPP_
 #define GALAXY_FILESYSTEM_HPP_
 
-#include <filesystem>
+#include <string>
 
 ///
 /// Core namespace.
@@ -33,21 +33,21 @@ namespace galaxy
 		///					Defaults to all files.
 		/// \param def_path Default starting path to open dialog at.
 		///
-		static std::filesystem::path open_file_dialog(const std::string& filter = "*", const std::string& def_path = ".");
+		static std::string open_file_dialog(const std::string& filter = "*", const std::string& def_path = ".");
 
 		///
 		/// Open a save file dialog using pfd.
 		///
 		/// \param def_path Default starting path to open dialog at.
 		///
-		static std::filesystem::path save_file_dialog(const std::string& def_path = ".");
+		static std::string save_file_dialog(const std::string& def_path = ".");
 
 		///
 		/// Open a folder using a file dialog.
 		///
 		/// \param def_path Default starting path to open dialog at.
 		///
-		static std::filesystem::path folder_select_dialog(const std::string& def_path = ".");
+		static std::string folder_select_dialog(const std::string& def_path = ".");
 
 		///
 		/// Root directory of all files.

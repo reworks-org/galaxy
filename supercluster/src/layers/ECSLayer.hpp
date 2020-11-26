@@ -11,6 +11,7 @@
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
 #include <galaxy/layer/Layer.hpp>
+#include <qs/graphics/Camera.hpp>
 
 namespace sc
 {
@@ -22,9 +23,10 @@ namespace sc
 
 		void events() override;
 		void update(const double dt) override;
-		void render(qs::Camera& camera) override;
+		void render() override;
 
 	private:
+		qs::Camera m_camera;
 		galaxy::World* m_world;
 		qs::Window* m_window;
 	};

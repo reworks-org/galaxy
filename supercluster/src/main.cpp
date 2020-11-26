@@ -1,6 +1,6 @@
 ///
 /// main.cpp
-/// sandbox
+/// sandbox_tests
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -14,10 +14,10 @@
 
 #include "states/Editor.hpp"
 
-class EditorApp : public galaxy::Application
+class SandboxApp : public galaxy::Application
 {
 public:
-	EditorApp(std::unique_ptr<galaxy::Config>& config)
+	SandboxApp(std::unique_ptr<galaxy::Config>& config)
 	    : galaxy::Application(config)
 	{
 	}
@@ -39,7 +39,13 @@ int main(int argsc, char* argsv[])
 			date::reload_tzdb();
 
 			// Logging.
-			std::string log_path = fmt::format("{0}{1}", date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
+			std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%d-%m-%Y-[%H.%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
+
+			if (!std::filesystem::exists("logs/"))
+			{
+				std::filesystem::create_directory("logs/");
+			}
+
 			PL_LOG_START(log_path);
 			PL_LOG_GET.set_min_level(PL_INFO);
 
@@ -57,7 +63,9 @@ int main(int argsc, char* argsv[])
 				config->define<std::string>("window-name", "Supercluster - Galaxy Editor");
 				config->define<int>("window-width", 1280);
 				config->define<int>("window-height", 720);
+				config->define<float>("line-thickness", 1.0f);
 				config->define<bool>("is-cursor-visible", true);
+				config->define<bool>("gl-debug", false);
 				config->define<std::string>("cursor-image", "cursor.png");
 				config->define<std::string>("icon-file", "icon.png");
 				config->define<std::string>("root-path", "assets/");
@@ -79,7 +87,7 @@ int main(int argsc, char* argsv[])
 				}
 			}
 
-			EditorApp editor(config);
+			SandboxApp editor(config);
 
 			auto* gs = SL_HANDLE.gamestate();
 			gs->create<sc::Editor>("Editor");

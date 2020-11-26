@@ -10,12 +10,12 @@
 namespace qs
 {
 	Camera::Camera()
-	    : m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
+	    : m_scale {0.0}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
 	{
 	}
 
 	Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed)
-	    : m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed(speed), m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
+	    : m_scale {0.0}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed(speed), m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
 	{
 		create(left, right, bottom, top);
 	}
@@ -89,17 +89,16 @@ namespace qs
 
 	void Camera::on_mouse_scroll(const pr::MouseWheelEvent& e)
 	{
-		static double scale = 1.0;
 		if (e.m_y_offset < 0)
 		{
-			scale -= 0.1;
+			m_scale -= 0.1;
 		}
 		else
 		{
-			scale += 0.1;
+			m_scale += 0.1;
 		}
 
-		this->scale(static_cast<float>(scale));
+		this->scale(static_cast<float>(m_scale));
 	}
 
 	void Camera::update(const double ts)

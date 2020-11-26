@@ -21,9 +21,10 @@ namespace sb
 
 		void events() override;
 		void update(const double dt) override;
-		void render(qs::Camera& camera) override;
+		void render() override;
 
 	private:
+		qs::Camera m_gui_camera;
 		galaxy::GUI m_gui;
 		galaxy::UITheme m_theme;
 	};
