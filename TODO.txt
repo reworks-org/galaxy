@@ -1,21 +1,18 @@
 QUASAR:
 - C++20 review when eventual performance improvements are required.
-- Circle.cpp, 43 -> constinit
-- Vulkan/DirectX/gl3D
 - Vertex retrieval
-- QSAPI -> const constinit
-- better spritebatch transforms
-- split transform into pos transform, colour transform, texel transform?
-- need to fix shader handling.
-
-Solar:
-replace is_system with is_derived
 
 GALAXY:
 - GUI:
 	- Replace is_widget concept with is_derived.
 - Review Box2D integration.
-- better shader data storage
 
 Debugging
 Profiling
+
+ALL:
+- Move all json code to use json utils.
+
+STARMAP:
+- https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
+- update to tiled 1.4
