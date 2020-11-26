@@ -11,7 +11,7 @@
 #ifndef NO_IMGUIVARIOUSCONTROLS_ANIMATEDIMAGE
 #ifndef IMGUI_USE_AUTO_BINDING
 #ifndef STBI_INCLUDE_STB_IMAGE_H
-#include <stb_image.h>
+#include <stb/stb_image.h>
 #endif //STBI_INCLUDE_STB_IMAGE_H
 #endif //IMGUI_USE_AUTO_BINDING
 //#define DEBUG_OUT_TEXTURE
@@ -19,7 +19,7 @@
 #ifndef STBI_INCLUDE_STB_IMAGE_WRITE_H
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_STATIC
-#include "./addons/imguiyesaddons/imguiimageeditor_plugins/stb_image_write.h"
+#include <stb/stb_image_write.h>
 #endif //DEBUG_OUT_TEXTURE
 #endif //STBI_INCLUDE_STB_IMAGE_WRITE_H
 #endif //NO_IMGUIVARIOUSCONTROLS_ANIMATEDIMAGE

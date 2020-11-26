@@ -260,7 +260,7 @@ set(SHARED_HEADERS
 	"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 	"${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/stb"
+	"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/zlib"
 	"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
