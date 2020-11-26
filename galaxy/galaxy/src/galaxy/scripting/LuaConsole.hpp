@@ -23,9 +23,9 @@ namespace galaxy
 	{
 	public:
 		///
-		/// Default constructor.
+		/// Constructor.
 		///
-		LuaConsole() = default;
+		LuaConsole();
 
 		///
 		/// Copy constructor.
@@ -60,6 +60,11 @@ namespace galaxy
 		void draw(bool* show);
 
 	private:
+		///
+		/// Text buffer.
+		///
+		std::string m_buff;
+
 		///
 		/// List of inputs / outputs on console.
 		///

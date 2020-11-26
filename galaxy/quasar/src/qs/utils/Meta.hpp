@@ -91,7 +91,7 @@ namespace qs
 	};
 
 	///
-	/// Static function to easily create a vertex.
+	/// Function to easily create a vertex.
 	///
 	/// \param args Arguments for vertex type constructor.
 	///
