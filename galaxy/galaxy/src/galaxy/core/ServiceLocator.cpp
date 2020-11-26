@@ -78,8 +78,13 @@ namespace galaxy
 		return m_audiobook;
 	}
 
+	qs::TextureAtlas* ServiceLocator::atlas() const
+	{
+		return m_texture_atlas;
+	}
+
 	ServiceLocator::ServiceLocator()
-	    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_renderer {nullptr}, m_lua {nullptr}, m_state {nullptr}, m_dispatcher {nullptr}, m_world {nullptr}, m_serializer {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_audiobook {nullptr}
+	    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_renderer {nullptr}, m_lua {nullptr}, m_state {nullptr}, m_dispatcher {nullptr}, m_world {nullptr}, m_serializer {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_audiobook {nullptr}, m_texture_atlas {nullptr}
 	{
 	}
 } // namespace galaxy

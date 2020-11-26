@@ -156,6 +156,10 @@ namespace galaxy
 			m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
 			SL_HANDLE.m_fontbook = m_fontbook.get();
 
+			// Texture Atlas.
+			m_texture_atlas           = std::make_unique<qs::TextureAtlas>();
+			SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
+
 			// Register all usertypes used by this application for sol3.
 			Lua::register_types();
 		}
