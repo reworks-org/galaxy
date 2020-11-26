@@ -79,6 +79,14 @@ namespace starmap
 		return result;
 	}
 
+	bool Map::move(nlohmann::json&& json)
+	{
+		m_root   = std::move(json);
+		m_loaded = true;
+
+		return true;
+	}
+
 	bool Map::parse()
 	{
 		bool result = true;
@@ -308,5 +316,10 @@ namespace starmap
 	const int Map::get_compression_level() const
 	{
 		return m_compression_level;
+	}
+
+	nlohmann::json& Map::raw_json()
+	{
+		return m_root;
 	}
 } // namespace starmap

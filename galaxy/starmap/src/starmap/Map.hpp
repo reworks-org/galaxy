@@ -55,6 +55,15 @@ namespace starmap
 		[[maybe_unused]] bool load(std::span<char> buffer);
 
 		///
+		/// Load from raw json.
+		///
+		/// \param json JSON object.
+		///
+		/// \return True if successful.
+		///
+		[[maybe_unused]] bool move(nlohmann::json&& json);
+
+		///
 		/// Parses json structure to member values, etc.
 		///
 		/// \return True if successful.
@@ -201,6 +210,13 @@ namespace starmap
 		/// \return Const int.
 		///
 		[[nodiscard]] const int get_compression_level() const;
+
+		///
+		/// Get raw parsed JSON.
+		///
+		/// \return JSON object.
+		///
+		[[nodiscard]] nlohmann::json& raw_json();
 
 	private:
 		///
