@@ -51,6 +51,11 @@ namespace qs
 		};
 
 		///
+		/// Shorthand for long type.
+		///
+		typedef robin_hood::unordered_map<std::string, TextureInfo> AtlasTextureData;
+
+		///
 		/// \brief Constructor.
 		///
 		/// Size defaults to 1024.
@@ -107,6 +112,14 @@ namespace qs
 		void create(qs::Renderer& renderer, qs::Shader& shader);
 
 		///
+		/// Update atlas, including additional and previous calls to add().
+		///
+		/// \param renderer Renderer to use to draw textures.
+		/// \param shader Shader to use when creating atlas.
+		///
+		void update(qs::Renderer& renderer, qs::Shader& shader);
+
+		///
 		/// Dumps internal atlas. May take a while.
 		///
 		/// \param file Path (including filename) to save file to.
@@ -129,6 +142,13 @@ namespace qs
 		/// \return Pointer to texture.
 		///
 		[[nodiscard]] qs::RenderTexture* get_atlas();
+
+		///
+		/// Get texture data.
+		///
+		/// \return Reference to map holding texture data.
+		///
+		[[nodiscard]] AtlasTextureData& get_tex_data();
 
 		///
 		/// Get size of atlas.
@@ -161,7 +181,7 @@ namespace qs
 		///
 		/// Texture name (id) and assossiated info.
 		///
-		robin_hood::unordered_map<std::string, TextureInfo> m_textures;
+		AtlasTextureData m_textures;
 	};
 } // namespace qs
 
