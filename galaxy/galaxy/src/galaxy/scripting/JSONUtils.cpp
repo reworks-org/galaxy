@@ -62,5 +62,22 @@ namespace galaxy
 
 			return std::move(j);
 		}
+
+		void save_to_disk(std::string_view path, const nlohmann::json& json)
+		{
+			auto fp = std::filesystem::path {path};
+			std::ofstream out;
+			out.open(fp, std::ios::out | std::ios::trunc);
+			if (out.good())
+			{
+				out << json.dump(4);
+			}
+			else
+			{
+				PL_LOG(PL_FATAL, "Failed to save json to disk: {0}.", path);
+			}
+
+			out.close();
+		}
 	} // namespace json
 } // namespace galaxy

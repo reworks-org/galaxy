@@ -40,18 +40,7 @@ namespace sc
 	{
 		if (m_loaded)
 		{
-			std::ofstream out;
-			out.open(path, std::ios::out | std::ios::trunc);
-			if (out.good())
-			{
-				out << m_root.dump(4);
-			}
-			else
-			{
-				PL_LOG(PL_FATAL, "Failed to save json to disk: {0}.", path);
-			}
-
-			out.close();
+			galaxy::json::save_to_disk(path, m_root);
 		}
 		else
 		{

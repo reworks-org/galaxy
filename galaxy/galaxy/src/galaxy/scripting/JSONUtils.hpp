@@ -25,6 +25,8 @@ namespace galaxy
 	{
 		[[nodiscard]] nlohmann::json parse_from_disk(std::string_view file);
 		[[nodiscard]] nlohmann::json parse_from_mem(std::span<char> memory);
+
+		void save_to_disk(std::string_view path, const nlohmann::json& json);
 	} //namespace json
 } // namespace galaxy
 
