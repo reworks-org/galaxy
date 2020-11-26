@@ -10,9 +10,6 @@ GALAXY:
 Debugging
 Profiling
 
-ALL:
-- Move all json code to use json utils.
-
 STARMAP:
 - https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
 - update to tiled 1.4
