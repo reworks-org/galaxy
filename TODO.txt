@@ -2,14 +2,15 @@ QUASAR:
 - C++20 review when eventual performance improvements are required.
 - Vertex retrieval
 
+ALL:
+- investigate other usages of C++20 coroutines
+
 GALAXY:
 - GUI:
 	- Replace is_widget concept with is_derived.
+	- Use coroutines with https://github.com/RandyGaul/cute_headers/blob/master/cute_coroutine.h
+	- textbox mainly
 - Review Box2D integration.
 
 Debugging
 Profiling
-
-STARMAP:
-- https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
-- update to tiled 1.4
