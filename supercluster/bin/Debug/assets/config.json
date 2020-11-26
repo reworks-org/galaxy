@@ -10,6 +10,7 @@
     "fontbook-json": "fontbook.json",
     "icon-file": "icon.png",
     "is-cursor-visible": true,
+    "gl-debug": false,
     "json-path": "json/",
     "line-thickness": 1.0,
     "raw-mouse-input": true,

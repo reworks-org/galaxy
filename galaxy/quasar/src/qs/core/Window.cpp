@@ -30,12 +30,12 @@ namespace qs
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 	}
 
-	Window::Window(std::string_view title, const int width, const int height)
+	Window::Window(qs::WindowSettings& settings)
 	    : m_window {nullptr}, m_cursor {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}
 	{
 		m_prev_mouse_btn_states = {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE};
 
-		if (!create(title, width, height))
+		if (!create(settings))
 		{
 			PL_LOG(PL_FATAL, "GLFW window creation failed.");
 		}
@@ -48,14 +48,14 @@ namespace qs
 		destroy();
 	}
 
-	bool Window::create(std::string_view title, const int width, const int height)
+	bool Window::create(qs::WindowSettings& settings)
 	{
 		// Function result.
 		bool result = true;
 
 		// Window w/h.
-		m_width  = width;
-		m_height = height;
+		m_width  = settings.m_width;
+		m_height = settings.m_height;
 
 		// Error callbacks.
 		glfwSetErrorCallback([](int error, const char* description) {
@@ -97,10 +97,10 @@ namespace qs
 			glfwWindowHint(GLFW_SRGB_CAPABLE, true);
 
 			// MSAA
-			glfwWindowHint(GLFW_SAMPLES, qs::WindowSettings::s_anti_aliasing);
+			glfwWindowHint(GLFW_SAMPLES, settings.m_anti_aliasing);
 
 			// Create the window from input, ensuring it is centered in the screen.
-			m_window = glfwCreateWindow(m_width, m_height, static_cast<std::string>(title).c_str(), nullptr, nullptr);
+			m_window = glfwCreateWindow(m_width, m_height, settings.m_title.c_str(), nullptr, nullptr);
 
 			// Then if the window failed to create:
 			if (!m_window)
@@ -113,9 +113,9 @@ namespace qs
 				// Set window context and aspect ratio.
 				glfwMakeContextCurrent(m_window);
 
-				if (!(qs::WindowSettings::s_aspect_ratio_x == -1 || qs::WindowSettings::s_aspect_ratio_y == -1))
+				if (!(settings.m_aspect_ratio_x == -1 || settings.m_aspect_ratio_y == -1))
 				{
-					glfwSetWindowAspectRatio(m_window, qs::WindowSettings::s_aspect_ratio_x, qs::WindowSettings::s_aspect_ratio_y);
+					glfwSetWindowAspectRatio(m_window, settings.m_aspect_ratio_x, settings.m_aspect_ratio_y);
 				}
 
 				// Set up glad.
@@ -135,12 +135,12 @@ namespace qs
 					});
 
 					// Set vsync.
-					glfwSwapInterval(qs::WindowSettings::s_vsync);
+					glfwSwapInterval(settings.m_vsync);
 
 					// Raw mouse input.
 					if (glfwRawMouseMotionSupported())
 					{
-						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, qs::WindowSettings::s_raw_mouse_input);
+						glfwSetInputMode(m_window, GLFW_RAW_MOUSE_MOTION, settings.m_raw_mouse_input);
 					}
 
 					glfwSetCharCallback(m_window, [](GLFWwindow* window, unsigned int codepoint) {
@@ -151,15 +151,14 @@ namespace qs
 						}
 					});
 
-					// Error handling.
-					// clang-format off
-                    #ifdef _DEBUG
+					if (settings.m_gl_debug)
+					{
 						glEnable(GL_DEBUG_OUTPUT);
 						glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void {
-							PL_LOG(PL_WARNING, "[OpenGL] - [ {0} {1} {2} {3} {4} {5} ]", source, type, id, severity, length, message);
-						}, nullptr);
-                    #endif
-					// clang-format on
+							PL_LOG(PL_WARNING, "[OpenGL] - [ {0}, {1}, {2}, {3}, {4} ] - {5}.", source, type, id, severity, length, message);
+						},
+								       nullptr);
+					}
 
 					// Enable MSAA.
 					glEnable(GL_MULTISAMPLE);
@@ -172,13 +171,13 @@ namespace qs
 					glEnable(GL_PROGRAM_POINT_SIZE);
 
 					// sRGB colours for rendering.
-					if (qs::WindowSettings::s_srgb)
+					if (settings.m_srgb)
 					{
 						glEnable(GL_FRAMEBUFFER_SRGB);
 					}
 
 					// Set custom line width.
-					glLineWidth(qs::WindowSettings::s_line_thickness);
+					glLineWidth(settings.m_line_thickness);
 
 					m_keymap.reserve(102);
 					m_keymap.emplace(pr::Keys::A, GLFW_KEY_A);

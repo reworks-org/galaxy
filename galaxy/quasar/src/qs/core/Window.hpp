@@ -17,6 +17,7 @@
 #include <protostar/system/Keys.hpp>
 #include <robin_hood.h>
 
+#include "qs/core/WindowSettings.hpp"
 #include "qs/sprite/Sprite.hpp"
 #include "qs/texture/RenderTexture.hpp"
 
@@ -63,13 +64,10 @@ namespace qs
 		/// \brief Window creation constructor.
 		///
 		/// Calls create().
-		/// Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
 		///
-		/// \param title Title of the window.
-		/// \param width Width of the window.
-		/// \param height Height of the window.
+		/// \param settings Settings of the window.
 		///
-		explicit Window(std::string_view title, const int width, const int height);
+		explicit Window(qs::WindowSettings& settings);
 
 		///
 		/// Copy constructor.
@@ -99,18 +97,11 @@ namespace qs
 		~Window();
 
 		///
-		/// \brief Construct a Window.
+		/// Construct a Window.
 		///
-		/// Call after SDL_Init(SDL_INIT_VIDEO) or SDL_Init(SDL_INIT_EVERYTHING).
+		/// \param settings Settings of the window.
 		///
-		/// \param title Title of the window.
-		/// \param width Width of the window.
-		/// \param height Height of the window.
-		/// \param settings Settings for the window, like flags and MSAA.
-		///
-		/// \return Returns true on success, false on failure.
-		///
-		bool create(std::string_view title, const int width, const int height);
+		bool create(qs::WindowSettings& settings);
 
 		///
 		/// Sets the background colour of the window.

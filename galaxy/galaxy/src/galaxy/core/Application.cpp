@@ -81,24 +81,28 @@ namespace galaxy
 		m_threadpool->start();
 		SL_HANDLE.m_threadpool = m_threadpool.get();
 
-		// window
-		qs::WindowSettings::s_anti_aliasing   = m_config->get<int>("anti-aliasing");    // 2
-		qs::WindowSettings::s_ansio_filtering = m_config->get<int>("ansio-filter");     // 2
-		qs::WindowSettings::s_vsync           = m_config->get<bool>("vsync");           // false
-		qs::WindowSettings::s_srgb            = m_config->get<bool>("srgb");            // false
-		qs::WindowSettings::s_aspect_ratio_x  = m_config->get<int>("aspect-ratio-x");   // -1
-		qs::WindowSettings::s_aspect_ratio_y  = m_config->get<int>("aspect-ratio-y");   // -1
-		qs::WindowSettings::s_raw_mouse_input = m_config->get<bool>("raw-mouse-input"); // true
-		qs::WindowSettings::s_texture_format  = GL_RGBA8;
-		qs::WindowSettings::s_line_thickness  = m_config->get<float>("line-thickness"); // 1.0
+		// Window
+		// clang-format off
+		qs::WindowSettings settings
+		{
+		    .m_anti_aliasing   = m_config->get<int>("anti-aliasing"),
+		    .m_ansio_filtering = m_config->get<int>("ansio-filter"),
+		    .m_vsync           = m_config->get<bool>("vsync"),
+		    .m_srgb            = m_config->get<bool>("srgb"),
+		    .m_aspect_ratio_x  = m_config->get<int>("aspect-ratio-x"),
+		    .m_aspect_ratio_y  = m_config->get<int>("aspect-ratio-y"),
+		    .m_raw_mouse_input = m_config->get<bool>("raw-mouse-input"),
+		    .m_line_thickness  = m_config->get<float>("line-thickness"),
+		    .m_gl_debug        = m_config->get<bool>("gl-debug"),
+		    .m_title           = m_config->get<std::string>("window-name"),
+		    .m_width           = m_config->get<int>("window-width"),
+		    .m_height          = m_config->get<int>("window-height")
+		};
+		// clang-format on
 
 		m_window           = std::make_unique<qs::Window>();
 		SL_HANDLE.m_window = m_window.get();
-
-		if (!m_window->create(
-			m_config->get<std::string>("window-name"),
-			m_config->get<int>("window-width"),
-			m_config->get<int>("window-height")))
+		if (!m_window->create(settings))
 		{
 			PL_LOG(PL_FATAL, "Failed to create window! Aborting...");
 		}

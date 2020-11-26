@@ -65,6 +65,7 @@ int main(int argsc, char* argsv[])
 				config->define<int>("window-height", 720);
 				config->define<float>("line-thickness", 1.0f);
 				config->define<bool>("is-cursor-visible", true);
+				config->define<bool>("gl-debug", false);
 				config->define<std::string>("cursor-image", "cursor.png");
 				config->define<std::string>("icon-file", "icon.png");
 				config->define<std::string>("root-path", "assets/");
