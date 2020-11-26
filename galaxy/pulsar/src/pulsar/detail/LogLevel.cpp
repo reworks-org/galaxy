@@ -1,8 +1,8 @@
 ///
-/// LogColours.cpp
+/// LogLevel.cpp
 ///
 /// pulsar
 /// See LICENSE.txt.
 ///
 
-#include "LogColours.hpp"
+#include "LogLevel.hpp"
