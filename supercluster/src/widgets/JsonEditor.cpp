@@ -24,13 +24,13 @@ namespace sc
 	{
 	}
 
-	void JsonEditor::load(std::string_view file)
+	void JsonEditor::load_file(std::string_view file)
 	{
 		m_root   = galaxy::json::parse_from_disk(file);
 		m_loaded = true;
 	}
 
-	void JsonEditor::load(std::span<char> memory)
+	void JsonEditor::load_mem(std::span<char> memory)
 	{
 		m_root   = galaxy::json::parse_from_mem(memory);
 		m_loaded = true;

@@ -19,8 +19,8 @@ namespace sc
 	public:
 		JsonEditor();
 
-		void load(std::string_view file);
-		void load(std::span<char> memory);
+		void load_file(std::string_view file);
+		void load_mem(std::span<char> memory);
 
 		void save(std::string_view path);
 
