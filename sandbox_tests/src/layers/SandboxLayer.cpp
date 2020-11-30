@@ -7,9 +7,7 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
-#include <galaxy/components/SpriteComponent.hpp>
 #include <qs/core/Renderer.hpp>
-#include <galaxy/components/ShaderComponent.hpp>
 #include <galaxy/flags/EnabledFlag.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
