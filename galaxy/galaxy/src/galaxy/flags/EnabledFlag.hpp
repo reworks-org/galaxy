@@ -22,31 +22,6 @@ namespace galaxy
 		/// Default constructor.
 		///
 		EnabledFlag() = default;
-
-		///
-		/// Copy constructor.
-		///
-		EnabledFlag(const EnabledFlag&) = default;
-
-		///
-		/// Move constructor.
-		///
-		EnabledFlag(EnabledFlag&&) = default;
-
-		///
-		/// Copy assignment operator.
-		///
-		EnabledFlag& operator=(const EnabledFlag&) = default;
-
-		///
-		/// Move assignment operator.
-		///
-		EnabledFlag& operator=(EnabledFlag&&) = default;
-
-		///
-		/// Default destructor.
-		///
-		~EnabledFlag() = default;
 	};
 } // namespace galaxy
 
