@@ -20,27 +20,49 @@
 namespace sc
 {
 	JsonEditor::JsonEditor()
-	    : m_loaded {false}
+	    : m_loaded {false}, m_external {nullptr}
 	{
 	}
 
 	void JsonEditor::load_file(std::string_view file)
 	{
-		m_root   = galaxy::json::parse_from_disk(file);
-		m_loaded = true;
+		if (!m_loaded)
+		{
+			m_root   = galaxy::json::parse_from_disk(file);
+			m_loaded = true;
+		}
 	}
 
 	void JsonEditor::load_mem(std::span<char> memory)
 	{
-		m_root   = galaxy::json::parse_from_mem(memory);
-		m_loaded = true;
+		if (!m_loaded)
+		{
+			m_root   = galaxy::json::parse_from_mem(memory);
+			m_loaded = true;
+		}
+	}
+
+	void JsonEditor::load_json(nlohmann::json* json)
+	{
+		if (!m_loaded)
+		{
+			m_external = json;
+			m_loaded   = true;
+		}
 	}
 
 	void JsonEditor::save(std::string_view path)
 	{
 		if (m_loaded)
 		{
-			galaxy::json::save_to_disk(path, m_root);
+			if (!m_external)
+			{
+				galaxy::json::save_to_disk(path, m_root);
+			}
+			else
+			{
+				PL_LOG(PL_WARNING, "Cannot save external json.");
+			}
 		}
 		else
 		{
@@ -52,17 +74,35 @@ namespace sc
 	{
 		if (m_loaded)
 		{
-			if (m_root.is_object())
+			if (m_external)
 			{
-				do_object(m_root);
-			}
-			else if (m_root.is_array())
-			{
-				do_array(m_root);
+				if (m_external->is_object())
+				{
+					do_object(*m_external);
+				}
+				else if (m_external->is_array())
+				{
+					do_array(*m_external);
+				}
+				else
+				{
+					PL_LOG(PL_FATAL, "JSON was not object or array.");
+				}
 			}
 			else
 			{
-				PL_LOG(PL_FATAL, "JSON was not object or array.");
+				if (m_root.is_object())
+				{
+					do_object(m_root);
+				}
+				else if (m_root.is_array())
+				{
+					do_array(m_root);
+				}
+				else
+				{
+					PL_LOG(PL_FATAL, "JSON was not object or array.");
+				}
 			}
 		}
 	}
@@ -91,6 +131,8 @@ namespace sc
 			else if (value.is_boolean())
 			{
 				ImGui::ToggleButton(key.c_str(), value.get<bool*>());
+				ImGui::SameLine();
+				ImGui::Text(key.c_str());
 			}
 			else if (value.is_number_integer())
 			{
@@ -140,6 +182,9 @@ namespace sc
 			else if (elem.is_boolean())
 			{
 				ImGui::ToggleButton(name.c_str(), elem.get<bool*>());
+				ImGui::SameLine();
+				ImGui::Text(name.c_str());
+
 				counter++;
 			}
 			else if (elem.is_number_integer())
