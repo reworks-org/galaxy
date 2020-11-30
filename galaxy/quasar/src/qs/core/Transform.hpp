@@ -80,7 +80,7 @@ namespace qs
 		///
 		/// Recalculates the model view matrix.
 		///
-		virtual void recalculate();
+		void recalculate();
 
 		///
 		/// Sets position without moving the object.
@@ -112,6 +112,27 @@ namespace qs
 		///
 		[[nodiscard]] glm::mat4& get_transform();
 
+		///
+		/// Get stored rotation cache.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float get_rotation() const;
+
+		///
+		/// Get stored scale cache.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float get_scale() const;
+
+		///
+		/// Get stored pos cache.
+		///
+		/// \return Const glm::vec2.
+		///
+		[[nodiscard]] const glm::vec2& get_pos() const;
+
 	protected:
 		///
 		/// Update flag.
@@ -137,6 +158,24 @@ namespace qs
 		/// Translation matrix.
 		///
 		glm::mat4 m_translation;
+
+		///
+		/// Cached for easiy retrieval.
+		/// Rotation.
+		///
+		float m_rotate;
+
+		///
+		/// Cached for easiy retrieval.
+		/// Scale.
+		///
+		float m_scale;
+
+		///
+		/// Cached for easiy retrieval.
+		/// Pos.
+		///
+		glm::vec2 m_pos;
 
 	private:
 		///
