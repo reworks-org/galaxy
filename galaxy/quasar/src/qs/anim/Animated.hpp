@@ -77,13 +77,6 @@ namespace qs
 		void set_animation(std::string_view animation);
 
 		///
-		/// Get current animation.
-		///
-		/// \return Pointer to currently playing animation.
-		///
-		[[nodiscard]] qs::Animation* get_cur_animation();
-
-		///
 		/// Play the animation.
 		///
 		void play();
@@ -104,6 +97,20 @@ namespace qs
 		/// Stop the animation. If you call play() the animation starts from the beginning.
 		///
 		void stop();
+
+		///
+		/// Get current animation.
+		///
+		/// \return Pointer to currently playing animation.
+		///
+		[[nodiscard]] qs::Animation* get_cur_animation();
+
+		///
+		/// Get all animations.
+		///
+		/// \return Map of all animations.
+		///
+		[[nodiscard]] auto get_all_anims() noexcept -> const robin_hood::unordered_map<std::string, qs::Animation>&;
 
 	protected:
 		///

@@ -84,11 +84,6 @@ namespace qs
 		m_active_anim->restart();
 	}
 
-	qs::Animation* Animated::get_cur_animation()
-	{
-		return m_active_anim;
-	}
-
 	void Animated::play()
 	{
 		if (m_active_anim != nullptr)
@@ -121,5 +116,15 @@ namespace qs
 
 			m_active_anim->restart();
 		}
+	}
+
+	qs::Animation* Animated::get_cur_animation()
+	{
+		return m_active_anim;
+	}
+
+	auto Animated::get_all_anims() noexcept -> const robin_hood::unordered_map<std::string, qs::Animation>&
+	{
+		return m_animations;
 	}
 } // namespace qs
