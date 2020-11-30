@@ -10,7 +10,6 @@
 
 #ifdef _WIN64
 #include <windows.h>
-#undef ERROR
 #endif
 
 #include "Log.hpp"
