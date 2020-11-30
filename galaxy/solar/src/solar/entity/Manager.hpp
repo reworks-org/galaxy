@@ -123,6 +123,15 @@ namespace sr
 		[[nodiscard]] const bool validate(sr::Entity uint);
 
 		///
+		/// Check if an entity is enabled.
+		///
+		/// \param entity Entity to check.
+		///
+		/// \return True if entity is enabled.
+		///
+		[[nodiscard]] const bool is_enabled(sr::Entity entity);
+
+		///
 		/// Assign a name to an entity.
 		///
 		/// \param entity Entity to assign name to.
@@ -170,6 +179,17 @@ namespace sr
 		///
 		template<pr::is_class Component>
 		Component* get(const sr::Entity entity);
+
+		///
+		/// Retrieve multiple components assosiated with an entity.
+		/// Template type is type of components to get.
+		///
+		/// \param entity Entity components are assosiated with.
+		///
+		/// \return Tuple of pointers to components.
+		///
+		template<pr::is_class... Component>
+		std::tuple<Component*...> get_multi(const sr::Entity entity);
 
 		///
 		/// Remove a component assosiated with an entity.
@@ -338,12 +358,7 @@ namespace sr
 		{
 			const auto type = CUniqueID::get<Component>();
 
-			if (type >= m_data.size() || m_data.size() == 0)
-			{
-				PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist.");
-				PL_LOG(PL_ERROR, "Possible zero size component data detected.");
-			}
-			else
+			if (!(type >= m_data.size() || m_data.size() == 0))
 			{
 				if (m_data[type] != nullptr)
 				{
@@ -357,6 +372,12 @@ namespace sr
 		}
 
 		return res;
+	}
+
+	template<pr::is_class... Component>
+	inline std::tuple<Component*...> Manager::get_multi(const sr::Entity entity)
+	{
+		return std::make_tuple<Component*...>(get<Component>(entity)...);
 	}
 
 	template<pr::is_class Component>

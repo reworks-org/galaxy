@@ -125,6 +125,13 @@ namespace qs
 		void update_region(const pr::Rect<float>& quad);
 
 		///
+		/// Get opacity.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float opacity() const;
+
+		///
 		/// Get z-level.
 		///
 		/// \return Const unsigned int.

@@ -65,6 +65,8 @@ namespace galaxy
 		{
 			m_bounds.m_x = x;
 			m_bounds.m_y = y;
+			m_pos.x      = x;
+			m_pos.y      = y;
 
 			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f});
 			m_dirty       = true;

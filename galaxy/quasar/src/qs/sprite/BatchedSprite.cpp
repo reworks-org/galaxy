@@ -117,6 +117,11 @@ namespace qs
 		update_region(quad.m_x, quad.m_y, quad.m_width, quad.m_height);
 	}
 
+	const float BatchedSprite::opacity() const
+	{
+		return m_opacity;
+	}
+
 	const unsigned int BatchedSprite::z_level() const
 	{
 		return m_z_level;

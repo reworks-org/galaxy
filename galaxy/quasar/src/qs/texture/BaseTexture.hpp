@@ -128,6 +128,13 @@ namespace qs
 		[[nodiscard]] const int get_height() const;
 
 		///
+		/// Get Textures current Ansiotrophy level.
+		///
+		/// \return Const int.
+		///
+		[[nodiscard]] const int get_aniso_level();
+
+		///
 		/// Gets internal OpenGL id.
 		///
 		/// \return Const unsigned int.

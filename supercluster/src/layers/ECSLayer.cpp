@@ -7,8 +7,7 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
-#include <galaxy/components/SpriteComponent.hpp>
-#include <galaxy/components/ShaderComponent.hpp>
+#include <galaxy/components/All.hpp>
 #include <galaxy/flags/EnabledFlag.hpp>
 
 #include "ECSLayer.hpp"
