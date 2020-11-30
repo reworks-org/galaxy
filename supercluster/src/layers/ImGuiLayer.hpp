@@ -33,24 +33,38 @@ namespace sc
 		void start();
 		void end();
 
-		void entity_ui();
-		void script_editor_ui();
-
 		void json_ui();
+		void script_editor_ui();
+		void atlas_editor_ui();
+		void entity_ui();
+		void component_ui(bool enabled, std::uint32_t entity);
 
 	private:
 		qs::Camera m_camera;
 		galaxy::World* m_world;
 		qs::Window* m_window;
 
-		bool m_show_script_editor;
-		bool m_show_entity_editor;
-		bool m_draw_console;
 		bool m_draw_json_editor;
+		bool m_draw_script_editor;
+		bool m_draw_atlas_editor;
+		bool m_draw_entity_editor;
+		bool m_draw_lua_console;
 
 		ImGui::TextEditor m_editor;
 		galaxy::LuaConsole m_console;
 		JsonEditor m_json_editor;
+
+		short m_atlas_state;
+
+		bool m_show_entity_create;
+		std::string m_edn_buffer;
+		std::string m_entity_debug_name;
+		std::uint32_t m_active_entity;
+
+		float m_batch_region[4]   = {0.0f, 0.0f, 0.0f, 0.0f};
+		bool m_sfx_loop           = false;
+		std::string m_active_anim = "";
+		bool m_add_anim_popup     = false;
 	};
 } // namespace sc
 
