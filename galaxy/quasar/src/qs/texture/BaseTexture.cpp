@@ -146,6 +146,16 @@ namespace qs
 		return m_height;
 	}
 
+	const int BaseTexture::get_aniso_level()
+	{
+		int ansio = 0;
+		glBindTexture(GL_TEXTURE_2D, m_texture);
+		glGetTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, &ansio);
+		glBindTexture(GL_TEXTURE_2D, 0);
+
+		return ansio;
+	}
+
 	const unsigned int BaseTexture::gl_texture() const
 	{
 		return m_texture;
