@@ -327,6 +327,32 @@ TEST(Manager, Operate)
 	EXPECT_EQ(b->val, 2);
 }
 
+TEST(Manager, OperateMissing)
+{
+	sr::Manager m;
+	auto e = m.create();
+	m.create_component<AA>(e);
+
+	auto* a = m.get<AA>(e);
+	a->val  = 5;
+
+	ASSERT_TRUE(a != nullptr);
+	m.operate<AA, BB>([](const sr::Entity entity, AA* a, BB* b) {
+		if (a != nullptr)
+		{
+			a->val = 1;
+		}
+
+		if (b != nullptr)
+		{
+			b->val = 1;
+		}
+	});
+
+	// I.e. operate() should not have been called.
+	EXPECT_EQ(a->val, 5);
+}
+
 TEST(Manager, Destroy)
 {
 	sr::Manager m;
