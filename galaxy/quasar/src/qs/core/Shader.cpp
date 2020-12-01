@@ -15,12 +15,12 @@
 namespace qs
 {
 	Shader::Shader()
-	    : m_id {0}
+	    : m_id {0}, m_loaded {false}
 	{
 	}
 
 	Shader::Shader(std::string_view vertex_file, std::string_view frag_file)
-	    : m_id {0}
+	    : m_id {0}, m_loaded {false}
 	{
 		if (!load_path(vertex_file, frag_file))
 		{
@@ -195,6 +195,7 @@ namespace qs
 		v_stream.close();
 		f_stream.close();
 
+		m_loaded = result;
 		return result;
 	}
 
@@ -279,6 +280,7 @@ namespace qs
 			glDeleteShader(f_id);
 		}
 
+		m_loaded = result;
 		return result;
 	}
 
@@ -290,6 +292,11 @@ namespace qs
 	void Shader::unbind()
 	{
 		glUseProgram(0);
+	}
+
+	const bool Shader::is_loaded() const
+	{
+		return m_loaded;
 	}
 
 	int Shader::get_uniform_location(std::string_view name)
