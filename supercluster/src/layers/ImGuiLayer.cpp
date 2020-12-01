@@ -19,7 +19,6 @@
 #include <galaxy/scripting/JSONDefinition.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
-#include <galaxy/flags/EnabledFlag.hpp>
 #include <galaxy/components/All.hpp>
 
 #include "ImGuiLayer.hpp"
@@ -27,7 +26,7 @@
 namespace sc
 {
 	ImGuiLayer::ImGuiLayer()
-	    : m_world {nullptr}, m_window {nullptr}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {""}, m_active_entity {0}, m_edn_buffer {""}
+	    : m_world {nullptr}, m_window {nullptr}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
 		// clang-format off
 		set_name("imgui_layer");
@@ -65,8 +64,19 @@ namespace sc
 		m_camera.update(dt);
 	}
 
-	void ImGuiLayer::render()
+	void ImGuiLayer::pre_render()
 	{
+		if (!m_sprites_to_create.empty())
+		{
+			for (auto& [sprite, path] : m_sprites_to_create)
+			{
+				sprite->load(path);
+				sprite->create<qs::BufferDynamic>();
+			}
+
+			m_sprites_to_create.clear();
+		}
+
 		start();
 
 		if (ImGui::BeginMainMenuBar())
@@ -143,6 +153,11 @@ namespace sc
 		end();
 	}
 
+	void ImGuiLayer::render()
+	{
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	}
+
 	void ImGuiLayer::start()
 	{
 		ImGui_ImplOpenGL3_NewFrame();
@@ -153,7 +168,6 @@ namespace sc
 	void ImGuiLayer::end()
 	{
 		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void ImGuiLayer::json_ui()
@@ -190,7 +204,7 @@ namespace sc
 	{
 		const auto cpos = m_editor.GetCursorPosition();
 
-		ImGui::Begin("Raw Editor", &m_draw_script_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		ImGui::Begin("Script Editor", &m_draw_script_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
 		ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
 
 		if (ImGui::BeginMenuBar())
@@ -317,7 +331,7 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
-		m_editor.Render("Raw Editor");
+		m_editor.Render("Script Editor");
 
 		ImGui::End();
 	}
@@ -440,7 +454,7 @@ namespace sc
 			m_active_entity = m_world->create_from_json(file);
 		}
 
-		if (ImGui::BeginCombo("Select Entity", "..."))
+		if (ImGui::BeginCombo("Select Entity", m_entity_debug_name.c_str()))
 		{
 			for (const auto& [name, id] : m_world->get_debug_name_map())
 			{
@@ -464,16 +478,16 @@ namespace sc
 		{
 			ImGui::Text(fmt::format("Numeric ID: {0}.", m_active_entity).c_str());
 
-			bool enabled = m_world->is_enabled(m_active_entity);
+			bool enabled = m_world->is_enabled<galaxy::EnabledComponent>(m_active_entity);
 			if (ImGui::Checkbox("Is Enabled?", &enabled))
 			{
 				if (enabled)
 				{
-					m_world->create_component<galaxy::EnabledFlag>(m_active_entity);
+					m_world->create_component<galaxy::EnabledComponent>(m_active_entity);
 				}
 				else
 				{
-					m_world->remove<galaxy::EnabledFlag>(m_active_entity);
+					m_world->remove<galaxy::EnabledComponent>(m_active_entity);
 				}
 			}
 
@@ -490,9 +504,23 @@ namespace sc
 				m_world->create_component<galaxy::ShaderComponent>(m_active_entity);
 			}
 
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Shader"))
+			{
+				m_world->remove<galaxy::ShaderComponent>(m_active_entity);
+			}
+
 			if (ImGui::Button("Add Sprite"))
 			{
 				m_world->create_component<galaxy::SpriteComponent>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Sprite"))
+			{
+				m_world->remove<galaxy::SpriteComponent>(m_active_entity);
 			}
 
 			if (ImGui::Button("Add SpriteBatch"))
@@ -500,9 +528,23 @@ namespace sc
 				m_world->create_component<galaxy::SpriteBatchComponent>(m_active_entity);
 			}
 
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove SpriteBatch"))
+			{
+				m_world->remove<galaxy::SpriteBatchComponent>(m_active_entity);
+			}
+
 			if (ImGui::Button("Add Sound"))
 			{
 				m_world->create_component<galaxy::SoundComponent>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Sound"))
+			{
+				m_world->remove<galaxy::SoundComponent>(m_active_entity);
 			}
 
 			if (ImGui::Button("Add Music"))
@@ -510,9 +552,23 @@ namespace sc
 				m_world->create_component<galaxy::MusicComponent>(m_active_entity);
 			}
 
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Music"))
+			{
+				m_world->remove<galaxy::MusicComponent>(m_active_entity);
+			}
+
 			if (ImGui::Button("Add Animation"))
 			{
 				m_world->create_component<galaxy::AnimationComponent>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Animation"))
+			{
+				m_world->remove<galaxy::AnimationComponent>(m_active_entity);
 			}
 
 			ImGui::Spacing();
@@ -561,10 +617,17 @@ namespace sc
 			ImGui::Spacing();
 			ImGui::Spacing();
 
-			ImGui::Text("First file is vertex, second is fragment.");
+			bool confirm = shader->m_shader.is_loaded();
 			if (ImGui::Button("Load"))
 			{
-				shader->m_shader.load_path(galaxy::FileSystem::open_file_dialog(), galaxy::FileSystem::open_file_dialog());
+				auto vertex = galaxy::FileSystem::open_file_dialog("*.vs *.vertex *.vert *.v");
+				auto frag   = galaxy::FileSystem::open_file_dialog("*.fs *.fragment *.frag *.f");
+				shader->m_shader.load_path(vertex, frag);
+			}
+
+			if (confirm)
+			{
+				ImGui::Text("Shader has been loaded successfully.");
 			}
 		}
 
@@ -580,8 +643,7 @@ namespace sc
 			if (ImGui::Button("Load Texture"))
 			{
 				auto file = galaxy::FileSystem::open_file_dialog("*.png");
-				sprite->m_sprite.load(file);
-				sprite->m_sprite.create<qs::BufferDynamic>();
+				m_sprites_to_create.emplace(&sprite->m_sprite, file);
 			}
 
 			if (ImGui::Button("Clamp to Border"))

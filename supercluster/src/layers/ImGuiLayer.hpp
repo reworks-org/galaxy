@@ -28,6 +28,7 @@ namespace sc
 
 		void events() override;
 		void update(const double dt) override;
+		void pre_render() override;
 		void render() override;
 
 		void start();
@@ -65,6 +66,7 @@ namespace sc
 		bool m_sfx_loop           = false;
 		std::string m_active_anim = "";
 		bool m_add_anim_popup     = false;
+		robin_hood::unordered_map<qs::Sprite*, std::string> m_sprites_to_create;
 	};
 } // namespace sc
 
