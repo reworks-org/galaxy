@@ -287,23 +287,23 @@ namespace pl
 	{
 		if constexpr (LogLevel::value() == log_level::Level::INFO)
 		{
-			return "\x1B[100m";
+			return "\x1B[37m";
 		}
 		else if constexpr (LogLevel::value() == log_level::Level::DEBUG)
 		{
-			return "\x1B[42m";
+			return "\x1B[37m";
 		}
 		else if constexpr (LogLevel::value() == log_level::Level::WARNING)
 		{
-			return "\x1B[43m";
+			return "\x1B[33m";
 		}
 		else if constexpr (LogLevel::value() == log_level::Level::ERROR)
 		{
-			return "\x1B[41m";
+			return "\x1B[31m";
 		}
 		else if constexpr (LogLevel::value() == log_level::Level::FATAL)
 		{
-			return "\x1B[41m";
+			return "\x1B[31m";
 		}
 	}
 } // namespace pl
