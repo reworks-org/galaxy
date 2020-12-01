@@ -159,9 +159,15 @@ namespace sr
 				m_components[opt.value()] = std::move(m_components.back());
 				m_components.pop_back();
 
-				m_dense[m_sparse[entity]]     = m_dense[m_size - 1];
-				m_sparse[m_dense[m_size - 1]] = m_sparse[entity];
-				--m_size;
+				sr::Entity end_entity     = m_dense[m_size - 1];
+				m_dense[m_sparse[entity]] = end_entity;
+
+				m_sparse[end_entity] = m_sparse[entity];
+				m_sparse[entity]     = -1;
+
+				m_dense.pop_back();
+				m_size--;
+				m_capacity--;
 			}
 			else
 			{
