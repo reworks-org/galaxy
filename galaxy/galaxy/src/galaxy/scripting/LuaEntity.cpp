@@ -7,7 +7,6 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/flags/EnabledFlag.hpp"
 
 #include "LuaEntity.hpp"
 
@@ -50,12 +49,12 @@ namespace galaxy
 
 	void LuaEntity::enable()
 	{
-		SL_HANDLE.world()->create_component<galaxy::EnabledFlag>(m_entity);
+		SL_HANDLE.world()->create_component<galaxy::EnabledComponent>(m_entity);
 	}
 
 	void LuaEntity::disable()
 	{
-		SL_HANDLE.world()->remove<galaxy::EnabledFlag>(m_entity);
+		SL_HANDLE.world()->remove<galaxy::EnabledComponent>(m_entity);
 	}
 
 	AnimationComponent* LuaEntity::add_animation()

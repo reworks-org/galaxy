@@ -134,6 +134,7 @@ namespace sr
 		///
 		/// \return True if entity is enabled.
 		///
+		template<pr::is_class EnabledType>
 		[[nodiscard]] const bool is_enabled(sr::Entity entity);
 
 		///
@@ -302,6 +303,17 @@ namespace sr
 		SystemContainer m_systems;
 	};
 
+	template<pr::is_class EnabledType>
+	inline const bool Manager::is_enabled(sr::Entity entity)
+	{
+		if (validate(entity) && has(entity))
+		{
+			return get<EnabledType>(entity) != nullptr;
+		}
+
+		return false;
+	}
+
 	template<pr::is_class Component, typename... Args>
 	inline Component* Manager::create_component(const sr::Entity entity, Args&&... args)
 	{
@@ -406,10 +418,7 @@ namespace sr
 				if (m_data[type] != nullptr)
 				{
 					auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
-					if (derived->has(entity))
-					{
-						derived->remove(entity);
-					}
+					derived->remove(entity);
 				}
 			}
 		}

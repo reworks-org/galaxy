@@ -29,6 +29,7 @@ namespace galaxy
 		register_component<galaxy::SoundComponent>("SoundComponent");
 		register_component<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
 		register_component<galaxy::SpriteComponent>("SpriteComponent");
+		register_component<galaxy::EnabledComponent>("EnabledComponent");
 	}
 
 	World::~World()
