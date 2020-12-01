@@ -29,6 +29,7 @@ namespace sb
 
 		void events() override;
 		void update(const double dt) override;
+		void pre_render() override;
 		void render() override;
 
 	private:
@@ -41,6 +42,7 @@ namespace sb
 		qs::effect::PointLight m_pl;
 		qs::effect::Simple m_simple;
 		qs::Camera m_camera;
+		qs::Sprite m_sprite;
 	};
 } // namespace sb
 

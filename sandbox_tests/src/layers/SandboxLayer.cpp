@@ -8,7 +8,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <qs/core/Renderer.hpp>
-#include <galaxy/flags/EnabledFlag.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <qs/core/Shader.hpp>
@@ -54,6 +53,9 @@ namespace sb
 
 		SL_HANDLE.renderer()->add_post_effect(&m_simple);
 		//SL_HANDLE.renderer()->add_post_effect(&m_pl);
+
+		m_sprite.load("assets/textures/wall.png");
+		m_sprite.create<qs::BufferDynamic>();
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -124,8 +126,18 @@ namespace sb
 		m_particle_gen.update(dt, 0.01f);
 	}
 
+	void SandboxLayer::pre_render()
+	{
+	}
+
 	void SandboxLayer::render()
 	{
+		auto* ss = SL_HANDLE.shaderbook()->get("sprite");
+		ss->bind();
+		ss->set_uniform("u_cameraProj", m_camera.get_proj());
+		ss->set_uniform("u_cameraView", m_camera.get_transform());
+		SL_HANDLE.renderer()->draw_sprite(m_sprite, *ss);
+
 		auto* pts = SL_HANDLE.shaderbook()->get("particle");
 		pts->bind();
 		pts->set_uniform("u_cameraProj", m_camera.get_proj());
