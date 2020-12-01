@@ -93,9 +93,12 @@ namespace galaxy
 		void update(const double dt);
 
 		///
-		/// Render all layers.
+		/// Perform pre-rendering operations outside of opengl begin/end of rendering.
 		///
-		/// \param camera Camera to render layers with.
+		void pre_render();
+
+		///
+		/// Render all layers.
 		///
 		void render();
 

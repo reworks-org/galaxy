@@ -44,6 +44,19 @@ namespace pr
 		}
 	}
 
+	void StateMachine::pre_render()
+	{
+		// Check to make sure pre_render is valid to call.
+		if (!m_stack.empty())
+		{
+			m_stack.top()->pre_render();
+		}
+		else
+		{
+			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
+		}
+	}
+
 	void StateMachine::render()
 	{
 		// Check to make sure render is valid to call.

@@ -69,7 +69,12 @@ namespace pr
 		virtual void update(const double dt) = 0;
 
 		///
-		/// \brief Allows for the state to call render code.
+		/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
+		///
+		virtual void pre_render() = 0;
+
+		///
+		/// Allows for the state to call render code.
 		///
 		virtual void render() = 0;
 

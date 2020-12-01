@@ -41,6 +41,11 @@ namespace galaxy
 		virtual void update(const double dt) = 0;
 
 		///
+		/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
+		///
+		virtual void pre_render() = 0;
+
+		///
 		/// Render layer.
 		///
 		virtual void render() = 0;

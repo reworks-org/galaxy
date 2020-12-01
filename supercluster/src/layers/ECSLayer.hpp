@@ -23,6 +23,7 @@ namespace sc
 
 		void events() override;
 		void update(const double dt) override;
+		void pre_render() override;
 		void render() override;
 
 	private:

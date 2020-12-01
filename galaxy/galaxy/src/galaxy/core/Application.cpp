@@ -209,13 +209,12 @@ namespace galaxy
 				lag -= update_ratio;
 			}
 
-			// Begin render.
+			m_state->pre_render();
 			m_window->begin();
 
 			m_state->render();
 
 			m_window->end(m_renderer.get());
-			// End render.
 		}
 
 		m_state->clear();

@@ -37,6 +37,10 @@ public:
 		m_val++;
 	}
 
+	inline void pre_render() override
+	{
+	}
+
 	inline void render() override
 	{
 		m_val++;
@@ -76,6 +80,10 @@ public:
 	}
 
 	inline void update(const double dt) override
+	{
+	}
+
+	inline void pre_render() override
 	{
 	}
 
