@@ -161,7 +161,8 @@ namespace galaxy
 			SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 			// Register all usertypes used by this application for sol3.
-			Lua::register_types();
+			lua::register_types();
+			lua::register_gui();
 		}
 	}
 
