@@ -16,7 +16,6 @@
 #include <galaxy/core/World.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/res/ShaderBook.hpp>
-#include <galaxy/scripting/JSONDefinition.hpp>
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 #include <galaxy/components/All.hpp>
@@ -43,6 +42,8 @@ namespace sc
 		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
 		ImGui_ImplOpenGL3_Init("#version 450 core");
 		// clang-format on
+
+		m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 	}
 
 	ImGuiLayer::~ImGuiLayer()
@@ -102,7 +103,7 @@ namespace sc
 				m_draw_json_editor = !m_draw_json_editor;
 			}
 
-			if (ImGui::MenuItem("Script Editor"))
+			if (ImGui::MenuItem("Lua Editor"))
 			{
 				m_draw_script_editor = !m_draw_script_editor;
 			}
@@ -178,6 +179,14 @@ namespace sc
 		ImGui::Separator();
 		ImGui::Spacing();
 
+		if (ImGui::Button("New"))
+		{
+			ImGui::OpenPopup("create_new", ImGuiPopupFlags_NoOpenOverExistingPopup);
+		}
+
+		m_json_editor.create_new();
+		ImGui::SameLine();
+
 		if (ImGui::Button("Open"))
 		{
 			auto fp = galaxy::FileSystem::open_file_dialog("*.json");
@@ -204,7 +213,7 @@ namespace sc
 	{
 		const auto cpos = m_editor.GetCursorPosition();
 
-		ImGui::Begin("Script Editor", &m_draw_script_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		ImGui::Begin("Lua Editor", &m_draw_script_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
 		ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
 
 		if (ImGui::BeginMenuBar())
@@ -213,18 +222,8 @@ namespace sc
 			{
 				if (ImGui::MenuItem("Open"))
 				{
-					auto fp = std::filesystem::path {galaxy::FileSystem::open_file_dialog("*.json *.lua")};
-					if (fp.extension() == ".json")
-					{
-						m_editor.SetLanguageDefinition(galaxy::get_json_definition());
-					}
-					else if (fp.extension() == ".lua")
-					{
-						m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
-					}
-
+					auto fp = std::filesystem::path {galaxy::FileSystem::open_file_dialog("*.lua")};
 					std::ifstream text(fp.string(), std::ifstream::in);
-
 					if (text.good())
 					{
 						std::string str((std::istreambuf_iterator<char>(text)), std::istreambuf_iterator<char>());
@@ -331,7 +330,7 @@ namespace sc
 			ImGui::EndMenuBar();
 		}
 
-		m_editor.Render("Script Editor");
+		m_editor.Render("Lua Editor");
 
 		ImGui::End();
 	}

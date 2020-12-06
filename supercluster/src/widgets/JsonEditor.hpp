@@ -11,6 +11,7 @@
 #include <span>
 
 #include <nlohmann/json.hpp>
+#include <robin_hood.h>
 
 namespace sc
 {
@@ -18,6 +19,8 @@ namespace sc
 	{
 	public:
 		JsonEditor();
+
+		void create_new();
 
 		void load_file(std::string_view file);
 		void load_mem(std::span<char> memory);
@@ -30,15 +33,18 @@ namespace sc
 		[[nodiscard]] const bool is_loaded() const;
 
 	private:
+		unsigned long long m_counter;
 		bool m_loaded;
 
 		void do_object(nlohmann::json& json);
 		void do_array(nlohmann::json& json);
 
+		void new_object(nlohmann::json& json);
+		void add_to_array(nlohmann::json& json);
+
 		nlohmann::json m_root;
 		nlohmann::json* m_external;
 	};
-
 } // namespace sc
 
 #endif
