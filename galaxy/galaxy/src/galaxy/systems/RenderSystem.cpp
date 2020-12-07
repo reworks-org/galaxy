@@ -10,7 +10,6 @@
 #include "galaxy/components/All.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
-#include "galaxy/flags/EnabledFlag.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -68,10 +67,10 @@ namespace galaxy
 
 	void RenderSystem::render(qs::Camera& camera)
 	{
-		m_world->operate<SpriteComponent, ShaderComponent>([&](const sr::Entity entity, SpriteComponent* sprite, ShaderComponent* shader) {
+		m_world->operate<SpriteComponent, ShaderComponent, EnabledComponent>([&](const sr::Entity entity, SpriteComponent* sprite, ShaderComponent* shader, EnabledComponent* ef) {
 			shader->m_shader.bind();
-			shader->m_shader.set_uniform<glm::mat4>("u_cameraProj", camera.get_proj());
-			shader->m_shader.set_uniform<glm::mat4>("u_cameraView", camera.get_transform());
+			shader->m_shader.set_uniform("u_cameraProj", camera.get_proj());
+			shader->m_shader.set_uniform("u_cameraView", camera.get_transform());
 
 			SL_HANDLE.renderer()->draw_sprite(sprite->m_sprite, shader->m_shader);
 		});

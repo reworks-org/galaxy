@@ -8,9 +8,11 @@
     "cursor-image": "cursor.png",
     "font-path": "fonts/",
     "fontbook-json": "fontbook.json",
+    "gl-debug": false,
     "icon-file": "icon.png",
     "is-cursor-visible": true,
     "json-path": "json/",
+    "line-thickness": 1.0,
     "raw-mouse-input": true,
     "root-path": "assets/",
     "save-folder": "saves/",
@@ -22,6 +24,5 @@
     "vsync": true,
     "window-height": 720,
     "window-name": "Sandbox",
-    "window-width": 1280,
-    "line-thickness" : 5.0
+    "window-width": 1280
 }

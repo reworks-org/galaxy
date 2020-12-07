@@ -327,6 +327,77 @@ TEST(Manager, Operate)
 	EXPECT_EQ(b->val, 2);
 }
 
+TEST(Manager, OperateMissing)
+{
+	sr::Manager m;
+	auto e = m.create();
+	m.create_component<AA>(e);
+
+	auto* a = m.get<AA>(e);
+	a->val  = 5;
+
+	ASSERT_TRUE(a != nullptr);
+	m.operate<AA, BB>([](const sr::Entity entity, AA* a, BB* b) {
+		if (a != nullptr)
+		{
+			a->val = 1;
+		}
+
+		if (b != nullptr)
+		{
+			b->val = 1;
+		}
+	});
+
+	// I.e. operate() should not have been called.
+	EXPECT_EQ(a->val, 5);
+}
+
+TEST(Manager, OperateAddRemove)
+{
+	sr::Manager m;
+	auto e = m.create();
+	m.create_component<AA>(e);
+	m.create_component<BB>(e);
+
+	m.operate<AA, BB>([](const sr::Entity entity, AA* a, BB* b) {
+		a->val = 1;
+		b->val = 2;
+	});
+
+	auto* a = m.get<AA>(e);
+	auto* b = m.get<BB>(e);
+
+	ASSERT_TRUE(a != nullptr);
+	ASSERT_TRUE(b != nullptr);
+
+	EXPECT_EQ(a->val, 1);
+	EXPECT_EQ(b->val, 2);
+
+	m.remove<AA>(e);
+
+	// Should NOT be called.
+	m.operate<AA, BB>([](const sr::Entity entity, AA* a, BB* b) {
+		if (a != nullptr)
+		{
+			a->val = 5;
+		}
+
+		if (b != nullptr)
+		{
+			b->val = 5;
+		}
+	});
+
+	auto* a2 = m.get<AA>(e);
+	auto* b2 = m.get<BB>(e);
+
+	ASSERT_TRUE(a2 == nullptr);
+	ASSERT_TRUE(b2 != nullptr);
+
+	EXPECT_EQ(b2->val, 2);
+}
+
 TEST(Manager, Destroy)
 {
 	sr::Manager m;

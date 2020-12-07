@@ -14,5 +14,6 @@
 #include "galaxy/components/SoundComponent.hpp"
 #include "galaxy/components/SpriteBatchComponent.hpp"
 #include "galaxy/components/SpriteComponent.hpp"
+#include "galaxy/components/EnabledComponent.hpp"
 
 #endif

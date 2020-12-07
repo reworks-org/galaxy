@@ -107,6 +107,13 @@ namespace qs
 		template<typename... uniforms>
 		void set_uniform(std::string_view name, const uniforms&... args);
 
+		///
+		/// Query if shader has been loaded.
+		///
+		/// \return Const bool. True if loaded.
+		///
+		[[nodiscard]] const bool is_loaded() const;
+
 	private:
 		///
 		/// \brief Retrieves location of shader uniform from GPU.
@@ -125,6 +132,11 @@ namespace qs
 		/// Cache of uniforms for better performance.
 		///
 		robin_hood::unordered_map<std::string, int> m_cache;
+
+		///
+		/// Boolean keeping track if shader is loaded.
+		///
+		bool m_loaded;
 	};
 
 	template<typename... Uniforms>

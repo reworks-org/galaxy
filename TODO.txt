@@ -1,6 +1,5 @@
 QUASAR:
 - C++20 review when eventual performance improvements are required.
-- Vertex retrieval
 
 ALL:
 - investigate other usages of C++20 coroutines

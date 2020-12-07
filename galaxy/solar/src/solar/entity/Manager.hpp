@@ -46,6 +46,11 @@ namespace sr
 	using SUniqueID = pr::UniqueID<struct SystemUniqueID>;
 
 	///
+	/// Container for retrieval of entities in operate() function.
+	///
+	using EntitysWithCounters = robin_hood::unordered_map<sr::Entity, int>;
+
+	///
 	/// Concept to ensure a system is actually derived from sr::System.
 	///
 	template<typename Type>
@@ -129,6 +134,7 @@ namespace sr
 		///
 		/// \return True if entity is enabled.
 		///
+		template<pr::is_class EnabledType>
 		[[nodiscard]] const bool is_enabled(sr::Entity entity);
 
 		///
@@ -264,7 +270,7 @@ namespace sr
 		/// Called by operate().
 		///
 		template<pr::is_class Component>
-		void internal_operate(std::vector<sr::Entity>& entities);
+		void internal_operate(EntitysWithCounters& entities);
 
 		///
 		/// Counter for free entity ids.
@@ -296,6 +302,17 @@ namespace sr
 		///
 		SystemContainer m_systems;
 	};
+
+	template<pr::is_class EnabledType>
+	inline const bool Manager::is_enabled(sr::Entity entity)
+	{
+		if (validate(entity) && has(entity))
+		{
+			return get<EnabledType>(entity) != nullptr;
+		}
+
+		return false;
+	}
 
 	template<pr::is_class Component, typename... Args>
 	inline Component* Manager::create_component(const sr::Entity entity, Args&&... args)
@@ -401,10 +418,7 @@ namespace sr
 				if (m_data[type] != nullptr)
 				{
 					auto* derived = dynamic_cast<ComponentSet<Component>*>(m_data[type].get());
-					if (derived->has(entity))
-					{
-						derived->remove(entity);
-					}
+					derived->remove(entity);
 				}
 			}
 		}
@@ -416,25 +430,24 @@ namespace sr
 		// Ensure data is not empty.
 		if (!m_data.empty())
 		{
-			// constexpr auto length = sizeof...(Components);
-			std::vector<sr::Entity> entities;
+			constexpr auto length = sizeof...(Components);
+			EntitysWithCounters entities;
 
-			// using ComponentContainer = std::vector<std::unique_ptr<EntitySet<sr::Entity>>>;
 			(internal_operate<Components>(entities), ...);
 
-			std::sort(entities.begin(), entities.end());
-			auto last = std::unique(entities.begin(), entities.end());
-			entities.erase(last, entities.end());
-
-			for (const auto entity : entities)
+			for (const auto& [entity, count] : entities)
 			{
-				func(entity, get<Components>(entity)...);
+				// Ensures that only entities that have all components are used.
+				if (!(count < length))
+				{
+					func(entity, get<Components>(entity)...);
+				}
 			}
 		}
 	}
 
 	template<pr::is_class Component>
-	inline void Manager::internal_operate(std::vector<sr::Entity>& entities)
+	inline void Manager::internal_operate(EntitysWithCounters& entities)
 	{
 		const auto type = CUniqueID::get<Component>();
 
@@ -447,8 +460,10 @@ namespace sr
 			auto ptr = m_data[type].get();
 			if (ptr != nullptr)
 			{
-				entities.reserve(ptr->m_dense.size());
-				std::move(ptr->m_dense.begin(), ptr->m_dense.end(), std::back_inserter(entities));
+				for (const auto& entity : ptr->m_dense)
+				{
+					entities[entity]++;
+				}
 			}
 		}
 	}

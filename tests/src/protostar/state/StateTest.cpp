@@ -36,6 +36,10 @@ public:
 	{
 	}
 
+	inline void pre_render() override
+	{
+	}
+
 	inline void render() override
 	{
 	}

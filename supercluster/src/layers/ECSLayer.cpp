@@ -8,7 +8,8 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/components/All.hpp>
-#include <galaxy/flags/EnabledFlag.hpp>
+#include <galaxy/res/ShaderBook.hpp>
+#include <qs/core/Renderer.hpp>
 
 #include "ECSLayer.hpp"
 
@@ -49,7 +50,12 @@ namespace sc
 		m_world->update(dt);
 	}
 
+	void ECSLayer::pre_render()
+	{
+	}
+
 	void ECSLayer::render()
 	{
+		m_world->get_system<galaxy::RenderSystem>()->render(m_camera);
 	}
 } // namespace sc

@@ -20,8 +20,37 @@
 namespace sc
 {
 	JsonEditor::JsonEditor()
-	    : m_loaded {false}, m_external {nullptr}
+	    : m_counter {0}, m_loaded {false}, m_external {nullptr}
 	{
+	}
+
+	void JsonEditor::create_new()
+	{
+		if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
+		{
+			ImGui::Text("Select root object type:");
+			ImGui::Separator();
+
+			if (ImGui::Button("Array"))
+			{
+				m_root   = nlohmann::json::array();
+				m_loaded = true;
+
+				ImGui::CloseCurrentPopup();
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Object"))
+			{
+				m_root   = nlohmann::json::object();
+				m_loaded = true;
+
+				ImGui::CloseCurrentPopup();
+			}
+
+			ImGui::EndPopup();
+		}
 	}
 
 	void JsonEditor::load_file(std::string_view file)
@@ -74,6 +103,8 @@ namespace sc
 	{
 		if (m_loaded)
 		{
+			m_counter = 0;
+
 			if (m_external)
 			{
 				if (m_external->is_object())
@@ -116,6 +147,17 @@ namespace sc
 	{
 		ImGui::Text("{");
 		ImGui::Indent(INDENT_PIXELS);
+
+		m_counter++;
+		ImGui::PushID(m_counter);
+
+		if (ImGui::Button("New Object"))
+		{
+			ImGui::OpenPopup("New Object", ImGuiPopupFlags_NoOpenOverExistingPopup);
+		}
+
+		new_object(json);
+		ImGui::PopID();
 
 		for (auto& [key, value] : json.items())
 		{
@@ -170,11 +212,22 @@ namespace sc
 		ImGui::Text("[");
 		ImGui::Indent(INDENT_PIXELS);
 
+		m_counter++;
+		ImGui::PushID(m_counter);
+
+		if (ImGui::Button("New Element"))
+		{
+			ImGui::OpenPopup("New Element", ImGuiPopupFlags_NoOpenOverExistingPopup);
+		}
+
+		add_to_array(json);
+		ImGui::PopID();
+
 		unsigned int counter = 0;
 		std::string name     = "";
 		for (auto& elem : json)
 		{
-			name = "[" + std::to_string(counter) + "]";
+			name = fmt::format("[{0}]", counter);
 			if (elem.is_array())
 			{
 				do_array(elem);
@@ -215,5 +268,229 @@ namespace sc
 
 		ImGui::Unindent(INDENT_PIXELS);
 		ImGui::Text("]");
+	}
+
+	void JsonEditor::new_object(nlohmann::json& json)
+	{
+		if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
+		{
+			static std::string s_key_str = "";
+			static std::string s_val_str = "";
+			static std::string s_err_str = "";
+			static int s_index           = 0;
+			static bool s_show_error     = false;
+
+			// clang-format off
+			static const std::vector<const char*> s_types =
+			{
+				"...",
+				"bool",
+				"integer",
+				"unsigned",
+				"float",
+				"string",
+				"object",
+				"array"
+			};
+			// clang-format on
+
+			ImGui::InputText("Key", &s_key_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
+			ImGui::SameLine();
+			ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
+			ImGui::Combo("Type", &s_index, s_types.data(), s_types.size());
+
+			if (ImGui::Button("Add"))
+			{
+				if (s_key_str.empty() || s_val_str.empty())
+				{
+					s_err_str    = "Input fields cannot be empty.";
+					s_show_error = true;
+				}
+				else
+				{
+					if (s_types[s_index] == "bool")
+					{
+						if (s_val_str == "true")
+						{
+							json[s_key_str] = true;
+							s_show_error    = false;
+						}
+						else if (s_val_str == "false")
+						{
+							json[s_key_str] = false;
+							s_show_error    = false;
+						}
+						else
+						{
+							s_err_str    = "Boolean string must be \"true\" or \"false\".";
+							s_show_error = true;
+						}
+					}
+					else if (s_types[s_index] == "integer")
+					{
+						json[s_key_str] = std::stoi(s_val_str);
+						s_show_error    = false;
+					}
+					else if (s_types[s_index] == "unsigned")
+					{
+						json[s_key_str] = static_cast<unsigned int>(std::stoi(s_val_str));
+						s_show_error    = false;
+					}
+					else if (s_types[s_index] == "float")
+					{
+						json[s_key_str] = std::stof(s_val_str);
+						s_show_error    = false;
+					}
+					else if (s_types[s_index] == "string")
+					{
+						json[s_key_str] = s_val_str;
+						s_show_error    = false;
+					}
+					else if (s_types[s_index] == "object")
+					{
+						json[s_key_str] = nlohmann::json::object();
+						s_show_error    = false;
+					}
+					else if (s_types[s_index] == "array")
+					{
+						json.push_back(nlohmann::json::array());
+						s_show_error = false;
+					}
+					else
+					{
+						s_err_str    = "No type selected.";
+						s_show_error = true;
+					}
+
+					if (!s_show_error)
+					{
+						s_key_str    = "";
+						s_val_str    = "";
+						s_err_str    = "";
+						s_index      = 0;
+						s_show_error = false;
+
+						ImGui::CloseCurrentPopup();
+					}
+				}
+			}
+
+			if (s_show_error)
+			{
+				ImGui::Text(s_err_str.c_str());
+			}
+
+			ImGui::EndPopup();
+		}
+	}
+
+	void JsonEditor::add_to_array(nlohmann::json& json)
+	{
+		if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
+		{
+			static std::string s_val_str = "";
+			static std::string s_err_str = "";
+			static int s_index           = 0;
+			static bool s_show_error     = false;
+
+			// clang-format off
+			static const std::vector<const char*> s_types =
+			{
+				"...",
+				"bool",
+				"integer",
+				"unsigned",
+				"float",
+				"string",
+				"object",
+				"array"
+			};
+			// clang-format on
+
+			ImGui::InputText("Value", &s_val_str, ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll);
+			ImGui::Combo("Type", &s_index, s_types.data(), s_types.size());
+
+			if (ImGui::Button("Add"))
+			{
+				if (s_val_str.empty())
+				{
+					s_err_str    = "Input fields cannot be empty.";
+					s_show_error = true;
+				}
+				else
+				{
+					if (s_types[s_index] == "bool")
+					{
+						if (s_val_str == "true")
+						{
+							json.push_back(true);
+							s_show_error = false;
+						}
+						else if (s_val_str == "false")
+						{
+							json.push_back(false);
+							s_show_error = false;
+						}
+						else
+						{
+							s_err_str    = "Boolean string must be \"true\" or \"false\".";
+							s_show_error = true;
+						}
+					}
+					else if (s_types[s_index] == "integer")
+					{
+						json.push_back(std::stoi(s_val_str));
+						s_show_error = false;
+					}
+					else if (s_types[s_index] == "unsigned")
+					{
+						json.push_back(static_cast<unsigned int>(std::stoi(s_val_str)));
+						s_show_error = false;
+					}
+					else if (s_types[s_index] == "float")
+					{
+						json.push_back(std::stof(s_val_str));
+						s_show_error = false;
+					}
+					else if (s_types[s_index] == "string")
+					{
+						json.push_back(s_val_str);
+						s_show_error = false;
+					}
+					else if (s_types[s_index] == "object")
+					{
+						json.push_back(nlohmann::json::object());
+						s_show_error = false;
+					}
+					else if (s_types[s_index] == "array")
+					{
+						json.push_back(nlohmann::json::array());
+						s_show_error = false;
+					}
+					else
+					{
+						s_err_str    = "No type selected.";
+						s_show_error = true;
+					}
+
+					if (!s_show_error)
+					{
+						s_val_str    = "";
+						s_err_str    = "";
+						s_index      = 0;
+						s_show_error = false;
+
+						ImGui::CloseCurrentPopup();
+					}
+				}
+			}
+
+			if (s_show_error)
+			{
+				ImGui::Text(s_err_str.c_str());
+			}
+
+			ImGui::EndPopup();
+		}
 	}
 } // namespace sc

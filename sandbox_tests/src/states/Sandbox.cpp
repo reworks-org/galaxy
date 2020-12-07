@@ -40,6 +40,11 @@ namespace sb
 		m_layers.update(dt);
 	}
 
+	void Sandbox::pre_render()
+	{
+		m_layers.pre_render();
+	}
+
 	void Sandbox::render()
 	{
 		m_layers.render();

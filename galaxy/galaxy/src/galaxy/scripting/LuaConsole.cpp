@@ -9,6 +9,7 @@
 #include <filesystem>
 
 #include <imgui/imgui_stdlib.h>
+#include <pulsar/Log.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -49,7 +50,7 @@ namespace galaxy
 
 			if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 			{
-				m_history.push_back("INPUT: " + m_buff);
+				m_history.push_back(fmt::format("[INPUT]:  {0}.", m_buff));
 				std::string code = {""};
 
 				if (std::filesystem::path(m_buff).extension() == ".lua")
@@ -64,8 +65,16 @@ namespace galaxy
 					code = m_buff;
 				}
 
-				std::string res = SL_HANDLE.lua()->safe_script(code);
-				m_history.push_back("OUTPUT: " + res);
+				try
+				{
+					const std::string res = SL_HANDLE.lua()->safe_script(code);
+					m_history.push_back(fmt::format("[RESULT]: {0}.", res));
+				}
+				catch (const std::exception& e)
+				{
+					PL_LOG(PL_ERROR, e.what());
+					m_history.push_back(fmt::format("[ERROR]:  {0}.", e.what()));
+				}
 
 				m_buff.clear();
 				ImGui::SetKeyboardFocusHere(-1);

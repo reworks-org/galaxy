@@ -205,6 +205,10 @@ namespace sb
 		m_gui.update(dt);
 	}
 
+	void GUILayer::pre_render()
+	{
+	}
+
 	void GUILayer::render()
 	{
 		m_gui.render(m_gui_camera);

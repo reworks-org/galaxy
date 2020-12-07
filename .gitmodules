@@ -35,3 +35,6 @@
 [submodule "dependencies/freetype2-win"]
 	path = dependencies/freetype2-win
 	url = https://github.com/ubawurinna/freetype-windows-binaries.git
+[submodule "dependencies/cppcoro"]
+	path = dependencies/cppcoro
+	url = https://github.com/lewissbaker/cppcoro.git

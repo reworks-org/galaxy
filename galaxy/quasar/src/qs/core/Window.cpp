@@ -587,6 +587,7 @@ namespace qs
 		// clang-format on
 
 		m_fb_sprite->bind();
+
 		for (qs::PostEffect* effect : renderer->get_post_effects())
 		{
 			effect->m_shader.bind();
@@ -599,6 +600,7 @@ namespace qs
 			glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
+		m_fb_sprite->unbind();
 		glfwSwapBuffers(m_window);
 	}
 

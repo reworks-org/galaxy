@@ -5,8 +5,6 @@
 /// See LICENSE.txt.
 ///
 
-#include <galaxy/flags/EnabledFlag.hpp>
-
 #include "Manager.hpp"
 
 namespace sr
@@ -58,16 +56,6 @@ namespace sr
 	const bool Manager::validate(const sr::Entity entity)
 	{
 		return (std::find(m_invalid_entities.begin(), m_invalid_entities.end(), entity) == m_invalid_entities.end());
-	}
-
-	const bool Manager::is_enabled(sr::Entity entity)
-	{
-		if (validate(entity) && has(entity))
-		{
-			return get<galaxy::EnabledFlag>(entity) != nullptr;
-		}
-
-		return false;
 	}
 
 	bool Manager::assign_name(const sr::Entity entity, std::string_view debug_name)

@@ -33,6 +33,14 @@ namespace galaxy
 		}
 	}
 
+	void LayerStorage::pre_render()
+	{
+		for (auto&& layer : m_layers)
+		{
+			layer->pre_render();
+		}
+	}
+
 	void LayerStorage::render()
 	{
 		for (auto&& layer : m_layers)

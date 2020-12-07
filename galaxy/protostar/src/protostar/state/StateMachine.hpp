@@ -77,7 +77,12 @@ namespace pr
 		void update(const double dt);
 
 		///
-		/// \brief Render the current state.
+		/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
+		///
+		void pre_render();
+
+		///
+		/// Render the current state.
 		///
 		void render();
 

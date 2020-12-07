@@ -161,7 +161,8 @@ namespace galaxy
 			SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 			// Register all usertypes used by this application for sol3.
-			Lua::register_types();
+			lua::register_types();
+			lua::register_gui();
 		}
 	}
 
@@ -209,13 +210,12 @@ namespace galaxy
 				lag -= update_ratio;
 			}
 
-			// Begin render.
+			m_state->pre_render();
 			m_window->begin();
 
 			m_state->render();
 
 			m_window->end(m_renderer.get());
-			// End render.
 		}
 
 		m_state->clear();

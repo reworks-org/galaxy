@@ -43,6 +43,11 @@ namespace sc
 		m_layers.update(dt);
 	}
 
+	void Editor::pre_render()
+	{
+		m_layers.pre_render();
+	}
+
 	void Editor::render()
 	{
 		m_layers.render();

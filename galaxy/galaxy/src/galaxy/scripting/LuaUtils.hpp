@@ -16,13 +16,18 @@ namespace galaxy
 	///
 	/// Namespace that contains useful functions for interacting with Lua.
 	///
-	namespace Lua
+	namespace lua
 	{
 		///
-		/// Registers custom library usertypes with sol. Called for you by Application class.
+		/// Create custom types in lua.
 		///
 		void register_types();
-	} // namespace Lua
+
+		///
+		/// Allow gui interaction from lua.
+		///
+		void register_gui();
+	} // namespace lua
 } // namespace galaxy
 
 #endif

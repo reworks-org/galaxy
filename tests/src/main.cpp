@@ -13,5 +13,6 @@ int main(int argsc, char* argsv[])
 	PL_ENABLE_TESTING_MODE;
 
 	testing::InitGoogleTest(&argsc, argsv);
-	return RUN_ALL_TESTS();
+	auto res = RUN_ALL_TESTS();
+	return res;
 }

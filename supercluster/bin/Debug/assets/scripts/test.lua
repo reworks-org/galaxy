@@ -1,1 +1,2 @@
-entity = LuaEntity.new("test")
+local entity = entity_manager:create_with_name('test')
+
