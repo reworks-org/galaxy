@@ -39,6 +39,7 @@ namespace sc
 		void atlas_editor_ui();
 		void entity_ui();
 		void component_ui(bool enabled, std::uint32_t entity);
+		void gui_builder_ui();
 
 	private:
 		qs::Camera m_camera;
@@ -50,6 +51,7 @@ namespace sc
 		bool m_draw_atlas_editor;
 		bool m_draw_entity_editor;
 		bool m_draw_lua_console;
+		bool m_draw_gui_builder_ui;
 
 		ImGui::TextEditor m_editor;
 		galaxy::LuaConsole m_console;

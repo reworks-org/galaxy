@@ -118,6 +118,11 @@ namespace sc
 				m_draw_entity_editor = !m_draw_entity_editor;
 			}
 
+			if (ImGui::MenuItem("GUI Builder"))
+			{
+				m_draw_gui_builder_ui = !m_draw_gui_builder_ui;
+			}
+
 			if (ImGui::MenuItem("Lua Console"))
 			{
 				m_draw_lua_console = !m_draw_lua_console;
@@ -144,6 +149,11 @@ namespace sc
 		if (m_draw_entity_editor)
 		{
 			entity_ui();
+		}
+
+		if (m_draw_gui_builder_ui)
+		{
+			gui_builder_ui();
 		}
 
 		if (m_draw_lua_console)
@@ -980,5 +990,77 @@ namespace sc
 				music->m_music.set_looping(m_sfx_loop);
 			}
 		}
+	}
+
+	void ImGuiLayer::gui_builder_ui()
+	{
+		ImGui::Begin("GUI Builder", &m_draw_gui_builder_ui, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+
+		if (ImGui::Button("Create Theme"))
+		{
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Build GUI"))
+		{
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Export to JSON"))
+		{
+		}
+
+		ImGui::Separator();
+		ImGui::Spacing();
+		ImGui::Text("Add A Widget");
+		ImGui::Spacing();
+
+		if (ImGui::Button("Button"))
+		{
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Image"))
+		{
+		}
+
+		if (ImGui::Button("Label"))
+		{
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("ProgressBar"))
+		{
+		}
+
+		if (ImGui::Button("Slider"))
+		{
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Textbox"))
+		{
+		}
+
+		if (ImGui::Button("TextInput"))
+		{
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("ToggleButton"))
+		{
+		}
+
+		ImGui::Spacing();
+		ImGui::Separator();
+		ImGui::Spacing();
+
+		ImGui::End();
 	}
 } // namespace sc
