@@ -19,6 +19,7 @@ namespace sc
 	{
 	public:
 		JsonEditor();
+		~JsonEditor() = default;
 
 		void create_new();
 
