@@ -1,19 +1,22 @@
 ///
 /// JsonEditor.hpp
-/// supercluster
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_JSONEDITOR_HPP_
-#define SUPERCLUSTER_JSONEDITOR_HPP_
+#ifndef GALAXY_JSONEDITOR_HPP_
+#define GALAXY_JSONEDITOR_HPP_
 
 #include <span>
 
 #include <nlohmann/json.hpp>
 #include <robin_hood.h>
 
-namespace sc
+///
+/// Core namespace.
+///
+namespace galaxy
 {
 	class JsonEditor final
 	{
@@ -46,6 +49,6 @@ namespace sc
 		nlohmann::json m_root;
 		nlohmann::json* m_external;
 	};
-} // namespace sc
+} // namespace galaxy
 
 #endif

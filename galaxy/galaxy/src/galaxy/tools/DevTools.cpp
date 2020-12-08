@@ -1,6 +1,6 @@
 ///
-/// ImGuiLayer.cpp
-/// supercluster
+/// DevTools.cpp
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -20,33 +20,19 @@
 #include <qs/graphics/TextureAtlas.hpp>
 #include <galaxy/components/All.hpp>
 
-#include "ImGuiLayer.hpp"
+#include "DevTools.hpp"
 
-namespace sc
+///
+/// Core namespace.
+///
+namespace galaxy
 {
-	ImGuiLayer::ImGuiLayer()
+	DevTools::DevTools()
 	    : m_world {nullptr}, m_window {nullptr}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
-		// clang-format off
-		set_name("imgui_layer");
-		m_window = SL_HANDLE.window();
-		m_world = SL_HANDLE.world();
-
-		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
-
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
-		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		ImGui::StyleColorsClassic();
-
-		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
-		ImGui_ImplOpenGL3_Init("#version 450 core");
-		// clang-format on
-
-		m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 	}
 
-	ImGuiLayer::~ImGuiLayer()
+	DevTools::~DevTools()
 	{
 		m_world  = nullptr;
 		m_window = nullptr;
@@ -56,16 +42,25 @@ namespace sc
 		ImGui::DestroyContext();
 	}
 
-	void ImGuiLayer::events()
+	void DevTools::create()
 	{
+		m_window = SL_HANDLE.window();
+		m_world  = SL_HANDLE.world();
+
+		// clang-format off
+		IMGUI_CHECKVERSION();
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+		ImGui::StyleColorsClassic();
+		// clang-format on
+
+		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
+		ImGui_ImplOpenGL3_Init("#version 450 core");
+
+		m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 	}
 
-	void ImGuiLayer::update(const double dt)
-	{
-		m_camera.update(dt);
-	}
-
-	void ImGuiLayer::pre_render()
+	void DevTools::prepare()
 	{
 		if (!m_sprites_to_create.empty())
 		{
@@ -164,24 +159,24 @@ namespace sc
 		end();
 	}
 
-	void ImGuiLayer::render()
+	void DevTools::draw()
 	{
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
 
-	void ImGuiLayer::start()
+	void DevTools::start()
 	{
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 	}
 
-	void ImGuiLayer::end()
+	void DevTools::end()
 	{
 		ImGui::Render();
 	}
 
-	void ImGuiLayer::json_ui()
+	void DevTools::json_ui()
 	{
 		ImGui::Begin("JSON Editor", &m_draw_json_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
@@ -219,7 +214,7 @@ namespace sc
 		ImGui::End();
 	}
 
-	void ImGuiLayer::script_editor_ui()
+	void DevTools::script_editor_ui()
 	{
 		const auto cpos = m_editor.GetCursorPosition();
 
@@ -345,7 +340,7 @@ namespace sc
 		ImGui::End();
 	}
 
-	void ImGuiLayer::atlas_editor_ui()
+	void DevTools::atlas_editor_ui()
 	{
 		const constexpr short LOADED  = 0;
 		const constexpr short CREATED = 1;
@@ -437,7 +432,7 @@ namespace sc
 		ImGui::End();
 	}
 
-	void ImGuiLayer::entity_ui()
+	void DevTools::entity_ui()
 	{
 		ImGui::Begin("Entity Manager", &m_draw_entity_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
@@ -588,7 +583,7 @@ namespace sc
 		ImGui::End();
 	}
 
-	void ImGuiLayer::component_ui(bool enabled, std::uint32_t entity)
+	void DevTools::component_ui(bool enabled, std::uint32_t entity)
 	{
 		auto [shader, sprite, batch, sound, music, animation] = m_world->get_multi<
 		    galaxy::ShaderComponent,
@@ -992,7 +987,7 @@ namespace sc
 		}
 	}
 
-	void ImGuiLayer::gui_builder_ui()
+	void DevTools::gui_builder_ui()
 	{
 		ImGui::Begin("GUI Builder", &m_draw_gui_builder_ui, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
@@ -1063,4 +1058,4 @@ namespace sc
 
 		ImGui::End();
 	}
-} // namespace sc
+} // namespace galaxy

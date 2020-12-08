@@ -163,6 +163,9 @@ namespace galaxy
 			// Register all usertypes used by this application for sol3.
 			lua::register_types();
 			lua::register_gui();
+
+			// Setup dev tools.
+			m_tools.create();
 		}
 	}
 
@@ -211,9 +214,11 @@ namespace galaxy
 			}
 
 			m_state->pre_render();
+			m_tools.prepare();
 			m_window->begin();
 
 			m_state->render();
+			m_tools.draw();
 
 			m_window->end(m_renderer.get());
 		}

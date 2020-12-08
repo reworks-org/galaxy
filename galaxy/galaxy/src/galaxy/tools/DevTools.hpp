@@ -1,36 +1,40 @@
 ///
-/// ImGuiLayer.hpp
-/// supercluster
+/// DevTools.hpp
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef SUPERCLUSTER_IMGUILAYER_HPP_
-#define SUPERCLUSTER_IMGUILAYER_HPP_
+#ifndef GALAXY_DEVTOOLS_HPP_
+#define GALAXY_DEVTOOLS_HPP_
 
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
-#include <galaxy/layer/Layer.hpp>
 #include <galaxy/scripting/LuaConsole.hpp>
-#include <qs/graphics/Camera.hpp>
 
 #include <imgui/addons/TextEditor.h>
 
-#include "widgets/JsonEditor.hpp"
+#include "galaxy/tools/JsonEditor.hpp"
 
-namespace sc
+///
+/// Core namespace.
+///
+namespace galaxy
 {
-	class ImGuiLayer final : public galaxy::Layer
+	///
+	/// Tools to aid in game development using galaxy engine.
+	///
+	class DevTools final
 	{
 	public:
-		ImGuiLayer();
-		virtual ~ImGuiLayer();
+		DevTools();
+		~DevTools();
 
-		void events() override;
-		void update(const double dt) override;
-		void pre_render() override;
-		void render() override;
+		void create();
+		void prepare();
+		void draw();
 
+	private:
 		void start();
 		void end();
 
@@ -41,8 +45,6 @@ namespace sc
 		void component_ui(bool enabled, std::uint32_t entity);
 		void gui_builder_ui();
 
-	private:
-		qs::Camera m_camera;
 		galaxy::World* m_world;
 		qs::Window* m_window;
 
@@ -70,6 +72,6 @@ namespace sc
 		bool m_add_anim_popup     = false;
 		robin_hood::unordered_map<qs::Sprite*, std::string> m_sprites_to_create;
 	};
-} // namespace sc
+} // namespace galaxy
 
 #endif

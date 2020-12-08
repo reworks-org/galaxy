@@ -1,6 +1,6 @@
 ///
 /// JsonEditor.cpp
-/// supercluster
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -17,7 +17,10 @@
 
 #define INDENT_PIXELS 16.0f
 
-namespace sc
+///
+/// Core namespace.
+///
+namespace galaxy
 {
 	JsonEditor::JsonEditor()
 	    : m_counter {0}, m_loaded {false}, m_external {nullptr}
@@ -493,4 +496,4 @@ namespace sc
 			ImGui::EndPopup();
 		}
 	}
-} // namespace sc
+} // namespace galaxy

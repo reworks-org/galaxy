@@ -220,14 +220,8 @@ add_custom_target(BUILD_GALAXY_ENGINE)
 add_dependencies(BUILD_GALAXY_ENGINE BUILD_INTERNAL_LIBS galaxy)
 
 # Import applications
-add_subdirectory(supercluster)
 add_subdirectory(sandbox_tests)
 add_subdirectory(tests)
-
-add_dependencies(supercluster
-    BUILD_EXTERNAL_LIBS
-    BUILD_GALAXY_ENGINE
-)
 
 add_dependencies(sandbox_test
     BUILD_EXTERNAL_LIBS
@@ -241,7 +235,7 @@ add_dependencies(tests
 
 # Meta ALL target
 add_custom_target(BUILD_ALL)
-add_dependencies(supercluster sandbox_test tests BUILD_GALAXY_ENGINE)
+add_dependencies(sandbox_test tests BUILD_GALAXY_ENGINE)
 
 # Set header directories.
 set(SHARED_HEADERS
@@ -274,7 +268,6 @@ set(SHARED_HEADERS
 	"${CMAKE_SOURCE_DIR}/galaxy/starlight/src"
 	"${CMAKE_SOURCE_DIR}/galaxy/starmap/src"
 	"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
-	"${CMAKE_SOURCE_DIR}/supercluster/src"		
 )
 
 if (MSVC)
@@ -298,7 +291,6 @@ target_include_directories(redshift PUBLIC ${ALL_HEADERS})
 target_include_directories(solar PUBLIC ${ALL_HEADERS})
 target_include_directories(starlight PUBLIC ${ALL_HEADERS})
 target_include_directories(starmap PUBLIC ${ALL_HEADERS})
-target_include_directories(supercluster PUBLIC ${ALL_HEADERS})
 target_include_directories(sandbox_test PUBLIC ${ALL_HEADERS})
 target_include_directories(tests PUBLIC ${ALL_HEADERS})
 
@@ -352,7 +344,6 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 	target_compile_definitions(solar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(starlight PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(starmap PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(supercluster PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 
@@ -366,7 +357,6 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 	target_compile_options(solar PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(starlight PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(starmap PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(supercluster PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 
@@ -380,29 +370,8 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 	target_link_options(solar PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(starlight PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(starmap PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(supercluster PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.${LIB_FILE_EXT}")
-
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.${LIB_FILE_EXT}")
 
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.${LIB_FILE_EXT}")
@@ -454,7 +423,6 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 	target_compile_definitions(solar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(starlight PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(starmap PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(supercluster PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 
@@ -468,7 +436,6 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 	target_compile_options(solar PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(starlight PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(starmap PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(supercluster PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 
@@ -482,29 +449,8 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 	target_link_options(solar PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(starlight PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(starmap PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(supercluster PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.${LIB_FILE_EXT}")
-
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.${LIB_FILE_EXT}")
-    target_link_libraries(supercluster PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.${LIB_FILE_EXT}")
 
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.${LIB_FILE_EXT}")
@@ -550,15 +496,12 @@ else()
 endif()
 
 if (NOT MSVC)
-	target_link_libraries(supercluster PUBLIC Threads::Threads)
 	target_link_libraries(sandbox_test PUBLIC Threads::Threads)
 	target_link_libraries(tests PUBLIC Threads::Threads)
 endif()
 
-target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB}")
 target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
 target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
-target_link_libraries(supercluster PUBLIC ${SYSTEM_LIBS})
 target_link_libraries(sandbox_test PUBLIC ${SYSTEM_LIBS})
 target_link_libraries(tests PUBLIC ${SYSTEM_LIBS})
 
