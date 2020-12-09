@@ -8,13 +8,8 @@
 #ifndef FRB_PLAYLIST_HPP_
 #define FRB_PLAYLIST_HPP_
 
-#include <algorithm>
-#include <concepts>
 #include <mutex>
 #include <random>
-#include <string_view>
-
-#include <jthread/jthread.hpp>
 
 #include "frb/audio/Music.hpp"
 #include "frb/audio/Sound.hpp"
