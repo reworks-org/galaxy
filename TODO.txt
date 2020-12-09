@@ -1,15 +1,13 @@
+Redshift:
+- 
+
 QUASAR:
 - C++20 review when eventual performance improvements are required.
 
 ALL:
-- investigate other usages of C++20 coroutines
+- Investigate other usages of C++20 coroutines.
+- See https://github.com/RandyGaul/cute_headers/blob/master/cute_coroutine.h for ideas.
+- Timer, StateMachine, Textbox, ThreadPool
 
 GALAXY:
-- GUI:
-	- Replace is_widget concept with is_derived.
-	- Use coroutines with https://github.com/RandyGaul/cute_headers/blob/master/cute_coroutine.h
-	- textbox mainly
 - Review Box2D integration.
-
-Debugging
-Profiling
