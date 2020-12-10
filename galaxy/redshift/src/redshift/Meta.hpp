@@ -30,10 +30,7 @@ namespace rs
 	template<typename Type>
 	concept is_collidable = requires(Type type)
 	{
-		1 == 1; // temp
-			// is collideable concept that checks for aa/bb iunheritence or circle, etc...
-			// void collide(concept a, concept b, func )
-			// if constexpr concept tyoer is aabb, do that, else do func
+		(std::is_base_of_v<Collidable, Type> && std::is_convertible_v<const volatile Type*, const volatile Collidable*>);
 	};
 } // namespace rs
 

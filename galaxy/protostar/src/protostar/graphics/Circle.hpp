@@ -26,7 +26,7 @@ namespace pr
 		///
 		/// Constructor.
 		///
-		Circle();
+		Circle() noexcept;
 
 		///
 		/// Argument constructor.
@@ -35,7 +35,7 @@ namespace pr
 		/// \param y Y axis coord.
 		/// \param radius Radius of circle.
 		///
-		Circle(const float x, const float y, const float radius);
+		Circle(const float x, const float y, const float radius) noexcept;
 
 		///
 		/// Destructor.
@@ -49,35 +49,35 @@ namespace pr
 		/// \param y Y axis coord.
 		/// \param radius Radius of circle.
 		///
-		void create(const float x, const float y, const float radius);
+		void create(const float x, const float y, const float radius) noexcept;
 
 		///
 		/// Get x coord of circle.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_x() const;
+		[[nodiscard]] const float get_x() const noexcept;
 
 		///
 		/// Get y coord of circle.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_y() const;
+		[[nodiscard]] const float get_y() const noexcept;
 
 		///
 		/// Get xy as a vector.
 		///
 		/// \return Const reference to glm::vec2.
 		///
-		[[nodiscard]] const glm::vec2& get_xy() const;
+		[[nodiscard]] const glm::vec2& get_xy() const noexcept;
 
 		///
 		/// Get radius of circle.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float radius() const;
+		[[nodiscard]] const float radius() const noexcept;
 
 		///
 		/// Strongly ordered spaceship operator.

@@ -1,5 +1,7 @@
 Redshift:
-- 
+// if the node contains the new aabb then we just leave things
+		// TODO: when we add velocity this check should kick in as often an update will lie within the velocity fattened initial aabb
+		// to support this we might need to differentiate between velocity fattened aabb and actual aabb
 
 QUASAR:
 - C++20 review when eventual performance improvements are required.
