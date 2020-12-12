@@ -10,10 +10,10 @@
 
 #include <fstream>
 #include <mutex>
+#include <thread>
 
 #include <date/tz.h>
 #include <fmt/format.h>
-#include <jthread/jthread.hpp>
 
 #include "detail/LogLevel.hpp"
 

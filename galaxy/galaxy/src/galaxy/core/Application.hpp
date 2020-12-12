@@ -25,6 +25,8 @@
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
+#include "galaxy/tools/DevTools.hpp"
+
 ///
 /// Core namespace.
 ///
@@ -158,6 +160,11 @@ namespace galaxy
 		/// OpenAL context.
 		///
 		frb::Context m_openal;
+
+		///
+		/// Dev Tools.
+		///
+		DevTools m_tools;
 	};
 } // namespace galaxy
 

@@ -9,8 +9,9 @@
 #define PROTOSTAR_TIME_HPP_
 
 #include <chrono>
-
-#include <jthread/jthread.hpp>
+#include <functional>
+#include <mutex>
+#include <thread>
 
 ///
 /// Core namespace.

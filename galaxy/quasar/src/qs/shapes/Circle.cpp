@@ -23,6 +23,11 @@ namespace qs
 		create(x, y, radius, fragments, colour);
 	}
 
+	Circle::Circle(const pr::Circle& circle, const unsigned int fragments, pr::Colour& colour)
+	{
+		create(circle.get_x(), circle.get_y(), circle.radius(), fragments, colour);
+	}
+
 	void Circle::create(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour)
 	{
 		// Thanks to https://stackoverflow.com/a/33859443.

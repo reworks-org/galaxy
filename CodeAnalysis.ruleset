@@ -33,6 +33,7 @@
     <Rule Id="C26449" Action="None" />
     <Rule Id="C26455" Action="None" />
     <Rule Id="C26459" Action="None" />
+    <Rule Id="C26472" Action="None" />
     <Rule Id="C26821" Action="None" />
   </Rules>
 </RuleSet>
