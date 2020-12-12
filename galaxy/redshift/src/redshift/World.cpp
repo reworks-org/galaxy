@@ -32,18 +32,21 @@ namespace rs
 	{
 		for (auto&& body : m_bodies)
 		{
+			auto body_as_collidable = std::static_pointer_cast<Collidable>(body);
 			if (!body->is_rigid())
 			{
 				const auto* kin_body = dynamic_cast<KineticBody*>(body.get());
 
-				body->m_velocity += (1.0f / body->m_mass * kin_body->get_force()) * static_cast<float>(dt);
+				auto force = kin_body->get_force() + m_gravity;
+
+				body->m_velocity += (1.0f / body->m_mass * force) * static_cast<float>(dt);
 				body->m_pos += (body->m_velocity * static_cast<float>(dt));
 
-				m_collision_tree.update(std::static_pointer_cast<Collidable>(body));
+				m_collision_tree.update(body_as_collidable);
 			}
 
 			// Broad Phase collision.
-			auto possible = m_collision_tree.query(std::static_pointer_cast<Collidable>(body));
+			auto possible = m_collision_tree.query(body_as_collidable);
 			for (auto&& obj_b : possible)
 			{
 				auto* obj_b_as_body = dynamic_cast<Body*>(obj_b.get());
