@@ -80,7 +80,7 @@ namespace rs
 			m_nodes[node].m_object = object;
 
 			insert_leaf(node);
-			m_object_node_index[object] = node;
+			m_object_node_index[ptr] = node;
 		}
 		else
 		{
@@ -90,19 +90,26 @@ namespace rs
 
 	void DynamicTree::remove(std::weak_ptr<Collidable> object)
 	{
-		const int node = m_object_node_index[object];
+		if (auto ptr = object.lock())
+		{
+			const int node = m_object_node_index[ptr];
 
-		remove_leaf(node);
-		deallocate_node(node);
+			remove_leaf(node);
+			deallocate_node(node);
 
-		m_object_node_index.erase(object);
+			m_object_node_index.erase(ptr);
+		}
+		else
+		{
+			PL_LOG(PL_FATAL, "weak_ptr is null.");
+		}
 	}
 
 	void DynamicTree::update(std::weak_ptr<Collidable> object)
 	{
 		if (auto ptr = object.lock())
 		{
-			const int node = m_object_node_index[object];
+			const int node = m_object_node_index[ptr];
 			update_leaf(node, ptr->get_aabb());
 		}
 		else

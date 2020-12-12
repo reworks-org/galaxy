@@ -1,5 +1,5 @@
 ///
-/// GUI.hpp
+/// World.hpp
 /// redshift
 ///
 /// Refer to LICENSE.txt for more details.
@@ -8,11 +8,14 @@
 #ifndef REDSHIFT_WORLD_HPP_
 #define REDSHIFT_WORLD_HPP_
 
+#include <optional>
+
 #include <protostar/async/ThreadPool.hpp>
 #include <starlight/Dispatcher.hpp>
 
 #include "redshift/Meta.hpp"
 #include "redshift/collision/DynamicTree.hpp"
+#include "redshift/collision/Manifold.hpp"
 
 ///
 /// Core namespace.
@@ -22,11 +25,14 @@ namespace rs
 	class World final
 	{
 	public:
+		static inline const constexpr float PENETRATION_PERCENT = 0.2f;
+		static inline const constexpr float SLOP_THRESHOLD      = 0.01f;
+
 		World();
 		World(const glm::vec2& gravity);
 		~World();
 
-		void step();
+		void step(const double dt);
 
 		template<is_body DerivedBody, typename... Args>
 		[[maybe_unused]] std::shared_ptr<DerivedBody> create(Args&&... args);
@@ -37,10 +43,9 @@ namespace rs
 		void set_gravity(glm::vec2& gravity);
 
 	private:
-		///
-		/// Resolve the collision between two bodies.
-		///
-		void resolve_collision(std::shared_ptr<Body> a, std::shared_ptr<Body> b);
+		[[nodiscard]] std::optional<Manifold> narrow_phase_collision(Body* a, Body* b);
+
+		void resolve_collision(Body* a, Body* b, const Manifold& manifold);
 
 		sl::Dispatcher m_dispatcher;
 		pr::ThreadPool<4> m_pool;
@@ -64,7 +69,14 @@ namespace rs
 	template<is_body DerivedBody>
 	inline void World::remove(std::shared_ptr<DerivedBody> body)
 	{
-		std::erase_if
+		// clang-format off
+		m_bodies.erase(std::remove_if(m_bodies.begin(), m_bodies.end(), [&](std::shared_ptr<DerivedBody> ptr)
+		{
+			return ptr == body;
+		}),
+		m_bodies.end());
+		m_collision_tree.remove(std::static_pointer_cast<Collidable>(body));
+		// clang-format on
 	}
 } // namespace rs
 

@@ -70,7 +70,7 @@ namespace rs
 
 		void fix_upwards_tree(int tree_node);
 
-		robin_hood::unordered_map<std::weak_ptr<Collidable>, int> m_object_node_index;
+		robin_hood::unordered_map<std::shared_ptr<Collidable>, int> m_object_node_index;
 		std::vector<Node> m_nodes;
 		std::vector<AABB> m_merged;
 		int m_root_node;
@@ -80,7 +80,7 @@ namespace rs
 		int m_growth_size;
 
 		std::forward_list<std::shared_ptr<Collidable>> m_hits;
-		std::stack<const int> m_node_stack;
+		std::stack<int> m_node_stack;
 	};
 } //namespace rs
 

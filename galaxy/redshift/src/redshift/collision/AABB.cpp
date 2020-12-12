@@ -24,37 +24,9 @@ namespace rs
 	{
 	}
 
-	void AABB::set(glm::vec2& min, glm::vec2& max)
-	{
-		m_min = std::move(min);
-		m_max = std::move(max);
-	}
-
-	void AABB::set_min(glm::vec2& min)
-	{
-		m_min = std::move(min);
-	}
-
-	void AABB::set_max(glm::vec2& max)
-	{
-		m_max = std::move(max);
-	}
-
 	const bool AABB::overlaps(const AABB& b) const
 	{
-		// Separating Axis Theorem.
-
-		if (m_max.x < b.m_min.x || m_min.x > b.m_max.x)
-		{
-			return false;
-		}
-
-		if (m_max.y < b.m_min.y || m_min.y > b.m_max.y)
-		{
-			return false;
-		}
-
-		return true;
+		return m_max.x > b.m_min.x && m_min.x < b.m_max.x && m_max.y > b.m_min.y && m_min.y < b.m_max.y;
 	}
 
 	const bool AABB::contains(const AABB& b) const

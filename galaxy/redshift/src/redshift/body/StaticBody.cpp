@@ -12,11 +12,8 @@
 ///
 namespace rs
 {
-	StaticBody::StaticBody()
-	{
-	}
-
-	StaticBody::~StaticBody()
+	StaticBody::StaticBody(const float density)
+	    : Body {density, 0.0f, 0.0f}
 	{
 	}
 

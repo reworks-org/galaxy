@@ -19,26 +19,16 @@ namespace rs
 {
 	class Body : public rs::Collidable
 	{
+		friend class World;
+
 	public:
 		///
-		/// Velocity of this body.
+		/// Virtual destructor.
 		///
-		glm::vec2 m_velocity;
+		virtual ~Body() = default;
 
-		///
-		/// Impulse of this body.
-		///
-		glm::vec2 m_impulse;
-
-		///
-		/// Mass of this body.
-		///
-		float m_mass;
-
-		///
-		/// Restitution of this body.
-		///
-		float m_restitution;
+		void set_initial_pos(glm::vec2& pos);
+		void set_initial_pos(const float x, const float y);
 
 		///
 		/// Can this body move.
@@ -47,16 +37,42 @@ namespace rs
 		///
 		virtual const bool is_rigid() const noexcept = 0;
 
+		///
+		/// Current position of the body.
+		///
+		glm::vec2 m_pos;
+
+		///
+		/// Restitution of this body.
+		///
+		float m_restitution;
+
 	protected:
+		///
+		/// Argument constructor.
+		///
+		Body(const float density, const glm::vec2& size);
+
+		///
+		/// Argument constructor.
+		///
+		Body(const float density, const float width, const float height);
+
+		///
+		/// Mass of this body.
+		///
+		float m_mass;
+
+		///
+		/// Velocity of this body.
+		///
+		glm::vec2 m_velocity;
+
+	private:
 		///
 		/// Constructor.
 		///
-		Body();
-
-		///
-		/// Virtual destructor.
-		///
-		virtual ~Body() = default;
+		Body() = delete;
 	};
 } // namespace rs
 

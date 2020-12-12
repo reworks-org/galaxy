@@ -18,10 +18,17 @@ namespace rs
 	class StaticBody final : public rs::Body
 	{
 	public:
-		StaticBody();
-		~StaticBody();
+		///
+		/// Argument constructor.
+		///
+		StaticBody(const float density);
+
+		virtual ~StaticBody() = default;
 
 		const bool is_rigid() const noexcept override;
+
+	private:
+		StaticBody() = delete;
 	};
 } // namespace rs
 

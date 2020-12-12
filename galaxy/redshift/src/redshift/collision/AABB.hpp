@@ -18,9 +18,8 @@ namespace rs
 	/// https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
 	/// https://realtimecollisiondetection.net/
 	///
-	class AABB final
+	struct AABB final
 	{
-	public:
 		///
 		/// Constructor.
 		///
@@ -38,28 +37,6 @@ namespace rs
 		/// Destructor.
 		///
 		~AABB() = default;
-
-		///
-		/// Set bounds.
-		///
-		/// \param min Minimum bounds.
-		/// \param max Maximum bounds.
-		///
-		void set(glm::vec2& min, glm::vec2& max);
-
-		///
-		/// Set min bounds.
-		///
-		/// \param min Minimum bounds.
-		///
-		void set_min(glm::vec2& min);
-
-		///
-		/// Set max bounds.
-		///
-		/// \param max Maximum bounds.
-		///
-		void set_max(glm::vec2& max);
 
 		///
 		/// Test for an overlap.
@@ -104,7 +81,6 @@ namespace rs
 		///
 		[[nodiscard]] const float surface_area() const;
 
-	private:
 		///
 		/// Lower bounds.
 		///
