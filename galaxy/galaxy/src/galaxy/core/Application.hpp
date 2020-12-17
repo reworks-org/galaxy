@@ -72,13 +72,6 @@ namespace galaxy
 		///
 		[[maybe_unused]] bool run();
 
-		///
-		/// Get delta time.
-		///
-		/// \return Pointer to protected double.
-		///
-		[[nodiscard]] pr::LockedDouble* get_dt();
-
 	protected:
 		///
 		/// \brief Default constructor.
@@ -151,11 +144,6 @@ namespace galaxy
 		std::unique_ptr<qs::TextureAtlas> m_texture_atlas;
 
 	private:
-		///
-		/// Delta Time.
-		///
-		pr::LockedDouble m_delta_time;
-
 		///
 		/// OpenAL context.
 		///
