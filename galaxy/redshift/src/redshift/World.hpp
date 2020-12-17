@@ -44,7 +44,6 @@ namespace rs
 
 	private:
 		[[nodiscard]] std::optional<Manifold> narrow_phase_collision(Body* a, Body* b);
-
 		void resolve_collision(Body* a, Body* b, const Manifold& manifold);
 
 		sl::Dispatcher m_dispatcher;

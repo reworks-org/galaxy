@@ -27,9 +27,6 @@ namespace rs
 		///
 		virtual ~Body() = default;
 
-		void set_initial_pos(glm::vec2& pos);
-		void set_initial_pos(const float x, const float y);
-
 		///
 		/// Can this body move.
 		///
@@ -46,6 +43,16 @@ namespace rs
 		/// Restitution of this body.
 		///
 		float m_restitution;
+
+		///
+		/// Friction of surface when an object is resting on it.
+		///
+		float m_static_friction;
+
+		///
+		/// Friction of surface when an object is moving along it.
+		///
+		float m_dynamic_friction;
 
 	protected:
 		///

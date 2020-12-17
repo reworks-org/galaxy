@@ -32,6 +32,11 @@ namespace rs
 	{
 		for (auto&& body : m_bodies)
 		{
+			//m_collision_tree.insert(std::static_pointer_cast<Collidable>(body));
+		}
+
+		for (auto&& body : m_bodies)
+		{
 			auto body_as_collidable = std::static_pointer_cast<Collidable>(body);
 			if (!body->is_rigid())
 			{
@@ -53,11 +58,11 @@ namespace rs
 				auto res            = narrow_phase_collision(body.get(), obj_b_as_body);
 				if (res != std::nullopt)
 				{
-					m_collision_tree.remove(body);
-					m_collision_tree.remove(obj_b);
 					resolve_collision(body.get(), obj_b_as_body, res.value());
 				}
 			}
+
+			//m_collision_tree.remove(body_as_collidable);
 		}
 	}
 
@@ -122,7 +127,7 @@ namespace rs
 
 	void World::resolve_collision(Body* a, Body* b, const Manifold& manifold)
 	{
-		const glm::vec2 rel_vel     = b->m_velocity - a->m_velocity;
+		glm::vec2 rel_vel           = b->m_velocity - a->m_velocity;
 		const float normal_velocity = glm::dot(rel_vel, manifold.m_normal);
 		if (!(normal_velocity > 0))
 		{
@@ -157,6 +162,30 @@ namespace rs
 			const glm::vec2 correction = std::max(manifold.m_penetration - SLOP_THRESHOLD, 0.0f) / (a_inv_mass + b_inv_mass) * PENETRATION_PERCENT * (b->m_pos - a->m_pos);
 			a->m_pos -= a_inv_mass * correction;
 			b->m_pos += b_inv_mass * correction;
+
+			// Solve friction.
+			rel_vel           = b->m_velocity - a->m_velocity;
+			glm::vec2 tangent = rel_vel - glm::dot(rel_vel, manifold.m_normal) * manifold.m_normal;
+			tangent           = glm::normalize(tangent);
+
+			float friction_magnitude = -glm::dot(rel_vel, tangent);
+			friction_magnitude       = friction_magnitude / (a_inv_mass + b_inv_mass);
+
+			float mu = std::pow(a->m_static_friction, 2) + std::pow(b->m_static_friction, 2);
+			glm::vec2 friction_impulse;
+			if (std::abs(friction_magnitude) < impulse_scalar * mu)
+			{
+				friction_impulse = friction_magnitude * tangent;
+			}
+			else
+			{
+				const float dynamic_friction = std::pow(a->m_dynamic_friction, 2) + std::pow(b->m_dynamic_friction, 2);
+				friction_impulse             = -impulse_scalar * tangent * dynamic_friction;
+			}
+
+			// Apply friction.
+			a->m_velocity -= a_inv_mass * friction_impulse;
+			b->m_velocity += b_inv_mass * friction_impulse;
 		}
 	}
 } // namespace rs

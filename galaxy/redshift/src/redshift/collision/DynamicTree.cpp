@@ -213,13 +213,9 @@ namespace rs
 
 	void DynamicTree::insert_leaf(const int leaf)
 	{
-		if ((m_nodes[leaf].m_parent_node == Node::s_NULL_NODE) ||
-		    (m_nodes[leaf].m_left_node == Node::s_NULL_NODE) ||
-		    (m_nodes[leaf].m_right_node == Node::s_NULL_NODE))
-		{
-			PL_LOG(PL_FATAL, "Attempted to insert invalid leaf.");
-		}
-		else
+		if (!((m_nodes[leaf].m_parent_node == Node::s_NULL_NODE) ||
+		      (m_nodes[leaf].m_left_node == Node::s_NULL_NODE) ||
+		      (m_nodes[leaf].m_right_node == Node::s_NULL_NODE)))
 		{
 			if (m_root_node == Node::s_NULL_NODE)
 			{

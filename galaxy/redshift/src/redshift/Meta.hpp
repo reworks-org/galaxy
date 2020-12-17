@@ -22,7 +22,7 @@ namespace rs
 	/// Must be a physics body.
 	///
 	template<typename Type>
-	concept is_body = (std::is_same<Type, StaticBody>::value && std::is_same<Type, KineticBody>::value);
+	concept is_body = (std::is_same<Type, StaticBody>::value || std::is_same<Type, KineticBody>::value);
 
 	///
 	/// Require that the object can collide.
