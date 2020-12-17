@@ -34,6 +34,26 @@ namespace rs
 		AABB(const glm::vec2& min, const glm::vec2& max);
 
 		///
+		/// Copy constructor.
+		///
+		AABB(const AABB&) = default;
+
+		///
+		/// Move constructor.
+		///
+		AABB(AABB&&) = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		AABB& operator=(const AABB&) = default;
+
+		///
+		/// Move assignment operator.
+		///
+		AABB& operator=(AABB&&) = default;
+
+		///
 		/// Destructor.
 		///
 		~AABB() = default;

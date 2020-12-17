@@ -42,6 +42,26 @@ namespace rs
 		DynamicTree(const int base_size);
 
 		///
+		/// Copy constructor.
+		///
+		DynamicTree(const DynamicTree&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		DynamicTree(DynamicTree&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		DynamicTree& operator=(const DynamicTree&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		DynamicTree& operator=(DynamicTree&&) = delete;
+
+		///
 		/// Destructor.
 		///
 		~DynamicTree();

@@ -40,6 +40,26 @@ namespace rs
 		Collidable() = default;
 
 		///
+		/// Copy constructor.
+		///
+		Collidable(const Collidable&) = default;
+
+		///
+		/// Move constructor.
+		///
+		Collidable(Collidable&&) = default;
+
+		///
+		/// Copy assignment operator.
+		///
+		Collidable& operator=(const Collidable&) = default;
+
+		///
+		/// Move assignment operator.
+		///
+		Collidable& operator=(Collidable&&) = default;
+
+		///
 		/// AABB box.
 		///
 		AABB m_aabb;
