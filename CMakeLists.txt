@@ -240,7 +240,6 @@ add_dependencies(sandbox_test tests BUILD_GALAXY_ENGINE)
 # Set header directories.
 set(SHARED_HEADERS
 	"${GALAXY_FREETYPE_HEADERS}"
-	"${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT"
 	"${CMAKE_SOURCE_DIR}/dependencies/c++20"
 	"${CMAKE_SOURCE_DIR}/dependencies/glad"
 	"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"

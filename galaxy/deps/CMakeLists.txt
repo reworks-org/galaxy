@@ -1,7 +1,6 @@
 project(deps C CXX)
 
 file(GLOB_RECURSE dependencies_src
-    "${CMAKE_SOURCE_DIR}/dependencies/Box2D-MT/Box2D/*.cpp"
     "${CMAKE_SOURCE_DIR}/dependencies/c++20/format.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/c++20/os.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/c++20/tz.cpp"
