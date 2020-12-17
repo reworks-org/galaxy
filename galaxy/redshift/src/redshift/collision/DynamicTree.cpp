@@ -65,7 +65,6 @@ namespace rs
 			m_node_stack.pop();
 		}
 
-		m_hits.clear();
 		m_nodes.clear();
 		m_object_node_index.clear();
 		m_merged.clear();
@@ -120,8 +119,8 @@ namespace rs
 
 	auto DynamicTree::query(std::weak_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>&
 	{
-		// Clear out old data.
-		m_hits.clear();
+		std::forward_list<std::shared_ptr<Collidable>> hits;
+
 		while (!m_node_stack.empty())
 		{
 			m_node_stack.pop();
@@ -146,7 +145,7 @@ namespace rs
 						{
 							if (node_obj.is_leaf() && node_ptr != ptr)
 							{
-								m_hits.emplace_front(node_ptr);
+								hits.emplace_front(node_ptr);
 							}
 							else
 							{
@@ -167,7 +166,7 @@ namespace rs
 			PL_LOG(PL_FATAL, "Attempted to access deleted memory. Invalid Weak Pointer.");
 		}
 
-		return m_hits;
+		return hits;
 	}
 
 	int DynamicTree::allocate_node()

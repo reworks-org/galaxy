@@ -17,6 +17,9 @@
 ///
 namespace rs
 {
+	///
+	/// A physics body that can interact with the world.
+	///
 	class Body : public rs::Collidable
 	{
 		friend class World;
@@ -28,7 +31,7 @@ namespace rs
 		virtual ~Body() = default;
 
 		///
-		/// Can this body move.
+		/// Check if this body is rigid or can move.
 		///
 		/// \return Const bool.
 		///
@@ -58,10 +61,17 @@ namespace rs
 		///
 		/// Argument constructor.
 		///
+		/// \param density Density of this object.
+		/// \param size Size of this object.
+		///
 		Body(const float density, const glm::vec2& size);
 
 		///
 		/// Argument constructor.
+		///
+		/// \param density Density of this object.
+		/// \param width Width of the object.
+		/// \param height Height of the object.
 		///
 		Body(const float density, const float width, const float height);
 

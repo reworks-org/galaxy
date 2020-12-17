@@ -51,6 +51,7 @@ namespace rs
 
 		glm::vec2 m_gravity;
 		std::vector<std::shared_ptr<Body>> m_bodies;
+		std::vector<std::shared_ptr<Collidable>> m_removed;
 		DynamicTree m_collision_tree;
 	};
 

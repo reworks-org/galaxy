@@ -30,9 +30,9 @@ namespace rs
 
 	void World::step(const double dt)
 	{
-		for (auto&& body : m_bodies)
+		for (auto&& body : m_removed)
 		{
-			//m_collision_tree.insert(std::static_pointer_cast<Collidable>(body));
+			m_collision_tree.insert(body);
 		}
 
 		for (auto&& body : m_bodies)
@@ -62,7 +62,11 @@ namespace rs
 				}
 			}
 
-			//m_collision_tree.remove(body_as_collidable);
+			if (!possible.empty())
+			{
+				m_collision_tree.remove(body_as_collidable);
+				m_removed.push_back(body_as_collidable);
+			}
 		}
 	}
 
