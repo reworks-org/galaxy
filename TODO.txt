@@ -1,6 +1,9 @@
 Redshift:
-- move/copy constructors.
-- documentation.
+- air resistance
+- collision callbacks
+
+STARMAP:
+- move/copy constructors
 
 QUASAR:
 - C++20 review when eventual performance improvements are required.
@@ -10,5 +13,8 @@ ALL:
 - See https://github.com/RandyGaul/cute_headers/blob/master/cute_coroutine.h for ideas.
 - Timer, StateMachine, Textbox, ThreadPool
 
-GALAXY:
-- Review Box2D integration.
+DEV_TOOLS:
+- state machine / layer editor
+- physics tools
+- phyiscscomponent tools
+- export to json / save as json

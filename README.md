@@ -99,3 +99,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://indiegamedev.net/2020/01/16/how-to-stream-ogg-files-with-openal-in-c/
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
 * https://github.com/zemasoft/clangformat-cmake
+* https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
