@@ -173,11 +173,13 @@ namespace galaxy
 
 		std::chrono::nanoseconds accumulator {0};
 		auto previous = clock::now();
+		auto current  = clock::now();
+		auto elapsed  = current - previous;
 		while (m_window->is_open())
 		{
-			auto current = clock::now();
-			auto elapsed = current - previous;
-			previous     = current;
+			current  = clock::now();
+			elapsed  = current - previous;
+			previous = current;
 			accumulator += elapsed;
 
 			m_window->poll_events();
