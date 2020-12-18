@@ -29,38 +29,148 @@ namespace rs
 	class DynamicTree final
 	{
 	public:
+		///
+		/// Constructor.
+		///
 		DynamicTree();
+
+		///
+		/// Argument constructor.
+		///
+		/// \param base_size Starting size of the dynamic tree.
+		///
 		DynamicTree(const int base_size);
+
+		///
+		/// Copy constructor.
+		///
+		DynamicTree(const DynamicTree&) = delete;
+
+		///
+		/// Move constructor.
+		///
+		DynamicTree(DynamicTree&&) = delete;
+
+		///
+		/// Copy assignment operator.
+		///
+		DynamicTree& operator=(const DynamicTree&) = delete;
+
+		///
+		/// Move assignment operator.
+		///
+		DynamicTree& operator=(DynamicTree&&) = delete;
+
+		///
+		/// Destructor.
+		///
 		~DynamicTree();
 
-		void insert(std::weak_ptr<Collidable> object);
-		void remove(std::weak_ptr<Collidable> object);
-		void update(std::weak_ptr<Collidable> object);
+		///
+		/// Insert an object.
+		///
+		/// \param object Object to insert.
+		///
+		void insert(std::shared_ptr<Collidable> object);
 
-		[[nodiscard]] auto query(std::weak_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>&;
+		///
+		/// Remove an object.
+		///
+		/// \param object Object to remove.
+		///
+		void remove(std::shared_ptr<Collidable> object);
+
+		///
+		/// Update an object.
+		///
+		/// \param object Object to update.
+		///
+		void update(std::shared_ptr<Collidable> object);
+
+		///
+		/// Query an object for possible collisions.
+		///
+		/// \param object Object to query.
+		///
+		/// \return List of possible objects that could have been collided with.
+		///
+		[[nodiscard]] auto query(std::shared_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>;
 
 	private:
+		///
+		/// A node in the tree.
+		///
 		struct Node
 		{
+			///
+			/// Represents the value of an invalid node.
+			///
 			static const constexpr int s_NULL_NODE = -1;
 
+			///
+			/// Constructor.
+			///
 			Node();
+
+			///
+			/// Destructor.
+			///
 			~Node() = default;
 
+			///
+			/// Is this node a leaf?
+			///
 			[[nodiscard]] const bool is_leaf() const;
 
+			///
+			/// Pointer to AABB to be used by this node.
+			///
 			AABB* m_aabb;
-			std::weak_ptr<Collidable> m_object;
 
+			///
+			/// Pointer to the object this node represents.
+			///
+			std::shared_ptr<Collidable> m_object;
+
+			///
+			/// Parent node id.
+			///
 			int m_parent_node;
+
+			///
+			/// Left node id.
+			///
 			int m_left_node;
+
+			///
+			/// Right node id.
+			///
 			int m_right_node;
+
+			///
+			/// Next node id.
+			///
 			int m_next_node;
 		};
 
+		///
+		/// Add a node.
+		///
 		int allocate_node();
+
+		///
+		/// Remove a node.
+		///
 		void deallocate_node(const int node);
+
+		///
+		/// Insert a leaf node.
+		///
 		void insert_leaf(const int leaf);
+
+		///
+		/// Remove a leaf node.
+		///
 		void remove_leaf(const int leaf);
 
 		///
@@ -68,18 +178,54 @@ namespace rs
 		///
 		void update_leaf(const int leaf, AABB& aabb);
 
+		///
+		/// Update tree after making changes.
+		///
 		void fix_upwards_tree(int tree_node);
 
+		///
+		/// Map of objects and their nodes.
+		///
 		robin_hood::unordered_map<std::shared_ptr<Collidable>, int> m_object_node_index;
+
+		///
+		/// List of nodes.
+		///
 		std::vector<Node> m_nodes;
+
+		///
+		/// List of merged AABB objects.
+		///
 		std::vector<AABB> m_merged;
+
+		///
+		/// Root node id.
+		///
 		int m_root_node;
+
+		///
+		/// Number of created nodes.
+		///
 		int m_allocated_nodes;
+
+		///
+		/// Next free node id.
+		///
 		int m_next_free_node;
+
+		///
+		/// Total capacity for nodes.
+		///
 		int m_node_capacity;
+
+		///
+		/// How much the tree should grow by for each node added.
+		///
 		int m_growth_size;
 
-		std::forward_list<std::shared_ptr<Collidable>> m_hits;
+		///
+		/// Tree stack.
+		///
 		std::stack<int> m_node_stack;
 	};
 } //namespace rs

@@ -42,7 +42,7 @@ namespace sb
 		qs::effect::PointLight m_pl;
 		qs::effect::Simple m_simple;
 		qs::Camera m_camera;
-		qs::Sprite m_sprite;
+		rs::KineticBody* m_test_body;
 	};
 } // namespace sb
 

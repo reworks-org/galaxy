@@ -227,6 +227,7 @@ namespace sr
 		/// \brief Add a system to the manager.
 		///
 		/// Template parameter to speficy type of system to create.
+		/// Systems will be updated in the order in which they are created.
 		///
 		/// \param args Constructor arguments for the system.
 		///

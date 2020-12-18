@@ -13,12 +13,12 @@
 namespace rs
 {
 	KineticBody::KineticBody(const float density, const glm::vec2& size)
-	    : Body {density, size}, m_force {0.0f, 0.0f}
+	    : Body {density, size}, m_force {0.0f, 0.0f}, m_velocity {0.0f, 0.0f}
 	{
 	}
 
 	KineticBody::KineticBody(const float density, const float width, const float height)
-	    : Body {density, width, height}, m_force {0.0f, 0.0f}
+	    : Body {density, width, height}, m_force {0.0f, 0.0f}, m_velocity {0.0f, 0.0f}
 	{
 	}
 
@@ -46,6 +46,11 @@ namespace rs
 	const glm::vec2& KineticBody::get_force() const
 	{
 		return m_force;
+	}
+
+	const glm::vec2& KineticBody::get_vel() const
+	{
+		return m_velocity;
 	}
 
 	const bool KineticBody::is_rigid() const noexcept

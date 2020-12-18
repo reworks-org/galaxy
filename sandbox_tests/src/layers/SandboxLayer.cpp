@@ -7,10 +7,13 @@
 
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
+#include <galaxy/systems/PhysicsSystem.hpp>
 #include <qs/core/Renderer.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <qs/core/Shader.hpp>
+#include <galaxy/components/All.hpp>
+#include <nlohmann/json.hpp>
 
 #include "SandboxLayer.hpp"
 
@@ -54,8 +57,61 @@ namespace sb
 		SL_HANDLE.renderer()->add_post_effect(&m_simple);
 		//SL_HANDLE.renderer()->add_post_effect(&m_pl);
 
-		m_sprite.load("assets/textures/wall.png");
-		m_sprite.create<qs::BufferDynamic>();
+		auto e2 = m_world->create("wall");
+
+		nlohmann::json j_wall =
+		    R"(
+			{
+				"fixed": true,
+				"density" : 0.1,
+				"width" : 128.0,
+				"height" : 128.0,
+				"init-x" : 200.0,
+				"init-y" : 200.0,
+				"restitution" : 0,
+				"static-friction" : 10,
+				"dynamic-friction" : 5
+			}
+			)"_json;
+
+		auto* pc = m_world->create_component<galaxy::PhysicsComponent>(e2, j_wall);
+		auto* sc = m_world->create_component<galaxy::SpriteComponent>(e2);
+		sc->m_sprite.load("assets/textures/wall_small.png");
+		sc->m_sprite.create<qs::BufferDynamic>();
+		sc->m_sprite.set_pos(200, 200);
+
+		auto* shader_c = m_world->create_component<galaxy::ShaderComponent>(e2);
+		shader_c->m_shader.load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
+		m_world->create_component<galaxy::EnabledComponent>(e2);
+
+		auto e = m_world->create("moving_arrow");
+
+		nlohmann::json j =
+		    R"(
+			{
+				"fixed": false,
+				"density" : 0.1,
+				"width" : 128.0,
+				"height" : 32.0,
+				"init-x" : 50.0,
+				"init-y" : 200.0,
+				"restitution" : 0,
+				"static-friction" : 10,
+				"dynamic-friction" : 5
+			}
+			)"_json;
+
+		pc          = m_world->create_component<galaxy::PhysicsComponent>(e, j);
+		m_test_body = dynamic_cast<rs::KineticBody*>(pc->m_body.get());
+
+		sc = m_world->create_component<galaxy::SpriteComponent>(e);
+		sc->m_sprite.load("assets/textures/moving_arrow.png");
+		sc->m_sprite.create<qs::BufferDynamic>();
+		sc->m_sprite.set_pos(50, 200);
+
+		shader_c = m_world->create_component<galaxy::ShaderComponent>(e);
+		shader_c->m_shader.load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
+		m_world->create_component<galaxy::EnabledComponent>(e);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -107,6 +163,11 @@ namespace sb
 			m_window->close();
 		}
 
+		if (m_window->key_pressed(pr::Keys::SPACE))
+		{
+			m_test_body->apply_horizontal_force(1.5f);
+		}
+
 		/*
 		auto pos = m_window->get_cursor_pos();
 		if (glfwGetMouseButton(m_window->gl_m_window(), GLFW_MOUSE_BUTTON_1))
@@ -132,12 +193,6 @@ namespace sb
 
 	void SandboxLayer::render()
 	{
-		auto* ss = SL_HANDLE.shaderbook()->get("sprite");
-		ss->bind();
-		ss->set_uniform("u_cameraProj", m_camera.get_proj());
-		ss->set_uniform("u_cameraView", m_camera.get_transform());
-		SL_HANDLE.renderer()->draw_sprite(m_sprite, *ss);
-
 		auto* pts = SL_HANDLE.shaderbook()->get("particle");
 		pts->bind();
 		pts->set_uniform("u_cameraProj", m_camera.get_proj());
@@ -152,6 +207,6 @@ namespace sb
 
 		SL_HANDLE.renderer()->draw_circle(m_circle, *ps);
 
-		//m_world->get_system<galaxy::RenderSystem>()->render(camera);
+		m_world->get_system<galaxy::RenderSystem>()->render(m_camera);
 	}
 } // namespace sb

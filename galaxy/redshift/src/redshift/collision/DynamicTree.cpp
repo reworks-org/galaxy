@@ -9,7 +9,7 @@
 
 #include "DynamicTree.hpp"
 
-#define DEFAULT_SIZE 10
+#define DEFAULT_SIZE 3
 
 ///
 /// Core namespace.
@@ -65,71 +65,70 @@ namespace rs
 			m_node_stack.pop();
 		}
 
-		m_hits.clear();
 		m_nodes.clear();
 		m_object_node_index.clear();
 		m_merged.clear();
 	}
 
-	void DynamicTree::insert(std::weak_ptr<Collidable> object)
+	void DynamicTree::insert(std::shared_ptr<Collidable> object)
 	{
-		if (auto ptr = object.lock())
+		if (object != nullptr)
 		{
 			const int node         = allocate_node();
-			m_nodes[node].m_aabb   = &ptr->get_aabb();
+			m_nodes[node].m_aabb   = &object->get_aabb();
 			m_nodes[node].m_object = object;
 
 			insert_leaf(node);
-			m_object_node_index[ptr] = node;
+			m_object_node_index[object] = node;
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "Attempted to access deleted memory. Invalid Weak Pointer.");
+			PL_LOG(PL_ERROR, "Attempted to insert nullptr into Dynamic Tree.");
 		}
 	}
 
-	void DynamicTree::remove(std::weak_ptr<Collidable> object)
+	void DynamicTree::remove(std::shared_ptr<Collidable> object)
 	{
-		if (auto ptr = object.lock())
+		if (object != nullptr)
 		{
-			const int node = m_object_node_index[ptr];
+			const int node = m_object_node_index[object];
 
 			remove_leaf(node);
 			deallocate_node(node);
 
-			m_object_node_index.erase(ptr);
+			m_object_node_index.erase(object);
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "weak_ptr is null.");
+			PL_LOG(PL_ERROR, "Provided a nullptr key to DynamicTree::remove().");
 		}
 	}
 
-	void DynamicTree::update(std::weak_ptr<Collidable> object)
+	void DynamicTree::update(std::shared_ptr<Collidable> object)
 	{
-		if (auto ptr = object.lock())
+		if (object != nullptr)
 		{
-			const int node = m_object_node_index[ptr];
-			update_leaf(node, ptr->get_aabb());
+			const int node = m_object_node_index[object];
+			update_leaf(node, object->get_aabb());
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "Attempted to access deleted memory. Invalid Weak Pointer.");
+			PL_LOG(PL_ERROR, "Attempted to update nullptr object in DynamicTree.");
 		}
 	}
 
-	auto DynamicTree::query(std::weak_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>&
+	auto DynamicTree::query(std::shared_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>
 	{
-		// Clear out old data.
-		m_hits.clear();
+		std::forward_list<std::shared_ptr<Collidable>> hits;
+
 		while (!m_node_stack.empty())
 		{
 			m_node_stack.pop();
 		}
 
-		if (auto ptr = object.lock())
+		if (object != nullptr)
 		{
-			const AABB& aabb_to_test = ptr->get_aabb();
+			const AABB& aabb_to_test = object->get_aabb();
 			m_node_stack.push(m_root_node);
 
 			while (!m_node_stack.empty())
@@ -142,21 +141,14 @@ namespace rs
 					const Node& node_obj = m_nodes[node];
 					if (node_obj.m_aabb->overlaps(aabb_to_test))
 					{
-						if (auto node_ptr = node_obj.m_object.lock())
+						if (node_obj.is_leaf() && node_obj.m_object != object)
 						{
-							if (node_obj.is_leaf() && node_ptr != ptr)
-							{
-								m_hits.emplace_front(node_ptr);
-							}
-							else
-							{
-								m_node_stack.push(node_obj.m_left_node);
-								m_node_stack.push(node_obj.m_right_node);
-							}
+							hits.emplace_front(node_obj.m_object);
 						}
 						else
 						{
-							PL_LOG(PL_FATAL, "Attempted to access deleted memory. Invalid Weak Pointer.");
+							m_node_stack.push(node_obj.m_left_node);
+							m_node_stack.push(node_obj.m_right_node);
 						}
 					}
 				}
@@ -164,10 +156,10 @@ namespace rs
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "Attempted to access deleted memory. Invalid Weak Pointer.");
+			PL_LOG(PL_ERROR, "Attempted to query a nullptr using DynamicTree.");
 		}
 
-		return m_hits;
+		return hits;
 	}
 
 	int DynamicTree::allocate_node()
@@ -176,7 +168,7 @@ namespace rs
 		{
 			if (m_allocated_nodes != m_node_capacity)
 			{
-				PL_LOG(PL_FATAL, "m_allocated_nodes != m_node_capacity");
+				PL_LOG(PL_ERROR, "m_allocated_nodes != m_node_capacity");
 			}
 			else
 			{
@@ -213,13 +205,9 @@ namespace rs
 
 	void DynamicTree::insert_leaf(const int leaf)
 	{
-		if ((m_nodes[leaf].m_parent_node == Node::s_NULL_NODE) ||
-		    (m_nodes[leaf].m_left_node == Node::s_NULL_NODE) ||
+		if ((m_nodes[leaf].m_parent_node == Node::s_NULL_NODE) &&
+		    (m_nodes[leaf].m_left_node == Node::s_NULL_NODE) &&
 		    (m_nodes[leaf].m_right_node == Node::s_NULL_NODE))
-		{
-			PL_LOG(PL_FATAL, "Attempted to insert invalid leaf.");
-		}
-		else
 		{
 			if (m_root_node == Node::s_NULL_NODE)
 			{
@@ -364,12 +352,9 @@ namespace rs
 	{
 		Node& leaf_obj = m_nodes[leaf];
 
-		if (!leaf_obj.m_aabb->contains(aabb))
-		{
-			remove_leaf(leaf);
-			leaf_obj.m_aabb = &aabb;
-			insert_leaf(leaf);
-		}
+		remove_leaf(leaf);
+		leaf_obj.m_aabb = &aabb;
+		insert_leaf(leaf);
 	}
 
 	void DynamicTree::fix_upwards_tree(int tree_node)

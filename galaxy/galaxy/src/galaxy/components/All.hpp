@@ -9,11 +9,12 @@
 #define GALAXY_ALLCOMPONENTS_HPP_
 
 #include "galaxy/components/AnimationComponent.hpp"
+#include "galaxy/components/EnabledComponent.hpp"
 #include "galaxy/components/MusicComponent.hpp"
+#include "galaxy/components/PhysicsComponent.hpp"
 #include "galaxy/components/ShaderComponent.hpp"
 #include "galaxy/components/SoundComponent.hpp"
 #include "galaxy/components/SpriteBatchComponent.hpp"
 #include "galaxy/components/SpriteComponent.hpp"
-#include "galaxy/components/EnabledComponent.hpp"
 
 #endif

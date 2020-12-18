@@ -20,26 +20,6 @@
 #include "Application.hpp"
 
 ///
-/// Needed for when using std::chrono.
-///
-using namespace std::chrono_literals;
-
-///
-/// Shorthand for high res clock.
-///
-using std_chrono_hrc = std::chrono::high_resolution_clock;
-
-///
-/// Timepoint.
-///
-using std_chrono_tp = std::chrono::steady_clock::time_point;
-
-///
-/// Duration.
-///
-using std_chrono_duration = std::chrono::duration<long long, std::nano>;
-
-///
 /// Core namespace.
 ///
 namespace galaxy
@@ -47,8 +27,6 @@ namespace galaxy
 	Application::Application(std::unique_ptr<galaxy::Config>& config)
 	    : m_openal {}
 	{
-		m_delta_time.set(0.0);
-
 		// Seed pseudo-random algorithms.
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
@@ -141,7 +119,7 @@ namespace galaxy
 			SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
 			// Game "world".
-			m_world           = std::make_unique<galaxy::World>();
+			m_world           = std::make_unique<galaxy::World>(glm::vec2 {m_config->get<float>("gravity-x"), m_config->get<float>("gravity-y")});
 			SL_HANDLE.m_world = m_world.get();
 
 			// Serializer.
@@ -186,31 +164,31 @@ namespace galaxy
 
 	bool Application::run()
 	{
-		// This is to ensure gameloop is running at 60 UPS, independant of FPS. 1.0 / 60.0.
-		std_chrono_tp current;
-		std_chrono_duration elapsed;
-		std::chrono::nanoseconds lag(0ns);
-		constexpr std::chrono::nanoseconds update_ratio(16ms);
+		using clock     = std::chrono::high_resolution_clock;
+		using ups_ratio = std::chrono::duration<double, std::ratio<1, 60>>;
 
-		// Fixed timestep gameloop. Pretty easy to understand.
-		// Simply loop the game until the window closes, then the mainloop can handle restarting the application if restart = true.
-		auto previous = std_chrono_hrc::now();
+		const constexpr ups_ratio ups {1};
+		const constexpr auto ups_as_nano = std::chrono::duration_cast<std::chrono::nanoseconds>(ups);
+		const constexpr auto ups_s       = std::chrono::duration_cast<std::chrono::milliseconds>(ups).count() / 1000.0;
+
+		std::chrono::nanoseconds accumulator {0};
+		auto previous = clock::now();
+		auto current  = clock::now();
+		auto elapsed  = current - previous;
 		while (m_window->is_open())
 		{
-			current  = std_chrono_hrc::now();
+			current  = clock::now();
 			elapsed  = current - previous;
 			previous = current;
-			lag += elapsed;
+			accumulator += elapsed;
 
 			m_window->poll_events();
-			while (lag >= update_ratio)
+			m_state->events();
+
+			while (accumulator >= ups)
 			{
-				m_delta_time.set(static_cast<double>(lag.count()) / static_cast<double>(update_ratio.count()));
-
-				m_state->events();
-				m_state->update(m_delta_time.get());
-
-				lag -= update_ratio;
+				m_state->update(ups_s);
+				accumulator -= ups_as_nano;
 			}
 
 			m_state->pre_render();
@@ -232,10 +210,5 @@ namespace galaxy
 		m_window->destroy();
 
 		return SL_HANDLE.m_restart;
-	}
-
-	pr::LockedDouble* Application::get_dt()
-	{
-		return &m_delta_time;
 	}
 } // namespace galaxy

@@ -17,44 +17,88 @@
 ///
 namespace rs
 {
+	///
+	/// A physics body that can interact with the world.
+	///
 	class Body : public rs::Collidable
 	{
-		friend class World;
-
 	public:
 		///
 		/// Virtual destructor.
 		///
 		virtual ~Body() = default;
 
-		void set_initial_pos(glm::vec2& pos);
-		void set_initial_pos(const float x, const float y);
+		///
+		/// Set initial position of this body.
+		///
+		/// \param x X axis pos.
+		/// \param y Y axis pos.
+		///
+		void set_pos(const float x, const float y);
 
 		///
-		/// Can this body move.
+		/// Update the internal AABB box.
+		///
+		void update_aabb();
+
+		///
+		/// Get current position.
+		///
+		/// \return Const glm::vec2 reference.
+		///
+		[[nodiscard]] const glm::vec2& get_pos() const;
+
+		///
+		/// Get current velocity.
+		///
+		/// \return Const glm::vec2 reference.
+		///
+		[[nodiscard]] virtual const glm::vec2& get_vel() const = 0;
+
+		///
+		/// Get mass.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float mass() const;
+
+		///
+		/// Check if this body is rigid or can move.
 		///
 		/// \return Const bool.
 		///
 		virtual const bool is_rigid() const noexcept = 0;
 
 		///
-		/// Current position of the body.
-		///
-		glm::vec2 m_pos;
-
-		///
 		/// Restitution of this body.
 		///
 		float m_restitution;
+
+		///
+		/// Friction of surface when an object is resting on it.
+		///
+		float m_static_friction;
+
+		///
+		/// Friction of surface when an object is moving along it.
+		///
+		float m_dynamic_friction;
 
 	protected:
 		///
 		/// Argument constructor.
 		///
+		/// \param density Density of this object.
+		/// \param size Size of this object.
+		///
 		Body(const float density, const glm::vec2& size);
 
 		///
 		/// Argument constructor.
+		///
+		/// \param density Density of this object.
+		/// \param width Width of the object.
+		/// \param height Height of the object.
 		///
 		Body(const float density, const float width, const float height);
 
@@ -64,9 +108,14 @@ namespace rs
 		float m_mass;
 
 		///
-		/// Velocity of this body.
+		/// Internal size.
 		///
-		glm::vec2 m_velocity;
+		glm::vec2 m_size;
+
+		///
+		/// Current position of the body.
+		///
+		glm::vec2 m_pos;
 
 	private:
 		///

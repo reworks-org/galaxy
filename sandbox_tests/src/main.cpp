@@ -11,6 +11,7 @@
 #include <galaxy/core/ServiceLocator.hpp>
 
 #include <galaxy/systems/RenderSystem.hpp>
+#include <galaxy/systems/PhysicsSystem.hpp>
 
 #include "states/Sandbox.hpp"
 
@@ -66,6 +67,8 @@ int main(int argsc, char* argsv[])
 				config->define<float>("line-thickness", 1.0f);
 				config->define<bool>("is-cursor-visible", true);
 				config->define<bool>("gl-debug", false);
+				config->define<float>("gravity-x", 0.0f);
+				config->define<float>("gravity-y", 0.0f);
 				config->define<std::string>("cursor-image", "cursor.png");
 				config->define<std::string>("icon-file", "icon.png");
 				config->define<std::string>("root-path", "assets/");
@@ -93,7 +96,9 @@ int main(int argsc, char* argsv[])
 			gs->create<sb::Sandbox>("Sandbox");
 			gs->push("Sandbox");
 
+			// Will be updated in order to order of creation is important.
 			auto* world = SL_HANDLE.world();
+			world->create_system<galaxy::PhysicsSystem>();
 			world->create_system<galaxy::RenderSystem>();
 
 			restart = editor.run();

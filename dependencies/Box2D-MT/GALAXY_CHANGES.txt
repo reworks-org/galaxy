@@ -1,6 +1,0 @@
-Removed ATOMIC_FLAG_INIT from m_lock() constructor on line 77 of b2ThreadPool.cpp
-
-In b2Settings.cpp:
-
-- Replaced b2Log with logging from pulsar.
-- Added include for pulsar.
