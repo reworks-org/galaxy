@@ -17,7 +17,7 @@ namespace pr
 	{
 	}
 
-	MousePressedEvent::MousePressedEvent(const float x, const float y, const int button)
+	MousePressedEvent::MousePressedEvent(const float x, const float y, const pr::MouseButton button)
 	    : m_x {x}, m_y {y}, m_button {button}
 	{
 	}

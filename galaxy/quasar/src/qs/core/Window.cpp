@@ -179,6 +179,20 @@ namespace qs
 					// Set custom line width.
 					glLineWidth(settings.m_line_thickness);
 
+					m_mousebutton_map.reserve(12);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_1, GLFW_MOUSE_BUTTON_1);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_2, GLFW_MOUSE_BUTTON_2);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_3, GLFW_MOUSE_BUTTON_3);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_4, GLFW_MOUSE_BUTTON_4);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_5, GLFW_MOUSE_BUTTON_5);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_6, GLFW_MOUSE_BUTTON_6);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_7, GLFW_MOUSE_BUTTON_7);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_8, GLFW_MOUSE_BUTTON_8);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_LAST, GLFW_MOUSE_BUTTON_LAST);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_LEFT, GLFW_MOUSE_BUTTON_LEFT);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_RIGHT, GLFW_MOUSE_BUTTON_RIGHT);
+					m_mousebutton_map.emplace(pr::MouseButton::BUTTON_MIDDLE, GLFW_MOUSE_BUTTON_MIDDLE);
+
 					m_keymap.reserve(102);
 					m_keymap.emplace(pr::Keys::A, GLFW_KEY_A);
 					m_keymap.emplace(pr::Keys::B, GLFW_KEY_B);
@@ -609,38 +623,32 @@ namespace qs
 		glfwPollEvents();
 	}
 
-	bool Window::mouse_button_pressed(int mouse_button)
+	bool Window::mouse_button_pressed(pr::MouseButton mouse_button)
 	{
 		bool res = false;
 
-		if (!(mouse_button < 0 || mouse_button > 7))
+		int state = glfwGetMouseButton(m_window, m_mousebutton_map[mouse_button]);
+		if (state == GLFW_PRESS && m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] == GLFW_RELEASE)
 		{
-			int state = glfwGetMouseButton(m_window, mouse_button);
-			if (state == GLFW_PRESS && m_prev_mouse_btn_states[mouse_button] == GLFW_RELEASE)
-			{
-				res = true;
-			}
-
-			m_prev_mouse_btn_states[mouse_button] = state;
+			res = true;
 		}
+
+		m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] = state;
 
 		return res;
 	}
 
-	bool Window::mouse_button_released(int mouse_button)
+	bool Window::mouse_button_released(pr::MouseButton mouse_button)
 	{
 		bool res = false;
 
-		if (!(mouse_button < 0 || mouse_button > 7))
+		int state = glfwGetMouseButton(m_window, m_mousebutton_map[mouse_button]);
+		if (state == GLFW_RELEASE && m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] == GLFW_PRESS)
 		{
-			int state = glfwGetMouseButton(m_window, mouse_button);
-			if (state == GLFW_RELEASE && m_prev_mouse_btn_states[mouse_button] == GLFW_PRESS)
-			{
-				res = true;
-			}
-
-			m_prev_mouse_btn_states[mouse_button] = state;
+			res = true;
 		}
+
+		m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] = state;
 
 		return res;
 	}

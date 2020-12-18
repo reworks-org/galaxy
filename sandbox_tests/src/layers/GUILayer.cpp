@@ -171,14 +171,14 @@ namespace sb
 			m_gui.trigger<pr::MouseMovedEvent>(pos.x, pos.y);
 		}
 
-		if (window->mouse_button_pressed(GLFW_MOUSE_BUTTON_LEFT))
+		if (window->mouse_button_pressed(pr::MouseButton::BUTTON_LEFT))
 		{
-			m_gui.trigger<pr::MousePressedEvent>(pos.x, pos.y, GLFW_MOUSE_BUTTON_LEFT);
+			m_gui.trigger<pr::MousePressedEvent>(pos.x, pos.y, pr::MouseButton::BUTTON_LEFT);
 		}
 
-		if (window->mouse_button_released(GLFW_MOUSE_BUTTON_LEFT))
+		if (window->mouse_button_released(pr::MouseButton::BUTTON_LEFT))
 		{
-			m_gui.trigger<pr::MouseReleasedEvent>(pos.x, pos.y, GLFW_MOUSE_BUTTON_LEFT);
+			m_gui.trigger<pr::MouseReleasedEvent>(pos.x, pos.y, pr::MouseButton::BUTTON_LEFT);
 		}
 
 		if (window->key_pressed(pr::Keys::ENTER))

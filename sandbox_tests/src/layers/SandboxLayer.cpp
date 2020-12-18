@@ -168,14 +168,12 @@ namespace sb
 			m_test_body->apply_horizontal_force(1.5f);
 		}
 
-		/*
-		auto pos = m_window->get_cursor_pos();
-		if (glfwGetMouseButton(m_window->gl_m_window(), GLFW_MOUSE_BUTTON_1))
+		if (m_window->mouse_button_pressed(pr::MouseButton::BUTTON_RIGHT))
 		{
+			auto [pressed, pos] = m_window->get_cursor_pos();
 			m_particle_gen.update_emitter(pos.x, pos.y);
 			m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
 		}
-		*/
 
 		m_world->events();
 	}
