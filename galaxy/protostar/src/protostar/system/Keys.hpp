@@ -9,8 +9,6 @@
 #define PROTOSTAR_KEYS_HPP_
 
 #undef DELETE
-#undef ESC
-#undef ENTER
 
 ///
 /// Core namespace.
