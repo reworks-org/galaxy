@@ -20,6 +20,8 @@ namespace rs
 	///
 	class KineticBody final : public rs::Body
 	{
+		friend class World;
+
 	public:
 		///
 		/// Argument constructor.
@@ -80,6 +82,13 @@ namespace rs
 		[[nodiscard]] const glm::vec2& get_force() const;
 
 		///
+		/// Get current velocity.
+		///
+		/// \return Const glm::vec2 reference.
+		///
+		[[nodiscard]] const glm::vec2& get_vel() const override;
+
+		///
 		/// Check if this body is rigid or can move.
 		///
 		/// \return Const bool.
@@ -96,6 +105,11 @@ namespace rs
 		/// Force currently being applied to this object.
 		///
 		glm::vec2 m_force;
+
+		///
+		/// Velocity of this body.
+		///
+		glm::vec2 m_velocity;
 	};
 } // namespace rs
 

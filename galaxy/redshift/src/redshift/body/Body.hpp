@@ -22,8 +22,6 @@ namespace rs
 	///
 	class Body : public rs::Collidable
 	{
-		friend class World;
-
 	public:
 		///
 		/// Virtual destructor.
@@ -31,16 +29,45 @@ namespace rs
 		virtual ~Body() = default;
 
 		///
+		/// Set initial position of this body.
+		///
+		/// \param x X axis pos.
+		/// \param y Y axis pos.
+		///
+		void set_pos(const float x, const float y);
+
+		///
+		/// Update the internal AABB box.
+		///
+		void update_aabb();
+
+		///
+		/// Get current position.
+		///
+		/// \return Const glm::vec2 reference.
+		///
+		[[nodiscard]] const glm::vec2& get_pos() const;
+
+		///
+		/// Get current velocity.
+		///
+		/// \return Const glm::vec2 reference.
+		///
+		[[nodiscard]] virtual const glm::vec2& get_vel() const = 0;
+
+		///
+		/// Get mass.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float mass() const;
+
+		///
 		/// Check if this body is rigid or can move.
 		///
 		/// \return Const bool.
 		///
 		virtual const bool is_rigid() const noexcept = 0;
-
-		///
-		/// Current position of the body.
-		///
-		glm::vec2 m_pos;
 
 		///
 		/// Restitution of this body.
@@ -81,9 +108,14 @@ namespace rs
 		float m_mass;
 
 		///
-		/// Velocity of this body.
+		/// Internal size.
 		///
-		glm::vec2 m_velocity;
+		glm::vec2 m_size;
+
+		///
+		/// Current position of the body.
+		///
+		glm::vec2 m_pos;
 
 	private:
 		///

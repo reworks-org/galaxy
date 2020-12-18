@@ -71,21 +71,21 @@ namespace rs
 		///
 		/// \param object Object to insert.
 		///
-		void insert(std::weak_ptr<Collidable> object);
+		void insert(std::shared_ptr<Collidable> object);
 
 		///
 		/// Remove an object.
 		///
 		/// \param object Object to remove.
 		///
-		void remove(std::weak_ptr<Collidable> object);
+		void remove(std::shared_ptr<Collidable> object);
 
 		///
 		/// Update an object.
 		///
 		/// \param object Object to update.
 		///
-		void update(std::weak_ptr<Collidable> object);
+		void update(std::shared_ptr<Collidable> object);
 
 		///
 		/// Query an object for possible collisions.
@@ -94,7 +94,7 @@ namespace rs
 		///
 		/// \return List of possible objects that could have been collided with.
 		///
-		[[nodiscard]] auto query(std::weak_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>&;
+		[[nodiscard]] auto query(std::shared_ptr<Collidable> object) -> std::forward_list<std::shared_ptr<Collidable>>;
 
 	private:
 		///
@@ -130,7 +130,7 @@ namespace rs
 			///
 			/// Pointer to the object this node represents.
 			///
-			std::weak_ptr<Collidable> m_object;
+			std::shared_ptr<Collidable> m_object;
 
 			///
 			/// Parent node id.

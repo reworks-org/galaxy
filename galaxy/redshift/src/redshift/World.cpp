@@ -35,23 +35,27 @@ namespace rs
 			m_collision_tree.insert(body);
 		}
 
+		m_removed.clear();
+
 		for (auto&& body : m_bodies)
 		{
 			auto body_as_collidable = std::static_pointer_cast<Collidable>(body);
 			if (!body->is_rigid())
 			{
-				const auto* kin_body = dynamic_cast<KineticBody*>(body.get());
+				auto* kin_body   = dynamic_cast<KineticBody*>(body.get());
+				const auto force = kin_body->get_force() + m_gravity;
 
-				auto force = kin_body->get_force() + m_gravity;
-
-				body->m_velocity += (1.0f / body->m_mass * force) * static_cast<float>(dt);
-				body->m_pos += (body->m_velocity * static_cast<float>(dt));
+				kin_body->m_velocity += (kin_body->m_mass * force) * static_cast<float>(dt);
+				kin_body->m_pos += (kin_body->m_velocity * static_cast<float>(dt));
+				kin_body->update_aabb();
 
 				m_collision_tree.update(body_as_collidable);
+				kin_body->apply_force(0.0f, 0.0f);
 			}
 
 			// Broad Phase collision.
-			auto possible = m_collision_tree.query(body_as_collidable);
+			body_as_collidable = std::static_pointer_cast<Collidable>(body);
+			auto possible      = m_collision_tree.query(body_as_collidable);
 			for (auto&& obj_b : possible)
 			{
 				auto* obj_b_as_body = dynamic_cast<Body*>(obj_b.get());
@@ -77,7 +81,7 @@ namespace rs
 
 	std::optional<Manifold> World::narrow_phase_collision(Body* a, Body* b)
 	{
-		const glm::vec2 a_to_b = b->m_pos - a->m_pos;
+		const glm::vec2 a_to_b = b->get_pos() - a->get_pos();
 		const AABB& a_box      = a->get_aabb();
 		const AABB& b_box      = b->get_aabb();
 
@@ -131,65 +135,86 @@ namespace rs
 
 	void World::resolve_collision(Body* a, Body* b, const Manifold& manifold)
 	{
-		glm::vec2 rel_vel           = b->m_velocity - a->m_velocity;
-		const float normal_velocity = glm::dot(rel_vel, manifold.m_normal);
-		if (!(normal_velocity > 0))
+		float a_inv_mass = a->mass();
+		float b_inv_mass = b->mass();
+		if (a_inv_mass <= 0)
 		{
-			const float restitution = std::min(a->m_restitution, b->m_restitution);
-			float impulse_scalar    = -(1 + restitution) * normal_velocity;
-			impulse_scalar /= 1 / a->m_mass + 1 / b->m_mass;
+			a_inv_mass = 0;
+		}
+		else
+		{
+			a_inv_mass = 1.0f / a->mass();
+		}
 
-			const glm::vec2 impulse = impulse_scalar * manifold.m_normal;
-			a->m_velocity -= 1 / a->m_mass * impulse;
-			b->m_velocity += 1 / b->m_mass * impulse;
+		if (b_inv_mass <= 0)
+		{
+			b_inv_mass = 0;
+		}
+		else
+		{
+			b_inv_mass = 1.0f / b->mass();
+		}
 
-			float a_inv_mass = a->m_mass;
-			float b_inv_mass = b->m_mass;
-			if (a_inv_mass <= 0)
+		if (a->is_rigid())
+		{
+			auto* b_kin         = dynamic_cast<KineticBody*>(b);
+			b_kin->m_velocity.x = 0.0f;
+			b_kin->m_velocity.y = 0.0f;
+		}
+		else if (b->is_rigid())
+		{
+			auto* a_kin         = dynamic_cast<KineticBody*>(a);
+			a_kin->m_velocity.x = 0.0f;
+			a_kin->m_velocity.y = 0.0f;
+		}
+		else
+		{
+			glm::vec2 rel_vel           = b->get_vel() - a->get_vel();
+			const float normal_velocity = glm::dot<2, float, glm::qualifier::highp>(rel_vel, manifold.m_normal);
+			if (!(normal_velocity > 0))
 			{
-				a_inv_mass = 0;
-			}
-			else
-			{
-				a_inv_mass = 1.0f / a->m_mass;
-			}
+				const float restitution = std::min(a->m_restitution, b->m_restitution);
+				float impulse_scalar    = -(1.0f + restitution) * normal_velocity;
+				impulse_scalar /= a_inv_mass + b_inv_mass;
 
-			if (b_inv_mass <= 0)
-			{
-				b_inv_mass = 0;
+				const glm::vec2 impulse = impulse_scalar * manifold.m_normal;
+				auto* a_kin             = dynamic_cast<KineticBody*>(a);
+				a_kin->m_velocity -= a_inv_mass * impulse;
+
+				auto* b_kin = dynamic_cast<KineticBody*>(b);
+				b_kin->m_velocity += b_inv_mass * impulse;
+
+				const glm::vec2 correction = std::max(manifold.m_penetration - SLOP_THRESHOLD, 0.0f) / (a_inv_mass + b_inv_mass) * PENETRATION_PERCENT * manifold.m_normal;
+				a_kin->m_pos -= a_inv_mass * correction;
+				a_kin->update_aabb();
+
+				b_kin->m_pos += b_inv_mass * correction;
+				b_kin->update_aabb();
+
+				// Solve friction.
+				rel_vel           = b->get_vel() - a->get_vel();
+				glm::vec2 tangent = rel_vel - glm::dot<2, float, glm::qualifier::highp>(rel_vel, manifold.m_normal) * manifold.m_normal;
+				tangent           = glm::normalize(tangent);
+
+				float friction_magnitude = -glm::dot<2, float, glm::qualifier::highp>(rel_vel, tangent);
+				friction_magnitude       = friction_magnitude / (a_inv_mass + b_inv_mass);
+
+				const float mu = std::pow(a->m_static_friction, 2) + std::pow(b->m_static_friction, 2);
+				glm::vec2 friction_impulse;
+				if (std::abs(friction_magnitude) < impulse_scalar * mu)
+				{
+					friction_impulse = friction_magnitude * tangent;
+				}
+				else
+				{
+					const float dynamic_friction = std::pow(a->m_dynamic_friction, 2) + std::pow(b->m_dynamic_friction, 2);
+					friction_impulse             = -impulse_scalar * tangent * dynamic_friction;
+				}
+
+				// Apply friction.
+				a_kin->m_velocity -= a_inv_mass * friction_impulse;
+				b_kin->m_velocity += b_inv_mass * friction_impulse;
 			}
-			else
-			{
-				b_inv_mass = 1.0f / b->m_mass;
-			}
-
-			const glm::vec2 correction = std::max(manifold.m_penetration - SLOP_THRESHOLD, 0.0f) / (a_inv_mass + b_inv_mass) * PENETRATION_PERCENT * (b->m_pos - a->m_pos);
-			a->m_pos -= a_inv_mass * correction;
-			b->m_pos += b_inv_mass * correction;
-
-			// Solve friction.
-			rel_vel           = b->m_velocity - a->m_velocity;
-			glm::vec2 tangent = rel_vel - glm::dot(rel_vel, manifold.m_normal) * manifold.m_normal;
-			tangent           = glm::normalize(tangent);
-
-			float friction_magnitude = -glm::dot(rel_vel, tangent);
-			friction_magnitude       = friction_magnitude / (a_inv_mass + b_inv_mass);
-
-			float mu = std::pow(a->m_static_friction, 2) + std::pow(b->m_static_friction, 2);
-			glm::vec2 friction_impulse;
-			if (std::abs(friction_magnitude) < impulse_scalar * mu)
-			{
-				friction_impulse = friction_magnitude * tangent;
-			}
-			else
-			{
-				const float dynamic_friction = std::pow(a->m_dynamic_friction, 2) + std::pow(b->m_dynamic_friction, 2);
-				friction_impulse             = -impulse_scalar * tangent * dynamic_friction;
-			}
-
-			// Apply friction.
-			a->m_velocity -= a_inv_mass * friction_impulse;
-			b->m_velocity += b_inv_mass * friction_impulse;
 		}
 	}
 } // namespace rs
