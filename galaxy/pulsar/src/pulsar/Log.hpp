@@ -231,7 +231,7 @@ namespace pl
 		if (!m_testing_mode)
 		{
 			// Check to make sure level should be logged.
-			if (LogLevel::value() > m_min_level)
+			if (LogLevel::value() >= m_min_level)
 			{
 				std::lock_guard<std::mutex> lock {m_mutex};
 
