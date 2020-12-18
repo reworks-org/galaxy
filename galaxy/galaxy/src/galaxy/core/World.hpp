@@ -10,6 +10,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 #include <solar/entity/Manager.hpp>
+#include <redshift/World.hpp>
 
 ///
 /// Core namespace.
@@ -22,7 +23,8 @@ namespace galaxy
 	using ComponentFactory = robin_hood::unordered_map<std::string, std::function<void(const sr::Entity, const nlohmann::json&)>>;
 
 	///
-	/// The World class. Contains the entities and systems and other library stuff, like the main lua state.
+	/// Manages the entities and systems and other library stuff, like the main lua state,
+	/// and the physics world.
 	///
 	class World final : public sr::Manager
 	{
@@ -31,6 +33,13 @@ namespace galaxy
 		/// Constructor.
 		///
 		World();
+
+		///
+		/// Argument constructor.
+		///
+		/// \param gravity World gravity. Can be 0.
+		///
+		World(const glm::vec2& gravity);
 
 		///
 		/// Copy constructor.
@@ -76,7 +85,19 @@ namespace galaxy
 		template<pr::is_class Component>
 		void register_component(std::string_view name);
 
+		///
+		/// Get reference to physics world.
+		///
+		/// \return Reference to rs::World.
+		///
+		[[nodiscard]] rs::World& phys_world();
+
 	private:
+		///
+		/// Physics world.
+		///
+		rs::World m_phys_world;
+
 		///
 		/// Used to allow for component creation without having to know the compile time type.
 		///

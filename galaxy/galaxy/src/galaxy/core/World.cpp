@@ -21,15 +21,30 @@
 namespace galaxy
 {
 	World::World()
-	    : Manager {}
+	    : Manager {}, m_phys_world {}
 	{
 		register_component<galaxy::AnimationComponent>("AnimationComponent");
+		register_component<galaxy::EnabledComponent>("EnabledComponent");
 		register_component<galaxy::MusicComponent>("MusicComponent");
+		register_component<galaxy::PhysicsComponent>("PhysicsComponent");
 		register_component<galaxy::ShaderComponent>("ShaderComponent");
 		register_component<galaxy::SoundComponent>("SoundComponent");
 		register_component<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
 		register_component<galaxy::SpriteComponent>("SpriteComponent");
+		
+	}
+
+	World::World(const glm::vec2& gravity)
+	    : Manager {}, m_phys_world {gravity}
+	{
+		register_component<galaxy::AnimationComponent>("AnimationComponent");
 		register_component<galaxy::EnabledComponent>("EnabledComponent");
+		register_component<galaxy::MusicComponent>("MusicComponent");
+		register_component<galaxy::PhysicsComponent>("PhysicsComponent");
+		register_component<galaxy::ShaderComponent>("ShaderComponent");
+		register_component<galaxy::SoundComponent>("SoundComponent");
+		register_component<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
+		register_component<galaxy::SpriteComponent>("SpriteComponent");
 	}
 
 	World::~World()
@@ -61,4 +76,8 @@ namespace galaxy
 		return entity;
 	}
 
+	rs::World& World::phys_world()
+	{
+		return m_phys_world;
+	}
 } // namespace galaxy
