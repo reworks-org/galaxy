@@ -15,6 +15,7 @@
 #include <glm/vec2.hpp>
 #include <protostar/graphics/Colour.hpp>
 #include <protostar/system/Keys.hpp>
+#include <protostar/system/MouseButtons.hpp>
 #include <robin_hood.h>
 
 #include "qs/core/WindowSettings.hpp"
@@ -216,20 +217,20 @@ namespace qs
 		///
 		/// Check if a mouse button was pressed.
 		///
-		/// \param mouse_button GLFW mouse button keycode.
+		/// \param mouse_button mouse button keycode.
 		///
 		/// \return True if a press occured.
 		///
-		bool mouse_button_pressed(int mouse_button);
+		bool mouse_button_pressed(pr::MouseButton mouse_button);
 
 		///
 		/// Check if a mouse button was released.
 		///
-		/// \param mouse_button GLFW mouse button keycode.
+		/// \param mouse_button mouse button keycode.
 		///
 		/// \return True if a release occured.
 		///
-		bool mouse_button_released(int mouse_button);
+		bool mouse_button_released(pr::MouseButton mouse_button);
 
 		///
 		/// \brief See if a key is being held down.
@@ -321,6 +322,11 @@ namespace qs
 		/// Array storing each of the 8 mouse buttons supported by GLFW.
 		///
 		std::array<int, 8> m_prev_mouse_btn_states;
+
+		///
+		/// Map of GLFW mouse buttons to protostar mouse buttons.
+		///
+		robin_hood::unordered_map<pr::MouseButton, int> m_mousebutton_map;
 
 		///
 		/// Map of GLFW scancodes to protostar keys.

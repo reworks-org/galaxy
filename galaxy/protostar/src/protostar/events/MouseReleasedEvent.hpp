@@ -8,6 +8,8 @@
 #ifndef PROTOSTAR_MOUSERELEASEDEVENT_HPP_
 #define PROTOSTAR_MOUSERELEASEDEVENT_HPP_
 
+#include "protostar/system/MouseButtons.hpp"
+
 ///
 /// Core namespace.
 ///
@@ -30,7 +32,7 @@ namespace pr
 		/// \param y y-pos of event.
 		/// \param button Button code pressed.
 		///
-		MouseReleasedEvent(const float x, const float y, const int button);
+		MouseReleasedEvent(const float x, const float y, const pr::MouseButton button);
 
 		///
 		/// Copy constructor.
@@ -70,7 +72,7 @@ namespace pr
 		///
 		/// Mouse button released.
 		///
-		int m_button;
+		pr::MouseButton m_button;
 	};
 } // namespace pr
 
