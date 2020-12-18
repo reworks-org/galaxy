@@ -8,13 +8,13 @@
 #include <filesystem>
 #include <iostream>
 
-#ifdef _WIN64
-#include <windows.h>
-#endif
-
 #include "Log.hpp"
 
 using namespace std::chrono_literals;
+
+#ifdef _WIN32 || _WIN64
+#include <Windows.h>
+#endif
 
 ///
 /// Core namespace.
@@ -25,7 +25,7 @@ namespace pl
 	    : m_min_level {log_level::Level::INFO}, m_message {""}, m_running {false}, m_testing_mode {false}
 	{
 		// clang-format off
-        #ifdef _WIN64
+        #ifdef _WIN32 || _WIN64
 		    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 			DWORD mode = 0;
 
