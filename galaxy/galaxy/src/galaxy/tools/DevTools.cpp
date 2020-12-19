@@ -585,13 +585,14 @@ namespace galaxy
 
 	void DevTools::component_ui(bool enabled, std::uint32_t entity)
 	{
-		auto [shader, sprite, batch, sound, music, animation] = m_world->get_multi<
+		auto [shader, sprite, batch, sound, music, animation, physics] = m_world->get_multi<
 		    galaxy::ShaderComponent,
 		    galaxy::SpriteComponent,
 		    galaxy::SpriteBatchComponent,
 		    galaxy::SoundComponent,
 		    galaxy::MusicComponent,
-		    galaxy::AnimationComponent>(entity);
+		    galaxy::AnimationComponent,
+		    galaxy::PhysicsComponent>(entity);
 
 		if (enabled)
 		{
@@ -682,22 +683,25 @@ namespace galaxy
 				sprite->m_sprite.set_anisotropy(ansio);
 			}
 
-			glm::vec2 pos = sprite->m_sprite.get_pos();
-			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			if (physics == nullptr)
 			{
-				sprite->m_sprite.set_pos(pos.x, pos.y);
-			}
+				glm::vec2 pos = sprite->m_sprite.get_pos();
+				if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+				{
+					sprite->m_sprite.set_pos(pos.x, pos.y);
+				}
 
-			float rotation = sprite->m_sprite.get_rotation();
-			if (ImGui::SliderAngle("Rotate", &rotation))
-			{
-				sprite->m_sprite.rotate(rotation);
-			}
+				float rotation = sprite->m_sprite.get_rotation();
+				if (ImGui::SliderAngle("Rotate", &rotation))
+				{
+					sprite->m_sprite.rotate(rotation);
+				}
 
-			float scale = sprite->m_sprite.get_scale();
-			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
-			{
-				sprite->m_sprite.scale(scale);
+				float scale = sprite->m_sprite.get_scale();
+				if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+				{
+					sprite->m_sprite.scale(scale);
+				}
 			}
 		}
 
@@ -732,22 +736,25 @@ namespace galaxy
 				batch->m_bs.set_opacity(opacity);
 			}
 
-			glm::vec2 pos = batch->m_bs.get_pos();
-			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			if (physics == nullptr)
 			{
-				batch->m_bs.set_pos(pos.x, pos.y);
-			}
+				glm::vec2 pos = batch->m_bs.get_pos();
+				if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+				{
+					batch->m_bs.set_pos(pos.x, pos.y);
+				}
 
-			float rotation = batch->m_bs.get_rotation();
-			if (ImGui::SliderAngle("Rotate", &rotation))
-			{
-				batch->m_bs.rotate(rotation);
-			}
+				float rotation = batch->m_bs.get_rotation();
+				if (ImGui::SliderAngle("Rotate", &rotation))
+				{
+					batch->m_bs.rotate(rotation);
+				}
 
-			float scale = batch->m_bs.get_scale();
-			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
-			{
-				batch->m_bs.scale(scale);
+				float scale = batch->m_bs.get_scale();
+				if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+				{
+					batch->m_bs.scale(scale);
+				}
 			}
 		}
 
@@ -885,22 +892,25 @@ namespace galaxy
 				animation->m_abs.stop();
 			}
 
-			glm::vec2 pos = animation->m_abs.get_pos();
-			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			if (physics == nullptr)
 			{
-				animation->m_abs.set_pos(pos.x, pos.y);
-			}
+				glm::vec2 pos = animation->m_abs.get_pos();
+				if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+				{
+					animation->m_abs.set_pos(pos.x, pos.y);
+				}
 
-			float rotation = animation->m_abs.get_rotation();
-			if (ImGui::SliderAngle("Rotate", &rotation))
-			{
-				animation->m_abs.rotate(rotation);
-			}
+				float rotation = animation->m_abs.get_rotation();
+				if (ImGui::SliderAngle("Rotate", &rotation))
+				{
+					animation->m_abs.rotate(rotation);
+				}
 
-			float scale = animation->m_abs.get_scale();
-			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
-			{
-				animation->m_abs.scale(scale);
+				float scale = animation->m_abs.get_scale();
+				if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+				{
+					animation->m_abs.scale(scale);
+				}
 			}
 		}
 
@@ -984,6 +994,69 @@ namespace galaxy
 			{
 				music->m_music.set_looping(m_sfx_loop);
 			}
+		}
+
+		if (physics != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Physics Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (!physics->m_body->is_rigid())
+			{
+				ImGui::Text("Body: Kinetic.");
+
+				static float s_hf = 0.0f;
+				if (ImGui::InputFloat("Apply Horizontal Force", &s_hf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
+				{
+					auto* kin_body = static_cast<rs::KineticBody*>(physics->m_body.get());
+					kin_body->apply_horizontal_force(s_hf);
+					s_hf = 0.0f;
+				}
+
+				ImGui::SameLine();
+
+				static float s_vf = 0.0f;
+				if (ImGui::InputFloat("Apply Vertical Force", &s_vf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
+				{
+					auto* kin_body = static_cast<rs::KineticBody*>(physics->m_body.get());
+					kin_body->apply_vertical_force(s_vf);
+					s_vf = 0.0f;
+				}
+			}
+			else
+			{
+				ImGui::Text("Body: Static.");
+			}
+
+			ImGui::Spacing();
+
+			ImGui::SliderFloat("Restitution", &physics->m_body->m_restitution, 0.0f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+			ImGui::Spacing();
+
+			ImGui::SliderFloat("Dynamic Friction", &physics->m_body->m_dynamic_friction, 0.0f, 20.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+			ImGui::SameLine();
+			ImGui::SliderFloat("Static Friction", &physics->m_body->m_static_friction, 0.0f, 20.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+			ImGui::Spacing();
+
+			ImGui::Text(fmt::format("X Pos: {0}", physics->m_body->get_pos().x).c_str());
+			ImGui::SameLine();
+			ImGui::Text(fmt::format("Y Pos: {0}", physics->m_body->get_pos().y).c_str());
+
+			ImGui::Spacing();
+
+			ImGui::Text(fmt::format("X Velocity: {0}", physics->m_body->get_vel().x).c_str());
+			ImGui::SameLine();
+			ImGui::Text(fmt::format("Y Velocity: {0}", physics->m_body->get_vel().y).c_str());
+
+			ImGui::Spacing();
+
+			ImGui::Text(fmt::format("Body Mass: {0}", physics->m_body->mass()).c_str());
 		}
 	}
 

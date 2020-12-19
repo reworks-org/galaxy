@@ -16,5 +16,6 @@ ALL:
 DEV_TOOLS:
 - state machine / layer editor
 - physics tools
-- phyiscscomponent tools
 - export to json / save as json
+- documentation
+- cleanup
