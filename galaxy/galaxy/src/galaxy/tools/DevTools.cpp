@@ -11,14 +11,15 @@
 #include <imgui/impl/imgui_impl_glfw.h>
 #include <imgui/impl/imgui_impl_opengl3.h>
 #include <imgui/addons/ToggleButton.h>
-
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/core/World.hpp>
-#include <galaxy/fs/FileSystem.hpp>
-#include <galaxy/res/ShaderBook.hpp>
-#include <galaxy/scripting/JSONUtils.hpp>
+#include <protostar/state/StateMachine.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
-#include <galaxy/components/All.hpp>
+
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/World.hpp"
+#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/components/All.hpp"
 
 #include "DevTools.hpp"
 
@@ -28,7 +29,7 @@
 namespace galaxy
 {
 	DevTools::DevTools()
-	    : m_world {nullptr}, m_window {nullptr}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
+	    : m_world {nullptr}, m_window {nullptr}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
 	}
 
@@ -93,6 +94,11 @@ namespace galaxy
 				ImGui::EndMenu();
 			}
 
+			if (ImGui::MenuItem("Gamestate Manager"))
+			{
+				m_draw_state_editor = !m_draw_state_editor;
+			}
+
 			if (ImGui::MenuItem("JSON Editor"))
 			{
 				m_draw_json_editor = !m_draw_json_editor;
@@ -124,6 +130,11 @@ namespace galaxy
 			}
 
 			ImGui::EndMainMenuBar();
+		}
+
+		if (m_draw_state_editor)
+		{
+			state_manager_ui();
 		}
 
 		if (m_draw_json_editor)
@@ -174,6 +185,82 @@ namespace galaxy
 	void DevTools::end()
 	{
 		ImGui::Render();
+	}
+
+	void DevTools::state_manager_ui()
+	{
+		auto* gs = SL_HANDLE.gamestate();
+
+		ImGui::Begin("Gamestate Manager", &m_draw_state_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+
+		static std::string s_selected_state = gs->top<pr::State>()->get_name();
+		if (ImGui::BeginCombo("Select State", s_selected_state.c_str()))
+		{
+			for (const auto& state : gs->get_state_keys())
+			{
+				const bool selected = (s_selected_state == state);
+				if (ImGui::Selectable(state.c_str(), selected))
+				{
+					s_selected_state = state;
+				}
+
+				if (selected)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+
+		if (ImGui::Button("Pop##1"))
+		{
+			gs->pop();
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Push##1"))
+		{
+			gs->push(s_selected_state);
+		}
+
+		ImGui::Spacing();
+		auto* layers = gs->top<pr::State>()->get_layers();
+
+		static std::string s_selected_layer = "...";
+		if (ImGui::BeginCombo("Select Layer", s_selected_layer.c_str()))
+		{
+			for (const auto& layer : layers->get_layer_keys())
+			{
+				const bool selected = (s_selected_layer == layer);
+				if (ImGui::Selectable(layer.c_str(), selected))
+				{
+					s_selected_layer = layer;
+				}
+
+				if (selected)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+
+		if (ImGui::Button("Pop##2"))
+		{
+			layers->pop();
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Push##2"))
+		{
+			layers->push(s_selected_layer);
+		}
+
+		ImGui::End();
 	}
 
 	void DevTools::json_ui()

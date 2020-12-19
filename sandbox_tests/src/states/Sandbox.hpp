@@ -9,7 +9,6 @@
 #define SANDBOXTESTS_SANDBOX_HPP_
 
 #include <protostar/state/State.hpp>
-#include <galaxy/layer/LayerStorage.hpp>
 
 namespace sb
 {
@@ -18,15 +17,14 @@ namespace sb
 	public:
 		Sandbox();
 		virtual ~Sandbox() = default;
+
 		void on_push() override;
 		void on_pop() override;
+
 		void events() override;
 		void update(const double dt) override;
 		void pre_render() override;
 		void render() override;
-
-	private:
-		galaxy::LayerStorage m_layers;
 	};
 } // namespace sb
 

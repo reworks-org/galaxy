@@ -8,7 +8,7 @@
 #ifndef PROTOSTAR_STATE_HPP_
 #define PROTOSTAR_STATE_HPP_
 
-#include <string>
+#include "protostar/state/LayerStorage.hpp"
 
 ///
 /// Core namespace.
@@ -92,6 +92,13 @@ namespace pr
 		///
 		const std::string& get_name() const;
 
+		///
+		/// Get layer storage.
+		///
+		/// \return Pointer to state's layer storage stack.
+		///
+		[[nodiscard]] LayerStorage* get_layers();
+
 	protected:
 		///
 		/// Default constructor.
@@ -109,6 +116,11 @@ namespace pr
 		/// State name. Useful to have.
 		///
 		std::string m_name;
+
+		///
+		/// Layers in this state.
+		///
+		LayerStorage m_layers;
 	};
 } // namespace pr
 

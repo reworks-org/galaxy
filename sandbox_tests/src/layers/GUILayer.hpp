@@ -8,12 +8,12 @@
 #ifndef SANDBOXTESTS_GUILAYER_HPP_
 #define SANDBOXTESTS_GUILAYER_HPP_
 
-#include <galaxy/layer/Layer.hpp>
+#include <protostar/state/Layer.hpp>
 #include <galaxy/ui/GUI.hpp>
 
 namespace sb
 {
-	class GUILayer final : public galaxy::Layer
+	class GUILayer final : public pr::Layer
 	{
 	public:
 		GUILayer();

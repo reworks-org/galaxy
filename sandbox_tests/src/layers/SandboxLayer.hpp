@@ -10,7 +10,7 @@
 
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
-#include <galaxy/layer/Layer.hpp>
+#include <protostar/state/Layer.hpp>
 #include <qs/shapes/Point.hpp>
 #include <qs/shapes/Circle.hpp>
 #include <qs/post/PointLight.hpp>
@@ -21,7 +21,7 @@
 
 namespace sb
 {
-	class SandboxLayer final : public galaxy::Layer
+	class SandboxLayer final : public pr::Layer
 	{
 	public:
 		SandboxLayer();

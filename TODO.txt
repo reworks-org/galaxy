@@ -14,8 +14,8 @@ ALL:
 - Timer, StateMachine, Textbox, ThreadPool
 
 DEV_TOOLS:
-- state machine / layer editor
 - physics tools
 - export to json / save as json
 - documentation
 - cleanup
+- 'static' cleanup

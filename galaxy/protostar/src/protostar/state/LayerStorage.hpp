@@ -1,24 +1,25 @@
 ///
 /// LayerStorage.hpp
-/// galaxy
+/// protostar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_LAYERSTORAGE_HPP_
-#define GALAXY_LAYERSTORAGE_HPP_
+#ifndef PROTOSTAR_LAYERSTORAGE_HPP_
+#define PROTOSTAR_LAYERSTORAGE_HPP_
 
 #include <memory>
 #include <vector>
 
-#include <protostar/system/Concepts.hpp>
+#include <robin_hood.h>
 
-#include "galaxy/layer/Layer.hpp"
+#include "protostar/state/Layer.hpp"
+#include "protostar/system/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace galaxy
+namespace pr
 {
 	///
 	/// Is a layer class.
@@ -67,7 +68,7 @@ namespace galaxy
 		///
 		/// \param args Arguments to construct Layer with.
 		///
-		template<is_layer Layer, typename... Args>
+		template<is_layer DerivedLayer, typename... Args>
 		void add(Args&&... args);
 
 		///
@@ -77,8 +78,8 @@ namespace galaxy
 		///
 		/// \return Pointer to layer.
 		///
-		template<is_layer Layer>
-		[[nodiscard]] Layer* get(std::string_view name);
+		template<is_layer DerivedLayer>
+		[[nodiscard]] DerivedLayer* get(std::string_view name);
 
 		///
 		/// Process all layer events.
@@ -103,51 +104,63 @@ namespace galaxy
 		void render();
 
 		///
+		/// Push a layer based on name.
+		///
+		/// \param name Name of the layer to push.
+		///
+		void push(std::string_view name);
+
+		///
 		/// Destroy top-most layer.
 		///
 		void pop();
-
-		///
-		/// Remove layer based on name.
-		///
-		/// \param name Name of the layer to remove.
-		///
-		void remove(std::string_view name);
 
 		///
 		/// Destroy all layers.
 		///
 		void clear();
 
+		///
+		/// Get an array of all layer keys.
+		///
+		/// \return Vector of strings.
+		///
+		[[nodiscard]] std::vector<std::string> get_layer_keys();
+
 	private:
 		///
-		/// Stores layers in contiguous memory.
+		/// Holds layer data.
 		///
-		std::vector<std::unique_ptr<galaxy::Layer>> m_layers;
+		robin_hood::unordered_map<std::string, std::shared_ptr<Layer>> m_layers;
+
+		///
+		/// Allows for layer access in contiguous memory.
+		///
+		std::vector<std::shared_ptr<Layer>> m_stack;
 	};
 
-	template<is_layer Layer, typename... Args>
+	template<is_layer DerivedLayer, typename... Args>
 	inline void LayerStorage::add(Args&&... args)
 	{
-		m_layers.emplace_back(std::make_unique<Layer>(std::forward<Args>(args)...));
+		std::shared_ptr<DerivedLayer> layer = std::make_shared<DerivedLayer>(std::forward<Args>(args)...);
+
+		auto layer_base = std::static_pointer_cast<Layer>(layer);
+
+		m_layers[layer->get_name()] = layer_base;
+		m_stack.push_back(layer_base);
 	}
 
-	template<is_layer Layer>
-	inline Layer* LayerStorage::get(std::string_view name)
+	template<is_layer DerivedLayer>
+	inline DerivedLayer* LayerStorage::get(std::string_view name)
 	{
-		auto res = std::find_if(m_layers.begin(), m_layers.end(), [&](const auto&& layer) {
-			return layer->get_name() == static_cast<std::string>(name);
-		});
+		const auto str = static_cast<std::string>(name);
+		if (m_layers.contains(str))
+		{
+			return dynamic_cast<DerivedLayer*>(m_layers[str].get());
+		}
 
-		if (res != m_layers.end())
-		{
-			return dynamic_cast<Layer*>(*res.get());
-		}
-		else
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
-} // namespace galaxy
+} // namespace pr
 
 #endif
