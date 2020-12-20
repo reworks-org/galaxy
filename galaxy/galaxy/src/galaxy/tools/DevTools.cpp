@@ -14,12 +14,13 @@
 #include <protostar/state/StateMachine.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 
+#include "galaxy/components/All.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
-#include "galaxy/components/All.hpp"
+#include "galaxy/tools/ToolTheme.hpp"
 
 #include "DevTools.hpp"
 
@@ -80,14 +81,69 @@ namespace galaxy
 		{
 			if (ImGui::BeginMenu("Menu"))
 			{
-				if (ImGui::MenuItem("Exit"))
+				if (ImGui::BeginMenu("Theme"))
 				{
-					m_window->close();
+					if (ImGui::MenuItem("Light"))
+					{
+						ImGui::StyleColorsLight();
+					}
+
+					if (ImGui::MenuItem("Dark"))
+					{
+						ImGui::StyleColorsDark();
+					}
+
+					if (ImGui::MenuItem("Classic"))
+					{
+						ImGui::StyleColorsClassic();
+					}
+
+					if (ImGui::MenuItem("Enhanced Light"))
+					{
+						ToolTheme::enhanced_light();
+					}
+
+					if (ImGui::MenuItem("Enhanced Dark"))
+					{
+						ToolTheme::enhanced_dark();
+					}
+
+					if (ImGui::MenuItem("Cherry Night"))
+					{
+						ToolTheme::cherry_night();
+					}
+
+					if (ImGui::MenuItem("Corporate Grey"))
+					{
+						ToolTheme::corp_grey();
+					}
+
+					if (ImGui::MenuItem("Material Dark"))
+					{
+						ToolTheme::material_dark();
+					}
+
+					if (ImGui::MenuItem("Visual Dark"))
+					{
+						ToolTheme::visual_dark();
+					}
+
+					if (ImGui::MenuItem("Gold & Dark"))
+					{
+						ToolTheme::i_never_asked_for_this();
+					}
+
+					ImGui::EndMenu();
 				}
 
 				if (ImGui::MenuItem("Restart"))
 				{
 					SL_HANDLE.m_restart = true;
+					m_window->close();
+				}
+
+				if (ImGui::MenuItem("Exit"))
+				{
 					m_window->close();
 				}
 
@@ -1218,4 +1274,5 @@ namespace galaxy
 
 		ImGui::End();
 	}
+
 } // namespace galaxy

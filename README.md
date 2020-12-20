@@ -100,3 +100,4 @@ and pull requests for contributions. (Don't forget to add yourself to the credit
 * https://gist.github.com/tilkinsc/f91d2a74cff62cc3760a7c9291290b29
 * https://github.com/zemasoft/clangformat-cmake
 * https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
+* https://github.com/ocornut/imgui/issues/707
