@@ -30,7 +30,7 @@
 namespace galaxy
 {
 	DevTools::DevTools()
-	    : m_world {nullptr}, m_window {nullptr}, m_visible {true}, m_show_demo {false}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
+	    : m_world {nullptr}, m_window {nullptr}, m_draw_main {true}, m_draw_demo {false}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
 	}
 
@@ -54,8 +54,8 @@ namespace galaxy
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
-		//io.ConfigDockingAlwaysTabBar = true;
-		//io.ConfigDockingWithShift = true;
+		io.ConfigDockingAlwaysTabBar = true;
+		io.ConfigDockingWithShift = true;
 		// clang-format on
 
 		ToolTheme::visual_dark();
@@ -88,7 +88,6 @@ namespace galaxy
 		ImGui::SetNextWindowPos(viewport->GetWorkPos());
 		ImGui::SetNextWindowSize(viewport->GetWorkSize());
 		ImGui::SetNextWindowViewport(viewport->ID);
-		//ImGui::SetNextWindowBgAlpha(0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 		window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
@@ -97,18 +96,30 @@ namespace galaxy
 		window_flags |= ImGuiWindowFlags_NoBackground;
 
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
-		ImGui::Begin("Dev Tools", &m_visible, window_flags);
+		ImGui::Begin("Dev Tools", &m_draw_main, window_flags);
 		ImGui::PopStyleVar(3);
 
 		ImGui::DockSpace(ImGui::GetID("DevTools_Dockspace_01"), {0.0f, 0.0f}, dockspace_flags);
 
+		ImGui::SameLine();
+
 		if (ImGui::BeginMenuBar())
 		{
+			ImGui::Text("[INFO]");
+			if (ImGui::IsItemHovered())
+			{
+				ImGui::BeginTooltip();
+				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+				ImGui::TextUnformatted("[SHIFT] for docking.\n[GRAVE] to toggle.");
+				ImGui::PopTextWrapPos();
+				ImGui::EndTooltip();
+			}
+
 			if (ImGui::BeginMenu("Menu"))
 			{
 				if (ImGui::MenuItem("Show ImGui::Demo"))
 				{
-					m_show_demo = !m_show_demo;
+					m_draw_demo = !m_draw_demo;
 				}
 
 				if (ImGui::BeginMenu("Theme"))
@@ -203,9 +214,9 @@ namespace galaxy
 			ImGui::EndMenuBar();
 		}
 
-		if (m_show_demo)
+		if (m_draw_demo)
 		{
-			ImGui::ShowDemoWindow(&m_show_demo);
+			ImGui::ShowDemoWindow(&m_draw_demo);
 		}
 
 		if (m_draw_state_editor)

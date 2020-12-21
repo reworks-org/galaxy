@@ -145,6 +145,11 @@ namespace galaxy
 
 	private:
 		///
+		/// Allow for devtools visibility.
+		///
+		bool m_visible_tools;
+
+		///
 		/// OpenAL context.
 		///
 		frb::Context m_openal;

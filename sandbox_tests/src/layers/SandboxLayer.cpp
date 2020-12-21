@@ -102,7 +102,7 @@ namespace sb
 			)"_json;
 
 		pc          = m_world->create_component<galaxy::PhysicsComponent>(e, j);
-		m_test_body = dynamic_cast<rs::KineticBody*>(pc->m_body.get());
+		m_test_body = static_cast<rs::KineticBody*>(pc->m_body.get());
 
 		sc = m_world->create_component<galaxy::SpriteComponent>(e);
 		sc->m_sprite.load("assets/textures/moving_arrow.png");
