@@ -1,7 +1,7 @@
 ///
 /// ComponentSet.hpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 

@@ -1,7 +1,7 @@
 ///
 /// Config.cpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 
