@@ -8,8 +8,8 @@
 #include <filesystem>
 
 #include <imgui/imgui_stdlib.h>
-#include <imgui/impl/imgui_impl_glfw.h>
-#include <imgui/impl/imgui_impl_opengl3.h>
+#include <imgui/imgui_impl_glfw.h>
+#include <imgui/imgui_impl_opengl3.h>
 #include <imgui/addons/ToggleButton.h>
 #include <protostar/state/StateMachine.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
@@ -30,7 +30,7 @@
 namespace galaxy
 {
 	DevTools::DevTools()
-	    : m_world {nullptr}, m_window {nullptr}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
+	    : m_world {nullptr}, m_window {nullptr}, m_visible {true}, m_show_demo {false}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
 	}
 
@@ -53,11 +53,12 @@ namespace galaxy
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+		//io.ConfigDockingAlwaysTabBar = true;
+		//io.ConfigDockingWithShift = true;
 		// clang-format on
 
-		ImGui::StyleColorsClassic();
+		ToolTheme::visual_dark();
 		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
 
 		const constexpr char* gl_version = "#version 450 core";
@@ -81,10 +82,35 @@ namespace galaxy
 
 		start();
 
-		if (ImGui::BeginMainMenuBar())
+		ImGuiWindowFlags window_flags      = ImGuiWindowFlags_MenuBar;
+		ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
+		ImGuiViewport* viewport            = ImGui::GetMainViewport();
+		ImGui::SetNextWindowPos(viewport->GetWorkPos());
+		ImGui::SetNextWindowSize(viewport->GetWorkSize());
+		ImGui::SetNextWindowViewport(viewport->ID);
+		//ImGui::SetNextWindowBgAlpha(0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+		window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+		window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+		dockspace_flags |= ImGuiDockNodeFlags_PassthruCentralNode;
+		window_flags |= ImGuiWindowFlags_NoBackground;
+
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		ImGui::Begin("Dev Tools", &m_visible, window_flags);
+		ImGui::PopStyleVar(3);
+
+		ImGui::DockSpace(ImGui::GetID("DevTools_Dockspace_01"), {0.0f, 0.0f}, dockspace_flags);
+
+		if (ImGui::BeginMenuBar())
 		{
 			if (ImGui::BeginMenu("Menu"))
 			{
+				if (ImGui::MenuItem("Show ImGui::Demo"))
+				{
+					m_show_demo = !m_show_demo;
+				}
+
 				if (ImGui::BeginMenu("Theme"))
 				{
 					if (ImGui::MenuItem("Light"))
@@ -112,16 +138,6 @@ namespace galaxy
 						ToolTheme::enhanced_dark();
 					}
 
-					if (ImGui::MenuItem("Cherry Night"))
-					{
-						ToolTheme::cherry_night();
-					}
-
-					if (ImGui::MenuItem("Corporate Grey"))
-					{
-						ToolTheme::corp_grey();
-					}
-
 					if (ImGui::MenuItem("Material Dark"))
 					{
 						ToolTheme::material_dark();
@@ -130,11 +146,6 @@ namespace galaxy
 					if (ImGui::MenuItem("Visual Dark"))
 					{
 						ToolTheme::visual_dark();
-					}
-
-					if (ImGui::MenuItem("Gold & Dark"))
-					{
-						ToolTheme::i_never_asked_for_this();
 					}
 
 					ImGui::EndMenu();
@@ -189,7 +200,12 @@ namespace galaxy
 				m_draw_lua_console = !m_draw_lua_console;
 			}
 
-			ImGui::EndMainMenuBar();
+			ImGui::EndMenuBar();
+		}
+
+		if (m_show_demo)
+		{
+			ImGui::ShowDemoWindow(&m_show_demo);
 		}
 
 		if (m_draw_state_editor)
@@ -227,6 +243,7 @@ namespace galaxy
 			m_console.draw(&m_draw_lua_console);
 		}
 
+		ImGui::End();
 		end();
 	}
 

@@ -24,19 +24,9 @@ namespace galaxy
 		void enhanced_light();
 
 		///
-		/// Dark cherry (kinda like solarized) theme for imgui.
+		/// Enhanced dark theme.
 		///
-		void cherry_night();
-
-		///
-		/// Grey game-engine style theme.
-		///
-		void corp_grey();
-
-		///
-		/// Visual studio dark theme style.
-		///
-		void visual_dark();
+		void enhanced_dark();
 
 		///
 		/// Material dark theme.
@@ -44,14 +34,9 @@ namespace galaxy
 		void material_dark();
 
 		///
-		/// Enhanced dark theme.
+		/// Visual studio dark theme style.
 		///
-		void enhanced_dark();
-
-		///
-		/// Gold & Dark style theme.
-		///
-		void i_never_asked_for_this();
+		void visual_dark();
 	} // namespace ToolTheme
 } // namespace galaxy
 

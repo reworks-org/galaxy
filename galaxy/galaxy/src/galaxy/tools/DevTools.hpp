@@ -48,6 +48,8 @@ namespace galaxy
 		galaxy::World* m_world;
 		qs::Window* m_window;
 
+		bool m_visible;
+		bool m_show_demo;
 		bool m_draw_state_editor;
 		bool m_draw_json_editor;
 		bool m_draw_script_editor;
