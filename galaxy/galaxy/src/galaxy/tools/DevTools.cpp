@@ -53,11 +53,15 @@ namespace galaxy
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		ImGui::StyleColorsClassic();
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		// clang-format on
 
+		ImGui::StyleColorsClassic();
 		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
-		ImGui_ImplOpenGL3_Init("#version 450 core");
+
+		const constexpr char* gl_version = "#version 450 core";
+		ImGui_ImplOpenGL3_Init(gl_version);
 
 		m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 	}
@@ -1274,5 +1278,4 @@ namespace galaxy
 
 		ImGui::End();
 	}
-
 } // namespace galaxy
