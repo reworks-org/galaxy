@@ -61,6 +61,9 @@ namespace galaxy
 
 	void AnimationSystem::update(const double dt)
 	{
+		m_world->operate<AnimationComponent, EnabledComponent>([&](AnimationComponent* ac, EnabledComponent* ec) {
+			ac->m_abs.update(dt);
+		});
 	}
 
 	void AnimationSystem::render(qs::Camera& camera)
