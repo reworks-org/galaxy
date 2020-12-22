@@ -1,7 +1,7 @@
 ///
 /// Config.hpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 
@@ -26,11 +26,6 @@ namespace sr
 	/// Must be 32bits. Do not change.
 	///
 	using Entity = SR_INTEGER;
-
-	///
-	/// BitMask to see if entity is valid.
-	///
-	const constexpr static inline unsigned int VALID_ENTITY = 0x01;
 } // namespace sr
 
 #endif

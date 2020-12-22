@@ -21,8 +21,3 @@ TEST(Config, DefaultEntityType)
 	constexpr bool result = std::is_same<sr::Entity, SR_INTEGER>::value;
 	EXPECT_TRUE(result);
 }
-
-TEST(Config, ValidEntityIdentifier)
-{
-	EXPECT_EQ(sr::VALID_ENTITY, 0x01);
-}

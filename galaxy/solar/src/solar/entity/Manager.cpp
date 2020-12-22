@@ -1,7 +1,7 @@
 ///
 /// Manager.cpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 

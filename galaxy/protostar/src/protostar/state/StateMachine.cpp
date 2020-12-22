@@ -77,8 +77,23 @@ namespace pr
 		// Ensure that the state being pushed exists.
 		if (m_states.contains(str))
 		{
-			m_stack.push(m_states[str].get());
-			m_stack.top()->on_push();
+			if (!m_stack.empty())
+			{
+				if (m_stack.top()->get_name() != str)
+				{
+					m_stack.push(m_states[str].get());
+					m_stack.top()->on_push();
+				}
+				else
+				{
+					PL_LOG(PL_WARNING, "Tried to push duplicate state.");
+				}
+			}
+			else
+			{
+				m_stack.push(m_states[str].get());
+				m_stack.top()->on_push();
+			}
 		}
 		else
 		{
@@ -107,5 +122,18 @@ namespace pr
 			m_stack.top()->on_pop();
 			m_stack.pop();
 		}
+	}
+
+	std::vector<std::string> StateMachine::get_state_keys()
+	{
+		std::vector<std::string> keys;
+		keys.reserve(m_states.size());
+
+		for (const auto& pair : m_states)
+		{
+			keys.emplace_back(pair.first);
+		}
+
+		return keys;
 	}
 } // namespace pr

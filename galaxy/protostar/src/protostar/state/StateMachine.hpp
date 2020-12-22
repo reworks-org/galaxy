@@ -125,6 +125,13 @@ namespace pr
 		///
 		void clear();
 
+		///
+		/// Get an array of all state keys.
+		///
+		/// \return Vector of strings.
+		///
+		[[nodiscard]] std::vector<std::string> get_state_keys();
+
 	private:
 		///
 		/// The stack for manipulation.
@@ -150,6 +157,7 @@ namespace pr
 		else
 		{
 			m_states[str] = std::make_unique<State>(std::forward<Args>(args)...);
+			m_states[str]->set_name(name);
 		}
 
 		return dynamic_cast<State*>(m_states[str].get());

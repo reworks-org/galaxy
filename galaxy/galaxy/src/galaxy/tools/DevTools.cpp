@@ -8,17 +8,19 @@
 #include <filesystem>
 
 #include <imgui/imgui_stdlib.h>
-#include <imgui/impl/imgui_impl_glfw.h>
-#include <imgui/impl/imgui_impl_opengl3.h>
+#include <imgui/imgui_impl_glfw.h>
+#include <imgui/imgui_impl_opengl3.h>
 #include <imgui/addons/ToggleButton.h>
-
-#include <galaxy/core/ServiceLocator.hpp>
-#include <galaxy/core/World.hpp>
-#include <galaxy/fs/FileSystem.hpp>
-#include <galaxy/res/ShaderBook.hpp>
-#include <galaxy/scripting/JSONUtils.hpp>
+#include <protostar/state/StateMachine.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
-#include <galaxy/components/All.hpp>
+
+#include "galaxy/components/All.hpp"
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/World.hpp"
+#include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/tools/ToolTheme.hpp"
 
 #include "DevTools.hpp"
 
@@ -28,7 +30,7 @@
 namespace galaxy
 {
 	DevTools::DevTools()
-	    : m_world {nullptr}, m_window {nullptr}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
+	    : m_world {nullptr}, m_window {nullptr}, m_draw_main {true}, m_draw_demo {false}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 	{
 	}
 
@@ -51,11 +53,16 @@ namespace galaxy
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		ImGui::StyleColorsClassic();
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+		io.ConfigDockingAlwaysTabBar = true;
+		io.ConfigDockingWithShift = true;
 		// clang-format on
 
+		ToolTheme::visual_dark();
 		ImGui_ImplGlfw_InitForOpenGL(m_window->gl_window(), true);
-		ImGui_ImplOpenGL3_Init("#version 450 core");
+
+		const constexpr char* gl_version = "#version 450 core";
+		ImGui_ImplOpenGL3_Init(gl_version);
 
 		m_editor.SetLanguageDefinition(ImGui::TextEditor::LanguageDefinition::Lua());
 	}
@@ -75,13 +82,84 @@ namespace galaxy
 
 		start();
 
-		if (ImGui::BeginMainMenuBar())
+		ImGuiWindowFlags window_flags      = ImGuiWindowFlags_MenuBar;
+		ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
+		ImGuiViewport* viewport            = ImGui::GetMainViewport();
+		ImGui::SetNextWindowPos(viewport->GetWorkPos());
+		ImGui::SetNextWindowSize(viewport->GetWorkSize());
+		ImGui::SetNextWindowViewport(viewport->ID);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+		window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+		window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+		dockspace_flags |= ImGuiDockNodeFlags_PassthruCentralNode;
+		window_flags |= ImGuiWindowFlags_NoBackground;
+
+		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0.0f, 0.0f});
+		ImGui::Begin("Dev Tools", &m_draw_main, window_flags);
+		ImGui::PopStyleVar(3);
+
+		ImGui::DockSpace(ImGui::GetID("DevTools_Dockspace_01"), {0.0f, 0.0f}, dockspace_flags);
+
+		ImGui::SameLine();
+
+		if (ImGui::BeginMenuBar())
 		{
+			ImGui::Text("[INFO]");
+			if (ImGui::IsItemHovered())
+			{
+				ImGui::BeginTooltip();
+				ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+				ImGui::TextUnformatted("[SHIFT] for docking.\n[GRAVE] to toggle.");
+				ImGui::PopTextWrapPos();
+				ImGui::EndTooltip();
+			}
+
 			if (ImGui::BeginMenu("Menu"))
 			{
-				if (ImGui::MenuItem("Exit"))
+				if (ImGui::MenuItem("Show ImGui::Demo"))
 				{
-					m_window->close();
+					m_draw_demo = !m_draw_demo;
+				}
+
+				if (ImGui::BeginMenu("Theme"))
+				{
+					if (ImGui::MenuItem("Light"))
+					{
+						ImGui::StyleColorsLight();
+					}
+
+					if (ImGui::MenuItem("Dark"))
+					{
+						ImGui::StyleColorsDark();
+					}
+
+					if (ImGui::MenuItem("Classic"))
+					{
+						ImGui::StyleColorsClassic();
+					}
+
+					if (ImGui::MenuItem("Enhanced Light"))
+					{
+						ToolTheme::enhanced_light();
+					}
+
+					if (ImGui::MenuItem("Enhanced Dark"))
+					{
+						ToolTheme::enhanced_dark();
+					}
+
+					if (ImGui::MenuItem("Material Dark"))
+					{
+						ToolTheme::material_dark();
+					}
+
+					if (ImGui::MenuItem("Visual Dark"))
+					{
+						ToolTheme::visual_dark();
+					}
+
+					ImGui::EndMenu();
 				}
 
 				if (ImGui::MenuItem("Restart"))
@@ -90,7 +168,17 @@ namespace galaxy
 					m_window->close();
 				}
 
+				if (ImGui::MenuItem("Exit"))
+				{
+					m_window->close();
+				}
+
 				ImGui::EndMenu();
+			}
+
+			if (ImGui::MenuItem("Gamestate Manager"))
+			{
+				m_draw_state_editor = !m_draw_state_editor;
 			}
 
 			if (ImGui::MenuItem("JSON Editor"))
@@ -123,7 +211,17 @@ namespace galaxy
 				m_draw_lua_console = !m_draw_lua_console;
 			}
 
-			ImGui::EndMainMenuBar();
+			ImGui::EndMenuBar();
+		}
+
+		if (m_draw_demo)
+		{
+			ImGui::ShowDemoWindow(&m_draw_demo);
+		}
+
+		if (m_draw_state_editor)
+		{
+			state_manager_ui();
 		}
 
 		if (m_draw_json_editor)
@@ -156,6 +254,7 @@ namespace galaxy
 			m_console.draw(&m_draw_lua_console);
 		}
 
+		ImGui::End();
 		end();
 	}
 
@@ -174,6 +273,82 @@ namespace galaxy
 	void DevTools::end()
 	{
 		ImGui::Render();
+	}
+
+	void DevTools::state_manager_ui()
+	{
+		auto* gs = SL_HANDLE.gamestate();
+
+		ImGui::Begin("Gamestate Manager", &m_draw_state_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
+
+		static std::string s_selected_state = gs->top<pr::State>()->get_name();
+		if (ImGui::BeginCombo("Select State", s_selected_state.c_str()))
+		{
+			for (const auto& state : gs->get_state_keys())
+			{
+				const bool selected = (s_selected_state == state);
+				if (ImGui::Selectable(state.c_str(), selected))
+				{
+					s_selected_state = state;
+				}
+
+				if (selected)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+
+		if (ImGui::Button("Pop##1"))
+		{
+			gs->pop();
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Push##1"))
+		{
+			gs->push(s_selected_state);
+		}
+
+		ImGui::Spacing();
+		auto* layers = gs->top<pr::State>()->get_layers();
+
+		static std::string s_selected_layer = "...";
+		if (ImGui::BeginCombo("Select Layer", s_selected_layer.c_str()))
+		{
+			for (const auto& layer : layers->get_layer_keys())
+			{
+				const bool selected = (s_selected_layer == layer);
+				if (ImGui::Selectable(layer.c_str(), selected))
+				{
+					s_selected_layer = layer;
+				}
+
+				if (selected)
+				{
+					ImGui::SetItemDefaultFocus();
+				}
+			}
+
+			ImGui::EndCombo();
+		}
+
+		if (ImGui::Button("Pop##2"))
+		{
+			layers->pop();
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Push##2"))
+		{
+			layers->push(s_selected_layer);
+		}
+
+		ImGui::End();
 	}
 
 	void DevTools::json_ui()
@@ -585,13 +760,14 @@ namespace galaxy
 
 	void DevTools::component_ui(bool enabled, std::uint32_t entity)
 	{
-		auto [shader, sprite, batch, sound, music, animation] = m_world->get_multi<
+		auto [shader, sprite, batch, sound, music, animation, physics] = m_world->get_multi<
 		    galaxy::ShaderComponent,
 		    galaxy::SpriteComponent,
 		    galaxy::SpriteBatchComponent,
 		    galaxy::SoundComponent,
 		    galaxy::MusicComponent,
-		    galaxy::AnimationComponent>(entity);
+		    galaxy::AnimationComponent,
+		    galaxy::PhysicsComponent>(entity);
 
 		if (enabled)
 		{
@@ -682,22 +858,25 @@ namespace galaxy
 				sprite->m_sprite.set_anisotropy(ansio);
 			}
 
-			glm::vec2 pos = sprite->m_sprite.get_pos();
-			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			if (physics == nullptr)
 			{
-				sprite->m_sprite.set_pos(pos.x, pos.y);
-			}
+				glm::vec2 pos = sprite->m_sprite.get_pos();
+				if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+				{
+					sprite->m_sprite.set_pos(pos.x, pos.y);
+				}
 
-			float rotation = sprite->m_sprite.get_rotation();
-			if (ImGui::SliderAngle("Rotate", &rotation))
-			{
-				sprite->m_sprite.rotate(rotation);
-			}
+				float rotation = sprite->m_sprite.get_rotation();
+				if (ImGui::SliderAngle("Rotate", &rotation))
+				{
+					sprite->m_sprite.rotate(rotation);
+				}
 
-			float scale = sprite->m_sprite.get_scale();
-			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
-			{
-				sprite->m_sprite.scale(scale);
+				float scale = sprite->m_sprite.get_scale();
+				if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+				{
+					sprite->m_sprite.scale(scale);
+				}
 			}
 		}
 
@@ -732,22 +911,25 @@ namespace galaxy
 				batch->m_bs.set_opacity(opacity);
 			}
 
-			glm::vec2 pos = batch->m_bs.get_pos();
-			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			if (physics == nullptr)
 			{
-				batch->m_bs.set_pos(pos.x, pos.y);
-			}
+				glm::vec2 pos = batch->m_bs.get_pos();
+				if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+				{
+					batch->m_bs.set_pos(pos.x, pos.y);
+				}
 
-			float rotation = batch->m_bs.get_rotation();
-			if (ImGui::SliderAngle("Rotate", &rotation))
-			{
-				batch->m_bs.rotate(rotation);
-			}
+				float rotation = batch->m_bs.get_rotation();
+				if (ImGui::SliderAngle("Rotate", &rotation))
+				{
+					batch->m_bs.rotate(rotation);
+				}
 
-			float scale = batch->m_bs.get_scale();
-			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
-			{
-				batch->m_bs.scale(scale);
+				float scale = batch->m_bs.get_scale();
+				if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+				{
+					batch->m_bs.scale(scale);
+				}
 			}
 		}
 
@@ -885,22 +1067,25 @@ namespace galaxy
 				animation->m_abs.stop();
 			}
 
-			glm::vec2 pos = animation->m_abs.get_pos();
-			if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+			if (physics == nullptr)
 			{
-				animation->m_abs.set_pos(pos.x, pos.y);
-			}
+				glm::vec2 pos = animation->m_abs.get_pos();
+				if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
+				{
+					animation->m_abs.set_pos(pos.x, pos.y);
+				}
 
-			float rotation = animation->m_abs.get_rotation();
-			if (ImGui::SliderAngle("Rotate", &rotation))
-			{
-				animation->m_abs.rotate(rotation);
-			}
+				float rotation = animation->m_abs.get_rotation();
+				if (ImGui::SliderAngle("Rotate", &rotation))
+				{
+					animation->m_abs.rotate(rotation);
+				}
 
-			float scale = animation->m_abs.get_scale();
-			if (ImGui::SliderFloat("Scale", &scale, 1, 10))
-			{
-				animation->m_abs.scale(scale);
+				float scale = animation->m_abs.get_scale();
+				if (ImGui::SliderFloat("Scale", &scale, 1, 10))
+				{
+					animation->m_abs.scale(scale);
+				}
 			}
 		}
 
@@ -984,6 +1169,69 @@ namespace galaxy
 			{
 				music->m_music.set_looping(m_sfx_loop);
 			}
+		}
+
+		if (physics != nullptr)
+		{
+			ImGui::Spacing();
+			ImGui::Separator();
+			ImGui::Text("Physics Component");
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+
+			if (!physics->m_body->is_rigid())
+			{
+				ImGui::Text("Body: Kinetic.");
+
+				static float s_hf = 0.0f;
+				if (ImGui::InputFloat("Apply Horizontal Force", &s_hf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
+				{
+					auto* kin_body = static_cast<rs::KineticBody*>(physics->m_body.get());
+					kin_body->apply_horizontal_force(s_hf);
+					s_hf = 0.0f;
+				}
+
+				ImGui::SameLine();
+
+				static float s_vf = 0.0f;
+				if (ImGui::InputFloat("Apply Vertical Force", &s_vf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
+				{
+					auto* kin_body = static_cast<rs::KineticBody*>(physics->m_body.get());
+					kin_body->apply_vertical_force(s_vf);
+					s_vf = 0.0f;
+				}
+			}
+			else
+			{
+				ImGui::Text("Body: Static.");
+			}
+
+			ImGui::Spacing();
+
+			ImGui::SliderFloat("Restitution", &physics->m_body->m_restitution, 0.0f, 10.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+			ImGui::Spacing();
+
+			ImGui::SliderFloat("Dynamic Friction", &physics->m_body->m_dynamic_friction, 0.0f, 20.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+			ImGui::SameLine();
+			ImGui::SliderFloat("Static Friction", &physics->m_body->m_static_friction, 0.0f, 20.0f, "%.1f", ImGuiSliderFlags_AlwaysClamp);
+
+			ImGui::Spacing();
+
+			ImGui::Text(fmt::format("X Pos: {0}", physics->m_body->get_pos().x).c_str());
+			ImGui::SameLine();
+			ImGui::Text(fmt::format("Y Pos: {0}", physics->m_body->get_pos().y).c_str());
+
+			ImGui::Spacing();
+
+			ImGui::Text(fmt::format("X Velocity: {0}", physics->m_body->get_vel().x).c_str());
+			ImGui::SameLine();
+			ImGui::Text(fmt::format("Y Velocity: {0}", physics->m_body->get_vel().y).c_str());
+
+			ImGui::Spacing();
+
+			ImGui::Text(fmt::format("Body Mass: {0}", physics->m_body->mass()).c_str());
 		}
 	}
 

@@ -22,6 +22,7 @@
 
 #include "galaxy/core/World.hpp"
 #include "galaxy/fs/Config.hpp"
+#include "galaxy/fs/Serializer.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
@@ -126,7 +127,7 @@ namespace galaxy
 		///
 		/// Main serializer.
 		///
-		//std::unique_ptr<galaxy::Serializer> m_serializer;
+		std::unique_ptr<galaxy::Serializer> m_serializer;
 
 		///
 		/// Library of all fonts.
@@ -144,6 +145,11 @@ namespace galaxy
 		std::unique_ptr<qs::TextureAtlas> m_texture_atlas;
 
 	private:
+		///
+		/// Allow for devtools visibility.
+		///
+		bool m_visible_tools;
+
 		///
 		/// OpenAL context.
 		///

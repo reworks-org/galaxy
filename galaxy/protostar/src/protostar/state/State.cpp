@@ -19,6 +19,11 @@ namespace pr
 		return m_name;
 	}
 
+	LayerStorage* State::get_layers()
+	{
+		return &m_layers;
+	}
+
 	State::State()
 	    : m_name {"default"}
 	{

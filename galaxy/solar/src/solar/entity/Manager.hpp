@@ -1,7 +1,7 @@
 ///
 /// Manager.hpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 

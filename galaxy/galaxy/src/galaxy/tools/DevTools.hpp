@@ -8,12 +8,11 @@
 #ifndef GALAXY_DEVTOOLS_HPP_
 #define GALAXY_DEVTOOLS_HPP_
 
-#include <qs/core/Window.hpp>
-#include <galaxy/core/World.hpp>
-#include <galaxy/scripting/LuaConsole.hpp>
-
 #include <imgui/addons/TextEditor.h>
+#include <qs/core/Window.hpp>
 
+#include "galaxy/core/World.hpp"
+#include "galaxy/scripting/LuaConsole.hpp"
 #include "galaxy/tools/JsonEditor.hpp"
 
 ///
@@ -38,6 +37,7 @@ namespace galaxy
 		void start();
 		void end();
 
+		void state_manager_ui();
 		void json_ui();
 		void script_editor_ui();
 		void atlas_editor_ui();
@@ -48,6 +48,9 @@ namespace galaxy
 		galaxy::World* m_world;
 		qs::Window* m_window;
 
+		bool m_draw_main;
+		bool m_draw_demo;
+		bool m_draw_state_editor;
 		bool m_draw_json_editor;
 		bool m_draw_script_editor;
 		bool m_draw_atlas_editor;

@@ -1,7 +1,7 @@
 ///
 /// System.hpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 

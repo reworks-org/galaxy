@@ -1,7 +1,7 @@
 ///
 /// EntitySet.cpp
-///
 /// solar
+///
 /// See LICENSE.txt.
 ///
 

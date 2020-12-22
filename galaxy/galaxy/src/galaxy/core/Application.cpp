@@ -25,7 +25,7 @@
 namespace galaxy
 {
 	Application::Application(std::unique_ptr<galaxy::Config>& config)
-	    : m_openal {}
+	    : m_visible_tools {true}
 	{
 		// Seed pseudo-random algorithms.
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -123,8 +123,8 @@ namespace galaxy
 			SL_HANDLE.m_world = m_world.get();
 
 			// Serializer.
-			//m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
-			//SL_HANDLE.m_serializer = m_serializer.get();
+			m_serializer           = std::make_unique<galaxy::Serializer>();
+			SL_HANDLE.m_serializer = m_serializer.get();
 
 			// ShaderBook
 			m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
@@ -185,6 +185,11 @@ namespace galaxy
 			m_window->poll_events();
 			m_state->events();
 
+			if (m_window->key_pressed(pr::Keys::GRAVE))
+			{
+				m_visible_tools = !m_visible_tools;
+			}
+
 			while (accumulator >= ups)
 			{
 				m_state->update(ups_s);
@@ -192,11 +197,20 @@ namespace galaxy
 			}
 
 			m_state->pre_render();
-			m_tools.prepare();
+
+			if (m_visible_tools)
+			{
+				m_tools.prepare();
+			}
+
 			m_window->begin();
 
 			m_state->render();
-			m_tools.draw();
+
+			if (m_visible_tools)
+			{
+				m_tools.draw();
+			}
 
 			m_window->end(m_renderer.get());
 		}

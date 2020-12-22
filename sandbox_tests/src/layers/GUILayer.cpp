@@ -95,6 +95,7 @@ namespace sb
 
 		auto* image = m_gui.create_widget<galaxy::widget::Image>();
 		image->create("demo_nineslice");
+		image->set_pos(1000, 100);
 
 		auto* tooltip = m_gui.create_tooltip_for_widget(image);
 		tooltip->create(demo_tex, "Demo Test", "public16");
@@ -147,7 +148,7 @@ namespace sb
 
 		auto* textbox = m_gui.create_widget<galaxy::widget::Textbox>();
 		textbox->create("textbox", "arrow", "public16", 5.0f);
-		textbox->set_pos(600, 0);
+		textbox->set_pos(600, 100);
 
 		std::vector<std::string> messages = {"Hello there!", "How are you today?", "I am good,\nthanks!"};
 		textbox->set_text(messages);
