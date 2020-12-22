@@ -61,7 +61,7 @@ namespace galaxy
 
 	void AnimationSystem::update(const double dt)
 	{
-		m_world->operate<AnimationComponent, EnabledComponent>([&](AnimationComponent* ac, EnabledComponent* ec) {
+		m_world->operate<AnimationComponent, EnabledComponent>([&](const sr::Entity entity, AnimationComponent* ac, EnabledComponent* ec) {
 			ac->m_abs.update(dt);
 		});
 	}

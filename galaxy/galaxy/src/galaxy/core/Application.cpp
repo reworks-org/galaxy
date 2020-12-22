@@ -123,8 +123,8 @@ namespace galaxy
 			SL_HANDLE.m_world = m_world.get();
 
 			// Serializer.
-			//m_serializer           = std::make_unique<galaxy::Serializer>(m_config->get<std::string>("save-folder"));
-			//SL_HANDLE.m_serializer = m_serializer.get();
+			m_serializer           = std::make_unique<galaxy::Serializer>();
+			SL_HANDLE.m_serializer = m_serializer.get();
 
 			// ShaderBook
 			m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
