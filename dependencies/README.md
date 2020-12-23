@@ -1,3 +1,5 @@
-# deps
+# dependencies
 
-Builds dependencies from [../../dependencies](https://github.com/DomRe/galaxy/tree/master/dependencies) that are designed to be "dropped" into a project.
+This folder contains the external libraries this project relies on.
+
+It also has a CMakeLists.txt for libs that are designed to be "dropped in".
