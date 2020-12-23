@@ -1,10 +1,14 @@
+# OS junk.
 .DS_Store
 Thumbs.db
 
+# Project stuff.
 .vs/
 build/
+legacy/
 output/
 
+# Build junk.
 supercluster/bin/Debug/*.exe
 supercluster/bin/Debug/*.ilk
 supercluster/bin/Debug/*.pdb
