@@ -74,36 +74,13 @@ set_source_files_properties(*.cpp LANGUAGE CXX)
 set_source_files_properties(*.h LANGUAGE C)
 set_source_files_properties(*.hh LANGUAGE CXX)
 set_source_files_properties(*.hpp LANGUAGE CXX)
+set_source_files_properties(*.inl LANGUAGE CXX)
 
 # Add internal projects.
-add_subdirectory(galaxy/deps)
-add_subdirectory(galaxy/frb)
-add_subdirectory(galaxy/galaxy)
-add_subdirectory(galaxy/protostar)
-add_subdirectory(galaxy/pulsar)
-add_subdirectory(galaxy/quasar)
-add_subdirectory(galaxy/redshift)
-add_subdirectory(galaxy/solar)
-add_subdirectory(galaxy/starlight)
-add_subdirectory(galaxy/starmap)
+add_subdirectory(dependencies)
+add_subdirectory(galaxy)
 
-add_dependencies(deps pulsar)
-add_dependencies(protostar deps)
-add_dependencies(frb protostar)
-add_dependencies(quasar protostar)
-add_dependencies(redshift protostar)
-add_dependencies(solar protostar)
-add_dependencies(starlight protostar)
-add_dependencies(starmap protostar)
-add_dependencies(galaxy
-    frb
-    quasar
-    redshift
-    solar
-    starlight
-    starmap
-)
-
+# Add external libs.
 set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -176,7 +153,21 @@ set_target_properties(common PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/"
 )
 
-add_subdirectory(dependencies/zlib)
+set(WITH_GZFILEOP ON CACHE BOOL "" FORCE)
+set(ZLIB_COMPAT ON CACHE BOOL "" FORCE)
+set(ZLIB_ENABLE_TESTS OFF CACHE BOOL "" FORCE)
+set(ZLIB_DUAL_LINK OFF CACHE BOOL "" FORCE)
+set(WITH_SANITIZER OFF CACHE BOOL "" FORCE)
+set(WITH_FUZZERS OFF CACHE BOOL "" FORCE)
+set(WITH_OPTIM ON CACHE BOOL "" FORCE)
+set(WITH_NEW_STRATEGIES ON CACHE BOOL "" FORCE)
+set(WITH_NATIVE_INSTRUCTIONS OFF CACHE BOOL "" FORCE)
+set(WITH_MAINTAINER_WARNINGS OFF CACHE BOOL "" FORCE)
+set(WITH_CODE_COVERAGE OFF CACHE BOOL "" FORCE)
+set(WITH_INFLATE_STRICT OFF CACHE BOOL "" FORCE)
+set(WITH_INFLATE_ALLOW_INVALID_DIST OFF CACHE BOOL "" FORCE)
+set(WITH_UNALIGNED ON CACHE BOOL "" FORCE)
+add_subdirectory(dependencies/zlib-ng)
 set_target_properties(zlibstatic PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
@@ -198,98 +189,61 @@ endif()
 
 # Configure post CMake-gen.
 # This fixes in-source builds for these libs.
-set(SIZE16 int16_t)
-set(USIZE16 uint16_t)
-set(SIZE32 int32_t)
-set(USIZE32 uint32_t)
-set(SIZE64 int64_t)
-set(USIZE64 uint64_t)
-configure_file(${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h @ONLY)
-configure_file(${CMAKE_SOURCE_DIR}/dependencies/zlib-conf/zconf.h ${CMAKE_SOURCE_DIR}/dependencies/zlib/zconf.h @ONLY)
-
-# Meta trget to build external libs.
-add_custom_target(BUILD_EXTERNAL_LIBS)
-add_dependencies(BUILD_EXTERNAL_LIBS common glfw ogg vorbis vorbisenc vorbisfile OpenAL zlibstatic)
-
-# Meta target to build internal libs.
-add_custom_target(BUILD_INTERNAL_LIBS)
-add_dependencies(BUILD_INTERNAL_LIBS BUILD_EXTERNAL_LIBS pulsar deps protostar frb quasar redshift solar starlight starmap)
-
-# Meta target to build galaxy engine.
-add_custom_target(BUILD_GALAXY_ENGINE)
-add_dependencies(BUILD_GALAXY_ENGINE BUILD_INTERNAL_LIBS galaxy)
+#set(SIZE16 int16_t)
+#set(USIZE16 uint16_t)
+#set(SIZE32 int32_t)
+#set(USIZE32 uint32_t)
+#set(SIZE64 int64_t)
+#set(USIZE64 uint64_t)
+#configure_file(${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h @ONLY)
+#configure_file(${CMAKE_SOURCE_DIR}/dependencies/zlib-conf/zconf.h ${CMAKE_SOURCE_DIR}/dependencies/zlib/zconf.h @ONLY)
 
 # Import applications
 add_subdirectory(sandbox_tests)
 add_subdirectory(tests)
 
-add_dependencies(sandbox_test
-    BUILD_EXTERNAL_LIBS
-    BUILD_GALAXY_ENGINE
-)
-
-add_dependencies(tests
-    BUILD_EXTERNAL_LIBS
-    BUILD_GALAXY_ENGINE
-)
-
-# Meta ALL target
-add_custom_target(BUILD_ALL)
-add_dependencies(sandbox_test tests BUILD_GALAXY_ENGINE)
+# Configure dependencies
+add_dependencies(galaxy glfw)
+add_dependencies(galaxy ogg)
+add_dependencies(galaxy vorbis)
+add_dependencies(galaxy OpenAL)
+add_dependencies(galaxy common)
+add_dependencies(galaxy zlibstatic)
+add_dependencies(galaxy dependencies)
+add_dependencies(sandbox_test galaxy)
+add_dependencies(tests galaxy)
 
 # Set header directories.
 set(SHARED_HEADERS
+    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/include"
+    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/include"
 	"${GALAXY_FREETYPE_HEADERS}"
-	"${CMAKE_SOURCE_DIR}/dependencies/c++20"
-	"${CMAKE_SOURCE_DIR}/dependencies/glad"
+	"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
 	"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/glm"
-	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/"
+	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googlemock/include"
+    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googlemock"
+    "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/include"
+	"${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest"
+    "${CMAKE_SOURCE_DIR}/dependencies/gsl/include/"
 	"${CMAKE_SOURCE_DIR}/dependencies/imgui"
 	"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
 	"${CMAKE_SOURCE_DIR}/dependencies/ogg/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/pfd"
-	"${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
+	"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
+    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
-	"${CMAKE_SOURCE_DIR}/dependencies/zlib"
-	"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
-	"${CMAKE_SOURCE_DIR}/galaxy/frb/src"
+    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
 	"${CMAKE_SOURCE_DIR}/galaxy/galaxy/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/protostar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/pulsar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/quasar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/redshift/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/solar/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/starlight/src"
-	"${CMAKE_SOURCE_DIR}/galaxy/starmap/src"
 	"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
 )
+set(ALL_HEADERS "${SHARED_HEADERS}")
 
-if (MSVC)
-    set(ALL_HEADERS
-    	"${SHARED_HEADERS}"
-    )
-else()
-    set(ALL_HEADERS
-    	"${SHARED_HEADERS}"
-        "${CMAKE_SOURCE_DIR}/dependencies/c++20/atomic"
-	)
-endif()
-
-target_include_directories(deps PUBLIC ${ALL_HEADERS})
-target_include_directories(frb PUBLIC ${ALL_HEADERS})
+target_include_directories(dependencies PUBLIC ${ALL_HEADERS})
 target_include_directories(galaxy PUBLIC ${ALL_HEADERS})
-target_include_directories(protostar PUBLIC ${ALL_HEADERS})
-target_include_directories(pulsar PUBLIC ${ALL_HEADERS})
-target_include_directories(quasar PUBLIC ${ALL_HEADERS})
-target_include_directories(redshift PUBLIC ${ALL_HEADERS})
-target_include_directories(solar PUBLIC ${ALL_HEADERS})
-target_include_directories(starlight PUBLIC ${ALL_HEADERS})
-target_include_directories(starmap PUBLIC ${ALL_HEADERS})
 target_include_directories(sandbox_test PUBLIC ${ALL_HEADERS})
 target_include_directories(tests PUBLIC ${ALL_HEADERS})
 
@@ -333,42 +287,18 @@ include(cmake/LinkDefs.cmake)
 include(cmake/PreprocessorDefs.cmake)
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-	target_compile_definitions(deps PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(frb PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
+	target_compile_definitions(dependencies PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(galaxy PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(protostar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(pulsar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(quasar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(redshift PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(solar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(starlight PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
-	target_compile_definitions(starmap PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 	target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
 
-	target_compile_options(deps PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(frb PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
+	target_compile_options(dependencies PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(galaxy PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(protostar PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(pulsar PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(quasar PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(redshift PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(solar PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(starlight PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
-	target_compile_options(starmap PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 	target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_DEBUG})
 
-	target_link_options(deps PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(frb PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
+	target_link_options(dependencies PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(galaxy PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(protostar PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(pulsar PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(quasar PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(redshift PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(solar PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(starlight PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
-	target_link_options(starmap PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 	target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 
@@ -381,7 +311,7 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.${LIB_FILE_EXT}")
 
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.${LIB_FILE_EXT}")
@@ -401,7 +331,7 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.${LIB_FILE_EXT}")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Debug/deps.${LIB_FILE_EXT}")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.${LIB_FILE_EXT}")
@@ -412,42 +342,18 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.${LIB_FILE_EXT}")
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-	target_compile_definitions(deps PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(frb PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
+	target_compile_definitions(dependencies PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(galaxy PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(protostar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(pulsar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(quasar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(redshift PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(solar PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(starlight PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
-	target_compile_definitions(starmap PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(sandbox_test PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(tests PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 
-	target_compile_options(deps PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(frb PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
+	target_compile_options(dependencies PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(galaxy PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(protostar PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(pulsar PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(quasar PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(redshift PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(solar PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(starlight PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
-	target_compile_options(starmap PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(sandbox_test PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 	target_compile_options(tests PUBLIC ${GALAXY_COMPILE_FLAGS_RELEASE})
 
-	target_link_options(deps PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(frb PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
+	target_link_options(dependencies PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(galaxy PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(protostar PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(pulsar PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(quasar PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(redshift PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(solar PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(starlight PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
-	target_link_options(starmap PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(sandbox_test PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 	target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 
@@ -460,7 +366,7 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.${LIB_FILE_EXT}")
 
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.${LIB_FILE_EXT}")
@@ -480,7 +386,7 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.${LIB_FILE_EXT}")
 
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/deps/Release/deps.${LIB_FILE_EXT}")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.${LIB_FILE_EXT}")

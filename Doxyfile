@@ -44,7 +44,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "Game Programming Library using C++20, OpenGL 4.5, Lua and JSON."
+PROJECT_BRIEF          = "Application Programming Library using C++20, with a Data driven design and Test driven development."
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
@@ -790,16 +790,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = @CMAKE_SOURCE_DIR@/galaxy/frb/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/galaxy/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/protostar/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/pulsar/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/quasar/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/redshift/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/solar/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/starlight/src \
-                         @CMAKE_SOURCE_DIR@/galaxy/starmap/src \
-                         @CMAKE_SOURCE_DIR@/supercluster/src \
+INPUT                  = @CMAKE_SOURCE_DIR@/galaxy/galaxy/src \
                          @CMAKE_SOURCE_DIR@/README.md
 
 
