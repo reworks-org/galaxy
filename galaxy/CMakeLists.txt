@@ -1,17 +1,17 @@
-project(pulsar CXX)
+project(galaxy CXX)
 
-file(GLOB_RECURSE pulsar_src
+file(GLOB_RECURSE galaxy_src
     "src/*.c"
-    "src/*.cpp"
     "src/*.h"
+    "src/*.cpp"
     "src/*.hpp"
     "src/*.cc"
     "src/*.hh"
     "src/*.inl"
 )
 
-source_group(${PROJECT_NAME} ${pulsar_src})
-add_library(${PROJECT_NAME} STATIC ${pulsar_src})
+source_group(${PROJECT_NAME} ${galaxy_src})
+add_library(${PROJECT_NAME} STATIC ${galaxy_src})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/${PROJECT_NAME}/"
