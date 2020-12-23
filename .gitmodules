@@ -14,9 +14,6 @@
 [submodule "dependencies/pfd"]
 	path = dependencies/pfd
 	url = https://github.com/samhocevar/portable-file-dialogs.git
-[submodule "dependencies/zlib"]
-	path = dependencies/zlib
-	url = https://github.com/madler/zlib.git
 [submodule "dependencies/ogg"]
 	path = dependencies/ogg
 	url = https://github.com/xiph/ogg.git
@@ -35,3 +32,6 @@
 [submodule "dependencies/freetype2-win"]
 	path = dependencies/freetype2-win
 	url = https://github.com/ubawurinna/freetype-windows-binaries.git
+[submodule ".\\dependencies\\gsl"]
+	path = .\\dependencies\\gsl
+	url = https://github.com/microsoft/GSL.git
