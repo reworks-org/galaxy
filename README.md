@@ -6,7 +6,7 @@
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4377/badge)](https://bestpractices.coreinfrastructure.org/projects/4377)
 [![Apache 2.0 Licensed](https://img.shields.io/badge/license-apache-blue.svg)](./LICENSE.txt)
 
-Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
+Application Programming Library using C++20, with a Data driven design and Test driven development.
 
 ![galaxy](logo.png?raw=true "galaxy")
 
@@ -14,7 +14,7 @@ Game Programming Library using C++20, OpenGL 4.5, Lua and JSON.
 Only supports 64bit systems.
 
 ### Windows:
-You will need to install ```Visual Studio 2019 16.9 Preview 1```, and set the ```Win-SDK``` version to ```10.0.19041.0``` (minimum).
+You will need to install ```Visual Studio 2019 16.9 Preview 2```, and set the ```Win-SDK``` version to ```10.0.19041.0``` (minimum).
 
 Make sure C++ desktop development, cmake tools, linux development, and game development with C++ are enabled when installing.
 ```
@@ -55,7 +55,7 @@ See [online documentation](https://domre.github.io/galaxy/).
 
 Or generate offline with Doxygen, with ```ENABLE_DOXYGEN``` set to ```ON```:
 ```
-cmake .
+cmake -DENABLE_DOXYGEN=ON -Bbuild -H.
 cd build
 make doxygen
 ```
@@ -64,10 +64,20 @@ make doxygen
 ## Features
 - Uses Modern C++ design principles, built on C++20.
 - Tiled map editor parsing.
-- Modern 4.5+ OpenGL renderer.
-- GLFW platform abstraction.
-- Audio streaming from disk with oggvorbis and OpenAL.
-- Data driven design.
+- Modern Core OpenGL renderer.
+- Platform abstraction.
+- Audio streaming.
+- Entity component System.
+- Fast Logging.
+- Physics Engine.
+- Event Dispatcher.
+- JSON support.
+- Lua Scripting.
+- GUI.
+- Development Toolset.
+- Resource Management.
+- Filesystem Management.
+- Application Management.
 
 
 ## Contributing / Feedback / Issues
