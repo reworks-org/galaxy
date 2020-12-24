@@ -1,12 +1,12 @@
 ///
 /// Circle.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_CIRCLE_HPP_
-#define PROTOSTAR_CIRCLE_HPP_
+#ifndef GALAXY_CIRCLE_HPP_
+#define GALAXY_CIRCLE_HPP_
 
 #include <compare>
 
@@ -15,7 +15,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Primitive geometric shape.
@@ -26,7 +26,7 @@ namespace pr
 		///
 		/// Constructor.
 		///
-		Circle() noexcept;
+		Circle();
 
 		///
 		/// Argument constructor.
@@ -35,7 +35,7 @@ namespace pr
 		/// \param y Y axis coord.
 		/// \param radius Radius of circle.
 		///
-		Circle(const float x, const float y, const float radius) noexcept;
+		Circle(const float x, const float y, const float radius);
 
 		///
 		/// Destructor.
@@ -49,35 +49,35 @@ namespace pr
 		/// \param y Y axis coord.
 		/// \param radius Radius of circle.
 		///
-		void create(const float x, const float y, const float radius) noexcept;
+		void create(const float x, const float y, const float radius);
 
 		///
 		/// Get x coord of circle.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_x() const noexcept;
+		[[nodiscard]] const float get_x() const;
 
 		///
 		/// Get y coord of circle.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float get_y() const noexcept;
+		[[nodiscard]] const float get_y() const;
 
 		///
 		/// Get xy as a vector.
 		///
 		/// \return Const reference to glm::vec2.
 		///
-		[[nodiscard]] const glm::vec2& get_xy() const noexcept;
+		[[nodiscard]] const glm::vec2& get_xy() const;
 
 		///
 		/// Get radius of circle.
 		///
 		/// \return Const float.
 		///
-		[[nodiscard]] const float radius() const noexcept;
+		[[nodiscard]] const float radius() const;
 
 		///
 		/// Strongly ordered spaceship operator.
@@ -95,6 +95,6 @@ namespace pr
 		///
 		float m_radius;
 	};
-} // namespace pr
+} // namespace galaxy
 
 #endif

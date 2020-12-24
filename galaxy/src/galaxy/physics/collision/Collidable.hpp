@@ -31,7 +31,7 @@ namespace rs
 		///
 		/// \return Reference to AABB box.
 		///
-		[[nodiscard]] AABB& get_aabb() noexcept;
+		[[nodiscard]] AABB& get_aabb();
 
 	protected:
 		///

@@ -9,7 +9,7 @@
 #define QUASAR_SPRITEVERTEX_HPP_
 
 #include <glm/vec2.hpp>
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.

@@ -9,7 +9,7 @@
 
 #include <glad/glad.h>
 #include <stb/stb_image.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <stb/stb_image_write.h>
 
 #include "qs/core/Window.hpp"
@@ -95,7 +95,7 @@ namespace qs
 
 		if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		{
-			PL_LOG(PL_FATAL, "Failed to create GL_FRAMEBUFFER!");
+			GALAXY_LOG(GALAXY_FATAL, "Failed to create GL_FRAMEBUFFER!");
 		}
 
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);

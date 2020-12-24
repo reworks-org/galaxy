@@ -8,7 +8,7 @@
 #ifndef SANDBOXTESTS_SANDBOX_HPP_
 #define SANDBOXTESTS_SANDBOX_HPP_
 
-#include <protostar/state/State.hpp>
+#include <galaxy/state/State.hpp>
 
 namespace sb
 {

@@ -12,7 +12,7 @@
 ///
 namespace rs
 {
-	AABB& Collidable::get_aabb() noexcept
+	AABB& Collidable::get_aabb()
 	{
 		return m_aabb;
 	}

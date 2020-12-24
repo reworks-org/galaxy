@@ -8,7 +8,7 @@
 #include <fstream>
 #include <filesystem>
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "starmap/layer/TileLayer.hpp"
 #include "starmap/layer/ObjectLayer.hpp"
@@ -46,7 +46,7 @@ namespace starmap
 
 		if (!input.good())
 		{
-			PL_LOG(PL_ERROR, "Failed to open: {0}.", path.string());
+			GALAXY_LOG(GALAXY_ERROR, "Failed to open: {0}.", path.string());
 			result = false;
 		}
 		else
@@ -66,7 +66,7 @@ namespace starmap
 
 		if (buffer.empty())
 		{
-			PL_LOG(PL_ERROR, "Passed empty buffer to Map::load()");
+			GALAXY_LOG(GALAXY_ERROR, "Passed empty buffer to Map::load()");
 			result = false;
 		}
 		else
@@ -221,7 +221,7 @@ namespace starmap
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to parse map that was not loaded.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to parse map that was not loaded.");
 			result = false;
 		}
 

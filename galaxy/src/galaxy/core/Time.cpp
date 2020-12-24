@@ -1,6 +1,6 @@
 ///
 /// Time.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	Timer::Timer()
 	    : m_is_stopped {false}, m_repeat {false}, m_delay {0}
@@ -45,4 +45,4 @@ namespace pr
 		// Return time since epoch using chrono.
 		return std::chrono::duration<double>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
 	}
-} // namespace pr
+} // namespace galaxy

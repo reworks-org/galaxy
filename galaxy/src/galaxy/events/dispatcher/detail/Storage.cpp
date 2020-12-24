@@ -1,22 +1,8 @@
 ///
 /// Storage.cpp
-/// starlight
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Storage.hpp"
-
-///
-/// Core namespace.
-///
-namespace sl
-{
-	Storage::Storage()
-	{
-	}
-
-	Storage::~Storage()
-	{
-	}
-} // namespace sl

@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/math/Random.hpp>
+#include <galaxy/math/Random.hpp>
 
 TEST(Random, generate)
 {

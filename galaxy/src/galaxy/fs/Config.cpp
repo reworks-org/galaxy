@@ -71,7 +71,7 @@ namespace galaxy
 			if (!ifs.good())
 			{
 				result = false;
-				PL_LOG(PL_ERROR, "std::ifstream failed to open config file!");
+				GALAXY_LOG(GALAXY_ERROR, "std::ifstream failed to open config file!");
 			}
 			else
 			{
@@ -85,7 +85,7 @@ namespace galaxy
 		else
 		{
 			result = false;
-			PL_LOG(PL_WARNING, "Config file must be init() and define(), then created.");
+			GALAXY_LOG(GALAXY_WARNING, "Config file must be init() and define(), then created.");
 		}
 
 		return result;
@@ -95,7 +95,7 @@ namespace galaxy
 	{
 		if (m_config.empty())
 		{
-			PL_LOG(PL_FATAL, "Attempted to create empty config file!");
+			GALAXY_LOG(GALAXY_FATAL, "Attempted to create empty config file!");
 		}
 		else
 		{
@@ -110,7 +110,7 @@ namespace galaxy
 		ofs.open(m_path.string(), std::ofstream::out | std::ofstream::trunc);
 		if (!ofs.good())
 		{
-			PL_LOG(PL_FATAL, "std::ofstream failed to open config file!");
+			GALAXY_LOG(GALAXY_FATAL, "std::ofstream failed to open config file!");
 		}
 
 		// Use JSON stream to serialize data and write to file.

@@ -34,7 +34,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", def);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", def);
 			}
 
 			auto opt1 = m_theme->m_atlas.get_region(pressed);
@@ -44,7 +44,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", pressed);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", pressed);
 			}
 
 			auto opt2 = m_theme->m_atlas.get_region(hover);
@@ -54,7 +54,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", hover);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", hover);
 			}
 
 			m_bounds.m_width  = m_regions.at(0).m_width;

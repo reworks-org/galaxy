@@ -110,7 +110,7 @@ namespace qs
 		///
 		/// \return Map of all animations.
 		///
-		[[nodiscard]] auto get_all_anims() noexcept -> const robin_hood::unordered_map<std::string, qs::Animation>&;
+		[[nodiscard]] auto get_all_anims() -> const robin_hood::unordered_map<std::string, qs::Animation>&;
 
 	protected:
 		///

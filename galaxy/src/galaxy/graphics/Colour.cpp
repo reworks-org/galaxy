@@ -1,6 +1,6 @@
 ///
 /// Colour.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	Colour::Colour()
 	    : m_red {255}, m_green {255}, m_blue {255}, m_alpha {255}
@@ -86,4 +86,4 @@ namespace pr
 
 		return arr;
 	}
-} // namespace pr
+} // namespace galaxy

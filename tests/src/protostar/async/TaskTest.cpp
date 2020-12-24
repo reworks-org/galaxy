@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/async/Task.hpp>
+#include <galaxy/async/Task.hpp>
 
 TEST(Task, set_and_exec)
 {

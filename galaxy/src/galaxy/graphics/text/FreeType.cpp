@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "FreeType.hpp"
 
@@ -24,7 +24,7 @@ namespace qs
 	{
 		if (FT_Init_FreeType(&m_freetype_lib) != 0)
 		{
-			PL_LOG(PL_FATAL, "Failed to init FreeType.");
+			GALAXY_LOG(GALAXY_FATAL, "Failed to init FreeType.");
 		}
 	}
 

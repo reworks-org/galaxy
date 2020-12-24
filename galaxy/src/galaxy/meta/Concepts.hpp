@@ -1,12 +1,12 @@
 ///
 /// Concepts.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_CONCEPTS_HPP_
-#define PROTOSTAR_CONCEPTS_HPP_
+#ifndef GALAXY_CONCEPTS_HPP_
+#define GALAXY_CONCEPTS_HPP_
 
 #include <concepts>
 #include <cstdint>
@@ -16,7 +16,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Only class concept.
@@ -41,6 +41,6 @@ namespace pr
 	///
 	template<typename Type>
 	concept standard_type = (std::is_arithmetic<Type>::value || std::is_same<std::string, Type>::value);
-} // namespace pr
+} // namespace galaxy
 
 #endif

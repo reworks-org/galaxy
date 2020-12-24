@@ -33,8 +33,8 @@ namespace sr
 #include <span>
 #include <unordered_set>
 
-#include <protostar/system/UniqueID.hpp>
-#include <pulsar/Log.hpp>
+#include <galaxy/system/UniqueID.hpp>
+#include "galaxy/error/Log.hpp"
 #include <robin_hood.h>
 
 #include "solar/system/System.hpp"
@@ -365,7 +365,7 @@ namespace sr
 					}
 					else
 					{
-						PL_LOG(PL_WARNING, "Attempted to add a duplicate component.");
+						GALAXY_LOG(GALAXY_WARNING, "Attempted to add a duplicate component.");
 						return nullptr;
 					}
 				}
@@ -377,7 +377,7 @@ namespace sr
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Attempted to create a component with an invalid entity.");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to create a component with an invalid entity.");
 			return nullptr;
 		}
 	}
@@ -389,7 +389,7 @@ namespace sr
 
 		if (!validate(entity))
 		{
-			PL_LOG(PL_ERROR, "Attempted to get a component of an invalid entity.");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to get a component of an invalid entity.");
 			res = nullptr;
 		}
 		else
@@ -423,7 +423,7 @@ namespace sr
 	{
 		if (!validate(entity))
 		{
-			PL_LOG(PL_ERROR, "Attempted to get a component of an invalid entity.");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to get a component of an invalid entity.");
 		}
 		else
 		{
@@ -431,8 +431,8 @@ namespace sr
 
 			if (type >= m_data.size() || m_data.size() == 0)
 			{
-				PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist.");
-				PL_LOG(PL_ERROR, "Possible zero size component data detected.");
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to access a component type that doesnt exist.");
+				GALAXY_LOG(GALAXY_ERROR, "Possible zero size component data detected.");
 			}
 			else
 			{
@@ -474,7 +474,7 @@ namespace sr
 
 		if (type >= m_data.size())
 		{
-			PL_LOG(PL_ERROR, "Attempted to access a component type that doesnt exist!");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to access a component type that doesnt exist!");
 		}
 		else
 		{
@@ -507,7 +507,7 @@ namespace sr
 		const auto type = SUniqueID::get<System>();
 		if (type > m_systems.size())
 		{
-			PL_LOG(PL_FATAL, "Attempted to access a system type that doesnt exist!");
+			GALAXY_LOG(GALAXY_FATAL, "Attempted to access a system type that doesnt exist!");
 			return nullptr;
 		}
 		else

@@ -5,7 +5,9 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
 
 #include "SpriteBatch.hpp"
 
@@ -49,6 +51,13 @@ namespace qs
 		m_va.create<qs::BatchedVertex>(m_vb, m_ib, m_layout);
 	}
 
+	SpriteBatch::SpriteBatch(const nlohmann::json& json)
+	{
+		m_bs.set_opacity(json.at("opacity"));
+		m_bs.set_pos(json.at("x"), json.at("y"));
+		m_bs.create({json.at("texture-x"), json.at("texture-y"), json.at("w"), json.at("h")}, json.at("z-level"));
+	}
+
 	SpriteBatch::~SpriteBatch()
 	{
 		clear();
@@ -58,7 +67,7 @@ namespace qs
 	{
 		if (texture == nullptr)
 		{
-			PL_LOG(PL_WARNING, "Attempted to set a nullptr BaseTexture to spritebatch.");
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to set a nullptr BaseTexture to spritebatch.");
 		}
 		else
 		{
@@ -70,13 +79,13 @@ namespace qs
 	{
 		if (sprite == nullptr)
 		{
-			PL_LOG(PL_WARNING, "Attempted to add nullptr to spritebatch.");
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to add nullptr to spritebatch.");
 		}
 		else
 		{
 			if (((m_sprites.size() + 1) * 4) > m_max_vertexs)
 			{
-				PL_LOG(PL_ERROR, "Too many quads in batch. Sprite not added.");
+				GALAXY_LOG(GALAXY_ERROR, "Too many quads in batch. Sprite not added.");
 			}
 			else
 			{
@@ -139,7 +148,7 @@ namespace qs
 	{
 		if (!transform)
 		{
-			PL_LOG(PL_FATAL, "Transform was nullptr.");
+			GALAXY_LOG(GALAXY_FATAL, "Transform was nullptr.");
 		} // Throws exception.
 
 		const bool is_dirty = transform->is_dirty(); // Have to cache here because get_transform() sets is_dirty to false.

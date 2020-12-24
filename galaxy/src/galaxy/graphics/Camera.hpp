@@ -8,9 +8,9 @@
 #ifndef QUASAR_CAMERA_HPP_
 #define QUASAR_CAMERA_HPP_
 
-#include <protostar/events/KeyUpEvent.hpp>
-#include <protostar/events/KeyDownEvent.hpp>
-#include <protostar/events/MouseWheelEvent.hpp>
+#include <galaxy/events/KeyUpEvent.hpp>
+#include <galaxy/events/KeyDownEvent.hpp>
+#include <galaxy/events/MouseWheelEvent.hpp>
 
 #include "qs/core/Transform.hpp"
 
@@ -81,14 +81,14 @@ namespace qs
 		///
 		///	Event processing method for key down for camera.
 		///
-		/// \param e Takes in a shared protostar event defining a key press down.
+		/// \param e Takes in a shared galaxy event defining a key press down.
 		///
 		void on_key_down(const pr::KeyDownEvent& e);
 
 		///
 		/// Event processing method for key up for camera.
 		///
-		/// \param e Takes in a shared protostar event defining a key release.
+		/// \param e Takes in a shared galaxy event defining a key release.
 		///
 		void on_key_up(const pr::KeyUpEvent& e);
 

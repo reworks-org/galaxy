@@ -8,7 +8,7 @@
 #ifndef GALAXY_PROGRESSBAR_HPP_
 #define GALAXY_PROGRESSBAR_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
+#include <galaxy/events/MouseMovedEvent.hpp>
 #include <qs/sprite/BatchedSprite.hpp>
 
 #include "galaxy/ui/Widget.hpp"

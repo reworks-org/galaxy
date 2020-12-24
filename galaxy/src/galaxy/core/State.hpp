@@ -1,19 +1,19 @@
 ///
 /// State.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_STATE_HPP_
-#define PROTOSTAR_STATE_HPP_
+#ifndef GALAXY_STATE_HPP_
+#define GALAXY_STATE_HPP_
 
-#include "protostar/state/LayerStorage.hpp"
+#include "galaxy/state/LayerStorage.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Represents one of many possible object states.
@@ -122,6 +122,6 @@ namespace pr
 		///
 		LayerStorage m_layers;
 	};
-} // namespace pr
+} // namespace galaxy
 
 #endif

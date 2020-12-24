@@ -1,13 +1,13 @@
 ///
 /// State.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "State.hpp"
 
-namespace pr
+namespace galaxy
 {
 	void State::set_name(std::string_view name)
 	{
@@ -62,4 +62,4 @@ namespace pr
 		return *this;
 	}
 
-} // namespace pr
+} // namespace galaxy

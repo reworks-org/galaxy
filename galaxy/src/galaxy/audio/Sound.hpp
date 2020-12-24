@@ -1,81 +1,90 @@
 ///
 /// Sound.hpp
-/// frb
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef FRB_SOUND_HPP_
-#define FRB_SOUND_HPP_
+#ifndef GALAXY_AUDIO_SOUND_HPP_
+#define GALAXY_AUDIO_SOUND_HPP_
 
-#include "frb/detail/Source.hpp"
-#include "frb/detail/SourceManipulator.hpp"
+#include <nlohmann/json_fwd.hpp>
 
-///
-/// Core namespace.
-///
-namespace frb
+#include "galaxy/audio/source/Source.hpp"
+#include "galaxy/audio/source/SourceManipulator.hpp"
+
+namespace galaxy
 {
-	///
-	/// \brief Short length ogg-vorbis audio.
-	///
-	/// Contains a Buffer and Source.
-	///
-	class Sound final : public Buffer, public SourceManipulator
+	namespace audio
 	{
-	public:
 		///
-		/// Constructor.
+		/// \brief Short length ogg-vorbis audio.
 		///
-		Sound();
+		/// Contains a Buffer and Source.
+		///
+		class Sound final : public Buffer, public SourceManipulator
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Sound();
 
-		///
-		/// Argument constructor.
-		///
-		/// \param file File to load from disk. Can only load ogg vorbis.
-		///
-		explicit Sound(std::string_view file);
+			///
+			/// Argument constructor.
+			///
+			/// \param file File to load from disk. Can only load ogg vorbis.
+			///
+			Sound(std::string_view file);
 
-		///
-		/// Copy constructor.
-		///
-		Sound(const Sound&) = delete;
+			///
+			/// JSON constructor.
+			///
+			/// \param json JSON defining object.
+			///
+			Sound(const nlohmann::json& json);
 
-		///
-		/// Move constructor.
-		///
-		Sound(Sound&&);
+			///
+			/// Copy constructor.
+			///
+			Sound(const Sound&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		Sound& operator=(const Sound&) = delete;
+			///
+			/// Move constructor.
+			///
+			Sound(Sound&&);
 
-		///
-		/// Move assignment operator.
-		///
-		Sound& operator=(Sound&&);
+			///
+			/// Copy assignment operator.
+			///
+			Sound& operator=(const Sound&) = delete;
 
-		///
-		/// Destructor.
-		///
-		virtual ~Sound() = default;
+			///
+			/// Move assignment operator.
+			///
+			Sound& operator=(Sound&&);
 
-		///
-		/// Load a file from disk.
-		///
-		/// \param file File to load from disk. Can only load ogg vorbis.
-		///
-		/// \return False if load failed.
-		///
-		[[maybe_unused]] bool load(std::string_view file);
+			///
+			/// Destructor.
+			///
+			virtual ~Sound() = default;
 
-	private:
-		///
-		/// OpenAL audio source.
-		///
-		Source m_source;
-	};
-} // namespace frb
+			///
+			/// Load a file from disk.
+			///
+			/// \param file File to load from disk. Can only load ogg vorbis.
+			///
+			/// \return False if load failed.
+			///
+			[[maybe_unused]] bool load(std::string_view file);
+
+		private:
+			///
+			/// OpenAL audio source.
+			///
+			Source m_source;
+		};
+	} // namespace audio
+} // namespace galaxy
 
 #endif

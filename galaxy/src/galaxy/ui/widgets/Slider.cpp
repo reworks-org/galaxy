@@ -35,7 +35,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create slider widget from {0}.", slider);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create slider widget from {0}.", slider);
 			}
 
 			m_bounds.m_width  = m_slider.get_width();
@@ -47,7 +47,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create slider marker from {0}.", marker);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create slider marker from {0}.", marker);
 			}
 		}
 

@@ -24,7 +24,7 @@ namespace qs
 	{
 		if (!load_path(vertex_file, frag_file))
 		{
-			PL_LOG(PL_ERROR, "Failed to construct shader with files: {0} | {1}.", vertex_file, frag_file);
+			GALAXY_LOG(GALAXY_ERROR, "Failed to construct shader with files: {0} | {1}.", vertex_file, frag_file);
 		}
 	}
 
@@ -81,13 +81,13 @@ namespace qs
 		// Check for errors...
 		if (!v_stream.good())
 		{
-			PL_LOG(PL_ERROR, "std::ifstream failed to open file: {0}.", vertex_file);
+			GALAXY_LOG(GALAXY_ERROR, "std::ifstream failed to open file: {0}.", vertex_file);
 			result = false;
 		}
 
 		if (!f_stream.good())
 		{
-			PL_LOG(PL_ERROR, "std::ifstream failed to open file: {0}.", frag_file);
+			GALAXY_LOG(GALAXY_ERROR, "std::ifstream failed to open file: {0}.", frag_file);
 			result = false;
 		}
 
@@ -115,13 +115,13 @@ namespace qs
 
 			if (v_buffer.empty())
 			{
-				PL_LOG(PL_ERROR, "std::stringstream failed to read vertexBuffer for: {0}.", vertex_file);
+				GALAXY_LOG(GALAXY_ERROR, "std::stringstream failed to read vertexBuffer for: {0}.", vertex_file);
 				result = false;
 			}
 
 			if (f_buffer.empty())
 			{
-				PL_LOG(PL_ERROR, "std::stringstream failed to read fragmentBuffer for: {0}.", frag_file);
+				GALAXY_LOG(GALAXY_ERROR, "std::stringstream failed to read fragmentBuffer for: {0}.", frag_file);
 				result = false;
 			}
 
@@ -148,7 +148,7 @@ namespace qs
 				{
 					glGetShaderInfoLog(v_id, 1024, nullptr, info);
 
-					PL_LOG(PL_ERROR, "Failed to vertex compile shader. {0}.", info);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to vertex compile shader. {0}.", info);
 					result = false;
 				}
 
@@ -162,7 +162,7 @@ namespace qs
 				{
 					glGetShaderInfoLog(f_id, 1024, nullptr, info);
 
-					PL_LOG(PL_ERROR, "Failed to compile fragment shader. {0}.", info);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to compile fragment shader. {0}.", info);
 					result = false;
 				}
 
@@ -180,7 +180,7 @@ namespace qs
 					{
 						glGetProgramInfoLog(m_id, 1024, nullptr, info);
 
-						PL_LOG(PL_ERROR, "Failed to attach shaders. {0}.", info);
+						GALAXY_LOG(GALAXY_ERROR, "Failed to attach shaders. {0}.", info);
 						result = false;
 					}
 				}
@@ -206,13 +206,13 @@ namespace qs
 
 		if (vertex_str.empty())
 		{
-			PL_LOG(PL_ERROR, "Vertex shader source was empty.");
+			GALAXY_LOG(GALAXY_ERROR, "Vertex shader source was empty.");
 			result = false;
 		}
 
 		if (fragment_str.empty())
 		{
-			PL_LOG(PL_ERROR, "Fragment shader source was empty.");
+			GALAXY_LOG(GALAXY_ERROR, "Fragment shader source was empty.");
 			result = false;
 		}
 
@@ -238,7 +238,7 @@ namespace qs
 			{
 				glGetShaderInfoLog(v_id, 1024, nullptr, info);
 
-				PL_LOG(PL_ERROR, "Failed to vertex compile shader. {0}.", info);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to vertex compile shader. {0}.", info);
 				result = false;
 			}
 
@@ -252,7 +252,7 @@ namespace qs
 			{
 				glGetShaderInfoLog(f_id, 1024, nullptr, info);
 
-				PL_LOG(PL_ERROR, "Failed to compile fragment shader. {0}.", info);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to compile fragment shader. {0}.", info);
 				result = false;
 			}
 
@@ -270,7 +270,7 @@ namespace qs
 				{
 					glGetProgramInfoLog(m_id, 1024, nullptr, info);
 
-					PL_LOG(PL_ERROR, "Failed to attach shaders. {0}.", info);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to attach shaders. {0}.", info);
 					result = false;
 				}
 			}
@@ -319,7 +319,7 @@ namespace qs
 			}
 			else
 			{
-				PL_LOG(PL_WARNING, "Failed to find uniform: {0}.", name);
+				GALAXY_LOG(GALAXY_WARNING, "Failed to find uniform: {0}.", name);
 			}
 
 			return location;

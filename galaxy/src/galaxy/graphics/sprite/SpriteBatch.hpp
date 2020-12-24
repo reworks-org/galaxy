@@ -8,6 +8,8 @@
 #ifndef QUASAR_SPRITEBATCH_HPP_
 #define QUASAR_SPRITEBATCH_HPP_
 
+#include <nlohmann/json_fwd.hpp>
+
 #include "qs/sprite/BatchedSprite.hpp"
 #include "qs/texture/BaseTexture.hpp"
 

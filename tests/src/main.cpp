@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/log/Log.hpp"
 
 int main(int argsc, char* argsv[])
 {

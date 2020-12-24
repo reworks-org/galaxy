@@ -42,7 +42,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create image widget from {0}.", textinput);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create image widget from {0}.", textinput);
 			}
 
 			m_bounds.m_width  = get_width();
@@ -113,18 +113,18 @@ namespace galaxy
 			{
 				switch (kde.m_keycode)
 				{
-					case pr::Keys::ENTER:
+					case input::Keys::ENTER:
 						stop();
 						break;
 
-					case pr::Keys::BACKSPACE:
+					case input::Keys::BACKSPACE:
 						if (m_text_input->length() > 0)
 						{
 							m_text_input->pop_back();
 						}
 						break;
 
-					case pr::Keys::DELETE:
+					case input::Keys::DELETE:
 						*m_text_input = "";
 						break;
 				}

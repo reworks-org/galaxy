@@ -35,7 +35,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create container widget from {0}.", container);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create container widget from {0}.", container);
 			}
 
 			m_bounds.m_width  = m_container.get_width();
@@ -47,7 +47,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create container bar from {0}.", bar);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create container bar from {0}.", bar);
 			}
 		}
 

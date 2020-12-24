@@ -8,7 +8,7 @@
 #ifndef GALAXY_WIDGET_HPP_
 #define GALAXY_WIDGET_HPP_
 
-#include <frb/audio/Sound.hpp>
+#include <galaxy/audio/Sound.hpp>
 
 #include "galaxy/ui/Tooltip.hpp"
 
@@ -83,7 +83,7 @@ namespace galaxy
 		///
 		/// \param sound Sound pointer to move ownership into this widget.
 		///
-		void add_sfx(std::unique_ptr<frb::Sound>&& sound);
+		void add_sfx(std::unique_ptr<galaxy::Sound>&& sound);
 
 		///
 		/// \brief Get ID of this widget.
@@ -118,7 +118,7 @@ namespace galaxy
 		///
 		/// Sound effect to play on clicking of UI.
 		///
-		std::unique_ptr<frb::Sound> m_sound;
+		std::unique_ptr<galaxy::Sound> m_sound;
 
 	private:
 		///

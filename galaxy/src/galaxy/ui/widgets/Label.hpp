@@ -8,7 +8,7 @@
 #ifndef GALAXY_LABEL_HPP_
 #define GALAXY_LABEL_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
+#include <galaxy/events/MouseMovedEvent.hpp>
 
 #include "galaxy/ui/Widget.hpp"
 

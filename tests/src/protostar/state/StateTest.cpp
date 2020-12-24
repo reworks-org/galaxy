@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/state/State.hpp>
+#include <galaxy/state/State.hpp>
 
 class Demo : public pr::State
 {

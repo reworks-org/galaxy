@@ -1,19 +1,19 @@
 ///
 /// Dispatcher.cpp
-/// starlight
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Dispatcher.hpp"
 
-///
-/// Core namespace.
-///
-namespace sl
+namespace galaxy
 {
-	Dispatcher::~Dispatcher()
+	namespace events
 	{
-		m_event_funcs.clear();
-	}
-} // namespace sl
+		Dispatcher::~Dispatcher()
+		{
+			m_event_funcs.clear();
+		}
+	} // namespace events
+} // namespace galaxy

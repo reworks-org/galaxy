@@ -9,7 +9,7 @@
 #define QUASAR_TRANSFORM_HPP_
 
 #include <glm/gtc/matrix_transform.hpp>
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.

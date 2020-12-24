@@ -8,7 +8,7 @@
 #ifndef SANDBOXTESTS_GUILAYER_HPP_
 #define SANDBOXTESTS_GUILAYER_HPP_
 
-#include <protostar/state/Layer.hpp>
+#include <galaxy/state/Layer.hpp>
 #include <galaxy/ui/GUI.hpp>
 
 namespace sb

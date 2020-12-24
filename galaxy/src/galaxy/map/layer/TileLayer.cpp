@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <nlohmann/json.hpp>
 
 #include "starmap/detail/Decoder.hpp"
@@ -19,7 +19,7 @@ namespace starmap
 {
 	TileLayer::TileLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed TileLayer.");
+		GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed TileLayer.");
 	}
 
 	TileLayer::TileLayer(const nlohmann::json& json)
@@ -79,12 +79,12 @@ namespace starmap
 						}
 						else
 						{
-							PL_LOG(PL_FATAL, "zlib decoded string empty.");
+							GALAXY_LOG(GALAXY_FATAL, "zlib decoded string empty.");
 						}
 					}
 					else
 					{
-						PL_LOG(PL_FATAL, "base64 decoded string empty.");
+						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
 					}
 				}
 				else if (m_compression == "gzip")
@@ -106,12 +106,12 @@ namespace starmap
 						}
 						else
 						{
-							PL_LOG(PL_FATAL, "gzip decoded string empty.");
+							GALAXY_LOG(GALAXY_FATAL, "gzip decoded string empty.");
 						}
 					}
 					else
 					{
-						PL_LOG(PL_FATAL, "base64 decoded string empty.");
+						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
 					}
 				}
 				else
@@ -127,7 +127,7 @@ namespace starmap
 					}
 					else
 					{
-						PL_LOG(PL_FATAL, "base64 decoded string empty.");
+						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
 					}
 				}
 			}

@@ -8,8 +8,8 @@
 #ifndef SOLAR_COMPONENTSET_HPP_
 #define SOLAR_COMPONENTSET_HPP_
 
-#include <protostar/system/Concepts.hpp>
-#include <pulsar/Log.hpp>
+#include <galaxy/system/Concepts.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "solar/sets/EntitySet.hpp"
 
@@ -141,7 +141,7 @@ namespace sr
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "ComponentSet get() component found nullopt index.");
+			GALAXY_LOG(GALAXY_FATAL, "ComponentSet get() component found nullopt index.");
 			return nullptr;
 		}
 	}
@@ -171,12 +171,12 @@ namespace sr
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "ComponentSet remove() component found nullopt index: {0}.", entity);
+				GALAXY_LOG(GALAXY_ERROR, "ComponentSet remove() component found nullopt index: {0}.", entity);
 			}
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to remove an component that does not exist on entity: {0}.", entity);
+			GALAXY_LOG(GALAXY_WARNING, "Tried to remove an component that does not exist on entity: {0}.", entity);
 		}
 	}
 

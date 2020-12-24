@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "Animated.hpp"
 
@@ -92,7 +92,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_FATAL, "Failed to set animation before playing.");
+			GALAXY_LOG(GALAXY_FATAL, "Failed to set animation before playing.");
 		}
 	}
 
@@ -123,7 +123,7 @@ namespace qs
 		return m_active_anim;
 	}
 
-	auto Animated::get_all_anims() noexcept -> const robin_hood::unordered_map<std::string, qs::Animation>&
+	auto Animated::get_all_anims() -> const robin_hood::unordered_map<std::string, qs::Animation>&
 	{
 		return m_animations;
 	}

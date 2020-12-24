@@ -8,7 +8,7 @@
 #ifndef GALAXY_IMAGE_HPP_
 #define GALAXY_IMAGE_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
+#include <galaxy/events/MouseMovedEvent.hpp>
 #include <qs/sprite/SpriteBatch.hpp>
 
 #include "galaxy/ui/Widget.hpp"

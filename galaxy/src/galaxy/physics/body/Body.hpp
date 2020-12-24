@@ -67,7 +67,7 @@ namespace rs
 		///
 		/// \return Const bool.
 		///
-		virtual const bool is_rigid() const noexcept = 0;
+		virtual const bool is_rigid() const = 0;
 
 		///
 		/// Restitution of this body.

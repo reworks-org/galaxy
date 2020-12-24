@@ -53,7 +53,7 @@ namespace rs
 		return m_velocity;
 	}
 
-	const bool KineticBody::is_rigid() const noexcept
+	const bool KineticBody::is_rigid() const
 	{
 		return false;
 	}

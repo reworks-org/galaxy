@@ -9,7 +9,7 @@
 #include <filesystem>
 
 #include <imgui/imgui_stdlib.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -72,7 +72,7 @@ namespace galaxy
 				}
 				catch (const std::exception& e)
 				{
-					PL_LOG(PL_ERROR, e.what());
+					GALAXY_LOG(GALAXY_ERROR, e.what());
 					m_history.push_back(fmt::format("[ERROR]:  {0}.", e.what()));
 				}
 

@@ -11,7 +11,7 @@
 #include <galaxy/scripting/JSONUtils.hpp>
 #include <imgui/imgui_stdlib.h>
 #include <imgui/addons/ToggleButton.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "JsonEditor.hpp"
 
@@ -93,12 +93,12 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_WARNING, "Cannot save external json.");
+				GALAXY_LOG(GALAXY_WARNING, "Cannot save external json.");
 			}
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Attempted to save json file when no json was open.");
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to save json file when no json was open.");
 		}
 	}
 
@@ -120,7 +120,7 @@ namespace galaxy
 				}
 				else
 				{
-					PL_LOG(PL_FATAL, "JSON was not object or array.");
+					GALAXY_LOG(GALAXY_FATAL, "JSON was not object or array.");
 				}
 			}
 			else
@@ -135,7 +135,7 @@ namespace galaxy
 				}
 				else
 				{
-					PL_LOG(PL_FATAL, "JSON was not object or array.");
+					GALAXY_LOG(GALAXY_FATAL, "JSON was not object or array.");
 				}
 			}
 		}

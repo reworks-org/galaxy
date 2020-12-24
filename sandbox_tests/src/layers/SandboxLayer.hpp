@@ -10,7 +10,7 @@
 
 #include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
-#include <protostar/state/Layer.hpp>
+#include <galaxy/state/Layer.hpp>
 #include <qs/shapes/Point.hpp>
 #include <qs/shapes/Circle.hpp>
 #include <qs/post/PointLight.hpp>

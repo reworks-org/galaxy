@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <nlohmann/json.hpp>
 
 #include "ObjectLayer.hpp"
@@ -17,7 +17,7 @@ namespace starmap
 {
 	ObjectLayer::ObjectLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ObjectLayer.");
+		GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ObjectLayer.");
 	}
 
 	ObjectLayer::ObjectLayer(const nlohmann::json& json)

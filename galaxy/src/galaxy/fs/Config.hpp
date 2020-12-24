@@ -10,10 +10,10 @@
 
 #include <filesystem>
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <nlohmann/json.hpp>
 
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.
@@ -149,7 +149,7 @@ namespace galaxy
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Attempted to define value of an unloaded config file.");
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to define value of an unloaded config file.");
 		}
 	}
 
@@ -162,7 +162,7 @@ namespace galaxy
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to change non-existant config value.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to change non-existant config value.");
 		}
 	}
 
@@ -173,7 +173,7 @@ namespace galaxy
 
 		if (!m_opened)
 		{
-			PL_LOG(PL_FATAL, "Attempted to retrieve value from config that was not open!");
+			GALAXY_LOG(GALAXY_FATAL, "Attempted to retrieve value from config that was not open!");
 		}
 
 		return m_config[str].get<Value>();

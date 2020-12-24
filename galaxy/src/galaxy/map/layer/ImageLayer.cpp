@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <nlohmann/json.hpp>
 
 #include "ImageLayer.hpp"
@@ -17,7 +17,7 @@ namespace starmap
 {
 	ImageLayer::ImageLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ImageLayer.");
+		GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ImageLayer.");
 	}
 
 	ImageLayer::ImageLayer(const nlohmann::json& json)

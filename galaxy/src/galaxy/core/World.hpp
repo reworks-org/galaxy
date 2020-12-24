@@ -111,7 +111,7 @@ namespace galaxy
 		const auto str = static_cast<std::string>(name);
 		if (m_component_factory.contains(str))
 		{
-			PL_LOG(PL_WARNING, "Attempted to register duplicate component: {0}.", str);
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to register duplicate component: {0}.", str);
 		}
 		else
 		{

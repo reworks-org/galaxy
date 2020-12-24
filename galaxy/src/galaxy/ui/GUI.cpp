@@ -41,7 +41,7 @@ namespace galaxy
 	{
 		if (id >= m_widgets.size())
 		{
-			PL_LOG(PL_ERROR, "Invalid widget id.");
+			GALAXY_LOG(GALAXY_ERROR, "Invalid widget id.");
 		}
 		else
 		{

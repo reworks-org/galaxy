@@ -8,7 +8,7 @@
 #ifndef GALAXY_UITHEME_HPP_
 #define GALAXY_UITHEME_HPP_
 
-#include <protostar/graphics/Colour.hpp>
+#include <galaxy/graphics/Colour.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 
 #include "galaxy/res/FontBook.hpp"

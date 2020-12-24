@@ -1,21 +1,21 @@
 ///
 /// UniqueID.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_UNIQUEID_HPP_
-#define PROTOSTAR_UNIQUEID_HPP_
+#ifndef GALAXY_UNIQUEID_HPP_
+#define GALAXY_UNIQUEID_HPP_
 
 #include <cstddef>
 
-#include "protostar/system/Concepts.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Generates a unique id for a type for each type of specialization.
@@ -78,6 +78,6 @@ namespace pr
 		static std::size_t id = s_counter++;
 		return id;
 	}
-} // namespace pr
+} // namespace galaxy
 
 #endif

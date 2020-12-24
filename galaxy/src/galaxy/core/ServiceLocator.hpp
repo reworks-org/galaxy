@@ -28,17 +28,17 @@ namespace qs
 ///
 /// Forward dec.
 ///
-namespace pr
+namespace galaxy
 {
 	template<std::size_t max_threads>
 	class ThreadPool;
 	class StateMachine;
-} // namespace pr
+} // namespace galaxy
 
 ///
 /// Forward dec.
 ///
-namespace sl
+namespace galaxy { namespace events {
 {
 	class Dispatcher;
 }

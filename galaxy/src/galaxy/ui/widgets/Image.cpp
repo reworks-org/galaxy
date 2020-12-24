@@ -26,7 +26,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create image widget from {0}.", name);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create image widget from {0}.", name);
 			}
 
 			m_bounds.m_width  = get_width();

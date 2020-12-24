@@ -19,7 +19,7 @@
 #include <galaxy/ui/widgets/ToggleButton.hpp>
 #include <galaxy/ui/widgets/TextInput.hpp>
 
-#include <protostar/events/MouseMovedEvent.hpp>
+#include <galaxy/events/MouseMovedEvent.hpp>
 
 #include "GUILayer.hpp"
 

@@ -55,7 +55,7 @@ namespace rs
 		///
 		/// \return Const bool.
 		///
-		const bool is_rigid() const noexcept override;
+		const bool is_rigid() const override;
 
 	private:
 		///

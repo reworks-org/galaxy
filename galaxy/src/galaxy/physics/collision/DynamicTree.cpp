@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "DynamicTree.hpp"
 
@@ -83,7 +83,7 @@ namespace rs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Attempted to insert nullptr into Dynamic Tree.");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to insert nullptr into Dynamic Tree.");
 		}
 	}
 
@@ -100,7 +100,7 @@ namespace rs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Provided a nullptr key to DynamicTree::remove().");
+			GALAXY_LOG(GALAXY_ERROR, "Provided a nullptr key to DynamicTree::remove().");
 		}
 	}
 
@@ -113,7 +113,7 @@ namespace rs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Attempted to update nullptr object in DynamicTree.");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to update nullptr object in DynamicTree.");
 		}
 	}
 
@@ -156,7 +156,7 @@ namespace rs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Attempted to query a nullptr using DynamicTree.");
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to query a nullptr using DynamicTree.");
 		}
 
 		return hits;
@@ -168,7 +168,7 @@ namespace rs
 		{
 			if (m_allocated_nodes != m_node_capacity)
 			{
-				PL_LOG(PL_ERROR, "m_allocated_nodes != m_node_capacity");
+				GALAXY_LOG(GALAXY_ERROR, "m_allocated_nodes != m_node_capacity");
 			}
 			else
 			{

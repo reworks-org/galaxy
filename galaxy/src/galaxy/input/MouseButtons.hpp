@@ -1,17 +1,17 @@
 ///
 /// MouseButtons.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_MOUSEBUTTONS_HPP_
-#define PROTOSTAR_MOUSEBUTTONS_HPP_
+#ifndef GALAXY_MOUSEBUTTONS_HPP_
+#define GALAXY_MOUSEBUTTONS_HPP_
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Enum class representing keys.
@@ -31,6 +31,6 @@ namespace pr
 		BUTTON_RIGHT,
 		BUTTON_MIDDLE
 	};
-} // namespace pr
+} // namespace galaxy
 
 #endif

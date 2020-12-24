@@ -12,7 +12,7 @@
 #include <optional>
 #include <robin_hood.h>
 
-#include <protostar/math/RectPack.hpp>
+#include <galaxy/math/RectPack.hpp>
 
 #include "qs/texture/RenderTexture.hpp"
 
@@ -176,7 +176,7 @@ namespace qs
 		///
 		/// Contains the rectangles outlining all the textures on the atlas.
 		///
-		pr::RectPack<int> m_packer;
+		algorithm::RectPack<int> m_packer;
 
 		///
 		/// Texture name (id) and assossiated info.

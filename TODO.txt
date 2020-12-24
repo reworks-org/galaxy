@@ -23,23 +23,32 @@ DEV_TOOLS:
 
 Galaxy:
 - Restore data-driven design
+- merge ecs with world
+- merge redshift with physicssystem
+- merge various meta.hpps into meta folder
 
 
 THE PLAN:
-- Every Class Should have a JSON & Lua interface.
 - Need to integrate clang-tidy and clang-format.
 - Need to integrate microsoft code analysis.
-- Engine needs to be cohesive.
-- Dependencies should only abstract away system specific implementations.
-- Proper use of 'noexcept', 'static', and 'multithreading'.
-- Use of coroutines over threading.
-- Utilize GSL.
 - All around CMAKE.
-- Each class requires ability to be serialized -> prefereably to JSON or Lua.
-- Async asset loading.
+
+
 - namespaces for classification over filenames i.e. galaxy::SpriteComponent -> galaxy::components::renderable.
-- rebrand to application programming framework.
-- readme update
+- remove namespace commets
+- update include headers to match filepath
+- Engine needs to be cohesive.
+- fix move/copy
+
+
+- Async asset loading.
+- Each class requires ability to be serialized -> prefereably to JSON or Lua.
+- Use of coroutines over threading.
+- Proper use of 'noexcept', 'static', and 'multithreading'.
+- Every Class Should have a JSON & Lua interface.
+- Utilize GSL.
+- Dependencies should only abstract away system specific implementations.
+
 
 https://github.com/nlohmann/json/#arbitrary-types-conversions
 https://github.com/EQMG/Acid

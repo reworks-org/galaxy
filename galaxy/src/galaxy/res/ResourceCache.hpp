@@ -1,23 +1,23 @@
 ///
 /// ResourceCache.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_RESOURCECACHE_HPP_
-#define PROTOSTAR_RESOURCECACHE_HPP_
+#ifndef GALAXY_RESOURCECACHE_HPP_
+#define GALAXY_RESOURCECACHE_HPP_
 
 #include <robin_hood.h>
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
-#include "protostar/system/Concepts.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Container structure for storing resourceCache objects in containers.
@@ -166,7 +166,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Failed to find resource with name: " + str);
+			GALAXY_LOG(GALAXY_WARNING, "Failed to find resource with name: " + str);
 			return nullptr;
 		}
 	}
@@ -175,6 +175,6 @@ namespace pr
 	inline ResourceCache<Resource>::ResourceCache()
 	{
 	}
-} // namespace pr
+} // namespace galaxy
 
 #endif

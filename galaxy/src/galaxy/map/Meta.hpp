@@ -8,7 +8,7 @@
 #ifndef STARMAP_META_HPP_
 #define STARMAP_META_HPP_
 
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.

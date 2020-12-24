@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/system/UniqueID.hpp>
+#include <galaxy/system/UniqueID.hpp>
 
 using TestUID1 = pr::UniqueID<struct Test_>;
 using TestUID2 = pr::UniqueID<struct _Test>;

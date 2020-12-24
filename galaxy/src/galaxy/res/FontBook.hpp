@@ -8,7 +8,7 @@
 #ifndef GALAXY_FONTBOOK_HPP_
 #define GALAXY_FONTBOOK_HPP_
 
-#include <protostar/res/ResourceCache.hpp>
+#include <galaxy/res/ResourceCache.hpp>
 #include <qs/text/Font.hpp>
 
 ///

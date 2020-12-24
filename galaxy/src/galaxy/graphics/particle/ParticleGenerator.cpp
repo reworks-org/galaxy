@@ -7,7 +7,7 @@
 
 #include <glm/gtc/constants.hpp>
 #include <glm/trigonometric.hpp>
-#include <protostar/math/Random.hpp>
+#include <galaxy/math/Random.hpp>
 
 #include "ParticleGenerator.hpp"
 
@@ -88,7 +88,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Already configured particle of type: {0}.", str);
+			GALAXY_LOG(GALAXY_WARNING, "Already configured particle of type: {0}.", str);
 		}
 	}
 

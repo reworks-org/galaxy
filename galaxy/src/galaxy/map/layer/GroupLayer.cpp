@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <nlohmann/json.hpp>
 
 #include "starmap/layer/ImageLayer.hpp"
@@ -21,7 +21,7 @@ namespace starmap
 {
 	GroupLayer::GroupLayer()
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed GroupLayer.");
+		GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed GroupLayer.");
 	}
 
 	GroupLayer::GroupLayer(const nlohmann::json& json)

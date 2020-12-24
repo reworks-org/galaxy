@@ -8,10 +8,10 @@
 #ifndef GALAXY_TEXTINPUT_HPP_
 #define GALAXY_TEXTINPUT_HPP_
 
-#include <protostar/events/KeyDownEvent.hpp>
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/system/Time.hpp>
+#include <galaxy/events/KeyDownEvent.hpp>
+#include <galaxy/events/MouseMovedEvent.hpp>
+#include <galaxy/events/MousePressedEvent.hpp>
+#include <galaxy/system/Time.hpp>
 #include <qs/shapes/Line.hpp>
 #include <qs/sprite/BatchedSprite.hpp>
 #include <qs/text/Text.hpp>

@@ -14,11 +14,11 @@ namespace galaxy
 {
 	void Widget::add_sfx(std::string_view sound)
 	{
-		m_sound = std::make_unique<frb::Sound>();
+		m_sound = std::make_unique<galaxy::Sound>();
 		m_sound->load(sound);
 	}
 
-	void Widget::add_sfx(std::unique_ptr<frb::Sound>&& sound)
+	void Widget::add_sfx(std::unique_ptr<galaxy::Sound>&& sound)
 	{
 		m_sound = std::move(sound);
 	}

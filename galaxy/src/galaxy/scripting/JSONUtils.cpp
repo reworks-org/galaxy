@@ -9,7 +9,7 @@
 #include <fstream>
 
 #include <nlohmann/json.hpp>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "JSONUtils.hpp"
 
@@ -33,7 +33,7 @@ namespace galaxy
 
 			if (!input.good())
 			{
-				PL_LOG(PL_FATAL, "Failed to open: {0}.", path.string());
+				GALAXY_LOG(GALAXY_FATAL, "Failed to open: {0}.", path.string());
 			}
 			else
 			{
@@ -52,7 +52,7 @@ namespace galaxy
 
 			if (memory.empty())
 			{
-				PL_LOG(PL_FATAL, "Passed empty buffer to galaxy::json::parse_from_mem().");
+				GALAXY_LOG(GALAXY_FATAL, "Passed empty buffer to galaxy::json::parse_from_mem().");
 			}
 			else
 			{
@@ -74,7 +74,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_FATAL, "Failed to save json to disk: {0}.", path);
+				GALAXY_LOG(GALAXY_FATAL, "Failed to save json to disk: {0}.", path);
 			}
 
 			out.close();

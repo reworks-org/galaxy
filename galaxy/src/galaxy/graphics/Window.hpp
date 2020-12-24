@@ -13,9 +13,9 @@
 
 #include <GLFW/glfw3.h>
 #include <glm/vec2.hpp>
-#include <protostar/graphics/Colour.hpp>
-#include <protostar/system/Keys.hpp>
-#include <protostar/system/MouseButtons.hpp>
+#include <galaxy/graphics/Colour.hpp>
+#include <galaxy/system/Keys.hpp>
+#include <galaxy/system/MouseButtons.hpp>
 #include <robin_hood.h>
 
 #include "qs/core/WindowSettings.hpp"
@@ -221,7 +221,7 @@ namespace qs
 		///
 		/// \return True if a press occured.
 		///
-		bool mouse_button_pressed(pr::MouseButton mouse_button);
+		bool mouse_button_pressed(input::MouseButton mouse_button);
 
 		///
 		/// Check if a mouse button was released.
@@ -230,7 +230,7 @@ namespace qs
 		///
 		/// \return True if a release occured.
 		///
-		bool mouse_button_released(pr::MouseButton mouse_button);
+		bool mouse_button_released(input::MouseButton mouse_button);
 
 		///
 		/// \brief See if a key is being held down.
@@ -241,7 +241,7 @@ namespace qs
 		///
 		/// \return True if key is currently down.
 		///
-		bool key_down(pr::Keys key);
+		bool key_down(input::Keys key);
 
 		///
 		/// Check if a key was pressed once.
@@ -250,7 +250,7 @@ namespace qs
 		///
 		/// \return True if key was pressed once.
 		///
-		bool key_pressed(pr::Keys key);
+		bool key_pressed(input::Keys key);
 
 		///
 		/// Starts filling the returned pointer to string with characters as they are typed.
@@ -324,19 +324,19 @@ namespace qs
 		std::array<int, 8> m_prev_mouse_btn_states;
 
 		///
-		/// Map of GLFW mouse buttons to protostar mouse buttons.
+		/// Map of GLFW mouse buttons to galaxy mouse buttons.
 		///
-		robin_hood::unordered_map<pr::MouseButton, int> m_mousebutton_map;
+		robin_hood::unordered_map<input::MouseButton, int> m_mousebutton_map;
 
 		///
-		/// Map of GLFW scancodes to protostar keys.
+		/// Map of GLFW scancodes to galaxy keys.
 		///
-		robin_hood::unordered_map<pr::Keys, int> m_keymap;
+		robin_hood::unordered_map<input::Keys, int> m_keymap;
 
 		///
 		/// Previous key states.
 		///
-		robin_hood::unordered_map<pr::Keys, int> m_prev_key_states;
+		robin_hood::unordered_map<input::Keys, int> m_prev_key_states;
 
 		///
 		/// String for text input.

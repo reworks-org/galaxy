@@ -1,92 +1,82 @@
 ///
 /// Task.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_TASK_HPP_
-#define PROTOSTAR_TASK_HPP_
+#ifndef GALAXY_ASYNC_TASK_HPP_
+#define GALAXY_ASYNC_TASK_HPP_
 
 #include <atomic>
 #include <functional>
 
-///
-/// Core namespace.
-///
-namespace pr
+namespace galaxy
 {
-	///
-	/// A task to run on a thread.
-	///
-	class Task final
+	namespace async
 	{
-	public:
 		///
-		/// Constructor.
+		/// A task to run on a thread.
 		///
-		Task();
+		class Task final
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Task();
 
-		///
-		/// Copy constructor.
-		///
-		Task(const Task&) = delete;
+			///
+			/// Copy constructor.
+			///
+			Task(const Task&) = delete;
 
-		///
-		/// Move constructor.
-		///
-		Task(Task&&) = delete;
+			///
+			/// Copy assignment operator.
+			///
+			Task& operator=(const Task&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		Task& operator=(const Task&) = delete;
+			///
+			/// Destructor.
+			///
+			~Task();
 
-		///
-		/// Move assignment operator.
-		///
-		Task& operator=(Task&&) = delete;
+			///
+			/// Set the task to be done.
+			///
+			/// \param func Lambda or function to call when task is executed. Is moved.
+			///
+			void set(std::function<void(void)>&& func);
 
-		///
-		/// Destructor.
-		///
-		~Task();
+			///
+			/// Run the task on the thread.
+			///
+			void exec();
 
-		///
-		/// Set the task to be done.
-		///
-		/// \param func Lambda or function to call when task is executed. Is moved.
-		///
-		void set(std::function<void(void)>&& func);
+			///
+			/// Blocks calling thread until this task is finished.
+			///
+			void wait_until_done();
 
-		///
-		/// Run the task on the thread.
-		///
-		void exec();
+			///
+			/// Check if the task is finished.
+			///
+			/// \return Const bool. True if finished.
+			///
+			bool is_done();
 
-		///
-		/// Blocks calling thread until this task is finished.
-		///
-		void wait_until_done();
+		private:
+			///
+			/// Is function done?
+			///
+			std::atomic_bool m_done;
 
-		///
-		/// Check if the task is finished.
-		///
-		/// \return Const bool. True if finished.
-		///
-		bool is_done();
-
-	private:
-		///
-		/// Is function done?
-		///
-		std::atomic_bool m_done;
-
-		///
-		/// Stores task to be executed.
-		///
-		std::function<void(void)> m_task;
-	};
-} // namespace pr
+			///
+			/// Stores task to be executed.
+			///
+			std::function<void(void)> m_task;
+		};
+	} // namespace async
+} // namespace galaxy
 
 #endif

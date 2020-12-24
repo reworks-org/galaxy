@@ -1,6 +1,6 @@
 ///
 /// Circle.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,41 +10,41 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
-	Circle::Circle() noexcept
+	Circle::Circle()
 	    : m_pos {0.0f, 0.0f}, m_radius {0.0f}
 	{
 	}
 
-	Circle::Circle(const float x, const float y, const float radius) noexcept
+	Circle::Circle(const float x, const float y, const float radius)
 	    : m_pos {x, y}, m_radius {radius}
 	{
 	}
 
-	void Circle::create(const float x, const float y, const float radius) noexcept
+	void Circle::create(const float x, const float y, const float radius)
 	{
 		m_pos    = {x, y};
 		m_radius = radius;
 	}
 
-	const float Circle::get_x() const noexcept
+	const float Circle::get_x() const
 	{
 		return m_pos.x;
 	}
 
-	const float Circle::get_y() const noexcept
+	const float Circle::get_y() const
 	{
 		return m_pos.y;
 	}
 
-	const glm::vec2& Circle::get_xy() const noexcept
+	const glm::vec2& Circle::get_xy() const
 	{
 		return m_pos;
 	}
 
-	const float Circle::radius() const noexcept
+	const float Circle::radius() const
 	{
 		return m_radius;
 	}
-} // namespace pr
+} // namespace galaxy

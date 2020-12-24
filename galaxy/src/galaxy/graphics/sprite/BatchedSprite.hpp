@@ -8,7 +8,7 @@
 #ifndef QS_BATCHEDSPRITE_HPP_
 #define QS_BATCHEDSPRITE_HPP_
 
-#include <protostar/graphics/Rect.hpp>
+#include <galaxy/graphics/Rect.hpp>
 
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"

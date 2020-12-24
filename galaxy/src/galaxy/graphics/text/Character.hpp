@@ -9,7 +9,7 @@
 #define QUASAR_CHARACTER_HPP_
 
 #include <glm/vec2.hpp>
-#include <protostar/graphics/Rect.hpp>
+#include <galaxy/graphics/Rect.hpp>
 
 ///
 /// Core namespace.

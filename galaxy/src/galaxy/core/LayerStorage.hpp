@@ -1,25 +1,25 @@
 ///
 /// LayerStorage.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_LAYERSTORAGE_HPP_
-#define PROTOSTAR_LAYERSTORAGE_HPP_
+#ifndef GALAXY_LAYERSTORAGE_HPP_
+#define GALAXY_LAYERSTORAGE_HPP_
 
 #include <memory>
 #include <vector>
 
 #include <robin_hood.h>
 
-#include "protostar/state/Layer.hpp"
-#include "protostar/system/Concepts.hpp"
+#include "galaxy/state/Layer.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Is a layer class.
@@ -161,6 +161,6 @@ namespace pr
 
 		return nullptr;
 	}
-} // namespace pr
+} // namespace galaxy
 
 #endif

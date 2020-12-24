@@ -1,12 +1,12 @@
 ///
 /// Time.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_TIME_HPP_
-#define PROTOSTAR_TIME_HPP_
+#ifndef GALAXY_TIME_HPP_
+#define GALAXY_TIME_HPP_
 
 #include <chrono>
 #include <functional>
@@ -16,7 +16,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Simple timer class.
@@ -135,6 +135,6 @@ namespace pr
 	/// \return const double High Precision time passed since epoch.
 	///
 	[[nodiscard]] const double time_since_epoch();
-} // namespace pr
+} // namespace galaxy
 
 #endif

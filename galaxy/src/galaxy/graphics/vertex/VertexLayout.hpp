@@ -11,7 +11,7 @@
 #include <vector>
 
 #include <glad/glad.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "qs/vertex/VertexAttribute.hpp"
 #include "qs/utils/Meta.hpp"
@@ -104,7 +104,7 @@ namespace qs
 			}
 			else
 			{
-				PL_LOG(PL_FATAL, "Failed to add vertex attribute for sprite vertex.");
+				GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for sprite vertex.");
 			}
 		}
 		else if constexpr (is_prim_vertex)
@@ -119,7 +119,7 @@ namespace qs
 			}
 			else
 			{
-				PL_LOG(PL_FATAL, "Failed to add vertex attribute for primitive vertex.");
+				GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for primitive vertex.");
 			}
 		}
 		else if constexpr (is_batch_vertex)
@@ -138,7 +138,7 @@ namespace qs
 			}
 			else
 			{
-				PL_LOG(PL_FATAL, "Failed to add vertex attribute for batched vertex.");
+				GALAXY_LOG(GALAXY_FATAL, "Failed to add vertex attribute for batched vertex.");
 			}
 		}
 	}

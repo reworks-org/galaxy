@@ -1,26 +1,26 @@
 ///
 /// StateMachine.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_STATEMACHINE_HPP_
-#define PROTOSTAR_STATEMACHINE_HPP_
+#ifndef GALAXY_STATEMACHINE_HPP_
+#define GALAXY_STATEMACHINE_HPP_
 
 #include <memory>
 #include <stack>
 #include <robin_hood.h>
 #include <utility>
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
-#include "protostar/state/State.hpp"
+#include "galaxy/state/State.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Concept to ensure type is derived from state.
@@ -152,7 +152,7 @@ namespace pr
 		// Construct in place by forwarding arguments to the object.
 		if (m_states.contains(str))
 		{
-			PL_LOG(PL_WARNING, "Attempted to create state that already exists!");
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to create state that already exists!");
 		}
 		else
 		{
@@ -173,10 +173,10 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "No states in stack!");
+			GALAXY_LOG(GALAXY_ERROR, "No states in stack!");
 			return nullptr;
 		}
 	}
-} // namespace pr
+} // namespace galaxy
 
 #endif

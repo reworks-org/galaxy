@@ -8,7 +8,7 @@
 #ifndef GALAXY_SHADERBOOK_HPP_
 #define GALAXY_SHADERBOOK_HPP_
 
-#include <protostar/res/ResourceCache.hpp>
+#include <galaxy/res/ResourceCache.hpp>
 #include <qs/core/Shader.hpp>
 
 ///

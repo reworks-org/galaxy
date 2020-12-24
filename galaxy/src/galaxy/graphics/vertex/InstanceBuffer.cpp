@@ -6,7 +6,7 @@
 ///
 
 #include <glad/glad.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "InstanceBuffer.hpp"
 

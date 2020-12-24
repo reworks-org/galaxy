@@ -1,6 +1,6 @@
 ///
 /// LayerStorage.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	LayerStorage::~LayerStorage()
 	{
@@ -81,4 +81,4 @@ namespace pr
 
 		return keys;
 	}
-} // namespace pr
+} // namespace galaxy

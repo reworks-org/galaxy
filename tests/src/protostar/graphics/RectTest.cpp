@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/graphics/Rect.hpp>
+#include <galaxy/graphics/Rect.hpp>
 
 TEST(Rect, default_construct)
 {

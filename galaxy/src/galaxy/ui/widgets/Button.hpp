@@ -8,9 +8,9 @@
 #ifndef GALAXY_BUTTON_HPP_
 #define GALAXY_BUTTON_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/events/MouseReleasedEvent.hpp>
+#include <galaxy/events/MouseMovedEvent.hpp>
+#include <galaxy/events/MousePressedEvent.hpp>
+#include <galaxy/events/MouseReleasedEvent.hpp>
 #include <qs/sprite/BatchedSprite.hpp>
 
 #include "galaxy/ui/Widget.hpp"

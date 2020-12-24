@@ -1,23 +1,23 @@
 ///
 /// Colour.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_COLOUR_HPP_
-#define PROTOSTAR_COLOUR_HPP_
+#ifndef GALAXY_COLOUR_HPP_
+#define GALAXY_COLOUR_HPP_
 
 #include <array>
 #include <compare>
 #include <cstdint>
 
-#include "protostar/system/Concepts.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Represents an RGBA colour.
@@ -125,6 +125,6 @@ namespace pr
 
 		return arr;
 	}
-} // namespace pr
+} // namespace galaxy
 
 #endif

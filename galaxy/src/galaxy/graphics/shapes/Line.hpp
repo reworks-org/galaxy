@@ -8,7 +8,7 @@
 #ifndef QUASAR_LINE_HPP_
 #define QUASAR_LINE_HPP_
 
-#include <protostar/graphics/Colour.hpp>
+#include <galaxy/graphics/Colour.hpp>
 
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"

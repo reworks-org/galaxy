@@ -8,7 +8,7 @@
 #include <filesystem>
 
 #include <glad/glad.h>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <stb/stb_image.h>
 #include <stb/stb_image_write.h>
 
@@ -55,7 +55,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Failed to load texture: {0}. {1}.", file, stbi_failure_reason());
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load texture: {0}. {1}.", file, stbi_failure_reason());
 		}
 
 		stbi_image_free(data);
@@ -89,7 +89,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Failed to load texture from memory: {0}.", stbi_failure_reason());
+			GALAXY_LOG(GALAXY_ERROR, "Failed to load texture from memory: {0}.", stbi_failure_reason());
 		}
 
 		stbi_image_free(data);

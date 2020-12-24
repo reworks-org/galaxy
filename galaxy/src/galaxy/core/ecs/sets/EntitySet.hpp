@@ -12,7 +12,7 @@
 #include <optional>
 #include <vector>
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "solar/Config.hpp"
 
@@ -210,7 +210,7 @@ namespace sr
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Attempted to insert duplicate element {0}.", element);
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to insert duplicate element {0}.", element);
 		}
 	}
 
@@ -225,7 +225,7 @@ namespace sr
 	{
 		if (element >= m_sparse.size() || m_sparse.empty())
 		{
-			PL_LOG(PL_FATAL, "Out of bounds! Entity Set does not contain element: {0}.", element);
+			GALAXY_LOG(GALAXY_FATAL, "Out of bounds! Entity Set does not contain element: {0}.", element);
 			return std::nullopt;
 		}
 		else

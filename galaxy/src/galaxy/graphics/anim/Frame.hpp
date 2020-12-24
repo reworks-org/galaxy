@@ -8,7 +8,7 @@
 #ifndef QUASAR_FRAME_HPP_
 #define QUASAR_FRAME_HPP_
 
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.

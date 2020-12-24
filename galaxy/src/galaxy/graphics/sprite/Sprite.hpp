@@ -8,6 +8,8 @@
 #ifndef QUASAR_SPRITE_HPP_
 #define QUASAR_SPRITE_HPP_
 
+#include <nlohmann/json_fwd.hpp>
+
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
 #include "qs/texture/Texture.hpp"
@@ -47,6 +49,13 @@ namespace qs
 		/// Move assignment operator.
 		///
 		Sprite& operator=(Sprite&&) = default;
+
+		///
+		/// JSON constructor.
+		///
+		/// \param json JSON defining object.
+		///
+		Sprite(const nlohmann::json& json);
 
 		///
 		/// Destructor.

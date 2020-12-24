@@ -1,19 +1,19 @@
 ///
 /// Keys.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_KEYS_HPP_
-#define PROTOSTAR_KEYS_HPP_
+#ifndef GALAXY_KEYS_HPP_
+#define GALAXY_KEYS_HPP_
 
 #undef DELETE
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Enum class representing keys.
@@ -124,6 +124,6 @@ namespace pr
 		NUMPAD_8,
 		NUMPAD_9
 	};
-} // namespace pr
+} // namespace galaxy
 
 #endif

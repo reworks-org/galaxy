@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/math/RectPack.hpp>
+#include <galaxy/math/RectPack.hpp>
 
 TEST(RectPack, init)
 {

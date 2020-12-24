@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/graphics/Colour.hpp>
+#include <galaxy/graphics/Colour.hpp>
 
 TEST(Colour, construct_rgb)
 {

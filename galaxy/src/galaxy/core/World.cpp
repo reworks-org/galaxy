@@ -70,7 +70,7 @@ namespace galaxy
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Created an entity with no components.");
+			GALAXY_LOG(GALAXY_WARNING, "Created an entity with no components.");
 		}
 
 		return entity;

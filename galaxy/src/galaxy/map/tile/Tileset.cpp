@@ -9,7 +9,7 @@
 #include <fstream>
 
 #include <nlohmann/json.hpp>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "Tileset.hpp"
 
@@ -61,7 +61,7 @@ namespace starmap
 			if (!input.good())
 			{
 				input.close();
-				PL_LOG(PL_FATAL, "Failed to open: {0}.", path.string());
+				GALAXY_LOG(GALAXY_FATAL, "Failed to open: {0}.", path.string());
 			}
 			else
 			{

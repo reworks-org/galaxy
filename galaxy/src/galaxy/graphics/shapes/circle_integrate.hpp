@@ -8,8 +8,8 @@
 #ifndef QUASAR_CIRCLE_HPP_
 #define QUASAR_CIRCLE_HPP_
 
-#include <protostar/graphics/Colour.hpp>
-#include <protostar/graphics/Circle.hpp>
+#include <galaxy/graphics/Colour.hpp>
+#include <galaxy/graphics/Circle.hpp>
 
 #include "qs/core/Transform.hpp"
 #include "qs/core/VertexData.hpp"
@@ -42,7 +42,7 @@ namespace qs
 		Circle(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
 
 		///
-		/// Build from protostar circle.
+		/// Build from galaxy circle.
 		///
 		/// \param circle Protostar circle object.
 		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.

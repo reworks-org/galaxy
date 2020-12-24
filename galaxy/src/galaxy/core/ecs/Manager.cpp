@@ -70,13 +70,13 @@ namespace sr
 			}
 			else
 			{
-				PL_LOG(PL_WARNING, "Attempted to add duplicate name: {0}.", str);
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to add duplicate name: {0}.", str);
 				return false;
 			}
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Attempted to use invalid entity to assign name: {0}.", debug_name);
+			GALAXY_LOG(GALAXY_ERROR, "Attempted to use invalid entity to assign name: {0}.", debug_name);
 			return false;
 		}
 	}
@@ -90,7 +90,7 @@ namespace sr
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Cannot find entity to get with a name of: {0}.", str);
+			GALAXY_LOG(GALAXY_ERROR, "Cannot find entity to get with a name of: {0}.", str);
 			return 0;
 		}
 	}

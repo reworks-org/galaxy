@@ -11,13 +11,13 @@
 #include <memory>
 #include <span>
 
-#include <frb/Context.hpp>
-#include <protostar/async/ThreadPool.hpp>
-#include <protostar/state/StateMachine.hpp>
+#include <galaxy/Context.hpp>
+#include <galaxy/async/ThreadPool.hpp>
+#include <galaxy/state/StateMachine.hpp>
 #include <qs/core/Window.hpp>
 #include <qs/core/Renderer.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
-#include <starlight/Dispatcher.hpp>
+#include <galaxy/Dispatcher.hpp>
 #include <sol/forward.hpp>
 
 #include "galaxy/core/World.hpp"
@@ -153,7 +153,7 @@ namespace galaxy
 		///
 		/// OpenAL context.
 		///
-		frb::Context m_openal;
+		galaxy::Context m_openal;
 
 		///
 		/// Dev Tools.

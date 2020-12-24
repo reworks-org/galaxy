@@ -1,13 +1,13 @@
 ///
 /// Layer.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Layer.hpp"
 
-namespace pr
+namespace galaxy
 {
 	void Layer::set_name(std::string_view name)
 	{
@@ -28,4 +28,4 @@ namespace pr
 	{
 		set_name(name);
 	}
-} // namespace pr
+} // namespace galaxy

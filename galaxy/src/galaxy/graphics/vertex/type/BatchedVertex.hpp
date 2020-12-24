@@ -9,7 +9,7 @@
 #define QUASAR_BATCHEDVERTEX_HPP_
 
 #include <glm/vec2.hpp>
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.

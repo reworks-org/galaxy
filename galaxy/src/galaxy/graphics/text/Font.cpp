@@ -7,7 +7,7 @@
 
 #include <filesystem>
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "qs/shaders/Glyph.hpp"
 #include "qs/text/FreeType.hpp"
@@ -28,7 +28,7 @@ namespace qs
 	{
 		if (!create(filepath, size))
 		{
-			PL_LOG(PL_FATAL, "Failed to load font file: {0}.", filepath);
+			GALAXY_LOG(GALAXY_FATAL, "Failed to load font file: {0}.", filepath);
 		}
 	}
 
@@ -42,7 +42,7 @@ namespace qs
 		bool success = true;
 		if (!m_characters.empty())
 		{
-			PL_LOG(PL_ERROR, "Already created font.");
+			GALAXY_LOG(GALAXY_ERROR, "Already created font.");
 			success = false;
 		}
 		else
@@ -52,7 +52,7 @@ namespace qs
 			FT_Face face;
 			if (FT_New_Face(FTLIB.lib(), path.string().c_str(), 0, &face) != FT_OK)
 			{
-				PL_LOG(PL_ERROR, "Failed to create font face for: {0}.", filepath);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to create font face for: {0}.", filepath);
 				success = false;
 			}
 			else
@@ -184,7 +184,7 @@ namespace qs
 	{
 		if (!m_characters.contains(c))
 		{
-			PL_LOG(PL_WARNING, "FontMap does not contain character: '{0}'.", c);
+			GALAXY_LOG(GALAXY_WARNING, "FontMap does not contain character: '{0}'.", c);
 			return nullptr;
 		}
 		else

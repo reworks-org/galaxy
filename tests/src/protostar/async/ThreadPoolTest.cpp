@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/async/ThreadPool.hpp>
+#include <galaxy/async/ThreadPool.hpp>
 
 TEST(ThreadPool, full_test)
 {

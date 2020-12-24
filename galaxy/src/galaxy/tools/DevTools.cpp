@@ -11,7 +11,7 @@
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
 #include <imgui/addons/ToggleButton.h>
-#include <protostar/state/StateMachine.hpp>
+#include <galaxy/state/StateMachine.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 
 #include "galaxy/components/All.hpp"
@@ -411,7 +411,7 @@ namespace galaxy
 					}
 					else
 					{
-						PL_LOG(PL_ERROR, "Failed to read file: {0}.", fp.string());
+						GALAXY_LOG(GALAXY_ERROR, "Failed to read file: {0}.", fp.string());
 					}
 
 					text.close();

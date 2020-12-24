@@ -1,6 +1,6 @@
 ///
 /// Meta.cpp
-/// starlight
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///

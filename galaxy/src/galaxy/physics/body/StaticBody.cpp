@@ -28,7 +28,7 @@ namespace rs
 		return static_vel;
 	}
 
-	const bool StaticBody::is_rigid() const noexcept
+	const bool StaticBody::is_rigid() const
 	{
 		return true;
 	}

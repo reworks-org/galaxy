@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 #include "qs/core/Shader.hpp"
 #include "qs/core/Renderer.hpp"
@@ -75,7 +75,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Attempted to add pre-existing texture.");
+			GALAXY_LOG(GALAXY_WARNING, "Attempted to add pre-existing texture.");
 		}
 	}
 
@@ -96,7 +96,7 @@ namespace qs
 				auto opt = m_packer.pack(to_draw.get_width(), to_draw.get_height());
 				if (opt == std::nullopt)
 				{
-					PL_LOG(PL_ERROR, "Failed to pack texture: {0}.", name);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to pack texture: {0}.", name);
 				}
 				else
 				{
@@ -113,7 +113,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Tried to create atlas with no texture files!");
+			GALAXY_LOG(GALAXY_ERROR, "Tried to create atlas with no texture files!");
 		}
 	}
 
@@ -126,7 +126,7 @@ namespace qs
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "Tried to create atlas with no texture files!");
+			GALAXY_LOG(GALAXY_ERROR, "Tried to create atlas with no texture files!");
 		}
 	}
 
@@ -140,7 +140,7 @@ namespace qs
 		const auto str = static_cast<std::string>(name);
 		if (!m_textures.contains(str))
 		{
-			PL_LOG(PL_WARNING, "Tried to access texture rect that does not exist.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to access texture rect that does not exist.");
 			return std::nullopt;
 		}
 		else

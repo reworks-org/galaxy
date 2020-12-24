@@ -1,6 +1,6 @@
 ///
 /// StateMachine.cpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -10,7 +10,7 @@
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	StateMachine::~StateMachine()
 	{
@@ -27,7 +27,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
@@ -40,7 +40,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
@@ -53,7 +53,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
@@ -66,7 +66,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
@@ -86,7 +86,7 @@ namespace pr
 				}
 				else
 				{
-					PL_LOG(PL_WARNING, "Tried to push duplicate state.");
+					GALAXY_LOG(GALAXY_WARNING, "Tried to push duplicate state.");
 				}
 			}
 			else
@@ -97,7 +97,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to push state that already exists.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to push state that already exists.");
 		}
 	}
 
@@ -111,7 +111,7 @@ namespace pr
 		}
 		else
 		{
-			PL_LOG(PL_WARNING, "Tried to access empty StateMachine stack.");
+			GALAXY_LOG(GALAXY_WARNING, "Tried to access empty StateMachine stack.");
 		}
 	}
 
@@ -136,4 +136,4 @@ namespace pr
 
 		return keys;
 	}
-} // namespace pr
+} // namespace galaxy

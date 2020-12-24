@@ -1,21 +1,21 @@
 ///
 /// Rect.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_RECT_HPP_
-#define PROTOSTAR_RECT_HPP_
+#ifndef GALAXY_RECT_HPP_
+#define GALAXY_RECT_HPP_
 
 #include <compare>
 
-#include "protostar/system/Concepts.hpp"
+#include "galaxy/meta/Concepts.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Represents a rectangle object.
@@ -178,6 +178,6 @@ namespace pr
 		// Check if a value is between min and max - i.e. in range.
 		return (value >= min) && (value <= max);
 	}
-} // namespace pr
+} // namespace galaxy
 
 #endif

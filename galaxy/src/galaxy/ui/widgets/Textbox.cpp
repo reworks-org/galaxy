@@ -46,7 +46,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create textbox widget from {0}.", box);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create textbox widget from {0}.", box);
 			}
 
 			m_bounds.m_width  = get_width();
@@ -58,7 +58,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create arrow indicator from {0}.", indicator);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create arrow indicator from {0}.", indicator);
 			}
 
 			m_indicator.set_opacity(0.0f);
@@ -117,7 +117,7 @@ namespace galaxy
 
 		void Textbox::on_event(const pr::KeyDownEvent& kde)
 		{
-			if (kde.m_keycode == pr::Keys::ENTER)
+			if (kde.m_keycode == input::Keys::ENTER)
 			{
 				m_messages_index++;
 				if (m_messages_index > (m_messages.size() - 1))

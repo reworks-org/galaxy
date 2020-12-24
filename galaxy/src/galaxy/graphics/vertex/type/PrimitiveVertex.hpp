@@ -10,7 +10,7 @@
 
 #include <glm/vec2.hpp>
 #include <glm/vec4.hpp>
-#include <protostar/graphics/Colour.hpp>
+#include <galaxy/graphics/Colour.hpp>
 
 ///
 /// Core namespace.

@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <nlohmann/json.hpp>
 
 #include "starmap/detail/Decoder.hpp"
@@ -76,7 +76,7 @@ namespace starmap
 				}
 				else
 				{
-					PL_LOG(PL_FATAL, "base64 decoded string empty.");
+					GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
 				}
 			}
 		}

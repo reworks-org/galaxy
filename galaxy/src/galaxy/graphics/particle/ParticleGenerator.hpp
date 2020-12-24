@@ -8,7 +8,7 @@
 #ifndef QUASAR_PARTICLEGENERATOR_HPP_
 #define QUASAR_PARTICLEGENERATOR_HPP_
 
-#include <protostar/graphics/Rect.hpp>
+#include <galaxy/graphics/Rect.hpp>
 #include <robin_hood.h>
 
 #include "qs/graphics/Particle.hpp"

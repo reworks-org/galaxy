@@ -1,19 +1,19 @@
 ///
 /// Layer.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_LAYER_HPP_
-#define PROTOSTAR_LAYER_HPP_
+#ifndef GALAXY_LAYER_HPP_
+#define GALAXY_LAYER_HPP_
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace pr
+namespace galaxy
 {
 	///
 	/// Represents a "layer" in the engine, encapsulating things like events and rendering.
@@ -101,6 +101,6 @@ namespace pr
 		///
 		std::string m_name;
 	};
-} // namespace pr
+} // namespace galaxy
 
 #endif

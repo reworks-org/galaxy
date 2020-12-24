@@ -14,7 +14,7 @@
 
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 
 ///
 /// Core namespace.
@@ -143,7 +143,7 @@ namespace qs
 	inline void Shader::set_uniform(std::string_view name, const Uniforms&... args)
 	{
 		// If type does not have specialization, throw error.
-		PL_LOG(PL_ERROR, "Invalid shader uniform type!");
+		GALAXY_LOG(GALAXY_ERROR, "Invalid shader uniform type!");
 	}
 
 	template<>

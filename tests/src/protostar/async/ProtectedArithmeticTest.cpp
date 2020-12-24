@@ -6,7 +6,7 @@
 ///
 
 #include <gtest/gtest.h>
-#include <protostar/async/ProtectedArithmetic.hpp>
+#include <galaxy/async/ProtectedArithmetic.hpp>
 
 TEST(ProtectedArithmetic, construct)
 {

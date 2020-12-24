@@ -10,7 +10,7 @@
 
 #include <cstddef>
 
-#include <protostar/system/Concepts.hpp>
+#include <galaxy/system/Concepts.hpp>
 
 ///
 /// Core namespace.

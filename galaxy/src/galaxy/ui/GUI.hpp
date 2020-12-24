@@ -8,9 +8,9 @@
 #ifndef GALAXY_GUI_HPP_
 #define GALAXY_GUI_HPP_
 
-#include <pulsar/Log.hpp>
+#include "galaxy/error/Log.hpp"
 #include <qs/sprite/SpriteBatch.hpp>
-#include <starlight/Dispatcher.hpp>
+#include <galaxy/Dispatcher.hpp>
 
 #include "galaxy/ui/Widget.hpp"
 #include "galaxy/ui/widgets/Slider.hpp"
@@ -239,7 +239,7 @@ namespace galaxy
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "You must construct the GUI first.");
+			GALAXY_LOG(GALAXY_ERROR, "You must construct the GUI first.");
 		}
 
 		return ptr;
@@ -256,7 +256,7 @@ namespace galaxy
 			{
 				if (widget->m_tooltip != nullptr)
 				{
-					PL_LOG(PL_ERROR, "Attempted to add tooltip to widget that already has one.");
+					GALAXY_LOG(GALAXY_ERROR, "Attempted to add tooltip to widget that already has one.");
 				}
 				else
 				{
@@ -267,12 +267,12 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Attempted to pass a nullptr widget to GUI::create_for_widget.");
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to pass a nullptr widget to GUI::create_for_widget.");
 			}
 		}
 		else
 		{
-			PL_LOG(PL_ERROR, "You must construct the GUI first.");
+			GALAXY_LOG(GALAXY_ERROR, "You must construct the GUI first.");
 		}
 
 		return ptr;

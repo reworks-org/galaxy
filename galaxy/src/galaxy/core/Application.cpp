@@ -8,8 +8,8 @@
 #include <fmt/format.h>
 #include <galaxy/scripting/LuaUtils.hpp>
 #include <glad/glad.h>
-#include <protostar/graphics/Colour.hpp>
-#include <protostar/system/Time.hpp>
+#include <galaxy/graphics/Colour.hpp>
+#include <galaxy/system/Time.hpp>
 #include <qs/core/WindowSettings.hpp>
 #include <qs/text/FreeType.hpp>
 #include <sol/sol.hpp>
@@ -36,7 +36,7 @@ namespace galaxy
 		// Config reader.
 		if (!config)
 		{
-			PL_LOG(PL_FATAL, "Failed to initialize config.");
+			GALAXY_LOG(GALAXY_FATAL, "Failed to initialize config.");
 		}
 		else
 		{
@@ -82,7 +82,7 @@ namespace galaxy
 		SL_HANDLE.m_window = m_window.get();
 		if (!m_window->create(settings))
 		{
-			PL_LOG(PL_FATAL, "Failed to create window! Aborting...");
+			GALAXY_LOG(GALAXY_FATAL, "Failed to create window! Aborting...");
 		}
 		else
 		{
@@ -185,7 +185,7 @@ namespace galaxy
 			m_window->poll_events();
 			m_state->events();
 
-			if (m_window->key_pressed(pr::Keys::GRAVE))
+			if (m_window->key_pressed(input::Keys::GRAVE))
 			{
 				m_visible_tools = !m_visible_tools;
 			}
@@ -216,7 +216,7 @@ namespace galaxy
 		}
 
 		m_state->clear();
-		PL_LOG_FINISH;
+		GALAXY_LOG_FINISH;
 
 		FTLIB.close();
 

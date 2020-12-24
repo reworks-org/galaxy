@@ -47,19 +47,19 @@ namespace qs
 	{
 		switch (e.m_keycode)
 		{
-			case pr::Keys::W:
+			case input::Keys::W:
 				m_move_up = true;
 				break;
 
-			case pr::Keys::S:
+			case input::Keys::S:
 				m_move_down = true;
 				break;
 
-			case pr::Keys::A:
+			case input::Keys::A:
 				m_move_left = true;
 				break;
 
-			case pr::Keys::D:
+			case input::Keys::D:
 				m_move_right = true;
 				break;
 		}
@@ -69,19 +69,19 @@ namespace qs
 	{
 		switch (e.m_keycode)
 		{
-			case pr::Keys::W:
+			case input::Keys::W:
 				m_move_up = false;
 				break;
 
-			case pr::Keys::S:
+			case input::Keys::S:
 				m_move_down = false;
 				break;
 
-			case pr::Keys::A:
+			case input::Keys::A:
 				m_move_left = false;
 				break;
 
-			case pr::Keys::D:
+			case input::Keys::D:
 				m_move_right = false;
 				break;
 		}
