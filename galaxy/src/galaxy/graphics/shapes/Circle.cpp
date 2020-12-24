@@ -1,68 +1,50 @@
 ///
 /// Circle.cpp
-/// quasar
+/// protostar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
-
-#include <vector>
-
-#include <glad/glad.h>
-#include <glm/trigonometric.hpp>
-#include <glm/gtc/constants.hpp>
 
 #include "Circle.hpp"
 
 ///
 /// Core namespace.
 ///
-namespace qs
+namespace pr
 {
-	Circle::Circle(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour)
+	Circle::Circle() noexcept
+	    : m_pos {0.0f, 0.0f}, m_radius {0.0f}
 	{
-		create(x, y, radius, fragments, colour);
 	}
 
-	Circle::Circle(const pr::Circle& circle, const unsigned int fragments, pr::Colour& colour)
+	Circle::Circle(const float x, const float y, const float radius) noexcept
+	    : m_pos {x, y}, m_radius {radius}
 	{
-		create(circle.get_x(), circle.get_y(), circle.radius(), fragments, colour);
 	}
 
-	void Circle::create(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour)
+	void Circle::create(const float x, const float y, const float radius) noexcept
 	{
-		// Thanks to https://stackoverflow.com/a/33859443.
-		// For help with maths.
-
-		std::vector<qs::PrimitiveVertex> vertexs;
-		std::vector<unsigned int> indices;
-
-		unsigned int count        = 0;
-		constexpr float incr_stat = 2.0f * glm::pi<float>();
-		float increment           = incr_stat / static_cast<float>(fragments);
-		for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
-		{
-			vertexs.emplace_back(radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour);
-			indices.push_back(count);
-
-			count++;
-		}
-
-		m_vb.create<qs::PrimitiveVertex, qs::BufferStatic>(vertexs);
-		m_ib.create<qs::BufferStatic>(indices);
-
-		m_layout.add<qs::PrimitiveVertex, qs::VAPosition>(2);
-		m_layout.add<qs::PrimitiveVertex, qs::VAColour>(4);
-
-		m_va.create<qs::PrimitiveVertex>(m_vb, m_ib, m_layout);
+		m_pos    = {x, y};
+		m_radius = radius;
 	}
 
-	void Circle::bind()
+	const float Circle::get_x() const noexcept
 	{
-		m_va.bind();
+		return m_pos.x;
 	}
 
-	void Circle::unbind()
+	const float Circle::get_y() const noexcept
 	{
-		m_va.unbind();
+		return m_pos.y;
 	}
-} // namespace qs
+
+	const glm::vec2& Circle::get_xy() const noexcept
+	{
+		return m_pos;
+	}
+
+	const float Circle::radius() const noexcept
+	{
+		return m_radius;
+	}
+} // namespace pr

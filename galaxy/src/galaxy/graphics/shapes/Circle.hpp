@@ -1,101 +1,100 @@
 ///
 /// Circle.hpp
-/// quasar
+/// protostar
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_CIRCLE_HPP_
-#define QUASAR_CIRCLE_HPP_
+#ifndef PROTOSTAR_CIRCLE_HPP_
+#define PROTOSTAR_CIRCLE_HPP_
 
-#include <protostar/graphics/Colour.hpp>
-#include <protostar/graphics/Circle.hpp>
+#include <compare>
 
-#include "qs/core/Transform.hpp"
-#include "qs/core/VertexData.hpp"
+#include <glm/vec2.hpp>
 
 ///
 /// Core namespace.
 ///
-namespace qs
+namespace pr
 {
 	///
-	/// Circle definition for renderer.
+	/// Primitive geometric shape.
 	///
-	class Circle final : public qs::VertexData, public qs::Transform
+	class Circle final
 	{
 	public:
 		///
 		/// Constructor.
 		///
-		Circle() = default;
+		Circle() noexcept;
 
 		///
-		/// Constructor.
+		/// Argument constructor.
 		///
-		/// \param x X position.
-		/// \param y Y position.
-		/// \param radius Radius of the circle.
-		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-		/// \param colour Colour.
+		/// \param x X axis coord.
+		/// \param y Y axis coord.
+		/// \param radius Radius of circle.
 		///
-		Circle(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
-
-		///
-		/// Build from protostar circle.
-		///
-		/// \param circle Protostar circle object.
-		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-		/// \param colour Colour.
-		///
-		Circle(const pr::Circle& circle, const unsigned int fragments, pr::Colour& colour);
-
-		///
-		/// Copy constructor.
-		///
-		Circle(const Circle&) = delete;
-
-		///
-		/// Move constructor.
-		///
-		Circle(Circle&&) = default;
-
-		///
-		/// Copy assignment operator.
-		///
-		Circle& operator=(const Circle&) = delete;
-
-		///
-		/// Move assignment operator.
-		///
-		Circle& operator=(Circle&&) = default;
+		Circle(const float x, const float y, const float radius) noexcept;
 
 		///
 		/// Destructor.
 		///
-		virtual ~Circle() = default;
+		~Circle() = default;
 
 		///
-		/// Create the Circle.
+		/// Create circle.
 		///
-		/// \param x X position.
-		/// \param y Y position.
-		/// \param radius Radius of the circle.
-		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-		/// \param colour Colour.
+		/// \param x X axis coord.
+		/// \param y Y axis coord.
+		/// \param radius Radius of circle.
 		///
-		void create(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
+		void create(const float x, const float y, const float radius) noexcept;
 
 		///
-		/// Bind as active VA.
+		/// Get x coord of circle.
 		///
-		void bind();
+		/// \return Const float.
+		///
+		[[nodiscard]] const float get_x() const noexcept;
 
 		///
-		/// Unbind as active VA.
+		/// Get y coord of circle.
 		///
-		void unbind();
+		/// \return Const float.
+		///
+		[[nodiscard]] const float get_y() const noexcept;
+
+		///
+		/// Get xy as a vector.
+		///
+		/// \return Const reference to glm::vec2.
+		///
+		[[nodiscard]] const glm::vec2& get_xy() const noexcept;
+
+		///
+		/// Get radius of circle.
+		///
+		/// \return Const float.
+		///
+		[[nodiscard]] const float radius() const noexcept;
+
+		///
+		/// Strongly ordered spaceship operator.
+		///
+		auto operator<=>(const Circle&) const = default;
+
+	private:
+		///
+		/// Position of circle.
+		///
+		glm::vec2 m_pos;
+
+		///
+		/// Radius of circle.
+		///
+		float m_radius;
 	};
-} // namespace qs
+} // namespace pr
 
 #endif
