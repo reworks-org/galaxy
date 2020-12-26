@@ -1,5 +1,5 @@
 ///
-/// World.cpp
+/// WorldGoesToPhysSystem.cpp
 /// redshift
 ///
 /// Refer to LICENSE.txt for more details.
@@ -7,28 +7,28 @@
 
 #include <glm/geometric.hpp>
 
-#include "World.hpp"
+#include "WorldGoesToPhysSystem.hpp"
 
 ///
 /// Core namespace.
 ///
 namespace rs
 {
-	World::World()
+	WorldGoesToPhysSystem::WorldGoesToPhysSystem()
 	    : m_gravity {0.0f, 9.18f}
 	{
 	}
 
-	World::World(const glm::vec2& gravity)
+	WorldGoesToPhysSystem::WorldGoesToPhysSystem(const glm::vec2& gravity)
 	    : m_gravity {gravity}
 	{
 	}
 
-	World::~World()
+	WorldGoesToPhysSystem::~WorldGoesToPhysSystem()
 	{
 	}
 
-	void World::step(const double dt)
+	void WorldGoesToPhysSystem::step(const double dt)
 	{
 		for (auto&& body : m_removed)
 		{
@@ -74,12 +74,12 @@ namespace rs
 		}
 	}
 
-	void World::set_gravity(glm::vec2& gravity)
+	void WorldGoesToPhysSystem::set_gravity(glm::vec2& gravity)
 	{
 		m_gravity = std::move(gravity);
 	}
 
-	std::optional<Manifold> World::narrow_phase_collision(Body* a, Body* b)
+	std::optional<Manifold> WorldGoesToPhysSystem::narrow_phase_collision(Body* a, Body* b)
 	{
 		const glm::vec2 a_to_b = b->get_pos() - a->get_pos();
 		const AABB& a_box      = a->get_aabb();
@@ -133,7 +133,7 @@ namespace rs
 		return std::nullopt;
 	}
 
-	void World::resolve_collision(Body* a, Body* b, const Manifold& manifold)
+	void WorldGoesToPhysSystem::resolve_collision(Body* a, Body* b, const Manifold& manifold)
 	{
 		float a_inv_mass = a->mass();
 		float b_inv_mass = b->mass();

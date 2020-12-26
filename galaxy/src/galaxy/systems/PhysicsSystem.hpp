@@ -9,7 +9,7 @@
 #define GALAXY_PHYSICSSYSTEM_HPP_
 
 #include <galaxy/core/World.hpp>
-#include <solar/system/System.hpp>
+#include <galaxy/system/System.hpp>
 
 ///
 /// Core namespace.

@@ -1,37 +1,25 @@
 ///
-/// EnabledComponent.hpp
+/// Enabled.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_ENABLEDCOMPONENT_HPP_
-#define GALAXY_ENABLEDCOMPONENT_HPP_
+#ifndef GALAXY_FLAG_ENABLED_HPP_
+#define GALAXY_FLAG_ENABLED_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Flag component used to determine if an entity is "alive" or "dead".
-	///
-	struct EnabledComponent final
+	namespace flags
 	{
 		///
-		/// Default constructor.
+		/// Used to set if an entity is enabled.
 		///
-		EnabledComponent() = default;
-
-		///
-		/// JSON constructor.
-		///
-		/// \param json JSON defining object.
-		///
-		EnabledComponent(const nlohmann::json& json);
-	};
+		struct Enabled
+		{
+			const constexpr static inline unsigned short value = 0;
+		};
+	} // namespace flags
 } // namespace galaxy
 
 #endif

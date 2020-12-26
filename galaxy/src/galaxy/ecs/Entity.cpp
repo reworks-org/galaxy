@@ -1,8 +1,8 @@
 ///
-/// Enabled.cpp
+/// Entity.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "Enabled.hpp"
+#include "Entity.hpp"

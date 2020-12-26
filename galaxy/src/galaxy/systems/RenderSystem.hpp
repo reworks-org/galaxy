@@ -9,7 +9,7 @@
 #define GALAXY_RENDERSYSTEM_HPP_
 
 #include <qs/graphics/Camera.hpp>
-#include <solar/system/System.hpp>
+#include <galaxy/system/System.hpp>
 
 ///
 /// Core namespace.

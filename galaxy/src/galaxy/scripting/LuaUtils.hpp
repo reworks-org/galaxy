@@ -37,8 +37,7 @@ namespace galaxy
 		///
 		/// Create custom types in lua.
 		///
-		void
-		register_types();
+		void register_types();
 
 		///
 		/// Allow gui interaction from lua.

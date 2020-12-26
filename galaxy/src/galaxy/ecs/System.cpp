@@ -1,6 +1,6 @@
 ///
 /// System.cpp
-/// solar
+/// galaxy
 ///
 /// See LICENSE.txt.
 ///

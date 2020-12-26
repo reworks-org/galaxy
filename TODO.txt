@@ -48,8 +48,17 @@ THE PLAN:
 - Every Class Should have a JSON & Lua interface.
 - Utilize GSL.
 - Dependencies should only abstract away system specific implementations.
-
+- coroutines
 
 https://github.com/nlohmann/json/#arbitrary-types-conversions
 https://github.com/EQMG/Acid
 https://github.com/asmei1/tinycoro
+
+
+TODO:
+- graphics
+- map
+- physics
+- systems
+- tools
+- ui

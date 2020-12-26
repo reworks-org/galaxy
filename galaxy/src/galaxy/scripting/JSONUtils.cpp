@@ -9,18 +9,13 @@
 #include <fstream>
 
 #include <nlohmann/json.hpp>
+
 #include "galaxy/error/Log.hpp"
 
 #include "JSONUtils.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Script identification namespace.
-	///
 	namespace json
 	{
 		nlohmann::json parse_from_disk(std::string_view file)

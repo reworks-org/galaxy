@@ -12,14 +12,8 @@
 
 #include "LuaUtils.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Namespace that contains useful functions for interacting with Lua.
-	///
 	namespace lua
 	{
 		void register_types()

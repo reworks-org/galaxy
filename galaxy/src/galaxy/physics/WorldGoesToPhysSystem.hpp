@@ -1,5 +1,5 @@
 ///
-/// World.hpp
+/// WorldGoesToPhysSystem.hpp
 /// redshift
 ///
 /// Refer to LICENSE.txt for more details.
@@ -22,7 +22,7 @@ namespace rs
 	///
 	/// Physics world simulation.
 	///
-	class World final
+	class WorldGoesToPhysSystem final
 	{
 	public:
 		///
@@ -38,39 +38,39 @@ namespace rs
 		///
 		/// Constructor.
 		///
-		World();
+		WorldGoesToPhysSystem();
 
 		///
 		/// Argument constructor.
 		///
 		/// \param gravity Gravity to apply to this simulation.
 		///
-		World(const glm::vec2& gravity);
+		WorldGoesToPhysSystem(const glm::vec2& gravity);
 
 		///
 		/// Copy constructor.
 		///
-		World(const World&) = default;
+		WorldGoesToPhysSystem(const WorldGoesToPhysSystem&) = default;
 
 		///
 		/// Move constructor.
 		///
-		World(World&&) = default;
+		WorldGoesToPhysSystem(WorldGoesToPhysSystem&&) = default;
 
 		///
 		/// Copy assignment operator.
 		///
-		World& operator=(const World&) = default;
+		WorldGoesToPhysSystem& operator=(const WorldGoesToPhysSystem&) = default;
 
 		///
 		/// Move assignment operator.
 		///
-		World& operator=(World&&) = default;
+		WorldGoesToPhysSystem& operator=(WorldGoesToPhysSystem&&) = default;
 
 		///
 		/// Destructor.
 		///
-		~World();
+		~WorldGoesToPhysSystem();
 
 		///
 		/// Update (step) all physics bodies and process collisions.
@@ -137,7 +137,7 @@ namespace rs
 	};
 
 	template<is_body DerivedBody, typename... Args>
-	inline std::shared_ptr<DerivedBody> World::create(Args&&... args)
+	inline std::shared_ptr<DerivedBody> WorldGoesToPhysSystem::create(Args&&... args)
 	{
 		auto body = std::make_shared<DerivedBody>(std::forward<Args>(args)...);
 
@@ -148,7 +148,7 @@ namespace rs
 	}
 
 	template<is_body DerivedBody>
-	inline void World::remove(std::shared_ptr<DerivedBody> body)
+	inline void WorldGoesToPhysSystem::remove(std::shared_ptr<DerivedBody> body)
 	{
 		// clang-format off
 		m_bodies.erase(std::remove_if(m_bodies.begin(), m_bodies.end(), [&](std::shared_ptr<DerivedBody> ptr)

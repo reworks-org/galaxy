@@ -9,23 +9,26 @@
 
 namespace galaxy
 {
-	void Layer::set_name(std::string_view name)
+	namespace core
 	{
-		m_name = static_cast<std::string>(name);
-	}
+		void Layer::set_name(std::string_view name)
+		{
+			m_name = static_cast<std::string>(name);
+		}
 
-	const std::string& Layer::get_name()
-	{
-		return m_name;
-	}
+		const std::string& Layer::get_name()
+		{
+			return m_name;
+		}
 
-	Layer::Layer()
-	    : m_name {"default"}
-	{
-	}
+		Layer::Layer()
+		    : m_name {"default"}
+		{
+		}
 
-	Layer::Layer(std::string_view name)
-	{
-		set_name(name);
-	}
+		Layer::Layer(std::string_view name)
+		{
+			set_name(name);
+		}
+	} // namespace core
 } // namespace galaxy

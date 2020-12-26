@@ -123,7 +123,7 @@ namespace galaxy
 		/// \param func void function that takes a const Event&.
 		/// \param widget Widget to add function to.
 		///
-		template<pr::is_class Event, is_widget Widget>
+		template<meta::is_class Event, is_widget Widget>
 		void add_event_to_widget(Widget* widget);
 
 		///
@@ -131,7 +131,7 @@ namespace galaxy
 		///
 		/// \param args Arguments to construct event to trigger.
 		///
-		template<pr::is_class Event, typename... Args>
+		template<meta::is_class Event, typename... Args>
 		void trigger(Args&&... args);
 
 		///
@@ -278,13 +278,13 @@ namespace galaxy
 		return ptr;
 	}
 
-	template<pr::is_class Event, is_widget Widget>
+	template<meta::is_class Event, is_widget Widget>
 	inline void GUI::add_event_to_widget(Widget* widget)
 	{
 		m_event_manager.subscribe<Event, Widget>(*widget);
 	}
 
-	template<pr::is_class Event, typename... Args>
+	template<meta::is_class Event, typename... Args>
 	inline void GUI::trigger(Args&&... args)
 	{
 		m_event_manager.trigger<Event>(std::forward<Args>(args)...);

@@ -1,6 +1,6 @@
 ///
 /// ComponentSet.hpp
-/// solar
+/// galaxy
 ///
 /// See LICENSE.txt.
 ///
