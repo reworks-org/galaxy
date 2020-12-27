@@ -66,7 +66,7 @@ namespace galaxy
 
 		void GUI::update(const double dt)
 		{
-			for (const auto& widget : m_widgets)
+			for (auto& widget : m_widgets)
 			{
 				widget->update(dt);
 			}
@@ -83,7 +83,7 @@ namespace galaxy
 
 			m_theme->m_renderer->draw_sprite_batch(m_sb, *shader);
 
-			for (const auto& widget : m_widgets)
+			for (auto& widget : m_widgets)
 			{
 				widget->render(camera);
 			}

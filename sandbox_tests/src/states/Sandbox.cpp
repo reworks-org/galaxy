@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <galaxy/graphicsWindow.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/graphics/Window.hpp>
 
 #include "../layers/SandboxLayer.hpp"
 #include "../layers/GUILayer.hpp"

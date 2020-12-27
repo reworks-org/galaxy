@@ -15,10 +15,10 @@
 
 #include "states/Sandbox.hpp"
 
-class SandboxApp : public Application
+class SandboxApp : public galaxy::core::Application
 {
 public:
-	SandboxApp(std::unique_ptr<Config>& config)
+	SandboxApp(std::unique_ptr<galaxy::fs::Config>& config)
 	    : Application(config)
 	{
 	}
@@ -47,10 +47,10 @@ int main(int argsc, char* argsv[])
 				std::filesystem::create_directory("logs/");
 			}
 
-			PL_LOG_START(log_path);
-			PL_LOG_GET.set_min_level(PL_INFO);
+			GALAXY_LOG_START(log_path);
+			GALAXY_LOG_GET.set_min_level(GALAXY_INFO);
 
-			auto config = std::make_unique<Config>();
+			auto config = std::make_unique<galaxy::fs::Config>();
 			config->init("assets/config.json");
 			if (!config->open())
 			{
@@ -90,16 +90,17 @@ int main(int argsc, char* argsv[])
 				}
 			}
 
+			glm::vec2 gravity = {config->get<float>("gravity-x"), config->get<float>("gravity-y")};
 			SandboxApp editor(config);
+
+			// Will be updated in order, so order of creation is important.
+			auto* world = SL_HANDLE.world();
+			world->create_system<galaxy::systems::PhysicsSystem>(gravity);
+			world->create_system<galaxy::systems::RenderSystem>();
 
 			auto* gs = SL_HANDLE.gamestate();
 			gs->create<sb::Sandbox>("Sandbox");
 			gs->push("Sandbox");
-
-			// Will be updated in order to order of creation is important.
-			auto* world = SL_HANDLE.world();
-			world->create_system<PhysicsSystem>(glm::vec2 {config->get<float>("gravity-x"), config->get<float>("gravity-y")});
-			world->create_system<RenderSystem>();
 
 			restart = editor.run();
 		}

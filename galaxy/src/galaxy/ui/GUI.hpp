@@ -93,14 +93,14 @@ namespace galaxy
 			///
 			/// Create a widget and return a pointer to it.
 			///
-			template<is_widget Widget, typename... Args>
-			[[maybe_unused]] Widget* create_widget(Args&&... args);
+			template<is_widget WidgetDerived, typename... Args>
+			[[maybe_unused]] WidgetDerived* create_widget(Args&&... args);
 
 			///
 			/// Create a tooltip and assign it to a widget.
 			///
-			template<is_widget Widget, typename... Args>
-			[[nodiscard]] Tooltip* create_tooltip_for_widget(Widget* widget, Args&&... args);
+			template<is_widget WidgetDerived, typename... Args>
+			[[nodiscard]] Tooltip* create_tooltip_for_widget(WidgetDerived* widget, Args&&... args);
 
 			///
 			/// Update widgets.
@@ -122,8 +122,8 @@ namespace galaxy
 			/// \param func void function that takes a const Event&.
 			/// \param widget Widget to add function to.
 			///
-			template<meta::is_class Event, is_widget Widget>
-			void add_event_to_widget(Widget* widget);
+			template<meta::is_class Event, is_widget WidgetDerived>
+			void add_event_to_widget(WidgetDerived* widget);
 
 			///
 			/// Triggers a UI event.
@@ -182,10 +182,10 @@ namespace galaxy
 			graphics::SpriteBatch m_sb;
 		};
 
-		template<is_widget Widget, typename... Args>
-		inline Widget* GUI::create_widget(Args&&... args)
+		template<is_widget WidgetDerived, typename... Args>
+		inline WidgetDerived* GUI::create_widget(Args&&... args)
 		{
-			Widget* ptr = nullptr;
+			WidgetDerived* ptr = nullptr;
 
 			if (m_state >= ConstructionState::THEME_SET)
 			{
@@ -210,28 +210,28 @@ namespace galaxy
 					m_widgets.resize(id + 1);
 				}
 
-				m_widgets[id] = std::make_unique<Widget>(std::forward<Args>(args)...);
+				m_widgets[id] = std::make_unique<WidgetDerived>(std::forward<Args>(args)...);
 
-				ptr          = dynamic_cast<Widget*>(m_widgets[id].get());
+				ptr          = static_cast<WidgetDerived*>(m_widgets[id].get());
 				ptr->m_id    = id;
 				ptr->m_theme = m_theme;
 
-				if constexpr (std::is_same<ui::Widget, ui::Slider>::value)
+				if constexpr (std::is_same<WidgetDerived, Slider>::value)
 				{
 					m_sb.add(&ptr->m_slider);
 					m_sb.add(&ptr->m_marker);
 				}
-				else if constexpr (std::is_same<ui::Widget, ui::Progressbar>::value)
+				else if constexpr (std::is_same<WidgetDerived, Progressbar>::value)
 				{
 					m_sb.add(&ptr->m_container);
 					m_sb.add(&ptr->m_bar);
 				}
-				else if constexpr (std::is_same<ui::Widget, ui::Textbox>::value)
+				else if constexpr (std::is_same<WidgetDerived, Textbox>::value)
 				{
 					m_sb.add(ptr);
 					m_sb.add(&ptr->m_indicator);
 				}
-				else if constexpr (std::is_base_of<graphics::BatchedSprite, ui::Widget>::value)
+				else if constexpr (std::is_base_of<graphics::BatchedSprite, WidgetDerived>::value)
 				{
 					m_sb.add(ptr);
 				}
@@ -244,8 +244,8 @@ namespace galaxy
 			return ptr;
 		}
 
-		template<is_widget Widget, typename... Args>
-		inline Tooltip* GUI::create_tooltip_for_widget(Widget* widget, Args&&... args)
+		template<is_widget WidgetDerived, typename... Args>
+		inline Tooltip* GUI::create_tooltip_for_widget(WidgetDerived* widget, Args&&... args)
 		{
 			Tooltip* ptr = nullptr;
 
@@ -277,10 +277,10 @@ namespace galaxy
 			return ptr;
 		}
 
-		template<meta::is_class Event, is_widget Widget>
-		inline void GUI::add_event_to_widget(Widget* widget)
+		template<meta::is_class Event, is_widget WidgetDerived>
+		inline void GUI::add_event_to_widget(WidgetDerived* widget)
 		{
-			m_event_manager.subscribe<Event, Widget>(*widget);
+			m_event_manager.subscribe<Event, WidgetDerived>(*widget);
 		}
 
 		template<meta::is_class Event, typename... Args>

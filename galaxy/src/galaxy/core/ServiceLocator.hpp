@@ -13,7 +13,7 @@
 ///
 /// Shortcut macro.
 ///
-#define SL_HANDLE core::ServiceLocator::get()
+#define SL_HANDLE galaxy::core::ServiceLocator::get()
 
 namespace galaxy
 {
