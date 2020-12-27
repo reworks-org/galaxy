@@ -105,7 +105,7 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_FATAL, "Threads exceed hardware max. Max is: {0}.", std::thread::hardware_concurrency());
 			}
 
-			m_running.set(false);
+			m_running = false;
 
 			for (std::size_t i = 0; i < max_threads; i++)
 			{
@@ -113,7 +113,7 @@ namespace galaxy
 				m_workers.emplace_back([&]() {
 					Task* task = nullptr;
 
-					while (m_running.get())
+					while (m_running)
 					{
 						task = nullptr;
 
@@ -160,13 +160,13 @@ namespace galaxy
 		template<std::size_t max_threads>
 		inline void ThreadPool<max_threads>::start()
 		{
-			m_running.set(true);
+			m_running = true;
 		}
 
 		template<std::size_t max_threads>
 		inline void ThreadPool<max_threads>::end()
 		{
-			m_running.set(false);
+			m_running = false;
 
 			// Make sure tasks is not in use, then empty queue.
 			// In case any tasks are left over.

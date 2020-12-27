@@ -32,7 +32,7 @@ namespace galaxy
 			m_state = ConstructionState::THEME_SET;
 
 			auto* atlas = m_theme->m_atlas.get_atlas();
-			auto* cast  = dynamic_cast<BaseTexture*>(atlas);
+			auto* cast  = dynamic_cast<graphics::BaseTexture*>(atlas);
 			m_sb.set_texture(cast);
 		}
 
@@ -54,7 +54,7 @@ namespace galaxy
 
 		void GUI::destroy()
 		{
-			for (const auto& widget : m_widgets)
+			for (auto& widget : m_widgets)
 			{
 				widget.reset();
 			}

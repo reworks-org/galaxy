@@ -33,7 +33,7 @@ namespace sb
 		void render() override;
 
 	private:
-		galaxy::World* m_world;
+		World* m_world;
 		Window* m_window;
 
 		ParticleGenerator m_particle_gen;

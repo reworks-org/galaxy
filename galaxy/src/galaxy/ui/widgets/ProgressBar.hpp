@@ -125,12 +125,12 @@ namespace galaxy
 			///
 			/// Progressbar texture.
 			///
-			BatchedSprite m_container;
+			graphics::BatchedSprite m_container;
 
 			///
 			/// Bar texture.
 			///
-			BatchedSprite m_bar;
+			graphics::BatchedSprite m_bar;
 		};
 	} // namespace ui
 } // namespace galaxy

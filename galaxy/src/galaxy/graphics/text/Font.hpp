@@ -45,9 +45,19 @@ namespace galaxy
 			Font(const Font&) = delete;
 
 			///
+			/// Move constructor.
+			///
+			Font(Font&&) = default;
+
+			///
 			/// Copy assignment operator.
 			///
 			Font& operator=(const Font&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Font& operator=(Font&&) = default;
 
 			///
 			/// Destructor.

@@ -179,7 +179,7 @@ namespace galaxy
 			std::fill(m_data.m_buffers.begin(), m_data.m_buffers.end(), 0);
 		}
 
-		galaxy::BufferStream::Data* BufferStream::get_data()
+		BufferStream::Data* BufferStream::get_data()
 		{
 			return &m_data;
 		}

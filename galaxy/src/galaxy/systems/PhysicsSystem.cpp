@@ -9,7 +9,8 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
-
+#include "galaxy/graphics/sprite/Sprite.hpp"
+#include "galaxy/physics/body/BodyWrapper.hpp"
 #include "PhysicsSystem.hpp"
 
 namespace galaxy
@@ -85,9 +86,9 @@ namespace galaxy
 				}
 			}
 
-			m_world->operate<graphics::Sprite, PhysicsComponent, EnabledComponent>([&](const sr::Entity entity, graphics::Sprite* sprite, PhysicsComponent* phys, EnabledComponent* ef) {
+			m_world->operate<graphics::Sprite, physics::BodyWrapper>([&](const ecs::Entity entity, graphics::Sprite* sprite, physics::BodyWrapper* phys) {
 				auto pos = phys->m_body->get_pos();
-				sprite->m_sprite.set_pos(pos.x, pos.y);
+				sprite->set_pos(pos.x, pos.y);
 			});
 		}
 

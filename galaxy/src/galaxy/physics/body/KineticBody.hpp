@@ -12,6 +12,11 @@
 
 namespace galaxy
 {
+	namespace systems
+	{
+		class PhysicsSystem;
+	}
+
 	namespace physics
 	{
 		///

@@ -141,7 +141,7 @@ namespace galaxy
 			///
 			/// Get array of terrains.
 			///
-			/// \return Std::vector containing galaxy::Terrain.
+			/// \return Std::vector containing Terrain.
 			///
 			[[nodiscard]] const auto& get_terrain() const;
 

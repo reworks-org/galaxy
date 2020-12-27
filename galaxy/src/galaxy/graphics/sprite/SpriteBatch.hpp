@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_SPRITE_SPRITEBATCH_HPP_
 #define GALAXY_GRAPHICS_SPRITE_SPRITEBATCH_HPP_
 
-#include <nlohmann/json_fwd.hpp>
-
 #include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/graphics/texture/BaseTexture.hpp"
 

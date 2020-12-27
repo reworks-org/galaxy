@@ -110,12 +110,12 @@ namespace galaxy
 			///
 			/// Text to render.
 			///
-			Text m_text;
+			graphics::Text m_text;
 
 			///
 			/// Indicator.
 			///
-			BatchedSprite m_indicator;
+			graphics::BatchedSprite m_indicator;
 
 			///
 			/// Text to display in textbox.

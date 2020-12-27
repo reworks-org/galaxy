@@ -7,14 +7,14 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/graphics/anim/AnimatedBatchSprite.hpp"
 #include "galaxy/audio/Music.hpp"
 #include "galaxy/audio/Sound.hpp"
-#include "galaxy/physics/body/BodyWrapper.hpp"
+#include "galaxy/flags/Enabled.hpp"
+#include "galaxy/graphics/anim/AnimatedBatchSprite.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/graphics/sprite/Sprite.hpp"
-
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
+#include "galaxy/physics/body/BodyWrapper.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "World.hpp"

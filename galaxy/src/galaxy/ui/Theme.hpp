@@ -51,7 +51,7 @@ namespace galaxy
 			///
 			/// The textureatlas for the GUI.
 			///
-			TextureAtlas m_atlas;
+			graphics::TextureAtlas m_atlas;
 
 			///
 			/// Fonts.
@@ -71,7 +71,7 @@ namespace galaxy
 			///
 			/// Renderer pointer.
 			///
-			Renderer* m_renderer;
+			graphics::Renderer* m_renderer;
 
 			///
 			/// Font colour.

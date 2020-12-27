@@ -14,6 +14,11 @@
 
 namespace galaxy
 {
+	namespace core
+	{
+		class World;
+	} // namespace core
+
 	namespace ecs
 	{
 		///

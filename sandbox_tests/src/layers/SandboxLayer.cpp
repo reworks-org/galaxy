@@ -74,15 +74,15 @@ namespace sb
 			}
 			)"_json;
 
-		auto* pc = m_world->create_component<galaxy::PhysicsComponent>(e2, j_wall);
-		auto* sc = m_world->create_component<galaxy::graphics::Sprite>(e2);
+		auto* pc = m_world->create_component<PhysicsComponent>(e2, j_wall);
+		auto* sc = m_world->create_component<graphics::Sprite>(e2);
 		sc->m_sprite.load("assets/textures/wall_small.png");
 		sc->m_sprite.create<BufferDynamic>();
 		sc->m_sprite.set_pos(200, 200);
 
-		auto* shader_c = m_world->create_component<galaxy::Shader>(e2);
+		auto* shader_c = m_world->create_component<Shader>(e2);
 		shader_c->m_shader.load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
-		m_world->create_component<galaxy::EnabledComponent>(e2);
+		m_world->create_component<EnabledComponent>(e2);
 
 		auto e = m_world->create("moving_arrow");
 
@@ -101,17 +101,17 @@ namespace sb
 			}
 			)"_json;
 
-		pc          = m_world->create_component<galaxy::PhysicsComponent>(e, j);
+		pc          = m_world->create_component<PhysicsComponent>(e, j);
 		m_test_body = static_cast<rs::KineticBody*>(pc->m_body.get());
 
-		sc = m_world->create_component<galaxy::graphics::Sprite>(e);
+		sc = m_world->create_component<graphics::Sprite>(e);
 		sc->m_sprite.load("assets/textures/moving_arrow.png");
 		sc->m_sprite.create<BufferDynamic>();
 		sc->m_sprite.set_pos(50, 200);
 
-		shader_c = m_world->create_component<galaxy::Shader>(e);
+		shader_c = m_world->create_component<Shader>(e);
 		shader_c->m_shader.load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
-		m_world->create_component<galaxy::EnabledComponent>(e);
+		m_world->create_component<EnabledComponent>(e);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -205,6 +205,6 @@ namespace sb
 
 		SL_HANDLE.renderer()->draw_circle(m_circle, *ps);
 
-		m_world->get_system<galaxy::RenderSystem>()->render(m_camera);
+		m_world->get_system<RenderSystem>()->render(m_camera);
 	}
 } // namespace sb

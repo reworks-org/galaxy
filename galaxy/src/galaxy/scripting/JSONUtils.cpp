@@ -47,7 +47,7 @@ namespace galaxy
 
 			if (memory.empty())
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Passed empty buffer to galaxy::json::parse_from_mem().");
+				GALAXY_LOG(GALAXY_FATAL, "Passed empty buffer to json::parse_from_mem().");
 			}
 			else
 			{

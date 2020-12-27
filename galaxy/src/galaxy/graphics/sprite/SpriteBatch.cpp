@@ -5,8 +5,6 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <nlohmann/json.hpp>
-
 #include "galaxy/error/Log.hpp"
 
 #include "SpriteBatch.hpp"
@@ -48,13 +46,6 @@ namespace galaxy
 			m_layout.add<BatchedVertex, VAOpacity>(1);
 
 			m_va.create<BatchedVertex>(m_vb, m_ib, m_layout);
-		}
-
-		SpriteBatch::SpriteBatch(const nlohmann::json& json)
-		{
-			m_bs.set_opacity(json.at("opacity"));
-			m_bs.set_pos(json.at("x"), json.at("y"));
-			m_bs.create({json.at("texture-x"), json.at("texture-y"), json.at("w"), json.at("h")}, json.at("z-level"));
 		}
 
 		SpriteBatch::~SpriteBatch()

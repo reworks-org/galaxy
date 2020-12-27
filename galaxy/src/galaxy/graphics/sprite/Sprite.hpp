@@ -35,9 +35,19 @@ namespace galaxy
 			Sprite(const Sprite&) = delete;
 
 			///
+			/// Move constructor.
+			///
+			Sprite(Sprite&&) = default;
+
+			///
 			/// Copy assignment operator.
 			///
 			Sprite& operator=(const Sprite&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Sprite& operator=(Sprite&&) = default;
 
 			///
 			/// JSON constructor.

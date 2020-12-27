@@ -150,8 +150,8 @@ namespace galaxy
 		{
 			auto body = std::make_shared<DerivedBody>(std::forward<Args>(args)...);
 
-			m_bodies.push_back(std::static_pointer_cast<Body>(body));
-			m_collision_tree.insert(std::static_pointer_cast<Collidable>(body));
+			m_bodies.push_back(std::static_pointer_cast<physics::Body>(body));
+			m_collision_tree.insert(std::static_pointer_cast<physics::Collidable>(body));
 
 			return body;
 		}
@@ -165,7 +165,7 @@ namespace galaxy
 					return ptr == body;
 				}),
 				m_bodies.end());
-			m_collision_tree.remove(std::static_pointer_cast<Collidable>(body));
+			m_collision_tree.remove(std::static_pointer_cast<physics::Collidable>(body));
 			// clang-format on
 		}
 	} // namespace systems

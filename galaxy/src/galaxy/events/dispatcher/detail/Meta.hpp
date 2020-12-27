@@ -36,7 +36,7 @@ namespace galaxy
 		///
 		/// Predefinition of unique id structure for events.
 		///
-		using DispatcherUID = galaxy::UniqueID<struct EUID>;
+		using DispatcherUID = meta::UniqueID<struct EUID>;
 
 		///
 		/// Type representing a callback.

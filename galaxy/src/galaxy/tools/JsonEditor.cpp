@@ -60,7 +60,7 @@ namespace galaxy
 		{
 			if (!m_loaded)
 			{
-				m_root   = galaxy::json::parse_from_disk(file);
+				m_root   = json::parse_from_disk(file);
 				m_loaded = true;
 			}
 		}
@@ -69,7 +69,7 @@ namespace galaxy
 		{
 			if (!m_loaded)
 			{
-				m_root   = galaxy::json::parse_from_mem(memory);
+				m_root   = json::parse_from_mem(memory);
 				m_loaded = true;
 			}
 		}
@@ -89,7 +89,7 @@ namespace galaxy
 			{
 				if (!m_external)
 				{
-					galaxy::json::save_to_disk(path, m_root);
+					json::save_to_disk(path, m_root);
 				}
 				else
 				{

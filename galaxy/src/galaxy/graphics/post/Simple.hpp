@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		/// Draws output straight to screen with no effects.
 		///
-		class Simple final : public PostEffect
+		class Simple final : public graphics::PostEffect
 		{
 		public:
 			///

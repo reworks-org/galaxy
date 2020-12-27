@@ -8,6 +8,7 @@
 #ifndef GALAXY_AUDIO_MUSIC_HPP_
 #define GALAXY_AUDIO_MUSIC_HPP_
 
+#include <mutex>
 #include <thread>
 
 #include <nlohmann/json_fwd.hpp>

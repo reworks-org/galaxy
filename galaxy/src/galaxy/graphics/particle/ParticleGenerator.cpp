@@ -104,8 +104,8 @@ namespace galaxy
 			{
 				Particle particle;
 
-				auto x = pr::random<float>(0.0f, max_offset_x);
-				auto y = pr::random<float>(0.0f, max_offset_y);
+				auto x = algorithm::random<float>(0.0f, max_offset_x);
+				auto y = algorithm::random<float>(0.0f, max_offset_y);
 
 				particle.set_position(m_emitter_x + x, m_emitter_y + y);
 				particle.set_velocity(vel_x, vel_y);
@@ -127,15 +127,15 @@ namespace galaxy
 			{
 				Particle particle;
 
-				const float random_radius = radius * std::sqrt(pr::random<float>(0.0f, 1.0f));
-				const float angle         = pr::random<float>(0.0f, 1.0f) * 2.0f * glm::pi<float>();
+				const float random_radius = radius * std::sqrt(algorithm::random<float>(0.0f, 1.0f));
+				const float angle         = algorithm::random<float>(0.0f, 1.0f) * 2.0f * glm::pi<float>();
 				const float x             = m_emitter_x + random_radius * glm::cos(angle);
 				const float y             = m_emitter_y + random_radius * glm::sin(angle);
 
 				particle.set_position(x, y);
 
 				// Randomize direction.
-				const int res = pr::random<int>(0, 3);
+				const int res = algorithm::random<int>(0, 3);
 				if (res == 0)
 				{
 					vel_x = -vel_x;
@@ -146,8 +146,8 @@ namespace galaxy
 				}
 
 				particle.set_velocity(
-				    glm::cos(vel_x * glm::pi<float>() / 180.0f) + pr::random<float>(0.0f, 0.5f),
-				    glm::sin(vel_y * glm::pi<float>() / 180.0f) + pr::random<float>(0.0f, 0.5f));
+				    glm::cos(vel_x * glm::pi<float>() / 180.0f) + algorithm::random<float>(0.0f, 0.5f),
+				    glm::sin(vel_y * glm::pi<float>() / 180.0f) + algorithm::random<float>(0.0f, 0.5f));
 
 				m_particles.push_back(particle);
 			}

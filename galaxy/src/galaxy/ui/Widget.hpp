@@ -106,7 +106,7 @@ namespace galaxy
 			///
 			/// Tooltip.
 			///
-			std::unique_ptr<galaxy::Tooltip> m_tooltip;
+			std::unique_ptr<Tooltip> m_tooltip;
 
 			///
 			/// Bounds of label.

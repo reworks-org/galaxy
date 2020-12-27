@@ -6,16 +6,15 @@
 ///
 
 #include <fmt/format.h>
-#include <galaxy/scripting/LuaUtils.hpp>
 #include <glad/glad.h>
-#include <galaxy/graphics/Colour.hpp>
-#include <galaxy/system/Time.hpp>
-#include <galaxy/graphicsWindowSettings.hpp>
-#include <galaxy/graphics/text/FreeType.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/scripting/LuaUtils.hpp"
 #include "galaxy/fs/FileSystem.hpp"
+#include "galaxy/graphics/Colour.hpp"
+#include "galaxy/graphics/WindowSettings.hpp"
+#include "galaxy/graphics/text/FreeType.hpp"
 
 #include "Application.hpp"
 
@@ -23,7 +22,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Application::Application(std::unique_ptr<galaxy::Config>& config)
+		Application::Application(std::unique_ptr<fs::Config>& config)
 		    : m_visible_tools {true}
 		{
 			// Seed pseudo-random algorithms.
@@ -54,13 +53,13 @@ namespace galaxy
 			fs::s_saves    = m_config->get<std::string>("save-folder");
 
 			// threadpool
-			m_threadpool = std::make_unique<pr::ThreadPool<4>>();
+			m_threadpool = std::make_unique<async::ThreadPool<4>>();
 			m_threadpool->start();
 			SL_HANDLE.m_threadpool = m_threadpool.get();
 
 			// Window
 			// clang-format off
-			WindowSettings settings
+			graphics::WindowSettings settings
 			{
 				.m_anti_aliasing = m_config->get<int>("anti-aliasing"),
 				.m_ansio_filtering = m_config->get<int>("ansio-filter"),
@@ -77,7 +76,7 @@ namespace galaxy
 			};
 			// clang-format on
 
-			m_window           = std::make_unique<Window>();
+			m_window           = std::make_unique<graphics::Window>();
 			SL_HANDLE.m_window = m_window.get();
 			if (!m_window->create(settings))
 			{
@@ -99,7 +98,7 @@ namespace galaxy
 				m_window->set_icon(icon_path);
 
 				// renderer
-				m_renderer           = std::make_unique<Renderer>();
+				m_renderer           = std::make_unique<graphics::Renderer>();
 				SL_HANDLE.m_renderer = m_renderer.get();
 
 				// Freetype.
@@ -110,31 +109,31 @@ namespace galaxy
 				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
 				SL_HANDLE.m_lua = m_lua.get();
 
-				m_state           = std::make_unique<pr::StateMachine>();
+				m_state           = std::make_unique<StateMachine>();
 				SL_HANDLE.m_state = m_state.get();
 
 				// Event dispatcher.
-				m_dispatcher           = std::make_unique<sl::Dispatcher>();
+				m_dispatcher           = std::make_unique<events::Dispatcher>();
 				SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
 				// Game "world".
-				m_world           = std::make_unique<galaxy::World>(glm::vec2 {m_config->get<float>("gravity-x"), m_config->get<float>("gravity-y")});
+				m_world           = std::make_unique<World>();
 				SL_HANDLE.m_world = m_world.get();
 
 				// Serializer.
-				m_serializer           = std::make_unique<galaxy::Serializer>();
+				m_serializer           = std::make_unique<fs::Serializer>();
 				SL_HANDLE.m_serializer = m_serializer.get();
 
 				// ShaderBook
-				m_shaderbook           = std::make_unique<galaxy::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
+				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
 				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 				// FontBook
-				m_fontbook           = std::make_unique<galaxy::FontBook>(m_config->get<std::string>("fontbook-json"));
+				m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas           = std::make_unique<TextureAtlas>();
+				m_texture_atlas           = std::make_unique<graphics::TextureAtlas>();
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 				// Register all usertypes used by this application for sol3.

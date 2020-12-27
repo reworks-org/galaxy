@@ -8,6 +8,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 #include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/sprite/Sprite.hpp"
 
 #include "RenderSystem.hpp"
 
@@ -36,12 +38,12 @@ namespace galaxy
 
 		void RenderSystem::render(graphics::Camera& camera)
 		{
-			m_world->operate<graphics::Sprite, Shader, EnabledComponent>([&](const sr::Entity entity, graphics::Sprite* sprite, Shader* shader, EnabledComponent* ef) {
-				shader->m_shader.bind();
-				shader->m_shader.set_uniform("u_cameraProj", camera.get_proj());
-				shader->m_shader.set_uniform("u_cameraView", camera.get_transform());
+			m_world->operate<graphics::Sprite, graphics::Shader>([&](const ecs::Entity entity, graphics::Sprite* sprite, graphics::Shader* shader) {
+				shader->bind();
+				shader->set_uniform("u_cameraProj", camera.get_proj());
+				shader->set_uniform("u_cameraView", camera.get_transform());
 
-				SL_HANDLE.renderer()->draw_sprite(sprite->m_sprite, shader->m_shader);
+				SL_HANDLE.renderer()->draw_sprite(*sprite, *shader);
 			});
 		}
 	} // namespace systems

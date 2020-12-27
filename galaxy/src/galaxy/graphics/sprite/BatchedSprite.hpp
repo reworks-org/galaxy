@@ -45,9 +45,19 @@ namespace galaxy
 			BatchedSprite(const BatchedSprite&) = delete;
 
 			///
+			/// Move constructor.
+			///
+			BatchedSprite(BatchedSprite&&) = default;
+
+			///
 			/// Copy assignment operator.
 			///
 			BatchedSprite& operator=(const BatchedSprite&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			BatchedSprite& operator=(BatchedSprite&&) = default;
 
 			///
 			/// Destructor.

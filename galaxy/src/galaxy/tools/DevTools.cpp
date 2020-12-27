@@ -15,11 +15,19 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/StateMachine.hpp"
 #include "galaxy/core/World.hpp"
+#include "galaxy/flags/Enabled.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/TextureAtlas.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/tools/ToolTheme.hpp"
+#include "galaxy/audio/Sound.hpp"
+#include "galaxy/audio/Music.hpp"
+#include "galaxy/graphics/anim/AnimatedBatchSprite.hpp"
+#include "galaxy/physics/body/BodyWrapper.hpp"
+#include "galaxy/physics/body/KineticBody.hpp"
+#include "galaxy/graphics/sprite/Sprite.hpp"
 
 #include "DevTools.hpp"
 
@@ -279,7 +287,7 @@ namespace galaxy
 
 			ImGui::Begin("Gamestate Manager", &m_draw_state_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
-			static std::string s_selected_state = gs->top<pr::State>()->get_name();
+			static std::string s_selected_state = gs->top<core::State>()->get_name();
 			if (ImGui::BeginCombo("Select State", s_selected_state.c_str()))
 			{
 				for (const auto& state : gs->get_state_keys())
@@ -312,7 +320,7 @@ namespace galaxy
 			}
 
 			ImGui::Spacing();
-			auto* layers = gs->top<pr::State>()->get_layers();
+			auto* layers = gs->top<core::State>()->get_layers();
 
 			static std::string s_selected_layer = "...";
 			if (ImGui::BeginCombo("Select Layer", s_selected_layer.c_str()))
@@ -524,7 +532,7 @@ namespace galaxy
 
 			if (ImGui::Button("Add from JSON"))
 			{
-				nlohmann::json json = galaxy::json::parse_from_disk(fs::open_file_dialog("*.json"));
+				nlohmann::json json = json::parse_from_disk(fs::open_file_dialog("*.json"));
 
 				auto textures = json.at("textures");
 				for (const auto& texture : textures)
@@ -579,7 +587,7 @@ namespace galaxy
 					texture_json.push_back(texture);
 				}
 
-				galaxy::json::save_to_disk(fs::save_file_dialog(), json);
+				json::save_to_disk(fs::save_file_dialog(), json);
 				m_atlas_state = SAVED;
 			}
 
@@ -651,121 +659,118 @@ namespace galaxy
 				ImGui::EndCombo();
 			}
 
-			if (m_world->validate(m_active_entity) && m_world->has(m_active_entity))
+			ImGui::Text(fmt::format("Numeric ID: {0}.", m_active_entity).c_str());
+
+			bool enabled = m_world->is_enabled(m_active_entity);
+			if (ImGui::Checkbox("Is Enabled?", &enabled))
 			{
-				ImGui::Text(fmt::format("Numeric ID: {0}.", m_active_entity).c_str());
-
-				bool enabled = m_world->is_enabled<galaxy::EnabledComponent>(m_active_entity);
-				if (ImGui::Checkbox("Is Enabled?", &enabled))
+				if (enabled)
 				{
-					if (enabled)
-					{
-						m_world->create_component<galaxy::EnabledComponent>(m_active_entity);
-					}
-					else
-					{
-						m_world->remove<galaxy::EnabledComponent>(m_active_entity);
-					}
+					m_world->set_flag<flags::Enabled>(m_active_entity);
 				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("[WIP] Serialize"))
+				else
 				{
-					//m_world->serialize(m_active_entity);
-					//ImGui::OpenPopup("Entity successfully serialized.");
+					m_world->unset_flag<flags::Enabled>(m_active_entity);
 				}
-
-				if (ImGui::Button("Add Shader"))
-				{
-					m_world->create_component<galaxy::Shader>(m_active_entity);
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("Remove Shader"))
-				{
-					m_world->remove<galaxy::Shader>(m_active_entity);
-				}
-
-				if (ImGui::Button("Add Sprite"))
-				{
-					m_world->create_component<galaxy::graphics::Sprite>(m_active_entity);
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("Remove Sprite"))
-				{
-					m_world->remove<galaxy::graphics::Sprite>(m_active_entity);
-				}
-
-				if (ImGui::Button("Add SpriteBatch"))
-				{
-					m_world->create_component<galaxy::graphics::BatchedSprite>(m_active_entity);
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("Remove SpriteBatch"))
-				{
-					m_world->remove<galaxy::graphics::BatchedSprite>(m_active_entity);
-				}
-
-				if (ImGui::Button("Add Sound"))
-				{
-					m_world->create_component<galaxy::audio::Sound>(m_active_entity);
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("Remove Sound"))
-				{
-					m_world->remove<galaxy::audio::Sound>(m_active_entity);
-				}
-
-				if (ImGui::Button("Add Music"))
-				{
-					m_world->create_component<galaxy::audio::Music>(m_active_entity);
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("Remove Music"))
-				{
-					m_world->remove<galaxy::audio::Music>(m_active_entity);
-				}
-
-				if (ImGui::Button("Add Animation"))
-				{
-					m_world->create_component<galaxy::graphics::AnimatedBatchSprite>(m_active_entity);
-				}
-
-				ImGui::SameLine();
-
-				if (ImGui::Button("Remove Animation"))
-				{
-					m_world->remove<galaxy::graphics::AnimatedBatchSprite>(m_active_entity);
-				}
-
-				ImGui::Spacing();
-				ImGui::Spacing();
-				component_ui(enabled, m_active_entity);
 			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("[WIP] Serialize"))
+			{
+				//m_world->serialize(m_active_entity);
+				//ImGui::OpenPopup("Entity successfully serialized.");
+			}
+
+			if (ImGui::Button("Add Shader"))
+			{
+				m_world->create_component<graphics::Shader>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Shader"))
+			{
+				m_world->remove<graphics::Shader>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Sprite"))
+			{
+				m_world->create_component<graphics::Sprite>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Sprite"))
+			{
+				m_world->remove<graphics::Sprite>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add SpriteBatch"))
+			{
+				m_world->create_component<graphics::BatchedSprite>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove SpriteBatch"))
+			{
+				m_world->remove<graphics::BatchedSprite>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Sound"))
+			{
+				m_world->create_component<audio::Sound>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Sound"))
+			{
+				m_world->remove<audio::Sound>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Music"))
+			{
+				m_world->create_component<audio::Music>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Music"))
+			{
+				m_world->remove<audio::Music>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Animation"))
+			{
+				m_world->create_component<graphics::AnimatedBatchSprite>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Animation"))
+			{
+				m_world->remove<graphics::AnimatedBatchSprite>(m_active_entity);
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+			component_ui(enabled, m_active_entity);
 
 			ImGui::End();
 		}
 
-		void DevTools::component_ui(bool enabled, std::uint32_t entity)
+		void DevTools::component_ui(bool enabled, std::uint64_t entity)
 		{
 			auto [shader, sprite, batch, sound, music, animation, physics] = m_world->get_multi<
-			    galaxy::Shader,
-			    galaxy::graphics::Sprite,
-			    galaxy::graphics::BatchedSprite,
-			    galaxy::audio::Sound,
-			    galaxy::audio::Music,
-			    galaxy::graphics::AnimatedBatchSprite,
-			    galaxy::PhysicsComponent>(entity);
+			    graphics::Shader,
+			    graphics::Sprite,
+			    graphics::BatchedSprite,
+			    audio::Sound,
+			    audio::Music,
+			    graphics::AnimatedBatchSprite,
+			    physics::BodyWrapper>(entity);
 
 			if (enabled)
 			{
@@ -795,12 +800,12 @@ namespace galaxy
 				ImGui::Spacing();
 				ImGui::Spacing();
 
-				bool confirm = shader->m_shader.is_loaded();
+				bool confirm = shader->is_loaded();
 				if (ImGui::Button("Load"))
 				{
 					auto vertex = fs::open_file_dialog("*.vs *.vertex *.vert *.v");
 					auto frag   = fs::open_file_dialog("*.fs *.fragment *.frag *.f");
-					shader->m_shader.load_path(vertex, frag);
+					shader->load_path(vertex, frag);
 				}
 
 				if (confirm)
@@ -821,59 +826,59 @@ namespace galaxy
 				if (ImGui::Button("Load Texture"))
 				{
 					auto file = fs::open_file_dialog("*.png");
-					m_sprites_to_create.emplace(&sprite->m_sprite, file);
+					m_sprites_to_create.emplace(sprite, file);
 				}
 
 				if (ImGui::Button("Clamp to Border"))
 				{
-					sprite->m_sprite.clamp_to_border();
+					sprite->clamp_to_border();
 				}
 
 				if (ImGui::Button("Clamp to Edge"))
 				{
-					sprite->m_sprite.clamp_to_edge();
+					sprite->clamp_to_edge();
 				}
 
 				if (ImGui::Button("Set Mirrored"))
 				{
-					sprite->m_sprite.set_mirrored();
+					sprite->set_mirrored();
 				}
 
 				if (ImGui::Button("Set Repeated"))
 				{
-					sprite->m_sprite.set_repeated();
+					sprite->set_repeated();
 				}
 
-				float opacity = sprite->m_sprite.opacity();
+				float opacity = sprite->opacity();
 				if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 				{
-					sprite->m_sprite.set_opacity(opacity);
+					sprite->set_opacity(opacity);
 				}
 
-				int ansio = sprite->m_sprite.get_aniso_level();
+				int ansio = sprite->get_aniso_level();
 				if (ImGui::SliderInt("Set Ansiotrophy", &ansio, 0, 16))
 				{
-					sprite->m_sprite.set_anisotropy(ansio);
+					sprite->set_anisotropy(ansio);
 				}
 
 				if (physics == nullptr)
 				{
-					glm::vec2 pos = sprite->m_sprite.get_pos();
+					glm::vec2 pos = sprite->get_pos();
 					if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
 					{
-						sprite->m_sprite.set_pos(pos.x, pos.y);
+						sprite->set_pos(pos.x, pos.y);
 					}
 
-					float rotation = sprite->m_sprite.get_rotation();
+					float rotation = sprite->get_rotation();
 					if (ImGui::SliderAngle("Rotate", &rotation))
 					{
-						sprite->m_sprite.rotate(rotation);
+						sprite->rotate(rotation);
 					}
 
-					float scale = sprite->m_sprite.get_scale();
+					float scale = sprite->get_scale();
 					if (ImGui::SliderFloat("Scale", &scale, 1, 10))
 					{
-						sprite->m_sprite.scale(scale);
+						sprite->scale(scale);
 					}
 				}
 			}
@@ -887,46 +892,46 @@ namespace galaxy
 				ImGui::Spacing();
 				ImGui::Spacing();
 
-				auto region       = batch->m_bs.get_region();
+				auto region       = batch->get_region();
 				m_batch_region[0] = region.m_x;
 				m_batch_region[1] = region.m_y;
 				m_batch_region[2] = region.m_width;
 				m_batch_region[3] = region.m_height;
 				if (ImGui::InputScalarN("Region", ImGuiDataType_Float, &m_batch_region, 4))
 				{
-					batch->m_bs.update_region(m_batch_region[0], m_batch_region[1], m_batch_region[2], m_batch_region[3]);
+					batch->update_region(m_batch_region[0], m_batch_region[1], m_batch_region[2], m_batch_region[3]);
 				}
 
-				int z = static_cast<int>(batch->m_bs.z_level());
+				int z = static_cast<int>(batch->z_level());
 				if (ImGui::InputInt("Z-Level", &z, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
-					batch->m_bs.set_z_level(z);
+					batch->set_z_level(z);
 				}
 
-				float opacity = batch->m_bs.opacity();
+				float opacity = batch->opacity();
 				if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 				{
-					batch->m_bs.set_opacity(opacity);
+					batch->set_opacity(opacity);
 				}
 
 				if (physics == nullptr)
 				{
-					glm::vec2 pos = batch->m_bs.get_pos();
+					glm::vec2 pos = batch->get_pos();
 					if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
 					{
-						batch->m_bs.set_pos(pos.x, pos.y);
+						batch->set_pos(pos.x, pos.y);
 					}
 
-					float rotation = batch->m_bs.get_rotation();
+					float rotation = batch->get_rotation();
 					if (ImGui::SliderAngle("Rotate", &rotation))
 					{
-						batch->m_bs.rotate(rotation);
+						batch->rotate(rotation);
 					}
 
-					float scale = batch->m_bs.get_scale();
+					float scale = batch->get_scale();
 					if (ImGui::SliderFloat("Scale", &scale, 1, 10))
 					{
-						batch->m_bs.scale(scale);
+						batch->scale(scale);
 					}
 				}
 			}
@@ -940,26 +945,26 @@ namespace galaxy
 				ImGui::Spacing();
 				ImGui::Spacing();
 
-				auto region       = animation->m_abs.get_region();
+				auto region       = animation->get_region();
 				m_batch_region[0] = region.m_x;
 				m_batch_region[1] = region.m_y;
 				m_batch_region[2] = region.m_width;
 				m_batch_region[3] = region.m_height;
 				if (ImGui::InputScalarN("Region", ImGuiDataType_Float, &m_batch_region, 4))
 				{
-					animation->m_abs.update_region(m_batch_region[0], m_batch_region[1], m_batch_region[2], m_batch_region[3]);
+					animation->update_region(m_batch_region[0], m_batch_region[1], m_batch_region[2], m_batch_region[3]);
 				}
 
-				int z = static_cast<int>(animation->m_abs.z_level());
+				int z = static_cast<int>(animation->z_level());
 				if (ImGui::InputInt("Z-Level", &z, 1, 2, ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
 				{
-					animation->m_abs.set_z_level(z);
+					animation->set_z_level(z);
 				}
 
-				float opacity = animation->m_abs.opacity();
+				float opacity = animation->opacity();
 				if (ImGui::SliderFloat("Opacity", &opacity, 0.0f, 1.0f))
 				{
-					animation->m_abs.set_opacity(opacity);
+					animation->set_opacity(opacity);
 				}
 
 				if (ImGui::Button("Add Animation"))
@@ -969,10 +974,10 @@ namespace galaxy
 
 				if (m_add_anim_popup)
 				{
-					static std::string s_id                = "";
-					static bool s_loop                     = false;
-					static float s_speed                   = 1.0f;
-					static std::vector<Frame> s_frames = {};
+					static std::string s_id                      = "";
+					static bool s_loop                           = false;
+					static float s_speed                         = 1.0f;
+					static std::vector<graphics::Frame> s_frames = {};
 
 					ImGui::BeginPopup("Add Animation", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings);
 
@@ -992,7 +997,7 @@ namespace galaxy
 
 						if (ImGui::Button("Add"))
 						{
-							Frame frame {s_xy[0], s_xy[1], s_time_per_frame};
+							graphics::Frame frame {s_xy[0], s_xy[1], s_time_per_frame};
 							s_frames.emplace_back(frame);
 
 							s_xy[0]          = 0.0f;
@@ -1008,7 +1013,7 @@ namespace galaxy
 					{
 						if (!s_frames.empty())
 						{
-							animation->m_abs.add_animation(s_id, s_id, s_loop, static_cast<double>(s_speed), s_frames);
+							animation->add_animation(s_id, s_id, s_loop, static_cast<double>(s_speed), s_frames);
 
 							s_id    = "";
 							s_loop  = false;
@@ -1028,7 +1033,7 @@ namespace galaxy
 
 				if (ImGui::BeginCombo("Select Animation", "..."))
 				{
-					for (const auto& [name, anim] : animation->m_abs.get_all_anims())
+					for (const auto& [name, anim] : animation->get_all_anims())
 					{
 						const bool selected = (m_active_anim == name);
 						if (ImGui::Selectable(name.c_str(), selected))
@@ -1052,37 +1057,37 @@ namespace galaxy
 
 				if (ImGui::Button("Play Animation"))
 				{
-					animation->m_abs.play();
+					animation->play();
 				}
 
 				if (ImGui::Button("Pause Animation"))
 				{
-					animation->m_abs.pause();
+					animation->pause();
 				}
 
 				if (ImGui::Button("Stop Animation"))
 				{
-					animation->m_abs.stop();
+					animation->stop();
 				}
 
 				if (physics == nullptr)
 				{
-					glm::vec2 pos = animation->m_abs.get_pos();
+					glm::vec2 pos = animation->get_pos();
 					if (ImGui::InputScalarN("Pos", ImGuiDataType_Float, &pos, 2))
 					{
-						animation->m_abs.set_pos(pos.x, pos.y);
+						animation->set_pos(pos.x, pos.y);
 					}
 
-					float rotation = animation->m_abs.get_rotation();
+					float rotation = animation->get_rotation();
 					if (ImGui::SliderAngle("Rotate", &rotation))
 					{
-						animation->m_abs.rotate(rotation);
+						animation->rotate(rotation);
 					}
 
-					float scale = animation->m_abs.get_scale();
+					float scale = animation->get_scale();
 					if (ImGui::SliderFloat("Scale", &scale, 1, 10))
 					{
-						animation->m_abs.scale(scale);
+						animation->scale(scale);
 					}
 				}
 			}
@@ -1099,32 +1104,32 @@ namespace galaxy
 				if (ImGui::Button("Load"))
 				{
 					auto file = fs::open_file_dialog();
-					sound->m_sound.load(file);
+					sound->load(file);
 				}
 
 				if (ImGui::Button("Play"))
 				{
-					sound->m_sound.play();
+					sound->play();
 				}
 
 				if (ImGui::Button("Pause"))
 				{
-					sound->m_sound.pause();
+					sound->pause();
 				}
 
 				if (ImGui::Button("Stop"))
 				{
-					sound->m_sound.stop();
+					sound->stop();
 				}
 
 				if (ImGui::Button("Rewind"))
 				{
-					sound->m_sound.rewind();
+					sound->rewind();
 				}
 
 				if (ImGui::Checkbox("Is Looping?", &m_sfx_loop))
 				{
-					sound->m_sound.set_looping(m_sfx_loop);
+					sound->set_looping(m_sfx_loop);
 				}
 			}
 
@@ -1140,32 +1145,32 @@ namespace galaxy
 				if (ImGui::Button("Load"))
 				{
 					auto file = fs::open_file_dialog();
-					music->m_music.load(file);
+					music->load(file);
 				}
 
 				if (ImGui::Button("Play"))
 				{
-					music->m_music.play();
+					music->play();
 				}
 
 				if (ImGui::Button("Pause"))
 				{
-					music->m_music.pause();
+					music->pause();
 				}
 
 				if (ImGui::Button("Stop"))
 				{
-					music->m_music.stop();
+					music->stop();
 				}
 
 				if (ImGui::Button("Rewind"))
 				{
-					music->m_music.rewind();
+					music->rewind();
 				}
 
 				if (ImGui::Checkbox("Is Looping?", &m_sfx_loop))
 				{
-					music->m_music.set_looping(m_sfx_loop);
+					music->set_looping(m_sfx_loop);
 				}
 			}
 
@@ -1185,7 +1190,7 @@ namespace galaxy
 					static float s_hf = 0.0f;
 					if (ImGui::InputFloat("Apply Horizontal Force", &s_hf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
 					{
-						auto* kin_body = static_cast<rs::KineticBody*>(physics->m_body.get());
+						auto* kin_body = static_cast<physics::KineticBody*>(physics->m_body.get());
 						kin_body->apply_horizontal_force(s_hf);
 						s_hf = 0.0f;
 					}
@@ -1195,7 +1200,7 @@ namespace galaxy
 					static float s_vf = 0.0f;
 					if (ImGui::InputFloat("Apply Vertical Force", &s_vf, 0.1, 1, "%.1f", ImGuiInputTextFlags_CharsNoBlank | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_EnterReturnsTrue))
 					{
-						auto* kin_body = static_cast<rs::KineticBody*>(physics->m_body.get());
+						auto* kin_body = static_cast<physics::KineticBody*>(physics->m_body.get());
 						kin_body->apply_vertical_force(s_vf);
 						s_vf = 0.0f;
 					}

@@ -165,7 +165,7 @@ namespace galaxy
 			return m_template;
 		}
 
-		const galaxy::Text& Object::get_text() const
+		const Text& Object::get_text() const
 		{
 			return m_text;
 		}

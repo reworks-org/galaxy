@@ -42,7 +42,7 @@ namespace galaxy
 	/// Concept to ensure a system is actually derived from a System.
 	///
 	template<typename Type>
-	concept is_system = std::derived_from<ecs::System, Type>;
+	concept is_system = std::derived_from<Type, ecs::System>;
 
 	namespace core
 	{
@@ -129,6 +129,14 @@ namespace galaxy
 			///
 			template<meta::is_flag Flag>
 			void set_flag(const ecs::Entity entity);
+
+			///
+			/// UNset a flag on a component.
+			///
+			/// \param entity Entity to unset flag on.
+			///
+			template<meta::is_flag Flag>
+			void unset_flag(const ecs::Entity entity);
 
 			///
 			/// Registers a component definition.
@@ -334,6 +342,19 @@ namespace galaxy
 			}
 		}
 
+		template<meta::is_flag Flag>
+		inline void World::unset_flag(const ecs::Entity entity)
+		{
+			if (has(entity))
+			{
+				m_flags[entity].reset(Flag::value);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to unset flag: {0} for entity: {1}.", Flag::value, entity);
+			}
+		}
+
 		template<meta::is_class Component>
 		inline void World::register_component(std::string_view name)
 		{
@@ -477,7 +498,10 @@ namespace galaxy
 					// Ensures that only entities that have all components are used.
 					if (!(count < length))
 					{
-						func(entity, get<Components>(entity)...);
+						if (is_enabled(entity))
+						{
+							func(entity, get<Components>(entity)...);
+						}
 					}
 				}
 			}

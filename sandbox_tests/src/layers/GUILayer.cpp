@@ -29,7 +29,7 @@
 #define RED {255, 0, 0, 255}
 // clang-format on
 
-galaxy::widget::Progressbar* progressbar;
+widget::Progressbar* progressbar;
 
 ///
 /// Core namespace.
@@ -93,7 +93,7 @@ namespace sb
 
 		m_gui.set_theme(&m_theme);
 
-		auto* image = m_gui.create_widget<galaxy::widget::Image>();
+		auto* image = m_gui.create_widget<widget::Image>();
 		image->create("demo_nineslice");
 		image->set_pos(1000, 100);
 
@@ -102,11 +102,11 @@ namespace sb
 
 		m_gui.add_event_to_widget<events::MouseMoved>(image);
 
-		auto* label = m_gui.create_widget<galaxy::widget::Label>();
+		auto* label = m_gui.create_widget<widget::Label>();
 		label->create("Label Demo", "public16");
 		label->set_pos(300, 300);
 
-		auto* button = m_gui.create_widget<galaxy::widget::Button>();
+		auto* button = m_gui.create_widget<widget::Button>();
 		button->create("button_default", "button_pressed", "button_hover");
 		button->set_pos(250, 250);
 		button->set_callback([&]() {
@@ -117,7 +117,7 @@ namespace sb
 		m_gui.add_event_to_widget<events::MousePressed>(button);
 		m_gui.add_event_to_widget<events::MouseReleased>(button);
 
-		auto* slider_ptr = m_gui.create_widget<galaxy::widget::Slider>();
+		auto* slider_ptr = m_gui.create_widget<widget::Slider>();
 		slider_ptr->create("slider", "slider_marker");
 		slider_ptr->set_pos(500, 500);
 
@@ -125,20 +125,20 @@ namespace sb
 		m_gui.add_event_to_widget<events::MousePressed>(slider_ptr);
 		m_gui.add_event_to_widget<events::MouseReleased>(slider_ptr);
 
-		progressbar = m_gui.create_widget<galaxy::widget::Progressbar>();
+		progressbar = m_gui.create_widget<widget::Progressbar>();
 		progressbar->create("container", "bar");
 		progressbar->set_pos(500, 600);
 
 		m_gui.add_event_to_widget<events::MouseMoved>(progressbar);
 
-		auto* togglebutton = m_gui.create_widget<galaxy::widget::ToggleButton>();
+		auto* togglebutton = m_gui.create_widget<widget::ToggleButton>();
 		togglebutton->create("tb_on", "tb_off", "tb_on_hover", "tb_off_hover");
 		togglebutton->set_pos(150, 150);
 
 		m_gui.add_event_to_widget<events::MouseMoved>(togglebutton);
 		m_gui.add_event_to_widget<events::MousePressed>(togglebutton);
 
-		auto* textinput = m_gui.create_widget<galaxy::widget::TextInput>();
+		auto* textinput = m_gui.create_widget<widget::TextInput>();
 		textinput->create("input_field", "public16", 5.0f);
 		textinput->set_pos(650, 650);
 
@@ -146,7 +146,7 @@ namespace sb
 		m_gui.add_event_to_widget<events::MousePressed>(textinput);
 		m_gui.add_event_to_widget<pr::KeyDownEvent>(textinput);
 
-		auto* textbox = m_gui.create_widget<galaxy::widget::Textbox>();
+		auto* textbox = m_gui.create_widget<widget::Textbox>();
 		textbox->create("textbox", "arrow", "public16", 5.0f);
 		textbox->set_pos(600, 100);
 

@@ -134,12 +134,12 @@ namespace galaxy
 			///
 			/// Slider texture.
 			///
-			BatchedSprite m_slider;
+			graphics::BatchedSprite m_slider;
 
 			///
 			/// Marker texture.
 			///
-			BatchedSprite m_marker;
+			graphics::BatchedSprite m_marker;
 		};
 	} // namespace ui
 } // namespace galaxy

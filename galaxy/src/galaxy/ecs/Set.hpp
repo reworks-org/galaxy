@@ -16,6 +16,11 @@
 
 namespace galaxy
 {
+	namespace core
+	{
+		class World;
+	} // namespace core
+
 	namespace ecs
 	{
 		///
@@ -23,6 +28,8 @@ namespace galaxy
 		///
 		class Set
 		{
+			friend class core::World;
+
 		public:
 			///
 			/// Virtual destructor.

@@ -132,12 +132,12 @@ namespace galaxy
 			///
 			/// Indicator line in input field.
 			///
-			Line m_cursor;
+			graphics::Line m_cursor;
 
 			///
 			/// Text drawn as typed.
 			///
-			Text m_text;
+			graphics::Text m_text;
 
 			///
 			/// String containing text input.

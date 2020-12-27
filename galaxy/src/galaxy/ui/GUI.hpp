@@ -179,7 +179,7 @@ namespace galaxy
 			///
 			/// Spritebatch.
 			///
-			SpriteBatch m_sb;
+			graphics::SpriteBatch m_sb;
 		};
 
 		template<is_widget Widget, typename... Args>
@@ -216,22 +216,22 @@ namespace galaxy
 				ptr->m_id    = id;
 				ptr->m_theme = m_theme;
 
-				if constexpr (std::is_same<Widget, galaxy::widget::Slider>::value)
+				if constexpr (std::is_same<ui::Widget, ui::Slider>::value)
 				{
 					m_sb.add(&ptr->m_slider);
 					m_sb.add(&ptr->m_marker);
 				}
-				else if constexpr (std::is_same<Widget, galaxy::widget::Progressbar>::value)
+				else if constexpr (std::is_same<ui::Widget, ui::Progressbar>::value)
 				{
 					m_sb.add(&ptr->m_container);
 					m_sb.add(&ptr->m_bar);
 				}
-				else if constexpr (std::is_same<Widget, galaxy::widget::Textbox>::value)
+				else if constexpr (std::is_same<ui::Widget, ui::Textbox>::value)
 				{
 					m_sb.add(ptr);
 					m_sb.add(&ptr->m_indicator);
 				}
-				else if constexpr (std::is_base_of<BatchedSprite, Widget>::value)
+				else if constexpr (std::is_base_of<graphics::BatchedSprite, ui::Widget>::value)
 				{
 					m_sb.add(ptr);
 				}
@@ -259,7 +259,7 @@ namespace galaxy
 					}
 					else
 					{
-						widget->m_tooltip = std::make_unique<galaxy::Tooltip>(std::forward<Args>(args)...);
+						widget->m_tooltip = std::make_unique<Tooltip>(std::forward<Args>(args)...);
 						ptr               = widget->m_tooltip.get();
 						ptr->m_theme      = m_theme;
 					}

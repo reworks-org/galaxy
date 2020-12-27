@@ -71,7 +71,7 @@ namespace galaxy
 				m_event_funcs[type].create_storage<Event>();
 			}
 
-			m_event_funcs[type].apply_action_to_subscribers<Event, sl::AddAction, Receiver>(receiver);
+			m_event_funcs[type].apply_action_to_subscribers<Event, events::AddAction, Receiver>(receiver);
 		}
 
 		template<meta::is_class Event, typename... Args>
@@ -85,7 +85,7 @@ namespace galaxy
 			else
 			{
 				Event e {std::forward<Args>(args)...};
-				m_event_funcs[type].apply_action_to_subscribers<Event, sl::TriggerAction>(e);
+				m_event_funcs[type].apply_action_to_subscribers<Event, events::TriggerAction>(e);
 			}
 		}
 

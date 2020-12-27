@@ -36,9 +36,19 @@ namespace galaxy
 			Texture(const Texture&) = delete;
 
 			///
+			/// Move constructor.
+			///
+			Texture(Texture&&) = default;
+
+			///
 			/// Copy assignment operator.
 			///
 			Texture& operator=(const Texture&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Texture& operator=(Texture&&) = default;
 
 			///
 			/// Virtual destructor.

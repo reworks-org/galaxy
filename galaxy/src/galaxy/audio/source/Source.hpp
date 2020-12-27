@@ -61,7 +61,7 @@ namespace galaxy
 			///
 			/// Queue a buffer for the source to play.
 			///
-			/// \param buffer Pointer to an galaxy::Buffer* object. Cannot be nullptr.
+			/// \param buffer Pointer to an Buffer* object. Cannot be nullptr.
 			///
 			void queue(Buffer* buffer);
 

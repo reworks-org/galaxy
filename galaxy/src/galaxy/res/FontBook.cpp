@@ -31,7 +31,7 @@ namespace galaxy
 		void FontBook::create_from_json(std::string_view json)
 		{
 			auto path        = fmt::format("{0}{1}{2}", fs::s_root, fs::s_json, json);
-			nlohmann::json j = galaxy::json::parse_from_disk(path);
+			nlohmann::json j = json::parse_from_disk(path);
 
 			nlohmann::json arr = j.at("fontbook");
 			std::for_each(arr.begin(), arr.end(), [&](const nlohmann::json& font) {

@@ -26,8 +26,8 @@ namespace sb
 
 	private:
 		graphics::Camera m_gui_camera;
-		galaxy::GUI m_gui;
-		galaxy::UITheme m_theme;
+		GUI m_gui;
+		UITheme m_theme;
 	};
 } // namespace sb
 

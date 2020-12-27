@@ -41,9 +41,19 @@ namespace galaxy
 			AnimatedBatchSprite(const AnimatedBatchSprite&) = delete;
 
 			///
+			/// Move constructor.
+			///
+			AnimatedBatchSprite(AnimatedBatchSprite&&) = default;
+
+			///
 			/// Copy assignment operator.
 			///
 			AnimatedBatchSprite& operator=(const AnimatedBatchSprite&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			AnimatedBatchSprite& operator=(AnimatedBatchSprite&&) = default;
 
 			///
 			/// Destructor.

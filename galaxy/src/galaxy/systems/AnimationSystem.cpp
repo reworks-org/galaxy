@@ -32,7 +32,7 @@ namespace galaxy
 
 		void AnimationSystem::update(const double dt)
 		{
-			m_world->operate<graphics::AnimatedBatchSprite, EnabledComponent>([&](const sr::Entity entity, graphics::AnimatedBatchSprite* ac, EnabledComponent* ec) {
+			m_world->operate<graphics::AnimatedBatchSprite>([&](const ecs::Entity entity, graphics::AnimatedBatchSprite* ac) {
 				ac->update(dt);
 			});
 		}

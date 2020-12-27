@@ -98,7 +98,7 @@ namespace galaxy
 			///
 			/// Text to render.
 			///
-			Text m_text;
+			graphics::Text m_text;
 		};
 	} // namespace ui
 } // namespace galaxy

@@ -127,19 +127,19 @@ namespace galaxy
 						std::string type = layer.at("type");
 						if (type == "tilelayer")
 						{
-							m_layers.push_back(std::make_unique<galaxy::TileLayer>(layer));
+							m_layers.push_back(std::make_unique<TileLayer>(layer));
 						}
 						else if (type == "objectgroup")
 						{
-							m_layers.push_back(std::make_unique<galaxy::ObjectLayer>(layer));
+							m_layers.push_back(std::make_unique<ObjectLayer>(layer));
 						}
 						else if (type == "imagelayer ")
 						{
-							m_layers.push_back(std::make_unique<galaxy::ImageLayer>(layer));
+							m_layers.push_back(std::make_unique<ImageLayer>(layer));
 						}
 						else if (type == "group")
 						{
-							m_layers.push_back(std::make_unique<galaxy::GroupLayer>(layer));
+							m_layers.push_back(std::make_unique<GroupLayer>(layer));
 						}
 					}
 				}

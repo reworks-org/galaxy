@@ -14,7 +14,7 @@
 ///
 /// Shortcut Macro.
 ///
-#define FTLIB galaxy::graphics::FreeTypeLib::handle()
+#define FTLIB graphics::FreeTypeLib::handle()
 
 ///
 /// OK return value macro.

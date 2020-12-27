@@ -49,7 +49,7 @@ namespace galaxy
 			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 			/// \param colour Colour.
 			///
-			Circle(const pr::Circle& circle, const unsigned int fragments, graphics::Colour& colour);
+			Circle(const graphics::Circle& circle, const unsigned int fragments, graphics::Colour& colour);
 
 			///
 			/// Destructor.

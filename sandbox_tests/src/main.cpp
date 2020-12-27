@@ -15,11 +15,11 @@
 
 #include "states/Sandbox.hpp"
 
-class SandboxApp : public galaxy::Application
+class SandboxApp : public Application
 {
 public:
-	SandboxApp(std::unique_ptr<galaxy::Config>& config)
-	    : galaxy::Application(config)
+	SandboxApp(std::unique_ptr<Config>& config)
+	    : Application(config)
 	{
 	}
 };
@@ -50,7 +50,7 @@ int main(int argsc, char* argsv[])
 			PL_LOG_START(log_path);
 			PL_LOG_GET.set_min_level(PL_INFO);
 
-			auto config = std::make_unique<galaxy::Config>();
+			auto config = std::make_unique<Config>();
 			config->init("assets/config.json");
 			if (!config->open())
 			{
@@ -98,8 +98,8 @@ int main(int argsc, char* argsv[])
 
 			// Will be updated in order to order of creation is important.
 			auto* world = SL_HANDLE.world();
-			world->create_system<galaxy::PhysicsSystem>();
-			world->create_system<galaxy::RenderSystem>();
+			world->create_system<PhysicsSystem>(glm::vec2 {config->get<float>("gravity-x"), config->get<float>("gravity-y")});
+			world->create_system<RenderSystem>();
 
 			restart = editor.run();
 		}

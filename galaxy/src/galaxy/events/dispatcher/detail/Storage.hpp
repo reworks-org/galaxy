@@ -74,9 +74,9 @@ namespace galaxy
 			auto* funcs = std::any_cast<std::vector<std::function<void(const Event&)>>>(&m_event_functions);
 
 			// Figure out at compile time which action to execute for this function instance.
-			constexpr bool is_trigger = std::is_same<Action, sl::TriggerAction>::value;
-			constexpr bool is_add     = std::is_same<Action, sl::AddAction>::value;
-			constexpr bool is_destroy = std::is_same<Action, sl::DestroyAction>::value;
+			constexpr bool is_trigger = std::is_same<Action, events::TriggerAction>::value;
+			constexpr bool is_add     = std::is_same<Action, events::AddAction>::value;
+			constexpr bool is_destroy = std::is_same<Action, events::DestroyAction>::value;
 
 			// Discard unused branches and only compile used option.
 			if constexpr (is_trigger)

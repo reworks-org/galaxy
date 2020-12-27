@@ -40,9 +40,19 @@ namespace galaxy
 			BodyWrapper(const BodyWrapper&) = delete;
 
 			///
+			/// Move constructor.
+			///
+			BodyWrapper(BodyWrapper&&) = default;
+
+			///
 			/// Copy assignment operator.
 			///
 			BodyWrapper& operator=(const BodyWrapper&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			BodyWrapper& operator=(BodyWrapper&&) = default;
 
 			///
 			/// Destructor.

@@ -11,21 +11,20 @@
 #include <memory>
 #include <span>
 
-#include <galaxy/Context.hpp>
-#include <galaxy/async/ThreadPool.hpp>
-#include <galaxy/state/StateMachine.hpp>
-#include <galaxy/graphicsWindow.hpp>
-#include <galaxy/graphicsRenderer.hpp>
-#include <qs/graphics/TextureAtlas.hpp>
-#include <galaxy/Dispatcher.hpp>
 #include <sol/forward.hpp>
 
+#include "galaxy/audio/Context.hpp"
+#include "galaxy/async/ThreadPool.hpp"
 #include "galaxy/core/World.hpp"
+#include "galaxy/core/StateMachine.hpp"
+#include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/Serializer.hpp"
+#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/TextureAtlas.hpp"
+#include "galaxy/graphics/Window.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
-
 #include "galaxy/tools/DevTools.hpp"
 
 namespace galaxy
@@ -81,27 +80,27 @@ namespace galaxy
 			///
 			/// \param config Configuration file to construct application from.
 			///
-			explicit Application(std::unique_ptr<galaxy::Config>& config);
+			explicit Application(std::unique_ptr<fs::Config>& config);
 
 			///
 			/// Instance of a config reader to parse library config.
 			///
-			std::unique_ptr<galaxy::Config> m_config;
+			std::unique_ptr<fs::Config> m_config;
 
 			///
 			/// Threadpool for app.
 			///
-			std::unique_ptr<pr::ThreadPool<4>> m_threadpool;
+			std::unique_ptr<async::ThreadPool<4>> m_threadpool;
 
 			///
 			/// Main app window.
 			///
-			std::unique_ptr<Window> m_window;
+			std::unique_ptr<graphics::Window> m_window;
 
 			///
 			/// Main app renderer.
 			///
-			std::unique_ptr<Renderer> m_renderer;
+			std::unique_ptr<graphics::Renderer> m_renderer;
 
 			///
 			/// Master Lua state for application.
@@ -111,37 +110,37 @@ namespace galaxy
 			///
 			/// Controls game states.
 			///
-			std::unique_ptr<pr::StateMachine> m_state;
+			std::unique_ptr<StateMachine> m_state;
 
 			///
 			/// Process game events.
 			///
-			std::unique_ptr<sl::Dispatcher> m_dispatcher;
+			std::unique_ptr<events::Dispatcher> m_dispatcher;
 
 			///
 			/// The world class, which manages entities, components, systems, and other important data structures.
 			///
-			std::unique_ptr<galaxy::World> m_world;
+			std::unique_ptr<World> m_world;
 
 			///
 			/// Main serializer.
 			///
-			std::unique_ptr<galaxy::Serializer> m_serializer;
+			std::unique_ptr<fs::Serializer> m_serializer;
 
 			///
 			/// Library of all fonts.
 			///
-			std::unique_ptr<galaxy::FontBook> m_fontbook;
+			std::unique_ptr<res::FontBook> m_fontbook;
 
 			///
 			/// Library of all shaders.
 			///
-			std::unique_ptr<galaxy::ShaderBook> m_shaderbook;
+			std::unique_ptr<res::ShaderBook> m_shaderbook;
 
 			///
 			/// Texture atlas for all textures.
 			///
-			std::unique_ptr<TextureAtlas> m_texture_atlas;
+			std::unique_ptr<graphics::TextureAtlas> m_texture_atlas;
 
 		private:
 			///
@@ -152,12 +151,12 @@ namespace galaxy
 			///
 			/// OpenAL context.
 			///
-			galaxy::Context m_openal;
+			audio::Context m_openal;
 
 			///
 			/// Dev Tools.
 			///
-			DevTools m_tools;
+			tools::DevTools m_tools;
 		};
 	} // namespace core
 } // namespace galaxy

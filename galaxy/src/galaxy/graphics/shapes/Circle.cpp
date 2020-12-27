@@ -22,7 +22,7 @@ namespace galaxy
 			create(x, y, radius, fragments, colour);
 		}
 
-		Circle::Circle(const pr::Circle& circle, const unsigned int fragments, graphics::Colour& colour)
+		Circle::Circle(const graphics::Circle& circle, const unsigned int fragments, graphics::Colour& colour)
 		{
 			create(circle.get_x(), circle.get_y(), circle.radius(), fragments, colour);
 		}

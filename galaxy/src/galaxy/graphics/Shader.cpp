@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <filesystem>
+
 #include <nlohmann/json.hpp>
 
 #include "galaxy/fs/FileSystem.hpp"
