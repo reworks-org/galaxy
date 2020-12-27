@@ -32,8 +32,8 @@
 [submodule "dependencies/freetype2-win"]
 	path = dependencies/freetype2-win
 	url = https://github.com/ubawurinna/freetype-windows-binaries.git
-[submodule ".\\dependencies\\gsl"]
-	path = .\\dependencies\\gsl
+[submodule "dependencies/gsl"]
+	path = dependencies/gsl
 	url = https://github.com/microsoft/GSL.git
 [submodule "dependencies/cpp20/fmt"]
 	path = dependencies/cpp20/fmt
@@ -41,6 +41,10 @@
 [submodule "dependencies/cpp20/date"]
 	path = dependencies/cpp20/date
 	url = https://github.com/HowardHinnant/date.git
-[submodule ".\\dependencies\\zlib-ng"]
-	path = .\\dependencies\\zlib-ng
+[submodule "dependencies/zlib-ng"]
+	path = dependencies/zlib-ng
 	url = https://github.com/zlib-ng/zlib-ng.git
+	branch = develop
+[submodule "dependencies/cppcoro"]
+	path = dependencies/cppcoro
+	url = https://github.com/andreasbuhr/cppcoro.git

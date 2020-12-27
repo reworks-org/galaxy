@@ -8,11 +8,11 @@
 #ifndef SANDBOXTESTS_SANDBOX_HPP_
 #define SANDBOXTESTS_SANDBOX_HPP_
 
-#include <protostar/state/State.hpp>
+#include <galaxy/core/State.hpp>
 
 namespace sb
 {
-	class Sandbox : public pr::State
+	class Sandbox : public galaxy::core::State
 	{
 	public:
 		Sandbox();

@@ -2,9 +2,6 @@ Redshift:
 - air resistance
 - collision callbacks
 
-STARMAP:
-- move/copy constructors
-
 QUASAR:
 - C++20 review when eventual performance improvements are required.
 - QuadTree spacial partitioning for rendering.
@@ -21,25 +18,23 @@ DEV_TOOLS:
 - cleanup
 - 'static' cleanup
 
-Galaxy:
-- Restore data-driven design
-
-
 THE PLAN:
-- Every Class Should have a JSON & Lua interface.
 - Need to integrate clang-tidy and clang-format.
 - Need to integrate microsoft code analysis.
-- Engine needs to be cohesive.
-- Dependencies should only abstract away system specific implementations.
-- Proper use of 'noexcept', 'static', and 'multithreading'.
-- Use of coroutines over threading.
-- Utilize GSL.
 - All around CMAKE.
-- Each class requires ability to be serialized -> prefereably to JSON or Lua.
+
+
+
+- Restore data-driven design
+- Engine needs to be cohesive.
 - Async asset loading.
-- namespaces for classification over filenames i.e. galaxy::SpriteComponent -> galaxy::components::renderable.
-- rebrand to application programming framework.
-- readme update
+- Each class requires ability to be serialized -> prefereably to JSON or Lua.
+- Use of coroutines over threading.
+- Proper use of 'noexcept', 'static', and 'multithreading'.
+- Every Class Should have a JSON & Lua interface.
+- Utilize GSL.
+- Dependencies should only abstract away system specific implementations.
+- coroutines
 
 https://github.com/nlohmann/json/#arbitrary-types-conversions
 https://github.com/EQMG/Acid

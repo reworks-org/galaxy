@@ -5,25 +5,18 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_TOGGLEBUTTON_HPP_
-#define GALAXY_TOGGLEBUTTON_HPP_
+#ifndef GALAXY_UI_WIDGETS_TOGGLEBUTTON_HPP_
+#define GALAXY_UI_WIDGETS_TOGGLEBUTTON_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/events/MouseReleasedEvent.hpp>
-#include <qs/sprite/BatchedSprite.hpp>
-
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// \brief Simple ToggleButton widget.
@@ -31,7 +24,7 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class ToggleButton final : public galaxy::Widget, public qs::BatchedSprite
+		class ToggleButton final : public Widget, public graphics::BatchedSprite
 		{
 		public:
 			///
@@ -56,19 +49,9 @@ namespace galaxy
 			ToggleButton(const ToggleButton&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			ToggleButton(ToggleButton&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			ToggleButton& operator=(const ToggleButton&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			ToggleButton& operator=(ToggleButton&&) = default;
 
 			///
 			/// Destructor.
@@ -83,7 +66,7 @@ namespace galaxy
 			/// \param on_hover Texture when button is on and mouse is hovering.
 			/// \param off_hover Texture when button is off and mouse is hovering.
 			///
-			using qs::BatchedSprite::create;
+			using graphics::BatchedSprite::create;
 			void create(std::string_view on, std::string_view off, std::string_view on_hover, std::string_view off_hover);
 
 			///
@@ -107,14 +90,14 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// Triggered upon mouse click.
 			///
 			/// \param mpe Mouse Pressed Event.
 			///
-			void on_event(const pr::MousePressedEvent& mpe);
+			void on_event(const events::MousePressed& mpe);
 
 			///
 			/// \brief Update widget logic.
@@ -132,7 +115,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 			///
 			/// Check if togglebutton is toggled on.
@@ -160,7 +143,7 @@ namespace galaxy
 			///
 			/// Contains each region on the texture atlas.
 			///
-			std::array<pr::Rect<float>, 4> m_regions;
+			std::array<graphics::Rect<float>, 4> m_regions;
 		};
 
 		template<typename Callback>
@@ -168,7 +151,7 @@ namespace galaxy
 		{
 			m_callback = std::move(func);
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

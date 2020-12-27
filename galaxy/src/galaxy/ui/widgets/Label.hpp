@@ -5,22 +5,15 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_LABEL_HPP_
-#define GALAXY_LABEL_HPP_
+#ifndef GALAXY_UI_WIDGETS_LABEL_HPP_
+#define GALAXY_UI_WIDGETS_LABEL_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-
+#include "galaxy/events/MouseMoved.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// \brief Simple Label widget.
@@ -28,7 +21,7 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Label final : public galaxy::Widget
+		class Label final : public Widget
 		{
 		public:
 			///
@@ -42,19 +35,9 @@ namespace galaxy
 			Label(const Label&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Label(Label&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			Label& operator=(const Label&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Label& operator=(Label&&) = default;
 
 			///
 			/// Destructor.
@@ -83,7 +66,7 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// \brief Update widget logic.
@@ -101,7 +84,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 			///
 			/// Sets position without moving the object.
@@ -115,9 +98,9 @@ namespace galaxy
 			///
 			/// Text to render.
 			///
-			qs::Text m_text;
+			graphics::Text m_text;
 		};
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

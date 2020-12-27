@@ -5,25 +5,18 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_BUTTON_HPP_
-#define GALAXY_BUTTON_HPP_
+#ifndef GALAXY_UI_WIDGETS_BUTTON_HPP_
+#define GALAXY_UI_WIDGETS_BUTTON_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/events/MouseReleasedEvent.hpp>
-#include <qs/sprite/BatchedSprite.hpp>
-
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// \brief Simple Button widget.
@@ -31,7 +24,7 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Button final : public galaxy::Widget, public qs::BatchedSprite
+		class Button final : public Widget, public graphics::BatchedSprite
 		{
 		public:
 			///
@@ -55,19 +48,9 @@ namespace galaxy
 			Button(const Button&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Button(Button&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			Button& operator=(const Button&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Button& operator=(Button&&) = default;
 
 			///
 			/// Destructor.
@@ -81,7 +64,7 @@ namespace galaxy
 			/// \param pressed Texture when button is being pressed.
 			/// \param hover Texture when mouse is hovering over widget.
 			///
-			using qs::BatchedSprite::create;
+			using graphics::BatchedSprite::create;
 			void create(std::string_view def, std::string_view pressed, std::string_view hover);
 
 			///
@@ -105,21 +88,21 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// Triggered upon mouse click.
 			///
 			/// \param mpe Mouse Pressed Event.
 			///
-			void on_event(const pr::MousePressedEvent& mpe);
+			void on_event(const events::MousePressed& mpe);
 
 			///
 			/// Triggered upon mouse release.
 			///
 			/// \param mre Mouse Released Event.
 			///
-			void on_event(const pr::MouseReleasedEvent& mre);
+			void on_event(const events::MouseReleased& mre);
 
 			///
 			/// \brief Update widget logic.
@@ -137,7 +120,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 		private:
 			///
@@ -153,7 +136,7 @@ namespace galaxy
 			///
 			/// Contains each region on the texture atlas.
 			///
-			std::array<pr::Rect<float>, 3> m_regions;
+			std::array<graphics::Rect<float>, 3> m_regions;
 		};
 
 		template<typename Callback>
@@ -161,7 +144,7 @@ namespace galaxy
 		{
 			m_callback = std::move(func);
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

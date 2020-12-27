@@ -1,86 +1,87 @@
 ///
 /// Character.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_CHARACTER_HPP_
-#define QUASAR_CHARACTER_HPP_
+#ifndef GALAXY_GRAPHICS_TEXT_CHARACTER_HPP_
+#define GALAXY_GRAPHICS_TEXT_CHARACTER_HPP_
 
 #include <glm/vec2.hpp>
-#include <protostar/graphics/Rect.hpp>
 
-///
-/// Core namespace.
-///
-namespace qs
+#include "galaxy/graphics/shapes/Rect.hpp"
+
+namespace galaxy
 {
-	///
-	/// A character in a font.
-	///
-	class Character final
+	namespace graphics
 	{
-		friend class Font;
-		friend class Text;
+		///
+		/// A character in a font.
+		///
+		class Character final
+		{
+			friend class Font;
+			friend class Text;
 
-	public:
-		///
-		/// Constructor.
-		///
-		Character();
+		public:
+			///
+			/// Constructor.
+			///
+			Character();
 
-		///
-		/// Copy constructor.
-		///
-		Character(const Character&) = delete;
+			///
+			/// Copy constructor.
+			///
+			Character(const Character&) = delete;
 
-		///
-		/// Move constructor.
-		///
-		Character(Character&&);
+			///
+			/// Move constructor.
+			///
+			Character(Character&&);
 
-		///
-		/// Copy assignment operator.
-		///
-		Character& operator=(const Character&) = delete;
+			///
+			/// Copy assignment operator.
+			///
+			Character& operator=(const Character&) = delete;
 
-		///
-		/// Move assignment operator.
-		///
-		Character& operator=(Character&&);
+			///
+			/// Move assignment operator.
+			///
+			Character& operator=(Character&&);
 
-		///
-		/// Destructor.
-		///
-		~Character();
+			///
+			/// Destructor.
+			///
+			~Character();
 
-	private:
-		///
-		/// OpenGL texture.
-		///
-		unsigned int m_gl_texture;
+		private:
+			///
+			/// OpenGL texture.
+			///
+			unsigned int m_gl_texture;
 
-		///
-		/// Character size.
-		///
-		glm::ivec2 m_size;
+			///
+			/// Character size.
+			///
+			glm::ivec2 m_size;
 
-		///
-		/// Character bearing.
-		///
-		glm::ivec2 m_bearing;
+			///
+			/// Character bearing.
+			///
+			glm::ivec2 m_bearing;
 
-		///
-		/// Character advance.
-		///
-		unsigned int m_advance;
+			///
+			/// Character advance.
+			///
+			unsigned int m_advance;
 
-		///
-		/// Texture region.
-		///
-		pr::Rect<float> m_region;
-	};
-} // namespace qs
+			///
+			/// Texture region.
+			///
+			graphics::Rect<float> m_region;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

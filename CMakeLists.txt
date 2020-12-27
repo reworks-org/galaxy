@@ -168,11 +168,20 @@ set(WITH_INFLATE_STRICT OFF CACHE BOOL "" FORCE)
 set(WITH_INFLATE_ALLOW_INVALID_DIST OFF CACHE BOOL "" FORCE)
 set(WITH_UNALIGNED ON CACHE BOOL "" FORCE)
 add_subdirectory(dependencies/zlib-ng)
-set_target_properties(zlibstatic PROPERTIES
+set_target_properties(zlib PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
+)
+
+set(BUILD_TESTING OFF CACHE BOOL "" FORCE)
+add_subdirectory(dependencies/cppcoro)
+set_target_properties(cppcoro PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
+    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
 )
 
 # Set dependencies to not show compiler errors.
@@ -184,19 +193,12 @@ if (MSVC)
 	target_compile_options(vorbisfile PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(zlibstatic PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+    target_compile_options(cppcoro PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 endif()
 
 # Configure post CMake-gen.
-# This fixes in-source builds for these libs.
-#set(SIZE16 int16_t)
-#set(USIZE16 uint16_t)
-#set(SIZE32 int32_t)
-#set(USIZE32 uint32_t)
-#set(SIZE64 int64_t)
-#set(USIZE64 uint64_t)
 #configure_file(${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h @ONLY)
-#configure_file(${CMAKE_SOURCE_DIR}/dependencies/zlib-conf/zconf.h ${CMAKE_SOURCE_DIR}/dependencies/zlib/zconf.h @ONLY)
 
 # Import applications
 add_subdirectory(sandbox_tests)
@@ -208,7 +210,8 @@ add_dependencies(galaxy ogg)
 add_dependencies(galaxy vorbis)
 add_dependencies(galaxy OpenAL)
 add_dependencies(galaxy common)
-add_dependencies(galaxy zlibstatic)
+add_dependencies(galaxy zlib)
+add_dependencies(galaxy cppcoro)
 add_dependencies(galaxy dependencies)
 add_dependencies(sandbox_test galaxy)
 add_dependencies(tests galaxy)
@@ -236,8 +239,10 @@ set(SHARED_HEADERS
     "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
 	"${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
+    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
     "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
-	"${CMAKE_SOURCE_DIR}/galaxy/galaxy/src"
+    "${CMAKE_SOURCE_DIR}/dependencies/cppcoro/include"
+	"${CMAKE_SOURCE_DIR}/galaxy/src"
 	"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
 )
 set(ALL_HEADERS "${SHARED_HEADERS}")
@@ -309,18 +314,11 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Debug/cppcoro.${LIB_FILE_EXT}")
 
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.${LIB_FILE_EXT}")
 
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.${LIB_FILE_EXT}")
@@ -329,18 +327,11 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibstaticd.${LIB_FILE_EXT}")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Debug/cppcoro.${LIB_FILE_EXT}")
 
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Debug/frb.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Debug/protostar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Debug/pulsar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Debug/quasar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Debug/redshift.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Debug/solar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Debug/starlight.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Debug/starmap.${LIB_FILE_EXT}")
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
 	target_compile_definitions(dependencies PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
 	target_compile_definitions(galaxy PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_RELEASE})
@@ -364,18 +355,11 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Release/cppcoro.${LIB_FILE_EXT}")
 
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.${LIB_FILE_EXT}")
     target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.${LIB_FILE_EXT}")
-    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.${LIB_FILE_EXT}")
 
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.${LIB_FILE_EXT}")
@@ -384,18 +368,11 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlibstatic.${LIB_FILE_EXT}")
+    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
+    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Release/cppcoro.${LIB_FILE_EXT}")
 
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/frb/Release/frb.${LIB_FILE_EXT}")
     target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/protostar/Release/protostar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/pulsar/Release/pulsar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/quasar/Release/quasar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/redshift/Release/redshift.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/solar/Release/solar.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starlight/Release/starlight.${LIB_FILE_EXT}")
-    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/starmap/Release/starmap.${LIB_FILE_EXT}")
 else()
 	message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 endif()

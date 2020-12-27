@@ -5,28 +5,21 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_PROGRESSBAR_HPP_
-#define GALAXY_PROGRESSBAR_HPP_
+#ifndef GALAXY_UI_WIDGETS_PROGRESSBAR_HPP_
+#define GALAXY_UI_WIDGETS_PROGRESSBAR_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <qs/sprite/BatchedSprite.hpp>
-
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// UI bar that can be moved to increment and decrement a value.
 		///
-		class Progressbar final : public galaxy::Widget
+		class Progressbar final : public Widget
 		{
 			friend class GUI;
 
@@ -42,19 +35,9 @@ namespace galaxy
 			Progressbar(const Progressbar&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Progressbar(Progressbar&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			Progressbar& operator=(const Progressbar&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Progressbar& operator=(Progressbar&&) = default;
 
 			///
 			/// Destructor.
@@ -74,7 +57,7 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// \brief Update widget logic.
@@ -92,7 +75,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 			///
 			/// Sets position without moving the object.
@@ -137,19 +120,19 @@ namespace galaxy
 			///
 			/// Bounds of bar on bar.
 			///
-			pr::Rect<float> m_bar_pos;
+			graphics::Rect<float> m_bar_pos;
 
 			///
 			/// Progressbar texture.
 			///
-			qs::BatchedSprite m_container;
+			graphics::BatchedSprite m_container;
 
 			///
 			/// Bar texture.
 			///
-			qs::BatchedSprite m_bar;
+			graphics::BatchedSprite m_bar;
 		};
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

@@ -1,162 +1,142 @@
 ///
 /// Animation.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_ANIMATION_HPP_
-#define QUASAR_ANIMATION_HPP_
+#ifndef GALAXY_GRAPHICS_ANIM_ANIMATION_HPP_
+#define GALAXY_GRAPHICS_ANIM_ANIMATION_HPP_
 
 #include <span>
 #include <string>
 #include <vector>
 
-#include <qs/anim/Frame.hpp>
+#include "galaxy/graphics/anim/Frame.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Animation.
-	///
-	class Animation final
+	namespace graphics
 	{
-	public:
 		///
-		/// Default animation.
+		/// Animation.
 		///
-		Animation();
+		class Animation final
+		{
+		public:
+			///
+			/// Default animation.
+			///
+			Animation();
 
-		///
-		/// Argument constructor.
-		///
-		/// \param name ID of animation.
-		/// \param looping Does animation repeat.
-		/// \param speed Multiplier. Speed of animation.
-		/// \param frames Frames in the animation.
-		///
-		Animation(std::string_view name, bool looping, const double speed, std::span<qs::Frame> frames);
+			///
+			/// Argument constructor.
+			///
+			/// \param name ID of animation.
+			/// \param looping Does animation repeat.
+			/// \param speed Multiplier. Speed of animation.
+			/// \param frames Frames in the animation.
+			///
+			Animation(std::string_view name, bool looping, const double speed, std::span<Frame> frames);
 
-		///
-		/// Copy constructor.
-		///
-		Animation(const Animation&);
+			///
+			/// Destructor.
+			///
+			~Animation();
 
-		///
-		/// Move constructor.
-		///
-		Animation(Animation&&);
+			///
+			/// Restart animation from beginning.
+			///
+			void restart();
 
-		///
-		/// Copy assignment operator.
-		///
-		Animation& operator=(const Animation&);
+			///
+			/// Advance to the next frame.
+			///
+			/// \return Also returns a pointer to the next frame, saving you an extra call to get_current_frame().
+			///
+			[[maybe_unused]] Frame* next_frame();
 
-		///
-		/// Move assignment operator.
-		///
-		Animation& operator=(Animation&&);
+			///
+			/// Get animation identifier.
+			///
+			/// \return Const std::string.
+			///
+			[[nodiscard]] const std::string& get_name();
 
-		///
-		/// Destructor.
-		///
-		~Animation();
+			///
+			/// Is animation looping.
+			///
+			/// \return Const bool.
+			///
+			[[nodiscard]] const bool is_looping() const;
 
-		///
-		/// Restart animation from beginning.
-		///
-		void restart();
+			///
+			/// Get animation speed.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const double get_speed() const;
 
-		///
-		/// Advance to the next frame.
-		///
-		/// \return Also returns a pointer to the next frame, saving you an extra call to get_current_frame().
-		///
-		[[maybe_unused]] qs::Frame* next_frame();
+			///
+			/// Get total frames in animation.
+			///
+			/// \return Const std::size_t.
+			///
+			[[nodiscard]] const std::size_t get_total_frames() const;
 
-		///
-		/// Get animation identifier.
-		///
-		/// \return Const std::string.
-		///
-		[[nodiscard]] const std::string& get_name();
+			///
+			/// Get current active animation frame.
+			///
+			/// \return Pointer to current active frame.
+			///
+			[[nodiscard]] const Frame* get_current_frame() const;
 
-		///
-		/// Is animation looping.
-		///
-		/// \return Const bool.
-		///
-		[[nodiscard]] const bool is_looping() const;
+			///
+			/// Get current frame.
+			///
+			/// \return Const std::vector of Frames.
+			///
+			[[nodiscard]] const auto& get_frames();
 
-		///
-		/// Get animation speed.
-		///
-		/// \return Const float.
-		///
-		[[nodiscard]] const double get_speed() const;
+		private:
+			///
+			/// The current frame the animation is on.
+			///
+			Frame* m_active_frame;
 
-		///
-		/// Get total frames in animation.
-		///
-		/// \return Const std::size_t.
-		///
-		[[nodiscard]] const std::size_t get_total_frames() const;
+			///
+			/// Name of the animation.
+			///
+			std::string m_name;
 
-		///
-		/// Get current active animation frame.
-		///
-		/// \return Pointer to current active frame.
-		///
-		[[nodiscard]] const qs::Frame* get_current_frame() const;
+			///
+			/// Does the animation repeat.
+			///
+			bool m_looping;
 
-		///
-		/// Get current frame.
-		///
-		/// \return Const std::vector of qs::Frames.
-		///
-		[[nodiscard]] const auto& get_frames();
+			///
+			/// Speed of the animation.
+			/// Multiplier, so 1.0f is regular speed.
+			///
+			double m_speed;
 
-	private:
-		///
-		/// The current frame the animation is on.
-		///
-		qs::Frame* m_active_frame;
+			///
+			/// Total number of frames in animation.
+			///
+			std::size_t m_total_frames;
 
-		///
-		/// Name of the animation.
-		///
-		std::string m_name;
+			///
+			/// Index of the current active frame.
+			///
+			std::size_t m_current_frame_index;
 
-		///
-		/// Does the animation repeat.
-		///
-		bool m_looping;
-
-		///
-		/// Speed of the animation.
-		/// Multiplier, so 1.0f is regular speed.
-		///
-		double m_speed;
-
-		///
-		/// Total number of frames in animation.
-		///
-		std::size_t m_total_frames;
-
-		///
-		/// Index of the current active frame.
-		///
-		std::size_t m_current_frame_index;
-
-		///
-		/// The frames that make up the animation.
-		/// Each frame contains a duration and a textureID.
-		///
-		std::vector<qs::Frame> m_frames;
-	};
-} // namespace qs
+			///
+			/// The frames that make up the animation.
+			/// Each frame contains a duration and a textureID.
+			///
+			std::vector<Frame> m_frames;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

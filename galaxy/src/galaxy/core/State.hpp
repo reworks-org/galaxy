@@ -1,127 +1,107 @@
 ///
 /// State.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_STATE_HPP_
-#define PROTOSTAR_STATE_HPP_
+#ifndef GALAXY_CORE_STATE_HPP_
+#define GALAXY_CORE_STATE_HPP_
 
-#include "protostar/state/LayerStorage.hpp"
+#include "galaxy/core/LayerStorage.hpp"
 
-///
-/// Core namespace.
-///
-namespace pr
+namespace galaxy
 {
-	///
-	/// Represents one of many possible object states.
-	///
-	class State
+	namespace core
 	{
-	public:
 		///
-		/// Copy constructor.
+		/// Represents one of many possible object states.
 		///
-		State(const State&);
+		class State
+		{
+		public:
+			///
+			/// Destructor.
+			///
+			virtual ~State() = default;
 
-		///
-		/// Move constructor.
-		///
-		State(State&&);
+			///
+			/// \brief Called when state is pushed.
+			///
+			virtual void on_push() = 0;
 
-		///
-		/// Copy assignment operator.
-		///
-		State& operator=(const State&);
+			///
+			/// \brief Called when state is popped.
+			///
+			virtual void on_pop() = 0;
 
-		///
-		/// Move assignment operator.
-		///
-		State& operator=(State&&);
+			///
+			/// Allows for the state to process events.
+			///
+			virtual void events() = 0;
 
-		///
-		/// Destructor.
-		///
-		virtual ~State() = default;
+			///
+			/// \brief Allows for the state to utilize fixed timestep updates.
+			///
+			/// \param dt Delta-Time from fixed timestep gameloop.
+			///
+			virtual void update(const double dt) = 0;
 
-		///
-		/// \brief Called when state is pushed.
-		///
-		virtual void on_push() = 0;
+			///
+			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
+			///
+			virtual void pre_render() = 0;
 
-		///
-		/// \brief Called when state is popped.
-		///
-		virtual void on_pop() = 0;
+			///
+			/// Allows for the state to call render code.
+			///
+			virtual void render() = 0;
 
-		///
-		/// Allows for the state to process events.
-		///
-		virtual void events() = 0;
+			///
+			/// Set state name.
+			///
+			/// \param name Name in std::string format.
+			///
+			void set_name(std::string_view name);
 
-		///
-		/// \brief Allows for the state to utilize fixed timestep updates.
-		///
-		/// \param dt Delta-Time from fixed timestep gameloop.
-		///
-		virtual void update(const double dt) = 0;
+			///
+			/// Get state name.
+			///
+			/// \return Const std::string.
+			///
+			const std::string& get_name() const;
 
-		///
-		/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
-		///
-		virtual void pre_render() = 0;
+			///
+			/// Get layer storage.
+			///
+			/// \return Pointer to state's layer storage stack.
+			///
+			[[nodiscard]] LayerStorage* get_layers();
 
-		///
-		/// Allows for the state to call render code.
-		///
-		virtual void render() = 0;
+		protected:
+			///
+			/// Default constructor.
+			///
+			State();
 
-		///
-		/// Set state name.
-		///
-		/// \param name Name in std::string format.
-		///
-		void set_name(std::string_view name);
+			///
+			/// Argument constructor.
+			///
+			/// \param name Give a name to the state.
+			///
+			State(std::string_view name);
 
-		///
-		/// Get state name.
-		///
-		/// \return Const std::string.
-		///
-		const std::string& get_name() const;
+			///
+			/// State name. Useful to have.
+			///
+			std::string m_name;
 
-		///
-		/// Get layer storage.
-		///
-		/// \return Pointer to state's layer storage stack.
-		///
-		[[nodiscard]] LayerStorage* get_layers();
-
-	protected:
-		///
-		/// Default constructor.
-		///
-		State();
-
-		///
-		/// Argument constructor.
-		///
-		/// \param name Give a name to the state.
-		///
-		explicit State(std::string_view name);
-
-		///
-		/// State name. Useful to have.
-		///
-		std::string m_name;
-
-		///
-		/// Layers in this state.
-		///
-		LayerStorage m_layers;
-	};
-} // namespace pr
+			///
+			/// Layers in this state.
+			///
+			LayerStorage m_layers;
+		};
+	} // namespace core
+} // namespace galaxy
 
 #endif

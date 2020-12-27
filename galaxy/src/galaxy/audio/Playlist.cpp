@@ -1,6 +1,6 @@
 ///
 /// Playlist.cpp
-/// frb
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///

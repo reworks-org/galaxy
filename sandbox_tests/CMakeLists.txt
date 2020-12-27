@@ -22,9 +22,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 # Postbuild shader copy.
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    add_custom_command(TARGET sandbox_test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/galaxy/quasar/shaders" "${CMAKE_SOURCE_DIR}/sandbox_tests/bin/Debug/assets/shaders")
+    add_custom_command(TARGET sandbox_test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/galaxy/src/galaxy/graphics/shaders" "${CMAKE_SOURCE_DIR}/sandbox_tests/bin/Debug/assets/shaders")
 elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    add_custom_command(TARGET sandbox_test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/galaxy/quasar/shaders" "${CMAKE_SOURCE_DIR}/sandbox_tests/bin/Debug/assets/shaders")
+    add_custom_command(TARGET sandbox_test POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/galaxy/src/galaxy/graphics/shaders" "${CMAKE_SOURCE_DIR}/sandbox_tests/bin/Debug/assets/shaders")
 else()
     message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 endif()

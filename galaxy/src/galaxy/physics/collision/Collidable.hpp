@@ -1,69 +1,49 @@
 ///
 /// Collidable.hpp
-/// redshift
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REDSHIFT_COLLIDABLE_HPP_
-#define REDSHIFT_COLLIDABLE_HPP_
+#ifndef GALAXY_PHYSICS_COLLISION_COLLIDABLE_HPP_
+#define GALAXY_PHYSICS_COLLISION_COLLIDABLE_HPP_
 
-#include "redshift/collision/AABB.hpp"
+#include "galaxy/physics/collision/AABB.hpp"
 
-///
-/// Core namespace.
-///
-namespace rs
+namespace galaxy
 {
-	///
-	/// Interface to allow an object to collide with another object.
-	///
-	class Collidable
+	namespace physics
 	{
-	public:
 		///
-		/// Destructor.
+		/// Interface to allow an object to collide with another object.
 		///
-		virtual ~Collidable() = default;
+		class Collidable
+		{
+		public:
+			///
+			/// Destructor.
+			///
+			virtual ~Collidable() = default;
 
-		///
-		/// Retrieve AABB bounds.
-		///
-		/// \return Reference to AABB box.
-		///
-		[[nodiscard]] AABB& get_aabb() noexcept;
+			///
+			/// Retrieve AABB bounds.
+			///
+			/// \return Reference to AABB box.
+			///
+			[[nodiscard]] AABB& get_aabb();
 
-	protected:
-		///
-		/// Constructor.
-		///
-		Collidable() = default;
+		protected:
+			///
+			/// Constructor.
+			///
+			Collidable() = default;
 
-		///
-		/// Copy constructor.
-		///
-		Collidable(const Collidable&) = default;
-
-		///
-		/// Move constructor.
-		///
-		Collidable(Collidable&&) = default;
-
-		///
-		/// Copy assignment operator.
-		///
-		Collidable& operator=(const Collidable&) = default;
-
-		///
-		/// Move assignment operator.
-		///
-		Collidable& operator=(Collidable&&) = default;
-
-		///
-		/// AABB box.
-		///
-		AABB m_aabb;
-	};
-} // namespace rs
+			///
+			/// AABB box.
+			///
+			AABB m_aabb;
+		};
+	} // namespace physics
+} // namespace galaxy
 
 #endif

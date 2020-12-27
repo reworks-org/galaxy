@@ -5,23 +5,16 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_IMAGE_HPP_
-#define GALAXY_IMAGE_HPP_
+#ifndef GALAXY_UI_WIDGETS_IMAGE_HPP_
+#define GALAXY_UI_WIDGETS_IMAGE_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <qs/sprite/SpriteBatch.hpp>
-
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// \brief Simple image widget.
@@ -29,7 +22,7 @@ namespace galaxy
 		/// ANY FUNCTIONS YOU BIND TO AN EVENT ARE NOT CALLED ON THE MAIN THREAD.
 		/// DO NOT CALL GL CODE IN EVENT FUNCTIONS.
 		///
-		class Image final : public galaxy::Widget, public qs::BatchedSprite
+		class Image final : public Widget, public graphics::BatchedSprite
 		{
 		public:
 			///
@@ -43,19 +36,9 @@ namespace galaxy
 			Image(const Image&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Image(Image&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			Image& operator=(const Image&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Image& operator=(Image&&) = default;
 
 			///
 			/// Destructor.
@@ -67,7 +50,7 @@ namespace galaxy
 			///
 			/// \param name Name of the texture to use.
 			///
-			using qs::BatchedSprite::create;
+			using graphics::BatchedSprite::create;
 			void create(std::string_view name);
 
 			///
@@ -83,7 +66,7 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// \brief Update widget logic.
@@ -101,9 +84,9 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 		};
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

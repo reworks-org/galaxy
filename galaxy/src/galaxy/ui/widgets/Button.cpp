@@ -5,19 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
+#include "galaxy/graphics/Renderer.hpp"
 
 #include "Button.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		Button::Button()
 		    : m_state {Button::State::DEFAULT}
@@ -34,7 +28,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", def);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", def);
 			}
 
 			auto opt1 = m_theme->m_atlas.get_region(pressed);
@@ -44,7 +38,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", pressed);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", pressed);
 			}
 
 			auto opt2 = m_theme->m_atlas.get_region(hover);
@@ -54,7 +48,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", hover);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", hover);
 			}
 
 			m_bounds.m_width  = m_regions.at(0).m_width;
@@ -72,7 +66,7 @@ namespace galaxy
 			m_dirty       = true;
 		}
 
-		void Button::on_event(const pr::MouseMovedEvent& mme)
+		void Button::on_event(const events::MouseMoved& mme)
 		{
 			if (m_bounds.contains(mme.m_x, mme.m_y))
 			{
@@ -95,7 +89,7 @@ namespace galaxy
 			}
 		}
 
-		void Button::on_event(const pr::MousePressedEvent& mpe)
+		void Button::on_event(const events::MousePressed& mpe)
 		{
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
@@ -117,7 +111,7 @@ namespace galaxy
 			}
 		}
 
-		void Button::on_event(const pr::MouseReleasedEvent& mre)
+		void Button::on_event(const events::MouseReleased& mre)
 		{
 			if (m_bounds.contains(mre.m_x, mre.m_y))
 			{
@@ -158,7 +152,7 @@ namespace galaxy
 			}
 		}
 
-		void Button::render(qs::Camera& camera)
+		void Button::render(graphics::Camera& camera)
 		{
 			if (m_tooltip)
 			{
@@ -168,5 +162,5 @@ namespace galaxy
 				}
 			}
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

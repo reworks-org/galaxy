@@ -1,91 +1,91 @@
 ///
 /// Grid.hpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARMAP_GRID_HPP_
-#define STARMAP_GRID_HPP_
+#ifndef GALAXY_MAP_TYPES_GRID_HPP_
+#define GALAXY_MAP_TYPES_GRID_HPP_
 
 #include <nlohmann/json_fwd.hpp>
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	///
-	/// This element is only used in case of isometric orientation, and determines how tile overlays for terrain and collision information are rendered.
-	///
-	class Grid final
+	namespace map
 	{
-	public:
 		///
-		/// Default constructor.
+		/// This element is only used in case of isometric orientation, and determines how tile overlays for terrain and collision information are rendered.
 		///
-		Grid();
+		class Grid final
+		{
+		public:
+			///
+			/// Default constructor.
+			///
+			Grid();
 
-		///
-		/// \brief Parse constructor.
-		///
-		/// Can throw exceptions.
-		///
-		/// \param json JSON structure/array containing Grid.
-		///
-		explicit Grid(const nlohmann::json& json);
+			///
+			/// \brief Parse constructor.
+			///
+			/// Can throw exceptions.
+			///
+			/// \param json JSON structure/array containing Grid.
+			///
+			explicit Grid(const nlohmann::json& json);
 
-		///
-		/// Destructor.
-		///
-		~Grid() = default;
+			///
+			/// Destructor.
+			///
+			~Grid() = default;
 
-		///
-		/// \brief Parses json structure to member values; etc.
-		///
-		/// Can throws exceptions.
-		///
-		/// \param json JSON structure containing chunk array from root->layer.
-		///
-		void parse(const nlohmann::json& json);
+			///
+			/// \brief Parses json structure to member values; etc.
+			///
+			/// Can throws exceptions.
+			///
+			/// \param json JSON structure containing chunk array from root->layer.
+			///
+			void parse(const nlohmann::json& json);
 
-		///
-		/// Get cell height of tile grid.
-		///
-		/// \return Const int.
-		///
-		[[nodiscard]] const int get_height() const;
+			///
+			/// Get cell height of tile grid.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_height() const;
 
-		///
-		/// Get the orientation of the grid.
-		///
-		/// \return String, format: orthogonal (default) or isometric.
-		///
-		[[nodiscard]] std::string get_orientation() const;
+			///
+			/// Get the orientation of the grid.
+			///
+			/// \return String, format: orthogonal (default) or isometric.
+			///
+			[[nodiscard]] std::string get_orientation() const;
 
-		///
-		/// Get cell width of tile grid.
-		///
-		/// \return Const int.
-		///
-		[[nodiscard]] const int get_width() const;
+			///
+			/// Get cell width of tile grid.
+			///
+			/// \return Const int.
+			///
+			[[nodiscard]] const int get_width() const;
 
-	private:
-		///
-		/// Cell height of tile grid.
-		///
-		int m_height;
+		private:
+			///
+			/// Cell height of tile grid.
+			///
+			int m_height;
 
-		///
-		/// Orientation of the grid for the tiles in this tileset.
-		///
-		std::string m_orientation;
+			///
+			/// Orientation of the grid for the tiles in this tileset.
+			///
+			std::string m_orientation;
 
-		///
-		/// Cell width of tile grid.
-		///
-		int m_width;
-	};
-} // namespace starmap
+			///
+			/// Cell width of tile grid.
+			///
+			int m_width;
+		};
+	} // namespace map
+} // namespace galaxy
 
 #endif

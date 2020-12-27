@@ -5,19 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
+#include "galaxy/graphics/Renderer.hpp"
 
 #include "ToggleButton.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		ToggleButton::ToggleButton()
 		    : m_state {ToggleButton::State::OFF}, m_on {false}
@@ -34,7 +28,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", on);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", on);
 			}
 
 			auto opt1 = m_theme->m_atlas.get_region(off);
@@ -44,7 +38,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", off);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", off);
 			}
 
 			auto opt2 = m_theme->m_atlas.get_region(on_hover);
@@ -54,7 +48,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", on_hover);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", on_hover);
 			}
 
 			auto opt3 = m_theme->m_atlas.get_region(off_hover);
@@ -64,7 +58,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create button sprite from {0}.", off_hover);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create button sprite from {0}.", off_hover);
 			}
 
 			m_bounds.m_width  = m_regions.at(0).m_width;
@@ -82,7 +76,7 @@ namespace galaxy
 			m_dirty       = true;
 		}
 
-		void ToggleButton::on_event(const pr::MouseMovedEvent& mme)
+		void ToggleButton::on_event(const events::MouseMoved& mme)
 		{
 			if (m_bounds.contains(mme.m_x, mme.m_y))
 			{
@@ -119,7 +113,7 @@ namespace galaxy
 			}
 		}
 
-		void ToggleButton::on_event(const pr::MousePressedEvent& mpe)
+		void ToggleButton::on_event(const events::MousePressed& mpe)
 		{
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
@@ -172,7 +166,7 @@ namespace galaxy
 			}
 		}
 
-		void ToggleButton::render(qs::Camera& camera)
+		void ToggleButton::render(graphics::Camera& camera)
 		{
 			if (m_tooltip)
 			{
@@ -187,5 +181,5 @@ namespace galaxy
 		{
 			return m_on;
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

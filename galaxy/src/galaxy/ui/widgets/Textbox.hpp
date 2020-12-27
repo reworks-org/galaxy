@@ -5,30 +5,23 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_TEXTBOX_HPP_
-#define GALAXY_TEXTBOX_HPP_
+#ifndef GALAXY_UI_WIDGETS_TEXTBOX_HPP_
+#define GALAXY_UI_WIDGETS_TEXTBOX_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/KeyDownEvent.hpp>
-#include <protostar/system/Time.hpp>
-#include <qs/sprite/BatchedSprite.hpp>
-
+#include "galaxy/async/Timer.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// JRPG style textbox.
 		///
-		class Textbox final : public galaxy::Widget, public qs::BatchedSprite
+		class Textbox final : public Widget, public graphics::BatchedSprite
 		{
 			friend class GUI;
 
@@ -44,19 +37,9 @@ namespace galaxy
 			Textbox(const Textbox&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Textbox(Textbox&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			Textbox& operator=(const Textbox&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Textbox& operator=(Textbox&&) = default;
 
 			///
 			/// Destructor.
@@ -73,7 +56,7 @@ namespace galaxy
 			/// \param font Font for the displayed text.
 			/// \param border_width Border around textbox - text will be rendered centered inside.
 			///
-			using qs::BatchedSprite::create;
+			using graphics::BatchedSprite::create;
 			void create(std::string_view box, std::string_view indicator, std::string_view font, float border_width);
 
 			///
@@ -81,14 +64,14 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// Triggered upon key down.
 			///
 			/// \param kde Key Down Event.
 			///
-			void on_event(const pr::KeyDownEvent& kde);
+			void on_event(const events::KeyDown& kde);
 
 			///
 			/// \brief Update widget logic.
@@ -106,7 +89,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 			///
 			/// Set textbox messages.
@@ -127,12 +110,12 @@ namespace galaxy
 			///
 			/// Text to render.
 			///
-			qs::Text m_text;
+			graphics::Text m_text;
 
 			///
 			/// Indicator.
 			///
-			qs::BatchedSprite m_indicator;
+			graphics::BatchedSprite m_indicator;
 
 			///
 			/// Text to display in textbox.
@@ -152,12 +135,12 @@ namespace galaxy
 			///
 			/// Timer for indicator.
 			///
-			pr::Timer m_indicator_timer;
+			async::Timer m_indicator_timer;
 
 			///
 			/// Timer for text.
 			///
-			pr::Timer m_draw_text_timer;
+			async::Timer m_draw_text_timer;
 
 			///
 			/// Current index of textbox messages.
@@ -194,7 +177,7 @@ namespace galaxy
 			///
 			std::mutex m_mutex;
 		};
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

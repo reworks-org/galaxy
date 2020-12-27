@@ -8,20 +8,19 @@
 #ifndef SANDBOXTESTS_SANDBOXLAYER_HPP_
 #define SANDBOXTESTS_SANDBOXLAYER_HPP_
 
-#include <qs/core/Window.hpp>
 #include <galaxy/core/World.hpp>
-#include <protostar/state/Layer.hpp>
-#include <qs/shapes/Point.hpp>
-#include <qs/shapes/Circle.hpp>
-#include <qs/post/PointLight.hpp>
-#include <qs/post/Simple.hpp>
-#include <qs/graphics/Camera.hpp>
-
-#include <qs/graphics/ParticleGenerator.hpp>
+#include <galaxy/core/Layer.hpp>
+#include <galaxy/graphics/Camera.hpp>
+#include <galaxy/graphics/shapes/Point.hpp>
+#include <galaxy/graphics/shapes/Circle.hpp>
+#include <galaxy/graphics/particle/ParticleGenerator.hpp>
+#include <galaxy/graphics/post/Simple.hpp>
+#include <galaxy/graphics/Window.hpp>
+#include "galaxy/physics/body/KineticBody.hpp"
 
 namespace sb
 {
-	class SandboxLayer final : public pr::Layer
+	class SandboxLayer final : public galaxy::core::Layer
 	{
 	public:
 		SandboxLayer();
@@ -33,16 +32,15 @@ namespace sb
 		void render() override;
 
 	private:
-		galaxy::World* m_world;
-		qs::Window* m_window;
+		galaxy::core::World* m_world;
+		galaxy::graphics::Window* m_window;
 
-		qs::ParticleGenerator m_particle_gen;
-		qs::Point m_point;
-		qs::Circle m_circle;
-		qs::effect::PointLight m_pl;
-		qs::effect::Simple m_simple;
-		qs::Camera m_camera;
-		rs::KineticBody* m_test_body;
+		galaxy::graphics::ParticleGenerator m_particle_gen;
+		galaxy::graphics::Point m_point;
+		galaxy::graphics::Circle m_circle;
+		galaxy::posteffect::Simple m_simple;
+		galaxy::graphics::Camera m_camera;
+		galaxy::physics::KineticBody* m_test_body;
 	};
 } // namespace sb
 

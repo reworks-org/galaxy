@@ -1,101 +1,111 @@
 ///
 /// Music.hpp
-/// frb
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef FRB_MUSIC_HPP_
-#define FRB_MUSIC_HPP_
+#ifndef GALAXY_AUDIO_MUSIC_HPP_
+#define GALAXY_AUDIO_MUSIC_HPP_
 
+#include <mutex>
 #include <thread>
 
-#include "frb/detail/Source.hpp"
-#include "frb/detail/SourceManipulator.hpp"
+#include <nlohmann/json_fwd.hpp>
 
-///
-/// Core namespace.
-///
-namespace frb
+#include "galaxy/audio/source/Source.hpp"
+#include "galaxy/audio/source/SourceManipulator.hpp"
+
+namespace galaxy
 {
-	///
-	/// \brief Streamed audio source.
-	///
-	class Music final : public BufferStream, public SourceManipulator
+	namespace audio
 	{
-	public:
 		///
-		/// Constructor.
+		/// \brief Streamed audio source.
 		///
-		Music();
+		class Music final : public BufferStream, public SourceManipulator
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Music();
 
-		///
-		/// Argument constructor.
-		///
-		/// \param file File to load from disk. Can only load ogg vorbis.
-		///
-		explicit Music(std::string_view file);
+			///
+			/// Argument constructor.
+			///
+			/// \param file File to load from disk. Can only load ogg vorbis.
+			///
+			Music(std::string_view file);
 
-		///
-		/// Copy constructor.
-		///
-		Music(const Music&) = delete;
+			///
+			/// JSON constructor.
+			///
+			/// \param json JSON defining object.
+			///
+			Music(const nlohmann::json& json);
 
-		///
-		/// Move constructor.
-		///
-		Music(Music&&);
+			///
+			/// Copy constructor.
+			///
+			Music(const Music&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		Music& operator=(const Music&) = delete;
+			///
+			/// Move constructor.
+			///
+			Music(Music&&);
 
-		///
-		/// Move assignment operator.
-		///
-		Music& operator=(Music&&);
+			///
+			/// Copy assignment operator.
+			///
+			Music& operator=(const Music&) = delete;
 
-		///
-		/// Destructor.
-		///
-		virtual ~Music();
+			///
+			/// Move assignment operator.
+			///
+			Music& operator=(Music&&);
 
-		///
-		/// Load a file to stream from disk.
-		///
-		/// \param file File to load from disk. Can only load ogg vorbis.
-		///
-		/// \return False if load failed.
-		///
-		[[maybe_unused]] bool load(std::string_view file);
+			///
+			/// Destructor.
+			///
+			virtual ~Music();
 
-	private:
-		///
-		/// Update stream buffers as it plays.
-		///
-		void update();
+			///
+			/// Load a file to stream from disk.
+			///
+			/// \param file File to load from disk. Can only load ogg vorbis.
+			///
+			/// \return False if load failed.
+			///
+			[[maybe_unused]] bool load(std::string_view file);
 
-		///
-		/// OpenAL audio source object.
-		///
-		Source m_source;
+		private:
+			///
+			/// Update stream buffers as it plays.
+			///
+			void update();
 
-		///
-		/// Thread to process music updates on.
-		///
-		std::jthread m_thread;
+			///
+			/// OpenAL audio source object.
+			///
+			Source m_source;
 
-		///
-		/// Mutex to help with synchronization.
-		///
-		std::mutex m_mutex;
+			///
+			/// Thread to process music updates on.
+			///
+			std::jthread m_thread;
 
-		///
-		/// Makes sure thread exits cleanly.
-		///
-		std::atomic_bool m_run_loop;
-	};
-} // namespace frb
+			///
+			/// Mutex to help with synchronization.
+			///
+			std::mutex m_mutex;
+
+			///
+			/// Makes sure thread exits cleanly.
+			///
+			std::atomic_bool m_run_loop;
+		};
+	} // namespace audio
+} // namespace galaxy
 
 #endif

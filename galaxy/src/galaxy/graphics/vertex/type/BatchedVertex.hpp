@@ -1,82 +1,63 @@
 ///
 /// BatchedVertex.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_BATCHEDVERTEX_HPP_
-#define QUASAR_BATCHEDVERTEX_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEX_TYPE_BATCHEDVERTEX_HPP_
+#define GALAXY_GRAPHICS_VERTEX_TYPE_BATCHEDVERTEX_HPP_
 
 #include <glm/vec2.hpp>
-#include <protostar/system/Concepts.hpp>
 
-///
-/// Core namespace.
-///
-namespace qs
+#include "galaxy/meta/Concepts.hpp"
+
+namespace galaxy
 {
-	///
-	/// Represents a single BatchedVertex of a primitive.
-	///
-	struct BatchedVertex final
+	namespace graphics
 	{
 		///
-		/// Default constructor.
+		/// Represents a single BatchedVertex of a primitive.
 		///
-		BatchedVertex();
+		struct BatchedVertex final
+		{
+			///
+			/// Default constructor.
+			///
+			BatchedVertex();
 
-		///
-		/// Argument constructor.
-		///
-		/// \param x X pos.
-		/// \param y Y pos.
-		/// \param u Texel x pos.
-		/// \param v Texel y pos.
-		/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
-		///
-		BatchedVertex(const float x, const float y, const float u, const float v, const float opacity);
+			///
+			/// Argument constructor.
+			///
+			/// \param x X pos.
+			/// \param y Y pos.
+			/// \param u Texel x pos.
+			/// \param v Texel y pos.
+			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
+			///
+			BatchedVertex(const float x, const float y, const float u, const float v, const float opacity);
 
-		///
-		/// Copy constructor.
-		///
-		BatchedVertex(const BatchedVertex&);
+			///
+			/// Destructor.
+			///
+			~BatchedVertex() = default;
 
-		///
-		/// Move constructor.
-		///
-		BatchedVertex(BatchedVertex&&);
+			///
+			/// Position of BatchedVertex.
+			///
+			glm::vec2 m_pos;
 
-		///
-		/// Copy assignment operator.
-		///
-		BatchedVertex& operator=(const BatchedVertex&);
+			///
+			/// BatchedVertex texels.
+			///
+			glm::vec2 m_texels;
 
-		///
-		/// Move assignment operator.
-		///
-		BatchedVertex& operator=(BatchedVertex&&);
-
-		///
-		/// Destructor.
-		///
-		~BatchedVertex() = default;
-
-		///
-		/// Position of BatchedVertex.
-		///
-		glm::vec2 m_pos;
-
-		///
-		/// BatchedVertex texels.
-		///
-		glm::vec2 m_texels;
-
-		///
-		/// Opacity.
-		///
-		float m_opacity;
-	};
-} // namespace qs
+			///
+			/// Opacity.
+			///
+			float m_opacity;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

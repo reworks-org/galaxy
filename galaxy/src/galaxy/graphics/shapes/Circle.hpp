@@ -1,6 +1,6 @@
 ///
 /// Circle.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -8,94 +8,120 @@
 #ifndef QUASAR_CIRCLE_HPP_
 #define QUASAR_CIRCLE_HPP_
 
-#include <protostar/graphics/Colour.hpp>
-#include <protostar/graphics/Circle.hpp>
+#include <compare>
 
-#include "qs/core/Transform.hpp"
-#include "qs/core/VertexData.hpp"
+#include <glm/vec2.hpp>
 
-///
-/// Core namespace.
-///
-namespace qs
+#include "galaxy/graphics/Colour.hpp"
+#include "galaxy/graphics/Transform.hpp"
+#include "galaxy/graphics/vertex/VertexData.hpp"
+
+namespace galaxy
 {
-	///
-	/// Circle definition for renderer.
-	///
-	class Circle final : public qs::VertexData, public qs::Transform
+	namespace graphics
 	{
-	public:
 		///
-		/// Constructor.
+		/// Circle definition for renderer.
 		///
-		Circle() = default;
+		class Circle final : public VertexData, public Transform
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Circle() = default;
 
-		///
-		/// Constructor.
-		///
-		/// \param x X position.
-		/// \param y Y position.
-		/// \param radius Radius of the circle.
-		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-		/// \param colour Colour.
-		///
-		Circle(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
+			///
+			/// Constructor.
+			///
+			/// \param x X position.
+			/// \param y Y position.
+			/// \param radius Radius of the circle.
+			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
+			/// \param colour Colour.
+			///
+			Circle(const float x, const float y, const float radius, const unsigned int fragments, graphics::Colour& colour);
 
-		///
-		/// Build from protostar circle.
-		///
-		/// \param circle Protostar circle object.
-		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-		/// \param colour Colour.
-		///
-		Circle(const pr::Circle& circle, const unsigned int fragments, pr::Colour& colour);
+			///
+			/// Build from galaxy circle.
+			///
+			/// \param circle Protostar circle object.
+			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
+			/// \param colour Colour.
+			///
+			Circle(const graphics::Circle& circle, const unsigned int fragments, graphics::Colour& colour);
 
-		///
-		/// Copy constructor.
-		///
-		Circle(const Circle&) = delete;
+			///
+			/// Destructor.
+			///
+			virtual ~Circle() = default;
 
-		///
-		/// Move constructor.
-		///
-		Circle(Circle&&) = default;
+			///
+			/// Create the Circle.
+			///
+			/// \param x X position.
+			/// \param y Y position.
+			/// \param radius Radius of the circle.
+			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
+			/// \param colour Colour.
+			///
+			void create(const float x, const float y, const float radius, const unsigned int fragments, graphics::Colour& colour);
 
-		///
-		/// Copy assignment operator.
-		///
-		Circle& operator=(const Circle&) = delete;
+			///
+			/// Bind as active VA.
+			///
+			void bind();
 
-		///
-		/// Move assignment operator.
-		///
-		Circle& operator=(Circle&&) = default;
+			///
+			/// Unbind as active VA.
+			///
+			void unbind();
 
-		///
-		/// Destructor.
-		///
-		virtual ~Circle() = default;
+			///
+			/// Get x coord of circle.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_x() const;
 
-		///
-		/// Create the Circle.
-		///
-		/// \param x X position.
-		/// \param y Y position.
-		/// \param radius Radius of the circle.
-		/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-		/// \param colour Colour.
-		///
-		void create(const float x, const float y, const float radius, const unsigned int fragments, pr::Colour& colour);
+			///
+			/// Get y coord of circle.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_y() const;
 
-		///
-		/// Bind as active VA.
-		///
-		void bind();
+			///
+			/// Get xy as a vector.
+			///
+			/// \return Const reference to glm::vec2.
+			///
+			[[nodiscard]] const glm::vec2& get_xy() const;
 
-		///
-		/// Unbind as active VA.
-		///
-		void unbind();
-	};
-} // namespace qs
+			///
+			/// Get radius of circle.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float radius() const;
+
+			///
+			/// Strongly ordered spaceship operator.
+			///
+			auto operator<=>(const Circle&) const = default;
+
+		private:
+			///
+			/// Position of circle.
+			///
+			glm::vec2 m_pos;
+
+			///
+			/// Radius of circle.
+			///
+			float m_radius;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

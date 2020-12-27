@@ -1,56 +1,71 @@
 ///
 /// Sound.cpp
-/// frb
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
+#include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
 
 #include "Sound.hpp"
 
-///
-/// Core namespace.
-///
-namespace frb
+namespace galaxy
 {
-	Sound::Sound()
+	namespace audio
 	{
-		set_source_to_manipulate(m_source.handle());
-	}
-
-	Sound::Sound(std::string_view file)
-	{
-		if (!load(file))
+		Sound::Sound()
 		{
-			PL_LOG(PL_FATAL, "Failed to load sound file: {0}.", file);
+			set_source_to_manipulate(m_source.handle());
 		}
-	}
 
-	Sound::Sound(Sound&& s)
-	{
-		this->m_source = std::move(s.m_source);
-	}
+		Sound::Sound(std::string_view file)
+		{
+			if (!load(file))
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to load sound file: {0}.", file);
+			}
+		}
 
-	Sound& Sound::operator=(Sound&& s)
-	{
-		if (this != &s)
+		Sound::Sound(const nlohmann::json& json)
+		{
+			if (load(json.at("file")))
+			{
+				set_looping(json.at("looping"));
+				set_pitch(json.at("pitch"));
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Failed to load sound effect: {0}.", std::string {json.at("file")});
+			}
+		}
+
+		Sound::Sound(Sound&& s)
 		{
 			this->m_source = std::move(s.m_source);
 		}
 
-		return *this;
-	}
-
-	bool Sound::load(std::string_view file)
-	{
-		auto res = internal_load(file);
-
-		if (res)
+		Sound& Sound::operator=(Sound&& s)
 		{
-			m_source.queue(dynamic_cast<Buffer*>(this));
+			if (this != &s)
+			{
+				this->m_source = std::move(s.m_source);
+			}
+
+			return *this;
 		}
 
-		return res;
-	}
-} // namespace frb
+		bool Sound::load(std::string_view file)
+		{
+			auto res = internal_load(file);
+
+			if (res)
+			{
+				m_source.queue(dynamic_cast<Buffer*>(this));
+			}
+
+			return res;
+		}
+	} // namespace audio
+} // namespace galaxy

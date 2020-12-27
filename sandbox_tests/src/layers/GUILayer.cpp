@@ -5,21 +5,19 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
-
 #include <galaxy/core/ServiceLocator.hpp>
+#include <galaxy/events/KeyDown.hpp>
+#include <galaxy/events/MouseMoved.hpp>
 #include <galaxy/fs/FileSystem.hpp>
 #include <galaxy/res/FontBook.hpp>
 #include <galaxy/res/ShaderBook.hpp>
-#include <qs/core/Window.hpp>
-
+#include <galaxy/graphics/Window.hpp>
+#include <galaxy/graphics/Renderer.hpp>
 #include <galaxy/ui/widgets/Image.hpp>
 #include <galaxy/ui/widgets/Label.hpp>
 #include <galaxy/ui/widgets/Button.hpp>
 #include <galaxy/ui/widgets/ToggleButton.hpp>
 #include <galaxy/ui/widgets/TextInput.hpp>
-
-#include <protostar/events/MouseMovedEvent.hpp>
 
 #include "GUILayer.hpp"
 
@@ -29,11 +27,8 @@
 #define RED {255, 0, 0, 255}
 // clang-format on
 
-galaxy::widget::Progressbar* progressbar;
+galaxy::ui::Progressbar* progressbar;
 
-///
-/// Core namespace.
-///
 namespace sb
 {
 	GUILayer::GUILayer()
@@ -41,29 +36,29 @@ namespace sb
 		set_name("gui_layer");
 		m_gui_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 
-		auto demo_tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "demo_nineslice.png";
+		auto demo_tex = galaxy::fs::s_root + galaxy::fs::s_textures + "demo_nineslice.png";
 
-		auto button_default = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "button_default.png";
-		auto button_pressed = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "button_pressed.png";
-		auto button_hover   = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "button_hover.png";
+		auto button_default = galaxy::fs::s_root + galaxy::fs::s_textures + "button_default.png";
+		auto button_pressed = galaxy::fs::s_root + galaxy::fs::s_textures + "button_pressed.png";
+		auto button_hover   = galaxy::fs::s_root + galaxy::fs::s_textures + "button_hover.png";
 
-		auto slider        = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "slider.png";
-		auto slider_marker = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "slider_marker.png";
+		auto slider        = galaxy::fs::s_root + galaxy::fs::s_textures + "slider.png";
+		auto slider_marker = galaxy::fs::s_root + galaxy::fs::s_textures + "slider_marker.png";
 
-		auto container = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "container.png";
-		auto bar       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "bar.png";
+		auto container = galaxy::fs::s_root + galaxy::fs::s_textures + "container.png";
+		auto bar       = galaxy::fs::s_root + galaxy::fs::s_textures + "bar.png";
 
-		auto tb_on        = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_on.png";
-		auto tb_off       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_off.png";
-		auto tb_on_hover  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_on_hover.png";
-		auto tb_off_hover = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "tb_off_hover.png";
+		auto tb_on        = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_on.png";
+		auto tb_off       = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_off.png";
+		auto tb_on_hover  = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_on_hover.png";
+		auto tb_off_hover = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_off_hover.png";
 
-		auto input_field = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "input_field.png";
+		auto input_field = galaxy::fs::s_root + galaxy::fs::s_textures + "input_field.png";
 
-		auto textbox_box = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "textbox.png";
-		auto arrow       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "arrow.png";
+		auto textbox_box = galaxy::fs::s_root + galaxy::fs::s_textures + "textbox.png";
+		auto arrow       = galaxy::fs::s_root + galaxy::fs::s_textures + "arrow.png";
 
-		auto demo_font  = galaxy::FileSystem::s_root + galaxy::FileSystem::s_fonts + "public.ttf";
+		auto demo_font  = galaxy::fs::s_root + galaxy::fs::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
 		m_theme.m_fonts    = SL_HANDLE.fontbook();
@@ -93,68 +88,68 @@ namespace sb
 
 		m_gui.set_theme(&m_theme);
 
-		auto* image = m_gui.create_widget<galaxy::widget::Image>();
+		auto* image = m_gui.create_widget<galaxy::ui::Image>();
 		image->create("demo_nineslice");
 		image->set_pos(1000, 100);
 
 		auto* tooltip = m_gui.create_tooltip_for_widget(image);
 		tooltip->create(demo_tex, "Demo Test", "public16");
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(image);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(image);
 
-		auto* label = m_gui.create_widget<galaxy::widget::Label>();
+		auto* label = m_gui.create_widget<galaxy::ui::Label>();
 		label->create("Label Demo", "public16");
 		label->set_pos(300, 300);
 
-		auto* button = m_gui.create_widget<galaxy::widget::Button>();
+		auto* button = m_gui.create_widget<galaxy::ui::Button>();
 		button->create("button_default", "button_pressed", "button_hover");
 		button->set_pos(250, 250);
 		button->set_callback([&]() {
-			PL_LOG(PL_INFO, "Button Pressed.");
+			GALAXY_LOG(GALAXY_INFO, "Button Pressed.");
 		});
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(button);
-		m_gui.add_event_to_widget<pr::MousePressedEvent>(button);
-		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(button);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(button);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(button);
+		m_gui.add_event_to_widget<galaxy::events::MouseReleased>(button);
 
-		auto* slider_ptr = m_gui.create_widget<galaxy::widget::Slider>();
+		auto* slider_ptr = m_gui.create_widget<galaxy::ui::Slider>();
 		slider_ptr->create("slider", "slider_marker");
 		slider_ptr->set_pos(500, 500);
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(slider_ptr);
-		m_gui.add_event_to_widget<pr::MousePressedEvent>(slider_ptr);
-		m_gui.add_event_to_widget<pr::MouseReleasedEvent>(slider_ptr);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(slider_ptr);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(slider_ptr);
+		m_gui.add_event_to_widget<galaxy::events::MouseReleased>(slider_ptr);
 
-		progressbar = m_gui.create_widget<galaxy::widget::Progressbar>();
+		progressbar = m_gui.create_widget<galaxy::ui::Progressbar>();
 		progressbar->create("container", "bar");
 		progressbar->set_pos(500, 600);
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(progressbar);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(progressbar);
 
-		auto* togglebutton = m_gui.create_widget<galaxy::widget::ToggleButton>();
+		auto* togglebutton = m_gui.create_widget<galaxy::ui::ToggleButton>();
 		togglebutton->create("tb_on", "tb_off", "tb_on_hover", "tb_off_hover");
 		togglebutton->set_pos(150, 150);
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(togglebutton);
-		m_gui.add_event_to_widget<pr::MousePressedEvent>(togglebutton);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(togglebutton);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(togglebutton);
 
-		auto* textinput = m_gui.create_widget<galaxy::widget::TextInput>();
+		auto* textinput = m_gui.create_widget<galaxy::ui::TextInput>();
 		textinput->create("input_field", "public16", 5.0f);
 		textinput->set_pos(650, 650);
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(textinput);
-		m_gui.add_event_to_widget<pr::MousePressedEvent>(textinput);
-		m_gui.add_event_to_widget<pr::KeyDownEvent>(textinput);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(textinput);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(textinput);
+		m_gui.add_event_to_widget<galaxy::events::KeyDown>(textinput);
 
-		auto* textbox = m_gui.create_widget<galaxy::widget::Textbox>();
+		auto* textbox = m_gui.create_widget<galaxy::ui::Textbox>();
 		textbox->create("textbox", "arrow", "public16", 5.0f);
 		textbox->set_pos(600, 100);
 
 		std::vector<std::string> messages = {"Hello there!", "How are you today?", "I am good,\nthanks!"};
 		textbox->set_text(messages);
 
-		m_gui.add_event_to_widget<pr::MouseMovedEvent>(textbox);
-		m_gui.add_event_to_widget<pr::KeyDownEvent>(textbox);
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(textbox);
+		m_gui.add_event_to_widget<galaxy::events::KeyDown>(textbox);
 	}
 
 	GUILayer::~GUILayer()
@@ -169,27 +164,27 @@ namespace sb
 
 		if (changed)
 		{
-			m_gui.trigger<pr::MouseMovedEvent>(pos.x, pos.y);
+			m_gui.trigger<galaxy::events::MouseMoved>(pos.x, pos.y);
 		}
 
-		if (window->mouse_button_pressed(pr::MouseButton::BUTTON_LEFT))
+		if (window->mouse_button_pressed(galaxy::input::MouseButton::BUTTON_LEFT))
 		{
-			m_gui.trigger<pr::MousePressedEvent>(pos.x, pos.y, pr::MouseButton::BUTTON_LEFT);
+			m_gui.trigger<galaxy::events::MousePressed>(pos.x, pos.y, galaxy::input::MouseButton::BUTTON_LEFT);
 		}
 
-		if (window->mouse_button_released(pr::MouseButton::BUTTON_LEFT))
+		if (window->mouse_button_released(galaxy::input::MouseButton::BUTTON_LEFT))
 		{
-			m_gui.trigger<pr::MouseReleasedEvent>(pos.x, pos.y, pr::MouseButton::BUTTON_LEFT);
+			m_gui.trigger<galaxy::events::MouseReleased>(pos.x, pos.y, galaxy::input::MouseButton::BUTTON_LEFT);
 		}
 
-		if (window->key_pressed(pr::Keys::ENTER))
+		if (window->key_pressed(galaxy::input::Keys::ENTER))
 		{
-			m_gui.trigger<pr::KeyDownEvent>(pr::Keys::ENTER);
+			m_gui.trigger<galaxy::events::KeyDown>(galaxy::input::Keys::ENTER);
 		}
 
-		if (window->key_pressed(pr::Keys::BACKSPACE))
+		if (window->key_pressed(galaxy::input::Keys::BACKSPACE))
 		{
-			m_gui.trigger<pr::KeyDownEvent>(pr::Keys::BACKSPACE);
+			m_gui.trigger<galaxy::events::KeyDown>(galaxy::input::Keys::BACKSPACE);
 		}
 	}
 

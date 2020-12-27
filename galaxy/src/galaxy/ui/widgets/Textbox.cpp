@@ -5,19 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
+#include "galaxy/graphics/Renderer.hpp"
 
 #include "Textbox.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		Textbox::Textbox()
 		    : m_text_to_draw {""}, m_border_width {0.0f}, m_messages_index {0}, m_char_index {0}, m_draw_lower {false}, m_prev_text {""}, m_ind_x {0.0f}, m_ind_y {0.0f}
@@ -46,7 +40,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create textbox widget from {0}.", box);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create textbox widget from {0}.", box);
 			}
 
 			m_bounds.m_width  = get_width();
@@ -58,7 +52,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create arrow indicator from {0}.", indicator);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create arrow indicator from {0}.", indicator);
 			}
 
 			m_indicator.set_opacity(0.0f);
@@ -99,7 +93,7 @@ namespace galaxy
 			// clang-format on
 		}
 
-		void Textbox::on_event(const pr::MouseMovedEvent& mme)
+		void Textbox::on_event(const events::MouseMoved& mme)
 		{
 			if (m_tooltip)
 			{
@@ -115,9 +109,9 @@ namespace galaxy
 			}
 		}
 
-		void Textbox::on_event(const pr::KeyDownEvent& kde)
+		void Textbox::on_event(const events::KeyDown& kde)
 		{
-			if (kde.m_keycode == pr::Keys::ENTER)
+			if (kde.m_keycode == input::Keys::ENTER)
 			{
 				m_messages_index++;
 				if (m_messages_index > (m_messages.size() - 1))
@@ -151,7 +145,7 @@ namespace galaxy
 			}
 		}
 
-		void Textbox::render(qs::Camera& camera)
+		void Textbox::render(graphics::Camera& camera)
 		{
 			auto ts = m_theme->m_shaders->get("text");
 
@@ -193,5 +187,5 @@ namespace galaxy
 			m_ind_x = ((m_bounds.m_x + m_bounds.m_width) - m_indicator.get_width()) - m_border_width;
 			m_ind_y = ((m_bounds.m_y + m_bounds.m_height) - m_indicator.get_height()) - m_border_width;
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

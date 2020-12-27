@@ -1,55 +1,56 @@
 ///
 /// ObjectLayer.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
 
 #include "ObjectLayer.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	ObjectLayer::ObjectLayer()
+	namespace map
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ObjectLayer.");
-	}
-
-	ObjectLayer::ObjectLayer(const nlohmann::json& json)
-	    : Layer {json}, m_draw_order {""}
-	{
-		if (json.count("draworder") > 0)
+		ObjectLayer::ObjectLayer()
 		{
-			m_draw_order = json.at("draworder");
+			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ObjectLayer.");
 		}
 
-		if (json.count("objects") > 0)
+		ObjectLayer::ObjectLayer(const nlohmann::json& json)
+		    : Layer {json}, m_draw_order {""}
 		{
-			auto object_array = json.at("objects");
-			for (const auto& object : object_array)
+			if (json.count("draworder") > 0)
 			{
-				m_objects.emplace_back(object);
+				m_draw_order = json.at("draworder");
+			}
+
+			if (json.count("objects") > 0)
+			{
+				auto object_array = json.at("objects");
+				for (const auto& object : object_array)
+				{
+					m_objects.emplace_back(object);
+				}
 			}
 		}
-	}
 
-	ObjectLayer::~ObjectLayer()
-	{
-		m_objects.clear();
-	}
+		ObjectLayer::~ObjectLayer()
+		{
+			m_objects.clear();
+		}
 
-	std::string ObjectLayer::get_compression() const
-	{
-		return m_draw_order;
-	}
+		std::string ObjectLayer::get_compression() const
+		{
+			return m_draw_order;
+		}
 
-	const auto& ObjectLayer::get_objects() const
-	{
-		return m_objects;
-	}
-} // namespace starmap
+		const auto& ObjectLayer::get_objects() const
+		{
+			return m_objects;
+		}
+	} // namespace map
+} // namespace galaxy

@@ -1,65 +1,45 @@
 ///
 /// Manifold.hpp
-/// redshift
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REDSHIFT_MANIFOLD_HPP_
-#define REDSHIFT_MANIFOLD_HPP_
+#ifndef GALAXY_PHYSICS_COLLISION_MANIFOLD_HPP_
+#define GALAXY_PHYSICS_COLLISION_MANIFOLD_HPP_
 
 #include <glm/vec2.hpp>
 
-///
-/// Core namespace.
-///
-namespace rs
+namespace galaxy
 {
-	///
-	/// Holds data relating to a collision.
-	///
-	struct Manifold final
+	namespace physics
 	{
 		///
-		/// Constructor.
+		/// Holds data relating to a collision.
 		///
-		Manifold();
+		struct Manifold final
+		{
+			///
+			/// Constructor.
+			///
+			Manifold();
 
-		///
-		/// Copy constructor.
-		///
-		Manifold(const Manifold&) = default;
+			///
+			/// Destructor.
+			///
+			~Manifold() = default;
 
-		///
-		/// Move constructor.
-		///
-		Manifold(Manifold&&) = default;
+			///
+			/// Penetration by A into B's AABB.
+			///
+			float m_penetration;
 
-		///
-		/// Copy assignment operator.
-		///
-		Manifold& operator=(const Manifold&) = default;
-
-		///
-		/// Move assignment operator.
-		///
-		Manifold& operator=(Manifold&&) = default;
-
-		///
-		/// Destructor.
-		///
-		~Manifold() = default;
-
-		///
-		/// Penetration by A into B's AABB.
-		///
-		float m_penetration;
-
-		///
-		/// The collision direction.
-		///
-		glm::vec2 m_normal;
-	};
-} // namespace rs
+			///
+			/// The collision direction.
+			///
+			glm::vec2 m_normal;
+		};
+	} // namespace physics
+} // namespace galaxy
 
 #endif

@@ -9,15 +9,9 @@
 
 #include "Progressbar.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		Progressbar::Progressbar()
 		    : m_progress {1.0f}, m_prev_progress {-1.0f}, m_bar_pos {0.0f, 0.0f, 0.0f, 0.0f}
@@ -35,7 +29,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create container widget from {0}.", container);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create container widget from {0}.", container);
 			}
 
 			m_bounds.m_width  = m_container.get_width();
@@ -47,11 +41,11 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create container bar from {0}.", bar);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create container bar from {0}.", bar);
 			}
 		}
 
-		void Progressbar::on_event(const pr::MouseMovedEvent& mme)
+		void Progressbar::on_event(const events::MouseMoved& mme)
 		{
 			if (m_tooltip)
 			{
@@ -76,7 +70,7 @@ namespace galaxy
 			}
 		}
 
-		void Progressbar::render(qs::Camera& camera)
+		void Progressbar::render(graphics::Camera& camera)
 		{
 			if (m_tooltip)
 			{
@@ -110,5 +104,5 @@ namespace galaxy
 		{
 			return m_progress * 100.0f;
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

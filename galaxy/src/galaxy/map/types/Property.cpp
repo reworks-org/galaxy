@@ -1,6 +1,6 @@
 ///
 /// Property.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -9,42 +9,42 @@
 
 #include "Property.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	Property::Property()
-	    : m_type {""}
+	namespace map
 	{
-	}
-
-	Property::Property(const nlohmann::json& json)
-	    : m_type {""}
-	{
-		parse(json);
-	}
-
-	Property::~Property()
-	{
-		m_value.reset();
-	}
-
-	void Property::parse(const nlohmann::json& json)
-	{
-		if (json.count("type") > 0)
+		Property::Property()
+		    : m_type {""}
 		{
-			m_type = json.at("type");
 		}
 
-		if (json.count("value") > 0)
+		Property::Property(const nlohmann::json& json)
+		    : m_type {""}
 		{
-			m_value = json.at("value");
+			parse(json);
 		}
-	}
 
-	std::string Property::get_type() const
-	{
-		return m_type;
-	}
-} // namespace starmap
+		Property::~Property()
+		{
+			m_value.reset();
+		}
+
+		void Property::parse(const nlohmann::json& json)
+		{
+			if (json.count("type") > 0)
+			{
+				m_type = json.at("type");
+			}
+
+			if (json.count("value") > 0)
+			{
+				m_value = json.at("value");
+			}
+		}
+
+		std::string Property::get_type() const
+		{
+			return m_type;
+		}
+	} // namespace map
+} // namespace galaxy

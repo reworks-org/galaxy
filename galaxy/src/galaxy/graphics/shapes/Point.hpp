@@ -1,102 +1,81 @@
 ///
 /// Point.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_POINT_HPP_
-#define QUASAR_POINT_HPP_
+#ifndef GALAXY_GRAPHICS_SHAPES_POINT_HPP_
+#define GALAXY_GRAPHICS_SHAPES_POINT_HPP_
 
-#include <protostar/graphics/Colour.hpp>
+#include "galaxy/graphics/Colour.hpp"
+#include "galaxy/graphics/Transform.hpp"
+#include "galaxy/graphics/vertex/VertexData.hpp"
 
-#include "qs/core/Transform.hpp"
-#include "qs/core/VertexData.hpp"
-
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Point graphic definition.
-	///
-	class Point final : public qs::VertexData, public qs::Transform
+	namespace graphics
 	{
-	public:
 		///
-		/// Constructor.
+		/// Point graphic definition.
 		///
-		Point();
+		class Point final : public VertexData, public Transform
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Point();
 
-		///
-		/// Constructor.
-		///
-		/// \param x X position.
-		/// \param y Y position.
-		/// \param size Size of the point.
-		/// \param colour Colour.
-		///
-		Point(const float x, const float y, const unsigned int size, pr::Colour& colour);
+			///
+			/// Constructor.
+			///
+			/// \param x X position.
+			/// \param y Y position.
+			/// \param size Size of the point.
+			/// \param colour Colour.
+			///
+			Point(const float x, const float y, const unsigned int size, graphics::Colour& colour);
 
-		///
-		/// Copy constructor.
-		///
-		Point(const Point&) = delete;
+			///
+			/// Destructor.
+			///
+			virtual ~Point() = default;
 
-		///
-		/// Move constructor.
-		///
-		Point(Point&&) = default;
+			///
+			/// Create the point.
+			///
+			/// \param x X position.
+			/// \param y Y position.
+			/// \param size Size of the point.
+			/// \param colour Colour.
+			///
+			void create(const float x, const float y, const unsigned int size, graphics::Colour& colour);
 
-		///
-		/// Copy assignment operator.
-		///
-		Point& operator=(const Point&) = delete;
+			///
+			/// Bind as active VA.
+			///
+			void bind();
 
-		///
-		/// Move assignment operator.
-		///
-		Point& operator=(Point&&) = default;
+			///
+			/// Unbind as active VA.
+			///
+			void unbind();
 
-		///
-		/// Destructor.
-		///
-		virtual ~Point() = default;
+			///
+			/// Get size of point.
+			///
+			/// \return Const integer.
+			///
+			[[nodiscard]] const int get_size() const;
 
-		///
-		/// Create the point.
-		///
-		/// \param x X position.
-		/// \param y Y position.
-		/// \param size Size of the point.
-		/// \param colour Colour.
-		///
-		void create(const float x, const float y, const unsigned int size, pr::Colour& colour);
-
-		///
-		/// Bind as active VA.
-		///
-		void bind();
-
-		///
-		/// Unbind as active VA.
-		///
-		void unbind();
-
-		///
-		/// Get size of point.
-		///
-		/// \return Const integer.
-		///
-		[[nodiscard]] const int get_size() const;
-
-	private:
-		///
-		/// Size of point.
-		///
-		int m_size;
-	};
-} // namespace qs
+		private:
+			///
+			/// Size of point.
+			///
+			int m_size;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

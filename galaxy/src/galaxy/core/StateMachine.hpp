@@ -1,182 +1,182 @@
 ///
 /// StateMachine.hpp
-/// protostar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef PROTOSTAR_STATEMACHINE_HPP_
-#define PROTOSTAR_STATEMACHINE_HPP_
+#ifndef GALAXY_CORE_STATEMACHINE_HPP_
+#define GALAXY_CORE_STATEMACHINE_HPP_
 
 #include <memory>
 #include <stack>
-#include <robin_hood.h>
 #include <utility>
 
-#include <pulsar/Log.hpp>
+#include <robin_hood.h>
 
-#include "protostar/state/State.hpp"
+#include "galaxy/core/State.hpp"
+#include "galaxy/error/Log.hpp"
 
-///
-/// Core namespace.
-///
-namespace pr
+namespace galaxy
 {
-	///
-	/// Concept to ensure type is derived from state.
-	///
-	template<typename Derived>
-	concept is_state = std::is_base_of<pr::State, Derived>::value;
-
-	///
-	/// A state machine to be used with game states or animations, etc.
-	///
-	class StateMachine final
+	namespace core
 	{
-	public:
 		///
-		/// Constructor.
+		/// Concept to ensure type is derived from state.
 		///
-		StateMachine() = default;
+		template<typename Type>
+		concept is_state = std::derived_from<Type, State>;
 
 		///
-		/// Copy constructor.
+		/// A state machine to be used with game states or animations, etc.
 		///
-		StateMachine(const StateMachine&) = delete;
+		class StateMachine final
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			StateMachine() = default;
 
-		///
-		/// Move constructor.
-		///
-		StateMachine(StateMachine&&) = delete;
+			///
+			/// Copy constructor.
+			///
+			StateMachine(const StateMachine&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		StateMachine& operator=(const StateMachine&) = delete;
+			///
+			/// Move constructor.
+			///
+			StateMachine(StateMachine&&) = delete;
 
-		///
-		/// Move assignment operator.
-		///
-		StateMachine& operator=(StateMachine&&) = delete;
+			///
+			/// Copy assignment operator.
+			///
+			StateMachine& operator=(const StateMachine&) = delete;
 
-		///
-		/// Destructor.
-		///
-		~StateMachine();
+			///
+			/// Move assignment operator.
+			///
+			StateMachine& operator=(StateMachine&&) = delete;
 
-		///
-		/// Pass events onto current state.
-		///
-		void events();
+			///
+			/// Destructor.
+			///
+			~StateMachine();
 
-		///
-		/// Updates the current state.
-		///
-		/// \param dt Delta Time from game loop.
-		///
-		void update(const double dt);
+			///
+			/// Pass events onto current state.
+			///
+			void events();
 
-		///
-		/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
-		///
-		void pre_render();
+			///
+			/// Updates the current state.
+			///
+			/// \param dt Delta Time from game loop.
+			///
+			void update(const double dt);
 
-		///
-		/// Render the current state.
-		///
-		void render();
+			///
+			/// Code to be called before rendering. Outside of any glBegin, window.begin(), etc...
+			///
+			void pre_render();
 
-		///
-		/// \brief Create a new state to store.
-		///
-		/// Template Typename State is the type of the state to add and
-		/// the args are the arguments to construct that state.
-		///
-		/// \param name Name of the state to identify it by.
-		/// \param args Arguments to construct the state.
-		///
-		/// \return Returns pointer to newly created state.
-		///
+			///
+			/// Render the current state.
+			///
+			void render();
+
+			///
+			/// \brief Create a new state to store.
+			///
+			/// Template Typename State is the type of the state to add and
+			/// the args are the arguments to construct that state.
+			///
+			/// \param name Name of the state to identify it by.
+			/// \param args Arguments to construct the state.
+			///
+			/// \return Returns pointer to newly created state.
+			///
+			template<is_state State, typename... Args>
+			[[maybe_unused]] State* create(std::string_view name, Args&&... args);
+
+			///
+			/// Push a new state to the top of the stack.
+			///
+			/// \param state Name of state to push.
+			///
+			void push(std::string_view state);
+
+			///
+			/// Pop top state.
+			///
+			void pop();
+
+			///
+			/// Get the state on top of the stack.
+			///
+			/// \return Returns pointer to topmost state.
+			///
+			template<typename State>
+			[[nodiscard]] State* top();
+
+			///
+			/// Clear stack.
+			///
+			void clear();
+
+			///
+			/// Get an array of all state keys.
+			///
+			/// \return Vector of strings.
+			///
+			[[nodiscard]] std::vector<std::string> get_state_keys();
+
+		private:
+			///
+			/// The stack for manipulation.
+			///
+			std::stack<State*> m_stack;
+
+			///
+			/// Holds the states.
+			///
+			robin_hood::unordered_map<std::string, std::unique_ptr<State>> m_states;
+		};
+
 		template<is_state State, typename... Args>
-		[[maybe_unused]] State* create(std::string_view name, Args&&... args);
+		inline State* StateMachine::create(std::string_view name, Args&&... args)
+		{
+			const auto str = static_cast<std::string>(name);
 
-		///
-		/// Push a new state to the top of the stack.
-		///
-		/// \param state Name of state to push.
-		///
-		void push(std::string_view state);
+			// Construct in place by forwarding arguments to the object.
+			if (m_states.contains(str))
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to create state that already exists!");
+			}
+			else
+			{
+				m_states[str] = std::make_unique<State>(std::forward<Args>(args)...);
+				m_states[str]->set_name(name);
+			}
 
-		///
-		/// Pop top state.
-		///
-		void pop();
+			return dynamic_cast<State*>(m_states[str].get());
+		}
 
-		///
-		/// Get the state on top of the stack.
-		///
-		/// \return Returns pointer to topmost state.
-		///
 		template<typename State>
-		[[nodiscard]] State* top();
-
-		///
-		/// Clear stack.
-		///
-		void clear();
-
-		///
-		/// Get an array of all state keys.
-		///
-		/// \return Vector of strings.
-		///
-		[[nodiscard]] std::vector<std::string> get_state_keys();
-
-	private:
-		///
-		/// The stack for manipulation.
-		///
-		std::stack<pr::State*> m_stack;
-
-		///
-		/// Holds the states.
-		///
-		robin_hood::unordered_map<std::string, std::unique_ptr<pr::State>> m_states;
-	};
-
-	template<is_state State, typename... Args>
-	inline State* StateMachine::create(std::string_view name, Args&&... args)
-	{
-		const auto str = static_cast<std::string>(name);
-
-		// Construct in place by forwarding arguments to the object.
-		if (m_states.contains(str))
+		inline State* StateMachine::top()
 		{
-			PL_LOG(PL_WARNING, "Attempted to create state that already exists!");
+			// Ensure stack is not empty.
+			if (!m_stack.empty())
+			{
+				return dynamic_cast<State*>(m_stack.top());
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_ERROR, "No states in stack!");
+				return nullptr;
+			}
 		}
-		else
-		{
-			m_states[str] = std::make_unique<State>(std::forward<Args>(args)...);
-			m_states[str]->set_name(name);
-		}
-
-		return dynamic_cast<State*>(m_states[str].get());
-	}
-
-	template<typename State>
-	inline State* StateMachine::top()
-	{
-		// Ensure stack is not empty.
-		if (!m_stack.empty())
-		{
-			return dynamic_cast<State*>(m_stack.top());
-		}
-		else
-		{
-			PL_LOG(PL_ERROR, "No states in stack!");
-			return nullptr;
-		}
-	}
-} // namespace pr
+	} // namespace core
+} // namespace galaxy
 
 #endif

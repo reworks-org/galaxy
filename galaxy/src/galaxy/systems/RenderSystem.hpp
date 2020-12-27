@@ -5,78 +5,60 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_RENDERSYSTEM_HPP_
-#define GALAXY_RENDERSYSTEM_HPP_
+#ifndef GALAXY_SYSTEMS_RENDERSYSTEM_HPP_
+#define GALAXY_SYSTEMS_RENDERSYSTEM_HPP_
 
-#include <qs/graphics/Camera.hpp>
-#include <solar/system/System.hpp>
+#include "galaxy/ecs/System.hpp"
+#include "galaxy/graphics/Camera.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// System that handles rendering of entities with a SpriteComponent, TransformComponent, etc.
-	///
-	class RenderSystem final : public sr::System
+	class core::World;
+
+	namespace systems
 	{
-	public:
 		///
-		/// Constructor.
+		/// System that handles rendering of entities with a graphics::Sprite, TransformComponent, etc.
 		///
-		RenderSystem();
+		class RenderSystem final : public ecs::System
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			RenderSystem();
 
-		///
-		/// Copy constructor.
-		///
-		RenderSystem(const RenderSystem&);
+			///
+			/// Destructor.
+			///
+			virtual ~RenderSystem();
 
-		///
-		/// Move constructor.
-		///
-		RenderSystem(RenderSystem&&);
+			///
+			/// Abstract implementation for processing events.
+			///
+			void events() override;
 
-		///
-		/// Copy assignment operator.
-		///
-		RenderSystem& operator=(const RenderSystem&);
+			///
+			/// Abstract implementation for updating the system. Use the manager to retreive your components.
+			///
+			/// \param dt DeltaTime from gameloop.
+			///
+			void update(const double dt) override;
 
-		///
-		/// Move assignment operator.
-		///
-		RenderSystem& operator=(RenderSystem&&);
+			///
+			/// Render sprites / textures to screen.
+			///
+			/// \param camera Camera used for rendering.
+			///
+			void render(graphics::Camera& camera);
 
-		///
-		/// Destructor.
-		///
-		virtual ~RenderSystem();
-
-		///
-		/// Abstract implementation for processing events.
-		///
-		void events() override;
-
-		///
-		/// Abstract implementation for updating the system. Use the manager to retreive your components.
-		///
-		/// \param dt DeltaTime from gameloop.
-		///
-		void update(const double dt) override;
-
-		///
-		/// Render sprites / textures to screen.
-		///
-		/// \param camera Camera used for rendering.
-		///
-		void render(qs::Camera& camera);
-
-	private:
-		///
-		/// Pointer to entities.
-		///
-		World* m_world;
-	};
+		private:
+			///
+			/// Pointer to game world.
+			///
+			core::World* m_world;
+		};
+	} // namespace systems
 } // namespace galaxy
 
 #endif

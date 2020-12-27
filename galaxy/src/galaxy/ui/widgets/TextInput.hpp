@@ -5,33 +5,26 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_TEXTINPUT_HPP_
-#define GALAXY_TEXTINPUT_HPP_
+#ifndef GALAXY_UI_WIDGETS_TEXTINPUT_HPP_
+#define GALAXY_UI_WIDGETS_TEXTINPUT_HPP_
 
-#include <protostar/events/KeyDownEvent.hpp>
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/system/Time.hpp>
-#include <qs/shapes/Line.hpp>
-#include <qs/sprite/BatchedSprite.hpp>
-#include <qs/text/Text.hpp>
-
+#include "galaxy/async/Timer.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/graphics/shapes/Line.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
+#include "galaxy/graphics/text/Text.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// UI bar that can be moved to increment and decrement a value.
 		///
-		class TextInput final : public galaxy::Widget, public qs::BatchedSprite
+		class TextInput final : public Widget, public graphics::BatchedSprite
 		{
 			friend class GUI;
 
@@ -47,19 +40,9 @@ namespace galaxy
 			TextInput(const TextInput&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			TextInput(TextInput&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			TextInput& operator=(const TextInput&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			TextInput& operator=(TextInput&&) = default;
 
 			///
 			/// Destructor.
@@ -75,7 +58,7 @@ namespace galaxy
 			/// \param font Font for the inputted text.
 			/// \param border_width Border on texture around input field.
 			///
-			using qs::BatchedSprite::create;
+			using graphics::BatchedSprite::create;
 			void create(std::string_view textinput, std::string_view font, float border_width);
 
 			///
@@ -83,21 +66,21 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// Triggered upon mouse click.
 			///
 			/// \param mpe Mouse Pressed Event.
 			///
-			void on_event(const pr::MousePressedEvent& mpe);
+			void on_event(const events::MousePressed& mpe);
 
 			///
 			/// Triggered upon key down.
 			///
 			/// \param kde Key Down Event.
 			///
-			void on_event(const pr::KeyDownEvent& kde);
+			void on_event(const events::KeyDown& kde);
 
 			///
 			/// \brief Update widget logic.
@@ -115,7 +98,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 			///
 			/// Sets position without moving the object.
@@ -149,12 +132,12 @@ namespace galaxy
 			///
 			/// Indicator line in input field.
 			///
-			qs::Line m_cursor;
+			graphics::Line m_cursor;
 
 			///
 			/// Text drawn as typed.
 			///
-			qs::Text m_text;
+			graphics::Text m_text;
 
 			///
 			/// String containing text input.
@@ -169,9 +152,9 @@ namespace galaxy
 			///
 			/// Timer for cursor blinking.
 			///
-			pr::Timer m_timer;
+			async::Timer m_timer;
 		};
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

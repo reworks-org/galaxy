@@ -7,15 +7,9 @@
 
 #include "Image.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		void Image::create(std::string_view name)
 		{
@@ -26,7 +20,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create image widget from {0}.", name);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create image widget from {0}.", name);
 			}
 
 			m_bounds.m_width  = get_width();
@@ -44,7 +38,7 @@ namespace galaxy
 			m_dirty       = true;
 		}
 
-		void Image::on_event(const pr::MouseMovedEvent& mme)
+		void Image::on_event(const events::MouseMoved& mme)
 		{
 			if (m_tooltip)
 			{
@@ -64,7 +58,7 @@ namespace galaxy
 		{
 		}
 
-		void Image::render(qs::Camera& camera)
+		void Image::render(graphics::Camera& camera)
 		{
 			if (m_tooltip)
 			{
@@ -74,5 +68,5 @@ namespace galaxy
 				}
 			}
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

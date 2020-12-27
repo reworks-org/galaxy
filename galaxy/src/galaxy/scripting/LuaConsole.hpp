@@ -5,71 +5,51 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_LUACONSOLE_HPP_
-#define GALAXY_LUACONSOLE_HPP_
+#ifndef GALAXY_SCRIPTING_LUACONSOLE_HPP_
+#define GALAXY_SCRIPTING_LUACONSOLE_HPP_
 
 #include <vector>
 #include <string>
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Imgui Console for running lua code.
-	///
-	class LuaConsole final
+	namespace lua
 	{
-	public:
 		///
-		/// Constructor.
+		/// Imgui Console for running lua code.
 		///
-		LuaConsole();
+		class Console final
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Console();
 
-		///
-		/// Copy constructor.
-		///
-		LuaConsole(const LuaConsole&) = default;
+			///
+			/// Default destructor.
+			///
+			~Console() = default;
 
-		///
-		/// Move constructor.
-		///
-		LuaConsole(LuaConsole&&) = default;
+			///
+			/// Draw imgui widgets.
+			///
+			/// \param show Toggle to show the console.
+			///
+			void draw(bool* show);
 
-		///
-		/// Copy assignment operator.
-		///
-		LuaConsole& operator=(const LuaConsole&) = default;
+		private:
+			///
+			/// Text buffer.
+			///
+			std::string m_buff;
 
-		///
-		/// Move assignment operator.
-		///
-		LuaConsole& operator=(LuaConsole&&) = default;
-
-		///
-		/// Default destructor.
-		///
-		~LuaConsole() = default;
-
-		///
-		/// Draw imgui widgets.
-		///
-		/// \param show Toggle to show the console.
-		///
-		void draw(bool* show);
-
-	private:
-		///
-		/// Text buffer.
-		///
-		std::string m_buff;
-
-		///
-		/// List of inputs / outputs on console.
-		///
-		std::vector<std::string> m_history;
-	};
+			///
+			/// List of inputs / outputs on console.
+			///
+			std::vector<std::string> m_history;
+		};
+	} // namespace lua
 } // namespace galaxy
 
 #endif

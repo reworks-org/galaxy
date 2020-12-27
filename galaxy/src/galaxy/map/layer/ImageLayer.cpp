@@ -1,45 +1,46 @@
 ///
 /// ImageLayer.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <pulsar/Log.hpp>
 #include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
 
 #include "ImageLayer.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	ImageLayer::ImageLayer()
+	namespace map
 	{
-		PL_LOG(PL_FATAL, "Cannot instantiate a default constructed ImageLayer.");
-	}
-
-	ImageLayer::ImageLayer(const nlohmann::json& json)
-	    : Layer {json}, m_image {""}, m_transparent_colour {"000000"}
-	{
-		if (json.count("image") > 0)
+		ImageLayer::ImageLayer()
 		{
-			m_image = json.at("image");
+			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed ImageLayer.");
 		}
 
-		if (json.count("transparentcolor") > 0)
+		ImageLayer::ImageLayer(const nlohmann::json& json)
+		    : Layer {json}, m_image {""}, m_transparent_colour {"000000"}
 		{
-			m_transparent_colour = json.at("transparentcolor");
+			if (json.count("image") > 0)
+			{
+				m_image = json.at("image");
+			}
+
+			if (json.count("transparentcolor") > 0)
+			{
+				m_transparent_colour = json.at("transparentcolor");
+			}
 		}
-	}
 
-	ImageLayer::~ImageLayer()
-	{
-	}
+		ImageLayer::~ImageLayer()
+		{
+		}
 
-	std::string ImageLayer::get_image() const
-	{
-		return m_image;
-	}
-} // namespace starmap
+		std::string ImageLayer::get_image() const
+		{
+			return m_image;
+		}
+	} // namespace map
+} // namespace galaxy

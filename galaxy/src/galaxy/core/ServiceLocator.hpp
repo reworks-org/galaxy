@@ -5,266 +5,265 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SERVICELOCATOR_HPP_
-#define GALAXY_SERVICELOCATOR_HPP_
+#ifndef GALAXY_CORE_SERVICELOCATOR_HPP_
+#define GALAXY_CORE_SERVICELOCATOR_HPP_
 
 #include <sol/forward.hpp>
 
 ///
 /// Shortcut macro.
 ///
-#define SL_HANDLE galaxy::ServiceLocator::get()
+#define SL_HANDLE galaxy::core::ServiceLocator::get()
 
-///
-/// Forward dec.
-///
-namespace qs
-{
-	class Window;
-	class Renderer;
-	class TextureAtlas;
-} // namespace qs
-
-///
-/// Forward dec.
-///
-namespace pr
-{
-	template<std::size_t max_threads>
-	class ThreadPool;
-	class StateMachine;
-} // namespace pr
-
-///
-/// Forward dec.
-///
-namespace sl
-{
-	class Dispatcher;
-}
-
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Forward decs.
-	/// This avoids mass includes.
-	///
-	class Config;
-	class World;
-	class Serializer;
-	class FontBook;
-	class ShaderBook;
-	class AudioBook;
-
-	///
-	/// Provides pointer access to services in the framework.
-	/// Cannot be created, copied or moved.
-	///
-	class ServiceLocator final
+	namespace async
 	{
-		friend class Application;
+		template<std::size_t max_threads>
+		class ThreadPool;
+	} // namespace async
 
-	public:
-		///
-		/// Copy constructor.
-		///
-		ServiceLocator(const ServiceLocator&) = delete;
+	namespace core
+	{
+		class StateMachine;
+		class World;
+	} // namespace core
 
-		///
-		/// Move constructor.
-		///
-		ServiceLocator(ServiceLocator&&) = delete;
+	namespace events
+	{
+		class Dispatcher;
+	} // namespace events
 
-		///
-		/// Copy assignment operator.
-		///
-		ServiceLocator& operator=(const ServiceLocator&) = delete;
+	namespace fs
+	{
+		class Config;
+		class Serializer;
+	} // namespace fs
 
-		///
-		/// Move assignment operator.
-		///
-		ServiceLocator& operator=(ServiceLocator&&) = delete;
+	namespace graphics
+	{
+		class Window;
+		class Renderer;
+		class TextureAtlas;
+	} // namespace graphics
 
-		///
-		/// Default Destructor.
-		///
-		~ServiceLocator() = default;
+	namespace res
+	{
+		class FontBook;
+		class ShaderBook;
+		class AudioBook;
 
-		///
-		/// Get singleton instance.
-		///
-		/// \return Returns a reference to the internal singleton of this class.
-		///
-		[[nodiscard]] static galaxy::ServiceLocator& get();
+	} // namespace res
 
+	namespace core
+	{
 		///
-		/// Get config service.
+		/// Provides pointer access to services in the framework.
+		/// Cannot be created, copied or moved.
 		///
-		/// \return Return pointer to config service.
-		///
-		[[maybe_unused]] galaxy::Config* config() const;
+		class ServiceLocator final
+		{
+			friend class Application;
 
-		///
-		/// Get threadpool service.
-		///
-		/// \return Return pointer to threadpool.
-		///
-		[[maybe_unused]] pr::ThreadPool<4>* pool() const;
+		public:
+			///
+			/// Copy constructor.
+			///
+			ServiceLocator(const ServiceLocator&) = delete;
 
-		///
-		/// Get window service.
-		///
-		/// \return Return pointer to window service.
-		///
-		[[maybe_unused]] qs::Window* window() const;
+			///
+			/// Move constructor.
+			///
+			ServiceLocator(ServiceLocator&&) = delete;
 
-		///
-		/// Get renderer service.
-		///
-		/// \return Return pointer to renderer service.
-		///
-		[[maybe_unused]] qs::Renderer* renderer() const;
+			///
+			/// Copy assignment operator.
+			///
+			ServiceLocator& operator=(const ServiceLocator&) = delete;
 
-		///
-		/// Get Lua service.
-		///
-		/// \return Return pointer to Lua service.
-		///
-		[[maybe_unused]] sol::state* lua() const;
+			///
+			/// Move assignment operator.
+			///
+			ServiceLocator& operator=(ServiceLocator&&) = delete;
 
-		///
-		/// Get game state service.
-		///
-		[[maybe_unused]] pr::StateMachine* gamestate() const;
+			///
+			/// Default Destructor.
+			///
+			~ServiceLocator() = default;
 
-		///
-		/// Get Dispatcher service.
-		///
-		/// \return Return pointer to Dispatcher service.
-		///
-		[[maybe_unused]] sl::Dispatcher* dispatcher() const;
+			///
+			/// Get singleton instance.
+			///
+			/// \return Returns a reference to the internal singleton of this class.
+			///
+			[[nodiscard]] static ServiceLocator& get();
 
-		///
-		/// Get World service.
-		///
-		/// \return Return pointer to World service.
-		///
-		[[maybe_unused]] galaxy::World* world() const;
+			///
+			/// Get config service.
+			///
+			/// \return Return pointer to config service.
+			///
+			[[maybe_unused]] fs::Config* config() const;
 
-		///
-		/// Get serializer service.
-		///
-		/// \return Return pointer to Serializer service.
-		///
-		[[maybe_unused]] galaxy::Serializer* serializer() const;
+			///
+			/// Get threadpool service.
+			///
+			/// \return Return pointer to threadpool.
+			///
+			[[maybe_unused]] async::ThreadPool<4>* pool() const;
 
-		///
-		/// Get FontBook service.
-		///
-		/// \return Return pointer to FontBook service.
-		///
-		[[maybe_unused]] galaxy::FontBook* fontbook() const;
+			///
+			/// Get window service.
+			///
+			/// \return Return pointer to window service.
+			///
+			[[maybe_unused]] graphics::Window* window() const;
 
-		///
-		/// Get ShaderBook service.
-		///
-		/// \return Return pointer to ShaderBook service.
-		///
-		[[maybe_unused]] galaxy::ShaderBook* shaderbook() const;
+			///
+			/// Get renderer service.
+			///
+			/// \return Return pointer to renderer service.
+			///
+			[[maybe_unused]] graphics::Renderer* renderer() const;
 
-		///
-		/// Get AudioBook service.
-		///
-		/// \return Return pointer to AudioBook service.
-		///
-		[[maybe_unused]] galaxy::AudioBook* audiobook() const;
+			///
+			/// Get Lua service.
+			///
+			/// \return Return pointer to Lua service.
+			///
+			[[maybe_unused]] sol::state* lua() const;
 
-		///
-		/// Get TextureAtlas service.
-		///
-		/// \return Return pointer to TextureAtlas service.
-		///
-		[[maybe_unused]] qs::TextureAtlas* atlas() const;
+			///
+			/// Get game state service.
+			///
+			[[maybe_unused]] core::StateMachine* gamestate() const;
 
-		///
-		/// Restart flag.
-		///
-		bool m_restart;
+			///
+			/// Get Dispatcher service.
+			///
+			/// \return Return pointer to Dispatcher service.
+			///
+			[[maybe_unused]] events::Dispatcher* dispatcher() const;
 
-	private:
-		///
-		/// Default constructor.
-		///
-		ServiceLocator();
+			///
+			/// Get World service.
+			///
+			/// \return Return pointer to World service.
+			///
+			[[maybe_unused]] core::World* world() const;
 
-		///
-		/// Config service.
-		///
-		galaxy::Config* m_config;
+			///
+			/// Get serializer service.
+			///
+			/// \return Return pointer to Serializer service.
+			///
+			[[maybe_unused]] fs::Serializer* serializer() const;
 
-		///
-		/// Threadpool service.
-		///
-		pr::ThreadPool<4>* m_threadpool;
+			///
+			/// Get FontBook service.
+			///
+			/// \return Return pointer to FontBook service.
+			///
+			[[maybe_unused]] res::FontBook* fontbook() const;
 
-		///
-		/// Window service.
-		///
-		qs::Window* m_window;
+			///
+			/// Get ShaderBook service.
+			///
+			/// \return Return pointer to ShaderBook service.
+			///
+			[[maybe_unused]] res::ShaderBook* shaderbook() const;
 
-		///
-		/// Renderer service.
-		///
-		qs::Renderer* m_renderer;
+			///
+			/// Get AudioBook service.
+			///
+			/// \return Return pointer to AudioBook service.
+			///
+			[[maybe_unused]] res::AudioBook* audiobook() const;
 
-		///
-		/// Lua service. Main instance of Lua.
-		///
-		sol::state* m_lua;
+			///
+			/// Get TextureAtlas service.
+			///
+			/// \return Return pointer to TextureAtlas service.
+			///
+			[[maybe_unused]] graphics::TextureAtlas* atlas() const;
 
-		///
-		/// Game state service.
-		///
-		pr::StateMachine* m_state;
+			///
+			/// Restart flag.
+			///
+			bool m_restart;
 
-		///
-		/// Dispatcher service.
-		///
-		sl::Dispatcher* m_dispatcher;
+		private:
+			///
+			/// Default constructor.
+			///
+			ServiceLocator();
 
-		///
-		/// World service.
-		///
-		galaxy::World* m_world;
+			///
+			/// Config service.
+			///
+			fs::Config* m_config;
 
-		///
-		/// Serializer service.
-		///
-		galaxy::Serializer* m_serializer;
+			///
+			/// Threadpool service.
+			///
+			async::ThreadPool<4>* m_threadpool;
 
-		///
-		/// FontBook service.
-		///
-		galaxy::FontBook* m_fontbook;
+			///
+			/// Window service.
+			///
+			graphics::Window* m_window;
 
-		///
-		/// ShaderBook service.
-		///
-		galaxy::ShaderBook* m_shaderbook;
+			///
+			/// Renderer service.
+			///
+			graphics::Renderer* m_renderer;
 
-		///
-		/// AudioBook service.
-		///
-		galaxy::AudioBook* m_audiobook;
+			///
+			/// Lua service. Main instance of Lua.
+			///
+			sol::state* m_lua;
 
-		///
-		/// AudioBook service.
-		///
-		qs::TextureAtlas* m_texture_atlas;
-	};
+			///
+			/// Game state service.
+			///
+			core::StateMachine* m_state;
+
+			///
+			/// Dispatcher service.
+			///
+			events::Dispatcher* m_dispatcher;
+
+			///
+			/// World service.
+			///
+			core::World* m_world;
+
+			///
+			/// Serializer service.
+			///
+			fs::Serializer* m_serializer;
+
+			///
+			/// FontBook service.
+			///
+			res::FontBook* m_fontbook;
+
+			///
+			/// ShaderBook service.
+			///
+			res::ShaderBook* m_shaderbook;
+
+			///
+			/// AudioBook service.
+			///
+			res::AudioBook* m_audiobook;
+
+			///
+			/// AudioBook service.
+			///
+			graphics::TextureAtlas* m_texture_atlas;
+		};
+	} // namespace core
 } // namespace galaxy
 
 #endif

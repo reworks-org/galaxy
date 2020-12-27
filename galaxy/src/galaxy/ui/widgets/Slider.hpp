@@ -5,30 +5,23 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_SLIDER_HPP_
-#define GALAXY_SLIDER_HPP_
+#ifndef GALAXY_UI_WIDGETS_SLIDER_HPP_
+#define GALAXY_UI_WIDGETS_SLIDER_HPP_
 
-#include <protostar/events/MouseMovedEvent.hpp>
-#include <protostar/events/MousePressedEvent.hpp>
-#include <protostar/events/MouseReleasedEvent.hpp>
-#include <qs/sprite/BatchedSprite.hpp>
-
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
 #include "galaxy/ui/Widget.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		///
 		/// UI bar that can be moved to increment and decrement a value.
 		///
-		class Slider final : public galaxy::Widget
+		class Slider final : public Widget
 		{
 			friend class GUI;
 
@@ -44,19 +37,9 @@ namespace galaxy
 			Slider(const Slider&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Slider(Slider&&) = default;
-
-			///
 			/// Copy assignment operator.
 			///
 			Slider& operator=(const Slider&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Slider& operator=(Slider&&) = default;
 
 			///
 			/// Destructor.
@@ -76,21 +59,21 @@ namespace galaxy
 			///
 			/// \param mme Mouse Moved Event.
 			///
-			void on_event(const pr::MouseMovedEvent& mme);
+			void on_event(const events::MouseMoved& mme);
 
 			///
 			/// Triggered upon mouse click.
 			///
 			/// \param mpe Mouse Pressed Event.
 			///
-			void on_event(const pr::MousePressedEvent& mpe);
+			void on_event(const events::MousePressed& mpe);
 
 			///
 			/// Triggered upon mouse release.
 			///
 			/// \param mre Mouse Released Event.
 			///
-			void on_event(const pr::MouseReleasedEvent& mre);
+			void on_event(const events::MouseReleased& mre);
 
 			///
 			/// \brief Update widget logic.
@@ -108,7 +91,7 @@ namespace galaxy
 			///
 			/// \param camera View camera to use when rendering.
 			///
-			void render(qs::Camera& camera) override;
+			void render(graphics::Camera& camera) override;
 
 			///
 			/// Sets position without moving the object.
@@ -146,19 +129,19 @@ namespace galaxy
 			///
 			/// Bounds of marker on bar.
 			///
-			pr::Rect<float> m_marker_pos;
+			graphics::Rect<float> m_marker_pos;
 
 			///
 			/// Slider texture.
 			///
-			qs::BatchedSprite m_slider;
+			graphics::BatchedSprite m_slider;
 
 			///
 			/// Marker texture.
 			///
-			qs::BatchedSprite m_marker;
+			graphics::BatchedSprite m_marker;
 		};
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy
 
 #endif

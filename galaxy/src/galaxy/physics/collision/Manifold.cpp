@@ -1,19 +1,19 @@
 ///
 /// Manifold.cpp
-/// redshift
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Manifold.hpp"
 
-///
-/// Core namespace.
-///
-namespace rs
+namespace galaxy
 {
-	Manifold::Manifold()
-	    : m_penetration {0.0f}, m_normal {1.0f, 1.0f}
+	namespace physics
 	{
-	}
-} // namespace rs
+		Manifold::Manifold()
+		    : m_penetration {0.0f}, m_normal {1.0f, 1.0f}
+		{
+		}
+	} // namespace physics
+} // namespace galaxy

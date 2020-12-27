@@ -5,20 +5,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
-#include <qs/core/Window.hpp>
+#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/Window.hpp"
 
 #include "TextInput.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		TextInput::TextInput()
 		    : m_total_chars {0}, m_draw_cursor {false}, m_border_width {0.0f}, m_text_input {nullptr}, m_is_focus {false}
@@ -42,7 +36,7 @@ namespace galaxy
 			}
 			else
 			{
-				PL_LOG(PL_ERROR, "Unable to create image widget from {0}.", textinput);
+				GALAXY_LOG(GALAXY_ERROR, "Unable to create image widget from {0}.", textinput);
 			}
 
 			m_bounds.m_width  = get_width();
@@ -63,7 +57,7 @@ namespace galaxy
 				       1000);
 		}
 
-		void TextInput::on_event(const pr::MouseMovedEvent& mme)
+		void TextInput::on_event(const events::MouseMoved& mme)
 		{
 			if (m_tooltip)
 			{
@@ -79,7 +73,7 @@ namespace galaxy
 			}
 		}
 
-		void TextInput::on_event(const pr::MousePressedEvent& mpe)
+		void TextInput::on_event(const events::MousePressed& mpe)
 		{
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
@@ -107,24 +101,24 @@ namespace galaxy
 			}
 		}
 
-		void TextInput::on_event(const pr::KeyDownEvent& kde)
+		void TextInput::on_event(const events::KeyDown& kde)
 		{
 			if (m_text_input != nullptr)
 			{
 				switch (kde.m_keycode)
 				{
-					case pr::Keys::ENTER:
+					case input::Keys::ENTER:
 						stop();
 						break;
 
-					case pr::Keys::BACKSPACE:
+					case input::Keys::BACKSPACE:
 						if (m_text_input->length() > 0)
 						{
 							m_text_input->pop_back();
 						}
 						break;
 
-					case pr::Keys::DELETE:
+					case input::Keys::DEL:
 						*m_text_input = "";
 						break;
 				}
@@ -159,7 +153,7 @@ namespace galaxy
 			}
 		}
 
-		void TextInput::render(qs::Camera& camera)
+		void TextInput::render(graphics::Camera& camera)
 		{
 			auto ss = m_theme->m_shaders->get("text");
 
@@ -209,5 +203,5 @@ namespace galaxy
 				m_is_focus    = false;
 			}
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

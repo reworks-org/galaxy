@@ -9,114 +9,87 @@
 
 #include "Config.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	Config::Config()
-	    : m_opened {false}, m_exists {false}
+	namespace fs
 	{
-	}
-
-	Config::Config(Config&& c)
-	{
-		this->m_opened = c.m_opened;
-		this->m_exists = c.m_exists;
-		this->m_config = std::move(c.m_config);
-		this->m_path   = std::move(c.m_path);
-
-		c.m_opened = false;
-		c.m_exists = false;
-	}
-
-	Config& Config::operator=(Config&& c)
-	{
-		if (this != &c)
+		Config::Config()
+		    : m_opened {false}, m_exists {false}
 		{
-			this->m_opened = c.m_opened;
-			this->m_exists = c.m_exists;
-			this->m_config = std::move(c.m_config);
-			this->m_path   = std::move(c.m_path);
-
-			c.m_opened = false;
-			c.m_exists = false;
 		}
 
-		return *this;
-	}
-
-	void Config::init(std::string_view file)
-	{
-		m_path = {file};
-		if (!std::filesystem::exists(m_path))
+		void Config::init(std::string_view file)
 		{
-			m_exists = false;
-		}
-		else
-		{
-			m_exists = true;
-		}
-	}
-
-	bool Config::open()
-	{
-		bool result = true;
-
-		if (m_exists)
-		{
-			// Makes sure the filepath is correct for the current platform.
-			std::fstream ifs;
-			ifs.open(m_path.string(), std::fstream::in);
-			if (!ifs.good())
+			m_path = {file};
+			if (!std::filesystem::exists(m_path))
 			{
-				result = false;
-				PL_LOG(PL_ERROR, "std::ifstream failed to open config file!");
+				m_exists = false;
 			}
 			else
 			{
-				// Use JSON stream to deserialize data and parse.
-				ifs >> m_config;
-				m_opened = true;
+				m_exists = true;
+			}
+		}
+
+		bool Config::open()
+		{
+			bool result = true;
+
+			if (m_exists)
+			{
+				// Makes sure the filepath is correct for the current platform.
+				std::fstream ifs;
+				ifs.open(m_path.string(), std::fstream::in);
+				if (!ifs.good())
+				{
+					result = false;
+					GALAXY_LOG(GALAXY_ERROR, "std::ifstream failed to open config file!");
+				}
+				else
+				{
+					// Use JSON stream to deserialize data and parse.
+					ifs >> m_config;
+					m_opened = true;
+				}
+
+				ifs.close();
+			}
+			else
+			{
+				result = false;
+				GALAXY_LOG(GALAXY_WARNING, "Config file must be init() and define(), then created.");
 			}
 
-			ifs.close();
+			return result;
 		}
-		else
+
+		void Config::create()
 		{
-			result = false;
-			PL_LOG(PL_WARNING, "Config file must be init() and define(), then created.");
+			if (m_config.empty())
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Attempted to create empty config file!");
+			}
+			else
+			{
+				save();
+				m_exists = true;
+			}
 		}
 
-		return result;
-	}
-
-	void Config::create()
-	{
-		if (m_config.empty())
+		void Config::save()
 		{
-			PL_LOG(PL_FATAL, "Attempted to create empty config file!");
-		}
-		else
-		{
-			save();
-			m_exists = true;
-		}
-	}
+			std::ofstream ofs;
+			ofs.open(m_path.string(), std::ofstream::out | std::ofstream::trunc);
+			if (!ofs.good())
+			{
+				GALAXY_LOG(GALAXY_FATAL, "std::ofstream failed to open config file!");
+			}
 
-	void Config::save()
-	{
-		std::ofstream ofs;
-		ofs.open(m_path.string(), std::ofstream::out | std::ofstream::trunc);
-		if (!ofs.good())
-		{
-			PL_LOG(PL_FATAL, "std::ofstream failed to open config file!");
+			// Use JSON stream to serialize data and write to file.
+			ofs << m_config.dump(4);
+			m_opened = true;
+
+			ofs.close();
 		}
-
-		// Use JSON stream to serialize data and write to file.
-		ofs << m_config.dump(4);
-		m_opened = true;
-
-		ofs.close();
-	}
+	} // namespace fs
 } // namespace galaxy

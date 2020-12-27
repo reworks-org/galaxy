@@ -1,116 +1,121 @@
 ///
 /// KineticBody.hpp
-/// redshift
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef REDSHIFT_KINETICBODY_HPP_
-#define REDSHIFT_KINETICBODY_HPP_
+#ifndef GALAXY_PHYSICS_BODY_KINETICBODY_HPP_
+#define GALAXY_PHYSICS_BODY_KINETICBODY_HPP_
 
-#include "redshift/body/Body.hpp"
+#include "galaxy/physics/body/Body.hpp"
 
-///
-/// Core namespace.
-///
-namespace rs
+namespace galaxy
 {
-	///
-	/// A specialized body that can move.
-	///
-	class KineticBody final : public rs::Body
+	namespace systems
 	{
-		friend class World;
+		class PhysicsSystem;
+	}
 
-	public:
+	namespace physics
+	{
 		///
-		/// Argument constructor.
+		/// A specialized body that can move.
 		///
-		/// \param density Density of this object.
-		/// \param size Size of this object.
-		///
-		KineticBody(const float density, const glm::vec2& size);
+		class KineticBody final : public Body
+		{
+			friend class systems::PhysicsSystem;
 
-		///
-		/// Argument constructor.
-		///
-		/// \param density Density of this object.
-		/// \param width Width of the object.
-		/// \param height Height of the object.
-		///
-		KineticBody(const float density, const float width, const float height);
+		public:
+			///
+			/// Argument constructor.
+			///
+			/// \param density Density of this object.
+			/// \param size Size of this object.
+			///
+			KineticBody(const float density, const glm::vec2& size);
 
-		///
-		/// Virtual destructor.
-		///
-		virtual ~KineticBody() = default;
+			///
+			/// Argument constructor.
+			///
+			/// \param density Density of this object.
+			/// \param width Width of the object.
+			/// \param height Height of the object.
+			///
+			KineticBody(const float density, const float width, const float height);
 
-		///
-		/// Apply a force to this body.
-		///
-		/// \param x_force Apply a force to this object on the x-axis.
-		/// \param y_force Apply a force to this object on the y-axis.
-		///
-		void apply_force(const float x_force, const float y_force);
+			///
+			/// Virtual destructor.
+			///
+			virtual ~KineticBody() = default;
 
-		///
-		/// Apply a force to this body.
-		///
-		/// \param force Apply a 2D force to this object.
-		///
-		void apply_force(glm::vec2& force);
+			///
+			/// Apply a force to this body.
+			///
+			/// \param x_force Apply a force to this object on the x-axis.
+			/// \param y_force Apply a force to this object on the y-axis.
+			///
+			void apply_force(const float x_force, const float y_force);
 
-		///
-		/// Apply a force to this body.
-		///
-		/// \param x_force Apply a force to this object on the x-axis.
-		///
-		void apply_horizontal_force(const float x_force);
+			///
+			/// Apply a force to this body.
+			///
+			/// \param force Apply a 2D force to this object.
+			///
+			void apply_force(glm::vec2& force);
 
-		///
-		/// Apply a force to this body.
-		///
-		/// \param y_force Apply a force to this object on the y-axis.
-		///
-		void apply_vertical_force(const float y_force);
+			///
+			/// Apply a force to this body.
+			///
+			/// \param x_force Apply a force to this object on the x-axis.
+			///
+			void apply_horizontal_force(const float x_force);
 
-		///
-		/// Retrieve force being applied to this object.
-		///
-		/// \return Const glm::vec2 reference.
-		///
-		[[nodiscard]] const glm::vec2& get_force() const;
+			///
+			/// Apply a force to this body.
+			///
+			/// \param y_force Apply a force to this object on the y-axis.
+			///
+			void apply_vertical_force(const float y_force);
 
-		///
-		/// Get current velocity.
-		///
-		/// \return Const glm::vec2 reference.
-		///
-		[[nodiscard]] const glm::vec2& get_vel() const override;
+			///
+			/// Retrieve force being applied to this object.
+			///
+			/// \return Const glm::vec2 reference.
+			///
+			[[nodiscard]] const glm::vec2& get_force() const;
 
-		///
-		/// Check if this body is rigid or can move.
-		///
-		/// \return Const bool.
-		///
-		const bool is_rigid() const noexcept override;
+			///
+			/// Get current velocity.
+			///
+			/// \return Const glm::vec2 reference.
+			///
+			[[nodiscard]] const glm::vec2& get_vel() const override;
 
-	private:
-		///
-		/// Deleted default constructor.
-		///
-		KineticBody() = delete;
+			///
+			/// Check if this body is rigid or can move.
+			///
+			/// \return Const bool.
+			///
+			const bool is_rigid() const override;
 
-		///
-		/// Force currently being applied to this object.
-		///
-		glm::vec2 m_force;
+		private:
+			///
+			/// Deleted default constructor.
+			///
+			KineticBody() = delete;
 
-		///
-		/// Velocity of this body.
-		///
-		glm::vec2 m_velocity;
-	};
-} // namespace rs
+			///
+			/// Force currently being applied to this object.
+			///
+			glm::vec2 m_force;
+
+			///
+			/// Velocity of this body.
+			///
+			glm::vec2 m_velocity;
+		};
+	} // namespace physics
+} // namespace galaxy
 
 #endif
