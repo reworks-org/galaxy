@@ -10,8 +10,8 @@
 #include <glad/glad.h>
 #include <galaxy/graphics/Colour.hpp>
 #include <galaxy/system/Time.hpp>
-#include <qs/core/WindowSettings.hpp>
-#include <qs/text/FreeType.hpp>
+#include <galaxy/graphicsWindowSettings.hpp>
+#include <galaxy/graphics/text/FreeType.hpp>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
@@ -44,14 +44,14 @@ namespace galaxy
 			}
 
 			// FS paths.
-			galaxy::FileSystem::s_root     = m_config->get<std::string>("root-path");
-			galaxy::FileSystem::s_textures = m_config->get<std::string>("textures-path");
-			galaxy::FileSystem::s_shaders  = m_config->get<std::string>("shaders-path");
-			galaxy::FileSystem::s_scripts  = m_config->get<std::string>("scripts-path");
-			galaxy::FileSystem::s_audio    = m_config->get<std::string>("audio-path");
-			galaxy::FileSystem::s_json     = m_config->get<std::string>("json-path");
-			galaxy::FileSystem::s_fonts    = m_config->get<std::string>("font-path");
-			galaxy::FileSystem::s_saves    = m_config->get<std::string>("save-folder");
+			fs::s_root     = m_config->get<std::string>("root-path");
+			fs::s_textures = m_config->get<std::string>("textures-path");
+			fs::s_shaders  = m_config->get<std::string>("shaders-path");
+			fs::s_scripts  = m_config->get<std::string>("scripts-path");
+			fs::s_audio    = m_config->get<std::string>("audio-path");
+			fs::s_json     = m_config->get<std::string>("json-path");
+			fs::s_fonts    = m_config->get<std::string>("font-path");
+			fs::s_saves    = m_config->get<std::string>("save-folder");
 
 			// threadpool
 			m_threadpool = std::make_unique<pr::ThreadPool<4>>();
@@ -60,7 +60,7 @@ namespace galaxy
 
 			// Window
 			// clang-format off
-			qs::WindowSettings settings
+			WindowSettings settings
 			{
 				.m_anti_aliasing = m_config->get<int>("anti-aliasing"),
 				.m_ansio_filtering = m_config->get<int>("ansio-filter"),
@@ -77,7 +77,7 @@ namespace galaxy
 			};
 			// clang-format on
 
-			m_window           = std::make_unique<qs::Window>();
+			m_window           = std::make_unique<Window>();
 			SL_HANDLE.m_window = m_window.get();
 			if (!m_window->create(settings))
 			{
@@ -91,15 +91,15 @@ namespace galaxy
 				m_window->set_cursor_visibility(cursor);
 				if (cursor)
 				{
-					auto cursor_path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + m_config->get<std::string>("cursor-image");
+					auto cursor_path = fs::s_root + fs::s_textures + m_config->get<std::string>("cursor-image");
 					m_window->set_cursor_icon(cursor_path);
 				}
 
-				auto icon_path = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + m_config->get<std::string>("icon-file");
+				auto icon_path = fs::s_root + fs::s_textures + m_config->get<std::string>("icon-file");
 				m_window->set_icon(icon_path);
 
 				// renderer
-				m_renderer           = std::make_unique<qs::Renderer>();
+				m_renderer           = std::make_unique<Renderer>();
 				SL_HANDLE.m_renderer = m_renderer.get();
 
 				// Freetype.
@@ -134,7 +134,7 @@ namespace galaxy
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas           = std::make_unique<qs::TextureAtlas>();
+				m_texture_atlas           = std::make_unique<TextureAtlas>();
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 				// Register all usertypes used by this application for sol3.

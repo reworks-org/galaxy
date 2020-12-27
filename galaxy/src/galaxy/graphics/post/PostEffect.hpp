@@ -1,52 +1,52 @@
 ///
 /// PostEffect.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_POSTEFFECT_HPP_
-#define QUASAR_POSTEFFECT_HPP_
+#ifndef GALAXY_GRAPHICS_POST_POSTEFFECT_HPP_
+#define GALAXY_GRAPHICS_POST_POSTEFFECT_HPP_
 
-#include "qs/core/Shader.hpp"
+#include "galaxy/graphics/Shader.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Post effect to apply to final image output.
-	///
-	class PostEffect
+	namespace graphics
 	{
-		friend class Window;
+		///
+		/// Post effect to apply to final image output.
+		///
+		class PostEffect
+		{
+			friend class Window;
 
-	public:
-		///
-		/// Default destructor.
-		///
-		virtual ~PostEffect() = default;
+		public:
+			///
+			/// Default destructor.
+			///
+			virtual ~PostEffect() = default;
 
-		///
-		/// Shader.
-		///
-		qs::Shader m_shader;
+			///
+			/// Shader.
+			///
+			Shader m_shader;
 
-	protected:
-		///
-		/// Default constructor.
-		///
-		PostEffect() = default;
+		protected:
+			///
+			/// Default constructor.
+			///
+			PostEffect() = default;
 
-	private:
-		///
-		/// \brief Set the appropriate uniforms for the shader.
-		///
-		/// Called internally in the derived effect, then called by Window.
-		///
-		virtual void apply_uniforms() = 0;
-	};
-} // namespace qs
+		private:
+			///
+			/// \brief Set the appropriate uniforms for the shader.
+			///
+			/// Called internally in the derived effect, then called by Window.
+			///
+			virtual void apply_uniforms() = 0;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

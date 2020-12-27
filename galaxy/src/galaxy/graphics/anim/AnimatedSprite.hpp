@@ -1,64 +1,54 @@
 ///
 /// AnimatedSprite.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_ANIMATEDSPRITE_HPP_
-#define QUASAR_ANIMATEDSPRITE_HPP_
+#ifndef GALAXY_GRAPHICS_ANIM_ANIMATEDSPRITE_HPP_
+#define GALAXY_GRAPHICS_ANIM_ANIMATEDSPRITE_HPP_
 
-#include "qs/anim/Animated.hpp"
-#include "qs/sprite/Sprite.hpp"
+#include "galaxy/graphics/anim/Animated.hpp"
+#include "galaxy/graphics/sprite/Sprite.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Everything you need to draw an animated sprite.
-	///
-	class AnimatedSprite final : public qs::Sprite, public qs::Animated
+	namespace graphics
 	{
-	public:
 		///
-		/// Constructor.
+		/// Everything you need to draw an animated sprite.
 		///
-		AnimatedSprite();
+		class AnimatedSprite final : public Sprite, public Animated
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			AnimatedSprite();
 
-		///
-		/// Copy constructor.
-		///
-		AnimatedSprite(const AnimatedSprite&) = delete;
+			///
+			/// Copy constructor.
+			///
+			AnimatedSprite(const AnimatedSprite&) = delete;
 
-		///
-		/// Move constructor.
-		///
-		AnimatedSprite(AnimatedSprite&&) = default;
+			///
+			/// Copy assignment operator.
+			///
+			AnimatedSprite& operator=(const AnimatedSprite&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		AnimatedSprite& operator=(const AnimatedSprite&) = delete;
+			///
+			/// Destructor.
+			///
+			virtual ~AnimatedSprite() = default;
 
-		///
-		/// Move assignment operator.
-		///
-		AnimatedSprite& operator=(AnimatedSprite&&) = default;
-
-		///
-		/// Destructor.
-		///
-		virtual ~AnimatedSprite() = default;
-
-		///
-		/// Update GL data.
-		///
-		/// \param dt DeltaTime.
-		///
-		void update(const double dt) override;
-	};
-} // namespace qs
+			///
+			/// Update GL data.
+			///
+			/// \param dt DeltaTime.
+			///
+			void update(const double dt) override;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

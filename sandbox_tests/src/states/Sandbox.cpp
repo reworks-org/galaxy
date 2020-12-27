@@ -5,7 +5,7 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Window.hpp>
+#include <galaxy/graphicsWindow.hpp>
 #include <galaxy/core/ServiceLocator.hpp>
 
 #include "../layers/SandboxLayer.hpp"

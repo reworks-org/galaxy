@@ -9,15 +9,9 @@
 
 #include "Progressbar.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		Progressbar::Progressbar()
 		    : m_progress {1.0f}, m_prev_progress {-1.0f}, m_bar_pos {0.0f, 0.0f, 0.0f, 0.0f}
@@ -51,7 +45,7 @@ namespace galaxy
 			}
 		}
 
-		void Progressbar::on_event(const pr::MouseMovedEvent& mme)
+		void Progressbar::on_event(const events::MouseMoved& mme)
 		{
 			if (m_tooltip)
 			{
@@ -76,7 +70,7 @@ namespace galaxy
 			}
 		}
 
-		void Progressbar::render(qs::Camera& camera)
+		void Progressbar::render(graphics::Camera& camera)
 		{
 			if (m_tooltip)
 			{
@@ -110,5 +104,5 @@ namespace galaxy
 		{
 			return m_progress * 100.0f;
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

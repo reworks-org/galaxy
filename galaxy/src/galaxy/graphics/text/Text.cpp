@@ -1,127 +1,127 @@
 ///
 /// Text.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Text.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	Text::Text()
-	    : m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch(1000)
+	namespace graphics
 	{
-	}
-
-	Text::~Text()
-	{
-		m_batch.clear();
-		m_batch_data.clear();
-	}
-
-	void Text::load(qs::Font* font, const pr::Colour& col)
-	{
-		m_font   = font;
-		m_colour = col;
-	}
-
-	void Text::create(std::string_view text)
-	{
-		m_batch.set_texture(m_font->get_fontmap());
-		if (!text.empty())
+		Text::Text()
+		    : m_width {0}, m_height {0}, m_colour {255, 255, 255, 255}, m_font {nullptr}, m_batch(1000)
 		{
-			float x_offset       = 0.0f;
-			float y_offset       = 0.0f;
-			unsigned int counter = 0;
-			for (const char c : text)
+		}
+
+		Text::~Text()
+		{
+			m_batch.clear();
+			m_batch_data.clear();
+		}
+
+		void Text::load(Font* font, const graphics::Colour& col)
+		{
+			m_font   = font;
+			m_colour = col;
+		}
+
+		void Text::create(std::string_view text)
+		{
+			m_batch.set_texture(m_font->get_fontmap());
+			if (!text.empty())
 			{
-				if (c == '\n')
+				float x_offset       = 0.0f;
+				float y_offset       = 0.0f;
+				unsigned int counter = 0;
+				for (const char c : text)
 				{
-					x_offset = 0.0f;
-					y_offset += m_font->get_height();
-				}
-				else
-				{
-					auto* c_obj = m_font->get_char(c);
-
-					if (c_obj != nullptr)
+					if (c == '\n')
 					{
-						m_batch_data.emplace(counter, qs::BatchedSprite {});
-
-						auto* spr = &m_batch_data[counter];
-						spr->create(c_obj->m_region, 1);
-						spr->set_pos(x_offset + c_obj->m_bearing.x, y_offset);
-						x_offset += (c_obj->m_advance >> 6);
-
-						m_batch.add(spr);
+						x_offset = 0.0f;
+						y_offset += m_font->get_height();
 					}
+					else
+					{
+						auto* c_obj = m_font->get_char(c);
+
+						if (c_obj != nullptr)
+						{
+							m_batch_data.emplace(counter, BatchedSprite {});
+
+							auto* spr = &m_batch_data[counter];
+							spr->create(c_obj->m_region, 1);
+							spr->set_pos(x_offset + c_obj->m_bearing.x, y_offset);
+							x_offset += (c_obj->m_advance >> 6);
+
+							m_batch.add(spr);
+						}
+					}
+
+					counter++;
 				}
 
-				counter++;
+				m_width  = m_font->get_width(text);
+				m_height = m_font->get_height();
+			}
+			else
+			{
+				m_width  = 1;
+				m_height = 1;
 			}
 
-			m_width  = m_font->get_width(text);
-			m_height = m_font->get_height();
+			set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
+			m_dirty = true;
 		}
-		else
+
+		void Text::update_text(std::string_view text)
 		{
-			m_width  = 1;
-			m_height = 1;
+			m_batch.clear();
+			m_batch_data.clear();
+			create(text);
 		}
 
-		set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
-		m_dirty = true;
-	}
+		void Text::bind()
+		{
+			m_batch.update(this);
+			m_batch.bind();
+		}
 
-	void Text::update_text(std::string_view text)
-	{
-		m_batch.clear();
-		m_batch_data.clear();
-		create(text);
-	}
+		void Text::unbind()
+		{
+			m_batch.unbind();
+		}
 
-	void Text::bind()
-	{
-		m_batch.update(this);
-		m_batch.bind();
-	}
+		std::array<float, 4> Text::get_colour()
+		{
+			return m_colour.get_normalized();
+		}
 
-	void Text::unbind()
-	{
-		m_batch.unbind();
-	}
+		const int Text::get_width() const
+		{
+			return m_width;
+		}
 
-	std::array<float, 4> Text::get_colour()
-	{
-		return m_colour.get_normalized();
-	}
+		const int Text::get_height() const
+		{
+			return m_height;
+		}
 
-	const int Text::get_width() const
-	{
-		return m_width;
-	}
+		const int Text::get_batch_width() const
+		{
+			return m_batch.get_width();
+		}
 
-	const int Text::get_height() const
-	{
-		return m_height;
-	}
+		const int Text::get_batch_height() const
+		{
+			return m_batch.get_height();
+		}
 
-	const int Text::get_batch_width() const
-	{
-		return m_batch.get_width();
-	}
-
-	const int Text::get_batch_height() const
-	{
-		return m_batch.get_height();
-	}
-
-	const unsigned int Text::index_count() const
-	{
-		return m_batch.get_used_index_count();
-	}
-} // namespace qs
+		const unsigned int Text::index_count() const
+		{
+			return m_batch.get_used_index_count();
+		}
+	} // namespace graphics
+} // namespace galaxy

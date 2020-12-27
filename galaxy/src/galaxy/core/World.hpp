@@ -133,7 +133,7 @@ namespace galaxy
 			///
 			/// Registers a component definition.
 			///
-			/// \param name Name of component class in string format i.e. "AnimationComponent".
+			/// \param name Name of component class in string format i.e. "graphics::AnimatedBatchSprite".
 			///
 			template<meta::is_class Component>
 			void register_component(std::string_view name);

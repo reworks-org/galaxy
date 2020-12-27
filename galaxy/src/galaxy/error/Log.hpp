@@ -142,7 +142,7 @@ namespace galaxy
 			/// \param level Log error level.
 			/// \param message Message to log.
 			///
-			template<galaxy::error::type LogLevel, typename... MsgInputs>
+			template<error::type LogLevel, typename... MsgInputs>
 			void log(const LogLevel, std::string_view message, const MsgInputs&... args /*std::source_location goes here*/);
 
 			///
@@ -159,7 +159,7 @@ namespace galaxy
 			///
 			/// \param level Level to set as the minimum level to log at.
 			///
-			template<galaxy::error::type LogLevel>
+			template<error::type LogLevel>
 			void set_min_level(const LogLevel);
 
 		private:
@@ -175,7 +175,7 @@ namespace galaxy
 			///
 			/// \return std::string, in caps.
 			///
-			template<galaxy::error::type LogLevel>
+			template<error::type LogLevel>
 			[[nodiscard]] std::string process_level();
 
 			///
@@ -185,7 +185,7 @@ namespace galaxy
 			///
 			/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 			///
-			template<galaxy::error::type LogLevel>
+			template<error::type LogLevel>
 			[[nodiscard]] std::string process_colour();
 
 			///
@@ -196,7 +196,7 @@ namespace galaxy
 			///
 			/// Minimum level of messages required to be logged.
 			///
-			error::Level m_min_level;
+			Level m_min_level;
 
 			///
 			/// Protection mutex.
@@ -224,7 +224,7 @@ namespace galaxy
 			bool m_testing_mode;
 		};
 
-		template<galaxy::error::type LogLevel, typename... MsgInputs>
+		template<error::type LogLevel, typename... MsgInputs>
 		inline void Log::log(const LogLevel, std::string_view message, const MsgInputs&... args)
 		{
 			if (!m_testing_mode)
@@ -241,7 +241,7 @@ namespace galaxy
 						// Create log message string.
 						m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%m/%d/%Y %H:%M\n", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), formatted_msg);
 
-						if constexpr (LogLevel::value() == log_level::Level::FATAL)
+						if constexpr (LogLevel::value() == Level::FATAL)
 						{
 							throw std::runtime_error {m_message};
 						}
@@ -250,57 +250,57 @@ namespace galaxy
 			}
 		}
 
-		template<galaxy::error::type LogLevel>
+		template<error::type LogLevel>
 		inline void Log::set_min_level(const LogLevel)
 		{
 			m_min_level = LogLevel::value();
 		}
 
-		template<galaxy::error::type LogLevel>
+		template<error::type LogLevel>
 		inline std::string Log::process_level()
 		{
-			if constexpr (LogLevel::value() == log_level::Level::INFO)
+			if constexpr (LogLevel::value() == Level::INFO)
 			{
 				return "INFO";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::DEBUG)
+			else if constexpr (LogLevel::value() == Level::DEBUG)
 			{
 				return "DEBUG";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::WARNING)
+			else if constexpr (LogLevel::value() == Level::WARNING)
 			{
 				return "WARNING";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::ERROR)
+			else if constexpr (LogLevel::value() == Level::ERROR)
 			{
 				return "ERROR";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::FATAL)
+			else if constexpr (LogLevel::value() == Level::FATAL)
 			{
 				return "FATAL";
 			}
 		}
 
-		template<galaxy::error::type LogLevel>
+		template<error::type LogLevel>
 		inline std::string Log::process_colour()
 		{
-			if constexpr (LogLevel::value() == log_level::Level::INFO)
+			if constexpr (LogLevel::value() == Level::INFO)
 			{
 				return "\x1B[37m";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::DEBUG)
+			else if constexpr (LogLevel::value() == Level::DEBUG)
 			{
 				return "\x1B[37m";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::WARNING)
+			else if constexpr (LogLevel::value() == Level::WARNING)
 			{
 				return "\x1B[33m";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::ERROR)
+			else if constexpr (LogLevel::value() == Level::ERROR)
 			{
 				return "\x1B[31m";
 			}
-			else if constexpr (LogLevel::value() == log_level::Level::FATAL)
+			else if constexpr (LogLevel::value() == Level::FATAL)
 			{
 				return "\x1B[31m";
 			}

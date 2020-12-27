@@ -1,185 +1,164 @@
 ///
 /// Camera.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_CAMERA_HPP_
-#define QUASAR_CAMERA_HPP_
+#ifndef GALAXY_GRAPHICS_CAMERA_HPP_
+#define GALAXY_GRAPHICS_CAMERA_HPP_
 
-#include <galaxy/events/KeyUpEvent.hpp>
-#include <galaxy/events/KeyDownEvent.hpp>
-#include <galaxy/events/MouseWheelEvent.hpp>
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/graphics/Transform.hpp"
 
-#include "qs/core/Transform.hpp"
-
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Defines a Camera (view) of an OpenGL 2D space.
-	///
-	class Camera final : public qs::Transform
+	namespace graphics
 	{
-	public:
 		///
-		/// Default constructor.
+		/// Defines a Camera (view) of an OpenGL 2D space.
 		///
-		Camera();
+		class Camera final : public Transform
+		{
+		public:
+			///
+			/// Default constructor.
+			///
+			Camera();
 
-		///
-		/// \brief Argument constructor.
-		///
-		/// Calls configure() and setSpeed().
-		///
-		/// \param left Left point of ortho perspective.
-		/// \param right Right point of ortho perspective.
-		/// \param bottom Bottom point of ortho perspective.
-		/// \param top Top point of ortho perspective.
-		/// \param speed Speed of the camera. Multiplicative float.
-		///
-		explicit Camera(const float left, const float right, const float bottom, const float top, const float speed);
+			///
+			/// \brief Argument constructor.
+			///
+			/// Calls configure() and setSpeed().
+			///
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
+			/// \param speed Speed of the camera. Multiplicative float.
+			///
+			explicit Camera(const float left, const float right, const float bottom, const float top, const float speed);
 
-		///
-		/// Copy constructor.
-		///
-		Camera(const Camera&) = default;
+			///
+			/// Default destructor.
+			///
+			virtual ~Camera() = default;
 
-		///
-		/// Move constructor.
-		///
-		Camera(Camera&&) = default;
+			///
+			/// Configures camera for window model view projection.
+			///
+			/// \param left Left point of ortho perspective.
+			/// \param right Right point of ortho perspective.
+			/// \param bottom Bottom point of ortho perspective.
+			/// \param top Top point of ortho perspective.
+			///
+			void create(const float left, const float right, const float bottom, const float top);
 
-		///
-		/// Copy assignment operator.
-		///
-		Camera& operator=(const Camera&) = default;
+			///
+			///	Event processing method for key down for camera.
+			///
+			/// \param e Takes in a shared galaxy event defining a key press down.
+			///
+			void on_key_down(const events::KeyDown& e);
 
-		///
-		/// Move assignment operator.
-		///
-		Camera& operator=(Camera&&) = default;
+			///
+			/// Event processing method for key up for camera.
+			///
+			/// \param e Takes in a shared galaxy event defining a key release.
+			///
+			void on_key_up(const events::KeyUp& e);
 
-		///
-		/// Default destructor.
-		///
-		virtual ~Camera() = default;
+			///
+			/// Event processing method for scroll event for camera.
+			///
+			/// \param e Takes in a mouse wheel scroll event.
+			///
+			void on_mouse_scroll(const events::MouseWheel& e);
 
-		///
-		/// Configures camera for window model view projection.
-		///
-		/// \param left Left point of ortho perspective.
-		/// \param right Right point of ortho perspective.
-		/// \param bottom Bottom point of ortho perspective.
-		/// \param top Top point of ortho perspective.
-		///
-		void create(const float left, const float right, const float bottom, const float top);
+			///
+			/// Update method for camera.
+			///
+			/// \param ts Time-step from update() loop.
+			///
+			void update(const double ts);
 
-		///
-		///	Event processing method for key down for camera.
-		///
-		/// \param e Takes in a shared galaxy event defining a key press down.
-		///
-		void on_key_down(const pr::KeyDownEvent& e);
+			///
+			/// Set the speed of the camera.
+			///
+			/// \param speed Speed of the camera. Multiplicative float.
+			///
+			void set_speed(const float speed);
 
-		///
-		/// Event processing method for key up for camera.
-		///
-		/// \param e Takes in a shared galaxy event defining a key release.
-		///
-		void on_key_up(const pr::KeyUpEvent& e);
+			///
+			/// Get camera width.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_width() const;
 
-		///
-		/// Event processing method for scroll event for camera.
-		///
-		/// \param e Takes in a mouse wheel scroll event.
-		///
-		void on_mouse_scroll(const pr::MouseWheelEvent& e);
+			///
+			/// Get camera height.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_height() const;
 
-		///
-		/// Update method for camera.
-		///
-		/// \param ts Time-step from update() loop.
-		///
-		void update(const double ts);
+			///
+			/// Get the camera projection.
+			///
+			/// \return Const glm::mat4 reference.
+			///
+			[[nodiscard]] const glm::mat4& get_proj();
 
-		///
-		/// Set the speed of the camera.
-		///
-		/// \param speed Speed of the camera. Multiplicative float.
-		///
-		void set_speed(const float speed);
+		private:
+			///
+			/// Mouse scale.
+			///
+			double m_scale;
 
-		///
-		/// Get camera width.
-		///
-		/// \return Const float.
-		///
-		[[nodiscard]] const float get_width() const;
+			///
+			/// Camera move up flag.
+			///
+			bool m_move_up;
 
-		///
-		/// Get camera height.
-		///
-		/// \return Const float.
-		///
-		[[nodiscard]] const float get_height() const;
+			///
+			/// Camera move down flag.
+			///
+			bool m_move_down;
 
-		///
-		/// Get the camera projection.
-		///
-		/// \return Const glm::mat4 reference.
-		///
-		[[nodiscard]] const glm::mat4& get_proj();
+			///
+			/// Camera move left flag.
+			///
+			bool m_move_left;
 
-	private:
-		///
-		/// Mouse scale.
-		///
-		double m_scale;
+			///
+			/// Camera move right flag.
+			///
+			bool m_move_right;
 
-		///
-		/// Camera move up flag.
-		///
-		bool m_move_up;
+			///
+			/// Speed of camera.
+			///
+			float m_speed;
 
-		///
-		/// Camera move down flag.
-		///
-		bool m_move_down;
+			///
+			/// Width of camera bounds.
+			///
+			float m_width;
 
-		///
-		/// Camera move left flag.
-		///
-		bool m_move_left;
+			///
+			/// Height of camera bounds.
+			///
+			float m_height;
 
-		///
-		/// Camera move right flag.
-		///
-		bool m_move_right;
-
-		///
-		/// Speed of camera.
-		///
-		float m_speed;
-
-		///
-		/// Width of camera bounds.
-		///
-		float m_width;
-
-		///
-		/// Height of camera bounds.
-		///
-		float m_height;
-
-		///
-		/// Camera projection matrix.
-		///
-		glm::mat4 m_projection;
-	};
-} // namespace qs
+			///
+			/// Camera projection matrix.
+			///
+			glm::mat4 m_projection;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

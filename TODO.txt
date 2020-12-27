@@ -2,9 +2,6 @@ Redshift:
 - air resistance
 - collision callbacks
 
-STARMAP:
-- move/copy constructors
-
 QUASAR:
 - C++20 review when eventual performance improvements are required.
 - QuadTree spacial partitioning for rendering.
@@ -21,26 +18,15 @@ DEV_TOOLS:
 - cleanup
 - 'static' cleanup
 
-Galaxy:
-- Restore data-driven design
-- merge ecs with world
-- merge redshift with physicssystem
-- merge various meta.hpps into meta folder
-
-
 THE PLAN:
 - Need to integrate clang-tidy and clang-format.
 - Need to integrate microsoft code analysis.
 - All around CMAKE.
 
 
-- namespaces for classification over filenames i.e. galaxy::SpriteComponent -> galaxy::components::renderable.
-- remove namespace commets
-- update include headers to match filepath
+
+- Restore data-driven design
 - Engine needs to be cohesive.
-- fix move/copy
-
-
 - Async asset loading.
 - Each class requires ability to be serialized -> prefereably to JSON or Lua.
 - Use of coroutines over threading.
@@ -53,12 +39,3 @@ THE PLAN:
 https://github.com/nlohmann/json/#arbitrary-types-conversions
 https://github.com/EQMG/Acid
 https://github.com/asmei1/tinycoro
-
-
-TODO:
-- graphics
-- map
-- physics
-- systems
-- tools
-- ui

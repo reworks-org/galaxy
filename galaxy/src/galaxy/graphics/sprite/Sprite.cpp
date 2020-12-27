@@ -1,54 +1,58 @@
 ///
 /// Sprite.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
+#include "galaxy/fs/FileSystem.hpp"
+
 #include "Sprite.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	Sprite::Sprite()
-	    : VertexData {}, Texture {}, Transform {}
+	namespace graphics
 	{
-	}
-
-	Sprite::Sprite(const nlohmann::json& json)
-	    : m_sprite {}
-	{
-		std::string tex = json.at("texture");
-		auto path       = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + tex;
-		m_sprite.load(path);
-
-		const bool dynamic = json.at("is-dynamic-buffer");
-		if (dynamic)
+		Sprite::Sprite()
+		    : VertexData {}, Texture {}, Transform {}
 		{
-			m_sprite.create<graphics::BufferDynamic>();
-		}
-		else
-		{
-			m_sprite.create<graphics::BufferStatic>();
 		}
 
-		m_sprite.set_anisotropy(json.at("ansio-filtering"));
-		m_sprite.set_opacity(json.at("opacity"));
-		m_sprite.set_pos(json.at("x"), json.at("y"));
-		m_sprite.set_z_level(json.at("z-level"));
-	}
+		Sprite::Sprite(const nlohmann::json& json)
+		    : VertexData {}, Texture {}, Transform {}
+		{
+			std::string tex = json.at("texture");
+			auto path       = fs::s_root + fs::s_textures + tex;
+			load(path);
 
-	void Sprite::bind()
-	{
-		m_va.bind();
-		glBindTexture(GL_TEXTURE_2D, m_texture);
-	}
+			const bool dynamic = json.at("is-dynamic-buffer");
+			if (dynamic)
+			{
+				create<BufferDynamic>();
+			}
+			else
+			{
+				create<BufferStatic>();
+			}
 
-	void Sprite::unbind()
-	{
-		m_va.unbind();
-		glBindTexture(GL_TEXTURE_2D, 0);
-	}
-} // namespace qs
+			set_anisotropy(json.at("ansio-filtering"));
+			set_opacity(json.at("opacity"));
+			set_pos(json.at("x"), json.at("y"));
+			set_z_level(json.at("z-level"));
+		}
+
+		void Sprite::bind()
+		{
+			m_va.bind();
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+		}
+
+		void Sprite::unbind()
+		{
+			m_va.unbind();
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+	} // namespace graphics
+} // namespace galaxy

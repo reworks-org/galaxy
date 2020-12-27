@@ -1,156 +1,156 @@
 ///
 /// TileLayer.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/error/Log.hpp"
-#include <nlohmann/json.hpp>
 
-#include "starmap/detail/Decoder.hpp"
+#include <nlohmann/json.hpp>
 
 #include "TileLayer.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	TileLayer::TileLayer()
+	namespace map
 	{
-		GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed TileLayer.");
-	}
-
-	TileLayer::TileLayer(const nlohmann::json& json)
-	    : Layer {json}, m_compression {""}
-	{
-		if (json.count("chunks") > 0)
+		TileLayer::TileLayer()
 		{
-			auto chunk_array = json.at("chunks");
-			for (const auto& chunk : chunk_array)
-			{
-				m_chunks.emplace_back(chunk);
-			}
+			GALAXY_LOG(GALAXY_FATAL, "Cannot instantiate a default constructed TileLayer.");
 		}
 
-		// only present on tilelayers.
-		if (json.count("compression") > 0)
+		TileLayer::TileLayer(const nlohmann::json& json)
+		    : Layer {json}, m_compression {""}
 		{
-			m_compression = json.at("compression");
-		}
-
-		if (json.count("data") > 0)
-		{
-			auto data_array = json.at("data");
-			if (json.is_array())
+			if (json.count("chunks") > 0)
 			{
-				std::vector<unsigned int> data_vector;
-				for (const auto& data : data_array)
+				auto chunk_array = json.at("chunks");
+				for (const auto& chunk : chunk_array)
 				{
-					data_vector.push_back(data.get<unsigned int>());
+					m_chunks.emplace_back(chunk);
 				}
-
-				m_data.emplace<std::vector<unsigned int>>(data_vector);
-			}
-			else
-			{
-				m_data = data_array.get<std::string>();
 			}
 
-			if (std::holds_alternative<std::string>(m_data))
+			// only present on tilelayers.
+			if (json.count("compression") > 0)
 			{
-				if (m_compression == "zlib")
+				m_compression = json.at("compression");
+			}
+
+			if (json.count("data") > 0)
+			{
+				auto data_array = json.at("data");
+				if (json.is_array())
 				{
-					// base64 -> zlib
-					std::string stage_one = starmap::decoder::base64(std::get<0>(m_data));
-
-					// validate
-					if (!stage_one.empty())
+					std::vector<unsigned int> data_vector;
+					for (const auto& data : data_array)
 					{
-						// zlib-> normal
-						std::string stage_two = starmap::decoder::zlib(stage_one);
+						data_vector.push_back(data.get<unsigned int>());
+					}
 
-						// validate
-						if (!stage_two.empty())
-						{
-							// update m_data string
-							m_data = stage_two;
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_FATAL, "zlib decoded string empty.");
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
-					}
-				}
-				else if (m_compression == "gzip")
-				{
-					// base64 -> gzip
-					std::string stage_one = starmap::decoder::base64(std::get<0>(m_data));
-
-					// validate
-					if (!stage_one.empty())
-					{
-						// gzip -> normal
-						std::string stage_two = starmap::decoder::gzip(stage_one);
-
-						// validate
-						if (!stage_two.empty())
-						{
-							// update m_data string
-							m_data = stage_two;
-						}
-						else
-						{
-							GALAXY_LOG(GALAXY_FATAL, "gzip decoded string empty.");
-						}
-					}
-					else
-					{
-						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
-					}
+					m_data.emplace<std::vector<unsigned int>>(data_vector);
 				}
 				else
 				{
-					// base64 -> normal
-					std::string stage_one = starmap::decoder::base64(std::get<0>(m_data));
+					m_data = data_array.get<std::string>();
+				}
 
-					// validate
-					if (!stage_one.empty())
+				if (std::holds_alternative<std::string>(m_data))
+				{
+					if (m_compression == "zlib")
 					{
-						// update m_data string
-						m_data = stage_one;
+						// base64 -> zlib
+						std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+
+						// validate
+						if (!stage_one.empty())
+						{
+							// zlib-> normal
+							std::string stage_two = algorithm::decode_zlib(stage_one);
+
+							// validate
+							if (!stage_two.empty())
+							{
+								// update m_data string
+								m_data = stage_two;
+							}
+							else
+							{
+								GALAXY_LOG(GALAXY_FATAL, "zlib decoded string empty.");
+							}
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+						}
+					}
+					else if (m_compression == "gzip")
+					{
+						// base64 -> gzip
+						std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+
+						// validate
+						if (!stage_one.empty())
+						{
+							// gzip -> normal
+							std::string stage_two = algorithm::decode_gzip(stage_one);
+
+							// validate
+							if (!stage_two.empty())
+							{
+								// update m_data string
+								m_data = stage_two;
+							}
+							else
+							{
+								GALAXY_LOG(GALAXY_FATAL, "gzip decoded string empty.");
+							}
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+						}
 					}
 					else
 					{
-						GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+						// base64 -> normal
+						std::string stage_one = algorithm::decode_base64(std::get<0>(m_data));
+
+						// validate
+						if (!stage_one.empty())
+						{
+							// update m_data string
+							m_data = stage_one;
+						}
+						else
+						{
+							GALAXY_LOG(GALAXY_FATAL, "base64 decoded string empty.");
+						}
 					}
 				}
 			}
 		}
-	}
 
-	TileLayer::~TileLayer()
-	{
-		m_chunks.clear();
-	}
+		TileLayer::~TileLayer()
+		{
+			m_chunks.clear();
+		}
 
-	const auto& TileLayer::get_chunks() const
-	{
-		return m_chunks;
-	}
+		const auto& TileLayer::get_chunks() const
+		{
+			return m_chunks;
+		}
 
-	std::string TileLayer::get_compression() const
-	{
-		return m_compression;
-	}
+		std::string TileLayer::get_compression() const
+		{
+			return m_compression;
+		}
 
-	const auto& TileLayer::get_data() const
-	{
-		return m_data;
-	}
-} // namespace starmap
+		const auto& TileLayer::get_data() const
+		{
+			return m_data;
+		}
+	} // namespace map
+} // namespace galaxy

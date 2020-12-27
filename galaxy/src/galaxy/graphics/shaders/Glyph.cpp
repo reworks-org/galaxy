@@ -1,6 +1,6 @@
 ///
 /// Glyph.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///

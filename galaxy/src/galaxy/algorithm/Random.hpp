@@ -34,7 +34,7 @@ namespace galaxy
 		///
 		/// \return Returns number of the same type as inputs.
 		///
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		[[nodiscard]] inline Type random(const Type min, const Type max)
 		{
 			std::random_device rd;

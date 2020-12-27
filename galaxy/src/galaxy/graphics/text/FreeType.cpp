@@ -1,6 +1,6 @@
 ///
 /// FreeType.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -9,32 +9,32 @@
 
 #include "FreeType.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	FreeTypeLib& FreeTypeLib::handle()
+	namespace graphics
 	{
-		static FreeTypeLib lib;
-		return lib;
-	}
-
-	void FreeTypeLib::open()
-	{
-		if (FT_Init_FreeType(&m_freetype_lib) != 0)
+		FreeTypeLib& FreeTypeLib::handle()
 		{
-			GALAXY_LOG(GALAXY_FATAL, "Failed to init FreeType.");
+			static FreeTypeLib lib;
+			return lib;
 		}
-	}
 
-	void FreeTypeLib::close()
-	{
-		FT_Done_FreeType(m_freetype_lib);
-	}
+		void FreeTypeLib::open()
+		{
+			if (FT_Init_FreeType(&m_freetype_lib) != 0)
+			{
+				GALAXY_LOG(GALAXY_FATAL, "Failed to init FreeType.");
+			}
+		}
 
-	FT_Library& FreeTypeLib::lib()
-	{
-		return m_freetype_lib;
-	}
-} // namespace qs
+		void FreeTypeLib::close()
+		{
+			FT_Done_FreeType(m_freetype_lib);
+		}
+
+		FT_Library& FreeTypeLib::lib()
+		{
+			return m_freetype_lib;
+		}
+	} // namespace graphics
+} // namespace galaxy

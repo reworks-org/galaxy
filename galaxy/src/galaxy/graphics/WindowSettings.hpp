@@ -1,87 +1,87 @@
 ///
 /// WindowSettings.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_WINDOWSETTINGS_HPP_
-#define QUASAR_WINDOWSETTINGS_HPP_
+#ifndef GALAXY_GRAPHICS_WINDOWSETTINGS_HPP_
+#define GALAXY_GRAPHICS_WINDOWSETTINGS_HPP_
 
 #include <string>
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Holds window related settings.
-	///
-	struct WindowSettings final
+	namespace graphics
 	{
 		///
-		/// Level of MSAA. I.e. 2, 4, etc.
+		/// Holds window related settings.
 		///
-		int m_anti_aliasing;
+		struct WindowSettings final
+		{
+			///
+			/// Level of MSAA. I.e. 2, 4, etc.
+			///
+			int m_anti_aliasing;
 
-		///
-		/// Level of ansiotropic filtering.
-		///
-		int m_ansio_filtering;
+			///
+			/// Level of ansiotropic filtering.
+			///
+			int m_ansio_filtering;
 
-		///
-		/// Vertical sync.
-		///
-		bool m_vsync;
+			///
+			/// Vertical sync.
+			///
+			bool m_vsync;
 
-		///
-		/// sRGB support.
-		///
-		bool m_srgb;
+			///
+			/// sRGB support.
+			///
+			bool m_srgb;
 
-		///
-		/// Aspect Ratio x.
-		/// Set to -1 to ignore.
-		///
-		int m_aspect_ratio_x;
+			///
+			/// Aspect Ratio x.
+			/// Set to -1 to ignore.
+			///
+			int m_aspect_ratio_x;
 
-		///
-		/// Aspect Ratio y.
-		/// Set to -1 to ignore.
-		///
-		int m_aspect_ratio_y;
+			///
+			/// Aspect Ratio y.
+			/// Set to -1 to ignore.
+			///
+			int m_aspect_ratio_y;
 
-		///
-		/// Raw mouse input.
-		///
-		bool m_raw_mouse_input;
+			///
+			/// Raw mouse input.
+			///
+			bool m_raw_mouse_input;
 
-		///
-		/// Line thickness.
-		///
-		float m_line_thickness;
+			///
+			/// Line thickness.
+			///
+			float m_line_thickness;
 
-		///
-		/// OpenGL debug mode.
-		///
-		bool m_gl_debug;
+			///
+			/// OpenGL debug mode.
+			///
+			bool m_gl_debug;
 
-		///
-		/// Window title.
-		///
-		std::string m_title;
+			///
+			/// Window title.
+			///
+			std::string m_title;
 
-		///
-		/// Width of window.
-		///
-		int m_width;
+			///
+			/// Width of window.
+			///
+			int m_width;
 
-		///
-		/// Height of window.
-		///
-		int m_height;
-	};
-} // namespace qs
+			///
+			/// Height of window.
+			///
+			int m_height;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

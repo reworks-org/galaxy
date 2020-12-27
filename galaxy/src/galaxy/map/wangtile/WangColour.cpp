@@ -1,6 +1,6 @@
 ///
 /// WangColour.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -9,62 +9,62 @@
 
 #include "WangColour.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	WangColour::WangColour()
-	    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
+	namespace map
 	{
-	}
-
-	WangColour::WangColour(const nlohmann::json& json)
-	    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
-	{
-		parse(json);
-	}
-
-	void WangColour::parse(const nlohmann::json& json)
-	{
-		if (json.count("color") > 0)
+		WangColour::WangColour()
+		    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
 		{
-			m_colour = json.at("color");
 		}
 
-		if (json.count("name") > 0)
+		WangColour::WangColour(const nlohmann::json& json)
+		    : m_colour {"00FFFFFF"}, m_name {""}, m_probability {0.0}, m_tile {0}
 		{
-			m_name = json.at("name");
+			parse(json);
 		}
 
-		if (json.count("probability") > 0)
+		void WangColour::parse(const nlohmann::json& json)
 		{
-			m_probability = json.at("probability");
+			if (json.count("color") > 0)
+			{
+				m_colour = json.at("color");
+			}
+
+			if (json.count("name") > 0)
+			{
+				m_name = json.at("name");
+			}
+
+			if (json.count("probability") > 0)
+			{
+				m_probability = json.at("probability");
+			}
+
+			if (json.count("tile") > 0)
+			{
+				m_tile = json.at("tile");
+			}
 		}
 
-		if (json.count("tile") > 0)
+		std::string WangColour::get_colour() const
 		{
-			m_tile = json.at("tile");
+			return m_colour;
 		}
-	}
 
-	std::string WangColour::get_colour() const
-	{
-		return m_colour;
-	}
+		std::string WangColour::get_name() const
+		{
+			return m_name;
+		}
 
-	std::string WangColour::get_name() const
-	{
-		return m_name;
-	}
+		const double WangColour::get_probability() const
+		{
+			return m_probability;
+		}
 
-	const double WangColour::get_probability() const
-	{
-		return m_probability;
-	}
-
-	const int WangColour::get_tile() const
-	{
-		return m_tile;
-	}
-} // namespace starmap
+		const int WangColour::get_tile() const
+		{
+			return m_tile;
+		}
+	} // namespace map
+} // namespace galaxy

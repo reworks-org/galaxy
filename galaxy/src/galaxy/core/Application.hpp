@@ -14,8 +14,8 @@
 #include <galaxy/Context.hpp>
 #include <galaxy/async/ThreadPool.hpp>
 #include <galaxy/state/StateMachine.hpp>
-#include <qs/core/Window.hpp>
-#include <qs/core/Renderer.hpp>
+#include <galaxy/graphicsWindow.hpp>
+#include <galaxy/graphicsRenderer.hpp>
 #include <qs/graphics/TextureAtlas.hpp>
 #include <galaxy/Dispatcher.hpp>
 #include <sol/forward.hpp>
@@ -96,12 +96,12 @@ namespace galaxy
 			///
 			/// Main app window.
 			///
-			std::unique_ptr<qs::Window> m_window;
+			std::unique_ptr<Window> m_window;
 
 			///
 			/// Main app renderer.
 			///
-			std::unique_ptr<qs::Renderer> m_renderer;
+			std::unique_ptr<Renderer> m_renderer;
 
 			///
 			/// Master Lua state for application.
@@ -141,7 +141,7 @@ namespace galaxy
 			///
 			/// Texture atlas for all textures.
 			///
-			std::unique_ptr<qs::TextureAtlas> m_texture_atlas;
+			std::unique_ptr<TextureAtlas> m_texture_atlas;
 
 		private:
 			///

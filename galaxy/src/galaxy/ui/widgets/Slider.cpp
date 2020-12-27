@@ -9,15 +9,9 @@
 
 #include "Slider.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		Slider::Slider()
 		    : m_value {1.0f}, m_pressed {false}, m_marker_pos {0.0f, 0.0f, 0.0f, 0.0f}
@@ -51,7 +45,7 @@ namespace galaxy
 			}
 		}
 
-		void Slider::on_event(const pr::MouseMovedEvent& mme)
+		void Slider::on_event(const events::MouseMoved& mme)
 		{
 			if (m_bounds.contains(mme.m_x, mme.m_y))
 			{
@@ -75,7 +69,7 @@ namespace galaxy
 			}
 		}
 
-		void Slider::on_event(const pr::MousePressedEvent& mpe)
+		void Slider::on_event(const events::MousePressed& mpe)
 		{
 			if (m_bounds.contains(mpe.m_x, mpe.m_y))
 			{
@@ -89,7 +83,7 @@ namespace galaxy
 			}
 		}
 
-		void Slider::on_event(const pr::MouseReleasedEvent& mre)
+		void Slider::on_event(const events::MouseReleased& mre)
 		{
 			m_pressed = false;
 
@@ -108,7 +102,7 @@ namespace galaxy
 			m_marker.set_pos((m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_marker.get_width() / 2.0f), m_bounds.m_y - (m_marker.get_height() / 2.0f) + (m_bounds.m_height / 2.0f));
 		}
 
-		void Slider::render(qs::Camera& camera)
+		void Slider::render(graphics::Camera& camera)
 		{
 			if (m_tooltip)
 			{
@@ -136,5 +130,5 @@ namespace galaxy
 		{
 			return m_value * 100.0f;
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

@@ -1,45 +1,28 @@
 ///
 /// VertexLayout.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "VertexLayout.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	VertexLayout::VertexLayout()
+	namespace graphics
 	{
-	}
-
-	VertexLayout::VertexLayout(VertexLayout&& vl)
-	{
-		this->m_attributes = std::move(vl.m_attributes);
-		vl.m_attributes.clear();
-	}
-
-	VertexLayout& VertexLayout::operator=(VertexLayout&& vl)
-	{
-		if (this != &vl)
+		VertexLayout::VertexLayout()
 		{
-			this->m_attributes = std::move(vl.m_attributes);
-			vl.m_attributes.clear();
 		}
 
-		return *this;
-	}
+		VertexLayout::~VertexLayout()
+		{
+			m_attributes.clear();
+		}
 
-	VertexLayout::~VertexLayout()
-	{
-		m_attributes.clear();
-	}
-
-	const std::vector<VertexAttribute>& VertexLayout::get_attributes() const
-	{
-		return m_attributes;
-	}
-} // namespace qs
+		const std::vector<VertexAttribute>& VertexLayout::get_attributes() const
+		{
+			return m_attributes;
+		}
+	} // namespace graphics
+} // namespace galaxy

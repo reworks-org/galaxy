@@ -1,19 +1,19 @@
 ///
 /// Collidable.cpp
-/// redshift
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Collidable.hpp"
 
-///
-/// Core namespace.
-///
-namespace rs
+namespace galaxy
 {
-	AABB& Collidable::get_aabb()
+	namespace physics
 	{
-		return m_aabb;
-	}
-} // namespace rs
+		AABB& Collidable::get_aabb()
+		{
+			return m_aabb;
+		}
+	} // namespace physics
+} // namespace galaxy

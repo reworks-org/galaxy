@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		/// \return String containing full error message.
 		///
-		[[maybe_unused]] std::string error::al_parse_error(std::string_view message);
+		[[maybe_unused]] std::string al_parse_error(std::string_view message);
 
 		///
 		/// Retrieve error code value as string.

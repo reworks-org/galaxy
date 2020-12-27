@@ -1,88 +1,88 @@
 ///
 /// Point.hpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef STARMAP_POINT_HPP_
-#define STARMAP_POINT_HPP_
+#ifndef GALAXY_MAP_TYPES_POINT_HPP_
+#define GALAXY_MAP_TYPES_POINT_HPP_
 
 #include <nlohmann/json_fwd.hpp>
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	///
-	/// A point on a polygon or a polyline, relative to the position of the object.
-	/// This Point class is specific to Tiled.
-	///
-	class Point final
+	namespace map
 	{
-	public:
 		///
-		/// Default constructor.
+		/// A point on a polygon or a polyline, relative to the position of the object.
+		/// This Point class is specific to Tiled.
 		///
-		Point();
+		class Point final
+		{
+		public:
+			///
+			/// Default constructor.
+			///
+			Point();
 
-		///
-		/// Parameter constructor.
-		///
-		/// \param x X coordinate in pixels.
-		/// \param y Y coordinate in pixels.
-		///
-		explicit Point(const double x, const double y);
+			///
+			/// Parameter constructor.
+			///
+			/// \param x X coordinate in pixels.
+			/// \param y Y coordinate in pixels.
+			///
+			explicit Point(const double x, const double y);
 
-		///
-		/// \brief Parse constructor.
-		///
-		/// Can throw exceptions.
-		///
-		/// \param json JSON structure/array containing object.
-		///
-		explicit Point(const nlohmann::json& json);
+			///
+			/// \brief Parse constructor.
+			///
+			/// Can throw exceptions.
+			///
+			/// \param json JSON structure/array containing object.
+			///
+			explicit Point(const nlohmann::json& json);
 
-		///
-		/// Default destructor.
-		///
-		~Point() = default;
+			///
+			/// Default destructor.
+			///
+			~Point() = default;
 
-		///
-		/// \brief Parse object level json.
-		///
-		/// Can throw exceptions.
-		///
-		/// \param json JSON structure/array containing object.
-		///
-		void parse(const nlohmann::json& json);
+			///
+			/// \brief Parse object level json.
+			///
+			/// Can throw exceptions.
+			///
+			/// \param json JSON structure/array containing object.
+			///
+			void parse(const nlohmann::json& json);
 
-		///
-		/// Get the x coord.
-		///
-		/// \return const double x coord in pixels.
-		///
-		[[nodiscard]] const double get_x() const;
+			///
+			/// Get the x coord.
+			///
+			/// \return const double x coord in pixels.
+			///
+			[[nodiscard]] const double get_x() const;
 
-		///
-		/// Get the y coord.
-		///
-		/// \return const double y coord in pixels.
-		///
-		[[nodiscard]] const double get_y() const;
+			///
+			/// Get the y coord.
+			///
+			/// \return const double y coord in pixels.
+			///
+			[[nodiscard]] const double get_y() const;
 
-	private:
-		///
-		/// X coordinate in pixels.
-		///
-		double m_x;
+		private:
+			///
+			/// X coordinate in pixels.
+			///
+			double m_x;
 
-		///
-		/// Y coordinate in pixels.
-		///
-		double m_y;
-	};
-} // namespace starmap
+			///
+			/// Y coordinate in pixels.
+			///
+			double m_y;
+		};
+	} // namespace map
+} // namespace galaxy
 
 #endif

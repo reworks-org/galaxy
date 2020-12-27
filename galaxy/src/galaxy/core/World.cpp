@@ -7,7 +7,14 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/flags/Enabled.hpp"
+#include "galaxy/graphics/anim/AnimatedBatchSprite.hpp"
+#include "galaxy/audio/Music.hpp"
+#include "galaxy/audio/Sound.hpp"
+#include "galaxy/physics/body/BodyWrapper.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
+#include "galaxy/graphics/sprite/Sprite.hpp"
+
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "World.hpp"
@@ -19,14 +26,13 @@ namespace galaxy
 		World::World()
 		    : m_next_id {0}
 		{
-			register_component<galaxy::AnimationComponent>("AnimationComponent");
-			register_component<galaxy::EnabledComponent>("EnabledComponent");
-			register_component<galaxy::MusicComponent>("MusicComponent");
-			register_component<galaxy::PhysicsComponent>("PhysicsComponent");
-			register_component<galaxy::ShaderComponent>("ShaderComponent");
-			register_component<galaxy::SoundComponent>("SoundComponent");
-			register_component<galaxy::SpriteBatchComponent>("SpriteBatchComponent");
-			register_component<galaxy::SpriteComponent>("SpriteComponent");
+			register_component<graphics::AnimatedBatchSprite>("AnimatedBatchSprite");
+			register_component<audio::Music>("Music");
+			register_component<physics::BodyWrapper>("BodyWrapper");
+			register_component<graphics::Shader>("Shader");
+			register_component<audio::Sound>("Sound");
+			register_component<graphics::BatchedSprite>("BatchedSprite");
+			register_component<graphics::Sprite>("Sprite");
 		}
 
 		World::~World()

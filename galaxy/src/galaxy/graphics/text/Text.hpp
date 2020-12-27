@@ -1,166 +1,156 @@
 ///
 /// Text.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_TEXT_HPP_
-#define QUASAR_TEXT_HPP_
+#ifndef GALAXY_GRAPHICS_TEXT_TEXT_HPP_
+#define GALAXY_GRAPHICS_TEXT_TEXT_HPP_
 
-#include "qs/sprite/SpriteBatch.hpp"
-#include "qs/text/Font.hpp"
+#include "galaxy/graphics/sprite/SpriteBatch.hpp"
+#include "galaxy/graphics/text/Font.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Creates text for use with OpenGL.
-	///
-	class Text final : public qs::Transform
+	namespace graphics
 	{
-	public:
 		///
-		/// Constructor.
+		/// Creates text for use with OpenGL.
 		///
-		Text();
+		class Text final : public Transform
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Text();
 
-		///
-		/// Copy constructor.
-		///
-		Text(const Text&) = delete;
+			///
+			/// Copy constructor.
+			///
+			Text(const Text&) = delete;
 
-		///
-		/// Move constructor.
-		///
-		Text(Text&&) = default;
+			///
+			/// Copy assignment operator.
+			///
+			Text& operator=(const Text&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		Text& operator=(const Text&) = delete;
+			///
+			/// Destructor.
+			///
+			~Text();
 
-		///
-		/// Move assignment operator.
-		///
-		Text& operator=(Text&&) = default;
+			///
+			/// Load all data into text to prep for creation.
+			///
+			/// \param font Font to render text with.
+			/// \param col Colour of the text.
+			///
+			void load(Font* font, const graphics::Colour& col);
 
-		///
-		/// Destructor.
-		///
-		~Text();
+			///
+			/// Create the text object.
+			///
+			/// \param text Text to display.
+			///
+			void create(std::string_view text);
 
-		///
-		/// Load all data into text to prep for creation.
-		///
-		/// \param font Font to render text with.
-		/// \param col Colour of the text.
-		///
-		void load(qs::Font* font, const pr::Colour& col);
+			///
+			/// Update the text.
+			///
+			/// \param text New text to display.
+			///
+			void update_text(std::string_view text);
 
-		///
-		/// Create the text object.
-		///
-		/// \param text Text to display.
-		///
-		void create(std::string_view text);
+			///
+			/// Activate context.
+			///
+			void bind();
 
-		///
-		/// Update the text.
-		///
-		/// \param text New text to display.
-		///
-		void update_text(std::string_view text);
+			///
+			/// Deactivate context.
+			///
+			void unbind();
 
-		///
-		/// Activate context.
-		///
-		void bind();
+			///
+			/// Get colour of text.
+			///
+			/// \return Size 4 array of floats.
+			///
+			[[nodiscard]] std::array<float, 4> get_colour();
 
-		///
-		/// Deactivate context.
-		///
-		void unbind();
+			///
+			/// \brief Get texture width.
+			///
+			/// Is cached for performance.
+			///
+			/// \return Width as int. int over unsigned for compat with float.
+			///
+			[[nodiscard]] const int get_width() const;
 
-		///
-		/// Get colour of text.
-		///
-		/// \return Size 4 array of floats.
-		///
-		[[nodiscard]] std::array<float, 4> get_colour();
+			///
+			/// \brief Get texture height.
+			///
+			/// Is cached for performance.
+			///
+			/// \return Height as int. int over unsigned for compat with float.
+			///
+			[[nodiscard]] const int get_height() const;
 
-		///
-		/// \brief Get texture width.
-		///
-		/// Is cached for performance.
-		///
-		/// \return Width as int. int over unsigned for compat with float.
-		///
-		[[nodiscard]] const int get_width() const;
+			///
+			/// Get batch width.
+			///
+			/// \return Width as int.
+			///
+			[[nodiscard]] const int get_batch_width() const;
 
-		///
-		/// \brief Get texture height.
-		///
-		/// Is cached for performance.
-		///
-		/// \return Height as int. int over unsigned for compat with float.
-		///
-		[[nodiscard]] const int get_height() const;
+			///
+			/// Get batch height.
+			///
+			/// \return Height as int.
+			///
+			[[nodiscard]] const int get_batch_height() const;
 
-		///
-		/// Get batch width.
-		///
-		/// \return Width as int.
-		///
-		[[nodiscard]] const int get_batch_width() const;
+			///
+			/// Gets the index count.
+			///
+			/// \return Const uint.
+			///
+			[[nodiscard]] const unsigned int index_count() const;
 
-		///
-		/// Get batch height.
-		///
-		/// \return Height as int.
-		///
-		[[nodiscard]] const int get_batch_height() const;
+		private:
+			///
+			/// Width cache.
+			///
+			int m_width;
 
-		///
-		/// Gets the index count.
-		///
-		/// \return Const uint.
-		///
-		[[nodiscard]] const unsigned int index_count() const;
+			///
+			/// Height cache.
+			///
+			int m_height;
 
-	private:
-		///
-		/// Width cache.
-		///
-		int m_width;
+			///
+			/// Colour of the text.
+			///
+			graphics::Colour m_colour;
 
-		///
-		/// Height cache.
-		///
-		int m_height;
+			///
+			/// Pointer to font used for this text.
+			///
+			Font* m_font;
 
-		///
-		/// Colour of the text.
-		///
-		pr::Colour m_colour;
+			///
+			/// Spritebatch.
+			///
+			SpriteBatch m_batch;
 
-		///
-		/// Pointer to font used for this text.
-		///
-		Font* m_font;
-
-		///
-		/// Spritebatch.
-		///
-		qs::SpriteBatch m_batch;
-
-		///
-		/// Character <-> batched sprite hashmap.
-		///
-		robin_hood::unordered_map<unsigned int, qs::BatchedSprite> m_batch_data;
-	};
-} // namespace qs
+			///
+			/// Character <-> batched sprite hashmap.
+			///
+			robin_hood::unordered_map<unsigned int, BatchedSprite> m_batch_data;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

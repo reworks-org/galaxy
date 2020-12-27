@@ -1,6 +1,6 @@
 ///
 /// Point.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -9,47 +9,47 @@
 
 #include "Point.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	Point::Point()
-	    : m_x {0.0}, m_y {0.0}
+	namespace map
 	{
-	}
-
-	Point::Point(const double x, const double y)
-	    : m_x {x}, m_y {y}
-	{
-	}
-
-	Point::Point(const nlohmann::json& json)
-	    : m_x {0.0}, m_y {0.0}
-	{
-		parse(json);
-	}
-
-	void Point::parse(const nlohmann::json& json)
-	{
-		if (json.count("x") > 0)
+		Point::Point()
+		    : m_x {0.0}, m_y {0.0}
 		{
-			m_x = json.at("x");
 		}
 
-		if (json.count("y") > 0)
+		Point::Point(const double x, const double y)
+		    : m_x {x}, m_y {y}
 		{
-			m_y = json.at("y");
 		}
-	}
 
-	const double Point::get_x() const
-	{
-		return m_x;
-	}
+		Point::Point(const nlohmann::json& json)
+		    : m_x {0.0}, m_y {0.0}
+		{
+			parse(json);
+		}
 
-	const double Point::get_y() const
-	{
-		return m_y;
-	}
-} // namespace starmap
+		void Point::parse(const nlohmann::json& json)
+		{
+			if (json.count("x") > 0)
+			{
+				m_x = json.at("x");
+			}
+
+			if (json.count("y") > 0)
+			{
+				m_y = json.at("y");
+			}
+		}
+
+		const double Point::get_x() const
+		{
+			return m_x;
+		}
+
+		const double Point::get_y() const
+		{
+			return m_y;
+		}
+	} // namespace map
+} // namespace galaxy

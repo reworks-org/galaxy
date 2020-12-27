@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		///	Rectangle 2D bin packing class.
 		///
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		class RectPack final
 		{
 		public:
@@ -90,19 +90,19 @@ namespace galaxy
 			std::vector<graphics::Rect<Type>> m_free_rects;
 		};
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline RectPack<Type>::RectPack()
 		    : m_width {0}, m_height {0}
 		{
 		}
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline RectPack<Type>::~RectPack()
 		{
 			m_free_rects.clear();
 		}
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline void RectPack<Type>::init(const int width, const int height)
 		{
 			m_width  = width;
@@ -111,7 +111,7 @@ namespace galaxy
 			m_free_rects.emplace_back(0, 0, m_width, m_height);
 		}
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline std::optional<graphics::Rect<Type>> RectPack<Type>::pack(const int width, const int height)
 		{
 			// Result.
@@ -170,19 +170,19 @@ namespace galaxy
 			return result;
 		}
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline int RectPack<Type>::get_width() const
 		{
 			return m_width;
 		}
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline int RectPack<Type>::get_height() const
 		{
 			return m_height;
 		}
 
-		template<is_arithmetic Type>
+		template<meta::is_arithmetic Type>
 		inline const std::vector<graphics::Rect<Type>>& RectPack<Type>::get_free_space() const
 		{
 			return m_free_rects;

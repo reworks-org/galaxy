@@ -1,77 +1,58 @@
 ///
 /// PrimitiveVertex.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_PRIMITIVEVERTEX_HPP_
-#define QUASAR_PRIMITIVEVERTEX_HPP_
+#ifndef GALAXY_GRAPHICS_VERTEX_TYPE_PRIMITIVEVERTEX_HPP_
+#define GALAXY_GRAPHICS_VERTEX_TYPE_PRIMITIVEVERTEX_HPP_
 
 #include <glm/vec2.hpp>
 #include <glm/vec4.hpp>
-#include <galaxy/graphics/Colour.hpp>
 
-///
-/// Core namespace.
-///
-namespace qs
+#include "galaxy/graphics/Colour.hpp"
+
+namespace galaxy
 {
-	///
-	/// Represents a single PrimitiveVertex of a primitive.
-	///
-	class PrimitiveVertex final
+	namespace graphics
 	{
-	public:
 		///
-		/// Default constructor.
+		/// Represents a single PrimitiveVertex of a primitive.
 		///
-		PrimitiveVertex();
+		class PrimitiveVertex final
+		{
+		public:
+			///
+			/// Default constructor.
+			///
+			PrimitiveVertex();
 
-		///
-		/// Argument constructor.
-		///
-		/// \param x X pos.
-		/// \param y Y pos.
-		/// \param col Colour.
-		///
-		PrimitiveVertex(const float x, const float y, pr::Colour& col);
+			///
+			/// Argument constructor.
+			///
+			/// \param x X pos.
+			/// \param y Y pos.
+			/// \param col Colour.
+			///
+			PrimitiveVertex(const float x, const float y, graphics::Colour& col);
 
-		///
-		/// Copy constructor.
-		///
-		PrimitiveVertex(const PrimitiveVertex&);
+			///
+			/// Destructor.
+			///
+			~PrimitiveVertex() = default;
 
-		///
-		/// Move constructor.
-		///
-		PrimitiveVertex(PrimitiveVertex&&);
+			///
+			/// Position of PrimitiveVertex.
+			///
+			glm::vec2 m_pos;
 
-		///
-		/// Copy assignment operator.
-		///
-		PrimitiveVertex& operator=(const PrimitiveVertex&);
-
-		///
-		/// Move assignment operator.
-		///
-		PrimitiveVertex& operator=(PrimitiveVertex&&);
-
-		///
-		/// Destructor.
-		///
-		~PrimitiveVertex() = default;
-
-		///
-		/// Position of PrimitiveVertex.
-		///
-		glm::vec2 m_pos;
-
-		///
-		/// Colour of PrimitiveVertex.
-		///
-		glm::vec4 m_colour;
-	};
-} // namespace qs
+			///
+			/// Colour of PrimitiveVertex.
+			///
+			glm::vec4 m_colour;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

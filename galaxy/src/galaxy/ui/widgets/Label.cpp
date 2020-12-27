@@ -5,19 +5,13 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <qs/core/Renderer.hpp>
+#include "galaxy/graphics/Renderer.hpp"
 
 #include "Label.hpp"
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	///
-	/// Widget specific namespace.
-	///
-	namespace widget
+	namespace ui
 	{
 		void Label::create(std::string_view text, std::string_view font)
 		{
@@ -36,7 +30,7 @@ namespace galaxy
 			m_bounds.m_height = m_text.get_height();
 		}
 
-		void Label::on_event(const pr::MouseMovedEvent& mme)
+		void Label::on_event(const events::MouseMoved& mme)
 		{
 			if (m_tooltip)
 			{
@@ -56,7 +50,7 @@ namespace galaxy
 		{
 		}
 
-		void Label::render(qs::Camera& camera)
+		void Label::render(graphics::Camera& camera)
 		{
 			auto ss = m_theme->m_shaders->get("text");
 
@@ -81,5 +75,5 @@ namespace galaxy
 
 			m_text.set_pos(x, y);
 		}
-	} // namespace widget
+	} // namespace ui
 } // namespace galaxy

@@ -1,114 +1,94 @@
 ///
 /// Particle.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_PARTICLE_HPP_
-#define QUASAR_PARTICLE_HPP_
+#ifndef GALAXY_GRAPHICS_PARTICLE_PARTICLE_HPP_
+#define GALAXY_GRAPHICS_PARTICLE_PARTICLE_HPP_
 
 #include <glm/vec2.hpp>
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// Manages particle effect instance data.
-	///
-	class Particle final
+	namespace graphics
 	{
-	public:
 		///
-		/// Constructor.
+		/// Manages particle effect instance data.
 		///
-		Particle();
+		class Particle final
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Particle();
 
-		///
-		/// Argument Constructor.
-		///
-		Particle(const float x_vel, const float y_vel);
+			///
+			/// Argument Constructor.
+			///
+			Particle(const float x_vel, const float y_vel);
 
-		///
-		/// Copy constructor.
-		///
-		Particle(const Particle&);
+			///
+			/// Destructor.
+			///
+			~Particle() = default;
 
-		///
-		/// Move constructor.
-		///
-		Particle(Particle&&);
+			///
+			/// Set position of particle.
+			///
+			/// \param x x-axis.
+			/// \param y y-axis.
+			///
+			void set_position(const float x, const float y);
 
-		///
-		/// Copy assignment operator.
-		///
-		Particle& operator=(const Particle&);
+			///
+			/// Set velocity of particle.
+			///
+			/// \param x_vel x-axis velocity.
+			/// \param y_vel y-axis velocity.
+			///
+			void set_velocity(const float x_vel, const float y_vel);
 
-		///
-		/// Move assignment operator.
-		///
-		Particle& operator=(Particle&&);
+			///
+			/// Move particle across screen.
+			///
+			/// \param dt Gameloop delta time.
+			///
+			void move(const float dt);
 
-		///
-		/// Destructor.
-		///
-		~Particle() = default;
+			///
+			/// Get position of particle.
+			///
+			/// \return Const reference to a glm::vec2.
+			///
+			[[nodiscard]] const glm::vec2& pos() const;
 
-		///
-		/// Set position of particle.
-		///
-		/// \param x x-axis.
-		/// \param y y-axis.
-		///
-		void set_position(const float x, const float y);
+			///
+			/// Get velocity of particle.
+			///
+			/// \return Const reference to a glm::vec2.
+			///
+			[[nodiscard]] const glm::vec2& velocity() const;
 
-		///
-		/// Set velocity of particle.
-		///
-		/// \param x_vel x-axis velocity.
-		/// \param y_vel y-axis velocity.
-		///
-		void set_velocity(const float x_vel, const float y_vel);
+			///
+			/// Lifespan of particle. (i.e. opacity). 0.0f - 1.0f.
+			///
+			float m_life;
 
-		///
-		/// Move particle across screen.
-		///
-		/// \param dt Gameloop delta time.
-		///
-		void move(const float dt);
+		private:
+			///
+			/// Position of particle.
+			///
+			glm::vec2 m_position;
 
-		///
-		/// Get position of particle.
-		///
-		/// \return Const reference to a glm::vec2.
-		///
-		[[nodiscard]] const glm::vec2& pos() const;
-
-		///
-		/// Get velocity of particle.
-		///
-		/// \return Const reference to a glm::vec2.
-		///
-		[[nodiscard]] const glm::vec2& velocity() const;
-
-		///
-		/// Lifespan of particle. (i.e. opacity). 0.0f - 1.0f.
-		///
-		float m_life;
-
-	private:
-		///
-		/// Position of particle.
-		///
-		glm::vec2 m_position;
-
-		///
-		/// Velocity of the particle.
-		///
-		glm::vec2 m_velocity;
-	};
-} // namespace qs
+			///
+			/// Velocity of the particle.
+			///
+			glm::vec2 m_velocity;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

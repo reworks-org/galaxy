@@ -1,24 +1,18 @@
 ///
 /// Simple.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "Simple.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// PostEffect identifier.
-	///
-	namespace effect
+	namespace posteffect
 	{
 		void Simple::apply_uniforms()
 		{
 		}
-	} // namespace effect
-} // namespace qs
+	} // namespace posteffect
+} // namespace galaxy

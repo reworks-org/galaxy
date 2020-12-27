@@ -1,35 +1,23 @@
 ///
 /// VertexArrary.cpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
 #include "VertexArray.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	VertexArray::VertexArray()
-	    : m_id {0}, m_counter {0}
+	namespace graphics
 	{
-		glGenVertexArrays(1, &m_id);
-	}
+		VertexArray::VertexArray()
+		    : m_id {0}, m_counter {0}
+		{
+			glGenVertexArrays(1, &m_id);
+		}
 
-	VertexArray::VertexArray(VertexArray&& va)
-	{
-		this->m_id      = va.m_id;
-		this->m_counter = va.m_counter;
-
-		va.m_id      = 0;
-		va.m_counter = 0;
-	}
-
-	VertexArray& VertexArray::operator=(VertexArray&& va)
-	{
-		if (this != &va)
+		VertexArray::VertexArray(VertexArray&& va)
 		{
 			this->m_id      = va.m_id;
 			this->m_counter = va.m_counter;
@@ -38,36 +26,48 @@ namespace qs
 			va.m_counter = 0;
 		}
 
-		return *this;
-	}
+		VertexArray& VertexArray::operator=(VertexArray&& va)
+		{
+			if (this != &va)
+			{
+				this->m_id      = va.m_id;
+				this->m_counter = va.m_counter;
 
-	VertexArray::~VertexArray()
-	{
-		glDeleteVertexArrays(1, &m_id);
-	}
+				va.m_id      = 0;
+				va.m_counter = 0;
+			}
 
-	void VertexArray::set_instanced(qs::InstanceBuffer& ib)
-	{
-		bind();
-		ib.bind();
+			return *this;
+		}
 
-		glEnableVertexAttribArray(m_counter);
-		glVertexAttribPointer(m_counter, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
-		glVertexAttribDivisor(m_counter, ib.divisor());
+		VertexArray::~VertexArray()
+		{
+			glDeleteVertexArrays(1, &m_id);
+		}
 
-		unbind();
-		ib.unbind();
+		void VertexArray::set_instanced(InstanceBuffer& ib)
+		{
+			bind();
+			ib.bind();
 
-		++m_counter;
-	}
+			glEnableVertexAttribArray(m_counter);
+			glVertexAttribPointer(m_counter, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+			glVertexAttribDivisor(m_counter, ib.divisor());
 
-	void VertexArray::bind()
-	{
-		glBindVertexArray(m_id);
-	}
+			unbind();
+			ib.unbind();
 
-	void VertexArray::unbind()
-	{
-		glBindVertexArray(0);
-	}
-} // namespace qs
+			++m_counter;
+		}
+
+		void VertexArray::bind()
+		{
+			glBindVertexArray(m_id);
+		}
+
+		void VertexArray::unbind()
+		{
+			glBindVertexArray(0);
+		}
+	} // namespace graphics
+} // namespace galaxy

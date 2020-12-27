@@ -1,114 +1,99 @@
 ///
 /// AABB.hpp
-/// redshift
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
+#ifndef GALAXY_PHYSICS_COLLISION_AABB_HPP_
+#define GALAXY_PHYSICS_COLLISION_AABB_HPP_
+
 #include <glm/vec2.hpp>
 
-///
-/// Core namespace.
-///
-namespace rs
+namespace galaxy
 {
-	///
-	/// AABB bounding box for seperating axis theorm.
-	/// See:
-	/// https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
-	/// https://realtimecollisiondetection.net/
-	///
-	struct AABB final
+	namespace physics
 	{
 		///
-		/// Constructor.
+		/// AABB bounding box for seperating axis theorm.
+		/// See:
+		/// https://www.azurefromthetrenches.com/introductory-guide-to-aabb-tree-collision-detection/
+		/// https://realtimecollisiondetection.net/
 		///
-		AABB();
+		struct AABB final
+		{
+			///
+			/// Constructor.
+			///
+			AABB();
 
-		///
-		/// Argument constructor.
-		///
-		/// \param min Minimum bounds.
-		/// \param max Maximum bounds.
-		///
-		AABB(const glm::vec2& min, const glm::vec2& max);
+			///
+			/// Argument constructor.
+			///
+			/// \param min Minimum bounds.
+			/// \param max Maximum bounds.
+			///
+			AABB(const glm::vec2& min, const glm::vec2& max);
 
-		///
-		/// Copy constructor.
-		///
-		AABB(const AABB&) = default;
+			///
+			/// Destructor.
+			///
+			~AABB() = default;
 
-		///
-		/// Move constructor.
-		///
-		AABB(AABB&&) = default;
+			///
+			/// Test for an overlap.
+			///
+			/// \param b AABB to test.
+			///
+			/// \return Const bool. True if overlap.
+			///
+			[[nodiscard]] const bool overlaps(const AABB& b) const;
 
-		///
-		/// Copy assignment operator.
-		///
-		AABB& operator=(const AABB&) = default;
+			///
+			/// Check if this AABB contains another AABB.
+			///
+			/// \param b AABB to check.
+			///
+			/// \return Const bool. True if contains.
+			///
+			[[nodiscard]] const bool contains(const AABB& b) const;
 
-		///
-		/// Move assignment operator.
-		///
-		AABB& operator=(AABB&&) = default;
+			///
+			/// Merge two AABBs.
+			///
+			/// \param b AABB to merge with this.
+			///
+			/// \return Merged AABB.
+			///
+			[[nodiscard]] AABB merge(const AABB& b) const;
 
-		///
-		/// Destructor.
-		///
-		~AABB() = default;
+			///
+			/// Get intersection of two AABBs.
+			///
+			/// \param b AABB to test.
+			///
+			/// \return AABB intersection.
+			///
+			[[nodiscard]] AABB intersection(const AABB& b) const;
 
-		///
-		/// Test for an overlap.
-		///
-		/// \param b AABB to test.
-		///
-		/// \return Const bool. True if overlap.
-		///
-		[[nodiscard]] const bool overlaps(const AABB& b) const;
+			///
+			/// Get surface area of AABB.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float surface_area() const;
 
-		///
-		/// Check if this AABB contains another AABB.
-		///
-		/// \param b AABB to check.
-		///
-		/// \return Const bool. True if contains.
-		///
-		[[nodiscard]] const bool contains(const AABB& b) const;
+			///
+			/// Lower bounds.
+			///
+			glm::vec2 m_min;
 
-		///
-		/// Merge two AABBs.
-		///
-		/// \param b AABB to merge with this.
-		///
-		/// \return Merged AABB.
-		///
-		[[nodiscard]] AABB merge(const AABB& b) const;
+			///
+			/// Upper bounds.
+			///
+			glm::vec2 m_max;
+		};
+	} // namespace physics
+} // namespace galaxy
 
-		///
-		/// Get intersection of two AABBs.
-		///
-		/// \param b AABB to test.
-		///
-		/// \return AABB intersection.
-		///
-		[[nodiscard]] AABB intersection(const AABB& b) const;
-
-		///
-		/// Get surface area of AABB.
-		///
-		/// \return Const float.
-		///
-		[[nodiscard]] const float surface_area() const;
-
-		///
-		/// Lower bounds.
-		///
-		glm::vec2 m_min;
-
-		///
-		/// Upper bounds.
-		///
-		glm::vec2 m_max;
-	};
-} // namespace rs
+#endif

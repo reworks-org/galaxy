@@ -15,7 +15,7 @@ namespace galaxy
 {
 	namespace error
 	{
-		std::string error::al_parse_error(std::string_view message)
+		std::string al_parse_error(std::string_view message)
 		{
 			return fmt::format("OpenAL: {0} - {1}", message, alGetString(alGetError()));
 		}

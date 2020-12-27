@@ -8,10 +8,10 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/systems/RenderSystem.hpp>
 #include <galaxy/systems/PhysicsSystem.hpp>
-#include <qs/core/Renderer.hpp>
+#include <galaxy/graphicsRenderer.hpp>
 #include <galaxy/res/ShaderBook.hpp>
 #include <galaxy/fs/FileSystem.hpp>
-#include <qs/core/Shader.hpp>
+#include <galaxy/graphicsShader.hpp>
 #include <galaxy/components/All.hpp>
 #include <nlohmann/json.hpp>
 
@@ -32,13 +32,13 @@ namespace sb
 		m_camera.set_speed(5.0f);
 
 		// create and set texture
-		auto tex = galaxy::FileSystem::s_root + galaxy::FileSystem::s_textures + "particle_demo.png";
+		auto tex = fs::s_root + fs::s_textures + "particle_demo.png";
 		m_particle_gen.create(tex, 100.0f, 100.0f);
 		m_particle_gen.define("default", {0, 0, 16, 16});
 		m_particle_gen.configure("default");
 		m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
 
-		pr::Colour c = {0, 0, 0, 255};
+		graphics::Colour c = {0, 0, 0, 255};
 		m_point.create(0, 0, 10, c);
 		m_point.set_pos(200, 150);
 
@@ -75,12 +75,12 @@ namespace sb
 			)"_json;
 
 		auto* pc = m_world->create_component<galaxy::PhysicsComponent>(e2, j_wall);
-		auto* sc = m_world->create_component<galaxy::SpriteComponent>(e2);
+		auto* sc = m_world->create_component<galaxy::graphics::Sprite>(e2);
 		sc->m_sprite.load("assets/textures/wall_small.png");
-		sc->m_sprite.create<qs::BufferDynamic>();
+		sc->m_sprite.create<BufferDynamic>();
 		sc->m_sprite.set_pos(200, 200);
 
-		auto* shader_c = m_world->create_component<galaxy::ShaderComponent>(e2);
+		auto* shader_c = m_world->create_component<galaxy::Shader>(e2);
 		shader_c->m_shader.load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
 		m_world->create_component<galaxy::EnabledComponent>(e2);
 
@@ -104,12 +104,12 @@ namespace sb
 		pc          = m_world->create_component<galaxy::PhysicsComponent>(e, j);
 		m_test_body = static_cast<rs::KineticBody*>(pc->m_body.get());
 
-		sc = m_world->create_component<galaxy::SpriteComponent>(e);
+		sc = m_world->create_component<galaxy::graphics::Sprite>(e);
 		sc->m_sprite.load("assets/textures/moving_arrow.png");
-		sc->m_sprite.create<qs::BufferDynamic>();
+		sc->m_sprite.create<BufferDynamic>();
 		sc->m_sprite.set_pos(50, 200);
 
-		shader_c = m_world->create_component<galaxy::ShaderComponent>(e);
+		shader_c = m_world->create_component<galaxy::Shader>(e);
 		shader_c->m_shader.load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
 		m_world->create_component<galaxy::EnabledComponent>(e);
 	}

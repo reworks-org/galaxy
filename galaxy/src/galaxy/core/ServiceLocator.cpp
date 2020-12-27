@@ -11,28 +11,28 @@ namespace galaxy
 {
 	namespace core
 	{
-		galaxy::ServiceLocator& ServiceLocator::get()
+		ServiceLocator& ServiceLocator::get()
 		{
-			static galaxy::ServiceLocator s_service_locator;
+			static ServiceLocator s_service_locator;
 			return s_service_locator;
 		}
 
-		galaxy::Config* ServiceLocator::config() const
+		fs::Config* ServiceLocator::config() const
 		{
 			return m_config;
 		}
 
-		pr::ThreadPool<4>* ServiceLocator::pool() const
+		async::ThreadPool<4>* ServiceLocator::pool() const
 		{
 			return m_threadpool;
 		}
 
-		qs::Window* ServiceLocator::window() const
+		graphics::Window* ServiceLocator::window() const
 		{
 			return m_window;
 		}
 
-		qs::Renderer* ServiceLocator::renderer() const
+		graphics::Renderer* ServiceLocator::renderer() const
 		{
 			return m_renderer;
 		}
@@ -42,42 +42,42 @@ namespace galaxy
 			return m_lua;
 		}
 
-		pr::StateMachine* ServiceLocator::gamestate() const
+		core::StateMachine* ServiceLocator::gamestate() const
 		{
 			return m_state;
 		}
 
-		sl::Dispatcher* ServiceLocator::dispatcher() const
+		events::Dispatcher* ServiceLocator::dispatcher() const
 		{
 			return m_dispatcher;
 		}
 
-		galaxy::World* ServiceLocator::world() const
+		core::World* ServiceLocator::world() const
 		{
 			return m_world;
 		}
 
-		galaxy::Serializer* ServiceLocator::serializer() const
+		fs::Serializer* ServiceLocator::serializer() const
 		{
 			return m_serializer;
 		}
 
-		galaxy::FontBook* ServiceLocator::fontbook() const
+		res::FontBook* ServiceLocator::fontbook() const
 		{
 			return m_fontbook;
 		}
 
-		galaxy::ShaderBook* ServiceLocator::shaderbook() const
+		res::ShaderBook* ServiceLocator::shaderbook() const
 		{
 			return m_shaderbook;
 		}
 
-		galaxy::AudioBook* ServiceLocator::audiobook() const
+		res::AudioBook* ServiceLocator::audiobook() const
 		{
 			return m_audiobook;
 		}
 
-		qs::TextureAtlas* ServiceLocator::atlas() const
+		graphics::TextureAtlas* ServiceLocator::atlas() const
 		{
 			return m_texture_atlas;
 		}

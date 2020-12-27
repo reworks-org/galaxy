@@ -1,6 +1,6 @@
 ///
 /// Text.cpp
-/// starmap
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -9,142 +9,142 @@
 
 #include "Text.hpp"
 
-///
-/// Core namespace.
-///
-namespace starmap
+namespace galaxy
 {
-	Text::Text()
-	    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
+	namespace map
 	{
-	}
-
-	Text::Text(const nlohmann::json& json)
-	    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
-	{
-		parse(json);
-	}
-
-	void Text::parse(const nlohmann::json& json)
-	{
-		if (json.at("bold") > 0)
+		Text::Text()
+		    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
 		{
-			m_bold = json.at("bold");
 		}
 
-		if (json.at("color") > 0)
+		Text::Text(const nlohmann::json& json)
+		    : m_bold {false}, m_color {"00FFFFFF"}, m_font_family {""}, m_halign {""}, m_italic {false}, m_kerning {false}, m_pixel_size {0}, m_strike_out {false}, m_text {""}, m_underline {false}, m_valign {""}, m_wrap {false}
 		{
-			m_color = json.at("color");
+			parse(json);
 		}
 
-		if (json.at("fontfamily") > 0)
+		void Text::parse(const nlohmann::json& json)
 		{
-			m_font_family = json.at("fontfamily");
+			if (json.at("bold") > 0)
+			{
+				m_bold = json.at("bold");
+			}
+
+			if (json.at("color") > 0)
+			{
+				m_color = json.at("color");
+			}
+
+			if (json.at("fontfamily") > 0)
+			{
+				m_font_family = json.at("fontfamily");
+			}
+
+			if (json.at("halign") > 0)
+			{
+				m_halign = json.at("halign");
+			}
+
+			if (json.at("italic") > 0)
+			{
+				m_italic = json.at("italic");
+			}
+
+			if (json.at("kerning") > 0)
+			{
+				m_kerning = json.at("kerning");
+			}
+
+			if (json.at("pixelsize") > 0)
+			{
+				m_pixel_size = json.at("pixelsize");
+			}
+
+			if (json.at("strikeout") > 0)
+			{
+				m_strike_out = json.at("strikeout");
+			}
+
+			if (json.at("text") > 0)
+			{
+				m_text = json.at("text");
+			}
+
+			if (json.at("underline") > 0)
+			{
+				m_underline = json.at("underline");
+			}
+
+			if (json.at("valign") > 0)
+			{
+				m_valign = json.at("valign");
+			}
+
+			if (json.at("wrap") > 0)
+			{
+				m_wrap = json.at("wrap");
+			}
 		}
 
-		if (json.at("halign") > 0)
+		const bool Text::is_bold() const
 		{
-			m_halign = json.at("halign");
+			return m_bold;
 		}
 
-		if (json.at("italic") > 0)
+		std::string Text::get_colour() const
 		{
-			m_italic = json.at("italic");
+			return m_color;
 		}
 
-		if (json.at("kerning") > 0)
+		std::string Text::get_font_family() const
 		{
-			m_kerning = json.at("kerning");
+			return m_font_family;
 		}
 
-		if (json.at("pixelsize") > 0)
+		std::string Text::get_h_align() const
 		{
-			m_pixel_size = json.at("pixelsize");
+			return m_halign;
 		}
 
-		if (json.at("strikeout") > 0)
+		const bool Text::is_italic() const
 		{
-			m_strike_out = json.at("strikeout");
+			return m_italic;
 		}
 
-		if (json.at("text") > 0)
+		const bool Text::is_using_kerning() const
 		{
-			m_text = json.at("text");
+			return m_kerning;
 		}
 
-		if (json.at("underline") > 0)
+		const int Text::get_pixel_size() const
 		{
-			m_underline = json.at("underline");
+			return m_pixel_size;
 		}
 
-		if (json.at("valign") > 0)
+		const bool Text::is_striked_out() const
 		{
-			m_valign = json.at("valign");
+			return m_strike_out;
 		}
 
-		if (json.at("wrap") > 0)
+		std::string Text::get_text() const
 		{
-			m_wrap = json.at("wrap");
+			return m_text;
 		}
-	}
 
-	const bool Text::is_bold() const
-	{
-		return m_bold;
-	}
+		const bool Text::is_underlined() const
+		{
+			return m_underline;
+		}
 
-	std::string Text::get_colour() const
-	{
-		return m_color;
-	}
+		std::string Text::get_v_align() const
+		{
+			return m_valign;
+		}
 
-	std::string Text::get_font_family() const
-	{
-		return m_font_family;
-	}
-
-	std::string Text::get_h_align() const
-	{
-		return m_halign;
-	}
-
-	const bool Text::is_italic() const
-	{
-		return m_italic;
-	}
-
-	const bool Text::is_using_kerning() const
-	{
-		return m_kerning;
-	}
-
-	const int Text::get_pixel_size() const
-	{
-		return m_pixel_size;
-	}
-
-	const bool Text::is_striked_out() const
-	{
-		return m_strike_out;
-	}
-
-	std::string Text::get_text() const
-	{
-		return m_text;
-	}
-
-	const bool Text::is_underlined() const
-	{
-		return m_underline;
-	}
-
-	std::string Text::get_v_align() const
-	{
-		return m_valign;
-	}
-
-	const bool Text::is_wrapped() const
-	{
-		return m_wrap;
-	}
-} // namespace starmap
+		const bool Text::is_wrapped() const
+		{
+			return m_wrap;
+		}
+	} // namespace map
+} // namespace galaxy

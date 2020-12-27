@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// Task queue.
 			///
-			std::queue<pr::Task*> m_tasks;
+			std::queue<Task*> m_tasks;
 
 			///
 			/// Controls thread synchronization.
@@ -93,7 +93,7 @@ namespace galaxy
 			///
 			/// Control thread activity.
 			///
-			pr::LockedBool m_running;
+			std::atomic_bool m_running;
 		};
 
 		template<std::size_t max_threads>

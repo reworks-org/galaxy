@@ -74,7 +74,7 @@ namespace galaxy
 				///
 				/// OpenAL buffers.
 				///
-				std::array<ALuint, galaxy::BufferStream::BUFFER_COUNT> m_buffers;
+				std::array<ALuint, BufferStream::BUFFER_COUNT> m_buffers;
 
 				///
 				/// Path to the file.

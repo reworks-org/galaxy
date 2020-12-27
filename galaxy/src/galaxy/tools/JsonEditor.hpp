@@ -5,50 +5,129 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_JSONEDITOR_HPP_
-#define GALAXY_JSONEDITOR_HPP_
+#ifndef GALAXY_TOOLS_JSONEDITOR_HPP_
+#define GALAXY_TOOLS_JSONEDITOR_HPP_
 
 #include <span>
 
 #include <nlohmann/json.hpp>
 #include <robin_hood.h>
 
-///
-/// Core namespace.
-///
 namespace galaxy
 {
-	class JsonEditor final
+	namespace tools
 	{
-	public:
-		JsonEditor();
-		~JsonEditor() = default;
+		///
+		/// Parses json and provides imgui widgets to manipulate it.
+		///
+		class JsonEditor final
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			JsonEditor();
 
-		void create_new();
+			///
+			/// Destructor.
+			///
+			~JsonEditor() = default;
 
-		void load_file(std::string_view file);
-		void load_mem(std::span<char> memory);
-		void load_json(nlohmann::json* json);
+			///
+			/// Create a blank json object.
+			///
+			void create_new();
 
-		void save(std::string_view path);
+			///
+			/// Load external json.
+			///
+			/// \param file Filepath to load.
+			///
+			void load_file(std::string_view file);
 
-		void parse_and_display();
+			///
+			/// Load from memory instead.
+			///
+			/// \param memory Load json from memory instead of disk.
+			///
+			void load_mem(std::span<char> memory);
 
-		[[nodiscard]] const bool is_loaded() const;
+			///
+			/// Load an existing json object.
+			///
+			/// \param json Pointer to existing json object. Ownership is not taken.
+			///
+			void load_json(nlohmann::json* json);
 
-	private:
-		unsigned long long m_counter;
-		bool m_loaded;
+			///
+			/// Save JSON to disk.
+			///
+			/// \param file File to save file at.
+			///
+			void save(std::string_view path);
 
-		void do_object(nlohmann::json& json);
-		void do_array(nlohmann::json& json);
+			///
+			/// Parse loaded json and display using ImGui.
+			///
+			void parse_and_display();
 
-		void new_object(nlohmann::json& json);
-		void add_to_array(nlohmann::json& json);
+			///
+			/// Check if json has been loaded before displaying.
+			///
+			/// \return Const bool. True if loaded.
+			///
+			[[nodiscard]] const bool is_loaded() const;
 
-		nlohmann::json m_root;
-		nlohmann::json* m_external;
-	};
+		private:
+			///
+			/// Counter to identify arrays with.
+			///
+			unsigned long long m_counter;
+
+			///
+			/// Is loaded flag.
+			///
+			bool m_loaded;
+
+			///
+			/// Internal function to process a json object.
+			///
+			/// \param json Json data.
+			///
+			void do_object(nlohmann::json& json);
+
+			///
+			/// Internal function to process a json array.
+			///
+			/// \param json Json data.
+			///
+			void do_array(nlohmann::json& json);
+
+			///
+			/// Internal function to create a new object in json.
+			///
+			/// \param json Json data.
+			///
+			void new_object(nlohmann::json& json);
+
+			///
+			/// Internal function to add a new value to a json array.
+			///
+			/// \param json Json data.
+			///
+			void add_to_array(nlohmann::json& json);
+
+			///
+			/// Loaded json object being manipulated.
+			///
+			nlohmann::json m_root;
+
+			///
+			/// Only used when json is loaded from external object.
+			///
+			nlohmann::json* m_external;
+		};
+	} // namespace tools
 } // namespace galaxy
 
 #endif

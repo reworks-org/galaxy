@@ -1,24 +1,18 @@
 ///
 /// Simple.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_SIMPLE_HPP_
-#define QUASAR_SIMPLE_HPP_
+#ifndef GALAXY_GRAPHICS_POST_SIMPLE_HPP_
+#define GALAXY_GRAPHICS_POST_SIMPLE_HPP_
 
-#include "qs/post/PostEffect.hpp"
+#include "galaxy/graphics/post/PostEffect.hpp"
 
-///
-/// Core namespace.
-///
-namespace qs
+namespace galaxy
 {
-	///
-	/// PostEffect identifier.
-	///
-	namespace effect
+	namespace posteffect
 	{
 		///
 		/// Draws output straight to screen with no effects.
@@ -44,7 +38,7 @@ namespace qs
 			///
 			void apply_uniforms() override;
 		};
-	} // namespace effect
-} // namespace qs
+	} // namespace posteffect
+} // namespace galaxy
 
 #endif

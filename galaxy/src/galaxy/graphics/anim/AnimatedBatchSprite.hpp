@@ -1,64 +1,63 @@
 ///
 /// AnimatedBatchSprite.hpp
-/// quasar
+/// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef QUASAR_ANIMATEDBATCHSPRITE_HPP_
-#define QUASAR_ANIMATEDBATCHSPRITE_HPP_
+#ifndef GALAXY_GRAPHICS_ANIM_ANIMATEDBATCHSPRITE_HPP_
+#define GALAXY_GRAPHICS_ANIM_ANIMATEDBATCHSPRITE_HPP_
 
-#include "qs/anim/Animated.hpp"
-#include "qs/sprite/BatchedSprite.hpp"
+#include <nlohmann/json_fwd.hpp>
 
-///
-/// Core namespace.
-///
-namespace qs
+#include "galaxy/graphics/anim/Animated.hpp"
+#include "galaxy/graphics/sprite/BatchedSprite.hpp"
+
+namespace galaxy
 {
-	///
-	/// Everything you need to draw an animated sprite.
-	///
-	class AnimatedBatchSprite final : public qs::BatchedSprite, public qs::Animated
+	namespace graphics
 	{
-	public:
 		///
-		/// Constructor.
+		/// Everything you need to draw an animated sprite.
 		///
-		AnimatedBatchSprite();
+		class AnimatedBatchSprite final : public BatchedSprite, public Animated
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			AnimatedBatchSprite();
 
-		///
-		/// Copy constructor.
-		///
-		AnimatedBatchSprite(const AnimatedBatchSprite&) = delete;
+			///
+			/// JSON constructor.
+			///
+			/// \param json JSON defining object.
+			///
+			AnimatedBatchSprite(const nlohmann::json& json);
 
-		///
-		/// Move constructor.
-		///
-		AnimatedBatchSprite(AnimatedBatchSprite&&) = default;
+			///
+			/// Copy constructor.
+			///
+			AnimatedBatchSprite(const AnimatedBatchSprite&) = delete;
 
-		///
-		/// Copy assignment operator.
-		///
-		AnimatedBatchSprite& operator=(const AnimatedBatchSprite&) = delete;
+			///
+			/// Copy assignment operator.
+			///
+			AnimatedBatchSprite& operator=(const AnimatedBatchSprite&) = delete;
 
-		///
-		/// Move assignment operator.
-		///
-		AnimatedBatchSprite& operator=(AnimatedBatchSprite&&) = default;
+			///
+			/// Destructor.
+			///
+			virtual ~AnimatedBatchSprite() = default;
 
-		///
-		/// Destructor.
-		///
-		virtual ~AnimatedBatchSprite() = default;
-
-		///
-		/// Update GL data.
-		///
-		/// \param dt DeltaTime.
-		///
-		void update(const double dt) override;
-	};
-} // namespace qs
+			///
+			/// Update GL data.
+			///
+			/// \param dt DeltaTime.
+			///
+			void update(const double dt) override;
+		};
+	} // namespace graphics
+} // namespace galaxy
 
 #endif

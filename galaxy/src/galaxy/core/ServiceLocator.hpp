@@ -17,6 +17,44 @@
 
 namespace galaxy
 {
+	namespace async
+	{
+		template<std::size_t max_threads>
+		class ThreadPool;
+	} // namespace async
+
+	namespace core
+	{
+		class StateMachine;
+		class World;
+	} // namespace core
+
+	namespace events
+	{
+		class Dispatcher;
+	} // namespace events
+
+	namespace fs
+	{
+		class Config;
+		class Serializer;
+	} // namespace fs
+
+	namespace graphics
+	{
+		class Window;
+		class Renderer;
+		class TextureAtlas;
+	} // namespace graphics
+
+	namespace res
+	{
+		class FontBook;
+		class ShaderBook;
+		class AudioBook;
+
+	} // namespace res
+
 	namespace core
 	{
 		///
@@ -65,28 +103,28 @@ namespace galaxy
 			///
 			/// \return Return pointer to config service.
 			///
-			[[maybe_unused]] galaxy::Config* config() const;
+			[[maybe_unused]] fs::Config* config() const;
 
 			///
 			/// Get threadpool service.
 			///
 			/// \return Return pointer to threadpool.
 			///
-			[[maybe_unused]] pr::ThreadPool<4>* pool() const;
+			[[maybe_unused]] async::ThreadPool<4>* pool() const;
 
 			///
 			/// Get window service.
 			///
 			/// \return Return pointer to window service.
 			///
-			[[maybe_unused]] qs::Window* window() const;
+			[[maybe_unused]] graphics::Window* window() const;
 
 			///
 			/// Get renderer service.
 			///
 			/// \return Return pointer to renderer service.
 			///
-			[[maybe_unused]] qs::Renderer* renderer() const;
+			[[maybe_unused]] graphics::Renderer* renderer() const;
 
 			///
 			/// Get Lua service.
@@ -98,56 +136,56 @@ namespace galaxy
 			///
 			/// Get game state service.
 			///
-			[[maybe_unused]] pr::StateMachine* gamestate() const;
+			[[maybe_unused]] core::StateMachine* gamestate() const;
 
 			///
 			/// Get Dispatcher service.
 			///
 			/// \return Return pointer to Dispatcher service.
 			///
-			[[maybe_unused]] sl::Dispatcher* dispatcher() const;
+			[[maybe_unused]] events::Dispatcher* dispatcher() const;
 
 			///
 			/// Get World service.
 			///
 			/// \return Return pointer to World service.
 			///
-			[[maybe_unused]] galaxy::World* world() const;
+			[[maybe_unused]] core::World* world() const;
 
 			///
 			/// Get serializer service.
 			///
 			/// \return Return pointer to Serializer service.
 			///
-			[[maybe_unused]] galaxy::Serializer* serializer() const;
+			[[maybe_unused]] fs::Serializer* serializer() const;
 
 			///
 			/// Get FontBook service.
 			///
 			/// \return Return pointer to FontBook service.
 			///
-			[[maybe_unused]] galaxy::FontBook* fontbook() const;
+			[[maybe_unused]] res::FontBook* fontbook() const;
 
 			///
 			/// Get ShaderBook service.
 			///
 			/// \return Return pointer to ShaderBook service.
 			///
-			[[maybe_unused]] galaxy::ShaderBook* shaderbook() const;
+			[[maybe_unused]] res::ShaderBook* shaderbook() const;
 
 			///
 			/// Get AudioBook service.
 			///
 			/// \return Return pointer to AudioBook service.
 			///
-			[[maybe_unused]] galaxy::AudioBook* audiobook() const;
+			[[maybe_unused]] res::AudioBook* audiobook() const;
 
 			///
 			/// Get TextureAtlas service.
 			///
 			/// \return Return pointer to TextureAtlas service.
 			///
-			[[maybe_unused]] qs::TextureAtlas* atlas() const;
+			[[maybe_unused]] graphics::TextureAtlas* atlas() const;
 
 			///
 			/// Restart flag.
@@ -163,22 +201,22 @@ namespace galaxy
 			///
 			/// Config service.
 			///
-			galaxy::Config* m_config;
+			fs::Config* m_config;
 
 			///
 			/// Threadpool service.
 			///
-			pr::ThreadPool<4>* m_threadpool;
+			async::ThreadPool<4>* m_threadpool;
 
 			///
 			/// Window service.
 			///
-			qs::Window* m_window;
+			graphics::Window* m_window;
 
 			///
 			/// Renderer service.
 			///
-			qs::Renderer* m_renderer;
+			graphics::Renderer* m_renderer;
 
 			///
 			/// Lua service. Main instance of Lua.
@@ -188,42 +226,42 @@ namespace galaxy
 			///
 			/// Game state service.
 			///
-			pr::StateMachine* m_state;
+			core::StateMachine* m_state;
 
 			///
 			/// Dispatcher service.
 			///
-			sl::Dispatcher* m_dispatcher;
+			events::Dispatcher* m_dispatcher;
 
 			///
 			/// World service.
 			///
-			galaxy::World* m_world;
+			core::World* m_world;
 
 			///
 			/// Serializer service.
 			///
-			galaxy::Serializer* m_serializer;
+			fs::Serializer* m_serializer;
 
 			///
 			/// FontBook service.
 			///
-			galaxy::FontBook* m_fontbook;
+			res::FontBook* m_fontbook;
 
 			///
 			/// ShaderBook service.
 			///
-			galaxy::ShaderBook* m_shaderbook;
+			res::ShaderBook* m_shaderbook;
 
 			///
 			/// AudioBook service.
 			///
-			galaxy::AudioBook* m_audiobook;
+			res::AudioBook* m_audiobook;
 
 			///
 			/// AudioBook service.
 			///
-			qs::TextureAtlas* m_texture_atlas;
+			graphics::TextureAtlas* m_texture_atlas;
 		};
 	} // namespace core
 } // namespace galaxy

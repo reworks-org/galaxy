@@ -25,7 +25,7 @@ namespace sb
 		void render() override;
 
 	private:
-		qs::Camera m_gui_camera;
+		graphics::Camera m_gui_camera;
 		galaxy::GUI m_gui;
 		galaxy::UITheme m_theme;
 	};
