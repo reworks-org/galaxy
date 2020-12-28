@@ -39,9 +39,3 @@ THE PLAN:
 https://github.com/nlohmann/json/#arbitrary-types-conversions
 https://github.com/EQMG/Acid
 https://github.com/asmei1/tinycoro
-
-
-
-redo unit testing
-redo CI for automated testing
-and test coverage
