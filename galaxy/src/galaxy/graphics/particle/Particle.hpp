@@ -79,6 +79,11 @@ namespace galaxy
 
 		private:
 			///
+			/// Angle of particle.
+			///
+			float m_angle;
+
+			///
 			/// Position of particle.
 			///
 			glm::vec2 m_position;

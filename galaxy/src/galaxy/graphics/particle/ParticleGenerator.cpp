@@ -129,33 +129,18 @@ namespace galaxy
 
 				const float random_radius = radius * std::sqrt(algorithm::random<float>(0.0f, 1.0f));
 				const float angle         = algorithm::random<float>(0.0f, 1.0f) * 2.0f * glm::pi<float>();
-				const float x             = m_emitter_x + random_radius * glm::cos(angle);
-				const float y             = m_emitter_y + random_radius * glm::sin(angle);
+				const float x             = m_emitter_x + random_radius * std::cos(angle);
+				const float y             = m_emitter_y + random_radius * std::sin(angle);
 
 				particle.set_position(x, y);
-
-				// Randomize direction.
-				const int res = algorithm::random<int>(0, 3);
-				if (res == 0)
-				{
-					vel_x = -vel_x;
-				}
-				else if (res == 3)
-				{
-					vel_y = -vel_y;
-				}
-
-				particle.set_velocity(
-				    glm::cos(vel_x * glm::pi<float>() / 180.0f) + algorithm::random<float>(0.0f, 0.5f),
-				    glm::sin(vel_y * glm::pi<float>() / 180.0f) + algorithm::random<float>(0.0f, 0.5f));
-
+				particle.set_velocity(vel_x, vel_y);
 				m_particles.push_back(particle);
 			}
 
 			m_finished = false;
 		}
 
-		void ParticleGenerator::update(const double dt, const float life)
+		void ParticleGenerator::update(const double dt)
 		{
 			m_offsets.clear();
 			m_offsets.reserve(m_amount);
@@ -164,7 +149,7 @@ namespace galaxy
 			{
 				for (auto particle = m_particles.begin(); particle != m_particles.end();)
 				{
-					particle->m_life -= life;
+					particle->m_life -= algorithm::random(0.01, 0.05) * dt;
 					if (particle->m_life < 0.0f)
 					{
 						particle = m_particles.erase(particle);

@@ -35,7 +35,6 @@ namespace sb
 		m_particle_gen.create(tex, 100.0f, 100.0f);
 		m_particle_gen.define("default", {0, 0, 16, 16});
 		m_particle_gen.configure("default");
-		m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
 
 		galaxy::graphics::Colour c = {0, 0, 0, 255};
 		m_point.create(0, 0, 10, c);
@@ -163,7 +162,7 @@ namespace sb
 		{
 			auto [pressed, pos] = m_window->get_cursor_pos();
 			m_particle_gen.update_emitter(pos.x, pos.y);
-			m_particle_gen.gen_circular("default", 200, 100.0f, 0.5f, 0.5f);
+			m_particle_gen.gen_circular("default", 100, 100.0f, 10.0f, 10.0f);
 		}
 
 		m_world->events();
@@ -173,7 +172,7 @@ namespace sb
 	{
 		m_camera.update(dt);
 		m_world->update(dt);
-		m_particle_gen.update(dt, 0.01f);
+		m_particle_gen.update(dt);
 	}
 
 	void SandboxLayer::pre_render()

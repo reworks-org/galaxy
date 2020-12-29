@@ -111,9 +111,8 @@ namespace galaxy
 			/// Update to process the "life" (opacity) of the particles.
 			///
 			/// \param dt DeltaTime from gameloop.
-			/// \param life Speed at which the particle decays.
 			///
-			void update(const double dt, const float life);
+			void update(const double dt);
 
 			///
 			/// Update emitter position.
