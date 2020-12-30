@@ -20,10 +20,17 @@ jobs:
                 standard: 20
 
     steps:
+    - name: Update dot.net
+      run: dotnet tool update -g dotnet-vs
+
+    - name: Install Visual Studio Preview
+      run: vs install preview -sku:enterprise --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
+      
+    - name: Configure install
+      run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
+
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-      with:
-        vs-version: '[16.9]'
 
     - name: Checkout
       uses: actions/checkout@v2
