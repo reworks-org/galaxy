@@ -20,7 +20,11 @@ jobs:
                 standard: 20
 
     steps:
+    - name: Checkout
     - uses: actions/checkout@v2
+
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
 
     - name: Get latest CMake
       uses: lukka/get-cmake@latest
