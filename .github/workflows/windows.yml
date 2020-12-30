@@ -20,7 +20,13 @@ jobs:
                 standard: 20
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        vs-version: '[16.9]'
+
+    - name: Checkout
+      uses: actions/checkout@v2
 
     - name: Checkout submodules
       run: git submodule update --init --recursive
