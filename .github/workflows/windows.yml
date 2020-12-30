@@ -4,26 +4,35 @@ on:
   push:
     branches: [ master ]
 
+env:
+  BUILD_TYPE: Release
+
 jobs:
   build:
-    runs-on: ${{matrix.os}}
+    runs-on: windows-latest
     strategy:
-      matrix:
-        os: [windows-latest]
-        platform: [x64]
-        build_type: [Release]
-        include:
-          - os: windows-latest
-            standard: 20
+          matrix:
+            os: [windows-latest]
+            platform: [x64]
+            build_type: [Release]
+            include:
+              - os: windows-latest
+                standard: 20
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Configure
-        run: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
-        
-      - name: Change Directory
-        run: cd build
+    - name: Get latest CMake
+      uses: lukka/get-cmake@latest
 
-      - name: Build
-        run: msbuild galaxy_engine.sln
+    - name: Create Build Environment
+      run: cmake -E make_directory ${{runner.workspace}}/build
+
+    - name: Configure
+      shell: bash
+      run: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=$BUILD_TYPE -B${{runner.workspace}}/build -H${{runner.workspace}}
+
+    - name: Build
+      working-directory: ${{runner.workspace}}/build
+      shell: bash
+      run: msbuild galaxy_engine.sln
