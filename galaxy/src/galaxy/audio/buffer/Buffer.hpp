@@ -5,10 +5,10 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_BUFFER_BUFFER_HPP_
-#define GALAXY_AUDIO_BUFFER_BUFFER_HPP_
+#ifndef GAlAXY_AUDIO_BUFFER_BUFFER_HPP_
+#define GAlAXY_AUDIO_BUFFER_BUFFER_HPP_
 
-#include <string_view>
+#include <span>
 
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -62,14 +62,28 @@ namespace galaxy
 			///
 			/// \return Frequency as integer.
 			///
-			[[nodiscard]] const ALint get_frequency() const;
+			[[nodiscard]] const ALint get_frequency();
+
+			///
+			/// Get bits of buffer.
+			///
+			/// \return Bits as integer.
+			///
+			[[nodiscard]] const ALint get_bits();
 
 			///
 			/// Get channels of buffer.
 			///
 			/// \return Channels as integer.
 			///
-			[[nodiscard]] const ALint get_channels() const;
+			[[nodiscard]] const ALint get_channels();
+
+			///
+			/// Get size of buffer.
+			///
+			/// \return Size as integer.
+			///
+			[[nodiscard]] const ALint get_size();
 
 			///
 			/// Get the OpenAL internal int id / handle.
@@ -86,22 +100,13 @@ namespace galaxy
 			///
 			/// \return False if load failed.
 			///
-			[[nodiscard]] bool internal_load(std::string_view file);
+			[[maybe_unused]] bool internal_load(std::string_view file);
 
+		private:
 			///
 			/// Handle to Buffer.
 			///
 			ALuint m_buffer;
-
-			///
-			/// Amount of channels in buffer.
-			///
-			ALint m_channels;
-
-			///
-			/// Frequency of audio.
-			///
-			ALsizei m_frequency;
 		};
 	} // namespace audio
 } // namespace galaxy

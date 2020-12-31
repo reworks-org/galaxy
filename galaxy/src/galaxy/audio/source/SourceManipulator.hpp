@@ -123,31 +123,18 @@ namespace galaxy
 			///
 			void set_looping(bool looping);
 
+			///
+			/// Retrieve OpenAL source state.
+			///
+			/// \return Integer of enum AL_SOURCE_STATE.
+			///
+			ALint get_state();
+
 		protected:
 			///
 			/// Default constructor.
 			///
 			SourceManipulator();
-
-			///
-			/// Copy constructor.
-			///
-			SourceManipulator(const SourceManipulator&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			SourceManipulator(SourceManipulator&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			SourceManipulator& operator=(const SourceManipulator&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			SourceManipulator& operator=(SourceManipulator&&);
 
 			///
 			/// Set source to manipulate.
@@ -156,13 +143,7 @@ namespace galaxy
 			///
 			void set_source_to_manipulate(const ALuint source);
 
-			///
-			/// Retrieve OpenAL source state.
-			///
-			/// \return Integer of enum AL_SOURCE_STATE.
-			///
-			ALint get_state();
-
+		private:
 			///
 			/// Pointer to source being used internally.
 			///

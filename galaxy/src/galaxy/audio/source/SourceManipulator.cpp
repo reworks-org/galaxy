@@ -153,39 +153,22 @@ namespace galaxy
 			}
 		}
 
-		SourceManipulator::SourceManipulator()
-		    : m_source {0}
-		{
-		}
-
-		SourceManipulator::SourceManipulator(SourceManipulator&& sm)
-		{
-			this->m_source = sm.m_source;
-			sm.m_source    = 0;
-		}
-
-		SourceManipulator& SourceManipulator::operator=(SourceManipulator&& sm)
-		{
-			if (this != &sm)
-			{
-				this->m_source = sm.m_source;
-				sm.m_source    = 0;
-			}
-
-			return *this;
-		}
-
-		void SourceManipulator::set_source_to_manipulate(const ALuint source)
-		{
-			m_source = source;
-		}
-
 		ALint SourceManipulator::get_state()
 		{
 			int val = 0;
 			alGetSourcei(m_source, AL_SOURCE_STATE, &val);
 
 			return val;
+		}
+
+		SourceManipulator::SourceManipulator()
+		    : m_source {0}
+		{
+		}
+
+		void SourceManipulator::set_source_to_manipulate(const ALuint source)
+		{
+			m_source = source;
 		}
 	} // namespace audio
 } // namespace galaxy

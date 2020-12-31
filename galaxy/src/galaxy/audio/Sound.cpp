@@ -16,6 +16,7 @@ namespace galaxy
 	namespace audio
 	{
 		Sound::Sound()
+		    : Buffer {}, SourceManipulator {}, m_source {}
 		{
 			set_source_to_manipulate(m_source.handle());
 		}
@@ -58,11 +59,10 @@ namespace galaxy
 
 		bool Sound::load(std::string_view file)
 		{
-			auto res = internal_load(file);
-
+			const auto res = internal_load(file);
 			if (res)
 			{
-				m_source.queue(dynamic_cast<Buffer*>(this));
+				m_source.queue(this);
 			}
 
 			return res;

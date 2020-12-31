@@ -9,13 +9,10 @@
 #define GALAXY_AUDIO_BUFFER_BUFFERSTREAM_HPP_
 
 #include <array>
-#include <filesystem>
-#include <fstream>
-#include <string_view>
 
 #include <AL/al.h>
 #include <AL/alc.h>
-#include <vorbis/vorbisfile.h>
+#include <stb/stb_vorbis.h>
 
 namespace galaxy
 {
@@ -26,117 +23,13 @@ namespace galaxy
 		///
 		class BufferStream
 		{
-		public:
-			///
-			/// Number of buffers being used by the stream.
-			///
-			const constexpr static inline ALsizei BUFFER_COUNT = 4;
+			friend class Source;
 
+		public:
 			///
 			/// Size of each buffer used by the stream.
 			///
-			const constexpr static inline std::size_t BUFFER_SIZE = 65536;
-
-			///
-			/// Holds various member variables for BufferStream.
-			///
-			class Data final
-			{
-			public:
-				friend class BufferStream;
-				friend class Music;
-
-				///
-				/// Copy constructor.
-				///
-				Data(const Data&) = delete;
-
-				///
-				/// Move constructor.
-				///
-				Data(Data&&);
-
-				///
-				/// Copy assignment operator.
-				///
-				Data& operator=(const Data&) = delete;
-
-				///
-				/// Move assignment operator.
-				///
-				Data& operator=(Data&&);
-
-				///
-				/// Destructor.
-				///
-				~Data() = default;
-
-				///
-				/// OpenAL buffers.
-				///
-				std::array<ALuint, BufferStream::BUFFER_COUNT> m_buffers;
-
-				///
-				/// Path to the file.
-				///
-				std::filesystem::path m_file_path = {""};
-
-				///
-				/// File read from disk handle.
-				///
-				std::ifstream m_file_handle;
-
-				///
-				/// Number of channels in buffer.
-				///
-				std::uint8_t m_channels = {0};
-
-				///
-				/// Frequency (samples) of buffer.
-				///
-				std::int32_t m_frequency = {0};
-
-				///
-				/// Bits per sample.
-				///
-				std::uint8_t m_bits = {0};
-
-				///
-				/// Size of buffer.
-				///
-				ALsizei m_size = {0};
-
-				///
-				/// Used to keep track of how much buffer has been read.
-				///
-				ALsizei m_consumed = {0};
-
-				///
-				/// Audio format.
-				///
-				ALenum m_format = {0};
-
-				///
-				/// OggVorbis file handle.
-				///
-				OggVorbis_File m_ogg_handle;
-
-				///
-				/// Position in ogg file.
-				///
-				std::int32_t m_ogg_pos = {0};
-
-				///
-				/// Total duration of audio.
-				///
-				std::size_t m_duration = {0};
-
-			private:
-				///
-				/// Constructor.
-				///
-				Data() = default;
-			};
+			static inline const constexpr std::size_t CHUNK = 65536;
 
 			///
 			/// Constructor.
@@ -170,13 +63,6 @@ namespace galaxy
 			///
 			virtual ~BufferStream();
 
-			///
-			/// Get stream data.
-			///
-			/// \return Data (i.e. all protected members).
-			///
-			[[nodiscard]] BufferStream::Data* get_data();
-
 		protected:
 			///
 			/// Load a file to stream from disk.
@@ -188,9 +74,29 @@ namespace galaxy
 			bool internal_load(std::string_view file);
 
 			///
-			/// All member vars of Buffer Stream.
+			/// OpenAL data buffers.
 			///
-			Data m_data;
+			std::array<ALuint, 2> m_buffers;
+
+			///
+			/// STB data buffer.
+			///
+			short* m_data;
+
+			///
+			/// STB data info buffer.
+			///
+			stb_vorbis_info m_info;
+
+			///
+			/// Streaming info.
+			///
+			stb_vorbis* m_stream;
+
+			///
+			/// Audio format.
+			///
+			ALenum m_format;
 		};
 	} // namespace audio
 } // namespace galaxy

@@ -8,7 +8,6 @@
 #ifndef GALAXY_AUDIO_MUSIC_HPP_
 #define GALAXY_AUDIO_MUSIC_HPP_
 
-#include <mutex>
 #include <thread>
 
 #include <nlohmann/json_fwd.hpp>
@@ -96,14 +95,9 @@ namespace galaxy
 			std::jthread m_thread;
 
 			///
-			/// Mutex to help with synchronization.
+			/// Thread control.
 			///
-			std::mutex m_mutex;
-
-			///
-			/// Makes sure thread exits cleanly.
-			///
-			std::atomic_bool m_run_loop;
+			std::atomic_bool m_running;
 		};
 	} // namespace audio
 } // namespace galaxy

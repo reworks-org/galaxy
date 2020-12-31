@@ -72,11 +72,10 @@ namespace galaxy
 			}
 			else
 			{
-				alSourceQueueBuffers(m_source, BufferStream::BUFFER_COUNT, &stream_buffer->get_data()->m_buffers[0]);
+				alSourceQueueBuffers(m_source, 2, &stream_buffer->m_buffers[0]);
 				if (alGetError() != AL_NO_ERROR)
 				{
-					auto msg = error::al_parse_error("Unable to queue stream buffer: " + stream_buffer->get_data()->m_file_path.filename().string());
-					GALAXY_LOG(GALAXY_ERROR, "{0}.", msg);
+					GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to queue stream buffer."));
 				}
 			}
 		}

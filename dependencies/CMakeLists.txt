@@ -10,6 +10,7 @@ file(GLOB_RECURSE dependencies_src
     "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-internal-inl.h"
     "${CMAKE_SOURCE_DIR}/dependencies/imgui/*.cpp"
     "${CMAKE_SOURCE_DIR}/dependencies/lua/src/*.c"
+    "${CMAKE_SOURCE_DIR}/dependencies/stb/stb_vorbis.c"
 )
 
 source_group(${PROJECT_NAME} ${dependencies_src})

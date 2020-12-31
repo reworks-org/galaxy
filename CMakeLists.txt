@@ -97,43 +97,6 @@ if (NOT ENABLE_DOXYGEN)
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/glfw/"
 	)
 
-	set(INSTALL_DOCS OFF CACHE BOOL "" FORCE)
-	set(INSTALL_PKG_CONFIG_MODULE OFF CACHE BOOL "" FORCE)
-	set(INSTALL_CMAKE_PACKAGE_MODULE OFF CACHE BOOL "" FORCE)
-	add_subdirectory(dependencies/ogg)
-	set_target_properties(ogg PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/ogg/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/ogg/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/ogg/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/ogg/"
-	)
-
-	set(OGG_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/dependencies/ogg/include" CACHE STRING "" FORCE)
-	set(OGG_LIBRARY "${CMAKE_SOURCE_DIR}/output/bin/ogg/${CMAKE_BUILD_TYPE}/ogg" CACHE STRING "" FORCE)
-
-	add_subdirectory(dependencies/vorbis)
-	add_dependencies(vorbis ogg)
-	set_target_properties(vorbis PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	)
-
-	set_target_properties(vorbisenc PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	)
-
-	set_target_properties(vorbisfile PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/vorbis/"
-	)
-
 	set(ALSOFT_UTILS OFF CACHE BOOL "" FORCE)
 	set(ALSOFT_NO_CONFIG_UTIL ON CACHE BOOL "" FORCE)
 	set(ALSOFT_EXAMPLES OFF CACHE BOOL "" FORCE)
@@ -191,18 +154,11 @@ if (NOT ENABLE_DOXYGEN)
 	# Set dependencies to not show compiler errors.
 	if (MSVC)
 		target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(ogg PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(vorbis PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(vorbisenc PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(vorbisfile PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	    target_compile_options(cppcoro PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	endif()
-
-	# Configure post CMake-gen.
-	#configure_file(${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/dependencies/ogg/include/ogg/config_types.h @ONLY)
 
 	# Import applications
 	add_subdirectory(sandbox_tests)
@@ -210,8 +166,6 @@ if (NOT ENABLE_DOXYGEN)
 
 	# Configure dependencies
 	add_dependencies(galaxy glfw)
-	add_dependencies(galaxy ogg)
-	add_dependencies(galaxy vorbis)
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
 	add_dependencies(galaxy zlib)
@@ -236,13 +190,11 @@ if (NOT ENABLE_DOXYGEN)
 		"${CMAKE_SOURCE_DIR}/dependencies/imgui"
 		"${CMAKE_SOURCE_DIR}/dependencies/json/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/lua/src"
-		"${CMAKE_SOURCE_DIR}/dependencies/ogg/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/openal/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/pfd"
 		"${CMAKE_SOURCE_DIR}/dependencies/rh-hash/src/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/sol3/single/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
-		"${CMAKE_SOURCE_DIR}/dependencies/vorbis/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cppcoro/include"
@@ -312,10 +264,6 @@ if (NOT ENABLE_DOXYGEN)
 		target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_DEBUG})
 
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
@@ -325,10 +273,6 @@ if (NOT ENABLE_DOXYGEN)
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
 
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Debug/glfw3.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Debug/ogg.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbis.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisenc.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Debug/vorbisfile.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
@@ -353,10 +297,6 @@ if (NOT ENABLE_DOXYGEN)
 		target_link_options(tests PUBLIC ${GALAXY_LINK_FLAGS_RELEASE})
 
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
@@ -366,10 +306,6 @@ if (NOT ENABLE_DOXYGEN)
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
 
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/glfw/Release/glfw3.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/ogg/Release/ogg.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbis.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisenc.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/vorbis/Release/vorbisfile.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
