@@ -106,9 +106,10 @@ namespace galaxy
 
 				// Create lua instance and open libraries.
 				m_lua = std::make_unique<sol::state>();
-				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io);
+				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
+				// State Machine.
 				m_state           = std::make_unique<StateMachine>();
 				SL_HANDLE.m_state = m_state.get();
 
@@ -136,9 +137,9 @@ namespace galaxy
 				m_texture_atlas           = std::make_unique<graphics::TextureAtlas>();
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
-				// Register all usertypes used by this application for sol3.
-				lua::register_types();
-				lua::register_gui();
+				// Set up custom lua functions and types.
+				lua::register_functions();
+				lua::register_audio();
 
 				// Setup dev tools.
 				m_tools.create();

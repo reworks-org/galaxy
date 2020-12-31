@@ -102,6 +102,10 @@ namespace sb
 		shader_c = m_world->create_component<galaxy::graphics::Shader>(e);
 		shader_c->load_path("assets/shaders/sprite.vs", "assets/shaders/sprite.fs");
 		m_world->set_flag<galaxy::flags::Enabled>(e);
+
+		m_boop.load("assets/audio/sfx/button.ogg");
+		m_boop.set_gain(0.2);
+		m_boop.set_pitch(0.2);
 	}
 
 	SandboxLayer::~SandboxLayer()
@@ -163,6 +167,7 @@ namespace sb
 			auto [pressed, pos] = m_window->get_cursor_pos();
 			m_particle_gen.update_emitter(pos.x, pos.y);
 			m_particle_gen.gen_circular("default", 100, 100.0f, 10.0f, 10.0f);
+			m_boop.play();
 		}
 
 		m_world->events();

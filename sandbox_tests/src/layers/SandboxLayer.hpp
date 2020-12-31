@@ -8,6 +8,7 @@
 #ifndef SANDBOXTESTS_SANDBOXLAYER_HPP_
 #define SANDBOXTESTS_SANDBOXLAYER_HPP_
 
+#include <galaxy/audio/Playlist.hpp>
 #include <galaxy/core/World.hpp>
 #include <galaxy/core/Layer.hpp>
 #include <galaxy/graphics/Camera.hpp>
@@ -41,6 +42,7 @@ namespace sb
 		galaxy::posteffect::Simple m_simple;
 		galaxy::graphics::Camera m_camera;
 		galaxy::physics::KineticBody* m_test_body;
+		galaxy::audio::Sound m_boop;
 	};
 } // namespace sb
 
