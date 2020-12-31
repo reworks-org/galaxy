@@ -33,14 +33,56 @@ namespace galaxy
 
 			if (ImGui::BeginMenuBar())
 			{
-				if (ImGui::Button("Close"))
+				if (ImGui::MenuItem("Run Script"))
 				{
-					*show = false;
-				}
+					auto file = fs::open_file_dialog("*.lua");
+					std::ifstream ifs;
+					ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
+					m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
+							     std::istreambuf_iterator<char>());
 
-				if (ImGui::Button("Clear"))
+					m_history.push_back("[SCRIPT]: ");
+					m_history.push_back(m_buff);
+
+					auto res        = SL_HANDLE.lua()->script(m_buff);
+					auto type       = res.get_type();
+					std::string out = "";
+					if (type == sol::type::string)
+					{
+						out = res.get<std::string>();
+					}
+					else if (type == sol::type::number)
+					{
+						out = std::to_string(res.get<float>());
+					}
+					else if (type == sol::type::boolean)
+					{
+						if (res.get<bool>())
+						{
+							out = "true";
+						}
+						else
+						{
+							out = "false";
+						}
+					}
+
+					if (!out.empty())
+					{
+						m_history.push_back(fmt::format("[RESULT]: {0}.", out));
+					}
+
+					m_buff.clear();
+					ImGui::SetKeyboardFocusHere(-1);
+				}
+				if (ImGui::MenuItem("Clear"))
 				{
 					m_history.clear();
+				}
+
+				if (ImGui::MenuItem("Close"))
+				{
+					*show = false;
 				}
 
 				ImGui::SameLine();
@@ -50,7 +92,7 @@ namespace galaxy
 				if (ImGui::InputText("", &m_buff, ImGuiInputTextFlags_EnterReturnsTrue | ImGuiInputTextFlags_AutoSelectAll | ImGuiInputTextFlags_NoUndoRedo))
 				{
 					m_history.push_back(fmt::format("[INPUT]:  {0}.", m_buff));
-					
+
 					auto res        = SL_HANDLE.lua()->script(m_buff);
 					auto type       = res.get_type();
 					std::string out = "";
