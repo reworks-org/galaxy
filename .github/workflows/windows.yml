@@ -29,10 +29,13 @@ jobs:
     - name: Configure install
       run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
 
-    - name: Setup MSBuild.exe
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Configure MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        vs-version: '[16.9]'
 
     - name: Checkout
       uses: actions/checkout@v2
