@@ -54,5 +54,6 @@ jobs:
       run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
+      shell: pwsh
       working-directory: ${{runner.workspace}}/build
       run: msbuild galaxy_engine.sln
