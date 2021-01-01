@@ -49,4 +49,4 @@ jobs:
     - name: Build
       shell: pwsh
       working-directory: ${{runner.workspace}}/build
-      run: \&("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Preview\\MSBuild\\Current\\bin\\msbuild.exe") galaxy_engine.sln
+      run: \&("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Preview\\MSBuild\\Current\\bin\\msbuild.exe galaxy_engine.sln")
