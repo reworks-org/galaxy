@@ -20,11 +20,14 @@ jobs:
                 standard: 20
 
     steps:
-    - name: Update DotNet
+    - name: Update DotNet Tools
       run: dotnet tool update -g dotnet-vs
 
     - name: Install Visual Studio Preview
-      run: vs install preview --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
+      run: vs install preview -sku:enterprise --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
+
+    - name: Configure MSBuild
+      run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
 
     - name: Checkout
       uses: actions/checkout@v2
