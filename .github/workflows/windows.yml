@@ -54,4 +54,4 @@ jobs:
     - name: Build
       working-directory: ${{runner.workspace}}/build
       shell: bash
-      run: msbuild galaxy_engine.sln
+      run: msbuild.exe galaxy_engine.sln
