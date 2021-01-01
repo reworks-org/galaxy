@@ -42,11 +42,11 @@ jobs:
       run: cmake -E make_directory ${{runner.workspace}}/build
 
     - name: Configure
-      shell: bash
+      shell: pwsh
       working-directory: ${{runner.workspace}}/build
       run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
+      shell: pwsh
       working-directory: ${{runner.workspace}}/build
-      run: |
-          call "C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/MSBuild/Current/bin/msbuild.exe" galaxy_engine.sln
+      run: &("C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/MSBuild/Current/bin/msbuild.exe") galaxy_engine.sln
