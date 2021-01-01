@@ -29,11 +29,8 @@ jobs:
     - name: Configure install
       run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
 
-    - name: Configure MSVC
-      uses: ilammy/msvc-dev-cmd@v1
-
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
 
     - name: Checkout
       uses: actions/checkout@v2
