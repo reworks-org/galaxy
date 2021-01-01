@@ -1,7 +1,6 @@
 project(dependencies C CXX)
 
 file(GLOB_RECURSE dependencies_src
-    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/src/tz.cpp"
     "${CMAKE_SOURCE_DIR}/dependencies/cpp20/os.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/cpp20/format.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/glad/glad/glad.c"

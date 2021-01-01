@@ -53,7 +53,7 @@ jobs:
     - name: Configure Build Files
       shell: bash
       working-directory: ${{runner.workspace}}/build
-      run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DALSOFT_BACKEND_DSOUND=OFF -DNOMINMAX
+      run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DALSOFT_BACKEND_DSOUND=OFF
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
