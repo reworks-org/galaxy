@@ -42,7 +42,7 @@ jobs:
       run: cmake -E make_directory ${{runner.workspace}}/build
 
     - name: Configure
-      shell: pwsh
+      shell: bash
       working-directory: ${{runner.workspace}}/build
       run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
