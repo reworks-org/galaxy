@@ -45,6 +45,7 @@ if (MSVC)
         "_WIN32"
         "WIN64"
         "_WIN64"
+        "_WINDOWS"
     )
 
     set(GALAXY_PREPROCESSOR_FLAGS_RELEASE
@@ -53,6 +54,7 @@ if (MSVC)
         "_WIN32"
         "WIN64"
         "_WIN64"
+        "_WINDOWS"
     )
 else()
     set(GALAXY_PREPROCESSOR_FLAGS_DEBUG 
