@@ -26,7 +26,7 @@ jobs:
     - name: Install Visual Studio Preview
       run: vs install preview -sku:enterprise --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
 
-    - name: Configure MSBuild
+    - name: Configure Visual Studio Preview
       run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
 
     - name: Configure MSBuild
@@ -38,10 +38,10 @@ jobs:
         uwp: false
         spectre: false
 
-    - name: Checkout
+    - name: Checkout Repo
       uses: actions/checkout@v2
 
-    - name: Checkout submodules
+    - name: Checkout Submodules
       run: git submodule update --init --recursive
 
     - name: Get latest CMake
@@ -50,7 +50,7 @@ jobs:
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build
 
-    - name: Configure
+    - name: Configure Build Files
       shell: bash
       working-directory: ${{runner.workspace}}/build
       run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
