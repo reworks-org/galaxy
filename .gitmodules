@@ -34,7 +34,7 @@
 	url = https://github.com/fmtlib/fmt.git
 [submodule "dependencies/cpp20/date"]
 	path = dependencies/cpp20/date
-	url = https://github.com/HowardHinnant/date.git
+	url = https://github.com/DomRe/date.git
 [submodule "dependencies/zlib-ng"]
 	path = dependencies/zlib-ng
 	url = https://github.com/zlib-ng/zlib-ng.git
