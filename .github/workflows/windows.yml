@@ -29,6 +29,15 @@ jobs:
     - name: Configure MSBuild
       run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
 
+    - name: Configure MSBuild
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+        sdk: 10.0.19041.0
+        toolset: 14.28.29617
+        uwp: false
+        spectre: false
+
     - name: Checkout
       uses: actions/checkout@v2
 
