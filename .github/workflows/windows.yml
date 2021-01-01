@@ -20,14 +20,17 @@ jobs:
                 standard: 20
 
     steps:
-    - name: Update dot.net
+    - name: Update DotNet
       run: dotnet tool update -g dotnet-vs
 
+    - name: Configure VS Environment
+      run: echo "::set-env name=MSB::$(vs where preview --prop=InstallationPath)"
+
     - name: Install Visual Studio Preview
-      run: vs install preview -sku:enterprise --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
+      run: vs install preview --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
       
     - name: Configure install
-      run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
+      run: echo "::add-path::$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
       
     - name: Checkout
       uses: actions/checkout@v2
@@ -47,6 +50,6 @@ jobs:
       run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
-      shell: pwsh
+      shell: bash
       working-directory: ${{runner.workspace}}/build
-      run: \&("C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Preview\\MSBuild\\Current\\bin\\msbuild.exe galaxy_engine.sln")
+      run: msbuild.exe galaxy_engine.sln
