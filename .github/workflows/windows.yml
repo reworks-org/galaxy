@@ -24,7 +24,7 @@ jobs:
       run: dotnet tool update -g dotnet-vs
 
     - name: Install Visual Studio Preview
-      run: vs install preview +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
+      run: vs install preview --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
 
     - name: Checkout
       uses: actions/checkout@v2
