@@ -30,6 +30,8 @@ jobs:
       run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
 
     - name: Setup MSBuild.exe
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       uses: warrenbuckley/Setup-MSBuild@v1
 
     - name: Checkout
