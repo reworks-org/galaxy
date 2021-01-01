@@ -35,6 +35,9 @@ jobs:
       env: 
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: echo "::add-path::$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
       
     - name: Checkout
       uses: actions/checkout@v2
@@ -54,6 +57,5 @@ jobs:
       run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
     - name: Build
-      shell: pwsh
       working-directory: ${{runner.workspace}}/build
-      run: msbuild galaxy_engine.sln
+      run: msbuild.exe galaxy_engine.sln
