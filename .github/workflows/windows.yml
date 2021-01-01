@@ -24,12 +24,16 @@ jobs:
       run: dotnet tool update -g dotnet-vs
 
     - name: Configure VS Environment
+      env: 
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: echo "::set-env name=MSB::$(vs where preview --prop=InstallationPath)"
 
     - name: Install Visual Studio Preview
       run: vs install preview --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
       
     - name: Configure install
+      env: 
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: echo "::add-path::$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
       
     - name: Checkout
