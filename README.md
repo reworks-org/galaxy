@@ -35,15 +35,24 @@ Tested on Ubuntu 20.10 (groovy).
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt purge --auto-remove cmake
 sudo apt update
-sudo apt install git g++ clang llvm libc++-dev make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
+sudo apt upgrade -y
+sudo apt install -y git g++ make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
 pip install cmake
-export PATH="~/.local/bin:$PATH"
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
-cd galaxy_engine
+mkdir gcc11
+cd gcc11
+wget http://kayari.org/gcc-latest/gcc-latest.deb
+sudo dpkg -i gcc-latest.deb
+cd ../
+rm -rf gcc11
+git clone --recursive https://github.com/DomRe/galaxy.git galaxy
+cd galaxy
 git submodule update --init --recursive
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
+export PATH="~/.local/bin:$PATH"
+export PATH=/opt/gcc-latest/bin:$PATH
+export LD_RUN_PATH=/opt/gcc-latest/lib64
+export CC=/opt/gcc-latest/bin/gcc
+export CXX=/opt/gcc-latest/bin/g++
+cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DENABLE_DOXYGEN=OFF -Bbuild -H.
 cd build
 make all
 ```

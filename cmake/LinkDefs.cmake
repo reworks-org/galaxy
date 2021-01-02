@@ -24,6 +24,8 @@ else()
 	set(GALAXY_LINK_FLAGS
 		-pthread
 		-static
+		-static-libgcc
+		-static-libstdc++
 	)
 
 	set(GALAXY_LINK_FLAGS_DEBUG

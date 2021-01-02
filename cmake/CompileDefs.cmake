@@ -41,29 +41,26 @@ if (MSVC)
     )
 else()
     set(GALAXY_COMPILE_FLAGS
-        -stdlib=libc++
-        -flto
-        -fcxx-exceptions
-        -fexceptions
-        -fseh-exceptions
-        -pthread
-        -fchar8_t
-        -fcoroutines-ts
+        -fconcepts
+        -fcoroutines
         -frtti
-        -fvirtual-function-elimination
+        -fvisibility-ms-compat
+        -fexceptions
+        -pthread
     )
 
     set(GALAXY_COMPILE_FLAGS_DEBUG
         ${GALAXY_COMPILE_FLAGS}
-        --analyze
         -Wall
-        -Og
+        -Wextra
+        -fanalyzer
         -g3
+        -Og
     )
 
     set(GALAXY_COMPILE_FLAGS_RELEASE
         ${GALAXY_COMPILE_FLAGS}
-        -O3
         -w
+        -O3
     )
 endif()
