@@ -36,7 +36,7 @@ namespace galaxy
 	namespace tools
 	{
 		DevTools::DevTools()
-		    : m_world {nullptr}, m_window {nullptr}, m_draw_main {true}, m_draw_demo {false}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
+		    : m_world {nullptr}, m_window {nullptr}, m_draw_main {true}, m_draw_demo {false}, m_draw_state_editor {false}, m_draw_json_editor {false}, m_draw_script_editor {false}, m_draw_atlas_editor {false}, m_draw_entity_editor {false}, m_draw_lua_console {false}, m_draw_gui_builder_ui {false}, m_atlas_state {-1}, m_show_entity_create {false}, m_entity_debug_name {"..."}, m_active_entity {0}, m_edn_buffer {""}
 		{
 		}
 
@@ -397,8 +397,6 @@ namespace galaxy
 
 		void DevTools::script_editor_ui()
 		{
-			const auto cpos = m_editor.GetCursorPosition();
-
 			ImGui::Begin("Lua Editor", &m_draw_script_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
 			ImGui::SetWindowSize(ImVec2(800, 600), ImGuiCond_FirstUseEver);
 
@@ -451,34 +449,34 @@ namespace galaxy
 
 					ImGui::Separator();
 
-					if (ImGui::MenuItem("Undo", "ALT-Backspace", nullptr, !ro && m_editor.CanUndo()))
+					if (ImGui::MenuItem("Undo", "", nullptr, !ro && m_editor.CanUndo()))
 					{
 						m_editor.Undo();
 					}
 
-					if (ImGui::MenuItem("Redo", "Ctrl-Y", nullptr, !ro && m_editor.CanRedo()))
+					if (ImGui::MenuItem("Redo", "", nullptr, !ro && m_editor.CanRedo()))
 					{
 						m_editor.Redo();
 					}
 
 					ImGui::Separator();
 
-					if (ImGui::MenuItem("Copy", "Ctrl-C", nullptr, m_editor.HasSelection()))
+					if (ImGui::MenuItem("Copy", "", nullptr, m_editor.HasSelection()))
 					{
 						m_editor.Copy();
 					}
 
-					if (ImGui::MenuItem("Cut", "Ctrl-X", nullptr, !ro && m_editor.HasSelection()))
+					if (ImGui::MenuItem("Cut", "", nullptr, !ro && m_editor.HasSelection()))
 					{
 						m_editor.Cut();
 					}
 
-					if (ImGui::MenuItem("Delete", "Del", nullptr, !ro && m_editor.HasSelection()))
+					if (ImGui::MenuItem("Delete", "", nullptr, !ro && m_editor.HasSelection()))
 					{
 						m_editor.Delete();
 					}
 
-					if (ImGui::MenuItem("Paste", "Ctrl-V", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
+					if (ImGui::MenuItem("Paste", "", nullptr, !ro && ImGui::GetClipboardText() != nullptr))
 					{
 						m_editor.Paste();
 					}

@@ -75,11 +75,11 @@ namespace galaxy
 			{
 				if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_pos));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_pos)));
 				}
 				else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(SpriteVertex, m_texels));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_texels)));
 				}
 				else
 				{
@@ -90,11 +90,11 @@ namespace galaxy
 			{
 				if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(PrimitiveVertex, m_pos));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(PrimitiveVertex, m_pos)));
 				}
 				else if constexpr (std::is_same<VertexAttribute, VAColour>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(PrimitiveVertex, m_colour));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(PrimitiveVertex, m_colour)));
 				}
 				else
 				{
@@ -105,15 +105,15 @@ namespace galaxy
 			{
 				if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(BatchedVertex, m_pos));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_pos)));
 				}
 				else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(BatchedVertex, m_texels));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_texels)));
 				}
 				else if constexpr (std::is_same<VertexAttribute, VAOpacity>::value)
 				{
-					m_attributes.emplace_back(size, GL_FLOAT, GL_FALSE, offsetof(BatchedVertex, m_opacity));
+					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_opacity)));
 				}
 				else
 				{

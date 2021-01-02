@@ -6,6 +6,7 @@
 ///
 
 #include <filesystem>
+#include <numeric>
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/graphics/shaders/Glyph.hpp"
@@ -198,14 +199,9 @@ namespace galaxy
 
 		const int Font::get_width(std::string_view text)
 		{
-			int width = 0;
-
-			for (const char c : text)
-			{
-				width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
-			}
-
-			return width;
+			return std::accumulate(text.begin(), text.end(), 0, [&](int width, const char c) {
+				return width += (m_characters[c].m_bearing.x + (m_characters[c].m_advance >> 6));
+			});
 		}
 
 		const int Font::get_height() const

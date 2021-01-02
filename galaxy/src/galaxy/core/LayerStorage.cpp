@@ -73,10 +73,9 @@ namespace galaxy
 			std::vector<std::string> keys;
 			keys.reserve(m_layers.size());
 
-			for (const auto& pair : m_layers)
-			{
-				keys.emplace_back(pair.first);
-			}
+			std::transform(m_layers.begin(), m_layers.end(), std::back_inserter(keys), [](const auto& pair) {
+				return pair.first;
+			});
 
 			return keys;
 		}

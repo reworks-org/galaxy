@@ -94,8 +94,7 @@ namespace galaxy
 				}
 				else
 				{
-					m_info       = stb_vorbis_get_info(m_stream);
-					auto samples = stb_vorbis_stream_length_in_samples(m_stream) * m_info.channels;
+					m_info = stb_vorbis_get_info(m_stream);
 
 					m_data   = new short[CHUNK];
 					m_format = (m_info.channels > 1) ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16;

@@ -39,21 +39,14 @@ namespace galaxy
 		}
 
 		Body::Body(const float density, const glm::vec2& size)
-		    : m_pos {0.0f, 0.0f}, m_mass {1.0f}, m_restitution {1.0f}, m_static_friction {1.0f}, m_dynamic_friction {0.5f}
+		    : m_restitution {1.0f}, m_static_friction {1.0f}, m_dynamic_friction {0.5f}, m_mass {density * (size.x * size.y)}, m_size {size}, m_pos {0.0f, 0.0f}
 		{
-			m_mass = density * (size.x * size.y);
-			m_size = size;
-
 			update_aabb();
 		}
 
 		Body::Body(const float density, const float width, const float height)
-		    : m_pos {0.0f, 0.0f}, m_mass {1.0f}, m_restitution {1.0f}, m_static_friction {1.0f}, m_dynamic_friction {0.5f}
+		    : m_restitution {1.0f}, m_static_friction {1.0f}, m_dynamic_friction {0.5f}, m_mass {density * (width * height)}, m_size {width, height}, m_pos {0.0f, 0.0f}
 		{
-			m_mass   = density * (width * height);
-			m_size.x = width;
-			m_size.y = height;
-
 			update_aabb();
 		}
 	} // namespace physics

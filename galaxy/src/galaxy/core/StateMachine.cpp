@@ -128,10 +128,9 @@ namespace galaxy
 			std::vector<std::string> keys;
 			keys.reserve(m_states.size());
 
-			for (const auto& pair : m_states)
-			{
-				keys.emplace_back(pair.first);
-			}
+			std::transform(m_states.begin(), m_states.end(), std::back_inserter(keys), [](const auto& pair) {
+				return pair.first;
+			});
 
 			return keys;
 		}

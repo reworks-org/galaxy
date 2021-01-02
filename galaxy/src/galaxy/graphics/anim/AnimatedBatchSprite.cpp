@@ -31,10 +31,9 @@ namespace galaxy
 
 				std::vector<Frame> frames;
 				frames.reserve(frame_array.size());
-				for (const auto& frame : frame_array)
-				{
-					frames.emplace_back(frame.at("texture-x"), frame.at("texture-y"), frame.at("time-per-frame"));
-				}
+				std::transform(frame_array.begin(), frame_array.end(), std::back_inserter(frames), [](const nlohmann::json& frame) {
+					return Frame {frame.at("texture-x"), frame.at("texture-y"), frame.at("time-per-frame")};
+				});
 
 				add_animation(name, name, anim.at("looping"), anim.at("speed"), frames);
 			}

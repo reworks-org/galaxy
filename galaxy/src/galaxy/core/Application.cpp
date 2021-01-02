@@ -171,9 +171,10 @@ namespace galaxy
 			const constexpr auto ups_s       = std::chrono::duration_cast<std::chrono::milliseconds>(ups).count() / 1000.0;
 
 			std::chrono::nanoseconds accumulator {0};
+			std::chrono::nanoseconds elapsed {0};
 			auto previous = clock::now();
 			auto current  = clock::now();
-			auto elapsed  = current - previous;
+
 			while (m_window->is_open())
 			{
 				current  = clock::now();

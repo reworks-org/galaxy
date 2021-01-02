@@ -23,8 +23,8 @@ namespace galaxy
 
 		const glm::vec2& StaticBody::get_vel() const
 		{
-			const constexpr glm::vec2 static_vel = {0.0f, 0.0f};
-			return static_vel;
+			static const constexpr glm::vec2 s_vel = {0.0f, 0.0f};
+			return s_vel;
 		}
 
 		const bool StaticBody::is_rigid() const
