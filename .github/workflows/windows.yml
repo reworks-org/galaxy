@@ -44,7 +44,7 @@ jobs:
     - name: Configure Build Files
       shell: bash
       working-directory: ${{runner.workspace}}/build
-      run: cmake -G "Visual Studio 16 2019 Win64" $GITHUB_WORKSPACE -T v142,version=14.28.29617 -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DALSOFT_BACKEND_DSOUND=OFF -DBUILD_TESTING=OFF -DENABLE_DOXYGEN=OFF -DCMAKE_GENERATOR_INSTANCE=C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview
+      run: cmake -G "Visual Studio 16 2019 Win64" $GITHUB_WORKSPACE -T v142,version=14.28.29617 -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DALSOFT_BACKEND_DSOUND=OFF -DBUILD_TESTING=OFF -DENABLE_DOXYGEN=OFF -DCMAKE_GENERATOR_INSTANCE="C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview"
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
