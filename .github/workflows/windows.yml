@@ -20,14 +20,8 @@ jobs:
                 standard: 20
 
     steps:
-    - name: Update DotNet Tools
-      run: dotnet tool update -g dotnet-vs
-
     - name: Install Visual Studio Preview
-      run: vs install preview -sku:community --default --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame +Microsoft.VisualStudio.Component.ManagedDesktop.Core +Microsoft.NetCore.Component.DevelopmentTools
-
-    - name: Configure Visual Studio Preview
-      run: echo "##vso[task.prependpath]$(vs where preview -property=InstallationPath)\MSBuild\Current\Bin"
+      run: choco install visualstudio2019community-preview --pre --params "--norestart --wait --quiet --add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.NativeCrossPlat --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.NativeGame --add Microsoft.VisualStudio.Component.ManagedDesktop.Core --add Microsoft.NetCore.Component.DevelopmentTools"
 
     - name: Checkout Repo
       uses: actions/checkout@v2
