@@ -1,0 +1,24 @@
+name: linux
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Master
+      shell: bash
+      run: git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
+    
+    - name: Enter Repo
+      shell: bash
+      run: cd galaxy_engine
+
+    - name: Checkout Submodules
+      shell: bash
+      run: git submodule update --init --recursive
