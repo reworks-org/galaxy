@@ -29,18 +29,6 @@ jobs:
     - name: Configure Visual Studio Preview
       run: echo "##vso[task.prependpath]$(vs where preview -property=InstallationPath)\MSBuild\Current\Bin"
 
-    - name: LOC
-      run: vs where preview -property=InstallationPath
-
-    - name: Configure MSBuild
-      uses: ilammy/msvc-dev-cmd@v1
-      with:
-        arch: x64
-        sdk: 10.0.19041.0
-        toolset: 14.28.29617
-        uwp: false
-        spectre: false
-
     - name: Checkout Repo
       uses: actions/checkout@v2
 
@@ -56,7 +44,7 @@ jobs:
     - name: Configure Build Files
       shell: bash
       working-directory: ${{runner.workspace}}/build
-      run: cmake -G "Visual Studio 16 2019" $GITHUB_WORKSPACE -T v142,version=14.28.29617 -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DALSOFT_BACKEND_DSOUND=OFF
+      run: cmake -G "Visual Studio 16 2019 Win64" $GITHUB_WORKSPACE -T v142,version=14.28.29617 -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DALSOFT_BACKEND_DSOUND=OFF -DBUILD_TESTING=OFF -DENABLE_DOXYGEN=OFF -DCMAKE_GENERATOR_INSTANCE=C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
