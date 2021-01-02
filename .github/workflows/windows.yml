@@ -23,14 +23,14 @@ jobs:
     - name: Update DotNet Tools
       run: dotnet tool update -g dotnet-vs
 
-    - name: Remove Old Visual Studio
-      run: vs uninstall -sku:enterprise --quiet
-
     - name: Install Visual Studio Preview
-      run: vs install preview -sku:enterprise --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
+      run: vs install preview -sku:community --default --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame +Microsoft.VisualStudio.Component.ManagedDesktop.Core +Microsoft.NetCore.Component.DevelopmentTools
 
     - name: Configure Visual Studio Preview
-      run: echo "##vso[task.prependpath]$(vs where preview --prop=InstallationPath)\MSBuild\Current\Bin"
+      run: echo "##vso[task.prependpath]$(vs where preview -property=InstallationPath)\MSBuild\Current\Bin"
+
+    - name: LOC
+      run: vs where preview -property=InstallationPath
 
     - name: Configure MSBuild
       uses: ilammy/msvc-dev-cmd@v1
