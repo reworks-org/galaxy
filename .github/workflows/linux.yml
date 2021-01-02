@@ -14,10 +14,6 @@ jobs:
     - name: Checkout Master
       shell: bash
       run: git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
-    
-    - name: Enter Repo
-      shell: bash
-      run: cd galaxy_engine
 
     - name: Checkout Submodules
       shell: bash

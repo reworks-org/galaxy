@@ -1,5 +1,6 @@
 # galaxy
-[![Build Status](https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
+[![Windows](https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
+[![Linux](https://github.com/DomRe/galaxy/workflows/linux/badge.svg)](https://github.com/DomRe/galaxy/actions?query=workflow%3Alinux)
 [![Documentation Status](https://travis-ci.org/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
 [![Test Coverage](https://codecov.io/gh/DomRe/galaxy/branch/master/graph/badge.svg)](https://codecov.io/gh/DomRe/galaxy)
 [![Code Quality](https://api.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030)](https://www.codacy.com/manual/DomRe/galaxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade)
@@ -40,8 +41,8 @@ export PATH="~/.local/bin:$PATH"
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
-cd galaxy_engine
 git submodule update --init --recursive
+cd galaxy_engine
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
 cd build
 make all
