@@ -37,10 +37,12 @@ sudo apt purge --auto-remove cmake
 sudo apt update
 sudo apt install git g++ clang llvm libc++-dev make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
 pip install cmake
+export PATH="~/.local/bin:$PATH"
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
 cd galaxy_engine
 git submodule update --init --recursive
-./cmake/linux_exports.sh
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
 cd build
 make all
