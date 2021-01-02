@@ -1,0 +1,3 @@
+https://github.com/codacy/codacy-clang-tidy#usage
+
+remove git,pip, fix freetype-dev
