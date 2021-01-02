@@ -10,7 +10,6 @@ if (MSVC)
         /fp:except
         /fp:precise
         /bigobj
-        /Zc:preprocessor
         /Y-
         /experimental:external
         /external:anglebrackets
