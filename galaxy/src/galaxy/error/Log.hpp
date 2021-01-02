@@ -12,7 +12,7 @@
 #include <mutex>
 #include <thread>
 
-#include <date/date.h>
+#include <date/tz.h>
 #include <fmt/format.h>
 
 #include "galaxy/error/LogLevel.hpp"
@@ -237,14 +237,7 @@ namespace galaxy
 					if (m_message.empty())
 					{
 						auto formatted_msg = fmt::format(message, args...);
-
-						// Create log message string.
-						auto tt  = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-						auto* tm = std::localtime(&tt);
-						auto ls  = date::local_days {date::year {tm->tm_year + 1900} / (tm->tm_mon + 1) / tm->tm_mday} +
-						    std::chrono::hours {tm->tm_hour} + std::chrono::minutes {tm->tm_min} + std::chrono::seconds {tm->tm_sec};
-
-						m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%d-%m-%Y-[%H.%M]", ls), formatted_msg);
+						m_message          = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%d-%m-%Y-[%H:%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), formatted_msg);
 
 						if constexpr (LogLevel::value() == Level::FATAL)
 						{

@@ -35,8 +35,12 @@ int main(int argsc, char* argsv[])
 
 		try
 		{
+			// Load DateTime db.
+			date::set_install("assets/tz/tzdata");
+			date::reload_tzdb();
+
 			// Logging.
-			std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%d-%m-%Y-[%H.%M]", std::chrono::system_clock::now()), ".log");
+			std::string log_path = fmt::format("{0}{1}{2}", "logs/", date::format("%d-%m-%Y-[%H.%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), ".log");
 
 			if (!std::filesystem::exists("logs/"))
 			{
