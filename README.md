@@ -41,8 +41,8 @@ export PATH="~/.local/bin:$PATH"
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
-git submodule update --init --recursive
 cd galaxy_engine
+git submodule update --init --recursive
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -Bbuild -H.
 cd build
 make all

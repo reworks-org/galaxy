@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Checkout Master
       shell: bash
-      run: git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
+      uses: actions/checkout@v2
 
     - name: Checkout Submodules
       shell: bash
