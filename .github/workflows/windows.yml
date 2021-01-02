@@ -23,6 +23,9 @@ jobs:
     - name: Update DotNet Tools
       run: dotnet tool update -g dotnet-vs
 
+    - name: Remove Old Visual Studio
+      run: vs uninstall -sku:enterprise --quiet
+
     - name: Install Visual Studio Preview
       run: vs install preview -sku:enterprise --quiet +Microsoft.VisualStudio.Workload.CoreEditor +Microsoft.VisualStudio.Workload.NativeCrossPlat +Microsoft.VisualStudio.Workload.NativeDesktop +Microsoft.VisualStudio.Workload.NativeGame
 
