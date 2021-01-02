@@ -8,7 +8,6 @@
 #ifndef GALAXY_ALGORITHM_RANDOM_HPP_
 #define GALAXY_ALGORITHM_RANDOM_HPP_
 
-#include <ctime>
 #include <random>
 
 #include "galaxy/meta/Concepts.hpp"
