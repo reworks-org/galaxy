@@ -143,22 +143,12 @@ if (NOT ENABLE_DOXYGEN)
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 	)
 
-	set(BUILD_TESTING OFF CACHE BOOL "" FORCE)
-	add_subdirectory(dependencies/cppcoro)
-	set_target_properties(cppcoro PROPERTIES
-	    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
-	    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
-	    PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
-	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/"
-	)
-
 	# Set dependencies to not show compiler errors.
 	if (MSVC)
 		target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 		target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	    target_compile_options(cppcoro PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 	endif()
 
 	# Import applications
@@ -170,7 +160,6 @@ if (NOT ENABLE_DOXYGEN)
 	add_dependencies(galaxy OpenAL)
 	add_dependencies(galaxy common)
 	add_dependencies(galaxy zlib)
-	add_dependencies(galaxy cppcoro)
 	add_dependencies(galaxy dependencies)
 	add_dependencies(sandbox_test galaxy)
 	add_dependencies(tests galaxy)
@@ -198,7 +187,6 @@ if (NOT ENABLE_DOXYGEN)
 		"${CMAKE_SOURCE_DIR}/dependencies/stb/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zconf"
 	    "${CMAKE_SOURCE_DIR}/dependencies/zlib-ng"
-	    "${CMAKE_SOURCE_DIR}/dependencies/cppcoro/include"
 		"${CMAKE_SOURCE_DIR}/galaxy/src"
 		"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
 	)
@@ -268,7 +256,6 @@ if (NOT ENABLE_DOXYGEN)
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Debug/cppcoro.${LIB_FILE_EXT}")
 
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -277,7 +264,6 @@ if (NOT ENABLE_DOXYGEN)
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/common.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Debug/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Debug/zlibd.${LIB_FILE_EXT}")
-	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Debug/cppcoro.${LIB_FILE_EXT}")
 
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Debug/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Debug/galaxy.${LIB_FILE_EXT}")
@@ -301,7 +287,6 @@ if (NOT ENABLE_DOXYGEN)
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Release/cppcoro.${LIB_FILE_EXT}")
 
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")
@@ -310,7 +295,6 @@ if (NOT ENABLE_DOXYGEN)
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/common.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/OpenAL/Release/OpenAL32.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/zlib/Release/zlib.${LIB_FILE_EXT}")
-	    target_link_libraries(sandbox_test PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/cppcoro/Release/cppcoro.${LIB_FILE_EXT}")
 
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/dependencies/Release/dependencies.${LIB_FILE_EXT}")
 	    target_link_libraries(tests PUBLIC "${CMAKE_SOURCE_DIR}/output/bin/galaxy/Release/galaxy.${LIB_FILE_EXT}")

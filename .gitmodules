@@ -39,6 +39,3 @@
 	path = dependencies/zlib-ng
 	url = https://github.com/zlib-ng/zlib-ng.git
 	branch = develop
-[submodule "dependencies/cppcoro"]
-	path = dependencies/cppcoro
-	url = https://github.com/andreasbuhr/cppcoro.git
