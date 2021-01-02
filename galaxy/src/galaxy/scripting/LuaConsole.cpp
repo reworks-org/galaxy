@@ -75,6 +75,12 @@ namespace galaxy
 					m_buff.clear();
 					ImGui::SetKeyboardFocusHere(-1);
 				}
+
+				if (ImGui::MenuItem("Run GC"))
+				{
+					SL_HANDLE.lua()->collect_garbage();
+				}
+
 				if (ImGui::MenuItem("Clear"))
 				{
 					m_history.clear();
