@@ -17,6 +17,11 @@
 
 #include "LuaUtils.hpp"
 
+void log_wrapper(std::string_view message)
+{
+	GALAXY_LOG(GALAXY_WARNING, "FROM LUA: {0}.", message);
+}
+
 namespace galaxy
 {
 	namespace lua
@@ -25,9 +30,13 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
+			// Algorithm
 			lua->set_function("random_int", &algorithm::random<int>);
 			lua->set_function("random_float", &algorithm::random<float>);
 			lua->set_function("normalize", &algorithm::normalize<float>);
+
+			// Error handling
+			lua->set_function("galaxy_log", &log_wrapper);
 		}
 
 		void register_audio()
