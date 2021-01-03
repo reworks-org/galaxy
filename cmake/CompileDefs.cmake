@@ -2,7 +2,6 @@ if (MSVC)
     set(GALAXY_COMPILE_FLAGS
         /QIntel-jcc-erratum
         /std:c++latest
-        /W0
         /WX-
         /MP
         /GF
@@ -18,6 +17,7 @@ if (MSVC)
 
     set(GALAXY_COMPILE_FLAGS_DEBUG
         ${GALAXY_COMPILE_FLAGS}
+        /Wall
         /JMC
         /ZI
         /Od
@@ -30,6 +30,7 @@ if (MSVC)
 
     set(GALAXY_COMPILE_FLAGS_RELEASE
         ${GALAXY_COMPILE_FLAGS}
+        /w
         /O2
         /Oi
         /Ot

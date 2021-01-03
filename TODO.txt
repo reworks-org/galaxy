@@ -5,9 +5,6 @@ DEV_TOOLS:
 - cleanup
 - 'static' cleanup
 
-PROJECT:
-- Figure out why CA and Warnings arent showing.
-
 THE PLAN:
 - Need to integrate clang-tidy and clang-format.
 - Need to integrate microsoft code analysis.
