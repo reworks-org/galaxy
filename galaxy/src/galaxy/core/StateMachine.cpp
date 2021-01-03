@@ -103,14 +103,15 @@ namespace galaxy
 		void StateMachine::pop()
 		{
 			// Make sure we dont pop an empty stack...
-			if (!m_stack.empty())
+			// Or the only current state.
+			if (m_stack.size() > 1)
 			{
 				m_stack.top()->on_pop();
 				m_stack.pop();
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Tried to access empty StateMachine stack.");
+				GALAXY_LOG(GALAXY_WARNING, "Tried to pop base state.");
 			}
 		}
 

@@ -36,7 +36,7 @@ int main(int argsc, char* argsv[])
 		try
 		{
 			// Load DateTime db.
-			date::set_install("assets/tz/tzdata");
+			date::set_install("assets\\tzdata");
 			date::reload_tzdb();
 
 			// Logging.

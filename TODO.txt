@@ -1,16 +1,3 @@
-Redshift:
-- air resistance
-- collision callbacks
-
-QUASAR:
-- C++20 review when eventual performance improvements are required.
-- QuadTree spacial partitioning for rendering.
-
-ALL:
-- Investigate other usages of C++20 coroutines.
-- See https://github.com/RandyGaul/cute_headers/blob/master/cute_coroutine.h for ideas.
-- Timer, StateMachine, Textbox, ThreadPool
-
 DEV_TOOLS:
 - physics tools
 - export to json / save as json
@@ -37,9 +24,8 @@ THE PLAN:
 - Dependencies should only abstract away system specific implementations.
 - coroutines
 
-https://github.com/nlohmann/json/#arbitrary-types-conversions
 https://github.com/EQMG/Acid
-https://github.com/asmei1/tinycoro
+https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
 
 redo unit testing
 redo CI for automated testing
