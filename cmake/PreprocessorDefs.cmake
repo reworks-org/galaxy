@@ -29,11 +29,8 @@ set(GALAXY_PREPROCESSOR_FLAGS_RELEASE_GENERAL
 
 if (MSVC)
     set (WINDOWS_FLAGS
-        "WIN32"
-        "_WIN32"
         "WIN64"
         "_WIN64"
-        "_WINDOWS"
         "NOMINMAX"
         "WIN32_LEAN_AND_MEAN"
         "_CRT_SECURE_NO_WARNINGS"
@@ -44,11 +41,13 @@ if (MSVC)
     set(GALAXY_PREPROCESSOR_FLAGS_DEBUG 
         "${GALAXY_PREPROCESSOR_FLAGS_DEBUG_GENERAL}"
         "${WINDOWS_FLAGS}"
+        "_CONSOLE"
     )
 
     set(GALAXY_PREPROCESSOR_FLAGS_RELEASE
         "${GALAXY_PREPROCESSOR_FLAGS_RELEASE_GENERAL}"
         "${WINDOWS_FLAGS}"
+        "_WINDOWS"
     )
 else()
     set(UNIX_FLAGS
