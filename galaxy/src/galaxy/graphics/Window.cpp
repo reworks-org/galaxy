@@ -636,17 +636,13 @@ namespace galaxy
 
 		bool Window::mouse_button_released(input::MouseButton mouse_button)
 		{
-			bool res = false;
-
-			int state = glfwGetMouseButton(m_window, m_mousebutton_map[mouse_button]);
-			if (state == GLFW_RELEASE && m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] == GLFW_PRESS)
+			if (glfwGetMouseButton(m_window, m_mousebutton_map[mouse_button]) == GLFW_RELEASE)
 			{
-				res = true;
+				m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] = GLFW_RELEASE;
+				return true;
 			}
 
-			m_prev_mouse_btn_states[m_mousebutton_map[mouse_button]] = state;
-
-			return res;
+			return false;
 		}
 
 		bool Window::key_down(input::Keys key)
