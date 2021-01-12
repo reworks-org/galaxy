@@ -10,6 +10,7 @@ THE PLAN:
 - Need to integrate microsoft code analysis.
 - All around CMAKE.
 
+- Launch tiled from unix.
 - Restore data-driven design
 - Engine needs to be cohesive.
 - Async asset loading.
