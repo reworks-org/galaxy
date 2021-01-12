@@ -12,6 +12,8 @@
 #include <imgui/imgui_impl_opengl3.h>
 #include <imgui/addons/ToggleButton.h>
 
+#include <portable-file-dialogs.h>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/StateMachine.hpp"
 #include "galaxy/core/World.hpp"
@@ -28,6 +30,7 @@
 #include "galaxy/physics/body/BodyWrapper.hpp"
 #include "galaxy/physics/body/KineticBody.hpp"
 #include "galaxy/graphics/sprite/Sprite.hpp"
+#include "galaxy/platform/Platform.hpp"
 
 #include "DevTools.hpp"
 
@@ -168,6 +171,12 @@ namespace galaxy
 						ImGui::EndMenu();
 					}
 
+					if (ImGui::MenuItem("Select Tiled exe"))
+					{
+						auto path    = fs::open_file_dialog("*.exe", "C:/");
+						m_tiled_path = std::filesystem::path(path).string();
+					}
+
 					if (ImGui::MenuItem("Restart"))
 					{
 						SL_HANDLE.m_restart = true;
@@ -215,6 +224,19 @@ namespace galaxy
 				if (ImGui::MenuItem("Lua Console"))
 				{
 					m_draw_lua_console = !m_draw_lua_console;
+				}
+
+				if (ImGui::MenuItem("Launch Tiled"))
+				{
+					if (!m_tiled_path.empty())
+					{
+						pfd::message("INFO", "Opening Tiled.\nApplication will be locked until closed.\nPress OK to continue.", pfd::choice::ok, pfd::icon::info);
+						platform::run_process(m_tiled_path);
+					}
+					else
+					{
+						pfd::message("WARNING", "No tiled application specified.", pfd::choice::ok, pfd::icon::warning);
+					}
 				}
 
 				ImGui::EndMenuBar();

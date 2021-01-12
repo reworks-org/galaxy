@@ -210,6 +210,11 @@ namespace galaxy
 			std::string m_active_anim = "";
 
 			///
+			/// Tiled path.
+			///
+			std::string m_tiled_path;
+
+			///
 			/// Flag to display adding animation popups.
 			///
 			bool m_add_anim_popup = false;
