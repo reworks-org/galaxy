@@ -1,6 +1,21 @@
 {
-	"textures":
+	"textures" :
 	[
-		"ui_oga.png"
+		"ui_oga.png",
+		"demo_nineslice.png",
+		"button_default.png",
+		"button_pressed.png",
+		"button_hover.png",
+		"slider.png",
+		"slider_marker.png",
+		"container.png",
+		"bar.png",
+		"tb_on.png",
+		"tb_off.png",
+		"tb_on_hover.png",
+		"tb_off_hover.png",
+		"input_field.png",
+		"textbox.png",
+		"arrow.png"
 	]
 }

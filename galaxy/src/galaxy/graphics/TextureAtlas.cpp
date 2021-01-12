@@ -5,11 +5,16 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/error/Log.hpp"
+#include <execution>
 
+#include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/graphics/sprite/Sprite.hpp"
+#include "galaxy/scripting/JSONUtils.hpp"
 
 #include "TextureAtlas.hpp"
 
@@ -79,6 +84,18 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Attempted to add pre-existing texture.");
 			}
+		}
+
+		void TextureAtlas::add_from_json(std::string_view json)
+		{
+			const auto path = fs::s_root + fs::s_json + static_cast<std::string>(json);
+			auto j          = json::parse_from_disk(path);
+			auto textures   = j.at("textures");
+
+			std::for_each(textures.begin(), textures.end(), [&](const nlohmann::json& texture) {
+				const auto file = fs::s_root + fs::s_textures + texture.get<std::string>();
+				add(file);
+			});
 		}
 
 		void TextureAtlas::create(Renderer& renderer, Shader& shader)

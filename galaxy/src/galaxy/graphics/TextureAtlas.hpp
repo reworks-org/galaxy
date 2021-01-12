@@ -101,6 +101,15 @@ namespace galaxy
 			void add(std::string_view file);
 
 			///
+			/// \brief Add textures defined in a json file to atlas.
+			///
+			/// Uses galaxy::filesystem for parsed texture names.
+			///
+			/// \param file JSON filepath. Uses galaxy::filesystem to look in json folder.
+			///
+			void add_from_json(std::string_view json);
+
+			///
 			/// \brief Creates atlas from added files.
 			///
 			/// Does nothing if no files were added.

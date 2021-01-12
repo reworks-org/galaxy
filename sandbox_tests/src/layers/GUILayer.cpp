@@ -36,28 +36,7 @@ namespace sb
 		set_name("gui_layer");
 		m_gui_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 
-		auto demo_tex = galaxy::fs::s_root + galaxy::fs::s_textures + "demo_nineslice.png";
-
-		auto button_default = galaxy::fs::s_root + galaxy::fs::s_textures + "button_default.png";
-		auto button_pressed = galaxy::fs::s_root + galaxy::fs::s_textures + "button_pressed.png";
-		auto button_hover   = galaxy::fs::s_root + galaxy::fs::s_textures + "button_hover.png";
-
-		auto slider        = galaxy::fs::s_root + galaxy::fs::s_textures + "slider.png";
-		auto slider_marker = galaxy::fs::s_root + galaxy::fs::s_textures + "slider_marker.png";
-
-		auto container = galaxy::fs::s_root + galaxy::fs::s_textures + "container.png";
-		auto bar       = galaxy::fs::s_root + galaxy::fs::s_textures + "bar.png";
-
-		auto tb_on        = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_on.png";
-		auto tb_off       = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_off.png";
-		auto tb_on_hover  = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_on_hover.png";
-		auto tb_off_hover = galaxy::fs::s_root + galaxy::fs::s_textures + "tb_off_hover.png";
-
-		auto input_field = galaxy::fs::s_root + galaxy::fs::s_textures + "input_field.png";
-
-		auto textbox_box = galaxy::fs::s_root + galaxy::fs::s_textures + "textbox.png";
-		auto arrow       = galaxy::fs::s_root + galaxy::fs::s_textures + "arrow.png";
-
+		auto demo_tex   = galaxy::fs::s_root + galaxy::fs::s_textures + "demo_nineslice.png";
 		auto demo_font  = galaxy::fs::s_root + galaxy::fs::s_fonts + "public.ttf";
 		auto rtt_shader = SL_HANDLE.shaderbook()->get("render_to_texture");
 
@@ -67,21 +46,7 @@ namespace sb
 		m_theme.m_window   = SL_HANDLE.window();
 		m_theme.m_font_col = RED;
 
-		m_theme.m_atlas.add(demo_tex);
-		m_theme.m_atlas.add(button_default);
-		m_theme.m_atlas.add(button_pressed);
-		m_theme.m_atlas.add(button_hover);
-		m_theme.m_atlas.add(slider);
-		m_theme.m_atlas.add(slider_marker);
-		m_theme.m_atlas.add(container);
-		m_theme.m_atlas.add(bar);
-		m_theme.m_atlas.add(tb_on);
-		m_theme.m_atlas.add(tb_off);
-		m_theme.m_atlas.add(tb_on_hover);
-		m_theme.m_atlas.add(tb_off_hover);
-		m_theme.m_atlas.add(input_field);
-		m_theme.m_atlas.add(textbox_box);
-		m_theme.m_atlas.add(arrow);
+		m_theme.m_atlas.add_from_json("atlas.json");
 
 		rtt_shader->bind();
 		m_theme.m_atlas.create(*SL_HANDLE.renderer(), *rtt_shader);

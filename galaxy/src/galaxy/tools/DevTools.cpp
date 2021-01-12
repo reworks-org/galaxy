@@ -384,7 +384,6 @@ namespace galaxy
 			ImGui::Begin("JSON Editor", &m_draw_json_editor, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize);
 
 			ImGui::Text("Visual JSON editor.");
-			ImGui::Separator();
 			ImGui::Spacing();
 
 			if (ImGui::Button("New"))
@@ -411,6 +410,9 @@ namespace galaxy
 					m_json_editor.save(fp);
 				}
 			}
+
+			ImGui::Separator();
+			ImGui::Spacing();
 
 			m_json_editor.parse_and_display();
 
