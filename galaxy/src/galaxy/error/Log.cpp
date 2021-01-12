@@ -8,12 +8,9 @@
 #include <filesystem>
 #include <iostream>
 
-#include "Log.hpp"
+#include "galaxy/platform/Platform.hpp"
 
-// clang-format off
-#ifdef _WIN32 || _WIN64
-    #include <Windows.h>
-#endif
+#include "Log.hpp"
 
 using namespace std::chrono_literals;
 
@@ -24,16 +21,7 @@ namespace galaxy
 		Log::Log()
 		    : m_min_level {error::Level::INFO}, m_message {""}, m_running {false}, m_testing_mode {false}
 		{
-			#ifdef _WIN32 || _WIN64
-				HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-				DWORD mode = 0;
-
-				GetConsoleMode(handle, &mode);
-				mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-				SetConsoleMode(handle, mode);
-			#endif
-			// clang-format on
-
+			platform::configure_terminal();
 			std::ios::sync_with_stdio(false);
 		}
 

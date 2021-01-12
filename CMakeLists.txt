@@ -315,3 +315,6 @@ if (NOT ENABLE_DOXYGEN)
 	target_link_libraries(sandbox_test PUBLIC ${SYSTEM_LIBS})
 	target_link_libraries(tests PUBLIC ${SYSTEM_LIBS})
 endif()
+
+target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
+target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)

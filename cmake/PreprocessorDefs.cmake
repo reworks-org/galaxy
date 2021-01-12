@@ -29,6 +29,8 @@ set(GALAXY_PREPROCESSOR_FLAGS_RELEASE_GENERAL
 
 if (MSVC)
     set (WINDOWS_FLAGS
+    	"WIN32"
+    	"_WIN32"
         "WIN64"
         "_WIN64"
         "NOMINMAX"
