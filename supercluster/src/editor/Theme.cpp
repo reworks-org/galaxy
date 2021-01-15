@@ -1,5 +1,5 @@
 ///
-/// ToolTheme.cpp
+/// Theme.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
@@ -9,7 +9,7 @@
 
 #include <imgui/imgui.h>
 
-#include "ToolTheme.hpp"
+#include "Theme.hpp"
 
 // cherry colors, 3 intensities
 #define HI(v)  ImVec4(0.502f, 0.075f, 0.256f, v)
@@ -22,9 +22,9 @@
 
 #define ALPHA 1.0f
 
-namespace galaxy
+namespace sc
 {
-	namespace tools
+	namespace editor
 	{
 		namespace theme
 		{
@@ -288,5 +288,5 @@ namespace galaxy
 			}
 			// clang-format on
 		} // namespace theme
-	}         // namespace tools
-} // namespace galaxy
+	}         // namespace editor
+} // namespace sc

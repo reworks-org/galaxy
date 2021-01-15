@@ -1,6 +1,6 @@
 ///
-/// JsonEditor.cpp
-/// galaxy
+/// JSON.cpp
+/// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
@@ -11,23 +11,23 @@
 #include <imgui/addons/ToggleButton.h>
 #include <imgui/imgui_stdlib.h>
 
-#include "galaxy/error/Log.hpp"
-#include "galaxy/scripting/JSONUtils.hpp"
+#include <galaxy/error/Log.hpp>
+#include <galaxy/scripting/JSONUtils.hpp>
 
-#include "JsonEditor.hpp"
+#include "JSON.hpp"
 
 #define INDENT_PIXELS 16.0f
 
-namespace galaxy
+namespace sc
 {
-	namespace tools
+	namespace editor
 	{
-		JsonEditor::JsonEditor()
+		JSON::JSON()
 		    : m_counter {0}, m_loaded {false}, m_external {nullptr}
 		{
 		}
 
-		void JsonEditor::create_new()
+		void JSON::create_new()
 		{
 			if (ImGui::BeginPopup("create_new", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
 			{
@@ -56,25 +56,25 @@ namespace galaxy
 			}
 		}
 
-		void JsonEditor::load_file(std::string_view file)
+		void JSON::load_file(std::string_view file)
 		{
 			if (!m_loaded)
 			{
-				m_root   = json::parse_from_disk(file);
+				m_root   = galaxy::json::parse_from_disk(file);
 				m_loaded = true;
 			}
 		}
 
-		void JsonEditor::load_mem(std::span<char> memory)
+		void JSON::load_mem(std::span<char> memory)
 		{
 			if (!m_loaded)
 			{
-				m_root   = json::parse_from_mem(memory);
+				m_root   = galaxy::json::parse_from_mem(memory);
 				m_loaded = true;
 			}
 		}
 
-		void JsonEditor::load_json(nlohmann::json* json)
+		void JSON::load_json(nlohmann::json* json)
 		{
 			if (!m_loaded)
 			{
@@ -83,13 +83,13 @@ namespace galaxy
 			}
 		}
 
-		void JsonEditor::save(std::string_view path)
+		void JSON::save(std::string_view path)
 		{
 			if (m_loaded)
 			{
 				if (!m_external)
 				{
-					json::save_to_disk(path, m_root);
+					galaxy::json::save_to_disk(path, m_root);
 				}
 				else
 				{
@@ -102,7 +102,7 @@ namespace galaxy
 			}
 		}
 
-		void JsonEditor::parse_and_display()
+		void JSON::parse_and_display()
 		{
 			if (m_loaded)
 			{
@@ -141,12 +141,12 @@ namespace galaxy
 			}
 		}
 
-		const bool JsonEditor::is_loaded() const
+		const bool JSON::is_loaded() const
 		{
 			return m_loaded;
 		}
 
-		void JsonEditor::do_object(nlohmann::json& json)
+		void JSON::do_object(nlohmann::json& json)
 		{
 			ImGui::Text("{");
 			ImGui::Indent(INDENT_PIXELS);
@@ -210,7 +210,7 @@ namespace galaxy
 			ImGui::Text("}");
 		}
 
-		void JsonEditor::do_array(nlohmann::json& json)
+		void JSON::do_array(nlohmann::json& json)
 		{
 			ImGui::Text("[");
 			ImGui::Indent(INDENT_PIXELS);
@@ -273,7 +273,7 @@ namespace galaxy
 			ImGui::Text("]");
 		}
 
-		void JsonEditor::new_object(nlohmann::json& json)
+		void JSON::new_object(nlohmann::json& json)
 		{
 			if (ImGui::BeginPopup("New Object", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
 			{
@@ -387,7 +387,7 @@ namespace galaxy
 			}
 		}
 
-		void JsonEditor::add_to_array(nlohmann::json& json)
+		void JSON::add_to_array(nlohmann::json& json)
 		{
 			if (ImGui::BeginPopup("New Element", ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoSavedSettings))
 			{
@@ -496,5 +496,5 @@ namespace galaxy
 				ImGui::EndPopup();
 			}
 		}
-	} // namespace tools
-} // namespace galaxy
+	} // namespace editor
+} // namespace sc

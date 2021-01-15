@@ -1,13 +1,8 @@
 project(sandbox_test CXX)
 
 file(GLOB_RECURSE sandbox_test_src
-    "src/*.c"
     "src/*.cpp"
-    "src/*.h"
     "src/*.hpp"
-    "src/*.cc"
-    "src/*.hh"
-    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${sandbox_test_src})

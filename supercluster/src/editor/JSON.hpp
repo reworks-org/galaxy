@@ -1,37 +1,37 @@
 ///
-/// JsonEditor.hpp
-/// galaxy
+/// JSON.hpp
+/// supercluster
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_TOOLS_JSONEDITOR_HPP_
-#define GALAXY_TOOLS_JSONEDITOR_HPP_
+#ifndef SUPERCLUSTER_EDITOR_JSON_HPP_
+#define SUPERCLUSTER_EDITOR_JSON_HPP_
 
 #include <span>
 
 #include <nlohmann/json.hpp>
 #include <robin_hood.h>
 
-namespace galaxy
+namespace sc
 {
-	namespace tools
+	namespace editor
 	{
 		///
 		/// Parses json and provides imgui widgets to manipulate it.
 		///
-		class JsonEditor final
+		class JSON final
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			JsonEditor();
+			JSON();
 
 			///
 			/// Destructor.
 			///
-			~JsonEditor() = default;
+			~JSON() = default;
 
 			///
 			/// Create a blank json object.
@@ -127,7 +127,7 @@ namespace galaxy
 			///
 			nlohmann::json* m_external;
 		};
-	} // namespace tools
-} // namespace galaxy
+	} // namespace editor
+} // namespace sc
 
 #endif

@@ -25,7 +25,6 @@
 #include "galaxy/graphics/Window.hpp"
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
-#include "galaxy/tools/DevTools.hpp"
 
 namespace galaxy
 {
@@ -37,26 +36,6 @@ namespace galaxy
 		class Application
 		{
 		public:
-			///
-			/// Copy constructor.
-			///
-			Application(const Application&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Application(Application&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Application& operator=(const Application&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Application& operator=(Application&&) = delete;
-
 			///
 			/// \brief Virtual destructor.
 			///
@@ -81,6 +60,26 @@ namespace galaxy
 			/// \param config Configuration file to construct application from.
 			///
 			explicit Application(std::unique_ptr<fs::Config>& config);
+
+			///
+			/// Copy constructor.
+			///
+			Application(const Application&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			Application(Application&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Application& operator=(const Application&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Application& operator=(Application&&) = delete;
 
 			///
 			/// Instance of a config reader to parse library config.
@@ -144,19 +143,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Allow for devtools visibility.
-			///
-			bool m_visible_tools;
-
-			///
 			/// OpenAL context.
 			///
 			audio::Context m_openal;
-
-			///
-			/// Dev Tools.
-			///
-			tools::DevTools m_tools;
 		};
 	} // namespace core
 } // namespace galaxy

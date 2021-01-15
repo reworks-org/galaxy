@@ -1,16 +1,16 @@
 ///
-/// ToolTheme.hpp
+/// Theme.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_TOOLS_TOOLTHEME_HPP_
-#define GALAXY_TOOLS_TOOLTHEME_HPP_
+#ifndef SUPERCLUSTER_EDITOR_THEME_HPP_
+#define SUPERCLUSTER_EDITOR_THEME_HPP_
 
-namespace galaxy
+namespace sc
 {
-	namespace tools
+	namespace editor
 	{
 		namespace theme
 		{
@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			void visual_dark();
 		} // namespace theme
-	}         // namespace tools
-} // namespace galaxy
+	}         // namespace editor
+} // namespace sc
 
 #endif
