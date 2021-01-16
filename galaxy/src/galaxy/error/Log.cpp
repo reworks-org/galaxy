@@ -35,10 +35,10 @@ namespace galaxy
 		void Log::start(std::string_view log_file)
 		{
 			auto path = std::filesystem::path {log_file};
+			m_file_stream.open(path.string(), std::ofstream::out);
 
 			// clang-format off
 			m_thread = std::jthread([&]() {
-				m_file_stream.open(path.string(), std::ofstream::out);
 				std::mutex mutex;
 				std::condition_variable cv;
 
