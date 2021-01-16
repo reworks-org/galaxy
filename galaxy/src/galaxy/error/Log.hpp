@@ -39,45 +39,45 @@
 ///
 /// INFO log level macro shortcut.
 ///
-#define GALAXY_INFO galaxy::error::Info{}
+#define GALAXY_INFO galaxy::error::level::Info
 
 ///
 /// DEBUG log level macro shortcut.
 ///
-#define GALAXY_DEBUG galaxy::error::Debug{}
+#define GALAXY_DEBUG galaxy::error::level::Debug
 
 ///
 /// WARNING log level macro shortcut.
 ///
-#define GALAXY_WARNING galaxy::error::Warning{}
+#define GALAXY_WARNING galaxy::error::level::Warning
 
 ///
 /// ERROR log level macro shortcut.
 ///
-#define GALAXY_ERROR galaxy::error::Error{}
+#define GALAXY_ERROR galaxy::error::level::Error
 
 ///
 /// FATAL log level macro shortcut.
 ///
-#define GALAXY_FATAL galaxy::error::Fatal{}
+#define GALAXY_FATAL galaxy::error::level::Fatal
 
 ///
 /// Macro shortcut with variadic arguments.
 ///
 /// \param level Log error level.
-/// \param message Message to log.
+/// \param ... Message and arguments to format and log.
 ///
-#define GALAXY_LOG(...) galaxy::error::Log::get().log(__VA_ARGS__)
+#define GALAXY_LOG(level, ...) galaxy::error::Log::get().log<level>(__VA_ARGS__)
 
 ///
 /// Enable testing mode.
 ///
-#define GALAXY_ENABLE_TESTING_MODE galaxy::error::Log::get().set_testing(true)
+#define GALAXY_ENABLE_TESTING_MODE galaxy::error::testing_mode = galaxy::error::TestingMode::true_val()
 
 ///
 /// Disable testing mode.
 ///
-#define GALAXY_DISABLE_TESTING_MODE galaxy::error::Log::get().set_testing(false)
+#define GALAXY_DISABLE_TESTING_MODE galaxy::error::testing_mode = galaxy::error::TestingMode::false_val()
 
 // clang-format on
 
@@ -85,6 +85,26 @@ namespace galaxy
 {
 	namespace error
 	{
+		///
+		/// \brief Testing mode.
+		///
+		/// constexpr utilities.
+		///
+		struct TestingMode
+		{
+			[[nodiscard]] static inline constexpr auto true_val()
+			{
+				return true;
+			}
+
+			[[nodiscard]] static inline constexpr auto false_val()
+			{
+				return false;
+			}
+
+			inline static constexpr bool value = false;
+		};
+
 		///
 		/// Log logging class.
 		/// Uses multithreading.
@@ -122,7 +142,7 @@ namespace galaxy
 			///
 			/// \return Returns static reference to Log class.
 			///
-			static Log& get();
+			[[no_discard]] static Log& get();
 
 			///
 			/// Initialize logging and set up destination file.
@@ -142,25 +162,16 @@ namespace galaxy
 			/// \param level Log error level.
 			/// \param message Message to log.
 			///
-			template<error::type LogLevel, typename... MsgInputs>
-			void log(const LogLevel, std::string_view message, const MsgInputs&... args /*std::source_location goes here*/);
-
-			///
-			/// Set testing mode.
-			///
-			/// \param is_testing Will not log if true.
-			///
-			void set_testing(const bool is_testing);
+			template<loglevel_type LogLevel, typename... MsgInputs>
+			void log(std::string_view message, const MsgInputs&... args /*std::source_location goes here*/);
 
 			///
 			/// \brief	Set a minimum log level.
 			///
 			/// In order to only print and log levels greater than or equal to the current log message level.
 			///
-			/// \param level Level to set as the minimum level to log at.
-			///
-			template<error::type LogLevel>
-			void set_min_level(const LogLevel);
+			template<loglevel_type LogLevel>
+			void set_min_level();
 
 		private:
 			///
@@ -175,7 +186,7 @@ namespace galaxy
 			///
 			/// \return std::string, in caps.
 			///
-			template<error::type LogLevel>
+			template<loglevel_type LogLevel>
 			[[nodiscard]] std::string process_level();
 
 			///
@@ -185,7 +196,7 @@ namespace galaxy
 			///
 			/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 			///
-			template<error::type LogLevel>
+			template<loglevel_type LogLevel>
 			[[nodiscard]] std::string process_colour();
 
 			///
@@ -196,17 +207,7 @@ namespace galaxy
 			///
 			/// Minimum level of messages required to be logged.
 			///
-			Level m_min_level;
-
-			///
-			/// Protection mutex.
-			///
-			std::mutex m_mutex;
-
-			///
-			/// Current thread message.
-			///
-			std::string m_message;
+			int m_min_level;
 
 			///
 			/// Thread all logging takes place on.
@@ -214,91 +215,87 @@ namespace galaxy
 			std::jthread m_thread;
 
 			///
-			/// Controls thread loop.
+			/// Message mutex.
 			///
-			std::atomic_bool m_running;
+			std::mutex m_msg_mutex;
 
 			///
-			/// Wont log if testing mode is enabled.
+			/// Cross-Thread message
 			///
-			bool m_testing_mode;
+			std::string m_message;
 		};
 
-		template<error::type LogLevel, typename... MsgInputs>
-		inline void Log::log(const LogLevel, std::string_view message, const MsgInputs&... args)
+		template<loglevel_type LogLevel, typename... MsgInputs>
+		inline void Log::log(std::string_view message, const MsgInputs&... args)
 		{
-			if (!m_testing_mode)
+			if constexpr (!TestingMode::value)
 			{
-				// Check to make sure level should be logged.
 				if (LogLevel::value() >= m_min_level)
 				{
-					std::lock_guard<std::mutex> lock {m_mutex};
+					const auto fmt_msg = fmt::format(message, args...);
 
-					if (m_message.empty())
+					std::lock_guard<std::mutex> lock {m_msg_mutex};
+					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%d-%m-%Y-[%H:%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), fmt_msg);
+
+					if constexpr (LogLevel::value() == level::Fatal::value())
 					{
-						auto formatted_msg = fmt::format(message, args...);
-						m_message          = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%d-%m-%Y-[%H:%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), formatted_msg);
-
-						if constexpr (LogLevel::value() == Level::FATAL)
-						{
-							throw std::runtime_error {m_message};
-						}
+						throw std::runtime_error {m_message};
 					}
 				}
 			}
 		}
 
-		template<error::type LogLevel>
-		inline void Log::set_min_level(const LogLevel)
+		template<loglevel_type LogLevel>
+		inline void Log::set_min_level()
 		{
 			m_min_level = LogLevel::value();
 		}
 
-		template<error::type LogLevel>
+		template<loglevel_type LogLevel>
 		inline std::string Log::process_level()
 		{
-			if constexpr (LogLevel::value() == Level::INFO)
+			if constexpr (LogLevel::value() == level::Info::value())
 			{
 				return "INFO";
 			}
-			else if constexpr (LogLevel::value() == Level::DEBUG)
+			else if constexpr (LogLevel::value() == level::Debug::value())
 			{
 				return "DEBUG";
 			}
-			else if constexpr (LogLevel::value() == Level::WARNING)
+			else if constexpr (LogLevel::value() == level::Warning::value())
 			{
 				return "WARNING";
 			}
-			else if constexpr (LogLevel::value() == Level::ERROR)
+			else if constexpr (LogLevel::value() == level::Error::value())
 			{
 				return "ERROR";
 			}
-			else if constexpr (LogLevel::value() == Level::FATAL)
+			else if constexpr (LogLevel::value() == level::Fatal::value())
 			{
 				return "FATAL";
 			}
 		}
 
-		template<error::type LogLevel>
+		template<loglevel_type LogLevel>
 		inline std::string Log::process_colour()
 		{
-			if constexpr (LogLevel::value() == Level::INFO)
+			if constexpr (LogLevel::value() == level::Info::value())
 			{
 				return "\x1B[37m";
 			}
-			else if constexpr (LogLevel::value() == Level::DEBUG)
+			else if constexpr (LogLevel::value() == level::Debug::value())
 			{
 				return "\x1B[37m";
 			}
-			else if constexpr (LogLevel::value() == Level::WARNING)
+			else if constexpr (LogLevel::value() == level::Warning::value())
 			{
 				return "\x1B[33m";
 			}
-			else if constexpr (LogLevel::value() == Level::ERROR)
+			else if constexpr (LogLevel::value() == level::Error::value())
 			{
 				return "\x1B[31m";
 			}
-			else if constexpr (LogLevel::value() == Level::FATAL)
+			else if constexpr (LogLevel::value() == level::Fatal::value())
 			{
 				return "\x1B[31m";
 			}

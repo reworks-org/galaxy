@@ -48,7 +48,7 @@ int main(int argsc, char* argsv[])
 			}
 
 			GALAXY_LOG_START(log_path);
-			GALAXY_LOG_GET.set_min_level(GALAXY_INFO);
+			GALAXY_LOG_GET.set_min_level<GALAXY_INFO>();
 
 			auto config = std::make_unique<galaxy::fs::Config>();
 			config->init("assets/config.json");

@@ -17,44 +17,41 @@ namespace galaxy
 	{
 		std::string al_parse_error(std::string_view message)
 		{
-			return fmt::format("OpenAL: {0} - {1}", message, alGetString(alGetError()));
+			return fmt::format("OpenAL: {0} | {1}.", message, alGetString(alGetError()));
 		}
 
 		std::string al_errcode_as_string(const int err)
 		{
-			std::string out {""};
 			switch (err)
 			{
 				case AL_NO_ERROR:
-					out = "AL_NO_ERROR";
+					return "AL_NO_ERROR";
 					break;
 
 				case AL_INVALID_NAME:
-					out = "AL_INVALID_NAME";
+					return "AL_INVALID_NAME";
 					break;
 
 				case AL_INVALID_ENUM:
-					out = "AL_INVALID_ENUM";
+					return "AL_INVALID_ENUM";
 					break;
 
 				case AL_INVALID_VALUE:
-					out = "AL_INVALID_VALUE";
+					return "AL_INVALID_VALUE";
 					break;
 
 				case AL_INVALID_OPERATION:
-					out = "AL_INVALID_OPERATION";
+					return "AL_INVALID_OPERATION";
 					break;
 
 				case AL_OUT_OF_MEMORY:
-					out = "AL_OUT_OF_MEMORY";
+					return "AL_OUT_OF_MEMORY";
 					break;
 
 				default:
-					out = "AL_NO_ERROR";
+					return "AL_NO_ERROR";
 					break;
 			}
-
-			return out;
 		}
 	} // namespace error
 } // namespace galaxy
