@@ -18,7 +18,6 @@ THE PLAN:
 - Use of coroutines over threading.
 - Proper use of 'noexcept', 'static', and 'multithreading'.
 - Every Class Should have a JSON & Lua interface.
-- Utilize GSL.
 - Dependencies should only abstract away system specific implementations.
 - coroutines
 
