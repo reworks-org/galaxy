@@ -25,5 +25,13 @@
   <Include Path="nativeminimumrules.ruleset" Action="Default" />
   <Include Path="nativerecommendedrules.ruleset" Action="Default" />
   <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
+    <Rule Id="C26429" Action="None" />
+    <Rule Id="C26431" Action="None" />
+    <Rule Id="C26445" Action="None" />
+    <Rule Id="C26446" Action="None" />
+    <Rule Id="C26448" Action="None" />
+    <Rule Id="C26449" Action="None" />
+    <Rule Id="C26459" Action="None" />
+    <Rule Id="C26821" Action="None" />
   </Rules>
 </RuleSet>
