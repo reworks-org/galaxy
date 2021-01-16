@@ -705,102 +705,105 @@ namespace sc
 
 		ImGui::Text(fmt::format("Numeric ID: {0}.", m_active_entity).c_str());
 
-		bool enabled = m_world->is_enabled(m_active_entity);
-		if (ImGui::Checkbox("Is Enabled?", &enabled))
+		if (m_world->has(m_active_entity))
 		{
-			if (enabled)
+			bool enabled = m_world->is_enabled(m_active_entity);
+			if (ImGui::Checkbox("Is Enabled?", &enabled))
 			{
-				m_world->set_flag<flags::Enabled>(m_active_entity);
+				if (enabled)
+				{
+					m_world->set_flag<flags::Enabled>(m_active_entity);
+				}
+				else
+				{
+					m_world->unset_flag<flags::Enabled>(m_active_entity);
+				}
 			}
-			else
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("[WIP] Serialize"))
 			{
-				m_world->unset_flag<flags::Enabled>(m_active_entity);
+				//m_world->serialize(m_active_entity);
+				//ImGui::OpenPopup("Entity successfully serialized.");
 			}
+
+			if (ImGui::Button("Add Shader"))
+			{
+				m_world->create_component<graphics::Shader>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Shader"))
+			{
+				m_world->remove<graphics::Shader>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Sprite"))
+			{
+				m_world->create_component<graphics::Sprite>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Sprite"))
+			{
+				m_world->remove<graphics::Sprite>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add SpriteBatch"))
+			{
+				m_world->create_component<graphics::BatchedSprite>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove SpriteBatch"))
+			{
+				m_world->remove<graphics::BatchedSprite>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Sound"))
+			{
+				m_world->create_component<audio::Sound>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Sound"))
+			{
+				m_world->remove<audio::Sound>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Music"))
+			{
+				m_world->create_component<audio::Music>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Music"))
+			{
+				m_world->remove<audio::Music>(m_active_entity);
+			}
+
+			if (ImGui::Button("Add Animation"))
+			{
+				m_world->create_component<graphics::AnimatedBatchSprite>(m_active_entity);
+			}
+
+			ImGui::SameLine();
+
+			if (ImGui::Button("Remove Animation"))
+			{
+				m_world->remove<graphics::AnimatedBatchSprite>(m_active_entity);
+			}
+
+			ImGui::Spacing();
+			ImGui::Spacing();
+			component_ui(enabled, m_active_entity);
 		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("[WIP] Serialize"))
-		{
-			//m_world->serialize(m_active_entity);
-			//ImGui::OpenPopup("Entity successfully serialized.");
-		}
-
-		if (ImGui::Button("Add Shader"))
-		{
-			m_world->create_component<graphics::Shader>(m_active_entity);
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Remove Shader"))
-		{
-			m_world->remove<graphics::Shader>(m_active_entity);
-		}
-
-		if (ImGui::Button("Add Sprite"))
-		{
-			m_world->create_component<graphics::Sprite>(m_active_entity);
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Remove Sprite"))
-		{
-			m_world->remove<graphics::Sprite>(m_active_entity);
-		}
-
-		if (ImGui::Button("Add SpriteBatch"))
-		{
-			m_world->create_component<graphics::BatchedSprite>(m_active_entity);
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Remove SpriteBatch"))
-		{
-			m_world->remove<graphics::BatchedSprite>(m_active_entity);
-		}
-
-		if (ImGui::Button("Add Sound"))
-		{
-			m_world->create_component<audio::Sound>(m_active_entity);
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Remove Sound"))
-		{
-			m_world->remove<audio::Sound>(m_active_entity);
-		}
-
-		if (ImGui::Button("Add Music"))
-		{
-			m_world->create_component<audio::Music>(m_active_entity);
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Remove Music"))
-		{
-			m_world->remove<audio::Music>(m_active_entity);
-		}
-
-		if (ImGui::Button("Add Animation"))
-		{
-			m_world->create_component<graphics::AnimatedBatchSprite>(m_active_entity);
-		}
-
-		ImGui::SameLine();
-
-		if (ImGui::Button("Remove Animation"))
-		{
-			m_world->remove<graphics::AnimatedBatchSprite>(m_active_entity);
-		}
-
-		ImGui::Spacing();
-		ImGui::Spacing();
-		component_ui(enabled, m_active_entity);
 
 		ImGui::End();
 	}
