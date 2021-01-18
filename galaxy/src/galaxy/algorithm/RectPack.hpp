@@ -28,12 +28,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			RectPack();
+			RectPack() noexcept;
 
 			///
 			/// Destructor.
 			///
-			~RectPack();
+			~RectPack() noexcept;
 
 			///
 			/// Set starting width and height of rectangle.
@@ -43,7 +43,7 @@ namespace galaxy
 			/// \param width Width of the master rectangle.
 			/// \param height Height of the master rectangle.
 			///
-			void init(const int width, const int height);
+			void init(const int width, const int height) noexcept;
 
 			///
 			/// Pack a rectangle into the master rectangle.
@@ -59,19 +59,19 @@ namespace galaxy
 			///
 			/// Get total width.
 			///
-			[[nodiscard]] int get_width() const;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// Get total height.
 			///
-			[[nodiscard]] int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get free rectangles.
 			///
 			/// \return Const std::vector.
 			///
-			[[nodiscard]] const std::vector<graphics::Rect<Type>>& get_free_space() const;
+			[[nodiscard]] const std::vector<graphics::Rect<Type>>& get_free_space() const noexcept;
 
 		private:
 			///
@@ -91,19 +91,19 @@ namespace galaxy
 		};
 
 		template<meta::is_arithmetic Type>
-		inline RectPack<Type>::RectPack()
+		inline RectPack<Type>::RectPack() noexcept
 		    : m_width {0}, m_height {0}
 		{
 		}
 
 		template<meta::is_arithmetic Type>
-		inline RectPack<Type>::~RectPack()
+		inline RectPack<Type>::~RectPack() noexcept
 		{
 			m_free_rects.clear();
 		}
 
 		template<meta::is_arithmetic Type>
-		inline void RectPack<Type>::init(const int width, const int height)
+		inline void RectPack<Type>::init(const int width, const int height) noexcept
 		{
 			m_width  = width;
 			m_height = height;
@@ -171,19 +171,19 @@ namespace galaxy
 		}
 
 		template<meta::is_arithmetic Type>
-		inline int RectPack<Type>::get_width() const
+		inline const int RectPack<Type>::get_width() const noexcept
 		{
 			return m_width;
 		}
 
 		template<meta::is_arithmetic Type>
-		inline int RectPack<Type>::get_height() const
+		inline const int RectPack<Type>::get_height() const noexcept
 		{
 			return m_height;
 		}
 
 		template<meta::is_arithmetic Type>
-		inline const std::vector<graphics::Rect<Type>>& RectPack<Type>::get_free_space() const
+		inline const std::vector<graphics::Rect<Type>>& RectPack<Type>::get_free_space() const noexcept
 		{
 			return m_free_rects;
 		}

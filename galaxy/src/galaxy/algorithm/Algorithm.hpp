@@ -26,7 +26,7 @@ namespace galaxy
 		/// \return Normalized float.
 		///
 		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline float normalize(const Type val, const Type max)
+		[[nodiscard]] inline float normalize(const Type val, const Type max) noexcept
 		{
 			return (static_cast<float>(val) / static_cast<float>(max));
 		}

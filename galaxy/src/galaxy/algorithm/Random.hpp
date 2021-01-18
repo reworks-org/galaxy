@@ -34,7 +34,7 @@ namespace galaxy
 		/// \return Returns number of the same type as inputs.
 		///
 		template<meta::is_arithmetic Type>
-		[[nodiscard]] inline Type random(const Type min, const Type max)
+		[[nodiscard]] inline Type random(const Type min, const Type max) noexcept
 		{
 			std::random_device rd;
 			std::mt19937_64 mt {rd()};
