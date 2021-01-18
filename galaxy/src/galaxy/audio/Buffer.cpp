@@ -9,8 +9,10 @@
 
 #include <stb/stb_vorbis.h>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/ALError.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 
 #include "Buffer.hpp"
 
@@ -19,7 +21,7 @@ namespace galaxy
 	namespace audio
 	{
 		Buffer::Buffer()
-		    : m_buffer(0)
+		    : m_buffer {0}
 		{
 			// Create buffer and check for error. Only create 1 bffer since buffer is being managed per object.
 			alGenBuffers(1, &m_buffer);
@@ -29,13 +31,13 @@ namespace galaxy
 			}
 		}
 
-		Buffer::Buffer(Buffer&& b)
+		Buffer::Buffer(Buffer&& b) noexcept
 		{
 			this->m_buffer = b.m_buffer;
 			b.m_buffer     = 0;
 		}
 
-		Buffer& Buffer::operator=(Buffer&& b)
+		Buffer& Buffer::operator=(Buffer&& b) noexcept
 		{
 			if (this != &b)
 			{
@@ -83,20 +85,20 @@ namespace galaxy
 			return size;
 		}
 
-		const ALuint Buffer::handle() const
+		const ALuint Buffer::handle() const noexcept
 		{
 			return m_buffer;
 		}
 
-		bool Buffer::internal_load(std::string_view file)
+		const bool Buffer::internal_load(std::string_view file)
 		{
 			bool result = true;
+			auto path   = SL_HANDLE.vfs()->absolute(file);
 
-			auto path = std::filesystem::path {file};
-			if (path.extension() != ".ogg")
+			if (std::filesystem::path(path).extension() != ".ogg")
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Sound must be ogg vorbis and have extension of .ogg!");
-				result = false;
+				return result;
 			}
 			else
 			{
@@ -104,7 +106,7 @@ namespace galaxy
 				int samples  = 0;
 				short* data  = nullptr;
 
-				auto length = stb_vorbis_decode_filename(path.string().c_str(), &channels, &samples, &data);
+				const auto length = stb_vorbis_decode_filename(path.c_str(), &channels, &samples, &data);
 				if (length < 1)
 				{
 					result = false;

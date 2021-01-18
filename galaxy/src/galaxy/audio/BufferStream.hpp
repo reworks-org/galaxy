@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_BUFFER_BUFFERSTREAM_HPP_
-#define GALAXY_AUDIO_BUFFER_BUFFERSTREAM_HPP_
+#ifndef GALAXY_AUDIO_BUFFERSTREAM_HPP_
+#define GALAXY_AUDIO_BUFFERSTREAM_HPP_
 
 #include <array>
 
@@ -27,34 +27,19 @@ namespace galaxy
 
 		public:
 			///
-			/// Size of each buffer used by the stream.
-			///
-			static inline const constexpr std::size_t CHUNK = 65536;
-
-			///
 			/// Constructor.
 			///
 			BufferStream();
 
 			///
-			/// Copy constructor.
-			///
-			BufferStream(const BufferStream&) = delete;
-
-			///
 			/// Move constructor.
 			///
-			BufferStream(BufferStream&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			BufferStream& operator=(const BufferStream&) = delete;
+			BufferStream(BufferStream&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			BufferStream& operator=(BufferStream&&);
+			BufferStream& operator=(BufferStream&&) noexcept;
 
 			///
 			/// \brief Destructor.
@@ -62,6 +47,12 @@ namespace galaxy
 			/// Destroys BufferStream BufferStream(s).
 			///
 			virtual ~BufferStream();
+
+		public:
+			///
+			/// Size of each buffer used by the stream.
+			///
+			static inline const constexpr std::size_t CHUNK = 65536;
 
 		protected:
 			///
@@ -71,8 +62,9 @@ namespace galaxy
 			///
 			/// \return False if load failed.
 			///
-			bool internal_load(std::string_view file);
+			[[maybe_unused]] const bool internal_load(std::string_view file);
 
+		protected:
 			///
 			/// OpenAL data buffers.
 			///
@@ -97,6 +89,17 @@ namespace galaxy
 			/// Audio format.
 			///
 			ALenum m_format;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			BufferStream(const BufferStream&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			BufferStream& operator=(const BufferStream&) = delete;
 		};
 	} // namespace audio
 } // namespace galaxy

@@ -10,6 +10,7 @@
 
 #include <AL/al.h>
 #include <AL/alc.h>
+#include <glm/vec3.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -27,26 +28,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			Context();
-
-			///
-			/// Copy constructor.
-			///
-			Context(const Context&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Context(Context&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Context& operator=(const Context&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Context& operator=(Context&&) = delete;
 
 			///
 			/// Destructor.
@@ -77,32 +58,45 @@ namespace galaxy
 			///
 			/// Set the location of the listener in the world coord system.
 			///
-			/// \param x position in world.
-			/// \param y position in world.
-			/// \param z position in world.
+			/// \param pos Position in world.
 			///
-			void set_listener_position(const float x, const float y, const float z);
+			void set_listener_position(const glm::vec3& pos) noexcept;
 
 			///
 			/// Set the audio velocity (speed and direction) of the listener.
 			///
-			/// \param x X velocity.
-			/// \param y Y velocity.
-			/// \param z Z velocity.
+			/// \param vel Velocity vector.
 			///
-			void set_listener_velocity(const float x, const float y, const float z);
+			void set_listener_velocity(const glm::vec3& vel) noexcept;
 
 			///
 			/// Set orientation of listener.
 			///
-			/// \param atX "at" vector x.
-			/// \param atY "at" vector y.
-			/// \param atZ "at" vector z.
-			/// \param upX "up" vector x.
-			/// \param upY "up" vector y.
-			/// \param upZ "up" vector z.
+			/// \param at "at" vector.
+			/// \param up "up" vector.
 			///
-			void set_listener_orientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ);
+			void set_listener_orientation(const glm::vec3& at, const glm::vec3& up) noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Context(const Context&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			Context(Context&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Context& operator=(const Context&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Context& operator=(Context&&) = delete;
 
 		private:
 			///

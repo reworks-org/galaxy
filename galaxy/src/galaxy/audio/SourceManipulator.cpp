@@ -14,7 +14,7 @@ namespace galaxy
 {
 	namespace audio
 	{
-		SourceManipulator::~SourceManipulator()
+		SourceManipulator::~SourceManipulator() noexcept
 		{
 			m_source = 0;
 		}
@@ -43,7 +43,7 @@ namespace galaxy
 		{
 			if (pitch < 0)
 			{
-				throw std::runtime_error("Pitch cannot be a negative.");
+				GALAXY_LOG(GALAXY_FATAL, "Pitch cannot be a negative.");
 			}
 			else
 			{
@@ -59,7 +59,7 @@ namespace galaxy
 		{
 			if (gain < 0)
 			{
-				throw std::runtime_error("Pitch cannot be a negative.");
+				GALAXY_LOG(GALAXY_FATAL, "Pitch cannot be a negative.");
 			}
 			else
 			{
@@ -75,7 +75,7 @@ namespace galaxy
 		{
 			if (factor < 0)
 			{
-				throw std::runtime_error("Pitch cannot be a negative.");
+				GALAXY_LOG(GALAXY_FATAL, "Pitch cannot be a negative.");
 			}
 			else
 			{
@@ -117,34 +117,34 @@ namespace galaxy
 			}
 		}
 
-		void SourceManipulator::set_position(const float x, const float y, const float z)
+		void SourceManipulator::set_position(const glm::vec3& pos)
 		{
-			alSource3f(m_source, AL_POSITION, x, y, z);
+			alSource3f(m_source, AL_POSITION, pos.x, pos.y, pos.z);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source position."));
 			}
 		}
 
-		void SourceManipulator::set_velocity(const float x, const float y, const float z)
+		void SourceManipulator::set_velocity(const glm::vec3& vel)
 		{
-			alSource3f(m_source, AL_VELOCITY, x, y, z);
+			alSource3f(m_source, AL_VELOCITY, vel.x, vel.y, vel.z);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source velocity."));
 			}
 		}
 
-		void SourceManipulator::set_direction(const float x, const float y, const float z)
+		void SourceManipulator::set_direction(const glm::vec3& dir)
 		{
-			alSource3f(m_source, AL_DIRECTION, x, y, z);
+			alSource3f(m_source, AL_DIRECTION, dir.x, dir.y, dir.z);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source direction."));
 			}
 		}
 
-		void SourceManipulator::set_looping(bool looping)
+		void SourceManipulator::set_looping(const bool looping)
 		{
 			alSourcei(m_source, AL_LOOPING, looping);
 			if (alGetError() != AL_NO_ERROR)
@@ -153,7 +153,7 @@ namespace galaxy
 			}
 		}
 
-		ALint SourceManipulator::get_state()
+		const ALint SourceManipulator::get_state()
 		{
 			int val = 0;
 			alGetSourcei(m_source, AL_SOURCE_STATE, &val);
@@ -161,12 +161,12 @@ namespace galaxy
 			return val;
 		}
 
-		SourceManipulator::SourceManipulator()
+		SourceManipulator::SourceManipulator() noexcept
 		    : m_source {0}
 		{
 		}
 
-		void SourceManipulator::set_source_to_manipulate(const ALuint source)
+		void SourceManipulator::set_source_to_manipulate(const ALuint source) noexcept
 		{
 			m_source = source;
 		}

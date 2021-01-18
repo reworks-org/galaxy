@@ -9,8 +9,10 @@
 
 #include <AL/alext.h>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/ALError.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 
 #include "BufferStream.hpp"
 
@@ -28,7 +30,7 @@ namespace galaxy
 			}
 		}
 
-		BufferStream::BufferStream(BufferStream&& bs)
+		BufferStream::BufferStream(BufferStream&& bs) noexcept
 		{
 			this->m_buffers = std::move(bs.m_buffers);
 			this->m_data    = bs.m_data;
@@ -41,7 +43,7 @@ namespace galaxy
 			bs.m_stream  = nullptr;
 		}
 
-		BufferStream& BufferStream::operator=(BufferStream&& bs)
+		BufferStream& BufferStream::operator=(BufferStream&& bs) noexcept
 		{
 			if (this != &bs)
 			{
@@ -74,19 +76,19 @@ namespace galaxy
 			}
 		}
 
-		bool BufferStream::internal_load(std::string_view file)
+		const bool BufferStream::internal_load(std::string_view file)
 		{
-			bool result = true;
+			bool result     = true;
+			const auto path = SL_HANDLE.vfs()->absolute(file);
 
-			auto path = std::filesystem::path {file};
-			if (path.extension() != ".ogg")
+			if (std::filesystem::path(path).extension() != ".ogg")
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Music must be ogg vorbis and have extension of .ogg!");
 				result = false;
 			}
 			else
 			{
-				m_stream = stb_vorbis_open_filename(path.string().c_str(), nullptr, nullptr);
+				m_stream = stb_vorbis_open_filename(path.c_str(), nullptr, nullptr);
 				if (!m_stream)
 				{
 					GALAXY_LOG(GALAXY_ERROR, "STB failed to load: {0}.", file);

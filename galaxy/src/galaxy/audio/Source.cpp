@@ -25,13 +25,13 @@ namespace galaxy
 			}
 		}
 
-		Source::Source(Source&& s)
+		Source::Source(Source&& s) noexcept
 		{
 			this->m_source = s.m_source;
 			s.m_source     = 0;
 		}
 
-		Source& Source::operator=(Source&& s)
+		Source& Source::operator=(Source&& s) noexcept
 		{
 			if (this != &s)
 			{
@@ -124,7 +124,7 @@ namespace galaxy
 			return std::move(val);
 		}
 
-		const ALuint Source::handle() const
+		const ALuint Source::handle() const noexcept
 		{
 			return m_source;
 		}

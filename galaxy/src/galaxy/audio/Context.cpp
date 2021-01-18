@@ -53,7 +53,7 @@ namespace galaxy
 		{
 			if (factor < 0)
 			{
-				throw std::runtime_error("Cannot have a negative doppler factor.");
+				GALAXY_LOG(GALAXY_FATAL, "Cannot have a negative doppler factor.");
 			}
 			else
 			{
@@ -69,7 +69,7 @@ namespace galaxy
 		{
 			if (speed < 0)
 			{
-				throw std::runtime_error("Cannot have a negative speed of sound.");
+				GALAXY_LOG(GALAXY_FATAL, "Cannot have a negative speed of sound.");
 			}
 			else
 			{
@@ -85,7 +85,7 @@ namespace galaxy
 		{
 			if (gain < 0)
 			{
-				throw std::runtime_error("Cannot have a negative audio gain multiplier.");
+				GALAXY_LOG(GALAXY_FATAL, "Cannot have a negative audio gain multiplier.");
 			}
 			else
 			{
@@ -97,27 +97,27 @@ namespace galaxy
 			}
 		}
 
-		void Context::set_listener_position(const float x, const float y, const float z)
+		void Context::set_listener_position(const glm::vec3& pos)
 		{
-			alListener3f(AL_POSITION, x, y, z);
+			alListener3f(AL_POSITION, pos.x, pos.y, pos.z);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set listener AL_POSITION."));
 			}
 		}
 
-		void Context::set_listener_velocity(const float x, const float y, const float z)
+		void Context::set_listener_velocity(const glm::vec3& vel)
 		{
-			alListener3f(AL_VELOCITY, x, y, z);
+			alListener3f(AL_VELOCITY, vel.x, vel.y, vel.z);
 			if (alGetError() != AL_NO_ERROR)
 			{
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set listener AL_VELOCITY."));
 			}
 		}
 
-		void Context::set_listener_orientation(const float atX, const float atY, const float atZ, const float upX, const float upY, const float upZ)
+		void Context::set_listener_orientation(const glm::vec3& at, const glm::vec3& up)
 		{
-			const float arr[6] = {atX, atY, atZ, upX, upY, upZ};
+			const float arr[6] = {at.x, at.y, at.z, up.x, up.y, up.z};
 			alListenerfv(AL_ORIENTATION, arr);
 			if (alGetError() != AL_NO_ERROR)
 			{

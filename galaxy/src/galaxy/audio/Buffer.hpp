@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GAlAXY_AUDIO_BUFFER_BUFFER_HPP_
-#define GAlAXY_AUDIO_BUFFER_BUFFER_HPP_
+#ifndef GAlAXY_AUDIO_BUFFER_HPP_
+#define GAlAXY_AUDIO_BUFFER_HPP_
 
 #include <span>
 
@@ -31,24 +31,14 @@ namespace galaxy
 			Buffer();
 
 			///
-			/// Copy constructor.
-			///
-			Buffer(const Buffer&) = delete;
-
-			///
 			/// Move constructor.
 			///
-			Buffer(Buffer&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			Buffer& operator=(const Buffer&) = delete;
+			Buffer(Buffer&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Buffer& operator=(Buffer&&);
+			Buffer& operator=(Buffer&&) noexcept;
 
 			///
 			/// \brief Default destructor.
@@ -90,17 +80,28 @@ namespace galaxy
 			///
 			/// \return Const ALuint handle integer.
 			///
-			[[nodiscard]] const ALuint handle() const;
+			[[nodiscard]] const ALuint handle() const noexcept;
 
 		protected:
 			///
-			/// Load a file from disk.
+			/// Load a file from the virtual file system.
 			///
 			/// \param file File to load from disk. Can only load ogg vorbis.
 			///
 			/// \return False if load failed.
 			///
-			[[maybe_unused]] bool internal_load(std::string_view file);
+			[[maybe_unused]] const bool internal_load(std::string_view file);
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Buffer(const Buffer&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Buffer& operator=(const Buffer&) = delete;
 
 		private:
 			///

@@ -5,11 +5,12 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_SOURCE_SOURCEMANIPULATOR_HPP_
-#define GALAXY_AUDIO_SOURCE_SOURCEMANIPULATOR_HPP_
+#ifndef GALAXY_AUDIO_SOURCEMANIPULATOR_HPP_
+#define GALAXY_AUDIO_SOURCEMANIPULATOR_HPP_
 
 #include <AL/al.h>
 #include <AL/alc.h>
+#include <glm/vec3.hpp>
 
 #include "galaxy/meta/Concepts.hpp"
 
@@ -26,7 +27,7 @@ namespace galaxy
 			///
 			/// Virtual destructor.
 			///
-			virtual ~SourceManipulator();
+			virtual ~SourceManipulator() noexcept;
 
 			///
 			/// \brief Play source.
@@ -92,60 +93,54 @@ namespace galaxy
 			///
 			/// \brief Specifies the current location of the object in the world coordinate system.
 			///
-			/// \param x position in world.
-			/// \param y position in world.
-			/// \param z position in world.
+			/// \param pos Position in world.
 			///
-			void set_position(const float x, const float y, const float z);
+			void set_position(const glm::vec3& pos);
 
 			///
 			/// \brief Specifies the current velocity (speed and direction) of the object, in theworld coordinate system
 			///
-			/// \param x X velocity.
-			/// \param y Y velocity.
-			/// \param z Z velocity.
+			/// \param vel Velocity of sound.
 			///
-			void set_velocity(const float x, const float y, const float z);
+			void set_velocity(const glm::vec3& vel);
 
 			///
 			/// \brief Source is directional. The sound emission is presumed to be symmetric around the direction vector.
 			///
-			/// \param x position in world.
-			/// \param y position in world.
-			/// \param z position in world.
+			/// \param dir Direction of sound.
 			///
-			void set_direction(const float x, const float y, const float z);
+			void set_direction(const glm::vec3& dir);
 
 			///
 			/// \brief Should the source repeat upon reaching the end.
 			///
 			/// \param True to repeat.
 			///
-			void set_looping(bool looping);
+			void set_looping(const bool looping);
 
 			///
 			/// Retrieve OpenAL source state.
 			///
 			/// \return Integer of enum AL_SOURCE_STATE.
 			///
-			ALint get_state();
+			[[nodiscard]] const ALint get_state();
 
 		protected:
 			///
 			/// Default constructor.
 			///
-			SourceManipulator();
+			SourceManipulator() noexcept;
 
 			///
 			/// Set source to manipulate.
 			///
 			/// \param source Pointer to source handle in OpenAL.
 			///
-			void set_source_to_manipulate(const ALuint source);
+			void set_source_to_manipulate(const ALuint source) noexcept;
 
 		private:
 			///
-			/// Pointer to source being used internally.
+			/// Internal source.
 			///
 			ALuint m_source;
 		};

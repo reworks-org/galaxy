@@ -5,14 +5,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_AUDIO_SOURCE_SOURCE_HPP_
-#define GALAXY_AUDIO_SOURCE_SOURCE_HPP_
+#ifndef GALAXY_AUDIO_SOURCE_HPP_
+#define GALAXY_AUDIO_SOURCE_HPP_
 
 #include <span>
 #include <vector>
 
-#include "galaxy/audio/buffer/Buffer.hpp"
-#include "galaxy/audio/buffer/BufferStream.hpp"
+#include "galaxy/audio/Buffer.hpp"
+#include "galaxy/audio/BufferStream.hpp"
 
 namespace galaxy
 {
@@ -32,24 +32,14 @@ namespace galaxy
 			Source();
 
 			///
-			/// Copy constructor.
-			///
-			Source(const Source&) = delete;
-
-			///
 			/// Move constructor.
 			///
-			Source(Source&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			Source& operator=(const Source&) = delete;
+			Source(Source&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Source& operator=(Source&&);
+			Source& operator=(Source&&) noexcept;
 
 			///
 			/// \brief Default destructor.
@@ -98,7 +88,18 @@ namespace galaxy
 			///
 			/// \return ALuint handle integer.
 			///
-			[[nodiscard]] const ALuint handle() const;
+			[[nodiscard]] const ALuint handle() const noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Source(const Source&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Source& operator=(const Source&) = delete;
 
 		private:
 			///
