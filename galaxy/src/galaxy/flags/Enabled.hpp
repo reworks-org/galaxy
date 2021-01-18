@@ -15,7 +15,7 @@ namespace galaxy
 		///
 		/// Used to set if an entity is enabled.
 		///
-		struct Enabled
+		struct Enabled final
 		{
 			const constexpr static inline unsigned short value = 0;
 		};
