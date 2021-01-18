@@ -24,12 +24,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Console();
+			Console() noexcept = default;
 
 			///
 			/// Default destructor.
 			///
-			~Console() = default;
+			~Console() noexcept = default;
 
 			///
 			/// Draw imgui widgets.

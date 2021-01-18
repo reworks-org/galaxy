@@ -21,11 +21,6 @@ namespace galaxy
 {
 	namespace lua
 	{
-		Console::Console()
-		    : m_buff {""}
-		{
-		}
-
 		void Console::draw(bool* show)
 		{
 			ImGui::Begin("Lua Console", show, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
@@ -84,11 +79,6 @@ namespace galaxy
 				if (ImGui::MenuItem("Clear"))
 				{
 					m_history.clear();
-				}
-
-				if (ImGui::MenuItem("Close"))
-				{
-					*show = false;
 				}
 
 				ImGui::SameLine();

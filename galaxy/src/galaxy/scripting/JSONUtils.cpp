@@ -5,12 +5,11 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include <filesystem>
-#include <fstream>
-
 #include <nlohmann/json.hpp>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 
 #include "JSONUtils.hpp"
 
@@ -20,30 +19,29 @@ namespace galaxy
 	{
 		nlohmann::json parse_from_disk(std::string_view file)
 		{
-			nlohmann::json j = {};
+			const auto path = SL_HANDLE.vfs()->absolute(file);
 
-			auto path = std::filesystem::path {file};
+			nlohmann::json json;
 			std::ifstream input;
-			input.open(path.string(), std::ifstream::in);
 
+			input.open(path, std::ifstream::in);
 			if (!input.good())
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to open: {0}.", path.string());
+				input.close();
+				GALAXY_LOG(GALAXY_FATAL, "Failed to open: {0}.", path);
 			}
 			else
 			{
-				// Use JSON stream to deserialize data and parse.
-				input >> j;
+				input >> json;
+				input.close();
 			}
 
-			input.close();
-
-			return std::move(j);
+			return json;
 		}
 
 		nlohmann::json parse_from_mem(std::span<char> memory)
 		{
-			nlohmann::json j = {};
+			nlohmann::json json;
 
 			if (memory.empty())
 			{
@@ -51,28 +49,15 @@ namespace galaxy
 			}
 			else
 			{
-				// This is the string parser.
-				j = nlohmann::json::parse(memory);
+				json = nlohmann::json::parse(memory);
 			}
 
-			return std::move(j);
+			return json;
 		}
 
 		void save_to_disk(std::string_view path, const nlohmann::json& json)
 		{
-			auto fp = std::filesystem::path {path};
-			std::ofstream out;
-			out.open(fp, std::ios::out | std::ios::trunc);
-			if (out.good())
-			{
-				out << json.dump(4);
-			}
-			else
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to save json to disk: {0}.", path);
-			}
-
-			out.close();
+			SL_HANDLE.vfs()->save(json.dump(4), path);
 		}
 	} // namespace json
 } // namespace galaxy
