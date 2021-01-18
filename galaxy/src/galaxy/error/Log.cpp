@@ -19,14 +19,14 @@ namespace galaxy
 {
 	namespace error
 	{
-		Log::Log()
+		Log::Log() noexcept
 		    : m_min_level {0}
 		{
 			std::ios::sync_with_stdio(false);
 			platform::configure_terminal();
 		}
 
-		Log& Log::get()
+		Log& Log::get() noexcept
 		{
 			static Log s_inst;
 			return s_inst;

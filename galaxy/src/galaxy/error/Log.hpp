@@ -92,12 +92,12 @@ namespace galaxy
 		///
 		struct TestingMode
 		{
-			[[nodiscard]] static inline constexpr auto true_val()
+			[[nodiscard]] static inline constexpr auto true_val() noexcept
 			{
 				return true;
 			}
 
-			[[nodiscard]] static inline constexpr auto false_val()
+			[[nodiscard]] static inline constexpr auto false_val() noexcept
 			{
 				return false;
 			}
@@ -113,36 +113,16 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Copy constructor.
-			///
-			Log(const Log&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Log(Log&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Log& operator=(const Log&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Log& operator=(Log&&) = delete;
-
-			///
 			/// Destructor.
 			///
-			~Log() = default;
+			~Log() noexcept = default;
 
 			///
 			/// Retrieve log instance.
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[no_discard]] static Log& get();
+			[[no_discard]] static Log& get() noexcept;
 
 			///
 			/// Initialize logging and set up destination file.
@@ -171,13 +151,33 @@ namespace galaxy
 			/// In order to only print and log levels greater than or equal to the current log message level.
 			///
 			template<loglevel_type LogLevel>
-			void set_min_level();
+			void set_min_level() noexcept;
 
 		private:
 			///
 			/// Constructor.
 			///
-			Log();
+			Log() noexcept;
+
+			///
+			/// Copy constructor.
+			///
+			Log(const Log&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			Log(Log&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Log& operator=(const Log&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Log& operator=(Log&&) = delete;
 
 			///
 			/// Convert log message level to a string.
@@ -187,7 +187,7 @@ namespace galaxy
 			/// \return std::string, in caps.
 			///
 			template<loglevel_type LogLevel>
-			[[nodiscard]] std::string process_level();
+			[[nodiscard]] std::string process_level() noexcept;
 
 			///
 			/// Colourizes the terminal text based on the log message level.
@@ -197,8 +197,9 @@ namespace galaxy
 			/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 			///
 			template<loglevel_type LogLevel>
-			[[nodiscard]] std::string process_colour();
+			[[nodiscard]] std::string process_colour() noexcept;
 
+		private:
 			///
 			/// File stream to write to.
 			///
@@ -246,13 +247,13 @@ namespace galaxy
 		}
 
 		template<loglevel_type LogLevel>
-		inline void Log::set_min_level()
+		inline void Log::set_min_level() noexcept
 		{
 			m_min_level = LogLevel::value();
 		}
 
 		template<loglevel_type LogLevel>
-		inline std::string Log::process_level()
+		inline std::string Log::process_level() noexcept
 		{
 			if constexpr (LogLevel::value() == level::Info::value())
 			{
@@ -277,7 +278,7 @@ namespace galaxy
 		}
 
 		template<loglevel_type LogLevel>
-		inline std::string Log::process_colour()
+		inline std::string Log::process_colour() noexcept
 		{
 			if constexpr (LogLevel::value() == level::Info::value())
 			{

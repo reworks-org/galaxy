@@ -20,7 +20,7 @@ namespace galaxy
 			return fmt::format("OpenAL: {0} | {1}.", message, alGetString(alGetError()));
 		}
 
-		std::string al_errcode_as_string(const int err)
+		std::string al_errcode_as_string(const int err) noexcept
 		{
 			switch (err)
 			{

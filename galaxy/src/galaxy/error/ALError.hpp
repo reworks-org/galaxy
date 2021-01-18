@@ -21,7 +21,7 @@ namespace galaxy
 		///
 		/// \return String containing full error message.
 		///
-		[[maybe_unused]] std::string al_parse_error(std::string_view message);
+		[[nodiscard]] std::string al_parse_error(std::string_view message);
 
 		///
 		/// Retrieve error code value as string.
@@ -30,7 +30,7 @@ namespace galaxy
 		///
 		/// \return Error code enum as a string.
 		///
-		[[nodiscard]] std::string al_errcode_as_string(const int err);
+		[[nodiscard]] std::string al_errcode_as_string(const int err) noexcept;
 	} // namespace error
 } // namespace galaxy
 #endif
