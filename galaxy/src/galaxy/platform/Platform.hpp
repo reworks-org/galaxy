@@ -11,7 +11,6 @@
 #ifdef _WIN32 || _WIN64
 #include "galaxy/platform/specific/Windows.hpp"
 #else
-#include "galaxy/platform/specific/Linux.hpp"
 #endif
 
 #endif
