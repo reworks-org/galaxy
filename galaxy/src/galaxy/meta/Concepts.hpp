@@ -9,7 +9,6 @@
 #define GALAXY_META_CONCEPTS_HPP_
 
 #include <concepts>
-#include <cstdint>
 #include <string>
 #include <type_traits>
 
@@ -45,7 +44,7 @@ namespace galaxy
 		/// Makes sure a value is a flag for a std::bitset.
 		///
 		template<typename Type>
-		concept is_flag = requires(Type type)
+		concept is_bitset_flag = requires(Type type)
 		{
 			Type::value >= 0 && Type::value <= 7 && std::is_same<decltype(Type::value), unsigned short>::value;
 		};

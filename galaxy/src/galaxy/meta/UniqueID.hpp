@@ -23,6 +23,26 @@ namespace galaxy
 		{
 		public:
 			///
+			/// Destructor.
+			///
+			~UniqueID() noexcept = default;
+
+			///
+			/// Use this function to retrieve the ID.
+			/// Will generate a new id if it is called for the first time.
+			///
+			/// \return Unique ID for the specialization of that type.
+			///
+			template<typename Type>
+			[[nodiscard]] static const std::size_t get() noexcept;
+
+		private:
+			///
+			/// Constructor.
+			///
+			UniqueID() noexcept = default;
+
+			///
 			/// Copy constructor.
 			///
 			UniqueID(const UniqueID&) = delete;
@@ -42,26 +62,7 @@ namespace galaxy
 			///
 			UniqueID& operator=(UniqueID&&) = delete;
 
-			///
-			/// Destructor.
-			///
-			~UniqueID() = default;
-
-			///
-			/// Use this function to retrieve the ID.
-			/// Will generate a new id if it is called for the first time.
-			///
-			/// \return Unique ID for the specialization of that type.
-			///
-			template<typename Type>
-			[[nodiscard]] static const std::size_t get();
-
 		private:
-			///
-			/// Constructor.
-			///
-			UniqueID() = default;
-
 			///
 			/// Internal counter to keep track of allocated ids.
 			///
@@ -70,7 +71,7 @@ namespace galaxy
 
 		template<is_class Specialization>
 		template<typename Type>
-		[[nodiscard]] inline const std::size_t UniqueID<Specialization>::get()
+		[[nodiscard]] inline const std::size_t UniqueID<Specialization>::get() noexcept
 		{
 			static std::size_t id = s_counter++;
 			return id;
