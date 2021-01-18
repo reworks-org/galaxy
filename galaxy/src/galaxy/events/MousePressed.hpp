@@ -8,7 +8,7 @@
 #ifndef GALAXY_EVENTS_MOUSEPRESSED_HPP_
 #define GALAXY_EVENTS_MOUSEPRESSED_HPP_
 
-#include "galaxy/input/MouseButtons.hpp"
+#include "galaxy/input/Mouse.hpp"
 
 namespace galaxy
 {
@@ -22,7 +22,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			MousePressed();
+			MousePressed() noexcept;
 
 			///
 			/// Constructor.
@@ -31,12 +31,12 @@ namespace galaxy
 			/// \param y y-pos of event.
 			/// \param button Button code pressed.
 			///
-			MousePressed(const float x, const float y, const input::MouseButton button);
+			MousePressed(const float x, const float y, const input::MouseButton button) noexcept;
 
 			///
 			/// Default destructor.
 			///
-			~MousePressed() = default;
+			~MousePressed() noexcept = default;
 
 			///
 			/// Mouse x position.

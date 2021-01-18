@@ -22,19 +22,19 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			KeyUp() = default;
+			KeyUp() noexcept = default;
 
 			///
 			/// Constructor.
 			///
 			/// \param keycode Keycode of key pressed.
 			///
-			KeyUp(const input::Keys keycode);
+			KeyUp(const input::Keys keycode) noexcept;
 
 			///
 			/// Default destructor.
 			///
-			~KeyUp() = default;
+			~KeyUp() noexcept = default;
 
 			///
 			/// Keycode for the key that was pressed.

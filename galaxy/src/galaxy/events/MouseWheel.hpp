@@ -20,7 +20,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			MouseWheel();
+			MouseWheel() noexcept;
 
 			///
 			/// Constructor.
@@ -28,12 +28,12 @@ namespace galaxy
 			/// \param x x offset.
 			/// \param y y offset.
 			///
-			MouseWheel(const double x, const double y);
+			MouseWheel(const double x, const double y) noexcept;
 
 			///
 			/// Default destructor.
 			///
-			~MouseWheel() = default;
+			~MouseWheel() noexcept = default;
 
 			///
 			/// X offset of scroll.

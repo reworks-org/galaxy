@@ -20,7 +20,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			MouseMoved();
+			MouseMoved() noexcept;
 
 			///
 			/// Constructor.
@@ -28,12 +28,12 @@ namespace galaxy
 			/// \param x x-pos of event.
 			/// \param y y-pos of event.
 			///
-			MouseMoved(const double x, const double y);
+			MouseMoved(const double x, const double y) noexcept;
 
 			///
 			/// Default destructor.
 			///
-			~MouseMoved() = default;
+			~MouseMoved() noexcept = default;
 
 			///
 			/// Mouse x position.

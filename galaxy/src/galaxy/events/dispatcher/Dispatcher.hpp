@@ -5,14 +5,14 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_EVENTS_DISPATCHER_HPP_
-#define GALAXY_EVENTS_DISPATCHER_HPP_
+#ifndef GALAXY_EVENTS_DISPATCHER_DISPATCHER_HPP_
+#define GALAXY_EVENTS_DISPATCHER_DISPATCHER_HPP_
 
 #include <functional>
 #include <vector>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/events/dispatcher/detail/Storage.hpp"
+#include "galaxy/events/dispatcher/Storage.hpp"
 
 namespace galaxy
 {
@@ -27,7 +27,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			Dispatcher() = default;
+			Dispatcher() noexcept = default;
 
 			///
 			/// Default destructor.
@@ -43,7 +43,7 @@ namespace galaxy
 			/// \param reciever Object that has an on_event() function that takes a const Event&.
 			///
 			template<meta::is_class Event, meta::is_class Receiver>
-			void subscribe(Receiver& receiver) requires has_on_event_for<Receiver, Event>;
+			void subscribe(Receiver& receiver) requires meta::has_on_event_for<Receiver, Event>;
 
 			///
 			/// Triggers a single event.
@@ -61,9 +61,9 @@ namespace galaxy
 		};
 
 		template<meta::is_class Event, meta::is_class Receiver>
-		inline void Dispatcher::subscribe(Receiver& receiver) requires has_on_event_for<Receiver, Event>
+		inline void Dispatcher::subscribe(Receiver& receiver) requires meta::has_on_event_for<Receiver, Event>
 		{
-			const auto type = DispatcherUID::get<Event>();
+			const auto type = meta::DispatcherUID::get<Event>();
 
 			if (type >= m_event_funcs.size())
 			{
@@ -71,13 +71,13 @@ namespace galaxy
 				m_event_funcs[type].create_storage<Event>();
 			}
 
-			m_event_funcs[type].apply_action_to_subscribers<Event, events::AddAction, Receiver>(receiver);
+			m_event_funcs[type].apply_action_to_subscribers<Event, meta::AddAction, Receiver>(receiver);
 		}
 
 		template<meta::is_class Event, typename... Args>
 		inline void Dispatcher::trigger(Args&&... args)
 		{
-			const auto type = DispatcherUID::get<Event>();
+			const auto type = meta::DispatcherUID::get<Event>();
 			if (type >= m_event_funcs.size())
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Attempted to trigger event with no subscribers.");
@@ -85,7 +85,7 @@ namespace galaxy
 			else
 			{
 				Event e {std::forward<Args>(args)...};
-				m_event_funcs[type].apply_action_to_subscribers<Event, events::TriggerAction>(e);
+				m_event_funcs[type].apply_action_to_subscribers<Event, meta::TriggerAction>(e);
 			}
 		}
 

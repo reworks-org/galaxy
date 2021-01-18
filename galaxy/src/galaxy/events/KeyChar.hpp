@@ -22,7 +22,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			KeyChar();
+			KeyChar() noexcept;
 
 			///
 			/// Argument constructor.
@@ -30,12 +30,12 @@ namespace galaxy
 			/// \param keycode Code of the key pressed.
 			/// \param unichar Unicode character pressed.
 			///
-			KeyChar(const input::Keys keycode, const int unichar);
+			KeyChar(const input::Keys keycode, const int unichar) noexcept;
 
 			///
 			/// Default destructor.
 			///
-			~KeyChar() = default;
+			~KeyChar() noexcept = default;
 
 			///
 			/// Keycode for the key that was pressed.

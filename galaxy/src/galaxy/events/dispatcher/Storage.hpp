@@ -5,16 +5,16 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_EVENTS_DISPATCHER_DETAIL_STORAGE_HPP_
-#define GALAXY_EVENTS_DISPATCHER_DETAIL_STORAGE_HPP_
+#ifndef GALAXY_EVENTS_DISPATCHER_STORAGE_HPP_
+#define GALAXY_EVENTS_DISPATCHER_STORAGE_HPP_
 
 #include <any>
+#include <execution>
 #include <vector>
 
 #include "galaxy/error/Log.hpp"
 #include "galaxy/meta/Concepts.hpp"
-
-#include "galaxy/events/dispatcher/detail/Meta.hpp"
+#include "galaxy/meta/EventMeta.hpp"
 
 namespace galaxy
 {
@@ -29,12 +29,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Storage() = default;
+			Storage() noexcept = default;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Storage() = default;
+			virtual ~Storage() noexcept = default;
 
 			///
 			/// Create storage.
@@ -50,7 +50,7 @@ namespace galaxy
 			///
 			/// \param args Can be either the reciever or the event constructor arguments.
 			///
-			template<meta::is_class Event, is_action Action, typename... Args>
+			template<meta::is_class Event, meta::is_action Action, typename... Args>
 			void apply_action_to_subscribers(Args&... args);
 
 		private:
@@ -66,31 +66,31 @@ namespace galaxy
 			m_event_functions = std::make_any<std::vector<std::function<void(const Event&)>>>();
 		}
 
-		template<meta::is_class Event, is_action Action, typename... Args>
+		template<meta::is_class Event, meta::is_action Action, typename... Args>
 		inline void Storage::apply_action_to_subscribers(Args&... args)
 		{
 			// Array is only initialized once.
 			// So data is preserved as if this was a class member.
-			auto* funcs = std::any_cast<std::vector<std::function<void(const Event&)>>>(&m_event_functions);
+			auto& funcs = std::any_cast<std::vector<std::function<void(const Event&)>>&>(m_event_functions);
 
 			// Figure out at compile time which action to execute for this function instance.
-			constexpr bool is_trigger = std::is_same<Action, events::TriggerAction>::value;
-			constexpr bool is_add     = std::is_same<Action, events::AddAction>::value;
-			constexpr bool is_destroy = std::is_same<Action, events::DestroyAction>::value;
+			constexpr bool is_trigger = std::is_same<Action, meta::TriggerAction>::value;
+			constexpr bool is_add     = std::is_same<Action, meta::AddAction>::value;
+			constexpr bool is_destroy = std::is_same<Action, meta::DestroyAction>::value;
 
 			// Discard unused branches and only compile used option.
 			if constexpr (is_trigger)
 			{
-				for (auto&& func : *funcs)
-				{
+				// Exec each in parallel.
+				std::for_each(std::execution::par, funcs.begin(), funcs.end(), [&](auto& func) {
 					func(args...);
-				}
+				});
 			}
 			else if constexpr (is_add)
 			{
 				if constexpr (sizeof...(Args) == 1)
 				{
-					funcs->emplace_back([&args...](const Event& external_event) {
+					funcs.emplace_back([&args...](const Event& external_event) {
 						(args.on_event(external_event), ...);
 					});
 				}
@@ -101,7 +101,7 @@ namespace galaxy
 			}
 			else if constexpr (is_destroy)
 			{
-				funcs->clear();
+				funcs.clear();
 			}
 		}
 	} // namespace events

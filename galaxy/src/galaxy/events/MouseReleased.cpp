@@ -11,12 +11,12 @@ namespace galaxy
 {
 	namespace events
 	{
-		MouseReleased::MouseReleased()
+		MouseReleased::MouseReleased() noexcept
 		    : m_x {0}, m_y {0}, m_button {0}
 		{
 		}
 
-		MouseReleased::MouseReleased(const float x, const float y, const input::MouseButton button)
+		MouseReleased::MouseReleased(const float x, const float y, const input::MouseButton button) noexcept
 		    : m_x {x}, m_y {y}, m_button {button}
 		{
 		}

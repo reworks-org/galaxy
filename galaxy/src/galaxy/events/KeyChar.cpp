@@ -11,12 +11,12 @@ namespace galaxy
 {
 	namespace events
 	{
-		KeyChar::KeyChar()
+		KeyChar::KeyChar() noexcept
 		    : m_keycode {input::Keys::A}, m_unichar {0}
 		{
 		}
 
-		KeyChar::KeyChar(const input::Keys keycode, const int unichar)
+		KeyChar::KeyChar(const input::Keys keycode, const int unichar) noexcept
 		    : m_keycode {keycode}, m_unichar {unichar}
 		{
 		}

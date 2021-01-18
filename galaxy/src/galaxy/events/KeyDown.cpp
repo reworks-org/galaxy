@@ -11,7 +11,7 @@ namespace galaxy
 {
 	namespace events
 	{
-		KeyDown::KeyDown(const input::Keys keycode)
+		KeyDown::KeyDown(const input::Keys keycode) noexcept
 		    : m_keycode {keycode}
 		{
 		}
