@@ -34,7 +34,7 @@ namespace galaxy
 			///
 			/// Virtual destructor.
 			///
-			virtual ~Set() = default;
+			virtual ~Set() noexcept = default;
 
 			///
 			/// Check if set already has entity.
@@ -43,7 +43,7 @@ namespace galaxy
 			///
 			/// \return Const boolean. True if entity is found.
 			///
-			const bool has(const Entity entity);
+			[[nodiscard]] const bool has(const Entity entity) noexcept;
 
 			///
 			/// Remove the entity and its assossiated component.
@@ -61,8 +61,25 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Set();
+			Set() noexcept;
 
+		protected:
+			///
+			/// Keeps track of entity positions in vector.
+			///
+			std::size_t m_count;
+
+			///
+			/// Entitys that have this component.
+			///
+			std::vector<Entity> m_entities;
+
+			///
+			/// Keeps track of entity position using entity as key.
+			///
+			robin_hood::unordered_flat_map<Entity, std::size_t> m_keymap;
+
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -82,21 +99,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Set& operator=(Set&&) = delete;
-
-			///
-			/// Keeps track of entity positions in vector.
-			///
-			std::size_t m_count;
-
-			///
-			/// Entitys that have this component.
-			///
-			std::vector<Entity> m_entities;
-
-			///
-			/// Keeps track of entity position using entity as key.
-			///
-			robin_hood::unordered_flat_map<Entity, std::size_t> m_keymap;
 		};
 	} // namespace ecs
 } // namespace galaxy

@@ -33,27 +33,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ComponentSet();
-
-			///
-			/// Copy constructor.
-			///
-			ComponentSet(const ComponentSet&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			ComponentSet(ComponentSet&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			ComponentSet& operator=(const ComponentSet&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			ComponentSet& operator=(ComponentSet&&) = delete;
+			ComponentSet() noexcept;
 
 			///
 			/// Virtual destructor
@@ -97,7 +77,28 @@ namespace galaxy
 			///
 			/// \return Const reference to a std::vector.
 			///
-			[[nodiscard]] const std::vector<Component>& get_components();
+			[[nodiscard]] const std::vector<Component>& get_components() noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			ComponentSet(const ComponentSet&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			ComponentSet(ComponentSet&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			ComponentSet& operator=(const ComponentSet&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			ComponentSet& operator=(ComponentSet&&) = delete;
 
 		private:
 			///
@@ -107,7 +108,7 @@ namespace galaxy
 		};
 
 		template<meta::is_class Component>
-		inline ComponentSet<Component>::ComponentSet()
+		inline ComponentSet<Component>::ComponentSet() noexcept
 		    : Set {}
 		{
 		}
@@ -183,7 +184,7 @@ namespace galaxy
 		}
 
 		template<meta::is_class Component>
-		inline const std::vector<Component>& ComponentSet<Component>::get_components()
+		inline const std::vector<Component>& ComponentSet<Component>::get_components() noexcept
 		{
 			return m_components;
 		}

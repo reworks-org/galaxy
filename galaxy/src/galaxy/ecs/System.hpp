@@ -21,12 +21,7 @@ namespace galaxy
 			///
 			/// Default virtual destructor.
 			///
-			virtual ~System() = default;
-
-			///
-			/// Abstract implementation for processing events.
-			///
-			virtual void events() = 0;
+			virtual ~System() noexcept = default;
 
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
@@ -39,7 +34,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			System() = default;
+			System() noexcept = default;
 		};
 	} // namespace ecs
 } // namespace galaxy

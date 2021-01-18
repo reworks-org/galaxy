@@ -14,8 +14,11 @@ namespace galaxy
 {
 	namespace ecs
 	{
+		///
+		/// Entity typedef.
+		///
 		using Entity = std::uint64_t;
-	}
+	} // namespace ecs
 } // namespace galaxy
 
 #endif

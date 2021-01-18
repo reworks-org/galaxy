@@ -11,12 +11,12 @@ namespace galaxy
 {
 	namespace ecs
 	{
-		const bool Set::has(const Entity entity)
+		const bool Set::has(const Entity entity) noexcept
 		{
 			return (std::find(m_entities.begin(), m_entities.end(), entity) != m_entities.end());
 		}
 
-		Set::Set()
+		Set::Set() noexcept
 		    : m_count {0}
 		{
 		}
