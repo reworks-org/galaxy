@@ -1,8 +1,8 @@
 ///
-/// MouseButtons.cpp
+/// Mouse.cpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "MouseButtons.hpp"
+#include "Mouse.hpp"

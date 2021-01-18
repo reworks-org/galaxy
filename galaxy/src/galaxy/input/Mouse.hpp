@@ -1,12 +1,12 @@
 ///
-/// MouseButtons.hpp
+/// Mouse.hpp
 /// galaxy
 ///
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_INPUT_MOUSEBUTTONS_HPP_
-#define GALAXY_INPUT_MOUSEBUTTONS_HPP_
+#ifndef GALAXY_INPUT_MOUSE_HPP_
+#define GALAXY_INPUT_MOUSE_HPP_
 
 namespace galaxy
 {
