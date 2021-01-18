@@ -1,13 +1,8 @@
 project(tests CXX)
 
 file(GLOB_RECURSE tests_src
-    "src/*.c"
     "src/*.cpp"
-    "src/*.h"
     "src/*.hpp"
-    "src/*.cc"
-    "src/*.hh"
-    "src/*.inl"
 )
 
 source_group(${PROJECT_NAME} ${tests_src})

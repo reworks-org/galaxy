@@ -1,72 +1,34 @@
-# Setup
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.18)
 
-# project
-project(galaxy_engine LANGUAGES C CXX)
-
-# Warning
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     message(FATAL_ERROR "In-source builds not allowed. Please make a new build directory and run CMake from there.\n")
 endif()
 
-# Notifications
+project(galaxy_engine LANGUAGES C CXX)
 message("Starting galaxy_engine configuration. Building for: ${CMAKE_BUILD_TYPE}")
 
-# Reset.
-set(CMAKE_C_FLAGS_DEBUG "")
-set(CMAKE_C_FLAGS_RELEASE "")
-set(CMAKE_CXX_FLAGS "")
-set(CMAKE_CXX_FLAGS_DEBUG "")
-set(CMAKE_CXX_FLAGS_RELEASE "")
-set(CMAKE_EXE_LINKER_FLAGS "")
-set(CMAKE_MODULE_LINKER_FLAGS "")
-set(CMAKE_SHARED_LINKER_FLAGS "")
-set(CMAKE_STATIC_LINKER_FLAGS "")
-
-# Default.
-set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS}")
-set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS}")
-set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS}")
-set(CMAKE_STATIC_LINKER_FLAGS_DEBUG "${CMAKE_STATIC_LINKER_FLAGS}")
-set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS}")
-set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
-set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
-set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
-
+# Language config.
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# Configure properties.
 set(CMAKE_CONFIGURATION_TYPES
 	"Debug"
 	"Release"
 	CACHE STRING "" FORCE
 )
-
-# GCC/MSVC compiler options.
-if (MSVC)
-	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-	set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
-    set(VS_WINDOWS_TARGET_PLATFORM_MIN_VERSION 10.0.19041.0)
-    set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0)
-    set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
-    set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-    set(GALAXY_FREETYPE_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
-	set(GALAXY_FREETYPE_LIB "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.lib")
-    set(LIB_FILE_EXT "lib")
-else()
-	find_package(Threads REQUIRED)
-	find_package(Freetype REQUIRED)
-	add_definitions(-DCMAKE_EXPECTED_FREETYPE_VERSION="${FREETYPE_VERSION_STRING}")
-	set(GALAXY_FREETYPE_HEADERS "${FREETYPE_INCLUDE_DIRS}")
-	set(GALAXY_FREETYPE_LIB "${FREETYPE_LIBRARIES}")
-	set(ALSOFT_REQUIRE_ALSA ON CACHE BOOL "" FORCE)
-	set(ALSOFT_REQUIRE_PULSEAUDIO OFF CACHE BOOL "" FORCE)
-    set(LIB_FILE_EXT "a")
-endif()
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+set(VS_MINIMUM_SDK_VERSION 10.0.19041.0)
+set(VS_WINDOWS_TARGET_PLATFORM_MIN_VERSION 10.0.19041.0)
+set(CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION 10.0.19041.0)
+set(USE_MSVC_RUNTIME_LIBRARY_DLL OFF CACHE BOOL "" FORCE)
+set(FORCE_STATIC_VCRT ON CACHE BOOL "" FORCE)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+set(GALAXY_FREETYPE_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
+set(GALAXY_FREETYPE_LIB "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.lib")
+set(LIB_FILE_EXT "lib")
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_source_files_properties(*.c LANGUAGE C)
@@ -81,7 +43,7 @@ set_source_files_properties(*.inl LANGUAGE CXX)
 add_subdirectory(dependencies)
 add_subdirectory(galaxy)
 
-# Doxygen
+# Doxygen.
 include(cmake/Doxygen.cmake)
 
 if (NOT ENABLE_DOXYGEN)
@@ -146,24 +108,10 @@ if (NOT ENABLE_DOXYGEN)
 	    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/output/bin/zlib/"
 	)
 
-	# Set dependencies to not show compiler errors.
-	if (MSVC)
-		target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
-	endif()
-
-	# Import applications
+	# Import projects.
 	add_subdirectory(supercluster)
 	add_subdirectory(sandbox_tests)
 	add_subdirectory(tests)
-
-	if (MSVC)
-		target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-		target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)
-	endif()
 
 	# Configure dependencies
 	add_dependencies(galaxy glfw)
@@ -176,10 +124,10 @@ if (NOT ENABLE_DOXYGEN)
 	add_dependencies(tests galaxy)
 
 	# Set header directories.
-	set(SHARED_HEADERS
+	set(HEADERS
+		"${GALAXY_FREETYPE_HEADERS}"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/include"
 	    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/include"
-		"${GALAXY_FREETYPE_HEADERS}"
 		"${CMAKE_SOURCE_DIR}/dependencies/glad/glad"
 		"${CMAKE_SOURCE_DIR}/dependencies/glfw3/include"
 		"${CMAKE_SOURCE_DIR}/dependencies/glm"
@@ -201,52 +149,51 @@ if (NOT ENABLE_DOXYGEN)
 		"${CMAKE_SOURCE_DIR}/galaxy/src"
 		"${CMAKE_SOURCE_DIR}/sandbox_tests/src"
 	)
-	set(ALL_HEADERS "${SHARED_HEADERS}")
 
-	target_include_directories(dependencies PUBLIC ${ALL_HEADERS})
-	target_include_directories(galaxy PUBLIC ${ALL_HEADERS})
-	target_include_directories(supercluster PUBLIC ${ALL_HEADERS})
-	target_include_directories(sandbox_test PUBLIC ${ALL_HEADERS})
-	target_include_directories(tests PUBLIC ${ALL_HEADERS})
-
-	# System specific libraries.
-	if (WIN32)
-	    set(SYSTEM_LIBS
-	        "opengl32.lib"
-	        "kernel32.lib"
-	        "user32.lib"
-	        "gdi32.lib"
-	        "winspool.lib"
-	        "comdlg32.lib"
-	        "advapi32.lib"
-	        "shell32.lib"
-	        "ole32.lib"
-	        "oleaut32.lib"
-	        "uuid.lib"
-	        "winmm.lib"
-	        "Shlwapi.lib"
-	        "psapi.lib"
-	        "dsound.lib"
-	        "synchronization.lib"
-	    )
-	else()
-	    set(SYSTEM_LIBS
-		    "pthread"
-			"dl"
-			"GL"
-	        "m"
-	        "c++"
-	        "c++abi"
-	        "c"
-	        "gcc_s"
-	        "gcc"
-	    )
-	endif()
+	target_include_directories(dependencies PUBLIC ${HEADERS})
+	target_include_directories(galaxy PUBLIC ${HEADERS})
+	target_include_directories(supercluster PUBLIC ${HEADERS})
+	target_include_directories(sandbox_test PUBLIC ${HEADERS})
+	target_include_directories(tests PUBLIC ${HEADERS})
 
 	# Setup compile and linking options.
 	include(cmake/CompileDefs.cmake)
 	include(cmake/LinkDefs.cmake)
 	include(cmake/PreprocessorDefs.cmake)
+
+	# Set project to not show system/deps compiler errors.
+	target_compile_options(glfw PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(OpenAL PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
+
+	target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)
+
+	# System specific libraries.
+	set(SYSTEM_LIBS
+	    "opengl32.lib"
+		"kernel32.lib"
+	    "user32.lib"
+	    "gdi32.lib"
+	    "winspool.lib"
+	    "comdlg32.lib"
+	    "advapi32.lib"
+	    "shell32.lib"
+	    "ole32.lib"
+	    "oleaut32.lib"
+	    "uuid.lib"
+	    "winmm.lib"
+	    "Shlwapi.lib"
+	    "psapi.lib"
+	    "dsound.lib"
+	    "synchronization.lib"
+	)
+
+	target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB} ${SYSTEM_LIBS}")
+	target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB} ${SYSTEM_LIBS}")
+	target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB} ${SYSTEM_LIBS}")
 
 	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 		target_compile_definitions(dependencies PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
@@ -335,17 +282,4 @@ if (NOT ENABLE_DOXYGEN)
 	else()
 		message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 	endif()
-
-	if (NOT MSVC)
-		target_link_libraries(supercluster PUBLIC Threads::Threads)
-		target_link_libraries(sandbox_test PUBLIC Threads::Threads)
-		target_link_libraries(tests PUBLIC Threads::Threads)
-	endif()
-
-	target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB}")
-	target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
-	target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
-	target_link_libraries(supercluster PUBLIC ${SYSTEM_LIBS})
-	target_link_libraries(sandbox_test PUBLIC ${SYSTEM_LIBS})
-	target_link_libraries(tests PUBLIC ${SYSTEM_LIBS})
 endif()

@@ -1,6 +1,5 @@
 # galaxy
 [![Windows](https://ci.appveyor.com/api/projects/status/ww31j6b22u7bo1ua?svg=true)](https://ci.appveyor.com/project/reworks/galaxy)
-[![Linux](https://github.com/DomRe/galaxy/workflows/linux/badge.svg)](https://github.com/DomRe/galaxy/actions?query=workflow%3Alinux)
 [![Documentation Status](https://travis-ci.org/DomRe/galaxy.svg?branch=master)](https://domre.github.io/galaxy/)
 [![Test Coverage](https://codecov.io/gh/DomRe/galaxy/branch/master/graph/badge.svg)](https://codecov.io/gh/DomRe/galaxy)
 [![Code Quality](https://api.codacy.com/project/badge/Grade/1cac439022e2417fa82b5dbc2c320030)](https://www.codacy.com/manual/DomRe/galaxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DomRe/galaxy&amp;utm_campaign=Badge_Grade)
@@ -29,36 +28,9 @@ msbuild galaxy_engine.sln
 OR open ```galaxy_engine.sln``` and press F5 to build.
 
 ### Linux:
-Tested on Ubuntu 20.10 (groovy).
-
 ```
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt purge --auto-remove cmake
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y git g++ make pip libfreetype-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libasound2-dev libglu1-mesa-dev
-pip install cmake
-mkdir gcc11
-cd gcc11
-wget http://kayari.org/gcc-latest/gcc-latest.deb
-sudo dpkg -i gcc-latest.deb
-cd ../
-rm -rf gcc11
-git clone --recursive https://github.com/DomRe/galaxy.git galaxy
-cd galaxy
-git submodule update --init --recursive
-export PATH="~/.local/bin:$PATH"
-export PATH=/opt/gcc-latest/bin:$PATH
-export LD_RUN_PATH=/opt/gcc-latest/lib64
-export CC=/opt/gcc-latest/bin/gcc
-export CXX=/opt/gcc-latest/bin/g++
-cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DENABLE_DOXYGEN=OFF -Bbuild -H.
-cd build
-make all
+Coming soon.
 ```
-
-### Mac OS:
-```Unsupported.```
 
 ## Documentation
 See [online documentation](https://domre.github.io/galaxy/).

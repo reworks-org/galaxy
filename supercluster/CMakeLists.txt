@@ -14,12 +14,3 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     PDB_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/supercluster/bin"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/supercluster/bin"
 )
-
-# Postbuild shader copy.
-if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-    add_custom_command(TARGET supercluster POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/galaxy/src/galaxy/graphics/shaders" "${CMAKE_SOURCE_DIR}/supercluster/bin/Debug/assets/shaders")
-elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
-    add_custom_command(TARGET supercluster POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_SOURCE_DIR}/galaxy/src/galaxy/graphics/shaders" "${CMAKE_SOURCE_DIR}/supercluster/bin/Debug/assets/shaders")
-else()
-    message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
-endif()
