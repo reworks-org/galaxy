@@ -24,8 +24,39 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Task();
+			Task() noexcept;
 
+			///
+			/// Destructor.
+			///
+			~Task() noexcept;
+
+			///
+			/// Set the task to be done.
+			///
+			/// \param func Lambda or function to call when task is executed. Is moved.
+			///
+			template<typename Lambda>
+			void set(Lambda&& func) noexcept;
+
+			///
+			/// Run the task on the thread.
+			///
+			void exec() noexcept;
+
+			///
+			/// Blocks calling thread until this task is finished.
+			///
+			void wait_until_done() noexcept;
+
+			///
+			/// Check if the task is finished.
+			///
+			/// \return Const bool. True if finished.
+			///
+			[[nodiscard]] const bool is_done() noexcept;
+
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -35,35 +66,6 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			Task& operator=(const Task&) = delete;
-
-			///
-			/// Destructor.
-			///
-			~Task();
-
-			///
-			/// Set the task to be done.
-			///
-			/// \param func Lambda or function to call when task is executed. Is moved.
-			///
-			void set(std::function<void(void)>&& func);
-
-			///
-			/// Run the task on the thread.
-			///
-			void exec();
-
-			///
-			/// Blocks calling thread until this task is finished.
-			///
-			void wait_until_done();
-
-			///
-			/// Check if the task is finished.
-			///
-			/// \return Const bool. True if finished.
-			///
-			bool is_done();
 
 		private:
 			///
@@ -76,6 +78,12 @@ namespace galaxy
 			///
 			std::function<void(void)> m_task;
 		};
+
+		template<typename Lambda>
+		inline void Task::set(Lambda&& func) noexcept
+		{
+			m_task = func;
+		}
 	} // namespace async
 } // namespace galaxy
 

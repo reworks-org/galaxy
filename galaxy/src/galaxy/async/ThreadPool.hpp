@@ -33,16 +33,6 @@ namespace galaxy
 			ThreadPool();
 
 			///
-			/// Copy constructor.
-			///
-			ThreadPool(const ThreadPool&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			ThreadPool& operator=(const ThreadPool&) = delete;
-
-			///
 			/// Destructor.
 			///
 			~ThreadPool();
@@ -57,12 +47,23 @@ namespace galaxy
 			///
 			/// Start all threads.
 			///
-			void start();
+			void start() noexcept;
 
 			///
 			/// Finish all threads.
 			///
 			void end();
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			ThreadPool(const ThreadPool&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			ThreadPool& operator=(const ThreadPool&) = delete;
 
 		private:
 			///
@@ -158,7 +159,7 @@ namespace galaxy
 		}
 
 		template<std::size_t max_threads>
-		inline void ThreadPool<max_threads>::start()
+		inline void ThreadPool<max_threads>::start() noexcept
 		{
 			m_running = true;
 		}
@@ -180,7 +181,7 @@ namespace galaxy
 			m_sync.release(max_threads);
 
 			// Destroy all threads.
-			for (auto&& worker : m_workers)
+			for (auto& worker : m_workers)
 			{
 				worker.request_stop();
 				worker.join();

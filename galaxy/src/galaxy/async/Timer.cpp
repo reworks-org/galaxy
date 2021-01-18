@@ -11,22 +11,18 @@ namespace galaxy
 {
 	namespace async
 	{
-		Timer::Timer()
-		    : m_is_stopped {false}, m_repeat {false}, m_delay {0}
+		Timer::Timer() noexcept
+		    : m_repeat {false}, m_delay {1000}
 		{
 		}
 
 		Timer::~Timer()
 		{
-			if (!m_is_stopped)
-			{
-				stop();
-			}
+			stop();
 		}
 
-		void Timer::set_repeating(bool repeat)
+		void Timer::set_repeating(const bool repeat) noexcept
 		{
-			std::lock_guard<std::mutex> lock {m_mutex};
 			m_repeat = repeat;
 		}
 
@@ -35,14 +31,6 @@ namespace galaxy
 			m_repeat = false;
 			m_thread.request_stop();
 			m_thread.join();
-
-			m_is_stopped = true;
-		}
-
-		const double time_since_epoch()
-		{
-			// Return time since epoch using chrono.
-			return std::chrono::duration<double>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
 		}
 	} // namespace async
 } // namespace galaxy

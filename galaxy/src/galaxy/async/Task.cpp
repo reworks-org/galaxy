@@ -11,29 +11,25 @@ namespace galaxy
 {
 	namespace async
 	{
-		Task::Task()
+		Task::Task() noexcept
 		    : m_done {false}
 		{
 		}
 
-		Task::~Task()
+		Task::~Task() noexcept
 		{
 			m_done = true;
+			std::atomic_notify_one(&m_done);
 		}
 
-		void Task::set(std::function<void(void)>&& func)
-		{
-			m_task = std::move(func);
-		}
-
-		void Task::exec()
+		void Task::exec() noexcept
 		{
 			m_task();
 			m_done = true;
 			std::atomic_notify_one(&m_done);
 		}
 
-		void Task::wait_until_done()
+		void Task::wait_until_done() noexcept
 		{
 			if (!m_done)
 			{
@@ -41,7 +37,7 @@ namespace galaxy
 			}
 		}
 
-		bool Task::is_done()
+		const bool Task::is_done() noexcept
 		{
 			return m_done;
 		}

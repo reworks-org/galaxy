@@ -26,17 +26,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Timer();
-
-			///
-			/// Copy constructor.
-			///
-			Timer(const Timer&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			Timer& operator=(const Timer&) = delete;
+			Timer() noexcept;
 
 			///
 			/// Destructor.
@@ -48,7 +38,7 @@ namespace galaxy
 			///
 			/// \param repeat True to repeat.
 			///
-			void set_repeating(bool repeat);
+			void set_repeating(const bool repeat) noexcept;
 
 			///
 			/// \brief Run a function on a precision timer.
@@ -59,7 +49,7 @@ namespace galaxy
 			/// \param delay Delay until function is called. In milliseconds.
 			///
 			template<typename Lambda>
-			void launch(Lambda&& func, int delay);
+			void launch(Lambda&& func, int delay) noexcept;
 
 			///
 			/// \brief Stop timer.
@@ -70,10 +60,16 @@ namespace galaxy
 
 		private:
 			///
-			/// Checks if thread has already been destroyed.
+			/// Copy constructor.
 			///
-			bool m_is_stopped;
+			Timer(const Timer&) = delete;
 
+			///
+			/// Copy assignment operator.
+			///
+			Timer& operator=(const Timer&) = delete;
+
+		private:
 			///
 			/// Is function repeating on thread.
 			///
@@ -90,25 +86,19 @@ namespace galaxy
 			std::jthread m_thread;
 
 			///
-			/// Mutex to help prevent race conditions.
-			///
-			std::mutex m_mutex;
-
-			///
 			/// Callback function.
 			///
 			std::function<void(void)> m_callback;
 		};
 
 		template<typename Lambda>
-		inline void Timer::launch(Lambda&& func, int delay)
+		inline void Timer::launch(Lambda&& func, int delay) noexcept
 		{
 			m_callback = func;
 			m_delay    = delay;
 			m_thread   = std::jthread([&]() {
                                 do
                                 {
-                                        std::lock_guard<std::mutex> lock {m_mutex};
                                         std::this_thread::sleep_for(std::chrono::milliseconds(m_delay));
                                         m_callback();
                                 } while (m_repeat);
