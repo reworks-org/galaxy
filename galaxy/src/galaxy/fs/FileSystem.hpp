@@ -8,88 +8,124 @@
 #ifndef GALAXY_FS_FILESYSTEM_HPP_
 #define GALAXY_FS_FILESYSTEM_HPP_
 
-#include <string>
+#include <filesystem>
+#include <span>
+#include <string_view>
+
+#define CUR_DIR std::filesystem::current_path().string()
 
 namespace galaxy
 {
 	namespace fs
 	{
 		///
-		/// Open an open file dialog using pfd.
+		/// Virtual File System to make managing files easier.
 		///
-		/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
-		///					Defaults to all files.
-		/// \param def_path Default starting path to open dialog at.
-		///
-		std::string open_file_dialog(const std::string& filter = "*", const std::string& def_path = ".");
+		class Virtual final
+		{
+		public:
+			///
+			/// Constructor.
+			///
+			Virtual() noexcept = default;
 
-		///
-		/// Open a save file dialog using pfd.
-		///
-		/// \param def_path Default starting path to open dialog at.
-		///
-		std::string save_file_dialog(const std::string& def_path = ".");
+			///
+			/// Destructor.
+			///
+			~Virtual() noexcept;
 
-		///
-		/// Open a folder using a file dialog.
-		///
-		/// \param def_path Default starting path to open dialog at.
-		///
-		std::string folder_select_dialog(const std::string& def_path = ".");
+			///
+			/// Mounts a directory to the VFS.
+			///
+			/// \param dir Directory to add.
+			///
+			/// \return Returns false if not a directory, and does not mount if so.
+			///
+			[[maybe_unused]] const bool mount(std::string_view dir);
 
-		///
-		/// Root directory of all files.
-		///
-		inline std::string s_root;
+			///
+			/// Mounts a directory to the VFS, opening a OS dialog.
+			///
+			/// \return Returns false if not a directory, and does not mount if so.
+			///
+			[[maybe_unused]] const bool mount();
 
-		///
-		/// \brief Root directory of textures.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_textures;
+			///
+			/// Open a file and store contents in std::string.
+			///
+			/// \param file File to open.
+			///
+			/// \return Buffer in a std::string format holding read info.
+			///
+			[[nodiscard]] std::string open(std::string_view file);
 
-		///
-		/// \brief Root directory of shaders.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_shaders;
+			///
+			/// Open a binary file and store in std::span.
+			///
+			/// \param file File to open.
+			///
+			/// \return Span buffer.
+			///
+			[[nodiscard]] std::vector<char> open_binary(std::string_view file);
 
-		///
-		/// \brief Root directory of scripts.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_scripts;
+			///
+			/// \brief Saves a string to a file.
+			///
+			/// Checks for existing file to overwrite first.
+			///
+			/// \param data Data to write to file.
+			/// \param file File to save to.
+			///
+			void save(const std::string& data, std::string_view file);
 
-		///
-		/// \brief Root directory of audio.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_audio;
+			///
+			/// \brief Saves binary data to a file.
+			///
+			/// Checks for existing file to overwrite first.
+			///
+			/// \param data Data to write to file.
+			/// \param file File to overwrite.
+			///
+			void save_binary(std::span<char> data, std::string_view file);
 
-		///
-		/// \brief Root directory of json.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_json;
+			///
+			/// \brief Retrieve the absolute position of a file to load.
+			///
+			/// Searches recursively over each mount point.
+			///
+			/// \param file Name of file to get path for.
+			///
+			[[nodiscard]] std::string absolute(std::string_view file);
 
-		///
-		/// \brief Root directory of fonts.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_fonts;
+			///
+			/// Open an open file dialog using pfd.
+			///
+			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
+			///					Defaults to all files.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			[[nodiscard]] std::string show_open_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
 
-		///
-		/// \brief Root directory of save files.
-		///
-		/// Should be a subdirectory of s_root.
-		///
-		inline std::string s_saves;
+			///
+			/// Open a save file dialog using pfd.
+			///
+			/// \param def_path Default starting path to open dialog at.
+			///
+			[[nodiscard]] std::string show_save_dialog(const std::string& def_path = CUR_DIR);
+
+			///
+			/// Open a folder using a file dialog.
+			///
+			/// \param def_path Default starting path to open dialog at.
+			///
+			[[nodiscard]] std::string show_folder_dialog(const std::string& def_path = CUR_DIR);
+
+		private:
+			///
+			/// Stores mounted directories.
+			///
+			std::vector<std::filesystem::path> m_dirs;
+		};
 	} // namespace fs
 } // namespace galaxy
 

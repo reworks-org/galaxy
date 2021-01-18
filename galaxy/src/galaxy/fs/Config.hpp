@@ -8,8 +8,6 @@
 #ifndef GALAXY_FS_CONFIG_HPP_
 #define GALAXY_FS_CONFIG_HPP_
 
-#include <filesystem>
-
 #include <nlohmann/json.hpp>
 
 #include "galaxy/error/Log.hpp"
@@ -28,12 +26,12 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			Config();
+			Config() noexcept;
 
 			///
 			/// Clean up the config reader.
 			///
-			~Config() = default;
+			~Config() noexcept = default;
 
 			///
 			/// \brief Checks if config exists and flags if a config needs to be created.
@@ -45,13 +43,11 @@ namespace galaxy
 			void init(std::string_view file);
 
 			///
-			/// \brief Open a config file for reading and writing.
-			///
-			/// \param file Path to file to open.
+			/// Save the config file. Must be opened first.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool open();
+			void save();
 
 			///
 			/// Define a default key-value pair for the config file.
@@ -72,20 +68,6 @@ namespace galaxy
 			void change(std::string_view key, const Value value);
 
 			///
-			/// \brief Creates the actual config file in the FS.
-			//
-			/// Also checks that there is actually data in the config file.
-			///
-			void create();
-
-			///
-			/// Save the config file. Must be opened first.
-			///
-			/// \return True if successful.
-			///
-			void save();
-
-			///
 			/// Retrieve a config value.
 			///
 			/// \param key Name of the value to retrieve.
@@ -97,14 +79,9 @@ namespace galaxy
 
 		private:
 			///
-			/// Has the file been opened.
+			/// Has config been loaded.
 			///
-			bool m_opened;
-
-			///
-			/// Does the file exist.
-			///
-			bool m_exists;
+			bool m_loaded;
 
 			///
 			/// Config file as JSON.
@@ -114,14 +91,14 @@ namespace galaxy
 			///
 			/// Filepath.
 			///
-			std::filesystem::path m_path;
+			std::string m_path;
 		};
 
 		template<meta::standard_type Value>
 		inline void Config::define(std::string_view key, const Value value)
 		{
 			// Only need to set definitions first time around.
-			if (!m_exists)
+			if (m_loaded)
 			{
 				const auto str = static_cast<std::string>(key);
 				m_config[str]  = value;
@@ -135,27 +112,36 @@ namespace galaxy
 		template<meta::standard_type Value>
 		inline void Config::change(std::string_view key, const Value value)
 		{
-			if (m_config.count("key") > 0)
+			if (m_loaded)
 			{
-				m_config[key] = value;
+				if (m_config.count("key") > 0)
+				{
+					m_config[key] = value;
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_WARNING, "Tried to change non-existant config value.");
+				}
 			}
 			else
 			{
-				GALAXY_LOG(GALAXY_WARNING, "Tried to change non-existant config value.");
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to change value of an unloaded config file.");
 			}
 		}
 
 		template<meta::standard_type Value>
 		inline Value Config::get(std::string_view key)
 		{
-			auto str = static_cast<std::string>(key);
-
-			if (!m_opened)
+			if (m_loaded)
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Attempted to retrieve value from config that was not open!");
+				auto str = static_cast<std::string>(key);
+				return m_config[str].get<Value>();
 			}
-
-			return m_config[str].get<Value>();
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to get value of an unloaded config file.");
+				return Value {};
+			}
 		}
 	} // namespace fs
 } // namespace galaxy
