@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <sstream>
+
 #include <fmt/format.h>
 #include <glad/glad.h>
 #include <portable-file-dialogs.h>
@@ -31,9 +33,11 @@ namespace galaxy
 			// The services are configured based off of the config file.
 
 			// Log.
-			const auto time            = std::time(nullptr);
-			const std::string log_path = fmt::format("{0}{1}{2}", "logs/", std::put_time(std::localtime(&time), "%d-%m-%Y-[%H-%M]"), ".log");
+			const auto time = std::time(nullptr);
+			std::stringstream sstream;
+			sstream << std::put_time(std::localtime(&time), "%d-%m-%Y-[%H-%M]");
 
+			const std::string log_path = fmt::format("{0}{1}{2}", "logs/", sstream.str(), ".log");
 			if (!std::filesystem::exists("logs/"))
 			{
 				std::filesystem::create_directory("logs");

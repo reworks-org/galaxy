@@ -19,6 +19,7 @@
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Config.hpp"
+#include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/graphics/TextureAtlas.hpp"
 

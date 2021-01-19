@@ -8,6 +8,8 @@
 #ifndef GALAXY_CORE_WINDOWSETTINGS_HPP_
 #define GALAXY_CORE_WINDOWSETTINGS_HPP_
 
+#include <string>
+
 namespace galaxy
 {
 	namespace core

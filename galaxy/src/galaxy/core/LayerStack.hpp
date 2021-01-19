@@ -160,9 +160,7 @@ namespace galaxy
 			{
 				std::shared_ptr<Layer> layer = std::make_shared<DerivedLayer>(std::forward<Args>(args)...);
 				layer->set_name(str);
-
 				m_layers[str] = layer;
-				m_stack.push_back(layer);
 
 				return std::static_pointer_cast<DerivedLayer>(layer);
 			}
