@@ -55,26 +55,29 @@ namespace galaxy
 			SL_HANDLE.m_config = m_config.get();
 
 			m_config->init(config_file);
-			m_config->define<int>("anti-aliasing", 2);
-			m_config->define<int>("ansio-filter", 2);
-			m_config->define<bool>("vsync", true);
-			m_config->define<bool>("srgb", false);
-			m_config->define<int>("aspect-ratio-x", -1);
-			m_config->define<int>("aspect-ratio-y", -1);
-			m_config->define<bool>("raw-mouse-input", true);
-			m_config->define<std::string>("window-name", "Title");
-			m_config->define<int>("window-width", 1280);
-			m_config->define<int>("window-height", 720);
-			m_config->define<float>("line-thickness", 1.0f);
-			m_config->define<bool>("is-cursor-visible", true);
-			m_config->define<bool>("gl-debug", false);
-			m_config->define<float>("gravity-x", 0.0f);
-			m_config->define<float>("gravity-y", 0.0f);
-			m_config->define<std::string>("cursor-image", "cursor.png");
-			m_config->define<std::string>("icon-file", "icon.png");
-			m_config->define<std::string>("fontbook-json", "fontbook.json");
-			m_config->define<std::string>("shaderbook-json", "shaderbook.json");
-			m_config->define<std::string>("audiobook-json", "audiobook.json");
+			if (m_config->is_blank())
+			{
+				m_config->define<int>("anti-aliasing", 2);
+				m_config->define<int>("ansio-filter", 2);
+				m_config->define<bool>("vsync", true);
+				m_config->define<bool>("srgb", false);
+				m_config->define<int>("aspect-ratio-x", -1);
+				m_config->define<int>("aspect-ratio-y", -1);
+				m_config->define<bool>("raw-mouse-input", true);
+				m_config->define<std::string>("window-name", "Title");
+				m_config->define<int>("window-width", 1280);
+				m_config->define<int>("window-height", 720);
+				m_config->define<float>("line-thickness", 1.0f);
+				m_config->define<bool>("is-cursor-visible", true);
+				m_config->define<bool>("gl-debug", false);
+				m_config->define<float>("gravity-x", 0.0f);
+				m_config->define<float>("gravity-y", 0.0f);
+				m_config->define<std::string>("cursor-image", "cursor.png");
+				m_config->define<std::string>("icon-file", "icon.png");
+				m_config->define<std::string>("fontbook-json", "fontbook.json");
+				m_config->define<std::string>("shaderbook-json", "shaderbook.json");
+				m_config->define<std::string>("audiobook-json", "audiobook.json");
+			}
 			m_config->save();
 
 			// Threadpool.

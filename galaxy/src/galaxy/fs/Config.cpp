@@ -18,7 +18,7 @@ namespace galaxy
 	namespace fs
 	{
 		Config::Config() noexcept
-		    : m_loaded {false}
+		    : m_loaded {false}, m_blank {true}
 		{
 		}
 
@@ -29,12 +29,14 @@ namespace galaxy
 			{
 				m_path   = file;
 				m_config = nlohmann::json::object();
+				m_blank  = true;
 
 				save();
 			}
 			else
 			{
 				m_config = json::parse_from_disk(m_path);
+				m_blank  = false;
 			}
 
 			m_loaded = true;
@@ -50,6 +52,11 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Attempted to save config that was not open.");
 			}
+		}
+
+		const bool Config::is_blank() const noexcept
+		{
+			return m_blank;
 		}
 	} // namespace fs
 } // namespace galaxy

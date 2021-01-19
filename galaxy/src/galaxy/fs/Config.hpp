@@ -77,6 +77,13 @@ namespace galaxy
 			template<meta::standard_type Value>
 			[[nodiscard]] Value get(std::string_view key);
 
+			///
+			/// Check if config is blank.
+			///
+			/// \return True if blank.
+			///
+			[[nodiscard]] const bool is_blank() const noexcept;
+
 		private:
 			///
 			/// Has config been loaded.
@@ -92,6 +99,11 @@ namespace galaxy
 			/// Filepath.
 			///
 			std::string m_path;
+
+			///
+			/// Keeps track if empty.
+			///
+			bool m_blank;
 		};
 
 		template<meta::standard_type Value>
@@ -102,6 +114,8 @@ namespace galaxy
 			{
 				const auto str = static_cast<std::string>(key);
 				m_config[str]  = value;
+
+				m_blank = false;
 			}
 			else
 			{
