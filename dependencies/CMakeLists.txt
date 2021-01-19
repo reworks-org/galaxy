@@ -1,9 +1,8 @@
 project(dependencies C CXX)
 
 file(GLOB_RECURSE dependencies_src
-	"${CMAKE_SOURCE_DIR}/dependencies/cpp20/date/src/tz.cpp"
-    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/os.cc"
-    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/format.cc"
+    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/src/os.cc"
+    "${CMAKE_SOURCE_DIR}/dependencies/cpp20/fmt/src/format.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/glad/glad/glad.c"
     "${CMAKE_SOURCE_DIR}/dependencies/googletest/googlemock/src/gmock-all.cc"
     "${CMAKE_SOURCE_DIR}/dependencies/googletest/googletest/gtest-all.cc"

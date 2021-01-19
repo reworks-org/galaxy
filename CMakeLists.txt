@@ -7,6 +7,25 @@ endif()
 project(galaxy_engine LANGUAGES C CXX)
 message("Starting galaxy_engine configuration. Building for: ${CMAKE_BUILD_TYPE}")
 
+# Set to default.
+set(CMAKE_C_FLAGS_DEBUG "")
+set(CMAKE_C_FLAGS_RELEASE "")
+set(CMAKE_CXX_FLAGS "")
+set(CMAKE_CXX_FLAGS_DEBUG "")
+set(CMAKE_CXX_FLAGS_RELEASE "")
+set(CMAKE_EXE_LINKER_FLAGS "")
+set(CMAKE_MODULE_LINKER_FLAGS "")
+set(CMAKE_SHARED_LINKER_FLAGS "")
+set(CMAKE_STATIC_LINKER_FLAGS "")
+set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS}")
+set(CMAKE_MODULE_LINKER_FLAGS_DEBUG "${CMAKE_MODULE_LINKER_FLAGS}")
+set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS}")
+set(CMAKE_STATIC_LINKER_FLAGS_DEBUG "${CMAKE_STATIC_LINKER_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS}")
+set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "${CMAKE_MODULE_LINKER_FLAGS}")
+set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS}")
+set(CMAKE_STATIC_LINKER_FLAGS_RELEASE "${CMAKE_STATIC_LINKER_FLAGS}")
+
 # Language config.
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
@@ -29,15 +48,7 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 set(GALAXY_FREETYPE_HEADERS "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/include")
 set(GALAXY_FREETYPE_LIB "${CMAKE_SOURCE_DIR}/dependencies/freetype2-win/release static/win64/freetype.lib")
 set(LIB_FILE_EXT "lib")
-
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-set_source_files_properties(*.c LANGUAGE C)
-set_source_files_properties(*.cc LANGUAGE CXX)
-set_source_files_properties(*.cpp LANGUAGE CXX)
-set_source_files_properties(*.h LANGUAGE C)
-set_source_files_properties(*.hh LANGUAGE CXX)
-set_source_files_properties(*.hpp LANGUAGE CXX)
-set_source_files_properties(*.inl LANGUAGE CXX)
 
 # Add internal projects.
 add_subdirectory(dependencies)
@@ -167,10 +178,6 @@ if (NOT ENABLE_DOXYGEN)
 	target_compile_options(common PUBLIC /EHsc /W0 /experimental:external /external:anglebrackets /external:W0)
 	target_compile_options(zlib PUBLIC /W0 /experimental:external /external:anglebrackets /external:W0)
 
-	target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
-	target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)
-
 	# System specific libraries.
 	set(SYSTEM_LIBS
 	    "opengl32.lib"
@@ -191,9 +198,13 @@ if (NOT ENABLE_DOXYGEN)
 	    "synchronization.lib"
 	)
 
-	target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB} ${SYSTEM_LIBS}")
-	target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB} ${SYSTEM_LIBS}")
-	target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB} ${SYSTEM_LIBS}")
+	target_link_libraries(supercluster PUBLIC "${GALAXY_FREETYPE_LIB}")
+	target_link_libraries(sandbox_test PUBLIC "${GALAXY_FREETYPE_LIB}")
+	target_link_libraries(tests PUBLIC "${GALAXY_FREETYPE_LIB}")
+
+	target_link_libraries(supercluster PUBLIC "${SYSTEM_LIBS}")
+	target_link_libraries(sandbox_test PUBLIC "${SYSTEM_LIBS}")
+	target_link_libraries(tests PUBLIC "${SYSTEM_LIBS}")
 
 	if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
 		target_compile_definitions(dependencies PUBLIC ${GALAXY_PREPROCESSOR_FLAGS_DEBUG})
@@ -282,4 +293,8 @@ if (NOT ENABLE_DOXYGEN)
 	else()
 		message(FATAL_ERROR "Could not determine build configuration. Is currently: ${CMAKE_BUILD_TYPE}")
 	endif()
+
+	target_compile_options(supercluster PUBLIC /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(sandbox_test PUBLIC /experimental:external /external:anglebrackets /external:W0)
+	target_compile_options(tests PUBLIC /experimental:external /external:anglebrackets /external:W0)
 endif()
