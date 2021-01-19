@@ -12,7 +12,6 @@
 #include <mutex>
 #include <thread>
 
-#include <date/tz.h>
 #include <fmt/format.h>
 
 #include "galaxy/error/LogLevel.hpp"
@@ -32,9 +31,9 @@
 #define GALAXY_LOG_FINISH galaxy::error::Log::get().finish()
 
 ///
-/// Static interface handle.
+/// Set the minimum level of logging.
 ///
-#define GALAXY_LOG_GET galaxy::error::Log::get()
+#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::get().set_min_level<level>()
 
 ///
 /// INFO log level macro shortcut.
@@ -187,7 +186,7 @@ namespace galaxy
 			/// \return std::string, in caps.
 			///
 			template<loglevel_type LogLevel>
-			[[nodiscard]] std::string process_level() noexcept;
+			[[nodiscard]] constexpr std::string process_level() noexcept;
 
 			///
 			/// Colourizes the terminal text based on the log message level.
@@ -197,7 +196,7 @@ namespace galaxy
 			/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 			///
 			template<loglevel_type LogLevel>
-			[[nodiscard]] std::string process_colour() noexcept;
+			[[nodiscard]] constexpr std::string process_colour() noexcept;
 
 		private:
 			///
@@ -233,11 +232,16 @@ namespace galaxy
 			{
 				if (LogLevel::value() >= m_min_level)
 				{
-					const auto fmt_msg = fmt::format(message, args...);
-
 					std::lock_guard<std::mutex> lock {m_msg_mutex};
-					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", Log::get().process_colour<LogLevel>(), Log::get().process_level<LogLevel>(), date::format("%d-%m-%Y-[%H:%M]", date::make_zoned(date::current_zone(), std::chrono::system_clock::now())), fmt_msg);
 
+					const constexpr auto colour = Log::get().process_colour<LogLevel>();
+					const constexpr auto level  = Log::get().process_level<LogLevel>();
+					const auto fmt_msg          = fmt::format(message, args...);
+
+					const auto time_obj          = std::time(nullptr);
+					const std::string local_time = std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
+
+					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, local_time, fmt_msg);
 					if constexpr (LogLevel::value() == level::Fatal::value())
 					{
 						throw std::runtime_error {m_message};
@@ -253,7 +257,7 @@ namespace galaxy
 		}
 
 		template<loglevel_type LogLevel>
-		inline std::string Log::process_level() noexcept
+		inline constexpr std::string Log::process_level() noexcept
 		{
 			if constexpr (LogLevel::value() == level::Info::value())
 			{
@@ -278,7 +282,7 @@ namespace galaxy
 		}
 
 		template<loglevel_type LogLevel>
-		inline std::string Log::process_colour() noexcept
+		inline constexpr std::string Log::process_colour() noexcept
 		{
 			if constexpr (LogLevel::value() == level::Info::value())
 			{
