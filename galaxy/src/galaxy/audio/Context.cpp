@@ -97,7 +97,7 @@ namespace galaxy
 			}
 		}
 
-		void Context::set_listener_position(const glm::vec3& pos)
+		void Context::set_listener_position(const glm::vec3& pos) noexcept
 		{
 			alListener3f(AL_POSITION, pos.x, pos.y, pos.z);
 			if (alGetError() != AL_NO_ERROR)
@@ -106,7 +106,7 @@ namespace galaxy
 			}
 		}
 
-		void Context::set_listener_velocity(const glm::vec3& vel)
+		void Context::set_listener_velocity(const glm::vec3& vel) noexcept
 		{
 			alListener3f(AL_VELOCITY, vel.x, vel.y, vel.z);
 			if (alGetError() != AL_NO_ERROR)
@@ -115,7 +115,7 @@ namespace galaxy
 			}
 		}
 
-		void Context::set_listener_orientation(const glm::vec3& at, const glm::vec3& up)
+		void Context::set_listener_orientation(const glm::vec3& at, const glm::vec3& up) noexcept
 		{
 			const float arr[6] = {at.x, at.y, at.z, up.x, up.y, up.z};
 			alListenerfv(AL_ORIENTATION, arr);
