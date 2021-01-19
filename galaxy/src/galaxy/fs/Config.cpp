@@ -7,6 +7,7 @@
 
 #include <fstream>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -23,18 +24,20 @@ namespace galaxy
 
 		void Config::init(std::string_view file)
 		{
-			m_loaded = true;
-
-			m_path = static_cast<std::string>(file);
-			if (!std::filesystem::exists(m_path))
+			m_path = SL_HANDLE.vfs()->absolute(file);
+			if (m_path.empty())
 			{
+				m_path   = file;
 				m_config = nlohmann::json::object();
+
 				save();
 			}
 			else
 			{
 				m_config = json::parse_from_disk(m_path);
 			}
+
+			m_loaded = true;
 		}
 
 		void Config::save()
