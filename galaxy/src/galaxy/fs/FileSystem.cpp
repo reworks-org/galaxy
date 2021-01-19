@@ -155,7 +155,7 @@ namespace galaxy
 				for (const auto& dir_entry : std_fs::recursive_directory_iterator(mounted_dir, std_fs::directory_options::skip_permission_denied))
 				{
 					const auto& path = dir_entry.path();
-					if (path.filename().string() == static_cast<std::string>(file))
+					if (path.filename() == std::filesystem::path(file).filename())
 					{
 						return std_fs::absolute(path).string();
 					}
