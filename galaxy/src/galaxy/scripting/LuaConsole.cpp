@@ -30,7 +30,7 @@ namespace galaxy
 			{
 				if (ImGui::MenuItem("Run Script"))
 				{
-					auto file = fs::open_file_dialog("*.lua");
+					auto file = SL_HANDLE.vfs()->show_open_dialog("*.lua");
 					std::ifstream ifs;
 					ifs.open(std::filesystem::path(file).string(), std::ifstream::in);
 					m_buff = std::string((std::istreambuf_iterator<char>(ifs)),
