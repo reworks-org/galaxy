@@ -116,7 +116,8 @@ namespace galaxy
 			{
 				if (m_config.count("key") > 0)
 				{
-					m_config[key] = value;
+					const auto str = static_cast<std::string>(key);
+					m_config[str]  = value;
 				}
 				else
 				{
