@@ -11,24 +11,19 @@ namespace galaxy
 {
 	namespace core
 	{
-		void Layer::set_name(std::string_view name)
+		void Layer::set_name(std::string_view name) noexcept
 		{
 			m_name = static_cast<std::string>(name);
 		}
 
-		const std::string& Layer::get_name()
+		const std::string& Layer::get_name() const noexcept
 		{
 			return m_name;
 		}
 
-		Layer::Layer()
-		    : m_name {"default"}
+		Layer::Layer() noexcept
+		    : m_name {"default_layer_name"}, m_active_scene {nullptr}
 		{
-		}
-
-		Layer::Layer(std::string_view name)
-		{
-			set_name(name);
 		}
 	} // namespace core
 } // namespace galaxy

@@ -8,14 +8,14 @@
 #ifndef GALAXY_CORE_LAYER_HPP_
 #define GALAXY_CORE_LAYER_HPP_
 
-#include "galaxy/error/Log.hpp"
+#include "galaxy/core/Scene.hpp"
 
 namespace galaxy
 {
 	namespace core
 	{
 		///
-		/// Represents a "layer" in the engine, encapsulating things like events and rendering.
+		/// Represents a "layer" within a scene, encapsulating things like events and rendering.
 		///
 		class Layer
 		{
@@ -23,7 +23,17 @@ namespace galaxy
 			///
 			/// Default virtual destructor.
 			///
-			virtual ~Layer() = default;
+			virtual ~Layer() noexcept = default;
+
+			///
+			/// On push of layer to stack.
+			///
+			virtual void on_push() = 0;
+
+			///
+			/// On pop of layer off stack.
+			///
+			virtual void on_pop() = 0;
 
 			///
 			/// Process layer events.
@@ -50,35 +60,33 @@ namespace galaxy
 			///
 			/// Set layer name.
 			///
-			/// \param name Name in std::string format.
+			/// \param name String name for debug purposes.
 			///
-			void set_name(std::string_view name);
+			void set_name(std::string_view name) noexcept;
 
 			///
 			/// Get layer name.
 			///
-			/// \return Const std::string.
+			/// \return Const std::string reference.
 			///
-			const std::string& get_name();
+			[[nodiscard]] const std::string& get_name() const noexcept;
 
 		protected:
 			///
 			/// Default constructor.
 			///
-			Layer();
-
-			///
-			/// Argument constructor.
-			///
-			/// \param name Gives the layer a name.
-			///
-			explicit Layer(std::string_view name);
+			Layer() noexcept;
 
 		protected:
 			///
-			/// Layer name. Useful to have.
+			/// Layer name for debug purposes.
 			///
 			std::string m_name;
+
+			///
+			/// Active scene.
+			///
+			std::unique_ptr<Scene> m_active_scene;
 		};
 	} // namespace core
 } // namespace galaxy
