@@ -39,23 +39,14 @@ namespace galaxy
 
 			// clang-format off
 			m_thread = std::jthread([&]() {
-				std::mutex mutex;
-				std::condition_variable cv;
-
 				while (m_file_stream.is_open())
 				{
-					std::unique_lock<std::mutex> lock {mutex};
-					cv.wait(lock, [&]() {
-						return !m_message.empty();
-					});
-
-					m_msg_mutex.lock();
+					std::this_thread::sleep_for(1s);
 					
+					std::lock_guard<std::mutex> lock {m_msg_mutex};
 					std::cout << m_message;
 					m_file_stream << m_message;
 					m_message.clear();
-
-					m_msg_mutex.unlock();
 				}
 			});
 			// clang-format on

@@ -9,6 +9,8 @@
 #define GALAXY_ERROR_LOG_HPP_
 
 #include <fstream>
+#include <iomanip>
+#include <sstream>
 #include <mutex>
 #include <thread>
 
@@ -234,14 +236,16 @@ namespace galaxy
 				{
 					std::lock_guard<std::mutex> lock {m_msg_mutex};
 
-					const constexpr auto colour = Log::get().process_colour<LogLevel>();
-					const constexpr auto level  = Log::get().process_level<LogLevel>();
-					const auto fmt_msg          = fmt::format(message, args...);
+					const /*constexpr*/ auto colour = Log::get().process_colour<LogLevel>();
+					const /*constexpr*/ auto level  = Log::get().process_level<LogLevel>();
 
-					const auto time_obj          = std::time(nullptr);
-					const std::string local_time = std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
+					const auto fmt_msg  = fmt::format(message, args...);
+					const auto time_obj = std::time(nullptr);
 
-					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, local_time, fmt_msg);
+					std::stringstream sstream;
+					sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
+
+					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
 					if constexpr (LogLevel::value() == level::Fatal::value())
 					{
 						throw std::runtime_error {m_message};
