@@ -25,7 +25,8 @@ namespace galaxy
 
 	namespace core
 	{
-		class StateMachine;
+		class Window;
+		class LayerStack;
 	} // namespace core
 
 	namespace events
@@ -36,13 +37,11 @@ namespace galaxy
 	namespace fs
 	{
 		class Config;
-		class Serializer;
 		class Virtual;
 	} // namespace fs
 
 	namespace graphics
 	{
-		class Window;
 		class Renderer;
 		class TextureAtlas;
 	} // namespace graphics
@@ -97,7 +96,7 @@ namespace galaxy
 			///
 			/// \return Return pointer to window service.
 			///
-			[[maybe_unused]] graphics::Window* window() const noexcept;
+			[[maybe_unused]] core::Window* window() const noexcept;
 
 			///
 			/// Get renderer service.
@@ -116,7 +115,7 @@ namespace galaxy
 			///
 			/// Get game state service.
 			///
-			[[maybe_unused]] core::StateMachine* gamestate() const noexcept;
+			[[maybe_unused]] core::LayerStack* layerstack() const noexcept;
 
 			///
 			/// Get Dispatcher service.
@@ -124,13 +123,6 @@ namespace galaxy
 			/// \return Return pointer to Dispatcher service.
 			///
 			[[maybe_unused]] events::Dispatcher* dispatcher() const noexcept;
-
-			///
-			/// Get serializer service.
-			///
-			/// \return Return pointer to Serializer service.
-			///
-			[[maybe_unused]] fs::Serializer* serializer() const noexcept;
 
 			///
 			/// Get FontBook service.
@@ -213,7 +205,7 @@ namespace galaxy
 			///
 			/// Window service.
 			///
-			graphics::Window* m_window;
+			core::Window* m_window;
 
 			///
 			/// Renderer service.
@@ -228,17 +220,12 @@ namespace galaxy
 			///
 			/// Game state service.
 			///
-			core::StateMachine* m_state;
+			core::LayerStack* m_layers;
 
 			///
 			/// Dispatcher service.
 			///
 			events::Dispatcher* m_dispatcher;
-
-			///
-			/// Serializer service.
-			///
-			fs::Serializer* m_serializer;
 
 			///
 			/// FontBook service.

@@ -7,13 +7,13 @@
 
 #include <fmt/format.h>
 #include <glad/glad.h>
+#include <portable-file-dialogs.h>
 #include <sol/sol.hpp>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/scripting/LuaUtils.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/WindowSettings.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
 
 #include "Application.hpp"
@@ -22,7 +22,7 @@ namespace galaxy
 {
 	namespace core
 	{
-		Application::Application(std::unique_ptr<fs::Config>& config)
+		Application::Application(std::string_view asset_dir, std::string_view config_file)
 		{
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -30,35 +30,57 @@ namespace galaxy
 			// Set up all of the difference services.
 			// The services are configured based off of the config file.
 
+			// Log.
+			const auto time            = std::time(nullptr);
+			const std::string log_path = fmt::format("{0}{1}{2}", "logs/", std::put_time(std::localtime(&time), "%d-%m-%Y-[%H-%M]"), ".log");
+
+			if (!std::filesystem::exists("logs/"))
+			{
+				std::filesystem::create_directory("logs");
+			}
+
+			GALAXY_LOG_START(log_path);
+
+			// Filesystem.
+			m_vfs = std::make_unique<fs::Virtual>();
+			m_vfs->mount(asset_dir);
+			SL_HANDLE.m_vfs = m_vfs.get();
+
 			// Config reader.
-			if (!config)
-			{
-				GALAXY_LOG(GALAXY_FATAL, "Failed to initialize config.");
-			}
-			else
-			{
-				m_config           = std::move(config);
-				SL_HANDLE.m_config = m_config.get();
-			}
+			m_config           = std::make_unique<fs::Config>();
+			SL_HANDLE.m_config = m_config.get();
 
-			// FS paths.
-			fs::s_root     = m_config->get<std::string>("root-path");
-			fs::s_textures = m_config->get<std::string>("textures-path");
-			fs::s_shaders  = m_config->get<std::string>("shaders-path");
-			fs::s_scripts  = m_config->get<std::string>("scripts-path");
-			fs::s_audio    = m_config->get<std::string>("audio-path");
-			fs::s_json     = m_config->get<std::string>("json-path");
-			fs::s_fonts    = m_config->get<std::string>("font-path");
-			fs::s_saves    = m_config->get<std::string>("save-folder");
+			m_config->init(config_file);
+			m_config->define<int>("anti-aliasing", 2);
+			m_config->define<int>("ansio-filter", 2);
+			m_config->define<bool>("vsync", true);
+			m_config->define<bool>("srgb", false);
+			m_config->define<int>("aspect-ratio-x", -1);
+			m_config->define<int>("aspect-ratio-y", -1);
+			m_config->define<bool>("raw-mouse-input", true);
+			m_config->define<std::string>("window-name", "Title");
+			m_config->define<int>("window-width", 1280);
+			m_config->define<int>("window-height", 720);
+			m_config->define<float>("line-thickness", 1.0f);
+			m_config->define<bool>("is-cursor-visible", true);
+			m_config->define<bool>("gl-debug", false);
+			m_config->define<float>("gravity-x", 0.0f);
+			m_config->define<float>("gravity-y", 0.0f);
+			m_config->define<std::string>("cursor-image", "cursor.png");
+			m_config->define<std::string>("icon-file", "icon.png");
+			m_config->define<std::string>("fontbook-json", "fontbook.json");
+			m_config->define<std::string>("shaderbook-json", "shaderbook.json");
+			m_config->define<std::string>("audiobook-json", "audiobook.json");
+			m_config->save();
 
-			// threadpool
+			// Threadpool.
 			m_threadpool = std::make_unique<async::ThreadPool<4>>();
 			m_threadpool->start();
 			SL_HANDLE.m_threadpool = m_threadpool.get();
 
-			// Window
+			// Window.
 			// clang-format off
-			graphics::WindowSettings settings
+			core::WindowSettings settings
 			{
 				.m_anti_aliasing = m_config->get<int>("anti-aliasing"),
 				.m_ansio_filtering = m_config->get<int>("ansio-filter"),
@@ -75,7 +97,7 @@ namespace galaxy
 			};
 			// clang-format on
 
-			m_window           = std::make_unique<graphics::Window>();
+			m_window           = std::make_unique<core::Window>();
 			SL_HANDLE.m_window = m_window.get();
 			if (!m_window->create(settings))
 			{
@@ -85,18 +107,16 @@ namespace galaxy
 			{
 				m_window->request_attention();
 
-				bool cursor = m_config->get<bool>("is-cursor-visible");
+				const bool cursor = m_config->get<bool>("is-cursor-visible");
 				m_window->set_cursor_visibility(cursor);
 				if (cursor)
 				{
-					auto cursor_path = fs::s_root + fs::s_textures + m_config->get<std::string>("cursor-image");
-					m_window->set_cursor_icon(cursor_path);
+					m_window->set_cursor_icon(m_config->get<std::string>("cursor-image"));
 				}
 
-				auto icon_path = fs::s_root + fs::s_textures + m_config->get<std::string>("icon-file");
-				m_window->set_icon(icon_path);
+				m_window->set_icon(m_config->get<std::string>("icon-file"));
 
-				// renderer
+				// Renderer.
 				m_renderer           = std::make_unique<graphics::Renderer>();
 				SL_HANDLE.m_renderer = m_renderer.get();
 
@@ -108,29 +128,21 @@ namespace galaxy
 				m_lua->open_libraries(sol::lib::base, sol::lib::package, sol::lib::coroutine, sol::lib::string, sol::lib::os, sol::lib::math, sol::lib::table, sol::lib::io, sol::lib::utf8);
 				SL_HANDLE.m_lua = m_lua.get();
 
-				// State Machine.
-				m_state           = std::make_unique<StateMachine>();
-				SL_HANDLE.m_state = m_state.get();
+				// Layer Stack.
+				m_layerstack       = std::make_unique<LayerStack>();
+				SL_HANDLE.m_layers = m_layerstack.get();
 
 				// Event dispatcher.
 				m_dispatcher           = std::make_unique<events::Dispatcher>();
 				SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
-				// Game "world".
-				m_world           = std::make_unique<World>();
-				SL_HANDLE.m_world = m_world.get();
-
-				// Serializer.
-				m_serializer           = std::make_unique<fs::Serializer>();
-				SL_HANDLE.m_serializer = m_serializer.get();
-
 				// ShaderBook
-				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
-				SL_HANDLE.m_shaderbook = m_shaderbook.get();
+				//m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
+				//SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
 				// FontBook
-				m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
-				SL_HANDLE.m_fontbook = m_fontbook.get();
+				//m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
+				//SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
 				m_texture_atlas           = std::make_unique<graphics::TextureAtlas>();
@@ -139,6 +151,10 @@ namespace galaxy
 				// Set up custom lua functions and types.
 				lua::register_functions();
 				lua::register_audio();
+				lua::register_ecs();
+				lua::register_fs();
+				lua::register_layerstack();
+				lua::register_json();
 			}
 		}
 
@@ -147,17 +163,20 @@ namespace galaxy
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
 
-			m_world.reset();
+			m_texture_atlas.reset();
+			//m_fontbook.reset();
+			//m_shaderbook.reset();
 			m_dispatcher.reset();
-			m_state.reset();
+			m_layerstack.reset();
 			m_lua.reset();
 			m_renderer.reset();
 			m_window.reset();
 			m_threadpool.reset();
 			m_config.reset();
+			m_vfs.reset();
 		}
 
-		bool Application::run()
+		const bool Application::run()
 		{
 			using clock     = std::chrono::high_resolution_clock;
 			using ups_ratio = std::chrono::duration<double, std::ratio<1, 60>>;
@@ -179,24 +198,24 @@ namespace galaxy
 				accumulator += elapsed;
 
 				m_window->poll_events();
-				m_state->events();
+				m_layerstack->events();
 
 				while (accumulator >= ups)
 				{
-					m_state->update(ups_s);
+					m_layerstack->update(ups_s);
 					accumulator -= ups_as_nano;
 				}
 
-				m_state->pre_render();
+				m_layerstack->pre_render();
 
 				m_window->begin();
 
-				m_state->render();
+				m_layerstack->render();
 
 				m_window->end(m_renderer.get());
 			}
 
-			m_state->clear();
+			m_layerstack->clear();
 			GALAXY_LOG_FINISH;
 
 			FTLIB.close();

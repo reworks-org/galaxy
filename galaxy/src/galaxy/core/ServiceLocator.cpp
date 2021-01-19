@@ -27,7 +27,7 @@ namespace galaxy
 			return m_threadpool;
 		}
 
-		graphics::Window* ServiceLocator::window() const noexcept
+		core::Window* ServiceLocator::window() const noexcept
 		{
 			return m_window;
 		}
@@ -42,19 +42,14 @@ namespace galaxy
 			return m_lua;
 		}
 
-		core::StateMachine* ServiceLocator::gamestate() const noexcept
+		core::LayerStack* ServiceLocator::layerstack() const noexcept
 		{
-			return m_state;
+			return m_layers;
 		}
 
 		events::Dispatcher* ServiceLocator::dispatcher() const noexcept
 		{
 			return m_dispatcher;
-		}
-
-		fs::Serializer* ServiceLocator::serializer() const noexcept
-		{
-			return m_serializer;
 		}
 
 		res::FontBook* ServiceLocator::fontbook() const noexcept
@@ -83,7 +78,7 @@ namespace galaxy
 		}
 
 		ServiceLocator::ServiceLocator() noexcept
-		    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_renderer {nullptr}, m_lua {nullptr}, m_state {nullptr}, m_dispatcher {nullptr}, m_serializer {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_audiobook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}
+		    : m_restart {false}, m_config {nullptr}, m_threadpool {nullptr}, m_window {nullptr}, m_renderer {nullptr}, m_lua {nullptr}, m_layers {nullptr}, m_dispatcher {nullptr}, m_fontbook {nullptr}, m_shaderbook {nullptr}, m_audiobook {nullptr}, m_texture_atlas {nullptr}, m_vfs {nullptr}
 		{
 		}
 	} // namespace core

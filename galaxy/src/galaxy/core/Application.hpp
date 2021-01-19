@@ -15,16 +15,12 @@
 
 #include "galaxy/audio/Context.hpp"
 #include "galaxy/async/ThreadPool.hpp"
-#include "galaxy/core/World.hpp"
-#include "galaxy/core/StateMachine.hpp"
+#include "galaxy/core/LayerStack.hpp"
+#include "galaxy/core/Window.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Config.hpp"
-#include "galaxy/fs/Serializer.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/graphics/TextureAtlas.hpp"
-#include "galaxy/graphics/Window.hpp"
-#include "galaxy/res/FontBook.hpp"
-#include "galaxy/res/ShaderBook.hpp"
 
 namespace galaxy
 {
@@ -48,7 +44,7 @@ namespace galaxy
 			///
 			/// \return Returns true if the program should restart.
 			///
-			[[maybe_unused]] bool run();
+			[[maybe_unused]] const bool run();
 
 		protected:
 			///
@@ -57,10 +53,73 @@ namespace galaxy
 			/// Sets up the engine. You need to inherit this and call it from a subclass.
 			/// Also calls std::srand(std::time(nullptr)) for you.
 			///
-			/// \param config Configuration file to construct application from.
+			/// \param asset_dir Specify the base directory to mount to the Virtual File System.
+			/// \param config_file Name of the config file in the VFS. Can also include a path.
 			///
-			explicit Application(std::unique_ptr<fs::Config>& config);
+			explicit Application(std::string_view asset_dir, std::string_view config_file);
 
+		protected:
+			///
+			/// OpenAL context.
+			///
+			audio::Context m_openal;
+
+			///
+			/// Instance of a config reader to parse library config.
+			///
+			std::unique_ptr<fs::Config> m_config;
+
+			///
+			/// Threadpool for app.
+			///
+			std::unique_ptr<async::ThreadPool<4>> m_threadpool;
+
+			///
+			/// Main app window.
+			///
+			std::unique_ptr<Window> m_window;
+
+			///
+			/// Main app renderer.
+			///
+			std::unique_ptr<graphics::Renderer> m_renderer;
+
+			///
+			/// Master Lua state for application.
+			///
+			std::unique_ptr<sol::state> m_lua;
+
+			///
+			/// Controls game states (layers).
+			///
+			std::unique_ptr<LayerStack> m_layerstack;
+
+			///
+			/// Process game events.
+			///
+			std::unique_ptr<events::Dispatcher> m_dispatcher;
+
+			///
+			/// Library of all fonts.
+			///
+			//std::unique_ptr<res::FontBook> m_fontbook;
+
+			///
+			/// Library of all shaders.
+			///
+			//std::unique_ptr<res::ShaderBook> m_shaderbook;
+
+			///
+			/// Texture atlas for all textures.
+			///
+			std::unique_ptr<graphics::TextureAtlas> m_texture_atlas;
+
+			///
+			/// Virtual File System.
+			///
+			std::unique_ptr<fs::Virtual> m_vfs;
+
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -80,72 +139,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			Application& operator=(Application&&) = delete;
-
-			///
-			/// Instance of a config reader to parse library config.
-			///
-			std::unique_ptr<fs::Config> m_config;
-
-			///
-			/// Threadpool for app.
-			///
-			std::unique_ptr<async::ThreadPool<4>> m_threadpool;
-
-			///
-			/// Main app window.
-			///
-			std::unique_ptr<graphics::Window> m_window;
-
-			///
-			/// Main app renderer.
-			///
-			std::unique_ptr<graphics::Renderer> m_renderer;
-
-			///
-			/// Master Lua state for application.
-			///
-			std::unique_ptr<sol::state> m_lua;
-
-			///
-			/// Controls game states.
-			///
-			std::unique_ptr<StateMachine> m_state;
-
-			///
-			/// Process game events.
-			///
-			std::unique_ptr<events::Dispatcher> m_dispatcher;
-
-			///
-			/// The world class, which manages entities, components, systems, and other important data structures.
-			///
-			std::unique_ptr<World> m_world;
-
-			///
-			/// Main serializer.
-			///
-			std::unique_ptr<fs::Serializer> m_serializer;
-
-			///
-			/// Library of all fonts.
-			///
-			std::unique_ptr<res::FontBook> m_fontbook;
-
-			///
-			/// Library of all shaders.
-			///
-			std::unique_ptr<res::ShaderBook> m_shaderbook;
-
-			///
-			/// Texture atlas for all textures.
-			///
-			std::unique_ptr<graphics::TextureAtlas> m_texture_atlas;
-
-		private:
-			///
-			/// OpenAL context.
-			///
-			audio::Context m_openal;
 		};
 	} // namespace core
 } // namespace galaxy

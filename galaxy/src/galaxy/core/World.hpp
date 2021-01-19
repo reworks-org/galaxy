@@ -18,34 +18,34 @@
 
 namespace galaxy
 {
-	///
-	/// Predefinition of unique id structure for components.
-	///
-	using CUniqueID = meta::UniqueID<struct ComponentUniqueID>;
-
-	///
-	/// Predefinition of unique id structure for systems.
-	///
-	using SUniqueID = meta::UniqueID<struct SystemUniqueID>;
-
-	///
-	/// Container for retrieval of entities in operate() function.
-	///
-	using EntitysWithCounters = robin_hood::unordered_map<ecs::Entity, int>;
-
-	///
-	/// Shorthand for component factory map.
-	///
-	using ComponentFactory = robin_hood::unordered_map<std::string, std::function<void(const ecs::Entity, const nlohmann::json&)>>;
-
-	///
-	/// Concept to ensure a system is actually derived from a System.
-	///
-	template<typename Type>
-	concept is_system = std::derived_from<Type, ecs::System>;
-
 	namespace core
 	{
+		///
+		/// Predefinition of unique id structure for components.
+		///
+		using CUniqueID = meta::UniqueID<struct ComponentUniqueID>;
+
+		///
+		/// Predefinition of unique id structure for systems.
+		///
+		using SUniqueID = meta::UniqueID<struct SystemUniqueID>;
+
+		///
+		/// Container for retrieval of entities in operate() function.
+		///
+		using EntitysWithCounters = robin_hood::unordered_map<ecs::Entity, int>;
+
+		///
+		/// Shorthand for component factory map.
+		///
+		using ComponentFactory = robin_hood::unordered_map<std::string, std::function<void(const ecs::Entity, const nlohmann::json&)>>;
+
+		///
+		/// Concept to ensure a system is actually derived from a System.
+		///
+		template<typename Type>
+		concept is_system = std::derived_from<Type, ecs::System>;
+
 		///
 		/// Manages the entities and systems and other library stuff, like the main lua state,
 		/// and the physics world.
@@ -56,37 +56,12 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			World();
-
-			///
-			/// Copy constructor.
-			///
-			World(const World&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			World(World&&) = delete;
-
-			///
-			/// Copy assignment operator.
-			///
-			World& operator=(const World&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			World& operator=(World&&) = delete;
+			World() noexcept;
 
 			///
 			/// Destructor.
 			///
 			~World();
-
-			///
-			/// Process system events.
-			///
-			void events();
 
 			///
 			/// Update all systems.
@@ -120,14 +95,14 @@ namespace galaxy
 			///
 			/// \return Created entity.
 			///
-			const ecs::Entity create_from_json(std::string_view file);
+			[[maybe_unused]] const ecs::Entity create_from_json(std::string_view file);
 
 			///
 			/// Set a flag on a component.
 			///
 			/// \param entity Entity to set flag on.
 			///
-			template<meta::is_flag Flag>
+			template<meta::is_bitset_flag Flag>
 			void set_flag(const ecs::Entity entity);
 
 			///
@@ -135,7 +110,7 @@ namespace galaxy
 			///
 			/// \param entity Entity to unset flag on.
 			///
-			template<meta::is_flag Flag>
+			template<meta::is_bitset_flag Flag>
 			void unset_flag(const ecs::Entity entity);
 
 			///
@@ -150,30 +125,30 @@ namespace galaxy
 			/// Add (construct) a component for an entity.
 			/// Use template to specify type of component being created.
 			///
-			/// \param entity ecs::Entity to assossiate the component with.
+			/// \param entity Entity to assossiate the component with.
 			/// \param args Constructor arguments for the component.
 			///
 			/// \return Pointer to newly added component.
 			///
 			template<meta::is_class Component, typename... Args>
-			Component* create_component(const ecs::Entity entity, Args&&... args);
+			[[maybe_unused]] Component* create_component(const ecs::Entity entity, Args&&... args);
 
 			///
 			/// Retrieve a component assosiated with an entity.
 			/// Template type is type of component to get.
 			///
-			/// \param entity ecs::Entity component is assosiated with.
+			/// \param entity Entity component is assosiated with.
 			///
 			/// \return Pointer to component of type Component.
 			///
 			template<meta::is_class Component>
-			Component* get(const ecs::Entity entity);
+			[[nodiscard]] Component* get(const ecs::Entity entity);
 
 			///
 			/// Remove a component assosiated with an entity.
 			/// Template type is type of component to remove.
 			///
-			/// \param entity ecs::Entity component is assosiated with.
+			/// \param entity Entity component is assosiated with.
 			///
 			template<meta::is_class Component>
 			void remove(const ecs::Entity entity);
@@ -181,37 +156,51 @@ namespace galaxy
 			///
 			/// Destroys an entity and all associated components.
 			///
-			/// \param entity ecs::Entity to destroy.
+			/// \param entity Entity to destroy.
 			///
 			void destroy(const ecs::Entity entity);
 
 			///
 			/// Check if an entity exists.
 			///
-			/// \param entity ecs::Entity to verify.
+			/// \param entity Entity to verify.
 			///
 			/// \return True if entity does exist.
 			///
-			[[nodiscard]] const bool has(const ecs::Entity entity);
+			[[nodiscard]] const bool has(const ecs::Entity entity) noexcept;
 
 			///
 			/// Check if an entity is enabled.
 			///
-			/// \param entity ecs::Entity to check.
+			/// \param entity Entity to check.
 			///
 			/// \return True if entity is enabled.
 			///
 			[[nodiscard]] const bool is_enabled(const ecs::Entity entity);
 
 			///
+			/// Enable an entity.
+			///
+			/// \param entity Entity to enable.
+			///
+			void enable(const ecs::Entity entity);
+
+			///
+			/// Disable an entity.
+			///
+			/// \param entity Entity to disable.
+			///
+			void disable(const ecs::Entity entity);
+
+			///
 			/// Assign a name to an entity.
 			///
-			/// \param entity ecs::Entity to assign name to.
+			/// \param entity Entity to assign name to.
 			/// \param debug_name Name to assign to entity.
 			///
 			/// \return True if successful.
 			///
-			[[maybe_unused]] bool assign_name(const ecs::Entity entity, std::string_view debug_name);
+			[[maybe_unused]] const bool assign_name(const ecs::Entity entity, std::string_view debug_name) noexcept;
 
 			///
 			/// Get entity fropm debug name.
@@ -220,18 +209,18 @@ namespace galaxy
 			///
 			/// \return The entity.
 			///
-			[[nodiscard]] ecs::Entity find_from_name(std::string_view debug_name);
+			[[nodiscard]] ecs::Entity find_from_name(std::string_view debug_name) noexcept;
 
 			///
 			/// Retrieve multiple components assosiated with an entity.
 			/// Template type is type of components to get.
 			///
-			/// \param entity ecs::Entity components are assosiated with.
+			/// \param entity Entity components are assosiated with.
 			///
 			/// \return Tuple of pointers to components.
 			///
 			template<meta::is_class... Component>
-			std::tuple<Component*...> get_multi(const ecs::Entity entity);
+			[[nodiscard]] std::tuple<Component*...> get_multi(const ecs::Entity entity);
 
 			///
 			/// \brief Iterate over a set of components of a set of types and manipulate their data.
@@ -251,6 +240,14 @@ namespace galaxy
 			void operate(Lambda&& func);
 
 			///
+			/// Apply a function to each entity.
+			///
+			/// \param func Lambda is required to take in a const ecs::Entity type.
+			///
+			template<typename Lambda>
+			void each(Lambda&& func) const;
+
+			///
 			/// \brief Add a system to the manager.
 			///
 			/// Template parameter to speficy type of system to create.
@@ -267,7 +264,7 @@ namespace galaxy
 			/// \return Pointer to the system.
 			///
 			template<is_system System>
-			System* get_system();
+			[[nodiscard]] System* get_system();
 
 			///
 			/// Clear all data from World and reset.
@@ -279,15 +276,36 @@ namespace galaxy
 			///
 			/// \return Const unordered_map reference.
 			///
-			const robin_hood::unordered_map<std::string, ecs::Entity>& get_debug_name_map();
+			[[nodiscard]] const robin_hood::unordered_map<std::string, ecs::Entity>& get_debug_name_map() noexcept;
 
 		private:
+			///
+			/// Copy constructor.
+			///
+			World(const World&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			World(World&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			World& operator=(const World&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			World& operator=(World&&) = delete;
+
 			///
 			/// Called by operate().
 			///
 			template<meta::is_class Component>
 			void internal_operate(EntitysWithCounters& entities);
 
+		private:
 			///
 			/// Counter for free entity ids.
 			///
@@ -329,7 +347,7 @@ namespace galaxy
 			ComponentFactory m_component_factory;
 		};
 
-		template<meta::is_flag Flag>
+		template<meta::is_bitset_flag Flag>
 		inline void World::set_flag(const ecs::Entity entity)
 		{
 			if (has(entity))
@@ -342,7 +360,7 @@ namespace galaxy
 			}
 		}
 
-		template<meta::is_flag Flag>
+		template<meta::is_bitset_flag Flag>
 		inline void World::unset_flag(const ecs::Entity entity)
 		{
 			if (has(entity))
@@ -504,6 +522,16 @@ namespace galaxy
 						}
 					}
 				}
+			}
+		}
+
+		template<typename Lambda>
+		inline void World::each(Lambda&& func) const
+		{
+			// No need for references -> not an object.
+			for (const auto entity : m_entities)
+			{
+				func(entity);
 			}
 		}
 

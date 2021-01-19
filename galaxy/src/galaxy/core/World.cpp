@@ -7,14 +7,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/audio/Music.hpp"
-#include "galaxy/audio/Sound.hpp"
 #include "galaxy/flags/Enabled.hpp"
-#include "galaxy/graphics/anim/AnimatedBatchSprite.hpp"
-#include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/sprite/Sprite.hpp"
-#include "galaxy/graphics/sprite/BatchedSprite.hpp"
-#include "galaxy/physics/body/BodyWrapper.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "World.hpp"
@@ -23,29 +16,14 @@ namespace galaxy
 {
 	namespace core
 	{
-		World::World()
+		World::World() noexcept
 		    : m_next_id {0}
 		{
-			register_component<graphics::AnimatedBatchSprite>("AnimatedBatchSprite");
-			register_component<audio::Music>("Music");
-			register_component<physics::BodyWrapper>("BodyWrapper");
-			register_component<graphics::Shader>("Shader");
-			register_component<audio::Sound>("Sound");
-			register_component<graphics::BatchedSprite>("BatchedSprite");
-			register_component<graphics::Sprite>("Sprite");
 		}
 
 		World::~World()
 		{
 			clear();
-		}
-
-		void World::events()
-		{
-			for (const auto& ptr : m_systems)
-			{
-				ptr->events();
-			}
 		}
 
 		void World::update(const double dt)
@@ -130,7 +108,7 @@ namespace galaxy
 			m_flags.erase(entity);
 		}
 
-		const bool World::has(const ecs::Entity entity)
+		const bool World::has(const ecs::Entity entity) noexcept
 		{
 			return (std::find(m_entities.begin(), m_entities.end(), entity) != m_entities.end());
 		}
@@ -143,7 +121,17 @@ namespace galaxy
 			}
 		}
 
-		bool World::assign_name(const ecs::Entity entity, std::string_view debug_name)
+		void World::enable(const ecs::Entity entity)
+		{
+			set_flag<flags::Enabled>(entity);
+		}
+
+		void World::disable(const ecs::Entity entity)
+		{
+			unset_flag<flags::Enabled>(entity);
+		}
+
+		const bool World::assign_name(const ecs::Entity entity, std::string_view debug_name) noexcept
 		{
 			if (has(entity))
 			{
@@ -166,7 +154,7 @@ namespace galaxy
 			}
 		}
 
-		ecs::Entity World::find_from_name(std::string_view debug_name)
+		ecs::Entity World::find_from_name(std::string_view debug_name) noexcept
 		{
 			const auto str = static_cast<std::string>(debug_name);
 			if (m_debug_names.contains(str))
@@ -193,7 +181,7 @@ namespace galaxy
 			m_component_factory.clear();
 		}
 
-		const robin_hood::unordered_map<std::string, ecs::Entity>& World::get_debug_name_map()
+		const robin_hood::unordered_map<std::string, ecs::Entity>& World::get_debug_name_map() noexcept
 		{
 			return m_debug_names;
 		}
