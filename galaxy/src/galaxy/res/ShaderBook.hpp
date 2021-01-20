@@ -22,17 +22,35 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			ShaderBook() = default;
+			ShaderBook() noexcept = default;
 
 			///
 			/// JSON constructor.
 			///
-			/// \param json JSON file to load.
+			/// \param file JSON file to load.
 			///
-			explicit ShaderBook(std::string_view json);
+			ShaderBook(std::string_view file);
 
+			///
+			/// Destructor.
+			///
+			virtual ~ShaderBook() noexcept;
+
+			///
+			/// Create ShaderBook from JSON.
+			///
+			/// \param file JSON file to load.
+			///
+			void create_from_json(std::string_view file);
+
+			///
+			/// Clean up.
+			///
+			void clear() noexcept override;
+
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -52,23 +70,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			ShaderBook& operator=(ShaderBook&&) = delete;
-
-			///
-			/// Destructor.
-			///
-			virtual ~ShaderBook();
-
-			///
-			/// Create ShaderBook from JSON.
-			///
-			/// \param json JSON file to load.
-			///
-			void create_from_json(std::string_view json);
-
-			///
-			/// Clean up.
-			///
-			void clear() override;
 		};
 	} // namespace res
 } // namespace galaxy

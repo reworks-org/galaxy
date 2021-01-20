@@ -18,30 +18,27 @@ namespace galaxy
 {
 	namespace res
 	{
-		ShaderBook::ShaderBook(std::string_view json)
+		ShaderBook::ShaderBook(std::string_view file)
 		{
-			create_from_json(json);
+			create_from_json(file);
 		}
 
-		ShaderBook::~ShaderBook()
+		ShaderBook::~ShaderBook() noexcept
 		{
 			clear();
 		}
 
-		void ShaderBook::create_from_json(std::string_view json)
+		void ShaderBook::create_from_json(std::string_view file)
 		{
-			auto path        = fmt::format("{0}{1}{2}", fs::s_root, fs::s_json, json);
-			nlohmann::json j = json::parse_from_disk(path);
+			nlohmann::json json = json::parse_from_disk(file);
 
-			nlohmann::json arr = j.at("shaderbook");
-			std::for_each(arr.begin(), arr.end(), [&](const nlohmann::json& shader) {
-				auto vs = std::filesystem::path {fmt::format("{0}{1}{2}", fs::s_root, fs::s_shaders, shader[0].get<std::string>())};
-				auto fs = std::filesystem::path {fmt::format("{0}{1}{2}", fs::s_root, fs::s_shaders, shader[1].get<std::string>())};
-				create(vs.stem().string(), vs.string(), fs.string());
-			});
+			for (auto& [name, arr] : json.at("shaderbook").items())
+			{
+				create(name, arr[0].get<std::string>(), arr[1].get<std::string>());
+			}
 		}
 
-		void ShaderBook::clear()
+		void ShaderBook::clear() noexcept
 		{
 			m_resources.clear();
 		}

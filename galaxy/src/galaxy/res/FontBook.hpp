@@ -22,17 +22,35 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			FontBook() = default;
+			FontBook() noexcept = default;
 
 			///
 			/// JSON constructor.
 			///
-			/// \param json JSON file to load.
+			/// \param file JSON file to load.
 			///
-			explicit FontBook(std::string_view json);
+			FontBook(std::string_view file);
 
+			///
+			/// Destructor.
+			///
+			virtual ~FontBook() noexcept;
+
+			///
+			/// Create FontBook from JSON.
+			///
+			/// \param file JSON file to load.
+			///
+			void create_from_json(std::string_view file);
+
+			///
+			/// Clean up.
+			///
+			void clear() noexcept override;
+
+		private:
 			///
 			/// Copy constructor.
 			///
@@ -52,23 +70,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			FontBook& operator=(FontBook&&) = delete;
-
-			///
-			/// Destructor.
-			///
-			virtual ~FontBook();
-
-			///
-			/// Create FontBook from JSON.
-			///
-			/// \param json JSON file to load.
-			///
-			void create_from_json(std::string_view json);
-
-			///
-			/// Clean up.
-			///
-			void clear() override;
 		};
 	} // namespace res
 } // namespace galaxy
