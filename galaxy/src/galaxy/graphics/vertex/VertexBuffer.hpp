@@ -21,53 +21,42 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			VertexBuffer();
-
-			///
-			/// Copy constructor.
-			///
-			VertexBuffer(const VertexBuffer&) = delete;
+			VertexBuffer() noexcept;
 
 			///
 			/// Move constructor.
 			///
-			VertexBuffer(VertexBuffer&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			VertexBuffer& operator=(const VertexBuffer&) = delete;
+			VertexBuffer(VertexBuffer&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			VertexBuffer& operator=(VertexBuffer&&);
+			VertexBuffer& operator=(VertexBuffer&&) noexcept;
 
 			///
 			/// Create vertex buffer object.
 			///
-			/// \param vertices Vertexs to use.
-			/// \param dynamic_verticies Optional. True if the vertices should be copied into the OpenGL buffer for dynamic draw types.
+			/// \param vertices Vertices to use.
 			///
-			template<is_vertex VertexType, is_buffer BufferType>
+			template<meta::is_vertex VertexType>
 			void create(std::vector<VertexType>& vertices);
 
 			///
 			/// Destroys buffer.
 			///
-			~VertexBuffer();
+			~VertexBuffer() noexcept;
 
 			///
 			/// Bind the current vertex buffer to current GL context.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Unbind the current vertex buffer to current GL context.
 			///
-			void unbind();
+			void unbind() noexcept;
 
 			///
 			/// Get vertex storage.
@@ -82,7 +71,17 @@ namespace galaxy
 			///
 			/// \return Const unsigned integer.
 			///
-			[[nodiscard]] const unsigned int id() const;
+			[[nodiscard]] const unsigned int id() const noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			VertexBuffer(const VertexBuffer&) = delete;
+			///
+			/// Copy assignment operator.
+			///
+			VertexBuffer& operator=(const VertexBuffer&) = delete;
 
 		private:
 			///
@@ -96,31 +95,20 @@ namespace galaxy
 			unsigned int m_size;
 		};
 
-		template<is_vertex VertexType, is_buffer BufferType>
+		template<meta::is_vertex VertexType>
 		inline void VertexBuffer::create(std::vector<VertexType>& vertices)
 		{
 			glBindBuffer(GL_ARRAY_BUFFER, m_id);
 
-			// Now to use constexpr to check on compile time the buffer type.
-			// This is faster since we dont need to bother checking at runtime.
-			// constexpr will discard the branch that is false and it wont be compiled.
-			if constexpr (std::is_same<BufferType, BufferDynamic>::value)
+			if (!vertices.empty())
 			{
-				if (!vertices.empty())
-				{
-					m_size = static_cast<unsigned int>(vertices.size());
-					glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
-				}
-				else
-				{
-					m_size = static_cast<unsigned int>(vertices.capacity());
-					glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
-				}
+				m_size = static_cast<unsigned int>(vertices.size());
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_DYNAMIC_DRAW);
 			}
 			else
 			{
-				m_size = static_cast<unsigned int>(vertices.size());
-				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), vertices.data(), GL_STATIC_DRAW);
+				m_size = static_cast<unsigned int>(vertices.capacity());
+				glBufferData(GL_ARRAY_BUFFER, m_size * sizeof(VertexType), nullptr, GL_DYNAMIC_DRAW);
 			}
 
 			glBindBuffer(GL_ARRAY_BUFFER, 0);

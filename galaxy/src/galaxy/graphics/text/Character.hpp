@@ -28,32 +28,33 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Character();
+			Character() noexcept;
 
+			///
+			/// Move constructor.
+			///
+			Character(Character&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Character& operator=(Character&&) noexcept;
+
+			///
+			/// Destructor.
+			///
+			~Character() noexcept;
+
+		private:
 			///
 			/// Copy constructor.
 			///
 			Character(const Character&) = delete;
 
 			///
-			/// Move constructor.
-			///
-			Character(Character&&);
-
-			///
 			/// Copy assignment operator.
 			///
 			Character& operator=(const Character&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Character& operator=(Character&&);
-
-			///
-			/// Destructor.
-			///
-			~Character();
 
 		private:
 			///
@@ -79,7 +80,7 @@ namespace galaxy
 			///
 			/// Texture region.
 			///
-			graphics::Rect<float> m_region;
+			fRect m_region;
 		};
 	} // namespace graphics
 } // namespace galaxy

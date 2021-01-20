@@ -16,6 +16,7 @@
 #include <robin_hood.h>
 
 #include "galaxy/core/WindowSettings.hpp"
+#include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/sprite/Sprite.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
@@ -226,6 +227,14 @@ namespace galaxy
 			void set_on_scroll(Lambda&& func) noexcept;
 
 			///
+			/// Register an object with the window dispatch resizer.
+			///
+			/// \param obj An object with an on_event(const WindowResized& event) function.
+			///
+			template<meta::is_class Type>
+			void register_on_window_resize(const Type& obj);
+
+			///
 			/// \brief See if a key is being held down.
 			///
 			/// This will pick up repeated events.
@@ -376,6 +385,16 @@ namespace galaxy
 			/// Scroll callback function.
 			///
 			std::function<void(GLFWwindow*, double, double)> m_scrollback;
+
+			///
+			/// Framebuffer resize callback.
+			///
+			std::function<void(GLFWwindow*, int, int)> m_framebuffer_callback;
+
+			///
+			/// Triggers window resized event.
+			///
+			events::Dispatcher m_window_resized_dispatcher;
 		};
 
 		template<typename Lambda>
@@ -383,6 +402,12 @@ namespace galaxy
 		{
 			m_scrollback = func;
 			glfwSetScrollCallback(m_window, m_scrollback.target<decltype(GLFWscrollfun)>());
+		}
+
+		template<meta::is_class Type>
+		inline void galaxy::core::Window::register_on_window_resize(const Type& obj)
+		{
+			m_window_resized_dispatcher.subscribe<events::WindowResized>(obj);
 		}
 	} // namespace core
 } // namespace galaxy

@@ -31,7 +31,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			Shader();
+			Shader() noexcept;
 
 			///
 			/// Path constructor.
@@ -51,27 +51,27 @@ namespace galaxy
 			///
 			/// Copy constructor.
 			///
-			Shader(const Shader&);
+			Shader(const Shader&) noexcept;
 
 			///
 			/// Move constructor.
 			///
-			Shader(Shader&&);
+			Shader(Shader&&) noexcept;
 
 			///
 			/// Copy assignment operator.
 			///
-			Shader& operator=(const Shader&);
+			Shader& operator=(const Shader&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			Shader& operator=(Shader&&);
+			Shader& operator=(Shader&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~Shader();
+			~Shader() noexcept;
 
 			///
 			/// Loads a shader into OpenGL from source and sets up the shader program.
@@ -81,7 +81,7 @@ namespace galaxy
 			///
 			/// \return boolean True if successful.
 			///
-			[[maybe_unused]] bool load_path(std::string_view vertex_file, std::string_view fragment_file);
+			[[maybe_unused]] const bool load_path(std::string_view vertex_file, std::string_view fragment_file);
 
 			///
 			/// Loads a shader into OpenGL from raw strings and sets up the shader program.
@@ -91,17 +91,17 @@ namespace galaxy
 			///
 			/// \return boolean True if successful.
 			///
-			[[maybe_unused]] bool load_raw(const std::string& vertex_str, const std::string& fragment_str);
+			[[maybe_unused]] const bool load_raw(const std::string& vertex_str, const std::string& fragment_str);
 
 			///
 			/// Enable this shader for rendering.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Disable this currently active shader.
 			///
-			void unbind();
+			void unbind() noexcept;
 
 			///
 			/// \brief Specialized variadic template for setting shader uniforms.
@@ -120,7 +120,7 @@ namespace galaxy
 			///
 			/// \return Const bool. True if loaded.
 			///
-			[[nodiscard]] const bool is_loaded() const;
+			[[nodiscard]] const bool is_loaded() const noexcept;
 
 		private:
 			///
@@ -128,7 +128,7 @@ namespace galaxy
 			///
 			/// In a seperate function because it checks interal cache first.
 			///
-			int get_uniform_location(std::string_view name);
+			[[nodiscard]] const GLint get_uniform_location(std::string_view name);
 
 		private:
 			///
@@ -137,21 +137,21 @@ namespace galaxy
 			unsigned int m_id;
 
 			///
-			/// Cache of uniforms for better performance.
-			///
-			robin_hood::unordered_map<std::string, int> m_cache;
-
-			///
 			/// Boolean keeping track if shader is loaded.
 			///
 			bool m_loaded;
+
+			///
+			/// Cache of uniforms for better performance.
+			///
+			robin_hood::unordered_flat_map<std::string, int> m_cache;
 		};
 
 		template<typename... Uniforms>
 		inline void Shader::set_uniform(std::string_view name, const Uniforms&... args)
 		{
 			// If type does not have specialization, throw error.
-			GALAXY_LOG(GALAXY_ERROR, "Invalid shader uniform type!");
+			GALAXY_LOG(GALAXY_FATAL, "Invalid shader uniform type!");
 		}
 
 		template<>

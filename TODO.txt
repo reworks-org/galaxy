@@ -1,9 +1,13 @@
+AI:
+- AStar
+
 DEV_TOOLS:
 - physics tools
 - export to json / save as json
 - documentation
 - cleanup
 - 'static' cleanup
+- VFS mount/unmount
 
 THE PLAN:
 - Need to integrate clang-tidy and clang-format.
@@ -16,8 +20,7 @@ THE PLAN:
 - Async asset loading.
 - Each class requires ability to be serialized -> prefereably to JSON or Lua.
 - Use of coroutines over threading.
-- Proper use of 'noexcept', 'static', and 'multithreading'.
-- Every Class Should have a JSON & Lua interface.
+
 - Dependencies should only abstract away system specific implementations.
 - coroutines
 
@@ -27,3 +30,39 @@ https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
 redo unit testing
 redo CI for automated testing
 and test coverage
+
+On Build:
+Run Clang-Tidy
+Run Clang-Format
+Run Include-What-You-Use
+https://www.google.com/search?client=firefox-b-d&q=cmake+run+clang-tidy+on+build
+https://www.google.com/search?client=firefox-b-d&q=cmake+run+clang-format+on+build
+https://gernotklingler.com/blog/open-source-tools-examine-and-adjust-include-dependencies/
+https://www.fluentcpp.com/2021/01/01/include-what-you-use/
+
+MSVC code analysis
+Docs error fix after this
+register services with lua
+
+- Use EACH() in supercluster for entity_ui.
+
+supercluster:
+	- two states ("game") and ("editor")
+	- paly button switches between them.
+	- serialzie data when swtiching, then load and run game state.
+
+tilemap editor
+	- see stb tilemap on utube for ideas
+
+
+
+- Glyph.hpp shader should be constexpr
+- Loading state support?
+- lua utils in application
+
+- Application
+- Window
+- World
+- Serializer
+- Serializable
+- LuaUtils

@@ -5,8 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_EVENTS_KEYDOWN_HPP_
-#define GALAXY_EVENTS_KEYDOWN_HPP_
+#ifndef GALAXY_EVENTS_WINDOWRESIZED_HPP_
+#define GALAXY_EVENTS_WINDOWRESIZED_HPP_
 
 #include "galaxy/input/Keys.hpp"
 

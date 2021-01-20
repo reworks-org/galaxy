@@ -11,8 +11,8 @@
 #include <stb/stb_image.h>
 #include <stb/stb_image_write.h>
 
+#include "galaxy/core/Window.hpp"
 #include "galaxy/error/Log.hpp"
-#include "galaxy/graphics/Window.hpp"
 
 #include "RenderTexture.hpp"
 
@@ -20,20 +20,20 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		RenderTexture::RenderTexture()
-		    : m_projection(1.0f), m_framebuffer(0)
+		RenderTexture::RenderTexture() noexcept
+		    : m_projection {1.0f}, m_framebuffer {0}
 		{
 			glGenFramebuffers(1, &m_framebuffer);
 		}
 
 		RenderTexture::RenderTexture(const int width, const int height)
-		    : m_projection(1.0f), m_framebuffer(0)
+		    : m_projection {1.0f}, m_framebuffer {0}
 		{
 			glGenFramebuffers(1, &m_framebuffer);
 			create(width, height);
 		}
 
-		RenderTexture::RenderTexture(RenderTexture&& rt)
+		RenderTexture::RenderTexture(RenderTexture&& rt) noexcept
 		    : BaseTexture {std::move(rt)}
 		{
 			this->m_projection  = std::move(rt.m_projection);
@@ -42,7 +42,7 @@ namespace galaxy
 			rt.m_framebuffer = 0;
 		}
 
-		RenderTexture& RenderTexture::operator=(RenderTexture&& rt)
+		RenderTexture& RenderTexture::operator=(RenderTexture&& rt) noexcept
 		{
 			if (this != &rt)
 			{
@@ -56,7 +56,7 @@ namespace galaxy
 			return *this;
 		}
 
-		RenderTexture::~RenderTexture()
+		RenderTexture::~RenderTexture() noexcept
 		{
 			glBindFramebuffer(GL_TEXTURE_2D, 0);
 			glDeleteFramebuffers(1, &m_framebuffer);
@@ -109,7 +109,7 @@ namespace galaxy
 			create(width, height);
 		}
 
-		void RenderTexture::bind()
+		void RenderTexture::bind() noexcept
 		{
 			// Bind to framebuffer.
 			glBindFramebuffer(GL_FRAMEBUFFER, m_framebuffer);
@@ -120,17 +120,17 @@ namespace galaxy
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
-		void RenderTexture::unbind()
+		void RenderTexture::unbind() noexcept
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		}
 
-		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top)
+		void RenderTexture::set_projection(const float left, const float right, const float bottom, const float top) noexcept
 		{
 			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		glm::mat4& RenderTexture::get_proj()
+		const glm::mat4& RenderTexture::get_proj() noexcept
 		{
 			return m_projection;
 		}

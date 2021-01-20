@@ -8,8 +8,6 @@
 #ifndef GALAXY_GRAPHICS_VERTEX_VERTEXATTRIBUTE_HPP_
 #define GALAXY_GRAPHICS_VERTEX_VERTEXATTRIBUTE_HPP_
 
-#include <cstddef>
-
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
@@ -19,12 +17,13 @@ namespace galaxy
 		///
 		/// Specifys the attributes of a vertex array for its verticies.
 		///
-		struct VertexAttribute final
+		class VertexAttribute final
 		{
+		public:
 			///
 			/// Default constructor.
 			///
-			VertexAttribute();
+			VertexAttribute() noexcept;
 
 			///
 			/// \brief Creation constructor.
@@ -36,13 +35,14 @@ namespace galaxy
 			/// \param normalized Is this vertex normalized? I.e. GL_FALSE or GL_TRUE.
 			/// \param offset The offset of this attribute in the verticies.
 			///
-			VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset);
+			VertexAttribute(const unsigned int size, const unsigned int type, unsigned char normalized, const unsigned int offset) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~VertexAttribute() = default;
+			~VertexAttribute() noexcept = default;
 
+		public:
 			///
 			/// Components for each vertex attribute.
 			///

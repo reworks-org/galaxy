@@ -13,8 +13,8 @@
 #include <glad/glad.h>
 
 #include "galaxy/error/Log.hpp"
-#include "galaxy/graphics/GraphicsConcepts.hpp"
 #include "galaxy/graphics/vertex/VertexAttribute.hpp"
+#include "galaxy/meta/GLMeta.hpp"
 
 namespace galaxy
 {
@@ -29,12 +29,12 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			VertexLayout();
+			VertexLayout() noexcept = default;
 
 			///
 			/// Destructor.
 			///
-			~VertexLayout();
+			~VertexLayout() noexcept;
 
 			///
 			/// \brief Adds a vertex attribute to the layout.
@@ -44,15 +44,15 @@ namespace galaxy
 			///
 			/// \param size Number of components for each vertex attribute.
 			///
-			template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
-			void add(const unsigned int size);
+			template<meta::is_vertex VertexType, meta::is_vertex_attribute VertexAttribute>
+			void add(const unsigned int size) noexcept;
 
 			///
 			/// Retrieve all attributes.
 			///
 			/// \return const reference to std::vector<VertexAttribute>.
 			///
-			[[nodiscard]] const std::vector<VertexAttribute>& get_attributes() const;
+			[[nodiscard]] const std::vector<VertexAttribute>& get_attributes() const noexcept;
 
 		private:
 			///
@@ -61,8 +61,8 @@ namespace galaxy
 			std::vector<VertexAttribute> m_attributes;
 		};
 
-		template<is_vertex VertexType, is_vertex_attribute VertexAttribute>
-		inline void VertexLayout::add(const unsigned int size)
+		template<meta::is_vertex VertexType, meta::is_vertex_attribute VertexAttribute>
+		inline void VertexLayout::add(const unsigned int size) noexcept
 		{
 			// Now to use constexpr to check on compile time the buffer type.
 			// This is faster since we dont need to bother checking at runtime.
@@ -73,11 +73,11 @@ namespace galaxy
 
 			if constexpr (is_sprite_vertex)
 			{
-				if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
+				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_pos)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
+				else if constexpr (std::is_same<VertexAttribute, meta::VATexel>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(SpriteVertex, m_texels)));
 				}
@@ -88,11 +88,11 @@ namespace galaxy
 			}
 			else if constexpr (is_prim_vertex)
 			{
-				if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
+				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(PrimitiveVertex, m_pos)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, VAColour>::value)
+				else if constexpr (std::is_same<VertexAttribute, meta::VAColour>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(PrimitiveVertex, m_colour)));
 				}
@@ -103,15 +103,15 @@ namespace galaxy
 			}
 			else if constexpr (is_batch_vertex)
 			{
-				if constexpr (std::is_same<VertexAttribute, VAPosition>::value)
+				if constexpr (std::is_same<VertexAttribute, meta::VAPosition>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_pos)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, VATexel>::value)
+				else if constexpr (std::is_same<VertexAttribute, meta::VATexel>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_texels)));
 				}
-				else if constexpr (std::is_same<VertexAttribute, VAOpacity>::value)
+				else if constexpr (std::is_same<VertexAttribute, meta::VAOpacity>::value)
 				{
 					m_attributes.emplace_back(size, static_cast<unsigned int>(GL_FLOAT), static_cast<unsigned char>(GL_FALSE), static_cast<unsigned int>(offsetof(BatchedVertex, m_opacity)));
 				}

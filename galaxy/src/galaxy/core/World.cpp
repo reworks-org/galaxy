@@ -7,6 +7,9 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/components/ShaderID.hpp"
+#include "galaxy/components/Transform.hpp"
+
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -19,6 +22,8 @@ namespace galaxy
 		World::World() noexcept
 		    : m_next_id {0}
 		{
+			register_component<components::ShaderID>("ShaderID");
+			register_component<components::Transform>("Transform");
 		}
 
 		World::~World()

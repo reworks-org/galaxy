@@ -8,14 +8,42 @@
 #ifndef GALAXY_FS_SERIALIZABLE_HPP_
 #define GALAXY_FS_SERIALIZABLE_HPP_
 
+#include <concepts>
 #include <optional>
 
 #include <nlohmann/json.hpp>
+
+#include "galaxy/error/Log.hpp"
 
 namespace galaxy
 {
 	namespace fs
 	{
+		class Serializable;
+
+		///
+		/// \brief Contains a pointer to a serializable type.
+		///
+		/// This is to prevent slicing when parsing to/from json.
+		///
+		struct SerializableWrapper final
+		{
+			///
+			/// Constructor.
+			///
+			SerializableWrapper() noexcept;
+
+			///
+			/// Destructor.
+			///
+			~SerializableWrapper() noexcept;
+
+			///
+			/// Pointer to object.
+			///
+			Serializable* m_obj;
+		};
+
 		///
 		/// \brief Allows a class to be serialized.
 		///
@@ -23,50 +51,62 @@ namespace galaxy
 		///
 		class Serializable
 		{
-			friend class Serializer;
-
 		public:
 			///
 			/// Default virtual destructor.
 			///
-			virtual ~Serializable();
+			virtual ~Serializable() = default;
 
 			///
 			/// Serializes object.
 			///
 			/// \param j Json object needing to be filled out.
 			///
-			virtual nlohmann::json serialize() = 0;
+			[[nodiscard]] virtual nlohmann::json serialize() = 0;
 
 			///
 			/// Deserializes from object.
 			///
 			/// \param j Json object to retrieve data from.
 			///
-			virtual void deserialize(const nlohmann::json& j) = 0;
+			virtual void deserialize(const nlohmann::json& json) = 0;
 
 		protected:
 			///
 			/// Constructor.
 			///
-			Serializable();
+			Serializable() noexcept;
 
 		private:
 			///
-			/// Serial ID.
+			/// Wraps pointer to prevent slicing.
+			/// Automatically assigned during constructor call.
 			///
-			long m_id;
+			SerializableWrapper m_wrapper;
 		};
 
-		inline void to_json(nlohmann::json& j, const Serializable& s)
+		inline void to_json(nlohmann::json& json, const SerializableWrapper& wrapper)
 		{
-			auto* as_ptr = const_cast<fs::Serializable*>(&s);
-			j            = as_ptr->serialize();
+			if (wrapper.m_obj != nullptr)
+			{
+				json = wrapper.m_obj->serialize();
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to serialize nullptr object.");
+			}
 		}
 
-		inline void from_json(const nlohmann::json& j, Serializable& s)
+		inline void from_json(const nlohmann::json& json, SerializableWrapper& wrapper)
 		{
-			s.deserialize(j);
+			if (wrapper.m_obj != nullptr)
+			{
+				wrapper.m_obj->deserialize(json);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to deserialize nullptr object.");
+			}
 		}
 	} // namespace fs
 } // namespace galaxy

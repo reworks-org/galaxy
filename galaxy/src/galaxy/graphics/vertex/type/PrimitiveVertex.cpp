@@ -11,19 +11,27 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		PrimitiveVertex::PrimitiveVertex()
-		    : m_pos {0.0f, 0.0f}, m_colour {0, 0, 0, 255}
+		PrimitiveVertex::PrimitiveVertex() noexcept
+		    : m_pos {0.0f, 0.0f}, m_colour {0.0f, 1.0f, 0.0f, 1.0f}
 		{
 		}
 
-		PrimitiveVertex::PrimitiveVertex(const float x, const float y, graphics::Colour& col)
+		PrimitiveVertex::PrimitiveVertex(const float x, const float y, graphics::Colour& col) noexcept
 		    : m_pos {x, y}
 		{
-			auto arr   = col.get_normalized();
-			m_colour.x = arr[0];
-			m_colour.y = arr[1];
-			m_colour.z = arr[2];
-			m_colour.w = arr[3];
+			m_colour.x = col.r_normal();
+			m_colour.y = col.g_normal();
+			m_colour.z = col.b_normal();
+			m_colour.w = col.a_normal();
+		}
+
+		PrimitiveVertex::PrimitiveVertex(const glm::vec2& pos, graphics::Colour& col) noexcept
+		    : m_pos {pos}
+		{
+			m_colour.x = col.r_normal();
+			m_colour.y = col.g_normal();
+			m_colour.z = col.b_normal();
+			m_colour.w = col.a_normal();
 		}
 	} // namespace graphics
 } // namespace galaxy

@@ -9,7 +9,6 @@
 #define GALAXY_GRAPHICS_TEXTURE_TEXTURE_HPP_
 
 #include <span>
-#include <string>
 
 #include "galaxy/graphics/texture/BaseTexture.hpp"
 
@@ -28,32 +27,12 @@ namespace galaxy
 			///
 			/// Remember to call load()!
 			///
-			Texture();
-
-			///
-			/// Copy constructor.
-			///
-			Texture(const Texture&) = delete;
-
-			///
-			/// Move constructor.
-			///
-			Texture(Texture&&) = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			Texture& operator=(const Texture&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Texture& operator=(Texture&&) = default;
+			Texture() noexcept;
 
 			///
 			/// Virtual destructor.
 			///
-			virtual ~Texture();
+			virtual ~Texture() noexcept = default;
 
 			///
 			/// \brief Loads texture from file.
@@ -80,7 +59,7 @@ namespace galaxy
 			/// \param width Width of texture.
 			/// \param height Height of texture.
 			///
-			void load(const unsigned int id, const int width, const int height);
+			void load(const unsigned int id, const int width, const int height) noexcept;
 
 			///
 			/// Load based off params from glTexImage2D.
@@ -94,17 +73,28 @@ namespace galaxy
 			/// \param type https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 			/// \param pixels https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml.
 			///
-			void load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels);
+			void load(int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void* pixels) noexcept;
 
 			///
 			/// Activate texture context.
 			///
-			void bind() override;
+			void bind() noexcept override;
 
 			///
 			/// Deactivate texture context.
 			///
-			void unbind() override;
+			void unbind() noexcept override;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Texture(const Texture&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Texture& operator=(const Texture&) = delete;
 		};
 	} // namespace graphics
 } // namespace galaxy

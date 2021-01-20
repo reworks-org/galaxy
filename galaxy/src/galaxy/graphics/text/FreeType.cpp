@@ -13,7 +13,7 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		FreeTypeLib& FreeTypeLib::handle()
+		FreeTypeLib& FreeTypeLib::handle() noexcept
 		{
 			static FreeTypeLib lib;
 			return lib;
@@ -27,12 +27,12 @@ namespace galaxy
 			}
 		}
 
-		void FreeTypeLib::close()
+		void FreeTypeLib::close() noexcept
 		{
 			FT_Done_FreeType(m_freetype_lib);
 		}
 
-		FT_Library& FreeTypeLib::lib()
+		FT_Library& FreeTypeLib::lib() noexcept
 		{
 			return m_freetype_lib;
 		}

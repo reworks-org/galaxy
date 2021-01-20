@@ -25,17 +25,17 @@
 ///
 /// \param log_file Log file path.
 ///
-#define GALAXY_LOG_START(log_file) galaxy::error::Log::get().start(log_file)
+#define GALAXY_LOG_START(log_file) galaxy::error::Log::handle().start(log_file)
 
 ///
 /// Log macro for start().
 ///
-#define GALAXY_LOG_FINISH galaxy::error::Log::get().finish()
+#define GALAXY_LOG_FINISH galaxy::error::Log::handle().finish()
 
 ///
 /// Set the minimum level of logging.
 ///
-#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::get().set_min_level<level>()
+#define GALAXY_LOG_SET_MIN_LEVEL(level) galaxy::error::Log::handle().set_min_level<level>()
 
 ///
 /// INFO log level macro shortcut.
@@ -68,17 +68,17 @@
 /// \param level Log error level.
 /// \param ... Message and arguments to format and log.
 ///
-#define GALAXY_LOG(level, ...) galaxy::error::Log::get().log<level>(__VA_ARGS__)
+#define GALAXY_LOG(level, ...) galaxy::error::Log::handle().log<level>(__VA_ARGS__)
 
 ///
 /// Enable testing mode.
 ///
-#define GALAXY_ENABLE_TESTING_MODE galaxy::error::testing_mode = galaxy::error::TestingMode::true_val()
+#define GALAXY_ENABLE_TESTING_MODE galaxy::error::TestingMode::value = galaxy::error::TestingMode::true_val
 
 ///
 /// Disable testing mode.
 ///
-#define GALAXY_DISABLE_TESTING_MODE galaxy::error::testing_mode = galaxy::error::TestingMode::false_val()
+#define GALAXY_DISABLE_TESTING_MODE galaxy::error::TestingMode::value = galaxy::error::TestingMode::false_val
 
 // clang-format on
 
@@ -93,15 +93,8 @@ namespace galaxy
 		///
 		struct TestingMode
 		{
-			[[nodiscard]] static inline constexpr auto true_val() noexcept
-			{
-				return true;
-			}
-
-			[[nodiscard]] static inline constexpr auto false_val() noexcept
-			{
-				return false;
-			}
+			inline static constexpr auto true_val  = true;
+			inline static constexpr auto false_val = false;
 
 			inline static constexpr bool value = false;
 		};
@@ -123,7 +116,7 @@ namespace galaxy
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[no_discard]] static Log& get() noexcept;
+			[[no_discard]] static Log& handle() noexcept;
 
 			///
 			/// Initialize logging and set up destination file.
@@ -188,7 +181,7 @@ namespace galaxy
 			/// \return std::string, in caps.
 			///
 			template<loglevel_type LogLevel>
-			[[nodiscard]] constexpr std::string process_level() noexcept;
+			[[nodiscard]] constexpr const char* process_level() noexcept;
 
 			///
 			/// Colourizes the terminal text based on the log message level.
@@ -198,7 +191,7 @@ namespace galaxy
 			/// \return Colour code in std::string on Unix, std::blank string on Windows (set via console library).
 			///
 			template<loglevel_type LogLevel>
-			[[nodiscard]] constexpr std::string process_colour() noexcept;
+			[[nodiscard]] constexpr const char* process_colour() noexcept;
 
 		private:
 			///
@@ -232,12 +225,12 @@ namespace galaxy
 		{
 			if constexpr (!TestingMode::value)
 			{
-				if (LogLevel::value() >= m_min_level)
+				if (LogLevel::value >= m_min_level)
 				{
 					std::lock_guard<std::mutex> lock {m_msg_mutex};
 
-					const /*constexpr*/ auto colour = Log::get().process_colour<LogLevel>();
-					const /*constexpr*/ auto level  = Log::get().process_level<LogLevel>();
+					const constexpr auto colour = process_colour<LogLevel>();
+					const constexpr auto level  = process_level<LogLevel>();
 
 					const auto fmt_msg  = fmt::format(message, args...);
 					const auto time_obj = std::time(nullptr);
@@ -246,7 +239,7 @@ namespace galaxy
 					sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
 
 					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
-					if constexpr (LogLevel::value() == level::Fatal::value())
+					if constexpr (LogLevel::value == level::Fatal::value)
 					{
 						throw std::runtime_error {m_message};
 					}
@@ -257,54 +250,54 @@ namespace galaxy
 		template<loglevel_type LogLevel>
 		inline void Log::set_min_level() noexcept
 		{
-			m_min_level = LogLevel::value();
+			m_min_level = LogLevel::value;
 		}
 
 		template<loglevel_type LogLevel>
-		inline constexpr std::string Log::process_level() noexcept
+		inline constexpr const char* Log::process_level() noexcept
 		{
-			if constexpr (LogLevel::value() == level::Info::value())
+			if constexpr (LogLevel::value == level::Info::value)
 			{
 				return "INFO";
 			}
-			else if constexpr (LogLevel::value() == level::Debug::value())
+			else if constexpr (LogLevel::value == level::Debug::value)
 			{
 				return "DEBUG";
 			}
-			else if constexpr (LogLevel::value() == level::Warning::value())
+			else if constexpr (LogLevel::value == level::Warning::value)
 			{
 				return "WARNING";
 			}
-			else if constexpr (LogLevel::value() == level::Error::value())
+			else if constexpr (LogLevel::value == level::Error::value)
 			{
 				return "ERROR";
 			}
-			else if constexpr (LogLevel::value() == level::Fatal::value())
+			else if constexpr (LogLevel::value == level::Fatal::value)
 			{
 				return "FATAL";
 			}
 		}
 
 		template<loglevel_type LogLevel>
-		inline constexpr std::string Log::process_colour() noexcept
+		inline constexpr const char* Log::process_colour() noexcept
 		{
-			if constexpr (LogLevel::value() == level::Info::value())
+			if constexpr (LogLevel::value == level::Info::value)
 			{
 				return "\x1B[37m";
 			}
-			else if constexpr (LogLevel::value() == level::Debug::value())
+			else if constexpr (LogLevel::value == level::Debug::value)
 			{
 				return "\x1B[37m";
 			}
-			else if constexpr (LogLevel::value() == level::Warning::value())
+			else if constexpr (LogLevel::value == level::Warning::value)
 			{
 				return "\x1B[33m";
 			}
-			else if constexpr (LogLevel::value() == level::Error::value())
+			else if constexpr (LogLevel::value == level::Error::value)
 			{
 				return "\x1B[31m";
 			}
-			else if constexpr (LogLevel::value() == level::Fatal::value())
+			else if constexpr (LogLevel::value == level::Fatal::value)
 			{
 				return "\x1B[31m";
 			}

@@ -11,16 +11,12 @@ namespace galaxy
 {
 	namespace graphics
 	{
-		VertexLayout::VertexLayout()
-		{
-		}
-
-		VertexLayout::~VertexLayout()
+		VertexLayout::~VertexLayout() noexcept
 		{
 			m_attributes.clear();
 		}
 
-		const std::vector<VertexAttribute>& VertexLayout::get_attributes() const
+		const std::vector<VertexAttribute>& VertexLayout::get_attributes() const noexcept
 		{
 			return m_attributes;
 		}

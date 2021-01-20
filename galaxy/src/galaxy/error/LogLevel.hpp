@@ -21,10 +21,9 @@ namespace galaxy
 			///
 			struct Info
 			{
-				[[nodiscard]] static inline constexpr auto value() noexcept
-				{
-					return 0;
-				}
+				Info() = delete;
+
+				inline static const constexpr auto value = 0;
 			};
 
 			///
@@ -32,10 +31,9 @@ namespace galaxy
 			///
 			struct Debug
 			{
-				[[nodiscard]] static inline constexpr auto value() noexcept
-				{
-					return 1;
-				}
+				Debug() = delete;
+
+				inline static const constexpr auto value = 1;
 			};
 
 			///
@@ -43,10 +41,9 @@ namespace galaxy
 			///
 			struct Warning
 			{
-				[[nodiscard]] static inline constexpr auto value() noexcept
-				{
-					return 2;
-				}
+				Warning() = delete;
+
+				inline static const constexpr auto value = 2;
 			};
 
 			///
@@ -54,10 +51,9 @@ namespace galaxy
 			///
 			struct Error
 			{
-				[[nodiscard]] static inline constexpr auto value() noexcept
-				{
-					return 3;
-				}
+				Error() = delete;
+
+				inline static const constexpr auto value = 3;
 			};
 
 			///
@@ -65,10 +61,9 @@ namespace galaxy
 			///
 			struct Fatal
 			{
-				[[nodiscard]] static inline constexpr auto value() noexcept
-				{
-					return 4;
-				}
+				Fatal() = delete;
+
+				inline static const constexpr auto value = 4;
 			};
 		} // namespace level
 

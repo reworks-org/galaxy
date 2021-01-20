@@ -17,7 +17,7 @@ namespace galaxy
 		///
 		/// Glyph vertex shader.
 		///
-		inline const std::string glyph_vs = R"(
+		inline const std::string glyph_vert = R"(
 				#version 450 core
 				layout (location = 0) in vec4 vertex;
 		
@@ -35,7 +35,7 @@ namespace galaxy
 		///
 		/// Glyph fragment shader.
 		///
-		inline const std::string glyph_fs = R"(
+		inline const std::string glyph_frag = R"(
 				#version 450 core
 
 				in vec2 io_texels;

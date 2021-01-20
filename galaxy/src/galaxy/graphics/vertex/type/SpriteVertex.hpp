@@ -19,12 +19,13 @@ namespace galaxy
 		///
 		/// Represents a single SpriteVertex of a primitive.
 		///
-		struct SpriteVertex final
+		class SpriteVertex final
 		{
+		public:
 			///
 			/// Default constructor.
 			///
-			SpriteVertex();
+			SpriteVertex() noexcept;
 
 			///
 			/// Argument constructor.
@@ -34,13 +35,22 @@ namespace galaxy
 			/// \param u Texel x pos.
 			/// \param v Texel y pos.
 			///
-			SpriteVertex(const float x, const float y, const float u, const float v);
+			SpriteVertex(const float x, const float y, const float u, const float v) noexcept;
+
+			///
+			/// Argument constructor.
+			///
+			/// \param pos Vec2 position.
+			/// \param texels Vec2 texture coords.
+			///
+			SpriteVertex(const glm::vec2& pos, const glm::vec2& texels) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~SpriteVertex() = default;
+			~SpriteVertex() noexcept = default;
 
+		public:
 			///
 			/// Position of SpriteVertex.
 			///

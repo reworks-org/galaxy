@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include "galaxy/core/World.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "Serializer.hpp"
@@ -13,50 +15,31 @@ namespace galaxy
 {
 	namespace fs
 	{
-		Serializer::Serializer()
-		    : m_counter {0}
+		void serialize(std::string_view file)
 		{
+			nlohmann::json json = "{}"_json;
+			json["entities"]    = nlohmann::json::object();
+
+			//world->each([&](const ecs::Entity entity) {
+			//json["enabled"] = world->is_enabled(entity);
+			//auto* [comps] = world->get_multi<COMPS>(entity);
+			// Then call each comp and cast to a serializable pointer.
+			// then save.
+			//	});
+
+			json::save_to_disk(file, json);
 		}
 
-		Serializer::~Serializer()
-		{
-			m_objects.clear();
-		}
-
-		unsigned int Serializer::register_obj(Serializable* s)
-		{
-			const auto id = m_counter++;
-			s->m_id       = id;
-
-			m_objects[id] = s;
-			return id;
-		}
-
-		void Serializer::remove(const unsigned int id)
-		{
-			if (m_objects.contains(id))
-			{
-				m_objects.erase(id);
-			}
-		}
-
-		void Serializer::serialize(std::string_view file)
-		{
-			nlohmann::json root;
-			for (auto& [id, obj] : m_objects)
-			{
-				root[std::to_string(id)] = *obj;
-			}
-
-			json::save_to_disk(file, root);
-		}
-
-		void Serializer::deserialize(std::string_view file)
+		void deserialize(std::string_view file)
 		{
 			nlohmann::json json = json::parse_from_disk(file);
-			for (auto& [key, value] : json.items())
+			if (json.count("entities") > 0)
 			{
-				value.get_to(*m_objects[std::stol(key)]);
+				auto entities = json.at("entities");
+				for (auto& [entity, data] : entities.items())
+				{
+					// https://youtu.be/IEiOP7Y-Mbc?t=1705
+				}
 			}
 		}
 	} // namespace fs

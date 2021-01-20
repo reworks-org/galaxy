@@ -14,6 +14,7 @@
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/post/PostEffect.hpp"
 #include "galaxy/graphics/Renderer.hpp"
@@ -130,9 +131,10 @@ namespace galaxy
 						glfwSetWindowUserPointer(m_window, reinterpret_cast<void*>(this));
 
 						// Set resize callback.
-						glfwSetFramebufferSizeCallback(m_window, [](GLFWwindow* window, int w, int h) {
-							reinterpret_cast<Window*>(glfwGetWindowUserPointer(window))->resize(w, h);
-						});
+						m_framebuffer_callback = [this](GLFWwindow* window, int w, int h) {
+							this->resize(w, h);
+						};
+						glfwSetFramebufferSizeCallback(m_window, m_framebuffer_callback.target<void(GLFWwindow*, int, int)>());
 
 						// Set vsync.
 						glfwSwapInterval(settings.m_vsync);
@@ -154,10 +156,23 @@ namespace galaxy
 						if (settings.m_gl_debug)
 						{
 							glEnable(GL_DEBUG_OUTPUT);
-							glDebugMessageCallback([](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam) -> void {
-								GALAXY_LOG(GALAXY_WARNING, "[OpenGL] - [ {0}, {1}, {2}, {3}, {4} ] - {5}.", source, type, id, severity, length, message);
+							glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+							// clang-format off
+							glDebugMessageCallback(
+							[](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
+							{
+								switch (severity)
+								{
+									case GL_DEBUG_SEVERITY_HIGH: GALAXY_LOG(GALAXY_ERROR, "[OpenGL] - {0}.", message); break;
+									case GL_DEBUG_SEVERITY_MEDIUM: GALAXY_LOG(GALAXY_WARNING, "[OpenGL] - {0}.", message); break;
+									case GL_DEBUG_SEVERITY_LOW: GALAXY_LOG(GALAXY_DEBUG, "[OpenGL] - {0}.", message); break;
+									case GL_DEBUG_SEVERITY_NOTIFICATION: GALAXY_LOG(GALAXY_INFO, "[OpenGL] - {0}.", message); break;
+								};
 							},
-									       nullptr);
+							nullptr);
+							// clang-format on
+
+							glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
 						}
 
 						// Enable MSAA.
@@ -166,6 +181,10 @@ namespace galaxy
 						// Set up blending.
 						glEnable(GL_BLEND);
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+						// Set up depth testing.
+						// 3D?
+						//glEnable(GL_DEPTH_TEST);
 
 						// Allow for changing vertex point size.
 						glEnable(GL_PROGRAM_POINT_SIZE);
@@ -562,6 +581,8 @@ namespace galaxy
 			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 			m_fb_sprite->create<graphics::BufferStatic>();
 
+			m_window_resized_dispatcher.trigger<events::WindowResized>(width, height);
+
 			glfwSetWindowSize(m_window, width, height);
 		}
 
@@ -683,6 +704,11 @@ namespace galaxy
 		GLFWwindow* Window::gl_window() noexcept
 		{
 			return m_window;
+		}
+
+		std::function<void(GLFWwindow*, int, int)>& Window::get_resize_callback() noexcept
+		{
+			return m_framebuffer_callback;
 		}
 
 		const int Window::get_width() const noexcept

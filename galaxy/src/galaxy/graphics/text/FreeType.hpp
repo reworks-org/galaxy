@@ -14,7 +14,7 @@
 ///
 /// Shortcut Macro.
 ///
-#define FTLIB graphics::FreeTypeLib::handle()
+#define FT_HANDLE galaxy::graphics::FreeTypeLib::handle()
 
 ///
 /// OK return value macro.
@@ -31,6 +31,41 @@ namespace galaxy
 		class FreeTypeLib final
 		{
 		public:
+			///
+			/// Destructor.
+			///
+			~FreeTypeLib() noexcept = default;
+
+			///
+			/// Get handle to library.
+			///
+			/// \return Refernce to this static instance.
+			///
+			static FreeTypeLib& handle() noexcept;
+
+			///
+			/// Open library.
+			///
+			void open();
+
+			///
+			/// Close library.
+			///
+			void close() noexcept;
+
+			///
+			/// Handle to FT library.
+			///
+			/// \return Reference to FT_Library.
+			///
+			[[nodiscard]] FT_Library& lib() noexcept;
+
+		private:
+			///
+			/// Constructor.
+			///
+			FreeTypeLib() noexcept = default;
+
 			///
 			/// Copy constructor.
 			///
@@ -50,41 +85,6 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			FreeTypeLib& operator=(FreeTypeLib&&) = delete;
-
-			///
-			/// Destructor.
-			///
-			~FreeTypeLib() = default;
-
-			///
-			/// Get handle to library.
-			///
-			/// \return Refernce to this static instance.
-			///
-			static FreeTypeLib& handle();
-
-			///
-			/// Open library.
-			///
-			void open();
-
-			///
-			/// Close library.
-			///
-			void close();
-
-			///
-			/// Handle to FT library.
-			///
-			/// \return Reference to FT_Library.
-			///
-			[[nodiscard]] FT_Library& lib();
-
-		private:
-			///
-			/// Constructor.
-			///
-			FreeTypeLib() = default;
 
 		private:
 			///

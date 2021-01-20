@@ -25,7 +25,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			Font();
+			Font() noexcept;
 
 			///
 			/// Argument constructor.
@@ -38,39 +38,29 @@ namespace galaxy
 			Font(std::string_view filepath, const int size);
 
 			///
-			/// Copy constructor.
-			///
-			Font(const Font&) = delete;
-
-			///
 			/// Move constructor.
 			///
-			Font(Font&&) = default;
-
-			///
-			/// Copy assignment operator.
-			///
-			Font& operator=(const Font&) = delete;
+			Font(Font&&) noexcept = default;
 
 			///
 			/// Move assignment operator.
 			///
-			Font& operator=(Font&&) = default;
+			Font& operator=(Font&&) noexcept = default;
 
 			///
 			/// Destructor.
 			///
-			~Font();
+			~Font() noexcept;
 
 			///
 			/// Creates the font and sets up characters.
 			///
-			/// \param filepath Path to the font file.
+			/// \param file Path to the font file.
 			/// \param size Font size.
 			///
 			/// \return True if successful.
 			///
-			bool create(std::string_view filepath, const int size);
+			[[maybe_unused]] const bool create(std::string_view file, const int size);
 
 			///
 			/// Get a character.
@@ -79,28 +69,39 @@ namespace galaxy
 			///
 			/// \return Pointer to character object.
 			///
-			[[nodiscard]] Character* get_char(char c);
+			[[nodiscard]] Character* get_char(char c) noexcept;
 
 			///
 			/// Get fontmap.
 			///
 			/// \return Pointer to fontmap.
 			///
-			[[nodiscard]] RenderTexture* get_fontmap();
+			[[nodiscard]] RenderTexture* get_fontmap() noexcept;
 
 			///
 			/// Retrieve width of a string of text.
 			///
 			/// \param text Text to get width of.
 			///
-			[[nodiscard]] const int get_width(std::string_view text);
+			[[nodiscard]] const int get_width(std::string_view text) noexcept;
 
 			///
 			/// Retrieve font height.
 			///
 			/// \return Const integer.
 			///
-			[[nodiscard]] const int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			Font(const Font&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Font& operator=(const Font&) = delete;
 
 		private:
 			///

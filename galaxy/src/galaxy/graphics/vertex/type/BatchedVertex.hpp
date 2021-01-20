@@ -19,12 +19,13 @@ namespace galaxy
 		///
 		/// Represents a single BatchedVertex of a primitive.
 		///
-		struct BatchedVertex final
+		class BatchedVertex final
 		{
+		public:
 			///
 			/// Default constructor.
 			///
-			BatchedVertex();
+			BatchedVertex() noexcept;
 
 			///
 			/// Argument constructor.
@@ -35,13 +36,22 @@ namespace galaxy
 			/// \param v Texel y pos.
 			/// \param opacity 1.0f = Opaque, 0.0f = Transparent.
 			///
-			BatchedVertex(const float x, const float y, const float u, const float v, const float opacity);
+			BatchedVertex(const float x, const float y, const float u, const float v, const float opacity) noexcept;
+
+			///
+			/// Argument constructor.
+			///
+			/// \param pos Vec2 position.
+			/// \param texels Vec2 texture coords.
+			///
+			BatchedVertex(const glm::vec2& pos, const glm::vec2& texels, const float opacity) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~BatchedVertex() = default;
+			~BatchedVertex() noexcept = default;
 
+		public:
 			///
 			/// Position of BatchedVertex.
 			///

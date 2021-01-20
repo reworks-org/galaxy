@@ -5,24 +5,58 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "Camera.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		Camera::Camera()
-		    : m_scale {0.0}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
+		Camera::Camera() noexcept
+		    : m_move_up {false},
+		      m_move_down {false},
+		      m_move_left {false},
+		      m_move_right {false},
+		      m_speed {1.0f},
+		      m_width {1.0f},
+		      m_height {1.0f},
+		      m_projection {1.0f}
 		{
+			set_rotation_origin(m_width / 2.0f, m_height / 2.0f);
 		}
 
-		Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed)
-		    : m_scale {0.0}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed(speed), m_width {0.0f}, m_height {0.0f}, m_projection {1.0f}
+		Camera::Camera(const nlohmann::json& json) noexcept
+		    : m_move_up {false},
+		      m_move_down {false},
+		      m_move_left {false},
+		      m_move_right {false},
+		      m_speed {1.0f},
+		      m_width {1.0f},
+		      m_height {1.0f},
+		      m_projection {1.0f}
+		{
+			create(0.0f, json.at("width"), json.at("height"), 0.0f);
+			m_speed = json.at("speed");
+
+			set_rotation_origin(m_width / 2.0f, m_height / 2.0f);
+		}
+
+		Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
+		    : m_move_up {false},
+		      m_move_down {false},
+		      m_move_left {false},
+		      m_move_right {false},
+		      m_speed {speed},
+		      m_width {1.0f},
+		      m_height {1.0f},
+		      m_projection {1.0f}
 		{
 			create(left, right, bottom, top);
+			set_rotation_origin(m_width / 2.0f, m_height / 2.0f);
 		}
 
-		void Camera::create(const float left, const float right, const float bottom, const float top)
+		void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
 		{
 			if (right > left)
 			{
@@ -45,7 +79,7 @@ namespace galaxy
 			m_projection = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		}
 
-		void Camera::on_key_down(const events::KeyDown& e)
+		void Camera::on_key_down(const events::KeyDown& e) noexcept
 		{
 			switch (e.m_keycode)
 			{
@@ -67,7 +101,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_key_up(const events::KeyUp& e)
+		void Camera::on_key_up(const events::KeyUp& e) noexcept
 		{
 			switch (e.m_keycode)
 			{
@@ -89,7 +123,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_mouse_scroll(const events::MouseWheel& e)
+		void Camera::on_mouse_scroll(const events::MouseWheel& e) noexcept
 		{
 			if (e.m_y_offset < 0)
 			{
@@ -100,49 +134,58 @@ namespace galaxy
 				m_scale += 0.1;
 			}
 
-			this->scale(static_cast<float>(m_scale));
+			scale(m_scale);
 		}
 
-		void Camera::update(const double ts)
+		void Camera::on_window_resized(const events::WindowResized& e) noexcept
 		{
-			const float tsf = static_cast<float>(ts);
+			create(0.0f, e.m_width, e.m_height, 0.0f);
+		}
+
+		void Camera::update(const double ts) noexcept
+		{
 			if (m_move_up)
 			{
-				move(0.0f, tsf * m_speed);
+				move(0.0f, ts * m_speed);
 			}
 
 			if (m_move_down)
 			{
-				move(0.0f, (tsf * m_speed) * -1.0f);
+				move(0.0f, (ts * m_speed) * -1.0f);
 			}
 
 			if (m_move_left)
 			{
-				move(tsf * m_speed, 0.0f);
+				move(ts * m_speed, 0.0f);
 			}
 
 			if (m_move_right)
 			{
-				move((tsf * m_speed) * -1.0f, 0.0f);
+				move((ts * m_speed) * -1.0f, 0.0f);
 			}
 		}
 
-		void Camera::set_speed(const float speed)
+		void Camera::set_speed(const float speed) noexcept
 		{
 			m_speed = speed;
 		}
 
-		const float Camera::get_width() const
+		const float Camera::get_speed() const noexcept
+		{
+			return m_speed;
+		}
+
+		const float Camera::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const float Camera::get_height() const
+		const float Camera::get_height() const noexcept
 		{
 			return m_height;
 		}
 
-		const glm::mat4& Camera::get_proj()
+		const glm::mat4& Camera::get_proj() noexcept
 		{
 			return m_projection;
 		}

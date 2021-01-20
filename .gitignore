@@ -5,8 +5,8 @@ Thumbs.db
 # Project stuff.
 .vs/
 build/
-legacy/
 output/
+legacy/assets
 
 # Build junk.
 supercluster/bin/Debug/*.exe

@@ -1,0 +1,149 @@
+Restructure Design Document.
+
+Modules:
+- AI
+- Algorithms
+	- Generic [Done]
+	- Random [Done]
+	- Rectangle Packing [Done]
+- Async
+	- Tasks [Done]
+	- ThreadPool [Done]
+	- Timer [Done]
+- Audio
+	- Buffer [Done]
+	- Source [Done]
+	- Context [Done]
+- Components
+	- Register with World.
+	- Lua Getter
+	- Lua Manipulators
+	- Script Component
+	- Create Components
+	- Register Components
+	- Music Stream
+		- Shared Thread
+	- Sound Effects
+	- Playlists
+	- Physics
+	- Collision
+	- Transform
+		- actual vectors, not matricies
+- Core
+	- Service Locator [Done]
+	- Application
+		- Game Loop [Done]
+		- Initialize App More [Done]
+			- (i.e. do what main.cpp does, but better)
+		- Init Creation order: [Done]
+			- Log
+			- VFS
+			- Config
+	- World
+		- ECS
+		- Components (Add/Get)
+		- Scripting
+		- Systems [Done]
+	- Layers / Scenes
+		- Layer [Done]
+			- Each scene should have its own camera and world.
+		- Scenes [Done]
+	- Window [Done]
+- Error Handling
+	- Logging [DONE]
+		- To File [DONE]
+		- To Console (Debug Only) [DONE]
+- Events
+	- Dispatcher [Done]
+	- System
+		- KeyChar [Done]
+		- KeyDown [Done]
+		- KeyUp [Done]
+		- MouseMoved [Done]
+		- MousePressed [Done]
+		- MouseReleased [Done]
+		- MouseWheel [Done]
+- Flags
+	- Enabled [Done]
+- File System
+	- Config [Done]
+	- Virtual FS [Done]
+	- Serialization
+- Graphics (ReWrite)
+	- Better Shader Management
+	- 2D
+	- Camera [Done]
+		- Update on resize of window. [Done]
+	- Window
+	- Renderer
+		- Quad Tree
+		- Viewports
+	- Shapes
+		- Rectangle [Done]
+		- Circle
+	- Effects
+		- Particles
+		- Post
+			- AntiAliasing (MSAA + SMAA)
+			- https://learnopengl.com/Advanced-OpenGL/Framebuffers
+	- Shader [Done]
+	- SpriteBatch
+	- Sprites
+	- Text
+	- Animation
+	- C++17/20 review
+	- Attributes
+	- Lua Support
+	- JSON Support
+	- Const/Constexpr
+- Input
+	- Keyboard [Done]
+	- Mouse [Done]
+- Mapping
+	- TMX Parser
+	- TMX Editor
+- Meta
+	- Concepts [Done]
+	- Compile Time Shenanigans
+		- Unique Type based ID [Done]
+- Physics
+	- Dynamic Tree
+		- Collision
+	- Body
+- Platform
+	- Windows [Done]
+	- Linux
+- Resource Management
+- Scripting
+	- Lua Utility [Done]
+	- JSON Utility [Done]
+	- ImGui Lua [Done]
+- Systems
+- User Interface
+
+Composition > Inheritance
+Each Module Shall Have (if needed):
+- Lua Interface
+	- Flags
+	- Components
+	- ECS
+- Serialization Interface
+	- For JSON
+
+- Seperate methods and members into their own public/private/etc in classes
+- Proper use of 'noexcept', 'static', and 'multithreading'.
+- Attributes
+	- Lua Support
+	- JSON Support
+	- Const/Constexpr
+- Use VFS
+- Parallell Execution
+- Put deleted into private.
+- Header orders
+
+
+
+https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
+https://github.com/EQMG/Acid
+https://github.com/jmorton06/Lumos
+https://github.com/TheCherno/Hazel

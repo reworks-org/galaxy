@@ -10,13 +10,16 @@
 #include <glad/glad.h>
 #include <stb/stb_image_write.h>
 
+#include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/fs/FileSystem.hpp"
+
 #include "BaseTexture.hpp"
 
 namespace galaxy
 {
 	namespace graphics
 	{
-		BaseTexture::BaseTexture(BaseTexture&& ba)
+		BaseTexture::BaseTexture(BaseTexture&& ba) noexcept
 		{
 			this->m_texture = ba.m_texture;
 			this->m_width   = ba.m_width;
@@ -27,7 +30,7 @@ namespace galaxy
 			ba.m_height  = 0;
 		}
 
-		BaseTexture& BaseTexture::operator=(BaseTexture&& ba)
+		BaseTexture& BaseTexture::operator=(BaseTexture&& ba) noexcept
 		{
 			if (this != &ba)
 			{
@@ -43,32 +46,32 @@ namespace galaxy
 			return *this;
 		}
 
-		BaseTexture::~BaseTexture()
+		BaseTexture::~BaseTexture() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, 0);
 			glDeleteTextures(1, &m_texture);
 		}
 
-		void BaseTexture::save(std::string_view path)
+		void BaseTexture::save(std::string_view file)
 		{
-			if (!path.empty())
+			auto path = SL_HANDLE.vfs()->absolute(file);
+			if (path.empty())
 			{
-				auto str = static_cast<std::string>(path);
-				str.append(".png");
-
-				std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
-
-				glBindTexture(GL_TEXTURE_2D, m_texture);
-				glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
-
-				stbi_flip_vertically_on_write(true);
-				stbi_write_png(str.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
-
-				glBindTexture(GL_TEXTURE_2D, 0);
+				path = std::filesystem::path(file).string();
 			}
+
+			std::vector<unsigned int> pixels(m_width * m_height * 4, 0);
+
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+			glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels.data());
+
+			stbi_flip_vertically_on_write(true);
+			stbi_write_png(path.c_str(), m_width, m_height, 4, pixels.data(), m_width * 4);
+
+			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void BaseTexture::clamp_to_edge()
+		void BaseTexture::clamp_to_edge() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -76,7 +79,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void BaseTexture::clamp_to_border()
+		void BaseTexture::clamp_to_border() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
@@ -84,7 +87,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void BaseTexture::set_repeated()
+		void BaseTexture::set_repeated() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -92,7 +95,7 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void BaseTexture::set_mirrored()
+		void BaseTexture::set_mirrored() noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
@@ -100,52 +103,24 @@ namespace galaxy
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void BaseTexture::set_anisotropy(const unsigned int level)
+		void BaseTexture::set_anisotropy(const unsigned int level) noexcept
 		{
 			glBindTexture(GL_TEXTURE_2D, m_texture);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, level);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		void BaseTexture::set_minify_filter(const TextureFilter& filter)
-		{
-			glBindTexture(GL_TEXTURE_2D, m_texture);
-			if (filter == TextureFilter::LINEAR)
-			{
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-			}
-			else if (filter == TextureFilter::NEAREST)
-			{
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-			}
-			glBindTexture(GL_TEXTURE_2D, 0);
-		}
-
-		void BaseTexture::set_magnify_filter(const TextureFilter& filter)
-		{
-			glBindTexture(GL_TEXTURE_2D, m_texture);
-			if (filter == TextureFilter::LINEAR)
-			{
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			}
-			else if (filter == TextureFilter::NEAREST)
-			{
-				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-			}
-			glBindTexture(GL_TEXTURE_2D, 0);
-		}
-
-		const int BaseTexture::get_width() const
+		const int BaseTexture::get_width() const noexcept
 		{
 			return m_width;
 		}
 
-		const int BaseTexture::get_height() const
+		const int BaseTexture::get_height() const noexcept
 		{
 			return m_height;
 		}
 
-		const int BaseTexture::get_aniso_level()
+		const int BaseTexture::get_aniso_level() noexcept
 		{
 			int ansio = 0;
 			glBindTexture(GL_TEXTURE_2D, m_texture);
@@ -155,12 +130,12 @@ namespace galaxy
 			return ansio;
 		}
 
-		const unsigned int BaseTexture::gl_texture() const
+		const unsigned int BaseTexture::gl_texture() const noexcept
 		{
 			return m_texture;
 		}
 
-		BaseTexture::BaseTexture()
+		BaseTexture::BaseTexture() noexcept
 		    : m_texture {0}, m_width {0}, m_height {0}
 		{
 			glGenTextures(1, &m_texture);

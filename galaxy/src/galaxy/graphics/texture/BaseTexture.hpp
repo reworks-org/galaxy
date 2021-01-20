@@ -10,7 +10,7 @@
 
 #include <string_view>
 
-#include "galaxy/graphics/texture/TextureFilters.hpp"
+#include "galaxy/graphics/texture/Filters.hpp"
 
 namespace galaxy
 {
@@ -20,47 +20,36 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Copy constructor.
-			///
-			BaseTexture(const BaseTexture&) = delete;
-
-			///
 			/// Move constructor.
 			///
-			BaseTexture(BaseTexture&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			BaseTexture& operator=(const BaseTexture&) = delete;
+			BaseTexture(BaseTexture&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			BaseTexture& operator=(BaseTexture&&);
+			BaseTexture& operator=(BaseTexture&&) noexcept;
 
 			///
 			/// Virtual destructor.
 			///
-			virtual ~BaseTexture();
+			virtual ~BaseTexture() noexcept;
 
 			///
 			/// Saves texture to file on disk.
 			///
-			/// \param path Path (including filename) to save file to.
-			///				Do not include extension. So i.e. "textures/wall" to save to wall.png.
+			/// \param file Path (including filename) to save file to.
 			///
-			void save(std::string_view path);
+			void save(std::string_view file);
 
 			///
 			/// Activate texture context.
 			///
-			virtual void bind() = 0;
+			virtual void bind() noexcept = 0;
 
 			///
 			/// Deactivate texture context.
 			///
-			virtual void unbind() = 0;
+			virtual void unbind() noexcept = 0;
 
 			///
 			/// \brief Clamps texture to edges.
@@ -68,45 +57,43 @@ namespace galaxy
 			/// Clamps the coordinates between 0 and 1.
 			/// The result is that higher coordinates become clamped to the edge, resulting in a stretched edge pattern.
 			///
-			void clamp_to_edge();
+			void clamp_to_edge() noexcept;
 
 			///
 			/// \brief Clamps to the border.
 			///
 			/// Coordinates outside the range are now given a user-specified border color.
 			///
-			void clamp_to_border();
+			void clamp_to_border() noexcept;
 
 			///
 			/// Makes the texture repeat over its verticies.
 			///
-			void set_repeated();
+			void set_repeated() noexcept;
 
 			///
 			/// Mirrors the texture.
 			///
-			void set_mirrored();
+			void set_mirrored() noexcept;
 
 			///
 			/// Set ansiotropic filtering level.
 			///
 			/// \param level 2, 4, 8, etc...
 			///
-			void set_anisotropy(const unsigned int level);
+			void set_anisotropy(const unsigned int level) noexcept;
 
 			///
 			/// Set filter when texture is downscaled in OpenGL.
 			///
-			/// \param filter Enum filter to apply to texture.
-			///
-			void set_minify_filter(const TextureFilter& filter);
+			template<tex_filter Filter>
+			void set_minify_filter() noexcept;
 
 			///
 			/// Set filter when texture would be scaled up in OpenGL.
 			///
-			/// \param filter Enum filter to apply to texture.
-			///
-			void set_magnify_filter(const TextureFilter& filter);
+			template<tex_filter Filter>
+			void set_magnify_filter() noexcept;
 
 			///
 			/// \brief Get texture width.
@@ -115,7 +102,7 @@ namespace galaxy
 			///
 			/// \return Width as int. int over unsigned for compat with float.
 			///
-			[[nodiscard]] const int get_width() const;
+			[[nodiscard]] const int get_width() const noexcept;
 
 			///
 			/// \brief Get texture height.
@@ -124,28 +111,29 @@ namespace galaxy
 			///
 			/// \return Height as int. int over unsigned for compat with float.
 			///
-			[[nodiscard]] const int get_height() const;
+			[[nodiscard]] const int get_height() const noexcept;
 
 			///
 			/// Get Textures current Ansiotrophy level.
 			///
 			/// \return Const int.
 			///
-			[[nodiscard]] const int get_aniso_level();
+			[[nodiscard]] const int get_aniso_level() noexcept;
 
 			///
 			/// Gets internal OpenGL id.
 			///
 			/// \return Const unsigned int.
 			///
-			[[nodiscard]] const unsigned int gl_texture() const;
+			[[nodiscard]] const unsigned int gl_texture() const noexcept;
 
 		protected:
 			///
 			/// Constructor.
 			///
-			BaseTexture();
+			BaseTexture() noexcept;
 
+		protected:
 			///
 			/// OpenGL texture handle.
 			///
@@ -160,7 +148,34 @@ namespace galaxy
 			/// Cached texture height.
 			///
 			int m_height;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			BaseTexture(const BaseTexture&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			BaseTexture& operator=(const BaseTexture&) = delete;
 		};
+
+		template<tex_filter Filter>
+		inline void BaseTexture::set_minify_filter() noexcept
+		{
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, Filter::value);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
+
+		template<tex_filter Filter>
+		inline void BaseTexture::set_magnify_filter() noexcept
+		{
+			glBindTexture(GL_TEXTURE_2D, m_texture);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, Filter::value);
+			glBindTexture(GL_TEXTURE_2D, 0);
+		}
 	} // namespace graphics
 } // namespace galaxy
 

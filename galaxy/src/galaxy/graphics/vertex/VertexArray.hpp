@@ -23,34 +23,24 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			VertexArray();
-
-			///
-			/// Copy constructor.
-			///
-			VertexArray(const VertexArray&) = delete;
+			VertexArray() noexcept;
 
 			///
 			/// Move constructor.
 			///
-			VertexArray(VertexArray&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			VertexArray& operator=(const VertexArray&) = delete;
+			VertexArray(VertexArray&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			VertexArray& operator=(VertexArray&&);
+			VertexArray& operator=(VertexArray&&) noexcept;
 
 			///
-			/// Destroys buffer.
+			/// Destructor.
 			///
-			~VertexArray();
+			~VertexArray() noexcept;
 
 			///
 			/// Create vertex array.
@@ -59,7 +49,7 @@ namespace galaxy
 			/// \param ib IndexBufferObject to specify for VertexArrayObject.
 			/// \param layout VertexLayout to specify for this VertexArrayObject.
 			///
-			template<is_vertex VertexType>
+			template<meta::is_vertex VertexType>
 			void create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout);
 
 			///
@@ -69,17 +59,28 @@ namespace galaxy
 			///
 			/// \param ib InstanceBuffer object. You need to store this elsewhere.
 			///
-			void set_instanced(InstanceBuffer& ib);
+			void set_instanced(InstanceBuffer& ib) noexcept;
 
 			///
 			/// Bind the current vertex array to current GL context.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Unbind the current vertex array to current GL context.
 			///
-			void unbind();
+			void unbind() noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			VertexArray(const VertexArray&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			VertexArray& operator=(const VertexArray&) = delete;
 
 		private:
 			///
@@ -93,7 +94,7 @@ namespace galaxy
 			unsigned int m_counter;
 		};
 
-		template<is_vertex VertexType>
+		template<meta::is_vertex VertexType>
 		inline void VertexArray::create(VertexBuffer& vb, IndexBuffer& ib, const VertexLayout& layout)
 		{
 			bind();

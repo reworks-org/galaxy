@@ -26,7 +26,7 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			PrimitiveVertex();
+			PrimitiveVertex() noexcept;
 
 			///
 			/// Argument constructor.
@@ -35,13 +35,22 @@ namespace galaxy
 			/// \param y Y pos.
 			/// \param col Colour.
 			///
-			PrimitiveVertex(const float x, const float y, graphics::Colour& col);
+			PrimitiveVertex(const float x, const float y, graphics::Colour& col) noexcept;
+
+			///
+			/// Argument constructor.
+			///
+			/// \param pos Position.
+			/// \param col Colour.
+			///
+			PrimitiveVertex(const glm::vec2& pos, graphics::Colour& col) noexcept;
 
 			///
 			/// Destructor.
 			///
-			~PrimitiveVertex() = default;
+			~PrimitiveVertex() noexcept = default;
 
+		public:
 			///
 			/// Position of PrimitiveVertex.
 			///

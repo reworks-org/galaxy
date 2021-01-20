@@ -26,6 +26,41 @@ namespace galaxy
 		/// Registers audio classes as lua usertypes.
 		///
 		void register_audio();
+
+		///
+		/// Register ecs with lua.
+		///
+		void register_ecs();
+
+		///
+		/// Registers filesystem with lua.
+		///
+		void register_fs();
+
+		///
+		/// Register graphics related functions.
+		///
+		void register_graphics();
+
+		///
+		/// Register json utils with lua.
+		///
+		void register_json();
+
+		///
+		/// Layer and scene controls.
+		///
+		void register_layerstack();
+
+		///
+		/// Register math functions.
+		///
+		void register_math();
+
+		///
+		/// Register resource functions.
+		///
+		void register_res();
 	} // namespace lua
 } // namespace galaxy
 

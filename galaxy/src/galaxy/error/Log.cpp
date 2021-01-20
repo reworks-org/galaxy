@@ -26,7 +26,7 @@ namespace galaxy
 			platform::configure_terminal();
 		}
 
-		Log& Log::get() noexcept
+		Log& Log::handle() noexcept
 		{
 			static Log s_inst;
 			return s_inst;

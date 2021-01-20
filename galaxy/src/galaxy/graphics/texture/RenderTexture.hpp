@@ -11,17 +11,17 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "galaxy/graphics/texture/BaseTexture.hpp"
-#include "galaxy/graphics/texture/TextureFilters.hpp"
 
 namespace galaxy
 {
-	namespace graphics
+	namespace core
 	{
-		///
-		/// Forward dec.
-		///
 		class Window;
 
+	} // namespace core
+
+	namespace graphics
+	{
 		///
 		/// Framebuffer texture. You render to this texture instead of the window.
 		///
@@ -29,9 +29,9 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Default constructor.
+			/// Constructor.
 			///
-			RenderTexture();
+			RenderTexture() noexcept;
 
 			///
 			/// Argument constructor.
@@ -39,32 +39,22 @@ namespace galaxy
 			/// \param width Width of the RenderTexture.
 			/// \param height Height of the RenderTexture.
 			///
-			explicit RenderTexture(const int width, const int height);
-
-			///
-			/// Copy constructor.
-			///
-			RenderTexture(const RenderTexture&) = delete;
+			RenderTexture(const int width, const int height);
 
 			///
 			/// Move constructor.
 			///
-			RenderTexture(RenderTexture&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			RenderTexture& operator=(const RenderTexture&) = delete;
+			RenderTexture(RenderTexture&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			RenderTexture& operator=(RenderTexture&&);
+			RenderTexture& operator=(RenderTexture&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~RenderTexture();
+			virtual ~RenderTexture() noexcept;
 
 			///
 			/// Create the RenderTexture.
@@ -85,12 +75,12 @@ namespace galaxy
 			///
 			/// Activate texture context.
 			///
-			void bind() override;
+			void bind() noexcept override;
 
 			///
 			/// Deactivate texture context.
 			///
-			void unbind() override;
+			void unbind() noexcept override;
 
 			///
 			/// Modify projection of render texture.
@@ -100,14 +90,25 @@ namespace galaxy
 			/// \param bottom Bottom point of ortho perspective.
 			/// \param top Top point of ortho perspective.
 			///
-			void set_projection(const float left, const float right, const float bottom, const float top);
+			void set_projection(const float left, const float right, const float bottom, const float top) noexcept;
 
 			///
 			/// Get projection.
 			///
-			/// \return Reference to glm::mat4.
+			/// \return Const reference to glm::mat4.
 			///
-			[[nodiscard]] glm::mat4& get_proj();
+			[[nodiscard]] const glm::mat4& get_proj() noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			RenderTexture(const RenderTexture&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			RenderTexture& operator=(const RenderTexture&) = delete;
 
 		private:
 			///

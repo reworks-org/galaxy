@@ -25,27 +25,22 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			InstanceBuffer();
-
-			///
-			/// Copy constructor.
-			///
-			InstanceBuffer(const InstanceBuffer&) = delete;
+			InstanceBuffer() noexcept;
 
 			///
 			/// Move constructor.
 			///
-			InstanceBuffer(InstanceBuffer&&);
-
-			///
-			/// Copy assignment operator.
-			///
-			InstanceBuffer& operator=(const InstanceBuffer&) = delete;
+			InstanceBuffer(InstanceBuffer&&) noexcept;
 
 			///
 			/// Move assignment operator.
 			///
-			InstanceBuffer& operator=(InstanceBuffer&&);
+			InstanceBuffer& operator=(InstanceBuffer&&) noexcept;
+
+			///
+			/// Destroys buffer.
+			///
+			~InstanceBuffer() noexcept;
 
 			///
 			/// Create instance buffer object.
@@ -63,33 +58,39 @@ namespace galaxy
 			void update(std::span<glm::vec3> offsets);
 
 			///
-			/// Destroys buffer.
-			///
-			~InstanceBuffer();
-
-			///
 			/// Bind the current instance buffer to current GL context.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Unbind the current instance buffer to current GL context.
 			///
-			void unbind();
+			void unbind() noexcept;
 
 			///
 			/// Get OpenGL handle.
 			///
 			/// \return Const unsigned integer.
 			///
-			[[nodiscard]] const unsigned int id() const;
+			[[nodiscard]] const unsigned int id() const noexcept;
 
 			///
 			/// Get Attribute Divisor.
 			///
 			/// \return Const unsigned integer.
 			///
-			[[nodiscard]] const unsigned int divisor() const;
+			[[nodiscard]] const unsigned int divisor() const noexcept;
+
+		private:
+			///
+			/// Copy constructor.
+			///
+			InstanceBuffer(const InstanceBuffer&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			InstanceBuffer& operator=(const InstanceBuffer&) = delete;
 
 		private:
 			///

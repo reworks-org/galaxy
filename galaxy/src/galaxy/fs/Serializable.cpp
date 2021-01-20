@@ -5,24 +5,25 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#include "galaxy/core/ServiceLocator.hpp"
-#include "galaxy/fs/Serializer.hpp"
+#include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
 {
 	namespace fs
 	{
-		Serializable::~Serializable()
+		SerializableWrapper::SerializableWrapper() noexcept
+		    : m_obj {nullptr}
 		{
-			auto* s = SL_HANDLE.serializer();
-			s->remove(m_id);
 		}
 
-		Serializable::Serializable()
-		    : m_id {0}
+		SerializableWrapper::~SerializableWrapper() noexcept
 		{
-			auto* s = SL_HANDLE.serializer();
-			m_id    = s->register_obj(this);
+			m_obj = nullptr;
+		}
+
+		Serializable::Serializable() noexcept
+		{
+			m_wrapper.m_obj = this;
 		}
 	} // namespace fs
 } // namespace galaxy

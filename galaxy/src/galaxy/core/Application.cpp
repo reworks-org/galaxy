@@ -128,7 +128,7 @@ namespace galaxy
 				SL_HANDLE.m_renderer = m_renderer.get();
 
 				// Freetype.
-				FTLIB.open();
+				FT_HANDLE.open();
 
 				// Create lua instance and open libraries.
 				m_lua = std::make_unique<sol::state>();
@@ -225,7 +225,7 @@ namespace galaxy
 			m_layerstack->clear();
 			GALAXY_LOG_FINISH;
 
-			FTLIB.close();
+			FT_HANDLE.close();
 
 			m_threadpool->end();
 			m_window->destroy();
