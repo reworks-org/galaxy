@@ -6,7 +6,7 @@ Thumbs.db
 .vs/
 build/
 output/
-legacy/assets
+legacy/
 
 # Build junk.
 supercluster/bin/Debug/*.exe
