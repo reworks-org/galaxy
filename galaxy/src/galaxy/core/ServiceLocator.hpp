@@ -40,17 +40,13 @@ namespace galaxy
 		class Virtual;
 	} // namespace fs
 
-	namespace graphics
-	{
-		class Renderer;
-		class TextureAtlas;
-	} // namespace graphics
-
 	namespace res
 	{
 		class FontBook;
 		class ShaderBook;
-		class AudioBook;
+		class TextureAtlas;
+		class SoundBook;
+		class MusicBook;
 
 	} // namespace res
 
@@ -99,13 +95,6 @@ namespace galaxy
 			[[maybe_unused]] core::Window* window() const noexcept;
 
 			///
-			/// Get renderer service.
-			///
-			/// \return Return pointer to renderer service.
-			///
-			[[maybe_unused]] graphics::Renderer* renderer() const noexcept;
-
-			///
 			/// Get Lua service.
 			///
 			/// \return Return pointer to Lua service.
@@ -139,18 +128,25 @@ namespace galaxy
 			[[maybe_unused]] res::ShaderBook* shaderbook() const noexcept;
 
 			///
-			/// Get AudioBook service.
+			/// Get SoundBook service.
 			///
-			/// \return Return pointer to AudioBook service.
+			/// \return Return pointer to SoundBook service.
 			///
-			[[maybe_unused]] res::AudioBook* audiobook() const noexcept;
+			[[maybe_unused]] res::SoundBook* soundbook() const noexcept;
+
+			///
+			/// Get MusicBook service.
+			///
+			/// \return Return pointer to MusicBook service.
+			///
+			[[maybe_unused]] res::MusicBook* musicbook() const noexcept;
 
 			///
 			/// Get TextureAtlas service.
 			///
 			/// \return Return pointer to TextureAtlas service.
 			///
-			[[maybe_unused]] graphics::TextureAtlas* atlas() const noexcept;
+			[[maybe_unused]] res::TextureAtlas* atlas() const noexcept;
 
 			///
 			/// Get Virtual FileSystem service.
@@ -208,11 +204,6 @@ namespace galaxy
 			core::Window* m_window;
 
 			///
-			/// Renderer service.
-			///
-			graphics::Renderer* m_renderer;
-
-			///
 			/// Lua service. Main instance of Lua.
 			///
 			sol::state* m_lua;
@@ -238,14 +229,19 @@ namespace galaxy
 			res::ShaderBook* m_shaderbook;
 
 			///
-			/// AudioBook service.
+			/// SoundBook service.
 			///
-			res::AudioBook* m_audiobook;
+			res::SoundBook* m_soundbook;
 
 			///
-			/// AudioBook service.
+			/// MusicBook service.
 			///
-			graphics::TextureAtlas* m_texture_atlas;
+			res::MusicBook* m_musicbook;
+
+			///
+			/// Texture Atlas service.
+			///
+			res::TextureAtlas* m_texture_atlas;
 
 			///
 			/// Virtual FileSystem service.
