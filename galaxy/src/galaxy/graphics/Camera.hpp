@@ -8,7 +8,6 @@
 #ifndef GALAXY_GRAPHICS_CAMERA_HPP_
 #define GALAXY_GRAPHICS_CAMERA_HPP_
 
-#include "galaxy/components/Transform.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/events/KeyUp.hpp"
 #include "galaxy/events/KeyDown.hpp"
@@ -22,7 +21,7 @@ namespace galaxy
 		///
 		/// Defines a Camera (view) of an OpenGL 2D space.
 		///
-		class Camera final : public components::Transform
+		class Camera final
 		{
 		public:
 			///
@@ -101,6 +100,52 @@ namespace galaxy
 			void update(const double ts) noexcept;
 
 			///
+			/// \brief Translate (move) position.
+			///
+			/// Does not set the position but moves it.
+			/// By adding the parameters to the existing transformation matrix.
+			///
+			/// \param x How far to translate on x axis.
+			/// \param y How far to translate on x axis.
+			///
+			void move(const float x, const float y) noexcept;
+
+			///
+			/// Rotate transformation in degrees.
+			///
+			/// \param degrees Max 360, min -360.
+			///
+			void rotate(const float degrees) noexcept;
+
+			///
+			/// Scale transformation on each axis.
+			///
+			/// \param scale Scale. Multiplier.
+			///
+			void scale(const float scale) noexcept;
+
+			///
+			/// Recalculates the model view matrix.
+			///
+			void recalculate() noexcept;
+
+			///
+			/// Sets position without moving the object.
+			///
+			/// \param x X position to set object to.
+			/// \param y Y position to set object to.
+			///
+			void set_pos(const float x, const float y) noexcept;
+
+			///
+			/// Set the rotation point.
+			///
+			/// \param x X position to set origin to.
+			/// \param y Y position to set origin to.
+			///
+			void set_rotation_origin(const float x, const float y) noexcept;
+
+			///
 			/// Set the speed of the camera.
 			///
 			/// \param speed Speed of the camera. Multiplicative float.
@@ -129,6 +174,41 @@ namespace galaxy
 			[[nodiscard]] const float get_height() const noexcept;
 
 			///
+			/// Get flag indicating if transform needs to be applied before rendering.
+			///
+			/// \return Const boolean.
+			///
+			[[nodiscard]] const bool is_dirty() const noexcept;
+
+			///
+			/// Retrieve internal transformation matrix.
+			///
+			/// \return Reference to internal glm::mat4.
+			///
+			[[nodiscard]] const glm::mat4& get_transform() noexcept;
+
+			///
+			/// Get stored rotation cache.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_rotation() const noexcept;
+
+			///
+			/// Get stored scale cache.
+			///
+			/// \return Const float.
+			///
+			[[nodiscard]] const float get_scale() const noexcept;
+
+			///
+			/// Get stored pos cache.
+			///
+			/// \return Const glm::vec2.
+			///
+			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
+
+			///
 			/// Get the camera projection.
 			///
 			/// \return Const glm::mat4 reference.
@@ -136,6 +216,59 @@ namespace galaxy
 			[[nodiscard]] const glm::mat4& get_proj() noexcept;
 
 		private:
+			///
+			/// Update flag.
+			///
+			bool m_dirty;
+
+			///
+			/// Rotation origin point.
+			///
+			glm::vec3 m_origin;
+
+			///
+			/// Rotational matrix.
+			///
+			glm::mat4 m_rotation;
+
+			///
+			/// Scaled matrix.
+			///
+			glm::mat4 m_scaling;
+
+			///
+			/// Translation matrix.
+			///
+			glm::mat4 m_translation;
+
+			///
+			/// Identity matrix.
+			///
+			glm::mat4 m_identity_matrix;
+
+			///
+			/// Cached for easiy retrieval.
+			/// Rotation.
+			///
+			float m_rotate;
+
+			///
+			/// Cached for easiy retrieval.
+			/// Scale.
+			///
+			float m_scale;
+
+			///
+			/// Cached for easiy retrieval.
+			/// Pos.
+			///
+			glm::vec2 m_pos;
+
+			///
+			/// Combined transformation matrix.
+			///
+			glm::mat4 m_model;
+
 			///
 			/// Camera move up flag.
 			///

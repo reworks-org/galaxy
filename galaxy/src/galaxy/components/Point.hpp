@@ -5,27 +5,28 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
-#ifndef GALAXY_GRAPHICS_SHAPES_POINT_HPP_
-#define GALAXY_GRAPHICS_SHAPES_POINT_HPP_
+#ifndef GALAXY_COMPONENTS_POINT_HPP_
+#define GALAXY_COMPONENTS_POINT_HPP_
+
+#include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/Transform.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
 
 namespace galaxy
 {
-	namespace graphics
+	namespace components
 	{
 		///
 		/// Point graphic definition.
 		///
-		class Point final : public VertexData, public Transform
+		class Point final : public graphics::VertexData
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Point();
+			Point() noexcept;
 
 			///
 			/// Constructor.
@@ -35,12 +36,29 @@ namespace galaxy
 			/// \param size Size of the point.
 			/// \param colour Colour.
 			///
-			Point(const float x, const float y, const unsigned int size, graphics::Colour& colour);
+			Point(const float x, const float y, const unsigned int size, const graphics::Colour& colour) noexcept;
+
+			///
+			/// JSON constructor.
+			///
+			/// \param json JSON defining object.
+			///
+			Point(const nlohmann::json& json);
+
+			///
+			/// Move constructor.
+			///
+			Point(Point&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Point& operator=(Point&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Point() = default;
+			~Point() noexcept = default;
 
 			///
 			/// Create the point.
@@ -50,24 +68,35 @@ namespace galaxy
 			/// \param size Size of the point.
 			/// \param colour Colour.
 			///
-			void create(const float x, const float y, const unsigned int size, graphics::Colour& colour);
+			void create(const float x, const float y, const unsigned int size, const graphics::Colour& colour);
 
 			///
 			/// Bind as active VA.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Unbind as active VA.
 			///
-			void unbind();
+			void unbind() noexcept;
 
 			///
 			/// Get size of point.
 			///
 			/// \return Const integer.
 			///
-			[[nodiscard]] const int get_size() const;
+			[[nodiscard]] const int get_size() const noexcept;
+
+		private:
+			///
+			/// Copy assignment operator.
+			///
+			Point& operator=(const Point&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			Point(const Point&) = delete;
 
 		private:
 			///
@@ -75,7 +104,7 @@ namespace galaxy
 			///
 			int m_size;
 		};
-	} // namespace graphics
+	} // namespace components
 } // namespace galaxy
 
 #endif

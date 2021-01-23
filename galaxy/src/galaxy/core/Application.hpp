@@ -20,8 +20,11 @@
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/graphics/Renderer.hpp"
-#include "galaxy/graphics/TextureAtlas.hpp"
+#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/res/FontBook.hpp"
+#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/res/MusicBook.hpp"
 
 namespace galaxy
 {
@@ -81,11 +84,6 @@ namespace galaxy
 			std::unique_ptr<Window> m_window;
 
 			///
-			/// Main app renderer.
-			///
-			std::unique_ptr<graphics::Renderer> m_renderer;
-
-			///
 			/// Master Lua state for application.
 			///
 			std::unique_ptr<sol::state> m_lua;
@@ -103,17 +101,27 @@ namespace galaxy
 			///
 			/// Library of all fonts.
 			///
-			//std::unique_ptr<res::FontBook> m_fontbook;
+			std::unique_ptr<res::FontBook> m_fontbook;
 
 			///
 			/// Library of all shaders.
 			///
-			//std::unique_ptr<res::ShaderBook> m_shaderbook;
+			std::unique_ptr<res::ShaderBook> m_shaderbook;
 
 			///
 			/// Texture atlas for all textures.
 			///
-			std::unique_ptr<graphics::TextureAtlas> m_texture_atlas;
+			std::unique_ptr<res::TextureAtlas> m_texture_atlas;
+
+			///
+			/// Library of all sounds.
+			///
+			std::unique_ptr<res::SoundBook> m_soundbook;
+
+			///
+			/// Library of all music.
+			///
+			std::unique_ptr<res::MusicBook> m_musicbook;
 
 			///
 			/// Virtual File System.

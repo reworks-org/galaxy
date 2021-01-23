@@ -7,7 +7,6 @@
 
 #include <vector>
 
-#include <glad/glad.h>
 #include <stb/stb_image_write.h>
 
 #include "galaxy/core/ServiceLocator.hpp"

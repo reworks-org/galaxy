@@ -8,12 +8,10 @@
 #ifndef QUASAR_CIRCLE_HPP_
 #define QUASAR_CIRCLE_HPP_
 
-#include <compare>
-
 #include <glm/vec2.hpp>
+#include <nlohmann/json_fwd.hpp>
 
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/Transform.hpp"
 #include "galaxy/graphics/vertex/VertexData.hpp"
 
 namespace galaxy
@@ -23,13 +21,13 @@ namespace galaxy
 		///
 		/// Circle definition for renderer.
 		///
-		class Circle final : public VertexData, public Transform
+		class Circle final : public graphics::VertexData
 		{
 		public:
 			///
 			/// Constructor.
 			///
-			Circle() = default;
+			Circle() noexcept;
 
 			///
 			/// Constructor.
@@ -40,21 +38,29 @@ namespace galaxy
 			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 			/// \param colour Colour.
 			///
-			Circle(const float x, const float y, const float radius, const unsigned int fragments, graphics::Colour& colour);
+			Circle(const float x, const float y, const float radius, const unsigned int fragments, const graphics::Colour& colour);
 
 			///
-			/// Build from galaxy circle.
+			/// JSON constructor.
 			///
-			/// \param circle Protostar circle object.
-			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
-			/// \param colour Colour.
+			/// \param json JSON defining object.
 			///
-			Circle(const graphics::Circle& circle, const unsigned int fragments, graphics::Colour& colour);
+			Circle(const nlohmann::json& json);
+
+			///
+			/// Move constructor.
+			///
+			Circle(Circle&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Circle& operator=(Circle&&) noexcept;
 
 			///
 			/// Destructor.
 			///
-			virtual ~Circle() = default;
+			virtual ~Circle() noexcept = default;
 
 			///
 			/// Create the Circle.
@@ -65,50 +71,45 @@ namespace galaxy
 			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 			/// \param colour Colour.
 			///
-			void create(const float x, const float y, const float radius, const unsigned int fragments, graphics::Colour& colour);
+			void create(const float x, const float y, const float radius, const unsigned int fragments, const graphics::Colour& colour);
 
 			///
 			/// Bind as active VA.
 			///
-			void bind();
+			void bind() noexcept;
 
 			///
 			/// Unbind as active VA.
 			///
-			void unbind();
+			void unbind() noexcept;
 
 			///
 			/// Get x coord of circle.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_x() const;
+			[[nodiscard]] const float get_x() const noexcept;
 
 			///
 			/// Get y coord of circle.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float get_y() const;
+			[[nodiscard]] const float get_y() const noexcept;
 
 			///
 			/// Get xy as a vector.
 			///
 			/// \return Const reference to glm::vec2.
 			///
-			[[nodiscard]] const glm::vec2& get_xy() const;
+			[[nodiscard]] const glm::vec2& get_xy() const noexcept;
 
 			///
 			/// Get radius of circle.
 			///
 			/// \return Const float.
 			///
-			[[nodiscard]] const float radius() const;
-
-			///
-			/// Strongly ordered spaceship operator.
-			///
-			auto operator<=>(const Circle&) const = default;
+			[[nodiscard]] const float radius() const noexcept;
 
 		private:
 			///
@@ -120,6 +121,17 @@ namespace galaxy
 			/// Radius of circle.
 			///
 			float m_radius;
+
+		private:
+			///
+			/// Copy assignment operator.
+			///
+			Circle& operator=(const Circle&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			Circle(const Circle&) = delete;
 		};
 	} // namespace components
 } // namespace galaxy

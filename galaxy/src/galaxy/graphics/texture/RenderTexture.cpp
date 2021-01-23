@@ -7,12 +7,13 @@
 
 #include <filesystem>
 
-#include <glad/glad.h>
 #include <stb/stb_image.h>
 #include <stb/stb_image_write.h>
 
+#include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/Window.hpp"
 #include "galaxy/error/Log.hpp"
+#include "galaxy/fs/Config.hpp"
 
 #include "RenderTexture.hpp"
 
@@ -99,6 +100,8 @@ namespace galaxy
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 			glBindTexture(GL_TEXTURE_2D, 0);
+
+			set_anisotropy(SL_HANDLE.config()->get<int>("ansio-filter"));
 		}
 
 		void RenderTexture::change_size(const int width, const int height)

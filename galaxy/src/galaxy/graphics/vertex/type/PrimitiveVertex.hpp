@@ -35,7 +35,7 @@ namespace galaxy
 			/// \param y Y pos.
 			/// \param col Colour.
 			///
-			PrimitiveVertex(const float x, const float y, graphics::Colour& col) noexcept;
+			PrimitiveVertex(const float x, const float y, const graphics::Colour& col) noexcept;
 
 			///
 			/// Argument constructor.
@@ -43,7 +43,7 @@ namespace galaxy
 			/// \param pos Position.
 			/// \param col Colour.
 			///
-			PrimitiveVertex(const glm::vec2& pos, graphics::Colour& col) noexcept;
+			PrimitiveVertex(const glm::vec2& pos, const graphics::Colour& col) noexcept;
 
 			///
 			/// Destructor.

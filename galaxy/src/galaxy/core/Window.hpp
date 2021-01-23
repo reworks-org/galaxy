@@ -15,10 +15,12 @@
 #include <glm/vec2.hpp>
 #include <robin_hood.h>
 
+#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Transform.hpp"
 #include "galaxy/core/WindowSettings.hpp"
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/WindowResized.hpp"
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/sprite/Sprite.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
 #include "galaxy/input/Keys.hpp"
 #include "galaxy/input/Mouse.hpp"
@@ -191,9 +193,7 @@ namespace galaxy
 			///
 			/// Renders the OpenGL buffer to the screen.
 			///
-			/// \param renderer Renderer used to output to screen.
-			///
-			void end(graphics::Renderer* renderer);
+			void end();
 
 			///
 			/// Poll for events.
@@ -379,7 +379,12 @@ namespace galaxy
 			///
 			/// Internal framebuffer sprite.
 			///
-			std::unique_ptr<graphics::Sprite> m_fb_sprite;
+			std::unique_ptr<components::Sprite> m_fb_sprite;
+
+			///
+			/// Internal framebuffer transform.
+			///
+			components::Transform m_fb_transform;
 
 			///
 			/// Scroll callback function.

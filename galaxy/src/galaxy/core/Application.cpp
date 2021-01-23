@@ -17,6 +17,8 @@
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
+#include "galaxy/graphics/Renderer.hpp"
+#include "galaxy/graphics/SpriteBatch.hpp"
 
 #include "Application.hpp"
 
@@ -72,11 +74,15 @@ namespace galaxy
 				m_config->define<bool>("gl-debug", false);
 				m_config->define<float>("gravity-x", 0.0f);
 				m_config->define<float>("gravity-y", 0.0f);
+				m_config->define<int>("max-batched-quads", 1000);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
 				m_config->define<std::string>("shaderbook-json", "shaderbook.json");
-				m_config->define<std::string>("audiobook-json", "audiobook.json");
+				m_config->define<std::string>("textureatlas-json", "textureatlas.json");
+				m_config->define<std::string>("soundbook-json", "soundbook.json");
+				m_config->define<std::string>("musicbook-json", "musicbook.json");
+				m_config->define<std::string>("spritebatch-shader", "spritebatch");
 			}
 			m_config->save();
 
@@ -123,10 +129,6 @@ namespace galaxy
 
 				m_window->set_icon(m_config->get<std::string>("icon-file"));
 
-				// Renderer.
-				m_renderer           = std::make_unique<graphics::Renderer>();
-				SL_HANDLE.m_renderer = m_renderer.get();
-
 				// Freetype.
 				FT_HANDLE.open();
 
@@ -143,25 +145,40 @@ namespace galaxy
 				m_dispatcher           = std::make_unique<events::Dispatcher>();
 				SL_HANDLE.m_dispatcher = m_dispatcher.get();
 
-				// ShaderBook
-				//m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
-				//SL_HANDLE.m_shaderbook = m_shaderbook.get();
+				// ShaderBook.
+				m_shaderbook           = std::make_unique<res::ShaderBook>(m_config->get<std::string>("shaderbook-json"));
+				SL_HANDLE.m_shaderbook = m_shaderbook.get();
 
-				// FontBook
-				//m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
-				//SL_HANDLE.m_fontbook = m_fontbook.get();
+				// Set up renderer.
+				graphics::Renderer::init(m_config->get<int>("max-batched-quads"), m_config->get<std::string>("spritebatch-shader"));
+
+				// FontBook.
+				m_fontbook           = std::make_unique<res::FontBook>(m_config->get<std::string>("fontbook-json"));
+				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas           = std::make_unique<graphics::TextureAtlas>();
+				m_texture_atlas = std::make_unique<res::TextureAtlas>();
+				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
+
+				// SoundBook.
+				m_soundbook           = std::make_unique<res::SoundBook>(m_config->get<std::string>("soundbook-json"));
+				SL_HANDLE.m_soundbook = m_soundbook.get();
+
+				// MusicBook.
+				m_musicbook           = std::make_unique<res::MusicBook>(m_config->get<std::string>("musicbook-json"));
+				SL_HANDLE.m_musicbook = m_musicbook.get();
 
 				// Set up custom lua functions and types.
 				lua::register_functions();
 				lua::register_audio();
 				lua::register_ecs();
 				lua::register_fs();
-				lua::register_layerstack();
+				lua::register_graphics();
 				lua::register_json();
+				lua::register_layerstack();
+				lua::register_math();
+				lua::register_res();
 			}
 		}
 
@@ -170,13 +187,14 @@ namespace galaxy
 			// We want to destroy everything in a specific order to make sure stuff is freed correctly.
 			// And of course the file system being the last to be destroyed.
 
+			m_musicbook.reset();
+			m_soundbook.reset();
 			m_texture_atlas.reset();
-			//m_fontbook.reset();
-			//m_shaderbook.reset();
+			m_fontbook.reset();
+			m_shaderbook.reset();
 			m_dispatcher.reset();
 			m_layerstack.reset();
 			m_lua.reset();
-			m_renderer.reset();
 			m_window.reset();
 			m_threadpool.reset();
 			m_config.reset();
@@ -219,7 +237,7 @@ namespace galaxy
 
 				m_layerstack->render();
 
-				m_window->end(m_renderer.get());
+				m_window->end();
 			}
 
 			m_layerstack->clear();

@@ -10,10 +10,15 @@
 
 #include <glm/vec2.hpp>
 
-#include "galaxy/graphics/shapes/Rect.hpp"
+#include "galaxy/graphics/Rect.hpp"
 
 namespace galaxy
 {
+	namespace components
+	{
+		class Text;
+	} // namespace components
+
 	namespace graphics
 	{
 		///
@@ -21,8 +26,8 @@ namespace galaxy
 		///
 		class Character final
 		{
+			friend class components::Text;
 			friend class Font;
-			friend class Text;
 
 		public:
 			///

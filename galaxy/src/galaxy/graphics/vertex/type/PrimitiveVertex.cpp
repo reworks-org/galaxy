@@ -16,22 +16,24 @@ namespace galaxy
 		{
 		}
 
-		PrimitiveVertex::PrimitiveVertex(const float x, const float y, graphics::Colour& col) noexcept
+		PrimitiveVertex::PrimitiveVertex(const float x, const float y, const graphics::Colour& col) noexcept
 		    : m_pos {x, y}
 		{
-			m_colour.x = col.r_normal();
-			m_colour.y = col.g_normal();
-			m_colour.z = col.b_normal();
-			m_colour.w = col.a_normal();
+			auto& col2 = const_cast<graphics::Colour&>(col);
+			m_colour.x = col2.r_normal();
+			m_colour.y = col2.g_normal();
+			m_colour.z = col2.b_normal();
+			m_colour.w = col2.a_normal();
 		}
 
-		PrimitiveVertex::PrimitiveVertex(const glm::vec2& pos, graphics::Colour& col) noexcept
+		PrimitiveVertex::PrimitiveVertex(const glm::vec2& pos, const graphics::Colour& col) noexcept
 		    : m_pos {pos}
 		{
-			m_colour.x = col.r_normal();
-			m_colour.y = col.g_normal();
-			m_colour.z = col.b_normal();
-			m_colour.w = col.a_normal();
+			auto& col2 = const_cast<graphics::Colour&>(col);
+			m_colour.x = col2.r_normal();
+			m_colour.y = col2.g_normal();
+			m_colour.z = col2.b_normal();
+			m_colour.w = col2.a_normal();
 		}
 	} // namespace graphics
 } // namespace galaxy

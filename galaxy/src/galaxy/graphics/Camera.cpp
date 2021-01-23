@@ -14,46 +14,25 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera::Camera() noexcept
-		    : m_move_up {false},
-		      m_move_down {false},
-		      m_move_left {false},
-		      m_move_right {false},
-		      m_speed {1.0f},
-		      m_width {1.0f},
-		      m_height {1.0f},
-		      m_projection {1.0f}
+		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_rotation {1.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_rotate {0.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
-			set_rotation_origin(m_width / 2.0f, m_height / 2.0f);
+			set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
 		}
 
 		Camera::Camera(const nlohmann::json& json) noexcept
-		    : m_move_up {false},
-		      m_move_down {false},
-		      m_move_left {false},
-		      m_move_right {false},
-		      m_speed {1.0f},
-		      m_width {1.0f},
-		      m_height {1.0f},
-		      m_projection {1.0f}
+		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_rotation {1.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_rotate {0.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			m_speed = json.at("speed");
 
-			set_rotation_origin(m_width / 2.0f, m_height / 2.0f);
+			set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
 		}
 
 		Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : m_move_up {false},
-		      m_move_down {false},
-		      m_move_left {false},
-		      m_move_right {false},
-		      m_speed {speed},
-		      m_width {1.0f},
-		      m_height {1.0f},
-		      m_projection {1.0f}
+		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_rotation {1.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_rotate {0.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {speed}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 			create(left, right, bottom, top);
-			set_rotation_origin(m_width / 2.0f, m_height / 2.0f);
+			set_rotation_origin(m_width * 0.5f, m_height * 0.5f);
 		}
 
 		void Camera::create(const float left, const float right, const float bottom, const float top) noexcept
@@ -165,6 +144,62 @@ namespace galaxy
 			}
 		}
 
+		void Camera::move(const float x, const float y) noexcept
+		{
+			m_translation = glm::translate(m_translation, {x, y, 0.0f});
+
+			m_pos.x += x;
+			m_pos.y += y;
+
+			m_dirty = true;
+		}
+
+		void Camera::rotate(const float degrees) noexcept
+		{
+			m_rotate = degrees;
+			std::clamp(m_rotate, 0.0f, 360.0f);
+
+			m_rotation = glm::translate(m_rotation, m_origin);
+			m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
+			m_rotation = glm::translate(m_rotation, -m_origin);
+
+			m_dirty = true;
+		}
+
+		void Camera::scale(const float scale) noexcept
+		{
+			m_scaling = glm::scale(m_identity_matrix, {scale, scale, 1.0f});
+
+			m_scale = scale;
+
+			m_dirty = true;
+		}
+
+		void Camera::recalculate() noexcept
+		{
+			if (m_dirty)
+			{
+				m_model = m_translation * m_rotation * m_scaling;
+				m_dirty = false;
+			}
+		}
+
+		void Camera::set_pos(const float x, const float y) noexcept
+		{
+			m_translation = glm::translate(m_identity_matrix, {x, y, 0.0f});
+
+			m_pos.x = x;
+			m_pos.y = y;
+
+			m_dirty = true;
+		}
+
+		void Camera::set_rotation_origin(const float x, const float y) noexcept
+		{
+			m_origin.x = x;
+			m_origin.y = y;
+		}
+
 		void Camera::set_speed(const float speed) noexcept
 		{
 			m_speed = speed;
@@ -183,6 +218,32 @@ namespace galaxy
 		const float Camera::get_height() const noexcept
 		{
 			return m_height;
+		}
+
+		const bool Camera::is_dirty() const noexcept
+		{
+			return m_dirty;
+		}
+
+		const glm::mat4& Camera::get_transform() noexcept
+		{
+			recalculate();
+			return m_model;
+		}
+
+		const float Camera::get_rotation() const noexcept
+		{
+			return m_rotate;
+		}
+
+		const float Camera::get_scale() const noexcept
+		{
+			return m_scale;
+		}
+
+		const glm::vec2& Camera::get_pos() const noexcept
+		{
+			return m_pos;
 		}
 
 		const glm::mat4& Camera::get_proj() noexcept

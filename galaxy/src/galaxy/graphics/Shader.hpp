@@ -49,19 +49,9 @@ namespace galaxy
 			Shader(const nlohmann::json& json);
 
 			///
-			/// Copy constructor.
-			///
-			Shader(const Shader&) noexcept;
-
-			///
 			/// Move constructor.
 			///
 			Shader(Shader&&) noexcept;
-
-			///
-			/// Copy assignment operator.
-			///
-			Shader& operator=(const Shader&) noexcept;
 
 			///
 			/// Move assignment operator.
@@ -123,6 +113,16 @@ namespace galaxy
 			[[nodiscard]] const bool is_loaded() const noexcept;
 
 		private:
+			///
+			/// Copy constructor.
+			///
+			Shader(const Shader&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Shader& operator=(const Shader&) = delete;
+
 			///
 			/// \brief Retrieves location of shader uniform from GPU.
 			///

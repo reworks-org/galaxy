@@ -30,6 +30,16 @@ namespace galaxy
 			Texture() noexcept;
 
 			///
+			/// Move constructor.
+			///
+			Texture(Texture&&) noexcept;
+
+			///
+			/// Move assignment operator.
+			///
+			Texture& operator=(Texture&&) noexcept;
+
+			///
 			/// Virtual destructor.
 			///
 			virtual ~Texture() noexcept = default;

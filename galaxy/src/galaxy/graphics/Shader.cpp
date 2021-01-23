@@ -50,26 +50,12 @@ namespace galaxy
 			}
 		}
 
-		Shader::Shader(const Shader& s) noexcept
-		{
-			this->m_id    = s.m_id;
-			this->m_cache = s.m_cache;
-		}
-
 		Shader::Shader(Shader&& s) noexcept
 		{
 			this->m_id    = s.m_id;
 			this->m_cache = std::move(s.m_cache);
 
 			s.m_id = 0;
-		}
-
-		Shader& Shader::operator=(const Shader& s) noexcept
-		{
-			this->m_id    = s.m_id;
-			this->m_cache = s.m_cache;
-
-			return *this;
 		}
 
 		Shader& Shader::operator=(Shader&& s) noexcept
@@ -87,7 +73,6 @@ namespace galaxy
 
 		Shader::~Shader() noexcept
 		{
-			unbind();
 			glDeleteProgram(m_id);
 		}
 

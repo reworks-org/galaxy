@@ -10,6 +10,8 @@
 
 #include <string_view>
 
+#include <glad/glad.h>
+
 #include "galaxy/graphics/texture/Filters.hpp"
 
 namespace galaxy

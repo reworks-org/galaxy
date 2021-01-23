@@ -5,55 +5,80 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <nlohmann/json.hpp>
+
 #include "Point.hpp"
 
 namespace galaxy
 {
-	namespace graphics
+	namespace components
 	{
-		Point::Point()
+		Point::Point() noexcept
 		    : m_size {0}
 		{
 		}
 
-		Point::Point(const float x, const float y, const unsigned int size, graphics::Colour& colour)
+		Point::Point(const float x, const float y, const unsigned int size, const graphics::Colour& colour) noexcept
 		    : m_size {0}
 		{
 			create(x, y, size, colour);
 		}
 
-		void Point::create(const float x, const float y, const unsigned int size, graphics::Colour& colour)
+		Point::Point(const nlohmann::json& json)
+		{
+			const auto colour = json.at("colour");
+			create(json.at("x"), json.at("y"), json.at("size"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
+		}
+
+		Point::Point(Point&& p) noexcept
+		    : VertexData {std::move(p)}
+		{
+			this->m_size = p.m_size;
+		}
+
+		Point& Point::operator=(Point&& p) noexcept
+		{
+			if (this != &p)
+			{
+				graphics::VertexData::operator=(std::move(p));
+
+				this->m_size = p.m_size;
+			}
+
+			return *this;
+		}
+
+		void Point::create(const float x, const float y, const unsigned int size, const graphics::Colour& colour)
 		{
 			m_size = size;
 
-			std::vector<PrimitiveVertex> vertexs;
-
+			std::vector<graphics::PrimitiveVertex> vertexs;
 			vertexs.emplace_back(x, y, colour);
 
-			m_vb.create<PrimitiveVertex, BufferStatic>(vertexs);
+			m_vb.create<graphics::PrimitiveVertex>(vertexs);
 
 			std::array<unsigned int, 1> arr = {0};
-			m_ib.create<BufferStatic>(arr);
+			m_ib.create(arr);
 
-			m_layout.add<PrimitiveVertex, VAPosition>(2);
-			m_layout.add<PrimitiveVertex, VAColour>(4);
+			m_layout.add<graphics::PrimitiveVertex, meta::VAPosition>(2);
+			m_layout.add<graphics::PrimitiveVertex, meta::VAColour>(4);
 
-			m_va.create<PrimitiveVertex>(m_vb, m_ib, m_layout);
+			m_va.create<graphics::PrimitiveVertex>(m_vb, m_ib, m_layout);
 		}
 
-		void Point::bind()
+		void Point::bind() noexcept
 		{
 			m_va.bind();
 		}
 
-		void Point::unbind()
+		void Point::unbind() noexcept
 		{
 			m_va.unbind();
 		}
 
-		const int Point::get_size() const
+		const int Point::get_size() const noexcept
 		{
 			return m_size;
 		}
-	} // namespace graphics
+	} // namespace components
 } // namespace galaxy

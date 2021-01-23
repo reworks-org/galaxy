@@ -20,7 +20,7 @@ namespace galaxy
 		///
 		/// Defines the transformation of an entity.
 		///
-		class Transform
+		class Transform final
 		{
 		public:
 			///
@@ -48,7 +48,7 @@ namespace galaxy
 			///
 			/// Destructor.
 			///
-			virtual ~Transform() noexcept = default;
+			~Transform() noexcept = default;
 
 			///
 			/// \brief Translate (move) position.
@@ -86,7 +86,7 @@ namespace galaxy
 			/// \param x X position to set object to.
 			/// \param y Y position to set object to.
 			///
-			virtual void set_pos(const float x, const float y) noexcept;
+			void set_pos(const float x, const float y) noexcept;
 
 			///
 			/// Set the rotation point.
@@ -131,7 +131,7 @@ namespace galaxy
 			///
 			[[nodiscard]] const glm::vec2& get_pos() const noexcept;
 
-		protected:
+		private:
 			///
 			/// Update flag.
 			///

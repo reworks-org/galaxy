@@ -16,7 +16,8 @@
 #include "galaxy/error/Log.hpp"
 #include "galaxy/events/WindowResized.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/graphics/post/PostEffect.hpp"
+#include "galaxy/graphics/Shader.hpp"
+#include "galaxy/graphics/SpriteBatch.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 
 #include "Window.hpp"
@@ -98,7 +99,8 @@ namespace galaxy
 				glfwWindowHint(GLFW_SRGB_CAPABLE, settings.m_srgb);
 
 				// MSAA
-				glfwWindowHint(GLFW_SAMPLES, settings.m_anti_aliasing);
+				const auto max_samples = std::clamp(settings.m_anti_aliasing, 2, 16);
+				glfwWindowHint(GLFW_SAMPLES, max_samples);
 
 				// Create the window from input, ensuring it is centered in the screen.
 				m_window = glfwCreateWindow(m_width, m_height, settings.m_title.c_str(), nullptr, nullptr);
@@ -426,9 +428,9 @@ namespace galaxy
 						m_framebuffer = std::make_unique<graphics::RenderTexture>();
 						m_framebuffer->create(m_width, m_height);
 
-						m_fb_sprite = std::make_unique<graphics::Sprite>();
+						m_fb_sprite = std::make_unique<components::Sprite>();
 						m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
-						m_fb_sprite->create<graphics::BufferStatic>();
+						m_fb_sprite->create();
 					}
 				}
 			}
@@ -438,7 +440,7 @@ namespace galaxy
 
 		void Window::set_window_background(graphics::Colour& col) noexcept
 		{
-			m_colour = col.get_normalized();
+			m_colour = col.normalized();
 		}
 
 		void Window::set_icon(std::string_view icon)
@@ -579,7 +581,7 @@ namespace galaxy
 
 			m_framebuffer->change_size(width, height);
 			m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
-			m_fb_sprite->create<graphics::BufferStatic>();
+			m_fb_sprite->create();
 
 			m_window_resized_dispatcher.trigger<events::WindowResized>(width, height);
 
@@ -596,7 +598,7 @@ namespace galaxy
 			m_framebuffer->bind();
 		}
 
-		void Window::end(graphics::Renderer* renderer)
+		void Window::end()
 		{
 			// clang-format off
 			m_framebuffer->unbind();
@@ -609,14 +611,13 @@ namespace galaxy
 
 			m_fb_sprite->bind();
 
-			for (auto* effect : renderer->get_post_effects())
+			for (auto* effect : graphics::Renderer::m_post_shaders)
 			{
-				effect->m_shader.bind();
-				effect->m_shader.set_uniform("u_projection", m_framebuffer->get_proj());
-				effect->m_shader.set_uniform("u_transform", m_fb_sprite->get_transform());
-				effect->m_shader.set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
-				effect->m_shader.set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
-				effect->apply_uniforms();
+				effect->bind();
+				effect->set_uniform("u_projection", m_framebuffer->get_proj());
+				effect->set_uniform("u_transform", m_fb_transform.get_transform());
+				effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
+				effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
 
 				glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 			}
@@ -704,11 +705,6 @@ namespace galaxy
 		GLFWwindow* Window::gl_window() noexcept
 		{
 			return m_window;
-		}
-
-		std::function<void(GLFWwindow*, int, int)>& Window::get_resize_callback() noexcept
-		{
-			return m_framebuffer_callback;
 		}
 
 		const int Window::get_width() const noexcept
