@@ -66,7 +66,7 @@ namespace galaxy
 			///
 			/// Internal counter to keep track of allocated ids.
 			///
-			static inline std::size_t s_counter = 0;
+			inline static std::size_t s_counter = 0;
 		};
 
 		template<is_class Specialization>

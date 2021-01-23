@@ -45,6 +45,16 @@ namespace galaxy
 			Music(const nlohmann::json& json);
 
 			///
+			/// Move constructor.
+			///
+			Music(Music&&);
+
+			///
+			/// Move assignment operator.
+			///
+			Music& operator=(Music&&);
+
+			///
 			/// Destructor.
 			///
 			virtual ~Music();
@@ -59,16 +69,6 @@ namespace galaxy
 			[[maybe_unused]] const bool load(std::string_view file);
 
 		private:
-			///
-			/// Move constructor.
-			///
-			Music(Music&&) = delete;
-
-			///
-			/// Move assignment operator.
-			///
-			Music& operator=(Music&&) = delete;
-
 			///
 			/// Copy assignment operator.
 			///

@@ -12,6 +12,12 @@
 
 #include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Transform.hpp"
+#include "galaxy/components/Renderable.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Line.hpp"
+#include "galaxy/components/BatchedSprite.hpp"
+#include "galaxy/components/Sprite.hpp"
+#include "galaxy/components/Text.hpp"
 
 #include "galaxy/core/LayerStack.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -22,13 +28,17 @@
 
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
-#include "galaxy/graphics/shapes/Rect.hpp"
+#include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/Shader.hpp"
+#include "galaxy/components/Circle.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "galaxy/res/FontBook.hpp"
 #include "galaxy/res/ShaderBook.hpp"
+#include "galaxy/res/TextureAtlas.hpp"
+#include "galaxy/res/SoundBook.hpp"
+#include "galaxy/res/MusicBook.hpp"
 
 #include "LuaUtils.hpp"
 
@@ -107,6 +117,86 @@ galaxy::components::Transform* add_transform(galaxy::core::World& world, const g
 	return world.create_component<galaxy::components::Transform>(entity);
 }
 
+galaxy::components::Renderable* add_renderable(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Renderable>(entity);
+}
+
+galaxy::components::Point* add_point(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Point>(entity);
+}
+
+galaxy::components::Line* add_line(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Line>(entity);
+}
+
+galaxy::components::Circle* add_circle(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Circle>(entity);
+}
+
+galaxy::components::BatchedSprite* add_batched_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::BatchedSprite>(entity);
+}
+
+galaxy::components::Sprite* add_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Sprite>(entity);
+}
+
+galaxy::components::Text* add_text(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Text>(entity);
+}
+
+galaxy::components::ShaderID* get_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::ShaderID>(entity);
+}
+
+galaxy::components::Transform* get_transform(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Transform>(entity);
+}
+
+galaxy::components::Renderable* get_renderable(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Renderable>(entity);
+}
+
+galaxy::components::Point* get_point(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Point>(entity);
+}
+
+galaxy::components::Line* get_line(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Line>(entity);
+}
+
+galaxy::components::Circle* get_circle(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Circle>(entity);
+}
+
+galaxy::components::BatchedSprite* get_batched_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::BatchedSprite>(entity);
+}
+
+galaxy::components::Sprite* get_sprite(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Sprite>(entity);
+}
+
+galaxy::components::Text* get_text(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Text>(entity);
+}
+
 namespace galaxy
 {
 	namespace lua
@@ -133,7 +223,6 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			/*
 			auto music_type           = lua->new_usertype<audio::Music>("Music", sol::constructors<audio::Music()>());
 			music_type["load"]        = &audio::Music::load;
 			music_type["play"]        = &audio::Music::play;
@@ -149,30 +238,12 @@ namespace galaxy
 			sound_type["stop"]        = &audio::Sound::stop;
 			sound_type["rewind"]      = &audio::Sound::rewind;
 			sound_type["set_looping"] = &audio::Sound::set_looping;
-
-			auto music_playlist_type           = lua->new_usertype<audio::Playlist<audio::Music>>("MusicPlaylist", sol::constructors<audio::Playlist<audio::Music>()>());
-			music_playlist_type["load"]        = &audio::Playlist<audio::Music>::add;
-			music_playlist_type["play"]        = &audio::Playlist<audio::Music>::play;
-			music_playlist_type["pause"]       = &audio::Playlist<audio::Music>::pause;
-			music_playlist_type["stop"]        = &audio::Playlist<audio::Music>::stop;
-			music_playlist_type["rewind"]      = &audio::Playlist<audio::Music>::shuffle;
-			music_playlist_type["set_looping"] = &audio::Playlist<audio::Music>::toggle_loop;
-
-			auto sound_playlist_type           = lua->new_usertype<audio::Playlist<audio::Sound>>("SoundPlaylist", sol::constructors<audio::Playlist<audio::Sound>()>());
-			sound_playlist_type["load"]        = &audio::Playlist<audio::Sound>::add;
-			sound_playlist_type["play"]        = &audio::Playlist<audio::Sound>::play;
-			sound_playlist_type["pause"]       = &audio::Playlist<audio::Sound>::pause;
-			sound_playlist_type["stop"]        = &audio::Playlist<audio::Sound>::stop;
-			sound_playlist_type["rewind"]      = &audio::Playlist<audio::Sound>::shuffle;
-			sound_playlist_type["set_looping"] = &audio::Playlist<audio::Sound>::toggle_loop;
-			*/
 		}
 
 		void register_ecs()
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto entity_type               = lua->new_usertype<ecs::Entity>("gEntity");
 			auto world_type                = lua->new_usertype<core::World>("gWorld", sol::constructors<core::World()>());
 			world_type["create"]           = sol::resolve<const ecs::Entity(void)>(&core::World::create);
 			world_type["create_with_name"] = sol::resolve<const ecs::Entity(std::string_view)>(&core::World::create);
@@ -188,6 +259,23 @@ namespace galaxy
 
 			lua->set_function("add_shaderid_to_entity", &add_shaderid);
 			lua->set_function("add_transform_to_entity", &add_transform);
+			lua->set_function("add_renderable_to_entity", &add_renderable);
+			lua->set_function("add_point_to_entity", &add_point);
+			lua->set_function("add_line_to_entity", &add_line);
+			lua->set_function("add_circle_to_entity", &add_circle);
+			lua->set_function("add_batched_sprite_to_entity", &add_batched_sprite);
+			lua->set_function("add_sprite_to_entity", &add_sprite);
+			lua->set_function("add_text_to_entity", &add_text);
+
+			lua->set_function("get_shaderid_from_entity", &get_shaderid);
+			lua->set_function("get_transform_from_entity", &get_transform);
+			lua->set_function("get_renderable_from_entity", &get_renderable);
+			lua->set_function("get_point_from_entity", &get_point);
+			lua->set_function("get_line_from_entity", &get_line);
+			lua->set_function("get_circle_from_entity", &get_circle);
+			lua->set_function("get_batched_sprite_from_entity", &get_batched_sprite);
+			lua->set_function("get_sprite_from_entity", &get_sprite);
+			lua->set_function("get_text_from_entity", &get_text);
 
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
@@ -202,6 +290,92 @@ namespace galaxy
 			transform_type["scale"]               = &components::Transform::scale;
 			transform_type["set_pos"]             = &components::Transform::set_pos;
 			transform_type["set_rotation_origin"] = &components::Transform::set_rotation_origin;
+
+			// clang-format off
+			lua->new_enum<graphics::Renderables>("gRenderables",
+			{
+				{"POINT", graphics::Renderables::POINT},
+				{"LINE", graphics::Renderables::LINE},
+				{"CIRCLE", graphics::Renderables::CIRCLE},
+				{"SPRITE", graphics::Renderables::SPRITE},
+				{"TEXT", graphics::Renderables::TEXT},
+				{"BATCHED", graphics::Renderables::BATCHED}
+			});
+			// clang-format on
+
+			auto renderable_type       = lua->new_usertype<components::Renderable>("gRenderable", sol::constructors<components::Renderable(), components::Renderable(graphics::Renderables, const int)>());
+			renderable_type["type"]    = &components::Renderable::m_type;
+			renderable_type["z_level"] = &components::Renderable::m_z_level;
+
+			auto point_type           = lua->new_usertype<components::Point>("gPoint", sol::constructors<components::Point(), components::Point(const float, const float, const unsigned int, graphics::Colour&)>());
+			point_type["create"]      = &components::Point::create;
+			point_type["bind"]        = &components::Point::bind;
+			point_type["unbind"]      = &components::Point::unbind;
+			point_type["get_size"]    = &components::Point::get_size;
+			point_type["index_count"] = &components::Point::index_count;
+			point_type["opacity"]     = &components::Point::opacity;
+			point_type["set_opacity"] = &components::Point::set_opacity;
+
+			auto line_type           = lua->new_usertype<components::Line>("gLine", sol::constructors<components::Line(), components::Line(graphics::Colour&, const float, const float, const float, const float)>());
+			line_type["create"]      = &components::Line::create;
+			line_type["bind"]        = &components::Line::bind;
+			line_type["unbind"]      = &components::Line::unbind;
+			line_type["index_count"] = &components::Line::index_count;
+			line_type["opacity"]     = &components::Line::opacity;
+			line_type["set_opacity"] = &components::Line::set_opacity;
+
+			auto circle_type           = lua->new_usertype<components::Circle>("gCircle", sol::constructors<components::Circle(), components::Circle(const float, const float, const float, const unsigned int, graphics::Colour&)>());
+			circle_type["create"]      = &components::Circle::create;
+			circle_type["bind"]        = &components::Circle::bind;
+			circle_type["unbind"]      = &components::Circle::unbind;
+			circle_type["get_x"]       = &components::Circle::get_x;
+			circle_type["get_y"]       = &components::Circle::get_y;
+			circle_type["get_xy"]      = &components::Circle::get_xy;
+			circle_type["radius"]      = &components::Circle::radius;
+			circle_type["index_count"] = &components::Circle::index_count;
+			circle_type["opacity"]     = &components::Circle::opacity;
+			circle_type["set_opacity"] = &components::Circle::set_opacity;
+
+			auto bs_type               = lua->new_usertype<components::BatchedSprite>("gBatchedSprite", sol::constructors<components::BatchedSprite()>());
+			bs_type["create"]          = &components::BatchedSprite::create;
+			bs_type["get_height"]      = &components::BatchedSprite::get_height;
+			bs_type["get_region"]      = &components::BatchedSprite::get_region;
+			bs_type["get_width"]       = &components::BatchedSprite::get_width;
+			bs_type["opacity"]         = &components::BatchedSprite::opacity;
+			bs_type["set_opacity"]     = &components::BatchedSprite::set_opacity;
+			bs_type["update_h_region"] = &components::BatchedSprite::update_h_region;
+			bs_type["update_region"]   = sol::resolve<void(const float, const float, const float, const float)>(&components::BatchedSprite::update_region);
+			bs_type["update_w_region"] = &components::BatchedSprite::update_w_region;
+			bs_type["update_x_region"] = &components::BatchedSprite::update_x_region;
+			bs_type["update_y_region"] = &components::BatchedSprite::update_y_region;
+
+			auto sprite_type               = lua->new_usertype<components::Sprite>("gSprite", sol::constructors<components::Sprite()>());
+			sprite_type["bind"]            = &components::Sprite::bind;
+			sprite_type["unbind"]          = &components::Sprite::unbind;
+			sprite_type["clamp_to_border"] = &components::Sprite::clamp_to_border;
+			sprite_type["clamp_to_edge"]   = &components::Sprite::clamp_to_edge;
+			sprite_type["create"]          = &components::Sprite::create;
+			sprite_type["get_aniso_level"] = &components::Sprite::get_aniso_level;
+			sprite_type["get_height"]      = &components::Sprite::get_height;
+			sprite_type["get_width"]       = &components::Sprite::get_width;
+			sprite_type["opacity"]         = &components::Sprite::opacity;
+			sprite_type["save"]            = &components::Sprite::save;
+			sprite_type["set_anisotropy"]  = &components::Sprite::set_anisotropy;
+			sprite_type["set_mirrored"]    = &components::Sprite::set_mirrored;
+			sprite_type["set_opacity"]     = &components::Sprite::set_opacity;
+			sprite_type["set_repeated"]    = &components::Sprite::set_repeated;
+
+			auto text_type                = lua->new_usertype<components::Text>("gText", sol::constructors<components::Text>());
+			text_type["bind"]             = &components::Text::bind;
+			text_type["create"]           = &components::Text::create;
+			text_type["get_batch_height"] = &components::Text::get_batch_height;
+			text_type["get_batch_width"]  = &components::Text::get_batch_width;
+			text_type["get_colour"]       = &components::Text::get_colour;
+			text_type["get_height"]       = &components::Text::get_height;
+			text_type["get_width"]        = &components::Text::get_width;
+			text_type["load"]             = &components::Text::load;
+			text_type["unbind"]           = &components::Text::unbind;
+			text_type["update_text"]      = &components::Text::update_text;
 		}
 
 		void register_fs()
@@ -281,7 +455,7 @@ namespace galaxy
 			lua->set_function("gShader_set_vec3", &set_vec3_uniform);
 			lua->set_function("gShader_set_vec4", &set_vec4_uniform);
 
-			auto camera_type                   = lua->new_usertype<graphics::Camera>("gCamera", sol::constructors<graphics::Camera(), graphics::Camera(const float, const float, const float, const float)>());
+			auto camera_type                   = lua->new_usertype<graphics::Camera>("gCamera", sol::constructors<graphics::Camera(), graphics::Camera(const float, const float, const float, const float, const float)>());
 			camera_type["create"]              = &graphics::Camera::create;
 			camera_type["get_height"]          = &graphics::Camera::get_height;
 			camera_type["get_pos"]             = &graphics::Camera::get_pos;
@@ -353,6 +527,24 @@ namespace galaxy
 			fontbook_type["create_from_json"] = &res::FontBook::create_from_json;
 			fontbook_type["get"]              = &res::FontBook::get;
 			fontbook_type["clear"]            = &res::FontBook::clear;
+
+			auto tex_atlas_type          = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::constructors<res::TextureAtlas(), res::TextureAtlas(const unsigned int)>());
+			tex_atlas_type["add"]        = &res::TextureAtlas::add;
+			tex_atlas_type["create"]     = &res::TextureAtlas::create;
+			tex_atlas_type["get_size"]   = &res::TextureAtlas::get_size;
+			tex_atlas_type["get_region"] = &res::TextureAtlas::get_region;
+			tex_atlas_type["save"]       = &res::TextureAtlas::save;
+			tex_atlas_type["update"]     = &res::TextureAtlas::update;
+
+			auto soundbook_type                = lua->new_usertype<res::SoundBook>("gSoundBook", sol::constructors<res::SoundBook(), res::SoundBook(std::string_view)>());
+			soundbook_type["create_from_json"] = &res::SoundBook::create_from_json;
+			soundbook_type["get"]              = &res::SoundBook::get;
+			soundbook_type["clear"]            = &res::SoundBook::clear;
+
+			auto musicbook_type                = lua->new_usertype<res::MusicBook>("gMusicBook", sol::constructors<res::MusicBook(), res::MusicBook(std::string_view)>());
+			musicbook_type["create_from_json"] = &res::MusicBook::create_from_json;
+			musicbook_type["get"]              = &res::MusicBook::get;
+			musicbook_type["clear"]            = &res::MusicBook::clear;
 		}
 	} // namespace lua
 } // namespace galaxy

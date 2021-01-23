@@ -11,7 +11,7 @@
 #include <optional>
 #include <vector>
 
-#include "galaxy/graphics/shapes/Rect.hpp"
+#include "galaxy/graphics/Rect.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy

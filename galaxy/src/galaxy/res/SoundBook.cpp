@@ -32,7 +32,7 @@ namespace galaxy
 		{
 			nlohmann::json json = json::parse_from_disk(file);
 
-			for (auto& [name, arr] : json.at("soundbook").items())
+			for (const auto& [name, arr] : json.at("soundbook").items())
 			{
 				create(name, arr);
 			}

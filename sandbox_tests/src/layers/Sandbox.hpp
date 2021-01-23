@@ -11,10 +11,6 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/core/Layer.hpp>
 #include <galaxy/graphics/Camera.hpp>
-#include <galaxy/graphics/shapes/Point.hpp>
-#include <galaxy/graphics/shapes/Circle.hpp>
-#include <galaxy/graphics/particle/ParticleGenerator.hpp>
-#include <galaxy/graphics/post/Simple.hpp>
 
 namespace sb
 {
@@ -38,7 +34,6 @@ namespace sb
 		//galaxy::graphics::ParticleGenerator m_particle_gen;
 		//galaxy::graphics::Point m_point;
 		//galaxy::graphics::Circle m_circle;
-		galaxy::posteffect::Simple m_simple;
 		//galaxy::physics::KineticBody* m_test_body;
 		//galaxy::audio::Sound m_boop;
 	};

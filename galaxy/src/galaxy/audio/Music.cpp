@@ -44,6 +44,60 @@ namespace galaxy
 			}
 		}
 
+		Music::Music(Music&& m)
+		    : BufferStream {std::move(m)}, SourceManipulator {std::move(m)}
+		{
+			m.m_running = false;
+			m.stop();
+			m.m_thread.request_stop();
+			m.m_thread.join();
+
+			this->m_source = std::move(m.m_source);
+
+			// clang-format off
+			this->m_thread = std::jthread([this]()
+				{
+					while (this->m_running)
+					{
+						this->update();
+					}
+				});
+			// clang-format on
+
+			this->m_running = true;
+		}
+
+		Music& Music::operator=(Music&& m)
+		{
+			if (this != &m)
+			{
+				BufferStream::operator=(std::move(m));
+
+				SourceManipulator::operator=(std::move(m));
+
+				m.m_running = false;
+				m.stop();
+				m.m_thread.request_stop();
+				m.m_thread.join();
+
+				this->m_source = std::move(m.m_source);
+
+				// clang-format off
+				this->m_thread = std::jthread([this]()
+					{
+						while (this->m_running)
+						{
+							this->update();
+						}
+					});
+				// clang-format on
+
+				this->m_running = true;
+			}
+
+			return *this;
+		}
+
 		Music::~Music()
 		{
 			m_running = false;

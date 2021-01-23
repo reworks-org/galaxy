@@ -21,11 +21,7 @@ namespace sb
 {
 	Sandbox::Sandbox()
 	{
-		m_window = SL_HANDLE.window();
-
-		m_simple.m_shader.load_path("assets/shaders/render_to_texture.vs", "assets/shaders/render_to_texture.fs");
-		SL_HANDLE.renderer()->add_post_effect(&m_simple);
-
+		m_window       = SL_HANDLE.window();
 		m_active_scene = std::make_unique<SandboxScene>();
 
 		/*

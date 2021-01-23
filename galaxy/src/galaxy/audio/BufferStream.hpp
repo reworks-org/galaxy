@@ -52,7 +52,7 @@ namespace galaxy
 			///
 			/// Size of each buffer used by the stream.
 			///
-			static inline const constexpr std::size_t CHUNK = 65536;
+			inline static const constexpr std::size_t CHUNK = 65536;
 
 		protected:
 			///
