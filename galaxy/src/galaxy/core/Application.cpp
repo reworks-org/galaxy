@@ -77,6 +77,7 @@ namespace galaxy
 				m_config->define<float>("gravity-y", 0.0f);
 				m_config->define<int>("max-batched-quads", 1000);
 				m_config->define<unsigned int>("textureatlas-size", 4096);
+				m_config->define<float>("audio-volume", 0.7f);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
@@ -131,6 +132,9 @@ namespace galaxy
 
 				m_window->set_icon(m_config->get<std::string>("icon-file"));
 
+				// Configure audio context.
+				m_openal.set_listener_gain(m_config->get<float>("audio-volume"));
+
 				// Freetype.
 				FT_HANDLE.open();
 
@@ -180,6 +184,17 @@ namespace galaxy
 				lua::register_layerstack();
 				lua::register_math();
 				lua::register_res();
+
+				// Register services with Lua.
+				m_lua->set("galaxy_audio_context", &m_openal);
+				m_lua->set("galaxy_config", m_config.get());
+				m_lua->set("galaxy_vfs", m_vfs.get());
+				m_lua->set("galaxy_layers", m_layerstack.get());
+				m_lua->set("galaxy_shaderboox", m_shaderbook.get());
+				m_lua->set("galaxy_fontbook", m_fontbook.get());
+				m_lua->set("galaxy_tex_atlas", m_texture_atlas.get());
+				m_lua->set("galaxy_soundbook", m_soundbook.get());
+				m_lua->set("galaxy_musicbook", m_musicbook.get());
 			}
 		}
 

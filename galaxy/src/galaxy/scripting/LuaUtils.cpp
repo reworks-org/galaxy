@@ -268,7 +268,7 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto world_type                = lua->new_usertype<core::World>("gWorld", sol::constructors<core::World()>());
+			auto world_type                = lua->new_usertype<core::World>("gWorld", sol::no_constructor);
 			world_type["create"]           = sol::resolve<const ecs::Entity(void)>(&core::World::create);
 			world_type["create_with_name"] = sol::resolve<const ecs::Entity(std::string_view)>(&core::World::create);
 			world_type["create_from_json"] = &core::World::create_from_json;
@@ -406,7 +406,7 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto config_type        = lua->new_usertype<fs::Config>("gConfig", sol::constructors<fs::Config()>());
+			auto config_type        = lua->new_usertype<fs::Config>("gConfig", sol::no_constructor);
 			config_type["init"]     = &fs::Config::init;
 			config_type["save"]     = &fs::Config::save;
 			config_type["is_blank"] = &fs::Config::is_blank;
@@ -426,7 +426,7 @@ namespace galaxy
 			config_type["get_float"]  = &fs::Config::get<float>;
 			config_type["get_string"] = &fs::Config::get<std::string>;
 
-			auto fs_type        = lua->new_usertype<fs::Virtual>("gVirtualFS", sol::constructors<fs::Virtual()>());
+			auto fs_type        = lua->new_usertype<fs::Virtual>("gVirtualFS", sol::no_constructor);
 			fs_type["mount"]    = sol::resolve<const bool(std::string_view)>(&fs::Virtual::mount);
 			fs_type["open"]     = &fs::Virtual::open;
 			fs_type["save"]     = &fs::Virtual::save;
@@ -512,7 +512,7 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto layerstack_type     = lua->new_usertype<core::LayerStack>("gLayerStack", sol::constructors<core::LayerStack()>());
+			auto layerstack_type     = lua->new_usertype<core::LayerStack>("gLayerStack", sol::no_constructor);
 			layerstack_type["push"]  = &core::LayerStack::push;
 			layerstack_type["pop"]   = &core::LayerStack::pop;
 			layerstack_type["clear"] = &core::LayerStack::clear;
@@ -542,17 +542,17 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto shaderbook_type                = lua->new_usertype<res::ShaderBook>("gShaderBook", sol::constructors<res::ShaderBook(), res::ShaderBook(std::string_view)>());
+			auto shaderbook_type                = lua->new_usertype<res::ShaderBook>("gShaderBook", sol::no_constructor);
 			shaderbook_type["create_from_json"] = &res::ShaderBook::create_from_json;
 			shaderbook_type["get"]              = &res::ShaderBook::get;
 			shaderbook_type["clear"]            = &res::ShaderBook::clear;
 
-			auto fontbook_type                = lua->new_usertype<res::FontBook>("gFontBook", sol::constructors<res::FontBook(), res::FontBook(std::string_view)>());
+			auto fontbook_type                = lua->new_usertype<res::FontBook>("gFontBook", sol::no_constructor);
 			fontbook_type["create_from_json"] = &res::FontBook::create_from_json;
 			fontbook_type["get"]              = &res::FontBook::get;
 			fontbook_type["clear"]            = &res::FontBook::clear;
 
-			auto tex_atlas_type          = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::constructors<res::TextureAtlas(), res::TextureAtlas(const unsigned int)>());
+			auto tex_atlas_type          = lua->new_usertype<res::TextureAtlas>("gTextureAtlas", sol::no_constructor);
 			tex_atlas_type["add"]        = &res::TextureAtlas::add;
 			tex_atlas_type["create"]     = &res::TextureAtlas::create;
 			tex_atlas_type["get_size"]   = &res::TextureAtlas::get_size;
@@ -560,12 +560,12 @@ namespace galaxy
 			tex_atlas_type["save"]       = &res::TextureAtlas::save;
 			tex_atlas_type["update"]     = &res::TextureAtlas::update;
 
-			auto soundbook_type                = lua->new_usertype<res::SoundBook>("gSoundBook", sol::constructors<res::SoundBook(), res::SoundBook(std::string_view)>());
+			auto soundbook_type                = lua->new_usertype<res::SoundBook>("gSoundBook", sol::no_constructor);
 			soundbook_type["create_from_json"] = &res::SoundBook::create_from_json;
 			soundbook_type["get"]              = &res::SoundBook::get;
 			soundbook_type["clear"]            = &res::SoundBook::clear;
 
-			auto musicbook_type                = lua->new_usertype<res::MusicBook>("gMusicBook", sol::constructors<res::MusicBook(), res::MusicBook(std::string_view)>());
+			auto musicbook_type                = lua->new_usertype<res::MusicBook>("gMusicBook", sol::no_constructor);
 			musicbook_type["create_from_json"] = &res::MusicBook::create_from_json;
 			musicbook_type["get"]              = &res::MusicBook::get;
 			musicbook_type["clear"]            = &res::MusicBook::clear;

@@ -3,6 +3,7 @@
     "anti-aliasing": 2,
     "aspect-ratio-x": -1,
     "aspect-ratio-y": -1,
+    "audio-volume": 0.7,
     "cursor-image": "cursor.png",
     "fontbook-json": "fontbook.json",
     "gl-debug": false,
