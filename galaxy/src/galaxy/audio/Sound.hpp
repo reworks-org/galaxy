@@ -45,6 +45,25 @@ namespace galaxy
 			Sound(const nlohmann::json& json);
 
 			///
+			/// \brief Play sound.
+			///
+			/// Plays music from beginning or pause point.
+			///
+			void play() override;
+
+			///
+			/// Pause sound.
+			///
+			void pause() override;
+
+			///
+			/// \brief Stop sound.
+			///
+			/// Starts again from beginning.
+			///
+			void stop() override;
+
+			///
 			/// Destructor.
 			///
 			virtual ~Sound() = default;
@@ -57,6 +76,13 @@ namespace galaxy
 			/// \return False if load failed.
 			///
 			[[maybe_unused]] const bool load(std::string_view file);
+
+			///
+			/// \brief Should the sound repeat upon reaching the end.
+			///
+			/// \param True to repeat.
+			///
+			void set_looping(const bool looping) override;
 
 		private:
 			///

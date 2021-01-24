@@ -16,16 +16,13 @@ namespace galaxy
 	namespace audio
 	{
 		Music::Music() noexcept
-		    : m_running {false}
+		    : m_looping {false}, m_running {false}
 		{
-			set_source_to_manipulate(m_source.handle());
 		}
 
 		Music::Music(std::string_view file)
-		    : m_running {false}
+		    : m_looping {false}, m_running {false}
 		{
-			set_source_to_manipulate(m_source.handle());
-
 			if (!load(file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load file: {0}.", file);
@@ -33,10 +30,8 @@ namespace galaxy
 		}
 
 		Music::Music(const nlohmann::json& json)
-		    : m_running {false}
+		    : m_looping {false}, m_running {false}
 		{
-			set_source_to_manipulate(m_source.handle());
-
 			if (load(json.at("file")))
 			{
 				set_looping(json.at("looping"));
@@ -55,6 +50,33 @@ namespace galaxy
 			stop();
 			m_thread.request_stop();
 			m_thread.join();
+		}
+
+		void Music::play()
+		{
+			alSourcePlay(m_source.handle());
+		}
+
+		void Music::pause()
+		{
+			alSourcePause(m_source.handle());
+		}
+
+		void Music::stop()
+		{
+			alSourceStop(m_source.handle());
+
+			alSourceUnqueueBuffers(m_source.handle(), 2, m_buffers.data());
+
+			stb_vorbis_seek_start(m_stream);
+
+			stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
+			alBufferData(m_buffers[0], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
+
+			stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
+			alBufferData(m_buffers[1], m_format, m_data, CHUNK * sizeof(short), m_info.sample_rate);
+
+			m_source.queue(this);
 		}
 
 		const bool Music::load(std::string_view file)
@@ -79,6 +101,11 @@ namespace galaxy
 			return res;
 		}
 
+		void Music::set_looping(const bool looping)
+		{
+			m_looping = looping;
+		}
+
 		void Music::update()
 		{
 			int processed = 0;
@@ -92,6 +119,11 @@ namespace galaxy
 				{
 					alSourceUnqueueBuffers(m_source.handle(), 1, &which);
 					amount = stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
+					if (amount == 0 && m_looping)
+					{
+						stb_vorbis_seek_start(m_stream);
+						amount = stb_vorbis_get_samples_short_interleaved(m_stream, m_info.channels, m_data, CHUNK);
+					}
 
 					if (amount > 0)
 					{

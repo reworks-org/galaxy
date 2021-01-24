@@ -12,6 +12,7 @@
 #include <AL/alc.h>
 #include <glm/vec3.hpp>
 
+#include "galaxy/audio/Source.hpp"
 #include "galaxy/meta/Concepts.hpp"
 
 namespace galaxy
@@ -27,31 +28,26 @@ namespace galaxy
 			///
 			/// Virtual destructor.
 			///
-			virtual ~SourceManipulator() noexcept;
+			virtual ~SourceManipulator() = default;
 
 			///
 			/// \brief Play source.
 			///
 			/// Plays source from beginning or pause point.
 			///
-			void play();
+			virtual void play() = 0;
 
 			///
 			/// Pause source.
 			///
-			void pause();
+			virtual void pause() = 0;
 
 			///
 			/// \brief Stop source.
 			///
-			/// Starts again from beginning when play() or resume() are called.
+			/// Starts again from beginning.
 			///
-			void stop();
-
-			///
-			/// Rewind source to beginning.
-			///
-			void rewind();
+			virtual void stop() = 0;
 
 			///
 			/// Audio pitch.
@@ -116,7 +112,7 @@ namespace galaxy
 			///
 			/// \param True to repeat.
 			///
-			void set_looping(const bool looping);
+			virtual void set_looping(const bool looping) = 0;
 
 			///
 			/// Retrieve OpenAL source state.
@@ -129,14 +125,13 @@ namespace galaxy
 			///
 			/// Default constructor.
 			///
-			SourceManipulator() noexcept;
+			SourceManipulator() noexcept = default;
 
+		protected:
 			///
-			/// Set source to manipulate.
+			/// OpenAL audio source object.
 			///
-			/// \param source Pointer to source handle in OpenAL.
-			///
-			void set_source_to_manipulate(const ALuint source) noexcept;
+			Source m_source;
 
 		private:
 			///
@@ -158,15 +153,8 @@ namespace galaxy
 			/// Copy assignment operator.
 			///
 			SourceManipulator& operator=(const SourceManipulator&) = delete;
-
-		private:
-			///
-			/// Internal source.
-			///
-			ALuint m_source;
 		};
 	} // namespace audio
-
 } // namespace galaxy
 
 #endif

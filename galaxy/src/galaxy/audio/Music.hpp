@@ -12,7 +12,6 @@
 
 #include <nlohmann/json_fwd.hpp>
 
-#include "galaxy/audio/Source.hpp"
 #include "galaxy/audio/SourceManipulator.hpp"
 
 namespace galaxy
@@ -50,6 +49,25 @@ namespace galaxy
 			virtual ~Music();
 
 			///
+			/// \brief Play music.
+			///
+			/// Plays music from beginning or pause point.
+			///
+			void play() override;
+
+			///
+			/// Pause music.
+			///
+			void pause() override;
+
+			///
+			/// \brief Stop music.
+			///
+			/// Starts again from beginning.
+			///
+			void stop() override;
+
+			///
 			/// Load a file to stream from disk.
 			///
 			/// \param file File to load from disk. Can only load ogg vorbis.
@@ -57,6 +75,13 @@ namespace galaxy
 			/// \return False if load failed.
 			///
 			[[maybe_unused]] const bool load(std::string_view file);
+
+			///
+			/// \brief Should the music repeat upon reaching the end.
+			///
+			/// \param True to repeat.
+			///
+			void set_looping(const bool looping) override;
 
 		private:
 			///
@@ -80,15 +105,17 @@ namespace galaxy
 			Music& operator=(const Music&) = delete;
 
 			///
-			/// Update stream buffers as it plays.
+			/// \brief Update stream buffers as it plays.
+			///
+			/// Internal use only.
 			///
 			void update();
 
 		private:
 			///
-			/// OpenAL audio source object.
+			/// Looping flag.
 			///
-			Source m_source;
+			bool m_looping;
 
 			///
 			/// Thread to process music updates on.

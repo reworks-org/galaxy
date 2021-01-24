@@ -7,6 +7,7 @@
 
 #include <nlohmann/json.hpp>
 
+#include "galaxy/error/ALError.hpp"
 #include "galaxy/error/Log.hpp"
 
 #include "Sound.hpp"
@@ -18,12 +19,10 @@ namespace galaxy
 		Sound::Sound() noexcept
 		    : Buffer {}, SourceManipulator {}, m_source {}
 		{
-			set_source_to_manipulate(m_source.handle());
 		}
 
 		Sound::Sound(std::string_view file)
 		{
-			set_source_to_manipulate(m_source.handle());
 			if (!load(file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load sound file: {0}.", file);
@@ -32,7 +31,6 @@ namespace galaxy
 
 		Sound::Sound(const nlohmann::json& json)
 		{
-			set_source_to_manipulate(m_source.handle());
 			if (load(json.at("file")))
 			{
 				set_looping(json.at("looping"));
@@ -44,6 +42,22 @@ namespace galaxy
 			}
 		}
 
+		void Sound::play()
+		{
+			alSourcePlay(m_source.handle());
+		}
+
+		void Sound::pause()
+		{
+			alSourcePause(m_source.handle());
+		}
+
+		void Sound::stop()
+		{
+			alSourceStop(m_source.handle());
+			alSourceRewind(m_source.handle());
+		}
+
 		const bool Sound::load(std::string_view file)
 		{
 			const auto res = internal_load(file);
@@ -53,6 +67,15 @@ namespace galaxy
 			}
 
 			return res;
+		}
+
+		void Sound::set_looping(const bool looping)
+		{
+			alSourcei(m_source.handle(), AL_LOOPING, looping);
+			if (alGetError() != AL_NO_ERROR)
+			{
+				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to set source looping."));
+			}
 		}
 	} // namespace audio
 } // namespace galaxy

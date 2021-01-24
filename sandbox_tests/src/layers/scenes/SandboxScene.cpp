@@ -8,6 +8,9 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 
+#include <galaxy/res/MusicBook.hpp>
+#include <galaxy/res/SoundBook.hpp>
+
 #include "SandboxScene.hpp"
 
 namespace sb
@@ -24,6 +27,26 @@ namespace sb
 
 	void SandboxScene::events()
 	{
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::M))
+		{
+			SL_HANDLE.musicbook()->get("PleasingGuns")->play();
+		}
+
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::P))
+		{
+			SL_HANDLE.musicbook()->get("PleasingGuns")->pause();
+		}
+
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::N))
+		{
+			SL_HANDLE.musicbook()->get("PleasingGuns")->stop();
+		}
+
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::B))
+		{
+			SL_HANDLE.soundbook()->get("button")->play();
+		}
+
 		if (SL_HANDLE.window()->key_down(galaxy::input::Keys::W))
 		{
 			m_camera.on_key_down({galaxy::input::Keys::W});
