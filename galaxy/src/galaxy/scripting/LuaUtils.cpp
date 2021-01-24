@@ -7,6 +7,8 @@
 
 #include <sol/sol.hpp>
 
+#include "galaxy/audio/Context.hpp"
+
 #include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/algorithm/Random.hpp"
 
@@ -223,21 +225,43 @@ namespace galaxy
 		{
 			auto lua = SL_HANDLE.lua();
 
-			auto music_type           = lua->new_usertype<audio::Music>("Music", sol::constructors<audio::Music()>());
-			music_type["load"]        = &audio::Music::load;
-			music_type["play"]        = &audio::Music::play;
-			music_type["pause"]       = &audio::Music::pause;
-			music_type["stop"]        = &audio::Music::stop;
-			music_type["rewind"]      = &audio::Music::rewind;
-			music_type["set_looping"] = &audio::Music::set_looping;
+			auto context_type                        = lua->new_usertype<audio::Context>("gContext", sol::no_constructor);
+			context_type["set_doppler_factor"]       = &audio::Context::set_doppler_factor;
+			context_type["set_listener_gain"]        = &audio::Context::set_listener_gain;
+			context_type["set_listener_orientation"] = &audio::Context::set_listener_orientation;
+			context_type["set_listener_position"]    = &audio::Context::set_listener_position;
+			context_type["set_listener_velocity"]    = &audio::Context::set_listener_velocity;
+			context_type["set_speed_of_sound"]       = &audio::Context::set_speed_of_sound;
 
-			auto sound_type           = lua->new_usertype<audio::Sound>("Sound", sol::constructors<audio::Sound()>());
-			sound_type["load"]        = &audio::Sound::load;
-			sound_type["play"]        = &audio::Sound::play;
-			sound_type["pause"]       = &audio::Sound::pause;
-			sound_type["stop"]        = &audio::Sound::stop;
-			sound_type["rewind"]      = &audio::Sound::rewind;
-			sound_type["set_looping"] = &audio::Sound::set_looping;
+			auto music_type                  = lua->new_usertype<audio::Music>("gMusic", sol::constructors<audio::Music()>());
+			music_type["load"]               = &audio::Music::load;
+			music_type["play"]               = &audio::Music::play;
+			music_type["pause"]              = &audio::Music::pause;
+			music_type["stop"]               = &audio::Music::stop;
+			music_type["set_looping"]        = &audio::Music::set_looping;
+			music_type["set_cone"]           = &audio::Music::set_cone;
+			music_type["set_direction"]      = &audio::Music::set_direction;
+			music_type["set_gain"]           = &audio::Music::set_gain;
+			music_type["set_max_distance"]   = &audio::Music::set_max_distance;
+			music_type["set_pitch"]          = &audio::Music::set_pitch;
+			music_type["set_position"]       = &audio::Music::set_position;
+			music_type["set_rolloff_factor"] = &audio::Music::set_rolloff_factor;
+			music_type["set_velocity"]       = &audio::Music::set_velocity;
+
+			auto sound_type                  = lua->new_usertype<audio::Sound>("gSound", sol::constructors<audio::Sound()>());
+			sound_type["load"]               = &audio::Sound::load;
+			sound_type["play"]               = &audio::Sound::play;
+			sound_type["pause"]              = &audio::Sound::pause;
+			sound_type["stop"]               = &audio::Sound::stop;
+			sound_type["set_looping"]        = &audio::Sound::set_looping;
+			sound_type["set_cone"]           = &audio::Sound::set_cone;
+			sound_type["set_direction"]      = &audio::Sound::set_direction;
+			sound_type["set_gain"]           = &audio::Sound::set_gain;
+			sound_type["set_max_distance"]   = &audio::Sound::set_max_distance;
+			sound_type["set_pitch"]          = &audio::Sound::set_pitch;
+			sound_type["set_position"]       = &audio::Sound::set_position;
+			sound_type["set_rolloff_factor"] = &audio::Sound::set_rolloff_factor;
+			sound_type["set_velocity"]       = &audio::Sound::set_velocity;
 		}
 
 		void register_ecs()
