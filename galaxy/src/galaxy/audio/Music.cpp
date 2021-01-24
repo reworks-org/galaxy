@@ -47,7 +47,7 @@ namespace galaxy
 		{
 			m_running = false;
 
-			stop();
+			alSourceStop(m_source.handle());
 			m_thread.request_stop();
 			m_thread.join();
 		}
