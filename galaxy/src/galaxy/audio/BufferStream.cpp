@@ -30,37 +30,6 @@ namespace galaxy
 			}
 		}
 
-		BufferStream::BufferStream(BufferStream&& bs) noexcept
-		{
-			this->m_buffers = std::move(bs.m_buffers);
-			this->m_data    = bs.m_data;
-			this->m_format  = bs.m_format;
-			this->m_info    = bs.m_info;
-			this->m_stream  = bs.m_stream;
-
-			bs.m_buffers = {0, 0};
-			bs.m_data    = nullptr;
-			bs.m_stream  = nullptr;
-		}
-
-		BufferStream& BufferStream::operator=(BufferStream&& bs) noexcept
-		{
-			if (this != &bs)
-			{
-				this->m_buffers = std::move(bs.m_buffers);
-				this->m_data    = bs.m_data;
-				this->m_format  = bs.m_format;
-				this->m_info    = bs.m_info;
-				this->m_stream  = bs.m_stream;
-
-				bs.m_buffers = {0, 0};
-				bs.m_data    = nullptr;
-				bs.m_stream  = nullptr;
-			}
-
-			return *this;
-		}
-
 		BufferStream::~BufferStream()
 		{
 			alDeleteBuffers(2, &m_buffers[0]);

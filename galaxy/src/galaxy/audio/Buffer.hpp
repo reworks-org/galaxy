@@ -31,16 +31,6 @@ namespace galaxy
 			Buffer();
 
 			///
-			/// Move constructor.
-			///
-			Buffer(Buffer&&) noexcept;
-
-			///
-			/// Move assignment operator.
-			///
-			Buffer& operator=(Buffer&&) noexcept;
-
-			///
 			/// \brief Default destructor.
 			///
 			/// Destroys Buffer buffer(s).
@@ -93,6 +83,16 @@ namespace galaxy
 			[[maybe_unused]] const bool internal_load(std::string_view file);
 
 		private:
+			///
+			/// Move constructor.
+			///
+			Buffer(Buffer&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Buffer& operator=(Buffer&&) = delete;
+
 			///
 			/// Copy constructor.
 			///

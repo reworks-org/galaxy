@@ -32,16 +32,6 @@ namespace galaxy
 			Source();
 
 			///
-			/// Move constructor.
-			///
-			Source(Source&&) noexcept;
-
-			///
-			/// Move assignment operator.
-			///
-			Source& operator=(Source&&) noexcept;
-
-			///
 			/// \brief Default destructor.
 			///
 			/// Destroys source buffer(s).
@@ -91,6 +81,16 @@ namespace galaxy
 			[[nodiscard]] const ALuint handle() const noexcept;
 
 		private:
+			///
+			/// Move constructor.
+			///
+			Source(Source&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Source& operator=(Source&&) = delete;
+
 			///
 			/// Copy constructor.
 			///

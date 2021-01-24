@@ -32,16 +32,6 @@ namespace galaxy
 			BufferStream();
 
 			///
-			/// Move constructor.
-			///
-			BufferStream(BufferStream&&) noexcept;
-
-			///
-			/// Move assignment operator.
-			///
-			BufferStream& operator=(BufferStream&&) noexcept;
-
-			///
 			/// \brief Destructor.
 			///
 			/// Destroys BufferStream BufferStream(s).
@@ -91,6 +81,16 @@ namespace galaxy
 			ALenum m_format;
 
 		private:
+			///
+			/// Move constructor.
+			///
+			BufferStream(BufferStream&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			BufferStream& operator=(BufferStream&&) = delete;
+
 			///
 			/// Copy constructor.
 			///

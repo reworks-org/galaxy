@@ -66,6 +66,14 @@ namespace galaxy
 			TextureAtlas(const unsigned int size);
 
 			///
+			/// JSON constructor.
+			///
+			/// \param size Power of 2 size of texture atlas. I.e. user 4096 for a 4096x4096 texture.
+			/// \param file JSON file to load.
+			///
+			TextureAtlas(const unsigned int size, std::string_view file);
+
+			///
 			/// Move constructor.
 			///
 			TextureAtlas(TextureAtlas&&) noexcept;

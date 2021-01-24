@@ -17,9 +17,6 @@ namespace galaxy
 		Context::Context()
 		    : m_device {nullptr}, m_context {nullptr}
 		{
-			// Make sure error code is default flagged.
-			alGetError();
-
 			m_device = alcOpenDevice(alcGetString(nullptr, ALC_DEFAULT_DEVICE_SPECIFIER));
 			if (!m_device)
 			{
@@ -36,6 +33,9 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_FATAL, error::al_parse_error("Failed to make OpenAL context current."));
 			}
+
+			// Make sure error code is default flagged.
+			alGetError();
 		}
 
 		Context::~Context()

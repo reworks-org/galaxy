@@ -24,10 +24,8 @@ namespace galaxy
 	{
 		void Renderer::init(const unsigned int max_quads, std::string_view batch_shader)
 		{
-			Shader shader;
-			shader.load_raw(shaders::render_to_tex_vert, shaders::render_to_tex_frag);
-
-			auto* handle = SL_HANDLE.shaderbook()->move("DefaultPostEffect", std::move(shader));
+			auto* handle = SL_HANDLE.shaderbook()->create("DefaultPostEffect");
+			handle->load_raw(shaders::render_to_tex_vert, shaders::render_to_tex_frag);
 			Renderer::m_post_shaders.push_back(handle);
 
 			m_batch        = std::make_unique<graphics::SpriteBatch>(max_quads);

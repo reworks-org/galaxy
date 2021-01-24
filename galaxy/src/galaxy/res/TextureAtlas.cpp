@@ -48,6 +48,11 @@ namespace galaxy
 			m_texture.create(m_size, m_size);
 		}
 
+		TextureAtlas::TextureAtlas(const unsigned int size, std::string_view file)
+		{
+			add_from_json(file);
+		}
+
 		TextureAtlas::TextureAtlas(TextureAtlas&& ta) noexcept
 		{
 			this->m_size     = ta.m_size;

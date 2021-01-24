@@ -140,6 +140,27 @@ namespace galaxy
 
 		private:
 			///
+			/// Move constructor.
+			///
+			SourceManipulator(SourceManipulator&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			SourceManipulator& operator=(SourceManipulator&&) = delete;
+
+			///
+			/// Copy constructor.
+			///
+			SourceManipulator(const SourceManipulator&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			SourceManipulator& operator=(const SourceManipulator&) = delete;
+
+		private:
+			///
 			/// Internal source.
 			///
 			ALuint m_source;

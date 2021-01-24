@@ -24,6 +24,8 @@ namespace galaxy
 		Music::Music(std::string_view file)
 		    : m_running {false}
 		{
+			set_source_to_manipulate(m_source.handle());
+
 			if (!load(file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load file: {0}.", file);
@@ -33,69 +35,17 @@ namespace galaxy
 		Music::Music(const nlohmann::json& json)
 		    : m_running {false}
 		{
+			set_source_to_manipulate(m_source.handle());
+
 			if (load(json.at("file")))
 			{
-				set_looping(json.at("loop"));
+				set_looping(json.at("looping"));
 				set_pitch(json.at("pitch"));
 			}
 			else
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Unable to load file: {0}.", std::string {json.at("file")});
 			}
-		}
-
-		Music::Music(Music&& m)
-		    : BufferStream {std::move(m)}, SourceManipulator {std::move(m)}
-		{
-			m.m_running = false;
-			m.stop();
-			m.m_thread.request_stop();
-			m.m_thread.join();
-
-			this->m_source = std::move(m.m_source);
-
-			// clang-format off
-			this->m_thread = std::jthread([this]()
-				{
-					while (this->m_running)
-					{
-						this->update();
-					}
-				});
-			// clang-format on
-
-			this->m_running = true;
-		}
-
-		Music& Music::operator=(Music&& m)
-		{
-			if (this != &m)
-			{
-				BufferStream::operator=(std::move(m));
-
-				SourceManipulator::operator=(std::move(m));
-
-				m.m_running = false;
-				m.stop();
-				m.m_thread.request_stop();
-				m.m_thread.join();
-
-				this->m_source = std::move(m.m_source);
-
-				// clang-format off
-				this->m_thread = std::jthread([this]()
-					{
-						while (this->m_running)
-						{
-							this->update();
-						}
-					});
-				// clang-format on
-
-				this->m_running = true;
-			}
-
-			return *this;
 		}
 
 		Music::~Music()

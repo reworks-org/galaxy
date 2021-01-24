@@ -23,6 +23,7 @@ namespace galaxy
 
 		Sound::Sound(std::string_view file)
 		{
+			set_source_to_manipulate(m_source.handle());
 			if (!load(file))
 			{
 				GALAXY_LOG(GALAXY_FATAL, "Failed to load sound file: {0}.", file);
@@ -31,6 +32,7 @@ namespace galaxy
 
 		Sound::Sound(const nlohmann::json& json)
 		{
+			set_source_to_manipulate(m_source.handle());
 			if (load(json.at("file")))
 			{
 				set_looping(json.at("looping"));
@@ -40,26 +42,6 @@ namespace galaxy
 			{
 				GALAXY_LOG(GALAXY_ERROR, "Failed to load sound effect: {0}.", std::string {json.at("file")});
 			}
-		}
-
-		Sound::Sound(Sound&& s) noexcept
-		    : Buffer {std::move(s)}, SourceManipulator {std::move(s)}
-		{
-			this->m_source = std::move(s.m_source);
-		}
-
-		Sound& Sound::operator=(Sound&& s) noexcept
-		{
-			if (this != &s)
-			{
-				Buffer::operator=(std::move(s));
-
-				SourceManipulator::operator=(std::move(s));
-
-				this->m_source = std::move(s.m_source);
-			}
-
-			return *this;
 		}
 
 		const bool Sound::load(std::string_view file)

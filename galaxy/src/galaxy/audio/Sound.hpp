@@ -45,16 +45,6 @@ namespace galaxy
 			Sound(const nlohmann::json& json);
 
 			///
-			/// Move constructor.
-			///
-			Sound(Sound&&) noexcept;
-
-			///
-			/// Move assignment operator.
-			///
-			Sound& operator=(Sound&&) noexcept;
-
-			///
 			/// Destructor.
 			///
 			virtual ~Sound() = default;
@@ -69,6 +59,16 @@ namespace galaxy
 			[[maybe_unused]] const bool load(std::string_view file);
 
 		private:
+			///
+			/// Move constructor.
+			///
+			Sound(Sound&&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Sound& operator=(Sound&&) = delete;
+
 			///
 			/// Copy constructor.
 			///

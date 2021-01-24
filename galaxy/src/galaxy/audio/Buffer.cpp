@@ -31,23 +31,6 @@ namespace galaxy
 			}
 		}
 
-		Buffer::Buffer(Buffer&& b) noexcept
-		{
-			this->m_buffer = b.m_buffer;
-			b.m_buffer     = 0;
-		}
-
-		Buffer& Buffer::operator=(Buffer&& b) noexcept
-		{
-			if (this != &b)
-			{
-				this->m_buffer = b.m_buffer;
-				b.m_buffer     = 0;
-			}
-
-			return *this;
-		}
-
 		Buffer::~Buffer()
 		{
 			alDeleteBuffers(1, &m_buffer);

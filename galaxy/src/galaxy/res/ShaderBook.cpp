@@ -32,9 +32,13 @@ namespace galaxy
 		{
 			nlohmann::json json = json::parse_from_disk(file);
 
-			for (auto& [name, arr] : json.at("shaderbook").items())
+			const std::string vs_ext = json.at("vertex-extension");
+			const std::string fs_ext = json.at("fragment-extension");
+			const auto& arr          = json.at("shaderbook");
+
+			for (const std::string& filename : arr)
 			{
-				create(name, arr[0].get<std::string>(), arr[1].get<std::string>());
+				create(filename, filename + vs_ext, filename + fs_ext);
 			}
 		}
 

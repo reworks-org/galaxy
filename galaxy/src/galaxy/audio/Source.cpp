@@ -25,23 +25,6 @@ namespace galaxy
 			}
 		}
 
-		Source::Source(Source&& s) noexcept
-		{
-			this->m_source = s.m_source;
-			s.m_source     = 0;
-		}
-
-		Source& Source::operator=(Source&& s) noexcept
-		{
-			if (this != &s)
-			{
-				this->m_source = s.m_source;
-				s.m_source     = 0;
-			}
-
-			return *this;
-		}
-
 		Source::~Source()
 		{
 			alDeleteSources(1, &m_source);
@@ -121,7 +104,7 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_ERROR, error::al_parse_error("Unable to get AL_SOURCE_STATE."));
 			}
 
-			return std::move(val);
+			return val;
 		}
 
 		const ALuint Source::handle() const noexcept

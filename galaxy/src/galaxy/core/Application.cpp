@@ -27,6 +27,7 @@ namespace galaxy
 	namespace core
 	{
 		Application::Application(std::string_view asset_dir, std::string_view config_file)
+		    : m_openal {}
 		{
 			// Seed pseudo-random algorithms.
 			std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -75,6 +76,7 @@ namespace galaxy
 				m_config->define<float>("gravity-x", 0.0f);
 				m_config->define<float>("gravity-y", 0.0f);
 				m_config->define<int>("max-batched-quads", 1000);
+				m_config->define<unsigned int>("textureatlas-size", 4096);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
 				m_config->define<std::string>("fontbook-json", "fontbook.json");
@@ -157,8 +159,7 @@ namespace galaxy
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas = std::make_unique<res::TextureAtlas>();
-				m_texture_atlas->add_from_json(m_config->get<std::string>("textureatlas-json"));
+				m_texture_atlas           = std::make_unique<res::TextureAtlas>(m_config->get<unsigned int>("textureatlas-size"), m_config->get<std::string>("textureatlas-json"));
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 				// SoundBook.

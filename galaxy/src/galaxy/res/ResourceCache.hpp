@@ -58,16 +58,6 @@ namespace galaxy
 			[[maybe_unused]] Resource* const create(std::string_view name, Args&&... args);
 
 			///
-			/// Move a resource into cache.
-			///
-			/// \param name Should be name of resource without path or extension.
-			/// \param resource Move-compatible reference to resource.
-			///
-			/// \return Const pointer to newly created resource.
-			///
-			[[maybe_unused]] Resource* const move(std::string_view name, Resource&& resource);
-
-			///
 			/// Retrieve a resource.
 			///
 			/// \param handle The name of the file without path or extension.
@@ -91,7 +81,7 @@ namespace galaxy
 			///
 			/// Contiguous resource array.
 			///
-			robin_hood::unordered_map<std::string, Resource> m_resources;
+			robin_hood::unordered_flat_map<std::string, std::unique_ptr<Resource>> m_resources;
 
 		private:
 			///
@@ -120,19 +110,16 @@ namespace galaxy
 		inline Resource* const ResourceCache<Resource>::create(std::string_view name, Args&&... args)
 		{
 			const auto str = static_cast<std::string>(name);
-			m_resources.emplace(
-			    std::piecewise_construct, std::make_tuple(str), std::make_tuple(Resource {std::forward<Args>(args)...}));
+			if (!m_resources.contains(str))
+			{
+				m_resources[str] = std::make_unique<Resource>(args...);
+			}
+			else
+			{
+				GALAXY_LOG(GALAXY_WARNING, "Attempted to insert duplicate resource.");
+			}
 
-			return &m_resources[str];
-		}
-
-		template<meta::not_pointer_or_ref Resource>
-		inline Resource* const ResourceCache<Resource>::move(std::string_view name, Resource&& resource)
-		{
-			const auto str   = static_cast<std::string>(name);
-			m_resources[str] = std::move(resource);
-
-			return &m_resources[str];
+			return m_resources[str].get();
 		}
 
 		template<meta::not_pointer_or_ref Resource>
@@ -141,7 +128,7 @@ namespace galaxy
 			const auto str = static_cast<std::string>(name);
 			if (m_resources.contains(str))
 			{
-				return &m_resources[str];
+				return m_resources[str].get();
 			}
 			else
 			{
