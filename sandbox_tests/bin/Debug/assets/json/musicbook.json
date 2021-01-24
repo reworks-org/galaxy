@@ -1,0 +1,9 @@
+{
+	"musicbook": {
+		"PleasingGuns": {
+			"file": "PleasingGuns.ogg",
+			"looping": true,
+			"pitch": 1.0
+		}
+	}
+}

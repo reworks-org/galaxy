@@ -19,8 +19,9 @@
     "spritebatch-shader": "spritebatch",
     "srgb": false,
     "textureatlas-json": "textureatlas.json",
+    "textureatlas-size": 4096,
     "vsync": true,
     "window-height": 720,
-    "window-name": "Title",
+    "window-name": "Sandbox Tests",
     "window-width": 1280
 }
