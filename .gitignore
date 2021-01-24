@@ -15,6 +15,7 @@ supercluster/bin/Debug/*.pdb
 supercluster/bin/Debug/*.ini
 supercluster/bin/Debug/*.obj
 supercluster/bin/Debug/*.idb
+supercluster/bin/Debug/*.dll
 supercluster/bin/Debug/logs/
 supercluster/bin/Release/*.exe
 supercluster/bin/Release/*.ilk
@@ -30,6 +31,7 @@ sandbox_tests/bin/Debug/*.pdb
 sandbox_tests/bin/Debug/*.ini
 sandbox_tests/bin/Debug/*.obj
 sandbox_tests/bin/Debug/*.idb
+sandbox_tests/bin/Debug/*.dll
 sandbox_tests/bin/Debug/logs/
 sandbox_tests/bin/Release/*.exe
 sandbox_tests/bin/Release/*.ilk
