@@ -1,6 +1,4 @@
-option(ENABLE_DOXYGEN "Enable a target for building doxygen." OFF)
-
-if (${ENABLE_DOXYGEN})
+if (${GALAXY_ENABLE_DOXYGEN})
     find_package(Doxygen)
     if(DOXYGEN_FOUND)
         set(DOXYGEN_IN ${CMAKE_SOURCE_DIR}/Doxyfile)
