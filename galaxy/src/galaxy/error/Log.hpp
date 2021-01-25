@@ -70,35 +70,12 @@
 ///
 #define GALAXY_LOG(level, ...) galaxy::error::Log::handle().log<level>(__VA_ARGS__)
 
-///
-/// Enable testing mode.
-///
-#define GALAXY_ENABLE_TESTING_MODE galaxy::error::TestingMode::value = galaxy::error::TestingMode::true_val
-
-///
-/// Disable testing mode.
-///
-#define GALAXY_DISABLE_TESTING_MODE galaxy::error::TestingMode::value = galaxy::error::TestingMode::false_val
-
 // clang-format on
 
 namespace galaxy
 {
 	namespace error
 	{
-		///
-		/// \brief Testing mode.
-		///
-		/// constexpr utilities.
-		///
-		struct TestingMode
-		{
-			inline static constexpr auto true_val  = true;
-			inline static constexpr auto false_val = false;
-
-			inline static constexpr bool value = false;
-		};
-
 		///
 		/// Log logging class.
 		/// Uses multithreading.
@@ -277,26 +254,23 @@ namespace galaxy
 		template<loglevel_type LogLevel, typename... MsgInputs>
 		inline void Log::log(std::string_view message, const MsgInputs&... args)
 		{
-			if constexpr (!TestingMode::value)
+			if (LogLevel::value >= m_min_level)
 			{
-				if (LogLevel::value >= m_min_level)
+				std::lock_guard<std::mutex> lock {m_msg_mutex};
+
+				constexpr const char* colour = process_colour<LogLevel>();
+				constexpr const char* level  = process_level<LogLevel>();
+
+				const auto fmt_msg  = fmt::format(message, args...);
+				const auto time_obj = std::time(nullptr);
+
+				std::stringstream sstream;
+				sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
+
+				m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
+				if constexpr (LogLevel::value == level::Fatal::value)
 				{
-					std::lock_guard<std::mutex> lock {m_msg_mutex};
-
-					constexpr const char* colour = process_colour<LogLevel>();
-					constexpr const char* level  = process_level<LogLevel>();
-
-					const auto fmt_msg  = fmt::format(message, args...);
-					const auto time_obj = std::time(nullptr);
-
-					std::stringstream sstream;
-					sstream << std::put_time(std::localtime(&time_obj), "%d-%m-%Y-[%H:%M]");
-
-					m_message = fmt::format("{0}[{1}] - {2} - {3}\n", colour, level, sstream.str(), fmt_msg);
-					if constexpr (LogLevel::value == level::Fatal::value)
-					{
-						throw std::runtime_error {m_message};
-					}
+					throw std::runtime_error {m_message};
 				}
 			}
 		}
