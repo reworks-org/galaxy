@@ -11,14 +11,24 @@
 #include <galaxy/res/MusicBook.hpp>
 #include <galaxy/res/SoundBook.hpp>
 
+#include <galaxy/systems/RenderSystem.hpp>
+
 #include "SandboxScene.hpp"
+
+using namespace galaxy;
 
 namespace sb
 {
 	SandboxScene::SandboxScene()
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
-		m_camera.set_speed(10.0f);
+		m_camera.set_speed(100.0f);
+
+		m_world.create_from_json("point.json");
+		m_world.create_from_json("line.json");
+		m_world.create_from_json("circle.json");
+
+		m_world.create_system<systems::RenderSystem>();
 	}
 
 	SandboxScene::~SandboxScene()
@@ -27,60 +37,60 @@ namespace sb
 
 	void SandboxScene::events()
 	{
-		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::M))
+		if (SL_HANDLE.window()->key_pressed(input::Keys::M))
 		{
 			SL_HANDLE.musicbook()->get("PleasingGuns")->play();
 		}
 
-		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::P))
+		if (SL_HANDLE.window()->key_pressed(input::Keys::P))
 		{
 			SL_HANDLE.musicbook()->get("PleasingGuns")->pause();
 		}
 
-		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::N))
+		if (SL_HANDLE.window()->key_pressed(input::Keys::N))
 		{
 			SL_HANDLE.musicbook()->get("PleasingGuns")->stop();
 		}
 
-		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::B))
+		if (SL_HANDLE.window()->key_pressed(input::Keys::B))
 		{
 			SL_HANDLE.soundbook()->get("button")->play();
 		}
 
-		if (SL_HANDLE.window()->key_down(galaxy::input::Keys::W))
+		if (SL_HANDLE.window()->key_down(input::Keys::W))
 		{
-			m_camera.on_key_down({galaxy::input::Keys::W});
+			m_camera.on_key_down({input::Keys::W});
 		}
 		else
 		{
-			m_camera.on_key_up({galaxy::input::Keys::W});
+			m_camera.on_key_up({input::Keys::W});
 		}
 
-		if (SL_HANDLE.window()->key_down(galaxy::input::Keys::S))
+		if (SL_HANDLE.window()->key_down(input::Keys::S))
 		{
-			m_camera.on_key_down({galaxy::input::Keys::S});
+			m_camera.on_key_down({input::Keys::S});
 		}
 		else
 		{
-			m_camera.on_key_up({galaxy::input::Keys::S});
+			m_camera.on_key_up({input::Keys::S});
 		}
 
-		if (SL_HANDLE.window()->key_down(galaxy::input::Keys::A))
+		if (SL_HANDLE.window()->key_down(input::Keys::A))
 		{
-			m_camera.on_key_down({galaxy::input::Keys::A});
+			m_camera.on_key_down({input::Keys::A});
 		}
 		else
 		{
-			m_camera.on_key_up({galaxy::input::Keys::A});
+			m_camera.on_key_up({input::Keys::A});
 		}
 
-		if (SL_HANDLE.window()->key_down(galaxy::input::Keys::D))
+		if (SL_HANDLE.window()->key_down(input::Keys::D))
 		{
-			m_camera.on_key_down({galaxy::input::Keys::D});
+			m_camera.on_key_down({input::Keys::D});
 		}
 		else
 		{
-			m_camera.on_key_up({galaxy::input::Keys::D});
+			m_camera.on_key_up({input::Keys::D});
 		}
 	}
 
@@ -96,5 +106,6 @@ namespace sb
 
 	void SandboxScene::render()
 	{
+		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
 	}
 } // namespace sb

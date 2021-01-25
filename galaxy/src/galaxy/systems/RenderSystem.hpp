@@ -11,6 +11,7 @@
 #include "galaxy/core/World.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/Renderables.hpp"
 
 namespace galaxy
 {
@@ -47,6 +48,8 @@ namespace galaxy
 		///
 		class RenderSystem final : public ecs::System
 		{
+			friend class core::World;
+
 		public:
 			///
 			/// Constructor.
@@ -59,19 +62,20 @@ namespace galaxy
 			virtual ~RenderSystem() noexcept = default;
 
 			///
-			/// Abstract implementation for updating the system. Use the manager to retreive your components.
-			///
-			/// \param dt DeltaTime from gameloop.
-			///
-			void update(const double dt) override;
-
-			///
 			/// Render sprites / textures to screen.
 			///
 			/// \param world Game World containing entities to render.
 			/// \param camera Camera used for rendering.
 			///
 			void render(core::World& world, graphics::Camera& camera);
+
+		private:
+			///
+			/// Abstract implementation for updating the system. Use the manager to retreive your components.
+			///
+			/// \param dt DeltaTime from gameloop.
+			///
+			void update(const double dt) override;
 
 		private:
 			///

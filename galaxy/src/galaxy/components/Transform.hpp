@@ -158,11 +158,6 @@ namespace galaxy
 			glm::mat4 m_translation;
 
 			///
-			/// Identity matrix.
-			///
-			glm::mat4 m_identity_matrix;
-
-			///
 			/// Cached for easiy retrieval.
 			/// Rotation.
 			///

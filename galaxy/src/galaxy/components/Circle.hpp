@@ -32,13 +32,11 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			/// \param x X position.
-			/// \param y Y position.
 			/// \param radius Radius of the circle.
 			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 			/// \param colour Colour.
 			///
-			Circle(const float x, const float y, const float radius, const unsigned int fragments, const graphics::Colour& colour);
+			Circle(const float radius, const unsigned int fragments, const graphics::Colour& colour);
 
 			///
 			/// JSON constructor.
@@ -65,13 +63,11 @@ namespace galaxy
 			///
 			/// Create the Circle.
 			///
-			/// \param x X position.
-			/// \param y Y position.
 			/// \param radius Radius of the circle.
 			/// \param fragments Number of fragments (i.e. vertexs) defining circle shape. More means more circular, but more vertexs.
 			/// \param colour Colour.
 			///
-			void create(const float x, const float y, const float radius, const unsigned int fragments, const graphics::Colour& colour);
+			void create(const float radius, const unsigned int fragments, const graphics::Colour& colour);
 
 			///
 			/// Bind as active VA.
@@ -84,27 +80,6 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
-			/// Get x coord of circle.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_x() const noexcept;
-
-			///
-			/// Get y coord of circle.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_y() const noexcept;
-
-			///
-			/// Get xy as a vector.
-			///
-			/// \return Const reference to glm::vec2.
-			///
-			[[nodiscard]] const glm::vec2& get_xy() const noexcept;
-
-			///
 			/// Get radius of circle.
 			///
 			/// \return Const float.
@@ -112,11 +87,6 @@ namespace galaxy
 			[[nodiscard]] const float radius() const noexcept;
 
 		private:
-			///
-			/// Position of circle.
-			///
-			glm::vec2 m_pos;
-
 			///
 			/// Radius of circle.
 			///

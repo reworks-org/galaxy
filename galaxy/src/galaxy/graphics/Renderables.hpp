@@ -20,32 +20,32 @@ namespace galaxy
 			///
 			/// Defines an entity to be rendered as a POINT.
 			///
-			POINT,
+			POINT = 0,
 
 			///
 			/// Defines an entity to be rendered as a LINE.
 			///
-			LINE,
+			LINE = 1,
 
 			///
 			/// Defines an entity to be rendered as a CIRCLE.
 			///
-			CIRCLE,
+			CIRCLE = 2,
 
 			///
 			/// Defines an entity to be rendered as a SPRITE.
 			///
-			SPRITE,
+			SPRITE = 3,
 
 			///
 			/// Defines an entity to be rendered as TEXT.
 			///
-			TEXT,
+			TEXT = 4,
 
 			///
 			/// Define an entity to be batch rendered.
 			///
-			BATCHED
+			BATCHED = 5
 		};
 	} // namespace graphics
 } // namespace galaxy

@@ -54,8 +54,11 @@ namespace galaxy
 			});
 			// clang-format on
 
-			graphics::Renderer::m_batch->calculate();
-			graphics::Renderer::submit_batch(camera);
+			if (!graphics::Renderer::m_batch->empty())
+			{
+				graphics::Renderer::m_batch->calculate();
+				graphics::Renderer::submit_batch(camera);
+			}
 
 			std::sort(std::execution::par, m_sorted.begin(), m_sorted.end(), [&](const auto& left, const auto& right) {
 				return left.m_z_level > right.m_z_level;
@@ -91,6 +94,8 @@ namespace galaxy
 						break;
 				}
 			}
+
+			m_sorted.clear();
 		}
 	} // namespace systems
 } // namespace galaxy

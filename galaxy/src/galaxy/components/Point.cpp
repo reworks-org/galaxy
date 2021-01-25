@@ -18,16 +18,16 @@ namespace galaxy
 		{
 		}
 
-		Point::Point(const float x, const float y, const unsigned int size, const graphics::Colour& colour) noexcept
+		Point::Point(const unsigned int size, const graphics::Colour& colour) noexcept
 		    : m_size {0}
 		{
-			create(x, y, size, colour);
+			create(size, colour);
 		}
 
 		Point::Point(const nlohmann::json& json)
 		{
 			const auto colour = json.at("colour");
-			create(json.at("x"), json.at("y"), json.at("size"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
+			create(json.at("size"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
 		}
 
 		Point::Point(Point&& p) noexcept
@@ -48,12 +48,12 @@ namespace galaxy
 			return *this;
 		}
 
-		void Point::create(const float x, const float y, const unsigned int size, const graphics::Colour& colour)
+		void Point::create(const unsigned int size, const graphics::Colour& colour)
 		{
 			m_size = size;
 
 			std::vector<graphics::PrimitiveVertex> vertexs;
-			vertexs.emplace_back(x, y, colour);
+			vertexs.emplace_back(0.0f, 0.0f, colour);
 
 			m_vb.create<graphics::PrimitiveVertex>(vertexs);
 

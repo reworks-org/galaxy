@@ -34,7 +34,7 @@ namespace galaxy
 			register_component<components::Renderable>("Renderable");
 			register_component<components::Point>("Point");
 			register_component<components::Line>("Line");
-			register_component<components::Line>("Circle");
+			register_component<components::Circle>("Circle");
 			register_component<components::BatchedSprite>("BatchedSprite");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Text>("Text");
@@ -84,10 +84,13 @@ namespace galaxy
 			const auto entity   = create();
 			nlohmann::json root = json::parse_from_disk(file);
 
+			assign_name(entity, root.at("name"));
+			nlohmann::json components = root.at("components");
+
 			// Loop over components
-			if (!root.empty())
+			if (!components.empty())
 			{
-				for (auto& [key, value] : root.items())
+				for (auto& [key, value] : components.items())
 				{
 					// Use the assign function to create components for entities without having to know the type.
 					m_component_factory[key](entity, value);
@@ -96,6 +99,12 @@ namespace galaxy
 			else
 			{
 				GALAXY_LOG(GALAXY_WARNING, "Created an entity with no components.");
+			}
+
+			const bool enabled = root.at("enabled");
+			if (enabled)
+			{
+				enable(entity);
 			}
 
 			return entity;

@@ -603,6 +603,8 @@ namespace galaxy
 			// clang-format off
 			m_framebuffer->unbind();
 
+			//m_framebuffer->save("assets/temp.png");
+
 			glViewport(0, 0, m_width, m_height);
 			glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

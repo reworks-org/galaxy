@@ -331,7 +331,7 @@ namespace galaxy
 			renderable_type["type"]    = &components::Renderable::m_type;
 			renderable_type["z_level"] = &components::Renderable::m_z_level;
 
-			auto point_type           = lua->new_usertype<components::Point>("gPoint", sol::constructors<components::Point(), components::Point(const float, const float, const unsigned int, graphics::Colour&)>());
+			auto point_type           = lua->new_usertype<components::Point>("gPoint", sol::constructors<components::Point(), components::Point(const unsigned int, graphics::Colour&)>());
 			point_type["create"]      = &components::Point::create;
 			point_type["bind"]        = &components::Point::bind;
 			point_type["unbind"]      = &components::Point::unbind;
@@ -348,13 +348,10 @@ namespace galaxy
 			line_type["opacity"]     = &components::Line::opacity;
 			line_type["set_opacity"] = &components::Line::set_opacity;
 
-			auto circle_type           = lua->new_usertype<components::Circle>("gCircle", sol::constructors<components::Circle(), components::Circle(const float, const float, const float, const unsigned int, graphics::Colour&)>());
+			auto circle_type           = lua->new_usertype<components::Circle>("gCircle", sol::constructors<components::Circle(), components::Circle(const float, const unsigned int, graphics::Colour&)>());
 			circle_type["create"]      = &components::Circle::create;
 			circle_type["bind"]        = &components::Circle::bind;
 			circle_type["unbind"]      = &components::Circle::unbind;
-			circle_type["get_x"]       = &components::Circle::get_x;
-			circle_type["get_y"]       = &components::Circle::get_y;
-			circle_type["get_xy"]      = &components::Circle::get_xy;
 			circle_type["radius"]      = &components::Circle::radius;
 			circle_type["index_count"] = &components::Circle::index_count;
 			circle_type["opacity"]     = &components::Circle::opacity;

@@ -141,6 +141,13 @@ namespace galaxy
 			///
 			[[nodiscard]] const unsigned int get_height() const noexcept;
 
+			///
+			/// Is the spritebatch empty.
+			///
+			/// \return Const bool. True if empty.
+			///
+			[[nodiscard]] const bool empty() const noexcept;
+
 		private:
 			///
 			/// Constructor.

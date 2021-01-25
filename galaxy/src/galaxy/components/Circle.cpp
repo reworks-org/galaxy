@@ -18,20 +18,20 @@ namespace galaxy
 	namespace components
 	{
 		Circle::Circle() noexcept
-		    : m_pos {0.0f, 0.0f}, m_radius {10.0f}
+		    : m_radius {10.0f}
 		{
 		}
 
-		Circle::Circle(const float x, const float y, const float radius, const unsigned int fragments, const graphics::Colour& colour)
-		    : m_pos {0.0f, 0.0f}, m_radius {10.0f}
+		Circle::Circle(const float radius, const unsigned int fragments, const graphics::Colour& colour)
+		    : m_radius {10.0f}
 		{
-			create(x, y, radius, fragments, colour);
+			create(radius, fragments, colour);
 		}
 
 		Circle::Circle(const nlohmann::json& json)
 		{
 			const auto colour = json.at("colour");
-			create(json.at("x"), json.at("y"), json.at("radius"), json.at("fragments"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
+			create(json.at("radius"), json.at("fragments"), {colour.at("r"), colour.at("g"), colour.at("b"), colour.at("a")});
 		}
 
 		Circle::Circle(Circle&& c) noexcept
@@ -49,7 +49,7 @@ namespace galaxy
 			return *this;
 		}
 
-		void Circle::create(const float x, const float y, const float radius, const unsigned int fragments, const graphics::Colour& colour)
+		void Circle::create(const float radius, const unsigned int fragments, const graphics::Colour& colour)
 		{
 			// Thanks to https://stackoverflow.com/a/33859443.
 			// For help with maths.
@@ -62,7 +62,7 @@ namespace galaxy
 			float increment           = incr_stat / static_cast<float>(fragments);
 			for (float angle = 0.0f; angle <= (2.0f * glm::pi<float>()); angle += increment)
 			{
-				vertexs.emplace_back(radius * glm::cos(angle) + x, radius * glm::sin(angle) + y, colour);
+				vertexs.emplace_back(radius * glm::cos(angle), radius * glm::sin(angle), colour);
 				indices.push_back(count);
 
 				count++;
@@ -85,21 +85,6 @@ namespace galaxy
 		void Circle::unbind() noexcept
 		{
 			m_va.unbind();
-		}
-
-		const float Circle::get_x() const noexcept
-		{
-			return m_pos.x;
-		}
-
-		const float Circle::get_y() const noexcept
-		{
-			return m_pos.y;
-		}
-
-		const glm::vec2& Circle::get_xy() const noexcept
-		{
-			return m_pos;
 		}
 
 		const float Circle::radius() const noexcept

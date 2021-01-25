@@ -271,6 +271,11 @@ namespace galaxy
 			return m_texture->get_height();
 		}
 
+		const bool SpriteBatch::empty() const noexcept
+		{
+			return m_sprites.empty();
+		}
+
 		void SpriteBatch::sort() noexcept
 		{
 			std::sort(m_sprites.begin(), m_sprites.end(), [](const auto& left, const auto& right) {
