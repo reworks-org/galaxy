@@ -40,7 +40,7 @@ namespace sb
 		m_timer.launch([]() {
 			std::cout << "Timer Ping" << std::endl;
 		},
-			       2000);
+			       1000);
 	}
 
 	SandboxScene::~SandboxScene()

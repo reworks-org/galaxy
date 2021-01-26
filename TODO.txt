@@ -54,6 +54,14 @@ tilemap editor
 
 - Shader headers in graphics should be constexpr
 - Loading state support?
-- Application
 - Serializer
 - Serializable
+
+- Integrate openal context with dev tools.
+- integrate google test with cmake, visual studio and CI.
+- quadtree for rendering?
+
+
+TESTS;
+- Serializable
+- Serializer
