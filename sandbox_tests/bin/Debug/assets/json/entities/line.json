@@ -1,6 +1,7 @@
 {
     "name": "LineEntity",
     "enabled": true,
+    "center-rotation-origin": false,
     "components": {
         "Line": {
             "x1": 0,
@@ -17,8 +18,6 @@
         "Transform": {
             "x": 50,
             "y": 50,
-            "origin-x": 75,
-            "origin-y": 75,
             "rotation": 0.0,
             "scale": 1.0
         },

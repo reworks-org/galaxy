@@ -10,6 +10,7 @@
 
 #include <galaxy/res/MusicBook.hpp>
 #include <galaxy/res/SoundBook.hpp>
+#include <galaxy/res/TextureAtlas.hpp>
 
 #include <galaxy/systems/RenderSystem.hpp>
 
@@ -27,6 +28,10 @@ namespace sb
 		m_world.create_from_json("point.json");
 		m_world.create_from_json("line.json");
 		m_world.create_from_json("circle.json");
+		m_world.create_from_json("sprite.json");
+		m_world.create_from_json("batch_a.json");
+		m_world.create_from_json("batch_b.json");
+		m_world.create_from_json("text.json");
 
 		m_world.create_system<systems::RenderSystem>();
 	}

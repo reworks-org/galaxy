@@ -18,7 +18,6 @@
     "shaderbook-json": "shaderbook.json",
     "soundbook-json": "soundbook.json",
     "spritebatch-shader": "spritebatch",
-    "srgb": true,
     "textureatlas-json": "textureatlas.json",
     "textureatlas-size": 4096,
     "vsync": true,

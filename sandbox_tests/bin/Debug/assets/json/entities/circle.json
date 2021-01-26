@@ -1,6 +1,7 @@
 {
     "name": "CircleEntity",
     "enabled": true,
+    "center-rotation-origin": false,
     "components": {
         "Circle": {
             "radius": 20,
@@ -15,8 +16,6 @@
         "Transform": {
             "x": 200,
             "y": 200,
-            "origin-x": 100,
-            "origin-y": 100,
             "rotation": 0.0,
             "scale": 1.0
         },
