@@ -67,7 +67,10 @@ namespace galaxy
 			}
 
 			m_flags[entity] = {};
-			return m_entities.emplace_back(entity);
+			m_entities.emplace_back(entity);
+
+			enable(entity);
+			return entity;
 		}
 
 		const ecs::Entity World::create(std::string_view debug_name)
@@ -102,9 +105,9 @@ namespace galaxy
 			}
 
 			const bool enabled = root.at("enabled");
-			if (enabled)
+			if (!enabled)
 			{
-				enable(entity);
+				disable(entity);
 			}
 
 			const bool center_rotation = root.at("center-rotation-origin");
