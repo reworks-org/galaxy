@@ -35,11 +35,6 @@ namespace galaxy
 			bool m_vsync;
 
 			///
-			/// sRGB support.
-			///
-			bool m_srgb;
-
-			///
 			/// Aspect Ratio x.
 			/// Set to -1 to ignore.
 			///

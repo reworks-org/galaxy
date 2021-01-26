@@ -358,7 +358,8 @@ namespace galaxy
 			circle_type["set_opacity"] = &components::Circle::set_opacity;
 
 			auto bs_type               = lua->new_usertype<components::BatchedSprite>("gBatchedSprite", sol::constructors<components::BatchedSprite()>());
-			bs_type["create"]          = &components::BatchedSprite::create;
+			bs_type["create_region"]   = sol::resolve<void(const graphics::fRect&, float)>(&components::BatchedSprite::create);
+			bs_type["create_atlas"]    = sol::resolve<void(std::string_view, float)>(&components::BatchedSprite::create);
 			bs_type["get_height"]      = &components::BatchedSprite::get_height;
 			bs_type["get_region"]      = &components::BatchedSprite::get_region;
 			bs_type["get_width"]       = &components::BatchedSprite::get_width;

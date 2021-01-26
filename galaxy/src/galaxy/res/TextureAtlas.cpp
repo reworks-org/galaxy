@@ -20,12 +20,14 @@
 
 #include "TextureAtlas.hpp"
 
+#define DEFAULT_ATLAS_SIZE 4096
+
 namespace galaxy
 {
 	namespace res
 	{
 		TextureAtlas::TextureAtlas()
-		    : m_size {4096}, m_texture {4096, 4096}
+		    : m_size {DEFAULT_ATLAS_SIZE}, m_texture {DEFAULT_ATLAS_SIZE, DEFAULT_ATLAS_SIZE}
 		{
 			m_packer.init(m_size, m_size);
 			m_texture.create(m_size, m_size);
@@ -49,7 +51,11 @@ namespace galaxy
 		}
 
 		TextureAtlas::TextureAtlas(const unsigned int size, std::string_view file)
+		    : m_size {size}, m_texture {size, size}
 		{
+			m_packer.init(m_size, m_size);
+			m_texture.create(m_size, m_size);
+
 			add_from_json(file);
 		}
 
@@ -161,7 +167,7 @@ namespace galaxy
 			m_texture.save(file);
 		}
 
-		const graphics::Rect<float>& TextureAtlas::get_region(std::string_view name)
+		const graphics::fRect& TextureAtlas::get_region(std::string_view name)
 		{
 			const auto str = static_cast<std::string>(name);
 			if (!m_textures.contains(str))

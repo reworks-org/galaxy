@@ -13,7 +13,7 @@
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/graphics/shaders/RenderToTexture.hpp"
+#include "galaxy/graphics/shaders/DefaultFramebuffer.hpp"
 #include "galaxy/res/ShaderBook.hpp"
 
 #include "Renderer.hpp"
@@ -24,8 +24,8 @@ namespace galaxy
 	{
 		void Renderer::init(const unsigned int max_quads, std::string_view batch_shader)
 		{
-			auto* handle = SL_HANDLE.shaderbook()->create("DefaultPostEffect");
-			handle->load_raw(shaders::render_to_tex_vert, shaders::render_to_tex_frag);
+			auto* handle = SL_HANDLE.shaderbook()->create("DefaultFramebuffer");
+			handle->load_raw(shaders::default_framebuffer_vert, shaders::default_framebuffer_frag);
 			Renderer::m_post_shaders.push_back(handle);
 
 			m_batch        = std::make_unique<graphics::SpriteBatch>(max_quads);

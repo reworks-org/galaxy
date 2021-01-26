@@ -14,6 +14,7 @@
 
 #include "galaxy/ecs/ComponentSet.hpp"
 #include "galaxy/ecs/System.hpp"
+#include "galaxy/graphics/Renderables.hpp"
 #include "galaxy/meta/UniqueID.hpp"
 
 namespace galaxy
@@ -191,6 +192,16 @@ namespace galaxy
 			/// \param entity Entity to disable.
 			///
 			void disable(const ecs::Entity entity);
+
+			///
+			/// \brief Set rotation origin for an entity.
+			///
+			/// Entity must have a transform and a renderable that can be rotated.
+			///
+			/// \param entity Entity to set origin for.
+			/// \param render_type Type of renderable this entity has.
+			///
+			void set_rotation_origin(const ecs::Entity entity, const graphics::Renderables render_type);
 
 			///
 			/// Assign a name to an entity.

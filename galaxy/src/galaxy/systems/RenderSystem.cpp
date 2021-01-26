@@ -96,6 +96,7 @@ namespace galaxy
 			}
 
 			m_sorted.clear();
+			graphics::Renderer::m_batch->clear_sprites();
 		}
 	} // namespace systems
 } // namespace galaxy

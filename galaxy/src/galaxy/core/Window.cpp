@@ -96,7 +96,6 @@ namespace galaxy
 				glfwWindowHint(GLFW_DEPTH_BITS, 24);
 				glfwWindowHint(GLFW_STENCIL_BITS, 8);
 				glfwWindowHint(GLFW_DOUBLEBUFFER, true);
-				glfwWindowHint(GLFW_SRGB_CAPABLE, settings.m_srgb);
 
 				// MSAA
 				const auto max_samples = std::clamp(settings.m_anti_aliasing, 2, 16);
@@ -185,17 +184,10 @@ namespace galaxy
 						glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 						// Set up depth testing.
-						// 3D?
-						//glEnable(GL_DEPTH_TEST);
+						glEnable(GL_DEPTH_TEST);
 
 						// Allow for changing vertex point size.
 						glEnable(GL_PROGRAM_POINT_SIZE);
-
-						// sRGB colours for rendering.
-						if (settings.m_srgb)
-						{
-							glEnable(GL_FRAMEBUFFER_SRGB);
-						}
 
 						// Set custom line width.
 						glLineWidth(settings.m_line_thickness);
@@ -431,6 +423,7 @@ namespace galaxy
 						m_fb_sprite = std::make_unique<components::Sprite>();
 						m_fb_sprite->load(m_framebuffer->gl_texture(), m_width, m_height);
 						m_fb_sprite->create();
+						m_fb_sprite->set_opacity(1.0f);
 					}
 				}
 			}
@@ -600,16 +593,11 @@ namespace galaxy
 
 		void Window::end()
 		{
-			// clang-format off
 			m_framebuffer->unbind();
-
-			//m_framebuffer->save("assets/temp.png");
 
 			glViewport(0, 0, m_width, m_height);
 			glClearColor(m_colour[0], m_colour[1], m_colour[2], m_colour[3]);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			// clang-format on
 
 			m_fb_sprite->bind();
 
@@ -620,11 +608,11 @@ namespace galaxy
 				effect->set_uniform("u_transform", m_fb_transform.get_transform());
 				effect->set_uniform("u_width", static_cast<float>(m_fb_sprite->get_width()));
 				effect->set_uniform("u_height", static_cast<float>(m_fb_sprite->get_height()));
+				effect->set_uniform("u_opacity", m_fb_sprite->opacity());
 
 				glDrawElements(GL_TRIANGLES, m_fb_sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 			}
 
-			m_fb_sprite->unbind();
 			glfwSwapBuffers(m_window);
 		}
 

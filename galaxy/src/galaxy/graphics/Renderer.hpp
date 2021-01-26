@@ -34,9 +34,7 @@ namespace galaxy
 		class RenderTexture;
 
 		///
-		/// \brief OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
-		///
-		/// ONLY THE RENDERER IS ALLOWED TO UNBIND/BIND SHADERS.
+		/// OpenGL 2D renderer for drawing VA with transforms, shaders and textures.
 		///
 		class Renderer final
 		{

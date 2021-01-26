@@ -107,6 +107,12 @@ namespace galaxy
 				enable(entity);
 			}
 
+			const bool center_rotation = root.at("center-rotation-origin");
+			if (center_rotation)
+			{
+				set_rotation_origin(entity, get<components::Renderable>(entity)->m_type);
+			}
+
 			return entity;
 		}
 
@@ -157,6 +163,46 @@ namespace galaxy
 		void World::disable(const ecs::Entity entity)
 		{
 			unset_flag<flags::Enabled>(entity);
+		}
+
+		void World::set_rotation_origin(const ecs::Entity entity, const graphics::Renderables render_type)
+		{
+			auto* transform = get<components::Transform>(entity);
+			switch (render_type)
+			{
+				case graphics::Renderables::POINT:
+					GALAXY_LOG(GALAXY_WARNING, "Cannot set rotation origin for a POINT.");
+					break;
+
+				case graphics::Renderables::LINE:
+					GALAXY_LOG(GALAXY_WARNING, "Cannot set rotation origin for a LINE.");
+					break;
+
+				case graphics::Renderables::CIRCLE:
+					GALAXY_LOG(GALAXY_WARNING, "Cannot set rotation origin for a CIRCLE.");
+					break;
+
+				case graphics::Renderables::SPRITE:
+				{
+					auto* sprite = get<components::Sprite>(entity);
+					transform->set_rotation_origin(sprite->get_width() * 0.5f, sprite->get_height() * 0.5f);
+				}
+				break;
+
+				case graphics::Renderables::TEXT:
+				{
+					auto* text = get<components::Text>(entity);
+					transform->set_rotation_origin(text->get_width() * 0.5f, text->get_height() * 0.5f);
+				}
+				break;
+
+				case graphics::Renderables::BATCHED:
+				{
+					auto* batched = get<components::BatchedSprite>(entity);
+					transform->set_rotation_origin(batched->get_width() * 0.5f, batched->get_height() * 0.5f);
+				}
+				break;
+			}
 		}
 
 		const bool World::assign_name(const ecs::Entity entity, std::string_view debug_name) noexcept

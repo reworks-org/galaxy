@@ -63,7 +63,6 @@ namespace galaxy
 				m_config->define<int>("anti-aliasing", 2);
 				m_config->define<int>("ansio-filter", 2);
 				m_config->define<bool>("vsync", true);
-				m_config->define<bool>("srgb", false);
 				m_config->define<int>("aspect-ratio-x", -1);
 				m_config->define<int>("aspect-ratio-y", -1);
 				m_config->define<bool>("raw-mouse-input", true);
@@ -101,7 +100,6 @@ namespace galaxy
 				.m_anti_aliasing = m_config->get<int>("anti-aliasing"),
 				.m_ansio_filtering = m_config->get<int>("ansio-filter"),
 				.m_vsync = m_config->get<bool>("vsync"),
-				.m_srgb = m_config->get<bool>("srgb"),
 				.m_aspect_ratio_x = m_config->get<int>("aspect-ratio-x"),
 				.m_aspect_ratio_y = m_config->get<int>("aspect-ratio-y"),
 				.m_raw_mouse_input = m_config->get<bool>("raw-mouse-input"),
@@ -163,7 +161,9 @@ namespace galaxy
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas           = std::make_unique<res::TextureAtlas>(m_config->get<unsigned int>("textureatlas-size"), m_config->get<std::string>("textureatlas-json"));
+				m_texture_atlas = std::make_unique<res::TextureAtlas>(m_config->get<unsigned int>("textureatlas-size"), m_config->get<std::string>("textureatlas-json"));
+				m_texture_atlas->create("render_to_texture");
+				graphics::Renderer::m_batch->set_texture(m_texture_atlas->get_atlas());
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();
 
 				// SoundBook.

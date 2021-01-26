@@ -63,7 +63,15 @@ namespace galaxy
 			/// \param region Region defined on the texture.
 			/// \param opacity Opacity of the batched sprite.
 			///
-			void create(const graphics::Rect<float>& region, float opacity = 1.0f);
+			void create(const graphics::fRect& region, float opacity = 1.0f);
+
+			///
+			/// Sets the texture region for the batched sprite from the texture atlas.
+			///
+			/// \param texture_atlas_id ID of a texture in the texture atlas.
+			/// \param opacity Opacity of the batched sprite.
+			///
+			void create(std::string_view texture_atlas_id, float opacity = 1.0f);
 
 			///
 			/// Update texquad region.
@@ -108,7 +116,7 @@ namespace galaxy
 			///
 			/// \param quad New quad region.
 			///
-			void update_region(const graphics::Rect<float>& quad) noexcept;
+			void update_region(const graphics::fRect& quad) noexcept;
 
 			///
 			/// Set opacity.
@@ -149,7 +157,7 @@ namespace galaxy
 			///
 			/// \return Reference to a rectangle of floats.
 			///
-			[[nodiscard]] const graphics::Rect<float>& get_region() const noexcept;
+			[[nodiscard]] const graphics::fRect& get_region() const noexcept;
 
 		private:
 			///
@@ -171,7 +179,7 @@ namespace galaxy
 			///
 			/// Region of texture used.
 			///
-			graphics::Rect<float> m_region;
+			graphics::fRect m_region;
 
 			///
 			/// Set by spritebatch.

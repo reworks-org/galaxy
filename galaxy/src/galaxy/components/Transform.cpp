@@ -17,14 +17,13 @@ namespace galaxy
 	namespace components
 	{
 		Transform::Transform() noexcept
-		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_rotation {1.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_rotate {0.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}
+		    : m_dirty {true}, m_rotate {0.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}
 		{
 		}
 
 		Transform::Transform(const nlohmann::json& json)
 		{
 			set_pos(json.at("x"), json.at("y"));
-			set_rotation_origin(json.at("origin-x"), json.at("origin-y"));
 			rotate(json.at("rotation"));
 			scale(json.at("scale"));
 		}
@@ -62,8 +61,6 @@ namespace galaxy
 
 		void Transform::move(const float x, const float y) noexcept
 		{
-			m_translation = glm::translate(m_translation, {x, y, 0.0f});
-
 			m_pos.x += x;
 			m_pos.y += y;
 
@@ -75,26 +72,29 @@ namespace galaxy
 			m_rotate = degrees;
 			std::clamp(m_rotate, 0.0f, 360.0f);
 
-			m_rotation = glm::translate(m_rotation, m_origin);
-			m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
-			m_rotation = glm::translate(m_rotation, -m_origin);
-
 			m_dirty = true;
 		}
 
 		void Transform::scale(const float scale) noexcept
 		{
-			m_scaling = glm::scale(glm::mat4 {1.0f}, {scale, scale, 1.0f});
-
 			m_scale = scale;
-
 			m_dirty = true;
 		}
 
-		void Transform::recalculate() noexcept
+		void Transform::recalculate()
 		{
 			if (m_dirty)
 			{
+				m_translation = glm::translate(glm::mat4 {1.0f}, {m_pos.x, m_pos.y, 0.0f});
+
+				m_rotation = glm::translate(m_rotation, m_origin);
+				m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
+				m_rotation = glm::translate(m_rotation, -m_origin);
+
+				m_scaling = glm::translate(m_scaling, -m_origin);
+				m_scaling = glm::scale(glm::mat4 {1.0f}, {m_scale, m_scale, 1.0f});
+				m_scaling = glm::translate(m_scaling, m_origin);
+
 				m_model = m_translation * m_rotation * m_scaling;
 				m_dirty = false;
 			}
@@ -102,8 +102,6 @@ namespace galaxy
 
 		void Transform::set_pos(const float x, const float y) noexcept
 		{
-			m_translation = glm::translate(glm::mat4 {1.0f}, {x, y, 0.0f});
-
 			m_pos.x = x;
 			m_pos.y = y;
 
@@ -115,8 +113,6 @@ namespace galaxy
 			m_origin.x = x;
 			m_origin.y = y;
 			m_origin.z = 0.0f;
-
-			m_dirty = true;
 		}
 
 		const bool Transform::is_dirty() const noexcept
@@ -124,7 +120,7 @@ namespace galaxy
 			return m_dirty;
 		}
 
-		const glm::mat4& Transform::get_transform() noexcept
+		const glm::mat4& Transform::get_transform()
 		{
 			recalculate();
 			return m_model;

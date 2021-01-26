@@ -38,7 +38,7 @@ namespace galaxy
 				///
 				/// Region of the texture in the atlas.
 				///
-				graphics::Rect<float> m_region;
+				graphics::fRect m_region;
 
 				///
 				/// Original path of the texture.
@@ -139,7 +139,7 @@ namespace galaxy
 			///
 			/// \return Const ref to the quad.
 			///
-			[[nodiscard]] const graphics::Rect<float>& get_region(std::string_view name);
+			[[nodiscard]] const graphics::fRect& get_region(std::string_view name);
 
 			///
 			/// Get texture data.

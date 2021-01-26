@@ -78,7 +78,7 @@ namespace galaxy
 			///
 			/// Recalculates the model view matrix.
 			///
-			void recalculate() noexcept;
+			void recalculate();
 
 			///
 			/// Sets position without moving the object.
@@ -108,7 +108,7 @@ namespace galaxy
 			///
 			/// \return Reference to internal glm::mat4.
 			///
-			[[nodiscard]] const glm::mat4& get_transform() noexcept;
+			[[nodiscard]] const glm::mat4& get_transform();
 
 			///
 			/// Get stored rotation cache.
