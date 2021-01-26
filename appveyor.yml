@@ -15,21 +15,14 @@ platform:
 configuration:
   - Release
 
-install:
-  - cmd: choco install opencppcoverage
-  - cmd: choco install codecov
-  - cmd: set path=C:\Program Files\OpenCppCoverage;%path%
-  - cmd: git submodule update --init --recursive
-
 matrix:
   fast_finish: false
 
 build_script:
-  - cmd: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DENABLE_DOXYGEN=OFF -Bbuild -H.
+  - cmd: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DENABLE_DOXYGEN=OFF -Bbuild -H.
   - cmd: cd build
   - cmd: msbuild galaxy_engine.sln
 
 after_build:
   - cmd: cd ../
-  - cmd: OpenCppCoverage --sources galaxy\ --modules=C:\projects\galaxy\tests\bin\Release --export_type cobertura:coverage.xml -- .\tests\bin\Release\tests.exe & exit 0
-  - cmd: codecov --root .. -f coverage.xml -t %CODECOV_TOKEN%
+  - cmd: .\tests\bin\Release\tests.exe
