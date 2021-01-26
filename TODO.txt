@@ -65,3 +65,6 @@ tilemap editor
 TESTS;
 - Serializable
 - Serializer
+
+
+write tests/json integration/lua integration/engine integration for new code projects
