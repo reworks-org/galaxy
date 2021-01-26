@@ -15,6 +15,9 @@ platform:
 configuration:
   - Release
 
+install:
+  - cmd: git submodule update --init --recursive
+
 matrix:
   fast_finish: false
 
