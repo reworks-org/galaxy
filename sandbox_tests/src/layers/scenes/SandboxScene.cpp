@@ -17,6 +17,7 @@
 #include "SandboxScene.hpp"
 
 using namespace galaxy;
+using namespace std::chrono_literals;
 
 namespace sb
 {
@@ -34,10 +35,19 @@ namespace sb
 		m_world.create_from_json("text.json");
 
 		m_world.create_system<systems::RenderSystem>();
+
+		m_timer.set_repeating(true);
+		m_timer.launch([]() {
+			std::cout << "Timer Ping" << std::endl;
+		},
+			       2000);
 	}
 
 	SandboxScene::~SandboxScene()
 	{
+		// Will block thread until finished.
+		// This is intended.
+		m_timer.stop();
 	}
 
 	void SandboxScene::events()

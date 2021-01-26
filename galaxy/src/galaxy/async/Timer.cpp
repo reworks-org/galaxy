@@ -12,13 +12,16 @@ namespace galaxy
 	namespace async
 	{
 		Timer::Timer() noexcept
-		    : m_repeat {false}, m_delay {1000}
+		    : m_stopped {true}, m_repeat {false}, m_delay {1000}
 		{
 		}
 
 		Timer::~Timer()
 		{
-			stop();
+			if (!m_stopped)
+			{
+				stop();
+			}
 		}
 
 		void Timer::set_repeating(const bool repeat) noexcept
@@ -31,6 +34,8 @@ namespace galaxy
 			m_repeat = false;
 			m_thread.request_stop();
 			m_thread.join();
+
+			m_stopped = true;
 		}
 	} // namespace async
 } // namespace galaxy

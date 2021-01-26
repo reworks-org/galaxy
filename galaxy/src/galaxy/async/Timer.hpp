@@ -71,6 +71,11 @@ namespace galaxy
 
 		private:
 			///
+			/// Flag to check if timer stopped already.
+			///
+			bool m_stopped;
+
+			///
 			/// Is function repeating on thread.
 			///
 			bool m_repeat;
@@ -103,6 +108,8 @@ namespace galaxy
                                         m_callback();
                                 } while (m_repeat);
                         });
+
+			m_stopped = false;
 		}
 	} // namespace async
 } // namespace galaxy
