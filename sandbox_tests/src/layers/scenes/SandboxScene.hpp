@@ -14,6 +14,7 @@
 
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/core/Scene.hpp>
+#include <galaxy/ui/GUI.hpp>
 
 namespace sb
 {
@@ -30,6 +31,8 @@ namespace sb
 
 	private:
 		galaxy::async::Timer m_timer;
+		galaxy::ui::GUI m_gui;
+		galaxy::ui::Theme m_theme;
 	};
 } // namespace sb
 

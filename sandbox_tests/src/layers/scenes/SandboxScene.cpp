@@ -14,10 +14,17 @@
 
 #include <galaxy/systems/RenderSystem.hpp>
 
+#include <galaxy/ui/widgets/Button.hpp>
+#include <galaxy/ui/widgets/Image.hpp>
+#include <galaxy/ui/widgets/TextInput.hpp>
+#include <galaxy/ui/widgets/ToggleButton.hpp>
+
 #include "SandboxScene.hpp"
 
 using namespace galaxy;
 using namespace std::chrono_literals;
+
+ui::Progressbar* progressbar;
 
 namespace sb
 {
@@ -25,6 +32,10 @@ namespace sb
 	{
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
+		SL_HANDLE.window()->set_on_scroll([&](GLFWwindow* window, double x, double y) {
+			m_camera.scale(x);
+		});
+		SL_HANDLE.window()->register_on_window_resize(m_camera);
 
 		m_world.create_from_json("point.json");
 		m_world.create_from_json("line.json");
@@ -41,6 +52,72 @@ namespace sb
 			std::cout << "Timer Ping" << std::endl;
 		},
 			       1000);
+
+		m_theme.m_font_col = {255, 0, 0, 255};
+		m_gui.set_theme(&m_theme);
+
+		auto* image = m_gui.create_widget<galaxy::ui::Image>();
+		image->create("image");
+		image->set_pos(1000, 100);
+
+		auto* tooltip = m_gui.create_tooltip_for_widget(image);
+		tooltip->create("tooltip", "Demo Test", "public16");
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(image);
+
+		auto* label = m_gui.create_widget<galaxy::ui::Label>();
+		label->create("Label Demo", "public16");
+		label->set_pos(300, 300);
+
+		auto* button = m_gui.create_widget<galaxy::ui::Button>();
+		button->create("button_default", "button_pressed", "button_hover");
+		button->set_pos(250, 250);
+		button->set_callback([&]() {
+			GALAXY_LOG(GALAXY_INFO, "Button Pressed.");
+		});
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(button);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(button);
+		m_gui.add_event_to_widget<galaxy::events::MouseReleased>(button);
+
+		auto* slider_ptr = m_gui.create_widget<galaxy::ui::Slider>();
+		slider_ptr->create("slider", "slider_marker");
+		slider_ptr->set_pos(500, 500);
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(slider_ptr);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(slider_ptr);
+		m_gui.add_event_to_widget<galaxy::events::MouseReleased>(slider_ptr);
+
+		progressbar = m_gui.create_widget<galaxy::ui::Progressbar>();
+		progressbar->create("container", "bar");
+		progressbar->set_pos(500, 600);
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(progressbar);
+
+		auto* togglebutton = m_gui.create_widget<galaxy::ui::ToggleButton>();
+		togglebutton->create("tb_on", "tb_off", "tb_on_hover", "tb_off_hover");
+		togglebutton->set_pos(150, 150);
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(togglebutton);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(togglebutton);
+
+		auto* textinput = m_gui.create_widget<galaxy::ui::TextInput>();
+		textinput->create("input_field", "public16", 5.0f);
+		textinput->set_pos(650, 650);
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(textinput);
+		m_gui.add_event_to_widget<galaxy::events::MousePressed>(textinput);
+		m_gui.add_event_to_widget<galaxy::events::KeyDown>(textinput);
+
+		auto* textbox = m_gui.create_widget<galaxy::ui::Textbox>();
+		textbox->create("textbox", "arrow", "public16", 5.0f);
+		textbox->set_pos(600, 100);
+
+		std::vector<std::string> messages = {"Hello there!", "How are you today?", "I am good,\nthanks!"};
+		textbox->set_text(messages);
+
+		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(textbox);
+		m_gui.add_event_to_widget<galaxy::events::KeyDown>(textbox);
 	}
 
 	SandboxScene::~SandboxScene()
@@ -48,6 +125,7 @@ namespace sb
 		// Will block thread until finished.
 		// This is intended.
 		m_timer.stop();
+		progressbar = nullptr;
 	}
 
 	void SandboxScene::events()
@@ -107,12 +185,48 @@ namespace sb
 		{
 			m_camera.on_key_up({input::Keys::D});
 		}
+
+		auto [changed, pos] = SL_HANDLE.window()->get_cursor_pos();
+		if (changed)
+		{
+			m_gui.trigger<galaxy::events::MouseMoved>(pos.x, pos.y);
+		}
+
+		if (SL_HANDLE.window()->mouse_button_pressed(galaxy::input::MouseButton::BUTTON_LEFT))
+		{
+			m_gui.trigger<galaxy::events::MousePressed>(pos.x, pos.y, galaxy::input::MouseButton::BUTTON_LEFT);
+		}
+
+		if (SL_HANDLE.window()->mouse_button_released(galaxy::input::MouseButton::BUTTON_LEFT))
+		{
+			m_gui.trigger<galaxy::events::MouseReleased>(pos.x, pos.y, galaxy::input::MouseButton::BUTTON_LEFT);
+		}
+
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::ENTER))
+		{
+			m_gui.trigger<galaxy::events::KeyDown>(galaxy::input::Keys::ENTER);
+		}
+
+		if (SL_HANDLE.window()->key_pressed(galaxy::input::Keys::BACKSPACE))
+		{
+			m_gui.trigger<galaxy::events::KeyDown>(galaxy::input::Keys::BACKSPACE);
+		}
 	}
 
 	void SandboxScene::update(const double dt)
 	{
 		m_camera.update(dt);
 		m_world.update(dt);
+
+		static float progress = 0.0f;
+		progress += (0.01 * dt);
+		if (progress > 1.0f)
+		{
+			progress = 0.0f;
+		}
+
+		progressbar->set_progress(progress);
+		m_gui.update(dt);
 	}
 
 	void SandboxScene::pre_render()
@@ -122,5 +236,6 @@ namespace sb
 	void SandboxScene::render()
 	{
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
+		m_gui.render(m_camera);
 	}
 } // namespace sb
