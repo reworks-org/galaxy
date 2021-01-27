@@ -1,6 +1,3 @@
-AI:
-- AStar
-
 SUPERCLUSTER:
 - physics tools
 - export to json / save as json
@@ -10,61 +7,49 @@ SUPERCLUSTER:
 - two states ("game") and ("editor")
 - play button switches between them.
 - serialzie data when swtiching, then load and run game state.
+- tilemap editor
+	- see stb tilemap on utube for ideas
+- Integrate openal context with dev tools.
 
-THE PLAN:
-- Need to integrate clang-tidy and clang-format.
-- Need to integrate microsoft code analysis.
-- All around CMAKE.
 
-- Launch tiled from unix.
+RESTRUCTURE:
+Composition > Inheritance
+Each Module Shall Have (if needed):
+- Lua Interface
+- JSON Interface
+- Serialization Interface
+
+- Seperate methods and members into their own public/private/etc in classes
+- Proper use of 'noexcept', 'static', and 'multithreading'.
+- Attributes
+- Const/Constexpr
+- Use VFS
+- Parallell Execution
+- Put deleted into private.
+- Header orders
+- call base move opoerators
 - Restore data-driven design
 - Engine needs to be cohesive.
+- write tests
+- dynamic_cast -> static_cast
+
+TODO:
 - Async asset loading.
-- Each class requires ability to be serialized -> prefereably to JSON or Lua.
-- Use of coroutines over threading.
-
 - Dependencies should only abstract away system specific implementations.
-- coroutines
+- Docs error fix after this.
+- Shader headers in graphics should be constexpr (need MSVC update...)
+- Loading state support?
+- quadtree for rendering?
+- Physics Collision
+- support multiple texture atlases. if adding doesnt fit, push new atlas and add to that.
 
-https://github.com/EQMG/Acid
-https://learnopengl.com/Advanced-OpenGL/Anti-Aliasing
 
-redo unit testing
-redo CI for automated testing
-and test coverage
-
-On Build:
+CMAKE:
 Run Clang-Tidy
 Run Clang-Format
 Run Include-What-You-Use
+MSVC code analysis
 https://www.google.com/search?client=firefox-b-d&q=cmake+run+clang-tidy+on+build
 https://www.google.com/search?client=firefox-b-d&q=cmake+run+clang-format+on+build
 https://gernotklingler.com/blog/open-source-tools-examine-and-adjust-include-dependencies/
 https://www.fluentcpp.com/2021/01/01/include-what-you-use/
-
-MSVC code analysis
-Docs error fix after this
-
-
-
-tilemap editor
-	- see stb tilemap on utube for ideas
-
-
-
-- Shader headers in graphics should be constexpr
-- Loading state support?
-- Serializer
-- Serializable
-
-- Integrate openal context with dev tools.
-- integrate google test with cmake, visual studio and CI.
-- quadtree for rendering?
-
-
-TESTS;
-- Serializable
-- Serializer
-
-
-write tests/json integration/lua integration/engine integration for new code projects

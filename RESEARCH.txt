@@ -31,3 +31,8 @@ https://github.com/rokups/ImNodes
 
 https://gamedev.stackexchange.com/questions/153848/how-do-i-set-up-9-slicing-in-opengl
 https://www.gamedev.net/forums/topic/696879-glsl-9-slicing/
+
+https://github.com/nothings/stb/blob/master/stb_tilemap_editor.h
+https://github.com/EQMG/Acid
+https://github.com/jmorton06/Lumos
+https://github.com/TheCherno/Hazel
