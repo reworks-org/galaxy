@@ -24,7 +24,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ShaderBook() noexcept;
+			ShaderBook();
 
 			///
 			/// JSON constructor.

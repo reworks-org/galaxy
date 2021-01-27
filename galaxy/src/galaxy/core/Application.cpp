@@ -34,6 +34,7 @@ namespace galaxy
 
 			// Set up all of the difference services.
 			// The services are configured based off of the config file.
+			// Services are created in dependency order.
 
 			// Log.
 			const auto time = std::time(nullptr);

@@ -99,7 +99,7 @@ namespace galaxy
 			}
 		}
 
-		void Camera::on_mouse_scroll(const events::MouseWheel& e) noexcept
+		void Camera::on_event(const events::MouseWheel& e) noexcept
 		{
 			if (e.m_y_offset < 0)
 			{
@@ -113,7 +113,7 @@ namespace galaxy
 			scale(m_scale);
 		}
 
-		void Camera::on_window_resized(const events::WindowResized& e) noexcept
+		void Camera::on_event(const events::WindowResized& e) noexcept
 		{
 			create(0.0f, e.m_width, e.m_height, 0.0f);
 		}

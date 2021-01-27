@@ -232,7 +232,7 @@ namespace galaxy
 			/// \param obj An object with an on_event(const WindowResized& event) function.
 			///
 			template<meta::is_class Type>
-			void register_on_window_resize(const Type& obj);
+			void register_on_window_resize(Type& obj);
 
 			///
 			/// \brief See if a key is being held down.
@@ -406,13 +406,13 @@ namespace galaxy
 		inline void Window::set_on_scroll(Lambda&& func) noexcept
 		{
 			m_scrollback = func;
-			glfwSetScrollCallback(m_window, m_scrollback.target<decltype(GLFWscrollfun)>());
+			glfwSetScrollCallback(m_window, m_scrollback.target<void(GLFWwindow*, double, double)>());
 		}
 
 		template<meta::is_class Type>
-		inline void galaxy::core::Window::register_on_window_resize(const Type& obj)
+		inline void galaxy::core::Window::register_on_window_resize(Type& obj)
 		{
-			m_window_resized_dispatcher.subscribe<events::WindowResized>(obj);
+			m_window_resized_dispatcher.subscribe<events::WindowResized, Type>(obj);
 		}
 	} // namespace core
 } // namespace galaxy
