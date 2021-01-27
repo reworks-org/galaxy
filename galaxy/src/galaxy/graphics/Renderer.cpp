@@ -24,9 +24,7 @@ namespace galaxy
 	{
 		void Renderer::init(const unsigned int max_quads, std::string_view batch_shader)
 		{
-			auto* handle = SL_HANDLE.shaderbook()->create("DefaultFramebuffer");
-			handle->load_raw(shaders::default_framebuffer_vert, shaders::default_framebuffer_frag);
-			Renderer::m_post_shaders.push_back(handle);
+			Renderer::m_post_shaders.push_back(SL_HANDLE.shaderbook()->get("DefaultFramebuffer"));
 
 			m_batch        = std::make_unique<graphics::SpriteBatch>(max_quads);
 			m_batch_shader = SL_HANDLE.shaderbook()->get(batch_shader);
@@ -81,7 +79,7 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, text->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		void Renderer::submit_batch(Camera& camera)
+		void Renderer::submit_batched_sprite(Camera& camera)
 		{
 			Renderer::m_batch_shader->bind();
 			Renderer::m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
@@ -91,6 +89,18 @@ namespace galaxy
 
 			Renderer::m_batch->bind();
 			glDrawElements(GL_TRIANGLES, Renderer::m_batch->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
+		}
+
+		void Renderer::draw_batch(graphics::SpriteBatch* sb, Camera& camera)
+		{
+			Renderer::m_batch_shader->bind();
+			Renderer::m_batch_shader->set_uniform("u_cameraProj", camera.get_proj());
+			Renderer::m_batch_shader->set_uniform("u_cameraView", camera.get_transform());
+			Renderer::m_batch_shader->set_uniform("u_width", static_cast<float>(sb->get_width()));
+			Renderer::m_batch_shader->set_uniform("u_height", static_cast<float>(sb->get_height()));
+
+			sb->bind();
+			glDrawElements(GL_TRIANGLES, sb->get_used_index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
 		void Renderer::draw_sprite_to_texture(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target)

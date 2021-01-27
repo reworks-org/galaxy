@@ -2,12 +2,5 @@
 	"vertex-extension": ".vs",
 	"fragment-extension": ".fs",
 	"shaderbook": [
-		"line",
-		"particle",
-		"point",
-		"render_to_texture",
-		"sprite",
-		"spritebatch",
-		"text"
 	]
 }

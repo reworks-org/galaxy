@@ -8,9 +8,10 @@
 #ifndef GALAXY_GRAPHICS_TEXT_FONT_HPP_
 #define GALAXY_GRAPHICS_TEXT_FONT_HPP_
 
+#include <robin_hood.h>
+
 #include "galaxy/graphics/text/Character.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
-#include "galaxy/graphics/Shader.hpp"
 
 namespace galaxy
 {
@@ -118,11 +119,6 @@ namespace galaxy
 			/// Render Texture.
 			///
 			RenderTexture m_fontmap;
-
-			///
-			/// Shader to draw font with.
-			///
-			Shader m_shader;
 		};
 	} // namespace graphics
 } // namespace galaxy

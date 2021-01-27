@@ -24,7 +24,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			ShaderBook() noexcept = default;
+			ShaderBook() noexcept;
 
 			///
 			/// JSON constructor.
@@ -70,6 +70,11 @@ namespace galaxy
 			/// Move assignment operator.
 			///
 			ShaderBook& operator=(ShaderBook&&) = delete;
+
+			///
+			/// Create default shaderbook shaders.
+			///
+			void create_default();
 		};
 	} // namespace res
 } // namespace galaxy

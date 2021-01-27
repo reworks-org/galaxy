@@ -11,6 +11,15 @@
 
 #include "galaxy/fs/FileSystem.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
+#include "galaxy/graphics/shaders/DefaultFramebuffer.hpp"
+#include "galaxy/graphics/shaders/Glyph.hpp"
+#include "galaxy/graphics/shaders/Line.hpp"
+#include "galaxy/graphics/shaders/Particle.hpp"
+#include "galaxy/graphics/shaders/Point.hpp"
+#include "galaxy/graphics/shaders/RenderToTexture.hpp"
+#include "galaxy/graphics/shaders/Sprite.hpp"
+#include "galaxy/graphics/shaders/SpriteBatch.hpp"
+#include "galaxy/graphics/shaders/Text.hpp"
 
 #include "ShaderBook.hpp"
 
@@ -18,9 +27,15 @@ namespace galaxy
 {
 	namespace res
 	{
+		ShaderBook::ShaderBook()
+		{
+			create_default();
+		}
+
 		ShaderBook::ShaderBook(std::string_view file)
 		{
 			create_from_json(file);
+			create_default();
 		}
 
 		ShaderBook::~ShaderBook() noexcept
@@ -45,6 +60,36 @@ namespace galaxy
 		void ShaderBook::clear() noexcept
 		{
 			m_resources.clear();
+		}
+
+		void ShaderBook::create_default()
+		{
+			auto* df = create("DefaultFramebuffer");
+			df->load_raw(shaders::default_framebuffer_vert, shaders::default_framebuffer_frag);
+
+			auto* glyph = create("glyph");
+			glyph->load_raw(shaders::glyph_vert, shaders::glyph_frag);
+
+			auto* line = create("line");
+			line->load_raw(shaders::line_vert, shaders::line_frag);
+
+			auto* particle = create("particle");
+			particle->load_raw(shaders::particle_vert, shaders::particle_frag);
+
+			auto* point = create("point");
+			point->load_raw(shaders::point_vert, shaders::point_frag);
+
+			auto* render_to_texture = create("render_to_texture");
+			render_to_texture->load_raw(shaders::render_to_texture_vert, shaders::render_to_texture_frag);
+
+			auto* sprite = create("sprite");
+			sprite->load_raw(shaders::sprite_vert, shaders::sprite_frag);
+
+			auto* spritebatch = create("spritebatch");
+			spritebatch->load_raw(shaders::spritebatch_vert, shaders::spritebatch_frag);
+
+			auto* text = create("text");
+			text->load_raw(shaders::text_vert, shaders::text_frag);
 		}
 	} // namespace res
 } // namespace galaxy

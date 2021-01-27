@@ -11,8 +11,8 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/error/Log.hpp"
 #include "galaxy/fs/FileSystem.hpp"
-#include "galaxy/graphics/shaders/Glyph.hpp"
 #include "galaxy/graphics/text/FreeType.hpp"
+#include "galaxy/res/ShaderBook.hpp"
 
 #include "Font.hpp"
 
@@ -65,8 +65,6 @@ namespace galaxy
 					}
 					else
 					{
-						m_shader.load_raw(shaders::glyph_vert, shaders::glyph_frag);
-
 						int orig_alignment = 0;
 						glGetIntegerv(GL_UNPACK_ALIGNMENT, &orig_alignment);
 						glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -141,8 +139,10 @@ namespace galaxy
 
 						m_fontmap.create(total_width, m_height);
 						m_fontmap.bind();
-						m_shader.bind();
-						m_shader.set_uniform("u_proj", m_fontmap.get_proj());
+
+						auto* shader = SL_HANDLE.shaderbook()->get("glyph");
+						shader->bind();
+						shader->set_uniform("u_proj", m_fontmap.get_proj());
 						glBindVertexArray(char_vao);
 
 						float offset_x = 0.0f;

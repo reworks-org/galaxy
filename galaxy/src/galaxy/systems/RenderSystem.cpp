@@ -57,7 +57,7 @@ namespace galaxy
 			if (!graphics::Renderer::m_batch->empty())
 			{
 				graphics::Renderer::m_batch->calculate();
-				graphics::Renderer::submit_batch(camera);
+				graphics::Renderer::submit_batched_sprite(camera);
 			}
 
 			std::sort(std::execution::par, m_sorted.begin(), m_sorted.end(), [&](const auto& left, const auto& right) {
