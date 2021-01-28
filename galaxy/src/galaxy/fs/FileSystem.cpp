@@ -50,7 +50,7 @@ namespace galaxy
 			const std::string path = absolute(file);
 			if (path.empty())
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Attempted to open non-existant file: {0}.", file);
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file: {0}.", file);
 				return "";
 			}
 			else
@@ -65,7 +65,7 @@ namespace galaxy
 				}
 				else
 				{
-					GALAXY_LOG(GALAXY_FATAL, "Failed to open {0}.", file);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to open {0}.", file);
 					return "";
 				}
 			}
@@ -76,7 +76,7 @@ namespace galaxy
 			const std::string path = absolute(file);
 			if (path.empty())
 			{
-				GALAXY_LOG(GALAXY_FATAL, "Attempted to open non-existant file: {0}.", file);
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file: {0}.", file);
 				return {};
 			}
 			else
@@ -98,7 +98,7 @@ namespace galaxy
 				else
 				{
 					ifs.close();
-					GALAXY_LOG(GALAXY_FATAL, "Failed to open {0}.", file);
+					GALAXY_LOG(GALAXY_ERROR, "Failed to open {0}.", file);
 					return {};
 				}
 			}
@@ -122,7 +122,7 @@ namespace galaxy
 			else
 			{
 				ofs.close();
-				GALAXY_LOG(GALAXY_FATAL, "Failed to save file data to disk: {0}.", file);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
 			}
 		}
 
@@ -144,12 +144,17 @@ namespace galaxy
 			else
 			{
 				ofs.close();
-				GALAXY_LOG(GALAXY_FATAL, "Failed to save file data to disk: {0}.", file);
+				GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", file);
 			}
 		}
 
 		std::string Virtual::absolute(std::string_view file)
 		{
+			if (std::filesystem::path(file).is_absolute())
+			{
+				return;
+			}
+
 			for (const auto& mounted_dir : m_dirs)
 			{
 				for (const auto& dir_entry : std_fs::recursive_directory_iterator(mounted_dir, std_fs::directory_options::skip_permission_denied))
@@ -181,6 +186,57 @@ namespace galaxy
 		{
 			pfd::select_folder dialog {"Select folder.", def_path, pfd::opt::force_path};
 			return dialog.result();
+		}
+
+		std::string Virtual::open_with_dialog(const std::string& filter, const std::string& def_path)
+		{
+			const auto path = show_open_dialog(filter, def_path);
+			if (path.empty())
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Attempted to open non-existant file: {0}.", path);
+				return "";
+			}
+			else
+			{
+				std::ifstream ifs;
+				ifs.open(path, std::ifstream::in);
+				if (ifs.good())
+				{
+					std::stringstream buffer;
+					buffer << ifs.rdbuf();
+					return buffer.str();
+				}
+				else
+				{
+					GALAXY_LOG(GALAXY_ERROR, "Failed to open {0}.", path);
+					return "";
+				}
+			}
+		}
+
+		std::string Virtual::save_with_dialog(const std::string& data, const std::string& def_path)
+		{
+			const auto path = show_save_dialog(def_path);
+			if (path.empty())
+			{
+				GALAXY_LOG(GALAXY_ERROR, "Tried to save a file to an empty path.");
+				return "";
+			}
+			else
+			{
+				std::ofstream ofs;
+				ofs.open(path, std::ofstream::out | std::ofstream::trunc);
+				if (ofs.good())
+				{
+					ofs << data;
+					ofs.close();
+				}
+				else
+				{
+					ofs.close();
+					GALAXY_LOG(GALAXY_ERROR, "Failed to save file data to disk: {0}.", path);
+				}
+			}
 		}
 	} // namespace fs
 } // namespace galaxy

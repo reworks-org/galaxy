@@ -120,6 +120,23 @@ namespace galaxy
 			///
 			[[nodiscard]] std::string show_folder_dialog(const std::string& def_path = CUR_DIR);
 
+			///
+			/// Open a file using a dialog.
+			///
+			/// \param filter See: https://github.com/samhocevar/portable-file-dialogs/blob/master/doc/open_file.md.
+			///					Defaults to all files.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			[[nodiscard]] std::string open_with_dialog(const std::string& filter = "*", const std::string& def_path = CUR_DIR);
+
+			///
+			/// Save a file using a dialog.
+			///
+			/// \param data Data to write to file.
+			/// \param def_path Default starting path to open dialog at.
+			///
+			[[nodiscard]] std::string save_with_dialog(const std::string& data, const std::string& def_path = CUR_DIR);
+
 		private:
 			///
 			/// Stores mounted directories.
