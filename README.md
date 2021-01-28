@@ -20,7 +20,7 @@ Make sure C++ desktop development, cmake tools, linux development, and game deve
 git clone --recursive https://github.com/DomRe/galaxy.git galaxy_engine
 git submodule update --init --recursive
 cd galaxy_engine
-cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DENABLE_DOXYGEN=OFF -Bbuild -H.
+cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DGALAXY_BUILD_TESTS=ON -DGALAXY_ENABLE_DOXYGEN=OFF -Bbuild -H.
 cd build
 msbuild galaxy_engine.sln
 ```
@@ -36,7 +36,7 @@ See [online documentation](https://domre.github.io/galaxy/).
 
 Or generate offline with Doxygen, with ```ENABLE_DOXYGEN``` set to ```ON```:
 ```
-cmake -DENABLE_DOXYGEN=ON -Bbuild -H.
+cmake -DGALAXY_ENABLE_DOXYGEN=ON -Bbuild -H.
 cd build
 make doxygen
 ```

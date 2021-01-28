@@ -22,7 +22,7 @@ matrix:
   fast_finish: false
 
 build_script:
-  - cmd: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DENABLE_DOXYGEN=OFF -Bbuild -H.
+  - cmd: cmake -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DGALAXY_BUILD_TESTS=ON -DGALAXY_ENABLE_DOXYGEN=OFF -Bbuild -H.
   - cmd: cd build
   - cmd: msbuild galaxy_engine.sln
 
