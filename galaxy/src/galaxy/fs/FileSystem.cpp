@@ -152,7 +152,7 @@ namespace galaxy
 		{
 			if (std::filesystem::path(file).is_absolute())
 			{
-				return;
+				return static_cast<std::string>(file);
 			}
 
 			for (const auto& mounted_dir : m_dirs)
