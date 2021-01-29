@@ -1,0 +1,9 @@
+{
+	"soundbook": {
+		"button": {
+			"file": "button.ogg",
+			"looping": false,
+			"pitch": 1.0
+		}
+	}
+}

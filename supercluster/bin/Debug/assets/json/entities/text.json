@@ -1,0 +1,30 @@
+{
+    "name": "TextEntity",
+    "enabled": true,
+    "center-rotation-origin": true,
+    "components": {
+        "Text": {
+            "colour": {
+                "r": 255,
+                "g": 0,
+                "b": 0,
+                "a": 255
+            },
+            "font":"public16",
+            "text":"Demo"
+        },
+        "Transform": {
+            "x": 512,
+            "y": 512,
+            "rotation": 45,
+            "scale": 2
+        },
+        "Renderable": {
+            "type": 4,
+            "z-level": 5
+        },
+        "ShaderID": {
+            "shader-id": "text"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "name": "PointEntity",
+    "enabled": true,
+    "center-rotation-origin": false,
+    "components": {
+        "Point": {
+            "size": 20,
+            "colour": {
+                "r": 255,
+                "g": 0,
+                "b": 0,
+                "a": 255
+            }
+        },
+        "Transform": {
+            "x": 10,
+            "y": 10,
+            "rotation": 0.0,
+            "scale": 1.0
+        },
+        "Renderable": {
+            "type": 0,
+            "z-level": 1
+        },
+        "ShaderID": {
+            "shader-id": "point"
+        }
+    }
+}

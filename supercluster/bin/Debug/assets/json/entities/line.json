@@ -1,0 +1,32 @@
+{
+    "name": "LineEntity",
+    "enabled": true,
+    "center-rotation-origin": false,
+    "components": {
+        "Line": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 50,
+            "y2": 50,
+            "colour": {
+                "r": 255,
+                "g": 0,
+                "b": 0,
+                "a": 255
+            }
+        },
+        "Transform": {
+            "x": 50,
+            "y": 50,
+            "rotation": 0.0,
+            "scale": 1.0
+        },
+        "Renderable": {
+            "type": 1,
+            "z-level": 2
+        },
+        "ShaderID": {
+            "shader-id": "line"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "name": "CircleEntity",
+    "enabled": true,
+    "center-rotation-origin": false,
+    "components": {
+        "Circle": {
+            "radius": 20,
+            "fragments": 50,
+            "colour": {
+                "r": 255,
+                "g": 0,
+                "b": 0,
+                "a": 255
+            }
+        },
+        "Transform": {
+            "x": 200,
+            "y": 200,
+            "rotation": 0.0,
+            "scale": 1.0
+        },
+        "Renderable": {
+            "type": 2,
+            "z-level": 3
+        },
+        "ShaderID": {
+            "shader-id": "line"
+        }
+    }
+}
