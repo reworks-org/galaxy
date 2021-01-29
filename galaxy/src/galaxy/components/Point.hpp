@@ -77,6 +77,13 @@ namespace galaxy
 			void unbind() noexcept;
 
 			///
+			/// Set point size.
+			///
+			/// \param size New size of the point.
+			///
+			void set_size(const int size) noexcept;
+
+			///
 			/// Get size of point.
 			///
 			/// \return Const integer.

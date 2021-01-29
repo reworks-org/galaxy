@@ -76,6 +76,11 @@ namespace galaxy
 			m_va.unbind();
 		}
 
+		void Point::set_size(const int size) noexcept
+		{
+			m_size = size;
+		}
+
 		const int Point::get_size() const noexcept
 		{
 			return m_size;
