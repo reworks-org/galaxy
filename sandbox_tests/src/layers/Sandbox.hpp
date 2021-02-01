@@ -30,7 +30,6 @@ namespace sb
 
 	private:
 		galaxy::core::Window* m_window;
-		//galaxy::graphics::ParticleGenerator m_particle_gen;
 		//galaxy::physics::KineticBody* m_test_body;
 	};
 } // namespace sb
