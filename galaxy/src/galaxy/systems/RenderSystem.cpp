@@ -8,6 +8,7 @@
 #include <execution>
 
 #include "galaxy/core/ServiceLocator.hpp"
+#include "galaxy/core/World.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
 #include "galaxy/components/Point.hpp"
@@ -26,10 +27,6 @@ namespace galaxy
 {
 	namespace systems
 	{
-		void RenderSystem::update(const double dt)
-		{
-		}
-
 		void RenderSystem::render(core::World& world, graphics::Camera& camera)
 		{
 			// clang-format off
@@ -97,6 +94,10 @@ namespace galaxy
 
 			m_sorted.clear();
 			graphics::Renderer::m_batch->clear_sprites();
+		}
+
+		void RenderSystem::update(core::World& world, const double dt)
+		{
 		}
 	} // namespace systems
 } // namespace galaxy

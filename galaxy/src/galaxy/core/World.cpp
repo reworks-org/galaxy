@@ -7,15 +7,16 @@
 
 #include <nlohmann/json.hpp>
 
-#include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Transform.hpp"
-#include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Line.hpp"
-#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchedSprite.hpp"
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Line.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Renderable.hpp"
+#include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
+#include "galaxy/components/Transform.hpp"
 
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
@@ -29,15 +30,16 @@ namespace galaxy
 		World::World() noexcept
 		    : m_next_id {0}
 		{
-			register_component<components::ShaderID>("ShaderID");
-			register_component<components::Transform>("Transform");
-			register_component<components::Renderable>("Renderable");
-			register_component<components::Point>("Point");
-			register_component<components::Line>("Line");
-			register_component<components::Circle>("Circle");
+			register_component<components::Animated>("Animated");
 			register_component<components::BatchedSprite>("BatchedSprite");
+			register_component<components::Circle>("Circle");
+			register_component<components::Line>("Line");
+			register_component<components::Point>("Point");
+			register_component<components::Renderable>("Renderable");
+			register_component<components::ShaderID>("ShaderID");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Text>("Text");
+			register_component<components::Transform>("Transform");
 		}
 
 		World::~World()
@@ -49,7 +51,7 @@ namespace galaxy
 		{
 			for (const auto& ptr : m_systems)
 			{
-				ptr->update(dt);
+				ptr->update(*this, dt);
 			}
 		}
 

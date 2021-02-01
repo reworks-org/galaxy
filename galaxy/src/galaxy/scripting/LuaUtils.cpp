@@ -12,6 +12,7 @@
 #include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/algorithm/Random.hpp"
 
+#include "galaxy/components/Animated.hpp"
 #include "galaxy/components/BatchedSprite.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
@@ -29,6 +30,7 @@
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
+#include "galaxy/graphics/animation/Animation.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Rect.hpp"
@@ -155,6 +157,11 @@ galaxy::components::Text* add_text(galaxy::core::World& world, const galaxy::ecs
 	return world.create_component<galaxy::components::Text>(entity);
 }
 
+galaxy::components::Animated* add_animated(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Animated>(entity);
+}
+
 galaxy::components::ShaderID* get_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::ShaderID>(entity);
@@ -198,6 +205,11 @@ galaxy::components::Sprite* get_sprite(galaxy::core::World& world, const galaxy:
 galaxy::components::Text* get_text(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::Text>(entity);
+}
+
+galaxy::components::Animated* get_animated(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Animated>(entity);
 }
 
 namespace galaxy
@@ -291,6 +303,7 @@ namespace galaxy
 			lua->set_function("add_batched_sprite_to_entity", &add_batched_sprite);
 			lua->set_function("add_sprite_to_entity", &add_sprite);
 			lua->set_function("add_text_to_entity", &add_text);
+			lua->set_function("add_animated_to_entity", &add_animated);
 
 			lua->set_function("get_shaderid_from_entity", &get_shaderid);
 			lua->set_function("get_transform_from_entity", &get_transform);
@@ -301,6 +314,7 @@ namespace galaxy
 			lua->set_function("get_batched_sprite_from_entity", &get_batched_sprite);
 			lua->set_function("get_sprite_from_entity", &get_sprite);
 			lua->set_function("get_text_from_entity", &get_text);
+			lua->set_function("get_animated_from_entity", &get_animated);
 
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
@@ -399,6 +413,14 @@ namespace galaxy
 			text_type["load"]             = &components::Text::load;
 			text_type["unbind"]           = &components::Text::unbind;
 			text_type["update_text"]      = &components::Text::update_text;
+
+			auto animated_type             = lua->new_usertype<components::Animated>("gAnimated", sol::constructors<components::Animated()>());
+			animated_type["pause"]         = &components::Animated::pause;
+			animated_type["play"]          = sol::resolve<void(void)>(&components::Animated::play);
+			animated_type["play_specific"] = sol::resolve<void(std::string_view)>(&components::Animated::play);
+			animated_type["set_animation"] = &components::Animated::set_animation;
+			animated_type["stop"]          = &components::Animated::stop;
+			animated_type["is_paused"]     = &components::Animated::is_paused;
 		}
 
 		void register_fs()
@@ -537,6 +559,19 @@ namespace galaxy
 			particle_generator_type["gen_circular"]   = &graphics::ParticleGenerator::gen_circular;
 			particle_generator_type["gen_linear"]     = &graphics::ParticleGenerator::gen_linear;
 			particle_generator_type["update_emitter"] = &graphics::ParticleGenerator::update_emitter;
+
+			auto frame_type              = lua->new_usertype<graphics::Frame>("gFrame", sol::constructors<graphics::Frame(), graphics::Frame(const graphics::fRect&, const double)>());
+			frame_type["region"]         = &graphics::Frame::m_region;
+			frame_type["time_per_frame"] = &graphics::Frame::m_time_per_frame;
+
+			auto animation_type                 = lua->new_usertype<graphics::Animation>("gAnimation", sol::no_constructor);
+			animation_type["get_current_frame"] = &graphics::Animation::get_current_frame;
+			animation_type["get_name"]          = &graphics::Animation::get_name;
+			animation_type["get_speed"]         = &graphics::Animation::get_speed;
+			animation_type["get_total_frames"]  = &graphics::Animation::get_total_frames;
+			animation_type["is_looping"]        = &graphics::Animation::is_looping;
+			animation_type["next_frame"]        = &graphics::Animation::next_frame;
+			animation_type["restart"]           = &graphics::Animation::restart;
 		}
 
 		void register_json()

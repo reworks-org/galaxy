@@ -61,7 +61,7 @@ struct BB
 
 struct BlankSystem : public galaxy::ecs::System
 {
-	void update(const double dt) override
+	void update(galaxy::core::World& world, const double dt) override
 	{
 	}
 };
@@ -76,7 +76,7 @@ struct DemoSystem : public galaxy::ecs::System
 
 	~DemoSystem() override {};
 
-	void update(const double dt) override
+	void update(galaxy::core::World& world, const double dt) override
 	{
 		val = 10;
 	}

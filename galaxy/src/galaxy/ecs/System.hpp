@@ -10,6 +10,11 @@
 
 namespace galaxy
 {
+	namespace core
+	{
+		class World;
+	} // namespace core
+
 	namespace ecs
 	{
 		///
@@ -26,9 +31,10 @@ namespace galaxy
 			///
 			/// Abstract implementation for updating the system. Use the manager to retreive your components.
 			///
+			/// \param world Game World containing entities.
 			/// \param dt "Lag" from gameloop.
 			///
-			virtual void update(const double dt) = 0;
+			virtual void update(core::World& world, const double dt) = 0;
 
 		protected:
 			///
