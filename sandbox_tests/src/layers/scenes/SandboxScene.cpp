@@ -8,6 +8,8 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 
+#include <galaxy/graphics/Renderer.hpp>
+
 #include <galaxy/res/MusicBook.hpp>
 #include <galaxy/res/SoundBook.hpp>
 #include <galaxy/res/TextureAtlas.hpp>
@@ -118,6 +120,8 @@ namespace sb
 
 		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(textbox);
 		m_gui.add_event_to_widget<galaxy::events::KeyDown>(textbox);
+
+		m_particle_gen.create_from_json("demo_particle_gen.json");
 	}
 
 	SandboxScene::~SandboxScene()
@@ -197,6 +201,12 @@ namespace sb
 			m_gui.trigger<galaxy::events::MousePressed>(pos.x, pos.y, galaxy::input::MouseButton::BUTTON_LEFT);
 		}
 
+		if (SL_HANDLE.window()->mouse_button_pressed(galaxy::input::MouseButton::BUTTON_RIGHT))
+		{
+			m_particle_gen.update_emitter(pos.x, pos.y);
+			m_particle_gen.gen_circular("default", 100, 100.0f, 10.0f, 10.0f);
+		}
+
 		if (SL_HANDLE.window()->mouse_button_released(galaxy::input::MouseButton::BUTTON_LEFT))
 		{
 			m_gui.trigger<galaxy::events::MouseReleased>(pos.x, pos.y, galaxy::input::MouseButton::BUTTON_LEFT);
@@ -215,6 +225,7 @@ namespace sb
 
 	void SandboxScene::update(const double dt)
 	{
+		m_particle_gen.update(dt);
 		m_camera.update(dt);
 		m_world.update(dt);
 
@@ -236,6 +247,7 @@ namespace sb
 	void SandboxScene::render()
 	{
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
+		graphics::Renderer::draw_particles(&m_particle_gen, m_camera);
 		m_gui.render(m_camera);
 	}
 } // namespace sb

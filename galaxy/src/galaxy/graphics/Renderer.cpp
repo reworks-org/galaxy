@@ -11,6 +11,7 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Camera.hpp"
+#include "galaxy/graphics/particle/ParticleGenerator.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/shaders/DefaultFramebuffer.hpp"
@@ -116,48 +117,22 @@ namespace galaxy
 			glDrawElements(GL_TRIANGLES, sprite->index_count(), GL_UNSIGNED_INT, nullptr);
 		}
 
-		/*
-		void Renderer::draw_animated_sprite(AnimatedSprite& sprite, Shader& shader)
+		void Renderer::draw_particles(graphics::ParticleGenerator* gen, Camera& camera)
 		{
-			sprite.bind();
-
-			shader.set_uniform("u_transform", sprite.get_transform());
-			shader.set_uniform("u_opacity", sprite.opacity());
-			shader.set_uniform<float>("u_width", static_cast<float>(sprite.get_width()));
-			shader.set_uniform<float>("u_height", static_cast<float>(sprite.get_height()));
-
-			glDrawElements(GL_TRIANGLES, sprite.index_count(), GL_UNSIGNED_INT, nullptr);
-		}
-
-		void Renderer::draw_particles(ParticleGenerator& particle_gen, Shader& shader)
-		{
-			if (!particle_gen.finished())
+			if (!gen->finished())
 			{
-				particle_gen.bind();
+				gen->bind();
+				auto* current = gen->get_instance();
+				auto* shader  = SL_HANDLE.shaderbook()->get("particle");
 
-				auto* current = particle_gen.get_instance();
+				shader->bind();
+				shader->set_uniform("u_cameraProj", camera.get_proj());
+				shader->set_uniform("u_cameraView", camera.get_transform());
+				shader->set_uniform("u_width", static_cast<float>(current->get_width()));
+				shader->set_uniform("u_height", static_cast<float>(current->get_height()));
 
-				shader.set_uniform<float>("u_width", current->get_width());
-				shader.set_uniform<float>("u_height", current->get_height());
-
-				glDrawElementsInstanced(GL_TRIANGLES, particle_gen.gl_index_count(), GL_UNSIGNED_INT, nullptr, particle_gen.amount());
+				glDrawElementsInstanced(GL_TRIANGLES, gen->gl_index_count(), GL_UNSIGNED_INT, nullptr, gen->amount());
 			}
 		}
-
-		void Renderer::add_post_effect(PostEffect* effect)
-		{
-			m_effects.push_back(effect);
-		}
-
-		std::span<PostEffect*> Renderer::get_post_effects()
-		{
-			return m_effects;
-		}
-
-		void Renderer::clear_post_effects()
-		{
-			m_effects.clear();
-		}
-		*/
 	} // namespace graphics
 } // namespace galaxy

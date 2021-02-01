@@ -14,6 +14,7 @@
 
 #include <galaxy/async/Timer.hpp>
 #include <galaxy/core/Scene.hpp>
+#include <galaxy/graphics/particle/ParticleGenerator.hpp>
 #include <galaxy/ui/GUI.hpp>
 
 namespace sb
@@ -31,6 +32,7 @@ namespace sb
 
 	private:
 		galaxy::async::Timer m_timer;
+		galaxy::graphics::ParticleGenerator m_particle_gen;
 		galaxy::ui::GUI m_gui;
 		galaxy::ui::Theme m_theme;
 	};

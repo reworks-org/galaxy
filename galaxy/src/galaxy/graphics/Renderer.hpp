@@ -30,6 +30,7 @@ namespace galaxy
 
 	namespace graphics
 	{
+		class ParticleGenerator;
 		class Shader;
 		class RenderTexture;
 
@@ -50,6 +51,7 @@ namespace galaxy
 
 			static void draw_batch(graphics::SpriteBatch* sb, Camera& camera);
 			static void draw_sprite_to_texture(components::Sprite* sprite, components::Transform* transform, Shader* shader, RenderTexture* target);
+			static void draw_particles(graphics::ParticleGenerator* gen, Camera& camera);
 
 			inline static std::vector<Shader*> m_post_shaders;
 			inline static std::unique_ptr<SpriteBatch> m_batch;

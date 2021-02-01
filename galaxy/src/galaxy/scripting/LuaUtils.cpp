@@ -12,14 +12,15 @@
 #include "galaxy/algorithm/Algorithm.hpp"
 #include "galaxy/algorithm/Random.hpp"
 
-#include "galaxy/components/ShaderID.hpp"
-#include "galaxy/components/Transform.hpp"
-#include "galaxy/components/Renderable.hpp"
-#include "galaxy/components/Point.hpp"
-#include "galaxy/components/Line.hpp"
 #include "galaxy/components/BatchedSprite.hpp"
+#include "galaxy/components/Circle.hpp"
+#include "galaxy/components/Line.hpp"
+#include "galaxy/components/Point.hpp"
+#include "galaxy/components/Renderable.hpp"
+#include "galaxy/components/ShaderID.hpp"
 #include "galaxy/components/Sprite.hpp"
 #include "galaxy/components/Text.hpp"
+#include "galaxy/components/Transform.hpp"
 
 #include "galaxy/core/LayerStack.hpp"
 #include "galaxy/core/ServiceLocator.hpp"
@@ -32,7 +33,7 @@
 #include "galaxy/graphics/Colour.hpp"
 #include "galaxy/graphics/Rect.hpp"
 #include "galaxy/graphics/Shader.hpp"
-#include "galaxy/components/Circle.hpp"
+#include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -493,6 +494,49 @@ namespace galaxy
 			camera_type["set_rotation_origin"] = &graphics::Camera::set_rotation_origin;
 			camera_type["set_speed"]           = &graphics::Camera::set_speed;
 			camera_type["update"]              = &graphics::Camera::update;
+
+			auto particle_type            = lua->new_usertype<graphics::Particle>("gParticle", sol::constructors<graphics::Particle(), graphics::Particle(const float, const float)>());
+			particle_type["angle"]        = &graphics::Particle::angle;
+			particle_type["move"]         = &graphics::Particle::move;
+			particle_type["life"]         = &graphics::Particle::m_life;
+			particle_type["pos"]          = &graphics::Particle::pos;
+			particle_type["set_position"] = &graphics::Particle::set_position;
+			particle_type["set_velocity"] = &graphics::Particle::set_velocity;
+			particle_type["velocity"]     = &graphics::Particle::velocity;
+
+			auto std_vec3_span_type          = lua->new_usertype<std::span<glm::vec3>>("std_vec3span", sol::constructors<std::span<glm::vec3>()>());
+			std_vec3_span_type["back"]       = &std::span<glm::vec3>::back;
+			std_vec3_span_type["empty"]      = &std::span<glm::vec3>::empty;
+			std_vec3_span_type["front"]      = &std::span<glm::vec3>::front;
+			std_vec3_span_type["size"]       = &std::span<glm::vec3>::size;
+			std_vec3_span_type["size_bytes"] = &std::span<glm::vec3>::size_bytes;
+
+			auto particle_instance_type                = lua->new_usertype<graphics::ParticleInstance>("gParticleInstance", sol::constructors<>());
+			particle_instance_type["clamp_to_border"]  = &graphics::ParticleInstance::clamp_to_border;
+			particle_instance_type["clamp_to_edge"]    = &graphics::ParticleInstance::clamp_to_edge;
+			particle_instance_type["create"]           = &graphics::ParticleInstance::create;
+			particle_instance_type["get_aniso_level"]  = &graphics::ParticleInstance::get_aniso_level;
+			particle_instance_type["get_height"]       = &graphics::ParticleInstance::get_height;
+			particle_instance_type["get_width"]        = &graphics::ParticleInstance::get_width;
+			particle_instance_type["load"]             = sol::resolve<void(std::string_view)>(&graphics::ParticleInstance::load);
+			particle_instance_type["opacity"]          = &graphics::ParticleInstance::opacity;
+			particle_instance_type["save"]             = &graphics::ParticleInstance::save;
+			particle_instance_type["set_anisotropy"]   = &graphics::ParticleInstance::set_anisotropy;
+			particle_instance_type["set_instance"]     = &graphics::ParticleInstance::set_instance;
+			particle_instance_type["set_mirrored"]     = &graphics::ParticleInstance::set_mirrored;
+			particle_instance_type["set_opacity"]      = &graphics::ParticleInstance::set_opacity;
+			particle_instance_type["set_repeated"]     = &graphics::ParticleInstance::set_repeated;
+			particle_instance_type["update_instances"] = &graphics::ParticleInstance::update_instances;
+
+			auto particle_generator_type              = lua->new_usertype<graphics::ParticleGenerator>("gParticleGenerator", sol::constructors<graphics::ParticleGenerator()>());
+			particle_generator_type["amount"]         = &graphics::ParticleGenerator::amount;
+			particle_generator_type["configure"]      = &graphics::ParticleGenerator::configure;
+			particle_generator_type["create"]         = &graphics::ParticleGenerator::create;
+			particle_generator_type["define"]         = &graphics::ParticleGenerator::define;
+			particle_generator_type["finished"]       = &graphics::ParticleGenerator::finished;
+			particle_generator_type["gen_circular"]   = &graphics::ParticleGenerator::gen_circular;
+			particle_generator_type["gen_linear"]     = &graphics::ParticleGenerator::gen_linear;
+			particle_generator_type["update_emitter"] = &graphics::ParticleGenerator::update_emitter;
 		}
 
 		void register_json()
