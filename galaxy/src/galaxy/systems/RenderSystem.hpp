@@ -8,6 +8,7 @@
 #ifndef GALAXY_SYSTEMS_RENDERSYSTEM_HPP_
 #define GALAXY_SYSTEMS_RENDERSYSTEM_HPP_
 
+#include "galaxy/ecs/Entity.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/graphics/Camera.hpp"
 #include "galaxy/graphics/Renderables.hpp"

@@ -58,7 +58,7 @@ namespace galaxy
 			}
 
 			std::sort(std::execution::par, m_sorted.begin(), m_sorted.end(), [&](const auto& left, const auto& right) {
-				return left.m_z_level > right.m_z_level;
+				return left.m_z_level < right.m_z_level;
 			});
 
 			for (const auto& data : m_sorted)
