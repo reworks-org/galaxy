@@ -86,7 +86,7 @@ namespace galaxy
 			///
 			/// Active scene.
 			///
-			std::unique_ptr<Scene> m_active_scene;
+			Scene* m_active_scene;
 		};
 	} // namespace core
 } // namespace galaxy

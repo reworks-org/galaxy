@@ -93,7 +93,7 @@ namespace galaxy
 			///
 			/// \return Returns static reference to Log class.
 			///
-			[[no_discard]] static Log& handle() noexcept;
+			[[nodiscard]] static Log& handle() noexcept;
 
 			///
 			/// Initialize logging and set up destination file.

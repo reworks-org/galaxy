@@ -1,6 +1,7 @@
 # Box2D implementation.
 
 Has been customized for use in galaxy_engine.
+Includes heavy code modifications.
 
 ## Box2D License.
 MIT License

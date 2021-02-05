@@ -56,17 +56,7 @@ https://www.google.com/search?client=firefox-b-d&q=cmake+run+clang-format+on+bui
 https://gernotklingler.com/blog/open-source-tools-examine-and-adjust-include-dependencies/
 https://www.fluentcpp.com/2021/01/01/include-what-you-use/
 
-
-		
-
-		
-
-		
-
-		
-
-		
-
+		/*
 		if (animation != nullptr)
 		{
 			ImGui::Spacing();
@@ -366,5 +356,4 @@ https://www.fluentcpp.com/2021/01/01/include-what-you-use/
 			ImGui::Spacing();
 
 			ImGui::Text(fmt::format("Body Mass: {0}", physics->m_body->mass()).c_str());
-		}
-	
+		}*/

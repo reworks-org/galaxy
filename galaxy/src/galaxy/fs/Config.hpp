@@ -86,6 +86,27 @@ namespace galaxy
 
 		private:
 			///
+			/// Copy constructor.
+			///
+			Config(const Config&) = delete;
+
+			///
+			/// Move constructor.
+			///
+			Config(Config&&) = delete;
+
+			///
+			/// Copy assignment operator.
+			///
+			Config& operator=(const Config&) = delete;
+
+			///
+			/// Move assignment operator.
+			///
+			Config& operator=(Config&&) = delete;
+
+		private:
+			///
 			/// Has config been loaded.
 			///
 			bool m_loaded;
