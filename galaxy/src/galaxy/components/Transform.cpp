@@ -67,6 +67,14 @@ namespace galaxy
 			m_dirty = true;
 		}
 
+		void Transform::reverse_move(const float x, const float y) noexcept
+		{
+			m_pos.x -= x;
+			m_pos.y -= y;
+
+			m_dirty = true;
+		}
+
 		void Transform::rotate(const float degrees) noexcept
 		{
 			m_rotate = degrees;

@@ -57,9 +57,20 @@ namespace galaxy
 			/// By adding the parameters to the existing transformation matrix.
 			///
 			/// \param x How far to translate on x axis.
-			/// \param y How far to translate on x axis.
+			/// \param y How far to translate on y axis.
 			///
 			void move(const float x, const float y) noexcept;
+
+			///
+			/// \brief Translate (move) position, but takes instead of adds.
+			///
+			/// Does not set the position but moves it.
+			/// By subtracting the parameters to the existing transformation matrix.
+			///
+			/// \param x How far to reverse on the x axis.
+			/// \param y How far to reverse on the y axis.
+			///
+			void reverse_move(const float x, const float y) noexcept;
 
 			///
 			/// Rotate transformation in degrees.
