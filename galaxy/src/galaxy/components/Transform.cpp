@@ -23,9 +23,20 @@ namespace galaxy
 
 		Transform::Transform(const nlohmann::json& json)
 		{
-			set_pos(json.at("x"), json.at("y"));
-			rotate(json.at("rotation"));
-			scale(json.at("scale"));
+			if ((json.count("x") > 0) && json.count("y") > 0)
+			{
+				set_pos(json.at("x"), json.at("y"));
+			}
+
+			if (json.count("rotation") > 0)
+			{
+				rotate(json.at("rotation"));
+			}
+
+			if (json.count("scale") > 0)
+			{
+				scale(json.at("scale"));
+			}
 		}
 
 		Transform::Transform(Transform&& t) noexcept
