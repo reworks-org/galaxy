@@ -14,6 +14,7 @@
 #include <galaxy/graphics/Shader.hpp>
 
 #include "scenes/SandboxScene.hpp"
+#include "scenes/PhysicsScene.hpp"
 
 #include "Sandbox.hpp"
 
@@ -21,8 +22,11 @@ namespace sb
 {
 	Sandbox::Sandbox()
 	{
-		m_window       = SL_HANDLE.window();
-		m_active_scene = std::make_unique<SandboxScene>();
+		m_window = SL_HANDLE.window();
+
+		m_sandbox_scene = std::make_unique<SandboxScene>();
+		m_physics_scene = std::make_unique<PhysicsScene>();
+		m_active_scene  = m_sandbox_scene.get();
 	}
 
 	Sandbox::~Sandbox()
@@ -40,11 +44,24 @@ namespace sb
 
 	void Sandbox::events()
 	{
-		m_active_scene->events();
 		if (m_window->key_pressed(galaxy::input::Keys::ESC))
 		{
 			m_window->close();
 		}
+
+		if (m_window->key_pressed(galaxy::input::Keys::TAB))
+		{
+			if (m_active_scene == m_sandbox_scene.get())
+			{
+				m_active_scene = m_physics_scene.get();
+			}
+			else if (m_active_scene == m_physics_scene.get())
+			{
+				m_active_scene = m_sandbox_scene.get();
+			}
+		}
+
+		m_active_scene->events();
 	}
 
 	void Sandbox::update(const double dt)

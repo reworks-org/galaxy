@@ -30,7 +30,8 @@ namespace sb
 
 	private:
 		galaxy::core::Window* m_window;
-		//galaxy::physics::KineticBody* m_test_body;
+		std::unique_ptr<galaxy::core::Scene> m_sandbox_scene;
+		std::unique_ptr<galaxy::core::Scene> m_physics_scene;
 	};
 } // namespace sb
 

@@ -10,8 +10,6 @@
 
 #include <galaxy/core/Scene.hpp>
 
-#include <galaxy/physics/KineticBody.hpp>
-
 namespace sb
 {
 	class PhysicsScene final : public galaxy::core::Scene
@@ -26,7 +24,6 @@ namespace sb
 		void render() override;
 
 	private:
-		galaxy::physics::KineticBody* m_moving_arrow;
 	};
 } // namespace sb
 

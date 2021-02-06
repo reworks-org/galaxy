@@ -25,13 +25,10 @@ namespace sb
 		});
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
 
-		m_world.create_from_json("physics_wall.json");
-		auto phys_entity = m_world.create_from_json("physics_arrow.json");
-		m_moving_arrow   = static_cast<physics::KineticBody*>(m_world.get<components::Physics>(phys_entity)->m_body.get());
-
-		glm::vec2 grav = {0.0f, 0.0f};
-		m_world.create_system<systems::PhysicsSystem>(grav);
+		m_world.create_system<systems::PhysicsSystem>();
 		m_world.create_system<systems::RenderSystem>();
+
+		m_world.set_gravity(0.0f, 0.0f);
 	}
 
 	PhysicsScene::~PhysicsScene()
@@ -42,7 +39,6 @@ namespace sb
 	{
 		if (SL_HANDLE.window()->key_pressed(input::Keys::SPACE))
 		{
-			m_moving_arrow->apply_horizontal_force(50.0f);
 		}
 	}
 

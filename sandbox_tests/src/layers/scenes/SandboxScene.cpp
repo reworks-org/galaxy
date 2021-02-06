@@ -1,5 +1,5 @@
 ///
-/// Sandbox.cpp
+/// SandboxScene.cpp
 /// sandbox_tests
 ///
 /// Refer to LICENSE.txt for more details.
