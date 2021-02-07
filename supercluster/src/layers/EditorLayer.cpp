@@ -8,8 +8,6 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 
-#include "scenes/EditorScene.hpp"
-
 #include "EditorLayer.hpp"
 
 namespace sc
@@ -17,7 +15,8 @@ namespace sc
 	EditorLayer::EditorLayer()
 	{
 		m_window       = SL_HANDLE.window();
-		m_active_scene = std::make_unique<EditorScene>();
+		m_editor_scene = std::make_unique<EditorScene>();
+		m_active_scene = m_editor_scene.get();
 	}
 
 	EditorLayer::~EditorLayer()

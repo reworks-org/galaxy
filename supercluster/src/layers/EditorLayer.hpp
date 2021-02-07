@@ -12,6 +12,8 @@
 #include <galaxy/core/Window.hpp>
 #include <galaxy/graphics/Camera.hpp>
 
+#include "scenes/EditorScene.hpp"
+
 using namespace galaxy;
 
 namespace sc
@@ -32,6 +34,7 @@ namespace sc
 
 	private:
 		galaxy::core::Window* m_window;
+		std::unique_ptr<EditorScene> m_editor_scene;
 	};
 } // namespace sc
 
