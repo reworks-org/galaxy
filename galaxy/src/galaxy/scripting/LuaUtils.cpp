@@ -16,6 +16,8 @@
 #include "galaxy/components/BatchedSprite.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
+#include "galaxy/components/OnEvent.hpp"
+#include "galaxy/components/Physics.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
@@ -27,6 +29,16 @@
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/core/World.hpp"
 
+#include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/events/WindowResized.hpp"
+
 #include "galaxy/fs/Config.hpp"
 #include "galaxy/fs/FileSystem.hpp"
 
@@ -37,6 +49,8 @@
 #include "galaxy/graphics/Shader.hpp"
 #include "galaxy/graphics/particle/ParticleGenerator.hpp"
 
+#include "galaxy/physics/Box2DIntegration.hpp"
+
 #include "galaxy/scripting/JSONUtils.hpp"
 
 #include "galaxy/res/FontBook.hpp"
@@ -46,6 +60,8 @@
 #include "galaxy/res/MusicBook.hpp"
 
 #include "LuaUtils.hpp"
+
+// BEGIN GENERIC FUNCTIONS
 
 void log_wrapper(int error_level, std::string_view message)
 {
@@ -82,6 +98,8 @@ nlohmann::json parse_json(std::string_view json)
 	return nlohmann::json::parse(json);
 }
 
+// BEGIN SHADER FUNCTIONS
+
 void set_int_uniform(galaxy::graphics::Shader& shader, std::string_view name, const int val)
 {
 	shader.set_uniform("name", val);
@@ -111,6 +129,8 @@ void set_vec4_uniform(galaxy::graphics::Shader& shader, std::string_view name, c
 {
 	shader.set_uniform("name", val);
 }
+
+// BEGIN ADD COMPONENTS
 
 galaxy::components::ShaderID* add_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
@@ -162,6 +182,13 @@ galaxy::components::Animated* add_animated(galaxy::core::World& world, const gal
 	return world.create_component<galaxy::components::Animated>(entity);
 }
 
+galaxy::components::Physics* add_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::Physics>(entity);
+}
+
+// BEGIN GET COMPONENTS
+
 galaxy::components::ShaderID* get_shaderid(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::ShaderID>(entity);
@@ -210,6 +237,93 @@ galaxy::components::Text* get_text(galaxy::core::World& world, const galaxy::ecs
 galaxy::components::Animated* get_animated(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::Animated>(entity);
+}
+
+galaxy::components::Physics* get_physics(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::Physics>(entity);
+}
+
+// BEGIN EVENT ADD/GET
+
+galaxy::components::OnEvent<galaxy::events::KeyChar>* add_keychar(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::KeyChar>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::KeyDown>* add_keydown(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::KeyDown>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::KeyUp>* add_keyup(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::KeyUp>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MouseMoved>* add_mouse_moved(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::MouseMoved>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MousePressed>* add_mouse_pressed(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::MousePressed>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MouseReleased>* add_mouse_released(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::MouseReleased>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MouseWheel>* add_mouse_wheel(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::MouseWheel>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::WindowResized>* add_window_resized(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::WindowResized>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::KeyChar>* get_keychar(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::KeyChar>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::KeyDown>* get_keydown(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::KeyDown>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::KeyUp>* get_keyup(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::KeyUp>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MouseMoved>* get_mouse_moved(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::MouseMoved>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MousePressed>* get_mouse_pressed(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::MousePressed>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MouseReleased>* get_mouse_released(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::MouseReleased>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::MouseWheel>* get_mouse_wheel(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::MouseWheel>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::WindowResized>* get_window_resized(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::WindowResized>>(entity);
 }
 
 namespace galaxy
@@ -293,6 +407,7 @@ namespace galaxy
 			world_type["assign_name"]      = &core::World::assign_name;
 			world_type["find_from_name"]   = &core::World::find_from_name;
 			world_type["clear"]            = &core::World::clear;
+			world_type["set_gravity"]      = sol::resolve<void(const float, const float)>(&core::World::set_gravity);
 
 			lua->set_function("add_shaderid_to_entity", &add_shaderid);
 			lua->set_function("add_transform_to_entity", &add_transform);
@@ -304,6 +419,7 @@ namespace galaxy
 			lua->set_function("add_sprite_to_entity", &add_sprite);
 			lua->set_function("add_text_to_entity", &add_text);
 			lua->set_function("add_animated_to_entity", &add_animated);
+			lua->set_function("add_physics_to_entity", &add_physics);
 
 			lua->set_function("get_shaderid_from_entity", &get_shaderid);
 			lua->set_function("get_transform_from_entity", &get_transform);
@@ -315,6 +431,7 @@ namespace galaxy
 			lua->set_function("get_sprite_from_entity", &get_sprite);
 			lua->set_function("get_text_from_entity", &get_text);
 			lua->set_function("get_animated_from_entity", &get_animated);
+			lua->set_function("get_physics_to_entity", &get_physics);
 
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
@@ -322,11 +439,9 @@ namespace galaxy
 			auto transform_type                   = lua->new_usertype<components::Transform>("gTransform", sol::constructors<components::Transform()>());
 			transform_type["get_pos"]             = &components::Transform::get_pos;
 			transform_type["get_rotation"]        = &components::Transform::get_rotation;
-			transform_type["get_scale"]           = &components::Transform::get_scale;
 			transform_type["is_dirty"]            = &components::Transform::is_dirty;
 			transform_type["move"]                = &components::Transform::move;
 			transform_type["rotate"]              = &components::Transform::rotate;
-			transform_type["scale"]               = &components::Transform::scale;
 			transform_type["set_pos"]             = &components::Transform::set_pos;
 			transform_type["set_rotation_origin"] = &components::Transform::set_rotation_origin;
 
@@ -421,6 +536,196 @@ namespace galaxy
 			animated_type["set_animation"] = &components::Animated::set_animation;
 			animated_type["stop"]          = &components::Animated::stop;
 			animated_type["is_paused"]     = &components::Animated::is_paused;
+
+			auto physics_type                = lua->new_usertype<components::Physics>("gPhysics", sol::constructors<components::Physics()>());
+			physics_type["create_from_json"] = &components::Physics::create_from_json;
+			physics_type["body"]             = &components::Physics::body;
+
+			auto on_key_char_type        = lua->new_usertype<components::OnEvent<events::KeyChar>>("gOnKeyChar", sol::constructors<components::OnEvent<events::KeyChar>()>());
+			on_key_char_type["on_event"] = &components::OnEvent<events::KeyChar>::m_on_event;
+
+			auto on_key_down_type        = lua->new_usertype<components::OnEvent<events::KeyDown>>("gOnKeyDown", sol::constructors<components::OnEvent<events::KeyDown>()>());
+			on_key_down_type["on_event"] = &components::OnEvent<events::KeyDown>::m_on_event;
+
+			auto on_key_up_type        = lua->new_usertype<components::OnEvent<events::KeyUp>>("gOnKeyUp", sol::constructors<components::OnEvent<events::KeyUp>()>());
+			on_key_up_type["on_event"] = &components::OnEvent<events::KeyUp>::m_on_event;
+
+			auto on_mouse_moved_type        = lua->new_usertype<components::OnEvent<events::MouseMoved>>("gOnMouseMoved", sol::constructors<components::OnEvent<events::MouseMoved>()>());
+			on_mouse_moved_type["on_event"] = &components::OnEvent<events::MouseMoved>::m_on_event;
+
+			auto on_mouse_pressed_type        = lua->new_usertype<components::OnEvent<events::MousePressed>>("gOnMousePressed", sol::constructors<components::OnEvent<events::MousePressed>()>());
+			on_mouse_pressed_type["on_event"] = &components::OnEvent<events::MousePressed>::m_on_event;
+
+			auto on_mouse_released_type        = lua->new_usertype<components::OnEvent<events::MouseReleased>>("gOnMouseReleased", sol::constructors<components::OnEvent<events::MouseReleased>()>());
+			on_mouse_released_type["on_event"] = &components::OnEvent<events::MouseReleased>::m_on_event;
+
+			auto on_mouse_wheel_type        = lua->new_usertype<components::OnEvent<events::MouseWheel>>("gOnMouseWheel", sol::constructors<components::OnEvent<events::MouseWheel>()>());
+			on_mouse_wheel_type["on_event"] = &components::OnEvent<events::MouseWheel>::m_on_event;
+
+			auto on_window_resized_type        = lua->new_usertype<components::OnEvent<events::WindowResized>>("gOnWindowResized", sol::constructors<components::OnEvent<events::WindowResized>()>());
+			on_window_resized_type["on_event"] = &components::OnEvent<events::WindowResized>::m_on_event;
+		}
+
+		void register_events()
+		{
+			auto lua = SL_HANDLE.lua();
+
+			// clang-format off
+			lua->new_enum<input::MouseButton>("gMouseButton",
+			{
+				{"BUTTON_1", input::MouseButton::BUTTON_1},
+				{"BUTTON_2", input::MouseButton::BUTTON_2},
+				{"BUTTON_3", input::MouseButton::BUTTON_3},
+				{"BUTTON_4", input::MouseButton::BUTTON_4},
+				{"BUTTON_5", input::MouseButton::BUTTON_5},
+				{"BUTTON_6", input::MouseButton::BUTTON_6},
+				{"BUTTON_7", input::MouseButton::BUTTON_7},
+				{"BUTTON_8", input::MouseButton::BUTTON_8},
+				{"BUTTON_LAST", input::MouseButton::BUTTON_LAST},
+				{"BUTTON_LEFT", input::MouseButton::BUTTON_LEFT},
+				{"BUTTON_RIGHT", input::MouseButton::BUTTON_RIGHT},
+				{"BUTTON_MIDDLE", input::MouseButton::BUTTON_MIDDLE}
+			});
+
+			lua->new_enum<input::Keys>("gKeys",
+			{
+				{"A", input::Keys::A},
+				{"B", input::Keys::B},
+				{"C", input::Keys::C},
+				{"D", input::Keys::D},
+				{"E", input::Keys::E},
+				{"F", input::Keys::F},
+				{"G", input::Keys::G},
+				{"H", input::Keys::H},
+				{"I", input::Keys::I},
+				{"J", input::Keys::J},
+				{"K", input::Keys::K},
+				{"L", input::Keys::L},
+				{"M", input::Keys::M},
+				{"N", input::Keys::N},
+				{"O", input::Keys::O},
+				{"P", input::Keys::P},
+				{"Q", input::Keys::Q},
+				{"R", input::Keys::R},
+				{"S", input::Keys::S},
+				{"T", input::Keys::T},
+				{"U", input::Keys::U},
+				{"V", input::Keys::V},
+				{"W", input::Keys::W},
+				{"X", input::Keys::X},
+				{"Y", input::Keys::Y},
+				{"Z", input::Keys::Z},
+				{"NUM_1", input::Keys::NUM_1},
+				{"NUM_2", input::Keys::NUM_2},
+				{"NUM_3", input::Keys::NUM_3},
+				{"NUM_4", input::Keys::NUM_4},
+				{"NUM_5", input::Keys::NUM_5},
+				{"NUM_6", input::Keys::NUM_6},
+				{"NUM_7", input::Keys::NUM_7},
+				{"NUM_8", input::Keys::NUM_8},
+				{"NUM_9", input::Keys::NUM_9},
+				{"NUM_0", input::Keys::NUM_0},
+				{"MINUS", input::Keys::MINUS},
+				{"EQUALS", input::Keys::EQUALS},
+				{"BACKSPACE", input::Keys::BACKSPACE},
+				{"GRAVE", input::Keys::GRAVE},
+				{"TAB", input::Keys::TAB},
+				{"CAPS", input::Keys::CAPS},
+				{"LSHIFT", input::Keys::LSHIFT},
+				{"LCNTRL", input::Keys::LCNTRL},
+				{"LSTART", input::Keys::LSTART},
+				{"LALT", input::Keys::LALT},
+				{"SPACE", input::Keys::SPACE},
+				{"RALT", input::Keys::RALT},
+				{"RSTART", input::Keys::RSTART},
+				{"MENU", input::Keys::MENU},
+				{"RCNTRL", input::Keys::RCNTRL},
+				{"RSHIFT", input::Keys::RSHIFT},
+				{"ENTER", input::Keys::ENTER},
+				{"SEMICOLON", input::Keys::SEMICOLON},
+				{"APOSTROPHE", input::Keys::APOSTROPHE},
+				{"SLASH", input::Keys::SLASH},
+				{"PERIOD", input::Keys::PERIOD},
+				{"COMMA", input::Keys::COMMA},
+				{"LBRACKET", input::Keys::LBRACKET},
+				{"RBRACKET", input::Keys::RBRACKET},
+				{"BACKSLASH", input::Keys::BACKSLASH},
+				{"ESC", input::Keys::ESC},
+				{"F1", input::Keys::F1},
+				{"F2", input::Keys::F2},
+				{"F3", input::Keys::F3},
+				{"F4", input::Keys::F4},
+				{"F5", input::Keys::F5},
+				{"F6", input::Keys::F6},
+				{"F7", input::Keys::F7},
+				{"F8", input::Keys::F8},
+				{"F9", input::Keys::F9},
+				{"F10", input::Keys::F10},
+				{"F11", input::Keys::F11},
+				{"F12", input::Keys::F12},
+				{"PRINTSCREEN", input::Keys::PRINTSCREEN},
+				{"SCROLL_LOCK", input::Keys::SCROLL_LOCK},
+				{"PAUSE", input::Keys::PAUSE},
+				{"INSERT", input::Keys::INSERT},
+				{"HOME", input::Keys::HOME},
+				{"PAGEUP", input::Keys::PAGEUP},
+				{"PAGEDOWN", input::Keys::PAGEDOWN},
+				{"END", input::Keys::END},
+				{"DEL", input::Keys::DEL},
+				{"UP", input::Keys::UP},
+				{"DOWN", input::Keys::DOWN},
+				{"LEFT", input::Keys::LEFT},
+				{"RIGHT", input::Keys::RIGHT},
+				{"NUMLOCK", input::Keys::NUMLOCK},
+				{"NUMPAD_MULTIPLY", input::Keys::NUMPAD_MULTIPLY},
+				{"NUMPAD_DIVIDE", input::Keys::NUMPAD_DIVIDE},
+				{"NUMPAD_ADD", input::Keys::NUMPAD_ADD},
+				{"NUMPAD_ENTER", input::Keys::NUMPAD_ENTER},
+				{"NUMPAD_PERIOD", input::Keys::NUMPAD_PERIOD},
+				{"NUMPAD_0", input::Keys::NUMPAD_0},
+				{"NUMPAD_1", input::Keys::NUMPAD_1},
+				{"NUMPAD_2", input::Keys::NUMPAD_2},
+				{"NUMPAD_3", input::Keys::NUMPAD_3},
+				{"NUMPAD_4", input::Keys::NUMPAD_4},
+				{"NUMPAD_5", input::Keys::NUMPAD_5},
+				{"NUMPAD_6", input::Keys::NUMPAD_6},
+				{"NUMPAD_7", input::Keys::NUMPAD_7},
+				{"NUMPAD_8", input::Keys::NUMPAD_8},
+				{"NUMPAD_9", input::Keys::NUMPAD_9}
+			});
+			// clang-format on
+
+			auto key_char_type       = lua->new_usertype<events::KeyChar>("gKeyChar", sol::constructors<events::KeyChar()>());
+			key_char_type["keycode"] = &events::KeyChar::m_keycode;
+			key_char_type["unichar"] = &events::KeyChar::m_unichar;
+
+			auto key_down_type       = lua->new_usertype<events::KeyDown>("gKeyDown", sol::constructors<events::KeyDown()>());
+			key_down_type["keycode"] = &events::KeyDown::m_keycode;
+
+			auto key_up_type       = lua->new_usertype<events::KeyUp>("gKeyUp", sol::constructors<events::KeyUp()>());
+			key_up_type["keycode"] = &events::KeyUp::m_keycode;
+
+			auto mouse_moved_type = lua->new_usertype<events::MouseMoved>("gMouseMoved", sol::constructors<events::MouseMoved()>());
+			mouse_moved_type["x"] = &events::MouseMoved::m_x;
+			mouse_moved_type["y"] = &events::MouseMoved::m_y;
+
+			auto mouse_pressed_type      = lua->new_usertype<events::MousePressed>("gMousePressed", sol::constructors<events::MousePressed()>());
+			mouse_pressed_type["button"] = &events::MousePressed::m_button;
+			mouse_pressed_type["x"]      = &events::MousePressed::m_x;
+			mouse_pressed_type["y"]      = &events::MousePressed::m_y;
+
+			auto mouse_released_type      = lua->new_usertype<events::MouseReleased>("gMouseReleased", sol::constructors<events::MouseReleased()>());
+			mouse_released_type["button"] = &events::MouseReleased::m_button;
+			mouse_released_type["x"]      = &events::MouseReleased::m_x;
+			mouse_released_type["y"]      = &events::MouseReleased::m_y;
+
+			auto mouse_wheel_type        = lua->new_usertype<events::MouseWheel>("gMouseWheel", sol::constructors<events::MouseWheel()>());
+			mouse_wheel_type["x_offset"] = &events::MouseWheel::m_x_offset;
+			mouse_wheel_type["y_offset"] = &events::MouseWheel::m_y_offset;
+
+			auto window_resized_type      = lua->new_usertype<events::WindowResized>("gWindowResized", sol::constructors<events::WindowResized()>());
+			window_resized_type["height"] = &events::WindowResized::m_height;
+			window_resized_type["width"]  = &events::WindowResized::m_width;
 		}
 
 		void register_fs()
@@ -500,22 +805,19 @@ namespace galaxy
 			lua->set_function("gShader_set_vec3", &set_vec3_uniform);
 			lua->set_function("gShader_set_vec4", &set_vec4_uniform);
 
-			auto camera_type                   = lua->new_usertype<graphics::Camera>("gCamera", sol::constructors<graphics::Camera(), graphics::Camera(const float, const float, const float, const float, const float)>());
-			camera_type["create"]              = &graphics::Camera::create;
-			camera_type["get_height"]          = &graphics::Camera::get_height;
-			camera_type["get_pos"]             = &graphics::Camera::get_pos;
-			camera_type["get_rotation"]        = &graphics::Camera::get_rotation;
-			camera_type["get_scale"]           = &graphics::Camera::get_scale;
-			camera_type["get_speed"]           = &graphics::Camera::get_speed;
-			camera_type["get_width"]           = &graphics::Camera::get_width;
-			camera_type["is_dirty"]            = &graphics::Camera::is_dirty;
-			camera_type["move"]                = &graphics::Camera::move;
-			camera_type["rotate"]              = &graphics::Camera::rotate;
-			camera_type["scale"]               = &graphics::Camera::scale;
-			camera_type["set_pos"]             = &graphics::Camera::set_pos;
-			camera_type["set_rotation_origin"] = &graphics::Camera::set_rotation_origin;
-			camera_type["set_speed"]           = &graphics::Camera::set_speed;
-			camera_type["update"]              = &graphics::Camera::update;
+			auto camera_type          = lua->new_usertype<graphics::Camera>("gCamera", sol::constructors<graphics::Camera(), graphics::Camera(const float, const float, const float, const float, const float)>());
+			camera_type["create"]     = &graphics::Camera::create;
+			camera_type["get_height"] = &graphics::Camera::get_height;
+			camera_type["get_pos"]    = &graphics::Camera::get_pos;
+			camera_type["get_scale"]  = &graphics::Camera::get_scale;
+			camera_type["get_speed"]  = &graphics::Camera::get_speed;
+			camera_type["get_width"]  = &graphics::Camera::get_width;
+			camera_type["is_dirty"]   = &graphics::Camera::is_dirty;
+			camera_type["move"]       = &graphics::Camera::move;
+			camera_type["zoom"]       = &graphics::Camera::zoom;
+			camera_type["set_pos"]    = &graphics::Camera::set_pos;
+			camera_type["set_speed"]  = &graphics::Camera::set_speed;
+			camera_type["update"]     = &graphics::Camera::update;
 
 			auto particle_type            = lua->new_usertype<graphics::Particle>("gParticle", sol::constructors<graphics::Particle(), graphics::Particle(const float, const float)>());
 			particle_type["angle"]        = &graphics::Particle::angle;
@@ -525,13 +827,6 @@ namespace galaxy
 			particle_type["set_position"] = &graphics::Particle::set_position;
 			particle_type["set_velocity"] = &graphics::Particle::set_velocity;
 			particle_type["velocity"]     = &graphics::Particle::velocity;
-
-			auto std_vec3_span_type          = lua->new_usertype<std::span<glm::vec3>>("std_vec3span", sol::constructors<std::span<glm::vec3>()>());
-			std_vec3_span_type["back"]       = &std::span<glm::vec3>::back;
-			std_vec3_span_type["empty"]      = &std::span<glm::vec3>::empty;
-			std_vec3_span_type["front"]      = &std::span<glm::vec3>::front;
-			std_vec3_span_type["size"]       = &std::span<glm::vec3>::size;
-			std_vec3_span_type["size_bytes"] = &std::span<glm::vec3>::size_bytes;
 
 			auto particle_instance_type                = lua->new_usertype<graphics::ParticleInstance>("gParticleInstance", sol::constructors<>());
 			particle_instance_type["clamp_to_border"]  = &graphics::ParticleInstance::clamp_to_border;
@@ -613,6 +908,49 @@ namespace galaxy
 			vec4_type["y"] = &glm::vec4::y;
 			vec4_type["z"] = &glm::vec4::z;
 			vec4_type["w"] = &glm::vec4::w;
+		}
+
+		void register_physics()
+		{
+			auto lua = SL_HANDLE.lua();
+
+			lua->set("GALAXY_PHYSICS_SCALE", physics::SCALE);
+			lua->set("GALAXY_FROM_PIXELS_TO_METERS", physics::FROM_PIXELS_TO_METERS);
+			lua->set("GALAXY_FROM_METERS_TO_PIXELS", physics::FROM_METERS_TO_PIXELS);
+
+			auto b2vec2_type             = lua->new_usertype<b2Vec2>("b2Vec2", sol::constructors<b2Vec2(), b2Vec2(float, float)>());
+			b2vec2_type["Set"]           = &b2Vec2::Set;
+			b2vec2_type["SetZero"]       = &b2Vec2::SetZero;
+			b2vec2_type["Length"]        = &b2Vec2::Length;
+			b2vec2_type["Normalize"]     = &b2Vec2::Normalize;
+			b2vec2_type["LengthSquared"] = &b2Vec2::LengthSquared;
+			b2vec2_type["Skew"]          = &b2Vec2::Skew;
+			b2vec2_type["x"]             = &b2Vec2::x;
+			b2vec2_type["y"]             = &b2Vec2::y;
+
+			auto b2_body_type                   = lua->new_usertype<b2Body>("b2Body", sol::no_constructor);
+			b2_body_type["ApplyAngularImpulse"] = &b2Body::ApplyAngularImpulse;
+			b2_body_type["ApplyForce"]          = &b2Body::ApplyForce;
+			b2_body_type["ApplyLinearImpulse"]  = &b2Body::ApplyLinearImpulse;
+			b2_body_type["ApplyTorque"]         = &b2Body::ApplyTorque;
+			b2_body_type["IsAwake"]             = &b2Body::IsAwake;
+			b2_body_type["IsBullet"]            = &b2Body::IsBullet;
+			b2_body_type["IsEnabled"]           = &b2Body::IsEnabled;
+			b2_body_type["IsFixedRotation"]     = &b2Body::IsFixedRotation;
+			b2_body_type["SetAngularDamping"]   = &b2Body::SetAngularDamping;
+			b2_body_type["SetAngularVelocity"]  = &b2Body::SetAngularVelocity;
+			b2_body_type["SetAwake"]            = &b2Body::SetAwake;
+			b2_body_type["SetBullet"]           = &b2Body::SetBullet;
+			b2_body_type["SetEnabled"]          = &b2Body::SetEnabled;
+			b2_body_type["SetFixedRotation"]    = &b2Body::SetFixedRotation;
+			b2_body_type["SetLinearDamping"]    = &b2Body::SetLinearDamping;
+			b2_body_type["SetLinearVelocity"]   = &b2Body::SetLinearVelocity;
+			b2_body_type["SetSleepingAllowed"]  = &b2Body::SetSleepingAllowed;
+			b2_body_type["GetAngle"]            = &b2Body::GetAngle;
+			b2_body_type["GetInertia"]          = &b2Body::GetInertia;
+			b2_body_type["GetLinearVelocity"]   = &b2Body::GetLinearVelocity;
+			b2_body_type["GetMass"]             = &b2Body::GetMass;
+			b2_body_type["GetPosition"]         = &b2Body::GetPosition;
 		}
 
 		void register_res()

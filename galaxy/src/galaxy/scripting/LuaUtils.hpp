@@ -33,6 +33,11 @@ namespace galaxy
 		void register_ecs();
 
 		///
+		/// Register events with lua.
+		///
+		void register_events();
+
+		///
 		/// Registers filesystem with lua.
 		///
 		void register_fs();
@@ -56,6 +61,11 @@ namespace galaxy
 		/// Register math functions.
 		///
 		void register_math();
+
+		///
+		/// Register physics.
+		///
+		void register_physics();
 
 		///
 		/// Register resource functions.

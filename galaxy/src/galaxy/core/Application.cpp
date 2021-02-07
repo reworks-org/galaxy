@@ -179,11 +179,13 @@ namespace galaxy
 				lua::register_functions();
 				lua::register_audio();
 				lua::register_ecs();
+				lua::register_events();
 				lua::register_fs();
 				lua::register_graphics();
 				lua::register_json();
 				lua::register_layerstack();
 				lua::register_math();
+				lua::register_physics();
 				lua::register_res();
 
 				// Register services with Lua.
