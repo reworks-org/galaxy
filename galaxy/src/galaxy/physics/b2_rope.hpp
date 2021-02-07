@@ -23,7 +23,6 @@
 #ifndef B2_ROPE_H
 #define B2_ROPE_H
 
-#include "galaxy/physics/b2_api.hpp"
 #include "galaxy/physics/b2_math.hpp"
 
 struct b2RopeStretch;
