@@ -18,8 +18,7 @@
         "Transform": {
             "x": 50,
             "y": 50,
-            "rotation": 0.0,
-            "scale": 1.0
+            "rotation": 0.0
         },
         "Renderable": {
             "type": 1,

@@ -62,29 +62,11 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
-			/// \brief Translate (move) position, but takes instead of adds.
-			///
-			/// Does not set the position but moves it.
-			/// By subtracting the parameters to the existing transformation matrix.
-			///
-			/// \param x How far to reverse on the x axis.
-			/// \param y How far to reverse on the y axis.
-			///
-			void reverse_move(const float x, const float y) noexcept;
-
-			///
 			/// Rotate transformation in degrees.
 			///
 			/// \param degrees Max 360, min -360.
 			///
 			void rotate(const float degrees) noexcept;
-
-			///
-			/// Scale transformation on each axis.
-			///
-			/// \param scale Scale. Multiplier.
-			///
-			void scale(const float scale) noexcept;
 
 			///
 			/// Recalculates the model view matrix.
@@ -129,13 +111,6 @@ namespace galaxy
 			[[nodiscard]] const float get_rotation() const noexcept;
 
 			///
-			/// Get stored scale cache.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_scale() const noexcept;
-
-			///
 			/// Get stored pos cache.
 			///
 			/// \return Const glm::vec2.
@@ -159,11 +134,6 @@ namespace galaxy
 			glm::mat4 m_rotation;
 
 			///
-			/// Scaled matrix.
-			///
-			glm::mat4 m_scaling;
-
-			///
 			/// Translation matrix.
 			///
 			glm::mat4 m_translation;
@@ -173,12 +143,6 @@ namespace galaxy
 			/// Rotation.
 			///
 			float m_rotate;
-
-			///
-			/// Cached for easiy retrieval.
-			/// Scale.
-			///
-			float m_scale;
 
 			///
 			/// Cached for easiy retrieval.

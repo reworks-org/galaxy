@@ -17,12 +17,12 @@ namespace galaxy
 	namespace components
 	{
 		Transform::Transform() noexcept
-		    : m_dirty {true}, m_rotate {0.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}
+		    : m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}
 		{
 		}
 
 		Transform::Transform(const nlohmann::json& json)
-		    : m_dirty {true}, m_rotate {0.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}
+		    : m_dirty {true}, m_rotate {0.0f}, m_pos {0.0f, 0.0f}
 		{
 			if ((json.count("x") > 0) && json.count("y") > 0)
 			{
@@ -32,11 +32,6 @@ namespace galaxy
 			if (json.count("rotation") > 0)
 			{
 				rotate(json.at("rotation"));
-			}
-
-			if (json.count("scale") > 0)
-			{
-				scale(json.at("scale"));
 			}
 		}
 
@@ -48,8 +43,6 @@ namespace galaxy
 			this->m_pos         = std::move(t.m_pos);
 			this->m_rotate      = t.m_rotate;
 			this->m_rotation    = std::move(t.m_rotation);
-			this->m_scale       = t.m_scale;
-			this->m_scaling     = std::move(t.m_scaling);
 			this->m_translation = std::move(t.m_translation);
 		}
 
@@ -63,8 +56,6 @@ namespace galaxy
 				this->m_pos         = std::move(t.m_pos);
 				this->m_rotate      = t.m_rotate;
 				this->m_rotation    = std::move(t.m_rotation);
-				this->m_scale       = t.m_scale;
-				this->m_scaling     = std::move(t.m_scaling);
 				this->m_translation = std::move(t.m_translation);
 			}
 
@@ -79,14 +70,6 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Transform::reverse_move(const float x, const float y) noexcept
-		{
-			m_pos.x -= x;
-			m_pos.y -= y;
-
-			m_dirty = true;
-		}
-
 		void Transform::rotate(const float degrees) noexcept
 		{
 			m_rotate = degrees;
@@ -95,27 +78,19 @@ namespace galaxy
 			m_dirty = true;
 		}
 
-		void Transform::scale(const float scale) noexcept
-		{
-			m_scale = scale;
-			m_dirty = true;
-		}
-
 		void Transform::recalculate()
 		{
+			static const constexpr auto identity_matrix = glm::mat4 {1.0f};
+
 			if (m_dirty)
 			{
-				m_translation = glm::translate(glm::mat4 {1.0f}, {m_pos.x, m_pos.y, 0.0f});
+				m_translation = glm::translate(identity_matrix, {m_pos.x, m_pos.y, 0.0f});
 
 				m_rotation = glm::translate(m_rotation, m_origin);
 				m_rotation = glm::rotate(m_rotation, glm::radians(m_rotate), {0.0f, 0.0f, 1.0f});
 				m_rotation = glm::translate(m_rotation, -m_origin);
 
-				m_scaling = glm::translate(m_scaling, -m_origin);
-				m_scaling = glm::scale(glm::mat4 {1.0f}, {m_scale, m_scale, 1.0f});
-				m_scaling = glm::translate(m_scaling, m_origin);
-
-				m_model = m_translation * m_rotation * m_scaling;
+				m_model = m_translation * m_rotation;
 				m_dirty = false;
 			}
 		}
@@ -149,11 +124,6 @@ namespace galaxy
 		const float Transform::get_rotation() const noexcept
 		{
 			return m_rotate;
-		}
-
-		const float Transform::get_scale() const noexcept
-		{
-			return m_scale;
 		}
 
 		const glm::vec2& Transform::get_pos() const noexcept

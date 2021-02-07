@@ -10,8 +10,7 @@
 		"Transform": {
 			"x": 500,
 			"y": 500,
-			"rotation": 0,
-			"scale": 1.0
+			"rotation": 0
 		},
 		"Renderable": {
 			"type": 5,
