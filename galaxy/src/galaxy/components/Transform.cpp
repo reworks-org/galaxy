@@ -22,6 +22,7 @@ namespace galaxy
 		}
 
 		Transform::Transform(const nlohmann::json& json)
+		    : m_dirty {true}, m_rotate {0.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}
 		{
 			if ((json.count("x") > 0) && json.count("y") > 0)
 			{
