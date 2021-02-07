@@ -84,6 +84,11 @@ namespace galaxy
 			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_text_shader);
 		}
 
+		void Tooltip::update_text(std::string_view text)
+		{
+			m_text.update_text(text);
+		}
+
 		void Tooltip::update_pos(const double x, const double y) noexcept
 		{
 			m_sprite_transform.set_pos(x, y);

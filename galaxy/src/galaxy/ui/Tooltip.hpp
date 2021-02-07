@@ -65,6 +65,13 @@ namespace galaxy
 			void render(graphics::Camera& camera);
 
 			///
+			/// Update the text.
+			///
+			/// \param text New text to display.
+			///
+			void update_text(std::string_view text);
+
+			///
 			/// Update tooltip position.
 			///
 			/// \param x Update tooltip x pos.
