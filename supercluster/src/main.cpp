@@ -31,13 +31,24 @@ int main(int argsc, char* argsv[])
 		restart             = false;
 		SL_HANDLE.m_restart = false;
 
-		Editor editor {"assets/", "assets/config.json"};
+		try
+		{
+			Editor editor {"assets/", "assets/config.json"};
 
-		auto* stack = SL_HANDLE.layerstack();
-		stack->create<sc::EditorLayer>("Editor");
-		stack->push("Editor");
+			auto* stack = SL_HANDLE.layerstack();
+			stack->create<sc::EditorLayer>("Editor");
+			stack->push("Editor");
 
-		restart = editor.run();
+			restart = editor.run();
+		}
+		catch (std::exception& e)
+		{
+			pfd::message message("Exception Caught", e.what(), pfd::choice::ok, pfd::icon::error);
+		}
+		catch (std::exception* e)
+		{
+			pfd::message message("Exception Caught", e->what(), pfd::choice::ok, pfd::icon::error);
+		}
 
 	} while (restart);
 

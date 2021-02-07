@@ -31,13 +31,24 @@ int main(int argsc, char* argsv[])
 		restart             = false;
 		SL_HANDLE.m_restart = false;
 
-		SandboxApp sandbox {"assets/", "assets/config.json"};
+		try
+		{
+			SandboxApp sandbox {"assets/", "assets/config.json"};
 
-		auto* stack = SL_HANDLE.layerstack();
-		stack->create<sb::Sandbox>("Sandbox");
-		stack->push("Sandbox");
+			auto* stack = SL_HANDLE.layerstack();
+			stack->create<sb::Sandbox>("Sandbox");
+			stack->push("Sandbox");
 
-		restart = sandbox.run();
+			restart = sandbox.run();
+		}
+		catch (std::exception& e)
+		{
+			pfd::message message("Exception Caught", e.what(), pfd::choice::ok, pfd::icon::error);
+		}
+		catch (std::exception* e)
+		{
+			pfd::message message("Exception Caught", e->what(), pfd::choice::ok, pfd::icon::error);
+		}
 
 	} while (restart);
 
