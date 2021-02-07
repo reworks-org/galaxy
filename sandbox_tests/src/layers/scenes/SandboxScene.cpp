@@ -66,7 +66,7 @@ namespace sb
 		image->set_pos(1000, 100);
 
 		auto* tooltip = m_gui.create_tooltip_for_widget(image);
-		tooltip->create("tooltip", "Demo Test", "public16");
+		tooltip->create("tooltip.png", "Demo Test", "public16");
 
 		m_gui.add_event_to_widget<galaxy::events::MouseMoved>(image);
 
