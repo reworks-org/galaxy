@@ -11,6 +11,8 @@
 #include "galaxy/components/BatchedSprite.hpp"
 #include "galaxy/components/Circle.hpp"
 #include "galaxy/components/Line.hpp"
+#include "galaxy/components/OnEvent.hpp"
+#include "galaxy/components/Physics.hpp"
 #include "galaxy/components/Point.hpp"
 #include "galaxy/components/Renderable.hpp"
 #include "galaxy/components/ShaderID.hpp"
@@ -27,19 +29,22 @@ namespace galaxy
 {
 	namespace core
 	{
-		World::World() noexcept
-		    : m_next_id {0}
+		World::World()
+		    : m_next_id {0}, m_b2_world {{0.0f, 0.0f}}
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchedSprite>("BatchedSprite");
 			register_component<components::Circle>("Circle");
 			register_component<components::Line>("Line");
+			register_component<components::Physics>("Physics");
 			register_component<components::Point>("Point");
 			register_component<components::Renderable>("Renderable");
 			register_component<components::ShaderID>("ShaderID");
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
+
+			m_b2_world.SetAllowSleeping(true);
 		}
 
 		World::~World()
@@ -51,8 +56,13 @@ namespace galaxy
 		{
 			for (const auto& ptr : m_systems)
 			{
-				ptr->update(*this, dt);
+				if (ptr)
+				{
+					ptr->update(*this, dt);
+				}
 			}
+
+			m_b2_world.Step(dt, 8, 3);
 		}
 
 		const ecs::Entity World::create()
@@ -247,6 +257,16 @@ namespace galaxy
 			}
 		}
 
+		void World::set_gravity(const b2Vec2& vec2) noexcept
+		{
+			m_b2_world.SetGravity(vec2);
+		}
+
+		void World::set_gravity(const float x_grav, const float y_grav) noexcept
+		{
+			m_b2_world.SetGravity({x_grav, y_grav});
+		}
+
 		void World::clear()
 		{
 			m_next_id = 0;
@@ -258,6 +278,11 @@ namespace galaxy
 			m_data.clear();
 			m_systems.clear();
 			m_component_factory.clear();
+		}
+
+		b2World* const World::b2_world() noexcept
+		{
+			return &m_b2_world;
 		}
 
 		const robin_hood::unordered_map<std::string, ecs::Entity>& World::get_debug_name_map() noexcept

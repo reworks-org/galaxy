@@ -8,6 +8,8 @@
 #ifndef GALAXY_SYSTEM_PHYSICSSYSTEM_HPP_
 #define GALAXY_SYSTEM_PHYSICSSYSTEM_HPP_
 
+#include <glm/vec2.hpp>
+
 #include "galaxy/ecs/System.hpp"
 
 namespace galaxy
@@ -24,13 +26,6 @@ namespace galaxy
 			/// Constructor.
 			///
 			PhysicsSystem();
-
-			///
-			/// Argument constructor.
-			///
-			/// \param gravity Gravity to apply to this simulation.
-			///
-			PhysicsSystem(const glm::vec2& gravity);
 
 			///
 			/// Destructor.

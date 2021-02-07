@@ -12,6 +12,7 @@
 
 #include <nlohmann/json_fwd.hpp>
 
+#include "galaxy/components/Physics.hpp"
 #include "galaxy/ecs/ComponentSet.hpp"
 #include "galaxy/ecs/System.hpp"
 #include "galaxy/graphics/Renderables.hpp"
@@ -57,7 +58,7 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			World() noexcept;
+			World();
 
 			///
 			/// Destructor.
@@ -278,9 +279,30 @@ namespace galaxy
 			[[nodiscard]] System* get_system();
 
 			///
+			/// Set world gravity.
+			///
+			/// \param vec2 Gravity is supported in both dimensions.
+			///
+			void set_gravity(const b2Vec2& vec2) noexcept;
+
+			///
+			/// Set world gravity.
+			///
+			/// \param x_grav Gravity force in x direction.
+			/// \param y_grav Gravity force in y direction.
+			///
+			void set_gravity(const float x_grav, const float y_grav) noexcept;
+
+			///
 			/// Clear all data from World and reset.
 			///
 			void clear();
+
+			///
+			/// Get Box2D world.
+			///
+			/// \return Constant pointer to b2World.
+			[[nodiscard]] b2World* const b2_world() noexcept;
 
 			///
 			/// Get all debug names in unordered_map.
@@ -356,6 +378,11 @@ namespace galaxy
 			/// Used to allow for component creation without having to know the compile time type.
 			///
 			ComponentFactory m_component_factory;
+
+			///
+			/// Box2D physics world.
+			///
+			b2World m_b2_world;
 		};
 
 		template<meta::is_bitset_flag Flag>
@@ -427,7 +454,22 @@ namespace galaxy
 					{
 						if (!derived->has(entity))
 						{
-							return derived->create(entity, std::forward<Args>(args)...);
+							if constexpr (std::is_same<Component, components::Physics>::value)
+							{
+								components::Physics* phys = derived->create(entity);
+								phys->m_world_pointer     = &m_b2_world;
+
+								if constexpr (sizeof...(Args) > 0)
+								{
+									phys->parse_json(std::forward<Args>(args)...);
+								}
+
+								return phys;
+							}
+							else
+							{
+								return derived->create(entity, std::forward<Args>(args)...);
+							}
 						}
 						else
 						{
