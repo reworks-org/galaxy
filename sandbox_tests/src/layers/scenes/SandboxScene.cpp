@@ -36,7 +36,7 @@ namespace sb
 		m_camera.create(0.0f, SL_HANDLE.window()->get_width(), SL_HANDLE.window()->get_height(), 0.0f);
 		m_camera.set_speed(100.0f);
 		SL_HANDLE.window()->set_on_scroll([&](GLFWwindow* window, double x, double y) {
-			m_camera.scale(x);
+			m_camera.zoom(x);
 		});
 		SL_HANDLE.window()->register_on_window_resize(m_camera);
 

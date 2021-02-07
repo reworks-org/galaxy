@@ -111,18 +111,11 @@ namespace galaxy
 			void move(const float x, const float y) noexcept;
 
 			///
-			/// Rotate transformation in degrees.
-			///
-			/// \param degrees Max 360, min -360.
-			///
-			void rotate(const float degrees) noexcept;
-
-			///
-			/// Scale transformation on each axis.
+			/// Zoom camera.
 			///
 			/// \param scale Scale. Multiplier.
 			///
-			void scale(const float scale) noexcept;
+			void zoom(const float scale) noexcept;
 
 			///
 			/// Recalculates the model view matrix.
@@ -136,14 +129,6 @@ namespace galaxy
 			/// \param y Y position to set object to.
 			///
 			void set_pos(const float x, const float y) noexcept;
-
-			///
-			/// Set the rotation point.
-			///
-			/// \param x X position to set origin to.
-			/// \param y Y position to set origin to.
-			///
-			void set_rotation_origin(const float x, const float y) noexcept;
 
 			///
 			/// Set the speed of the camera.
@@ -188,13 +173,6 @@ namespace galaxy
 			[[nodiscard]] const glm::mat4& get_transform() noexcept;
 
 			///
-			/// Get stored rotation cache.
-			///
-			/// \return Const float.
-			///
-			[[nodiscard]] const float get_rotation() const noexcept;
-
-			///
 			/// Get stored scale cache.
 			///
 			/// \return Const float.
@@ -227,11 +205,6 @@ namespace galaxy
 			glm::vec3 m_origin;
 
 			///
-			/// Rotational matrix.
-			///
-			glm::mat4 m_rotation;
-
-			///
 			/// Scaled matrix.
 			///
 			glm::mat4 m_scaling;
@@ -245,12 +218,6 @@ namespace galaxy
 			/// Identity matrix.
 			///
 			glm::mat4 m_identity_matrix;
-
-			///
-			/// Cached for easiy retrieval.
-			/// Rotation.
-			///
-			float m_rotate;
 
 			///
 			/// Cached for easiy retrieval.
