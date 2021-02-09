@@ -30,6 +30,8 @@
 #include "galaxy/core/World.hpp"
 
 #include "galaxy/events/dispatcher/Dispatcher.hpp"
+#include "galaxy/events/Collision.hpp"
+#include "galaxy/events/FinishCollision.hpp"
 #include "galaxy/events/KeyChar.hpp"
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/KeyUp.hpp"
@@ -286,6 +288,16 @@ galaxy::components::OnEvent<galaxy::events::WindowResized>* add_window_resized(g
 	return world.create_component<galaxy::components::OnEvent<galaxy::events::WindowResized>>(entity);
 }
 
+galaxy::components::OnEvent<galaxy::events::Collision>* add_on_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::Collision>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::FinishCollision>* add_finish_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.create_component<galaxy::components::OnEvent<galaxy::events::FinishCollision>>(entity);
+}
+
 galaxy::components::OnEvent<galaxy::events::KeyChar>* get_keychar(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::OnEvent<galaxy::events::KeyChar>>(entity);
@@ -324,6 +336,16 @@ galaxy::components::OnEvent<galaxy::events::MouseWheel>* get_mouse_wheel(galaxy:
 galaxy::components::OnEvent<galaxy::events::WindowResized>* get_window_resized(galaxy::core::World& world, const galaxy::ecs::Entity entity)
 {
 	return world.get<galaxy::components::OnEvent<galaxy::events::WindowResized>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::Collision>* get_on_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::Collision>>(entity);
+}
+
+galaxy::components::OnEvent<galaxy::events::FinishCollision>* get_finish_collision(galaxy::core::World& world, const galaxy::ecs::Entity entity)
+{
+	return world.get<galaxy::components::OnEvent<galaxy::events::FinishCollision>>(entity);
 }
 
 namespace galaxy
@@ -431,7 +453,28 @@ namespace galaxy
 			lua->set_function("get_sprite_from_entity", &get_sprite);
 			lua->set_function("get_text_from_entity", &get_text);
 			lua->set_function("get_animated_from_entity", &get_animated);
-			lua->set_function("get_physics_to_entity", &get_physics);
+			lua->set_function("get_physics_from_entity", &get_physics);
+
+			lua->set_function("add_keychar_to_entity", &add_keychar);
+			lua->set_function("add_keydown_to_entity", &add_keydown);
+			lua->set_function("add_keyup_to_entity", &add_keyup);
+			lua->set_function("add_mouse_moved_to_entity", &add_mouse_moved);
+			lua->set_function("add_mouse_pressed_to_entity", &add_mouse_pressed);
+			lua->set_function("add_mouse_released_to_entity", &add_mouse_released);
+			lua->set_function("add_mouse_wheel_to_entity", &add_mouse_wheel);
+			lua->set_function("add_window_resized_to_entity", &add_window_resized);
+			lua->set_function("add_on_collision_to_entity", &add_on_collision);
+			lua->set_function("add_finish_collision_to_entity", &add_finish_collision);
+			lua->set_function("get_keychar_from_entity", &get_keychar);
+			lua->set_function("get_keydown_from_entity", &get_keydown);
+			lua->set_function("get_keyup_from_entity", &get_keyup);
+			lua->set_function("get_mouse_moved_from_entity", &get_mouse_moved);
+			lua->set_function("get_mouse_pressed_from_entity", &get_mouse_pressed);
+			lua->set_function("get_mouse_released_from_entity", &get_mouse_released);
+			lua->set_function("get_mouse_wheel_from_entity", &get_mouse_wheel);
+			lua->set_function("get_window_resized_from_entity", &get_window_resized);
+			lua->set_function("get_on_collision_from_entity", &get_on_collision);
+			lua->set_function("get_finish_collision_from_entity", &get_finish_collision);
 
 			auto shaderid_type         = lua->new_usertype<components::ShaderID>("gShaderID", sol::constructors<components::ShaderID(), components::ShaderID(std::string_view)>());
 			shaderid_type["shader_id"] = &components::ShaderID::m_shader_id;
@@ -564,6 +607,12 @@ namespace galaxy
 
 			auto on_window_resized_type        = lua->new_usertype<components::OnEvent<events::WindowResized>>("gOnWindowResized", sol::constructors<components::OnEvent<events::WindowResized>()>());
 			on_window_resized_type["on_event"] = &components::OnEvent<events::WindowResized>::m_on_event;
+
+			auto on_collision_type        = lua->new_usertype<components::OnEvent<events::Collision>>("gOnCollision", sol::constructors<components::OnEvent<events::Collision>()>());
+			on_collision_type["on_event"] = &components::OnEvent<events::Collision>::m_on_event;
+
+			auto finish_collision_type        = lua->new_usertype<components::OnEvent<events::FinishCollision>>("gFinishCollision", sol::constructors<components::OnEvent<events::FinishCollision>()>());
+			finish_collision_type["on_event"] = &components::OnEvent<events::FinishCollision>::m_on_event;
 		}
 
 		void register_events()
@@ -726,6 +775,14 @@ namespace galaxy
 			auto window_resized_type      = lua->new_usertype<events::WindowResized>("gWindowResized", sol::constructors<events::WindowResized()>());
 			window_resized_type["height"] = &events::WindowResized::m_height;
 			window_resized_type["width"]  = &events::WindowResized::m_width;
+
+			auto collision_type = lua->new_usertype<events::Collision>("gCollision", sol::constructors<events::Collision(), events::Collision(b2Body*, b2Body*)>());
+			collision_type["a"] = &events::Collision::m_a;
+			collision_type["b"] = &events::Collision::m_b;
+
+			auto finish_collision_type = lua->new_usertype<events::FinishCollision>("gFinishCollision", sol::constructors<events::FinishCollision(), events::FinishCollision(b2Body*, b2Body*)>());
+			finish_collision_type["a"] = &events::FinishCollision::m_a;
+			finish_collision_type["b"] = &events::FinishCollision::m_b;
 		}
 
 		void register_fs()
