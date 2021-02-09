@@ -20,6 +20,17 @@
 #include "galaxy/components/Text.hpp"
 #include "galaxy/components/Transform.hpp"
 
+#include "galaxy/events/Collision.hpp"
+#include "galaxy/events/FinishCollision.hpp"
+#include "galaxy/events/KeyChar.hpp"
+#include "galaxy/events/KeyDown.hpp"
+#include "galaxy/events/KeyUp.hpp"
+#include "galaxy/events/MouseMoved.hpp"
+#include "galaxy/events/MousePressed.hpp"
+#include "galaxy/events/MouseReleased.hpp"
+#include "galaxy/events/MouseWheel.hpp"
+#include "galaxy/events/WindowResized.hpp"
+
 #include "galaxy/flags/Enabled.hpp"
 #include "galaxy/scripting/JSONUtils.hpp"
 
@@ -43,6 +54,17 @@ namespace galaxy
 			register_component<components::Sprite>("Sprite");
 			register_component<components::Text>("Text");
 			register_component<components::Transform>("Transform");
+
+			register_component<components::OnEvent<events::KeyChar>>("OnKeyChar");
+			register_component<components::OnEvent<events::KeyDown>>("OnKeyDown");
+			register_component<components::OnEvent<events::KeyUp>>("OnKeyUp");
+			register_component<components::OnEvent<events::MouseMoved>>("OnMouseMoved");
+			register_component<components::OnEvent<events::MousePressed>>("OnMousePressed");
+			register_component<components::OnEvent<events::MouseReleased>>("OnMouseReleased");
+			register_component<components::OnEvent<events::MouseWheel>>("OnMouseWheel");
+			register_component<components::OnEvent<events::WindowResized>>("OnWindowResized");
+			register_component<components::OnEvent<events::Collision>>("OnCollision");
+			register_component<components::OnEvent<events::FinishCollision>>("OnFinishCollision");
 
 			m_b2_world.SetAllowSleeping(true);
 		}
