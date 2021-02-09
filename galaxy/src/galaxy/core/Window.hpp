@@ -294,6 +294,13 @@ namespace galaxy
 			///
 			[[nodiscard]] const int get_height() const noexcept;
 
+			///
+			/// Get cursor size.
+			///
+			/// \return Const glm::vec2.
+			///
+			[[nodiscard]] const glm::vec2& cursor_size() const noexcept;
+
 		private:
 			///
 			/// Copy constructor.
@@ -400,6 +407,11 @@ namespace galaxy
 			/// Triggers window resized event.
 			///
 			events::Dispatcher m_window_resized_dispatcher;
+
+			///
+			/// Cursor size.
+			///
+			glm::vec2 m_cursor_size;
 		};
 
 		template<typename Lambda>

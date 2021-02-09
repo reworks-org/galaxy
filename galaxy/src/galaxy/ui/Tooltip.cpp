@@ -16,13 +16,15 @@ namespace galaxy
 	namespace ui
 	{
 		Tooltip::Tooltip() noexcept
-		    : m_draw {false}, m_theme {nullptr}, m_sprite_shader {nullptr}, m_text_shader {nullptr}
+		    : m_draw {false}, m_border {0.0f}, m_theme {nullptr}, m_sprite_shader {nullptr}, m_text_shader {nullptr}
 		{
+			m_cursor_size = SL_HANDLE.window()->cursor_size();
 		}
 
 		Tooltip::Tooltip(Tooltip&& t) noexcept
 		{
 			this->m_draw             = t.m_draw;
+			this->m_border           = t.m_border;
 			this->m_sprite           = std::move(t.m_sprite);
 			this->m_text             = std::move(t.m_text);
 			this->m_sprite_transform = std::move(t.m_sprite_transform);
@@ -30,6 +32,7 @@ namespace galaxy
 			this->m_theme            = t.m_theme;
 			this->m_sprite_shader    = t.m_sprite_shader;
 			this->m_text_shader      = t.m_text_shader;
+			this->m_cursor_size      = std::move(t.m_cursor_size);
 		}
 
 		Tooltip& Tooltip::operator=(Tooltip&& t) noexcept
@@ -37,6 +40,7 @@ namespace galaxy
 			if (this != &t)
 			{
 				this->m_draw             = t.m_draw;
+				this->m_border           = t.m_border;
 				this->m_sprite           = std::move(t.m_sprite);
 				this->m_text             = std::move(t.m_text);
 				this->m_sprite_transform = std::move(t.m_sprite_transform);
@@ -44,6 +48,7 @@ namespace galaxy
 				this->m_theme            = t.m_theme;
 				this->m_sprite_shader    = t.m_sprite_shader;
 				this->m_text_shader      = t.m_text_shader;
+				this->m_cursor_size      = std::move(t.m_cursor_size);
 			}
 
 			return *this;
@@ -56,13 +61,17 @@ namespace galaxy
 			m_text_shader   = nullptr;
 		}
 
-		void Tooltip::create(std::string_view sprite, std::string_view text, std::string_view font)
+		void Tooltip::create(const TooltipTexture& tex, std::string_view text, std::string_view font)
 		{
-			m_sprite.load(sprite);
-			m_sprite.create();
+			// Multiply by 2 because there are two sides to a rectangle (on each axis).
+			m_border = tex.m_border * 2.0f;
 
 			m_text.load(font, m_theme->m_font_col);
 			m_text.create(text);
+
+			m_sprite.load(tex.m_texture);
+			m_sprite.stretch(m_text.get_width() + m_border * 2, m_text.get_height() + m_border * 2);
+			m_sprite.create();
 
 			m_sprite_transform.set_rotation_origin(m_sprite.get_width() * 0.5f, m_sprite.get_height() * 0.5f);
 			m_text_transform.set_rotation_origin(m_text.get_width() * 0.5f, m_text.get_height() * 0.5f);
@@ -87,16 +96,17 @@ namespace galaxy
 		void Tooltip::update_text(std::string_view text)
 		{
 			m_text.update_text(text);
+			m_sprite.stretch(m_text.get_width() + m_border, m_text.get_height() + m_border);
+			m_sprite.create();
 		}
 
-		void Tooltip::update_pos(const double x, const double y) noexcept
+		void Tooltip::update_pos(double x, double y) noexcept
 		{
-			m_sprite_transform.set_pos(x, y);
+			x += m_cursor_size.x;
+			y += m_cursor_size.y;
 
-			float text_x = 0.0f, text_y = 0.0f;
-			text_x = x + ((m_sprite.get_width() * 0.5f) - (m_text.get_width() * 0.5f));
-			text_y = y + ((m_sprite.get_height() * 0.5f) - (m_text.get_height() * 0.5f));
-			m_text_transform.set_pos(text_x, text_y);
+			m_sprite_transform.set_pos(x, y);
+			m_text_transform.set_pos(x + m_border, y + ((m_sprite.get_height() * 0.5f) - (m_text.get_height() * 0.25f)));
 		}
 
 		void Tooltip::can_draw(const bool can_draw) noexcept

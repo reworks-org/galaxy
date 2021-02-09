@@ -19,6 +19,22 @@ namespace galaxy
 	namespace ui
 	{
 		///
+		/// Texture definition for the tooltip.
+		///
+		struct TooltipTexture final
+		{
+			///
+			/// Texture in VFS.
+			///
+			std::string m_texture;
+
+			///
+			/// Border on texture. I.e. text will be positioned inside these borders.
+			///
+			float m_border;
+		};
+
+		///
 		/// Tooltip for widgets.
 		///
 		class Tooltip final
@@ -49,11 +65,11 @@ namespace galaxy
 			///
 			/// Create the tooltip.
 			///
-			/// \param sprite Sprite background of the tooltip.
+			/// \param tex Texture definition of the tooltip.
 			/// \param text Text to draw on the tooltip.
 			/// \param font Font to use.
 			///
-			void create(std::string_view sprite, std::string_view text, std::string_view font);
+			void create(const TooltipTexture& tex, std::string_view text, std::string_view font);
 
 			///
 			/// \brief Render the tooltip.
@@ -74,10 +90,10 @@ namespace galaxy
 			///
 			/// Update tooltip position.
 			///
-			/// \param x Update tooltip x pos.
-			/// \param y Update tooltip y pos.
+			/// \param x Update tooltip x pos. Has mouse cursor width subtracted.
+			/// \param y Update tooltip y pos. Has mouse cursor height subtracted.
 			///
-			void update_pos(const double x, const double y) noexcept;
+			void update_pos(double x, double y) noexcept;
 
 			///
 			/// Draw tooltip toggle.
@@ -109,6 +125,11 @@ namespace galaxy
 			/// Draw tooltip toggle.
 			///
 			bool m_draw;
+
+			///
+			/// Texture border size.
+			///
+			float m_border;
 
 			///
 			/// Text to display.
@@ -144,6 +165,11 @@ namespace galaxy
 			/// Text shader cache.
 			///
 			graphics::Shader* m_text_shader;
+
+			///
+			/// Cursor size.
+			///
+			glm::vec2 m_cursor_size;
 		};
 	} // namespace ui
 } // namespace galaxy

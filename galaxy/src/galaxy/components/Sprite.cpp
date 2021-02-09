@@ -46,6 +46,12 @@ namespace galaxy
 			return *this;
 		}
 
+		void Sprite::stretch(const float width, const float height) noexcept
+		{
+			m_width  = width;
+			m_height = height;
+		}
+
 		void Sprite::create(const float tex_x, const float tex_y)
 		{
 			std::vector<graphics::SpriteVertex> vb_arr;

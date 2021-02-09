@@ -51,6 +51,14 @@ namespace galaxy
 			~Sprite() noexcept = default;
 
 			///
+			/// Change a sprites width/height before creation to stretch the texture.
+			///
+			/// \param width New width to stretch to.
+			/// \param height New height to stretch to.
+			///
+			void stretch(const float width, const float height) noexcept;
+
+			///
 			/// \brief Creates the internal vertex array.
 			///
 			/// BufferType Fixed or dynamic buffer.

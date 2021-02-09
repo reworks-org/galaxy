@@ -32,12 +32,12 @@ namespace galaxy
 		}
 
 		Window::Window() noexcept
-		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}
+		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_cursor_size {0.0, 0.0}
 		{
 		}
 
 		Window::Window(const WindowSettings& settings)
-		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}
+		    : m_window {nullptr}, m_width {0}, m_height {0}, m_colour {1.0f, 1.0f, 1.0f, 1.0f}, m_prev_mouse_btn_states {GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE, GLFW_RELEASE}, m_text_input {""}, m_inputting_text {false}, m_framebuffer {nullptr}, m_fb_sprite {nullptr}, m_cursor_size {0.0, 0.0}
 		{
 			if (!create(settings))
 			{
@@ -510,6 +510,8 @@ namespace galaxy
 				glfwSetCursor(m_window, m_cursor.m_glfw);
 			}
 
+			m_cursor_size = {img.width, img.height};
+
 			stbi_image_free(img.pixels);
 		}
 
@@ -531,6 +533,8 @@ namespace galaxy
 				m_cursor.m_glfw = glfwCreateCursor(&img, 0, 0);
 				glfwSetCursor(m_window, m_cursor.m_glfw);
 			}
+
+			m_cursor_size = {img.width, img.height};
 
 			stbi_image_free(img.pixels);
 		}
@@ -705,6 +709,11 @@ namespace galaxy
 		const int Window::get_height() const noexcept
 		{
 			return m_height;
+		}
+
+		const glm::vec2& Window::cursor_size() const noexcept
+		{
+			return m_cursor_size;
 		}
 	} // namespace core
 } // namespace galaxy
