@@ -76,9 +76,7 @@ namespace galaxy
 			///
 			/// THIS FUNCTION IS CALLED ON THE MAIN THREAD. PUT YOUR GL CODE HERE.
 			///
-			/// \param camera View camera to use when rendering.
-			///
-			void render(graphics::Camera& camera) override;
+			void render() override;
 
 			///
 			/// Set textbox messages.

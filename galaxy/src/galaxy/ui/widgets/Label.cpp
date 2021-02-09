@@ -64,18 +64,18 @@ namespace galaxy
 		{
 		}
 
-		void Label::render(graphics::Camera& camera)
+		void Label::render()
 		{
 			m_shader->bind();
-			m_shader->set_uniform("u_cameraProj", camera.get_proj());
-			m_shader->set_uniform("u_cameraView", camera.get_transform());
+			m_shader->set_uniform("u_cameraProj", m_theme->m_projection);
+			m_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
 			graphics::Renderer::submit_text(&m_text, &m_transform, m_shader);
 
 			if (m_tooltip)
 			{
 				if (m_tooltip->can_draw())
 				{
-					m_tooltip->render(camera);
+					m_tooltip->render();
 				}
 			}
 		}

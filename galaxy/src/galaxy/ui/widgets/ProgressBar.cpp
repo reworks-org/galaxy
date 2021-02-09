@@ -52,13 +52,13 @@ namespace galaxy
 			}
 		}
 
-		void Progressbar::render(graphics::Camera& camera)
+		void Progressbar::render()
 		{
 			if (m_tooltip)
 			{
 				if (m_tooltip->can_draw())
 				{
-					m_tooltip->render(camera);
+					m_tooltip->render();
 				}
 			}
 		}

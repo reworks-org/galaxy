@@ -28,6 +28,11 @@ namespace galaxy
 		class Text;
 	} // namespace components
 
+	namespace ui
+	{
+		class GUI;
+	} // namespace ui
+
 	namespace graphics
 	{
 		class ParticleGenerator;
@@ -39,6 +44,8 @@ namespace galaxy
 		///
 		class Renderer final
 		{
+			friend class ui::GUI;
+
 		public:
 			static void init(const unsigned int max_quads, std::string_view batch_shader);
 

@@ -84,13 +84,13 @@ namespace galaxy
 			m_marker_transform.set_pos((m_bounds.m_x + (m_bounds.m_width * m_value)) - (m_marker.get_width() / 2.0f), m_bounds.m_y - (m_marker.get_height() / 2.0f) + (m_bounds.m_height / 2.0f));
 		}
 
-		void Slider::render(graphics::Camera& camera)
+		void Slider::render()
 		{
 			if (m_tooltip)
 			{
 				if (m_tooltip->can_draw())
 				{
-					m_tooltip->render(camera);
+					m_tooltip->render();
 				}
 			}
 		}

@@ -58,7 +58,8 @@ namespace sb
 		},
 			       1000);
 
-		m_theme.m_font_col = {255, 0, 0, 255};
+		m_theme.m_font_col   = {255, 0, 0, 255};
+		m_theme.m_projection = glm::ortho(0.0f, (float)SL_HANDLE.window()->get_width(), (float)SL_HANDLE.window()->get_height(), 0.0f, -1.0f, 1.0f);
 		m_gui.set_theme(&m_theme);
 
 		auto* image = m_gui.create_widget<galaxy::ui::Image>();
@@ -251,6 +252,6 @@ namespace sb
 	{
 		m_world.get_system<systems::RenderSystem>()->render(m_world, m_camera);
 		graphics::Renderer::draw_particles(&m_particle_gen, m_camera);
-		m_gui.render(m_camera);
+		m_gui.render();
 	}
 } // namespace sb

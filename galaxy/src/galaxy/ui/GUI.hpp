@@ -57,7 +57,8 @@ namespace galaxy
 			///
 			/// Constructor.
 			///
-			GUI() noexcept;
+			GUI()
+			noexcept;
 
 			///
 			/// Destructor.
@@ -93,9 +94,7 @@ namespace galaxy
 			///
 			/// Render widgets.
 			///
-			/// \param camera View camera to use when rendering.
-			///
-			void render(graphics::Camera& camera);
+			void render();
 
 			///
 			/// Registers a function to be called on the triggering of an event.

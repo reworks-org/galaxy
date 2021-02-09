@@ -45,17 +45,24 @@ namespace galaxy
 			});
 		}
 
-		void GUI::render(graphics::Camera& camera)
+		void GUI::render()
 		{
 			if (!m_sb.empty())
 			{
 				m_sb.calculate();
-				graphics::Renderer::draw_batch(&m_sb, camera);
+				graphics::Renderer::m_batch_shader->bind();
+				graphics::Renderer::m_batch_shader->set_uniform("u_cameraProj", m_theme->m_projection);
+				graphics::Renderer::m_batch_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
+				graphics::Renderer::m_batch_shader->set_uniform("u_width", static_cast<float>(m_sb.get_width()));
+				graphics::Renderer::m_batch_shader->set_uniform("u_height", static_cast<float>(m_sb.get_height()));
+
+				m_sb.bind();
+				glDrawElements(GL_TRIANGLES, m_sb.get_used_index_count(), GL_UNSIGNED_INT, nullptr);
 			}
 
 			for (const auto& widget : m_widgets)
 			{
-				widget->render(camera);
+				widget->render();
 			}
 		}
 

@@ -80,16 +80,16 @@ namespace galaxy
 			m_text_shader   = SL_HANDLE.shaderbook()->get("text");
 		}
 
-		void Tooltip::render(graphics::Camera& camera)
+		void Tooltip::render()
 		{
 			m_sprite_shader->bind();
-			m_sprite_shader->set_uniform("u_cameraProj", camera.get_proj());
-			m_sprite_shader->set_uniform("u_cameraView", camera.get_transform());
+			m_sprite_shader->set_uniform("u_cameraProj", m_theme->m_projection);
+			m_sprite_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
 			graphics::Renderer::submit_sprite(&m_sprite, &m_sprite_transform, m_sprite_shader);
 
 			m_text_shader->bind();
-			m_text_shader->set_uniform("u_cameraProj", camera.get_proj());
-			m_text_shader->set_uniform("u_cameraView", camera.get_transform());
+			m_text_shader->set_uniform("u_cameraProj", m_theme->m_projection);
+			m_text_shader->set_uniform("u_cameraView", m_theme->m_transform.get_transform());
 			graphics::Renderer::submit_text(&m_text, &m_text_transform, m_text_shader);
 		}
 

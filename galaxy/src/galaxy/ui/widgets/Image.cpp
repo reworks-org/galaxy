@@ -46,13 +46,13 @@ namespace galaxy
 		{
 		}
 
-		void Image::render(graphics::Camera& camera)
+		void Image::render()
 		{
 			if (m_tooltip)
 			{
 				if (m_tooltip->can_draw())
 				{
-					m_tooltip->render(camera);
+					m_tooltip->render();
 				}
 			}
 		}

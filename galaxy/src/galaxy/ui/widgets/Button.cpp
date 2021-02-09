@@ -124,13 +124,13 @@ namespace galaxy
 			}
 		}
 
-		void Button::render(graphics::Camera& camera)
+		void Button::render()
 		{
 			if (m_tooltip)
 			{
 				if (m_tooltip->can_draw())
 				{
-					m_tooltip->render(camera);
+					m_tooltip->render();
 				}
 			}
 		}

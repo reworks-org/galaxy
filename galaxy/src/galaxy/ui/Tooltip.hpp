@@ -76,9 +76,7 @@ namespace galaxy
 			///
 			/// Required shaders: "glyph", "sprite".
 			///
-			/// \param camera View camera to use when rendering.
-			///
-			void render(graphics::Camera& camera);
+			void render();
 
 			///
 			/// Update the text.
