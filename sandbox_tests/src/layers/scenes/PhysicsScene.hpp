@@ -9,6 +9,8 @@
 #define SANDBOXTESTS_LAYERS_SCENES_PHYSICSSCENE_HPP_
 
 #include <galaxy/core/Scene.hpp>
+#include <galaxy/events/dispatcher/Dispatcher.hpp>
+#include <galaxy/physics/Box2DIntegration.hpp>
 
 namespace sb
 {
@@ -24,6 +26,8 @@ namespace sb
 		void render() override;
 
 	private:
+		galaxy::events::Dispatcher m_dispatcher;
+		galaxy::physics::GalaxyContactListener m_contact_listener;
 	};
 } // namespace sb
 

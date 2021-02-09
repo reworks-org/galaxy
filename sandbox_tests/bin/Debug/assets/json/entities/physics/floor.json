@@ -29,6 +29,7 @@
 			"density" : 1,
 			"friction" : 1,
 			"bounce" : 0
-        }
+        },
+        "OnCollision": {}
     }
 }
