@@ -17,7 +17,7 @@ namespace galaxy
 	namespace graphics
 	{
 		///
-		/// Everything you need to draw a SpriteBatch.
+		///  Draw a batch of vertex data with a texture in one draw call.
 		///
 		class SpriteBatch final
 		{

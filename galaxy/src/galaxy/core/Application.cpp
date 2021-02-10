@@ -76,7 +76,6 @@ namespace galaxy
 				m_config->define<float>("gravity-x", 0.0f);
 				m_config->define<float>("gravity-y", 0.0f);
 				m_config->define<int>("max-batched-quads", 1000);
-				m_config->define<unsigned int>("textureatlas-size", 4096);
 				m_config->define<float>("audio-volume", 0.7f);
 				m_config->define<std::string>("cursor-image", "cursor.png");
 				m_config->define<std::string>("icon-file", "icon.png");
@@ -162,7 +161,7 @@ namespace galaxy
 				SL_HANDLE.m_fontbook = m_fontbook.get();
 
 				// Texture Atlas.
-				m_texture_atlas = std::make_unique<res::TextureAtlas>(m_config->get<unsigned int>("textureatlas-size"), m_config->get<std::string>("textureatlas-json"));
+				m_texture_atlas = std::make_unique<res::TextureAtlas>(m_config->get<std::string>("textureatlas-json"));
 				m_texture_atlas->create("render_to_texture");
 				graphics::Renderer::m_batch->set_texture(m_texture_atlas->get_atlas());
 				SL_HANDLE.m_texture_atlas = m_texture_atlas.get();

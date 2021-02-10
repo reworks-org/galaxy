@@ -12,6 +12,7 @@
 
 #include "galaxy/algorithm/RectPack.hpp"
 #include "galaxy/graphics/texture/RenderTexture.hpp"
+#include "galaxy/graphics/texture/TextureInfo.hpp"
 
 namespace galaxy
 {
@@ -31,47 +32,21 @@ namespace galaxy
 		{
 		public:
 			///
-			/// Stores information about a texture in the atlas.
-			///
-			struct TextureInfo final
-			{
-				///
-				/// Region of the texture in the atlas.
-				///
-				graphics::fRect m_region;
-
-				///
-				/// Original path of the texture.
-				///
-				std::string m_path;
-			};
-
-			///
 			/// Shorthand for long type.
 			///
-			typedef robin_hood::unordered_map<std::string, TextureInfo> AtlasTextureData;
+			typedef robin_hood::unordered_map<std::string, graphics::TextureInfo> AtlasTextureData;
 
 			///
-			/// \brief Constructor.
-			///
-			/// Size defaults to 1024.
+			/// Constructor.
 			///
 			TextureAtlas();
 
 			///
-			/// Argument constructor.
-			///
-			/// \param size Power of 2 size of texture atlas. I.e. user 4096 for a 4096x4096 texture.
-			///
-			TextureAtlas(const unsigned int size);
-
-			///
 			/// JSON constructor.
 			///
-			/// \param size Power of 2 size of texture atlas. I.e. user 4096 for a 4096x4096 texture.
 			/// \param file JSON file to load.
 			///
-			TextureAtlas(const unsigned int size, std::string_view file);
+			TextureAtlas(std::string_view file);
 
 			///
 			/// Move constructor.
@@ -182,7 +157,7 @@ namespace galaxy
 			///
 			/// Size of atlas.
 			///
-			unsigned int m_size;
+			int m_size;
 
 			///
 			/// Master texture.

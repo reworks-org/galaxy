@@ -20,39 +20,22 @@
 
 #include "TextureAtlas.hpp"
 
-#define DEFAULT_ATLAS_SIZE 4096
-
 namespace galaxy
 {
 	namespace res
 	{
 		TextureAtlas::TextureAtlas()
-		    : m_size {DEFAULT_ATLAS_SIZE}, m_texture {DEFAULT_ATLAS_SIZE, DEFAULT_ATLAS_SIZE}
 		{
+			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
+
 			m_packer.init(m_size, m_size);
 			m_texture.create(m_size, m_size);
 		}
 
-		TextureAtlas::TextureAtlas(const unsigned int size)
-		    : m_size {size}, m_texture {size, size}
+		TextureAtlas::TextureAtlas(std::string_view file)
 		{
-			if (size == 0)
-			{
-				throw std::runtime_error("TextureAtlas size cannot be 0.");
-			}
+			glGetIntegerv(GL_MAX_TEXTURE_SIZE, &m_size);
 
-			if (!((size & (size - 1)) == 0))
-			{
-				throw std::runtime_error("TextureAtlas size is not power of 2.");
-			}
-
-			m_packer.init(size, size);
-			m_texture.create(m_size, m_size);
-		}
-
-		TextureAtlas::TextureAtlas(const unsigned int size, std::string_view file)
-		    : m_size {size}, m_texture {size, size}
-		{
 			m_packer.init(m_size, m_size);
 			m_texture.create(m_size, m_size);
 
