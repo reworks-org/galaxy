@@ -549,6 +549,7 @@ namespace galaxy
 			sprite_type["unbind"]          = &components::Sprite::unbind;
 			sprite_type["clamp_to_border"] = &components::Sprite::clamp_to_border;
 			sprite_type["clamp_to_edge"]   = &components::Sprite::clamp_to_edge;
+			sprite_type["stretch"]         = &components::Sprite::stretch;
 			sprite_type["create"]          = &components::Sprite::create;
 			sprite_type["get_aniso_level"] = &components::Sprite::get_aniso_level;
 			sprite_type["get_height"]      = &components::Sprite::get_height;
