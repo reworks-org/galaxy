@@ -14,7 +14,6 @@ SUPERCLUSTER:
 - audio support
 - gui builder
 
-
 RESTRUCTURE:
 Composition > Inheritance
 Each Module Shall Have (if needed):
@@ -36,14 +35,10 @@ Each Module Shall Have (if needed):
 - dynamic_cast -> static_cast
 
 TODO:
-- Async asset loading.
+
 - Dependencies should only abstract away system specific implementations.
 - Docs error fix after this.
-- Shader headers in graphics should be constexpr (need MSVC update...)
 - Loading state support?
-- quadtree for rendering?
-- Physics Collision
-- support multiple texture atlases. if adding doesnt fit, push new atlas and add to that.
 
 
 CMAKE:
