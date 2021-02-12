@@ -6,6 +6,7 @@
 ///
 
 #include <execution>
+#include <optional>
 
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Renderer.hpp"

@@ -5,6 +5,8 @@
 /// Refer to LICENSE.txt for more details.
 ///
 
+#include <optional>
+
 #include "galaxy/core/ServiceLocator.hpp"
 #include "galaxy/graphics/Renderer.hpp"
 #include "galaxy/res/TextureAtlas.hpp"

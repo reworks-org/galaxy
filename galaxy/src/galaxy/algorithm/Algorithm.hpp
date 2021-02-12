@@ -8,7 +8,6 @@
 #ifndef GALAXY_ALGORITHM_ALGORITHM_HPP_
 #define GALAXY_ALGORITHM_ALGORITHM_HPP_
 
-#include <optional>
 #include <vector>
 
 #include "galaxy/meta/Concepts.hpp"

@@ -107,7 +107,7 @@ namespace galaxy
 					to_draw.create();
 
 					// Pack into rect then add to hashmap.
-					auto opt = m_packer.pack(to_draw.get_width(), to_draw.get_height());
+					const auto opt = m_packer.pack(to_draw.get_width(), to_draw.get_height());
 					if (opt == std::nullopt)
 					{
 						GALAXY_LOG(GALAXY_ERROR, "Failed to pack texture: {0}.", name);
