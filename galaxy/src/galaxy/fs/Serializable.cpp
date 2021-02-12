@@ -21,6 +21,11 @@ namespace galaxy
 			m_obj = nullptr;
 		}
 
+		Serializable::Serializable(Serializable* s) noexcept
+		{
+			m_wrapper.m_obj = s;
+		}
+
 		Serializable::Serializable() noexcept
 		{
 			m_wrapper.m_obj = this;

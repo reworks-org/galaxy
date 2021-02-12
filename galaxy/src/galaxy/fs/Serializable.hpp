@@ -8,9 +8,6 @@
 #ifndef GALAXY_FS_SERIALIZABLE_HPP_
 #define GALAXY_FS_SERIALIZABLE_HPP_
 
-#include <concepts>
-#include <optional>
-
 #include <nlohmann/json.hpp>
 
 #include "galaxy/error/Log.hpp"
@@ -60,18 +57,26 @@ namespace galaxy
 			///
 			/// Serializes object.
 			///
-			/// \param j Json object needing to be filled out.
+			/// \return JSON object containing data to be serialized.
 			///
 			[[nodiscard]] virtual nlohmann::json serialize() = 0;
 
 			///
 			/// Deserializes from object.
 			///
-			/// \param j Json object to retrieve data from.
+			/// \param json Json object to retrieve data from.
 			///
 			virtual void deserialize(const nlohmann::json& json) = 0;
 
 		protected:
+			///
+			/// Arugment constructor.
+			///
+			/// \param s Should be a 'this' pointer.
+			///
+			Serializable(Serializable* s) noexcept;
+
+		private:
 			///
 			/// Constructor.
 			///
