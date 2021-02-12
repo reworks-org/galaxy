@@ -10,23 +10,30 @@
 
 #include <string_view>
 
+#include "galaxy/core/Scene.hpp"
+
 namespace galaxy
 {
 	namespace fs
 	{
-		///
-		/// Serialize all stored objects.
-		///
-		/// \param file Path to a json file, including the file.
-		///
-		void serialize(std::string_view file);
+		struct Serializer final
+		{
+			///
+			/// Serialize a scene.
+			///
+			/// \param scene Scene to serialize to disk.
+			/// \param file Path to a json file, including the file.
+			///
+			static void serialize(core::Scene* scene, std::string_view file);
 
-		///
-		/// Deserialize a json file.
-		///
-		/// \param file Path to a json file, including the file.
-		///
-		void deserialize(std::string_view file);
+			///
+			/// Deserialize a json file.
+			///
+			/// \param scene Scene to deserialize.
+			/// \param file Path to a json file, including the file.
+			///
+			static void deserialize(core::Scene* scene, std::string_view file);
+		};
 	} // namespace fs
 } // namespace galaxy
 
