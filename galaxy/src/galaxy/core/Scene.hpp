@@ -13,6 +13,11 @@
 
 namespace galaxy
 {
+	namespace fs
+	{
+		class Serializer;
+	} // namespace fs
+
 	namespace core
 	{
 		///
@@ -20,6 +25,8 @@ namespace galaxy
 		///
 		class Scene
 		{
+			friend class fs::Serializer;
+
 		public:
 			///
 			/// Constructor.
@@ -65,6 +72,12 @@ namespace galaxy
 			graphics::Camera m_camera;
 		};
 	} // namespace core
+
+	namespace meta
+	{
+		template<typename Type>
+		concept is_scene = std::derived_from<Type, core::Scene>;
+	}
 } // namespace galaxy
 
 #endif
