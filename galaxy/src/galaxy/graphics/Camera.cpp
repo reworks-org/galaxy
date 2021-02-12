@@ -14,19 +14,19 @@ namespace galaxy
 	namespace graphics
 	{
 		Camera::Camera() noexcept
-		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 		}
 
 		Camera::Camera(const nlohmann::json& json) noexcept
-		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {1.0f}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 			create(0.0f, json.at("width"), json.at("height"), 0.0f);
 			m_speed = json.at("speed");
 		}
 
 		Camera::Camera(const float left, const float right, const float bottom, const float top, const float speed) noexcept
-		    : m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {0.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {speed}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
+		    : Serializable {this}, m_dirty {true}, m_origin {0.0f, 0.0f, 0.0f}, m_scaling {1.0f}, m_translation {1.0f}, m_model {1.0f}, m_identity_matrix {1.0f}, m_scale {1.0f}, m_pos {0.0f, 0.0f}, m_move_up {false}, m_move_down {false}, m_move_left {false}, m_move_right {false}, m_speed {speed}, m_width {1.0f}, m_height {1.0f}, m_projection {1.0f}
 		{
 			create(left, right, bottom, top);
 		}
@@ -220,6 +220,26 @@ namespace galaxy
 		const glm::mat4& Camera::get_proj() noexcept
 		{
 			return m_projection;
+		}
+
+		nlohmann::json Camera::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+			json["x"]           = m_pos.x;
+			json["y"]           = m_pos.y;
+			json["zoom"]        = m_scale;
+			json["speed"]       = m_speed;
+
+			return json;
+		}
+
+		void Camera::deserialize(const nlohmann::json& json)
+		{
+			set_pos(json.at("x"), json.at("y"));
+			zoom(json.at("zoom"));
+			set_speed(json.at("speed"));
+
+			recalculate();
 		}
 	} // namespace graphics
 } // namespace galaxy

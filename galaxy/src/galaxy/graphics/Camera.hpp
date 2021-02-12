@@ -13,6 +13,7 @@
 #include "galaxy/events/KeyDown.hpp"
 #include "galaxy/events/MouseWheel.hpp"
 #include "galaxy/events/WindowResized.hpp"
+#include "galaxy/fs/Serializable.hpp"
 
 namespace galaxy
 {
@@ -21,7 +22,7 @@ namespace galaxy
 		///
 		/// Defines a Camera (view) of an OpenGL 2D space.
 		///
-		class Camera final
+		class Camera final : public fs::Serializable
 		{
 		public:
 			///
@@ -192,6 +193,20 @@ namespace galaxy
 			/// \return Const glm::mat4 reference.
 			///
 			[[nodiscard]] const glm::mat4& get_proj() noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \param j Json object needing to be filled out.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param j Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
