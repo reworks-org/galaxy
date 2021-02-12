@@ -8,6 +8,8 @@
 #include <galaxy/core/ServiceLocator.hpp>
 #include <galaxy/core/Window.hpp>
 
+#include <galaxy/fs/Serializer.hpp>
+
 #include <galaxy/graphics/Renderer.hpp>
 
 #include <galaxy/res/MusicBook.hpp>
@@ -138,6 +140,16 @@ namespace sb
 
 	void SandboxScene::events()
 	{
+		if (SL_HANDLE.window()->key_pressed(input::Keys::Z))
+		{
+			fs::Serializer::serialize(this, "assets/saves/sandbox.json");
+		}
+
+		if (SL_HANDLE.window()->key_pressed(input::Keys::X))
+		{
+			fs::Serializer::deserialize(this, "assets/saves/sandbox.json");
+		}
+
 		if (SL_HANDLE.window()->key_pressed(input::Keys::M))
 		{
 			SL_HANDLE.musicbook()->get("PleasingGuns")->play();
