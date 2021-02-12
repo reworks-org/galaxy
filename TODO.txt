@@ -35,7 +35,7 @@ Each Module Shall Have (if needed):
 - dynamic_cast -> static_cast
 
 TODO:
-
+- fix camera scrolling. lock at 0.1.
 - Dependencies should only abstract away system specific implementations.
 - Docs error fix after this.
 - Loading state support?

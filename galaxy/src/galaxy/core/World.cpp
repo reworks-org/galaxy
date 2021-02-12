@@ -41,7 +41,7 @@ namespace galaxy
 	namespace core
 	{
 		World::World()
-		    : m_next_id {0}, m_b2_world {{0.0f, 0.0f}}
+		    : Serializable {this}, m_next_id {0}, m_b2_world {{0.0f, 0.0f}}
 		{
 			register_component<components::Animated>("Animated");
 			register_component<components::BatchedSprite>("BatchedSprite");
@@ -117,12 +117,16 @@ namespace galaxy
 
 		const ecs::Entity World::create_from_json(std::string_view file)
 		{
-			// Makes sure the filepath is correct for the current platform.
-			const auto entity   = create();
 			nlohmann::json root = json::parse_from_disk(file);
+			return create_from_json_obj(root);
+		}
 
-			assign_name(entity, root.at("name"));
-			nlohmann::json components = root.at("components");
+		const ecs::Entity World::create_from_json_obj(const nlohmann::json& json)
+		{
+			const auto entity = create();
+
+			assign_name(entity, json.at("name"));
+			nlohmann::json components = json.at("components");
 
 			// Loop over components
 			if (!components.empty())
@@ -138,13 +142,13 @@ namespace galaxy
 				GALAXY_LOG(GALAXY_WARNING, "Created an entity with no components.");
 			}
 
-			const bool enabled = root.at("enabled");
+			const bool enabled = json.at("enabled");
 			if (!enabled)
 			{
 				disable(entity);
 			}
 
-			const bool center_rotation = root.at("center-rotation-origin");
+			const bool center_rotation = json.at("center-rotation-origin");
 			if (center_rotation)
 			{
 				set_rotation_origin(entity, get<components::Renderable>(entity)->m_type);
@@ -297,9 +301,12 @@ namespace galaxy
 			m_invalid_entities.clear();
 			m_flags.clear();
 			m_debug_names.clear();
+
+			for (auto& ptr : m_data)
+			{
+				ptr.reset();
+			}
 			m_data.clear();
-			m_systems.clear();
-			m_component_factory.clear();
 		}
 
 		b2World* const World::b2_world() noexcept
@@ -310,6 +317,36 @@ namespace galaxy
 		const robin_hood::unordered_map<std::string, ecs::Entity>& World::get_debug_name_map() noexcept
 		{
 			return m_debug_names;
+		}
+
+		nlohmann::json World::serialize()
+		{
+			nlohmann::json json = "{}"_json;
+
+			json["entities"] = nlohmann::json::array();
+			for (const auto& entity : m_entities)
+			{
+				nlohmann::json entity_json = nlohmann::json::object();
+				const auto& bitset         = m_flags[entity];
+				entity_json["flags"]       = nlohmann::json::object();
+				for (std::size_t i = 0; i < 8; i++)
+				{
+					entity_json["flags"][std::to_string(i)] = bitset[i];
+				}
+
+				json["entities"].push_back(entity_json);
+			}
+
+			const auto grav   = m_b2_world.GetGravity();
+			json["gravity-x"] = grav.x;
+			json["gravity-y"] = grav.y;
+
+			return json;
+		}
+
+		void World::deserialize(const nlohmann::json& json)
+		{
+			clear();
 		}
 	} // namespace core
 } // namespace galaxy

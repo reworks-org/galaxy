@@ -15,6 +15,7 @@
 #include "galaxy/components/Physics.hpp"
 #include "galaxy/ecs/ComponentSet.hpp"
 #include "galaxy/ecs/System.hpp"
+#include "galaxy/fs/Serializable.hpp"
 #include "galaxy/graphics/Renderables.hpp"
 #include "galaxy/meta/UniqueID.hpp"
 
@@ -52,7 +53,7 @@ namespace galaxy
 		/// Manages the entities and systems and other library stuff, like the main lua state,
 		/// and the physics world.
 		///
-		class World final
+		class World final : public fs::Serializable
 		{
 		public:
 			///
@@ -98,6 +99,17 @@ namespace galaxy
 			/// \return Created entity.
 			///
 			[[maybe_unused]] const ecs::Entity create_from_json(std::string_view file);
+
+			///
+			/// \brief Create an entity from a JSON object.
+			///
+			/// If your using this make sure you have called register_component().
+			///
+			/// \param json Preloaded JSON object.
+			///
+			/// \return Created entity.
+			///
+			[[maybe_unused]] const ecs::Entity create_from_json_obj(const nlohmann::json& json);
 
 			///
 			/// Set a flag on a component.
@@ -294,7 +306,7 @@ namespace galaxy
 			void set_gravity(const float x_grav, const float y_grav) noexcept;
 
 			///
-			/// Clear all data from World and reset.
+			/// Clear all entity data from world.
 			///
 			void clear();
 
@@ -310,6 +322,20 @@ namespace galaxy
 			/// \return Const unordered_map reference.
 			///
 			[[nodiscard]] const robin_hood::unordered_map<std::string, ecs::Entity>& get_debug_name_map() noexcept;
+
+			///
+			/// Serializes object.
+			///
+			/// \return JSON object containing data to be serialized.
+			///
+			[[nodiscard]] nlohmann::json serialize() override;
+
+			///
+			/// Deserializes from object.
+			///
+			/// \param json Json object to retrieve data from.
+			///
+			void deserialize(const nlohmann::json& json) override;
 
 		private:
 			///
@@ -581,8 +607,7 @@ namespace galaxy
 		template<typename Lambda>
 		inline void World::each(Lambda&& func) const
 		{
-			// No need for references -> not an object.
-			for (const auto entity : m_entities)
+			for (const auto& entity : m_entities)
 			{
 				func(entity);
 			}
